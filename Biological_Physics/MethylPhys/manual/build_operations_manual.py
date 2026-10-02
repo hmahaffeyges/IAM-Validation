@@ -699,7 +699,7 @@ def sec5_physics(story):
     story.append(Paragraph('The Issue 002 physics section is not reproduced in this document - Section 5 replaces it, and 5.0.4 '
         'above states what of Issue 002\'s s2.1 (\'H_min Derivation\') and s2.1a (\'the physical chain\') stands and what is retired. '
         'Issue 002\'s original text - its substrates, saturation, inversions, decomposition and post-breach physics as written in '
-        'April 2026 - stands in Issue 002 as published (MethylPhys/papers/IAMPerformance_MPHYSIssue002.pdf, section 2). The ledger '
+        'April 2026 - stands in Issue 002 as published (RETIRED_2026-10/MethylPhys/papers/IAMPerformance_MPHYSIssue002.pdf, section 2). The ledger '
         'above gives the provenance of every quantity the present chain uses.', sMut))
 
 def _render_002_physics_without_derivation(story):

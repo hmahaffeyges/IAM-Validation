@@ -234,11 +234,11 @@ The same encoding surface saturation that produces the Dennard wall in semicondu
 
 **→ Full Biological Physics derivations and validation:** [Biological_Physics/README.md](Biological_Physics/README.md)
 
-**→ Cell thermodynamics paper:** [Biological_Physics/MethylPhys/papers/Mahaffey_2026_cell_thermodynamics.pdf](Biological_Physics/MethylPhys/papers/Mahaffey_2026_cell_thermodynamics.pdf)
+**→ Cell thermodynamics paper:** [Biological_Physics/RETIRED_2026-10/MethylPhys/papers/Mahaffey_2026_cell_thermodynamics.pdf](Biological_Physics/RETIRED_2026-10/MethylPhys/papers/Mahaffey_2026_cell_thermodynamics.pdf)
 
 **→ the methylation report Issue 003 (September 2026) — current cellular report, with reproduction kit:** [Biological_Physics/MethylPhys/](Biological_Physics/MethylPhys/)
 
-**→ the methylation report Issue 002 (April 2026, pre-Atlas):** [Biological_Physics/MethylPhys/papers/IAMPerformance_MPHYSIssue002.pdf](Biological_Physics/MethylPhys/papers/IAMPerformance_MPHYSIssue002.pdf)
+**→ the methylation report Issue 002 (April 2026, pre-Atlas):** [Biological_Physics/RETIRED_2026-10/MethylPhys/papers/IAMPerformance_MPHYSIssue002.pdf](Biological_Physics/RETIRED_2026-10/MethylPhys/papers/IAMPerformance_MPHYSIssue002.pdf)
 
 ---
 

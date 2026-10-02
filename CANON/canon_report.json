@@ -306,51 +306,6 @@
 "text": "| 12 | `stage_a_cells` | `cpg_conductor.py` | Stage A \u2014 find the cell types in the sample, their ratios, and their A-scores |"
 },
 {
-"file": "Biological_Physics/MethylPhys/papers/iam_vertebrate_lifespan.tex",
-"line": 108,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\subsection{The A-score and thermodynamic floor}"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/iam_vertebrate_lifespan.tex",
-"line": 494,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
-"severity": "warn",
-"status": "LIVE",
-"text": "The A-score framework in this paper uses a single physical measurement:"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/iam_vertebrate_lifespan.tex",
-"line": 528,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
-"severity": "warn",
-"status": "LIVE",
-"text": "bring all substrate A-scores toward 1.00 after appropriate recalibration."
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/iam_vertebrate_lifespan.tex",
-"line": 559,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
-"severity": "warn",
-"status": "LIVE",
-"text": "the same organism, biasing ectotherm A-scores downward (below the mammalian floor)."
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/iam_vertebrate_lifespan.tex",
-"line": 566,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
-"severity": "warn",
-"status": "LIVE",
-"text": "absolute ectotherm A-scores are precisely calibrated. The pattern is what"
-},
-{
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
 "line": 1,
 "pattern": "\\bA[- ]score",
@@ -667,7 +622,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 4385,
+"line": 4362,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -676,7 +631,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 4483,
+"line": 4460,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -685,7 +640,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 4492,
+"line": 4469,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -694,7 +649,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 4507,
+"line": 4484,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -703,7 +658,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 4544,
+"line": 4521,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -712,7 +667,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 5055,
+"line": 5031,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -721,7 +676,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 5067,
+"line": 5043,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -730,7 +685,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 5170,
+"line": 5146,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -739,7 +694,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 5173,
+"line": 5149,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -748,7 +703,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 5273,
+"line": 5249,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -757,7 +712,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 5964,
+"line": 5940,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -766,7 +721,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6042,
+"line": 6018,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -775,7 +730,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6044,
+"line": 6020,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -784,7 +739,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6047,
+"line": 6023,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -793,7 +748,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6135,
+"line": 6111,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -802,7 +757,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6176,
+"line": 6152,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -811,7 +766,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6227,
+"line": 6203,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -820,7 +775,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6438,
+"line": 6414,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -829,7 +784,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6438,
+"line": 6414,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -838,7 +793,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6488,
+"line": 6464,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -847,7 +802,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6501,
+"line": 6477,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -856,7 +811,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6510,
+"line": 6486,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -865,7 +820,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6591,
+"line": 6567,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -874,7 +829,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6595,
+"line": 6571,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -883,7 +838,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6598,
+"line": 6574,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -892,7 +847,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6624,
+"line": 6600,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -901,7 +856,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6643,
+"line": 6619,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -910,7 +865,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6682,
+"line": 6658,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -919,7 +874,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6687,
+"line": 6663,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -928,7 +883,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6698,
+"line": 6674,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -937,7 +892,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6711,
+"line": 6687,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -946,7 +901,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6720,
+"line": 6696,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -955,7 +910,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6753,
+"line": 6729,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -964,7 +919,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6806,
+"line": 6782,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -973,7 +928,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6814,
+"line": 6790,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -982,7 +937,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6815,
+"line": 6791,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -991,7 +946,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6903,
+"line": 6879,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1000,7 +955,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6920,
+"line": 6896,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1009,7 +964,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6926,
+"line": 6902,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1018,7 +973,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6929,
+"line": 6905,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1027,7 +982,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6946,
+"line": 6922,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1036,7 +991,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6948,
+"line": 6924,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1045,7 +1000,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6988,
+"line": 6964,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1054,7 +1009,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6992,
+"line": 6968,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1063,7 +1018,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6994,
+"line": 6970,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1072,7 +1027,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6999,
+"line": 6975,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1081,7 +1036,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 7021,
+"line": 6997,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1090,7 +1045,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 7024,
+"line": 7000,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1099,7 +1054,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 7052,
+"line": 7028,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1108,7 +1063,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 7076,
+"line": 7052,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1117,7 +1072,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 7083,
+"line": 7059,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1126,7 +1081,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 7084,
+"line": 7060,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1135,7 +1090,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 7087,
+"line": 7063,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -1222,15 +1177,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "ax3.set_xlabel('Mean A-score  \u00b1  SEM', fontsize=9)"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/Mahaffey_2026_cell_thermodynamics.tex",
-"line": 776,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
-"severity": "warn",
-"status": "LIVE",
-"text": "reference cell, and the data corrected it. Every immune cell A-score in the"
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_for_physicists/IAM_for_physicists.tex",
@@ -2404,16 +2350,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 17936,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
-"severity": "warn",
-"status": "LIVE",
-"text": "**Differentiation matters.** The formula is what differentiates \"your secretory class shows A=1.06 and your mother had no cancer history \u2014 keep watching and adj"
-},
-{
-"file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 18942,
+"line": 18941,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2422,7 +2359,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 18990,
+"line": 18989,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2431,7 +2368,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19153,
+"line": 19152,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2440,7 +2377,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19201,
+"line": 19200,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2449,7 +2386,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19207,
+"line": 19206,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2458,7 +2395,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19254,
+"line": 19253,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2467,7 +2404,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19342,
+"line": 19341,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2476,7 +2413,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19344,
+"line": 19343,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2485,7 +2422,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19548,
+"line": 19547,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2494,7 +2431,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19552,
+"line": 19551,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2503,7 +2440,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19553,
+"line": 19552,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2512,7 +2449,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19555,
+"line": 19554,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2521,7 +2458,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19557,
+"line": 19556,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2530,7 +2467,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19847,
+"line": 19846,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2539,7 +2476,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19858,
+"line": 19857,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2548,7 +2485,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19941,
+"line": 19940,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2557,7 +2494,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19944,
+"line": 19943,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2566,7 +2503,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 19969,
+"line": 19968,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2575,7 +2512,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20011,
+"line": 20010,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2584,7 +2521,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20012,
+"line": 20011,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2593,7 +2530,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20013,
+"line": 20012,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2602,7 +2539,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20040,
+"line": 20039,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2611,7 +2548,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20051,
+"line": 20050,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2620,7 +2557,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20053,
+"line": 20052,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2629,7 +2566,16 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20071,
+"line": 20070,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
+"severity": "warn",
+"status": "RECORD",
+"text": "| 2026-06-11 | v1.3.2 | **\u00a7103 NEW.** A-score loci lesson (most-methylated, never discriminative markers) + atlas-flatness false-alarm + source-doc discipline, "
+},
+{
+"file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
+"line": 20070,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2639,15 +2585,6 @@
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
 "line": 20071,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
-"severity": "warn",
-"status": "RECORD",
-"text": "| 2026-06-11 | v1.3.2 | **\u00a7103 NEW.** A-score loci lesson (most-methylated, never discriminative markers) + atlas-flatness false-alarm + source-doc discipline, "
-},
-{
-"file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20072,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2656,7 +2593,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20078,
+"line": 20077,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2665,7 +2602,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20082,
+"line": 20081,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2674,7 +2611,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20086,
+"line": 20085,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2683,7 +2620,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20088,
+"line": 20087,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2692,7 +2629,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20090,
+"line": 20089,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2701,7 +2638,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20091,
+"line": 20090,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2710,7 +2647,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20092,
+"line": 20091,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2719,7 +2656,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20093,
+"line": 20092,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2728,7 +2665,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20116,
+"line": 20115,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2737,7 +2674,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20123,
+"line": 20122,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2746,7 +2683,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20127,
+"line": 20126,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2755,7 +2692,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20133,
+"line": 20132,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2764,7 +2701,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20137,
+"line": 20136,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2773,7 +2710,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20148,
+"line": 20147,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2782,7 +2719,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20154,
+"line": 20153,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2791,7 +2728,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20159,
+"line": 20158,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2800,7 +2737,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20161,
+"line": 20160,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2809,7 +2746,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20283,
+"line": 20282,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -2818,7 +2755,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP.md",
-"line": 20322,
+"line": 20321,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -3079,7 +3016,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/CHANGELOG.md",
-"line": 77,
+"line": 73,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -3088,7 +3025,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/CHANGELOG.md",
-"line": 110,
+"line": 106,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -3097,7 +3034,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/CHANGELOG.md",
-"line": 121,
+"line": 117,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
 "severity": "warn",
@@ -4687,6 +4624,60 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "compressed (~0.85 instead of ~0.95) and inflates every downstream A-score. The"
+},
+{
+"file": "Biological_Physics/RETIRED_2026-10/MethylPhys/papers/iam_vertebrate_lifespan.tex",
+"line": 108,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\subsection{The A-score and thermodynamic floor}"
+},
+{
+"file": "Biological_Physics/RETIRED_2026-10/MethylPhys/papers/iam_vertebrate_lifespan.tex",
+"line": 494,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The A-score framework in this paper uses a single physical measurement:"
+},
+{
+"file": "Biological_Physics/RETIRED_2026-10/MethylPhys/papers/iam_vertebrate_lifespan.tex",
+"line": 528,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
+"severity": "warn",
+"status": "LIVE",
+"text": "bring all substrate A-scores toward 1.00 after appropriate recalibration."
+},
+{
+"file": "Biological_Physics/RETIRED_2026-10/MethylPhys/papers/iam_vertebrate_lifespan.tex",
+"line": 559,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
+"severity": "warn",
+"status": "LIVE",
+"text": "the same organism, biasing ectotherm A-scores downward (below the mammalian floor)."
+},
+{
+"file": "Biological_Physics/RETIRED_2026-10/MethylPhys/papers/iam_vertebrate_lifespan.tex",
+"line": 566,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
+"severity": "warn",
+"status": "LIVE",
+"text": "absolute ectotherm A-scores are precisely calibrated. The pattern is what"
+},
+{
+"file": "Biological_Physics/RETIRED_2026-10/MethylPhys/papers/Mahaffey_2026_cell_thermodynamics.tex",
+"line": 776,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / H_min)",
+"severity": "warn",
+"status": "LIVE",
+"text": "reference cell, and the data corrected it. Every immune cell A-score in the"
 },
 {
 "file": "Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md",

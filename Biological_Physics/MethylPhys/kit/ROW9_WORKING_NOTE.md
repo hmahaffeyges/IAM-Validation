@@ -81,7 +81,7 @@ denominator and different limits. Carried here as corpus reference values, not r
 
 ### 2026-09-22 - Issue 002 read on the clusters and the ceilings (author: 'I would read the section in Issue002 to be sure')
 
-Read `Papers/IAMPerformance_MPHYSIssue002.pdf` pp. 12, 21, 22, 27, 28, 33, 62.
+Read `../../RETIRED_2026-10/MethylPhys/papers/IAMPerformance_MPHYSIssue002.pdf` pp. 12, 21, 22, 27, 28, 33, 62.
 
 **1. The saturation chart is his, from April, and it reproduces exactly.** Issue 002 p12 is the SATURATION WALL CHART - all 40 class-by-substrate combinations, each with its ceiling
 `1/H_min`, flagged **SAT** (saturates below BREACH 1.10), **TGT** (tight ceiling, A_max < 1.15) or unflagged (full headroom). Parsed from the PDF and compared against
@@ -375,7 +375,7 @@ same reason the Files tab is - a finding must be able to name the condition it m
 
 The author asked that the old disease matrix, the cards and the residual maps be read before the findings schema
 is settled, so we look for the right things. Read in full: `IAM_Disease_Wall_CROWN_JEWEL_v1_12.html`,
-[`ad-immune_card_v3_1.json`](../../Record/disease_cards_residual_maps/AD_EPIC/AD_immune_card_json/ad-immune_card_v3_1.json), [`breast-epic_card_v3_1.json`](../../Record/disease_cards_residual_maps/Breast_EPIC/breast_epic_card_json/breast-epic_card_v3_1.json), [`immune-atlas_card_v2_0.json`](../../Record/disease_cards_residual_maps/Immune_Atlas/Immune_Atlas_Card_json/immune-atlas_card_v2_0.json), and the residual /
+[`ad-immune_card_v3_1.json`](../../Record/disease_cards_residual_maps/AD_EPIC/AD_immune_card_json/ad-immune_card_v3_1.json), [`breast-epic_card_v3_1.json`](../../Record/disease_cards_residual_maps/Breast_EPIC/breast_epic_card_json/breast-epic_card_v3_1.json), [`immune-atlas_card_v2_0.json`](../../RETIRED_2026-10/Record/disease_cards_residual_maps/Immune_Atlas/Immune_Atlas_Card_json/immune-atlas_card_v2_0.json), and the residual /
 bimodality / PCA map column structures.
 
 **Nothing numeric was imported.** Their effect sizes are case-versus-control Cohen's d on the pre-atlas surface -
@@ -580,7 +580,7 @@ reference it or use it we keep it."*
 | §3 research evidence, §4 baseline tables, §5 clinical scenarios, §6 dated predictions with priority treatment, the master predictions table | the same 002 material at document level |
 
 Done as two module flags rather than deletions - `EMIT_CARDS_AFTER_SATURATION` and `EMIT_CARD_DISEASE_BLOCKS`, both
-defaulting to `True` - so [`build_mphys_issue002.py`](../papers/build_mphys_issue002.py) still reproduces Issue 002 exactly. Issue 003's build sets both
+defaulting to `True` - so [`build_mphys_issue002.py`](../../RETIRED_2026-10/MethylPhys/papers/build_mphys_issue002.py) still reproduces Issue 002 exactly. Issue 003's build sets both
 `False`.
 
 **Kept, and verified current rather than assumed:** the corrected physics section (§5, p96: Landauer, the Mahaffey
@@ -604,7 +604,7 @@ clutter the book with stuff that is not necessary."* Section 5 replaces Issue 00
 section - even with its H_min derivation dropped and a preface attached - was carrying the thing it replaced.
 Removed: the preface page and `_render_002_physics_without_derivation`. What remains is s5.0.4, which names what
 Issue 002 said, what is retired and why, and now ends with one sentence pointing at
-`MethylPhys/papers/IAMPerformance_MPHYSIssue002.pdf` section 2 for the original text.
+`RETIRED_2026-10/MethylPhys/papers/IAMPerformance_MPHYSIssue002.pdf` section 2 for the original text.
 
 Cover: the subtitle under IAMPerformance is now white rather than muted lavender, at the author's request. Checked
 by rendering page 1 and reading it.

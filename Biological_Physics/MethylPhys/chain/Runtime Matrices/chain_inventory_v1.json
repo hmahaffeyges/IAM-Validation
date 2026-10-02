@@ -884,7 +884,7 @@
   },
   {
    "file": "build_mphys_issue002.py",
-   "path": "Biological_Physics/MethylPhys/papers/build_mphys_issue002.py",
+   "path": "Biological_Physics/RETIRED_2026-10/MethylPhys/papers/build_mphys_issue002.py",
    "role": "superseded",
    "stage": "",
    "description": "builds the earlier edition, kept so it still reproduces exactly",
