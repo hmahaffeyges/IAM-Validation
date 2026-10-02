@@ -11,7 +11,7 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 |---|---|---|---|---|---|---|---|
 | 1 | Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework | 13 | 567 | 592 | 1–567 (2026-10-02) | **complete** |  |
 | 2 | Dual_Sector_Validation_Paper | 12 | 1239 | 1004 | 1–1239 (2026-10-02) | **complete** | PDF text includes three appendix scripts |
-| 3 | Dual_Sector_Perturbation_Cosmology_CAMB | 17 | 595 | 981 | — | not confirmed | LaTeX folder name differs; title matches |
+| 3 | Dual_Sector_Perturbation_Cosmology_CAMB | 17 | 595 | 981 | 1–595 (2026-10-02) | **complete** | LaTeX folder name differs; title matches |
 | 4 | IAM_Dual_Sector_Note | 9 | 573 | 439 | — | not confirmed |  |
 | 5 | A_Note_on_Entropic_Gravity | 10 | 317 | 559 | — | not confirmed |  |
 | 6 | IAM_Law | 29 | 1506 | 2085 | 1–1506 (2026-10-02) | **complete** |  |
@@ -57,6 +57,6 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 46 | Gravitational_Propulsion_and_IAM | 6 | 274 | — | — | not confirmed |  |
 | 47 | IAM_Gravitational_Engineering_Exploration | 6 | 274 | — | — | not confirmed |  |
 
-Total to read: 30,815 lines across 46 papers. Complete: 9,082 lines (12 papers).
+Total to read: 30,815 lines across 46 papers. Complete: 9,677 lines (13 papers).
 Chapters drafted before this ledger existed ( Level 2, Dual Sector Note) are
 re-read pending; their check files and chapter headers will be corrected when each ledger is complete.
