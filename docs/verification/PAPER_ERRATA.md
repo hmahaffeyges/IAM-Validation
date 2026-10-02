@@ -71,6 +71,17 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | V18 | Virial Efficiency Table 1; PRL Table I; Wide Domains | N-body row | 2K/\|U\| = 0.815 ± 0.025 (six studies) | published 2T/\|U\| ≈ 1.1–1.3 within r_vir (Bett 2007, Neto 2007, Power 2012, Klypin 2016); 1.02–1.17 with the surface-pressure term (Klypin 2016); print these. 0.815 = 1/(2 f_coll) is a definition, not a measurement | confirmed | `virial/NBODY_TRACE.md` |
 | V19 | PRL Table I; Wide Domains Table 1 | Chandrasekhar row | 1.44 M⊙ | 1.456 M⊙ for μ_e = 2 (ω₃⁰ = 2.01824, CODATA 2018) | confirmed | `scripts/verify_virial_atoms_to_horizon.py` |
 | V20 | Universal Landauer Identity (archive/derivation suite) | S_BH | 4πGM²/(ħc³) | 4πGk_BM²/(ħc) | confirmed (found 2026-09-19, logged 2026-10-02) | same script |
+| V21 | Virial Partners Eq. 6; Grav. Decoherence Eq. 4 | | µ without H0² | βmE(a)H0² | confirmed | `virial/VIRIAL_CHECK.md` #19 |
+| V22 | Virial Partners Eq. 9; Grav. Decoherence §6.5 | | fσ8 suppression 7.9 %→0.6 %; 13.6 % growth suppression confirmed | 1 − µ, not growth; fσ8 −4.2 % (z 0) … −0.4 % (z 1); not yet measured | confirmed | `virial/VIRIAL_CHECK.md` #20 |
+| V23 | Virial Partners §4.1, Table 2, Fig. 1 | | DESI Ω_m 0.2962 = growth Ω_m, 0.02σ | FS+BAO value dominated by geometry; needs growth-only fit with IAM template | confirmed | `virial/VIRIAL_CHECK.md` #21 |
+| V24 | Virial Partners §4.3 | | phantom crossing from distances + growth | DR2 preference is distance-only; two-ruler test | confirmed | `virial/VIRIAL_CHECK.md` #22 |
+| V25 | Wide Domains Table 4, §4.6 | | 7 H0 points; χ² 5.57 vs 55.20 | 6 listed; χ² not reproducible; Δχ² not printed | confirmed | `virial/VIRIAL_CHECK.md` #23 |
+| V26 | Wide Domains Table 3, Table 9 | | ΛCDM σ8 0.45σ; ±0.22 → 0.85σ | 0.59σ; 0.62σ | confirmed | `virial/VIRIAL_CHECK.md` #24 |
+| V27 | Wide Domains §4.2 | | KiDS-Legacy convergence supports Σ = 1 | lensing S8 probes matter clustering; does not separate models | confirmed | `virial/VIRIAL_CHECK.md` #25 |
+| V28 | Wide Domains §6.2, §3.3 | | R1, R3 suppressed by µ | holds only for µ·G form; Level 2 leaves lensing = hydrostatic | confirmed | `virial/VIRIAL_CHECK.md` #26 |
+| V29 | Wide Domains Table 1, §2, §8 | | equipartition kT/2 as virial ½; kT/2 per event; Coulomb +1/r | remove row; k_BT ln 2 per bit; −1/r | confirmed | `virial/VIRIAL_CHECK.md` #27 |
+| V30 | Grav. Decoherence Eq. 11, §4 | | friction wording on µ·G equation; σ_crit prefactor | state implementation; σ_crit out | confirmed | `virial/VIRIAL_CHECK.md` #28 |
+| V31 | Virial Efficiency Table 1 | | Power 2012 GIMIC/OWLS; Bett/Ludlow/Bryan values | N-body; not tabulated | confirmed | `virial/VIRIAL_CHECK.md` #29 |
 | **Black-hole papers (G6), read 2026-10-02** |||||||
 | B1 | IAM_BH_Thermodynamics §3; Info Paradox §3 | P_SB = P_Hawking "physical, not a check" | identity | the Hawking luminosity used is the black-body formula itself (ratio 1 by construction); real emission has greybody factors (Page 1976) | confirmed | `black_holes/BLACK_HOLES_CHECK.md` #3 |
 | B2 | Info Paradox §6, Result 1 | Page curve; S_rad = S0/2 at τ/2; S0 2.6e76 bits | — | monotonic first-law transfer, S0/2 at 0.646 τ; not the Page curve (no turnover); S0 = 1.51e77 bits | confirmed | #4 |

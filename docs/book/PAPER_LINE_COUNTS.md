@@ -17,11 +17,11 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 6 | IAM_Law | 29 | 1506 | 2085 | 1–1506 (2026-10-02) | **complete** |  |
 | 7 | IAM_Theory_Paper | 34 | 1916 | 2418 | 1–1916 (2026-10-02) | **complete** |  |
 | 8 | Technical_Reference_for_Physicists | 28 | 1298 | — | — | not confirmed |  |
-| 9 | Virial_Efficiency_and_Effective_Nonlinear_Exponent | 7 | 277 | 549 | — | not confirmed |  |
-| 10 | Virial_Partitian_Across_Wide_Domains | 13 | 641 | 794 | — | not confirmed |  |
-| 11 | Dark_Matter_and_Dark_Energy_as_Virial_Partners | 12 | 674 | 664 | — | not confirmed |  |
-| 12 | Gravitational_Decoherence_and_the_Virial_Partition | 12 | 560 | 582 | — | not confirmed |  |
-| 13 | PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem | 3 | 222 | 790 | — | not confirmed |  |
+| 9 | Virial_Efficiency_and_Effective_Nonlinear_Exponent | 7 | 277 | 549 | 1–277 (2026-10-02) | **complete** |  |
+| 10 | Virial_Partitian_Across_Wide_Domains | 13 | 641 | 794 | 1–641 (2026-10-02) | **complete** |  |
+| 11 | Dark_Matter_and_Dark_Energy_as_Virial_Partners | 12 | 674 | 664 | 1–674 (2026-10-02) | **complete** |  |
+| 12 | Gravitational_Decoherence_and_the_Virial_Partition | 12 | 560 | 582 | 1–560 (2026-10-02) | **complete** |  |
+| 13 | PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem | 3 | 222 | 790 | 1–222 (2026-10-02) | **complete** |  |
 | 14 | Matter_Antimatter_Asymmetry_and_the_Information_Writing_Constraint | 12 | 438 | 704 | — | not confirmed |  |
 | 15 | Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior | 6 | 242 | 383 | — | not confirmed |  |
 | 16 | 18thChainBaryonAsymmetry.rtf | — | 9 | — | — | not confirmed | RTF chain record |
@@ -57,6 +57,6 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 46 | Gravitational_Propulsion_and_IAM | 6 | 274 | — | — | not confirmed |  |
 | 47 | IAM_Gravitational_Engineering_Exploration | 6 | 274 | — | — | not confirmed |  |
 
-Total to read: 30,815 lines across 46 papers. Complete: 4,902 lines (5 papers).
-Chapters drafted before this ledger existed (Late-Time Growth, Dual Sector Validation, Level 2, Dual Sector Note, Virial ×5) are
+Total to read: 30,815 lines across 46 papers. Complete: 7,276 lines (10 papers).
+Chapters drafted before this ledger existed (Late-Time Growth, Dual Sector Validation, Level 2, Dual Sector Note) are
 re-read pending; their check files and chapter headers will be corrected when each ledger is complete.

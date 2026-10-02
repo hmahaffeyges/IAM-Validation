@@ -1,4 +1,8 @@
-# VIRIAL_CHECK — the five Virial papers (first read 2026-10-01; re-read in full in 100-line chunks 2026-10-02, 2,370 lines)
+# VIRIAL_CHECK — the five Virial papers
+
+**Read status.** PDF text 277 / 641 / 674 / 560 / 222 = 2,374 lines. Earlier versions of this file said "re-read in full in 100-line chunks"; several of
+those chunks were previews only, so that claim was false. All five were read in full 2026-10-02 in 50-line chunks, ledger complete with no gaps
+(`docs/book/read_ledgers/LEDGER_G3_Virial.md`). Items 19–29 are from that read.
 
 Read start to finish, oldest first: *Virial Efficiency and Effective Nonlinear Exponent* (25 Feb 2026, 7 pp), *The Virial Partition Across Wide Range of Physical
 Scales* (25 Feb, 13 pp), *Dark Matter and Dark Energy as Virial Partners* (Mar, 12 pp), *Gravitational Decoherence, the Virial Partition, and the
@@ -7,9 +11,10 @@ Every number below was recomputed (Planck 2018, Ω_m = 0.3153 unless stated).
 
 ## What stands — the core of chapter 2.1
 - **The 1/2 is the virial theorem**, tested across every domain where 1/r binding is measured (*Wide Domains* Table 1; PRL Table I):
-  20 atoms and 10 molecules (Hartree–Fock, T/|V| = 1 exact), equipartition, the Sun (~10 %), the Chandrasekhar limit (1.44 M⊙), galaxy clusters
+  20 atoms and 10 molecules (Hartree–Fock, T/|V| = 1 exact), equipartition, the Sun (Kelvin–Helmholtz, 24 Myr), the Chandrasekhar limit (1.456 M⊙ for µ_e = 2), galaxy clusters
   (~20 %). The factor is fixed by the degree of the potential (Euler), which Gauss's law fixes in three dimensions. Not a fit.
-- **The Landauer identity** (PRL): first law Q = −E_f; second law ΔS = Q/T; Landauer E_L = TΔS = Q (T cancels); 1/r equilibrium −E_f = ⟨K⟩.
+- **The Landauer identity** (PRL): first law Q = −E_f; second law ΔS ≥ Q/T in the surroundings; Landauer E_L = TΔS_min = Q; 1/r equilibrium −E_f = ⟨K⟩.
+  ⟨K⟩ = Q is mechanics (first law + Euler); the PRL's "temperature cancels" (with T the system's temperature) is an identity and carries no physics.
   So ⟨K⟩ = Q = TΔS = E_L = ½|⟨V⟩|. The paper's own remark is the right statement: this identifies K, it does not derive the virial theorem.
 - **β_m = Ω_m/2** = 0.1577 (0.1575 for Ω_m = 0.315). Prediction, enters every chain fixed.
 - **E(a) = exp(1 − 1/a) = e^(−z)**: E(z = 10) = 4.5 × 10⁻⁵, E(1) = 1, dE/da > 0, E(∞) = e. 10/50/90 % at z = 2.30/0.69/0.11.
@@ -17,7 +22,7 @@ Every number below was recomputed (Planck 2018, Ω_m = 0.3153 unless stated).
 - **H0_matter** = 67.36·√1.1577 = 72.48 (Planck value) or 67.16·√1.1577 = 72.26 (Level 2 chain). σ8 0.813 → 0.800.
 - **Matter–dark-energy equality**, Ω_m a⁻³ = Ω_Λ + β_m E(a): z = 0.361 (ΛCDM 0.295) ✓. **Ω_m^growth = Ω_m µ(z)**: 0.2952 is the value at
   z = 0.40; at z = 0.5 it is 0.2990 (the LRG1 entry 0.299 at z = 0.51 is right).
-- **BH Landauer fraction** ln 2/2 = 34.7 % ✓. σ_crit from Eq. 9 with M_min = 10^8.4 M⊙: 3.9 km/s ✓ (topic out of the book by ruling).
+- **BH Landauer energy**: ½Mc² (Smarr), not (ln 2/2)Mc² = 34.7 % (errata V17; the earlier ✓ here was wrong). σ_crit from Eq. 9 with M_min = 10^8.4 M⊙: 3.9 km/s ✓ (topic out of the book by ruling).
 
 ## The N-body row (*Virial Efficiency*; PRL Table I row 8)
 The paper defines η_vir = 1/(2 f_coll) = 0.81 so that f_coll·η_vir = 1/2, then compares it with the published halo ratio 2K/|U|.
@@ -65,3 +70,28 @@ If the efficiency argument is kept, it is restated with |U|/2K and its own defin
 17. *Wide Domains* Table 2, Run B "0.006 ± 0.156, Δχ² −1.90 (AIC-penalised)": the free-µ0 posterior reaches the +0.2 prior edge (LATE_TIME_GROWTH_CHECK #9);
     not printed.
 18. *Wide Domains* §5 M–σ summary belongs to the black-hole group (G6) and is carried with that paper.
+
+## Added on the complete read in 50-line chunks (2026-10-02)
+19. **µ formula without H0²**: *Virial Partners* Eq. 6 and *Grav. Decoherence* Eq. 4 (as IAM_Law Eq. 33, Theory Eq. 58).
+20. **"Suppression" = 1 − µ, not growth.** *Virial Partners* Eq. 9 ("fσ8 suppressed 7.9 % at z = 0.295 … 0.6 % at z = 1.491") and *Grav. Decoherence*
+    §6.5 ("13.6 % growth suppression … confirmed") quote 1 − µ(z). The fσ8 change at fixed early amplitude is 4.2 % (z = 0), 2.2 % (0.3), 1.3 % (0.5),
+    0.4 % (1.0) for µ·G, within 0.3 % for the friction form; σ8 drops ~1 %. No measurement has confirmed it.
+21. **DESI Ω_m 0.2962** (*Virial Partners* §4.1, Table 2) is the DR1 full-shape + BAO ΛCDM value, dominated by BAO geometry, which IAM leaves unchanged.
+    It is not a growth-only Ω_m, so "lands on the IAM curve at 0.02σ" (or 0.3σ, item 14) is not a test. Needs a growth-only fit with an IAM template.
+22. **DESI DR2 phantom crossing** (*Virial Partners* §4.3): the w0w_a preference comes from BAO + supernova + CMB distances, with no growth data, so the
+    "distances + suppressed growth" mechanism does not apply. The dual-sector reading is the two-ruler test (`TWO_RULER_DESI_TEST.md`).
+23. **Wide Domains Table 4** says 7 H0 points and lists 6; χ² (IAM 5.57, ΛCDM 55.20) does not reproduce from the listed values (IAM 0.88; ΛCDM held at
+    67.36: 51.2; a fitted single H0 = 68.9 gives 37.2). Δχ² +49.6 / +61.2 not printed (item 8).
+24. **Wide Domains σ8**: ΛCDM 0.8139 is 0.59σ from 0.802 ± 0.020 (printed 0.45σ). Table 9 "±0.22 → 0.85σ" is 0.62σ; Run B's σ is 0.156.
+25. **KiDS-Legacy reading** (*Wide Domains* §4.2): weak-lensing S8 measures matter clustering, which IAM suppresses; it does not "converge to the unmodified
+    photon sector". 0.815 lies between Planck ΛCDM (0.832) and the Level 2 chain (0.822) and does not separate them.
+26. **Three-way cluster test / M_lens vs M_dyn** (*Wide Domains* §6.2): with the Poisson equation unmodified (Level 2, Theory §11), hydrostatic and lensing masses
+    of a relaxed cluster agree; the predicted suppression of R1, R3 holds only in the Level 1 µ·G form. Implementation-dependent; held (item 12).
+27. **Equipartition** (*Wide Domains* Table 1, §2, conclusions): k_BT/2 per quadratic degree of freedom is not the 1/r virial ½ (a quadratic potential gives
+    ⟨K⟩ = ⟨V⟩). Removed from the table. "Landauer kT/2 per decoherence event" → k_BT ln 2 per bit. "Coulomb V ∝ +1/r": the electron–nucleus potential is
+    attractive, −1/r.
+28. **Grav. Decoherence Eq. 11** writes the µ·G form but calls it "an additional Hubble friction term"; state which implementation. §4 σ_crit:
+    M_min = 4Ω_m σ³/(GH) prefactor not derived, ~100× normalisation offset admitted; out with Mechanism B (MISSING_SATELLITES_CHECK).
+29. **Virial Efficiency Table 1** also misattributes methods: Power, Knebe & Knollmann 2012 is a cosmological N-body study, not GIMIC/OWLS; Bett 2007 (spin and
+    shape), Ludlow 2010 and Bryan & Norman 1998 do not tabulate a mass-weighted 2K/|U| (NBODY_TRACE). The falsification thresholds of its Table 4 rest on those
+    values. Acknowledgments in *Grav. Decoherence* name correspondents (errata N1).

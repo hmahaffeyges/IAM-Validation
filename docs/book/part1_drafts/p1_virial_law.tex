@@ -1,8 +1,10 @@
 % Part 1 closing chapter: the virial partition at every scale (first half of the Virial material; the cosmological coupling opens Part 2).
 % Also: docs/papers/latex/virial_partition_atoms_to_horizon (numbers: docs/verification/scripts/verify_virial_atoms_to_horizon.py).
-% Source: the five Virial papers (read in full 2026-10-02): Virial Efficiency (25 Feb 2026); Wide Domains (25 Feb 2026); Virial Partners (Mar 2026);
+% Source: the five Virial papers: Virial Efficiency (25 Feb 2026); Wide Domains (25 Feb 2026); Virial Partners (Mar 2026);
 % Gravitational Decoherence and the Virial Partition (Mar 2026); The Thermodynamic Identity Governing the Virial Theorem (PRL version, 18 Mar 2026).
 % Checks: docs/verification/virial/VIRIAL_CHECK.md, NBODY_TRACE.md.
+% Read status: drafted 2026-10-02 after a read in which several chunks were previews only. All five re-read in full 2026-10-02 in 50-line chunks
+% (ledger 277/641/674/560/222 lines, no gaps; book3/fullread/LEDGER_G3_Virial.md) and this chapter re-checked against them.
 \providecommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
 
 \chapter{One half at every scale: the virial partition}\label{ch:virial_law}
@@ -39,7 +41,6 @@ System & Scale & Quantity & Result\\\hline
 Hydrogen atom & $10^{-10}$ m & $\langle K\rangle/|\langle V\rangle|$ & $1/2$ exactly (13.6\,eV of 27.2\,eV)\\
 20 atoms, H--Xe (Hartree--Fock limit) & $10^{-10}$ m & $T/|V|$ & $1/2$ (exact for converged wavefunctions)\\
 10 molecules, H$_2$--CO$_2$ & $10^{-9}$ m & $T/|V|$ & $1/2$ at equilibrium geometry\\
-Thermal equilibrium & all & energy per quadratic d.o.f. & $k_BT/2$\\
 White dwarfs & $10^{7}$ m & Chandrasekhar mass & $1.456\,M_\odot$ ($\mu_e=2$); none observed above it\\
 The Sun & $10^{9}$ m & $|U|/2L$ & 24 Myr: contraction cannot power it, so it burns hydrogen\\
 Galaxy clusters & $10^{23}$ m & dynamical vs lensing mass & agree to tens of percent (Zwicky 1933 onward)\\
@@ -60,19 +61,19 @@ system that falls from rest at infinity ($E_i=0$) into a stable bound state with
 surroundings.
 \begin{enumerate}
 \item First law: the heat released is $Q=E_i-E_f=-(\langle K\rangle+\langle V\rangle)>0$.
-\item Second law: the transition is irreversible and produces entropy $\Delta S=Q/T$.
-\item Landauer: the minimum cost of producing $\Delta S$ irreversibly is $E_{\rm L}=T\Delta S=Q$. The temperature cancels.
+\item Second law: the transition is irreversible; the heat raises the entropy of the surroundings, at temperature $T$, by $\Delta S\ge Q/T$.
+\item Landauer: the minimum cost of producing $\Delta S$ irreversibly is $T\Delta S$; the bound is met when $\Delta S=Q/T$, so $E_{\rm L}=Q$.
 \item The $1/r$ equilibrium condition $2\langle K\rangle+\langle V\rangle=0$ gives $-E_f=\langle K\rangle$.
 \end{enumerate}
 Together,
 \begin{equation}
-\langle K\rangle=Q=T\Delta S=E_{\rm L}=\tfrac12|\langle V\rangle| .
+\langle K\rangle=Q=T\Delta S_{\min}=E_{\rm L}=\tfrac12|\langle V\rangle| .
 \end{equation}
 The hydrogen atom shows it directly: an electron captured from rest into the ground state emits a 13.6\,eV photon, the binding energy, which equals the
 electron's mean kinetic energy in that state; the potential energy is $-27.2$\,eV. The energy carried away when a $1/r$ system binds equals its kinetic half.
 
-This does not derive the virial theorem from thermodynamics; the fourth step is the mechanical condition. What it does is identify the kinetic half with a
-definite thermodynamic quantity: the irreversible cost of the binding transition, carried off to the surroundings and recorded there as entropy at
+This does not derive the virial theorem from thermodynamics: $\langle K\rangle=Q$ follows from the first law and the fourth step alone, which is
+mechanics. Steps 2 and 3 add the identification: they give the kinetic half a definite thermodynamic meaning, the irreversible cost of the binding transition, carried off to the surroundings and recorded there as entropy at
 $k_BT\ln2$ per bit. Jacobson (1995) obtained the Einstein equations from $\delta Q=T\,\delta S$ on local Rindler horizons; the same relation applied at the
 boundary of a forming bound state returns the virial partition. The identity holds wherever the binding energy is released --- radiated by an atom, by a
 contracting gas cloud, by a forming star. For collisionless dark matter, which relaxes without radiating, the energy is redistributed rather than released,
