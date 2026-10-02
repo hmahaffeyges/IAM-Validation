@@ -194,3 +194,11 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | FB2 | | §5 | bit counts differ by 10²⁷ | 5.4 × 10⁶⁹ (1 M☉ horizon 1.5 × 10⁷⁷ bits vs 2.8 × 10⁷) | confirmed | same |
 | FB3 | | Step 5 | modified Friedmann H² = … + β_mE(a)H0²; β_m "confirmed to 0.2σ" | term acts on matter perturbations (background form gives H0 ≈ 61.5); β_m fixed at Ω_m/2 in every chain | confirmed | Level 2b chains |
 | FB4 | | Steps 6, §3–4 | H_min(class) from G-002 calibration; A > 1.05 / 1.10; TCGA 27/28 | per-cell measured floor (Met-A); one gauge 0.95–1.05; cancer results re-run through chain v3 before citing | confirmed | CANON |
+| **Dark Energy Evolution / Far Future** (`wz_far_future.pdf`, Feb 2026), read in full 2026-10-02 |||||||
+| WZ1 | | §2.3, §6.2, Fig. 3, §8 | "small positive wa" | wa = −1/3 (negative) | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #1 |
+| WZ2 | | Eq. 14, §4.1, §7.2 | d(E/e)/da = 1/(e a²), peaks at a = 1 | E/(e a²), peaks a = 0.5; per e-fold peaks today; per Gyr peaks z = 1.26 | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #2 |
+| WZ3 | | §5.1, §6 | DESI hints at / iam predicts exactly this; CPL comparison | DESI w0 > −1 (7.7–9.1σ from −4/3); photon ruler predicts w = −1; two-ruler test | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #3 |
+| WZ4 | | §6.4 item 2 | Roman tests strongly phantom early w | ρ_info → 0 at high z (1.2 % of ρ_Λ at z = 3); remove | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #4 |
+| WZ5 | | §7.2 | E(1) = 1 from the Planck-epoch reference; observers at peak | normalisation at a = 1; remove anthropic remark | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #5 |
+| WZ6 | | §2.1 | scalar field on the encoding surface | from ρ_info ∝ E(a) and energy conservation | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #6 |
+| WZ7 | | abstract | 17 chains | 18 | confirmed | `observations/WZ_FAR_FUTURE_CHECK.md` #7 |

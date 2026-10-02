@@ -1,0 +1,33 @@
+1. w_info from rho_info proportional to E(a) (continuity: w = -1 - (1/3) dln rho/dln a; dlnE/dlna = 1/a)
+   a= 0.25: w_info = -2.3333
+   a=  0.5: w_info = -1.6667
+   a=    1: w_info = -1.3333
+   a=    2: w_info = -1.1667
+   a=   10: w_info = -1.0333
+   CPL at a=1: w0 = -4/3; wa = -dw/da|1 = -1/3  (NEGATIVE; paper text says 'small positive wa' in 3 places)
+2. H_inf = H0 sqrt(OL) = 55.78 km/s/Mpc
+3. maturity f = E(a)/e, a(f) = -1/ln f; age t(a) = int_0^a da/(a H)
+     1.0%  a   0.217  z   3.61  age    1.7 Gyr  from now  -12.1
+     5.0%  a   0.334  z   2.00  age    3.3 Gyr  from now  -10.5
+    10.0%  a   0.434  z   1.30  age    4.8 Gyr  from now   -9.0
+    20.0%  a   0.621  z   0.61  age    7.8 Gyr  from now   -6.0
+    36.8%  a   1.000  z   0.00  age   13.8 Gyr  from now   +0.0
+    50.0%  a   1.443  z  -0.31  age   19.5 Gyr  from now   +5.7
+    75.0%  a   3.476  z  -0.71  age   34.5 Gyr  from now  +20.7
+    90.0%  a   9.491  z  -0.89  age   52.1 Gyr  from now  +38.3
+    95.0%  a  19.496  z  -0.95  age   64.7 Gyr  from now  +50.9
+    99.0%  a  99.499  z  -0.99  age   93.3 Gyr  from now  +79.5
+4. where the rates peak
+   dE/da = E/a^2 peaks at a = 0.500 (inflection of E(a) in a; paper says a = 1)
+   dE/dln a = E/a peaks at a = 1.000 (inflection of E in ln a; this is the 'peaks today' statement)
+   dE/dt = H E/a peaks at a = 0.442, z = 1.26; today dE/dt/e = 2.536 %/Gyr (paper 2.54); at peak 3.379 %/Gyr
+   paper's formula d(E/e)/da = 1/(e a^2) vs actual E/(e a^2): at a=0.5 1.472 vs 0.541
+5. DESI DR2 CPL points vs the CPL image of w_info
+   DR2+CMB+Pantheon+: w0 offset -7.7 sigma, wa offset +1.4 sigma; DESI w(a=1) -0.827 > -1, crossing -1 at a = 0.769
+   DR2+CMB+DESY5: w0 offset -9.1 sigma, wa offset +2.6 sigma; DESI w(a=1) -0.752 > -1, crossing -1 at a = 0.764
+6. the informational term lives in the matter-sector rate: H_m^2 = H^2 + beta_m E(a) H0^2 (photon sector = LCDM)
+   a=1: H_photon  67.40  H_matter  72.52  ratio 1.0759
+   a=2: H_photon  57.36  H_matter  66.87  ratio 1.1657
+   a=10: H_photon  55.80  H_matter  69.82  ratio 1.2513
+   a=1e+06: H_photon  55.78  H_matter  71.12  ratio 1.2750
+   rho_info today / rho_L = beta_m/OL = 0.230; at saturation 0.626; at z=3 0.0115
