@@ -1,4 +1,4 @@
-# VIRIAL_CHECK — the five Virial papers, read in full (2026-10-01)
+# VIRIAL_CHECK — the five Virial papers (first read 2026-10-01; re-read in full in 100-line chunks 2026-10-02, 2,370 lines)
 
 Read start to finish, oldest first: *Virial Efficiency and Effective Nonlinear Exponent* (25 Feb 2026, 7 pp), *The Virial Partition Across Wide Range of Physical
 Scales* (25 Feb, 13 pp), *Dark Matter and Dark Energy as Virial Partners* (Mar, 12 pp), *Gravitational Decoherence, the Virial Partition, and the
@@ -51,3 +51,17 @@ If the efficiency argument is kept, it is restated with |U|/2K and its own defin
 11. Citation: "Kim & Peter 2021" (arXiv 2106.05984) is a paper on SIDM cluster mergers, not halo occupation (topic out by ruling).
 12. Speculative, flag for discussion: the three-channel split of β_m (*Wide Domains* §3.3, no derivation given); DM/DE as the two halves and
     "what is spacetime made of" (*Virial Partners*); arrow-of-time and England/Rovelli/Smolin sections (*Grav. Decoherence* §6) → Part 5.
+
+## Added on the complete re-read (2026-10-02)
+13. **PRL Step 1 scope.** Q = −E_f is the energy released when a system binds from rest at infinity; it holds where the binding energy is radiated (atom
+    formation: 13.6 eV photon = ⟨K⟩; contracting gas clouds, stars). Collisionless dark-matter halos relax without radiating (violent relaxation conserves
+    energy), so for them the identity is about the information written in relaxation, not emitted heat. The chapter states this scope.
+14. **DESI Ω_m^growth comparison** (*Virial Partners* §4.1, Fig. 1): Ω_m µ(z) = 0.2990 at z = 0.5 (0.2952 is the z = 0.40 value). DESI DR1 FS+BAO
+    0.2962 ± 0.0095 is 0.3σ from 0.2990 (paper: "0.02σ" against 0.2952).
+15. **σ8 = 0.802 ± 0.020 "2025 joint KiDS-Legacy + DES Y3 + DESI"** (*Wide Domains* Test 1, Table 3; *Virial Partners* Table 2): source value to trace
+    (Stölzner et al. 2025 report S8). The chapter prints the Level 2 S8 = 0.822 ± 0.011 against KiDS-Legacy S8 = 0.815 (+0.016/−0.021).
+16. **Euclid dates**: "DR1 October 2026" in papers 2–4. Full DR1 with clustering and weak-lensing products is expected mid-2027; σ(µ0) ≈ 0.04 is the
+    full-survey forecast (≈ 3.4σ).
+17. *Wide Domains* Table 2, Run B "0.006 ± 0.156, Δχ² −1.90 (AIC-penalised)": the free-µ0 posterior reaches the +0.2 prior edge (LATE_TIME_GROWTH_CHECK #9);
+    not printed.
+18. *Wide Domains* §5 M–σ summary belongs to the black-hole group (G6) and is carried with that paper.

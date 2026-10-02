@@ -32,11 +32,11 @@ Groups follow the book's parts; within a group, oldest first. Source = `docs/pap
 **One chapter of its own (author, 2026-10-02): all five papers carried nearly in full**, in date order, each re-read in 100-line chunks before its section is written. The current `p2_virial.tex` is a short synthesis and is replaced. Corrections from `verification/virial/VIRIAL_CHECK.md` and `NBODY_TRACE.md` applied.
 | # | Paper | Date | pp | Read | Chapter | Check |
 |---|---|---|---|---|---|---|
-| 9 | Virial_Efficiency_and_Effective_Nonlinear_Exponent | 25 Feb 2026 | 7 | ☑ | ☐ | ☑ `VIRIAL_CHECK.md`, `NBODY_TRACE.md` |
-| 10 | Virial_Partitian_Across_Wide_Domains | 25 Feb 2026 | 13 | ☑ | ☐ | ☑ |
-| 11 | Dark_Matter_and_Dark_Energy_as_Virial_Partners | Mar 2026 | 12 | ☑ | ☐ | ☑ |
-| 12 | Gravitational_Decoherence_and_the_Virial_Partition | Mar 2026 | 12 | ☑ | ☐ | ☑ |
-| 13 | PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem | 18 Mar 2026 | 3 | ☑ | ☐ | ☑ |
+| 9 | Virial_Efficiency_and_Effective_Nonlinear_Exponent | 25 Feb 2026 | 7 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_virial.tex` (one chapter, all five) | ☑ `VIRIAL_CHECK.md`, `NBODY_TRACE.md` |
+| 10 | Virial_Partitian_Across_Wide_Domains | 25 Feb 2026 | 13 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_virial.tex` (one chapter, all five) | ☑ |
+| 11 | Dark_Matter_and_Dark_Energy_as_Virial_Partners | Mar 2026 | 12 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_virial.tex` (one chapter, all five) | ☑ |
+| 12 | Gravitational_Decoherence_and_the_Virial_Partition | Mar 2026 | 12 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_virial.tex` (one chapter, all five) | ☑ |
+| 13 | PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem | 18 Mar 2026 | 3 | ☑ 2026-10-02 | ☑ `part2_drafts/p2_virial.tex` (one chapter, all five) | ☑ |
 
 ## G4 Cosmological constant and baryon asymmetry (Part 2)
 | # | Paper | Date | pp | Read | Chapter | Check |
@@ -111,4 +111,4 @@ Note on 45: written before the Met-A / IAM-A / C-score chain; the chapter uses t
 **Not on the list but used by the book:** IAM_CAMB_Technical_Note (19 Feb, 28 pp, the chain engineering record behind G1). Add it as G1 #0?
 
 **Order of work:** G1 → G2 → G3 rebuild → G4 → G5 → G6 → G7 → G8 → G9 → G11 → G10, one paper at a time, during downtime between chain and fish work.
-Progress: 5 of 47 complete (Theory, Late-Time Growth, Dual Sector Validation, Level 2, Dual Sector Note). G3: read and checked, chapter to rebuild.
+Progress: 10 of 47 complete (Theory, Late-Time Growth, Dual Sector Validation, Level 2, Dual Sector Note, Virial ×5). G3: read and checked, chapter to rebuild.

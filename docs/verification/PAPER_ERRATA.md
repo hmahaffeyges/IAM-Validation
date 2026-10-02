@@ -52,3 +52,8 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | S6 | | Figs. 1, 2 | 72.5/72.48; σ8 0.7901 (−2.6 %); lensing −2.0 %; Δχ² 79.8 (8.9σ); S8 0.753; Pantheon+ as photon sector | chain values (72.26; 0.800, −1.1/−1.6 %); lensing 0.05–0.3 %; remove 8.9σ panel; SNe matter-normalised | confirmed | #6 |
 | S7 | | §4 | "below 95 % exclusion threshold 3.84" | likelihood ratio | confirmed | #7 |
 | S8 | | §6 | β_γ "above 10⁻⁴"; "fitted β_m" | detection of β_γ > 0; β_m not fitted | confirmed | #8 |
+| **Virial papers, complete re-read 2026-10-02** |||||||
+| V13 | PRL Version (Thermodynamic Identity) | Step 1 | Q = −E_f for any 1/r system | state scope: systems that release the binding energy; collisionless halos relax without radiating | confirmed | `virial/VIRIAL_CHECK.md` #13 |
+| V14 | Dark Matter and Dark Energy as Virial Partners | §4.1, Fig. 1, Table 2 | IAM 0.2952 at z ≈ 0.5; DESI at 0.02σ | 0.2990 at z = 0.5; 0.3σ | confirmed | #14 |
+| V15 | Wide Domains; Virial Partners | Test 1, Table 3; Table 2 | σ8 = 0.802 ± 0.020 (2025 joint) | trace source; KiDS-Legacy S8 0.815 vs IAM S8 0.822 | pending trace | #15 |
+| V16 | Wide Domains; Virial Partners; Grav. Decoherence | abstracts, §7 | Euclid DR1 October 2026, σ(µ0) 0.04 at DR1 | full DR1 mid-2027; 0.04 is the final-survey forecast | confirmed | #16 |
