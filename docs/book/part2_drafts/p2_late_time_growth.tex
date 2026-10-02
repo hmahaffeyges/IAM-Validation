@@ -1,5 +1,5 @@
 % Part 2 chapter carrying "Constraints on Late-Time f sigma8 Suppression from mu < 1, Sigma = 1: Planck 2018 and Large-Scale Structure"
-% (Mahaffey, 19 Feb 2026) nearly in full, in its own order. Read in full 2026-10-02. Chain numbers from mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+% (Mahaffey, 19 Feb 2026) nearly in full, in its own order. Read in full 2026-10-02; re-confirmed in 50-line chunks, ledger 1-567 with no gaps. Chain numbers from mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
 % (final chain files, 30 % burn-in). Checks: docs/verification/chains/LATE_TIME_GROWTH_CHECK.md.
 
 \chapter{Late-time growth suppression: confrontation with Planck and large-scale structure}\label{ch:latetime}
@@ -36,8 +36,9 @@ information entropy to the Cai--Kim horizon first law (Chapters~\ref{ch:theory} 
 derivation, the rational form is the minimal one-amplitude realisation among monotonic activation functions that vanish early and saturate at $a=1$: it keeps
 $\mu\to1$ at high redshift and fixes $\mu(z{=}0)$ through $\beta$ alone. This chapter tests the phenomenology; no covariant action is assumed.
 
-$\mu<1$ with $\Sigma=1$ has had less attention than $\mu>1$. $f(R)$ gravity, DGP and most scalar--tensor theories predict enhanced growth, $\mu\ge1$
-(Pogosian and Silvestri 2016). A suppression moves $\sigma_8$ downward and sits in a less explored part of the $\mu$--$\Sigma$ plane.
+$\mu<1$ with $\Sigma=1$ has had less attention than $\mu>1$. $f(R)$ gravity, the normal branch of DGP and most scalar--tensor theories predict enhanced
+growth, $\mu\ge1$ (Pogosian and Silvestri 2016). The self-accelerating branch of DGP gives $\mu<1$ with $\Sigma=1$, but it carries a ghost and is excluded
+by data. A suppression moves $\sigma_8$ downward and sits in a less explored part of the $\mu$--$\Sigma$ plane.
 
 \begin{figure}[h]\centering\includegraphics[width=0.85\textwidth]{figs_late_time_growth/fig_mu_profile.pdf}
 \caption{Left: $\mu(z)$, exact form (Eq.~\ref{eq:lt_mu}, solid) and the MGCAMB form (Eq.~\ref{eq:lt_mgcamb}, dashed); they agree at $z=0$ and $z\gg1$ and differ by up to $2.8\,\%$ near $z\approx0.65$. Right: $E(a)=\exp(1-1/a)$, negligible above $z\approx3$ and equal to $1$ today.}\label{fig:lt_mu}\end{figure}
@@ -68,7 +69,9 @@ scale factor), $\Sigma_0=0$.
 
 \section{Data and method}
 \paragraph{Planck 2018 CMB.} Low-$\ell$ TT and EE, high-$\ell$ \texttt{plik\_lite} TTTEEE, and CMB lensing.
-\paragraph{Redshift-space distortions.} $f\sigma_8(z)$ from SDSS-III BOSS DR12 and SDSS-IV eBOSS DR16; these probe directly the growth that $\mu$ changes.
+\paragraph{Redshift-space distortions.} The BOSS DR12 final consensus likelihood (Alam et al.\ 2017): BAO distances and $f\sigma_8$ at $z=0.38$, $0.51$
+and $0.61$ with their joint covariance, which probe directly the growth that $\mu$ changes. The same runs add the eBOSS DR16 ELG, QSO and LRG likelihoods,
+which are BAO distances only.
 \paragraph{BAO.} SDSS DR12 and eBOSS DR16 LRG, QSO and Lyman-$\alpha$. The BAO feature is imprinted in matter, but its angular position is measured with
 photons on null geodesics; with $\Sigma=1$ the angular-diameter distance and $\theta_{\rm BAO}$ are those of $\Lambda$CDM. The growth change can alter the
 feature's amplitude, not its position, which is the primary observable.

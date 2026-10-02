@@ -1,4 +1,4 @@
-# LATE_TIME_GROWTH_CHECK — "Constraints on Late-Time fσ8 Suppression from µ < 1, Σ = 1" (19 Feb 2026, 13 pp), read in full 2026-10-02
+# LATE_TIME_GROWTH_CHECK — "Constraints on Late-Time fσ8 Suppression from µ < 1, Σ = 1" (19 Feb 2026, 13 pp), read in full 2026-10-02; re-confirmed in 50-line chunks (PDF text 567 lines, ledger complete, no gaps)
 
 Chapter: `docs/book/part2_drafts/p2_late_time_growth.tex` (the paper carried in its order). Chain numbers: `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`
 and `CHAIN_PAIRS_FINAL.csv` (final files, 30 % burn-in; all final R − 1 ≤ 0.0099).
@@ -37,6 +37,16 @@ and `CHAIN_PAIRS_FINAL.csv` (final files, 30 % burn-in; all final R − 1 ≤ 0.
 10. **Figures.** µ profile, posteriors and fσ8 carried from `docs/papers/latex/iam_mu_sigma_paper/`; the fσ8 point at z = 0.07 is 6dFGS (Beutler 2012), not
    SDSS, so the caption names each survey. The Δχ² and µ0-posterior figures are regenerated from the final chain files; the paper's µ0 figure drew Gaussians
    from mean ± σ, which hides the prior edge.
+
+## Added on the confirmation read (2026-10-02)
+11. **Eq. 1** µ = H²_ΛCDM/(H²_ΛCDM + βE(a)) omits H0² (the chapter prints it with H0²).
+12. **Growth data in the "Planck + RSD" runs** (D, E, F): `bao.sdss_dr12_consensus_final` is the BOSS DR12 final consensus, BAO + fσ8 at z = 0.38, 0.51, 0.61
+    (Cobaya 3.5 file: covariance `final_consensus_covtot_dM_Hz_fsig.txt`). The eBOSS DR16 likelihoods in those runs (ELG, QSO, LRG `dmdh`) are BAO distances only.
+    The paper's "fσ8 from BOSS DR12 and eBOSS DR16" → three BOSS DR12 fσ8 points. The Planck likelihood variants also differ between combinations (RSD runs:
+    plik_lite_native + lensing.CMBMarged; BAO and Pantheon+ runs: plik_lite + lensing.native); each Δχ² is against its own same-likelihood ΛCDM run, so the
+    comparisons stand, but the four Δχ² values are not on one likelihood.
+13. **§1, §5.3** "f(R), DGP … predict µ ≥ 1": self-accelerating DGP gives µ < 1, Σ = 1 (ghost; excluded). §5.1 "less than 1σ" for Δχ² +1.43 is the same
+    χ²₁ framing as item 3.
 
 ## Open
 - **Free-µ0 runs with a wider prior** (e.g. [−1, +1]) would show where the posterior turns over; author's decision (adds chains to the record).
