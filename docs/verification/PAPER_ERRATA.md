@@ -38,9 +38,9 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | LG7 | | Fig. 3 legend | "SDSS BOSS/eBOSS" | the z = 0.07 point is 6dFGS (Beutler 2012) | confirmed | #10 |
 | LG8 | | Fig. 5 | Gaussians from mean ± σ | actual posteriors (reach the prior edge) | confirmed | `docs/book/part2_drafts/figs_late_time_growth/fig_mu0_posterior_final.pdf` |
 | LG9 | | §3.1 | supernovae "photon-sector" | supernovae on the matter ruler (author ruling); distances follow ΛCDM because the background is unmodified | confirmed (ruling) | #7 |
-| LG9 | | Eq. 1 | µ = H²/(H² + βE(a)) | µ = H²/(H² + βE(a)H0²) | confirmed | `chains/LATE_TIME_GROWTH_CHECK.md` #11 |
-| LG10 | | §3.1 | RSD = fσ8 from BOSS DR12 and eBOSS DR16 | three BOSS DR12 fσ8 points (consensus final); DR16 entries are BAO distances | confirmed (Cobaya 3.5 data file) | #12 |
-| LG11 | | §1, §5.3 | f(R), DGP predict µ ≥ 1 | normal-branch DGP; self-accelerating DGP gives µ < 1, Σ = 1 (ghost, excluded) | confirmed | #13 |
+| LG10 | | Eq. 1 | µ = H²/(H² + βE(a)) | µ = H²/(H² + βE(a)H0²) | confirmed | `chains/LATE_TIME_GROWTH_CHECK.md` #11 |
+| LG11 | | §3.1 | RSD = fσ8 from BOSS DR12 and eBOSS DR16 | three BOSS DR12 fσ8 points (consensus final); DR16 entries are BAO distances | confirmed (Cobaya 3.5 data file) | #12 |
+| LG12 | | §1, §5.3 | f(R), DGP predict µ ≥ 1 | normal-branch DGP; self-accelerating DGP gives µ < 1, Σ = 1 (ghost, excluded) | confirmed | #13 |
 | **Dual-Sector Validation** (`Dual_Sector_Validation_Paper.pdf`, 23 Feb 2026) |||||||
 | D1 | | title, abstract, §IV, §IX | "SNe reject photon-sector H0, validate matter-sector H0" | with M free the SN χ² is exactly flat in H0; the tests cannot select H0; 73.04 comes from the Cepheid calibration | author | `chains/DUAL_SECTOR_VALIDATION_CHECK.md` |
 | D2 | | Table II | Test B: Ω_m 0.3736, β −0.0005, χ² 723.16 | optimizer stop; same code reaches Ω_m 0.2049, β −0.30, χ² 721.12 | confirmed | `scripts/verify_dual_sector_validation.py` |
