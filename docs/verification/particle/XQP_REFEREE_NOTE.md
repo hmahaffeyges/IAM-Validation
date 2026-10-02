@@ -33,8 +33,10 @@ A handful of pinholes cannot supply the floor. Hundreds to thousands of active t
 that number is measurable by TLS spectroscopy (Lisenfeld et al. map TLS mostly on the junction leads).
 
 ## What stands, stated defensibly
-- The idea: part of the floor is endogenous, the dissipation of maintaining coherence against the TLS bath, paid at the junction. Consistent with the
-  underground result, the thermalised energy distribution, and Poissonian statistics.
+- The idea: part of the floor is endogenous, the dissipation of maintaining coherence against the TLS bath, paid at the junction. Compatible with, but
+  not established by, the evidence: the underground and shielding results (Gran Sasso; Gordon et al. 2022) show T1 is not radiation-limited at present
+  lifetimes and that much of the measured QP tunnelling is external; a thermalised gap-edge distribution follows from fast phonon relaxation for any
+  source (Connolly et al. 2024 does not single out an internal one). Corrected 2026-10-02 after reading the encoding-surface working notes.
 - The test becomes sharper, not weaker: on one device, measure x_qp, τ_qp, τ_TLS, the active TLS count N and the island volume V. The prediction is
   x_qp n_cp V τ_TLS / (N τ_qp) = 2. It is falsified if x_qp does not scale with N/V across devices.
 - Not parameter-free: N is a device property that must be measured. That is honest and still a single-device test.

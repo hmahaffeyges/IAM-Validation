@@ -13,10 +13,20 @@ In the best-isolated Al/AlOx/Al transmons the density of broken Cooper pairs (qu
 \begin{equation}x_{\rm qp}=n_{\rm qp}/n_{\rm cp}\sim10^{-7},\qquad n_{\rm cp}=2\nu_0\Delta\approx4\times10^6\,\mu{\rm m}^{-3},\end{equation}
 that is $n_{\rm qp}\approx0.4$ per $\mu$m$^3$. In thermal equilibrium at 15--20\,mK there should be no more than one quasiparticle in a volume the size
 of the Earth. Known external sources have been reduced one by one --- stray infrared light, environmental radioactivity, cosmic rays --- and the floor
-remains. The same qubit operated at the surface and deep underground at Gran Sasso, with thirty times fewer muons, shows the same $T_1$. The excess
-quasiparticles have a thermalised energy distribution, sitting at the gap edge, which a continuous slow source gives and a bursty external one does not.
-Their tunnelling statistics are Poissonian. And the tunnelling rate is sensitive to the quality of the oxide barrier, which contains high-transmission
-sites with a reduced gap. Together these point to a source inside the device, at the junction.
+remains. What the measurements show, read carefully:
+\begin{itemize}
+\item The same qubit operated at the surface and deep underground at Gran Sasso, with about thirty times fewer muons, shows the same $T_1$, and
+$T_1$ is insensitive to added shielding while the quasiparticle tunnelling rate is very sensitive to it. Together these say that at present
+lifetimes $T_1$ is not set by radiation-generated quasiparticles, and that a large part of the measured tunnelling is of external origin. They do not
+by themselves show an internal source.
+\item The excess quasiparticles have a thermalised energy distribution at the gap edge. In aluminium, quasiparticles relax to the gap edge by phonon
+emission far faster than they recombine at these densities, so any source gives this distribution; it is consistent with an internal source but does
+not single one out.
+\item The background tunnelling statistics are Poissonian, with separate correlated bursts from ionising events.
+\item The tunnelling rate depends on the oxide barrier, which contains high-transmission sites with a reduced gap, and most TLS sit on the junction leads.
+\end{itemize}
+These leave room for a source inside the device, at the junction; they do not establish it. The proposal below is that source, stated so that a
+measurement can rule it in or out.
 
 \section{The proposal}
 A qubit holds its state against a bath of two-level fluctuators (TLS) in the oxide and at the metal--oxide interfaces. A TLS flip kicks the condensate
@@ -56,12 +66,13 @@ Across devices, the floor should scale as $N/(\tau_{\rm TLS}V)$: better barriers
 shielding does not. The proposal fails if the floor does not follow $N/V$, or if it keeps falling with shielding after external sources are gone.
 
 \section{The coherence ceiling}
-Quasiparticle relaxation is $\Gamma_1=x_{\rm qp}\,\omega_q$ to within a factor of order one, so a floor of $10^{-7}$ at $5$\,GHz caps $T_1$ near $0.3$\,ms,
-the plateau of the best aluminium transmons. If the floor is the cost of holding the state, it is lowered by changing the barrier and its
+Quasiparticle relaxation of a transmon is $\Gamma_1=(x_{\rm qp}/\pi)\sqrt{2\omega_q\Delta/\hbar}$ (Catelani et al.\ 2011). With
+$\Delta_{\rm Al}=180\,\mu$eV at $5$\,GHz, a floor of $10^{-7}$ caps $T_1$ at $0.24$\,ms, $10^{-6}$ at $0.02$\,ms; the best aluminium transmons sit
+near this cap, where dielectric (TLS) loss and quasiparticles compete. If the floor is the cost of holding the state, it is lowered by changing the barrier and its
 fluctuators, not by shielding the device.
 
 \section{Status}
-Stands: an endogenous floor from erasures at the TLS rate, consistent with the underground result, the thermalised distribution and the Poissonian
-statistics. Derived here: the density in the field's units, with quantised pair breaking and diffusion over the island (Eq.~\ref{eq:xqp}). Open: the
+Stands: a proposal for an endogenous contribution to the floor, from erasures at the TLS rate, compatible with the measurements above but not
+established by them; the same-device test decides it. Derived here: the density in the field's units, with quantised pair breaking and diffusion over the island (Eq.~\ref{eq:xqp}). Open: the
 active-site count $N$ for a measured device, and whether each erasure event breaks a pair (yield $2$) or only some do, which would lower the yield and
 raise the required $N$.
