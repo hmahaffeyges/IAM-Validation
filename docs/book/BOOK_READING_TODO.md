@@ -24,7 +24,7 @@ Groups follow the book's parts; within a group, oldest first. Source = `docs/pap
 | # | Paper | Date | pp | Read | Chapter | Check |
 |---|---|---|---|---|---|---|
 | 5 | A_Note_on_Entropic_Gravity (Saridakis) | Mar 2026 | 10 | ☐ | ☐ | ☐ |
-| 6 | IAM_Law | Mar 2026 | 29 | ☐ | ☐ | ☐ |
+| 6 | IAM_Law | Mar 2026 | 29 | ☑ 2026-10-02 | ☑ `part1_drafts/p1_iams_law.tex` | ☑ `verification/theory/IAM_LAW_CHECK.md` |
 | 7 | IAM_Theory_Paper | 14 Apr 2026 | 34 | ☑ | ☑ `part2_drafts/p2_theory.tex` (+ §13 in `part5_drafts/p5_theory_interpretation.tex`) | ☑ `THEORY_CHECK.md` |
 | 8 | Technical_Reference_for_Physicists (newest summary) | 27 Sep 2026 | 28 | ☐ | ☐ | ☐ |
 
@@ -111,4 +111,4 @@ Note on 45: written before the Met-A / IAM-A / C-score chain; the chapter uses t
 **Not on the list but used by the book:** IAM_CAMB_Technical_Note (19 Feb, 28 pp, the chain engineering record behind G1). Add it as G1 #0?
 
 **Order of work:** G1 → G2 → G3 rebuild → G4 → G5 → G6 → G7 → G8 → G9 → G11 → G10, one paper at a time, during downtime between chain and fish work.
-Progress: 13 of 47 complete (Theory, Late-Time Growth, Dual Sector Validation, Level 2, Dual Sector Note, Virial ×5, black holes ×3; M–σ abandoned). G3: read and checked, chapter to rebuild.
+Progress: 14 of 47 complete (IAM's Law, Theory, Late-Time Growth, Dual Sector Validation, Level 2, Dual Sector Note, Virial ×5, black holes ×3; M–σ abandoned). G3: read and checked, chapter to rebuild.

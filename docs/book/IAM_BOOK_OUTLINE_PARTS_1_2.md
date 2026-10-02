@@ -43,6 +43,7 @@ repo's chains and only the re-run value is printed (current Level 2 result: Δχ
 ## Part 1 — Introduction to IAM's Law and the Virial Theorem
 
 ### 1.1 What IAM measures
+**Drafted (2026-10-02):** `docs/book/part1_drafts/p1_iams_law.tex` — the IAM's Law paper carried in its order (law, decoherence, horizon cost, Jacobson → Cai–Kim → S_info, E(a), β_m, µ/Σ, perturbations, assumptions, Mahaffey number per canon); covers 1.1, 1.2 and 1.4.
 
 The thermal floor as a measured reference, in every domain; what IAM adds to Landauer; scope (physics only).
 

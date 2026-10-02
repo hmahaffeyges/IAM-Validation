@@ -1,0 +1,271 @@
+% Part 1 chapter carrying "IAM's Law: The Thermodynamic Cost of Classical Existence" (March 2026) nearly in full, in its order.
+% Read in full 2026-10-02 (1,506 lines). Corrections: docs/verification/theory/IAM_LAW_CHECK.md (errata L1-L16). Physics terms only.
+% Section 5 of the paper (the virial completion) is carried in full in Chapter~\ref{ch:virial_law}; it is summarised here.
+\providecommand{\authorhold}[1]{\par\smallskip\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Author hold.} #1}}\par\smallskip}
+
+\chapter{IAM's Law: the thermodynamic cost of a classical record}\label{ch:iams_law}
+
+\section{The law in plain language}
+Matter in the universe is found in two conditions. Some of it holds definite classical states: a position, an energy level, an identity that any number
+of observers can read and agree on. The rest is in quantum superposition, carrying amplitudes for outcomes that have not yet been recorded anywhere.
+The passage from the second condition to the first is decoherence. It happens constantly: every atom that binds, every molecule that forms, every star
+that contracts, every halo that settles into equilibrium leaves a record in its surroundings that was not there before.
+
+The claim of this chapter is that this passage has a price. Every irreversible transition from quantum superposition to classical record costs at least
+$k_BT\ln2$ per bit of record produced, and the temperature $T$ is that of the nearest encoding surface --- the horizon that bounds the region in which the
+record is written. Once paid, the cost is not recovered. Classical records are bought one bit at a time.
+
+Two consequences follow, at two scales. Locally, the kinetic half of the virial theorem --- the energy a bound system keeps as motion --- equals the heat it
+released in forming, which is the minimum cost of the record its formation wrote (Chapter~\ref{ch:virial_law}). Globally, the accumulated cost of every
+record written since stable matter existed is a term missing from the entropy of the cosmic horizon. Jacobson (1995) obtained the Einstein equations from
+the thermodynamics of local horizons, and Cai and Kim (2005) obtained the Friedmann equations from the thermodynamics of the cosmic horizon; both wrote
+the horizon entropy with geometric terms only. Adding the record term gives the activation function $E(a)=\exp(1-1/a)$, a weaker effective coupling for
+the growth of matter structure, $\mu(a)<1$, unchanged light propagation, $\Sigma=1$, and a coupling fixed by the virial half, $\beta_m=\Omega_m/2$.
+
+\section{Statement of the law}
+\begin{quote}\textbf{IAM's Law.} Every irreversible transition from quantum superposition to classical record pays $k_BT\ln2$ per bit to the nearest
+encoding surface at the local temperature,
+\begin{equation}
+\Delta E_{\rm rec}=k_BT_H\ln2\quad\text{per bit}. \label{eq:law}
+\end{equation}
+\end{quote}
+Landauer's principle (1961) bounds the cost of an irreversible bit at the temperature of the reservoir that receives the heat; it leaves that temperature
+to be supplied. IAM's Law names the reservoir: the nearest horizon, whose temperature is fixed by its geometry --- the Gibbons--Hawking temperature
+$T_H=\hbar H/(2\pi k_B)$ at the cosmic horizon, the Hawking temperature $\hbar c^3/(8\pi GMk_B)$ at a black hole. In the laboratory the nearest bath is the
+apparatus itself and the law reduces to Landauer's bound as measured. Identifying the horizon as the reservoir is the one physical assumption the law adds
+(Section~\ref{sec:assumptions}, Assumption~2).
+
+\section{The decoherence event}
+A system $S$ coupled to an environment $E$ evolves from a product state into an entangled one (Zurek 2003),
+\begin{equation}
+|\psi_S\rangle\otimes|E_0\rangle\;\longrightarrow\;\sum_ic_i\,|s_i\rangle\otimes|E_i\rangle,
+\end{equation}
+where $\{|s_i\rangle\}$ are the pointer states selected by the interaction. When the environmental states become orthogonal, $\langle E_i|E_j\rangle\to\delta_{ij}$,
+the reduced density matrix of the system becomes diagonal,
+\begin{equation}
+\rho_S={\rm Tr}_E|\Psi\rangle\langle\Psi|\;\longrightarrow\;\sum_i|c_i|^2|s_i\rangle\langle s_i|.
+\end{equation}
+Interference between the outcomes is gone, and the environment now holds a record of which pointer state was selected. For $N$ distinguishable pointer
+states the record is $I=\log_2N$ bits. Undoing it would require gathering every environmental correlation and erasing it, which dissipates at least
+$k_BT\ln2$ per bit (Landauer 1961; measured by B\'erut et al.\ 2012). The record is therefore irreversible at any finite temperature.
+
+\section{Where the cost is paid}
+For a concentrated collapse the nearest encoding surface is the horizon of the black hole that forms, at its Hawking temperature
+(Chapter~\ref{ch:blackholes}). For structure distributed through the universe it is the cosmic horizon, at
+\begin{equation}
+\Delta E_{\rm rec}(a)=k_BT_H(a)\ln2=\frac{\hbar H(a)}{2\pi}\ln2 . \label{eq:epochcost}
+\end{equation}
+Bits are expensive when $H$ is large and cheap when it is small. The total paid over cosmic history depends on both the rate at which records are written and
+the price per bit, and that combination is what $E(a)$ tracks.
+
+\section{The local expression: the kinetic half}
+Chapter~\ref{ch:virial_law} sets out the virial theorem and its thermodynamic reading in full. In brief: a system bound by $1/r$ that forms from rest
+releases heat $Q=-E_f$ (first law); Euler's theorem for a potential homogeneous of degree $-1$ gives $2\langle K\rangle+\langle V\rangle=0$, so
+$Q=\langle K\rangle=\tfrac12|\langle V\rangle|$; and Landauer's principle makes $Q$ the minimum cost of the irreversible formation. Half of the binding energy
+is kept as motion, and an equal amount leaves as the heat that pays for the record of the bound state. The equality $Q=\langle K\rangle$ is mechanics; the
+law identifies what that heat buys. The same half appears on the horizon of a Schwarzschild black hole, $T_HS=\tfrac12Mc^2$ (Chapter~\ref{ch:blackholes}).
+
+\section{The global expression: completing the horizon entropy}
+\subsection{Jacobson's construction}
+At any point $p$ a small spacelike two-surface defines a local Rindler horizon with null generator $k^a$, approximate boost Killing vector
+$\chi^a=-\kappa\lambda k^a$ and Unruh temperature $T=\hbar\kappa/(2\pi k_Bc)$. The heat crossing the horizon and the change of its area are
+\begin{equation}
+\delta Q=-\kappa\int_{\mathcal H}\lambda\,T_{ab}k^ak^b\,d\lambda\,dA,\qquad
+\delta S=-\eta\int_{\mathcal H}\lambda\,R_{ab}k^ak^b\,d\lambda\,dA,
+\end{equation}
+the second from the Raychaudhuri equation with $S=\eta A$. Requiring $\delta Q=T\,\delta S$ for every null $k^a$ gives the Einstein equations with
+$G=c^3/(4\hbar\eta)$. Written as
+\begin{equation}
+\frac{\hbar\eta}{2\pi}=\frac{c^3}{8\pi G},\qquad \eta=\frac{c^3}{4\hbar G}=\frac{1}{4\ell_P^2},
+\end{equation}
+the $1/4$ is the $2\pi$ period of the Euclidean horizon divided by the $8\pi$ of the field equations; given $G$, nothing else enters, and one bit
+corresponds to $4\ell_P^2$ of horizon (Chapter~\ref{ch:blackholes}). Jacobson's construction is a machine: choose the entropy, obtain the gravity.
+
+\subsection{Cai and Kim, and the missing term}
+Cai and Kim applied the first law $-dE=T_H\,dS$ at the apparent horizon of a Friedmann universe, $\tilde r_A=c/H$, with area $A_H=4\pi c^2/H^2$, entropy
+$S_{\rm geo}=k_Bc^3A_H/(4G\hbar)$ and the Gibbons--Hawking temperature, and recovered the Friedmann equations. Their entropy, like Jacobson's, is geometric
+only. IAM's Law adds the entropy of the records written in the bulk:
+\begin{equation}
+S_{\rm total}=S_{\rm geo}+S_{\rm info},\qquad -dE=T_H\,d\!\left(S_{\rm geo}+S_{\rm info}\right). \label{eq:firstlaw}
+\end{equation}
+The geometric part returns standard cosmology. The record part adds an effective density in the dynamics of matter,
+\begin{equation}
+H_m^2=H_{\Lambda{\rm CDM}}^2+\beta_mE(a)H_0^2 , \label{eq:Hm}
+\end{equation}
+which acts only where records are written --- in collapsing, inhomogeneous matter. In an exactly homogeneous universe there is no structure, the Weyl tensor
+vanishes, and the term vanishes with it. The background expansion and everything carried by light are unchanged; the term enters the growth of matter
+perturbations (Section~\ref{sec:perturbations}).
+
+\subsection{Two sources of records}
+The vacuum supplies a constant baseline of irreversible records, independent of structure; through Jacobson's construction it enters as the cosmological
+constant. Gravitational collapse, binding and decoherence of matter supply a part that grows with structure: zero before structure forms, growing as halos
+and the cosmic web assemble, and levelling off as expansion slows collapse. The second part is $\beta_mE(a)$.
+
+\subsection{The rate at which records reach the horizon}
+The rate of irreversible record production from structure formation is taken as
+\begin{equation}
+\dot I\propto\rho_m(a)\,D(a)^n\,f(a)\,H(a), \label{eq:rate}
+\end{equation}
+with $D$ the linear growth factor and $f=d\ln D/d\ln a$. Each bit costs $k_BT_H\ln2$, and the horizon stores records per unit area, so
+\begin{equation}
+\frac{dS_{\rm info}}{dt}=\frac{\dot I}{T_HA_H}. \label{eq:Sdot}
+\end{equation}
+In matter domination ($H\propto a^{-3/2}$, $A_H\propto a^3$, $T_H\propto a^{-3/2}$, $D\propto a$, $f\approx1$),
+\begin{equation}
+\frac{dS_{\rm info}}{d\ln a}\propto\frac{\rho_mD^nf}{T_HA_H}\propto a^{\,n-9/2},\qquad S_{\rm info}\propto\frac{a^{\,n-9/2}}{n-9/2}.
+\end{equation}
+The form $S_{\rm info}\propto-1/a+{\rm const}$ that produces $\exp(1-1/a)$ requires $n-9/2=-1$, so
+\begin{equation}
+n=\tfrac72 .
+\end{equation}
+Integrating Eqs.~\eqref{eq:rate}--\eqref{eq:Sdot} with the full $\Lambda$CDM growth factor gives $dS/d\ln a\propto a^{-1.02}$ for $n=7/2$ in the matter era;
+the $\Lambda$ era raises the effective exponent (Chapter~\ref{ch:theory}).
+
+\subsection{The activation function}
+The record density obeys
+\begin{equation}
+\dot\rho_{\rm info}=\rho_{\rm info}\frac{H}{a}\quad\Longleftrightarrow\quad\frac{d\ln\rho_{\rm info}}{da}=\frac{1}{a^2},
+\end{equation}
+which integrates, normalised to today, to
+\begin{equation}
+E(a)=\exp\!\left(\int_1^a\frac{da'}{a'^2}\right)=\exp\!\left(1-\frac1a\right)=e^{-z}. \label{eq:Ea}
+\end{equation}
+Its properties are the properties of an irreversible record: $E\to0$ as $a\to0$; $E(1)=1$; $dE/da>0$ always, because no payment is returned;
+$E\to e\approx2.718$ as $a\to\infty$, so the accumulated term approaches a finite value. The $1/a$ in the exponent is the record surface density on the
+horizon: what enters is not how many records the universe has written but how densely they cover the horizon.
+
+\subsection{Variational form}
+Define $\phi\equiv\ln E=1-1/a$, which obeys the constraint $\dot\phi=H/a$. It does not propagate; it follows the record history. The action
+\begin{equation}
+S_{\rm info}=\int\left[-\frac{3H_0^2}{8\pi G}\beta_me^{\phi}+\lambda\left(\dot\phi-\frac{H}{a}\right)\right]\sqrt{-g}\,d^4x,
+\end{equation}
+with Lagrange multiplier $\lambda$, returns Eq.~\eqref{eq:Hm} on variation with respect to $g_{ab}$. The continuity equation gives the equation of state
+\begin{equation}
+w_{\rm info}(a)=-1-\frac{1}{3a}:\qquad -1.67\ (a=0.5),\quad -1.33\ (a=1),\quad -1.17\ (a=2),
+\end{equation}
+below $-1$ at all finite $a$ and tending to $-1$. Because $\phi$ is a constrained thermodynamic variable rather than a propagating field, this is a
+parametrisation of the entropy completion, not a dark-energy fluid; energy--momentum is conserved, $\nabla_\mu T^{\mu\nu}_{\rm total}=0$, and the
+construction is consistent with the contracted Bianchi identity.
+
+\subsection{The coupling from the virial half}
+In virial equilibrium half the binding energy of a self-gravitating system stays in the gravitational field and half leaves as the heat that pays for its
+record. The record density today is therefore half the matter density:
+\begin{equation}
+\rho_{\rm info}(a{=}1)=\beta_m\rho_{\rm crit}=\tfrac12\rho_m\quad\Longrightarrow\quad\beta_m=\frac{\Omega_m}{2}=0.1575\quad(\Omega_m=0.315).
+\end{equation}
+The coupling is a prediction. It enters every chain at this value and is never sampled. Applying a population-level equilibrium to non-equilibrium
+structure formation is Assumption~3.
+
+\subsection{Matter and light}
+\textbf{Which degrees of freedom write records.} Decoherence is a process in proper time and needs $\Delta\tau>0$. Matter moves on timelike worldlines and
+writes records; light moves on null geodesics, $ds^2=0$, $\Delta\tau=0$, and writes none. Hence, for matter,
+\begin{equation}
+\mu(a)=\frac{H^2_{\Lambda{\rm CDM}}(a)}{H^2_{\Lambda{\rm CDM}}(a)+\beta_mE(a)H_0^2}<1, \label{eq:mu}
+\end{equation}
+and for light $\Sigma(a)=1$. Today $\mu=1/(1+\beta_m)=0.864$, so $\mu-1=-0.136$; $\mu(z{=}0.5)=0.948$, $\mu(z{=}1)=0.982$, and $\mu\to1$ at early times.
+
+\section{Perturbations: why growth is weaker and light is not}\label{sec:perturbations}
+The field $\phi=1-1/a$ is defined by the background apparent horizon $c/H(t)$. Local overdensities source the metric potentials but do not move the
+background horizon at first order, so
+\begin{equation}
+\delta\phi=0
+\end{equation}
+in linear theory --- as for the cosmological constant, $\delta\Lambda=0$. Perturbing the constrained action, variation with respect to $\lambda$ gives
+$\delta\dot\phi=0$, and with $\delta\phi(a_i)=0$ the field stays unperturbed. In conformal Newtonian gauge the perturbation equations are those of general
+relativity,
+\begin{equation}
+k^2\Psi=-4\pi Ga^2\rho_m\delta_m,\qquad \Psi=\Phi,\qquad \ddot\delta_m+2H_m\dot\delta_m-4\pi G\rho_m\delta_m=0,
+\end{equation}
+with the single change that matter perturbations feel the matter-sector rate $H_m$ of Eq.~\eqref{eq:Hm} as friction. Growth is suppressed; the potentials
+obey the unmodified Poisson equation with no anisotropic stress, so light, which responds to $(\Psi+\Phi)/2$, is unaffected: $\Sigma=1$. CMB spectra, CMB
+lensing, BAO angles and supernova distances are those of $\Lambda$CDM; the CMB TT spectra differ by less than $0.13\,\%$ at $\ell>30$.
+
+\textbf{Where this sits among modified-growth models.} Most extensions of gravity strengthen growth: $f(R)$ gives $\mu>1$ with $\Sigma=1$, the normal branch
+of DGP gives $\mu>1$ with $\Sigma=1$, and Horndeski theories move $\mu$ and $\Sigma$ together. The self-accelerating branch of DGP gives $\mu<1$ with $\Sigma=1$,
+but it carries a ghost and is excluded by data. Weaker growth with unchanged lensing, from friction on matter alone and no new propagating field, is
+the signature IAM predicts.
+
+\textbf{Numerical record.} Level~1 used MGCAMB with Cobaya in the $\mu$--$\Sigma$ form: twelve chains, Planck alone and with redshift-space distortions,
+BAO or Pantheon+. Level~2 modified CAMB itself, putting $H_m$ into the matter equations (three chains). Two Level~2b runs applied the term to the
+background expansion and drove $H_0$ to $61.5$, which BAO and the distance ladder exclude: the term belongs in the perturbations. Every chain ends at
+$R-1\le0.010$ (Part~2).
+
+\section{Observational consistency}
+\begin{center}\small
+\begin{tabular}{lll}
+\hline
+Quantity & IAM & Result\\\hline
+$\beta_m$ & $\Omega_m/2=0.1575$, fixed & enters every chain at the prediction\\
+$\Delta\chi^2$ vs $\Lambda$CDM, Level 2 & no added parameter & $+0.54$\\
+$\Delta\chi^2$, Level 1 (four combinations) & no added parameter & $+0.56$ to $+1.73$\\
+$\sigma_8$ & suppressed & $0.809\to0.800$ (Level 2)\\
+$H_0$, light & unchanged & $67.16$ (Level 2 chain)\\
+$H_0$, matter & $67.16\sqrt{1+\beta_m}$ & $72.26$\\
+free $\mu_0$ (Level 1) & $-0.135$ & consistent with $-0.135$ and with $0$\\\hline
+\end{tabular}
+\end{center}
+
+\textbf{Two Hubble rates.} Light-based probes read $H_0$; probes of the matter flow read $H_0\sqrt{1+\beta_m}=1.076\,H_0$. These are two quantities, not a
+tension between measurements of one. Standard sirens test this: the host galaxy of a neutron-star merger traces the matter flow. With one event so far,
+analyses of GW170817 range from $68$--$70$ to $75.5^{+5.3}_{-5.4}$\,km\,s$^{-1}$Mpc$^{-1}$, consistent with both values; tens of sirens will separate
+them.
+
+\textbf{The growth amplitude.} Upcoming surveys measure $\mu_0$ to
+\begin{center}\small
+\begin{tabular}{lcc}
+\hline
+Survey & $\sigma(\mu_0)$ & separation of $-0.136$ from GR\\\hline
+DESI Year 5 (projected) & $\sim0.08$ & $1.7\sigma$\\
+Euclid (projected) & $\sim0.04$ & $3.4\sigma$\\
+Euclid + DESI Year 5 & $\sim0.03$ & $4.5\sigma$\\\hline
+\end{tabular}
+\end{center}
+The 2024 DESI full-shape analysis gives $\mu_0=0.11^{+0.45}_{-0.54}$, consistent with both the prediction and general relativity. Euclid is the decisive test.
+
+\textbf{The vacuum term and the baryon fraction.} Written in Planck units, the observed $\rho_\Lambda/\rho_{\rm Planck}=(3\Omega_\Lambda/8\pi)(\ell_P/\ell_H)^2$
+identically, and the cosmological-constant formula of the source papers reduces to the present-epoch relation $\Omega_b/\Omega_m\approx(3/16)\sqrt{\Omega_\Lambda}$.
+On the CMB-only chain it holds to $0.5\,\%$ ($0.7\sigma$). Its derivation --- the $2/\pi$ and the weighting over cosmic history --- is open (Part~2).
+
+\section{Assumptions and how the law can fail}\label{sec:assumptions}
+\textbf{Assumption 1 --- gravity is thermodynamic.} The Einstein equations are an equation of state obtainable from $\delta Q=T\,dS$ on causal horizons
+with entropy proportional to area. Supported by the Bekenstein--Hawking entropy, the Unruh effect and the Cai--Kim derivation; not universally accepted.
+
+\textbf{Assumption 2 --- records contribute to horizon entropy.} The cost of every irreversible transition to a classical record in the bulk is held on the
+nearest encoding surface and enters its entropy. This is the one new physical identification. It is consistent with the holographic principle and
+Landauer's principle and has not been derived from a complete quantum theory of gravity --- the same gap every thermodynamic approach to gravity has.
+
+\textbf{Assumption 3 --- the virial coupling is exact at the population level.} The virial theorem holds strictly for systems in stable equilibrium;
+structure formation is not. $\beta_m=\Omega_m/2$ applies the half to the ensemble of bound structures. The chains show the consequence is consistent with
+Planck; they do not show the coupling is exact.
+
+\textbf{Derived, given these.} $E(a)$ from the record constraint; $\mu<1$ and $\Sigma=1$ from timelike versus null propagation and $\delta\phi=0$; $n=7/2$ from
+the horizon accounting; $\mu-1=-0.136$ today.
+
+\textbf{Three ways to fail, separately.} (1) The core law fails if records do not enter horizon entropy as identified --- shown by a complete theory that
+excludes the channel, or by an internal inconsistency. (2) The cosmological implementation fails if growth data disagree with $\beta_m=\Omega_m/2$ ---
+Euclid and DESI will tell --- without necessarily failing the core law. (3) The broader extensions fail without touching (1) or (2).
+
+\section{The derivation in three steps}
+\begin{enumerate}
+\item Jacobson: $\delta Q=T\,dS$ on local Rindler horizons with $S=\eta A$ gives $G_{ab}+\Lambda g_{ab}=8\pi GT_{ab}/c^4$.
+\item Cai--Kim: $-dE=T\,dS_{\rm geo}$ on the apparent horizon gives $H^2=(8\pi G/3)\rho+\Lambda/3$.
+\item IAM: $-dE=T\,d(S_{\rm geo}+S_{\rm info})$ gives, for matter, $H_m^2=H^2+\beta_mE(a)H_0^2$.
+\end{enumerate}
+Step 3 is the only new input: gravitational decoherence writes classical records irreversibly, their cost is held on the cosmic horizon, and the term
+grows monotonically. Everything else is established physics.
+
+\section{The Mahaffey number}
+Dividing the drive that powers irreversible records in a system by the thermal quantum of its surroundings gives the dimensionless number that sets its
+operating regime,
+\begin{equation}
+\mathcal M=\frac{E_{\rm drive}}{k_BT},
+\end{equation}
+in the tradition of Reynolds, Mach and Prandtl. Expressed in Landauer units it is $\mathcal M/\ln2$. A living cell drives its records with ATP hydrolysis at
+fixed body temperature: $\mathcal M=20.94$ ($30.2$ in Landauer units) --- far above the thermal floor, which is how biology keeps high-fidelity records at
+$310$\,K. For a black hole the drive is its rest energy and the temperature its own: $Mc^2/(k_BT_{\rm BH})=8\pi GM^2/(\hbar c)=2S_{\rm BH}/k_B$, the Smarr
+relation again. With the architecture of the system, $\mathcal M$ sets the IAM floor (Chapter~\ref{ch:floor}).
+
+\authorhold{Carried to Part~5 (interpretation): the position of the law among the frameworks of physics (``every framework has a gap at the
+quantum--classical boundary''), ``a law, not a framework'', the second law as a corollary, the measurement problem as a thermodynamic transaction, the arrow
+of time and the coincidence problem, and the weak force as the exception to the virial half. Not carried: Sheth--Tormen and $N$-body support for the
+exponent (not reproduced; IAM\_LAW\_CHECK \#7).}
