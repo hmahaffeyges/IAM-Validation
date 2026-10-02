@@ -1,0 +1,87 @@
+% Part 2 chapter carrying "Lensing-Dynamics Mass Discrepancy as a Redshift-Dependent Signature of Informational Gravity" (Mahaffey, 25 Feb 2026)
+% in its order. Read in full 2026-10-02 (PDF text 307 lines in this extraction, 316 in the check file's; every line read).
+% Numbers: docs/verification/scripts/verify_obs_chapters.py (sections A, E) and verify_s8_trend.py (item 5).
+% Check: docs/verification/observations/LENSING_DYNAMICS_CHECK.md; errata LD1-LD5. Carried in the Level 1 form only; the test is on hold.
+\chapter{Lensing mass and dynamical mass}\label{ch:lensdyn}
+
+\section*{The place}
+A galaxy cluster: about $10^{14}$--$10^{15}\,M_\odot$ of matter bound on timelike worldlines, crossed by light from galaxies behind it. Matter in the
+cluster responds to the Newtonian potential $\Psi$; light responds to the lensing potential $(\Phi+\Psi)/2$. If the informational term changes the first
+and not the second, the two mass estimates of one cluster differ, and the difference depends on when the light left. Whether the term does change
+$\Psi$ inside a cluster depends on its implementation form, which is not yet settled (Section~\ref{sec:ld_hold}).
+
+\section{The ratio in the Level 1 form}
+In the Level~1 form the informational term enters the Poisson equation for $\Psi$ as an effective Newton constant $\mu G$
+(Chapter~\ref{ch:latetime}):
+\begin{equation}
+\nabla^2\Psi=-4\pi G a^2\mu(a)\bar\rho\delta,\qquad\nabla^2(\Phi+\Psi)=-8\pi Ga^2\Sigma(a)\bar\rho\delta,\qquad\Sigma=1.
+\end{equation}
+A dynamical mass (galaxy velocities or gas in hydrostatic equilibrium) is read from $\Psi$, so $M_{\rm dyn}=\mu M_{\rm true}$; a lensing mass is read from
+$\Phi+\Psi$, so $M_{\rm lens}=M_{\rm true}$. Then
+\begin{equation}
+\frac{M_{\rm lens}}{M_{\rm dyn}}=\frac{\Sigma}{\mu}=\frac{1}{\mu(z)}=1+\frac{\beta_m\,e^{1-1/a}}{\Omega_ma^{-3}+\Omega_\Lambda},
+\label{eq:ld_ratio}\end{equation}
+with $\beta_m=\Omega_m/2$ and nothing adjusted. \calc
+\begin{center}\small\begin{tabular}{lcccccccccc}\toprule
+$z$ & 0 & 0.1 & 0.2 & 0.3 & 0.5 & 0.7 & 1.0 & 1.5 & 2.0 & 3.0\\\midrule
+$\mu$ & 0.864 & 0.886 & 0.905 & 0.922 & 0.948 & 0.966 & 0.982 & 0.994 & 0.998 & 1.000\\
+$M_{\rm lens}/M_{\rm dyn}$ & 1.158 & 1.129 & 1.105 & 1.085 & 1.055 & 1.035 & 1.018 & 1.006 & 1.002 & 1.000\\\bottomrule
+\end{tabular}\end{center}
+The ratio is $15.8\,\%$ above unity today and falls monotonically with redshift, with slope $dR/dz=-0.31$ at $z=0$ and $-0.18$ at $z=0.3$. It
+depends on the cluster's redshift only, not on its mass, radius or dynamical state. \calc
+
+\section{The form of the term}\label{sec:ld_hold}
+\authorhold{The ratio \eqref{eq:ld_ratio} needs $\mu$ in the Poisson equation for $\Psi$ (the Level~1 effective-coupling form). In the Level~2 form the
+term is a matter-sector expansion rate in the perturbation equations, and the linearised Einstein equations for the potentials are unmodified
+(Chapter~\ref{ch:level2}). Then $\Psi$ obeys the standard Poisson equation, matter in a virialised cluster moves in the true potential, and
+$M_{\rm lens}/M_{\rm dyn}=1$ at every redshift. The source paper states both forms. The prediction is carried here in the Level~1 form only, and only
+until two questions are settled: which form is the physical one, and whether a linear $\mu$ applies inside virialised, non-linear clusters at all.}
+\openprob
+
+\section{Other explanations and how they differ}
+\begin{itemize}
+\item \emph{Hydrostatic bias.} Non-thermal pressure (turbulence, bulk motion) makes X-ray masses low. Simulations find the non-thermal fraction rising
+with redshift, as younger clusters are less relaxed~\cite{Nelson2014,ShiKomatsu2014}; the bias then grows with $z$, the opposite slope to
+Eq.~\eqref{eq:ld_ratio}. \observed
+\item \emph{MOND-type theories.} The discrepancy depends on the internal acceleration profile of each cluster, not on its redshift.
+\item \emph{$f(R)$ gravity.} In the quasi-static limit $f(R)$ has $\Sigma=1$ and $1\le\mu\le4/3$~\cite{PogosianSilvestri2016}: the lensing mass equals
+the true mass and the dynamical mass is larger, $M_{\rm lens}/M_{\rm dyn}\le1$. The self-accelerating branch of DGP shares the signs $\mu<1$, $\Sigma=1$,
+but carries a ghost and is excluded. The signs are therefore not unique to IAM; its content is the parameter-free curve \eqref{eq:ld_ratio}.
+\end{itemize}
+
+\section{What the data say now}
+\begin{itemize}
+\item \emph{Planck SZ cluster counts.} With the primary-CMB cosmology, the counts need a mass bias $1-b=0.58\pm0.04$, against the baseline
+$1-b=0.80$ suggested by simulations~\cite{Planck2015SZ}. \observed The informational term lowers $\sigma_8$ by $1.5\,\%$ (Level~1 chains, $0.8139\to0.8014$) or $1.1\,\%$ (Level~2,
+$0.8087\to0.7998$). That reduces the tension; it does not remove it. \calc
+\item \emph{Lensing calibrations of cluster masses.} The Canadian Cluster Comparison Project~\cite{Hoekstra2015} and Weighing the
+Giants~\cite{vonderLinden2014} calibrate Planck and X-ray masses against weak lensing. Each publishes its result in its own convention ($1-b$, or
+$M_{\rm Planck}/M_{\rm WL}$, within its own aperture), and X-ray hydrostatic masses also follow $\Psi$. A comparison with Eq.~\eqref{eq:ld_ratio} must
+take each ratio from its source table and match its redshift distribution; this book does not yet print one as a test. \openprob
+\end{itemize}
+
+\section{The test}
+\prediction\ In the Level~1 form, $M_{\rm lens}/M_{\rm dyn}$ in at least five redshift bins over $0.1<z<2$ with one mass method throughout (weak lensing
+against spectroscopic velocity dispersions, the same profile model for both) follows Eq.~\eqref{eq:ld_ratio}: $1.105$ at $z=0.2$, $1.055$ at $0.5$,
+$1.018$ at $1$, $1.002$ at $2$. Euclid, Rubin and eROSITA provide the samples. A fit compares three shapes: a constant (hydrostatic bias), Eq.~\eqref{eq:ld_ratio}
+with no free parameter, and a two-parameter power law $1+A(1+z)^n$. The discriminant is the shape in redshift, not the existence of an offset.
+\begin{itemize}
+\item Falsified (in this form) by a ratio flat in $z$, by one rising with $z$, or by a $z=0$ value away from 1.158 at more than $3\sigma$ in a clean
+sample.
+\item Lensing against velocity dispersions and lensing against X-ray masses are the same test only in the Level~1 form.
+\end{itemize}
+
+\section{Corrections applied}
+The prediction is carried with its form stated and on hold. $f(R)$ has $\Sigma=1$ in the quasi-static limit, and self-accelerating DGP shares the signs
+of $\mu$ and $\Sigma$; the uniqueness claim is replaced by the parameter-free shape. The SZ tension is reduced, not resolved. The published cluster
+ratios are not printed until traced to their tables. Chain counts and $\sigma_8$ are from the final chains. Appendix~\ref{app:errata} lists each item.
+
+\section{Status}
+\begin{center}\small\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xl}\toprule
+Result & Label\\\midrule
+$M_{\rm lens}/M_{\rm dyn}=1/\mu(z)$, Eq.~\eqref{eq:ld_ratio}, Level~1 form & \calc\ \prediction\\
+Which implementation form applies inside clusters & \openprob\\
+Non-thermal pressure slope positive in $z$ & \observed\\
+$\sigma_8$ shift and the SZ counts & \calc\\
+Comparison with published cluster ratios & \openprob\\\bottomrule
+\end{tabularx}\end{center}

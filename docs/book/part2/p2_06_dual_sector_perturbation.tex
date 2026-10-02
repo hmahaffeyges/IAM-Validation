@@ -5,17 +5,17 @@
 \chapter{The mechanism in the Boltzmann code: a matter-sector expansion rate}\label{ch:level2}
 
 \section*{Summary}
-Chapter~\ref{ch:latetime} tested the dual-sector prediction through MGCAMB's parameterised $\mu$. This chapter puts the mechanism itself into the CAMB
+Chapter~\ref{ch:latetime} tested the dual-sector prediction through MGCAMB's parameterised $\mu$~\cite{Zhao2009MGCAMB,Wang2023MGCAMB}. This chapter puts the mechanism itself into the CAMB~\cite{Lewis2000CAMB,MahaffeyDSPerturbation}
 Fortran source: cold dark matter and baryon perturbations evolve with a matter-sector expansion rate, while photons, neutrinos, recombination and the
-background Friedmann equation stay $\Lambda$CDM. The single coupling is $\beta_m=\Omega_m/2=0.15765$ (Planck 2018 $\Omega_m=0.3153$) with
-$E(a)=\exp(1-1/a)$; no parameter is added. Three converged chains against Planck (NPIPE CamSpec TTTEEE, low-$\ell$ TT and EE, lensing) give
+background Friedmann equation stay $\Lambda$CDM. The single coupling is $\beta_m=\Omega_m/2=0.15765$ (Planck 2018 $\Omega_m=0.3153$~\cite{Planck2018VI}) with
+$E(a)=\exp(1-1/a)$; no parameter is added. Three converged chains against Planck (NPIPE CamSpec TTTEEE~\cite{Rosenberg2022}, low-$\ell$ TT and EE, lensing) give
 $\Delta\chi^2=+0.54$ at the best points and $-0.01$ in the chain averages; every standard parameter moves by under $0.1\sigma$; $\sigma_8$ moves from
 $0.8087\pm0.0059$ to $0.7998\pm0.0058$ ($-1.1\,\%$). The photon-sector Hubble constant is $67.16\pm0.47$ and the matter-sector value
 $67.161\sqrt{1.15765}=72.26$. Two exploratory runs with the term in the background Friedmann equation instead give $H_0\approx61.5$, which Planck excludes.
 
 \section{Why two rates}
-The CMB gives $H_0=67.4\pm0.5$ (Planck 2018); the Cepheid ladder gives $73.04\pm1.04$ (Riess et al.\ 2022), with TRGB and lensing time delays also
-measured locally. Weak lensing gives $S_8$ 2--3$\sigma$ below Planck: KiDS-1000 $0.759^{+0.024}_{-0.021}$ (cosmic shear; reference to be traced), DES Y3 $0.776\pm0.017$, HSC Y3 $0.776\pm0.032$.
+The CMB gives $H_0=67.4\pm0.5$ (Planck 2018~\cite{Planck2018VI}); the Cepheid ladder gives $73.04\pm1.04$ (Riess et al.\ 2022~\cite{Riess2022}), with TRGB~\cite{Freedman2021} and lensing time delays~\cite{Wong2020} also
+measured locally. Weak lensing gives $S_8$ 2--3$\sigma$ below Planck: KiDS-1000 $0.759^{+0.024}_{-0.021}$~\cite{Asgari2021} (cosmic shear), DES Y3 $0.776\pm0.017$~\cite{DESY3}, HSC Y3 $0.776\pm0.032$~\cite{HSCY3}.
 Both differences set early-universe photon measurements against late-universe matter measurements. The question here is whether matter and light can
 have different effective expansion rates at late times while sharing the early history. Chapter~\ref{ch:latetime} showed that $\mu<1$, $\Sigma=1$ is
 consistent with Planck in four data combinations; MGCAMB imposes $\mu$ as a function. Here the mechanism is coded directly.
@@ -54,7 +54,7 @@ $0.8\,\%$ for Eq.~\eqref{eq:l2_mu} applied as $G_{\rm eff}=\mu G$, with the same
 mechanism is therefore slightly stronger than Eq.~\eqref{eq:l2_mu}, in the same direction.
 
 \subsection{The CAMB source}
-Three changes in CAMB~1.5.8 \texttt{equations.f90}; nothing else is modified.
+Three changes in CAMB~1.5.8~\cite{Lewis2000CAMB} \texttt{equations.f90}; nothing else is modified.
 \begin{enumerate}
 \item Module parameters: \verb|iam_beta = 0.15765| and a switch \verb|iam_dual_sector|.
 \item The matter-sector rate, after the standard \verb|adotoa| (unchanged):
@@ -86,11 +86,11 @@ $\Omega_m$, $H_0$ & standard & Planck 2018\\\hline
 The six sampled parameters are those of $\Lambda$CDM: $\{\omega_b,\omega_c,\theta_{\rm MC},\tau,\ln10^{10}A_s,n_s\}$.
 
 \section{Data and method}
-Planck: NPIPE (PR4) CamSpec TTTEEE at $\ell\ge30$ (Rosenberg, Gratton and Efstathiou 2022), Planck 2018 low-$\ell$ TT and EE, and lensing (CMBMarged).
-Growth (Run D only): seven $f\sigma_8$ points with diagonal errors --- 6dFGS ($z=0.067$), SDSS MGS ($0.15$), BOSS DR12 ($0.38$, $0.51$), eBOSS DR16 LRG
-($0.70$), ELG ($0.85$) and quasars ($1.48$). Cobaya, $R-1<0.01$. Run A: IAM, Planck. Run C: $\Lambda$CDM, the same code with the switch off, same
+Planck: NPIPE (PR4) CamSpec TTTEEE at $\ell\ge30$ (Rosenberg, Gratton and Efstathiou 2022~\cite{Rosenberg2022}), Planck 2018 low-$\ell$ TT and EE~\cite{Planck2018V}, and lensing (CMBMarged~\cite{Planck2018VIII}).
+Growth (Run D only): seven $f\sigma_8$ points with diagonal errors --- 6dFGS ($z=0.067$)~\cite{Beutler2012}, SDSS MGS ($0.15$)~\cite{Howlett2015}, BOSS DR12 ($0.38$, $0.51$)~\cite{Alam2017}, eBOSS DR16 LRG
+($0.70$), ELG ($0.85$) and quasars ($1.48$)~\cite{Alam2021}. Cobaya~\cite{Torrado2021}, $R-1<0.01$~\cite{Gelman1992}. Run A: IAM, Planck. Run C: $\Lambda$CDM, the same code with the switch off, same
 likelihoods. Run D: IAM, Planck + growth. Any A--C difference therefore comes from the modification alone. The high-$\ell$ likelihood differs from
-Chapter~\ref{ch:latetime} (plik-lite), so $\chi^2$ values are compared within a level, not across.
+Chapter~\ref{ch:latetime} (plik-lite~\cite{Planck2018V}), so $\chi^2$ values are compared within a level, not across.
 
 \section{Results}
 \subsection{Planck: Run A against Run C}
@@ -167,7 +167,7 @@ Both levels lower $\sigma_8$ to $0.800$--$0.802$ from the same $\beta_m$: by $1.
 $0.809$, NPIPE CamSpec).
 \subsection{Predictions}
 \begin{enumerate}
-\item $\mu(z)<1$ with redshift dependence fixed by $E(a)$; Euclid, $\sigma(\mu_0)\approx0.04$, reaches $0.135/0.04\approx3.4\sigma$.
+\item $\mu(z)<1$ with redshift dependence fixed by $E(a)$; Euclid~\cite{Euclid2025}, $\sigma(\mu_0)\approx0.04$, reaches $0.135/0.04\approx3.4\sigma$.
 \item $\Sigma=1$ at all redshifts.
 \item $H_0^{(m)}/H_0^{(\gamma)}=\sqrt{1+\Omega_m/2}$, testable with standard sirens, whose hosts are galaxies.
 \item No scale dependence: $\mu$ and $\Sigma$ depend on $z$ only.

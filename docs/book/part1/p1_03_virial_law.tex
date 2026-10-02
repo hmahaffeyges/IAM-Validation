@@ -11,9 +11,9 @@
 
 \section*{Overview}
 IAM's law says that every irreversible transition from a quantum superposition to a classical record pays $k_BT\ln2$ per bit. This chapter shows where that
-cost sits in the most widely tested equilibrium result in physics, the virial theorem of Clausius (1870). The theorem fixes the share of binding energy that a
+cost sits in the most widely tested equilibrium result in physics, the virial theorem of Clausius (1870)~\cite{Clausius1870}. The theorem fixes the share of binding energy that a
 stable system bound by a $1/r$ potential holds as motion: exactly one half. The same half holds from the hydrogen atom to clusters of galaxies, and a short
-thermodynamic argument identifies it: the kinetic half is the irreversible cost of the binding transition itself. Part~2 opens by applying this to the universe,
+thermodynamic argument identifies it~\cite{MahaffeyVirialIdentity,MahaffeyVirialDomains,MahaffeyVirialAtoms}: the kinetic half is the irreversible cost of the binding transition itself. Part~2 opens by applying this to the universe,
 where it fixes the one coupling that every cosmological result in this book carries.
 
 \section{The theorem and why the factor is one half}
@@ -21,14 +21,14 @@ For a bound system whose potential energy is a homogeneous function of degree $k
 \begin{equation}
 2\langle K\rangle=k\,\langle V\rangle .
 \end{equation}
-This follows from Euler's theorem for homogeneous functions applied to the virial $\sum_i\mathbf r_i\cdot\mathbf p_i$, whose time average is constant for a
+This follows from Euler's theorem for homogeneous functions~\cite{Goldstein} applied to the virial $\sum_i\mathbf r_i\cdot\mathbf p_i$, whose time average is constant for a
 bound system. Gravity and the Coulomb interaction both have $V\propto r^{-1}$, so $k=-1$ and
 \begin{equation}
 2\langle K\rangle+\langle V\rangle=0,\qquad \langle K\rangle=\tfrac12|\langle V\rangle| .
 \end{equation}
 The factor is set by the degree of the potential, and the degree is set by geometry: in three spatial dimensions Gauss's law makes the field of a point source
 fall as $1/r^2$, so the potential falls as $1/r$. The half is a result for $1/r$ binding: a potential homogeneous of degree $k$ gives $2\langle K\rangle=k\langle V\rangle$, and
-the linear potential that confines quarks ($k=+1$) gives the opposite partition. It holds for gravity and electromagnetism, not for confined hadrons; because every atom, molecule and bond is held by
+the linear potential that confines quarks ($k=+1$)~\cite{Eichten1978} gives the opposite partition. It holds for gravity and electromagnetism, not for confined hadrons; because every atom, molecule and bond is held by
 electromagnetism, it holds inside every star, cell and transistor. Nothing in the result depends on the number of bodies, the mass distribution or the scale. The same
 $1/2$ appears in the Bohr atom, in a star, and in a cluster of galaxies.
 
@@ -43,11 +43,11 @@ System & Scale & Quantity & Result\\\hline
 Hydrogen atom & $10^{-10}$ m & $\langle K\rangle/|\langle V\rangle|$ & $1/2$ exactly (13.6\,eV of 27.2\,eV)\\
 20 atoms, H--Xe (Hartree--Fock limit) & $10^{-10}$ m & $T/|V|$ & $1/2$ (exact for converged wavefunctions)\\
 10 molecules, H$_2$--CO$_2$ & $10^{-9}$ m & $T/|V|$ & $1/2$ at equilibrium geometry\\
-White dwarfs & $10^{7}$ m & Chandrasekhar mass & $1.456\,M_\odot$ ($\mu_e=2$); none observed above it\\
+White dwarfs & $10^{7}$ m & Chandrasekhar mass~\cite{Chandrasekhar1931} & $1.456\,M_\odot$ ($\mu_e=2$); none observed above it\\
 The Sun & $10^{9}$ m & $|U|/2L$ & 24 Myr: contraction cannot power it, so it burns hydrogen\\
-Galaxy clusters & $10^{23}$ m & dynamical vs lensing mass & agree to tens of percent (Zwicky 1933 onward)\\
-Simulated halos, $10^{10}$--$10^{15}M_\odot$ & $10^{21}$--$10^{23}$ m & $2K/|W|$ & $1.1$--$1.3$; $1.02$--$1.17$ with surface pressure\\
-Schwarzschild black hole & $r_s$ & $T_HS/Mc^2$ & $1/2$ (Smarr relation; Chapter~\ref{ch:blackholes})\\
+Galaxy clusters & $10^{23}$ m & dynamical vs lensing mass & agree to tens of percent (Zwicky 1933~\cite{Zwicky1933} onward)\\
+Simulated halos, $10^{10}$--$10^{15}M_\odot$ & $10^{21}$--$10^{23}$ m & $2K/|W|$ & $1.1$--$1.3$~\cite{Bett2007,Neto2007,Power2012}; $1.02$--$1.17$ with surface pressure~\cite{Klypin2016}\\
+Schwarzschild black hole & $r_s$ & $T_HS/Mc^2$ & $1/2$ (Smarr relation~\cite{Smarr1973}; Chapter~\ref{ch:blackholes})\\
 Cosmic horizon & $10^{26}$ m & $\beta_m/\Omega_m$ & $1/2$ by prediction; consistent with Planck (Chapter~\ref{ch:virial})\\\hline
 \end{tabularx}
 \end{table}
@@ -58,7 +58,7 @@ independent measurement. The gravitational rows are measurements, at the precisi
 magnitude in size; Part~2 carries the same half to the horizon of a black hole and to the horizon of the universe.
 
 \section{What the kinetic half is: the thermodynamic identity}
-Clausius derived the theorem from Newton's second law. The derivation describes the bound state; it says nothing about the transition into it. Consider a
+Clausius derived the theorem from Newton's second law~\cite{Clausius1870}. The derivation describes the bound state; it says nothing about the transition into it. Consider a
 system that falls from rest at infinity ($E_i=0$) into a stable bound state with $E_f=\langle K\rangle+\langle V\rangle<0$, releasing the difference to its
 surroundings.
 \begin{enumerate}
@@ -76,7 +76,7 @@ electron's mean kinetic energy in that state; the potential energy is $-27.2$\,e
 
 This does not derive the virial theorem from thermodynamics: $\langle K\rangle=Q$ follows from the first law and the fourth step alone, which is
 mechanics. Steps 2 and 3 add the identification: they give the kinetic half a definite thermodynamic meaning, the irreversible cost of the binding transition, carried off to the surroundings and recorded there as entropy at
-$k_BT\ln2$ per bit. Jacobson (1995) obtained the Einstein equations from $\delta Q=T\,\delta S$ on local Rindler horizons; the same relation applied at the
+$k_BT\ln2$ per bit. Jacobson (1995)~\cite{Jacobson1995} obtained the Einstein equations from $\delta Q=T\,\delta S$ on local Rindler horizons; the same relation applied at the
 boundary of a forming bound state returns the virial partition. The identity holds wherever the binding energy is released --- radiated by an atom, by a
 contracting gas cloud, by a forming star. For collisionless dark matter, which relaxes without radiating, the energy is redistributed rather than released,
 and the identity applies to the information written in the relaxation, not to emitted heat; this is the step IAM takes at cosmological scale.

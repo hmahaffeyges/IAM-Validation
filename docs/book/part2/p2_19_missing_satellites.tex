@@ -1,0 +1,86 @@
+% Part 2 chapter carrying "Missing Satellites: The Virial Partition Closure Condition and the Two Mechanisms" (Mahaffey, March 2026) in its order.
+% Read in full 2026-10-02 (PDF text 564 lines in this extraction, 574 in the check file's; every line read). Numbers and the census:
+% docs/verification/scripts/verify_obs_chapters.py (sections A, F) on docs/verification/observations/data/lvdb_dwarf_mw.csv.
+% Check: docs/verification/observations/MISSING_SATELLITES_CHECK.md; errata M2-M8, V11, TR6, BP1. The dispersal floor is a failed prediction,
+% recorded as such (Part 5 already lists it under "Already tested").
+\chapter{Missing satellites: two mechanisms tested}\label{ch:satellites}
+
+\section*{The place}
+The halo of the Milky Way and the small halos inside it. Each satellite galaxy is a bound system whose stars and dark matter wrote their records as they
+collapsed. In IAM the cosmic horizon is always available as the surface for those records (Chapter~\ref{ch:surfaces}). The source paper asks
+whether the cost of writing can explain why far fewer satellites are seen than cold-dark-matter simulations predict, and proposes two mechanisms. One
+is too small; the other is contradicted by the satellites already catalogued.
+
+\section{The problem}
+\observed\ Simulations of a Milky Way-mass halo in $\Lambda$CDM contain about an order of magnitude more dark-matter subhalos than there are known
+satellite galaxies~\cite{Klypin1999,Moore1999}. The standard explanations act on the baryons: reionisation, tidal and ram-pressure stripping, and
+feedback keep small halos dark. The paper proposes that the informational term acts on the dark-matter halos themselves.
+
+\section{Mechanism A: weaker growth}
+The matter coupling $\mu<1$ slows late-time growth (Chapter~\ref{ch:latetime}). The size of the effect is set by the growth equation.
+\calc\ With the exact coupling and the same early amplitude, the linear growth factor today is lower by $0.78\,\%$; in the chains $\sigma_8$ falls by
+$1.5$--$1.6\,\%$ (Level~1 form) and $1.1\,\%$ (Level~2 form). In the Press--Schechter mass function at fixed mass, a scale-independent fractional change
+$\epsilon$ in $\sigma_M$ changes the abundance by
+\begin{equation}\Delta\ln n=(\nu^2-1)\,\epsilon,\qquad\nu=\delta_c/\sigma_M,\label{eq:ms_ps}\end{equation}
+so for any $\nu<\sqrt2$ a growth change of $0.78\,\%$ moves the abundance by less than $0.78\,\%$. Satellite halos today lie far below the characteristic
+collapse mass, at $\nu<1$, where a lower $\sigma_M$ slightly raises their count. Either way the change is under one per cent, against a deficit of an
+order of magnitude. \calc\ Mechanism~A does not address the missing satellites. Its growth signature is the one already tested in
+Chapters~\ref{ch:latetime} and \ref{ch:s8trend}.
+
+\section{Mechanism B: a dispersal floor}
+The paper's second mechanism: a collapsing halo must write the informational half of its virial energy to a surface on its own collapse time; if the
+cosmic horizon cannot take it fast enough and no local black-hole horizon can form, the halo disperses. Setting the dynamical time
+$t_{\rm dyn}\approx\sqrt{\pi/6}\,GM/\sigma^3$ equal to $1/H_0$ gives a minimum mass, which the paper writes as
+\begin{equation}M_{\min}=\frac{4\,\Omega_m\sigma^3}{G H_0},\qquad\sigma_{\rm crit}=\left(\frac{GH_0M_{\min}}{4\Omega_m}\right)^{1/3}.\label{eq:ms_mmin}\end{equation}
+\calc\ With $\Omega_m=0.3153$ and $H_0=67.36$: $M_{\min}(4~\mathrm{km\,s^{-1}})=10^{8.44}\,M_\odot$, and $M_{\min}=10^{8.4}\,M_\odot$ gives
+$\sigma_{\rm crit}=3.9~\mathrm{km\,s^{-1}}$. Taking the dynamical-time condition directly gives $\sqrt{6/\pi}\,\sigma^3/(GH_0)=10^{8.48}\,M_\odot$ at
+$4~\mathrm{km\,s^{-1}}$; the prefactor $4\Omega_m=1.26$ in place of $\sqrt{6/\pi}=1.38$ is not derived. Equation~\eqref{eq:ms_mmin} at
+$4~\mathrm{km\,s^{-1}}$ lands on the occupation floor the paper uses; there is no normalisation offset in it.
+
+Two points stand before any data. The premise that the cosmic horizon is ``thermodynamically inadequate'' on collapse times is not derived; in IAM the
+horizon is always available, and the rate at which a local region must write is not set by $E(a)$. And the observed occupation floor near
+$10^{8.4}\,M_\odot$ is attributed in the paper to a study of self-interacting dark matter in cluster mergers, which is not a satellite-occupation result;
+the correct source is still to be found. \openprob
+
+\section{The census}
+The paper states its own falsifier (its \S6): if a significant population of satellites below $\sigma_{\rm crit}$ is found, the dispersal condition is
+inconsistent with observation. That population is in the published data. \observed\ The Local Volume Database~\cite{Pace2025LVDB} (the version in
+\texttt{docs/\allowbreak{}verification/\allowbreak{}observations/\allowbreak{}data/}) lists 68 Milky Way satellites; 54 have a measured velocity
+dispersion or an upper limit.
+\begin{itemize}
+\item 25 of the 54 (46\,\%) have a dispersion, or an upper limit, below $4~\mathrm{km\,s^{-1}}$; 24 of the 25 are flagged as confirmed galaxies.
+\item 19 have a resolved dispersion below $4~\mathrm{km\,s^{-1}}$, the lowest Tucana~V ($1.2^{+0.9}_{-0.6}$), Bo\"otes~III ($1.69^{+1.03}_{-0.85}$),
+Bo\"otes~II ($1.92^{+0.77}_{-0.60}$), Hercules ($2.25^{+0.67}_{-0.61}$) and Crater~II ($2.34^{+0.42}_{-0.30}$); for 8 of them the value plus its
+$1\sigma$ error is still below $4$.
+\item 6 have only upper limits below $4$: Tucana~III ($<1.5$, the one not flagged as a confirmed galaxy), Grus~II ($<2.0$), Segue~2 ($<2.06$),
+Draco~II ($<2.6$), Aquarius~III and Triangulum~II ($<3.5$). Segue~2 is a galaxy by the spread of its stellar metallicities~\cite{Kirby2013Segue2}.
+\item 20 of the 25 have a resolved spectroscopic metallicity spread, $0.19$--$0.59$~dex, the standard signature of a dark-matter-hosted galaxy that
+retained its supernova ejecta.
+\item 29 lie at or above $4~\mathrm{km\,s^{-1}}$ (26 measured, 3 with upper limits above it).
+\end{itemize}
+By the paper's own criterion, Mechanism~B as stated, that no halo virialises below $\sigma_{\rm crit}\approx4~\mathrm{km\,s^{-1}}$, is rejected.
+
+\paragraph{What a referee would add.} Tides lower the present dispersion of satellites on close orbits, so the dispersion today is not the dispersion at
+formation. The fair version of the test compares a floor with the dispersion at infall, or with the peak circular velocity, which needs each satellite's
+orbital history. Equation~\eqref{eq:ms_mmin} does not say which of these its $\sigma$ is. That version remains open, and it needs the dispersal
+condition derived first. \openprob
+
+\section{Corrections applied}
+The growth suppression is the growth-equation value, under one per cent. $\beta_m$ is fixed at $\Omega_m/2$ in every chain; its posterior value is
+$\Omega_m/2$ of the chain, not a recovery. All 18 final chains have $R-1\le0.010$. Euclid's complete first release is due mid-2027
+($\sigma(\mu_0)\approx0.08$); $0.04$ is the final-survey forecast. The paper's description of the virial halves as two channels, the claim that the
+informational half must be written to a local black-hole horizon, and the family of $\sigma^2$, $\sigma^3$ and $\sigma^4$ scalings are not carried: the
+book's statement is IAM's Law with the virial partition setting how much bound matter writes (Part~\ref{part:1}), the $M$--$\sigma$ derivation is
+abandoned, and the cusp--core prediction failed (Chapter~\ref{ch:predictions}). Appendix~\ref{app:errata} lists each item.
+
+\section{Status}
+\begin{center}\small\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xl}\toprule
+Result & Label\\\midrule
+Mechanism A: growth $-0.78\,\%$, abundance change $<1\,\%$ & \calc\\
+Mechanism A as an explanation of the missing satellites & not supported\\
+Eq.~\eqref{eq:ms_mmin}: $10^{8.44}\,M_\odot$ at $4~\mathrm{km\,s^{-1}}$ & \calc\\
+Dispersal premise and the $4\Omega_m$ prefactor & \openprob\\
+Census: 25 of 54 below $4~\mathrm{km\,s^{-1}}$ & \observed\\
+Mechanism B as stated & rejected by the census\\
+Floor on the dispersion at infall & \openprob\\\bottomrule
+\end{tabularx}\end{center}

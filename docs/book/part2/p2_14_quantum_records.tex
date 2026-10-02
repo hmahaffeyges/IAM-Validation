@@ -12,15 +12,15 @@ those transitions.
 
 \section{What decoherence explains, and what it leaves open}
 A system $S$ interacting with an environment $\mathcal E$ evolves unitarily into $\sum_i c_i|s_i\rangle|e_i\rangle$. Tracing out the environment
-suppresses the off-diagonal terms; the states that survive monitoring are the pointer states (einselection; Zurek 1981, 2003). Quantum Darwinism adds
+suppresses the off-diagonal terms; the states that survive monitoring are the pointer states (einselection; Zurek 1981, 2003~\cite{Zurek1981,Zurek2003}). Quantum Darwinism adds
 objectivity: information about the pointer state is copied redundantly into many independent fragments of the environment, so that many observers can
-read the same outcome without disturbing it (Zurek 2009). Decoherence theory explains how classical records form and why they agree. It does not say
+read the same outcome without disturbing it (Zurek 2009~\cite{Zurek2009}). Decoherence theory explains how classical records form and why they agree. It does not say
 what a record costs, or where it is ultimately kept.
 
 IAM's Law answers both. Each irreversible record costs $k_BT\ln2$ per bit, paid at the nearest encoding surface. A record in a detector is paid at the
 detector; a record made by a collapsing cloud of matter is paid at the largest surface that matter shares, the cosmic horizon at
 $T_{GH}=\hbar H/2\pi k_B$. Summed over the history of structure formation, the records written there are the accumulated entropy $S_{\rm info}$, and its
-ledger is the activation function $E(a)=\exp(1-1/a)$ (Chapter~\ref{ch:theory}). Zurek's environment, followed to its largest scale, ends at the horizon.
+ledger is the activation function $E(a)=\exp(1-1/a)$ (Chapter~\ref{ch:theory}). Zurek's environment, followed to its largest scale, ends at the horizon~\cite{MahaffeyQDarwinism}.
 
 \section{Collapse sets the rate}
 Can the quantum-to-classical transition be trusted to drive anything at cosmological scale? The answer turns on time scales. For a bound structure of
@@ -35,11 +35,11 @@ $dS_{\rm info}/d\ln a\propto a^{n-9/2}$, and the form $\exp(1-1/a)$ requires $n-
 \begin{equation}n=\tfrac72\qquad\text{(top-down).}\end{equation}
 The bottom-up rate is fixed with no choice left open. The factor $1/T_H$ is Landauer's (bits per unit energy), so $\dot I$ is a rate of energy; IAM's Law
 with the virial partition fixes which energy --- the kinetic half of each bound structure, $K\simeq\tfrac12|W|\propto M^{5/3}(\Delta_c\rho_{\rm crit})^{1/3}$.
-Summing $K$ over all halos with measured halo statistics (Planck 2018 power spectrum; no mass threshold is needed, the sum converges at low mass) and
+Summing $K$ over all halos with measured halo statistics (Planck 2018 power spectrum~\cite{Planck2018VI}; no mass threshold is needed, the sum converges at low mass) and
 reading off $n_{\rm eff}=d\ln[(dU/d\ln a)/f]/d\ln D$:
 \begin{center}\small\begin{tabular}{lcccc}\toprule
 mass function & $n_{\rm eff}(z{=}4)$ & $n_{\rm eff}(z{=}2)$ & equals $7/2$ at & mean, $z=2.3$--$9$\\\midrule
-Press--Schechter & 3.84 & 2.83 & $z=3.3$ & 4.26\\ Sheth--Tormen & 3.52 & 2.60 & $z=4.0$ & 3.89\\ Tinker et al.\ 2008 & 3.89 & 2.95 & $z=3.2$ & 4.29\\\bottomrule
+Press--Schechter~\cite{PressSchechter1974} & 3.84 & 2.83 & $z=3.3$ & 4.26\\ Sheth--Tormen~\cite{ShethTormen1999} & 3.52 & 2.60 & $z=4.0$ & 3.89\\ Tinker et al.\ 2008~\cite{Tinker2008} & 3.89 & 2.95 & $z=3.2$ & 4.29\\\bottomrule
 \end{tabular}\end{center}
 The result is insensitive to the halo definition ($\pm0.03$) and to $\sigma_8$ between $0.77$ and $0.85$. The bottom-up exponent is not a constant: it
 runs from about $5.5$ at $z=9$ to about $2$ at $z=1$, and passes through $7/2$ at $z\approx3$--$4$, averaging close to $4$ over the matter era. The two
@@ -52,16 +52,16 @@ A photon travels a null geodesic, $d\tau=0$. It accumulates no proper time and m
 is absorbed, in matter. This is the sector split seen from the quantum side: matter on timelike worldlines writes, light does not, and so $\mu<1$ for
 matter while $\Sigma=1$ for light.
 
-\paragraph{Entanglement.} IAM's Law changes nothing in quantum mechanics. An entangled pair is one quantum state, and its correlations are those of that
-state --- $|S|=2\sqrt2$ for an ideal source --- until an irreversible record is written. Photon pairs have been distributed over 1,200\,km by satellite
-(Yin et al.\ 2017); electron spins 1.3\,km apart have violated a Bell inequality without loopholes, entangled by interfering their spontaneously emitted
-photons (Hensen et al.\ 2015). Both are consistent with standard decoherence. The second shows a point the law makes precise: an emitted photon is not yet
+\paragraph{Entanglement.} IAM's Law changes nothing in quantum mechanics~\cite{MahaffeyEntanglement}. An entangled pair is one quantum state, and its correlations are those of that
+state --- $|S|=2\sqrt2$ for an ideal source~\cite{Tsirelson1980} --- until an irreversible record is written. Photon pairs have been distributed over 1,200\,km by satellite
+(Yin et al.\ 2017~\cite{Yin2017}); electron spins 1.3\,km apart have violated a Bell inequality without loopholes, entangled by interfering their spontaneously emitted
+photons (Hensen et al.\ 2015~\cite{Hensen2015}). Both are consistent with standard decoherence. The second shows a point the law makes precise: an emitted photon is not yet
 a record, and its which-path information can still be erased by measuring it in a conjugate basis; the record is written, and the cost paid, where it is
 absorbed.
 
 \section{Massive superpositions}
 For a massive object held in a spatial superposition, the gravitational self-energy $E_G\simeq Gm^2/R$ sets the scale of any gravitational channel.
-Penrose and Di\'osi proposed a collapse time $\tau_{\rm PD}=\hbar/E_G$, independent of temperature. Applying IAM's Law at the superposition boundary,
+Penrose and Di\'osi~\cite{Penrose1996,Diosi1987,Diosi1989} proposed a collapse time $\tau_{\rm PD}=\hbar/E_G$, independent of temperature. Applying IAM's Law at the superposition boundary~\cite{MahaffeyGravDec},
 with the boundary's capacity taken as $k_BT/E_G$, gives
 \begin{equation}\tau_{\rm IAM}=\frac{\hbar\,(k_BT)^2\ln2}{E_G^3}\;\propto\;T^2m^{-5}\quad(\text{fixed density}),\qquad\tau_{\rm PD}\propto m^{-5/3}.\end{equation}
 For a $10^{-12}$\,kg silica sphere ($\rho=2000$\,kg\,m$^{-3}$) at 10\,mK: $\tau_{\rm IAM}=559$\,s, $\tau_{\rm PD}=7.8\,\mu$s; doubling the temperature

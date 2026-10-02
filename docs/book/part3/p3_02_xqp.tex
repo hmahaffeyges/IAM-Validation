@@ -5,31 +5,31 @@
 
 \section*{The place}
 IAM's Law (Chapter~\ref{ch:iams_law}) prices every irreversible record at $k_BT\ln2$ per bit at the nearest encoding surface. A superconducting qubit
-is a device built to \emph{avoid} records: it holds a superposition for as long as it can. This chapter asks what the law says that holding costs, and
+is a device built to \emph{avoid} records: it holds a superposition for as long as it can. This chapter asks what the law says that holding costs~\cite{MahaffeyXqp}, and
 where the cost should appear in a measurement.
 
 \section{The anomaly}
 In the best-isolated Al/AlOx/Al transmons the density of broken Cooper pairs (quasiparticles) does not fall below
 \begin{equation}x_{\rm qp}=n_{\rm qp}/n_{\rm cp}\sim10^{-7},\qquad n_{\rm cp}=2\nu_0\Delta\approx4\times10^6\,\mu{\rm m}^{-3},\end{equation}
 that is $n_{\rm qp}\approx0.4$ per $\mu$m$^3$. In thermal equilibrium at 15--20\,mK there should be no more than one quasiparticle in a volume the size
-of the Earth. Known external sources have been reduced one by one --- stray infrared light, environmental radioactivity, cosmic rays --- and the floor
+of the Earth. Known external sources have been reduced one by one --- stray infrared light~\cite{Barends2011}, environmental radioactivity~\cite{Vepsalainen2020,Cardani2021}, cosmic rays~\cite{McEwen2022} --- and the floor
 remains. What the measurements show, read carefully:
 \begin{itemize}
-\item The same qubit operated at the surface and deep underground at Gran Sasso, with about thirty times fewer muons, shows the same $T_1$, and
-$T_1$ is insensitive to added shielding while the quasiparticle tunnelling rate is very sensitive to it. Together these say that at present
+\item The same qubit operated at the surface and deep underground at Gran Sasso, with about thirty times fewer muons, shows the same $T_1$~\cite{DeDominicis2026}, and
+$T_1$ is insensitive to added shielding while the quasiparticle tunnelling rate is very sensitive to it~\cite{Gordon2022}. Together these say that at present
 lifetimes $T_1$ is not set by radiation-generated quasiparticles, and that a large part of the measured tunnelling is of external origin. They do not
 by themselves show an internal source.
-\item The excess quasiparticles have a thermalised energy distribution at the gap edge. In aluminium, quasiparticles relax to the gap edge by phonon
-emission far faster than they recombine at these densities, so any source gives this distribution; it is consistent with an internal source but does
+\item The excess quasiparticles have a thermalised energy distribution at the gap edge~\cite{Connolly2024}. In aluminium, quasiparticles relax to the gap edge by phonon
+emission far faster than they recombine at these densities~\cite{Kaplan1976}, so any source gives this distribution; it is consistent with an internal source but does
 not single one out.
-\item The background tunnelling statistics are Poissonian, with separate correlated bursts from ionising events.
-\item The tunnelling rate depends on the oxide barrier, which contains high-transmission sites with a reduced gap, and most TLS sit on the junction leads.
+\item The background tunnelling statistics are Poissonian, with separate correlated bursts from ionising events~\cite{Andersson2026,McEwen2022}.
+\item The tunnelling rate depends on the oxide barrier, which contains high-transmission sites with a reduced gap~\cite{Kurter2022}, and most TLS sit on the junction leads~\cite{Lisenfeld2025}.
 \end{itemize}
 These leave room for a source inside the device, at the junction; they do not establish it. The proposal below is that source, stated so that a
 measurement can rule it in or out.
 
 \section{The proposal}
-A qubit holds its state against a bath of two-level fluctuators (TLS) in the oxide and at the metal--oxide interfaces. A TLS flip kicks the condensate
+A qubit holds its state against a bath of two-level fluctuators (TLS) in the oxide and at the metal--oxide interfaces~\cite{Phillips1987,Muller2019}. A TLS flip kicks the condensate
 phase by $\delta\phi\sim g/\omega_q\sim10^{-3}$; the condensate restores its phase in $\hbar/\Delta\approx3.6$\,ps, about seven orders of magnitude faster than
 the next flip ($\tau_{\rm TLS}\sim1$--$100\,\mu$s). After restoration the condensate is the same whichever way the TLS flipped: the information about
 the flip has been discarded. That is an erasure, and by IAM's Law it is paid in heat. Each active site therefore produces an irreversible event at rate
@@ -43,7 +43,7 @@ thermodynamics, and therefore the place a clean experiment decides.
 \section{From events to quasiparticles}
 Three facts of superconductor physics fix how events become a density.
 \paragraph{Pair breaking is quantised.} A quasiparticle exists only once a Cooper pair is broken, which costs $2\Delta$ ($364\,\mu$eV in Al) and yields
-two quasiparticles. Landauer's principle sets the \emph{minimum} heat of an erasure, $\Delta\ln2=126\,\mu$eV if the bath sits at the gap scale;
+two quasiparticles. Landauer's principle sets the \emph{minimum} heat of an erasure~\cite{Landauer1961}, $\Delta\ln2=126\,\mu$eV if the bath sits at the gap scale;
 heat below $2\Delta$ goes into phonons that cannot break pairs. An erasure event that produces quasiparticles therefore breaks a pair: yield $2$ per
 event.
 \paragraph{Quasiparticles spread.} In aluminium they diffuse $\sqrt{D\tau_{\rm qp}}\approx250$--$800\,\mu$m within a lifetime $\tau_{\rm qp}\sim100\,\mu$s,
@@ -59,20 +59,20 @@ island volume $V$ & active sites for $x_{\rm qp}=10^{-7}$ & $x_{\rm qp}$ from on
 $10^3\,\mu$m$^3$ & 60 & $1.7\times10^{-9}$\\ $10^4\,\mu$m$^3$ & 600 & $1.7\times10^{-10}$\\ $10^5\,\mu$m$^3$ & 6{,}000 & $1.7\times10^{-11}$\\\bottomrule
 \end{tabular}\end{center}
 ($\tau_{\rm TLS}=30\,\mu$s, $\tau_{\rm qp}=100\,\mu$s.) A few pinholes cannot hold the floor. Hundreds to thousands of active fluctuators can, and
-TLS spectroscopy maps them mostly on the junction leads, which is where the source must be. The number $N$ is a property of each device and has to be
+TLS spectroscopy maps them mostly on the junction leads~\cite{Lisenfeld2019,Lisenfeld2025}, which is where the source must be. The number $N$ is a property of each device and has to be
 measured; nothing else in Eq.~\eqref{eq:xqp} is free. An alternative source must be excluded by the same measurement: slow relaxation of mechanical stress in the films produces phonon bursts and
-excess quasiparticles with several of the same signatures (arXiv:2208.02790). The two are separated by Eq.~\eqref{eq:xqp}: only the erasure source
+excess quasiparticles with several of the same signatures (arXiv:2208.02790~\cite{Anthony2022}). The two are separated by Eq.~\eqref{eq:xqp}: only the erasure source
 scales with the active-fluctuator count $N$ and with $1/\tau_{\rm TLS}$.
 
 \section{The test}
-On one device, measure the five quantities $x_{\rm qp}$ (parity switching), $\tau_{\rm qp}$, $\tau_{\rm TLS}$ (1/$f$ noise), the active fluctuator count
+On one device, measure the five quantities $x_{\rm qp}$ (parity switching~\cite{Riste2013,Serniak2018}), $\tau_{\rm qp}$, $\tau_{\rm TLS}$ (1/$f$ noise), the active fluctuator count
 $N$ (TLS spectroscopy) and the island volume $V$. The law predicts
 \begin{equation}\frac{x_{\rm qp}\,n_{\rm cp}\,V\,\tau_{\rm TLS}}{N\,\tau_{\rm qp}}=2.\end{equation}
 Across devices, the floor should scale as $N/(\tau_{\rm TLS}V)$: better barriers (longer $\tau_{\rm TLS}$, fewer fluctuators) lower it; better
 shielding does not. The proposal fails if the floor does not follow $N/V$, or if it keeps falling with shielding after external sources are gone.
 
 \section{The coherence ceiling}
-Quasiparticle relaxation of a transmon is $\Gamma_1=(x_{\rm qp}/\pi)\sqrt{2\omega_q\Delta/\hbar}$ (Catelani et al.\ 2011). With
+Quasiparticle relaxation of a transmon is $\Gamma_1=(x_{\rm qp}/\pi)\sqrt{2\omega_q\Delta/\hbar}$ (Catelani et al.\ 2011~\cite{Catelani2011}). With
 $\Delta_{\rm Al}=180\,\mu$eV at $5$\,GHz, a floor of $10^{-7}$ caps $T_1$ at $0.24$\,ms, $10^{-6}$ at $0.02$\,ms; the best aluminium transmons sit
 near this cap, where dielectric (TLS) loss and quasiparticles compete. If the floor is the cost of holding the state, it is lowered by changing the barrier and its
 fluctuators, not by shielding the device.

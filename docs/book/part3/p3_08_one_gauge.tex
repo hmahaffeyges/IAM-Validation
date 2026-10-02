@@ -51,7 +51,7 @@ Each row has its own log scale, centred on 1.}\label{fig:onegauge}\end{figure}
 
 \paragraph{Where $H_{\min}$ comes from.} For the cell, the form of the floor is IAM's Law: a holding energy $E_{\rm hold}$ against $k_BT$ allows
 an error $\varepsilon_0=1/(1+e^{E_{\rm hold}/k_BT})$. Its height is at present measured: $E_{\rm hold}=\varphi M=3.41\,k_BT$ is read from the cells' own
-copy error, so $\varepsilon_0=0.032$ is the measured error expressed through the Boltzmann form, as a thermometer whose zero was set by a measurement
+copy error~\cite{Loyfer2023,MahaffeyLandauerMetrology}, so $\varepsilon_0=0.032$ is the measured error expressed through the Boltzmann form, as a thermometer whose zero was set by a measurement
 rather than by absolute zero. Three routes would make it absolute: the copying enzyme's own discrimination energy, $k_BT\ln(\text{selectivity})$ of
 DNMT1 measured precisely in vitro (published values bracket $1.9$--$4.4\,k_BT$); a derivation of $\varphi$, the fraction of one ATP spent per held bit,
 from the maintenance chemistry, since $M=20.94$ is already set by ATP; and the temperature test in ectotherms, where a fixed holding energy predicts a
@@ -91,7 +91,7 @@ gauge. $A$ says how much error there is; the C-score says whether it is spread o
 The commissioned cell is the neutrophil. Other cells are added one at a time after passing the same tests.
 
 \section{Two error channels}
-Methylated and unmethylated identity sites can err in opposite directions at once, so $A$ is reported per channel. IMR90 lung fibroblasts (WGBS, GSE48580), each culture read against
+Methylated and unmethylated identity sites can err in opposite directions at once, so $A$ is reported per channel. IMR90 lung fibroblasts (WGBS, GSE48580~\cite{Cruickshanks2013}), each culture read against
 the proliferating cultures, with sites chosen on one proliferating culture and the reference taken from another:
 \begin{center}\small\begin{tabular}{lccc}\toprule
 IMR90 & methylated channel & unmethylated channel & both\\\midrule
@@ -125,12 +125,12 @@ cannot give.
 $E_{\rm hold}=\ln[(1-\varepsilon)/\varepsilon]=3.41\,k_BT$, which is $4.9$ Landauer units ($k_BT\ln2$). One ATP is $\Delta G_{\rm ATP}/RT=
 54{,}000/(8.314\times310.15)=20.94\,k_BT$ (this is $M$), or $30.2$ Landauer units. The cell spends $\varphi=3.41/20.94=0.163$ of one ATP per held
 bit, the same in either unit.
-\paragraph{A match to the copying enzyme.} Hopfield's relation (1974): an enzyme that discriminates right from wrong with an energy gap $\Delta E$
+\paragraph{A match to the copying enzyme.} Hopfield's relation (1974~\cite{Hopfield1974}): an enzyme that discriminates right from wrong with an energy gap $\Delta E$
 errs at about $e^{-\Delta E/k_BT}$, so $\Delta E=k_BT\ln(\text{selectivity})$. Published in-vitro preferences of DNMT1 for hemimethylated over
-unmethylated CpG: $7$--$21\times$ (purified enzyme), $30$--$50\times$ (several reports), $80\times$ on average across flanking sequences (a 2023
+unmethylated CpG: $7$--$21\times$ (purified enzyme~\cite{Pradhan1999}), $30$--$50\times$ (several reports), $80\times$ on average across flanking sequences (a 2023
 analysis): $\Delta E=1.9$--$4.4\,k_BT$. The measured holding energy, $3.41\,k_BT$ (copy channel, uncorrected) and $3.77\,k_BT$ (instrument error
 removed), lies inside that range. This is a consistency check, not a confirmation: the published range is tenfold, the selectivity maps most
-directly onto the de novo channel, and UHRF1, DNMT3 and TET also act in the cell.
+directly onto the de novo channel, and UHRF1~\cite{Bostick2007,Sharif2007}, DNMT3 and TET also act in the cell.
 \paragraph{Temperature.} IAM's Law prices a bit at the local temperature, so ectotherms are the natural test. So far: Methow steelhead red blood
 cells at about $10\,^\circ$C read $3.31\,k_BT$, the same as human cells at $37\,^\circ$C ($3.29$--$3.51\,k_BT$); brook charr sperm $3.82$, Methow
 sperm $4.02$, Atlantic salmon fin $3.47\,k_BT$. The pre-registered Methow temperature prediction was not met, and in every fish set the reading

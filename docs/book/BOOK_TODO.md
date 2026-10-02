@@ -116,3 +116,13 @@ Key: [x] done · [~] started · [ ] not started · [!] needs the author.
 - [ ] 11.1 Book folder README, build script, compile check
 - [ ] 11.2 v3 report rebuilt with the tab prose
 - [ ] 11.3 Everything shown to the author is in the repo (except private material)
+
+## Citations (merged 2026-10-02): what is and is not checked
+- 341 citations inserted in Parts 1-3 and 5; 104 new bibliography entries. Every DOI and its metadata were checked against CrossRef (arXiv-only ones against the arXiv API).
+- **Not checked:** whether each cited paper contains the number it is attached to. The attachments came from the source papers' own reference lists. Spot checks done so far:
+  - Andrade et al. 2024, μ0 − 1 = 0.02 ± 0.19: confirmed in the abstract.
+  - KiDS-Legacy S8: the chapter had 0.776 and the paper gives 0.815; corrected in p2_09 (erratum ST7).
+  - Still to check, highest risk first: DESI2016 (Year 5 fσ8 precision), Kepler2007 (0.6 M_sun white-dwarf mean), Shemmer2004 (TON 618), Pradhan1999 (DNMT1 7-21× preference), Loyfer2023 (3.41 kT copy-error source).
+- **Unsourced claims (about 20; full list in the sub-agent MANIFEST):** σ(μ0) forecasts for DESI Y5, Euclid and Euclid + DESI; the DGP ghost; the Sun's Kelvin–Helmholtz time; white-dwarf masses; the TOV mass; vendor gate errors and chip figures; the mp/me quasar bound; the 25-of-54 satellite census (from MISSING_SATELLITES_CHECK.md); the island of stability.
+- **Left uncited on purpose:** two S8/DESI papers with a private correspondent among the authors (naming rule).
+- **Entries to update:** Anthony2022 is now Nat. Commun. 15, 6444 (2024); DESI2025 is now PRD 112, 083515. Five Mahaffey @misc titles differ from the PDF title pages.

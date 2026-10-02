@@ -1,0 +1,77 @@
+A. coupling, growth, potential (Omega_m 0.3153, beta_m = Omega_m/2 = 0.15765, same early amplitude)
+   z   0: mu 0.8638  1-mu 13.62%  1/mu 1.158  dD/D  -0.78%  dfs8/fs8  -4.25%  dPhi/Phi (Sigma=1)  -0.78%
+   z 0.1: mu 0.8856  1-mu 11.44%  1/mu 1.129  dD/D  -0.61%  dfs8/fs8  -3.42%  dPhi/Phi (Sigma=1)  -0.61%
+   z 0.2: mu 0.9050  1-mu  9.50%  1/mu 1.105  dD/D  -0.48%  dfs8/fs8  -2.73%  dPhi/Phi (Sigma=1)  -0.48%
+   z 0.3: mu 0.9218  1-mu  7.82%  1/mu 1.085  dD/D  -0.37%  dfs8/fs8  -2.17%  dPhi/Phi (Sigma=1)  -0.37%
+   z 0.4: mu 0.9362  1-mu  6.38%  1/mu 1.068  dD/D  -0.28%  dfs8/fs8  -1.71%  dPhi/Phi (Sigma=1)  -0.28%
+   z 0.5: mu 0.9482  1-mu  5.18%  1/mu 1.055  dD/D  -0.22%  dfs8/fs8  -1.35%  dPhi/Phi (Sigma=1)  -0.22%
+   z 0.7: mu 0.9661  1-mu  3.39%  1/mu 1.035  dD/D  -0.13%  dfs8/fs8  -0.83%  dPhi/Phi (Sigma=1)  -0.13%
+   z 1.0: mu 0.9822  1-mu  1.78%  1/mu 1.018  dD/D  -0.06%  dfs8/fs8  -0.41%  dPhi/Phi (Sigma=1)  -0.06%
+   z 1.5: mu 0.9938  1-mu  0.62%  1/mu 1.006  dD/D  -0.02%  dfs8/fs8  -0.13%  dPhi/Phi (Sigma=1)  -0.02%
+   z 2.0: mu 0.9977  1-mu  0.23%  1/mu 1.002  dD/D  -0.01%  dfs8/fs8  -0.04%  dPhi/Phi (Sigma=1)  -0.01%
+   z 3.0: mu 0.9996  1-mu  0.04%  1/mu 1.000  dD/D  -0.00%  dfs8/fs8  -0.01%  dPhi/Phi (Sigma=1)  -0.00%
+B. activation milestones: fraction q of 1 - mu(0) reached
+      1%: a 0.305 z 2.28 lookback 10.9 Gyr
+      5%: a 0.407 z 1.46 lookback 9.4 Gyr
+     10%: a 0.471 z 1.12 lookback 8.4 Gyr
+     25%: a 0.589 z 0.70 lookback 6.5 Gyr
+     50%: a 0.731 z 0.37 lookback 4.2 Gyr
+     75%: a 0.861 z 0.16 lookback 2.1 Gyr
+     90%: a 0.942 z 0.06 lookback 0.9 Gyr
+     95%: a 0.971 z 0.03 lookback 0.4 Gyr
+     99%: a 0.994 z 0.01 lookback 0.1 Gyr
+   |dmu/dz| largest at z = 0.000; value 0.2289 at z=0, 0.1090 at z=0.5
+C. ISW source (1-f)D/a ratio and ISW-galaxy cross (source x D, uniform weight z 0.05-1.5)
+   z 0.1: source ratio 1.0337
+   z 0.5: source ratio 1.0338
+   z 1.0: source ratio 1.0242
+   A_ISW (cross) = 1.028
+D. sirens / matter-sector H0: 67.161 sqrt(1 + 0.15750) = 72.26
+E. clusters, Level 1 form: R = 1/mu; slope; non-thermal C_NT = 1 + 0.20 (1+z)^0.2 at bin centres
+   dR/dz at z 0.3 = -0.183; at z 0 = -0.307
+   bin 0.1-0.2 (z 0.150): IAM 1.117  C_NT 1.2057  IAM x C_NT 1.346  dC_NT/dz +0.036
+   bin 0.2-0.3 (z 0.250): IAM 1.094  C_NT 1.2091  IAM x C_NT 1.323  dC_NT/dz +0.033
+   bin 0.3-0.5 (z 0.400): IAM 1.068  C_NT 1.2139  IAM x C_NT 1.297  dC_NT/dz +0.031
+   bin 0.5-0.8 (z 0.650): IAM 1.039  C_NT 1.2211  IAM x C_NT 1.269  dC_NT/dz +0.027
+   Planck SZ: Level 1 sigma8 0.8139 -> 0.8014 = -1.54 % ; Level 2 0.8087 -> 0.7998 = -1.10 %
+F. missing satellites: Eq. 11 M_min = 4 Om sigma^3/(G H0); Eq. 12 sigma_crit; Eq. 10 direct
+   M_min(4 km/s) = 10^8.44 Msun;  sigma_crit(M=10^8.4) = 3.86 km/s
+   Eq. 10 with t_dyn = 1/H0: sqrt(6/pi) sigma^3/(G H0) = 10^8.48 Msun; prefactors 4 Om = 1.26, sqrt(6/pi) = 1.38
+   census: 68 MW satellites; 54 with a dispersion or upper limit; 25 below 4 km/s (46 %); 24 of them confirmed galaxies; 29 at or above 4
+   below 4: 19 resolved dispersions, 6 upper limits; resolved with sigma + 1 sigma error still below 4: 8
+     Tucana V: 1.2 +0.9/-0.6
+     Bootes III: 1.69 +1.03/-0.85
+     Bootes II: 1.92 +0.77/-0.6
+     Hercules: 2.25 +0.67/-0.61
+     Crater II: 2.34 +0.42/-0.3
+     Grus I: 2.5 +1.3/-0.8
+     Tucana III: < 1.5
+     Grus II: < 2.0
+     Segue 2: < 2.06
+     Draco II: < 2.6
+     Aquarius III: < 3.5
+     Triangulum II: < 3.5
+   resolved [Fe/H] spreads among them: 20, range 0.19-0.59 dex
+G. w(z) of the informational term, rho_info / rho_Lambda, CPL image, rates in three clocks (H0 67.4, Om 0.315 as the paper)
+   z 0: w_info -1.333  rho_info/rho_L 0.2301  share of (Lambda + info) 0.187
+   z 0.5: w_info -1.500  rho_info/rho_L 0.1396  share of (Lambda + info) 0.122
+   z 1: w_info -1.667  rho_info/rho_L 0.0847  share of (Lambda + info) 0.078
+   z 2: w_info -2.000  rho_info/rho_L 0.0311  share of (Lambda + info) 0.030
+   z 3: w_info -2.333  rho_info/rho_L 0.0115  share of (Lambda + info) 0.011
+   saturation: rho_info/rho_L -> 0.626
+   dE/da peaks a 0.500; dE/dln a peaks a 1.000; dE/dt peaks a 0.442 (z 1.26, 8.9 Gyr ago), 3.38 %/Gyr; today 2.536 %/Gyr
+   DESI+CMB+Pantheon+: w0 offset 9.0 sigma; wa offset 1.4 sigma
+   DESI+CMB+Union3: w0 offset 7.6 sigma; wa offset 2.6 sigma
+   DESI+CMB+DESY5: w0 offset 10.2 sigma; wa offset 2.4 sigma
+   H_inf = 55.78; H_m,inf = 71.12
+H. E_G, CMB lensing, and the remaining arithmetic printed in the chapters (Omega_m 0.3153)
+   E_G = Omega_m0 Sigma / f, change at z 0.0: +3.63 %
+   E_G = Omega_m0 Sigma / f, change at z 0.295: +1.86 %
+   E_G = Omega_m0 Sigma / f, change at z 0.3: +1.84 %
+   E_G = Omega_m0 Sigma / f, change at z 0.5: +1.14 %
+   E_G = Omega_m0 Sigma / f, change at z 1.0: +0.35 %
+   CMB lensing C_phiphi (Limber, kernel (chi_s-chi)/chi_s, power ~ D^2) IAM/LCDM = 0.9992
+   sirens: separation 5.10; 3 sigma needs sigma(H0) <= 1.70 = 2.4 % of 72.26; SH0ES (73.04 +/- 1.04) offset 0.75 sigma
+   Level 2 sigma8 0.8087 -> 0.7998: -1.10 %, 1.51 sigma; S8 0.822 +/- 0.011 vs Planck 0.832: 0.91 sigma
+   w(z) chapter: saturation share rho_info/(rho_L + rho_info) = 0.385; H_m/H today 1.076, a -> inf 1.275
+   Press-Schechter: |Delta ln n| = |nu^2 - 1| x 0.78 % < 0.78 % for nu < sqrt(2) = 1.414

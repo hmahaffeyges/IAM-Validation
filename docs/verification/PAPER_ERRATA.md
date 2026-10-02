@@ -213,6 +213,7 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | ST4 | | §7 | ISW enhancement 10–30 % | ~3 % | confirmed | `observations/S8_TREND_CHECK.md` #5 |
 | ST5 | | Fig. 3 | E(a) recovered to ~1 % by Sheth–Tormen | not reproduced; remove | confirmed | `observations/S8_TREND_CHECK.md` #7 |
 | ST6 | | title, acknowledgements | addressed to a named cosmologist | cite compilation by journal/arXiv only | confirmed | `observations/S8_TREND_CHECK.md` #8 |
+| ST7 | | lensing comparison | KiDS-Legacy S8 = 0.776 ± 0.016; all three surveys 1.3–2.4σ below | KiDS-Legacy cosmic shear S8 = 0.815 (+0.016 −0.021) (Wright et al. 2025), 0.3σ below IAM; 0.776 ± 0.017 is DES Y3 3×2pt; HSC Y3 0.776, 1.3σ; joint σ8 0.802 includes Pantheon+ (Stölzner et al. 2025) | confirmed | book p2_09 |
 | **Dark Energy or Sector Tension?** (`Dark_Energy_or_Sector_Tension.pdf`, Mar 2026), read in full 2026-10-02 |||||||
 | SX1 | | Table 5, §5.2, Fig. 1–2 | DR2 w0wa rows mislabelled / wrong | DR2: +CMB −0.42/−1.75; +P+ −0.838/−0.62; +U3 −0.667/−1.09; +Y5 −0.752/−0.86 | confirmed | `observations/SECTOR_TENSION_CHECK.md` #1 |
 | SX2 | | abstract, Tables 1, 5, §2.4, §7 | 13.6 % / 7–8 % growth suppression | 1 − µ; fσ8 deficit 2.2 % (BGS) … 4.2 % today | confirmed | `observations/SECTOR_TENSION_CHECK.md` #2 |

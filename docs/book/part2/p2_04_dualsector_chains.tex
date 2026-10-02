@@ -2,7 +2,7 @@
 
 \section{One term added to the horizon entropy}
 
-In the Jacobson and Cai--Kim derivations, the apparent-horizon entropy is geometric, $S_{\mathrm{geo}}=\pi c^3/(G\hbar H^2)$.
+In the Jacobson and Cai--Kim derivations~\cite{Jacobson1995,CaiKim2005}, the apparent-horizon entropy is geometric, $S_{\mathrm{geo}}=\pi c^3/(G\hbar H^2)$.
 IAM adds the accumulated Landauer cost of every irreversible record written on a timelike worldline:
 \begin{equation}
  -dE=T_H\,d\!\left(S_{\mathrm{geo}}+S_{\mathrm{info}}\right).
@@ -29,7 +29,7 @@ where $\mu$ multiplies Newton's constant in the growth equation
 $\ddot\delta_m+2H\dot\delta_m-\tfrac32\Omega_mH^2\mu\,\delta_m=0$ and $\Sigma$ multiplies the lensing potential.
 
 \begin{keybox}[title={The coupling is predicted, not fitted}]
-The virial theorem gives the matter coupling $\beta_m=\Omega_m/2$ (Chapter~\ref{ch:virial}). With Planck's $\Omega_m=0.3153$,
+The virial theorem gives the matter coupling $\beta_m=\Omega_m/2$ (Chapter~\ref{ch:virial}). With Planck's $\Omega_m=0.3153$~\cite{Planck2018VI},
 $\beta_m=0.15765$ \derived. This value is \emph{fixed} in every chain below; nothing in $\beta_m$ is sampled.
 An earlier independent check, with $\beta$ left free against expansion-rate and growth data, returned $0.157\pm0.029$ \observed.
 \end{keybox}
@@ -42,15 +42,15 @@ growth integrates $\mu$ over time, so the growth factor changes by about $0.8\%$
 
 \section{The chain record}\label{sec:chains}
 
-Eighteen Markov chains were run against the Planck 2018 likelihood. All files are in the repository
+Eighteen Markov chains were run against the Planck 2018 likelihood~\cite{Planck2018V,MahaffeyLateTime,MahaffeyDSPerturbation}. All files are in the repository
 (\texttt{mgcamb\_validation/\allowbreak{}chains}, \texttt{camb\_validation/\allowbreak{}chains}). The numbers below come from one extraction of the final files
-(30\,\% burn-in, weighted posterior means; table \texttt{CHAIN\_EXTRACTION\_FINAL.csv}). Every chain's last recorded Gelman--Rubin
+(30\,\% burn-in, weighted posterior means; table \texttt{CHAIN\_EXTRACTION\_FINAL.csv}). Every chain's last recorded Gelman--Rubin~\cite{Gelman1992}
 $R-1$ is at or below $0.010$.
 
 \begin{itemize}
- \item \textbf{Level 1, 12 chains (MGCAMB).} Four data sets (Planck; +RSD; +BAO; +Pantheon+), each run three ways: IAM with
+ \item \textbf{Level 1, 12 chains (MGCAMB~\cite{Zhao2009MGCAMB,Wang2023MGCAMB}).} Four data sets (Planck; +RSD; +BAO; +Pantheon+), each run three ways: IAM with
        $\beta_m$ fixed at the prediction, $\Lambda$CDM, and a free amplitude $\mu_0$.
- \item \textbf{Level 2, 3 chains (CAMB with the mechanism written into the perturbation equations).} IAM (Planck), $\Lambda$CDM (Planck), IAM (Planck+RSD).
+ \item \textbf{Level 2, 3 chains (CAMB~\cite{Lewis2000CAMB} with the mechanism written into the perturbation equations).} IAM (Planck), $\Lambda$CDM (Planck), IAM (Planck+RSD).
  \item \textbf{Level 2b, 2 chains.} The same term placed in the background expansion instead of the perturbations.
  \item \textbf{The baryon chain.} Planck with the standard baryon density left free (Chapter~\ref{ch:baryon}).
 \end{itemize}
@@ -77,7 +77,7 @@ $\Delta\chi^2_{\min}$ is the difference between the lowest $\chi^2$ found in eac
  \item With the coupling fixed by theory and no parameter added, IAM is consistent with the CMB in every data combination.
        $\Delta\chi^2$ between $+0.5$ and $+1.7$ is far below any threshold of preference either way.
  \item $\sigma_8$ falls by $0.0128$--$0.0129$ in every combination, and the standard parameters do not move.
-       The direction is that of the weak-lensing surveys (KiDS-1000, DES Y3, HSC Y3).
+       The direction is that of the weak-lensing surveys (KiDS-1000, DES Y3, HSC Y3~\cite{Asgari2021,DESY3,HSCY3}).
  \item When $\mu_0$ is left free, Planck alone cannot choose: the posteriors are consistent with zero ($0.05$--$0.31\sigma$)
        and with the prediction $\mu_0=-0.135$ ($0.8$--$1.4\sigma$).
  \item Placing the term in the background instead (Level 2b) drives $H_0$ to $61.45$ and $61.52$, far from every measurement.
@@ -95,6 +95,6 @@ inherits the matter-sector rate, and which observable reads $H_0^{\mathrm{matter
 
 \section{The decisive test}
 
-\prediction\ Euclid is expected to constrain $\mu_0$ to $\sigma(\mu_0)\approx0.04$. the informational term predicts $\mu_0=-0.135$ with $\Sigma=1$:
+\prediction\ Euclid~\cite{Euclid2025} is expected to constrain $\mu_0$ to $\sigma(\mu_0)\approx0.04$. the informational term predicts $\mu_0=-0.135$ with $\Sigma=1$:
 a $3.4\sigma$ departure from general relativity in matter, with no change in lensing by light.
 The prediction contains no parameter adjusted to the data that will test it.
