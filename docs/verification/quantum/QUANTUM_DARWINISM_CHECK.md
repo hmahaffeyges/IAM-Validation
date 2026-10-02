@@ -16,6 +16,8 @@ Placement: Part 3 (the bridge chapter: Zurek's records, IAM's Law prices them, t
    5/2 at ν = 1.87. So the bottom-up does not fix n by itself: it says which halos must dominate the writing for the top-down 7/2 to hold, and since
    ν ∝ 1/a the effective exponent drifts with time. Open: whether the writing threshold M_min (or the mass weighting of bits per halo) gives ν ≈ 2.1
    over the epoch that sets E(a); this is a defined calculation with the measured σ(M).
+   **Done (energy-weighted, as the Landauer factor requires): `theory/BOTTOM_UP_EXPONENT.md`** — n_eff crosses 7/2 at z ≈ 3–4 and averages ≈ 4 over
+   z = 2.3–9 for Press–Schechter, Sheth–Tormen and Tinker; 5/2 only at z ≈ 1.2–1.9.
 2. §4.1 the Diósi–Penrose criterion is attributed to Joos & Zeh (their result is environmental decoherence; both give "instantaneous").
 3. §3 "β_m posterior 0.2σ"; "f_coll × η_vir = 0.505 confirms β_m from first principles": β_m is fixed in every chain; η_vir 0.815 does not trace (V31).
 4. §3.2 Table 1 / Fig. 2: equipartition is not the 1/r virial half (removed in VIRIAL_CHECK); "cosmological 0.3 %" is not a virial measurement.
