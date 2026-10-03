@@ -81,6 +81,69 @@
 "text": "| l.1171\u20131178 | two A-score definitions | \u2014 | EXCLUDED (TR10) | \u2014 |"
 },
 {
+"file": "docs/book/read_ledgers/MANIFEST_astrogenetics.md",
+"line": 129,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "LIVE",
+"text": "| 137-145 | carried part4/p4_00b_astrogenetics.tex:97-104 | class H_min, eight architectural classes, five-tier vocabulary, \"fuel gauge\" EXCLUDED (retired; repo"
+},
+{
+"file": "docs/book/read_ledgers/MANIFEST_quantum_order_draft.md",
+"line": 111,
+"pattern": "\\bA-floor",
+"use": "material floor eps_floor (the quantum-processor report) or H_min",
+"severity": "warn",
+"status": "RECORD",
+"text": "| 3576-3623 | 6 | material A-floor table; oxide stoichiometry Al->Nb->Ta (ACS Nano 2024) | C | p3_05_coherence_optimum.tex:41-50, 70 (floors calibrated; Ta2O5 a"
+},
+{
+"file": "docs/book/read_ledgers/MANIFEST_quantum_order_draft.md",
+"line": 122,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "LIVE",
+"text": "| 4341-4460 | 8 | M_norm, floor/wall, Table 1 incl. H_min classes and patient scores | X | class H_min floors, breach tiers, patient/cohort language retired (au"
+},
+{
+"file": "docs/book/read_ledgers/MANIFEST_quantum_order_draft.md",
+"line": 126,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "LIVE",
+"text": "| 4548-4558 | 8 | biological: H_min floor, 27/28 TCGA | X | class H_min and TCGA counts retired (FB4) |"
+},
+{
+"file": "docs/book/read_ledgers/MANIFEST_quantum_order_draft.md",
+"line": 168,
+"pattern": "\\bA-floor",
+"use": "material floor eps_floor (the quantum-processor report) or H_min",
+"severity": "warn",
+"status": "LIVE",
+"text": "| 7548-7608 | 16 | two instruments; floors substrate vs temperature; A-floor table | C | p3_03:3-17, 60-71; p3_05:70 |"
+},
+{
+"file": "docs/book/read_ledgers/REVIEW_cell_papers.md",
+"line": 40,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| V-18 | 467\u2013489 | Aging implications, interventions, \"Lu 2023 A-score deviations correlate with mortality\" | OUT OF DATE (misattribution) | Lu 2023 reports *ag"
+},
+{
+"file": "docs/book/read_ledgers/REVIEW_cell_papers.md",
+"line": 40,
+"pattern": "\\bA[- ]score",
+"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| V-18 | 467\u2013489 | Aging implications, interventions, \"Lu 2023 A-score deviations correlate with mortality\" | OUT OF DATE (misattribution) | Lu 2023 reports *ag"
+},
+{
 "file": "docs/book/read_ledgers/MANIFEST_landauer_metrology.md",
 "line": 54,
 "pattern": "class H_min",
@@ -145,7 +208,7 @@
 },
 {
 "file": "docs/book/part1/p1_01_encoding_surfaces.tex",
-"line": 112,
+"line": 125,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",

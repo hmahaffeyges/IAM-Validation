@@ -43,6 +43,14 @@ surface, is known: $1/0.330263=3.03$ on Met-A and $1/(P\,H(\varepsilon_0))=1/(1.
 limiting mass: the Chandrasekhar mass for a white dwarf and the maximum (TOV) mass for a neutron star (Chapter~\ref{ch:blackholes}, Fig.~\ref{fig:stargauge}). The region between $H_{\min}$ and the healthy
 band is less error than healthy; for cells what it means biologically has not yet been measured.
 
+\paragraph{The compartment, not the average.} A point of method carries over directly from the cell to the star. The cell instrument does
+not score the whole person; it scores each cell type on its own. The star gauge does the same: it reads the core, not the whole star. A red
+supergiant such as Betelgeuse is enormous and diffuse, so its overall structure looks unremarkable on any whole-body measure, exactly as a
+person can look well while one cell type is in trouble. The signal is in the compartment, not the average. The supernova is a core event.
+\analogy{} Stellar astrophysics already predicts these transitions with great precision by its own mature methods. The star gauge is not
+offered as a new way to predict stars; it reproduces what astronomy already knows. Its purpose is to show that the cell and the star are
+read by one instrument. The predictive novelty is on the biological side, where no such gauge existed before. \interp
+
 \begin{figure}[htbp]\centering\includegraphics[width=\textwidth]{figures/part3/one_gauge.pdf}
 \caption{One gauge for every score. $A=1$ is the healthy reading of that same system (green); $H_{\min}$ (grey line) is the lowest error it can hold
 before thermal kicks win, and nothing reads below it (grey zone). Cell: neutrophil IAM-A (healthy granulocytes from three donors at 1), $H_{\min}=H(\varepsilon_0)$ at $1/P_{\rm cell}=0.910$, Normal
@@ -75,8 +83,8 @@ measured. Neutrophils on EPIC v1: healthy reference $0.330263$ bits, from 6 puri
 the healthy expectation for that person's own composition, $\langle H(\sum_c f_c\mu_{c,i})\rangle_i$, from their own cell fractions $f_c$ and
 purified healthy profiles $\mu_c$; no cohort enters. The reading is made when neutrophils are at least 20\,\% of the cells.
 \paragraph{The tare.} Every Met-A is read against at least three healthy specimens run the same way (same slide, else same batch):
-$A_{\rm rel}=A/\mathrm{median}(A_{\rm ref})$. With at least 20 references the array's own noise is removed as well: the reference readings are
-fitted as $A=a+b\,f_{\rm neu}+c\,N$, where $N$ is the mean $H(\beta)$ over 48,528 sites every blood cell holds fixed. The gauge is read on
+$A_{\rm rel}=A/\mathrm{median}(A_{\rm ref})$; nothing is fitted. The array's own noise index $N$, the mean $H(\beta)$ over 48,528 sites every
+blood cell holds fixed, is checked against the references' range, and if it falls outside, the gauge state is withheld. The gauge is read on
 $A_{\rm rel}$, and each reading states the smallest loss of the cell's pattern that specimen could have shown.
 \paragraph{IAM-A} (single molecules) reads the copy error directly: $\varepsilon$ is the rate of an isolated unmethylated call between two
 methylated calls, on molecules with at least 6 CpGs and at least 80\,\% methylated, on the methylated channel only. $P_{\rm cell}$ is valid only for the read-level pipeline it was measured on; a different pipeline needs its own healthy measurement first.

@@ -63,6 +63,30 @@ constants $a$ and $b$ of Eq.~\eqref{eq:t1star} have not been measured on any dev
 not yet known for any processor.
 The dated predictions for the qubit classes follow in Section~\ref{sec:walls_pred}.
 
+\section{The same optimum in other classes}\label{sec:walls_other}
+
+The structure of Eq.~\eqref{eq:t1star}, a dominant error that falls as one quantity improves and a secondary one that grows with it, is
+not special to superconductors \conjecture. In a laser-gate ion trap the two-qubit error can be written
+\begin{equation}
+ p_{2Q}=\frac{A}{P}+BP+p_{\mathrm{ctrl}},\qquad B=\eta^2\Bigl(\frac{\pi}{2}\Bigr)^2\frac{\Gamma_{\mathrm{heat}}\,t_g}{P_{\mathrm{ref}}},
+ \label{eq:walls_mhi}
+\end{equation}
+with $P$ the effective laser drive, $A/P$ the laser-noise part, $BP$ the motional-heating part, $\eta$ the Lamb--Dicke parameter and
+$\Gamma_{\mathrm{heat}}$ the heating rate in quanta per second. The minimum lies at $P^*=\sqrt{A/B}$, where the two parts are equal and
+their sum is $2\sqrt{AB}$ \derived\ (within the model). For $\eta=0.07$ the prefactor $\eta^2(\pi/2)^2$ is $0.0121$ \calc. Sympathetic
+cooling with a co-trapped species lowers $\Gamma_{\mathrm{heat}}$ and moves $P^*$ outward, the ion-trap counterpart of changing the base
+metal of a superconducting chip \interp. The constants $A$ and $B$ have not been measured on one system, and the heating rates and gate
+times that would place a given processor on Eq.~\eqref{eq:walls_mhi} are \openprob. Its dated prediction, that removing sympathetic
+cooling causes a regression, is listed in Chapter~\ref{ch:predictions}.
+
+\paragraph{Qubit count.} A published two-qubit error is measured on one pair with its neighbours idle. Counting each coupler as one more
+crosstalk path, the error of a gate inside a full circuit can be written $p_{\mathrm{eff}}=1-(1-p_{2Q})^{1+\alpha C(N)}\approx
+p_{2Q}\,(1+\alpha C(N))$, with $C(N)$ the couplers per qubit and $\alpha$ a crosstalk coefficient \conjecture; the linear form is within
+$10^{-3}$ of the exact one for $p_{2Q}\le2\times10^{-3}$ and $\alpha C\le1$ \calc. On a fixed lattice $C$ stays near constant as qubits
+are added. In a shuttling (QCCD) trap the effective connectivity grows slowly with $N$; for logarithmic growth the step from 98 to 192
+qubits raises it by $\ln192/\ln98=1.15$ \calc. That $\alpha$ jumps when a superconducting device passes its own $T_1^*$ is a
+\conjecture: no published pair of devices on one material and one coupler topology yet separates it from the change of topology itself.
+
 \section{Dated predictions}\label{sec:walls_pred}
 
 \begin{center}\small

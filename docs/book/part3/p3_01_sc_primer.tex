@@ -62,6 +62,27 @@ substrate~\cite{Vepsalainen2020,Cardani2021,McEwen2022}. A deposit of 100~keV ca
 $10^{5}~\mathrm{eV}/2\Delta\approx2.7\times10^{8}$ pairs; phonons lose much of the energy before it reaches the films,
 so this is an upper bound \calc. Tantalum ($2\Delta/h\approx330$~GHz) and niobium ($\approx680$~GHz) need hotter
 radiators for the same flux.
+\paragraph{Where each surface sits against the background.} Every physical system sits somewhere relative to the cosmic
+microwave background at $T_{\rm CMB}=2.7255$~K (Figure~\ref{fig:temp_ladder}). A transistor junction at 75\,$^\circ$C is 128 times
+hotter, a cell at 37\,$^\circ$C is 114 times hotter, and a superconducting qubit at 15~mK is 182 times colder \calc. A solar-mass
+black hole, at $T_H=61.7$~nK, is $4.4\times10^{7}$ times colder: the background writes on it rather than the other way round, and it
+grows by absorbing the background unless its mass is below $4.5\times10^{22}$~kg (Chapter~\ref{ch:saturation}) \calc. Heat flows from
+the hotter side to the colder one, so a surface colder than its surroundings is the one being written on \interp. For the qubit the
+surroundings are not the sky but the cryostat. The background carries $3.13\times10^{-6}$~W\,m$^{-2}$ in all, of which
+$2.81\times10^{-6}$~W\,m$^{-2}$ (89.8\,\%) lies above the aluminium threshold, in $2.18\times10^{16}$ photons s$^{-1}$\,m$^{-2}$ of mean
+energy $\kB\times9.31$~K, enough for at most 2.2 broken pairs per photon \calc. None of it reaches a shielded chip. What writes on a cold
+qubit is, in order: the defects of the substrate and its oxides, the TLS that set the material ceiling $T_{1,\mathrm{free}}$
+(Chapter~\ref{ch:walls}); residual thermal photons from warmer stages leaking through wiring and seams; and cosmic-ray muons and gamma
+rays, which no cryostat stops \observed. The first is a property of the material, the second an engineering limit, and the third is
+reduced only underground.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part3/fig_p3_temperature_ladder.pdf}
+\caption{The surfaces of Part~\ref{part:3} and their neighbours on one temperature axis, each against the cosmic microwave background
+(2.7255~K): a solar-mass horizon (61.7~nK), the qubit's mixing chamber (15~mK), the critical temperature and gap scale of aluminium
+(1.20 and 2.11~K), the 4~K and 50~K stages of the cryostat, a cell at 37\,$^\circ$C and a transistor junction at 75\,$^\circ$C. \calc}
+\label{fig:temp_ladder}
+\end{figure}
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part3/fig_p3_pairbreaking.pdf}

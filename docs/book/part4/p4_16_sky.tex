@@ -6,6 +6,13 @@ After component separation, a CMB map is what the foreground model cannot explai
 site, how far the specimen sits from what its healthy reference predicts, in units of the healthy spread. A healthy specimen reads a quiet sky,
 $z$ centred on zero with no structure. A cell far from its healthy state, or a cell the reference does not hold, leaves structure.
 
+\paragraph{Brightening.} The reference for the cells that come next is made the way an astronomer makes a map of the microwave background,
+and we call the step \emph{brightening}. The raw microwave map is noisy and unevenly covered; the analysis produces a posterior over the
+true underlying field at every point on the sky, using the known statistical structure of the field, and faint, noisy pixels resolve into
+a clean map you can read structure from. The hierarchical fit of atlas v2 does the same to the methylation reference, at every value a cell
+was measured, with one difference the cell demands: where a cell was never measured, the value is left blank, not filled
+(Chapter~\ref{ch:atlas}). Two sky maps, one of the early universe and one of the healthy cell, sharpened by the same inference. \analogy
+
 \section{The sky chain v3 draws}
 
 Chain v3 draws the sky on the neutrophil's 6,000 identity sites, in genome order (Stage~MC, \texttt{conductor\_v3.py}):

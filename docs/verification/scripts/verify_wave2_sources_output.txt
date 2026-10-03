@@ -1,0 +1,60 @@
+[W1] exponent algebra (matter domination)
+  dS/dlna with 1/A_H: a**(n - 9/2) -> dS/da exponent n - 11/2
+  integral a^(n-11/2) = a^(n-9/2)/(n-9/2); a^-1 needs n = [7/2]
+  Variational integrand (no 1/A_H): a**(n - 5/2) ; a^-2 needs n = [1/2]
+[W2] Raychaudhuri/Clausius, Cai-Kim, w_info
+  Cai-Kim: [4*pi*G*(-P - rho)]
+  w_info from H/a+3H(1+w)=0: [(-a - 1/3)/a]
+  V_eff = 4 pi int e^(-2r/l) r^2 dr = pi*lambda_L**3
+[W3] numerical fits exp(alpha-beta/a) to cumulative integrals (source tables)
+  n=2.0: Var: D^n Om(a) f/(T_H a)               alpha=0.854 beta=0.955 r=0.992
+  n=2.0: Holo: D^n Om(a) f/(T_H A_H)            alpha=0.466 beta=0.506 r=0.975
+  n=2.0: Holo-tab: D^n Om(a) f/T_H /(T_H A_H)   alpha=0.889 beta=0.962 r=0.996
+  n=2.5: Var: D^n Om(a) f/(T_H a)               alpha=0.978 beta=1.083 r=0.993
+  n=2.5: Holo: D^n Om(a) f/(T_H A_H)            alpha=0.640 beta=0.690 r=0.989
+  n=2.5: Holo-tab: D^n Om(a) f/T_H /(T_H A_H)   alpha=1.042 beta=1.119 r=0.996
+  n=3.5: Var: D^n Om(a) f/(T_H a)               alpha=1.232 beta=1.337 r=0.989
+  n=3.5: Holo: D^n Om(a) f/(T_H A_H)            alpha=0.978 beta=1.042 r=0.997
+  n=3.5: Holo-tab: D^n Om(a) f/T_H /(T_H A_H)   alpha=1.353 beta=1.427 r=0.988
+  n=4.0: Var: D^n Om(a) f/(T_H a)               alpha=1.364 beta=1.464 r=0.984
+  n=4.0: Holo: D^n Om(a) f/(T_H A_H)            alpha=1.145 beta=1.211 r=0.995
+  n=4.0: Holo-tab: D^n Om(a) f/T_H /(T_H A_H)   alpha=1.512 beta=1.580 r=0.982
+[W4] cosmology numbers in the sources vs the book
+  |67.16-67.4|/0.5 = 0.48 sigma
+  |72.26-73.04|/1.04 = 0.75 sigma
+  |72.51-73.04|/1.04 = 0.51 sigma
+  67.4*sqrt(1.1575) = 72.51 ; 67.16*sqrt(1+0.15765) = 72.26
+  Omega_m/2 (0.315) = 0.1575 ; (0.3153) = 0.15765
+  w_eff(1) = 2(3-Om)/(3(Om-2)) = -1.0623
+  f_coll naive 0.315*0.62 = 0.1953  eta=1/(2*0.62)= 0.806
+[W5] thermal regimes against the sky (T/T_CMB)
+  cell 310.15 K            T=3.101e+02 K  T/T_CMB=1.138e+02  T_CMB/T=8.788e-03
+  transistor 300 K         T=3.000e+02 K  T/T_CMB=1.101e+02  T_CMB/T=9.085e-03
+  transistor 350 K         T=3.500e+02 K  T/T_CMB=1.284e+02  T_CMB/T=7.787e-03
+  qubit stage 15 mK        T=1.500e-02 K  T/T_CMB=5.504e-03  T_CMB/T=1.817e+02
+  BH 1 Msun                T=6.170e-08 K  T/T_CMB=2.264e-08  T_CMB/T=4.417e+07
+  Sgr A*                   T=1.435e-14 K  T/T_CMB=5.265e-15  T_CMB/T=1.899e+14
+  cosmic horizon H0=67.36  T=2.654e-30 K  T/T_CMB=9.737e-31  T_CMB/T=1.027e+30
+  M_CMB = hbar c^3/(8 pi G kB T_CMB) = 4.502e+22  kg
+  Mc^2/(kB T_BH) / (2 S/kB) = 1.000000000000 ; Mc^2/(kB T ln2) = 3.027e+77 ; S/(kB ln2) = 1.513e+77
+  8 pi (M/m_P)^2 / (Mc^2/kT) = 1.000000000000
+  Gamma=P/(kT ln2) vs c^3/(1920 G M ln2): 1.525495e+02 1.525495e+02
+[W6] bones numbers
+  kT at 310 K = 26.71 meV ; RT = 2.579 kJ/mol ; n_ratio = 54000/(R*310.15) = 20.941 ; /ln2 = 30.21
+  kB*310.15*ln2 = 2.9681e-21  J
+  2*Delta_Al/h with Delta=182 ueV: 88.0  GHz
+  sigma T_CMB^4 = 3.1289e-06  W/m^2
+  CMB power fraction above 88 GHz = 0.8977  ; photon flux above 88 GHz = 2.185e+16  /s/m^2
+  x_qp_min (tau_TLS=30us) = 6.516e-08 ; tau_TLS for x_qp=1e-7: 19.5  us
+[W7] equation of state, mu, chi2 threshold, Planck distance
+  z=0: w_info=-1.333 w_eff=-1.062 mu=0.864
+  z=0.5: w_info=-1.500 w_eff=-1.061 mu=0.948
+  z=1: w_info=-1.667 w_eff=-1.052 mu=0.982
+  chi2 95% for 1 dof = 3.841
+  |67.16-67.36|/0.54 = 0.37
+[W8] S_8 from the Level-2 sigma_8
+  S8 = 0.800*sqrt(0.315/0.3) = 0.820
+  S8 = 0.800*sqrt(0.3153/0.3) = 0.820
+  Omega_m needed for S8=0.78 at sigma8=0.800: 0.285
+  x_qp*tau_TLS (pi lambda^3 form) = 1.955e-12  s
+  mean CMB photon energy above 88 GHz = 9.31  K ; per 2Delta (364 ueV): 2.20

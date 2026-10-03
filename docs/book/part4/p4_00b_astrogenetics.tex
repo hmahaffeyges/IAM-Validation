@@ -1,0 +1,370 @@
+% Plain-language chapter for geneticists and clinicians: the cosmology toolkit applied to the methylome, and the cell read as a thermometer.
+% Placed directly after the Part 4 opening chapter (ch:bridge). Numbers recomputed by docs/verification/scripts/verify_astrogenetics_book.py.
+\chapter{Astro-Genetics: the cell read as a thermometer}\label{ch:astrogenetics}
+
+\section{Who this chapter is for}\label{sec:ag_who}
+
+This chapter is written for the scientifically literate reader who is not a physicist: the oncologist, the molecular biologist, the
+geneticist, the laboratory director. You do not need to follow a single line of cosmology to use what follows. The point is not to teach
+you astrophysics. The point is to explain why an instrument that reads the state of a cell is built on the same mathematics that
+describes stars and galaxies, and why that is a practical advantage rather than a poetic flourish. Where a number from cosmology appears, it
+is there so that a colleague who does know cosmology can check it independently and tell you whether it is right. The tools have been
+checked by the field that owns them. What is new is the use of those same checked tools on cells.
+
+\section{The one-sentence version}\label{sec:ag_one}
+
+Biology has a measurement problem that cosmology solved the tooling for more than twenty years ago, and Astro-Genetics is what happens
+when you hand biology that tooling. Cosmologists were forced, by the data, to build a precise toolkit for reading the state of a system
+against a calibrated reference and saying how far it sits from where it should be. They built it to measure the universe; it turns out to
+be what reading a cell requires. Astro-Genetics points that toolkit at the cell. The tools transfer because the underlying accounting is
+the same: one bit of record costs $\kB T\ln2$, whatever the bit is made of (Chapter~\ref{ch:bridge}). \derived{} That is the whole idea.
+\interp
+
+\section{Two correspondences}\label{sec:ag_two}
+
+What makes the transfer of cosmology's tools to biology more than a borrowed vocabulary is that two specific correspondences hold,
+observable to observable: the same kind of inference, run on the same kind of object.
+
+The first correspondence is between the cosmic microwave background (CMB) and the methylation pattern. The microwave background is a
+snapshot of the universe at one moment, with tiny temperature variations encoding the structure of everything that came after. The
+cosmological community spent thirty years learning to extract that structure. A cell's methylation pattern is the same kind of snapshot:
+a frozen record at the moment of measurement, with small variations in its entropy encoding the state the cell came from and the direction
+it is moving. The observable differs (microkelvin temperature against the Shannon entropy of methylation), but the structure of the
+inference is the same. Both are readings of redundantly encoded classical information, the kind of encoding Zurek's quantum Darwinism
+describes~\cite{Zurek2009}: a system's state written redundantly across an environment, recoverable by an observer reading any sufficient
+fragment (Chapter~\ref{ch:quantumrecords}). The microwave background and the methylation pattern are both that environmental record, at
+two scales. \analogy{} of structure; each tool is then tested on its own (Chapter~\ref{ch:skytools}).
+
+The second correspondence is the mechanism itself, and it is the load-bearing one. The cosmic horizon writes information at the
+Landauer cost of $\kB T_H\ln2$ per bit; the cell holds its methylation record at a cost per site that sits at a measured multiple of the
+same Landauer cost at its own temperature: $3.41\,\kB T$, which is 4.9 Landauer units, on single molecules of healthy cells
+(Chapter~\ref{ch:landauer}). \measured{} The writing is irreversible at both scales. Where the cosmic horizon shows uneven, structured
+encoding as matter clusters unevenly, the methylome shows uneven, structured departures from the healthy reading as some cell types
+depart before others. The same irreversible writing onto a surface governs both, and that is why the same instrument reads both.
+\conjecture
+
+\section{The surface a cell writes on}\label{sec:ag_surface}
+
+It is worth being precise about what this description does and does not claim, because it bears directly on how to read a cell. Consider
+how a black hole forms. The conventional account, the one every astronomer uses, is gravitational: mass concentrates in a region until
+gravity becomes intense enough that nothing can escape, and a horizon forms. The framework tells the same story in a different language: a
+region of space can only record so much information on its boundary before that boundary is full, and when the local accounting
+saturates that limit, a new surface, the black-hole horizon, must form for the writing to continue. These are not competing claims. A black
+hole is the object that holds the most entropy any region of its size and energy can hold~\cite{Bekenstein1981} (Chapter~\ref{ch:blackholes}).
+\derived{} The full surface and the horizon are then one thing stated twice, once in the language of information and once in the language
+of force. \interp{} The gravity an astronomer measures is, in this reading, the stored record of the accounting, not a separate cause. Saturation is
+what happens; intense gravity is what that saturation looks like through the older lens. \interp
+
+The reason this description matters is that it travels to a place the gravitational language cannot follow. A single cell is far too small
+for its mass to bend space in any way an instrument could detect, so the gravitational account has nothing to say about it. But the
+saturation account does. A cell maintains its identity by writing its running record onto the surface available to it, which is not
+spacetime but its own chromatin, the methylation pattern. A healthy cell sits well below the limit of what that surface can hold. The limit
+itself is exact and known from the healthy reference alone: the surface is full when every identity site sits at a coin flip,
+$\beta=\tfrac12$, which for neutrophils is $A=1/0.330263=3.03$ on arrays (Met-A) and $A=1/(1.099\times0.2043)=4.45$ on single molecules
+(IAM-A) (Chapter~\ref{ch:floorbreach}). \calc
+
+A cell moving toward cancer is, in this reading, one whose record is climbing toward that full surface, writing more and more error onto
+a surface that has only so much room, until it can no longer maintain its identity on its existing terms. The black hole and the tumour
+are then the same kind of event: a local system reaching the ceiling of what it can encode and being forced into a new regime. \conjecture{}
+The ceiling is informational, not gravitational, which is why one law reads both the star, where the ceiling used to be called gravity,
+and the cell, where there is no gravity to speak of but the ceiling is just as real. A failing cell moves away from its healthy reading
+toward the full surface on the right; it does not fall through the floor, which lies on the left. What has been measured so far is the
+first step of that climb: in every early-onset colorectal tumour read against the same patient's adjacent normal tissue, the tumour's
+methylated pattern carries more copy error, by 7--33\,\% (6 of 6 pairs, median ratio of copy errors 1.148), read directly from single
+molecules with no reference population and no classifier (Chapter~\ref{part4:ch:reach}). \measured{} Where on the cell's gauge a tumour
+sits, and where breach lies, is to be measured on this scale. \openprob
+
+\section{One instrument, one gauge}\label{sec:ag_gauge}
+
+Both Astro-Genetics and cosmology reduce their central question to a single dimensionless number. We call it $A$. It is a ratio: the
+reading of a system over the same system's healthy reading, on the same instrument (Eq.~\ref{eq:A}). At $A=1$ the cell works as itself,
+the healthy, sustainable state, and it sits in the middle of the gauge. Above 1 the cell carries more error than when healthy; below 1 it
+carries less. Both directions are real signals. \derived{} for the construction (Chapter~\ref{ch:gauge}).
+
+The gauge has three fixed points, and each comes from physics or from the cell's own healthy reading, never from a group of people.
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.27\linewidth}@{}}\toprule
+point & what it is & neutrophils \\\midrule
+the floor $\Hmin$, on the left & the least error the cell's holding energy can sustain against thermal kicks at 310~K; nothing reads below it & IAM-A $1/P=0.910$ (form \derived, height \measured); Met-A not yet defined \openprob \\
+1, in the middle & the same cell type healthy, on the same platform, through the same calibration; Normal is $1\pm0.05$, a design tolerance & reference 0.330263 bits on EPIC (\calibrated) \\
+the full surface, on the right & every identity site at a coin flip: the most a pattern can be blurred & Met-A 3.03; IAM-A 4.45 (\calc) \\\bottomrule
+\end{tabularx}
+\end{center}
+Breach, the point past which a cell can no longer hold its identity, lies to the right of Normal and short of the full surface. It is to
+be measured on this scale from per-person data: tumour against the same patient's normal tissue, cells under a known block of the copying
+enzyme, blood cancers read against the healthy cell of their own lineage. \openprob
+
+For a cell, the reading is the Shannon entropy of the methylated fraction $\beta$ at the sites that make the cell what it is,
+\begin{equation}
+  H(\beta)=-\beta\log_2\beta-(1-\beta)\log_2(1-\beta),
+\end{equation}
+which at an identity site is the entropy of the cell's error rate, because $H(\beta)=H(1-\beta)$ (Chapter~\ref{ch:gauge}). \derived{} On
+arrays the reading is Met-A, the mean of $H(\beta)$ over the cell's identity sites over the same quantity on purified healthy cells of
+the same type (Chapter~\ref{ch:meta}); on single molecules it is IAM-A, the copy error priced against the floor set by thermal noise
+(Chapter~\ref{ch:iama}). The mathematics underneath is what makes the gauge honest.
+
+\begin{keybox}[title=Measured against the cell's own healthy state]
+Every reading is one cell type against itself: the same cell type, healthy, on the same platform, through the same calibration, and tared
+against at least three healthy specimens run the same way (same slide, else same batch), $A_{\rm rel}=A/\mathrm{median}(A_{\rm ref})$
+(Chapter~\ref{ch:onegauge}). No population of people sets where 1 is, and no band of other people sets what Normal is. A cell is never
+pooled with other cells into a class before it has been separated from the specimen; each cell type is read on its own identity sites,
+with its own fraction of the specimen deciding how large a change the reading could show (Chapter~\ref{ch:separation}). \derived{} for
+the arithmetic; the rest is the rule of the instrument.
+\end{keybox}
+
+A star is read on a gauge of the same shape, with its own physics on the axis: a compact remnant's mass over the typical remnant of its
+kind, with the surface full at the Chandrasekhar mass for a white dwarf ($A=2.40$) and at the Tolman--Oppenheimer--Volkoff limit for a
+neutron star ($A\approx1.64$), past which a black hole forms (Figure~\ref{fig:stargauge}). \calc{} Each system is read against itself, and
+the distances do not carry from one system to another (Chapter~\ref{ch:onegauge}).
+
+\section{How to read the thermometer}\label{sec:ag_read}
+
+A thermometer is only useful if its reading means something definite. This section sets out what $A$ means, where the fixed points are,
+and, just as importantly, what the reading does not claim. The instrument reports a cellular state; the clinician decides what to do
+about it. The roles are distinct and kept distinct on purpose: the work here builds and calibrates the instrument, and the clinician reads
+it on the patient in front of them. The instrument flags and refers; it does not diagnose.
+
+\subsection{What A measures}
+
+$A$ does not measure how many cells there are, or how large a mass is, or whether a tumour is present. It measures one thing: how far one
+cell type's methylation pattern in the specimen sits from the healthy reading of that same cell type. In plain terms, it reads how well a
+cell is still keeping its own identity. A cell that is doing its job sits near 1; a cell that has lost the fidelity of its pattern reads
+high. The reading may track how far a cell has lost its differentiated identity, which a pathologist reads as grade, more than it tracks
+size or burden, but it is its own axis (Section~\ref{sec:p4notmean}). \conjecture
+
+\subsection{Two roads away from 1}
+
+Two roads lead away from the healthy state: senescence, in which a cell stops dividing and persists, and transformation, in which it
+becomes malignant. On the current gauge they leave in different directions, channel by channel. Lung fibroblasts read against their own
+proliferating cultures: senescent cultures hold the methylated channel at the healthy rate (0.941--1.016) and clean the unmethylated
+channel, which reads below Normal (0.685--0.695); SV40-immortalised cultures carry more error on the methylated channel (1.078--1.120) and
+less on the unmethylated one (0.587--0.664), so that a reading over both channels sits inside Normal (0.965--0.975) and would call them
+healthy (Chapter~\ref{ch:gauge}). \measured{} That is why the channels are reported apart.
+
+\subsection{The Warburg effect}
+
+The Warburg effect, a cell that takes its energy from glycolysis even when oxygen is present~\cite{Warburg1956}, is being explored further.
+Where it falls on this gauge has not been measured yet. \openprob
+
+\subsection{What a reading away from 1 does not mean}
+
+A reading above Normal is a statement about the state of one cell type in a specimen, not a clinical diagnosis. It is essential to be
+precise about this, because the temptation to over-read it is exactly the failure the instrument must avoid
+(Section~\ref{sec:p4notmean}).
+
+It does not mean a tumour has formed. A tumour is an anatomical entity at a location; the reading is an informational state read from a
+specimen's DNA. It says that cells of a given type with more error than their healthy reading are in the specimen, not where they are or
+whether they have organised into a mass. Localising and confirming is the clinical workup, not the reading.
+
+It does not mean cancer is present. Senescent cells also read away from 1, and they are not cancer. A direction on the gauge is a regime,
+not a mechanism; which road a cell has taken is a separate question that $A$ alone does not answer.
+
+It does not mean death, and it does not mean inevitability. What follows depends on the biology, the location, the burden and the
+clinical response, none of which the thermometer measures.
+
+The honest reading of a reading above Normal is therefore: \emph{cells of this type in this specimen hold their pattern with more error
+than when healthy, and the specimen is referred for a look by someone qualified to look.} That is a prompt for a clinician, not a verdict
+for a patient.
+
+\subsection{Would a benign tumour read high?}\label{sec:ag_benign}
+
+This is the question that reveals what the instrument actually measures. A benign, well-differentiated tumour is expected to read near 1,
+because its cells keep their identity. A lipoma, a fibroid or a simple naevus is made of cells that are still recognisably their own type;
+they have lost growth control, not identity. Since $A$ reads identity fidelity and not cell number, a well-differentiated benign lesion is
+expected to read at or near its own healthy reference. The instrument is not tripped by the presence of extra cells; it responds to the
+loss of what makes a cell that kind of cell. \prediction
+
+Premalignant and borderline lesions are expected to read above Normal but short of where established cancer reads, in the order in which
+their cells lose identity. \prediction{} The reading does not depend on a lesion's shape: a flat lesion and a raised one with the same loss
+of identity are expected to read the same, because the instrument reads methylation entropy rather than looking for a shape.
+\prediction{} None of this is tested. Chain v3 reads neutrophils only, and an ordered tissue series (normal, benign, dysplastic,
+established) read cell by cell, each against its own healthy tissue, is the named test for when tissue cell types are commissioned
+(Chapter~\ref{ch:report}). \openprob
+
+There is a real subtlety worth stating plainly. $A$ tracks the fidelity of a pattern, which may correlate with histological grade but is
+its own axis. A few benign entities may carry large methylation changes, and a few aggressive cancers may be deceptively well
+differentiated. The reading therefore tracks loss of identity, not the pathologist's benign-or-malignant label, and it does not replace
+histology. What it can do is say which cell types have departed and by how much, so that attention goes where the cells have actually
+changed. \interp
+
+\section{The reference}\label{sec:ag_reference}
+
+To read a cell's departure from its healthy state, you need a reference: a map of where each cell type sits, at each measured position on
+the genome, when it is healthy. The published literature contains many such reference datasets, each built by a different laboratory for
+a different purpose, on different measurement panels, with different definitions of the same cell type. Run a specimen through each of
+these separately and you get a collection of cell-fraction estimates that do not live on a common scale, carry no statement of their own
+uncertainty, and contain no concept of a floor. They can tell you what cells are present. They cannot tell you whether those cells have
+moved from where their healthy physics says they should sit. \interp
+
+The reference chain v3 reads is purified healthy neutrophils on the specimen's own platform, processed from the raw array files by the
+chain's own first stage, so the specimen and the reference are on one scale before anything is compared (Chapter~\ref{ch:atlas}).
+\calibrated{} The reference for the cells that come next, atlas v2, reconciles open methylation measurements into one frame: one set of
+cell-type definitions, every value on the same scale, every value with its own interval. It is built with the tools of cosmology, not by
+analogy but in fact. The reconciliation is a hierarchical Bayesian model sampled by Markov-chain Monte Carlo (the No-U-Turn sampler), the
+same class of inference machinery that cosmology runs against the Planck likelihood to infer the parameters of the universe. The raw
+measurements are noisy and unevenly sampled across the genome and across cell types; some positions are measured well, some weakly, some
+not at all for a given cell type. The model takes that sparse, noisy input and returns a posterior at every position a cell was measured,
+pulling each value toward the shared level of its locus only, never toward the mean of a group of cells; where a cell was never measured
+the value is left blank, not filled (Chapter~\ref{ch:atlas}). \calibrated
+
+That uncertainty at every value is what separates a measurement from a guess. A tool built from labels can tell you whether a specimen
+falls on the sick side or the healthy side of a trained boundary: a verdict, hit or miss. It cannot tell you how far from healthy a cell
+sits, because it has no physically defined healthy point and no calibrated scale to measure distance along. A reference with stated
+uncertainty and a gauge with fixed points provide both: the reading is not ``inside or outside a line'' but ``this far from 1, give or take
+this much'', a distance with a stated confidence. The interval on a reading has three parts, the precision of the reference itself, the
+spread of the same-run tare and the detection limit set by the cell's fraction of the specimen (Chapter~\ref{ch:gauge}). This is what makes
+the gauge a thermometer rather than a switch, and it is what makes a trajectory possible. Knowing how far off the mark a cell is, and how
+confident that figure is, is a different and more useful thing than knowing only whether it hit the mark. \interp
+
+This is also why the reference takes what it takes to build. A posterior at every CpG for every cell type, with convergence checked, is
+the same class of computation that cosmology runs on its maps: the atlas v2 fit ran over about 814,000 loci in 700 blocks, every finished
+block kept as it landed (Chapter~\ref{ch:atlas}). \observed{} References that report point estimates and stop do not solve for the
+uncertainty at all. The compute cost is not inefficiency. It is the price of a reference that can state a distance with a confidence,
+which is the price of measuring rather than classifying. \interp
+
+The relationship to the published datasets is the same as a cosmologist's relationship to a sky survey. When a researcher uses the points
+a telescope or a survey such as the Dark Energy Spectroscopic Instrument has measured, those measurements are observations of the world:
+facts, not the researcher's own creation, and equally not anyone's to withhold from analysis. What is original is what the researcher does
+with them: the correlations found, the model built, the structure inferred. The published methylation datasets are observational inputs of
+exactly this kind, used with attribution and reconciled into a new frame. The measurements on their own are points on a map; the
+reconciliation, the identity sites, the floor and the inference that turns scattered points into a coherent reference are the work. The
+method depends on open methylation measurements as a class of input, not on any single dataset, and equivalent inputs from the open
+libraries of CpG measurements should produce the same reference. \interp
+
+\section{Built from physics, not from labels}\label{sec:ag_physics}
+
+This is the difference that separates the approach from the established tools: multi-cancer blood tests, methylation ageing
+clocks~\cite{Horvath2013}, disease classifiers. Those are built from statistics. They learn what sick looks like, relative to healthy,
+from large sets of labelled examples. They have no concept of where a healthy cell's floor ought to be; they know only where their
+training population happened to sit. This instrument inverts that. The form of a cell's floor follows from the thermodynamics of holding
+a pattern against thermal noise, before any disease data is seen (Chapter~\ref{ch:iama}), and the reading is the departure from the
+cell's own healthy state. A tool built from labels can only recognise patterns it was trained on. A tool built on a cell's own healthy
+reading and a physical floor can register any departure from health, because health is defined by the cell itself rather than by a
+training set. \interp
+
+This architectural difference has a concrete consequence, and it bites hardest where early reading matters most. A compartment of the
+body does not drift uniformly. Some cells within it can move up while others move down, and the same cell can move in opposite directions
+on its two channels. A method that reads a pooled or aggregate signal sees those opposing shifts cancel toward a neutral middle and reads
+the system as unremarkable, when in fact it has departed from healthy in a structured way. The departure is real; the pooling hides it.
+The immortalised fibroblasts above are the measured case: two channels moving in opposite directions, and a combined reading inside
+Normal. \measured{} Reading each cell type against its own healthy state, with the direction of the shift preserved and the channels
+apart, recovers the signal that aggregation cancels. \derived
+
+There is a second consequence in timing. The body's response to an early change can precede the point at which the affected tissue
+sheds enough of its own signature to be detected directly, so a tool that waits for a tissue-specific signal would be reading a later
+event than a tool that reads the earlier response of the cells that respond. \conjecture{} It is untested on this instrument.
+\openprob{} Neither of these is a shortcoming that a larger training set fixes. Both follow from reading relative, aggregate resemblance
+to a trained population instead of absolute, signed, per-cell departure from the cell's own healthy state. A resemblance score can tell a
+person they look like the group that was sick. It cannot tell them how far each of their cell types sits from its own healthy reading, or
+in which direction, because it has no such reading and does not keep the direction. That absolute, per-cell, directional reading is what
+the physics makes possible. \interp
+
+There is a precedent for what precision recovers from data that was always there. The microwave background was predicted in
+1948~\cite{AlpherHerman1948}, but for years it went unseen; it was first found as an excess in a noise budget, and recognised for what it
+was in 1965~\cite{PenziasWilson1965,Dicke1965} (Chapter~\ref{ch:skytools}). \observed{} The signal had been present the whole time. What
+was missing was a precise enough instrument and knowing what to look for. The dominant approach in the methylation field has answered the
+question of signal with statistics and scale, training large models on labelled groups. Astro-Genetics answers it with precision and
+physics: a reference with its uncertainty stated, read against a floor whose form is derived in advance. What remains to be shown is the
+prospective case at the level of one person: that person's serial readings showing a departure ahead of a diagnosis whose outcome was
+unknown when the readings were taken. That is the test still ahead, and the standard for it is the one cosmology holds to: the signal
+counts when it holds on data the reference never saw, with the test registered first (Chapter~\ref{ch:serial}). \openprob
+
+\section{The same toolkit on both scales}\label{sec:ag_both}
+
+Astro-Genetics is a verifiable claim, not an analogy. The strongest way to see it is a check made in the right order: write down what the
+framework says a quantity should be, and the condition it must meet, before looking; then read the independently measured value. This is
+the discipline cosmology has used for two decades, and it is the discipline the cell instrument applies to every test: the pass conditions
+are written and hashed before the data are read (Chapter~\ref{ch:discipline}).
+
+\paragraph{The cosmology side.} Three quantities connect the framework to measured cosmology, and each is stated here at the status it
+has. The coupling $\beta_m=\Omega_m/2=0.15765$ follows from the half-and-half balance; the matter density itself is an input
+(Chapter~\ref{ch:virial}). \derived{} The baryon-to-photon ratio, which standard cosmology treats as an input, was read from the Planck 2018
+microwave-background likelihood alone, with the baryon density free over a range six times wider than in the other runs and no nucleosynthesis data:
+$\eta=(6.113\pm0.037)\times10^{-10}$, $0.2\,\%$ below the Planck 2018 value and $0.3\sigma$ from nucleosynthesis with deuterium
+(Chapter~\ref{ch:baryon_chain}). \measured{} It shows that the framework leaves the early universe intact; the constraint that would make
+$\eta$ a derived quantity is open. \openprob{} The cosmological-constant expression gives $\rho_\Lambda/\rho_{\rm vac}=1.142\times10^{-123}$
+against the measured $1.133\times10^{-123}$, $0.79\,\%$ above it, with the factors applied in turn as the comparison proceeded
+(Chapter~\ref{ch:lambda}). \fitted{} The baryon and cosmological-constant results are one relation, $\Omega_b/\Omega_m=\tfrac3{16}
+\sqrt{\Omega_\Lambda}$, read in two variables; it holds to $0.5\,\%$ on a microwave-background-only chain. \observed
+
+\paragraph{The cell side.} On single molecules the copy-error statistic and the read pipeline were fixed, and each test's pass conditions
+were written down before the data below were read; each specimen is read against its own untreated or normal state, never against
+a group.
+\begin{itemize}
+\item A known block of the copying enzyme DNMT1 (100~nM, 7 days, four genotypes, two replicates), read on single molecules against the
+      same genotype's untreated libraries: IAM-A 1.65--1.97, above the pre-registered bar of 1.05 in 8 of 8, with conversion failure
+      unchanged (Chapter~\ref{ch:firstreadings}). \measured
+\item Early-onset colorectal tumours against the same patient's adjacent normal tissue: copy error higher in 6 of 6 pairs, median ratio
+      1.148, both pre-registered conditions met; oral squamous carcinoma against the same patient's normal tissue, higher in 4 of 4
+      (Chapter~\ref{part4:ch:reach}). \measured
+\item Senescent and immortalised fibroblasts against their own proliferating cultures, channel by channel, as above. \measured
+\end{itemize}
+What these do not show: why. Tumour purity is unknown, the tissue mix differs between tumour and normal, and a pass on a known change in
+maintenance fidelity is not a disease reading. The far end is exact and the floor's form is derived, but breach on this gauge is still to be
+measured. \openprob
+
+\begin{table}[htbp]\centering\small
+\caption{One toolkit, two scales: each row is one tool doing the same job in cosmology and in Astro-Genetics. The instruments were built by
+cosmology; Astro-Genetics points them at the cell. \analogy{} of structure; each tool's status in the chain is in Chapter~\ref{ch:skytools}.}
+\label{tab:ag_toolkit}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}\toprule
+shared tool & in cosmology & in Astro-Genetics \\\midrule
+the reference map & the microwave background: a frozen snapshot of the early universe & the methylation pattern of purified healthy cells: a frozen snapshot of the cell, in fixed files \\
+sharpening the map & Bayesian inference fills and sharpens the sparse, noisy sky map & a hierarchical fit sharpens every measured value and states its interval; unmeasured values stay blank \\
+fitting the model & Markov-chain Monte Carlo against the Planck likelihood & Markov-chain Monte Carlo to build atlas v2 \\
+reading the departure & the residual after the foregrounds are removed & the residual sky after the specimen's own healthy expectation is removed (Chapter~\ref{ch:sky}) \\
+the single number & a remnant's mass over the typical remnant of its kind & $A$: the reading over the same cell type's healthy reading \\\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Why it is called Astro-Genetics}\label{sec:ag_name}
+
+Cosmology can tell you, with a stated uncertainty, how far a system is from a transition it cannot return from, and most of biology cannot
+yet do this for a cell (Chapter~\ref{ch:skytools}). Astro-Genetics is the transfer of that toolkit. It uses Markov-chain Monte Carlo to
+build and calibrate its reference, uses that reference the way cosmology uses the microwave background, as a frozen baseline to measure
+departures from, uses the same convergence diagnostics, and writes every test's pass conditions down, with a hash, before the data are
+touched. It does not read a specimen against any published atlas in its published form, because those references, as published, are on
+another laboratory's scale and carry no floor. The cells are read with cosmology's instruments because the accounting underneath is the
+same accounting, and the instruments were built to read exactly this kind of signal. \interp
+
+\section{Whose shoulders this stands on}\label{sec:ag_lineage}
+
+The framework is not built from nothing. It stands on a chain of named results, and it is worth tracing the chain, because it is what
+carries the physics from the cosmic horizon down to the cell. Jacobson, in 1995, showed that Einstein's equations of gravity follow as an
+equation of state: specify how entropy is encoded on a horizon, and the theory of gravity follows~\cite{Jacobson1995}. The same
+thermodynamic derivation was later extended to the Friedmann equations of the expanding universe by Cai and Kim~\cite{CaiKim2005}.
+Bekenstein supplied the entropy that the derivation encodes, the result that a horizon's information content is proportional to its
+area~\cite{Bekenstein1973}, and Hawking its temperature~\cite{Hawking1975}. The coefficient in that relation follows from geometry: the
+ratio $2\pi/8\pi$ of the period of the Euclidean Rindler cone to the normalisation of the Einstein equations fixes one unit of $\kB$ per
+four Planck areas, so one bit needs $4\ln2\,\lP^2$ (Chapter~\ref{ch:surfaces}). \derived{} With the encoding rule pinned, Zurek's account
+of decoherence~\cite{Zurek2003} supplies the local picture of how a quantum state becomes a definite classical fact in the first place,
+redundantly recorded in its environment. Adding the cost of those classical facts to Jacobson's entropy functional is the single step
+that connects the local record of decoherence to the cosmic horizon (Chapter~\ref{ch:iams_law}), and the same Landauer cost on an encoding
+surface~\cite{Landauer1961} is the principle the cell's floor rests on. The horizon and the chromatin are the same kind of object, read
+with the same arithmetic. \conjecture{} The form of the cell's floor follows from that arithmetic; its height comes from the holding energy
+measured on healthy molecules, and deriving that energy from the chemistry of maintenance is the part that remains open
+(Chapter~\ref{ch:open}). \openprob
+
+\section{What the instrument is for}\label{sec:ag_for}
+
+The simplest way to describe the instrument is as a cellular thermometer built with Astro-Genetics. A thermometer does not diagnose and
+does not treat; it reads a state, on a calibrated scale, and you read it again later to see which way it is moving. What the gauge does,
+before anything else, is read where a person's cells stand today against their own healthy state. Two readings apart in time would give a
+trajectory: whether a cell type is holding steady, moving away from 1, or settling back toward it. That continuous reading of cellular
+state is the purpose of the instrument; the change floor that a trajectory needs has not yet been measured (Chapter~\ref{ch:serial}).
+\openprob
+
+Detection would follow from doing that reading well. If a cell's departure toward transformation can be read on a gauge whose floor and
+far end are fixed in advance, and whose breach line is measured on per-person data rather than fitted to groups of sick people, then a
+departure can be flagged before the event, just as a remnant star approaches its limiting mass before it collapses. \prediction{} This is
+a consequence of reading cellular state accurately, not a separate function. The measurement is how far each cell type sits from its own
+healthy reading, and how much room is left before its full surface. \interp
+
+\paragraph{The boundary.} The shared structure between the two scales, one cost per bit and one notion of a full surface, is derived for
+the cost and an analogy for the rest (Chapter~\ref{ch:floorbreach}). A full numerical unification, deriving the cell's floor from first
+principles without a measured holding energy, remains open. \openprob{} The instrument reads cellular state and reports departures; it
+does not diagnose, and a flagged reading is a prompt for clinical workup, not a substitute for it.
+
+\paragraph{Data and reproducibility.} The chain, its frozen reference files, the pre-registrations with their hashes, the outcome records
+and the scripts that recompute every number in this chapter (\texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}verify\_astrogenetics\_book.py})
+are in the repository. A framework like this earns trust only by giving every sceptical reader the means to verify it.
