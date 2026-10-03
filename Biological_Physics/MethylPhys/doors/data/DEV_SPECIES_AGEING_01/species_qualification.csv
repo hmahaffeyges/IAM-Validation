@@ -1,0 +1,127 @@
+species,n_blood,order,max_lifespan,n_aged,age_min,age_max,span_frac,qualifies,reason_if_not
+Acinonyx jubatus,14,Carnivora,20.5,14,1.029431896,12.42984257,0.5561175938536586,True,
+Addax nasomaculatus,1,Artiodactyla,28.0,1,10.63,10.63,0.0,False,fewer than 10 aged arrays
+Aepyceros melampus,1,Artiodactyla,25.6,1,6.0,6.0,0.0,False,fewer than 10 aged arrays
+Aethalodelphis obliquidens,17,Cetacea,46.0,17,0.432580424,39.79,0.8555960777391304,True,
+Antidorcas marsupialis,2,Artiodactyla,19.8,2,0.232876712,8.95,0.4402587519191919,False,fewer than 10 aged arrays
+Aonyx cinereus,13,Carnivora,23.0,12,7.591780822,18.18,0.46035735556521734,True,
+Apodemus sylvaticus,13,Rodentia,6.3,13,0.161643836,1.046575342,0.1404653184126984,False,age span < 30% of max lifespan
+Bos taurus,279,Artiodactyla,20.0,277,0.509589041,14.42465753,0.69575342445,True,
+Callithrix geoffroyi,1,Primates,17.6,1,18.21,18.21,0.0,False,fewer than 10 aged arrays
+Callithrix jacchus,96,Primates,22.8,95,0.5,15.58,0.6614035087719298,True,
+Canis lupus familiaris,756,Carnivora,27.0,742,0.1,17.5,0.6444444444444444,True,
+Capreolus capreolus,191,Artiodactyla,17.5,188,0.666666667,13.66666667,0.7428571430285714,True,
+Cavia porcellus,2,Rodentia,12.0,2,0.916666667,2.416666667,0.125,False,fewer than 10 aged arrays
+Cephalorhynchus commersonii,4,Cetacea,,0,,,,False,no AnAge max longevity
+Ceratotherium simum simum,23,Perissodactyla,45.0,23,0.314852841,29.66461328,0.6522168986444444,True,
+Cervus canadensis,42,Artiodactyla,31.5,42,0.095890411,13.67671233,0.4311372037777778,True,
+Cervus elaphus,54,Artiodactyla,31.5,53,0.084931507,10.84109589,0.34146553596825396,True,
+Cheirogaleus medius,2,Primates,29.0,2,0.99,29.62,0.987241379310345,False,fewer than 10 aged arrays
+Chlorocebus sabaeus,144,Primates,32.0,144,0.002739726,25.02191781,0.781849315125,True,
+Choloepus didactylus,1,Pilosa,36.8,1,13.12,13.12,0.0,False,fewer than 10 aged arrays
+Choloepus hoffmanni,5,Pilosa,41.0,4,1.78,44.18,1.0341463414634147,False,fewer than 10 aged arrays
+Chrysocyon brachyurus,5,Carnivora,16.8,5,4.747433265,13.62354552,0.5283400151785714,False,fewer than 10 aged arrays
+Connochaetes taurinus albojubatus,10,Artiodactyla,24.3,10,7.0,18.97,0.4925925925925925,True,
+Crocuta crocuta,6,Carnivora,41.1,6,1.32,17.51,0.3939172749391728,False,fewer than 10 aged arrays
+Cryptomys hottentotus,1,Rodentia,11.0,1,4.5,4.5,0.0,False,fewer than 10 aged arrays
+Daubentonia madagascariensis,3,Primates,32.3,3,0.7,36.67,1.113622291021672,False,fewer than 10 aged arrays
+Delphinapterus leucas,91,Cetacea,40.0,67,0.05,48.94,1.22225,True,
+Delphinus delphis,3,Cetacea,25.0,3,2.564383562,26.22191781,0.94630136992,False,fewer than 10 aged arrays
+Diceros bicornis,5,Perissodactyla,57.0,5,9.609856263,30.97,0.37473936380701756,False,fewer than 10 aged arrays
+Didelphis virginiana,1,Didelphimorphia,6.6,1,1.538672142,1.538672142,0.0,False,fewer than 10 aged arrays
+Elephas maximus,84,Proboscidea,79.6,83,2.35890411,73.58630137,0.8948165484924624,True,
+Enhydra lutris,3,Carnivora,27.0,3,4.704109589,8.539726027,0.14205986807407409,False,fewer than 10 aged arrays
+Equus asinus somalicus,7,Perissodactyla,47.0,7,2.376454483,10.03148528,0.16287299568085106,False,fewer than 10 aged arrays
+Equus caballus,210,Perissodactyla,57.0,208,0.005,28.0,0.491140350877193,True,
+Equus grevyi,5,Perissodactyla,31.0,5,2.305270363,18.46954141,0.5214280982903226,False,fewer than 10 aged arrays
+Equus quagga,96,Perissodactyla,38.0,76,0.156164384,20.20821918,0.5276856525263158,True,
+Eudorcas thomsonii,4,Artiodactyla,20.0,4,0.002739726,9.090410959,0.45438356165,False,fewer than 10 aged arrays
+Eulemur albifrons,2,Primates,35.5,2,19.65,34.59,0.42084507042253533,False,fewer than 10 aged arrays
+Eulemur coronatus,2,Primates,27.0,2,0.98,12.77,0.43666666666666665,False,fewer than 10 aged arrays
+Eulemur flavifrons,3,Primates,37.5,3,0.32,27.4,0.7221333333333333,False,fewer than 10 aged arrays
+Eulemur fulvus,2,Primates,35.5,2,17.38,29.83,0.35070422535211265,False,fewer than 10 aged arrays
+Eulemur fulvus collaris,3,Primates,35.5,3,0.84,33.83,0.9292957746478872,False,fewer than 10 aged arrays
+Eulemur macaco,3,Primates,37.5,3,9.52,34.48,0.6656,False,fewer than 10 aged arrays
+Eulemur mongoz,3,Primates,36.2,3,0.82,30.77,0.8273480662983425,False,fewer than 10 aged arrays
+Eulemur rubriventer,3,Primates,31.7,3,7.87,33.84,0.819242902208202,False,fewer than 10 aged arrays
+Eulemur rufus,3,Primates,35.5,3,5.68,30.32,0.6940845070422536,False,fewer than 10 aged arrays
+Eulemur sanfordi,3,Primates,35.5,3,9.44,32.94,0.6619718309859155,False,fewer than 10 aged arrays
+Felis catus,129,Carnivora,30.0,128,0.210970464,20.91667,0.6901899845333334,True,
+Galago moholi,2,Primates,16.6,2,3.9,6.76,0.172289156626506,False,fewer than 10 aged arrays
+Gazella leptoceros,3,Artiodactyla,14.6,3,1.42642026,5.11156742,0.2524073397260274,False,fewer than 10 aged arrays
+Giraffa camelopardalis,1,Artiodactyla,39.5,1,1.593429158,1.593429158,0.0,False,fewer than 10 aged arrays
+Globicephala macrorhynchus,9,Cetacea,63.0,9,7.54,18.92,0.18063492063492068,False,fewer than 10 aged arrays
+Gorilla gorilla,6,Primates,60.1,6,4.739219713,47.47,0.7109946803161398,False,fewer than 10 aged arrays
+Hapalemur griseus,3,Primates,23.3,3,7.38,26.12,0.8042918454935623,False,fewer than 10 aged arrays
+Heterocephalus glaber,92,Rodentia,31.0,92,0.67,26.0,0.8170967741935483,True,
+Hippotragus equinus,6,Artiodactyla,25.9,6,0.013689254,9.645448323,0.3718825895366795,False,fewer than 10 aged arrays
+Hippotragus niger,5,Artiodactyla,22.2,5,0.002737851,11.7,0.5269037004054055,False,fewer than 10 aged arrays
+Homo sapiens,282,Primates,122.5,282,11.42,92.04383562,0.6581537601632652,True,
+Hystrix cristata,1,Rodentia,28.0,1,9.582477755,9.582477755,0.0,False,fewer than 10 aged arrays
+Kobus megaceros,2,Artiodactyla,21.1,2,0.788501027,0.958247775,0.008044869573459715,False,fewer than 10 aged arrays
+Lemur catta,3,Primates,37.3,3,0.06,32.84,0.8788203753351207,False,fewer than 10 aged arrays
+Litocranius walleri,7,Artiodactyla,17.3,7,0.90349076,7.394934976,0.3752279893641618,False,fewer than 10 aged arrays
+Loris tardigradus,1,Primates,21.6,1,17.81,17.81,0.0,False,fewer than 10 aged arrays
+Loxodonta africana,57,Proboscidea,65.0,57,1.202739726,48.45753425,0.7269968388307693,True,
+Lynx rufus,1,Carnivora,32.3,0,,,,False,fewer than 10 aged arrays
+Macaca mulatta,201,Primates,40.0,199,1.79,42.0,1.00525,True,
+Macropus fuliginosus,6,Diprotodontia,23.2,5,1.665753425,5.035616438,0.1452527160775862,False,fewer than 10 aged arrays
+Macropus giganteus,12,Diprotodontia,25.0,12,1.82,13.3,0.4592,True,
+Marmota flaviventris,159,Rodentia,21.2,153,0.01,12.04,0.5674528301886792,True,
+Microcebus murinus,2,Primates,18.2,2,0.47,5.06,0.2521978021978022,False,fewer than 10 aged arrays
+Mirza zaza,2,Primates,17.4,2,12.85,18.06,0.2994252873563218,False,fewer than 10 aged arrays
+Muntiacus vaginalis,2,Artiodactyla,18.8,2,17.0,17.0,0.0,False,fewer than 10 aged arrays
+Mus musculus,387,Rodentia,4.0,386,0.019179133,2.725,0.67645521675,True,
+Mustela putorius furo,2,Carnivora,11.1,2,0.5,4.833333333,0.39039039036036033,False,fewer than 10 aged arrays
+Nanger dama,8,Artiodactyla,19.3,8,0.008213552,3.482546201,0.18001723569948186,False,fewer than 10 aged arrays
+Nanger granti,3,Artiodactyla,23.0,3,0.08,9.51,0.41,False,fewer than 10 aged arrays
+Nanger soemmerringii,4,Artiodactyla,15.5,4,1.15,8.82,0.49483870967741933,False,fewer than 10 aged arrays
+Notamacropus agilis,3,Diprotodontia,16.9,3,5.24,8.79,0.2100591715976331,False,fewer than 10 aged arrays
+Notamacropus rufogriseus,5,Diprotodontia,15.2,5,2.02,9.65,0.5019736842105263,False,fewer than 10 aged arrays
+Nycticebus coucang,2,Primates,25.8,2,7.42,22.18,0.5720930232558139,False,fewer than 10 aged arrays
+Odobenus rosmarus divergens,12,Carnivora,,0,,,,False,no AnAge max longevity
+Okapia johnstoni,1,Artiodactyla,33.5,1,8.109514031,8.109514031,0.0,False,fewer than 10 aged arrays
+Orcinus orca,36,Cetacea,90.0,36,0.944558522,54.2,0.5917271275333333,True,
+Ornithorhynchus anatinus,2,Monotremata,22.6,2,17.75,25.84,0.35796460176991146,False,fewer than 10 aged arrays
+Orycteropus afer,4,Tubulidentata,29.8,4,0.48,10.88,0.348993288590604,False,fewer than 10 aged arrays
+Oryctolagus cuniculus,5,Lagomorpha,13.0,5,1.0,4.5,0.2692307692307692,False,fewer than 10 aged arrays
+Osphranter robustus,3,Diprotodontia,22.0,3,8.38,11.89,0.15954545454545455,False,fewer than 10 aged arrays
+Osphranter rufus,39,Diprotodontia,25.0,37,0.62,11.73,0.4444000000000001,True,
+Otolemur crassicaudatus,3,Primates,22.7,3,7.08,14.69,0.33524229074889866,False,fewer than 10 aged arrays
+Ovis aries,168,Artiodactyla,22.8,168,2.916666667,6.997222222,0.17897173486842105,False,age span < 30% of max lifespan
+Pan troglodytes,2,Primates,68.0,2,43.58,44.1779603,0.008793533823529471,False,fewer than 10 aged arrays
+Panthera leo,7,Carnivora,28.0,7,1.26,12.84599589,0.4137855675,False,fewer than 10 aged arrays
+Panthera tigris,9,Carnivora,26.3,8,4.914442163,17.08,0.4625687390494296,False,fewer than 10 aged arrays
+Perodicticus potto,1,Primates,32.4,1,11.5,11.5,0.0,False,fewer than 10 aged arrays
+Phascolarctos cinereus,4,Diprotodontia,22.1,4,3.75,5.416666667,0.07541478131221721,False,fewer than 10 aged arrays
+Phoca groenlandica,2,Carnivora,,0,,,,False,no AnAge max longevity
+Phoca vitulina,58,Carnivora,47.6,57,0.517453799,48.0,0.9975324832142857,True,
+Phocoena phocoena,1,Cetacea,20.4,1,17.02395619,17.02395619,0.0,False,fewer than 10 aged arrays
+Pongo pygmaeus,1,Primates,59.0,1,43.69,43.69,0.0,False,fewer than 10 aged arrays
+Procavia capensis,1,Hyracoidea,14.8,1,14.63928816,14.63928816,0.0,False,fewer than 10 aged arrays
+Propithecus coquereli,3,Primates,31.0,3,0.1,28.52,0.9167741935483871,False,fewer than 10 aged arrays
+Propithecus diadema,2,Primates,21.0,2,14.19,16.36,0.10333333333333333,False,fewer than 10 aged arrays
+Propithecus tattersalli,3,Primates,20.0,3,3.52,25.43,1.0955,False,fewer than 10 aged arrays
+Puma concolor,1,Carnivora,27.0,1,0.21,0.21,0.0,False,fewer than 10 aged arrays
+Rattus norvegicus,188,Rodentia,3.8,188,0.03835827,2.416666667,0.6258706307894737,True,
+Rhinoceros unicornis,4,Perissodactyla,43.5,4,2.726899384,12.67624914,0.228720684045977,False,fewer than 10 aged arrays
+Steno bredanensis,6,Cetacea,32.0,6,4.643394935,23.88227242,0.60121492140625,False,fewer than 10 aged arrays
+Sus scrofa,60,Artiodactyla,27.0,60,0.021917808,5.150684932,0.1899543379259259,False,age span < 30% of max lifespan
+Sus scrofa domesticus,100,Artiodactyla,27.0,98,0.030136986,6.260273973,0.23074581433333335,False,age span < 30% of max lifespan
+Tachyglossus aculeatus,6,Monotremata,49.5,5,0.416666667,10.4,0.20168350167676768,False,fewer than 10 aged arrays
+Tragelaphus angasii,5,Artiodactyla,23.0,5,2.147945205,10.9369863,0.38213222152173904,False,fewer than 10 aged arrays
+Tragelaphus eurycerus,5,Artiodactyla,22.0,5,0.008213552,14.39288159,0.6538485471818182,False,fewer than 10 aged arrays
+Tragelaphus imberbis,7,Artiodactyla,19.8,7,0.010951403,11.4661191,0.5785438230808081,False,fewer than 10 aged arrays
+Tragelaphus oryx,1,Artiodactyla,26.1,1,2.143737166,2.143737166,0.0,False,fewer than 10 aged arrays
+Tragelaphus spekii,3,Artiodactyla,22.6,3,6.25,7.05,0.03539823008849557,False,fewer than 10 aged arrays
+Tragelaphus strepsiceros,9,Artiodactyla,23.5,9,0.26,14.0,0.5846808510638298,False,fewer than 10 aged arrays
+Trichechus manatus,20,Sirenia,69.0,9,1.2,34.15195072,0.47756450318840576,False,fewer than 10 aged arrays
+Tursiops truncatus,146,Cetacea,51.6,143,0.572210815,57.87,1.1104222710271316,True,
+Ursus americanus,2,Carnivora,34.0,1,0.1,0.1,0.0,False,fewer than 10 aged arrays
+Varecia rubra,3,Primates,37.5,3,0.38,34.85,0.9192,False,fewer than 10 aged arrays
+Varecia variegata,4,Primates,40.0,4,0.86,39.39,0.96325,False,fewer than 10 aged arrays
+Vicugna pacos,5,Artiodactyla,25.8,5,1.666666667,15.0,0.516795865620155,False,fewer than 10 aged arrays
+Vombatus ursinus,3,Diprotodontia,30.0,1,0.58,0.58,0.0,False,fewer than 10 aged arrays
+Vulpes vulpes,1,Carnivora,21.3,1,0.33,0.33,0.0,False,fewer than 10 aged arrays
+Xanthonycticebus pygmaeus,3,Primates,19.3,3,0.7,19.89,0.9943005181347151,False,fewer than 10 aged arrays
+Zalophus californianus,71,Carnivora,35.7,69,0.008213552,30.36550308,0.8503442444817926,True,
