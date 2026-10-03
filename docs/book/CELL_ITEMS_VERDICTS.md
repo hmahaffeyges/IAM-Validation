@@ -16,7 +16,7 @@
 | 8 | 67–73 | how brightness measurement works; "what is novel is the bridge" | CARRY | sky chapter |
 | 9 | 77–91 | the named analogies | CARRY as ANALOGY. Fix: the Bekenstein–Hawking limit is a **maximum** (capacity), not a floor. That is exactly your two ends of the gauge: H_min on the left, the full surface on the right. | sky chapter |
 | 10 | 95–99 | why cross-substrate method finds invariants; the four steps | CARRY in your words. Fixes: DGP and f(R) are physical models, not fits; the Λ value and the baryon asymmetry are one observed relation, not two tests. | Part 5 synthesis |
-| 11 | 101 | the "H_min family" | CARRY the idea: one identification rule, one floor per substrate, different units. Fix the values: neurons 0.773 is a retired class floor. Current floors: chip k_BT ln2 (derived); cell IAM-A 1/P = 0.910 for neutrophils (from measured E_hold); qubit material floor (calibrated). | Part 5 one-gauge |
+| 11 | 101 | the "H_min family" | CARRY the idea: one identification rule, one floor per substrate, different units. Fix the values: neurons 0.773 is a retired class floor. Current floors: chip k_BT ln2 (derived); cell IAM-A 1/P = 0.910 for neutrophils (from measured E_hold); qubit thermal floor p_eq t_g/T1 (derived). | Part 5 one-gauge |
 | 12 | 103 | "it could be wrong everywhere, but it cannot be selectively right" | CARRY, reworded without cohorts: any person, any ancestry, other species at their own temperature (dog 38.5 °C: floor ×1.012). | Part 5 synthesis |
 | 13 | 105–109 | the operational origin: power-grid operations | CARRY in your words | Preface |
 
@@ -25,7 +25,7 @@
 | # | lines | item | verdict | where |
 |---|---|---|---|---|
 | 14 | 114–119 | what thermodynamics adds to bits | CARRY+FIX. The enzyme "match 3.4–3.8 kT" becomes "inside the range 1.9–4.4 kT from DNMT1's published 7–80× preference: a consistency check, not a match". | Part 4 gauge chapter |
-| 15 | 121–124 | the law's two expressions; Mahaffey number; critical conditions | IN BOOK (Part 1). Fix: M = E/k_BT; ÷ ln2 gives Landauer units. T1* = 0.65 T1 is retired. Cell breach: to be measured. | — |
+| 15 | 121–124 | the law's two expressions; Mahaffey number; critical conditions | IN BOOK (Part 1). Fix: M = E/k_BT; ÷ ln2 gives Landauer units.  Cell breach: to be measured. | — |
 | 16 | 125–133 | 3.41 kT = 4.9 Landauer units; ATP 20.94 kT = 30.2; φ = 0.163 | CONFIRMED. CARRY the "same ATP, two units" box. | Part 4 Landauer chapter |
 | 17 | 135–138 | how to describe each reading to reviewers | CARRY. You also want the C-score in the Methods-from-the-sky chapter: move it there. | Part 4 gauge + sky |
 | 18 | 139 | the C-score may see regional damage that A averages away | CARRY as CONJECTURE. The AML test is not yet run on chain v3 (open). | sky chapter |

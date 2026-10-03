@@ -221,8 +221,7 @@ The architecture-class H_min atlas under active construction — chains running 
 ### the methylation report Validation Runs — Multi-Class Drift Cascade
 
 This directory contains VAL-037 through VAL-047 validation scripts and their JSON results.
-The 80-cell healthy baseline reference is part of the proprietary calibration layer
-(available under NDA — email hmahaffeyges@gmail.com).
+The 80-cell healthy baseline reference is not part of this repository.
 
 #### Cascade Summary (April 18, 2026)
 
@@ -281,7 +280,6 @@ Each implements pre-specified predictions with explicit pass/fail outputs.
 - **VAL-046**: Kresovich 2019 + Hillary 2020 + Horvath 2014 + Hou 2012 + Horvath 2015
 - **VAL-047**: Xu 2020 JNCI (doi:10.1093/jnci/djz065) + Kresovich 2022 Mol Onc (doi:10.1002/1878-0261.13087) + Teschendorff 2016 Nat Commun (doi:10.1038/ncomms10478) + Demetriou 2013 (GSE51057 primary) + Zhao 2020 BMC Cancer (doi:10.1186/s12885-020-07194-5)
 
-Full citation list available under NDA — email hmahaffeyges@gmail.com for access.
 
 ---
 

@@ -1,1 +1,631 @@
-[Superseded draft. Content removed from the public history; the current version of this file is authoritative.]
+{
+ "_about": "Overrides applied by make_app_G.py to CANON/predictions_triage_2026-10-02.json before typesetting Appendix G. Each 'replace' pair must match its field exactly once, so a fixed JSON makes the script stop and the override can be deleted. 'exclude' rows are counted but not listed. 'open' adds an open-problem sentence and the OPEN PROBLEM label. 'check' values are recomputed by the script.",
+ "COS-010": {
+  "falsified_if": [
+   [
+    " (the w_info half has no named test)",
+    ""
+   ]
+  ],
+  "test_and_date": [
+   [
+    "not stated",
+    "no test named"
+   ]
+  ],
+  "reason": "working note in falsifier",
+  "also": [
+   "COS-087"
+  ]
+ },
+ "COS-013": {
+  "statement": [
+   [
+    "the corrected IAM values are w0 = -1.062, wa = -0.012 (effective, Theory paper)",
+    "the IAM values are w0 = -1.062, wa = -0.012 (effective)"
+   ]
+  ],
+  "reason": "refers to an unpublished draft and to a correction",
+  "color": "pending"
+ },
+ "COS-016": {
+  "test_and_date": [
+   [
+    "CMB-S4 (forecast to recompute)",
+    "CMB-S4"
+   ]
+  ],
+  "reason": "working note",
+  "also": [
+   "COS-017",
+   "COS-229",
+   "PAR-003"
+  ],
+  "color": "passed"
+ },
+ "COS-025": {
+  "exclude": "records an early fit that the final chains replace (COS-008, COS-018); no remaining test"
+ },
+ "COS-028": {
+  "exclude": "same comparison as COS-007, worded as the history of a claim"
+ },
+ "COS-037": {
+  "exclude": "same prediction as COS-091"
+ },
+ "COS-046": {
+  "statement": [
+   [
+    " (not 0.07 %)",
+    ""
+   ]
+  ],
+  "reason": "old value with correction",
+  "also": [
+   "COS-215"
+  ],
+  "color": "precision"
+ },
+ "COS-049": {
+  "exclude": "same prediction as COS-018"
+ },
+ "COS-057": {
+  "exclude": "same prediction as COS-123"
+ },
+ "COS-068": {
+  "exclude": "records a claim against the wrong data release; the DESI DR1 comparison is COS-148"
+ },
+ "COS-083": {
+  "test_and_date": [
+   [
+    "; pending",
+    ""
+   ]
+  ],
+  "reason": "working note"
+ },
+ "COS-091": {
+  "statement": [
+   [
+    " ON HOLD until the implementation form is settled.",
+    ""
+   ]
+  ],
+  "open": "Which implementation form (Level 1 G_eff or Level 2) governs cluster masses is open.",
+  "reason": "hold note",
+  "also": [
+   "COS-167",
+   "COS-037"
+  ]
+ },
+ "COS-101": {
+  "exclude": "same prediction as OTH-015"
+ },
+ "COS-140": {
+  "statement": [
+   [
+    "E_G +1.9 %",
+    "E_G +1.8 %"
+   ]
+  ],
+  "falsified_if": [
+   [
+    "+1.9 %",
+    "+1.8 %"
+   ]
+  ],
+  "check": {
+   "EG_z0.3_pct": 1.8
+  },
+  "reason": "recomputed E_G shift",
+  "also": [
+   "COS-142"
+  ]
+ },
+ "COS-142": {
+  "exclude": "same prediction as COS-140"
+ },
+ "COS-148": {
+  "statement": [
+   [
+    " (not 0.2952)",
+    ""
+   ],
+   [
+    " (not 0.02 sigma)",
+    ""
+   ]
+  ],
+  "reason": "old values with correction",
+  "color": "precision"
+ },
+ "COS-160": {
+  "exclude": "rests on an unpublished compilation; no primary data set named"
+ },
+ "COS-167": {
+  "exclude": "same prediction as COS-091"
+ },
+ "COS-205": {
+  "exclude": "rests on an unpublished compilation; no primary data set named"
+ },
+ "COS-215": {
+  "exclude": "same prediction as COS-046"
+ },
+ "COS-227": {
+  "exclude": "same prediction as OTH-015"
+ },
+ "COS-228": {
+  "exclude": "same prediction as OTH-015"
+ },
+ "COS-254": {
+  "exclude": "records an early pipeline result that the final chains replace (COS-008, COS-018)"
+ },
+ "COS-257": {
+  "exclude": "records an early fit that the final chains replace (COS-008, COS-018)"
+ },
+ "COS-260": {
+  "test_and_date": [
+   [
+    "CMB lensing (MGCAMB recompute pending, N3)",
+    "CMB lensing"
+   ]
+  ],
+  "reason": "working note"
+ },
+ "COS-294": {
+  "exclude": "same prediction as COS-342"
+ },
+ "COS-338": {
+  "statement": [
+   [
+    "The growth suppression lowers the linear growth factor D today by 0.78 % (not 7.4 %), which reduces satellite subhalo counts independently of baryons by an amount still to be recomputed.",
+    "The growth suppression lowers the linear growth factor D today by 0.78 %; the Press-Schechter count of satellite-mass haloes (1e7 to 1e9 solar masses) changes by +0.68 to +0.73 %, a sub-per-cent change (calculated in the satellites chapter)."
+   ]
+  ],
+  "falsified_if": [
+   [
+    "not stated (count change to recompute)",
+    "none practicable at the predicted size"
+   ]
+  ]
+ },
+ "COS-342": {
+  "statement": [
+   [
+    "(Eq. 5, no free parameter)",
+    "(no free parameter)"
+   ]
+  ],
+  "reason": "equation number of an unpublished draft",
+  "also": [
+   "COS-343",
+   "COS-294"
+  ]
+ },
+ "COS-364": {
+  "exclude": "same prediction as COS-365"
+ },
+ "PAR-001": {
+  "exclude": "records a dispute about precision; the sector dependence of the same formula is PAR-021"
+ },
+ "PAR-003": {
+  "exclude": "same prediction as COS-016"
+ },
+ "PAR-004": {
+  "statement": [
+   [
+    "; the equipartition 'derivation' does not add a test.",
+    "."
+   ]
+  ],
+  "reason": "correction wording",
+  "color": "precision"
+ },
+ "PAR-008": {
+  "statement": [
+   [
+    ", and 'confirmed' is withdrawn until a specific data set is named.",
+    "."
+   ]
+  ],
+  "reason": "correction wording"
+ },
+ "PAR-009": {
+  "statement": [
+   [
+    " ~920, not ~10^6.",
+    " ~920."
+   ]
+  ],
+  "reason": "old value with correction",
+  "color": "precision"
+ },
+ "PAR-016": {
+  "statement": [
+   [
+    ", not exactly three;",
+    ";"
+   ]
+  ],
+  "reason": "correction wording"
+ },
+ "QUB-021": {
+  "statement": [
+   [
+    "Corrected model:",
+    "Model:"
+   ]
+  ],
+  "reason": "correction wording"
+ },
+ "QUB-038": {
+  "statement": [
+   [
+    " (not 0.32 ms)",
+    ""
+   ]
+  ],
+  "reason": "old value with correction",
+  "also": [
+   "QUB-014"
+  ],
+  "color": "pending"
+ },
+ "QUB-055": {
+  "statement": [
+   [
+    "In the corrected model",
+    "In the model"
+   ]
+  ],
+  "falsified_if": [
+   [
+    "corrected combination",
+    "this combination"
+   ]
+  ],
+  "reason": "correction wording"
+ },
+ "QUB-060": {
+  "statement": [
+   [
+    "the corrected model gives",
+    "the model gives"
+   ]
+  ],
+  "reason": "correction wording"
+ },
+ "OTH-015": {
+  "statement": [
+   [
+    "gives tau ~ 559 s (not 560 us)",
+    "gives tau ~ 509 s (silica, 2200 kg/m^3)"
+   ]
+  ],
+  "falsified_if": [
+   [
+    "/ 559 s benchmark",
+    "and the 509 s benchmark"
+   ]
+  ],
+  "check": {
+   "tau_1e-12kg_s": 509
+  },
+  "reason": "settled value",
+  "also": [
+   "COS-101",
+   "COS-102",
+   "COS-227",
+   "COS-228",
+   "QUB-067",
+   "QUB-068"
+  ]
+ },
+ "COS-123": {
+  "statement": [
+   [
+    "Planck + RSD chains with free mu0 give 0.039 +/- 0.125; fixed mu0 = -0.136 lies 1.4 sigma away.",
+    "Planck + RSD chains with mu0 free give a posterior median of +0.064 and a 90 % lower bound of -0.204, the upper end being the +0.2 prior edge (Table~\\ref{tab:lt_free}); the fixed mu0 = -0.136 lies inside the 90 % interval, with P(mu0 < -0.135) = 0.10."
+   ]
+  ],
+  "reason": "a Gaussian mean and width misdescribe a posterior that reaches the prior edge; values from tab:lt_free in p2_07",
+  "also": [
+   "COS-057"
+  ],
+  "color": "precision"
+ },
+ "COS-004": {
+  "exclude": "same prediction as COS-058"
+ },
+ "COS-058": {
+  "statement": [
+   [
+    "The matter-sector coupling today is mu(z=0) = 0.864 (mu0 = -0.136) with Sigma = 1 and no free parameter; Euclid's complete DR1 (mid-2027, sigma(mu0) ~0.08) can reach ~1.7 sigma and the final Euclid survey (sigma(mu0) ~0.04) ~3.4 sigma; current data (DESI full-shape mu0 = 0.11 +0.45/-0.54; DES Y3+external 0.08 +0.21/-0.19) are consistent with both IAM and GR.",
+    "IAM fixes the matter-sector coupling with no free parameter: mu(z=0) = 0.864 (mu_0 = -0.136), mu = 0.948 at z = 0.5 and 0.982 at z = 1, with Sigma = 1 at every redshift. Euclid's published sensitivity to a mu deviation (for a mu(z) that follows Omega_DE(z)) is about 1 % on 1 + mu_0 with all probes and small scales, 4 % for weak lensing with photometric clustering to k ~ 4/Mpc, and 23 % with conservative scale cuts. IAM's mu(z) differs in shape from that template, so these do not convert directly into a significance; the forecast with IAM's own mu(z) is being computed."
+   ]
+  ],
+  "test_and_date": [
+   [
+    "Euclid complete DR1 mid-2027 (sigma ~0.08); Euclid final survey (sigma ~0.04)",
+    "Euclid DR1 (mid-2027) and full survey; Euclid with Planck lensing and DESI"
+   ]
+  ],
+  "open": "The Euclid forecast with IAM's own mu(z), alone and with Planck lensing and DESI, is being computed.",
+  "reason": "Euclid sensitivity replaced by the published forecast, arXiv:2506.03008",
+  "also": [
+   "COS-004",
+   "COS-072",
+   "COS-124",
+   "COS-127",
+   "COS-332"
+  ],
+  "falsified_if": [
+   [
+    "Euclid final-survey mu0 inconsistent with -0.136 (e.g. mu0 > -0.05 at 95 % CL, the falsifier stated in COS-072)",
+    "a fit with IAM's own mu(z) excluding the predicted amplitude (A = 1) at survey precision"
+   ]
+  ]
+ },
+ "COS-072": {
+  "exclude": "same prediction as COS-058"
+ },
+ "COS-124": {
+  "exclude": "same prediction as COS-058"
+ },
+ "COS-127": {
+  "exclude": "same prediction as COS-058"
+ },
+ "COS-024": {
+  "exclude": "side prediction left out of the book"
+ },
+ "COS-332": {
+  "exclude": "same prediction as COS-058"
+ },
+ "COS-108": {
+  "exclude": "same prediction as COS-001"
+ },
+ "COS-110": {
+  "exclude": "same prediction as COS-001"
+ },
+ "COS-001": {
+  "also": [
+   "COS-108",
+   "COS-110"
+  ]
+ },
+ "COS-017": {
+  "exclude": "same prediction as COS-016"
+ },
+ "COS-229": {
+  "exclude": "same prediction as COS-016"
+ },
+ "COS-008": {
+  "exclude": "same prediction as COS-018"
+ },
+ "COS-050": {
+  "exclude": "same prediction as COS-018"
+ },
+ "COS-116": {
+  "exclude": "same prediction as COS-018"
+ },
+ "COS-117": {
+  "exclude": "same prediction as COS-018"
+ },
+ "COS-214": {
+  "exclude": "same prediction as COS-018"
+ },
+ "COS-018": {
+  "also": [
+   "COS-008",
+   "COS-050",
+   "COS-116",
+   "COS-117",
+   "COS-214",
+   "COS-049"
+  ],
+  "color": "passed"
+ },
+ "COS-012": {
+  "exclude": "same prediction as COS-131"
+ },
+ "COS-063": {
+  "exclude": "same prediction as COS-131"
+ },
+ "COS-064": {
+  "exclude": "same prediction as COS-131"
+ },
+ "COS-314": {
+  "exclude": "same prediction as COS-131"
+ },
+ "COS-061": {
+  "exclude": "same prediction as COS-131"
+ },
+ "COS-131": {
+  "also": [
+   "COS-012",
+   "COS-063",
+   "COS-064",
+   "COS-314",
+   "COS-061"
+  ],
+  "color": "passed"
+ },
+ "COS-067": {
+  "exclude": "same prediction as COS-319"
+ },
+ "COS-259": {
+  "exclude": "same prediction as COS-319"
+ },
+ "COS-318": {
+  "exclude": "same prediction as COS-319"
+ },
+ "COS-319": {
+  "also": [
+   "COS-067",
+   "COS-259",
+   "COS-318"
+  ],
+  "color": "precision"
+ },
+ "COS-036": {
+  "exclude": "same prediction as COS-324"
+ },
+ "COS-069": {
+  "exclude": "same prediction as COS-324"
+ },
+ "COS-070": {
+  "exclude": "same prediction as COS-324"
+ },
+ "COS-325": {
+  "exclude": "same prediction as COS-324"
+ },
+ "COS-331": {
+  "exclude": "same prediction as COS-324"
+ },
+ "COS-324": {
+  "also": [
+   "COS-036",
+   "COS-069",
+   "COS-070",
+   "COS-325",
+   "COS-331"
+  ]
+ },
+ "COS-005": {
+  "exclude": "same prediction as COS-240"
+ },
+ "COS-241": {
+  "exclude": "same prediction as COS-240"
+ },
+ "COS-240": {
+  "also": [
+   "COS-005",
+   "COS-241"
+  ],
+  "color": "passed"
+ },
+ "COS-107": {
+  "exclude": "same prediction as COS-075"
+ },
+ "COS-075": {
+  "also": [
+   "COS-107"
+  ],
+  "color": "passed"
+ },
+ "COS-102": {
+  "exclude": "same prediction as OTH-015"
+ },
+ "QUB-067": {
+  "exclude": "same prediction as OTH-015"
+ },
+ "QUB-068": {
+  "exclude": "same prediction as OTH-015"
+ },
+ "COS-365": {
+  "also": [
+   "COS-364"
+  ]
+ },
+ "COS-343": {
+  "exclude": "same prediction as COS-342"
+ },
+ "COS-021": {
+  "exclude": "same prediction as COS-301"
+ },
+ "COS-345": {
+  "exclude": "same prediction as COS-301"
+ },
+ "COS-301": {
+  "also": [
+   "COS-021",
+   "COS-345"
+  ]
+ },
+ "COS-056": {
+  "exclude": "same prediction as COS-357"
+ },
+ "COS-122": {
+  "exclude": "same prediction as COS-357"
+ },
+ "COS-357": {
+  "also": [
+   "COS-056",
+   "COS-122"
+  ]
+ },
+ "QUB-014": {
+  "exclude": "same prediction as QUB-038"
+ },
+ "COS-156": {
+  "exclude": "same prediction as COS-351"
+ },
+ "COS-351": {
+  "also": [
+   "COS-156"
+  ],
+  "color": "pending"
+ },
+ "COS-087": {
+  "exclude": "same prediction as COS-010"
+ },
+ "COS-011": {
+  "exclude": "a standard CMB result, not an IAM result"
+ },
+ "PAR-026": {
+  "exclude": "proprietary method (author ruling)"
+ },
+ "QUB-061": {
+  "exclude": "early-draft claim, corrected in the measurement chapter"
+ },
+ "QUB-069": {
+  "exclude": "early-draft claim, corrected in the measurement chapter"
+ },
+ "OTH-011": {
+  "exclude": "early-draft claim, corrected in the measurement chapter"
+ },
+ "COS-007": {
+  "color": "passed"
+ },
+ "COS-317": {
+  "color": "passed"
+ },
+ "COS-062": {
+  "color": "precision"
+ },
+ "COS-309": {
+  "color": "precision"
+ },
+ "COS-290": {
+  "color": "precision"
+ },
+ "PAR-022": {
+  "color": "precision"
+ },
+ "COS-179": {
+  "color": "precision"
+ },
+ "COS-265": {
+  "color": "precision"
+ },
+ "COS-266": {
+  "color": "precision"
+ },
+ "QUB-003": {
+  "color": "precision",
+  "statement": [
+   [
+    "x_qp independent of fridge temperature below ~150 mK is consistent with Riste et al. data, but this does not discriminate the IAM mechanism.",
+    "Riste et al. report quasiparticle parity rates that rise over 20-170 mK while T1 stays flat up to about 150 mK; the internal-source model is consistent with that, as is any non-thermal source."
+   ]
+  ]
+ },
+ "COS-172": {
+  "color": "pending"
+ },
+ "COS-217": {
+  "color": "pending"
+ },
+ "COS-272": {
+  "color": "pending"
+ }
+}

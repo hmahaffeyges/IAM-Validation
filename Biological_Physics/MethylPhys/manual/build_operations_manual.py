@@ -795,10 +795,6 @@ def sec5a_tools(story):
     story.append(Paragraph('5A.10  The validation catalogue as recorded - NOT re-verified in this issue', sSect2))
     story.append(Paragraph('These are the effect sizes the corpus records for the sealed VALs. This issue re-ran none of them; they are listed so the reader knows what exists and can ask for the sealed record. Where two instruments give different signs for one result, both are shown.', sBodySm))
     story.append(tbl([("result","VAL","recorded effect","note")]+[(k,v,e,n) for k,v,e,n in D.CATALOGUE],[0.26,0.12,0.40,0.22],fs=6.4))
-    # 5A.11 siblings
-    story.append(Paragraph('5A.11  the quantum-processor report and the semiconductor report - the sibling applications, structure and published results only', sSect2))
-    story.append(Paragraph('The same statistic on two other substrates. Their calibration inputs are not part of this document.', sBodySm))
-    story.append(tbl([("engine","A","anchors","what sets the floor","published prediction record")]+[tuple(r) for r in D.QPROC_CHIP],[0.08,0.24,0.18,0.30,0.20],fs=6.4))
 
 # ═══════════════════════════════════════════════════════════════════════════════
 def sec12_clinician(story):

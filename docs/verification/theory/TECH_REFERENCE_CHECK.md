@@ -10,7 +10,7 @@ weakness list (§10) and errata (§12) are checked here against the book's curre
 | M–σ exponent from Faber–Jackson, not PN order | M–σ abandoned |
 | Δχ² = 79.8 "8.9σ" in root README and chains README | **fixed 2026-10-02**: labelled a simplified compilation, the MCMC +0.54 stated as the result |
 | mgcamb README "all 12 runs R−1 < 0.01" | **fixed**: true for the final files (r2 for runs A, B); all 18 final chains ≤ 0.010 |
-| Enigma `_decode_n` constants in `qproc_derivation_tests.py`, `chip_derivation_tests.py` | **removed 2026-10-02** (author approved): plain calibrated n values with a note on how each was calibrated; every stored value decoded exactly to its published n. New tests check the n values against the Issue 002 cooling factors, P007/P008 and the temperature tables; the old the semiconductor report temperature test asserted the opposite direction to the tables and is corrected. Archive papers Hubble2Methyl Alpha Omega 5 and IAM_for_physicists still describe the encoding in their text. |
+| encoded constants in the device-report test files | **removed** (author approved, 2026-10-02); the device-report test files and their values are not part of the public repository. |
 | two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |
 | β_m uses present-day Ω_m (epoch-specific) | open; carried into the predictions/derivations appendix |
 | dual-sector consistency (∇T = 0, Bianchi) | the covariant scalar functional (BH Thermodynamics) is cited in `p2_blackholes`; the Lensing/3-Way "linearized Einstein equations unmodified" argument implies M_lens/M_dyn = 1 (LD1, TW1), so it cannot also support the 15.7 % prediction |

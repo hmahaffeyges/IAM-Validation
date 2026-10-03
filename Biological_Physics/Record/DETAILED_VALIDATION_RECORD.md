@@ -59,7 +59,7 @@ This formula applies identically across **five independent physical substrates**
 | Windowed protection score | Promoter nucleosome protection | **CONFIRMED — G-003b MCMC (R-hat < 1.001)** |
 | Fragment size entropy | cfDNA fragment length distribution | **CONFIRMED — G-003b MCMC (R-hat < 1.001)** |
 
-The per-class, per-substrate H_min values are part of the proprietary calibration layer — covered under US Provisional Patents 64/012,720 and 64/014,568. Technical access for qualified research partners, clinical collaborators, and acquirers available under NDA (see contact below).
+The per-class, per-substrate H_min values are not published in this repository.
 
 ---
 
@@ -242,9 +242,7 @@ Sources (population data, public): [Hannum 2013](https://doi.org/10.1016/j.molce
 
 Reference cell counts: nucleosome occupancy n=29, fuzziness n=28, WPS n=21, fragment size n=18. Total runtime: 42.1s on Apple M-series. All chains: R-hat < 1.001, 5 chains × 32 walkers × 5,500 production steps, 800,000 posterior samples per substrate. All 32 class-by-substrate posteriors converged cleanly.
 
-The numeric posterior table (32 floor values with bootstrap 95% CIs for all 8 architecture classes across the 4 non-methylation substrates) is part of the proprietary calibration layer — covered under US Provisional Patents 64/012,720 and 64/014,568. Bootstrap cross-validation (10,000 resamples × 32 class-substrate pairs) confirms the posteriors at 0.168% mean relative difference, 24 of 32 within bootstrap 95% CI — calibration is method-independent.
-
-Access to the full posterior table and bootstrap comparison available under NDA — contact below.
+The numeric posterior table (32 floor values with bootstrap 95% CIs for all 8 architecture classes across the 4 non-methylation substrates) is not published in this repository. Bootstrap cross-validation (10,000 resamples × 32 class-substrate pairs) confirms the posteriors at 0.168% mean relative difference, 24 of 32 within bootstrap 95% CI — calibration is method-independent.
 
 ---
 
@@ -283,40 +281,11 @@ The per-cancer, per-substrate result matrices underlying the VAL-XXX studies wer
 
 ### Calibration scripts
 
-The MCMC generator scripts that reproduce the class floor posteriors (G-002 methylation 17-chain, G-003b 4-substrate, G-008 cancer floor breach, biological E(a), architecture class ordering) and the non-parametric bootstrap cross-check are part of the proprietary calibration layer — covered under US Provisional Patents 64/012,720 and 64/014,568. The methods used are standard: `emcee` sampling on published reference data, with Shannon binary entropy as the statistic. Qualified research partners can request access under NDA.
+The MCMC generator scripts that reproduce the class floor posteriors (G-002 methylation 17-chain, G-003b 4-substrate, G-008 cancer floor breach, biological E(a), architecture class ordering) and the non-parametric bootstrap cross-check are not part of this repository. The methods used are standard: `emcee` sampling on published reference data, with Shannon binary entropy as the statistic.
 
 ### Multi-class drift cascade scripts (VAL-037 through VAL-046, April 2026)
 
-The 10 cascade validation scripts and the healthy baseline reference table generator are part of the proprietary calibration layer. Each validation has a corresponding pass/fail record per prediction. Summary: 35 of 39 pre-specified predictions confirmed (89.7%). The VAL-XXX study descriptions, primary data sources, and result summaries in the table above are independently verifiable against the cited journal papers and public repositories.
-
-For access to the cascade scripts, the baseline reference table, or the per-validation result JSONs under NDA, contact below.
-
----
-
-## Technical Access — Evidence Report and Calibration Layer
-
-The detailed HTML evidence report (per-cancer tables, substrate-specific validation, MCMC chain inventory, methodological caveats, full G-003b posteriors, reproducibility code) is not publicly distributed. Research partners, clinical collaborators, journal reviewers, and acquirers interested in the complete evidence package can request access under NDA.
-
-**Priorities for technical access:**
-- Veterinary oncology partners running prospective validation
-- Dense-breast imaging centers and DCIS surveillance cohorts
-- Alzheimer's longitudinal cohorts
-- Commercial licensees (the quantum-processor report, the semiconductor report, or the methylation report instruments)
-- Journal referees for submitted manuscripts
-
-**Contact:**
-- Research collaboration: [hmahaffeyges@gmail.com](mailto:hmahaffeyges@gmail.com)
-- Commercial / licensing: [heath@iamperformance.net](mailto:heath@iamperformance.net)
-- All commercial inquiries through legal counsel.
-
-**Intellectual Property**
-
-The methylation report framework, the class-specific H_min floor values, the architecture-class taxonomy, the substrate-specific calibration, the age-stratified healthy baseline reference tables, and the associated clinical applications are covered under:
-
-- US Provisional Patent Application **64/012,720** (filed March 21, 2026)
-- US Provisional Patent Application **64/014,568** (filed March 23, 2026)
-
-The public disclosures in this repository — the VAL-XXX study descriptions, primary data citations, physics of the framework, A-score formula, and tier thresholds — are consistent with the scope of those filings. The numeric calibration layer, derivation pathway to the per-class floor values, and engineering implementation are not publicly disclosed.
+The 10 cascade validation scripts and the healthy baseline reference table generator are not part of this repository. Each validation has a corresponding pass/fail record per prediction. Summary: 35 of 39 pre-specified predictions confirmed (89.7%). The VAL-XXX study descriptions, primary data sources, and result summaries in the table above are independently verifiable against the cited journal papers and public repositories.
 
 ---
 

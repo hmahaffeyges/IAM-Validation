@@ -103,7 +103,6 @@ author is not a physicist by training; correction is the intended use of this do
 \textbf{Compiled} & with Claude Science; this revision 27 September 2026 (first draft 18 September 2026) \\
 \textbf{Repository} & \url{https://github.com/hmahaffeyges/IAM-Validation} \\
 \textbf{Zenodo} & \href{https://doi.org/10.5281/zenodo.18702042}{10.5281/zenodo.18702042}, \href{https://doi.org/10.5281/zenodo.19547624}{10.5281/zenodo.19547624} $\cdot$ OSF: \href{https://osf.io/kczd9}{KCZD9} \\
-\textbf{Patents pending} & US 64/012,720 and 64/014,568 \\
 \end{tabular}
 \end{small}
 
@@ -250,7 +249,7 @@ P2 in its concrete form. \texttt{M} is dimensionless in every row, computed from
 \midrule
 semiconductor logic & \texttt{TDP/\allowbreak{}(N\_\allowbreak{}trans f)} = 3.90 $\times$ $10^{-19}$ J & junction, \textasciitilde{}348 K & \textbf{81.2} (Apple M1) & Dennard wall \\
 cell nucleus & \texttt{$\Delta$G\_\allowbreak{}ATP} per maintenance event & 310.15 K & \textbf{20.94} & floor breach \\
-Al transmon & \texttt{$\Delta$\_\allowbreak{}Al} per TLS flip & \texttt{T\_\allowbreak{}gap = $\Delta$\_\allowbreak{}Al/\allowbreak{}k\_\allowbreak{}B} = 2.112 K & \textbf{1} (exactly) & substrate inversion \\
+Al transmon & \texttt{$\Delta$\_\allowbreak{}Al} per TLS flip & \texttt{T\_\allowbreak{}gap = $\Delta$\_\allowbreak{}Al/\allowbreak{}k\_\allowbreak{}B} = 2.112 K & \textbf{1} (exactly) & quasiparticle floor \\
 \bottomrule
 \end{tabularx}
 \endgroup
@@ -260,7 +259,7 @@ Al transmon & \texttt{$\Delta$\_\allowbreak{}Al} per TLS flip & \texttt{T\_\allo
 Two points about this table, both computed here rather than quoted.
 
 
-\textbf{The transmon sits at \texttt{M = 1} identically.} With \texttt{E\_drive = $\Delta$\_Al} (the energy quantum of one TLS flip) and \texttt{T\_local = T\_gap = $\Delta$\_Al/k\_B}, \texttt{$\Delta$\_Al} cancels and \texttt{M = 1} exactly --- the framework's statement of why a residual quasiparticle density is irreducible: at the gap temperature the drive energy equals the thermal quantum, and the encoding surface is saturated by construction. At operating temperature the same ratio is \texttt{M\_QPROC = h f / (k\_B T\_op)}, which varies per architecture and is the quantum-processor report instrument's own number.
+\textbf{The transmon sits at \texttt{M = 1} identically.} With \texttt{E\_drive = $\Delta$\_Al} (the energy quantum of one TLS flip) and \texttt{T\_local = T\_gap = $\Delta$\_Al/k\_B}, \texttt{$\Delta$\_Al} cancels and \texttt{M = 1} exactly --- the framework's statement of why a residual quasiparticle density is irreducible: at the gap temperature the drive energy equals the thermal quantum, and the encoding surface is saturated by construction. At operating temperature the same ratio is \texttt{M = h f / (k\_B T\_op)}, which sets the thermal occupation \texttt{p\_eq = 1/(1+e\textasciicircum{}M)} of the held record.
 
 
 \textbf{\texttt{n\_bio} is an earlier name for \texttt{M}.} The cellular Mahaffey number is \texttt{M = $\Delta$G\_ATP/(RT) = 54,000/(8.314 $\times$ 310.15) = 20.94}; early the methylation report documents wrote the same ratio as \texttt{n\_bio}. One earlier draft of this document carried a \texttt{ln2} in the denominator (giving 30.21); that form is withdrawn. \texttt{M} is defined against \texttt{k\_B T}, not against the Landauer bit, so that the cell's value is the biochemical ratio and the three rows of the table share one denominator.
@@ -725,7 +724,7 @@ Apple M1 & 3.906 $\times$ $10^{-19}$ & 4.807 $\times$ $10^{-21}$ & \textbf{81 $\
 \end{small}
 
 
-Modern logic operates \textasciitilde{}100$\times$ above the Landauer floor. This is a dimensionally clean, parameter-free figure of merit --- energy divided by energy --- and it is the reference instantiation of P2. The Dennard wall is its saturation event. Falsifiable content: predicted oxide-phase floors for Sn and In substrates.
+Modern logic operates \textasciitilde{}100$\times$ above the Landauer floor. This is a dimensionally clean, parameter-free figure of merit --- energy divided by energy --- and it is the reference instantiation of P2. The Dennard wall is its saturation event.
 
 
 
@@ -965,9 +964,7 @@ On the record before the data:
   \item \textbf{Gravitational decoherence temperature scaling} --- \texttt{$\tau$ $\propto$ T$^{2}$}, giving 16$\times$ longer coherence between 10 and 40 mK where Penrose--Di\'osi predicts no change. Feasible now for \texttt{m > $10^{-12}$} kg.
   \item \textbf{Gravitational decoherence profile shape} --- rate zero at \texttt{t = 0} rather than maximal; discrimination peaks at \texttt{$\eta$ = 0.23} with \texttt{$\Delta$P = 0.139}. 5$\sigma$ at \texttt{m > 3.65 $\times$ $10^{-15}$} kg.
   \item \textbf{\texttt{r\_core $\propto$ $\sigma^{2}$}} --- dark-matter core radius against dwarf-galaxy rotation curves. The scaling is the prediction; the normalization is open (see \S4.5).
-  \item \textbf{Same-mechanism platform exponents} --- two devices from different fabs sharing a gate mechanism must share \texttt{n} under temperature sweep. Divergent \texttt{n} falsifies the universality-class claim.
   \item \textbf{DNMT1 single-molecule fidelity across 15--42 $^{\circ}$C} --- predicted \texttt{(T$_{2}$/T$_{1}$)\textasciicircum{}-2}. Requires a kinetics collaborator, no patients, no grant. **This is the cleanest available test of whether the cellular floor is thermodynamic rather than statistical**, and no other model predicts it.
-  \item \textbf{Sn / In oxide-phase switching floors} --- predicted from the semiconductor report floor model.
   \item \textbf{Prospective cellular validation} --- Sister Study, UK Biobank (n = 55,746 incident cancers).
 \end{enumerate}
 
@@ -979,7 +976,7 @@ On the record before the data:
 
 \section{Executable verification suites}
 
-Three test suites ship with the framework and were \textbf{run here}, not merely read:
+A test suite for the cellular derivations ships with the framework and was \textbf{run here}, not merely read:
 
 
 \begin{small}
@@ -987,21 +984,19 @@ Three test suites ship with the framework and were \textbf{run here}, not merely
 \toprule
 \textbf{suite} & \textbf{result} \\
 \midrule
-\texttt{quantum-processor report\_\allowbreak{}derivation\_\allowbreak{}tests.py} & \textbf{10/10 pass} \\
-\texttt{semiconductor report\_\allowbreak{}derivation\_\allowbreak{}tests.py} & \textbf{10/10 pass} \\
 \texttt{methylation report\_\allowbreak{}derivation\_\allowbreak{}tests.py} & \textbf{12/12 pass} \\
 \bottomrule
 \end{tabularx}
 \end{small}
 
 
-Selected checks, with values as emitted: \texttt{H\_min\textasciicircum{}global = H(0.782) = 0.756499}; A-score \texttt{H(0.685)/0.856055 = 1.0500}; Landauer denominator at 75 $^{\circ}$C \texttt{= 3.332 $\times$ $10^{-21}$ J}; Apple M5 the semiconductor report \texttt{65.8$\times$} against a published 66$\times$; IBM Heron r1 decomposition \texttt{p\_coh + p\_mat + p\_ctrl = 0.000558 + 0.000642 + 0.000800 = 0.002000} against a published 0.002000.
+Selected checks, with values as emitted: \texttt{H\_min\textasciicircum{}global = H(0.782) = 0.756499}; A-score \texttt{H(0.685)/0.856055 = 1.0500}; Landauer denominator at 75 $^{\circ}$C \texttt{= 3.332 $\times$ $10^{-21}$ J}.
 
 
-Two properties of these suites deserve comment, both favourable. First, several tests state candidly that an identity holds \textbf{by construction} --- the semiconductor report fraction identity \texttt{f\_isa + f\_node = 1.0} is labelled exactly that way --- which correctly distinguishes an internal consistency check from an empirical validation. Second, the quantum-processor report suite documents the Enigma constants and their scriptural provenance openly in the test file rather than concealing them.
+Several tests state candidly that an identity holds \textbf{by construction}, which correctly distinguishes an internal consistency check from an empirical validation.
 
 
-The suites establish internal self-consistency and reproduction of published reference values. They do not, and do not claim to, test the framework against nature.
+The suite establishes internal self-consistency and reproduction of published reference values. It does not, and does not claim to, test the framework against nature.
 
 
 
@@ -1066,7 +1061,6 @@ The suites establish internal self-consistency and reproduction of published ref
   \item \textbf{Cryogenic rationale.} Quantum computers are cooled to suppress thermal excitation and maintain superconductivity, not to lower Landauer erasure cost.
   \item \textbf{\texttt{n\_bio} and the Mahaffey number are one quantity.} Early the methylation report documents wrote the cellular ratio as \texttt{n\_bio}; it is \texttt{M = $\Delta$G\_ATP/(RT) = 20.94}. Drafts of this document and of \texttt{IAM\_Hubble2Methyl} (l.\,2192 in an earlier revision) put a \texttt{ln2} in the denominator and reported 30.21 for the cell and 117 for logic; the author's ruling (2026-09-19) defines \texttt{M} against \texttt{k\_B T} with no \texttt{ln2}, and every value in this document is now on that definition (cell 20.94; Apple M1 81; transmon 1 at \texttt{T\_gap}). Any remaining 117 or 30.21 elsewhere in the corpus is the withdrawn form.
   \item \textbf{\texttt{$\Delta\chi^{2}$} framing is self-contradictory within a single file.} \texttt{README.md} line 11 reports \texttt{$\Delta\chi^{2}$ = +0.54} best-fit versus $\Lambda$CDM; lines 464--466 of the \textit{same file} report a combined \texttt{$\Delta\chi^{2}$ = 79.8}, described as ``equivalent to 8.9$\sigma$`` (the text does flag it as a simplified analysis). The same table is repeated at \texttt{mgcamb\_validation/chains/README.md} lines 627--629. A referee who reads both concludes the headline number is chosen for effect. Adopt \texttt{+0.54} everywhere and retire the 79.8 framing, or separate them so unmistakably that no reader can take the larger number as the result of the MCMC analysis.
-  \item \textbf{Obfuscation layer.} The \texttt{\_decode\_n} Enigma encoding (\texttt{\_ALPHA = 28769.0}, \texttt{\_BETA = 12430.0}, \texttt{\_GAMMA = 723.106}) makes load-bearing exponents --- which drive the temperature predictions and the fault-tolerance year forecasts --- unreconstructable by a reader. **This must be removed and the \texttt{n} values published with measurement provenance before any submission.** A referee who reaches it stops there.
 \end{enumerate}
 
 

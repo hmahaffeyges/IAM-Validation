@@ -191,320 +191,9 @@
    "definition": "Semiconductor report line.",
    "book": false
   },
-  "p(2Q) [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "Two-qubit gate error rate — The probability that a two-qubit operation produces the wrong quantum state. This is the single most important number in quantum computing hardware -- it directly limits how many operations can be performed before errors accumulate beyond recovery. Published by every majo",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "A score [the quantum-processor report]": {
-   "status": "retired",
-   "definition": "IAMPerformance metric (A = -ln(1 - p)) — A normalized version of the gate error rate derived from information theory. For small p, A approximately equals p. The transformation allows the framework to apply architecture-specific physics consistently. Lower is better. You can verify any A score yourse",
-   "domain": "the quantum-processor report",
-   "replaced_by": "eps (gate error in nats) [the quantum-processor report]",
-   "book": false
-  },
-  "QEC threshold [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "Quantum Error Correction threshold (gate error ε < 10^-3) — The gate error rate below which error correction codes can detect and fix errors faster than they accumulate. Above this threshold, adding error correction makes things worse, not better. Below it, adding more physical qubits and error correction cycl",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "Fault-tolerance target [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "FT target (gate error ε < 10^-4) — The gate error rate required to build a fault-tolerant quantum computer that can execute the deep circuits needed for commercially relevant problems -- drug discovery, cryptography, materials simulation. QEC threshold is the first step; fault tolerance is the destination. Onl",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "n  (architecture parameter) [the quantum-processor report]": {
-   "status": "retired",
-   "definition": "Temperature sensitivity exponent — A number derived from the dominant noise mechanism of each architecture class. It controls how strongly cooling affects gate error rate: a higher n means more improvement per degree of cooling. SC CZ platforms (Google, IBM Heron) have n=1.449 -- high sensitivity. I",
-   "domain": "the quantum-processor report",
-   "replaced_by": "n (temperature exponent)",
-   "book": false
-  },
-  "Material A-floor [the quantum-processor report]": {
-   "status": "retired",
-   "definition": "Design ceiling -- IAMPerformance-derived, not published by manufacturers — Every physical material has a noise floor set by its fundamental properties -- a minimum gate error rate below which no amount of engineering can push without changing the material itself. The material A-floor values in this ",
-   "domain": "the quantum-processor report",
-   "replaced_by": "Material floor (eps_floor) [the quantum-processor report]",
-   "book": false
-  },
-  "Wall ratio  /  Concern level [the quantum-processor report]": {
-   "status": "retired",
-   "definition": "How close the platform is to its material ceiling — Current A divided by the material A-floor. The concern level summarizes this ratio as a single readable signal: LOW (>5x above floor -- significant headroom remains), MEDIUM (2.5-5x -- improvement possible but slowing), HIGH (<2.5x -- wall is near,",
-   "domain": "the quantum-processor report",
-   "replaced_by": "Informational fidelity ratio (A): A(the quantum-processor report) = eps / eps_floor; concern bands LOW > 5, MEDIUM 2.5-5, HIGH < 2.5 read on A",
-   "book": false
-  },
-  "Position Gauge [the quantum-processor report]": {
-   "status": "issue text (not a term)",
-   "definition": "Floor-to-FT log-scale visual -- new in Issue 002 — A log-scale bar on every platform card showing where the platform currently sits between its material A-floor (left edge) and the analysis range maximum (A=0.015). Three zones: FT Zone (green, left) -- below fault-tolerance target (gate error ε < 10^-4); EC Zo",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "Halving rate [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "Years per halving of A score -- empirically calibrated from published history — How long it takes the platform to halve its gate error rate at its current pace. The halving rate is the one quantity in the IAMPerformance framework that is calibrated from observed data rather than derived from first p",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "Coherence  /  Decoherence [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "The quantum property that makes computation possible -- and its loss — Coherence is the quantum property allowing a qubit to exist in superposition -- holding multiple states simultaneously until measured. Decoherence is the process by which a qubit loses that quantum state through interaction with ",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "Logical qubit [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "An error-corrected qubit -- the destination of the whole hardware race — A logical qubit is a single reliable qubit encoded across many physical qubits using quantum error correction. Where a physical qubit fails randomly, a logical qubit can sustain operations for as long as needed. Logical qubits ",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "NISQ [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "Noisy Intermediate-Scale Quantum -- the current era — NISQ describes quantum computers that are too noisy for full error correction but large enough to be interesting. All platforms in this report except IonQ EQC are NISQ devices. NISQ computers can demonstrate quantum advantages on specific problem",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "Surface code [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "The standard quantum error correction algorithm — The surface code is the most widely studied quantum error correction scheme. It encodes one logical qubit across a 2D grid of physical qubits, detecting and correcting errors by measuring parity between neighboring qubits without disturbing the quant",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "Zero adjustable parameters [the quantum-processor report]": {
-   "status": "retired",
-   "definition": "Why the predictions are genuine -- not curve-fitting — The core IAMPerformance framework quantities have no constants fitted to quantum computing data. The architecture parameter n is derived from the dominant noise mechanism of each class. The material A-floor is derived from the fundamental noise ",
-   "domain": "the quantum-processor report",
-   "replaced_by": "n (temperature exponent) and Material floor: both CALIBRATED class values",
-   "book": false
-  },
-  "EPLG [the quantum-processor report]": {
+  "EPLG": {
    "status": "current",
    "definition": "Error Per Layered Gate (IBM): the average error per gate across a 100-qubit chain running layered circuits, including crosstalk and idle errors. It is NOT the same quantity as an isolated median two-qubit error p(2Q) and must not be compared with one.",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "Architecture class [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "The physical gate mechanism that determines a platform's behavior — A grouping of platforms that share the same dominant noise mechanism and temperature sensitivity. The architecture class determines the parameter n -- the cooling exponent -- which governs how strongly temperature affects gate error",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "TLS defects [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "Two-level systems -- the primary noise source in superconducting qubits — Two-level systems are microscopic quantum defects that form in the amorphous oxide layer at the metal-oxide interface of superconducting qubit junctions. Each TLS defect is a tiny quantum system that can absorb energy from the",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "Substrate Inversion  /  T1* [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "The point where improving T1 stops reducing gate error -- derived April 2026 — Every substrate material has a T1 relaxation ceiling T1_free -- the maximum coherence time achievable at that material and fabrication quality. As T1 approaches T1_free, substrate defects begin contributing MORE error tha",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "Participation ratio  /  PR engineering [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "Geometric optimization that reduces qubit coupling to lossy interfaces — The participation ratio (PR) is the fraction of a qubit's electric field energy stored in the lossy oxide layer at the junction interface. A lower participation ratio means less of the qubit's energy is exposed to TLS defects -",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "Engineering lever [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "A physical change that moves the performance ceiling — An engineering lever is any physical modification to a platform that changes what is possible -- not just where the platform currently sits. The IAMPerformance framework tracks four levers: substrate change (new material, new A-floor), temperatu",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "Effective A-floor [the quantum-processor report]": {
-   "status": "retired",
-   "definition": "The floor as modified by participation ratio engineering — The raw material A-floor is set by the fundamental oxide chemistry of the substrate. The effective A-floor is the floor as lowered by participation ratio engineering -- how far the geometry optimization has pushed the practical limit below t",
-   "domain": "the quantum-processor report",
-   "replaced_by": "Material floor (eps_floor) [the quantum-processor report], as lowered by participation-ratio engineering",
-   "book": false
-  },
-  "Then / Now  --  generation delta [the quantum-processor report]": {
-   "status": "issue text (not a term)",
-   "definition": "The improvement (or regression) from prior generation to current — The Then/Now comparison places the current platform's gate error alongside the previous generation to show the trajectory of the engineering program. A positive delta (improvement) shows the program is still advancing. A negative del",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "Improvement trajectory  /  Floor reached year [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "Year-by-year projection and the hard stop at the material ceiling — The improvement trajectory projects a platform's A score year by year at the current halving rate, running until the material floor is reached. Every milestone on the trajectory -- QEC threshold crossing, FT target crossing, and mat",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "Qubit Count Scaling Law [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "How gate error grows with qubit count -- derived from Landauer additivity, April 2026 — A published gate error rate is measured on a single gate pair with neighboring qubits idle. Real circuits run gates across the full chip in parallel. The IAMPerformance scaling law answers: how does effective gat",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "Substrate Inversion Amplifier [the quantum-processor report]": {
-   "status": "current (unverified)",
-   "definition": "The crosstalk multiplier that activates when T1 crosses T1* -- derived April 2026 — The three-component decomposition shows that the crosstalk cost per added coupler is not constant -- it depends on the substrate's TLS saturation state relative to T1*. Pre-inversion (T1 < T1*): TLS defects are not s",
-   "domain": "the quantum-processor report",
-   "book": false
-  },
-  "the semiconductor report Index [the semiconductor report]": {
-   "status": "retired",
-   "definition": " The Semiconductor Analytical and Performance Engine index. A normalized dimensionless efficiency metric expressing how far above the physical minimum any chip operates. Derived from three published numbers: TDP in watts, transistor count, and clock frequency. Lower = more efficient. Every chip from",
-   "domain": "the semiconductor report",
-   "replaced_by": "Informational fidelity ratio (A), chip form A = E_sw/(k_B T_j ln 2)",
-   "book": false
-  },
-  "Published inputs (orange in tables) [the semiconductor report]": {
-   "status": "issue text (not a term)",
-   "definition": " The three numbers the semiconductor report framework reads from published datasheets: TDP (thermal design power in watts), transistor count (in billions), and base clock frequency (GHz). No other data is used. No internal measurements. No proprietary access. These three numbers are available on every manufacturer",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Derived outputs (teal in tables) [the semiconductor report]": {
-   "status": "issue text (not a term)",
-   "definition": " Every value in the teal columns is computed from the three orange published inputs by the IAM framework. This includes: the semiconductor report index, architecture parameter n, temperature predictions at 40°C and 105°C, illustrative trajectory scenarios, floor ratio, distance to floor, ISA overhead fraction, and Den",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Architecture parameter n [the semiconductor report]": {
-   "status": "retired",
-   "definition": " A value derived from 20 years of published chip data that characterizes how strongly each architecture class responds to changes in junction temperature. Intel (n=0.936): responds strongly to temperature — colder running produces larger efficiency gains, but sustained hot running degrades faster. A",
-   "domain": "the semiconductor report",
-   "replaced_by": "n (temperature exponent)",
-   "book": false
-  },
-  "IAM Reference Floor [the semiconductor report]": {
-   "status": "retired",
-   "definition": " The physical lower boundary all semiconductor switching must satisfy at a given operating temperature — derived from the IAM information-theoretic framework. It does not change with process node, architecture, foundry, or manufacturer. No chip has ever operated at this boundary. No chip can. The SC",
-   "domain": "the semiconductor report",
-   "replaced_by": "H_min (the floor): chip form k_B T_j ln 2",
-   "book": false
-  },
-  "Structural efficiency floor [the semiconductor report]": {
-   "status": "retired",
-   "definition": " See above. The next Dennard-equivalent wall arrives before any architecture approaches its floor. The wall tells you when the current engineering path is exhausted. The floor tells you how much physical headroom remains for the next approach. The distance between them is where the next architectura",
-   "domain": "the semiconductor report",
-   "replaced_by": "Class floor [the semiconductor report]",
-   "book": false
-  },
-  "ISA Overhead Fraction [the semiconductor report]": {
-   "status": "current (unverified)",
-   "definition": " The percentage of a chip's current the semiconductor report index that is architecturally irreducible — the fraction that cannot be closed by any process node improvement. Computed as: architectural floor ÷ current the semiconductor report index. AMD at 576×: 70÷576 = 12.2% ISA overhead, 87.8% node-accessible. Apple M3 at 65×: 15÷65 = ",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Node Scaling Regime [the semiconductor report]": {
-   "status": "current (unverified)",
-   "definition": " A status flag showing where each architecture sits relative to its floor. FREE: floor ratio ≥ 4.0× — substantial runway, node shrinks still delivering. APPROACHING: floor ratio 2.0–4.0× — wall registering, 1-3 steps remaining. WALL: floor ratio < 2.0× — at or near ceiling, architectural change requ",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Dennard Amplifier (g) [the semiconductor report]": {
-   "status": "current (unverified)",
-   "definition": " A quantified measure of how much harder each node step has become versus the pre-2005 free-scaling era. Computed as: Dennard baseline rate (72%) ÷ observed improvement rate. Intel 285K (70.7% step): g = 1.02× — nearly tracking Dennard. AMD 9950X (33.2% step): g = 2.17× — each node step requires 2.1",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Floor ratio [the semiconductor report]": {
-   "status": "current",
-   "definition": "A(the semiconductor report) divided by the class floor of that architecture: distance to the class floor, not to H_min.",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Junction temperature (Tj) [the semiconductor report]": {
-   "status": "current (unverified)",
-   "definition": " The operating temperature of transistor junctions inside the chip die. Published TDP specifications reference a nominal junction temperature, typically 75°C. Under sustained AI inference, database serving, and continuous compute, real junction temperatures in data centers routinely reach 80-105°C. ",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "TjMax [the semiconductor report]": {
-   "status": "current (unverified)",
-   "definition": " The maximum rated junction temperature before thermal throttling reduces clock speed. AMD 9950X TjMax: 95°C. Intel Core Ultra 9 285K TjMax: 105°C. At TjMax under sustained load, AMD is 3.7% more efficient than Intel on the semiconductor report index. For hyperscale AI inference — chips running sustained heavy loa",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "GPU architecture — what the semiconductor report measures and does not [the semiconductor report]": {
-   "status": "issue text (not a term)",
-   "definition": " The semiconductor report index measures per-transistor switching efficiency — not throughput. GPU architecture makes a deliberate trade: sacrifice per-transistor efficiency for massive parallelism. H100→H200 was a memory upgrade on the same die — the 7.6% the semiconductor report improvement reflects that precisely. The Blackwell s",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "What the framework measures — and does not [the semiconductor report]": {
-   "status": "issue text (not a term)",
-   "definition": " The semiconductor report framework measures: physical floor, distance above floor, direction of travel, and regime-change signal. It does not project how companies will engineer their way through the next wall. It does not predict market outcomes. It does not assume any future improvement rate. The semiconductor report index te",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Trajectory charts — illustrative scenarios [the semiconductor report]": {
-   "status": "issue text (not a term)",
-   "definition": " The trajectory tables show what would happen if each architecture's most recent observed improvement step continued at a constant rate. This is an illustrative constant-rate scenario, not a forward projection. Improvement rates vary significantly — Intel's published steps range from 4.9% to 70.7%. ",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Three-Component Efficiency Decomposition [the semiconductor report]": {
-   "status": "current (unverified)",
-   "definition": " A breakdown of every chip's total efficiency gap above the IAM reference floor into three independent portions. Component 1 — Universal floor: the IAM-derived physical minimum at operating temperature. Same for every transistor ever built at a given junction temperature. Cannot be engineered around",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Architecture-locked efficiency [the semiconductor report]": {
-   "status": "current (unverified)",
-   "definition": " The portion of a chip's the semiconductor report index that cannot be improved by any foundry or process advance. Set by the ISA: x86 carries ~70× of ISA-locked cost, ARM carries ~15-35×, GPU ~250×. AMD and Apple share the same TSMC foundry at the same 3nm node. AMD carries 70× of locked overhead. Apple carries 15×. ",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Engineering-accessible efficiency [the semiconductor report]": {
-   "status": "current (unverified)",
-   "definition": " The portion of a chip's the semiconductor report index that node shrinks, chiplets, and micro-architecture improvements can address. For AMD 9950X: 506× (87.8% of the total 576×). For Apple M3: 50× (76.9% of 65×). Every TSMC roadmap advance, every Zen generation improvement, every Apple Silicon efficiency tuning work",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Prediction P001 — Intel 2nm step below 40% [the semiconductor report]": {
-   "status": "issue text (not a term)",
-   "definition": " Filed March 29, 2026. Intel's Arrow Lake delivered a 70.7% step — the largest in 20 years of published Intel data. At that rate held constant, the x86 floor at 70× is reached in 1.7 node steps. That is physically impossible. The same floor-derived signal identified the 2005 Dennard breakdown from 2",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Prediction P002 — AMD 2nm step below 25% [the semiconductor report]": {
-   "status": "issue text (not a term)",
-   "definition": " Filed March 29, 2026. AMD Zen 5 delivered 33.2% at 4nm. The floor-derived signal predicts the next step will be materially smaller as AMD closes on the x86 floor. AMD Zen 6 on TSMC 2nm (expected H2 2026) is the testable data point. A step above 25% would refute this prediction.",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Prediction P003 — Apple M5 regression watch (NOT CONFIRMED) [the semiconductor report]": {
-   "status": "issue text (not a term)",
-   "definition": " Filed March 29, 2026. Result: NOT CONFIRMED. Apple M5 published October 15, 2025: TSMC N3P, 28B transistors, ~27W TDP, 4.4 GHz. the semiconductor report = 65.8× — a 3.6% improvement over M4 (68.2×). The M3→M4 regression streak is broken. The regression watch is resolved. The structural gap to x86 remains at 8.7×. Pre",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Apple Silicon — structural efficiency class [the semiconductor report]": {
-   "status": "issue text (not a term)",
-   "definition": " Apple's M-series processors occupy a structurally distinct efficiency class: M1 (2020, 95×) through M5 (2025, 66×) — all below 100× on a scale where Intel's best is 570× and AMD's best is 576×. The gap has not narrowed since M1 launched in November 2020. Apple and AMD share the same TSMC foundry at",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "AMD Zen 6 and Intel Nova Lake — pending data points [the semiconductor report]": {
-   "status": "issue text (not a term)",
-   "definition": " As of April 2026, both AMD Zen 6 (TSMC 2nm, expected H2 2026) and Intel Nova Lake (2nm-class, expected late 2026 / 2027) have no published primary-source specifications. No the semiconductor report score can be computed without published TDP, transistor count, and clock frequency. These are the live testable events f",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Dennard Baseline (72%) [the semiconductor report]": {
-   "status": "current (unverified)",
-   "definition": " The per-node efficiency improvement rate observed from 1974 to 2005 — the \"free-scaling\" era. R. Dennard's 1974 prediction: shrinking transistors would produce proportional efficiency gains at each node shrink, with power density held constant. For three decades, the semiconductor industry delivere",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "Forward translation [the semiconductor report]": {
-   "status": "current (unverified)",
-   "definition": " The reverse problem: given a target the semiconductor report index, what published specifications (TDP, transistors, or clock frequency) would achieve it, holding the other two constant? The semiconductor report Engineering Diagnostic tool computes forward translation for any target index. Example: Intel 285K at 570× targeting 300×",
-   "domain": "the semiconductor report",
-   "book": false
-  },
-  "A FINAL NOTE [the semiconductor report]": {
-   "status": "issue text (not a term)",
-   "definition": " The semiconductor industry is the most precisely engineered enterprise in human history. The teams working on 2nm silicon are doing genuinely hard things — patterning features at dimensions smaller than the wavelength of visible light, managing leakage currents measured in femtoamperes, sustaining ",
-   "domain": "the semiconductor report",
    "book": false
   },
   "C-score (sky-map C-score)": {
@@ -519,26 +208,13 @@
   },
   "H_min (the floor)": {
    "status": "current",
-   "definition": "The absolute lowest error a system can hold before thermal kicks win; below it the system no longer exists as itself. It is NOT the denominator of A and NOT 1: it sits below 1 at H_min / healthy reference. Cells (IAM-A): H(eps0) = 0.2043 bits, neutrophils at A = 1/P = 0.910. Cells (Met-A, arrays): not yet derived. Qubits: the thermal floor p_eq t_g/T1, p_eq = 1/(1+exp(hf/(k_B T))) at the temperature the qubit's record sees. Chips: the Landauer floor k_B T_j ln 2 (AMD 9950X at 0.0017).",
+   "definition": "The absolute lowest error a system can hold before thermal kicks win; below it the system no longer exists as itself. It is NOT the denominator of A and NOT 1: it sits below 1 at H_min / healthy reference. Cells (IAM-A): H(eps0) = 0.2043 bits, neutrophils at A = 1/P = 0.910. Cells (Met-A, arrays): not yet derived. Qubits: the thermal floor p_eq t_g/T1, p_eq = 1/(1+exp(hf/(k_B T))) at the temperature the qubit's record sees. Chips: the Landauer floor k_B T_j ln 2.",
    "note": "The absolute lowest point a system can operate at before thermal kicks win."
   },
-  "eps (gate error in nats) [the quantum-processor report]": {
+  "eps (gate error in nats)": {
    "status": "current",
-   "definition": "eps = -ln(1 - p(2Q)), the two-qubit gate error expressed in nats; eps ~ p for small p. It is the qubit reading; A = eps / eps_floor.",
-   "domain": "the quantum-processor report",
+   "definition": "eps = -ln(1 - p(2Q)), the two-qubit gate error expressed in nats; eps ~ p for small p. It is the qubit reading; A = eps / eps(as built).",
    "note": "Formerly called the 'A score'.",
-   "book": false
-  },
-  "n (temperature exponent)": {
-   "status": "current",
-   "book": false,
-   "definition": "The exponent of A(T) = A(T_ref) (T/T_ref)^n: halving the temperature divides A by 2^n. One value per architecture class. CALIBRATED, not derived: qubit classes against published gate-error histories, chip classes against the 20-year published chip series. n is not A.",
-   "note": "Out of the book by the 2026-10-03 ruling: per-class calibrated values are not printed."
-  },
-  "Class floor [the semiconductor report]": {
-   "status": "current",
-   "definition": "A per-architecture lower bound on A(the semiconductor report) assigned by the semiconductor report (x86, Apple, ARM, GPU); calibrated, not derived. It is NOT H_min: the chip H_min is the Landauer floor. Floor ratio = A / class floor.",
-   "domain": "the semiconductor report",
    "book": false
   },
   "One gauge (convention)": {
@@ -553,12 +229,6 @@
   "Thermal floor (qubit)": {
    "status": "current",
    "definition": "The qubit H_min and the left-hand mark of the qubit gauge: IAM's Law at the temperature the record sees. p_eq = 1/(1+exp(hf/(k_B T))) for the held record; p_eq t_g/T1 for one gate of duration t_g (detailed balance)."
-  },
-  "Material floor (eps_floor)": {
-   "status": "current",
-   "book": false,
-   "definition": "The qubit H_min: the lowest gate error (in nats) a substrate allows, a calibrated class value per material (oxide-phase ordering Al/AlOx > Nb > Ta > ion in vacuum).",
-   "domain": "the quantum-processor report"
   }
  },
  "retired": {
@@ -605,23 +275,23 @@
    "severity": "warn"
   },
   "\\bA[- ]score": {
-   "replaced_by": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+   "replaced_by": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
    "severity": "warn"
   },
   "the semiconductor report [Ii]ndex": {
-   "replaced_by": "E_sw/(k_B T_j ln 2) (the semiconductor report): distance above the Landauer floor; on the one gauge the chip as built reads 1",
+   "replaced_by": "E_sw/(k_B T_j ln 2): distance above the Landauer floor; on the one gauge the chip as built reads 1",
    "severity": "warn"
   },
   "[Ww]all ratio": {
-   "replaced_by": "eps/eps_floor (the quantum-processor report): distance above the material floor; on the one gauge A = reading / device as built, floor at eps_floor/eps",
+   "replaced_by": "A = reading / device as built; the thermal floor lies to its left",
    "severity": "warn"
   },
   "\\bA-floor": {
-   "replaced_by": "material floor eps_floor (the quantum-processor report) or H_min",
+   "replaced_by": "H_min (the thermal floor)",
    "severity": "warn"
   },
   "zero adjustable parameters": {
-   "replaced_by": "calibrated class values (n and floors are calibrated)",
+   "replaced_by": "state which quantities are measured and which are assumed",
    "severity": "warn"
   }
  },
@@ -674,5 +344,5 @@
    "rule": "The chain reports Met-A, IAM-A and both C-scores for neutrophils only until commissioned with new VALs; cell types are added one at a time, in order of abundance in blood, each after passing healthy-in-Normal, known-2%-damage detection and same-person repeat (author, 2026-10-01)."
   }
  },
- "hierarchy": "IAM's law -> applications: cosmology; the quantum-processor report (qubits); the semiconductor report (semiconductors); the methylation report (biology) -> the methylation report chains: MethylPhys CPG (cells), salmonid chain (in development)."
+ "hierarchy": "IAM's law -> applications: cosmology; qubits; semiconductors; the methylation report (biology) -> the methylation report chains: MethylPhys CPG (cells), salmonid chain (in development)."
 }

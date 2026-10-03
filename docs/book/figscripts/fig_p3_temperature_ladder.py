@@ -1,5 +1,5 @@
 """Temperature ladder of the encoding surfaces in Part 3, against the cosmic microwave background.
-Numbers: docs/verification/scripts/verify_quantum_order_draft.py section 1. Output: figures/part3/fig_p3_temperature_ladder.pdf
+Numbers: computed below from CODATA constants. Output: figures/part3/fig_p3_temperature_ladder.pdf
 """
 import math
 import numpy as np
