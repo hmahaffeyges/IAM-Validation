@@ -390,6 +390,12 @@
   "also": [
    "COS-108",
    "COS-110"
+  ],
+  "test_and_date": [
+   [
+    "not discriminating",
+    "one event cannot yet separate them"
+   ]
   ]
  },
  "COS-017": {
@@ -422,7 +428,17 @@
    "COS-214",
    "COS-049"
   ],
-  "color": "passed"
+  "color": "passed",
+  "statement": [
+   [
+    "the fit to Planck 2018 is statistically as good as",
+    "IAM's own equations reproduce Planck 2018 as well as"
+   ],
+   [
+    "(IAM",
+    "(no free parameter; IAM"
+   ]
+  ]
  },
  "COS-012": {
   "exclude": "same prediction as COS-131"

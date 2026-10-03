@@ -29,7 +29,7 @@ DOMAINS = [("COS", "Cosmology and gravitation"), ("PAR", "Particle physics and f
            ("QUB", "Qubits and quantum measurement"), ("SEM", "Semiconductor chips"), ("OTH", "Quantum foundations")]
 VERB = {"KEEP": "kept", "CORRECT": "restated", "TESTED": "tested", "DUP": "merged", "DROP": "not listed"}
 LISTED = ("KEEP", "CORRECT", "TESTED")
-COLMAC = {"passed": r"\\Spassed", "precision": r"\\Sprecision", "pending": r"\\Spending", "tension": r"\\Stension"}
+COLMAC = {"passed": r"\Spassed", "precision": r"\Sprecision", "pending": r"\Spending", "tension": r"\Stension"}
 FIELDS = ("statement", "test_and_date", "falsified_if")
 
 reg = json.load(open(TRIAGE))
@@ -123,7 +123,7 @@ L.append(r"\caption{Verdicts on the " + str(NREG) + r" register entries outside 
          r" entry; entries not listed are definitions, restatements or interpretations, or name no test. The last column"
          r" counts the rows of this appendix. \observed}\label{tab:register_counts}")
 L.append(r"\begin{tabular}{@{}lrrrrrrr@{}}\toprule")
-L.append(r"domain & kept & restated & tested & merged & not listed & total & rows here\\\midrule")
+L.append(r"domain & kept & restated & compared with data & merged & not listed & total & rows here\\\midrule")
 tot = collections.Counter()
 for code, name in DOMAINS:
     vals = [cnt[(code, v)] for v in ("KEEP", "CORRECT", "TESTED", "DUP", "DROP")]
@@ -146,8 +146,8 @@ L.append("")
 
 COLS = (r"{@{}>{\raggedright\arraybackslash}p{0.10\textwidth}>{\raggedright\arraybackslash}p{0.40\textwidth}"
         r">{\raggedright\arraybackslash}p{0.19\textwidth}>{\raggedright\arraybackslash}p{0.19\textwidth}"
-        r">{\raggedright\arraybackslash}p{0.07\textwidth}@{}}")
-HEAD = r"entry & statement & test and date & falsified if & verdict\\\midrule"
+        r">{\raggedright\arraybackslash}p{0.09\textwidth}@{}}")
+HEAD = r"entry & statement & test and date & falsified if & status\\\midrule"
 for code, name in DOMAINS:
     rr = sorted((r for r in rows if r["dom"] == code), key=lambda r: r["pid"])
     if not rr:
