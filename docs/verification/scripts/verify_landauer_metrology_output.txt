@@ -1,0 +1,61 @@
+1. Landauer cost at body temperature
+  [OK ] k_B T ln2 (J): 2.96811e-21 (book 2.968e-21, tol 5e-25)
+  [OK ] per mole of bits (kJ/mol): 1.78744 (book 1.787, tol 0.001)
+  [OK ] M = dG_ATP/RT: 20.9405 (book 20.94, tol 0.005)
+  [OK ] M/ln2 (Landauer units per ATP): 30.2108 (book 30.21, tol 0.01)
+2. Sanchez-Mackenzie information and energy (symbolic)
+  H(1/2) = 1 bit; H(p) = H(1-p): True
+  E_R = I_R k_B T ln2; for I_R = 1 bit at T_body: 2.9681136706905537e-21 J
+3. The operating ratio M = E_drive/k_B T for three substrates
+  transmon: E_drive = Delta ln2, k_B T_gap = Delta  ->  M = log(2) = 0.6931471805599453 ; in Landauer units M/ln2 = 1
+  [OK ] transmon M: 0.693147 (book 0.693, tol 0.0005)
+  CMOS 9950X N=2e+10: E_sw=1.977e-18 J, M=E_sw/k_B T_j=411, M/ln2=594
+  CMOS 9950X N=2.06e+10: E_sw=1.919e-18 J, M=E_sw/k_B T_j=399, M/ln2=576
+4. The floor for one copy of the methylome (errata FB1)
+  [OK ] E_floor all CpGs (J): 8.37526e-14 (book 8.37e-14, tol 1e-16)
+  E_floor = 8.3753e-14 J = 9.340e+05 ATP at 54 kJ/mol = 1.009e+06 ATP at 50 kJ/mol
+  methylated CpGs at 70 %: 1.975e+07; chemical cost >= 1 ATP each -> 1.98e+07 ATP
+  chemical cost of the copy / its Landauer floor = 21.1
+  per mark: M/ln2 = 30.2; per copy the floor counts all 28,217,448 decisions, chemistry pays the methylated ones: 0.70*M/ln2 = 21.1
+  ATP over 24 h at 1e9/s: 8.64e+13; copy cost fraction 2.3e-07
+5. Fidelity per write
+  ln(1/0.02) = 3.91 k_B T
+  ln(1/0.1) = 2.30 k_B T
+  Hopfield ln(7) = 1.95 k_B T
+  Hopfield ln(21) = 3.04 k_B T
+  Hopfield ln(80) = 4.38 k_B T
+  [OK ] phi = 3.41/M: 0.162842 (book 0.163, tol 0.0005)
+  sigma(phi) = 0.12/M = 0.0057; E_hold in Landauer units 3.41/ln2 = 4.92
+6. The pipeline scale map [record PHASE1_OUTCOME.md addendum]: beta_S1 = 1.0127 beta_ref + 0.0662
+  H(0.7318) = 0.8389 bits (reference beta of the test; reference entropy 0.8389)
+  noob beta-bar 0.815 -> mapped 0.7394; A unmapped 0.824; A mapped 0.987
+  offset at beta_ref = 0.737: beta_S1 - beta_ref = 0.0756
+7. Three laboratories on one scale (Table 3) from PROC_TARE_01_per_array.parquet, column A_raw = mapped A
+  Uppsala     n=732 median 0.992  p10-p90 0.963-1.021  offset +0.000
+  Karolinska  n= 12 median 1.016  p10-p90 0.981-1.040  offset +0.024
+  UCLA        n= 12 median 0.961  p10-p90 0.934-0.971  offset -0.031
+  Munich      n= 12 median 1.004  p10-p90 0.991-1.022  offset +0.013
+  [OK ] Uppsala median: 0.991842 (book 0.992, tol 0.0005)
+  [OK ] Karolinska median: 1.0156 (book 1.016, tol 0.0005)
+  [OK ] UCLA median: 0.961293 (book 0.961, tol 0.0005)
+  [OK ] fraction of 756 arrays in [0.95,1.05): 0.945767 (book 0.946, tol 0.0005)
+  arrays counted: 756
+8. The low-signal laboratory (FINDING_GSE125105_controls.csv; three arrays per laboratory)
+           nonpoly_G  nonpoly_R  neg_G  neg_R   bsII_R    hyb_G  poobah_fail%
+lab                                                                          
+GSE111629     4823.0     7251.5  215.0  280.0  16590.0  20392.0           5.4
+GSE125105     1291.0     2268.0  175.0  275.0   7965.5  12494.0          12.5
+GSE42861      5959.0    10772.5  165.0  270.0  20159.0  14726.0           1.5
+GSE87571      8581.5    14426.5  311.0  370.0  32558.5  27410.0           0.9
+  Uppsala / Munich non-polymorphic signal: G 6.65x, R 6.36x  (one-sixth to one-seventh)
+  SNP homozygous-cluster SD [record FINDING_GSE125105_LOW_SIGNAL.md]: Munich 0.069/0.072 vs Uppsala 0.017/0.016 -> 4.1x, 4.5x
+9. Control-probe ridge, leave-one-laboratory-out [record LABZERO02_OUTCOME.md P4b]
+  Karolinska  |error| 0.0041  within 0.010: True
+  Uppsala     |error| 0.0180  within 0.010: False
+  UCLA        |error| 0.0256  within 0.010: False
+  Munich      |error| 0.0517  within 0.010: False
+10. Intake line 0.93 on the 48-array measurement [record PROC_INTAKE_01_OUTCOME.md]
+  medians (min/max): Uppsala 0.985 (min 0.979), Karolinska 0.975 (min 0.891), UCLA 0.953 (min 0.932), Munich 0.878 (max 0.928)
+  Munich 12/12 quarantined (0.764-0.928); Uppsala first 100: 100/100 advance
+
+ALL CHECKS PASS
