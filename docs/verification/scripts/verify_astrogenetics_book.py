@@ -46,9 +46,9 @@ assert len(rows) == 6, rows
 ratios = sorted(t/n for n, t, _ in rows)
 med = (ratios[2]+ratios[3])/2
 print("tumour pairs:", len(rows), "tumour > normal in", sum(t > n for n, t, _ in rows))
-check("tumour/normal copy-error ratio, median", med, 1.148, 0.0015)
-check("tumour/normal ratio, lowest", ratios[0], 1.067, 0.0015)
-check("tumour/normal ratio, highest", ratios[-1], 1.328, 0.0015)
+check("tumour/normal copy-error ratio, median", med, 1.148, 0.0005)
+check("tumour/normal ratio, lowest", ratios[0], 1.067, 0.0005)
+check("tumour/normal ratio, highest", ratios[-1], 1.328, 0.0005)
 check("percent excess, lowest", 100*(ratios[0]-1), 7, 0.5)
 check("percent excess, highest", 100*(ratios[-1]-1), 33, 0.5)
 
@@ -63,10 +63,10 @@ im = list(csv.DictReader(open(os.path.join(D, "PROC_LINES_02_channels/imr90_chan
 def rng(state, col):
     v = [float(r[col]) for r in im if r["state"] == state]; return min(v), max(v)
 for st, col, lo, hi in [("Senescent","A_unmeth",0.685,0.695),("Senescent","A_meth",0.941,1.016),
-                        ("SV40","A_meth",1.078,1.120),("SV40","A_unmeth",0.587,0.664),("SV40","A_both",0.965,0.975),
+                        ("SV40","A_meth",1.077,1.120),("SV40","A_unmeth",0.587,0.664),("SV40","A_both",0.965,0.975),
                         ("Proliferating","A_both",0.997,1.002)]:
     a, b = rng(st, col)
-    check(f"IMR90 {st} {col} low", a, lo, 0.0015); check(f"IMR90 {st} {col} high", b, hi, 0.0015)
+    check(f"IMR90 {st} {col} low", a, lo, 0.0005); check(f"IMR90 {st} {col} high", b, hi, 0.0005)
 
 # --- compact stars on their own gauge (p2_01_blackholes table; masses from its sources) ---
 check("Sun's future white dwarf 0.54/0.6", 0.54/0.6, 0.90, 0.005)

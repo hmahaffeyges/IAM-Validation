@@ -46,11 +46,10 @@ S.save(fig, "part1", "fig_activation")
 k, hbar, c, G = C.k, C.hbar, C.c, C.G; Msun = 1.98847e30
 Tj = 348.15
 M_cell = 54000 / (C.R * 310.15)
-M_m1 = 3.90e-19 / (k * Tj)                         # p3_06: E_drive = TDP/(N f) = 3.90e-19 J (as printed)
 M_9950 = 170 / (20.6e9 * 4.3e9) / (k * Tj)         # p3_08 inputs
 M_bh = lambda m: 8 * np.pi * G * (m * Msun)**2 / (hbar * c)
-rows = [("living cell (ATP at 310 K)", M_cell, S.ALT), ("CMOS chip, Apple M1 (whole-chip average)", M_m1, S.GOLD),
-        ("CMOS chip, AMD Ryzen 9 9950X", M_9950, S.GOLD), ("black hole, 1 M$_\\odot$", M_bh(1.0), S.IAM),
+rows = [("living cell (ATP at 310 K)", M_cell, S.ALT),
+        ("CMOS chip, AMD Ryzen 9 9950X (whole-chip average)", M_9950, S.GOLD), ("black hole, 1 M$_\\odot$", M_bh(1.0), S.IAM),
         ("black hole, Sgr A$^*$", M_bh(4.3e6), S.IAM)]
 for r in rows:
     print(f"{r[0]:42s} M = {r[1]:.4g}  (Landauer units {r[1]/np.log(2):.4g})")

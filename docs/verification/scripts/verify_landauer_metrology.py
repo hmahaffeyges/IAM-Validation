@@ -61,15 +61,15 @@ Mtr = sp.simplify((D * sp.log(2)) / D)
 say("  transmon: E_drive = Delta ln2, k_B T_gap = Delta  ->  M =", Mtr, "=", float(Mtr),
     "; in Landauer units M/ln2 =", sp.simplify(Mtr / sp.log(2)))
 allok &= check("transmon M", float(Mtr), 0.693, 0.0005)
-# CMOS value as computed in ch:cmos (AMD Ryzen 9 9950X, TDP 170 W, 4.3 GHz, 20.0-20.6e9 transistors, T_j = 348 K)
+# CMOS value as computed in ch:cmos (AMD Ryzen 9 9950X, TDP 170 W, 4.3 GHz, 20.0-20.6e9 transistors, T_j = 348.15 K)
 for N in (20.0e9, 20.6e9):
     Esw = 170 / (N * 4.3e9)
-    say(f"  CMOS 9950X N={N:.3g}: E_sw={Esw:.3e} J, M=E_sw/k_B T_j={Esw/(kB*348):.0f}, M/ln2={Esw/(kB*348*ln2):.0f}")
+    say(f"  CMOS 9950X N={N:.3g}: E_sw={Esw:.3e} J, M=E_sw/k_B T_j={Esw/(kB*348.15):.0f}, M/ln2={Esw/(kB*348.15*ln2):.0f}")
 
 say("4. The floor for one copy of the methylome (errata FB1)")
 N_cpg = 28_217_448
 Ef = N_cpg * ebit
-allok &= check("E_floor all CpGs (J)", Ef, 8.37e-14, 0.01e-14)
+allok &= check("E_floor all CpGs (J)", Ef, 8.38e-14, 0.005e-14)
 eATP54 = 54000 / NA
 eATP50 = 50000 / NA
 say(f"  E_floor = {Ef:.4e} J = {Ef/eATP54:.3e} ATP at 54 kJ/mol = {Ef/eATP50:.3e} ATP at 50 kJ/mol")

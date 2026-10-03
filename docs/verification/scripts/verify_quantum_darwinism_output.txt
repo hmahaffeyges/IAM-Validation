@@ -3,6 +3,6 @@
    with the paper's a^(n-9/2): n - 9/2 = -1 gives n = 3.5 (paper prints 5/2)
    with the integrand as printed: S ~ a^(n-4) = a^-1 gives n = 3
 3. BH: P/(k T ln2) = 1.5255e+02 bits/s; c^3/(1920 G M ln2) = 1.5255e+02; radiation entropy rate (4/3)P/T is 4/3 of it
-4. H_matter = 67.16 sqrt(1 + 0.1575) = 72.26
+4. H_matter = 67.16 sqrt(1 + 0.15765) = 72.26
 5. Bottom-up exactly (Press-Schechter, matter domination): I_dot = (rho_m/m_p) H dF/dln a, F = erfc(nu/sqrt2), nu = delta_c/(sigma(M_min) D)
    => n_eff = d ln(dF/dln a)/d ln D = nu^2 - 1  (exact); 7/2 at nu = 2.121, 5/2 at nu = 1.871

@@ -31,7 +31,7 @@ for z in (0.1, 0.5, 1.0): a = 1/(1+z); print(f"   z {z}: source ratio {src(I,a)/
 zs = np.linspace(0.05, 1.5, 300); aa = 1/(1+zs)
 num = trap([src(I, a)*D(I, a) for a in aa], zs); den = trap([src(L, a)*D(L, a) for a in aa], zs)
 print(f"   A_ISW (cross) = {num/den:.3f}")
-print("D. sirens / matter-sector H0: 67.161 sqrt(1 + 0.15750) =", round(67.161*np.sqrt(1.1575), 2))
+print("D. sirens / matter-sector H0: 67.161 sqrt(1 + 0.15765) =", round(67.161*np.sqrt(1.15765), 2))
 print("E. clusters, Level 1 form: R = 1/mu; slope; non-thermal C_NT = 1 + 0.20 (1+z)^0.2 at bin centres")
 Rz = lambda z: 1/mu(1/(1+z)); h = 1e-4
 print(f"   dR/dz at z 0.3 = {(Rz(0.3+h)-Rz(0.3-h))/(2*h):.3f}; at z 0 = {(Rz(h)-Rz(0))/h:.3f}")

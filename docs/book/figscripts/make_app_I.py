@@ -274,13 +274,11 @@ def shows(blk, words=16):
         return None
     c = brace(strip_comments(blk), m.end() - 1)
     c = re.sub(r"\\label\{[^}]*\}|~?\\cite[pt]?\*?(?:\[[^\]]*\])?\{[^}]*\}|" + STATUS, "", c)
-    c = re.sub(r"\((?:[a-z])\)\s*", "", c)                      # panel letters
+    _seg = re.split(r"((?<!\\)\$[^$]*(?<!\\)\$)", c)          # panel letters, outside math only
+    c = "".join(x if x.startswith("$") else re.sub(r"\((?:[a-z])\)\s*", "", x) for x in _seg)
     c = re.sub(r"\\(?:textbf|emph|textit|mathrm)\{([^{}]*)\}", r"\1", c)
-    c = re.sub(r"(?:Figure|Fig\.|Table|Eq\.|Eqs\.|Chapter|Section|Ch\.)~?\\(?:eq)?ref\{[^}]*\}", "", c)
-    c = re.sub(r"\\(?:eq)?ref\{[^}]*\}", "", c)
-    c = re.sub(r"\(\s*\)|\[\s*\]", "", c)                     # brackets emptied by removed refs
-    c = re.sub(r"\b(in|see)\s+([,.;:])", r"\2", c)   # 'in , counted' -> ', counted'
-    c = re.sub(r"\b(Part|Chapter|Section)\s+(?=[,.;:)])", "", c)
+    c = re.sub(r"\(\s*\)|\[\s*\]", "", c)                     # empty brackets
+    # cross-references are kept: every \\ref resolves book-wide, and removing them left broken sentences
     c = re.sub(r"\s+([,.;:])", r"\1", c)
     c = re.sub(r"\s+", " ", c).strip(" ,;:")
     # first sentence outside math

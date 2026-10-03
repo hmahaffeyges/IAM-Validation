@@ -41,19 +41,20 @@ def main():
        r"\section*{Constants}", r"{\small\begin{longtable}{>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.38\textwidth}}\toprule",
        r"name & value & units & derivation and source\\\midrule\endhead"]
     for k,v in C["constants"].items():
-        val=v["value"]; val="pending" if val is None else (f"{val:.6g}" if isinstance(val,float) else str(val))
+        val=v["value"]; val="pending" if val is None else (f"{val:.10g}" if isinstance(val,float) else str(val))
         der=v.get("derivation","")
         if len(val)>16 and not val.replace(".","").replace("-","").isdigit(): der=val+(". "+der if der else ""); val="see right"
         name=esc(k).replace("\\_","\\_\\allowbreak{}")
         src=(" --- "+esc(v["source"])) if v.get("source") else ""
-        L.append(name+" & "+esc(val)+" & "+esc(v.get("units","")).replace("\\_","\\_\\allowbreak{}")+" & "+esc(der)+src+"\\\\")
+        L.append(name+" & "+esc(val)+" & "+esc(v.get("units","")).replace("\\_","\\_\\allowbreak{}")+" & "+esc(der)+src+"\\\\\\iamrowrule")
     L+=[r"\bottomrule\end{longtable}}", r"\section*{Names in use}",
         r"{\small\begin{longtable}{>{\raggedright\arraybackslash}p{0.24\textwidth}p{0.7\textwidth}}\toprule", r"name & definition\\\midrule\endhead"]
     for k,v in C["names"].items():
-        if keep(v): L.append(f"{esc(k)} & {esc(v['definition'])}{(' \\emph{Note:} '+esc(v['note'])) if v.get('note') else ''}\\\\")
+        note=(r" \emph{Note:} "+esc(v['note'])) if v.get('note') else ''
+        if keep(v): L.append(esc(k)+" & "+esc(v['definition'])+note+"\\\\\\iamrowrule")
     # retired names are kept in iam_canon.json for the repo record; the book carries only the names in use
     L+=[r"\bottomrule\end{longtable}}"]
-    s="\n".join(L)+"\n"; bad=s.count("?")
+    s="\n".join(L)+"\n"; s=s.replace("\\iamrowrule\n\\bottomrule","\n\\bottomrule"); bad=s.count("?")
     o=os.path.join(ROOT,"docs","book","appendices"); os.makedirs(o,exist_ok=True)
     open(os.path.join(o,"app_A_canon.tex"),"w",encoding="utf-8").write(s)
     print("app_canon.tex written:", sum(1 for v in C["names"].values() if keep(v)), "names,", len(C["constants"]), "constants; unmapped chars:", bad)

@@ -1,7 +1,7 @@
 """Part 2, Chapter 'The cosmological constant over cosmic history' (p2_12b_lambda_history.tex), Fig. fig:cc_history.
 (a) The integrand of the history integral as printed, (Ob/Otot)(a) (l_P/l_H(a))^2 / (a^2 H/H0), per unit ln a and in units of
     (l_P/l_H0)^2, from a_EW = 2.3e-15 to a = 1 (Planck 2018 densities, radiation 9.22e-5): the earliest epoch dominates.
-(b) The activation-weighted coefficients int (H/H0)^p dE for p = -2..2 on the 18th-chain Omega_m = 0.3197, against the
+(b) The activation-weighted coefficients int (H/H0)^p dE for p = -2..2 on the 18th-chain Omega_m = 0.3198, against the
     required K = (3 OL/8 pi)/(Ob/Om) = 0.523.
 Same inputs as docs/verification/scripts/verify_lambda_baryon_book.py, section C.
 """
@@ -24,7 +24,7 @@ K = np.trapezoid(perln, lnA) / fb
 aeq = Orad / Om
 print(f"K (as printed) = {K:.2e}; required {Kreq:.3f}; a_eq = {aeq:.2e}")
 
-Omx = 0.3197
+Omx = 0.3198
 Hx = lambda a: np.sqrt(Omx / a**3 + 1 - Omx); dE = lambda a: np.exp(1 - 1 / a) / a**2
 ps = [-2, -1, 0, 1, 2]
 vals = [quad(lambda a: Hx(a)**p * dE(a), 1e-6, 1, limit=200)[0] for p in ps]

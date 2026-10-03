@@ -15,9 +15,10 @@
      75%: a 0.861 z 0.16 lookback 2.1 Gyr
      90%: a 0.942 z 0.06 lookback 0.9 Gyr
    |dmu/dz| peaks at z = 0.000
+   Fig. 4(a) milestones of E(a) itself (10/50/90 %): []
    E(a) = 0.1: z = 2.30
    E(a) = 0.5: z = 0.69
    E(a) = 0.9: z = 0.11
 3. ISW source (1-f)D, uniform weight z 0.05-1.5: see verify_s8_trend.py (ratio ~1.03); paper A_ISW = 1.134; Fig. 2 per-sample 1.09-1.17
-4. Sirens: 67.161 sqrt(1.1575) = 72.26 ; GW170817 Abbott 2017: 70.0 +12/-8
+4. Sirens: 67.161 sqrt(1.15765) = 72.26 ; GW170817 Abbott 2017: 70.0 +12/-8
 5. Table 2 timeline: sigma(mu0) DESI Y5 0.207 > DESI DR2 0.100 (non-monotonic; DESI Y5 alone cannot be weaker than DR2)

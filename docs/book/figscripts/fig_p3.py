@@ -50,7 +50,7 @@ S.save(fig, "part3", "fig_xqp_thermal")
 # ---------------- IMR90 channels -----------------
 states = [("proliferating (held out)", [(0.991, 1.005), (0.991, 1.016), (0.997, 1.002)]),
           ("senescent", [(0.941, 1.016), (0.685, 0.695), (0.874, 0.925)]),
-          ("SV40-immortalised", [(1.078, 1.120), (0.587, 0.664), (0.965, 0.975)])]
+          ("SV40-immortalised", [(1.077, 1.120), (0.587, 0.664), (0.965, 0.975)])]
 chan = [("methylated channel", S.IAM), ("unmethylated channel", S.ALT), ("both", S.GR)]
 fig, ax = plt.subplots(figsize=(0.8 * S.TEXTW, 2.4))
 ax.axvspan(0.95, 1.05, color=S.LIGHT, alpha=0.35, lw=0); ax.axvline(1, color=S.GR, lw=0.8)

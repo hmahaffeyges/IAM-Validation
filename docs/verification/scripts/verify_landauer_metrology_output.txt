@@ -9,10 +9,10 @@
 3. The operating ratio M = E_drive/k_B T for three substrates
   transmon: E_drive = Delta ln2, k_B T_gap = Delta  ->  M = log(2) = 0.6931471805599453 ; in Landauer units M/ln2 = 1
   [OK ] transmon M: 0.693147 (book 0.693, tol 0.0005)
-  CMOS 9950X N=2e+10: E_sw=1.977e-18 J, M=E_sw/k_B T_j=411, M/ln2=594
+  CMOS 9950X N=2e+10: E_sw=1.977e-18 J, M=E_sw/k_B T_j=411, M/ln2=593
   CMOS 9950X N=2.06e+10: E_sw=1.919e-18 J, M=E_sw/k_B T_j=399, M/ln2=576
 4. The floor for one copy of the methylome (errata FB1)
-  [OK ] E_floor all CpGs (J): 8.37526e-14 (book 8.37e-14, tol 1e-16)
+  [OK ] E_floor all CpGs (J): 8.37526e-14 (book 8.38e-14, tol 5e-17)
   E_floor = 8.3753e-14 J = 9.340e+05 ATP at 54 kJ/mol = 1.009e+06 ATP at 50 kJ/mol
   methylated CpGs at 70 %: 1.975e+07; chemical cost >= 1 ATP each -> 1.98e+07 ATP
   chemical cost of the copy / its Landauer floor = 21.1

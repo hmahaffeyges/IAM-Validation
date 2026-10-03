@@ -28,7 +28,7 @@ def dl(Om, b):
     dc = np.concatenate([[0], np.cumsum(0.5 * (c / H[1:] + c / H[:-1]) * np.diff(zg))]); return (1 + zh) * np.interp(zz, zg, dc)
 def chi(Om, b):
     r = y - (5 * np.log10(dl(Om, b)) + 25); o = np.ones_like(r); d = r - (o @ Ci @ r) / (o @ Ci @ o); return d @ Ci @ d
-bs = np.linspace(-0.3, 0.3, 121); P = np.array([chi(0.315, b) for b in bs]); i = P.argmin()
+bs = np.linspace(-0.3, 0.3, 601); P = np.array([chi(0.315, b) for b in bs]); i = P.argmin()
 c0, c1 = chi(0.315, 0.0), chi(0.315, 0.15765); ok = bs[P <= P[i] + 1]
 print(f"{m.sum()} SNe; LCDM chi2 {c0:.2f}; beta_m on distances {c1:.2f}; dchi2 {c1-c0:+.2f}; best beta {bs[i]:+.3f} (68 %: {ok.min():+.3f} to {ok.max():+.3f})")
 fig, ax = plt.subplots(figsize=(0.62 * S.TEXTW, 2.7))

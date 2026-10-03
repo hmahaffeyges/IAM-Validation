@@ -58,7 +58,7 @@ bs.save(fig, "part4", "fig_division_floor")
 # 3. The operating ratio for three substrates
 fig, ax = plt.subplots(figsize=(0.62 * bs.TEXTW, 1.9))
 rows = [("aluminium transmon\nat its gap temperature", ln2, ln2), ("human cell, one ATP\nat 310 K", M, M),
-        ("CMOS logic, AMD 9950X\nat 348 K (range)", 399, 411)]
+        ("CMOS logic, AMD 9950X\nat 348.15 K (range)", 399, 411)]
 for i, (lab, lo, hi) in enumerate(rows):
     ax.plot([lo, hi], [i, i], color=bs.IAM, lw=4, solid_capstyle="butt")
     ax.plot([0.5 * (lo + hi)], [i], "o", color=bs.IAM, ms=3)

@@ -69,7 +69,7 @@ print("\n=== T: cell thermodynamics paper, printed vs recomputed ===")
 ebit = kB*T0*math.log(2)
 chk("T1", ebit, 2.968e-21, 1e-24, "kT ln2 at 310.15 K (paper 2.97e-21; book p4_02)")
 chk("T2", 19.6e6*ebit, 5.82e-14, 1e-16, "paper floor with N=19.6e6")
-chk("T3", 28217448*ebit, 8.37e-14, 1e-16, "book floor with hg19 N=28,217,448")
+chk("T3", 28217448*ebit, 8.38e-14, 0.005e-14, "book floor with hg19 N=28,217,448")
 atp = 54000/NA
 chk("T4", atp, 8.97e-20, 1e-22, "ATP per molecule (paper ~9e-20)")
 show("T5", f"paper floor in ATP = {19.6e6*ebit/atp:.3g} (paper 'about 1e6'); book {28217448*ebit/atp:.3g}")

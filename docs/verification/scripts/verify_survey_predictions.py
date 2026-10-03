@@ -21,5 +21,5 @@ zz=np.linspace(0,3,30001); dmz=np.gradient(np.array([mu(1/(1+z)) for z in zz]),z
 print("   Fig. 4(a) milestones of E(a) itself (10/50/90 %):", [round(1/(1+np.log(q)*-1)**-1-1,2) if False else round(-1/np.log(q)**-1,2) for q in ()] )
 for q in (0.1,0.5,0.9): a=1/(1-np.log(q)); print(f"   E(a) = {q}: z = {1/a-1:.2f}")
 print("3. ISW source (1-f)D, uniform weight z 0.05-1.5: see verify_s8_trend.py (ratio ~1.03); paper A_ISW = 1.134; Fig. 2 per-sample 1.09-1.17")
-print("4. Sirens: 67.161 sqrt(1.1575) =", round(67.161*np.sqrt(1.1575),2), "; GW170817 Abbott 2017: 70.0 +12/-8")
+print("4. Sirens: 67.161 sqrt(1.15765) =", round(67.161*np.sqrt(1.15765),2), "; GW170817 Abbott 2017: 70.0 +12/-8")
 print("5. Table 2 timeline: sigma(mu0) DESI Y5 0.207 > DESI DR2 0.100 (non-monotonic; DESI Y5 alone cannot be weaker than DR2)")

@@ -26,7 +26,7 @@ C. ISW source (1-f)D/a ratio and ISW-galaxy cross (source x D, uniform weight z 
    z 0.5: source ratio 1.0338
    z 1.0: source ratio 1.0242
    A_ISW (cross) = 1.028
-D. sirens / matter-sector H0: 67.161 sqrt(1 + 0.15750) = 72.26
+D. sirens / matter-sector H0: 67.161 sqrt(1 + 0.15765) = 72.26
 E. clusters, Level 1 form: R = 1/mu; slope; non-thermal C_NT = 1 + 0.20 (1+z)^0.2 at bin centres
    dR/dz at z 0.3 = -0.183; at z 0 = -0.307
    bin 0.1-0.2 (z 0.150): IAM 1.117  C_NT 1.2057  IAM x C_NT 1.346  dC_NT/dz +0.036

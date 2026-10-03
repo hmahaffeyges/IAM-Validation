@@ -324,7 +324,7 @@
   "statement": [
    [
     "Planck + RSD chains with free mu0 give 0.039 +/- 0.125; fixed mu0 = -0.136 lies 1.4 sigma away.",
-    "Planck + RSD chains with mu0 free give a posterior median of +0.064 and a 90 % lower bound of -0.204, the upper end being the +0.2 prior edge (Table~\\ref{tab:lt_free}); the fixed mu0 = -0.136 lies inside the 90 % interval, with P(mu0 < -0.135) = 0.10."
+    "Planck + RSD chains with mu0 free give a posterior median of +0.064 and the lower end of the central 90 % interval (the 5 % quantile) at -0.204, the upper end being the +0.2 prior edge (Table~\\ref{tab:lt_free}); the fixed mu0 = -0.136 lies inside the 90 % interval, with P(mu0 < -0.135) = 0.10."
    ]
   ],
   "reason": "a Gaussian mean and width misdescribe a posterior that reaches the prior edge; values from tab:lt_free in p2_07",
@@ -395,6 +395,12 @@
     "not discriminating",
     "one event cannot yet separate them"
    ]
+  ],
+  "statement": [
+   [
+    "67.161 x sqrt(1.1575)",
+    "67.161 x sqrt(1.15765)"
+   ]
   ]
  },
  "COS-017": {
@@ -437,6 +443,12 @@
     "(IAM",
     "(no free parameter; IAM"
    ]
+  ],
+  "test_and_date": [
+   [
+    "Planck 2018 PR4 CamSpec TTTEEE; 18 MCMC chains",
+    "Planck 2018 (Level 1: plik_lite TTTEEE; Level 2: NPIPE CamSpec TTTEEE); 18 MCMC chains"
+   ]
   ]
  },
  "COS-012": {
@@ -462,7 +474,13 @@
    "COS-314",
    "COS-061"
   ],
-  "color": "passed"
+  "color": "passed",
+  "statement": [
+   [
+    "0.8087 (LCDM, Run A) to 0.7998 (IAM, Run C)",
+    "0.8087 (LCDM, Run C) to 0.7998 (IAM, Run A)"
+   ]
+  ]
  },
  "COS-067": {
   "exclude": "same prediction as COS-319"
@@ -638,7 +656,13 @@
   "color": "pending"
  },
  "COS-217": {
-  "color": "pending"
+  "color": "pending",
+  "statement": [
+   [
+    "IAM 1/mu = 1.095",
+    "IAM 1/mu = 1.094"
+   ]
+  ]
  },
  "COS-272": {
   "color": "pending"
