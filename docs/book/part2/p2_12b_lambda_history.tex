@@ -69,14 +69,14 @@ open. \openprob
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_cc_history.pdf}
-\caption[The history integral and the activation weighting]{(a) The integrand of Eq.~\eqref{eq:lh_integral} per unit $\ln a$ (in units of $(l_P/l_H)^2$), from the printed lower limit $a_{\rm EW}=2.3\times10^{-15}$ to today: it falls as $a^{-2}$ per $\ln a$ through radiation domination, so the earliest epoch dominates and the integral gives $K=3.1\times10^{30}$ against the required $0.523$. (b) The same quantity weighted by the growth of the activation, $\int(H/H_0)^p\,dE$, for $p=-2,\dots,2$, on the 18th-chain $\Omega_m=0.3197$: $0.470$, $0.641$, $1$, $1.983$, $5.795$, against the required $0.523$ (dashed). None is selected by a derivation. Planck 2018 densities~\cite{Planck2018VI}; \texttt{verify\_lambda\_baryon\_book.py}, section C. \calc\ \openprob}\label{fig:cc_history}
+\caption[The history integral and the activation weighting]{(a) The integrand of Eq.~\eqref{eq:lh_integral} per unit $\ln a$ (in units of $(l_P/l_H)^2$), from the printed lower limit $a_{\rm EW}=2.3\times10^{-15}$ to today: it falls as $a^{-2}$ per $\ln a$ through radiation domination, so the earliest epoch dominates and the integral gives $K=3.1\times10^{30}$ against the required $0.523$. (b) The same quantity weighted by the growth of the activation, $\int(H/H_0)^p\,dE$, for $p=-2,\dots,2$, on the 18th-chain $\Omega_m=0.3198$: $0.470$, $0.641$, $1$, $1.983$, $5.797$, against the required $0.523$ (dashed). None is selected by a derivation. Planck 2018 densities~\cite{Planck2018VI}; \texttt{verify\_lambda\_baryon\_book.py}, section C. \calc\ \openprob}\label{fig:cc_history}
 \end{figure}
 
 Weighting the same quantity by the growth of the activation, $dE(a)$, instead of $da/a^2$, removes the divergence and gives O(1)
-coefficients, but which one depends on the form chosen. On the 18th-chain $\Omega_m=0.3197$:
+coefficients, but which one depends on the form chosen. On the 18th-chain $\Omega_m=0.3198$:
 \begin{equation}
 \int_0^1\!\Big(\frac{H_0}{H}\Big)^2dE=0.470,\quad \int_0^1\!\frac{H_0}{H}\,dE=0.641,\quad \int_0^1\!dE=1,\quad
-\int_0^1\!\frac{H}{H_0}\,dE=1.983,\quad \int_0^1\!\Big(\frac{H}{H_0}\Big)^2dE=5.795 .\label{eq:lh_weights}
+\int_0^1\!\frac{H}{H_0}\,dE=1.983,\quad \int_0^1\!\Big(\frac{H}{H_0}\Big)^2dE=5.797 .\label{eq:lh_weights}
 \end{equation}
 \calc\ None is selected by a derivation; choosing the closest ($0.470$, 10\,\% below $0.523$) after seeing the target would be a fit.
 The history integral has to be written in the variable that carries the cost, which the next section identifies.
@@ -119,7 +119,7 @@ It builds directly on Jacobson's thermodynamic derivation of the field equations
 apparent horizon of a Friedmann universe by Cai and Kim~\cite{CaiKim2005}. The additional entropy term --- the informational
 contribution from gravitational decoherence --- is the one identification behind both the cosmological results of
 Chapters~\ref{ch:theory}--\ref{ch:level2} and the reading of $\Lambda$ in Chapter~\ref{ch:lambda}. The Einstein equations are
-untouched.
+untouched. \interp
 
 \section{Conclusions}\label{sec:lh_concl}
 The reading rests on a single physical distinction: the quantum-field-theory vacuum energy density and the observed cosmological

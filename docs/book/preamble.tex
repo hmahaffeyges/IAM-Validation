@@ -36,12 +36,18 @@
 \usepackage{lmodern,microtype}
 \usepackage{amsmath,amssymb,amsthm,bm}
 \usepackage{graphicx,booktabs,longtable,array,tabularx}
+% light rule between the rows of long tables (a thin booktabs \specialrule; used by the appendices)
+\newcommand{\rowrule}{\specialrule{0.2pt}{0.3ex}{0.3ex}}
 \usepackage{fvextra}
 \setlength{\emergencystretch}{3em}
 % file names and identifiers may break after an underscore or a slash (text mode only)
 \let\IAMoldus\_
 \DeclareRobustCommand{\_}{\ifmmode\IAMoldus\else\textunderscore\allowbreak\fi}
 \usepackage{xcolor,tcolorbox}
+```latex
+\usepackage{colortbl}% light row rules in long tables (\iamrowrule)
+\newcommand{\iamrowrule}{\arrayrulecolor{black!25}\specialrule{0.2pt}{1pt}{1pt}\arrayrulecolor{black}}
+```
 \usepackage{siunitx}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=green!35!black,urlcolor=blue!60!black]{hyperref}
@@ -104,6 +110,8 @@
 \newcommand{\preview}{\statusbox{cPre}{PREVIEW}}
 \newtcolorbox{rulebox}[1][]{colback=green!3,colframe=green!35!black,boxrule=0.5pt,arc=2pt,fonttitle=\bfseries\small,title=Rule of the instrument,#1}
 
+% Light rule between table rows (long tables): thin grey hairline, booktabs rules unchanged; uses xcolor only (no colortbl).
+\providecommand{\rowrule}{\noalign{{\color{black!18}\hrule height 0.3pt}}}
 \newcommand{\interp}{\statusbox{cCon}{INTERPRETATION}}
 
 \title{\Huge\bfseries IAM's Law and Order\\[10pt]\LARGE The Actualization of Reality\\[6pt]\large\itshape The Cost of Recording It, and the Price of Maintaining It}

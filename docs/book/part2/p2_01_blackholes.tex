@@ -29,7 +29,7 @@ of black-hole horizons; derives the encoding throughput; shows that the Stefan--
 are one formula; prices the horizon's bits (the Smarr half); follows the entropy that evaporation carries off; constructs the two-horizon framework that
 governs the direction of the flow between a black hole and the cold horizon of the universe; and gives the holographic saturation condition for black-hole
 formation and its equivalence to the hoop conjecture. Where the famous factor $1/4$ in the Bekenstein--Hawking entropy comes from is
-Chapter~\ref{ch:bekenstein}; Chapter~\ref{ch:virial} then applies the same first law to the cosmic horizon. What these results do and do not say about the
+Chapter~\ref{ch:bekenstein}; Chapter~\ref{ch:virial} (Part~\ref{part:2}) applied the same first law to the cosmic horizon. What these results do and do not say about the
 information paradox is Chapter~\ref{ch:bhinformation}.
 
 \section{A horizon has a temperature and an entropy}\label{sec:bh_thermo}
@@ -70,7 +70,7 @@ encode faster. A $1\,M_\odot$ black hole encodes at $152.5$ bits\,s$^{-1}$. \der
 
 \subsection{Numerical values}
 Table~\ref{tab:bh_throughput} gives the encoding throughput, the Bekenstein--Hawking entropy in nats ($S_{\rm BH}/\kB=4\pi GM^2/\hbar c$) and in bits, and the
-evaporation time $\tau=5120\pi G^2M^3/(\hbar c^4)$ for representative black-hole masses, computed with exact CODATA 2018 constants~\cite{CODATA2018}.
+evaporation time $\tau=5120\pi G^2M^3/(\hbar c^4)$ for representative black-hole masses, computed with CODATA 2018 constants~\cite{CODATA2018}.
 \begin{table}[htbp]\centering\small
 \caption{Hawking temperature, encoding throughput, Bekenstein--Hawking entropy and black-body evaporation time for representative masses (CODATA 2018;
 $M_\odot=1.98847\times10^{30}$\,kg; $1\,{\rm yr}=3.15576\times10^7$\,s). \calc}\label{tab:bh_throughput}
@@ -133,7 +133,7 @@ viewed from two directions. The horizon encodes at precisely the rate it radiate
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_smarr.pdf}
-\caption{(a) The bits of a horizon, $N=S/(k_B\ln2)$, priced at its own temperature, divided by its rest energy. For Schwarzschild black holes from 1 to $10^{11}\,M_\odot$ the ratio is $1/2$ to machine precision ($|\Delta|<2\times10^{-16}$), the Smarr relation $T_{\rm BH}S_{\rm BH}=\tfrac12Mc^2$; for the cosmic horizon ($H_0=67.4$ to $10^4$\,km\,s$^{-1}$Mpc$^{-1}$) it is 1, $T_{\rm GH}S=M_Hc^2$. (b) Kerr: $T_{\rm BH}S_{\rm BH}/Mc^2=\sqrt{1-\chi^2}/2$ (0.500, 0.433, 0.218, 0.032 at $\chi=0$, 0.5, 0.9, 0.998) and the spin share $2\Omega_HJ/Mc^2$; the two sum to 1. \calc}\label{fig:smarr}
+\caption{(a) The bits of a horizon, $N=S/(k_B\ln2)$, priced at its own temperature, divided by its rest energy. For Schwarzschild black holes from 1 to $10^{11}\,M_\odot$ the ratio is $1/2$ to machine precision ($|\Delta|<2\times10^{-16}$), the Smarr relation $T_{\rm BH}S_{\rm BH}=\tfrac12Mc^2$; for the cosmic horizon ($H_0=67.4$ to $10^4$\,km\,s$^{-1}$Mpc$^{-1}$) it is 1, $T_{\rm GH}S=M_Hc^2$. (b) Kerr: $T_{\rm BH}S_{\rm BH}/Mc^2=\sqrt{1-\chi^2}/2$ (0.500, 0.433, 0.218, 0.032 at $\chi=0$, 0.5, 0.9, 0.998) and the spin share $2\Omega_HJ/Mc^2=1-\sqrt{1-\chi^2}$; twice the first plus the second is 1, $Mc^2=2T_{\rm BH}S_{\rm BH}+2\Omega_HJ$. \calc}\label{fig:smarr}
 \end{figure}
 Count the entropy in bits, $N=S_{\rm BH}/(k_B\ln2)$, and price each one at Landauer's minimum, $k_BT_{\rm BH}\ln2$. The total is
 \begin{equation}
@@ -159,7 +159,7 @@ which integrates analytically to
 \begin{equation}
 M(t)^3=M_0^3-\frac{\hbar c^4t}{5120\pi G^2},\qquad \tau_{\rm evap}=\frac{5120\pi G^2M_0^3}{\hbar c^4}.\label{eq:bh_Mt}
 \end{equation}
-The entropy carried off by the radiation tracks the horizon entropy being transferred to it, at the rate of Eq.~\eqref{eq:bh_transfer_rate}:
+The entropy carried off by the radiation tracks the horizon entropy being transferred to it, at the rate of Eq.~\eqref{eq:bh_transfer_rate} (in this section entropies are counted in bits, $S/\kB\ln2$):
 \begin{equation}
 \frac{dS_{\rm tr}}{dt}=\Gamma\big(M(t)\big)=\frac{c^3}{1920\,GM(t)\ln2},\qquad
 S_{\rm tr}(t)=\int_0^t\frac{c^3}{1920\,GM(t')\ln2}\,dt'.\label{eq:bh_Str}
@@ -174,7 +174,7 @@ t=\big(1-2^{-3/2}\big)\,\tau_{\rm evap}=0.646\,\tau_{\rm evap},
 \end{equation}
 and completing the transfer as $M\to0$. The total entropy carried off at $\tau_{\rm evap}$ equals the initial horizon entropy $S_{\rm BH,0}$: in the first law, all bits are
 transferred, none created and none destroyed. For a solar-mass black hole, $\tau_{\rm evap}\approx2.1\times10^{58}$\,Gyr, $S_{\rm BH,0}=1.51\times10^{77}$ bits and
-$\Gamma\approx152$ bits\,s$^{-1}$. The curve shape is universal; the timescale scales as $M_0^3$ (Fig.~\ref{fig:bh_transfer}). \derived\ (form) \calc\ (values)
+$\Gamma=152.5$ bits\,s$^{-1}$. The curve shape is universal; the timescale scales as $M_0^3$ (Fig.~\ref{fig:bh_transfer}). \derived\ (form) \calc\ (values)
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_bh_transfer.pdf}
@@ -198,7 +198,7 @@ this result in IAM is Chapter~\ref{ch:bhinformation}. \derived\ (bound) \openpro
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_bh_temperature.pdf}
-\caption{(a) Hawking temperature against mass, with the CMB (2.7255\,K) and the cosmic horizon ($T_{\rm GH}=2.7\times10^{-30}$\,K, $H_0=67.4$). A black hole balances the CMB at $4.5\times10^{22}$\,kg and the horizon at $M_{\rm eq}=c^3/4GH_0=2.3\times10^{22}\,M_\odot$. Shaded: known black holes, 3 to $6.6\times10^{10}\,M_\odot$. (b) Black-body evaporation time $\tau_{\rm evap}=5120\pi G^2M^3/\hbar c^4$, $2.1\times10^{67}$\,yr for one solar mass; greybody factors change the coefficient, not the scaling. \calc}\label{fig:bh_temperature}
+\caption{(a) Hawking temperature against mass, with the CMB (2.7255\,K) and the cosmic horizon ($T_{\rm GH}=2.7\times10^{-30}$\,K, $H_0=67.4$, Planck 2018). A black hole balances the CMB at $4.5\times10^{22}$\,kg and the horizon at $M_{\rm eq}=c^3/4GH_0=2.3\times10^{22}\,M_\odot$. Shaded: known black holes, 3 to $6.6\times10^{10}\,M_\odot$. (b) Black-body evaporation time $\tau_{\rm evap}=5120\pi G^2M^3/\hbar c^4$, $2.1\times10^{67}$\,yr for one solar mass; greybody factors change the coefficient, not the scaling. \calc}\label{fig:bh_temperature}
 \end{figure}
 
 \subsection{The cosmic horizon temperature}
@@ -206,7 +206,7 @@ The universe has its own horizon. The cosmological apparent horizon at $\tilde r
 \begin{equation}
 T_{\rm GH}=\frac{\hbar H}{2\pi\kB}.\label{eq:bh_TGH}
 \end{equation}
-At the present epoch ($H_0=67.4$\,km\,s$^{-1}$\,Mpc$^{-1}$), $T_{\rm GH}=2.66\times10^{-30}$\,K, many orders of magnitude below any black-hole Hawking temperature. \calc
+At the present epoch ($H_0=67.4$\,km\,s$^{-1}$\,Mpc$^{-1}$, Planck 2018~\cite{Planck2018VI}), $T_{\rm GH}=2.66\times10^{-30}$\,K, many orders of magnitude below any black-hole Hawking temperature. \calc
 
 \subsection{Net radiation between two thermal horizons}
 Both the black-hole horizon and the cosmic horizon are thermal surfaces. In the black-body approximation the net radiative power between them is
@@ -280,7 +280,7 @@ IAM's activation function $E(a)=\exp(1-1/a)$ (Chapter~\ref{ch:iams_law}) tracks 
 information is encoded primarily on local black-hole horizons, not on the small cosmic horizon. As the universe expands and large-scale structure formation
 produces distributed decoherence, the cosmic horizon grows and takes over as the dominant encoder. On this reading rapid early black-hole formation is
 thermodynamically favoured --- the early universe needs encoding surfaces, and black holes are the most efficient ones available before the cosmic horizon
-grows --- and the population of massive early black holes found by JWST is expected rather than anomalous. The same reading is given from the cosmological
+grows --- and the massive early black holes found by JWST are expected rather than anomalous. The same reading is given from the cosmological
 side in Chapter~\ref{ch:theoryinterp}. \conjecture
 
 \subsection{Primordial black holes}
@@ -321,7 +321,7 @@ full: no pressure can hold, a horizon forms and the black hole begins (Fig.~\ref
 \begin{center}\small\begin{tabular}{lccc}\toprule
 remnant & mass ($M_\odot$) & $A$ & surface full at\\\midrule
 the Sun's future white dwarf~\cite{Sackmann1993} & 0.54 & 0.90 & 2.40\\
-Procyon B (wide binary)~\cite{Bond2015} & 0.59 & 0.99 & 2.40\\
+Procyon B (wide binary)~\cite{Bond2015} & 0.592 & 0.99 & 2.40\\
 Sirius B (wide binary)~\cite{Bond2017} & 1.02 & 1.70 & 2.40\\
 IK Pegasi B (21.7-day binary)~\cite{Landsman1993} & 1.15 & 1.92 & 2.40\\
 typical neutron star & 1.4 & 1.00 & 1.64\\
@@ -354,8 +354,8 @@ are read together in Chapter~\ref{ch:theoryinterp}.
 \paragraph{Gravity in, gravity out.} In both columns of the table gravity is the drive and the output. At the cosmic scale, matter collapsing under
 gravity writes the records, and their accumulated cost modifies the matter-sector expansion. At the black-hole scale, gravitational binding drives
 the record to the saturation point, and at saturation a new encoding surface forms: the horizon. With $E_{\rm drive}=Mc^2$ at $T_{\rm BH}$ the
-drive ratio is $\mathcal M=Mc^2/k_BT_{\rm BH}=8\pi(M/m_P)^2=2S_{\rm BH}/k_B$, with $m_P=\sqrt{\hbar c/G}$: the Smarr relation again, and
-$3.0\times10^{77}$ for one solar mass in Landauer units (Chapter~\ref{ch:iams_law}). \derived{} Read this way, IAM is not a model of gravity plus
+$\mathcal M=Mc^2/k_BT_{\rm BH}=8\pi(M/m_P)^2=2S_{\rm BH}/k_B$, with $m_P=\sqrt{\hbar c/G}$: the Smarr relation again, $2.1\times10^{77}$ for one solar mass
+($3.0\times10^{77}$ in Landauer units, Chapter~\ref{ch:iams_law}). \derived{} Read this way, IAM is not a model of gravity plus
 information; it is one process, gravity writing records, seen at different scales of $\mathcal M$. \interp
 
 

@@ -13,7 +13,7 @@ where the cost should appear in a measurement.
 \includegraphics[width=0.62\textwidth]{figures/part3/fig_xqp_thermal.pdf}
 \caption{Equilibrium quasiparticle fraction in aluminium, $x_{\rm qp}=\sqrt{2\pi k_BT/\Delta}\,e^{-\Delta/k_BT}$ with $\Delta=182\,\mu$eV \calc: $1.5\times10^{-62}$ at 15\,mK ($\Delta/k_BT=141$), reaching $10^{-7}$ only near 135\,mK. Shaded: the background commonly measured in transmons, $10^{-8}$--$10^{-6}$, and up to $10^{-5}$ in less protected devices \observed; the best reported device reaches $\lesssim10^{-9}$ (text).}\label{fig:xqp_thermal}
 \end{figure}
-In Al/AlOx/Al transmons the measured density of broken Cooper pairs (quasiparticles) is commonly
+In Al/AlO$_x$/Al transmons the measured density of broken Cooper pairs (quasiparticles) is commonly
 \begin{equation}x_{\rm qp}=n_{\rm qp}/n_{\rm cp}\sim10^{-8}\text{--}10^{-6},\qquad n_{\rm cp}=2\nu_0\Delta\approx4\times10^6\,\mu{\rm m}^{-3},\end{equation}
 with $x_{\rm qp}\approx10^{-7}$ in many devices~\cite{Serniak2018}, that is $n_{\rm qp}\approx0.4$ per $\mu$m$^3$ \observed. The lowest reported value is
 $x_{\rm qp}\lesssim10^{-9}$~\cite{Connolly2024}. In a transmon measured at a refrigerator temperature of 20\,mK, $n_{\rm qp}=0.04\pm0.01\,\mu$m$^{-3}$~\cite{Riste2013}
@@ -23,12 +23,12 @@ remains. What the measurements show, read carefully:
 \begin{itemize}
 \item A transmon measured above ground and deep underground at Gran Sasso, where muon interactions are six orders of magnitude rarer, shows a
 similar average $T_1$ of about 80\,$\mu$s at both sites~\cite{DeDominicis2026}, and
-$T_1$ is insensitive to added shielding while the quasiparticle tunnelling rate is very sensitive to it~\cite{Gordon2022}. Together these say that at present
+$T_1$ is insensitive to added shielding while the quasiparticle tunnelling rate is very sensitive to it~\cite{Gordon2022} \observed. Together these say that at present
 lifetimes $T_1$ is not set by radiation-generated quasiparticles, and that a large part of the measured tunnelling is of external origin. They do not
-by themselves show an internal source.
+by themselves show an internal source \interp.
 \item The excess quasiparticles have an energy distribution in equilibrium with the phonon bath~\cite{Connolly2024}. In aluminium, quasiparticles relax to the gap edge by phonon
-emission far faster than they recombine at these densities~\cite{Kaplan1976}, so any source gives this distribution; it is consistent with an internal source but does
-not single one out.
+emission far faster than they recombine at these densities~\cite{Kaplan1976} \observed, so any source gives this distribution; it is consistent with an internal source but does
+not single one out \interp.
 \item Background tunnelling in two co-housed charge-sensitive transmons runs at the single-hertz level, and individual events are
 uncorrelated between the two qubits, while bursts, about once per minute, are correlated across devices~\cite{Sundelin2026,McEwen2022};
 each burst has a characteristic lifetime of about 7\,ms and raises the tunnelling rate a thousand-fold in both devices~\cite{Sundelin2026}
@@ -40,7 +40,7 @@ $\Delta_1$ of the high-transmission sites has medians from 5 to 30\,$\mu$eV, a l
 \observed.
 \item A subset of TLS are themselves quasiparticles trapped in shallow subgap states formed by spatial fluctuations of the
 superconducting gap: they are highly coherent, some with linewidths down to the 70\,kHz resolution of the resonator, and the landscape
-reshuffles irreversibly on warming to about 300\,mK~\cite{deGraaf2020} \observed. The TLS and quasiparticle populations are therefore
+reshuffles irreversibly on warming to about 300\,mK~\cite{deGraaf2020} \observed. The TLS and the quasiparticles are therefore
 coupled, not independent \interp.
 \item In 3D gap-engineered transmons, gap engineering reduced the burst detection rate by a factor of five, four orders of magnitude
 short of what fast thermalisation of the quasiparticles to the cryostat temperature would give; the authors associate the shortfall with
@@ -67,7 +67,7 @@ Three facts of superconductor physics fix how events become a density.
 \paragraph{Pair breaking is quantised.} A quasiparticle exists only once a Cooper pair is broken, which costs $2\Delta$ ($364\,\mu$eV in Al) and yields
 two quasiparticles. Landauer's principle sets the \emph{minimum} heat of an erasure~\cite{Landauer1961}, $\Delta\ln2=126\,\mu$eV if the bath sits at the gap scale;
 heat below $2\Delta$ goes into phonons that cannot break pairs. An erasure event that produces quasiparticles therefore breaks a pair: yield $2$ per
-event.
+event \derived\ (within the proposal).
 \paragraph{Quasiparticles spread.} In aluminium they diffuse $\sqrt{D\tau_{\rm qp}}\approx250$--$800\,\mu$m within a lifetime $\tau_{\rm qp}\sim100\,\mu$s,
 across the whole island. What a qubit measures is the island average. Injected quasiparticles in a phase qubit were observed to recombine over about 300\,$\mu$s~\cite{Lenander2011} \observed. Trapping
 shortens the effective lifetime: a single vortex traps quasiparticles measurably, and trapping by vortices can lower the background
@@ -94,7 +94,7 @@ not the bulk ones, are the inputs a referee would ask for \interp. The London vo
 scale of the density it feeds; a measurement that resolves the quasiparticles near one site from the island average separates the two
 \openprob.
 
-\paragraph{A feedback between the two populations.} \conjecture\ If some quasiparticles are trapped in subgap states and act as
+\paragraph{A feedback between fluctuators and quasiparticles.} \conjecture\ If some quasiparticles are trapped in subgap states and act as
 fluctuators themselves, as some TLS do~\cite{deGraaf2020}, part of the active-site count is fed by the density: $N=N_0+\phi\,N_{\rm qp}$,
 with $N_{\rm qp}=x_{\rm qp}n_{\rm cp}V$ the quasiparticles on the island and $\phi$ the fraction of them active as fluctuators at the
 same $\tau_{\rm TLS}$. Equation~\eqref{eq:xqp} then closes on itself,

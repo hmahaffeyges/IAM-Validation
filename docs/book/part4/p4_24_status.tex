@@ -5,45 +5,53 @@
 \caption{Status of the book's principal claims.}\label{tab:status}\\
 \toprule claim & status & where \\\midrule\endfirsthead
 \toprule claim & status & where \\\midrule\endhead
-\multicolumn{3}{@{}l}{\emph{Physics}}\\
-Landauer cost per bit at 37~\textdegree C is $2.97\times10^{-21}$ J & \calc & Ch.~\ref{ch:landauer} \\
-$M=\dGATP/R\Tb=20.94$; one ATP pays for 30.2 Landauer bits & \calc & Ch.~\ref{ch:landauer} \\
-methylation maintenance is a negligible part of a cell's energy budget & \calc & Ch.~\ref{ch:landauer} \\
-$H(\beta)$ is the entropy of the DNA copies at one CpG; two branches & \derived & Ch.~\ref{ch:surface} \\
-Smarr: a horizon's $T_HS$ is half its $Mc^2$ & \derived & Ch.~\ref{ch:ledgers} \\
-a cell pays half its cost as motion and half as record & \conjecture & Ch.~\ref{ch:ledgers} \\
-floor breach at the horizon and in the cell share one structure & \analogy & Ch.~\ref{ch:floorbreach} \\
-departure from the floor means loss of maintained fidelity, not of energy & \conjecture & Ch.~\ref{ch:floorbreach} \\
-\multicolumn{3}{@{}l}{\emph{The gauge}}\\
-Met-A $=$ mean $H(\beta)$ on the cell's identity sites over the same cell type's healthy reference & definition & Ch.~\ref{ch:meta} \\
-neutrophil reference on EPIC: 6 physical arrays, 6,000 identity sites, floor 0.330263 bits & \calibrated & Ch.~\ref{ch:meta} \\
-held-out Met-A of the six reference arrays, SD 0.020 & \measured & Ch.~\ref{ch:meta} \\
-IAM-A $=H(\varepsilon)/(P\,H(\varepsilon_0))$, $\varepsilon_0=1/(1+e^{E_{\rm hold}/\kB T})$ & form \derived, height \measured & Ch.~\ref{ch:iama} \\
-$E_{\rm hold}=3.41\,\kB T$, $\varepsilon_0=0.032$, $\varphi=E_{\rm hold}/M=0.163$ & \measured, \calc & Ch.~\ref{ch:iama} \\
-neutrophil position $P=1.099$ (3 donors, 1.084--1.108) & \measured & Ch.~\ref{ch:iama} \\
-Met-A C-score baseline 1.1104; healthy arrays 0.70--1.23 & \calibrated & Ch.~\ref{ch:cscore} \\
-$A=1$ healthy in the middle; Normal $=1\pm0.05$ & design tolerance & Ch.~\ref{ch:gauge} \\
-IAM-A floor $1/P=0.910$; surface full: Met-A 3.03, IAM-A 4.45; C-score far end 45 & \calc & Ch.~\ref{ch:gauge} \\
-breach and the cancer region on this gauge & \openprob{} (to be measured) & Ch.~\ref{ch:gauge} \\
-the Met-A floor ($H_{\min}$ on the Met-A scale) & \openprob & Ch.~\ref{ch:gauge} \\
-copy-error floor at fixed holding energy: $0.78\times$ at 10\,\textdegree C, $1.012\times$ at 38.5\,\textdegree C & \calc & Ch.~\ref{ch:temperature} \\
-\multicolumn{3}{@{}l}{\emph{Instrument}}\\
-intake on the array's own numbers & \calibrated{} (adopted) & Ch.~\ref{ch:instrument} \\
-SNP-probe tare & \openprob{} (not commissioned) & Ch.~\ref{ch:instrument} \\
-atlas v2 intervals cover held-out data at 92.7~\% & \measured & Ch.~\ref{ch:atlas} \\
-atlas v2 identity sites for cell types after neutrophils: held-out readings in Normal, bar 95~\% & \measured{} 87.7~\% / 73.1~\%, not met & Ch.~\ref{ch:atlas} \\
-composition (Stage A) on known mixtures: median fraction error 0.034 & \measured & Ch.~\ref{ch:separation} \\
-neutrophil fraction against flow cytometry, six healthy bloods: median 0.035 (bar 0.05) & \measured & Ch.~\ref{ch:separation} \\
-sky noise term from the six purified reference arrays, no panel of people & \calibrated & Ch.~\ref{ch:sky} \\
-whole-array sky (needs per-address noise and a sex mask) & \openprob & Ch.~\ref{ch:sky} \\
-serial change floor (tared, technical replicates) & \openprob{} (not yet measured) & Ch.~\ref{ch:serial} \\
-out-of-span map separates unknown cells & \prediction & Ch.~\ref{ch:sky} \\
-\multicolumn{3}{@{}l}{\emph{Readings}}\\
-tumour against the same patient's normal tissue: copy error higher in 6/6 colorectal pairs (median ratio 1.148) and 4/4 oral pairs (3/4 with 5hmC removed) & \measured & Ch.~\ref{part4:ch:reach} \\
-DNMT1 inhibitor $\ge80$~nM: Met-A 1.16--1.87 against each line's own untreated arrays & \measured & Ch.~\ref{ch:firstreadings} \\
-DNMT1 inhibitor 100~nM, single molecules: IAM-A 1.65--1.97, 8 of 8 & \measured & Ch.~\ref{ch:firstreadings} \\
-healthy DNA mixtures: 1.062--1.118 against neutrophils alone, 0.982--1.016 against own composition & \measured & Ch.~\ref{ch:atlas} \\
-senescent fibroblasts clean the unmethylated channel (0.69); immortalised cells err on the methylated one & \measured & Ch.~\ref{ch:gauge} \\
+```latex
+\multicolumn{3}{@{}l}{\emph{Physics}}\\ \rowrule
+```
+Landauer cost per bit at 37~\textdegree C is $2.97\times10^{-21}$ J & \calc & Ch.~\ref{ch:landauer} \\ \rowrule
+$M=\dGATP/R\Tb=20.94$; one ATP pays for 30.2 Landauer bits & \calc & Ch.~\ref{ch:landauer} \\ \rowrule
+methylation maintenance is a negligible part of a cell's energy budget & \calc & Ch.~\ref{ch:landauer} \\ \rowrule
+$H(\beta)$ is the entropy of the DNA copies at one CpG; two branches & \derived & Ch.~\ref{ch:surface} \\ \rowrule
+Smarr: a horizon's $T_HS$ is half its $Mc^2$ & \derived & Ch.~\ref{ch:ledgers} \\ \rowrule
+a cell pays half its cost as motion and half as record & \conjecture & Ch.~\ref{ch:ledgers} \\ \rowrule
+floor breach at the horizon and in the cell share one structure & \analogy & Ch.~\ref{ch:floorbreach} \\ \rowrule
+departure from the floor means loss of maintained fidelity, not of energy & \conjecture & Ch.~\ref{ch:floorbreach} \\ \rowrule
+```latex
+\multicolumn{3}{@{}l}{\emph{The gauge}}\\ \rowrule
+```
+Met-A $=$ mean $H(\beta)$ on the cell's identity sites over the same cell type's healthy reference & definition & Ch.~\ref{ch:meta} \\ \rowrule
+neutrophil reference on EPIC: 6 physical arrays, 6,000 identity sites, floor 0.330263 bits & \calibrated & Ch.~\ref{ch:meta} \\ \rowrule
+held-out Met-A of the six reference arrays, SD 0.020 & \measured & Ch.~\ref{ch:meta} \\ \rowrule
+IAM-A $=H(\varepsilon)/(P\,H(\varepsilon_0))$, $\varepsilon_0=1/(1+e^{E_{\rm hold}/\kB T})$ & form \derived, height \measured & Ch.~\ref{ch:iama} \\ \rowrule
+$E_{\rm hold}=3.41\,\kB T$, $\varepsilon_0=0.032$, $\varphi=E_{\rm hold}/M=0.163$ & \measured, \calc & Ch.~\ref{ch:iama} \\ \rowrule
+neutrophil position $P=1.099$ (3 donors, 1.084--1.108) & \measured & Ch.~\ref{ch:iama} \\ \rowrule
+Met-A C-score baseline 1.1104; healthy arrays 0.70--1.23 & \calibrated & Ch.~\ref{ch:cscore} \\ \rowrule
+$A=1$ healthy in the middle; Normal $=1\pm0.05$ & design tolerance & Ch.~\ref{ch:gauge} \\ \rowrule
+IAM-A floor $1/P=0.910$; surface full: Met-A 3.03, IAM-A 4.45; C-score far end 45 & \calc & Ch.~\ref{ch:gauge} \\ \rowrule
+breach and the cancer region on this gauge & \openprob{} (to be measured) & Ch.~\ref{ch:gauge} \\ \rowrule
+the Met-A floor ($H_{\min}$ on the Met-A scale) & \openprob & Ch.~\ref{ch:gauge} \\ \rowrule
+copy-error floor at fixed holding energy: $0.78\times$ at 10\,\textdegree C, $1.012\times$ at 38.5\,\textdegree C & \calc & Ch.~\ref{ch:temperature} \\ \rowrule
+```
+\multicolumn{3}{@{}l}{\emph{Instrument}}\\ \rowrule
+```
+intake on the array's own numbers & \calibrated{} (adopted) & Ch.~\ref{ch:instrument} \\ \rowrule
+SNP-probe tare & \openprob{} (not commissioned) & Ch.~\ref{ch:instrument} \\ \rowrule
+atlas v2 intervals cover held-out data at 92.7~\% & \measured & Ch.~\ref{ch:atlas} \\ \rowrule
+atlas v2 identity sites for cell types after neutrophils: held-out readings in Normal, bar 95~\% & \measured{} 87.7~\% / 73.1~\%, not met & Ch.~\ref{ch:atlas} \\ \rowrule
+composition (Stage A) on known mixtures: median fraction error 0.034 & \measured & Ch.~\ref{ch:separation} \\ \rowrule
+neutrophil fraction against flow cytometry, six healthy bloods: median 0.035 (bar 0.05) & \measured & Ch.~\ref{ch:separation} \\ \rowrule
+sky noise term from the six purified reference arrays, no panel of people & \calibrated & Ch.~\ref{ch:sky} \\ \rowrule
+whole-array sky (needs per-address noise and a sex mask) & \openprob & Ch.~\ref{ch:sky} \\ \rowrule
+serial change floor (tared, technical replicates) & \openprob{} (not yet measured) & Ch.~\ref{ch:serial} \\ \rowrule
+out-of-span map separates unknown cells & \prediction & Ch.~\ref{ch:sky} \\ \rowrule
+```latex
+\multicolumn{3}{@{}l}{\emph{Readings}}\\ \rowrule
+```
+tumour against the same patient's normal tissue: copy error higher in 6/6 colorectal pairs (median ratio 1.148) and 4/4 oral pairs (3/4 with 5hmC removed) & \measured & Ch.~\ref{part4:ch:reach} \\ \rowrule
+DNMT1 inhibitor $\ge80$~nM: Met-A 1.16--1.87 against each line's own untreated arrays & \measured & Ch.~\ref{ch:firstreadings} \\ \rowrule
+DNMT1 inhibitor 100~nM, single molecules: IAM-A 1.65--1.97, 8 of 8 & \measured & Ch.~\ref{ch:firstreadings} \\ \rowrule
+healthy DNA mixtures: 1.062--1.118 against neutrophils alone, 0.982--1.016 against own composition & \measured & Ch.~\ref{ch:atlas} \\ \rowrule
+senescent fibroblasts clean the unmethylated channel (0.69); immortalised cells err on the methylated one & \measured & Ch.~\ref{ch:gauge} \\ \rowrule
 temperature behaviour of the floor in fish & \openprob{} (Methow bar not met at 3.31~$\kB T$, inside the human range; a library term in all four sets) & Chs.~\ref{ch:temperature}, \ref{ch:salmonid} \\
 \bottomrule
 \end{longtable}
@@ -54,7 +62,7 @@ this Part on the one gauge.
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part4/fig_p4_24_labels.pdf}
-\caption{Status labels in Table~\ref{tab:status}, counted from the table (36 rows; 10 carry MEASURED). Grey: rows whose status is a word
+\caption{Status labels in Table~\ref{tab:status}, counted from the table (36 rows; 13 carry MEASURED). Grey: rows whose status is a word
 rather than a label. \observed}
 \label{fig:p4_labels}
 \end{figure}

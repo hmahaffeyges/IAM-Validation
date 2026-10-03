@@ -9,7 +9,7 @@ a junction temperature $T_j=348$~K (75~$^\circ$C) is
 \end{equation}
 The chip gauge (Chapter~\ref{ch:ascoreqc}) uses whole-chip power divided by transistor count and clock,
 $E_{\mathrm{sw}}=\mathrm{TDP}/(N_{\mathrm{trans}}f)$. For the AMD Ryzen~9 9950X (default TDP 170~W, base clock 4.3~GHz~\cite{AMD9950X};
-$N_{\mathrm{trans}}=(20.0$--$20.6)\times10^9$ transistors in two compute dies and an I/O die) this gives $E_{\mathrm{sw}}=(1.92$--$1.97)\times10^{-18}$~J
+$N_{\mathrm{trans}}=(20.0$--$20.6)\times10^9$ transistors in two compute dies and an I/O die) this gives $E_{\mathrm{sw}}=(1.92$--$1.98)\times10^{-18}$~J
 per transistor per cycle, 576--593 times $\kB T_j\ln2$, or $M=E_{\mathrm{sw}}/\kB T_j=399$--$411$ (Chapter~\ref{ch:iams_law}) \calc. The
 floor therefore sits at 0.0017 on the chip gauge. Most transistors do not switch every cycle,
 which raises the energy per actual switch, while TDP also contains leakage and static power, which lowers it; the reading is an
@@ -26,21 +26,21 @@ supply voltage cannot fall below a few tenths of a volt without leakage becoming
 The subthreshold swing of a MOSFET is bounded below by $(\kB T/q)\ln10=60$~mV/decade at
 300~K~\cite{Sze2006}, so the threshold voltage cannot be scaled without an exponential rise
 in off-current. Once $V$ is held fixed, power density grows as $\kappa^2$
-(Figure~\ref{fig:dennard}). Clock frequencies stalled near 2005, and the industry turned to
+(Figure~\ref{fig:dennard}) \derived. Clock frequencies stalled near 2005, and the industry turned to
 multicore designs and, later, dark silicon~\cite{Esmaeilzadeh2011}. Koomey's law, the doubling
-of computations per joule, slowed from every 1.57 years to about every 2.7 years~\cite{Koomey2011,Koomey2016}.
+of computations per joule, slowed from every 1.57 years to about every 2.7 years~\cite{Koomey2011,Koomey2016} \observed.
 
 \begin{keybox}[title={The Dennard wall is a Boltzmann wall}]
 The 60~mV/decade limit is $\kB T/q$ times $\ln10$. The end of Dennard scaling is therefore
 a statement that switching energies approached a fixed multiple of $\kB T$ at the junction.
 That is the regime IAM describes: an encoding surface (the gate channel) at a definite
 temperature ($T_j$), with a floor set by $\kB T_j$. The identification is standard device
-physics, and IAM's contribution is to place it on the same axis as the horizon and the qubit.
+physics, and IAM's contribution is to place it on the same axis as the horizon and the qubit \interp.
 \end{keybox}
 
 \paragraph{Which operations pay the floor.} The Landauer cost is owed by logically irreversible steps, those that
 erase information. Logic built from reversible steps can in principle switch for less than $\kB T\ln2$ per
-operation~\cite{Bennett1973,Bennett1982}. Conventional CMOS erases at almost every gate, so the floor applies to it.
+operation~\cite{Bennett1973,Bennett1982} \derived\ (in the cited theory). Conventional CMOS erases at almost every gate, so the floor applies to it.
 
 \paragraph{The reliability floor.} A second and larger floor comes from reliability. A binary switch whose two states
 are separated by a barrier $E$ is flipped by thermal noise with probability $p\approx e^{-E/\kB T}$, so an error

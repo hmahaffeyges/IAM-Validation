@@ -24,8 +24,8 @@ $1-p$. The information lost per gate, in nats, is
  \varepsilon=-\ln(1-p)=p+\tfrac12p^2+\dots
  \label{eq:Agate}
 \end{equation}
-For every platform of current interest $p<10^{-2}$, so $\varepsilon$ equals $p$ to better
-than 0.5\% \calc. The gate error in nats, $\varepsilon$, is therefore a re-expression of the published error. Its value lies in the
+For every platform of current interest $p<10^{-2}$, so $\varepsilon$ equals $p$ to within
+0.503\,\% (the value at $p=10^{-2}$) \calc. The gate error in nats, $\varepsilon$, is therefore a re-expression of the published error. Its value lies in the
 \emph{decomposition} and in the \emph{floor} it is compared with, not in the transformation itself.
 
 \section{The published values}
@@ -60,7 +60,7 @@ on their own gauges in Chapter~\ref{ch:qplatforms}, each with the statistic its 
 The ion gates in Table~\ref{tab:platforms} act through the ions' shared motion. The electronic gate applies a
 spin-dependent force to the motional modes and works without ground-state cooling~\cite{Hughes2025}. The motional
 modes are heated by electric-field noise from the trap electrodes, which grows steeply as the ion approaches the
-surface~\cite{Brownnutt2015}; that heating, together with control noise, limits the error of both gate classes.
+surface~\cite{Brownnutt2015}; that heating, together with control noise, limits the error of both gate classes \observed.
 
 \section{The floor}\label{sec:qubitfloor}
 
@@ -83,7 +83,7 @@ distance is the room the field is working in, and the decomposition of Chapter~\
 Figure~\ref{fig:qubit_gauge} places the transmon reading of Section~\ref{sec:qubitfloor} on its own gauge: the device as built at 1, its thermal floor to the left, the threshold to the right. Any device with a published two-qubit error can be placed on its own gauge the same way.
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part3/fig_qubit_gauge.pdf}
-\caption{(a) The qubit gauge, each device against itself. Top: a transmon at 5~GHz and its own 35~mK~\cite{Jin2015}, $T_1=68~\mu$s~\cite{GoogleWillow2025}, an illustrative 40~ns gate and two-qubit error $10^{-3}$; its thermal floor $p_{\rm eq}t_g/T_1=6.2\times10^{-7}$ sits at $6.2\times10^{-4}$ (diamond) \calc. The device as built reads $A=1$ (circle); the surface-code threshold sits to the right at $10^{-2}/\varepsilon=10$ (bar) \calc. (b) $(\varepsilon-p)/p$ from Eq.~\eqref{eq:Agate}: below 0.5\,\% for $p<10^{-2}$; circle, the worked example. \derived}\label{fig:qubit_gauge}
+\caption{(a) The qubit gauge, each device against itself. Top: a transmon at 5~GHz and its own 35~mK~\cite{Jin2015}, $T_1=68~\mu$s~\cite{GoogleWillow2025}, an illustrative 40~ns gate and two-qubit error $10^{-3}$; its thermal floor $p_{\rm eq}t_g/T_1=6.2\times10^{-7}$ sits at $6.2\times10^{-4}$ (diamond) \calc. The device as built reads $A=1$ (circle); the surface-code threshold sits to the right at $10^{-2}/\varepsilon=10$ (bar) \calc. (b) $(\varepsilon-p)/p$ from Eq.~\eqref{eq:Agate}: at most 0.503\,\% for $p\le10^{-2}$; circle, the worked example. \derived}\label{fig:qubit_gauge}
 \end{figure}
 
 Surface-code error correction needs physical error below about $10^{-2}$, and useful
@@ -94,4 +94,4 @@ reading has its floor at $6\times10^{-4}$ and the threshold at 10 \calc. The gau
 floor temperature sets and to the threshold, and nothing else.
 
 Every platform now sits on one axis, read against its own floor. A device physicist can take a platform's dominant loss mechanism, work out
-how close it comes to the floor, and see exactly how much room is left to win.
+how close it comes to the floor, and see exactly how much room is left to win \interp.

@@ -25,14 +25,14 @@ virialization, black hole formation --- irreversible processes produce informati
 horizon. The information surface density on the apparent horizon scales as $1/a^2$ during matter domination. Integrating the cumulative decoherence rate
 yields $E(a)=\exp(1-1/a)$. The coupling constant $\beta_m=\Omega_m/2=0.15765$ follows from the virial theorem (Chapter~\ref{ch:virial}). The
 perturbation-level prediction is $\mu(a)=H^2_{\Lambda\rm CDM}/(H^2_{\Lambda\rm CDM}+\beta_mE(a)H_0^2)<1$ with $\Sigma(a)=1$, and $\mu_0=-0.136$, all derived
-without free parameters.
+without free parameters. \derived
 
 \paragraph{Cosmological validation.} The dual-sector framework has been tested in 18 converged Planck 2018 chains: twelve with MGCAMB (Level~1) and a baryon
 test, three with the term coded directly into CAMB's matter perturbations (Level~2) and two with it in the background (Level~2b); every chain reached
 $R-1\le0.01$ (Chapter~\ref{ch:dual}). The Level~2 dual-sector perturbation chains are consistent with Planck ($\Delta\chi^2=+0.54$, IAM's minimum $\chi^2$
 higher) and give $\sigma_8$ from $0.8087$ ($\Lambda$CDM) to $0.7998$, $S_8=0.822\pm0.011$, and $H_0^{(m)}=72.26$\,km\,s$^{-1}$\,Mpc$^{-1}$. \measured\ The
 matter-sector rate $H_0^{(m)}=72.26$ (0.75$\sigma$ from SH0ES) and the photon-sector rate $H_0^{(\gamma)}=67.16$ (0.37$\sigma$ from Planck) place both Hubble
-tension endpoints within $1\sigma$ simultaneously (Chapter~\ref{ch:virial}); the comparison of $S_8$ with each weak-lensing survey is in
+tension endpoints within $1\sigma$ simultaneously (Chapter~\ref{ch:virial}) \calc; the comparison of $S_8$ with each weak-lensing survey is in
 Chapter~\ref{ch:sectortension}.
 
 \paragraph{Level 2b: the background modification as a structural test.} Two Level~2b chains tested the IAM term applied to the background Friedmann equation
@@ -40,7 +40,7 @@ Chapter~\ref{ch:sectortension}.
 $H_0=61.45\pm0.42$ and $61.52\pm0.43$\,km\,s$^{-1}$\,Mpc$^{-1}$ --- far from the Planck value of 67.4. \measured\ This is a structural result: when the
 dual-sector modification is applied to the background expansion rather than the perturbation equations, the global expansion rate shifts far from every
 measurement. The standard $\Lambda$CDM Friedmann equation correctly describes the global background. The dual-sector mechanism lives exclusively in the
-perturbation equations, entering through the expansion rate felt by matter perturbations and leaving the background untouched (Chapter~\ref{ch:level2}).
+perturbation equations, entering through the expansion rate felt by matter perturbations and leaving the background untouched (Chapter~\ref{ch:level2}). \interp
 All chains are archived for full reproducibility.
 
 \paragraph{The quantum analogue.} The sector split follows from causal structure: massive particles on timelike worldlines ($\Delta\tau>0$) pay
@@ -56,7 +56,7 @@ decays on the timescale
 with $E_G$ the gravitational self-energy of the difference of the mass distributions, here for a uniform sphere of mass $m$ and radius $R$. The prediction
 is temperature-independent. For one class of mass distributions it has been constrained by underground radiation measurements~\cite{Donadi2021}. Levitated
 optomechanics is approaching the regime needed to test it directly~\cite{RomeroIsart2011,Gonzalez2021,Delic2020,Neumeier2024,Rossi2025}, and space missions
-have been proposed for it~\cite{Kaltenbaek2012}.
+have been proposed for it~\cite{Kaltenbaek2012}. \observed
 
 IAM modifies this through Landauer's principle~\cite{Landauer1961}: erasing one bit requires minimum dissipation $Q_L=k_BT\ln2$, a bound now tested in the
 laboratory, including with levitated optomechanics~\cite{Berut2012,Ciampini2025}. IAM takes the rate of information production to be
@@ -149,7 +149,7 @@ delayed onset, and the off-diagonal coherence is preserved longer at early times
 rate is constant. The purity is $0.759$ against $0.707$ at $\eta=0.5$, equal ($0.577$) at $\eta=1$, and $0.482$ against $0.447$ at $\eta=2$; at $\eta=5$ it is
 $0.43$ against $0.30$, both states close to diagonal. \calc
 
-\paragraph{Information thermodynamics.} The purity difference $\Delta P=P_{\rm IAM}-P_{\rm std}$ peaks at $\eta\approx0.23$ ($\Delta P\approx0.14$). \calc\
+\paragraph{Information thermodynamics.} The purity difference $\Delta P=P_{\rm IAM}-P_{\rm std}$ peaks at $\eta\approx0.225$ ($\Delta P\approx0.14$). \calc\
 This is the observable quantity and, if the ramp holds, the optimal measurement time for discriminating it from standard Lindblad decoherence. It is not the
 peak of the rate, which lies at $\eta=0.5$. The mean phonon number rises under both rates, more slowly under the ramp after $\eta=1$.
 
@@ -165,12 +165,12 @@ ends is a $9.8\sigma$ separation from a constant $\tau$ with 20\,\% precision on
 sensitive wherever $\tau_{\rm IAM}$ is measurable, $10^{-12}$--$10^{-11}$\,kg at 10\,mK. \calc
 
 \paragraph{Phonon heating.} The anomalous IAM phonon excitation rate rises as temperature falls, the direct consequence of $P_{\rm IAM}\propto1/T$, and passes
-the present optomechanical sensitivity of about 1\,phonon\,s$^{-1}$ at picogram masses at dilution-refrigerator temperatures
+the present optomechanical sensitivity of about 1\,phonon\,s$^{-1}$ at nanogram masses ($\sim10^{-12}$\,kg) at dilution-refrigerator temperatures
 (Figure~\ref{fig:gd_heating}). \prediction\ A signal that grows on cooling cannot be mimicked by thermal noise.
 
 \paragraph{Timeline.} Superposition experiments have advanced by roughly a factor of ten in mass every three to five years. Taking the present superposition
 mass as $10^{-19}$\,kg~\cite{Rossi2025,Neumeier2024}, the $3.5\times10^{-12}$\,kg at which $\tau_{\rm IAM}$ reaches one second at 10\,mK lies seven and a half
-decades higher: about 23--38 years on that trajectory. \calc\ The heating signature at picogram masses needs no spatial superposition of that size and is
+The heating signature at nanogram masses needs no spatial superposition of that size and is
 the nearer test. The cosmological test of the same framework, the growth of structure measured by Euclid and DESI, comes first
 (Chapter~\ref{ch:virial_tests}).
 
@@ -218,7 +218,7 @@ distinguished by \emph{which one is seen at all}, not by their profile shapes.
 \section{Implications for quantum computing}\label{sec:gd_qc}
 \paragraph{Current architectures and the gravitational floor.} Gravitational decoherence is irrelevant for all current quantum computing platforms.
 Superconducting qubits (effective moving mass $\sim10^{-20}$\,kg), trapped ions ($\sim10^{-25}$\,kg), and photonic systems ($E_G=0$) all have $\tau_{\rm IAM}$
-and $\tau_{\rm DP}$ far exceeding any practical timescale. IAM does not predict that current quantum computers will fail. Their decoherence is
+and $\tau_{\rm DP}$ far exceeding any practical timescale. \calc{} IAM does not predict that current quantum computers will fail. Their decoherence is
 electromagnetic and material, which is where Part~\ref{part:3} reads them.
 
 IAM does identify an engineering target distinct from isolation. The isolation paradigm: decoherence is noise, so engineer silence --- move to the Moon. The
@@ -270,7 +270,7 @@ laboratory tests the underlying cause.
 The IAM decoherence timescale $\tau_{\rm IAM}=\hbar k_B^2T^2\ln2/E_G^3$ contains no free parameters once the boundary capacity $k_BT/E_G$ is assumed, and it
 produces three experimental signatures that separate it from Di\'osi--Penrose: $\tau\propto T^2$, $\tau\propto m^{-5}$ at fixed density, and heating that
 grows on cooling. \prediction\ The quantum analogue $E_q(\eta)=\exp(1-1/\eta)$ of the cosmological activation function $E(a)=\exp(1-1/a)$ would add a fourth,
-the ramp profile; modified Lindblad dynamics under the time-dependent $E_q$ rate then show a measurable purity difference peaking at $\eta\approx0.23$, the
+the ramp profile; modified Lindblad dynamics under the time-dependent $E_q$ rate then show a measurable purity difference peaking at $\eta\approx0.225$, the
 optimal discrimination time. \conjecture\ The rate and the boundary capacity are taken as given here; their derivation at the superposition boundary is an open problem.
 \openprob
 

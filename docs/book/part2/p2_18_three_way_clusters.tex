@@ -46,7 +46,7 @@ The dual-sector term enters the matter perturbation equations as a single change
 (Chapter~\ref{ch:level2}), in the code's units ($8\pi G=1$, conformal time), the matter-sector expansion rate that enters the CDM and baryon equations
 of motion is
 \begin{equation}
-\dot a_{\rm matter}=\sqrt{\frac{\rho_{\rm tot}+\beta_mE(a)\,\rho_0}{3}}\,,
+\frac{\dot a}{a}\bigg|_{\rm matter}=a\sqrt{\frac{\rho_{\rm tot}+\beta_mE(a)\,\rho_0}{3}}\,,
 \label{eq:tw_adot}\end{equation}
 where $\rho_{\rm tot}$ is the total energy density and $\rho_0$ the present critical density; in physical units this is
 $H_m^2=H^2+\beta_mE(a)H_0^2$ (Eq.~\eqref{eq:l2_Hm}). \derived\ (unit conversion) The activation function is
@@ -85,11 +85,13 @@ With $\mu<1$ hydrostatic masses systematically underestimate the true mass. \der
 \begin{equation}
 M_{\rm SZ}\approx\mu\,M_{\rm true}.
 \label{eq:tw_msz}\end{equation}
+\derived\ (Level~1 form)
 
 \textbf{Step 3 (lensing mass).} Because $\Sigma=1$, the lensing mass recovers the true mass:
 \begin{equation}
 M_{\rm lens}=\Sigma\,M_{\rm true}=M_{\rm true}.
 \label{eq:tw_mlens}\end{equation}
+\derived\ (Level~1 form)
 
 \subsection{The three-way prediction}
 The ratio of lensing mass to hydrostatic mass is
@@ -112,8 +114,8 @@ falls with redshift following $E(a)$. The test is therefore the redshift slope. 
 
 \section{The predicted ratio against redshift}\label{sec:tw_table}
 With Planck 2018 parameters ($\Omega_m=0.3153$, $\Omega_\Lambda=0.6847$, $H_0=67.36$~km\,s$^{-1}$\,Mpc$^{-1}$~\cite{Planck2018VI}) the ratio runs from
-$R=1.158$ at $z=0$ to $1.002$ at $z=2$. At the redshifts of eROSITA cluster samples, $z\approx0.2$--$0.4$, it is $R\approx1.07$--$1.11$: a
-$7$--$11\,\%$ excess of lensing mass over hydrostatic mass from the gravitational part alone (Table~\ref{tab:tw_R}). \calc
+$R=1.158$ at $z=0$ to $1.002$ at $z=2$. At the redshifts of eROSITA cluster samples, $z\approx0.2$--$0.4$, it is $R\approx1.07$--$1.10$: a
+$7$--$10\,\%$ excess of lensing mass over hydrostatic mass from the gravitational part alone (Table~\ref{tab:tw_R}). \calc
 
 \begin{table}[htbp]\centering\small
 \caption[Lensing-to-hydrostatic mass ratio $R(z)$]{Lensing-to-hydrostatic mass ratio $R(z)=1/\mu(z)$, Level~1 form, from Eq.~\eqref{eq:tw_mu} with
@@ -205,7 +207,7 @@ d(M_{\rm lens}/M_{\rm hydro})/dz&<0&&\text{(the redshift dependence of the gravi
 \section{Systematic effects}\label{sec:tw_systematics}
 \begin{itemize}
 \item \emph{Hydrostatic equilibrium violations.} Standard practice restricts samples to relaxed clusters identified by X-ray morphology. For relaxed
-clusters hydrostatic equilibrium holds to $\sim5$--$10\,\%$~\cite{Neto2007,Planelles2017}, below the $\sim7$--$11\,\%$ Level~1 signal at $z=0.2$--$0.4$.
+clusters hydrostatic equilibrium holds to $\sim5$--$10\,\%$~\cite{Neto2007,Planelles2017}, below the $\sim7$--$10\,\%$ Level~1 signal at $z=0.2$--$0.4$.
 \item \emph{Lensing mass systematics.} Shape-measurement biases ($|m|<0.02$ for DES Y3~\cite{MacCrann2022}), photometric-redshift errors and the
 mass-sheet degeneracy contribute at the $\sim5\,\%$ level. They are not expected to produce a negative redshift slope.
 \item \emph{Projection.} Orientation bias averages toward zero in large samples of randomly oriented triaxial halos~\cite{Corless2008} and gives no
@@ -224,7 +226,7 @@ $\sigma_8$ suppression and the direct Euclid $\mu$--$\Sigma$ constraints would b
 physical channels. \prediction
 
 \section{Discussion}\label{sec:tw_discussion}
-The three-way cluster mass ratio and the $\sigma_8$ suppression are two observational signatures of the same signature, $\mu<1$ and $\Sigma=1$ from
+The three-way cluster mass ratio and the $\sigma_8$ suppression are two observational consequences of the same signature, $\mu<1$ and $\Sigma=1$ from
 the matter-sector friction term with $\beta_m=\Omega_m/2$. The $\sigma_8$ shift is a Level~2 chain result and is consistent with current data
 (Chapter~\ref{ch:sectortension}). The cluster ratio is a Level~1 prediction; in the form the chains implement it is $R=1$
 (Chapter~\ref{ch:lensdyn}, Section~\ref{sec:ld_hold}). \openprob
@@ -236,7 +238,7 @@ R(z)=M_{\rm lens}/M_{\rm hydro}=1/\mu(z),
 \end{equation*}
 from a single Hubble-friction term in the matter-sector equations with coupling $\beta_m=\Omega_m/2$ and activation function $E(a)=\exp(1-1/a)$.
 \begin{enumerate}
-\item $R(z)\approx1.07$--$1.16$ over $0<z<0.5$ from the gravitational part. With an illustrative non-thermal factor the total is of the order of the
+\item $R(z)\approx1.05$--$1.16$ over $0<z<0.5$ from the gravitational part. With an illustrative non-thermal factor the total is of the order of the
 Planck-prior lensing calibrations; a bin-by-bin comparison awaits traced per-bin values.
 \item $M_{\rm SZ}/M_{\rm hydro}\approx1$ holds by the $Y$--$M$ calibration in any theory and is not a test.
 \item The slope $dR/dz\approx-0.18$ at $z=0.3$ is the discriminant: opposite in sign to the non-thermal prediction. Its detection needs about $1.5\,\%$

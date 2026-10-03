@@ -38,7 +38,7 @@ sequencing beside it. What follows is what it could give, with what exists for e
 
 \paragraph{Cancer: reading the patient's own tissue against itself.} A tumour is a cell population whose pattern has blurred. Read against the
 same patient's adjacent normal tissue, the tumour's copy error on single molecules is higher in all 6 early-onset colorectal pairs (ratio 1.07--1.33, median 1.148) and in all 4 oral squamous-cell pairs (median 1.090); with 5hmC removed,
-3 of the 4 oral pairs (PROC-TUMOUR-01). \measured{} The potential is a reading for one patient that needs no reference group of
+in 3 of the 4 oral pairs (PROC-TUMOUR-01). \measured{} The potential is a reading for one patient that needs no reference group of
 other patients: a biopsy read against the same patient's normal tissue, and later a blood draw read against the same person's earlier draw.
 The blood reading, the size of a change it can see, and where breach and the cancer region lie on the gauge are to be measured. \openprob
 
@@ -101,7 +101,7 @@ Figure~\ref{fig:cg_floor_Tj} (Chapter~\ref{ch:chipgen}) shows where the Landauer
 junction temperature.
 
 The chip gauge (Chapter~\ref{ch:cmos}) reads a processor's energy per transistor switch against the Landauer floor at its junction temperature. For
-the AMD Ryzen 9 9950X, $E=\mathrm{TDP}/(Nf)=170\,\mathrm W/((20.0$--$20.6)\times10^9\times4.3\,\mathrm{GHz})=(1.92$--$1.97)\times10^{-18}$~J~\cite{AMD9950X}, 576--593 times
+the AMD Ryzen 9 9950X, $E=\mathrm{TDP}/(Nf)=170\,\mathrm W/((20.0$--$20.6)\times10^9\times4.3\,\mathrm{GHz})=(1.92$--$1.98)\times10^{-18}$~J~\cite{AMD9950X}, 576--593 times
 $\kB T\ln2$ at 75\,\textdegree C; the transistor count, from die-level reports, is the least certain input. \calc{} What it could give designers is one number that tracks how close a design is to the physical floor, across
 the generations of a design line on one definition of each input, and a statement of how much room is left: a factor of 576--593, close to three orders of magnitude, for the 9950X. The figure is an average over the whole chip and its idle transistors;
 a per-block reading needs the design's own power and activity data. \openprob

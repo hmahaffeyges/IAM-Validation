@@ -3,20 +3,22 @@
 \begin{center}\small
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.40\textwidth}@{}}\toprule
 quantity & value & source and status \\\midrule
+```latex
 $\kB$ & $1.380649\times10^{-23}$ J\,K$^{-1}$ & exact (SI 2019) \\
-$N_A$ & $6.02214076\times10^{23}$ mol$^{-1}$ & exact (SI 2019) \\
-$R$ & 8.314462618 J\,mol$^{-1}$K$^{-1}$ & exact, $N_A\kB$ \\
-$\hbar$, $c$, $G$ & CODATA 2018 & \cite{CODATA2018}; Appendix~\ref{app:notation} \\
-$\Tb$ & 310.15 K & 37\,\textdegree C \\
-$\dGATP$ & 54 kJ\,mol$^{-1}$ & inside the 50--65 kJ\,mol$^{-1}$ range of the free energy of ATP hydrolysis in cells~\cite{Nelson2017}; \observed \\
-$\kB\Tb\ln2$ & $2.968\times10^{-21}$ J & Eq.~\eqref{eq:ebit}; \calc \\
-$M$ & 20.94 & Eq.~\eqref{eq:M}; \calc \\
-$H_0$, standard $\Lambda$CDM fit & $67.36\pm0.54$ km\,s$^{-1}$Mpc$^{-1}$ (67.4 rounded) & Planck 2018~\cite{Planck2018VI}; \observed \\
-$H_0^{(\gamma)}$, $H_0^{(m)}$ & 67.16 (photon sector), 72.26 (matter sector) km\,s$^{-1}$Mpc$^{-1}$ & Level~2 chain, Chapter~\ref{ch:level2}; \measured{} and \calc \\
-$E_{\rm hold}$, $\varepsilon_0$ & 3.41\,$\kB T$, 0.032 & \texttt{CANON/\allowbreak iam\_canon.json}; height \measured, Boltzmann form \derived \\
-Met-A neutrophil reference & 0.330263 bits (6 arrays, 6,000 sites) & \texttt{metA\_floors\_\allowbreak v1\_3.json}; \calibrated \\
-IAM-A neutrophil position $P$ & 1.099 (3 donors, 1.084--1.108) & \texttt{iama\_positions\_\allowbreak v1.json}; \measured \\
-C-score healthy baseline & 1.1104 & \texttt{neutrophil\_reference\_\allowbreak v1\_1.json}; \calibrated \\
-intake quarantine & call rate $<0.93$ & \texttt{intake\_thresholds\_\allowbreak v1.json}; \calibrated \\\bottomrule
+\rowrule $N_A$ & $6.02214076\times10^{23}$ mol$^{-1}$ & exact (SI 2019) \\
+\rowrule $R$ & 8.314462618 J\,mol$^{-1}$K$^{-1}$ & exact, $N_A\kB$ \\
+\rowrule $\hbar$, $c$, $G$ & CODATA 2018 & \cite{CODATA2018}; Appendix~\ref{app:notation} \\
+\rowrule $\Tb$ & 310.15 K & 37\,\textdegree C \\
+\rowrule $\dGATP$ & 54 kJ\,mol$^{-1}$ & inside the 50--65 kJ\,mol$^{-1}$ range of the free energy of ATP hydrolysis in cells~\cite{Nelson2017}; \observed \\
+\rowrule $\kB\Tb\ln2$ & $2.968\times10^{-21}$ J & Eq.~\eqref{eq:ebit}; \calc \\
+\rowrule $M$ & 20.94 & Eq.~\eqref{eq:M}; \calc \\
+\rowrule $H_0$, standard $\Lambda$CDM fit & $67.36\pm0.54$ km\,s$^{-1}$Mpc$^{-1}$ (67.4 rounded) & Planck 2018~\cite{Planck2018VI}; \observed \\
+\rowrule $H_0^{(\gamma)}$, $H_0^{(m)}$ & 67.16 (photon sector), 72.26 (matter sector) km\,s$^{-1}$Mpc$^{-1}$ & Level~2 chain, Chapter~\ref{ch:level2}; \measured{} and \calc \\
+\rowrule $E_{\rm hold}$, $\varepsilon_0$ & 3.41\,$\kB T$, 0.032 & \texttt{CANON/\allowbreak iam\_canon.json}; height \measured, Boltzmann form \derived \\
+\rowrule Met-A neutrophil reference & 0.330263 bits (6 arrays, 6,000 sites) & \texttt{metA\_floors\_\allowbreak v1\_3.json}; \calibrated \\
+\rowrule IAM-A neutrophil position $P$ & 1.099 (3 donors, 1.084--1.108) & \texttt{iama\_positions\_\allowbreak v1.json}; \measured \\
+\rowrule C-score healthy baseline & 1.1104 & \texttt{neutrophil\_reference\_\allowbreak v1\_1.json}; \calibrated \\
+\rowrule intake quarantine & call rate $<0.93$ & \texttt{intake\_thresholds\_\allowbreak v1.json}; \calibrated \\\bottomrule
+```
 \end{tabular}
 \end{center}

@@ -2,7 +2,9 @@
 
 \section{One term added to the horizon entropy}
 
-In the Jacobson and Cai--Kim derivations~\cite{Jacobson1995,CaiKim2005}, the apparent-horizon entropy is geometric, $S_{\mathrm{geo}}=\pi c^3/(G\hbar H^2)$.
+```latex
+In the Jacobson and Cai--Kim derivations~\cite{Jacobson1995,CaiKim2005}, the apparent-horizon entropy is geometric, $S_{\mathrm{geo}}/k_B=\pi c^5/(G\hbar H^2)$.
+```
 IAM adds the accumulated Landauer cost of every irreversible record written on a timelike worldline:
 \begin{equation}
  -dE=T_H\,d\!\left(S_{\mathrm{geo}}+S_{\mathrm{info}}\right).
@@ -37,7 +39,7 @@ Left free against the local distance-ladder values read as matter-sector rates (
 
 \begin{checkbox}
 \calc\ From Eq.~\eqref{part2:eq:mu} with $\beta_m=0.15765$: $\mu=0.864$ at $z=0$, $0.905$ at $z=0.2$, $0.982$ at $z=1$, $0.998$ at $z=2$.
-The coupling $1-\mu_0=13.6\%$ is the change in the effective Newton constant for matter today. It is \emph{not} the change in growth:
+The coupling deficit $1-\mu(z{=}0)=13.6\%$ is the change in the effective Newton constant for matter today. It is \emph{not} the change in growth:
 growth integrates $\mu$ over time, so the growth factor changes by about $0.8\%$ and $\sigma_8$ by about $1.6\%$ (next section).
 The three ways of entering the growth equation and their growth factors are in Appendix~\ref{app:der:growth}.
 \calc\ The coupling today does not depend on how steeply the record is written. For $E_c(a)=\exp[c(1-1/a)]$, $E_c(1)=1$ for every $c$, so
@@ -60,8 +62,8 @@ SH0ES Cepheids & $H_0=73.04\pm1.04$ & matter & \cite{Riess2022}\\
 tip of the red giant branch & $H_0=70.39\pm1.94$ & matter & \cite{Freedman2025}\\\midrule
 6dFGS, $z=0.067$ & $f\sigma_8=0.423\pm0.055$ & matter & \cite{Beutler2012}\\
 SDSS MGS, $z=0.150$ & $0.530\pm0.160$ & matter & \cite{Howlett2015,Alam2021}\\
-BOSS DR12, $z=0.380$ & $0.497\pm0.045$ & matter & \cite{Alam2017}\\
-BOSS DR12, $z=0.510$ & $0.459\pm0.038$ & matter & \cite{Alam2017}\\
+BOSS DR12, $z=0.380$ & $0.497\pm0.045$ & matter & \cite{Alam2017,Alam2021}\\
+BOSS DR12, $z=0.510$ & $0.459\pm0.038$ & matter & \cite{Alam2017,Alam2021}\\
 eBOSS LRG, $z=0.700$ & $0.473\pm0.041$ & matter & \cite{Alam2021}\\
 eBOSS ELG, $z=0.850$ & $0.315\pm0.095$ & matter & \cite{Alam2021}\\
 eBOSS QSO, $z=1.480$ & $0.462\pm0.045$ & matter & \cite{Alam2021}\\\bottomrule
@@ -92,7 +94,7 @@ SH0ES alone contributes $(73.04-67.4)^2/1.04^2=29.41$ at $\beta=0$; the Planck a
 of the two local values is $72.45\pm0.92$, and $(72.45/67.4)^2-1=0.155$: the best-fit coupling is the local rate restated through
 Eq.~\eqref{eq:dual_free_H0m}. With the coupling fixed at $\Omega_m/2$ and this fixed input, the local rate of the fit is $67.4\sqrt{1+\beta_m}=72.52$, $0.50\sigma$
 from SH0ES \calc. The sector rates of this book come from the Level~2 chain: photon sector $67.16\pm0.47$, matter sector
-$67.16\sqrt{1+\beta_m}=72.26$, $0.75\sigma$ from SH0ES (Chapter~\ref{ch:dual}) \measured; with those two values the three $H_0$ entries give
+$67.16\sqrt{1+\beta_m}=72.26$, $0.75\sigma$ from SH0ES (Section~\ref{sec:chains}) \measured; with those two values the three $H_0$ entries give
 $\chi^2_{H_0}=1.72$ \calc.
 
 \paragraph{What the fit measures.} The penalised criteria $\mathrm{AIC}=\chi^2+2k$~\cite{Akaike1974} and $\mathrm{BIC}=\chi^2+k\ln n$~\cite{Schwarz1978}
@@ -124,7 +126,7 @@ $\Delta\chi^2=1$ and 4. (b) The seven $f\sigma_8$ points against $\Lambda$CDM an
 Eighteen Markov chains were run against the Planck 2018 likelihood~\cite{Planck2018V}. All files are in the repository
 (\texttt{mgcamb\_validation/\allowbreak{}chains}, \texttt{camb\_validation/\allowbreak{}chains}). The numbers below come from one extraction of the final files
 (30\,\% burn-in, weighted posterior means; table \texttt{CHAIN\_EXTRACTION\_FINAL.csv}). Every chain's last recorded Gelman--Rubin~\cite{Gelman1992}
-$R-1$ is at or below $0.010$.
+$R-1$ is at or below $0.010$ \measured.
 
 \begin{itemize}
  \item \textbf{Level 1, 12 chains (MGCAMB~\cite{Zhao2009MGCAMB,Wang2023MGCAMB}).} Four data sets (Planck; +RSD; +BAO; +Pantheon+), each run three ways: IAM with
@@ -176,7 +178,7 @@ Planck + Pantheon+ & \texttt{planck\_2018\_lowl.TT}, \texttt{lowl.EE}, \texttt{h
 \toprule
 data & $\Delta\chi^2_{\min}$ (IAM $-$ $\Lambda$CDM) & $\sigma_8$ ($\Lambda$CDM $\to$ IAM) & $H_0$ (IAM) & free $\mu_0$: median (90\,\% lower bound) \\
 \midrule
-Planck            & $+0.96$ & $0.814\to0.802$ & $67.08\pm0.53$ & $+0.059$ ($-0.305$) \\
+Planck            & $+0.96$ & $0.814\to0.802$ & $67.08\pm0.53$ & $+0.059$ ($-0.304$) \\
 Planck + RSD      & $+0.56$ & $0.813\to0.800$ & $67.49\pm0.42$ & $+0.064$ ($-0.204$) \\
 Planck + BAO      & $+1.73$ & $0.812\to0.799$ & $67.54\pm0.43$ & $+0.047$ ($-0.304$) \\
 Planck + Pantheon+ & $+1.58$ & $0.813\to0.800$ & $67.00\pm0.50$ & $+0.030$ ($-0.342$) \\
@@ -190,7 +192,7 @@ $\Delta\chi^2_{\min}$ is the difference between the lowest $\chi^2$ found in eac
 \measured\ What the chains show:
 \begin{enumerate}
  \item With the coupling fixed by theory and no parameter added, IAM is consistent with the CMB in every data combination.
-       $\Delta\chi^2$ between $+0.5$ and $+1.7$ is far below any threshold of preference either way.
+       With $\Delta\chi^2$ between $+0.5$ and $+1.7$, IAM's own equations reproduce the data as well as $\Lambda$CDM with no added parameter.
  \item $\sigma_8$ falls by $0.0128$--$0.0129$ in every combination, and the standard parameters do not move.
        The direction is that of the weak-lensing surveys (KiDS-1000, DES Y3, HSC Y3~\cite{Asgari2021,DESY3,HSCY3}).
  \item When $\mu_0$ is left free, Planck alone cannot choose: the posteriors reach the prior's upper edge, and both zero and the prediction
@@ -200,29 +202,47 @@ $\Delta\chi^2_{\min}$ is the difference between the lowest $\chi^2$ found in eac
  \item The Level 2 code, which writes the mechanism itself into CAMB, reproduces the Level 1 result ($\Delta\chi^2=+0.54$, $\sigma_8=0.800$).
 \end{enumerate}
 
+\providecommand{\lightrowrule}{\arrayrulecolor{black!25}\specialrule{0.3pt}{0pt}{0pt}\arrayrulecolor{black}}
 \begin{table}[htbp]\centering\small
-\caption[Per-chain record]{Every chain of the record: number of files (parallel chains), accepted samples, final Gelman--Rubin $R-1$ from the progress
+\caption[Per-chain record]{Every chain of the record: number of files (parallel chains), samples after the $30\,\%$ burn-in (sum of the chain weights), final Gelman--Rubin $R-1$ from the progress
 file, and the lowest $\chi^2$ found. Level~2 and 2b use their own likelihood set, so their $\chi^2$ is not comparable with Level~1. From
 \texttt{mgcamb\_validation/\allowbreak{}CHAIN\_EXTRACTION\_FINAL.csv}; recomputed in \texttt{verify\_dual\_sector\_chapters.py}. \measured}\label{tab:chain_record}
 \begin{tabular}{llrrrr}\toprule
 Chain & Level & Files & Samples & $R-1$ & $\chi^2_{\min}$\\\midrule
 IAM, Planck ($\mu_0$ fixed) & 1 & 4 & 49\,484 & 0.0089 & 1013.95\\
+\rowrule
 $\mu_0$ free, Planck & 1 & 4 & 66\,401 & 0.0099 & 1011.69\\
+\rowrule
 $\Lambda$CDM, Planck & 1 & 1 & 16\,520 & 0.0089 & 1013.00\\
+\rowrule
 IAM, Planck + BAO & 1 & 1 & 12\,767 & 0.0058 & 1020.09\\
+\rowrule
 $\Lambda$CDM, Planck + BAO & 1 & 1 & 24\,851 & 0.0096 & 1018.36\\
+\rowrule
 $\mu_0$ free, Planck + BAO & 1 & 1 & 28\,958 & 0.0063 & 1017.90\\
+\rowrule
 IAM, Planck + Pantheon+ & 1 & 1 & 20\,849 & 0.0072 & 2417.58\\
+\rowrule
 $\Lambda$CDM, Planck + Pantheon+ & 1 & 1 & 38\,080 & 0.0085 & 2416.00\\
+\rowrule
 $\mu_0$ free, Planck + Pantheon+ & 1 & 1 & 48\,829 & 0.0094 & 2415.40\\
+\rowrule
 IAM, Planck + RSD & 1 & 1 & 27\,688 & 0.0078 & 1024.28\\
+\rowrule
 $\Lambda$CDM, Planck + RSD & 1 & 1 & 27\,106 & 0.0087 & 1023.72\\
+\rowrule
 $\mu_0$ free, Planck + RSD & 1 & 1 & 29\,000 & 0.0084 & 1023.19\\
+\rowrule
 IAM, Planck (Run A) & 2 & 1 & 172\,159 & 0.0099 & 10972.61\\
+\rowrule
 $\Lambda$CDM, Planck (Run C) & 2 & 1 & 250\,222 & 0.0081 & 10972.07\\
+\rowrule
 IAM, Planck + RSD (Run D) & 2 & 1 & 112\,863 & 0.0080 & 10979.43\\
+\rowrule
 background term, Planck (Run A) & 2b & 1 & 234\,293 & 0.0100 & 10970.77\\
+\rowrule
 background term, Planck + RSD (Run D) & 2b & 1 & 229\,162 & 0.0068 & 10979.45\\
+\rowrule
 baryon density free, Planck & -- & 1 & 20\,021 & 0.0099 & 1013.55\\\bottomrule
 \end{tabular}
 \end{table}

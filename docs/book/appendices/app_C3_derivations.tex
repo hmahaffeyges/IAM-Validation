@@ -1,11 +1,11 @@
 % Appendix C3: every derivation the chapters state in short, written out step by step.
-% Every symbolic step and every number is checked in docs/verification/scripts/verify_appendix_derivations.py; its output is
-% docs/verification/scripts/verify_appendix_derivations_output.txt. Block tags [D1]..[D13] in that output match the sections below.
+% Every symbolic step is checked in docs/verification/scripts/verify_appendix_derivations.py (output verify_appendix_derivations_output.txt); block
+% tags [D1]..[D13] follow the sections below. Numbers: numbers_check.py, growth_checks.py and chain_checks.py in the same folder.
 \chapter{Derivations in full}\label{app:derivations}
 
 The chapters state many results in a line: ``which gives'', ``so'', ``integrates to''. This appendix writes each of those steps out.
 Every symbolic step has been checked with a computer-algebra system and every number recomputed (CODATA~2018 constants, Planck~2018 parameters;
-script and output listed in Appendix~\ref{app:repro}). Each section ends with what the derivation assumes. Where a step cannot be completed
+script \texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}verify\_appendix\_derivations.py} and its output; the principal numbers can also be run from Appendix~\ref{app:repro}). Each section ends with what the derivation assumes. Where a step cannot be completed
 from its premises, the section says so and names what is missing; Chapter~\ref{ch:open} collects these items.
 
 \section{The premises and their status}\label{app:der:premises}
@@ -77,7 +77,7 @@ for every $H$. \derived\ At $H_0=67.36$: $T_H=2.654\times10^{-30}$\,K and $N=3.2
 \[ P=\sigma_{\rm SB}AT_{\rm BH}^4=\frac{\hbar c^6}{15360\pi G^2M^2},\qquad \frac{P}{k_BT_{\rm BH}\ln2}=\frac{c^3}{1920\,GM\ln2}\ {\rm bits\,s^{-1}}. \] $dM/dt=-P/c^2$ is solved by $M^3=M_0^3-\hbar c^4t/(5120\pi G^2)$, so
 $\tau=5120\pi G^2M_0^3/(\hbar c^4)$. Since $S\propto M^2$, $S(t)/S_0=(1-t/\tau)^{2/3}$, and half is gone when $1-t/\tau=2^{-3/2}$, at $t=0.646\,\tau$.
 \derived\ (black body; greybody factors change the coefficient~\cite{Page1976}). For $1\,M_\odot$: $T=6.170\times10^{-8}$\,K, $1.513\times10^{77}$ bits,
-$152.5$ bits\,s$^{-1}$, $\tau=2.10\times10^{67}$\,yr; for $4.3\times10^6\,M_\odot$: $1.44\times10^{-14}$\,K, $2.80\times10^{90}$ bits. \calc
+$152.5$ bits\,s$^{-1}$, $\tau=2.10\times10^{67}$\,yr; for $4.3\times10^6\,M_\odot$: $1.43\times10^{-14}$\,K, $2.80\times10^{90}$ bits. \calc
 
 \paragraph{Equilibrium masses.} $T_{\rm BH}=T_H$ gives $M_{\rm eq}=c^3/(4GH)$: $2.32\times10^{22}\,M_\odot$ today, $1.30\times10^{22}$ at $z=1$,
 $2.4\times10^{12}$ at $z=10^6$. $T_{\rm BH}=T_{\rm CMB}$ gives $M_{\rm CMB}=\hbar c^3/(8\pi Gk_BT_{\rm CMB})=4.50\times10^{22}$\,kg (0.61 lunar masses).
@@ -259,9 +259,9 @@ Form (ii) is $\ddot\delta+2H_m\dot\delta-4\pi G\rho_m\delta=0$ written with the 
 $\Delta D/D$ today is $-0.78\,\%$ (i, the Level~1 MGCAMB form), $-0.67\,\%$ (ii, the Level~2 form) and $-1.87\,\%$ (iii). \calc\ Every growth number in
 the book names its form.
 
-\paragraph{Growth-rate observables} (form i, Planck 2018 background, same early amplitude). $f\sigma_8$ is lower by $4.24\,\%$, $2.16\,\%$, $1.35\,\%$,
-$0.41\,\%$ at $z=0$, $0.3$, $0.5$, $1$. With $\Sigma=1$, $E_G\propto\Omega_m/f$ changes by $f_{\Lambda\rm CDM}/f_{\rm IAM}-1=+3.62\,\%$ today, $+1.86\,\%$ at
-$z=0.295$, $+1.83\,\%$ at $z=0.3$ and $+1.14\,\%$ at $z=0.5$. A growth-only fit read in $\Lambda$CDM infers $\Omega_m\mu(z)=0.299$ at $z=0.5$. \calc
+\paragraph{Growth-rate observables} (form i, Planck 2018 background, same early amplitude). $f\sigma_8$ is lower by $4.25\,\%$, $2.17\,\%$, $1.35\,\%$,
+$0.41\,\%$ at $z=0$, $0.3$, $0.5$, $1$. With $\Sigma=1$, $E_G\propto\Omega_m/f$ changes by $f_{\Lambda\rm CDM}/f_{\rm IAM}-1=+3.63\,\%$ today, $+1.86\,\%$ at
+$z=0.295$, $+1.84\,\%$ at $z=0.3$ and $+1.14\,\%$ at $z=0.5$. A growth-only fit read in $\Lambda$CDM infers $\Omega_m\mu(z)=0.299$ at $z=0.5$. \calc
 
 \paragraph{The MGCAMB form.} $\mu=1+\mu_0\Omega_{\rm DE}(a)/\Omega_\Lambda$, $\Omega_{\rm DE}(a)=\Omega_\Lambda/(\Omega_ma^{-3}+\Omega_\Lambda)$, with the
 runs' $\mu_0=-0.13495$, gives $0.8650$ today against the exact $0.8638$; the largest gap is $-2.76\,\%$ at $z=0.65$, $-2.48\,\%$ at $z=1$. The value
@@ -311,7 +311,7 @@ m=(2\pi)^{-2/5}B^{2/5},\qquad B=\frac{\hbar H_0\ln2\,m_P^{3/2}}{\alpha^{5/2}c^2}
 \end{equation}
 \derived\ (algebra, given the three assumptions). Numerically $B^{2/5}=1.2018\,m_e$ at $H_0=67.4$. The prefactor that lands on $m_e$ is $(2\pi)^{-1/10}=0.832112$,
 which is $(2\pi)^{-2/5}\times(2\pi)^{3/10}$; the factor $(2\pi)^{3/10}=1.7356$ is not produced by the condition. With it, $m/m_e-1=+6.6\times10^{-6}$
-($H_0=67.4$), $-2.31\times10^{-4}$ ($67.36$), $+3.25\times10^{-2}$ ($73.0$), $+3.27\times10^{-2}$ ($73.04$); $m\propto H_0^{2/5}$, so
+($H_0=67.4$), $-2.31\times10^{-4}$ ($67.36$), $+3.24\times10^{-2}$ ($73.0$), $+3.27\times10^{-2}$ ($73.04$); $m\propto H_0^{2/5}$, so
 $\sigma(H_0)=0.54$ alone is $0.32\,\%$ in $m$. \calc\ \openprob\ (the $(2\pi)^{3/10}$)
 
 \paragraph{The Koide relation.} With $\sqrt{m_k}=x+y\cos(2\pi k/3+\delta)$, $k=0,1,2$: $\sum_k\cos(2\pi k/3+\delta)=0$ and $\sum_k\cos^2(2\pi k/3+\delta)=3/2$ for
@@ -328,7 +328,7 @@ $n$ equally spaced phases the spacing is $2\pi/n$; for $n\ge4$ the spacing is at
 allowed offsets are a fraction $1-3(\pi/2)/(2\pi)=1/4$ of the circle, for $n=2$ a fraction $1/2$. \derived\ (numerically $0.50$, $0.25$, $0$, $0$, $0$ for
 $n=2$--$6$)
 
-\paragraph{The split of the coupling.} $\beta_m=\Omega_b/2+\Omega_{\rm dm}/2=0.0246+0.1330=0.1577$, baryons $15.6\,\%$. \calc
+\paragraph{The split of the coupling.} $\beta_m=\Omega_b/2+\Omega_{\rm dm}/2=0.0247+0.1330=0.1577$, baryons $15.6\,\%$. \calc
 
 \section{The quantum scale}\label{app:der:quantum}
 \paragraph{Collapse time of a halo.} $\hbar/E_G=\hbar R/GM^2=2.5\times10^{-87}$\,s for $10^{12}M_\odot$ within $200$\,kpc. \calc

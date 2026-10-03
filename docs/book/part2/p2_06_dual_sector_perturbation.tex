@@ -19,10 +19,10 @@ Three converged Markov chains against the full Planck likelihood (NPIPE CamSpec 
 $\Delta\chi^2=+0.54$ between the lowest points of the two chains and $-0.01$ between their chain averages, relative to $\Lambda$CDM: for the same number
 of parameters, a likelihood ratio of $0.76$. Every standard cosmological parameter shifts by less than $0.1\sigma$. The matter clustering amplitude
 shifts from $\sigma_8=0.8087\pm0.0059$ ($\Lambda$CDM) to $\sigma_8=0.7998\pm0.0058$ (dual sector), a $1.1\,\%$ reduction in the direction reported by
-KiDS-1000, DES Y3 and HSC Y3.
+KiDS-1000, DES Y3 and HSC Y3 \measured.
 
 The sector-dependent expansion rate yields a Hubble-parameter split directly from the MCMC posterior: $H_0^{(\gamma)}=67.16\pm0.47$\,km\,s$^{-1}$\,Mpc$^{-1}$
-for photons ($0.37\sigma$ from Planck $\Lambda$CDM) and $H_0^{(m)}=72.26\pm0.50$\,km\,s$^{-1}$\,Mpc$^{-1}$ for matter ($0.75\sigma$ from SH0ES). Both lie
+for photons ($0.37\sigma$ from Planck $\Lambda$CDM) and $H_0^{(m)}=72.26\pm0.50$\,km\,s$^{-1}$\,Mpc$^{-1}$ for matter ($0.75\sigma$ from SH0ES) \measured\ \calc. Both lie
 within $1\sigma$ of the observations, with the background Friedmann equation unmodified. Two exploratory chains that put a version of the term into the background equation fit the CMB as well as $\Lambda$CDM, with a sampled $H_0=61.5$ and an expansion rate today of $66.1$; those chains coded a different form of the term, so the background placement of Eq.~\eqref{eq:l2_bg} is the next test. All chains, configuration files, the modified Fortran source and the analysis scripts are in the repository
 (\texttt{camb\_validation/}).
 
@@ -222,9 +222,9 @@ analysis; the likelihood uses their diagonal errors only.
 \begin{tabular}{lccc}\hline
 Survey & $z$ & $f\sigma_8$ & $\sigma$\\\hline
 6dFGS~\cite{Beutler2012} & 0.067 & 0.423 & 0.055\\
-SDSS MGS~\cite{Howlett2015} & 0.150 & 0.530 & 0.160\\
-BOSS DR12~\cite{Alam2017} & 0.380 & 0.497 & 0.045\\
-BOSS DR12~\cite{Alam2017} & 0.510 & 0.459 & 0.038\\
+SDSS MGS~\cite{Howlett2015,Alam2021} & 0.150 & 0.530 & 0.160\\
+BOSS DR12~\cite{Alam2017,Alam2021} & 0.380 & 0.497 & 0.045\\
+BOSS DR12~\cite{Alam2017,Alam2021} & 0.510 & 0.459 & 0.038\\
 eBOSS DR16 LRG~\cite{Alam2021} & 0.700 & 0.473 & 0.041\\
 eBOSS DR16 ELG~\cite{Alam2021} & 0.850 & 0.315 & 0.095\\
 eBOSS DR16 quasars~\cite{Alam2021} & 1.480 & 0.462 & 0.045\\\hline
@@ -322,7 +322,7 @@ $\Delta\Omega_m=0.00\sigma$ \measured.
 
 Run D is not, however, a test of the growth rate of the informational term. The coded change acts on the CDM and baryon density equations; CAMB
 computes $f\sigma_8$ from the matter velocities, which the change does not touch. With the switch on, CAMB reports $f=0.542$ at $z=0$, while the
-density field grows at $f=0.498$, $8.8\,\%$ less; with the switch off the two agree to the $1\,\%$ accuracy of the interpolation
+density field grows at $f=0.498$, $8.1\,\%$ less; with the switch off the two agree to the $1\,\%$ accuracy of the interpolation
 (Table~\ref{tab:l2_growth}) \measured. Matter is conserved, so the velocity follows the density and the physical growth rate is
 $f\sigma_8=d\sigma_8/d\ln a$. In that form the coded mechanism gives an $f\sigma_8$ today $6\,\%$ below $\Lambda$CDM at fixed parameters; CAMB's
 velocity-based output says $1\,\%$ above. The growth likelihood of Run~D therefore did not see the suppression, and its $\chi^2$ cannot be read as a
@@ -440,7 +440,7 @@ matter-sector value is $72.26$ (blue dashed). Bands: Planck $\Lambda$CDM $67.36\
 Quantity & dual sector (IAM) & $\Lambda$CDM\\\hline
 $\sigma_8$ & $0.800\pm0.006$ & $0.809\pm0.006$\\
 $S_8$ & $0.822\pm0.011$ & $0.830\pm0.011$\\
-$H_0^{(\gamma)}$ [km\,s$^{-1}$\,Mpc$^{-1}$] & $67.16\pm0.47$ & $67.19\pm0.47$\\
+$H_0^{(\gamma)}$ [km\,s$^{-1}$\,Mpc$^{-1}$] & $67.16\pm0.47$ & $67.19\pm0.46$\\
 $H_0^{(m)}$ [km\,s$^{-1}$\,Mpc$^{-1}$] & $72.26\pm0.50$ & --\\
 $\Delta\chi^2$, lowest points & $+0.54$ (likelihood ratio $0.76$) & --\\
 $\Delta\chi^2$, chain averages & $-0.01$ & --\\
@@ -460,8 +460,7 @@ local value ($72.26$, within $0.75\sigma$ of SH0ES);
 
 \subsection{What the analysis does not show}
 It does not show that the Hubble tension is resolved. The dual-sector framework gives a consistent description that accommodates both endpoints, but
-its statistical indistinguishability from $\Lambda$CDM ($\Delta\chi^2=+0.54$) means that current Planck data cannot discriminate between the two
-models. The measurement that can separate them is the growth rate at the predicted amplitude, measured from the density field
+IAM's own equations reproduce the Planck data as well as $\Lambda$CDM with no added parameter ($\Delta\chi^2=+0.54$), so the CMB alone does not yet separate the two models. The measurement that can separate them is the growth rate at the predicted amplitude, measured from the density field
 (Section~\ref{sec:l2_rund}).
 
 \subsection{Relation to the MGCAMB analysis}

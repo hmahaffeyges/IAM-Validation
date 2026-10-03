@@ -1,10 +1,10 @@
 \chapter{Falsifiable predictions}\label{ch:predictions}
 
 \section*{How this list was made}
-We collected every quantitative statement the framework makes, 648 in all, in one register (\path{CANON/predictions_register.csv} in the
+We collected every quantitative statement the framework makes, 557 in all, in one register (\path{CANON/predictions_register.csv} in the
 repository, Appendix~\ref{app:repro}). The 136 cell entries wait for the commissioning of each cell type and are not listed here. Each of the other
-512 was recomputed and given one verdict: kept, with its value recomputed where needed (87), already compared with data (58), a duplicate of another entry
-(162), or dropped (205). An entry was dropped when it is not falsifiable (a definition, a restatement, an interpretation), when the recomputation
+421 was recomputed and given one verdict: kept, with its value recomputed where needed (67), already compared with data (54), a duplicate of another entry
+(143), or dropped (157). An entry was dropped when it is not falsifiable (a definition, a restatement, an interpretation), when the recomputation
 does not support it, when it is a vendor roadmap or commercial statement with no physics in it, or when no test is named. The verdict for every
 entry, with its reason, is in \path{CANON/predictions_triage_2026-10-02.json}.
 Appendix~\ref{app:register} lists every entry that stands, with its test, its falsifier and its verdict.
@@ -33,42 +33,45 @@ $\beta_m=\Omega_m/2$, $E(a)=e^{1-1/a}$, and $\Sigma=1$ (Chapter~\ref{ch:theory})
 prediction & test and date & falsified if \\\midrule\endhead
 \textbf{C1.} \Spending{} The coupling today: $\mu(0)=0.864$, $\mu_0=-0.136$; $\mu=0.948$ at $z=0.5$, $0.982$ at $z=1$. [COS-004, 058, 072, 124, 127, 332]
  & Euclid clustering and weak lensing; Euclid's published sensitivity is about 1\,\% on $1+\mu_0$ with all probes and small scales, 4\,\% for weak lensing with photometric clustering, 23\,\% with conservative cuts~\cite{Albuquerque2025} \observed; the forecast for IAM's own $\mu(z)$ is being computed
- & a fit with IAM's own $\mu(z)$ excluding the predicted amplitude at survey precision \\
+ & a fit with IAM's own $\mu(z)$ excluding the predicted amplitude at survey precision \\ \cmidrule{1-3}
 \textbf{C2.} \Spending{} Lensing is unchanged: $\Sigma_0=0$ exactly, at every redshift. [COS-301, 345, 021]
  & the same Euclid tomography; CMB lensing
- & $\Sigma\ne1$ detected \\
+ & $\Sigma\ne1$ detected \\ \cmidrule{1-3}
 \textbf{C3.} \Spending{} The $f\sigma_8$ deficit against $\Lambda$CDM (same early amplitude): 4.25\,\% at $z=0$, 3.42\,\% at 0.1, 2.17\,\% at 0.3, 1.35\,\% at 0.5,
  0.41\,\% at 1, 0.04\,\% at 2, a curved ramp, not a constant rescaling. [COS-324, 325, 069, 036, 331]
- & the turn-on of the ramp across $0.3\lesssim z\lesssim1$, where structure takes over: next, the DESI DR2 full-shape growth measurements (three
- years of data, about $0.1<z<2$); then peculiar velocities from DESI DR2, the full DESI survey and Euclid spectroscopy. Today: thirteen binned
- points and the DESI DR1 peculiar-velocity point at $z=0.07$ (Table~\ref{tab:st_fsig8}), which follow the ramp and are not yet precise enough to decide it
- & $f\sigma_8(z)$ follows $\Lambda$CDM and excludes the deficit, or the deficit is a constant factor \\
+I need both complete passages to merge them properly. You've provided two fragments that appear to be from different parts of a table or aligned environment (they each end mid-thought or with `\\`), and they describe different observational datasets and constraints.
+
+Please provide:
+1. The full VERSION A passage (from its opening to a natural end)
+2. The full VERSION B passage (from its opening to a natural end)
+
+Once I have the complete context, I can identify which corrections each version makes and produce the merged result with all corrections retained.
 \textbf{C4.} \Spending{} The growth factor $D$ is 0.78\,\% lower today; the potentials follow it by the same 0.78\,\%. [COS-070, 331]
  & growth and lensing amplitude together
- & no growth deficit at survey precision \\
+ & no growth deficit at survey precision \\ \cmidrule{1-3}
 \textbf{C5.} \Spending{} Early physics is standard: the deficit is 0.04\,\% at $z=2$, below any current measurement. [COS-336]
  & high-redshift growth; CMB primary anisotropies
- & a $\mu$-driven growth deficit well above 0.04\,\% at $z\ge2$ \\
+ & a $\mu$-driven growth deficit well above 0.04\,\% at $z\ge2$ \\ \cmidrule{1-3}
 \textbf{C6.} \Spending{} Scale independence: $\mu$ and $\Sigma$ depend on redshift only; $P_{\rm IAM}/P_{\Lambda\rm CDM}$ is flat in $k$ ($-1.55$\,\% today). [COS-056, 122, 357]
  & tomographic multi-$k$-bin analyses (Euclid DR1, DESI full shape)
- & any $k$-dependence of $\mu$ or $\Sigma$ \\
+ & any $k$-dependence of $\mu$ or $\Sigma$ \\ \cmidrule{1-3}
 \textbf{C7.} \Spending{} $\mu<1$ with $\Sigma=1$ separates the law from $f(R)$ ($1\le\mu\le4/3$~\cite{PogosianSilvestri2008}) and normal-branch
  DGP~\cite{DGP2000} ($\mu>1$); the self-accelerating DGP branch shares the signs but carries a ghost~\cite{Koyama2007}. The law's own content is the parameter-free shape of $\mu(z)$. [COS-294, 342, 343]
  & the $\mu$--$\Sigma$ plane from Euclid
- & $\mu\ge1$ or $\Sigma\ne1$ \\
+ & $\mu\ge1$ or $\Sigma\ne1$ \\ \cmidrule{1-3}
 \textbf{C8.} \Spending{} $E_G$ rises above $\Lambda$CDM because $f$ falls while lensing does not: $+1.8$\,\% at $z=0.3$, $+1.1$\,\% at $z=0.5$. CMB lensing power falls by only
  0.08\,\% (0.05--0.3\,\%), far too little to explain the Planck lensing excess~\cite{Planck2018VI}. [COS-142, 140, 260]
  & $E_G$ from redshift-space distortions $\times$ galaxy--galaxy lensing
- & $E_G(z)$ at or below $\Lambda$CDM at sufficient precision \\
+ & $E_G(z)$ at or below $\Lambda$CDM at sufficient precision \\ \cmidrule{1-3}
 \textbf{C9.} \Spending{} A growth-only fit with the IAM template returns a matter density below the geometric one by $1-\mu$: 13.6\,\% at $z=0$, 5.2\,\% at
  $z=0.5$ ($\Omega_m^{\rm growth}=0.299$ there). [COS-134]
  & a growth-only DESI full-shape fit (the published DESI $\Omega_m=0.296$ combines BAO and does not test this)
- & growth-only $\Omega_m$ equal to the geometric value \\
+ & growth-only $\Omega_m$ equal to the geometric value \\ \cmidrule{1-3}
 \textbf{C10.} \Sprecision{} $\sigma_8=0.800$ at Level~2 (0.809 in $\Lambda$CDM, $-1.1$\,\%), so $S_8=0.822\pm0.011$, $0.9\sigma$ below the Planck
  $\Lambda$CDM value 0.832~\cite{Planck2018VI}; the late-time part of the shift, the growth-factor deficit, is largest today (0.78\,\%) and
  vanishes at high $z$. [COS-259, 067, 319, 318]
  & Stage-IV weak lensing (Euclid DR1, Rubin)
- & lensing $S_8$ excluding 0.822 \\
+ & lensing $S_8$ excluding 0.822 \\ \cmidrule{1-3}
 \textbf{C11.} \Spending{} The integrated Sachs--Wolfe cross-correlation is slightly enhanced, $A_{\rm ISW}\approx1.03$; the sign is opposite to $f(R)$'s suppression.
  [COS-364, 365]
  & ISW $\times$ galaxies (Planck with Euclid, DESI)
@@ -81,28 +84,28 @@ prediction & test and date & falsified if \\\midrule\endhead
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.40\textwidth}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}@{}}
 \toprule
 prediction & test and date & falsified if \\\midrule\endhead
-\textbf{C12.} \Spending{} Two Hubble rates: light reads $H_0=67.16$ (Level~2 chains); the matter flow reads $67.161\sqrt{1.1575}=72.26$~km\,s$^{-1}$\,Mpc$^{-1}$.
+\textbf{C12.} \Spending{} Two Hubble rates: light reads $H_0=67.16$ (Level~2 chains); the matter flow reads $67.161\sqrt{1.15765}=72.26$~km\,s$^{-1}$\,Mpc$^{-1}$.
  [COS-001, 108, 110]
  & standard sirens, whose hosts trace the matter flow (GW170817 alone, $70.0^{+12.0}_{-8.0}$~\cite{Abbott2017Siren}, cannot tell them apart); a siren population
- & siren $H_0$ precise enough to separate the two and excluding 72.26 \\
+ & siren $H_0$ precise enough to separate the two and excluding 72.26 \\ \cmidrule{1-3}
 \textbf{C13.} \Spending{} Distances follow $\Lambda$CDM: BAO positions and the photon ruler give $w=-1$. [COS-351, 156]
  & DESI full-survey BAO with supernovae
- & distances requiring $w\ne-1$ \\
+ & distances requiring $w\ne-1$ \\ \cmidrule{1-3}
 \textbf{C14.} \Spending{} The two-ruler test: in one survey, $(w_0,w_a)$ fitted to distances alone and to growth alone disagree, because growth is suppressed
  and distances are not. [COS-083, 321]
  & DESI with Pantheon+ or DES-Y5 and Planck, distance-only and growth-only fits run separately
- & the two $(w_0,w_a)$ agree within errors \\
+ & the two $(w_0,w_a)$ agree within errors \\ \cmidrule{1-3}
 \textbf{C15.} \Spending{} If the vacuum term grows with $E(a)$, energy conservation gives a phantom $w<-1$ on the matter ruler; the informational component has
  $w_{\rm info}=-1-1/(3a)$ ($w_0=-4/3$, $w_a=-1/3$). [COS-087, 010] \openprob{} The next step is to compare it with data.
  & matter-ruler data; test to be named
- & matter-ruler data requiring $w>-1$ \\
+ & matter-ruler data requiring $w>-1$ \\ \cmidrule{1-3}
 \textbf{C16.} \Spassed{} Photons do not couple: $\beta_\gamma=0$. The present bound is $\beta_\gamma<0.0039$ (95\,\%), $\beta_\gamma/\beta_m<0.025$. [COS-016]
  & CMB acoustic scale (CMB-S4)
- & $\beta_\gamma>0$ detected \\
+ & $\beta_\gamma>0$ detected \\ \cmidrule{1-3}
 \textbf{C17.} \Spending{} Galaxy-cluster masses, in the Level~1 form only: lensing over hydrostatic mass $=1/\mu(z)$: 1.158 at $z=0$, 1.055 at 0.5, 1.002 at 2,
  declining with redshift, opposite to the non-thermal-pressure expectation. Which form of the coupling cluster masses see is an open question; a significance forecast follows once it is resolved. \openprob{} [COS-091, 037, 167]
  & eROSITA, Euclid and Rubin clusters with lensing masses
- & a flat ratio, or one rising with $z$ \\
+ & a flat ratio, or one rising with $z$ \\ \cmidrule{1-3}
 \textbf{C18.} \Sprecision{} The observed relation $\Omega_b/\Omega_m\approx(3/16)\sqrt{\Omega_\Lambda}$ holds at $0.7\sigma$; its derivation is open. [COS-215]
  & improved density parameters (future CMB)
  & the relation broken at higher precision \\
@@ -199,30 +202,30 @@ What the data in hand already say, and what each result means.
 \toprule
 claim and data & outcome & note \\\midrule\endhead
 Planck 2018 fit with the coupling fixed: $\Delta\chi^2=+0.54$ (Level~2), $+0.56$ to $+1.73$ (Level~1 combinations), no added parameter [COS-018, 117]
- & \Spassed & IAM's own equations, coupling fixed by the virial partition, reproduce the CMB as well as $\Lambda$CDM with no added parameter \\
-Only $\sigma_8$ moves in the chains: $0.8087\to0.7998$, $1.5\sigma$; $\ln A_s$ and $\Omega_m$ move under $0.3\sigma$ [COS-012, 061, 314]
- & \Spassed & the late-time term lowers $\sigma_8$ without moving the early-universe parameters \\
+& \Spassed & IAM's own equations, coupling fixed by the virial partition, reproduce the CMB as well as $\Lambda$CDM with no added parameter \\ \cmidrule{1-3}
+Only $\sigma_8$ moves in the chains: $0.8087\to0.7998$, $1.5\sigma$; $\ln A_s$ and $\Omega_m$ move under $0.1\sigma$ [COS-012, 061, 314]
+ & \Spassed & the late-time term lowers $\sigma_8$ without moving the early-universe parameters \\ \cmidrule{1-3}
 Background form of the term: $H_0=61.45\pm0.42$, $10.9\sigma$ from Planck [COS-005, 240]
- & \Spassed{} background form excluded, as the test was built to show & in IAM the background does not change; the term lives in the entropy functional and enters through the perturbations \\
+ & \Spassed{} background form excluded, as the test was built to show & in IAM the background does not change; the term lives in the entropy functional and enters through the perturbations \\ \cmidrule{1-3}
 Supernova distances with $\beta$ applied: $\Delta\chi^2=+23.6$ [COS-107]
- & \Spassed{} $\beta$ on distances excluded & supernova distances follow the photon sector ($\Lambda$CDM geometry), as the dual-sector picture predicts \\
+ & \Spassed{} $\beta$ on distances excluded & supernova distances follow the photon sector ($\Lambda$CDM geometry), as the dual-sector picture predicts \\ \cmidrule{1-3}
 Free $\mu_0$, Planck with redshift-space distortions: $0.039\pm0.125$; DESI full shape $0.11^{+0.45}_{-0.54}$ [COS-123, 309]
- & \Sprecision & current errors are wider than the effect; Euclid narrows them \\
-$S_8$ against lensing: IAM $0.822$, KiDS-Legacy $0.815$~\cite{Wright2025}; $\sigma_8=0.800$ against the 2025 joint KiDS, DES and DESI $0.802\pm0.020$ [COS-319, 062]
- & \Sprecision & lowered in the direction lensing measures, within $1\sigma$ of the newest value; Euclid separates IAM from Planck-$\Lambda$CDM \\
+ & \Sprecision & current errors are wider than the effect; Euclid narrows them \\ \cmidrule{1-3}
+$S_8$ against lensing: IAM $0.822$, KiDS-Legacy $0.815$~\cite{Wright2025}; $\sigma_8=0.800$ against the 2025 joint KiDS, DES and DESI $0.802^{+0.022}_{-0.018}$~\cite{Stolzner2025} [COS-319, 062]
+ & \Sprecision & lowered in the direction lensing measures, within $1\sigma$ of the newest value; Euclid separates IAM from Planck-$\Lambda$CDM \\ \cmidrule{1-3}
 $S_8$ redshift trend [COS-317]
- & \Spassed{} (shape) & largest today and fading at high $z$, as the IAM ramp predicts \\
+ & \Spassed{} (shape) & largest today and fading at high $z$, as the IAM ramp predicts \\ \cmidrule{1-3}
 DESI growth $\Omega_m$ [COS-148]
- & \Sprecision & 0.299 vs $0.296\pm0.010$, but the DESI value is BAO-dominated \\
+ & \Sprecision & 0.299 vs $0.296\pm0.010$, but the DESI value is BAO-dominated \\ \cmidrule{1-3}
 $\beta_\gamma$ from the CMB acoustic scale [COS-229]
- & \Spassed{} bound & $<0.0039$; photons couple $\ge40\times$ more weakly \\
+ & \Spassed{} bound & $<0.0039$; photons couple $\ge40\times$ more weakly \\ \cmidrule{1-3}
 Cluster lensing-to-dynamical mass ratios (CCCP, Weighing the Giants) [COS-272, 217]
- & \Spending & Level~1 form only; the form the clusters see is not settled (Chapter~\ref{ch:lensdyn}) \\
+ & \Spending & Level~1 form only; the form the clusters see is not settled (Chapter~\ref{ch:lensdyn}) \\ \cmidrule{1-3}
 Koide $Q=2/3$ [PAR-004]
- & \Sprecision{} agrees ($0.43\sigma$) & the derivation adds no test \\
+ & \Sprecision{} agrees ($0.43\sigma$) & the derivation adds no test \\ \cmidrule{1-3}
 Electron mass against CODATA [PAR-001]
- & \Sprecision{} agrees within 0.3\,\% & set by $H_0$; not parameter-free (P1) \\
-Quasiparticle parity rates rise over 20--170~mK while $T_1$ stays flat to about 150~mK (Rist\`e et al.) [QUB-003]
+ & \Sprecision{} agrees within 0.3\,\% & set by $H_0$; not parameter-free (P1) \\ \cmidrule{1-3}
+Quasiparticle parity rates rise over 20--170~mK while $T_1$ stays flat to about 150~mK (Rist\`e et al.~\cite{Riste2013}) [QUB-003]
  & \Sprecision & consistent with the internal source, as with any non-thermal source \\
 \bottomrule
 \end{longtable}}

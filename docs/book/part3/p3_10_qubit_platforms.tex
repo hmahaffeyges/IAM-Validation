@@ -134,7 +134,7 @@ sapphire, with device geometry optimised for coherence, gave on-chip quantum mem
 \paragraph{What a laboratory learns.} From $T_1$, $T_\phi$, $t_g$, the effective temperature and the isolated two-qubit error measured on
 one device, the reading gives the share of the error that coherence forces, the share thermal kicks force, and what is left for the
 material and the control. A material change then shows up as a change of the remainder at fixed coherence, and a change of coupler
-graph as a change of the simultaneous error at fixed isolated error.
+graph as a change of the simultaneous error at fixed isolated error \interp.
 
 \paragraph{What a referee would confirm.} The excited-state occupation against refrigerator temperature on the same device (the
 protocol of Ref.~\cite{Jin2015}); isolated and simultaneous two-qubit errors on one stated benchmark~\cite{Proctor2022}, since a
@@ -147,7 +147,7 @@ one material and one coupler topology \openprob.
 megahertz to about a gigahertz. The lower frequency lowers the coupling to the same lossy surfaces per cycle: a fluxonium has reached a
 Ramsey coherence time $T_2^*=1.48\pm0.13$~ms with single-qubit gate fidelity above 0.9999~\cite{Somoroff2023}, and a fluxonium pair coupled
 through a transmon has reached a mean CZ fidelity of $99.922\pm0.009$\,\%~\cite{Ding2023} \observed, that is $\varepsilon=7.8\times10^{-4}$,
-with the surface-code threshold at 12.9 on its own gauge \calc.
+with the surface-code threshold at 12.8 on its own gauge \calc.
 
 \paragraph{The frequency lever has a thermal price.} The same low frequency lowers $M$. At 20~mK a 1~GHz fluxonium has $M=2.4$ and an
 equilibrium occupation of 8\,\%; at 0.2~GHz, $M=0.48$ and 38\,\% \calc. The held record therefore needs active reset or heralded
@@ -155,11 +155,11 @@ preparation, while the per-gate thermal floor, Eq.~\eqref{eq:qp_pth}, stays smal
 moves the coherence part and the thermal floor in opposite directions \derived.
 
 \paragraph{What a laboratory learns; what a referee would confirm.} The trade is measurable on one device: initial-state occupation and
-$T_1$ at two operating frequencies, at one refrigerator temperature.
+$T_1$ at two operating frequencies, at one refrigerator temperature \interp.
 
 \section{Trapped ions with laser-driven gates}\label{sec:qp_ionlaser}
 \paragraph{The surface and its temperature.} The record is a hyperfine level pair of an ion in vacuum, with no solid surface and no oxide
-in contact with it. Its spin is not thermalised by anything: at 300~K its $M$ is $10^{-3}$, and its state is set by optical pumping, not by
+in contact with it. Its spin is not thermalised by anything: at 300~K its $M$ is of order $10^{-3}$, and its state is set by optical pumping, not by
 temperature (Table~\ref{tab:qp_which}). The two-qubit gate, however, runs through the shared motion of the ions, and that motion has a
 temperature: the cooling limit (the Doppler limit of Yb$^+$ is 0.47~mK) plus the heating driven by electric-field noise from the trap
 electrodes~\cite{Brownnutt2015}. At the Doppler limit a 1~MHz mode holds $\bar n=9.3$ quanta \calc. An ion has no superconducting gap and no Cooper pairs, so the quasiparticle channel of Chapter~\ref{ch:xqp} has no counterpart in it,
@@ -196,7 +196,7 @@ of order $10^{-4}$ per cycle~\cite{Home2009} \observed.
 \paragraph{What a laboratory learns; what a referee would confirm.} Per-mode heating rates and $\bar n$ at the start of the gate, the
 scattering rate per gate and the laser phase-noise spectrum split the error into its parts. The drive optimum is located by measuring the
 two-qubit error against drive power at fixed heating; repeating that measurement with and without sympathetic cooling shows how far the
-cooling moves the optimum.
+cooling moves the optimum \interp.
 
 \section{Trapped ions with electronically driven gates}\label{sec:qp_ionelec}
 The electronic gate applies a spin-dependent force from electrode currents and microwaves rather than from lasers. In the ``smooth gate''
@@ -209,10 +209,10 @@ of the electrodes. On its own gauge the surface-code threshold sits at 120 \calc
 
 \section{Neutral atoms}\label{sec:qp_atoms}
 \paragraph{The surface and its temperature.} The record is a pair of long-lived ground levels of an atom held in an optical tweezer; the
-gate excites the atoms briefly to Rydberg states whose blockade makes the interaction. Two temperatures matter, and they are four orders of
+gate excites the atoms briefly to Rydberg states whose blockade makes the interaction. Two temperatures matter, and they are more than seven orders of
 magnitude apart \interp. The atoms' motion, near 10~$\mu$K, sets Doppler and position errors. The radiation field around the atoms, at
 room temperature in most arrays, drives transitions out of the Rydberg state: Rydberg transitions at 10--100~GHz see $\bar n=620$--62
-thermal photons per mode at 300~K, \calc; blackbody-induced transition rates and effective lifetimes of alkali Rydberg states have been calculated
+thermal photons per mode at 300~K \calc; blackbody-induced transition rates and effective lifetimes of alkali Rydberg states have been calculated
 at 77, 300 and 600~K~\cite{Beterov2009}. In a 4~K environment the same modes hold 7.8--0.43 photons \calc; tweezer arrays have been operated at cryogenic temperature
 with single-atom trapping lifetimes of 6000~s~\cite{Schymik2021} \observed.
 
@@ -234,7 +234,7 @@ atoms' motion and for the ground-state record, and not for the radiation field s
 
 \paragraph{What a laboratory learns; what a referee would confirm.} The Rydberg lifetime measured in place, at the environment temperature
 of the experiment, and the gate error against drive strength on the same apparatus, give $a$, $b$ and the share of the error that the
-radiation field delivers.
+radiation field delivers \interp.
 
 \section{Spin defects in diamond}\label{sec:qp_nv}
 \paragraph{The surface and its temperature.} The NV centre's record is its electron-spin triplet, split by $D=2.87$~GHz at zero field,
@@ -246,13 +246,13 @@ $73(4)$~meV, and at the lowest temperatures sample-dependent cross-relaxation le
 and activated over another; a single exponent describes it only locally (Chapter~\ref{ch:thermaln}).
 
 \paragraph{The published gate, and the levers.} An electron--nuclear two-qubit gate set characterised by gate-set tomography has reached a
-two-qubit gate fidelity of $99.93(5)$\,\%~\cite{Bartling2025} \observed, $\varepsilon=7.0\times10^{-4}$, with the surface-code threshold at 14.4
+two-qubit gate fidelity of $99.93(5)$\,\%~\cite{Bartling2025} \observed, $\varepsilon=7.0\times10^{-4}$, with the surface-code threshold at 14.3
 on its own gauge \calc. The levers are cooling (which freezes out the Raman and Orbach channels), isotopic purification of the lattice (fewer
 nuclear spins in the bath), and decoupling sequences that keep the gate insensitive to the remaining bath.
 
 \paragraph{What a laboratory learns; what a referee would confirm.} $T_1$ against temperature on the device separates the three channels and
 shows which one is closest to its floor at the operating temperature; the gate error at two temperatures tests whether the gate is limited
-by the lattice at all.
+by the lattice at all \interp.
 
 \section{Spin qubits in silicon}\label{sec:qp_si}
 \paragraph{The surface and its temperature.} The record is the spin of an electron in a gate-defined quantum dot, with a Zeeman gap of a few
@@ -268,15 +268,15 @@ gate fidelities above 99.5\,\% by gate-set tomography~\cite{Xue2022}, a two-qubi
 two-qubit control fidelities exceeding 99\,\%~\cite{Mills2022} \observed; at 99.5\,\%, $\varepsilon=5.0\times10^{-3}$ and the surface-code
 threshold sits at 2.0 \calc.
 
-\paragraph{Levers; what a laboratory learns; what a referee would confirm.} The magnetic field raises $M$ in proportion; isotopic enrichment
+\paragraph{Levers; what a laboratory learns; what a referee would confirm.} The magnetic field raises $M$ in proportion \derived; isotopic enrichment
 removes the hyperfine bath of $^{29}$Si; the operating temperature trades cooling power against the held-record floor. $T_1$ and the
 initial-state occupation against temperature, on one device, give both floors and say how far the operating temperature can rise for a
-target error.
+target error \interp.
 
 \section{Photons}\label{sec:qp_photon}
 At 1550~nm and room temperature an optical photon has $M=30.9$ and a thermal occupation of $3.7\times10^{-14}$ \calc. Thermal kicks play no
 part in a photonic record. What erases it is loss: a photon absorbed or scattered out of its mode is a record written into the environment.
-The noise mechanism is fabrication loss: waveguide scattering, photon source indistinguishability, and detector efficiency. The record that is finally kept is written at the detector, and the
+The noise mechanism is fabrication loss: waveguide scattering, imperfect photon-source indistinguishability, and detector efficiency. The record that is finally kept is written at the detector, and the
 detectors are superconducting and cold; on IAM's reading the encoding surface of a photonic computation is the detector, at the detector's
 temperature \interp. A manufacturable silicon-photonic platform has reported dual-rail qubits with $99.98\pm0.01$\,\% state preparation and
 measurement fidelity, Hong--Ou--Mandel visibility $99.50\pm0.25$\,\% between independent sources, two-qubit fusion with $99.22\pm0.12$\,\%

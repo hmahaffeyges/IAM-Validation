@@ -14,12 +14,12 @@ filtered out; it is the yardstick.
 symbol & meaning & in every domain\\\midrule
 $A$ & reading $/$ healthy reference & dimensionless; $A=1$ is the system working as itself, the middle of the gauge\\
 healthy reference & the denominator & the same system's healthy reading, on the same instrument\\
-$H_{\min}$ & the floor & the lowest error the system can hold before thermal kicks win; below 1, nothing reads below it\\
+$H_{\min}$ & the floor & the lowest error the system can hold before thermal kicks win; it sits below 1, and nothing reads below it\\
 $M$ & $E/k_BT$ & drive energy over the thermal noise quantum; $M/\ln2$ in Landauer units\\
 $T$ & the temperature the record sees & the bath that writes on the record: the chip junction, the qubit's own mode, the cell; every floor is computed there\\\bottomrule
 \end{tabular}\end{center}
 Example of the energy scale: the AMD Ryzen 9 9950X (170\,W, $(20.0$--$20.6)\times10^9$ transistors, 4.3\,GHz~\cite{AMD9950X}, $T_j=75\,^\circ$C) switches at
-$E_{\rm sw}=(1.92$--$1.97)\times10^{-18}$\,J, 576--593 times the Landauer floor, $M=399$--$411$; on its own gauge the Landauer floor therefore sits at 0.0017
+$E_{\rm sw}=(1.92$--$1.98)\times10^{-18}$\,J, 576--593 times the Landauer floor, $M=399$--$411$; on its own gauge the Landauer floor therefore sits at 0.0017
 (the transistor count, from die-level reports, is the least certain input)
 (Chapter~\ref{ch:cmos}) \calc.
 

@@ -254,13 +254,13 @@ $S_{\rm total}=S_{\rm geometric}+S_{\rm informational}$, where $S_{\rm info}$ de
 The derivation of the field equations from horizon thermodynamics (Jacobson 1995~\cite{Jacobson1995}; Cai and Kim 2005~\cite{CaiKim2005}) is shared by a family of cosmologies. Applying the
 Clausius relation $-dE=T_H\,dS$ to the energy flowing across the apparent horizon, with $A_H=4\pi/H^2$, $T_H=H/2\pi$ and $S=A_H/4$, returns the
 Friedmann equations; equivalently, the unified first law $dE=T_h\,dS+W\,dV$ with $W=(\rho-P)/2$ and $T_h=\kappa/2\pi$ the temperature of the moving
-horizon (Chapter~\ref{ch:entropicgravity}). \derived Once that is accepted
+horizon (Chapter~\ref{ch:entropicgravity}). \derived\ Once that is accepted
 there are two ways to go further.
 \begin{itemize}
 \item \emph{Change the entropy law.} Barrow entropy $S=(A/A_0)^{1+\Delta/2}$~\cite{Barrow2020} and Tsallis entropy $S=\gamma A^\delta$~\cite{TsallisCirto2013}
 deform the area law itself. The deformation enters the Friedmann equations, changes the background expansion, and adds a parameter
 ($\Delta$ or $\delta$) that must be measured. Fits to supernova, cosmic-chronometer and BAO data including DESI DR2 allow the deformation, with $\Lambda$CDM
-slightly favoured by information criteria (JCAP 09 (2025) 013) \observed.
+slightly favoured by information criteria~\cite{Luciano2025} \observed.
 \item \emph{Count a source that was left out.} Keep the Bekenstein--Hawking area law exactly, and add the entropy that matter produces as it
 decoheres: $S_{\rm total}=S_{\rm BH}+S_{\rm info}$. This is the route taken here. Nothing in the area law changes; the horizon's budget simply has a term
 that the derivations had not counted.
@@ -404,7 +404,7 @@ total entropy is modified to $S_{\rm total}=S_{\rm geo}+S_{\rm info}$, the first
 \begin{equation}-dE=T\,dS_{\rm geo}+T\,dS_{\rm info}.\label{eq:th:firstlaw2}\end{equation}
 The first term reproduces the standard Friedmann equations exactly as in Cai and Kim. The second term introduces the IAM modification: the
 informational entropy production, weighted by the Gibbons--Hawking encoding cost, contributes an additional effective energy density. Its activation
-function satisfies $E(a)\to0$ as $a\to0$, $E(1)=1$, and $E(a)\approx0$ at recombination ($E(10^{-3})=e^{-999}$).
+function satisfies $E(a)\to0$ as $a\to0$, $E(1)=1$, and $E(a)\approx0$ at recombination ($E(10^{-3})=e^{-999}$) \calc.
 
 Importantly, this term does not modify the background expansion. Applying the informational term at the background level gives
 $H_0=61.45$ and $61.52$\,km\,s$^{-1}$\,Mpc$^{-1}$ in the two Level 2b chains, inconsistent with Planck 2018 (Chapters~\ref{ch:dual} and~\ref{ch:level2}) \measured. The physical
@@ -499,7 +499,7 @@ The preservation $\Sigma=1$ means that CMB anisotropies, gravitational lensing, 
 \includegraphics[width=\textwidth]{figures/part2/fig_theory_mu_sigma.pdf}
 \caption{The prediction in the $\mu$--$\Sigma$ framework. (a) The gravitational coupling $\mu(z)=H^2/(H^2+\beta_mE(a)H_0^2)$ (solid), with the
 $\Lambda$CDM baseline $\mu=1$ and the MGCAMB parameterisation $\mu=1+\mu_0\,\Omega_{\rm DE}(a)/\Omega_{\rm DE}$ (dashed), which equals the exact form at
-$z=0$ and departs from it by at most $2.8\,\%$, near $z\approx0.64$. Values at key redshifts: $\mu(0)=0.864$, $\mu(0.5)=0.948$, $\mu(1)=0.982$.
+$z=0$ and departs from it by at most $2.8\,\%$, near $z\approx0.65$. Values at key redshifts: $\mu(0)=0.864$, $\mu(0.5)=0.948$, $\mu(1)=0.982$.
 (b) The $(\mu_0,\Sigma_0)$ plane in the quasi-static regime: the IAM point $(-0.136,0)$; $f(R)$ gravity and the normal branch of DGP move along
 $\Sigma_0=0$ toward $\mu_0>0$; the self-accelerating DGP branch also gives $\mu_0<0$, $\Sigma_0=0$ but carries a ghost. (c) The activation function
 $E(a)=\exp(1-1/a)$ (solid, left axis) grows from zero at early times toward saturation at $e\approx2.718$; the coupling $\mu(a)$ (dashed, right axis)
@@ -963,7 +963,7 @@ distributed decoherence, the cosmic horizon grows and cools, eventually dominati
 record of this transition: $E(a)/e$ is the fraction of cumulative informational entropy that has been encoded on the cosmic horizon relative to its
 asymptotic value.
 
-This provides a natural thermodynamic explanation for the observed population of massive black holes at high redshift: in the early universe, before
+This provides a natural thermodynamic explanation for the massive black holes observed at high redshift: in the early universe, before
 the cosmic horizon grows large enough to encode efficiently, black holes are the encoding surfaces. On this reading they are not anomalies; they are
 thermodynamically required. \interp
 
@@ -1038,7 +1038,7 @@ principle~\cite{tHooft1993,Susskind1995} and Landauer's principle, but has not b
 non-equilibrium. The chains test this by allowing $\mu_0$ to float.
 \item \emph{The activation function $E(a)=\exp(1-1/a)$ is exact.} This follows from integrating the decoherence constraint
 $\dot\rho_{\rm info}=\rho_{\rm info}H/a$ directly (Section~\ref{sec:th:activation}). The MGCAMB parameterisation equals the exact form at $z=0$ and is within
-$2.8\,\%$ at all $z$ (largest near $z\approx0.64$).
+$2.8\,\%$ at all $z$ (largest near $z\approx0.65$).
 \item \emph{Perturbation-level implementation.} Numerical validation via modified CAMB (Level 2, three converged chains against the full Planck 2018
 likelihood) confirms that the modified expansion rate (Eq.~\eqref{eq:HIAM}) operates within the matter-sector perturbation equations, not at the global
 background level. Two exploratory runs with the modification applied to the background Friedmann equation produced $H_0\approx61.5$\,km\,s$^{-1}$\,Mpc$^{-1}$,

@@ -17,7 +17,7 @@ with qubits, the families are not ranked against each other \interp.
 \section{The floor at the chip's own junction temperature}\label{sec:cg_floor}
 The Landauer floor is $3.33\times10^{-21}$~J at 75\,$^\circ$C and $3.62\times10^{-21}$~J at 105\,$^\circ$C, 8.6\,\% higher \calc. The reading
 $E_{\rm sw}=\mathrm{TDP}/(N_{\rm trans}f)$ carries no temperature, so the floor's position on a chip's gauge moves with the junction
-temperature at which the chip actually runs: for the processor of Chapter~\ref{ch:cmos} ($E_{\rm sw}=1.92$--$1.97\times10^{-18}$~J) the floor
+temperature at which the chip actually runs: for the processor of Chapter~\ref{ch:cmos} ($E_{\rm sw}=1.92$--$1.98\times10^{-18}$~J) the floor
 sits at 0.0017 at 75\,$^\circ$C and at 0.0018--0.0019 at 105\,$^\circ$C (Figure~\ref{fig:cg_floor_Tj}) \calc. The reliability floor of
 Eq.~\eqref{eq:reliableswitch} moves in the same proportion. The real energy per switch also depends on temperature, through leakage, which
 rises steeply, and through the voltage--frequency point; that dependence is a property of each design and is not part of the floor.
@@ -25,7 +25,7 @@ rises steeply, and through the voltage--frequency point; that dependence is a pr
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part3/fig_p3_chip_floor_Tj.pdf}
 \caption{(a) The Landauer floor $\kB T_j\ln2$ and the reliability floor $\kB T_j\ln(1/p)$ at $p=10^{-15}$ against junction temperature.
-(b) Where the Landauer floor sits on the gauge of one chip read as built ($E_{\rm sw}=1.92$ and $1.97\times10^{-18}$~J, the two transistor
+(b) Where the Landauer floor sits on the gauge of one chip read as built ($E_{\rm sw}=1.92$ and $1.98\times10^{-18}$~J, the two transistor
 counts in circulation; Chapter~\ref{ch:cmos}). \calc}\label{fig:cg_floor_Tj}
 \end{figure}
 
@@ -69,7 +69,7 @@ per generation reaches the floor after
  n_{\rm floor}=\frac{\ln R}{-\ln(1-s)}
  \label{eq:cg_nfloor}
 \end{equation}
-generations \derived. For $R=600$ that is 6.2 generations at the constant-field rate and 18.4 at the fixed-voltage rate \calc. The reading
+generations \derived. For $R=600$ that is 6.2 generations at the constant-field rate and 18.5 at the fixed-voltage rate \calc. The reading
 cannot fall below the floor, so a series that would reach it in a few generations cannot continue at its present step; the step must shrink
 before the floor is reached. When a chip's distance from the physical floor stops decreasing at the rate that node history predicts, a regime
 change has occurred; the end of Dennard scaling is where the per-node steps of CMOS shrank \interp. Applying Eq.~\eqref{eq:cg_nfloor} to a
@@ -81,10 +81,10 @@ as-built state and its own history on one definition \interp.
 \begin{itemize}
 \item \textbf{Single-die processors of the voltage-scaling era} (to about 2005). Supply voltage still fell with the node; per-node steps sat
 near the constant-field line. Their transistor counts are small and mostly logic, so the whole-chip average is closest to the energy per
-switching event.
+switching event \interp.
 \item \textbf{Desktop and server processors after voltage scaling ended}, monolithic and chiplet. Power is quoted as a base, default or
 maximum turbo figure; a chiplet part's count includes an I/O die whose transistors switch at a different rate and may sit on an older node.
-The system-level reading is a weighted composite of dies at their own operating points.
+The system-level reading is a weighted composite of dies at their own operating points \interp.
 \item \textbf{Systems-on-chip with unified memory.} The count includes graphics, neural and memory-interface blocks; makers publish no power
 figure, so the power is an estimate; the parts run at lower voltage and clock than desktop processors. Gaps between these and desktop
 processors are confounded with operating point and die composition, and independent measurements find that the instruction set itself matters
@@ -92,7 +92,7 @@ little for energy~\cite{Blem2013} \conjecture\ for any architectural attribution
 \item \textbf{Graphics processors and accelerators.} GPU architecture makes a deliberate trade: it sacrifices per-transistor efficiency for
 massive parallelism. The power is a board power, the clock a boost clock, much of the die is SRAM and memory interface, and some parts are two
 dies in one package counted as one device. The reading measures energy per transistor per cycle, not throughput; for a workload the relevant
-quantity is energy per operation.
+quantity is energy per operation \interp.
 \end{itemize}
 
 \section{Levers on the chip gauge}\label{sec:cg_levers}

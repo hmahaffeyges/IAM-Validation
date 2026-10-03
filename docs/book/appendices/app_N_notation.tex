@@ -16,7 +16,7 @@ thermodynamic entropy written $S$ is in J\,K$^{-1}$, that is in units of $\kB$ (
 of $\kB T\ln2$, the Landauer cost of one bit: an energy $x\,\kB T$ is $x/\ln2$ Landauer units.
 \item The Mahaffey number $\mathcal M=E_{\rm drive}/\kB T$ (also written $M$) is defined without a factor $\ln2$; $\mathcal M/\ln2$ is the same quantity in Landauer units. For
 the cell $\mathcal M=\dGATP/(R\Tb)=20.94$, which is $30.21$ in Landauer units (canon value 30.2).
-\item The gate error of a qubit is expressed in nats, $\varepsilon=-\ln(1-p_{2Q})$; for $p_{2Q}<10^{-2}$ it equals $p_{2Q}$ to better than $0.5\,\%$.
+\item The gate error of a qubit is expressed in nats, $\varepsilon=-\ln(1-p_{2Q})$; for $p_{2Q}<10^{-2}$ it equals $p_{2Q}$ to within about $0.5\,\%$ ($\varepsilon/p_{2Q}-1\simeq p_{2Q}/2$).
 \item Temperatures: $\Tb=T_{\rm cell}=310.15$~K (37\,\textdegree C) for human cells; $T_j$ is a chip's junction temperature (nominal 348.15~K, 75\,\textdegree C); a
 qubit's temperature is the temperature its record sees: the qubit's own effective temperature for a superconducting qubit, the motional temperature of the gate for ions and atoms; a horizon's temperature is its Hawking or
 Gibbons--Hawking temperature.
@@ -28,7 +28,7 @@ stated; ``95\,\%'' and ``90\,\%'' are credible or confidence levels as the sourc
 
 \section{Sign and normalisation conventions}
 \begin{itemize}
-\item \textbf{Metric.} Signature $(-,+,+,+)$: a timelike worldline has $g_{\mu\nu}\,dx^\mu dx^\nu/d\tau^2=-1$ and a null one $g_{\mu\nu}\,dx^\mu dx^\nu=0$
+\item \textbf{Metric.} Signature $(-,+,+,+)$: a timelike worldline has $g_{\mu\nu}\,dx^\mu dx^\nu/d\tau^2=-c^2$ ($-1$ with $c=1$, as written in Chapter~\ref{ch:dsnote}) and a null one $g_{\mu\nu}\,dx^\mu dx^\nu=0$
 (Chapter~\ref{ch:dsnote}). Proper time is $\tau=\int\sqrt{-g_{\mu\nu}dx^\mu dx^\nu}/c$.
 \item \textbf{Scale factor and redshift.} $a=1/(1+z)$, $a=1$ today. The activation function is normalised to $E(1)=1$ and in redshift is $E=e^{-z}$.
 \item \textbf{Growth and lensing couplings.} $\mu$ multiplies $G$ in the Poisson equation for matter and $\Sigma$ multiplies it in the lensing potential
@@ -56,24 +56,24 @@ from them alone ($\hbar$, $R$, $\sigma_{\rm SB}$, the electronvolt). Digits in p
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.120\textwidth}>{\raggedright\arraybackslash}p{0.300\textwidth}>{\raggedright\arraybackslash}p{0.300\textwidth}>{\raggedright\arraybackslash}p{0.180\textwidth}@{}}
 \toprule symbol & quantity & value & units\\\midrule\endhead
 $c$ & speed of light in vacuum & $299792458$ & m\,s$^{-1}$ (exact)\\
-$h$ & Planck constant & $6.62607015\times10^{-34}$ & J\,s (exact)\\
-$\hbar$ & reduced Planck constant $h/2\pi$ & $1.054571817\ldots\times10^{-34}$ & J\,s (exact)\\
-$e$ & elementary charge & $1.602176634\times10^{-19}$ & C (exact)\\
-$\kB$ & Boltzmann constant & $1.380649\times10^{-23}$ & J\,K$^{-1}$ (exact)\\
-$N_A$ & Avogadro constant & $6.02214076\times10^{23}$ & mol$^{-1}$ (exact)\\
-$R$ & molar gas constant $N_A\kB$ & $8.314462618\ldots$ & J\,mol$^{-1}$\,K$^{-1}$ (exact)\\
-$G$ & Newtonian constant of gravitation & $6.67430(15)\times10^{-11}$ & m$^3$\,kg$^{-1}$\,s$^{-2}$\\
-$\alpha$ & fine-structure constant & $7.2973525693(11)\times10^{-3}$ & dimensionless\\
-$m_e$ & electron mass & $9.1093837015(28)\times10^{-31}$ & kg\\
-$m_ec^2$ & electron rest energy & $0.51099895000(15)$ & MeV\\
-$m_p/m_e$ & proton-to-electron mass ratio & $1836.15267343(11)$ & dimensionless\\
-$\sigma_{\rm SB}$ & Stefan--Boltzmann constant $\pi^2\kB^4/60\hbar^3c^2$ & $5.670374419\ldots\times10^{-8}$ & W\,m$^{-2}$\,K$^{-4}$ (exact)\\
-$\lP$ & Planck length $\sqrt{\hbar G/c^3}$ & $1.616255(18)\times10^{-35}$ & m\\
-$\mP$ & Planck mass $\sqrt{\hbar c/G}$ & $2.176434(24)\times10^{-8}$ & kg\\
-$a_0$ & Bohr radius & $5.29177210903(80)\times10^{-11}$ & m\\
-$r_e$ & classical electron radius & $2.8179403262(13)\times10^{-15}$ & m\\
-$\bar\lambda_C$ & reduced Compton wavelength of the electron $\hbar/m_ec$ & $3.8615926796(12)\times10^{-13}$ & m\\
-eV & electronvolt & $1.602176634\times10^{-19}$ & J (exact)\\
+\rowrule $h$ & Planck constant & $6.62607015\times10^{-34}$ & J\,s (exact)\\
+\rowrule $\hbar$ & reduced Planck constant $h/2\pi$ & $1.054571817\ldots\times10^{-34}$ & J\,s (exact)\\
+\rowrule $e$ & elementary charge & $1.602176634\times10^{-19}$ & C (exact)\\
+\rowrule $\kB$ & Boltzmann constant & $1.380649\times10^{-23}$ & J\,K$^{-1}$ (exact)\\
+\rowrule $N_A$ & Avogadro constant & $6.02214076\times10^{23}$ & mol$^{-1}$ (exact)\\
+\rowrule $R$ & molar gas constant $N_A\kB$ & $8.314462618\ldots$ & J\,mol$^{-1}$\,K$^{-1}$ (exact)\\
+\rowrule $G$ & Newtonian constant of gravitation & $6.67430(15)\times10^{-11}$ & m$^3$\,kg$^{-1}$\,s$^{-2}$\\
+\rowrule $\alpha$ & fine-structure constant & $7.2973525693(11)\times10^{-3}$ & dimensionless\\
+\rowrule $m_e$ & electron mass & $9.1093837015(28)\times10^{-31}$ & kg\\
+\rowrule $m_ec^2$ & electron rest energy & $0.51099895000(15)$ & MeV\\
+\rowrule $m_p/m_e$ & proton-to-electron mass ratio & $1836.15267343(11)$ & dimensionless\\
+\rowrule $\sigma_{\rm SB}$ & Stefan--Boltzmann constant $\pi^2\kB^4/60\hbar^3c^2$ & $5.670374419\ldots\times10^{-8}$ & W\,m$^{-2}$\,K$^{-4}$ (exact)\\
+\rowrule $\lP$ & Planck length $\sqrt{\hbar G/c^3}$ & $1.616255(18)\times10^{-35}$ & m\\
+\rowrule $\mP$ & Planck mass $\sqrt{\hbar c/G}$ & $2.176434(24)\times10^{-8}$ & kg\\
+\rowrule $a_0$ & Bohr radius & $5.29177210903(80)\times10^{-11}$ & m\\
+\rowrule $r_e$ & classical electron radius & $2.8179403262(13)\times10^{-15}$ & m\\
+\rowrule $\bar\lambda_C$ & reduced Compton wavelength of the electron $\hbar/m_ec$ & $3.8615926796(12)\times10^{-13}$ & m\\
+\rowrule eV & electronvolt & $1.602176634\times10^{-19}$ & J (exact)\\
 \bottomrule\end{longtable}}
 \noindent The scripts behind the book's numbers use $\hbar=1.054571817\times10^{-34}$~J\,s, $G=6.67430\times10^{-11}$, $\alpha=7.2973525693\times10^{-3}$ and
 $m_e=9.1093837015\times10^{-31}$~kg, the CODATA~2018 values above (Appendix~\ref{app:repro}).
@@ -100,24 +100,26 @@ $E(a)$ & activation function & $\exp(1-1/a)$ & canon \\
 All values are those of the canon file (v1.1, 2 October 2026), recomputed here from their definitions where they have one. Status labels follow the front matter.
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.170\textwidth}>{\raggedright\arraybackslash}p{0.340\textwidth}>{\raggedright\arraybackslash}p{0.170\textwidth}>{\raggedright\arraybackslash}p{0.220\textwidth}@{}}
 \toprule symbol & quantity & value & definition and status\\\midrule\endhead
+```latex
 $T_{\rm cell}$, $\Tb$ & body temperature of human cells & 310.15~K & 37\,\textdegree C \\
-$\dGATP$ & cytosolic free energy of ATP hydrolysis & 54~kJ\,mol$^{-1}$ & inside the 50--65~kJ\,mol$^{-1}$ range in cells~\cite{Nelson2017}; \observed \\
-$\kB\Tb\ln2$ & Landauer cost of one bit at body temperature & $2.968\times10^{-21}$~J & $=1.787$~kJ\,mol$^{-1}$; \calc \\
-$\mathcal M$, $M_{\rm cell}$ & Mahaffey number of the cell & 20.94 & $\dGATP/(R\Tb)$, no $\ln2$; \calc \\
-$\mathcal M/\ln2$ & the same in Landauer units (bits one ATP can pay for) & 30.2 (30.21) & a unit conversion, not a second definition \\
-$E_{\rm hold}$ & holding energy per methylated site & $3.41\,\kB T$ & $\ln[(1-\varepsilon)/\varepsilon]$ on single molecules; \measured \\
-$E_{\rm hold}/\ln2$ & the same in Landauer units & 4.9 & conversion \\
-$\varphi$ (also $\phi$) & fraction of one ATP spent per held bit & 0.1628 & $E_{\rm hold}/\mathcal M$; \measured \\
-$\varepsilon_0$ & thermal floor of the copy error & 0.032 & $1/(1+e^{\varphi\mathcal M})$: form \derived, height \measured \\
-$H(\varepsilon_0)$ & the floor's entropy, $\Hmin$ for IAM-A & 0.2043 bits & \calc \\
-$P_{\rm cell}$ & healthy cell type's position above the floor (neutrophils) & 1.099 & 3 donors, 1.084--1.108; pipeline \texttt{loyfer\_pat\_v1}; \measured \\
-$P_{\rm cell}H(\varepsilon_0)$ & IAM-A healthy reference (neutrophils) & 0.2246 bits & \calc \\
-$1/P_{\rm cell}$ & position of $\Hmin$ on the IAM-A gauge & 0.910 & \calc \\
-$H_{\rm ref}$ & Met-A healthy reference, EPIC v1 neutrophils & 0.330263 bits & 6 purified arrays, 6,000 sites; \calibrated \\
-Normal & the healthy band of every reading & $0.95$--$1.05$ & design tolerance, $A=1\pm5\,\%$ \\
-$A_{\max}$ & full surface: every identity site at a coin flip & 3.03 (Met-A); 4.45 (IAM-A) & $1/0.330263$; $1/(1.099\times0.2043)$; \calc \\
-$c_{\rm healthy}$ & healthy clustering baseline of the Met-A C-score & 1.1104 & median of six held-out arrays; \calibrated \\
-$N$ (noise index) & mean $H(\beta)$ over the fixed noise sites & 48,528 sites & measured on every array \\
+\rowrule $\dGATP$ & cytosolic free energy of ATP hydrolysis & 54~kJ\,mol$^{-1}$ & inside the 50--65~kJ\,mol$^{-1}$ range in cells~\cite{Nelson2017}; \observed \\
+\rowrule $\kB\Tb\ln2$ & Landauer cost of one bit at body temperature & $2.968\times10^{-21}$~J & $=1.787$~kJ\,mol$^{-1}$; \calc \\
+\rowrule $\mathcal M$, $M_{\rm cell}$ & Mahaffey number of the cell & 20.94 & $\dGATP/(R\Tb)$, no $\ln2$; \calc \\
+\rowrule $\mathcal M/\ln2$ & the same in Landauer units (bits one ATP can pay for) & 30.2 (30.21) & a unit conversion, not a second definition \\
+\rowrule $E_{\rm hold}$ & holding energy per methylated site & $3.41\,\kB T$ & $\ln[(1-\varepsilon)/\varepsilon]$ on single molecules; \measured \\
+\rowrule $E_{\rm hold}/\ln2$ & the same in Landauer units & 4.9 & conversion \\
+\rowrule $\varphi$ (also $\phi$) & fraction of one ATP spent per held bit & 0.1628 & $E_{\rm hold}/\mathcal M$; \measured \\
+\rowrule $\varepsilon_0$ & thermal floor of the copy error & 0.032 & $1/(1+e^{\varphi\mathcal M})$: form \derived, height \measured \\
+\rowrule $H(\varepsilon_0)$ & the floor's entropy, $\Hmin$ for IAM-A & 0.2043 bits & \calc \\
+\rowrule $P_{\rm cell}$ & healthy cell type's position above the floor (neutrophils) & 1.099 & 3 donors, 1.084--1.108; pipeline \texttt{loyfer\_pat\_v1}; \measured \\
+\rowrule $P_{\rm cell}H(\varepsilon_0)$ & IAM-A healthy reference (neutrophils) & 0.2246 bits & \calc \\
+\rowrule $1/P_{\rm cell}$ & position of $\Hmin$ on the IAM-A gauge & 0.910 & \calc \\
+\rowrule $H_{\rm ref}$ & Met-A healthy reference, EPIC v1 neutrophils & 0.330263 bits & 6 purified arrays, 6,000 sites; \calibrated \\
+\rowrule Normal & the healthy band of every reading & $0.95$--$1.05$ & design tolerance, $A=1\pm5\,\%$ \\
+\rowrule $A_{\max}$ & full surface: every identity site at a coin flip & 3.03 (Met-A); 4.45 (IAM-A) & $1/0.330263$; $1/(1.099\times0.2043)$; \calc \\
+\rowrule $c_{\rm healthy}$ & healthy clustering baseline of the Met-A C-score & 1.1104 & median of six held-out arrays; \calibrated \\
+\rowrule $N$ (noise index) & mean $H(\beta)$ over the fixed noise sites & 48,528 sites & measured on every array \\
+```
 \bottomrule\end{longtable}}
 
 \section{Symbols}
@@ -126,176 +128,176 @@ names a chapter in which it is defined or used.
 \subsection*{Thermodynamics, information and the law}
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}@{}}
 \toprule symbol & meaning & units & where\\\midrule\endhead
-$\Delta E_{\rm rec}$, $E_{\rm bit}$, $e_{\rm bit}$ & Landauer cost of one irreversible bit, $\kB T\ln2$, at the temperature of the encoding surface & J & Ch.~\ref{ch:iams_law}\\
-$T$ & temperature of the encoding surface (horizon, junction, bath, body) & K & Ch.~\ref{ch:iams_law}\\
-$I$ & information in bits; $I=\log_2N$ for $N$ distinguishable outcomes & bit & Ch.~\ref{ch:iams_law}\\
-$S$, $\Delta S$ & thermodynamic entropy, and its change & J\,K$^{-1}$ & Ch.~\ref{ch:virial_law}\\
-$Q$ & heat released or dissipated (virial identity; measurement criterion) & J & Ch.~\ref{ch:virial_law}\\
-$Q_L$ & Landauer heat $\kB T_D\ln2$ at a detector temperature $T_D$ & J (eV) & Ch.~\ref{ch:measurement}\\
-$E_{\rm L}$ & minimum Landauer cost of an irreversible transition & J & Ch.~\ref{ch:virial_law}\\
-$\mathcal M$, $M$ & Mahaffey number $E_{\rm drive}/\kB T$ & dimensionless & Ch.~\ref{ch:landauer}\\
-$E_{\rm drive}$ & drive energy per irreversible event (one ATP; a chip's switching energy) & J & Ch.~\ref{ch:landauer}\\
-$H(x)$ & binary Shannon entropy $-x\log_2x-(1-x)\log_2(1-x)$ & bit & Ch.~\ref{ch:surface}\\
-$\langle K\rangle$, $\langle V\rangle$, $\langle U\rangle$ & time-averaged kinetic and potential energy & J & Ch.~\ref{ch:virial_law}\\
-$k$ (virial) & degree of homogeneity of the potential, $V\propto r^k$ & dimensionless & Ch.~\ref{ch:virial_law}\\
-$|\psi_S\rangle$, $|E_i\rangle$, $|s_i\rangle$ & system state, environment states, pointer states & --- & Ch.~\ref{ch:iams_law}\\
+$\Delta E_{\rm rec}$, $E_{\rm bit}$, $e_{\rm bit}$ & Landauer cost of one irreversible bit, $\kB T\ln2$, at the temperature of the encoding surface & J & Ch.~\ref{ch:iams_law}\\\iamrowrule
+$T$ & temperature of the encoding surface (horizon, junction, bath, body) & K & Ch.~\ref{ch:iams_law}\\\iamrowrule
+$I$ & information in bits; $I=\log_2N$ for $N$ distinguishable outcomes & bit & Ch.~\ref{ch:iams_law}\\\iamrowrule
+$S$, $\Delta S$ & thermodynamic entropy, and its change & J\,K$^{-1}$ & Ch.~\ref{ch:virial_law}\\\iamrowrule
+$Q$ & heat released or dissipated (virial identity; measurement criterion) & J & Ch.~\ref{ch:virial_law}\\\iamrowrule
+$Q_L$ & Landauer heat $\kB T_D\ln2$ at a detector temperature $T_D$ & J (eV) & Ch.~\ref{ch:measurement}\\\iamrowrule
+$E_{\rm L}$ & minimum Landauer cost of an irreversible transition & J & Ch.~\ref{ch:virial_law}\\\iamrowrule
+$\mathcal M$, $M$ & Mahaffey number $E_{\rm drive}/\kB T$ & dimensionless & Ch.~\ref{ch:landauer}\\\iamrowrule
+$E_{\rm drive}$ & drive energy per irreversible event (one ATP; a chip's switching energy) & J & Ch.~\ref{ch:landauer}\\\iamrowrule
+$H(x)$ & binary Shannon entropy $-x\log_2x-(1-x)\log_2(1-x)$ & bit & Ch.~\ref{ch:surface}\\\iamrowrule
+$\langle K\rangle$, $\langle V\rangle$, $\langle U\rangle$ & time-averaged kinetic and potential energy & J & Ch.~\ref{ch:virial_law}\\\iamrowrule
+$k$ (virial) & degree of homogeneity of the potential, $V\propto r^k$ & dimensionless & Ch.~\ref{ch:virial_law}\\\iamrowrule
+$|\psi_S\rangle$, $|E_i\rangle$, $|s_i\rangle$ & system state, environment states, pointer states & --- & Ch.~\ref{ch:iams_law}\\\iamrowrule
 $\rho_S$ & reduced density matrix of the system & --- & Ch.~\ref{ch:iams_law}\\
 \bottomrule\end{longtable}}
 \subsection*{Horizons and gravitation}
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}@{}}
 \toprule symbol & meaning & units & where\\\midrule\endhead
-$S_{\rm BH}$ & Bekenstein--Hawking entropy $\kB c^3A/4G\hbar$ & J\,K$^{-1}$ (or bits) & Ch.~\ref{ch:blackholes}\\
-$T_{\rm BH}$, $T_H$ & Hawking temperature of a black hole, $\hbar c^3/8\pi G\kB M$; $T_H$ also the horizon temperature in general & K & Ch.~\ref{ch:blackholes}\\
-$T_{GH}$ & Gibbons--Hawking temperature of the cosmic horizon, $\hbar H/2\pi\kB$ & K & Ch.~\ref{ch:blackholes}\\
-$\kappa$ & surface gravity of a horizon; $T=\hbar\kappa/2\pi\kB c$ & m\,s$^{-2}$ (s$^{-1}$ with $c=1$) & Ch.~\ref{ch:blackholes}\\
-$A$, $\mathcal A$, $A_H$ & horizon area; $A_H=4\pi c^2/H^2$ for the apparent horizon & m$^2$ & Ch.~\ref{ch:blackholes}\\
-$\eta$ (horizon) & entropy per unit area, $S=\eta A$, $\eta=1/4\lP^2$ & m$^{-2}$ & Ch.~\ref{ch:theory}\\
-$\delta A_{\min}$ & horizon area per unit of entropy $\kB$: $4\lP^2$ & m$^2$ & Ch.~\ref{ch:theory}\\
-$N$ (bits) & bits held by a surface, $S/\kB\ln2$ & bit & Ch.~\ref{ch:blackholes}\\
-$\chi$ & dimensionless spin of a Kerr black hole, $Jc/GM^2$ & --- & Ch.~\ref{ch:blackholes}\\
-$\Omega_H$, $J$ & angular velocity of the horizon; angular momentum & s$^{-1}$; J\,s & Ch.~\ref{ch:blackholes}\\
-$P$ (Hawking) & radiated power of a black hole & W & Ch.~\ref{ch:blackholes}\\
-$\Gamma$ (horizon) & rate at which horizon bits leave, $P/\kB T_{\rm BH}\ln2$ & bit\,s$^{-1}$ & Ch.~\ref{ch:blackholes}\\
-$\tau_{\rm evap}$ & evaporation time (black-body approximation) & s, yr & Ch.~\ref{ch:blackholes}\\
-$M_{\rm eq}$, $M_{\rm CMB}$ & black-hole mass in thermal balance with the cosmic horizon; with the CMB & $M_\odot$; kg & Ch.~\ref{ch:blackholes}\\
-$r_s$, $R_s$ & Schwarzschild radius $2GM/c^2$ & m & Ch.~\ref{ch:blackholes}\\
-$k^a$, $\lambda$, $\chi^a$ & null generator, affine parameter and approximate boost Killing vector of a local Rindler horizon & --- & Ch.~\ref{ch:theory}\\
-$\theta$, $\sigma_{ab}$ & expansion and shear of the horizon generators (Raychaudhuri equation) & --- & Ch.~\ref{ch:theory}\\
-$T_{ab}$, $R_{ab}$, $R$, $G_{ab}$, $g_{ab}$ & stress tensor, Ricci tensor and scalar, Einstein tensor, metric & --- & Ch.~\ref{ch:theory}\\
-$C_{\mu\nu\rho\sigma}$ & Weyl tensor (zero in exact FRW) & --- & Ch.~\ref{ch:theory}\\
-$\tilde r_A$ & apparent-horizon radius $c/H$ of flat FRW & m & Ch.~\ref{ch:theory}\\
-$E$ (Misner--Sharp) & energy inside the apparent horizon & J & Ch.~\ref{ch:theory}\\
+$S_{\rm BH}$ & Bekenstein--Hawking entropy $\kB c^3A/4G\hbar$ & J\,K$^{-1}$ (or bits) & Ch.~\ref{ch:blackholes}\\\rowrule
+$T_{\rm BH}$, $T_H$ & Hawking temperature of a black hole, $\hbar c^3/8\pi G\kB M$; $T_H$ also the horizon temperature in general & K & Ch.~\ref{ch:blackholes}\\\rowrule
+$T_{GH}$ & Gibbons--Hawking temperature of the cosmic horizon, $\hbar H/2\pi\kB$ & K & Ch.~\ref{ch:blackholes}\\\rowrule
+$\kappa$ & surface gravity of a horizon; $T=\hbar\kappa/2\pi\kB c$ & m\,s$^{-2}$ (s$^{-1}$ with $c=1$) & Ch.~\ref{ch:blackholes}\\\rowrule
+$A$, $\mathcal A$, $A_H$ & horizon area; $A_H=4\pi c^2/H^2$ for the apparent horizon & m$^2$ & Ch.~\ref{ch:blackholes}\\\rowrule
+$\eta$ (horizon) & entropy per unit area, $S=\eta A$, $\eta=1/4\lP^2$ & m$^{-2}$ & Ch.~\ref{ch:theory}\\\rowrule
+$\delta A_{\min}$ & horizon area per unit of entropy $\kB$: $4\lP^2$ & m$^2$ & Ch.~\ref{ch:theory}\\\rowrule
+$N$ (bits) & bits held by a surface, $S/\kB\ln2$ & bit & Ch.~\ref{ch:blackholes}\\\rowrule
+$\chi$ & dimensionless spin of a Kerr black hole, $Jc/GM^2$ & --- & Ch.~\ref{ch:blackholes}\\\rowrule
+$\Omega_H$, $J$ & angular velocity of the horizon; angular momentum & s$^{-1}$; J\,s & Ch.~\ref{ch:blackholes}\\\rowrule
+$P$ (Hawking) & radiated power of a black hole & W & Ch.~\ref{ch:blackholes}\\\rowrule
+$\Gamma$ (horizon) & rate at which horizon bits leave, $P/\kB T_{\rm BH}\ln2$ & bit\,s$^{-1}$ & Ch.~\ref{ch:blackholes}\\\rowrule
+$\tau_{\rm evap}$ & evaporation time (black-body approximation) & s, yr & Ch.~\ref{ch:blackholes}\\\rowrule
+$M_{\rm eq}$, $M_{\rm CMB}$ & black-hole mass in thermal balance with the cosmic horizon; with the CMB & $M_\odot$; kg & Ch.~\ref{ch:blackholes}\\\rowrule
+$r_s$, $R_s$ & Schwarzschild radius $2GM/c^2$ & m & Ch.~\ref{ch:blackholes}\\\rowrule
+$k^a$, $\lambda$, $\chi^a$ & null generator, affine parameter and approximate boost Killing vector of a local Rindler horizon & --- & Ch.~\ref{ch:theory}\\\rowrule
+$\theta$, $\sigma_{ab}$ & expansion and shear of the horizon generators (Raychaudhuri equation) & --- & Ch.~\ref{ch:theory}\\\rowrule
+$T_{ab}$, $R_{ab}$, $R$, $G_{ab}$, $g_{ab}$ & stress tensor, Ricci tensor and scalar, Einstein tensor, metric & --- & Ch.~\ref{ch:theory}\\\rowrule
+$C_{\mu\nu\rho\sigma}$ & Weyl tensor (zero in exact FRW) & --- & Ch.~\ref{ch:theory}\\\rowrule
+$\tilde r_A$ & apparent-horizon radius $c/H$ of flat FRW & m & Ch.~\ref{ch:theory}\\\rowrule
+$E$ (Misner--Sharp) & energy inside the apparent horizon & J & Ch.~\ref{ch:theory}\\\rowrule
 $\tau$ (proper time) & proper time along a worldline; $d\tau=0$ on a null worldline & s & Ch.~\ref{ch:dsnote}\\
 \bottomrule\end{longtable}}
 \subsection*{Cosmology}
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}@{}}
 \toprule symbol & meaning & units & where\\\midrule\endhead
 $a$, $z$ & scale factor ($a=1$ today) and redshift, $a=1/(1+z)$ & --- & Ch.~\ref{ch:iams_law}\\
-$H$, $H_0$ & Hubble rate and its present value & km\,s$^{-1}$\,Mpc$^{-1}$ & Ch.~\ref{ch:iams_law}\\
-$H_m$, $H_{\rm IAM}$ & matter-sector expansion rate felt by matter perturbations & km\,s$^{-1}$\,Mpc$^{-1}$ & Ch.~\ref{ch:theory}\\
-$H_{\Lambda\rm CDM}$ & background ($\Lambda$CDM, photon-sector) rate & km\,s$^{-1}$\,Mpc$^{-1}$ & Ch.~\ref{ch:iams_law}\\
-$S_{\rm geo}$, $S_{\rm info}$, $S_{\rm total}$ & geometric (area) entropy of the horizon; entropy of the records; their sum & J\,K$^{-1}$ & Ch.~\ref{ch:iams_law}\\
-$E(a)$ & activation function $\exp(1-1/a)$, $E(1)=1$ & --- & Ch.~\ref{ch:iams_law}\\
-$\phi$, $\varphi$ (record) & $\ln E(a)=1-1/a$, the constrained record variable & --- & Ch.~\ref{ch:theory}\\
-$\lambda$ (action) & Lagrange multiplier of the record constraint & --- & Ch.~\ref{ch:theory}\\
-$\rho_{\rm info}$ & energy density of the record term, $(3H_0^2/8\pi G)\beta_mE(a)$ & J\,m$^{-3}$ & Ch.~\ref{ch:theory}\\
-$\beta_m$, $\beta$ & matter-sector coupling $\Omega_m/2$ & --- & Ch.~\ref{ch:virial}\\
-$\beta_\gamma$ & a separate photon-sector coupling (bounded $<0.0039$) & --- & Ch.~\ref{ch:dsvalidation}\\
-$\dot I$ & rate of record (information or energy) production by structure formation & --- & Ch.~\ref{ch:theory}\\
-$n$ (structure) & exponent of $D^n$ in the record rate; $7/2$ & --- & Ch.~\ref{ch:theory}\\
-$n_{\rm eff}$ & bottom-up running exponent from halo statistics & --- & Ch.~\ref{ch:quantumrecords}\\
-$\mu(a)$, $\Sigma(a)$ & growth and lensing couplings of the $\mu$--$\Sigma$ parametrisation & --- & Ch.~\ref{ch:latetime}\\
-$\mu_0$, $\Sigma_0$ & their present departures from 1 & --- & Ch.~\ref{ch:latetime}\\
-$\Phi$, $\Psi$ & metric potentials in conformal Newtonian gauge & --- & Ch.~\ref{ch:latetime}\\
-$\delta_m$, $\bar\rho_m$ & matter density contrast; mean matter density & ---; kg\,m$^{-3}$ & Ch.~\ref{ch:iams_law}\\
-$D(a)$, $f$ & linear growth factor ($D(1)=1$); growth rate $d\ln D/d\ln a$ & --- & Ch.~\ref{ch:iams_law}\\
-$\gamma$ & growth index, $f=\Omega_m(a)^\gamma$ & --- & Ch.~\ref{ch:s8trend}\\
-$\Omega_m$, $\Omega_b$, $\Omega_{\rm dm}$, $\Omega_\Lambda$, $\Omega_r$ & density parameters: matter, baryons, dark matter, vacuum, radiation & --- & Ch.~\ref{ch:virial}\\
-$\Omega_{\rm DE}(a)$ & dark-energy fraction used in the MGCAMB form of $\mu$ & --- & Ch.~\ref{ch:latetime}\\
-$\omega_b$, $\omega_c$ & physical densities $\Omega_bh^2$, $\Omega_ch^2$ & --- & Ch.~\ref{ch:level2}\\
-$h$ & $H_0/(100$~km\,s$^{-1}$\,Mpc$^{-1})$ & --- & Ch.~\ref{ch:baryon}\\
-$\sigma_8$, $S_8$ & rms linear fluctuation in $8h^{-1}$\,Mpc spheres; $S_8=\sigma_8\sqrt{\Omega_m/0.3}$ & --- & Ch.~\ref{ch:latetime}\\
-$f\sigma_8$ & growth rate times amplitude, measured by redshift-space distortions & --- & Ch.~\ref{ch:latetime}\\
-$E_G$ & lensing-to-clustering ratio; $\Omega_m\Sigma/f$ & --- & Ch.~\ref{ch:virial}\\
-$w$, $w_{\rm info}$, $w_{\rm eff}$, $w_0$, $w_a$ & equation of state: of the record term; of vacuum plus record; CPL parameters & --- & Ch.~\ref{ch:theory}\\
-$\theta_s$, $\theta_{\rm MC}$, $r_d$ & acoustic angular scale; its CosmoMC approximation; sound horizon at the drag epoch & rad; Mpc & Ch.~\ref{ch:dsvalidation}\\
-$D_M$, $D_H$, $D_A$, $d_L$ & comoving, Hubble, angular-diameter and luminosity distances & Mpc & Ch.~\ref{ch:sectortension}\\
-$\tau$ (reionisation), $A_s$, $n_s$ & optical depth; amplitude and tilt of the primordial spectrum & --- & Ch.~\ref{ch:level2}\\
-$\chi^2$, $\Delta\chi^2$, $R-1$ & fit statistic; IAM minus $\Lambda$CDM; Gelman--Rubin convergence & --- & Ch.~\ref{ch:dual}\\
-$f_{\rm coll}$, $\eta_{\rm vir}$ & collapsed fraction of matter; virial efficiency $1/(2f_{\rm coll})$ & --- & Ch.~\ref{ch:theory}\\
-$R(a)$ & matter density over the record term, $\Omega_ma^{-3}/\beta_mE(a)$ & --- & Ch.~\ref{ch:virial}\\
-$\rho_\Lambda$, $\rho_{\rm vac}$, $E_P$ & measured dark-energy density; Planck-cutoff vacuum density; Planck energy & J\,m$^{-3}$; J & Ch.~\ref{ch:lambda}\\
-$l_H$, $l_P$ & Hubble length $c/H_0$; Planck length (written $\lP$ elsewhere) & m & Ch.~\ref{ch:lambda}\\
-$\eta$ (baryons) & baryon-to-photon ratio $(n_b-n_{\bar b})/n_\gamma$ & --- & Ch.~\ref{ch:baryon}\\
-$\ell$, $C_\ell$ & multipole and angular power spectrum & --- & Ch.~\ref{ch:translation}\\
-$A_{\rm ISW}$, $C_L^{\phi\phi}$ & ISW--galaxy cross-correlation amplitude; CMB lensing power spectrum & --- & Ch.~\ref{ch:surveys}\\
-$H_0^{\rm m}$, $H_0^{\gamma}$ & matter-sector and photon-sector Hubble constants (also written $H_0^{(m)}$, $H_0^{(\gamma)}$) & km\,s$^{-1}$\,Mpc$^{-1}$ & Ch.~\ref{ch:surveys}\\
-$M_{\rm lens}$, $M_{\rm dyn}$, $M_{\rm hydro}$, $M_{\rm SZ}$ & weak-lensing, dynamical, X-ray hydrostatic and SZ masses of a cluster & $M_\odot$ & Chs.~\ref{ch:lensdyn}, \ref{ch:threeway}\\
-$R(z)$ (clusters) & lensing-to-hydrostatic mass ratio, $1/\mu(z)$ in the Level~1 form & --- & Ch.~\ref{ch:threeway}\\
-$C_{\rm NT}$, $1-b$, $Y$ & non-thermal pressure factor; hydrostatic mass bias; integrated SZ signal & --- & Chs.~\ref{ch:lensdyn}, \ref{ch:threeway}\\
-$\nu$, $\delta_c$, $\sigma_M$ & peak height $\delta_c/\sigma_M$; collapse threshold; rms linear fluctuation on mass scale $M$ & --- & Ch.~\ref{ch:satellites}\\
-$H_\infty$ & asymptotic expansion rate as $a\to\infty$ & km\,s$^{-1}$\,Mpc$^{-1}$ & Ch.~\ref{ch:wzfuture}\\
+\rowrule $H$, $H_0$ & Hubble rate and its present value & km\,s$^{-1}$\,Mpc$^{-1}$ & Ch.~\ref{ch:iams_law}\\
+\rowrule $H_m$, $H_{\rm IAM}$ & matter-sector expansion rate felt by matter perturbations & km\,s$^{-1}$\,Mpc$^{-1}$ & Ch.~\ref{ch:theory}\\
+\rowrule $H_{\Lambda\rm CDM}$ & background ($\Lambda$CDM, photon-sector) rate & km\,s$^{-1}$\,Mpc$^{-1}$ & Ch.~\ref{ch:iams_law}\\
+\rowrule $S_{\rm geo}$, $S_{\rm info}$, $S_{\rm total}$ & geometric (area) entropy of the horizon; entropy of the records; their sum & J\,K$^{-1}$ & Ch.~\ref{ch:iams_law}\\
+\rowrule $E(a)$ & activation function $\exp(1-1/a)$, $E(1)=1$ & --- & Ch.~\ref{ch:iams_law}\\
+\rowrule $\phi$, $\varphi$ (record) & $\ln E(a)=1-1/a$, the constrained record variable & --- & Ch.~\ref{ch:theory}\\
+\rowrule $\lambda$ (action) & Lagrange multiplier of the record constraint & --- & Ch.~\ref{ch:theory}\\
+\rowrule $\rho_{\rm info}$ & density of the record term, $(3H_0^2/8\pi G)\beta_mE(a)$ (times $c^2$ for an energy density) & kg\,m$^{-3}$ & Ch.~\ref{ch:theory}\\
+\rowrule $\beta_m$, $\beta$ & matter-sector coupling $\Omega_m/2$ & --- & Ch.~\ref{ch:virial}\\
+\rowrule $\beta_\gamma$ & a separate photon-sector coupling (bounded $<0.0039$) & --- & Ch.~\ref{ch:dsvalidation}\\
+\rowrule $\dot I$ & rate of record (information or energy) production by structure formation & --- & Ch.~\ref{ch:theory}\\
+\rowrule $n$ (structure) & exponent of $D^n$ in the record rate; $7/2$ & --- & Ch.~\ref{ch:theory}\\
+\rowrule $n_{\rm eff}$ & bottom-up running exponent from halo statistics & --- & Ch.~\ref{ch:quantumrecords}\\
+\rowrule $\mu(a)$, $\Sigma(a)$ & growth and lensing couplings of the $\mu$--$\Sigma$ parametrisation & --- & Ch.~\ref{ch:latetime}\\
+\rowrule $\mu_0$, $\Sigma_0$ & their present departures from 1 & --- & Ch.~\ref{ch:latetime}\\
+\rowrule $\Phi$, $\Psi$ & metric potentials in conformal Newtonian gauge & --- & Ch.~\ref{ch:latetime}\\
+\rowrule $\delta_m$, $\bar\rho_m$ & matter density contrast; mean matter density & ---; kg\,m$^{-3}$ & Ch.~\ref{ch:iams_law}\\
+\rowrule $D(a)$, $f$ & linear growth factor ($D(1)=1$); growth rate $d\ln D/d\ln a$ & --- & Ch.~\ref{ch:iams_law}\\
+\rowrule $\gamma$ & growth index, $f=\Omega_m(a)^\gamma$ & --- & Ch.~\ref{ch:s8trend}\\
+\rowrule $\Omega_m$, $\Omega_b$, $\Omega_{\rm dm}$, $\Omega_\Lambda$, $\Omega_r$ & density parameters: matter, baryons, dark matter, vacuum, radiation & --- & Ch.~\ref{ch:virial}\\
+\rowrule $\Omega_{\rm DE}(a)$ & dark-energy fraction used in the MGCAMB form of $\mu$ & --- & Ch.~\ref{ch:latetime}\\
+\rowrule $\omega_b$, $\omega_c$ & physical densities $\Omega_bh^2$, $\Omega_ch^2$ & --- & Ch.~\ref{ch:level2}\\
+\rowrule $h$ & $H_0/(100$~km\,s$^{-1}$\,Mpc$^{-1})$ & --- & Ch.~\ref{ch:baryon}\\
+\rowrule $\sigma_8$, $S_8$ & rms linear fluctuation in $8h^{-1}$\,Mpc spheres; $S_8=\sigma_8\sqrt{\Omega_m/0.3}$ & --- & Ch.~\ref{ch:latetime}\\
+\rowrule $f\sigma_8$ & growth rate times amplitude, measured by redshift-space distortions & --- & Ch.~\ref{ch:latetime}\\
+\rowrule $E_G$ & lensing-to-clustering ratio; $\Omega_m\Sigma/f$ & --- & Ch.~\ref{ch:virial}\\
+\rowrule $w$, $w_{\rm info}$, $w_{\rm eff}$, $w_0$, $w_a$ & equation of state: of the record term; of vacuum plus record; CPL parameters & --- & Ch.~\ref{ch:theory}\\
+\rowrule $\theta_s$, $\theta_{\rm MC}$, $r_d$ & acoustic angular scale; its CosmoMC approximation; sound horizon at the drag epoch & rad; Mpc & Ch.~\ref{ch:dsvalidation}\\
+\rowrule $D_M$, $D_H$, $D_A$, $d_L$ & comoving, Hubble, angular-diameter and luminosity distances & Mpc & Ch.~\ref{ch:sectortension}\\
+\rowrule $\tau$ (reionisation), $A_s$, $n_s$ & optical depth; amplitude and tilt of the primordial spectrum & --- & Ch.~\ref{ch:level2}\\
+\rowrule $\chi^2$, $\Delta\chi^2$, $R-1$ & fit statistic; IAM minus $\Lambda$CDM; Gelman--Rubin convergence & --- & Ch.~\ref{ch:dual}\\
+\rowrule $f_{\rm coll}$, $\eta_{\rm vir}$ & collapsed fraction of matter; virial efficiency $1/(2f_{\rm coll})$ & --- & Ch.~\ref{ch:theory}\\
+\rowrule $R(a)$ & matter density over the record term, $\Omega_ma^{-3}/\beta_mE(a)$ & --- & Ch.~\ref{ch:virial}\\
+\rowrule $\rho_\Lambda$, $\rho_{\rm vac}$, $E_P$ & measured dark-energy density; Planck-cutoff vacuum density; Planck energy & J\,m$^{-3}$; J & Ch.~\ref{ch:lambda}\\
+\rowrule $l_H$, $l_P$ & Hubble length $c/H_0$; Planck length (written $\lP$ elsewhere) & m & Ch.~\ref{ch:lambda}\\
+\rowrule $\eta$ (baryons) & baryon-to-photon ratio $(n_b-n_{\bar b})/n_\gamma$ & --- & Ch.~\ref{ch:baryon}\\
+\rowrule $\ell$, $C_\ell$ & multipole and angular power spectrum & --- & Ch.~\ref{ch:translation}\\
+\rowrule $A_{\rm ISW}$, $C_L^{\phi\phi}$ & ISW--galaxy cross-correlation amplitude; CMB lensing power spectrum & --- & Ch.~\ref{ch:surveys}\\
+\rowrule $H_0^{\rm m}$, $H_0^{\gamma}$ & matter-sector and photon-sector Hubble constants (also written $H_0^{(m)}$, $H_0^{(\gamma)}$) & km\,s$^{-1}$\,Mpc$^{-1}$ & Ch.~\ref{ch:surveys}\\
+\rowrule $M_{\rm lens}$, $M_{\rm dyn}$, $M_{\rm hydro}$, $M_{\rm SZ}$ & weak-lensing, dynamical, X-ray hydrostatic and SZ masses of a cluster & $M_\odot$ & Chs.~\ref{ch:lensdyn}, \ref{ch:threeway}\\
+\rowrule $R(z)$ (clusters) & lensing-to-hydrostatic mass ratio, $1/\mu(z)$ in the Level~1 form & --- & Ch.~\ref{ch:threeway}\\
+\rowrule $C_{\rm NT}$, $1-b$, $Y$ & non-thermal pressure factor; hydrostatic mass bias; integrated SZ signal & --- & Chs.~\ref{ch:lensdyn}, \ref{ch:threeway}\\
+\rowrule $\nu$, $\delta_c$, $\sigma_M$ & peak height $\delta_c/\sigma_M$; collapse threshold; rms linear fluctuation on mass scale $M$ & --- & Ch.~\ref{ch:satellites}\\
+\rowrule $H_\infty$ & asymptotic expansion rate as $a\to\infty$ & km\,s$^{-1}$\,Mpc$^{-1}$ & Ch.~\ref{ch:wzfuture}\\
 \bottomrule\end{longtable}}
 \subsection*{Particles and quantum measurement}
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}@{}}
 \toprule symbol & meaning & units & where\\\midrule\endhead
 $E_G$ & gravitational self-energy of a superposed mass, $\simeq Gm^2/R$ & J & Ch.~\ref{ch:gravdec}\\
-$\tau_{\rm DP}$, $\tau_{\rm IAM}$ & Di\'osi--Penrose collapse time; IAM decoherence time $\hbar\kB^2T^2\ln2/E_G^3$ & s & Ch.~\ref{ch:gravdec}\\
-$E_q(\eta)$, $\eta=t/\tau_{\rm IAM}$ & assumed coherence ramp $\exp(1-1/\eta)$ & --- & Ch.~\ref{ch:gravdec}\\
-$C_{\rm IAM}$, $D(t)$ & coherence, and the decoherence fraction $E_q/e$ & --- & Ch.~\ref{ch:nonlocal}\\
-$S$ (CHSH) & Bell--CHSH correlation; $|S|\le2$ local, $2\sqrt2$ quantum & --- & Ch.~\ref{ch:nonlocal}\\
-$F_{\rm IAM}$ & proposed erasure fidelity of a quantum eraser & --- & Ch.~\ref{ch:measurement}\\
-$m_e$, $\alpha$, $\mP$ & electron mass, fine-structure constant, Planck mass & kg; ---; kg & Ch.~\ref{ch:electronmass}\\
-$N(m)$, $f(\alpha)$ & encoding-cell count and electromagnetic suppression factor of the electron fixed point & --- & Ch.~\ref{ch:electronmass}\\
-$Q$ (Koide) & Koide ratio of the charged-lepton masses & --- & Ch.~\ref{ch:koide}\\
-$x$, $y$, $\delta$, $\phi_k$ & constant mode, first harmonic, offset and phases of the charge-orbit encoding & MeV$^{1/2}$; rad & Ch.~\ref{ch:koide}\\
-$v$, $y_f$ & Higgs vacuum expectation value $(\sqrt2G_F)^{-1/2}=246.22$~GeV; Yukawa coupling, $m_f=y_fv/\sqrt2$ & GeV; --- & Chs.~\ref{ch:electroweak}, \ref{ch:higgsrecord}\\
-$T_c$, $g_*$ & centre of the electroweak crossover (159.5~GeV); effective relativistic degrees of freedom (106.75) & GeV; --- & Ch.~\ref{ch:electroweak}\\
-$\alpha_s$, $\sigma$ (string) & strong coupling and string tension of the Cornell potential ($\sigma\approx0.18$~GeV$^2$) & ---; GeV$^2$ & Ch.~\ref{ch:electroweak}\\
-$M_W$, $M_Z$, $\Gamma_t$ & $W$ and $Z$ masses (80.4, 91.2~GeV); top-quark width (1.42~GeV) & GeV & Chs.~\ref{ch:electroweak}, \ref{ch:entanglement}\\
-$c(t)$, $S_{\max}$ & pointer-basis coherence factor; largest CHSH value $2\sqrt{1+c^2}$ & --- & Ch.~\ref{ch:entanglement}\\
-$T$ (correlation) & two-qubit correlation matrix, $T={\rm diag}(c,-c,1)$ for a pointer-basis dephased pair & --- & Ch.~\ref{ch:entanglement}\\
+\rowrule $\tau_{\rm DP}$, $\tau_{\rm IAM}$ & Di\'osi--Penrose collapse time; IAM decoherence time $\hbar\kB^2T^2\ln2/E_G^3$ & s & Ch.~\ref{ch:gravdec}\\
+\rowrule $E_q(\eta)$, $\eta=t/\tau_{\rm IAM}$ & assumed coherence ramp $\exp(1-1/\eta)$ & --- & Ch.~\ref{ch:gravdec}\\
+\rowrule $C_{\rm IAM}$, $D(t)$ & coherence, and the decoherence fraction $E_q/e$ & --- & Ch.~\ref{ch:nonlocal}\\
+\rowrule $S$ (CHSH) & Bell--CHSH correlation; $|S|\le2$ local, $2\sqrt2$ quantum & --- & Ch.~\ref{ch:nonlocal}\\
+\rowrule $F_{\rm IAM}$ & proposed erasure fidelity of a quantum eraser & --- & Ch.~\ref{ch:measurement}\\
+\rowrule $m_e$, $\alpha$, $\mP$ & electron mass, fine-structure constant, Planck mass & kg; ---; kg & Ch.~\ref{ch:electronmass}\\
+\rowrule $N(m)$, $f(\alpha)$ & encoding-cell count and electromagnetic suppression factor of the electron fixed point & --- & Ch.~\ref{ch:electronmass}\\
+\rowrule $Q$ (Koide) & Koide ratio of the charged-lepton masses & --- & Ch.~\ref{ch:koide}\\
+\rowrule $x$, $y$, $\delta$, $\phi_k$ & constant mode, first harmonic, offset and phases of the charge-orbit encoding & MeV$^{1/2}$; rad & Ch.~\ref{ch:koide}\\
+\rowrule $v$, $y_f$ & Higgs vacuum expectation value $(\sqrt2G_F)^{-1/2}=246.22$~GeV; Yukawa coupling, $m_f=y_fv/\sqrt2$ & GeV; --- & Chs.~\ref{ch:electroweak}, \ref{ch:higgsrecord}\\
+\rowrule $T_c$, $g_*$ & centre of the electroweak crossover (159.5~GeV); effective relativistic degrees of freedom (106.75) & GeV; --- & Ch.~\ref{ch:electroweak}\\
+\rowrule $\alpha_s$, $\sigma$ (string) & strong coupling and string tension of the Cornell potential ($\sigma\approx0.18$~GeV$^2$) & ---; GeV$^2$ & Ch.~\ref{ch:electroweak}\\
+\rowrule $M_W$, $M_Z$, $\Gamma_t$ & $W$ and $Z$ masses (80.4, 91.2~GeV); top-quark width (1.42~GeV) & GeV & Chs.~\ref{ch:electroweak}, \ref{ch:entanglement}\\
+\rowrule $c(t)$, $S_{\max}$ & pointer-basis coherence factor; largest CHSH value $2\sqrt{1+c^2}$ & --- & Ch.~\ref{ch:entanglement}\\
+\rowrule $T$ (correlation) & two-qubit correlation matrix, $T={\rm diag}(c,-c,1)$ for a pointer-basis dephased pair & --- & Ch.~\ref{ch:entanglement}\\
 \bottomrule\end{longtable}}
 \subsection*{Qubits and chips}
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}@{}}
 \toprule symbol & meaning & units & where\\\midrule\endhead
 $E_C$, $E_J$, $\hat n$, $n_g$, $\hat\varphi$ & transmon charging and Josephson energies, charge operator, offset charge, phase & J; --- & Ch.~\ref{ch:scprimer}\\
-$\omega_q$ & qubit angular frequency ($\omega_q/2\pi\approx4$--6~GHz) & rad\,s$^{-1}$ & Ch.~\ref{ch:scprimer}\\
-$\Delta$ & superconducting gap ($\Delta_{\rm Al}\approx180$--182~$\mu$eV) & J (eV) & Ch.~\ref{ch:scprimer}\\
-$\xqp$, $n_{\rm qp}$, $\ncp$ & quasiparticle density per Cooper pair; quasiparticle and pair densities, $\ncp=2\nu_0\Delta$ & ---; m$^{-3}$ & Ch.~\ref{ch:xqp}\\
-$\nu_0$ & single-spin density of states at the Fermi level (not the peak height $\nu$) & J$^{-1}$\,m$^{-3}$ & Ch.~\ref{ch:xqp}\\
-$\Gamma_1^{\rm qp}$, $T_1$, $T_2$, $T_\phi$ & quasiparticle relaxation rate; relaxation, coherence and pure-dephasing times & s$^{-1}$; s & Ch.~\ref{ch:scprimer}\\
-$\tqp$, $\tTLS$ & quasiparticle lifetime; TLS switching time & s & Ch.~\ref{ch:xqp}\\
-$N$ (TLS), $V$ & number of active fluctuator sites; island volume & ---; m$^3$ & Ch.~\ref{ch:xqp}\\
-$\lamL$ & London penetration depth & m & Ch.~\ref{ch:xqp}\\
-$p$, $p_{2Q}$ & two-qubit gate error probability & --- & Ch.~\ref{ch:ascoreqc}\\
-$\varepsilon$ (qubit) & gate error in nats, $-\ln(1-p_{2Q})$ & nat & Ch.~\ref{ch:ascoreqc}\\
-$p_{\rm eq}$ & thermal occupation of the wrong level, $1/(1+e^{hf/\kB T})$, at the temperature the record sees & --- & Ch.~\ref{ch:qplatforms}\\
-$p_{\rm th}$ & thermal floor of one gate, $p_{\rm eq}t_g/T_1$; the left-hand mark of the qubit gauge & --- & Chs.~\ref{ch:ascoreqc},~\ref{ch:qplatforms}\\
-$p_{\rm coh}$, $p_{\rm mat}$, $p_{\rm ctrl}$ & coherence, material and control parts of a two-qubit error & --- & Ch.~\ref{ch:walls}\\
-$T_1^*$, $T_{1,\rm free}$ & coherence optimum $r/(1+r)\,T_{1,\rm free}$, $r=\sqrt{a/b}$, beyond which a longer $T_1$ no longer lowers the two-qubit error in the model; the material's coherence ceiling & s & Ch.~\ref{ch:walls}\\
-$t_g$ & gate duration & s & Ch.~\ref{ch:walls}\\
-$\alpha$ (coupler) & crosstalk cost per added coupler & --- & Ch.~\ref{ch:walls}\\
-$T_j$ & junction temperature of a chip & K & Ch.~\ref{ch:cmos}\\
-$E_{\rm sw}$ & energy per transistor switch, $\mathrm{TDP}/(N_{\rm trans}f)$ & J & Ch.~\ref{ch:cmos}\\
-TDP, $N_{\rm trans}$, $f$ & thermal design power; transistor count; clock frequency & W; ---; Hz & Ch.~\ref{ch:cmos}\\
-$A_{\rm chip}$ & $E_{\rm sw}/\kB T_j\ln2$, the chip's distance above the Landauer floor (not the one-gauge $A$, which is $E_{\rm sw}$ over the chip as built) & --- & Ch.~\ref{ch:cmos}\\
-$n_{\rm floor}$ & generations a constant step $s$ could run before a chip at $R$ times its floor reaches it, $\ln R/[-\ln(1-s)]$ & --- & Ch.~\ref{ch:chipgen}\\
-$\kappa$ (Dennard) & linear scaling factor of the 1974 Dennard rules & --- & Ch.~\ref{ch:cmos}\\
+\rowrule $\omega_q$ & qubit angular frequency ($\omega_q/2\pi\approx4$--6~GHz) & rad\,s$^{-1}$ & Ch.~\ref{ch:scprimer}\\
+\rowrule $\Delta$ & superconducting gap ($\Delta_{\rm Al}\approx180$--182~$\mu$eV) & J (eV) & Ch.~\ref{ch:scprimer}\\
+\rowrule $\xqp$, $n_{\rm qp}$, $\ncp$ & quasiparticle density per Cooper pair; quasiparticle and pair densities, $\ncp=2\nu_0\Delta$ & ---; m$^{-3}$ & Ch.~\ref{ch:xqp}\\
+\rowrule $\nu_0$ & single-spin density of states at the Fermi level (not the peak height $\nu$) & J$^{-1}$\,m$^{-3}$ & Ch.~\ref{ch:xqp}\\
+\rowrule $\Gamma_1^{\rm qp}$, $T_1$, $T_2$, $T_\phi$ & quasiparticle relaxation rate; relaxation, coherence and pure-dephasing times & s$^{-1}$; s & Ch.~\ref{ch:scprimer}\\
+\rowrule $\tqp$, $\tTLS$ & quasiparticle lifetime; TLS switching time & s & Ch.~\ref{ch:xqp}\\
+\rowrule $N$ (TLS), $V$ & number of active fluctuator sites; island volume & ---; m$^3$ & Ch.~\ref{ch:xqp}\\
+\rowrule $\lamL$ & London penetration depth & m & Ch.~\ref{ch:xqp}\\
+\rowrule $p$, $p_{2Q}$ & two-qubit gate error probability & --- & Ch.~\ref{ch:ascoreqc}\\
+\rowrule $\varepsilon$ (qubit) & gate error in nats, $-\ln(1-p_{2Q})$ & nat & Ch.~\ref{ch:ascoreqc}\\
+\rowrule $p_{\rm eq}$ & thermal occupation of the wrong level, $1/(1+e^{hf/\kB T})$, at the temperature the record sees & --- & Ch.~\ref{ch:qplatforms}\\
+\rowrule $p_{\rm th}$ & thermal floor of one gate, $p_{\rm eq}t_g/T_1$; the left-hand mark of the qubit gauge & --- & Chs.~\ref{ch:ascoreqc},~\ref{ch:qplatforms}\\
+\rowrule $p_{\rm coh}$, $p_{\rm mat}$, $p_{\rm ctrl}$ & coherence, material and control parts of a two-qubit error & --- & Ch.~\ref{ch:walls}\\
+\rowrule $T_1^*$, $T_{1,\rm free}$ & coherence optimum $r/(1+r)\,T_{1,\rm free}$, $r=\sqrt{a/b}$, beyond which a longer $T_1$ no longer lowers the two-qubit error in the model; the material's coherence ceiling & s & Ch.~\ref{ch:walls}\\
+\rowrule $t_g$ & gate duration & s & Ch.~\ref{ch:walls}\\
+\rowrule $\alpha$ (coupler) & crosstalk cost per added coupler & --- & Ch.~\ref{ch:walls}\\
+\rowrule $T_j$ & junction temperature of a chip & K & Ch.~\ref{ch:cmos}\\
+\rowrule $E_{\rm sw}$ & energy per transistor switch, $\mathrm{TDP}/(N_{\rm trans}f)$ & J & Ch.~\ref{ch:cmos}\\
+\rowrule TDP, $N_{\rm trans}$, $f$ & thermal design power; transistor count; clock frequency & W; ---; Hz & Ch.~\ref{ch:cmos}\\
+\rowrule $A_{\rm chip}$ & $E_{\rm sw}/\kB T_j\ln2$, the chip's distance above the Landauer floor (not the one-gauge $A$, which is $E_{\rm sw}$ over the chip as built) & --- & Ch.~\ref{ch:cmos}\\
+\rowrule $n_{\rm floor}$ & generations a constant step $s$ could run before a chip at $R$ times its floor reaches it, $\ln R/[-\ln(1-s)]$ & --- & Ch.~\ref{ch:chipgen}\\
+\rowrule $\kappa$ (Dennard) & linear scaling factor of the 1974 Dennard rules & --- & Ch.~\ref{ch:cmos}\\
 \bottomrule\end{longtable}}
 \subsection*{Cells and the instrument}
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}@{}}
 \toprule symbol & meaning & units & where\\\midrule\endhead
-$\beta$, $\beta_i$ & methylated fraction of the copies at a CpG (site $i$) & --- & Ch.~\ref{ch:surface}\\
-$\bbar$, $\overline H$ & mean $\beta$ over a set of sites; mean of the per-site entropies & ---; bit & Ch.~\ref{ch:surface}\\
-$\varepsilon$ (cell) & per-molecule copy error: isolated unmethylated calls over opportunities & --- & Ch.~\ref{ch:iama}\\
-$\varepsilon_0$ (cell) & thermal floor of the copy error, $1/(1+e^{\varphi\mathcal M})=0.032$ & --- & Ch.~\ref{ch:iama}\\
-$E_{\rm hold}$ & holding energy per site, $\kB T\ln[(1-\varepsilon)/\varepsilon]$ & J ($\kB T$) & Ch.~\ref{ch:landauer}\\
-$\varphi$, $\phi$ (cell) & fraction of one ATP per held bit, $E_{\rm hold}/\mathcal M\kB T$ & --- & Ch.~\ref{ch:landauer}\\
-$\Delta\Delta G$ & discrimination free energy of a copying step & J ($\kB T$) & Ch.~\ref{ch:landauer}\\
-$u$, $d$, $\beta_{\rm ss}$ & per-division loss and gain probabilities; steady-state $\beta$ & --- & Ch.~\ref{ch:surface}\\
-$A$ & informational fidelity ratio: reading over the healthy reference & --- & Ch.~\ref{ch:gauge}\\
-$A_{\rm rel}$ & tared reading $A/\mathrm{median}(A_{\rm ref})$ & --- & Ch.~\ref{ch:chain}\\
-$\Hmin$ & the floor: lowest error a system can hold before thermal kicks win & bit (cells) & Ch.~\ref{ch:gauge}\\
-$H_{\rm ref}$ & Met-A healthy reference, mean $H(\beta)$ on purified healthy cells & bit & Ch.~\ref{ch:meta}\\
-$P_{\rm cell}$ & healthy cell type's position above the IAM-A floor & --- & Ch.~\ref{ch:iama}\\
-$\mathcal I$ & set of a cell's identity sites (loci) & --- & Ch.~\ref{ch:meta}\\
-$f_g$, $f_{\rm neu}$ & fraction of the specimen's DNA from blood group $g$; neutrophil fraction & --- & Ch.~\ref{ch:separation}\\
-$\mu_{g,i}$, $\mu_{ic}$ & healthy methylation profile of group $g$ at site $i$ (Stage~A); atlas cell mean of cell $c$ at locus $i$ & --- & Chs.~\ref{ch:separation}, \ref{ch:atlas}\\
-$e_i$ & composition-matched healthy expectation $\sum_gf_g\mu_{g,i}$ & --- & Ch.~\ref{ch:meta}\\
-$\epsilon_i$ & residual noise of the mixture model & --- & Ch.~\ref{ch:separation}\\
-$z_i$ & residual of identity site $i$, $(H(\beta_i)-H(\mathrm{ref}_i))/s_i$, behind the C-score and the sky & --- & Chs.~\ref{ch:cscore}, \ref{ch:sky}\\
-$s_i$, $s_{ic}$ & shrunk healthy spread of $H$ at site $i$; atlas posterior SD of cell $c$ & --- & Ch.~\ref{ch:cscore}\\
-$c$, $C$ & clustering of the residual map; C-score $c/c_{\rm healthy}$ & --- & Ch.~\ref{ch:cscore}\\
-$\sigma_{\rm copies}$ & binomial floor $\sqrt{\beta(1-\beta)/2N}$ from $N$ genome copies & --- & Ch.~\ref{ch:sky}\\
-$P_{\rm span}$ & projector onto the span of the reference cell profiles (out-of-span map, not built) & --- & Ch.~\ref{ch:sky}\\
-$m_i$, $\delta_{is}$, $\tau$ & atlas locus level, source term of source $s$, cell-to-cell spread & --- & Ch.~\ref{ch:atlas}\\
-$n_{\rm obs}$, $\hat R$ & observations behind an atlas value; convergence statistic of the fit & --- & Ch.~\ref{ch:atlas}\\
-$M$, $U$, $\alpha$ (array) & methylated and unmethylated intensities; offset in $\beta=M/(M+U+\alpha)$ & --- & Ch.~\ref{ch:instrument}\\
-$C(d)$ & correlation of methylation between two CpGs $d$ bases apart & --- & Ch.~\ref{ch:skytools}\\
-$\Delta A$, $\Delta\beta$ & change between two draws of one person (now minus prior) & --- & Ch.~\ref{ch:serial}\\
-$N$ (noise index) & mean $H(\beta)$ of an array over 48,528 EPIC sites held fixed by every purified blood group & bit & Ch.~\ref{ch:instrument}\\
-$f_{\rm read}$ & read line: smallest neutrophil fraction at which Met-A is read in whole blood, 0.20 & --- & Ch.~\ref{ch:chain}\\
+$\beta$, $\beta_i$ & methylated fraction of the copies at a CpG (site $i$) & --- & Ch.~\ref{ch:surface}\\\iamrowrule
+$\bbar$, $\overline H$ & mean $\beta$ over a set of sites; mean of the per-site entropies & ---; bit & Ch.~\ref{ch:surface}\\\iamrowrule
+$\varepsilon$ (cell) & per-molecule copy error: isolated unmethylated calls over opportunities & --- & Ch.~\ref{ch:iama}\\\iamrowrule
+$\varepsilon_0$ (cell) & thermal floor of the copy error, $1/(1+e^{\varphi\mathcal M})=0.032$ & --- & Ch.~\ref{ch:iama}\\\iamrowrule
+$E_{\rm hold}$ & holding energy per site, $\kB T\ln[(1-\varepsilon)/\varepsilon]$ & J ($\kB T$) & Ch.~\ref{ch:landauer}\\\iamrowrule
+$\varphi$, $\phi$ (cell) & fraction of one ATP per held bit, $E_{\rm hold}/\mathcal M\kB T$ & --- & Ch.~\ref{ch:landauer}\\\iamrowrule
+$\Delta\Delta G$ & discrimination free energy of a copying step & J ($\kB T$) & Ch.~\ref{ch:landauer}\\\iamrowrule
+$u$, $d$, $\beta_{\rm ss}$ & per-division loss and gain probabilities; steady-state $\beta$ & --- & Ch.~\ref{ch:surface}\\\iamrowrule
+$A$ & informational fidelity ratio: reading over the healthy reference & --- & Ch.~\ref{ch:gauge}\\\iamrowrule
+$A_{\rm rel}$ & tared reading $A/\mathrm{median}(A_{\rm ref})$ & --- & Ch.~\ref{ch:chain}\\\iamrowrule
+$\Hmin$ & the floor: lowest error a system can hold before thermal kicks win & bit (cells) & Ch.~\ref{ch:gauge}\\\iamrowrule
+$H_{\rm ref}$ & Met-A healthy reference, mean $H(\beta)$ on purified healthy cells & bit & Ch.~\ref{ch:meta}\\\iamrowrule
+$P_{\rm cell}$ & healthy cell type's position above the IAM-A floor & --- & Ch.~\ref{ch:iama}\\\iamrowrule
+$\mathcal I$ & set of a cell's identity sites (loci) & --- & Ch.~\ref{ch:meta}\\\iamrowrule
+$f_g$, $f_{\rm neu}$ & fraction of the specimen's DNA from blood group $g$; neutrophil fraction & --- & Ch.~\ref{ch:separation}\\\iamrowrule
+$\mu_{g,i}$, $\mu_{ic}$ & healthy methylation profile of group $g$ at site $i$ (Stage~A); atlas cell mean of cell $c$ at locus $i$ & --- & Chs.~\ref{ch:separation}, \ref{ch:atlas}\\\iamrowrule
+$e_i$ & composition-matched healthy expectation $\sum_gf_g\mu_{g,i}$ & --- & Ch.~\ref{ch:meta}\\\iamrowrule
+$\epsilon_i$ & residual noise of the mixture model & --- & Ch.~\ref{ch:separation}\\\iamrowrule
+$z_i$ & residual of identity site $i$, $(H(\beta_i)-H(\mathrm{ref}_i))/s_i$, behind the C-score and the sky & --- & Chs.~\ref{ch:cscore}, \ref{ch:sky}\\\iamrowrule
+$s_i$, $s_{ic}$ & shrunk healthy spread of $H$ at site $i$; atlas posterior SD of cell $c$ & --- & Ch.~\ref{ch:cscore}\\\iamrowrule
+$c$, $C$ & clustering of the residual map; C-score $c/c_{\rm healthy}$ & --- & Ch.~\ref{ch:cscore}\\\iamrowrule
+$\sigma_{\rm copies}$ & binomial floor $\sqrt{\beta(1-\beta)/2N}$ from $N$ genome copies & --- & Ch.~\ref{ch:sky}\\\iamrowrule
+$P_{\rm span}$ & projector onto the span of the reference cell profiles (out-of-span map, not built) & --- & Ch.~\ref{ch:sky}\\\iamrowrule
+$m_i$, $\delta_{is}$, $\tau$ & atlas locus level, source term of source $s$, cell-to-cell spread & --- & Ch.~\ref{ch:atlas}\\\iamrowrule
+$n_{\rm obs}$, $\hat R$ & observations behind an atlas value; convergence statistic of the fit & --- & Ch.~\ref{ch:atlas}\\\iamrowrule
+$M$, $U$, $\alpha$ (array) & methylated and unmethylated intensities; offset in $\beta=M/(M+U+\alpha)$ & --- & Ch.~\ref{ch:instrument}\\\iamrowrule
+$C(d)$ & correlation of methylation between two CpGs $d$ bases apart & --- & Ch.~\ref{ch:skytools}\\\iamrowrule
+$\Delta A$, $\Delta\beta$ & change between two draws of one person (now minus prior) & --- & Ch.~\ref{ch:serial}\\\iamrowrule
+$N$ (noise index) & mean $H(\beta)$ of an array over 48,528 EPIC sites held fixed by every purified blood group & bit & Ch.~\ref{ch:instrument}\\\iamrowrule
+$f_{\rm read}$ & read line: smallest neutrophil fraction at which Met-A is read in whole blood, 0.20 & --- & Ch.~\ref{ch:chain}\\\iamrowrule
 $N_{\rm side}$ & HEALPix resolution; $12N_{\rm side}^2$ pixels & --- & Ch.~\ref{ch:skytools}\\
 \bottomrule\end{longtable}}
 \section{Letters with more than one meaning}\label{app:notation:clash}
@@ -303,33 +305,33 @@ Each field keeps its own letters. The context always fixes the meaning; this tab
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.1\textwidth}>{\raggedright\arraybackslash}p{0.84\textwidth}@{}}
 \toprule letter & meanings\\\midrule\endhead
 $A$ & horizon area (Part~\ref{part:2}); the informational fidelity ratio, reading over healthy reference (Parts~\ref{part:3}--\ref{part:4}); $A_s$, primordial amplitude; $A$ in the Sheth--Tormen multiplicity; $A_{\rm ISW}$, ISW amplitude\\
-$M$ & mass; the Mahaffey number (written $\mathcal M$ where a mass is nearby); an array's methylated intensity; the eigenvalue sum of the Horodecki criterion; $M_W$, $M_Z$\\
-$n$ & the structure exponent in $D^n$, $7/2$ (Part~\ref{part:2}); $n_s$, spectral tilt; number of phases in the Koide construction; number of sites; densities $n_{\rm qp}$, $\ncp$, $n_b$\\
-$\beta$ & the coupling $\beta_m$ (cosmology); the methylated fraction (cells); the fitted coefficient in $\exp(\alpha-\beta/a)$ (Chapter~\ref{ch:theory})\\
-$\varepsilon$ & qubit gate error in nats; a cell's copy error; $\varepsilon_0$, the copy-error floor; $\epsilon_i$, mixture noise\\
-$\eta$ & horizon entropy per area; the baryon-to-photon ratio; $\eta_{\rm vir}$, virial efficiency; $\eta=t/\tau_{\rm IAM}$; $\eta=2T/|W|$ in simulation papers; the E\"otv\"os parameter of equivalence-principle tests\\
-$E$ & energy; the activation function $E(a)$; the environment in decoherence; $E_q$, the assumed coherence ramp; $E_G$, gravitational self-energy and also the lensing statistic (context separates them)\\
-$H$ & Hubble rate; binary entropy $H(\beta)$; the transmon Hamiltonian; $\Hmin$, the floor\\
-$S$ & thermodynamic entropy; the CHSH value and its maximum $S_{\max}$; the action $S_{\rm info}$, $S_{\rm EH}$\\
-$T$ & temperature; kinetic energy in $2T/|U|$; $T_{ab}$, stress tensor; $T_1$, $T_2$, coherence times; the CHSH correlation matrix\\
-$N$ & bits on a surface; active TLS sites; genome copies; the array noise index; transistor count $N_{\rm trans}$\\
-$P$ & Hawking power; the cell position $P_{\rm cell}$; pressure; $P_{\rm span}$, a projector; $P(k)$, power spectrum\\
-$Q$ & heat; the Koide ratio; the quality factor of a cavity\\
-$k$ & degree of homogeneity in the virial theorem; wavenumber; $k^a$, null generator\\
-$\kappa$ & surface gravity; the Dennard scaling factor\\
-$\phi$, $\varphi$ & the record variable $\ln E(a)$; the fraction of one ATP per held bit; the condensate phase $\hat\varphi$; Koide phases $\phi_k$\\
-$\lambda$ & Lagrange multiplier; affine parameter; $\lamL$, London depth\\
-$\mu$ & growth coupling; cell profiles $\mu_{ic}$; $\mu_e$, electrons per nucleon in the Chandrasekhar mass\\
-$\sigma$ & $\sigma_8$; standard deviation; velocity dispersion $\sigma_v$; $\sigma_M$; shear $\sigma_{ab}$; Stefan--Boltzmann $\sigma_{\rm SB}$; $\sigma_*$, mass scale; string tension of the Cornell potential\\
-$\tau$ & proper time; optical depth to reionisation; lifetimes $\tqp$, $\tTLS$; decoherence times $\tau_{\rm IAM}$, $\tau_{\rm DP}$; the atlas spread\\
-$\delta$ & density contrast $\delta_m$; Koide offset; atlas source term $\delta_{is}$; Tsallis exponent\\
-$\Delta$ & superconducting gap; Barrow exponent; a difference\\
-$f$ & growth rate; cell fraction $f_c$; clock frequency; $f(\alpha)$ in the electron fixed point; the trace term in Jacobson's derivation\\
-$D$ & growth factor; diffusion constant; distances $D_M$, $D_H$, $D_A$; $D(t)$, decoherence fraction\\
-$R$ & molar gas constant; Ricci scalar; radius; $R-1$, Gelman--Rubin; $R(a)$, matter over record term; $R(z)$, cluster mass ratio\\
-$\alpha$ & fine-structure constant; array offset in $\beta$; coupler cost; fitted coefficient; $\alpha_s$, the strong coupling\\
-$g$ & metric; coupling $g$ of a TLS to a qubit\\
-$C$, $c$ & C-score; capacitance; $C(d)$, genome-distance correlation; $C_\ell$; coherence $C_{\rm IAM}$; $C_{\rm NT}$; the speed of light $c$ and the coherence factor $c(t)$\\
-$z$ & redshift; site residual $z_i$\\
-$x$ & $\xqp$; Koide constant mode; argument of $H(x)$\\
+\rowrule $M$ & mass; the Mahaffey number (written $\mathcal M$ where a mass is nearby); an array's methylated intensity; the eigenvalue sum of the Horodecki criterion; $M_W$, $M_Z$\\
+\rowrule $n$ & the structure exponent in $D^n$, $7/2$ (Part~\ref{part:2}); $n_s$, spectral tilt; number of phases in the Koide construction; number of sites; densities $n_{\rm qp}$, $\ncp$, $n_b$\\
+\rowrule $\beta$ & the coupling $\beta_m$ (cosmology); the methylated fraction (cells); the fitted coefficient in $\exp(\alpha-\beta/a)$ (Chapter~\ref{ch:theory})\\
+\rowrule $\varepsilon$ & qubit gate error in nats; a cell's copy error; $\varepsilon_0$, the copy-error floor; $\epsilon_i$, mixture noise\\
+\rowrule $\eta$ & horizon entropy per area; the baryon-to-photon ratio; $\eta_{\rm vir}$, virial efficiency; $\eta=t/\tau_{\rm IAM}$; $\eta=2T/|W|$ in simulation papers; the E\"otv\"os parameter of equivalence-principle tests\\
+\rowrule $E$ & energy; the activation function $E(a)$; the environment in decoherence; $E_q$, the assumed coherence ramp; $E_G$, gravitational self-energy and also the lensing statistic (context separates them)\\
+\rowrule $H$ & Hubble rate; binary entropy $H(\beta)$; the transmon Hamiltonian; $\Hmin$, the floor\\
+\rowrule $S$ & thermodynamic entropy; the CHSH value and its maximum $S_{\max}$; the action $S_{\rm info}$, $S_{\rm EH}$\\
+\rowrule $T$ & temperature; kinetic energy in $2T/|U|$; $T_{ab}$, stress tensor; $T_1$, $T_2$, coherence times; the CHSH correlation matrix\\
+\rowrule $N$ & bits on a surface; active TLS sites; genome copies; the array noise index; transistor count $N_{\rm trans}$\\
+\rowrule $P$ & Hawking power; the cell position $P_{\rm cell}$; pressure; $P_{\rm span}$, a projector; $P(k)$, power spectrum\\
+\rowrule $Q$ & heat; the Koide ratio; the quality factor of a cavity\\
+\rowrule $k$ & degree of homogeneity in the virial theorem; wavenumber; $k^a$, null generator\\
+\rowrule $\kappa$ & surface gravity; the Dennard scaling factor\\
+\rowrule $\phi$, $\varphi$ & the record variable $\ln E(a)$; the fraction of one ATP per held bit; the condensate phase $\hat\varphi$; Koide phases $\phi_k$\\
+\rowrule $\lambda$ & Lagrange multiplier; affine parameter; $\lamL$, London depth\\
+\rowrule $\mu$ & growth coupling; cell profiles $\mu_{ic}$; $\mu_e$, electrons per nucleon in the Chandrasekhar mass\\
+\rowrule $\sigma$ & $\sigma_8$; standard deviation; velocity dispersion $\sigma_v$; $\sigma_M$; shear $\sigma_{ab}$; Stefan--Boltzmann $\sigma_{\rm SB}$; $\sigma_*$, mass scale; string tension of the Cornell potential\\
+\rowrule $\tau$ & proper time; optical depth to reionisation; lifetimes $\tqp$, $\tTLS$; decoherence times $\tau_{\rm IAM}$, $\tau_{\rm DP}$; the atlas spread\\
+\rowrule $\delta$ & density contrast $\delta_m$; Koide offset; atlas source term $\delta_{is}$; Tsallis exponent\\
+\rowrule $\Delta$ & superconducting gap; Barrow exponent; a difference\\
+\rowrule $f$ & growth rate; cell fraction $f_c$; clock frequency; $f(\alpha)$ in the electron fixed point; the trace term in Jacobson's derivation\\
+\rowrule $D$ & growth factor; diffusion constant; distances $D_M$, $D_H$, $D_A$; $D(t)$, decoherence fraction\\
+\rowrule $R$ & molar gas constant; Ricci scalar; radius; $R-1$, Gelman--Rubin; $R(a)$, matter over record term; $R(z)$, cluster mass ratio\\
+\rowrule $\alpha$ & fine-structure constant; array offset in $\beta$; coupler cost; fitted coefficient; $\alpha_s$, the strong coupling\\
+\rowrule $g$ & metric; coupling $g$ of a TLS to a qubit\\
+\rowrule $C$, $c$ & C-score; capacitance; $C(d)$, genome-distance correlation; $C_\ell$; coherence $C_{\rm IAM}$; $C_{\rm NT}$; the speed of light $c$ and the coherence factor $c(t)$\\
+\rowrule $z$ & redshift; site residual $z_i$\\
+\rowrule $x$ & $\xqp$; Koide constant mode; argument of $H(x)$\\
 \bottomrule\end{longtable}}

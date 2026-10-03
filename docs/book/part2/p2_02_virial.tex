@@ -25,7 +25,7 @@ both the Coulomb and gravitational potentials, verified computationally for 20 a
 Chandrasekhar limit ($1.456\,M_\odot$), and validated at galaxy cluster scales ($\sim$20\,\% precision). The same mathematical theorem governs electrons in
 hydrogen atoms and the coupling of matter to the horizon at the Hubble scale.
 
-This chapter derives the coupling and what follows from it --- the coupling in a real halo population, the exponent of the record rate, the activation
+This chapter derives the coupling and what follows from it --- the coupling in a real ensemble of halos, the exponent of the record rate, the activation
 function, the growth coupling, the amplitude of structure, the two expansion rates, the two values of $\Omega_m$, and the history of the ratio of matter to
 the record term. Chapter~\ref{ch:virial_tests} sets out the tests that will decide it. Every later chapter in Part~\ref{part:2} uses this number.
 
@@ -64,9 +64,9 @@ With the coupling fixed, the Planck data are a consistency test, not a measureme
 posterior $\Omega_m=0.3166\pm0.0065$ gives $\beta_m/\Omega_m=0.498\pm0.010$ for the fixed $\beta_m$, and the modified growth has a minimum $\chi^2$ higher
 than $\Lambda$CDM's by $0.54$ with the same number of parameters: consistent with Planck. \measured
 
-\section{The half in a real halo population}\label{sec:vc_population}
+\section{The half in a real ensemble of halos}\label{sec:vc_population}
 The virial theorem is exact for systems in perfect equilibrium; cosmological halos are not perfectly equilibrated. The virial argument for
-$\beta_m=\Omega_m/2$ asks therefore how the equilibrium value is approached in a real population, and the coupling can be written as
+$\beta_m=\Omega_m/2$ asks therefore how the equilibrium value is approached in a real ensemble of halos, and the coupling can be written as
 \begin{equation}
 \beta_m=\Omega_m\times f_{\rm coll}\times\eta_{\rm vir},\label{eq:vc_decompose}
 \end{equation}
@@ -78,14 +78,14 @@ product $f_{\rm coll}\times\eta_{\rm vir}=1/2$. For a collapsed fraction $f_{\rm
 \end{equation}
 Equation~\eqref{eq:vc_eta} is a definition of $\eta_{\rm vir}$, not a measurement: it makes $f_{\rm coll}\eta_{\rm vir}=1/2$ hold by construction, so the
 product $\Omega_mf_{\rm coll}\eta_{\rm vir}$ returns $\Omega_m/2$ whatever $f_{\rm coll}$ is. The decomposition describes how the equilibrium value is
-approached in a population; $\beta_m=\Omega_m/2$ rests on the theorem and on the cross-domain record of Chapter~\ref{ch:virial_law}.
+approached in an ensemble of halos; $\beta_m=\Omega_m/2$ rests on the theorem and on the cross-domain record of Chapter~\ref{ch:virial_law}.
 
-\paragraph{What the simulations measure.} The observable is the virial ratio of the halo population within the virial radius, with $K$ the total kinetic
+\paragraph{What the simulations measure.} The observable is the virial ratio of the simulated halos within the virial radius, with $K$ the total kinetic
 energy and $U$ (or $W$) the gravitational potential energy. The published simulations report it as $2T/|U|$, at or above 1 and rising with mass
 (Figure~\ref{fig:vc_halo}a, Table~\ref{tab:vc_halo}). \observed\ The excess over 1 is the pressure of matter still falling through the boundary; with the
 surface term the ratio comes within a few to 17\,\% of equilibrium. In terms of the efficiency of Eq.~\eqref{eq:vc_eta}, the reciprocal $|U|/2T$ of these
 values lies between 0.77 and 0.91 within the virial radius and between 0.85 and 0.98 with the surface term; it depends on mass, so it is a property of the
-population chosen, not a constant. \calc
+halo sample chosen, not a constant. \calc
 
 \begin{table}[htbp]\centering\small
 \caption{Published virial ratios of simulated dark-matter halos within the virial radius. Values as printed in each study or read from its figures and
@@ -118,7 +118,7 @@ spin).
 collapse.
 \end{itemize}
 Each moves the measured ratio away from the equilibrium value, and the surface-pressure correction of Klypin et al.\ shows that most of the excess is the
-first. \interp\ The theorem holds in the halo population to within the infall still under way.
+first. \interp\ The theorem holds across the simulated halos to within the infall still under way.
 
 \paragraph{The collapsed fraction.} The collapsed fraction is not a fixed number: it depends on the smallest halo counted. Integrating the Tinker et al.\
 (2008)~\cite{Tinker2008} $\Delta=200m$ mass function at $z=0$ with Planck 2018 gives $F(>10^{10.5}h^{-1}M_\odot)=0.486$ at the lower edge of its calibrated
@@ -126,9 +126,9 @@ range, $0.447$ above $10^{11}$ and $0.348$ above $10^{12}$; $f_{\rm coll}=0.62$ 
 range. \calc\ Because $\eta_{\rm vir}=1/(2f_{\rm coll})$ inherits this choice, so does any number assigned to the efficiency.
 
 \paragraph{What this means.} The virial theorem prediction $\beta_m=\Omega_m/2$ is not a fit to cosmological data. It is a prediction from a theorem more
-than 150 years old applied to gravitational energy partitioning. The published simulations show the halo population at the equilibrium the theorem
+than 150 years old applied to gravitational energy partitioning. The published simulations show the halos at the equilibrium the theorem
 requires, to within the infall still under way. A rigorous calculation of the cosmological gravitational energy partition --- the kinetic energy written
-per unit time by the whole halo population, as the sum over the mass function of the kinetic half of each halo --- is the next formal step.
+per unit time by all halos together, as the sum over the mass function of the kinetic half of each halo --- is the next formal step.
 \openprob\ Chapter~\ref{ch:quantumrecords} gives the bottom-up version of that sum.
 
 \section{The exponent of the record rate}\label{sec:vc_exponent}
@@ -139,7 +139,7 @@ this gives $S_{\rm info}\propto a^{\,n-9/2}$; for the integral to yield the $1/a
 n-\tfrac92=-1\quad\Longrightarrow\quad n=\tfrac72\qquad\text{(analytical, pure matter domination).}\label{eq:vc_n}
 \end{equation}
 \derived\ The effective exponent is derived analytically in the matter-dominated limit; the real universe has radiation domination at early times and
-$\Lambda$ domination at late times. The full $\Lambda$CDM integration finds the closest fit for $D^{7/2}$, with coefficients within 5\,\% (Chapter~\ref{ch:theory}).
+$\Lambda$ domination at late times. The full $\Lambda$CDM integration finds the closest fit for $D^{7/2}$, with the coefficient of $1/a$ within $2\,\%$ and the constant within $7\,\%$ (Chapter~\ref{ch:theory}).
 \calc\ $E(a)$ itself does not depend on $n$.
 
 The observable is the logarithmic slope of the halo collapse rate with respect to the linear growth factor, and it should be verified by measuring the
@@ -172,7 +172,7 @@ is geometrically standard; the matter sector carries the accumulated thermodynam
 
 Equation~\eqref{part2:eq:mu_virial} is the $\mu$--$\Sigma$ form, in which $\mu$ multiplies the source term; it is the form used in the Level~1 chains. The
 Level~2 chains put the same term into the expansion rate felt by matter perturbations, $H_m^2=H^2+\beta_mE(a)H_0^2$, so that it enters as an additional
-Hubble friction (Chapter~\ref{ch:level2}); the two give the same growth to within a few tenths of a percent. Every growth number below states which form it
+Hubble friction (Chapter~\ref{ch:level2}); the two give the same growth to within a few tenths of a percent \calc. Every growth number below states which form it
 uses.
 
 \begin{figure}[htbp]\centering
@@ -200,7 +200,7 @@ The modification is strictly late-time: $\mu\to1$ above $z\approx2$ and reaches 
 \section{Growth and the amplitude of structure}\label{sec:vc_growth}
 \paragraph{The growth deficit.} The coupling deficit $1-\mu$ is not the growth deficit. Solving the linear growth equation with the same early amplitude, the
 $\mu$--$\Sigma$ form gives an $f\sigma_8$ lower than $\Lambda$CDM's by $4.25\,\%$ today, $2.19\,\%$ at $z=0.295$, $2.17\,\%$ at $z=0.3$, $1.35\,\%$ at $z=0.5$,
-$0.41\,\%$ at $z=1$ and $0.13\,\%$ at $z=1.491$; the friction form agrees within $0.3\,\%$. \calc\ The predicted shape is a curved ramp,
+$0.41\,\%$ at $z=1$ and $0.13\,\%$ at $z=1.491$; the friction form agrees within $0.4\,\%$. \calc\ The predicted shape is a curved ramp,
 \begin{equation}
 f\sigma_8^{\rm IAM}(z)=f_{\rm IAM}(z)\,\sigma_8\,\frac{D_{\rm IAM}(z)}{D_{\rm IAM}(0)},\label{eq:vc_fs8}
 \end{equation}
@@ -221,14 +221,14 @@ $\Delta\chi^2$ is the minimum $\chi^2$ of the IAM chain minus that of the $\Lamb
 \hline
 Run & $\mu_0$ & $\sigma_8$ & $S_8$ & $H_0$ & $\Delta\chi^2$\\\hline
 Level 2, Run A (IAM) & $-0.136$ (derived) & $0.7998\pm0.0058$ & $0.822\pm0.011$ & $67.16\pm0.47$ & $+0.54$\\
-Level 2, Run D (IAM, second seed) & $-0.136$ (derived) & $0.7995\pm0.0058$ & $0.821\pm0.011$ & $67.19\pm0.46$ & ---\\
+Level 2, Run D (IAM, Planck + $f\sigma_8$) & $-0.136$ (derived) & $0.7995\pm0.0058$ & $0.821\pm0.011$ & $67.19\pm0.46$ & ---\\
 Level 2, Run C ($\Lambda$CDM) & 0 & $0.8087\pm0.0059$ & $0.830\pm0.011$ & $67.19\pm0.46$ & reference\\
-Level 1, IAM fixed & $-0.136$ (derived) & $0.8015\pm0.0058$ & --- & $67.08\pm0.53$ & $+0.96$\\
+Level 1, IAM fixed & $-0.135$ (MGCAMB) & $0.8015\pm0.0058$ & --- & $67.08\pm0.53$ & $+0.96$\\
 Level 1, $\Lambda$CDM & 0 & $0.8143\pm0.0060$ & --- & $67.14\pm0.51$ & reference\\\hline
 \end{tabular}
 \end{adjustbox}
 \end{table}
-$\Delta\chi^2=+0.54$ means the Planck data are statistically indifferent between IAM and $\Lambda$CDM at current CMB precision. This is the expected result:
+$\Delta\chi^2=+0.54$ means that IAM's own equations reproduce the Planck data as well as $\Lambda$CDM, with no added parameter, at current CMB precision. This is the expected result:
 the CMB constrains growth only through lensing and the late-time integrated Sachs--Wolfe effect, and with $\mu_0$ free Planck with redshift-space
 distortions gives $\sigma(\mu_0)=0.125$ (Chapter~\ref{ch:latetime}).
 

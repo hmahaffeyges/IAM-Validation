@@ -69,26 +69,26 @@ every row against chain v3 (Table~\ref{tab:map79}). Table~\ref{tab:cmbmap} gives
 Table~\ref{tab:map79}).}\label{tab:cmbmap}\\
 \toprule CMB module & methylome counterpart & status \\\midrule\endfirsthead
 \toprule CMB module & methylome counterpart & status \\\midrule\endhead
-time-ordered data (10) & IDAT intensities and control probes & in use: Stage 1 \\
-de-glitching, data cuts (11) & detection masking, intake gate & in use: Stage 0 \\
-map-making (13) & intensity-to-$\beta$ calibration & in use: Stage 1 \\
-bandpass calibration (6) & bisulfite conversion, probe-type normalisation & in use: Stages 0--1; conversion line to calibrate \\
-gain calibration and drift (7) & same-run tare against healthy references & in use: Stage T \\
-beam modelling (5) & per-probe response from sequence context & not built \\
-masks and apodisation (16) & SNP, cross-reactive and undetected probes; sex chromosomes & partial \\
-HEALPix pixelisation (15) & genome order laid on HEALPix rings & built, not in chain \\
-cosmic variance (3) & cell-count floor & calculated; Chapter~\ref{ch:sky} \\
-spherical-harmonic decomposition (1) & projection onto purified reference cells & in use: Stage A; atlas v2 holds the basis \\
-second component separation (20) & an independent solver & built, not in chain \\
-transfer function (14) & how much real signal the deconvolver absorbs & measured; Chapter~\ref{ch:separation} \\
-MCMC and posterior geometry (37) & posteriors for the atlas; per-reading intervals & partial: atlas v2 is a posterior \\
-split maps, cross-spectra (22) & held-out reference arrays; repeat specimens & in use \\
-end-to-end simulation (30) & constructed specimens: mixtures, known damage & in use \\
-null tests (31) & healthy-minus-healthy, same array twice, replicate pairs & in use \\
-look-elsewhere (32) & pre-registration and correction for every look & reserved \\
-delensing (47) & de-ageing & \textbf{refused} \\
-priors (39) & disease and family-history priors & \textbf{refused} \\
-E/B separation (49) & 5mC against 5hmC (oxidative bisulfite) & partial \\
+time-ordered data (10) & IDAT intensities and control probes & in use: Stage 1 \\ \rowrule
+de-glitching, data cuts (11) & detection masking, intake gate & in use: Stage 0 \\ \rowrule
+map-making (13) & intensity-to-$\beta$ calibration & in use: Stage 1 \\ \rowrule
+bandpass calibration (6) & bisulfite conversion, probe-type normalisation & in use: Stages 0--1; conversion line to calibrate \\ \rowrule
+gain calibration and drift (7) & same-run tare against healthy references & in use: Stage T \\ \rowrule
+beam modelling (5) & per-probe response from sequence context & not built \\ \rowrule
+masks and apodisation (16) & SNP, cross-reactive and undetected probes; sex chromosomes & partial \\ \rowrule
+HEALPix pixelisation (15) & genome order laid on HEALPix rings & built, not in chain \\ \rowrule
+cosmic variance (3) & cell-count floor & calculated; Chapter~\ref{ch:sky} \\ \rowrule
+spherical-harmonic decomposition (1) & projection onto purified reference cells & in use: Stage A; atlas v2 holds the basis \\ \rowrule
+second component separation (20) & an independent solver & built, not in chain \\ \rowrule
+transfer function (14) & how much real signal the deconvolver absorbs & measured; Chapter~\ref{ch:separation} \\ \rowrule
+MCMC and posterior geometry (37) & posteriors for the atlas; per-reading intervals & partial: atlas v2 is a posterior \\ \rowrule
+split maps, cross-spectra (22) & held-out reference arrays; repeat specimens & in use \\ \rowrule
+end-to-end simulation (30) & constructed specimens: mixtures, known damage & in use \\ \rowrule
+null tests (31) & healthy-minus-healthy, same array twice, replicate pairs & in use \\ \rowrule
+look-elsewhere (32) & pre-registration and correction for every look & reserved \\ \rowrule
+delensing (47) & de-ageing & \textbf{refused} \\ \rowrule
+priors (39) & disease and family-history priors & \textbf{refused} \\ \rowrule
+E/B separation (49) & 5mC against 5hmC (oxidative bisulfite) & partial \\ \rowrule
 thermal and kinetic SZ (64, 65) & inflammation; clonal expansion & analogy \\
 \bottomrule
 \end{longtable}

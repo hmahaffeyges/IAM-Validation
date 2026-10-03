@@ -16,7 +16,7 @@ every galaxy that virializes.
 
 Here is the claim: that transition is not free. Every time something crosses from a quantum superposition to a classical record, the universe charges a
 thermodynamic price. That price is paid irreversibly to the nearest encoding surface --- for structure spread through the universe, the boundary of the
-observable universe, the cosmic horizon --- at a rate of $k_BT_H\ln2$ per bit of classical information produced. Once paid, the cost cannot be recovered.
+observable universe, the cosmic horizon --- at a cost of $k_BT_H\ln2$ per bit of classical information produced. Once paid, the cost cannot be recovered.
 Classical records are continuously purchased, one decoherence event at a time. This is not a metaphor. It is a physical claim with a derivation, a mechanism, and
 measurable consequences.
 
@@ -371,7 +371,7 @@ The decoherence constraint requires the informational energy density to satisfy
 \dot\rho_{\rm info}=\rho_{\rm info}\,\frac{H}{a}. \label{eq:law_constraint}
 \end{equation}
 \conjecture\ (the record constraint, a premise). With $\dot a=aH$ this is $d\ln\rho_{\rm info}/da=1/a^2$, a separable equation that integrates directly. The
-integral must start at $a=1$, because $\int_0^ada'/a'^2$ diverges; normalised to today,
+integral must start at $a=1$, because $\int_0^ada'/a'^2$ diverges; normalized to today,
 \begin{equation}
 \ln\frac{\rho_{\rm info}(a)}{\rho_{\rm info}(1)}=\int_1^a\frac{da'}{a'^2}=1-\frac1a,\qquad
 E(a)\equiv\frac{\rho_{\rm info}(a)}{\rho_{\rm info}(1)}=\exp\!\left(1-\frac1a\right)=e^{-z}. \label{eq:Ea}
@@ -532,7 +532,7 @@ $f\sigma_8$ is lower than in $\Lambda$CDM by $4.25\,\%$, $2.17\,\%$, $1.35\,\%$ 
 Since both potentials satisfy the unmodified Poisson equation, Eq.~\eqref{eq:law_poisson}, with no anisotropic stress, Eq.~\eqref{eq:law_noaniso}, photon
 geodesics are determined by $(\Psi+\Phi)/2=\Psi$ without modification. Therefore $\Sigma(a)=1$. The photon exemption at the perturbation level is a
 consequence of $\delta\phi=0$ --- that $\phi$ is a horizon quantity, not a local field. CMB power spectra, CMB lensing, BAO angular positions and supernova
-luminosity distances are unchanged; IAM and $\Lambda$CDM produce CMB TT spectra differing by less than $0.13\,\%$ at $\ell>30$ (Chapter~\ref{ch:dual}) \calc.
+luminosity distances are unchanged; IAM and $\Lambda$CDM produce CMB TT spectra differing by less than $0.13\,\%$ at $\ell>30$ (Chapter~\ref{ch:theory}) \calc.
 
 \subsection{Where this sits among modified-growth models}
 Most modified-gravity theories predict $\mu>1$ (enhanced growth) or correlated deviations in both $\mu$ and $\Sigma$. $f(R)$ gives $\mu>1$ with
@@ -678,7 +678,7 @@ and the peak of structure formation is therefore, on this reading, a consequence
 \section{Observational consistency}
 \subsection{The primary test: $\beta_m=\Omega_m/2$}
 The primary quantitative test of IAM's Law at cosmological scales is the coupling constant $\beta_m=\Omega_m/2=0.15765$, fixed by the virial theorem with no
-free parameter. Seventeen MCMC chains were run against the full Planck 2018 likelihood~\cite{Planck2018VI} (TT, TE, EE, low-$\ell$ and lensing) using MGCAMB~\cite{Hojjati2011} and Cobaya~\cite{Torrado2021}. All converged to $R-1\le0.010$
+free parameter. Seventeen MCMC chains were run against the full Planck 2018 likelihood~\cite{Planck2018VI} (TT, TE, EE, low-$\ell$ and lensing) with Cobaya~\cite{Torrado2021}: twelve with MGCAMB~\cite{Hojjati2011} (Level~1), three with the modified CAMB (Level~2) and two Level~2b diagnostics; with the baryon chain below, eighteen in all. All converged to $R-1\le0.010$
 with no discarded runs, no parameter adjustments and no excluded redshift ranges. The coupling is not a fitted parameter of these chains: it enters every one
 at the prediction, and the test is whether the fixed coupling is consistent with Planck. It is (Table~\ref{tab:law_consistency}; Chapter~\ref{ch:dual}).
 
@@ -697,7 +697,7 @@ $H_0$, matter & $67.16\sqrt{1+\beta_m}$ & $72.26$; $-0.75\sigma$ from SH0ES $73.
 free $\mu_0$ (Level 1) & prediction $-0.136$ & 90\,\% interval contains the prediction and $0$\\\hline
 \end{tabularx}
 \end{table}
-A $\Delta\chi^2$ of $+0.54$ with no added parameter is consistent with $\Lambda$CDM: the data neither prefer nor exclude the fixed coupling.
+IAM's own equations, with the coupling fixed and no added parameter, reproduce the Planck data as well as $\Lambda$CDM does: $\Delta\chi^2=+0.54$.
 
 \subsection{The sector-dependent Hubble split}
 The sector-dependent Hubble split $H_0^{(\rm matter)}/H_0^{(\rm photon)}=\sqrt{1+\beta_m}=1.076$ is a direct consequence of the dual-sector coupling: at $a=1$,
@@ -793,7 +793,7 @@ $\rho_\Lambda/\rho_{\rm vac}\sim(\ell_P/\ell_H)^2$ & \cite{Weinberg1989} & state
 virial theorem, $2\langle K\rangle+\langle V\rangle=0$ for $1/r$ potentials & \cite{Clausius1870} & the share $\tfrac12$\\
 global hypomethylation of cancer cells & \cite{FeinbergVogelstein1983} & direction of the cellular signal\\
 Koide relation, $Q=2/3$ & \cite{Koide1982,Koide1983,Koide1983b} & target of the lepton derivation\\
-$\mu(a)$, $\Sigma(a)$ parametrisation & \cite{PogosianSilvestri2008} & how the law is tested in Boltzmann codes\\\bottomrule
+$\mu(a)$, $\Sigma(a)$ parametrization & \cite{PogosianSilvestri2008} & how the law is tested in Boltzmann codes\\\bottomrule
 \end{tabularx}
 \end{table}
 The one new physical identification is in the entropy functional, $S_{\rm total}=S_{\rm geo}+S_{\rm info}$ (Eq.~\eqref{eq:law_Stotal}); everything
@@ -852,7 +852,7 @@ the entropy budget of Jacobson's derivation, and the thermodynamic reading of th
 
 \subsection{The four fundamental forces}
 Gravity and electromagnetism satisfy the virial $1/2$ partition. Gravity: from stellar structure to the cosmological coupling constant, which enters
-every chain at the virial value and is consistent with Planck (Section~\ref{sec:law_coupling}). Electromagnetism: for 20 atoms~\cite{Clementi1974} and 10 molecules at the
+every chain at the virial value and is consistent with Planck (Section~\ref{sec:law_coupling}). Electromagnetism: for 20 atoms~\cite{ClementiRoetti1974} and 10 molecules at the
 Hartree--Fock limit the virial ratio is $1/2$ to machine precision --- an exact verification, because the virial theorem must hold exactly
 for converged $1/r$ wavefunctions (Chapter~\ref{ch:virial_law}) \derived. The Chandrasekhar white-dwarf limit, $M_{\rm Ch}=1.456\,M_\odot$ for $\mu_e=2$, is
 a consequence of virial equilibrium between electron degeneracy pressure and gravitational collapse~\cite{Chandrasekhar1931} \derived; the strong force
@@ -914,7 +914,7 @@ states described by Eq.~\eqref{eq:law_entangle}. IAM's Law identifies the thermo
 epoch-independent rate of classical information --- maps to $\Lambda$ through the Jacobson mechanism. The cosmological constant is, on this reading, the
 encoding cost of the vacuum baseline. The structural term $\beta_mE(a)$ is the encoding cost of gravitational structure formation above that baseline.
 IAM's Law places both terms in the same entropy budget, unified by the same cost per bit. The quantitative consequence is the present-epoch relation
-$\Omega_b/\Omega_m=(3/16)\sqrt{\Omega_\Lambda}$ of the previous section, one observed relation whose derivation is open.
+$\Omega_b/\Omega_m=(3/16)\sqrt{\Omega_\Lambda}$ stated earlier in this chapter, one observed relation whose derivation is open.
 \end{itemize}
 The common thread is that each of these connections arises from the same physical fact: every major framework in physics has a gap at the
 quantum-to-classical boundary, and IAM's Law is a statement about that boundary. This is not a claim that IAM's Law solves all open problems in physics. It
@@ -982,11 +982,14 @@ $\mathcal M$ is the Mahaffey number --- a dimensionless figure characterizing ho
 the convention of Reynolds (fluid flow regimes), Mach (compressible flow), Froude (free-surface flow) and Prandtl (heat transfer) for dimensionless numbers
 that characterize physical operating regimes. When $\mathcal M$ reaches an architecture-specific critical value, the local encoding surface saturates
 and a phase transition occurs \conjecture. Expressed in Landauer units it is $\mathcal M/\ln2$. $\mathcal M$ is not a new law: it is IAM's Law,
+```latex
+Eq.~\eqref{eq:law}, expressed in dimensionless form.
 Landauer's principle taken alone is a floor with no structure: it does not say which temperature enters, where the record resides, or what
+```
 happens as a system approaches the bound. The law supplies the first two, the nearest encoding surface and its temperature; the third is the
 saturation conjecture stated here, which Landauer's principle alone cannot make, because it has no surface and no capacity \interp. $\mathcal M$ is
 dimensionless in every row and computed from measured quantities, so it is the part of the construction least dependent on anything contested \interp.
-Eq.~\eqref{eq:law}, expressed in dimensionless form. Every application of IAM's Law is a computation of $\mathcal M$ in domain-specific units:
+Every application of IAM's Law is a computation of $\mathcal M$ in domain-specific units:
 \begin{itemize}
 \item Thermal systems (semiconductor switching, superconducting qubit decoherence): $E_{\rm drive}=k_BT$, giving $\mathcal M=T/T_{\rm local}$.
 Temperature is the lever. For a record held in a gap $hf$, $\mathcal M=hf/\kB T$ and the thermal floor of the record is $1/(1+e^{\mathcal M})$,

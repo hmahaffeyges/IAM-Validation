@@ -150,7 +150,7 @@ means of every cell only it measured. With the source terms fixed from the close
 ($\hat R$ 99th percentile 1.005, effective sample size 1st percentile 753, no divergences), at 0.83~s per locus. The full fit then ran over about
 814,000 loci in 700 blocks with NUTS~\cite{Hoffman2014} in NumPyro, on rented cloud machines, every finished block copied to storage as it landed.
 Twenty posterior draws per cell per locus were kept. A whole-atlas gate confirmed that no two cells came out identical and that no value was filled
-where a cell was unmeasured; 0.19~\% of values were flagged for per-block convergence and kept with the flag.
+where a cell was unmeasured; 0.19~\% of values were flagged for per-block convergence and kept with the flag. \measured
 
 \section{Does the atlas tell the truth about itself?}
 
@@ -166,7 +166,7 @@ those blocks, and asked how often the held-out values fell inside the atlas's 90
 
 The atlas's stated uncertainty is honest and slightly conservative: 92.7~\% against a nominal 90~\%. The lowest cells were smooth muscle (82.9~\%) and
 aorta and lung alveolar endothelium (about 89~\%); the highest were three bone-marrow progenitors (CMP, L-MPP, MPP) and kidney glomerular
-epithelium, at 96.9--97.2~\%. Mean absolute prediction error was 0.051.
+epithelium, at 96.9--97.2~\%. Mean absolute prediction error was 0.051. \measured
 
 \paragraph{What a posterior interval is not.} The posterior standard deviation of an atlas value says how well the data pin down
 the healthy mean of one cell type at one site. It is not the spread of healthy cells about that mean. For a value built from $n$

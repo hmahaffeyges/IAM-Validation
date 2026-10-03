@@ -24,7 +24,7 @@ Boltzmann solvers (CAMB/CLASS) and upcoming survey parametrizations (DES, Euclid
 via the complete Python code of Section~\ref{sec:dsv_code}.
 
 \section{Introduction}\label{sec:dsv_question}
-The Hubble tension---a persistent $>5\sigma$ discrepancy between cosmic microwave background (CMB) measurements yielding $H_0=67.4\pm0.5$
+The Hubble tension---a persistent $4.9\sigma$ discrepancy between cosmic microwave background (CMB) measurements yielding $H_0=67.4\pm0.5$
 km\,s$^{-1}$\,Mpc$^{-1}$~\cite{Planck2018VI} and local distance ladder measurements giving $H_0=73.04\pm1.04$ km\,s$^{-1}$\,Mpc$^{-1}$~\cite{Riess2022}---represents
 a fundamental crisis in cosmology \observed. Proposed solutions including early dark energy~\cite{Kamionkowski2023}, modified gravity~\cite{Amendola2018},
 and interacting dark sectors~\cite{DiValentino2021} each face significant challenges in simultaneously resolving $H_0$ tensions while maintaining
@@ -295,7 +295,7 @@ This is an \emph{overall calibration} effect---the local expansion rate includes
 d_L(z)\propto(1+z)\int_0^z\frac{dz'}{H(z')} . \label{eq:dsv_shape}
 \end{equation}
 For $\beta_m=0.157$ with $E(a)$ activation placed in $H(z)$, the geometric modification to $d_L(z)$ is \emph{not} small: at fixed $H_0$, $d_L$ changes by
-$-6.5\,\%$ at $z=0.1$ and $-2.3\,\%$ at $z=2$; with the normalization absorbed by $M$, the shape changes by $+2.3\,\%$ ($0.048$ mag) at $z=0.5$,
+$-6.5\,\%$ at $z=0.1$ and $-2.3\,\%$ at $z=2$; with the normalization absorbed by $M$, the shape changes by $+2.2\,\%$ ($0.048$ mag) at $z=0.5$,
 $+3.6\,\%$ ($0.077$ mag) at $z=1$ and $+4.8\,\%$ ($0.101$ mag) at $z=2$, relative to $z=0.05$ \calc. That is far above Pantheon+ precision. Therefore SNe
 carry the matter-sector \emph{normalization} through their calibration while maintaining $\Lambda$CDM \emph{geometric shape}: their distances do not
 follow $H$ with the $\beta$ term (next paragraph).
@@ -344,7 +344,7 @@ $0.75\sigma$ above the predicted $72.26$; the tip of the red giant branch gives 
 \subsection{Parameter degeneracies}
 \calc\ Examining the $\chi^2$ landscape shows that $H_0$ and $M$ are exactly degenerate (Section~\ref{sec:dsv_degeneracy}) and that $\beta$ and $\Omega_m$
 are strongly, but not exactly, degenerate: along the valley of Figure~\ref{fig:dsv_three_tests}(a) $\Omega_m$ runs from $0.205$ at $\beta=-0.30$ through
-$0.318$ at $\beta=-0.10$ to $0.374$ at $\beta=0$, with $\chi^2$ changing by only $2.04$. The minima of Tests A, B, C coincide. Fixing $\Omega_m$ at
+$0.317$ at $\beta=-0.10$ to $0.374$ at $\beta=0$, with $\chi^2$ changing by only $2.04$. The minima of Tests A, B, C coincide. Fixing $\Omega_m$ at
 Planck's $0.315$ breaks the valley: with diagonal errors the best $\beta$ is then $-0.11$ ($\chi^2=722.36$ against $733.04$ at $\beta=0$), and with the
 full covariance $-0.035$. The difference is the correlated systematic part of the covariance; the full-covariance value is the one to use.
 
@@ -360,7 +360,7 @@ Low-$z$ and mid-$z$ bins are consistent with $\beta_{\rm distance}\approx0$ with
 ($1.5\sigma$), though this may reflect small number statistics (75 SNe) or systematic effects at high redshift. Overall, the data support $\Lambda$CDM
 geometric consistency across the full redshift range, validating that IAM's primary effect is on structure growth ($f\sigma_8$) rather than photon
 propagation distances (Figure~\ref{fig:dsv_systematics}a). If instead each bin is given its own offset, the offset absorbs the normalization, the
-remaining shape inside a narrow redshift range is weakly constrained, and the values scatter widely ($-0.29$ to $+0.67$); the full-sample constraint, with
+remaining shape inside a narrow redshift range is weakly constrained, and the values scatter widely ($-0.285$ to $+0.675$); the full-sample constraint, with
 the whole lever arm in redshift, is the one that tests the geometry.
 \begin{table}[htbp]\centering\small
 \caption[Redshift bins]{Redshift bin analysis, $\Omega_m=0.315$, best $\beta$ with $68\,\%$ intervals ($\Delta\chi^2=1$). Two selections of the same
@@ -396,7 +396,7 @@ On Test~B, Nelder--Mead and L-BFGS-B reach the valley floor ($\chi^2=721.12$); P
 $723.26$. The analytic minimisation over $M-5\log_{10}H_0$ with a grid in $(\Omega_m,\beta)$, used for every number in this chapter, removes the dependence
 on the minimizer. The result is stable across sample sizes and not driven by outliers: random subsamples of 100 to 1200 SNe (thirty draws each, diagonal
 errors, $\Omega_m=0.315$) give mean best $\beta$ between $-0.102$ and $-0.117$, with a spread that falls from $0.073$ ($N=100$) to $0.013$ ($N=1200$); the
-full sample gives $-0.110$ (Figure~\ref{fig:dsv_systematics}c).
+full sample gives $-0.108$ (Figure~\ref{fig:dsv_systematics}c).
 
 \section{Comparison to alternative interpretations}\label{sec:dsv_alternatives}
 \subsection{Could this be SNe systematics?}
@@ -509,7 +509,7 @@ IAM's matter-sector coupling maps to
 \mu(a)=\frac{H^2_{\Lambda\rm CDM}(a)}{H^2_{\Lambda\rm CDM}(a)+\beta_mE(a)H_0^2},\qquad\Sigma(a)=1, \label{eq:dsv_mu_sigma}
 \end{equation}
 where $E(a)=\exp(1-1/a)$ is the activation function \derived\ (Chapter~\ref{ch:dual}, Eq.~\eqref{part2:eq:mu}). At $z=0$, $\mu=0.864$: the effective Newton
-constant for matter is lower by $1-\mu_0=\beta_m/(1+\beta_m)=13.6\,\%$, which is not the change in growth; growth integrates $\mu$ over time, and
+constant for matter is lower by $1-\mu(0)=-\mu_0=\beta_m/(1+\beta_m)=13.6\,\%$, which is not the change in growth; growth integrates $\mu$ over time, and
 $f\sigma_8$ is lower by $4.25\,\%$ at $z=0$ (Chapter~\ref{ch:latetime}) \calc. At $z=1$, $\mu=0.982$; and $\mu\to1$ for $z\gtrsim3$ ($1-\mu<4\times10^{-4}$),
 recovering $\Lambda$CDM \calc. The condition $\Sigma=1$ ensures that photon geodesics, CMB lensing, and the acoustic scale $\theta_s$ are
 unmodified---precisely the photon-sector constraint $\beta_\gamma<0.0039$.

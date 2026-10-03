@@ -51,8 +51,8 @@ converged chains in all, Chapter~\ref{ch:dual}). \fitted
 In the standard parametrisation of modified gravity~\cite{PogosianSilvestri2016,Amendola2008}, deviations from general relativity at linear order
 are carried by two functions of the scale factor:
 \begin{align}
-\nabla^2\Psi&=-4\pi Ga^2\,\mu(a)\,\bar\rho\,\delta\qquad\text{(Poisson equation; dynamics)},\label{eq:ld_poisson}\\
-\nabla^2(\Phi+\Psi)&=-8\pi Ga^2\,\Sigma(a)\,\bar\rho\,\delta\qquad\text{(lensing potential)},\label{eq:ld_lens}
+\nabla^2\Psi&=4\pi Ga^2\,\mu(a)\,\bar\rho\,\delta\qquad\text{(Poisson equation; dynamics)},\label{eq:ld_poisson}\\
+\nabla^2(\Phi+\Psi)&=8\pi Ga^2\,\Sigma(a)\,\bar\rho\,\delta\qquad\text{(lensing potential)},\label{eq:ld_lens}
 \end{align}
 where $\Psi$ is the Newtonian potential that governs the motion of matter and $\Phi+\Psi$ is the lensing (Weyl) potential that governs the
 deflection of light. In general relativity, $\mu=\Sigma=1$. \derived\ (definitions)
@@ -118,12 +118,12 @@ $z=0.5$ and $-0.04$ at $z=1$ ($R\equiv M_{\rm lens}/M_{\rm dyn}$). It depends on
 state. \calc
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_lensdyn_forms.pdf}
-\caption[Lensing mass over dynamical mass in the two forms; $\sigma_8$ in the chains]{(a) $M_{\rm lens}/M_{\rm dyn}$ in the two implementation forms: $1/\mu(z)$ in the Level~1 effective-coupling form (1.158 today; 1.105, 1.055, 1.018 and 1.002 at the test redshifts) and 1 in the Level~2 form. Shaded: the quasi-static $f(R)$ range $3/4\le M_{\rm lens}/M_{\rm dyn}\le1$ ($1\le\mu\le4/3$, $\Sigma=1$)~\cite{PogosianSilvestri2016}. \calc\ (b) $\sigma_8$ posteriors: Level~1 (Planck, MGCAMB) 0.8143 for $\Lambda$CDM and 0.8015 with the informational term ($-1.57\,\%$); Level~2 (modified CAMB) 0.8087 and 0.7998 ($-1.11\,\%$). Chain files, 30\,\% burn-in, weighted. \measured}\label{fig:lensdyn_forms}
+\caption[Lensing mass over dynamical mass in the two forms; $\sigma_8$ in the chains]{(a) $M_{\rm lens}/M_{\rm dyn}$ in the two implementation forms: $1/\mu(z)$ in the Level~1 effective-coupling form (1.158 today; 1.105, 1.055, 1.018 and 1.002 at the test redshifts) and 1 in the Level~2 form. Shaded: the quasi-static $f(R)$ range $3/4\le M_{\rm lens}/M_{\rm dyn}\le1$ ($1\le\mu\le4/3$, $\Sigma=1$)~\cite{PogosianSilvestri2016}. \calc\ (b) $\sigma_8$ posteriors: Level~1 (Planck, MGCAMB) 0.8143 for $\Lambda$CDM and 0.8015 with the informational term ($-1.57\,\%$); Level~2 (modified CAMB) 0.8087 and 0.7998 ($-1.10\,\%$). Chain files, 30\,\% burn-in, weighted. \measured}\label{fig:lensdyn_forms}
 \end{figure}
 
 \subsection{The two potentials in the Level 1 form}\label{sec:ld_slip}
 Equations~\eqref{eq:ld_poisson} and \eqref{eq:ld_lens} with $\Sigma=1$ fix both potentials. Subtracting the first from the second,
-$\nabla^2\Phi=-4\pi Ga^2(2-\mu)\bar\rho\delta$, so
+$\nabla^2\Phi=4\pi Ga^2(2-\mu)\bar\rho\delta$, so
 \begin{equation}
 \frac{\Phi}{\Psi}=\frac{2-\mu}{\mu},
 \label{eq:ld_slip}\end{equation}

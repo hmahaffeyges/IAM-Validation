@@ -8,11 +8,11 @@ $H=4E_C(\hat n-n_g)^2-E_J\cos\hat\varphi$ at $E_J/E_C\sim50$ gives an anharmonic
 with $\omega_q/2\pi\approx4$--$6$~GHz that is exponentially insensitive to charge noise. The
 qubit state is carried by the phase of the superconducting condensate across the barrier.
 In IAM terms the barrier is the encoding surface: it is where the condensate's phase can be
-disturbed and where the information that constitutes the qubit state can be lost. The
-transmon is now the working element of the largest processors~\cite{Arute2019,GoogleWillow2025,Kim2023IBM}.
+disturbed and where the information that constitutes the qubit state can be lost \interp. The
+transmon is now the working element of the largest processors~\cite{Arute2019,GoogleWillow2025,Kim2023IBM} \observed.
 
 \paragraph{Why the qubit is cold.} A superconducting processor is cooled to keep the qubit in its ground state and the metal superconducting.
-At 5\,GHz and 15\,mK, $hf/k_BT=16.0$ and the thermal excited population $e^{-hf/k_BT}$ is $1.1\times10^{-7}$; at 50\,mK it is $8.2\times10^{-3}$
+At 5\,GHz and 15\,mK, $hf/k_BT=16.0$ and the thermal excited-state occupation $e^{-hf/k_BT}$ is $1.1\times10^{-7}$; at 50\,mK it is $8.2\times10^{-3}$
 \calc. Aluminium is superconducting below $T_c\approx1.2$\,K: $\Delta_{\rm Al}=182\,\mu$eV gives $\Delta_{\rm Al}/(1.764\,k_B)=1.20$\,K \calc~\cite{Blais2021}.
 The Landauer cost per bit is lower at 15\,mK as well, $1.44\times10^{-25}$\,J, by the ratio $0.015/300=5\times10^{-5}$ \calc, but lowering it is
 not the purpose of the cooling; the cooling buys coherence. \interp
@@ -30,7 +30,7 @@ with a broad distribution of energies and dipole moments~\cite{Phillips1987,Mull
 resonant with the qubit absorb energy. Off-resonant TLS that fluctuate, driven by their
 thermal neighbours, produce spectral diffusion and dephasing. TLS density is highest at the
 metal--oxide and substrate--air interfaces~\cite{Wang2015TLS,Lisenfeld2019}, and TLS switching
-times span microseconds to hours.
+times span microseconds to hours \observed.
 
 \paragraph{Quasiparticles.} At $T\ll T_c$ the equilibrium density of broken Cooper pairs is~\cite{Glazman2021}
 \begin{equation}
@@ -42,7 +42,7 @@ quasiparticles at all. Measured densities in transmons are commonly
 $\xqp\sim10^{-8}$--$10^{-6}$~\cite{Riste2013,Serniak2018}, the best reported devices reach
 $\xqp\lesssim10^{-9}$~\cite{Connolly2024}, and less-protected devices reach
 $10^{-6}$--$10^{-5}$~\cite{Martinis2009,deVisser2011} \observed. The source of this non-equilibrium
-population is the subject of Chapter~\ref{ch:xqp}. A quasiparticle tunnelling across the
+density is the subject of Chapter~\ref{ch:xqp}. A quasiparticle tunnelling across the
 junction relaxes the qubit at the rate~\cite{Catelani2011}
 \begin{equation}
  \Gamma_1^{\mathrm{qp}}=\xqp\,\frac{\omega_q}{\pi}\sqrt{\frac{2\Delta}{\hbar\omega_q}} .
@@ -73,8 +73,8 @@ is why a correlated error weighs more than its count \interp.
 \paragraph{Which radiation reaches the junction.} A photon breaks a Cooper pair in aluminium only if $h\nu>2\Delta$,
 that is $\nu>88$~GHz for $\Delta=182~\mu$eV \calc. Figure~\ref{fig:pairbreaking} gives the number of such photons
 radiated by a black surface at temperature $T$. At the 15~mK of the mixing chamber the flux is
-$5\times10^{-109}$~s$^{-1}$\,m$^{-2}$, zero for every purpose. At 4~K it is $8\times10^{16}$, at 50~K $2\times10^{20}$
-and at 300~K $4\times10^{22}$~s$^{-1}$\,m$^{-2}$ \calc. The cosmic microwave background at 2.725~K would supply
+of order $10^{-108}$~s$^{-1}$\,m$^{-2}$, zero for every purpose. At 4~K it is $8\times10^{16}$, at 50~K $2\times10^{20}$
+and at 300~K $4\times10^{22}$~s$^{-1}$\,m$^{-2}$ \calc. The cosmic microwave background at 2.7255~K would supply
 $2\times10^{16}$~s$^{-1}$\,m$^{-2}$ above the aluminium threshold, but it never reaches the chip: the cryostat's 4~K,
 50~K and room-temperature shields lie between, are each brighter above 88~GHz, and are what the filtering and shielding
 have to stop. The pair-breaking sources that matter in practice are stray radiation from warmer stages leaking through
@@ -154,7 +154,7 @@ charge-parity switching. \calc\ and \observed\ (representative published values)
 The IAM argument of Chapter~\ref{ch:xqp} rests on a separation of timescales
 (Figure~\ref{fig:timescales}). The condensate restores its phase on $\hbar/\Delta_{\mathrm{Al}}$.
 The qubit oscillates at $\sim0.2$~ns. Quasiparticles recombine on tens of ns to ms depending
-on density, TLS fluctuate on $\mu$s and longer, and $T_1$ is hundreds of $\mu$s.
+on density, TLS fluctuate on $\mu$s and longer, and $T_1$ is hundreds of $\mu$s \observed.
 
 \begin{checkbox}
 $\hbar/\Delta_{\mathrm{Al}}=1.055\times10^{-34}/(182\times10^{-6}\times1.602\times10^{-19})=3.6\times10^{-12}$~s,
