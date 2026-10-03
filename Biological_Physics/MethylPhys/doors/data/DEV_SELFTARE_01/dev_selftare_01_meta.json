@@ -1,0 +1,87 @@
+{
+ "n_noise_sites": 48528,
+ "n_U": 40882,
+ "n_M": 7646,
+ "noise_sites_by_state_design": {
+  "U_I": 40827,
+  "U_II": 55,
+  "M_I": 7553,
+  "M_II": 93
+ },
+ "identity_sites_by_design": {
+  "II": 5876,
+  "I": 124
+ },
+ "floor_sites_same_as_blood_neutrophil_sites": true,
+ "n_purified_arrays_for_state": 37,
+ "purified_mean_beta_range_U": [
+  0.008567566983401775,
+  0.030702704563736916
+ ],
+ "purified_mean_beta_range_M": [
+  0.9728108048439026,
+  0.9917568564414978
+ ],
+ "reference_arrays": [
+  "GSM2998021",
+  "GSM2998057",
+  "GSM2998116",
+  "GSM2998023",
+  "GSM2998143",
+  "GSM2998030"
+ ],
+ "floor_chain": 0.33026279581151297,
+ "floor_recomputed_here": 0.33026279576948486,
+ "floor_st": 0.23466976987235952,
+ "floor_inv": 0.23442066162241634,
+ "reference_offsets": {
+  "I": {
+   "mean_dU": 0.018617119640111923,
+   "mean_dM": 0.018012092448771
+  },
+  "II": {
+   "mean_dU": 0.024839395036300022,
+   "mean_dM": 0.02357168806095918
+  }
+ },
+ "purified_group_offsets": {
+  "purified_Bcell": {
+   "dU_I": 0.01848,
+   "dM_I": 0.01666,
+   "dU_II": 0.02435,
+   "dM_II": 0.02272
+  },
+  "purified_CD4T": {
+   "dU_I": 0.01875,
+   "dM_I": 0.01745,
+   "dU_II": 0.02459,
+   "dM_II": 0.02353
+  },
+  "purified_CD8T": {
+   "dU_I": 0.01684,
+   "dM_I": 0.01519,
+   "dU_II": 0.02252,
+   "dM_II": 0.02117
+  },
+  "purified_Mono": {
+   "dU_I": 0.01712,
+   "dM_I": 0.01568,
+   "dU_II": 0.02382,
+   "dM_II": 0.02148
+  },
+  "purified_NK": {
+   "dU_I": 0.01789,
+   "dM_I": 0.01704,
+   "dU_II": 0.02367,
+   "dM_II": 0.02309
+  },
+  "purified_Neu": {
+   "dU_I": 0.01862,
+   "dM_I": 0.01801,
+   "dU_II": 0.02484,
+   "dM_II": 0.02357
+  }
+ },
+ "floor_stI": 0.2600323772351771,
+ "floor_B": 0.14638639150431407
+}
