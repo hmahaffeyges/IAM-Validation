@@ -1,0 +1,47 @@
+== 1. Numbers of the source text (re-check) ==
+Pleiades 136 pc = 443.6 ly (source: 444 ly)
+Hubble radius c/H0 at 70 km/s/Mpc = 1.3968e+10 ly (source: 1.4e10); at 67.16: 1.4559e+10; at 72.26: 1.3532e+10
+7 days = 0.01916 yr (source: 0.0192)
+xi = 444/0.0192 = 2.3125e+04; with 443.6 ly and 7 d exactly: 2.3145e+04 (source: 2.3e4)
+Pleiades / Hubble radius: 3.047e-08 (67.16), 3.278e-08 (72.26)
+== 2. Momentum of a closed craft: its own field exerts no net force (Eq. pr_noforce) ==
+F_A + F_B = -(G'(u) + G'(-u)): zero for every u iff G' is odd, i.e. G even
+even kernel 1/|u|: F_A + F_B = 0
+even kernel Yukawa exp(-2|u|)/|u|: F_A + F_B = 0
+even kernel Gaussian exp(-u^2): F_A + F_B = 0
+kernel with an odd part exp(-u^2)(1+u): F_A + F_B = 2*(2*u**2 - 1)*exp(-u**2) (nonzero: a static kernel with an odd part breaks the third law)
+40 sources aboard, kernel 1/r: |sum of all forces| = 1.15e-13 ; Yukawa:  7.03e-14
+== 3. Thrust from emitted field momentum: F <= P/c (Eq. pr_thrust) ==
+m = 1000 kg at 1 g: P = m a c = 2.940e+12 W
+m = 1000 kg at 100 g: P = m a c = 2.940e+14 W
+thrust per watt 1/c = 3.336e-09 N/W
+== 4. Negative mass pair (Bondi): self-acceleration with momentum and energy conserved ==
+acceleration of + body along +x: G*m/r**2 ; of - body along +x: G*m/r**2 ; equal: True
+total momentum m_+ v + m_- v = 0 ; total kinetic energy = 0
+== 5. Active and passive gravitational mass: self-force of a pair (Eq. pr_selfforce) ==
+net force on the pair = -G*(m_a1*m_p2 - m_a2*m_p1)/r**2 = G m_p1 m_p2 (m_a2/m_p2 - m_a1/m_p1)/r^2 : True
+LLR bound on S(Al,Fe): 4e-12 (Bartlett & Van Buren 1986), 3.9e-14 (Singh et al. 2023)
+== 6. Hover by weight reduction (Eq. pr_hover) ==
+zero total weight needs delta = (m_d + m_pay)/m_d ; for m_pay = m_d: delta = 2 ; passive mass of drive = -m_pay
+== 7. Universality: felt acceleration eta * a (Eq. pr_eta) ==
+a = 100 g, felt <= 0.01 g: |eta| <= 1.0e-04
+a = 10 g, felt <= 0.01 g: |eta| <= 1.0e-03
+a = 1000 g, felt <= 0.1 g: |eta| <= 1.0e-04
+MICROSCOPE ordinary matter, Earth's field: |eta| ~ 1e-15 (Touboul et al. 2022)
+== 8. Tides of a steep focus (Eq. pr_focus) ==
+tidal / acceleration for a monopole focus at distance r = 2*L/r (i.e. tide = 2 a L / r)
+a = 100 g, L = 10 m, focus at 1e+02 m: tide = 20 g
+a = 100 g, L = 10 m, focus at 1e+03 m: tide = 2 g
+a = 100 g, L = 10 m, focus at 2e+05 m: tide = 0.01 g
+tide <= 0.01 g needs r >= 2.000e+05 m; source strength a r^2/G = 5.877e+23 kg = 0.0984 Earth masses
+== 9. Energy of a displaced region (Eqs. pr_Etot, pr_Ewall) ==
+angular integral of (y^2+z^2)/r^2 over the sphere = 8*pi/3
+E = -(v_s^2/32 pi) * (8 pi/3) * int r^2 f'^2 dr  => coefficient -1/12 (-1/12)
+piecewise-linear wall: int r^2 f'^2 dr = Delta/12 + R**2/Delta (= R^2/Delta + Delta/12)
+tanh shape, R = 100, sigma = 8: int r^2 f'^2 dr = 26666.6801; R^2 sigma/3 = 26666.6667
+L_P = 1.6163e-35 m; c^2/G = 1.3466e+27 kg/m
+R = 100 m, Delta = 100 v_b L_P, v_b = 1: |E| = 6.943e+62 kg (Pfenning-Ford Eq. 29: 6.2e65 v_b g = 6.2e62 v_b kg)
+v_b = xi = 2.3145e+04: |E| = 1.607e+67 kg (scales as v_b at the QI wall thickness)
+in Milky Way masses (2e42 kg, Pfenning-Ford Eq. 30): v_b = 1: 3.47e+20; v_b = xi: 8.03e+24
+R = 100 m, Delta = 1 m, v_b = 1: |E| = 1.122e+30 kg = 0.564 solar masses
+wall thickness at the QI bound: v_b = 1: 1.62e-33 m; v_b = xi: 3.74e-29 m

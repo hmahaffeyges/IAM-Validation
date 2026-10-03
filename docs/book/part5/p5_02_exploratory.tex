@@ -359,3 +359,177 @@ steering: a static Laplace kernel has no focus; isotropic three-source mirror tw
 material, sources and coherence jointly necessary & \conjecture \\\bottomrule
 \end{tabularx}
 \end{table}
+
+\section{Propulsion and the conservation laws}\label{sec:propulsion}
+
+The propulsion material itself (gravity as the gradient of an effective potential, the weightless ride, the hover and
+the abrupt departure, the expansion kinematics, the locally flat displaced region, the Pleiades transit figure, and the conjectured coupling,
+material and steering sources) is set out above. This section adds the three checks that
+any propulsion scheme has to pass before its kinematics mean anything: conservation of momentum, the universality of free fall, and the energy
+conditions. The two zones keep their meaning. What follows from established physics and the law is marked \derived{} or \calc; what extends the
+engineering past it is marked \conjecture. Nothing in this section is used anywhere else in the book.
+
+\subsection{Zone I: momentum of a closed craft}\label{sec:pr_momentum}
+
+\subsubsection{A craft cannot be pulled by its own field}
+In this chapter the hover and the abrupt departure are both the same operation, shaping the gradient of $\Phi_{\rm IAM}$
+(Eq.~\eqref{eq:ge_hover}), and the steering sources of Eq.~\eqref{eq:ge_drive} are part of one phase-locked unit with the material. Suppose the
+sources ride with the craft. Write the field of a source distribution $\rho_B$ through a static kernel $G$ as
+$\Phi_B(\mathbf x)=\int G(\mathbf x-\mathbf x')\rho_B(\mathbf x')\,\mathrm d^3x'$. The force of $B$'s field on a body $A$ and of $A$'s field on $B$ add to
+\begin{equation}
+\mathbf F_A+\mathbf F_B=-\iint\rho_A(\mathbf x)\,\rho_B(\mathbf x')\left[\nabla G(\mathbf x-\mathbf x')+\nabla G(\mathbf x'-\mathbf x)\right]\mathrm d^3x\,\mathrm d^3x' ,
+\label{eq:pr_noforce}
+\end{equation}
+which vanishes for every pair whenever the kernel is even, $G(\mathbf u)=G(-\mathbf u)$, because its gradient is then odd. Newton's $1/r$, a Yukawa
+kernel and any isotropic kernel are even. Summed over all parts of a craft, its own static field exerts no net force on it, however the field is
+shaped. \derived{} A static kernel with an odd part would break the third law between the craft and its sources; in any translation-invariant field
+theory momentum is conserved (Noether), so such a kernel would have to store the difference as field momentum. \derived
+
+The hover and the departure therefore need one of three things that the gradient picture of this chapter does not supply: an
+external body to push against, momentum carried away by the field, or matter of negative mass. Each has a price that can be computed. \derived
+
+\subsubsection{Pushing on an external body}
+If the engineered field acts between the craft and the Earth, the Earth takes the opposite momentum, exactly as it does under a walking person. A
+hover is then a static balance between the craft and the planet below it: the field has to push the two apart with a force equal to the craft's
+weight, and the planet is pushed down by the same amount. \derived{} A field that does this is the conjectured
+coupling C1 of Section~\ref{sec:ge_zone2}, now required to act between two bodies, not only on one. \conjecture
+
+\subsubsection{Throwing field momentum}
+If the field carries momentum away, the craft recoils against it. For any field whose momentum density is bounded by its energy density over $c$
+(electromagnetic and gravitational radiation, and any field that satisfies the dominant energy condition), the thrust per unit radiated power is at
+most $1/c$:
+\begin{equation}
+F\le\frac{P}{c},\qquad P\ge m\,a\,c .
+\label{eq:pr_thrust}
+\end{equation}
+\derived{} That is $3.34\times10^{-9}$\,N per watt. Holding one tonne at $1\,g$ takes $2.94\times10^{12}$\,W, and an abrupt departure at $100\,g$
+takes $2.94\times10^{14}$\,W, for as long as it lasts. \calc{} A drive that works this way is a photon rocket whatever field it radiates, and the
+weightless ride is paid for at the full rate of Eq.~\eqref{eq:pr_thrust}. \derived
+
+\subsubsection{Negative mass}
+The third way conserves momentum with no external reaction. A body of mass $+m$ and a body of mass $-m$ (inertial, passive and active masses all of the
+same sign within each body) both accelerate in the same direction, from the negative toward the positive, each at $Gm/r^2$. Their total momentum
+$mv+(-m)v$ and their total kinetic energy $\tfrac12mv^2+\tfrac12(-m)v^2$ stay zero as they speed up~\cite{Bondi1957}. \derived{} (published) This is the
+self-propelled pair of Bondi's analysis of negative mass in general relativity. Its negative member has negative energy density, so it violates the
+weak energy condition. \derived{} No known matter has negative mass. \observed
+
+\subsection{Zone I: the universality of free fall}\label{sec:pr_universal}
+
+\subsubsection{The weightless ride needs a universal field}
+The weightless ride of Section~\ref{sec:ge_freefall} holds because every part of the craft and every occupant obeys the same equation of motion,
+Eq.~\eqref{eq:ge_eom}. That is the equivalence principle, and it holds for gravity: the MICROSCOPE mission finds titanium and platinum falling alike to
+about $10^{-15}$~\cite{Touboul2022} (Section~\ref{sec:ge_zone2}). \observed{} An engineered field is a different field. If it accelerates the hull
+and the occupants at rates that differ by a fraction $\eta$, the occupants feel the difference,
+\begin{equation}
+f_{\rm felt}=m\,\eta\,a ,\qquad |\eta|\le\frac{\varepsilon\,g}{a}\ \text{to keep the felt load below }\varepsilon\,g .
+\label{eq:pr_eta}
+\end{equation}
+\derived{} A departure at $100\,g$ felt below $0.01\,g$ needs $|\eta|\le10^{-4}$; a departure at $1000\,g$ felt below $0.1\,g$ needs the same. \calc{}
+The premises of Section~\ref{sec:ge_zone2} make the drive material couple to gravity differently from ordinary matter (premise P2), so the field it
+writes is not universal by construction, and whether it acts alike on hull, occupants and material is open. \conjecture{} Only a field that couples to
+all mass-energy alike, as gravity does, gives the ride of Section~\ref{sec:ge_freefall}. \derived
+
+\subsubsection{The tides of a steep focus}
+The tidal residual of Eq.~\eqref{eq:ge_tidal} was evaluated in this chapter for the Earth's field. An abrupt departure needs a steep
+gradient, and a steep gradient made by a focus close to the craft has large tides. For any field the tide across a craft of length $L$ is of order $aL/\ell$, where
+$\ell$ is the distance over which the field changes. For a focus that acts as a monopole of strength $M$ at distance $r$, the acceleration is
+$a=GM/r^2$ and the difference across the craft is
+\begin{equation}
+\Delta a=\frac{2GML}{r^3}=\frac{2aL}{r} .
+\label{eq:pr_focus}
+\end{equation}
+\derived{} At $a=100\,g$ across $L=10$\,m the occupants feel $20\,g$ with the focus at 100\,m and $2\,g$ at 1\,km. Keeping the tide below
+$0.01\,g$ needs the focus at least 200\,km away, and a focus there that pulls at $100\,g$ has the strength of $5.9\times10^{23}$\,kg, about a tenth of
+the Earth's mass. \calc{} The free-fall argument removes the uniform part of the load; it does not remove this part. \derived
+
+\subsection{Zone I: the energy conditions}\label{sec:pr_energy}
+
+\subsubsection{Every superluminal displacement needs negative energy}
+Section~\ref{sec:ge_bubble} gives the negative energy density in the wall of Alcubierre's region, Eq.~\eqref{eq:ge_rho}. The requirement is not
+special to that metric. Defining superluminal travel as a path that reaches a destination surface earlier than any neighbouring path, and assuming
+the generic condition, Olum proved that any such travel requires a violation of the weak energy condition, that is, negative energy
+density~\cite{Olum1998}. \derived{} (published) The rate $\xi=2.3\times10^4$ of the Pleiades transit, Eq.~\eqref{eq:ge_xi}, is superluminal in this
+sense, so whatever geometry carries it has negative energy somewhere. \derived
+
+\subsubsection{How much}
+Integrating Eq.~\eqref{eq:ge_rho} over a constant-time slice, with $\int(y^2+z^2)/r^2\,\mathrm d\Omega=8\pi/3$, gives in units $G=c=1$
+\begin{equation}
+E=-\frac{v_s^2}{12}\int_0^\infty r^2\left(\frac{\mathrm df}{\mathrm dr}\right)^2\mathrm dr ,
+\label{eq:pr_Etot}
+\end{equation}
+\derived{} and for a wall of thickness $\Delta$ at radius $R$, with $f$ falling linearly across the wall,
+\begin{equation}
+E=-\frac{v_s^2}{12}\left(\frac{R^2}{\Delta}+\frac{\Delta}{12}\right) ,
+\label{eq:pr_Ewall}
+\end{equation}
+as Pfenning and Ford give it~\cite{PfenningFord1997}; the smooth $\tanh$ wall of Alcubierre's shape function gives $R^2\sigma/3$ for the integral, the
+same form with $\sigma\approx1/\Delta$. \derived{} The quantum inequalities hold the wall to $\Delta\le10^2\,v_s\,L_{\rm P}$~\cite{PfenningFord1997}.
+For a bubble of radius 100\,m at $v_s=c$ that is $|E|=6.9\times10^{62}$\,kg, which Pfenning and Ford put at $6.2\times10^{62}$\,kg, or
+$3\times10^{20}$ galaxies of $2\times10^{42}$\,kg~\cite{PfenningFord1997}. \calc{} At the Pleiades rate $v_s=2.3\times10^4\,c$, taking their wall
+bound at face value, $|E|=1.6\times10^{67}$\,kg. \calc{} A wall 1\,m thick, which the quantum inequalities forbid, would need $0.56$ solar masses at
+$v_s=c$. \calc{} These magnitudes are the obstacle that this chapter names; IAM as formulated supplies no negative energy and no way
+around Olum's theorem. \derived
+
+\subsection{Zone II: what the weighing test would measure}\label{sec:pr_weigh}
+
+\subsubsection{Active and passive mass}
+The conditional prediction of Section~\ref{sec:ge_zone2} states two properties of the coherent material at once: it does not source gravity in
+proportion to its rest mass, and it would weigh less than its mass-energy predicts. These are two different masses. The mass that sources gravity is
+the active gravitational mass $m_a$; the mass that a field pulls on, which a balance weighs, is the passive gravitational mass $m_p$. For two bodies
+held at fixed separation $r$ the forces do not cancel unless the ratio of the two masses is the same for both:
+\begin{equation}
+F_{\rm net}=\frac{G\,m_{p1}m_{p2}}{r^2}\left(\frac{m_{a2}}{m_{p2}}-\frac{m_{a1}}{m_{p1}}\right) .
+\label{eq:pr_selfforce}
+\end{equation}
+\derived{} A material whose ratio differs from that of ordinary matter would make any rigid object built from both accelerate by itself, against the
+conservation of momentum. Lunar laser ranging finds the ratio the same for aluminium and iron to $4\times10^{-12}$~\cite{BartlettVanBuren1986} and
+now to $3.9\times10^{-14}$~\cite{Singh2023}. \observed{} The weighing of Section~\ref{sec:ge_zone2} tests $m_p$; a torsion-balance attraction tests
+$m_a$. The conjecture as written changes both. \conjecture{} They have to change in the same ratio, or momentum is not conserved. \derived
+
+\subsubsection{Hover by weight reduction}
+If the drive material of mass $m_d$ weighs a fraction $\delta$ less, $(1-\delta)\,m_d$, and carries an ordinary payload $m_{\rm pay}$, the whole
+craft weighs nothing when
+\begin{equation}
+(1-\delta)\,m_d+m_{\rm pay}=0,\qquad \delta=1+\frac{m_{\rm pay}}{m_d} .
+\label{eq:pr_hover}
+\end{equation}
+\derived{} The fraction is larger than one for any payload: $\delta=2$ for a payload as heavy as the drive, which makes the passive mass of the drive
+$-m_{\rm pay}$. A self-contained craft that hovers by weighing less needs drive material of negative passive mass, not material that weighs slightly
+less. \derived{} A small anomaly, if one were ever found, would support premise P2 but would not by itself lift anything. \conjecture
+
+\subsection{Summary}\label{sec:pr_summary}
+\paragraph{Zone I (established).} A craft whose sources ride with it cannot be moved by its own static field (Eq.~\eqref{eq:pr_noforce}). A hover or
+departure needs an external body to push on, radiated field momentum at $P\ge mac$ ($2.94\times10^{12}$\,W per tonne at $1\,g$), or negative mass.
+The weightless ride holds only for a field that acts alike on all mass-energy, to $|\eta|\le\varepsilon g/a$, and a steep focus adds the tide
+$2aL/r$, $20\,g$ across 10\,m at 100\,m from a $100\,g$ focus. Every superluminal displacement needs negative energy (Olum), $6.9\times10^{62}$\,kg
+for a 100\,m bubble at $c$ and $1.6\times10^{67}$\,kg at the Pleiades rate. \derived, \calc
+
+\paragraph{Zone II (conjecture).} The coherent material has to change its active and passive gravitational mass together, or momentum is not
+conserved (lunar ranging holds aluminium and iron to $3.9\times10^{-14}$); and a self-contained craft that hovers by weighing less needs negative
+passive mass, $\delta=1+m_{\rm pay}/m_d$. \conjecture
+
+The kinematics of this chapter say where the stars are. The conservation laws say what any vehicle would have to pay to get there:
+momentum to something, energy below zero, and a field that pulls on everything alike. \interp
+
+\begin{table}[htbp]\centering\small
+\caption{Status of every result in this section.}\label{tab:pr_status}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.34\linewidth}@{}}\toprule
+claim & status \\\midrule
+no net force of a craft's own static field, even kernel, Eq.~\eqref{eq:pr_noforce} & \derived \\
+an odd static kernel breaks the third law; momentum stored in the field & \derived \\
+hover against an external body needs coupling C1 between two bodies & \conjecture \\
+thrust from field momentum $F\le P/c$; $2.94\times10^{12}$\,W per tonne at $1\,g$, $2.94\times10^{14}$\,W at $100\,g$ & \derived, \calc \\
+negative-mass pair self-accelerates with momentum and energy conserved & \derived{} (published) \\
+no known matter has negative mass & \observed \\
+felt load $m\eta a$; $|\eta|\le10^{-4}$ for $100\,g$ felt below $0.01\,g$, Eq.~\eqref{eq:pr_eta} & \derived, \calc \\
+universality of the engineered field & \conjecture \\
+tide of a monopole focus $2aL/r$; $20\,g$, $2\,g$; 200\,km and $5.9\times10^{23}$\,kg for $0.01\,g$, Eq.~\eqref{eq:pr_focus} & \derived, \calc \\
+pair self-force from unequal $m_a/m_p$, Eq.~\eqref{eq:pr_selfforce} & \derived \\
+$m_a/m_p$ equal for Al and Fe to $4\times10^{-12}$, $3.9\times10^{-14}$ & \observed \\
+active and passive mass of the material change together & \conjecture \\
+hover by weight reduction needs $\delta=1+m_{\rm pay}/m_d>1$, Eq.~\eqref{eq:pr_hover} & \derived \\
+superluminal travel requires negative energy density & \derived{} (published) \\
+total negative energy $-(v_s^2/12)(R^2/\Delta+\Delta/12)$, Eqs.~\eqref{eq:pr_Etot}, \eqref{eq:pr_Ewall} & \derived \\
+$6.9\times10^{62}$\,kg (100\,m, $c$); $1.6\times10^{67}$\,kg ($2.3\times10^4c$); $0.56\,M_\odot$ (1\,m wall) & \calc \\\bottomrule
+\end{tabularx}
+\end{table}

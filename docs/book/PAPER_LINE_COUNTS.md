@@ -54,7 +54,7 @@ after confirming it matches the PDF. PDF lines = the extracted text, one `=== PA
 | 43 | the semiconductor report Issue 002 (private) | 67 | 2432 | 1–2432 (2026-10-02) | — | **complete** | private ledger |
 | 44 | Semiconductor platform demo (private) | — | 573 | — | — | not carried | product material |
 | 45 | Physics_of_Methylation__Landauer_Metrology | 9 | 381 | — | — | not confirmed |  |
-| 46 | Gravitational_Propulsion_and_IAM | 6 | 274 | — | — | not confirmed |  |
+| 46 | Gravitational_Propulsion_and_IAM | 6 | 274 | — | — | **complete**: same text as row 47 (0-line diff); carried in p5_02, checks in sec:propulsion | |
 | 47 | IAM_Gravitational_Engineering_Exploration | 6 | 274 | — | — | not confirmed |  |
 
 Total to read: 30,815 lines across 46 papers. Complete: 21,809 lines (36 papers).
