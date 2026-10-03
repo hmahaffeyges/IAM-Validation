@@ -115,7 +115,7 @@ The papers are the working record. Where a paper and the corrections list disagr
 - [The two faces of time: coordinate time, proper time, and accumulated decoherence](docs/papers/The_Two_Faces_of_Time.pdf)
 
 **The cell**
-- [Physics of methylation: Landauer metrology](docs/papers/Physics_of_Methylation__Landauer_Metrology.pdf)
+- Physics of methylation: Landauer metrology - retired; its content is carried in the book, Part VI (the Landauer chapter)
 
 **Exploratory, marked as such** — not part of the validation record:
 - [Gravitational engineering and interstellar transit: a first-principles exploration (exploratory)](docs/papers/IAM_Gravitational_Engineering_Exploration.pdf)

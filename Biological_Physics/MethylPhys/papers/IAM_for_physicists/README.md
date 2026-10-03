@@ -6,4 +6,4 @@ Mahaffey number as it stands (author's ruling 2026-09-19; IAM_Hubble2Methyl_Alph
 Cell 20.94; Apple M1 logic 81; Al transmon exactly 1 at T_gap (Delta_Al cancels).
 
 This is the programme document. The methods paper for the methylation instrument is
-[`../Physics_of_Methylation__Landauer_Metrology.pdf`](../Physics_of_Methylation__Landauer_Metrology.pdf).
+the Landauer chapter of the book (Part VI, [`docs/book/`](../../../../../docs/book/)).
