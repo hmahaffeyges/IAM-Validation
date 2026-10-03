@@ -2,6 +2,8 @@
 
 **The Actualization of Reality** — *the cost of recording it, and the price of maintaining it.*
 
+> Not a new model: a new perspective. Jacobson's exact formulas, taken one step further. General Relativity, with a new piece of information: information.
+
 **How decoherence writes the classical world, and the energy that holds it against thermal noise.**
 Heath W. Mahaffey, independent researcher.
 

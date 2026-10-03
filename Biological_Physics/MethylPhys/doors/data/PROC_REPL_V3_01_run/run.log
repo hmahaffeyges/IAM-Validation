@@ -1,0 +1,9 @@
+05:42:42 RAW tar 1117624320 bytes
+05:42:51 IDATs on box 128 | S3 uploads ok 0 of 130
+05:42:51 manifest 64 samples | with IDAT 64 | columns ['gsm', 'title', 'source', 'ch_sex', 'ch_age', 'ch_ethnicity', 'grn', 'sentrix', 'slide', 'sex_d', 'age_d', 'specimen']
+05:42:51 serial first array (methylprep manifest fetch): GSM7981498
+05:44:12 ok 1.2444
+05:47:16 pass 1 serial retry ['GSM7981500']
+05:47:26 pass1 {'ok': 63, 'no bundle': 1} | A present 63
+05:50:34 pass2 {'ok': 63} | tared 63 | S3 failures 579
+05:50:34 DONE
