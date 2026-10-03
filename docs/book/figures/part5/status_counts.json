@@ -26,32 +26,58 @@
   "interp": 38
  },
  "2": {
-  "derived": 283,
-  "calc": 474,
+  "derived": 177,
+  "calc": 362,
   "calibrated": 2,
-  "measured": 108,
-  "observed": 165,
-  "fitted": 31,
-  "conjecture": 85,
-  "analogy": 3,
-  "prediction": 119,
-  "openprob": 117,
-  "interp": 153
+  "measured": 107,
+  "observed": 137,
+  "fitted": 27,
+  "conjecture": 57,
+  "analogy": 0,
+  "prediction": 101,
+  "openprob": 85,
+  "interp": 116
  },
  "3": {
-  "derived": 40,
-  "calc": 81,
+  "derived": 42,
+  "calc": 18,
   "calibrated": 0,
-  "measured": 13,
-  "observed": 35,
+  "measured": 4,
+  "observed": 0,
   "fitted": 0,
-  "conjecture": 17,
-  "analogy": 2,
-  "prediction": 5,
-  "openprob": 21,
-  "interp": 28
+  "conjecture": 20,
+  "analogy": 0,
+  "prediction": 1,
+  "openprob": 10,
+  "interp": 29
  },
  "4": {
+  "derived": 85,
+  "calc": 132,
+  "calibrated": 0,
+  "measured": 4,
+  "observed": 36,
+  "fitted": 4,
+  "conjecture": 51,
+  "analogy": 3,
+  "prediction": 29,
+  "openprob": 31,
+  "interp": 34
+ },
+ "5": {
+  "derived": 29,
+  "calc": 70,
+  "calibrated": 0,
+  "measured": 0,
+  "observed": 32,
+  "fitted": 0,
+  "conjecture": 15,
+  "analogy": 0,
+  "prediction": 2,
+  "openprob": 13,
+  "interp": 26
+ },
+ "6": {
   "derived": 59,
   "calc": 74,
   "calibrated": 27,
@@ -64,17 +90,17 @@
   "openprob": 80,
   "interp": 22
  },
- "5": {
-  "derived": 122,
-  "calc": 126,
+ "7": {
+  "derived": 112,
+  "calc": 98,
   "calibrated": 4,
-  "measured": 29,
-  "observed": 36,
+  "measured": 35,
+  "observed": 29,
   "fitted": 2,
-  "conjecture": 84,
-  "analogy": 0,
-  "prediction": 29,
-  "openprob": 31,
-  "interp": 60
+  "conjecture": 43,
+  "analogy": 2,
+  "prediction": 20,
+  "openprob": 30,
+  "interp": 36
  }
 }

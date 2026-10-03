@@ -1,6 +1,6 @@
 \chapter{The status of the headline results}\label{ch:statusall}
 
-Table~\ref{tab:statusall} gathers, in one place and in the order of the five parts, the results a referee is likely to check first.
+Table~\ref{tab:statusall} gathers, in one place and in the order of the seven parts, the results a referee is likely to check first.
 Each row gives the value as it stands in its chapter, the status label it carries there, and the chapter that establishes it; the row on Euclid cites the published forecasts. The
 labels are those of the key in the front matter: \derived{} follows from stated premises with no parameter adjusted to data;
 \calc{} is computed from a derived formula and published constants or measurements; \calibrated{} is set once from reference data and
@@ -10,7 +10,7 @@ labels carries both, in the order of its parts.
 The predictions themselves, with their test dates and falsifiers, are listed in Chapter~\ref{ch:predictions}.
 
 {\small\setlength{\tabcolsep}{3pt}\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.29\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.255\textwidth}@{}}
-\caption{Status of the headline results across the five parts.}\label{tab:statusall}\\
+\caption{Status of the headline results across the seven parts.}\label{tab:statusall}\\
 \toprule result & value & status & where \\\midrule\endfirsthead
 \toprule result & value & status & where \\\midrule\endhead
 \bottomrule\endfoot
@@ -73,7 +73,7 @@ Bell value under pointer-basis decoherence & $S_{\max}=2\sqrt{1+c^2}$, never bel
 Active fluctuators that hold the measured quasiparticle fraction & 60, 600, 6,000 for $10^3$--$10^5\,\mu$m$^3$ islands at $x_{\rm qp}=10^{-7}$ & \derived & Ch.~\ref{ch:xqp} \\
 Measured quasiparticle background & $10^{-8}$--$10^{-6}$ in the best-isolated devices & \observed & Ch.~\ref{ch:xqp} \\
 Quasiparticle-limited $T_1$ of an Al transmon at 5 GHz & $\approx0.24$ ms at $x_{\rm qp}=10^{-7}$ & \calc & Ch.~\ref{ch:reach} \\
-Quantinuum Helios two-qubit gate on the qubit gauge & $p=7.9\times10^{-4}$; the surface-code threshold reads $12.7$ above the as-built $A=1$ & \observed, \calc & Ch.~\ref{ch:ascoreqc} \\
+Transmon worked example on the qubit gauge & thermal floor at $6.2\times10^{-4}$; the surface-code threshold reads $10$ above the as-built $A=1$ & \calc & Ch.~\ref{ch:ascoreqc} \\
 Thermal floor of a qubit record and of one gate & $p_{\rm eq}=1/(1+e^{hf/\kB T})$; $p_{\rm th}=p_{\rm eq}t_g/T_1$ (detailed balance) & \derived & Ch.~\ref{ch:qplatforms} \\
 Per-gate thermal floor of a 5\,GHz transmon at its own 35\,mK & $6.2\times10^{-7}$ ($T_1=68\,\mu$s, 40\,ns gate); at $6\times10^{-4}$ on the gauge of a $10^{-3}$ gate & \calc & Chs.~\ref{ch:ascoreqc},~\ref{ch:qplatforms} \\
 Slope of the held-record floor with temperature & $d\ln p_{\rm eq}/d\ln T=M(1-p_{\rm eq})$: 6.85 at 35\,mK, 16.0 at 15\,mK (5\,GHz) & \derived, \calc & Ch.~\ref{ch:thermaln} \\
@@ -111,7 +111,7 @@ The CMOS half and the virial half are one quantity & --- & \conjecture & Ch.~\re
 Equivalence of inertial and gravitational mass & $\eta\lesssim10^{-15}$ for ordinary materials & \observed & Ch.~\ref{ch:exploratory} \\
 \end{longtable}}
 
-Three points of reading follow from the table. First, the fits to data in Part~\ref{part:2} are made with the coupling fixed by the
+Four points of reading follow from the table. First, the fits to data in Part~\ref{part:2} are made with the coupling fixed by the
 law, so the chain values are measurements of the fixed model, not fits of a free parameter; the free-amplitude runs are reported as
 medians and bounds because their posteriors reach the prior edge. Second, every floor of the processors in Part~\ref{part:3} is the law at the temperature the record sees, so a device reading needs no
 fitted constant; what remains open there is how close each loss channel comes to its floor. Third, the cell gauge of

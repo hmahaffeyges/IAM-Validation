@@ -80,9 +80,8 @@ with open(TAB / "tab_T1_xqp.tex", "w") as fh:
 fq, Tq, T1q, tg, pq = 5e9, 0.035, 68e-6, 40e-9, 1e-3
 Mq = C.h * fq / (C.k * Tq); peq = 1 / (1 + np.exp(Mq)); pth = peq * tg / T1q
 print(f"transmon: M {Mq:.3f}, p_eq {peq:.3e}, p_th {pth:.3e}")
-plat = [("transmon reading (5 GHz, 35 mK)", 1e-3, pth),
-        ("Oxford Ionics, Ca$^+$ electronic", 8.4e-5, None),
-        ("Quantinuum Helios, Ba$^+$ laser", 7.9e-4, None)]
+# Author ruling 2026-10-03: the gauge shows the transmon worked example only (no named devices side by side).
+plat = [("transmon\n5 GHz, 35 mK", 1e-3, pth)]
 fig, (a1, a2) = plt.subplots(1, 2, figsize=(S.TEXTW, 2.2), gridspec_kw=dict(width_ratios=[1.45, 1]))
 XL = (1e-4, 300)
 for i, (nm, p, fl) in enumerate(plat):
@@ -101,10 +100,10 @@ for i, (nm, p, fl) in enumerate(plat):
     a1.text(th, y + 0.22, f"{th:.1f}" if th < 100 else f"{th:.0f}", ha="center", fontsize=6, color=S.DATA)
     print(f"{nm}: eps {eps:.3e}  floor at {fl/eps if fl else float('nan'):.3e}  threshold at {th:.2f}")
 a1.set_yticks(range(len(plat))); a1.set_yticklabels([n[0] for n in plat][::-1], fontsize=6)
-a1.set_xscale("log"); a1.set_xlim(*XL); a1.set_ylim(-0.6, len(plat) - 0.3)
+a1.set_xscale("log"); a1.set_xlim(*XL); a1.set_ylim(-0.6, 0.8)
 a1.axvline(1, color=S.IAM, lw=0.6, ls=":")
 a1.set_xlabel(r"reading $A=\varepsilon/\varepsilon_{\rm device}$ (device as built $=1$)")
-a1.set_title("Qubit gauge: thermal floor, as built, threshold", fontsize=7)
+a1.set_title("Qubit gauge: transmon worked example", fontsize=7)
 S.panel_letter(a1, "a", dx=-0.48)
 p = np.logspace(-5, -1, 200); a2.plot(p, 100 * (-np.log(1 - p) / p - 1), color=S.IAM)
 for nm, pp, fl in plat:

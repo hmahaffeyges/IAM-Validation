@@ -330,13 +330,21 @@ fig.tight_layout(); S.save(fig, "part5", "fig_cell_readings")
 
 # ===================== book-wide parsing: status labels, open problems, p5_09 items =====================
 main = (BOOK / "main.tex").read_text()
+# Part numbers follow the printed \\part{} headings in main.tex (seven parts), not the source folder names;
+# front matter before Part I is 0 and appendices after \\appendix are left out.
 order, part, file_part = [], 0, {}
 for line in main.splitlines():
     if line.strip().startswith("%"):
         continue
-    m_ = re.search(r"\\input\{(part(\d)/[^}]+)\}", line)
+    if re.match(r"\s*\\part\{", line):
+        part += 1
+    if re.match(r"\s*\\appendix", line):
+        break
+    m_ = re.search(r"\\input\{(part\d/[^}]+)\}", line)
     if m_:
-        order.append(m_.group(1)); file_part[m_.group(1)] = int(m_.group(2))
+        order.append(m_.group(1)); file_part[m_.group(1)] = part
+NPART = part
+ROMAN = {1: "I", 2: "II", 3: "III", 4: "IV", 5: "V", 6: "VI", 7: "VII", 8: "VIII"}
 txt = {f: "\n".join(l for l in (BOOK / f"{f}.tex").read_text().splitlines() if not l.lstrip().startswith("%")) for f in order}
 labels = {}
 for f, t_ in txt.items():
@@ -346,7 +354,7 @@ MAC = ["derived", "calc", "calibrated", "measured", "observed", "fitted", "conje
 NAMES = {"derived": "derived", "calc": "calculated", "calibrated": "calibrated", "measured": "measured", "observed": "observed",
          "fitted": "fitted", "conjecture": "conjecture", "analogy": "analogy", "prediction": "prediction", "openprob": "open problem",
          "interp": "interpretation"}
-cnt = {p: {mm: 0 for mm in MAC} for p in range(0, 6)}
+cnt = {p: {mm: 0 for mm in MAC} for p in range(0, NPART + 1)}
 for f, t_ in txt.items():
     for mm in MAC:
         cnt[file_part[f]][mm] += len(re.findall(r"\\" + mm + r"(?![A-Za-z])", t_))
@@ -366,7 +374,7 @@ for sec, body in re.findall(r"\\section\{([^}]*)\}\s*\{\\small\\begin\{longtable
     groups[sec] = items
 print({s_: len(v) for s_, v in groups.items()})
 WHO = ["we", "we, data needed", "we, data due", "we, experiment", "data needed", "data due", "experiment"]
-fig, (a1, a2) = plt.subplots(1, 2, figsize=(S.TEXTW, 2.4))
+fig, (a1, a2) = plt.subplots(1, 2, figsize=(S.TEXTW, 2.9))
 cols = [S.IAM, S.SKY, S.GR, S.ALT2, S.GOLD, S.ALT, S.DATA]
 left = np.zeros(len(groups))
 for w, col in zip(WHO, cols):
@@ -376,37 +384,38 @@ for w, col in zip(WHO, cols):
 other = [it for items in groups.values() for it in items if it[1] not in WHO]
 assert not other, other
 a1.set_yticks(range(len(groups))); a1.set_yticklabels(list(groups)); a1.invert_yaxis()
-a1.set_xlabel("open items"); a1.set_xlim(0, 21); a1.legend(loc="lower right", fontsize=6); a1.set_title("Who can settle each item"); S.panel_letter(a1, "a", dx=-0.32)
-origin = {p: 0 for p in range(1, 6)}
+a1.set_xlabel("open items"); a1.set_xlim(0, 21); a1.legend(loc="upper center", bbox_to_anchor=(0.45, -0.32), ncol=3, fontsize=5.8, frameon=False); a1.set_title("Who can settle each item"); S.panel_letter(a1, "a", dx=-0.32)
+origin = {p: 0 for p in range(1, NPART + 1)}
 for items in groups.values():
     for it in items:
-        for p in {file_part[labels[r]] for r in it[2] if r in labels}:
+        for p in {file_part[labels[r]] for r in it[2] if r in labels and file_part[labels[r]] >= 1}:
             origin[p] += 1
 a2.bar(list(origin), list(origin.values()), color=S.IAM, width=0.6)
 for p, v in origin.items():
     a2.text(p, v + 0.2, str(v), ha="center", fontsize=6)
-a2.set_xticks(list(origin)); a2.set_xticklabels([f"Part {p}" for p in origin]); a2.set_ylabel("items citing a chapter there")
+a2.set_xticks(list(origin)); a2.set_xticklabels([ROMAN[p] for p in origin], fontsize=6.5); a2.set_xlabel("part of the book"); a2.set_ylabel("items citing a chapter there")
 a2.set_title("Where the open items arise"); S.panel_letter(a2, "b", dx=-0.16)
 fig.tight_layout(); S.save(fig, "part5", "fig_open_items")
 print("origin by part", origin)
 
 # open problems per chapter, book-wide
-fig, ax = plt.subplots(figsize=(S.TEXTW, 2.4))
+fig, ax = plt.subplots(figsize=(S.TEXTW, 2.6))
 op = [(f, len(re.findall(r"\\openprob(?![A-Za-z])", txt[f]))) for f in order if file_part[f] >= 1]
-colp = {1: S.GR, 2: S.IAM, 3: S.ALT, 4: S.DATA, 5: S.ALT2}
+colp = dict(zip(range(1, NPART + 1), [S.GR, S.IAM, S.SKY, S.GOLD, S.ALT, S.DATA, S.ALT2, S.IAM]))
 ax.bar(range(len(op)), [v for _, v in op], color=[colp[file_part[f]] for f, _ in op], width=0.8)
 starts = {}
 for i, (f, _) in enumerate(op):
     starts.setdefault(file_part[f], i)
 for p, i0 in starts.items():
-    ax.text(i0, max(v for _, v in op) * (1.02 if p % 2 else 0.92), f"Part {p}", fontsize=6.5, color=colp[p])
-ax.set_xticks([]); ax.set_xlabel("chapters in book order"); ax.set_ylabel(r"open problems labelled")
+    ax.axvline(i0 - 0.5, color="0.85", lw=0.6, zorder=0)
+    ax.text(i0, max(v for _, v in op) * (1.06 if p % 2 else 0.95), f"Part {ROMAN[p]}", fontsize=6.5, color=colp[p])
+ax.set_ylim(0, max(v for _, v in op) * 1.2); ax.set_xticks([]); ax.set_xlabel("chapters in book order"); ax.set_ylabel(r"open problems labelled")
 ax.set_title(f"{sum(v for _, v in op)} open-problem labels across {len(op)} chapters")
 fig.tight_layout(); S.save(fig, "part5", "fig_open_map")
 
 # p5_10: the status summary of the whole book
-fig, ax = plt.subplots(figsize=(S.TEXTW, 2.7))
-parts = [1, 2, 3, 4, 5]
+fig, ax = plt.subplots(figsize=(S.TEXTW, 3.1))
+parts = list(range(1, NPART + 1))
 pal = {"derived": "#0072B2", "calc": "#56B4E9", "calibrated": "#E69F00", "fitted": "#F0C060", "measured": "#D55E00",
        "observed": "#E8956A", "prediction": "#009E73", "conjecture": "#CC79A7", "analogy": "#E3B5D2", "interp": "#999999",
        "openprob": "#4D4D4D"}
@@ -417,7 +426,7 @@ for mm in seq:
     ax.barh(range(len(parts)), v, left=left, color=pal[mm], height=0.6, label=NAMES[mm]); left += v
 for i, p in enumerate(parts):
     ax.text(left[i] + 3, i, str(int(left[i])), va="center", fontsize=6)
-ax.set_yticks(range(len(parts))); ax.set_yticklabels([f"Part {p}" for p in parts]); ax.invert_yaxis()
+ax.set_yticks(range(len(parts))); ax.set_yticklabels([f"Part {ROMAN[p]}" for p in parts]); ax.invert_yaxis()
 ax.set_xlabel("status labels in the text"); ax.legend(ncol=6, fontsize=5.8, loc="upper center", bbox_to_anchor=(0.5, -0.25))
 ax.set_title("What the book claims, and with what standing")
 fig.tight_layout(); S.save(fig, "part5", "fig_status_summary")

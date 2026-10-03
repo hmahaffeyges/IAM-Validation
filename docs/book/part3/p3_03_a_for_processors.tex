@@ -80,16 +80,16 @@ described above, and the floor of that channel is set apparatus by apparatus by 
 distance is the room the field is working in, and the decomposition of Chapter~\ref{ch:walls} says which loss channel takes it \interp.
 
 \section{The threshold picture}
-Figure~\ref{fig:qubit_gauge} places the transmon reading of Section~\ref{sec:qubitfloor} and the two ion devices with a primary published error on their own gauges: the device as built at 1, its thermal floor to the left, the threshold to the right.
+Figure~\ref{fig:qubit_gauge} places the transmon reading of Section~\ref{sec:qubitfloor} on its own gauge: the device as built at 1, its thermal floor to the left, the threshold to the right. Any device with a published two-qubit error can be placed on its own gauge the same way.
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part3/fig_qubit_gauge.pdf}
-\caption{(a) The qubit gauge, each device against itself. Top: a transmon at 5~GHz and its own 35~mK~\cite{Jin2015}, $T_1=68~\mu$s~\cite{GoogleWillow2025}, an illustrative 40~ns gate and two-qubit error $10^{-3}$; its thermal floor $p_{\rm eq}t_g/T_1=6.2\times10^{-7}$ sits at $6.2\times10^{-4}$ (diamond) \calc. Below: Oxford Ionics' electronically controlled $^{40}$Ca$^+$ gates, error $8.4(7)\times10^{-5}$ by subspace leakage-error randomized benchmarking~\cite{Hughes2025}, and Quantinuum Helios ($^{137}$Ba$^+$), average two-qubit infidelity $7.9(2)\times10^{-4}$ over all operational zones~\cite{Ransford2025} \observed; the thermal floor of their hyperfine records lies off the axis to the left (arrow), and the floor of the motional bus needs each apparatus's heating rate and gate time. Each device as built reads $A=1$ (circle); the surface-code threshold sits to the right at $10^{-2}/\varepsilon$ (bar: 10, 12.7 and 119) \calc. (b) $(\varepsilon-p)/p$ from Eq.~\eqref{eq:Agate}: below 0.5\,\% for $p<10^{-2}$; circles, the two devices. \derived}\label{fig:qubit_gauge}
+\caption{(a) The qubit gauge, each device against itself. Top: a transmon at 5~GHz and its own 35~mK~\cite{Jin2015}, $T_1=68~\mu$s~\cite{GoogleWillow2025}, an illustrative 40~ns gate and two-qubit error $10^{-3}$; its thermal floor $p_{\rm eq}t_g/T_1=6.2\times10^{-7}$ sits at $6.2\times10^{-4}$ (diamond) \calc. The device as built reads $A=1$ (circle); the surface-code threshold sits to the right at $10^{-2}/\varepsilon=10$ (bar) \calc. (b) $(\varepsilon-p)/p$ from Eq.~\eqref{eq:Agate}: below 0.5\,\% for $p<10^{-2}$; circle, the worked example. \derived}\label{fig:qubit_gauge}
 \end{figure}
 
 Surface-code error correction needs physical error below about $10^{-2}$, and useful
 fault-tolerant overhead needs about $10^{-3}$ or better~\cite{Fowler2012,GoogleWillow2025}.
 The qubit gauge places each device on one axis with three marks: its thermal floor, the device as built and the error-correction threshold,
-with the fault-tolerance target between the last two. Helios reads $A=1$ with the threshold at $10^{-2}/7.9\times10^{-4}=12.7$; the transmon
+with the fault-tolerance target between the last two. The transmon
 reading has its floor at $6\times10^{-4}$ and the threshold at 10 \calc. The gauge keeps the physical content, the gate error relative to the
 floor temperature sets and to the threshold, and nothing else.
 
