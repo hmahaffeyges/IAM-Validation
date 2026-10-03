@@ -69,7 +69,7 @@
 \definecolor{stG}{HTML}{C8E6C9}\definecolor{stB}{HTML}{BBDEFB}\definecolor{stA}{HTML}{FFE0B2}\definecolor{stR}{HTML}{FFCDD2}
 \newcommand{\stlab}[2]{{\setlength{\fboxsep}{1.2pt}\colorbox{#1}{\scriptsize\sffamily\strut #2}}}
 \newcommand{\Spassed}{\stlab{stG}{passed}}
-\newcommand{\Sprecision}{\stlab{stB}{\shortstack[l]{not yet\\precise enough}}}
+\newcommand{\Sprecision}{\stlab{stB}{\begin{tabular}[t]{@{}l@{}}not yet\\precise enough\end{tabular}}}
 \newcommand{\Spending}{\stlab{stA}{pending}}
 \newcommand{\Stension}{\stlab{stR}{in tension}}
 \newtcolorbox{checkbox}[1][]{colback=gray!4,colframe=gray!55,boxrule=0.5pt,arc=2pt,fonttitle=\bfseries\small,title=Independent check,#1}
