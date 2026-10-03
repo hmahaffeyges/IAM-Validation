@@ -1,32 +1,63 @@
-\chapter{Conclusion}\label{ch:conclusion}
+\chapter{Conclusion: pick it up, and try to break it}\label{ch:conclusion}
 
 The book began with one price. Making a classical record costs at least $\kB T\ln2$ per bit, paid at the surface where the record is written,
 at that surface's temperature. Nothing in that statement is new. Landauer stated the price, Bennett showed where it is paid, B\'erut and
 colleagues measured it, Bekenstein and Hawking gave surfaces their capacity and temperature, Jacobson showed that gravity follows from the
-thermodynamics of surfaces, and Zurek showed how decoherence leaves the records. What the book adds is the claim that these are one accounting,
-and that it can be followed from the cosmic horizon to the cell.
+thermodynamics of surfaces, and Zurek showed how decoherence leaves the records. What this book adds is the step that joins them: these are one
+accounting, and it can be followed, with the same formula and the same units, from the cosmic horizon to the strand of DNA in a single cell.
 
-Followed that far, one accounting reaches every scale this book visits.
+That is a large claim, and it is made in the most useful way a large claim can be made: every piece of it can be checked by someone who already
+has the tools. Nothing here asks a reader to accept a new force, a new particle or a new field. It asks only that a price everyone already
+agrees on be paid everywhere it is owed. If that is right, a great deal follows. If it is wrong, it is wrong somewhere specific, and finding where
+is a result in itself.
+
+\section*{One cost, every scale}
 \begin{itemize}
-\item At the cosmic horizon, with no free parameter, it gives a matter-sector coupling $\beta_m=\Omega_m/2$, an expansion history and lensing
-      that match $\Lambda$CDM, a growth rate 4.25\,\% lower today, and two Hubble rates from one law: 67.16 for light and 72.26 for the matter
-      flow. \derived, \calc{} Planck 2018 fits it as well as it fits $\Lambda$CDM, and the surveys now running (Euclid, DESI, LSST, the
-      gravitational-wave sirens) will measure the growth and the two rates directly within the decade. \prediction
-\item At a black hole, it gives the Smarr relation as the price of the horizon's bits, and the Bekenstein bound as the full surface. \derived
-\item At a qubit and a transistor, it gives a floor below every device, set by $\kB T\ln2$ at the device's own temperature, and a gauge on
-      which each device is read against itself as built. A current desktop processor runs some 600 times above $\kB T\ln2$; the room between a
-      device and its floor is where the next generations of hardware will be won. \calc
-\item At the cell, it gives an instrument that reads a cell's copy error against the same cell when healthy, with the thermal floor to the
-      left and the full surface to the right, built with the tools cosmology developed for reading a faint signal against a calibrated
-      reference. \derived
+\item \textbf{At the cosmic horizon}, with no free parameter, the price fixes a matter-sector coupling $\beta_m=\Omega_m/2=0.15765$, lensing
+      exactly as in general relativity ($\Sigma=1$), a growth rate $4.25\,\%$ lower today, and two Hubble rates from one law: $67.16$ for light,
+      as the CMB reads it, and $72.26$ for the matter flow, as the local distance ladder reads it. \derived, \calc{} The two rates the
+      Hubble tension sets against each other come out of one law. Planck 2018 fits the coupled universe as well as it fits $\Lambda$CDM. \fitted
+\item \textbf{At a black hole}, the same price gives the Smarr relation as the cost of the horizon's bits and the Bekenstein bound as the full
+      surface: a black hole is a record that has filled its page. \derived
+\item \textbf{At the particle scale}, the virial partition that fixes $\beta_m$ reappears from the lepton masses to the horizon, and the Koide
+      ratio sits at $Q=0.66666446$, $0.43\sigma$ from $2/3$. \observed
+\item \textbf{At a qubit and a transistor}, the price is a floor under every device, set by $\kB T\ln2$ at the device's own temperature. A current
+      desktop processor runs $576$--$593$ times above it. \calc{} That room is where the next generations of hardware will be won, and the gauge shows
+      an engineer exactly where a device is losing what it writes.
+\item \textbf{At the cell}, the price becomes an instrument. A cell's methylation pattern is its written record, and it is read against the same
+      cell when healthy, with the thermal floor on one side and the full surface on the other, using the tools cosmology built to read a faint
+      signal against a calibrated sky. \derived
 \end{itemize}
 
-The same price, $\kB T\ln2$ per bit, written at a horizon, a junction and a strand of DNA. That one cost connects thirty-seven orders of
-magnitude is the invitation of this book. Each Part is written so that a specialist in its field can take it up, check it and extend it:
-the predictions are dated and falsifiable (Chapter~\ref{ch:predictions}), the next steps are laid out with a plan for each (Chapter~\ref{ch:open}),
-and every number can be recomputed from the repository (Appendix~\ref{app:repro}).
-Figure~\ref{fig:status_summary} shows how each result is labelled, Part by Part, so a reader always knows what is derived, what is measured
-and what is still to be shown.
+\section*{Why a cosmologist should pick it up}
+The coupled universe makes sharp, near-term predictions with nothing left to tune: $\mu_0=-0.136$, $\Sigma=1$, a growth deficit that ramps from
+zero at high redshift to $4.25\,\%$ today, and the two Hubble rates. \prediction{} Euclid, DESI, LSST and the gravitational-wave sirens are
+measuring exactly these quantities this decade. A cosmologist with a Boltzmann code can run the chains in an afternoon (Appendix~\ref{app:repro}).
+If the growth follows the ramp and the sirens land on 72.26, the dark sector has a thermodynamic origin. If they do not, the test is clean and decisive.
+
+\section*{Why a relativist or a quantum theorist should pick it up}
+Jacobson derived Einstein's equations from $\delta Q=T\,dS$ at every local horizon. IAM keeps his derivation exactly and completes the entropy
+with the records the universe has written. Only one step is taken: the horizon entropy carries information. That step connects decoherence,
+measurement, the arrow of time and black-hole information to a single quantity that can be counted. A coherence time that grows with temperature
+is a prediction that sets IAM apart, and levitated-mass experiments are closing in on the regime where it can be seen. \prediction
+
+\section*{Why a device physicist should pick it up}
+Every platform, from transmons at millikelvin to trapped ions, neutral atoms, spins and CMOS at a hot junction, sits on the same gauge, each read
+against itself as built. The floor is not a fitting parameter; it is $\kB T\ln2$ at the temperature the record sees. That gives hardware a
+physical target, and a way to ask of any loss channel how close it is to the floor and what it would take to move it. \derived
+
+\section*{Why a geneticist should pick it up}
+Cancer, ageing and inflammation are, at bottom, failures to keep a written pattern. IAM gives that loss a physical scale: a cell's copy error,
+measured against the same cell when healthy, in units that mean the same thing in every tissue and every person. No cohort enters and no
+classifier is trained; a reading needs only the cell, its own healthy reference and the floor. The same mathematics that maps the cosmic
+microwave background maps the methylome: power spectra, residual maps, masks, component separation. A geneticist who has ever wanted a reading
+that is about this person, today, and not a distance from a population, has one to test here. \interp
+
+\section*{Try to break it}
+The best thing a reader can do with this book is to try to break it. Every number can be recomputed from the repository; every prediction is
+dated and states what would falsify it (Chapter~\ref{ch:predictions}); the next steps are laid out with a plan for each (Chapter~\ref{ch:open}).
+Every result carries a label saying whether it is derived, calculated, measured, calibrated, fitted, predicted or conjectured
+(Figure~\ref{fig:status_summary}), so a reader always knows exactly what is being claimed and how strongly.
 \begin{center}\begin{minipage}{\linewidth}\centering
 \includegraphics[width=\textwidth]{figures/part5/fig_status_summary.pdf}
 \captionof{figure}{Status labels in the text of each Part, counted from the chapter sources: derived, calculated, measured, observed, calibrated, fitted, prediction, conjecture, analogy, interpretation and open problem. Recomputed from the sources by the figure script. \calc}\label{fig:status_summary}
@@ -34,5 +65,5 @@ and what is still to be shown.
 
 The order in the title is the half of the accounting that is easiest to see and hardest to measure: every system that persists spends energy
 to hold what it has written against the thermal noise of its own surface. A cell that stops holding its pattern stops being that cell. \interp{}
-If that holds, the same physics that reads the sky can read the health of a cell long before a disease shows itself, and can tell an engineer
-where a qubit or a chip is losing what it writes. The book is offered to everyone who wants to take that further.
+If that is right, the physics that reads the sky can read the health of a cell long before a disease shows itself, and can tell an engineer where
+a qubit or a chip is losing what it writes. One price, paid from the horizon to the genome. Pick it up, take it further, and try to break it.
