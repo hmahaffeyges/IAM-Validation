@@ -1,81 +1,212 @@
-% Part 2 chapter carrying "On the Dual-Sector Structure of IAM" (March 2026, informal note), read in full 2026-10-02 (all 573 lines), in its order.
-% Checks: docs/verification/chains/DUAL_SECTOR_NOTE_CHECK.md. Figures 1-2 of the note are pre-chain and not carried; chain values are used.
+% Part 2 chapter: why matter and light are in different sectors. Source text (docs/papers/IAM_Dual_Sector_Note.pdf, version of record, read in
+% full, 573 lines; wording source docs/book/coverage/wave2/04_IAM_Dual_Sector_Note.tex) carried sentence by sentence, in order. Corrections applied
+% minimally where docs/verification/PAPER_ERRATA.md rows S1-S10 (and D7, T13, T27, W1) and docs/verification/chains/DUAL_SECTOR_NOTE_CHECK.md require.
+% Numbers: docs/verification/scripts/verify_dual_sector_chapters.py, verify_beta_gamma.py; Euclid only as in Section sec:lt_euclid.
+% The two summary figures are redrawn with chain values (figscripts/fig_p2_dual_sector.py); the pre-chain chi^2 panel is not carried (S6).
 \chapter{Why matter and light are in different sectors}\label{ch:dsnote}
 
-\section{Two kinds of worldline}
-General relativity treats massive particles and photons differently at the level of the metric. A massive particle moves on a timelike worldline and accumulates
-proper time,
-\begin{equation}
-g_{\mu\nu}\frac{dx^\mu}{d\tau}\frac{dx^\nu}{d\tau}=-1,\qquad d\tau>0,
-\end{equation}
-while a photon moves on a null worldline and accumulates none,
-\begin{equation}
-g_{\mu\nu}\frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}=0,\qquad d\tau=0 .
-\end{equation}
-This is the causal structure of spacetime, not an approximation. Rest mass, $E=mc^2$, is energy bound into a configuration that moves on timelike worldlines; a photon carries energy on a null one.
+This chapter lays out the physical reasoning behind IAM's dual-sector structure and the empirical evidence that bears on that separation. No claims are
+made here beyond what is established in the other chapters of this Part. The goal is to make the case as plainly as possible.
 
-The sector split follows from one statement: a process that needs a finite proper-time interval $\Delta\tau>0$ to complete cannot run on a worldline with
-$\Delta\tau=0$. Gravitational decoherence --- the irreversible production of classical records during structure formation --- is such a process. Photons
-therefore cannot take part in it, and the record entropy $S_{\rm info}$ that drives the IAM modification is produced by the matter sector alone.
+\section{The boundary Einstein built into the theory}\label{sec:dsn_boundary}
+\interp\ Albert Einstein wrote two things that, taken together, define the physical boundary at the center of IAM's dual-sector structure. He did not
+connect them. The tools to connect them did not exist in his lifetime. But the boundary was always there, encoded in his own mathematics.
 
-\section{What a constant term cannot describe}
-$\Lambda$ is a property of the geometry: uniform, isotropic, time-independent, and the same for null and timelike geodesics. It is the correct description of the
-vacuum baseline. What it cannot describe is a contribution that depends on what matter does --- irreversible decoherence events, the records they leave,
-their encoding on the horizon, the resulting change in expansion, and the dilution that slows further collapse. $\Lambda$CDM works well because the record term
-$\beta_mE(a)$ is smooth and, over the redshifts where data are most precise, its integrated effect resembles a slowly varying constant. A constant, however, has
-no link to when structure forms; in IAM the record term grows with structure formation, so it becomes important when matter is most active. The ingredients ---
-Landauer (1961)~\cite{Landauer1961}, Bekenstein--Hawking (1973)~\cite{Bekenstein1973,Hawking1975}, Jacobson (1995)~\cite{Jacobson1995} and decoherence theory (Zurek, 1980s)~\cite{Zurek1981,Zurek1982} --- were developed separately; IAM combines them.
+\textbf{The first} is the geodesic equation of general relativity, which Einstein himself noted was an independent postulate introduced alongside the
+field equations. He regarded this as one of the imperfections of the original theory: a complete field theory should derive the motion rather than
+assume it, and with Infeld and Hoffmann he later derived the motion of bodies from the field equations themselves~\cite{Einstein1938} \observed. The
+geodesic equation has two distinct forms, depending on the nature of the worldline:
+\begin{align}
+\text{Massive particles (matter):}\quad & g_{\mu\nu}\frac{dx^\mu}{d\tau}\frac{dx^\nu}{d\tau}=-1,\qquad d\tau>0, \label{eq:dsn_timelike}\\
+\text{Massless particles (photons):}\quad & g_{\mu\nu}\frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}=0,\qquad d\tau=0 \label{eq:dsn_null}
+\end{align}
+(signature $-+++$, $c=1$; $\lambda$ an affine parameter). This is not an approximation or a convention. It is a fundamental distinction in the causal
+structure of spacetime. Matter propagates on timelike worldlines and accumulates proper time. Photons propagate on null worldlines and accumulate none.
+The universe treats them differently at the level of the metric itself.
 
-\section{The sector split in the first law}
-IAM modifies the Jacobson--Cai--Kim first law~\cite{Jacobson1995,CaiKim2005} of the apparent horizon to
+\textbf{The second} is $E=mc^2$~\cite{Einstein1905}. \interp\ Mass is not simply energy with a label attached. Mass is energy bound into a configuration
+that moves on timelike worldlines. A massless photon carries energy but no rest mass---it lives on the null boundary. A massive particle carries the same
+energy bound into a configuration that accumulates proper time. $E=mc^2$ is a statement relating energy on the two kinds of worldline, written in 1905,
+ten years before general relativity formalized the geometric distinction between them.
+
+Einstein found the same boundary twice from different directions without the framework to see that both findings described the same thing.
+
+\begin{keybox}[title={The core claim of IAM's sector split, stated plainly}]
+Any physical process that requires a finite proper time interval $\Delta\tau>0$ to complete is inaccessible to photons, for whom $\Delta\tau=0$ exactly.
+Gravitational decoherence---the irreversible production of classical information during structure formation---is such a process. Therefore photons
+cannot participate in it. Therefore the informational entropy $S_{\rm info}$ that drives IAM's modification is produced exclusively by the matter sector.
+The sector split is not imposed on the physics. It follows from Einstein's own geodesic structure combined with the requirement that decoherence is an
+irreversible thermodynamic process. \derived\ (given the premise that record production needs $\Delta\tau>0$; Part~1)
+\end{keybox}
+
+\section{What the cosmological constant was always missing}\label{sec:dsn_lambda}
+Einstein introduced $\Lambda$ to hold the universe static and later abandoned it. But the deeper issue is structural, not merely numerical. $\Lambda$ is a
+property of spacetime geometry---uniform, isotropic, time-independent, and sector-blind. It applies identically to null and timelike geodesics because it
+lives in the metric, prior to any distinction between matter and radiation.
+
+\interp\ This is the correct description of the vacuum baseline. Quantum vacuum fluctuations produce a constant, time-independent background that maps
+directly to $\Lambda$. To that extent $\Lambda$ is not wrong (its size is a separate question, Chapter~\ref{ch:lambda}).
+
+\conjecture\ What $\Lambda$ cannot describe is the thermodynamic consequence of the matter sector's existence. The moment massive particles populate the
+universe---the moment there is energy moving on timelike worldlines---a new process begins that $\Lambda$ has no language for. Irreversible decoherence
+events start running. Classical information accumulates. The cosmic horizon encodes it. The encoding drives expansion. The expansion dilutes matter
+density and throttles further collapse. This entire feedback loop is invisible to a geometric constant written before the timelike sector existed.
+
+\begin{keybox}[title={$\Lambda$CDM and the record term}]
+$\Lambda$CDM is what you get when you apply the null geodesic description uniformly to a universe that contains matter. It works remarkably well because
+the informational term $\beta_mE(a)$ is smooth and its integrated effect resembles a slowly varying constant over the redshift range where data has
+historically been most precise. But it cannot explain why dark energy dominates at approximately the same epoch as structure formation peaks---because a
+true constant has no mechanism connecting it to when matter does things. In IAM the informational pressure \emph{is driven by} structure formation, so it
+dominates when matter is most active. The coincidence is causal, not accidental. \conjecture
+\end{keybox}
+
+\interp\ The $\Lambda$ problem was never that Einstein made an error. It is that the tools to complete the story of $E=mc^2$---to follow the timelike
+sector's thermodynamic consequences all the way to their cosmological implications---did not arrive until Landauer (1961)~\cite{Landauer1961},
+Bekenstein--Hawking (1973--1975)~\cite{Bekenstein1973,Hawking1975}, Jacobson (1995)~\cite{Jacobson1995}, and the decoherence framework of Zurek
+(1980s)~\cite{Zurek1981,Zurek1982} had all been published. Each tool was developed independently, in separate fields, for separate purposes. IAM is
+what happens when you follow all of them to the same conclusion simultaneously.
+
+\section{The sector split in IAM: physics, not assumption}\label{sec:dsn_firstlaw}
+IAM's modification of the Jacobson--Cai--Kim first law~\cite{Jacobson1995,CaiKim2005} is
 \begin{equation}
--dE=T_H\,d\!\left(S_{\rm geo}+S_{\rm info}\right),
+-dE=T_H\,d\!\left(S_{\rm geo}+S_{\rm info}\right), \label{eq:dsn_firstlaw}
 \end{equation}
-with $S_{\rm geo}=A_H/4G$ and $S_{\rm info}$ the classical information produced by gravitational decoherence, encoded at Landauer cost $k_BT_H\ln2$ per bit. The
-sector split enters through one condition,
-\begin{equation}
-S_{\rm info}>0\iff d\tau>0 .
-\end{equation}
-For photons $S_{\rm info}=0$, the first law takes its standard form and general relativity is recovered. In the $\mu$--$\Sigma$ language,
-\begin{equation}
-\mu(a)=\frac{H^2_{\Lambda{\rm CDM}}(a)}{H^2_{\Lambda{\rm CDM}}(a)+\beta_mE(a)H_0^2}<1,\qquad\Sigma(a)=1,
-\end{equation}
-with $E(a)=\exp(1-1/a)$ and $\beta_m=\Omega_m/2=0.15765$ from the virial partition --- no parameter beyond $\Lambda$CDM.
+where $S_{\rm geo}=k_BA_H/(4\ell_P^2)$ is the standard Bekenstein--Hawking geometric entropy of the horizon area $A_H$ ($A_H/4G$ in units
+$\hbar=c=k_B=1$; one nat per $4\ell_P^2$, one bit per $4\ln2\,\ell_P^2$) and $S_{\rm info}$ is the cumulative classical information produced by
+gravitational decoherence, encoded on the horizon at Landauer cost $k_BT_H\ln2$ per bit.
 
-$\Sigma=1$ with $\mu\neq1$ also occurs elsewhere: in $f(R)$ gravity, in the quasi-static regime, lensing is unmodified and $\mu$ lies between $1$ and $4/3$~\cite{PogosianSilvestri2008}.
-What is specific to IAM is the sign and form of $\mu(a)$ with its amplitude fixed in advance by $\Omega_m/2$, so that $\mu(0)=0.864$ is a prediction, not a fit.
+The sector split enters through a single physical requirement:
+\begin{equation}
+S_{\rm info}>0\quad\text{if and only if}\quad d\tau>0 . \label{eq:dsn_iff}
+\end{equation}
+Photons have $d\tau=0$ exactly. For them, $S_{\rm info}=0$, the first law reduces to its standard form, and standard GR is recovered. This is not a
+special case or an exception built into the framework. It is the direct consequence of requiring that decoherence---an irreversible thermodynamic
+process---needs finite proper time to run \derived.
 
-\section{The record so far}
+The mapping to the $\mu$--$\Sigma$ modified gravity parametrization follows directly:
+\begin{align}
+\mu(a)&=\frac{H^2_{\Lambda\rm CDM}(a)}{H^2_{\Lambda\rm CDM}(a)+\beta_mE(a)H_0^2}<1\qquad\text{(matter sector: suppressed growth)}, \label{eq:dsn_mu}\\
+\Sigma(a)&=1\qquad\text{(photon sector: standard GR, exact)}, \label{eq:dsn_sigma}
+\end{align}
+with the activation function $E(a)=\exp(1-1/a)$ derived from integrating the decoherence constraint (Appendix~\ref{app:der:activation}), and the coupling
+constant $\beta_m=\Omega_m/2=0.15765$ derived from the virial theorem (Chapter~\ref{ch:virial})---zero free parameters beyond $\Lambda$CDM \derived. At
+$z=0$, $\mu=1/(1+\beta_m)=0.864$.
+
+\observed\ The combination $\mu<1$ with $\Sigma=1$ exactly is not unique to IAM in the $\mu$--$\Sigma$ parameter space. In $f(R)$ gravity, in the
+quasi-static regime, lensing is unmodified ($\Sigma=1$) and $\mu$ lies between $1$ and $4/3$~\cite{PogosianSilvestri2008}. In DGP gravity light deflection
+is also unmodified; the self-accelerating branch has weaker effective gravity, $\mu<1$, but carries a ghost~\cite{Koyama2007}, and the normal branch has
+$\mu>1$. Generic Horndeski theories predict correlated deviations in both~\cite{Amendola2018}. What is specific to IAM is the sign and redshift form of
+$\mu(a)$ in Eq.~\eqref{eq:dsn_mu}, with its amplitude fixed in advance by $\Omega_m/2$, so that $\mu(0)=0.864$ is a prediction, not a fit. IAM occupies a
+region of parameter space that current growth data do not disfavour (Chapter~\ref{ch:latetime}).
+
+\section{What the data says: four lines of evidence}\label{sec:dsn_data}
+The sector split is a theoretical proposal with empirical tests, and four of them can already be stated. The following table summarizes four lines of
+evidence, each from a distinct dataset and methodology (Table~\ref{tab:dsn_evidence}).
+\begin{table}[htbp]\centering\small
+\caption[Four lines of evidence on the dual-sector structure]{Four lines of evidence on the dual-sector structure. Each uses distinct data, distinct
+methodology, and a distinct observable. The first three are consistent with $\beta_\gamma\approx0$, $\beta_m=\Omega_m/2$, $\mu<1$, $\Sigma=1$; the fourth
+is a test still to be made.}\label{tab:dsn_evidence}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.2\linewidth}l}\toprule
+Evidence & Dataset / method & Result & What it means & Label\\\midrule
+CMB enforces the photon-sector bound & Planck acoustic scale $\theta_s$; photon coupling in the background of light paths &
+$\beta_\gamma<0.0039$ ($95\,\%$); sector ratio $\beta_\gamma/\beta_m<0.025$ (Figure~\ref{fig:beta_gamma}) & the CMB itself measures that photons couple at least
+$40\times$ more weakly than matter; not assumed---measured & \calc\\
+The fixed $\beta_m$ is consistent with Planck & Planck 2018 posterior, Level~2 MCMC with $\beta_m$ fixed & $\Omega_m/2=0.1583\pm0.0032$ in the posterior,
+$0.2\sigma$ from $0.15765$ & the virial value is consistent with the data without any parameter tuning; a consistency, since $\beta_m$ is fixed in every
+chain & \measured\\
+Supernova distances follow $\Lambda$CDM & Full Pantheon+ dataset, three tests and the full covariance (Chapter~\ref{ch:dsvalidation}) &
+$\beta_{\rm distance}=-0.035$ ($68\,\%$: $-0.065$ to $0$); $\beta_m$ on the distances excluded, $\Delta\chi^2=+23.6$; magnitudes carry no $H_0$ &
+distances read the unmodified background; the normalization $73.04$ comes from the Cepheid calibration & \observed\\
+The DESI preference for evolving dark energy & DESI DR2 BAO with supernovae and CMB (distances only)~\cite{DESI2025} & preference for $w_0>-1$,
+$w_a<0$ & whether a single-fluid fit to $\Lambda$CDM-consistent distances alongside sub-$\Lambda$CDM growth produces it is a two-ruler test still to be
+made on real data (Chapter~\ref{ch:sectortension}) & \openprob\\\bottomrule
+\end{tabularx}
+\end{table}
+The MCMC validation summary (Chapters~\ref{ch:dual}, \ref{ch:latetime}, \ref{ch:level2}):
 \begin{itemize}
-\item Seventeen converged chains on the dual-sector term (12 MGCAMB, 3 modified CAMB, 2 background diagnostics; Chapters~\ref{ch:latetime}, \ref{ch:level2}); with the baryon chain (Chapter~\ref{ch:baryon}), eighteen in all (Chapter~\ref{ch:dual}).
-\item Planck: $\Delta\chi^2=+0.54$ at the best points against $\Lambda$CDM with the same parameter count (likelihood ratio $0.76$).
-\item $\sigma_8$ from $0.809$ to $0.800$, toward the KiDS-1000, DES~Y3 and HSC~Y3 values~\cite{Asgari2021,DESY3,HSCY3}.
-\item $H_0^{(\gamma)}=67.16\pm0.47$ ($-0.37\sigma$ from Planck~\cite{Planck2018VI}); $H_0^{(m)}=72.26$ ($-0.75\sigma$ from SH0ES~\cite{Riess2022}).
-\item The same term in the background Friedmann equation gives $H_0\approx61.5$, $10.9\sigma$ from Planck: the modification acts on the perturbations.
-\item Photon coupling: fitted to the acoustic scale, $\beta_\gamma<0.0039$ (95\,\%), so $\beta_\gamma/\beta_m<0.025$ \measured\ (Chapter~\ref{ch:dsvalidation}).
-\item Supernovae: their distances follow $\Lambda$CDM geometry; the $\beta$ term applied to them is excluded ($\Delta\chi^2=+23.6$; Chapter~\ref{ch:dsvalidation}) \measured.
-\item In the Planck chain, $\Omega_m/2=0.1583\pm0.0033$, $0.2\sigma$ from the fixed $\beta_m$.
+\item 17 converged chains on the dual-sector term (12 MGCAMB Level~1, 3 modified CAMB Fortran Level~2, 2 background diagnostics); with the baryon chain
+(Chapter~\ref{ch:baryon}), eighteen in all, every one with final $R-1\le0.010$ \measured.
+\item $\Delta\chi^2=+0.54$ best-fit relative to $\Lambda$CDM with the same parameter count, a likelihood ratio $e^{-0.54/2}=0.76$; no $\chi^2_1$ threshold
+applies at equal parameter count \calc.
+\item $\sigma_8$: $0.809\to0.800$---shifting in the direction reported by KiDS-1000, DES~Y3, HSC~Y3~\cite{Asgari2021,DESY3,HSCY3} \measured.
+\item $H_0(\mathrm{photon})=67.16\pm0.47$ km\,s$^{-1}$\,Mpc$^{-1}$ ($0.37\sigma$ from Planck~\cite{Planck2018VI}) \measured.
+\item $H_0(\mathrm{matter})=72.26\pm0.50$ km\,s$^{-1}$\,Mpc$^{-1}$ ($0.75\sigma$ from SH0ES~\cite{Riess2022}) \calc.
+\item Falsification boundary: applying the modification to the background Friedmann equation yields $H_0=61.45\pm0.42$ and $61.52\pm0.43$
+km\,s$^{-1}$\,Mpc$^{-1}$, $10.9\sigma$ below Planck in units of Planck's error ($8.6\sigma$ with the chain error added in quadrature), establishing that IAM
+operates at the perturbation level only \measured.
+\item Photon coupling: fitted to the acoustic scale, $\beta_\gamma<0.0039$ ($95\,\%$), so $\beta_\gamma/\beta_m<0.025$ \calc.
+\item Supernovae: their distances follow $\Lambda$CDM geometry; the $\beta$ term applied to them is excluded ($\Delta\chi^2=+23.6$;
+Chapter~\ref{ch:dsvalidation}) \observed.
 \end{itemize}
-Whether the DESI preference for evolving dark energy~\cite{DESI2025} arises from fitting one fluid to $\Lambda$CDM distances together with slower growth is a test still to be done
-on real data with two rulers (Chapter~\ref{ch:sectortension}).
+On the fourth row: the DESI DR2 preference comes from distances alone (BAO with supernovae and CMB), with no full-shape growth data, so the mechanism of
+$\Lambda$CDM distances combined with sub-$\Lambda$CDM growth does not apply to it directly; and when supernovae were given the full matter-sector $H(z)$ in
+a mock analysis, the fit moved to the opposite quadrant ($w_0=-1.19$, $w_a=+0.38$), and that form of the supernova distances is the one Pantheon+ excludes
+(Chapter~\ref{ch:dsvalidation}) \openprob.
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_beta_gamma.pdf}
 \caption[The photon coupling tested on the CMB acoustic scale]{The photon coupling tested on the CMB acoustic scale. (a) $\Delta\chi^2$ of $\theta_s$ against a photon coupling $\beta_\gamma\ge0$ in $H_\gamma^2=H_0^2[\Omega_ma^{-3}+\Omega_ra^{-4}+\Omega_\Lambda+\beta_\gamma E(a)]$, sound horizon fixed at 144.43\,Mpc, $\theta_s=0.0104110\pm0.0000031$~\cite{Planck2018VI}: $\beta_\gamma<0.0039$ at 95\,\%, so $\beta_\gamma/\beta_m<0.025$. (b) The full matter coupling $\beta_m=\Omega_m/2$ applied to photon paths moves $\theta_s$ by $+0.90\,\%$, $30\sigma$ at Planck precision (band: $\pm2\sigma$). Method of \texttt{docs/verification/scripts/\allowbreak{}verify\_beta\_gamma.py}. \calc}\label{fig:beta_gamma}
 \end{figure}
 
-\section{What would count against the dual-sector structure}
+\section{The figures}\label{sec:dsn_figures}
+Figure~\ref{fig:dsnote_probes} shows the dual-sector predictions across the observables. The photon sector is untouched: the CMB TT power spectrum is
+indistinguishable between IAM and $\Lambda$CDM because the photon coupling is bounded at $\beta_\gamma<0.0039$ (Figure~\ref{fig:beta_gamma}) \calc.
+Panel~(b) shows $\mu(a)<1$ across all redshifts, approaching unity at high $z$ as $E(a)\to0$; $1-\mu$ is $3.8\times10^{-4}$ at $z=3$ and
+$1.5\times10^{-5}$ at $z=5$, so GR is recovered there \calc. The panels together show both predictions simultaneously: standard photon propagation and
+suppressed matter growth, from the same single physical identification. CMB lensing follows the slightly lower matter perturbations: at fixed primordial
+amplitude a Limber estimate lowers the lensing power by $0.05$--$0.3\,\%$ for $30\le L\le1000$ (Chapter~\ref{ch:latetime}), far below the precision needed to
+bear on the Planck lensing-amplitude anomaly \calc.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_dsnote_probes.pdf}
+\caption[The dual-sector predictions in four observables]{Dual-sector predictions with $\beta_m=\Omega_m/2=0.15765$ and the Level~2 chain $H_0=67.16$.
+(a) Hubble parameter split: photon sector (CMB, light paths) $H_0=67.16$ vs.\ matter sector $H_0\sqrt{1+\beta_m}=72.26$ km\,s$^{-1}$\,Mpc$^{-1}$; inset,
+$z<0.3$. (b) Modified gravity parameter $\mu(z)<1$, with $\Sigma=1$ (photons unmodified) shown explicitly; $\mu=0.864$ at $z=0$, $0.888$ at $z=0.11$,
+$0.965$ at $z=0.69$, $0.999$ at $z=2.3$. (c) Activation timeline: $E=90\,\%$, $50\,\%$ and $10\,\%$ at $z=0.11$, $0.69$ and $2.3$, and the sector gap
+$H_m/H-1=6.1\,\%$, $1.8\,\%$ and $0.1\,\%$ there (drawn ten times enlarged). (d) Matter density suppression,
+$\Omega_m(a;\beta_m)/\Omega_m(a;0)-1=\mu-1$: $-13.6\,\%$ at $z=0$. Script \texttt{figscripts/\allowbreak{}fig\_p2\_dual\_sector.py}. \calc}\label{fig:dsnote_probes}
+\end{figure}
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_dsnote_growth.pdf}
+\caption[Growth rates in four models, and $S_8$]{(a) Growth rates across four models: $f\sigma_8$ relative to $\Lambda$CDM (A; same early amplitude) for
+B, the record term in the background only ($H^2=H^2_{\Lambda\rm CDM}+\beta_mE H_0^2$, $\mu=1$), $-9.4\,\%$ at $z=0$; C, in the perturbations only
+($\mu(a)$, $\Lambda$CDM background; the dual-sector form), $-4.25\,\%$ at $z=0$, $-1.35\,\%$ at $z=0.5$, $-0.41\,\%$ at $z=1$; D, both, $-13.2\,\%$. The
+background placements are the ones the CMB rejects (Level~2b, $H_0\approx61.5$). (b) $S_8=\sigma_8\sqrt{\Omega_m/0.3}$ from growth and matter dilution:
+Planck 2018 published $0.832\pm0.013$~\cite{Planck2018VI}; Level~2 chains with the same code, $\Lambda$CDM $0.830\pm0.011$ and $\beta_m$ fixed $0.822\pm0.011$
+\measured; KiDS-Legacy $0.815^{+0.016}_{-0.021}$~\cite{Wright2025}, DES Y3 $3\times2$pt $0.776\pm0.017$~\cite{DESY3}, KiDS-1000 cosmic shear
+$0.759^{+0.024}_{-0.021}$~\cite{Asgari2021} \observed. Script \texttt{figscripts/\allowbreak{}fig\_p2\_dual\_sector.py}. \calc}\label{fig:dsnote_growth}
+\end{figure}
+Figure~\ref{fig:dsnote_growth} places the record term in three ways. Only the perturbation placement (C) keeps the background, and with it the distances
+and the CMB, unchanged; it lowers $f\sigma_8$ by $4.25\,\%$ today, $2.17\,\%$ at $z=0.3$, $1.35\,\%$ at $z=0.5$ and $0.41\,\%$ at $z=1$ \calc. The matter
+density suppression drives $\sigma_8$ from $0.809$ to $0.800$ in the Level~2 chain and $S_8$ from $0.830$ to $0.822$, a shift of $0.8\sigma$ toward the
+weak-lensing values \measured.
 
+\interp\ Panel~(c) of Figure~\ref{fig:dsnote_probes}---the activation timeline---shows where the two sectors separate: $E(a)$ rises most steeply at low
+redshift, with half its present value at $z=0.69$ and $90\,\%$ at $z=0.11$. Whether a single-fluid $w_0w_a$CDM fitter, forced to reconcile
+$\Lambda$CDM-consistent distances with sub-$\Lambda$CDM growth, would infer a phantom crossing in this range is the two-ruler test of
+Chapter~\ref{ch:sectortension}, not yet made on real data \openprob.
+
+\section{Potential tensions with the current formulation}\label{sec:dsn_tensions}
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_mu0_constraints.pdf}
-\caption{Constraints on $\mu_0=\mu(z{=}0)-1$. Squares: published values as quoted in Chapter~\ref{ch:latetime} (68\,\% intervals): DES Y3 with external data $0.08^{+0.21}_{-0.19}$; DESI 2024 full shape with BAO and BBN $0.11^{+0.45}_{-0.54}$; DESI full shape with CMB and DES Y3 $0.04\pm0.22$; ACT + WMAP + SDSS + SN $0.02\pm0.19$ \observed. The prediction lies 1.14, 0.46, 0.80 and $0.82\sigma$ from them, general relativity within $0.42\sigma$. Circles: this book's Level~1 chains with $\mu_0$ free (flat prior $[-0.5,+0.2]$, the tick marks its upper edge), median and central 90\,\% interval, from the chain files \measured. Vertical line: the prediction $\mu_0=-0.136$ \prediction. The published values are for the template $\mu(z)=1+\mu_0\,\Omega_{\rm DE}(z)/\Omega_{\rm DE}(0)$, whose deviation lasts to higher redshift than IAM's; matched in growth, the IAM $\mu(z)$ corresponds to $\mu_0\approx-0.07$ in that template (Section~\ref{sec:lt_euclid}) \calc, so the distances quoted for $-0.136$ overstate the separation.}\label{fig:mu0_constraints}
+\caption{Constraints on $\mu_0=\mu(z{=}0)-1$. Squares: published values as quoted in Chapter~\ref{ch:latetime} (68\,\% intervals): DES Y3 with external data $0.08^{+0.21}_{-0.19}$; DESI 2024 full shape with BAO and BBN $0.11^{+0.45}_{-0.54}$; DESI full shape with CMB and DES Y3 $0.04\pm0.22$; ACT + WMAP + SDSS + SN $0.02\pm0.19$ \observed. The prediction lies 1.14, 0.46, 0.80 and $0.82\sigma$ from them, general relativity within $0.42\sigma$. Circles: the Level~1 chains of Chapter~\ref{ch:latetime} with $\mu_0$ free (flat prior $[-0.5,+0.2]$, the tick marks its upper edge), median and central 90\,\% interval, from the chain files \measured. Vertical line: the prediction $\mu_0=-0.136$ \prediction. The published values are for the template $\mu(z)=1+\mu_0\,\Omega_{\rm DE}(z)/\Omega_{\rm DE}(0)$, whose deviation lasts to higher redshift than IAM's; matched in growth, the IAM $\mu(z)$ corresponds to $\mu_0\approx-0.07$ in that template (Section~\ref{sec:lt_euclid}) \calc, so the distances quoted for $-0.136$ overstate the separation.}\label{fig:mu0_constraints}
 \end{figure}
+The following observations, if confirmed at high significance, would be in tension with IAM's current predictions and would warrant reexamination of the
+framework's assumptions:
 \begin{itemize}
-\item $\Sigma\neq1$ detected by Euclid tomography~\cite{Euclid2025}: the photon exemption would fail.
-\item $\beta_\gamma>0$ detected by CMB-S4~\cite{Abazajian2016}: photons would be coupled.
-\item $\Omega_m$ revised while the growth data still require the old $\beta_m$: the virial ratio $\beta_m/\Omega_m=1/2$ would fail.
-\item Scale-dependent $\mu$ or $\Sigma$: in IAM both depend on redshift only.
+\item \textbf{$\Sigma\neq1$ detected by Euclid}~\cite{Euclid2025}. IAM predicts $\Sigma(a)=1$ exactly. A statistically significant detection of
+$\Sigma\neq1$ in the Euclid weak lensing / galaxy clustering tomography would challenge the photon exemption and require understanding what physical
+process could produce a modification in the null sector.
+\item \textbf{$\beta_\gamma>0$ detected by CMB-S4}~\cite{Abazajian2016}. CMB-S4 will measure the CMB power spectrum with enough precision to tighten the
+present bound $\beta_\gamma<0.0039$. A detection of $\beta_\gamma>0$ would indicate photon-sector coupling beyond what the decoherence mechanism predicts.
+The CMB-S4 sensitivity to $\beta_\gamma$ is still to be forecast from the present bound \openprob.
+\item \textbf{$\beta_m/\Omega_m\neq1/2$ independently confirmed.} The virial theorem predicts this ratio is constant regardless of the value of $\Omega_m$.
+If independent measurements revise $\Omega_m$ significantly and the growth data still require a coupling different from the new $\Omega_m/2$, the virial
+derivation of the coupling would require revision.
+\item \textbf{Scale-dependent $\mu$ or $\Sigma$ detected.} Since $\delta\varphi=0$ in IAM in linear (first-order) perturbation theory, the modifications
+are scale-independent---functions of redshift only, not wavenumber $k$. A detected scale dependence would indicate a more complex perturbation structure
+than the current framework contains.
 \end{itemize}
-Euclid, DESI Year~5 and CMB-S4 test each of these.
+Each of these is a genuine prediction that Euclid, DESI Year~5, and CMB-S4 will test. The framework is falsifiable in the standard sense, and any tension
+with these observations would be scientifically informative regardless of its direction.
 \begin{table}[htbp]\centering\small
 \caption[What would count against the dual-sector structure]{What would count against the dual-sector structure. Present values are from the chains and the acoustic-scale fit of this chapter; the Euclid range is the one its published forecasts give for the IAM $\mu(z)$ (Chapter~\ref{ch:latetime}).}\label{tab:dsnote_falsifiers}
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.17\linewidth}l}\toprule
@@ -87,3 +218,25 @@ Growth coupling today & $\mu_0=-0.136$ & $\mu_0$ consistent with 0 and excluding
 Redshift dependence only & $\mu(a)$, $\Sigma(a)$ & scale-dependent $\mu$ or $\Sigma$ & Euclid, DESI & \prediction\\\bottomrule
 \end{tabularx}
 \end{table}
+
+\section{Summary}\label{sec:dsn_summary}
+\interp\ The dual-sector structure of IAM is not an assumption layered onto general relativity. It is the consequence of taking seriously two things
+Einstein already wrote:
+\begin{enumerate}
+\item Massive particles and photons follow fundamentally different geodesics---timelike ($d\tau>0$) and null ($d\tau=0$) respectively. This distinction is
+in the field equations of 1915--1916~\cite{Einstein1915,Einstein1916}.
+\item $E=mc^2$ relates energy bound into matter, which moves on timelike worldlines, to energy carried on null worldlines by radiation. This relation was
+written in 1905~\cite{Einstein1905}.
+\end{enumerate}
+Any thermodynamic process requiring finite proper time---including gravitational decoherence, the irreversible production of classical information, and
+its Landauer encoding on the cosmic horizon---is accessible only to the timelike sector. Photons, for whom $d\tau=0$, cannot participate. The sector split
+follows from the causal structure of spacetime itself.
+
+$\Lambda$CDM applies the null geodesic description uniformly to a universe that contains matter. IAM follows $E=mc^2$ to its thermodynamic conclusion.
+The empirical record---seventeen converged MCMC chains consistent with Planck at $\Delta\chi^2=+0.54$, 1588 supernovae whose distances follow
+$\Lambda$CDM geometry as the split requires, the Planck posterior consistent with the fixed $\beta_m=\Omega_m/2$ at $0.2\sigma$, and the CMB bounding the
+photon coupling at $\beta_\gamma<0.0039$---is consistent with the dual-sector description. The physical argument explains why the split is expected; the
+numbers decide whether it holds, and Euclid, DESI Year~5 and CMB-S4 will test it further.
+
+\paragraph{Code and data availability.} All MCMC chains, the modified CAMB Fortran source, and the analysis scripts are publicly available in the
+repository (\texttt{mgcamb\_validation/}, \texttt{camb\_validation/}, \texttt{docs/\allowbreak{}verification/}).

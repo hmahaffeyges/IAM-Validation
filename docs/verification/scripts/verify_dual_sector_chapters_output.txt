@@ -1,0 +1,102 @@
+0. Algebra (sympy)
+   m(M + 5 log10 lambda, lambda H0) - m(M, H0) = 0
+   d rho/da = rho/a^2  -> Eq(f(a), C1*exp(-1/a))
+   E(1) = 1 ; d2E/da2 = 0 at a = [1/2] ; d(E/a)/da = 0 at a = [1] ; E as a->oo: E
+   Omega_m(a;beta)/Omega_m(a;0) - mu(a) = 0
+   mu(a=1) = 1/(beta + 1) ; 1 - mu(1) = beta/(beta + 1)
+   H_m(a=1)/H0 = sqrt(beta + 1)
+1. Dual-sector numbers
+   beta_m = 0.15765; sqrt(1+beta_m) = 1.07594; 1 - mu0 = beta_m/(1+beta_m) = 0.1362
+   z    0: E 1.0000  mu 0.8638  H_m/H - 1  7.59 %  Omega_m(a;b)/Omega_m(a;0) - 1 -13.62 %
+   z 0.11: E 0.8958  mu 0.8877  H_m/H - 1  6.14 %  Omega_m(a;b)/Omega_m(a;0) - 1 -11.23 %
+   z  0.2: E 0.8187  mu 0.9050  H_m/H - 1  5.12 %  Omega_m(a;b)/Omega_m(a;0) - 1  -9.50 %
+   z  0.5: E 0.6065  mu 0.9482  H_m/H - 1  2.70 %  Omega_m(a;b)/Omega_m(a;0) - 1  -5.18 %
+   z 0.69: E 0.5016  mu 0.9654  H_m/H - 1  1.78 %  Omega_m(a;b)/Omega_m(a;0) - 1  -3.46 %
+   z    1: E 0.3679  mu 0.9822  H_m/H - 1  0.90 %  Omega_m(a;b)/Omega_m(a;0) - 1  -1.78 %
+   z    2: E 0.1353  mu 0.9977  H_m/H - 1  0.12 %  Omega_m(a;b)/Omega_m(a;0) - 1  -0.23 %
+   z  2.3: E 0.1003  mu 0.9987  H_m/H - 1  0.07 %  Omega_m(a;b)/Omega_m(a;0) - 1  -0.13 %
+   z    3: E 0.0498  mu 0.9996  H_m/H - 1  0.02 %  Omega_m(a;b)/Omega_m(a;0) - 1  -0.04 %
+   z    5: E 0.0067  mu 1.0000  H_m/H - 1  0.00 %  Omega_m(a;b)/Omega_m(a;0) - 1  -0.00 %
+   1 - mu at z = 3: 3.8e-04
+   1 - mu at z = 5: 1.5e-05
+   H0 photon 67.161 +- 0.467; H0 matter 72.261 +- 0.502
+   photon vs Planck 2018 67.36 +- 0.54: -0.37 sigma (Planck error only)
+   matter vs SH0ES 73.04 +- 1.04: -0.75 sigma (SH0ES error), -0.67 sigma (both)
+   matter vs TRGB 70.39 +- 1.94: +0.96 sigma
+   Test A effective H0 sqrt(1+beta): 67.4*sqrt(0.7) = 56.39; 73.04*sqrt(0.7) = 61.11
+   H0 split: (73.04/67.4)^2 - 1 = 0.1744; (72.26/67.16)^2 - 1 = 0.1576
+2. Pantheon+ release: 1701 light curves, z_HD 0.00122 to 2.2614
+   0.01 < zCMB < 2.5: 1588 SNe, z max 2.2613, median sigma_mb 0.212 mag
+   Nelder-Mead A Planck prior  Om 0.2049 H0 67.40 beta -0.3000 M -19.7919 chi2 721.12 chi2/dof 0.4552
+   Nelder-Mead B SH0ES prior   Om 0.2049 H0 73.04 beta -0.3000 M -19.6174 chi2 721.12 chi2/dof 0.4552
+   Nelder-Mead C no prior      Om 0.2909 H0 60.00 beta -0.1470 M -19.8340 chi2 722.04 chi2/dof 0.4558
+   Powell      A Planck prior  Om 0.3810 H0 67.40 beta +0.0123 M -19.3986 chi2 723.26
+   Powell      B SH0ES prior   Om 0.3286 H0 73.15 beta -0.0809 M -19.3236 chi2 722.56
+   L-BFGS-B    A Planck prior  Om 0.2069 H0 67.34 beta -0.2945 M -19.7861 chi2 721.16
+   L-BFGS-B    B SH0ES prior   Om 0.2049 H0 73.04 beta -0.3000 M -19.6174 chi2 721.12
+   profile in H0 (minimised over Om, beta, M):
+   H0 64.00: chi2 721.1159   M - 5 log10 H0 = -28.9352
+   H0 67.40: chi2 721.1159   M - 5 log10 H0 = -28.9352
+   H0 70.00: chi2 721.1159   M - 5 log10 H0 = -28.9352
+   H0 73.04: chi2 721.1159   M - 5 log10 H0 = -28.9352
+   beta profile (Om in [0.2, 0.4], offset free): min chi2 721.12 at beta -0.30 (Om 0.2050); beta 0: chi2 723.16 (Om 0.3738); beta +0.16: 733.01
+   at Om 0.315: chi2(beta=0) 733.04; best beta -0.11 chi2 722.36
+   LCDM Om 0.315 offset (H0 = 70 units): 5.6514; implied M at H0 = 73.04: -19.441
+3. Full covariance, zHD > 0.01: 1590 SNe
+   Om 0.315: LCDM chi2 1403.77; beta_m = 0.15765 in the distances 1427.39; Delta chi2 +23.62
+   Om 0.315: best beta -0.035, 68 % -0.065 to +0.000
+   beta 0.00000 fixed, Om free: Om 0.3325 chi2 1402.92 (Delta vs LCDM at 0.315: -0.85)
+   beta 0.15765 fixed, Om free: Om 0.4125 chi2 1403.69 (Delta vs LCDM at 0.315: -0.08)
+   Omega_m variation (best beta at fixed Om; full covariance | diagonal setup):
+   Om 0.308: beta -0.050 | -0.120
+   Om 0.315: beta -0.035 | -0.110
+   Om 0.322: beta -0.020 | -0.095
+   redshift bins (Om 0.315): (i) own offset per bin, diagonal | full covariance; (ii) common offset of the whole sample, full covariance
+   0.01-0.30: (i) diag N 1094 beta -0.175 [-0.225, -0.120] | full N 1096 beta -0.085 [-0.140, -0.025]  (ii) beta +0.000 [-0.005, +0.003]
+   0.30-0.70: (i) diag N  419 beta -0.270 [-0.375, -0.140] | full N  419 beta -0.285 [-0.365, -0.190]  (ii) beta +0.000 [-0.013, +0.010]
+   0.70-2.30: (i) diag N   75 beta +0.675 [+0.145, +1.385] | full N   75 beta +0.665 [+0.160, +1.320]  (ii) beta +0.070 [+0.022, +0.117]
+   sample-size convergence (diagonal setup, Om 0.315, 30 random subsamples each):
+   N  100: beta mean -0.102, sd 0.073
+   N  200: beta mean -0.102, sd 0.051
+   N  400: beta mean -0.111, sd 0.034
+   N  800: beta mean -0.117, sd 0.014
+   N 1200: beta mean -0.111, sd 0.013
+   N 1588: beta mean -0.110, sd 0.000
+   shape of d_L with beta_m in H(z) (Om 0.315):
+   z 0.05: d_L ratio at fixed H0 -6.76 %; relative to z = 0.05 +0.00 % = +0.000 mag
+   z  0.1: d_L ratio at fixed H0 -6.47 %; relative to z = 0.05 +0.31 % = +0.007 mag
+   z  0.5: d_L ratio at fixed H0 -4.66 %; relative to z = 0.05 +2.25 % = +0.048 mag
+   z  1.0: d_L ratio at fixed H0 -3.38 %; relative to z = 0.05 +3.62 % = +0.077 mag
+   z  2.0: d_L ratio at fixed H0 -2.31 %; relative to z = 0.05 +4.77 % = +0.101 mag
+4. Chain record: 18 chains; max final R-1 0.0100; samples 12767-250222
+   Planck            dchi2 +0.96  sigma8 0.8143 -> 0.8015 (-1.57 %, -0.0128)  H0 67.14 -> 67.08; free mu0 chi2_min 1011.69
+   Planck+RSD        dchi2 +0.56  sigma8 0.8133 -> 0.8004 (-1.58 %, -0.0129)  H0 67.49 -> 67.49; free mu0 chi2_min 1023.19
+   Planck+BAO        dchi2 +1.73  sigma8 0.8115 -> 0.7987 (-1.58 %, -0.0128)  H0 67.56 -> 67.54; free mu0 chi2_min 1017.90
+   Planck+Pantheon+  dchi2 +1.58  sigma8 0.8128 -> 0.7999 (-1.59 %, -0.0129)  H0 67.12 -> 67.00; free mu0 chi2_min 2415.40
+   Level 2 Planck    dchi2 +0.54  sigma8 0.8087 -> 0.7998 (-1.11 %, -0.0090)  H0 67.19 -> 67.16
+   Level 2 Run A: Om 0.3166 +- 0.0065, Om/2 0.1583 +- 0.0032 (+0.20 sigma from 0.15765); S8 0.8215 +- 0.0111
+   Level 2 Run C (LCDM): S8 0.8302 +- 0.0113; Om/2 0.1581; S8 shift -0.0087 = -0.78 sigma
+   S8 check sigma8 sqrt(Om/0.3): Run A 0.8215; Planck 2018 published 0.832 +- 0.013: shift -0.81 sigma
+   Level 2 Run D (IAM, Planck+RSD): sigma8 0.7995, H0 67.19, dchi2 vs Run A data differ (not paired)
+   iam_l2b_runA: H0 61.45 +- 0.42, sigma8 0.7655, Om 0.3777; vs Planck 67.36 +- 0.54: -8.6 sigma (both errors)
+   iam_l2b_runD: H0 61.52 +- 0.43, sigma8 0.7651, Om 0.3766; vs Planck 67.36 +- 0.54: -8.5 sigma (both errors)
+   likelihood ratio exp(-0.54/2) = 0.76
+   iam_baryon_test              baryon files 1 samples  20021 R-1 0.0099 chi2_min 1013.55
+   iam_fixed_mu0 (r2 final)     L1   files 4 samples  49484 R-1 0.0089 chi2_min 1013.95
+   iam_float_mu0 (r2 final)     L1   files 4 samples  66401 R-1 0.0099 chi2_min 1011.69
+   lcdm_baseline                L1   files 1 samples  16520 R-1 0.0089 chi2_min 1013.00
+   planck_bao_iam_fixed         L1   files 1 samples  12767 R-1 0.0058 chi2_min 1020.09
+   planck_bao_lcdm_baseline     L1   files 1 samples  24851 R-1 0.0096 chi2_min 1018.36
+   planck_bao_mu0_float         L1   files 1 samples  28958 R-1 0.0063 chi2_min 1017.90
+   planck_pantheon_iam_fixed    L1   files 1 samples  20849 R-1 0.0072 chi2_min 2417.58
+   planck_pantheon_lcdm_baseline L1   files 1 samples  38080 R-1 0.0085 chi2_min 2416.00
+   planck_pantheon_mu0_float    L1   files 1 samples  48829 R-1 0.0094 chi2_min 2415.40
+   planck_rsd_iam_fixed         L1   files 1 samples  27688 R-1 0.0078 chi2_min 1024.28
+   planck_rsd_lcdm_baseline     L1   files 1 samples  27106 R-1 0.0087 chi2_min 1023.72
+   planck_rsd_mu0_float         L1   files 1 samples  29000 R-1 0.0084 chi2_min 1023.19
+   iam_level2_runA              L2   files 1 samples 172159 R-1 0.0099 chi2_min 10972.61
+   iam_level2_runC_lcdm         L2   files 1 samples 250222 R-1 0.0081 chi2_min 10972.07
+   iam_level2_runD              L2   files 1 samples 112863 R-1 0.0080 chi2_min 10979.43
+   iam_l2b_runA                 L2b  files 1 samples 234293 R-1 0.0100 chi2_min 10970.77
+   iam_l2b_runD                 L2b  files 1 samples 229162 R-1 0.0068 chi2_min 10979.45
+wrote verify_dual_sector_chapters_data.json

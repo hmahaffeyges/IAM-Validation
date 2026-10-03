@@ -62,6 +62,42 @@ $R-1$ is at or below $0.010$.
  \item \textbf{The baryon chain.} Planck with the standard baryon density left free (Chapter~\ref{ch:baryon}).
 \end{itemize}
 
+\subsection{How the Level 1 chains are configured}\label{sec:chain_config}
+\measured\ Every Level~1 chain uses the same Boltzmann setup, read from its Cobaya input file (\texttt{mgcamb\_validation/\allowbreak{}chains/\allowbreak{}*.input.yaml}).
+MGCAMB runs in the $\mu$--$\Sigma$ mode (\texttt{MG\_flag}~$=1$, \texttt{pure\_MG\_flag}~$=2$) with the dark-energy-tracking form
+(\texttt{musigma\_par}~$=1$), $\mu(a)=1+\mu_0\,\Omega_{\rm DE}(a)/\Omega_\Lambda$ (Chapter~\ref{ch:latetime}, Eq.~\eqref{eq:lt_mgcamb}), with
+$\Sigma=1$ ($\sigma_0=0$) and the modification active for $a>10^{-3}$ (\texttt{GRtrans}~$=0.001$). The IAM chains fix
+$\mu_0=-0.13495$; the $\Lambda$CDM chains fix $\mu_0=0$; the free chains sample $\mu_0$. Linear perturbations only (\texttt{NonLinear\_none}),
+$\ell_{\max}=2500$, \texttt{lens\_potential\_accuracy}~$=1$. The sampler is Cobaya's MCMC with stopping rule $R-1<0.01$ on the means and $R-1<0.15$
+on the $95\,\%$ bounds; the two Planck-only chains with the coupling (fixed and free $\mu_0$) were completed from the learned covariance with four parallel
+chains each.
+\begin{table}[htbp]\centering\small
+\caption[Priors of the Level 1 chains]{Flat priors of the sampled parameters, the same in every Level~1 chain; $A_s=10^{-10}e^{\log A}$. Reference
+points are the Planck 2018 values. \measured}\label{tab:chain_priors}
+\begin{tabular}{lcc}\toprule
+Parameter & Prior range & Reference (mean, width)\\\midrule
+$\Omega_bh^2$ & $[0.020,\,0.025]$ & $0.02242$, $0.00014$\\
+$\Omega_ch^2$ & $[0.10,\,0.14]$ & $0.11933$, $0.00091$\\
+$H_0$ & $[60,\,80]$ & $67.4$, $0.5$\\
+$\tau$ & $[0.01,\,0.12]$ & $0.0544$, $0.0073$\\
+$\log(10^{10}A_s)$ & $[2.6,\,3.5]$ & $3.044$, $0.014$\\
+$n_s$ & $[0.92,\,1.00]$ & $0.9649$, $0.0042$\\
+$\mu_0$ (free chains only) & $[-0.5,\,+0.2]$ & $-0.135$, $0.05$\\\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[htbp]\centering\small
+\caption[Likelihoods of the four data combinations]{Likelihoods of the four Level~1 data combinations (Cobaya names). ``RSD'' denotes the BOSS DR12
+final consensus (BAO with three $f\sigma_8$ points) together with the eBOSS DR16 BAO distances; the DR16 likelihoods carry no growth data.
+\measured}\label{tab:chain_likelihoods}
+\begin{tabularx}{\linewidth}{l>{\raggedright\arraybackslash}X}\toprule
+Data & Likelihoods\\\midrule
+Planck & \texttt{planck\_2018\_lowl.TT}, \texttt{lowl.EE}, \texttt{highl\_plik.TTTEEE\_lite\_native}, \texttt{lensing.CMBMarged}\\
+Planck + RSD & the Planck set + \texttt{bao.sdss\_dr12\_consensus\_final}, \texttt{bao.sdss\_dr16\_bao\_elg}, \texttt{sdss\_dr16\_qso\_bao\_dmdh}, \texttt{sdss\_dr16\_lrg\_bao\_dmdh}\\
+Planck + BAO & \texttt{planck\_2018\_lowl.TT}, \texttt{lowl.EE}, \texttt{highl\_plik.TTTEEE\_lite}, \texttt{lensing.native} + \texttt{bao.sixdf\_2011\_bao}, \texttt{sdss\_dr7\_mgs}, \texttt{sdss\_dr12\_consensus\_bao}\\
+Planck + Pantheon+ & \texttt{planck\_2018\_lowl.TT}, \texttt{lowl.EE}, \texttt{highl\_plik.TTTEEE\_lite}, \texttt{lensing.native} + \texttt{sn.pantheonplus}\\\bottomrule
+\end{tabularx}
+\end{table}
+
 \begin{center}
 \small
 \begin{tabularx}{\linewidth}{@{}l>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X@{}}
@@ -91,6 +127,49 @@ $\Delta\chi^2_{\min}$ is the difference between the lowest $\chi^2$ found in eac
        The term acts on matter perturbations, not on the expansion.
  \item The Level 2 code, which writes the mechanism itself into CAMB, reproduces the Level 1 result ($\Delta\chi^2=+0.54$, $\sigma_8=0.800$).
 \end{enumerate}
+
+\begin{table}[htbp]\centering\small
+\caption[Per-chain record]{Every chain of the record: number of files (parallel chains), accepted samples, final Gelman--Rubin $R-1$ from the progress
+file, and the lowest $\chi^2$ found. Level~2 and 2b use their own likelihood set, so their $\chi^2$ is not comparable with Level~1. From
+\texttt{mgcamb\_validation/\allowbreak{}CHAIN\_EXTRACTION\_FINAL.csv}; recomputed in \texttt{verify\_dual\_sector\_chapters.py}. \measured}\label{tab:chain_record}
+\begin{tabular}{llrrrr}\toprule
+Chain & Level & Files & Samples & $R-1$ & $\chi^2_{\min}$\\\midrule
+IAM, Planck ($\mu_0$ fixed) & 1 & 4 & 49\,484 & 0.0089 & 1013.95\\
+$\mu_0$ free, Planck & 1 & 4 & 66\,401 & 0.0099 & 1011.69\\
+$\Lambda$CDM, Planck & 1 & 1 & 16\,520 & 0.0089 & 1013.00\\
+IAM, Planck + BAO & 1 & 1 & 12\,767 & 0.0058 & 1020.09\\
+$\Lambda$CDM, Planck + BAO & 1 & 1 & 24\,851 & 0.0096 & 1018.36\\
+$\mu_0$ free, Planck + BAO & 1 & 1 & 28\,958 & 0.0063 & 1017.90\\
+IAM, Planck + Pantheon+ & 1 & 1 & 20\,849 & 0.0072 & 2417.58\\
+$\Lambda$CDM, Planck + Pantheon+ & 1 & 1 & 38\,080 & 0.0085 & 2416.00\\
+$\mu_0$ free, Planck + Pantheon+ & 1 & 1 & 48\,829 & 0.0094 & 2415.40\\
+IAM, Planck + RSD & 1 & 1 & 27\,688 & 0.0078 & 1024.28\\
+$\Lambda$CDM, Planck + RSD & 1 & 1 & 27\,106 & 0.0087 & 1023.72\\
+$\mu_0$ free, Planck + RSD & 1 & 1 & 29\,000 & 0.0084 & 1023.19\\
+IAM, Planck (Run A) & 2 & 1 & 172\,159 & 0.0099 & 10972.61\\
+$\Lambda$CDM, Planck (Run C) & 2 & 1 & 250\,222 & 0.0081 & 10972.07\\
+IAM, Planck + RSD (Run D) & 2 & 1 & 112\,863 & 0.0080 & 10979.43\\
+background term, Planck (Run A) & 2b & 1 & 234\,293 & 0.0100 & 10970.77\\
+background term, Planck + RSD (Run D) & 2b & 1 & 229\,162 & 0.0068 & 10979.45\\
+baryon density free, Planck & -- & 1 & 20\,021 & 0.0099 & 1013.55\\\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[htbp]\centering\small
+\caption[Level 2 and 2b posteriors]{Level~2 and 2b posterior means and standard deviations (30\,\% burn-in); $S_8=\sigma_8\sqrt{\Omega_m/0.3}$. With the
+term in the perturbations (Run A) $S_8$ is lower than in $\Lambda$CDM (Run C) by $0.0087$, $0.8\sigma$; with the term in the background (2b) $H_0$ falls
+to $61.5$. \measured}\label{tab:chain_level2}
+\begin{tabular}{lccccc}\toprule
+Run & $\sigma_8$ & $H_0$ & $\Omega_m$ & $S_8$ & $\Omega_m/2$\\\midrule
+A, IAM, Planck & $0.7998\pm0.0058$ & $67.16\pm0.47$ & $0.3166\pm0.0065$ & $0.822\pm0.011$ & $0.1583\pm0.0032$\\
+C, $\Lambda$CDM, Planck & $0.8087\pm0.0059$ & $67.19\pm0.46$ & $0.3162\pm0.0065$ & $0.830\pm0.011$ & $0.1581\pm0.0032$\\
+D, IAM, Planck + RSD & $0.7995\pm0.0058$ & $67.19\pm0.46$ & $0.3162\pm0.0064$ & $0.821\pm0.011$ & --\\
+2b A, background, Planck & $0.7655\pm0.0055$ & $61.45\pm0.42$ & $0.3777\pm0.0076$ & $0.859\pm0.011$ & --\\
+2b D, background, Planck + RSD & $0.7651\pm0.0053$ & $61.52\pm0.43$ & $0.3766\pm0.0077$ & $0.857\pm0.011$ & --\\\bottomrule
+\end{tabular}
+\end{table}
+\measured\ The fixed coupling is consistent with the posterior of the Level~2 chain: $\Omega_m/2=0.1583\pm0.0032$, $0.2\sigma$ from $0.15765$; the
+$\Lambda$CDM chain gives $0.1581$. This is a consistency of the fixed value with the data, not a measurement of $\beta_m$, which no chain samples.
+The background runs sit $10.9\sigma$ below Planck's $H_0=67.36\pm0.54$ in units of Planck's error ($8.6\sigma$ with the chain error added in quadrature).
 
 \section{Two Hubble rates}
 
