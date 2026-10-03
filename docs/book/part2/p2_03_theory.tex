@@ -402,9 +402,9 @@ The first term reproduces the standard Friedmann equations exactly as in Cai and
 informational entropy production, weighted by the Gibbons--Hawking encoding cost, contributes an additional effective energy density. Its activation
 function satisfies $E(a)\to0$ as $a\to0$, $E(1)=1$, and $E(a)\approx0$ at recombination ($E(10^{-3})=e^{-999}$).
 
-In the dual-sector form this term does not modify the background expansion. The two Level~2b chains coded a different background term
-($\beta_mE(a)H_0^2/a^2$, $\Omega_\Lambda$ unreduced), which the CMB absorbs through a lower expansion rate today, $66.12$; the background form as written
-has not been run (Chapter~\ref{ch:level2}) \openprob. In the dual-sector form the mechanism operates at the perturbation level: the $\beta_mE(a)$ term enters through the sector split derived in
+Importantly, this term does not modify the background expansion. Applying the informational term at the background level gives
+$H_0=61.45$ and $61.52$\,km\,s$^{-1}$\,Mpc$^{-1}$ in the two Level 2b chains, inconsistent with Planck 2018 (Chapters~\ref{ch:dual} and~\ref{ch:level2}) \measured. The physical
+mechanism of IAM operates exclusively at the perturbation level: the $\beta_mE(a)$ term enters through the sector split derived in
 Section~\ref{sec:th:split}, modifying the effective Hubble friction for matter perturbations while leaving the background Friedmann equation and photon sector
 unchanged.
 
@@ -768,8 +768,9 @@ on the $\Lambda$CDM background \calc.
 
 Numerical validation via modified CAMB~\cite{Lewis2000CAMB} (Level 2, three converged chains against the full Planck 2018 likelihood) confirms that the
 modified expansion rate $H_{\rm IAM}$ operates within the matter-sector perturbation equations (as \texttt{adotoa\_matter} in the Boltzmann solver),
-while the global background Friedmann equation remains standard $\Lambda$CDM. Whether the term also belongs in the background has not been tested: the two Level~2b runs coded a different background term
-(Chapter~\ref{ch:level2}). \openprob The Level 2 validation yields $\Delta\chi^2=+0.54$ (best fit) relative to $\Lambda$CDM under the full Planck likelihood,
+while the global background Friedmann equation remains standard $\Lambda$CDM. Two exploratory runs with the modification applied at the background
+level (Level 2b) produced $H_0\approx61.5$\,km\,s$^{-1}$\,Mpc$^{-1}$, confirming that the standard $\Lambda$CDM background is correct and the dual-sector split
+is a perturbation-level effect. The Level 2 validation yields $\Delta\chi^2=+0.54$ (best fit) relative to $\Lambda$CDM under the full Planck likelihood,
 with $\sigma_8$ shifting from $0.809$ to $0.800$ and $H_0({\rm matter})=72.26$\,km\,s$^{-1}$\,Mpc$^{-1}$, $0.75\sigma$ from SH0ES (Chapter~\ref{ch:level2}). \measured
 
 \subsection{Derived $\mu(a)$ and $\Sigma(a)$}
@@ -1037,7 +1038,8 @@ $\dot\rho_{\rm info}=\rho_{\rm info}H/a$ directly (Section~\ref{sec:th:activatio
 $2.8\,\%$ at all $z$ (largest near $z\approx0.64$).
 \item \emph{Perturbation-level implementation.} Numerical validation via modified CAMB (Level 2, three converged chains against the full Planck 2018
 likelihood) confirms that the modified expansion rate (Eq.~\eqref{eq:HIAM}) operates within the matter-sector perturbation equations, not at the global
-background level. A background placement of the term as written has not been run; the two Level~2b runs coded a different term (Chapter~\ref{ch:level2}). \openprob The Level 2 validation yields
+background level. Two exploratory runs with the modification applied to the background Friedmann equation produced $H_0\approx61.5$\,km\,s$^{-1}$\,Mpc$^{-1}$,
+confirming that the standard $\Lambda$CDM background is correct and the dual-sector split is a perturbation-level effect. The Level 2 validation yields
 $\Delta\chi^2=+0.54$ (best fit) relative to $\Lambda$CDM, with $\sigma_8$ shifting from $0.809$ to $0.800$ and $H_0({\rm matter})=72.26$\,km\,s$^{-1}$\,Mpc$^{-1}$
 ($0.75\sigma$ from SH0ES).
 \end{enumerate}

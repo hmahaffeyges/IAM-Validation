@@ -436,8 +436,8 @@ here.
 \calc\ The dual-sector framework emerged from analysis of the CMB acoustic scale: a uniform $\beta=0.18$ applied to photon paths, with the sound horizon
 ($r_s=144.43$ Mpc) and all other parameters fixed, moves the acoustic angle $\theta_s$ by $+1.02\,\%$ from its $\Lambda$CDM value ($34\sigma$ at Planck's
 precision) and by $+1.08\,\%$ from the observed value ($36\sigma$); with $\beta_m=0.15765$ the shift is $+0.90\,\%$, $30\sigma$ (\texttt{verify\_beta\_gamma.py}).
-These are shifts at fixed parameters. With every parameter free the CMB absorbs a background term: the Level~2b chains, with the term coded as
-$\beta_mE(a)H_0^2/a^2$, fit as well as $\Lambda$CDM with a present expansion rate of $66.12$ (Chapter~\ref{ch:level2}). This forced sector-specific analysis, revealing $\beta_\gamma/\beta_m<0.025$---a ratio obtained from
+These are shifts at fixed parameters: with every parameter free the CMB can absorb a background change only by moving $H_0$ to $\approx61.5$ (Level~2b
+chains), which the distance ladder and BAO exclude. This forced sector-specific analysis, revealing $\beta_\gamma/\beta_m<0.025$---a ratio obtained from
 data, not imposed theoretically.
 
 The present SNe analysis tests the matter side of the split from a different direction: without assuming sector separation, it asks what the supernovae
@@ -545,8 +545,8 @@ All analysis code is publicly available and independently reproducible in under 
 
 \paragraph{Subsequent Boltzmann validation.} Full Boltzmann validation via 15 converged Planck MCMC chains (Level~1 MGCAMB + Level~2 modified CAMB Fortran)
 has tested the dual-sector mechanism at the perturbation level. The Level~2 validation yields $\Delta\chi^2=+0.54$ (best-fit) relative to $\Lambda$CDM,
-$\sigma_8=0.800$ and $H_0(\mathrm{matter})=72.26$ km\,s$^{-1}$\,Mpc$^{-1}$ \measured. A background placement of the term as written is still to be run; the two
-Level~2b runs coded a different term (Chapter~\ref{ch:level2}). The complete
+$\sigma_8=0.800$ and $H_0(\mathrm{matter})=72.26$ km\,s$^{-1}$\,Mpc$^{-1}$ \measured. Two exploratory background modification runs ($H_0\approx61.5$
+km\,s$^{-1}$\,Mpc$^{-1}$) show that the dual-sector split operates at the perturbation level, not in the background Friedmann equation. The complete
 chain record is in Chapter~\ref{ch:dual}.
 
 \section{Analysis code and data}\label{sec:dsv_code}

@@ -15,16 +15,16 @@ commissioning of each cell type in Part~\ref{part:4} and are not listed.
 \begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{@{}lrrrrrrr@{}}\toprule
 domain & kept & restated & tested & merged & not listed & total & rows here\\\midrule
-Cosmology and gravitation & 8 & 45 & 45 & 126 & 133 & 357 & 88\\
+Cosmology and gravitation & 8 & 45 & 45 & 126 & 133 & 357 & 90\\
 Particle physics and fundamental limits & 2 & 3 & 5 & 8 & 7 & 25 & 9\\
 Qubits and quantum measurement & 4 & 20 & 5 & 14 & 23 & 66 & 25\\
 Semiconductor chips & 0 & 4 & 2 & 13 & 30 & 49 & 5\\
 Quantum foundations & 0 & 1 & 1 & 1 & 12 & 15 & 2\\
-\midrule all & 14 & 73 & 58 & 162 & 205 & 512 & 129\\\bottomrule
+\midrule all & 14 & 73 & 58 & 162 & 205 & 512 & 131\\\bottomrule
 \end{tabular}
 \end{adjustbox}\end{table}
 
-Of the 145 entries with a standing verdict, 16 are not listed: they repeat a comparison that another row states, record an outcome that is not a prediction, or rest on a compilation with no primary data set named.
+Of the 145 entries with a standing verdict, 14 are not listed: they repeat a comparison that another row states, record an outcome that is not a prediction, or rest on a compilation with no primary data set named.
 
 \section{Cosmology and gravitation}
 {\footnotesize\setlength{\tabcolsep}{3pt}\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.096\textwidth}>{\raggedright\arraybackslash}p{0.384\textwidth}>{\raggedright\arraybackslash}p{0.182\textwidth}>{\raggedright\arraybackslash}p{0.182\textwidth}>{\raggedright\arraybackslash}p{0.067\textwidth}@{}}
@@ -33,7 +33,7 @@ Of the 145 entries with a standing verdict, 16 are not listed: they repeat a com
 \bottomrule\endfoot
 COS-\allowbreak{}001 (C12) & IAM gives two $H_0$ values: photon-sector 67.16 km/\allowbreak{}s/\allowbreak{}Mpc (Level 2 chain posterior; what the CMB reads) and matter-sector 72.26 km/\allowbreak{}s/\allowbreak{}Mpc = 67.161 x sqrt(1.1575) (what matter-flow probes read); standard sirens, whose hosts trace the matter flow, test the 72.26 value. & Standard sirens (GW170817 now: 70.0 +12/$-$8, not discriminating); no date & Standard-siren $H_0$ measured precisely enough to exclude 72.26 km/\allowbreak{}s/\allowbreak{}Mpc & restated\\
 COS-\allowbreak{}004 (C1) & IAM fixes $\mu_0$ = $-$0.136 ($\mu$(z=0) = 0.864, $\Sigma_0$ = 0); the published Euclid forecast for the full survey alone (conservative settings, all primary probes, $\Lambda\rm CDM$ fiducial, $\Sigma_0$ also free) gives a 23.3 \% relative error on 1 + $\mu_0$, $\sigma(\mu_0)$ $\sim$ 0.23, for a $\mu$(z) that tracks $\Omega_{\rm DE}$(z)~\cite{Albuquerque2025,Frusciante2025} \observed{}; the IAM $\mu$(z) falls off faster, and its template-equivalent $\mu_0$ $\sim$ $-$0.07 lies about 0.3 $\sigma$ from GR on that forecast, about 1.8 $\sigma$ on the published 4 \% error and about 7 $\sigma$ on the optimistic $\sim$1 \% error. \openprob\ A forecast with IAM's own $\mu$(z), which follows $E(a)$ rather than $\Omega_{\rm DE}$(z), and for Euclid combined with Planck lensing and DESI, has not been made. & Euclid final survey (after DR1, mid-2027) & $\mu_0$ measured consistent with 0 and excluding $-$0.136 & kept\\
-COS-\allowbreak{}005 & Background placement: the two Level 2b chains coded $\beta_m$ $E(a)$ $H_0^2$/$a^{2}$ with $\Omega_\Lambda$ unreduced, not the term as written; the CMB fits them as well as $\Lambda\rm CDM$ ($\chi^2$ 10970.77 vs 10972.07) with the expansion rate today 66.12 $\pm$ 0.45. The background form as written has not been run. & Planck 2018, Level 2b exploratory chains (measured) & --- & tested\\
+COS-\allowbreak{}005 & Measured: applying the $\beta_m$ $E(a)$ term to the background Friedmann equation gives $H_0$ = 61.45 $\pm$ 0.42 against Planck 2018, excluded at 10.9 $\sigma$ versus 67.36 $\pm$ 0.54, so the effect belongs in the perturbations only. & Planck 2018, Level 2b exploratory chains (measured) & --- & tested\\
 COS-\allowbreak{}007 & Comparison already made: the 72.26 km/\allowbreak{}s/\allowbreak{}Mpc value lies 0.75 $\sigma$ from SH0ES 73.04. & SH0ES, measured & --- & tested\\
 COS-\allowbreak{}008 & Fixed-$\mu_0$ IAM fits Planck and Planck+growth/\allowbreak{}BAO/\allowbreak{}SN with final-chain $\Delta\chi^2$ = +0.96 / +0.56 / +1.73 / +1.58 at equal parameter count. & Level 1 chains, measured & --- & tested\\
 COS-\allowbreak{}010 (C15) & Informational energy has $w_{\rm info}$(a) = $-$1 - 1/(3a) ($w_0$ = $-$4/3, $w_a$ = $-$1/3) on the matter ruler; the effective dark-energy fit gives $w_0$ = $-$1.062, $w_a$ = $-$0.012; photon-ruler data (DESI DR2 BAO) should give $w$ = $-$1. & no test named & Photon-ruler distances requiring $w$ $\ne$ $-$1 & restated\\
@@ -92,6 +92,8 @@ COS-\allowbreak{}219 (Q3) & IAM predicts an anomalous phonon excitation rate ris
 COS-\allowbreak{}227 (Q1) & At $10^{-12}$ kg and 10 mK the IAM gravitational decoherence time is $\sim$509 s (silica, 2200 kg/$m^{3}$), with $\tau$ $\sim$ $T^{2}$ and $\tau$ $\sim$ $m^{-5}$; falsified if the measured T dependence is $T^{0}$. & nanosphere experiment & $T^{0}$ scaling at mesoscopic mass & restated\\
 COS-\allowbreak{}228 (Q1) & Gravitational decoherence time scales as $T^{2}$ (16x from 10 to 40 mK), unlike Diosi-Penrose; at $10^{-12}$ kg and 10 mK the IAM time is $\sim$509 s (silica, 2200 kg/$m^{3}$). & optomechanical / levitated-mass experiments; no date & Coherence time of a massive superposition independent of temperature between 10 and 40 mK once environmental decoherence is removed & restated\\
 COS-\allowbreak{}229 & The CMB acoustic-scale scan gives $\beta_\gamma$ consistent with zero, $\beta_\gamma$ $<$ 0.0039 (95 \%), $\beta_\gamma/\beta_m$ $<$ 0.025: photons couple at least 40x more weakly than matter. & CMB acoustic scale likelihood scan (Planck) & --- & tested\\
+COS-\allowbreak{}240 & Putting the dual-sector term in the background Friedmann equation drives $H_0$ to 61.45 $\pm$ 0.42 km/\allowbreak{}s/\allowbreak{}Mpc, 10.9 $\sigma$ from $\Lambda\rm CDM$'s 67.36 $\pm$ 0.54: the background form is excluded. & Level 2b CAMB dtauda chains, Planck 2018 & --- & tested\\
+COS-\allowbreak{}241 & Exploratory chains with the IAM term in the background give $H_0$ $\sim$ 61.5 km/\allowbreak{}s/\allowbreak{}Mpc, so the term belongs in the perturbations. & Level 2b chains, measured & --- & tested\\
 COS-\allowbreak{}259 (C10) & With Planck 2018 and the IAM coupling fixed, IAM predicts $\sigma_8$ = 0.800 at Level 2 ($\Lambda\rm CDM$ 0.809, $-$1.1 \%, 1.51 $\sigma$) or 0.802 at Level 1 ($\Lambda\rm CDM$ 0.814, $-$1.6 \%); falsified if low-redshift clustering measures $\sigma_8$ inconsistent with 0.800. & Weak lensing and clusters (Euclid, LSST) & $\sigma_8$ from low-z clustering inconsistent with 0.800 & restated\\
 COS-\allowbreak{}260 (C8) & IAM lowers the CMB lensing power $C_{\phi\phi}$ by about 0.08 \% (Limber estimate 0.05-0.3 \%), far too small to address the Planck A\_L anomaly. & CMB lensing & none practicable at stated precision & restated\\
 COS-\allowbreak{}265 & Virial 1/2 partition for the Sun to $\sim$10 \%. & --- & --- & tested\\

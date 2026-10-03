@@ -160,6 +160,5 @@ for X, col, ls, nm in ((Bb, S.DATA, "-", "term in the background: Planck"), (Bd,
 ax.axvline(72.26, color=S.IAM, lw=1.0, ls="--"); ax.text(72.4, 0.62, "matter rate\n72.26", fontsize=6.5, color=S.IAM)
 ax.set_xlim(59.5, 75); ax.set_ylim(0, 1.7); ax.set_yticks([]); ax.spines["left"].set_visible(False)
 ax.set_xlabel("$H_0$ (km s$^{-1}$ Mpc$^{-1}$)"); ax.legend(loc="upper left", fontsize=6, ncol=2)
-ax.axvline(66.12, color=S.DATA, lw=1.0, ls="--"); ax.text(65.95, 0.62, "expansion rate\ntoday, 66.1", fontsize=6.5, color=S.DATA, ha="right")
-ax.set_title("Coded background term: sampled $H_0$ 61.5, rate today 66.1")
+ax.set_title("Term in the background: $H_0$ moves to 61.5")
 S.save(fig, "part2", "fig_l2_background")

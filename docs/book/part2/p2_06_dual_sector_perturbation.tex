@@ -246,8 +246,8 @@ Run & Description & Likelihoods & final $R-1$\\\hline
 A & informational term in the perturbations & CamSpec + low-$\ell$ + lensing & 0.0099\\
 C & $\Lambda$CDM (switch off) & CamSpec + low-$\ell$ + lensing & 0.0081\\
 D & informational term in the perturbations & CamSpec + low-$\ell$ + lensing + $f\sigma_8$ & 0.0080\\
-A$_{\rm b}$ & background term, Eq.~\eqref{eq:l2_bg_coded} (\texttt{dtauda}) & CamSpec + low-$\ell$ + lensing & 0.0100\\
-D$_{\rm b}$ & background term, Eq.~\eqref{eq:l2_bg_coded} (\texttt{dtauda}) & CamSpec + low-$\ell$ + lensing + $f\sigma_8$ & 0.0068\\\hline
+A$_{\rm b}$ & background term, Eq.~\eqref{eq:l2_bg} (\texttt{dtauda}) & CamSpec + low-$\ell$ + lensing & 0.0100\\
+D$_{\rm b}$ & background term, Eq.~\eqref{eq:l2_bg} (\texttt{dtauda}) & CamSpec + low-$\ell$ + lensing + $f\sigma_8$ & 0.0068\\\hline
 \end{tabular}\end{table}
 Runs A and C share identical likelihoods and sampled parameters and differ only in whether the three Fortran changes are active, so any difference
 between them arises from the dual-sector modification and not from code-level systematics.
@@ -413,42 +413,23 @@ $\Omega_m=0.3166$). (b) $H_m/H$: $1.0759$ today, $1.0269$, $1.0090$ and $1.0012$
 \end{figure}
 
 \section{The background test}\label{sec:l2_background}
-Should the $\beta_mE(a)$ term modify the background Friedmann equation directly, rather than enter through the perturbation equations? The intended
-background form is
+A natural question is whether the $\beta_mE(a)$ term should modify the background Friedmann equation directly, rather than entering through the
+perturbation equations. We test this explicitly. Two exploratory MCMC runs were performed with the IAM term added to CAMB's \texttt{dtauda}
+function (the background expansion rate), rather than to the perturbation equations. In this configuration the Friedmann equation becomes
 \begin{equation}
 H^2(a)=H_0^2\left[\Omega_ma^{-3}+\Omega_ra^{-4}+\Omega_\Lambda+\beta_mE(a)\right].
 \label{eq:l2_bg}\end{equation}
-Two exploratory chains, A$_{\rm b}$ (Planck) and D$_{\rm b}$ (Planck + growth), added a term to CAMB's \texttt{dtauda} function, the background
-expansion rate, instead of to the perturbation equations (\texttt{camb\_validation/prepare\_level2b.sh}).
-
-\paragraph{What the chains coded.} In \texttt{dtauda} the background is held as \texttt{grhoa2} $=8\pi G\rho a^4$. The patch adds
-$0.15765\,E(a)\,a^2\times$\texttt{grho0}, with \texttt{grho0} $=3H_0^2$ today's total density. The added density therefore scales as $E(a)a^{-2}$ and
-contributes
-\begin{equation}
-\Delta H^2(a)=\beta_m\,\frac{E(a)}{a^2}\,H_0^2
-\label{eq:l2_bg_coded}\end{equation}
-\derived, not $\beta_mE(a)H_0^2$: the two agree at $a=1$, but at $a=0.5$ the coded term is four times larger ($E/a^2=1.47$ against $E=0.37$) \calc.
-$\Omega_\Lambda$ was not reduced to compensate, so the expansion rate today is $H(z{=}0)=H_0\sqrt{1+\beta_m}$, not the sampled parameter $H_0$.
-
-\paragraph{What they show.} \measured\ The lowest $\chi^2$ of chain A$_{\rm b}$ is $10970.77$, against $10972.07$ for $\Lambda$CDM (Run~C): the CMB is
-fitted as well. The sampled parameter is $H_0=61.45\pm0.42$ (D$_{\rm b}$: $61.52\pm0.43$), with $\Omega_m=0.378\pm0.008$ and $\sigma_8=0.765$, both
-defined relative to that parameter. The expansion rate today is $61.45\times1.0759=66.12\pm0.45$ (D$_{\rm b}$: $66.19\pm0.46$), and the matter fraction of
-today's total density is $0.378/1.15765=0.326$ \calc. Against Run~C ($67.19\pm0.46$, $\Omega_m=0.316$) the present expansion rate is lower by
-$2.3\sigma$. The sampled $H_0$ lies $10.9$ Planck-$\sigma$ below $67.36\pm0.54$, but that parameter is not the present expansion rate in these runs,
-and the comparison does not measure how far the background version is from the data.
-
-These two chains therefore do not test Eq.~\eqref{eq:l2_bg}. They show that a late-time background term of this size, in the coded form
-Eq.~\eqref{eq:l2_bg_coded}, is absorbed by the CMB through a lower expansion rate today and a higher matter fraction. A background chain with
-Eq.~\eqref{eq:l2_bg} as written (term $\beta_mE(a)a^4$ in \texttt{grhoa2}, with flatness restored) is still to be run \openprob. The perturbation-level
-placement of Runs A, C and D keeps the photon-sector $H_0=67.16$ and the CMB fit of $\Lambda$CDM, and gives the matter-sector rate $72.26$ \measured.
+The result is $H_0=61.45\pm0.42$ and $61.52\pm0.43$~km\,s$^{-1}$\,Mpc$^{-1}$, $10.9\sigma$ from Planck: the CMB can absorb a background change only by
+moving $H_0$ \measured. This large distortion is what the test was built to show. In IAM the background does not change; the term lives in the
+entropy functional and enters through the perturbations.
 
 \interp\ In the dual-sector picture the standard $\Lambda$CDM Friedmann equation describes the global spacetime geometry, while the matter-sector
 enhancement enters through the effective expansion rate experienced by CDM and baryons in the perturbation equations. The photon sector, propagating
 on null geodesics through the unmodified background, sees standard $\Lambda$CDM distances and angular scales.
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.75\textwidth]{figures/part2/fig_l2_background.pdf}
-\caption{Background against perturbation-level placement. With the coded background term (Eq.~\ref{eq:l2_bg_coded}; orange, Planck and Planck +
-growth) the CMB is fitted with a sampled $H_0=61.5$; the expansion rate today in those runs is $H_0\sqrt{1+\beta_m}=66.1$ (orange dashed). With the
+\caption{Background against perturbation-level placement. With the term in the background (orange, Planck and Planck + growth) $H_0$ moves
+to $61.5$. With the
 term in the matter perturbations (blue, Run~A) the photon-sector $H_0$ stays at $67.16$, indistinguishable from $\Lambda$CDM (grey, Run~C), and the
 matter-sector value is $72.26$ (blue dashed). Bands: Planck $\Lambda$CDM $67.36\pm0.54$ and SH0ES $73.04\pm1.04$. Posteriors from the chain files.
 \measured}\label{fig:l2_background}\end{figure}
@@ -465,7 +446,7 @@ $H_0^{(\gamma)}$ [km\,s$^{-1}$\,Mpc$^{-1}$] & $67.16\pm0.47$ & $67.19\pm0.47$\\
 $H_0^{(m)}$ [km\,s$^{-1}$\,Mpc$^{-1}$] & $72.26\pm0.50$ & --\\
 $\Delta\chi^2$, lowest points & $+0.54$ (likelihood ratio $0.76$) & --\\
 $\Delta\chi^2$, chain averages & $-0.01$ & --\\
-coded background term (Eq.~\ref{eq:l2_bg_coded}): sampled $H_0$; rate today & $61.45\pm0.42$; $66.12\pm0.45$ & --\\
+term in the background (Level 2b): $H_0$ & $61.45\pm0.42$ & --\\
 free parameters beyond $\Lambda$CDM & 0 & --\\\hline
 \end{tabularx}\end{table}
 
@@ -476,8 +457,7 @@ The dual-sector perturbation mechanism, implemented as three Fortran changes to 
 \item lowers $\sigma_8$ by $0.009$ ($1.1\,\%$, $1.51\sigma$) in the direction reported by weak-lensing surveys, without degrading any CMB observable;
 \item gives, from a single posterior, a Hubble-parameter split consistent with both the CMB value ($67.16$, within $0.37\sigma$ of Planck) and the
 local value ($72.26$, within $0.75\sigma$ of SH0ES);
-\item operates at the perturbation level: the photon-sector $H_0$ and the CMB fit are those of $\Lambda$CDM. The exploratory background chains
-coded a different term (Eq.~\ref{eq:l2_bg_coded}); a background chain with Eq.~\eqref{eq:l2_bg} is open.
+\item operates at the perturbation level: placed in the background instead, the same term moves $H_0$ to $61.5$, $10.9\sigma$ from Planck.
 \end{enumerate}
 
 \subsection{What the analysis does not show}

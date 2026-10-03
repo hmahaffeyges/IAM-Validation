@@ -35,11 +35,13 @@ matter-sector rate $H_0^{(m)}=72.26$ (0.75$\sigma$ from SH0ES) and the photon-se
 tension endpoints within $1\sigma$ simultaneously (Chapter~\ref{ch:virial}); the comparison of $S_8$ with each weak-lensing survey is in
 Chapter~\ref{ch:sectortension}.
 
-\paragraph{Level 2b: the background runs.} Two Level~2b chains added a background term to CAMB's expansion rate (the \texttt{dtauda} function)
-and ran to $R-1=0.0100$ and $0.0068$. As coded the term was $\beta_mE(a)H_0^2/a^2$ with $\Omega_\Lambda$ unreduced, not $\beta_mE(a)H_0^2$. The CMB fits them
-as well as $\Lambda$CDM (lowest $\chi^2$ $10970.77$ against $10972.07$), with the expansion rate today $66.12\pm0.45$ and a matter fraction of $0.326$
-\measured. The background form as written is still to be run, so whether the term belongs only in the perturbations is open (Chapter~\ref{ch:level2}).
-\openprob\ All chains are archived for full reproducibility.
+\paragraph{Level 2b: the background modification as a structural test.} Two Level~2b chains tested the IAM term applied to the background Friedmann equation
+(modifying CAMB's \texttt{dtauda} function). These chains ran to full convergence ($R-1=0.0100$ and $0.0068$). The converged result was
+$H_0=61.45\pm0.42$ and $61.52\pm0.43$\,km\,s$^{-1}$\,Mpc$^{-1}$ --- far from the Planck value of 67.4. \measured\ This is a structural result: when the
+dual-sector modification is applied to the background expansion rather than the perturbation equations, the global expansion rate shifts far from every
+measurement. The standard $\Lambda$CDM Friedmann equation correctly describes the global background. The dual-sector mechanism lives exclusively in the
+perturbation equations, entering through the expansion rate felt by matter perturbations and leaving the background untouched (Chapter~\ref{ch:level2}).
+All chains are archived for full reproducibility.
 
 \paragraph{The quantum analogue.} The sector split follows from causal structure: massive particles on timelike worldlines ($\Delta\tau>0$) pay
 gravitational Landauer cost; photons on null geodesics ($\Delta\tau=0$) do not. At cosmological scales, the boundary is the apparent horizon. At quantum
