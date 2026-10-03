@@ -1,6 +1,6 @@
 # IAM's Law and Order — the book (one book, five parts)
 
-*IAM's Law and Order: How Decoherence Writes the Classical World, and the Energy That Holds It Against Thermal Noise* — Heath W. Mahaffey.
+*IAM's Law and Order: The Actualization of Reality — The Cost of Recording It, and the Price to Maintain It* — Heath W. Mahaffey.
 Working edition. This folder is the master copy: every chapter is edited here.
 
 ## Build

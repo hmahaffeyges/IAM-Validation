@@ -33,7 +33,7 @@ The author's decisions are collected in Section 19, one line each; items elsewhe
 - [ ] Hourly box report while runs go (operations; no book file).
 
 ## 1. Part 0 — front matter
-- [x] 1.1 Title: IAM's Law and Order: How Decoherence Writes the Classical World, and the Energy That Holds It Against Thermal Noise (`docs/book/README.md:3`).
+- [x] 1.1 Title: IAM's Law and Order: The Actualization of Reality — The Cost of Recording It, and the Price to Maintain It (`docs/book/README.md:3`).
 - [x] 1.2 Preface in the author's voice: operational origin in power-grid operations (part0/p0_preface.tex:40), "a messenger, not an inventor" (p0_preface.tex:21);
       Shoulders of Giants and GRF essay read in full (`read_ledgers/LEDGER_Shoulders_of_Giants.md`, `LEDGER_GRF_Essay.md`; f847b6a, 94feee7).
 - [~] 1.3 How to read: every status label defined with its meaning (part0/p0_how_to_read.tex:24–38). Remains: one worked example per label.
