@@ -10,7 +10,7 @@ calibration:
   \qquad H_{\rm ref}^{\text{EPIC, neutrophil}}=0.330263\ \text{bits}.
   \label{eq:meta}
 \end{equation}
-\calibrated{} The reference is frozen in \texttt{chain/\allowbreak{}Runtime Matrices/\allowbreak{}Met\_A\_Floors/\allowbreak{}metA\_floors\_v1\_3.json} and read from
+\calibrated{} The reference is frozen in a reference file and read from
 there by the chain; it is never typed.
 
 \section{How the healthy reference was measured}
@@ -37,9 +37,8 @@ Figure~\ref{fig:p4_heldout} and Table~\ref{tab:p4_refarrays} show the difference
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part4/fig_p4_07_heldout.pdf}
-\caption{The six reference arrays read three ways. Bars: in the floor, as printed by acceptance run 3. Circles: each array against a reference rebuilt
-from the other five, sites re-chosen on those five (SD 0.020). Squares: the frozen sites, floor from the other five. Normal shaded.
-Data: \texttt{metA\_floors\_v1\_3\_loo.csv}, \texttt{chain\_tests/\allowbreak{}chain\_acceptance.csv}. \measured}
+\caption{The six reference arrays read three ways. Bars: in the floor, as printed by the acceptance run. Circles: each array against a reference rebuilt
+from the other five, sites re-chosen on those five (SD 0.020). Squares: the frozen sites, floor from the other five. Normal shaded. \measured}
 \label{fig:p4_heldout}
 \end{figure}
 \begin{table}[htbp]\centering\small
@@ -69,7 +68,7 @@ one temperature, one ATP; one healthy reference per cell type.
 
 A reference measured on one platform does not transfer to another. On 450K arrays from eight donors, purified neutrophils
 read 0.932 on references measured on EPIC arrays, monocytes 0.916, NK cells 0.904; none of the eight in Normal. A development
-reference built from purified 450K arrays, read leave-one-donor-out, put all eight in Normal (DIAG-450K-01). \measured{} The
+reference built from purified 450K arrays, read leave-one-donor-out, put all eight in Normal. \measured{} The
 array chemistry differs, so the entropy the same cell shows differs, and every cell type needs its own reference on every
 platform. The 450K neutrophil reference is not yet frozen into the chain; chain v3 reads EPIC v1 arrays only.
 
@@ -82,27 +81,26 @@ $\beta$ toward one half. The denominator then becomes what this specimen should 
   \label{eq:metawb}
 \end{equation}
 with $f_g$ this specimen's own fractions of eight purified blood-cell groups and $\mu_{g,i}$ their healthy profiles at the
-6,000 sites (\texttt{blood\_composition\_EPIC\_v1.json}). No other person enters: the expectation is built from this person's
+6,000 sites. No other person enters: the expectation is built from this person's
 composition and the purified profiles. On six DNA mixtures of known composition the expectation built from the true fractions
-reads 0.982--1.016 (PROC-WB-NEUT-01), while the neutrophil reference alone reads the same mixtures 1.062--1.118. \measured{}
-Below 20~\% neutrophils the reading is withheld and the fraction is printed.
+reads 0.982--1.016, while the neutrophil reference alone reads the same mixtures 1.062--1.118. \measured{}
+Below the read line the reading is withheld and the fraction is printed.
 
 \section{The noise index}
 
 A second laboratory's purified neutrophils read 0.86--1.26 against the reference, and the spread followed the arrays'
-noise, not their purity (PROC-NEUT-TEST-01). \measured{} Array noise raises $H$ at every site. The chain therefore measures
-it on every specimen: the noise index $N$ is the mean $H(\beta)$ at 48,528 EPIC sites that every purified blood group holds
-fixed (every group mean $\le0.03$ or $\ge0.97$, every group SD $\le0.02$). The reference arrays read $N=0.122$--$0.149$;
-second-laboratory arrays up to 0.243, and Met-A follows $N$ ($\rho$ 0.79--0.83; DEV-NOISE-01). \measured{} $N$ gates the
+noise, not their purity. \measured{} Array noise raises $H$ at every site. The chain therefore measures
+it on every specimen: the noise index $N$ is the mean $H(\beta)$ at the EPIC sites that every purified blood group holds
+fixed. The reference arrays read $N=0.122$--$0.149$;
+second-laboratory arrays up to 0.243, and Met-A follows $N$ ($\rho$ 0.79--0.83). \measured{} $N$ gates the
 gauge state (Chapter~\ref{ch:instrument}).
 
-Figure~\ref{fig:p4_noise} shows the dependence on all 60 arrays of DEV-NOISE-01.
+Figure~\ref{fig:p4_noise} shows the dependence on all 60 arrays measured.
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.55\textwidth]{figures/part4/fig_p4_07_noise.pdf}
 \caption{Untared Met-A against the noise index $N$. Grey band: the range of $N$ on the reference arrays. Second-laboratory arrays (GSE247195,
-GSE247193; isolated neutrophils, three arrays at each of eight times of day) read high where their noise is high.
-Data: \texttt{doors/\allowbreak{}data/\allowbreak{}noise\_index.csv}. \measured}
+GSE247193; isolated neutrophils, three arrays at each of eight times of day) read high where their noise is high. \measured}
 \label{fig:p4_noise}
 \end{figure}
 
@@ -112,5 +110,5 @@ On the methylated channel, Met-A rises with loss only while those sites stay abo
 A DNA-methyltransferase inhibitor drives cells past that point: on 51 EPIC arrays from three cell lines, vehicle arrays read
 0.968--1.048, an inactive analogue 1.002--1.032, and the active drug at $\ge80$~nM 1.16--1.87. On the methylated channel alone the
 reading reaches its ceiling, one bit per site (2.66--2.85 against a ceiling of about 2.8), and falls again at the highest
-dose (PROC-DNMT-01, Part A). \measured{} The chain flags any specimen whose methylated sites
+dose. \measured{} The chain flags any specimen whose methylated sites
 average below one half and tells the reader to read the mean $\beta$ instead.

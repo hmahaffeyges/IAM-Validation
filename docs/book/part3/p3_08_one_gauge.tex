@@ -78,12 +78,12 @@ $H(\beta)=H(1-\beta)$, the entropy at either site is the entropy of the error:
 \paragraph{Met-A} (arrays) is the mean of $H(\beta)$ over the cell's identity sites divided by the same quantity on purified healthy cells of the
 same type on the same platform, calibrated by the chain's own Stage~1:
 \begin{equation}\text{Met-A}=\frac{\langle H(\beta)\rangle_{\rm identity\ sites}}{\langle H(\beta)\rangle_{\rm healthy\ reference}}.\end{equation}
-Identity sites: across-array SD $\le0.05$; $\beta$ in $0.75$--$0.95$ or $0.05$--$0.25$; at most 3,000 per channel, and at least 90\,\% of them
+Identity sites: across-array SD $\le0.05$; $\beta$ in $0.75$--$0.95$ or $0.05$--$0.25$; at most 3,000 per channel, and enough of them
 measured. Neutrophils on EPIC v1: healthy reference $0.330263$ bits, from 6 purified healthy arrays (held-out SD $0.020$). In whole blood the denominator is
 the healthy expectation for that person's own composition, $\langle H(\sum_c f_c\mu_{c,i})\rangle_i$, from their own cell fractions $f_c$ and
-purified healthy profiles $\mu_c$; no cohort enters. The reading is made when neutrophils are at least 20\,\% of the cells.
-\paragraph{The tare.} Every Met-A is read against at least three healthy specimens run the same way (same slide, else same batch):
-$A_{\rm rel}=A/\mathrm{median}(A_{\rm ref})$; nothing is fitted. The array's own noise index $N$, the mean $H(\beta)$ over 48,528 sites every
+purified healthy profiles $\mu_c$; no cohort enters. The reading is made when neutrophils are above the read line.
+\paragraph{The tare.} Every Met-A is read against healthy specimens run the same way (same slide, else same batch):
+$A_{\rm rel}=A/\mathrm{median}(A_{\rm ref})$; nothing is fitted. The array's own noise index $N$, the mean $H(\beta)$ over the sites every
 blood cell holds fixed, is checked against the references' range, and if it falls outside, the gauge state is withheld. The gauge is read on
 $A_{\rm rel}$, and each reading states the smallest loss of the cell's pattern that specimen could have shown.
 \paragraph{IAM-A} (single molecules) reads the copy error directly: $\varepsilon$ is the rate of an isolated unmethylated call between two

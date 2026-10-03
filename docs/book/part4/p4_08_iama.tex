@@ -36,13 +36,13 @@ maintenance is the central open problem of the cellular rung (Chapter~\ref{ch:op
 \section{The healthy position, and the reading}
 
 A healthy cell does not sit exactly on the floor. Its position above the floor, $P$, is measured once per cell type and per
-read pipeline, and frozen (\texttt{iama\_positions\_v1.json}):
+read pipeline, and frozen:
 \begin{equation}
   \text{IAM-A}=\frac{H(\varepsilon)}{P_{\rm cell}\,H(\varepsilon_0)},\qquad P_{\rm neutrophil}=1.099 .
   \label{eq:iama}
 \end{equation}
 \measured{} $P$ was measured on three healthy granulocyte donors (range 1.084--1.108, coefficient of variation 1.2~\%), on
-the read-level files of one public atlas~\cite{Loyfer2023} with the pipeline named \texttt{loyfer\_pat\_v1}. The floor then
+the read-level files of one public atlas~\cite{Loyfer2023}, with one named read-level pipeline. The floor then
 sits at $A=1/P=0.910$, below Normal. A reading below it is not a cell doing better than physics allows; it is an instrument
 fault, and the chain treats it as one.
 
@@ -66,7 +66,7 @@ IAM-A follows.
 \includegraphics[width=0.62\textwidth]{figures/part4/fig_p4_08_donors.pdf}
 \caption{The three healthy granulocyte donors on single molecules~\cite{Loyfer2023}. Circles: on the bare floor $\varepsilon_0$; squares: with the
 frozen position $P$, each donor held out of its own $P$ (the shaded stroke joins its odd and even molecule halves); triangles: the same molecules
-with 2~\% copy error added. The line is the floor $1/P$. Data: \texttt{chain\_tests/\allowbreak{}iama\_floor\_granulocytes.csv}. \measured}
+with 2~\% copy error added. The line is the floor $1/P$. \measured}
 \label{fig:p4_donors}
 \end{figure}
 \begin{figure}[htbp]\centering
@@ -80,13 +80,12 @@ triangles: the donors' copy error and the same molecules with 2~\% added. A 2~\%
 \begin{rulebox}
 The floor and the reading must be defined by the same statistic on the same selection of molecules. A floor taken from a
 different statistic (all-site copy error, with no filter on methylated molecules) misplaces healthy molecules several-fold
-(PROC-MOLECULE-01). \measured{} The chain enforces the rule.
+\measured{} The chain enforces the rule.
 \end{rulebox}
 
 \section{One energy, many cells}
 
-Read on the same 399 genomic windows for 153 samples of 56 healthy cell types, with no labels and no floor
-(PROC-CHANNEL-01):
+Read on the same 399 genomic windows for 153 samples of 56 healthy cell types, with no labels and no floor:
 \begin{itemize}
 \item the copy error ranges 0.024--0.042 and the holding energy $3.41\pm0.12\,\kB T$: close to one energy in every cell type;
 \item on one physics floor (Eq.~\ref{eq:eps0}) healthy cell types read 0.79--1.23, median 1.01; 27 of 56 inside Normal. One
@@ -103,4 +102,4 @@ Read on the same 399 genomic windows for 153 samples of 56 healthy cell types, w
 
 The same statistic reads tumours against the same person's normal tissue with no reference population: in six early-onset
 colorectal pairs the tumour's copy error is higher in all six, by 7--33~\%, and in oral squamous carcinoma in four of four, and in
-three of the four when 5-hydroxymethylcytosine is removed (PROC-TUMOUR-01; Chapter~\ref{part4:ch:reach}). \measured
+three of the four when 5-hydroxymethylcytosine is removed (Chapter~\ref{part4:ch:reach}). \measured

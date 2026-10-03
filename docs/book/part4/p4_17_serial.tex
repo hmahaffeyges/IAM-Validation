@@ -9,8 +9,8 @@ and their difference is the split-map null test turned into a signal.
 
 \section{What serial mode will compute}
 
-Serial mode is not yet part of chain v3. \openprob{} Its design is pre-registered (\texttt{doors/\allowbreak{}PROC\_SERIAL\_01\_PREREG.md}), and a module of
-pure functions exists (\texttt{chain/\allowbreak{}serial\_mode.py}) that is not wired into the run. Given a draw and an earlier draw of the same person (same
+Serial mode is not yet part of chain v3. \openprob{} Its design is pre-registered, and a module of
+pure functions exists that is not wired into the run. Given a draw and an earlier draw of the same person (same
 identifier hash, same array type, same pipeline; otherwise the pair is refused), it computes:
 \begin{enumerate}
 \item \textbf{$\Delta A$} for the cell read in both draws, with its fraction in each;
@@ -28,15 +28,14 @@ A difference means nothing without the size of difference that noise alone produ
 read through the same chain. For neutrophil Met-A it is not yet measured. \openprob{} What the records hold so far:
 \begin{itemize}
 \item \textbf{Same person, repeat arrays, another laboratory.} Isolated neutrophils of two donors, eight times of day, three arrays each, read with no tare:
-      within-person SD 0.045 and 0.044 on all 48 arrays (\texttt{doors/\allowbreak{}data/\allowbreak{}t2\_diag.csv}), and the spread followed the arrays' noise index, not the time of day (\texttt{PROC\_NEUT\_TEST\_01\_T2\_OUTCOME.md}).
+      within-person SD 0.045 and 0.044 on all 48 arrays, and the spread followed the arrays' noise index, not the time of day.
       \measured{} This is the floor of an untared reading in a noisy laboratory, not of a tared one.
-\item \textbf{Technical replicates of whole blood.} A 64-array replicate set (GSE250556) was in the pre-registered battery. The neutrophil fraction there was
-      0.30--0.56, and under the 0.50 read line then in force $A$ was withheld on 63 of 64 arrays (\texttt{PROC\_NEUT\_TEST\_01\_OUTCOME.md}, T3). \measured{} At the
-      present 0.20 line they are read: in development run 3, with the noise-corrected tare, 63 of the 64 arrays carry a tared reading, 0.967--1.026,
-      within-person SD 0.008, all 63 in Normal (Figure~\ref{fig:p4_replicates}; \texttt{DEV\_CHAIN\_V3\_RUN3.md}). \measured{} This is one
-      development run in one laboratory; a tared change floor from same-chip replicates through the commissioned chain is still to be measured. \openprob
+\item \textbf{Technical replicates of whole blood.} A whole-blood replicate set (GSE250556) was in the pre-registered battery. The neutrophil fraction there was
+      0.30--0.56, and under the read line then in force $A$ was withheld on nearly every array. \measured{} At the
+      present read line they are read, and their tared within-person spread is being measured in development (Figure~\ref{fig:p4_replicates}).
+      A tared change floor from same-chip replicates through the commissioned chain is still to be measured. \openprob
 \item \textbf{Same person, two remission draws.} Ten patients with two blood draws in remission read within 0.05 of themselves on 10 of 10
-      (\texttt{PROC\_AML\_SERIAL\_01\_OUTCOME.md}, bar S5). \measured
+      \measured
 \end{itemize}
 
 Figures~\ref{fig:p4_repeats} and~\ref{fig:p4_replicates} show the repeat readings in the records, and Table~\ref{tab:p4_changefloor}
@@ -44,16 +43,15 @@ collects them.
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part4/fig_p4_17_repeats.pdf}
-\caption{Untared Met-A of isolated neutrophils from two people, three arrays at each of eight times of day, all 48 arrays as re-read in the diagnostic of
-\texttt{PROC\_NEUT\_TEST\_01\_T2\_OUTCOME.md} (the pre-registered score used the 33 arrays that downloaded). Within-person SD 0.045 and 0.044.
-Data: \texttt{doors/\allowbreak{}data/\allowbreak{}t2\_diag.csv}. \measured}
+\caption{Untared Met-A of isolated neutrophils from two people, three arrays at each of eight times of day, all 48 arrays as re-read in the diagnostic
+of the pre-registered test (the pre-registered score used the 33 arrays that downloaded). Within-person SD 0.045 and 0.044. \measured}
 \label{fig:p4_repeats}
 \end{figure}
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.95\textwidth]{figures/part4/fig_p4_17_replicates.pdf}
-\caption{Whole-blood technical replicates of four people (GSE250556). (a) Neutrophil fraction, 0.30--0.56, against the earlier 0.50 read
-line and the present 0.20 line. (b) Tared $A_{\rm rel}$ at the 0.20 line with the noise-corrected tare, development run 3: 63 of 64
-arrays read, 0.967--1.026, within-person SD 0.008. Data: \texttt{doors/\allowbreak{}data/\allowbreak{}chain\_v3\_dev3\_readings.csv}. \measured}
+\caption{Whole-blood technical replicates of four people (GSE250556). (a) Neutrophil fraction, 0.30--0.56, against the earlier read
+line and the present one. (b) Tared $A_{\rm rel}$ at the present line, from a development run; the within-person spread is being measured in
+development. \measured}
 \label{fig:p4_replicates}
 \end{figure}
 \begin{table}[htbp]\centering\small
@@ -63,8 +61,8 @@ arrays read, 0.967--1.026, within-person SD 0.008. Data: \texttt{doors/\allowbre
 repeat & arrays & spread & status \\\midrule
 isolated neutrophils, donor 1, another laboratory, no tare & 24 & SD 0.045 & \measured \\
 isolated neutrophils, donor 2, same laboratory, no tare & 24 & SD 0.044 & \measured \\
-whole-blood technical replicates (GSE250556), 0.20 line, noise-corrected tare & 63 of 64 & within-person SD 0.008; all 0.013; 63 of 63 in Normal & \measured \\
-two remission draws of one person (PROC-AML-SERIAL-01, bar S5) & 10 pairs & 10 of 10 within 0.05 & \measured \\
+whole-blood technical replicates (GSE250556), tared & --- & being measured in development & \openprob \\
+two remission draws of one person & 10 pairs & 10 of 10 within 0.05 & \measured \\
 \bottomrule
 \end{tabular}
 \end{adjustbox}
@@ -75,8 +73,8 @@ replicates through the chain would measure it.
 \section{Which serial data the chain can read}
 
 The longest public serial set, individuals drawn up to five times over two decades (E-MTAB-7309)~\cite{Wang2018SATSA}, has not been read through
-chain v3. Its input quality is the first obstacle: of 1,056 arrays calibrated by Stage~1, 738 fall below the 0.93 intake line, median call rate 0.894,
-and the call rate falls with the draw's age decade (\texttt{doors/\allowbreak{}PLAN.md}). \measured{} A trajectory built from such draws must carry the intake status of
+chain v3. Its input quality is the first obstacle: of 1,056 arrays calibrated by Stage~1, 738 fall below the intake line, median call rate 0.894,
+and the call rate falls with the draw's age decade. \measured{} A trajectory built from such draws must carry the intake status of
 every draw, and a quarantined draw is not a point on it. \openprob
 
 \section{Why serial mode also makes the reference better}

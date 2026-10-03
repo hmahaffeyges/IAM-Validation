@@ -30,7 +30,7 @@ Figure~\ref{fig:p4_fraction} shows the reading before and after fraction and noi
 \includegraphics[width=0.95\textwidth]{figures/part4/fig_p4_22_fraction.pdf}
 \caption{Whole-blood neutrophil Met-A on 495 arrays of one infection study (GSE179325, neutrophils $\ge50$~\%). (a) Untared: rises with the
 neutrophil fraction (Spearman $\rho=0.32$). (b) Divided by the expectation for its own fraction and noise index (healthy arrays left out of their
-own fit): $\rho=-0.02$. Normal shaded. Data: \texttt{doors/\allowbreak{}data/\allowbreak{}chain\_v3\_dev3\_readings.csv}. \fitted{} correction;
+own fit): $\rho=-0.02$. Normal shaded. \fitted{} correction;
 \measured{} readings.}
 \label{fig:p4_fraction}
 \end{figure}
@@ -40,7 +40,7 @@ own fit): $\rho=-0.02$. Normal shaded. Data: \texttt{doors/\allowbreak{}data/\al
 \begin{center}\small
 \begin{longtable}{@{}p{0.195\textwidth}p{0.127\textwidth}p{0.264\textwidth}p{0.313\textwidth}@{}}
 \toprule mechanism & end & which cells & test, and where it stands \\\midrule\endhead
-the leukocyte is the tumour: leukaemias, lymphoma, myeloma; clonal haematopoiesis as the pre-malignant form & above & the affected lineage; the others near 1.00 & the affected lineage read against its own healthy floor. Not yet possible: on the neutrophil sites leukaemic blood stayed Normal in 6 of 10 (PROC-AML-SERIAL-01), and progenitor floors on EPIC are not built \\
+the leukocyte is the tumour: leukaemias, lymphoma, myeloma; clonal haematopoiesis as the pre-malignant form & above & the affected lineage; the others near 1.00 & the affected lineage read against its own healthy floor. Not yet possible: on the neutrophil sites leukaemic blood stayed Normal in 6 of 10, and progenitor floors on EPIC are not built \\
 ageing & above & slowly, per person, over years & serial readings of one person; serial mode is not yet built (Chapter~\ref{ch:serial}) \\
 T-cell exhaustion, immunosenescence & below & CD4 and CD8 specifically, with neutrophils near 1.00 in the same specimen & needs T-cell floors; chain v3 reads neutrophils only \\
 emergency haematopoiesis: immature cells pushed out of the marrow & composition first & immature fraction up; immature cells may read below Normal & needs a progenitor group in Stage~A \\\bottomrule
@@ -50,7 +50,7 @@ emergency haematopoiesis: immature cells pushed out of the marrow & composition 
 \section{Ageing}
 
 The direction of ageing on the neutrophil gauge is not yet measured on chain v3. \openprob{} One development reading on 450K arrays, outside the chain's platform, found
-neutrophil Met-A rising with age among controls with $\rho=0.23$ (\texttt{doors/\allowbreak{}PROC\_PREDX\_NEUT\_01\_OUTCOME.md}); the same arrays carried a slide effect large
+neutrophil Met-A rising with age among controls with $\rho=0.23$; the same arrays carried a slide effect large
 enough to split the reading by sex, so the trend is not separated from the instrument. \observed{} One reading is that an old immune system has had more written
 over a lifetime onto the same surface, with less headroom, which is the same direction as clonal haematopoiesis. \conjecture{} Whether an elevation in old blood is a slope
 shared by every lineage or a clone riding on it is what per-cell trajectories in one person separate: a slope moves every lineage together; a clone moves one lineage away from
@@ -75,8 +75,7 @@ Figure~\ref{fig:p4_dnmt_channels} shows the two channels apart under a known blo
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part4/fig_p4_22_dnmt_channels.pdf}
 \caption{The two channels under DNMT1 inhibition (51 EPIC arrays, three lines, each against its own vehicle; GSE135205~\cite{Pappalardi2021}). The
-active compounds move the methylated channel; the unmethylated channel stays near 1. Colour: dose of GSK3685032.
-Data: \texttt{doors/\allowbreak{}data/\allowbreak{}dnmt\_arrays\_readings.csv}. \measured}
+active compounds move the methylated channel; the unmethylated channel stays near 1. Colour: dose of GSK3685032. \measured}
 \label{fig:p4_dnmt_channels}
 \end{figure}
 

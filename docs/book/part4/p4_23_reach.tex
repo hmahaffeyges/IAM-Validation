@@ -2,7 +2,7 @@
 
 \section{The order}
 
-After commissioning, the order of work is set (\texttt{doors/\allowbreak{}PLAN.md}):
+After commissioning, the order of work is set:
 \begin{enumerate}
 \item human blood conditions, blood cancers first;
 \item plasma cell-free DNA;
@@ -29,9 +29,9 @@ has not been tested, never that it cannot be read.
 A leukaemic cell is usually the majority cell in the tube, so the fraction that limits a minor cell does not limit it. The test is per cell: the affected
 lineage read against its own healthy floor, the other lineages in the same specimen against theirs, each against 1.00. \prediction{} The affected lineage
 reads above Normal; the unaffected lineages do not. Two records set what is needed first. On the neutrophil identity sites, leukaemic blood at diagnosis stayed
-in Normal in 6 of 10 patients, because the blasts share those sites (\texttt{PROC\_AML\_SERIAL\_01\_OUTCOME.md}). On pre-registered 450K
+in Normal in 6 of 10 patients, because the blasts share those sites. On pre-registered 450K
 progenitor floors (four to five donors per type), Met-A did not separate leukaemic CD34$^+$ cells from healthy progenitors reliably: 16 of 29 outside Normal
-(bar 80~\%, failed), 13 of those 16 above it (\texttt{PROC\_AML\_PROG\_01\_OUTCOME.md}). \measured{} Progenitor floors on EPIC with more donors, the C-score on the same arrays, and IAM-A on single-molecule
+(bar 80~\%, failed), 13 of those 16 above it. \measured{} Progenitor floors on EPIC with more donors, the C-score on the same arrays, and IAM-A on single-molecule
 leukaemia data are the next steps. \openprob
 
 \section{Tumours against the same person's normal tissue}
@@ -40,7 +40,7 @@ The single-molecule reading needs no reference population and no composition ste
 early-onset colorectal cancer patients with a true tumour--normal pair, the tumour's copy error was higher in 6 of 6, by 7--33~\%, median ratio 1.148; one pair's
 conversion-failure difference was just over the instrument bar (0.0051 against 0.005), and on the other five the median ratio was 1.183. In oral squamous cell carcinoma
 the tumour was higher in 4 of 4 by whole-genome bisulfite sequencing, and in 3 of 4 with 5-hydroxymethylcytosine removed
-(\texttt{doors/\allowbreak{}PROC\_TUMOUR\_01\_OUTCOME.md}). \measured{} Not shown: why. Tumour purity is unknown, the tissue mix differs between tumour and normal, and the pairs
+\measured{} Not shown: why. Tumour purity is unknown, the tissue mix differs between tumour and normal, and the pairs
 come from two laboratories. The reading is the copy-error channel; IAM-A floors for these tissues are not frozen. \openprob
 
 Figure~\ref{fig:p4_tumour} and Table~\ref{tab:p4_tumour} give every pair.
@@ -48,12 +48,11 @@ Figure~\ref{fig:p4_tumour} and Table~\ref{tab:p4_tumour} give every pair.
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.55\textwidth]{figures/part4/fig_p4_23_tumour.pdf}
 \caption{Copy error on single molecules, tumour against the same person's normal tissue: six early-onset colorectal pairs (WGBS) and four oral
-squamous pairs (WGBS, and oxWGBS with 5hmC removed). Ringed: the pair whose conversion-failure difference is just over the 0.005 bar.
-Data: \texttt{doors/\allowbreak{}data/\allowbreak{}tumour\_pairs.csv}. \measured}
+squamous pairs (WGBS, and oxWGBS with 5hmC removed). Ringed: the pair whose conversion-failure difference is just over the 0.005 bar. \measured}
 \label{fig:p4_tumour}
 \end{figure}
 \begin{table}[htbp]\centering\small
-\caption{Tumour--normal pairs read on single molecules (\texttt{PROC\_TUMOUR\_01\_OUTCOME.md}). $\varepsilon$: copy error with the
+\caption{Tumour--normal pairs read on single molecules. $\varepsilon$: copy error with the
 sequencing-error rate subtracted. \measured}\label{tab:p4_tumour}
 \begin{tabular}{@{}llrrrr@{}}\toprule
 pair & assay & $\varepsilon$ normal & $\varepsilon$ tumour & ratio & conversion difference \\\midrule
@@ -80,8 +79,7 @@ OSCC4 & oxWGBS & 0.03917 & 0.04107 & 1.049 & 0.0005 \\
 In plasma, cell-free DNA from solid tissues is a much larger share than in whole blood. Two things change. The genome count is of order $10^3$--$10^4$, so the cell-count floor
 of Chapter~\ref{ch:sky} becomes part of every interval. And a shed cell has to be found before it is read, which on arrays needs a template for it and on molecules needs
 enough of its molecules. On single molecules, a per-molecule threshold found cancer DNA at 1~\% in 0 of 20 constructed mixtures (bar 18 of 20, failed); the total isolated-error count,
-with no threshold and not pre-registered, found it in 20 of 20 at 10~\%, 18--20 of 20 at 3~\% and 1--6 of 20 at 1~\%, with 0.5--1.5 million molecules
-(\texttt{PROC\_MOLECULE\_01\_OUTCOME.md}). \measured{} The limit scales as $1/\sqrt N$ in the number of molecules; a deep plasma library would reach lower, which is an
+with no threshold and not pre-registered, found it in 20 of 20 at 10~\%, 18--20 of 20 at 3~\% and 1--6 of 20 at 1~\%, with 0.5--1.5 million molecules. \measured{} The limit scales as $1/\sqrt N$ in the number of molecules; a deep plasma library would reach lower, which is an
 estimate, not a measurement. \calc
 
 Figure~\ref{fig:p4_plasma} shows the two statistics on the constructed mixtures.
@@ -89,15 +87,14 @@ Figure~\ref{fig:p4_plasma} shows the two statistics on the constructed mixtures.
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.55\textwidth]{figures/part4/fig_p4_23_plasma.pdf}
 \caption{Constructed mixtures of cancer-line DNA in healthy DNA, 20 mixtures per point. Blue: the total isolated-error count, range over three cancer
-lines (not pre-registered). Crosses: the pre-registered per-molecule threshold. Values parsed from \texttt{PROC\_MOLECULE\_01\_OUTCOME.md}. \measured}
+lines (not pre-registered). Crosses: the pre-registered per-molecule threshold. Values parsed from the outcome record. \measured}
 \label{fig:p4_plasma}
 \end{figure}
 
 \section{Stool}
 
 For colon lining, stool selects the cells that shed into the gut. Against the cells that shed into stool, 29 marker regions (227 CpGs) were found for lower-gut
-epithelium, enough to pull its molecules from a deep stool library; whether enough tumour molecules survive in stool is not assessed
-(\texttt{DEV\_STOOL\_01\_OUTCOME.md}). \measured{} No stool methylome has been read. \openprob
+epithelium, enough to pull its molecules from a deep stool library; whether enough tumour molecules survive in stool is not assessed. \measured{} No stool methylome has been read. \openprob
 
 \section{Tissues}
 
@@ -107,7 +104,7 @@ to be in it, and each healthy cell reads Normal against its own floor.
 
 \section{Other mammals}
 
-No purified-cell methylation reference for dogs was found in public data (\texttt{doors/\allowbreak{}PLAN.md}, item 22). \observed{} The mammalian methylation array measures conserved CpGs across species~\cite{Arneson2022}, and the first step is
+No purified-cell methylation reference for dogs was found in public data. \observed{} The mammalian methylation array measures conserved CpGs across species~\cite{Arneson2022}, and the first step is
 a canine healthy reference from purified canine blood cells on it, with its own identity sites and floor. Then sorted healthy canine cells, held out of the reference, are
 read on it. \prediction{} They read 1.00 within tolerance.
 

@@ -71,7 +71,7 @@ the mean $\beta$ over both channels is 1.000 bit, whatever the cell is doing. Wi
 \includegraphics[width=0.95\textwidth]{figures/part4/fig_p4_03_jensen.pdf}
 \caption{Jensen's inequality on the neutrophil identity sites. (a) Per-site entropy $H(\beta_i)$, averaged over the six reference arrays, for the
 3,000 sites of each channel; the vertical line is their mean. (b) Mean of the entropies against the entropy of the mean $\beta$, per channel
-and over both. Data: \texttt{neutrophil\_reference\_v1\_1.json} (channel assigned by the healthy mean $\beta$). \calc{} from the \calibrated{} reference.}
+and over both (channel assigned by the healthy mean $\beta$). \calc{} from the \calibrated{} reference.}
 \label{fig:p4_jensen}
 \end{figure}
 \begin{table}[htbp]\centering\small
@@ -88,7 +88,7 @@ both channels & 6,000 & 0.502 & 1.000 & 0.330 \\
 Averaging $H$ site by site has one cost: zero-mean array noise adds a positive bias at every site through the curvature of
 $H$. The instrument meets it twice. The healthy reference is measured on the same platform through the same calibration, so
 the bias of a typical array is in the denominator as well as the numerator. And the array's own noise is measured on every
-specimen at 48,528 sites that every blood cell holds fixed (the noise index, Chapter~\ref{ch:instrument}).
+specimen at the sites that every blood cell holds fixed (the noise index, Chapter~\ref{ch:instrument}).
 
 \section{A capacity, and a ceiling}
 
@@ -97,7 +97,7 @@ that part of its surface. On the gauge of Chapter~\ref{ch:gauge} this is the far
 value for each cell type: one bit over the healthy reference. There is a second, earlier limit that matters for an
 instrument. On the methylated channel $H$ rises as $\beta$ falls only while $\beta>\tfrac12$; past that, further loss lowers
 $H$ again. A cell that has lost methylation past the half-way point therefore reads \emph{lower} on Met-A than one that has
-lost less. The chain flags this (\texttt{past\_entropy\_ceiling}) and tells the reader to read the mean $\beta$ instead
+lost less. The chain flags this and tells the reader to read the mean $\beta$ instead
 (Chapter~\ref{ch:chain}). The DNA-methyltransferase-inhibitor series of Chapter~\ref{ch:firstreadings} shows it on real
 arrays. \measured
 

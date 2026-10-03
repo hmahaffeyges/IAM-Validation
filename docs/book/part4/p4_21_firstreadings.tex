@@ -2,38 +2,38 @@
 
 \begin{keybox}[title=Status of everything in this chapter]
 These readings come from chain v3, a development build, before any cell type is commissioned. They show what the instrument does on real arrays and
-single molecules. They are not evidence about any person or condition, and no conclusion in this book rests on them. Every number is copied from the
-record named beside it.
+single molecules. They are not evidence about any person or condition, and no conclusion in this book rests on them. Every number is copied from its
+record; the records are listed in the SOP.
 \end{keybox}
 
 \section{End to end: IDATs in, report out}
 
-The acceptance run passed 22 IDAT pairs through \texttt{run\_sample.py --engine v3} with no hand step: Stage~0, Stage~1, Stage~A, Stage~M, Stage~MC, then a second
-pass in which each mixture and each whole blood was tared (median) against the other specimens of its own group (\texttt{chain\_tests/\allowbreak{}CHAIN\_V3\_ACCEPTANCE\_RUN3.md}, \texttt{chain\_acceptance.csv}).
+The acceptance run passed 22 IDAT pairs through the chain with no hand step: Stage~0, Stage~1, Stage~A, Stage~M, Stage~MC, then a second
+pass in which each mixture and each whole blood was tared (median) against the other specimens of its own group.
 \begin{center}\small
 \begin{tabular}{@{}p{0.31\textwidth}rp{0.17\textwidth}llr@{}}\toprule
 specimens & $n$ & intake & untared Met-A & tared $A_{\rm rel}$ & Normal \\\midrule
 purified healthy neutrophils, isolated & 6 & 6 proceed & 0.994--1.006 & --- & 6/6 \\
-DNA mixtures, $\ge50$~\% neutrophils & 6 & not run & 0.943--0.968 & 0.987--1.021 & 6/6 tared \\
-remission blood, another laboratory & 10 & 2 proceed, 8 with penalty & 1.073--1.115 (5) & 0.986--1.032 & 5/5 tared \\\bottomrule
+DNA mixtures, $\ge50$~\% neutrophils & 6 & not run & 0.943--0.968 & in development & 6/6 tared \\
+remission blood, another laboratory & 10 & 2 proceed, 8 with penalty & 1.073--1.115 (5) & in development & 5/5 tared \\\bottomrule
 \end{tabular}
 \end{center}
 \measured{} Three cautions go with the table. The six isolated arrays are the reference arrays themselves, so 6 of 6 is not independent; their held-out reading is
 0.983--1.045 (Chapter~\ref{ch:identity}). The mixtures were made in the reference laboratory from cells of the same series the composition profiles come from
-(Chapter~\ref{ch:atlas}), and they have no donor, so intake was not run on them. And the run used a read line of 0.50 neutrophils: it withheld five remission
-bloods at 0.06--0.47. At the present 0.20 line four of them (0.28--0.47) would be read; they have not been re-run. \openprob{} The untared offset is the reason for the
+(Chapter~\ref{ch:atlas}), and they have no donor, so intake was not run on them. And the run used an earlier read line: it withheld five remission
+bloods at 0.06--0.47. At the present line four of them (0.28--0.47) would be read; they have not been re-run. \openprob{} The untared offset is the reason for the
 tare: the reference laboratory's mixtures read low and the other laboratory's bloods high, and the tare brought both into Normal. The references
 in that tare were the other specimens of the same group: the other mixtures for a mixture, the other remission bloods for a remission blood. That shows
 the tare removes an offset shared within a batch; it is not a reading against healthy references. \measured
 
 \section{A second laboratory, and what the reading was reading}
 
-A pre-registered battery read 692 arrays (\texttt{doors/\allowbreak{}PROC\_NEUT\_TEST\_01\_OUTCOME.md}). On six healthy whole bloods with flow-cytometry counts the composition
-matched the counts (T1a, T1b), and untared $A$ fell in the predicted 0.93--0.98 on 2 of 3 readable specimens (T1c, failed). Isolated neutrophils from another laboratory
-failed every bar for array noise (T2; Chapter~\ref{ch:instrument}). On 570 whole bloods of one infection study, tared healthy specimens spread with SD 0.052, wider than
-Normal, and untared $A$ sat around 1.22 (T4). \measured
+A pre-registered battery read 692 arrays. On six healthy whole bloods with flow-cytometry counts the composition
+matched the counts, and untared $A$ fell in the predicted 0.93--0.98 on 2 of 3 readable specimens (failed). Isolated neutrophils from another laboratory
+failed every bar for array noise (Chapter~\ref{ch:instrument}). On 570 whole bloods of one infection study, tared healthy specimens spread wider than
+Normal, and untared $A$ sat around 1.22. \measured
 
-The development analysis that followed asked what the whole-blood reading was reading (\texttt{DEV\_NOISE\_02\_OUTCOME.md}). Among 76 healthy adults of that study, untared $A$
+The development analysis that followed asked what the whole-blood reading was reading. Among 76 healthy adults of that study, untared $A$
 was explained by the neutrophil fraction and the noise index with $R^2=0.85$; only 33 of 495 arrays had a noise index inside the reference arrays' range. Divided by the
 expectation for its own fraction and noise index, fitted on the other healthy arrays (leave-one-out), the readings were these. \measured
 \begin{center}\small
@@ -52,14 +52,14 @@ the reference arrays' range, with no fitted correction (Chapter~\ref{ch:chain}).
 
 The most direct test of the gauge is a known cause with a known direction. A DNA-methyltransferase inhibitor blocks the enzyme that copies methylation at division.
 \begin{itemize}
-\item \textbf{Arrays} (\texttt{PROC\_DNMT\_01\_PARTA\_OUTCOME.md}; 51 public EPIC arrays from the study that introduced the inhibitor~\cite{Pappalardi2021}, three leukaemia cell lines,
+\item \textbf{Arrays} (51 public EPIC arrays from the study that introduced the inhibitor~\cite{Pappalardi2021}, three leukaemia cell lines,
       each read against its own vehicle arrays). Vehicle arrays read
       0.968--1.048; an inactive analogue at 10~$\mu$M 1.002--1.032; the active drug at 3.2--16~nM 1.001--1.028, and at $\ge80$~nM 1.16--1.87. A second active compound read
       1.60--1.85 in all three lines. The change sits on the methylated channel (median $+1.56$ against $+0.017$ on the unmethylated one). \measured
 \item \textbf{The ceiling.} Between 16 and 80~nM the methylated sites fall from $\beta\approx0.94$ to 0.57--0.89, and by 400~nM to 0.36--0.60. Past $\beta=\tfrac12$ the methylated
       channel's reading stops rising (observed 2.66--2.85, against a ceiling of about 2.8) and then falls. Met-A is monotone only while those sites stay above one half, which is why
       the chain prints their mean $\beta$ and flags the ceiling. \measured
-\item \textbf{Single molecules} (\texttt{PROC\_DNMT\_01\_PARTB\_OUTCOME.md}; EM-seq, one leukaemia line, 100~nM for 7 days, four genotypes in duplicate). Copy error on the vehicle
+\item \textbf{Single molecules} (EM-seq, one leukaemia line, 100~nM for 7 days, four genotypes in duplicate). Copy error on the vehicle
       libraries 0.0209--0.0217; treated 0.0405--0.0511; IAM-A against the same genotype's vehicle libraries 1.65--1.97, above 1.05 in 8 of 8, with conversion failure unchanged
       (largest difference 0.0007). \measured
 \end{itemize}
@@ -72,20 +72,20 @@ Figures~\ref{fig:p4_dnmt_arrays} and~\ref{fig:p4_dnmt_molecules} show every arra
 \includegraphics[width=0.95\textwidth]{figures/part4/fig_p4_21_dnmt_arrays.pdf}
 \caption{DNMT1 inhibitor GSK3685032 on EPIC arrays, three leukaemia lines (GSE135205~\cite{Pappalardi2021}), each line against its own vehicle arrays
 (drawn at 0.5~nM). (a) Met-A: vehicle 0.968--1.048, 3.2--16~nM 1.001--1.028, $\ge80$~nM 1.16--1.87. (b) Median $\beta$ of the methylated identity
-sites; dotted: the entropy ceiling. Data: \texttt{doors/\allowbreak{}data/\allowbreak{}dnmt\_arrays\_readings.csv}. \measured}
+sites; dotted: the entropy ceiling. \measured}
 \label{fig:p4_dnmt_arrays}
 \end{figure}
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.95\textwidth]{figures/part4/fig_p4_21_dnmt_molecules.pdf}
 \caption{DNMT1 inhibitor on single molecules (EM-seq, GSE329728; 100~nM, 7~days; four genotypes in duplicate). (a) Copy error, sequencing error
 removed: vehicle 0.0209--0.0217, treated 0.0405--0.0511. (b) IAM-A against the same genotype's vehicle libraries, 1.65--1.97; largest conversion-failure
-difference 0.0007. Data: \texttt{doors/\allowbreak{}PROC\_DNMT\_01\_PARTB/}. \measured}
+difference 0.0007. \measured}
 \label{fig:p4_dnmt_molecules}
 \end{figure}
 
 \section{Leukaemic blood}
 
-Ten patients' blood was read at diagnosis and twice in remission on the neutrophil sites (\texttt{PROC\_AML\_SERIAL\_01\_OUTCOME.md}). Diagnosis blood read outside Normal in 4 of 10
+Ten patients' blood was read at diagnosis and twice in remission on the neutrophil sites. Diagnosis blood read outside Normal in 4 of 10
 (bar 8 of 10, failed); remission blood read Normal in 8 of 10 and 10 of 10; the same person's two remission draws agreed within 0.05 in 10 of 10. \measured{} The diagnosis explains the
 failure: the identity sites are held by every mature leukocyte, so blasts share them, and diagnosis blood is blast-dominated; reading it against the neutrophil floor is not the gauge's
 definition (Chapter~\ref{ch:identity}). The next steps written in the record are a reading of the dominant cell against its own floor, a healthy C-score line from healthy whole blood, and
@@ -94,9 +94,9 @@ the blast fraction printed beside $A$. \openprob
 \section{Development readings outside the chain's platform}
 
 Two pre-registered procedures read neutrophils on 450K arrays against a development 450K floor from purified 450K neutrophils; chain v3 does not read 450K.
-In 246 held-out controls 67.9~\% read Normal, and the reading split by sex (women 0.961, men 1.007) (\texttt{PROC\_PREDX\_NEUT\_01\_OUTCOME.md}). The purified neutrophils of the
+In 246 held-out controls 67.9~\% read Normal, and the reading split by sex (women 0.961, men 1.007). The purified neutrophils of the
 floor differed by sex by only 0.008. A second set, all women, read against controls on the same slide, put 92.9~\% of 170 controls in Normal,
-against 58~\% of women before the same-slide tare (\texttt{PROC\_PREDX\_SLIDE\_01\_OUTCOME.md}). \measured{} The sex gap was a slide effect, and the same-slide tare is what made the reading usable on those arrays. Neither procedure showed a
+against 58~\% of women before the same-slide tare. \measured{} The sex gap was a slide effect, and the same-slide tare is what made the reading usable on those arrays. Neither procedure showed a
 per-person pre-diagnostic signal.
 
 \section{What these readings are for}

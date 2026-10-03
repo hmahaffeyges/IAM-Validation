@@ -25,37 +25,35 @@ It never supplies a cell's $A$. The neutrophil is read on its own identity sites
 \section{The solver}
 
 Stage~A solves eight groups: neutrophils, eosinophils, basophils, monocytes, B cells, NK cells, CD4 T cells and CD8 T cells, from purified
-EPIC arrays of healthy donors~\cite{Salas2018,Salas2022} processed by the chain's own Stage~1 (\texttt{Runtime Matrices/\allowbreak{}Met\_A\_Floors/\allowbreak{}blood\_composition\_EPIC\_v1.json}).
-The markers are 963 sites chosen by a stated rule: not a neutrophil identity site; within-group standard deviation $\le0.05$; a margin of at least
-0.25 against every other group's mean; at most 150 per group. Composition is non-negative least squares on those markers, normalised to sum one.
-At least 90~\% of the markers (867 of 963) must be measured, or the composition is not solved and no reading is made. The mean absolute residual
+EPIC arrays of healthy donors~\cite{Salas2018,Salas2022} processed by the chain's own Stage~1.
+The markers are sites chosen by a stated rule: not a neutrophil identity site; steady within the group; a clear margin
+against every other group's mean; a capped number per group. Composition is non-negative least squares on those markers, normalised to sum one.
+Enough of the markers must be measured, or the composition is not solved and no reading is made. The mean absolute residual
 of the fit is recorded with every specimen. \calibrated{} (profiles and markers)
 
-Figure~\ref{fig:p4_markers} shows the eight templates at the 963 markers.
+Figure~\ref{fig:p4_markers} shows the eight templates at the markers.
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.98\textwidth]{figures/part4/fig_p4_13_markers.pdf}
-\caption{Stage~A templates: healthy $\beta$ of eight purified EPIC blood groups~\cite{Salas2018,Salas2022} at the 963 composition markers, grouped by
-the group each marker separates most. T-cell markers are fewest (CD4 T 44, CD8 T 20), because few sites separate the two T-cell groups
-from each other and from NK cells by the 0.25 margin. Data: \texttt{blood\_composition\_EPIC\_v1.json}. \calibrated}
+\caption{Stage~A templates: healthy $\beta$ of eight purified EPIC blood groups~\cite{Salas2018,Salas2022} at the composition markers, grouped by
+the group each marker separates most. T-cell markers are fewest, because few sites separate the two T-cell groups
+from each other and from NK cells by the margin. \calibrated}
 \label{fig:p4_markers}
 \end{figure}
 
 The solver runs on the same platform, through the same calibration, and on the same reference cells as the expectation it feeds. That was a
 finding, not a choice made in advance: a solver built on references from several platforms under-read EPIC neutrophils by about 0.05 and split T
-cells into subtypes that have no purified EPIC profile, and the expectation built from its fractions was wrong
-(\texttt{chain\_tests/\allowbreak{}WHOLE\_BLOOD\_COMPOSITION\_DEV.md}). \measured
+cells into subtypes that have no purified EPIC profile, and the expectation built from its fractions was wrong. \measured
 
 \paragraph{Tests.} On six healthy whole bloods with flow-cytometry counts, the neutrophil fraction agreed with the counts to a median 0.035
-(bar 0.05), and whether neutrophils were more than half of the specimen agreed with the counts on 6 of 6 (\texttt{doors/\allowbreak{}PROC\_NEUT\_TEST\_01\_OUTCOME.md}, T1a, T1b). On the
-known DNA mixtures the median fraction error was 0.034 (\texttt{DEV\_LOWFRAC\_01\_OUTCOME.md}). \measured
+(bar 0.05), and whether neutrophils were more than half of the specimen agreed with the counts on 6 of 6. On the
+known DNA mixtures the median fraction error was 0.034. \measured
 
 \section{Fraction and the reading}
 
 A neutrophil that is a small share of the DNA moves the whole-blood reading less. The chain does not use a fixed share as a gate. It reads
-neutrophils when they are at least 20~\% of the specimen and at least 90~\% of the 6,000 identity sites are measured (\texttt{MIN\_READ\_FRACTION},
-\texttt{conductor\_v3.py}); below 20~\% the fraction is printed and $A$ is withheld. Above the line every tared reading carries its own detection
-limit (Chapter~\ref{ch:instrument}). The line follows from what was measured on 656 arrays, 644 whole bloods and 12 known DNA mixtures (\texttt{DEV\_LOWFRAC\_01\_OUTCOME.md}); the table holds the 96 healthy adults read at 0.40 or more:
+neutrophils when they are above a read line and enough of the identity sites are measured; below the line the fraction is printed and $A$ is withheld. Above the line every tared reading carries its own detection
+limit (Chapter~\ref{ch:instrument}). The line follows from what was measured on 656 arrays, 644 whole bloods and 12 known DNA mixtures; the table holds the 96 healthy adults read at 0.40 or more:
 
 \begin{center}\small
 \begin{tabular}{@{}lrrrrr@{}}\toprule
@@ -68,7 +66,7 @@ neutrophil fraction & healthy $n$ & healthy SD & healthy in Normal & shift for a
 \end{center}
 \measured{} The healthy spread does not grow as the fraction falls; the signal does. A cell at 40~\% of the specimen moves the reading half as far as
 one at 80~\%. A fixed share is therefore the wrong gate, and the per-specimen detection limit is the right statement. Below 0.40 there were five healthy
-arrays only, so the 0.20 line itself rests on few specimens. \openprob
+arrays only, so the line itself rests on few specimens. \openprob
 
 Figure~\ref{fig:p4_lowfrac} shows the same measurement array by array.
 
@@ -76,7 +74,7 @@ Figure~\ref{fig:p4_lowfrac} shows the same measurement array by array.
 \includegraphics[width=0.62\textwidth]{figures/part4/fig_p4_13_lowfrac.pdf}
 \caption{The rise in whole-blood Met-A from a simulated 2~\% loss of the neutrophil pattern, against the neutrophil fraction, on 656 arrays (grey).
 Per fraction bin: median rise (0.033, 0.040, 0.050, 0.064) and twice the healthy spread (SD 0.024, 0.022, 0.023, 0.020, from 96 healthy adults each read against
-the others). Data: \texttt{doors/\allowbreak{}data/\allowbreak{}lowfrac\_readings.csv}. \measured}
+the others). \measured}
 \label{fig:p4_lowfrac}
 \end{figure}
 
@@ -84,14 +82,13 @@ the others). Data: \texttt{doors/\allowbreak{}data/\allowbreak{}lowfrac\_reading
 a $\beta$ at each of them. Those values belong to the cells that are present. Where the present cells hold a site differently from
 the absent cell, their mixture moves toward a coin flip, and the absent cell's reading moves toward the far end of its gauge.
 \derived{} On 318 healthy whole-blood arrays from four laboratories, the identity sites of cell groups absent from blood read at or
-near the largest value their gauge allows, one of them at 100~\% of it (\texttt{doors/\allowbreak{}PROC\_CEIL\_01\_OUTCOME.md},
-Finding~1). \measured{} A reading near the far end on a cell below its read line is an artefact of absence, not a severity. That
+near the largest value their gauge allows, one of them at 100~\% of it. \measured{} A reading near the far end on a cell below its read line is an artefact of absence, not a severity. That
 is why the chain reads a cell only above its read line, and below it prints the fraction and never a corrected $A$.
 
 \paragraph{What fraction still does to the reading.} In a second laboratory, tared whole-blood Met-A rose with neutrophil fraction by about $+0.12$
-per unit fraction ($\rho\approx0.31$), after the composition-matched expectation and a median tare (PROC-NEUT-TEST-01). \measured{} The expectation
+per unit fraction ($\rho\approx0.31$), after the composition-matched expectation and a median tare. \measured{} The expectation
 profiles come from one laboratory and do not cancel fully in another. In a development fit with $f_{\rm neu}$ and $N$, made after looking at these data, the dependence fell to
-$\rho=-0.02$ (\texttt{DEV\_NOISE\_02\_OUTCOME.md}). \fitted{} Chain v3 uses no fitted correction: it measures $N$ and withholds the gauge state when $N$
+$\rho=-0.02$. \fitted{} Chain v3 uses no fitted correction: it measures $N$ and withholds the gauge state when $N$
 lies outside the purified reference arrays' range (Chapter~\ref{ch:chain}).
 
 \section{The transfer function}
@@ -100,8 +97,7 @@ A composition solver explains away anything that looks like a change in composit
 another cell is partly absorbed as a change in fractions, and the signal shrinks. In CMB language this is the pipeline's transfer function: the
 analysis filters the signal it is meant to find. Chain v3 limits it by construction: no Stage~A marker is a neutrophil identity site. The
 construction was tested. On six known mixtures with a simulated 2~\% loss of the neutrophil pattern, the tared reading rose above 1.05 on 6 of 6;
-when the fraction was instead re-fitted on the neutrophil sites, the fit absorbed the loss and 0 of 6 rose above 1.05
-(\texttt{WHOLE\_BLOOD\_COMPOSITION\_DEV.md}). \measured{} The transfer of a real change through the solver, measured by injecting known damage into
+when the fraction was instead re-fitted on the neutrophil sites, the fit absorbed the loss and 0 of 6 rose above 1.05. \measured{} The transfer of a real change through the solver, measured by injecting known damage into
 real mixtures, is not yet built. \openprob
 
 \section{A second opinion}
@@ -118,7 +114,7 @@ solver off. \interp
 Stage~A holds eight blood groups and nothing else. A cell outside them, an epithelial cell in blood or a blast in leukaemic blood, has no template
 and its DNA is spread over the eight. The chain does not detect such a cell; the recorded residual of the fit is the only sign of it. One record
 shows why this matters. In leukaemic blood dominated by blasts, the neutrophil-led reading stayed near 1, and reading a blast against the neutrophil
-floor is not what the gauge defines (\texttt{PROC\_AML\_SERIAL\_01\_OUTCOME.md}). \measured{} A joint fit in which non-blood templates compete for
+floor is not what the gauge defines. \measured{} A joint fit in which non-blood templates compete for
 mass with blood, and a dominant-cell call that names the cell to be read, are not yet built. \openprob
 
 \section{Finding a trace cell}\label{sec:p4tracecell}
@@ -126,8 +122,7 @@ mass with blood, and a dominant-cell call that names the cell to be read, are no
 A non-negative least-squares fit sets a component to exactly zero whenever adding it does not lower the residual; that is the
 optimality condition of the constrained fit. \derived{} A cell whose contribution is smaller than the array noise on the markers
 therefore returns a fraction of zero more often than its true value. On 450K arrays from four laboratories, a template fit of this
-kind detected four solid-tissue cell types spiked into real whole-blood arrays only from 2--5~\% of the DNA
-(\texttt{doors/\allowbreak{}PROC\_MF\_01\_OUTCOME.md}). \measured
+kind detected four solid-tissue cell types spiked into real whole-blood arrays only from 2--5~\% of the DNA. \measured
 
 \begin{keybox}[title=Status]
 Chain v3 holds no non-blood template and detects no trace cell. A detection line that respects the rule of Chapter~\ref{ch:translation}

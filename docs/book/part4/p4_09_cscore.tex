@@ -28,9 +28,8 @@ of the site values; if they cluster, the block means vary more. The clustering s
   C=\frac{c}{c_{\rm healthy}},\qquad c_{\rm healthy}=1.1104,
   \label{eq:C}
 \end{equation}
-with $c_{\rm healthy}$ the median over the six reference arrays, each read against the other five
-(\texttt{neutrophil\_reference\_v1\_1.json}). \calibrated{} The healthy arrays read $C=0.70$--$1.23$. A score needs at least
-ten blocks.
+with $c_{\rm healthy}$ the median over the six reference arrays, each read against the other five \calibrated{} The healthy arrays read $C=0.70$--$1.23$. A score needs a minimum
+number of blocks.
 
 Figure~\ref{fig:p4_cscore_construction} shows the construction on two simulated maps with the same mean departure.
 
@@ -53,8 +52,8 @@ Figure~\ref{fig:p4_cscore_readings} and Table~\ref{tab:p4_cscore} give every C-s
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part4/fig_p4_09_readings.pdf}
-\caption{Met-A C-score as printed. Blue: the six reference arrays, each against the other five (\texttt{neutrophil\_reference\_v1\_1.json}).
-Orange: acceptance run 3 (\texttt{chain\_tests/\allowbreak{}chain\_acceptance.csv}). No band is drawn because none is set. \measured}
+\caption{Met-A C-score as printed. Blue: the six reference arrays, each against the other five.
+Orange: the acceptance run. No band is drawn because none is set. \measured}
 \label{fig:p4_cscore_readings}
 \end{figure}
 \begin{table}[htbp]\centering\small
@@ -62,8 +61,8 @@ Orange: acceptance run 3 (\texttt{chain\_tests/\allowbreak{}chain\_acceptance.cs
 \begin{tabular}{@{}p{0.48\textwidth}rrl@{}}\toprule
 set & $n$ & $C$ & status \\\midrule
 healthy reference arrays, each against the other five & 6 & 0.70--1.23 & \calibrated \\
-isolated reference neutrophils, acceptance run 3 & 6 & 0.69--1.21 & \measured \\
-DNA mixtures, acceptance run 3 & 6 & 0.91--1.49 & \measured \\
+isolated reference neutrophils, acceptance run & 6 & 0.69--1.21 & \measured \\
+DNA mixtures, acceptance run & 6 & 0.91--1.49 & \measured \\
 remission bloods, another laboratory & 5 & 0.78--1.32 & \measured \\
 far end: every 50-site block moving as one & --- & 45 & \calc \\
 \bottomrule

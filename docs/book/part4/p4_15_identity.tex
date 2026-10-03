@@ -14,13 +14,13 @@ all is well. A marker, by contrast, is a locker chosen because two years keep it
 
 \section{The rule}
 
-For neutrophils on EPIC v1, from the six physical reference arrays (\texttt{stage\_m\_met\_a.py}; \texttt{chain\_tests/\allowbreak{}freeze\_v13.py}):
+For neutrophils on EPIC v1, from the six physical reference arrays:
 \begin{enumerate}
 \item the across-array standard deviation of $\beta$ is at most 0.05;
 \item the mean $\beta$ lies in 0.75--0.95 (methylated channel) or 0.05--0.25 (unmethylated channel);
 \item at most 3,000 sites per channel, taken in order of smallest standard deviation.
 \end{enumerate}
-The neutrophil set has 6,000 sites, 3,000 on each channel (\texttt{metA\_floors\_v1\_3.json}). \calibrated
+The neutrophil set has 6,000 sites, 3,000 on each channel. \calibrated
 
 The window keeps each site off the extremes and inside the range where entropy responds to error. $dH/d\beta=\log_2[(1-\beta)/\beta]$ is 1.58 bits per
 unit $\beta$ at $\beta=0.25$ and 4.25 at $\beta=0.05$, with the same magnitudes at 0.75 and 0.95. \calc{} The same steepness is why array noise shows on
@@ -32,7 +32,7 @@ Figure~\ref{fig:p4_window} shows where the 6,000 sites sit in the window and how
 \includegraphics[width=0.95\textwidth]{figures/part4/fig_p4_15_window.pdf}
 \caption{(a) Healthy neutrophil mean $\beta$ of the 6,000 identity sites, with the two windows shaded and $|dH/d\beta|$ (orange, right axis).
 (b) Healthy spread of $H$ at each site across the six reference arrays (shrunk SD; median 0.0114, range 0.0094--0.0137 bits): largest
-near $\beta=0.05$ and 0.95. Data: \texttt{neutrophil\_reference\_v1\_1.json}. \calibrated}
+near $\beta=0.05$ and 0.95. \calibrated}
 \label{fig:p4_window}
 \end{figure}
 
@@ -48,7 +48,7 @@ sites re-chosen on the other five arrays & 0.983--1.045 & 0.020 \\
 frozen sites, floor from the other five & 0.993--1.008 & 0.006 \\\bottomrule
 \end{tabular}
 \end{center}
-\measured{} (\texttt{metA\_floors\_v1\_3\_loo.csv}; SDs recomputed from the file.) The difference between the two rows is selection noise: when sites are
+\measured{} (SDs recomputed from the held-out record.) The difference between the two rows is selection noise: when sites are
 chosen on few arrays, some enter the window by those arrays' noise, and a new array then reads off 1.00 on them. The first row is the precision the chain
 prints. More physical reference arrays would shrink it.
 
@@ -56,15 +56,14 @@ prints. More physical reference arrays would shrink it.
 
 Most neutrophil identity sites are held within 0.05 in $\beta$ by the other blood cells as well: 98.7~\% for monocytes, 75.6~\% for CD4 T cells
 (Chapter~\ref{ch:atlas}). \calc{} Many are lineage-wide. That makes them steady across donors, and it also makes them blind to some changes. In leukaemic blood
-the blasts share most of these sites, and diagnosis blood read on them stayed in Normal in 6 of 10 patients (\texttt{doors/\allowbreak{}PROC\_AML\_SERIAL\_01\_OUTCOME.md},
-bar S2). \measured{} A blast is a progenitor, and the gauge reads a cell against its own floor; identity sites for progenitors on EPIC are not yet built. \openprob
+the blasts share most of these sites, and diagnosis blood read on them stayed in Normal in 6 of 10 patients. \measured{} A blast is a progenitor, and the gauge reads a cell against its own floor; identity sites for progenitors on EPIC are not yet built. \openprob
 
 Figure~\ref{fig:p4_shared} shows the two ends of that range.
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.85\textwidth]{figures/part4/fig_p4_15_shared.pdf}
 \caption{Healthy $\beta$ of monocytes (a) and CD4 T cells (b) against neutrophils at the 6,000 identity sites; grey band: $\pm0.05$. Monocytes
-hold 98.7~\% of the sites within 0.05, CD4 T cells 75.6~\%. Data: \texttt{blood\_composition\_EPIC\_v1.json}. \calc}
+hold 98.7~\% of the sites within 0.05, CD4 T cells 75.6~\%. \calc}
 \label{fig:p4_shared}
 \end{figure}
 

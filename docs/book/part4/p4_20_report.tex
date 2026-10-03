@@ -3,7 +3,7 @@
 \section{What a report is}
 
 A report is one specimen's reading and everything needed to check it. Chain v3 writes it as one self-contained HTML page rendered from the run's
-bundle (\texttt{chain/\allowbreak{}MethylPhys\_Interface/\allowbreak{}report\_v3.py}). A banner at the top states the build and that it is not a diagnostic test.
+bundle. A banner at the top states the build and that it is not a diagnostic test.
 The sections follow the stages.
 
 \begin{center}\small
@@ -28,30 +28,29 @@ bundle & the run's bundle without the intake record, in a collapsed block \\\bot
 The gauge marker is drawn from $A_{\rm rel}$ whenever the tare produced one. Untared isolated neutrophils are drawn against their own floor and labelled untared.
 Untared whole blood has no gauge position; the number is printed and the reader is told to supply references.
 
-Figure~\ref{fig:p4_reportgauge} shows what the 22 pages of acceptance run 3 printed.
+Figure~\ref{fig:p4_reportgauge} shows what the 22 pages of the acceptance run printed.
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.95\textwidth]{figures/part4/fig_p4_20_gauge.pdf}
-\caption{The gauge position printed on each of the 22 report pages of acceptance run 3: isolated reference neutrophils against their own floor (untared),
-DNA mixtures and remission bloods tared against their batch. Five remission bloods were withheld under the run's 0.50 read line, with the
-fraction printed. Data: \texttt{chain\_tests/\allowbreak{}chain\_acceptance.csv}. \measured}
+\caption{The gauge position printed on each of the 22 report pages of the acceptance run: isolated reference neutrophils against their own floor (untared),
+DNA mixtures and remission bloods tared against their batch. Five remission bloods were withheld under the run's read line, with the
+fraction printed. \measured}
 \label{fig:p4_reportgauge}
 \end{figure}
 
 \section{What a report does not say}
 
 The report does not name a condition, and it states its own state words only: \emph{Normal}, \emph{above Normal}, \emph{below Normal}, \emph{untared}. Covariates
-supplied with a run (\texttt{--covariate}) are kept in the custody record, the bundle and the ledger, and no stage reads them. Because the bundle block of the
+supplied with a run are kept in the custody record, the bundle and the ledger, and no stage reads them. Because the bundle block of the
 page shows the bundle, a covariate supplied as free text appears there. A render-time vocabulary guard on the v3 page, failing on condition names and cohort
 vocabulary, is not yet built. \openprob
 
-Figure~\ref{fig:p4_states} counts the state words on the pages of development run 3.
+Figure~\ref{fig:p4_states} counts the state words on the pages of a development run.
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.55\textwidth]{figures/part4/fig_p4_20_states.pdf}
-\caption{State words printed on the 690 report pages of development run 3: Normal 601, above Normal 25, below Normal 11; untared,
-with no same-run references, 45; $A$ withheld for fraction or measured sites, 8. No other word is printed.
-Data: \texttt{doors/\allowbreak{}data/\allowbreak{}chain\_v3\_dev3\_readings.csv}. \measured}
+\caption{State words printed on the report pages of a development run: Normal, above Normal, below Normal; untared,
+with no same-run references; $A$ withheld for fraction or measured sites. The counts are being measured in development. No other word is printed. \measured}
 \label{fig:p4_states}
 \end{figure}
 
