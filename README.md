@@ -1,10 +1,9 @@
 # IAM's Law and Order
 
-**The Actualization of Reality** — *the cost of recording it, and the price of maintaining it.*
+**The Actualization of Reality** — *The Cost of Recording It, and the Price to Maintain It.*
 
 > Not a new model: a new perspective. Jacobson's exact formulas, taken one step further. General Relativity, with a new piece of information: information.
 
-**How decoherence writes the classical world, and the energy that holds it against thermal noise.**
 Heath W. Mahaffey, independent researcher.
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18702042-blue)](https://doi.org/10.5281/zenodo.18702042) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -18,40 +17,51 @@ surfaces. IAM's one added identification is that the records belong in the surfa
 or the standard model: it is the cost both already imply wherever a record is made.
 
 Followed across some 37 orders of magnitude in size, the same accounting applies at the cosmic horizon, at black holes, at qubits and
-transistors, and at the methylation pattern a cell holds to remain the cell it is.
+transistors, and at the methylation pattern a cell holds to remain the cell it is. What holds the stars in order holds the cell in order.
+
+## Why pick it up
+
+- **For a cosmologist:** one parameter-free line fixes `μ_0`, the `fσ_8` ramp, `Σ = 1`, `E_G`, `S_8` and the two Hubble rates together, and
+  the full Planck likelihood with the coupling fixed fits as well as ΛCDM. The surveys now running measure its size.
+- **For a quantum physicist:** a gate error and a quasiparticle density have a thermal floor at the device's own temperature, from
+  `k_B T ln 2` alone. Every device is read against its own as-built reference.
+- **For a geneticist:** the methylation pattern is a record a cell pays to keep. Each cell type is read against its own healthy state,
+  so one person can be measured, measured again, and compared with themselves.
+
+Every claim carries one status label (DERIVED, CALCULATED, CALIBRATED, MEASURED, OBSERVED, FITTED, CONJECTURE, PREDICTION or OPEN), and
+every number in the book is recomputed by a script in this repository. The invitation is to try to break it.
 
 ## Start here
 
 | what | where |
 |---|---|
-| **The book** (five parts, LaTeX, compiles as-is in Overleaf) | [`docs/book/`](docs/book/) — open `main.tex` |
-| Corrections to every paper (authoritative where a paper and this list disagree) | [`docs/verification/PAPER_ERRATA.md`](docs/verification/PAPER_ERRATA.md) |
-| Every constant and name, defined once | [`CANON/GLOSSARY.md`](CANON/GLOSSARY.md) (generated from `CANON/iam_canon.json`; `python3 CANON/canon_check.py` lists files that must follow a change) |
-| Every prediction in the papers, with its verdict and reason | [`CANON/predictions_register.csv`](CANON/predictions_register.csv), [`CANON/predictions_triage_2026-10-02.json`](CANON/predictions_triage_2026-10-02.json); the live list is Part 5, *Falsifiable predictions* |
-| The cell instrument (chain v3, development build) | [`Biological_Physics/MethylPhys/`](Biological_Physics/MethylPhys/) |
-| Cosmology chains | [`mgcamb_validation/`](mgcamb_validation/) (Level 1), [`camb_validation/`](camb_validation/) (Level 2) |
+| **The book**, *IAM's Law and Order* (seven parts, LaTeX, compiles as-is in Overleaf) | [`docs/book/`](docs/book/) — open `main.tex` |
+| Corrections to every source paper (authoritative where a paper and this list disagree) | [`docs/verification/PAPER_ERRATA.md`](docs/verification/PAPER_ERRATA.md) |
+| Every constant and name, defined once | [`CANON/GLOSSARY.md`](CANON/GLOSSARY.md) (generated from `CANON/iam_canon.json`; `python3 CANON/canon_check.py`) |
+| Every prediction, with its test and status | the book's predictions chapter and register appendix; source list [`CANON/predictions_register.csv`](CANON/predictions_register.csv) |
 | Recomputation scripts for the book's numbers | [`docs/verification/scripts/`](docs/verification/scripts/) |
-| Derivation checks for the device and cell numbers | DERIVATIONS QPROC_CHIP_MPHYS/ (archived privately) (`python3 mphys_derivation_tests.py`, and the quantum-processor report and the semiconductor report files) |
-
-Every result carries one status label: DERIVED, CALCULATED, CALIBRATED, MEASURED, OBSERVED, FITTED, CONJECTURE, PREDICTION or OPEN.
+| Cosmology chains | [`mgcamb_validation/`](mgcamb_validation/) (Level 1), [`camb_validation/`](camb_validation/) (Level 2) |
+| The cell instrument (chain v3, in development) | [`Biological_Physics/MethylPhys/`](Biological_Physics/MethylPhys/) — SOP, operations manual, toolkit, development records in `doors/` |
 
 ## Results, with their status
 
 | place | result | status |
 |---|---|---|
-| cosmic horizon | matter-sector coupling `β_m = Ω_m/2`, so `μ(0) = 0.864` (`μ_0 = −0.136`), `Σ = 1` | DERIVED (from the partition), CALCULATED |
-| cosmic horizon | Planck 2018 fit with the coupling fixed: `Δχ² = +0.54` against ΛCDM; only `σ_8` moves (0.8087 → 0.7998) | MEASURED (chains) |
+| cosmic horizon | matter-sector coupling `β_m = Ω_m/2 = 0.15765`, so `μ(0) = 0.864` (`μ_0 = −0.136`), `Σ = 1` | DERIVED (from the partition), CALCULATED |
+| cosmic horizon | Planck 2018 fit with the coupling fixed: `Δχ² = +0.54` against ΛCDM; `σ_8` 0.8087 → 0.7998 | MEASURED (chains) |
 | cosmic horizon | `fσ_8` 4.25 % below ΛCDM today, 2.17 % at z = 0.3, 0.41 % at z = 1; lensing unchanged | CALCULATED; PREDICTION |
 | cosmic horizon | two Hubble rates: 67.16 (light) and 72.26 = 67.161·√1.1575 km/s/Mpc (matter flow) | CALCULATED; PREDICTION |
+| cosmic horizon | putting the term in the background instead moves `H_0` to 61.5 (10.9σ): the background does not change in IAM | MEASURED (chains) |
+| surveys | growth surveys through the mid-2030s reach about 2.5–3σ on the deficit with the CMB fixing the early amplitude; DESI DR2 full shape is next | CALCULATED (Fisher forecast) |
 | black holes | horizon bits priced at the horizon's temperature total `½Mc²` (Smarr) | DERIVED |
-| qubits | gate error read against a material floor; Quantinuum Helios about 8× above its floor | floors CALIBRATED |
-| chips | Ryzen 9 9950X switches at 576 × `k_B T_j ln 2` | CALCULATED |
-| cells | neutrophils read against their own healthy reference: held out, SD 0.020 around 1 | CALIBRATED, MEASURED |
-| cells | DNMT1 blocked: Met-A 1.16–1.85 (arrays), IAM-A 1.65–1.97 (molecules); tumour copy error above the same patient's normal tissue in all 10 pairs read (6 colorectal, 4 oral) | MEASURED (development) |
+| qubits | thermal floor of a transmon gate at its own temperature, from `k_B T ln 2` | DERIVED, CALCULATED |
+| chips | Ryzen 9 9950X switches at 576–593 × `k_B T_j ln 2` (published TDP, clock and transistor count) | CALCULATED |
+| cells | neutrophils read against their own healthy reference: held out, spread 0.020 around 1 | CALIBRATED, MEASURED |
+| cells | DNMT1 blocked, tumour against the same patient's normal tissue, species ageing | development records (`doors/`), not yet commissioned |
 
-What is not shown yet: no floor is derived from first principles; the cell instrument is not commissioned on real whole blood; breach
-and the cancer region on the cell gauge are not placed. The full list, with the plan for each item, is Part 5, *What is open*.
-The decisive cosmology test is Euclid: its first complete data release (mid-2027) tests `μ_0` at about 1.7σ, the final survey at about 3.4σ.
+The cell instrument is being commissioned stage by stage: base chain first, then atlas deconvolution, NILC, per-cell readings,
+directional decomposition and the sky tools. Each stage enters the chain only after its own check passes; the order and status are in the
+SOP, section 2b.
 
 ## The papers
 
@@ -62,7 +72,6 @@ The papers are the working record. Where a paper and the corrections list disagr
 - [The thermodynamic identity governing the virial theorem - physical identification of K, with evidence across domains](docs/papers/PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem.pdf)
 - [The virial partition across a wide range of physical scales - the cross-domain validation](docs/papers/Virial_Partitian_Across_Wide_Domains.pdf)
 - [The virial partition from atoms to the horizon](docs/papers/The_Virial_Partition_from_Atoms_to_the_Horizon.pdf)
-- The Informational Actualization Model: a technical reference for physicists (archived privately)
 
 **Cosmology and gravitation**
 - [Horizon thermodynamics and gravitational decoherence as the origin of mu < 1, Sigma = 1](docs/papers/IAM_Theory_Paper.pdf)
@@ -93,7 +102,7 @@ The papers are the working record. Where a paper and the corrections list disagr
 - [Dark matter and dark energy as virial partners](docs/papers/Dark_Matter_and_Dark_Energy_as_Virial_Partners.pdf)
 
 **Quantum and particle physics**
-- [Landauer-based model for the minimum quasiparticle density in Al/AlOx/Al Josephson junctions - the quantum-processor report foundation](docs/papers/IAM_Xqp_Mahaffey.pdf)
+- [Landauer-based model for the minimum quasiparticle density in Al/AlOx/Al Josephson junctions](docs/papers/IAM_Xqp_Mahaffey.pdf)
 - [Electron rest mass from holographic horizon thermodynamics - a fixed-point equation](docs/papers/Electron_Rest_Mass_from__IAM.pdf)
 - [Three charged lepton generations and the Koide ratio from horizon information equipartition](docs/papers/Koide_Mahaffey.pdf)
 - [Electroweak symmetry breaking and the matter sector](docs/papers/Electroweak_Symmetry_Breaking_and_the_Matter_Sector.pdf)
@@ -122,11 +131,11 @@ The papers are the working record. Where a paper and the corrections list disagr
 git clone https://github.com/hmahaffeyges/IAM-Validation && cd IAM-Validation
 pip install numpy scipy pandas matplotlib
 python3 CANON/canon_check.py                                   # constants and names consistent
-# python3 "DERIVATIONS QPROC_CHIP_MPHYS/mphys_derivation_tests.py"   # cell derivation checks (folder archived privately)
-python3 docs/verification/scripts/verify_encoding_ladder.py    # the places table of Part 1
+python3 docs/verification/scripts/verify_encoding_ladder.py    # the places table of Part I
 ```
-The cell chain is run as in [`Biological_Physics/MethylPhys/README.md`](Biological_Physics/MethylPhys/README.md). The book compiles with
-`pdflatex`/`bibtex` (or Overleaf) from [`docs/book/main.tex`](docs/book/main.tex).
+The cell chain is run as in [`Biological_Physics/MethylPhys/README.md`](Biological_Physics/MethylPhys/README.md) and its operations manual;
+`python3 Biological_Physics/MethylPhys/kit/release_check.py` checks it end to end. The book compiles with `pdflatex`/`bibtex` (or Overleaf)
+from [`docs/book/main.tex`](docs/book/main.tex).
 
 ## Citation
 
@@ -157,4 +166,3 @@ SH0ES, Pantheon+, DESI, KiDS and DES collaborations, and the authors of every pu
 record). Software: CAMB (Lewis, Challinor), MGCAMB (Wang, Mirpoorian, Pogosian, Silvestri, Zhao), Cobaya (Torrado, Lewis), HEALPix, NumPy,
 SciPy, Matplotlib, GetDist.
 
-The previous README (April 2026) is kept unchanged at docs/RETIRED_2026-10/README_2026-04.md (archived privately).
