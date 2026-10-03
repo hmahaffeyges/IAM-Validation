@@ -29,6 +29,7 @@ DOMAINS = [("COS", "Cosmology and gravitation"), ("PAR", "Particle physics and f
            ("QUB", "Qubits and quantum measurement"), ("SEM", "Semiconductor chips"), ("OTH", "Quantum foundations")]
 VERB = {"KEEP": "kept", "CORRECT": "restated", "TESTED": "tested", "DUP": "merged", "DROP": "not listed"}
 LISTED = ("KEEP", "CORRECT", "TESTED")
+COLMAC = {"passed": r"\\Spassed", "precision": r"\\Sprecision", "pending": r"\\Spending", "tension": r"\\Stension"}
 FIELDS = ("statement", "test_and_date", "falsified_if")
 
 reg = json.load(open(TRIAGE))
@@ -71,7 +72,7 @@ for e in reg:
     if e["verdict"] not in LISTED:
         continue
     o = ov.get(e["pid"], {})
-    if "exclude" in o:
+    if "exclude" in o:  # merged into another row, or removed with its reason
         excluded.append((e["pid"], e["verdict"], o["exclude"]))
         continue
     r = {f: e[f] for f in FIELDS}
@@ -80,7 +81,9 @@ for e in reg:
             n = r[f].count(old)
             assert n == 1, f"{e['pid']} {f}: override text found {n} times - fix or delete the override"
             r[f] = r[f].replace(old, new)
-    r.update(pid=e["pid"], verdict=e["verdict"], open=o.get("open"), dom=e["pid"].split("-")[0])
+    col = o.get("color") or ("pending" if e["verdict"] in ("KEEP", "CORRECT") else None)
+    assert col in ("passed", "precision", "pending", "tension"), f"{e['pid']}: compared with data but no colour assigned"
+    r.update(pid=e["pid"], verdict=e["verdict"], open=o.get("open"), dom=e["pid"].split("-")[0], color=col, also=o.get("also", []))
     rows.append(r)
 for pid in ov:
     assert pid in byid and byid[pid]["verdict"] in LISTED, f"override for {pid}: not a listed entry"
@@ -105,9 +108,10 @@ L.append("")
 L.append(r"This appendix lists every entry of the predictions register that stands as a prediction or as a completed test.")
 L.append(r"The distinct predictions drawn from it, with their test dates, are in Chapter~\ref{ch:predictions}; the number in")
 L.append(r"brackets after a register identifier (C1, Q2, \ldots) is the prediction of that chapter which the entry belongs to.")
-L.append(r"Each entry carries one verdict. \emph{Kept}: the entry stands as registered. \emph{Restated}: the entry stands with")
-L.append(r"the values recomputed for this book. \emph{Tested}: the comparison with data has been made, and the row gives its outcome.")
-L.append(r"Rows marked kept or restated are \prediction; rows marked tested report a \measured\ comparison. A row that also")
+L.append(r"Each prediction appears once; register entries that state the same prediction are merged into it and listed under its")
+L.append(r"identifier. Each row carries one status: \Spassed{} IAM's own equations, with no free parameter, were run against the data and")
+L.append(r"came out as predicted; \Sprecision{} the data agree, and their errors are still wider than the effect, so the next survey decides;")
+L.append(r"\Spending{} the test is set and its data are not in yet; \Stension{} the data currently disagree. A row that also")
 L.append(r"carries \openprob\ names the part of the test that cannot yet be made. The cell entries of the register wait for the")
 L.append(r"commissioning of each cell type in Part~\ref{part:4} and are not listed.")
 L.append("")
@@ -156,10 +160,12 @@ for code, name in DOMAINS:
     for r in rr:
         cid = chap.get(r["pid"])
         ident = r["pid"].replace("-", "-\\allowbreak{}") + (f" ({', '.join(cid)})" if cid else "")
+        if r["also"]:
+            ident += r"\newline{\scriptsize also " + ", ".join(x.replace("-", "-\\allowbreak{}") for x in r["also"]) + "}"
         st = cell(r["statement"])
         if r["open"]:
             st += r" \openprob\ " + texify(r["open"])
-        line = f"{ident} & {st} & {cell(r['test_and_date'])} & {cell(r['falsified_if'])} & {VERB[r['verdict']]}\\\\"
+        line = f"{ident} & {st} & {cell(r['test_and_date'])} & {cell(r['falsified_if'])} & {COLMAC[r['color']]}\\\\"
         err = check(line)
         assert err is None, (r["pid"], err, line)
         L.append(line)
