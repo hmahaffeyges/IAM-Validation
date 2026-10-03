@@ -141,14 +141,13 @@ F_{\mathrm{IAM}}(Q,T)=1-\frac{1}{e}\exp\!\left(1-\frac{\kB T\ln2}{Q}\right)=1-\e
 \label{eq:F}
 \end{equation}
 where $Q$ is the energy dissipated into the which-path record. The two forms are identical (sympy, \texttt{verify\_records\_measurement\_time.py} B3).
-\calc{} The form of Eq.~\eqref{eq:F} is not derived: it carries over the activation ramp, while the rate integral it is built from gives a plain
-exponential (Chapter~\ref{ch:gravdec}). \conjecture\ Taking the form as given, reversible markers ($Q/Q_L<0.04$) give $F>1-e^{-25}\approx1$, and
+\calc{} The form of Eq.~\eqref{eq:F} is taken as given here, and its derivation is open: it carries over the activation ramp, while the rate integral it is built from gives a plain exponential (Chapter~\ref{ch:gravdec}). \conjecture\ Taking the form as given, reversible markers ($Q/Q_L<0.04$) give $F>1-e^{-25}\approx1$, and
 irreversible ones ($Q/Q_L>100$) give $F<0.01$. \calc{} At the crossover $Q=Q_L$, $F=1-e^{-1}=0.632$.
 The derivation is written out step by step, with the status of each premise, in Appendix~\ref{app:der:quantum}.
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part5/fig_eraser.pdf}
-\caption{Eq.~\eqref{eq:F}, $F=1-e^{-Q_L/Q}$, against dissipated energy over $Q_L=k_BT\ln2=0.0179$\,eV (300\,K). It passes through 0.632 at $Q=Q_L$; reversible markers ($Q/Q_L<0.04$) give $F\approx1$; a retinal rod (140) and a CCD pixel (170) give $F<0.01$. The functional form is carried over from the activation ramp, not derived. \conjecture}\label{fig:eraser}
+\caption{Eq.~\eqref{eq:F}, $F=1-e^{-Q_L/Q}$, against dissipated energy over $Q_L=k_BT\ln2=0.0179$\,eV (300\,K). It passes through 0.632 at $Q=Q_L$; reversible markers ($Q/Q_L<0.04$) give $F\approx1$; a retinal rod (140) and a CCD pixel (170) give $F<0.01$. The functional form is carried over from the activation ramp; its derivation is an open problem. \conjecture}\label{fig:eraser}
 \end{figure}
 
 \begin{checkbox}[title={What distinguishes Eq.~\eqref{eq:F} from standard quantum mechanics}]
@@ -248,6 +247,8 @@ dissipated in a detector, $Q\gg Q_L$, with no coherent copy left. (ii) A depende
 from what standard decoherence theory gives, if Eq.~\eqref{eq:F} is offered as the law; a measurement of $F(Q/Q_L)$ with a controlled dissipation tests
 it (box above). (iii) For the gravitational channel, the absence of the $\tau_{\rm IAM}\propto T^2m^{-5}$ scaling in massive superpositions once
 environmental channels are excluded (Chapter~\ref{ch:gravdec}). \prediction
+
+A quantum-device physicist already has what is needed to probe this: a which-path eraser with controllable dissipation, read as a function of energy and temperature. Each measurement of that curve tells us whether erasure reads out a record.
 
 \section{Status}\label{sec:mp_status}
 Stands: a measurement is complete when a record is written irreversibly into matter, at $\kB T\ln2$ per bit at the surface where it is written, paid

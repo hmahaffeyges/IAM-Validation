@@ -104,8 +104,7 @@ The sector split is a theoretical proposal with empirical tests, and four of the
 evidence, each from a distinct dataset and methodology (Table~\ref{tab:dsn_evidence}).
 \begin{table}[htbp]\centering\small
 \caption[Four lines of evidence on the dual-sector structure]{Four lines of evidence on the dual-sector structure. Each uses distinct data, distinct
-methodology, and a distinct observable. The first three are consistent with $\beta_\gamma\approx0$, $\beta_m=\Omega_m/2$, $\mu<1$, $\Sigma=1$; the fourth
-is a test still to be made.}\label{tab:dsn_evidence}
+methodology, and a distinct observable. The first three are consistent with $\beta_\gamma\approx0$, $\beta_m=\Omega_m/2$, $\mu<1$, $\Sigma=1$; the fourth is the next test.}\label{tab:dsn_evidence}
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.2\linewidth}l}\toprule
 Evidence & Dataset / method & Result & What it means & Label\\\midrule
 CMB enforces the photon-sector bound & Planck acoustic scale $\theta_s$; photon coupling in the background of light paths &
@@ -118,8 +117,7 @@ Supernova distances follow $\Lambda$CDM & Full Pantheon+ dataset, three tests an
 $\beta_{\rm distance}=-0.035$ ($68\,\%$: $-0.065$ to $0$); $\beta_m$ on the distances excluded, $\Delta\chi^2=+23.6$; magnitudes carry no $H_0$ &
 distances read the unmodified background; the normalization $73.04$ comes from the Cepheid calibration & \observed\\
 The DESI preference for evolving dark energy & DESI DR2 BAO with supernovae and CMB (distances only)~\cite{DESI2025} & preference for $w_0>-1$,
-$w_a<0$ & whether a single-fluid fit to $\Lambda$CDM-consistent distances alongside sub-$\Lambda$CDM growth produces it is a two-ruler test still to be
-made on real data (Chapter~\ref{ch:sectortension}) & \openprob\\\bottomrule
+$w_a<0$ & whether a single-fluid fit to $\Lambda$CDM-consistent distances alongside sub-$\Lambda$CDM growth produces it is a two-ruler test to be made next on real data (Chapter~\ref{ch:sectortension}) & \openprob\\\bottomrule
 \end{tabularx}
 \end{table}
 The MCMC validation summary (Chapters~\ref{ch:dual}, \ref{ch:latetime}, \ref{ch:level2}):
@@ -182,7 +180,7 @@ weak-lensing values \measured.
 \interp\ Panel~(c) of Figure~\ref{fig:dsnote_probes}---the activation timeline---shows where the two sectors separate: $E(a)$ rises most steeply at low
 redshift, with half its present value at $z=0.69$ and $90\,\%$ at $z=0.11$. Whether a single-fluid $w_0w_a$CDM fitter, forced to reconcile
 $\Lambda$CDM-consistent distances with sub-$\Lambda$CDM growth, would infer a phantom crossing in this range is the two-ruler test of
-Chapter~\ref{ch:sectortension}, not yet made on real data \openprob.
+Chapter~\ref{ch:sectortension}, to be made next on real data \openprob.
 
 \section{Potential tensions with the current formulation}\label{sec:dsn_tensions}
 \begin{figure}[htbp]\centering
@@ -197,7 +195,7 @@ $\Sigma\neq1$ in the Euclid weak lensing / galaxy clustering tomography would ch
 process could produce a modification in the null sector.
 \item \textbf{$\beta_\gamma>0$ detected by CMB-S4}~\cite{Abazajian2016}. CMB-S4 will measure the CMB power spectrum with enough precision to tighten the
 present bound $\beta_\gamma<0.0039$. A detection of $\beta_\gamma>0$ would indicate photon-sector coupling beyond what the decoherence mechanism predicts.
-The CMB-S4 sensitivity to $\beta_\gamma$ is still to be forecast from the present bound \openprob.
+Forecasting the CMB-S4 sensitivity to $\beta_\gamma$ from the present bound is the next step \openprob.
 \item \textbf{$\beta_m/\Omega_m\neq1/2$ independently confirmed.} The virial theorem predicts this ratio is constant regardless of the value of $\Omega_m$.
 If independent measurements revise $\Omega_m$ significantly and the growth data still require a coupling different from the new $\Omega_m/2$, the virial
 derivation of the coupling would require revision.
@@ -237,6 +235,8 @@ The empirical record---seventeen converged MCMC chains consistent with Planck at
 $\Lambda$CDM geometry as the split requires, the Planck posterior consistent with the fixed $\beta_m=\Omega_m/2$ at $0.2\sigma$, and the CMB bounding the
 photon coupling at $\beta_\gamma<0.0039$---is consistent with the dual-sector description. The physical argument explains why the split is expected; the
 numbers decide whether it holds, and Euclid, DESI Year~5 and CMB-S4 will test it further.
+
+The split is stated sharply enough to be tested from both sides. A cosmologist with the public chains can rerun the bound on $\beta_\gamma$ today and set $\mu_0$ against the next survey release when it arrives.
 
 \paragraph{Code and data availability.} All MCMC chains, the modified CAMB Fortran source, and the analysis scripts are publicly available in the
 repository (\texttt{mgcamb\_validation/}, \texttt{camb\_validation/}, \texttt{docs/\allowbreak{}verification/}).

@@ -42,7 +42,7 @@ the record; the cosmic horizon sets its price.
 \begin{equation}
 N(m)=\Big(\frac{\mP}{m}\Big)^{3/2}=\Big(\frac S\pi\Big)^{3/4}=3.69\times10^{33}\quad(m=m_e).\label{eq:em:N}
 \end{equation}
-\conjecture{} The exponent $3/2$ is argued from dimensional homogeneity and the virial partition of a $1/r$ potential. Neither fixes it.
+\conjecture{} The exponent $3/2$ is argued from dimensional homogeneity and the virial partition of a $1/r$ potential. Fixing it is open.
 $\mP/m$ is dimensionless, so every power of it is dimensionally homogeneous. The virial half (Chapter~\ref{ch:virial}) fixes the ratio of kinetic
 to potential energy in a $1/r$ potential; it does not fix how a cell count scales with mass. \derived{} The coefficient of $N$ is set to 1.
 
@@ -89,11 +89,8 @@ m_e=(2\pi)^{-1/10}\left[\frac{\hbar H_0\ln2\;\mP^{3/2}}{\alpha^{5/2}c^2}\right]^
 \end{equation}
 The needed prefactor is $0.832107$; $(2\pi)^{-1/10}=0.832112$. \calc{} Of $(2\pi)^{-1/10}$, the part $(2\pi)^{-2/5}$ comes from $T_{GH}$ through
 the $2/5$ root. The rest, $(2\pi)^{3/10}=1.7356$, was found by a numerical search among simple combinations of constants. \fitted{} It is
-equivalent to a coefficient $(2\pi)^{3/4}=3.969$ in the cell count, $N=(2\pi)^{3/4}(\mP/m)^{3/2}$; that restates the factor and does not derive
-it. \calc{} A geometric origin has been proposed: the null path from the Compton sphere to the de Sitter horizon in the static patch, continued to
-Euclidean time, would subtend a quarter of the thermal circle. No integral that turns this into $(2\pi)^{3/10}$ has been given, and searches by
-Cauchy projection, Stefan--Boltzmann exchange between the two horizons, $S^4$ volume integration and near-horizon mode counting have not produced
-it. \openprob
+equivalent to a coefficient $(2\pi)^{3/4}=3.969$ in the cell count, $N=(2\pi)^{3/4}(\mP/m)^{3/2}$; that restates the factor; deriving it is open. \calc{} A geometric origin has been proposed: the null path from the Compton sphere to the de Sitter horizon in the static patch, continued to
+Euclidean time, would subtend a quarter of the thermal circle. An integral that turns this into $(2\pi)^{3/10}$ is the next step; searches by Cauchy projection, Stefan--Boltzmann exchange between the two horizons, $S^4$ volume integration and near-horizon mode counting have not yet produced it. \openprob
 
 \begin{table}[htbp]\centering\small
 \caption{The factors of the electron fixed point at $H_0=67.4$\,km\,s$^{-1}$\,Mpc$^{-1}$. CODATA constants (via \texttt{scipy.constants});
@@ -142,16 +139,14 @@ not stated by the ingredients; the background horizon, which the framework leave
 agreement holds. \openprob
 
 \section{The exponent $5/2$}\label{sec:em:exponent}
-The exponent $5/2$ of $\alpha$ has been read as the same exponent that sets the rate of cosmic information production, $D(a)^{5/2}$. Part~\ref{part:2}'s
-integral check does not support that reading. With the full $\Lambda$CDM growth factor, a source term $D^{5/2}\Omega_mf/T_H$ gives
+Part~\ref{part:2}'s integral check tests whether the exponent $5/2$ of $\alpha$ is also the exponent that sets the rate of cosmic information production, $D(a)^{5/2}$. With the full $\Lambda$CDM growth factor, a source term $D^{5/2}\Omega_mf/T_H$ gives
 $E(a)\propto\exp(0.76-0.87/a)$, not $\exp(1-1/a)$; the activation function is recovered to within $5\,\%$ by $D^{7/2}$
 (Chapter~\ref{ch:theory}, Section~\ref{sec:numerics}). \calc{} The cosmology takes $7/2$; the electron's $5/2$ rests only on the arguments of
 Eqs.~\eqref{eq:em:fs}--\eqref{eq:em:ft}. Whether the two exponents are related is open (Chapter~\ref{ch:nonlocal}). \openprob
 
 Inside the electron formula the exponent and the identified factor are not separate. With $(2\pi)^{-1/10}$ held fixed, $p=3/2$, 2, 5/2, 3 and
 7/2 give $0.14$, $0.37$, $1.00$, $2.68$ and $7.16\,m_e$ (Figure~\ref{fig:em:fp}c): $m\propto\alpha^{-2p/5}$, so each half-step in $p$ is a factor
-$\alpha^{-1/5}=2.68$. \calc{} The factor was found with $p=5/2$ in place, so this table shows how tightly the two are tied, not that $5/2$ is
-selected by the data.
+$\alpha^{-1/5}=2.68$. \calc{} The factor was found with $p=5/2$ in place, so this table shows how tightly the two are tied; whether the data select $5/2$ on their own is the open question.
 
 \section{Two temperatures}\label{sec:em:temps}
 The fixed point can be read as a balance between two thermal surfaces: the Compton sphere at $T_C=m_ec^2/2\pi\kB=9.44\times10^8$\,K and the cosmic
@@ -173,14 +168,14 @@ closes with the virial half, not with $mc^2=E_{\rm bit}N$. The two horizons shar
 
 \section{Tests}\label{sec:em:tests}
 \begin{enumerate}
-\item \textbf{$H_0$.} With the identified factor the fixed point requires the pricing horizon to expand at $H_0=67.40$ for the measured $m_e$. That
-is not yet an independent prediction, because the factor was found at that value. It becomes one if $(2\pi)^{3/10}$ is derived: the formula then
-predicts the expansion rate of the pricing horizon from $m_e$, $\alpha$ and $\mP$ to the precision of $m_e$. \openprob
+\item \textbf{$H_0$.} With the identified factor the fixed point requires the pricing horizon to expand at $H_0=67.40$ for the measured $m_e$. It becomes an independent prediction once $(2\pi)^{3/10}$ is derived, since the factor was found at that value: the formula then predicts the expansion rate of the pricing horizon from $m_e$, $\alpha$ and $\mP$ to the precision of $m_e$. \openprob
 \item \textbf{Constancy.} The present-horizon reading predicts $\Delta(m_p/m_e)=0$ at all redshifts. A detected drift of $m_p/m_e$ would falsify it.
 \prediction
 \item \textbf{Other leptons.} The same equation has one positive root. It gives one mass, not three. The muon and the $\tau$ are not fixed points
 of Eq.~\eqref{eq:em:fp} with the same ingredients; their masses relative to the electron are the subject of Chapter~\ref{ch:koide}. \derived
 \end{enumerate}
+
+The piece that would turn this into a parameter-free result is a single factor with a clear target. A particle physicist can hunt for its geometric root, and a cosmologist can carry the constancy test to the next data.
 
 \section{Status}\label{sec:em:status}
 \begin{center}\small\begin{tabular}{p{0.62\textwidth}l}\toprule

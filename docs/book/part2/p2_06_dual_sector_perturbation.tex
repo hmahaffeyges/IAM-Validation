@@ -23,9 +23,7 @@ KiDS-1000, DES Y3 and HSC Y3.
 
 The sector-dependent expansion rate yields a Hubble-parameter split directly from the MCMC posterior: $H_0^{(\gamma)}=67.16\pm0.47$\,km\,s$^{-1}$\,Mpc$^{-1}$
 for photons ($0.37\sigma$ from Planck $\Lambda$CDM) and $H_0^{(m)}=72.26\pm0.50$\,km\,s$^{-1}$\,Mpc$^{-1}$ for matter ($0.75\sigma$ from SH0ES). Both lie
-within $1\sigma$ of the observations, with the background Friedmann equation unmodified. Two exploratory chains that put a version of the term
-into the background equation fit the CMB as well as $\Lambda$CDM, with a sampled $H_0=61.5$ and an expansion rate today of $66.1$; the term they
-coded is not the one intended, so the background placement of Eq.~\eqref{eq:l2_bg} is still to be tested. All chains, configuration files, the modified Fortran source and the analysis scripts are in the repository
+within $1\sigma$ of the observations, with the background Friedmann equation unmodified. Two exploratory chains that put a version of the term into the background equation fit the CMB as well as $\Lambda$CDM, with a sampled $H_0=61.5$ and an expansion rate today of $66.1$; those chains coded a different form of the term, so the background placement of Eq.~\eqref{eq:l2_bg} is the next test. All chains, configuration files, the modified Fortran source and the analysis scripts are in the repository
 (\texttt{camb\_validation/}).
 
 \section{Introduction}\label{sec:l2_intro}
@@ -329,7 +327,7 @@ density field grows at $f=0.498$, $8.8\,\%$ less; with the switch off the two ag
 $f\sigma_8=d\sigma_8/d\ln a$. In that form the coded mechanism gives an $f\sigma_8$ today $6\,\%$ below $\Lambda$CDM at fixed parameters; CAMB's
 velocity-based output says $1\,\%$ above. The growth likelihood of Run~D therefore did not see the suppression, and its $\chi^2$ cannot be read as a
 test of it. A Planck + growth comparison with $f\sigma_8=-(1+z)\,d\sigma_8/dz$ taken from the density, against a matched $\Lambda$CDM + growth chain on
-the same likelihoods, is still to be run \openprob. For orientation only: the $z=0.85$ point ($f\sigma_8=0.315\pm0.095$) lies $1.39\sigma$ below the
+the same likelihoods, is the next run \openprob. For orientation only: the $z=0.85$ point ($f\sigma_8=0.315\pm0.095$) lies $1.39\sigma$ below the
 $\Lambda$CDM value at the Run~A parameters ($0.448$), and no smooth growth history fits it well \calc.
 
 \subsection{The fixed coupling against the chain's $\Omega_m$}
@@ -478,7 +476,7 @@ The mechanism makes specific predictions that distinguish it from $\Lambda$CDM a
 \begin{enumerate}
 \item $\mu(z)<1$ with the redshift dependence of Eq.~\eqref{eq:l2_mu}, not a constant offset. Euclid's published forecasts bracket the test of the IAM
 $\mu(z)$ from about $0.3\sigma$ (conservative scale cuts) to about $7\sigma$ (smallest scales modelled), and a forecast made with the IAM $\mu(z)$
-itself is still to be done (Section~\ref{sec:lt_euclid}).
+itself is the next step (Section~\ref{sec:lt_euclid}).
 \item $\Sigma(z)=1$ at all redshifts. Any detection of $\Sigma\neq1$ falsifies the photon exemption; how tight the test is depends on the precision
 the surveys reach on $\Sigma_0$, which a forecast with the IAM $\mu(z)$ and $\Sigma=1$ should state \openprob.
 \item The Hubble split $H_0^{(m)}/H_0^{(\gamma)}=\sqrt{1+\Omega_m/2}$ is a specific, parameter-free prediction, testable with gravitational-wave
@@ -496,10 +494,12 @@ less than $0.1\sigma$.
 
 The sector-dependent expansion rate produces a Hubble-parameter split: $H_0^{(\gamma)}=67.16$\,km\,s$^{-1}$\,Mpc$^{-1}$ ($0.37\sigma$ from Planck) and
 $H_0^{(m)}=72.26$\,km\,s$^{-1}$\,Mpc$^{-1}$ ($0.75\sigma$ from SH0ES). The mechanism operates at the perturbation level; the background Friedmann equation
-is standard $\Lambda$CDM. The background alternative of Eq.~\eqref{eq:l2_bg} is still to be run as written.
+is standard $\Lambda$CDM. The background alternative of Eq.~\eqref{eq:l2_bg}, run as written, is the next test.
 
 The predictions are specific and falsifiable. Euclid and DESI will measure $\mu(z)$ and $\Sigma(z)$ with a precision that bears directly on the
 predicted amplitude (Section~\ref{sec:lt_euclid}); a growth comparison with $f\sigma_8$ from the density field is the next chain to run.
+
+The mechanism is coded into a standard Boltzmann solver with no new parameter. A cosmologist can take the modified source, point it at the next growth data, and see directly whether the matter-sector expansion rate holds.
 
 \paragraph{Data.} All chains (this chapter and Chapter~\ref{ch:latetime}), Cobaya YAML configuration files, the modified CAMB Fortran source
 (\texttt{camb\_validation/equations\_iam\_level2.f90}), the GetDist extraction scripts and the comparison code are in the repository

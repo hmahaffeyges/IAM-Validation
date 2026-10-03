@@ -261,7 +261,7 @@ B (SH0ES) & $73.04\pm1.04$ & $-0.30$ (boundary) & $73.04$ (prior) & $721.12$ & t
 C (none) & --- & $-0.30$ (boundary) & any & $721.12$ & flat in $H_0$\\\bottomrule
 \end{tabularx}
 \end{table}
-The three analyses converge on a single conclusion, but not the one the scenarios anticipated \derived: Type Ia supernova magnitudes with $M$ free
+The three analyses converge on a single conclusion \derived: Type Ia supernova magnitudes with $M$ free
 neither reject photon-sector expansion ($H_0=67.4$) nor select the matter-sector normalization ($H_0=73.04$); they share one minimum,
 $M-5\log_{10}H_0=-28.935$, for every $H_0$. The value $H_0=73.04$ is set by the Cepheid calibration of $M$ (SH0ES~\cite{Riess2022}), which is the
 measurement the dual-sector picture assigns to the matter sector \observed. What the SNe test is the geometry, and there they show $\Lambda$CDM
@@ -483,7 +483,7 @@ passing through a distance built from light is the open problem of Chapter~\ref{
 This dual-sector interpretation makes specific, falsifiable predictions:
 \begin{enumerate}
 \item \emph{CMB-S4}~\cite{Abazajian2016}: improved CMB acoustic-scale precision tightens the bound on any photon-sector coupling below the present
-$\beta_\gamma<0.0039$, testing the photon exemption; a CMB-S4 forecast from that bound is still to be made \prediction.
+$\beta_\gamma<0.0039$, testing the photon exemption; a CMB-S4 forecast from that bound is the next step \prediction.
 \item \emph{Euclid/LSST}~\cite{Euclid2025,Ivezic2019}: weak lensing measurements should yield $S_8=\sigma_8\sqrt{\Omega_m/0.3}=0.7998\times\sqrt{0.3166/0.3}=0.822$,
 consistent with IAM's predicted growth suppression ($\sigma_8=0.800$), with $\Sigma=1$ \prediction.
 \item \emph{DESI Year~5}: extended $f\sigma_8(z)$ measurements, with projected aggregate precision $0.74\,\%$ ($k_{\max}=0.1\,h$\,Mpc$^{-1}$) to $0.38\,\%$
@@ -494,7 +494,7 @@ should yield $H_0=72.26$ km\,s$^{-1}$\,Mpc$^{-1}$, consistent with the matter se
 $70.0^{+12.0}_{-8.0}$~\cite{Abbott2017Siren} to $75.5^{+5.3}_{-5.4}$~\cite{Palmese2024}, consistent with both rates \observed.
 \item \emph{Euclid} $\mu_0$: the prediction is $\mu_0=-0.136$ with $\Sigma=1$. As set out in Section~\ref{sec:lt_euclid}, the IAM $\mu(z)$ corresponds to
 a template-equivalent $\mu_0\approx-0.07$ in Euclid's forecast parameterisation, about $0.3\sigma$ with conservative scale cuts, $1.8\sigma$ at
-$\sigma(\mu_0)=0.04$ and about $7\sigma$ at one per cent; a forecast made with the IAM $\mu(z)$ itself is still to be done \prediction.
+$\sigma(\mu_0)=0.04$ and about $7\sigma$ at one per cent; a forecast made with the IAM $\mu(z)$ itself is the next step \prediction.
 \end{enumerate}
 
 \subsection{Connection to modified gravity parametrization}\label{sec:dsv_musigma}
@@ -548,6 +548,8 @@ has tested the dual-sector mechanism at the perturbation level. The Level~2 vali
 $\sigma_8=0.800$ and $H_0(\mathrm{matter})=72.26$ km\,s$^{-1}$\,Mpc$^{-1}$ \measured. Two exploratory background modification runs ($H_0\approx61.5$
 km\,s$^{-1}$\,Mpc$^{-1}$) show that the dual-sector split operates at the perturbation level, not in the background Friedmann equation. The complete
 chain record is in Chapter~\ref{ch:dual}.
+
+The code in Section~\ref{sec:dsv_code} is the whole test. A cosmologist can pull the public catalogue, run the three priors, then push the cuts and the covariance and see whether the geometry holds.
 
 \section{Analysis code and data}\label{sec:dsv_code}
 \paragraph{Pantheon+ data.} The complete Pantheon+SH0ES dataset is publicly available at \url{https://github.com/PantheonPlusSH0ES/DataRelease}; specific file

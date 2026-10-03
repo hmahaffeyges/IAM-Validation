@@ -22,7 +22,7 @@ taken to write new information onto the horizon. \conjecture
 
 The chapter sets out the expression this leads to, evaluates it with Planck 2018 values, and then states what holds and what does not.
 What holds is an identity (the 123 orders of magnitude) and one measured relation at the present epoch,
-$\Omega_b/\Omega_m=\tfrac3{16}\sqrt{\Omega_\Lambda}$. What does not yet hold is a derivation of the three O(1) factors that turn the
+$\Omega_b/\Omega_m=\tfrac3{16}\sqrt{\Omega_\Lambda}$. What comes next is a derivation of the three O(1) factors that turn the
 identity into that relation. The history of the accumulation, the growth of $\Lambda$ with time and the conclusions are in
 Chapter~\ref{ch:lambda_history}; the baryon density, read through the same relation, is in Chapters~\ref{ch:baryon}
 and~\ref{ch:baryon_chain}.
@@ -156,8 +156,7 @@ The expression carried for the ratio of accumulated written part to total capaci
 \begin{equation}
 \frac{\rho_\Lambda}{\rho_{\rm vac}}\bigg|_{\rm IAM}=\frac{2}{\pi}\left(\frac{l_P}{l_H}\right)^2\frac{\Omega_b}{\Omega_m}.\label{eq:base}
 \end{equation}
-The coefficient $2/\pi$ is eight times the $1/4\pi$ of Eq.~\eqref{eq:lam_fgeo}; no step connects the two, and the de Sitter argument
-offered for it (Section~\ref{sec:lam_twopi}) gives a different number. The coefficient is \openprob.
+The coefficient $2/\pi$ is eight times the $1/4\pi$ of Eq.~\eqref{eq:lam_fgeo}; connecting the two is the next step, and the de Sitter argument offered for it (Section~\ref{sec:lam_twopi}) gives a different number. The coefficient is \openprob.
 
 \subsection{Numerical evaluation}
 With Planck 2018 values~\cite{Planck2018VI} and CODATA constants:
@@ -212,7 +211,7 @@ rather than the reverse or the same; until that is fixed, the agreement of Eq.~\
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_cc_factors.pdf}
-\caption[The factors of the cosmological-constant expression]{The factors of the cosmological-constant expression. (a) The expression divided by the measured $\rho_\Lambda/\rho_{\rm vac}=1.133\times10^{-123}$ as each factor is applied: $(l_P/l_H)^2$ alone is 12.24 times too large, $\Omega_b/\Omega_m$ brings it to 1.913, $2/\pi$ to 1.218 and $\sqrt{\Omega_\Lambda}$ to 1.0079. The identity factor $3\Omega_\Lambda/8\pi$ closes it exactly. (b) $(2/\pi)(l_P/l_H)^2(\Omega_b/\Omega_m)\Omega_\Lambda^p$ against $p$: $p=0.521$ closes it, $p=1/2$ leaves $+0.79\,\%$. Planck 2018 inputs~\cite{Planck2018VI}; CODATA constants. None of the three factors is derived. \calc\ \openprob}\label{fig:cc_factors}
+\caption[The factors of the cosmological-constant expression]{The factors of the cosmological-constant expression. (a) The expression divided by the measured $\rho_\Lambda/\rho_{\rm vac}=1.133\times10^{-123}$ as each factor is applied: $(l_P/l_H)^2$ alone is 12.24 times too large, $\Omega_b/\Omega_m$ brings it to 1.913, $2/\pi$ to 1.218 and $\sqrt{\Omega_\Lambda}$ to 1.0079. The identity factor $3\Omega_\Lambda/8\pi$ closes it exactly. (b) $(2/\pi)(l_P/l_H)^2(\Omega_b/\Omega_m)\Omega_\Lambda^p$ against $p$: $p=0.521$ closes it, $p=1/2$ leaves $+0.79\,\%$. Planck 2018 inputs~\cite{Planck2018VI}; CODATA constants. Deriving the three factors is an open problem. \calc\ \openprob}\label{fig:cc_factors}
 \end{figure}
 
 \subsection{Summary of the calculation}
@@ -224,7 +223,7 @@ Quantity & Value & Source & Label\\\midrule
 Planck length $l_P$ & $1.616\times10^{-35}$\,m & CODATA & \measured\\
 Hubble length $l_H=c/H_0$ & $1.373\times10^{26}$\,m & Planck 2018 $H_0$ & \calc\\
 Geometric factor $(l_P/l_H)^2$ & $1.387\times10^{-122}$ & Eq.~\eqref{eq:lam_geo} & \calc\\
-Coefficient $2/\pi$ & $0.6366$ & not derived (Section~\ref{sec:lam_twopi}) & \openprob\\
+Coefficient $2/\pi$ & $0.6366$ & derivation open (Section~\ref{sec:lam_twopi}) & \openprob\\
 Baryonic fraction $\Omega_b/\Omega_m$ & $0.1564$ & Planck 2018 & \measured\\
 Expression, Eq.~\eqref{eq:base} & $1.380\times10^{-123}$ & Eq.~\eqref{eq:lam_result} & \calc\\
 Observed $\rho_\Lambda/\rho_{\rm vac}$ & $1.133\times10^{-123}$ & Eq.~\eqref{eq:lam_obs} & \calc\\
@@ -290,14 +289,14 @@ encoding, and the vacuum energy at the Planck cutoff is the quantity commensurat
 the cutoff cancels; it fixes only how the result is written.
 
 \section{The coefficient $2/\pi$ and the de Sitter causal structure}\label{sec:lam_twopi}
-The expression~\eqref{eq:base} includes the coefficient $2/\pi$, which needs a physical reason. The reason offered is the causal
+The expression~\eqref{eq:base} includes the coefficient $2/\pi$, which needs a physical reason. The place to look is the causal
 structure of de Sitter space, the geometry of a universe with positive cosmological constant, which describes the universe at late
 times.
 
 \subsection{The horizon of a de Sitter observer}
 In de Sitter space the cosmological horizon is observer-dependent. Every observer is surrounded by a causal horizon that divides the
-universe into the static patch, causally accessible to the observer, and the region beyond the horizon, causally inaccessible. The
-argument offered is that the static patch subtends $2\pi$ of the horizon's $4\pi$\,sr, by analogy with the Rindler horizon, which
+universe into the static patch, causally accessible to the observer, and the region beyond the horizon, causally inaccessible. One
+route takes the static patch to subtend $2\pi$ of the horizon's $4\pi$\,sr, by analogy with the Rindler horizon, which
 separates the half of Minkowski spacetime from which a uniformly accelerated observer can receive signals. That analogy concerns
 regions of spacetime, not solid angle. The static patch of a de Sitter observer is bounded by the whole horizon sphere, and the
 observer receives signals from all $4\pi$\,sr of it. \derived
@@ -311,15 +310,12 @@ The number of Bekenstein--Hawking units in that area is
 \derived\ (arithmetic) and the fraction of vacuum energy per accessible unit, in the form offered, is
 \begin{equation}f_{\rm bit}=\frac{l_P^2}{A_{\rm eff}/(4\pi)}=\frac{4\pi l_P^2}{2\pi l_H^2}=2\left(\frac{l_P}{l_H}\right)^2 .\label{eq:lam_fbit}\end{equation}
 \derived\ (arithmetic) The area $A_{\rm eff}=2\pi l_H^2$ gives $2(l_P/l_H)^2$, not $(2/\pi)(l_P/l_H)^2$; with the full horizon area it
-gives $(l_P/l_H)^2$. Neither the geometric factor~\eqref{eq:lam_fgeo} nor the de Sitter argument yields $2/\pi$, and the argument's
-premise (half the horizon) does not hold. The coefficient $2/\pi$ is not derived. \openprob
+gives $(l_P/l_H)^2$. Neither the geometric factor~\eqref{eq:lam_fgeo} nor the de Sitter argument yields $2/\pi$, and the argument's premise (half the horizon) does not hold. Deriving the coefficient $2/\pi$ is the open problem. \openprob
 
 \subsection{Departure from exact de Sitter}
 The argument was meant to apply in the de Sitter limit, where dark energy dominates the energy budget entirely. Today dark energy is
 about 68\,\% of the total energy density and matter about 32\,\%, so exact de Sitter is an approximation at the present epoch. The
-temperature factor $T_{dS}/T_H=\sqrt{\Omega_\Lambda}=0.8274$ of Section~\ref{sec:lam_tds} was introduced for that departure. The full
-cosmic decoherence history integral (Chapter~\ref{ch:lambda_history}) was meant to give a second derivation of the same factor from
-the epoch-dependent accumulation; as written it does not converge, so it does not yet provide one. \openprob
+temperature factor $T_{dS}/T_H=\sqrt{\Omega_\Lambda}=0.8274$ of Section~\ref{sec:lam_tds} was introduced for that departure. The full cosmic decoherence history integral (Chapter~\ref{ch:lambda_history}) is meant to give a second derivation of the same factor from the epoch-dependent accumulation; as written it does not converge, and making it converge is the next step. \openprob
 
 \section{Three objections}\label{sec:lam_obj}
 Three objections are most likely to be directed at the expression. Each is stated with the response IAM's Law gives and what the
@@ -368,7 +364,9 @@ $+0.79\,\%$. \calc\ (2) The $10^{-123}$ is the identity~\eqref{eq:ident}: any O(
 of a few of the observed ratio, so recovering it ``within a factor of 2'' from the Planck length and the Hubble constant is guaranteed,
 not improbable. The meaningful count is the one in Section~\ref{sec:lam_rel}: 3 of 414 O(1) forms within $1\,\%$. \calc\ (3) The
 problem as stated spans 123 orders of magnitude; Eq.~\eqref{eq:base} is within a factor of 1.22 and Eq.~\eqref{eq:corr} within
-$0.79\,\%$, but the 123 orders are carried by the identity, and the remaining O(1) factors are not yet derived. \openprob
+$0.79\,\%$, but the 123 orders are carried by the identity, and deriving the remaining O(1) factors is an open problem. \openprob
+
+The identity carries the orders of magnitude; what remains is a set of concrete factors, each stated with its status. A cosmologist or a particle theorist can take any one of them and try to derive it, or break it.
 
 \section{Status}
 Stands: the identity~\eqref{eq:ident} and $T_{GH}S=M_Hc^2$ \derived; the measured relation~\eqref{eq:rel} at the present epoch

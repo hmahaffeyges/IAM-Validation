@@ -38,13 +38,13 @@ sustain only the baryon density at which the Landauer cost matches the observed 
 
 Before the chain was run, the expectation was stated that a chain with $\Omega_bh^2$ free would return a posterior consistent with
 $\eta\approx6\times10^{-10}$ from CMB data alone. Because the informational term is off at recombination, every CMB fit returns that
-value (Section~\ref{sec:bc_result}); the expectation could not have failed for reasons specific to the informational term.
+value (Section~\ref{sec:bc_result}), so the run is a consistency check on the informational term, not an independent test of it.
 
 \section{The constraint in terms of $\Omega_b$}\label{sec:bc_constraint}
 The cosmological-constant expression of Chapter~\ref{ch:lambda} is
 \begin{equation}\frac{\rho_\Lambda}{\rho_{\rm vac}}=\frac{2}{\pi}\left(\frac{l_P}{l_H}\right)^2\frac{\Omega_b}{\Omega_m},\label{eq:bc_cc}\end{equation}
 with $l_P$ the Planck length, $l_H$ the Hubble length and $\Omega_b/\Omega_m$ the baryonic fraction of matter (Eq.~\eqref{eq:base};
-the coefficient $2/\pi$ is not derived, Section~\ref{sec:lam_twopi}). \openprob\ The departure from exact de Sitter geometry was taken to
+the coefficient $2/\pi$ is taken as given here; its derivation is an open problem, Section~\ref{sec:lam_twopi}). \openprob\ The departure from exact de Sitter geometry was taken to
 introduce the ratio of the Gibbons--Hawking temperatures of the de Sitter encoding surface and the Hubble writing temperature,
 \begin{equation}\frac{T_{dS}}{T_H}=\frac{H_{dS}}{H_0}=\sqrt{\Omega_\Lambda},\label{eq:bc_tratio}\end{equation}
 \derived\ (the temperature of the horizon set by $\Lambda$ alone) and with it
@@ -188,8 +188,8 @@ itself is in the likelihood, so that $\Omega_b$ is predicted from $\Lambda$ rath
 The temperature ratio $\sqrt{\Omega_\Lambda}=0.827$ that brings Eq.~\eqref{eq:bc_cc} to $+0.79\,\%$ of the observed $\Lambda$ also moves
 the inverted $\eta$ from $5.03$ to $6.08\times10^{-10}$, toward the chain value. These are not two corrections that agree: they are the
 same relation, $\Omega_b/\Omega_m=\tfrac3{16}\sqrt{\Omega_\Lambda}$, read in two variables, and the factor was introduced to close the
-first. \fitted\ The epoch-dependent history integral (Eq.~\eqref{eq:lh_integral}) does not yet provide an independent derivation: as
-written it is dominated by its lower limit (Chapter~\ref{ch:lambda_history}). \openprob
+first. \fitted\ The epoch-dependent history integral (Eq.~\eqref{eq:lh_integral}) is dominated by its lower limit as
+written (Chapter~\ref{ch:lambda_history}); an independent derivation is the next step. \openprob
 
 \section{Conclusions}\label{sec:bc_concl}
 With $\Omega_bh^2$ free across a flat range six times wider than in the other runs and no abundance data, the Planck 2018 CMB likelihood
@@ -204,3 +204,5 @@ All chains, the YAML configuration and the analysis scripts are in the repositor
 \texttt{mgcamb\_validation/\allowbreak{}chains/\allowbreak{}iam\_baryon\_test.*} (a copy in \texttt{mgcamb\_validation/}), the configuration
 \texttt{mgcamb\_validation/\allowbreak{}yaml\_configs/\allowbreak{}iam\_baryon\_test.updated.yaml}, and every number of this chapter is
 recomputed by \texttt{docs/verification/\allowbreak{}scripts/\allowbreak{}verify\_lambda\_baryon\_book.py}.
+
+The chain returns the early universe that every CMB analysis returns, with the informational term in place. A cosmologist with the pipeline in Appendix~\ref{app:repro} can rerun it and take the next step: put the writing constraint itself into the likelihood.

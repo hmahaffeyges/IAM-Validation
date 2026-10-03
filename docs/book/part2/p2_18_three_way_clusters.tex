@@ -155,8 +155,7 @@ so that to first order the biases add, $b_{\rm hydro}\simeq b_{\rm NT}+b_{\rm IA
 part fades. \calc
 
 For illustration take a non-thermal factor $C_{\rm NT}=1+0.20(1+z)^{0.2}$, multiplying $R$; its slope is $+0.027$ to $+0.036$ over $0.15<z<0.65$
-\calc, inside the range $+0.02$ to $+0.04$ suggested by simulations~\cite{Nelson2014,ShiKomatsu2014}. The form and its normalisation are assumed, not
-fitted to the simulations. \openprob\ With it the two effects combine as in Table~\ref{tab:tw_bins}. The product falls slowly with redshift, with slope
+\calc, inside the range $+0.02$ to $+0.04$ suggested by simulations~\cite{Nelson2014,ShiKomatsu2014}. The form and its normalisation are assumed here; fitting them to the simulations is the next step. \openprob\ With it the two effects combine as in Table~\ref{tab:tw_bins}. The product falls slowly with redshift, with slope
 $-0.187$ at $z=0.3$ and $-0.025$ at $z=1$; it turns over at $z=1.40$, where the falling gravitational part and the rising non-thermal part balance.
 \calc
 
@@ -181,15 +180,13 @@ $0.5<z<0.8$ & 0.650 & 1.039 & 1.221 & 1.269\\\bottomrule
 centres has slope $-0.152$, and a $3\sigma$ detection of a non-zero slope needs a fractional error of $1.5\,\%$ per bin (equal errors). \calc\ The
 errors $\sigma(dR/dz)\approx\pm0.03$ for a cross-matched eROSITA + Planck + DES sample of $\sim180$ clusters over $0.1<z<0.6$, and $\pm0.008$ for
 $\sim5000$ clusters, have been put forward as the reach of current and coming samples; with them the slope $-0.18$ would stand at $0.18/0.03=6$ and
-$0.18/0.008\approx22$ times the error, and its separation from a non-thermal slope of $+0.02$ to $+0.04$ at about 7 and 25--28 times. \calc\ Neither
-error has been derived from a sample calculation (selection, mass scatter, the non-thermal model), so no significance is claimed here. \openprob
+$0.18/0.008\approx22$ times the error, and its separation from a non-thermal slope of $+0.02$ to $+0.04$ at about 7 and 25--28 times. \calc\ Deriving either error from a sample calculation (selection, mass scatter, the non-thermal model) is the next step, so no significance is claimed here. \openprob
 
 \section{Comparison with current data}\label{sec:tw_data}
 The published lensing calibrations, in the conventions of their sources, are collected in Table~\ref{tab:ld_published}. In the Level~1 form the
 gravitational part at the sample redshifts is $1.07$--$1.10$; with the illustrative non-thermal factor the total is $1.27$--$1.35$ over the four bins,
 the same order as the Planck-prior calibrations ($1/(1-b)=1.28\pm0.15$ for CCCP, $1.45\pm0.15$ for WtG) and above the like-for-like LoCuSS value
-$M_{\rm WL}/M_X=1.05\pm0.06$ at $0.15<z<0.3$. \calc\ A bin-by-bin comparison needs each observed ratio traced to its source table, with its
-aperture, mass definition and redshift distribution; a compiled set of four binned values is not reproduced here until that is done.
+$M_{\rm WL}/M_X=1.05\pm0.06$ at $0.15<z<0.3$. \calc\ A bin-by-bin comparison needs each observed ratio traced to its source table, with its aperture, mass definition and redshift distribution; a compiled set of four binned values follows once that is done.
 \openprob\ The like-for-like reanalysis of the WtG and CCCP clusters finds $M_{\rm Planck}/M_{\rm WL}$ lower above $z=0.3$ than below
 it~\cite{Smith2016LoCuSS}, a lensing-to-SZ ratio that rises with redshift, while the updated CCCP + MENeaCS sample finds no significant redshift
 trend~\cite{Herbonnet2020}. \observed\ Neither result yet separates the gravitational part from the non-thermal and selection parts.
@@ -250,6 +247,8 @@ A cross-matched sample (eROSITA X-ray, Planck or ground-based SZ, Euclid or DES 
 throughout, gives $R(z)$ falling with redshift as Eq.~\eqref{eq:tw_R} on top of a non-thermal part that rises. Falsified (in this form) by a slope of
 zero or positive sign once the non-thermal and selection parts are modelled from simulations. In the Level~2 form the prediction is $R=1$ apart from
 astrophysics, and clusters test only the growth history, through their abundance.
+
+A cluster astronomer with X-ray, SZ and lensing masses in hand can run this test directly: bin the sample by redshift, hold one mass method per estimator, and read the slope.
 
 \section{Status}
 \begin{center}\small\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xl}\toprule

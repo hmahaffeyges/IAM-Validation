@@ -32,7 +32,7 @@ replication), and each field writes its thresholds in its own units.
 \begin{center}\small\begin{tabular}{p{0.11\textwidth}p{0.24\textwidth}p{0.22\textwidth}p{0.29\textwidth}}\toprule
 score & reading & healthy reference ($A=1$) & $H_{\min}$ (on the gauge)\\\midrule
 IAM-A & copy error, $H(\varepsilon)$ & $P_{\rm cell}H(\varepsilon_0)$ & $H(\varepsilon_0)$; neutrophils at $1/P=0.910$\\
-Met-A & $\langle H(\beta)\rangle$ at identity sites & purified healthy cells, same platform & not yet derived for arrays\\
+Met-A & $\langle H(\beta)\rangle$ at identity sites & purified healthy cells, same platform & an open problem for arrays\\
 C-score & clustering of the residual map & healthy median clustering & ---\\
 qubit gauge & $\varepsilon=-\ln(1-p_{2Q})$ & the device as built & thermal floor $p_{\rm eq}t_g/T_1$ (transmon reading: $6\times10^{-4}$)\\
 chip gauge & $E_{\rm sw}=\mathrm{TDP}/(Nf)$ & the chip as built & Landauer floor $k_BT_j\ln2$ (9950X: $0.0017$)\\\bottomrule
@@ -41,7 +41,7 @@ Some systems also have a point on the high side where they stop working: for a q
 the transmon reading at $A=10$, Helios at $12.7$). For cells the high side is the cancer direction. Breach and the cancer region beyond it lie to the right of Normal and are to be measured on this scale from per-person data; the far end, a full
 surface, is known: $1/0.330263=3.03$ on Met-A and $1/(P\,H(\varepsilon_0))=1/(1.099\times0.2043)=4.45$ on IAM-A for neutrophils ($H(\varepsilon_0)=0.2043$ bits at $\varepsilon_0=0.032$) \calc. For a compact star the far-right line is a
 limiting mass: the Chandrasekhar mass for a white dwarf and the maximum (TOV) mass for a neutron star (Chapter~\ref{ch:blackholes}, Fig.~\ref{fig:stargauge}). The region between $H_{\min}$ and the healthy
-band is less error than healthy; for cells what it means biologically has not yet been measured.
+band is less error than healthy; for cells what it means biologically is the next thing to measure.
 
 \paragraph{The compartment, not the average.} A point of method carries over directly from the cell to the star. The cell instrument does
 not score the whole person; it scores each cell type on its own. The star gauge does the same: it reads the core, not the whole star. A red
@@ -65,7 +65,7 @@ copy error, read on the sorted-cell sequencing of the methylation atlas~\cite{Lo
 rather than by absolute zero. Three routes would make it absolute: the copying enzyme's own discrimination energy, $k_BT\ln(\text{selectivity})$ of
 DNMT1 measured precisely in vitro (published values bracket $1.9$--$4.4\,k_BT$~\cite{Pradhan1999,Goyal2006,Adam2023}); a derivation of $\varphi$, the fraction of one ATP spent per held bit,
 from the maintenance chemistry, since $M=20.94$ is already set by ATP; and the temperature test in ectotherms, where a fixed holding energy predicts a
-different error at 10\,$^\circ$C than at 37\,$^\circ$C. That test has not yet been made: the fish read so far (Section~\ref{sec:og_temperature})
+different error at 10\,$^\circ$C than at 37\,$^\circ$C. That test is the next step: the fish read so far (Section~\ref{sec:og_temperature})
 tracked a library-quality term, and the copy error depends on the read pipeline, so the test needs one species at two recorded temperatures on one
 pipeline \openprob. For the
 chip, $H_{\min}$ is the law itself. For the qubit it is the same law at the temperature the qubit itself sees: the occupation
@@ -97,7 +97,7 @@ with $M=20.94$, $\varphi=0.1628$ and $P_{\rm cell}$ the healthy cell's frozen po
 \item $A>1$: more error; the pattern is blurring.
 \item $A<1$: less error than the standard; the pattern is locking tighter than normal.
 \end{itemize}
-Each reading has a C-score (built for Met-A, its healthy band not yet set; the IAM-A C-score is defined but not yet built): the clustering of the person's residual map along the genome, over the healthy baseline, so healthy reads 1 on the same
+Each reading has a C-score (built for Met-A, its healthy band being set next; the IAM-A C-score is defined and is the next to build): the clustering of the person's residual map along the genome, over the healthy baseline, so healthy reads 1 on the same
 gauge. $A$ says how much error there is; the C-score says whether it is spread out or concentrated in regions.
 
 The commissioned cell is the neutrophil. Other cells are added one at a time after passing the same tests.
@@ -165,3 +165,5 @@ The law enters through the cost per bit at the local temperature and through $M$
 molecule of a cell, as in every $1/r$-bound system (Chapter~\ref{ch:ledgers}), but the gauge does not use it: the reading needs only the cost per bit and
 $M$. In each domain the gauge asks one question, how far the record sits above its floor, and states which quantities are measured (the reading,
 $T$, $M$, the cell's holding energy) and which follow from $\kB T$ alone (the chip's Landauer floor and the qubit's thermal floor). Chapter~\ref{ch:reach} says what each gauge could give.
+
+One gauge now reads a qubit, a processor and a cell on the same terms. A device physicist, a chip engineer and a geneticist can each read their own system on it and set their readings side by side.
