@@ -1,0 +1,29 @@
+group,paper_lines,paper_words,chapters,book_lines,book_words,book_equations,book_tables,book_figures,word_ratio_before,word_ratio
+"Virial partition, six papers",2517,19379,p1_03_virial_law.tex; p2_02_virial.tex,521,6864,20,6,6,0.15,0.35
+Bekenstein coefficient + two black-hole papers,1446,10845,p2_01_blackholes.tex,410,5336,24,4,4,0.2,0.49
+Missing satellites,564,4234,p2_19_missing_satellites.tex,192,2357,9,1,1,0.24,0.56
+Landauer metrology (methylation),372,4336,p4_02_landauer.tex,272,2904,9,1,3,0.38,0.67
+Koide + electron mass,1314,8362,p2_15a_lepton_koide.tex; p2_15b_electron_mass.tex,526,6014,31,3,4,0.18,0.72
+Electroweak symmetry breaking,200,1881,p2_22_electroweak.tex,120,1479,3,0,0,0.73,0.79
+Dark energy or sector tension,914,8021,p2_09_sector_tension.tex; p2_09b_phantom_crossing.tex,469,6540,7,6,3,0.15,0.82
+"Baryon asymmetry, two papers",662,5889,p2_13_baryon.tex; p2_13b_baryon_chain.tex,419,4895,13,4,2,0.14,0.83
+Entanglement and classical records,247,2022,p2_21_entanglement_records.tex,120,1696,1,0,2,0.73,0.84
+Quantum Darwinism at cosmological scales,846,5738,p2_14_quantum_records.tex,376,5179,21,0,5,0.25,0.9
+Two faces of time,240,1930,p5_03_time.tex,150,1810,5,0,1,0.38,0.94
+x_qp (quasiparticles),846,5346,p3_02_xqp.tex,347,5194,18,3,5,0.27,0.97
+Measurement problem,367,3632,p5_04_measurement.tex,259,3698,4,1,4,0.22,1.02
+IAM Theory (+ Entropic Gravity note),2189,16619,p2_03_theory.tex; p2_03a_entropic_gravity.tex,1413,17832,104,3,5,0.29,1.07
+"Gravitational decoherence, quantum level",456,3308,p5_05_gravdec.tex,279,3525,7,1,4,0.22,1.07
+IAM's Law,1477,12437,p1_02_iams_law.tex,1020,13672,48,3,3,0.27,1.1
+Three-way cluster masses,296,2653,p2_18_three_way_clusters.tex,266,2933,13,2,2,0.28,1.11
+Late-time growth,554,4564,p2_07_late_time_growth.tex,425,5106,6,7,5,0.61,1.12
+Dual-sector note,564,2986,p2_05_dual_sector_note.tex,242,3440,4,2,4,0.32,1.15
+Survey predictions,725,3471,p2_16_survey_predictions.tex,276,4037,8,2,4,0.44,1.16
+S8 trend,315,2372,p2_08_s8_trend.tex,207,2895,4,0,3,0.39,1.22
+Cosmological constant,824,5872,p2_12_lambda.tex; p2_12b_lambda_history.tex,562,7227,33,2,3,0.27,1.23
+Dual-sector perturbation (CAMB),578,4420,p2_06_dual_sector_perturbation.tex,528,5575,12,8,6,0.4,1.26
+Floor Breach (black hole to cell),239,2230,p1_01_encoding_surfaces.tex,216,3019,7,2,2,1.25,1.35
+Lensing and dynamics,307,2648,p2_17_lensing_dynamics.tex,312,3743,8,4,2,0.33,1.41
+Dual-sector validation,1227,7162,p2_10_dual_sector_validation.tex; p2_04_dualsector_chains.tex,872,10347,21,11,9,0.34,1.44
+w(z) far future,590,4425,p2_11_dark_energy.tex; p2_20_wz_far_future.tex,500,6356,22,1,5,0.4,1.44
+Gravitational engineering (exploratory),268,2580,p5_02_exploratory.tex,362,4396,20,1,4,0.49,1.7
