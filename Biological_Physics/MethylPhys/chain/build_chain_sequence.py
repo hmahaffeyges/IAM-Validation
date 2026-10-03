@@ -49,7 +49,8 @@ def _toolkit():
             if m:
                 mods = re.findall(r"`([^`]+\.py)`", m.group(3))
                 rows.append({"stage": m.group(1), "name": m.group(2), "where": mods[0] if mods else "none (not built)",
-                             "status": "toolkit: not yet wired into chain v3"})
+                             "status": ("wired into chain v3 (optional input; see chain/TOOLKIT.md)" if l.rstrip().rstrip("|").split("|")[-1].strip().startswith("**wired")
+                                        else "toolkit: not yet wired into chain v3")})
     return rows
 
 
@@ -74,6 +75,11 @@ def derive():
             "counts": {"live": len(live), "not_wired": len(not_wired), "toolkit_rows": len(tk)}}
 
 
+# the noise index and the noise gate are steps of the live path although their functions are not named stage_* (added 2026-10-03)
+NOISE_STEPS = {"noise_index": "stage 9: the array's noise index N over the noise sites",
+               "noise_gate": "stage 9: N_max read here; run_neutrophil withholds the gauge state when N > N_max and the reading is untared"}
+
+
 def derive_v3(rs, intake, stage1):
     """The default engine's path: Stage 0 steps (as run_sample.py calls them), Stage 1, then the stage_* calls inside
     conductor_v3.run_neutrophil in line order, Stage Q when run_sample.py calls stage_q_iam_a, then report_v3."""
@@ -84,10 +90,12 @@ def derive_v3(rs, intake, stage1):
         path.append({"step": "platform_refusal", "where": "conductor_v3.py", "implements": _doc(defs["platform_refusal"])})
     order, seen = [], set()
     for c in ast.walk(defs["run_neutrophil"]):
-        if isinstance(c, ast.Call) and isinstance(c.func, ast.Name) and c.func.id.startswith("stage_") and c.func.id not in seen:
+        if isinstance(c, ast.Call) and isinstance(c.func, ast.Name) and (c.func.id.startswith("stage_") or c.func.id in NOISE_STEPS) and c.func.id not in seen:
             seen.add(c.func.id); order.append((c.lineno, c.func.id))
     for _, n in sorted(order):
-        path.append({"step": n, "where": "conductor_v3.py", "implements": _doc(defs[n]) if n in defs else ""})
+        st = {"step": n, "where": "conductor_v3.py", "implements": _doc(defs[n]) if n in defs else ""}
+        if n in NOISE_STEPS: st["note"] = NOISE_STEPS[n]
+        path.append(st)
     if "stage_q_iam_a" in rs:
         qs = open(os.path.join(HERE, "stage_q_iam_a.py"), encoding="utf-8").read(); qt = ast.parse(qs)
         qd = {n.name: n for n in qt.body if isinstance(n, ast.FunctionDef)}
@@ -95,6 +103,10 @@ def derive_v3(rs, intake, stage1):
             if n in qd:
                 path.append({"step": f"stage_q_iam_a.{n}", "where": "stage_q_iam_a.py", "implements": _doc(qd[n]),
                              "note": "runs when run_sample.py is given --pat or --site-table"})
+    if "SMd.delta_sky" in rs:   # stage 12b, wired 2026-10-03 (DEV-TOOLKIT-ADDED-01)
+        sm = ast.parse(open(os.path.join(HERE, "serial_mode.py"), encoding="utf-8").read()); sd = {n.name: n for n in sm.body if isinstance(n, ast.FunctionDef)}
+        for n in ("check_same_person", "delta_sky"):
+            path.append({"step": f"serial_mode.{n}", "where": "serial_mode.py", "implements": _doc(sd[n]), "note": "stage 12b: runs when run_sample.py is given --prior-betas and --prior-bundle"})
     if "R3.build(" in rs:
         path.append({"step": "Report", "where": "MethylPhys_Interface/report_v3.py", "implements": "one self-contained HTML page plus the JSON bundle"})
     return path
@@ -118,7 +130,7 @@ def write(d):
         L += ["| module | what it implements | status |", "|---|---|---|"]
         for s in d["not_in_live_path"]:
             L.append(f"| `{s['step']}` | {s['implements']} | {s['status']} |")
-    L += ["", "## The toolkit (chain/TOOLKIT.md) - built, not yet wired into v3", "",
+    L += ["", "## The toolkit (chain/TOOLKIT.md) - built; each stage wired only after its check passed", "",
           "| stage (SOP 2b) | name | module | status |", "|---|---|---|---|"]
     for t in d["toolkit"]:
         L.append(f"| {t['stage']} | {t['name']} | `{t['where']}` | {t['status']} |")

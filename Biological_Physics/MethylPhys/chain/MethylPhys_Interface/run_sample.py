@@ -158,6 +158,9 @@ def main():
     ap.add_argument("--site-table", default=None, help="v3 Stage Q: a per-site CSV with columns pos,opp_A,err_A,opp_B,err_B; needs --seq-pipeline")
     ap.add_argument("--seq-pipeline", default=None, help="the read-level pipeline that produced --site-table (required with it); IAM-A is refused unless a position P was frozen for it")
     ap.add_argument("--seq-cell", default="neutrophils", help="cell type of the sequenced specimen (Stage Q)")
+    ap.add_argument("--prior-betas", default=None, help="stage 12b (difference map, DEV-TOOLKIT-ADDED-01): the Stage 1 beta vector of an earlier draw of the same person (as written by --save-betas); needs --prior-bundle")
+    ap.add_argument("--prior-bundle", default=None, help="stage 12b: the bundle of that earlier draw; the difference is refused unless both draws carry the same identifier hash, array type and pipeline")
+    ap.add_argument("--save-betas", default=None, help="also write this specimen's Stage 1 beta vector (after the detection mask) to this path as a two-column file cpg_id,beta (.parquet or .csv); recorded in the bundle")
     a=ap.parse_args()
     seq = bool(a.pat or a.site_table)
     if not (a.betas or (a.grn and a.red) or seq): ap.error("give --betas, both --grn and --red, or --pat / --site-table")
@@ -165,7 +168,7 @@ def main():
     if a.site_table and not a.seq_pipeline: ap.error("--site-table needs --seq-pipeline: the pipeline that produced the table")
     if a.slide_ref_A and a.slide_ref_table: ap.error("give --slide-ref-A or --slide-ref-table, not both")
 
-    intake = None; bead_ok = None
+    intake = None; bead_ok = None; platform_stop = None
     if a.grn and a.red and not a.no_intake:
         # Stage 0 runs BEFORE calibration, and a quarantine stops the run: the gauge never sees a specimen
         # the chain of custody rejected. SOP sections 11-19.
@@ -213,60 +216,86 @@ def main():
             print("\nQUARANTINE - the chain stops here and nothing is scored. "
                   "Stage 0 rejected the specimen before calibration.", flush=True)
             sys.exit(2)
-        try:
-            from stage_0_1_qc_handoff import decode_qc_inputs
-            q = decode_qc_inputs(a.grn, a.red, rec.get("array_type_detected") or declared)
-            rec = S0.step_0_4_control_probe_validation(rec, a.grn, a.red, q["control_summary"])
-            rec = S0.step_0_5_detection_pvalue_qc(rec, q["probe_intensities"], q["neg_control_stats"])
-            rec = S0.step_0_6_bead_count_qc(rec, q["bead_counts"])
-            import numpy as _np
-            dp = _np.asarray(S0.compute_detection_p(q["probe_intensities"], q["neg_control_stats"]["mu_bg"],
-                                                    q["neg_control_stats"]["sigma_bg"]))
-            rec = S0.step_0_7_call_rate(rec, dp < S0.DETECTION_P_THRESHOLD,
-                                        _np.asarray(q["bead_counts"]) >= S0.BEAD_COUNT_MIN)
-            rec = S0.step_0_8_sex_check(rec, q["sex_intensities"])
-        except ImportError as e:
-            # the module is missing, not the data: the gates report DEFERRED and say why; a deferred detection or call rate
-            # quarantines at the gate below, before calibration
-            print(f"  QC hand-off unavailable ({e}); those gates report DEFERRED", flush=True)
-            q = None
-            rec["ctrl_qc"] = "DEFERRED_PENDING_STAGE1_DECODER"; rec.setdefault("flags", []).append("CTRL_QC_DEFERRED:no_control_intensities")
-            rec = S0.step_0_5_detection_pvalue_qc(rec); rec = S0.step_0_6_bead_count_qc(rec)
-            rec = S0.step_0_7_call_rate(rec); rec = S0.step_0_8_sex_check(rec)
-        except Exception as e:
-            # the decoder reached the file and failed on it. That is a property of the specimen's files, so it
-            # is a quarantine, not a deferral - a corrupt IDAT must not reach Stage 1 with its QC "deferred".
-            # (2026-09-23: one array in a 732-pair local copy was truncated at the gzip level while passing the
-            # 1 MB size floor, and the earlier wiring would have let it through with six gates unmeasured.)
-            rec["status"] = "QUARANTINE_CORRUPT_IDAT"
-            rec.setdefault("flags", []).append(f"IDAT_DECODE_FAILED:{type(e).__name__}")
-            print(f"  QUARANTINE_CORRUPT_IDAT - the decoder failed on this pair: {type(e).__name__}: {e}",
-                  flush=True)
+        if (rec.get("array_type_detected") or declared) == "EPIC_v2":
+            # unhandled platform (2026-10-03, DEV-BASE-CHAIN-01): an EPIC v2 array is refused here, before the QC decode, instead of being
+            # judged by EPIC v1 rules (sex mismatch) or crashing in Stage 1. v3 reads EPIC v1 only.
+            platform_stop = ("EPIC v2 array (IDAT header): chain v3 reads EPIC v1 arrays only - no frozen neutrophil floor for EPIC v2, and Stage 1 "
+                             "(methylprep 1.7.1) does not calibrate EPIC v2. Intake stopped before the QC decode; nothing is scored.")
+            rec["status"] = "PLATFORM_REFUSED"; rec.setdefault("flags", []).append("PLATFORM_REFUSED:EPIC_v2"); rec["stage0_verdict"] = "REFUSED_PLATFORM"
+            print("  PLATFORM_REFUSED - " + platform_stop, flush=True)
+            intake = rec
+        if platform_stop is None:
+            try:
+                from stage_0_1_qc_handoff import decode_qc_inputs, _manifest as _qc_manifest
+            except ImportError:
+                decode_qc_inputs = None
+            if decode_qc_inputs is not None:
+                # the machine, not the array: the array-type manifest must load before the IDATs are judged (2026-10-03). A failure here
+                # is an environment failure with its own status and exit code 3, never QUARANTINE_CORRUPT_IDAT.
+                try:
+                    _qc_manifest(rec.get("array_type_detected") or declared)
+                except Exception as e:
+                    rec["status"] = "ENVIRONMENT_MISSING_MANIFEST"
+                    rec.setdefault("flags", []).append(f"ENVIRONMENT_FAILURE:{type(e).__name__}")
+                    print(f"  ENVIRONMENT_MISSING_MANIFEST - the methylprep manifest for {rec.get('array_type_detected') or declared} could not be "
+                          f"loaded on this machine ({type(e).__name__}: {str(e)[:200]}). The array is not judged; fix the environment and re-run.", flush=True)
+                    sys.exit(3)
+            try:
+                if decode_qc_inputs is None: raise ImportError("stage_0_1_qc_handoff not importable")
+                q = decode_qc_inputs(a.grn, a.red, rec.get("array_type_detected") or declared)
+                rec = S0.step_0_4_control_probe_validation(rec, a.grn, a.red, q["control_summary"])
+                rec = S0.step_0_5_detection_pvalue_qc(rec, q["probe_intensities"], q["neg_control_stats"])
+                rec = S0.step_0_6_bead_count_qc(rec, q["bead_counts"])
+                import numpy as _np
+                dp = _np.asarray(S0.compute_detection_p(q["probe_intensities"], q["neg_control_stats"]["mu_bg"],
+                                                        q["neg_control_stats"]["sigma_bg"]))
+                rec = S0.step_0_7_call_rate(rec, dp < S0.DETECTION_P_THRESHOLD,
+                                            _np.asarray(q["bead_counts"]) >= S0.BEAD_COUNT_MIN)
+                rec = S0.step_0_8_sex_check(rec, q["sex_intensities"])
+            except ImportError as e:
+                # the module is missing, not the data: the gates report DEFERRED and say why; a deferred detection or call rate
+                # quarantines at the gate below, before calibration
+                print(f"  QC hand-off unavailable ({e}); those gates report DEFERRED", flush=True)
+                q = None
+                rec["ctrl_qc"] = "DEFERRED_PENDING_STAGE1_DECODER"; rec.setdefault("flags", []).append("CTRL_QC_DEFERRED:no_control_intensities")
+                rec = S0.step_0_5_detection_pvalue_qc(rec); rec = S0.step_0_6_bead_count_qc(rec)
+                rec = S0.step_0_7_call_rate(rec); rec = S0.step_0_8_sex_check(rec)
+            except Exception as e:
+                # the decoder reached the file and failed on it. That is a property of the specimen's files, so it
+                # is a quarantine, not a deferral - a corrupt IDAT must not reach Stage 1 with its QC "deferred".
+                # (2026-09-23: one array in a 732-pair local copy was truncated at the gzip level while passing the
+                # 1 MB size floor, and the earlier wiring would have let it through with six gates unmeasured.)
+                rec["status"] = "QUARANTINE_CORRUPT_IDAT"
+                rec.setdefault("flags", []).append(f"IDAT_DECODE_FAILED:{type(e).__name__}")
+                print(f"  QUARANTINE_CORRUPT_IDAT - the decoder failed on this pair: {type(e).__name__}: {e}",
+                      flush=True)
+                rec = S0.step_0_9_decision_gate(rec, a.intake_log)
+                print(f"Stage 0 verdict: {rec.get('stage0_verdict')}  hard failures: {rec.get('stage0_hard_fail')}",
+                      flush=True)
+                print("\nQUARANTINE - the chain stops here and nothing is scored.", flush=True)
+                sys.exit(2)
+            # every hard intake failure stops the run here, before calibration (0.7b's 450K coverage needs the calibrated
+            # beta and is gated again after Stage 1; on EPIC it is NA_EPIC)
+            rec = S0.step_0_7b_platform_coverage(rec, None)
             rec = S0.step_0_9_decision_gate(rec, a.intake_log)
-            print(f"Stage 0 verdict: {rec.get('stage0_verdict')}  hard failures: {rec.get('stage0_hard_fail')}",
-                  flush=True)
-            print("\nQUARANTINE - the chain stops here and nothing is scored.", flush=True)
-            sys.exit(2)
-        # every hard intake failure stops the run here, before calibration (0.7b's 450K coverage needs the calibrated
-        # beta and is gated again after Stage 1; on EPIC it is NA_EPIC)
-        rec = S0.step_0_7b_platform_coverage(rec, None)
-        rec = S0.step_0_9_decision_gate(rec, a.intake_log)
-        if rec.get("stage0_verdict") == "QUARANTINE":
-            print(f"Stage 0 verdict: QUARANTINE  hard failures: {rec.get('stage0_hard_fail')}", flush=True)
-            print("\nQUARANTINE - the chain stops here and nothing is scored. "
-                  "Stage 0 rejected the specimen before calibration.", flush=True)
-            sys.exit(2)
-        if q is not None and q.get("probe_ids") is not None:   # the extracted bead mask, kept for the Stage-1 call rate below
-            import pandas as _pdb, numpy as _npb
-            bead_ok = _pdb.Series(_npb.asarray(q["bead_counts"]) >= S0.BEAD_COUNT_MIN, index=_pdb.Index(q["probe_ids"]).astype(str))
-            bead_ok = bead_ok[~bead_ok.index.duplicated()]
-        intake = rec
+            if rec.get("stage0_verdict") == "QUARANTINE":
+                print(f"Stage 0 verdict: QUARANTINE  hard failures: {rec.get('stage0_hard_fail')}", flush=True)
+                print("\nQUARANTINE - the chain stops here and nothing is scored. "
+                      "Stage 0 rejected the specimen before calibration.", flush=True)
+                sys.exit(2)
+            if q is not None and q.get("probe_ids") is not None:   # the extracted bead mask, kept for the Stage-1 call rate below
+                import pandas as _pdb, numpy as _npb
+                bead_ok = _pdb.Series(_npb.asarray(q["bead_counts"]) >= S0.BEAD_COUNT_MIN, index=_pdb.Index(q["probe_ids"]).astype(str))
+                bead_ok = bead_ok[~bead_ok.index.duplicated()]
+            intake = rec
 
     stage1_meta=None
     if a.betas:
         import pandas as pd
         d=pd.read_csv(a.betas, index_col=0).iloc[:,0].dropna(); beta=d.to_dict()
         sid=a.id or os.path.basename(a.betas).split(".")[0]
+    elif a.grn and a.red and platform_stop:
+        beta = None; sid = a.id or os.path.basename(a.grn).split("_")[0]
     elif a.grn and a.red:
         try:
             from stage_1_idat_calibration import calibrate_idat_to_beta
@@ -275,14 +304,29 @@ def main():
                 sys.path.insert(0,c)
             from stage_1_idat_calibration import calibrate_idat_to_beta
         print("Stage 1: calibrating the IDAT pair (methylprep noob) - about 25 s", flush=True)
-        b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
-        b=b.iloc[:,0] if hasattr(b,"columns") else b
-        beta=b.dropna().to_dict(); sid=a.id or os.path.basename(a.grn).split("_")[0]
-        stage1_meta=meta
-        det=meta.get("detection") or {}
+        sid=a.id or os.path.basename(a.grn).split("_")[0]
+        try:
+            b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+        except ValueError as e:
+            if "Unknown array type" not in str(e): raise
+            b = meta = None   # an array type methylprep cannot calibrate (EPIC v2 read without intake): refused, not a crash
+            platform_stop = f"array type not calibrated by Stage 1 ({e}): chain v3 reads EPIC v1 arrays only; nothing is scored."
+            print("  PLATFORM_REFUSED - " + platform_stop, flush=True)
+        except (EOFError, OSError) as e:
+            # the IDAT bytes could not be read (truncated or corrupt file): the specimen's files, not the chain - a named stop, not a traceback
+            print(f"  QUARANTINE_CORRUPT_IDAT - Stage 1 could not read the IDAT pair: {type(e).__name__}: {e}", flush=True)
+            print("\nQUARANTINE - the chain stops here and nothing is scored.", flush=True)
+            sys.exit(2)
+        if b is None:
+            beta = None
+        else:
+            b=b.iloc[:,0] if hasattr(b,"columns") else b
+            beta=b.dropna().to_dict()
+            stage1_meta=meta
+        det=(meta or {}).get("detection") or {}
         if det.get("detection_available"):
             print(f"Stage 1: {det['n_detected']:,} of {det['n_probes']:,} probes detected ({det['pct_detected']*100:.2f} %); {det['n_masked']:,} at background removed", flush=True)
-        if intake is not None:
+        if intake is not None and meta is not None:
             # Stage 1's own numbers are recorded beside the Stage 0 record, never over it: the gate above was decided on the
             # hand-off values (0.4 controls per matched pair, 0.5 detection p <= 0.01 against the negative-control background,
             # 0.6 bead counts, 0.7 call rate on both). Stage 1 adds: control medians, poobah (p <= 0.05) detection, and a call rate
@@ -314,7 +358,7 @@ def main():
     else:
         beta = None; sid = a.id or os.path.basename(a.pat or a.site_table).split(".")[0]
 
-    if intake is not None:
+    if intake is not None and not platform_stop:
         import stage_0_intake as S0
         ref = None
         try:
@@ -344,7 +388,10 @@ def main():
         refs = [{k: (None if _pd.isna(r.get(k)) else r.get(k)) for k in ("A", "f_neu", "N", "id", "gsm") if k in rt.columns} for r in rt.to_dict("records")]
     it = intake or {}
     array_type = it.get("array_type_detected") or it.get("array_type") or a.array_type   # header first, then declared
-    if beta is not None:
+    if platform_stop:
+        o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "neutrophils only", "platform": "EPIC_v2" if "EPIC v2" in platform_stop else None,
+             "array_type": array_type, "refusal": platform_stop}
+    elif beta is not None:
         o = C3.run_neutrophil(_pd.Series(beta, dtype="float64"), specimen=a.specimen, ref_A=refs, array_type=array_type, sample_id=sid)
     else:
         o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "neutrophils only", "note": "sequencing input only: no array reading"}
@@ -359,6 +406,31 @@ def main():
         else:
             T = _pd.read_csv(a.site_table); pipe = a.seq_pipeline; src = {"site_table": os.path.abspath(a.site_table)}
         o["iam_a"] = Q.read(T, cell=a.seq_cell, pipeline=pipe); o["iam_a"]["input"] = src
+    # what stage 12b needs from every draw (recorded on every run so a later draw can be compared): the identifier hash and the pipeline
+    if a.betas: o["pipeline"] = "chain Stage 1 (beta table)"
+    if a.betas and a.patient_id: o["patient_hash"] = a.patient_id if (len(a.patient_id) >= 16 and a.patient_id.isalnum()) else __import__("hashlib").sha256(a.patient_id.encode()).hexdigest()[:32]
+    if a.prior_betas:   # stage 12b - difference map (per-address difference of two draws of one person; the sky drawing is not built)
+        import serial_mode as SMd
+        def _ctx(b, it, pipe):
+            return {"context": {"patient_hash": (it or {}).get("patient_id") or b.get("patient_hash"), "array_type": b.get("array_type"), "pipeline": pipe}}
+        pb = _json.load(open(a.prior_bundle)) if a.prior_bundle and os.path.exists(a.prior_bundle) else {}
+        now_pipe = (stage1_meta or {}).get("pipeline") or o.get("pipeline")
+        prior_pipe = (pb.get("stage1") or {}).get("pipeline") or pb.get("pipeline")
+        ok_, why = SMd.check_same_person(_ctx(o, intake, now_pipe), _ctx(pb, pb.get("intake"), prior_pipe)) if pb else (False, "serial mode refused: --prior-bundle not given or not found")
+        if not ok_ or beta is None:
+            o["difference_map"] = {"stage": "12b", "status": "REFUSED", "reason": (why.replace("patient", "person identifier") if not ok_ else "no beta vector on this draw")}
+        else:
+            bp = _pd.read_parquet(a.prior_betas).iloc[:, 0] if a.prior_betas.endswith(".parquet") else _pd.read_csv(a.prior_betas, index_col=0).iloc[:, 0]
+            bp.index = bp.index.astype(str); bn = _pd.Series(beta, dtype="float64"); bn.index = bn.index.astype(str)
+            _d, summ = SMd.delta_sky(bn, bp.astype("float64"))
+            o["difference_map"] = {"stage": "12b", "status": "OK", "same_person": why.replace("patient", "person identifier"), "prior_run_id": pb.get("run_id"), **summ,
+                                   "note": "per-address beta difference on the addresses both draws measured; no expectation, no sigma; the difference drawn as a sky is not built"}
+    if a.save_betas and beta is not None:   # operator option: the calibrated vector this reading was made from, for re-reading without re-calibrating
+        _bs = _pd.Series(beta, dtype="float32").rename("beta"); _bs.index.name = "cpg_id"
+        os.makedirs(os.path.dirname(os.path.abspath(a.save_betas)), exist_ok=True)
+        (_bs.to_frame().to_parquet(a.save_betas) if a.save_betas.endswith(".parquet") else _bs.to_frame().to_csv(a.save_betas))
+        o["betas_saved"] = os.path.abspath(a.save_betas)
+    o["command"] = [os.path.basename(sys.argv[0])] + sys.argv[1:]   # for the report's 'run it yourself' section
     cov = _covariates(a)
     o["intake"] = intake; o["intake_skipped"] = bool(a.no_intake); o["sample_id"] = sid; o["covariates"] = cov
     if intake is not None: intake.setdefault("covariates", {}).update(cov)

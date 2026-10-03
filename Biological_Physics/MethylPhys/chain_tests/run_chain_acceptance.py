@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Chain v3 end-to-end acceptance (2026-10-01): IDAT pair -> run_sample.py --engine v3 (Stage 0 intake, Stage 1 calibration, composition,
-Met-A, C-score, tare, report). Every specimen goes through the chain's own entry point; nothing is computed outside it."""
+Met-A, C-score, tare, report). Every specimen goes through the chain's own entry point; nothing is computed outside it.
+This is the standard batch runner SOP v3 section 4 names (pass 1 every specimen; pass 2 the median tare against same-run references).
+chain_tests/chain_batch.py is the historical PROC-NEUT-TEST-01 runner, kept as a record."""
 import os, glob, json, subprocess, tarfile, re, pandas as pd, multiprocessing as mp
 W=os.getcwd(); tarfile.open("chain_v3.tgz").extractall("bio/MethylPhys"); CH=f"{W}/bio/MethylPhys/chain"
 os.environ["IAMATLAS_V2"]="/home/ubuntu/data/IAMAtlas_v2.parquet"; os.makedirs("reports",exist_ok=True)

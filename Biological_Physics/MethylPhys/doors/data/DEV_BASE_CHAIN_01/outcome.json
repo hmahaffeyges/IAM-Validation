@@ -1,0 +1,375 @@
+{
+ "a": {
+  "n_manifest_rows": 5149,
+  "n_manifest": 5069,
+  "n_pass1": 5069,
+  "by_class": {
+   "ok": 3133,
+   "stage0_stop": 1936
+  },
+  "crashes_all_arms": [],
+  "environment": [],
+  "stage0_reasons": {
+   "['intake_quarantine_incomplete_manifest']": 1569,
+   "['hm450_coverage']": 276,
+   "['sex']": 52,
+   "['ctrl_qc']": 37,
+   "['detection', 'call_rate', 'sex']": 1,
+   "['ctrl_qc', 'sex']": 1
+  },
+  "refusals_ok_reports": {
+   "EPIC_v1": 15,
+   "EPIC_v2": 72
+  },
+  "pass": true
+ },
+ "b": {
+  "in_floor": {
+   "n_set": 12,
+   "reached_stage5": 6,
+   "tared": 6,
+   "tared_in_normal": 6,
+   "tared_range": [
+    0.9914,
+    1.0075
+   ],
+   "untared_own_floor_states": {
+    "Normal": 6
+   },
+   "untared_A_range": [
+    0.9942,
+    1.0064
+   ],
+   "per_series": {
+    "GSE110554": {
+     "n": 6,
+     "tared": 6,
+     "in_normal": 6,
+     "A_rel": [
+      0.991,
+      1.008
+     ]
+    }
+   }
+  },
+  "other_labs": {
+   "n_set": 66,
+   "reached_stage5": 49,
+   "tared": 49,
+   "tared_in_normal": 42,
+   "tared_range": [
+    0.8101,
+    1.068
+   ],
+   "untared_own_floor_states": {
+    "above Normal": 45,
+    "Normal": 3,
+    "below Normal": 1
+   },
+   "untared_A_range": [
+    0.8616,
+    1.2864
+   ],
+   "per_series": {
+    "GSE122244": {
+     "n": 5,
+     "tared": 4,
+     "in_normal": 3,
+     "A_rel": [
+      0.989,
+      1.068
+     ]
+    },
+    "GSE247193": {
+     "n": 24,
+     "tared": 21,
+     "in_normal": 17,
+     "A_rel": [
+      0.916,
+      1.066
+     ]
+    },
+    "GSE247195": {
+     "n": 24,
+     "tared": 24,
+     "in_normal": 22,
+     "A_rel": [
+      0.81,
+      1.034
+     ]
+    }
+   }
+  },
+  "lost_at_stage0": [
+   [
+    "GSE167998",
+    "GSM5121421",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE118144",
+    "GSM3319451",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE118144",
+    "GSM3319408",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE118144",
+    "GSM3319486",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE118144",
+    "GSM3319425",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE167998",
+    "GSM5121424",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE118144",
+    "GSM3319393",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE118144",
+    "GSM3319443",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE167998",
+    "GSM5121419",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE118144",
+    "GSM3319481",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE118144",
+    "GSM3319420",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE167998",
+    "GSM5121412",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE167998",
+    "GSM5121408",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE118144",
+    "GSM3319495",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE167998",
+    "GSM5121422",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE118144",
+    "GSM3319464",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE118144",
+    "GSM3319428",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE118144",
+    "GSM3319491",
+    "['intake_quarantine_incomplete_manifest']"
+   ],
+   [
+    "GSE118144",
+    "GSM3319440",
+    "['intake_quarantine_incomplete_manifest']"
+   ]
+  ],
+  "diag_arm_in_floor": {
+   "n_set": 12,
+   "reached_stage5": 6,
+   "tared": 6,
+   "tared_in_normal": 6,
+   "tared_range": [
+    0.9914,
+    1.0075
+   ],
+   "untared_own_floor_states": {
+    "Normal": 6
+   },
+   "untared_A_range": [
+    0.9942,
+    1.0064
+   ],
+   "per_series": {
+    "GSE167998": {
+     "n": 6,
+     "tared": 6,
+     "in_normal": 6,
+     "A_rel": [
+      0.991,
+      1.008
+     ]
+    }
+   }
+  },
+  "diag_arm_other_labs": {
+   "n_set": 66,
+   "reached_stage5": 13,
+   "tared": 13,
+   "tared_in_normal": 8,
+   "tared_range": [
+    0.9132,
+    1.0653
+   ],
+   "untared_own_floor_states": {
+    "above Normal": 9,
+    "Normal": 4
+   },
+   "untared_A_range": [
+    0.9759,
+    1.1269
+   ],
+   "per_series": {
+    "GSE118144": {
+     "n": 13,
+     "tared": 13,
+     "in_normal": 8,
+     "A_rel": [
+      0.913,
+      1.065
+     ]
+    }
+   }
+  },
+  "pass": false,
+  "note": "bar: every array of the set reaching Stage 5 reads Normal on its tared A_rel (pass-1/pass-2 arm only)"
+ },
+ "c": {
+  "n": 64,
+  "read": 63,
+  "tared": 63,
+  "within_person_sd": 0.0369,
+  "per_person_sd": {
+   "subjectA": 0.0304,
+   "subjectB": 0.0347,
+   "subjectC": 0.0403,
+   "subjectD": 0.0414
+  },
+  "sd_all": 0.0395,
+  "in_normal": 48,
+  "below": 8,
+  "above": 7,
+  "A_rel_range": [
+   0.9196,
+   1.0765
+  ],
+  "withheld_by_gate_final": 0,
+  "N_above_Nmax": 59,
+  "N_range": [
+   0.1367,
+   0.195
+  ],
+  "not_read": [
+   [
+    "GSM7981500",
+    "stage0_stop",
+    "['ctrl_qc']"
+   ]
+  ],
+  "targets": {
+   "within_person_sd_le_0_020": false,
+   "in_normal_ge_95pct": false
+  }
+ },
+ "d": {
+  "n_reports": 5553,
+  "by_arm": {
+   "pass1": 3133,
+   "diag1": 1568,
+   "pass2": 557,
+   "diag2": 295
+  },
+  "sections_ok": 5553,
+  "missing": [],
+  "safeguards": {
+   "sg_rendered-claim": {
+    "PASS": 5553
+   },
+   "sg_formula": {
+    "PASS": 5553
+   },
+   "sg_anchors": {
+    "PASS": 5553
+   },
+   "sg_deconvolver": {
+    "PASS": 4978,
+    "NOT_RUN": 575
+   },
+   "sg_atlas": {
+    "NOT_RUN": 5553
+   }
+  },
+  "chain_commits": {
+   "63d55fa": 5481,
+   "9593d66": 72
+  },
+  "chain_dirty": {
+   "false": 5553
+  },
+  "pass": true
+ },
+ "e": {
+  "site_table": {
+   "exit": 0,
+   "A": 1.0,
+   "state": "Normal",
+   "eps": 0.03619,
+   "pass": true
+  },
+  "other_pipeline": {
+   "exit": 0,
+   "A": null,
+   "refusal": "position for neutrophils was measured on loyfer_pat_v1, not another_pipeline: measure P on healthy neutrophils with this pipeline first",
+   "pass": true
+  },
+  "pat_extractor": {
+   "sites": 307,
+   "isolated_errors": 30,
+   "pass": true
+  },
+  "pat_through_run_sample": {
+   "exit": 0,
+   "refusal": "too few opportunities (2400 < 100000)",
+   "A": null,
+   "note": "300 constructed molecules < 100,000 opportunities: refusal expected"
+  },
+  "report_has_iam_a_section": true,
+  "pass": true
+ },
+ "obs": {
+  "whole_blood_read": 1943,
+  "whole_blood_withheld_fraction": 37,
+  "whole_blood_tared": 497,
+  "whole_blood_tared_in_normal": 390,
+  "untared_gate_withheld_all": 1353,
+  "det_limit_median": 3.67,
+  "C_range": [
+   0.6522,
+   3.1151
+  ],
+  "seconds_median": 119.4
+ }
+}

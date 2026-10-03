@@ -1,6 +1,6 @@
-# Toolkit: not yet wired into chain v3; enters the chain at commissioning with its own pre-registered check.  (SOP v3 section 2b, stage 12b (difference of two draws: delta_sky, delta_cells); chain/TOOLKIT.md)
+# Stage 12b (SOP v3 section 2b): check_same_person and delta_sky WIRED into run_sample.py (--prior-betas / --prior-bundle) on 2026-10-03 after DEV-TOOLKIT-ADDED-01 passed; delta_cells, trajectory and snp_noise_floor_A read class-era fields and are not called (toolkit).
 """serial_mode.py - one person, two or more draws (PROC-SERIAL-01). Pure functions over bundles and beta vectors; the chain's
-stages are untouched. Wired into run_sample.py (--prior) only after PROC-SERIAL-01's bars are scored."""
+stages are untouched. run_sample.py calls check_same_person and delta_sky for stage 12b; the rest is toolkit."""
 import json, hashlib
 import numpy as np, pandas as pd
 

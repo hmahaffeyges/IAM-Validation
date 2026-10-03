@@ -1,0 +1,272 @@
+{
+ "rule_R": {
+  "removed": [
+   "b cells",
+   "cd4 t cells",
+   "cd8 t cells"
+  ],
+  "expected": [
+   "b cells",
+   "cd4 t cells",
+   "cd8 t cells"
+  ],
+  "cells_e": [
+   "basophils",
+   "effector memory cd8 t cells",
+   "eosinophils",
+   "memory b cells",
+   "memory cd4 t cells",
+   "monocytes",
+   "naive b cells",
+   "naive cd4 t cells",
+   "naive cd8 t cells",
+   "neutrophils",
+   "nk cells",
+   "regulatory t cells"
+  ],
+  "pass": true
+ },
+ "verdict": {
+  "NILC_e": {
+   "truth_pass": false,
+   "truth_fail": [
+    [
+     "H1",
+     "NEU",
+     0.061
+    ],
+    [
+     "H1",
+     "MONO",
+     0.0333
+    ],
+    [
+     "H1",
+     "B",
+     0.0419
+    ],
+    [
+     "H1",
+     "CD4T",
+     0.0372
+    ],
+    [
+     "H1",
+     "CD8T",
+     0.1291
+    ],
+    [
+     "H2",
+     "NEU",
+     0.1383
+    ],
+    [
+     "H2",
+     "MONO",
+     0.0531
+    ],
+    [
+     "H2",
+     "T",
+     0.0974
+    ]
+   ],
+   "repeat_pass": false,
+   "repeat_fail": [
+    [
+     "CD8T",
+     0.0127
+    ]
+   ],
+   "pass": false,
+   "qualifying_cells": []
+  },
+  "N1": {
+   "truth_pass": false,
+   "truth_fail": [
+    [
+     "H1",
+     "NEU",
+     0.0497
+    ],
+    [
+     "H1",
+     "MONO",
+     0.0732
+    ],
+    [
+     "H1",
+     "B",
+     0.0952
+    ],
+    [
+     "H1",
+     "NK",
+     0.0554
+    ],
+    [
+     "H1",
+     "CD4T",
+     0.1249
+    ],
+    [
+     "H1",
+     "CD8T",
+     0.1372
+    ],
+    [
+     "H2",
+     "NEU",
+     0.2619
+    ],
+    [
+     "H2",
+     "MONO",
+     0.1191
+    ],
+    [
+     "H2",
+     "B",
+     0.1033
+    ],
+    [
+     "H2",
+     "T",
+     0.1421
+    ]
+   ],
+   "repeat_pass": true,
+   "repeat_fail": [],
+   "pass": false,
+   "qualifying_cells": []
+  },
+  "ATLAS_e": {
+   "truth_pass": false,
+   "truth_fail": [
+    [
+     "H1",
+     "NEU",
+     0.083
+    ],
+    [
+     "H1",
+     "NK",
+     0.0452
+    ],
+    [
+     "H1",
+     "CD8T",
+     0.0527
+    ],
+    [
+     "H2",
+     "NEU",
+     0.122
+    ],
+    [
+     "H2",
+     "MONO",
+     0.059
+    ],
+    [
+     "H2",
+     "T",
+     0.1033
+    ]
+   ],
+   "repeat_pass": true,
+   "repeat_fail": [],
+   "agree_pass": true,
+   "agree_fail": [],
+   "pass": false,
+   "qualifying_cells": [
+    "B"
+   ]
+  }
+ },
+ "percell": {
+  "B": {
+   "cell": "b cells",
+   "n_pure": 22,
+   "n_pure_tared": 22,
+   "pure_in_normal": 0.7272727272727273,
+   "pure_pass": false,
+   "repl_n": 31,
+   "repl_within_person_sd": 0.036771791308813195,
+   "repl_pass": false,
+   "pass_": false
+  }
+ },
+ "sky": {
+  "n": 63,
+  "median_ratio": {
+   "b1": 6.024007949227368,
+   "b2": 2.948800174525424,
+   "b3": 1.9607797358721681,
+   "b4": 1.5081359935572725,
+   "b5": 1.1429851919387333,
+   "b6": 0.9668131314326137
+  },
+  "frac_above_null_max": {
+   "b1": 1.0,
+   "b2": 1.0,
+   "b3": 1.0,
+   "b4": 1.0,
+   "b5": 1.0,
+   "b6": 0.0
+  },
+  "bands": [
+   [
+    2,
+    8
+   ],
+   [
+    9,
+    24
+   ],
+   [
+    25,
+    64
+   ],
+   [
+    65,
+    128
+   ],
+   [
+    129,
+    191
+   ],
+   [
+    192,
+    255
+   ]
+  ],
+  "pass_": false
+ },
+ "diffmap_12b": {
+  "adapter_accepts_same": true,
+  "adapter_refuses_different": true,
+  "n_comparisons": 348,
+  "frac_same_below": 1.0,
+  "same_q99_median": 0.06000000238418579,
+  "other_q99_median": 0.17400000244379044,
+  "pass_": true
+ },
+ "marker_counts": {
+  "per_group": {
+   "B": 150,
+   "BASO": 150,
+   "CD4T": 41,
+   "CD8T": 22,
+   "EOS": 150,
+   "MONO": 150,
+   "NEU": 150,
+   "NK": 150
+  },
+  "union": 963,
+  "reproduces_frozen_markers": true,
+  "max_abs_mu_diff": 5.000000000032756e-06,
+  "n_arrays": 91,
+  "markers_in_two_groups": 0
+ }
+}

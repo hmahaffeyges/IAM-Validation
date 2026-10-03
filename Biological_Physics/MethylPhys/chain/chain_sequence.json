@@ -88,14 +88,26 @@
    "implements": "Whole blood: Met-A = mean H(beta) / mean H(e) at the neutrophil sites, e = sum_g f_g mu_g (EPIC purified group profiles)"
   },
   {
+   "step": "noise_index",
+   "where": "conductor_v3.py",
+   "implements": "N = mean H(beta) over the noise sites measured on this array; None when fewer than MIN_NOISE_FRACTION are measured",
+   "note": "stage 9: the array's noise index N over the noise sites"
+  },
+  {
    "step": "stage_t_tare",
    "where": "conductor_v3.py",
    "implements": "Same-run tare against >= MIN_REFS healthy references of the same specimen type run the same way (same slide, else same batch)"
   },
   {
+   "step": "noise_gate",
+   "where": "conductor_v3.py",
+   "implements": "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json: N_max = top of the reference arrays' noise range (DEV-NOISE-01)",
+   "note": "stage 9: N_max read here; run_neutrophil withholds the gauge state when N > N_max and the reading is untared"
+  },
+  {
    "step": "stage_mc_cscore",
    "where": "conductor_v3.py",
-   "implements": ""
+   "implements": "Met-A C-score (stage 6): clustering of the residual z map in genomic order - variance of the means of blocks of clustering_block"
   },
   {
    "step": "stage_q_iam_a.pat_site_table",
@@ -108,6 +120,18 @@
    "where": "stage_q_iam_a.py",
    "implements": "site_table: per-site table (see module doc). cell: e.g. 'neutrophils'. pipeline: the read-level pipeline that produced the table",
    "note": "runs when run_sample.py is given --pat or --site-table"
+  },
+  {
+   "step": "serial_mode.check_same_person",
+   "where": "serial_mode.py",
+   "implements": "Refuse unless patient hash, array type and pipeline match. Returns (ok, reason)",
+   "note": "stage 12b: runs when run_sample.py is given --prior-betas and --prior-bundle"
+  },
+  {
+   "step": "serial_mode.delta_sky",
+   "where": "serial_mode.py",
+   "implements": "beta_now - beta_prior per address on the addresses both draws measured. No expectation, no sigma, no composition",
+   "note": "stage 12b: runs when run_sample.py is given --prior-betas and --prior-bundle"
   },
   {
    "step": "Report",
@@ -194,11 +218,11 @@
    "stage": "12b",
    "name": "Difference map",
    "where": "chain/serial_mode.py",
-   "status": "toolkit: not yet wired into chain v3"
+   "status": "wired into chain v3 (optional input; see chain/TOOLKIT.md)"
   }
  ],
  "counts": {
-  "live": 20,
+  "live": 24,
   "not_wired": 3,
   "toolkit_rows": 10
  }

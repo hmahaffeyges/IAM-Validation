@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Chain v3 batch runner (PROC-NEUT-TEST-01). Each array: GEO IDAT pair -> run_sample.py --engine v3 (unchanged chain, commit bc4a651).
-Pass 2 (whole blood): the same chain again with --slide-ref-table = the healthy references' pass-1 records (A, f_neu, N; self excluded).
-Stage T fits the noise-corrected expectation (A = a + b f_neu + c N, DEV-NOISE-02) when >= 20 records exist, else a median tare. Reference
-choice: the whole test batch when it holds >= 20 complete records; otherwise the same slide (>= 3), else the same test batch. Reference sets per pre-registration: T1 healthy; T3 all of T3; T4 NEGATIVE only. T2 isolated: no tare."""
+"""Chain v3 batch runner used for PROC-NEUT-TEST-01 (historical record of that run; box script). Each array: GEO IDAT pair ->
+run_sample.py --engine v3. Pass 2: the same chain again with --slide-ref-table = the healthy references' pass-1 records, self excluded.
+Stage T is the median tare: it reads only column A of the reference records (any other columns are ignored) and nothing is fitted.
+Reference sets per that pre-registration: T1 healthy; T3 all of T3; T4 NEGATIVE only; T2 isolated: no tare.
+The standard batch runner is chain_tests/run_chain_acceptance.py, the one SOP v3 section 4 names; use it for new batches."""
 import os, sys, json, subprocess, tarfile, urllib.request, time, pandas as pd, multiprocessing as mp
 W=os.getcwd(); tarfile.open("chain_v3.tgz").extractall("bio/MethylPhys"); CH=f"{W}/bio/MethylPhys/chain"
 D="/home/ubuntu/data/neuttest/idat"; os.makedirs(D,exist_ok=True); os.makedirs("reports",exist_ok=True)

@@ -47,16 +47,16 @@ pre-registered check on v3 has passed and the result is recorded in `doors/`.
 | 0 | Intake | manifest, hashes, controls, detection, sex and platform checks, decision gate | **running** |
 | 1 | Calibration | IDAT to beta (noob) | **running** |
 | 2 | Composition, blood groups | whole blood split into 8 purified blood groups (NNLS, 963 markers) | **running** |
-| 3 | Atlas deconvolution | whole-tissue split into the atlas v2 cell types, each with its identifiability | toolkit |
-| 4 | NILC component separation | cell-type separation by internal linear combination, the CMB method that needs no template per component | toolkit |
+| 3 | Atlas deconvolution | whole-tissue split into the atlas v2 cell types, each with its identifiability | toolkit (check failed 2026-10-03, DEV-ATLAS-EPIC-02) |
+| 4 | NILC component separation | cell-type separation by internal linear combination, the CMB method that needs no template per component | toolkit (check failed 2026-10-03, DEV-NILC-01) |
 | 5 | Met-A | each cell read against its own floor or its composition-matched healthy expectation | **running** (neutrophils) |
 | 6 | C-score | clustering of the residual map in genomic order | **running** (band not set) |
-| 7 | IAM-A | single-molecule reading on sequencing data | **running** (development) |
+| 7 | IAM-A | single-molecule reading on sequencing data | **running** (development; base-chain check on the constructed test data passed 2026-10-03, DEV-BASE-CHAIN-01 e) |
 | 8 | Same-run tare | A_rel = A / median of same-run healthy references | **running** |
 | 9 | Noise gate | noise index N; gauge state withheld above N_max untared | **running** |
-| 10 | Directional decomposition | which way a departure points (toward disorder or toward over-order), per cell | toolkit |
-| 11 | Sky map | each site placed on the sphere (HEALPix), the residual map drawn per cell | toolkit |
-| 12 | Sky statistics | angular power spectrum, masks, spatially shuffled null, look-elsewhere by simulation | toolkit |
+| 10 | Directional decomposition | which way a departure points (toward disorder or toward over-order), per cell | toolkit (not assessable as built, DEV-DIRECTION-01; author decision) |
+| 11 | Sky map | each site placed on the sphere (HEALPix), the residual map drawn per cell | toolkit (check failed 2026-10-03, DEV-SKY-01) |
+| 12 | Sky statistics | angular power spectrum, masks, spatially shuffled null, look-elsewhere by simulation | toolkit (not run: look-elsewhere by simulation not built, DEV-SKYSTAT-01) |
 | 13 | Report | HTML page and JSON bundle | **running** |
 
 ### Checked against the retired v2 report (2026-10-03)
@@ -84,7 +84,10 @@ item when the chain work starts.
 | classes, tiers, 8 classes x 5 substrates chart, the 1.07 line | retired: class floors and tiers |
 | report: red flags (STOP / WITHHELD / CAUTION / NOTE, also as JSON), safeguards (rendered-claim scan, formula self-test, anchors, deconvolver conformance, atlas separability), troubleshooting, integrity (file hashes), the chain's file inventory, run it yourself, cosmology-toolkit table with PASS / NOT_RUN / NOT_BUILT | **required sections of the v3 report (stage 13)**; report_v3 holds the reading only today |
 
-Added stages (toolkit): **3b trace-cell detection**, **3c foreign-cell detection**, **11b surface brightness**, **12b difference map**.
+Added stages: **3b trace-cell detection** (toolkit; not run, author decision), **3c foreign-cell detection** (toolkit; not run, author decision),
+**11b surface brightness** (toolkit; not run, author decision), **12b difference map** (**running** with `--prior-betas` / `--prior-bundle` since
+2026-10-03: per-address difference of two draws of one person and the same-person check, DEV-TOOLKIT-ADDED-01; the difference drawn as a sky is not built).
+Commissioning record (stage, check, result, wired): `doors/CHAIN_COMMISSIONING.md`.
 
 ### Commissioning order (author approved 2026-10-03)
 
@@ -99,6 +102,16 @@ Each step: pre-register the check in `doors/` before reading data, run it on v3,
    direction the treatment is known to push.
 5. **Sky map and residual maps (stage 11).** Check: healthy replicates give a residual sky consistent with the spatially shuffled null.
 6. **Sky statistics (stage 12).** Check: the look-elsewhere correction by simulation holds its stated false-positive rate on healthy arrays.
+7. **Stage Q, IAM-A (stage 7)** - commissioned with the base chain (stages 0, 1, 2, 5, 6, 8, 9, 13), before step 1. Check: on the bundled
+   single-molecule test data (constructed; no real file is bundled) IAM-A = 1 at the healthy position, another pipeline is refused, the `.pat`
+   extractor returns the constructed errors (DEV-BASE-CHAIN-01 e: passed 2026-10-03).
+8. **Trace-cell detection (stage 3b).** Check written in DEV-TOOLKIT-ADDED-01; needs its line re-set without a population first (author).
+9. **Foreign-cell detection (stage 3c).** Check written in DEV-TOOLKIT-ADDED-01; needs a line without a population and a stated beta scale (author).
+10. **Surface brightness (stage 11b).** Check written in DEV-TOOLKIT-ADDED-01; needs a v3 per-site uncertainty source (author).
+11. **Difference map (stage 12b).** Check: the same-person check accepts one person and refuses two; same-person replicate differences are below
+    differences to other people in >= 95 % of comparisons (DEV-TOOLKIT-ADDED-01: passed 2026-10-03, 348/348; wired).
+
+Order actually run on 2026-10-03: base chain with 7 -> 4 -> 3 -> 5 (B cells) -> 10 (not assessable) -> 11 -> 12 (not run) -> 3b, 3c, 11b (not run) -> 12b.
 
 ## 3. Rules the chain enforces
 
@@ -126,10 +139,14 @@ python run_sample.py --grn S_Grn.idat --red S_Red.idat --engine v3 \
 Isolated neutrophils: `--specimen "isolated neutrophils"`.
 Tare, once ≥ 3 healthy references of the same specimen type on the same slide (else the same batch) have been read: add `--slide-ref-A 0.951,0.957,0.962`.
 That list holds the references' untared A values. Or `--slide-ref-table refs.csv` (column `A`, optional `id`; the specimen's own id is left out).
+Second draw of the same person (stage 12b): add `--prior-betas S000_betas.parquet --prior-bundle S000_bundle.json` (the earlier draw run with
+`--save-betas`, and the same `--patient-id`); the bundle gets `difference_map` (per-address difference) or a refusal naming what differs.
+An EPIC v2 array is refused at intake with a report (v3 reads EPIC v1 only); a machine whose methylprep manifest cannot load stops with
+`ENVIRONMENT_MISSING_MANIFEST` (exit 3) and the array is not judged.
 Output: `S001.html`, `S001_bundle.json` and one row appended to `evidence_ledger.jsonl` beside the report (`--ledger` to change). Exit 2 on a
 Stage 0 QUARANTINE, with no report, bundle or ledger row.
 Stage 1 needs the Illumina manifest: methylprep downloads it on first use into `$HOME/.methylprep_manifest_files/`; offline, place it there
-(`doors/RUNBOOK.md` section 1). Without it Stage 0's QC hand-off fails and the pair is quarantined as `QUARANTINE_CORRUPT_IDAT`. In a batch,
+(`doors/RUNBOOK.md` section 1). Without it Stage 0 stops with `ENVIRONMENT_MISSING_MANIFEST` (exit 3, since 2026-10-03; before, the pair was wrongly quarantined as `QUARANTINE_CORRUPT_IDAT`). In a batch,
 run the first array alone so the download is not raced.
 
 A batch, with the tare done automatically: `chain_tests/run_chain_acceptance.py`. Pass 1 reads every specimen. Pass 2 re-runs
@@ -165,7 +182,7 @@ The book states each step and why; the exact values, records, files and developm
 | 1 Calibration | `methylprep.run_pipeline(betas=True, export=True, save_control=True, poobah=True)`; keeps `cg` probes with poobah p ≤ 0.05; Stage 1 also records poobah detection and a poobah × bead call rate, not gated | `chain/stage_1_idat_calibration.py:129-130` | [in full §5] |
 | platform | EPIC v1 only; refused when the array type is not EPIC_v1, when probe names carry the EPIC v2 design suffix, or when the β vector holds ≤ 700,000 probes | `conductor_v3.py: platform_refusal` | [in full §5] |
 | A Composition | ≥ 867 of 963 markers measured (`MIN_MARKER_FRACTION` 0.9), else composition not solved and A withheld | `conductor_v3.py` | [in full §3, §5] |
-| A Composition | marker rule: not a neutrophil identity site; within-group SD ≤ 0.05; margin ≥ 0.25 against every other group's mean; top 150 per group; NNLS, sum 1. Fewest markers: CD4 T and CD8 T (the file does not record per-group counts; the 44 / 20 printed here before cannot be re-derived from it) | `blood_composition_EPIC_v1.json` key `rule` | **[new]** |
+| A Composition | marker rule: not a neutrophil identity site; within-group SD ≤ 0.05; margin ≥ 0.25 against every other group's mean; top 150 per group; NNLS, sum 1. Markers per group (re-derived 2026-10-03 by the builder's rule; union = the 963 frozen markers; recorded in the file's `_meta`): CD4 T 41, CD8 T 22, each other group 150. The 44 / 20 printed here before were not reproduced | `blood_composition_EPIC_v1.json` key `rule` | **[new]** |
 | M Met-A | whole blood read when f_NEU ≥ 0.20 (`MIN_READ_FRACTION`); ≥ 5400 of 6000 identity sites measured (both cases) | `conductor_v3.py`, `stage_m_met_a.py` (`SITE_COVERAGE_MIN` 0.9) | [0.20 in v3 §3 as 20 %; 5400 in full §5] |
 | M Met-A | identity-site rule (also kept in book; EPIC v1 neutrophils, 6 physical arrays): across-array SD of β ≤ 0.05; mean β 0.75–0.95 (methylated channel) or 0.05–0.25 (unmethylated channel); ≤ 3,000 per channel by smallest SD; result 6000 sites, 3000 per channel | `chain_tests/freeze_v13.py`, `stage_m_met_a.py`; `metA_floors_v1_3.json` `n_sites` | **[new]** (rule; the count is in full §3). The rule also stays in the book, Ch. "Identity sites" |
 | M Met-A | ceiling flag `past_entropy_ceiling` = (mean β at sites with μ_NEU > 0.5) < 0.5; report: "read beta, not A" | `conductor_v3.py:127-133` (`_ceiling`) | [in full §1, §6] |
@@ -192,7 +209,7 @@ neutrophil identity site; 48,528 sites; N computed when ≥ 90 % are measured. *
 - Entry point `chain/MethylPhys_Interface/run_sample.py --engine v3`; the stages after calibration are in `chain/conductor_v3.py`; report `chain/MethylPhys_Interface/report_v3.py`. [in v3 §2/§4]
 - Covariates: `--covariate KEY=VALUE`; kept in the custody record, bundle and ledger; no stage reads them; a free-text covariate appears in the report's bundle block. [flag in full §4.1; the "appears in the bundle block" sentence is **new**]
 - Report state strings. Met-A: `untared: read A_rel (Stage T)` (whole blood), `untared (own-floor state: <Normal|above Normal|below Normal>): read A_rel (Stage T)` (isolated, drawn against the own floor), `tared: read A_rel (Stage T)`, `withheld: noise index <N> > 0.149 and no same-run tare; A printed as a number only`. Tare: `Normal`, `above Normal`, `below Normal`, or the reason `untared: <n> same-run reference arrays (>= 3 required)`. Untared whole blood: no gauge position. [in full §5, §6]
-- Batch runner: `chain_tests/run_chain_acceptance.py` (pass 1 every specimen; pass 2 each whole blood against the others of its batch); `chain_tests/chain_batch.py` (its docstring still describes the removed fitted tare; Stage T now reads only `A` from the reference records and takes the median). Both are box scripts. [in v3 §4, full §4.3]
+- Batch runner: `chain_tests/run_chain_acceptance.py` (pass 1 every specimen; pass 2 each whole blood against the others of its batch); `chain_tests/chain_batch.py` (historical PROC-NEUT-TEST-01 runner; its docstring now states the median tare - Stage T reads only `A` from the reference records). The standard runner is `run_chain_acceptance.py`. Both are box scripts. [in v3 §4, full §4.3]
 - Serial mode: pure functions in `chain/serial_mode.py`, not wired into `run_sample.py`; design `doors/PROC_SERIAL_01_PREREG.md`; a pair is refused unless both draws share the identifier hash, array type and pipeline. **[new]**
 - Build guards: `chain/build_all.py` regenerates the chain sequence, the operations manual PDF, the repository inventory, the RUNBOOK marked block and the folder READMEs, then gates on the link check and `build_chain_sequence.py --check`; it hashes the operator chapter and `report_v3.py` into `chain/GENERATED_MANIFEST.json`. It runs no vocabulary scan and no procedure reconciliation, and no gate checks the v3 SOP text against the code. **[new]**
 - The operations manual path the book cited, `manual/OM_v3/OM_v3.tex`, **does not exist at `399c0e4`**; the manual present is `manual/OM_v3_neutrophil_chain.md`. The book now points to the SOP only. **[new; correct the path wherever it is kept]**

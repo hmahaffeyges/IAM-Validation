@@ -1,0 +1,522 @@
+===== diag1 GSE255057 GSM8063162 exit 1
+_=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 81, in _detect_array_type
+    d = IdatDataset(str(grn_path), Channel.GREEN)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/files/idat.py", line 166, in __init__
+    self.probe_means = self.read(idat_file)
+                       ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/files/idat.py", line 254, in read
+    self.n_beads = npread(idat_file, '<u1', self.n_snps_read) # was <u1
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/utils/parsing.py", line 178, in npread
+    raise EOFError('End of file reached before number of results parsed')
+EOFError: End of file reached before number of results parsed
+
+===== pass1 GSE286313 GSM8723481 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723529 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723524 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723530 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723538 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723516 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723525 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723485 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723521 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723518 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723536 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723487 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723533 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723497 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723520 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723483 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723491 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723532 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723484 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723492 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723535 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723528 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723496 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723490 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+
+===== pass1 GSE286313 GSM8723494 exit 1
+n/stage_0_1_qc_handoff.py:66: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  sub = sub[et.str.replace("-", " ", regex=False).str.contains(contains, case=False)]
+Traceback (most recent call last):
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 414, in <module>
+    if __name__=="__main__": main()
+                             ^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py", line 294, in main
+    b,meta=calibrate_idat_to_beta(a.grn,a.red,return_mask=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 97, in calibrate_idat_to_beta
+    at, at_str, barcode, n_addr = _detect_array_type(grn_path)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/data/base_chain_01/repo/Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py", line 83, in _detect_array_type
+    at = ArrayType.from_probe_count(n)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/models/arrays.py", line 46, in from_probe_count
+    raise ValueError(f'Unknown array type: ({probe_count} probes detected)')
+ValueError: Unknown array type: (1105209 probes detected)
+

@@ -1,61 +1,26 @@
-# CPG CMB v2 — Test Data Manifest
+# chain/TEST_DATA — test inputs
 
-All testing used real, public GEO IDAT files run through the full chain. Calibration
-(Stage 1) used methylprep 1.7.1. In this development container (Python 3.12) a small
-pandas-compatibility shim ([`pdshim.py`](harness/pdshim.py)) is required because methylprep 1.7.1 predates
-pandas 2.x; the doctor's Python 3.11 environment runs methylprep natively with no shim.
-The chain logic is identical either way. Calibrated betas are cached in
-`betas_cache.pkl` so the chain can be re-run without re-calibrating.
+Raw public GEO IDAT pairs used as **test inputs** for the chain's own checks (release check E1, E2, E3; operator practice). They are files to
+run the chain on, not examples of any reading: nothing in this folder carries or implies a label, a class or an outcome. Calibration (Stage 1)
+uses methylprep 1.7.1; `harness/pdshim.py` is a pandas-compatibility shim needed only in a Python 3.12 / pandas 2.x container (the chain env,
+Python 3.11 with pandas 1.5.3, runs methylprep natively). The chain logic is identical either way.
 
-## Samples used
+| GSM | Series | Array | Specimen | Used by |
+|-----|--------|-------|----------|---------|
+| GSM1051525 | GSE42861 | 450K | whole blood | 450K input (refused by v3's platform check) |
+| GSM1051533 | GSE42861 | 450K | whole blood | 450K input (refused by v3's platform check) |
+| GSM2333901 | GSE87571 | 450K | whole blood | release check E2: Stage 0 and Stage 1 run, Stage 0.7b quarantines, exit 2, nothing written |
+| GSM2333905 | GSE87571 | 450K | whole blood | 450K input (refused by v3's platform check) |
+| GSM2333950 | GSE87571 | 450K | whole blood | 450K input (refused by v3's platform check) |
+| GSM8772491 | GSE288652 | EPIC v1 | tissue | release check E1 (Stage 0 PROCEED, Stage 1, platform check refuses the incomplete vector) and E3 (the vector a constructed whole blood is built on) |
+| GSM8772492 | GSE288652 | EPIC v1 | tissue | EPIC v1 input |
+| GSM5065990 | GSE166212 | EPIC v1 | tissue | EPIC v1 input |
+| GSM5065985 | GSE166212 | EPIC v1 | tissue | EPIC v1 input |
 
-| GSM | Series | Array | Substrate | Role in testing |
-|-----|--------|-------|-----------|-----------------|
-| GSM1051525 | GSE42861 | 450K | whole blood | RA case — trajectory + per-cell signal |
-| GSM1051526 | GSE42861 | 450K | whole blood | RA case (spare) |
-| GSM1051533 | GSE42861 | 450K | whole blood | control — trajectory baseline |
-| GSM1051534 | GSE42861 | 450K | whole blood | control (spare) |
-| GSM2333901 | GSE87571 | 450K | whole blood | healthy 58M — clean within-band demo |
-| GSM2333905 | GSE87571 | 450K | whole blood | healthy 67F — genuine stem_adult elevation demo |
-| GSM2333950 | GSE87571 | 450K | whole blood | healthy 43M — adjudicator before/after |
-| GSM8772491 | GSE288652 | EPIC (850K) | colon tissue (high-grade adenoma) | secretory-positive + EPIC support |
-| GSM8772492 | GSE288652 | EPIC (850K) | colon tissue (high-grade adenoma) | secretory-positive + EPIC support (spare) |
-| GSM5065990 | GSE166212 | EPIC (850K) | colorectal carcinoma (stage 1) | secretory-positive — genuine carcinoma |
-| GSM5065985 | GSE166212 | EPIC (850K) | colorectal carcinoma (stage 4) | secretory-positive — genuine carcinoma, advanced |
+Source: NCBI GEO, `https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM<prefix>nnn/<GSM>/suppl/`. A calibrated cache (`betas_cache.pkl`, ~137 MB)
+is not stored in git (over GitHub's 100 MB limit); rebuild it from these IDATs with Stage 1.
 
-Source: NCBI GEO, `https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM<prefix>nnn/<GSM>/suppl/`.
+Single-molecule test data: none is bundled as a file. Release check E4 constructs its per-site table and `.pat` file at run time.
 
-## What each test established
-
-**Adjudicator fix (Mahalanobis presence gate).** On healthy whole-blood donors, trace
-non-substrate classes (stem_pluri, terminal, cycling at <2% abundance) were inflating the
-class-level Mahalanobis. With the gate (a class counts only if abundance ≥ 3% AND outside
-the NORMAL band [0.95,1.04)): GSM2333950 went from a false d=42.9 "beyond band" to d=0.0
-"within band"; GSM2333905 kept its genuine stem_adult=1.101 elevation (d=3.0). False
-positives removed, real departures preserved.
-
-**EPIC support.** GSM8772491 / GSM8772492 (EPIC, ~865K probes) calibrated end-to-end
-(490K / 602K CpGs after QC) and ran the full chain. EPIC is supported.
-
-**Secretory readability (the key question).** High-grade colon adenoma tissue (GSM8772491)
-deconvolved to: cycling 35.4% (A=0.989), immune 25.3% (A=0.815), stem_pluri 16.1% (A=0.601),
-**secretory 12.2% (A=0.959)**, terminal 11.2% (A=0.858). Confirmed on genuine colorectal
-**carcinoma** (GSE166212, EPIC): stage 1 (GSM5065990) → secretory 12.9% (A=0.970), cycling 35.7%,
-immune 34.0%; stage 4 (GSM5065985) → **secretory 24.8% (A=1.032)**, cycling 48.1% (A=1.069, at the
-Warburg line), immune down to 21.9%. The secretory and cycling signal both rise with stage and
-their A-scores elevate toward the Warburg/breach lines. The chain reads and scores secretory and
-cycling cleanly whenever epithelial DNA is present. Secretory reading ~0 in healthy whole blood is
-therefore correct (blood carries no epithelial DNA), not a chain limitation.
-
-## Substrate implication (for the report and the paper)
-
-- **Whole-blood leukocyte DNA (buffy coat):** the immune-architecture readout. Detects the
-  systemic immune field-effect signature of disease. Epithelial/secretory cells are absent
-  by biology.
-- **Plasma cfDNA (liquid biopsy):** the shed-tissue readout. Carries epithelial/tumour DNA,
-  so the secretory/cycling signal a tumour produces appears directly — the substrate to use
-  when the goal is not to miss a solid tumour (CRC, breast) by reading the tumour itself.
-- **Tissue:** secretory/cycling resolve strongly (demonstrated above) — the positive control.
-
-The report must state which substrate a given run used so the cell readout is interpreted
-correctly and the right tube is drawn.
+Rewritten 2026-10-03: the earlier text described these files with disease and class-era readings from the retired chain; those are not
+test inputs and were removed (the retired text is in the repository history).

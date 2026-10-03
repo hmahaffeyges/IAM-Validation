@@ -146,6 +146,9 @@ def stage_m_isolated(beta):
     return rec, z
 
 def stage_mc_cscore(z):
+    """Met-A C-score (stage 6): clustering of the residual z map in genomic order - variance of the means of blocks of clustering_block
+    consecutive sites (x sqrt(block)) over the site variance, divided by the healthy median clustering of neutrophil_reference_v1_1.json.
+    Healthy = 1; development (band not set). No residual map -> C None with the reason."""
     R = ref(); c = _clustering(z) if z is not None else None
     if c is None: return {"stage": "MC", "reading": "Met-A C-score", "C": None, "reason": "no residual map"}
     return {"stage": "MC", "reading": "Met-A C-score", "C": round(c / R["healthy_clustering_median"], 4), "clustering": round(c, 4),
@@ -214,7 +217,7 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
     if t.get("A_rel") is not None: m["state"] = "tared: read A_rel (Stage T)"
     g = noise_gate(); N = m.get("noise_index"); m["noise_gate_N_max"] = g["N_max"]
     m["noise_gate"] = ("not measured" if N is None else ("pass" if N <= g["N_max"] else "above the reference arrays' range"))
-    if N is not None and N > g["N_max"] and t.get("A_rel") is None:
+    if N is not None and N > g["N_max"] and t.get("A_rel") is None and m.get("A") is not None:   # no A -> its own reason stands (2026-10-03)
         m["state"] = f"withheld: noise index {N} > {g['N_max']} and no same-run tare; A printed as a number only"
     out["met_a"] = m; out["met_a_cscore"] = stage_mc_cscore(z); out["tare"] = t
     out["withheld"] = ["tier lines beyond Normal (not yet measured on this scale)", "other cell types (outside commissioning scope)"]

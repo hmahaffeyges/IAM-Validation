@@ -5,10 +5,17 @@
   "Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json": "2f64f8846f8a4b0d5d66964347807dde03067130f17d9ce97a8e4dc7efe7c9ae",
   "Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv": "73f090a7004bc7c79b0d761000eb49c86f61e0865fa1823458feaa095ec1eda0",
   "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json": "a03531f07369d90bc96ce32ebc723bc59abb060ff9bc7b93042a28df47d9c023",
-  "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json": "5616b95e2095e1a5a771436a616b218489798f5fe8b5089cec7c6e4f46ff8693",
+  "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json": "6ad3dfb0e01a70eed0e71df28c0b62170f7730d261f1d51aa4691758027fc0ab",
   "Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json": "3531561783261c577e436a0ac6b83799adbb791fe4ed40be7d0a48ec83f7aeb0",
   "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json": "825f64f7b6c7077a6ff17ce44c28b5470ad55d4347d64edb57055b793f808480",
   "Runtime Matrices/IAM_A_Positions/iama_positions_v1.json": "0bfaefa272739108e79115f4cdfe18cafd308f8f20f358e0e508cf1afdad7eae",
   "Runtime Matrices/Intake/intake_thresholds_v1.json": "58f7e6073e8f2a5c249c921c325e8b1f1478151bfbd5fd0bedbbd7638c2a58e2"
+ },
+ "superseded": {
+  "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json": {
+   "sha256_before": "5616b95e2095e1a5a771436a616b218489798f5fe8b5089cec7c6e4f46ff8693",
+   "data_sha256_canonical": "4142e7353c108471f544507cc59795e36aec0cf4a44e0f2cc2ed63b162381951",
+   "why": "2026-10-03: _meta (per-group marker counts) added; data keys unchanged. Canonical data hash = sha256 of json.dumps(file minus _meta, sort_keys=True, separators=(',',':'))."
+  }
  }
 }

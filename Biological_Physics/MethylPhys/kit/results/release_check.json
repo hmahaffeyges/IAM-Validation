@@ -1,6 +1,6 @@
 {
  "check": "release_check_v3",
- "verdict": "FAIL (3 of 11 checks)",
+ "verdict": "PASS",
  "checks": [
   {
    "check": "F1",
@@ -10,17 +10,17 @@
   {
    "check": "F1b",
    "result": "PASS",
-   "detail": "5 of 5 agree with the PROC-REPL-V3-01 run record"
+   "detail": "5 of 5 agree with the PROC-REPL-V3-01 run record (1 by data keys: _meta added since the run: ['blood_composition_EPIC_v1.json'])"
   },
   {
    "check": "S1",
    "result": "PASS",
-   "detail": "226 Python files scanned; retired imports: 0; path-loaded modules missing: 0"
+   "detail": "237 Python files scanned; retired imports: 0; path-loaded modules missing: 0"
   },
   {
    "check": "S2",
    "result": "PASS",
-   "detail": "2015 tracked files scanned; files carrying the retired name: 0"
+   "detail": "2104 tracked files scanned; files carrying the retired name: 0"
   },
   {
    "check": "S3",
@@ -34,18 +34,18 @@
   },
   {
    "check": "E1",
-   "result": "FAIL",
-   "detail": "exit 2; Stage 0 None; Stage 1 None CpGs; refusal: None | log tail: Stage 0 verdict: QUARANTINE  hard failures: ['intake_quarantine_corrupt_idat'] /  / QUARANTINE - the chain stops here and nothing is scored."
+   "result": "PASS",
+   "detail": "exit 0; Stage 0 PROCEED; Stage 1 566952 CpGs; refusal: 566,952 probes (450K or incomplete vector): chain v3 reads EPIC v1 arrays only (450K neutr"
   },
   {
    "check": "E2",
-   "result": "FAIL",
-   "detail": "exit 2; Stage 0 verdict: QUARANTINE  hard failures: ['intake_quarantine_corrupt_idat']; report written: False | log tail: Stage 0 verdict: QUARANTINE  hard failures: ['intake_quarantine_corrupt_idat'] /  / QUARANTINE - the chain stops here and nothing is scored."
+   "result": "PASS",
+   "detail": "exit 2; Stage 0 verdict: QUARANTINE  hard failures: ['hm450_coverage']  deferred: ['ctrl_qc_threshold_uncalibrated']; report written: False"
   },
   {
    "check": "E3",
-   "result": "FAIL",
-   "detail": "could not run: URLError: <urlopen error <urlopen error Tunnel connection failed: 403 Forbidden (host s3.amazonaws.com on the denylist)>>"
+   "result": "PASS",
+   "detail": "exit 0; 862,927 probes; composition max |error| 2.78e-17; NEU 0.6; Met-A 1.0; A_rel 1.0 (median tare (same-run healthy references)); noise index 0.41167"
   },
   {
    "check": "E4",
@@ -53,10 +53,15 @@
    "detail": "IAM-A 1.0 (Normal) at eps 0.03619; other pipeline: position for neutrophils was measured on loyfer_pat_v1, not another_pi; .pat extractor: 307 sites, 30 isolated errors (30 constructed)"
   },
   {
+   "check": "E5",
+   "result": "PASS",
+   "detail": "same person: OK (726963 addresses, mean |d beta| 0.007975614807360447); other person: REFUSED"
+  },
+  {
    "check": "M1",
    "result": "PASS",
-   "detail": "manual: /Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/.tmp/rc_v3_me4x_8st/manual"
+   "detail": "manual: /tmp/rc_v3_0tl_litx/manual.pdf (27977 bytes)"
   }
  ],
- "seconds": 26
+ "seconds": 226
 }

@@ -23,6 +23,8 @@ Checks
       Stage T must tare against three references to A_rel = 1
   E4  Stage Q through run_sample.py --site-table: a constructed per-site table whose copy error equals the healthy position reads
       IAM-A = 1 (Normal); the same table under another pipeline is refused; the .pat extractor reads a constructed .pat file
+  E5  stage 12b (wired 2026-10-03): two constructed draws of one person through run_sample.py --prior-betas give the per-address difference;
+      a draw with another identifier hash is refused
   M1  the operations manual builds (manual/build_manual_v3.py)
 """
 import ast, gzip, hashlib, json, os, re, subprocess, sys, tempfile, time
@@ -30,9 +32,10 @@ import ast, gzip, hashlib, json, os, re, subprocess, sys, tempfile, time
 HERE = os.path.dirname(os.path.abspath(__file__)); MP = os.path.dirname(HERE); ROOT = os.path.dirname(os.path.dirname(MP))
 RS = os.path.join(HERE, "MethylPhys_Interface", "run_sample.py"); IDAT = os.path.join(HERE, "TEST_DATA", "idats")
 PY = sys.executable
+# serial_mode is NOT retired: it is toolkit stage 12b (chain/serial_mode.py, chain/TOOLKIT.md) - removed from this list 2026-10-03
 RETIRED_MODULES = {"cpg_conductor", "cpg_gauge_engine", "cpg_tiers", "cpg_gauge", "disease_matching", "propagate", "build_methylphys",
                    "build_chain_inventory", "build_percell_reference", "iamatlas_a_scoring", "synthetic_patient_generator",
-                   "stage_5_second_chain", "stage_1_calibration", "val_finding", "serial_mode", "preflight", "idat_parse",
+                   "stage_5_second_chain", "stage_1_calibration", "val_finding", "preflight", "idat_parse",
                    "idat_decoder_pure", "build_run_index", "file_run", "cpg_kit", "lab_zero", "om_data", "om_lib", "om_part3",
                    "build_operations_manual", "sop_stage_links", "sop_repoint", "build_sop_mirror"}
 OLD_NAME = "".join(map(chr, (119, 97, 108, 116, 104, 101, 114)))   # the retired private name, spelt so this file does not carry it
@@ -72,8 +75,17 @@ def F1():
     if not os.path.exists(cmd): return rec("F1b", False, "independent record COMMANDS.md not found")
     run_rec = dict(re.findall(r"#\s+(\S+\.(?:json|csv))\s+([0-9a-f]{64})", open(cmd, encoding="utf-8").read()))
     both = {os.path.basename(f): h for f, h in fz.items() if os.path.basename(f) in run_rec}
-    diff = [b for b, h in both.items() if run_rec[b] != h]
-    rec("F1b", bool(both) and not diff, f"{len(both) - len(diff)} of {len(both)} agree with the PROC-REPL-V3-01 run record" + (f"; DIFFER: {diff}" if diff else ""))
+    sup = json.load(open(os.path.join(HERE, "FROZEN_INPUTS_v3.json"))).get("superseded", {})
+    canon = lambda x: hashlib.sha256(json.dumps({k: v for k, v in x.items() if k != "_meta"}, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    diff, meta_only = [], []
+    for b, h in both.items():
+        if run_rec[b] == h: continue
+        f = next((f for f in fz if os.path.basename(f) == b), None); s_ = sup.get(f, {})
+        # a file whose only change since the run is an added _meta block: the run record must match the pre-change bytes and the data keys must be unchanged
+        if s_.get("sha256_before") == run_rec[b] and canon(json.load(open(os.path.join(HERE, f)))) == s_.get("data_sha256_canonical"): meta_only.append(b)
+        else: diff.append(b)
+    rec("F1b", bool(both) and not diff, f"{len(both) - len(diff)} of {len(both)} agree with the PROC-REPL-V3-01 run record"
+        + (f" ({len(meta_only)} by data keys: _meta added since the run: {meta_only})" if meta_only else "") + (f"; DIFFER: {diff}" if diff else ""))
 
 
 def S1(files):
@@ -224,6 +236,30 @@ def E4(tmp):
         f".pat extractor: {len(PT)} sites, {int(PT[['err_A', 'err_B']].sum().sum())} isolated errors (30 constructed)")
 
 
+def E5(tmp):
+    """Stage 12b (wired 2026-10-03, DEV-TOOLKIT-ADDED-01): two draws of one constructed person through run_sample.py --prior-betas; the
+    difference is computed for the same identifier hash and refused for a different one."""
+    import numpy as np, pandas as pd
+    B = json.load(open(os.path.join(HERE, "Runtime Matrices", "Met_A_Floors", "blood_composition_EPIC_v1.json")))
+    idx = [f"cgX{i:07d}" for i in range(720000)] + B["markers"] + B["neutrophil_sites"]
+    rng = np.random.default_rng(5); b1 = pd.Series(rng.uniform(0.05, 0.95, len(idx)), index=idx); b1 = b1[~b1.index.duplicated()]
+    b2 = (b1 + rng.normal(0, 0.01, len(b1))).clip(0.001, 0.999)
+    c1, c2 = os.path.join(tmp, "E5_d1.csv"), os.path.join(tmp, "E5_d2.csv")
+    b1.rename("beta").to_frame().to_csv(c1, index_label="cpg_id"); b2.rename("beta").to_frame().to_csv(c2, index_label="cpg_id")
+    L = ["--ledger", os.path.join(tmp, "ledger.jsonl"), "--array-type", "EPIC_v1"]
+    o1, o2, o3 = (os.path.join(tmp, f"E5_{k}.html") for k in ("d1", "d2", "d3"))
+    k1, _ = run([PY, RS, "--betas", c1, "--id", "E5_D1", "--patient-id", "constructed_person_A", "--out", o1, "--save-betas", os.path.join(tmp, "E5_d1.parquet")] + L)
+    k2, log2 = run([PY, RS, "--betas", c2, "--id", "E5_D2", "--patient-id", "constructed_person_A", "--out", o2, "--prior-betas", os.path.join(tmp, "E5_d1.parquet"),
+                    "--prior-bundle", os.path.splitext(o1)[0] + "_bundle.json"] + L)
+    k3, _ = run([PY, RS, "--betas", c2, "--id", "E5_D3", "--patient-id", "constructed_person_B", "--out", o3, "--prior-betas", os.path.join(tmp, "E5_d1.parquet"),
+                 "--prior-bundle", os.path.splitext(o1)[0] + "_bundle.json"] + L)
+    d2 = (_bundle(o2) or {}).get("difference_map") or {}; d3 = (_bundle(o3) or {}).get("difference_map") or {}
+    ok = (k1 == 0 and k2 == 0 and k3 == 0 and d2.get("status") == "OK" and abs(d2.get("median_dbeta", 1)) < 2e-3 and 0.005 < d2.get("mean_abs_dbeta", 0) < 0.012
+          and d3.get("status") == "REFUSED" and "sec-difference-map" in open(o2).read())
+    rec("E5", ok, f"same person: {d2.get('status')} ({d2.get('n_addresses')} addresses, mean |d beta| {d2.get('mean_abs_dbeta')}); other person: {d3.get('status')}"
+        + ("" if ok else " | " + " / ".join(log2.strip().splitlines()[-3:])[:300]))
+
+
 def M1(tmp):
     out = os.path.join(tmp, "manual.pdf")
     code, log = run([PY, os.path.join(MP, "manual", "build_manual_v3.py"), out], cwd=os.path.join(MP, "manual"))
@@ -236,7 +272,7 @@ def main():
     files = tracked()
     tmp = tempfile.mkdtemp(prefix="rc_v3_")
     for name, fn, args in (("F1", F1, ()), ("S1", S1, (files,)), ("S2", S2, (files,)), ("S3", S3, ()), ("S4", S4, ()),
-                           ("E1", E1, (tmp,)), ("E2", E2, (tmp,)), ("E3", E3, (tmp,)), ("E4", E4, (tmp,)), ("M1", M1, (tmp,))):
+                           ("E1", E1, (tmp,)), ("E2", E2, (tmp,)), ("E3", E3, (tmp,)), ("E4", E4, (tmp,)), ("E5", E5, (tmp,)), ("M1", M1, (tmp,))):
         try: fn(*args)
         except Exception as e: rec(name, False, f"could not run: {type(e).__name__}: {str(e)[:200]}")
     n_fail = sum(r["result"] != "PASS" for r in R)
