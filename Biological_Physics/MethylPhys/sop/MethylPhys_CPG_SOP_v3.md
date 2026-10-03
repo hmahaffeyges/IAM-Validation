@@ -53,6 +53,33 @@ pre-registered check on v3 has passed and the result is recorded in `doors/`.
 | 12 | Sky statistics | angular power spectrum, masks, spatially shuffled null, look-elsewhere by simulation | toolkit |
 | 13 | Report | HTML page and JSON bundle | **running** |
 
+### Checked against the retired v2 report (2026-10-03)
+
+Every step, tool and report section of the retired v2 report, and where it lives now. Added so nothing is lost; the author decides on each
+item when the chain work starts.
+
+| v2 report item | now |
+|---|---|
+| Stage 0 intake, Stage 1 calibration | stages 0, 1 (running) |
+| Stage 1s pipeline scale map (affine) | replaced by the same-run tare (stage 8); the map was a fitted term |
+| Stage 2 composition (constrained solver on the atlas) | stage 3 atlas deconvolution (toolkit; development run under way) |
+| Stage 2b NILC second solver, with the lineage splitter | stage 4 (toolkit) |
+| Stage 2c trace-class detection: inverse-variance score test that the non-negativity boundary cannot pin | **added below as stage 3b (toolkit)** |
+| Stage 2d foreign-cell detection: matched-template fit of each foreign cell's profile to the residual, per-laboratory noise floor | **added below as stage 3c (toolkit)** |
+| Stage 3 immune fine split (19 against 6 immune types) | part of stage 3 (atlas cell set) |
+| presence floors as masks (a cell below its floor reports nothing) | gate of stages 3 and 5; mask of stage 12 |
+| Every-cell table (identity sites, identifiability) | stage 5 per cell, as each cell is commissioned |
+| Stage 4.5 bidirectional composite | stage 10 (toolkit) |
+| Stage 4.6 patient sky, Mollweide plate, HEALPix | stage 11 (toolkit) |
+| surface brightness | **added: stage 11b (toolkit)** |
+| difference map of two draws from one person | **added: stage 12b (toolkit; serial reading)** |
+| not built in v2: angular power spectrum, apodised mask, beam smoothing, cell-type covariance in the separation (GLS), Fisher degeneracy of the composition, ILC on the residual sky, per-specimen posterior for the composition, cross-spectra between cell panels | **listed under stage 12 as tools to build** |
+| Stage 5 Mahalanobis departure against an age-matched band; age tab | retired: a comparison with a population |
+| classes, tiers, 8 classes x 5 substrates chart, the 1.07 line | retired: class floors and tiers |
+| report: red flags (STOP / WITHHELD / CAUTION / NOTE, also as JSON), safeguards (rendered-claim scan, formula self-test, anchors, deconvolver conformance, atlas separability), troubleshooting, integrity (file hashes), the chain's file inventory, run it yourself, cosmology-toolkit table with PASS / NOT_RUN / NOT_BUILT | **required sections of the v3 report (stage 13)**; report_v3 holds the reading only today |
+
+Added stages (toolkit): **3b trace-cell detection**, **3c foreign-cell detection**, **11b surface brightness**, **12b difference map**.
+
 ### Commissioning order (author approved 2026-10-03)
 
 Each step: pre-register the check in `doors/` before reading data, run it on v3, record the outcome, then wire the stage in.
