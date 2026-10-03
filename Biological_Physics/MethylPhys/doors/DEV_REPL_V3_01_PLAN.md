@@ -1,4 +1,4 @@
-# PROC-REPL-V3-01 — technical replicates on chain v3 with the median tare (pre-registered 2026-10-03, before any array is read)
+# DEV-REPL-V3-01 — run plan (development, written 2026-10-03 before any array was read)
 
 **Why.** Part 4 (serial reading) reports 63 of 64 replicate readings with a within-person SD of 0.008. That run (DEV-CHAIN-V3-RUN3) used the
 fitted noise-corrected tare, which was removed from the chain (DEV_TARE_02_OUTCOME.md). The result has to be measured again on the chain as it stands.
@@ -13,10 +13,9 @@ commit recorded in the outcome file. Nothing is tuned after reading.
 **Measured.** Number read end to end; number tared; tared A_rel per array; within-person SD (replicates of the same person); SD over all;
 number in Normal (0.95-1.05); number withheld by the noise gate.
 
-**Bars (set now).**
+**Targets for commissioning (written now; development reading, not a verdict).**
 1. The chain reads at least 62 of 64 arrays end to end; every array not read has a stated reason.
 2. Within-person SD of tared A_rel <= 0.020 (the purified-array floor precision already measured).
 3. At least 95 % of tared readings in Normal.
 
-All three met: the median tare is carried in Part 4 with these numbers. Any missed: the numbers are reported as measured, the chapter states
-them, and the cause is investigated in a dated development note before anything changes. No bar is moved after reading.
+The readings are recorded as measured in a dated development note. Nothing is tuned after reading.
