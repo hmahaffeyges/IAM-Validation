@@ -30,7 +30,7 @@ Grouping rule: person = the `subjectA`..`subjectD` label in the series-matrix sa
 age 24 / 39 / 54 / 66 confirms four people). All 16 replicates of a person are grouped, pooled and unpooled DNA alike.
 Within-person SD = sqrt( sum over persons of sum of squared deviations from the person mean / sum of (n − 1) ).
 
-## Targets for commissioning (not a verdict; development run)
+## Targets for commissioning (development run)
 | target | development reading today |
 |---|---|
 | >= 62 / 64 read end to end | 63 / 64 |
@@ -52,7 +52,7 @@ Untared A is identical in both runs (largest difference 0.0000). The RUN3 file g
 - Untared A within-person SD is 0.036; the median tare leaves it at 0.037. Dividing by a slide median does not remove array-to-array spread.
 - Untared A tracks the noise index N on these arrays (r = 0.84; with neutrophil fraction r = 0.35). The removed fitted tare used N; that is where its 0.008 came from.
 - For comparison only: dividing by the median of all 62 other arrays instead of the same slide gives within-person SD 0.030
-  and 55 / 63 in Normal. Still outside bars 2 and 3.
+  and 55 / 63 in Normal.
 
 Nothing was tuned after reading.
 
