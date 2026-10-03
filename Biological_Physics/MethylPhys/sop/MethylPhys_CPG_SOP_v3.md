@@ -1,4 +1,4 @@
-# MethylPhys CPG SOP — chain v3 (neutrophils)
+# MethylPhys CPG SOP — chain v3 (running today: neutrophils; full chain and commissioning order in §2b)
 
 **Build:** development v3, 2026-10-01; frozen inputs re-checked against the code 2026-10-02. Not commissioned. Not a diagnostic test.
 **Scope:** one cell, neutrophils, on Illumina EPIC v1 arrays. Other cells are added one at a time after each passes the three tests
@@ -29,6 +29,43 @@
 Frozen values (read from the files, never typed):
 - EPIC neutrophil healthy reference 0.330263 bits (6 physical arrays, Salas GSE110554; GSE167998 re-deposits the same 6; 6000 sites; our Stage 1).
 - Healthy clustering median 1.1104 (6 physical arrays, leave-one-out, block 50).
+
+## 2b. The full chain, and what runs today
+
+The chain as designed has fourteen stages. v3 runs the ones marked **running**; the others are built and kept in the repository as the
+toolkit (`chain/TOOLKIT.md`) and enter the chain one at a time at commissioning. A toolkit stage is not part of any reading until its own
+pre-registered check on v3 has passed and the result is recorded in `doors/`.
+
+| # | stage | what it does | status |
+|---|---|---|---|
+| 0 | Intake | manifest, hashes, controls, detection, sex and platform checks, decision gate | **running** |
+| 1 | Calibration | IDAT to beta (noob) | **running** |
+| 2 | Composition, blood groups | whole blood split into 8 purified blood groups (NNLS, 963 markers) | **running** |
+| 3 | Atlas deconvolution | whole-tissue split into the atlas v2 cell types, each with its identifiability | toolkit |
+| 4 | NILC component separation | cell-type separation by internal linear combination, the CMB method that needs no template per component | toolkit |
+| 5 | Met-A | each cell read against its own floor or its composition-matched healthy expectation | **running** (neutrophils) |
+| 6 | C-score | clustering of the residual map in genomic order | **running** (band not set) |
+| 7 | IAM-A | single-molecule reading on sequencing data | **running** (development) |
+| 8 | Same-run tare | A_rel = A / median of same-run healthy references | **running** |
+| 9 | Noise gate | noise index N; gauge state withheld above N_max untared | **running** |
+| 10 | Directional decomposition | which way a departure points (toward disorder or toward over-order), per cell | toolkit |
+| 11 | Sky map | each site placed on the sphere (HEALPix), the residual map drawn per cell | toolkit |
+| 12 | Sky statistics | angular power spectrum, masks, spatially shuffled null, look-elsewhere by simulation | toolkit |
+| 13 | Report | HTML page and JSON bundle | **running** |
+
+### Commissioning order (author approved 2026-10-03)
+
+Each step: pre-register the check in `doors/` before reading data, run it on v3, record the outcome, then wire the stage in.
+
+1. **NILC (stage 4).** Check: on constructed mixtures of purified cells, NILC recovers the known fractions within a pre-set error, and on
+   the same-run replicates its fractions repeat within a pre-set spread.
+2. **Atlas deconvolution (stage 3).** Check: as for NILC on constructed mixtures, and agreement with the 8-group composition on whole blood
+   where both apply; each additional cell type is read only after its own floor and reference are commissioned ("no cell rather than part of one").
+3. **Met-A for each newly commissioned cell type (stage 5),** one cell type at a time, with its own replicate test.
+4. **Directional decomposition (stage 10).** Check: on replicates it returns no direction; on a known treated series it returns the
+   direction the treatment is known to push.
+5. **Sky map and residual maps (stage 11).** Check: healthy replicates give a residual sky consistent with the spatially shuffled null.
+6. **Sky statistics (stage 12).** Check: the look-elsewhere correction by simulation holds its stated false-positive rate on healthy arrays.
 
 ## 3. Rules the chain enforces
 
