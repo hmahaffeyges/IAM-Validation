@@ -1,0 +1,69 @@
+=== 1. Fixed constants
+beta_m = Omega_m/2 = 0.15765
+mu(z=0) = 0.863819; 1-mu = 13.62 %; mu0-1 = -0.1362
+Omega_m mu(0) = 0.2724
+matter-sector H0 = 67.16 sqrt(1+beta_m) = 72.26
+  mu(z=0) = 0.8638
+  mu(z=0.2) = 0.9050
+  mu(z=0.5) = 0.9482
+  mu(z=1) = 0.9822
+  mu(z=2) = 0.9977
+  mu(z=10) = 1.0000
+=== 2. Growth with mu, LCDM background, same early amplitude
+D_IAM(1)/D_LCDM(1) = 0.99223  (growth factor change 0.78 %)
+  f sigma8 deficit z=0: 4.25 %
+  f sigma8 deficit z=0.3: 2.17 %
+  f sigma8 deficit z=0.5: 1.35 %
+  f sigma8 deficit z=1: 0.41 %
+=== 3. Free-coupling fit (3 H0 + 7 f sigma8)
+  beta=0.00000: chi2_H0=31.79 chi2_fs8=6.35 total=38.14
+  beta=0.15765: chi2_H0=1.46 chi2_fs8=6.43 total=7.89
+  best beta = 0.1548 (+0.0293 -0.0290 at 68 %; +0.0590 -0.0576 at 95 %)
+  at best: chi2_H0=1.45 chi2_fs8=6.43 total=7.88
+  Delta chi2 (beta=0 minus best) = 30.26: H0 part 30.34, fs8 part -0.08
+  Delta chi2 (beta=0 minus beta_m fixed) = 30.25: H0 part 30.33, fs8 part -0.08
+  f sigma8 alone: best beta 0.040; chi2 6.34; Delta chi2 at 0 = 0.01, at beta_m = 0.09
+  f sigma8 alone 68 %: -0.279 to 0.466
+  weighted local H0 = 72.45 +- 0.92; (Hloc/67.4)^2-1 = 0.1554; zero-tension beta for SH0ES alone 0.1744
+  beta_m gives local H0 72.52: SH0ES 0.50 sigma
+  Planck-SH0ES difference 4.89 sigma
+  AIC: Delta = 26.26; BIC (n=10, k=2): Delta = 25.65; exp(-dAIC/2) = 1.99e-06
+  beta fixed at Omega_m/2 (k=0): Delta chi2 = Delta AIC = Delta BIC = 30.25
+=== 4. Exponent of the activation function and mu0
+  c=0.8: mu(z=0) = 0.863819; sigma8 = 0.8038
+  c=1.0: mu(z=0) = 0.863819; sigma8 = 0.8047
+  c=1.2: mu(z=0) = 0.863819; sigma8 = 0.8055
+  sigma8 spread over c in [0.8,1.2]: 0.0017 (0.21 %)
+=== 5. Equation of state of the record term, future
+  a=1: w_info = -1.3333; E = 1.0000
+  a=2: w_info = -1.1667; E = 1.6487
+  a=5: w_info = -1.0667; E = 2.2255
+  a=100: w_info = -1.0033; E = 2.6912
+  E(a->inf) = e = 2.718282
+  w_eff(z=0) = -1.0624
+  w_eff(z=1) = -1.0521
+=== 6. Horizon temperature and Hubble rate
+  T_H/H = 1/(2 pi) = 0.159155 (hbar = k_B = 1)
+  H_m^2(1)/H0^2 = 1 + beta_m = 1.15765
+=== 7. Why qubits are cold
+  f=5 GHz, T=15 mK: hf/kT = 16.0; thermal excited population exp(-hf/kT) = 1.1e-07
+  f=5 GHz, T=50 mK: hf/kT = 4.8; thermal excited population exp(-hf/kT) = 8.2e-03
+  Delta_Al/k_B = 2.112 K; BCS T_c = Delta/(1.764 k_B) = 1.20 K
+  thermal x_qp at 15 mK = 1.5e-62
+  thermal x_qp at 100 mK = 3.7e-10
+  thermal x_qp at 200 mK = 2.0e-05
+  Landauer k_B T ln2 at 15 mK vs 300 K: ratio 5.0e-05; per bit at 15 mK = 1.44e-25 J
+=== 8. Vacuum ratio coefficient
+  3 Omega_L/(8 pi) = 0.0817
+=== 9. Collapsed fraction check
+  Omega_m f_coll = 0.315 x 0.5927 = 0.1867; 1/(2 f_coll) = 0.844
+=== 10. Reproduction of the summary papers' own arithmetic (background-diluted form, TRGB +-1.89)
+  chi2_H0 LCDM = 31.91; with 72.5 = 1.52; 67.4 sqrt(1.157) = 72.50
+  growth chi2 (their form): LCDM 6.36, beta 0.157 6.75, difference 0.39
+  totals 38.28 vs 8.27; Delta 30.01; sqrt 5.48
+  AIC Delta 26.01; BIC Delta 25.40; exp(-dAIC/2) 2.25e-06
+  Omega_m(a=1; beta=0.157) = 0.2723
+  photon coupling ratio: 0.0039/beta_m = 0.0247 -> photons couple >= 40 x more weakly
+=== 11. Chain sector values against the local ladder
+  67.16 sqrt(1+beta_m) = 72.26; SH0ES 0.75 sigma; TRGB -0.96 sigma
+  chi2_H0 with chain values (67.16 photon vs Planck 67.40+-0.50; 72.26 local) = 1.72

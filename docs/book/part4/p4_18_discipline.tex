@@ -110,6 +110,13 @@ code or scanned by these gates. \openprob{} Two
 runs never write to one output path; one early procedure run was voided when a stray process kept writing into the same log, and the rule was written that day
 (\texttt{PROC\_INTAKE\_01\_OUTCOME.md}).
 
+A posterior can converge cleanly to the wrong answer. In a hierarchical fit in which a between-member spread and a concentration parameter
+trade off along a ridge, the spread can be driven to zero and every member collapsed onto its group mean; the chain then mixes well, with
+$\hat R$ near 1 and no divergences, because a collapsed posterior is easy to converge to. Standard convergence diagnostics do not detect it.
+The guard is to compare two members of one group that are known to differ: if their posteriors coincide, the fit has flattened them.
+The same caution applies to posterior-predictive checks in a model with about one free parameter per observation: they are close to
+tautological, and only groups with more than one observation per parameter carry information about the quality of the fit. \interp
+
 A ceiling guard belongs among them. No reading can exceed one bit over its reference, because $H\le1$; a guard that asserts it fails only
 when a reference value, an entropy implementation or a $\beta$ range has been broken, which is why it is worth running on every change.
 \derived{} A guard of this kind found no violation in 492 readings over 318 healthy arrays (\texttt{doors/\allowbreak{}PROC\_CEIL\_01\_OUTCOME.md}).

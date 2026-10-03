@@ -32,7 +32,7 @@ $\ddot\delta_m+2H\dot\delta_m-\tfrac32\Omega_mH_0^2a^{-3}\mu\,\delta_m=0$ and $\
 \begin{keybox}[title={The coupling is predicted, not fitted}]
 The virial theorem gives the matter coupling $\beta_m=\Omega_m/2$ (Chapter~\ref{ch:virial}). With Planck's $\Omega_m=0.3153$~\cite{Planck2018VI},
 $\beta_m=0.15765$ \prediction. This value is \emph{fixed} in every chain below; nothing in $\beta_m$ is sampled.
-Left free against the local distance-ladder values read as matter-sector rates (SH0ES $73.04\pm1.04$~\cite{Riess2022}; tip of the red giant branch $70.39\pm1.94$~\cite{Freedman2025}) and seven $f\sigma_8$ points, $\beta$ returns $0.155\pm0.029$ \calc. That interval is the local rate restated, $\beta=(72.45/67.4)^2-1$: the $f\sigma_8$ points alone allow $0\le\beta\le0.25$ (68\,\%) and change by only $\Delta\chi^2=0.40$ between $\beta=0$ and $\Omega_m/2$ \calc. It is therefore not a separate measurement of the coupling; the test of $\beta_m=\Omega_m/2$ is the growth rate at the predicted amplitude.
+Left free against the local distance-ladder values read as matter-sector rates (SH0ES $73.04\pm1.04$~\cite{Riess2022}; tip of the red giant branch $70.39\pm1.94$~\cite{Freedman2025}) and seven $f\sigma_8$ points, $\beta$ returns $0.155\pm0.029$ \calc. That interval is the local rate restated, $\beta=(72.45/67.4)^2-1$: the $f\sigma_8$ points alone allow $-0.28\le\beta\le0.47$ (68\,\%) and change by only $\Delta\chi^2=0.08$ between $\beta=0$ and $\Omega_m/2$ \calc. It is therefore not a separate measurement of the coupling; the test of $\beta_m=\Omega_m/2$ is the growth rate at the predicted amplitude.
 \end{keybox}
 
 \begin{checkbox}
@@ -40,7 +40,79 @@ Left free against the local distance-ladder values read as matter-sector rates (
 The coupling $1-\mu_0=13.6\%$ is the change in the effective Newton constant for matter today. It is \emph{not} the change in growth:
 growth integrates $\mu$ over time, so the growth factor changes by about $0.8\%$ and $\sigma_8$ by about $1.6\%$ (next section).
 The three ways of entering the growth equation and their growth factors are in Appendix~\ref{app:der:growth}.
+\calc\ The coupling today does not depend on how steeply the record is written. For $E_c(a)=\exp[c(1-1/a)]$, $E_c(1)=1$ for every $c$, so
+$\mu(z{=}0)=1/(1+\beta_m)=0.8638$ for any $c$ \derived; over $0.8\le c\le1.2$ the amplitude today moves by $0.0017$ in $\sigma_8$
+($0.21\,\%$, same early amplitude) \calc.
 \end{checkbox}
+
+\section{The free-coupling fit in full}\label{sec:dual_freecoupling}
+The keybox above states the result of leaving the coupling free. This section sets the fit out entry by entry. It is the simplest
+calculation in which the two sectors appear, and it shows exactly what a fit of this kind can and cannot measure.
+
+\paragraph{Data.} Ten numbers enter (Table~\ref{tab:dual_freecoupling}): the Planck value of $H_0$, read as a photon-sector rate; the two
+local distance-ladder values, read as matter-sector rates; and seven growth-rate points. \observed
+\begin{table}[htbp]\centering\small
+\caption{The ten entries of the free-coupling fit.}\label{tab:dual_freecoupling}
+\begin{tabular}{@{}llll@{}}\toprule
+entry & value & sector & source\\\midrule
+Planck CMB & $H_0=67.40\pm0.50$ & photon & \cite{Planck2018VI}\\
+SH0ES Cepheids & $H_0=73.04\pm1.04$ & matter & \cite{Riess2022}\\
+tip of the red giant branch & $H_0=70.39\pm1.94$ & matter & \cite{Freedman2025}\\\midrule
+6dFGS, $z=0.067$ & $f\sigma_8=0.423\pm0.055$ & matter & \cite{Beutler2012}\\
+SDSS MGS, $z=0.150$ & $0.530\pm0.160$ & matter & \cite{Howlett2015,Alam2021}\\
+BOSS DR12, $z=0.380$ & $0.497\pm0.045$ & matter & \cite{Alam2017}\\
+BOSS DR12, $z=0.510$ & $0.459\pm0.038$ & matter & \cite{Alam2017}\\
+eBOSS LRG, $z=0.700$ & $0.473\pm0.041$ & matter & \cite{Alam2021}\\
+eBOSS ELG, $z=0.850$ & $0.315\pm0.095$ & matter & \cite{Alam2021}\\
+eBOSS QSO, $z=1.480$ & $0.462\pm0.045$ & matter & \cite{Alam2021}\\\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Model.} This fit takes Planck's published $H_0=67.4$\,km\,s$^{-1}$\,Mpc$^{-1}$ as its fixed photon-sector input; it is a fit to ten
+published numbers, not to the chains. The matter-sector rate today is
+\begin{equation}
+H_0^{\rm (m)}=H_0\sqrt{1+\beta},\label{eq:dual_free_H0m}
+\end{equation}
+the value at $a=1$ of $H_m^2=H^2+\beta E(a)H_0^2$ with $E(1)=1$ \derived. Growth follows Eq.~\eqref{part2:eq:mu} with $\beta$ in place of $\beta_m$,
+on the $\Lambda$CDM background ($\Omega_m=0.3153$), with the same early amplitude as $\Lambda$CDM ($\sigma_8=0.811$ for $\Lambda$CDM); then
+$f\sigma_8(z)=f(z)\,\sigma_8(z)$ with $f=d\ln D/d\ln a$. The statistic is $\chi^2=\sum_i[(O_i-P_i)/\sigma_i]^2$.
+
+\paragraph{Result.} \fitted\ Minimising over $\beta$ gives $\beta=0.155^{+0.029}_{-0.029}$ (68\,\%) and ${}^{+0.059}_{-0.058}$ (95\,\%). The entries
+split as follows (Fig.~\ref{fig:dual_freecoupling}):
+\begin{center}\small
+\begin{tabular}{@{}lccc@{}}\toprule
+ & $\chi^2_{H_0}$ & $\chi^2_{f\sigma_8}$ & total\\\midrule
+$\beta=0$ ($\Lambda$CDM) & 31.79 & 6.35 & 38.14\\
+$\beta=0.155$ (best) & 1.45 & 6.43 & 7.88\\
+$\beta=\Omega_m/2=0.15765$ (fixed) & 1.46 & 6.43 & 7.89\\\bottomrule
+\end{tabular}
+\end{center}
+\calc\ The whole difference, $\Delta\chi^2=30.26$, is in the three $H_0$ entries ($30.34$); the seven growth points prefer $\beta=0$ by $0.08$.
+SH0ES alone contributes $(73.04-67.4)^2/1.04^2=29.41$ at $\beta=0$; the Planck and SH0ES values differ by $4.89\sigma$. The inverse-variance mean
+of the two local values is $72.45\pm0.92$, and $(72.45/67.4)^2-1=0.155$: the best-fit coupling is the local rate restated through
+Eq.~\eqref{eq:dual_free_H0m}. With the coupling fixed at $\Omega_m/2$ and this fixed input, the local rate of the fit is $67.4\sqrt{1+\beta_m}=72.52$, $0.50\sigma$
+from SH0ES \calc. The sector rates of this book come from the Level~2 chain: photon sector $67.16\pm0.47$, matter sector
+$67.16\sqrt{1+\beta_m}=72.26$, $0.75\sigma$ from SH0ES (Chapter~\ref{ch:dual}) \measured; with those two values the three $H_0$ entries give
+$\chi^2_{H_0}=1.72$ \calc.
+
+\paragraph{What the fit measures.} The penalised criteria $\mathrm{AIC}=\chi^2+2k$~\cite{Akaike1974} and $\mathrm{BIC}=\chi^2+k\ln n$~\cite{Schwarz1978}
+($n=10$) charge for added parameters. Counting two (the matter and photon couplings) gives $\Delta\mathrm{AIC}=26.26$ and $\Delta\mathrm{BIC}=25.65$,
+and the Akaike ratio $e^{-\Delta\mathrm{AIC}/2}=2.0\times10^{-6}$; with the coupling fixed at $\Omega_m/2$ nothing is added and
+$\Delta\chi^2=30.25$ \calc. These numbers are the distance-ladder tension expressed in the two-sector model. In this data set the Planck value is
+held fixed while the local values are free to move with $\beta$, so any term that raises the local rate by $7.5\,\%$ removes the same $\chi^2$;
+on the criteria of Kass and Raftery~\cite{KassRaftery1995} the size of the number says how large the tension is, not that the coupling has been
+detected \interp. The test of the coupling is the growth rate at the predicted amplitude, and there the seven points do not distinguish $\beta=0$
+from $\beta=\Omega_m/2$. On the full Planck likelihood with the coupling fixed, $\Delta\chi^2=+0.54$ with no added parameter (Chapter~\ref{ch:level2})
+\measured. The photon coupling is bounded separately, on the acoustic scale: $\beta_\gamma<0.0039$ (95\,\%), so photons couple at least
+$40\times$ more weakly than matter (Chapter~\ref{ch:dsnote}) \calc.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_freecoupling_fit.pdf}
+\caption{The free-coupling fit. (a) $\Delta\chi^2$ from its own minimum against $\beta$: all ten entries, the three $H_0$ entries and the seven
+$f\sigma_8$ points. The total follows the $H_0$ entries; the growth points are almost flat. Vertical line: $\beta_m=\Omega_m/2$. Horizontal lines:
+$\Delta\chi^2=1$ and 4. (b) The seven $f\sigma_8$ points against $\Lambda$CDM and the fixed coupling, same early amplitude. Numbers:
+\texttt{docs/verification/scripts/\allowbreak{}verify\_summary\_papers.py}. \calc}\label{fig:dual_freecoupling}
+\end{figure}
 
 \section{The chain record}\label{sec:chains}
 
