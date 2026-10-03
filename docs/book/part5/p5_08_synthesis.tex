@@ -12,7 +12,8 @@ and a system that is to remain what it is must spend energy to hold its records 
 quasiparticles and two-level defects of its own junction; a transistor holds a logic level against $\kB T$ at the gate; a cell holds its
 methylation pattern against copying errors at body temperature; a bound system holds its configuration in the balance the virial theorem
 states. Each of these is a fidelity held against thermal noise, and each can be read against its floor. \derived{} (that each surface has a
-floor at $\kB T\ln2$ per bit; the floor heights are measured or calibrated, as the last section of this chapter states) Our further reading,
+floor at $\kB T\ln2$ per bit; for chips and qubits the floor follows from the temperature the record sees, for the cell its height is
+measured, as the last section of this chapter states) Our further reading,
 that the written surface is what the next moment is built from, so that without it nothing would follow, is an interpretation: it is how the
 book's results are understood, not one of them. \interp
 
@@ -27,7 +28,7 @@ own healthy or as-built state, which reads 1 on the gauge; ``full'' is the far e
 place & what is written & floor & full surface & status \\\midrule
 cosmic horizon ($2.65\times10^{-30}$\,K) & classical records of decohering matter & --- & $Nk_BT_{GH}\ln2=M_Hc^2$ & coupling $\beta_m=\Omega_m/2$ \derived{} from the partition; $\mu_0=-0.136$ \calc \\
 black hole ($6.2\times10^{-8}$\,K at $1M_\odot$) & everything that fell in & --- & Bekenstein bound; $Nk_BT_H\ln2=\tfrac12Mc^2$ & \derived{} (Smarr) \\
-qubit (15\,mK stage) & the qubit state & material floor of the gate error & a fully decohered state & floors \calibrated \\
+qubit (its own temperature, 35\,mK for a transmon on a 15\,mK stage) & the qubit state & thermal floor $p_{\rm eq}t_g/T_1$, $p_{\rm eq}=1/(1+e^{hf/\kB T})$ & a fully decohered state & floor \derived \\
 transistor (300--350\,K) & a logic level per switch & $\kB T_j\ln2$ per irreversible bit & --- & floor \derived; 9950X at $576$--$593\times$ \calc \\
 cell (310\,K) & the methylation identity pattern & $\varepsilon_0=0.032$; IAM-A floor $0.910$ (neutrophils) & every identity site at $\beta=\tfrac12$: Met-A 3.03, IAM-A 4.45 & form \derived, height \measured \\
 \bottomrule
@@ -83,10 +84,11 @@ scales modelled), and a forecast made with the IAM $\mu(z)$ itself is still to b
 \paragraph{Black holes.} The bits of a horizon at its own temperature total $\tfrac12Mc^2$ for every mass, and a black hole saturates the
 Bekenstein bound. Both are standard results~\cite{Bekenstein1973,Hawking1975}. \derived{} The book reads them as the law at its limit. \interp
 
-\paragraph{Quantum processors and chips.} Gate errors and switching energies sit above their floors by measured factors: Quantinuum Helios, with a two-qubit error of
-$7.9\times10^{-4}$~\cite{Ransford2025}, at about $8\times$ its calibrated floor of $10^{-4}$ (a reading of 0.13 for the floor on its gauge), the Ryzen 9 9950X at 576--593 times $\kB T_j\ln2$. The floors and
-temperature exponents of processors are calibrated, so the dated device predictions test those calibrations
-(Chapters~\ref{ch:ascoreqc},~\ref{ch:thermaln},~\ref{ch:cmos}). \calibrated, \calc
+\paragraph{Quantum processors and chips.} Gate errors and switching energies sit above floors that temperature alone sets. A 5~GHz transmon
+at its own 35~mK, with $T_1=68~\mu$s and a 40~ns gate, has a per-gate thermal floor of $6.2\times10^{-7}$, three orders of magnitude below a
+two-qubit error near $10^{-3}$; the Ryzen 9 9950X switches at 576--593 times $\kB T_j\ln2$
+(Chapters~\ref{ch:ascoreqc},~\ref{ch:qplatforms},~\ref{ch:cmos}). \derived, \calc{} That room, read channel by channel on one device, is what the
+device gauges offer a laboratory and a fab.
 
 \paragraph{Cells.} The instrument reads neutrophils on EPIC arrays against their own healthy reference, measured on six purified arrays; held out,
 those arrays read with an SD of 0.020 around 1 (Chapter~\ref{ch:meta}). \calibrated{} On six DNA mixtures of known composition with 63--75\,\%
@@ -104,10 +106,11 @@ measurements read a known change in the right direction:
 readings; where breach and the cancer region lie on this gauge is still to be measured (Chapter~\ref{ch:gauge}).
 
 \section{What the book has not shown}\label{sec:synth:notshown}
-The floors are not yet derived. The cell's floor height comes from a measured holding energy, $E_{\rm hold}=3.41\,\kB T$; the processors'
-floors and exponents are calibrated; the cosmic coupling is derived from the partition, but the entropy identification it rests on is a
+The cell's floor is not yet derived: its height comes from a measured holding energy, $E_{\rm hold}=3.41\,\kB T$. The processors' floors
+follow from $\kB T$ at the temperature each record sees; how close each loss channel comes to its floor is still to be measured device by
+device. The cosmic coupling is derived from the partition, but the entropy identification it rests on is a
 conjecture tested by its consequences. The electron-mass formula carries a factor found numerically; the $3/16$ of the baryon relation and the
-$2/\pi$ of the cosmological-constant estimate are not derived. A derivation of one floor from the law alone, before the data are consulted, would
+$2/\pi$ of the cosmological-constant estimate are not derived. A derivation of the cell's floor from the law alone, before the data are consulted, would
 turn the ladder of places from a shared accounting into a numerical unification. It is the first item of the open problems
 (Chapter~\ref{ch:open}). The next two chapters set the device and cell readings side by side on one gauge (Chapters~\ref{ch:onegauge}
 and~\ref{ch:reach}).

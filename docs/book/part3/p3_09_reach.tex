@@ -1,1 +1,124 @@
-[Superseded draft. Content removed from the public history; the current version of this file is authoritative.]
+\chapter{What the instruments could give}\label{ch:reach}
+
+\section*{The place}
+Part~\ref{part:3} built two device gauges and Part~\ref{part:4} built the cell instrument; Chapter~\ref{ch:onegauge} set the three on one gauge. They read
+one quantity in three places: a cell's copy error against the healthy cell of its kind and the thermal floor, a qubit's gate error against the
+thermal floor at the temperature its record sees, and a chip's switching energy against the Landauer floor. This chapter says what each could give if it is carried through, what
+each has measured so far, and what has to happen before any of it is relied on. Every claim carries its status. Nothing here is commissioned
+except where stated.
+
+\section{What the three have in common, and what is new}
+
+Each instrument reads \emph{one object} against two things that belong to that object: its own healthy or as-built state, and the floor
+physics sets for it. No population of other objects enters the number. That is the difference from the methods each field uses now.
+\begin{center}\small
+\begin{tabular}{@{}p{0.2\textwidth}p{0.36\textwidth}p{0.36\textwidth}@{}}\toprule
+ & common practice & these instruments \\\midrule
+reference & a group: cases against controls, a training set, a population curve & the same cell type healthy; the device as built; the physics floor \\
+result & a probability, a class label, or a position in a distribution & a reading with its interval, on one gauge, 1 = healthy \\
+outside the group it was built on & weakens; must be re-trained or re-calibrated & the reference does not move with the population \\
+one subject over time & compared with a group at each time & compared with itself; the difference is the measurement \\
+what it is not able to read & seldom stated & stated and printed; a reading it cannot make is refused \\\bottomrule
+\end{tabular}
+\end{center}
+A population method answers \emph{how does this person compare with people like them}. These instruments answer \emph{how far has this
+object moved from its own healthy state, and how far is it from the floor}. The two questions are complementary. The second has not had an
+instrument in biology, because it needs a physical floor and a reference that is measured cell type by cell type rather than averaged over
+people; IAM's Law supplies the floor, and the atlas supplies the reference.
+
+\section{The cell}
+Figure~\ref{fig:reach_cell} shows the copy errors behind the two single-molecule readings, each pair against its own reference.
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.62\textwidth]{figures/part3/fig_reach_cell.pdf}
+\caption{Copy error on single molecules, the changed state against its own reference. Circles: six early-onset colorectal tumours against the same patient's adjacent normal tissue (median ratio 1.148; \texttt{PROC\_TUMOUR\_01\_OUTCOME.md}). Triangles: eight MV4-11 libraries under a DNMT1 inhibitor against the same genotype's vehicle libraries (IAM-A 1.65--1.97; \texttt{PROC\_DNMT\_01\_PARTB\_OUTCOME.md}). Solid: equal; dotted: 5\,\% above. Every pair lies above its own reference. \measured}\label{fig:reach_cell}
+\end{figure}
+
+The cell instrument is in development: one cell type (neutrophils) on one platform (EPIC v1 arrays), with IAM-A on single-molecule
+sequencing beside it. What follows is what it could give, with what exists for each.
+
+\paragraph{Cancer: reading the patient's own tissue against itself.} A tumour is a cell population whose pattern has blurred. Read against the
+same patient's adjacent normal tissue, the tumour's copy error on single molecules is higher in all 6 early-onset colorectal pairs (ratio 1.07--1.33, median 1.148) and in all 4 oral squamous-cell pairs (median 1.090); with 5hmC removed,
+3 of the 4 oral pairs (PROC-TUMOUR-01). \measured{} The potential is a reading for one patient that needs no reference group of
+other patients: a biopsy read against the same patient's normal tissue, and later a blood draw read against the same person's earlier draw.
+The blood reading, the size of a change it can see, and where breach and the cancer region lie on the gauge are to be measured. \openprob
+
+\paragraph{One person over time.} A person can be measured again. Two draws months apart give a difference in which the person's baseline and
+the laboratory's character cancel, which is the strongest form of the measurement and the one cosmology can never have with its single sky
+(Chapter~\ref{ch:skytools}). Serial readings would turn the instrument from a snapshot into a trajectory: watching a high-risk person, a
+treated patient after therapy, or a pre-cancerous condition, each against their own past. \prediction{} No serial specimens have yet been read
+on the current chain.
+
+\paragraph{Medicines and trials.} A drug that acts on DNA methylation can be read directly as a change in copy error. Three leukaemia cell lines treated with a DNMT1
+inhibitor at 80~nM and above read Met-A 1.16--1.87 against each line's own vehicle-treated arrays (vehicle 0.968--1.048), with the change on the
+methylated channel, where blocked copying lets marks fall off; at 3.2--16~nM and with an inactive look-alike compound the reading does not move
+(PROC-DNMT-01 Part A, GSE135205~\cite{Pappalardi2021}). \measured{} On single molecules, a separate series (one leukaemia line, the same inhibitor at 100~nM
+for 7 days, EM-seq, GSE329728) reads IAM-A 1.65--1.97 in all 8 treated libraries against the same genotype's untreated libraries, with no
+library-quality difference (PROC-DNMT-01 Part B). \measured{} The potential is an endpoint that is per patient and mechanistic: whether a drug changed
+the fidelity of the cells it targets, in each person, read against that person's own pre-treatment specimen, and on which channel (marks lost
+or marks gained). No patient specimens have been read this way. \openprob
+
+\paragraph{Ageing.} Population ageing clocks~\cite{Horvath2013} place a person against an age curve built from many people. This instrument would instead read the
+rate at which one person's cells lose their pattern, against their own earlier reading. Cultured lung fibroblasts~\cite{Cruickshanks2013} show what a channel-level
+reading sees: senescent cells hold the methylated channel at the healthy rate and clean the unmethylated channel (0.69), while immortalised
+cells carry more error on the methylated channel and less on the unmethylated one, and the two cancel in a combined number
+(Chapter~\ref{ch:onegauge}). \measured{} Whether an intervention slows the loss in one person, read serially, is a test this design can make.
+\prediction
+
+\paragraph{Animals and temperature.} IAM's Law prices a bit at the local temperature. At a fixed holding energy the copy-error floor of a cell
+at 10\,\textdegree C is 0.78 times the human floor $H(\varepsilon_0)$, and at a dog's 38.5\,\textdegree C it is 1.012 times. \calc{} That makes the
+instrument usable on any vertebrate whose cell types can be referenced, and makes temperature itself a variable: farmed and wild fish at
+water temperature, ectotherms under warming, veterinary ageing and disease in companion animals. The fish read so far tracked the libraries'
+duplication and conversion failure rather than the fish, and the pre-registered temperature prediction was not met; the instrument has to
+remove those before a fish reading means anything. \openprob
+
+\paragraph{The laboratory itself.} Before any biology, the chain checks the specimen and the array: custody hashes, detection, call rate, sex,
+conversion. On 731 healthy whole-blood arrays the intake checks pass with margin, and the conversion check, as published, refuses all 731,
+which is why it is printed and not used to refuse. \measured{} A reading that states its instrument, its reference and its failures is
+something a second laboratory can repeat.
+
+\paragraph{A research tool for genetics.} The residual sky, the genome-distance spectrum and the C-score give a geneticist the scale at
+which a departure lives, not only which sites moved (Chapter~\ref{ch:skytools}). \measured{} for the healthy case; untested on disease.
+
+\section{The qubit}
+
+The qubit gauge (Chapter~\ref{ch:ascoreqc}) reads a quantum processor's two-qubit gate error against the thermal floor of its record, at the
+temperature the record actually sees (Chapter~\ref{ch:qplatforms}). What it could give engineers:
+\begin{itemize}
+\item \textbf{Where effort pays.} A gate error split into its parts, each set against the floor of the bath that drives it, says whether the
+next gain comes from materials, from control, or from temperature, and how much room each channel has before its floor \interp.
+\item \textbf{A floor from numbers the laboratory already has.} The gap, the qubit's own effective temperature, the gate time and $T_1$ give the
+per-gate floor $p_{\rm eq}t_g/T_1$ with nothing assigned: $6.2\times10^{-7}$ for a 5~GHz transmon at 35~mK with $T_1=68~\mu$s and a 40~ns gate,
+three orders of magnitude below present two-qubit errors \calc. Halving the qubit's own temperature lowers its held-record floor from
+$1.05\times10^{-3}$ to $1.1\times10^{-6}$ \calc; whether the gate error follows is a measurement any refrigerator sweep can make on one device.
+\openprob
+\item \textbf{The quasiparticle limit.} An excess quasiparticle fraction of $10^{-7}$ alone limits an aluminium transmon at 5~GHz to
+$T_1\approx0.24$~ms (Chapter~\ref{ch:xqp}). \calc{} The proposed internal source makes a test that existing devices can run: the background should
+scale with the active-fluctuator count over island volume, $N/(\tau_{\rm TLS}V)$. \prediction
+\end{itemize}
+
+\section{The chip}
+Figure~\ref{fig:cg_floor_Tj} (Chapter~\ref{ch:chipgen}) shows where the Landauer floor sits on one chip's gauge and how it moves with the chip's own
+junction temperature.
+
+The chip gauge (Chapter~\ref{ch:cmos}) reads a processor's energy per transistor switch against the Landauer floor at its junction temperature. For
+the AMD Ryzen 9 9950X, $E=\mathrm{TDP}/(Nf)=170\,\mathrm W/((20.0$--$20.6)\times10^9\times4.3\,\mathrm{GHz})=(1.92$--$1.97)\times10^{-18}$~J~\cite{AMD9950X}, 576--593 times
+$\kB T\ln2$ at 75\,\textdegree C; the transistor count, from die-level reports, is the least certain input. \calc{} What it could give designers is one number that tracks how close a design is to the physical floor, across
+the generations of a design line on one definition of each input, and a statement of how much room is left: a factor of 576--593, close to three orders of magnitude, for the 9950X. The figure is an average over the whole chip and its idle transistors;
+a per-block reading needs the design's own power and activity data. \openprob
+
+\section{What none of this does}
+
+None of these instruments diagnoses, prescribes or replaces the person who decides. The cell instrument reports a state and refers; it names
+no condition, and no claim that it can or cannot detect something is made until the chain has been run on that question under seal. None of the
+cell applications above is available for use until the instrument is commissioned for that cell type, platform and specimen, one at a time.
+
+\section{What it would take}
+\begin{enumerate}
+\item Commission neutrophils on EPIC arrays end to end; then add one cell type at a time, each with its own healthy reference.
+\item Read serial specimens of the same people and measure the smallest change a difference can see.
+\item Place breach and the cancer region on the gauge from per-person data: tumour/normal pairs, the drug series, blood cancers.
+\item Derive the Met-A floor, and read the single-molecule drug response on patient specimens.
+\item For fish, remove library duplication and conversion failure, then repeat the temperature test.
+\item For qubits, publish the gap, the qubit's own temperature, the gate time, $T_1$ and the isolated two-qubit error of one device together, and test the
+quasiparticle prediction; for chips, read per-block energy where makers publish it.
+\end{enumerate}

@@ -73,13 +73,15 @@ Bell value under pointer-basis decoherence & $S_{\max}=2\sqrt{1+c^2}$, never bel
 Active fluctuators that hold the measured quasiparticle fraction & 60, 600, 6,000 for $10^3$--$10^5\,\mu$m$^3$ islands at $x_{\rm qp}=10^{-7}$ & \derived & Ch.~\ref{ch:xqp} \\
 Measured quasiparticle background & $10^{-8}$--$10^{-6}$ in the best-isolated devices & \observed & Ch.~\ref{ch:xqp} \\
 Quasiparticle-limited $T_1$ of an Al transmon at 5 GHz & $\approx0.24$ ms at $x_{\rm qp}=10^{-7}$ & \calc & Ch.~\ref{ch:reach} \\
-Quantinuum Helios two-qubit gate on the qubit gauge & $p=7.9\times10^{-4}$; floor $10^{-4}$ reads $0.13$ below the as-built $A=1$ & \measured, \calibrated & Ch.~\ref{ch:ascoreqc} \\
-Material floors by gate class & Ca$^+$ electronic $3\times10^{-5}$, Ba$^+$ laser $10^{-4}$, Yb$^+$ laser $3\times10^{-4}$, Al/AlO$_x$ $\sim10^{-3}$ & \calibrated & Ch.~\ref{ch:ascoreqc} \\
-Thermal exponents $n$ of the qubit classes & SC ECR 1.189, SC CZ 1.449, ion laser 0.612, ion electronic 1.200, neutral atom 0.351, NV 2.291 & \calibrated & Ch.~\ref{ch:thermaln} \\
-Halving the effective qubit temperature of a CZ-gate transmon processor & two-qubit error multiplied by $2^{-1.449}=0.37$ & \prediction & Ch.~\ref{ch:reach} \\
-Coherence-against-material optimum & $T_1^*=0.65\,T_{1,\rm free}$ & \calibrated & Ch.~\ref{ch:walls} \\
+Quantinuum Helios two-qubit gate on the qubit gauge & $p=7.9\times10^{-4}$; the surface-code threshold reads $12.7$ above the as-built $A=1$ & \observed, \calc & Ch.~\ref{ch:ascoreqc} \\
+Thermal floor of a qubit record and of one gate & $p_{\rm eq}=1/(1+e^{hf/\kB T})$; $p_{\rm th}=p_{\rm eq}t_g/T_1$ (detailed balance) & \derived & Ch.~\ref{ch:qplatforms} \\
+Per-gate thermal floor of a 5\,GHz transmon at its own 35\,mK & $6.2\times10^{-7}$ ($T_1=68\,\mu$s, 40\,ns gate); at $6\times10^{-4}$ on the gauge of a $10^{-3}$ gate & \calc & Chs.~\ref{ch:ascoreqc},~\ref{ch:qplatforms} \\
+Slope of the held-record floor with temperature & $d\ln p_{\rm eq}/d\ln T=M(1-p_{\rm eq})$: 6.85 at 35\,mK, 16.0 at 15\,mK (5\,GHz) & \derived, \calc & Ch.~\ref{ch:thermaln} \\
+Coherence-against-material optimum & $T_1^*/T_{1,\rm free}=r/(1+r)$, $r=\sqrt{a/b}$; constants unmeasured & \derived{} (model \conjecture) & Ch.~\ref{ch:walls} \\
+Drive optimum of a Rydberg gate & $\Omega^*=(a/2b)^{1/3}$ within the two-term model & \derived{} (model \conjecture) & Ch.~\ref{ch:qplatforms} \\
 Switching energy per transition on the chip gauge & Ryzen 9 9950X $576$--$593\times k_BT_j\ln2$ (transistor count the least certain input) & \calc & Ch.~\ref{ch:cmos} \\
-Chip temperature exponents & pre-Dennard 1.853, Intel 0.936, AMD 0.340, Apple 0.794 & \calibrated & Ch.~\ref{ch:cmos} \\
+Landauer floor against the chip's own junction temperature & $3.33\times10^{-21}$\,J at 75\,\textdegree C, 8.6\,\% higher at 105\,\textdegree C & \calc & Ch.~\ref{ch:chipgen} \\
+Generation steps a step series can sustain before the floor & $n_{\rm floor}=\ln R/[-\ln(1-s)]$ & \derived & Ch.~\ref{ch:chipgen} \\
 DNMT1 discrimination energy against the measured holding energy & Hopfield gap 1.9--4.4 $k_BT$; measured 3.41 $k_BT$ (3.77 with instrument error removed) & \observed, \measured & Ch.~\ref{ch:onegauge} \\
 \multicolumn{4}{@{}l}{\emph{Part~\ref{part:4}: the methylome}}\\
 Landauer cost per bit at 37~\textdegree C & $2.968\times10^{-21}$ J & \calc & Ch.~\ref{ch:landauer} \\
@@ -111,11 +113,11 @@ Equivalence of inertial and gravitational mass & $\eta\lesssim10^{-15}$ for ordi
 
 Three points of reading follow from the table. First, the fits to data in Part~\ref{part:2} are made with the coupling fixed by the
 law, so the chain values are measurements of the fixed model, not fits of a free parameter; the free-amplitude runs are reported as
-medians and bounds because their posteriors reach the prior edge. Second, every floor and temperature exponent of the processors in
-Part~\ref{part:3} is calibrated, so the device predictions test those calibrations as much as the law. Third, the cell gauge of
+medians and bounds because their posteriors reach the prior edge. Second, every floor of the processors in Part~\ref{part:3} is the law at the temperature the record sees, so a device reading needs no
+fitted constant; what remains open there is how close each loss channel comes to its floor. Third, the cell gauge of
 Part~\ref{part:4} is commissioned on its healthy reference; where breach and the cancer region lie on it is still to be measured.
 Fourth, ``no free parameter'' has a precise meaning here. No parameter is fitted to the data the law is tested against: $\beta_m$ comes from
 $\Omega_m$; the cell's references are read from healthy cells and then held fixed; the chains with $\mu_0$ free add nothing to the model. That is
-narrower than ``no free parameter'' without qualification. Counted in full, the results use calibrated quantities (the qubit and chip exponents and
-floors), measured ones (the holding energy $E_{\rm hold}$ and the position $P$), and one factor found numerically, $(2\pi)^{3/10}$ in the electron
+narrower than ``no free parameter'' without qualification. Counted in full, the results use calibrated quantities (the cell references held fixed after one
+measurement), measured ones (the holding energy $E_{\rm hold}$ and the position $P$), and one factor found numerically, $(2\pi)^{3/10}$ in the electron
 mass; the $3/16$ of the baryon relation and the $2/\pi$ of the vacuum estimate are not derived. Each is listed with its label in the rows above. \interp

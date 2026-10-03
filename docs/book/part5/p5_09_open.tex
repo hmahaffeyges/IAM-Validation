@@ -15,10 +15,11 @@ consequence within each group.
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.33\textwidth}>{\raggedright\arraybackslash}p{0.43\textwidth}>{\raggedright\arraybackslash}p{0.16\textwidth}@{}}
 \toprule
 open item & what settles it & who \\\midrule\endhead
-\textbf{D1. A floor from the law alone.} No surface's floor is yet derived before the data are consulted
- (Chapters~\ref{ch:iama},~\ref{ch:thermaln},~\ref{ch:saturation}).
- & The cell first: the steady-state copy error of a site under a writing process of finite discrimination, with the copying and removal rates
-   measured for neutrophils, should give $\varepsilon_0$ and so $E_{\rm hold}=3.41\,\kB T$. Second, the ratio $T_1^*/T_1^{\rm free}=0.65$ for one processor family.
+\textbf{D1. The cell's floor from the law alone.} The chip and qubit floors follow from $\kB T$ at the temperature the record sees; the
+ cell's floor height is measured, not yet derived (Chapters~\ref{ch:iama},~\ref{ch:saturation}).
+ & The steady-state copy error of a site under a writing process of finite discrimination, with the copying and removal rates
+   measured for neutrophils, should give $\varepsilon_0$ and so $E_{\rm hold}=3.41\,\kB T$. For processors, the constants of the coherence
+   optimum measured on one material.
  & we \\
 \textbf{D2. The architecture position $P$.} The neutrophil's $P=1.099$ is measured from three donors (Chapter~\ref{ch:iama}).
  & A rule for $P$ from the cell's own maintenance rates, tested on a second cell type before its $P$ is measured. & we \\
@@ -109,11 +110,15 @@ open item & what settles it & who \\\midrule\endhead
  measured. & experiment \\
 \textbf{Q2. The $T_1$ ceiling} of about 0.24\,ms for an aluminium transmon at $x_{qp}\approx10^{-7}$ (prediction X3). & Compare with published
  record lifetimes of isolated Al-electrode transmons. & we \\
-\textbf{Q3. Temperature of a qubit.} The exponents are read against the fridge plate; a qubit's effective temperature is typically higher
- (Chapter~\ref{ch:thermaln}). & Restate every temperature prediction in effective qubit temperature; collect published sweeps that report it. & we \\
-\textbf{Q4. Ion-trap temperature.} The temperature axis for ions is not defined (Chapter~\ref{ch:ascoreqc}). & Define it (motional or electrode
- temperature) or drop ion temperature predictions. & we \\
-\textbf{Q5. The sodium-cluster exponent} is not tied to a published measurement (Chapter~\ref{ch:thermaln}). & Tie it to one, or drop it. & we \\
+\textbf{Q3. Temperature of a qubit.} The thermal floor is set by the qubit's own effective temperature, which is typically higher than the
+ refrigerator plate (Chapters~\ref{ch:thermaln},~\ref{ch:qplatforms}). & Collect published sweeps that report the effective temperature with $T_1$,
+ gate time and two-qubit error on one device. & we \\
+\textbf{Q4. The ion gate's floor.} The ion's hyperfine record is not thermalised; its gate runs through the motional bus, whose floor is set by
+ the heating rate and the gate time (Chapters~\ref{ch:ascoreqc},~\ref{ch:qplatforms}). & Per-mode heating rate, $\bar n$ at the start of the gate
+ and the gate time, measured on one apparatus. & experiment \\
+\textbf{Q5. The drive optima.} The forms $A/P+BP$ for laser-gate ions and $a/\Omega+b\Omega^2$ for Rydberg gates are models whose
+ constants are unmeasured (Chapters~\ref{ch:walls},~\ref{ch:qplatforms}). & The two-qubit error against drive on one apparatus at fixed heating
+ or fixed environment temperature. & experiment \\
 \textbf{Q6. A per-block chip reading.} The chip figure averages over idle transistors (Chapter~\ref{ch:cmos}). & A design's own power and
  activity data per block. & data needed \\
 \bottomrule

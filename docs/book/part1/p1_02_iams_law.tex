@@ -995,9 +995,8 @@ dimensionless in every row and computed from measured quantities, so it is the p
 Eq.~\eqref{eq:law}, expressed in dimensionless form. Every application of IAM's Law is a computation of $\mathcal M$ in domain-specific units:
 \begin{itemize}
 \item Thermal systems (semiconductor switching, superconducting qubit decoherence): $E_{\rm drive}=k_BT$, giving $\mathcal M=T/T_{\rm local}$.
-Temperature is the lever. The performance scaling $A(T)\propto T^{\,n_T}$ is, on this reading, the observable consequence of $\mathcal M$ approaching
-the architecture-specific critical value \conjecture. The temperature exponent $n_T$ is a class value calibrated against measured device histories
-(Part~\ref{part:3}) \calibrated, not derived, and is unrelated to the rate exponent $n$ of Section~\ref{sec:law_exponent}.
+Temperature is the lever. For a record held in a gap $hf$, $\mathcal M=hf/\kB T$ and the thermal floor of the record is $1/(1+e^{\mathcal M})$,
+the same form as the cell's copy-error floor; one gate of duration $t_g$ is kicked out of its level with that occupation times $t_g/T_1$ (Chapter~\ref{ch:qplatforms}) \derived.
 \item Chemical systems (living cells): $E_{\rm drive}=\Delta G_{\rm ATP}$, $T_{\rm local}=T_{\rm body}=310.15$\,K (fixed). $\mathcal M=\Delta G_{\rm ATP}/(RT_{\rm body})=20.94$
 ($30.2$ in Landauer units) \calc. Biology decoupled $E_{\rm drive}$ from $k_BT_{\rm local}$ by using chemical rather than thermal drive --- which is how it
 keeps high-fidelity records at a fixed temperature far above the thermal floor \interp.

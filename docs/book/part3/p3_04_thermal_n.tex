@@ -1,1 +1,67 @@
-[Superseded draft. Content removed from the public history; the current version of this file is authoritative.]
+\chapter{How the floor moves with temperature}\label{ch:thermaln}
+
+\section{The temperature dependence of a floor}\label{sec:floorT}
+
+The left-hand mark of every device gauge is set by temperature alone: $\kB T_j\ln2$ at a chip's junction (Chapter~\ref{ch:cmos}) and, for a
+qubit, the thermal floor of its record at the temperature the record sees (Chapter~\ref{ch:ascoreqc}). How that mark moves when the
+temperature changes follows from the same expressions. For a record held in a gap $E=hf$, the held-record floor is
+$p_{\rm eq}=1/(1+e^{M})$ with $M=hf/\kB T$, and its local logarithmic slope is
+\begin{equation}
+ \frac{d\ln p_{\rm eq}}{d\ln T}=M\,(1-p_{\rm eq})
+ \label{eq:thermal_slope}
+\end{equation}
+\derived. The per-gate floor $p_{\rm th}=p_{\rm eq}t_g/T_1$ carries in addition the temperature dependence of $T_1$, so its slope is
+Eq.~\eqref{eq:thermal_slope} minus $d\ln T_1/d\ln T$ \derived. Neither slope is a constant. For a transmon at 5~GHz the slope of $p_{\rm eq}$
+is 6.85 at the qubit's own 35~mK and 16.0 at 15~mK \calc: the colder the record, the steeper its floor falls with further cooling.
+
+The relaxation part has its own forms. For mechanisms with power-law densities of states the rate is a power of $T$, for example Raman
+spin--lattice relaxation ($T^7$, $T^9$) or one-phonon processes ($T^1$ at high $T$)~\cite{Abragam1970}; for activated mechanisms
+($e^{-E_a/\kB T}$) the logarithmic slope is $E_a/\kB T$ and varies with $T$ \derived. A single exponent in temperature therefore describes a
+floor only over a stated window, and the window has to be named with the number.
+
+\section{A thermal-emission benchmark}
+
+Decoherence of C$_{70}$ matter waves by thermal emission~\cite{Hackermuller2004} shows the physics directly. Laser heating
+before a Talbot--Lau interferometer raises the internal temperature from about 1000 to
+3000~K. The resulting emission of visible photons carries which-path information and destroys
+the fringes. The emission is thermally activated: with the radiative threshold $E_a\approx1.5$~eV the local slope $E_a/\kB T$ is 12.8 at
+1360~K and 5.5 at 3140~K, and the secant across that window is 8.67 \calc.
+
+\begin{checkbox}[title={Independent check: what the C$_{70}$ data can and cannot supply}]
+\begin{itemize}
+\item Figure~4 of the experiment plots visibility against \emph{heating laser power}. Its mean temperatures come from
+      the model of heating and radiative cooling, and are not measured directly.
+\item The emission rate of hot C$_{70}$ is thermally activated: it is negligible below about 2000~K, and the spectrum is cut off
+      at long wavelengths by the lack of radiative transitions below $\sim1.5$~eV~\cite{Hackermuller2004}. Any exponent read over
+      1360--3140~K is therefore a local slope of an activated process, and it would be different over a different window.
+\item Decoherence by gas collisions is linear in gas \emph{pressure}~\cite{Hornberger2003}: one event per collision, linear in the
+      density of the collision partners. At fixed pressure its temperature dependence goes as $n_{\mathrm{gas}}\bar v\propto T^{-1/2}$,
+      and at fixed density as $T^{+1/2}$ \derived. It does not supply an exponent of 1 in temperature.
+\end{itemize}
+The C$_{70}$ experiment shows that thermal emission converts a quantum object into a
+classical one, which is exactly the physics IAM is about. It shows equally that the temperature dependence of a decoherence
+channel is a property of that channel over a window, to be measured on the device in question.
+\end{checkbox}
+
+\begin{remark}[Which temperature, in kelvin]
+A floor depends on an absolute temperature. Halving a Celsius reading does not halve the temperature and gives no meaningful factor \calc. The
+temperature must also be the one the noise source sees. For a transmon it is the effective temperature of the qubit
+mode or of the quasiparticles, which commonly lies above the mixing-chamber reading. For ions and neutral atoms it is
+the motional temperature after laser cooling, set by the cooling limit and the heating rate, not by any cryostat
+stage; the Doppler limit of Yb$^+$ on its 369~nm line is $\hbar\Gamma/2\kB=0.47$~mK for $\Gamma/2\pi=19.6$~MHz
+\calc. For NV centres the spin relaxation rate near room temperature follows a two-phonon Raman $T^5$ term plus an
+Orbach term, not a single power~\cite{Jarmola2012}.
+For a neutral-atom Rydberg gate two temperatures matter: the atoms' motion, near 10~$\mu$K, and the radiation field around the apparatus, which at
+300~K places 62--620 thermal photons in each mode of a 100--10~GHz Rydberg transition and drives transitions out of the Rydberg state
+\calc~\cite{Beterov2009}. Chapter~\ref{ch:qplatforms} gives the temperature that matters for each platform.
+\end{remark}
+
+\section{Why the slope matters in practice}
+Cooling moves the floor, and Eq.~\eqref{eq:thermal_slope} says by how much. Halving a transmon's own temperature from 35 to 17.5~mK at 5~GHz
+raises $M$ from 6.86 to 13.7 and lowers $p_{\rm eq}$ from $1.05\times10^{-3}$ to $1.1\times10^{-6}$ \calc. Because present two-qubit errors sit
+far above the per-gate thermal floor (Chapter~\ref{ch:ascoreqc}), what cooling buys a gate is decided by the channels that are themselves
+thermal, such as the qubit's residual excited population at the start of a gate and thermally activated quasiparticles (Chapter~\ref{ch:xqp}),
+and each of those is measured against the refrigerator on the same device \interp. Figure~\ref{fig:qp_floors} (Chapter~\ref{ch:qplatforms})
+draws the thermal occupation of every platform's gap against the temperature its record sees. The measurement that settles how far cooling
+pays for a given processor is the one Ref.~\cite{Jin2015} made: the excited-state occupation and $T_1$ against refrigerator temperature, with
+the two-qubit error measured at each point \openprob.

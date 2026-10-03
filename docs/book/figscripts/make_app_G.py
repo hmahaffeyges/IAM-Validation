@@ -135,8 +135,9 @@ assert sum(tv) == NREG
 if excluded:
     L.append("")
     L.append(f"Of the {sum(tot[v] for v in LISTED)} entries with a standing verdict, {len(excluded)} are not listed: they repeat a"
-             r" comparison that another row states, record an outcome that is not a prediction, or rest on a compilation"
-             r" with no primary data set named.")
+             r" comparison that another row states, record an outcome that is not a prediction, rest on a compilation"
+             r" with no primary data set named, or rest on device constants that the book replaces by each device's thermal"
+             r" floor (Chapter~\ref{ch:qplatforms}).")
 L.append("")
 
 COLS = (r"{@{}>{\raggedright\arraybackslash}p{0.10\textwidth}>{\raggedright\arraybackslash}p{0.40\textwidth}"

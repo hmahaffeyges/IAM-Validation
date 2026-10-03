@@ -9,7 +9,7 @@ conclusion). Every number is computed here from the chapters' own formulas or fr
 Values typed below are only those printed in the chapter text, each with its chapter and line in a comment.
 p5_01 fig_two_surfaces, tab_bh_surfaces | p5_02 fig_transit | p5_03 fig_satellite_context, tab_satellites_below
 p5_04 fig_eraser_temperature, tab_eraser | p5_05 fig_mass_scaling, tab_gravdec | p5_06 fig_exponent_fit, tab_chsh
-p5_07 fig_cosmo_tests, fig_device_tests | p5_08 fig_one_half, fig_cell_readings | p5_09 fig_open_items, fig_open_map
+p5_07 fig_cosmo_tests | p5_08 fig_one_half, fig_cell_readings | p5_09 fig_open_items, fig_open_map
 p5_10 fig_status_summary
 Run: python docs/book/figscripts/fig_p5_extra.py
 """
@@ -267,45 +267,6 @@ a2.plot(0, Dd[0], "s", color=S.ALT, ms=3.5); a2.annotate(f"{Dd[0]:.2f} %", (0, D
 a2.set_xlabel("redshift $z$"); a2.set_ylabel("difference from $\\Lambda$CDM (%)"); a2.legend(loc="upper right", fontsize=6)
 a2.set_title(r"Growth falls, lensing ($\Sigma=1$) does not"); S.panel_letter(a2, "b")
 fig.tight_layout(); S.save(fig, "part5", "fig_cosmo_tests")
-
-# ===================== p5_07: device tests =====================
-# Present values only where a primary paper states them: Helios 7.9(2)e-4 (Ransford et al., arXiv:2511.05465, abstract, average
-# over all zones); Ca+ electronic 8.4(7)e-5 (Hughes et al., arXiv:2510.17286, abstract, SLERB). Willow (no single two-qubit error in
-# Nature 638, 920) and IBM Nighthawk (vendor report) are shown with their floor or bound only; D1 (built on 1.5e-3) is not drawn.
-# (label, present, predicted, floor or bound) from p5_07 lines 164-187
-Dq = [("D3 Google Al stack: floor", None, None, 1e-3),
-      ("D3 Rigetti Al/AlO$_x$: floor", None, None, 3e-3),
-      ("D4 IBM Nb/AlO$_x$ next generation", None, None, 2.3e-3),
-      ("D5 Quantinuum Ba$^+$: Sol", 7.9e-4, 5.8e-4, 1e-4),
-      ("D6 Ca$^+$ electronic", 8.4e-5, None, 3e-5),
-      ("D8 Majorana 1", None, None, 5e-4)]
-fig, (a1, a2) = plt.subplots(1, 2, figsize=(S.TEXTW, 2.7), gridspec_kw=dict(width_ratios=[1.5, 1]))
-for i, (lab, now, pred, fl) in enumerate(Dq):
-    y = len(Dq) - 1 - i
-    if now: a1.plot(now, y, "o", color=S.IAM, ms=5)
-    if pred:
-        a1.plot(pred, y, "s", color=S.ALT, ms=5)
-        if now: a1.annotate("", (pred, y), (now, y), arrowprops=dict(arrowstyle="->", lw=0.7, color=S.ALT))
-    if fl: a1.plot(fl, y, "D" if "D4" not in lab else "|", color=S.GR, ms=5 if "D4" not in lab else 11, mew=1.5)
-a1.plot([2e-3, 1e-3], [0, 0], "|", color=S.DATA, ms=11, mew=1.5)
-a1.set_yticks(range(len(Dq))); a1.set_yticklabels([d[0] for d in Dq][::-1], fontsize=6)
-a1.axvline(1e-2, color=S.DATA, lw=0.7, ls="--"); a1.set_xscale("log"); a1.set_xlim(1e-5, 2e-2)
-a1.set_xlabel(r"gate error $\varepsilon$ (nats)"); a1.set_title("Qubits: now, predicted, floor")
-S.panel_letter(a1, "a", dx=-0.62)
-# 9950X: no maker-published transistor count; die-level reports give 20.0e9 and 20.6e9, so the reading is the range 576-593
-chips = [("S2 AMD after 9950X", 576, 593), ("S3 Intel after 285K", 570, 570)]   # p5_07, S2 and S3
-lims = [(0.75, "432–445"), (0.60, None)]
-for i, ((lab, now, hi), (fr, txt)) in enumerate(zip(chips, lims)):
-    lim = now * fr
-    a2.barh(i, now, color=S.IAM, height=0.5)
-    if hi > now: a2.barh(i, hi - now, left=now, color=S.IAM, alpha=0.4, height=0.5)
-    a2.plot(lim, i, "|", color=S.DATA, ms=14, mew=1.6)
-    if hi > now: a2.plot(hi * fr, i, "|", color=S.DATA, ms=14, mew=1.0, alpha=0.6)
-    a2.text(lim * 0.97, i + 0.33, f"falsified at or below {txt or f'{lim:.0f}'}", fontsize=6, ha="right", color=S.DATA)
-    print(f"{lab}: present {now}, falsifier {lim:.0f}")
-a2.set_yticks(range(2)); a2.set_yticklabels([c_[0] for c_ in chips], fontsize=6); a2.set_xlim(0, 700); a2.set_ylim(-0.5, 1.8)
-a2.set_xlabel(r"$E_{\rm sw}/(k_BT_j\ln2)$"); a2.set_title("Chips: the next step's bound"); S.panel_letter(a2, "b", dx=-0.45)
-fig.tight_layout(); S.save(fig, "part5", "fig_device_tests")
 
 # ===================== p5_08: the half that recurs =====================
 fig, ax = plt.subplots(1, 3, figsize=(S.TEXTW, 2.3))

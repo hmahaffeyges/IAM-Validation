@@ -5,7 +5,7 @@ p3_01 fig_p3_pairbreaking: black-body photon number flux (one side, into a hemis
       radiator temperature, for Al, Ta and Nb with BCS gaps Delta = 1.764 k_B T_c (T_c = 1.2, 4.47, 9.25 K). Marked: the
       15 mK mixing-chamber plate, the 2.725 K CMB, a 4 K stage, a 50 K stage and 300 K.
 p3_05 fig_p3_coherence_optimum: model p(T1) = a/T1 + b/(T1_free - T1). The minimum sits at T1*/T1_free = r/(1+r),
-      r = sqrt(a/b); the curves are drawn for a/b = 1, 3.45 and 10 and normalised to their own minimum.
+      r = sqrt(a/b); the curves are drawn for the illustrative ratios a/b = 1, 3 and 10 and normalised to their own minimum.
 p3_06 fig_p3_switch_floors: (a) minimum energy of a thermally reliable binary switch, E = k_B T ln(1/p), in Landauer
       units k_B T ln 2, against the error probability p per operation; (b) energy per switch per node under the 1974
       constant-field rules (C and V both scale as 1/kappa, E ~ kappa^-3) and at fixed voltage (E ~ kappa^-1), kappa = sqrt 2.
@@ -53,7 +53,6 @@ nums = {
     "CMB_fraction_above_Al": power_above(nuAl, TCMB) / sigT4,
     "flux_above_Al": {T: photon_flux_above(nuAl, T) for T in (0.015, 1.0, TCMB, 4.0, 50.0, 300.0)},
     "pairs_per_100keV_upper": 100e3 * e / (2 * 1.764 * kB * 1.2),
-    "aOverb_for_0p65": (0.65 / 0.35) ** 2,
     "E_over_kT_p1e-15": np.log(1e15), "Landauer_units_p1e-15": np.log(1e15) / LN2,
     "Dennard_constant_field_per_node": 1 - 2 ** -1.5, "Dennard_fixed_V_per_node": 1 - 2 ** -0.5,
 }
@@ -83,7 +82,7 @@ S.save(fig, "part3", "fig_p3_pairbreaking")
 # ---------------- Figure 2: coherence-optimum model ----------------
 fig, ax = plt.subplots(figsize=(S.TEXTW * 0.62, 2.6))
 u = np.linspace(0.05, 0.97, 400)                                   # T1 / T1_free
-for ab, col, ylab in [(1.0, S.GR, 1.32), (3.45, S.IAM, 1.18), (10.0, S.ALT, 1.32)]:
+for ab, col, ylab in [(1.0, S.GR, 1.32), (3.0, S.IAM, 1.18), (10.0, S.ALT, 1.32)]:
     p = ab / u + 1.0 / (1 - u)
     ustar = np.sqrt(ab) / (1 + np.sqrt(ab))
     pmin = ab / ustar + 1.0 / (1 - ustar)
@@ -126,25 +125,3 @@ S.panel_letter(a2, "b")
 fig.tight_layout()
 S.save(fig, "part3", "fig_p3_switch_floors")
 
-# ---------------- Figure 4: qubit gauge from primary publications only ----------------
-# p3_03 fig_p3_gate_errors_primary: two-qubit errors printed in the primary papers (arXiv abstracts):
-#   Hughes et al. 2025 (arXiv:2510.17286): 8.4(7)e-5, electronically controlled trapped-ion gate, no ground-state cooling;
-#   Ransford et al. 2025 (arXiv:2511.05465): 7.9(2)e-4 averaged over all zones, 137Ba+ (Helios).
-# Diamonds: calibrated material floors of the qubit gauge for the two classes (3e-5 and 1e-4).
-dev = [("trapped ion, electronic gate\n(Hughes et al. 2025)", 8.4e-5, 0.7e-5, 3e-5),
-       ("trapped ion, laser gate, $^{137}$Ba$^+$\n(Ransford et al. 2025)", 7.9e-4, 0.2e-4, 1e-4)]
-fig, ax = plt.subplots(figsize=(S.TEXTW * 0.75, 1.9))
-for i, (lab, p, dp, fl) in enumerate(dev):
-    eps = -np.log1p(-p)
-    ax.errorbar([eps], [i], xerr=[[dp], [dp]], fmt="o", color=S.DATA, ms=4, capsize=2)
-    ax.plot([fl], [i], "D", color=S.GR, ms=4, mfc="white")
-    ax.text(eps * 1.25, i + 0.18, f"$\\varepsilon$ = {eps:.2e}".replace("e-0", "e-"), fontsize=6, color=S.DATA)
-for x, lab in [(1e-2, "surface-code threshold"), (1e-3, "fault-tolerance target")]:
-    ax.axvline(x, color=S.LIGHT, ls="--", lw=0.8)
-    ax.text(x * 0.92, 1.45, lab, fontsize=6, color=S.GR, ha="right", va="top")
-ax.set_yticks([0, 1]); ax.set_yticklabels([d[0] for d in dev], fontsize=6)
-ax.set_ylim(-0.5, 1.5)
-ax.set_xscale("log"); ax.set_xlim(1e-5, 3e-2)
-ax.set_xlabel(r"two-qubit gate error in nats, $\varepsilon=-\ln(1-p_{2Q})$")
-ax.set_title("Primary-source two-qubit errors (circles) and calibrated floors (diamonds)")
-S.save(fig, "part3", "fig_p3_gate_errors_primary")

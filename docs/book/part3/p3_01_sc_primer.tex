@@ -17,6 +17,12 @@ At 5\,GHz and 15\,mK, $hf/k_BT=16.0$ and the thermal excited population $e^{-hf/
 The Landauer cost per bit is lower at 15\,mK as well, $1.44\times10^{-25}$\,J, by the ratio $0.015/300=5\times10^{-5}$ \calc, but lowering it is
 not the purpose of the cooling; the cooling buys coherence. \interp
 
+\paragraph{The qubit is hotter than its refrigerator.} The temperature that writes on a transmon is its own, not the mixing chamber's. In a
+3D transmon whose refrigerator was swept from 150~mK down, the excited-state occupation followed a Maxwell--Boltzmann distribution at the
+refrigerator temperature down to 35~mK and then saturated at 0.1\,\%, an effective qubit temperature of 35~mK~\cite{Jin2015} \observed. At
+5~GHz that temperature gives $M=hf/\kB T=6.86$ and an equilibrium occupation of $1.1\times10^{-3}$, against $1.1\times10^{-7}$ at 15~mK
+\calc. The floor this sets for a held record and for one gate is derived in Chapter~\ref{ch:qplatforms}.
+
 \section{Three loss channels}
 
 \paragraph{Two-level systems (TLS).} Amorphous oxides host atomic-scale tunnelling defects
@@ -71,7 +77,7 @@ the hotter side to the colder one, so a surface colder than its surroundings is 
 surroundings are not the sky but the cryostat. The background carries $3.13\times10^{-6}$~W\,m$^{-2}$ in all, of which
 $2.81\times10^{-6}$~W\,m$^{-2}$ (89.8\,\%) lies above the aluminium threshold, in $2.18\times10^{16}$ photons s$^{-1}$\,m$^{-2}$ of mean
 energy $\kB\times9.31$~K, enough for at most 2.2 broken pairs per photon \calc. None of it reaches a shielded chip. What writes on a cold
-qubit is, in order: the defects of the substrate and its oxides, the TLS that set the material ceiling $T_{1,\mathrm{free}}$
+qubit is, in order: the defects of the substrate and its oxides, the TLS that limit $T_1$
 (Chapter~\ref{ch:walls}); residual thermal photons from warmer stages leaking through wiring and seams; and cosmic-ray muons and gamma
 rays, which no cryostat stops \observed. The first is a property of the material, the second an engineering limit, and the third is
 reduced only underground.

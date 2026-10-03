@@ -9,7 +9,7 @@ does not support it, when it is a vendor roadmap or commercial statement with no
 entry, with its reason, is in \path{CANON/predictions_triage_2026-10-02.json}.
 Appendix~\ref{app:register} lists every entry that stands, with its test, its falsifier and its verdict.
 
-What remains is about forty distinct predictions. Each is given below with its number, the measurement that tests it, what would falsify it,
+What remains is about thirty distinct predictions. Each is given below with its number, the measurement that tests it, what would falsify it,
 and the register entries it merges (in brackets). Every value is recomputed. Dates are those of the named surveys; none is claimed for an
 experiment no one has announced. A prediction built on a calibrated input says so: it tests the input as much as the law.
 
@@ -152,49 +152,16 @@ prediction & test and date & falsified if \\\midrule\endhead
 \bottomrule
 \end{longtable}}
 
-\section{Quantum processors}
-Figure~\ref{fig:device_tests} puts the dated device predictions of this section and of the chip section on their axes.
-\begin{figure}[htbp]\centering
-\includegraphics[width=\textwidth]{figures/part5/fig_device_tests.pdf}
-\caption{(a) The qubit predictions on one axis of gate error. Circles: present values stated in a primary publication, Helios $7.9(2)\times10^{-4}$~\cite{Ransford2025} and the Ca$^+$ electronic gate $8.4(7)\times10^{-5}$~\cite{Hughes2025} \observed; square: the predicted Sol value; diamonds: the material floors \calibrated; bars: the D4 bound $2.3\times10^{-3}$ and the D8 decision lines at $10^{-3}$ and $2\times10^{-3}$. Dashed: the surface-code threshold. (b) The chip predictions S2 and S3: present readings 576--593 (the 9950X range set by its transistor count) and 570, and the readings at or below which each is falsified, 432--445 and 342. \prediction}\label{fig:device_tests}
-\end{figure}
-
-The material floors and temperature exponents below are calibrated, not derived (Chapter~\ref{ch:thermaln}). Each prediction tests a calibrated
-value against a device not yet published. Errors are $\varepsilon=-\ln(1-p_{2Q})$; ``the threshold'' is the surface-code threshold, about 1\,\%.
-
-{\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.40\textwidth}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}@{}}
-\toprule
-prediction & test and date & falsified if \\\midrule\endhead
-\textbf{D2.} Halving the effective temperature of an ECR-gate device lowers its error by $2^{1.189}=2.28\times$. Two devices from different fabs with
- the same gate mechanism show the same exponent. [QUB-040, PAR-026]
- & temperature sweeps on ECR-gate devices from two fabs
- & a materially different ratio, or divergent exponents \\
-\textbf{D3.} A superconducting processor on unchanged base metal and oxide does not pass its material floor: about $10^{-3}$ for Google's present
- Al stack, $3\times10^{-3}$ for Rigetti's Al/AlOx. [QUB-015, 016, 001]
- & the next Google and Rigetti processors on the same materials
- & a successor on unchanged materials below its floor \\
-\textbf{D4.} IBM's Nb/AlOx chips cannot combine $T_1>325~\mu$s (the calibrated $0.65\,T_1^{\rm free}$) with two-qubit error below $2\times10^{-3}$ at
- fixed connectivity and temperature; the next, larger IBM generation on the same materials reads above $2.3\times10^{-3}$. [QUB-020, 053]
- & IBM's published chips and the next Nb/AlOx generation
- & a chip meeting both, or the next generation at or below $2.3\times10^{-3}$ \\
-\textbf{D5.} Quantinuum's Ba$^+$ processors do not pass their calibrated floor of $10^{-4}$ without changing gate mechanism; the next generation (Sol,
- announced for 2027) reaches about $5.8\times10^{-4}$ and does not regress from Helios ($7.9\times10^{-4}$~\cite{Ransford2025}). [QUB-011, 036]
- & Apollo and Sol publications; Sol 2027
- & Apollo below $10^{-4}$ on Ba$^+$, or Sol above $7.9\times10^{-4}$ \\
-\textbf{D6.} The $^{40}$Ca$^+$ electronically controlled gate ($8.4\times10^{-5}$, October 2025~\cite{Hughes2025}) approaches its calibrated floor of $3\times10^{-5}$ by early 2027
- without passing it. [QUB-002]
- & the next published result; checked mid-2027
- & a result below $3\times10^{-5}$, or no approach by mid-2027 \\
-\textbf{D7.} Ion-trap error carries a motional-heating term: removing sympathetic cooling causes a regression, and improvement stalls near 2030
- without cooling and near 2035 with it. [QUB-005, 029]
- & a future system without sympathetic cooling; ion-trap results through 2030--2037
- & no regression; or continued improvement past those dates with unchanged cooling \\
-\textbf{D8.} Microsoft's Majorana~1: if its first published two-qubit error has $\varepsilon>2\times10^{-3}$, topology is not beating the
- superconducting processors; below $10^{-3}$ it is contributing. Its calibrated floor is about $5\times10^{-4}$. [QUB-006, 044]
- & the first primary-source two-qubit result
- & (binary as stated); a sustained $\varepsilon<5\times10^{-4}$ falsifies the calibrated floor \\
-\bottomrule
-\end{longtable}}
+\section{Device floors}
+The device gauges of Part~\ref{part:3} read every device against a floor that temperature alone sets: for a qubit gate the thermal floor
+$p_{\rm eq}t_g/T_1$ with $p_{\rm eq}=1/(1+e^{hf/\kB T})$ at the temperature the record sees (Chapter~\ref{ch:qplatforms}), for a chip the Landauer
+floor $\kB T_j\ln2$ at its junction (Chapter~\ref{ch:cmos}). These floors are derived, not predicted: a gate kicked out of its level by thermal
+noise less often than $p_{\rm eq}t_g/T_1$, or an irreversible switch that costs less than $\kB T_j\ln2$, would contradict detailed balance or
+Landauer's principle at that surface. \derived{} The device tests that are open are measurements on one device, and any laboratory or fab can
+make them: the coherence optimum on one material and one coupler topology (Chapter~\ref{ch:walls}), the drive optima of ion and Rydberg gates
+(Chapters~\ref{ch:walls} and~\ref{ch:qplatforms}), and how far each loss channel sits above the floor of the bath that drives it. Each needs the
+gap, the temperature the record sees, the gate time, $T_1$ and the isolated two-qubit error of one device, published together; for a chip, one
+stated power, count and clock on both sides of a comparison (Chapter~\ref{ch:chipgen}). \openprob
 
 \section{Quasiparticles}
 
@@ -218,29 +185,6 @@ prediction & test and date & falsified if \\\midrule\endhead
  not yet been checked. \openprob
  & the best isolated Al-electrode transmons
  & $T_1$ beyond 0.24~ms by those means at that $x_{qp}$ \\
-\bottomrule
-\end{longtable}}
-
-\section{Chips}
-
-$A_{\rm chip}=E_{\rm sw}/(\kB T_j\ln2)$ with $E_{\rm sw}=\mathrm{TDP}/(Nf)$ (Chapter~\ref{ch:cmos}). The steps below depend on the makers' published
-power and clock definitions, which must be the same on both sides of each comparison.
-
-{\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.40\textwidth}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}@{}}
-\toprule
-prediction & test and date & falsified if \\\midrule\endhead
-\textbf{S1.} No chip switches an irreversible bit for less than $\kB T_j\ln2$. The Ryzen 9 9950X sits 576--593 times above it, the range set by its transistor count, the least certain input. \calc{} [SEM-049]
- & any measured energy per irreversible switch
- & a measurement below $\kB T_j\ln2$ \\
-\textbf{S2.} AMD's Zen~6 desktop part on 2~nm improves on the 9950X by less than 25\,\%: it stays above $432$--$445\times$. [SEM-002]
- & published specifications, late 2026--2027
- & a step of 25\,\% or more \\
-\textbf{S3.} Intel's first 2~nm-class desktop successor to the Core Ultra 9 285K ($570\times$) improves by less than 40\,\%. [SEM-004]
- & published specifications, late 2026--2027
- & a step of 40\,\% or more on the same definition \\
-\textbf{S4.} The next 2~nm Snapdragon generation takes a larger step than the previous Qualcomm one. [SEM-034]
- & published specifications
- & a step no larger than the previous \\
 \bottomrule
 \end{longtable}}
 
@@ -279,6 +223,6 @@ $x_{qp}$ flat below 150~mK [QUB-003]
 
 \section{What the list shows}
 The cosmology carries the decisive tests, and they are close. One parameter-free line fixes $\mu_0$, the $f\sigma_8$ ramp, $\Sigma=1$, $E_G$,
-$S_8$ and the two Hubble rates together; how strongly Euclid decides it depends on the smallest scales it can model, $0.3\sigma$ to about $7\sigma$ for the IAM $\mu(z)$ (Chapter~\ref{ch:latetime}), and redshift-space distortions at the per-cent level test the shape of the ramp. The quantum-device predictions are dated and
-cheap to check, but each rests on a calibrated floor or exponent. The decoherence predictions are the most distinctive, a coherence time that
+$S_8$ and the two Hubble rates together; how strongly Euclid decides it depends on the smallest scales it can model, $0.3\sigma$ to about $7\sigma$ for the IAM $\mu(z)$ (Chapter~\ref{ch:latetime}), and redshift-space distortions at the per-cent level test the shape of the ramp. The device floors are derived, and the open device tests are
+measurements that one laboratory can make on one device. The decoherence predictions are the most distinctive, a coherence time that
 grows with temperature, and the furthest from current experiments.

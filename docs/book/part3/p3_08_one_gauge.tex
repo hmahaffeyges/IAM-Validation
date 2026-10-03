@@ -16,7 +16,7 @@ $A$ & reading $/$ healthy reference & dimensionless; $A=1$ is the system working
 healthy reference & the denominator & the same system's healthy reading, on the same instrument\\
 $H_{\min}$ & the floor & the lowest error the system can hold before thermal kicks win; below 1, nothing reads below it\\
 $M$ & $E/k_BT$ & drive energy over the thermal noise quantum; $M/\ln2$ in Landauer units\\
-$n$ & temperature exponent & $A(T)=A(T_{\rm ref})(T/T_{\rm ref})^n$; calibrated per class, never derived, never $A$\\\bottomrule
+$T$ & the temperature the record sees & the bath that writes on the record: the chip junction, the qubit's own mode, the cell; every floor is computed there\\\bottomrule
 \end{tabular}\end{center}
 Example of the energy scale: the AMD Ryzen 9 9950X (170\,W, $(20.0$--$20.6)\times10^9$ transistors, 4.3\,GHz~\cite{AMD9950X}, $T_j=75\,^\circ$C) switches at
 $E_{\rm sw}=(1.92$--$1.97)\times10^{-18}$\,J, 576--593 times the Landauer floor, $M=399$--$411$; on its own gauge the Landauer floor therefore sits at 0.0017
@@ -34,11 +34,11 @@ score & reading & healthy reference ($A=1$) & $H_{\min}$ (on the gauge)\\\midrul
 IAM-A & copy error, $H(\varepsilon)$ & $P_{\rm cell}H(\varepsilon_0)$ & $H(\varepsilon_0)$; neutrophils at $1/P=0.910$\\
 Met-A & $\langle H(\beta)\rangle$ at identity sites & purified healthy cells, same platform & not yet derived for arrays\\
 C-score & clustering of the residual map & healthy median clustering & ---\\
-qubit gauge & $\varepsilon=-\ln(1-p_{2Q})$ & the device as built & material floor (Helios: $0.13$)\\
+qubit gauge & $\varepsilon=-\ln(1-p_{2Q})$ & the device as built & thermal floor $p_{\rm eq}t_g/T_1$ (transmon reading: $6\times10^{-4}$)\\
 chip gauge & $E_{\rm sw}=\mathrm{TDP}/(Nf)$ & the chip as built & Landauer floor $k_BT_j\ln2$ (9950X: $0.0017$)\\\bottomrule
 \end{tabular}\end{center}
 Some systems also have a point on the high side where they stop working: for a qubit, the gate error at which error correction fails ($p\approx1\,\%$;
-Helios at $A=12.7$). For cells the high side is the cancer direction. Breach and the cancer region beyond it lie to the right of Normal and are to be measured on this scale from per-person data; the far end, a full
+the transmon reading at $A=10$, Helios at $12.7$). For cells the high side is the cancer direction. Breach and the cancer region beyond it lie to the right of Normal and are to be measured on this scale from per-person data; the far end, a full
 surface, is known: $1/0.330263=3.03$ on Met-A and $1/(P\,H(\varepsilon_0))=1/(1.099\times0.2043)=4.45$ on IAM-A for neutrophils ($H(\varepsilon_0)=0.2043$ bits at $\varepsilon_0=0.032$) \calc. For a compact star the far-right line is a
 limiting mass: the Chandrasekhar mass for a white dwarf and the maximum (TOV) mass for a neutron star (Chapter~\ref{ch:blackholes}, Fig.~\ref{fig:stargauge}). The region between $H_{\min}$ and the healthy
 band is less error than healthy; for cells what it means biologically has not yet been measured.
@@ -54,9 +54,9 @@ read by one instrument. The predictive novelty is on the biological side, where 
 \begin{figure}[htbp]\centering\includegraphics[width=\textwidth]{figures/part3/one_gauge.pdf}
 \caption{One gauge for every score. $A=1$ is the healthy reading of that same system (green); $H_{\min}$ (grey line) is the lowest error it can hold
 before thermal kicks win, and nothing reads below it (grey zone). Cell: neutrophil IAM-A (healthy granulocytes from three donors at 1), $H_{\min}=H(\varepsilon_0)$ at $1/P_{\rm cell}=0.910$, Normal
-band 0.95--1.05; breach to be measured; surface full at 4.45. Qubit: Quantinuum Helios two-qubit gate ($p=7.9\times10^{-4}$) against a Ba$^+$ material floor of $10^{-4}$ (calibrated); error
-correction fails near $p=1\,\%$. Chip: AMD Ryzen 9 9950X (170\,W, $(20.0$--$20.6)\times10^9$ transistors, 4.3\,GHz, $T_j=75\,^\circ$C) against the Landauer floor, with two earlier
-AMD generations on the same scale (Ryzen 7 1800X, 2017; Athlon 64, 2003).
+band 0.95--1.05; breach to be measured; surface full at 4.45. Qubit: a transmon at 5\,GHz and its own 35\,mK~\cite{Jin2015}, $T_1=68\,\mu$s~\cite{GoogleWillow2025}, an
+illustrative 40\,ns gate and two-qubit error $10^{-3}$, against its thermal floor $p_{\rm eq}t_g/T_1=6.2\times10^{-7}$ (at $6.2\times10^{-4}$); error correction fails near
+$p=1\,\%$. Chip: AMD Ryzen 9 9950X (170\,W, $(20.0$--$20.6)\times10^9$ transistors, 4.3\,GHz, $T_j=75\,^\circ$C) against the Landauer floor.
 Each row has its own log scale, centred on 1.}\label{fig:onegauge}\end{figure}
 
 \paragraph{Where $H_{\min}$ comes from.} For the cell, the form of the floor is IAM's Law: a holding energy $E_{\rm hold}$ against $k_BT$ allows
@@ -68,7 +68,9 @@ from the maintenance chemistry, since $M=20.94$ is already set by ATP; and the t
 different error at 10\,$^\circ$C than at 37\,$^\circ$C. That test has not yet been made: the fish read so far (Section~\ref{sec:og_temperature})
 tracked a library-quality term, and the copy error depends on the read pipeline, so the test needs one species at two recorded temperatures on one
 pipeline \openprob. For the
-chip, $H_{\min}$ is the law itself. For the qubit it is a calibrated property of the substrate (Chapter~\ref{ch:ascoreqc}).
+chip, $H_{\min}$ is the law itself. For the qubit it is the same law at the temperature the qubit itself sees: the occupation
+$1/(1+e^{hf/\kB T})$ of the wrong level, with the same form as the cell's $\varepsilon_0$, and per gate $p_{\rm eq}t_g/T_1$
+(Chapter~\ref{ch:qplatforms}) \derived.
 
 \section{A is an error measurement}
 At an identity site where the cell's pattern is methylated, a fraction $\varepsilon$ of the cell's DNA copies have lost the mark, so
@@ -162,4 +164,4 @@ also tracked a library-quality term (conversion failure or duplicates). No fish-
 The law enters through the cost per bit at the local temperature and through $M$. The virial half (Chapter~\ref{ch:virial_law}) holds inside every
 molecule of a cell, as in every $1/r$-bound system (Chapter~\ref{ch:ledgers}), but the gauge does not use it: the reading needs only the cost per bit and
 $M$. In each domain the gauge asks one question, how far the record sits above its floor, and states which quantities are measured (the reading,
-$T$, $M$, the cell's holding energy) and which are calibrated ($n$ and the qubit material floors). Chapter~\ref{ch:reach} says what each gauge could give.
+$T$, $M$, the cell's holding energy) and which follow from $\kB T$ alone (the chip's Landauer floor and the qubit's thermal floor). Chapter~\ref{ch:reach} says what each gauge could give.

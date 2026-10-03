@@ -17,6 +17,9 @@ cm_cell = LinearSegmentedColormap.from_list("c", [(0, "#5b8def"), (0.42, "#9fd3c
 cm_dev = LinearSegmentedColormap.from_list("d", [(0, "#3fa7d6"), (0.5, "#2fbf71"), (0.75, "#f6b26b"), (1, "#d6455d")])
 
 e = lambda p: -math.log(1 - p)
+_h, _k = 6.62607015e-34, 1.380649e-23
+_peq = 1 / (1 + math.exp(_h * 5e9 / (_k * 0.035)))
+QF = _peq * 40e-9 / 68e-6 / e(1e-3)          # thermal floor of the transmon reading on its own gauge (6.2e-4)
 
 G = [
     dict(title="Cell · neutrophil · IAM-A", sub="copy error at each CpG, read on single molecules", lim=(1/5.6, 5.6), hmin=1/1.099, cmap=cm_cell,
@@ -24,15 +27,18 @@ G = [
          zones=[(1/5.6, 1/1.099, "thermal\nkicks win"), (1.35, 4.0, "more error · breach, cancer: to be measured →")],
          marks=[(1.0, "healthy granulocytes, 3 donors", "#1d7a46")],
          ticks=[0.3, 0.5, 1, 2, 4.45]),
-    dict(title="Qubit · Quantinuum Helios · two-qubit gate", sub="gate error ε = −ln(1 − p)", lim=(0.07, 1/0.07), hmin=e(1e-4)/e(7.9e-4), cmap=cm_dev,
-         band=None, hmin_lab="H$_{\\min}$ 0.13\nmaterial floor (Ba$^+$)", fail=e(1e-2)/e(7.9e-4), fail_lab="error correction\nfails · p = 1 %",
-         zones=[(0.07, e(1e-4)/e(7.9e-4), "thermal\nkicks win"), (e(1e-4)/e(7.9e-4), 1, "←  better than as built"), (1, e(1e-2)/e(7.9e-4), "more gate error  →")],
-         marks=[(1.0, "as built  ·  p = 7.9 × 10$^{-4}$", "#1d7a46")],
-         ticks=[0.1, 0.3, 1, 3, 10]),
-    dict(title="Chip · AMD Ryzen 9 9950X · switching energy", sub="E = TDP / (N f); earlier AMD chips on the same scale", lim=(1/6000, 6000), hmin=1/576.0, cmap=cm_dev,
+    # Qubit: transmon reading of Chapter ch:ascoreqc (5 GHz, own 35 mK, T1 68 us, 40 ns gate, p = 1e-3, illustrative);
+    # thermal floor p_eq t_g / T1 with p_eq = 1/(1+exp(hf/kT)) (Chapter ch:qplatforms).
+    dict(title="Qubit · transmon reading · two-qubit gate", sub="ε = −ln(1 − p); 5 GHz at its own 35 mK, T1 68 µs, 40 ns gate, p = 10⁻³",
+         lim=(1/12000, 12000), hmin=QF, cmap=cm_dev,
+         band=None, hmin_lab=f"H$_{{\\min}}$ {QF:.1e}\nthermal floor".replace("e-0", "e-"), fail=e(1e-2)/e(1e-3), fail_lab="error correction\nfails · p = 1 %",
+         zones=[(1/12000, QF, "thermal\nkicks win"), (QF, 1, "←  room above the floor"), (1, e(1e-2)/e(1e-3), "more gate error  →")],
+         marks=[(1.0, "as built  ·  p = 10$^{-3}$", "#1d7a46")],
+         ticks=[0.001, 0.01, 0.1, 1, 10, 100, 1000]),
+    dict(title="Chip · AMD Ryzen 9 9950X · switching energy", sub="E = TDP / (N f); the chip as built against k_B T_j ln 2", lim=(1/6000, 6000), hmin=1/576.0, cmap=cm_dev,
          band=None, hmin_lab="H$_{\\min}$ 0.0017\nLandauer floor k$_B$T ln 2", fail=None,
          zones=[(1/6000, 1/576, "thermal\nkicks win"), (1/576, 1, "←  closer to Landauer"), (1, 6000, "more energy per switch  →")],
-         marks=[(1.0, "9950X (2024)\nas built", "#1d7a46"), (1650/576, "   Ryzen 7 1800X (2017)", "#c46a1b"), (105002/576, "Athlon 64\n(2003)", "#b23a48")],
+         marks=[(1.0, "9950X (2024)\nas built", "#1d7a46")],
          ticks=[0.001, 0.01, 0.1, 1, 10, 100, 1000]),
 ]
 

@@ -18,7 +18,7 @@ of $\kB T\ln2$, the Landauer cost of one bit: an energy $x\,\kB T$ is $x/\ln2$ L
 the cell $\mathcal M=\dGATP/(R\Tb)=20.94$, which is $30.21$ in Landauer units (canon value 30.2).
 \item The gate error of a qubit is expressed in nats, $\varepsilon=-\ln(1-p_{2Q})$; for $p_{2Q}<10^{-2}$ it equals $p_{2Q}$ to better than $0.5\,\%$.
 \item Temperatures: $\Tb=T_{\rm cell}=310.15$~K (37\,\textdegree C) for human cells; $T_j$ is a chip's junction temperature (nominal 348.15~K, 75\,\textdegree C); a
-qubit's temperature is its refrigerator stage or, for ions and atoms, the motional temperature; a horizon's temperature is its Hawking or
+qubit's temperature is the temperature its record sees: the qubit's own effective temperature for a superconducting qubit, the motional temperature of the gate for ions and atoms; a horizon's temperature is its Hawking or
 Gibbons--Hawking temperature.
 \item Natural units ($\hbar=c=\kB=1$, $G$ kept) are used only where a chapter says so: the Cai--Kim derivation of Chapter~\ref{ch:theory}, where
 $T_H=H/2\pi$ and $S_{\rm geo}=A_H/4G$, and the restatements of it in Chapters~\ref{ch:dsnote} and~\ref{ch:theoryinterp}; and the radiation-era time $t=0.301\,g_*^{-1/2}\mP c^2/T^2$ (with $\hbar=c=\kB=1$) of Chapter~\ref{ch:electroweak}. Everywhere else the constants are written out.
@@ -42,8 +42,7 @@ $67.16$ (photon sector, Level~2 chain) and $72.26$ (matter sector)~km\,s$^{-1}$\
 \item \textbf{Fit statistics.} $\Delta\chi^2$ is IAM minus $\Lambda$CDM on the same data and code, from the lowest $\chi^2$ in each chain; positive means IAM fits
 slightly worse. With equal parameter counts the likelihood ratio is $e^{-\Delta\chi^2/2}$. Chains are converged when the Gelman--Rubin $R-1<0.01$.
 \item \textbf{The one gauge.} Every score $A$ is a reading divided by the same system's healthy or as-built reading on the same instrument: $A=1$ is healthy, in
-the middle; $A>1$ is more error than healthy; the floor $\Hmin$ lies below 1 and nothing reads below it. Normal is $0.95\le A\le1.05$. $A$ is never the
-temperature exponent $n$, and $\Hmin$ is not the denominator of $A$.
+the middle; $A>1$ is more error than healthy; the floor $\Hmin$ lies below 1 and nothing reads below it. Normal is $0.95\le A\le1.05$. $\Hmin$ is not the denominator of $A$.
 \item \textbf{Methylation.} $\beta\in[0,1]$ is the methylated fraction of the copies at one CpG. On the methylated channel an error lowers $\beta$
 ($\beta=1-\varepsilon$), on the unmethylated channel it raises it ($\beta=\varepsilon$); $H(\beta)=H(1-\beta)$ makes both read $H(\varepsilon)$. Residuals are
 specimen minus reference: $z_i>0$ is more entropy than healthy at site $i$; in serial mode $\Delta\beta=\beta^{\rm now}-\beta^{\rm prior}$.
@@ -251,19 +250,18 @@ $N$ (TLS), $V$ & number of active fluctuator sites; island volume & ---; m$^3$ &
 $\lamL$ & London penetration depth & m & Ch.~\ref{ch:xqp}\\
 $p$, $p_{2Q}$ & two-qubit gate error probability & --- & Ch.~\ref{ch:ascoreqc}\\
 $\varepsilon$ (qubit) & gate error in nats, $-\ln(1-p_{2Q})$ & nat & Ch.~\ref{ch:ascoreqc}\\
-$\varepsilon_{\rm floor}$ & material floor of the gate error (calibrated class value) & nat & Ch.~\ref{ch:ascoreqc}\\
-$n$ (temperature) & temperature exponent, $A(T)=A(T_{\rm ref})(T/T_{\rm ref})^n$; calibrated per class & --- & Ch.~\ref{ch:thermaln}\\
+$p_{\rm eq}$ & thermal occupation of the wrong level, $1/(1+e^{hf/\kB T})$, at the temperature the record sees & --- & Ch.~\ref{ch:qplatforms}\\
+$p_{\rm th}$ & thermal floor of one gate, $p_{\rm eq}t_g/T_1$; the left-hand mark of the qubit gauge & --- & Chs.~\ref{ch:ascoreqc},~\ref{ch:qplatforms}\\
 $p_{\rm coh}$, $p_{\rm mat}$, $p_{\rm ctrl}$ & coherence, material and control parts of a two-qubit error & --- & Ch.~\ref{ch:walls}\\
-$T_1^*$, $T_{1,\rm free}$ & coherence saturation point $0.65\,T_{1,\rm free}$, beyond which a longer $T_1$ no longer lowers the two-qubit error; the material's coherence ceiling & s & Ch.~\ref{ch:walls}\\
+$T_1^*$, $T_{1,\rm free}$ & coherence optimum $r/(1+r)\,T_{1,\rm free}$, $r=\sqrt{a/b}$, beyond which a longer $T_1$ no longer lowers the two-qubit error in the model; the material's coherence ceiling & s & Ch.~\ref{ch:walls}\\
 $t_g$ & gate duration & s & Ch.~\ref{ch:walls}\\
-$\alpha$ (coupler), $g$ (qubits) & cost per added coupler; error amplifier beyond the coherence saturation point & --- & Ch.~\ref{ch:walls}\\
+$\alpha$ (coupler) & crosstalk cost per added coupler & --- & Ch.~\ref{ch:walls}\\
 $T_j$ & junction temperature of a chip & K & Ch.~\ref{ch:cmos}\\
 $E_{\rm sw}$ & energy per transistor switch, $\mathrm{TDP}/(N_{\rm trans}f)$ & J & Ch.~\ref{ch:cmos}\\
 TDP, $N_{\rm trans}$, $f$ & thermal design power; transistor count; clock frequency & W; ---; Hz & Ch.~\ref{ch:cmos}\\
-$A_{\rm chip}$ & $E_{\rm sw}/\kB T_j\ln2$, the chip's distance above the Landauer floor (not the one-gauge $A$, which is $E_{\rm sw}$ over the chip as built) & --- & Ch.~\ref{ch:predictions}\\
-$g$ (Dennard) & Dennard amplifier: pre-2005 per-node gain over the present one & --- & Ch.~\ref{ch:cmos}\\
+$A_{\rm chip}$ & $E_{\rm sw}/\kB T_j\ln2$, the chip's distance above the Landauer floor (not the one-gauge $A$, which is $E_{\rm sw}$ over the chip as built) & --- & Ch.~\ref{ch:cmos}\\
+$n_{\rm floor}$ & generations a constant step $s$ could run before a chip at $R$ times its floor reaches it, $\ln R/[-\ln(1-s)]$ & --- & Ch.~\ref{ch:chipgen}\\
 $\kappa$ (Dennard) & linear scaling factor of the 1974 Dennard rules & --- & Ch.~\ref{ch:cmos}\\
-$A_{\rm isa}$, $A_{\rm node}$ & architecture-locked and engineering-accessible parts of a chip's reading & --- & Ch.~\ref{ch:cmos}\\
 \bottomrule\end{longtable}}
 \subsection*{Cells and the instrument}
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}@{}}
@@ -306,7 +304,7 @@ Each field keeps its own letters. The context always fixes the meaning; this tab
 \toprule letter & meanings\\\midrule\endhead
 $A$ & horizon area (Part~\ref{part:2}); the informational fidelity ratio, reading over healthy reference (Parts~\ref{part:3}--\ref{part:4}); $A_s$, primordial amplitude; $A$ in the Sheth--Tormen multiplicity; $A_{\rm ISW}$, ISW amplitude\\
 $M$ & mass; the Mahaffey number (written $\mathcal M$ where a mass is nearby); an array's methylated intensity; the eigenvalue sum of the Horodecki criterion; $M_W$, $M_Z$\\
-$n$ & the temperature exponent of a class (Part~\ref{part:3}); the structure exponent in $D^n$, $7/2$ (Part~\ref{part:2}); $n_s$, spectral tilt; number of phases in the Koide construction; number of sites; densities $n_{\rm qp}$, $\ncp$, $n_b$\\
+$n$ & the structure exponent in $D^n$, $7/2$ (Part~\ref{part:2}); $n_s$, spectral tilt; number of phases in the Koide construction; number of sites; densities $n_{\rm qp}$, $\ncp$, $n_b$\\
 $\beta$ & the coupling $\beta_m$ (cosmology); the methylated fraction (cells); the fitted coefficient in $\exp(\alpha-\beta/a)$ (Chapter~\ref{ch:theory})\\
 $\varepsilon$ & qubit gate error in nats; a cell's copy error; $\varepsilon_0$, the copy-error floor; $\epsilon_i$, mixture noise\\
 $\eta$ & horizon entropy per area; the baryon-to-photon ratio; $\eta_{\rm vir}$, virial efficiency; $\eta=t/\tau_{\rm IAM}$; $\eta=2T/|W|$ in simulation papers; the E\"otv\"os parameter of equivalence-principle tests\\
@@ -330,7 +328,7 @@ $f$ & growth rate; cell fraction $f_c$; clock frequency; $f(\alpha)$ in the elec
 $D$ & growth factor; diffusion constant; distances $D_M$, $D_H$, $D_A$; $D(t)$, decoherence fraction\\
 $R$ & molar gas constant; Ricci scalar; radius; $R-1$, Gelman--Rubin; $R(a)$, matter over record term; $R(z)$, cluster mass ratio\\
 $\alpha$ & fine-structure constant; array offset in $\beta$; coupler cost; fitted coefficient; $\alpha_s$, the strong coupling\\
-$g$ & metric; Dennard amplifier; qubit error amplifier beyond $T_1^*$; coupling $g$ of a TLS to a qubit\\
+$g$ & metric; coupling $g$ of a TLS to a qubit\\
 $C$, $c$ & C-score; capacitance; $C(d)$, genome-distance correlation; $C_\ell$; coherence $C_{\rm IAM}$; $C_{\rm NT}$; the speed of light $c$ and the coherence factor $c(t)$\\
 $z$ & redshift; site residual $z_i$\\
 $x$ & $\xqp$; Koide constant mode; argument of $H(x)$\\

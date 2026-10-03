@@ -33,10 +33,10 @@ def main():
        r"\section*{The symbols}",
        r"\begin{center}\small\begin{tabular}{p{0.12\textwidth}p{0.8\textwidth}}\toprule",
        r"$A$ & reading $/$ the healthy or as-built reading of the same system, the same meaning in every domain; $A=1$ is healthy, $H_{\min}$ the floor below it\\",
-       r"$H_{\min}$ & the floor: chips $k_BT_j\ln2$; qubits the material floor $\varepsilon_{\rm floor}$; cells the cell type's reference floor (Met-A) or $P_{\rm cell}H(\varepsilon_0)$ (IAM-A)\\",
+       r"$H_{\min}$ & the floor: chips $k_BT_j\ln2$; qubits the thermal floor $p_{\rm eq}t_g/T_1$ at the temperature the record sees; cells the cell type's reference floor (Met-A) or $P_{\rm cell}H(\varepsilon_0)$ (IAM-A)\\",
        r"$\varepsilon$ & qubits: $-\ln(1-p_{2Q})$, the gate error in nats; cells: the per-molecule copy error\\",
        r"$M$ & $E/k_BT$ (cells $20.94$; chips $A\ln2$); $M/\ln2$ in Landauer units\\",
-       r"$n$ & temperature exponent, $A\propto T^n$; calibrated per class, not derived; not $A$\\\bottomrule",
+       r"$p_{\rm eq}$ & thermal occupation of the wrong level of a record, $1/(1+e^{hf/k_BT})$; one gate owes $p_{\rm eq}t_g/T_1$\\\bottomrule",
        r"\end{tabular}\end{center}",
        r"\section*{Constants}", r"{\small\begin{longtable}{>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.38\textwidth}}\toprule",
        r"name & value & units & derivation and source\\\midrule\endhead"]
