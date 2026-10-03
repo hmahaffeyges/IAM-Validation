@@ -1,211 +1,424 @@
 % Part 2 chapter carrying "Constraints on Late-Time f sigma8 Suppression from mu < 1, Sigma = 1: Planck 2018 and Large-Scale Structure"
-% (19 Feb 2026) nearly in full, in its own order. Read in full 2026-10-02; re-confirmed in 50-line chunks, ledger 1-567 with no gaps. Chain numbers from mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
-% (final chain files, 30 % burn-in). Checks: docs/verification/chains/LATE_TIME_GROWTH_CHECK.md.
+% (19 Feb 2026) line for line, in its own order. PDF text 567 lines read in full in 50-line chunks (2026-10-03, ledger 1-567, no gaps);
+% LaTeX docs/papers/latex/iam_mu_sigma_paper/iam_mu_sigma_paper.tex used for the exact equations. Corrections: PAPER_ERRATA LG1-LG12 and
+% docs/verification/chains/LATE_TIME_GROWTH_CHECK.md. Every number: docs/verification/scripts/verify_late_time_level2.py (+ _output.txt),
+% from the final chain files in mgcamb_validation/chains (30 % burn-in per file, weighted). Figures: docs/book/figscripts/fig_p2_latetime_level2.py.
 
 \chapter{Late-time growth suppression: confrontation with Planck and large-scale structure}\label{ch:latetime}
 
 \section*{Summary}
-This chapter tests a scale-independent, late-time suppression of linear structure growth in the standard $\mu$--$\Sigma$ framework. The informational term sets
-$\mu(a)<1$ for matter perturbations and keeps $\Sigma(a)=1$, so photon geodesics and the CMB acoustic structure are unchanged. The time dependence is
-carried by the activation function $E(a)=\exp(1-1/a)$, which vanishes at early times and reaches unity at $a=1$, so recombination physics is preserved by
-construction. With the coupling $\beta=\Omega_m/2$ the present-day coupling is $\mu(z{=}0)=0.864$, a $13.6\,\%$ reduction of the effective Newton constant
-for linear growth. The term is implemented in MGCAMB~\cite{Zhao2009MGCAMB,Wang2023MGCAMB} and run in twelve MCMC analyses with Cobaya~\cite{Torrado2021}: Planck 2018 (TT, TE, EE and lensing)~\cite{Planck2018V,Planck2018VIII} alone and with SDSS
-redshift-space distortions, BAO, or Pantheon+ supernovae~\cite{Scolnic2022,Brout2022}. With $\beta$ fixed, every combination is consistent with $\Lambda$CDM ($\Delta\chi^2$ between
-$+0.56$ and $+1.73$), with the standard parameters unchanged. With the amplitude free, the posterior of $\mu_0$ reaches the upper edge of its prior ($+0.2$) in every combination; the prediction lies inside the
-$90\,\%$ credible interval in all four, with $10$--$21\,\%$ of the posterior below it. $\sigma_8$ falls from $0.813$ to $0.800$ in every combination. BAO angles and supernova distances are unaffected,
-as $\Sigma=1$ requires. How strongly Euclid tests this depends on the smallest scales it can model and on the shape of $\mu(z)$ (Section~\ref{sec:lt_euclid}).
+This chapter tests a scale-independent, late-time suppression of linear structure growth within the standard $\mu$--$\Sigma$ framework of
+modified gravity. The informational term imposes $\mu(a)<1$ for matter perturbations while preserving $\Sigma(a)=1$, which leaves photon geodesics
+and the CMB acoustic structure unmodified. The time dependence is governed by the activation function $E(a)=\exp(1-1/a)$, which vanishes at early
+times and reaches unity at $a=1$, so recombination-era physics is preserved by construction. For the coupling $\beta=\Omega_m/2$ the present-day
+gravitational coupling is $\mu(z{=}0)=0.864$, a $13.6\,\%$ reduction of the effective Newton constant that governs linear growth.
 
-\section{Introduction}
-$\Lambda$CDM fits the CMB anisotropies and large-scale structure well, yet early- and late-time measurements of the clustering amplitude, $\sigma_8$ and
-$S_8\equiv\sigma_8(\Omega_m/0.3)^{0.5}$, have stayed apart. Weak-lensing surveys have reported $S_8$ below the Planck $\Lambda$CDM value, a
-2--3$\sigma$ difference in DES Y3, KiDS-1000 and HSC Y3~\cite{DESY3,Asgari2021,HSCY3} \observed; the completed KiDS survey finds $S_8=0.815^{+0.016}_{-0.021}$, in agreement with Planck~\cite{Wright2025}. This motivates controlled late-time changes to growth that
-leave the early universe alone.
+The parameterisation is implemented in MGCAMB~\cite{Zhao2009MGCAMB,Wang2023MGCAMB} and tested in a suite of twelve Markov chain Monte Carlo
+analyses run with Cobaya~\cite{Torrado2021}: the Planck 2018 likelihoods (TT, TE, EE and lensing)~\cite{Planck2018V,Planck2018VIII} alone and
+combined in turn with growth-rate data from redshift-space distortions (RSD), with baryon acoustic oscillations (BAO), and with the Pantheon+ type Ia
+supernovae~\cite{Scolnic2022,Brout2022}. With the amplitude fixed at the prediction, every combination is statistically indistinguishable from
+$\Lambda$CDM, $\Delta\chi^2$ between $+0.56$ and $+1.73$ for the same number of parameters, and every standard cosmological parameter is
+unchanged within its uncertainty. When growth-rate data are included (Planck + RSD) the fixed prediction gives $\Delta\chi^2=+0.56$. When the
+amplitude is allowed to float, the posterior of $\mu_0$ rises to the upper edge of its prior ($+0.2$) in every combination; the prediction lies
+inside the central $90\,\%$ credible interval in all four, with $10$--$21\,\%$ of the posterior below it. The model shifts $\sigma_8$ downward,
+from $0.813$ to $0.800$, without degrading the CMB fit. BAO angles and supernova distances are unaffected, as expected for a change that
+leaves the background expansion and $\Sigma=1$ untouched. How strongly Euclid can test this amplitude depends on the smallest scales it can model
+and on the redshift shape of $\mu(z)$ (Section~\ref{sec:lt_euclid}). All chains, configuration files and analysis scripts are in the repository
+(\texttt{mgcamb\_validation/}).
 
-The $\mu$--$\Sigma$ parameterisation (Bean and Tangmatitham 2010~\cite{BeanTangmatitham2010}; Daniel et al.\ 2010~\cite{Daniel2010}; Pogosian and Silvestri 2016~\cite{PogosianSilvestri2016}) encodes departures from general
-relativity through $\mu(a)$, which modifies the Poisson equation for matter clustering, and $\Sigma(a)$, which modifies the lensing potential. DES, KiDS and
-Euclid use it. Keeping $\Sigma=1$ preserves photon geodesics and the CMB acoustic structure while allowing growth to change.
+\section{Introduction}\label{sec:lt_intro}
+The $\Lambda$CDM model provides an excellent fit to the CMB anisotropies~\cite{Planck2018VI} and to large-scale structure. Nevertheless, persistent
+discrepancies between early- and late-time determinations of the matter clustering amplitude, usually expressed through $\sigma_8$ and
+$S_8\equiv\sigma_8(\Omega_m/0.3)^{0.5}$, have motivated controlled late-time modifications of cosmic growth that preserve early-universe consistency
+\cite{DESY3,Heymans2021,HSCY3}. Weak-lensing surveys have reported $\sigma_8$ values lower than the Planck $\Lambda$CDM prediction
+$\sigma_8\approx0.81$~\cite{Planck2018VI}, a difference at the 2--3$\sigma$ level that persisted across independent experiments and analysis
+pipelines (DES Y3, KiDS-1000 and HSC Y3~\cite{DESY3,Asgari2021,Heymans2021,HSCY3}) \observed. The completed KiDS survey (KiDS-Legacy) now finds
+$S_8=0.815^{+0.016}_{-0.021}$, in agreement with Planck~\cite{Wright2025} \observed.
 
-The form examined here is
+A general phenomenological approach encodes departures from general relativity (GR) through the $\mu$--$\Sigma$ parameterisation (Bean and
+Tangmatitham 2010~\cite{BeanTangmatitham2010}; Daniel et al.\ 2010~\cite{Daniel2010}; Pogosian and Silvestri 2016~\cite{PogosianSilvestri2016}), in
+which $\mu(a)$ modifies the Poisson equation that governs matter clustering and $\Sigma(a)$ modifies the lensing potential. The framework is
+used by the major surveys, among them DES~\cite{DESY3Ext}, KiDS~\cite{Heymans2021} and Euclid~\cite{Frusciante2025}. Keeping $\Sigma(a)=1$
+preserves photon geodesics and the CMB acoustic structure while allowing growth to change.
+
+This chapter examines one realisation within that framework: a scale-independent, late-time suppression with $\mu(a)<1$. The functional form is
 \begin{equation}
-\mu(a)=\frac{H^2_{\Lambda\rm CDM}(a)}{H^2_{\Lambda\rm CDM}(a)+\beta E(a)H_0^2},\qquad E(a)=\exp\!\left(1-\frac1a\right),
+\mu(a)=\frac{H^2_{\Lambda\rm CDM}(a)}{H^2_{\Lambda\rm CDM}(a)+\beta\,E(a)\,H_0^2},
 \label{eq:lt_mu}\end{equation}
-so that $\mu(z{=}0)=1/(1+\beta)=0.864$ for $\beta=\Omega_m/2=0.15765$ ($\Omega_m=0.3153$), a $13.6\,\%$ suppression of the coupling for matter perturbations.
-The form of $E(a)$ comes from integrating the decoherence rate weighted by horizon thermodynamics (Bekenstein--Hawking entropy~\cite{Bekenstein1973,Hawking1975}, Gibbons--Hawking temperature~\cite{GibbonsHawking1977},
-Landauer's principle~\cite{Landauer1961}); the coupling $\beta=\Omega_m/2$ follows from the virial partition; and the rational form of Eq.~\eqref{eq:lt_mu} follows from adding the
-information entropy to the Cai--Kim horizon first law~\cite{CaiKim2005} (Chapters~\ref{ch:theory} and \ref{ch:virial}). None of it is fitted to data. Independently of that
-derivation, the rational form is the minimal one-amplitude realisation among monotonic activation functions that vanish early and saturate at $a=1$: it keeps
-$\mu\to1$ at high redshift and fixes $\mu(z{=}0)$ through $\beta$ alone. This chapter tests the phenomenology; no covariant action is assumed.
+where
+\begin{equation}
+E(a)=\exp\!\left(1-\frac1a\right)
+\label{eq:lt_activation}\end{equation}
+is an activation function that vanishes as $a\to0$ and reaches unity at $a=1$. This ensures a negligible modification during radiation domination
+and at recombination. Because $H_{\Lambda\rm CDM}(a{=}1)=H_0$, the present-day value is
+\begin{equation}
+\mu(z{=}0)=\frac{1}{1+\beta}=\frac{1}{1.15765}=0.864\qquad(\beta=\Omega_m/2=0.15765,\ \Omega_m=0.3153),
+\label{eq:lt_mu0}\end{equation}
+a $13.6\,\%$ suppression of the effective gravitational coupling for matter perturbations \calc. (The factor $H_0^2$ in the denominator of
+Eq.~\eqref{eq:lt_mu} makes the two terms dimensionally alike; $\beta E(a)$ is the extra term in units of today's critical density.)
 
-$\mu<1$ with $\Sigma=1$ has had less attention than $\mu>1$. $f(R)$ gravity~\cite{PogosianSilvestri2008} and the normal branch of DGP~\cite{KoyamaMaartens2006} predict enhanced
-growth, $\mu>1$, and in Horndeski theories $\mu-1$ and $\Sigma-1$ of opposite sign are strongly disfavoured~\cite{PogosianSilvestri2016}. The self-accelerating branch of DGP gives $\mu<1$ with $\Sigma=1$,
-but it carries a ghost~\cite{Koyama2007} and is in strong tension with growth and distance data~\cite{Fang2008}. A suppression moves $\sigma_8$ downward and sits in a less explored part of the $\mu$--$\Sigma$ plane.
+\paragraph{Where the form comes from.} The functional form of $E(a)$ follows from the hypothesis that late-time structure formation adds an
+informational entropy contribution to the matter sector. The activation function arises from integrating the cumulative decoherence rate weighted by
+the thermodynamics of the cosmic horizon (Bekenstein--Hawking entropy~\cite{Bekenstein1973,Hawking1975}, Gibbons--Hawking
+temperature~\cite{GibbonsHawking1977} and Landauer's principle~\cite{Landauer1961}); the full derivation is in Chapter~\ref{ch:theory} and
+Appendix~\ref{app:der:activation}. The step that fixes the exponent is short. During matter domination the record surface density on the apparent
+horizon scales as $a^{-2}$, so the logarithm of the accumulated record fraction, counted back from today, is
+\begin{equation}
+\ln E(a)=-\int_a^1\frac{da'}{a'^2}=1-\frac1a,\qquad E(1)=1,\qquad \lim_{a\to0}E(a)=0,\qquad E=e^{-z}.
+\label{eq:lt_lnE}\end{equation}
+\derived\ (given the $a^{-2}$ scaling of Chapter~\ref{ch:theory}). The coupling $\beta=\Omega_m/2$ follows from the virial theorem applied to the
+partition of gravitational energy between geometric curvature and informational entropy (Chapter~\ref{ch:virial}); the factor $1/2$ is
+\derived\ there and $\Omega_m$ is \measured\ by Planck. The rational form of Eq.~\eqref{eq:lt_mu} then follows from adding the informational entropy to
+the Cai--Kim horizon first law~\cite{CaiKim2005} (Chapter~\ref{ch:theory}). None of these ingredients is fitted to growth data.
 
-\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{figures/part2/fig_mu_profile.pdf}
-\caption{Left: $\mu(z)$, exact form (Eq.~\ref{eq:lt_mu}, solid) and the MGCAMB form (Eq.~\ref{eq:lt_mgcamb}, dashed); they agree at $z=0$ and $z\gg1$ and differ by up to $2.8\,\%$ near $z\approx0.65$. Right: $E(a)=\exp(1-1/a)$, negligible above $z\approx3$ and equal to $1$ today.}\label{fig:lt_mu}\end{figure}
+\interp\ Independently of that derivation, the rational form is the minimal single-parameter realisation among monotonic activation functions that
+vanish at early times and saturate at $a=1$: it preserves $\mu\to1$ at high redshift by construction while fixing $\mu(z{=}0)$ through the single
+amplitude $\beta$. This chapter is concerned with the phenomenology within the standard $\mu$--$\Sigma$ framework; no covariant action is assumed. The
+parameterisation is implemented with the public MGCAMB code (Wang et al.\ 2023~\cite{Wang2023MGCAMB}), which provides native $\mu$--$\Sigma$ support
+inside the CAMB Boltzmann solver (Lewis, Challinor and Lasenby 2000~\cite{Lewis2000CAMB}).
 
-\section{Model and implementation}
+\paragraph{Where it sits among modified-gravity models.} The signature $\mu<1$ with $\Sigma=1$ has received less attention than $\mu>1$. $f(R)$
+gravity~\cite{PogosianSilvestri2008} and the normal branch of the DGP braneworld~\cite{KoyamaMaartens2006} predict enhanced growth, $\mu>1$, and in
+Horndeski scalar--tensor theories $\mu-1$ and $\Sigma-1$ of opposite sign are strongly disfavoured~\cite{PogosianSilvestri2016}. The
+self-accelerating branch of DGP does give $\mu<1$ with $\Sigma=1$, but it carries a ghost~\cite{Koyama2007} and is in strong tension with growth and
+distance data~\cite{Fang2008} \observed. A suppression shifts $\sigma_8$ downward, in contrast to most scenarios in the current literature, and
+places the model in a less explored region of the $\mu$--$\Sigma$ plane.
+
+Section~\ref{sec:lt_model} defines the model and its implementation; Section~\ref{sec:lt_data} describes the data and the method;
+Section~\ref{sec:lt_results} presents the results of all twelve chains; Section~\ref{sec:lt_discussion} discusses them, including what the next
+surveys can do; Section~\ref{sec:lt_conclusions} concludes.
+
+\begin{figure}[htbp]\centering\includegraphics[width=\textwidth]{figures/part2/fig_mu_profile.pdf}
+\caption{(a) Gravitational coupling $\mu(z)$ for the exact form (Eq.~\ref{eq:lt_mu}, solid) and the MGCAMB form (Eq.~\ref{eq:lt_mgcamb}, dashed),
+both with $\Omega_m=0.3153$. They agree at $z=0$ and $z\gg1$ and differ by up to $2.8\,\%$ near $z\approx0.65$. (b) The activation function
+$E(a)=\exp(1-1/a)$: negligible above $z\approx3$ ($E=0.050$ at $z=3$) and equal to $1$ today. \calc}\label{fig:lt_mu}\end{figure}
+
+\section{Model definition and implementation}\label{sec:lt_model}
 \subsection{Modified Poisson equations}
-In Fourier space,
+In the $\mu$--$\Sigma$ framework the modified Poisson equations in Fourier space are
 \begin{align}
-k^2\Phi&=-4\pi G\,\mu(a)\,a^2\bar\rho_m\delta_m,\\
-k^2(\Phi+\Psi)&=-8\pi G\,\Sigma(a)\,a^2\bar\rho_m\delta_m,
+k^2\Phi&=-4\pi G\,\mu(a)\,a^2\bar\rho_m\delta_m,\label{eq:lt_poisson}\\
+k^2(\Phi+\Psi)&=-8\pi G\,\Sigma(a)\,a^2\bar\rho_m\delta_m,\label{eq:lt_lensing}
 \end{align}
-with $\Phi$ and $\Psi$ the potentials in conformal Newtonian gauge, $\bar\rho_m$ the mean matter density and $\delta_m$ the density contrast. $\mu$ governs the growth
-of density perturbations, $\Sigma$ the lensing potential $(\Phi+\Psi)/2$; general relativity is $\mu=\Sigma=1$. Here $\Sigma\equiv1$, so photon geodesics,
-lensing and the CMB acoustic structure are standard. At fixed primordial amplitude the CMB lensing power changes by under $0.5\,\%$ (a Limber estimate gives
-$0.05$--$0.3\,\%$ for $30\le L\le1000$), and the ISW contribution at $\ell<30$ stays within cosmic variance.
+where $\Phi$ and $\Psi$ are the scalar metric potentials in conformal Newtonian gauge, $\bar\rho_m$ is the mean matter density and $\delta_m$ the
+matter density contrast. The function $\mu(a)$ modifies the growth of density perturbations, while $\Sigma(a)$ modifies the lensing potential
+$(\Phi+\Psi)/2$. General relativity is $\mu=\Sigma=1$.
+
+$\Sigma(a)=1$ is imposed identically, so photon geodesics, gravitational lensing and the CMB acoustic structure remain standard. At fixed primordial
+amplitude the CMB lensing power changes by less than $0.5\,\%$: a Limber estimate gives $0.05$--$0.3\,\%$ for $30\le L\le1000$ \calc. The ISW
+contribution at $\ell<30$ changes only through the late-time decay of the potentials, which is modified only at $z\lesssim2$; it remains small
+against cosmic variance, which is at least $\sqrt{2/(2\ell+1)}=18\,\%$ for $\ell\le30$ \calc. The function $\mu(a)$ is Eq.~\eqref{eq:lt_mu}.
 
 \subsection{MGCAMB implementation}
-MGCAMB (Wang et al.\ 2023~\cite{Wang2023MGCAMB}) implements the DES parameterisation~\cite{DESY3Ext}
+The model is implemented with MGCAMB v1.5.2 (Wang et al.\ 2023~\cite{Wang2023MGCAMB}), which provides a native $\mu$--$\Sigma$ parameterisation
+inside CAMB. MGCAMB's pure-MG mode implements the time dependence used by DES~\cite{DESY3Ext},
 \begin{equation}
 \mu(a)=1+\mu_0\,\frac{\Omega_{\rm DE}(a)}{\Omega_\Lambda},\qquad\Sigma(a)=1+\Sigma_0\,\frac{\Omega_{\rm DE}(a)}{\Omega_\Lambda},
 \label{eq:lt_mgcamb}\end{equation}
-with $\Omega_{\rm DE}(a)=\Omega_\Lambda/[\Omega_ma^{-3}+\Omega_\Lambda]$, so $\mu(z{=}0)=1+\mu_0$. The runs set $\mu_0=-0.13495$ and $\Sigma_0=0$.
-This value is $-\beta/(1+\beta)$ for $\beta=0.1560$; the fixed coupling $\beta_m=0.15765$ gives $-0.13618$. The difference, $0.0012$, is about one percent of the free-$\mu_0$ posterior width. \calc
-\calc\ Eq.~\eqref{eq:lt_mgcamb} reproduces the exact form at $z=0$ ($0.865$ vs $0.864$) and at $z\gg1$; in between it suppresses slightly more, by at most
-$2.8\,\%$ in $\mu$ near $z=0.65$, $2.5\,\%$ at $z=1$ and under $1\,\%$ above $z=2.5$, because $E(a)$ and $\Omega_{\rm DE}(a)$ have different transition profiles.
-\emph{Notation.} $\mu_0\equiv\mu(z{=}0)-1$; $\mu_0<0$ is suppression; the exact form gives $\mu_0=-0.136$, and the runs use $-0.13495$ ($-0.135$ below).
-MGCAMB settings in every run: \texttt{MG\_flag = 1}, \texttt{pure\_MG\_flag = 2}, \texttt{musigma\_par = 1}, \texttt{GRtrans = 0.001} (GR enforced below this
-scale factor), $\Sigma_0=0$.
+where $\Omega_{\rm DE}(a)=\Omega_\Lambda/[\Omega_ma^{-3}+\Omega_\Lambda]$ is the dark-energy density fraction (radiation neglected at late times). The
+division by $\Omega_\Lambda$ (MGCAMB \texttt{mgcamb.f90}, \texttt{MGCAMB\_Mu = 1 + mu0*omegaDE\_t/omegav}) makes $\Omega_{\rm DE}(1)/\Omega_\Lambda=1$,
+so that $\mu_0$ is the deviation from GR at $z=0$: $\mu(z{=}0)=1+\mu_0$ \derived.
 
-\section{Data and method}
-\paragraph{Planck 2018 CMB.} Low-$\ell$ TT and EE, high-$\ell$ \texttt{plik\_lite} TTTEEE, and CMB lensing~\cite{Planck2018V,Planck2018VIII}.
-\paragraph{Redshift-space distortions.} The BOSS DR12 final consensus likelihood (Alam et al.\ 2017~\cite{Alam2017}): BAO distances and $f\sigma_8$ at $z=0.38$, $0.51$
-and $0.61$ with their joint covariance, which probe directly the growth that $\mu$ changes. The same runs add the eBOSS DR16 ELG, QSO and LRG likelihoods~\cite{Alam2021},
-which are BAO distances only.
-\paragraph{BAO.} SDSS DR12 and eBOSS DR16 LRG, QSO and Lyman-$\alpha$~\cite{Alam2017,Alam2021}. The BAO feature is imprinted in matter, but its angular position is measured with
-photons on null geodesics; with $\Sigma=1$ the angular-diameter distance and $\theta_{\rm BAO}$ are those of $\Lambda$CDM. The growth change can alter the
-feature's amplitude, not its position, which is the primary observable.
-\paragraph{Type Ia supernovae.} Pantheon+, 1701 light curves~\cite{Scolnic2022,Brout2022}, $0.001<z<2.26$. In this perturbation-level model, which leaves the background unchanged,
-their luminosity distances are those of $\Lambda$CDM.
-\paragraph{Analysis.} Twelve chains in four data combinations (Planck: A, B, C; + RSD: D, E, F; + BAO: G, H, I; + Pantheon+: J, K, L), each with three models:
-$\mu_0$ fixed at $-0.13495$ (no parameter beyond $\Lambda$CDM); $\mu_0$ free with a flat prior $[-0.5,+0.2]$; and $\Lambda$CDM ($\mu_0=\Sigma_0=0$) on the same
-MGCAMB code, so any difference comes from the gravity parameter alone. The six standard parameters $\{\Omega_bh^2,\Omega_ch^2,H_0,\tau,\ln10^{10}A_s,n_s\}$ are
-sampled in all runs; $\sigma_8$ and $\Omega_\Lambda$ are derived. The free-$\mu_0$ runs start at the prediction (proposal width $0.05$). Cobaya~\cite{Torrado2021}, Gelman--Rubin $R-1<0.01$~\cite{Gelman1992}; every final chain ends at $R-1\le0.0099$.
-
-\section{Results}
-$\Delta\chi^2$ is IAM fixed minus $\Lambda$CDM, from the lowest $\chi^2$ reached in each final chain; a positive value means IAM fits slightly worse. With the same
-number of parameters, the likelihood ratio is $e^{-\Delta\chi^2/2}$.
+To match the model at $z=0$ the runs set $\mu_0=-0.13495$ and $\Sigma_0=0$. The exact form gives $\mu_0=-\beta/(1+\beta)=-0.13618$; the value used
+in the runs corresponds to $\beta=0.1560$. The difference, $0.0012$, is about one per cent of the width of the free-$\mu_0$ posterior
+($\sigma=0.125$, Planck + RSD) and changes no result \calc. Equation~\eqref{eq:lt_mgcamb} reproduces the exact form at $z=0$ ($0.865$ against $0.864$)
+and at $z\gg1$. In between it suppresses slightly more: the difference in $\mu$ reaches $2.8\,\%$ near $z\approx0.65$, is $2.5\,\%$ at $z=1$ and
+$1.2\,\%$ at $z=2$, and falls below $1\,\%$ above $z\approx2.3$ (Table~\ref{tab:lt_mu_compare}) \calc. The difference arises because $E(a)$ and
+$\Omega_{\rm DE}(a)$ have different transition profiles; both vanish at early times and reach their maximum at $z=0$.
 
 \begin{table}[htbp]\centering\small
-\caption{Planck 2018 alone (posterior means $\pm1\sigma$).}\label{tab:lt_planck}
+\caption{The exact coupling (Eq.~\ref{eq:lt_mu}) and the MGCAMB form (Eq.~\ref{eq:lt_mgcamb}, $\mu_0=-0.13495$), $\Omega_m=0.3153$. \calc}
+\label{tab:lt_mu_compare}
+\begin{tabular}{cccccc}\hline
+$z$ & $a$ & $E(a)=e^{-z}$ & $\mu$ exact & $\mu$ MGCAMB & $H_m/H=\mu^{-1/2}$\\\hline
+0 & 1.000 & 1.0000 & 0.8638 & 0.8650 & 1.0759\\
+0.2 & 0.833 & 0.8187 & 0.9050 & 0.8902 & 1.0512\\
+0.5 & 0.667 & 0.6065 & 0.9482 & 0.9228 & 1.0270\\
+1 & 0.500 & 0.3679 & 0.9822 & 0.9579 & 1.0090\\
+2 & 0.333 & 0.1353 & 0.9977 & 0.9853 & 1.0012\\
+3 & 0.250 & 0.0498 & 0.9996 & 0.9935 & 1.0002\\
+5 & 0.167 & 0.0067 & 1.0000 & 0.9980 & 1.0000\\\hline
+\end{tabular}\end{table}
+
+\emph{Notation.} Throughout, $\mu_0\equiv\mu(z{=}0)-1$, the MGCAMB deviation from GR. A negative value, $\mu_0<0$, is growth suppression ($\mu<1$).
+The predicted value is $\mu_0=-0.136$; the runs use $-0.13495$, written $-0.135$ below.
+
+The MGCAMB configuration in every run is \texttt{MG\_flag = 1}, \texttt{pure\_MG\_flag = 2}, \texttt{musigma\_par = 1},
+\texttt{GRtrans = 0.001} (the scale factor below which GR is enforced) and \texttt{sigma0 = 0}.
+
+\section{Data and methodology}\label{sec:lt_data}
+\subsection{Data sets}
+\paragraph{Planck 2018 CMB.} The Planck 2018 likelihoods~\cite{Planck2018V,Planck2018VIII}: low-$\ell$ temperature and polarisation
+(\texttt{lowl.TT}, \texttt{lowl.EE}), high-$\ell$ temperature and polarisation (\texttt{plik\_lite} TTTEEE) and CMB lensing. The variants differ
+between combinations: the Planck-only and Planck + RSD chains use \texttt{plik\_lite\_native} with \texttt{lensing.CMBMarged}; the Planck + BAO and
+Planck + Pantheon+ chains use \texttt{plik\_lite} with \texttt{lensing.native}. Each $\Delta\chi^2$ below is taken against the $\Lambda$CDM chain with the
+same likelihoods, so each comparison stands; the four $\Delta\chi^2$ values are not on one common likelihood.
+
+\paragraph{Redshift-space distortions (RSD).} The growth-rate measurements in the ``Planck + RSD'' chains come from the BOSS DR12 final consensus
+likelihood (Alam et al.\ 2017~\cite{Alam2017}): BAO distances together with $f\sigma_8$ at $z=0.38$, $0.51$ and $0.61$, with their joint covariance.
+These directly probe the combination of growth rate and clustering amplitude that $\mu(a)$ changes. The same chains add the eBOSS DR16 ELG, quasar
+and LRG likelihoods~\cite{Alam2021}, which are BAO distances only.
+
+\paragraph{Baryon acoustic oscillations (BAO).} The ``Planck + BAO'' chains use the 6dFGS BAO measurement (Beutler et al.\ 2011~\cite{Beutler2011BAO}),
+the SDSS DR7 main galaxy sample (Ross et al.\ 2015~\cite{Ross2015MGS}) and the BOSS DR12 consensus BAO distances~\cite{Alam2017}. The sector
+assignment matters here. The BAO feature is imprinted in the matter distribution, but its angular position is measured with photons travelling on
+null geodesics. With $\Sigma=1$ and an unmodified background, the angular-diameter distance $D_A(z)$, and hence the BAO angular scale
+$\theta_{\rm BAO}$, are those of $\Lambda$CDM. The amplitude of the BAO feature may be affected by the modified growth rate, but its geometric position,
+the primary BAO observable, is not.
+
+\paragraph{Type Ia supernovae.} The Pantheon+ sample of 1701 light curves in $0.001<z<2.26$ (Scolnic et al.\ 2022~\cite{Scolnic2022}; Brout et al.\
+2022~\cite{Brout2022}). Supernova hosts are matter-sector objects (Chapter~\ref{ch:dsvalidation}); in this perturbation-level model, which leaves
+the background expansion unchanged, their luminosity distances are those of $\Lambda$CDM.
+
+\subsection{Analysis strategy}
+Twelve chains are run, organised into four data combinations, each with three model configurations:
+\begin{enumerate}
+\item \emph{Fixed $\mu_0$:} $\mu_0=-0.135$, the predicted value, with no free parameter beyond $\Lambda$CDM.
+\item \emph{Floating $\mu_0$:} $\mu_0$ sampled with a flat prior $\mu_0\in[-0.5,+0.2]$ (one additional parameter); the chain starts at the prediction
+(reference $-0.135$, proposal width $0.05$).
+\item \emph{$\Lambda$CDM baseline:} $\mu_0=0$, $\Sigma_0=0$ (standard GR, the same MGCAMB code).
+\end{enumerate}
+The four combinations are Planck alone (Runs A, B, C), Planck + RSD (D, E, F), Planck + BAO (G, H, I) and Planck + Pantheon+ (J, K, L). The six
+standard parameters $\{\Omega_bh^2,\Omega_ch^2,H_0,\tau,\ln(10^{10}A_s),n_s\}$ are sampled in every run with flat priors $\Omega_bh^2\in[0.020,0.025]$,
+$\Omega_ch^2\in[0.10,0.14]$, $H_0\in[60,80]$, $\tau\in[0.01,0.12]$, $\ln(10^{10}A_s)\in[2.6,3.5]$ and $n_s\in[0.92,1.0]$; $\sigma_8$, $\Omega_\Lambda$
+and $S_8$ are derived. All chains use the Cobaya sampler (Torrado and Lewis 2021~\cite{Torrado2021}) with the Gelman--Rubin criterion
+$R-1<0.01$~\cite{Gelman1992} (\texttt{Rminus1\_stop = 0.01}, \texttt{Rminus1\_cl\_stop = 0.15}); every final chain stops at $R-1\le0.0099$
+(Table~\ref{tab:lt_chains}). The $\Lambda$CDM baselines use the same MGCAMB code with $\mu_0=\Sigma_0=0$, so any difference arises from the gravity
+parameter alone and not from code-level systematics. All statistics below are from the final chain files with the first $30\,\%$ of each file
+removed as burn-in, weighted.
+
+\begin{table}[htbp]\centering\small
+\caption{The twelve chains: chain rows kept after the $30\,\%$ burn-in, and the final Gelman--Rubin $R-1$ from each \texttt{.progress} file. The
+Planck-only IAM chains are four parallel files each. \measured}\label{tab:lt_chains}
+\begin{tabular}{lcccccc}\hline
+& \multicolumn{2}{c}{$\Lambda$CDM} & \multicolumn{2}{c}{$\mu_0$ fixed} & \multicolumn{2}{c}{$\mu_0$ free}\\
+Data & rows & $R-1$ & rows & $R-1$ & rows & $R-1$\\\hline
+Planck (C, A, B) & 12544 & 0.0089 & 37177 & 0.0089 & 48836 & 0.0099\\
+Planck + RSD (F, D, E) & 18424 & 0.0087 & 18144 & 0.0078 & 20188 & 0.0084\\
+Planck + BAO (I, G, H) & 12600 & 0.0096 & 6552 & 0.0058 & 14448 & 0.0063\\
+Planck + Pantheon+ (L, J, K) & 21168 & 0.0085 & 11760 & 0.0072 & 26544 & 0.0094\\\hline
+\end{tabular}\end{table}
+
+\section{Results}\label{sec:lt_results}
+$\Delta\chi^2$ is the lowest $\chi^2$ reached in the fixed-$\mu_0$ chain minus that of its $\Lambda$CDM chain; a positive value means the informational
+term fits slightly worse. The two models have the same number of free parameters, so the comparison is a likelihood ratio,
+$\mathcal L_{\rm IAM}/\mathcal L_{\Lambda\rm CDM}=e^{-\Delta\chi^2/2}$, not a $\chi^2_1$ test. For the free-$\mu_0$ chains the lowest $\chi^2$ depends on
+how deeply the chain sampled its minimum and is not used as a test; the free amplitude is summarised by its posterior
+(Section~\ref{sec:lt_free}).
+
+\subsection{Planck alone (Runs A, B, C)}
+Table~\ref{tab:lt_planck} gives the marginalised constraints from Planck alone. The fixed prediction $\mu_0=-0.135$ gives $\Delta\chi^2=+0.96$
+relative to $\Lambda$CDM, a likelihood ratio of $0.62$ \measured. With the same number of free parameters, this difference is statistically negligible.
+When $\mu_0$ floats (Run B) the posterior is consistent with GR and with the prediction (Table~\ref{tab:lt_free}); it is broad, reflecting the limited
+sensitivity of the CMB alone to late-time growth when $\Sigma=1$.
+
+\begin{table}[htbp]\centering\small
+\caption{Planck 2018 alone (Runs A, B, C): posterior means $\pm1\sigma$; $\Delta\chi^2$ relative to the $\Lambda$CDM baseline (Run C). \measured}\label{tab:lt_planck}
 \begin{tabular}{lccc}\hline
-& $\Lambda$CDM (C) & $\mu_0$ fixed (A) & $\mu_0$ free (B)\\\hline
-$H_0$ & $67.14\pm0.51$ & $67.08\pm0.53$ & $67.14\pm0.54$\\
+Parameter & $\Lambda$CDM (C) & $\mu_0$ fixed (A) & $\mu_0$ free (B)\\\hline
+$H_0$ [km\,s$^{-1}$\,Mpc$^{-1}$] & $67.14\pm0.51$ & $67.08\pm0.53$ & $67.14\pm0.54$\\
 $\sigma_8$ & $0.8143\pm0.0060$ & $0.8015\pm0.0058$ & $0.8158\pm0.0156$\\
-$\mu_0$ & 0 & $-0.135$ & Table~\ref{tab:lt_free}\\
+$\Omega_bh^2$ & $0.02234\pm0.00014$ & $0.02233\pm0.00014$ & $0.02233\pm0.00014$\\
+$\Omega_ch^2$ & $0.1205\pm0.0012$ & $0.1206\pm0.0012$ & $0.1205\pm0.0012$\\
+$\Omega_\Lambda$ & $0.6817\pm0.0071$ & $0.6807\pm0.0074$ & $0.6816\pm0.0075$\\
+$\tau$ & $0.056\pm0.008$ & $0.056\pm0.007$ & $0.056\pm0.007$\\
+$n_s$ & $0.9639\pm0.0039$ & $0.9636\pm0.0040$ & $0.9639\pm0.0041$\\
+$\ln(10^{10}A_s)$ & $3.049\pm0.015$ & $3.050\pm0.014$ & $3.049\pm0.014$\\
+$\mu_0$ & 0 (fixed) & $-0.135$ (fixed) & Table~\ref{tab:lt_free}\\
+$\chi^2_{\rm min}$ & $1013.00$ & $1013.95$ & --\\
 $\Delta\chi^2$ & -- & $+0.96$ & --\\\hline
 \end{tabular}\end{table}
-\paragraph{Planck alone.} The fixed prediction gives $\Delta\chi^2=+0.96$ (likelihood ratio $0.62$). With $\mu_0$ free the posterior (Table~\ref{tab:lt_free}) is consistent
-with general relativity and with the prediction. The CMB alone is weakly sensitive to late-time growth when $\Sigma=1$.
+
+\subsection{Planck + RSD (Runs D, E, F)}
+Planck with growth-rate data gives a direct test of the modified coupling, since $f\sigma_8(z)$ is sensitive to $\mu(a)$. Table~\ref{tab:lt_rsd}
+gives the results. The fixed prediction gives $\Delta\chi^2=+0.56$ (likelihood ratio $0.75$), lower than with Planck alone: the growth-rate data do
+not penalise the suppression \measured.
+
+The principal shift is in $\sigma_8$: $0.8004\pm0.0060$ with the informational term against $0.8133\pm0.0060$ for $\Lambda$CDM, lower by $0.013$
+($-1.6\,\%$). Every other cosmological parameter is unchanged within its uncertainty, so the change in $\mu$ acts on growth without opening
+parameter degeneracies (Fig.~\ref{fig:lt_post}). Figure~\ref{fig:lt_fs8} shows the growth rate: with the term, $f\sigma_8$ is lower than in
+$\Lambda$CDM at every redshift.
 
 \begin{table}[htbp]\centering\small
-\caption{Planck + RSD.}\label{tab:lt_rsd}
+\caption{Planck + RSD (Runs D, E, F): posterior means $\pm1\sigma$; $\Delta\chi^2$ relative to Run F. \measured}\label{tab:lt_rsd}
 \begin{tabular}{lccc}\hline
-& $\Lambda$CDM (F) & $\mu_0$ fixed (D) & $\mu_0$ free (E)\\\hline
-$H_0$ & $67.49\pm0.41$ & $67.49\pm0.42$ & $67.55\pm0.40$\\
+Parameter & $\Lambda$CDM (F) & $\mu_0$ fixed (D) & $\mu_0$ free (E)\\\hline
+$H_0$ [km\,s$^{-1}$\,Mpc$^{-1}$] & $67.49\pm0.41$ & $67.49\pm0.42$ & $67.55\pm0.40$\\
 $\sigma_8$ & $0.8133\pm0.0060$ & $0.8004\pm0.0060$ & $0.8166\pm0.0131$\\
-$\mu_0$ & 0 & $-0.135$ & Table~\ref{tab:lt_free}\\
+$\Omega_bh^2$ & $0.02239\pm0.00014$ & $0.02239\pm0.00014$ & $0.02240\pm0.00013$\\
+$\Omega_ch^2$ & $0.1197\pm0.0009$ & $0.1197\pm0.0009$ & $0.1195\pm0.0009$\\
+$\Omega_\Lambda$ & $0.6865\pm0.0057$ & $0.6866\pm0.0057$ & $0.6874\pm0.0054$\\
+$\tau$ & $0.058\pm0.007$ & $0.059\pm0.007$ & $0.058\pm0.007$\\
+$n_s$ & $0.9658\pm0.0036$ & $0.9657\pm0.0036$ & $0.9660\pm0.0035$\\
+$\ln(10^{10}A_s)$ & $3.052\pm0.015$ & $3.054\pm0.015$ & $3.051\pm0.014$\\
+$\mu_0$ & 0 (fixed) & $-0.135$ (fixed) & Table~\ref{tab:lt_free}\\
+$\chi^2_{\rm min}$ & $1023.72$ & $1024.28$ & --\\
 $\Delta\chi^2$ & -- & $+0.56$ & --\\\hline
 \end{tabular}\end{table}
-\paragraph{Planck + RSD.} Growth-rate data test the coupling directly. The fixed prediction gives $\Delta\chi^2=+0.56$, lower than with Planck alone: the growth data
-do not penalise the suppression. $\sigma_8$ is $0.8004\pm0.0060$ against $0.8133\pm0.0060$, lower by $0.013$; the other parameters are unchanged, so the
-modification acts on growth without opening degeneracies (Fig.~\ref{fig:lt_post}).
-Figure~\ref{fig:lt_fs8} shows $f\sigma_8(z)$: with the term, growth is lower than $\Lambda$CDM at every redshift.
-\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{figures/part2/fig_posterior_comparison.pdf}\caption{Planck + RSD posteriors, $\Lambda$CDM (grey) and $\mu_0=-0.135$ fixed (blue). Only $\sigma_8$ moves.}\label{fig:lt_post}\end{figure}
-\begin{figure}[htbp]\centering\includegraphics[width=0.7\textwidth]{figures/part2/fig_fsigma8.pdf}\caption{$f\sigma_8(z)$ for $\Lambda$CDM (black) and $\mu_0=-0.135$ (blue) with the measurements: 6dFGS ($z=0.07$)~\cite{Beutler2012}, SDSS MGS ($0.15$)~\cite{Howlett2015}, BOSS DR12 ($0.38$, $0.51$)~\cite{Alam2017}, eBOSS DR16 LRG ($0.70$), ELG ($0.85$) and quasars ($1.48$)~\cite{Alam2021}.}\label{fig:lt_fs8}\end{figure}
+
+\begin{figure}[htbp]\centering\includegraphics[width=\textwidth]{figures/part2/fig_posterior_comparison.pdf}
+\caption{Marginalised posteriors from Planck + RSD: $\Lambda$CDM (grey, Run F) and $\mu_0=-0.135$ fixed (blue, Run D). The $\sigma_8$ posterior moves
+to lower values; the other parameters are unchanged. Final chain files, $30\,\%$ burn-in, weighted. \measured}\label{fig:lt_post}\end{figure}
+
+\begin{figure}[htbp]\centering\includegraphics[width=0.72\textwidth]{figures/part2/fig_fsigma8.pdf}
+\caption{Growth rate $f\sigma_8(z)$ for $\Lambda$CDM (grey) and $\mu_0=-0.135$ fixed (blue): linear growth in the MGCAMB form of $\mu$, normalised to the
+chain-mean $\sigma_8$ and $\Omega_m$ of Runs F and D \calc. Points: the compiled measurements 6dFGS ($z=0.067$)~\cite{Beutler2012}, SDSS MGS
+($0.15$)~\cite{Howlett2015}, BOSS DR12 ($0.38$, $0.51$)~\cite{Alam2017}, eBOSS DR16 LRG ($0.70$), ELG ($0.85$) and quasars ($1.48$)~\cite{Alam2021},
+with $1\sigma$ errors \observed. The likelihood of Runs D, E and F uses the three BOSS DR12 values with their covariance. The suppressed model
+predicts a lower $f\sigma_8$ at every redshift.}\label{fig:lt_fs8}\end{figure}
+
+\subsection{Planck + BAO (Runs G, H, I) and Planck + Pantheon+ (Runs J, K, L)}
+BAO measurements constrain the angular-diameter distance $D_A(z)$ and the Hubble rate $H(z)$ through the transverse and line-of-sight acoustic
+scales. These are measured with photons on null geodesics; with $\Sigma=1$ and the background unchanged, the BAO scale is predicted to equal that of
+$\Lambda$CDM. Pantheon+ measures luminosity distances; with the background unchanged these too are predicted to follow $\Lambda$CDM. Table~\ref{tab:lt_bao_sn}
+gives the results: $\Delta\chi^2=+1.73$ (likelihood ratio $0.42$) and $+1.58$ ($0.45$), with the standard parameters unchanged \measured.
 
 \begin{table}[htbp]\centering\small
-\caption{Planck + BAO and Planck + Pantheon+.}\label{tab:lt_bao_sn}
+\caption{Planck + BAO (Runs G, H, I) and Planck + Pantheon+ (Runs J, K, L): posterior means $\pm1\sigma$; $\Delta\chi^2$ relative to Runs I and L. \measured}\label{tab:lt_bao_sn}
 \footnotesize\setlength{\tabcolsep}{3pt}
 \begin{tabularx}{\linewidth}{@{}l*{3}{>{\centering\arraybackslash}X}|*{3}{>{\centering\arraybackslash}X}@{}}\hline
 & \multicolumn{3}{c|}{Planck + BAO} & \multicolumn{3}{c}{Planck + Pantheon+}\\
 & $\Lambda$CDM (I) & fixed (G) & free (H) & $\Lambda$CDM (L) & fixed (J) & free (K)\\\hline
 $H_0$ & $67.56\pm0.44$ & $67.54\pm0.43$ & $67.57\pm0.45$ & $67.12\pm0.51$ & $67.00\pm0.50$ & $67.07\pm0.52$\\
-$\sigma_8$ & $0.8115$ & $0.7987$ & $0.8126\pm0.0158$ & $0.8128$ & $0.7999$ & $0.8123\pm0.0164$\\
+$\sigma_8$ & $0.8115\pm0.0059$ & $0.7987\pm0.0060$ & $0.8126\pm0.0158$ & $0.8128\pm0.0060$ & $0.7999\pm0.0056$ & $0.8123\pm0.0164$\\
+$\Omega_bh^2$ & $0.02240$ & $0.02239$ & $0.02240$ & $0.02233$ & $0.02232$ & $0.02232$\\
+$\Omega_ch^2$ & $0.1195$ & $0.1196$ & $0.1195$ & $0.1205$ & $0.1208$ & $0.1206$\\
+$n_s$ & $0.9661$ & $0.9661$ & $0.9663$ & $0.9639$ & $0.9630$ & $0.9636$\\
+$\ln(10^{10}A_s)$ & $3.049$ & $3.050$ & $3.049$ & $3.045$ & $3.045$ & $3.045$\\
 $\mu_0$ & 0 & $-0.135$ & Table~\ref{tab:lt_free} & 0 & $-0.135$ & Table~\ref{tab:lt_free}\\
+$\chi^2_{\rm min}$ & $1018.36$ & $1020.09$ & -- & $2416.00$ & $2417.58$ & --\\
 $\Delta\chi^2$ & -- & $+1.73$ & -- & -- & $+1.58$ & --\\\hline
 \end{tabularx}\end{table}
-\paragraph{Planck + BAO and Planck + Pantheon+.} BAO constrains $D_A(z)$ and $H(z)$ through the transverse and line-of-sight acoustic scales; supernovae measure
-luminosity distances. With the background unchanged, both are predicted to match $\Lambda$CDM, and they do: $\Delta\chi^2=+1.73$ and $+1.58$, standard parameters
-unchanged.
 
-\begin{figure}[htbp]\centering\includegraphics[width=0.6\textwidth]{figures/part2/fig_deltachi2_final.pdf}\caption{$\Delta\chi^2$ for $\mu_0=-0.135$ fixed, relative to $\Lambda$CDM, in each data combination (final chain files).}\label{fig:lt_dchi2}\end{figure}
+\subsection{Combined summary}
+Table~\ref{tab:lt_summary} collects $\Delta\chi^2$ and the $\sigma_8$ shift for all four combinations, and Fig.~\ref{fig:lt_dchi2} shows the
+$\Delta\chi^2$ values with their likelihood ratios. The shift $\Delta\sigma_8=\sigma_8({\rm IAM})-\sigma_8(\Lambda{\rm CDM})$ is $-0.0128$ to
+$-0.0129$, or $-1.6\,\%$, in every combination \measured.
+
 \begin{table}[htbp]\centering\small
-\caption{Summary, $\mu_0$ fixed at the prediction. \measured}\label{tab:lt_summary}
-\begin{tabular}{lcccc}\hline
-Data & $\Delta\chi^2$ & $\sigma_8$ ($\Lambda$CDM) & $\sigma_8$ (IAM) & $\Delta\sigma_8/\sigma_8$\\\hline
-Planck & $+0.96$ & $0.8143$ & $0.8015$ & $-1.6\,\%$\\
-Planck + RSD & $+0.56$ & $0.8133$ & $0.8004$ & $-1.6\,\%$\\
-Planck + BAO & $+1.73$ & $0.8115$ & $0.7987$ & $-1.6\,\%$\\
-Planck + Pantheon+ & $+1.58$ & $0.8128$ & $0.7999$ & $-1.6\,\%$\\\hline
+\caption{Summary, $\mu_0$ fixed at the prediction, relative to $\Lambda$CDM in the same data combination. \measured}\label{tab:lt_summary}
+\begin{tabular}{lccccc}\hline
+Data & $\Delta\chi^2$ & $e^{-\Delta\chi^2/2}$ & $\sigma_8$ ($\Lambda$CDM) & $\sigma_8$ (fixed $\mu_0$) & $\Delta\sigma_8/\sigma_8$\\\hline
+Planck & $+0.96$ & 0.62 & $0.8143$ & $0.8015$ & $-1.6\,\%$\\
+Planck + RSD & $+0.56$ & 0.75 & $0.8133$ & $0.8004$ & $-1.6\,\%$\\
+Planck + BAO & $+1.73$ & 0.42 & $0.8115$ & $0.7987$ & $-1.6\,\%$\\
+Planck + Pantheon+ & $+1.58$ & 0.45 & $0.8128$ & $0.7999$ & $-1.6\,\%$\\\hline
 \end{tabular}\end{table}
 
-\subsection{The free amplitude}
-\begin{table}[htbp]\centering\small
-\caption{$\mu_0$ free, flat prior $[-0.5,+0.2]$: posterior median, lower end of the $90\,\%$ credible interval (the upper end is the prior edge), and the
-posterior probability below the prediction.}\label{tab:lt_free}
-\begin{tabular}{lccc}\hline
-Data & median & $90\,\%$ lower bound & $P(\mu_0<-0.135)$\\\hline
-Planck & $+0.059$ & $-0.305$ & $0.17$\\
-Planck + RSD & $+0.064$ & $-0.204$ & $0.10$\\
-Planck + BAO & $+0.047$ & $-0.304$ & $0.18$\\
-Planck + Pantheon+ & $+0.030$ & $-0.342$ & $0.21$\\\hline
-\end{tabular}\end{table}
-\calc\ In every combination the posterior rises to the prior's upper edge: $17$--$21\,\%$ of it lies above $+0.15$ (Fig.~\ref{fig:lt_mu0}). A mean and standard
-deviation therefore describe the prior range as much as the data, and the table gives the median and one-sided bound instead. The prediction lies inside
-every $90\,\%$ interval, as does general relativity. The direction of the pull is upward, toward enhanced growth; a run with a wider prior would show where the
-posterior turns over.
-\begin{figure}[htbp]\centering\includegraphics[width=0.65\textwidth]{figures/part2/fig_mu0_posterior_final.pdf}\caption{Posterior of $\mu_0$ with the amplitude free, Planck (dashed) and Planck + RSD (solid), from the final chain files. The prior ends at $+0.2$; the vertical line marks the prediction.}\label{fig:lt_mu0}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.66\textwidth]{figures/part2/fig_deltachi2_final.pdf}
+\caption{$\Delta\chi^2$ for $\mu_0=-0.135$ fixed, relative to $\Lambda$CDM, in each data combination, with the likelihood ratio $e^{-\Delta\chi^2/2}$
+(final chain files). The models have the same number of parameters. \measured}\label{fig:lt_dchi2}\end{figure}
 
-\section{Discussion}
+\subsection{The free amplitude}\label{sec:lt_free}
+\begin{table}[htbp]\centering\small
+\caption{$\mu_0$ free, flat prior $[-0.5,+0.2]$: posterior median, the lower end of the central $90\,\%$ credible interval (the $5\,\%$ quantile; the
+upper end, the $95\,\%$ quantile, lies at $+0.185$ to $+0.190$, against the prior edge), the posterior probability below the prediction and above
+$+0.15$, and the posterior mean $\pm$ standard deviation for reference. \measured}\label{tab:lt_free}
+\begin{tabular}{lccccc}\hline
+Data & median & $5\,\%$ quantile & $P(\mu_0<-0.135)$ & $P(\mu_0>0.15)$ & mean $\pm$ sd\\\hline
+Planck (B) & $+0.059$ & $-0.304$ & $0.17$ & $0.21$ & $+0.015\pm0.156$\\
+Planck + RSD (E) & $+0.064$ & $-0.204$ & $0.10$ & $0.21$ & $+0.039\pm0.125$\\
+Planck + BAO (H) & $+0.047$ & $-0.304$ & $0.18$ & $0.19$ & $+0.010\pm0.152$\\
+Planck + Pantheon+ (K) & $+0.030$ & $-0.342$ & $0.21$ & $0.17$ & $-0.008\pm0.163$\\\hline
+\end{tabular}\end{table}
+In every combination the posterior rises toward the prior's upper edge: $17$--$21\,\%$ of it lies above $+0.15$ (Fig.~\ref{fig:lt_mu0}) \measured. A
+mean and standard deviation therefore describe the prior range as much as the data, and Table~\ref{tab:lt_free} leads with the median and the
+quantiles. The prediction lies inside every central $90\,\%$ interval, and so does general relativity; the posterior probability below the
+prediction is $0.10$ to $0.21$. The data pull upward, toward enhanced growth ($\mu_0>0$). A run with a wider prior would show where the posterior
+turns over \openprob.
+
+\begin{figure}[htbp]\centering\includegraphics[width=0.66\textwidth]{figures/part2/fig_mu0_posterior_final.pdf}
+\caption{Marginalised posterior for $\mu_0$ with the amplitude free, Planck (Run B, dashed) and Planck + RSD (Run E, solid), from the final chain
+files. The vertical line marks the prediction $\mu_0=-0.135$, the dotted line GR; the prior ends at $+0.2$, where both posteriors are still
+rising. Both are consistent with the prediction. \measured}\label{fig:lt_mu0}\end{figure}
+
+\section{Discussion}\label{sec:lt_discussion}
 \subsection{Compatibility with current data}
-The main result is that a zero-parameter prediction, a $13.6\,\%$ weakening of the coupling for matter perturbations at $z=0$ from $\beta=\Omega_m/2$,
-passes the full Planck 2018 likelihood with no tension, and stays that way when growth-rate data, which probe the modification directly, are added. Most proposed
-late-time changes to gravity are excluded or tightly limited by Planck, so this consistency was not guaranteed.
+The principal result is that a zero-parameter prediction, a $13.6\,\%$ suppression of the effective gravitational coupling at $z=0$ from
+$\beta=\Omega_m/2$, passes the full Planck 2018 likelihood without tension. The values $\Delta\chi^2=+0.96$ (Planck) and $+0.56$ (Planck + RSD)
+correspond to likelihood ratios of $0.62$ and $0.75$ for a model with the same number of free parameters: the data do not prefer either model.
+Most proposed late-time modifications of gravity are excluded or tightly constrained by Planck; the compatibility of this prediction with current
+data was not guaranteed in advance and is a meaningful consistency check \interp.
+
+The result is stable across data combinations. Adding growth-rate data, which probe the modification directly, lowers $\Delta\chi^2$ rather than
+raising it: the predicted growth suppression is compatible with the measured $f\sigma_8(z)$.
 
 \subsection{The $\sigma_8$ shift}
-$\sigma_8$ falls from $\approx0.813$ to $\approx0.800$ ($1.6\,\%$) in every combination. It follows from $\mu<1$: the weaker source term in the Poisson equation slows
-growth and lowers $\sigma_8$, while the primary CMB spectrum is unchanged because $\Sigma=1$. The size is set by $\mu_0=-0.135$ alone; no late-time clustering datum
-was used, and the direction, toward the weak-lensing values, was not an input. KiDS-1000 cosmic shear reports $S_8=0.759^{+0.024}_{-0.021}$~\cite{Asgari2021} and DES Y3 $3\times2$pt $S_8=0.776\pm0.017$~\cite{DESY3} \observed; KiDS-Legacy
-gives $0.815^{+0.016}_{-0.021}$~\cite{Wright2025}.
-Whether this shift reduces the CMB--lensing difference quantitatively needs a joint analysis with the KiDS and DES likelihoods.
+The model shifts $\sigma_8$ downward from $\approx0.813$ to $\approx0.800$ in every combination. This $1.6\,\%$ reduction is a direct consequence of
+$\mu<1$: the weaker source term in the Poisson equation reduces the growth rate and hence $\sigma_8$, while the primary CMB spectrum is unchanged
+because $\Sigma=1$. Its size is set entirely by the predicted $\mu_0=-0.135$; it is not fitted to any late-time clustering datum, and its
+direction, toward the values reported by weak-lensing surveys, was not an input \prediction.
+
+For comparison, KiDS-1000 cosmic shear reports $S_8=0.759^{+0.024}_{-0.021}$ (Asgari et al.\ 2021~\cite{Asgari2021}), the KiDS-1000 multi-probe
+analysis $S_8=0.766^{+0.020}_{-0.014}$ (Heymans et al.\ 2021~\cite{Heymans2021}) and DES Y3 $3\times2$pt $S_8=0.776\pm0.017$ (Abbott et al.\
+2022~\cite{DESY3}), all below the Planck $\Lambda$CDM value; KiDS-Legacy gives $0.815^{+0.016}_{-0.021}$~\cite{Wright2025} \observed. Whether the
+shift produced by $\mu_0=-0.135$ quantitatively reduces the difference between CMB and weak-lensing constraints requires a joint analysis with the
+KiDS and DES likelihoods \openprob.
 
 \subsection{Comparison with other modified-gravity results}
-\observed\ Current constraints in the same parameterisation: DES Y3 with external data, $\mu_0=0.08^{+0.21}_{-0.19}$ (DES Y3 alone does not constrain $\mu_0$;
-Abbott et al.\ 2023~\cite{DESY3Ext}); DESI 2024 full shape with BAO and BBN, $\mu_0=0.11^{+0.45}_{-0.54}$, and with CMB and DES Y3, $0.04\pm0.22$ (DESI Collaboration 2025~\cite{DESI2024VII});
-ACT + WMAP + SDSS + SN, $\mu_0=0.02\pm0.19$ (Andrade et al.\ 2024~\cite{Andrade2024}). The prediction $\mu_0=-0.136$ is inside every one.
+The combination $\mu<1$, $\Sigma=1$ has received less observational attention than $\mu>1$. The most studied theories, $f(R)$ gravity, the normal
+branch of DGP and Horndeski scalar--tensor theories, generically produce $\mu\ge1$~\cite{PogosianSilvestri2016}; the self-accelerating DGP branch,
+which gives $\mu<1$ with $\Sigma=1$, is excluded~\cite{Koyama2007,Fang2008}. A suppression with $\Sigma$ unmodified is observationally distinguishable
+from all of them.
 
-\paragraph{What Euclid can resolve.}\label{sec:lt_euclid} \subsection{What next-generation surveys can do}
-With $\mu_0$ free, Planck + RSD gives $\sigma(\mu_0)=0.125$ (chain E), so the prediction is $1.1\sigma$ from general relativity at present precision \calc.
-Euclid's own forecasts are made for $\mu(z)=1+\mu_0\,\Omega_{\rm DE}(z)/\Omega_{\rm DE}(0)$~\cite{Albuquerque2025,Frusciante2025}. The 68\,\% error
-on $1+\mu_0$ is $23.3\,\%$ with conservative scale cuts and all primary probes, $4\,\%$ for weak lensing and photometric clustering alone taken to
-$k\approx4\,{\rm Mpc}^{-1}$, where the nonlinear modelling has been validated to 1\,\%, and of order $1\,\%$ for all probes with those scales.
-\observed{} The IAM $\mu(z)$ falls off with redshift faster than that template: for the same $\mu_0=-0.136$ it gives $\mu=0.982$ at $z=1$ against
-the template's $0.958$, so the significance is not $|\mu_0|/\sigma$. Matching the linear-growth deficit over $0<z<2$ gives a template-equivalent
+\observed\ Current constraints in the same parameterisation are already informative. DES Y3 alone does not constrain $\mu_0$; DES Y3 with external
+data gives $\mu_0=0.08^{+0.21}_{-0.19}$ (Abbott et al.\ 2023~\cite{DESY3Ext}). ACT + WMAP + SDSS + supernovae give $\mu_0=0.02\pm0.19$ (Andrade et al.\
+2024~\cite{Andrade2024}). The DESI 2024 full-shape analysis gives $\mu_0=0.11^{+0.45}_{-0.54}$ with BAO and BBN, and $0.04\pm0.22$ with CMB and DES Y3
+(DESI Collaboration 2025~\cite{DESI2024VII}). The predicted $\mu_0=-0.136$ lies inside the allowed region of every one.
+
+\subsection{What next-generation surveys can do}\label{sec:lt_euclid}
+With $\mu_0$ free, Planck + RSD gives $\sigma(\mu_0)=0.125$ (chain E), so at present precision the prediction is $1.1\sigma$ from general relativity
+\calc.
+
+Euclid's own forecasts are made for $\mu(z)=1+\mu_0\,\Omega_{\rm DE}(z)/\Omega_{\rm DE}(0)$~\cite{Albuquerque2025,Frusciante2025}. The $68\,\%$ error on
+$1+\mu_0$ is $23.3\,\%$ with conservative scale cuts and all primary probes, $4\,\%$ for weak lensing and photometric clustering alone taken to
+$k\approx4\,{\rm Mpc}^{-1}$, where the nonlinear modelling has been validated to $1\,\%$, and of order $1\,\%$ for all probes with those scales
+\observed. The IAM $\mu(z)$ falls off with redshift faster than that template: for the same $\mu_0=-0.136$ it gives $\mu=0.982$ at $z=1$ against the
+template's $0.958$, so the significance is not $|\mu_0|/\sigma$. Matching the linear-growth deficit over $0<z<2$ gives a template-equivalent
 $\mu_0\approx-0.07$ ($-0.03$ over the spectroscopic bins alone): about $0.3\sigma$ with conservative cuts, $1.8\sigma$ at $\sigma(\mu_0)=0.04$ and about
-$7\sigma$ at one per cent \calc{} (\texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}verify\_euclid\_template.py}). A forecast made
-with the IAM $\mu(z)$ itself, and for Euclid with CMB lensing and spectroscopic growth, is the first calculation still to be done. \openprob The MGCAMB form used here is the same $\Omega_{\rm DE}$-tracking form, so the published figure applies
-directly to the Level 1 runs.
+$7\sigma$ at one per cent \calc{} (\texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}verify\_euclid\_template.py}). A forecast
+made with the IAM $\mu(z)$ itself, and for Euclid with CMB lensing and spectroscopic growth, is the first calculation still to be done \openprob.
+The MGCAMB form used in this chapter is the same $\Omega_{\rm DE}$-tracking form, so the published Euclid figure applies directly to the runs here.
 
-\subsection{Limits of this analysis}
+For DESI, a growth-only estimate with assumed final-survey errors of $0.012$--$0.035$ on $f\sigma_8$ in seven bins between $z=0.30$ and $2.33$ (BGS,
+three LRG bins, two ELG bins, quasars) separates the IAM $\mu(z)$ from $\Lambda$CDM at about $0.75\sigma$, at the same primordial amplitude \calc.
+These per-bin errors are extrapolations, not published specifications, and the estimate is a lower bound on what full-shape and lensing
+cross-correlations would add \prediction.
+
+\subsection{Limitations and future directions}
 \begin{enumerate}
-\item \emph{Phenomenological.} Only the $\mu$--$\Sigma$ form is tested here; the derivation of $E(a)$ and $\beta$ is in Chapters~\ref{ch:theory} and \ref{ch:virial}.
-The results stand on their own: any model with $\mu_0\approx-0.135$ and $\Sigma=1$ faces the same tests.
-\item \emph{Perturbations only.} The background is $\Lambda$CDM throughout.
-\item \emph{MGCAMB form.} Eq.~\eqref{eq:lt_mgcamb} matches the exact $\mu$ at $z=0$ and high $z$ and departs from it by up to $2.8\,\%$ near $z\approx0.65$; small now,
-relevant at Euclid precision.
-\item \emph{Linear scales.} Cluster counts and small-scale lensing need N-body simulations or validated fitting functions.
-\item \emph{Weak-lensing likelihoods.} Not yet included; a joint analysis is the next step.
+\item \emph{Phenomenological framework.} Only a $\mu$--$\Sigma$ parameterisation is tested here. The activation function $E(a)$ and the coupling
+$\beta=\Omega_m/2$ come from horizon thermodynamics and the virial theorem (Chapters~\ref{ch:theory} and \ref{ch:virial}); no covariant action is
+assumed. The results stand independently of that derivation: any model with $\mu_0\approx-0.135$ and $\Sigma=1$ faces the same tests.
+\item \emph{Perturbation level only.} The background (the Friedmann equation) is $\Lambda$CDM throughout. The background-level alternative is
+tested with the coded mechanism in Chapter~\ref{ch:level2}.
+\item \emph{MGCAMB approximation.} The form $\mu(a)=1+\mu_0\Omega_{\rm DE}(a)/\Omega_\Lambda$ approximates but does not reproduce
+Eq.~\eqref{eq:lt_mu}. The difference, up to $2.8\,\%$ near $z\approx0.65$, is below present uncertainties and becomes relevant at Euclid precision.
+\item \emph{Linear scales only.} Nonlinear structure formation (cluster counts, small-scale lensing) is not included; extending $\mu$ to the
+nonlinear regime requires N-body simulations or validated fitting functions.
+\item \emph{Weak-lensing likelihoods.} The $\sigma_8$ shift is compared with the reported CMB--lensing difference but not tested directly against
+the KiDS, DES or HSC likelihoods; a joint analysis is the next step.
+\item \emph{Prior range of the free amplitude.} The free-$\mu_0$ posteriors reach the upper prior edge; a wider prior is needed to bound them from
+above.
 \end{enumerate}
 
-\section{Conclusions}
+\section{Conclusions}\label{sec:lt_conclusions}
+A comprehensive perturbation-level test of a scale-independent, late-time growth suppression, $\mu_0=-0.135$ within the standard $\mu$--$\Sigma$
+framework, gives these findings:
 \begin{enumerate}
-\item A fixed $13.6\,\%$ suppression of the coupling at $z=0$ is consistent with Planck 2018 ($\Delta\chi^2=+0.96$) and with Planck + SDSS growth data ($+0.56$).
-\item $\sigma_8$ moves from $\approx0.813$ to $\approx0.800$ with no other parameter degraded.
-\item With $\mu_0$ free, the prediction lies inside the $90\,\%$ credible interval in every combination; the posterior leans toward positive $\mu_0$ and reaches the prior edge.
-\item BAO and supernova distances are unaffected, as a perturbation-level change with $\Sigma=1$ requires.
-\item Euclid's sensitivity to this amplitude: $0.3\sigma$ to about $7\sigma$ for the IAM $\mu(z)$, depending on the scales used; a forecast with the IAM $\mu(z)$ is open.
+\item A fixed $13.6\,\%$ suppression of the gravitational coupling at $z=0$ is statistically indistinguishable from $\Lambda$CDM against Planck 2018
+($\Delta\chi^2=+0.96$) and remains so with growth-rate data added ($\Delta\chi^2=+0.56$).
+\item $\sigma_8$ moves from $\approx0.813$ to $\approx0.800$ without degrading any other cosmological parameter.
+\item With $\mu_0$ free, the prediction lies inside the central $90\,\%$ credible interval in every combination; the posterior leans toward positive
+$\mu_0$ and reaches the prior edge.
+\item BAO and supernova distances are unaffected, as a perturbation-level change with $\Sigma=1$ and an unmodified background requires.
+\item Euclid's sensitivity to the IAM $\mu(z)$ ranges from about $0.3\sigma$ to about $7\sigma$, depending on the scales it can model; a forecast with
+the IAM $\mu(z)$ itself is open.
 \end{enumerate}
-$\mu<1$ with $\Sigma=1$ lies in a less explored region than $f(R)$, DGP and most scalar--tensor theories; current data do not disfavour it, and it makes specific
-predictions for the next surveys. All chains, Cobaya configuration files and scripts are in the repository (\texttt{mgcamb\_validation/\allowbreak{}}).
+The parameterisation $\mu<1$, $\Sigma=1$ lies in a less explored region of the modified-gravity parameter space than $f(R)$, DGP and most
+scalar--tensor theories. Current data do not disfavour it, and it makes specific predictions for the next surveys. The mechanism itself, coded
+directly into the Boltzmann solver rather than imposed as a function, is the subject of Chapter~\ref{ch:level2}.
+
+\paragraph{Data.} All MCMC chains, Cobaya YAML configuration files, convergence diagnostics and analysis scripts are in the repository
+(\texttt{mgcamb\_validation/}: \texttt{chains/}, \texttt{yaml\_configs/}, \texttt{CHAIN\_EXTRACTION\_FINAL.csv}); the numbers of this chapter are
+recomputed by \texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}verify\_late\_time\_level2.py}.

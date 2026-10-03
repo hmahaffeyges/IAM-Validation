@@ -195,8 +195,8 @@ $\Delta\chi^2_{\min}$ is the difference between the lowest $\chi^2$ found in eac
        The direction is that of the weak-lensing surveys (KiDS-1000, DES Y3, HSC Y3~\cite{Asgari2021,DESY3,HSCY3}).
  \item When $\mu_0$ is left free, Planck alone cannot choose: the posteriors reach the prior's upper edge, and both zero and the prediction
        lie inside every $90\,\%$ interval, with $10$--$21\,\%$ of the posterior below the prediction.
- \item Placing the term in the background instead (Level 2b) drives $H_0$ to $61.45$ and $61.52$, far from every measurement.
-       The term acts on matter perturbations, not on the expansion.
+ \item The two background runs (Level 2b) coded $\beta_mE(a)H_0^2/a^2$ with $\Omega_\Lambda$ unreduced, not the term as written. The CMB fits them as well
+       as $\Lambda$CDM, with the expansion rate today $66.12$ and the sampled parameter $H_0=61.45$; the background form as written is still to be run.
  \item The Level 2 code, which writes the mechanism itself into CAMB, reproduces the Level 1 result ($\Delta\chi^2=+0.54$, $\sigma_8=0.800$).
 \end{enumerate}
 
@@ -228,8 +228,8 @@ baryon density free, Planck & -- & 1 & 20\,021 & 0.0099 & 1013.55\\\bottomrule
 \end{table}
 \begin{table}[htbp]\centering\small
 \caption[Level 2 and 2b posteriors]{Level~2 and 2b posterior means and standard deviations (30\,\% burn-in); $S_8=\sigma_8\sqrt{\Omega_m/0.3}$. With the
-term in the perturbations (Run A) $S_8$ is lower than in $\Lambda$CDM (Run C) by $0.0087$, $0.8\sigma$; with the term in the background (2b) $H_0$ falls
-to $61.5$. \measured}\label{tab:chain_level2}
+term in the perturbations (Run A) $S_8$ is lower than in $\Lambda$CDM (Run C) by $0.0087$, $0.8\sigma$; in the 2b runs (coded background term, Chapter~\ref{ch:level2}) the
+sampled $H_0$ is a parameter, and the expansion rate today is $1.0759H_0=66.12$. \measured}\label{tab:chain_level2}
 \begin{tabular}{lccccc}\toprule
 Run & $\sigma_8$ & $H_0$ & $\Omega_m$ & $S_8$ & $\Omega_m/2$\\\midrule
 A, IAM, Planck & $0.7998\pm0.0058$ & $67.16\pm0.47$ & $0.3166\pm0.0065$ & $0.822\pm0.011$ & $0.1583\pm0.0032$\\
@@ -241,7 +241,8 @@ D, IAM, Planck + RSD & $0.7995\pm0.0058$ & $67.19\pm0.46$ & $0.3162\pm0.0064$ & 
 \end{table}
 \measured\ The fixed coupling is consistent with the posterior of the Level~2 chain: $\Omega_m/2=0.1583\pm0.0032$, $0.2\sigma$ from $0.15765$; the
 $\Lambda$CDM chain gives $0.1581$. This is a consistency of the fixed value with the data, not a measurement of $\beta_m$, which no chain samples.
-The background runs sit $10.9\sigma$ below Planck's $H_0=67.36\pm0.54$ in units of Planck's error ($8.6\sigma$ with the chain error added in quadrature).
+In the 2b runs the lowest $\chi^2$ is $10970.77$ against $10972.07$ for $\Lambda$CDM: the coded background term fits the CMB as well, through a present
+expansion rate of $66.12\pm0.45$ and a matter fraction of $0.326$ \calc.
 
 \section{Two Hubble rates}
 

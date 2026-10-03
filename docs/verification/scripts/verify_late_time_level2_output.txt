@@ -1,0 +1,197 @@
+====================================================================================================
+A. Model algebra (sympy)
+====================================================================================================
+  ln E(a) = -int_a^1 da'/a'^2 = (a - 1)/a   -> E(a) = exp(1 - 1/a): True
+  E(1) = 1 ; lim_{a->0} E = 0 ; E(z) = e^{-z}: True
+  mu = H^2/H_m^2 = H^2/(H^2 + beta E H0^2); at a = 1 with H(1) = H0: 1/(beta + 1)
+  H_m/H at a = 1: sqrt(beta + 1)
+  MGCAMB: mu(a=1) - 1 = mu0 ; printed form without /Omega_L gives mu(1)-1 = mu0*(1 - Omega_m) (not mu0: LG1)
+  exact mu0 = 1/(1+beta) - 1 = -beta/(beta + 1)
+  background form at a = 1: H^2/H0^2 = Omega_m + Omega_r + Omega_L + beta -> closure needs Omega_L reduced by beta
+====================================================================================================
+B. Numbers from the coupling
+====================================================================================================
+  [ok] beta_m = Omega_m/2: 0.15765 (expected 0.15765 +/- 5e-06)
+  [ok] mu(0) = 1/(1+beta_m): 0.863819 (expected 0.8638 +/- 5e-05)
+  [ok] 1 - mu(0) (coupling deficit, %): 13.6181 (expected 13.62 +/- 0.005)
+  [ok] sqrt(1+beta_m): 1.07594 (expected 1.0759 +/- 5e-05)
+  [ok] mu(0) with Omega_m = 0.315 (rounded): 0.863931 (expected 0.864 +/- 0.0005)
+  [ok] exact mu0 = -beta/(1+beta): -0.136181 (expected -0.13618 +/- 5e-06)
+  [ok] beta giving the run value mu0 = -0.13495: 0.156003 (expected 0.156 +/- 5e-05)
+  [ok] difference of mu0 values: 0.00123106 (expected 0.0012 +/- 0.0001)
+  [ok] as a fraction of sigma(mu0) = 0.125 (free run E): 0.00984 (expected 0.01 +/- 0.002)
+  Table (z, a, E = e^-z, mu exact, H_m/H), Omega_m = 0.3153 [P3-corrected]:
+    z   0: a 1.000  E 1.0000  mu 0.8638  H_m/H 1.0759  MGCAMB mu 0.8650
+    z 0.2: a 0.833  E 0.8187  mu 0.9050  H_m/H 1.0512  MGCAMB mu 0.8902
+    z 0.5: a 0.667  E 0.6065  mu 0.9482  H_m/H 1.0270  MGCAMB mu 0.9228
+    z   1: a 0.500  E 0.3679  mu 0.9822  H_m/H 1.0090  MGCAMB mu 0.9579
+    z   2: a 0.333  E 0.1353  mu 0.9977  H_m/H 1.0012  MGCAMB mu 0.9853
+    z   3: a 0.250  E 0.0498  mu 0.9996  H_m/H 1.0002  MGCAMB mu 0.9935
+    z   5: a 0.167  E 0.0067  mu 1.0000  H_m/H 1.0000  MGCAMB mu 0.9980
+  [ok] mu(z=0.2): 0.904996 (expected 0.905 +/- 0.0005)
+  [ok] mu(z=0.5): 0.948158 (expected 0.948 +/- 0.0005)
+  [ok] H_m/H z=0.2: 1.05118 (expected 1.051 +/- 0.0005)
+  [ok] H_m/H z=0.5: 1.02697 (expected 1.027 +/- 0.0005)
+  [ok] max (mu_exact - mu_MGCAMB)/mu_exact (%): 2.75747 (expected 2.8 +/- 0.05)
+    at z = 0.65
+  [ok] gap at z = 1 (%): 2.47558 (expected 2.5 +/- 0.05)
+    gap at z = 0.5: 2.67 %, z = 2: 1.24 %, largest z with gap >= 1 %: 2.29; mu values at z = 0: exact 0.8638, MGCAMB 0.8650
+    E(a) at z = 3: 0.0498 ; mu(3) = 0.99962 ; mu(5) = 0.999985
+====================================================================================================
+C. Level 1 chains (MGCAMB), final files, 30 % burn-in, weighted
+====================================================================================================
+  --- Planck: samples (after burn-in) LCDM 12544, fixed 37177, free 48836
+    H0       LCDM 67.14481 +/- 0.50535 | fixed 67.07847 +/- 0.52548 | free 67.13898 +/- 0.53810
+    sigma8   LCDM 0.81433 +/- 0.00601 | fixed 0.80153 +/- 0.00584 | free 0.81576 +/- 0.01561
+    ombh2    LCDM 0.02234 +/- 0.00014 | fixed 0.02233 +/- 0.00014 | free 0.02233 +/- 0.00014
+    omch2    LCDM 0.12045 +/- 0.00115 | fixed 0.12060 +/- 0.00118 | free 0.12045 +/- 0.00121
+    omegal   LCDM 0.68170 +/- 0.00707 | fixed 0.68074 +/- 0.00737 | free 0.68163 +/- 0.00752
+    tau      LCDM 0.05619 +/- 0.00754 | fixed 0.05630 +/- 0.00737 | free 0.05585 +/- 0.00734
+    ns       LCDM 0.96388 +/- 0.00393 | fixed 0.96361 +/- 0.00398 | free 0.96391 +/- 0.00408
+    logA     LCDM 3.04928 +/- 0.01455 | fixed 3.05016 +/- 0.01443 | free 3.04883 +/- 0.01421
+    LCDM: Omega_m = 1 - Omega_L = 0.3183; S8 = 0.8388
+    fixed: Omega_m = 1 - Omega_L = 0.3193; S8 = 0.8268
+    free: Omega_m = 1 - Omega_L = 0.3184; S8 = 0.8403
+    chi2_min LCDM 1012.999, fixed 1013.955, free 1011.690;  Delta chi2 (fixed - LCDM) = +0.96; likelihood ratio e^(-D/2) = 0.62
+    Delta sigma8 = -0.0128 (-1.57 %)
+    free mu0: mean +0.015 +/- 0.156; median +0.059; 10 % quantile -0.219; 5 % quantile -0.304; 95 % quantile +0.189; P(mu0 < -0.135) = 0.17; P(mu0 > 0.15) = 0.21; (mean - (-0.135))/sd = 0.96; mean/sd = 0.09
+    final R-1 lcdm_baseline: 0.0089
+    final R-1 iam_fixed_mu0_r2: 0.0089
+    final R-1 iam_float_mu0_r2: 0.0099
+  --- Planck + RSD: samples (after burn-in) LCDM 18424, fixed 18144, free 20188
+    H0       LCDM 67.48857 +/- 0.41417 | fixed 67.48905 +/- 0.42184 | free 67.55159 +/- 0.39681
+    sigma8   LCDM 0.81329 +/- 0.00602 | fixed 0.80040 +/- 0.00599 | free 0.81662 +/- 0.01307
+    ombh2    LCDM 0.02239 +/- 0.00014 | fixed 0.02239 +/- 0.00014 | free 0.02240 +/- 0.00013
+    omch2    LCDM 0.11967 +/- 0.00094 | fixed 0.11967 +/- 0.00094 | free 0.11954 +/- 0.00089
+    omegal   LCDM 0.68654 +/- 0.00565 | fixed 0.68657 +/- 0.00571 | free 0.68740 +/- 0.00537
+    tau      LCDM 0.05823 +/- 0.00740 | fixed 0.05903 +/- 0.00739 | free 0.05806 +/- 0.00734
+    ns       LCDM 0.96578 +/- 0.00361 | fixed 0.96571 +/- 0.00364 | free 0.96595 +/- 0.00354
+    logA     LCDM 3.05201 +/- 0.01463 | fixed 3.05388 +/- 0.01459 | free 3.05134 +/- 0.01443
+    LCDM: Omega_m = 1 - Omega_L = 0.3135; S8 = 0.8313
+    fixed: Omega_m = 1 - Omega_L = 0.3134; S8 = 0.8181
+    free: Omega_m = 1 - Omega_L = 0.3126; S8 = 0.8336
+    chi2_min LCDM 1023.719, fixed 1024.283, free 1023.188;  Delta chi2 (fixed - LCDM) = +0.56; likelihood ratio e^(-D/2) = 0.75
+    Delta sigma8 = -0.0129 (-1.58 %)
+    free mu0: mean +0.039 +/- 0.125; median +0.064; 10 % quantile -0.138; 5 % quantile -0.204; 95 % quantile +0.190; P(mu0 < -0.135) = 0.10; P(mu0 > 0.15) = 0.21; (mean - (-0.135))/sd = 1.39; mean/sd = 0.31
+    final R-1 planck_rsd_lcdm_baseline: 0.0087
+    final R-1 planck_rsd_iam_fixed: 0.0078
+    final R-1 planck_rsd_mu0_float: 0.0084
+  --- Planck + BAO: samples (after burn-in) LCDM 12600, fixed 6552, free 14448
+    H0       LCDM 67.55680 +/- 0.44484 | fixed 67.53554 +/- 0.42546 | free 67.56674 +/- 0.44500
+    sigma8   LCDM 0.81151 +/- 0.00589 | fixed 0.79869 +/- 0.00604 | free 0.81257 +/- 0.01577
+    ombh2    LCDM 0.02240 +/- 0.00014 | fixed 0.02239 +/- 0.00013 | free 0.02240 +/- 0.00014
+    omch2    LCDM 0.11953 +/- 0.00099 | fixed 0.11956 +/- 0.00096 | free 0.11950 +/- 0.00100
+    omegal   LCDM 0.68746 +/- 0.00603 | fixed 0.68720 +/- 0.00579 | free 0.68762 +/- 0.00606
+    tau      LCDM 0.05685 +/- 0.00733 | fixed 0.05755 +/- 0.00742 | free 0.05684 +/- 0.00738
+    ns       LCDM 0.96612 +/- 0.00376 | fixed 0.96610 +/- 0.00374 | free 0.96630 +/- 0.00381
+    logA     LCDM 3.04864 +/- 0.01416 | fixed 3.05024 +/- 0.01473 | free 3.04850 +/- 0.01459
+    LCDM: Omega_m = 1 - Omega_L = 0.3125; S8 = 0.8283
+    fixed: Omega_m = 1 - Omega_L = 0.3128; S8 = 0.8155
+    free: Omega_m = 1 - Omega_L = 0.3124; S8 = 0.8291
+    chi2_min LCDM 1018.362, fixed 1020.091, free 1017.895;  Delta chi2 (fixed - LCDM) = +1.73; likelihood ratio e^(-D/2) = 0.42
+    Delta sigma8 = -0.0128 (-1.58 %)
+    free mu0: mean +0.010 +/- 0.152; median +0.047; 10 % quantile -0.219; 5 % quantile -0.304; 95 % quantile +0.188; P(mu0 < -0.135) = 0.18; P(mu0 > 0.15) = 0.19; (mean - (-0.135))/sd = 0.96; mean/sd = 0.07
+    final R-1 planck_bao_lcdm_baseline: 0.0096
+    final R-1 planck_bao_iam_fixed: 0.0058
+    final R-1 planck_bao_mu0_float: 0.0063
+  --- Planck + Pantheon+: samples (after burn-in) LCDM 21168, fixed 11760, free 26544
+    H0       LCDM 67.12142 +/- 0.51260 | fixed 66.99747 +/- 0.50101 | free 67.06557 +/- 0.52310
+    sigma8   LCDM 0.81277 +/- 0.00604 | fixed 0.79987 +/- 0.00560 | free 0.81225 +/- 0.01644
+    ombh2    LCDM 0.02233 +/- 0.00014 | fixed 0.02232 +/- 0.00014 | free 0.02232 +/- 0.00014
+    omch2    LCDM 0.12049 +/- 0.00114 | fixed 0.12077 +/- 0.00113 | free 0.12061 +/- 0.00117
+    omegal   LCDM 0.68140 +/- 0.00711 | fixed 0.67962 +/- 0.00703 | free 0.68060 +/- 0.00732
+    tau      LCDM 0.05428 +/- 0.00744 | fixed 0.05372 +/- 0.00726 | free 0.05382 +/- 0.00741
+    ns       LCDM 0.96385 +/- 0.00395 | fixed 0.96304 +/- 0.00391 | free 0.96357 +/- 0.00404
+    logA     LCDM 3.04511 +/- 0.01446 | fixed 3.04503 +/- 0.01393 | free 3.04475 +/- 0.01441
+    LCDM: Omega_m = 1 - Omega_L = 0.3186; S8 = 0.8376
+    fixed: Omega_m = 1 - Omega_L = 0.3204; S8 = 0.8266
+    free: Omega_m = 1 - Omega_L = 0.3194; S8 = 0.8381
+    chi2_min LCDM 2415.997, fixed 2417.582, free 2415.404;  Delta chi2 (fixed - LCDM) = +1.58; likelihood ratio e^(-D/2) = 0.45
+    Delta sigma8 = -0.0129 (-1.59 %)
+    free mu0: mean -0.008 +/- 0.163; median +0.030; 10 % quantile -0.254; 5 % quantile -0.342; 95 % quantile +0.185; P(mu0 < -0.135) = 0.21; P(mu0 > 0.15) = 0.17; (mean - (-0.135))/sd = 0.78; mean/sd = -0.05
+    final R-1 planck_pantheon_lcdm_baseline: 0.0085
+    final R-1 planck_pantheon_iam_fixed: 0.0072
+    final R-1 planck_pantheon_mu0_float: 0.0094
+  [ok] L1 Planck Delta chi2: 0.9555 (expected 0.96 +/- 0.01)
+  [ok] L1 Planck+RSD Delta chi2: 0.5639 (expected 0.56 +/- 0.01)
+  [ok] L1 Planck+BAO Delta chi2: 1.7295 (expected 1.73 +/- 0.01)
+  [ok] L1 Planck+Pantheon+ Delta chi2: 1.5845 (expected 1.58 +/- 0.01)
+====================================================================================================
+D. Level 2 chains (CAMB 1.5.8, equations_iam_level2.f90)
+====================================================================================================
+    H0         C 67.18786 +/- 0.46495 | A 67.16105 +/- 0.46686 | shift A-C -0.06 sigma | D 67.18922 +/- 0.46016 | D-A +0.06 | D-C +0.00
+    sigma8     C 0.80871 +/- 0.00593 | A 0.79975 +/- 0.00579 | shift A-C -1.51 sigma | D 0.79953 +/- 0.00580 | D-A -0.04 | D-C -1.55
+    S8         C 0.83025 +/- 0.01126 | A 0.82151 +/- 0.01109 | shift A-C -0.78 sigma | D 0.82079 +/- 0.01096 | D-A -0.07 | D-C -0.84
+    omega_b    C 0.02218 +/- 0.00013 | A 0.02217 +/- 0.00013 | shift A-C -0.07 sigma | D 0.02218 +/- 0.00013 | D-A +0.05 | D-C -0.02
+    omega_c    C 0.11989 +/- 0.00105 | A 0.11994 +/- 0.00105 | shift A-C +0.05 sigma | D 0.11988 +/- 0.00104 | D-A -0.06 | D-C -0.00
+    tau        C 0.05316 +/- 0.00735 | A 0.05369 +/- 0.00731 | shift A-C +0.07 sigma | D 0.05376 +/- 0.00727 | D-A +0.01 | D-C +0.08
+    n_s        C 0.96296 +/- 0.00399 | A 0.96296 +/- 0.00395 | shift A-C -0.00 sigma | D 0.96307 +/- 0.00401 | D-A +0.03 | D-C +0.03
+    ln10^10As  C 3.03934 +/- 0.01459 | A 3.04067 +/- 0.01446 | shift A-C +0.09 sigma | D 3.04056 +/- 0.01450 | D-A -0.01 | D-C +0.08
+    Omega_m    C 0.31622 +/- 0.00647 | A 0.31657 +/- 0.00650 | shift A-C +0.05 sigma | D 0.31619 +/- 0.00641 | D-A -0.06 | D-C -0.00
+  [ok] L2 sigma8 shift (sigma): -1.50896 (expected -1.51 +/- 0.01)
+  [ok] L2 S8 shift (sigma): -0.775296 (expected -0.78 +/- 0.01)
+    Delta sigma8 = -0.0090 = -1.11 %  [P13: 1.1 %, not 1.5 %]
+    lowest chi2: C 10972.07, A 10972.61, D 10979.43; Delta(A-C) = +0.54; likelihood ratio 0.76
+    chain-average chi2: C 10985.08, A 10985.07; Delta = -0.01
+    chain-average chi2 minus lowest: C 13.0, A 12.5
+    Run D chain averages: chi2 10991.34, CMB 10984.93, RSD 6.42; at the best point RSD 6.26; minimum RSD 5.84
+    final R-1 iam_level2_runA: 0.0099
+    final R-1 iam_level2_runC_lcdm: 0.0081
+    final R-1 iam_level2_runD: 0.0080
+    final R-1 iam_l2b_runA: 0.0100
+    final R-1 iam_l2b_runD: 0.0068
+    Omega_m (Run A) = 0.3166 +/- 0.0065; Omega_m/2 = 0.1583 +/- 0.0032; (Omega_m/2 - 0.15765)/(sd/2) = 0.20; relative 0.4 %
+  [ok] H0(matter) = H0_A sqrt(1+beta_m): 72.2614 (expected 72.26 +/- 0.005)
+  [ok] its uncertainty: 0.502311 (expected 0.5 +/- 0.005)
+  [ok] photon vs Planck (67.36 +/- 0.54): -0.37037 (expected -0.37 +/- 0.005)
+  [ok] matter vs SH0ES (73.04 +/- 1.04): -0.75 (expected -0.75 +/- 0.005)
+  [ok] Planck 67.4 +/- 0.5 vs SH0ES 73.04 +/- 1.04 (sigma): 4.88756 (expected 4.9 +/- 0.05)
+    TRGB (Freedman 2025) 70.39 +/- 1.94: below matter by 0.97 sigma, above photon by 1.67 sigma
+    Table: Run A posterior (H0 67.161, Omega_m 0.3166), beta_m 0.15765 [P3-corrected]
+      z 0: H 67.16  H_m 72.26  ratio 1.0759  E 1.000000  (H_m/H - 1) 7.594 %
+      z 0.5: H 88.89  H_m 91.29  ratio 1.0269  E 0.606531  (H_m/H - 1) 2.693 %
+      z 1: H 120.44  H_m 121.52  ratio 1.0090  E 0.367879  (H_m/H - 1) 0.898 %
+      z 2: H 204.05  H_m 204.29  ratio 1.0012  E 0.135335  (H_m/H - 1) 0.115 %
+      z 3: H 307.36  H_m 307.42  ratio 1.0002  E 0.049787  (H_m/H - 1) 0.019 %
+      z 5: H 558.14  H_m 558.14  ratio 1.0000  E 0.006738  (H_m/H - 1) 0.001 %
+    L2b A (background, Planck): H0 61.45 +/- 0.42; Omega_m 0.3777 +/- 0.0076; sigma8 0.7655 +/- 0.0055; S8 0.859; lowest chi2 10970.77 (vs C 10972.07: -1.31); CMB chi2 lowest 10970.77
+       (67.36 - H0)/0.54 = 10.9; in quadrature with own sd 8.6; vs SH0ES (73.04-H0)/hypot(1.04,sd) = 10.3; vs Run C: H0 -12.3 sigma, Omega_m +9.5 sigma
+    L2b D (background, Planck + growth): H0 61.52 +/- 0.43; Omega_m 0.3766 +/- 0.0077; sigma8 0.7651 +/- 0.0053; S8 0.857; lowest chi2 10979.45 (vs C 10972.07: +7.38); CMB chi2 lowest 10970.68
+       (67.36 - H0)/0.54 = 10.8; in quadrature with own sd 8.5; vs SH0ES (73.04-H0)/hypot(1.04,sd) = 10.3; vs Run C: H0 -12.2 sigma, Omega_m +9.3 sigma
+  [ok] background run H0 vs Planck in Planck sigma: 10.9356 (expected 10.9 +/- 0.05)
+    background patch: Delta(8piG rho a^4) = beta E a^2 rho0 -> Delta H^2/H0^2 = beta*exp((a - 1)/a)/a**2 ; at a = 1: beta
+    A_b: sampled H0 61.45 +/- 0.42 -> expansion rate today H(z=0) = H0 sqrt(1+beta_m) = 66.12 +/- 0.45; matter fraction today Omega_m/(1+beta_m) = 0.3263; (67.36 - H(0))/0.54 = 2.3; vs Run C H0: -2.3 sigma
+    D_b: sampled H0 61.52 +/- 0.43 -> expansion rate today H(z=0) = H0 sqrt(1+beta_m) = 66.19 +/- 0.46; matter fraction today Omega_m/(1+beta_m) = 0.3253; (67.36 - H(0))/0.54 = 2.2; vs Run C H0: -2.1 sigma
+    E(a)/a^2 at a = 0.5: 1.472 (E alone 0.368); max of E/a^2 at a = 0.5: 1.472
+====================================================================================================
+E. Growth of the coded mechanism (CAMB built from equations_iam_level2.f90, switch on/off, Run A means)
+====================================================================================================
+    z  0.0: sigma8 on/off 0.9880 | f = dln sigma8/dln a on 0.498 off 0.524 | CAMB fs8/s8 on 0.542 off 0.529 | fs8 (density) on/off 0.938 | CAMB fs8 on/off 1.011
+    z 0.25: sigma8 on/off 0.9931 | f = dln sigma8/dln a on 0.642 off 0.662 | CAMB fs8/s8 on 0.674 off 0.664 | fs8 (density) on/off 0.963 | CAMB fs8 on/off 1.007
+    z  0.5: sigma8 on/off 0.9962 | f = dln sigma8/dln a on 0.746 off 0.760 | CAMB fs8/s8 on 0.770 off 0.763 | fs8 (density) on/off 0.978 | CAMB fs8 on/off 1.005
+    z 0.75: sigma8 on/off 0.9979 | f = dln sigma8/dln a on 0.820 off 0.828 | CAMB fs8/s8 on 0.836 off 0.832 | fs8 (density) on/off 0.987 | CAMB fs8 on/off 1.003
+    z  1.0: sigma8 on/off 0.9988 | f = dln sigma8/dln a on 0.869 off 0.875 | CAMB fs8/s8 on 0.881 off 0.879 | fs8 (density) on/off 0.993 | CAMB fs8 on/off 1.002
+    z  1.5: sigma8 on/off 0.9996 | f = dln sigma8/dln a on 0.927 off 0.929 | CAMB fs8/s8 on 0.934 off 0.933 | fs8 (density) on/off 0.997 | CAMB fs8 on/off 1.001
+    z  2.0: sigma8 on/off 0.9999 | f = dln sigma8/dln a on 0.955 off 0.956 | CAMB fs8/s8 on 0.960 off 0.960 | fs8 (density) on/off 0.999 | CAMB fs8 on/off 1.000
+    z  3.0: sigma8 on/off 1.0000 | f = dln sigma8/dln a on 0.980 off 0.980 | CAMB fs8/s8 on 0.983 off 0.983 | fs8 (density) on/off 1.000 | CAMB fs8 on/off 1.000
+    z  5.0: sigma8 on/off 1.0000 | f = dln sigma8/dln a on 0.987 off 0.988 | CAMB fs8/s8 on 0.995 off 0.995 | fs8 (density) on/off 1.000 | CAMB fs8 on/off 1.000
+  [ok] sigma8 ratio code z=0: 0.987996 (expected 0.988 +/- 0.0005)
+  [ok] CAMB f / density f, switch on, z=0: 1.08772 (expected 1.088 +/- 0.01)
+    D ratio closed-form mu (z = 0, 0.5, 1): [0.9922 0.9978 0.9994]
+  [ok] closed-form D ratio z=0: 0.99223 (expected 0.9922 +/- 0.0005)
+    fsigma8 data z = 0.85: 0.315 +/- 0.095; LCDM (switch off, Run A means) 0.448; pull -1.39 sigma
+====================================================================================================
+F. f sigma8 deficit and Euclid template equivalence (as verify_euclid_template.py)
+====================================================================================================
+    IAM f sigma8 deficit % (z 0, 0.3, 0.5, 1): [4.25 2.17 1.35 0.41]
+  [ok] f sigma8 deficit z=0 (%): 4.25055 (expected 4.25 +/- 0.01)
+    MGCAMB-form (mu0 = -0.136) deficit %: [6.19 4.14 3.14 1.62]
+    mu(z=1): IAM 0.982, template 0.958
+    spectroscopic 0.9-1.7    template-equivalent mu0 -0.031: /0.233 = 0.13, /0.04 = 0.8, /0.01 = 3 sigma
+    photometric 0.2-2.0      template-equivalent mu0 -0.062: /0.233 = 0.27, /0.04 = 1.5, /0.01 = 6 sigma
+    all 0-2                  template-equivalent mu0 -0.072: /0.233 = 0.31, /0.04 = 1.8, /0.01 = 7 sigma
+    present precision: 0.136/0.125 = 1.09 sigma from GR (MGCAMB form, chain E)
+    DESI Y5 growth-only (assumed errors [0.02, 0.015, 0.012, 0.015, 0.02, 0.022, 0.035]): LCDM fs8 [0.472, 0.473, 0.46, 0.438, 0.394, 0.374, 0.296], IAM [0.462, 0.467, 0.457, 0.436, 0.393, 0.374, 0.296]; distinction sqrt(chi2) = 0.75 sigma
+====================================================================================================
+SUMMARY: 31 of 31 checks pass
+====================================================================================================

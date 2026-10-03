@@ -131,9 +131,8 @@ applies at equal parameter count \calc.
 \item $\sigma_8$: $0.809\to0.800$---shifting in the direction reported by KiDS-1000, DES~Y3, HSC~Y3~\cite{Asgari2021,DESY3,HSCY3} \measured.
 \item $H_0(\mathrm{photon})=67.16\pm0.47$ km\,s$^{-1}$\,Mpc$^{-1}$ ($0.37\sigma$ from Planck~\cite{Planck2018VI}) \measured.
 \item $H_0(\mathrm{matter})=72.26\pm0.50$ km\,s$^{-1}$\,Mpc$^{-1}$ ($0.75\sigma$ from SH0ES~\cite{Riess2022}) \calc.
-\item Falsification boundary: applying the modification to the background Friedmann equation yields $H_0=61.45\pm0.42$ and $61.52\pm0.43$
-km\,s$^{-1}$\,Mpc$^{-1}$, $10.9\sigma$ below Planck in units of Planck's error ($8.6\sigma$ with the chain error added in quadrature), establishing that IAM
-operates at the perturbation level only \measured.
+\item Background placement: the two Level~2b chains coded $\beta_mE(a)H_0^2/a^2$ with $\Omega_\Lambda$ unreduced; the CMB fits them as well as $\Lambda$CDM,
+with the expansion rate today $66.12\pm0.45$ \measured. The background form as written is still to be run \openprob.
 \item Photon coupling: fitted to the acoustic scale, $\beta_\gamma<0.0039$ ($95\,\%$), so $\beta_\gamma/\beta_m<0.025$ \calc.
 \item Supernovae: their distances follow $\Lambda$CDM geometry; the $\beta$ term applied to them is excluded ($\Delta\chi^2=+23.6$;
 Chapter~\ref{ch:dsvalidation}) \observed.
@@ -169,7 +168,7 @@ $\Omega_m(a;\beta_m)/\Omega_m(a;0)-1=\mu-1$: $-13.6\,\%$ at $z=0$. Script \textt
 \caption[Growth rates in four models, and $S_8$]{(a) Growth rates across four models: $f\sigma_8$ relative to $\Lambda$CDM (A; same early amplitude) for
 B, the record term in the background only ($H^2=H^2_{\Lambda\rm CDM}+\beta_mE H_0^2$, $\mu=1$), $-9.4\,\%$ at $z=0$; C, in the perturbations only
 ($\mu(a)$, $\Lambda$CDM background; the dual-sector form), $-4.25\,\%$ at $z=0$, $-1.35\,\%$ at $z=0.5$, $-0.41\,\%$ at $z=1$; D, both, $-13.2\,\%$. The
-background placements are the ones the CMB rejects (Level~2b, $H_0\approx61.5$). (b) $S_8=\sigma_8\sqrt{\Omega_m/0.3}$ from growth and matter dilution:
+background placements have not been run against the CMB in the form written here (Chapter~\ref{ch:level2}). (b) $S_8=\sigma_8\sqrt{\Omega_m/0.3}$ from growth and matter dilution:
 Planck 2018 published $0.832\pm0.013$~\cite{Planck2018VI}; Level~2 chains with the same code, $\Lambda$CDM $0.830\pm0.011$ and $\beta_m$ fixed $0.822\pm0.011$
 \measured; KiDS-Legacy $0.815^{+0.016}_{-0.021}$~\cite{Wright2025}, DES Y3 $3\times2$pt $0.776\pm0.017$~\cite{DESY3}, KiDS-1000 cosmic shear
 $0.759^{+0.024}_{-0.021}$~\cite{Asgari2021} \observed. Script \texttt{figscripts/\allowbreak{}fig\_p2\_dual\_sector.py}. \calc}\label{fig:dsnote_growth}

@@ -549,8 +549,8 @@ combination \observed.
 Level~1 validation used MGCAMB~\cite{Zhao2009MGCAMB,Wang2023MGCAMB} with Cobaya~\cite{Torrado2021} in the $\mu$--$\Sigma$ parametrization: twelve chains, four
 dataset combinations (Planck alone, Planck with redshift-space distortions, Planck with BAO, Planck with Pantheon+~\cite{Brout2022}). Level~2 validation used
 a direct modification of CAMB~\cite{Lewis2000CAMB} implementing the matter growth equation, Eq.~\eqref{eq:law_growth}, through the matter-sector expansion rate
-in the Boltzmann solver (three chains). Two Level~2b exploratory runs applying the modification at the background Friedmann level produced
-$H_0\approx61.5$\,km\,s$^{-1}$Mpc$^{-1}$, which BAO and the distance ladder exclude: the term belongs in the perturbations. Every chain ends at
+in the Boltzmann solver (three chains). Two Level~2b runs placed a background term in the expansion rate; as coded it was $\beta_mE(a)H_0^2/a^2$ with $\Omega_\Lambda$ unreduced, and the CMB
+fits it as well as $\Lambda$CDM through a lower expansion rate today ($66.12$). The background form as written has not been run \openprob. Every chain ends at
 $R-1\le0.010$~\cite{Gelman1992} with no discarded run (Chapter~\ref{ch:dual}) \measured.
 
 \section{The exponent: from the horizon and from the halos}\label{sec:law_exponent}

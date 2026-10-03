@@ -549,5 +549,19 @@
  },
  "COS-024": {
   "exclude": "side prediction left out of the book"
+ },
+ "COS-005": {
+  "statement": [
+   [
+    "Measured: applying the beta_m E(a) term to the background Friedmann equation gives H0 = 61.45 +/- 0.42 against Planck 2018, excluded at 10.9 sigma versus 67.36 +/- 0.54, so the effect belongs in the perturbations only.",
+    "Background placement: the two Level 2b chains coded beta_m E(a) H0^2/a^2 with Omega_Lambda unreduced, not the term as written; the CMB fits them as well as LCDM (chi2 10970.77 vs 10972.07) with the expansion rate today 66.12 +/- 0.45. The background form as written has not been run."
+   ]
+  ]
+ },
+ "COS-240": {
+  "exclude": "same as COS-005"
+ },
+ "COS-241": {
+  "exclude": "same as COS-005"
  }
 }
