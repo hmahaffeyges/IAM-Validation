@@ -23,7 +23,7 @@ from _texify import esc, path, check  # noqa: E402
 OUT = BOOK / "appendices" / "app_I_provenance.tex"
 SKIP = {"appendices/app_B_errata_physics", "appendices/app_B2_errata_cells"}      # leave the book
 EXTRA = ["part5/p5_11_status_all", "appendices/app_G_predictions_register"]        # new, not yet in main.tex
-NOTSOURCE = re.compile(r"LEDGER|NOTE|PLAN\.md|MANIFEST|GLOSSARY|read_ledgers|/sop/|^sop/|manual/|docs/papers|RETIRED|TODO", re.I)
+NOTSOURCE = re.compile(r"ERRATA|LEDGER|NOTE|PLAN\.md|MANIFEST|GLOSSARY|read_ledgers|/sop/|^sop/|manual/|docs/papers|RETIRED|TODO", re.I)
 
 
 def strip_comments(s):
@@ -103,7 +103,7 @@ def direct_refs(line):
     if re.search(r"\bCH\.L2\b", line):
         d.append("Level 2 chains, camb_validation/chains (via _chains.py)")
     if re.search(r"\bK\.\w+", line):
-        d.append("linear growth computed in _cosmo.py (no data file)")
+        d.append("_cosmo.py (linear growth, no data file)")
     if "iam_canon" in line:
         d.append("CANON/iam_canon.json")
     if "DataRelease" in line or "PANTHEON_DIR" in line:
@@ -219,12 +219,24 @@ for inp, s in SRC.items():
         TABROWS.append(dict(inp=inp, ch=CH[inp], line=l0, kind=kind, label=lab[0] if lab else None, src=src, how=how,
                             cites=cites, own=own, chs=chs))
 
-# ---------------- typeset ----------------
-def fmt_data(x):
-    if " (" in x:
-        p, rest = x.split(" (", 1)
-        return (path(p) if ("/" in p or "." in p) and " " not in p else esc(p)) + " (" + esc(rest)
-    return path(x) if ("/" in x or "." in x) and " " not in x else esc(x)
+# ---------------- typeset (rewritten 2026-10-03: grouped by Part, what each item shows, clickable links, capped lists) ----------------
+from urllib.parse import quote
+GH = "https://github.com/hmahaffeyges/IAM-Validation/blob/main/"
+ROMAN = {1: "I", 2: "II", 3: "III", 4: "IV", 5: "V", 6: "VI", 7: "VII", 8: "VIII"}
+
+# which Part each input belongs to, from the \part headings of main.tex
+PART, PNAME, cur, curname = {}, {}, 0, "Front matter"
+for line in strip_comments(main).splitlines():
+    m = re.match(r"\s*\\part\{(.+?)\}", line)
+    if m:
+        cur += 1; curname = f"Part {ROMAN[cur]}: " + m.group(1)
+    if re.match(r"\s*\\appendix", line):
+        cur, curname = 99, "Appendices"
+    m = re.search(r"\\input\{([^}]+)\}", line)
+    if m:
+        PART[m.group(1)] = cur; PNAME[cur] = curname
+for e in EXTRA:
+    PART.setdefault(e, 99 if e.startswith("appendices") else max(v for v in PART.values() if v < 99)); PNAME.setdefault(99, "Appendices")
 
 
 def chref(lab):
@@ -233,78 +245,173 @@ def chref(lab):
     return (r"App.~\ref{" if lab.startswith("app") else r"Ch.~\ref{") + lab + "}"
 
 
+def href(pth, text=None, lines=None):
+    """A clickable link to a file on GitHub, shown by its file name."""
+    url = GH + quote(pth) + (f"#L{lines[0]}-L{lines[1]}" if lines else "")
+    url = url.replace("%", "\\%").replace("#", "\\#")
+    t = esc(text or os.path.basename(pth)).replace("\\_", "\\_\\allowbreak{}")
+    return r"\href{" + url + r"}{\texttt{" + t + "}}"
+
+
+def brace(s, i):
+    """Return the contents of the brace group that opens at s[i] == '{'."""
+    d = 0
+    for k in range(i, len(s)):
+        if s[k] == "{": d += 1
+        elif s[k] == "}":
+            d -= 1
+            if d == 0: return s[i + 1:k]
+    return s[i + 1:]
+
+
+STATUS = r"\\(?:derived|calc|calibrated|measured|observed|fitted|conjecture|analogy|prediction|openprob|interp)\b(?:\{\})?"
+
+
+def shows(blk, words=16):
+    """First sentence of the caption, short, safe to typeset."""
+    m = re.search(r"\\caption(?:of\{[a-z]+\})?(?:\[[^\]]*\])?\{", strip_comments(blk))
+    if not m:
+        return None
+    c = brace(strip_comments(blk), m.end() - 1)
+    c = re.sub(r"\\label\{[^}]*\}|~?\\cite[pt]?\*?(?:\[[^\]]*\])?\{[^}]*\}|" + STATUS, "", c)
+    c = re.sub(r"\((?:[a-z])\)\s*", "", c)                      # panel letters
+    c = re.sub(r"\\(?:textbf|emph|textit|mathrm)\{([^{}]*)\}", r"\1", c)
+    c = re.sub(r"(?:Figure|Fig\.|Table|Eq\.|Eqs\.|Chapter|Section|Ch\.)~?\\(?:eq)?ref\{[^}]*\}", "", c)
+    c = re.sub(r"\\(?:eq)?ref\{[^}]*\}", "", c)
+    c = re.sub(r"\(\s*\)|\[\s*\]", "", c)                     # brackets emptied by removed refs
+    c = re.sub(r"\b(in|see)\s+([,.;:])", r"\2", c)   # 'in , counted' -> ', counted'
+    c = re.sub(r"\b(Part|Chapter|Section)\s+(?=[,.;:)])", "", c)
+    c = re.sub(r"\s+([,.;:])", r"\1", c)
+    c = re.sub(r"\s+", " ", c).strip(" ,;:")
+    # first sentence outside math
+    out, inm = "", False
+    for k, ch in enumerate(c):
+        if ch == "$": inm = not inm
+        out += ch
+        if ch == "." and not inm and (k + 1 == len(c) or c[k + 1] == " ") and len(out) > 25:
+            break
+    w = out.split()
+    if len(w) > words:
+        out = " ".join(w[:words]); out = out if out.count("$") % 2 == 0 else re.sub(r"\$[^$]*$", "", out)
+        out = out.rstrip(" ,;:.") + "\\ldots"
+    if check(out) is not None or out.count("{") != out.count("}"):
+        out = re.sub(r"\$[^$]*\$|\\[A-Za-z]+|[{}^_]", " ", out); out = esc(re.sub(r"\s+", " ", out).strip())
+    return out or None
+
+
+# caption text for each figure and table row
+for r in FIGROWS:
+    s_ = SRC[r["inp"]]; a = s_.rfind("\\begin{figure", 0, s_.find(r["file"]) + 1)
+    r["shows"] = shows(s_[a:s_.find("\\end{figure", a)]) if a >= 0 else None
+for r in TABROWS:
+    s_ = SRC[r["inp"]]; lines_ = s_.splitlines(); a = len("\n".join(lines_[:r["line"] - 1]))
+    e = min([x for x in (s_.find("\\end{table", a), s_.find("\\end{longtable", a), s_.find("\\end{tabular", a)) if x > 0] or [len(s_)])
+    r["shows"] = shows(s_[a:e], 14)
+    if not r["shows"]:
+        # no caption: name the section the table sits in and its column headings
+        secs = list(re.finditer(r"\\(?:sub)*section\*?\{([^{}]*)\}", strip_comments(s_[:a])))
+        sec = secs[-1].group(1) if secs else None
+        blk = strip_comments(s_[a:e])
+        hm = re.search(r"\\toprule\s*(.*?)\\\\", blk, re.S) or re.search(r"\}\s*\n(.*?)\\\\", blk, re.S)
+        head = None
+        if hm:
+            cells = [re.sub(r"\$[^$]*\$", "", c).replace("\\%", " percent ") for c in hm.group(1).split("&")]
+            cells = [re.sub(r"\\[A-Za-z]+\*?|[{}~^_\\]", " ", c) for c in cells]
+            cells = [re.sub(r"\s+", " ", c).strip().replace(" percent ", "\\,\\% ").replace(" percent", "\\,\\%") for c in cells]
+            cells = [re.sub(r"\(\s*\)", "", c).strip(" ,") for c in cells]
+            cells = [c for c in cells if c and c not in (",", "(", ")") and not re.fullmatch(r"\(.*\)", c)]
+            cells = [c for c in cells if c and len(c) < 40 and not re.fullmatch(r"[-+0-9.,()\s]+", c)][:5]
+            head = ", ".join(cells) if cells else None
+        txt = (f"in \u201c{sec}\u201d" if sec else "") + (f": {head}" if head else "")
+        txt = txt.strip(": ")
+        r["shows"] = (txt if check(txt) is None and txt.count("{") == txt.count("}") else esc(re.sub(r"\$[^$]*\$|\\[A-Za-z]+", "", txt))) if txt else None
+
+
+def data_cell(items, cap=3):
+    parts = []
+    for x in items[:cap]:
+        note = ""
+        if " (" in x:
+            x, note = x.split(" (", 1); note = " (" + esc(note)
+        parts.append((href(x) if (REPO / x).is_file() else esc(x)) + note)
+    more = len(items) - cap
+    return "; ".join(parts) + (f"; and {more} more" if more > 0 else "")
+
+
 L = [r"% Generated by docs/book/figscripts/make_app_I.py from the book source and the repository. Do not edit by hand.",
      r"\chapter{Figure and data provenance}\label{app:provenance}", "",
-     r"This appendix lists, in the order of the book, the script in the repository \url{https://github.com/hmahaffeyges/IAM-Validation}",
-     r"that draws each figure and the data that script reads, and the record or script behind each table of numbers, so that a",
-     r"reader can rerun each figure and trace each number. Paths are relative to the repository root. The chain",
-     r"helper \texttt{docs/\allowbreak{}book/\allowbreak{}figscripts/\allowbreak{}\_chains.py} reads the Cobaya chains with",
-     r"a 30\,\% burn-in and weighted statistics; the growth helper \texttt{\_cosmo.py} in the same folder solves the linear",
-     r"growth equation with the same early amplitude for $\Lambda$CDM and for IAM. A figure whose script reads no file is",
-     r"computed from constants and from the values written in the script, which are those of the chapter that shows it.",
-     r"Where one script draws several figures, the last column lists every file that script reads.",
-     r"This list is generated by \texttt{docs/\allowbreak{}book/\allowbreak{}figscripts/\allowbreak{}make\_app\_I.py}.", ""]
+     r"Every figure and every table of numbers in the book, Part by Part, with what it shows and where it comes from. Each file",
+     r"name is a link to that file in the public repository \url{https://github.com/hmahaffeyges/IAM-Validation}; a script link",
+     r"opens at the lines that draw the figure. To redraw a figure, run its script from the repository root. Figures computed",
+     r"in the script read no data file: their numbers are physical constants and the values stated in the chapter. Chain",
+     r"figures read the Cobaya chains through \texttt{\_chains.py} (30\,\% burn-in, weighted statistics), and growth figures use",
+     r"\texttt{\_cosmo.py}, which solves the linear growth equation for $\Lambda$CDM and for IAM from the same early amplitude.", ""]
 
-L.append(r"\section{Figures}")
-COLS = (r"{@{}>{\raggedright\arraybackslash}p{0.07\textwidth}>{\raggedright\arraybackslash}p{0.08\textwidth}"
-        r">{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.27\textwidth}"
-        r">{\raggedright\arraybackslash}p{0.29\textwidth}@{}}")
-H = r"figure & chapter & file & script (lines) & data the script reads\\\midrule"
-L += [r"{\footnotesize\begin{longtable}" + COLS, r"\toprule " + H + r"\endfirsthead", r"\toprule " + H + r"\endhead",
-      r"\bottomrule\endfoot"]
-for r in FIGROWS:
-    fig = r"\ref{" + r["label"] + "}" if r["label"] else "unlabelled"
-    f = path(r["file"].replace("figures/", "")) + ("" if r["exists"] else r" (file missing)")
-    if r["script"]:
-        sc = path(r["script"]) + (f" ({r['lines'][0]}--{r['lines'][1]})" if r["lines"] else "")
-        if not r["script"].startswith("docs/book/figscripts"):
-            sc += "; writes outside the book tree"
-        dat = "; ".join(fmt_data(x) for x in r["data"]) or "constants and values in the script"
-    else:
-        sc, dat = r"\emph{no script found}", "---"
-    line = f"{fig} & {chref(r['ch'])} & {f} & {sc} & {dat}\\\\"
-    assert check(line) is None, (check(line), line)
-    L.append(line)
-L += [r"\end{longtable}}", ""]
-L.append(f"Of the {len(FIGROWS)} figures, {len(FIGROWS) - len(NOSCRIPT)} have a script in the repository that writes a"
-         f" file of that name; {sum(1 for r in FIGROWS if r['script'] and r['script'].startswith('docs/book/figscripts'))}"
-         r" of these scripts are in \texttt{docs/\allowbreak{}book/\allowbreak{}figscripts}, which writes straight into"
-         r" the figure folders of the book.")
-if NOSCRIPT:
-    L.append(f" No script was found for the following {len(NOSCRIPT)}; until one is added, these figures cannot be"
-             r" regenerated from the repository:")
-    L.append(r"\begin{itemize}\setlength\itemsep{0pt}\small")
-    for r in NOSCRIPT:
-        fig = r"Figure~\ref{" + r["label"] + "}" if r["label"] else "an unlabelled figure"
-        L.append(r"\item " + fig + f", {chref(r['ch'])}: " + path(r["file"]))
-    L.append(r"\end{itemize}")
-L.append("")
+FC = (r"{@{}>{\raggedright\arraybackslash}p{0.07\textwidth}>{\raggedright\arraybackslash}p{0.40\textwidth}"
+      r">{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}p{0.24\textwidth}@{}}")
+FH = r"Fig. & what it shows & script & data it reads\\\midrule"
+TC = (r"{@{}>{\raggedright\arraybackslash}p{0.10\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}"
+      r">{\raggedright\arraybackslash}p{0.39\textwidth}@{}}")
+TH = r"Table & what it shows & where the numbers come from\\\midrule"
 
-L.append(r"\section{Tables of numbers}")
-L.append(r"A table without a label is identified by its chapter and its line in the chapter source file. The column")
-L.append(r"`how' says where the source was found: inside the table, within fifteen lines of it, as a published value cited in")
-L.append(r"it, in the chapters its rows cite, or among the records and scripts the chapter names.")
-COLS2 = (r"{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.09\textwidth}"
-         r">{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.58\textwidth}@{}}")
-H2 = r"table & chapter & how & record or script\\\midrule"
-L += [r"{\footnotesize\begin{longtable}" + COLS2, r"\toprule " + H2 + r"\endfirsthead", r"\toprule " + H2 + r"\endhead",
-      r"\bottomrule\endfoot"]
-for r in TABROWS:
-    t = r"\ref{" + r["label"] + "}" if r["label"] else path(r["inp"].split("/")[-1] + ".tex") + f", line {r['line']}"
-    parts = [path(n) + ("" if ok else " (not in repository)") for n, ok in r["src"]]
-    if r["cites"] and r["how"] == "published values cited in the table":
-        parts.append(r"\cite{" + ",".join(r["cites"]) + "}")
+
+def table_source(r):
+    if r["how"] == "published values cited in the table":
+        return "published values: " + r"\cite{" + ",".join(r["cites"]) + "}"
     if r["how"] == "chapters cited in the table":
-        parts.append(f"{len(r['chs'])} chapters and appendices, each named in its row")
-    line = f"{t} & {chref(r['ch'])} & {r['how']} & {'; '.join(parts) or '---'}\\\\"
-    assert check(line) is None, (check(line), line)
-    L.append(line)
-L += [r"\end{longtable}}", ""]
+        return f"derived in the chapters each row names ({len(r['chs'])})"
+    if r["how"] == "none named":
+        return "values stated in the chapter text"
+    ok = [n for n, good in r["src"] if good]
+    if r["how"] == "records the chapter names":
+        if not ok:
+            return "values stated in the chapter text"
+        return "records named in the chapter: " + data_cell(ok, 2)
+    return data_cell(ok or [n for n, _ in r["src"]], 3)
+
+
+for kind in ("Figures", "Tables of numbers"):
+    L.append(r"\section{" + kind + "}")
+    rows = FIGROWS if kind == "Figures" else TABROWS
+    for pn in sorted({PART.get(r["inp"], 0) for r in rows}):
+        sub = [r for r in rows if PART.get(r["inp"], 0) == pn]
+        if not sub:
+            continue
+        L.append(r"\subsection*{" + esc(PNAME.get(pn, "Front matter")) + "}")
+        L += [r"{\footnotesize\setlength{\tabcolsep}{3pt}\begin{longtable}" + (FC if kind == "Figures" else TC),
+              r"\toprule " + (FH if kind == "Figures" else TH) + r"\endfirsthead",
+              r"\toprule " + (FH if kind == "Figures" else TH) + r"\endhead", r"\bottomrule\endfoot"]
+        for r in sub:
+            what = r.get("shows") or ("see " + chref(r["ch"]) if r["ch"] else "frontispiece")
+            where = f" ({chref(r['ch'])})" if r["ch"] else ""
+            if kind == "Figures":
+                ref = r"\ref{" + r["label"] + "}" if r["label"] else "---"
+                if r["script"]:
+                    sc = href(r["script"], lines=r["lines"]) + (f" (lines {r['lines'][0]}--{r['lines'][1]})" if r["lines"] else "")
+                    nfig = sum(1 for x in FIGROWS if x["script"] == r["script"])
+                    if r["data"] and nfig > 1 and len(r["data"]) > 3:
+                        dat = f"files read by the script ({len(r['data'])}, shared by its {nfig} figures)"
+                    else:
+                        dat = data_cell(r["data"]) if r["data"] else "computed in the script"
+                else:
+                    sc, dat = "script to be added", "---"
+                line = f"{ref} & {what}{where} & {sc} & {dat}\\\\"
+            else:
+                ref = r"\ref{" + r["label"] + "}" if r["label"] else f"{chref(r['ch'])}, unnumbered"
+                line = f"{ref} & {what}{'' if not r['label'] else ' (' + chref(r['ch']) + ')'} & {table_source(r)}\\\\"
+            assert check(line) is None, (check(line), line)
+            L.append(line)
+        L += [r"\end{longtable}}", ""]
+    if kind == "Figures":
+        L.append(f"{len(FIGROWS) - len(NOSCRIPT)} of the {len(FIGROWS)} figures are drawn by a script in the repository.")
+        if NOSCRIPT:
+            L.append(f" The scripts for the other {len(NOSCRIPT)} are being added:")
+            L.append(r"\begin{itemize}\setlength\itemsep{0pt}\small")
+            for r in NOSCRIPT:
+                L.append(r"\item Figure~\ref{" + r["label"] + "}" + f", {chref(r['ch'])}" if r["label"] else r"\item an unlabelled figure")
+            L.append(r"\end{itemize}")
+        L.append("")
 nn = [r for r in TABROWS if r["how"] == "none named"]
-L.append(f"Of the {len(TABROWS)} tables of numbers, {len(TABROWS) - len(nn)} have a source named in the book;"
-         f" {sum(1 for r in TABROWS if r['how'] == 'records the chapter names')} of these are traced only through the"
-         r" records their chapter names.")
-L.append("")
 tex = "\n".join(L) + "\n"
 assert check(tex) is None, check(tex)
 OUT.write_text(tex)
@@ -329,11 +436,3 @@ for r in nn:
     print("NONE", r["inp"], r["line"], r["label"])
 
 
-# --- post-process (2026-10-02): keep the generated table inside the text width
-import re as _re
-_f = OUT
-_s = open(_f, encoding="utf-8").read()
-_s = _re.sub(r"/(?!\\allowbreak)", "/\\\\allowbreak{}", _s).replace("Runtime Matrices", "Runtime\\ Matrices")
-_s = _s.replace("{\\footnotesize\\begin{longtable}", "{\\footnotesize\\setlength{\\tabcolsep}{3pt}\\begin{longtable}")
-_s = _s.replace("\\_", "\\_\\allowbreak{}")
-open(_f, "w", encoding="utf-8").write(_s)
