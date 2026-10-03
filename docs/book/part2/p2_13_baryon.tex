@@ -1,78 +1,211 @@
-% Part 2 chapter carrying "Matter-Antimatter Asymmetry and the Information Writing Constraint" (March 2026), "The Baryon Asymmetry as a Derived
-% Quantity: CMB Evidence Without BBN Prior" (March 2026) and the 18th-chain record, in that order. Read in full 2026-10-02 (438, 242, 7 lines,
-% 50-line ledgers). Not carried (author 2026-10-02, speculation): 10^9 annihilation partners as the dark sector; weak force as
-% 'force of becoming' / EW breaking as 'origin of duration'; '95 % memory, 5 % present'; CP phase fixed by the loop. Numbers: docs/verification/scripts/verify_cc_and_baryon.py. Checks: CC_AND_BARYON_CHECK.md (C3-C12, items 18-25).
+% Part 2 chapter carrying "Matter-Antimatter Asymmetry and the Information Writing Constraint: The Baryon Asymmetry as a
+% Self-Consistency Condition" (March 2026), sections 1-4, 7, 9, 10, line for line (PDF read in full 2026-10-03: 438 text lines,
+% 50-line ledger, no gaps; LaTeX docs/papers/latex/iam_baryon_asymmetry for equation forms). Section 8 (the chain) is carried in
+% p2_13b_baryon_chain.tex with the companion paper "The Baryon Asymmetry as a Derived Quantity" and the 18th-chain record; the shared
+% history integral (section 3, eq. 2) is given once, in p2_12b_lambda_history.tex.
+% Corrections: PAPER_ERRATA C5, C19-C23; CC_AND_BARYON_CHECK.md items 18-23.
+% Not carried (author 2026-10-02, "keep anything out that is wild speculation"; C21 confirmed): section 5 (the annihilation
+% partners as the dark sector; "95 % memory, 5 % present"; eq. 5 in that role); section 6 (weak force as the "force of becoming",
+% electroweak breaking as "the origin of duration", CP violation as a structural necessity of E(a), the CKM phase fixed by the loop);
+% the conclusions' paragraph on the annihilation partners; the duplicated conclusions paragraph (C23).
+% Numbers: docs/verification/scripts/verify_lambda_baryon_book.py, sections A, F, G.
 \chapter{The baryon density}\label{ch:baryon}
 
+The matter--antimatter asymmetry of the universe --- one surviving baryon for roughly $1.6\times10^9$ photons --- is conventionally a
+free parameter of the standard model, explained qualitatively by the Sakharov conditions but not derived from first principles. If the
+cosmological constant accumulates as the Landauer cost of irreversible gravitational decoherence on baryonic timelike worldlines
+(Chapter~\ref{ch:lambda}), the question arises whether the baryon asymmetry $\eta\approx6\times10^{-10}$ is genuinely free, or whether
+it is a self-consistency condition of the universe's information-writing budget.
+
+IAM's Law requires that the rate at which baryonic matter writes classical information onto the cosmic horizon remain compatible
+with the horizon's capacity over the full cosmic history. This chapter states a self-consistency loop in which the matter content sets
+the decoherence rate, which sets the writing rate, which must match the horizon's accommodation rate, which feeds back on the matter
+content, and proposes that $\eta\approx6\times10^{-10}$ is the fixed point of this loop rather than an arbitrary output of the Sakharov
+mechanism. \conjecture\ It does not derive $\eta$. It states the physical conditions a derivation would have to satisfy, presents the
+loop as a research target, and names the test that was run: letting the baryon density float in a Planck chain and asking what the
+posterior returns (Chapter~\ref{ch:baryon_chain}). In this chapter and the next, $\eta$ is the baryon-to-photon ratio, not the horizon
+entropy per unit area of Chapter~\ref{ch:theory}.
+
 \section{The size of the asymmetry}
-One baryon survives for about $10^9$ photons: $\eta=(n_b-n_{\bar b})/n_\gamma\simeq6.1\times10^{-10}$, measured from the light-element
-abundances (Big Bang nucleosynthesis)~\cite{Cyburt2016} and from the CMB acoustic peaks~\cite{Planck2018VI}, with the same value. \observed The Sakharov conditions~\cite{Sakharov1967} (baryon-number violation,
-C and CP violation, departure from equilibrium) say how an asymmetry can arise; the CP violation of the CKM matrix~\cite{KobayashiMaskawa1973} is too small to give the
-measured $\eta$~\cite{Gavela1994}, and electroweak baryogenesis~\cite{KuzminRubakovShaposhnikov1985}, leptogenesis~\cite{FukugitaYanagida1986} and Affleck--Dine models~\cite{AffleckDine1985} each leave $\eta$ set by parameters they do not derive.
+The observed universe contains matter and no appreciable antimatter. The baryon-to-photon ratio,
+\begin{equation}\eta\equiv\frac{n_b-n_{\bar b}}{n_\gamma}\approx6.1\times10^{-10},\label{eq:bar_eta}\end{equation}
+is measured independently from Big Bang nucleosynthesis~\cite{Cyburt2016} and from the cosmic microwave background power
+spectrum~\cite{Planck2018VI}, with consistent results: $6.180\pm0.195$ from nucleosynthesis with deuterium and $6.108\pm0.060$ from the
+CMB alone in the same analysis~\cite{Cyburt2016}, and $6.127\pm0.041$ from the Planck 2018 baryon density $\Omega_bh^2=0.02237\pm0.00015$
+(TT,TE,EE+lowE+lensing)~\cite{Planck2018VI}, all in units of $10^{-10}$, with $\eta=273.9\times10^{-10}\,\Omega_bh^2$~\cite{Steigman2006}.
+\observed\ The two measurements together show that the asymmetry was in place before nucleosynthesis and is a property of the early
+universe, not a local accident.
 
-\section{The question IAM asks}
-At the cosmic horizon, a place in IAM, baryons write classical records on the horizon through gravitational decoherence, at $k_BT_{GH}\ln2$ per bit,
-and the accumulated cost of that writing is
-identified with $\Lambda$ (Chapter~\ref{ch:lambda}). The writing depends on the baryon density, which $\eta$ fixes. The proposal is a
-self-consistency loop,
-\begin{equation}\eta\to n_b\to\dot W_{\rm info}\to\Lambda\to H(a)\to\eta,\end{equation}
-with the measured $\eta$ as its fixed point: the Sakharov dynamics generate an asymmetry, and the writing constraint selects its size. \conjecture\ The
-loop does not derive $\eta$. A derivation needs: (1) the writing rate at the QCD transition, where the universe is
-radiation dominated; (2) the horizon capacity there; (3) the link to the Sakharov mechanism. For scale at $T=150$\,MeV: $a\simeq9.6\times10^{-13}$,
-$l_H\simeq15.5$\,km, and the horizon holds $2.9\times10^{78}$ Planck-area bits. \calc
+The Sakharov conditions~\cite{Sakharov1967} name the necessary ingredients for generating a baryon asymmetry from a symmetric initial
+state: baryon-number violation, C and CP violation, and departure from thermal equilibrium. The standard model meets all three in
+principle, but the CP violation of the CKM matrix~\cite{KobayashiMaskawa1973} appears too small to produce the observed $\eta$ without
+extensions~\cite{Gavela1994}. This has motivated a large literature on baryogenesis: electroweak
+baryogenesis~\cite{KuzminRubakovShaposhnikov1985,RubakovShaposhnikov1996}, leptogenesis~\cite{FukugitaYanagida1986,Davidson2008} and
+Affleck--Dine baryogenesis~\cite{AffleckDine1985}.
 
-\section{One relation, read as $\eta$}
-Inverting the cosmological-constant expressions for $\Omega_bh^2$ at the Planck $\Omega_mh^2=0.1430$, with $\eta=273.9\times10^{-10}\,\Omega_bh^2$:
-the baseline (with $2/\pi$, without $\sqrt{\Omega_\Lambda}$) gives $\eta=5.03\times10^{-10}$; with $\sqrt{\Omega_\Lambda}$ it gives
-$6.08\times10^{-10}$, $0.5$--$0.9\,\%$ below the CMB values of the chains below ($6.113$--$6.137$). \calc This is the relation $\Omega_b/\Omega_m=(3/16)\sqrt{\Omega_\Lambda}$ of
-Chapter~\ref{ch:lambda} in another variable. The cosmological constant and the baryon density are one measured relation, not two.
-The derivation is written out step by step, with the status of each premise, in Appendix~\ref{app:der:lambda}.
+What these mechanisms have in common is that they treat $\eta$ as an output of dynamical processes in the early universe, with its value
+depending on parameters that are not themselves derived from a deeper principle. In this sense $\eta$ remains a free parameter: the
+standard model and its extensions can accommodate a wide range of values, and $\eta\approx6\times10^{-10}$ is not understood as
+necessary rather than contingent.
 
-\section{The 18th chain}
+The question asked here is different. Under IAM's Law the universe has an information-writing budget: baryonic matter generates
+irreversible classical information through gravitational decoherence on timelike worldlines, and this information is encoded on the
+cosmic horizon at a cost set by Landauer's principle~\cite{Landauer1961}. The total accumulated cost over cosmic history is identified
+with the cosmological constant (Chapter~\ref{ch:lambda}). \conjecture\ This writing process has a natural rate and a natural capacity.
+The question is whether the two together constrain the fraction of matter that must survive annihilation for the universe to write its
+own history coherently.
 
-\begin{figure}[htbp]\centering
-\includegraphics[width=0.75\textwidth]{figures/part2/fig_eta.pdf}
-\caption{$\eta=273.9\times10^{-10}\,\Omega_bh^2$ on the 18th chain ($6.113\pm0.037$) and on the $\Lambda$CDM chains ($6.117$--$6.137$): every CMB fit returns the same baryon density \observed. Diamonds: the cosmological-constant expressions inverted for $\Omega_bh^2$ at $\Omega_mh^2=0.1430$, 6.080 with $\sqrt{\Omega_\Lambda}$ and 5.031 without; this is the relation of Fig.~\ref{fig:cc_relation} in another variable. \calc}\label{fig:eta}
-\end{figure}
-A Planck 2018 chain (MGCAMB~\cite{Zhao2009MGCAMB,Wang2023MGCAMB} with $\mu_0=-0.13495$ fixed; low-$\ell$ TT and EE, plik TTTEEE lite, lensing~\cite{Planck2018V,Planck2018VIII}) was run with
-$\Omega_bh^2$ sampled over a flat range $[0.010,0.040]$, six times wider than the $[0.020,0.025]$ of the other runs. No light-element abundance
-data enter. Helium is set inside CAMB~\cite{Lewis2000CAMB} from $\Omega_bh^2$ by its standard nucleosynthesis relation, which affects only the damping tail.
-The chain ran 19--20 March 2026 to 22,400 accepted steps, $R-1=0.009273$. With 30\,\% burn-in (14,957 rows):
-\begin{equation}\Omega_bh^2=0.02232\pm0.00014,\qquad\eta=(6.113\pm0.037)\times10^{-10},\qquad
-\frac{\Omega_b/\Omega_m}{(3/16)\sqrt{\Omega_\Lambda}}=1.0046\pm0.0068 .\end{equation}
-\fitted
-The $\Lambda$CDM chains in the same repository return the same $\eta$: $6.118$ (Planck), $6.137$ (Planck + BAO), $6.117$ (Planck + Pantheon+).
-\begin{table}[htbp]\centering\small
-\caption[The baryon density on every chain]{The baryon density on every chain, $\eta=273.9\times10^{-10}\,\Omega_bh^2$ (30\,\% burn-in, weighted mean and standard deviation; rows after burn-in), and the cosmological-constant expressions inverted for $\Omega_bh^2$ at the Planck $\Omega_mh^2=0.1430$.}\label{tab:baryon_chains}
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lcrccll}\toprule
-Source & $\Omega_bh^2$ range & rows & $\Omega_bh^2$ & $10^{10}\eta$ & ratio to $(3/16)\sqrt{\Omega_\Lambda}$ & Label\\\midrule
-18th chain (CMB only) & 0.010--0.040 & 14{,}957 & $0.02232\pm0.00014$ & $6.113\pm0.037$ & $1.0046\pm0.0068$ & \measured\\
-$\Lambda$CDM, Planck & 0.020--0.025 & 12{,}544 & $0.02234\pm0.00014$ & $6.118\pm0.038$ & $1.0058\pm0.0067$ & \measured\\
-$\Lambda$CDM, Planck + BAO & 0.020--0.025 & 12{,}600 & $0.02240\pm0.00014$ & $6.137\pm0.037$ & $1.0106\pm0.0064$ & \measured\\
-$\Lambda$CDM, Planck + Pantheon+ & 0.020--0.025 & 21{,}168 & $0.02233\pm0.00014$ & $6.117\pm0.040$ & $1.0056\pm0.0070$ & \measured\\
-Expression with $2/\pi$, without $\sqrt{\Omega_\Lambda}$ & --- & --- & $0.01837$ & $5.031$ & --- & \calc\\
-Expression with $\sqrt{\Omega_\Lambda}$ & --- & --- & $0.02220$ & $6.080$ & --- & \calc\\\bottomrule
-\end{tabular}
-\end{adjustbox}
-\end{table}
-They must. The informational term is off at recombination ($E\to0$), so the early universe is $\Lambda$CDM and the acoustic peaks measure the same
-baryon density with or without it. The chain is the consistency check that the term leaves the early universe intact, and it passes.
-The CMB measures $\Omega_bh^2$ from the relative heights of the acoustic peaks; the chain does this measurement, as every Planck fit does, and its
-agreement with nucleosynthesis is the established CMB--BBN concordance~\cite{Cyburt2016}. The chain contains no IAM constraint on $\Omega_b$: the writing
-constraint is not in its likelihood, and fixing $\mu_0$ or widening the range does not move $\Omega_bh^2$. What the chain adds is the
-relation of Chapter~\ref{ch:lambda} evaluated on a CMB-only posterior: $0.7\sigma$.
-\begin{figure}[htbp]\centering
-\includegraphics[width=\textwidth]{figures/part2/fig_baryon_posterior.pdf}
-\caption[The 18th chain against the $\Lambda$CDM chains]{(a) The $\Omega_bh^2$ posterior of the 18th chain, sampled over the flat range 0.010--0.040 (light band; the darker band is the 0.020--0.025 of the other runs), and of the three $\Lambda$CDM chains; inset: the peaks enlarged. The acoustic peaks fix $\Omega_bh^2=0.02232\pm0.00014$ whatever the range. (b) The posterior of $(\Omega_b/\Omega_m)/[(3/16)\sqrt{\Omega_\Lambda}]$ on the same chains. Chain files in \texttt{mgcamb\_validation/\allowbreak{}chains}, 30\,\% burn-in, weighted. \measured}\label{fig:baryon_posterior}
-\end{figure}
+\section{The frame}\label{sec:bar_frame}
+The informational term extends the thermodynamic derivation of the field equations~\cite{Jacobson1995} by an informational contribution
+to the horizon entropy functional, on the three principles of Section~\ref{sec:lam_two}: gravitational decoherence on timelike
+worldlines as the dominant source of irreversible classical information, at a rate set by the virial theorem (Chapter~\ref{ch:virial})
+\interp; Landauer's principle, which at the horizon temperature $T_H=\hbar H_0/(2\pi k_B)$~\cite{GibbonsHawking1977} gives a cost per
+irreversible bit $E_{\rm bit}=\hbar H_0\ln2/(2\pi)$ (Eq.~\eqref{eq:lam_ebit}) \derived; and the holographic
+principle~\cite{tHooft1993,Susskind1995}, with the horizon's maximum content set by the Bekenstein--Hawking
+entropy~\cite{Bekenstein1973,Hawking1975}, $S=A_H/(4l_P^2)$ \derived.
 
-Before the chain was run, the expectation was that a chain with $\Omega_bh^2$ free would return $\eta\simeq6\times10^{-10}$. Because the early universe is unchanged,
-every CMB fit returns that value; the chain confirms consistency, not selection. The test of selection is a chain in which the writing constraint itself is in the
-likelihood, so that $\Omega_b$ is predicted from $\Lambda$ rather than measured from the peaks. \openprob
+The result is a sector-dependent term in the perturbation equations: matter feels an enhanced Hubble friction, $\mu(a)<1$, while
+photon-sector observables keep $\Sigma(a)=1$ exactly (Chapter~\ref{ch:theory}). The coupling $\beta_m=\Omega_m/2$ is derived from the
+virial theorem (Chapter~\ref{ch:virial}) \derived; it is held at that value in every chain, so the chains test the term with $\beta_m$
+fixed rather than measure it.
 
-\section{What would make it a derivation}
-(1) $3/16$ from physics, with the geometric factor and the $\sqrt{\Omega_\Lambda}$ fixed before the comparison; (2) the writing rate and
-horizon capacity at the QCD transition, which the loop requires and which are not yet formulated; (3) the reason the relation holds today and
-not at other epochs. Chapter~\ref{ch:lambda} shows that heat radiated by baryons is not the measure of the cost ($3\times10^{-8}$ of $\rho_\Lambda$); a
-derivation must work in the horizon-entropy variable carried by $\beta_mE(a)$, priced by IAM's Law at $k_BT_{GH}\ln2$ per bit, with the virial half setting how much bound matter writes. \openprob
+In the virial reading of Chapter~\ref{ch:virial_partners}, what is observed as dark matter is the accumulated geometric half of prior
+gravitational decoherence events, and dark energy is the kinetic, informational half. These are then not two independent phenomena but
+two expressions of the virial equilibrium $2K+V=0$ at cosmological scales. \interp\ The cosmological virial ratio
+$\Omega_m/[\beta_mE(a)]$ equals 2 at $a=1$ by the definition $\beta_m=\Omega_m/2$ with $E(1)=1$. \derived\ (definition) That the
+present epoch is where the ratio reaches 2 is how this reading addresses the coincidence problem (Chapter~\ref{ch:virial_partners});
+it is a consequence of the normalisation, not a measurement. \interp
+
+\section{The information-writing constraint}\label{sec:bar_constraint}
+The cosmological constant at any epoch $a$ accumulates as the history integral Eq.~\eqref{eq:lh_integral} of
+Chapter~\ref{ch:lambda_history}, in which $\Omega_b(a')/\Omega_{\rm tot}(a')$ is the baryonic fraction of the total energy density at
+scale factor $a'$ and $l_H(a')=c/H(a')$ the Hubble length at that epoch, integrated from the electroweak transition. \conjecture\ The
+integrand is the writing rate per unit scale factor: the fraction of the horizon's Planck-area bits being written by baryonic
+decoherence at each epoch, weighted by the baryonic fraction of the energy and the inverse square of the Hubble length. As written the
+integral is dominated by its lower limit and gives a coefficient of $3.1\times10^{30}$ where $0.523$ is required (Eq.~\eqref{eq:lh_K});
+its normalization is open. \calc\ \openprob\ The writing rate has two natural limits.
+
+\paragraph{Upper limit.} The writing rate cannot exceed the horizon's accommodation rate. The horizon can encode at most
+$N_H=A_H/(4l_P^2)$ nats at any epoch. If baryonic decoherence tries to write information faster than the horizon can accommodate it,
+the excess cannot be encoded. Physically this is a universe with too much matter: structure collapses before the horizon has grown
+enough to accommodate the encoded history. \conjecture
+
+\paragraph{Lower limit.} The writing rate must be enough to accumulate the observed cosmological constant over 13.8 billion years. If
+baryonic matter is too dilute, too few decoherence events occur per unit time and the accumulated Landauer cost falls below the observed
+$\Lambda$. Physically this is a universe with too little matter: the writing rate is insufficient and the dark sector does not
+accumulate the observed energy density. \conjecture
+
+Together the two limits constrain the baryonic matter density. In the cosmological-constant expression the baryonic fraction enters
+as the measured $\Omega_b/\Omega_m=0.1564$~\cite{Planck2018VI}, with the physical argument that only baryons decohere
+(Section~\ref{sec:lam_dm}); it entered after comparison with the data, so it is an input to that expression, not a derived constraint.
+\observed
+
+\section{The self-consistency loop}\label{sec:bar_loop}
+The connection between the writing constraint and the baryon asymmetry runs in five steps.
+
+\paragraph{Step 1.} The matter content of the universe is set by the baryon asymmetry $\eta$ before nucleosynthesis; at the QCD
+transition ($T\approx150$\,MeV, $a_{\rm QCD}\approx9.5\times10^{-13}$ with entropy conservation and $g_{*s}=17.25$ \calc) the surviving
+quarks are confined into baryons. For every $10^{9}$ photons in the thermal bath about $0.6$ baryons survive annihilation, and the
+surviving baryon density is
+\begin{equation}n_b=\eta\,n_\gamma .\label{eq:bar_nb}\end{equation}
+\derived\ (definition)
+
+\paragraph{Step 2.} The surviving baryonic matter density sets the decoherence rate. Baryons on timelike worldlines generate
+irreversible classical information through gravitational interactions at a rate proportional to their number density and the local
+gravitational potential, set by the virial theorem (Chapter~\ref{ch:virial}). \conjecture
+
+\paragraph{Step 3.} The decoherence rate sets the writing rate onto the cosmic horizon. The accumulated writing over cosmic history is
+the integral Eq.~\eqref{eq:lh_integral}, with $\Omega_b$ fixed by $\eta$ through Eq.~\eqref{eq:bar_nb}. \conjecture
+
+\paragraph{Step 4.} The writing rate must stay compatible with the horizon's accommodation rate at every epoch. The accommodation rate is
+set by the Hubble expansion, which depends on the total matter--energy content including the dark sector; in the virial reading the
+dark sector is the accumulated record of prior decoherence (Chapter~\ref{ch:virial_partners}). \conjecture
+
+\paragraph{Step 5.} The dark sector feeds back on the matter content through the virial partition: the geometric half of each
+decoherence event contributes to what is observed as dark matter, the kinetic, informational half to dark energy, so the total energy
+budget depends on the full history of baryonic decoherence, which depends on $\eta$ through Steps 1--4. \conjecture\ Dark matter is
+present at its measured density at recombination ($z\approx1100$), before structure forms; any feedback through the dark sector must
+therefore act through the present-epoch partition, not through the matter content set before nucleosynthesis. \observed
+
+This closes the loop:
+\begin{equation}
+\eta\;\longrightarrow\;n_b\;\longrightarrow\;\dot W_{\rm info}\;\longrightarrow\;\Lambda_{\rm acc}\;\longrightarrow\;
+\{\rho_{\rm dm},\rho_{\rm de}\}\;\longrightarrow\;H(a)\;\longrightarrow\;\eta .\label{eq:bar_loop}
+\end{equation}
+The proposal is that the observed $\eta\approx6\times10^{-10}$ is the fixed point of this loop: the value of the baryon asymmetry
+consistent with a universe that can write its own decoherence history onto a horizon of finite capacity over a finite cosmic time.
+\conjecture
+
+This is not a claim that the Sakharov conditions are unnecessary. They provide the dynamical mechanism by which an asymmetry is
+generated. The proposal is that among the values the Sakharov mechanism could produce, the universe takes the one consistent with the
+loop~\eqref{eq:bar_loop}. \conjecture
+
+\section{What a derivation would require}\label{sec:bar_derivation}
+The loop is a physical argument, not a completed derivation. A derivation of $\eta$ from IAM's Law would need three elements, which
+make the research target precise.
+
+\paragraph{Element 1: a writing rate at the QCD transition.} The writing rate in Eq.~\eqref{eq:lh_integral} is formulated with the
+post-recombination universe in mind, where baryons dominate the matter sector. A derivation of $\eta$ needs it at the QCD epoch
+($a\approx9.5\times10^{-13}$), where the universe is radiation dominated and the baryons are a small perturbation on the thermal bath. The
+form of the writing-rate integrand there is not established, and is the main technical obstacle. \openprob
+
+\paragraph{Element 2: the horizon's capacity at the QCD transition.} The fixed-point condition compares the writing rate with the
+horizon's capacity at the epoch when $\eta$ is set. At $T=150$\,MeV the Hubble rate is $H=1.93\times10^4$\,s$^{-1}$, the Hubble length
+$l_H\approx15.5$\,km $=5.0\times10^{-13}$\,pc, and the horizon holds $A_H/4l_P^2=2.9\times10^{78}$ nats ($4.2\times10^{78}$ bits).
+\calc\ Whether the writing rate at that epoch saturates, undershoots or overshoots this capacity is the quantitative question that
+would determine $\eta$. \openprob
+
+\paragraph{Element 3: a link between the writing constraint and the Sakharov mechanism.} The loop constrains the result of baryogenesis,
+not its mechanism. A complete derivation would show how the writing constraint meets the dynamical Sakharov conditions to select the
+fixed point $\eta\approx6\times10^{-10}$. This probably needs a treatment of the electroweak transition (Chapter~\ref{ch:electroweak})
+beyond what is developed. \openprob
+
+These three elements are the research programme the loop implies. The loop~\eqref{eq:bar_loop} is the structural claim; the
+derivation of its fixed point is the open problem. \openprob
+
+\section{One relation, read as $\eta$}\label{sec:bar_onerel}
+The cosmological-constant expression contains $\Omega_b$ explicitly, so it can be inverted for the baryon density the observed
+$\Lambda$ would require. With $\eta=273.9\times10^{-10}\,\Omega_bh^2$~\cite{Steigman2006} and the Planck
+$\Omega_mh^2=0.3153\times0.6736^2=0.1431$~\cite{Planck2018VI}: the expression with $2/\pi$ and without $\sqrt{\Omega_\Lambda}$,
+Eq.~\eqref{eq:base}, which is $\Omega_b/\Omega_m=3\Omega_\Lambda/16$, gives $\Omega_bh^2=0.01837$ and $\eta=5.03\times10^{-10}$; with
+$\sqrt{\Omega_\Lambda}$, Eq.~\eqref{eq:corr}, which is $\Omega_b/\Omega_m=\tfrac3{16}\sqrt{\Omega_\Lambda}$, it gives $0.02220$ and
+$\eta=6.08\times10^{-10}$, $0.5$--$1.0\,\%$ below the CMB values of Chapter~\ref{ch:baryon_chain} ($6.113$--$6.137$) and $0.8\,\%$ below
+Planck's $6.127$. \calc\ This is the relation $\Omega_b/\Omega_m=(3/16)\sqrt{\Omega_\Lambda}$ of Chapter~\ref{ch:lambda} in another
+variable. The cosmological constant and the baryon density are one measured relation, not two. \observed\ The derivation is written
+out step by step, with the status of each premise, in Appendix~\ref{app:der:lambda}.
+
+\section{Relation to other approaches}\label{sec:bar_prior}
+Baryogenesis has been approached from many directions. Electroweak baryogenesis~\cite{RubakovShaposhnikov1996} generates $\eta$ through
+sphaleron processes at the electroweak phase transition. Leptogenesis~\cite{Davidson2008} produces a lepton asymmetry through heavy
+neutrino decay, which is then converted into a baryon asymmetry. Affleck--Dine baryogenesis~\cite{AffleckDine1985} uses flat directions
+of supersymmetric scalar fields. In each case $\eta$ is an output of specific dynamics whose parameters are not themselves derived.
+
+The reading carried here does not propose a new dynamical mechanism. The Sakharov conditions and their realisations in the standard
+model and its extensions are accepted as the correct description of how the asymmetry was generated. The proposal is that the size of
+the asymmetry is not set by the dynamics alone but is further constrained by the requirement that the resulting baryon density be
+consistent with the universe's information-writing capacity. \conjecture
+
+The closest conceptual parallel is Weinberg's anthropic reasoning~\cite{Weinberg1989}, which bounds the cosmological constant by
+requiring structure to form. The present reading differs in that it invokes no observer selection: the writing constraint is a
+physical requirement of IAM's Law, not a selection criterion imposed from outside. The universe is not required to permit observers;
+it is required to write its own history coherently. \interp
+
+\section{Conclusions}\label{sec:bar_concl}
+A self-consistency loop connects the baryon asymmetry $\eta$ to the universe's information-writing constraint. \conjecture\ A Planck 2018
+chain with $\Omega_bh^2$ sampled over a flat range six times wider than the other runs, and no abundance data, returns
+$\eta=(6.113\pm0.037)\times10^{-10}$ from the CMB (Chapter~\ref{ch:baryon_chain}); it converged with $R-1=0.009273$ after 22,400 accepted
+steps. \measured\ Every CMB fit returns this value, because the early universe is unchanged by the informational term, so the chain is
+a consistency check, not a test of the loop; the loop's constraint is not in its likelihood. The fixed point is not derived. \openprob
+
+The cosmological constant and the baryon asymmetry are not two independent unsolved problems in this reading: through
+$\Omega_b/\Omega_m=\tfrac3{16}\sqrt{\Omega_\Lambda}$ they are one measured relation at the present epoch, read in two variables, with
+the coefficient still to be derived from IAM's Law, $\Delta E=k_BT_H\ln2$ per bit. \observed\ \openprob
+
+This places the matter--antimatter asymmetry in the same conceptual category as the cosmological constant (Chapter~\ref{ch:lambda}) and
+the virial coupling $\beta_m=\Omega_m/2$ (Chapter~\ref{ch:virial}): quantities that appear contingent in the standard framework but
+may emerge as necessary conditions within a framework governed by an information-writing constraint. Whether this pattern reflects a
+deeper principle is left open. \interp
+
+The broader question is whether the standard model's treatment of $\eta$ as a free parameter is complete. In a framework where the
+universe has a finite information-writing budget, connected to both the dark sector and the cosmological constant, the baryon asymmetry
+is not obviously free. It may be the value the universe had to have in order to become the universe it is. \conjecture

@@ -1,0 +1,60 @@
+== A. Algebra (sympy) ==
+A1 E_P^4/(hbar c)^3 == c^7/(hbar G^2): True
+A2 rho_L/rho_vac - (3 OL/8pi)(l_P/l_H)^2 == 0: True
+A3 T_GH S / (M_H c^2) = 1
+A4 (2/pi) sqrt(OL) Ob/Om = 3 OL/(8 pi)  =>  Ob/Om = [3*sqrt(Omega_L)/16]
+A5 without sqrt(OL): Ob/Om = [3*Omega_L/16]
+A6 l_P^2/(A_eff/4pi), A_eff = 2 pi l_H^2: 2*l_P**2/l_H**2  ; N = A_eff/(4 l_P^2) = pi*l_H**2/(2*l_P**2)
+A7 f_geo = l_P^2/(4 pi l_H^2) = l_P**2/(4*pi*l_H**2) ; (2/pi)/f_geo coefficient ratio = 8
+A8 dE/da = exp((a - 1)/a)/a**2 ; at a=1: 1 ; E(oo) = E
+A9 rho propto E(a): w = -1 - (1/3) dln rho/dln a = (-a - 1/3)/a ; w(1) = -4/3  (growing density => w < -1)
+A10 virial ratio Om/[beta_m E(1)] with beta_m = Om/2: 2
+
+== B. Planck 2018 inputs as used (H0 67.4, Ob 0.0493, Om 0.3153, OL 0.6846) ==
+B1 E_P = 1.956e+09 J; l_P = 1.6163e-35 m; H0 = 2.1843e-18 s^-1; l_H = 1.3725e+26 m; l_H/l_P = 8.492e+60
+B2 rho_vac = 4.6329e+113 J/m3; rho_L = 5.2501e-10 J/m3; ratio = 1.1332e-123; log10 = -122.946
+B3 (l_P/l_H)^2 = 1.3867e-122; identity (3 OL/8pi) g = 1.1332e-123; 3 OL/8pi = 0.08172
+B4 Ob/Om = 0.1564; g x Ob/Om = 2.1683e-123 (x1.913); baseline (2/pi) g Ob/Om = 1.3804e-123 (x1.2181); g alone x12.24
+B5 sqrt(OL) = 0.8274; corrected = 1.1421e-123; offset +0.79 %; exponent closing baseline p = 0.5207
+B6 required coefficient K in K g Ob/Om = obs: 0.5226; (3/16) sqrt(OL) = 0.1551 vs Ob/Om 0.1564; ratio 1.0079
+B7 horizon today: A/(4 l_P^2) = 2.265e+122 nats = 3.268e+122 bits; A/l_P^2 = 9.062e+122
+B8 cut-off electroweak 100 GeV: rho_vac falls by (E_P/M)^4 = 2.22e+68; rho_L/rho_vac(M) = 2.52e-55
+B8 cut-off QCD 200 MeV: rho_vac falls by (E_P/M)^4 = 1.39e+79; rho_L/rho_vac(M) = 1.57e-44
+B9 T_GH(H0) = 2.655e-30 K; T_dS = 2.197e-30 K; E_bit = k T ln2 = 2.541e-53 J
+
+== C. History integral, as printed: (Ob/Otot)(a) / (l_H(a)^2/l_P^2) da / (a^2 H/H0), from a_EW = 2.3e-15 ==
+C1 Omega_rad = 9.221e-05; integral I (times g) = 4.853e+29; as coefficient K = I/(Ob/Om) = 3.10e+30 against the required 0.523
+C1b lower limit a = 7.80e-16 (entropy-conserving a at 100 GeV): K = 2.70e+31
+C1b lower limit a = 4.89e-16 (entropy-conserving a at 159.5 GeV): K = 6.87e+31
+C2 lower limit 1e-10: K = 1.642e+21
+C2 lower limit 1e-06: K = 1.636e+13
+C2 lower limit 1e-03: K = 6.465e+06
+C3 early-time slope dln(integrand)/dln a at a=1e-10: -3.000
+C4 Om = 0.3197: int (H/H0)^p dE for p = -2..2: 0.470, 0.641, 1.000, 1.983, 5.795
+C4 Om = 0.3153: int (H/H0)^p dE for p = -2..2: 0.472, 0.643, 1.000, 1.974, 5.729
+
+== D. Look-elsewhere count of this book ==
+D1 rationals 23; forms 414; within 1 % of (rho_L/rho_vac)/(l_P/l_H)^2 = 0.08172: 3 (0.7 %)
+D2 the hits: 1/6*pi^1*(Ob/Om)^1*OL^0; 1/5*pi^1*(Ob/Om)^1*OL^0.5; 2*pi^-1*(Ob/Om)^1*OL^0.5
+
+== E. Chains (30 % burn-in, weighted); eta = 273.9e-10 Ob h^2 (Steigman 2006) ==
+E1 iam_baryon_test                rows 21366 -> 14957; ombh2 0.022320 +/- 0.000136; eta 6.113 +/- 0.037; H0 67.04 +/- 0.53; Om 0.3198 +/- 0.0075; OL 0.6802; Ob/Om 0.1554 +/- 0.0019; ratio 1.0046 +/- 0.0068 (0.67 sigma)
+E2 18th chain: eta with 2.74e-8 (the record's factor) = 6.1157e-10; with 273.9 = 6.1134e-10; no burn-in ombh2 = 0.022323; sum of weights after burn-in 20021
+E3 18th chain ombh2 range in chain: 0.02176 - 0.02276 (prior 0.010-0.040)
+E1 lcdm_baseline                  rows 17920 -> 12544; ombh2 0.022337 +/- 0.000138; eta 6.118 +/- 0.038; H0 67.14 +/- 0.51; Om 0.3183 +/- 0.0071; OL 0.6817; Ob/Om 0.1557 +/- 0.0018; ratio 1.0058 +/- 0.0067 (0.86 sigma)
+E1 planck_bao_lcdm_baseline       rows 18000 -> 12600; ombh2 0.022405 +/- 0.000136; eta 6.137 +/- 0.037; H0 67.56 +/- 0.44; Om 0.3125 +/- 0.0060; OL 0.6875; Ob/Om 0.1571 +/- 0.0016; ratio 1.0106 +/- 0.0064 (1.66 sigma)
+E1 planck_pantheon_lcdm_baseline  rows 30240 -> 21168; ombh2 0.022333 +/- 0.000145; eta 6.117 +/- 0.040; H0 67.12 +/- 0.51; Om 0.3186 +/- 0.0071; OL 0.6814; Ob/Om 0.1556 +/- 0.0018; ratio 1.0056 +/- 0.0070 (0.79 sigma)
+E1 planck_rsd_lcdm_baseline       rows 26320 -> 18424; ombh2 0.022394 +/- 0.000136; eta 6.134 +/- 0.037; H0 67.49 +/- 0.41; Om 0.3135 +/- 0.0057; OL 0.6865; Ob/Om 0.1569 +/- 0.0015; ratio 1.0098 +/- 0.0062 (1.58 sigma)
+E4 progress file: first 2026-03-19T22:52:01.483570, last 2026-03-20T04:18:23.918979; last N 17024; last R-1 0.009907; min R-1 0.009648
+
+== F. Comparators traced to the sources ==
+F1 Planck 2018 TT,TE,EE+lowE+lensing (Table 2): Ob h^2 0.02237 +/- 0.00015 -> eta 6.127 +/- 0.041
+F1 Planck 2018 +BAO (Table 2): Ob h^2 0.02242 +/- 0.00014 -> eta 6.141 +/- 0.038
+F2 Cyburt et al. 2016 Table IV (eta x 1e10): CMB-only 6.108 +/- 0.060; BBN+D 6.180 +/- 0.195; BBN+Yp+D 6.172 +/- 0.195; CMB+BBN 6.098 +/- 0.042; text: Planck (2015) 6.10 +/- 0.04. The value 6.137 +/- 0.017 printed as 'Observed (BBN)' is not in that source.
+F3 18th chain 6.113 against Planck TT,TE,EE+lowE+lensing 6.127: -0.23 %; against BBN+D 6.180: -1.08 % (-0.34 sigma)
+F4 Planck Om h^2 = 0.3153 x 0.6736^2 = 0.1431; (3/16) sqrt(OL) Om h^2 = 0.02220 -> eta 6.080; (3/16) OL Om h^2 = 0.01837 -> eta 5.031
+F5 eta x 1e9 photons per baryon: 1/eta = 1.636e+09; dark-to-baryon (0.265+0.685)/0.049 = 19.39
+
+== G. QCD transition (T = 150 MeV, g* = 17.25) ==
+G1 a_QCD = 9.547e-13; H = 1.930e+04 s^-1; l_H = 1.5530e+04 m = 5.03e-13 pc; horizon A/(4 l_P^2) = 2.90e+78 nats = 4.18e+78 bits
+G2 a_EW (T = 100 GeV, g* = 106.75) = 7.80e-16; crossover 159.5 GeV: t = 1/(2H) = 9.21e-12 s
