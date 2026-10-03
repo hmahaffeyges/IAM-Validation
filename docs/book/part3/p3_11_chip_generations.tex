@@ -5,7 +5,7 @@
 \chapter{Chips, generations and nodes on their own gauge}\label{ch:chipgen}
 
 \section*{The place}
-Every transistor that switches state performs an irreversible information event. Physics establishes a minimum energy cost for every such
+Every logically irreversible switching event is an irreversible information event, and conventional CMOS erases at almost every gate (Chapter~\ref{ch:cmos}). Physics establishes a minimum energy cost for every such
 event, set by the operating temperature alone, with no dependence on transistor design, process node, foundry or manufacturer. It is not a
 materials limit and not a lithography limit; it is IAM's Law at the transistor junction, $\kB T_j\ln2$ per bit (Chapter~\ref{ch:cmos}). The same floor applies wherever a bit is irreversibly set or erased, each substrate at its own temperature and with its own dominant
 mechanism: a quantum gate whose error is later erased by correction, a switch driven by ionic conduction in a solid electrolyte, a spike in
@@ -45,7 +45,7 @@ hidden & activity factor; supply voltage and the point on the voltage--frequency
 \end{table}
 
 Two worked cases show the size of the effect \calc. A generation pair in which the power figure changes from a maximum turbo rating of 253~W
-to a base rating of 125~W reads a 70.7\,\% step; on one definition for both chips the same pair reads $1-(1-0.707)\times253/125=40.7$\,\%.
+to a base rating of 125~W reads a 70.7\,\% step; on one definition for both chips, with the newer chip also taken at a 253~W maximum turbo rating, the same pair reads $1-(1-0.707)\times253/125=40.7$\,\%.
 One die at one board power quoted at 1.83 and at 1.98~GHz reads 7.6\,\% better at the higher clock (Chapter~\ref{ch:cmos}). A generation
 comparison on the chip gauge is therefore made on one stated power, one stated clock and one stated count, or not at all.
 

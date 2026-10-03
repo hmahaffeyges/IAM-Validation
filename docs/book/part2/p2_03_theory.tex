@@ -135,7 +135,7 @@ At any spacetime point $p$, the equivalence principle guarantees an approximatel
 $\mathcal P$ defines a local Rindler horizon $\mathcal H$ --- the past causal boundary as seen by an accelerated observer. The horizon generators are
 null geodesics with tangent vector $k^a$ and affine parameter $\lambda$ (vanishing at $\mathcal P$, negative to the past). An approximate boost Killing
 vector $\chi^a=-\kappa\lambda k^a$ generates the horizon, where $\kappa$ is the surface gravity. In Eqs.~\eqref{eq:th:unruh}--\eqref{eq:th:Tab} we set $c=1$;
-it is restored in Eq.~\eqref{eq:th:einstein}.
+it is restored in Eq.~\eqref{eq:th:einstein}. \derived
 
 The Unruh temperature~\cite{Unruh1976} is
 \begin{equation}T=\frac{\hbar\kappa}{2\pi k_B}.\label{eq:th:unruh}\end{equation}
@@ -195,7 +195,7 @@ reference to $\eta$, $S\propto A$, or $G$. \derived
 \emph{The $8\pi$: Einstein-equation normalisation.} The Einstein equations (Eq.~\eqref{eq:th:einstein}) carry $8\pi=2\times4\pi$, where $4\pi$ is the solid angle of
 the unit sphere in $\mathbb R^3$ (Gauss's law in three dimensions) and the factor 2 comes from the trace structure of the Einstein tensor
 $G_{ab}=R_{ab}-\tfrac12Rg_{ab}$ in the weak-field limit~\cite{Wald1984}. Both factors are geometric properties of three-dimensional space. The $8\pi$ makes
-no reference to $\eta$, $S\propto A$, or Planck's constant.
+no reference to $\eta$, $S\propto A$, or Planck's constant. \derived
 
 \emph{The derivation.} Jacobson's Clausius relation yields the structural equation (the coefficient of Eq.~\eqref{eq:th:Tab} matched to that of
 Eq.~\eqref{eq:th:einstein}; with $\kappa$ in s$^{-1}$ the heat flux carries one factor of $c$, which fixes the power of $c$ so that $\eta$ is an inverse
@@ -419,7 +419,7 @@ Weyl tensor $C_{\mu\nu\rho\sigma}=0$. Any covariant entropy functional built fro
 functional depending on $C_{\mu\nu\rho\sigma}C^{\mu\nu\rho\sigma}$ or other curvature deviations from conformal flatness --- therefore vanishes
 identically in exact FRW. Since the informational entropy $S_{\rm info}$ is sourced by gravitational decoherence associated with inhomogeneous
 structure formation, it must vanish in the homogeneous limit. Consequently, the $\beta_mE(a)$ term cannot appear as a modification of the background
-Friedmann equation and instead enters only at the level of matter-sector perturbations.
+Friedmann equation and instead enters only at the level of matter-sector perturbations. \derived
 
 This is a symmetry argument rather than a proof from first principles: we are requiring that $S_{\rm info}$ be consistent with the symmetries of exact
 FRW, not deriving its form from a UV-complete theory of quantum gravity. A complete derivation would require specifying the microscopic coupling between
@@ -482,7 +482,7 @@ invariance is preserved because the modification enters through the entropy func
 \subsection{Mapping to $\mu$--$\Sigma$}
 The $\mu$--$\Sigma$ parameterisation~\cite{PogosianSilvestri2016} encodes deviations from GR through:
 \begin{gather}
-k^2\Phi=-4\pi G\,\mu(a)\,a^2\bar\rho_m\delta_m,\label{eq:th:mudef}\\
+k^2\Psi=-4\pi G\,\mu(a)\,a^2\bar\rho_m\delta_m,\label{eq:th:mudef}\\
 k^2(\Phi+\Psi)=-8\pi G\,\Sigma(a)\,a^2\bar\rho_m\delta_m.\label{eq:th:sigmadef}
 \end{gather}
 The proposition maps onto this framework.
@@ -562,7 +562,7 @@ $w_{\rm info}(1)=-4/3$.
 
 The phantom behaviour has a transparent origin: the informational energy density grows faster than volumetric dilution because structure formation
 continuously produces new information. The factor $1/3$ arises from the three spatial dimensions; the factor $1/a$ from the information production
-rate. The equation of state is determined entirely by geometry and information.
+rate. The equation of state is determined entirely by geometry and information. \interp
 
 This does not violate the null energy condition, because $\varphi$ is a thermodynamic variable constrained by the geometry, not a propagating field
 with kinetic energy.
@@ -648,7 +648,7 @@ $\Lambda$CDM.
 
 \subsection{Independence from microscopic details}
 A natural question is whether the derivation requires knowledge of the microscopic information production rate --- specifically, how many bits of
-classical information a single collapsing halo produces. It does not.
+classical information a single collapsing halo produces. It does not. \interp
 
 The functional form $E(a)=\exp(1-1/a)$ depends on the scaling of the decoherence rate with scale factor, not on its absolute normalisation. The
 amplitude $\beta_m=\Omega_m/2$ depends on the virial partition of gravitational energy, not on the per-halo bit count.
@@ -659,7 +659,7 @@ bit count per halo.
 
 \section{Numerical verification}\label{sec:numerics}
 To verify the analytical derivation, we numerically compute the cumulative decoherence integral using the full $\Lambda$CDM background cosmology
-($\Omega_m=0.315$, $\Omega_r=9.1\times10^{-5}$, $H_0=67.4$\,km\,s$^{-1}$\,Mpc$^{-1}$).
+($\Omega_m=0.315$, $\Omega_r=9.1\times10^{-5}$, $H_0=67.4$\,km\,s$^{-1}$\,Mpc$^{-1}$). \calc
 
 \subsection{Source-term models}
 We test multiple physically motivated source terms for the decoherence rate, ranging from simple power laws ($D^n$) to Press--Schechter and
@@ -678,7 +678,8 @@ $\exp(\alpha-\beta/a)$ over $0.15\le a\le2.0$. The target is $\alpha=\beta=1$.
 \caption{Numerical verification: fitted coefficients $\alpha$ and $\beta$ for the cumulative decoherence integral $I(a)\propto\exp(\alpha-\beta/a)$,
 Eq.~\eqref{eq:th:Iint}, compared with the target $\alpha=\beta=1$. The Pearson correlation $r$ is computed over $0.15\le a\le2.0$. The first row omits the
 horizon factor $1/(T_HA_H)$. Collapsed fractions: $F_{\rm PS}=\mathrm{erfc}(\nu/\sqrt2)$ and the Sheth--Tormen $F_{\rm ST}(\nu)=\int_\nu^\infty f_{\rm ST}(\nu')\,d\nu'/\nu'$,
-$\nu=\delta_c/(\sigma_*D)$. \calc}\label{tab:th:record}
+$\nu=\delta_c/(\sigma_*D)$. The fit is unweighted least squares on points spaced uniformly in $\ln a$; points spaced uniformly in $a$ weight
+the late times more and give smaller coefficients ($0.86$, $0.94$ for $D^{7/2}$). \calc}\label{tab:th:record}
 \begin{tabular}{lccc}\toprule
 Source model $R$ & $\alpha$ & $\beta$ & $r$\\\midrule
 $D^2\,\Omega_m(a)\,f$ (no horizon factor) & 0.85 & 0.96 & 0.993\\
@@ -741,7 +742,7 @@ where algebraic and numerically where a number appears, by \texttt{docs/verifica
 and therefore depends only on the homogeneous expansion rate. In linear scalar perturbation theory, perturbations are evaluated at fixed background
 $H(t)$, while local overdensities source metric potentials $\Psi$ and $\Phi$ without shifting the background-defined apparent horizon at first order.
 Under this standard separation between background and perturbations, $\delta\varphi$ vanishes to first order. Higher-order backreaction effects are
-beyond the scope of the present analysis.
+beyond the scope of the present analysis. \derived
 
 The constrained scalar field $\varphi=1-1/a$ is defined by the Cai--Kim first law~\cite{CaiKim2005} applied to the cosmic apparent horizon. The apparent horizon is a
 global (background) surface determined by the volume-averaged expansion rate $H(t)$, not by local density perturbations. Local overdensities $\delta\rho$
@@ -753,7 +754,7 @@ spacetime geometry, not of the local matter content.
 
 Formally, perturbing the constrained action Eq.~\eqref{eq:th:action}: variation with respect to $\lambda$ gives the perturbed constraint $\delta\dot\varphi=0$
 (since the horizon expansion rate is unperturbed at first order), and combined with the initial condition $\delta\varphi=0$, the field remains
-unperturbed at all times.
+unperturbed at all times. \derived
 
 \subsection{Standard GR perturbations with the matter-sector expansion rate}
 With $\delta\varphi=0$, the cosmological perturbation equations are identical to standard general relativity, evaluated with the matter-sector
@@ -788,7 +789,7 @@ high redshift as $E(a)\to0$ ($\mu(z{=}3)=0.9996$) \calc.
 
 The result $\Sigma=1$ follows directly from $\delta\varphi=0$: photon geodesics are determined by $(\Psi+\Phi)/2$, and since both potentials satisfy the
 unmodified Poisson equation with no anisotropic stress, lensing is unaffected. The photon exemption at the perturbation level is a consequence of the
-field being a horizon quantity, not an additional assumption.
+field being a horizon quantity, not an additional assumption. \derived
 
 \subsection{Distinction from other modified gravity theories}
 The prediction $\mu<1$, $\Sigma=1$ occupies a distinctive region of the $\mu$--$\Sigma$ parameter space (Fig.~\ref{fig:th:musigma}b). Most extensions of
@@ -975,7 +976,7 @@ structure formation is most active because that is when information production i
 \subsection{The arrow of time}
 The origin of time's arrow --- why the universe evolves irreversibly from past to future despite time-symmetric fundamental laws --- is one of the deepest
 open problems in physics~\cite{Penrose1989,CarrollChen2004}. The standard account attributes irreversibility to the low-entropy initial condition of the Big Bang, but offers
-no mechanism for why entropy increases.
+no mechanism for why entropy increases. \openprob
 
 In the IAM framework, the arrow of time acquires a concrete physical identity: it is the activation function. The direction of time is the direction in
 which quantum superpositions decohere into definite classical states, in which information is irreversibly produced, and in which the cosmic horizon
@@ -983,7 +984,7 @@ grows to encode that information. The activation function $E(a)$ is a monotonica
 decrease, because decoherence is irreversible and information, once created, cannot be destroyed.
 
 Expressed in redshift, $E(z)=\exp(-z)$: looking backward in time, the informational content of the universe decreases exponentially. Looking forward,
-it grows toward saturation. The arrow of time is not imposed on the equations --- it is the equation.
+it grows toward saturation. The arrow of time is not imposed on the equations --- it is the equation. \interp
 
 This connects to Penrose's observation~\cite{Penrose1989} that the extraordinarily low entropy of the initial state is a state with almost no classical
 records. The entire subsequent history --- structure formation, complexity, the emergence of chemistry and biology --- is the accumulation of those
@@ -994,9 +995,9 @@ interpretation.
 \subsection{The complete derivation chain}
 The derivation proceeds through three steps, each a single modification of the previous:
 
-\emph{Step 1 (Jacobson~\cite{Jacobson1995}):} $\delta Q=T\,dS$ on local Rindler horizons, with $S=\eta A$, implies $G_{ab}+\Lambda g_{ab}=8\pi GT_{ab}$.
+\emph{Step 1 (Jacobson~\cite{Jacobson1995}):} $\delta Q=T\,dS$ on local Rindler horizons, with $S=\eta A$, implies $G_{ab}+\Lambda g_{ab}=8\pi GT_{ab}$. \derived
 
-\emph{Step 2 (Cai--Kim~\cite{CaiKim2005}):} $-dE=T\,dS$ on the FRW apparent horizon, with $S_{\rm geo}=A_H/(4G)$ and $T=H/(2\pi)$, implies $H^2=(8\pi G/3)\rho+\Lambda/3$.
+\emph{Step 2 (Cai--Kim~\cite{CaiKim2005}):} $-dE=T\,dS$ on the FRW apparent horizon, with $S_{\rm geo}=A_H/(4G)$ and $T=H/(2\pi)$, implies $H^2=(8\pi G/3)\rho+\Lambda/3$. \derived
 
 \emph{Step 3 (IAM):} $-dE=T\,d(S_{\rm geo}+S_{\rm info})$, with $S_{\rm info}$ from gravitational decoherence, implies
 $H^2=(8\pi G/3)\rho+\Lambda/3+\beta_mE(a)H_0^2$ for the matter sector, with $E(a)=\exp(1-1/a)$.
@@ -1052,13 +1053,13 @@ These predictions require no additional parameters. \prediction
 \begin{enumerate}
 \item \emph{Distance--growth tension in $w_0w_a$ fits.} If IAM is correct, the $w_0$--$w_a$ parameterisation is the wrong model class. As DESI accumulates
 precision, attempts to fit BAO distances and $f\sigma_8$ growth rates simultaneously within $w_0w_a$CDM will reveal an irreducible tension: the best-fit
-$(w_0,w_a)$ from distances alone will differ from the best fit from growth alone, because IAM modifies distances and growth through different
-mechanisms.
+$(w_0,w_a)$ from distances alone will differ from the best fit from growth alone, because in IAM the distances stay on the $\Lambda$CDM background and only the
+growth changes.
 \item \emph{$\mu(z)<1$ with $\Sigma(z)=1$.} This is the most distinctive IAM prediction. Euclid will measure $\mu$ and $\Sigma$ independently through
 galaxy clustering (sensitive to $\mu$) and weak lensing (sensitive to $\Sigma$). IAM predicts $\mu(z{=}0)=0.864$, $\mu(z{=}0.5)=0.948$, with $\Sigma=1$ at
 all redshifts. In contrast, $f(R)$ gravity predicts $\mu>1$ with $\Sigma=1$; general Horndeski theories predict correlated deviations in both. Among
 viable models, the combination $\mu<1$, $\Sigma=1$ is the IAM signature.
-\item \emph{No phantom crossing.} DESI's $w_0w_a$ fit suggests $w$ crosses $-1$ around $z\approx0.5$. IAM predicts this apparent crossing is an artifact of
+\item \emph{No phantom crossing.} DESI's $w_0w_a$ fits suggest $w$ crosses $-1$ at $z\approx0.35$--$0.5$, depending on the supernova compilation (Table~\ref{tab:st_dr2}). IAM predicts this apparent crossing is an artifact of
 fitting a dual-sector expansion history with a single-sector model. The true effective equation of state is always $\le-1$.
 \item \emph{CMB-S4: $\beta_\gamma<10^{-4}$.} The photon exemption requires $\beta_\gamma\ll\beta_m$. CMB-S4~\cite{Abazajian2016} will measure the CMB power spectrum with
 sufficient precision to constrain any additional energy injection at the $10^{-5}$ level. If $\beta_\gamma$ is detected above $10^{-4}$, the photon
@@ -1089,7 +1090,7 @@ entirely by geometry and information. The perturbation equations are standard GR
 $\mu(a)=E^2_{\Lambda\rm CDM}/E^2_{\rm IAM}<1$ and $\Sigma(a)=1$ from the single fact that $\delta\varphi=0$.
 
 The chains of Chapters~\ref{ch:dual} and~\ref{ch:level2} show consistency with Planck 2018 and large-scale-structure data. Euclid and DESI will provide
-tests at the sensitivity required to confirm or exclude the predicted amplitude.
+tests at the sensitivity required to confirm or exclude the predicted amplitude. \prediction
 
 The chains and the analysis scripts behind every number in this chapter are in the repository (Appendix~\ref{app:repro}); the derivation steps are
 checked by \texttt{docs/verification/scripts/\allowbreak{}verify\_theory\_derivations.py}.

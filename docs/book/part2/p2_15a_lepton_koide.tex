@@ -156,8 +156,8 @@ Mode $n$ carries the orbit-averaged gradient density $\langle|\partial_\phi\cos 
 \begin{equation}
 E^{\rm grad}_n=\frac{n^2}{2}\,\omega_0^2,\label{eq:ko:grad}
 \end{equation}
-with $\omega_0$ the gradient unit set by the orbit circumference; the constant mode costs nothing. \derived{} At zero encoding temperature only the
-constant mode and the first harmonic are populated. At a finite encoding temperature the higher modes are suppressed as
+with $\omega_0$ the gradient unit set by the orbit circumference and $\omega_0^2$ carrying units of energy, so the exponent below is a pure number; the constant mode costs nothing. \derived{} At zero encoding temperature only the
+constant mode and the first harmonic are occupied. At a finite encoding temperature the higher modes are suppressed as
 \begin{equation}
 \frac{w_n}{w_1}\sim\exp\!\Big[-\frac{(n^2-1)\,\omega_0^2}{2\kB T_{\rm enc}}\Big].\label{eq:ko:boltz}
 \end{equation}
@@ -203,7 +203,7 @@ Each phase must avoid an arc of width $\pi/2$ centred on $\pi$. \derived
 \item No $n\ge4$ is admissible for any offset $\delta$.
 \item $n=2$ is admissible when $|\cos\delta|<1/\sqrt2$, that is for half of all offsets.
 \item $n=3$ is admissible when $\delta$ lies within $\pi/12$ of a multiple of $2\pi/3$, a quarter of all offsets.
-\item At $\delta=0$, $n=3$ is the only admissible count. At the measured offset $\delta=0.2222$ it is also the only one.
+\item At $\delta=0$, $n=3$ is the only admissible count with $n\ge2$. At the measured offset $\delta=0.2222$ it is also the only one with $n\ge2$ ($n=1$, a single phase, is admissible for three quarters of all offsets).
 \end{enumerate}
 \emph{Proof.} Any closed arc of length $2\pi/n$ contains at least one of $n$ equally spaced points. The closed arc
 $|\phi-\pi|\le\pi/4$ has length $\pi/2\ge2\pi/n$ for $n\ge4$, so for every $\delta$ some phase has $1+\sqrt2\cos\phi_k\le0$. For $n=2$ the phases are $\delta$ and $\delta+\pi$; both amplitudes are positive when $1\pm\sqrt2\cos\delta>0$, that is
@@ -214,7 +214,7 @@ present, $1-\sqrt2<0$; at $\delta=0.2222$, $\cos\delta=0.975>1/\sqrt2$ and $n=2$
 $x(1+\sqrt2)$ and twice $x(1-\sqrt2/2)$, all positive. $\square$ \derived
 
 So the encoding allows at most three generations at any offset. At $\delta=0$, the offset of Step~6, and at the measured
-offset, it allows exactly three. Two points limit the reach of the theorem. The masses themselves are squares and are positive whatever the
+offset, it allows exactly three among $n\ge2$. Two points limit the reach of the theorem. The masses themselves are squares and are positive whatever the
 sign of the amplitude; the theorem constrains the sign of the encoded amplitude, which is an assumption about the encoding. \derived{} With signed
 amplitudes allowed, equal weights give $Q_n=2/n$ for every $n\ge3$ (K11), so the value $2/3$ belongs to three generations, but the count is no
 longer bounded. \calc
@@ -299,7 +299,7 @@ central value would separate them at $3.9\sigma$; the most precise single measur
 \item \textbf{The offset.} A $\tau$ mass that settles at $1776.969$\,MeV would also settle $\delta=0.2222220$ and exclude $\delta=2/9$ exactly at
 the level set by $m_\mu$. \calc
 \item \textbf{The model layer.} Four statements would break the route, and they are its tests. (i) A controlled de Sitter construction in which a
-charged operator sector does not reduce to an $S^1$ carrying one phase. (ii) A boundary action that populates the second and higher harmonics
+charged operator sector does not reduce to an $S^1$ carrying one phase. (ii) A boundary action that excites the second and higher harmonics
 above $w_2/w_1\sim10^{-10}$; since three masses cannot see the harmonics directly, this is a test of the action, not of the masses. (iii) A
 multi-channel horizon encoding whose entropy, computed from microstates, is not maximised by the equal partition; that would also bear on the
 standard account of black-hole entropy. (iv) Independent flavour constructions (discrete or modular family symmetries, holographic models)

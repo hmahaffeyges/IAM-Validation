@@ -52,7 +52,7 @@ def table(path, caption, label, colspec, header, rows):
 
 
 # ===================== p5_01: two thermal surfaces =====================
-H0 = 67.4e3 / Mpc                                  # p5_01 line 27/37 (H0 = 67.4)
+H0 = 67.16e3 / Mpc                                 # p5_01: photon-sector H0 = 67.16
 TGH = hbar * H0 / (2 * np.pi * k)
 TBH = lambda M: hbar * c**3 / (8 * np.pi * G * M * k)
 Nbits = lambda M: 4 * np.pi * G * M**2 / (hbar * c * np.log(2))
@@ -78,7 +78,7 @@ for m in (1, 1e3, 1e6, 1e9, 7e10, Meq / Msun):
     MM = m * Msun
     rows.append((sci_tex(m, 2) if m != 1 else "1", sci_tex(TBH(MM), 2), num(TBH(MM) / TGH, 2), sci_tex(Nbits(MM), 2), sci_tex(Gam(MM), 2)))
 table(TAB / "tab_bh_surfaces.tex",
-      "Black-hole horizons against the cosmic horizon today ($H_0=67.4$, $T_{GH}=" + sci_tex(TGH, 3).strip("$") + "$\\,K): temperature, "
+      "Black-hole horizons against the cosmic horizon today ($H_0=67.16$, $T_{GH}=" + sci_tex(TGH, 3).strip("$") + "$\\,K): temperature, "
       "ratio to $T_{GH}$, bits held $N=4\\pi GM^2/(\\hbar c\\ln2)$, and the black-body Hawking emission rate. The last row is $M_{\\rm eq}$, "
       "where the two temperatures meet. \\calc", "tab:bh_surfaces", "@{}lcccc@{}",
       "$M/M_\\odot$ & $T_{BH}$ (K) & $T_{BH}/T_{GH}$ & $N$ (bits) & $\\Gamma$ (bits\\,s$^{-1}$)", rows)

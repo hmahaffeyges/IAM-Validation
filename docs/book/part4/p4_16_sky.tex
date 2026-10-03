@@ -63,21 +63,22 @@ other people; a sex mask or a reference of the same sex, because the X chromosom
 
 At multipole $\ell$ the CMB offers $2\ell+1$ independent modes, and the fractional uncertainty on the power there can never fall below
 $\sqrt{2/(2\ell+1)}$ however good the telescope. A specimen has the same kind of limit. At a site with true methylation $\beta$ in a specimen of $N$
-genome copies, the measured fraction has binomial standard deviation
+diploid genomes ($2N$ copies of the site), the measured fraction has binomial standard deviation
 \begin{equation}
   \sigma_{\mathrm{copies}}=\sqrt{\frac{\beta(1-\beta)}{2N}}
   \label{eq:cellcount}
 \end{equation}
 for diploid DNA. \derived{} Figure~\ref{fig:cellcount} sets it against array noise. For a whole-blood draw with millions of cells the copy-number floor is
-negligible. Plasma cell-free DNA in health carries about $10^3$ genome equivalents per millilitre~\cite{Sender2024}, so a draw yields of order
-$10^3$--$10^4$ genome copies. At $N=10^4$ the floor is $0.003$ at $\beta=0.7$, below array noise at a single site but not negligible for a cell
-present at one per cent, whose contribution comes from about a hundred genomes. \calc{} The chain does
+negligible. Plasma cell-free DNA in health carries about $10^3$ genome equivalents per millilitre~\cite{Sender2024}; a genome equivalent is one haploid
+genome, one copy of each site, so a draw yields of order $10^3$--$10^4$ copies of a site ($N\approx5\times10^2$--$5\times10^3$). At $10^4$ copies the
+floor is $0.0046$ at $\beta=0.7$, below array noise at a single site but not negligible for a cell present at one per cent, whose contribution comes
+from about a hundred copies. \calc{} The chain does
 not yet carry this floor in any interval. \openprob
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.8\textwidth]{figures/part4/fig_cell_count_floor.pdf}
-\caption{Standard deviation of measured $\beta$ at one site from the finite number of genome copies (Eq.~\eqref{eq:cellcount}, $\beta=0.7$, diploid), against
-array measurement noise of 0.01 and 0.02. Vertical lines mark $10^3$ and $10^4$ genomes, the range of a plasma draw. \calc}
+\caption{Standard deviation of measured $\beta$ at one site from the finite number of copies of the site (Eq.~\eqref{eq:cellcount} with $2N$ copies, $\beta=0.7$), against
+array measurement noise of 0.01 and 0.02. Vertical lines mark $10^3$ and $10^4$ copies (haploid genome equivalents), the range of a plasma draw. \calc}
 \label{fig:cellcount}
 \end{figure}
 

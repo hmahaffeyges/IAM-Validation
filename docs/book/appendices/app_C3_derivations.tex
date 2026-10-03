@@ -22,7 +22,7 @@ P6 & Records written in the bulk enter the entropy of the nearest horizon, $S=S_
 P7 & The rate law $\dot I\propto\rho_mD^nfH$ and its accumulation $dS_{\rm info}/dt=\dot I/(T_HA_H)$ & \conjecture\\
 P8 & The record constraint $\dot\rho_{\rm info}=\rho_{\rm info}H/a$ & \conjecture\\
 P9 & The sector rule: timelike worldlines write records, null worldlines do not; the record term enters matter perturbations only; $\delta\varphi=0$ & \conjecture\\
-P10 & The virial share of the matter density, $\beta_m=\Omega_m/2$, applied to the whole population of bound structure (Assumption~3) & \conjecture\\
+P10 & The virial share of the matter density, $\beta_m=\Omega_m/2$, applied to the whole ensemble of bound structure (Assumption~3) & \conjecture\\
 P11 & Measured inputs: $H_0$, $\Omega_m$, $\Omega_b$, $\Omega_\Lambda$, $T_{\rm CMB}$, particle masses, $\alpha$ & \measured\\\bottomrule
 \end{tabularx}
 \end{center}
@@ -83,7 +83,7 @@ $152.5$ bits\,s$^{-1}$, $\tau=2.10\times10^{67}$\,yr; for $4.3\times10^6\,M_\odo
 $2.4\times10^{12}$ at $z=10^6$. $T_{\rm BH}=T_{\rm CMB}$ gives $M_{\rm CMB}=\hbar c^3/(8\pi Gk_BT_{\rm CMB})=4.50\times10^{22}$\,kg (0.61 lunar masses).
 A solar-mass hole is $4.42\times10^7$ times colder than the CMB, $\ln(4.42\times10^7)=17.6$ e-folds of further expansion. \calc
 
-\paragraph{One unit of entropy per $4\ell_P^2$.} Adding $k_B$ at $T=\hbar\kappa/2\pi k_B$ costs $\delta E=\hbar\kappa/2\pi$; the horizon first law
+\paragraph{One unit of entropy per $4\ell_P^2$.} Here $\kappa$ is in s$^{-1}$ (the surface gravity of Appendix~\ref{app:notation} divided by $c$). Adding $k_B$ at $T=\hbar\kappa/2\pi k_B$ costs $\delta E=\hbar\kappa/2\pi$; the horizon first law
 $\delta E=(\kappa c^3/8\pi G)\delta A$ then gives $\delta A_{\min}=(8\pi G/\kappa c^3)(\hbar\kappa/2\pi)=4\hbar G/c^3=4\ell_P^2$, independent of $\kappa$;
 one bit takes $4\ln2\,\ell_P^2=2.77\,\ell_P^2$. \derived
 
@@ -159,11 +159,11 @@ $\dot I$ cancels the $1/H$). In matter domination $\rho_m\propto a^{-3}$, $D\pro
 A history $S_{\rm info}=k(1-1/a)+{\rm const}$ needs $n-9/2=-1$, so $n=7/2$. \calc
 \begin{itemize}
 \item The same condition in the form ``the record surface density $D/A_H\propto a^{-2}$'': the remaining factor $\rho_mD^{n-1}f/(T_Ha)\propto a^{\,n-7/2}$ is
-constant only for $n=7/2$. The two statements are one.
-\item The measure matters. Dropping $1/A_H$ (accumulating per unit time divided by $T_H$ only) gives $dS/da\propto a^{\,n-5/2}$, which would need $n=1/2$.
+constant only for $n=7/2$. The two statements are one. \derived
+\item The measure matters. Dropping $1/A_H$ (accumulating per unit time divided by $T_H$ only) gives $dS/da\propto a^{\,n-5/2}$, which would need $n=1/2$. \derived
 \item Full $\Lambda$CDM growth ($\Omega_m=0.315$, $\Omega_r=9.1\times10^{-5}$): the power of $dS/d\ln a$ over $0.01\le a\le0.1$ is $-2.02$, $-1.52$, $-1.02$,
 $-0.53$ for $n=2.5$, $3$, $3.5$, $4$, and over $0.25\le a\le1$ it is $-2.42$, $-1.99$, $-1.57$, $-1.14$. \calc
-\item Shape. For $n=7/2$ the accumulated $S(a)-S(1)$ matches $k(1-1/a)+{\rm const}$ to $0.7\,\%$ of its range over $0.01\le a\le0.1$, $3.8\,\%$ over
+\item Shape. For $n=7/2$ the accumulated $S(a)-S(1)$ matches $k(1-1/a)+{\rm const}$ (least-squares fit of $k$ and the constant; largest residual over the interval as a fraction of the range of $S$) to $0.7\,\%$ of its range over $0.01\le a\le0.1$, $3.8\,\%$ over
 $0.15\le a\le1$ and $6.3\,\%$ over $0.15\le a\le2$; the $\Lambda$ era steepens it. \calc
 \item Normalisation. For $n\le9/2$ the integral $\int_{a_{\min}}^aS'\,da'$ grows without bound as $a_{\min}\to0$, so the history must be written from
 $a=1$, $S(a)-S(1)$; and the amplitude $k$ (the coefficient of $1/a$ in units of $k_B$) is not fixed by the scaling. Fitting $\exp(\alpha-\beta/a)$ to an
@@ -289,8 +289,8 @@ $z=0.361$ ($\Lambda$CDM: $0.295$). \calc
 \begin{equation}
 \frac{\rho_\Lambda}{\rho_{\rm vac}}=\frac{3\Omega_\Lambda}{8\pi}\frac{\hbar GH_0^2}{c^5}=\frac{3\Omega_\Lambda}{8\pi}\Big(\frac{\ell_P}{\ell_H}\Big)^2
 \end{equation}
-for any $H_0$. \derived\ At $H_0=67.4$, $\Omega_\Lambda=0.6846$: $\rho_{\rm vac}=4.633\times10^{113}$\,J\,m$^{-3}$, $\rho_\Lambda=5.250\times10^{-10}$\,J\,m$^{-3}$,
-ratio $1.1332\times10^{-123}$. \calc
+for any $H_0$. \derived\ At $H_0=67.4$, $\Omega_\Lambda=0.6847$: $\rho_{\rm vac}=4.633\times10^{113}$\,J\,m$^{-3}$, $\rho_\Lambda=5.251\times10^{-10}$\,J\,m$^{-3}$,
+ratio $1.1334\times10^{-123}$. \calc
 
 \paragraph{The relation.} The expression $(2/\pi)(\ell_P/\ell_H)^2\sqrt{\Omega_\Lambda}\,\Omega_b/\Omega_m$, set equal to the identity, gives
 $(2/\pi)\sqrt{\Omega_\Lambda}\,\Omega_b/\Omega_m=3\Omega_\Lambda/8\pi$, i.e.\ $\Omega_b/\Omega_m=\tfrac3{16}\sqrt{\Omega_\Lambda}$: the Planck length, the Hubble
@@ -365,7 +365,7 @@ is P9. \openprob
 record term implies is not derived. \openprob
 \item The bottom-up exponent. Measured halo statistics give a running $n_{\rm eff}$ that crosses $7/2$ at $z\approx3$--$4$; a constant $7/2$ is not
 obtained. \openprob
-\item The virial coupling at the population level (P10), and its use of the present-day $\Omega_m$. \openprob
+\item The virial coupling for the whole ensemble of bound structure (P10), and its use of the present-day $\Omega_m$. \openprob
 \item The factor $3/16$ in $\Omega_b/\Omega_m=\tfrac3{16}\sqrt{\Omega_\Lambda}$, the history integral of the vacuum term, and why the relation holds now. \openprob
 \item The factor $(2\pi)^{3/10}$ in the electron fixed point, the Koide offset $\delta$ and scale $x$. \openprob
 \item The boundary capacity $k_BT/E_G$ and the time profile of gravitational decoherence. \openprob

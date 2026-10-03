@@ -105,8 +105,8 @@ down to 35~mK and then saturated, with a residual excited-state occupation of 0.
 state-averaging factors~\cite{Abad2022}, the thermal-kick part of Eq.~\eqref{eq:qp_pth}, a material part from the TLS bath, and control
 and crosstalk (Eq.~\eqref{eq:pdecomp}). Only the first two follow from standard theory \derived; the split of the remainder between
 material and control is a model (Chapter~\ref{ch:walls}) \conjecture. The worked reading of Section~\ref{sec:qp_marks} shows that the
-thermal-kick part is three orders of magnitude below a present two-qubit error: of the channels that write on a transmon, the thermal
-one is the furthest above its floor in the wrong direction, that is, the least important \calc. The 105-qubit processor of
+thermal-kick part is three orders of magnitude below a present two-qubit error \calc: of the channels that write on a transmon, the thermal
+one lies furthest below the measured error, and so matters least \interp. The 105-qubit processor of
 Ref.~\cite{GoogleWillow2025} reports a mean $T_1=68~\mu$s and $T_{2,\rm CPMG}=89~\mu$s \observed.
 
 \paragraph{Levers.} Four engineering levers act on a superconducting qubit: eliminating the interface, geometric decoupling via
@@ -120,8 +120,8 @@ change does not improve today's gate error at all; it raises the coherence a lat
 today; it buys runway for tomorrow \interp.
 Lowering the qubit's effective temperature moves the thermal floor; shortening the gate moves both the coherence part and the
 thermal-kick part.
-The refrigerator does not set that temperature by itself: the dilution refrigerator of Ref.~\cite{Krinner2019} has its mixing chamber
-at 6~mK, while a qubit's own temperature saturated at 35~mK as the refrigerator went lower~\cite{Jin2015} \observed, so this lever acts
+The refrigerator does not set that temperature by itself: the dilution refrigerator of Ref.~\cite{Krinner2019} reaches about 6~mK on its mixing chamber
+in a heat-load test and runs at 14~mK under the load of a 50-qubit wiring scheme, while a qubit's own temperature saturated at 35~mK as the refrigerator went lower~\cite{Jin2015} \observed, so this lever acts
 through the qubit's thermalisation and filtering more than through the base temperature \interp. A further lever is the gate itself:
 redesigning the two-qubit gate changes which channel binds without changing the material \interp. The geometric lever has been measured
 directly. With a clean electromagnetic environment and the non-equilibrium quasiparticle density suppressed, the relaxation rates of 3D
@@ -290,7 +290,7 @@ semiconductor nanowire. The thermal kick on such a record is quasiparticle poiso
 non-equilibrium quasiparticle background as in Chapter~\ref{ch:xqp} \interp. A single-shot interferometric parity measurement in
 InAs--Al devices has been reported, with a parity dwell time longer than 1~ms at in-plane fields of about 2~T~\cite{Aghaee2025}
 \observed. The paper states that these measurements do not, by themselves, determine whether the low-energy states detected are topological,
-and the journal's editorial team noted that the results do not represent evidence for Majorana zero modes~\cite{Aghaee2025}. The field reads such results with care for a reason: a 2018 report of quantized Majorana conductance in hybrid nanowires was retracted
+and an editorial note published with the article on the journal's site states that the results do not represent evidence for Majorana zero modes~\cite{Aghaee2025}. The field reads such results with care for a reason: a 2018 report of quantized Majorana conductance in hybrid nanowires was retracted
 in 2021 after a re-analysis of its raw data and a re-calibration, its authors writing that they could no longer claim the
 observation~\cite{Zhang2021Retraction} \observed. In a tetron device with two parallel nanowires, single-shot parity measurements of two
 loops designed as Pauli-$X$ and $Z$ measurements gave parity-switching times of $14.5\pm0.3~\mu$s and $12.4\pm0.4$~ms and estimated

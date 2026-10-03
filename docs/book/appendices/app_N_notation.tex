@@ -39,8 +39,8 @@ negative in an overdensity. $\delta_m$ is the matter density contrast; $D(a)$ th
 \item \textbf{Equation of state.} $w=p/\rho c^2$; $w<-1$ is called phantom. The CPL form is $w(a)=w_0+w_a(1-a)$.
 \item \textbf{Two Hubble rates.} $H_0^{(\gamma)}$ (photon sector, the background) and $H_0^{(m)}=H_0^{(\gamma)}\sqrt{1+\beta_m}$ (matter sector). The book's values are
 $67.16$ (photon sector, Level~2 chain) and $72.26$ (matter sector)~km\,s$^{-1}$\,Mpc$^{-1}$; $67.4$ and $67.36$ are Planck~2018 values and are labelled as such where used.
-\item \textbf{Fit statistics.} $\Delta\chi^2$ is IAM minus $\Lambda$CDM on the same data and code, from the lowest $\chi^2$ in each chain; positive means IAM fits
-slightly worse. With equal parameter counts the likelihood ratio is $e^{-\Delta\chi^2/2}$. Chains are converged when the Gelman--Rubin $R-1<0.01$.
+\item \textbf{Fit statistics.} $\Delta\chi^2$ is IAM minus $\Lambda$CDM on the same data and code, from the lowest $\chi^2$ in each chain after the 30\,\% burn-in; a positive value means the IAM minimum is the higher of the two.
+With equal parameter counts the likelihood ratio is $e^{-\Delta\chi^2/2}$ and $\Delta{\rm AIC}=\Delta{\rm BIC}=\Delta\chi^2$. Chains are converged when the Gelman--Rubin $R-1<0.01$.
 \item \textbf{The one gauge.} Every score $A$ is a reading divided by the same system's healthy or as-built reading on the same instrument: $A=1$ is healthy, in
 the middle; $A>1$ is more error than healthy; the floor $\Hmin$ lies below 1 and nothing reads below it. Normal is $0.95\le A\le1.05$. $\Hmin$ is not the denominator of $A$.
 \item \textbf{Methylation.} $\beta\in[0,1]$ is the methylated fraction of the copies at one CpG. On the methylated channel an error lowers $\beta$

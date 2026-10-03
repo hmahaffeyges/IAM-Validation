@@ -1,6 +1,6 @@
 """Part 5 figures. Every curve is computed from the chapter's own formula; the status of each (derived, calculated, conjecture,
 observed) is stated in the caption that carries it.
-p5_01 fig_meq: M_eq(z) = c^3/(4 G H(z)), where a black hole and the cosmic horizon share a temperature (H0 67.4, Om 0.315, Or 9.1e-5),
+p5_01 fig_meq: M_eq(z) = c^3/(4 G H(z)), where a black hole and the cosmic horizon share a temperature (H0 67.16, Om 0.3153, Or 9.1e-5; photon-sector Level 2 values),
 against the largest known black hole (~7e10 Msun).
 p5_02 fig_recession: recession speed H0 D/c against proper distance; the Hubble radius; the Pleiades (136 pc = 444 ly).
 p5_03 fig_satellites: Milky Way satellites with a measured velocity dispersion or upper limit (Local Volume Database, Pace et al.;
@@ -19,7 +19,7 @@ S.apply()
 c, G, hbar, k = C.c, C.G, C.hbar, C.k
 Msun, Mpc, ly = 1.98847e30, 3.0857e22, 9.4607e15
 # ---------------- p5_01 -----------------
-Om, Orad = 0.315, 9.1e-5; OL = 1 - Om - Orad; H0 = 67.4e3 / Mpc
+Om, Orad = 0.3153, 9.1e-5; OL = 1 - Om - Orad; H0 = 67.16e3 / Mpc
 Hz = lambda z: H0 * np.sqrt(Om * (1 + z)**3 + Orad * (1 + z)**4 + OL)
 Meq = lambda z: c**3 / (4 * G * Hz(z)) / Msun
 for zz in (0, 1, 1e6):

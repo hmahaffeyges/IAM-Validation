@@ -18,7 +18,7 @@ Here is the claim: that transition is not free. Every time something crosses fro
 thermodynamic price. That price is paid irreversibly to the nearest encoding surface --- for structure spread through the universe, the boundary of the
 observable universe, the cosmic horizon --- at a cost of $k_BT_H\ln2$ per bit of classical information produced. Once paid, the cost cannot be recovered.
 Classical records are continuously purchased, one decoherence event at a time. This is not a metaphor. It is a physical claim with a derivation, a mechanism, and
-measurable consequences.
+measurable consequences. \conjecture{} (Assumption~2, Section~\ref{sec:assumptions})
 
 Locally, the virial theorem $2\langle K\rangle+\langle V\rangle=0$ has governed the energy of bound physical systems since Clausius stated it in
 1870~\cite{Clausius1870}. For any system bound by a $1/r$ potential --- a hydrogen atom, a solar system, a galaxy --- the kinetic energy at equilibrium is
@@ -132,7 +132,7 @@ dissipation of
 \begin{equation}
 \Delta E_{\rm Landauer}=k_BT\ln2 \label{eq:law_landauer}
 \end{equation}
-at temperature $T$; at 300\,K this is $0.0179$\,eV. This bound has been approached in experiment (B\'erut et al.\ 2012~\cite{Berut2012}) \measured. The
+at temperature $T$; at 300\,K this is $0.0179$\,eV. This bound has been approached in experiment (B\'erut et al.\ 2012~\cite{Berut2012}) \observed. The
 irreversibility is not practical but thermodynamic: undoing the decoherence would require erasing the produced information, dissipating energy into the
 environment and increasing its entropy. The second law forbids the reverse.
 
@@ -228,7 +228,7 @@ $f=(\hbar\eta/2\pi)(-\tfrac12R+\Lambda)$ with $\Lambda$ a constant of integratio
 R_{ab}-\tfrac12Rg_{ab}+\Lambda g_{ab}=\frac{2\pi}{\hbar\eta}T_{ab}\equiv\frac{8\pi G}{c^4}T_{ab},\qquad G=\frac{c^3}{4\hbar\eta}. \label{eq:law_jacobson}
 \end{equation}
 \end{enumerate}
-\derived\ given Assumption~1 (Section~\ref{sec:assumptions}). The machine is: specify an entropy functional, derive a gravity theory.
+\derived\ given Assumption~1 (Section~\ref{sec:assumptions}). The first equality is in units $c=1$, as in step~3; in SI units the coefficient reads $2\pi/(\hbar c\,\eta)$, which equals $8\pi G/c^4$ for $G=c^3/(4\hbar\eta)$. The machine is: specify an entropy functional, derive a gravity theory.
 
 \subsection{The entropy proportional to area and the coefficient one quarter}
 In Jacobson's derivation both $S\propto A$ and the value of $\eta$ are inputs.
@@ -434,7 +434,7 @@ action is defined on the FRW minisuperspace, and writing a covariant form is the
 IAM's Law says that each record carries a cost. The virial theorem tells you how much energy crosses the record boundary at each virialization event.
 Together they give the cosmological coupling constant with no free parameter. For a self-gravitating system in virial equilibrium, half the gravitational
 binding energy goes into the geometric channel (spacetime curvature, standard general relativity) and half into the informational channel (the record
-cost, paid to the encoding surface). Applied to the whole population of bound structure (Assumption~3), the informational energy density at $a=1$ is
+cost, paid to the encoding surface). Applied to the whole ensemble of bound structure (Assumption~3), the informational energy density at $a=1$ is
 \begin{equation}
 \rho_{\rm info}(a{=}1)=\tfrac12\rho_m=\frac{\Omega_m}{2}\,\rho_{\rm crit}. \label{eq:law_rhoinfo1}
 \end{equation}
@@ -442,8 +442,8 @@ Since $\rho_{\rm info}(1)=\beta_mE(1)\rho_{\rm crit}=\beta_m\rho_{\rm crit}$,
 \begin{equation}
 \beta_m=\frac{\Omega_m}{2}=0.15765\quad(\Omega_m=0.3153~\text{\cite{Planck2018VI}}). \label{eq:law_beta}
 \end{equation}
-\prediction\ The $1/2$ partition of the virial theorem is the coupling constant of IAM's Law at cosmological scales. It is not fitted: it enters every
-chain at this value and is never sampled (Chapter~\ref{ch:dual}).
+\prediction\ The $1/2$ partition of the virial theorem is the coupling constant of IAM's Law at cosmological scales. It is not fitted: every IAM
+chain carries it at this value (Level~1 and the baryon chain as the MGCAMB amplitude $\mu_0=-0.13495$), and only the four free-$\mu_0$ test chains sample the amplitude (Chapter~\ref{ch:dual}).
 
 \subsection{The dual-sector split}\label{sec:law_dualsector}
 IAM's Law applies to matter on timelike worldlines.
@@ -532,7 +532,7 @@ $f\sigma_8$ is lower than in $\Lambda$CDM by $4.25\,\%$, $2.17\,\%$, $1.35\,\%$ 
 Since both potentials satisfy the unmodified Poisson equation, Eq.~\eqref{eq:law_poisson}, with no anisotropic stress, Eq.~\eqref{eq:law_noaniso}, photon
 geodesics are determined by $(\Psi+\Phi)/2=\Psi$ without modification. Therefore $\Sigma(a)=1$. The photon exemption at the perturbation level is a
 consequence of $\delta\phi=0$ --- that $\phi$ is a horizon quantity, not a local field. CMB power spectra, CMB lensing, BAO angular positions and supernova
-luminosity distances are unchanged; IAM and $\Lambda$CDM produce CMB TT spectra differing by less than $0.13\,\%$ at $\ell>30$ (Chapter~\ref{ch:theory}) \calc.
+luminosity distances are unchanged; IAM and $\Lambda$CDM produce CMB TT spectra differing by less than $0.13\,\%$ at $\ell>30$ (Chapter~\ref{ch:theory}; the comparison is drawn by \texttt{tests/\allowbreak{}iam\_camb\_full\_boltzmann.py}, and the spectra themselves are not stored in the repository) \calc.
 
 \subsection{Where this sits among modified-growth models}
 Most modified-gravity theories predict $\mu>1$ (enhanced growth) or correlated deviations in both $\mu$ and $\Sigma$. $f(R)$ gives $\mu>1$ with
@@ -655,7 +655,7 @@ The activation function $E(a)=\exp(1-1/a)$ tracks the encoding transition. At ea
 temperature is high, making cosmic-horizon encoding inefficient. Information from early gravitational decoherence is encoded primarily on local black-hole
 horizons. As the universe expands, large-scale structure formation produces distributed decoherence, and the cosmic horizon grows and cools, eventually
 dominating as the encoding surface. The activation function is the quantitative record of this transition. This suggests a natural thermodynamic context
-for the observed population of massive black holes at high redshift: in the early universe, before the cosmic horizon grows large enough to encode
+for the massive black holes observed at high redshift: in the early universe, before the cosmic horizon grows large enough to encode
 efficiently, black holes are the nearest available encoding surfaces. Within the IAM framework this is a consequence of the saturation condition rather
 than an anomaly requiring separate explanation \interp\ (Chapter~\ref{ch:theoryinterp}).
 
@@ -678,17 +678,17 @@ and the peak of structure formation is therefore, on this reading, a consequence
 \section{Observational consistency}
 \subsection{The primary test: $\beta_m=\Omega_m/2$}
 The primary quantitative test of IAM's Law at cosmological scales is the coupling constant $\beta_m=\Omega_m/2=0.15765$, fixed by the virial theorem with no
-free parameter. Seventeen MCMC chains were run against the full Planck 2018 likelihood~\cite{Planck2018VI} (TT, TE, EE, low-$\ell$ and lensing) with Cobaya~\cite{Torrado2021}: twelve with MGCAMB~\cite{Hojjati2011} (Level~1), three with the modified CAMB (Level~2) and two Level~2b diagnostics; with the baryon chain below, eighteen in all. All converged to $R-1\le0.010$
-with no discarded runs, no parameter adjustments and no excluded redshift ranges. The coupling is not a fitted parameter of these chains: it enters every one
-at the prediction, and the test is whether the fixed coupling is consistent with Planck. It is (Table~\ref{tab:law_consistency}; Chapter~\ref{ch:dual}).
+free parameter. Seventeen MCMC chains were run with Cobaya~\cite{Torrado2021} against the Planck likelihoods --- the Planck 2018 low-$\ell$ TT and EE and lensing~\cite{Planck2018V,Planck2018VIII}, with the Planck 2018 \texttt{plik\_lite} TT, TE, EE at high $\ell$ for Level~1 and the PR4 NPIPE CamSpec TT, TE, EE~\cite{Rosenberg2022} for Level~2: twelve with MGCAMB~\cite{Hojjati2011} (Level~1), three with the modified CAMB (Level~2) and two Level~2b diagnostics; with the baryon chain below, eighteen in all. All converged to $R-1\le0.010$
+with no discarded runs, no parameter adjustments and no excluded redshift ranges. The coupling is not a fitted parameter of these chains. Of the eighteen, nine carry it fixed at the prediction (Level~2 and 2b as
+$\beta_m=0.15765$; Level~1 and the baryon chain as the MGCAMB amplitude $\mu_0=-0.13495$), five are the $\Lambda$CDM controls and four sample $\mu_0$ freely as a test; the test is whether the fixed coupling is consistent with Planck. It is (Table~\ref{tab:law_consistency}; Chapter~\ref{ch:dual}).
 
 \begin{table}[htbp]\centering
-\caption{Quantitative consistency checks. The coupling enters every chain at $\beta_m=\Omega_m/2$; nothing is sampled for it. Chain values are from the
+\caption{Quantitative consistency checks. Every IAM chain carries the coupling fixed at $\beta_m=\Omega_m/2$ (Level~1 as $\mu_0=-0.13495$); only the four free-$\mu_0$ test chains sample it. $\Delta\chi^2$ is the difference of the lowest $\chi^2$ in each chain after the 30\,\% burn-in, same data, same code. Chain values are from the
 final chain files (Chapter~\ref{ch:dual}) \measured; distances in $\sigma$ \calc.}\label{tab:law_consistency}
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xll}
 \hline
 Quantity & IAM & Result\\\hline
-$\beta_m$ & $\Omega_m/2=0.15765$, fixed & enters every chain at the prediction\\
+$\beta_m$ & $\Omega_m/2=0.15765$, fixed & fixed at the prediction in every IAM chain\\
 $\Delta\chi^2$ vs $\Lambda$CDM, Level 2 & no added parameter & $+0.54$\\
 $\Delta\chi^2$, Level 1 (four combinations) & no added parameter & $+0.56$ to $+1.73$\\
 $\sigma_8$ & suppressed & $0.809\to0.800$ (Level 2)\\
@@ -726,7 +726,7 @@ $\Lambda$CDM, the cosmological constant and the baryon density; within IAM they 
 
 \textbf{The cosmological constant.} The observed ratio $\Lambda_{\rm obs}/\rho_{\rm vac}$ has resisted derivation for over fifty years. Within IAM this ratio
 is read as the fraction of Planck-area horizon bits written by baryonic decoherence over cosmic history \conjecture. Written in Planck units, the observed
-$\rho_\Lambda/\rho_{\rm vac}=(3\Omega_\Lambda/8\pi)(\ell_P/\ell_H)^2$ identically, $1.133\times10^{-123}$ at $H_0=67.4$ and $\Omega_\Lambda=0.6846$ \calc. The
+$\rho_\Lambda/\rho_{\rm vac}=(3\Omega_\Lambda/8\pi)(\ell_P/\ell_H)^2$ identically, $1.133\times10^{-123}$ at $H_0=67.4$ and $\Omega_\Lambda=0.6847$~\cite{Planck2018VI} \calc. The
 baseline expression of Chapter~\ref{ch:lambda},
 \begin{equation}
 \frac{\Lambda_{\rm obs}}{\rho_{\rm vac}}=\frac2\pi\Big(\frac{\ell_P}{\ell_H}\Big)^2\frac{\Omega_b}{\Omega_m}, \label{eq:law_ccbase}
@@ -734,7 +734,7 @@ baseline expression of Chapter~\ref{ch:lambda},
 gives $1.380\times10^{-123}$ ($\Omega_b=0.0493$, $\Omega_m=0.3153$), $1.22$ times the measured value \calc. The de Sitter encoding surface, the horizon set by
 $\Lambda$ alone, has the Gibbons--Hawking temperature $T_{dS}=T_H\sqrt{\Omega_\Lambda}$, which differs from the Hubble writing temperature by
 \begin{equation}
-\frac{T_{dS}}{T_H}=\sqrt{\Omega_\Lambda}=\sqrt{0.6846}=0.8274 . \label{eq:law_TdS}
+\frac{T_{dS}}{T_H}=\sqrt{\Omega_\Lambda}=\sqrt{0.6847}=0.8275 . \label{eq:law_TdS}
 \end{equation}
 Applying it, $(2/\pi)(\ell_P/\ell_H)^2\sqrt{\Omega_\Lambda}\,\Omega_b/\Omega_m=1.142\times10^{-123}$, $0.8\,\%$ above the measured ratio for this parameter set
 \calc. Set equal to the identity, the corrected expression reduces to the present-epoch relation $\Omega_b/\Omega_m=(3/16)\sqrt{\Omega_\Lambda}$: the
@@ -750,7 +750,7 @@ nucleosynthesis relation. It converged with $R-1=0.009273$ after 22,400 accepted
 \begin{equation}
 \Omega_bh^2=0.02232\pm0.00014,\qquad \eta=(6.113\pm0.037)\times10^{-10}. \label{eq:law_eta_chain}
 \end{equation}
-\fitted\ The $\Lambda$CDM chains return the same $\eta$, $6.117$--$6.137\times10^{-10}$: the informational term is off at recombination ($E\to0$), so the chain
+\fitted\ The four Level~1 $\Lambda$CDM chains return the same $\eta$, $6.117$--$6.137\times10^{-10}$: the informational term is off at recombination ($E\to0$), so the chain
 checks that the term leaves the early universe intact; it does not test IAM (Chapter~\ref{ch:baryon}).
 
 \textbf{The connection.} The cosmological constant problem and the baryon asymmetry problem are, within IAM, not two independent problems. They are two
@@ -797,9 +797,9 @@ introduced by IAM's Law. It is consistent with the holographic principle~\cite{t
 principle~\cite{Landauer1961}, but has not been independently verified at the level of a complete quantum theory of gravity. This is the same gap that
 exists in all thermodynamic approaches to gravity.
 
-\textbf{Assumption 3 --- the virial coupling $\beta_m=\Omega_m/2$ is exact at the population level.} The virial theorem in its strict form applies to
+\textbf{Assumption 3 --- the virial coupling $\beta_m=\Omega_m/2$ is exact for the ensemble.} The virial theorem in its strict form applies to
 systems in stable bound equilibrium. Cosmological structure formation is non-equilibrium. Section~\ref{sec:law_coupling} applies the virial partition to the
-ensemble of virialized structures at the population level. The chains show that the consequence is consistent with Planck; whether the coupling is exact is the open question.
+ensemble of virialized structures as a whole. The chains show that the consequence is consistent with Planck; whether the coupling is exact is the open question.
 
 \textbf{What is derived, given these} \derived. The activation function $E(a)=\exp(1-1/a)$ from integrating the record constraint
 (Section~\ref{sec:law_activation}); the dual-sector split $\mu<1$, $\Sigma=1$ from the null interval of photons ($d\tau=0$) together with the sector rule and
@@ -809,7 +809,7 @@ parameter. The record constraint, the rate law and the sector rule are themselve
 \textbf{Three distinct failure modes.} The assumptions imply three separable levels at which the framework could be falsified, and these levels do not
 rise or fall together. Level~1 (core law): Assumption~2 could fail. Decoherence-produced information may not contribute to horizon entropy in the way
 identified here; falsification at this level would require a complete theory that explicitly excludes this channel, or a derivation showing the entropy
-identification is internally inconsistent. Level~2 (cosmological implementation): the virial coupling of Assumption~3 could fail at the population level. A
+identification is internally inconsistent. Level~2 (cosmological implementation): the virial coupling of Assumption~3 could fail for the ensemble. A
 systematic failure of the perturbation-level growth suppression to fit upcoming survey data would falsify the cosmological model without necessarily
 falsifying the core law. Level~3 (broader structural implications): the extensions --- the nine-step chain, the weak force and black holes as encoding surfaces --- are
 consequences suggested by the framework but not yet verified at the same level as the core derivation or the cosmological implementation; their failure
@@ -834,8 +834,8 @@ machine: specify an entropy, derive a gravity theory. IAM's Law: the missing ent
 the entropy budget of Jacobson's derivation, and the thermodynamic reading of the virial theorem is the same cost at the local scale \interp.
 
 \subsection{The four fundamental forces}
-Gravity and electromagnetism satisfy the virial $1/2$ partition. Gravity: from stellar structure to the cosmological coupling constant, which enters
-every chain at the virial value and is consistent with Planck (Section~\ref{sec:law_coupling}). Electromagnetism: for 20 atoms~\cite{ClementiRoetti1974} and 10 molecules at the
+Gravity and electromagnetism satisfy the virial $1/2$ partition. Gravity: from stellar structure to the cosmological coupling constant, which every
+IAM chain carries at the virial value and is consistent with Planck (Section~\ref{sec:law_coupling}). Electromagnetism: for 20 atoms~\cite{ClementiRoetti1974} and 10 molecules at the
 Hartree--Fock limit the virial ratio is $1/2$ to machine precision --- an exact verification, because the virial theorem must hold exactly
 for converged $1/r$ wavefunctions (Chapter~\ref{ch:virial_law}) \derived. The Chandrasekhar white-dwarf limit, $M_{\rm Ch}=1.456\,M_\odot$ for $\mu_e=2$, is
 a consequence of virial equilibrium between electron degeneracy pressure and gravitational collapse~\cite{Chandrasekhar1931} \derived; the strong force
@@ -847,7 +847,7 @@ excluded by the law's own logic for three independent reasons. First, it violate
 symmetric under spatial reflection. Second, it violates CP symmetry~\cite{Christenson1964}: it treats matter and antimatter differently, and CP violation is
 one of the conditions~\cite{Sakharov1967} for the baryon asymmetry of approximately one excess matter particle per $10^9$ matter--antimatter pairs that
 constitutes all observable matter. Third, and most directly: a force whose function is to drive irreversible transitions between stable bound states cannot
-simultaneously satisfy an equilibrium condition within them.
+simultaneously satisfy an equilibrium condition within them. \conjecture
 
 The weak force is, on this reading, not one of four equals in the IAM framework. It is the precondition for IAM's Law to operate. Without CP violation and
 parity violation there is no preferred direction for decoherence, no arrow of time at the particle-physics level, no activation function $E(a)$, and no IAM
@@ -935,7 +935,7 @@ bound locally before the cosmic horizon grows large enough to encode efficiently
 \item The sector-dependent Hubble split follows from the dual-sector separation that the cost produces between timelike and null worldlines.
 \end{itemize}
 None of these results requires an additional free parameter. Beyond IAM's Law and established physics, each uses only the premises stated in
-Section~\ref{sec:assumptions} --- the record constraint, the rate law, the sector rule and the population-level virial share. This structural property ---
+Section~\ref{sec:assumptions} --- the record constraint, the rate law, the sector rule and the virial share of the whole ensemble. This structural property ---
 that one equation, with its stated premises, generates its consequences rather than requiring them to be assembled --- is what is meant by calling IAM's Law
 a law rather than a framework. The distinction is not a claim about final status; it is a description of the derivational architecture. Every result in
 this chapter traces back to Eq.~\eqref{eq:law} through a chain of established physics and stated premises, and the derivations are given in sufficient

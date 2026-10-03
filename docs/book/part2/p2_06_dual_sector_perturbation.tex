@@ -16,7 +16,7 @@ $\Lambda$CDM. The modification is governed by a single quantity, $\beta_m=\Omega
 three changes to the CAMB Fortran source (\texttt{equations.f90}); no new free parameter is introduced beyond standard $\Lambda$CDM.
 
 Three converged Markov chains against the full Planck likelihood (NPIPE CamSpec TTTEEE~\cite{Rosenberg2022}, low-$\ell$ TT and EE, and lensing) give
-$\Delta\chi^2=+0.54$ between the lowest points of the two chains and $-0.01$ between their chain averages, relative to $\Lambda$CDM: for the same number
+$\Delta\chi^2=+0.54$ between the lowest points of the two chains (the lowest $\chi^2$ after the $30\,\%$ burn-in) and $-0.01$ between their chain averages, relative to $\Lambda$CDM: for the same number
 of parameters, a likelihood ratio of $0.76$. Every standard cosmological parameter shifts by less than $0.1\sigma$. The matter clustering amplitude
 shifts from $\sigma_8=0.8087\pm0.0059$ ($\Lambda$CDM) to $\sigma_8=0.7998\pm0.0058$ (dual sector), a $1.1\,\%$ reduction in the direction reported by
 KiDS-1000, DES Y3 and HSC Y3 \measured.
@@ -35,8 +35,8 @@ local distance-ladder measurement $H_0=73.04\pm1.04$\,km\,s$^{-1}$\,Mpc$^{-1}$ (
 $(73.04-67.4)/\sqrt{0.5^2+1.04^2}$ \calc. The difference has been examined with independent local methods, including the tip of the red giant
 branch~\cite{Freedman2021} and strong-lensing time delays~\cite{Wong2020} \observed. The tip of the red giant branch, calibrated with the Hubble and
 James Webb telescopes and 24 calibrating type Ia supernovae, gives $H_0=70.39\pm1.22\,({\rm stat})\pm1.33\,({\rm sys})\pm0.70\,(\sigma_{\rm SN})$,
-$\pm1.94$ in quadrature (Freedman et al.\ 2025~\cite{Freedman2025}) \observed. It lies $0.97\sigma$ below the matter-sector rate $72.26$ derived below
-and $1.67\sigma$ above the photon-sector rate $67.16$ \calc: at its present precision the red-giant ladder does not separate the two rates.
+$\pm1.94$ in quadrature (Freedman et al.\ 2025~\cite{Freedman2025}) \observed. It lies $0.96\sigma$ below the matter-sector rate $72.26$ derived below
+and $1.66\sigma$ above the photon-sector rate $67.16$ \calc: at its present precision the red-giant ladder does not separate the two rates.
 
 The second is the $\sigma_8$/$S_8$ tension. Weak-lensing surveys have reported $S_8\equiv\sigma_8(\Omega_m/0.3)^{0.5}$ 2--3$\sigma$ below the Planck
 $\Lambda$CDM prediction: KiDS-1000 cosmic shear $0.759^{+0.024}_{-0.021}$ (Asgari et al.\ 2021~\cite{Asgari2021}) and multi-probe
@@ -146,7 +146,8 @@ else
 end if
 \end{Verbatim}
 Since \texttt{iam\_grho0} $=8\pi G\sum_i\rho_{i,0}=3H_0^2$ for a flat universe, $\mathcal H_m^2=\mathcal H^2+\beta_mE(a)a^2H_0^2$, which is
-Eq.~\eqref{eq:l2_Hm} multiplied by $a^2$.
+Eq.~\eqref{eq:l2_Hm} multiplied by $a^2$. The sum leaves out the massive-neutrino density ($\Omega_\nu=0.0014$ for the one $0.06$\,eV neutrino of
+the runs), so the coupling as coded is $0.9986\,\beta_m$: a $0.14\,\%$ difference, small against the $2\,\%$ posterior error on $\Omega_m/2$. \calc
 \item \emph{CDM and baryon density equations} (l.~2324--2337). CAMB works in synchronous gauge, in which the CDM is at rest and the matter density
 contrasts are driven by the metric variable $z=h'/(2k)$, fixed by the $00$ Einstein equation as $z=(\tfrac12\,\texttt{dgrho}/k+\texttt{etak})/\mathcal H$.
 In the CDM and baryon equations only, $\mathcal H$ (\texttt{adotoa}) is replaced by $\mathcal H_m$ (\texttt{adotoa\_matter}):
@@ -393,7 +394,7 @@ modification is a late-time effect, consistent with the preservation of CMB, BBN
 
 \begin{table}[htbp]\centering\small
 \caption{Dual-sector expansion rates by redshift at the Run~A posterior ($H_0=67.161$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m=0.3166$; $\beta_m=0.15765$).
-$H_\gamma$ is the standard $\Lambda$CDM value; $H_m$ includes the dual-sector term. Rates in km\,s$^{-1}$\,Mpc$^{-1}$. \calc}\label{tab:l2_hubble_z}
+$H_\gamma$ is the standard $\Lambda$CDM value; $H_m$ includes the dual-sector term. Rates in km\,s$^{-1}$\,Mpc$^{-1}$. The table leaves out the radiation term of Eq.~\eqref{eq:l2_friedmann}; it adds about $0.03$ at $z=1$ and $0.5$\,km\,s$^{-1}$\,Mpc$^{-1}$ at $z=5$ to both rates. \calc}\label{tab:l2_hubble_z}
 \begin{tabular}{ccccc}\hline
 $z$ & $H_\gamma$ & $H_m$ & ratio & $E(a)$\\\hline
 0 & 67.16 & 72.26 & 1.0759 & 1.000000\\

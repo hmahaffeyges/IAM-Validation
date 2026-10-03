@@ -3,7 +3,7 @@
 \section{The floor for logic}
 
 A conventional logic gate erases information at almost every operation. The Landauer floor~\cite{Landauer1961} at
-a junction temperature $T_j=348$~K (75~$^\circ$C) is
+a junction temperature $T_j=348.15$~K (75~$^\circ$C) is
 \begin{equation}
  \kB T_j\ln2=3.33\times10^{-21}\ \mathrm J=0.021\ \mathrm{eV}.
 \end{equation}
@@ -15,7 +15,7 @@ floor therefore sits at 0.0017 on the chip gauge. Most transistors do not switch
 which raises the energy per actual switch, while TDP also contains leakage and static power, which lowers it; the reading is an
 order-of-magnitude figure for the whole chip. The transistor count is the least certain input: the maker has published no count for this part, and the two figures in
 circulation, $20.0\times10^9$ and $20.6\times10^9$, come from die-level reports, so the reading is given as the range they span \openprob. Present logic therefore runs a few hundred $\kB T$ above the thermal noise quantum per
-switch on this average. This is the regime in which thermal physics, not lithography, sets the rules.
+switch on this average \calc. This is the regime in which thermal physics, not lithography, sets the rules \interp.
 
 \section{Dennard scaling and its end}
 
@@ -105,7 +105,7 @@ Separating a node component from an architecture component on the chip gauge nee
 the designs \openprob.
 
 \noindent The power definition moves the reading as much as the clock does. A generation pair whose power figure changes from a 253~W maximum
-turbo rating to a 125~W base rating reads a 70.7\,\% step; on one definition for both chips the same pair reads 40.7\,\% \calc. The floor itself
+turbo rating to a 125~W base rating reads a 70.7\,\% step; on one definition for both chips (the newer chip also taken at a 253~W maximum turbo rating) the same pair reads 40.7\,\% \calc. The floor itself
 moves with the chip's own junction temperature, by 8.6\,\% between 75 and 105\,$^\circ$C \calc. Both are treated in Chapter~\ref{ch:chipgen}.
 
 \section{What the gauge offers a designer}

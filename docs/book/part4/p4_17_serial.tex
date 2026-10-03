@@ -28,7 +28,7 @@ A difference means nothing without the size of difference that noise alone produ
 read through the same chain. For neutrophil Met-A it is not yet measured. \openprob{} What the records hold so far:
 \begin{itemize}
 \item \textbf{Same person, repeat arrays, another laboratory.} Isolated neutrophils of two donors, eight times of day, three arrays each, read with no tare:
-      within-person SD 0.045 and 0.044 on all 48 arrays, and the spread followed the arrays' noise index, not the time of day.
+      within-person SD 0.045 and 0.044 on the 45 of 48 arrays that gave a reading (three of donor~2's did not), and the spread followed the arrays' noise index, not the time of day.
       \measured{} This is the floor of an untared reading in a noisy laboratory, not of a tared one.
 \item \textbf{Technical replicates of whole blood.} A whole-blood replicate set (GSE250556) was in the pre-registered battery. The neutrophil fraction there was
       0.30--0.56, and under the read line then in force $A$ was withheld on nearly every array. \measured{} At the
@@ -44,7 +44,7 @@ collects them.
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part4/fig_p4_17_repeats.pdf}
 \caption{Untared Met-A of isolated neutrophils from two people, three arrays at each of eight times of day, all 48 arrays as re-read in the diagnostic
-of the pre-registered test (the pre-registered score used the 33 arrays that downloaded). Within-person SD 0.045 and 0.044. \measured}
+of the pre-registered test, 45 of which gave a reading (the pre-registered score used the 33 arrays that downloaded). Within-person SD 0.045 (24 arrays) and 0.044 (21). \measured}
 \label{fig:p4_repeats}
 \end{figure}
 % COMMISSIONING-RETURN fig:p4_replicates: figure taken out 2026-10-03 (plotted development values from the removed fitted tare). Put back, redrawn from the commissioned chain; see docs/book/COMMISSIONING_RETURNS.md.
@@ -55,7 +55,7 @@ of the pre-registered test (the pre-registered score used the 33 arrays that dow
 \begin{tabular}{@{}p{0.47\textwidth}rp{0.27\textwidth}l@{}}\toprule
 repeat & arrays & spread & status \\\midrule
 isolated neutrophils, donor 1, another laboratory, no tare & 24 & SD 0.045 & \measured \\
-isolated neutrophils, donor 2, same laboratory, no tare & 24 & SD 0.044 & \measured \\
+isolated neutrophils, donor 2, same laboratory, no tare & 21 & SD 0.044 & \measured \\
 whole-blood technical replicates (GSE250556), tared & --- & being measured in development & \openprob \\
 two remission draws of one person & 10 pairs & 10 of 10 within 0.05 & \measured \\
 \bottomrule

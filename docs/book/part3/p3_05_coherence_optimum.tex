@@ -97,8 +97,8 @@ blockade-leakage and scattering parts rise with it, $p(\Omega)=a/\Omega+b\Omega^
 
 \paragraph{Qubit count.} A published two-qubit error is measured on one pair with its neighbours idle. Counting each coupler as one more
 crosstalk path, the error of a gate inside a full circuit can be written $p_{\mathrm{eff}}=1-(1-p_{2Q})^{1+\alpha C(N)}\approx
-p_{2Q}\,(1+\alpha C(N))$, with $C(N)$ the couplers per qubit and $\alpha$ a crosstalk coefficient \conjecture; the linear form is within
-$10^{-3}$ of the exact one for $p_{2Q}\le2\times10^{-3}$ and $\alpha C\le1$ \calc. On a fixed lattice $C$ stays near constant as qubits
+p_{2Q}\,(1+\alpha C(N))$, with $C(N)$ the couplers per qubit and $\alpha$ a crosstalk coefficient \conjecture; the linear form differs from the exact one
+by at most $4\times10^{-6}$ in absolute terms (about $10^{-3}$ relative) for $p_{2Q}\le2\times10^{-3}$ and $\alpha C\le1$ \calc. On a fixed lattice $C$ stays near constant as qubits
 are added. On the heavy-hexagon lattice, laid out for superconducting qubits to limit frequency collisions and crosstalk, qubits have degree two
 or three~\cite{Chamberland2020PRX} \observed. In a reconfigurable neutral-atom array the atoms are moved between zones, which gives
 arbitrary connectivity~\cite{Bluvstein2024} \observed; there the effective $C$ is set by the movement schedule rather than by a fixed
@@ -108,8 +108,8 @@ about 100 to about 200 raises it by $\ln200/\ln100=1.15$ \calc. That $\alpha$ ju
 
 \paragraph{The cryostat as part of the surface.} The qubit count also has a thermal side. Every control line connects room-temperature
 electronics to the processor and loads the refrigerator, passively by heat conduction and actively by the dissipation of control signals
-in its cables and attenuators~\cite{Krinner2019} \observed. The dilution refrigerator of that study offers about 19~$\mu$W of
-cooling at 20~mK on its mixing chamber; a cabling scheme engineered for that budget supports 50 qubits at 14~mK and,
+in its cables and attenuators~\cite{Krinner2019} \observed. The dilution refrigerator of that study offers about 13~$\mu$W of
+cooling at 20~mK on its mixing chamber at its standard flow, and up to about 19~$\mu$W at a raised flow; a cabling scheme engineered for that budget supports 50 qubits at 14~mK and,
 disregarding space, at least 150~\cite{Krinner2019} \observed. Beyond some count, wiring heat load, crosstalk and cooling power together
 set an integration ceiling for each chip and cryostat, a system-level limit separate from the material ceiling of one junction \interp.
 

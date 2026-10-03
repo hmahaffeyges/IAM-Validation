@@ -10,13 +10,13 @@
 IAM proposes that late-time cosmic expansion couples differently to photons versus matter, and reads the Hubble
 tension through sector-specific expansion rates \interp. This dual-sector framework makes a critical, testable prediction: Type Ia supernovae (SNe), as
 matter-based distance indicators hosted in galaxies, should probe the matter sector. The hypothesis is tested here using the complete Pantheon+ dataset
-(1588 SNe, $0.01<z<2.26$) through three independent analyses: (1) SNe with the Planck (photon-sector) $H_0$ prior, (2) SNe with the SH0ES (matter-sector)
+(1588 SNe, $0.01<z<2.26$) through three independent analyses: (1) SNe with the Planck $H_0$ prior, (2) SNe with the SH0ES
 $H_0$ prior, and (3) SNe with no $H_0$ constraint. With the absolute magnitude $M$ free, the three analyses reach the same minimum for any $H_0$: the
-supernova magnitudes do not choose between the photon-sector rate ($H_0=67.4$ km\,s$^{-1}$\,Mpc$^{-1}$) and the matter-sector normalization
+supernova magnitudes do not choose between the Planck value ($H_0=67.4$ km\,s$^{-1}$\,Mpc$^{-1}$) and the SH0ES value
 ($H_0=73.04$ km\,s$^{-1}$\,Mpc$^{-1}$), which comes from the Cepheid calibration of $M$ \derived. Critically, SNe distances maintain $\Lambda$CDM
-geometric consistency ($\beta_{\rm distance}=-0.035$, $68\,\%$: $-0.065$ to $0.000$, full covariance) \observed, validating IAM's prediction that
+geometric consistency ($\beta_{\rm distance}=-0.035$, $68\,\%$: $-0.068$ to $0.000$, full covariance) \observed, validating IAM's prediction that
 sector-specific coupling primarily affects structure growth ($f\sigma_8$) rather than photon propagation geometry; the $\beta$ term applied to supernova
-distances is excluded ($\Delta\chi^2=+23.6$) \calc. In the dual-sector reading, Planck ($H_0=67.4$, photon sector) and SH0ES ($H_0=73.04$, matter sector)
+distances is excluded ($\Delta\chi^2=+23.6$) \calc. In the dual-sector reading, Planck (photon sector, $H_0=67.16$ in the chains) and SH0ES (matter sector, predicted $72.26$, measured $73.04$)
 both measure correctly---they probe different physical quantities \interp. The dual-sector phenomenology maps directly onto the standard modified gravity
 parametrization: matter perturbations obey $\mu(a)=H^2_{\Lambda\rm CDM}(a)/[H^2_{\Lambda\rm CDM}(a)+\beta_mE(a)H_0^2]<1$ (suppressed growth), while
 photon deflection remains unmodified ($\Sigma=1$), preserving CMB consistency. This $\mu<1$, $\Sigma=1$ framework is independently testable with existing
@@ -42,13 +42,13 @@ than matter (Chapter~\ref{ch:dsnote}, Figure~\ref{fig:beta_gamma}) \calc.
 This dual-sector framework faces an obvious and critical question: \emph{Is sector separation an ad-hoc theoretical assumption, or does independent
 observational evidence demand it?} Type Ia supernovae (SNe) provide a direct test. As standardizable candles hosted in galaxies and calibrated through
 local distance ladder methods, SNe measure cosmic distances across $0.01<z<2.3$. If sector separation is real, it should be possible to ask which
-expansion history SNe probe---photon sector ($H_0\approx67.4$ km\,s$^{-1}$\,Mpc$^{-1}$) or matter sector ($H_0\approx73$ km\,s$^{-1}$\,Mpc$^{-1}$).
+expansion history SNe probe---the photon sector, tested with the Planck prior ($H_0\approx67.4$ km\,s$^{-1}$\,Mpc$^{-1}$), or the matter sector, tested with the SH0ES prior ($H_0\approx73$ km\,s$^{-1}$\,Mpc$^{-1}$).
 
 This is tested using the complete Pantheon+ dataset~\cite{Brout2022,Scolnic2022} through three complementary approaches:
 \begin{description}
-\item[Test A (Photon Hypothesis).] Constrain SNe to Planck's photon-sector $H_0=67.4\pm0.5$ km\,s$^{-1}$\,Mpc$^{-1}$ and determine best-fit $\beta$.
+\item[Test A (Photon Hypothesis).] Constrain SNe to the Planck prior $H_0=67.4\pm0.5$ km\,s$^{-1}$\,Mpc$^{-1}$ and determine best-fit $\beta$.
 If SNe probe the photon sector, $\beta\to0$.
-\item[Test B (Matter Hypothesis).] Constrain SNe to the SH0ES matter-sector $H_0=73.04\pm1.04$ km\,s$^{-1}$\,Mpc$^{-1}$ and determine best-fit $\beta$.
+\item[Test B (Matter Hypothesis).] Constrain SNe to the SH0ES prior $H_0=73.04\pm1.04$ km\,s$^{-1}$\,Mpc$^{-1}$ and determine best-fit $\beta$.
 If SNe probe the matter sector, $\beta$ should match the SDSS/BOSS/eBOSS growth value or yield $\beta_{\rm distance}\approx0$ if geometric.
 \item[Test C (Unconstrained).] Remove all $H_0$ priors and let SNe data alone determine both $H_0$ and $\beta$.
 \end{description}
@@ -143,7 +143,7 @@ where $\chi^2_{\rm prior}$ implements external constraints:
 \text{Test C: }\chi^2_{\rm prior}=0\ \text{(unconstrained)}.
 \end{gathered}\label{eq:dsv_priors}\end{equation}
 Free parameters are: $\Omega_m\in[0.20,0.40]$, $H_0\in[60,75]$ km\,s$^{-1}$\,Mpc$^{-1}$, $\beta\in[-0.30,+0.30]$, $M\in[-20.0,-18.0]$ mag.
-Minimization employs the Nelder--Mead simplex algorithm with 5000 maximum iterations and adaptive step sizing. A simplex does not guarantee a global
+Minimization employs the Nelder--Mead simplex algorithm with 5000 maximum iterations and SciPy's default step sizing (the listing of Section~\ref{sec:dsv_code}). A simplex does not guarantee a global
 minimum, and because of the exact degeneracy derived below every minimum in this chapter is checked by minimising $M$ analytically and scanning
 $(\Omega_m,\beta)$ on a grid.
 
@@ -177,14 +177,14 @@ prior), redrawn from the Pantheon+ release (1588 SNe, $0.01<z_{\rm CMB}<2.26$, d
 analytically and $\Omega_m$ free in $[0.20,0.40]$: the same curve for Tests A, B and C, lowest ($721.12$) at the boundary $\beta=-0.30$ with
 $\Omega_m=0.205$; for $\beta>0.05$, $\Omega_m$ sits at its upper edge $0.40$. Dashed: $\Omega_m$ fixed at $0.315$. Grey line: $\beta_m$. (b) Parameter
 space ($\beta$ against $H_0$) with $68\,\%$ and $95\,\%$ regions for two parameters ($\Delta\chi^2=2.30$, $6.18$): horizontal bands, $\beta<0.03$ and
-$\beta<0.11$, at every $H_0$; photon sector ($H_0=67.4$) and matter sector ($H_0=73.04$) lie in the same band. The $\chi^2$ profile in $H_0$ (Test C)
+$\beta<0.11$, at every $H_0$; the Planck ($H_0=67.4$) and SH0ES ($H_0=73.04$) values lie in the same band. The $\chi^2$ profile in $H_0$ (Test C)
 is Figure~\ref{fig:sn_h0_flat}(b). Script \texttt{figscripts/\allowbreak{}fig\_p2\_dual\_sector.py}. \calc}\label{fig:dsv_three_tests}
 \end{figure}
 
-\subsection{Test A: Planck (photon) prior}
-Constraining to Planck's photon-sector $H_0=67.4\pm0.5$ km\,s$^{-1}$\,Mpc$^{-1}$:
+\subsection{Test A: Planck prior}
+Constraining to the Planck prior $H_0=67.4\pm0.5$ km\,s$^{-1}$\,Mpc$^{-1}$:
 \begin{table}[htbp]\centering\small
-\caption[Test A: Planck prior]{Test A results with the Planck photon-sector prior (reproduced exactly from the Pantheon+ release). The last row evaluates
+\caption[Test A: Planck prior]{Test A results with the Planck prior (reproduced exactly from the Pantheon+ release). The last row evaluates
 $H_0\sqrt{1+\beta}$ at the fitted $\beta$; with $\beta$ at the boundary it is not a physical rate (see text). \calc}\label{tab:dsv_testA}
 \begin{tabular}{lr}\toprule
 Parameter & Best-fit value\\\midrule
@@ -204,14 +204,14 @@ $\Delta\chi^2=2.04$ (Figure~\ref{fig:dsv_three_tests}a). The effective matter-se
 Eq.~\eqref{eq:dsv_H0m} evaluated at a shape parameter sitting at its bound; it is not a measured expansion rate and implies no tension with local
 measurements.
 
-\textbf{Interpretation.} The SN data do not reject the photon-sector expansion rate: the same valley, with the same minimum, is reached for every $H_0$
+\textbf{Interpretation.} The SN data do not reject the Planck value of $H_0$: the same valley, with the same minimum, is reached for every $H_0$
 (Section~\ref{sec:dsv_degeneracy}). Test~A therefore gives no evidence against Scenario~A \derived.
 
-\subsection{Test B: SH0ES (matter) prior}
-Constraining to the SH0ES matter-sector $H_0=73.04\pm1.04$ km\,s$^{-1}$\,Mpc$^{-1}$:
+\subsection{Test B: SH0ES prior}
+Constraining to the SH0ES prior $H_0=73.04\pm1.04$ km\,s$^{-1}$\,Mpc$^{-1}$:
 \begin{table}[htbp]\centering\small
-\caption[Test B: SH0ES prior]{Test B results with the SH0ES matter-sector prior. The minimum is that of Test~A with $M$ shifted by
-$5\log_{10}(73.04/67.4)=0.1745$ mag; Nelder--Mead and L-BFGS-B both reach it. \calc}\label{tab:dsv_testB}
+\caption[Test B: SH0ES prior]{Test B results with the SH0ES prior. The minimum is that of Test~A with $M$ shifted by
+$5\log_{10}(73.04/67.4)=0.1745$ mag; Nelder--Mead with adaptive step sizing reaches it, and L-BFGS-B ends within $0.02$ of it. \calc}\label{tab:dsv_testB}
 \begin{tabular}{lr}\toprule
 Parameter & Best-fit value\\\midrule
 $\Omega_m$ & $0.2049$\\
@@ -222,7 +222,7 @@ $\chi^2$ & $721.12$\\
 $\chi^2/{\rm dof}$ & $0.455$\\\bottomrule
 \end{tabular}
 \end{table}
-\textbf{Result.} With the matter-sector $H_0$ normalization the best fit is the Test~A minimum with a different $M$: $M$ moves from $-19.7919$ to
+\textbf{Result.} With the SH0ES $H_0$ normalization the best fit is the Test~A minimum with a different $M$: $M$ moves from $-19.7919$ to
 $-19.6174$, a shift of $0.1745$ mag $=5\log_{10}(73.04/67.4)$, exactly as the degeneracy requires \calc. The point $\beta\approx0$, $\Omega_m\approx0.374$,
 $\chi^2=723.16$ lies on the same valley, $2.04$ above its lowest point, and is reached in the same way with the Planck prior.
 
@@ -262,7 +262,7 @@ C (none) & --- & $-0.30$ (boundary) & any & $721.12$ & flat in $H_0$\\\bottomrul
 \end{tabularx}
 \end{table}
 The three analyses converge on a single conclusion \derived: Type Ia supernova magnitudes with $M$ free
-neither reject photon-sector expansion ($H_0=67.4$) nor select the matter-sector normalization ($H_0=73.04$); they share one minimum,
+neither reject the Planck value ($H_0=67.4$) nor select the SH0ES value ($H_0=73.04$); they share one minimum,
 $M-5\log_{10}H_0=-28.935$, for every $H_0$. The value $H_0=73.04$ is set by the Cepheid calibration of $M$ (SH0ES~\cite{Riess2022}), which is the
 measurement the dual-sector picture assigns to the matter sector \observed. What the SNe test is the geometry, and there they show $\Lambda$CDM
 geometric consistency ($\beta_{\rm distance}\approx0$; Section~\ref{sec:dsv_geometry}).
@@ -301,10 +301,10 @@ carry the matter-sector \emph{normalization} through their calibration while mai
 follow $H$ with the $\beta$ term (next paragraph).
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part2/fig_sn_beta.pdf}
-\caption{Pantheon+SH0ES, 1590 Hubble-flow supernovae ($z_{\rm HD}>0.01$), full statistical and systematic covariance, $M$ marginalised, $\Omega_m=0.315$: $\Delta\chi^2$ against $\Lambda$CDM when $\beta E(a)$ is put into the distances. Best $\beta=-0.035$ (68\,\%: $-0.065$ to $0.000$, shaded); the full coupling $\beta_m=0.15765$ on the distances costs $\Delta\chi^2=+23.6$. Method of \texttt{docs/verification/scripts/\allowbreak{}verify\_dual\_sector\_validation.py}. \observed}\label{fig:sn_beta}
+\caption{Pantheon+SH0ES, 1590 Hubble-flow supernovae ($z_{\rm HD}>0.01$), full statistical and systematic covariance, $M$ marginalised, $\Omega_m=0.315$: $\Delta\chi^2$ against $\Lambda$CDM when $\beta E(a)$ is put into the distances. Best $\beta=-0.035$ (68\,\%: $-0.068$ to $0.000$, shaded); the full coupling $\beta_m=0.15765$ on the distances costs $\Delta\chi^2=+23.6$. Method of \texttt{docs/verification/scripts/\allowbreak{}verify\_dual\_sector\_validation.py}. \observed}\label{fig:sn_beta}
 \end{figure}
 \observed\ With the full covariance and $M$ marginalised, the shape of the Hubble diagram at Planck's $\Omega_m=0.315$ gives $\beta=-0.035$ ($68\,\%$:
-$-0.065$ to $0.000$). Supernova distances follow $\Lambda$CDM geometry: Prediction~2 holds. As a check of the reproduction, $\Lambda$CDM with $\Omega_m$
+$-0.068$ to $0.000$). Supernova distances follow $\Lambda$CDM geometry: Prediction~2 holds. As a check of the reproduction, $\Lambda$CDM with $\Omega_m$
 free returns $\Omega_m=0.33$, matching the Pantheon+ result ($0.334\pm0.018$~\cite{Brout2022}).
 \calc\ Applying the full matter-sector rate $H_m(z)$ to supernova distances worsens the fit by $\Delta\chi^2=+23.6$ at $\Omega_m=0.315$
 ($\chi^2=1427.39$ against $1403.77$). It can be offset only with $\Omega_m=0.41$ ($\Delta\chi^2=-0.1$ relative to $\Lambda$CDM at $0.315$), which Planck
@@ -350,14 +350,16 @@ full covariance $-0.035$. The difference is the correlated systematic part of th
 
 \subsection{Redshift dependence}
 Splitting the sample into low-$z$ ($0.01<z<0.30$, 1094 SNe), mid-$z$ ($0.30<z<0.70$, 419 SNe) and high-$z$ ($0.70<z\le2.26$, 75 SNe) bins (the high bin ends at the largest redshift of the sample, $z=2.26$), with $\Omega_m=0.315$
-and one common offset (that of the whole Hubble-flow sample under $\Lambda$CDM, full covariance), yields consistent results (Table~\ref{tab:dsv_bins}) \calc:
+and one common offset (that of the whole Hubble-flow sample under $\Lambda$CDM, full covariance), with each bin fitted on its own block of the
+covariance, yields consistent results (Table~\ref{tab:dsv_bins}) \calc:
 \begin{description}
 \item[Low-$z$:] $\beta=0.000$ ($68\,\%$: $-0.005$ to $+0.003$);
 \item[Mid-$z$:] $\beta=0.000$ ($-0.013$ to $+0.010$);
 \item[High-$z$:] $\beta=+0.070\pm0.048$.
 \end{description}
-Low-$z$ and mid-$z$ bins are consistent with $\beta_{\rm distance}\approx0$ within $1\sigma$. The high-$z$ bin shows marginal evidence for positive $\beta$
-($1.5\sigma$), though this may reflect small number statistics (75 SNe) or systematic effects at high redshift. Overall, the data support $\Lambda$CDM
+Low-$z$ and mid-$z$ bins are consistent with $\beta_{\rm distance}\approx0$ within $1\sigma$. The high-$z$ bin sits $1.5\sigma$ above zero on its own
+covariance block; with the cross-bin covariance kept (the term applied to the high bin only, the whole sample in the $\chi^2$) it gives
+$+0.023$ ($68\,\%$: $-0.018$ to $+0.064$), $0.6\sigma$, so the excess is not evidence for positive $\beta$ \calc. Overall, the data support $\Lambda$CDM
 geometric consistency across the full redshift range, validating that IAM's primary effect is on structure growth ($f\sigma_8$) rather than photon
 propagation distances (Figure~\ref{fig:dsv_systematics}a). If instead each bin is given its own offset, the offset absorbs the normalization, the
 remaining shape inside a narrow redshift range is weakly constrained, and the values scatter widely ($-0.285$ to $+0.675$); the full-sample constraint, with
@@ -367,8 +369,8 @@ the whole lever arm in redshift, is the one that tests the geometry.
 release: the diagonal-error columns use the 1588 SNe with $0.01<z_{\rm CMB}<2.26$ (bins in $z_{\rm CMB}$); the full-covariance columns use the
 collaboration's Hubble-flow selection, 1590 SNe with $z_{\rm HD}>0.01$ (bins in $z_{\rm HD}$), which moves two objects into the lowest bin
 (1096 against 1094). The highest bin ends at the largest redshift of the sample, $z=2.26$. (i) Each bin with its own
-offset; (ii) one common offset, full covariance. With a common offset the low and mid bins give $\beta$ consistent with zero; the high bin gives
-$+0.070\pm0.048$ ($1.5\sigma$), with 75 SNe. The own-offset intervals of the high bin reach $+1.39$ and $+1.32$. The $H_0$ of a bin is not determined
+offset; (ii) one common offset, full covariance, each bin on its own covariance block. With a common offset the low and mid bins give $\beta$ consistent with zero; the high bin gives
+$+0.070\pm0.048$ ($1.5\sigma$), with 75 SNe, and $+0.023$ ($0.6\sigma$) when the cross-bin covariance is kept. The own-offset intervals of the high bin reach $+1.39$ and $+1.32$. The $H_0$ of a bin is not determined
 (Section~\ref{sec:dsv_degeneracy}). \calc}\label{tab:dsv_bins}
 \begin{tabularx}{\linewidth}{lcc>{\centering\arraybackslash}Xc>{\centering\arraybackslash}X}\toprule
 Bin & $N$ (diag.) & (i) diagonal & $N$ (full) & (i) full cov. & (ii) common offset\\\midrule
@@ -392,8 +394,9 @@ $\beta_m=0.15765$, confirming robustness (Figure~\ref{fig:dsv_systematics}b) \ca
 
 \subsection{Alternative minimizers and sample size}
 \calc\ Because of the flat $H_0$ direction and the shallow $\Omega_m$--$\beta$ valley, the result returned by a numerical minimizer depends on the method.
-On Test~B, Nelder--Mead and L-BFGS-B reach the valley floor ($\chi^2=721.12$); Powell stops at $722.56$ ($\Omega_m=0.329$, $\beta=-0.081$), and on Test~A at
-$723.26$. The analytic minimisation over $M-5\log_{10}H_0$ with a grid in $(\Omega_m,\beta)$, used for every number in this chapter, removes the dependence
+With the listing of Section~\ref{sec:dsv_code} (SciPy 1.17, default Nelder--Mead) the simplex reaches the valley floor ($\chi^2=721.12$) on Test~A and
+stops at $723.16$ on Test~B; with adaptive step sizing the two swap ($721.12$ on B, $723.16$ on A). L-BFGS-B ends within $0.04$ of the floor
+($721.16$ on A, $721.14$ on B); Powell stops at $722.56$ on Test~B ($\Omega_m=0.329$, $\beta=-0.080$) and at $724.61$ on Test~A. The analytic minimisation over $M-5\log_{10}H_0$ with a grid in $(\Omega_m,\beta)$, used for every number in this chapter, removes the dependence
 on the minimizer. The result is stable across sample sizes and not driven by outliers: random subsamples of 100 to 1200 SNe (thirty draws each, diagonal
 errors, $\Omega_m=0.315$) give mean best $\beta$ between $-0.102$ and $-0.117$, with a spread that falls from $0.073$ ($N=100$) to $0.013$ ($N=1200$); the
 full sample gives $-0.108$ (Figure~\ref{fig:dsv_systematics}c).
@@ -456,7 +459,7 @@ SDSS/BOSS/eBOSS $f\sigma_8$ & matter (growth) & $\beta_m=0.15765$ fixed; $\sigma
 BAO angles & photon paths & unchanged (Chapter~\ref{ch:latetime}) & \measured\\
 SH0ES & matter (normalization) & $H_0=73.04\pm1.04$; predicted $72.26$ & \observed\\
 SNe normalization & matter (normalization) & set by the Cepheid calibration of $M$ & \derived\\
-SNe Hubble-flow shape & geometry & $\beta_{\rm distance}=-0.035^{+0.035}_{-0.030}$ & \observed\\
+SNe Hubble-flow shape & geometry & $\beta_{\rm distance}=-0.035^{+0.035}_{-0.033}$ & \observed\\
 $\beta_m$ in SNe distances & geometry & excluded, $\Delta\chi^2=+23.6$ & \calc\\\bottomrule
 \end{tabularx}
 \end{table}
@@ -501,7 +504,7 @@ The dual-sector phenomenology admits a precise mapping onto the standard $\mu$--
 cosmology~\cite{Amendola2018}. In this framework, the Poisson equation governing matter perturbations is modified by $\mu(a)$, while photon deflection
 (weak lensing, CMB) is governed by $\Sigma(a)$:
 \begin{equation}
-k^2\Phi=-4\pi G\,\mu(a)\,\rho_m\delta_m a^2,\qquad k^2(\Phi+\Psi)=-8\pi G\,\Sigma(a)\,\rho_m\delta_m a^2. \label{eq:dsv_poisson}
+k^2\Psi=-4\pi G\,\mu(a)\,\rho_m\delta_m a^2,\qquad k^2(\Phi+\Psi)=-8\pi G\,\Sigma(a)\,\rho_m\delta_m a^2. \label{eq:dsv_poisson}
 \end{equation}
 IAM's matter-sector coupling maps to
 \begin{equation}
@@ -525,7 +528,7 @@ with its amplitude fixed by $\Omega_m/2$ \derived.
 A rigorous empirical test of the dual-sector expansion framework has been presented using 1588 Type Ia supernovae from Pantheon+. Three analyses---with
 the Planck (photon) prior, the SH0ES (matter) prior, and no $H_0$ constraint---together with the full-covariance fit lead to the following conclusions:
 \begin{enumerate}
-\item \textbf{SN distances follow $\Lambda$CDM geometry:} the Hubble-flow shape gives $\beta_{\rm distance}=-0.035$ ($68\,\%$: $-0.065$ to $0.000$) with
+\item \textbf{SN distances follow $\Lambda$CDM geometry:} the Hubble-flow shape gives $\beta_{\rm distance}=-0.035$ ($68\,\%$: $-0.068$ to $0.000$) with
 the full covariance, as Prediction~2 requires \observed.
 \item \textbf{The $\beta$ term applied to SN distances is excluded:} $\Delta\chi^2=+23.6$ at Planck's $\Omega_m$; it can be offset only with $\Omega_m=0.41$
 \calc.
@@ -537,7 +540,7 @@ the full covariance, as Prediction~2 requires \observed.
 photon propagation requires \interp.
 \end{enumerate}
 \interp\ In the dual-sector reading, the Hubble tension reflects not measurement error or exotic new physics, but sector-dependent late-time expansion:
-Planck ($H_0=67.16$ in the chain, photon sector) and SH0ES ($H_0=73.04$, matter sector) both measure correctly---they probe different physical quantities
+Planck (photon sector, $H_0=67.16$ in the chain) and SH0ES (matter sector, predicted $72.26$, measured $73.04$) both measure correctly---they probe different physical quantities
 in a structure-coupled cosmology.
 
 All analysis code is publicly available and independently reproducible in under two minutes, enabling complete verification of these results.
@@ -567,6 +570,7 @@ Mpc with the $+25$ of Eq.~\eqref{eq:dsv_mu}):
 import numpy as np
 from scipy.optimize import minimize
 c_km_s = 299792.458
+trapz = getattr(np, "trapezoid", None) or np.trapz   # NumPy 2 renamed trapz
 z_sne, mb_obs, dmb_obs = [], [], []
 for line in open("Pantheon+SH0ES.dat").readlines()[1:]:
     parts = line.split()
@@ -583,7 +587,7 @@ def H_IAM(z, Om0, H0, beta):
     return H0 * np.sqrt(Om0 * a**-3 + (1.0 - Om0) + beta * activation(a))
 def dL_IAM(z, Om0, H0, beta):                 # Mpc
     z_arr = np.linspace(0.0, z, 500)
-    return (1.0 + z) * np.trapz(c_km_s / H_IAM(z_arr, Om0, H0, beta), z_arr)
+    return (1.0 + z) * trapz(c_km_s / H_IAM(z_arr, Om0, H0, beta), z_arr)
 def chi2_IAM(params, prior):
     Om0, H0, beta, M = params
     if not (0.2 < Om0 < 0.4 and 60 < H0 < 75 and -0.3 < beta < 0.3

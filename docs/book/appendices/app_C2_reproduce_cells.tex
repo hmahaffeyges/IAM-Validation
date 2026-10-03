@@ -20,10 +20,11 @@ kB, NA, T = 1.380649e-23, 6.02214076e23, 310.15; R = kB*NA
 H = lambda x: -(x*np.log2(x) + (1-x)*np.log2(1-x))
 print(kB*T*math.log(2))                          # 2.968e-21 J per bit
 M = 54000/(R*T); print(M, M/math.log(2))          # 20.94 ; 30.21 in Landauer units
-print(19.6e6*kB*T*math.log(2)/(54000/NA))         # 6.5e5 ATP: Landauer floor of one methylome copy
-Ehold = 3.41; eps0 = 1/(1+math.exp(Ehold))
+print(28217448*kB*T*math.log(2)/(54000/NA))       # 9.3e5 ATP: Landauer floor of one methylome copy (28,217,448 CpGs, hg19)
+Ehold = 3.41; print(1/(1+math.exp(Ehold)))       # 0.03198 before rounding
+eps0 = 0.032                                      # frozen value (Appendix A2)
 print(Ehold/M, eps0)                              # phi = 0.163 ; eps0 = 0.032
-print(H(eps0), 1.099*H(eps0), 1/1.099)            # 0.204 ; 0.224 ; 0.910
+print(H(eps0), 1.099*H(eps0), 1/1.099)            # 0.2043 ; 0.2246 ; 0.910
 print(1/0.330263, 1/(1.099*H(eps0)))              # A_max: 3.03 (Met-A) ; 4.45 (IAM-A)
 d = "Biological_Physics/MethylPhys/chain/Runtime Matrices/"
 f = json.load(open(d + "Met_A_Floors/metA_floors_v1_3.json"))["platforms"]["EPIC"]["neutrophils"]

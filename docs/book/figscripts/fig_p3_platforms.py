@@ -4,7 +4,7 @@ fig_p3_platform_floors : (a) the Landauer cost k_B T ln 2 at the temperature eac
                          actually sees; (b) thermal occupation of each platform's encoding gap against
                          the temperature of the bath it couples to.
 fig_p3_chip_floor_Tj   : the chip gauge floor k_B T_j ln 2 at the chip's own junction temperature, and
-                         where it sits on the gauge of one chip (E_sw = 1.92-1.97e-18 J, Chapter ch:cmos).
+                         where it sits on the gauge of one chip (E_sw = 1.92-1.98e-18 J, Chapter ch:cmos).
 Every number is computed here from h, k_B and the stated gap and temperature. Nothing is fitted.
 """
 import numpy as np
@@ -23,7 +23,7 @@ def kTln2(T):
 
 
 def p_two_level(f, T):
-    """Equilibrium population of the upper level of a two-level record with gap h f at temperature T."""
+    """Equilibrium occupation of the upper level of a two-level record with gap h f at temperature T."""
     return 1.0 / (1.0 + np.exp(h * f / (kB * T)))
 
 
@@ -100,14 +100,14 @@ a.set_xlabel("junction temperature (°C)")
 a.set_ylabel(r"floor energy ($10^{-21}$ J)")
 a.legend(loc="center right", fontsize=6)
 bs.panel_letter(a, "a")
-for E, ls in [(1.92e-18, "-"), (1.97e-18, "--")]:
+for E, ls in [(170 / (20.6e9 * 4.3e9), "-"), (170 / (20.0e9 * 4.3e9), "--")]:  # 1.919e-18 and 1.977e-18 J
     b.plot(Tc - 273.15, kTln2(Tc) / E * 1e3, color=bs.IAM, ls=ls, lw=1.0)
 for Tm in (75, 105):
     b.axvline(Tm, color=bs.LIGHT, lw=0.6, ls=":")
     b.text(Tm + 1, 1.62, f"{Tm} °C", fontsize=6, color=bs.GR)
 b.set_xlabel("junction temperature (°C)")
 b.set_ylabel(r"floor on the gauge ($\times10^{-3}$)")
-b.text(0.03, 0.92, r"$E_{\rm sw}=1.92$ (solid) and $1.97\times10^{-18}$ J (dashed)", transform=b.transAxes, fontsize=6)
+b.text(0.03, 0.92, r"$E_{\rm sw}=1.92$ (solid) and $1.98\times10^{-18}$ J (dashed)", transform=b.transAxes, fontsize=6)
 bs.panel_letter(b, "b", dx=-0.16)
 fig.tight_layout(w_pad=2.4)
 bs.save(fig, "part3", "fig_p3_chip_floor_Tj")

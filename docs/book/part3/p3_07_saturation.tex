@@ -44,10 +44,10 @@ Figure~\ref{fig:four_floors} draws the four floors of the table, each in its own
 \caption{The four floors, each in its own variable. (a) Entropy per Planck area of a Schwarzschild horizon, $S/(k_BA/\ell_P^2)=1/4$ at every mass \derived. (b) Subthreshold swing $(k_BT/q)\ln10$: 59.5\,mV/decade at 300\,K and 69.1 at 348\,K \derived. (c) The thermal floor of a qubit record, $p_{\rm eq}=1/(1+e^{\mathcal M})$ with $\mathcal M=hf/k_BT$: a 5~GHz transmon at its own 35~mK ($\mathcal M=6.86$, $1.05\times10^{-3}$) and at the 15~mK of the refrigerator ($\mathcal M=16.0$, $1.1\times10^{-7}$); the form is \derived, the values \calc. (d) The copy-error floor $\varepsilon_0=1/(1+e^{E_{\rm hold}/k_BT})$: 0.032 at $E_{\rm hold}=3.41\,k_BT$; the form is \derived, the height \measured.}\label{fig:four_floors}
 \end{figure}
 
-The common structure is real at the level of form. In each case:
+The common structure is real at the level of form \interp. In each case:
 \begin{enumerate}
 \item there is a surface on which irreversible events are recorded;
-\item the surface has a temperature: $\hbar\kappa/2\pi\kB c$, $T_j$, $\Delta/\kB$ or $T_{\mathrm{body}}$;
+\item the surface has a temperature: $\hbar\kappa/2\pi\kB c$, $T_j$, the qubit's own temperature $T_q$ or $T_{\mathrm{body}}$;
 \item there is a floor below which a record cannot be written or kept, and a regime change
       when the system is driven against it.
 \end{enumerate}
@@ -68,7 +68,7 @@ Figure~\ref{fig:cell_gauge} draws the cell's gauge from the floor to the full su
 
 The biological application is the subject of Part~\ref{part:4}, and only its structure is needed here. The methylation state of a CpG is a binary record
 written on chromatin, copied at every division. A cell's copy error $\varepsilon$, read on single molecules, is set against the thermal floor
-$\varepsilon_0=1/(1+e^{E_{\rm hold}/\kB T})$ for a measured holding energy $E_{\rm hold}=3.41\,\kB T$, at the cell's architecture position $P$:
+$\varepsilon_0=1/(1+e^{E_{\rm hold}/\kB T})$ for a measured holding energy $E_{\rm hold}=3.41\,\kB T$ \measured, at the cell's architecture position $P$:
 $A=H(\varepsilon)/(P\,H(\varepsilon_0))$ (IAM-A). On arrays, the same cell is read against the healthy cell of its own kind (Met-A). Both read
 1 for a healthy cell, and both are per cell. Part~\ref{part:4} builds the instrument; the point here is only why a
 physicist should expect a Landauer-type floor on a chromatin surface in the first place.

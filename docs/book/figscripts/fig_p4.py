@@ -153,7 +153,8 @@ def fig_fullsurface():
     Amax = 1 / HREF
     e = np.logspace(np.log10(0.01), np.log10(0.5), 300)
     iam = H(e) / (P_NEU * H(EPS0)); Amax2 = 1 / (P_NEU * H(EPS0))
-    eh = float(e[np.argmin(abs(iam - 1))])
+    from scipy.optimize import brentq
+    eh = float(brentq(lambda x: H(x) / (P_NEU * H(EPS0)) - 1, EPS0, 0.5))   # exact root (0.03619), not a grid argmin
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(S.TEXTW, 2.4))
     a1.plot(q * 100, A_meta, color=S.IAM); normal_band(a1)
     a1.plot(100, Amax, "o", color=S.IAM, ms=4); a1.annotate(f"surface full: {Amax:.2f}", (100, Amax), xytext=(-62, -4), textcoords="offset points", fontsize=7)
@@ -560,7 +561,7 @@ def fig_repeats():
     lab = {"GSE247195": ("donor 1 (GSE247195)", S.IAM, -0.3), "GSE247193": ("donor 2 (GSE247193)", S.DATA, 0.3)}
     out = {}
     for k, (l, c, dx) in lab.items():
-        g = t2[t2.group == k]; ax.plot(g.zt + dx, g.A_own, "o", color=c, ms=3.5, label=f"{l}: SD {g.A_own.std(ddof=1):.3f}, n = {len(g)}")
+        g = t2[(t2.group == k) & t2.A_own.notna()]; ax.plot(g.zt + dx, g.A_own, "o", color=c, ms=3.5, label=f"{l}: SD {g.A_own.std(ddof=1):.3f}, n = {len(g)}")
         out[k] = (len(g), float(g.A_own.mean()), float(g.A_own.std(ddof=1)))
     ax.set_xlabel("time of day (zeitgeber hour)"); ax.set_ylabel("Met-A, no tare"); ax.set_ylim(0.8, 1.35)
     ax.legend(loc="lower right", fontsize=6); ax.set_title("Repeat arrays of two people, a second laboratory")

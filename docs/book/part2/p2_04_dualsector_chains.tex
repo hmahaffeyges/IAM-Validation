@@ -38,7 +38,8 @@ Left free against the local distance-ladder values read as matter-sector rates (
 \begin{checkbox}
 \calc\ From Eq.~\eqref{part2:eq:mu} with $\beta_m=0.15765$: $\mu=0.864$ at $z=0$, $0.905$ at $z=0.2$, $0.982$ at $z=1$, $0.998$ at $z=2$.
 The coupling deficit $1-\mu(z{=}0)=13.6\%$ is the change in the effective Newton constant for matter today. It is \emph{not} the change in growth:
-growth integrates $\mu$ over time, so the growth factor changes by about $0.8\%$ and $\sigma_8$ by about $1.6\%$ (next section).
+growth integrates $\mu$ over time, so the growth factor today changes by about $0.8\%$ with the exact coupling and by about $1.7\%$ in the MGCAMB form the
+Level~1 chains use, which is why $\sigma_8$ falls by about $1.6\%$ in those chains (next section; Fig.~\ref{fig:s8_inferred}).
 The three ways of entering the growth equation and their growth factors are in Appendix~\ref{app:der:growth}.
 \calc\ The coupling today does not depend on how steeply the record is written. For $E_c(a)=\exp[c(1-1/a)]$, $E_c(1)=1$ for every $c$, so
 $\mu(z{=}0)=1/(1+\beta_m)=0.8638$ for any $c$ \derived; over $0.8\le c\le1.2$ the amplitude today moves by $0.0017$ in $\sigma_8$
@@ -174,7 +175,7 @@ Planck + Pantheon+ & \texttt{planck\_2018\_lowl.TT}, \texttt{lowl.EE}, \texttt{h
 \small
 \begin{tabularx}{\linewidth}{@{}l>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X@{}}
 \toprule
-data & $\Delta\chi^2_{\min}$ (IAM $-$ $\Lambda$CDM) & $\sigma_8$ ($\Lambda$CDM $\to$ IAM) & $H_0$ (IAM) & free $\mu_0$: median (90\,\% lower bound) \\
+data & $\Delta\chi^2_{\min}$ (IAM $-$ $\Lambda$CDM) & $\sigma_8$ ($\Lambda$CDM $\to$ IAM) & $H_0$ (IAM) & free $\mu_0$: median ($5\,\%$ quantile) \\
 \midrule
 Planck            & $+0.96$ & $0.814\to0.802$ & $67.08\pm0.53$ & $+0.059$ ($-0.304$) \\
 Planck + RSD      & $+0.56$ & $0.813\to0.800$ & $67.49\pm0.42$ & $+0.064$ ($-0.204$) \\
@@ -185,7 +186,7 @@ Level 2, Planck   & $+0.54$ & $0.809\to0.800$ & $67.16\pm0.47$ & -- \\
 \bottomrule
 \end{tabularx}
 \end{center}
-$\Delta\chi^2_{\min}$ is the difference between the lowest $\chi^2$ found in each chain, same data, same code. With $\mu_0$ free (flat prior $[-0.5,+0.2]$) the posterior reaches the prior's upper edge in every combination, so the median and the lower end of the $90\,\%$ interval are given; the prediction lies inside every interval (Chapter~\ref{ch:latetime}; the Level 1 runs fix $\mu_0=-0.135$, the MGCAMB value, against $-0.136$ for the exact form).
+$\Delta\chi^2_{\min}$ is the difference between the lowest $\chi^2$ among the samples each chain keeps after the $30\,\%$ burn-in, same data, same code. With $\mu_0$ free (flat prior $[-0.5,+0.2]$) the posterior reaches the prior's upper edge in every combination, so the median and the lower end of the central $90\,\%$ interval (the $5\,\%$ quantile) are given; the prediction lies inside every interval (Chapter~\ref{ch:latetime}; the Level 1 runs fix $\mu_0=-0.135$, the MGCAMB value, against $-0.136$ for the exact form).
 
 \measured\ What the chains show:
 \begin{enumerate}

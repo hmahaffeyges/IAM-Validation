@@ -70,7 +70,7 @@ encode faster. A $1\,M_\odot$ black hole encodes at $152.5$ bits\,s$^{-1}$. \der
 
 \subsection{Numerical values}
 Table~\ref{tab:bh_throughput} gives the encoding throughput, the Bekenstein--Hawking entropy in nats ($S_{\rm BH}/\kB=4\pi GM^2/\hbar c$) and in bits, and the
-evaporation time $\tau=5120\pi G^2M^3/(\hbar c^4)$ for representative black-hole masses, computed with CODATA 2018 constants~\cite{CODATA2018}.
+evaporation time $\tau=5120\pi G^2M^3/(\hbar c^4)$ for representative black-hole masses, computed with CODATA 2018 constants~\cite{CODATA2018}. \calc
 \begin{table}[htbp]\centering\small
 \caption{Hawking temperature, encoding throughput, Bekenstein--Hawking entropy and black-body evaporation time for representative masses (CODATA 2018;
 $M_\odot=1.98847\times10^{30}$\,kg; $1\,{\rm yr}=3.15576\times10^7$\,s). \calc}\label{tab:bh_throughput}
@@ -133,7 +133,7 @@ viewed from two directions. The horizon encodes at precisely the rate it radiate
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_smarr.pdf}
-\caption{(a) The bits of a horizon, $N=S/(k_B\ln2)$, priced at its own temperature, divided by its rest energy. For Schwarzschild black holes from 1 to $10^{11}\,M_\odot$ the ratio is $1/2$ to machine precision ($|\Delta|<2\times10^{-16}$), the Smarr relation $T_{\rm BH}S_{\rm BH}=\tfrac12Mc^2$; for the cosmic horizon ($H_0=67.4$ to $10^4$\,km\,s$^{-1}$Mpc$^{-1}$) it is 1, $T_{\rm GH}S=M_Hc^2$. (b) Kerr: $T_{\rm BH}S_{\rm BH}/Mc^2=\sqrt{1-\chi^2}/2$ (0.500, 0.433, 0.218, 0.032 at $\chi=0$, 0.5, 0.9, 0.998) and the spin share $2\Omega_HJ/Mc^2=1-\sqrt{1-\chi^2}$; twice the first plus the second is 1, $Mc^2=2T_{\rm BH}S_{\rm BH}+2\Omega_HJ$. \calc}\label{fig:smarr}
+\caption{(a) The bits of a horizon, $N=S/(k_B\ln2)$, priced at its own temperature, divided by its rest energy. For Schwarzschild black holes from 1 to $10^{11}\,M_\odot$ the ratio is $1/2$ to machine precision ($|\Delta|<2\times10^{-16}$), the Smarr relation $T_{\rm BH}S_{\rm BH}=\tfrac12Mc^2$; for the cosmic horizon ($H_0=67.4$, Planck 2018, to $10^4$\,km\,s$^{-1}$Mpc$^{-1}$) it is 1, $T_{\rm GH}S=M_Hc^2$. (b) Kerr: $T_{\rm BH}S_{\rm BH}/Mc^2=\sqrt{1-\chi^2}/2$ (0.500, 0.433, 0.218, 0.032 at $\chi=0$, 0.5, 0.9, 0.998) and the spin share $2\Omega_HJ/Mc^2=1-\sqrt{1-\chi^2}$; twice the first plus the second is 1, $Mc^2=2T_{\rm BH}S_{\rm BH}+2\Omega_HJ$. \calc}\label{fig:smarr}
 \end{figure}
 Count the entropy in bits, $N=S_{\rm BH}/(k_B\ln2)$, and price each one at Landauer's minimum, $k_BT_{\rm BH}\ln2$. The total is
 \begin{equation}
@@ -191,7 +191,7 @@ entropy handed from the horizon to the radiation by the first law, and it rises 
 bound: the fine-grained entropy of the radiation can be no larger than the coarse-grained entropy it carries, and no larger than the entropy of the
 horizon it is entangled with, so it lies under $\min[S_{\rm tr}(t),S_{\rm BH}(t)]$, which in this black-body accounting turns over at the same $0.646\,\tau_{\rm evap}$ (Fig.~\ref{fig:bh_transfer}a).
 Whether the true fine-grained entropy follows that envelope, falling to zero, is the information problem itself; the first law cannot decide it.
-(Real emission into empty space is irreversible: the radiation's coarse-grained entropy exceeds the horizon entropy it removes, so the crossing, and with it the Page time, comes earlier than in this black-body accounting; Page computes it for the full spectrum~\cite{Page2013}.) The reading of
+(Real emission into empty space is irreversible: the radiation's coarse-grained entropy exceeds the horizon entropy it removes, so the crossing, and with it the Page time, comes earlier than in this black-body accounting; for a large hole that emits photons and gravitons, Page finds the maximum of the fine-grained entropy at 53.81\,\% of the evaporation time~\cite{Page2013}, against $64.6\,\%$ here.) The reading of
 this result in IAM is Chapter~\ref{ch:bhinformation}. \derived\ (bound) \openprob\ (fine-grained curve)
 
 \section{Two horizons: hot and cold}\label{sec:bh_twohorizons}
@@ -206,7 +206,7 @@ The universe has its own horizon. The cosmological apparent horizon at $\tilde r
 \begin{equation}
 T_{\rm GH}=\frac{\hbar H}{2\pi\kB}.\label{eq:bh_TGH}
 \end{equation}
-At the present epoch ($H_0=67.4$\,km\,s$^{-1}$\,Mpc$^{-1}$, Planck 2018~\cite{Planck2018VI}), $T_{\rm GH}=2.66\times10^{-30}$\,K, many orders of magnitude below any black-hole Hawking temperature. \calc
+At the present epoch ($H_0=67.4$\,km\,s$^{-1}$\,Mpc$^{-1}$, Planck 2018~\cite{Planck2018VI}), $T_{\rm GH}=2.66\times10^{-30}$\,K ($2.65\times10^{-30}$\,K at the photon-sector $H_0=67.16$), many orders of magnitude below any black-hole Hawking temperature. \calc
 
 \subsection{Net radiation between two thermal horizons}
 Both the black-hole horizon and the cosmic horizon are thermal surfaces. In the black-body approximation the net radiative power between them is
@@ -214,25 +214,25 @@ Both the black-hole horizon and the cosmic horizon are thermal surfaces. In the 
 P_{\rm net}=\sigma_{\rm SB}\,A_{\rm BH}\big(T_{\rm BH}^4-T_{\rm GH}^4\big).\label{eq:bh_Pnet}
 \end{equation}
 Three regimes exist: (1) $T_{\rm BH}>T_{\rm GH}$ ($M<M_{\rm eq}$): standard Hawking radiation, and information flows from the black hole to the cosmic horizon;
-(2) $T_{\rm BH}=T_{\rm GH}$ ($M=M_{\rm eq}$): thermal equilibrium, no net flow; (3) $T_{\rm BH}<T_{\rm GH}$ ($M>M_{\rm eq}$): net absorption from the cosmic horizon.
+(2) $T_{\rm BH}=T_{\rm GH}$ ($M=M_{\rm eq}$): thermal equilibrium, no net flow; (3) $T_{\rm BH}<T_{\rm GH}$ ($M>M_{\rm eq}$): net absorption from the cosmic horizon. \derived
 
 \subsection{Equilibrium mass}
 Setting $T_{\rm BH}=T_{\rm GH}$,
 \begin{equation}
-\frac{\hbar c^3}{8\pi GM_{\rm eq}\kB}=\frac{\hbar H}{2\pi\kB}\quad\Longrightarrow\quad M_{\rm eq}=\frac{c^3}{4GH}=2.32\times10^{22}\,M_\odot\quad(H_0=67.4\ \text{km\,s}^{-1}\text{Mpc}^{-1}).\label{eq:bh_Meq}
+\frac{\hbar c^3}{8\pi GM_{\rm eq}\kB}=\frac{\hbar H}{2\pi\kB}\quad\Longrightarrow\quad M_{\rm eq}=\frac{c^3}{4GH}=2.32\times10^{22}\,M_\odot\quad(H_0=67.4\ \text{km\,s}^{-1}\text{Mpc}^{-1},\ \text{Planck 2018}).\label{eq:bh_Meq}
 \end{equation}
-\derived\ Table~\ref{tab:bh_meq} gives $M_{\rm eq}$ and $T_{\rm GH}$ at representative cosmological epochs.
+\derived\ At the photon-sector $H_0=67.16$ it is $2.33\times10^{22}\,M_\odot$ \calc. Table~\ref{tab:bh_meq} gives $M_{\rm eq}$ and $T_{\rm GH}$ at representative cosmological epochs.
 \begin{table}[htbp]\centering\small
 \caption{Thermal equilibrium mass $M_{\rm eq}=c^3/(4GH)$ and Gibbons--Hawking temperature $T_{\rm GH}$ at representative epochs. Hubble parameter
-$H(z)=H_0\sqrt{\Omega_m(1+z)^3+\Omega_\Lambda+\Omega_r(1+z)^4}$ with $H_0=67.4$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m=0.315$, $\Omega_r=9.1\times10^{-5}$, flat~\cite{Planck2018VI}.
-The largest known black hole (TON~618, $6.6\times10^{10}\,M_\odot$~\cite{Shemmer2004}) is far below $M_{\rm eq}$ at all epochs shown. \calc}\label{tab:bh_meq}
+$H(z)=H_0\sqrt{\Omega_m(1+z)^3+\Omega_\Lambda+\Omega_r(1+z)^4}$ with $H_0=67.4$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m=0.315$, $\Omega_r=9.2\times10^{-5}$ (photons at 2.7255\,K and three neutrino species, $N_{\rm eff}=3.046$), flat~\cite{Planck2018VI}.
+The largest known black hole (TON~618, $6.6\times10^{10}\,M_\odot$~\cite{Shemmer2004}) is far below $M_{\rm eq}$ at all epochs shown. At $z=10^{10}$ the plasma, at about 1.7\,MeV, still holds electron--positron pairs, which the $(1+z)^4$ scaling of $\Omega_r$ leaves out; with them $H$ is about 9\,\% lower and $M_{\rm eq}\approx2.65\times10^{4}\,M_\odot$. The conclusion is unchanged. \calc}\label{tab:bh_meq}
 \begin{tabular}{lccc}\toprule
 epoch & $H$ (s$^{-1}$) & $T_{\rm GH}$ (K) & $M_{\rm eq}$ ($M_\odot$)\\\midrule
 $z=0$ & $2.18\times10^{-18}$ & $2.66\times10^{-30}$ & $2.32\times10^{22}$\\
 $z=1$ & $3.91\times10^{-18}$ & $4.75\times10^{-30}$ & $1.30\times10^{22}$\\
-$z=10^3$ & $4.41\times10^{-14}$ & $5.36\times10^{-26}$ & $1.15\times10^{18}$\\
-$z=10^6$ & $2.09\times10^{-8}$ & $2.54\times10^{-20}$ & $2.43\times10^{12}$\\
-$z=10^{10}$ & $2.08\times10^{0}$ & $2.53\times10^{-12}$ & $2.44\times10^{4}$\\\bottomrule
+$z=10^3$ & $4.41\times10^{-14}$ & $5.37\times10^{-26}$ & $1.15\times10^{18}$\\
+$z=10^6$ & $2.10\times10^{-8}$ & $2.55\times10^{-20}$ & $2.42\times10^{12}$\\
+$z=10^{10}$ & $2.10\times10^{0}$ & $2.55\times10^{-12}$ & $2.42\times10^{4}$\\\bottomrule
 \end{tabular}
 \end{table}
 All astrophysical black holes at all cosmological epochs shown satisfy $M\ll M_{\rm eq}$: every black hole is hotter than the cosmic horizon. The cosmic-horizon
@@ -317,7 +317,7 @@ mass: electron degeneracy up to the Chandrasekhar mass~\cite{Chandrasekhar1931} 
 degeneracy and nuclear forces up to the Tolman--Oppenheimer--Volkoff limit~\cite{Tolman1939,OppenheimerVolkoff1939} (taken here as $\approx2.3\,M_\odot$; a recent multimessenger
 inference gives $2.25^{+0.08}_{-0.07}\,M_\odot$~\cite{Fan2024}). On the same gauge as every other system in this book, $A$ is the remnant's mass over the typical remnant of its kind as built
 (white dwarfs $0.6\,M_\odot$, the measured mean of $0.593\,M_\odot$ for DA white dwarfs~\cite{Kepler2007}; neutron stars $1.4\,M_\odot$), so $A=1$ sits in the middle. The far right is where the surface is
-full: no pressure can hold, a horizon forms and the black hole begins (Fig.~\ref{fig:stargauge}).
+full: no pressure can hold, a horizon forms and the black hole begins (Fig.~\ref{fig:stargauge}). \observed\ (masses) \calc\ ($A$)
 \begin{center}\small\begin{tabular}{lccc}\toprule
 remnant & mass ($M_\odot$) & $A$ & surface full at\\\midrule
 the Sun's future white dwarf~\cite{Sackmann1993} & 0.54 & 0.90 & 2.40\\
@@ -330,11 +330,11 @@ PSR J0740+6620~\cite{Fonseca2021} & 2.08 & 1.49 & 1.64\\\bottomrule
 A white dwarf that is isolated or in a wide binary has nothing to accrete, so it stays where it is; only a remnant that gains mass, from a close companion
 as it evolves or from a collapsing core, moves right. What stops the star at the far right is ordinary physics, the pressure failing. What forms there is the object that holds the most entropy any
 region of that size and energy can hold: a black hole saturates the Bekenstein bound~\cite{Bekenstein1981}. This is the one gauge in the book where the far-right line is
-measured exactly; for cells the corresponding line is still to be measured (Chapter~\ref{ch:onegauge}, Part~\ref{part:5}) \openprob.
+already known from physics: derived from the constants for white dwarfs (the Chandrasekhar mass) \derived\ and inferred to a few per cent for neutron stars ($2.25^{+0.08}_{-0.07}\,M_\odot$~\cite{Fan2024}) \observed; for cells the corresponding line is still to be measured (Chapter~\ref{ch:onegauge}, Part~\ref{part:5}) \openprob.
 \begin{figure}[htbp]\centering\includegraphics[width=\textwidth]{figures/part2/star_gauge.pdf}
 \caption{Compact stars on the same gauge: mass over the typical remnant of the same kind ($0.6\,M_\odot$ white dwarfs, $1.4\,M_\odot$ neutron stars).
 Dashed: the surface is full at the Chandrasekhar mass ($1.44\,M_\odot$, $A=2.40$) or the TOV limit ($\approx2.3\,M_\odot$, $A\approx1.64$); beyond,
-a black hole. Each row has its own scale.}\label{fig:stargauge}\end{figure}
+a black hole. Each row has its own scale. \calc}\label{fig:stargauge}\end{figure}
 
 \section{Two regimes of one mechanism}\label{sec:bh_regimes}
 IAM's feedback loop --- decoherence $\to$ information production $\to$ Landauer cost $\to$ horizon encoding $\to$ modified expansion --- operates in two regimes. In

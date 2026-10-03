@@ -26,7 +26,7 @@ surface, its temperature, how many bits it holds, and what holding them costs th
 own healthy or as-built state, which reads 1 on the gauge; ``full'' is the far end, where the surface holds all it can.}\label{tab:synthesis}
 \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.17\textwidth}@{}}\toprule
 place & what is written & floor & full surface & status \\\midrule
-cosmic horizon ($2.65\times10^{-30}$\,K) & classical records of decohering matter & --- & $Nk_BT_{GH}\ln2=M_Hc^2$ & coupling $\beta_m=\Omega_m/2$ \derived{} from the partition; $\mu_0=-0.136$ \calc \\
+cosmic horizon ($2.65\times10^{-30}$\,K, $H_0=67.16$) & classical records of decohering matter & --- & $Nk_BT_{GH}\ln2=M_Hc^2$ & coupling $\beta_m=\Omega_m/2$ \derived{} from the partition; $\mu_0=-0.136$ \calc \\
 black hole ($6.2\times10^{-8}$\,K at $1M_\odot$) & everything that fell in & --- & Bekenstein bound; $Nk_BT_H\ln2=\tfrac12Mc^2$ & \derived{} (Smarr) \\
 qubit (its own temperature, 35\,mK for a transmon on a 15\,mK stage) & the qubit state & thermal floor $p_{\rm eq}t_g/T_1$, $p_{\rm eq}=1/(1+e^{hf/\kB T})$ & a fully decohered state & floor \derived \\
 transistor (300--350\,K) & a logic level per switch & $\kB T_j\ln2$ per irreversible bit & --- & floor \derived; 9950X at $576$--$593\times$ \calc \\
@@ -38,7 +38,7 @@ cell (310\,K) & the methylation identity pattern & $\varepsilon_0=0.032$; IAM-A 
 Three things are common to every row and are established. The cost per bit is $\kB T\ln2$ at the surface's own temperature. Each surface has a
 capacity, and the far end of its gauge is fixed exactly by that capacity: the Bekenstein bound for a horizon, one bit per site for a cell. And
 each has a floor below its working state, set by thermal physics at that surface. What is not common, and the book does not claim, is a single
-numerical saturation condition shared by all five (Chapter~\ref{ch:floorbreach}).
+numerical saturation condition shared by all five (Chapter~\ref{ch:floorbreach}). \derived
 
 Table~\ref{tab:synth_slots} gives the same places slot by slot: what the irreversible event is, where it is written, at what temperature, at what
 rate, with what coefficient, and what is observed.
@@ -91,7 +91,8 @@ device gauges offer a laboratory and a fab.
 
 \paragraph{Cells.} The instrument reads neutrophils on EPIC arrays against their own healthy reference, measured on six purified arrays; held out,
 those arrays read with an SD of 0.020 around 1 (Chapter~\ref{ch:meta}). \calibrated{} On six DNA mixtures of known composition with 63--75\,\%
-neutrophils, the healthy mixtures read 0.982--1.016 and a simulated 2\,\% loss of the neutrophil pattern read 1.049--1.079. \measured{} Three development
+neutrophils, the healthy mixtures read 0.982--1.016 and a simulated 2\,\% loss of the neutrophil pattern read 1.049--1.079, untared, against each mixture's known composition (tared, the
+six constructed mixtures of Chapter~\ref{ch:gauge} read 1.052--1.090). \measured{} Three development
 measurements read a known change in the right direction:
 \begin{itemize}
 \item blocking the copying enzyme DNMT1 in three leukaemia cell lines moved Met-A from 0.97--1.05 (vehicle) to 1.16--1.87, on the methylated

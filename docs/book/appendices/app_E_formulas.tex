@@ -1,12 +1,12 @@
-% Formula sheet for IAM's Law and Order. Regenerated 2026-10-02 against the current tree (main.tex chapter order). Every displayed equation in
-% docs/book/part1--part5 (164 displays, book order). [Checked 2026-10-03 against dfbfcf0: 167 entries; the chapters now hold 567 displays, 74 entries differ from the chapter display -- see FOR_AUTHOR.md.] Equation bodies are copied from the chapters with \label removed; descriptions, status labels and
+% Formula sheet for IAM's Law and Order: 167 entries selected from the 567 displayed equations of docs/book/part1--part5 (count at 1b1fde0),
+% in book order. Equation bodies are copied from the chapters with \label removed; descriptions, status labels and
 % cross-references were written for this appendix. Labels assigned here (not attached by the chapter) are listed in MANIFEST.md with the reason.
 \chapter{Formula sheet}\label{app:formulas}
 \newcounter{iamfs}\renewcommand{\theiamfs}{\thechapter.\arabic{iamfs}}
 \newcommand{\iamfsentry}[5]{\refstepcounter{iamfs}\label{app:fs:#1}%
   \begin{equation*}#2\tag{\theiamfs}\end{equation*}\nopagebreak%
   \noindent\parbox{\linewidth}{\small\setlength{\baselineskip}{1.15em}\setlength{\parskip}{2pt}#3\par\emph{Status:} #4.\quad\emph{In the text:} #5.}\par\medskip}
-This appendix collects the displayed equations of Parts~\ref{part:1}--\ref{part:5}, in the order in which they appear, grouped by part and chapter. Each entry gives
+This appendix collects a selection of the displayed equations of Parts~\ref{part:1}--\ref{part:5} (167 of the 567 displays), in the order in which they appear, grouped by part and chapter. Each entry gives
 the equation as printed in the chapter, one line on what it is, its status, and where it appears in the text; an equation that defines a symbol says
 so, and its status reads \emph{definition}. The numbers in parentheses belong to this appendix; the chapter's own equation number is given where the
 chapter numbers the display. Where a chapter attaches a status label to the equation, that label is used. Where it does not, the label was assigned
@@ -89,7 +89,7 @@ k^2(\Phi+\Psi)&=-8\pi G\,\Sigma(a)\,a^2\bar\rho_m\delta_m\end{aligned}}{Modified
 \subsection*{Chapter~\ref{ch:level2}: The mechanism in the Boltzmann code: a matter-sector expansion rate}
 \iamfsentry{70}{H^2(a)=H_0^2\left[\Omega_ma^{-3}+\Omega_ra^{-4}+\Omega_\Lambda\right]}{The $\Lambda$CDM background expansion rate used for photons and the background in the Level~2 code.}{definition (standard $\Lambda$CDM)}{Chapter~\ref{ch:level2}, section ``Model and implementation''}
 \iamfsentry{71}{H_m^2(a)=H^2(a)+\beta_mE(a)H_0^2,\qquad E(a)=\exp\!\left(1-\frac1a\right),\qquad\beta_m=\frac{\Omega_m}{2}=0.15765}{Matter-sector rate used by the CDM and baryon perturbations in the modified CAMB, with $\beta_m=0.15765$.}{\derived{} (given the completed first law, Eq.~\eqref{eq:firstlaw}, a \conjecture, and the sector split, a \conjecture)}{Eq.~\eqref{eq:l2_Hm}; Chapter~\ref{ch:level2}, section ``Model and implementation''; see also (\ref{app:fs:7}), (\ref{app:fs:54}), (\ref{app:fs:78}), (\ref{app:fs:80})}
-\iamfsentry{72}{\mu(a)=\frac{H^2(a)}{H^2(a)+\beta_mE(a)H_0^2},\qquad \mu(0)=\frac1{1+\beta_m}=0.864}{Growth coupling if the change acted as $G_{\rm eff}=\mu G$; present value $1/(1+\beta_m)$.}{\derived{} (given Eq.~\eqref{eq:Hm} read as an effective Newton constant; that reading is a \conjecture)}{Eq.~\eqref{eq:l2_mu}; Chapter~\ref{ch:level2}, section ``Model and implementation''; see also (\ref{app:fs:17}), (\ref{app:fs:38}), (\ref{app:fs:55}), (\ref{app:fs:64}), (\ref{app:fs:69}), (\ref{app:fs:74}), (\ref{app:fs:77})}
+\iamfsentry{72}{\mu(a)=\frac{H^2(a)}{H^2(a)+\beta_mE(a)H_0^2},\qquad \mu(z{=}0)=\frac1{1+\beta_m}=0.864}{Growth coupling if the change acted as $G_{\rm eff}=\mu G$; present value $1/(1+\beta_m)$.}{\derived{} (given Eq.~\eqref{eq:Hm} read as an effective Newton constant; that reading is a \conjecture)}{Eq.~\eqref{eq:l2_mu}; Chapter~\ref{ch:level2}, section ``Model and implementation''; see also (\ref{app:fs:17}), (\ref{app:fs:38}), (\ref{app:fs:55}), (\ref{app:fs:64}), (\ref{app:fs:69}), (\ref{app:fs:74}), (\ref{app:fs:77})}
 \iamfsentry{73}{\frac{H_m(a)}{H(a)}=\sqrt{1+\frac{\beta_mE(a)H_0^2}{H^2(a)}},\qquad\frac{H_m(0)}{H(0)}=\sqrt{1.15765}=1.0759}{Ratio of the matter-sector to the photon-sector rate; $1.0759$ today.}{\derived{} (given Eq.~\eqref{eq:Hm}, a \conjecture); value \calc}{Chapter~\ref{ch:level2}, section ``The sector-dependent Hubble parameter''}
 \subsection*{Chapter~\ref{ch:dsnote}: Why matter and light are in different sectors}
 \iamfsentry{65}{g_{\mu\nu}\frac{dx^\mu}{d\tau}\frac{dx^\nu}{d\tau}=-1,\qquad d\tau>0}{Timelike worldline: a massive particle accumulates proper time.}{definition (standard general relativity)}{Chapter~\ref{ch:dsnote}, section ``The boundary Einstein built into the theory''}

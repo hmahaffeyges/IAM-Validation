@@ -115,7 +115,7 @@ On this reading the area law is not an independent postulate. It follows from: (
 
 Jacobson's assumption $S=\kB\eta A$ is then not an additional input beyond the causal geometry of spacetime: it is the area law that the
 irreversibility of quantum-to-classical transitions and the causal structure of the horizon require. The remaining question is the value of $\eta$ ---
-the proportionality constant --- which the following sections take up.
+the proportionality constant --- which the following sections take up. \interp
 
 \section{The two geometric factors that determine $\eta$}\label{sec:bk_factors}
 The coefficient $4$ in $G=c^3/(4\hbar\eta)$ is the ratio
@@ -151,7 +151,7 @@ geometric period of the Euclidean cone,
 which is Eq.~\eqref{eq:bk_unruh}. \derived
 
 The $2\pi$ is a topological necessity. It is the full angle of the Euclidean horizon cone, fixed by the requirement that the horizon be a non-singular
-surface in flat spacetime. It makes no reference to $\eta$, to $S\propto A$, or to Newton's constant.
+surface in flat spacetime. It makes no reference to $\eta$, to $S\propto A$, or to Newton's constant. \derived
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_rindler_cone.pdf}
@@ -160,7 +160,7 @@ plane; any other period removes or adds a wedge and leaves a conical tip. The pe
 $T=\hbar\kappa/(2\pi\kB c)$. (b) The area that one unit of entropy occupies on horizons whose surface gravities differ by 61 orders of magnitude, from the
 first law $\delta(Mc^2)=(\kappa c^2/8\pi G)\,\delta A$ and the cost $\kB T$ per nat (Eq.~\eqref{eq:bk_dAmin}): $4\lP^2$ per nat and $4\ln2\,\lP^2=2.77\,\lP^2$ per bit for every
 one. Planck: $\kappa=c^2/\lP$; black holes of $1$, $4.3\times10^6$ (Sgr~A$^*$) and $6.5\times10^9\,M_\odot$ (M87$^*$): $\kappa=c^4/4GM$; cosmic horizon: $\kappa=cH_0$
-($H_0=67.4$). \derived\ (form) \calc\ (values)}\label{fig:rindler_cone}
+($H_0=67.4$, Planck 2018). \derived\ (form) \calc\ (values)}\label{fig:rindler_cone}
 \end{figure}
 
 \subsection{The $8\pi$: the Einstein equation normalization}\label{sec:bk_eightpi}
@@ -172,9 +172,9 @@ The coefficient $8\pi$ in Eq.~\eqref{eq:bk_einstein} is fixed by two independent
 
 \emph{(a) Gauss's law in three spatial dimensions.} In the Newtonian limit, the Einstein equations must reduce to Poisson's equation,
 \begin{equation}
-\nabla^2\Phi=4\pi G\rho.\label{eq:bk_poisson}
+\nabla^2\Phi=4\pi G\rho_m.\label{eq:bk_poisson}
 \end{equation}
-The factor $4\pi$ is the solid angle of the unit sphere in $\mathbb R^3$,
+Here $\rho_m$ is the mass density (the bare $\rho$ above is the distance from the horizon). The factor $4\pi$ is the solid angle of the unit sphere in $\mathbb R^3$,
 \begin{equation}
 \Omega_3=\oint d\Omega=\int_0^{2\pi}\!\!d\varphi\int_0^\pi\sin\vartheta\,d\vartheta=4\pi:\label{eq:bk_solid}
 \end{equation}
@@ -183,15 +183,15 @@ the flux of $\nabla\Phi=GM\hat r/r^2$ through any sphere around a point mass is 
 \emph{(b) The trace factor of the Einstein tensor.} The Einstein tensor $G_{ab}=R_{ab}-\tfrac12Rg_{ab}$ differs from the Ricci tensor by the trace term
 $\tfrac12Rg_{ab}$. In the weak-field limit this trace structure introduces a factor of $2$ relative to the naive identification with Poisson's equation
 (Wald 1984~\cite{Wald1984}). Taking the trace of Eq.~\eqref{eq:bk_einstein} with $\Lambda=0$ gives $R=-(8\pi G/c^4)T$, so the equations can be written
-$R_{ab}=(8\pi G/c^4)(T_{ab}-\tfrac12Tg_{ab})$. For static dust, $T_{ab}={\rm diag}(\rho c^2,0,0,0)$ and $T=-\rho c^2$ (signature $-+++$), and the time--time
+$R_{ab}=(8\pi G/c^4)(T_{ab}-\tfrac12Tg_{ab})$. For static dust, $T_{ab}={\rm diag}(\rho_m c^2,0,0,0)$ and $T=-\rho_m c^2$ (signature $-+++$), and the time--time
 component is
 \begin{equation}
-R_{00}=\frac{8\pi G}{c^4}\Big(\rho c^2-\tfrac12\rho c^2\Big)=\frac{4\pi G\rho}{c^2}.
+R_{00}=\frac{8\pi G}{c^4}\Big(\rho_m c^2-\tfrac12\rho_m c^2\Big)=\frac{4\pi G\rho_m}{c^2}.
 \end{equation}
 In the weak field $R_{00}=\nabla^2\Phi/c^2$, which is Eq.~\eqref{eq:bk_poisson}. The trace term removes half of the source, so the $4\pi$ of Gauss's law requires $8\pi$ in
 front of $T_{ab}$. \derived
 
-Combining, $8\pi=2\times4\pi$. Both factors are purely geometric. The $8\pi$ makes no reference to $\eta$, to $S\propto A$, or to the numerical value of $G$.
+Combining, $8\pi=2\times4\pi$. Both factors are purely geometric. The $8\pi$ makes no reference to $\eta$, to $S\propto A$, or to the numerical value of $G$. \derived
 
 \section{Jacobson's derivation, step by step}\label{sec:bk_jacobson}
 The derivation is written out here in SI units so that the $2\pi$ and the $8\pi$ can be followed from where they enter to where they meet. Write
@@ -214,7 +214,7 @@ approximate boost Killing vector that generates the horizon is
 The units check: $\kappa_g$ (m$^{-1}$) $\times\lambda\,d\lambda$ (m$^2$) $\times T_{ab}k^ak^b$ (J\,m$^{-3}$) $\times dA$ (m$^2$) is an energy.
 
 \paragraph{Step 3: the entropy.} \emph{Assumption 2:} the entropy is proportional to the horizon area, Eq.~\eqref{eq:bk_SetaA}. Then $\delta S=\kB\eta\,\delta A$
-with $\delta A=\int\theta\,d\lambda\,dA$, where $\theta$ is the expansion of the generators.
+with $\delta A=\int\theta\,d\lambda\,dA$, where $\theta$ is the expansion of the generators. \derived
 
 \paragraph{Step 4: the focusing of the generators.} The Raychaudhuri equation~\cite{Raychaudhuri1955} for the null congruence is
 \begin{equation}
@@ -262,7 +262,7 @@ geometrically determined:
 \eta=\frac{1}{4\lP^2},\qquad\frac14=\frac{2\pi}{8\pi},\label{eq:bk_eta}
 \end{equation}
 where $2\pi$ is the Euclidean Rindler cone angle and $8\pi$ is the Einstein equation normalization, both derivable from the causal structure of flat
-spacetime without assuming $S\propto A$. The unit of area, $\lP^2=\hbar G/c^3$, carries Newton's constant.
+spacetime without assuming $S\propto A$. The unit of area, $\lP^2=\hbar G/c^3$, carries Newton's constant. \derived
 \end{keybox}
 
 \paragraph{Derivation.} Jacobson's derivation yields the relation Eq.~\eqref{eq:bk_core}. It follows from applying $\delta Q=T\,\delta S$ to the Rindler horizon and
@@ -283,7 +283,7 @@ Jacobson's machinery. It is a demonstration that the number in $\eta$ is geometr
 determines $T$ and $G_{ab}$. Jacobson had all the ingredients: the $2\pi$ from the Euclidean horizon geometry and the $8\pi$ from the Einstein
 normalization. Their ratio $2\pi/8\pi=1/4$ fixes the coefficient without any observational input. The scale it multiplies, $c^3/\hbar G$, contains $G$,
 so the matching to the observed $G$ remains the one input: given $G$, $\eta$ follows; given $\eta$, $G$ follows. The relation removes the freedom in the
-number, not the need for the scale.
+number, not the need for the scale. \interp
 
 \section{Independence of the two factors}\label{sec:bk_independence}
 The derivation requires that neither factor assumes the conclusion.
@@ -291,25 +291,25 @@ The derivation requires that neither factor assumes the conclusion.
 The $2\pi$ from the Euclidean Rindler cone angle is a topological property of flat Minkowski spacetime near an accelerating horizon. The Euclidean
 continuation of the Rindler metric produces a cone in the $(\rho,\tau)$ plane. Regularity at the tip requires the angular period to be $2\pi$ --- exactly the
 period that eliminates the conical deficit. This is a statement about flat spacetime geometry, derivable without reference to black holes, entropy, or
-$S\propto A$. The Bisognano--Wichmann theorem~\cite{BisognanoWichmann1976} establishes this in the full algebraic quantum field theory setting.
+$S\propto A$. The Bisognano--Wichmann theorem~\cite{BisognanoWichmann1976} establishes this in the full algebraic quantum field theory setting. \derived
 
 The $8\pi$ from the Einstein normalization follows from requiring general relativity to reduce to Newtonian gravity in the weak-field, non-relativistic
 limit. The factor $4\pi$ is Gauss's law in three spatial dimensions; the factor $2$ is the trace structure of the Einstein tensor. Both are geometric
-properties of three-space and four-dimensional (pseudo-)Riemannian geometry respectively. Neither references entropy, Planck's constant, or $S\propto A$.
+properties of three-space and four-dimensional (pseudo-)Riemannian geometry respectively. Neither references entropy, Planck's constant, or $S\propto A$. \derived
 
 \emph{Independence from each other.} The $2\pi$ is derived from quantum field theory in flat spacetime via the KMS condition. The $8\pi$ is derived from
 the differential geometry of the weak-field Einstein equations. They arise from completely different physical contexts and were identified by different
 historical routes --- Unruh (1976) and Einstein (1915) respectively. Their ratio appearing as the coefficient of $\eta$ is a structural consequence of
-applying thermodynamics to a spacetime with both a causal horizon and a Newtonian limit.
+applying thermodynamics to a spacetime with both a causal horizon and a Newtonian limit. \interp
 
 \emph{Uniqueness.} The ratio $2\pi/8\pi=1/4$ is not tunable. Both factors are fixed by geometric necessities of flat spacetime. The value $1/4$ is
-selected by the geometry, not chosen to match observation.
+selected by the geometry, not chosen to match observation. \interp
 
 \section{Connection to known results}\label{sec:bk_known}
 \subsection{The minimum encoding area: one nat per $4\lP^2$, one bit per $4\ln2\,\lP^2$}\label{sec:bk_minarea}
 The same geometric ratio $8\pi/2\pi=4$ that determines $\eta$ also determines the minimum horizon area taken up by one unit of entropy. This provides an
 independent confirmation that the three results --- $S\propto A$, $\eta=1/(4\lP^2)$, and the minimum encoding area --- are three expressions of the same
-causal geometry.
+causal geometry. \interp
 
 The Landauer cost of one unit of entropy, $\kB$ (one nat), at the local horizon temperature $T_H$ is
 \begin{equation}
@@ -403,7 +403,7 @@ not divide them. \derived
 
 The minimum encoding area $\delta A_{\min}=4\lP^2$ follows from the Landauer cost of one unit of entropy at any horizon temperature, with the same $8\pi/2\pi=4$
 geometric ratio. The product $\eta\,\delta A_{\min}=1$ is exact --- one nat per minimum encoding area, one bit per $4\ln2\,\lP^2$ --- and is not a separate
-result but the same result stated as a consistency check.
+result but the same result stated as a consistency check. \derived
 
 Of the two things Jacobson assumed, the number in the second is now derived and the first is given a physical reason. One thing remains open: why
 Planck-scale discreteness exists at all, which is the same as asking for the value of $G$ in Planck units. That is the genuine quantum-gravity question, and

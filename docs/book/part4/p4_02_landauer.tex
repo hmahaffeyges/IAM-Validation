@@ -85,7 +85,7 @@ $T_{\rm gap}=\Delta_{\rm Al}/\kB$; the gap cancels and $M=\ln2$. The chip value 
 \label{tab:p4operating}
 \begin{tabular}{@{}llllr@{}}\toprule
 substrate & $\Edrive$ & $T$ & $M$ & $M/\ln2$ \\\midrule
-CMOS logic, AMD Ryzen 9 9950X & $\mathrm{TDP}/(N_{\rm trans}f)$ & 348~K & 399--411 & 576--593 \\
+CMOS logic, AMD Ryzen 9 9950X & $\mathrm{TDP}/(N_{\rm trans}f)$ & 348.15~K & 399--411 & 576--593 \\
 human cell nucleus & $\dGATP$ & 310~K & 20.94 & 30.21 \\
 aluminium transmon & $\Delta_{\rm Al}\ln2$ & $\Delta_{\rm Al}/\kB$ & $\ln2=0.693$ & 1 \\\bottomrule
 \end{tabular}
@@ -180,8 +180,8 @@ per methylation decision. The large gap between the two is where the physics of 
 lives.
 
 \paragraph{The holding energy, measured on molecules.}\label{sec:p4holding} The same quantity can be read directly on single DNA molecules.
-On read-level whole-genome bisulfite data from a public atlas of sorted healthy human cells~\cite{Loyfer2023}, 153 samples
-grouped here into 56 cell types, the copy error $\varepsilon$
+On read-level whole-genome bisulfite data from a public atlas of sorted healthy human cells~\cite{Loyfer2023}, 153 of its 205 samples
+grouped here into 56 cell types (the atlas paper groups its 205 samples into 39), the copy error $\varepsilon$
 (an unmethylated CpG isolated between methylated neighbours, on molecules that are otherwise methylated) gives, through
 $E_{\rm hold}=\kB T\ln[(1-\varepsilon)/\varepsilon]$, a holding energy of $3.41\pm0.12\,\kB T$ per site, range 3.13--3.72, in
 every cell type. \measured{} In Landauer units that is $3.41/\ln2=4.92$. \calc{} As a fraction of one ATP it is
