@@ -1,0 +1,81 @@
+A. mu(z) and M_lens/M_dyn = 1/mu (canon Omega_m 0.3153, beta_m 0.15765; in brackets Omega_m 0.315, Omega_L 0.685, beta_m 0.1575)
+   z    0: a 1.000  mu 0.8638 [0.8639]  1/mu 1.1577 [1.1575]  excess 15.77 %  E(a) 1.0000
+   z  0.1: a 0.909  mu 0.8856 [0.8857]  1/mu 1.1292 [1.1291]  excess 12.92 %  E(a) 0.9048
+   z  0.2: a 0.833  mu 0.9050 [0.9051]  1/mu 1.1050 [1.1049]  excess 10.50 %  E(a) 0.8187
+   z 0.25: a 0.800  mu 0.9137 [0.9138]  1/mu 1.0944 [1.0943]  excess  9.44 %  E(a) 0.7788
+   z  0.3: a 0.769  mu 0.9218 [0.9219]  1/mu 1.0848 [1.0847]  excess  8.48 %  E(a) 0.7408
+   z  0.4: a 0.714  mu 0.9362 [0.9362]  1/mu 1.0682 [1.0681]  excess  6.82 %  E(a) 0.6703
+   z  0.5: a 0.667  mu 0.9482 [0.9482]  1/mu 1.0547 [1.0546]  excess  5.47 %  E(a) 0.6065
+   z  0.7: a 0.588  mu 0.9661 [0.9662]  1/mu 1.0350 [1.0350]  excess  3.50 %  E(a) 0.4966
+   z  1.0: a 0.500  mu 0.9822 [0.9822]  1/mu 1.0181 [1.0181]  excess  1.81 %  E(a) 0.3679
+   z  1.5: a 0.400  mu 0.9938 [0.9938]  1/mu 1.0063 [1.0063]  excess  0.63 %  E(a) 0.2231
+   z  2.0: a 0.333  mu 0.9977 [0.9977]  1/mu 1.0023 [1.0023]  excess  0.23 %  E(a) 0.1353
+   z  3.0: a 0.250  mu 0.9996 [0.9996]  1/mu 1.0004 [1.0004]  excess  0.04 %  E(a) 0.0498
+   mu(z=0) = 1/(1+beta_m) = 0.86382; mu0 = mu(0)-1 = -0.1362; 1-mu(0) = 13.62 %
+B. algebra (sympy)
+   1/mu - (1 + beta_m E/H^2) = 0
+   Level 1 form with Sigma = 1: Phi/Psi = (2 - mu)/mu ; (Phi+Psi)/2 per unit source = 1
+   slip Phi/Psi at z 0: 1.3153
+   slip Phi/Psi at z 0.3: 1.1696
+   slip Phi/Psi at z 1.0: 1.0362
+C. slopes
+   dR/dz: z 0 -0.307; z 0.3 -0.183; z 0.5 -0.121; z 1 -0.039
+   d(R C_NT)/dz at z 0.3 = -0.187
+D. three-way table (bin centres), C_NT = 1 + 0.20(1+z)^0.2, compiled ratios as printed (per-bin sources not traced)
+   0.1-0.2: z 0.150  R 1.117  C_NT 1.2057  R*C_NT 1.346  dC_NT/dz +0.036  (R*C_NT - obs)/s +0.44
+   0.2-0.3: z 0.250  R 1.094  C_NT 1.2091  R*C_NT 1.323  dC_NT/dz +0.033  (R*C_NT - obs)/s +0.86
+   0.3-0.5: z 0.400  R 1.068  C_NT 1.2139  R*C_NT 1.297  dC_NT/dz +0.031  (R*C_NT - obs)/s +0.47
+   0.5-0.8: z 0.650  R 1.039  C_NT 1.2211  R*C_NT 1.269  dC_NT/dz +0.027  (R*C_NT - obs)/s +0.68
+   straight-line slope of R*C_NT over the four centres: -0.152
+   fractional error per bin for a 3 sigma slope: 1.45 %
+   printed forecasts: 0.18/0.03 = 6.0; 0.18/0.008 = 22.5; slope difference to +0.02..+0.04: 6.7-7.3 and 25-28 (in units of the assumed errors)
+   lensing/dynamics five bins (0.2,0.5,0.8,1.2,1.8) vs best constant: 3 sigma at 2.56 % per bin
+E. published cluster ratios
+   WtG 1-b = 0.688 +/- 0.072: M_WL/M_Planck = 1/(1-b) = 1.453 +/- 0.152
+   CCCP 1-b = 0.78 +/- 0.092: M_WL/M_Planck = 1/(1-b) = 1.282 +/- 0.151
+   needed by counts + CMB 1-b = 0.58 +/- 0.04: M_WL/M_Planck = 1/(1-b) = 1.724 +/- 0.119
+   CMB lensing 1/(1-b) = 0.99 +/- 0.19 (input)
+   LoCuSS beta_X 0.95 +/- 0.05 -> M_WL/M_X = 1.053 +/- 0.055; IAM Level 1 at z 0.225: mu 0.909, 1/mu 1.100; offset +0.81 sigma in beta
+   beta_P WtG z<0.3 = 0.9 +/- 0.09; IAM mu at z 0.225 = 0.909; offset -0.10 sigma
+   beta_P WtG z>0.3 = 0.71 +/- 0.07; IAM mu at z 0.4 = 0.936; offset -3.23 sigma
+   beta_P CCCP z<0.3 = 0.96 +/- 0.09; IAM mu at z 0.225 = 0.909; offset +0.56 sigma
+   beta_P CCCP z>0.3 = 0.61 +/- 0.09; IAM mu at z 0.4 = 0.936; offset -3.62 sigma
+   sigma8: Level 1 0.8143 -> 0.8015 -1.57 %; Level 2 0.8087 -> 0.7998 -1.10 %
+F. growth (same early amplitude), three forms, and Press-Schechter
+   Delta D/D today, form i G_eff: -0.78 %
+   Delta D/D today, form ii friction: -0.67 %
+   Delta D/D today, form iii all on H_m: -1.87 %
+   f sigma8 deficit (form i) z 0: 4.25 %
+   f sigma8 deficit (form i) z 0.3: 2.17 %
+   f sigma8 deficit (form i) z 0.5: 1.35 %
+   f sigma8 deficit (form i) z 1.0: 0.41 %
+   PS: Delta ln n = (nu^2-1) eps, eps = 0.78 %: nu 0.5 +0.58 %... nu 1 0, nu 2 -2.33 %; ln 10 = 2.303
+G. satellites: the coupling, the horizon, the minimum mass
+   T_H = hbar H0/(2 pi kB) = 2.654e-30 K (H0 67.36); Omega_m + Omega_L = 1.0000
+   beta_m on the Level 2 posterior Omega_m 0.3166 +/- 0.0066: 0.1583 +/- 0.0033
+   H0 matter sector 67.161 sqrt(1.15765) = 72.26; (67.36-67.16)/0.54 = 0.37 sigma; (73.04-72.26)/1.04 = 0.75 sigma
+   sigma8 0.7998 +/- 0.0058 vs 0.802 (+0.022/-0.018): 0.12 sigma
+   rho_v with r_v = GM/v_c^2, v_c^2 = 2 sigma^2: 6*sigma**6/(pi*G**3*M**2) ; t_dyn = sqrt(pi/(6 G rho)) = pi*G*M/(6*sigma**3)
+   t_dyn = 1/H0 gives M = 6*sigma**3/(pi*G*H0)
+   prefactor 1.261 4 Omega_m (as written): M(4 km/s) = 10^8.44; sigma at 10^8.4 = 3.86 km/s; sigma at 3.2e8 = 4.19 km/s
+   prefactor 1.910 6/pi (t_dyn with full rho): M(4 km/s) = 10^8.63; sigma at 10^8.4 = 3.37 km/s; sigma at 3.2e8 = 3.65 km/s
+   prefactor 1.382 sqrt(6/pi) (printed Eq. 10): M(4 km/s) = 10^8.48; sigma at 10^8.4 = 3.75 km/s; sigma at 3.2e8 = 4.06 km/s
+   log10(3.2e8) = 8.505; log10(8.5e7) = 7.929
+   census: 68 MW satellites, 54 with dispersion or limit, 25 below 4 (46 %), 24 confirmed galaxies; 19 resolved, 6 limits; 8 below 4 at +1 sigma; 29 at or above 4
+   [Fe/H] spreads among those below 4: 20, 0.19-0.59 dex
+H. added: turnover of R x C_NT, hydrostatic-bias constant, Herbonnet, absolute-error test, Press-Schechter algebra, sigma_M at satellite masses
+   d(R C_NT)/dz at z 0.5 -0.117, 1.0 -0.025; turnover (dP/dz = 0) at z = 1.40
+   b = 0.17: 1/(1-b) = 1.205; Herbonnet 1-b = 0.84 +/- 0.04 +/- 0.05: 1/(1-b) = 1.190 +/- 0.091
+   1-b_hydro = (1-b_NT)(1-b_IAM) = 1 - b_NT - b_IAM + b_NT b_IAM; at z 0.3 with C_NT: b_NT = 0.174, b_IAM = 0.078, cross term 0.0136
+   five bins, equal absolute error: 3 sigma at 2.73 % per bin (as fig_lensdyn_test)
+   PS: d ln n / d epsilon (sigma_M -> sigma_M(1+eps)) = nu**2 - 1
+   M 1e+07 Msun: R 0.026 Mpc/h, sigma_M 6.96, nu 0.242
+   M 1e+08 Msun: R 0.057 Mpc/h, sigma_M 5.87, nu 0.287
+   M 1e+09 Msun: R 0.122 Mpc/h, sigma_M 4.83, nu 0.349
+   M 1e+12 Msun: R 1.225 Mpc/h, sigma_M 2.22, nu 0.758
+I. census against the threshold on each prefactor (value or upper limit below the threshold)
+   below 3.37: 16 of 54 (12 resolved, 4 limits, 15 confirmed galaxies)
+   below 3.65: 22 of 54 (16 resolved, 6 limits, 21 confirmed galaxies)
+   below 3.86: 24 of 54 (18 resolved, 6 limits, 23 confirmed galaxies)
+   below 4.0: 25 of 54 (19 resolved, 6 limits, 24 confirmed galaxies)
+   below 4.19: 27 of 54 (20 resolved, 7 limits, 26 confirmed galaxies)

@@ -1,85 +1,265 @@
 % Part 2 chapter carrying "Three-Way Mass Discrepancy in Galaxy Clusters as a Test of mu < 1, Sigma = 1: eROSITA X-ray, Planck SZ, and DES Weak
-% Lensing" (25 Feb 2026) in its order. Read in full 2026-10-02 (PDF text 296 lines in this extraction, 304 in the check file's; every
-% line read). Numbers: docs/verification/scripts/verify_obs_chapters.py (section E). Check: docs/verification/observations/THREE_WAY_CLUSTER_CHECK.md;
-% errata TW1-TW6. Level 1 form only; the test is ON HOLD until the implementation form is settled (author, 2026-10-02).
+% Lensing" (25 Feb 2026), in its order, nearly line for line. PDF text 304 lines (page markers included; ledger row 19), read in full in
+% 50-line chunks on 2026-10-03; LaTeX docs/papers/latex/IAM_ThreeWay_Cluster_Paper/ checked for the exact equations.
+% Corrections: docs/verification/PAPER_ERRATA.md TW1-TW6; docs/verification/observations/THREE_WAY_CLUSTER_CHECK.md.
+% Numbers: docs/verification/scripts/verify_cluster_mass_satellites.py (+ _output.txt), sections A-E and H.
+% Figures: docs/book/figscripts/fig_p2_cluster_tests.py. Level 1 form only; the test is on hold until the implementation form is settled.
 \chapter{Three cluster masses}\label{ch:threeway}
 
 \section*{The place}
 The same clusters as Chapter~\ref{ch:lensdyn}, read three ways: by the X-ray gas held in hydrostatic equilibrium, by the Sunyaev--Zeldovich (SZ)
 distortion that the hot electrons imprint on the CMB, and by the weak lensing of background galaxies. The first two answer to the potential that
-matter feels; the third to the potential that light feels. This chapter states what the informational term predicts for the three, in the one
-form in which it predicts a difference, and what remains open.
+matter feels; the third to the potential that light feels.
 
-\section{Three estimators}
-\begin{itemize}
-\item \emph{X-ray hydrostatic mass.} The temperature and density profiles of the gas give the pressure gradient that balances the gravitational
-acceleration the gas feels.
-\item \emph{SZ mass.} The SZ signal $Y$ is converted to mass through a $Y$--$M$ scaling relation calibrated on hydrostatic X-ray masses. It inherits
-whatever the X-ray masses carry.
-\item \emph{Weak-lensing mass.} The shear of background galaxies measures the lensing potential $\Phi+\Psi$.
-\end{itemize}
+\section*{Summary}
+In the dual-sector picture the gravitational decoherence term renormalises the effective expansion rate that governs matter perturbations, while the
+photon sector and the lensing relations are unchanged: $\mu(a)<1$ and $\Sigma(a)=1$ at linear order. This chapter asks what that implies for the three
+cluster mass estimators. In the Level~1 form, where $\mu$ multiplies Newton's constant for matter, the hydrostatic and SZ masses are low by $\mu$ and
+the lensing mass is the true mass, so the lensing-to-hydrostatic ratio is $R(z)=1/\mu(z)$, with a negative redshift slope, $dR/dz=-0.18$ at $z=0.3$,
+opposite in sign to the slope of non-thermal pressure support. In the Level~2 form the Weyl potential and light geodesics are unmodified, the offset
+between lensing peaks and gas follows the same collisionless dynamics as in $\Lambda$CDM, $R=1$, and clusters see the term only through the growth
+history that sets their abundance and merger timing. No parameter beyond those of $\Lambda$CDM is introduced in either form.
 
-\section{The ratio in the Level 1 form}
-In the Level~1 form the gas feels $\mu$ times the true acceleration, so $M_{\rm hydro}=\mu M_{\rm true}$, $M_{\rm SZ}\approx M_{\rm hydro}$ through the
-calibration, and $M_{\rm lens}=\Sigma M_{\rm true}=M_{\rm true}$. The lensing-to-hydrostatic ratio is
+\section{Three estimators}\label{sec:tw_estimators}
+Galaxy clusters are the most massive gravitationally bound structures. Their masses can be estimated through several independent physical channels,
+each sensitive to a different part of the gravitational field. In general relativity all of them converge on the same true mass once systematics are
+accounted for. A systematic difference between estimators that depends on whether the estimator probes the matter sector or the photon sector would be a
+direct signal of a departure from general relativity in the sector split. \interp
+\begin{enumerate}
+\item \emph{X-ray hydrostatic mass.} The temperature and density profiles of the intracluster medium (ICM) give the pressure gradient needed for
+hydrostatic equilibrium, which balances the gravitational acceleration felt by the gas. It is a matter-sector estimator.
+\item \emph{SZ mass.} Inverse Compton scattering of CMB photons off hot ICM electrons produces a spectral distortion proportional to
+$\int n_eT_e\,dl$. SZ masses come from a $Y$--$M$ scaling relation calibrated on hydrostatic X-ray masses, so they probe the same matter-sector
+acceleration.
+\item \emph{Weak-lensing mass.} The coherent distortion of background galaxy shapes by the cluster measures the lensing potential $\Phi+\Psi$. It is a
+photon-sector estimator.
+\end{enumerate}
+The hydrostatic mass bias, lensing masses above the hydrostatically calibrated Planck masses by about $20$--$45\,\%$ in the Planck-prior
+calibrations and above X-ray hydrostatic masses by about $5\,\%$ in the LoCuSS sample at $0.15<z<0.3$ (Table~\ref{tab:ld_published}), has been attributed mainly to non-thermal pressure from turbulence and bulk
+motion~\cite{Nagai2007Xray,Nelson2014}. \observed\ The dual-sector model offers a complementary physical reading: part of the bias is gravitational,
+from the weaker matter coupling $\mu<1$. The two parts differ in their redshift dependence. Non-thermal pressure support evolves weakly and positively
+with redshift; the gravitational part follows $E(a)=\exp(1-1/a)$, which falls from its present value toward zero at high redshift. The sign of the
+redshift slope is the discriminant. \conjecture
+
+\section{The perturbation mechanism}\label{sec:tw_mechanism}
+The dual-sector term enters the matter perturbation equations as a single change to the Hubble friction. In the modified CAMB Fortran implementation
+(Chapter~\ref{ch:level2}), in the code's units ($8\pi G=1$, conformal time), the matter-sector expansion rate that enters the CDM and baryon equations
+of motion is
 \begin{equation}
-R(z)\equiv\frac{M_{\rm lens}}{M_{\rm hydro}}=\frac{1}{\mu(z)},\qquad\mu(a)=\frac{H^2_{\Lambda\rm CDM}(a)}{H^2_{\Lambda\rm CDM}(a)+\beta_mE(a)H_0^2},
+\dot a_{\rm matter}=\sqrt{\frac{\rho_{\rm tot}+\beta_mE(a)\,\rho_0}{3}}\,,
+\label{eq:tw_adot}\end{equation}
+where $\rho_{\rm tot}$ is the total energy density and $\rho_0$ the present critical density; in physical units this is
+$H_m^2=H^2+\beta_mE(a)H_0^2$ (Eq.~\eqref{eq:l2_Hm}). \derived\ (unit conversion) The activation function is
+\begin{equation}
+E(a)=\exp\!\left(1-\frac1a\right),
+\label{eq:tw_E}\end{equation}
+obtained from the gravitational decoherence rate integrated over the cosmic apparent horizon~\cite{Jacobson1995,CaiKim2005} (Chapter~\ref{ch:theory}),
+and the coupling is
+\begin{equation}
+\beta_m=\frac{\Omega_m}{2}=0.15765,
+\label{eq:tw_beta}\end{equation}
+set by the virial partition for $1/r$ potentials in three spatial dimensions (Chapter~\ref{ch:virial}). \prediction\ The photon-sector equations are
+untouched: $\Sigma=1$, because photons travel on null geodesics, along which no proper time elapses, and so undergo no gravitational
+decoherence. \interp
+
+The effective matter coupling at $a=1/(1+z)$ is the ratio of the $\Lambda$CDM Hubble rate squared to the matter-sector rate squared,
+\begin{equation}
+\mu(a)=\frac{H^2_\Lambda(a)}{H^2_\Lambda(a)+\beta_mE(a)H_0^2},\qquad H^2_\Lambda(a)=H_0^2(\Omega_ma^{-3}+\Omega_\Lambda),
+\label{eq:tw_mu}\end{equation}
+a mapping onto the $\mu$--$\Sigma$ form (Appendix~\ref{app:der:growth}). \interp\ The 18 converged chains fix $\beta_m$ and test this prediction
+against the Planck 2018 likelihood (Chapter~\ref{ch:dual}); they do not fit it. At $a=1$, $\mu=1/(1+\beta_m)=0.8638$: the matter coupling is
+$13.62\,\%$ below unity. \calc\ That number is the coupling, not the growth suppression, which is $0.78\,\%$ in the linear growth factor today
+(Appendix~\ref{app:der:growth}).
+
+\section{The three-way ratio in the Level 1 form}\label{sec:tw_ratio}
+\subsection{Mass estimators in modified gravity}
+\textbf{Step 1 (hydrostatic mass).} In hydrostatic equilibrium the pressure gradient of the gas balances the gravitational acceleration it feels,
+$dP/dr=-\rho_g\,g(r)$. An observer who assumes general relativity writes $g=GM_{\rm hydro}(<r)/r^2$. In the Level~1 form the gas feels
+$g=\mu\,GM_{\rm true}(<r)/r^2$, so
+\begin{equation}
+M_{\rm hydro}=\mu\,M_{\rm true}.
+\label{eq:tw_mhydro}\end{equation}
+With $\mu<1$ hydrostatic masses systematically underestimate the true mass. \derived\ (Level~1 form)
+
+\textbf{Step 2 (SZ mass).} The SZ mass is calibrated on hydrostatic masses through the $Y$--$M$ relation, so at leading order it inherits the same factor:
+\begin{equation}
+M_{\rm SZ}\approx\mu\,M_{\rm true}.
+\label{eq:tw_msz}\end{equation}
+
+\textbf{Step 3 (lensing mass).} Because $\Sigma=1$, the lensing mass recovers the true mass:
+\begin{equation}
+M_{\rm lens}=\Sigma\,M_{\rm true}=M_{\rm true}.
+\label{eq:tw_mlens}\end{equation}
+
+\subsection{The three-way prediction}
+The ratio of lensing mass to hydrostatic mass is
+\begin{equation}
+R(z)\equiv\frac{M_{\rm lens}}{M_{\rm hydro}}=\frac{1}{\mu(z)},
 \label{eq:tw_R}\end{equation}
-the curve of Eq.~\eqref{eq:ld_ratio}. \calc
-\begin{center}\small\begin{tabular}{lcccccccccc}\toprule
-$z$ & 0 & 0.1 & 0.2 & 0.3 & 0.4 & 0.5 & 0.7 & 1.0 & 1.5 & 2.0\\\midrule
-$\mu$ & 0.8638 & 0.8856 & 0.9050 & 0.9218 & 0.9362 & 0.9482 & 0.9661 & 0.9822 & 0.9938 & 0.9977\\
-$R$ & 1.158 & 1.129 & 1.105 & 1.085 & 1.068 & 1.055 & 1.035 & 1.018 & 1.006 & 1.002\\\bottomrule
-\end{tabular}\end{center}
-At the redshifts of eROSITA samples ($z\approx0.2$--$0.4$) the gravitational part of the ratio is $1.07$--$1.10$. \calc
+the curve of Eq.~\eqref{eq:ld_ratio}. \derived\ (Level~1 form) In general relativity $R=1$; in the Level~1 form $R>1$, with a redshift dependence set by
+$E(a)$ and $\beta_m=\Omega_m/2$ alone. The SZ-to-X-ray ratio is
+\begin{equation}
+\frac{M_{\rm SZ}}{M_{\rm hydro}}\approx\frac{\mu}{\mu}=1,
+\label{eq:tw_szx}\end{equation}
+and the ordering of the three estimators is
+\begin{equation}
+M_{\rm lens}>M_{\rm SZ}\approx M_{\rm hydro}.
+\label{eq:tw_order}\end{equation}
+\calc\ Of these, Eq.~\eqref{eq:tw_szx} holds by construction: the $Y$--$M$ relation is calibrated on hydrostatic masses, so the ratio is close to unity
+in any theory of gravity and cannot test the sector split (Section~\ref{sec:tw_sz}). The first inequality in Eq.~\eqref{eq:tw_order} is shared with
+non-thermal pressure, which also lowers both matter-sector estimators. What non-thermal pressure cannot give is a lensing-to-hydrostatic ratio that
+falls with redshift following $E(a)$. The test is therefore the redshift slope. \calc
+
+\section{The predicted ratio against redshift}\label{sec:tw_table}
+With Planck 2018 parameters ($\Omega_m=0.3153$, $\Omega_\Lambda=0.6847$, $H_0=67.36$~km\,s$^{-1}$\,Mpc$^{-1}$~\cite{Planck2018VI}) the ratio runs from
+$R=1.158$ at $z=0$ to $1.002$ at $z=2$. At the redshifts of eROSITA cluster samples, $z\approx0.2$--$0.4$, it is $R\approx1.07$--$1.11$: a
+$7$--$11\,\%$ excess of lensing mass over hydrostatic mass from the gravitational part alone (Table~\ref{tab:tw_R}). \calc
+
+\begin{table}[htbp]\centering\small
+\caption[Lensing-to-hydrostatic mass ratio $R(z)$]{Lensing-to-hydrostatic mass ratio $R(z)=1/\mu(z)$, Level~1 form, from Eq.~\eqref{eq:tw_mu} with
+$\beta_m=\Omega_m/2=0.15765$ and Planck 2018 parameters. No free parameter. \calc}\label{tab:tw_R}
+\begin{tabular}{cccc}\toprule
+$z$ & $a$ & $\mu(z)$ & $R(z)=1/\mu$\\\midrule
+0.0 & 1.000 & 0.8638 & 1.158\\
+0.1 & 0.909 & 0.8856 & 1.129\\
+0.2 & 0.833 & 0.9050 & 1.105\\
+0.3 & 0.769 & 0.9218 & 1.085\\
+0.4 & 0.714 & 0.9362 & 1.068\\
+0.5 & 0.667 & 0.9482 & 1.055\\
+0.7 & 0.588 & 0.9661 & 1.035\\
+1.0 & 0.500 & 0.9822 & 1.018\\
+1.5 & 0.400 & 0.9938 & 1.006\\
+2.0 & 0.333 & 0.9977 & 1.002\\\bottomrule
+\end{tabular}\end{table}
+
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_threeway_estimators.pdf}
 \caption[Three cluster mass estimators and the slope test]{(a) The three estimators over the true mass in the Level~1 form: the X-ray hydrostatic mass follows $\mu(z)$, the SZ mass follows it through the $Y$--$M$ calibration, and the weak-lensing mass follows $\Sigma=1$; in the Level~2 form all three are 1. \calc\ (b) The significance of a non-zero slope of $R\times C_{\rm NT}$ fitted as a straight line over the four bin centres (slope $-0.152$), against the fractional error per bin (equal errors): $3\sigma$ needs 1.5\,\% per bin. $C_{\rm NT}$ is the illustrative form. \calc\ \openprob}\label{fig:threeway_estimators}
 \end{figure}
 
-\section{The slope}
-\calc\ The redshift slope is negative: $dR/dz=-0.183$ at $z=0.3$. Non-thermal pressure from turbulence and bulk motion gives the opposite sign,
-because higher-redshift clusters are less relaxed~\cite{Nelson2014,ShiKomatsu2014}. For illustration take a factor
-$C_{\rm NT}=1+0.20(1+z)^{0.2}$, whose slope is $+0.027$ to $+0.036$ over $0.15<z<0.65$; the form is assumed, not fitted to the simulations. With it, the two effects combine as
-\begin{center}\small\begin{tabular}{lcccc}\toprule
+\section{The redshift slope}\label{sec:tw_slope}
+The discriminant between the gravitational part and non-thermal pressure support is the sign of $dR/dz$.
+
+\emph{Level~1 form:} $dR/dz=-0.183$ at $z=0.3$ ($-0.31$ at $z=0$, $-0.12$ at $z=0.5$). As $z$ increases, $E(a)$ falls, $\mu\to1$ and $R\to1$: the
+slope is negative. \calc
+
+\emph{Non-thermal pressure:} higher-redshift clusters are less relaxed, so non-thermal pressure support is larger and hydrostatic masses are more
+biased~\cite{Nelson2014,ShiKomatsu2014}: the slope is positive. \observed\ (simulations)
+
+The two contributions have opposite signs. Writing $M_{\rm hydro}=(1-b)M_{\rm true}$, the two factors multiply,
+\begin{equation}
+1-b_{\rm hydro}(z)=\bigl[1-b_{\rm NT}(z)\bigr]\bigl[1-b_{\rm IAM}(z)\bigr],\qquad b_{\rm IAM}(z)=1-\mu(z),
+\label{eq:tw_bias}\end{equation}
+so that to first order the biases add, $b_{\rm hydro}\simeq b_{\rm NT}+b_{\rm IAM}$; at $z=0.3$ the cross term is $0.014$ for the factor used below.
+\derived\ $b_{\rm NT}$ increases weakly with $z$ and $b_{\rm IAM}$ decreases with $z$ following $E(a)$, so the total flattens as the gravitational
+part fades. \calc
+
+For illustration take a non-thermal factor $C_{\rm NT}=1+0.20(1+z)^{0.2}$, multiplying $R$; its slope is $+0.027$ to $+0.036$ over $0.15<z<0.65$
+\calc, inside the range $+0.02$ to $+0.04$ suggested by simulations~\cite{Nelson2014,ShiKomatsu2014}. The form and its normalisation are assumed, not
+fitted to the simulations. \openprob\ With it the two effects combine as in Table~\ref{tab:tw_bins}. The product falls slowly with redshift, with slope
+$-0.187$ at $z=0.3$ and $-0.025$ at $z=1$; it turns over at $z=1.40$, where the falling gravitational part and the rising non-thermal part balance.
+\calc
+
+\begin{table}[htbp]\centering\small
+\caption[Gravitational and non-thermal parts in four redshift bins]{The Level~1 gravitational ratio and the illustrative non-thermal factor at the
+centres of four redshift bins. Equations of \texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}verify\_cluster\_mass\_satellites.py},
+section D. \calc}\label{tab:tw_bins}
+\begin{tabular}{lcccc}\toprule
 Bin & centre & $R$ (Level~1) & $C_{\rm NT}$ & $R\times C_{\rm NT}$\\\midrule
 $0.1<z<0.2$ & 0.150 & 1.117 & 1.206 & 1.346\\
 $0.2<z<0.3$ & 0.250 & 1.094 & 1.209 & 1.323\\
 $0.3<z<0.5$ & 0.400 & 1.068 & 1.214 & 1.297\\
 $0.5<z<0.8$ & 0.650 & 1.039 & 1.221 & 1.269\\\bottomrule
-\end{tabular}\end{center}
-The total falls slowly with redshift because the gravitational part falls faster than the non-thermal part rises. The discriminant is the sign of the
-slope in a sample measured one way throughout, not the size of the offset, which hydrostatic bias alone can supply. \calc
+\end{tabular}\end{table}
+
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_threeway_slope.pdf}
-\caption[The gravitational and non-thermal parts of the lensing-to-hydrostatic ratio]{Level~1 form. (a) The gravitational part $R=1/\mu$, the non-thermal factor $C_{\rm NT}=1+0.20(1+z)^{0.2}$ (illustrative form; normalisation and index still to be traced to simulations) and their product, with the four bin centres. (b) Their redshift slopes: $dR/dz=-0.183$ at $z=0.3$ against $dC_{\rm NT}/dz=+0.027$ to $+0.036$ over the bin centres; the product falls. In the Level~2 form $R=1$. Equations of \texttt{docs/verification/scripts/\allowbreak{}verify\_obs\_chapters.py}, section E. \calc\ \openprob}\label{fig:threeway_slope}
+\caption[The gravitational and non-thermal parts of the lensing-to-hydrostatic ratio]{Level~1 form. (a) The gravitational part $R=1/\mu$, the non-thermal factor $C_{\rm NT}=1+0.20(1+z)^{0.2}$ (illustrative form; normalisation and index still to be traced to simulations) and their product, with the four bin centres. (b) Their redshift slopes: $dR/dz=-0.183$ at $z=0.3$ against $dC_{\rm NT}/dz=+0.027$ to $+0.036$ over the bin centres; the product falls. In the Level~2 form $R=1$. Equations of \texttt{docs/verification/scripts/\allowbreak{}verify\_cluster\_mass\_satellites.py}, sections C, D and H. \calc\ \openprob}\label{fig:threeway_slope}
 \end{figure}
 
-\section{The SZ-to-X-ray ratio is not a test}
-$M_{\rm SZ}/M_{\rm hydro}\approx1$ holds because the $Y$--$M$ relation is calibrated on hydrostatic masses. It holds in any theory of gravity, so it
-cannot test the sector split, and it is not counted as a result here. The eROSITA cluster catalogue~\cite{Bulbul2024} provides the X-ray side of the
-cross-match.
+\paragraph{Precision needed.} The observable is the slope of the total, $R\times C_{\rm NT}$, not of $R$ alone: a straight line through the four bin
+centres has slope $-0.152$, and a $3\sigma$ detection of a non-zero slope needs a fractional error of $1.5\,\%$ per bin (equal errors). \calc\ The
+errors $\sigma(dR/dz)\approx\pm0.03$ for a cross-matched eROSITA + Planck + DES sample of $\sim180$ clusters over $0.1<z<0.6$, and $\pm0.008$ for
+$\sim5000$ clusters, have been put forward as the reach of current and coming samples; with them the slope $-0.18$ would stand at $0.18/0.03=6$ and
+$0.18/0.008\approx22$ times the error, and its separation from a non-thermal slope of $+0.02$ to $+0.04$ at about 7 and 25--28 times. \calc\ Neither
+error has been derived from a sample calculation (selection, mass scatter, the non-thermal model), so no significance is claimed here. \openprob
 
-\section{The form of the term}
-Equation~\eqref{eq:tw_R} needs $\mu$ in the Poisson equation for $\Psi$, the Level~1 effective-coupling form. In the Level~2 form the term
-is a matter-sector expansion rate in the perturbation equations and the photon-sector equations and potentials are standard
-(Chapter~\ref{ch:level2}); the potential then obeys the standard Poisson equation, gas in hydrostatic equilibrium feels the true acceleration, and
-$R=1$: lensing--gas offsets follow the same collisionless dynamics as in $\Lambda$CDM, and differences enter only through the growth history. Which
-form applies inside virialised clusters, and whether a linear $\mu$ applies there at all, is not derived. No comparison with published ratios is
-made, and no forecast significance is quoted. \openprob
+\section{Comparison with current data}\label{sec:tw_data}
+The published lensing calibrations, in the conventions of their sources, are collected in Table~\ref{tab:ld_published}. In the Level~1 form the
+gravitational part at the sample redshifts is $1.07$--$1.10$; with the illustrative non-thermal factor the total is $1.27$--$1.35$ over the four bins,
+the same order as the Planck-prior calibrations ($1/(1-b)=1.28\pm0.15$ for CCCP, $1.45\pm0.15$ for WtG) and above the like-for-like LoCuSS value
+$M_{\rm WL}/M_X=1.05\pm0.06$ at $0.15<z<0.3$. \calc\ A bin-by-bin comparison needs each observed ratio traced to its source table, with its
+aperture, mass definition and redshift distribution; a compiled set of four binned values is not reproduced here until that is done.
+\openprob\ The like-for-like reanalysis of the WtG and CCCP clusters finds $M_{\rm Planck}/M_{\rm WL}$ lower above $z=0.3$ than below
+it~\cite{Smith2016LoCuSS}, a lensing-to-SZ ratio that rises with redshift, while the updated CCCP + MENeaCS sample finds no significant redshift
+trend~\cite{Herbonnet2020}. \observed\ Neither result yet separates the gravitational part from the non-thermal and selection parts.
 
-\section{What would test it}
-\prediction\ In the Level~1 form: a cross-matched sample (eROSITA X-ray, Planck or ground-based SZ, Euclid or DES lensing) binned in redshift, one mass
-method per estimator throughout, gives $R(z)$ falling with redshift as Eq.~\eqref{eq:tw_R} on top of a non-thermal part that rises. Falsified (in this
-form) by a slope of zero or of positive sign after the non-thermal part is modelled from simulations. In the Level~2 form the prediction is $R=1$ apart
-from astrophysics, and the clusters test only the growth history, through their abundance.
+\section{The SZ-to-X-ray ratio}\label{sec:tw_sz}
+In the Level~1 form both matter-sector estimators are suppressed by the same $\mu$, so $M_{\rm SZ}/M_{\rm hydro}\approx1$. The eROSITA cluster
+catalogue~\cite{Bulbul2024} provides the X-ray side of the Planck cross-match. But Section~\ref{sec:tw_estimators} states the reason the ratio is close to
+unity: SZ masses are calibrated on hydrostatic X-ray masses through the $Y$--$M$ relation. $M_{\rm SZ}/M_{\rm hydro}\approx1$ therefore holds in any
+theory of gravity and is not a test of the sector split. \calibrated\ The three conditions read:
+\begin{align}
+M_{\rm SZ}/M_{\rm hydro}&\approx1&&\text{(both matter sector): holds by calibration, not a test,}\label{eq:tw_test1}\\
+M_{\rm lens}/M_{\rm hydro}&>1&&\text{(lensing = photon sector): observed, shared with non-thermal pressure,}\label{eq:tw_test2}\\
+d(M_{\rm lens}/M_{\rm hydro})/dz&<0&&\text{(the redshift dependence of the gravitational part): the test.}\label{eq:tw_test3}
+\end{align}
+
+\section{Systematic effects}\label{sec:tw_systematics}
+\begin{itemize}
+\item \emph{Hydrostatic equilibrium violations.} Standard practice restricts samples to relaxed clusters identified by X-ray morphology. For relaxed
+clusters hydrostatic equilibrium holds to $\sim5$--$10\,\%$~\cite{Neto2007,Planelles2017}, below the $\sim7$--$11\,\%$ Level~1 signal at $z=0.2$--$0.4$.
+\item \emph{Lensing mass systematics.} Shape-measurement biases ($|m|<0.02$ for DES Y3~\cite{MacCrann2022}), photometric-redshift errors and the
+mass-sheet degeneracy contribute at the $\sim5\,\%$ level. They are not expected to produce a negative redshift slope.
+\item \emph{Projection.} Orientation bias averages toward zero in large samples of randomly oriented triaxial halos~\cite{Corless2008} and gives no
+systematic redshift dependence.
+\item \emph{Selection.} Requiring detection in all three channels mitigates selection bias. Selection differences between redshift bins can still
+produce a trend, as the redshift split in Table~\ref{tab:ld_published} shows, and must be modelled.
+\end{itemize}
+The sign of $dR/dz$ is the critical discriminant. The identified systematics give either no redshift dependence or a positive slope, opposite to the
+Level~1 slope of $-0.18$. \interp
+
+\section{Forecasts}\label{sec:tw_forecasts}
+The cumulative eROSITA all-sky data combined with Euclid weak lensing will grow a cross-matched sample to thousands of clusters. \prediction\ Euclid's
+measurement of $\mu(z)$ and $\Sigma(z)$ from cosmic shear and galaxy clustering will independently constrain the gravitational part of the cluster mass
+ratio; its reach for $\mu_0$ is given in Section~\ref{sec:lt_euclid}. A combined detection of $\mu<1$, $\Sigma=1$ from the cluster mass ratio, the
+$\sigma_8$ suppression and the direct Euclid $\mu$--$\Sigma$ constraints would be convergent evidence from three probes that use three different
+physical channels. \prediction
+
+\section{Discussion}\label{sec:tw_discussion}
+The three-way cluster mass ratio and the $\sigma_8$ suppression are two observational signatures of the same signature, $\mu<1$ and $\Sigma=1$ from
+the matter-sector friction term with $\beta_m=\Omega_m/2$. The $\sigma_8$ shift is a Level~2 chain result and is consistent with current data
+(Chapter~\ref{ch:sectortension}). The cluster ratio is a Level~1 prediction; in the form the chains implement it is $R=1$
+(Chapter~\ref{ch:lensdyn}, Section~\ref{sec:ld_hold}). \openprob
+
+\section{What would test it}\label{sec:tw_test}
+\prediction\ In the Level~1 form the prediction for the three-way cluster mass ratio is
+\begin{equation*}
+R(z)=M_{\rm lens}/M_{\rm hydro}=1/\mu(z),
+\end{equation*}
+from a single Hubble-friction term in the matter-sector equations with coupling $\beta_m=\Omega_m/2$ and activation function $E(a)=\exp(1-1/a)$.
+\begin{enumerate}
+\item $R(z)\approx1.07$--$1.16$ over $0<z<0.5$ from the gravitational part. With an illustrative non-thermal factor the total is of the order of the
+Planck-prior lensing calibrations; a bin-by-bin comparison awaits traced per-bin values.
+\item $M_{\rm SZ}/M_{\rm hydro}\approx1$ holds by the $Y$--$M$ calibration in any theory and is not a test.
+\item The slope $dR/dz\approx-0.18$ at $z=0.3$ is the discriminant: opposite in sign to the non-thermal prediction. Its detection needs about $1.5\,\%$
+per bin on the total ratio in four bins over $0.1<z<0.8$.
+\item No free parameter: the prediction follows from $\beta_m=\Omega_m/2$ and the Planck 2018 parameters.
+\end{enumerate}
+A cross-matched sample (eROSITA X-ray, Planck or ground-based SZ, Euclid or DES lensing) binned in redshift, with one mass method per estimator
+throughout, gives $R(z)$ falling with redshift as Eq.~\eqref{eq:tw_R} on top of a non-thermal part that rises. Falsified (in this form) by a slope of
+zero or positive sign once the non-thermal and selection parts are modelled from simulations. In the Level~2 form the prediction is $R=1$ apart from
+astrophysics, and clusters test only the growth history, through their abundance.
 
 \section{Status}
 \begin{center}\small\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xl}\toprule
 Result & Label\\\midrule
-$R(z)=1/\mu(z)$ and its slope, Level~1 form & \calc\\
+$M_{\rm hydro}=\mu M_{\rm true}$, $M_{\rm lens}=M_{\rm true}$, $R=1/\mu$, Level~1 form & \derived\\
+$R(z)$ (Table~\ref{tab:tw_R}) and its slope & \calc\\
 Sign of $dR/dz$ as the test & \prediction\ (Level~1 form)\\
+Bias factors multiply, Eq.~\eqref{eq:tw_bias} & \derived\\
 Non-thermal factor $C_{\rm NT}$ (illustrative, assumed form) & \openprob\\
+Forecast errors on $dR/dz$ and their significances & \openprob\\
 $M_{\rm SZ}/M_{\rm hydro}\approx1$ & \calibrated\ (not a test)\\
 Implementation form inside clusters & \openprob\\\bottomrule
 \end{tabularx}\end{center}
