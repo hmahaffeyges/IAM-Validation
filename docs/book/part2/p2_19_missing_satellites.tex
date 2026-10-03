@@ -1,85 +1,191 @@
-% Part 2 chapter carrying "Missing Satellites: The Virial Partition Closure Condition and the Two Mechanisms" (March 2026) in its order.
-% Read in full 2026-10-02 (PDF text 564 lines in this extraction, 574 in the check file's; every line read). Numbers and the census:
-% docs/verification/scripts/verify_obs_chapters.py (sections A, F) on docs/verification/observations/data/lvdb_dwarf_mw.csv.
-% Check: docs/verification/observations/MISSING_SATELLITES_CHECK.md; errata M2-M8, V11, TR6, BP1. The dispersal floor is a failed prediction,
-% recorded as such (Part 5 already lists it under "Already tested").
-\chapter{Missing satellites: two mechanisms tested}\label{ch:satellites}
+% Part 2 chapter carrying "Missing Satellites: The Virial Partition Closure Condition and the Two Mechanisms" (March 2026): the problem, the virial
+% coupling and the growth suppression from mu < 1, in the paper's order (author rulings 2026-10-01/02/03: only what is accurate or still a live
+% prediction). PDF text 578 lines with page markers (ledger row 24), read in full in 50-line chunks on 2026-10-03; LaTeX
+% docs/papers/latex/iam_missing_satellites/ checked for the exact equations. Corrections: docs/verification/PAPER_ERRATA.md M4-M7;
+% docs/verification/observations/MISSING_SATELLITES_CHECK.md. Numbers: docs/verification/scripts/verify_cluster_mass_satellites.py (+ _output.txt)
+% sections A, F, G, H. Figure: docs/book/figscripts/fig_p2_satellites.py. Base: HEAD e6c184e.
+\chapter{Missing satellites and growth suppression from $\mu<1$}\label{ch:satellites}
 
 \section*{The place}
 The halo of the Milky Way and the small halos inside it. Each satellite galaxy is a bound system whose stars and dark matter wrote their records as they
-collapsed. In IAM the cosmic horizon is always available as the surface for those records (Chapter~\ref{ch:surfaces}). This chapter asks
-whether the cost of writing can explain why far fewer satellites are seen than cold-dark-matter simulations predict, and tests two mechanisms. One
-is too small; the other is contradicted by the satellites already catalogued.
+collapsed. In IAM the cosmic horizon is always available as the surface for those records (Chapter~\ref{ch:surfaces}). This chapter asks how far the
+cost of writing, through the weaker matter coupling $\mu<1$ that it implies at late times, changes the number of small dark-matter halos, and gives
+that change at its actual size.
 
-\section{The problem}
-\observed\ Simulations of a Milky Way-mass halo in $\Lambda$CDM contain about an order of magnitude more dark-matter subhalos than there are known
-satellite galaxies~\cite{Klypin1999,Moore1999}. The standard explanations act on the baryons: reionisation, tidal and ram-pressure stripping, and
-feedback keep small halos dark. The two mechanisms tested here have the informational term act on the dark-matter halos themselves. \conjecture
+\section*{Summary}
+The missing satellites problem, a factor of about 8 between the $\sim500$ dark-matter subhalos predicted by $\Lambda$CDM N-body simulations and the
+$\sim60$ satellite galaxies then known around the Milky Way, has resisted a single physical explanation for over two decades. \observed\ The virial
+partition fixes the cosmological coupling $\beta_m=\Omega_m/2$ with no free parameter, and through it a matter-sector gravitational coupling $\mu(a)<1$:
+$\mu=0.864$ today, a coupling $13.62\,\%$ below unity, with $\mu\to1$ as $E(a)\to0$ at high redshift. \calc\ That coupling slows late-time growth and acts
+on the dark-matter halo population directly, not on the baryons inside it. Its size is set by the growth equation: the linear growth factor today is
+lower by $0.78\,\%$ in the effective-coupling form ($0.67\,\%$ and $1.87\,\%$ in the two other implementations), $\sigma_8$ is lower by $1.1$--$1.6\,\%$ in
+the chains, and the Press--Schechter abundance of halos at satellite masses changes by under one per cent. \calc\ Against an order-of-magnitude deficit
+the growth mechanism is a small correction; its growth signature is a live prediction that the coming surveys test directly.
 
-\section{Mechanism A: weaker growth}
-The matter coupling $\mu<1$ slows late-time growth (Chapter~\ref{ch:latetime}). The size of the effect is set by the growth equation.
-\calc\ With the exact coupling and the same early amplitude, the linear growth factor today is lower by $0.78\,\%$; in the chains $\sigma_8$ falls by
-$1.5$--$1.6\,\%$ (Level~1 form) and $1.1\,\%$ (Level~2 form). In the Press--Schechter mass function at fixed mass, a scale-independent fractional change
-$\epsilon$ in $\sigma_M$ changes the abundance by
-\begin{equation}\Delta\ln n=(\nu^2-1)\,\epsilon,\qquad\nu=\delta_c/\sigma_M,\label{eq:ms_ps}\end{equation}
-so for any $\nu<\sqrt2$ a growth change of $0.78\,\%$ moves the abundance by less than $0.78\,\%$. Satellite halos today lie far below the characteristic
-collapse mass, at $\nu<1$, where a lower $\sigma_M$ slightly raises their count. Either way the change is under one per cent, against a deficit of an
-order of magnitude. \calc\ Mechanism~A does not address the missing satellites. Its growth signature is the one already tested in
-Chapters~\ref{ch:latetime} and \ref{ch:s8trend}.
+\section{The problem}\label{sec:ms_problem}
+The missing satellites problem was identified independently by Klypin et al.~\cite{Klypin1999} and Moore et al.~\cite{Moore1999}. High-resolution
+N-body simulations of $\Lambda$CDM predict of order 500 dark-matter subhalos with circular velocities $v_c>10$~km\,s$^{-1}$ within the virial radius of
+a Milky Way-mass host. The observed satellite population then numbered about 60, including the classical dwarfs found before SDSS and the faint
+dwarfs found in modern photometric surveys~\cite{Koposov2008,Tollerud2008}; the Local Volume Database now lists 68~\cite{Pace2025LVDB}. \observed\
+Proposed explanations within $\Lambda$CDM include reionisation suppressing gas cooling in low-mass halos~\cite{Bullock2000,Benson2002b}, ram-pressure
+and tidal stripping removing baryons from satellites~\cite{Mayer2006}, and baryonic feedback ejecting gas and lowering the central dark-matter
+density~\cite{PontzenGovernato2012}. These act on baryons; they do not address whether the dark-matter subhalo population itself is suppressed.
 
-\section{Mechanism B: a dispersal floor}
-The second mechanism: a collapsing halo must write the informational half of its virial energy to a surface on its own collapse time; if the
-cosmic horizon cannot take it fast enough and no local black-hole horizon can form, the halo disperses. Setting the dynamical time
-$t_{\rm dyn}\approx\sqrt{\pi/6}\,GM/\sigma^3$ equal to $1/H_0$ gives a minimum mass, written as
-\begin{equation}M_{\min}=\frac{4\,\Omega_m\sigma^3}{G H_0},\qquad\sigma_{\rm crit}=\left(\frac{GH_0M_{\min}}{4\Omega_m}\right)^{1/3}.\label{eq:ms_mmin}\end{equation}
-\calc\ With $\Omega_m=0.3153$ and $H_0=67.36$: $M_{\min}(4~\mathrm{km\,s^{-1}})=10^{8.44}\,M_\odot$, and $M_{\min}=10^{8.4}\,M_\odot$ gives
-$\sigma_{\rm crit}=3.9~\mathrm{km\,s^{-1}}$. Taking the dynamical-time condition directly gives $\sqrt{6/\pi}\,\sigma^3/(GH_0)=10^{8.48}\,M_\odot$ at
-$4~\mathrm{km\,s^{-1}}$; the prefactor $4\Omega_m=1.26$ in place of $\sqrt{6/\pi}=1.38$ is not derived. Equation~\eqref{eq:ms_mmin} at
-$4~\mathrm{km\,s^{-1}}$ lands on an occupation floor near $10^{8.4}\,M_\odot$; there is no normalisation offset in it.
+IAM proposes a further, gravitational contribution. The same decoherence process that supplies the late-time informational term at cosmological
+scales (Chapter~\ref{ch:theory}) modifies the effective gravitational coupling of matter at perturbation scales, and so acts on the dark-matter subhalo
+population directly, not on the baryons inside it. \conjecture\ The chapter follows the order of the argument: the virial coupling
+(Section~\ref{sec:ms_closure}), the growth suppression and its size (Section~\ref{sec:ms_A}), the chain results (Section~\ref{sec:ms_chains}), how the
+mechanism sits beside the baryonic explanations (Section~\ref{sec:ms_unified}), and the tests (Section~\ref{sec:ms_tests}).
 
-Two points stand before any data. The premise that the cosmic horizon is ``thermodynamically inadequate'' on collapse times is not derived; in IAM the
-horizon is always available, and the rate at which a local region must write is not set by $E(a)$. And no published satellite-occupation study fixing a floor at
-$10^{8.4}\,M_\odot$ is cited here; the value serves only as a reference mass. \openprob
+\section{The virial partition and the coupling}\label{sec:ms_closure}
+For a bound system in a $1/r$ potential, the virial theorem (Part~1, Chapter~\ref{ch:virial_law}) gives
+\begin{equation}
+2K+V=0,\qquad K=\tfrac12|V|.
+\label{eq:ms_virial}\end{equation}
+It is an exact theorem for time-averaged bound motion, valid for gravitational and Coulomb potentials at every scale from hydrogen atoms to galaxy
+clusters. \derived
+
+In IAM's Law the virial partition sets how much of a bound system's energy is written as irreversible records, each at the Landauer cost $k_BT\ln2$
+per bit~\cite{Landauer1961}, to the nearest available surface (Chapter~\ref{ch:virial_law}); the thermodynamics of the horizon surface follows Jacobson
+and Cai--Kim~\cite{Jacobson1995,CaiKim2005}. For the cosmological matter sector the partition fixes the coupling
+\begin{equation}
+\beta_m=\frac{\Omega_m}{2}=0.15765,
+\label{eq:ms_beta}\end{equation}
+the share of the matter energy density that takes part in decoherence per Hubble time, with no free parameter (Chapter~\ref{ch:virial}). \prediction\
+In the chains $\beta_m$ is fixed, not fitted; the posterior value $0.1583\pm0.0033$ is $\Omega_m/2$ evaluated on the Level~2 posterior
+$\Omega_m=0.3166\pm0.0066$. \calc
+
+\section{Growth suppression from $\mu<1$}\label{sec:ms_A}
+\subsection{Derivation}
+The accumulated record of gravitational decoherence since the electroweak transition is carried by the activation function
+\begin{equation}
+E(a)=\exp\!\left(1-\frac1a\right),
+\label{eq:ms_E}\end{equation}
+with $a$ the scale factor, unity today, obtained from horizon thermodynamics in the Jacobson--Cai--Kim formalism~\cite{Jacobson1995,CaiKim2005}
+(Chapter~\ref{ch:theory}). It satisfies $E(a)\to0$ as $a\to0$ and $dE/da>0$ always: the ledger only accumulates. \interp
+
+Photons travel on null geodesics with $d\tau=0$; they accumulate no proper time and take no part in gravitational decoherence. The informational
+modification applies to the matter sector only. \interp\ The effective matter coupling is
+\begin{equation}
+\mu(a)=\frac{H^2_{\Lambda\rm CDM}(a)}{H^2_{\Lambda\rm CDM}(a)+\beta_mE(a)H_0^2},
+\label{eq:ms_mu}\end{equation}
+with $\beta_m=\Omega_m/2$ from Eq.~\eqref{eq:ms_beta} and $\Sigma(a)=1$ for photons; Appendix~\ref{app:der:growth} gives the mapping from the
+matter-sector rate. \interp\ At $z=0$, where $E=1$ and $H_{\Lambda\rm CDM}=H_0$,
+\begin{equation}
+\mu(z=0)=\frac1{1+\beta_m}=\frac1{1+\Omega_m/2}=0.864,
+\label{eq:ms_mu0}\end{equation}
+a coupling $13.62\,\%$ below unity; in the notation $\mu_0\equiv\mu(z=0)-1$, $\mu_0=-0.136$. \calc\ That number is the coupling, not the growth
+suppression. At high redshift $E(a)\to0$ and $\mu\to1$: at $z=2$, $E=0.135$ and $\mu=0.998$, so the model behaves as $\Lambda$CDM for $z\gtrsim2$ and
+the suppression is a late-time effect. \calc
+
+In the effective-coupling form the linear matter perturbation equation reads
+\begin{equation}
+\ddot\delta_m+2H\dot\delta_m-\tfrac32\,\Omega_m(a)H^2\,\mu(a)\,\delta_m=0,
+\label{eq:ms_growth}\end{equation}
+with $\Omega_m(a)H^2=H_0^2\Omega_ma^{-3}$ (form (i) of Appendix~\ref{app:der:growth}). In the Level~2 form of the Boltzmann code the term enters instead
+as extra Hubble friction on the matter perturbations (form (ii); Chapter~\ref{ch:level2}). \derived\ (definitions) A lower $\delta_m$ at late times lowers
+the abundance of virialised dark-matter halos, most where the abundance is most sensitive to the growth rate.
+
+\subsection{The size of the growth change}
+\calc\ With the same early amplitude, the linear growth factor today changes by
+\begin{equation}
+\left.\frac{\Delta D}{D}\right|_{z=0}=\frac{D_{\rm IAM}(0)-D_{\Lambda\rm CDM}(0)}{D_{\Lambda\rm CDM}(0)}=-0.78\,\%
+\label{eq:ms_dD}\end{equation}
+in form (i), $-0.67\,\%$ in the friction form (ii) and $-1.87\,\%$ if the whole growth equation is put on the matter-sector rate (form iii). The change
+grows from zero at $z\gtrsim2$ to these values today (Fig.~\ref{fig:sat_mechanisms}b). Because $\mu$ does not depend on scale, the same fractional change
+applies at every linear scale, including the scales of satellite halos: the linear power spectrum today is lower by $1.55\,\%$ (form i). In the chains
+$\sigma_8$ falls by $1.57\,\%$ (Level~1, $0.8143\to0.8015$) and $1.10\,\%$ (Level~2, $0.8087\to0.7998$).
+
+\subsection{The halo mass function}
+In the Press--Schechter formalism~\cite{PressSchechter1974} the abundance of halos of mass $M$ is
+\begin{equation}
+\frac{dn}{dM}=\sqrt{\frac2\pi}\,\frac{\bar\rho}{M^2}\,\nu\,\left|\frac{d\ln\sigma_M}{d\ln M}\right|\,e^{-\nu^2/2},\qquad\nu=\frac{\delta_c}{\sigma_M},
+\label{eq:ms_psmf}\end{equation}
+with $\sigma_M$ the rms linear density fluctuation on mass scale $M$ and $\delta_c\simeq1.686$ the collapse threshold. \derived\ (standard)
+\textbf{Step 1.} A scale-independent fractional change $\epsilon$ in $\sigma_M$, $\sigma_M\to\sigma_M(1+\epsilon)$, sends $\nu\to\nu(1-\epsilon)$ to first
+order and leaves $d\ln\sigma_M/d\ln M$ unchanged. \textbf{Step 2.} At fixed mass only $\ln\nu-\nu^2/2$ changes, by $(-1+\nu^2)\epsilon$. So
+\begin{equation}
+\Delta\ln n=(\nu^2-1)\,\epsilon .
+\label{eq:ms_ps}\end{equation}
+\derived\ (sympy) The exponential factor dominates only for rare halos, $\nu>1$, where a lower $\sigma_M$ lowers the abundance; for $\nu<1$ the factor $\nu$
+dominates and a lower $\sigma_M$ slightly raises it; at $\nu=1$ the two cancel.
+
+\textbf{Step 3 (satellite masses).} For halos of $10^7$--$10^9\,M_\odot$ today the Planck 2018 linear spectrum (Eisenstein--Hu shape,
+$\sigma_8=0.811$) gives $\sigma_M=7.0$--$4.8$ and $\nu=0.24$--$0.35$. With $\epsilon=-0.78\,\%$ (form i), Eq.~\eqref{eq:ms_ps} gives
+$\Delta\ln n=+0.68$ to $+0.73\,\%$ at fixed mass; for any $\nu<\sqrt2$ the change is below $0.78\,\%$ in size. \calc\ Press--Schechter counts field
+halos; subhalo counts also depend on the host and on accretion, which share the same growth history, so the field estimate gives the order of the effect.
+\interp\ The growth mechanism therefore changes the count of satellite-mass halos by under one per cent, against a deficit of about an order of magnitude
+($\ln10=2.30$). \calc\ Its signature is in the growth history itself, tested in Chapters~\ref{ch:latetime} and \ref{ch:s8trend} and in
+Section~\ref{sec:ms_tests}.
+
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_sat_mechanisms.pdf}
-\caption[The two mechanisms in numbers]{(a) Mechanism~A: the Press--Schechter abundance change at fixed mass, $|\Delta\ln n|=|\nu^2-1|\,\epsilon$, for the growth change $\epsilon=0.78\,\%$ of the exact coupling~\cite{PressSchechter1974}, against the order-of-magnitude deficit ($\ln10$); satellite halos lie at $\nu<1$ (shaded). (b) Mechanism~B: the minimum mass $M_{\min}=4\Omega_m\sigma^3/(GH_0)$ and the dynamical-time form $\sqrt{6/\pi}\,\sigma^3/(GH_0)$ ($\Omega_m=0.3153$, $H_0=67.36$); at $4$\,km\,s$^{-1}$, $10^{8.44}\,M_\odot$. \calc}\label{fig:sat_mechanisms}
+\caption[Growth suppression from $\mu<1$ in numbers]{(a) The matter coupling $\mu(z)$ of Eq.~\eqref{eq:ms_mu}, $\beta_m=\Omega_m/2=0.15765$, $\Omega_m=0.3153$: $0.864$ today, $\to1$ at high redshift. (b) The linear growth deficit $\Delta D/D$ against redshift with the same early amplitude, in the three implementation forms of Appendix~\ref{app:der:growth}: $-0.78\,\%$ (i, $G_{\rm eff}=\mu G$), $-0.67\,\%$ (ii, matter friction) and $-1.87\,\%$ (iii, whole equation on $H_m$) today. (c) The Press--Schechter abundance change at fixed mass, $|\Delta\ln n|=|\nu^2-1|\,|\epsilon|$, for $\epsilon=-0.78\,\%$~\cite{PressSchechter1974}, against the tenfold deficit ($\ln10$); halos of $10^7$--$10^9\,M_\odot$ lie at $\nu=0.24$--$0.35$ (shaded). \calc}\label{fig:sat_mechanisms}
 \end{figure}
 
-\section{The census}
-The mechanism carries its own falsifier: if a significant population of satellites below $\sigma_{\rm crit}$ exists, the dispersal condition is
-inconsistent with observation. That population is in the published data. \observed\ The Local Volume Database~\cite{Pace2025LVDB} (the version in
-\texttt{docs/\allowbreak{}verification/\allowbreak{}observations/\allowbreak{}data/}) lists 68 Milky Way satellites; 54 have a measured velocity
-dispersion or an upper limit.
-\begin{figure}[htbp]\centering
-\includegraphics[width=\textwidth]{figures/part2/fig_sat_census.pdf}
-\caption[Velocity dispersions of the Milky Way satellites against the dispersal floor]{Velocity dispersions of the 54 Milky Way satellites in the Local Volume Database~\cite{Pace2025LVDB} that have a measured value (circles, 68\,\% intervals) or an upper limit (triangles), ordered by value; 25 lie below the 4\,km\,s$^{-1}$ floor of Mechanism~B (orange). File \texttt{docs/\allowbreak{}verification/\allowbreak{}observations/\allowbreak{}data/\allowbreak{}lvdb\_dwarf\_mw.csv}. \observed}\label{fig:sat_census}
-\end{figure}
-\begin{itemize}
-\item 25 of the 54 (46\,\%) have a dispersion, or an upper limit, below $4~\mathrm{km\,s^{-1}}$; 24 of the 25 are flagged as confirmed galaxies.
-\item 19 have a resolved dispersion below $4~\mathrm{km\,s^{-1}}$, the lowest Tucana~V ($1.2^{+0.9}_{-0.6}$), Bo\"otes~III ($1.69^{+1.03}_{-0.85}$),
-Bo\"otes~II ($1.92^{+0.77}_{-0.60}$), Hercules ($2.25^{+0.67}_{-0.61}$) and Crater~II ($2.34^{+0.42}_{-0.30}$); for 8 of them (those five, Grus~I, Hydrus~I and Coma~Berenices) the value plus its
-$1\sigma$ error is still below $4$.
-\item 6 have only upper limits below $4$: Tucana~III ($<1.5$, the one not flagged as a confirmed galaxy), Grus~II ($<2.0$), Segue~2 ($<2.06$),
-Draco~II ($<2.6$), Aquarius~III and Triangulum~II ($<3.5$). Segue~2 is a galaxy by the spread of its stellar metallicities~\cite{Kirby2013Segue2}.
-\item 20 of the 25 have a resolved spectroscopic metallicity spread, $0.19$--$0.59$~dex, the standard signature of a dark-matter-hosted galaxy that
-retained its supernova ejecta.
-\item 29 lie at or above $4~\mathrm{km\,s^{-1}}$ (26 measured, 3 with upper limits above it).
-\end{itemize}
-By that criterion, Mechanism~B as stated --- that no halo virialises below $\sigma_{\rm crit}\approx4~\mathrm{km\,s^{-1}}$ --- is rejected. \observed
+\section{Chain results}\label{sec:ms_chains}
+The dual-sector chains run against the full Planck 2018 likelihood~\cite{Planck2018VI} with MGCAMB~\cite{Hojjati2011,Zhao2009MGCAMB,Wang2023MGCAMB}
+(Level~1) and modified CAMB (Level~2), sampled with Cobaya~\cite{Torrado2021}: 18 chains in all, each converged to Gelman--Rubin $R-1\le0.01$
+(Chapter~\ref{ch:dual}). \measured\ The Level~2 results that bear on the growth mechanism are in Table~\ref{tab:ms_chains}.
 
-\paragraph{Tides.} Tides lower the present dispersion of satellites on close orbits, so the dispersion today is not the dispersion at
-formation. The fair version of the test compares a floor with the dispersion at infall, or with the peak circular velocity, which needs each satellite's
-orbital history. Equation~\eqref{eq:ms_mmin} does not say which of these its $\sigma$ is. That version remains open, and it needs the dispersal
-condition derived first. \openprob
+\begin{table}[htbp]\centering\small
+\caption[Level 2 chain results bearing on the growth mechanism]{Level~2 chain results (modified CAMB, Planck 2018; Chapter~\ref{ch:level2}).
+$\beta_m$ is fixed by the virial partition in every chain; no parameter is added to $\Lambda$CDM.}\label{tab:ms_chains}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}X}\toprule
+Quantity & Value & Reference and label\\\midrule
+$\beta_m$ & $0.1583\pm0.0033$ & $\Omega_m/2$ on the posterior $\Omega_m$; fixed, not fitted \calc\\
+$\sigma_8$ & $0.7998\pm0.0058$ & KiDS-Legacy + DES Y3 + DESI + Pantheon+ $0.802^{+0.022}_{-0.018}$~\cite{Stolzner2025}, $0.1\sigma$ \fitted\\
+$H_0^{\rm (photon)}$ & $67.16\pm0.47$ km\,s$^{-1}$\,Mpc$^{-1}$ & Planck 2018 $67.36\pm0.54$, $0.37\sigma$ \fitted\\
+$H_0^{\rm (matter)}$ & $72.26$ km\,s$^{-1}$\,Mpc$^{-1}$ & $67.161\sqrt{1+\beta_m}$; SH0ES $73.04\pm1.04$~\cite{Riess2022}, $0.75\sigma$ \calc\\
+$\Delta\chi^2$ & $+0.54$ & against the $\Lambda$CDM best fit, same data \fitted\\\bottomrule
+\end{tabularx}\end{table}
+
+The $\sigma_8$ value lies $0.1\sigma$ from the joint weak-lensing analysis. \calc\ The lower $\sigma_8$ relative to the Planck $\Lambda$CDM value
+($0.8087$ in the same code) is less small-scale power, including at the satellite mass scale; Eq.~\eqref{eq:ms_ps} gives how much it moves the
+satellite-halo count. \interp
+
+\section{Beside the baryonic explanations}\label{sec:ms_unified}
+The growth mechanism lowers the growth of all matter perturbations at late times. It is a continuous effect, operating from $z\sim2$ to the present and
+controlled by one coupling, $\beta_m=\Omega_m/2$, and it acts on the dark-matter subhalo population itself rather than on the baryons of halos assumed to
+have virialised already. Reionisation, tidal stripping and feedback act on those baryons. The two classes are not exclusive: a change in the subhalo
+population does not prevent baryonic processes from acting as well. At the sizes found above, the baryonic processes carry the satellite deficit, and the
+informational term contributes a sub-per-cent correction to the dark-matter halo count. \interp\ The coupling it shares with the growth and Hubble-rate
+results of Chapters~\ref{ch:latetime} and \ref{ch:level2} is what makes it testable.
+
+\section{Observational tests}\label{sec:ms_tests}
+\paragraph{The coupling today.} \prediction\ The weak-lensing and clustering surveys measure $\mu_0$ directly; IAM predicts
+$\mu_0=\mu(z=0)-1=-0.136$. How strongly Euclid tests it depends on its scale cuts and on the redshift shape of $\mu(z)$, which falls off faster than the
+template in which forecasts are made: Section~\ref{sec:lt_euclid} gives the template-equivalent $\mu_0\approx-0.07$ and $1.8\sigma$ at
+$\sigma(\mu_0)=0.04$. The complete first Euclid data release is expected in mid-2027. A measurement of $\mu(z=0)$ above $0.90$ at $2\sigma$, once
+translated from the survey's template, would be in tension with the prediction.
+
+\paragraph{The growth history.} \prediction\ The same coupling fixes $f\sigma_8$ lower by $4.25\,\%$, $2.17\,\%$, $1.35\,\%$ and $0.41\,\%$ at $z=0$,
+$0.3$, $0.5$ and $1$ (form i; Appendix~\ref{app:der:growth}), and $\sigma_8=0.7998\pm0.0058$ at Level~2 against $0.8087$ for $\Lambda$CDM. Redshift-space
+distortion and weak-lensing surveys test these directly (Chapters~\ref{ch:latetime} and \ref{ch:s8trend}).
+
+\paragraph{The satellite scale.} \prediction\ Because $\mu$ is scale-independent at linear order, the growth deficit at satellite scales equals the one at
+large scales: $-0.78\,\%$ in $D$ and $-1.55\,\%$ in the linear power today (form i). A measurement of small-scale power that departs from the large-scale
+deficit would separate the informational term from any scale-dependent effect. A joint measurement of $\mu_0$ from the surveys and of small-scale power,
+with $\beta_m=\Omega_m/2$ fixed, tests the coupling at cosmological and galactic scales together.
+
+\section{Discussion}\label{sec:ms_discussion}
+The missing satellites problem has mostly been approached through baryonic physics: which processes remove gas from satellites, suppress their star
+formation, or disrupt their halos after they form. The informational term adds a question about the dark matter itself: how many halos grow at all,
+given the late-time coupling $\mu<1$. The answer, from the growth equation and the halo mass function, is that the coupling changes the count of
+satellite-mass halos by under one per cent, so the satellite deficit remains a question for baryonic physics, while the coupling remains a live
+prediction through the growth history it fixes. \interp\ Whether satellite halos have a floor in velocity dispersion at infall, before tidal stripping
+lowers it, has not been tested. \openprob
 
 \section{Status}
 \begin{center}\small\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xl}\toprule
 Result & Label\\\midrule
-Mechanism A: growth $-0.78\,\%$, abundance change $<1\,\%$ & \calc\\
-Mechanism A as an explanation of the missing satellites & \calc\ (not supported)\\
-Eq.~\eqref{eq:ms_mmin}: $10^{8.44}\,M_\odot$ at $4~\mathrm{km\,s^{-1}}$ & \calc\\
-Dispersal premise and the $4\Omega_m$ prefactor & \openprob\\
-Census: 25 of 54 below $4~\mathrm{km\,s^{-1}}$ & \observed\\
-Mechanism B as stated & \observed\ (rejected by the census)\\
-Floor on the dispersion at infall & \openprob\\\bottomrule
+Virial theorem $2K+V=0$ for $1/r$ potentials & \derived\\
+$\beta_m=\Omega_m/2$; fixed in the chains & \prediction\\
+$\mu(0)=1/(1+\beta_m)=0.864$; $\Lambda$CDM behaviour for $z\gtrsim2$ & \calc\\
+Growth today $-0.78\,\%$ (i), $-0.67\,\%$ (ii), $-1.87\,\%$ (iii); power $-1.55\,\%$ & \calc\\
+Press--Schechter $\Delta\ln n=(\nu^2-1)\epsilon$ & \derived\\
+Satellite-mass halos ($\nu=0.24$--$0.35$): $\Delta\ln n=+0.68$ to $+0.73\,\%$ & \calc\\
+Chain results (Table~\ref{tab:ms_chains}) & \fitted\ \calc\\
+$\mu_0=-0.136$; $f\sigma_8$ and $\sigma_8$ deficits; scale-independent deficit & \prediction\\
+Dispersion floor at infall & \openprob\\\bottomrule
 \end{tabularx}\end{center}

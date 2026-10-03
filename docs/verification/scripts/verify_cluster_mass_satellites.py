@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Recomputes every calculated / derived number in Part 2 chapters p2_17 (lensing mass and dynamical mass), p2_18 (three cluster masses)
-and p2_19 (missing satellites). Published measurements and chain posteriors are inputs, not recomputed. numpy, scipy, sympy.
+and p2_19 (missing satellites: growth suppression from mu < 1). Published measurements and chain posteriors are inputs, not recomputed. numpy, scipy, sympy.
 Run from docs/verification/scripts/. Output: verify_cluster_mass_satellites_output.txt."""
-import csv, os, numpy as np, sympy as sp
+import os, numpy as np, sympy as sp
 from scipy.integrate import solve_ivp
 from scipy.optimize import brentq
 Om, OL = 0.3153, 0.6847; bm = Om/2; H0 = 67.36            # canon: Planck 2018, beta_m = Omega_m/2 = 0.15765
@@ -60,30 +60,11 @@ for z in (0, 0.3, 0.5, 1.0):
     a_ = 1/(1+z); print(f"   f sigma8 deficit (form i) z {z}: {100*(1-fr('i G_eff',a_)*D('i G_eff',a_)/(fr('LCDM',a_)*D('LCDM',a_))):.2f} %")
 eps = 1-D('i G_eff', 1)/D('LCDM', 1)
 print(f"   PS: Delta ln n = (nu^2-1) eps, eps = {100*eps:.2f} %: nu 0.5 {100*(0.25-1)*-eps:+.2f} %... nu 1 0, nu 2 {100*3*-eps:+.2f} %; ln 10 = {np.log(10):.3f}")
-print("G. satellites: the coupling, the horizon, the minimum mass")
-hb, kB, G, Msun = 1.054571817e-34, 1.380649e-23, 6.67430e-11, 1.98892e30; H0s = H0*1e3/3.0856775814913673e22
-print(f"   T_H = hbar H0/(2 pi kB) = {hb*H0s/(2*np.pi*kB):.3e} K (H0 67.36); Omega_m + Omega_L = {Om+OL:.4f}")
+print("G. missing satellites: the coupling and the chain values")
 print(f"   beta_m on the Level 2 posterior Omega_m 0.3166 +/- 0.0066: {0.3166/2:.4f} +/- {0.0066/2:.4f}")
 print(f"   H0 matter sector 67.161 sqrt(1.15765) = {67.161*np.sqrt(1.15765):.2f}; (67.36-67.16)/0.54 = {(67.36-67.16)/0.54:.2f} sigma; (73.04-72.26)/1.04 = {(73.04-72.26)/1.04:.2f} sigma")
 print(f"   sigma8 0.7998 +/- 0.0058 vs 0.802 (+0.022/-0.018): {(0.802-0.7998)/np.hypot(0.018, 0.0058):.2f} sigma")
-M, s, Gs, r = sp.symbols('M sigma G r', positive=True)
-rv = Gs*M/(2*s**2); rho_ = 3*M/(4*sp.pi*rv**3); tdyn = sp.sqrt(sp.pi/(6*Gs*rho_))
-print("   rho_v with r_v = GM/v_c^2, v_c^2 = 2 sigma^2:", sp.simplify(rho_), "; t_dyn = sqrt(pi/(6 G rho)) =", sp.simplify(tdyn))
-Hs_ = sp.symbols('H0', positive=True); Mt = sp.solve(sp.Eq(tdyn, 1/Hs_), M)[0]; print("   t_dyn = 1/H0 gives M =", sp.simplify(Mt))
-lg = lambda pre, sig: np.log10(pre*(sig*1e3)**3/(G*H0s)/Msun)
-for nm, pre in (("4 Omega_m (as written)", 4*Om), ("6/pi (t_dyn with full rho)", 6/np.pi), ("sqrt(6/pi) (printed Eq. 10)", np.sqrt(6/np.pi))):
-    sc = ((10**8.4*Msun*G*H0s)/pre)**(1/3)/1e3; sn = ((3.2e8*Msun*G*H0s)/pre)**(1/3)/1e3
-    print(f"   prefactor {pre:.3f} {nm}: M(4 km/s) = 10^{lg(pre, 4):.2f}; sigma at 10^8.4 = {sc:.2f} km/s; sigma at 3.2e8 = {sn:.2f} km/s")
-print(f"   log10(3.2e8) = {np.log10(3.2e8):.3f}; log10(8.5e7) = {np.log10(8.5e7):.3f}")
-p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "observations", "data", "lvdb_dwarf_mw.csv")
-rows = list(csv.DictReader(open(p))); kin = [x for x in rows if x["vlos_sigma"] or x["vlos_sigma_ul"]]
-val = lambda x: float(x["vlos_sigma"]) if x["vlos_sigma"] else float(x["vlos_sigma_ul"])
-below = [x for x in kin if val(x) < 4]; res = [x for x in below if x["vlos_sigma"]]; ul = [x for x in below if not x["vlos_sigma"]]
-res1 = [x for x in res if float(x["vlos_sigma"])+float(x["vlos_sigma_ep"]) < 4]
-print(f"   census: {len(rows)} MW satellites, {len(kin)} with dispersion or limit, {len(below)} below 4 ({100*len(below)/len(kin):.0f} %), "
-      f"{sum(x['confirmed_galaxy']=='1' for x in below)} confirmed galaxies; {len(res)} resolved, {len(ul)} limits; {len(res1)} below 4 at +1 sigma; {len(kin)-len(below)} at or above 4")
-fe = [float(x["metallicity_spectroscopic_sigma"]) for x in below if x["metallicity_spectroscopic_sigma"]]
-print(f"   [Fe/H] spreads among those below 4: {len(fe)}, {min(fe):.2f}-{max(fe):.2f} dex")
+print(f"   E(a) at z 2 = {E(1/3):.3f}; mu(z=2) = {mu(1/3):.4f}; linear power ratio today (form i) (D ratio)^2 - 1 = {100*((D('i G_eff',1)/D('LCDM',1))**2-1):.2f} %")
 print("H. added: turnover of R x C_NT, hydrostatic-bias constant, Herbonnet, absolute-error test, Press-Schechter algebra, sigma_M at satellite masses")
 P = lambda z: R(z)*CNT(z); dP = lambda z: (P(z+h)-P(z-h))/(2*h)
 print(f"   d(R C_NT)/dz at z 0.5 {dP(0.5):+.3f}, 1.0 {dP(1.0):+.3f}; turnover (dP/dz = 0) at z = {brentq(dP, 0.5, 5):.2f}")
@@ -106,8 +87,5 @@ sR = lambda Rr, A: np.sqrt(trap(A*k**(3+ns)*T(k)**2*W(k*Rr)**2/(2*np.pi**2), np.
 A = (0.811/sR(8.0, 1.0))**2
 rhob = 2.775e11*Om                                          # h^2 Msun / Mpc^3
 for Mm in (1e7, 1e8, 1e9, 1e12):
-    Rr = (3*Mm*hh/(4*np.pi*rhob))**(1/3); sm = sR(Rr, A); print(f"   M {Mm:.0e} Msun: R {Rr:.3f} Mpc/h, sigma_M {sm:.2f}, nu {1.686/sm:.3f}")
-print("I. census against the threshold on each prefactor (value or upper limit below the threshold)")
-for th in (3.37, 3.65, 3.86, 4.0, 4.19):
-    bl = [x for x in kin if val(x) < th]
-    print(f"   below {th}: {len(bl)} of {len(kin)} ({sum(1 for x in bl if x['vlos_sigma'])} resolved, {sum(1 for x in bl if not x['vlos_sigma'])} limits, {sum(x['confirmed_galaxy']=='1' for x in bl)} confirmed galaxies)")
+    Rr = (3*Mm*hh/(4*np.pi*rhob))**(1/3); sm = sR(Rr, A); nu = 1.686/sm
+    print(f"   M {Mm:.0e} Msun: R {Rr:.3f} Mpc/h, sigma_M {sm:.2f}, nu {nu:.3f}, Delta ln n = (nu^2-1) eps = {100*(nu**2-1)*(-eps):+.2f} %")

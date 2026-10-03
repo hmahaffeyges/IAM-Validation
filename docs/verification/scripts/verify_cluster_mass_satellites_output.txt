@@ -50,32 +50,18 @@ F. growth (same early amplitude), three forms, and Press-Schechter
    f sigma8 deficit (form i) z 0.5: 1.35 %
    f sigma8 deficit (form i) z 1.0: 0.41 %
    PS: Delta ln n = (nu^2-1) eps, eps = 0.78 %: nu 0.5 +0.58 %... nu 1 0, nu 2 -2.33 %; ln 10 = 2.303
-G. satellites: the coupling, the horizon, the minimum mass
-   T_H = hbar H0/(2 pi kB) = 2.654e-30 K (H0 67.36); Omega_m + Omega_L = 1.0000
+G. missing satellites: the coupling and the chain values
    beta_m on the Level 2 posterior Omega_m 0.3166 +/- 0.0066: 0.1583 +/- 0.0033
    H0 matter sector 67.161 sqrt(1.15765) = 72.26; (67.36-67.16)/0.54 = 0.37 sigma; (73.04-72.26)/1.04 = 0.75 sigma
    sigma8 0.7998 +/- 0.0058 vs 0.802 (+0.022/-0.018): 0.12 sigma
-   rho_v with r_v = GM/v_c^2, v_c^2 = 2 sigma^2: 6*sigma**6/(pi*G**3*M**2) ; t_dyn = sqrt(pi/(6 G rho)) = pi*G*M/(6*sigma**3)
-   t_dyn = 1/H0 gives M = 6*sigma**3/(pi*G*H0)
-   prefactor 1.261 4 Omega_m (as written): M(4 km/s) = 10^8.44; sigma at 10^8.4 = 3.86 km/s; sigma at 3.2e8 = 4.19 km/s
-   prefactor 1.910 6/pi (t_dyn with full rho): M(4 km/s) = 10^8.63; sigma at 10^8.4 = 3.37 km/s; sigma at 3.2e8 = 3.65 km/s
-   prefactor 1.382 sqrt(6/pi) (printed Eq. 10): M(4 km/s) = 10^8.48; sigma at 10^8.4 = 3.75 km/s; sigma at 3.2e8 = 4.06 km/s
-   log10(3.2e8) = 8.505; log10(8.5e7) = 7.929
-   census: 68 MW satellites, 54 with dispersion or limit, 25 below 4 (46 %), 24 confirmed galaxies; 19 resolved, 6 limits; 8 below 4 at +1 sigma; 29 at or above 4
-   [Fe/H] spreads among those below 4: 20, 0.19-0.59 dex
+   E(a) at z 2 = 0.135; mu(z=2) = 0.9977; linear power ratio today (form i) (D ratio)^2 - 1 = -1.55 %
 H. added: turnover of R x C_NT, hydrostatic-bias constant, Herbonnet, absolute-error test, Press-Schechter algebra, sigma_M at satellite masses
    d(R C_NT)/dz at z 0.5 -0.117, 1.0 -0.025; turnover (dP/dz = 0) at z = 1.40
    b = 0.17: 1/(1-b) = 1.205; Herbonnet 1-b = 0.84 +/- 0.04 +/- 0.05: 1/(1-b) = 1.190 +/- 0.091
    1-b_hydro = (1-b_NT)(1-b_IAM) = 1 - b_NT - b_IAM + b_NT b_IAM; at z 0.3 with C_NT: b_NT = 0.174, b_IAM = 0.078, cross term 0.0136
    five bins, equal absolute error: 3 sigma at 2.73 % per bin (as fig_lensdyn_test)
    PS: d ln n / d epsilon (sigma_M -> sigma_M(1+eps)) = nu**2 - 1
-   M 1e+07 Msun: R 0.026 Mpc/h, sigma_M 6.96, nu 0.242
-   M 1e+08 Msun: R 0.057 Mpc/h, sigma_M 5.87, nu 0.287
-   M 1e+09 Msun: R 0.122 Mpc/h, sigma_M 4.83, nu 0.349
-   M 1e+12 Msun: R 1.225 Mpc/h, sigma_M 2.22, nu 0.758
-I. census against the threshold on each prefactor (value or upper limit below the threshold)
-   below 3.37: 16 of 54 (12 resolved, 4 limits, 15 confirmed galaxies)
-   below 3.65: 22 of 54 (16 resolved, 6 limits, 21 confirmed galaxies)
-   below 3.86: 24 of 54 (18 resolved, 6 limits, 23 confirmed galaxies)
-   below 4.0: 25 of 54 (19 resolved, 6 limits, 24 confirmed galaxies)
-   below 4.19: 27 of 54 (20 resolved, 7 limits, 26 confirmed galaxies)
+   M 1e+07 Msun: R 0.026 Mpc/h, sigma_M 6.96, nu 0.242, Delta ln n = (nu^2-1) eps = +0.73 %
+   M 1e+08 Msun: R 0.057 Mpc/h, sigma_M 5.87, nu 0.287, Delta ln n = (nu^2-1) eps = +0.71 %
+   M 1e+09 Msun: R 0.122 Mpc/h, sigma_M 4.83, nu 0.349, Delta ln n = (nu^2-1) eps = +0.68 %
+   M 1e+12 Msun: R 1.225 Mpc/h, sigma_M 2.22, nu 0.758, Delta ln n = (nu^2-1) eps = +0.33 %
