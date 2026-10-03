@@ -1,0 +1,158 @@
+{
+ "cross_source_or_twin_merge": {},
+ "mixture_twin_removed": {
+  "cd4 t cells": {
+   "cd8 t cells": 0.094,
+   "memory cd4 t cells": 0.292,
+   "naive cd4 t cells": 0.367,
+   "regulatory t cells": 0.038,
+   "t central memory cd4": 0.201
+  },
+  "b cells": {
+   "memory b cells": 0.294,
+   "naive b cells": 0.675
+  },
+  "cd8 t cells": {
+   "effector memory cd8 t cells": 0.242,
+   "memory cd4 t cells": 0.132,
+   "naive cd8 t cells": 0.399,
+   "t effector cell cd8": 0.227
+  },
+  "memory cd4 t cells": {
+   "effector memory cd8 t cells": 0.241,
+   "naive cd4 t cells": 0.151,
+   "regulatory t cells": 0.398,
+   "t central memory cd4": 0.187
+  }
+ },
+ "mixture_twin_removed_array_blood": {
+  "b cells": {
+   "memory b cells": 0.308,
+   "naive b cells": 0.688
+  },
+  "cd4 t cells": {
+   "cd8 t cells": 0.023,
+   "memory cd4 t cells": 0.547,
+   "naive cd4 t cells": 0.389,
+   "regulatory t cells": 0.034
+  },
+  "cd8 t cells": {
+   "effector memory cd8 t cells": 0.456,
+   "memory cd4 t cells": 0.097,
+   "naive cd8 t cells": 0.407,
+   "nk cells": 0.028
+  }
+ },
+ "ATLAS_e_cells": [
+  "basophils",
+  "effector memory cd8 t cells",
+  "eosinophils",
+  "memory b cells",
+  "memory cd4 t cells",
+  "monocytes",
+  "naive b cells",
+  "naive cd4 t cells",
+  "naive cd8 t cells",
+  "neutrophils",
+  "nk cells",
+  "regulatory t cells"
+ ],
+ "thresholds": {
+  "_meta": {
+   "version": "v1",
+   "built": "2026-09-27",
+   "proc": "PLAN item 6 - no constants in code",
+   "provenance": "Values as they stood in legacy_iam_deconvolver.py on 2026-09-27, each with the measurement that set it. twin_r 0.985: CD4 vs CD8 marker-profile correlation is 0.978 and must NOT merge. cross_source_r 0.98: NK-cells_EPIC vs CD56_NK-cells sat at 0.984 and took 72 % of the non-blood mass in healthy blood (2026-09-26) - the same cell on another platform. min_separating_loci 30 / sep_delta 0.2: eosinophils vs neutrophils correlate at 0.990 yet 133 block loci separate them by > 0.2 beta - separable. cross_source coverage bounds 0.05 / 0.50: a source defined on < 5 % of the array against one on > 50 %. min_celltype_coverage 0.01: cells defined on < 1 % of the atlas (252-locus family) were filled with the grand mean and absorbed mass from every specimen (the erythroblast hub, 2026-09-26). n_celltype_markers_per_celltype 60: equal marker budget per cell so a 6,105-locus cell can win markers."
+  },
+  "twin_r": 0.985,
+  "cross_source_r": 0.98,
+  "cross_source_low_coverage": 0.05,
+  "cross_source_high_coverage": 0.5,
+  "min_separating_loci": 30,
+  "sep_delta": 0.2,
+  "min_celltype_coverage": 0.01,
+  "n_celltype_markers_per_celltype": 60
+ },
+ "n_pairs": 153,
+ "ATLAS_c_cells": [
+  "adipocytes",
+  "aorta endothelium",
+  "astrocytes",
+  "basophils",
+  "bladder epithelium",
+  "breast basal epithelium",
+  "breast luminal epithelium",
+  "cardiomyocyte",
+  "colon enteroendocrine",
+  "colon epithelium",
+  "colon fibroblasts",
+  "colon macrophages",
+  "cortical neurons",
+  "effector memory cd8 t cells",
+  "embryonic stem cells",
+  "endometrium epithelium",
+  "eosinophils",
+  "erythrocyte progenitors",
+  "fallopien tubes epithelium",
+  "gastric antrum epithelium",
+  "gastric body epithelium",
+  "gastric fundus epithelium",
+  "heart fibroblasts",
+  "hepatocyte",
+  "kidney glomerular endothelium",
+  "kidney glomerular epithelium",
+  "kidney tubular endothelium",
+  "kidney tubular epithelium",
+  "lung alveolar endothelium",
+  "lung alveolar epithelium",
+  "lung alveolar macrophages",
+  "lung bronchus epithelium",
+  "lung interstitial macrophages",
+  "memory b cells",
+  "microglia",
+  "monocytes",
+  "naive b cells",
+  "naive cd4 t cells",
+  "naive cd8 t cells",
+  "neutrophils",
+  "nk cells",
+  "oligodendrocyte precursors",
+  "oligodendrocytes",
+  "pancreas endothelium",
+  "pancreatic acinar",
+  "pancreatic alpha",
+  "pancreatic beta",
+  "pancreatic delta",
+  "pancreatic duct",
+  "prostate epithelium",
+  "regulatory t cells",
+  "small intestine epithelium",
+  "smooth muscle",
+  "striated muscle",
+  "t central memory cd4",
+  "t effector cell cd8",
+  "t effector memory cd4",
+  "thyroid epithelium",
+  "tongue epithelium",
+  "tonsil palatine epithelium",
+  "tonsil pharyngeal epithelium",
+  "vascular leptomeningeal cells",
+  "vascular saphenous endothelium"
+ ],
+ "ATLAS_c_blood_cells": [
+  "basophils",
+  "effector memory cd8 t cells",
+  "eosinophils",
+  "memory b cells",
+  "monocytes",
+  "naive b cells",
+  "naive cd4 t cells",
+  "naive cd8 t cells",
+  "neutrophils",
+  "nk cells",
+  "regulatory t cells",
+  "t central memory cd4",
+  "t effector cell cd8",
+  "t effector memory cd4"
+ ]
+}

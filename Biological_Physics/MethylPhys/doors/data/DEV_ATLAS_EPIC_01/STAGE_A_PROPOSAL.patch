@@ -1,0 +1,60 @@
+diff -ruN a/Biological_Physics/MethylPhys/chain/conductor_v3.py b/Biological_Physics/MethylPhys/chain/conductor_v3.py
+--- a/Biological_Physics/MethylPhys/chain/conductor_v3.py	2026-10-03 04:32:58
++++ b/Biological_Physics/MethylPhys/chain/conductor_v3.py	2026-10-03 04:32:58
+@@ -33,6 +33,8 @@
+ MIN_REFS = 3                  # Stage T needs >= 3 same-run reference arrays (median tare)
+ MIN_NOISE_FRACTION = 0.9      # noise index N needs >= 90 % of the 48,528 noise sites measured
+ ACCEPTED_ARRAY_TYPES = ("EPIC_v1",)
++STAGE_A_ENGINE = os.environ.get("CPG_STAGE_A_ENGINE", "nnls8")   # "atlas_e" = DEV-ATLAS-EPIC-01 proposal; default unchanged
++ATLAS_V2_PARQUET = os.environ.get("CPG_ATLAS_V2_PARQUET", "/home/ubuntu/data/dev_atlas_epic_01/IAMAtlas_v2.parquet")
+ _REF = None
+ def ref():
+     global _REF
+@@ -208,6 +210,10 @@
+         m, z = stage_m_isolated(beta); out["composition"] = {"stage": "A", "note": "isolated neutrophils: composition not solved"}
+     else:
+         a = stage_a_composition(beta); out["composition"] = a
++        if STAGE_A_ENGINE == "atlas_e" and a.get("fractions") is not None:   # DEV-ATLAS-EPIC-01 proposal (development): atlas v2 composition,
++            import stage_a_composition_v3_atlas as SA                       # NNLS8 kept as the recorded comparator
++            ae = SA.stage_a(beta, ATLAS_V2_PARQUET, _bc()["neutrophil_sites"]); ae["nnls8_comparator"] = a["fractions"]
++            out["composition"] = a = ae
+         m, z = stage_m_blood(beta, a)
+     m.update(noise_index(beta))
+     t = stage_t_tare(m.get("A"), ref_A, m.get("shift_per_1pct_loss"), sample_id=sample_id)
+diff -ruN a/Biological_Physics/MethylPhys/chain/stage_a_composition_v3_atlas.py b/Biological_Physics/MethylPhys/chain/stage_a_composition_v3_atlas.py
+--- a/Biological_Physics/MethylPhys/chain/stage_a_composition_v3_atlas.py	1969-12-31 16:00:00
++++ b/Biological_Physics/MethylPhys/chain/stage_a_composition_v3_atlas.py	2026-10-03 04:32:58
+@@ -0,0 +1,33 @@
++#!/usr/bin/env python3
++"""Stage A' PROPOSAL (DEV-ATLAS-EPIC-01, development, not commissioned): EPIC whole-blood composition from atlas v2.
++Solver: deconv_v2.DeconvV2 with the frozen SOLVER settings, on the atlas v2 cells that (1) circulate in blood, (2) were measured on arrays
++(roster 'platforms' contains 'array'), and (3) survive the mixture-identifiability rule (a cell whose template at the solver markers is
++reproduced by a non-negative sum-1 combination of the other cells with r >= twin_r of twin_family_thresholds_v1.json is removed; on atlas v2
++this removes 'b cells', 'cd4 t cells', 'cd8 t cells' - the unsorted parent entries). 12 cells. The 6,000 neutrophil identity sites are
++never composition markers. Second opinion: constrained ILC (NILC) on the same 12 templates, all sites with template range >= 0.2.
++Both are recorded; fractions are reported per 8 EPIC groups for Stage M. Settings chosen on GSE110554; see DEV_ATLAS_EPIC_01.md."""
++import json, os
++import numpy as np, pandas as pd
++import comp_methods as CM      # DEV_ATLAS_EPIC_01/code/comp_methods.py (would move into chain/)
++ATLAS_E_CELLS = ["basophils", "effector memory cd8 t cells", "eosinophils", "memory b cells", "memory cd4 t cells", "monocytes",
++                 "naive b cells", "naive cd4 t cells", "naive cd8 t cells", "neutrophils", "nk cells", "regulatory t cells"]
++_S = {}
++def build(atlas_parquet, neutrophil_sites):
++    if "D" not in _S:
++        A = CM.load_atlas(atlas_parquet); NS = pd.Index(neutrophil_sites)
++        D = CM.build_deconv(A, ATLAS_E_CELLS, NS)
++        Ab = CM.subset_atlas(A, ATLAS_E_CELLS); Ab = Ab.loc[Ab.index.difference(NS)]
++        mu = Ab[[f"{c}_mean" for c in ATLAS_E_CELLS]]; v = Ab[[f"{c}_sd" for c in ATLAS_E_CELLS]].values ** 2 + Ab[[f"{c}_donor_sd" for c in ATLAS_E_CELLS]].values ** 2
++        ok = mu.notna().all(1).values & np.isfinite(v).all(1); rng = (mu.max(1) - mu.min(1)).values; sel = ok & (rng >= 0.2)
++        N = CM.NILC(mu.index[sel], ATLAS_E_CELLS, mu.values[sel], v[sel], cov="atlas")
++        _S.update(D=D, N=N)
++    return _S["D"], _S["N"]
++def stage_a(beta, atlas_parquet, neutrophil_sites):
++    D, N = build(atlas_parquet, neutrophil_sites)
++    a = D.deconvolve(beta, n_boot=0); n = N.deconvolve(beta)
++    ga = CM.to_groups(a["fractions"]); gn = CM.to_groups(n["fractions"])
++    f8 = {g: float(ga.get(g, 0.0)) for g in CM.BLOOD8}
++    return {"stage": "A", "method": "atlas v2 solver, 12 array-measured circulating cells (DEV-ATLAS-EPIC-01 proposal)", "fractions": f8,
++            "cell_fractions": a["fractions"], "residual_mae": a["residual_mae"], "n_markers_used": a["n_markers_used"],
++            "nilc_second_opinion": {g: float(gn.get(g, 0.0)) for g in CM.BLOOD8}, "nilc_sum": n["sum"], "nilc_noise_sd": n["noise_sd"],
++            "max_abs_disagreement": float(max(abs(f8[g] - gn.get(g, 0.0)) for g in CM.BLOOD8))}

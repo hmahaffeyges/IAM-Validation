@@ -1,0 +1,8 @@
+{
+ "NILC_e_chosen": "NILC_e_S2_range0.2_atlas_D0",
+ "NILC_e_offset_twin": "NILC_e_S2_range0.2_atlas_D1",
+ "NILC_atlas_chosen": "NILC_S1_markers_atlas_D0",
+ "NILC_atlas_offset_twin": "NILC_S1_markers_atlas_D1",
+ "NILC_EPIC8_chosen": "NILC_EPIC8_atlas+tech_D0",
+ "rule": "lowest mean RMSE over NEU,MONO,B,NK,CD4T,CD8T on MIX18 (GSE110554) only"
+}

@@ -1,0 +1,154 @@
+a,b,r_markers,a_array,b_array,mean_abs_diff,sample_sep,rule_outcome
+cd4 t cells,memory cd4 t cells,0.9774791118394504,True,True,0.03726704860681105,,keep
+naive cd4 t cells,naive cd8 t cells,0.9771663289992423,True,True,0.020203647329524753,1249.0,keep
+b cells,naive b cells,0.9767559758883465,True,True,0.035487710363877774,,keep
+cd4 t cells,cd8 t cells,0.9701862495630116,True,True,0.029491337952021048,,keep
+t central memory cd4,t effector memory cd4,0.9693455942285394,False,False,0.04461165520140394,1589.0,keep
+cd8 t cells,effector memory cd8 t cells,0.9682248237796098,True,True,0.039827770210892274,,keep
+memory cd4 t cells,regulatory t cells,0.9651335099669923,True,True,0.030813834666095524,2105.0,keep
+cd4 t cells,naive cd4 t cells,0.9623195947157904,True,True,0.041228976625905946,,keep
+cd8 t cells,memory cd4 t cells,0.9585362833859681,True,True,0.0420593130982692,,keep
+cd4 t cells,t central memory cd4,0.9543629876158805,True,False,0.05015535455082821,4410.0,keep
+cd4 t cells,naive cd8 t cells,0.9504190155680585,True,True,0.04401920647857788,,keep
+effector memory cd8 t cells,memory cd4 t cells,0.9482073956645727,True,True,0.03797105407007855,,keep
+cd8 t cells,naive cd8 t cells,0.9475068010481046,True,True,0.04896774396594784,,keep
+memory cd4 t cells,t central memory cd4,0.9438377893546067,True,False,0.05389312171979015,,keep
+cd4 t cells,regulatory t cells,0.940085025344283,True,True,0.05119828670867732,,keep
+t effector cell cd8,t effector memory cd4,0.9349296924475453,False,False,0.05278036689785733,,keep
+effector memory cd8 t cells,t effector cell cd8,0.9308664544406288,True,False,0.0596865264597697,,keep
+memory cd4 t cells,t effector memory cd4,0.9273448196031476,True,False,0.06330566871316609,,keep
+cd8 t cells,t central memory cd4,0.9265659617265152,True,False,0.05868073823053011,,keep
+cd8 t cells,naive cd4 t cells,0.9264386344371869,True,True,0.05524668697130525,,keep
+monocytes,neutrophils,0.9263166355011172,True,True,0.04223707634047189,,keep
+cd4 t cells,effector memory cd8 t cells,0.9260474810637982,True,True,0.055286260473963955,,keep
+cd8 t cells,t effector cell cd8,0.9223187603691911,True,False,0.06438765329175411,725.0,keep
+cd8 t cells,t effector memory cd4,0.9219421757076164,True,False,0.06924257666656933,2529.0,keep
+effector memory cd8 t cells,regulatory t cells,0.9218262521808963,True,True,0.045069866720730586,,keep
+cd4 t cells,t effector memory cd4,0.9217849367067575,True,False,0.07040062045460892,,keep
+effector memory cd8 t cells,t effector memory cd4,0.9201685896711911,True,False,0.06618188003772615,,keep
+b cells,memory b cells,0.9198622831445846,True,True,0.070763715831973,,keep
+cd8 t cells,regulatory t cells,0.9190942122550906,True,True,0.05477908369201262,,keep
+eosinophils,neutrophils,0.9173047900503473,True,True,0.04933519730998477,13305.0,keep
+regulatory t cells,t central memory cd4,0.9100710624935512,True,False,0.06459277594827126,,keep
+memory cd4 t cells,naive cd4 t cells,0.9086928126768933,True,True,0.0643000094554918,,keep
+memory cd4 t cells,naive cd8 t cells,0.9030757074503807,True,True,0.06733440371288214,,keep
+regulatory t cells,t effector memory cd4,0.9019667879706345,True,False,0.06970583063256762,,keep
+effector memory cd8 t cells,t central memory cd4,0.8986347614134065,True,False,0.06882894484014089,,keep
+basophils,eosinophils,0.8980224238743308,True,True,0.05448188900354724,12717.0,keep
+cd8 t cells,nk cells,0.8976421150679362,True,True,0.05931439637610472,,keep
+t central memory cd4,t effector cell cd8,0.897233712779903,False,False,0.06206291637820837,,keep
+naive cd4 t cells,t central memory cd4,0.8769680748456199,True,False,0.07788638880805905,,keep
+effector memory cd8 t cells,naive cd8 t cells,0.8759607394149673,True,True,0.07378883910395137,,keep
+effector memory cd8 t cells,nk cells,0.8722893751668017,True,True,0.07427778414830594,,keep
+naive cd8 t cells,nk cells,0.8717578334188328,True,True,0.05853894257618747,,keep
+memory cd4 t cells,t effector cell cd8,0.8673095878560623,True,False,0.07694140974309965,,keep
+cd4 t cells,nk cells,0.8661295604231268,True,True,0.06121386476607645,,keep
+naive cd8 t cells,regulatory t cells,0.8650796701504747,True,True,0.0759869183528188,,keep
+eosinophils,monocytes,0.8649021700002384,True,True,0.06392156301278641,,keep
+naive cd8 t cells,t central memory cd4,0.8647434003247437,True,False,0.08042714200553021,,keep
+cd4 t cells,t effector cell cd8,0.8632952811575499,True,False,0.08012142818999657,,keep
+naive cd4 t cells,regulatory t cells,0.861777240535597,True,True,0.07581538583600335,,keep
+naive cd4 t cells,nk cells,0.8525193965005847,True,True,0.06224824276271971,,keep
+basophils,monocytes,0.8497150730283781,True,True,0.06861180915793771,,keep
+effector memory cd8 t cells,naive cd4 t cells,0.8477354117039052,True,True,0.07963279042566171,,keep
+basophils,neutrophils,0.8473549033270695,True,True,0.06846880374880021,,keep
+nk cells,t effector cell cd8,0.8418905437375235,True,False,0.09173117484920264,,keep
+memory cd4 t cells,nk cells,0.8384452704130652,True,True,0.07937276304533375,,keep
+memory b cells,naive b cells,0.8381569928446732,True,True,0.09147834774719231,,keep
+regulatory t cells,t effector cell cd8,0.8365804313391575,True,False,0.08279049343422494,,keep
+naive cd4 t cells,t effector memory cd4,0.8210012566490443,True,False,0.10166583523594878,,keep
+naive cd8 t cells,t effector memory cd4,0.8188095957295304,True,False,0.10270293964533615,,keep
+b cells,cd4 t cells,0.807132641188521,True,True,0.06974677077689466,,keep
+b cells,nk cells,0.8026639940268262,True,True,0.07338905299911411,,keep
+naive b cells,nk cells,0.8006463876494946,True,True,0.07356613362887374,,keep
+b cells,cd8 t cells,0.8003094815605203,True,True,0.0747700753633222,,keep
+naive b cells,naive cd4 t cells,0.7989400138956841,True,True,0.06305260711612075,,keep
+naive b cells,naive cd8 t cells,0.7989371358739351,True,True,0.06490215593810174,,keep
+nk cells,t central memory cd4,0.7977491128466839,True,False,0.09476175857781724,,keep
+nk cells,regulatory t cells,0.7960654093813223,True,True,0.09004974279324399,,keep
+monocytes,naive b cells,0.7957322754307832,True,True,0.07828602306226842,,keep
+nk cells,t effector memory cd4,0.7936114071610098,True,False,0.10614442445380885,,keep
+naive cd8 t cells,t effector cell cd8,0.7929965982489426,True,False,0.10179542606927158,,keep
+b cells,naive cd8 t cells,0.7909171446739703,True,True,0.07662191752961686,,keep
+b cells,monocytes,0.7897779524710103,True,True,0.08449232986370785,,keep
+b cells,naive cd4 t cells,0.788894932786931,True,True,0.07715576443681449,,keep
+basophils,nk cells,0.7876563894930009,True,True,0.08345570202961639,,keep
+cd4 t cells,naive b cells,0.7865721416033682,True,True,0.08152250976771001,,keep
+b cells,memory cd4 t cells,0.7784801525070902,True,True,0.08941364157966973,,keep
+cd8 t cells,naive b cells,0.7744042838606178,True,True,0.08833330768408776,,keep
+naive cd4 t cells,t effector cell cd8,0.7716189218011712,True,False,0.10521560051980343,,keep
+basophils,naive b cells,0.771246620429127,True,True,0.08324649591576837,,keep
+memory b cells,memory cd4 t cells,0.7647899889850891,True,True,0.09061921639677345,,keep
+cd8 t cells,memory b cells,0.7621877659681865,True,True,0.098748445697882,,keep
+b cells,t central memory cd4,0.7586285622796717,True,False,0.09965607443147625,,keep
+cd4 t cells,memory b cells,0.7563191312051721,True,True,0.10209150534734007,,keep
+b cells,basophils,0.7549740823610699,True,True,0.09545836968714017,,keep
+effector memory cd8 t cells,memory b cells,0.7543574185756365,True,True,0.09353118457614899,,keep
+b cells,effector memory cd8 t cells,0.7542802636668158,True,True,0.09628667351545181,,keep
+b cells,regulatory t cells,0.7526825130680114,True,True,0.09701964758348529,,keep
+monocytes,nk cells,0.7521761811890822,True,True,0.08791410997990193,,keep
+basophils,naive cd4 t cells,0.7518519251558298,True,True,0.08911282776398062,,keep
+basophils,naive cd8 t cells,0.7500615220113535,True,True,0.09173008864957109,,keep
+memory b cells,regulatory t cells,0.7499788315948628,True,True,0.09466076269845702,,keep
+memory cd4 t cells,naive b cells,0.7496526104917941,True,True,0.09685939776856048,,keep
+memory b cells,t effector memory cd4,0.7472139848838569,True,False,0.1116896378231668,,keep
+naive b cells,neutrophils,0.7448742018168442,True,True,0.09085167970836014,,keep
+basophils,cd4 t cells,0.7433833676936763,True,True,0.09909114398503098,,keep
+memory b cells,t central memory cd4,0.742677259890978,True,False,0.1122513473169237,,keep
+b cells,t effector memory cd4,0.7379546341725604,True,False,0.11471895230366187,,keep
+memory b cells,t effector cell cd8,0.7349509079802758,True,False,0.1124713891326999,,keep
+neutrophils,nk cells,0.7321705810843102,True,True,0.09416871101809217,,keep
+b cells,neutrophils,0.7312227516985526,True,True,0.0992713334387296,,keep
+basophils,cd8 t cells,0.7305924821541566,True,True,0.10555350034061949,,keep
+b cells,t effector cell cd8,0.7272852225145174,True,False,0.1121721719432947,,keep
+eosinophils,naive b cells,0.7270435660086247,True,True,0.09551110573175553,,keep
+eosinophils,nk cells,0.7262561322845752,True,True,0.10005733266431369,,keep
+naive b cells,regulatory t cells,0.7208135746644753,True,True,0.10362329093277922,,keep
+monocytes,naive cd8 t cells,0.7187698889559055,True,True,0.09397202536427782,,keep
+monocytes,naive cd4 t cells,0.7176412894745303,True,True,0.094329730274254,,keep
+effector memory cd8 t cells,naive b cells,0.7165815865870431,True,True,0.10677050838927804,,keep
+naive b cells,t central memory cd4,0.7164696299385179,True,False,0.1110892207343135,,keep
+memory b cells,nk cells,0.7160747391913431,True,True,0.11506959798307251,,keep
+cd4 t cells,monocytes,0.7155403687395252,True,True,0.10208466606104655,,keep
+b cells,eosinophils,0.7132050139451743,True,True,0.1073685367233062,,keep
+basophils,memory cd4 t cells,0.7124560697700658,True,True,0.10807723479480731,,keep
+cd8 t cells,monocytes,0.7053541488492392,True,True,0.10798624695192499,,keep
+naive cd8 t cells,neutrophils,0.7040257316446131,True,True,0.0999476972804838,,keep
+naive cd4 t cells,neutrophils,0.7014220059472281,True,True,0.10053830079329994,,keep
+memory b cells,naive cd8 t cells,0.6944455290264043,True,True,0.12205680409729049,,keep
+eosinophils,naive cd4 t cells,0.6931100202347728,True,True,0.10467316700161541,,keep
+eosinophils,naive cd8 t cells,0.6929633135074031,True,True,0.10567529757152523,,keep
+cd4 t cells,neutrophils,0.6918085640292003,True,True,0.10945794602367938,,keep
+memory b cells,naive cd4 t cells,0.6884378671633958,True,True,0.12108773761945439,,keep
+cd4 t cells,eosinophils,0.6843612286159044,True,True,0.11511607135578691,,keep
+naive b cells,t effector memory cd4,0.6841479692063304,True,False,0.12898587681195456,,keep
+cd8 t cells,neutrophils,0.6827509205409302,True,True,0.1153959476793759,,keep
+memory cd4 t cells,monocytes,0.6826990104316152,True,True,0.12014785051392766,,keep
+memory b cells,monocytes,0.6817362790045071,True,True,0.1299513331857362,,keep
+basophils,effector memory cd8 t cells,0.6811709840572118,True,True,0.11799092319905714,,keep
+basophils,regulatory t cells,0.6778832867764527,True,True,0.11738473786363948,,keep
+basophils,t central memory cd4,0.6753059506899234,True,False,0.12745702923974767,,keep
+naive b cells,t effector cell cd8,0.6740422662050012,True,False,0.12559449719524157,,keep
+cd8 t cells,eosinophils,0.671522921510856,True,True,0.12167887069994368,,keep
+memory cd4 t cells,neutrophils,0.6626369761031304,True,True,0.12318647533138143,,keep
+monocytes,t central memory cd4,0.6593044506959821,True,False,0.13069039505864727,,keep
+effector memory cd8 t cells,monocytes,0.6575100142978014,True,True,0.12652375222000845,,keep
+eosinophils,memory cd4 t cells,0.6545151469376785,True,True,0.12698245404480893,,keep
+basophils,t effector memory cd4,0.6513833652860108,True,False,0.13998685093875524,,keep
+monocytes,regulatory t cells,0.6510804459289129,True,True,0.1281148954083946,,keep
+basophils,t effector cell cd8,0.6409464431134875,True,False,0.13863243047464596,,keep
+basophils,memory b cells,0.6376650850357878,True,True,0.13294437475718973,,keep
+monocytes,t effector memory cd4,0.6374157332932471,True,False,0.14505786173246718,,keep
+effector memory cd8 t cells,neutrophils,0.6368866250848068,True,True,0.1305038471634405,,keep
+neutrophils,regulatory t cells,0.6290558756564977,True,True,0.13170849363427337,,keep
+monocytes,t effector cell cd8,0.6289631386526862,True,False,0.14258079853699285,,keep
+neutrophils,t central memory cd4,0.6262175216669932,True,False,0.13981829601518503,,keep
+effector memory cd8 t cells,eosinophils,0.6259809622162347,True,True,0.13522118072455008,,keep
+eosinophils,t central memory cd4,0.6227122990128814,True,False,0.14243642948837532,,keep
+eosinophils,regulatory t cells,0.6223842367072168,True,True,0.13522702726696362,,keep
+memory b cells,neutrophils,0.6195834598098097,True,True,0.14226907706895858,,keep
+eosinophils,memory b cells,0.6058820794231643,True,True,0.14579224163532908,,keep
+neutrophils,t effector memory cd4,0.6026573690826964,True,False,0.1534268218460809,,keep
+eosinophils,t effector memory cd4,0.5982535994161731,True,False,0.15580052146542658,,keep
+neutrophils,t effector cell cd8,0.5966032358791511,True,False,0.15091162571252104,,keep
+eosinophils,t effector cell cd8,0.5891151281492839,True,False,0.1543154303737208,,keep
