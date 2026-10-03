@@ -1,0 +1,63 @@
+== 0. Inputs
+BCS gap for T_c = 1.20 K: 1.764 k_B T_c = 182.4 ueV (used: 182.0 ueV)
+== 1. Temperature structure
+T_gap = Delta/k_B = 2.112 K;  T_CMB - T_gap = 0.613 K;  T_gap - 15 mK = 2.097 K
+T = 10 mK: Delta/k_B T = 211.2;  exp(-Delta/k_B T) = 10^-91.7
+T = 15 mK: Delta/k_B T = 140.8;  exp(-Delta/k_B T) = 10^-61.1
+T = 20 mK: Delta/k_B T = 105.6;  exp(-Delta/k_B T) = 10^-45.9
+== 2. Thermal fraction x_th = sqrt(2 pi k_B T/Delta) exp(-Delta/k_B T)
+  x_th(15 mK) = 1.50e-62
+  x_th(20 mK) = 3.35e-47
+  x_th(100 mK) = 3.67e-10
+  x_th(150 mK) = 5.13e-07
+  x_th = 1e-7 at T = 135 mK;  asymptotic form at k_B T = Delta (outside k_B T << Delta): sqrt(2 pi)/e = 0.922
+  sympy: x = n_qp/(2 nu0 Delta) = sqrt(2)*sqrt(pi)*sqrt(kT)*exp(-Delta/kT)/sqrt(Delta);  difference from sqrt(2 pi kT/Delta) e^(-Delta/kT): 0
+  20 mK: x from 2 K1(Delta/kT) = 3.364e-47;  asymptote = 3.352e-47
+  150 mK: x from 2 K1(Delta/kT) = 5.261e-07;  asymptote = 5.127e-07
+== 3. London phase-disturbance volume
+  int_0^inf 4 pi e^(-2r/lam) r^2 dr = pi*lambda**3;  Gamma(3) = 2
+  (nabla^2 - 1/lam^2)[e^(-r/lam)/(4 pi r)] for r > 0 = 0
+  full profile e^(-r/lam)/r normalised at a core radius r0: V = 2*pi*lambda*r_0**2
+  pi lam^3 at 50 nm = 3.927e-22 m^3 = 3.927e-04 um^3;  (xi0/lam)^3 = 32768;  lam/xi0 = 0.031
+== 4. Erasure mapping
+  g/2pi = 1 MHz at omega_q/2pi = 5 GHz: g/omega_q = 2.0e-04 rad
+  g/2pi = 10 MHz at omega_q/2pi = 5 GHz: g/omega_q = 2.0e-03 rad
+  tau_phi = hbar/Delta = 3.617e-12 s = 3.62 ps
+  tau_phi/tau_TLS at 1 us = 3.6e-06
+  tau_phi/tau_TLS at 30 us = 1.2e-07
+  tau_phi/tau_TLS at 100 us = 3.6e-08
+  Delta ln2 = 126.2 ueV;  2 Delta = 364 ueV;  2Delta/(Delta ln2) = 2.885;  k_B (20 mK) ln2 = 1.19 ueV
+== 5. Cooper-pair density
+  n_e = 1.806e+29 m^-3;  n_e/2 = 9.032e+28 m^-3 = 9.03e+10 um^-3
+  E_F = 11.65 eV;  nu0 = 3 n_e/(4 E_F) = 1.163e+28 eV^-1 m^-3 = 1.16e+04 um^-3 ueV^-1
+  n_cp = 2 nu0 Delta (free electron) = 4.23e+06 um^-3
+  nu0 = 1.2e4 um^-3 ueV^-1: n_cp = 4.37e+06 um^-3 (182 ueV), 4.08e+06 um^-3 (170 ueV)
+  used n_cp = 4e6 um^-3;  (n_e/2)/n_cp = 22580;  floor x = 1e-7 -> n_qp = 0.4 um^-3
+  n_qp = 0.04 um^-3 (20 mK) with n_cp = 4.08e+06: x = 9.8e-09
+== 6. Diffusion over a lifetime
+  D = 0.6 um^2/ns, tau_qp = 100 us: sqrt(D tau) = 245 um
+  D = 2.25 um^2/ns, tau_qp = 100 us: sqrt(D tau) = 474 um
+  D = 6.0 um^2/ns, tau_qp = 100 us: sqrt(D tau) = 775 um
+== 7. Steady state on the island
+  N_qp(t) = N*Y*tau_qp*(exp(t/tau_qp) - 1)*exp(-t/tau_qp)/tau_TLS;  steady state N*Y*tau_qp/tau_TLS;  x = N*Y*tau_qp/(V*n_cp*tau_TLS);  Y = 2: 2*N*tau_qp/(V*n_cp*tau_TLS)
+  x n_cp V tau_TLS/(N tau_qp) = Y
+  V = 1e+03 um^3: sites for 1e-7 = 60;  x from one site = 1.67e-09;  with Y = ln2: 173 sites
+  V = 1e+04 um^3: sites for 1e-7 = 600;  x from one site = 1.67e-10;  with Y = ln2: 1731 sites
+  V = 1e+05 um^3: sites for 1e-7 = 6000;  x from one site = 1.67e-11;  with Y = ln2: 17312 sites
+  example: x 1e-7, n_cp 4e6, V 1e4, tau_TLS 30, N 600, tau_qp 100 -> 2.000
+  tau_TLS =     1 us: sites for 1e-7 on 1e4 um^3 = 20
+  tau_TLS =    10 us: sites for 1e-7 on 1e4 um^3 = 200
+  tau_TLS =    30 us: sites for 1e-7 on 1e4 um^3 = 600
+  tau_TLS =   100 us: sites for 1e-7 on 1e4 um^3 = 2000
+  tau_TLS =  1000 us: sites for 1e-7 on 1e4 um^3 = 20000
+  pi lam^3 / (1e4 um^3) = 3.9e-08
+  N/V = 0.006 um^-3: x = 1e-7 at tau_TLS = 3 us
+  N/V = 0.06 um^-3: x = 1e-7 at tau_TLS = 30 us
+  N/V = 0.6 um^-3: x = 1e-7 at tau_TLS = 300 us
+  minimum heat per site with one pair per event: 2 Delta/tau_TLS = 1.94e-18 W;  600 sites: 1.17e-15 W
+== 8. Coherence ceiling
+  x = 1e-07: T1 (Gamma = x omega_q) = 0.318 ms;  T1 (Catelani) = 0.238 ms
+  x = 1e-06: T1 (Gamma = x omega_q) = 0.032 ms;  T1 (Catelani) = 0.024 ms
+  T1 = 0.3 ms at 5 GHz requires x <= 7.9e-08 (Catelani form)
+  T1 = 0.5 ms at 5 GHz requires x <= 4.8e-08 (Catelani form)
+  T1 = 0.6 ms at 5 GHz requires x <= 4.0e-08 (Catelani form)
