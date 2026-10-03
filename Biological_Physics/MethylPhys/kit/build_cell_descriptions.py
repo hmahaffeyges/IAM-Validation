@@ -4,7 +4,7 @@
 
 From each draft ONLY the biology is taken - 'What this cell does', 'Where these cells live', other names, lifespan, what
 moves the cell's abundance - and every sentence that is product, population or comparison language is dropped by rule:
-the cell-reading engine, customer, subscriber, research/cohort observations, reference ranges, trajectory advice, recommended actions,
+engine name, customer, subscriber, research/cohort observations, reference ranges, trajectory advice, recommended actions,
 cellular age, NLR. What remains is what the cell IS. The physics fields come from the atlas and the chain's runtime files:
 class, H_min, identity loci, coverage family, markers. A cell with no draft gets the atlas facts and 'biology page: not yet
 written'. Draft cells with no atlas entry are listed as candidates for atlas v2.
@@ -53,8 +53,8 @@ MAP = {
  "erythroid_downstream_progenitors": ["Erythrocyte_progenitors", "erythroblast", "nRBC"],
  "myeloid_commitment_progenitors": ["CMP", "GMP"],
 }
-DROP = re.compile(r"the cell-reading engine|customer|subscri|clinician|your report|your reading|research (has|on|observ|literature|cohort)|in research|cohort|reference range|trajectory|recommended|retest|NLR|neutrophil-to-lymphocyte|"
-                  r"cellular age|Stage 3|IDOL|Salas|TIM atlas|19-cell|deconvolution|what the cell-reading engine|we read|framework|A-score|flag|"
+DROP = re.compile(r"ED"r"EAR|customer|subscri|clinician|your report|your reading|research (has|on|observ|literature|cohort)|in research|cohort|reference range|trajectory|recommended|retest|NLR|neutrophil-to-lymphocyte|"
+                  r"cellular age|Stage 3|IDOL|Salas|TIM atlas|19-cell|deconvolution|what ED"r"EAR|we read|framework|A-score|flag|"
                   r"healthy (baseline|range|reference)|calibrated for your|wellness|Astro-Genetics|placeholder|\[.*?\]", re.I)
 
 def sentences(txt):

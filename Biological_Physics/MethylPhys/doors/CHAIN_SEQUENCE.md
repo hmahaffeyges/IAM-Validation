@@ -24,7 +24,7 @@ rather than left out.
 | 13 | `stage_m_isolated` | `conductor_v3.py` | Isolated / sorted neutrophils against their own floor. The own-floor state is kept as state_own_floor; the reading's state is |
 | 14 | `stage_a_composition` | `conductor_v3.py` | EPIC blood composition (blood_composition_EPIC_v1): 8 groups from Salas purified EPIC cells; markers exclude the neutrophil sites; |
 | 15 | `stage_m_blood` | `conductor_v3.py` | Whole blood: Met-A = mean H(beta) / mean H(e) at the neutrophil sites, e = sum_g f_g mu_g (EPIC purified group profiles) |
-| 16 | `stage_t_tare` | `conductor_v3.py` | Same-run tare against >= 3 healthy references of the same specimen type run the same way (same slide, else same batch) |
+| 16 | `stage_t_tare` | `conductor_v3.py` | Same-run tare against >= MIN_REFS healthy references of the same specimen type run the same way (same slide, else same batch) |
 | 17 | `stage_mc_cscore` | `conductor_v3.py` |  |
 | 18 | `stage_q_iam_a.pat_site_table` | `stage_q_iam_a.py` | Per-site table (pos, opp_A, err_A, opp_B, err_B) from one .pat(.gz) file, pipeline loyfer_pat_v1. pos = 'chrom:CpG index' _runs when run_sample.py is given --pat or --site-table_ |
 | 19 | `stage_q_iam_a.read` | `stage_q_iam_a.py` | site_table: per-site table (see module doc). cell: e.g. 'neutrophils'. pipeline: the read-level pipeline that produced the table _runs when run_sample.py is given --pat or --site-table_ |

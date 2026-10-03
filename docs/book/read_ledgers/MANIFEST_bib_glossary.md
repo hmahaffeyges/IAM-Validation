@@ -57,7 +57,7 @@ Base: work started on HEAD 5f5997b; every insertion anchor, glossary pointer, nu
 | docs/papers/latex/iam_two_faces_of_time/iam_two_faces_of_time.tex | 362 |
 | docs/papers/latex/iam_virial_dark_sector/iam_virial_dark_sector.tex | 664 |
 | docs/papers/latex/zurek_paper/zurek_paper.tex | 902 |
-| extra/Biological_Physics_MethylPhys_papers_IAM_Hubble2Methyl_Alpha_Omega_5.tex | 7066 |
+| extra/Biological_Physics_MethylPhys_papers_IAM_Hubble2MPHYS_Alpha_Omega_5.tex | 7066 |
 | extra/Biological_Physics_MethylPhys_papers_IAM_for_physicists_IAM_for_physicists.tex | 1082 |
 | extra/Biological_Physics_MethylPhys_papers_Landauer_Metrology_of_the_Methylome.tex | 192 |
 | extra/Biological_Physics_RETIRED_2026-10_MethylPhys_papers_Mahaffey_2026_cell_thermodynamics.tex | 1924 |
@@ -575,7 +575,7 @@ These DOIs printed in the source papers did not match the cited work on CrossRef
 | Horvath, S., Haghani, A., Zoller, J.A., et al. (2022). Epigenetic cloc | 10.1126/science.abn4689 | None | 10.1101/2021.03.30.437604 | Biological_Physics_RETIRED_2026-10_MethylPhys_papers_Mahaffey_2026_cell_thermodynamics.tex |
 | Kozlenkov, A., Roussos, P., Timashpolsky, A., et al. (2014). Differenc | 10.1093/hmg/ddu196 | The genetic contributions of SNCA and LRRK2 genes  | 10.1093/nar/gkt838 | Biological_Physics_RETIRED_2026-10_MethylPhys_papers_Mahaffey_2026_cell_thermodynamics.tex |
 | Schulze, K., Imbeaud, S., Letoure, E., et al. (2015). Exome sequencing | 10.1038/ng.3264 | The two sides of GIGANTEA | 10.1038/ng.3252 | Biological_Physics_RETIRED_2026-10_MethylPhys_papers_Mahaffey_2026_cell_thermodynamics.tex |
-| Bal, M., et al. (2024). Atomic-scale characterization of the tantalum  | 10.1021/acsnano.4c05251 | Structure and Formation Mechanisms in Tantalum and | -- | Biological_Physics_MethylPhys_papers_IAM_Hubble2Methyl_Alpha_Omega_5.tex |
+| Bal, M., et al. (2024). Atomic-scale characterization of the tantalum  | 10.1021/acsnano.4c05251 | Structure and Formation Mechanisms in Tantalum and | -- | Biological_Physics_MethylPhys_papers_IAM_Hubble2MPHYS_Alpha_Omega_5.tex |
 | Cai, R.-G. and Kim, S. P. First law of thermodynamics and Friedmann eq | 10.1088/1475-7516/2005/02/050 | None | 10.1088/1126-6708/2005/02/050 | iam_decoherence_virial_partition.tex, iam_missing_satellites.tex |
 | Rovelli, C. Memory and entropy Entropy 24 1394 2022 | 10.3390/e24101394 | A Fault Detection Method Based on an Oil Temperatu | 10.3390/e24081022 | iam_decoherence_virial_partition.tex |
 | Euclid Collaboration Euclid preparation: forecasts for modified gravit | 10.1051/0004-6361/202347045 | None | -- | iam_missing_satellites.tex |

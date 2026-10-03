@@ -121,19 +121,27 @@ Readership is measured from the live modules' source (literal names and f-string
 
 | runtime file | read by | what it is |
 |---|---|---|
-| [`age_reference_matrix.json`](../chain/Runtime%20Matrices/A_Scoring_Module/age_reference_matrix.json) | cpg_conductor.py, cpg_gauge_engine.py, test_a_score_canonical.py | The April 80-cell age table. Typed beta means with A by formula - NOT a per-sample measurement; kept because parts of the record cite it. No |
-| [`beta_scale_maps_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/beta_scale_maps_v1.json) | cpg_conductor.py, cpg_gauge_engine.py, run_sample.py | Stage 1s. The affine map from each named pipeline's beta scale onto the scale the floors were calibrated on. Without a map for your pipeline |
-| [`composition_guard_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/composition_guard_v1.json) | cpg_conductor.py | THE COMPOSITION GUARD threshold (PROC-FOREIGN-01, commissioned 2026-09-25): the foreign (non-haematopoietic) fraction above which the immune |
-| [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json) | cpg_conductor.py, disease_matching.py, run_sample.py | THE IDENTITY LOCI and the eight class floors. The unimodal addresses where a healthy class sits at one level - the surface the reported gaug |
-| [`iamatlas_percell_identity_loci_v1_1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_1.json) | cpg_conductor.py, iamatlas_a_scoring.py | PER-CELL IDENTITY LOCI v1.1 (2026-09-27): per cell, the atlas loci within +/-0.05 of H_min_beta trimmed until the cell's OWN atlas profile r |
-| [`detection_panel_v3.json`](../chain/Runtime%20Matrices/Celltype_Marker/detection_panel_v3.json) | cpg_conductor.py | FOREIGN-CELL DETECTOR v3 (PROC-STAGE2D-03, 2026-09-27): one joint NNLS of the panel markers on blood + 21 templates; per-template noise floo |
-| [`iamatlas_celltype_markers_v0_2.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_2.json) | cpg_conductor.py, disease_matching.py, val_finding.py | The ~100 discriminative marker CpGs per cell type, used for the per-cell separation statistic. The sealed foundation anchors reproduce on TH |
-| [`percell_exclusivity_v0.json`](../chain/Runtime%20Matrices/Celltype_Marker/percell_exclusivity_v0.json) | val_finding.py | How exclusive each entry's marker panel is to that entry (measured 2026-09-22). 33.8 % of markers serve more than one panel; the report with |
+| `age_reference_matrix.json` | cpg_conductor.py, cpg_gauge_engine.py, test_a_score_canonical.py | The April 80-cell age table. Typed beta means with A by formula - NOT a per-sample measurement; kept because parts of the record cite it. No |
+| `beta_scale_maps_v1.json` | cpg_conductor.py, cpg_gauge_engine.py, run_sample.py | Stage 1s. The affine map from each named pipeline's beta scale onto the scale the floors were calibrated on. Without a map for your pipeline |
+| `composition_guard_v1.json` | cpg_conductor.py | THE COMPOSITION GUARD threshold (PROC-FOREIGN-01, commissioned 2026-09-25): the foreign (non-haematopoietic) fraction above which the immune |
+| `iamatlas_gauge_identity_loci_v1_0.json` | cpg_conductor.py, disease_matching.py, run_sample.py | THE IDENTITY LOCI and the eight class floors. The unimodal addresses where a healthy class sits at one level - the surface the reported gaug |
+| `iamatlas_percell_identity_loci_v1_1.json` | cpg_conductor.py, iamatlas_a_scoring.py | PER-CELL IDENTITY LOCI v1.1 (2026-09-27): per cell, the atlas loci within +/-0.05 of H_min_beta trimmed until the cell's OWN atlas profile r |
+| `detection_panel_v3.json` | cpg_conductor.py | FOREIGN-CELL DETECTOR v3 (PROC-STAGE2D-03, 2026-09-27): one joint NNLS of the panel markers on blood + 21 templates; per-template noise floo |
+| `iamatlas_celltype_markers_v0_2.json` | cpg_conductor.py, disease_matching.py, val_finding.py | The ~100 discriminative marker CpGs per cell type, used for the per-cell separation statistic. The sealed foundation anchors reproduce on TH |
+| `percell_exclusivity_v0.json` | val_finding.py | How exclusive each entry's marker panel is to that entry (measured 2026-09-22). 33.8 % of markers serve more than one panel; the report with |
 | `twin_family_thresholds_v1.json` | legacy_iam_deconvolver.py | TWIN / FAMILY / COVERAGE constants for the composition solver (PLAN item 6, 2026-09-27): twin_r 0.985, cross-source r 0.98, 30 separating lo |
-| [`iamatlas_collinearity_groups_v0_1.json`](../chain/Runtime%20Matrices/Collinearity_Groups/iamatlas_collinearity_groups_v0_1.json) | val_finding.py | Which atlas cell types are collinear - i.e. which ones the reference cannot fully separate. Directly relevant to per-cell reporting: entries |
-| [`directional_panels_v1_0.json`](../chain/Runtime%20Matrices/Directional%20Panel/directional_panels_v1_0.json) | bidirectional_decomposition.py, cpg_conductor.py, disease_matching.py | The directional panel: per-CpG healthy mean and direction. Only the immune class has a sealed panel today. |
-| [`intake_thresholds_v1.json`](../chain/Runtime%20Matrices/Intake/intake_thresholds_v1.json) | cpg_conductor.py, stage_0_intake.py |  |
-| [`literature_anchors.json`](../chain/Runtime%20Matrices/Literature_anchors_Report%20building/literature_anchors.json) | disease_matching.py | [RECORD - not read by the chain] Published A-score anchors per class extracted from the April web build. Orientation values from the literat |
+| `iamatlas_collinearity_groups_v0_1.json` | val_finding.py | Which atlas cell types are collinear - i.e. which ones the reference cannot fully separate. Directly relevant to per-cell reporting: entries |
+| `directional_panels_v1_0.json` | bidirectional_decomposition.py, cpg_conductor.py, disease_matching.py | The directional panel: per-CpG healthy mean and direction. Only the immune class has a sealed panel today. |
+| `iama_positions_v1.json` | stage_q_iam_a.py |  |
+| `intake_thresholds_v1.json` | cpg_conductor.py, stage_0_intake.py |  |
+| `literature_anchors.json` | disease_matching.py | [RECORD - not read by the chain] Published A-score anchors per class extracted from the April web build. Orientation values from the literat |
+| `blood_composition_EPIC_v1.json` | conductor_v3.py, stage_a_composition_v2.py |  |
+| `metA_floors_v1_2_ALLCELLS_development.json` | stage_m_met_a.py |  |
+| `metA_floors_v1_3.json` | conductor_v3.py, run_sample.py, stage_m_met_a.py |  |
+| `metA_floors_v1_3_loo.csv` | conductor_v3.py, stage_m_met_a.py |  |
+| `neutrophil_reference_v1_1.json` | conductor_v3.py |  |
+| `noise_gate_EPIC_v1.json` | conductor_v3.py |  |
+| `noise_sites_EPIC_v1.json` | conductor_v3.py |  |
 | `iamatlas_cpg_to_healpix_nside128.npz` | stage_4_6_patient_cmb.py, val_finding.py | The mapping itself: 483,092 CpGs onto 196,608 pixels. Measured 2026-09-22 to be genomically local - every pixel holds contiguous CpGs of one |
-| [`presence_floors_v1.json`](../chain/Runtime%20Matrices/Patient_CMB/presence_floors_v1.json) | cpg_conductor.py, val_finding.py | The measured healthy presence floor per class: below it a class IS NOT THERE in this specimen, so its panel is masked rather than scored. |
-| [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json) | cpg_conductor.py, cpg_gauge.py, cpg_tiers.py | The tier boundaries, the Warburg line (1.07) and the breach line (1.10), plus the reference clusters. The single source for every tier word  |
+| `presence_floors_v1.json` | cpg_conductor.py, val_finding.py | The measured healthy presence floor per class: below it a class IS NOT THERE in this specimen, so its panel is masked rather than scored. |
+| `tier_breakpoints.json` | cpg_conductor.py, cpg_gauge.py, cpg_tiers.py | The tier boundaries, the Warburg line (1.07) and the breach line (1.10), plus the reference clusters. The single source for every tier word  |

@@ -2,7 +2,7 @@
 
 > Record. Written in May 2026 for the atlas as built; the product names in it (the cell-reading engine, CPG) and the pre-chain validation references are of that time. The atlas itself is current; the live description is `README.md` beside this file.
 
-The unified IAM cell-type methylation reference atlas. This is the single artifact the the cell-reading engine cellular-fidelity tool (the **Cellular Performance Gauge / CPG**) and the deconvolver consume at runtime.
+The unified IAM cell-type methylation reference atlas. This is the single artifact the cell-reading engine cellular-fidelity tool (the **Cellular Performance Gauge / CPG**) and the deconvolver consume at runtime.
 
 **This folder contains the REBUILD edition** of IAMAtlas v0.1. The earlier collapsed build was retired in May 2026 after the flatness problem was identified and fixed. See [`IAMAtlas_FLATNESS_LESSON.md`](IAMAtlas_FLATNESS_LESSON.md) in this folder for the full account; the one-sentence summary is below.
 

@@ -89,7 +89,7 @@
   {
    "step": "stage_t_tare",
    "where": "conductor_v3.py",
-   "implements": "Same-run median tare against >= 3 healthy references run the same way (same slide, else same batch); nothing fitted. Noise gate: state withheld when N > N_max (noise_gate_EPIC_v1.json) and the reading is untared"
+   "implements": "Same-run tare against >= MIN_REFS healthy references of the same specimen type run the same way (same slide, else same batch)"
   },
   {
    "step": "stage_mc_cscore",
@@ -183,7 +183,7 @@
   },
   {
    "step": "stage_a_cells",
-   "implements": "Stage A — find the cell types in the sample, their ratios, and their A-scores",
+   "implements": "Stage A \u2014 find the cell types in the sample, their ratios, and their A-scores",
    "where": "cpg_conductor.py"
   },
   {
@@ -213,7 +213,7 @@
   },
   {
    "step": "stage_4_5_bidirectional",
-   "implements": "Stage 4.5 (SOP §46.5) - bidirectional decomposition. Signed directional",
+   "implements": "Stage 4.5 (SOP \u00a746.5) - bidirectional decomposition. Signed directional",
    "where": "cpg_conductor.py"
   },
   {
@@ -232,13 +232,13 @@
   {
    "step": "stage_1_calibration.py",
    "where": "stage_1_calibration.py",
-   "implements": "Stage 1 — Calibration & beta computation (L2 + L3)",
+   "implements": "Stage 1 \u2014 Calibration & beta computation (L2 + L3)",
    "status": "module present; neither run_sample.py, conductor_v3.py nor cpg_conductor.py calls it"
   },
   {
    "step": "stage_5_second_chain.py",
    "where": "stage_5_second_chain.py",
-   "implements": "Stage 5 — Second chain (confirmation). Fires ONLY when Stage 8 Route B flags",
+   "implements": "Stage 5 \u2014 Second chain (confirmation). Fires ONLY when Stage 8 Route B flags",
    "status": "module present; neither run_sample.py, conductor_v3.py nor cpg_conductor.py calls it"
   },
   {

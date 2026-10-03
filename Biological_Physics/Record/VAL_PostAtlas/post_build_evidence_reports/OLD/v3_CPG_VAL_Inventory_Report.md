@@ -170,7 +170,7 @@ _Tests run for additional context / publication / educational purposes, NOT load
 | VID | Name | Status |
 |---|---|---|
 | CPG-EXP-001 | Replicate the IAMAtlas → 115-cell A-score readout on a completely blinded new cohort (sealed cohort, not previously seen by the pipeline) | PENDING cohort acquisition |
-| CPG-EXP-002 | Wang 2020 Labrador cohort — canine cross-species CPG run (Tier 5 of the the cell-reading engine Physics Roadmap) | PENDING cohort acquisition ($500/sample target) |
+| CPG-EXP-002 | Wang 2020 Labrador cohort — canine cross-species CPG run (Tier 5 of the cell-reading engine Physics Roadmap) | PENDING cohort acquisition ($500/sample target) |
 
 ---
 
@@ -202,7 +202,7 @@ _Re-running selected pre-build RETIRED findings (VAL-047, VAL-060) using post-bu
 
 | Version | Date | Change |
 |---|---|---|
-| v1 | 2026-05-29 | Initial post-build inventory. Family A (CPG-VAL-001 through CPG-VAL-007) entered from the 2026-05-29 v0.2 sharpening session (formerly TODO 1.1-1.7 of the the cell-reading engine Physics Roadmap). Family B breast-epic placeholders entered (CPG-VAL-008 through CPG-VAL-014). Reproducibility protocol instructions at top. Pre-build VAL-001 through VAL-128 archived in `RETIRED_VAL_inventory_report.md`. |
+| v1 | 2026-05-29 | Initial post-build inventory. Family A (CPG-VAL-001 through CPG-VAL-007) entered from the 2026-05-29 v0.2 sharpening session (formerly TODO 1.1-1.7 of the cell-reading engine Physics Roadmap). Family B breast-epic placeholders entered (CPG-VAL-008 through CPG-VAL-014). Reproducibility protocol instructions at top. Pre-build VAL-001 through VAL-128 archived in `RETIRED_VAL_inventory_report.md`. |
 
 ---
 

@@ -1,9 +1,9 @@
 {
  "_meta": {
-  "built": "2026-09-30 00:57",
-  "commit": "a7a4400",
-  "n_files": 302,
-  "n_undescribed": 107,
+  "built": "2026-10-03 01:08",
+  "commit": "9bef8be",
+  "n_files": 431,
+  "n_undescribed": 248,
   "undescribed": [
    "02_fetch_sources.py",
    "02_fetch_summary.json",
@@ -33,30 +33,75 @@
    "13a_bridge_gse31848_no_idats.json",
    "13b_bridge_gse116754.json",
    "14_stageB_block.py",
+   "ANALYSIS_RULES_set_before_reading.md",
    "ATLAS_SOURCES_SURVEY.md",
    "ATLAS_V2_OUTPUT_MANIFEST.json",
    "ATLAS_V2_SPEC.md",
+   "BANDv2_OUTCOME.md",
+   "CHAIN_FIX_CHANGES_2026-10-01.md",
+   "CHAIN_V3_ACCEPTANCE_RUN3.md",
    "CLASS_ASSIGNMENT_RULE_DRAFT.md",
    "CLASS_HISTORY.md",
    "CLASS_USE_INVENTORY.md",
-   "COMMUNICATION.md",
+   "COMMANDS.md",
    "DECISIONS.md",
+   "DEV_CHAIN_V3_RUN2.md",
+   "DEV_CHAIN_V3_RUN3.md",
+   "DEV_COLON_BLOCKS_02.md",
+   "DEV_LOWFRAC_01_OUTCOME.md",
+   "DEV_MOLECULE_COLON_01.md",
+   "DEV_NOISE_01_OUTCOME.md",
+   "DEV_NOISE_02_OUTCOME.md",
+   "DEV_REPL_V3_01.md",
+   "DEV_REPL_V3_01_PLAN.md",
+   "DEV_SELFTARE_01.md",
+   "DEV_SPECIES_AGEING_01.md",
+   "DEV_STOOL_01_OUTCOME.md",
+   "DEV_TARE_02_OUTCOME.md",
+   "DIAG_450K_01_OUTCOME.md",
    "FINDING_DETECTION_PANEL_HELDOUT.md",
    "GSE186458_samples.json",
    "HELDOUT_2D.py",
+   "IAMA_FLOOR_COMPARISON.md",
    "IAMAtlas_FLATNESS_LESSON_v1.md",
+   "LABZERO01_OUTCOME.md",
+   "LABZERO02_OUTCOME.md",
    "LESSONS.md",
+   "MethylPhys_CPG_SOP_v3.md",
+   "MethylPhys_CPG_SOP_v3_full.md",
+   "OM_MIGRATION_CHECK_2026-10-01.md",
+   "OM_v3_neutrophil_chain.md",
    "PERCELL_STANDARD_REZERO_2026-09-27.md",
+   "PHASE1_OUTCOME.md",
+   "PHASE1c_OUTCOME.md",
    "PHYSICS_LEUKOCYTE_GAUGE.md",
+   "RAW_tar_record.json",
    "README_LOG_2026-09-20_to_21_RECORD.md",
+   "SOP_AUDIT_2026-10-01.md",
    "START_HERE.md",
+   "WHOLE_BLOOD_COMPOSITION_DEV.md",
    "affine_test.py",
    "atlas_v2_gate.json",
    "atlas_v2_roster.csv",
    "atlas_v2_roster_final.csv",
+   "bj_series_readings.csv",
+   "blocks_lowerGI_all.csv",
+   "blocks_lowerGI_stool.csv",
+   "blood_comp.py",
+   "blood_comp_mixtures.csv",
+   "blood_composition_EPIC_v1.json",
    "bm_test.py",
    "bm_where.py",
+   "cd_neut.csv",
+   "cd_neut.py",
    "cell_facts_v0.csv",
+   "chain_acceptance.csv",
+   "chain_acceptance_tare_median_2026-10-02.csv",
+   "chain_batch.py",
+   "chain_v3_dev2_readings.csv",
+   "chain_v3_dev3_readings.csv",
+   "charr_readings.csv",
+   "charr_score.json",
    "check3.py",
    "check4.py",
    "class_guard.py",
@@ -67,49 +112,145 @@
    "class_structure.py",
    "class_test_report.csv",
    "classify.py",
+   "colon_blocks.py",
+   "colon_epi_M_blocks.csv",
+   "colon_epi_M_blocks_all.csv",
+   "colon_read.csv",
+   "colon_read.py",
+   "conductor_v3.py",
    "crossplatform_moss_vs_loyfer.csv",
    "deconv_v2.py",
+   "dev_repl_v3_01_readings.csv",
+   "dev_selftare_01.py",
+   "dev_selftare_01_inflation_curves.csv",
+   "dev_selftare_01_meta.json",
+   "dev_selftare_01_readings.csv",
+   "dev_selftare_01_summary.csv",
+   "dnmt_arrays.py",
+   "dnmt_arrays_readings.csv",
+   "dnmt_b_pairs.csv",
+   "dnmt_b_readings.csv",
+   "dnmt_b_summary.json",
    "encode_bridge_gse31848_NO_IDATS.py",
+   "freeze_v13.py",
+   "groups.csv",
+   "groups_full.csv",
    "gse116754_es_manifest.csv",
+   "gse135205_design.csv",
    "gse262275_liver_cells_PARTIAL_COVERAGE.py",
    "hmin.json",
    "hsc_gse63409_stage1_manifest.csv",
    "hsc_manifest.csv",
+   "iama_floor.py",
+   "iama_floor_granulocytes.csv",
+   "iama_positions_v1.json",
    "iamatlas_v2_identity_loci_v1_1.json",
+   "immune_marker_probes.csv",
+   "imr90_channels.csv",
+   "imr90_channels.py",
    "intake_thresholds_v1.json",
    "label_to_concept_v0.json",
    "lister2013_extract_WRONG_BUILD.py",
+   "lowfrac.py",
+   "lowfrac_readings.csv",
    "loyfer2023_extract_report.json",
    "loyfer_beta_list.json",
+   "make_cd_fig.py",
+   "make_sky_figs.py",
+   "manifest_from_series_matrix.csv",
+   "metA_floors_v1_2_ALLCELLS_development.json",
+   "metA_floors_v1_3.json",
+   "metA_floors_v1_3_loo.csv",
+   "methow_run_map.csv",
    "methylphys_v2.py",
    "moss2018_stage1_manifest.csv",
    "moss_manifest.csv",
+   "neut_ref.py",
+   "neut_test_T1T3T4_readings.csv",
+   "neutrophil_reference_v1_1.json",
+   "noise_gate_EPIC_v1.json",
+   "noise_index.csv",
+   "noise_sites_EPIC_v1.json",
+   "noise_t1t4.csv",
+   "pass1.csv",
+   "pass2.csv",
+   "per_animal_readings.csv",
+   "per_species_summary.csv",
+   "probe_level_confounds.py",
+   "proc_repl_v3_01_box_readings.csv",
    "prof_diag.py",
-   "reference_cells_37_provenance_check.csv",
-   "roadmap_wgbs_means.json",
+   "reference_floors_v1.json",
+   "refloor.py",
+   "refloor2.py",
+   "refloor2_snr.csv",
+   "refloor3.py",
+   "refloor3_loo.csv",
+   "refloor3_snr.csv",
+   "refloor4.py",
+   "refloor4_loo.csv",
+   "refloor4_sweep.csv",
+   "refloor_crossplatform.csv",
+   "refloor_loo.csv",
+   "refloor_snr.csv",
+   "refloor_specimens.csv",
+   "refloor_table.csv",
+   "report_v3.py",
+   "rimouski_design.csv",
+   "rimouski_readings.csv",
+   "rimouski_score.json",
    "roster.csv",
    "roster_samples.csv",
    "run01.py",
    "run02.py",
+   "run_chain_acceptance.py",
+   "run_proc_repl_v3_01.py",
+   "s3sync.py",
    "salas_blood_manifest.csv",
    "salas_blood_stage1_manifest.csv",
    "salas_mixture_truth.csv",
+   "salmon_readings.csv",
+   "score_charr.py",
+   "score_dnmt_b.py",
+   "score_rimouski.py",
+   "score_test.csv",
+   "score_tumour.py",
+   "selfconsist.csv",
+   "selfconsist.py",
+   "selftare_calibrate.py",
+   "selftare_intensity.py",
+   "selftare_subset.py",
    "serial_mode.py",
+   "sky_neut6.py",
+   "sky_neut6_maps.npz",
+   "sky_neut6_stats.csv",
    "source_terms_v1.json",
+   "species_ageing_readings.py",
+   "species_qualification.csv",
+   "stage_a_composition_v2.py",
+   "stage_m_met_a.py",
+   "stage_q_iam_a.py",
    "sweep.py",
    "sweep2.py",
+   "t2_diag.csv",
    "tian2023_extract_report.json",
+   "tumour_pairs.csv",
+   "tumour_raised_tiles.csv",
+   "tumour_readings.csv",
+   "tumour_scan.py",
    "twin_null_splithalf.csv",
    "twin_test_sample_level.csv",
    "twins.csv",
    "v12_crossfit.py",
    "v12_diag.py",
+   "v12_diag_cells.csv",
    "v12_prod.py",
    "v12_prod_build.csv",
    "v12b.py",
    "v12c.py",
    "v2_chain_run02_readings.json",
    "v5_heldout.py",
+   "wb_neut.py",
+   "wb_neut_readings.csv",
    "x_gse262275_liver_cells_report.json",
    "x_lister2013_report_wrong_build.json"
   ],
@@ -123,8 +264,8 @@
    "role": "chain",
    "stage": "",
    "description": "decodes the array's own controls, bead counts and sex intensities so the intake gates can be measured rather than deferred",
-   "bytes": 9234,
-   "sha256_12": "3f2776fab3df"
+   "bytes": 9454,
+   "sha256_12": "e91ee9561feb"
   },
   {
    "file": "cpg_conductor.py",
@@ -132,8 +273,8 @@
    "role": "chain",
    "stage": "stage 0",
    "description": "THE ORCHESTRATOR. run_full() calls every stage in order and returns one bundle; it resolves each stage module and data file by name (_find) so a missing file fails loudly instead of silently defaulting. Everything else in this table is reached from here.",
-   "bytes": 41271,
-   "sha256_12": "6de0acae1954"
+   "bytes": 41273,
+   "sha256_12": "49b348df6ec3"
   },
   {
    "file": "stage_0_intake.py",
@@ -141,8 +282,8 @@
    "role": "chain",
    "stage": "stage 0",
    "description": "Stage 0. Sample intake and chain of custody: IDAT arrival, manifest creation, identity checks. Built step by step against the SOP; four QC checks are still deferred because Stage 0 is not yet handed the raw intensities (open item, row 0).",
-   "bytes": 48058,
-   "sha256_12": "63014cc564f5"
+   "bytes": 48839,
+   "sha256_12": "70abdde4724d"
   },
   {
    "file": "idat_decoder_pure.py",
@@ -168,8 +309,8 @@
    "role": "chain",
    "stage": "stage 1",
    "description": "Stage 1. Raw Illumina IDAT pair -> beta per CpG (methylprep, noob background/dye correction). The only step that touches instrument output.",
-   "bytes": 11081,
-   "sha256_12": "f3687639fe80"
+   "bytes": 11473,
+   "sha256_12": "72d4878eebb6"
   },
   {
    "file": "legacy_iam_deconvolver.py",
@@ -249,8 +390,8 @@
    "role": "chain",
    "stage": "stage A",
    "description": "The A-score itself: A = mean_i H(beta_i) / H_min(class). Asserts against the wrong aggregation (entropy of the mean beta), which is the defect PROC-N7-01 caught.",
-   "bytes": 14554,
-   "sha256_12": "ff2cbe7e4327"
+   "bytes": 14548,
+   "sha256_12": "071ee797d094"
   },
   {
    "file": "cpg_gauge_engine.py",
@@ -258,8 +399,8 @@
    "role": "chain",
    "stage": "stage B",
    "description": "The eight frozen H_min floors and the per-substrate table. Each cell is divided by the floor of its class; nothing else reads the class.",
-   "bytes": 21011,
-   "sha256_12": "95d7df95c651"
+   "bytes": 21094,
+   "sha256_12": "45538de4ac7b"
   },
   {
    "file": "02_fetch_sources.py",
@@ -514,6 +655,15 @@
    "sha256_12": "bfb825c25c1f"
   },
   {
+   "file": "ANALYSIS_RULES_set_before_reading.md",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_REPL_V3_01_run/ANALYSIS_RULES_set_before_reading.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1861,
+   "sha256_12": "143e942aab59"
+  },
+  {
    "file": "ATLAS_SOURCES_SURVEY.md",
    "path": "Biological_Physics/MethylPhys/doors/ATLAS_SOURCES_SURVEY.md",
    "role": "UNDESCRIBED",
@@ -541,6 +691,15 @@
    "sha256_12": "99c833c6a386"
   },
   {
+   "file": "BANDv2_OUTCOME.md",
+   "path": "Biological_Physics/MethylPhys/doors/BANDv2_OUTCOME.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3824,
+   "sha256_12": "45f44bae812e"
+  },
+  {
    "file": "BLOOD_bundle.json",
    "path": "Biological_Physics/MethylPhys/chain/example_runs/RUN-20260926-14/BLOOD_bundle.json",
    "role": "record",
@@ -550,13 +709,31 @@
    "sha256_12": "810b6bbc1aa5"
   },
   {
+   "file": "CHAIN_FIX_CHANGES_2026-10-01.md",
+   "path": "Biological_Physics/MethylPhys/sop/audit/CHAIN_FIX_CHANGES_2026-10-01.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 7997,
+   "sha256_12": "9f02abbbb8ae"
+  },
+  {
    "file": "CHAIN_SEQUENCE.md",
    "path": "Biological_Physics/MethylPhys/doors/CHAIN_SEQUENCE.md",
    "role": "reference",
    "stage": "",
    "description": "the step order as the code calls it, derived by AST - never typed",
-   "bytes": 4590,
-   "sha256_12": "74435aff74dd"
+   "bytes": 7680,
+   "sha256_12": "48d3856f834b"
+  },
+  {
+   "file": "CHAIN_V3_ACCEPTANCE_RUN3.md",
+   "path": "Biological_Physics/MethylPhys/chain_tests/CHAIN_V3_ACCEPTANCE_RUN3.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1754,
+   "sha256_12": "587e14350192"
   },
   {
    "file": "CLASS_ASSIGNMENT_RULE_DRAFT.md",
@@ -564,8 +741,8 @@
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 7444,
-   "sha256_12": "8ef104c8d586"
+   "bytes": 7700,
+   "sha256_12": "5d9efa6be9dc"
   },
   {
    "file": "CLASS_HISTORY.md",
@@ -573,8 +750,8 @@
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 10749,
-   "sha256_12": "90c9b22e62a6"
+   "bytes": 10943,
+   "sha256_12": "4fc6a53a21f0"
   },
   {
    "file": "CLASS_USE_INVENTORY.md",
@@ -582,17 +759,17 @@
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 4477,
-   "sha256_12": "5839f42eddeb"
+   "bytes": 4505,
+   "sha256_12": "2628f95af3e8"
   },
   {
-   "file": "COMMUNICATION.md",
-   "path": "Biological_Physics/MethylPhys/atlas/v2/COMMUNICATION.md",
+   "file": "COMMANDS.md",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_REPL_V3_01_run/COMMANDS.md",
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 286683,
-   "sha256_12": "ddd2f6ddc345"
+   "bytes": 4340,
+   "sha256_12": "ade0ae70a9a0"
   },
   {
    "file": "DECISIONS.md",
@@ -611,6 +788,132 @@
    "description": "the four causes behind Breast reading 0.000 in breast tissue and what was changed, each measured before it was made",
    "bytes": 5132,
    "sha256_12": "4cdcb898a8bf"
+  },
+  {
+   "file": "DEV_CHAIN_V3_RUN2.md",
+   "path": "Biological_Physics/MethylPhys/doors/DEV_CHAIN_V3_RUN2.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1925,
+   "sha256_12": "eada16a0da30"
+  },
+  {
+   "file": "DEV_CHAIN_V3_RUN3.md",
+   "path": "Biological_Physics/MethylPhys/doors/DEV_CHAIN_V3_RUN3.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1982,
+   "sha256_12": "3012d41357d1"
+  },
+  {
+   "file": "DEV_COLON_BLOCKS_02.md",
+   "path": "Biological_Physics/MethylPhys/doors/DEV_COLON_BLOCKS_02.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1591,
+   "sha256_12": "7a7b2312172e"
+  },
+  {
+   "file": "DEV_LOWFRAC_01_OUTCOME.md",
+   "path": "Biological_Physics/MethylPhys/doors/DEV_LOWFRAC_01_OUTCOME.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1773,
+   "sha256_12": "2d2e3ca94169"
+  },
+  {
+   "file": "DEV_MOLECULE_COLON_01.md",
+   "path": "Biological_Physics/MethylPhys/doors/DEV_MOLECULE_COLON_01.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2784,
+   "sha256_12": "eb38154e300a"
+  },
+  {
+   "file": "DEV_NOISE_01_OUTCOME.md",
+   "path": "Biological_Physics/MethylPhys/doors/DEV_NOISE_01_OUTCOME.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1541,
+   "sha256_12": "9c5c8d4a1d11"
+  },
+  {
+   "file": "DEV_NOISE_02_OUTCOME.md",
+   "path": "Biological_Physics/MethylPhys/doors/DEV_NOISE_02_OUTCOME.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2048,
+   "sha256_12": "9af44e07f8a4"
+  },
+  {
+   "file": "DEV_REPL_V3_01.md",
+   "path": "Biological_Physics/MethylPhys/doors/DEV_REPL_V3_01.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 4379,
+   "sha256_12": "f7cc08ad2f3d"
+  },
+  {
+   "file": "DEV_REPL_V3_01_PLAN.md",
+   "path": "Biological_Physics/MethylPhys/doors/DEV_REPL_V3_01_PLAN.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1595,
+   "sha256_12": "2e9bb828a0af"
+  },
+  {
+   "file": "DEV_SELFTARE_01.md",
+   "path": "Biological_Physics/MethylPhys/doors/DEV_SELFTARE_01.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 9493,
+   "sha256_12": "17e088096b99"
+  },
+  {
+   "file": "DEV_SPECIES_AGEING_01.md",
+   "path": "Biological_Physics/MethylPhys/doors/DEV_SPECIES_AGEING_01.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 21963,
+   "sha256_12": "778b9a113a26"
+  },
+  {
+   "file": "DEV_STOOL_01_OUTCOME.md",
+   "path": "Biological_Physics/MethylPhys/doors/DEV_STOOL_01_OUTCOME.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1876,
+   "sha256_12": "92640297e364"
+  },
+  {
+   "file": "DEV_TARE_02_OUTCOME.md",
+   "path": "Biological_Physics/MethylPhys/doors/DEV_TARE_02_OUTCOME.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1593,
+   "sha256_12": "0153b2d39dca"
+  },
+  {
+   "file": "DIAG_450K_01_OUTCOME.md",
+   "path": "Biological_Physics/MethylPhys/doors/DIAG_450K_01_OUTCOME.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1887,
+   "sha256_12": "24b8f440ce17"
   },
   {
    "file": "ENHANCEMENTS.md",
@@ -658,6 +961,15 @@
    "sha256_12": "277ac39c03b0"
   },
   {
+   "file": "IAMA_FLOOR_COMPARISON.md",
+   "path": "Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2704,
+   "sha256_12": "00fa030f2320"
+  },
+  {
    "file": "IAMAtlas_FLATNESS_LESSON_v1.md",
    "path": "Biological_Physics/MethylPhys/atlas/v2/IAMAtlas_FLATNESS_LESSON_v1.md",
    "role": "UNDESCRIBED",
@@ -665,6 +977,24 @@
    "description": "",
    "bytes": 10159,
    "sha256_12": "b8e556ec97b3"
+  },
+  {
+   "file": "LABZERO01_OUTCOME.md",
+   "path": "Biological_Physics/MethylPhys/doors/LABZERO01_OUTCOME.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2780,
+   "sha256_12": "9ab8b41df362"
+  },
+  {
+   "file": "LABZERO02_OUTCOME.md",
+   "path": "Biological_Physics/MethylPhys/doors/LABZERO02_OUTCOME.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3585,
+   "sha256_12": "e8a495cc9807"
   },
   {
    "file": "LESSONS.md",
@@ -676,13 +1006,49 @@
    "sha256_12": "61fc60c6560e"
   },
   {
+   "file": "MethylPhys_CPG_SOP_v3.md",
+   "path": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 22530,
+   "sha256_12": "e8d76ead9650"
+  },
+  {
+   "file": "MethylPhys_CPG_SOP_v3_full.md",
+   "path": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 42459,
+   "sha256_12": "d2f46cc9c54b"
+  },
+  {
+   "file": "OM_MIGRATION_CHECK_2026-10-01.md",
+   "path": "Biological_Physics/MethylPhys/sop/audit/OM_MIGRATION_CHECK_2026-10-01.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 11450,
+   "sha256_12": "211da958e425"
+  },
+  {
+   "file": "OM_v3_neutrophil_chain.md",
+   "path": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2042,
+   "sha256_12": "42ff00cb8c6d"
+  },
+  {
    "file": "PART_II_CHAPTER_NOTES.md",
    "path": "Biological_Physics/MethylPhys/manual/PART_II_CHAPTER_NOTES.md",
    "role": "record",
    "stage": "",
    "description": "the outline for Part II, written after the instrument is commissioned",
-   "bytes": 13206,
-   "sha256_12": "2b9c435822a6"
+   "bytes": 13249,
+   "sha256_12": "0ecc3a3fcaf1"
   },
   {
    "file": "PERCELL_STANDARD_REZERO_2026-09-27.md",
@@ -694,6 +1060,24 @@
    "sha256_12": "5de84a202ea1"
   },
   {
+   "file": "PHASE1_OUTCOME.md",
+   "path": "Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 8048,
+   "sha256_12": "4eb54b56e549"
+  },
+  {
+   "file": "PHASE1c_OUTCOME.md",
+   "path": "Biological_Physics/MethylPhys/doors/PHASE1c_OUTCOME.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 5489,
+   "sha256_12": "7e184a438c77"
+  },
+  {
    "file": "PHYSICS_LEUKOCYTE_GAUGE.md",
    "path": "Biological_Physics/MethylPhys/doors/PHYSICS_LEUKOCYTE_GAUGE.md",
    "role": "UNDESCRIBED",
@@ -701,6 +1085,15 @@
    "description": "",
    "bytes": 5848,
    "sha256_12": "23990b14f4cd"
+  },
+  {
+   "file": "RAW_tar_record.json",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_REPL_V3_01_run/RAW_tar_record.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 6411,
+   "sha256_12": "74035546328d"
   },
   {
    "file": "README_CPG_Plates.md",
@@ -726,8 +1119,8 @@
    "role": "reference",
    "stage": "",
    "description": "the report described tab by tab with a figure of each, generated from a finished report",
-   "bytes": 11817,
-   "sha256_12": "912f82b18151"
+   "bytes": 11799,
+   "sha256_12": "23c22cee7f5e"
   },
   {
    "file": "REPO_INVENTORY.md",
@@ -736,16 +1129,7 @@
    "stage": "",
    "description": "what is in the repository, measured, and what should not be",
    "bytes": 2917,
-   "sha256_12": "0dfbd1d2547b"
-  },
-  {
-   "file": "REPRODUCTION.md",
-   "path": "Biological_Physics/MethylPhys/hmin_calibration/reproduction/REPRODUCTION.md",
-   "role": "reference",
-   "stage": "",
-   "description": "how to reproduce every class floor in about fifteen seconds",
-   "bytes": 2070,
-   "sha256_12": "72041403f0b3"
+   "sha256_12": "65489f7cad8c"
   },
   {
    "file": "REVIEWER_MANIFEST.md",
@@ -753,8 +1137,8 @@
    "role": "reference",
    "stage": "",
    "description": "the reviewer download list: every file a referee could want, resolved from the tree",
-   "bytes": 32400,
-   "sha256_12": "a5ae39932650"
+   "bytes": 32605,
+   "sha256_12": "682f73dffa78"
   },
   {
    "file": "RUN.md",
@@ -784,13 +1168,31 @@
    "sha256_12": "4e211268e02a"
   },
   {
+   "file": "SOP_AUDIT_2026-10-01.md",
+   "path": "Biological_Physics/MethylPhys/sop/audit/SOP_AUDIT_2026-10-01.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 17746,
+   "sha256_12": "903bee159f2b"
+  },
+  {
    "file": "START_HERE.md",
    "path": "Biological_Physics/MethylPhys/START_HERE.md",
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 2424,
-   "sha256_12": "2ebd51921165"
+   "bytes": 389,
+   "sha256_12": "f281932c9da7"
+  },
+  {
+   "file": "WHOLE_BLOOD_COMPOSITION_DEV.md",
+   "path": "Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1709,
+   "sha256_12": "32b9526912a2"
   },
   {
    "file": "add_doc_links.py",
@@ -816,8 +1218,8 @@
    "role": "interface",
    "stage": "",
    "description": "appendix content for the manual",
-   "bytes": 30613,
-   "sha256_12": "c6ecf43ec767"
+   "bytes": 30631,
+   "sha256_12": "3d5f7c95d433"
   },
   {
    "file": "atlas_v2_gate.json",
@@ -847,6 +1249,60 @@
    "sha256_12": "be83f455def4"
   },
   {
+   "file": "bj_series_readings.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/bj_series_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 9744,
+   "sha256_12": "a875cd5f7758"
+  },
+  {
+   "file": "blocks_lowerGI_all.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/blocks_lowerGI_all.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 504,
+   "sha256_12": "86bf2816efec"
+  },
+  {
+   "file": "blocks_lowerGI_stool.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/blocks_lowerGI_stool.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3198,
+   "sha256_12": "0e5ef1cad053"
+  },
+  {
+   "file": "blood_comp.py",
+   "path": "Biological_Physics/MethylPhys/chain_tests/blood_comp.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 5177,
+   "sha256_12": "1e5eae27fd3b"
+  },
+  {
+   "file": "blood_comp_mixtures.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/blood_comp_mixtures.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2545,
+   "sha256_12": "ab776375e18a"
+  },
+  {
+   "file": "blood_composition_EPIC_v1.json",
+   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 572625,
+   "sha256_12": "5616b95e2095"
+  },
+  {
    "file": "bm_test.py",
    "path": "Biological_Physics/MethylPhys/atlas/v2/postbuild/scripts/bm_test.py",
    "role": "UNDESCRIBED",
@@ -870,8 +1326,8 @@
    "role": "guard",
    "stage": "",
    "description": "derives the step order from the code by AST, so a document cannot claim a stage the code does not call",
-   "bytes": 13210,
-   "sha256_12": "1a283dc05c97"
+   "bytes": 16325,
+   "sha256_12": "f4a67cb95097"
   },
   {
    "file": "build_folder_readmes.py",
@@ -883,22 +1339,13 @@
    "sha256_12": "8d3a324f610a"
   },
   {
-   "file": "build_mphys_issue002.py",
-   "path": "Biological_Physics/RETIRED_2026-10/MethylPhys/papers/build_mphys_issue002.py",
-   "role": "superseded",
-   "stage": "",
-   "description": "builds the earlier edition, kept so it still reproduces exactly",
-   "bytes": 713356,
-   "sha256_12": "ffe9a0903a61"
-  },
-  {
    "file": "build_operations_manual.py",
    "path": "Biological_Physics/MethylPhys/manual/build_operations_manual.py",
    "role": "interface",
    "stage": "",
    "description": "builds the operations manual; run through build_om.sh so the contents page carries measured page numbers",
-   "bytes": 128578,
-   "sha256_12": "a0577e6d4bbb"
+   "bytes": 128631,
+   "sha256_12": "3b14689e3e40"
   },
   {
    "file": "build_report_tab_reference.py",
@@ -915,8 +1362,8 @@
    "role": "guard",
    "stage": "",
    "description": "regenerates the reviewer download list, resolving every path by basename from the tree",
-   "bytes": 13966,
-   "sha256_12": "99b86748771d"
+   "bytes": 13970,
+   "sha256_12": "ce480c871740"
   },
   {
    "file": "build_run_index.py",
@@ -928,6 +1375,24 @@
    "sha256_12": "fb5522511425"
   },
   {
+   "file": "cd_neut.csv",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 10674,
+   "sha256_12": "1650c3c5410f"
+  },
+  {
+   "file": "cd_neut.py",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3363,
+   "sha256_12": "a032f1b282e0"
+  },
+  {
    "file": "cell_facts_v0.csv",
    "path": "Biological_Physics/MethylPhys/atlas/class_assignment/cell_facts_v0.csv",
    "role": "UNDESCRIBED",
@@ -935,6 +1400,69 @@
    "description": "",
    "bytes": 5768,
    "sha256_12": "0474a0b182e4"
+  },
+  {
+   "file": "chain_acceptance.csv",
+   "path": "Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 4049,
+   "sha256_12": "eb94edf16985"
+  },
+  {
+   "file": "chain_acceptance_tare_median_2026-10-02.csv",
+   "path": "Biological_Physics/MethylPhys/chain_tests/chain_acceptance_tare_median_2026-10-02.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3045,
+   "sha256_12": "e8ddaf51cdda"
+  },
+  {
+   "file": "chain_batch.py",
+   "path": "Biological_Physics/MethylPhys/chain_tests/chain_batch.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 5814,
+   "sha256_12": "4b13eca21921"
+  },
+  {
+   "file": "chain_v3_dev2_readings.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/chain_v3_dev2_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 325570,
+   "sha256_12": "048140917eb1"
+  },
+  {
+   "file": "chain_v3_dev3_readings.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 369064,
+   "sha256_12": "78434fc1d40b"
+  },
+  {
+   "file": "charr_readings.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/charr_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 9604,
+   "sha256_12": "7f540d29716d"
+  },
+  {
+   "file": "charr_score.json",
+   "path": "Biological_Physics/MethylPhys/doors/data/charr_score.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 934,
+   "sha256_12": "c27e1e884999"
   },
   {
    "file": "check3.py",
@@ -969,8 +1497,8 @@
    "role": "record",
    "stage": "",
    "description": "the claims the scan found, with their evidence",
-   "bytes": 3040,
-   "sha256_12": "9a1659836721"
+   "bytes": 3041,
+   "sha256_12": "c533e9c8b7c2"
   },
   {
    "file": "class_guard.py",
@@ -978,8 +1506,8 @@
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 5868,
-   "sha256_12": "e2d9e5becde7"
+   "bytes": 5869,
+   "sha256_12": "81efd960691e"
   },
   {
    "file": "class_shared.json",
@@ -1054,6 +1582,51 @@
    "sha256_12": "0f23817ae173"
   },
   {
+   "file": "colon_blocks.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/colon_blocks.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 5279,
+   "sha256_12": "452a12befe7c"
+  },
+  {
+   "file": "colon_epi_M_blocks.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/colon_epi_M_blocks.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 115051,
+   "sha256_12": "80efa01b1be4"
+  },
+  {
+   "file": "colon_epi_M_blocks_all.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/colon_epi_M_blocks_all.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 668,
+   "sha256_12": "dcb833f642b9"
+  },
+  {
+   "file": "colon_read.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/colon_read.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 8838,
+   "sha256_12": "ee9723b21294"
+  },
+  {
+   "file": "colon_read.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/colon_read.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2999,
+   "sha256_12": "4c5c4b5d26e2"
+  },
+  {
    "file": "commission_detection_lab.py",
    "path": "Biological_Physics/MethylPhys/kit/commission_detection_lab.py",
    "role": "guard",
@@ -1061,6 +1634,15 @@
    "description": "commissions a laboratory for Stage 2d from >= 36 of its own healthy whole-blood arrays: maps them, drops any the composition guard does not verify as blood-like, writes centre/weights/line into detection_panel_v3.json; produces no reading",
    "bytes": 5867,
    "sha256_12": "f280d28f233d"
+  },
+  {
+   "file": "conductor_v3.py",
+   "path": "Biological_Physics/MethylPhys/chain/conductor_v3.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 15704,
+   "sha256_12": "dfdef09d8f9d"
   },
   {
    "file": "crossplatform_moss_vs_loyfer.csv",
@@ -1073,12 +1655,66 @@
   },
   {
    "file": "deconv_v2.py",
-   "path": "Biological_Physics/MethylPhys/atlas/v2/postbuild/scripts/deconv_v2.py",
+   "path": "Biological_Physics/MethylPhys/chain/deconv_v2.py",
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 5066,
-   "sha256_12": "3c6b0e46414d"
+   "bytes": 5541,
+   "sha256_12": "a3352e13cca3"
+  },
+  {
+   "file": "dev_repl_v3_01_readings.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/dev_repl_v3_01_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 20028,
+   "sha256_12": "eee2dfc66372"
+  },
+  {
+   "file": "dev_selftare_01.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SELFTARE_01/dev_selftare_01.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 15320,
+   "sha256_12": "29de41f0014c"
+  },
+  {
+   "file": "dev_selftare_01_inflation_curves.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SELFTARE_01/dev_selftare_01_inflation_curves.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 508575,
+   "sha256_12": "3ac3c6dc30b4"
+  },
+  {
+   "file": "dev_selftare_01_meta.json",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SELFTARE_01/dev_selftare_01_meta.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1673,
+   "sha256_12": "d002f4412437"
+  },
+  {
+   "file": "dev_selftare_01_readings.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SELFTARE_01/dev_selftare_01_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 97895,
+   "sha256_12": "06ec91979924"
+  },
+  {
+   "file": "dev_selftare_01_summary.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SELFTARE_01/dev_selftare_01_summary.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3513,
+   "sha256_12": "19a3acd660ef"
   },
   {
    "file": "disease_matching.py",
@@ -1088,6 +1724,51 @@
    "description": "Stage 8, future work for Issue 004: the one live function extracted from the retired v1 conductor",
    "bytes": 25706,
    "sha256_12": "ec5fd523f13d"
+  },
+  {
+   "file": "dnmt_arrays.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/dnmt_arrays.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3050,
+   "sha256_12": "5affcdc2e169"
+  },
+  {
+   "file": "dnmt_arrays_readings.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 7050,
+   "sha256_12": "d3754cdc6db0"
+  },
+  {
+   "file": "dnmt_b_pairs.csv",
+   "path": "Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 993,
+   "sha256_12": "9a47668c7ccf"
+  },
+  {
+   "file": "dnmt_b_readings.csv",
+   "path": "Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2739,
+   "sha256_12": "5649cc9ff8d4"
+  },
+  {
+   "file": "dnmt_b_summary.json",
+   "path": "Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_summary.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 241,
+   "sha256_12": "ae160f886553"
   },
   {
    "file": "encode_bridge_gse31848_NO_IDATS.py",
@@ -1117,22 +1798,31 @@
    "sha256_12": "60c0be0e5823"
   },
   {
-   "file": "g003_mcmc_framework.py",
-   "path": "Biological_Physics/MethylPhys/hmin_calibration/g003_mcmc_framework.py",
-   "role": "reference",
+   "file": "freeze_v13.py",
+   "path": "Biological_Physics/MethylPhys/chain_tests/freeze_v13.py",
+   "role": "UNDESCRIBED",
    "stage": "",
-   "description": "the framework the floor calibration runs on",
-   "bytes": 21242,
-   "sha256_12": "ba8f9f3b1979"
+   "description": "",
+   "bytes": 4530,
+   "sha256_12": "20fdc7af8444"
   },
   {
-   "file": "om_lib.py",
-   "path": "Biological_Physics/MethylPhys/manual/om_lib.py",
-   "role": "interface",
+   "file": "groups.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SPECIES_AGEING_01/groups.csv",
+   "role": "UNDESCRIBED",
    "stage": "",
-   "description": "the shared renderer both editions of the manual are built with",
-   "bytes": 781435,
-   "sha256_12": "5387db0194ca"
+   "description": "",
+   "bytes": 360312,
+   "sha256_12": "b9494761729d"
+  },
+  {
+   "file": "groups_full.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SPECIES_AGEING_01/groups_full.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1705206,
+   "sha256_12": "6b77f9d11963"
   },
   {
    "file": "gse116754_es_manifest.csv",
@@ -1142,6 +1832,15 @@
    "description": "",
    "bytes": 420,
    "sha256_12": "e5274be109d0"
+  },
+  {
+   "file": "gse135205_design.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/gse135205_design.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2651,
+   "sha256_12": "33d6f1fa4d10"
   },
   {
    "file": "gse262275_liver_cells_PARTIAL_COVERAGE.py",
@@ -1180,6 +1879,33 @@
    "sha256_12": "9ee7fb9592d3"
   },
   {
+   "file": "iama_floor.py",
+   "path": "Biological_Physics/MethylPhys/chain_tests/iama_floor.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 4646,
+   "sha256_12": "0256ff9a2d4e"
+  },
+  {
+   "file": "iama_floor_granulocytes.csv",
+   "path": "Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1108,
+   "sha256_12": "e3b7f8721be6"
+  },
+  {
+   "file": "iama_positions_v1.json",
+   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1039,
+   "sha256_12": "0bfaefa27273"
+  },
+  {
    "file": "iamatlas_celltype_markers_v0_3_TRIAL.json",
    "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_3_TRIAL.json",
    "role": "reference",
@@ -1198,6 +1924,33 @@
    "sha256_12": "e24380624525"
   },
   {
+   "file": "immune_marker_probes.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SPECIES_AGEING_01/immune_marker_probes.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 5467,
+   "sha256_12": "1efea4d41fea"
+  },
+  {
+   "file": "imr90_channels.csv",
+   "path": "Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1265,
+   "sha256_12": "6bf1aa7c82c3"
+  },
+  {
+   "file": "imr90_channels.py",
+   "path": "Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 4294,
+   "sha256_12": "337d5a8e8c0d"
+  },
+  {
    "file": "intake_thresholds_v1.json",
    "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Intake/intake_thresholds_v1.json",
    "role": "UNDESCRIBED",
@@ -1212,8 +1965,8 @@
    "role": "reference",
    "stage": "",
    "description": "the manual's introduction, generated from the report's Story and Sky tabs so the two cannot drift",
-   "bytes": 23079,
-   "sha256_12": "d39a50a25e57"
+   "bytes": 23072,
+   "sha256_12": "c6bcba0ee0da"
   },
   {
    "file": "label_to_concept_v0.json",
@@ -1243,6 +1996,24 @@
    "sha256_12": "8822136a4dda"
   },
   {
+   "file": "lowfrac.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/lowfrac.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3263,
+   "sha256_12": "53360f5d51b1"
+  },
+  {
+   "file": "lowfrac_readings.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 77181,
+   "sha256_12": "fd76dbc9897e"
+  },
+  {
    "file": "loyfer2023_extract_report.json",
    "path": "Biological_Physics/MethylPhys/atlas/sources/loyfer2023_extract_report.json",
    "role": "UNDESCRIBED",
@@ -1261,13 +2032,76 @@
    "sha256_12": "a413a3d934f9"
   },
   {
+   "file": "make_cd_fig.py",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/sky/make_cd_fig.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1637,
+   "sha256_12": "5c95bf43d77a"
+  },
+  {
    "file": "make_figures.py",
    "path": "Biological_Physics/MethylPhys/papers/make_figures.py",
    "role": "record",
    "stage": "",
    "description": "builds the figures for the papers in this folder",
-   "bytes": 20655,
-   "sha256_12": "8402a106af41"
+   "bytes": 20657,
+   "sha256_12": "07465ac0f8c5"
+  },
+  {
+   "file": "make_sky_figs.py",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/sky/make_sky_figs.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 6223,
+   "sha256_12": "27e1a1088303"
+  },
+  {
+   "file": "manifest_from_series_matrix.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_REPL_V3_01_run/manifest_from_series_matrix.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 10579,
+   "sha256_12": "141e805cab7c"
+  },
+  {
+   "file": "metA_floors_v1_2_ALLCELLS_development.json",
+   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_2_ALLCELLS_development.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1769692,
+   "sha256_12": "6e4b66b7541d"
+  },
+  {
+   "file": "metA_floors_v1_3.json",
+   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 85068,
+   "sha256_12": "2f64f8846f8a"
+  },
+  {
+   "file": "metA_floors_v1_3_loo.csv",
+   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 439,
+   "sha256_12": "73f090a7004b"
+  },
+  {
+   "file": "methow_run_map.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/methow_run_map.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 7855,
+   "sha256_12": "11f18e121692"
   },
   {
    "file": "methylphys_v2.py",
@@ -1297,13 +2131,85 @@
    "sha256_12": "bb3d5cfb5f08"
   },
   {
+   "file": "neut_ref.py",
+   "path": "Biological_Physics/MethylPhys/chain_tests/neut_ref.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 5285,
+   "sha256_12": "c0eeb0cbb6d2"
+  },
+  {
+   "file": "neut_test_T1T3T4_readings.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 304986,
+   "sha256_12": "50a614921d4b"
+  },
+  {
+   "file": "neutrophil_reference_v1_1.json",
+   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 944048,
+   "sha256_12": "a03531f07369"
+  },
+  {
+   "file": "noise_gate_EPIC_v1.json",
+   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 857,
+   "sha256_12": "825f64f7b6c7"
+  },
+  {
+   "file": "noise_index.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/noise_index.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3028,
+   "sha256_12": "0df9afcbc410"
+  },
+  {
+   "file": "noise_sites_EPIC_v1.json",
+   "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 679555,
+   "sha256_12": "353156178326"
+  },
+  {
+   "file": "noise_t1t4.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/noise_t1t4.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 21281,
+   "sha256_12": "89e3e5f05c54"
+  },
+  {
    "file": "om_data.py",
    "path": "Biological_Physics/MethylPhys/manual/om_data.py",
    "role": "interface",
    "stage": "",
    "description": "the manual's data module: every constant, table and section text it renders",
-   "bytes": 231750,
-   "sha256_12": "e14465c181d7"
+   "bytes": 232164,
+   "sha256_12": "8a525325165e"
+  },
+  {
+   "file": "om_lib.py",
+   "path": "Biological_Physics/MethylPhys/manual/om_lib.py",
+   "role": "interface",
+   "stage": "",
+   "description": "the shared renderer both editions of the manual are built with",
+   "bytes": 737504,
+   "sha256_12": "1c8cbd606ddf"
   },
   {
    "file": "om_part3.py",
@@ -1311,8 +2217,62 @@
    "role": "interface",
    "stage": "",
    "description": "the manual's Part III sections",
-   "bytes": 56653,
-   "sha256_12": "cc733678fccd"
+   "bytes": 55858,
+   "sha256_12": "85c36f42a9b1"
+  },
+  {
+   "file": "pass1.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_REPL_V3_01_run/pass1.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 17935,
+   "sha256_12": "68cacf76a7e9"
+  },
+  {
+   "file": "pass2.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_REPL_V3_01_run/pass2.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 14679,
+   "sha256_12": "42b42ba9c0a2"
+  },
+  {
+   "file": "per_animal_readings.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SPECIES_AGEING_01/per_animal_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1505215,
+   "sha256_12": "7b84c78778d9"
+  },
+  {
+   "file": "per_species_summary.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SPECIES_AGEING_01/per_species_summary.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 30383,
+   "sha256_12": "23baf5ec3bfa"
+  },
+  {
+   "file": "probe_level_confounds.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SPECIES_AGEING_01/scripts/probe_level_confounds.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3916,
+   "sha256_12": "4bfc01159b49"
+  },
+  {
+   "file": "proc_repl_v3_01_box_readings.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_REPL_V3_01_run/proc_repl_v3_01_box_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 38334,
+   "sha256_12": "6f683ebe59fa"
   },
   {
    "file": "prof_diag.py",
@@ -1339,25 +2299,142 @@
    "stage": "",
    "description": "the gate's last result, printed on every report's Run tab",
    "bytes": 1995,
-   "sha256_12": "f5459251d9e3"
+   "sha256_12": "8515dd464e3d"
   },
   {
-   "file": "reference_cells_37.csv",
-   "path": "Biological_Physics/MethylPhys/hmin_calibration/reference_cells_37.csv",
-   "role": "reference",
-   "stage": "",
-   "description": "the 37 published reference methylomes the class floors were fitted on",
-   "bytes": 2018,
-   "sha256_12": "6d8c593ebc2b"
-  },
-  {
-   "file": "reference_cells_37_provenance_check.csv",
-   "path": "Biological_Physics/MethylPhys/hmin_calibration/provenance_check/reference_cells_37_provenance_check.csv",
+   "file": "reference_floors_v1.json",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/reference_floors_v1.json",
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 3315,
-   "sha256_12": "6d2778d93a34"
+   "bytes": 18126,
+   "sha256_12": "854d142d4f6b"
+  },
+  {
+   "file": "refloor.py",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/refloor.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 8002,
+   "sha256_12": "6e06deead89a"
+  },
+  {
+   "file": "refloor2.py",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/refloor2.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 4449,
+   "sha256_12": "4b7bc8caf690"
+  },
+  {
+   "file": "refloor2_snr.csv",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/refloor2_snr.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2374,
+   "sha256_12": "c94483eb95d2"
+  },
+  {
+   "file": "refloor3.py",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/refloor3.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 4652,
+   "sha256_12": "d550af23d3d0"
+  },
+  {
+   "file": "refloor3_loo.csv",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/refloor3_loo.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 337832,
+   "sha256_12": "42ba7e4bad31"
+  },
+  {
+   "file": "refloor3_snr.csv",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/refloor3_snr.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 4636,
+   "sha256_12": "f4165b87a834"
+  },
+  {
+   "file": "refloor4.py",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/refloor4.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 4955,
+   "sha256_12": "f6b2fdf0ae27"
+  },
+  {
+   "file": "refloor4_loo.csv",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/refloor4_loo.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1308578,
+   "sha256_12": "a45866435651"
+  },
+  {
+   "file": "refloor4_sweep.csv",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/refloor4_sweep.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 6433,
+   "sha256_12": "5b5bbc0794b7"
+  },
+  {
+   "file": "refloor_crossplatform.csv",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/refloor_crossplatform.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2864,
+   "sha256_12": "91db86d2662f"
+  },
+  {
+   "file": "refloor_loo.csv",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/refloor_loo.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 125930,
+   "sha256_12": "6654cfd7ff47"
+  },
+  {
+   "file": "refloor_snr.csv",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/refloor_snr.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1476,
+   "sha256_12": "871051563061"
+  },
+  {
+   "file": "refloor_specimens.csv",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/refloor_specimens.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 161133,
+   "sha256_12": "33c2c6b0ae67"
+  },
+  {
+   "file": "refloor_table.csv",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/refloor_table.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 21608,
+   "sha256_12": "86cef9e42969"
   },
   {
    "file": "report_tabs.json",
@@ -1365,17 +2442,44 @@
    "role": "reference",
    "stage": "",
    "description": "the tab descriptions as data, read by both the SOP generator and the manual build",
-   "bytes": 19794,
-   "sha256_12": "bfb16fba827e"
+   "bytes": 19732,
+   "sha256_12": "9e8f30e11eee"
   },
   {
-   "file": "roadmap_wgbs_means.json",
-   "path": "Biological_Physics/MethylPhys/hmin_calibration/provenance_check/roadmap_wgbs_means.json",
+   "file": "report_v3.py",
+   "path": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v3.py",
    "role": "UNDESCRIBED",
    "stage": "",
    "description": "",
-   "bytes": 927,
-   "sha256_12": "dfafd2c0f4ab"
+   "bytes": 5775,
+   "sha256_12": "2bd6f7c0c87c"
+  },
+  {
+   "file": "rimouski_design.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/rimouski_design.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 29831,
+   "sha256_12": "2ac284ecec70"
+  },
+  {
+   "file": "rimouski_readings.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 16519,
+   "sha256_12": "88e20a721616"
+  },
+  {
+   "file": "rimouski_score.json",
+   "path": "Biological_Physics/MethylPhys/doors/data/rimouski_score.json",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1142,
+   "sha256_12": "16a84ea63108"
   },
   {
    "file": "roster.csv",
@@ -1414,6 +2518,33 @@
    "sha256_12": "909475ca6de5"
   },
   {
+   "file": "run_chain_acceptance.py",
+   "path": "Biological_Physics/MethylPhys/chain_tests/run_chain_acceptance.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 4772,
+   "sha256_12": "efa508096fc5"
+  },
+  {
+   "file": "run_proc_repl_v3_01.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_REPL_V3_01_run/run_proc_repl_v3_01.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 10883,
+   "sha256_12": "93cb51892abe"
+  },
+  {
+   "file": "s3sync.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_REPL_V3_01_run/s3sync.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2306,
+   "sha256_12": "ea0ca39e339f"
+  },
+  {
    "file": "salas_blood_manifest.csv",
    "path": "Biological_Physics/MethylPhys/atlas/v2/inputs/salas_blood_manifest.csv",
    "role": "UNDESCRIBED",
@@ -1441,6 +2572,105 @@
    "sha256_12": "2018856c04cf"
   },
   {
+   "file": "salmon_readings.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/salmon_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 10560,
+   "sha256_12": "bd00fb3b8e53"
+  },
+  {
+   "file": "score_charr.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/score_charr.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3742,
+   "sha256_12": "7c67645ecebc"
+  },
+  {
+   "file": "score_dnmt_b.py",
+   "path": "Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/score_dnmt_b.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2873,
+   "sha256_12": "4a8ccccbede8"
+  },
+  {
+   "file": "score_rimouski.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/score_rimouski.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3806,
+   "sha256_12": "2580c1f28d21"
+  },
+  {
+   "file": "score_test.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/score_test.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 38976,
+   "sha256_12": "313fdf8a2ca7"
+  },
+  {
+   "file": "score_tumour.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/score_tumour.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2762,
+   "sha256_12": "9cb670b87020"
+  },
+  {
+   "file": "selfconsist.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/selfconsist.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3696,
+   "sha256_12": "5103db7b214f"
+  },
+  {
+   "file": "selfconsist.py",
+   "path": "Biological_Physics/MethylPhys/chain_tests/selfconsist.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2671,
+   "sha256_12": "72f000ee8cd2"
+  },
+  {
+   "file": "selftare_calibrate.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SELFTARE_01/box/selftare_calibrate.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2586,
+   "sha256_12": "0b5b028d1357"
+  },
+  {
+   "file": "selftare_intensity.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SELFTARE_01/box/selftare_intensity.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 3086,
+   "sha256_12": "88344e5ff12b"
+  },
+  {
+   "file": "selftare_subset.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SELFTARE_01/box/selftare_subset.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1769,
+   "sha256_12": "7b8409adaa47"
+  },
+  {
    "file": "serial_mode.py",
    "path": "Biological_Physics/MethylPhys/chain/serial_mode.py",
    "role": "UNDESCRIBED",
@@ -1450,13 +2680,40 @@
    "sha256_12": "8e97e9a040e0"
   },
   {
+   "file": "sky_neut6.py",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 5395,
+   "sha256_12": "cf66aaf09d83"
+  },
+  {
+   "file": "sky_neut6_maps.npz",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_maps.npz",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 7206042,
+   "sha256_12": "5ed840b1709a"
+  },
+  {
+   "file": "sky_neut6_stats.csv",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2350,
+   "sha256_12": "9647bc145674"
+  },
+  {
    "file": "sop_repoint.py",
    "path": "Biological_Physics/MethylPhys/sop/sop_repoint.py",
    "role": "guard",
    "stage": "",
    "description": "regenerates the chain-of-custody procedure: addresses, the report tab section, and the header",
-   "bytes": 25446,
-   "sha256_12": "62e3ecb3afd8"
+   "bytes": 25447,
+   "sha256_12": "882433f99e41"
   },
   {
    "file": "sop_stage_links.py",
@@ -1486,6 +2743,51 @@
    "sha256_12": "bc7e73468289"
   },
   {
+   "file": "species_ageing_readings.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SPECIES_AGEING_01/scripts/species_ageing_readings.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 17102,
+   "sha256_12": "f66ee9931fd6"
+  },
+  {
+   "file": "species_qualification.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/DEV_SPECIES_AGEING_01/species_qualification.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 12179,
+   "sha256_12": "63194245b73a"
+  },
+  {
+   "file": "stage_a_composition_v2.py",
+   "path": "Biological_Physics/MethylPhys/chain/stage_a_composition_v2.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 1402,
+   "sha256_12": "fef8742ff8c9"
+  },
+  {
+   "file": "stage_m_met_a.py",
+   "path": "Biological_Physics/MethylPhys/chain/stage_m_met_a.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 4839,
+   "sha256_12": "0dd752575c66"
+  },
+  {
+   "file": "stage_q_iam_a.py",
+   "path": "Biological_Physics/MethylPhys/chain/stage_q_iam_a.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 5892,
+   "sha256_12": "757eb386a01d"
+  },
+  {
    "file": "sweep.py",
    "path": "Biological_Physics/MethylPhys/atlas/v2/postbuild/scripts/sweep.py",
    "role": "UNDESCRIBED",
@@ -1513,6 +2815,15 @@
    "sha256_12": "7528e76df898"
   },
   {
+   "file": "t2_diag.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/t2_diag.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 6704,
+   "sha256_12": "85969ea5288a"
+  },
+  {
    "file": "tian2023_extract_report.json",
    "path": "Biological_Physics/MethylPhys/atlas/sources/tian2023_extract_report.json",
    "role": "UNDESCRIBED",
@@ -1527,8 +2838,44 @@
    "role": "interface",
    "stage": "",
    "description": "page numbers measured in the first build pass, read by the second",
-   "bytes": 1544,
-   "sha256_12": "81bbe64de42d"
+   "bytes": 1149,
+   "sha256_12": "a60cf6c769df"
+  },
+  {
+   "file": "tumour_pairs.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/tumour_pairs.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2504,
+   "sha256_12": "dc006216bd27"
+  },
+  {
+   "file": "tumour_raised_tiles.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/tumour_raised_tiles.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 308,
+   "sha256_12": "2cb199944bbe"
+  },
+  {
+   "file": "tumour_readings.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/tumour_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 4558,
+   "sha256_12": "4f9fd5cd5c9b"
+  },
+  {
+   "file": "tumour_scan.py",
+   "path": "Biological_Physics/MethylPhys/doors/data/tumour_scan.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 4263,
+   "sha256_12": "4409ca9ba8d9"
   },
   {
    "file": "twin_null_splithalf.csv",
@@ -1574,6 +2921,15 @@
    "description": "",
    "bytes": 3514,
    "sha256_12": "a821ca5747b3"
+  },
+  {
+   "file": "v12_diag_cells.csv",
+   "path": "Biological_Physics/MethylPhys/doors/data/v12_diag_cells.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 4912,
+   "sha256_12": "cfc2bad13675"
   },
   {
    "file": "v12_prod.py",
@@ -1635,8 +2991,26 @@
    "role": "record",
    "stage": "",
    "description": "the validation index as data",
-   "bytes": 82143,
-   "sha256_12": "676cc035232d"
+   "bytes": 83565,
+   "sha256_12": "97911fd2cb9e"
+  },
+  {
+   "file": "wb_neut.py",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/wb_neut.py",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 5809,
+   "sha256_12": "e47b45c82430"
+  },
+  {
+   "file": "wb_neut_readings.csv",
+   "path": "Biological_Physics/MethylPhys/reference_floors_v1/wb_neut_readings.csv",
+   "role": "UNDESCRIBED",
+   "stage": "",
+   "description": "",
+   "bytes": 2287,
+   "sha256_12": "8e1cba351ae7"
   },
   {
    "file": "x_gse262275_liver_cells_report.json",
@@ -1671,8 +3045,8 @@
    "role": "reference",
    "stage": "atlas build",
    "description": "What the per-class archives contain and how to unpack them.",
-   "bytes": 15694,
-   "sha256_12": "527a61b608eb"
+   "bytes": 15726,
+   "sha256_12": "a64e4f76f1c1"
   },
   {
    "file": "compact_atlas.py",
@@ -1792,76 +3166,13 @@
    "sha256_12": "02ff2cd583db"
   },
   {
-   "file": "mphys_bootstrap_comparison.py",
-   "path": "Biological_Physics/MethylPhys/hmin_calibration/mphys_bootstrap_comparison.py",
-   "role": "reference",
-   "stage": "calibration",
-   "description": "The leave-one-out bootstrap cross-check of the floors. Its function was rerun on the eight methylation floors in September (PROC-HMIN-BOOT-01); every frozen floor fell inside its interval.",
-   "bytes": 13594,
-   "sha256_12": "93d7f884d15b"
-  },
-  {
-   "file": "mphys_mcmc_e_a_bio.py",
-   "path": "Biological_Physics/MethylPhys/hmin_calibration/mphys_mcmc_e_a_bio.py",
-   "role": "record",
-   "stage": "calibration",
-   "description": "CHAIN E(a_bio): an activation-function fit to published age-stratified pace-of-ageing data. Pre-atlas; record-side.",
-   "bytes": 15774,
-   "sha256_12": "7cef441f3d5b"
-  },
-  {
-   "file": "mphys_mcmc_g002.py",
-   "path": "Biological_Physics/MethylPhys/hmin_calibration/mphys_mcmc_g002.py",
-   "role": "reference",
-   "stage": "calibration",
-   "description": "CHAIN G-002: the MCMC that calibrated the eight methylation H_min floors against 37 published reference cell methylomes. This is the provenance of every floor on the report.",
-   "bytes": 24650,
-   "sha256_12": "690d244dd949"
-  },
-  {
-   "file": "mphys_mcmc_g003b.py",
-   "path": "Biological_Physics/MethylPhys/hmin_calibration/mphys_mcmc_g003b.py",
-   "role": "reference",
-   "stage": "calibration",
-   "description": "CHAIN G-003b: H_min posteriors for the four non-methylation substrates (nucleosome occupancy, fuzziness, windowed protection, fragment size).",
-   "bytes": 25448,
-   "sha256_12": "fe69e525f6ab"
-  },
-  {
-   "file": "mphys_mcmc_g008.py",
-   "path": "Biological_Physics/MethylPhys/hmin_calibration/mphys_mcmc_g008.py",
-   "role": "record",
-   "stage": "calibration",
-   "description": "CHAIN G-008: [RECORD - pre-atlas] a zero-free-parameter prediction of the A-score gap between two tissue states. Pre-atlas surface; part of the record, not a result of this chain.",
-   "bytes": 16409,
-   "sha256_12": "ea51f45509d2"
-  },
-  {
-   "file": "mphys_mcmc_nbio_ordering.py",
-   "path": "Biological_Physics/MethylPhys/hmin_calibration/mphys_mcmc_nbio_ordering.py",
-   "role": "record",
-   "stage": "calibration",
-   "description": "CHAIN n_bio: tests whether the class ordering is consistent with published respirometry. Pre-atlas; record-side.",
-   "bytes": 13359,
-   "sha256_12": "707d77db6441"
-  },
-  {
    "file": "literature_anchors.json",
    "path": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Literature_anchors_Report building/literature_anchors.json",
    "role": "reference",
    "stage": "calibration",
    "description": "[RECORD - not read by the chain] Published A-score anchors per class extracted from the April web build. Orientation values from the literature, not measurements of this chain.",
-   "bytes": 5385,
-   "sha256_12": "b78e7d190961"
-  },
-  {
-   "file": "methyl_bootstrap_PROC-HMIN-BOOT-01.json",
-   "path": "Biological_Physics/MethylPhys/hmin_calibration/methyl_bootstrap_PROC-HMIN-BOOT-01.json",
-   "role": "reference",
-   "stage": "calibration",
-   "description": "The result of that bootstrap: per class, the frozen floor beside its bootstrap interval.",
-   "bytes": 4226,
-   "sha256_12": "7e661760d839"
+   "bytes": 5386,
+   "sha256_12": "1b989375edf9"
   },
   {
    "file": "GENERATED_MANIFEST.json",
@@ -1869,8 +3180,8 @@
    "role": "guard",
    "stage": "chain",
    "description": "Written by build_all.py on every build: sha256 of every chain input and every generated document, the interpreter, and the three gate results. The record of which chain produced which documents.",
-   "bytes": 24584,
-   "sha256_12": "2bb4a175f17c"
+   "bytes": 24578,
+   "sha256_12": "624174db2836"
   },
   {
    "file": "build_all.py",
@@ -1878,8 +3189,8 @@
    "role": "guard",
    "stage": "chain",
    "description": "THE ONE COMMAND. Regenerates every document that reports the chain from the chain files, in dependency order, then gates (vocab_scan, SOP-mirror reconciliation, link_check). guarded_push.sh runs it before propagate on every push, so a hand edit to a generated document is overwritten before it can be committed.",
-   "bytes": 11014,
-   "sha256_12": "045ddea255d9"
+   "bytes": 10942,
+   "sha256_12": "3b1af3bc052b"
   },
   {
    "file": "ATLAS_READABILITY.md",
@@ -1905,8 +3216,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Dated record of changes.",
-   "bytes": 10415,
-   "sha256_12": "b01e4610b278"
+   "bytes": 10058,
+   "sha256_12": "cd3bbb06dc87"
   },
   {
    "file": "CMB_TO_METHYLOME_MAP.md",
@@ -1914,8 +3225,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The 79-row translation map from cosmology tools to methylome tools, each row scored for whether it is built, worth building, or not applicable.",
-   "bytes": 25436,
-   "sha256_12": "efc1d986e2ca"
+   "bytes": 25454,
+   "sha256_12": "5da4090a2eec"
   },
   {
    "file": "COMPLETION_SPRINT_scored.md",
@@ -1932,8 +3243,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Which component lives where.",
-   "bytes": 17784,
-   "sha256_12": "8e68a7a4eb59"
+   "bytes": 18879,
+   "sha256_12": "4066c876f69e"
   },
   {
    "file": "CPG_Lessons_Learned_2026-06-29.md",
@@ -1950,8 +3261,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The state of the work, for the next reader.",
-   "bytes": 19808,
-   "sha256_12": "918285e75408"
+   "bytes": 19811,
+   "sha256_12": "8d2189ceea73"
   },
   {
    "file": "IAMAtlas_FLATNESS_LESSON.md",
@@ -1968,8 +3279,8 @@
    "role": "guard",
    "stage": "door",
    "description": "The SOP: the procedure the chain implements, step by step. Being rewritten to the real file names.",
-   "bytes": 2019848,
-   "sha256_12": "e6769602fa7f"
+   "bytes": 2040920,
+   "sha256_12": "643c8bd46838"
   },
   {
    "file": "PER_CELL_SCORING.md",
@@ -1986,8 +3297,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Repository entry point.",
-   "bytes": 7003,
-   "sha256_12": "d2b534b60db7"
+   "bytes": 5856,
+   "sha256_12": "03d43bfea75b"
   },
   {
    "file": "README_FIRST.md",
@@ -1995,8 +3306,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Where a new reader should start.",
-   "bytes": 3542,
-   "sha256_12": "80af93a6b03d"
+   "bytes": 3574,
+   "sha256_12": "c40026c258e6"
   },
   {
    "file": "README_STATUS.md",
@@ -2031,8 +3342,8 @@
    "role": "guard",
    "stage": "door",
    "description": "Engineering log for the report and interface: what was measured while building it, what failed, and what each failure changed. Read it for the construction history; nothing in it is needed to read a result.",
-   "bytes": 95195,
-   "sha256_12": "151147a85aed"
+   "bytes": 95285,
+   "sha256_12": "4a5898b45664"
   },
   {
    "file": "RUNBOOK.md",
@@ -2040,8 +3351,8 @@
    "role": "guard",
    "stage": "door",
    "description": "How to run the chain, how to commission a laboratory, and the seven-step finding protocol.",
-   "bytes": 42989,
-   "sha256_12": "1bc411c2de8c"
+   "bytes": 43074,
+   "sha256_12": "da9f42dd59db"
   },
   {
    "file": "RUN_MANIFEST_and_README.md",
@@ -2058,8 +3369,8 @@
    "role": "record",
    "stage": "door",
    "description": "Which specimens the instrument can read, derived from the fraction rule, and the demonstration plan built on Landauer Metrology rather than on proving Landauer.",
-   "bytes": 12025,
-   "sha256_12": "6a4b7fcf87aa"
+   "bytes": 12039,
+   "sha256_12": "45d390754bea"
   },
   {
    "file": "TWO_FIT_FINDING.md",
@@ -2076,8 +3387,8 @@
    "role": "guard",
    "stage": "door",
    "description": "THE SWITCHING ORDER: one record per stage with everything that touches it clipped to it. The master cross-reference the Operations Manual prints from.",
-   "bytes": 26396,
-   "sha256_12": "6bd0869c4bf5"
+   "bytes": 26387,
+   "sha256_12": "8a8457af4749"
   },
   {
    "file": "FINDING_GSE125105_LOW_SIGNAL.md",
@@ -2094,8 +3405,8 @@
    "role": "guard",
    "stage": "doors",
    "description": "The clean ordered to-do (author, 2026-09-27): one line per item, done items come off; ENHANCEMENTS.md is the ledger.",
-   "bytes": 17411,
-   "sha256_12": "846bb58f9fe7"
+   "bytes": 17425,
+   "sha256_12": "2cb39295259c"
   },
   {
    "file": "REPORT_LINE_AUDIT_2026-09-26.md",
@@ -2103,8 +3414,8 @@
    "role": "guard",
    "stage": "doors",
    "description": "Sentence-by-sentence audit of every report tab against code, file and record (2026-09-26/27): verdict OK / FIXED / REMOVED / UNVERIFIED per line.",
-   "bytes": 17288,
-   "sha256_12": "c71995f30123"
+   "bytes": 17303,
+   "sha256_12": "aac5040f6e78"
   },
   {
    "file": "PROC_ANCHOR_01.py",
@@ -2175,8 +3486,8 @@
    "role": "guard",
    "stage": "guard",
    "description": "The derived live path: which module runs at each step, generated from cpg_conductor.run_full - propagate.py reads it to know which modules are live.",
-   "bytes": 17828,
-   "sha256_12": "746a5cf50b0d"
+   "bytes": 22343,
+   "sha256_12": "f30327f8fbff"
   },
   {
    "file": "cpg_kit.py",
@@ -2301,8 +3612,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "Generates this table by enumerating the tree, so the Chain tab cannot silently omit a file.",
-   "bytes": 46073,
-   "sha256_12": "7ea3592ba8c8"
+   "bytes": 46075,
+   "sha256_12": "39d064366989"
   },
   {
    "file": "build_methylphys.py",
@@ -2310,8 +3621,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "THIS REPORT. Renders one self-contained HTML from the conductor's bundle plus the runtime files, with a vocabulary guard that refuses to write a measurement tab carrying a condition name, a verdict word or an age in years.",
-   "bytes": 224995,
-   "sha256_12": "9e0649f05745"
+   "bytes": 224899,
+   "sha256_12": "b84b1c4d5e77"
   },
   {
    "file": "build_percell_reference.py",
@@ -2328,8 +3639,8 @@
    "role": "reference",
    "stage": "interface",
    "description": "This table: every live file of the chain with its role, purpose, size and SHA-256, generated from the tree.",
-   "bytes": 100431,
-   "sha256_12": "9cf9b485e2c9"
+   "bytes": 100451,
+   "sha256_12": "89dcc83e0f68"
   },
   {
    "file": "run_sample.py",
@@ -2337,8 +3648,8 @@
    "role": "interface",
    "stage": "interface",
    "description": "One command: IDAT pair or a cpg_id,beta CSV -> Stage 1 -> run_full -> this report.",
-   "bytes": 26915,
-   "sha256_12": "b32923666d0d"
+   "bytes": 37657,
+   "sha256_12": "7002a79ce9cb"
   },
   {
    "file": "val_finding.py",
@@ -2355,8 +3666,8 @@
    "role": "interface",
    "stage": "kit",
    "description": "Builds Runtime Matrices/Cell_Descriptions/cell_descriptions_v1.json from the author's webpage drafts (biology sections only; product, population and comparison sentences dropped by rule) joined to the atlas facts per cell (class, floor, identity loci, coverage, markers). The report's vocabulary guards run over every field.",
-   "bytes": 8908,
-   "sha256_12": "d5eba4bdd7a5"
+   "bytes": 8920,
+   "sha256_12": "ee5e4508557c"
   },
   {
    "file": "build_delta_bundle.py",
@@ -2373,8 +3684,8 @@
    "role": "guard",
    "stage": "kit",
    "description": "Rewrites the chain-as-it-runs table between GENERATED markers in doors/RUNBOOK.md and README.md from chain_sequence.json; the prose outside the markers is the author's and is left alone.",
-   "bytes": 2119,
-   "sha256_12": "afeec778552e"
+   "bytes": 2228,
+   "sha256_12": "c34503f674f4"
   },
   {
    "file": "build_repo_inventory.py",
@@ -2392,7 +3703,7 @@
    "stage": "kit",
    "description": "The report's own FORBIDDEN and COHORT guards, imported from build_methylphys.py and run over the SOP (banner-aware), the OM at source, every tab of the fresh reference report and the papers. Any LIVE hit fails the build.",
    "bytes": 13650,
-   "sha256_12": "1467fb9f1d63"
+   "sha256_12": "7289a8bb68ce"
   },
   {
    "file": "README_as_generated_2026-04-07.md",
@@ -2400,17 +3711,8 @@
    "role": "record",
    "stage": "not in chain",
    "description": "Snapshot of a generated README from April, kept as record.",
-   "bytes": 2406,
-   "sha256_12": "27232b656635"
-  },
-  {
-   "file": "comparison.json",
-   "path": "Biological_Physics/MethylPhys/hmin_calibration/reproduction/comparison.json",
-   "role": "record",
-   "stage": "not in chain",
-   "description": "Comparison output, record side.",
-   "bytes": 1351,
-   "sha256_12": "59da68261883"
+   "bytes": 2463,
+   "sha256_12": "b562236a6fe1"
   },
   {
    "file": "dilution.py",
@@ -2427,8 +3729,8 @@
    "role": "record",
    "stage": "not in chain",
    "description": "The disease-pattern signature matrix, from the preliminary record. Not read by run_full.",
-   "bytes": 42685,
-   "sha256_12": "53896622c1b4"
+   "bytes": 42739,
+   "sha256_12": "166f84f4ab6a"
   },
   {
    "file": "disease_cell_signature_matrix_v1_8.csv",
@@ -2436,8 +3738,8 @@
    "role": "record",
    "stage": "not in chain",
    "description": "Earlier signature matrix. Not read by run_full.",
-   "bytes": 43501,
-   "sha256_12": "7226ca28337d"
+   "bytes": 43555,
+   "sha256_12": "5784a76431c0"
   },
   {
    "file": "disease_origin_cells.json",
@@ -2454,8 +3756,8 @@
    "role": "record",
    "stage": "not in chain",
    "description": "Evidence summary, record side.",
-   "bytes": 49618,
-   "sha256_12": "9457f11f4604"
+   "bytes": 49677,
+   "sha256_12": "43d865e37b28"
   },
   {
    "file": "floor_lod_analyse.py",
@@ -2760,8 +4062,8 @@
    "role": "reference",
    "stage": "stage 6",
    "description": "The April 80-cell age table. Typed beta means with A by formula - NOT a per-sample measurement; kept because parts of the record cite it. No age term is applied to any reading (2026-09-27).",
-   "bytes": 27182,
-   "sha256_12": "54232a5d1e26"
+   "bytes": 27201,
+   "sha256_12": "d6d98a2b5015"
   },
   {
    "file": "tier_breakpoints.json",
@@ -2769,8 +4071,8 @@
    "role": "reference",
    "stage": "stage 7",
    "description": "The tier boundaries, the Warburg line (1.07) and the breach line (1.10), plus the reference clusters. The single source for every tier word on the report.",
-   "bytes": 19856,
-   "sha256_12": "f9bfb3c2e476"
+   "bytes": 18003,
+   "sha256_12": "889867c3c227"
   },
   {
    "file": "iamatlas_celltype_markers_v0_2.json",
@@ -2814,8 +4116,8 @@
    "role": "superseded",
    "stage": "stage B",
    "description": "Earlier single-file gauge; cpg_gauge_engine.py plus cpg_tiers.py do this now.",
-   "bytes": 16451,
-   "sha256_12": "3a280d719ea3"
+   "bytes": 16414,
+   "sha256_12": "bbd096ac3960"
   },
   {
    "file": "iamatlas_gauge_identity_loci_v1_0.json",

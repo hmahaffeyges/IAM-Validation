@@ -16,7 +16,7 @@ Companion artifacts (must be loaded once at session start):
   - H_min_by_class table                  (the 8 architectural floors)
 
 Author: legacyMayer + Heath W. Mahaffey
-Build session: CELLREAD_Physics_Roadmap TODO 1.1 (2026-05-29)
+Build session: Physics_Roadmap TODO 1.1 (2026-05-29)
 """
 
 import math

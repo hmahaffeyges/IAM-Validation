@@ -73,7 +73,7 @@ its check. Nothing else needs changing.**
 
 ## Stage 2c - trace-class detection (added 2026-09-25, PROC-SMALL-01)
 
-> **STATUS: RECORD**. RETIRED 2026-09-30: population-set thresholds (chain/RETIRED_2026-09/trace_detection_2026-09-30/WHY.md (historical path)) *(2026-09-27, build_sop_mirror.py)*
+> **STATUS: RECORD**. RETIRED 2026-09-30: population-set thresholds (chain/RETIRED_2026-09/trace_detection_2026-09-30/WHY.md) *(2026-09-27, build_sop_mirror.py)*
 
 **What it answers.** Whether there is any evidence of secretory or cycling material in the specimen at all.
 The composition solve cannot: it is a non-negative fit, and a non-negativity constraint pins a trace
@@ -662,7 +662,7 @@ When a patient's per-locus entropies average to mean_i( H(β_i) ) > H_min(class)
 
 ## §8. Vocabulary — what to say and what NOT to say
 
-> **STATUS: LIVE** — implemented by `build_methylphys.py FORBIDDEN / COHORT guards; MethylPhys/kit/vocab_scan.py`. vocabulary *(2026-09-27, build_sop_mirror.py)*
+> **STATUS: LIVE** — implemented by `build_methylphys.py FORBIDDEN / COHORT guards; kit/vocab_scan.py`. vocabulary *(2026-09-27, build_sop_mirror.py)*
 
 Borrowed verbatim from v2 Capability Translator + v4 Roadmap §11. The shift is **not cosmetic.** It affects how every step section is described, how outcomes are reported, how any future paper would be referenced.
 
@@ -814,11 +814,11 @@ These rules are stable; they do not change between SOP versions. They live here 
 
 ## Part II-A — The chain as the code runs it (GENERATED - do not edit)
 
-Derived by `MethylPhys/chain/build_chain_sequence.py` from `cpg_conductor.run_full` and the two scripts around it ([`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py), `stage_1_idat_calibration.py`), following every call; written into [`chain_sequence.json`](../chain/chain_sequence.json); rendered here by `MethylPhys/sop/build_sop_mirror.py`. Every numbered section in Part II carries a STATUS banner tying it to one of these rows (LIVE), or stating that the step is RECORD (built, then removed), NOT IN CHAIN (specified, not run), NOT BUILT, or KIT (a tool around the chain). The reconciliation is checked on every push (propagate rule 15).
+Derived by `chain/build_chain_sequence.py` from `cpg_conductor.run_full` and the two scripts around it (`run_sample.py`, `stage_1_idat_calibration.py`), following every call; written into `chain_sequence.json`; rendered here by `sop/build_sop_mirror.py`. Every numbered section in Part II carries a STATUS banner tying it to one of these rows (LIVE), or stating that the step is RECORD (built, then removed), NOT IN CHAIN (specified, not run), NOT BUILT, or KIT (a tool around the chain). The reconciliation is checked on every push (propagate rule 15).
 
 | # | step (as the code names it) | file | what it does (first line of its docstring) | runtime files tied to it |
 |---|---|---|---|---|
-| 1 | `step_0_1_idat_arrival` | [`stage_0_intake.py`](../chain/stage_0_intake.py) | SOP section 0.1_idat_arrival | cpg_conductor.py, stage_0_intake.py |
+| 1 | `step_0_1_idat_arrival` | `stage_0_intake.py` | SOP section 0.1_idat_arrival | cpg_conductor.py, stage_0_intake.py |
 | 2 | `step_0_2_manifest_creation` | `stage_0_intake.py` | SOP section 0.2_manifest_creation | cpg_conductor.py, stage_0_intake.py |
 | 3 | `step_0_3_integrity_hash` | `stage_0_intake.py` | SOP section 0.3_integrity_hash | cpg_conductor.py, stage_0_intake.py |
 | 4 | `step_0_4_control_probe_validation` | `stage_0_intake.py` | SOP section 0.4_control_probe_validation | cpg_conductor.py, stage_0_intake.py |
@@ -829,17 +829,19 @@ Derived by `MethylPhys/chain/build_chain_sequence.py` from `cpg_conductor.run_fu
 | 9 | `step_0_8_sex_check` | `stage_0_intake.py` | SOP section 0.8_sex_check | cpg_conductor.py, stage_0_intake.py |
 | 10 | `step_0_9_decision_gate` | `stage_0_intake.py` | SOP section 0.9_decision_gate | cpg_conductor.py, stage_0_intake.py |
 | 11 | `Stage 1 - IDAT calibration` | `stage_1_idat_calibration.py` | Stage 1 - IDAT calibration to beta (SOP Stage 1, steps 1.1-1.2 + 1.5) | idat_decoder_pure.py, idat_parse.py, stage_1_calibration.py, stage_1_idat_calibration.py |
-| 12 | `stage_a_cells` | [`cpg_conductor.py`](../chain/cpg_conductor.py) | Stage A — find the cell types in the sample, their ratios, and their A-scores | iamatlas_a_scoring.py, iamatlas_celltype_markers_v0_2.json, iamatlas_percell_identity_loci_v1_1.json, percell_exclusivity_v0.json |
-| 13 | `stage_2b_second_opinion` | `cpg_conductor.py` | Row 2b - the second opinion. NILC (needlet internal linear combination, the Planck component-separation | lineage_splitter.py, nilc_celltype_deconvolver.py |
-| 14 | `stage_b_classes` | `cpg_conductor.py` | Stage B - per-class GAUGE. **AS WIRED (2026-07 -> today): A = H(beta_mean)/H_min over the | composition_guard_v1.json, cpg_gauge.py, cpg_gauge_engine.py, iamatlas_gauge_identity_loci_v1_0.json, identity_band_v2_PROVISIONAL.json |
-| 15 | `stage_1s_scale_map` | `cpg_conductor.py` | Stage 1s (LESSON-SCALE-01, SOP s109): put patient beta on the Roadmap scale that H_min and the Atlas | beta_scale_maps_v1.json, scale_map_addendum.json |
-| 16 | `stage_b_identity` | `cpg_conductor.py` | THE CLASS GAUGE - INTERNAL GATE ONLY (PROC-SWITCH-01, 2026-09-21; RULING A3; author's ruling 2026-09-27) | composition_guard_v1.json, cpg_gauge.py, cpg_gauge_engine.py, iamatlas_gauge_identity_loci_v1_0.json, identity_band_v2_PROVISIONAL.json |
-| 17 | `stage_2d_foreign_detection` | `cpg_conductor.py` | Stage 2d - FOREIGN-CELL DETECTION as ONE JOINT FIT (PROC-STAGE2D-03, adopted 2026-09-27 by the author's ruling: B1's |  |
-| 18 | `stage_4_5_bidirectional` | `cpg_conductor.py` | Stage 4.5 (SOP §46.5) - bidirectional decomposition. Signed directional | bidirectional_decomposition.py, directional_panels_v1_0.json |
-| 19 | `stage_4_6_patient_sky` | `cpg_conductor.py` | Stage 4.6 - the patient's sky. z_i = (beta_i - sum_c f_c mu_ci) / sigma_i on the mapped beta, where | EPIC_plus_HM450_combined_manifest_normalized.csv, EPIC_v1_B4_manifest_normalized.csv, README_HEALPix_Mapping.md, README_external_manifests.md, build_healpix_mapping.py, generate_cpg_healpix_mapping.py, iamatlas_cpg_to_he |
-| 20 | `Report` | `MethylPhys/chain/MethylPhys_Interface/build_methylphys.py` | one self-contained HTML from the bundle | build_chain_inventory.py, build_methylphys.py, build_percell_reference.py, chain_inventory_v1.json, run_sample.py, val_finding.py |
+| 12 | `platform_refusal` | `conductor_v3.py` | None when the specimen is EPIC v1; otherwise the refusal text |  |
+| 13 | `stage_m_isolated` | `conductor_v3.py` | Isolated / sorted neutrophils against their own floor. The own-floor state is kept as state_own_floor; the reading's state is |  |
+| 14 | `stage_a_composition` | `conductor_v3.py` | EPIC blood composition (blood_composition_EPIC_v1): 8 groups from Salas purified EPIC cells; markers exclude the neutrophil sites; |  |
+| 15 | `stage_m_blood` | `conductor_v3.py` | Whole blood: Met-A = mean H(beta) / mean H(e) at the neutrophil sites, e = sum_g f_g mu_g (EPIC purified group profiles) |  |
+| 16 | `stage_t_tare` | `conductor_v3.py` | Same-run tare against >= MIN_REFS healthy references of the same specimen type run the same way (same slide, else same batch) |  |
+| 17 | `stage_mc_cscore` | `conductor_v3.py` |  |  |
+| 18 | `stage_q_iam_a.pat_site_table` | `stage_q_iam_a.py` | Per-site table (pos, opp_A, err_A, opp_B, err_B) from one .pat(.gz) file, pipeline loyfer_pat_v1. pos = 'chrom:CpG index' |  |
+| 19 | `stage_q_iam_a.read` | `stage_q_iam_a.py` | site_table: per-site table (see module doc). cell: e.g. 'neutrophils'. pipeline: the read-level pipeline that produced the table |  |
+| 20 | `Report` | `MethylPhys_Interface/report_v3.py` | one self-contained HTML page plus the JSON bundle | build_chain_inventory.py, build_methylphys.py, build_percell_reference.py, chain_inventory_v1.json, run_sample.py, val_finding.py |
 
 ## Stage 0 — Sample intake (L1)
+
+> **STATUS: LIVE** — implemented by `stage_0_intake.py via run_sample.py` *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through `stage_0_1_qc_handoff.py`, and a QUARANTINE stops the chain with nothing scored**
 
@@ -962,6 +964,8 @@ Derived by `MethylPhys/chain/build_chain_sequence.py` from `cpg_conductor.run_fu
 ---
 
 ### §11. Step 0.1 — IDAT file arrival on server
+
+> **STATUS: LIVE** — implemented by `step_0_1_idat_arrival (stage_0_intake.py)` *(2026-09-27, build_sop_mirror.py)*
 
 <!-- OPERATIONAL DETAIL (generated by sop_step_detail.py) -->
 
@@ -1700,7 +1704,7 @@ _Evidence for every number in this block: [`PROC_STAGE0_02_OUTCOME.md`](../doors
 **Implemented in:** [`stage_0_intake.py`](../chain/stage_0_intake.py); **runs before calibration on the live path (register row 0 COMMISSIONED, PROC-STAGE0-02); the intensity-dependent checks read the array's own controls through [`stage_0_1_qc_handoff.py`](../chain/stage_0_1_qc_handoff.py), and a QUARANTINE stops the chain with nothing scored**
 
 
-**What this step does.** An Illumina methylation array sample arrives at the the cell-reading engine server as a pair of IDAT files — one for the Cy3 (green) channel, one for the Cy5 (red) channel. The pair is keyed by Sentrix Barcode + Sentrix Position (e.g., `200123456789_R01C01_Grn.idat` + `200123456789_R01C01_Red.idat`). This step receives the upload, verifies the pair is complete, and stamps the arrival into the intake log.
+**What this step does.** An Illumina methylation array sample arrives at the cell-reading engine server as a pair of IDAT files — one for the Cy3 (green) channel, one for the Cy5 (red) channel. The pair is keyed by Sentrix Barcode + Sentrix Position (e.g., `200123456789_R01C01_Grn.idat` + `200123456789_R01C01_Red.idat`). This step receives the upload, verifies the pair is complete, and stamps the arrival into the intake log.
 
 **Inputs.**
 - Two `.idat` files per sample (Grn + Red)
@@ -1748,6 +1752,8 @@ _Evidence for every number in this block: [`PROC_STAGE0_02_OUTCOME.md`](../doors
 ---
 
 ### §12. Step 0.2 — Sample manifest creation
+
+> **STATUS: LIVE** — implemented by `step_0_2_manifest_creation (stage_0_intake.py)` *(2026-09-27, build_sop_mirror.py)*
 
 <!-- OPERATIONAL DETAIL (generated by sop_step_detail.py) -->
 
@@ -2537,6 +2543,8 @@ _Evidence for every number in this block: [`PROC_STAGE0_02_OUTCOME.md`](../doors
 
 ### §13. Step 0.3 — IDAT integrity hash check
 
+> **STATUS: LIVE** — implemented by `step_0_3_integrity_hash (stage_0_intake.py)` *(2026-09-27, build_sop_mirror.py)*
+
 <!-- OPERATIONAL DETAIL (generated by sop_step_detail.py) -->
 
 **As applied in code.** `step_0_3_integrity_hash(record, grn_path, red_path, integrity_log_path)` takes the
@@ -3309,6 +3317,8 @@ _Evidence for every number in this block: [`PROC_STAGE0_02_OUTCOME.md`](../doors
 ---
 
 ### §14. Step 0.4 — Control probe validation
+
+> **STATUS: LIVE** — implemented by `step_0_4_control_probe_validation on Stage 1's control medians (stage_1_idat_calibration.py -> run_sample.py)`. bisulfite threshold reported, not applied *(2026-09-27, build_sop_mirror.py)*
 
 <!-- OPERATIONAL DETAIL (generated by sop_step_detail.py) -->
 
@@ -4090,6 +4100,8 @@ Each control class has a manufacturer-specified pass range. Failure of any class
 ---
 
 ### §15. Step 0.5 — Detection p-value QC per probe
+
+> **STATUS: LIVE** — implemented by `step_0_5_detection_pvalue_qc on Stage 1's poobah mask (p <= 0.05); failed probes removed before any stage reads the beta`. a deferred check never advances *(2026-09-27, build_sop_mirror.py)*
 
 <!-- OPERATIONAL DETAIL (generated by sop_step_detail.py) -->
 
@@ -4880,6 +4892,8 @@ The Illumina default uses a slightly different formulation (the `minfi` R packag
 
 ### §16. Step 0.6 — Bead count QC
 
+> **STATUS: LIVE** — implemented by `step_0_6_bead_count_qc (stage_0_intake.py) - runs; bead counts are not yet extracted from the IDAT, so it records DEFERRED and the flag BEAD_COUNT_NOT_EXTRACTED`. the only Stage 0 check still deferred; it does not advance anything on its own *(2026-09-27, build_sop_mirror.py)*
+
 <!-- OPERATIONAL DETAIL (generated by sop_step_detail.py) -->
 
 **As applied in code.** `step_0_6_bead_count_qc(record, bead_counts)`; bead counts come from the IDAT's own
@@ -5646,6 +5660,8 @@ _Evidence for every number in this block: [`PROC_STAGE0_02_OUTCOME.md`](../doors
 ---
 
 ### §17. Step 0.7 — Sample-level call rate
+
+> **STATUS: LIVE** — implemented by `step_0_7_call_rate on the detection mask; step_0_7b_platform_coverage (>= 80 % of the identity loci present)`. thresholds under the author's decision (call rate vs signal-to-background) *(2026-09-27, build_sop_mirror.py)*
 
 <!-- OPERATIONAL DETAIL (generated by sop_step_detail.py) -->
 
@@ -6429,6 +6445,8 @@ Threshold: call_rate ≥ 0.98 to proceed.
 
 ### §18. Step 0.8 — Sex check vs metadata
 
+> **STATUS: LIVE** — implemented by `step_0_8_sex_check (stage_0_intake.py)` *(2026-09-27, build_sop_mirror.py)*
+
 <!-- OPERATIONAL DETAIL (generated by sop_step_detail.py) -->
 
 **As applied in code.** `step_0_8_sex_check(record, sex_intensities)`, then
@@ -7202,6 +7220,8 @@ _Evidence for every number in this block: [`PROC_STAGE0_02_OUTCOME.md`](../doors
 ---
 
 ### §19. Step 0.9 — Stage 0 decision gate
+
+> **STATUS: LIVE** — implemented by `step_0_9_decision_gate (stage_0_intake.py)`. reads detection, call rate, controls, integrity, coverage, sex *(2026-09-27, build_sop_mirror.py)*
 
 <!-- OPERATIONAL DETAIL (generated by sop_step_detail.py) -->
 
@@ -7994,6 +8014,8 @@ Any single FAIL routes to quarantine. Any BORDERLINE proceeds with downstream co
 
 ## Stage 1 — Calibration & β computation (L2 + L3)
 
+> **STATUS: LIVE** — implemented by `stage_1_idat_calibration.py via run_sample.py` *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
 
 > **STATUS: LIVE** — implemented by `stage_1_idat_calibration.py via run_sample.py` *(2026-09-27, build_sop_mirror.py)*
@@ -8115,6 +8137,8 @@ Any single FAIL routes to quarantine. Any BORDERLINE proceeds with downstream co
 ---
 
 ### §20. Step 1.1 — Dye-bias correction
+
+> **STATUS: LIVE** — implemented by `Stage 1 - IDAT calibration: methylprep noob inside calibrate_idat_to_beta (stage_1_idat_calibration.py)`. dye bias *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
 
@@ -8278,6 +8302,8 @@ For Type II probes (where both methylated and unmethylated states are measured i
 ---
 
 ### §21. Step 1.2 — Probe-type normalization
+
+> **STATUS: LIVE** — implemented by `methylprep noob inside calibrate_idat_to_beta`. probe-type normalisation *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
 
@@ -8447,6 +8473,8 @@ For Type II probes (where both methylated and unmethylated states are measured i
 
 ### §22. Step 1.3 — Batch correction (ComBat)
 
+> **STATUS: NOT IN CHAIN**. ComBat / batch correction: the firewall (§104) - the chain subtracts no foregrounds and corrects no batches; each array is calibrated alone *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
 
 > **STATUS: NOT IN CHAIN**. ComBat / batch correction: the firewall (§104) - the chain subtracts no foregrounds and corrects no batches; each array is calibrated alone *(2026-09-27, build_sop_mirror.py)*
@@ -8610,6 +8638,8 @@ where γ_batch is the additive batch shift, δ_batch is the multiplicative batch
 
 ### §23. Step 1.4 — Bisulfite conversion efficiency check
 
+> **STATUS: LIVE** — implemented by `Stage 0.4 on the bisulfite-conversion control medians Stage 1 returns`. reported, not a gate *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
 
 > **STATUS: LIVE** — implemented by `Stage 0.4 on the bisulfite-conversion control medians Stage 1 returns`. reported, not a gate *(2026-09-27, build_sop_mirror.py)*
@@ -8770,6 +8800,8 @@ A fully-converted sample reaches efficiency ≈ 1.0. A failed conversion drops b
 ---
 
 ### §24. Step 1.5 — β-value computation
+
+> **STATUS: LIVE** — implemented by `calibrate_idat_to_beta -> beta per CpG` *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
 
@@ -8938,6 +8970,8 @@ The β formula is the methylome's exact analog of:
 
 ### §25. Step 1.6 — β-value sanity checks
 
+> **STATUS: RECORD**. sanity checks of the June specification; the chain's checks are Stage 0.5/0.7 (detection) and Stage 1s (scale) *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
 
 > **STATUS: RECORD**. sanity checks of the June specification; the chain's checks are Stage 0.5/0.7 (detection) and Stage 1s (scale) *(2026-09-27, build_sop_mirror.py)*
@@ -9100,6 +9134,8 @@ The β formula is the methylome's exact analog of:
 
 ### §26. Step 1.7 — Probe response function (provisional)
 
+> **STATUS: NOT BUILT**. probe response function: PROC-TARE-01 measured a linear SNP-probe tare and found it is not the instrument's; a nonlinear response from the control probes is the recorded route *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
 
 > **STATUS: NOT BUILT**. probe response function: PROC-TARE-01 measured a linear SNP-probe tare and found it is not the instrument's; a nonlinear response from the control probes is the recorded route *(2026-09-27, build_sop_mirror.py)*
@@ -9249,6 +9285,8 @@ The β formula is the methylome's exact analog of:
 ---
 
 ### §27. Step 1.8 — Stage 1 output: per-CpG β matrix
+
+> **STATUS: LIVE** — implemented by `run_sample.py hands the beta dict to cpg_conductor.run_full` *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** called by [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) before the conductor - runs in the live path
 
@@ -9407,6 +9445,8 @@ Location: `<β matrix output — emitted internally by `MPHYS_WEB_v13.py (not pa
 
 ## Stage 2 — Deconvolution (L4 component separation, primary)
 
+> **STATUS: LIVE** — implemented by `stage_a_cells, stage_2b_second_opinion, stage_2d_foreign_detection` *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`legacy_iam_deconvolver.py`](../chain/legacy_iam_deconvolver/legacy_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
 
 > **STATUS: LIVE** — implemented by `stage_a_cells, stage_2b_second_opinion, stage_2d_foreign_detection` *(2026-09-27, build_sop_mirror.py)*
@@ -9528,6 +9568,8 @@ Location: `<β matrix output — emitted internally by `MPHYS_WEB_v13.py (not pa
 ---
 
 ### §28. Step 2.1 — IAMAtlas REBUILD load
+
+> **STATUS: LIVE** — implemented by `stage_a_cells: synthetic_patient_generator._cell_means / IAMAtlasREBUILD.csv` *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`legacy_iam_deconvolver.py`](../chain/legacy_iam_deconvolver/legacy_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
 
@@ -9688,6 +9730,8 @@ Location: `<β matrix output — emitted internally by `MPHYS_WEB_v13.py (not pa
 ---
 
 ### §29. Step 2.2 — Per-class marker pool extraction
+
+> **STATUS: LIVE** — implemented by `legacyIAMDeconvolver marker selection (legacy_iam_deconvolver.py), iamatlas_celltype_markers_v0_2.json` *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`legacy_iam_deconvolver.py`](../chain/legacy_iam_deconvolver/legacy_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
 
@@ -9853,6 +9897,8 @@ Computed at atlas build time, frozen in the artifact. At runtime, this step is p
 ---
 
 ### §30. Step 2.3 — legacy IAM Deconvolver (Path 1, NNLS)
+
+> **STATUS: LIVE** — implemented by `legacyIAMDeconvolver (NNLS) inside stage_a_cells` *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`legacy_iam_deconvolver.py`](../chain/legacy_iam_deconvolver/legacy_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
 
@@ -10025,6 +10071,8 @@ legacy also runs streaming-mode: if the input contains >10K CpGs, it processes i
 ---
 
 ### §31. Step 2.4 — legacy per-class confidence + status codes
+
+> **STATUS: LIVE** — implemented by `stage_a_cells: present / fraction / status per cell` *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`legacy_iam_deconvolver.py`](../chain/legacy_iam_deconvolver/legacy_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
 
@@ -10199,6 +10247,8 @@ Confidence is conservative — designed to fail loudly when something is wrong r
 
 ### §32. Step 2.5 — NILC v2 deconvolver (Path 2, departure-from-consensus GLS)
 
+> **STATUS: LIVE** — implemented by `stage_2b_second_opinion (NILC)` *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`legacy_iam_deconvolver.py`](../chain/legacy_iam_deconvolver/legacy_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
 
 > **STATUS: LIVE** — implemented by `stage_2b_second_opinion (NILC)` *(2026-09-27, build_sop_mirror.py)*
@@ -10362,6 +10412,8 @@ where X_dep is the departure-form reference matrix, β_dep is the departure-form
 ---
 
 ### §33. Step 2.6 — Cross-method gate check
+
+> **STATUS: LIVE** — implemented by `stage_2b_second_opinion: agreement check` *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`legacy_iam_deconvolver.py`](../chain/legacy_iam_deconvolver/legacy_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
 
@@ -10529,6 +10581,8 @@ For one specimen the gate is the per-class agreement threshold in the runtime fi
 
 ### §34. Step 2.7 — Stage 2 output
 
+> **STATUS: LIVE** — implemented by `run_full bundle keys cells / cells_all / class_fractions` *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`legacy_iam_deconvolver.py`](../chain/legacy_iam_deconvolver/legacy_iam_deconvolver.py); [`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py); called by [`cpg_conductor.stage_a_cells`](../chain/cpg_conductor.py) - runs in the live path
 
 > **STATUS: LIVE** — implemented by `run_full bundle keys cells / cells_all / class_fractions` *(2026-09-27, build_sop_mirror.py)*
@@ -10686,6 +10740,8 @@ Location: `<Stage 2 output — emitted internally by `MPHYS_WEB_v13.py (not part
 
 ## Stage 3 — Foreground subtraction (L4 component separation, secondary)
 
+> **STATUS: NOT IN CHAIN**. firewall §104: the production chain subtracts no foregrounds *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** the live path subtracts no foregrounds - see §104, which is the ruling that governs this stage
 
 > **STATUS: NOT IN CHAIN**. firewall §104: the production chain subtracts no foregrounds *(2026-09-27, build_sop_mirror.py)*
@@ -10807,6 +10863,8 @@ Location: `<Stage 2 output — emitted internally by `MPHYS_WEB_v13.py (not part
 ---
 
 ### §35. Step 3.1 — Age-axis foreground subtraction
+
+> **STATUS: NOT IN CHAIN**. firewall §104: no foreground is subtracted *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** the live path subtracts no foregrounds - see §104, which is the ruling that governs this stage
 
@@ -10969,6 +11027,8 @@ Per-CpG R² values are stored alongside; the engine could optionally weight subt
 
 ### §36. Step 3.2 — Sex-axis foreground subtraction (when present)
 
+> **STATUS: NOT IN CHAIN**. firewall §104 *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** the live path subtracts no foregrounds - see §104, which is the ruling that governs this stage
 
 > **STATUS: NOT IN CHAIN**. firewall §104 *(2026-09-27, build_sop_mirror.py)*
@@ -11128,6 +11188,8 @@ Special handling of sex chromosomes:
 
 ### §37. Step 3.3 — Batch/plate foreground subtraction (when present)
 
+> **STATUS: NOT IN CHAIN**. firewall §104 *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** the live path subtracts no foregrounds - see §104, which is the ruling that governs this stage
 
 > **STATUS: NOT IN CHAIN**. firewall §104 *(2026-09-27, build_sop_mirror.py)*
@@ -11278,6 +11340,8 @@ Special handling of sex chromosomes:
 
 ### §38. Step 3.4 — Ancestry-axis foreground subtraction (when present)
 
+> **STATUS: NOT IN CHAIN**. firewall §104 *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** the live path subtracts no foregrounds - see §104, which is the ruling that governs this stage
 
 > **STATUS: NOT IN CHAIN**. firewall §104 *(2026-09-27, build_sop_mirror.py)*
@@ -11427,6 +11491,8 @@ Special handling of sex chromosomes:
 ---
 
 ### §39. Step 3.5 — Smoking-axis foreground subtraction
+
+> **STATUS: NOT IN CHAIN**. firewall §104 *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** the live path subtracts no foregrounds - see §104, which is the ruling that governs this stage
 
@@ -11590,6 +11656,8 @@ Intercept α_i NOT subtracted — preserves per-CpG baseline. For never-smokers,
 
 ### §40. Step 3.6 — Stage 3 output: cleaned β matrix
 
+> **STATUS: NOT IN CHAIN**. firewall §104 *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** the live path subtracts no foregrounds - see §104, which is the ruling that governs this stage
 
 > **STATUS: NOT IN CHAIN**. firewall §104 *(2026-09-27, build_sop_mirror.py)*
@@ -11746,6 +11814,8 @@ Location: `<Stage 3 output — emitted internally by `MPHYS_WEB_v13.py (not part
 
 ## Stage 4 — A-score computation (entropy scoring)
 
+> **STATUS: LIVE** — implemented by `stage_a_cells (per-cell A); stage_b_identity (class gate)` *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py); [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py); called by [`cpg_conductor.stage_b_classes`](../chain/cpg_conductor.py) - runs in the live path
 
 > **STATUS: LIVE** — implemented by `stage_a_cells (per-cell A); stage_b_identity (class gate)` *(2026-09-27, build_sop_mirror.py)*
@@ -11867,6 +11937,8 @@ Location: `<Stage 3 output — emitted internally by `MPHYS_WEB_v13.py (not part
 ---
 
 ### §41. Step 4.1 — Per-class marker panel assembly (per-CpG β, NOT pre-averaged)
+
+> **STATUS: RECORD**. per-CpG marker panels for A: superseded by RULING A3 - A is read on the identity loci *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py); [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py); called by [`cpg_conductor.stage_b_classes`](../chain/cpg_conductor.py) - runs in the live path
 
@@ -12026,6 +12098,8 @@ Location: `<Stage 3 output — emitted internally by `MPHYS_WEB_v13.py (not part
 
 ### §42. Step 4.2 — Per-CpG Shannon entropy H(β_i) calculation
 
+> **STATUS: RECORD**. per-CpG entropy: the gauge is the entropy of the MEAN beta (H(beta_mean)/H_min), one number per cell *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py); [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py); called by [`cpg_conductor.stage_b_classes`](../chain/cpg_conductor.py) - runs in the live path
 
 > **STATUS: RECORD**. per-CpG entropy: the gauge is the entropy of the MEAN beta (H(beta_mean)/H_min), one number per cell *(2026-09-27, build_sop_mirror.py)*
@@ -12179,6 +12253,8 @@ Location: `<Stage 3 output — emitted internally by `MPHYS_WEB_v13.py (not part
 ---
 
 ### §43. Step 4.3 — Per-class A-score: A = mean_i( H(β_i) / H_min(class) )
+
+> **STATUS: LIVE** — implemented by `stage_b_classes (class A on the marker union) and stage_b_identity (class A on the identity loci) - both INTERNAL gates; neither carries a tier word; the mean-of-per-CpG-H construction described below is superseded (RULING A3)`. the class A is not a reading *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py); [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py); called by [`cpg_conductor.stage_b_classes`](../chain/cpg_conductor.py) - runs in the live path
 
@@ -12349,6 +12425,8 @@ The Mahaffey Numbers (frozen 2026-04-06):
 
 ### §44. Step 4.4 — Per-cell-type A-score (115 cell types)
 
+> **STATUS: LIVE** — implemented by `stage_a_cells -> iamatlas_a_scoring._score_one_identity on iamatlas_percell_identity_loci_v1_1.json`. the per-cell A - THE reading *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py); [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py); called by [`cpg_conductor.stage_b_classes`](../chain/cpg_conductor.py) - runs in the live path
 
 > **STATUS: LIVE** — implemented by `stage_a_cells -> iamatlas_a_scoring._score_one_identity on iamatlas_percell_identity_loci_v1_1.json`. the per-cell A - THE reading *(2026-09-27, build_sop_mirror.py)*
@@ -12505,6 +12583,8 @@ The class assignment is necessary because H_min is per-class (the architectural 
 ---
 
 ### §45. Step 4.5 — Disease panel A-score (when card has a curated panel)
+
+> **STATUS: NOT IN CHAIN**. disease-panel A: the chain applies no disease panel *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py); [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py); called by [`cpg_conductor.stage_b_classes`](../chain/cpg_conductor.py) - runs in the live path
 
@@ -12665,6 +12745,8 @@ For the Xu-538 panel anchored to immune class: A_panel = mean over the 538 loci 
 
 ### §46. Step 4.6 — Stage 4 output
 
+> **STATUS: LIVE** — implemented by `run_full bundle: cells_all[cell].A` *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`iamatlas_a_scoring.py`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_a_scoring.py); [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py); called by [`cpg_conductor.stage_b_classes`](../chain/cpg_conductor.py) - runs in the live path
 
 > **STATUS: LIVE** — implemented by `run_full bundle: cells_all[cell].A` *(2026-09-27, build_sop_mirror.py)*
@@ -12823,6 +12905,8 @@ Location: `<Stage 4 output — emitted internally by `MPHYS_WEB_v13.py (not part
 
 ## Stage 4.5 — Bidirectional decomposition (NEW v1.3 / L4 cont.)
 
+> **STATUS: LIVE** — implemented by `stage_4_5_bidirectional` *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`bidirectional_decomposition.py`](../chain/Runtime%20Matrices/Directional%20Panel/bidirectional_decomposition.py); called by [`cpg_conductor.stage_4_5_bidirectional`](../chain/cpg_conductor.py) - runs in the live path
 
 > **STATUS: LIVE** — implemented by `stage_4_5_bidirectional` *(2026-09-27, build_sop_mirror.py)*
@@ -12942,6 +13026,8 @@ Location: `<Stage 4 output — emitted internally by `MPHYS_WEB_v13.py (not part
 **Implemented in:** [`bidirectional_decomposition.py`](../chain/Runtime%20Matrices/Directional%MethylPhys/chain/Runtime Matrices/Directional Panel/bidirectional_decomposition.py); called by [`cpg_conductor.stage_4_5_bidirectional`](../chain/cpg_conductor.py) - runs in the live path
 
 ### §46.5. Step 4.5.1 — Bidirectional pattern detection
+
+> **STATUS: LIVE** — implemented by `stage_4_5_bidirectional (cpg_conductor.py)` *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`bidirectional_decomposition.py`](../chain/Runtime%20Matrices/Directional%20Panel/bidirectional_decomposition.py); called by [`cpg_conductor.stage_4_5_bidirectional`](../chain/cpg_conductor.py) - runs in the live path
 
@@ -13122,6 +13208,8 @@ Location: `reports/{patient_id}/stage_4_5/{patient_id}directional_panels_v1_0.js
 
 ## Stage 4.6 — Patient brightness comparison (NEW v1.3 / L4 cont.)
 
+> **STATUS: LIVE** — implemented by `stage_4_6_patient_sky` *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`stage_4_6_patient_cmb.py`](../chain/stage_4_6_patient_cmb.py); called by [`cpg_conductor.stage_4_6_patient_sky`](../chain/cpg_conductor.py) - runs in the live path
 
 > **STATUS: LIVE** — implemented by `stage_4_6_patient_sky` *(2026-09-27, build_sop_mirror.py)*
@@ -13241,6 +13329,8 @@ Location: `reports/{patient_id}/stage_4_5/{patient_id}directional_panels_v1_0.js
 **Implemented in:** [`stage_4_6_patient_cmb.py`](../chain/stage_4_6_patient_cmb.py); called by [`cpg_conductor.stage_4_6_patient_sky`](../chain/cpg_conductor.py) - runs in the live path
 
 ### §46.6. Step 4.6.1 — Per-class z-score departure + Mollweide projection
+
+> **STATUS: LIVE** — implemented by `stage_4_6_patient_sky (cpg_conductor.py) + stage_4_6_patient_cmb.py`. sigma from the atlas posterior + this array's SNP-probe noise; no laboratory zero or spread *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`stage_4_6_patient_cmb.py`](../chain/stage_4_6_patient_cmb.py); called by [`cpg_conductor.stage_4_6_patient_sky`](../chain/cpg_conductor.py) - runs in the live path
 
@@ -13446,6 +13536,8 @@ The cleanest framing: the per-class A-score (Stage 4) answers "how far is each c
 
 ## §47. Step 5.1 — Patient 115-cell-type A-score vector assembly
 
+> **STATUS: RECORD**. Stage 5 Mahalanobis REMOVED 2026-09-27 - a distance from a population's centroid *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** called by [`cpg_conductor.stage_5_mahalanobis`](../chain/cpg_conductor.py) - NOT called by run_full
 
 > **STATUS: RECORD**. Stage 5 Mahalanobis REMOVED 2026-09-27 - a distance from a population's centroid *(2026-09-27, build_sop_mirror.py)*
@@ -13606,6 +13698,8 @@ The imputation count is tracked separately. Patients with > 5 imputations get a 
 ---
 
 ## §48. Step 5.2 — HC centroid load ([`mahalanobis_healthy_reference_v2_0_age_matched_derived.json`](../chain/Runtime%MethylPhys/chain/Runtime Matrices/Mahalanobis_healthy_reference/mahalanobis_healthy_reference_v2_0_age_matched_derived.json (historical path)) current production; v0_1/v0_2/v0_3/v0_4 retained for lineage)
+
+> **STATUS: RECORD**. REMOVED 2026-09-27 *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** called by [`cpg_conductor.stage_5_mahalanobis`](../chain/cpg_conductor.py) - NOT called by run_full
 
@@ -13784,6 +13878,8 @@ Loaded with SHA-256 verification. If hash mismatches the pinned value, halt and 
 
 ## §49. Step 5.3 — Inverse-covariance distance computation
 
+> **STATUS: RECORD**. REMOVED 2026-09-27 *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** called by [`cpg_conductor.stage_5_mahalanobis`](../chain/cpg_conductor.py) - NOT called by run_full
 
 > **STATUS: RECORD**. REMOVED 2026-09-27 *(2026-09-27, build_sop_mirror.py)*
@@ -13951,6 +14047,8 @@ where `Σ⁻¹` is the inverse-covariance matrix from §48.
 
 ## §50. Step 5.4 — Top-10 axis contribution decomposition
 
+> **STATUS: RECORD**. REMOVED 2026-09-27 *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** called by [`cpg_conductor.stage_5_mahalanobis`](../chain/cpg_conductor.py) - NOT called by run_full
 
 > **STATUS: RECORD**. REMOVED 2026-09-27 *(2026-09-27, build_sop_mirror.py)*
@@ -14116,6 +14214,8 @@ Sort by `|contribution|`, take top 10. Each top-axis entry reports:
 ---
 
 ## §51. Step 5.5 — Stage 5 output: Mahalanobis distance + per-axis explainability
+
+> **STATUS: RECORD**. REMOVED 2026-09-27 *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** called by [`cpg_conductor.stage_5_mahalanobis`](../chain/cpg_conductor.py) - NOT called by run_full
 
@@ -14287,6 +14387,8 @@ The patient's per-class A-score (Stage 4) is the input. The 80-cell baseline (ag
 
 ## §52. Step 6.1 — Per-class A-score input (from Stage 4)
 
+> **STATUS: RECORD**. Stage 6 cellular age REMOVED 2026-09-27 - an age read back from a curve of people *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** called by [`cpg_conductor.stage_6_cellular_age`](../chain/cpg_conductor.py) - NOT called by run_full
 
 > **STATUS: RECORD**. Stage 6 cellular age REMOVED 2026-09-27 - an age read back from a curve of people *(2026-09-27, build_sop_mirror.py)*
@@ -14436,6 +14538,8 @@ The patient's per-class A-score (Stage 4) is the input. The 80-cell baseline (ag
 ---
 
 ## §53. Step 6.2 — Age reference matrix load ([`age_reference_matrix.json`](../chain/Runtime%MethylPhys/chain/Runtime Matrices/A_Scoring_Module/age_reference_matrix.json))
+
+> **STATUS: RECORD**. REMOVED 2026-09-27 *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** called by [`cpg_conductor.stage_6_cellular_age`](../chain/cpg_conductor.py) - NOT called by run_full
 
@@ -14588,6 +14692,8 @@ The patient's per-class A-score (Stage 4) is the input. The 80-cell baseline (ag
 ---
 
 ## §54. Step 6.3 — Per-class A inversion against the 80-cell baseline curve
+
+> **STATUS: RECORD**. REMOVED 2026-09-27 *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** called by [`cpg_conductor.stage_6_cellular_age`](../chain/cpg_conductor.py) - NOT called by run_full
 
@@ -14753,6 +14859,8 @@ The patient's per-class A-score (Stage 4) is the input. The 80-cell baseline (ag
 
 ## §55. Step 6.4 — Saturation handling (SAT_HIGH / SAT_LOW / OK / INSUFFICIENT_CPGS)
 
+> **STATUS: RECORD**. REMOVED 2026-09-27 *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** called by [`cpg_conductor.stage_6_cellular_age`](../chain/cpg_conductor.py) - NOT called by run_full
 
 > **STATUS: RECORD**. REMOVED 2026-09-27 *(2026-09-27, build_sop_mirror.py)*
@@ -14911,6 +15019,8 @@ Patient `saturation_signature` = a labeled 8-class vector (e.g., "SAT_HIGH on te
 
 ## §56. Step 6.5 — Eight per-class cellular ages — never collapsed by default
 
+> **STATUS: RECORD**. REMOVED 2026-09-27 *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** called by [`cpg_conductor.stage_6_cellular_age`](../chain/cpg_conductor.py) - NOT called by run_full
 
 > **STATUS: RECORD**. REMOVED 2026-09-27 *(2026-09-27, build_sop_mirror.py)*
@@ -15062,6 +15172,8 @@ Patient `saturation_signature` = a labeled 8-class vector (e.g., "SAT_HIGH on te
 ---
 
 ## §57. Step 6.6 — Percentile rank at patient's chronological age
+
+> **STATUS: RECORD**. REMOVED 2026-09-27 *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** called by [`cpg_conductor.stage_6_cellular_age`](../chain/cpg_conductor.py) - NOT called by run_full
 
@@ -15218,6 +15330,8 @@ Example: patient A = 1.08 for immune class at age 52. At age 52, immune A_p50 = 
 ---
 
 ## §58. Step 6.7 — Stage 6 output: per-class cellular age vector + optional summary
+
+> **STATUS: RECORD**. REMOVED 2026-09-27 *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** called by [`cpg_conductor.stage_6_cellular_age`](../chain/cpg_conductor.py) - NOT called by run_full
 
@@ -15384,6 +15498,8 @@ Stage 7 turns the framework's continuous measurements (A-scores, cellular ages) 
 ---
 
 ## §59. Step 7.1 — Per-class A-score tier call ([`tier_breakpoints.json`](../chain/Runtime%MethylPhys/chain/Runtime Matrices/Tier_breakpoints/tier_breakpoints.json), tier_system_v1_2, onset corrected 2026-07-03)
+
+> **STATUS: RECORD**. per-CLASS tier: the class A carries no tier word (author's ruling); tiers are read on a cell's A *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`cpg_tiers.py`](../chain/cpg_tiers.py); [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json); called by [`cpg_conductor.stage_b_identity`](../chain/cpg_conductor.py) - runs in the live path
 
@@ -15572,6 +15688,8 @@ Per-class structural ceiling (`structural_ceiling_by_class` in tier_breakpoints.
 
 ## §60. Step 7.2 — Per-cell-type A-score tier call
 
+> **STATUS: LIVE** — implemented by `cpg_tiers.tier_of on cells_all[cell].A; tier_breakpoints.json v1.5`. the tier of every present cell *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`cpg_tiers.py`](../chain/cpg_tiers.py); [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json); called by [`cpg_conductor.stage_b_identity`](../chain/cpg_conductor.py) - runs in the live path
 
 > **STATUS: LIVE** — implemented by `cpg_tiers.tier_of on cells_all[cell].A; tier_breakpoints.json v1.5`. the tier of every present cell *(2026-09-27, build_sop_mirror.py)*
@@ -15721,6 +15839,8 @@ Per-class structural ceiling (`structural_ceiling_by_class` in tier_breakpoints.
 ---
 
 ## §61. Step 7.3 — cfDNA branch (when substrate is plasma) — `cfdna_weight.json (not part of the chain - a placeholder that was never derived)`
+
+> **STATUS: NOT IN CHAIN**. cfDNA branch / cfdna_weight.json: not part of the chain *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`cpg_tiers.py`](../chain/cpg_tiers.py); [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json); called by [`cpg_conductor.stage_b_identity`](../chain/cpg_conductor.py) - runs in the live path
 
@@ -15891,6 +16011,8 @@ Positive departure = elevated representation of that tissue-of-origin in plasma;
 
 ## §62. Step 7.4 — FLOOR_BREACH detection
 
+> **STATUS: LIVE** — implemented by `tier_breakpoints.json: BREACH at 1.10` *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`cpg_tiers.py`](../chain/cpg_tiers.py); [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json); called by [`cpg_conductor.stage_b_identity`](../chain/cpg_conductor.py) - runs in the live path
 
 > **STATUS: LIVE** — implemented by `tier_breakpoints.json: BREACH at 1.10` *(2026-09-27, build_sop_mirror.py)*
@@ -16055,6 +16177,8 @@ The orchestrator's Stage 7 emits the `bidirectional_flag` field for every class 
 
 ## §63. Step 7.5 — Engine-to-customer language mapping
 
+> **STATUS: LIVE** — implemented by `tier_breakpoints.json customer_label; build_methylphys.py`. SUPPRESSED / NORMAL / ELEVATED / SIGNIFICANTLY ELEVATED / BREACH *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`cpg_tiers.py`](../chain/cpg_tiers.py); [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json); called by [`cpg_conductor.stage_b_identity`](../chain/cpg_conductor.py) - runs in the live path
 
 > **STATUS: LIVE** — implemented by `tier_breakpoints.json customer_label; build_methylphys.py`. SUPPRESSED / NORMAL / ELEVATED / SIGNIFICANTLY ELEVATED / BREACH *(2026-09-27, build_sop_mirror.py)*
@@ -16215,6 +16339,8 @@ The customer label DOES NOT distinguish DETECTABLE from URGENT from FLOOR_BREACH
 ---
 
 ## §64. Step 7.6 — Stage 7 output: per-class tier vector + customer labels
+
+> **STATUS: LIVE** — implemented by `run_full bundle: cells_all[cell].tier` *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`cpg_tiers.py`](../chain/cpg_tiers.py); [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json); called by [`cpg_conductor.stage_b_identity`](../chain/cpg_conductor.py) - runs in the live path
 
@@ -16410,6 +16536,8 @@ The chain-of-custody discipline here is strict: a card-specific tier call is a *
 
 ## §65. Step 8.1 — Disease signature matrix v1.5 lookup
 
+> **STATUS: NOT IN CHAIN**. no signature matrix is consulted; stage_8_matching is not in the live path *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** not a chain stage (author's ruling 2026-09-21): `stage_8_matching` is defined in the conductor and `run_full` does not call it
 
 > **STATUS: NOT IN CHAIN**. no signature matrix is consulted; stage_8_matching is not in the live path *(2026-09-27, build_sop_mirror.py)*
@@ -16582,6 +16710,8 @@ Stored in-memory for Stage 8.2 (residual map application). Not persisted as a se
 
 ## §66. Step 8.2 — Per-card residual map application
 
+> **STATUS: NOT IN CHAIN**. no card residual maps *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** not a chain stage (author's ruling 2026-09-21): `stage_8_matching` is defined in the conductor and `run_full` does not call it
 
 > **STATUS: NOT IN CHAIN**. no card residual maps *(2026-09-27, build_sop_mirror.py)*
@@ -16749,6 +16879,8 @@ A patient with a **reversed** signal (signal exists but pointing the opposite di
 ---
 
 ## §67. Step 8.3 — Multi-class pattern matching
+
+> **STATUS: NOT IN CHAIN**. no pattern matching *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** not a chain stage (author's ruling 2026-09-21): `stage_8_matching` is defined in the conductor and `run_full` does not call it
 
@@ -16932,6 +17064,8 @@ Stored in-memory; flows to §68.
 
 ## §68. Step 8.4 — Card-specific covariate adjustment
 
+> **STATUS: NOT IN CHAIN**. no covariate adjustment of any reading *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** not a chain stage (author's ruling 2026-09-21): `stage_8_matching` is defined in the conductor and `run_full` does not call it
 
 > **STATUS: NOT IN CHAIN**. no covariate adjustment of any reading *(2026-09-27, build_sop_mirror.py)*
@@ -17102,6 +17236,8 @@ The transfer functions are **per-card declared** in the JSON. The engine does no
 
 ## §69. Step 8.5 — Stage 8 output: card result package [REMOVED 2026-09-21 with Stage 8]
 
+> **STATUS: NOT IN CHAIN**. no card verdict *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** not a chain stage (author's ruling 2026-09-21): `stage_8_matching` is defined in the conductor and `run_full` does not call it
 
 > **STATUS: NOT IN CHAIN**. no card verdict *(2026-09-27, build_sop_mirror.py)*
@@ -17258,7 +17394,7 @@ SHA-256 hashed.
 
 # Stage 9 — Report assembly (the legal boundary layer)
 
-> **STATUS: LIVE** — implemented by [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py). the report *(2026-09-27, build_sop_mirror.py)*
+> **STATUS: LIVE** — implemented by `build_methylphys.py`. the report *(2026-09-27, build_sop_mirror.py)*
 
 Stage 9 is where the chain of custody ends and the customer's understanding begins. Stages 0 through 8 produced an exhaustive, internally-consistent record of how a patient's IDAT became a card verdict. Stage 9 translates that record into language a non-clinician can act on — without ever telling them anything CPG is not legally permitted to tell them.
 
@@ -17273,6 +17409,8 @@ Stage 9 has seven steps (§70-§76). They run **in order**: the language collaps
 ---
 
 ## §70. Step 9.1 — Customer-facing language collapse
+
+> **STATUS: LIVE** — implemented by `Report: build_methylphys.py (17 tabs)`. the report *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py)
 
@@ -17434,6 +17572,8 @@ Engine → Customer:
 ---
 
 ## §71. Step 9.2 — Literature anchors (the reporting-layer translator)
+
+> **STATUS: NOT IN CHAIN**. literature anchors: not applied *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py)
 
@@ -17602,6 +17742,8 @@ Stored in-memory; flows to §72.
 
 ## §72. Step 9.3 — Cancer prior context
 
+> **STATUS: NOT IN CHAIN**. cancer prior: the chain applies no disease prior *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py)
 
 > **STATUS: NOT IN CHAIN**. cancer prior: the chain applies no disease prior *(2026-09-27, build_sop_mirror.py)*
@@ -17759,6 +17901,8 @@ Stored in-memory; flows to §72.
 ---
 
 ## §73. Step 9.4 — Family history multiplier
+
+> **STATUS: NOT IN CHAIN**. family history: no multiplier on any reading *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py)
 
@@ -17936,6 +18080,8 @@ posterior_context_class = baseline_prior          (from cancer_prior.json (not p
 
 ## §74. Step 9.5 — Sex-specific risk adjustment
 
+> **STATUS: NOT IN CHAIN**. sex-specific risk: none *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py)
 
 > **STATUS: NOT IN CHAIN**. sex-specific risk: none *(2026-09-27, build_sop_mirror.py)*
@@ -18094,6 +18240,8 @@ posterior_context_class = baseline_prior          (from cancer_prior.json (not p
 
 ## §75. Step 9.6 — Report rendering pass
 
+> **STATUS: LIVE** — implemented by `run_sample.py -> build_methylphys.build` *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py)
 
 > **STATUS: LIVE** — implemented by `run_sample.py -> build_methylphys.build` *(2026-09-27, build_sop_mirror.py)*
@@ -18249,6 +18397,8 @@ posterior_context_class = baseline_prior          (from cancer_prior.json (not p
 
 ## §76. Step 9.7 — Legal boundary check (the gate)
 
+> **STATUS: LIVE** — implemented by `build_methylphys.guard (FORBIDDEN + COHORT); propagate.py bundle-key guard`. the legal boundary is mechanical *(2026-09-27, build_sop_mirror.py)*
+
 **Implemented in:** [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py)
 
 > **STATUS: LIVE** — implemented by `build_methylphys.guard (FORBIDDEN + COHORT); propagate.py bundle-key guard`. the legal boundary is mechanical *(2026-09-27, build_sop_mirror.py)*
@@ -18377,6 +18527,8 @@ its own composition expectation; the frozen constants and calibration files by n
 where anyone else sits.
 
 ## §77. Step 10.1 — Report packaging
+
+> **STATUS: LIVE** — implemented by `kit/file_run.py (filed run: report + bundle + checksums)` *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** delivery is not part of the commissioned path; the report itself is Stage 9
 
@@ -18525,6 +18677,8 @@ where anyone else sits.
 ---
 
 ## §78. Step 10.2 — Delivery channel routing
+
+> **STATUS: NOT BUILT**. delivery channel: none built *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** delivery is not part of the commissioned path; the report itself is Stage 9
 
@@ -18677,6 +18831,8 @@ where anyone else sits.
 ---
 
 ## §79. Step 10.3 — Audit trail capture (the chain closes)
+
+> **STATUS: LIVE** — implemented by `kit/file_run.py, guarded_push.sh, propagate.py`. the audit trail is the repository *(2026-09-27, build_sop_mirror.py)*
 
 **Implemented in:** delivery is not part of the commissioned path; the report itself is Stage 9
 
