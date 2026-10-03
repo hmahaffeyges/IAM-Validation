@@ -32,7 +32,6 @@ those chapters rely on. A paper is listed only after it has been read in full. T
 
 ## Related records elsewhere in the repository
 - Chain numbers: `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv` and `CHAIN_PAIRS_FINAL.csv`, one documented extraction of all 18 final chain files (30 % burn-in). Every Δχ², σ8 and µ0 in the book comes from these.
-- Side tests: `results/side_tests/` (cusp–core).
 - Derivation test suite: `tests/iam_derivation_tests.py`.
 
 ## Conventions

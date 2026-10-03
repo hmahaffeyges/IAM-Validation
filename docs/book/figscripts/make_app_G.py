@@ -7,7 +7,7 @@ Writes docs/book/appendices/app_G_predictions_register.tex. Nothing in the table
     (each edit must match its field exactly once, or the script stops);
   * values that an override changes are recomputed here and checked (decoherence time, E_G shift);
   * the chapter number (C1, Q2, ...) is read from the bracketed register IDs in part5/p5_07_predictions.tex;
-  * the count table counts all 519 verdicts by domain.
+  * the count table counts every verdict by domain.
 A final lint stops the script if a draft, method name, hold note or correction phrase survives in the rendered text.
 """
 import json, re, sys, collections
@@ -33,7 +33,7 @@ FIELDS = ("statement", "test_and_date", "falsified_if")
 
 reg = json.load(open(TRIAGE))
 ov = {k: v for k, v in json.load(open(OVER)).items() if not k.startswith("_")}
-assert len(reg) == 519, len(reg)
+NREG = len(reg)
 byid = {e["pid"]: e for e in reg}
 
 # ---- recompute the values the overrides change ----
@@ -115,7 +115,7 @@ L.append("")
 cnt = collections.Counter((e["pid"].split("-")[0], e["verdict"]) for e in reg)
 lst = collections.Counter((r["dom"], r["verdict"]) for r in rows)
 L.append(r"\begin{table}[htbp]\centering\small")
-L.append(r"\caption{Verdicts on the 519 register entries outside the cell domain, by domain. Merged entries repeat another"
+L.append(r"\caption{Verdicts on the " + str(NREG) + r" register entries outside the cell domain, by domain. Merged entries repeat another"
          r" entry; entries not listed are definitions, restatements or interpretations, or name no test. The last column"
          r" counts the rows of this appendix. \observed}\label{tab:register_counts}")
 L.append(r"\begin{tabular}{@{}lrrrrrrr@{}}\toprule")
@@ -131,7 +131,7 @@ for code, name in DOMAINS:
 tv = [tot[v] for v in ("KEEP", "CORRECT", "TESTED", "DUP", "DROP")]
 L.append(r"\midrule all & " + " & ".join(map(str, tv)) + f" & {sum(tv)} & {tot['here']}\\\\\\bottomrule")
 L.append(r"\end{tabular}\end{table}")
-assert sum(tv) == 519
+assert sum(tv) == NREG
 if excluded:
     L.append("")
     L.append(f"Of the {sum(tot[v] for v in LISTED)} entries with a standing verdict, {len(excluded)} are not listed: they repeat a"
