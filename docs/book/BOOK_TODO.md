@@ -266,3 +266,7 @@ Rows proposed in the x_qp, theory, particle and exploratory MANIFESTs are in (XQ
       (`wz_MANIFEST_darkenergy_surveys.md` l.235–236; `BOOK_READING_TODO.md` rows 19–21)
 - [!] 19.22 Electron mass: which expansion rate prices the electron's bit, photon-sector 67.16 or matter-sector 72.26? Printed as \openprob for now (`MANIFEST_particle.md` l.547–548).
 - [!] 19.23 Order of particle chapters: electroweak (mass generation) before Koide and the electron mass? (`MANIFEST_particle.md` l.29–30)
+
+## Put back at commissioning (open)
+- [ ] Six Part VI figures taken out 2026-10-03 (development values): see `COMMISSIONING_RETURNS.md`; markers `% COMMISSIONING-RETURN` in the chapters. Redraw from the commissioned chain and restore the sentence that points to each.
+- [ ] Replicate precision in the serial chapter: state the commissioned within-person spread (development notes DEV_REPL_V3_01, DEV_SELFTARE_01).
