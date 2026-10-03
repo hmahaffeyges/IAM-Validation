@@ -111,7 +111,7 @@ state~\cite{Zurek2003},
 \begin{equation}
 |\psi_S\rangle\otimes|E_0\rangle\;\longrightarrow\;\sum_ic_i\,|s_i\rangle\otimes|E_i\rangle, \label{eq:law_entangle}
 \end{equation}
-where $\{|s_i\rangle\}$ are the pointer states selected by the system--environment interaction. When the environmental states become approximately
+where $\{|s_i\rangle\}$ are the pointer states selected by the system--environment interaction~\cite{Zurek2003}. When the environmental states become approximately
 orthogonal, $\langle E_i|E_j\rangle\approx\delta_{ij}$, the reduced density matrix of $S$ becomes diagonal:
 \begin{equation}
 \rho_S={\rm Tr}_E|\Psi\rangle\langle\Psi|=\sum_{ij}c_ic_j^*\langle E_j|E_i\rangle\,|s_i\rangle\langle s_j|\;\longrightarrow\;\sum_i|c_i|^2|s_i\rangle\langle s_i|.
@@ -127,7 +127,7 @@ $N$ distinguishable pointer states,
 \begin{equation}
 I=\log_2N\ \text{bits}. \label{eq:law_bits}
 \end{equation}
-Landauer's principle establishes that producing --- equivalently, irreversibly encoding --- one bit of classical information requires a minimum energy
+Landauer's principle~\cite{Landauer1961} establishes that producing --- equivalently, irreversibly encoding --- one bit of classical information requires a minimum energy
 dissipation of
 \begin{equation}
 \Delta E_{\rm Landauer}=k_BT\ln2 \label{eq:law_landauer}
@@ -250,7 +250,7 @@ temperature $T=\hbar/(k_BP)=\hbar\kappa/(2\pi ck_B)$: the Unruh temperature and 
 $S\propto A$ or $G$ \derived.
 
 The $8\pi$ on the right is the Einstein normalization: $8\pi=2\times4\pi$, where $4\pi$ is the solid angle of the unit sphere in $\mathbb R^3$ (Gauss's
-law), and the factor 2 is the trace structure of $G_{ab}=R_{ab}-\tfrac12Rg_{ab}$ in the weak-field limit. For a static weak field,
+law), and the factor 2 is the trace structure of $G_{ab}=R_{ab}-\tfrac12Rg_{ab}$ in the weak-field limit~\cite{Wald1984}. For a static weak field,
 $g_{00}=-(1+2\Phi/c^2)$, $g_{ij}=(1-2\Phi/c^2)\delta_{ij}$, the Ricci tensor is $R_{00}=\nabla^2\Phi/c^2$ to first order. The trace-reversed field equation,
 $R_{ab}=(8\pi G/c^4)(T_{ab}-\tfrac12Tg_{ab})$, for dust ($T_{00}=\rho c^2$, $T=-\rho c^2$) gives $R_{00}=(8\pi G/c^4)\,\tfrac12\rho c^2=4\pi G\rho/c^2$, so
 $\nabla^2\Phi=4\pi G\rho$: Poisson's equation, whose $4\pi$ is Gauss's law. Both factors are geometric properties of three-dimensional space \derived.
@@ -598,7 +598,7 @@ This section traces the causal sequence by which IAM's Law, applied to gravitati
 Sections~\ref{sec:law_global} and~\ref{sec:perturbations}. Steps 1--5 follow from established physics; the references are to the standard results used at
 each stage.
 \begin{enumerate}
-\item Gravitational interaction. Matter interacts gravitationally, initiating collapse of overdense regions (general relativity).
+\item Gravitational interaction. Matter interacts gravitationally, initiating collapse of overdense regions (general relativity~\cite{Einstein1915}).
 \item Gravitational collapse. Matter clusters into bound systems: halos, galaxies, stars (structure formation~\cite{PressSchechter1974}).
 \item Quantum decoherence. Gravitational interaction resolves quantum superpositions into definite classical states (Eq.~\eqref{eq:law_entangle},
 \cite{Zurek2003}).
@@ -681,7 +681,7 @@ and the peak of structure formation is therefore, on this reading, a consequence
 \section{Observational consistency}
 \subsection{The primary test: $\beta_m=\Omega_m/2$}
 The primary quantitative test of IAM's Law at cosmological scales is the coupling constant $\beta_m=\Omega_m/2=0.15765$, fixed by the virial theorem with no
-free parameter. Seventeen MCMC chains were run against the full Planck 2018 likelihood (TT, TE, EE, low-$\ell$ and lensing). All converged to $R-1\le0.010$
+free parameter. Seventeen MCMC chains were run against the full Planck 2018 likelihood~\cite{Planck2018VI} (TT, TE, EE, low-$\ell$ and lensing) using MGCAMB~\cite{Hojjati2011} and Cobaya~\cite{Torrado2021}. All converged to $R-1\le0.010$
 with no discarded runs, no parameter adjustments and no excluded redshift ranges. The coupling is not a fitted parameter of these chains: it enters every one
 at the prediction, and the test is whether the fixed coupling is consistent with Planck. It is (Table~\ref{tab:law_consistency}; Chapter~\ref{ch:dual}).
 

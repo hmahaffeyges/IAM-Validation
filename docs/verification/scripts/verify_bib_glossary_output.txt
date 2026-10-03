@@ -1,0 +1,172 @@
+# online run 2026-10-03 (base 5f5997b): DOI checks
+DOI OK  bib_additions.bib Peebles1980 10.1515/9780691206714 | The Large-Scale Structure of the Universe
+DOI OK  bib_additions.bib CarrollChen2004 10.48550/arXiv.hep-th/0410270 | Spontaneous Inflation and the Origin of the Arrow of Time
+DOI OK  bib_additions.bib ReadGilmore2005 10.1111/j.1365-2966.2004.08424.x | Mass loss from dwarf spheroidal galaxies: the origins of shallow dark 
+DOI OK  bib_additions.bib Bestor2000 10.1093/hmg/9.16.2395 | The DNA methyltransferases of mammals
+DOI OK  bib_additions.bib Jurkowska2011 10.1002/cbic.201000195 | Structure and Function of Mammalian DNA Methyltransferases
+DOI OK  corrected_entries.bib Abad2022 10.1103/physrevlett.129.150504 | Universal Fidelity Reduction of Quantum Operations from Weak Dissipati
+DOI OK  corrected_entries.bib Amendola2008 10.1088/1475-7516/2008/04/013 | Measuring the dark side (with weak lensing)
+DOI OK  corrected_entries.bib Andersson2026 10.48550/arXiv.2602.01945 | Real-time detection of correlated quasiparticle tunneling events in a 
+DOI OK  corrected_entries.bib Arute2019 10.1038/s41586-019-1666-5 | Quantum supremacy using a programmable superconducting processor
+DOI OK  corrected_entries.bib Aspect1982 10.1103/physrevlett.49.1804 | Experimental Test of Bell's Inequalities Using Time- Varying Analyzers
+DOI OK  corrected_entries.bib BarbourBertotti1982 10.1098/rspa.1982.0102 | Mach’s principle and the structure of dynamical theories
+DOI OK  corrected_entries.bib Barends2011 10.1063/1.3638063 | Minimizing quasiparticle generation from stray infrared light in super
+DOI OK  corrected_entries.bib Bassi2013 10.1103/revmodphys.85.471 | Models of wave-function collapse, underlying theories, and experimenta
+DOI OK  corrected_entries.bib Bell1964 10.1103/physicsphysiquefizika.1.195 | On the Einstein Podolsky Rosen paradox
+DOI OK  corrected_entries.bib BelleII2023 10.1103/physrevd.108.032006 | Measurement of the                     <mml:math xmlns:mml="http://www
+DOI OK  corrected_entries.bib Blais2021 10.1103/revmodphys.93.025005 | Circuit quantum electrodynamics
+DOI OK  corrected_entries.bib Blem2013 10.1109/hpca.2013.6522302 | Power struggles: Revisiting the RISC vs. CISC debate on contemporary A
+DOI OK  corrected_entries.bib Bohm1952 10.1103/physrev.85.166 | A Suggested Interpretation of the Quantum Theory in Terms of "Hidden" 
+DOI OK  corrected_entries.bib Bousso2002 10.1103/revmodphys.74.825 | The holographic principle
+DOI OK  corrected_entries.bib CHSH1969 10.1103/physrevlett.23.880 | Proposed Experiment to Test Local Hidden-Variable Theories
+DOI OK  corrected_entries.bib CODATA2018 10.1103/revmodphys.93.025010 | CODATA recommended values of the fundamental physical constants: 2018
+DOI OK  corrected_entries.bib Cardani2021 10.1038/s41467-021-23032-z | Reducing the impact of radioactivity on quantum circuits in a deep-und
+DOI OK  corrected_entries.bib Carr2010 10.1103/physrevd.81.104019 | New cosmological constraints on primordial black holes
+DOI OK  corrected_entries.bib Carroll2001 10.12942/lrr-2001-1 | The Cosmological Constant
+DOI OK  corrected_entries.bib Catelani2011 10.1103/physrevlett.106.077002 | Quasiparticle Relaxation of Superconducting Qubits in the Presence of 
+DOI OK  corrected_entries.bib Christenson1964 10.1103/physrevlett.13.138 | Evidence for the                     <mml:math xmlns:mml="http://www.w
+DOI OK  corrected_entries.bib Connolly2024 10.1103/physrevlett.132.217001 | Coexistence of Nonequilibrium Density and Equilibrium Energy Distribut
+DOI OK  corrected_entries.bib Cyburt2016 10.1103/revmodphys.88.015004 | Big bang nucleosynthesis: Present status
+DOI OK  corrected_entries.bib DESY3 10.1103/physrevd.105.023520 | Dark Energy Survey Year 3 results: Cosmological constraints from galax
+DOI OK  corrected_entries.bib DOnofrio2016 10.1103/physrevd.93.025003 | Standard model cross-over on the lattice
+DOI OK  corrected_entries.bib DeDominicis2026 10.48550/arXiv.2405.18355 | Evaluating radiation impact on transmon qubits in above and undergroun
+DOI OK  corrected_entries.bib Dennard1974 10.1109/jssc.1974.1050511 | Design of ion-implanted MOSFET's with very small physical dimensions
+DOI OK  corrected_entries.bib Dirac1937 10.1038/139323a0 | The Cosmological Constants
+DOI OK  corrected_entries.bib Eichten1978 10.1103/physrevd.17.3090 | Charmonium: The model
+DOI OK  corrected_entries.bib Englert1964 10.1103/physrevlett.13.321 | Broken Symmetry and the Mass of Gauge Vector Mesons
+DOI OK  corrected_entries.bib Esmaeilzadeh2011 10.1145/2000064.2000108 | Dark silicon and the end of multicore scaling
+DOI OK  corrected_entries.bib Everett1957 10.1103/revmodphys.29.454 | "Relative State" Formulation of Quantum Mechanics
+DOI OK  corrected_entries.bib Foot1994 10.48550/arXiv.hep-ph/9402242 | A note on Koide's lepton mass relation
+DOI OK  corrected_entries.bib Fowler2012 10.1103/physreva.86.032324 | Surface codes: Towards practical large-scale quantum computation
+DOI OK  corrected_entries.bib Fuchs2014 10.1119/1.4874855 | An introduction to QBism with an application to the locality of quantu
+DOI OK  corrected_entries.bib GRW1986 10.1103/physrevd.34.470 | Unified dynamics for microscopic and macroscopic systems
+DOI OK  corrected_entries.bib Gavela1994 10.1142/s0217732394000629 | STANDARD MODEL CP-VIOLATION AND BARYON ASYMMETRY
+DOI OK  corrected_entries.bib GibbonsHawking1977b 10.1103/physrevd.15.2752 | Action integrals and partition functions in quantum gravity
+DOI OK  corrected_entries.bib Giustina2015 10.1103/physrevlett.115.250401 | Significant-Loophole-Free Test of Bell’s Theorem with Entangled Photon
+DOI OK  corrected_entries.bib Glazman2021 10.21468/scipostphyslectnotes.31 | Bogoliubov quasiparticles in superconducting qubits
+DOI OK  corrected_entries.bib Gonzalez2021 10.1126/science.abg3027 | Levitodynamics: Levitation and control of microscopic objects in vacuu
+DOI OK  corrected_entries.bib Gordon2022 10.1063/5.0078785 | Environmental radiation impact on lifetimes and quasiparticle tunnelin
+DOI OK  corrected_entries.bib HSCY3 10.1103/physrevd.108.123518 | Hyper Suprime-Cam Year 3 results: Cosmology from cosmic shear two-poin
+DOI OK  corrected_entries.bib Hackermuller2004 10.1038/nature02276 | Decoherence of matter waves by thermal emission of radiation
+DOI OK  corrected_entries.bib Haroche2006 10.1093/acprof:oso/9780198509141.001.0001 | Exploring the Quantum
+DOI OK  corrected_entries.bib Hensen2015 10.1038/nature15759 | Loophole-free Bell inequality violation using electron spins separated
+DOI OK  corrected_entries.bib Heymans2021 10.1051/0004-6361/202039063 | KiDS-1000 Cosmology: Multi-probe weak gravitational lensing and spectr
+DOI OK  corrected_entries.bib Higgs1964 10.1103/physrevlett.13.508 | Broken Symmetries and the Masses of Gauge Bosons
+DOI OK  corrected_entries.bib Hornberger2003 10.1103/physrevlett.90.160401 | Collisional Decoherence Observed in Matter Wave Interferometry
+DOI OK  corrected_entries.bib Houzet2019 10.1103/physrevlett.123.107704 | Photon-Assisted Charge-Parity Jumps in a Superconducting Qubit
+DOI OK  corrected_entries.bib Jacques2007 10.1126/science.1136303 | Experimental Realization of Wheeler's Delayed-Choice Gedanken Experime
+DOI OK  corrected_entries.bib Kajantie1996 10.1103/physrevlett.77.2887 | Is There a Hot Electroweak Phase Transition at                     <mm
+DOI OK  corrected_entries.bib Kim2023IBM 10.1038/s41586-023-06096-3 | Evidence for the utility of quantum computing before fault tolerance
+DOI OK  corrected_entries.bib Klimov2018 10.1103/physrevlett.121.090502 | Fluctuations of Energy-Relaxation Times in Superconducting Qubits
+DOI OK  corrected_entries.bib Koch2007 10.1103/physreva.76.042319 | Charge-insensitive qubit design derived from the Cooper pair box
+DOI OK  corrected_entries.bib Koide1983 10.1016/0370-2693(83)90644-5 | A fermion-boson composite model of quarks and leptons
+DOI OK  corrected_entries.bib Koomey2011 10.1109/mahc.2010.28 | Implications of Historical Trends in the Electrical Efficiency of Comp
+DOI OK  corrected_entries.bib Koski2014 10.1073/pnas.1406966111 | Experimental realization of a Szilard engine with a single electron
+DOI OK  corrected_entries.bib Kotler2021 10.1126/science.abf2998 | Direct observation of deterministic macroscopic entanglement
+DOI OK  corrected_entries.bib Kurter2022 10.1038/s41534-022-00542-2 | Quasiparticle tunneling as a probe of Josephson junction barrier and c
+DOI OK  corrected_entries.bib Lisenfeld2019 10.1038/s41534-019-0224-1 | Electric field spectroscopy of material defects in transmon qubits
+DOI OK  corrected_entries.bib Ma2016 10.1103/revmodphys.88.015005 | Delayed-choice gedanken experiments and their realizations
+DOI OK  corrected_entries.bib Maldacena1999 10.1023/a:1026654312961 | The Large-N Limit of Superconformal Field Theories and Supergravity
+DOI OK  corrected_entries.bib Martin2012 10.1016/j.crhy.2012.04.008 | Everything you always wanted to know about the cosmological constant p
+DOI OK  corrected_entries.bib Martinis2009 10.1103/physrevlett.103.097002 | Energy Decay in Superconducting Josephson-Junction Qubits from Nonequi
+DOI OK  corrected_entries.bib Martinis2021 10.1038/s41534-021-00431-0 | Saving superconducting quantum processors from decay and correlated er
+DOI OK  corrected_entries.bib McEwen2022 10.1038/s41567-021-01432-8 | Resolving catastrophic error bursts from cosmic rays in large arrays o
+DOI OK  corrected_entries.bib Muller2019 10.1088/1361-6633/ab3a7e | Towards understanding two-level-systems in amorphous solids: insights 
+DOI OK  corrected_entries.bib PDG2022 10.1093/ptep/ptac097 | Review of Particle Physics
+DOI OK  corrected_entries.bib Padmanabhan2010 10.1088/0034-4885/73/4/046901 | Thermodynamical aspects of gravity: new insights
+DOI OK  corrected_entries.bib Penrose1989 10.1093/oso/9780198519737.001.0001 | The Emperor's New Mind Concerning Computers, Minds, and The Laws of Ph
+DOI OK  corrected_entries.bib Phillips1987 10.1088/0034-4885/50/12/003 | Two-level states in glasses
+DOI OK  corrected_entries.bib Place2021 10.1038/s41467-021-22030-5 | New material platform for superconducting transmon qubits with coheren
+DOI OK  corrected_entries.bib Planck2015MG 10.1051/0004-6361/201525814 | <i>Planck</i>                     2015 results XIV. Dark energy and mo
+DOI OK  corrected_entries.bib Proctor2022 10.1038/s41567-021-01409-7 | Measuring the capabilities of quantum computers
+DOI OK  corrected_entries.bib Riedinger2018 10.1038/s41586-018-0036-z | Remote quantum entanglement between two micromechanical oscillators
+DOI OK  corrected_entries.bib Riess2022 10.3847/2041-8213/ac5c5b | A Comprehensive Measurement of the Local Value of the Hubble Constant 
+DOI OK  corrected_entries.bib Riste2013 10.1038/ncomms2936 | Millisecond charge-parity fluctuations and induced decoherence in a su
+DOI OK  corrected_entries.bib RomeroIsart2011 10.1103/physreva.84.052121 | Quantum superposition of massive objects and collapse models
+DOI OK  corrected_entries.bib Schlor2019 10.1103/physrevlett.123.190502 | Correlating Decoherence in Transmon Qubits: Low Frequency Noise by Sin
+DOI OK  corrected_entries.bib Schlosshauer2005 10.1103/revmodphys.76.1267 | Decoherence, the measurement problem, and interpretations of quantum m
+DOI OK  corrected_entries.bib Serniak2018 10.1103/physrevlett.121.157701 | Hot Nonequilibrium Quasiparticles in Transmon Qubits
+DOI OK  corrected_entries.bib Shalm2015 10.1103/physrevlett.115.250402 | Strong Loophole-Free Test of Local Realism
+DOI OK  corrected_entries.bib Simon2011Segue 10.1088/0004-637x/733/1/46 | A COMPLETE SPECTROSCOPIC SURVEY OF THE MILKY WAY SATELLITE SEGUE 1: TH
+DOI OK  corrected_entries.bib Steigman2006 10.1142/s0218301306004028 | PRIMORDIAL NUCLEOSYNTHESIS: SUCCESSES AND CHALLENGES
+DOI OK  corrected_entries.bib Sumino2009 10.1016/j.physletb.2008.12.060 | Family gauge symmetry and Koide's mass formula
+DOI OK  corrected_entries.bib Sze2006 10.1002/0470068329 | Physics of Semiconductor Devices
+DOI OK  corrected_entries.bib Theis2017 10.1109/mcse.2017.29 | The End of Moore's Law: A New Beginning for Information Technology
+DOI OK  corrected_entries.bib Tsirelson1980 10.1007/bf00417500 | Quantum generalizations of Bell's inequality
+DOI OK  corrected_entries.bib Vepsalainen2020 10.1038/s41586-020-2619-8 | Impact of ionizing radiation on superconducting qubit coherence
+DOI OK  corrected_entries.bib Verlinde2011 10.1007/jhep04(2011)029 | On the origin of gravity and the laws of Newton
+DOI OK  corrected_entries.bib Wang2014 10.1038/ncomms6836 | Measurement and control of quasiparticle dynamics in a superconducting
+DOI OK  corrected_entries.bib Wang2015TLS 10.1063/1.4934486 | Surface participation and dielectric loss in superconducting qubits
+DOI OK  corrected_entries.bib Wang2022Ta 10.1038/s41534-021-00510-2 | Towards practical quantum computers: transmon qubit with a lifetime ap
+DOI OK  corrected_entries.bib Weinberg1989 10.1103/revmodphys.61.1 | The cosmological constant problem
+DOI OK  corrected_entries.bib Wheeler1978 10.1016/b978-0-12-473250-6.50006-6 | The “Past” and the “Delayed-Choice” Double-Slit Experiment
+DOI OK  corrected_entries.bib Wu1957 10.1103/physrev.105.1413 | Experimental Test of Parity Conservation in Beta Decay
+DOI OK  corrected_entries.bib Yin2017 10.1126/science.aan3211 | Satellite-based entanglement distribution over 1200 kilometers
+DOI OK  corrected_entries.bib deGraaf2020 10.1126/sciadv.abc5055 | Two-level systems in superconducting quantum devices due to trapped qu
+DOI OK  corrected_entries.bib deVisser2011 10.1103/physrevlett.106.167004 | Number Fluctuations of Sparse Quasiparticles in a Superconductor
+DOI OK  corrected_entries.bib tHooft1993 10.48550/arXiv.gr-qc/9310026 | Dimensional Reduction in Quantum Gravity
+DOI OK  corrected_entries.bib Planck2018IV 10.1051/0004-6361/201833881 | <i>Planck</i>                     2018 results IV. Diffuse component s
+DOI OK  corrected_entries.bib Smarr1973 10.1103/physrevlett.30.71 | Mass Formula for Kerr Black Holes
+DOI OK  corrected_entries.bib ForemanMackey2013 10.1086/670067 | <tt>emcee</tt>                     : The MCMC Hammer
+DOI OK  corrected_entries.bib Milo2015 10.1201/9780429258770 | Cell Biology by the Numbers
+DOI OK  corrected_entries.bib Triche2013 10.1093/nar/gkt090 | Low-level processing of Illumina Infinium DNA Methylation BeadArrays
+DOI OK  corrected_entries.bib Fortin2017 10.1093/bioinformatics/btw691 | Preprocessing, normalization and integration of the Illumina HumanMeth
+DOI OK  corrected_entries.bib Snyder2016 10.1016/j.cell.2015.11.050 | Cell-free DNA Comprises an In Vivo Nucleosome Footprint that Informs I
+DOI OK  corrected_entries.bib Cristiano2019 10.1038/s41586-019-1272-6 | Genome-wide cell-free DNA fragmentation in patients with cancer
+DOI OK  corrected_entries.bib Roadmap2015 10.1038/nature14248 | Integrative analysis of 111 reference human epigenomes
+DOI OK  corrected_entries.bib Lister2011 10.1038/nature09798 | Hotspots of aberrant epigenomic reprogramming in human induced pluripo
+DOI OK  corrected_entries.bib Jung2015 10.1038/ncomms9489 | An LSC epigenetic signature is largely mutation independent and implic
+DOI OK  corrected_entries.bib Lehne2015 10.1186/s13059-015-0600-x | A coherent approach for analysis of the Illumina HumanMethylation450 B
+DOI OK  corrected_entries.bib Wang2018SATSA 10.1080/15592294.2018.1526028 | Epigenetic influences on aging: a longitudinal genome-wide methylation
+DOI OK  corrected_entries.bib Arneson2022 10.1038/s41467-022-28355-z | A mammalian methylation array for profiling methylation levels at cons
+DOI OK  corrected_entries.bib Abazajian2016 10.48550/arXiv.1610.02743 | CMB-S4 Science Book, First Edition
+DOI OK  corrected_entries.bib DESI2016 10.48550/arXiv.1611.00036 | The DESI Experiment Part I: Science,Targeting, and Survey Design
+DOI OK  corrected_entries.bib Hughes2025 10.48550/arXiv.2510.17286 | Trapped-ion two-qubit gates with &gt;99.99% fidelity without ground-st
+DOI OK  corrected_entries.bib Albuquerque2025 10.48550/arXiv.2506.03008 | Euclid preparation. Constraining parameterised models of modifications
+DOI OK  corrected_entries.bib Frusciante2025 10.48550/arXiv.2512.09748 | Euclid preparation. Review of forecast constraints on dark energy and 
+DOI OK  corrected_entries.bib Sundelin2026 10.48550/arXiv.2602.01945 | Real-time detection of correlated quasiparticle tunneling events in a 
+DOI OK  corrected_entries.bib Einstein1915 10.1002/3527608958.ch5 | Die Feldgleichungen der Gravitation
+DOI OK  corrected_entries.bib McKay2023 10.48550/arXiv.2311.05933 | Benchmarking Quantum Processor Performance at Scale
+DOI OK  corrected_entries.bib Liu2024LRG 10.48550/arXiv.2407.04385 | Impact of LRG1 and LRG2 in DESI 2024 BAO data on dark energy evolution
+DOI OK  corrected_entries.bib Colgain2025 10.1016/j.dark.2026.102268 | How much has DESI dark energy evolved since DR1?
+DOI OK  corrected_entries.bib Merloni2012 10.48550/arXiv.1209.3114 | eROSITA Science Book: Mapping the Structure of the Energetic Universe
+# offline run 2026-10-03 at HEAD 3290e60 (after lead tare note): blocks and glossary
+BLOCK OK  B01 part1/p1_04_virial_identity.tex anchor_count=1 keys=['Jacobson1995']
+BLOCK OK  B02 part1/p1_02_iams_law.tex anchor_count=1 keys=['Planck2018VI', 'Hojjati2011', 'Torrado2021']
+BLOCK OK  B03 part1/p1_02_iams_law.tex anchor_count=1 keys=['Zurek2003']
+BLOCK OK  B04 part1/p1_02_iams_law.tex anchor_count=1 keys=['Landauer1961']
+BLOCK OK  B05 part1/p1_02_iams_law.tex anchor_count=1 keys=['Wald1984']
+BLOCK OK  B06 part1/p1_01_encoding_surfaces.tex anchor_count=1 keys=['Bennett1982']
+BLOCK OK  B07 part1/p1_01_encoding_surfaces.tex anchor_count=1 keys=['Bestor2000', 'Jurkowska2011']
+BLOCK OK  B08 part1/p1_03_virial_law.tex anchor_count=1 keys=['Clausius1870']
+BLOCK OK  B09 part2/p2_01_blackholes.tex anchor_count=1 keys=['Landauer1961']
+BLOCK OK  B10 part2/p2_01_blackholes.tex anchor_count=1 keys=['Hawking1975']
+BLOCK OK  B11 part2/p2_02_virial.tex anchor_count=1 keys=['Jacobson1995', 'CaiKim2005']
+BLOCK OK  B12 part2/p2_02_virial.tex anchor_count=1 keys=['Landauer1961']
+BLOCK OK  B13 part2/p2_02_virial.tex anchor_count=1 keys=['Tinker2008']
+BLOCK OK  B14 part2/p2_03_theory.tex anchor_count=1 keys=['Bekenstein1973', 'Hawking1975']
+BLOCK OK  B15 part2/p2_03_theory.tex anchor_count=1 keys=['Bekenstein1973']
+BLOCK OK  B16 part2/p2_03_theory.tex anchor_count=1 keys=['GibbonsHawking1977']
+BLOCK OK  B17 part2/p2_03_theory.tex anchor_count=1 keys=['Landauer1961']
+BLOCK OK  B18 part2/p2_03_theory.tex anchor_count=1 keys=['CaiKim2005']
+BLOCK OK  B19 part2/p2_03_theory.tex anchor_count=1 keys=['Einstein1915']
+BLOCK OK  B20 part2/p2_03_theory.tex anchor_count=1 keys=['Peebles1980']
+BLOCK OK  B21 part2/p2_03_theory.tex anchor_count=1 keys=['CarrollChen2004']
+BLOCK OK  B22 part2/p2_03_theory.tex anchor_count=1 keys=['Jacobson1995']
+BLOCK OK  B23 part2/p2_03_theory.tex anchor_count=1 keys=['CaiKim2005']
+BLOCK OK  B24 part2/p2_03_theory.tex anchor_count=1 keys=['DESY3Ext']
+BLOCK OK  B25 part2/p2_08_s8_trend.tex anchor_count=1 keys=['Planck2018VI']
+BLOCK OK  B26 part2/p2_19_missing_satellites.tex anchor_count=1 keys=['ReadGilmore2005']
+BLOCK OK  B27 part2/p2_22_electroweak.tex anchor_count=1 keys=['Clausius1870']
+BLOCK OK  B28 part5/p5_01b_bh_information.tex anchor_count=1 keys=['Hawking1975']
+BLOCK OK  B29 part5/p5_04_measurement.tex anchor_count=1 keys=['Bell1964', 'Aspect1982', 'Hensen2015']
+BLOCK OK  B30 part5/p5_05b_virial_partners.tex anchor_count=1 keys=['Clausius1870']
+BLOCK OK  B31 part5/p5_05c_virial_decoherence.tex anchor_count=1 keys=['Landauer1961']
+BLOCK OK  B32 part1/p1_02_iams_law.tex anchor_count=1 keys=['Einstein1915']
+GLOSSARY OK  unresolved refs: []
+GLOSSARY OK  missing cite keys: []
+GLOSSARY OK  unbalanced entries: []
+GLOSSARY OK  untraced numbers: []
+GLOSSARY OK  canon retired patterns: []
+GLOSSARY OK  retired words: []
+glossary entries 677; DOIs checked 0; blocks 32; FAIL 0
