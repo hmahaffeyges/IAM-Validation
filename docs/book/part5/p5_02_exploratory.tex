@@ -1,98 +1,361 @@
 \chapter{Exploratory: what the law permits for gravitational engineering}\label{ch:exploratory}
 
 \section*{The place}
-This chapter asks what IAM permits for gravitational engineering and interstellar transit. The content falls into two zones: results that
-follow from established physics and the structure of IAM already stated in Part~\ref{part:2}, and a conjectured engineering coupling that would
-need a material not known to exist. Each zone carries what a referee would add to it, and every claim carries its status. Nothing in this
-chapter is used anywhere else in the book.
+This chapter is written for fun. It shows how wide the reach of IAM's Law is, from the cosmic horizon down to a spacecraft, and
+nothing in it is offered as a validated result or a proposal to build anything. It is an exploratory chapter, not a validation chapter. It is divided into two explicitly separated zones. Zone~I contains only results that follow
+rigorously from established physics (general relativity, the equivalence principle, expansion kinematics) combined with the already-stated
+identifications of IAM. Every equation in Zone~I is derivable and is either standard physics or follows from the structure of IAM stated in
+Part~\ref{part:2}. Zone~II is conjectural. It begins at an explicitly marked transition and concerns a regime that requires a material whose existence
+is not established. No equation in Zone~II is claimed as derived; each is presented as the form a future derivation would have to take, conditional on
+premises that are stated as premises. The boundary between what is established and what is conjectured is never blurred. This separation is the
+entire point of the chapter. Nothing in this chapter is used anywhere else in the book.
 
-\section{The premise}
-IAM prices each irreversible record at $\kB T_H\ln2$ at the horizon temperature $T_H=\hbar H/2\pi\kB$, and the cost enters the matter-sector expansion as
-$H^2_{\rm eff,m}=H^2_{\Lambda{\rm CDM}}+\beta_m E(a)H_0^2$ with $\beta_m=\Omega_m/2$ and $E(a)=\exp(1-1/a)$ (Chapter~\ref{ch:theory}). In the
-weak field the local acceleration is the gradient of a potential, $\mathbf g=-\nabla\Phi$. The question is what follows if that gradient
-could be shaped. Nothing below says it can.
+\section{Premise: what IAM already says about gravity}\label{sec:ge_premise}
+IAM leaves general relativity as it is. At each irreversible quantum-to-classical transition (decoherence) on a timelike worldline, classical
+information is produced and paid for at the Landauer cost~\cite{Landauer1961}
+\begin{equation}
+\Delta E_{\rm rec}=\kB T_H\ln2\ \text{per bit},\qquad T_H=\frac{\hbar H}{2\pi\kB},
+\label{eq:ge_landauer}
+\end{equation}
+where $T_H$ is the (Gibbons--Hawking) horizon temperature~\cite{GibbonsHawking1977} (Chapter~\ref{ch:theory}). Today $T_H=2.65\times10^{-30}$\,K and
+$\kB T_H\ln2=2.53\times10^{-53}$\,J per bit at the photon-sector $H_0=67.16$\,km\,s$^{-1}$\,Mpc$^{-1}$, and $2.85\times10^{-30}$\,K and
+$2.72\times10^{-53}$\,J at the matter-sector $H_0=72.26$. \calc
 
-\section{Zone I: kinematics that follow from established physics}
-Figure~\ref{fig:transit} gives the transit requirement against time, and the tidal residual that a body in free fall does feel.
+This cost is partitioned by the virial theorem into two equal halves (Chapter~\ref{ch:virial_law}): a geometric/potential half that manifests locally
+as the gravitational potential, and a kinetic/informational half that manifests globally as the dark-energy term in the expansion
+(Chapter~\ref{ch:virial_partners}). \interp{} The partition is fixed at $1/2$ by the equilibrium condition (the coupling constant
+$\beta_m=\Omega_m/2=0.15765$, Chapter~\ref{ch:virial}), \prediction{} and the cumulative record is encoded in the activation function
+\begin{equation}
+E(a)=\exp\!\left(1-\frac1a\right),\qquad E(1)=1,\qquad E(a\to\infty)=e,
+\label{eq:ge_Ea}
+\end{equation}
+whose rate $\mathrm dE/\mathrm d\ln a=E/a$ peaks at $a=1$, \derived{} entering the matter-sector expansion as
+\begin{equation}
+H^2_{\rm eff,m}(a)=H^2_{\Lambda{\rm CDM}}(a)+\beta_m\,E(a)\,H_0^2 .
+\label{eq:ge_Hm}
+\end{equation}
+These are not new to this chapter; they are the established core of IAM and are tested against data in Part~\ref{part:2}. The present chapter asks a
+single question: taking these as given, what does the framework permit?
+
+\section{Zone I: established physics and IAM consequences}\label{sec:ge_zone1}
+
+\subsection{Gravity as a steerable effective potential}
+In IAM the locally felt gravitational acceleration is the gradient of an effective potential built from the potential half of the partition:
+\begin{equation}
+\mathbf g_{\rm IAM}(\mathbf x)=-\nabla\Phi_{\rm IAM}(\mathbf x).
+\label{eq:ge_g}
+\end{equation}
+This is definitional and recovers Newtonian gravity in the weak field. \derived{} The content of Zone~I is the following: whatever physical process
+sets $\Phi_{\rm IAM}$, a body responds only to its local gradient. Equation~\eqref{eq:ge_g} is the only ingredient required for the kinematic results
+below. How $\Phi_{\rm IAM}$ might be engineered is not asked yet; that is Zone~II. The question here is only what follows if the gradient can be shaped.
+Nothing in Zone~I says it can.
+
+\subsection{Free-fall motion carries no felt acceleration (equivalence principle)}\label{sec:ge_freefall}
+A body moving solely under $\mathbf g_{\rm IAM}$ follows a geodesic. Its equation of motion is
+\begin{equation}
+\ddot{\mathbf x}=-\nabla\Phi_{\rm IAM}(\mathbf x).
+\label{eq:ge_eom}
+\end{equation}
+Every part of the body, and any occupant, obeys the same equation. By the equivalence principle (established physics since 1907), an observer in free
+fall experiences no proper acceleration: the locally felt force is
+\begin{equation}
+\mathbf f_{\rm felt}=m\left(\ddot{\mathbf x}+\nabla\Phi_{\rm IAM}\right)=0,
+\label{eq:ge_felt}
+\end{equation}
+identically, regardless of the magnitude or direction of $\nabla\Phi_{\rm IAM}$, provided the gradient is uniform across the body's scale $L$.
+\derived{} The residual tidal force is the differential of the gradient,
+\begin{equation}
+f_{\rm tidal}\sim mL\,\partial^2\Phi_{\rm IAM},
+\label{eq:ge_tidal}
+\end{equation}
+and vanishes in the limit of a gradient uniform over $L$. For a point mass $M$ at distance $r$, $\Phi=-GM/r$ and $g(r)-g(r+L)=2GML/r^3$ to first
+order in $L$, which is $L\,|\partial_r^2\Phi|$. \derived{} At the Earth's surface this is $3.1\times10^{-6}\,g$ across 10\,m and
+$3.1\times10^{-5}\,g$ across 100\,m (Figure~\ref{fig:transit}b). \calc
+
+\emph{Consequence (rigorous).} A craft that moves by following a shaped $\Phi_{\rm IAM}$ gradient undergoes no felt acceleration during arbitrary
+changes of speed or direction. A $90^\circ$ ``turn'' is accomplished by relocating the gradient direction; the craft and occupants remain in free fall
+throughout and feel nothing beyond the tidal term. This dissolves the inertial objection to abrupt high-acceleration maneuvers. It is a direct
+consequence of the equivalence principle and requires no new physics. \derived{} (conditional on a shaped gradient) It does not say how a gradient
+could be moved.
+
+\subsection{The hover and the abrupt departure as gradient operations}
+Write the potential as an ambient part and an engineered part, $\Phi=\Phi_{\rm amb}+\Phi_{\rm IAM}$, with $\mathbf g_{\rm amb}=-\nabla\Phi_{\rm amb}$.
+A stationary hover corresponds to shaping $\Phi_{\rm IAM}$ so that its gradient cancels the ambient gravitational gradient,
+\begin{equation}
+\nabla\Phi_{\rm IAM}=\mathbf g_{\rm amb}=-\nabla\Phi_{\rm amb},\qquad -\nabla\left(\Phi_{\rm amb}+\Phi_{\rm IAM}\right)=0 ,
+\label{eq:ge_hover}
+\end{equation}
+leaving the craft in a local null. \derived{} An abrupt departure corresponds to a steep gradient placed along the departure direction; the craft
+free-falls into it with coordinate acceleration $|\nabla\Phi_{\rm IAM}|$ but, by Section~\ref{sec:ge_freefall}, zero felt acceleration. Both are the
+same operation (shaping the gradient) at different settings. No equation here exceeds Newtonian gravity plus the equivalence principle. \derived{}
+(conditional on a shaped gradient)
+
+\subsection{Orientation along the gradient}\label{sec:ge_orient}
+A rigid body suspended in a gradient orients so that its constrained axis aligns with the local ``down'' defined by $-\nabla\Phi_{\rm IAM}$, exactly as
+a plumb bob hangs toward the net field. Its hang angle from the vertical is
+\begin{equation}
+\theta=\arctan\!\left(\frac{|\nabla\Phi_{\rm IAM}|_{\rm horizontal}}{|\nabla\Phi_{\rm IAM}|_{\rm vertical}}\right),
+\label{eq:ge_plumb}
+\end{equation}
+the same as a plumb line in a frame with horizontal acceleration $a_h$ and vertical field $g_v$, $\tan\theta=a_h/g_v$ ($5.7^\circ$ at $a_h=0.1\,g$).
+\derived{} (suspended body) The angle exists because the suspension pulls on the body.
+
+A craft in free fall is not suspended. In a uniform gradient every mass element $m_i$ at position $\mathbf r_i$ from the centre of mass feels
+$m_i\mathbf g$, and the torque about the centre of mass is $\sum_i\mathbf r_i\times m_i\mathbf g=(\sum_i m_i\mathbf r_i)\times\mathbf g=0$. A uniform
+gradient therefore sets no orientation: a gradient-following craft is not made to tilt toward its acceleration, nor is it kept from banking, and its
+attitude is no discriminator. \derived{} Any orientation effect comes from the tidal term or from attitude control. The tidal term is the
+gravity-gradient torque of satellite dynamics. For a body with moments of inertia $I_\perp$ and $I_\parallel$ about axes perpendicular and parallel to
+its long axis, at angle $\theta$ between that axis and the line to a point source of mass $M$ at distance $r$,
+\begin{equation}
+\tau=-\frac{3GM}{2r^3}\left(I_\perp-I_\parallel\right)\sin2\theta ,
+\label{eq:ge_ggtorque}
+\end{equation}
+which for a dumbbell of two masses $m$ a distance $\ell$ apart ($I_\perp-I_\parallel=m\ell^2/2$) is $-(3GMm\ell^2/4r^3)\sin2\theta$. \derived{} The
+torque restores the long axis toward the line to the source, and its size is set by the second derivative of the potential, $3GM/r^3$, not by the
+acceleration $GM/r^2$. Orientation therefore does not distinguish a gradient-following body from any other body in free fall. \derived
+
+\subsection{Expansion kinematics: the relevant ``speed limit'' is not \texorpdfstring{$c$}{c}}\label{sec:ge_expansion}
+The cosmological expansion already separates comoving objects at recession speeds
+\begin{equation}
+v_{\rm rec}=H_0D ,
+\label{eq:ge_vrec}
+\end{equation}
+which exceeds $c$ for $D>D_H$, the Hubble radius,
+\begin{equation}
+D_H=\frac{c}{H_0}=1.46\times10^{10}\ \text{ly}\ (H_0=67.16),\qquad 1.35\times10^{10}\ \text{ly}\ (H_0=72.26),
+\label{eq:ge_DH}
+\end{equation}
+and $\approx1.4\times10^{10}$ light-years at the round value $H_0=70$\,km\,s$^{-1}$\,Mpc$^{-1}$ (Figure~\ref{fig:recession}). \calc{} No object moves
+through space faster than $c$; space itself carries them. This is standard cosmology. In IAM the expansion is the global expression of the
+kinetic/informational half of the partition, Eq.~\eqref{eq:ge_Hm}. \interp{} Thus the framework already contains a mechanism by which proper
+separations grow faster than $c$ without any local violation of relativity. The ``speed limit'' relevant to a space-carrying drive is therefore not $c$. Whether the limit relevant to a space-carrying drive is set by how steep an
+imbalance in the record-writing rate can be sustained is open. $E(a)$ is a function of the scale factor, bounded by $E\to e$, and nothing in it sets a
+rate of proper-separation change for a local region. \openprob
+
 \begin{figure}[htbp]\centering
-\includegraphics[width=\textwidth]{figures/part5/fig_transit.pdf}
-\caption{(a) The effective rate of proper-separation change, in units of $c$, that a one-way transit to the Pleiades (136\,pc~\cite{Melis2014}, 444\,ly) requires, against transit time: $\xi=2.3\times10^4$ for seven days. Kinematics only. \calc\ (b) The tidal residual $2GML/r^3$ across a body of length $L$ in free fall at the Earth's surface, in units of $g$: $3.1\times10^{-6}$ for 10\,m and $3.1\times10^{-5}$ for 100\,m; the uniform part of the gradient is not felt. \derived}\label{fig:transit}
+\includegraphics[width=0.62\textwidth]{figures/part5/fig_exploratory_recession.pdf}
+\caption{Recession speed $H_0D/c$ against proper distance for the photon-sector ($H_0=67.16$) and matter-sector ($H_0=72.26$) expansion rates: it
+reaches $c$ at the Hubble radius, $1.46$ and $1.35\times10^{10}$\,ly. The Pleiades (136\,pc~\cite{Melis2014}, 444\,ly) lie at $3\times10^{-8}$ of
+it. Kinematics only; the energy conditions that stand in the way of a space-carrying drive are stated in Section~\ref{sec:ge_bubble}.
+\calc}\label{fig:recession}
 \end{figure}
 
+\subsection{Proper time aboard a locally inertial bubble}\label{sec:ge_bubble}
+Consider a craft enclosed in a region of locally flat spacetime that is itself displaced relative to distant stars by reshaping the surrounding geometry
+(the mechanism is Zone~II; the kinematics here are not). The standard example is Alcubierre's metric~\cite{Alcubierre1994},
+\begin{equation}
+\mathrm ds^2=-c^2\mathrm dt^2+\left[\mathrm dx-v_s\,f(r_s)\,\mathrm dt\right]^2+\mathrm dy^2+\mathrm dz^2,\qquad
+r_s=\sqrt{(x-x_s(t))^2+y^2+z^2},
+\label{eq:ge_alc}
+\end{equation}
+with $v_s=\mathrm dx_s/\mathrm dt$ and a shape function $f$ equal to 1 inside the bubble and 0 far outside. Along the centre worldline,
+$\mathrm dx=v_s\,\mathrm dt$ and $f=1$, so $\mathrm ds^2=-c^2\mathrm dt^2$. Inside a locally flat region the craft is inertial, so the proper time
+elapsed aboard equals the coordinate time of the bubble's worldline,
+\begin{equation}
+\mathrm d\tau_{\rm ship}=\mathrm dt_{\rm bubble},
+\label{eq:ge_tau}
+\end{equation}
+\derived{} and because the craft never acquires large local velocity through space, it accumulates none of the special-relativistic dilation factor
+$\sqrt{1-v^2/c^2}$ that afflicts a near-$c$ through-space voyage. A clock at weak-field potential $\Phi$ runs at $\mathrm d\tau=(1+\Phi/c^2)\,\mathrm dt$.
+Consequently the elapsed time on the craft and the elapsed time at the (comoving) origin differ only by the gravitational-potential term associated
+with the engineered region,
+\begin{equation}
+\frac{\Delta\tau_{\rm Earth}-\Delta\tau_{\rm ship}}{\Delta\tau}\sim\frac{\Delta\Phi_{\rm IAM}}{c^2}\ll1
+\label{eq:ge_dtau}
+\end{equation}
+for any potential small compared with $c^2$. \derived
+
+\emph{Consequence (rigorous, conditional on a flat bubble existing).} A round trip that takes proper time $\Delta\tau_{\rm ship}$ aboard elapses
+approximately the same $\Delta\tau_{\rm Earth}$ at the origin, in sharp contrast to relativistic through-space travel, where the twin asymmetry makes
+$\Delta\tau_{\rm Earth}\gg\Delta\tau_{\rm ship}$ (Figure~\ref{fig:twin_exploratory}). This is the Alcubierre-class result: a space-carrying
+displacement does not incur the twin-paradox penalty because the travellers remain locally inertial. It follows from the metric structure of a locally
+flat displaced region. \derived{} (conditional)
+
+The existence of such a region is where new physics is needed, and three published results stand against it. First, the energy density measured by
+observers at rest in the slicing of Eq.~\eqref{eq:ge_alc} (lapse 1, shift $-v_sf$, flat spatial metric) follows from the Hamiltonian constraint
+$16\pi G\rho/c^4=K^2-K_{ij}K^{ij}$; with $K_{ij}=\tfrac12(\partial_i\beta_j+\partial_j\beta_i)$ it is, in units $G=c=1$,
+\begin{equation}
+\rho=-\frac1{8\pi}\,\frac{v_s^2\,(y^2+z^2)}{4r_s^2}\left(\frac{\mathrm df}{\mathrm dr_s}\right)^2\le0 ,
+\label{eq:ge_rho}
+\end{equation}
+negative wherever the wall has a slope off the axis, so the weak energy condition fails~\cite{Alcubierre1994}. \derived{} Second, quantum inequalities
+confine negative energy to walls of near-Planck thickness and push the total requirement to enormous magnitudes~\cite{PfenningFord1997}. Third, for a
+superluminal bubble the front wall is outside the causal reach of anyone inside it, so it can neither be made on demand nor controlled from
+aboard~\cite{EverettRoman1997}. \derived{} (published results) These are the obstacles, and IAM as formulated addresses none of them.
+
 \begin{figure}[htbp]\centering
-\includegraphics[width=0.62\textwidth]{figures/part5/fig_recession.pdf}
-\caption{Recession speed $H_0D/c$ against proper distance for $H_0=70$ and 67.36: it reaches $c$ at the Hubble radius, $1.40$ and $1.45\times10^{10}$\,ly. The Pleiades (136\,pc, 444\,ly) lie at $3\times10^{-8}$ of it; a seven-day transit would need an effective rate of proper-separation change $\xi c$ with $\xi=2.3\times10^4$, which is not a local velocity. Kinematics only; the energy conditions that stand in the way are stated in the text. \calc}\label{fig:recession}
+\includegraphics[width=0.62\textwidth]{figures/part5/fig_exploratory_twin.pdf}
+\caption{One-way elapsed time to the Pleiades (444\,ly). Through space at constant $v$: $D/v$ at the origin and $D/(\gamma v)$ aboard (at $0.99c$,
+448 and 63 years). In a flat displaced region carried at an effective rate $\xi c$ with $\xi=2.3\times10^4$, both clocks read 7 days to order
+$\Delta\Phi/c^2$, Eq.~\eqref{eq:ge_dtau}; that region needs the negative energy density of Eq.~\eqref{eq:ge_rho}. \calc}\label{fig:twin_exploratory}
 \end{figure}
 
-\paragraph{Free fall carries no felt acceleration.} A body moving only under $\mathbf g=-\nabla\Phi$ follows a geodesic, and an observer
-aboard feels no proper acceleration whatever the size or direction of $\nabla\Phi$, provided the gradient is uniform over the body; the residual
-is the tidal term $f_{\rm tidal}\sim mL\,\partial^2\Phi$. \derived{} (equivalence principle). A craft that changed speed or direction by moving
-a gradient would therefore carry its occupants through the change without felt force. This removes the inertial objection to abrupt
-manoeuvres; it does not say how a gradient could be moved.
+\subsection{The transit figure for the Pleiades}
+The Pleiades lie at $D\approx136$\,pc~\cite{Melis2014} $\approx444$ light-years. For a space-carrying displacement at effective rate $v_{\rm eff}=\xi c$
+(with $\xi$ the ratio of induced proper-separation rate to $c$; $\xi>1$ is permitted because no local velocity exceeds $c$), the one-way coordinate time
+is
+\begin{equation}
+t_{\rm one\text-way}=\frac{D}{v_{\rm eff}}=\frac{444\ \text{ly}}{\xi c}=\frac{444}{\xi}\ \text{years}.
+\label{eq:ge_tone}
+\end{equation}
+By Section~\ref{sec:ge_bubble} the proper time aboard is approximately equal. A two-week round trip ($\Delta\tau_{\rm ship}\approx14$\,days, so
+$t_{\rm one\text-way}\approx7\,\text{days}\approx0.0192$\,yr) requires
+\begin{equation}
+\xi=\frac{444\ \text{yr}}{0.0192\ \text{yr}}\approx2.3\times10^4 .
+\label{eq:ge_xi}
+\end{equation}
+\calc{} That is, the surrounding geometry must be reshaped so that proper separation changes at $\sim2\times10^4$ $c$-equivalent. This number is not
+forbidden by relativity (it is a rate of proper-separation change, not a local velocity), and 444 light-years is a negligible fraction,
+$3\times10^{-8}$, of the Hubble radius of Eq.~\eqref{eq:ge_DH}. The distance to the Pleiades is not the obstacle; the negative energy density of
+Eq.~\eqref{eq:ge_rho} is. What remains is the question of whether such a geometry can be engineered, which is Zone~II.
 
-\paragraph{Hover and departure.} A hover is a gradient that cancels the ambient one; a departure is a steep gradient along the departure
-direction, entered in free fall. Both are Newtonian gravity plus the equivalence principle. \derived{} (conditional on a shaped gradient)
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part5/fig_exploratory_transit.pdf}
+\caption{(a) The effective rate of proper-separation change, in units of $c$, that a one-way transit to the Pleiades (136\,pc~\cite{Melis2014},
+444\,ly) requires, against transit time: $\xi=2.3\times10^4$ for seven days. Kinematics only. \calc\ (b) The tidal residual $2GML/r^3$ across a body of
+length $L$ in free fall at the Earth's surface, in units of $g$: $3.1\times10^{-6}$ for 10\,m and $3.1\times10^{-5}$ for 100\,m; the uniform part of
+the gradient is not felt. \derived}\label{fig:transit}
+\end{figure}
 
-\paragraph{No tilt signature.} A gradient-following craft does not tilt toward its acceleration like a plumb bob, and a tilt is not a
-discriminator. That would contradict the free-fall result above: a plumb bob hangs because it is supported; a body in free
-fall in a uniform gradient feels no torque and has no preferred orientation. Any tilt would come from the tidal term (a non-uniform gradient
-across the hull) or from attitude control, and neither is fixed by the acceleration. \derived
+\section{Transition to Zone II: conjecture begins here}\label{sec:ge_transition}
+Everything above follows from established physics plus IAM's existing structure. Nothing below is derived. The remainder of this chapter concerns the
+engineering coupling (how an external apparatus might write to the source of $\Phi_{\rm IAM}$ rather than merely read it) and the material that would
+be required. This coupling is not present in IAM as currently formulated; it is the open derivation. Worse, it is conjectured to require a material (a
+long-lived island-of-stability superheavy held in macroscopic quantum coherence) whose existence is not established. This section therefore cannot be
+derived. It states only the form that the missing physics would have to take, clearly labelled as conjecture, so that the structure of the open
+problem is recorded. Each numbered item below is a premise or a conditional, never a result.
 
-\paragraph{Recession faster than light.} Comoving objects separate at $v_{\rm rec}=H_0D$, which exceeds $c$ beyond the Hubble radius
-$D_H=c/H_0=1.40\times10^{10}$~ly at $H_0=70$ (1.45$\times10^{10}$~ly at the Planck value). \calc{} No object moves through space faster than $c$;
-the expansion carries them. In IAM that expansion is the global term of the partition. Whether a space-carrying drive has a ``speed limit''
-set by how steep an actualization imbalance can be sustained is open: $E(a)$ is a function of the scale factor, bounded by $E\to e$, and nothing
-in it sets a rate of proper-separation change for a local region. \openprob
+\section{Zone II: the conjectural engineering coupling}\label{sec:ge_zone2}
 
-\paragraph{Proper time inside a locally flat displaced region.} If a region of flat spacetime is carried relative to distant stars by reshaping
-the geometry around it, the occupants are inertial, their proper time equals the region's coordinate time, and the elapsed times aboard and at the
-origin differ only by $\Delta\Phi/c^2\ll1$. \derived{} This is Alcubierre's result~\cite{Alcubierre1994}, conditional on such a region
-existing. Three published results stand against it: every such metric requires negative energy density
-in the wall of the region, violating the weak energy condition~\cite{Alcubierre1994}; quantum inequalities confine any negative energy to walls of
-near-Planck thickness and push the total requirement to enormous magnitudes~\cite{PfenningFord1997}; and for a superluminal region the front wall is
-outside the causal reach of anyone inside it, so it can neither be created on demand nor controlled from aboard~\cite{EverettRoman1997}.
-\derived{} (published results) These are the obstacles, and none of them is addressed by IAM as formulated.
+\subsection{The missing object: a coupling to the record-writing rate}
+\textbf{Conjecture C1.} There exists a coupling by which a controlled physical input $J(\mathbf x,t)$ sources a local perturbation of the potential:
+\begin{equation}
+\Phi_{\rm IAM}(\mathbf x,t)=\Phi_0(\mathbf x)+\int G(\mathbf x-\mathbf x',t-t')\,J(\mathbf x',t')\,\mathrm d^3x'\,\mathrm dt'
+\quad\text{(conjectured form, not derived)},
+\label{eq:ge_kernel}
+\end{equation}
+with $G$ a response kernel. \conjecture{} The kernel $G$ is unknown. IAM specifies that $\Phi_{\rm IAM}$ is sourced by the rate of irreversible record
+writing; C1 conjectures that this rate can be driven rather than only observed. Deriving $G$ from the partition structure is the central open problem
+and is not attempted here. \openprob
 
-\paragraph{The Pleiades.} At $D=136$~pc~\cite{Melis2014} $=444$~ly, a one-way transit in seven days needs an effective rate of proper-separation change
-$\xi c$ with $\xi=444/0.0192=2.3\times10^4$. \calc{} The distance is $3\times10^{-8}$ of the Hubble radius. Relativity does not forbid the number,
-because it is not a local velocity; the energy conditions above are what stand in the way.
+\subsection{The material premise}
+\textbf{Premise P1 (knife-edge).} Driving the record-writing rate requires a substrate whose mass-energy is metastable with respect to the boundary
+between coherent superposition and classical record, poised, so a small input tips a large mass-energy across in a controlled way. Ordinary matter is
+fully decohered and does not respond. The island of stability (superheavy nuclei near the predicted shell closures, $Z\sim114$--126) is the conjectured
+location of such metastable matter. \conjecture
 
-\section{Zone II: the conjectured engineering coupling}
-\paragraph{The coupling.} The conjecture is a response kernel $G$ by which a controlled input $J(\mathbf x,t)$ drives the actualization
-potential, $\Phi=\Phi_0+\int G\,J$. IAM states that $\Phi$ is sourced by the rate of irreversible actualization; the conjecture adds that this rate
-can be driven rather than only read. $G$ is not derived. \conjecture
+\textbf{Premise P2 (coherence).} To hold an induced imbalance against the restoring tendency of the partition (the equilibrium that fixes the $1/2$
+split), and to suppress the substrate's ordinary gravity-sourcing, the material must maintain macroscopic quantum coherence, i.e.\ be superconducting
+in the operational state. \conjecture
 
-\paragraph{The material.} The further conjecture is that driving the rate needs matter poised at the potential/actual boundary, placed in the
-predicted island of stability of superheavy nuclei ($Z\sim114$--126), and holding macroscopic quantum coherence (superconductivity) in its
-operating state. Nuclear metastability and macroscopic electronic coherence are not known to coexist, and the proposal that the shell closures
-that give the island its lifetime also support coherence is unproven. \conjecture{} The superheavy nuclei made so far live from milliseconds to
-seconds and are made a few atoms at a time~\cite{Oganessian2015}; no bulk sample exists to test. \observed
+\textbf{Tension.} P1 and P2 are in conflict in ordinary materials science: nuclear metastability and macroscopic electronic coherence are not known to
+coexist. The conjecture is that the shell-closure structure granting the island its longevity may also support the ordered coherent state, i.e.\ that
+the same magic numbers enable both. This is unproven and may be false. \conjecture{} The superheavy nuclei made so far live from milliseconds to
+seconds and are made a few atoms at a time~\cite{Oganessian2015}; no bulk sample exists to test. \observed{} Because this material is not known to
+exist, no quantitative derivation past this point is possible, consistent with the principle that one cannot derive physics that requires an
+unestablished substrate.
 
-\paragraph{The one checkable claim, and where it already stands.} If part of such a material's mass-energy did not source gravity, the sample
-would weigh less than its measured mass-energy. That is a violation of the equivalence between gravitational and inertial mass. For ordinary
-materials the equivalence holds to $\eta\lesssim10^{-15}$~\cite{Touboul2022}, and lunar laser ranging confirms that gravitational binding energy
-itself gravitates as mass~\cite{Williams2004}. \observed{} For superconductors specifically, the one claim of anomalous weight (Podkletnov, 1992~\cite{Podkletnov1992}) was not reproduced: two replication attempts found no change in the
-weight of a test mass~\cite{Woods2001,Hathaway2003}, although neither reproduced the original apparatus, so the claim
-is neither confirmed nor excluded. A material with the proposed property would therefore have to differ from all tested matter, and a weighing at
-$10^{-15}$ or better would be the test. \prediction{} (conditional on the material existing)
+\subsection{Predicted signature of the material, if it exists}
+\textbf{Conditional prediction.} If P2 holds, a portion of the material's mass-energy is held in a coherent state, not yet written as a classical
+record, and does not source gravity in proportion to its rest mass. Such a sample would exhibit an anomalous gravitational/inertial signature: it would
+weigh slightly less than its measured mass-energy predicts. This is the one element of Zone~II that is empirically checkable should such a material
+ever be produced: weigh it; if it is gravitationally anomalous, P2 is supported; if not, the conjecture fails. \prediction{} (conditional on the
+material existing)
 
-\paragraph{Three sources.} Conditional on $G$ and the material, three non-collinear phase-locked sources are the minimum to steer a single focal
-node through a volume: two give only axial placement and one gives none. \derived{} as geometry of superposition, conditional on the unknown $G$.
+The test has a known baseline. A weight below the mass-energy is a difference between gravitational and inertial mass, a violation of the equivalence
+principle. For ordinary materials the MICROSCOPE mission found the E\"otv\"os parameter of a titanium--platinum pair to be
+$\eta({\rm Ti,Pt})=[-1.5\pm2.3\,({\rm stat})\pm1.5\,({\rm syst})]\times10^{-15}$~\cite{Touboul2022}, consistent with zero at $2.7\times10^{-15}$, and
+lunar laser ranging confirms that gravitational binding energy itself gravitates as mass~\cite{Williams2004}. \observed{} For superconductors, the one
+reported weight anomaly~\cite{Podkletnov1992} was not reproduced: two replication attempts found no change in the weight of a test
+mass~\cite{Woods2001,Hathaway2003}, although neither reproduced the original apparatus, so that claim is neither confirmed nor excluded. \observed{} A
+material with the proposed property would therefore have to differ from all tested matter, and a weighing at $10^{-15}$ or better would be the test.
+\prediction{} (conditional)
 
-\section{Status}
-\begin{center}\small
-\begin{tabular}{@{}p{0.6\textwidth}p{0.3\textwidth}@{}}\toprule
+\subsection{The steering geometry (conditional architecture)}\label{sec:ge_steer}
+Conditional on C1 and a responsive material, the focal placement geometry follows from elementary field superposition. Sources at positions
+$\mathbf r_i$, each driven with amplitude $A_i$ and phase $\phi_i$, produce a combined perturbation whose focal node $\mathbf x_f$ is steerable by
+adjusting the relative $\{A_i,\phi_i\}$:
+\begin{equation}
+\Phi_{\rm drive}(\mathbf x)=\sum_i A_i\,G(\mathbf x-\mathbf r_i)\,e^{i\phi_i}\qquad\text{(conditional on the unknown }G).
+\label{eq:ge_drive}
+\end{equation}
+Three facts about this sum need no knowledge of $G$ beyond its symmetry. \derived{} (geometry of superposition, conditional on $G$)
+\begin{enumerate}
+\item A focal node needs a time-dependent kernel. A static kernel that obeys Laplace's equation, such as $1/r$ ($\nabla^2(1/r)=0$ for $r>0$), has
+no local maximum or minimum away from its sources (maximum principle), so a static superposition has no isolated focus. The phases $\phi_i$
+in Eq.~\eqref{eq:ge_drive} therefore refer to an oscillating drive, and the focus is a maximum of the cycle-averaged $\langle|\Phi_{\rm drive}|^2\rangle$.
+\item Two sources give only axial placement, and the monopole of one gives none.
+\item For an isotropic kernel, $G=G(|\mathbf x-\mathbf r_i|)$, the field of any set of sources is symmetric under reflection in a plane that contains
+them all. Three non-collinear sources therefore steer a single focal point only within their own plane; off that plane every focus has an equal mirror
+twin (Figure~\ref{fig:steering}a). Placement of a single focal point throughout a 3D region needs at least four non-coplanar sources
+(Figure~\ref{fig:steering}b), or a kernel that is not isotropic, such as directional emitters.
+\end{enumerate}
+With a few point sources the cycle-averaged field also has other maxima of comparable height (Figure~\ref{fig:steering}b), so a sharp, isolated node
+needs either many sources or a kernel structure that is not yet known. \derived{} (illustrative kernel) The coherence premise P2 is what permits a
+stable phase relation among the sources, hence a sharp (rather than noise-averaged) focal node. This is why the three elements (material, sources,
+coherence) are jointly necessary and individually insufficient: the material supplies tippable mass-energy, the sources supply steerable aim, and
+coherence couples the aim to the reservoir as a single phase-locked unit. \conjecture
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part5/fig_exploratory_steering.pdf}
+\caption{Cycle-averaged $|\Phi_{\rm drive}|^2$ of Eq.~\eqref{eq:ge_drive} in the $x$--$z$ plane, normalised to its value at the target ($+$), with
+phases and amplitudes set to focus on the target, for an illustrative isotropic wave kernel $G=e^{ikr}/r$ (the true kernel is unknown). (a) Three
+sources in the plane $z=0$: the field is mirror-symmetric about that plane, so the mirror point ($\times$) is an equal focus (ratio 1.00). (b) A fourth
+source above the plane breaks the symmetry (mirror ratio 0.44), although other maxima of comparable height remain. \derived{} (symmetry; kernel
+assumed for illustration)}\label{fig:steering}
+\end{figure}
+
+\subsection{What would close the gap}
+The single derivation that would move the interstellar result from Zone~II to Zone~I is the response kernel $G$ of Eq.~\eqref{eq:ge_kernel}, derived
+from the IAM partition structure, together with a demonstration that a material satisfying P1 and P2 can exist. A space-carrying displacement would also
+need a source of the negative energy density of Eq.~\eqref{eq:ge_rho}, which neither general relativity with known matter nor IAM as formulated
+supplies. \openprob{} Absent these, the kinematic results of Zone~I stand on their own. They state, rigorously, that if the geometry can be shaped, the
+ride is weightless, the twin penalty is avoided, and 444 light-years is not the obstacle, while the engineering remains conjectural. The honest status
+of the whole is therefore: the destination is permitted by the kinematics; the vehicle is not yet derivable. \interp
+
+\section{Summary}\label{sec:ge_summary}
+\paragraph{Zone I (established).} Given IAM's identification of gravity as the gradient of an effective potential: a gradient-following craft feels no
+acceleration during arbitrary maneuvers beyond the tidal term (equivalence principle); hover and abrupt departure follow as gradient operations; a
+uniform gradient sets no orientation, so attitude is not a signature; the cosmological expansion already carries proper separations faster than $c$
+without local violation; a locally flat displaced region avoids the twin-paradox penalty but needs negative energy density in its wall; and the
+444 light-years to the Pleiades is a negligible fraction of the Hubble radius, requiring an effective rate $\xi\sim2\times10^4$ that relativity does not
+forbid. These are consequences of existing physics plus IAM's existing structure.
+
+\paragraph{Zone II (conjecture).} The engineering coupling that would let an apparatus drive (not merely observe) the source of the potential is not
+derived and is not present in IAM as formulated; it is conjectured to require a metastable, macroscopically coherent superheavy material whose existence
+is unestablished, with the one checkable prediction that such a material would weigh less than its mass-energy implies, against an
+equivalence-principle baseline of $10^{-15}$ for all tested matter.
+
+The boundary between these two zones is the honest content of this chapter. The kinematics say the stars are not as far as they look. General
+relativity says the geometry that would carry a craft there needs negative energy, which no known matter supplies. The engineering cannot yet show how to go. These statements are true at once, and keeping them separate is the point. Zone~I is derivable from established physics and IAM structure;
+Zone~II is explicitly conjectural. \interp
+
+\begin{table}[htbp]\centering\small
+\caption{Status of every result in this chapter.}\label{tab:ge_status}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.34\linewidth}@{}}\toprule
 claim & status \\\midrule
-no felt acceleration in free fall along a shaped gradient & \derived{} (equivalence principle) \\
-hover and departure as gradient settings & \derived{} (conditional) \\
-no tilt toward acceleration in free fall & \derived{} (equivalence principle) \\
-recession faster than $c$ beyond $D_H$ & \derived, \calc \\
-a rate bound from $E\to e$ & \openprob{} (not derived) \\
-no twin penalty inside a flat displaced region & \derived{} (conditional; needs negative energy) \\
+Landauer cost per bit at $T_H$, Eq.~\eqref{eq:ge_landauer}; today's values & \calc \\
+$E(1)=1$, $E\to e$, rate peak at $a=1$, Eq.~\eqref{eq:ge_Ea} & \derived \\
+$\beta_m=\Omega_m/2$ & \prediction{} (Chapter~\ref{ch:virial}) \\
+two halves as gravitational potential and dark-energy term & \interp \\
+$\mathbf g=-\nabla\Phi$, weak field, Eq.~\eqref{eq:ge_g} & \derived \\
+no felt acceleration in free fall in a uniform gradient, Eq.~\eqref{eq:ge_felt} & \derived{} (equivalence principle) \\
+tidal residual $2GML/r^3$; $3.1\times10^{-6}\,g$ (10\,m), $3.1\times10^{-5}\,g$ (100\,m) & \derived, \calc \\
+hover $\nabla\Phi_{\rm IAM}=\mathbf g_{\rm amb}$; departure as a gradient setting & \derived{} (conditional on a shaped gradient) \\
+hang angle of a suspended body, Eq.~\eqref{eq:ge_plumb} & \derived \\
+no orientation set by a uniform gradient; gravity-gradient torque, Eq.~\eqref{eq:ge_ggtorque} & \derived \\
+recession faster than $c$ beyond $D_H$; $D_H=1.46$, $1.35\times10^{10}$\,ly & \derived, \calc \\
+expansion as the global expression of the kinetic half & \interp \\
+a rate bound for a local region from $E\to e$ & \openprob{} (not derived) \\
+$\mathrm d\tau_{\rm ship}=\mathrm dt_{\rm bubble}$ inside a flat displaced region; no twin penalty & \derived{} (conditional on the region) \\
+negative energy density in the wall, Eq.~\eqref{eq:ge_rho} & \derived{} (published) \\
+quantum-inequality and causality obstacles & \derived{} (published) \\
 Pleiades in seven days needs $\xi\approx2.3\times10^4$ & \calc \\
-response kernel $G$; superheavy coherent material & \conjecture \\
-weight anomaly of that material & \prediction{} (conditional); ordinary matter bounded at $10^{-15}$ \\\bottomrule
-\end{tabular}
-\end{center}
-In summary, the kinematics permit the destination; the vehicle is not derivable. The kinematics already require something general relativity
-has never been shown to supply, negative energy in bulk, and IAM as formulated does not supply it either.
+coupling C1 and kernel $G$, Eq.~\eqref{eq:ge_kernel} & \conjecture; derivation \openprob \\
+premises P1, P2 and their reconciliation & \conjecture \\
+superheavy nuclei: ms--s lifetimes, a few atoms at a time & \observed \\
+weight anomaly of the coherent material & \prediction{} (conditional); ordinary matter $|\eta|\lesssim3\times10^{-15}$ \observed \\
+steering: a static Laplace kernel has no focus; isotropic three-source mirror twin; four non-coplanar sources & \derived{} (conditional on $G$) \\
+material, sources and coherence jointly necessary & \conjecture \\\bottomrule
+\end{tabularx}
+\end{table}

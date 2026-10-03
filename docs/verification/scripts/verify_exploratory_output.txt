@@ -1,0 +1,41 @@
+== 1. Premise: horizon temperature and Landauer cost per bit (Eq. ge_landauer) ==
+H0 = 67.16: H = 2.1765e-18 s^-1, T_H = 2.6459e-30 K, k_B T_H ln2 = 2.5321e-53 J
+H0 = 72.26: H = 2.3418e-18 s^-1, T_H = 2.8468e-30 K, k_B T_H ln2 = 2.7244e-53 J
+E(1) = 1 ; lim a->oo E = E ; dE/dlna = exp((a - 1)/a)/a ; d/da (dE/dlna) = 0 at a = [1]
+beta_m = Omega_m/2 with Omega_m = 0.3153: 0.15765
+== 2. Free fall: felt force zero for a uniform gradient (Eqs. ge_eom, ge_felt) ==
+x'' = -grad Phi = [g_x, g_y, g_z] ; f_felt = m(x'' + grad Phi) = [0, 0, 0]
+== 3. Tidal residual across a body of length L (Eq. ge_tidal) ==
+g(r) - g(r+L) to first order in L = 2*G*L*M/r**3  (= L * d^2Phi/dr^2 with Phi=-GM/r: -2*G*L*M/r**3 )
+L = 10 m at Earth's surface: 2GML/r^3 = 3.083e-05 m s^-2 = 3.14e-06 g
+L = 100 m at Earth's surface: 2GML/r^3 = 3.083e-04 m s^-2 = 3.14e-05 g
+== 4. Hover: sign of the cancelling gradient (Eq. ge_hover) ==
+g_tot = 0  =>  grad Phi_I = [-Derivative(Phi_amb(x, y, z), x), -Derivative(Phi_amb(x, y, z), y), -Derivative(Phi_amb(x, y, z), z)]  = +g_amb = [-Derivative(Phi_amb(x, y, z), x), -Derivative(Phi_amb(x, y, z), y), -Derivative(Phi_amb(x, y, z), z)]
+   (so grad Phi_I = +g_amb; the form grad Phi_I = -g_amb doubles the field: g_tot = [-2*Derivative(Phi_amb(x, y, z), x), -2*Derivative(Phi_amb(x, y, z), y), -2*Derivative(Phi_amb(x, y, z), z)] )
+== 5. Orientation ==
+supported body (plumb line) in a frame with horizontal acceleration a_h: tan(theta) = a_h/g_v; theta at a_h = 0.1 g: 5.71 deg
+free fall in a uniform field: torque about the centre of mass = sum r_i x m_i g = (sum m_i r_i) x g = 0 (r_i from CM).
+gravity-gradient torque on a dumbbell (leading order) = -3*G*M*ell**2*m*sin(2*theta)/(4*r**3) ; check vs -(3GM/(2r^3)) (I_perp - I_axis) sin(2 theta), I_perp - I_axis = m l^2/2: 0
+   restoring toward theta = 0: long (minimum-inertia) axis along the line to the source; set by d^2Phi (3GM/r^3), not by g.
+== 6. Recession and the Hubble radius (Eqs. ge_vrec, ge_DH) ==
+H0 = 67.16: D_H = c/H0 = 1.4559e+10 ly
+H0 = 70.0: D_H = c/H0 = 1.3968e+10 ly
+H0 = 72.26: D_H = c/H0 = 1.3532e+10 ly
+Pleiades 136 pc = 443.6 ly; fraction of D_H: 3.05e-08 (67.16), 3.28e-08 (72.26)
+== 7. Flat displaced region (Alcubierre form): proper time and energy density (Eqs. ge_alc, ge_tau, ge_dtau, ge_rho) ==
+ds^2 along the centre worldline dx = v_s dt, f = 1, dy = dz = 0: -c**2*dt**2  -> d tau = dt
+weak-field clock rate difference (1+P1/c^2)-(1+P2/c^2) = (Phi_1 - Phi_2)/c**2
+Eulerian energy density rho_E = (K^2 - K_ij K^ij)/16pi; minus Alcubierre's -(1/8pi) v^2 rho^2 (f')^2/(4 r_s^2): 0
+   rho_E <= 0 everywhere f' != 0 off the axis: the weak energy condition fails in the wall.
+== 8. Transit to the Pleiades (Eqs. ge_tone, ge_xi) ==
+7 days = 0.01916 yr; xi = 443.6/0.01916 = 2.3145e+04; with 444 ly and 0.0192 yr: 2.3125e+04
+through-space at v = 0.9c: Earth 492.9 yr, ship 214.8 yr (gamma 2.29)
+through-space at v = 0.99c: Earth 448.1 yr, ship 63.2 yr (gamma 7.09)
+through-space at v = 0.999c: Earth 444.0 yr, ship 19.9 yr (gamma 22.37)
+== 9. Steering geometry (Eq. ge_drive) ==
+Laplacian of 1/r (r>0) = 0  -> a static kernel obeying Laplace's equation has no local extremum away from its sources (maximum principle).
+3 coplanar: cycle-averaged |Phi|^2 at target 9.000, at mirror image 9.000, ratio mirror/target 1.000
+4 non-coplanar: cycle-averaged |Phi|^2 at target 16.000, at mirror image 7.165, ratio mirror/target 0.448
+   three coplanar isotropic sources are mirror-symmetric about their plane: an off-plane focus always has an equal twin.
+== 10. Weight test ==
+MICROSCOPE final: eta(Ti,Pt) = [-1.5 +/- 2.3(stat) +/- 1.5(syst)] x 1e-15; combined 1-sigma 2.75e-15
