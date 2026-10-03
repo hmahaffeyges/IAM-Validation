@@ -546,5 +546,8 @@
  },
  "QUB-004": {
   "exclude": "the cooling prediction it states rests on a two-qubit value with no primary publication; the halving-temperature form is stated in Chapter ch:reach"
+ },
+ "COS-024": {
+  "exclude": "side prediction left out of the book"
  }
 }
