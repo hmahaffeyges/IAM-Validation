@@ -47,12 +47,10 @@ DOI OK  corrected_entries.bib Glazman2021 10.21468/scipostphyslectnotes.31 | Bog
 DOI OK  corrected_entries.bib Gonzalez2021 10.1126/science.abg3027 | Levitodynamics: Levitation and control of microscopic objects in vacuu
 DOI OK  corrected_entries.bib Gordon2022 10.1063/5.0078785 | Environmental radiation impact on lifetimes and quasiparticle tunnelin
 DOI OK  corrected_entries.bib HSCY3 10.1103/physrevd.108.123518 | Hyper Suprime-Cam Year 3 results: Cosmology from cosmic shear two-poin
-DOI OK  corrected_entries.bib Hackermuller2004 10.1038/nature02276 | Decoherence of matter waves by thermal emission of radiation
 DOI OK  corrected_entries.bib Haroche2006 10.1093/acprof:oso/9780198509141.001.0001 | Exploring the Quantum
 DOI OK  corrected_entries.bib Hensen2015 10.1038/nature15759 | Loophole-free Bell inequality violation using electron spins separated
 DOI OK  corrected_entries.bib Heymans2021 10.1051/0004-6361/202039063 | KiDS-1000 Cosmology: Multi-probe weak gravitational lensing and spectr
 DOI OK  corrected_entries.bib Higgs1964 10.1103/physrevlett.13.508 | Broken Symmetries and the Masses of Gauge Bosons
-DOI OK  corrected_entries.bib Hornberger2003 10.1103/physrevlett.90.160401 | Collisional Decoherence Observed in Matter Wave Interferometry
 DOI OK  corrected_entries.bib Houzet2019 10.1103/physrevlett.123.107704 | Photon-Assisted Charge-Parity Jumps in a Superconducting Qubit
 DOI OK  corrected_entries.bib Jacques2007 10.1126/science.1136303 | Experimental Realization of Wheeler's Delayed-Choice Gedanken Experime
 DOI OK  corrected_entries.bib Kajantie1996 10.1103/physrevlett.77.2887 | Is There a Hot Electroweak Phase Transition at                     <mm
