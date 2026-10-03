@@ -20,7 +20,10 @@ it was built and benchmarked. It is the denominator of the gauge, so the device 
 
 \paragraph{Full surface.} On the right is the error at which the device stops being able to protect a record by error correction.
 For the surface code it is about $10^{-2}$ per operation~\cite{Fowler2012}; on the gauge it sits at $10^{-2}/\varepsilon$ \calc. A
-platform that uses a different code, or a measurement-based scheme, carries the threshold of that scheme instead.
+platform that uses a different code, or a measurement-based scheme, carries the threshold of that scheme instead. For the colour code, which reconfigurable neutral-atom arrays with arbitrary connectivity have run on up to 40 logical
+qubits~\cite{Bluvstein2024} \observed, the storage threshold of the triangular colour code under circuit-level depolarising noise has been
+estimated at 0.2\,\%~\cite{Chamberland2020NJP} \observed, so its right-hand mark sits five times further left than the surface code's
+\calc. A threshold belongs to a code, a decoder and a noise model together \interp.
 
 \paragraph{The floor from $\kB T$.} On the left is the lowest error the record can hold before thermal kicks win. For a record held
 in a two-level system with gap $E=hf$, in contact with a bath at temperature $T$, detailed balance fixes the ratio of the upward and
@@ -117,6 +120,16 @@ change does not improve today's gate error at all; it raises the coherence a lat
 today; it buys runway for tomorrow \interp.
 Lowering the qubit's effective temperature moves the thermal floor; shortening the gate moves both the coherence part and the
 thermal-kick part.
+The refrigerator does not set that temperature by itself: the dilution refrigerator of Ref.~\cite{Krinner2019} has its mixing chamber
+at 6~mK, while a qubit's own temperature saturated at 35~mK as the refrigerator went lower~\cite{Jin2015} \observed, so this lever acts
+through the qubit's thermalisation and filtering more than through the base temperature \interp. A further lever is the gate itself:
+redesigning the two-qubit gate changes which channel binds without changing the material \interp. The geometric lever has been measured
+directly. With a clean electromagnetic environment and the non-equilibrium quasiparticle density suppressed, the relaxation rates of 3D
+transmons were found approximately proportional to their surface participation ratios~\cite{Wang2015TLS} \observed: a device carries two
+floors, the dielectric one that geometry and material move, and the quasiparticle one, which shielding, filtering and gap engineering
+move (Chapter~\ref{ch:xqp}) \interp. The material and geometric levers have been combined: a tantalum-based platform on annealed
+sapphire, with device geometry optimised for coherence, gave on-chip quantum memories with energy relaxation times of
+1.0--1.4~ms~\cite{Ganjam2024} \observed.
 
 \paragraph{What a laboratory learns.} From $T_1$, $T_\phi$, $t_g$, the effective temperature and the isolated two-qubit error measured on
 one device, the reading gives the share of the error that coherence forces, the share thermal kicks force, and what is left for the
@@ -149,7 +162,9 @@ $T_1$ at two operating frequencies, at one refrigerator temperature.
 in contact with it. Its spin is not thermalised by anything: at 300~K its $M$ is $10^{-3}$, and its state is set by optical pumping, not by
 temperature (Table~\ref{tab:qp_which}). The two-qubit gate, however, runs through the shared motion of the ions, and that motion has a
 temperature: the cooling limit (the Doppler limit of Yb$^+$ is 0.47~mK) plus the heating driven by electric-field noise from the trap
-electrodes~\cite{Brownnutt2015}. At the Doppler limit a 1~MHz mode holds $\bar n=9.3$ quanta \calc.
+electrodes~\cite{Brownnutt2015}. At the Doppler limit a 1~MHz mode holds $\bar n=9.3$ quanta \calc. An ion has no superconducting gap and no Cooper pairs, so the quasiparticle channel of Chapter~\ref{ch:xqp} has no counterpart in it,
+nor in a neutral atom or in a photon in flight; that channel returns wherever a superconductor enters the record, as in the proximitised
+wire of a topological qubit (Section~\ref{sec:qp_topo}) or the superconducting detectors of a photonic computer \interp.
 
 \paragraph{Where the dissipation goes.} Three channels: laser noise, motional heating and control. Two of them
 change in opposite directions with the drive, which gives the drive optimum of Eq.~\eqref{eq:walls_mhi} (Chapter~\ref{ch:walls}); the point
@@ -162,11 +177,21 @@ non-thermal floor for laser gates~\cite{Ozeri2007} \observed. Background heating
 $3.0\pm0.5$ quanta/s for the stretch mode were measured for a $^{138}$Ba$^+$--$^{171}$Yb$^+$ crystal in an X-junction surface-electrode
 trap~\cite{Burton2023} \observed. Published two-qubit errors: Helios ($^{137}$Ba$^+$) $7.9(2)\times10^{-4}$ averaged over all operational
 zones~\cite{Ransford2025}, H2 ($^{171}$Yb$^+$) $1.57\times10^{-3}$~\cite{DeCross2025}, Forte ($^{171}$Yb$^+$) $4.64\times10^{-3}$ median by direct
-randomized benchmarking~\cite{Chen2024Forte} \observed. Each is read on its own gauge, against its own as-built reference.
+randomized benchmarking~\cite{Chen2024Forte} \observed. Each is read on its own gauge, against its own as-built reference. The record itself is long-lived. For a $^{171}$Yb$^+$ hyperfine qubit, with a co-trapped $^{138}$Ba$^+$ ion laser-cooled throughout,
+process tomography gave $T_1=12000\pm2200$~s and $T_2=4200\pm580$~s, and a coherence time of about 5500~s was reached after the
+remaining magnetic-field fluctuations, the frequency instability of the microwave reference oscillator and its leakage were
+suppressed~\cite{WangYb2021} \observed. On the held record the leading channels are therefore magnetic-field and reference noise, and
+$T_1$ is not what limits an ion's gates \interp. How the error-correction overhead of an ion processor follows from these times, rather
+than from its gate channels, has not been worked out on its own gauge \openprob.
 
 \paragraph{Levers.} Sympathetic cooling with a co-trapped species lowers the motional temperature during an algorithm and moves the drive
 optimum outward \interp; cryogenic electrodes and surface treatment lower the heating; a different gate class removes the laser channel
-(Section~\ref{sec:qp_ionelec}).
+(Section~\ref{sec:qp_ionelec}). The physics of sympathetic cooling is the separation of the two species. When the cooling transitions of the coolant and the qubit
+ion are far apart (more than 30~nm for $^{9}$Be$^+$ and $^{24}$Mg$^+$), laser light on one has negligible effect on the other, so the
+motion can be re-initialised without touching the stored information, the coolant taking up the motional energy through
+the modes the two ions share~\cite{Barrett2003} \observed. Even isotopes can serve: a $^{43}$Ca$^+$ memory qubit sympathetically cooled by a
+$^{40}$Ca$^+$ coolant near the ground state of both axial modes lost 3.3\,\% of its coherence per cooling cycle, against a natural limit
+of order $10^{-4}$ per cycle~\cite{Home2009} \observed.
 
 \paragraph{What a laboratory learns; what a referee would confirm.} Per-mode heating rates and $\bar n$ at the start of the gate, the
 scattering rate per gate and the laser phase-noise spectrum split the error into its parts. The drive optimum is located by measuring the
@@ -265,7 +290,12 @@ semiconductor nanowire. The thermal kick on such a record is quasiparticle poiso
 non-equilibrium quasiparticle background as in Chapter~\ref{ch:xqp} \interp. A single-shot interferometric parity measurement in
 InAs--Al devices has been reported, with a parity dwell time longer than 1~ms at in-plane fields of about 2~T~\cite{Aghaee2025}
 \observed. The paper states that these measurements do not, by themselves, determine whether the low-energy states detected are topological,
-and the journal's editorial team noted that the results do not represent evidence for Majorana zero modes~\cite{Aghaee2025}. No two-qubit
+and the journal's editorial team noted that the results do not represent evidence for Majorana zero modes~\cite{Aghaee2025}. The field reads such results with care for a reason: a 2018 report of quantized Majorana conductance in hybrid nanowires was retracted
+in 2021 after a re-analysis of its raw data and a re-calibration, its authors writing that they could no longer claim the
+observation~\cite{Zhang2021Retraction} \observed. In a tetron device with two parallel nanowires, single-shot parity measurements of two
+loops designed as Pauli-$X$ and $Z$ measurements gave parity-switching times of $14.5\pm0.3~\mu$s and $12.4\pm0.4$~ms and estimated
+assignment errors of 16\,\% and 0.5\,\%~\cite{Tetron2026} \observed. These are single-qubit measurement results, not entangling gates
+\interp. No two-qubit
 gate error has been published, so no device of this class can yet be placed on its gauge \openprob. Its first published two-qubit error,
 read with the gate time, $T_1$ and the parity lifetime of the same device, will place it on the same three marks as every other platform.
 

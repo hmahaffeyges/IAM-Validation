@@ -16,7 +16,8 @@ where the cost should appear in a measurement.
 In Al/AlOx/Al transmons the measured density of broken Cooper pairs (quasiparticles) is commonly
 \begin{equation}x_{\rm qp}=n_{\rm qp}/n_{\rm cp}\sim10^{-8}\text{--}10^{-6},\qquad n_{\rm cp}=2\nu_0\Delta\approx4\times10^6\,\mu{\rm m}^{-3},\end{equation}
 with $x_{\rm qp}\approx10^{-7}$ in many devices~\cite{Serniak2018}, that is $n_{\rm qp}\approx0.4$ per $\mu$m$^3$ \observed. The lowest reported value is
-$x_{\rm qp}\lesssim10^{-9}$~\cite{Connolly2024}. In thermal equilibrium at 15--20\,mK there should be fewer than one quasiparticle in a volume the size
+$x_{\rm qp}\lesssim10^{-9}$~\cite{Connolly2024}. In a transmon measured at a refrigerator temperature of 20\,mK, $n_{\rm qp}=0.04\pm0.01\,\mu$m$^{-3}$~\cite{Riste2013}
+\observed, which is $x_{\rm qp}=1\times10^{-8}$ with the $n_{\rm cp}$ above \calc. In thermal equilibrium at 15--20\,mK there should be fewer than one quasiparticle in a volume the size
 of the Earth \calc. Known external sources have been reduced one by one --- stray infrared light~\cite{Barends2011}, environmental radioactivity~\cite{Vepsalainen2020,Cardani2021}, cosmic rays~\cite{McEwen2022} --- and an excess over equilibrium
 remains. What the measurements show, read carefully:
 \begin{itemize}
@@ -28,11 +29,23 @@ by themselves show an internal source.
 \item The excess quasiparticles have an energy distribution in equilibrium with the phonon bath~\cite{Connolly2024}. In aluminium, quasiparticles relax to the gap edge by phonon
 emission far faster than they recombine at these densities~\cite{Kaplan1976}, so any source gives this distribution; it is consistent with an internal source but does
 not single one out.
-\item Individual background tunnelling events are uncorrelated between two co-housed qubits, while bursts, about once per minute, are correlated across
-devices~\cite{Sundelin2026,McEwen2022}.
+\item Background tunnelling in two co-housed charge-sensitive transmons runs at the single-hertz level, and individual events are
+uncorrelated between the two qubits, while bursts, about once per minute, are correlated across devices~\cite{Sundelin2026,McEwen2022};
+each burst has a characteristic lifetime of about 7\,ms and raises the tunnelling rate a thousand-fold in both devices~\cite{Sundelin2026}
+\observed.
 \item The tunnelling rate depends on the shunting-capacitor material and geometry, and an anomalous temperature dependence in some devices has been
 modelled as high-transmission sites with a reduced gap in the junction barrier~\cite{Kurter2022}; most detectable surface TLS sit on the junction
-leads~\cite{Lisenfeld2025}.
+leads~\cite{Lisenfeld2025}. Across 30 to 60 qubits per design, the aluminium gap $\Delta_0$ has median values between 183 and 193\,$\mu$eV, while the reduced gap
+$\Delta_1$ of the high-transmission sites has medians from 5 to 30\,$\mu$eV, a large junction-to-junction variation~\cite{Kurter2022}
+\observed.
+\item A subset of TLS are themselves quasiparticles trapped in shallow subgap states formed by spatial fluctuations of the
+superconducting gap: they are highly coherent, some with linewidths down to the 70\,kHz resolution of the resonator, and the landscape
+reshuffles irreversibly on warming to about 300\,mK~\cite{deGraaf2020} \observed. The TLS and quasiparticle populations are therefore
+coupled, not independent \interp.
+\item In 3D gap-engineered transmons, gap engineering reduced the burst detection rate by a factor of five, four orders of magnitude
+short of what fast thermalisation of the quasiparticles to the cryostat temperature would give; the authors associate the shortfall with
+slow thermalisation of the chip's phonons after a burst, which raises the effective chip temperature to about 90\,mK~\cite{Nho2026}
+\observed.
 \end{itemize}
 These leave room for a source inside the device, at the junction; they do not establish it. The proposal below is that source, stated so that a
 measurement can rule it in or out.
@@ -56,12 +69,40 @@ two quasiparticles. Landauer's principle sets the \emph{minimum} heat of an eras
 heat below $2\Delta$ goes into phonons that cannot break pairs. An erasure event that produces quasiparticles therefore breaks a pair: yield $2$ per
 event.
 \paragraph{Quasiparticles spread.} In aluminium they diffuse $\sqrt{D\tau_{\rm qp}}\approx250$--$800\,\mu$m within a lifetime $\tau_{\rm qp}\sim100\,\mu$s,
-across the whole island. What a qubit measures is the island average.
+across the whole island. What a qubit measures is the island average. Injected quasiparticles in a phase qubit were observed to recombine over about 300\,$\mu$s~\cite{Lenander2011} \observed. Trapping
+shortens the effective lifetime: a single vortex traps quasiparticles measurably, and trapping by vortices can lower the background
+density enough to improve coherence~\cite{Wang2014} \observed. Trapping at vortices or at interfaces enters Eq.~\eqref{eq:xqp} through
+$\tau_{\rm qp}$, which is why $\tau_{\rm qp}$ is measured on the device itself \derived.
 \paragraph{The density is per pair near the gap.} $n_{\rm cp}=2\nu_0\Delta$ counts the electrons within $\Delta$ of the Fermi surface, not all
 conduction electrons ($n_e/2=9\times10^{10}\,\mu$m$^{-3}$, which is $22{,}600$ times larger).
 With $N$ active sites on an island of volume $V$, the steady state is
 \begin{equation}x_{\rm qp}=\frac{2N\,\tau_{\rm qp}}{\tau_{\rm TLS}\,n_{\rm cp}\,V}.\label{eq:xqp}\end{equation}
 \derived\ (from the proposal and the three facts above).
+
+\paragraph{The volume of one erasure.} Equation~\eqref{eq:xqp} counts quasiparticles over the island, because that is where they
+spread and what the qubit measures. The erasure itself is local. A phase disturbance at a site is screened by the condensate over the
+London penetration depth $\lamL$; weighting the volume around the site by the squared envelope of that screening, $e^{-2r/\lamL}$,
+gives
+\begin{equation}V_{\rm eff}=4\pi\int_0^\infty e^{-2r/\lamL}\,r^2\,dr=\pi\lamL^3\label{eq:xqp_veff}\end{equation}
+\derived\ (for that weight). The weight is a choice. It keeps the exponential envelope of the screened Green's function and drops its
+$1/r$ factor, which would need a cutoff at the core of the site; a different weight changes $V_{\rm eff}$ by an order-unity factor or
+more \interp. With the effective penetration depth of about 50\,nm measured for high-purity aluminium~\cite{Ganjam2024},
+$V_{\rm eff}=3.9\times10^{-4}\,\mu$m$^3$, which holds about $1.6\times10^{3}$ pairs at $n_{\rm cp}=4\times10^{6}\,\mu$m$^{-3}$ \calc. The
+London length is a phase-screening length. The condensate's coherence length, which sets the distance over which the gap amplitude
+recovers after pair breaking, is a different length, and in thin films both depend on the electron mean free path, so the film values,
+not the bulk ones, are the inputs a referee would ask for \interp. The London volume is the scale of the erasure and the island volume the
+scale of the density it feeds; a measurement that resolves the quasiparticles near one site from the island average separates the two
+\openprob.
+
+\paragraph{A feedback between the two populations.} \conjecture\ If some quasiparticles are trapped in subgap states and act as
+fluctuators themselves, as some TLS do~\cite{deGraaf2020}, part of the active-site count is fed by the density: $N=N_0+\phi\,N_{\rm qp}$,
+with $N_{\rm qp}=x_{\rm qp}n_{\rm cp}V$ the quasiparticles on the island and $\phi$ the fraction of them active as fluctuators at the
+same $\tau_{\rm TLS}$. Equation~\eqref{eq:xqp} then closes on itself,
+\begin{equation}x_{\rm qp}=\frac{x_0}{1-g},\qquad g=\frac{2\phi\,\tau_{\rm qp}}{\tau_{\rm TLS}},\label{eq:xqp_feedback}\end{equation}
+with $x_0$ the density at $\phi=0$ \derived\ (within the conjecture). The loop settles at a finite density only for $g<1$; at
+$\tau_{\rm qp}=100\,\mu$s and $\tau_{\rm TLS}=30\,\mu$s that requires $\phi<0.15$ \calc. The fraction $\phi$ has not been measured on any
+device \openprob; TLS spectroscopy that counts the quasiparticle-like fluctuators, set beside the measured density on the same device,
+bounds it \interp.
 
 \section{What it requires}
 
@@ -77,7 +118,10 @@ $10^3\,\mu$m$^3$ & 60 & $1.7\times10^{-9}$\\ $10^4\,\mu$m$^3$ & 600 & $1.7\times
 TLS spectroscopy maps them mostly on the junction leads~\cite{Lisenfeld2019,Lisenfeld2025}, which is where the source must be. The number $N$ is a property of each device and has to be
 measured; nothing else in Eq.~\eqref{eq:xqp} is free. An alternative source must be excluded by the same measurement: slow relaxation of mechanical stress
 produces phonon bursts and excess quasiparticles with several of the same signatures~\cite{Anthony2022}. The two are separated by Eq.~\eqref{eq:xqp}: only the erasure source
-scales with the active-fluctuator count $N$ and with $1/\tau_{\rm TLS}$.
+scales with the active-fluctuator count $N$ and with $1/\tau_{\rm TLS}$. Two times of a fluctuator must be kept apart. One is its own energy relaxation time: for 56 TLS strongly coupled to seven transmons on
+two chips with an acoustic bandgap structure, it spans 0.25\,$\mu$s to 5.4\,ms~\cite{ChenTLS2024} \observed. The other is its switching
+time $\tau_{\rm TLS}$, the one that enters Eq.~\eqref{eq:xqp}; it is read from the low-frequency noise of the TLS bath, which in a
+superconducting resonator has been measured as $1/f$ frequency noise at Fourier frequencies near 0.1\,Hz~\cite{Burnett2014} \observed.
 
 \section{The test}
 On one device, measure the five quantities $x_{\rm qp}$ (parity switching~\cite{Riste2013,Serniak2018}), $\tau_{\rm qp}$, $\tau_{\rm TLS}$ (1/$f$ noise), the active fluctuator count
@@ -86,11 +130,33 @@ $N$ (TLS spectroscopy) and the island volume $V$. The law predicts \prediction
 Across devices, the background should scale as $N/(\tau_{\rm TLS}V)$: better barriers (longer $\tau_{\rm TLS}$, fewer fluctuators) lower it; better
 shielding does not. The proposal fails if the background does not follow $N/V$, or if it keeps falling with shielding after external sources are gone.
 
+\prediction\ Charging the erasure at the gap fixes two further results. Below about 100\,mK, where the thermal fraction is below
+$10^{-9}$ (Figure~\ref{fig:xqp_thermal}), the background should not change with refrigerator temperature; and the same device moved
+underground should lose its cosmic-ray part and keep its internal part. The proposal fails if the background tracks the refrigerator
+temperature in that range, if it does not scale with $1/\tau_{\rm TLS}$, or if it falls underground far below its value at the surface.
+The two measurements are a temperature sweep of parity switching on one device, as in Ref.~\cite{Riste2013}, and a same-device
+comparison above and below ground, as in Ref.~\cite{DeDominicis2026}.
+
+\prediction\ Equation~\eqref{eq:xqp} contains no qubit frequency: where the erasure is charged at the gap, a low-frequency design and a
+transmon on the same barrier carry the same background. In a design whose erasure scale is the qubit's own quantum $hf$ rather than the
+gap, the bath that receives the cost changes, and with it the dependence on frequency. The test is the background $x_{\rm qp}$, from
+parity switching, on long-$T_1$ low-frequency devices and on transmons made in one junction process. A background that tracks the qubit
+frequency shows that the erasure scale in those designs is $hf$, and Eq.~\eqref{eq:xqp} then needs its own derivation for them.
+
 \section{The coherence ceiling}
 Quasiparticle relaxation of a transmon is $\Gamma_1=(x_{\rm qp}/\pi)\sqrt{2\omega_q\Delta/\hbar}$~\cite{Catelani2011}. With
 $\Delta_{\rm Al}=182\,\mu$eV at $5$\,GHz, $x_{\rm qp}=10^{-7}$ caps $T_1$ at $0.24$\,ms and $10^{-6}$ at $0.02$\,ms \calc; transmons that reach
 $T_1\approx0.3$--$0.5$\,ms (Chapter~\ref{ch:scprimer}) carry less than $10^{-7}$, and there dielectric (TLS) loss and quasiparticles compete. If the
 background is the cost of holding the state, it is lowered by changing the barrier and its fluctuators, not by shielding the device.
+
+\section{Scope}
+The proposal concerns the quiescent background in Al/AlO$_x$ devices once radiation and thermal sources have been reduced until
+$x_{\rm qp}$ plateaus \interp. It says nothing about $T_2$, about the microscopic origin of the $1/f$ noise that sets $\tau_{\rm TLS}$,
+which is taken from measurement, or about bursts, which are a separate, non-Poissonian channel \interp. Sufficiently strong microwave drives can
+activate multiphoton pair-breaking processes that generate quasiparticles and cause qubit errors~\cite{Chowdhury2026} \derived\ (in the cited theory); that channel
+depends on the drive, not on the quiescent TLS bath, and is separate as well. Other architectures (low-frequency fluxonium, $0$--$\pi$
+and cat qubits, trapped ions, neutral atoms) have their own encoding surfaces and baths. IAM's Law applies to each of them, but the
+numbers of Eq.~\eqref{eq:xqp} do not transfer without a derivation of their own \interp.
 
 \section{Status}
 Stands: a proposal for an internal contribution to the background quasiparticle density, from erasures at the TLS rate, compatible with the measurements

@@ -43,7 +43,19 @@ Most TLS loss in present transmons sits in the amorphous oxides at the metal--ai
 interfaces and on the junction leads~\cite{Wang2015TLS,Lisenfeld2019,Lisenfeld2025}. The Josephson junction itself is
 Al/AlO$_x$/Al whatever the base metal of the pads and wiring. Tantalum base layers raised $T_1$ to 0.3--0.5~ms~\cite{Place2021,Wang2022Ta}
 \observed. Their native oxide is amorphous Ta$_2$O$_5$ with suboxides near the metal, and its loss is lower than that of
-niobium oxides~\cite{Crowley2023}. The 105-qubit aluminium processor of Ref.~\cite{GoogleWillow2025} has a mean
+niobium oxides~\cite{Crowley2023}. Electron microscopy and electron energy-loss spectroscopy of the two native oxides find that the niobium surface oxide passes gradually
+from Nb$_2$O$_5$ through NbO$_2$ and NbO to the metal, and that the tantalum surface oxide has fewer suboxides than the niobium
+oxide~\cite{Oh2024} \observed. Encapsulating niobium so that its native oxide does not form gave $T_1$ two to five times longer than
+baseline niobium devices, and with a tantalum cap median lifetimes above 300~$\mu$s and maximum values up to 600~$\mu$s; the comparison
+across capping materials showed the detrimental effect of the niobium oxides against the native oxides of tantalum, aluminium and
+titanium nitride~\cite{Bal2024} \observed. On aluminium, growing the film thicker than 300~nm leaves fewer oxide-bearing grain
+boundaries near the substrate--metal interface and lowers the TLS loss; aluminium-on-silicon transmons made this way reached
+time-averaged $T_1$ up to 270~$\mu$s and a highest observed value of 501~$\mu$s~\cite{Biznarova2024} \observed. The base metal also
+changes the quasiparticle channel. The coherence gain of tantalum comes primarily from reduced dielectric loss at the metal--air
+interface, and with infrared filters installed, niobium and tantalum offset-charge-sensitive qubits showed tunnelling rates of 100~Hz
+and 300~Hz respectively, with both infrared channels significant for tantalum but not for niobium~\cite{Kerschbaum2026} \observed. A
+change of material can move the dielectric ceiling and the quasiparticle floor in different directions, and both are measured on the
+device \interp. The 105-qubit aluminium processor of Ref.~\cite{GoogleWillow2025} has a mean
 $T_1=68~\mu$s and $T_{2,\mathrm{CPMG}}=89~\mu$s \observed. The ceiling $T_{1,\mathrm{free}}$ of a given material and geometry is a
 quantity to be measured, from TLS spectroscopy and from $T_1$ on devices that differ only in participation ratio \openprob.
 
@@ -87,9 +99,19 @@ blockade-leakage and scattering parts rise with it, $p(\Omega)=a/\Omega+b\Omega^
 crosstalk path, the error of a gate inside a full circuit can be written $p_{\mathrm{eff}}=1-(1-p_{2Q})^{1+\alpha C(N)}\approx
 p_{2Q}\,(1+\alpha C(N))$, with $C(N)$ the couplers per qubit and $\alpha$ a crosstalk coefficient \conjecture; the linear form is within
 $10^{-3}$ of the exact one for $p_{2Q}\le2\times10^{-3}$ and $\alpha C\le1$ \calc. On a fixed lattice $C$ stays near constant as qubits
-are added. In a shuttling (QCCD) trap the effective connectivity grows slowly with $N$; for logarithmic growth, doubling the qubit count from
+are added. On the heavy-hexagon lattice, laid out for superconducting qubits to limit frequency collisions and crosstalk, qubits have degree two
+or three~\cite{Chamberland2020PRX} \observed. In a reconfigurable neutral-atom array the atoms are moved between zones, which gives
+arbitrary connectivity~\cite{Bluvstein2024} \observed; there the effective $C$ is set by the movement schedule rather than by a fixed
+lattice \interp. In a shuttling (QCCD) trap the effective connectivity grows slowly with $N$; for logarithmic growth, doubling the qubit count from
 about 100 to about 200 raises it by $\ln200/\ln100=1.15$ \calc. That $\alpha$ jumps when a superconducting device passes its own $T_1^*$ is a
 \conjecture: no published pair of devices on one material and one coupler topology yet separates it from the change of topology itself.
+
+\paragraph{The cryostat as part of the surface.} The qubit count also has a thermal side. Every control line connects room-temperature
+electronics to the processor and loads the refrigerator, passively by heat conduction and actively by the dissipation of control signals
+in its cables and attenuators~\cite{Krinner2019} \observed. The dilution refrigerator of that study offers about 19~$\mu$W of
+cooling at 20~mK on its mixing chamber; a cabling scheme engineered for that budget supports 50 qubits at 14~mK and,
+disregarding space, at least 150~\cite{Krinner2019} \observed. Beyond some count, wiring heat load, crosstalk and cooling power together
+set an integration ceiling for each chip and cryostat, a system-level limit separate from the material ceiling of one junction \interp.
 
 Any device lab can test this directly: two chips on the same material and coupler layout, one pushed past the optimum, and the two-qubit error
 measured on both.

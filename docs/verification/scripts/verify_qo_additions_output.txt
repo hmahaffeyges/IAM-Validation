@@ -1,0 +1,9 @@
+x_qp from Riste n_qp=0.04 um^-3                         1e-08  (text 1e-08)  OK
+4pi int e^{-2r/lam} r^2 dr / (pi lam^3)                 1  (text 1)  OK
+V_eff = pi lambda^3 [um^3]                              0.0003927  (text 0.00039)  OK
+pairs in V_eff                                          1571  (text 1.6e+03)  OK
+x_th(100 mK) = 3.67e-10
+phi_max = tau_TLS/(2 tau_qp)                            0.15  (text 0.15)  OK
+surface 1e-2 / colour 2e-3                              5  (text 5)  OK
+Harrington rate per hour = 6.08
+ALL OK

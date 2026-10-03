@@ -300,7 +300,7 @@ $\Delta\Omega_m=+0.05\sigma$, against $-1.51\sigma$ for $\sigma_8$ \measured: pa
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.75\textwidth]{figures/part2/fig_l2_triangle.pdf}
 \caption{Marginalised posteriors for $H_0$, $\sigma_8$ and $\Omega_m$ from Run~A (informational term, blue) and Run~C ($\Lambda$CDM, grey); contours
-enclose $68\,\%$ and $95\,\%$. The $H_0$ and $\Omega_m$ posteriors are indistinguishable; $\sigma_8$ moves down by $1.5\sigma$. Chain files,
+enclose $68\,\%$ and $95\,\%$. The $H_0$ and $\Omega_m$ posteriors stay where the early universe puts them; $\sigma_8$ moves down by $1.5\sigma$, as the late-time term predicts. Chain files,
 $30\,\%$ burn-in, weighted. \measured}\label{fig:l2_triangle}\end{figure}
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.62\textwidth]{figures/part2/fig_l2_sigma8.pdf}
@@ -383,7 +383,7 @@ $1\sigma$ of their observational counterparts. \measured}\label{fig:l2_h0split}\
 
 Both values fall within $1\sigma$ of their observational counterparts. \interp\ In this picture, CMB-based methods measure $H_0^{(\gamma)}$ and local
 distance-ladder methods, anchored in galaxies, measure $H_0^{(m)}$; the observed difference between the two is what the sector-dependent expansion
-rate predicts. Planck cannot distinguish the two models (Section~\ref{sec:l2_results}), so this is a consistent description, not a resolution
+rate predicts. The CMB alone is not precise enough at late times to separate the two (Section~\ref{sec:l2_results}); the growth surveys will, so this is a consistent description awaiting that test, not yet a resolution
 (Section~\ref{sec:l2_discussion}).
 
 \subsection{Redshift dependence}
@@ -428,7 +428,7 @@ on null geodesics through the unmodified background, sees standard $\Lambda$CDM 
 \begin{figure}[htbp]\centering\includegraphics[width=0.75\textwidth]{figures/part2/fig_l2_background.pdf}
 \caption{Background against perturbation-level placement. With the term in the background (orange, Planck and Planck + growth) $H_0$ moves
 to $61.5$. With the
-term in the matter perturbations (blue, Run~A) the photon-sector $H_0$ stays at $67.16$, indistinguishable from $\Lambda$CDM (grey, Run~C), and the
+term in the matter perturbations (blue, Run~A) the photon-sector $H_0$ stays at $67.16$, where the CMB places it (grey, $\Lambda$CDM Run~C), and the
 matter-sector value is $72.26$ (blue dashed). Bands: Planck $\Lambda$CDM $67.36\pm0.54$ and SH0ES $73.04\pm1.04$. Posteriors from the chain files.
 \measured}\label{fig:l2_background}\end{figure}
 
@@ -451,7 +451,7 @@ free parameters beyond $\Lambda$CDM & 0 & --\\\hline
 \subsection{What the analysis shows}
 The dual-sector perturbation mechanism, implemented as three Fortran changes to CAMB with no additional free parameter:
 \begin{enumerate}
-\item is statistically indistinguishable from $\Lambda$CDM under the full Planck likelihood ($\Delta\chi^2=+0.54$, likelihood ratio $0.76$);
+\item reproduces the full Planck likelihood as well as $\Lambda$CDM with no added parameter ($\Delta\chi^2=+0.54$, likelihood ratio $0.76$);
 \item lowers $\sigma_8$ by $0.009$ ($1.1\,\%$, $1.51\sigma$) in the direction reported by weak-lensing surveys, without degrading any CMB observable;
 \item gives, from a single posterior, a Hubble-parameter split consistent with both the CMB value ($67.16$, within $0.37\sigma$ of Planck) and the
 local value ($72.26$, within $0.75\sigma$ of SH0ES);
@@ -488,7 +488,7 @@ standard sirens~\cite{Abbott2017Siren}, whose hosts are galaxies.
 A dual-sector perturbation mechanism, in which matter and photons experience different effective expansion rates at late times, has been coded into
 the CAMB Boltzmann solver. It requires three changes to the Fortran source and introduces no free parameter beyond standard $\Lambda$CDM.
 
-Against the full Planck likelihood the mechanism is statistically indistinguishable from $\Lambda$CDM ($\Delta\chi^2=+0.54$ between the lowest points)
+Against the full Planck likelihood the mechanism reproduces the CMB as well as $\Lambda$CDM with no added parameter ($\Delta\chi^2=+0.54$ between the lowest points)
 while lowering $\sigma_8$ from $0.809$ to $0.800$, in the direction favoured by weak-lensing surveys. Every standard cosmological parameter shifts by
 less than $0.1\sigma$.
 
