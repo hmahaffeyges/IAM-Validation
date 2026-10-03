@@ -1,55 +1,155 @@
-\chapter{Measurement as sector crossing}\label{ch:measurement}
+% Part 5. Carries "The Measurement Problem Dissolved: Quantum Decoherence as Irreversible Sector Crossing" (Feb 2026; PDF 388 lines, read in full
+% 2026-10-03). Corrections: PAPER_ERRATA.md MP1-MP7 (with GD3, GD4, EN8); docs/verification/quantum/MEASUREMENT_PROBLEM_CHECK.md.
+% Numbers: docs/verification/scripts/verify_records_measurement_time.py (section B), verify_measurement_problem_output.txt.
+% Figures: figscripts/fig_records_measurement_time.py (fig_mp_record, fig_mp_tau_systems); fig_p5_extra.py (fig_eraser, fig_eraser_temperature, tab_eraser).
+\chapter{Measurement as the writing of a record}\label{ch:measurement}
 
-\section{The problem}
+\section{The problem}\label{sec:mp_problem}
+The measurement problem --- what constitutes a measurement, why measurement appears to cause collapse, and what role the observer plays --- has been
+debated for a century. Quantum mechanics is the most precisely tested theory in physics; its predictions have been confirmed to great accuracy in every
+experimental domain. Yet its standard formulation posits two processes. Between measurements, states evolve unitarily under the Schr\"odinger equation.
+At measurements, states undergo a non-unitary collapse to an eigenstate of the measured observable. What constitutes a ``measurement'' is not defined
+within the theory; whether the observer plays a special role remains contested; the randomness of outcomes is taken as fundamental.
 
-The Schr\"odinger equation is linear and unitary, yet measurements have single outcomes.
-Decoherence explains why interference between macroscopically distinct branches becomes
-unobservable~\cite{Zurek2003,Schlosshauer2005,JoosZeh1985}. It does not by itself select one
-outcome, and it does not say where the quantum-to-classical line lies. Collapse
-models~\cite{GRW1986,Bassi2013}, many-worlds~\cite{Everett1957}, Bohmian mechanics~\cite{Bohm1952}
-and QBism~\cite{Fuchs2014} each give a different answer.
+Decoherence explains why interference between macroscopically distinct branches becomes unobservable~\cite{Zurek2003,Schlosshauer2005,JoosZeh1985}. It
+does not by itself select one outcome, and it does not say where the quantum-to-classical line lies. Collapse models~\cite{GRW1986,Bassi2013},
+many-worlds~\cite{Everett1957}, Bohmian mechanics~\cite{Bohm1952} and QBism~\cite{Fuchs2014} each give a different answer.
 
-\section{The IAM criterion}
-Table~\ref{tab:eraser} gives the threshold at four detector temperatures and the chapter's examples at room temperature.
+This chapter applies IAM's Law to the question. It does not modify the quantum formalism, and it does not choose among the interpretations on the
+question of single outcomes. What it supplies is a physical definition of the event that standard quantum mechanics leaves unnamed: a measurement is
+complete when a record has been written irreversibly into matter, at a cost of at least $\kB T\ln2$ per bit at the surface where it is written. No
+observer and no consciousness enter. \interp{} The same definition is then applied to the double slit, delayed choice, the quantum eraser, Schr\"odinger's
+cat, entanglement and Bell tests, Wigner's friend and the quantum Zeno effect.
+
+\section{The two sectors, and where a record is written}\label{sec:mp_sectors}
+At cosmological scale, matter and light feel different effective couplings. The modification is governed by the activation function $E(a)=\exp(1-1/a)$
+of the horizon thermodynamics (Chapter~\ref{ch:theory}), with $\beta_m=\Omega_m/2$ fixed by the virial partition. The signature at the level of
+perturbations is $\mu<1$ (suppressed growth of matter perturbations) with $\Sigma=1$ (lensing by light unchanged), Eq.~\eqref{part2:eq:mu}; it has been
+confronted with Planck 2018 and large-scale structure in eighteen chains, with $\sigma_8=0.800$ and $H_0^{(\rm matter)}=72.26$\,km\,s$^{-1}$\,Mpc$^{-1}$
+(Chapters~\ref{ch:dual} and~\ref{ch:level2}). \measured{} The reason is that records are written only on timelike worldlines: a photon on a null geodesic
+accumulates no proper time and writes no gravitational record in flight, while matter does (Chapter~\ref{ch:quantumrecords}). \derived
+
+In the laboratory the same distinction becomes a statement about where a record is written. A photon in flight, a superposition, an entangled pair in
+transit and a reversible which-path marker hold no irreversible record yet: their information can still be erased. A record becomes irreversible when it
+is written into matter --- the photon absorbed in a detector, the signal amplified and dissipated. Figure~\ref{fig:mp_record}a shows the division.
+$\mu$ and $\Sigma$ remain the names of the cosmological perturbation functions; they are not used here as labels for the state of a laboratory system.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part5/fig_mp_record.pdf}
+\caption{(a) Where a record is written. Left: no irreversible record yet (photons in flight, $d\tau=0$; superpositions and pairs in transit; reversible
+markers such as a polarisation rotation or a beam splitter); erasure is possible. Right: the record is written in matter (absorption, amplification,
+dissipation, $Q\gg\kB T\ln2$); its cost, $\kB T\ln2$ per bit, is paid when the record is reset or erased. No observer and no consciousness enter.
+\interp\ (b) Wheeler's delayed choice in a 5\,m apparatus: the photon is coherent throughout its 16.7\,ns flight; the choice of configuration, made
+after the slits, decides where the record is written, not what the photon was in flight. \calc}\label{fig:mp_record}
+\end{figure}
+
+\section{The criterion}\label{sec:mp_criterion}
+Let $S$ be a quantum system and $D$ a material detector (any system on a timelike worldline). Let $Q(S,D)$ be the energy irreversibly dissipated in their
+interaction, and
+\begin{equation}
+Q_L\equiv\kB T_D\ln2\label{eq:mp_QL}
+\end{equation}
+the Landauer threshold at the detector temperature $T_D$~\cite{Landauer1961}. At room temperature $Q_L=0.0179$\,eV. \calc{} The criterion is:
+\begin{itemize}
+\item If $Q(S,D)<Q_L$, no irreversible record is written. The interaction is thermodynamically reversible and quantum erasure is possible.
+\item If $Q(S,D)\ge Q_L$, a record is written irreversibly; Landauer entropy has been produced in the detector.
+\end{itemize}
+\conjecture{} Table~\ref{tab:eraser} gives the threshold at four detector temperatures and the chapter's examples at room temperature.
 \input{tables/part5/tab_eraser}
 
-IAM gives an operational criterion. A measurement is an interaction between the system $S$ and a detector $D$ that
-dissipates energy $Q(S,D)$ into a detector at temperature $T_D$. It is irreversible,
-actualizing in the sense of Chapter~\ref{ch:iams_law}, if and only if
+The criterion has to be read with Bennett's result~\cite{Bennett1982}: acquiring a record has no minimum dissipation; the $\kB T\ln2$ per bit is paid when
+a record is erased or the apparatus is reset. What $Q\ge Q_L$ marks is therefore where a record becomes irreversible in practice --- at absorption in a
+dissipative detector --- not a cost that the act of measurement itself must pay. \derived{} (Landauer--Bennett). Read this way, the criterion places
+the record in the detector or the amplifier chain, and erasure remains possible until then. Every experiment discussed below agrees with that reading.
+\observed{} The same criterion distinguishes a CCD pixel ($Q\approx3$\,eV, $Q/Q_L\approx167$), a retinal rod ($Q\approx2.5$\,eV, $Q/Q_L\approx140$) and a
+photographic grain from a beam splitter or a polarisation rotator, which dissipate essentially nothing, $Q/Q_L\ll1$. \calc
+
+\section{The gravitational channel}\label{sec:mp_gravity}
+For a massive system in a spatial superposition the gravitational self-energy $E_G=Gm^2/R$ sets the scale of any gravitational channel. Applying IAM's
+Law at the superposition boundary, with the boundary's capacity taken as $\kB T/E_G$, gives the time
 \begin{equation}
- Q(S,D)\;\ge\;Q_L\equiv\kB T_D\ln2 .
+\tau_{\rm IAM}=\frac{\hbar\,(\kB T)^2\ln2}{E_G^3}\label{eq:mp_tauIAM}
 \end{equation}
-At room temperature $Q_L=0.0179$~eV. \conjecture\ No observer and no consciousness enter.
+(Eq.~\ref{eq:tauIAM}, Chapter~\ref{ch:gravdec}). \conjecture{} (the capacity $\kB T/E_G$ is assumed, not derived). For a photon $E_G=0$ and
+$\tau_{\rm IAM}=\infty$: light carries no gravitational record. \derived{} (given Eq.~\ref{eq:mp_tauIAM}) Table~\ref{tab:mp_systems} and
+Figure~\ref{fig:mp_tau_systems} run Eq.~\eqref{eq:mp_tauIAM} from the electron to a person at 300\,K, beside the Di\'osi--Penrose time
+$\tau_{\rm PD}=\hbar/E_G$~\cite{Diosi1987,Penrose1996}. The radii are those of the objects; the dust grain is a $10^{-12}$\,kg sphere of density
+$1.9\times10^3$\,kg\,m$^{-3}$ ($R=5\,\mu$m).
 
-The criterion has to be read with Bennett's result~\cite{Bennett1982}: acquiring a record has no minimum dissipation; the
-$\kB T\ln2$ per bit is paid when a record is erased or the apparatus is reset. What $Q\ge Q_L$ marks is therefore where a record becomes
-irreversible in practice, at absorption in a dissipative detector, not a cost that measurement itself must pay. \openprob
-The same criterion distinguishes a CCD pixel ($Q\approx3$~eV, $Q/Q_L\approx170$), a retinal
-rod ($Q\approx2.5$~eV, $Q/Q_L\approx140$) and a photographic grain from a beam splitter or a
-polarization rotator. The latter dissipate essentially nothing, so $Q/Q_L\ll1$.
+\begin{table}[htbp]\centering\small
+\caption{Gravitational times from the electron to a person: $E_G=Gm^2/R$, $\tau_{\rm PD}=\hbar/E_G$, and $\tau_{\rm IAM}$ of Eq.~\eqref{eq:mp_tauIAM} at
+300\,K. The mesoscopic range, $10^{-15}$ to $10^{-10}$\,kg, is where the two gravitational times can be compared in the laboratory. For the cat and the
+person the gravitational times are formal: environmental decoherence is far faster. \calc{} (capacity $\kB T/E_G$ assumed \conjecture)}\label{tab:mp_systems}
+\begin{tabular}{@{}lccccc@{}}\toprule
+system & $m$ (kg) & $R$ (m) & $E_G$ (J) & $\tau_{\rm PD}$ (s) & $\tau_{\rm IAM}$, 300\,K (s)\\\midrule
+electron & $9.1\times10^{-31}$ & $10^{-10}$ & $5.5\times10^{-61}$ & $1.9\times10^{26}$ & $7.4\times10^{105}$\\
+C$_{60}$ & $1.2\times10^{-24}$ & $5\times10^{-10}$ & $1.9\times10^{-49}$ & $5.5\times10^{14}$ & $1.8\times10^{71}$\\
+virus & $10^{-18}$ & $5\times10^{-8}$ & $1.3\times10^{-39}$ & $7.9\times10^{4}$ & $5.3\times10^{41}$\\
+bacterium & $10^{-15}$ & $5\times10^{-7}$ & $1.3\times10^{-34}$ & $0.79$ & $5.3\times10^{26}$\\
+dust grain & $10^{-12}$ & $5\times10^{-6}$ & $1.3\times10^{-29}$ & $7.9\times10^{-6}$ & $5.3\times10^{11}$\\
+sand grain & $10^{-6}$ & $5\times10^{-4}$ & $1.3\times10^{-19}$ & $7.9\times10^{-16}$ & $5.3\times10^{-19}$\\
+cat & $4.0$ & $0.15$ & $7.1\times10^{-9}$ & $1.5\times10^{-26}$ & $3.5\times10^{-51}$\\
+person & $70$ & $0.30$ & $1.1\times10^{-6}$ & $9.7\times10^{-29}$ & $9.7\times10^{-58}$\\\bottomrule
+\end{tabular}
+\end{table}
 
-\section{Erasure fidelity}
-Figure~\ref{fig:eraser_temperature} shows how the curve moves with the detector temperature, which is what the proposed eraser test varies.
 \begin{figure}[htbp]\centering
-\includegraphics[width=\textwidth]{figures/part5/fig_eraser_temperature.pdf}
-\caption{Eq.~\eqref{eq:F} at four detector temperatures. (a) $F$ against dissipated energy: the crossover moves with $Q_L=k_BT_D\ln2$, from 0.0179\,eV at 300\,K to $6.0\times10^{-7}$\,eV at 10\,mK. (b) $F$ at a fixed $Q=0.1$\,eV against $T_D$: 0.000 at 10\,mK, 0.002 at 4\,K and 0.164 at 300\,K (prediction Q4, Chapter~\ref{ch:predictions}). The form is assumed. \conjecture}\label{fig:eraser_temperature}
+\includegraphics[width=0.62\textwidth]{figures/part5/fig_mp_tau_systems.pdf}
+\caption{$\tau_{\rm IAM}$ at 300\,K (Eq.~\eqref{eq:mp_tauIAM}, capacity $\kB T/E_G$ assumed) against $\tau_{\rm PD}=\hbar/E_G$ for the systems of
+Table~\ref{tab:mp_systems}. Shaded: the mesoscopic range $10^{-15}$--$10^{-10}$\,kg. The two lines cross between the dust grain and the sand grain; the
+crossing moves with temperature ($2.2\times10^{-10}$\,kg at 10\,mK for silica, Chapter~\ref{ch:gravdec}). Below the Planck time the formula has no physical
+meaning. \calc\ \conjecture}\label{fig:mp_tau_systems}
 \end{figure}
+
+\section{The double slit}\label{sec:mp_slit}
+In the double slit a photon passes two slits and builds an interference pattern on a screen. A which-path detector at the slits destroys the pattern;
+the textbook account attributes this to observation collapsing the wave function. With the criterion, the photon travels from source to slits with
+$E_G=0$ and no record written; it is coherent throughout its flight. The record is written at the screen, which is matter: the photon is absorbed, an
+electron is excited, and $Q\approx2$\,eV is dissipated, $Q/Q_L\approx112$ at room temperature. That absorption is where the outcome becomes a record.
+\interp{} A which-path detector introduces matter before the screen. If its interaction is irreversible ($Q>Q_L$), the record is written at the slit and
+interference is lost before the screen. If it is reversible ($Q<Q_L$) --- a polarisation rotation, for example --- no record is written and interference
+can be restored. A retina ($Q\approx2.5$\,eV, $Q/Q_L\approx140$) writes the same kind of record as a CCD pixel ($Q\approx3$\,eV, $Q/Q_L\approx167$).
+Consciousness plays no role. \calc
+
+\section{Wheeler's delayed choice}\label{sec:mp_delayed}
+In Wheeler's delayed-choice experiment~\cite{Wheeler1978,Jacques2007} the decision to reveal wave or particle behaviour is made after the photon has
+passed the slits, and the photon seems to decide retroactively which it was. With the criterion no retrocausality is needed. The photon has $E_G=0$
+throughout its flight; through a 5\,m apparatus the flight takes 16.7\,ns, and the gravitational record written in that time is exactly zero
+(Figure~\ref{fig:mp_record}b). \calc{} The experimenter's choice of configuration decides where the record is written, not whether the photon was coherent
+in transit: nothing irreversible happened to the photon until absorption. Standard quantum mechanics already gives this account~\cite{Ma2016}. The
+contribution of IAM's Law is the thermodynamic criterion for \emph{where} the absorption becomes irreversible. \interp
+
+\section{The quantum eraser}\label{sec:mp_eraser}
+In quantum-eraser experiments~\cite{ScullyDruhl1982,Kim2000} which-path information is obtained and then ``erased'', and the interference pattern is
+restored in the sorted coincidences. Standard quantum mechanics attributes this to the reversibility of the entanglement between the photon and the
+which-path marker. The criterion draws one distinction. If the which-path interaction was reversible ($Q<Q_L$), no record was written; the eraser reveals
+coherence that was always present. If an irreversible record has been written ($Q\ge Q_L$, dissipated in matter), the information it holds cannot be
+recovered by any operation on the marker alone. \interp
+
+What counts is energy \emph{dissipated} into a record, not the energy of the quantum that carries the which-path information. A which-path marker
+stored in a photon's polarisation carries 2\,eV of photon energy but dissipates nothing, and it is erasable. The same holds for a photon spontaneously
+emitted by an atomic which-path marker: emission into free space is not by itself a record. A trapped ion has been entangled with its own
+spontaneously emitted photon and the entanglement measured~\cite{Blinov2004}; remote entanglement of two ions~\cite{Moehring2007}, and of two electron
+spins 1.3\,km apart~\cite{Hensen2015}, has been built by interfering spontaneously emitted photons, which requires that their which-path information be
+erased by measuring them in a conjugate basis. \observed{} Emission alone writes no irreversible record; the record becomes irreversible when the photon
+is absorbed in a dissipative detector, which is where the criterion places it. Emission into a high-$Q$ cavity, where vacuum Rabi oscillation makes the
+exchange reversible~\cite{Haroche2006,Blais2021}, is the controlled setting in which the dissipated energy per cycle can be varied. \interp
+
+\paragraph{An erasure fidelity.} The criterion has been given a quantitative form for erasers:
+\begin{equation}
+F_{\mathrm{IAM}}(Q,T)=1-\frac{1}{e}\exp\!\left(1-\frac{\kB T\ln2}{Q}\right)=1-\exp\!\left(-\frac{Q_L}{Q}\right),
+\label{eq:F}
+\end{equation}
+where $Q$ is the energy dissipated into the which-path record. The two forms are identical (sympy, \texttt{verify\_records\_measurement\_time.py} B3).
+\calc{} The form of Eq.~\eqref{eq:F} is not derived: it carries over the activation ramp, while the rate integral it is built from gives a plain
+exponential (Chapter~\ref{ch:gravdec}). \conjecture\ Taking the form as given, reversible markers ($Q/Q_L<0.04$) give $F>1-e^{-25}\approx1$, and
+irreversible ones ($Q/Q_L>100$) give $F<0.01$. \calc{} At the crossover $Q=Q_L$, $F=1-e^{-1}=0.632$.
+The derivation is written out step by step, with the status of each premise, in Appendix~\ref{app:der:quantum}.
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part5/fig_eraser.pdf}
 \caption{Eq.~\eqref{eq:F}, $F=1-e^{-Q_L/Q}$, against dissipated energy over $Q_L=k_BT\ln2=0.0179$\,eV (300\,K). It passes through 0.632 at $Q=Q_L$; reversible markers ($Q/Q_L<0.04$) give $F\approx1$; a retinal rod (140) and a CCD pixel (170) give $F<0.01$. The functional form is carried over from the activation ramp, not derived. \conjecture}\label{fig:eraser}
 \end{figure}
-
-For quantum-eraser experiments~\cite{ScullyDruhl1982} the criterion is given a quantitative form:
-\begin{equation}
- F_{\mathrm{IAM}}(Q,T)=1-\frac{1}{e}\exp\!\left(1-\frac{\kB T\ln2}{Q}\right)=1-\exp\!\left(-\frac{Q_L}{Q}\right).
- \label{eq:F}
-\end{equation}
-The form of Eq.~\eqref{eq:F} is not derived: it carries over the activation ramp, while the rate integral it is built from gives a plain
-exponential, as the next chapter shows (Chapter~\ref{ch:gravdec}). \conjecture\ Taking the form as given, reversible markers ($Q/Q_L<0.04$) give $F>1-e^{-25}\approx1$, and irreversible ones
-($Q/Q_L>100$) give $F<0.01$. \calc{} At the crossover
-$Q=Q_L$, $F=1-e^{-1}=0.632$.
-The derivation is written out step by step, with the status of each premise, in Appendix~\ref{app:der:quantum}.
 
 \begin{checkbox}[title={What distinguishes Eq.~\eqref{eq:F} from standard quantum mechanics}]
 In standard decoherence theory, erasability depends on whether the environmental record can
@@ -65,22 +165,94 @@ the marker to a resistive element at variable temperature) can measure $F(Q/Q_L)
 The IAM curve passes through $0.632$ at $Q=Q_L$ and has no free parameter.
 \end{checkbox}
 
-\section{Double slit, delayed choice, eraser}
+\paragraph{The temperature test.} The threshold $Q_L=\kB T\ln2$ is linear in temperature. Standard decoherence theory gives erasability no dependence
+on the detector temperature at fixed dissipated energy; Eq.~\eqref{eq:F} does: at a higher temperature a given dissipation is less likely to have written
+an irreversible record. For a which-path interaction dissipating $Q=0.1$\,eV, $F=0.000$ at 10\,mK, $0.0024$ at 4\,K and $0.164$ at 300\,K
+(Figure~\ref{fig:eraser_temperature}; prediction Q4, Chapter~\ref{ch:predictions}). \calc{} (under Eq.~\eqref{eq:F} \conjecture) Running the same eraser
+with a controlled dissipation at two detector temperatures would test the form. \prediction
 
-In the two-sector picture of Chapter~\ref{ch:dual}, a photon travels in the $\Sigma=1$ sector
-and accumulates no gravitational decoherence in flight. \interp Over a 5~m apparatus and 17~ns of
-flight the accumulated decoherence is exactly zero, and collapse occurs at the screen, where
-$Q\gg Q_L$. Wheeler's delayed choice~\cite{Wheeler1978,Jacques2007} then needs no
-retrocausality: nothing actual happened to the photon until absorption. Standard quantum
-mechanics already gives this account~\cite{Ma2016}. The IAM contribution is the thermodynamic
-criterion for \emph{where} the absorption becomes irreversible.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part5/fig_eraser_temperature.pdf}
+\caption{Eq.~\eqref{eq:F} at four detector temperatures. (a) $F$ against dissipated energy: the crossover moves with $Q_L=k_BT_D\ln2$, from 0.0179\,eV at 300\,K to $6.0\times10^{-7}$\,eV at 10\,mK. (b) $F$ at a fixed $Q=0.1$\,eV against $T_D$: 0.000 at 10\,mK, 0.002 at 4\,K and 0.164 at 300\,K (prediction Q4, Chapter~\ref{ch:predictions}). The form is assumed. \conjecture}\label{fig:eraser_temperature}
+\end{figure}
 
-\section{Spontaneous emission}
+\section{Schr\"odinger's cat}\label{sec:mp_cat}
+Schr\"odinger's thought experiment posits a cat alive and dead at once until observed. A 4\,kg cat ($R\approx0.15$\,m) has gravitational self-energy
+$E_G=Gm^2/R\approx7.1\times10^{-9}$\,J, and Eq.~\eqref{eq:mp_tauIAM} gives $\tau_{\rm IAM}\approx3.5\times10^{-51}$\,s at 300\,K, $1.6\times10^7$ times
+shorter than the Planck time ($5.4\times10^{-44}$\,s). \calc{} A time below the Planck time has no operational meaning, and in any case the gravitational
+channel is not the operative one: decoherence of a cat by air molecules and thermal photons is faster than any gravitational channel by many orders of
+magnitude~\cite{JoosZeh1985,Zurek2003}. \observed{} A macroscopic superposition of this kind cannot be created or maintained. What IAM's Law adds is the
+location and cost of the record: the cat's state is written irreversibly into its environment at $\kB T\ln2$ per bit, long before anyone opens the box.
+No observation is needed. \interp
 
-Emission into free space is not by itself an actualization: a which-path record carried by a spontaneously emitted photon can still be
-erased. A trapped ion has been entangled with its own spontaneously emitted photon and the
-entanglement measured~\cite{Blinov2004}, and remote entanglement of two ions~\cite{Moehring2007} and of two NV spins 1.3~km
-apart~\cite{Hensen2015} has been built by interfering spontaneously emitted photons. \observed{} Emission alone writes no irreversible record;
-the record becomes irreversible when the photon is absorbed in a dissipative detector, which is where the criterion above places it. Emission into
-a high-$Q$ cavity, where vacuum Rabi oscillation makes the exchange reversible~\cite{Haroche2006,Blais2021}, is the controlled setting in which the
-dissipated energy per cycle can be varied and Eq.~\eqref{eq:F} tested. \prediction
+\section{Entanglement and Bell tests}\label{sec:mp_bell}
+Entangled particles show correlations that violate Bell inequalities. IAM's Law is not a local hidden-variable theory, and it changes nothing in quantum
+mechanics: an entangled pair is one quantum state, and its correlations are those of that state until an irreversible record is written. Photons in
+transit carry no gravitational record ($E_G=0$, $\tau_{\rm IAM}=\infty$); the full state is preserved in flight, and the law specifies only when the
+transition from indefinite to recorded occurs. The correlation function is the quantum one, $E(\theta)=-\cos\theta$, and the CHSH value of an ideal
+source is $|S|=2\sqrt2$~\cite{Tsirelson1980}, above the local bound of 2. \derived
+
+For matter-based pairs, a loss of coherence $D$ in the pointer basis leaves the coherence $c=1-D$, and the largest CHSH value is
+\begin{equation}
+S_{\max}=2\sqrt{1+c^2}\label{eq:mp_smax}
+\end{equation}
+(Eq.~\ref{eq:ent:smax}; Horodecki criterion~\cite{Horodecki1995}), above 2 for any $c>0$. \derived{} At fixed settings optimised for the pure state,
+$S=\sqrt2(1+c)$, below 2 for $D>0.586$; only for isotropic noise, $S_{\max}=2\sqrt2(1-D)$, is the threshold $D>0.293$
+(Chapter~\ref{ch:entanglement}). \calc{} The experimental records are consistent with standard decoherence: photon pairs have been distributed over
+1,200\,km by satellite~\cite{Yin2017}; electron spins 1.3\,km apart have violated a Bell inequality without loopholes, $S=2.42\pm0.20$~\cite{Hensen2015}.
+\observed{} The ratio of the two distances is about 900. Matter entanglement is shorter-ranged because matter qubits are harder to isolate from their
+environments, not because of a gravitational channel.
+
+\section{Wigner's friend}\label{sec:mp_wigner}
+In the Wigner's-friend scenario a friend measures a quantum system inside a sealed laboratory. Standard quantum mechanics allows Wigner, outside, to
+describe the laboratory including the friend as a superposition; extended scenarios~\cite{FrauchigerRenner2018} show that this leads to contradictions
+among the agents' statements. With IAM's Law the record is objective once it is written. A Stern--Gerlach measurement read on a fluorescent screen
+produces about 1,000 photons of 2\,eV, which dissipate $2\times10^3$\,eV, or $1.1\times10^5$ times $Q_L$ at room temperature. \calc{} The probability
+that the entropy so produced spontaneously reverses is of order $2^{-111\,612}\approx10^{-33\,599}$. \calc{} This is not a practical difficulty; it is
+thermodynamically excluded. Wigner cannot treat the laboratory as a coherent superposition once that entropy has been produced, because the record is a
+physical fact in matter, not a state of anyone's knowledge. In the textbook reading collapse is observer-relative; here the record is thermodynamic.
+\interp
+
+\section{The quantum Zeno effect}\label{sec:mp_zeno}
+The quantum Zeno effect --- frequent measurement freezing a system's evolution~\cite{Itano1990} --- is confirmed in many systems. Standard quantum
+mechanics explains it by repeated projection. It has been observed with a weak, linear, dispersive readout of a superconducting qubit through a
+near-quantum-limited amplifier~\cite{Slichter2016}, a measurement in which the qubit itself dissipates almost nothing. \observed{} In the reading of
+Section~\ref{sec:mp_criterion} this is expected: the record is written where the signal is amplified and absorbed, in the amplifier chain, and the
+dissipation there is far above $Q_L$. The criterion locates the record in the readout chain; it does not require the coupling to the system to be
+dissipative. \interp
+
+\section{Connection to the cosmology}\label{sec:mp_cosmo}
+The writing of records that governs the laboratory is the same process that, summed over about $10^{11}$ galaxies and 13.8\,Gyr, produces the
+information term that modifies the growth of matter perturbations. At cosmological scale the accumulated record gives $E(a)=\exp(1-1/a)$ and the
+signature $\mu<1$, $\Sigma=1$ (Chapter~\ref{ch:quantumrecords}). \interp{} At the quantum scale the same law gives the gravitational time of
+Eq.~\eqref{eq:mp_tauIAM}; the time profile $E_q(\eta)=\exp(1-1/\eta)$ is carried over from the cosmology by analogy, since the rate integral gives an
+exponential (Chapter~\ref{ch:gravdec}). \conjecture{} The laboratory measures the rate per record; cosmology measures the sum. Consistency between the
+two --- surveys preferring $\mu<1$ with the predicted redshift dependence, and laboratory data showing $\tau_{\rm IAM}\propto T^2m^{-5}$ at the predicted
+scale --- would join quantum mechanics to the growth of structure through one law. \prediction
+
+\section{Discussion}\label{sec:mp_discussion}
+\paragraph{Relation to the interpretations.} The reading shares elements with several approaches and differs from each. Like decoherence
+theory~\cite{Zurek2003}, it takes environmental interaction as the mechanism of apparent collapse. Unlike decoherence theory, it names a threshold,
+$Q_L=\kB T\ln2$, and a place, the surface where the record is written in matter. Like objective-collapse models~\cite{Penrose1996,Diosi1987}, it treats
+the record as a physical event independent of observers. Unlike them, it introduces no new stochastic field and does not modify the Schr\"odinger
+equation. \interp
+
+\paragraph{What it does not change.} IAM's Law does not modify the predictions of quantum mechanics for any experiment performed to date. Erasers with
+reversible markers restore interference; erasure after spontaneous emission works when the emitted photon is measured in a conjugate
+basis~\cite{Blinov2004,Moehring2007,Hensen2015}; photonic and matter Bell tests give the quantum values; the Zeno effect appears with projective and with
+dispersive readout~\cite{Itano1990,Slichter2016}. All agree with the law read as above: the record, and its cost, are where the information is absorbed and
+dissipated in matter. \observed
+
+\paragraph{What would falsify the reading.} Three outcomes would. (i) Successful erasure of which-path information after it has been absorbed and
+dissipated in a detector, $Q\gg Q_L$, with no coherent copy left. (ii) A dependence of erasure on dissipated energy and detector temperature different
+from what standard decoherence theory gives, if Eq.~\eqref{eq:F} is offered as the law; a measurement of $F(Q/Q_L)$ with a controlled dissipation tests
+it (box above). (iii) For the gravitational channel, the absence of the $\tau_{\rm IAM}\propto T^2m^{-5}$ scaling in massive superpositions once
+environmental channels are excluded (Chapter~\ref{ch:gravdec}). \prediction
+
+\section{Status}\label{sec:mp_status}
+Stands: a measurement is complete when a record is written irreversibly into matter, at $\kB T\ln2$ per bit at the surface where it is written, paid
+when the record is reset or erased; no observer is needed \interp; this agrees with every experiment discussed, including erasure after spontaneous
+emission, kilometre-scale matter entanglement and Zeno freezing with dispersive readout \observed. Calculated: $Q_L=0.0179$\,eV at 300\,K; the gravitational
+times of Table~\ref{tab:mp_systems}; the reversal probability of a Stern--Gerlach record. \calc\ Conjectured: the erasure fidelity of Eq.~\eqref{eq:F}
+and the boundary capacity behind $\tau_{\rm IAM}$. \conjecture\ Predicted: the temperature dependence of erasure under Eq.~\eqref{eq:F}, and
+$\tau_{\rm IAM}\propto T^2m^{-5}$. \prediction
