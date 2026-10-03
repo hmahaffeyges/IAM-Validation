@@ -1,5 +1,7 @@
 # IAM's Law and Order
 
+**The Actualization of Reality** — *the cost of recording it, and the price to maintain it.*
+
 **How decoherence writes the classical world, and the energy that holds it against thermal noise.**
 Heath W. Mahaffey, independent researcher.
 
