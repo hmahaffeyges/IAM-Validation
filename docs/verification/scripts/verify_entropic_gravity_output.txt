@@ -1,0 +1,42 @@
+1. Horizon first law (Eq. eg:firstlaw)
+   Cai-Kim  -dE = T_H dS          ->  dH/dt = -4*pi*G*(P(t) + rho(t))
+   d/dt(H^2 - 8 pi G rho/3) = 0  -> H^2 = 8 pi G rho/3 + const (const = Lambda/3)
+   dE = (kappa/2pi) dS + W dV               -> dH/dt = [-4*pi*G*(P(t) + rho(t)), -2*H(t)**2]
+   dE = (H/2pi) dS - W dV (printed form)    -> dH/dt = [4*pi*G*(P(t) + rho(t))*H(t)**2/(2*pi*G*P(t) - 6*pi*G*rho(t) + H(t)**2)]
+2. Virial theorem (Eq. eg:virial): 2<T> = k <V> for V ~ r^k
+   k = -1:  <T> = -V/2  = |<V>|/2 for bound V < 0
+3. Coupling and the numbers that follow from it
+   beta_m = Omega_m/2 = 0.15765;  mu(z=0) = 1/(1+beta_m) = 0.8638;  mu0 = -0.1362;  1 - mu(0) = 13.62 %
+   H0 matter = 67.16 sqrt(1+beta_m) = 72.26 +- 0.51
+   photon 67.16 vs Planck 67.36 +- 0.54: -0.37 sigma;  matter 72.26 vs SH0ES 73.04 +- 1.04: -0.75 sigma
+4. Activation function (Eq. eg:Ea)
+   E(1) = 1 ; lim a->oo E = E ; E(1)/e = 0.3679
+   dE/dln a = exp((a - 1)/a)/a ; stationary at a = [1]
+   family exp(C - k/a): E(1) = 1 and E(oo) = e give [{C: 1, k: 1}]
+   d^2E/da^2 = 0 at a = [1/2]
+   dE/dt = H E / a peaks at a = 0.4418, z = 1.26
+   exponent: S_info ~ a^(n-9/2) must be ~ -1/a  ->  n = 7/2
+5. Growth: the friction form of Eq. eg:growth against the two chain implementations (fixed parameters, same early amplitude)
+   L1_muG  : dD/D at z = 0, 0.5, 1, 2: -0.78 %, -0.22 %, -0.06 %, -0.01 %
+   L2_fric : dD/D at z = 0, 0.5, 1, 2: -0.67 %, -0.16 %, -0.04 %, -0.00 %
+   note    : dD/D at z = 0, 0.5, 1, 2: -1.64 %, -0.75 %, -0.35 %, -0.08 %
+   friction coefficient today, in units of H0: (2 + beta_m) = 2.1576;  2 sqrt(1+beta_m) = 2.1519;  LambdaCDM 2
+   z = 0.5: extra friction / H:  note beta E = 0.0956;  Level 2  2(sqrt(E2I/E2L) - 1) = 0.0539
+   z = 1: extra friction / H:  note beta E = 0.0580;  Level 2  2(sqrt(E2I/E2L) - 1) = 0.0180
+   z = 2: extra friction / H:  note beta E = 0.0213;  Level 2  2(sqrt(E2I/E2L) - 1) = 0.0023
+6. Information criteria: Delta AIC = Delta chi2_min + 2 Delta k
+   IAM Level 2, Planck   : Delta chi2 = +0.54, extra parameters 0 -> Delta AIC = +0.54
+   IAM Level 1, range    : Delta chi2 = +0.56, extra parameters 0 -> Delta AIC = +0.56
+   IAM Level 1, range    : Delta chi2 = +1.73, extra parameters 0 -> Delta AIC = +1.73
+   one extra parameter (Delta or delta): Delta AIC = Delta chi2 + 2
+7. Table eg:numbers: prediction against data (difference / data error)
+   mu0 vs DESI FS+BAO+CMB+DESY3 0.04 +- 0.22                                       : -0.80 sigma
+   mu0 vs ACT+WMAP+SDSS+SN 0.02 +- 0.19                                            : -0.82 sigma
+   Sigma0 0 vs DESI FS+BAO+CMB+DESY3 0.044 +- 0.047                                : -0.94 sigma
+   Sigma0 0 vs ACT+WMAP+SDSS+SN 0.021 +- 0.068                                     : -0.31 sigma
+   sigma8 0.7998 vs KiDS-Legacy+DESY3+DESI+Pantheon+ 0.802 (+0.022 lower side -0.018): -0.12 sigma
+   H0 matter vs SH0ES 73.04 +- 1.04                                                : -0.75 sigma
+8. Lensing-to-dynamical mass in the Level 1 form, 1/mu(z)
+   z=0: 1.158, z=0.2: 1.105, z=0.5: 1.055, z=1: 1.018, z=2: 1.002
+9. Euclid (template comparison of docs/verification/scripts/verify_euclid_template.py, quoted)
+   template-equivalent mu0 over 0<z<2 = -0.072: 0.31 sigma at sigma(mu0)=0.23, 1.8 sigma at 0.04, 7 sigma at 0.01
