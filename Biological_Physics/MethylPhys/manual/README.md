@@ -11,7 +11,7 @@ The operations manual and everything it is built from. One live version, edited 
 | [`appendix_vi_vii.json`](appendix_vi_vii.json) | appendix content for the manual |
 | [`build_om.sh`](build_om.sh) |  |
 | [`build_operations_manual.py`](build_operations_manual.py) | builds the operations manual; run through build_om.sh so the contents page carries measured page numbers |
-| [`mphys002_lib.py`](mphys002_lib.py) | the shared renderer both editions of the manual are built with |
+| [`om_lib.py`](om_lib.py) | the shared renderer both editions of the manual are built with |
 | [`intro_blocks.json`](intro_blocks.json) | the manual's introduction, generated from the report's Story and Sky tabs so the two cannot drift |
 | [`om_data.py`](om_data.py) | the manual's data module: every constant, table and section text it renders |
 | [`om_part3.py`](om_part3.py) | the manual's Part III sections |

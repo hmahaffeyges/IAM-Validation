@@ -31,7 +31,7 @@ Sentence numbers refer to the audit's scratch sentence file (the extraction that
 | 78 | "The middle 80 % of healthy donors land between ? and ?, and that band is drawn on every gauge" | **FIXED** | two literal `?` placeholders (band dict has no p10/p90 keys), and a cohort band. Removed |
 | 79 | one sample can be read on its own — no cohort | OK | now true of the per-cell reading too |
 | 81–94 | same floor in a chip and a qubit; Landauer 1961 | OK | framework statement; Landauer's principle correctly dated |
-| 85 | "~117 (Apple M1)" | **UNVERIFIED** | number comes from the the semiconductor report issue; not recomputed here |
+| 85 | "~117 (Apple M1)" | **UNVERIFIED** | number comes from the semiconductor report issue; not recomputed here |
 | 96–100 | eight class levels are measured not derived; 37 reference methylomes; MCMC; bootstrap; frozen | OK | record: G-002 MCMC, 37 cells, R-hat < 1.001; PROC-HMIN-BOOT-01 8/8 inside CI |
 | 106 | "483,092 addresses × 115 cell types, each entry a level with an uncertainty" | **FIXED** | 483,092 rows confirmed; 115 cells confirmed; but the atlas is sparse per address (source families on different platforms). Sentence now says so, and that a cell with too few addresses is reported *not resolvable*, never absent |
 | 110–111 | "…what the second solver weights by" | **FIXED** | the posterior-weighted solver ([`nilc_celltype_deconvolver.py`](../chain/nilc_celltype_deconvolver.py)) is called by the conductor as a cross-check on composition; it is not a reading. Sentence now says cross-check |

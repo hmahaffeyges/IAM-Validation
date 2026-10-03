@@ -31,7 +31,7 @@ transistors, and at the methylation pattern a cell holds to remain the cell it i
 | The cell instrument (chain v3, development build) | [`Biological_Physics/MethylPhys/`](Biological_Physics/MethylPhys/) |
 | Cosmology chains | [`mgcamb_validation/`](mgcamb_validation/) (Level 1), [`camb_validation/`](camb_validation/) (Level 2) |
 | Recomputation scripts for the book's numbers | [`docs/verification/scripts/`](docs/verification/scripts/) |
-| Derivation checks for the device and cell numbers | [`DERIVATIONS QPROC_CHIP_MPHYS/`](DERIVATIONS%20QPROC_CHIP_MPHYS/) (`python3 mphys_derivation_tests.py`, and the the quantum-processor report and the semiconductor report files) |
+| Derivation checks for the device and cell numbers | [`DERIVATIONS QPROC_CHIP_MPHYS/`](DERIVATIONS%20QPROC_CHIP_MPHYS/) (`python3 mphys_derivation_tests.py`, and the quantum-processor report and the semiconductor report files) |
 
 Every result carries one status label: DERIVED, CALCULATED, CALIBRATED, MEASURED, OBSERVED, FITTED, CONJECTURE, PREDICTION or OPEN.
 
@@ -93,7 +93,7 @@ The papers are the working record. Where a paper and the corrections list disagr
 - [Dark matter and dark energy as virial partners](docs/papers/Dark_Matter_and_Dark_Energy_as_Virial_Partners.pdf)
 
 **Quantum and particle physics**
-- [Landauer-based model for the minimum quasiparticle density in Al/AlOx/Al Josephson junctions - the the quantum-processor report foundation](docs/papers/IAM_Xqp_Mahaffey.pdf)
+- [Landauer-based model for the minimum quasiparticle density in Al/AlOx/Al Josephson junctions - the quantum-processor report foundation](docs/papers/IAM_Xqp_Mahaffey.pdf)
 - [Electron rest mass from holographic horizon thermodynamics - a fixed-point equation](docs/papers/Electron_Rest_Mass_from__IAM.pdf)
 - [Three charged lepton generations and the Koide ratio from horizon information equipartition](docs/papers/Koide_Mahaffey.pdf)
 - [Electroweak symmetry breaking and the matter sector](docs/papers/Electroweak_Symmetry_Breaking_and_the_Matter_Sector.pdf)

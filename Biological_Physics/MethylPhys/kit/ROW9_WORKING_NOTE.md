@@ -689,7 +689,7 @@ directory names too, because a path is a claim.
 ### 2026-09-22 - card numbers, and the NILC sweep finished properly
 
 **Card numbering (author, reading the book).** *"the first class card is immune and its number 3 and the very next
-one is number 5?"* Both numbers were real and they were different things. `CARDS` in [`mphys002_lib.py`](../manual/mphys002_lib.py) is ordered by
+one is number 5?"* Both numbers were real and they were different things. `CARDS` in [`om_lib.py`](../manual/om_lib.py) is ordered by
 descending share of cell-free DNA in blood - immune 70 per cent, cycling 12, secretory 8, stromal 4, stem_adult 3,
 progenitor 2, terminal 0.5, pluripotent 0.5 - and its own source comment calls immune "#1". But the printed header
 used each card's `order` field, which is its index in Issue 002's `CLASS_ORDER` (terminal 1 ... stem_pluri 8). Two

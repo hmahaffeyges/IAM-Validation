@@ -115,7 +115,7 @@ SWITCHING_ORDER = [
  dict(id="4.6", name="Patient CMB (brilliance map)", status="BUILT (2026-06-29)",
   purpose="Per-class z-departure of the patient's β from the Atlas posterior (mean, sd) on the HEALPix NSIDE=128 grid - the cosmology borrow that shows WHERE on the genome the departure sits.",
   inputs="β; Atlas *_mean/*_sd columns; cpg→pixel mapping", outputs="per-class median |z|, assessable flag, Mollweide plate",
-  files=["MethylPhys/chain/cpg_patient_cmb.py","MethylPhys/chain/Runtime Matrices/cpg healpix mapping/iamatlas_cpg_to_healpix_nside128.npy","MethylPhys/plates/CPG_Plate_05_Four_Skies_Issue003.png"],
+  files=["MethylPhys/chain/cpg_patient_cmb.py","MethylPhys/chain/Runtime Matrices/cpg healpix mapping/iamatlas_cpg_to_healpix_nside128.npy","MethylPhys/plates/CPG_Plate_05_Four_Skies.png"],
   command="(see Issue 003 §5A.4; requires healpy)", expected="healthy blood: uniform tint = the documented reference offset; the 'assessable' flag wrongly admits classes the deconvolver says are absent (known).",
   lessons=[("§1.6 ledger","component separation, end-to-end simulation and cross-method disagreement - the CMB disciplines that found what cohorts could not."),("Plate 05","four skies on one grid: Planck realisation, Atlas immune posterior, a real patient, the z-map.")],
   defects=["assessability should be gated by Stage 2 presence, not by median |z|"], procedures=[], rules=[], do_not=["do not read the uniform tint as disease - it is the scale offset made visible"]),

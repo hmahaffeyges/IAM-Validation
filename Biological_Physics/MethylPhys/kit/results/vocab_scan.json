@@ -9192,7 +9192,7 @@
    "kind": "FORBIDDEN",
    "word": "tumour",
    "status": "RECORD",
-   "text": "\\item \\textbf{Two inequivalent A-score definitions circulate in the the methylation report documents.} The operative one, used in all numerical results, is \\texttt{A = H($\\beta$)/H\\_min(class)} --- verified: `H(0.740)/0.856055 = 0.9658\\te"
+   "text": "\\item \\textbf{Two inequivalent A-score definitions circulate in the methylation report documents.} The operative one, used in all numerical results, is \\texttt{A = H($\\beta$)/H\\_min(class)} --- verified: `H(0.740)/0.856055 = 0.9658\\te"
   },
   {
    "doc": "PAPER-IAM",

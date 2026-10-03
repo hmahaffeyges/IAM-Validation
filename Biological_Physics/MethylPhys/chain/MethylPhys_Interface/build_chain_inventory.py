@@ -97,7 +97,7 @@ DESC={
     "RUN.md": ("record", "what one execution was: specimen, inputs, what was reported", ""),
     "stage_0_1_qc_handoff.py": ("chain", "decodes the array's own controls, bead counts and sex intensities so the intake gates can be measured rather than deferred", ""),
     "om_data.py": ("interface", "the manual's data module: every constant, table and section text it renders", ""),
-    "mphys002_lib.py": ("interface", "the shared renderer both editions of the manual are built with", ""),
+    "om_lib.py": ("interface", "the shared renderer both editions of the manual are built with", ""),
     "build_operations_manual.py": ("interface", "builds the operations manual; run through build_om.sh so the contents page carries measured page numbers", ""),
     "build_mphys_issue002.py": ("superseded", "builds the earlier edition, kept so it still reproduces exactly", ""),
     "om_part3.py": ("interface", "the manual's Part III sections", ""),

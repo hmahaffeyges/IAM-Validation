@@ -1126,8 +1126,8 @@
    "sha256_12": "ba8f9f3b1979"
   },
   {
-   "file": "mphys002_lib.py",
-   "path": "Biological_Physics/MethylPhys/manual/mphys002_lib.py",
+   "file": "om_lib.py",
+   "path": "Biological_Physics/MethylPhys/manual/om_lib.py",
    "role": "interface",
    "stage": "",
    "description": "the shared renderer both editions of the manual are built with",

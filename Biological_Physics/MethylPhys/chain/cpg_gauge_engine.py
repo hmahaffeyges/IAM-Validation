@@ -11,7 +11,7 @@ class-and-substrate ruler.
         A = H(beta_mean) / H_min(class, substrate)
 
 H(beta) is the Shannon entropy of a SINGLE mean beta (Bernoulli(beta)), exactly
-as the the methylation report derivation suite defines it. This is entropy-of-the-mean, NOT
+as the methylation report derivation suite defines it. This is entropy-of-the-mean, NOT
 mean-of-per-CpG-entropies.
 
 WHAT THIS IS NOT  (read this before you ever change the formula)
@@ -405,7 +405,7 @@ def overall_cellular_age(class_ascores: Dict[str, object],
     return out
 
 
-# ─── Self-test: reproduce the the methylation report Issue 002 published examples ──────────────
+# ─── Self-test: reproduce the methylation report Issue 002 published examples ──────────────
 def _selftest() -> bool:
     ok = True
     def chk(name, cond, detail=''):

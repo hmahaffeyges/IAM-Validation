@@ -1,32 +1,5 @@
 [
 {
-"file": "DERIVATIONS QPROC_CHIP_MPHYS/chip_derivation_tests.py",
-"line": 19,
-"pattern": "the semiconductor report [Ii]ndex",
-"use": "E_sw/(k_B T_j ln 2) (the semiconductor report): distance above the Landauer floor; on the one gauge the chip as built reads 1",
-"severity": "warn",
-"status": "LIVE",
-"text": "# (formerly 'the semiconductor report index'); M = E_sw/(k_B T_j) = A ln 2; class floor = per-architecture bound (not H_min); n = temperature exponent."
-},
-{
-"file": "DERIVATIONS QPROC_CHIP_MPHYS/qproc_derivation_tests.py",
-"line": 15,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "# SYMBOLS (master table v1.1, 2026-10-02): eps = -ln(1 - p(2Q)), the gate error in nats (formerly 'A score');"
-},
-{
-"file": "DERIVATIONS QPROC_CHIP_MPHYS/qproc_derivation_tests.py",
-"line": 16,
-"pattern": "[Ww]all ratio",
-"use": "eps/eps_floor (the quantum-processor report): distance above the material floor; on the one gauge A = reading / device as built, floor at eps_floor/eps",
-"severity": "warn",
-"status": "LIVE",
-"text": "# A = eps / eps_floor (reading over the material floor, formerly 'wall ratio'); n = temperature exponent (calibrated)."
-},
-{
 "file": "docs/verification/PAPER_ERRATA.md",
 "line": 283,
 "pattern": "class H_min",
@@ -181,16 +154,16 @@
 },
 {
 "file": "docs/book/part4/p4_09_cscore.tex",
-"line": 32,
+"line": 31,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "(\\texttt{neutrophil\\_reference\\_v1\\_1.json}). \\calibrated{} The healthy arrays read $C=0.70$--$1.23$. A score needs at least"
+"text": "with $c_{\\rm healthy}$ the median over the six reference arrays, each read against the other five \\calibrated{} The healthy arrays read $C=0.70$--$1.23$. A scor"
 },
 {
 "file": "docs/book/part4/p4_22_leukocyte.tex",
-"line": 68,
+"line": 60,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -199,7 +172,7 @@
 },
 {
 "file": "docs/book/part4/p4_22_leukocyte.tex",
-"line": 83,
+"line": 74,
 "pattern": "\\bA[- ]score",
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -214,798 +187,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "reads $1/P=0.910$ on the gauge (Chapter~\\ref{ch:iama}). On arrays it is still to be derived. \\openprob{} The A-score reads where the cell sits:"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 1,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "% RECORD. In the commissioned instrument a class is only the floor a cell is divided by (2026-09-28); class A-scores in this document are the record of the earl"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 2096,
-"pattern": "the semiconductor report [Ii]ndex",
-"use": "E_sw/(k_B T_j ln 2) (the semiconductor report): distance above the Landauer floor; on the one gauge the chip as built reads 1",
-"severity": "warn",
-"status": "LIVE",
-"text": "per bit sits a factor $\\ln 2$ below it. The the semiconductor report index is how many thermal quanta each chip spends per"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 2511,
-"pattern": "\\bA-floor",
-"use": "material floor eps_floor (the quantum-processor report) or H_min",
-"severity": "warn",
-"status": "LIVE",
-"text": "class is the material TLS limit at operating temperature (A-floor table"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 2614,
-"pattern": "\\bA-floor",
-"use": "material floor eps_floor (the quantum-processor report) or H_min",
-"severity": "warn",
-"status": "LIVE",
-"text": "The A-floor is determined by the material substrate oxide quality"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 2620,
-"pattern": "\\bA-floor",
-"use": "material floor eps_floor (the quantum-processor report) or H_min",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\textbf{Material} & \\textbf{T\\_op} & \\textbf{A-floor} \\\\"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 2651,
-"pattern": "\\bA-floor",
-"use": "material floor eps_floor (the quantum-processor report) or H_min",
-"severity": "warn",
-"status": "LIVE",
-"text": "operation with margin. Predicted A-floor below Ta$_2$O$_5$ by approximately"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 2672,
-"pattern": "\\bA-floor",
-"use": "material floor eps_floor (the quantum-processor report) or H_min",
-"severity": "warn",
-"status": "LIVE",
-"text": "The framework predicts its A-floor at approximately $3 \\times 10^{-4}$,"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 2675,
-"pattern": "\\bA-floor",
-"use": "material floor eps_floor (the quantum-processor report) or H_min",
-"severity": "warn",
-"status": "LIVE",
-"text": "The full ranked prediction hierarchy by A-floor:"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 2679,
-"pattern": "\\bA-floor",
-"use": "material floor eps_floor (the quantum-processor report) or H_min",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\textbf{Material} & \\textbf{Oxide} & \\textbf{Predicted A-floor} & \\textbf{Status} \\\\"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 2692,
-"pattern": "\\bA-floor",
-"use": "material floor eps_floor (the quantum-processor report) or H_min",
-"severity": "warn",
-"status": "LIVE",
-"text": "A-floor $> 1 \\times 10^{-3}$ would refute the framework criterion."
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 2698,
-"pattern": "the semiconductor report [Ii]ndex",
-"use": "E_sw/(k_B T_j ln 2) (the semiconductor report): distance above the Landauer floor; on the one gauge the chip as built reads 1",
-"severity": "warn",
-"status": "LIVE",
-"text": "The the semiconductor report index is:"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 2896,
-"pattern": "the semiconductor report [Ii]ndex",
-"use": "E_sw/(k_B T_j ln 2) (the semiconductor report): distance above the Landauer floor; on the one gauge the chip as built reads 1",
-"severity": "warn",
-"status": "RECORD",
-"text": "Every chip's the semiconductor report index decomposes into three independent components."
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 2974,
-"pattern": "the semiconductor report [Ii]ndex",
-"use": "E_sw/(k_B T_j ln 2) (the semiconductor report): distance above the Landauer floor; on the one gauge the chip as built reads 1",
-"severity": "warn",
-"status": "LIVE",
-"text": "The decomposition provides a floor-anchored bound: the the semiconductor report index cannot fall below"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3308,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "raise ValueError(\"the methylation report has its own A-score architecture; see mphys_engine\")"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3470,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "A-score & Actualization index & $-\\ln(1-p)$ & $E_{\\rm sw}/E_{\\rm min}$ & $H_{\\rm actual}/H_{\\rm min}$ \\\\"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3472,
-"pattern": "\\bA-floor",
-"use": "material floor eps_floor (the quantum-processor report) or H_min",
-"severity": "warn",
-"status": "LIVE",
-"text": "Floor & $\\Lambda_{\\rm obs}/\\rho_{\\rm vac}$ & Material A-floor & ISA floor & Min.\\ regulatory coherence \\\\"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3481,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\subsection{The the methylation report A-Score}"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3485,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "For a cell maintaining its epigenomic identity, the A-score is:"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3611,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\textbf{Measure.} The the methylation report A-score reports where a cell population"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3630,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "moving the metabolic lever shifts the A-score. Not a guess."
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3753,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\subsection{From One Substrate to Five --- Why the Same A-Score Works on All of Them}"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3760,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "measurements should land on the same A-score scale at all. The answer is that"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3762,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "the A-score normalization $A = H(\\text{value})/H_{\\rm min}$ makes their readings"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3805,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\textbf{Why the A-score normalization works.} Each substrate has its own"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3834,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\textbf{Per-substrate A-score:} For a sample with measured value $v_s$"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3867,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "A-score has come within 0.005 of its physical ceiling"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3897,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "A substrate has a physical ceiling on its A-score. The ceiling is reached"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3910,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "For a specific sample, a substrate is flagged as saturated when its A-score"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3924,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "the A-score above BREACH on that substrate --- the substrate saturates"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3968,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "parameters) that the A-score moves in the opposite direction from standard"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 3994,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "reprogramming produces A-scores at or very near 1.00 across all five"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 4017,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "combined A-score elevation. Prediction G-2026-P013."
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 4025,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "``cancer = high A-score'' heuristic, and the physics wins every time."
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 4032,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "$H_{\\rm min}(\\text{class})$ that minimizes the within-class A-score variance"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 4124,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "the methylation report v5 uses a 49-cell reference database with A-scores derived entirely"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 4362,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "cancer progression, maps directly onto the the methylation report A-score axis:"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 4460,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "One blood draw. Three numbers in. One number out: the A-score."
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 4469,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\textbf{A-score} & \\textbf{Signal} & \\textbf{Clinical action} \\\\"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 4484,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "can compute the methylation report A-scores today. The most immediately actionable population:"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 4521,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "G-004 & Metabolic inversion threshold & TCGA metabolomics vs A-score & OPEN \\\\"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 5031,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\"\"\"Per-substrate A-score. value is raw beta (methylation) or"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 5043,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\"\"\"Return tier label for an A-score.\"\"\""
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 5146,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "# --- Test 4: A-score formula for worked example ---"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 5149,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "check(\"A-score formula: beta=0.685 cycling methyl -> A=1.0502\","
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 5249,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "print(\"principles. The 40-cell H_min grid, A-score formula, saturation\")"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 5940,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "% and nucleosome-profiling data) into the methylation report A-scores, age-matched percentiles,"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6018,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "its class-specific $H_{\\rm min}$ using the A-score formula of"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6020,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\item \\textbf{Step 4 (Age adjustment).} The resulting A-score is"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6023,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\item \\textbf{Step 5 (Tier and report).} A-score plus age-percentile"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6111,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\item Pass the 8 per-class $\\beta$ values to the A-score pipeline"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6152,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "are the maximum achievable A-score on each class-substrate pair, reached"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6203,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\item Runtime mask: flag as saturated any substrate whose A-score for"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6414,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\textbf{Derived A-score means.} The corresponding A-score means"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6414,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\textbf{Derived A-score means.} The corresponding A-score means"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6464,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "each substrate produces its own A-score for each class, and the"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6477,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\textbf{Per-substrate A-score computation.} For each available"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6486,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\textbf{Per-substrate tier classification.} Each A-score is"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6567,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "The absolute A-score number a patient receives at any given timepoint"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6571,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "same physical samples; these in turn produce different absolute A-score"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6574,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "signal are preserved. \\emph{Across pipelines}, the absolute A-score"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6600,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "empirically: A-score baselines on the Xu-538 panel range from"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6619,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "$(c,s)$ is the mean of the first three A-scores recorded on pipeline"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6658,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "applied. The same logic applies to A-score deployment: the"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6663,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "maintain absolute A-score comparability across all preprocessing"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6674,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "A-score numbers across cohorts are not compared in research output"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6687,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "8 classes as rows, (b) up to 5 substrate columns with A-score cells"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6696,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "classes, a thermometer gauge showing the customer's A-score on that"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6729,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "class, a small-multiples panel showing per-substrate A-scores as"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6782,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "Per-class methylation A-score (8 scores), tier band per class,"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6790,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "the same blood tube. Output: Per-class methylation A-score and"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6791,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "per-class fragmentomics A-score per class (2 scores $\\times$ 8"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6879,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "must produce: all 8 per-class A-scores within 0.005 of the tabulated"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6896,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "A-score from a research instrument into a longitudinal clinical"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6902,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "produced absolute A-score baselines ranging from approximately 0.38 to"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6905,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "of interest; the absolute A-score baseline is a pipeline calibration"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6922,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "The patient's personal baseline A-score, denoted"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6924,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "of the patient's first three annual A-score readings on her locked"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6964,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "never absolute A-score.} For any cross-patient analytics (cohort"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6968,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "not the absolute A-score. Two patients with identical $\\Delta A$ on"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6970,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "A-scores would conflate biological drift with pipeline calibration"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6975,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "The Xu-538 panel produces a within-EPIC-Italy control mean A-score of"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 6997,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "class lookup, A-score computation, and tier assignment are performed"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 7000,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\texttt{patient.pipeline\\_lock} alongside every per-class A-score, so"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 7028,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "framework's Xu-538 immune A-score. The result: across all four clocks,"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 7052,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "targeted architecturally-stratified A-score exceeds that floor"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 7059,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "uses GrimAge and DunedinPoAm as proxies for the A-score, not the"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 7060,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "A-score itself. When RDC access is granted, the same blinded-cohort"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_Hubble2Methyl_Alpha_Omega_5.tex",
-"line": 7063,
-"pattern": "\\bA[- ]score",
-"use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "to the resulting A-score readings."
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/make_figures.py",
@@ -1140,7 +321,7 @@
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "\\item \\textbf{Two inequivalent A-score definitions circulate in the the methylation report documents.} The operative one, used in all numerical results, is \\texttt{A = H($\\beta$)"
+"text": "\\item \\textbf{Two inequivalent A-score definitions circulate in the methylation report documents.} The operative one, used in all numerical results, is \\texttt{"
 },
 {
 "file": "Biological_Physics/MethylPhys/papers/IAM_for_physicists/IAM_for_physicists.tex",
@@ -3579,7 +2760,7 @@
 "use": "eps (the quantum-processor report gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "RECORD",
-"text": "\"mphys_mcmc_g008.py\":(\"record\",\"CHAIN G-008: [RECORD - pre-atlas] a zero-free-parameter prediction of the A-score gap between two tissue states. Pre-atlas surfac"
+"text": "\"mphys_mcmc_g008.py\":(\"record\",\"CHAIN G-008: [RECORD - pre-atlas] a zero-free-parameter prediction of the A-score gap between two tissue states. Pre-atlas surfa"
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/build_chain_inventory.py",
@@ -3588,7 +2769,7 @@
 "use": "none (removed from the method)",
 "severity": "block",
 "status": "RECORD",
-"text": "\"mphys_mcmc_nbio_ordering.py\":(\"record\",\"CHAIN n_bio: tests whether the class ordering is consistent with published respirometry. Pre-atlas; record-side.\",\"calib"
+"text": "\"mphys_mcmc_nbio_ordering.py\":(\"record\",\"CHAIN n_bio: tests whether the class ordering is consistent with published respirometry. Pre-atlas; record-side.\",\"cali"
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/build_chain_inventory.py",
@@ -3813,7 +2994,7 @@
 "use": "none (removed from the method)",
 "severity": "block",
 "status": "RECORD",
-"text": "| Recipe, `_mphys_constants_private.py`, patents, correspondence | **YOUR FOLDER** (vault IP) | no | never in repo or kit; `_mphys_constants_private.py` still nam"
+"text": "| Recipe, `_mphys_constants_private.py`, patents, correspondence | **YOUR FOLDER** (vault IP) | no | never in repo or kit; `_mphys_constants_private.py` still n"
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/COMPONENT_MAP.md",
@@ -3822,7 +3003,7 @@
 "use": "none (removed from the method)",
 "severity": "block",
 "status": "RECORD",
-"text": "7. rename `n_bio` -> Mahaffey number (20.94) in [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py), `_mphys_constants_private.py`, and the 002 card text; reco"
+"text": "7. rename `n_bio` -> Mahaffey number (20.94) in [`cpg_gauge_engine.py`](../chain/cpg_gauge_engine.py), `_mphys_constants_private.py`, and the 002 card text; rec"
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/COMPONENT_MAP.md",
@@ -4290,7 +3471,7 @@
 "use": "none (removed from the method)",
 "severity": "block",
 "status": "RECORD",
-"text": "GLOSSARY_NOTE_MAHAFFEY = (\"[Edition 003 note, RECON M2] The entry above is Issue 002's and defines the name as n_bio = dG_ATP/(RT) = 20.94. IAM_Hubble2Methyl defi"
+"text": "GLOSSARY_NOTE_MAHAFFEY = (\"[Edition 003 note, RECON M2] The entry above is Issue 002's and defines the name as n_bio = dG_ATP/(RT) = 20.94. IAM_Hubble2Methyl de"
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/om_data.py",
@@ -4299,7 +3480,7 @@
 "use": "none (removed from the method)",
 "severity": "block",
 "status": "RECORD",
-"text": "\"n_bio\": \"n_bio was an early (QPROC-era) form of the similar ratio and is NO LONGER USED. Every occurrence of n_bio in Issue 002 (glossary, class cards 'n_bio = "
+"text": "\"n_bio\": \"n_bio was an early (QPROC-era) form of the similar ratio and is NO LONGER USED. Every occurrence of n_bio in Issue 002 (glossary, class cards 'n_bio ="
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/om_data.py",
@@ -4308,7 +3489,7 @@
 "use": "none (removed from the method)",
 "severity": "block",
 "status": "RECORD",
-"text": "\"n_bio\": \"n_bio was an early (QPROC-era) form of the similar ratio and is NO LONGER USED. Every occurrence of n_bio in Issue 002 (glossary, class cards 'n_bio = "
+"text": "\"n_bio\": \"n_bio was an early (QPROC-era) form of the similar ratio and is NO LONGER USED. Every occurrence of n_bio in Issue 002 (glossary, class cards 'n_bio ="
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/om_data.py",
@@ -4317,7 +3498,7 @@
 "use": "none (removed from the method)",
 "severity": "block",
 "status": "RECORD",
-"text": "\"n_bio\": \"n_bio was an early (QPROC-era) form of the similar ratio and is NO LONGER USED. Every occurrence of n_bio in Issue 002 (glossary, class cards 'n_bio = "
+"text": "\"n_bio\": \"n_bio was an early (QPROC-era) form of the similar ratio and is NO LONGER USED. Every occurrence of n_bio in Issue 002 (glossary, class cards 'n_bio ="
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/om_data.py",
@@ -4326,7 +3507,7 @@
 "use": "none (removed from the method)",
 "severity": "block",
 "status": "RECORD",
-"text": "\"n_bio\": \"n_bio was an early (QPROC-era) form of the similar ratio and is NO LONGER USED. Every occurrence of n_bio in Issue 002 (glossary, class cards 'n_bio = "
+"text": "\"n_bio\": \"n_bio was an early (QPROC-era) form of the similar ratio and is NO LONGER USED. Every occurrence of n_bio in Issue 002 (glossary, class cards 'n_bio ="
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/om_data.py",
@@ -4353,7 +3534,7 @@
 "use": "none (removed from the method)",
 "severity": "block",
 "status": "RECORD",
-"text": "\"n_bio was an early QPROC-era form of the ratio and is no longer used. H_min is not the Mahaffey number: H_min is the per-class entropy floor in bits, forty valu"
+"text": "\"n_bio was an early QPROC-era form of the ratio and is no longer used. H_min is not the Mahaffey number: H_min is the per-class entropy floor in bits, forty val"
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/om_data.py",

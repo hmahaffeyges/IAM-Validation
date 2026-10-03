@@ -20292,7 +20292,7 @@ _Generated from [`chain_inventory_v1.json`](../chain/Runtime%20Matrices/chain_in
 | [`build_operations_manual.py`](../manual/build_operations_manual.py) | interface |  | builds the operations manual; run through build_om.sh so the contents page carries measured page numbers |
 | [`file_run.py`](../kit/file_run.py) | interface |  | the loop's return path: files one run's report, bundle and ledger row into example_runs/<run_id>/ (and kit/results when it is evidence for a procedure), rebuilds the run index, runs the gate |
 | `g003_mcmc_framework.py` | reference |  | the framework the floor calibration runs on |
-| [`mphys002_lib.py`](../manual/mphys002_lib.py) | interface |  | the shared renderer both editions of the manual are built with |
+| [`om_lib.py`](../manual/om_lib.py) | interface |  | the shared renderer both editions of the manual are built with |
 | [`iamatlas_celltype_markers_v0_3_TRIAL.json`](../chain/Runtime%20Matrices/Celltype_Marker/iamatlas_celltype_markers_v0_3_TRIAL.json) | reference |  | trial marker panel, not adopted - kept because a procedure cites it |
 | [`intro_blocks.json`](../manual/intro_blocks.json) | reference |  | the manual's introduction, generated from the report's Story and Sky tabs so the two cannot drift |
 | [`om_data.py`](../manual/om_data.py) | interface |  | the manual's data module: every constant, table and section text it renders |

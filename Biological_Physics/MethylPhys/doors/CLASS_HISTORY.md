@@ -10,7 +10,7 @@ an *architecture class* is a family that shares one dominant error source and so
 definition for cells: *"The question isn't how many cell types, it's how many distinct inversion regimes exist"* (l.293). Cells
 that share the same dominant regulatory mechanism — and therefore the same failure mode — are one class (l.73).
 
-| class | governing inversion (`manual/mphys002_lib.py`) |
+| class | governing inversion (`manual/om_lib.py`) |
 |---|---|
 | stem_pluri | Differentiation Dose Inversion |
 | stem_adult | Niche Depletion |
@@ -54,7 +54,7 @@ reproduce, survive resampling and predict the direction in 28 of 28 cancer types
 Two further things a reviewer will ask, answered in advance:
 - **The floors are defined so that the 37 reference cells read 1.00.** A reference cell reading 1.00 is therefore not evidence;
   a cell that was *not* in the 37 reading 1.00 is. That is the test every atlas v2 cell takes (acceptance A1–A9).
-- **The 37 mean β values** come from the the methylation report web engine's published database (cited to primary sources) with no stated locus set
+- **The 37 mean β values** come from the methylation report web engine's published database (cited to primary sources) with no stated locus set
   or statistic. Tracing each to its paper and region set is open ([`CLASS_ASSIGNMENT_RULE_DRAFT.md`](CLASS_ASSIGNMENT_RULE_DRAFT.md)).
 
 ## 5. What would give the count a measured basis (PLAN)

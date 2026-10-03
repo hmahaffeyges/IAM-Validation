@@ -134,7 +134,7 @@ Two things stand in the way, and both are engineering rather than physics:
 - **A healthy cfDNA panel** of ≥ 40 arrays is needed for a laboratory zero — unless the design is paired or case/control within one laboratory, in which case it cancels, as above.
 
 The tumour fraction in plasma is 0.1–10 %, so **scoring the tumour class in plasma is the same closed
-question as whole blood.** What is open is the immune reading, and the the methylation report line already carries the
+question as whole blood.** What is open is the immune reading, and the methylation report line already carries the
 substrates for it (WPS, DELFI fragment size).
 
 ## What "definitive" would require, stated before any of it runs

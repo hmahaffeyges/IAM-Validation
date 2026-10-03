@@ -115,7 +115,7 @@ Results land in `results/PROC_*.json`. `results/VAL_INDEX.{csv,json}` is the mec
 cd issue003_build
 CPG_TRIAL=../runtime python build_operations_manual.py MethylPhys_CPG_Operations_Manual.pdf
 ```
-[`om_data.py`](../manual/om_data.py) holds every number printed in the document; change a value there and rebuild. [`mphys002_lib.py`](../manual/mphys002_lib.py) is the Issue 002
+[`om_data.py`](../manual/om_data.py) holds every number printed in the document; change a value there and rebuild. [`om_lib.py`](../manual/om_lib.py) is the Issue 002
 script with its `build()` cut into page functions — every 002 primitive, card and section reused verbatim.
 Note: `om_data.py` reads `handoff/*.json` relative to its parent for the live-run tables; in this kit those live in `results/` —
 set `CPG_HANDOFF=../results` or copy them.

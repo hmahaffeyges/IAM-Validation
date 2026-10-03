@@ -1,6 +1,6 @@
 # the methylation report Validation Record — Master Index
 
-**Last updated: 2026-05-27.** This is the complete, ordered validation record for the the methylation report biological-physics framework (the engine behind the cell-reading engine). It supersedes and absorbs the earlier cascade-only README, whose full text is preserved verbatim further down under **"Original cascade README (VAL-037 → VAL-054), preserved."** Nothing has been deleted.
+**Last updated: 2026-05-27.** This is the complete, ordered validation record for the methylation report biological-physics framework (the engine behind the cell-reading engine). It supersedes and absorbs the earlier cascade-only README, whose full text is preserved verbatim further down under **"Original cascade README (VAL-037 → VAL-054), preserved."** Nothing has been deleted.
 
 Everything here is the **biology program**. It contains no IAM cosmology content — the Level 1 / Level 2 MCMC chains, the baryon test, Koide, and the virial confirmation live in the separate physics program and are intentionally excluded.
 
@@ -50,7 +50,7 @@ These are the methylation report atlas-calibration chains (not IAM cosmology). G
 
 ## Family 3 — Five-substrate multimodal validations (VAL-014 → VAL-033)
 
-Methylation, nucleosome occupancy, nucleosome fuzziness, windowed protection score (WPS), and fragment-size entropy across field-effect, aging, pre-cancer, and tissue-specific axes. *Note: a few cascade-era effect sizes differ between the the methylation report Evidence Report and the Biological_Physics README; both values are shown where they differ, pending reconciliation to a single source of truth.*
+Methylation, nucleosome occupancy, nucleosome fuzziness, windowed protection score (WPS), and fragment-size entropy across field-effect, aging, pre-cancer, and tissue-specific axes. *Note: a few cascade-era effect sizes differ between the methylation report Evidence Report and the Biological_Physics README; both values are shown where they differ, pending reconciliation to a single source of truth.*
 
 | VAL | What it tested | Result | Source | Status |
 |---|---|---|---|---|

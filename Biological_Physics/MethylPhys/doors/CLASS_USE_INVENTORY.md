@@ -34,7 +34,7 @@ which stay. The table below is what was read by hand in the live chain.
 | kit tests [`test_tiers.py`](../kit/test_tiers.py), [`test_gauge_switch.py`](../kit/test_gauge_switch.py), [`test_percell_physics.py`](../kit/test_percell_physics.py), [`test_a_score_canonical.py`](../chain/Runtime%20Matrices/A_Scoring_Module/test_a_score_canonical.py) | class-keyed assertions |
 
 ## Record, not live (marked, not rewritten)
-`manual/mphys002_lib.py`, `../RETIRED_2026-10/MethylPhys/papers/build_mphys_issue002.py`, Issue 002/003, `IAM_Hubble2Methyl_Alpha_Omega_5.tex`,
+`manual/om_lib.py`, `../RETIRED_2026-10/MethylPhys/papers/build_mphys_issue002.py`, Issue 002/003, `IAM_Hubble2Methyl_Alpha_Omega_5.tex`,
 `Mahaffey_2026_cell_thermodynamics.tex`, the atlas v0.1 vault READMEs: historical documents of how the classes were reasoned.
 Each gets a one-line banner: *"Record. In the commissioned instrument a class is only the floor a cell is divided by."*
 

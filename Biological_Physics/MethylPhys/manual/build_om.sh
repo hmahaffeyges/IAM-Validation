@@ -10,7 +10,7 @@ OUT="$1"
 "$PYTHON" - "$OUT" <<'PY'
 import sys
 sys.path.insert(0, ".")
-import mphys002_lib as L, om_data as D, om_part3 as P3
+import om_lib as L, om_data as D, om_part3 as P3
 L.CARD_NUMBER_BY_POSITION = True
 pages, missing = P3.collect_toc_pages(sys.argv[1], L, D)
 print("toc: %d of %d chapters located%s" % (len(pages), len(pages) + len(missing),

@@ -361,7 +361,7 @@
   "evaluate_necessity.py": "guard",
   "file_run.py": "interface",
   "g003_mcmc_framework.py": "reference",
-  "mphys002_lib.py": "interface",
+  "om_lib.py": "interface",
   "gse116754_es_manifest.csv": "UNDESCRIBED",
   "gse262275_liver_cells_PARTIAL_COVERAGE.py": "UNDESCRIBED",
   "hmin.json": "UNDESCRIBED",

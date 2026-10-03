@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """build_operations_manual.py — MethylPhys CPG OM, the Operations Manual (Edition 003, September 2026).
 
-Composed from: mphys002_lib.py (every Issue 002 rendering primitive, card, and section, extracted
+Composed from: om_lib.py (every Issue 002 rendering primitive, card, and section, extracted
 verbatim) + om_data.py (every constant loaded from the runtime files at repo HEAD, plus the dated
 runs of 2026-09-19) + the new sections written here.
 
@@ -18,9 +18,9 @@ if _os.environ.get('IAM_TWOPASS') != '1':
 import sys, os
 from reportlab.platypus import Image
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import mphys002_lib as L
+import om_lib as L
 import om_data as D
-from mphys002_lib import (Paragraph, Table, Spacer, PageBreak, HRFlowable, KeepTogether,
+from om_lib import (Paragraph, Table, Spacer, PageBreak, HRFlowable, KeepTogether,
                          S, P, PH, Pb, Ps, SP, HR, tbl_style, PW, inch, colors, letter,
                          SimpleDocTemplate, sTitle, sSub, sSect, sSect2, sLabel, sBody, sBodySm,
                          sMut, sDisc, sCode, LAV, LAV_M, LAV_D, MUTED, MUTED2, TEXT, WHITE, TEAL,
@@ -764,7 +764,7 @@ def sec5a_tools(story):
         'composition - so the cut had removed the instrument that was reporting the problem. It was reinstated on 2026-09-22 as a '
         'class-level second opinion, and RUNBOOK s11 now forbids disabling either relay.', sDisc))
     from reportlab.platypus import Image, Image as RLImage
-    _fp=os.path.join(os.path.dirname(os.path.abspath(__file__)),"../plates/CPG_Plate_05_Four_Skies_Issue003.png")
+    _fp=os.path.join(os.path.dirname(os.path.abspath(__file__)),"../plates/CPG_Plate_05_Four_Skies.png")
     if os.path.exists(_fp):
         story.append(RLImage(_fp, width=PW, height=PW*0.66)); story.append(Paragraph(D.FOUR_SKIES_CAP, sDisc)); story.append(SP(0.10))
     # 5A.5 not cohort people

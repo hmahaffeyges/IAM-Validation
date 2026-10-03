@@ -356,7 +356,7 @@
   },
   "Published inputs (orange in tables) [the semiconductor report]": {
    "status": "issue text (not a term)",
-   "definition": " The three numbers the the semiconductor report framework reads from published datasheets: TDP (thermal design power in watts), transistor count (in billions), and base clock frequency (GHz). No other data is used. No internal measurements. No proprietary access. These three numbers are available on every manufacturer",
+   "definition": " The three numbers the semiconductor report framework reads from published datasheets: TDP (thermal design power in watts), transistor count (in billions), and base clock frequency (GHz). No other data is used. No internal measurements. No proprietary access. These three numbers are available on every manufacturer",
    "domain": "the semiconductor report",
    "book": false
   },
@@ -419,19 +419,19 @@
   },
   "TjMax [the semiconductor report]": {
    "status": "current (unverified)",
-   "definition": " The maximum rated junction temperature before thermal throttling reduces clock speed. AMD 9950X TjMax: 95°C. Intel Core Ultra 9 285K TjMax: 105°C. At TjMax under sustained load, AMD is 3.7% more efficient than Intel on the the semiconductor report index. For hyperscale AI inference — chips running sustained heavy loa",
+   "definition": " The maximum rated junction temperature before thermal throttling reduces clock speed. AMD 9950X TjMax: 95°C. Intel Core Ultra 9 285K TjMax: 105°C. At TjMax under sustained load, AMD is 3.7% more efficient than Intel on the semiconductor report index. For hyperscale AI inference — chips running sustained heavy loa",
    "domain": "the semiconductor report",
    "book": false
   },
   "GPU architecture — what the semiconductor report measures and does not [the semiconductor report]": {
    "status": "issue text (not a term)",
-   "definition": " The the semiconductor report index measures per-transistor switching efficiency — not throughput. GPU architecture makes a deliberate trade: sacrifice per-transistor efficiency for massive parallelism. H100→H200 was a memory upgrade on the same die — the 7.6% the semiconductor report improvement reflects that precisely. The Blackwell s",
+   "definition": " The semiconductor report index measures per-transistor switching efficiency — not throughput. GPU architecture makes a deliberate trade: sacrifice per-transistor efficiency for massive parallelism. H100→H200 was a memory upgrade on the same die — the 7.6% the semiconductor report improvement reflects that precisely. The Blackwell s",
    "domain": "the semiconductor report",
    "book": false
   },
   "What the framework measures — and does not [the semiconductor report]": {
    "status": "issue text (not a term)",
-   "definition": " The the semiconductor report framework measures: physical floor, distance above floor, direction of travel, and regime-change signal. It does not project how companies will engineer their way through the next wall. It does not predict market outcomes. It does not assume any future improvement rate. The the semiconductor report index te",
+   "definition": " The semiconductor report framework measures: physical floor, distance above floor, direction of travel, and regime-change signal. It does not project how companies will engineer their way through the next wall. It does not predict market outcomes. It does not assume any future improvement rate. The semiconductor report index te",
    "domain": "the semiconductor report",
    "book": false
   },
@@ -497,7 +497,7 @@
   },
   "Forward translation [the semiconductor report]": {
    "status": "current (unverified)",
-   "definition": " The reverse problem: given a target the semiconductor report index, what published specifications (TDP, transistors, or clock frequency) would achieve it, holding the other two constant? The the semiconductor report Engineering Diagnostic tool computes forward translation for any target index. Example: Intel 285K at 570× targeting 300×",
+   "definition": " The reverse problem: given a target the semiconductor report index, what published specifications (TDP, transistors, or clock frequency) would achieve it, holding the other two constant? The semiconductor report Engineering Diagnostic tool computes forward translation for any target index. Example: Intel 285K at 570× targeting 300×",
    "domain": "the semiconductor report",
    "book": false
   },
@@ -652,7 +652,7 @@
   ],
   "record_files": [
    "Biological_Physics/RETIRED_2026-10/MethylPhys/papers/build_mphys_issue002.py",
-   "Biological_Physics/MethylPhys/manual/mphys002_lib.py",
+   "Biological_Physics/MethylPhys/manual/om_lib.py",
    "Biological_Physics/MethylPhys/hmin_calibration/",
    "Biological_Physics/MethylPhys/doors/CLASS_HISTORY.md",
    "Biological_Physics/MethylPhys/atlas/v2/COMMUNICATION.md",

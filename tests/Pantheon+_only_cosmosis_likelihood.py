@@ -49,7 +49,7 @@ class PantheonLikelihood(GaussianLikelihood):
         print("Loading covariance from {}".format(filename))
 
         # The file format for the covariance has the first line as an integer
-        # indicating the number of covariance elements, and the the subsequent
+        # indicating the number of covariance elements, and the subsequent
         # lines being the elements.
         # This function reads in the file and the nasty for loops trim down the covariance
         # to match the only rows of data that are used for cosmology

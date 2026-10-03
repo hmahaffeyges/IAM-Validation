@@ -257,7 +257,7 @@
   "kit/test_tiers.py": "0393a641f4c66daf3521398b7cd8199c639d93feaa4fbee9cee51e6792acea83",
   "kit/vocab_scan.py": "1467fb9f1d638add5a7abd809c926db9c291cd37d7810c19082fb187c214c2c2",
   "manual/build_operations_manual.py": "a0577e6d4bbbf144bcad1f6e0a95112ec99c6f0e38f17d02deef89eb79aa17ea",
-  "manual/mphys002_lib.py": "5387db0194cabd4e6ba728da0394b8e8980b3602c9f8c358f3824a150a39c8fa",
+  "manual/om_lib.py": "5387db0194cabd4e6ba728da0394b8e8980b3602c9f8c358f3824a150a39c8fa",
   "manual/om_data.py": "e14465c181d7c3e265f1bedfeb716668513ddfb5bf12a8e6488cf55af95a6ee7",
   "manual/om_part3.py": "cc733678fccdabce76a31479da76b28ef8bbc7d593c76766483bb0fd83747882",
   "manual/switching_order.py": "6bd0869c4bf570c0c23353d000e2b21976fba7991e10587f11e3cceef285d0ac",

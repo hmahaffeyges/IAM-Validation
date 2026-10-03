@@ -311,7 +311,7 @@ The detailed HTML evidence report (per-cancer tables, substrate-specific validat
 
 **Intellectual Property**
 
-The the methylation report framework, the class-specific H_min floor values, the architecture-class taxonomy, the substrate-specific calibration, the age-stratified healthy baseline reference tables, and the associated clinical applications are covered under:
+The methylation report framework, the class-specific H_min floor values, the architecture-class taxonomy, the substrate-specific calibration, the age-stratified healthy baseline reference tables, and the associated clinical applications are covered under:
 
 - US Provisional Patent Application **64/012,720** (filed March 21, 2026)
 - US Provisional Patent Application **64/014,568** (filed March 23, 2026)
