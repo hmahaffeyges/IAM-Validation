@@ -3,7 +3,7 @@
 fig_two_hubble: H0 for the photon sector (Level 2 Run A posterior) and the matter sector (x sqrt(1 + beta_m)), against Planck 2018 and SH0ES.
 fig_sigma8_shift: sigma8 and H0 per data combination, LambdaCDM against the fixed coupling (mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv).
 fig_mu0_constraints: the growth amplitude mu0: published constraints as quoted in p2_07, the book's Level 1 free-mu0 posteriors
-(median and 90 % interval, chains in mgcamb_validation/chains; the prior ends at +0.2), the prediction and the Euclid full-survey forecast width."""
+(median and 90 % interval, chains in mgcamb_validation/chains; the prior ends at +0.2), and the prediction (survey forecasts: fig_p2_euclid_forecast.py, Section sec:sp_euclid)."""
 import sys, pathlib; sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import numpy as np, csv
 import _bookstyle as S, _chains as CH
@@ -59,7 +59,6 @@ for lab, (l, fx, fr) in CH.L1.items():
 pub = [("DES Y3 + external", 0.08, 0.19, 0.21), ("DESI 2024 full shape + BAO + BBN", 0.11, 0.54, 0.45),
        ("DESI full shape + CMB + DES Y3", 0.04, 0.22, 0.22), ("ACT + WMAP + SDSS + SN", 0.02, 0.19, 0.19)]
 fig, ax = plt.subplots(figsize=(S.TEXTW, 2.9))
-ax.axvspan(-0.136 - 0.04, -0.136 + 0.04, color=S.SKY, alpha=0.3, lw=0)
 ax.axvline(-0.136, color=S.IAM, lw=1.0); ax.axvline(0, color=S.GR, lw=0.8, ls="--")
 labels = []
 y = 0
@@ -71,7 +70,7 @@ for lab, v, em, ep in pub[::-1]:
     ax.errorbar(v, y, xerr=[[em], [ep]], fmt="s", color=S.DATA, ms=4, capsize=2, lw=1.0)
     labels.append(lab); y += 1
 ax.set_yticks(range(y)); ax.set_yticklabels(labels, fontsize=7)
-ax.text(-0.185, y - 0.35, "prediction $-0.136$\n(band: Euclid $\\sigma\\approx0.04$)", color=S.IAM, fontsize=7, ha="right", va="bottom")
+ax.text(-0.145, y - 0.35, "prediction $-0.136$", color=S.IAM, fontsize=7, ha="right", va="bottom")
 ax.text(0.01, y - 0.35, "general relativity", color=S.GR, fontsize=7, ha="left", va="bottom")
 ax.set_ylim(-0.6, y + 0.9); ax.set_xlim(-0.8, 0.65)
 ax.set_xlabel("$\\mu_0=\\mu(z{=}0)-1$")

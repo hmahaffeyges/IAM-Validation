@@ -257,7 +257,9 @@ Setting Eq.~\eqref{eq:corr} equal to the identity~\eqref{eq:ident}, the $l_P$, $
 \boxed{\;\frac{\Omega_b}{\Omega_m}=\frac{3}{16}\sqrt{\Omega_\Lambda}\;}\label{eq:rel}\end{equation}
 \derived\ (algebra) Without the temperature factor the same step gives $\Omega_b/\Omega_m=3\Omega_\Lambda/16$. \derived\ (algebra)
 Planck 2018: $0.1564$ against $0.1551$, a ratio of $1.0079$. \calc\ On the CMB-only 18th chain (Chapter~\ref{ch:baryon_chain}) the
-ratio of the two sides is $1.0046\pm0.0068$ ($0.7\sigma$); on the $\Lambda$CDM chains it is $1.0056$--$1.0106$. \measured\ That is expected: the informational term is off at recombination, so IAM's own equations, with no added parameter, return from the CMB the same $\Omega_b$, $\Omega_m$ and $\Omega_\Lambda$ as $\Lambda$CDM, and the agreement of the chains is a consistency check that the early universe is intact. The relation is a property of
+ratio of the two sides is $1.0046\pm0.0068$ ($0.7\sigma$); on the $\Lambda$CDM chains it is $1.0056$--$1.0106$. \measured\ IAM's own
+equations reproduce these values with no added parameter: the informational term is off at recombination, so the CMB fit with the term in
+place returns the measured $\Omega_b$, $\Omega_m$ and $\Omega_\Lambda$, and the agreement of the chains is a consistency check that the early universe is intact. The relation is a property of
 the measured universe; $\Lambda$CDM takes those values as given, and the informational term is what would have to explain them. It
 holds at the present epoch only, since $\Omega_\Lambda(a)$ changes and $\Omega_b/\Omega_m$ does not. \observed
 
@@ -377,21 +379,19 @@ Chapter~\ref{ch:lambda_history}.
 \caption[The cosmological-constant numbers]{The cosmological-constant numbers of this chapter and Chapter~\ref{ch:lambda_history} (Planck 2018: $H_0=67.4$, $\Omega_b=0.0493$, $\Omega_m=0.3153$, $\Omega_\Lambda=0.6846$; chains with 30\,\% burn-in, weighted). Recomputed with \texttt{docs/verification/scripts/\allowbreak{}verify\_lambda\_baryon\_book.py}.}\label{tab:lambda_numbers}
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xll}\toprule
 Quantity & Value & Label\\\midrule
-```latex
-$\rho_{\rm vac}=E_P^4/(\hbar c)^3$ & $4.633\times10^{113}$\,J\,m$^{-3}$ & \calc\\ \cmidrule{1-3}
-$\rho_\Lambda=\Omega_\Lambda\rho_cc^2$ & $5.250\times10^{-10}$\,J\,m$^{-3}$ & \observed\\ \cmidrule{1-3}
-$\rho_\Lambda/\rho_{\rm vac}$, and the identity $(3\Omega_\Lambda/8\pi)(l_P/l_H)^2$ & $1.133\times10^{-123}$ (both) & \derived\\ \cmidrule{1-3}
-Horizon capacity $A_H/4l_P^2$ today & $2.265\times10^{122}$ nats ($3.268\times10^{122}$ bits) & \calc\\ \cmidrule{1-3}
-$(2/\pi)(l_P/l_H)^2\,\Omega_b/\Omega_m$ & $1.380\times10^{-123}$ ($\times1.218$) & \calc\\ \cmidrule{1-3}
-$\times\sqrt{\Omega_\Lambda}$ & $1.142\times10^{-123}$ ($+0.79\,\%$) & \fitted\\ \cmidrule{1-3}
-Exponent $p$ of $\Omega_\Lambda$ that closes the expression & $0.521$ & \calc\\ \cmidrule{1-3}
-$\Omega_b/\Omega_m$ against $(3/16)\sqrt{\Omega_\Lambda}$, Planck values & $0.1564$ against $0.1551$ & \observed\\ \cmidrule{1-3}
-Ratio of the two sides, 18th chain (CMB only) & $1.0046\pm0.0068$ & \measured\\ \cmidrule{1-3}
-Ratio of the two sides, $\Lambda$CDM chains & $1.0056$--$1.0106$ & \measured\\ \cmidrule{1-3}
-O(1) forms within $1\,\%$ of $3\Omega_\Lambda/8\pi$ & 3 of 414 & \calc\\ \cmidrule{1-3}
-History integral as written, coefficient against the required $0.523$ & $3.1\times10^{30}$ & \calc\\ \cmidrule{1-3}
-Heat radiated by baryonic virialisation, summed to today, over $\rho_\Lambda c^2$ & $3.15\times10^{-8}$ & \calc\\ \cmidrule{1-3}
-```
+$\rho_{\rm vac}=E_P^4/(\hbar c)^3$ & $4.633\times10^{113}$\,J\,m$^{-3}$ & \calc\\\specialrule{0.2pt}{0pt}{0pt}
+$\rho_\Lambda=\Omega_\Lambda\rho_cc^2$ & $5.250\times10^{-10}$\,J\,m$^{-3}$ & \observed\\\specialrule{0.2pt}{0pt}{0pt}
+$\rho_\Lambda/\rho_{\rm vac}$, and the identity $(3\Omega_\Lambda/8\pi)(l_P/l_H)^2$ & $1.133\times10^{-123}$ (both) & \derived\\\specialrule{0.2pt}{0pt}{0pt}
+Horizon capacity $A_H/4l_P^2$ today & $2.265\times10^{122}$ nats ($3.268\times10^{122}$ bits) & \calc\\\specialrule{0.2pt}{0pt}{0pt}
+$(2/\pi)(l_P/l_H)^2\,\Omega_b/\Omega_m$ & $1.380\times10^{-123}$ ($\times1.218$) & \calc\\\specialrule{0.2pt}{0pt}{0pt}
+$\times\sqrt{\Omega_\Lambda}$ & $1.142\times10^{-123}$ ($+0.79\,\%$) & \fitted\\\specialrule{0.2pt}{0pt}{0pt}
+Exponent $p$ of $\Omega_\Lambda$ that closes the expression & $0.521$ & \calc\\\specialrule{0.2pt}{0pt}{0pt}
+$\Omega_b/\Omega_m$ against $(3/16)\sqrt{\Omega_\Lambda}$, Planck values & $0.1564$ against $0.1551$ & \observed\\\specialrule{0.2pt}{0pt}{0pt}
+Ratio of the two sides, 18th chain (CMB only) & $1.0046\pm0.0068$ & \measured\\\specialrule{0.2pt}{0pt}{0pt}
+Ratio of the two sides, $\Lambda$CDM chains & $1.0056$--$1.0106$ & \measured\\\specialrule{0.2pt}{0pt}{0pt}
+O(1) forms within $1\,\%$ of $3\Omega_\Lambda/8\pi$ & 3 of 414 & \calc\\\specialrule{0.2pt}{0pt}{0pt}
+History integral as written, coefficient against the required $0.523$ & $3.1\times10^{30}$ & \calc\\\specialrule{0.2pt}{0pt}{0pt}
+Heat radiated by baryonic virialisation, summed to today, over $\rho_\Lambda c^2$ & $3.15\times10^{-8}$ & \calc\\\specialrule{0.2pt}{0pt}{0pt}
 A derivation of $3/16$ from physics & --- & \openprob\\\bottomrule
 \end{tabularx}
 \end{table}

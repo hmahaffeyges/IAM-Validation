@@ -1,0 +1,97 @@
+/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/da16a57d-6dbc-424f-b59e-1fda841721b5/fc/iamfisher.py:590: RuntimeWarning: invalid value encountered in sqrt
+  return {names[i]: np.sqrt(cov[j, j]) for j, i in enumerate(idx)}, cov, [names[i] for i in idx]
+/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/da16a57d-6dbc-424f-b59e-1fda841721b5/fc/iamfisher.py:590: RuntimeWarning: invalid value encountered in sqrt
+  return {names[i]: np.sqrt(cov[j, j]) for j, i in enumerate(idx)}, cov, [names[i] for i in idx]
+Note: redshifts have been re-sorted (earliest first)
+                                                                         scenario     sigma_case  sigma_A_IAMfid  significance_IAMfid  sigma_A_GRfid  template_sigma_mu0
+0                                              Euclid DR1 pessimistic (1900 deg2)  Sigma=1 fixed        2.532077             0.394933       2.548355            0.169898
+1                                              Euclid DR1 pessimistic (1900 deg2)    Sigma0 free        3.639603             0.274755       3.637653            0.217923
+2                                               Euclid DR1 optimistic (1900 deg2)  Sigma=1 fixed        1.471823             0.679429       1.483350            0.097610
+3                                               Euclid DR1 optimistic (1900 deg2)    Sigma0 free        1.754120             0.570086       1.754994            0.115415
+4                                                         Euclid full pessimistic  Sigma=1 fixed        0.901173             1.109665       0.906966            0.060467
+5                                                         Euclid full pessimistic    Sigma0 free        1.295344             0.771996       1.294650            0.077559
+6                                                          Euclid full optimistic  Sigma=1 fixed        0.523826             1.909032       0.527928            0.034740
+7                                                          Euclid full optimistic    Sigma0 free        0.624296             1.601804       0.624607            0.041076
+8                                        Euclid full pessimistic + Planck lensing  Sigma=1 fixed        0.896834             1.115034       0.902626            0.059507
+9                                        Euclid full pessimistic + Planck lensing    Sigma0 free        1.294635             0.772418       1.293989            0.077142
+10                                        Euclid full optimistic + Planck lensing  Sigma=1 fixed        0.523029             1.911942       0.527120            0.034575
+11                                        Euclid full optimistic + Planck lensing    Sigma0 free        0.623906             1.602806       0.624203            0.040931
+12                                Euclid full pessimistic + Planck lensing + DESI  Sigma=1 fixed        0.758795             1.317880       0.765351            0.049140
+13                                Euclid full pessimistic + Planck lensing + DESI    Sigma0 free        0.866125             1.154568       0.871189            0.053214
+14                                 Euclid full optimistic + Planck lensing + DESI  Sigma=1 fixed        0.482246             2.073629       0.486565            0.031051
+15                                 Euclid full optimistic + Planck lensing + DESI    Sigma0 free        0.549790             1.818878       0.551549            0.035008
+16                                                        GCsp alone, pessimistic  Sigma=1 fixed        4.732650             0.211298       4.755518            0.228962
+17                                                         GCsp alone, optimistic  Sigma=1 fixed        4.531784             0.220664       4.551352            0.218685
+18                                    3x2pt alone, pessimistic (all 10 GCph bins)  Sigma=1 fixed        1.032036             0.968958       1.041539            0.072832
+19                                    3x2pt alone, pessimistic (all 10 GCph bins)    Sigma0 free        1.658269             0.603039       1.652547            0.116712
+20                                                        3x2pt alone, optimistic  Sigma=1 fixed        0.573881             1.742522       0.578579            0.040216
+21                                                        3x2pt alone, optimistic    Sigma0 free        0.653713             1.529723       0.652070            0.045000
+22                    Albuquerque-conservative: GCsp k<0.1/Mpc + 3x2pt k<0.25/Mpc  Sigma=1 fixed        1.016694             0.983580       1.023485            0.067475
+23                    Albuquerque-conservative: GCsp k<0.1/Mpc + 3x2pt k<0.25/Mpc    Sigma0 free        2.051529             0.487441       2.049290            0.119080
+24                                                Albuquerque 3x2pt alone k<4/Mpc  Sigma=1 fixed        0.605917             1.650392       0.611076            0.042317
+25                                                Albuquerque 3x2pt alone k<4/Mpc    Sigma0 free        0.700351             1.427855       0.698768            0.047981
+26                       Euclid full pessimistic, GCsp in IST:F h-unit convention  Sigma=1 fixed        0.918805             1.088371       0.926558            0.062963
+27                       Euclid full pessimistic, GCsp in IST:F h-unit convention    Sigma0 free        1.315659             0.760076       1.316161            0.079808
+28                        Euclid full optimistic, GCsp in IST:F h-unit convention  Sigma=1 fixed        0.455807             2.193911       0.458821            0.029481
+29                        Euclid full optimistic, GCsp in IST:F h-unit convention    Sigma0 free        0.624441             1.601434       0.624639            0.040983
+30                 Euclid full optimistic + Planck lensing + DESI (kmax 0.2h/Mpc)  Sigma=1 fixed        0.391606             2.553589       0.396160            0.024508
+31                 Euclid full optimistic + Planck lensing + DESI (kmax 0.2h/Mpc)    Sigma0 free        0.412972             2.421471       0.416371            0.025710
+32  Euclid full optimistic + Planck lensing + DESI z<0.9 only (no volume overlap)  Sigma=1 fixed        0.488638             2.046504       0.493079            0.032103
+33  Euclid full optimistic + Planck lensing + DESI z<0.9 only (no volume overlap)    Sigma0 free        0.557788             1.792797       0.559609            0.036358
+                                                                      case                    parameter  published       ours     ratio
+0                                                  D(z=0) IAM/LCDM - 1 [%]                           D0    -0.7800  -0.776789       NaN
+1                                            f sigma8 deficit at z=0.0 [%]                          fs8     4.2500   4.250550  1.000129
+2                                            f sigma8 deficit at z=0.3 [%]                          fs8     2.1700   2.168135  0.999141
+3                                            f sigma8 deficit at z=0.5 [%]                          fs8     1.3500   1.348726  0.999056
+4                                            f sigma8 deficit at z=1.0 [%]                          fs8     0.4100   0.408631  0.996662
+5             max |P_NL ours / CAMB takahashi - 1|, k 0.01-10/Mpc, z 0,1,2                         P_NL     0.0000   0.007726       NaN
+6                                          white N_kk = 3.88e-07 gives S/N                          S/N    40.0000  40.000000  1.000000
+7                                      GCsp pessimistic (physical k units)                           Om     0.0210   0.021007  1.000317
+8                                      GCsp pessimistic (physical k units)                           Ob     0.0510   0.089650  1.757839
+9                                      GCsp pessimistic (physical k units)                            h     0.0063   0.060556  9.612016
+10                                     GCsp pessimistic (physical k units)                           ns     0.0140   0.031020  2.215715
+11                                     GCsp pessimistic (physical k units)                           s8     0.0094   0.008109  0.862681
+12                                      GCsp optimistic (physical k units)                           Om     0.0130   0.014381  1.106268
+13                                      GCsp optimistic (physical k units)                           Ob     0.0180   0.022225  1.234707
+14                                      GCsp optimistic (physical k units)                            h     0.0017   0.013404  7.884709
+15                                      GCsp optimistic (physical k units)                           ns     0.0099   0.008172  0.825478
+16                                      GCsp optimistic (physical k units)                           s8     0.0077   0.007142  0.927499
+17                              GCsp pessimistic (IST:F h-unit convention)                           Om     0.0210   0.021863  1.041100
+18                              GCsp pessimistic (IST:F h-unit convention)                           Ob     0.0510   0.052162  1.022788
+19                              GCsp pessimistic (IST:F h-unit convention)                            h     0.0063   0.006483  1.029006
+20                              GCsp pessimistic (IST:F h-unit convention)                           ns     0.0140   0.013093  0.935246
+21                              GCsp pessimistic (IST:F h-unit convention)                           s8     0.0094   0.009162  0.974695
+22                               GCsp optimistic (IST:F h-unit convention)                           Om     0.0130   0.012716  0.978142
+23                               GCsp optimistic (IST:F h-unit convention)                           Ob     0.0180   0.029830  1.657227
+24                               GCsp optimistic (IST:F h-unit convention)                            h     0.0017   0.004171  2.453570
+25                               GCsp optimistic (IST:F h-unit convention)                           ns     0.0099   0.008751  0.883923
+26                               GCsp optimistic (IST:F h-unit convention)                           s8     0.0077   0.005620  0.729889
+27                                                          WL pessimistic                           Om     0.0180   0.017363  0.964626
+28                                                          WL pessimistic                           Ob     0.4700   0.454746  0.967545
+29                                                          WL pessimistic                            h     0.2100   0.195316  0.930076
+30                                                          WL pessimistic                           ns     0.0350   0.031442  0.898357
+31                                                          WL pessimistic                           s8     0.0087   0.008648  0.994038
+32                                                           WL optimistic                           Om     0.0120   0.012597  1.049726
+33                                                           WL optimistic                           Ob     0.4200   0.444710  1.058834
+34                                                           WL optimistic                            h     0.2000   0.190950  0.954749
+35                                                           WL optimistic                           ns     0.0300   0.028762  0.958740
+36                                                           WL optimistic                           s8     0.0061   0.006377  1.045478
+37                                                  WL+GCph+XC pessimistic                           Om     0.0081   0.007940  0.980268
+38                                                  WL+GCph+XC pessimistic                           Ob     0.0520   0.049678  0.955338
+39                                                  WL+GCph+XC pessimistic                            h     0.0270   0.026539  0.982940
+40                                                  WL+GCph+XC pessimistic                           ns     0.0085   0.008798  1.035076
+41                                                  WL+GCph+XC pessimistic                           s8     0.0038   0.003775  0.993528
+42                                                   WL+GCph+XC optimistic                           Om     0.0028   0.002760  0.985877
+43                                                   WL+GCph+XC optimistic                           Ob     0.0460   0.043571  0.947203
+44                                                   WL+GCph+XC optimistic                            h     0.0200   0.018912  0.945584
+45                                                   WL+GCph+XC optimistic                           ns     0.0036   0.003481  0.966859
+46                                                   WL+GCph+XC optimistic                           s8     0.0013   0.001348  1.036989
+47                           GCsp k<0.1/Mpc alone, Sigma fixed (pub 53.0%)  mu0 (= rel. error on 1+mu0)     0.5300   0.536100  1.011509
+48                                 3x2pt k<0.25/Mpc alone, US (pub 169.4%)  mu0 (= rel. error on 1+mu0)     1.6940   0.240415  0.141921
+49  3x2pt cut rescaled to 807-element data vector (diagnostic; pub 169.4%)  mu0 (= rel. error on 1+mu0)     1.6940   1.735646  1.024585
+50                                 GCsp+3x2pt conservative, US (pub 23.3%)  mu0 (= rel. error on 1+mu0)     0.2330   0.119043  0.510915
+51           GCsp+3x2pt with 807-element 3x2pt cut (diagnostic; pub 23.3%)  mu0 (= rel. error on 1+mu0)     0.2330   0.249490  1.070773
+52                                           3x2pt k<4/Mpc alone (pub ~4%)  mu0 (= rel. error on 1+mu0)     0.0400   0.047986  1.199651
+53                                  GCsp+3x2pt conservative, US (pub 2.6%)                       Sigma0     0.0260   0.024766  0.952526
+54                                                 3x2pt k<4/Mpc (pub ~1%)                       Sigma0     0.0100   0.014858  1.485780
+SCALE {'alb_cons': np.float64(1.957273181659604), 'alb_k4': np.float64(0.8335757262479309)}

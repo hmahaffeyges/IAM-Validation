@@ -37,15 +37,15 @@ add("p2_05_dual_sector_note.tex", "on real data with two rulers (Chapter~\\ref{c
         f"(band: $\\pm2\\sigma$). Method of \\texttt{{docs/verification/scripts/\\allowbreak{{}}verify\\_beta\\_gamma.py}}. \\calc", "fig:beta_gamma"))
 add("p2_05_dual_sector_note.tex", "Euclid, DESI Year~5 and CMB-S4 test each of these.",
     "\\begin{table}[htbp]\\centering\\small\n\\caption[What would count against the dual-sector structure]{What would count against the dual-sector structure. "
-    "Present values are from the chains and the acoustic-scale fit of this chapter; the Euclid range is the one its published forecasts give "
-    "for the IAM $\\mu(z)$ (Chapter~\\ref{ch:latetime}).}\\label{tab:dsnote_falsifiers}\n"
+    "Present values are from the chains and the acoustic-scale fit of this chapter; the survey forecast is in Section~\\ref{sec:sp_euclid}.}"
+    "\\label{tab:dsnote_falsifiers}\n"
     "\\begin{tabularx}{\\linewidth}{>{\\raggedright\\arraybackslash}p{0.19\\linewidth}>{\\raggedright\\arraybackslash}p{0.2\\linewidth}"
     ">{\\raggedright\\arraybackslash}X>{\\raggedright\\arraybackslash}p{0.17\\linewidth}l}\\toprule\n"
     "Statement & Value & Would count against it & Test & Label\\\\\\midrule\n"
     "Light is not coupled (lensing) & $\\Sigma=1$ at every $z$ & $\\Sigma\\neq1$ detected & Euclid tomography & \\prediction\\\\\n"
     f"Light is not coupled (acoustic scale) & $\\beta_\\gamma=0$; now $\\beta_\\gamma<{bg95:.4f}$ (95\\,\\%) & $\\beta_\\gamma>0$ detected & CMB-S4 & \\calc\\\\\n"
     "Virial amplitude & $\\beta_m/\\Omega_m=1/2$ & $\\Omega_m$ revised while growth still needs the old $\\beta_m$ & DESI Year~5, Euclid & \\prediction\\\\\n"
-    f"Growth coupling today & $\\mu_0={mu0:.3f}$ & $\\mu_0$ consistent with 0 and excluding ${mu0:.3f}$ & Euclid: about $0.3\\sigma$ to $7\\sigma$ by its published forecasts & \\prediction\\\\\n"
+    f"Growth coupling today & $\\mu_0={mu0:.3f}$ & $\\mu_0$ consistent with 0 and excluding ${mu0:.3f}$ & Euclid, DESI (Section~\\ref{sec:sp_euclid}) & \\prediction\\\\\n"
     "Redshift dependence only & $\\mu(a)$, $\\Sigma(a)$ & scale-dependent $\\mu$ or $\\Sigma$ & Euclid, DESI & \\prediction\\\\\\bottomrule\n"
     "\\end{tabularx}\n\\end{table}")
 
@@ -162,13 +162,9 @@ add("p2_16_survey_predictions.tex", "rescaling, and it is gone by $z\\approx2$."
         "$\\Delta\\Phi/\\Phi=\\Delta D/D$ and the ISW source $(1-f)D/a$. Equations of \\texttt{docs/verification/scripts/\\allowbreak{}verify\\_obs\\_chapters.py}. \\calc",
         "fig:survey_ramp"))
 add("p2_16_survey_predictions.tex", "($73.04\\pm1.04$~\\cite{Riess2022}) is $0.75\\sigma$ from $72.26$.",
-    fig("fig_survey_precision", "\\textwidth", "The precision each test needs",
-        "The precision each test needs. (a) Separation of the IAM $\\mu(z)$ from general relativity against the error $\\sigma(\\mu_0)$ of Euclid's "
-        "template, at the template-equivalent $\\mu_0\\approx-0.07$ (Chapter~\\ref{ch:latetime}); points: the published errors on $1+\\mu_0$, "
-        "23.3\\,\\% with conservative scale cuts, 4\\,\\% for weak lensing and photometric clustering to $k\\approx4\\,{\\rm Mpc}^{-1}$ and about "
-        "1\\,\\% with all probes~\\cite{Albuquerque2025,Frusciante2025}, giving about $0.3\\sigma$, $1.8\\sigma$ and $7\\sigma$. A forecast with "
-        "the IAM $\\mu(z)$ itself is open. "
-        f"(b) Separation of the matter-sector rate 72.26 from the photon-sector 67.16 by a siren population against its $\\sigma(H_0)$; "
+    fig("fig_survey_precision", "0.6\\textwidth", "The precision the siren test needs",
+        "The precision the siren test needs. "
+        f"Separation of the matter-sector rate 72.26 from the photon-sector 67.16 by a siren population against its $\\sigma(H_0)$; "
         f"$3\\sigma$ needs $\\sigma(H_0)\\le{(72.26-67.16)/3:.2f}$. Square: GW170817 alone ($70.0^{{+12.0}}_{{-8.0}}$~\\cite{{Abbott2017Siren}}, mean half-width 10). \\prediction\\ \\calc",
         "fig:survey_precision").replace("=-0.136", "=-0.136"))
 

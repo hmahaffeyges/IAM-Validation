@@ -2,7 +2,7 @@
 % record, read in full, 1,239 lines; wording source docs/book/coverage/wave2/02_Dual_Sector_Validation.tex) carried sentence by sentence, in order.
 % Corrections applied minimally where docs/verification/PAPER_ERRATA.md (D1-D14) or docs/verification/chains/DUAL_SECTOR_VALIDATION_CHECK.md require;
 % first-person wording made impersonal. Every number: docs/verification/scripts/verify_dual_sector_chapters.py (+ _output.txt); acoustic scale:
-% verify_beta_gamma.py; Euclid only as in Section sec:lt_euclid. Figures: figscripts/fig_p2_dual_sector.py, fig_p2_sector_tests.py, fig_p2_sn_future.py.
+% verify_beta_gamma.py; survey forecasts only in Section sec:sp_euclid. Figures: figscripts/fig_p2_dual_sector.py, fig_p2_sector_tests.py, fig_p2_sn_future.py.
 
 \chapter{Type Ia supernovae in the dual-sector picture: $\Lambda$CDM distances with a locally calibrated $H_0$}\label{ch:dsvalidation}
 
@@ -492,9 +492,8 @@ $z=0.5$--$0.3$ (Chapter~\ref{ch:latetime}) \prediction. The chain value $\sigma_
 \item \emph{Gravitational wave standard sirens}: independent $H_0$ measurements from binary neutron star mergers (matter-coupled, hosted in galaxies)
 should yield $H_0=72.26$ km\,s$^{-1}$\,Mpc$^{-1}$, consistent with the matter sector \prediction. With one event so far, analyses of GW170817 range from
 $70.0^{+12.0}_{-8.0}$~\cite{Abbott2017Siren} to $75.5^{+5.3}_{-5.4}$~\cite{Palmese2024}; one event is not yet precise enough to separate the two rates \observed.
-\item \emph{Euclid} $\mu_0$: the prediction is $\mu_0=-0.136$ with $\Sigma=1$. As set out in Section~\ref{sec:lt_euclid}, the IAM $\mu(z)$ corresponds to
-a template-equivalent $\mu_0\approx-0.07$ in Euclid's forecast parameterisation, about $0.3\sigma$ with conservative scale cuts, $1.8\sigma$ at
-$\sigma(\mu_0)=0.04$ and about $7\sigma$ at one per cent; a forecast made with the IAM $\mu(z)$ itself is the next step \prediction.
+\item \emph{Euclid} $\mu_0$: the prediction is $\mu_0=-0.136$ with $\Sigma=1$. The forecast is in Section~\ref{sec:sp_euclid}
+\prediction.
 \end{enumerate}
 
 \subsection{Connection to modified gravity parametrization}\label{sec:dsv_musigma}
@@ -517,7 +516,7 @@ unmodified---precisely the photon-sector constraint $\beta_\gamma<0.0039$.
 This mapping has three important consequences. First, IAM predictions have been validated through full Boltzmann solvers: 12 Level~1 chains via MGCAMB
 and 3 Level~2 chains via modified CAMB Fortran, all consistent with the full Planck 2018 likelihood ($\Delta\chi^2=+0.54$ best-fit at Level~2;
 Chapter~\ref{ch:dual}) \measured. Second, upcoming surveys (DES Year~6, Euclid, Rubin-LSST) will constrain $\mu(a)$ and $\Sigma(a)$ independently;
-Euclid's sensitivity to this $\mu(z)$ is as stated in Section~\ref{sec:lt_euclid}. Third, the specific functional form $\mu(a)<1$ with $\Sigma=1$
+the forecast for this $\mu(z)$ is in Section~\ref{sec:sp_euclid}. Third, the specific functional form $\mu(a)<1$ with $\Sigma=1$
 distinguishes IAM from most modified gravity theories, which predict $\mu>1$ ($f(R)$, normal-branch DGP) or correlated $\mu$ and $\Sigma$
 (scalar--tensor); it is shared with the self-accelerating branch of DGP, and what is specific to IAM is the redshift form of Eq.~\eqref{eq:dsv_mu_sigma}
 with its amplitude fixed by $\Omega_m/2$ \derived.

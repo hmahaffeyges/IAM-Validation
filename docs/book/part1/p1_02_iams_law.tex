@@ -715,25 +715,8 @@ $75.46^{+5.34}_{-5.39}$~\cite{Palmese2024}\,km\,s$^{-1}$Mpc$^{-1}$; one event is
 
 \subsection{Measuring $\mu_0=-0.136$}
 IAM's Law gives $\mu_0=-0.136$ with no free parameter. The DESI 2024 full-shape analysis~\cite{DESI2024VII} gives $\mu_0=0.11^{+0.45}_{-0.54}$, consistent
-with both the prediction and general relativity \observed. Because the IAM $\mu(z)$ falls off with redshift much faster than the template
-$\mu(z)=1+\mu_0\Omega_{\rm DE}(z)/\Omega_{\rm DE}(0)$ used in survey forecasts, its significance is not $|\mu_0|/\sigma(\mu_0)$. Matching the linear-growth
-$f\sigma_8$ deficit of the IAM $\mu(z)$ to the template over a redshift range gives a template-equivalent $\mu_0$, and the published Euclid errors on the
-template~\cite{Albuquerque2025,Frusciante2025} then bracket the test (Table~\ref{tab:law_euclid}).
-
-\begin{table}[htbp]\centering
-\caption{Euclid sensitivity to the IAM $\mu(z)$, from the template-equivalent $\mu_0$ (least-squares match of the $f\sigma_8$ deficit) and the published
-template errors: $\sigma(\mu_0)\approx0.23$ (conservative scale cuts, spectroscopic clustering with 3$\times$2pt), $0.04$ (3$\times$2pt to
-$k_{\max}\approx4\,{\rm Mpc}^{-1}$), $0.01$ (optimistic, of the order of 1\,\%)~\cite{Albuquerque2025,Frusciante2025}. An estimate, not a forecast
-(\texttt{docs/verification/scripts/\allowbreak{}verify\_euclid\_template.py}) \calc.}\label{tab:law_euclid}
-\begin{tabular}{lcccc}\hline
-redshift range matched & template-equivalent $\mu_0$ & $\sigma=0.23$ & $\sigma=0.04$ & $\sigma=0.01$\\\hline
-spectroscopic bins, $0.9$--$1.7$ & $-0.031$ & $0.13\sigma$ & $0.8\sigma$ & $3\sigma$\\
-photometric range, $0.2$--$2.0$ & $-0.062$ & $0.27\sigma$ & $1.5\sigma$ & $6\sigma$\\
-all, $0$--$2$ & $-0.072$ & $0.31\sigma$ & $1.8\sigma$ & $7\sigma$\\\hline
-\end{tabular}
-\end{table}
-Euclid's published forecasts therefore bracket the test of the IAM $\mu(z)$ from about $0.3\sigma$ (conservative scale cuts) to about $7\sigma$ (smallest scales
-modelled). The next step is a Fisher forecast made with the IAM $\mu(z)$ itself (Chapter~\ref{ch:latetime}) \openprob. Tighter constraints will either
+with both the prediction and general relativity \observed. The forecast for Euclid, Planck lensing and DESI, made with the IAM $\mu(z)$ itself, is in
+Section~\ref{sec:sp_euclid}. Tighter constraints will either
 sharpen the agreement or reveal a discrepancy; both outcomes carry information about the entropy-completion identification at the heart of IAM's Law.
 
 \subsection{The cosmological constant and the baryon density}
@@ -982,10 +965,7 @@ $\mathcal M$ is the Mahaffey number --- a dimensionless figure characterizing ho
 the convention of Reynolds (fluid flow regimes), Mach (compressible flow), Froude (free-surface flow) and Prandtl (heat transfer) for dimensionless numbers
 that characterize physical operating regimes. When $\mathcal M$ reaches an architecture-specific critical value, the local encoding surface saturates
 and a phase transition occurs \conjecture. Expressed in Landauer units it is $\mathcal M/\ln2$. $\mathcal M$ is not a new law: it is IAM's Law,
-```latex
-Eq.~\eqref{eq:law}, expressed in dimensionless form.
-Landauer's principle taken alone is a floor with no structure: it does not say which temperature enters, where the record resides, or what
-```
+Eq.~\eqref{eq:law}, expressed in dimensionless form. Landauer's principle taken alone is a floor with no structure: it does not say which temperature enters, where the record resides, or what
 happens as a system approaches the bound. The law supplies the first two, the nearest encoding surface and its temperature; the third is the
 saturation conjecture stated here, which Landauer's principle alone cannot make, because it has no surface and no capacity \interp. $\mathcal M$ is
 dimensionless in every row and computed from measured quantities, so it is the part of the construction least dependent on anything contested \interp.

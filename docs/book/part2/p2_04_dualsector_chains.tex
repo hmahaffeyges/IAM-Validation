@@ -2,9 +2,7 @@
 
 \section{One term added to the horizon entropy}
 
-```latex
-In the Jacobson and Cai--Kim derivations~\cite{Jacobson1995,CaiKim2005}, the apparent-horizon entropy is geometric, $S_{\mathrm{geo}}/k_B=\pi c^5/(G\hbar H^2)$.
-```
+In the Jacobson and Cai--Kim derivations~\cite{Jacobson1995,CaiKim2005}, the apparent-horizon entropy is geometric, $S_{\mathrm{geo}}=\pi c^5/(G\hbar H^2)$.
 IAM adds the accumulated Landauer cost of every irreversible record written on a timelike worldline:
 \begin{equation}
  -dE=T_H\,d\!\left(S_{\mathrm{geo}}+S_{\mathrm{info}}\right).
@@ -209,40 +207,23 @@ file, and the lowest $\chi^2$ found. Level~2 and 2b use their own likelihood set
 \texttt{mgcamb\_validation/\allowbreak{}CHAIN\_EXTRACTION\_FINAL.csv}; recomputed in \texttt{verify\_dual\_sector\_chapters.py}. \measured}\label{tab:chain_record}
 \begin{tabular}{llrrrr}\toprule
 Chain & Level & Files & Samples & $R-1$ & $\chi^2_{\min}$\\\midrule
-IAM, Planck ($\mu_0$ fixed) & 1 & 4 & 49\,484 & 0.0089 & 1013.95\\
-\rowrule
-$\mu_0$ free, Planck & 1 & 4 & 66\,401 & 0.0099 & 1011.69\\
-\rowrule
-$\Lambda$CDM, Planck & 1 & 1 & 16\,520 & 0.0089 & 1013.00\\
-\rowrule
-IAM, Planck + BAO & 1 & 1 & 12\,767 & 0.0058 & 1020.09\\
-\rowrule
-$\Lambda$CDM, Planck + BAO & 1 & 1 & 24\,851 & 0.0096 & 1018.36\\
-\rowrule
-$\mu_0$ free, Planck + BAO & 1 & 1 & 28\,958 & 0.0063 & 1017.90\\
-\rowrule
-IAM, Planck + Pantheon+ & 1 & 1 & 20\,849 & 0.0072 & 2417.58\\
-\rowrule
-$\Lambda$CDM, Planck + Pantheon+ & 1 & 1 & 38\,080 & 0.0085 & 2416.00\\
-\rowrule
-$\mu_0$ free, Planck + Pantheon+ & 1 & 1 & 48\,829 & 0.0094 & 2415.40\\
-\rowrule
-IAM, Planck + RSD & 1 & 1 & 27\,688 & 0.0078 & 1024.28\\
-\rowrule
-$\Lambda$CDM, Planck + RSD & 1 & 1 & 27\,106 & 0.0087 & 1023.72\\
-\rowrule
-$\mu_0$ free, Planck + RSD & 1 & 1 & 29\,000 & 0.0084 & 1023.19\\
-\rowrule
-IAM, Planck (Run A) & 2 & 1 & 172\,159 & 0.0099 & 10972.61\\
-\rowrule
-$\Lambda$CDM, Planck (Run C) & 2 & 1 & 250\,222 & 0.0081 & 10972.07\\
-\rowrule
-IAM, Planck + RSD (Run D) & 2 & 1 & 112\,863 & 0.0080 & 10979.43\\
-\rowrule
-background term, Planck (Run A) & 2b & 1 & 234\,293 & 0.0100 & 10970.77\\
-\rowrule
-background term, Planck + RSD (Run D) & 2b & 1 & 229\,162 & 0.0068 & 10979.45\\
-\rowrule
+IAM, Planck ($\mu_0$ fixed) & 1 & 4 & 49\,484 & 0.0089 & 1013.95\\\lightrowrule
+$\mu_0$ free, Planck & 1 & 4 & 66\,401 & 0.0099 & 1011.69\\\lightrowrule
+$\Lambda$CDM, Planck & 1 & 1 & 16\,520 & 0.0089 & 1013.00\\\lightrowrule
+IAM, Planck + BAO & 1 & 1 & 12\,767 & 0.0058 & 1020.09\\\lightrowrule
+$\Lambda$CDM, Planck + BAO & 1 & 1 & 24\,851 & 0.0096 & 1018.36\\\lightrowrule
+$\mu_0$ free, Planck + BAO & 1 & 1 & 28\,958 & 0.0063 & 1017.90\\\lightrowrule
+IAM, Planck + Pantheon+ & 1 & 1 & 20\,849 & 0.0072 & 2417.58\\\lightrowrule
+$\Lambda$CDM, Planck + Pantheon+ & 1 & 1 & 38\,080 & 0.0085 & 2416.00\\\lightrowrule
+$\mu_0$ free, Planck + Pantheon+ & 1 & 1 & 48\,829 & 0.0094 & 2415.40\\\lightrowrule
+IAM, Planck + RSD & 1 & 1 & 27\,688 & 0.0078 & 1024.28\\\lightrowrule
+$\Lambda$CDM, Planck + RSD & 1 & 1 & 27\,106 & 0.0087 & 1023.72\\\lightrowrule
+$\mu_0$ free, Planck + RSD & 1 & 1 & 29\,000 & 0.0084 & 1023.19\\\lightrowrule
+IAM, Planck (Run A) & 2 & 1 & 172\,159 & 0.0099 & 10972.61\\\lightrowrule
+$\Lambda$CDM, Planck (Run C) & 2 & 1 & 250\,222 & 0.0081 & 10972.07\\\lightrowrule
+IAM, Planck + RSD (Run D) & 2 & 1 & 112\,863 & 0.0080 & 10979.43\\\lightrowrule
+background term, Planck (Run A) & 2b & 1 & 234\,293 & 0.0100 & 10970.77\\\lightrowrule
+background term, Planck + RSD (Run D) & 2b & 1 & 229\,162 & 0.0068 & 10979.45\\\lightrowrule
 baryon density free, Planck & -- & 1 & 20\,021 & 0.0099 & 1013.55\\\bottomrule
 \end{tabular}
 \end{table}
@@ -279,8 +260,7 @@ inherits the matter-sector rate, and which observable reads $H_0^{\mathrm{matter
 \section{The test ahead}
 
 \prediction\ The informational term predicts $\mu_0=-0.136$ with $\Sigma=1$: weaker growth of matter with no change in lensing by light. Euclid~\cite{Euclid2025}
-measures both on the same volume. Euclid's published forecasts bracket the test of the IAM $\mu(z)$ from about $0.3\sigma$ (conservative scale cuts) to about $7\sigma$ (smallest
-scales modelled), and a forecast made with the IAM $\mu(z)$ itself is the next step (Chapter~\ref{ch:latetime}).
+measures both on the same volume. The forecast is in Section~\ref{sec:sp_euclid}.
 The prediction contains no parameter adjusted to the data that will test it.
 
 Every chain here can be rerun from the repository with the coupling fixed, not fitted. A cosmologist can take the same configuration, swap in new survey data when they land, and see where $\mu_0$ sits. That is the whole test.

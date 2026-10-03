@@ -241,22 +241,15 @@ Dd = K.amp_deficit(zz)
 print(f"mu0 {mu0:.4f}; E_G excess z=0.3 {np.interp(0.3, zz, EGx):.2f} %, z=0.5 {np.interp(0.5, zz, EGx):.2f} %; D deficit z=0 {Dd[0]:.2f} %")
 fig, (a1, a2) = plt.subplots(1, 2, figsize=(S.TEXTW, 2.6))
 x = np.linspace(-0.5, 0.4, 600)
-# Euclid alone, full survey, conservative settings, all primary probes, LCDM fiducial: 23.3 % relative error on
-# mu_bar0 = 1 + mu0 (68.3 %), Albuquerque et al. 2025 (book key Albuquerque2025), abstract and Table 5 (PMG-1, US, GCsp+3x2pt).
-# Their mu(z) tracks Omega_DE(z) and Sigma0 is free; IAM's mu(z) follows E(a) with Sigma = 1, so the comparison is approximate.
-sgE = 0.233 * 1.0
-a1.plot(x, np.exp(-0.5 * (x / sgE) ** 2), color=S.GR, ls="--", label=f"Euclid alone, full survey (forecast about GR): σ = {sgE:.3f}")
-mu0eq = -0.072   # template-equivalent mu0 of the IAM mu(z), 0 < z < 2 (docs/verification/scripts/verify_euclid_template_output.txt)
+# Present free-mu0 constraints only; the survey forecast with the IAM mu(z) is fig_p2_euclid_forecast.py (p2_16, Section sec:sp_euclid).
 a1.axvline(mu0, color=S.IAM, lw=1.4, label=f"IAM $\\mu_0$ = {mu0:.3f}")
-a1.axvline(mu0eq, color=S.IAM, lw=1.0, ls=":", label=f"template-equivalent {mu0eq:.3f}: {abs(mu0eq)/sgE:.1f}σ from GR")
-print(f"Euclid sigma(mu0) {sgE:.3f}; template-equivalent IAM at {abs(mu0eq)/sgE:.2f} sigma")
-for i, (v, lo, hi, lab) in enumerate(((0.039, 0.125, 0.125, "Planck + RSD"), (0.11, 0.54, 0.45, "DESI full shape"))):   # p5_07 line 250, measured
-    y = 1.18 + 0.17 * i; a1.errorbar(v, y, xerr=[[lo], [hi]], fmt="o", ms=3, color=S.DATA, elinewidth=0.8, capsize=2)
-    a1.text(v, y + 0.04, lab + " (measured)", fontsize=6, va="bottom", ha="center", color=S.DATA)
+for i, (v, lo, hi, lab) in enumerate(((0.039, 0.125, 0.125, "Planck + RSD"), (0.11, 0.54, 0.45, "DESI full shape"))):   # p5_07, measured
+    y = 0.45 + 0.4 * i; a1.errorbar(v, y, xerr=[[lo], [hi]], fmt="o", ms=3, color=S.DATA, elinewidth=0.8, capsize=2)
+    a1.text(v, y + 0.05, lab + " (measured)", fontsize=6, va="bottom", ha="center", color=S.DATA)
 a1.axvline(0, color=S.GR, lw=0.8)
-a1.text(0.015, 1.03, "GR", fontsize=6); a1.set_xlim(-0.8, 0.8); a1.set_ylim(0, 1.5)
+a1.text(0.015, 1.25, "GR", fontsize=6); a1.set_xlim(-0.8, 0.8); a1.set_ylim(0, 1.4)
 a1.set_xlabel(r"$\mu_0$"); a1.set_yticks([]); a1.spines["left"].set_visible(False)
-a1.legend(loc="lower left", bbox_to_anchor=(0.0, 0.0), fontsize=5.6, handlelength=1.4, frameon=True, framealpha=0.9, edgecolor="none"); a1.set_title(f"$\\mu_0$ = {mu0:.3f} against present and forecast widths"); S.panel_letter(a1, "a", dx=-0.02)
+a1.legend(loc="lower left", bbox_to_anchor=(0.0, 0.0), fontsize=5.6, handlelength=1.4, frameon=True, framealpha=0.9, edgecolor="none"); a1.set_title(f"$\\mu_0$ = {mu0:.3f} against present constraints"); S.panel_letter(a1, "a", dx=-0.02)
 a2.plot(zz, EGx, color=S.IAM, label=r"$E_G$ above $\Lambda$CDM")
 a2.plot(zz, Dd, color=S.ALT, ls="--", label=r"growth factor $D$ below $\Lambda$CDM")
 a2.axhline(0, color=S.GR, lw=0.8)

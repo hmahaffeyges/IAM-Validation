@@ -3,10 +3,9 @@ Same equations as docs/verification/scripts/verify_obs_chapters.py sections A-D 
 beta_m = Om/2, E(a) = exp(1 - 1/a), mu = H^2/(H^2 + beta_m E H0^2), Sigma = 1, linear growth with the same early amplitude.
 fig_survey_ramp: (a) 1 - mu, the f sigma8 deficit and the growth deficit against z, with the 10, 50 and 90 % activation milestones of
   1 - mu(0); (b) what light sees: the E_G change, the potential change Delta Phi/Phi = Delta D/D (Sigma = 1) and the ISW source (1 - f) D / a.
-fig_survey_precision: the precision each test needs. (a) Separation of the IAM mu(z) from GR as a function of the template error sigma(mu0),
-  using the template-equivalent mu0 = -0.072 of verify_euclid_template.py, with Euclid's published errors on 1 + mu0 (23.3 %, 4 %, ~1 %;
-  Albuquerque et al. 2025, Frusciante et al. 2025); (b) separation of the matter-sector (72.26) and photon-sector (67.16) rates by a siren
-  population as a function of sigma(H0), with GW170817 alone (+12/-8, Abbott et al. 2017) and the 3 sigma requirement.
+fig_survey_precision: the precision the siren test needs: separation of the matter-sector (72.26) and photon-sector (67.16) rates by a siren
+  population as a function of sigma(H0), with GW170817 alone (+12/-8, Abbott et al. 2017) and the 3 sigma requirement. The growth forecast
+  with the IAM mu(z) is fig_p2_euclid_forecast.py (Section sec:sp_euclid).
 """
 import sys, pathlib; sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import numpy as np
@@ -56,22 +55,8 @@ S.panel_letter(a2, "b", dx=-0.14)
 S.save(fig, "part2", "fig_survey_ramp")
 
 # ---------------- precision -----------------
-mu0 = K.mu(1.0) - 1; Hm, Hg = 72.26, 67.16
-sg = np.linspace(0.02, 0.25, 300)
-fig, (a1, a2) = plt.subplots(1, 2, figsize=(S.TEXTW, 2.6), gridspec_kw=dict(wspace=0.33))
-mu0eq = 0.072   # template-equivalent mu0 over 0 < z < 2 (docs/verification/scripts/verify_euclid_template_output.txt)
-sg = np.linspace(0.008, 0.25, 400)
-a1.plot(sg, mu0eq / sg, color=S.IAM, lw=1.6)
-for s_, nm, dx in ((0.233, "conservative cuts", -6), (0.04, "WL + GCph to $k\\approx4$/Mpc", 7), (0.01, "all probes, ~1 %", 7)):
-    a1.plot(s_, mu0eq / s_, "o", color=S.IAM, ms=4.5)
-    a1.annotate(f"{nm}: {mu0eq/s_:.1f}$\\sigma$", (s_, mu0eq / s_), xytext=(dx, 6), textcoords="offset points", fontsize=7,
-                ha="right" if dx < 0 else "left")
-for lev in (1, 2, 3):
-    a1.axhline(lev, color=S.LIGHT, lw=0.6, ls=":")
-a1.set_xlim(0, 0.25); a1.set_ylim(0, 8)
-a1.set_xlabel("Euclid error $\\sigma(\\mu_0)$ on the template"); a1.set_ylabel("separation of the IAM $\\mu(z)$ from GR ($\\sigma$)")
-a1.set_title("Growth: published Euclid errors")
-S.panel_letter(a1, "a", dx=-0.14)
+Hm, Hg = 72.26, 67.16
+fig, a2 = plt.subplots(figsize=(0.55 * S.TEXTW, 2.6))
 sh = np.linspace(0.5, 12, 300)
 a2.plot(sh, (Hm - Hg) / sh, color=S.ALT, lw=1.6)
 a2.axhline(3, color=S.LIGHT, lw=0.6, ls=":")
@@ -83,5 +68,4 @@ a2.annotate("GW170817 alone\n(+12/$-$8)", (sgw, (Hm - Hg) / sgw), xytext=(-4, 9)
 a2.set_xlim(0, 12); a2.set_ylim(0, 6)
 a2.set_xlabel("siren $\\sigma(H_0)$ (km s$^{-1}$ Mpc$^{-1}$)"); a2.set_ylabel(f"separation of {Hm} from {Hg} ($\\sigma$)")
 a2.set_title("Expansion: the two rates by sirens")
-S.panel_letter(a2, "b", dx=-0.14)
 S.save(fig, "part2", "fig_survey_precision")

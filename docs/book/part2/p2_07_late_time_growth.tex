@@ -22,8 +22,7 @@ unchanged within its uncertainty. When growth-rate data are included (Planck + R
 amplitude is allowed to float, the posterior of $\mu_0$ rises to the upper edge of its prior ($+0.2$) in every combination; the prediction lies
 inside the central $90\,\%$ credible interval in all four, with $10$--$21\,\%$ of the posterior below it. The model shifts $\sigma_8$ downward,
 from $0.813$ to $0.800$, without degrading the CMB fit. BAO angles and supernova distances are unaffected, as expected for a change that
-leaves the background expansion and $\Sigma=1$ untouched. How strongly Euclid can test this amplitude depends on the smallest scales it can model
-and on the redshift shape of $\mu(z)$ (Section~\ref{sec:lt_euclid}). All chains, configuration files and analysis scripts are in the repository
+leaves the background expansion and $\Sigma=1$ untouched. The survey forecast for this amplitude is in Section~\ref{sec:sp_euclid}. All chains, configuration files and analysis scripts are in the repository
 (\texttt{mgcamb\_validation/}).
 
 \section{Introduction}\label{sec:lt_intro}
@@ -208,7 +207,7 @@ how deeply the chain sampled its minimum and is not used as a test; the free amp
 
 \subsection{Planck alone (Runs A, B, C)}
 Table~\ref{tab:lt_planck} gives the marginalised constraints from Planck alone. The fixed prediction $\mu_0=-0.135$ gives $\Delta\chi^2=+0.96$
-relative to $\Lambda$CDM, a likelihood ratio of $0.62$ \measured. With the same number of free parameters, IAM's own equations reproduce the Planck data as well as $\Lambda$CDM with no added parameter.
+relative to $\Lambda$CDM, a likelihood ratio of $0.62$ \measured. With the same number of free parameters, IAM's own equations reproduce the Planck data with no added parameter.
 When $\mu_0$ floats (Run B) the posterior is consistent with GR and with the prediction (Table~\ref{tab:lt_free}); it is broad, reflecting the limited
 sensitivity of the CMB alone to late-time growth when $\Sigma=1$.
 
@@ -336,7 +335,7 @@ rising. Both are consistent with the prediction. \measured}\label{fig:lt_mu0}\en
 \subsection{Compatibility with current data}
 The principal result is that a zero-parameter prediction, a $13.6\,\%$ suppression of the effective gravitational coupling at $z=0$ from
 $\beta=\Omega_m/2$, passes the full Planck 2018 likelihood without tension. The values $\Delta\chi^2=+0.96$ (Planck) and $+0.56$ (Planck + RSD)
-correspond to likelihood ratios of $0.62$ and $0.75$ for a model with the same number of free parameters: IAM's own equations reproduce the data as well as $\Lambda$CDM with no added parameter.
+correspond to likelihood ratios of $0.62$ and $0.75$ for a model with the same number of free parameters: IAM's own equations reproduce the data with no added parameter.
 Most proposed late-time modifications of gravity are excluded or tightly constrained by Planck; the compatibility of this prediction with current
 data was not guaranteed in advance and is a meaningful consistency check \interp.
 
@@ -366,24 +365,10 @@ data gives $\mu_0=0.08^{+0.21}_{-0.19}$ (Abbott et al.\ 2023~\cite{DESY3Ext}). A
 2024~\cite{Andrade2024}). The DESI 2024 full-shape analysis gives $\mu_0=0.11^{+0.45}_{-0.54}$ with BAO and BBN, and $0.04\pm0.22$ with CMB and DES Y3
 (DESI Collaboration 2025~\cite{DESI2024VII}). The predicted $\mu_0=-0.136$ lies inside the allowed region of every one.
 
-\subsection{What next-generation surveys can do}\label{sec:lt_euclid}
+\subsection{What next-generation surveys can do}
 With $\mu_0$ free, Planck + RSD gives $\sigma(\mu_0)=0.125$ (chain E), so at present precision the prediction is $1.1\sigma$ from general relativity
-\calc.
-
-Euclid's own forecasts are made for $\mu(z)=1+\mu_0\,\Omega_{\rm DE}(z)/\Omega_{\rm DE}(0)$~\cite{Albuquerque2025,Frusciante2025}. The $68\,\%$ error on
-$1+\mu_0$ is $23.3\,\%$ with conservative scale cuts and all primary probes, $4\,\%$ for weak lensing and photometric clustering alone taken to
-$k\approx4\,{\rm Mpc}^{-1}$, where the nonlinear modelling has been validated to $1\,\%$, and of order $1\,\%$ for all probes with those scales
-\observed. The IAM $\mu(z)$ falls off with redshift faster than that template: for the same $\mu_0=-0.136$ it gives $\mu=0.982$ at $z=1$ against the
-template's $0.958$, so the significance is not $|\mu_0|/\sigma$. Matching the linear-growth deficit over $0<z<2$ gives a template-equivalent
-$\mu_0\approx-0.07$ ($-0.03$ over the spectroscopic bins alone): about $0.3\sigma$ with conservative cuts, $1.8\sigma$ at $\sigma(\mu_0)=0.04$ and about
-$7\sigma$ at one per cent \calc{} (\texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}verify\_euclid\_template.py}). A forecast
-made with the IAM $\mu(z)$ itself, and for Euclid with CMB lensing and spectroscopic growth, is the next calculation \openprob.
-The MGCAMB form used in this chapter is the same $\Omega_{\rm DE}$-tracking form, so the published Euclid figure applies directly to the runs here.
-
-For DESI, a growth-only estimate with assumed final-survey errors of $0.012$--$0.035$ on $f\sigma_8$ in seven bins between $z=0.30$ and $2.33$ (BGS,
-three LRG bins, two ELG bins, quasars) separates the IAM $\mu(z)$ from $\Lambda$CDM at about $0.75\sigma$, at the same primordial amplitude \calc.
-These per-bin errors are extrapolations, not published specifications, and the estimate is a lower bound on what full-shape and lensing
-cross-correlations would add \prediction.
+\calc. The forecast for Euclid, Planck lensing and DESI, made with the IAM $\mu(z)$ itself, is in Section~\ref{sec:sp_euclid}. The MGCAMB form
+used in this chapter is the $\Omega_{\rm DE}$-tracking form in which Euclid's own forecasts are made.
 
 \subsection{Limitations and future directions}
 \begin{enumerate}
@@ -412,8 +397,7 @@ framework, gives these findings:
 \item With $\mu_0$ free, the prediction lies inside the central $90\,\%$ credible interval in every combination; the posterior leans toward positive
 $\mu_0$ and reaches the prior edge.
 \item BAO and supernova distances are unaffected, as a perturbation-level change with $\Sigma=1$ and an unmodified background requires.
-\item Euclid's sensitivity to the IAM $\mu(z)$ ranges from about $0.3\sigma$ to about $7\sigma$, depending on the scales it can model; a forecast with
-the IAM $\mu(z)$ itself is open.
+\item The survey forecast with the IAM $\mu(z)$ itself is in Section~\ref{sec:sp_euclid}.
 \end{enumerate}
 The parameterisation $\mu<1$, $\Sigma=1$ lies in a less explored region of the modified-gravity parameter space than $f(R)$, DGP and most
 scalar--tensor theories. Current data do not disfavour it, and it makes specific predictions for the next surveys. The mechanism itself, coded

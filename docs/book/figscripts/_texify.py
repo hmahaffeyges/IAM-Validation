@@ -18,7 +18,7 @@ def _exp(m):
 
 # (pattern, replacement or function) - order matters: longer tokens first
 _TOK = [
-    (r"Table~\\ref\{[^}]+\}", None),                     # pass-through LaTeX from the overrides file
+    (r"(?:Table|Section|Chapter)~\\ref\{[^}]+\}", None),                     # pass-through LaTeX from the overrides file
     (r"\\ref\{[^}]+\}", None),
     (r"~?\\cite\{[^}]+\}", None), (r"\\(?:observed|openprob|prediction|calc)\{\}", None),
     (r"(?<![\w.])(\d+(?:\.\d+)?)e([+-]?\d+)\b", _exp),

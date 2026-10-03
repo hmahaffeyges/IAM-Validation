@@ -340,7 +340,7 @@
   "statement": [
    [
     "The matter-sector coupling today is mu(z=0) = 0.864 (mu0 = -0.136) with Sigma = 1 and no free parameter; Euclid's complete DR1 (mid-2027, sigma(mu0) ~0.08) can reach ~1.7 sigma and the final Euclid survey (sigma(mu0) ~0.04) ~3.4 sigma; current data (DESI full-shape mu0 = 0.11 +0.45/-0.54; DES Y3+external 0.08 +0.21/-0.19) are consistent with both IAM and GR.",
-    "IAM fixes the matter-sector coupling with no free parameter: mu(z=0) = 0.864, a deviation of -0.136 from GR today, mu = 0.948 at z = 0.5 and 0.982 at z = 1, with Sigma = 1 at every redshift. Euclid's published sensitivity to a mu deviation (for a mu(z) that follows Omega_DE(z)) is about 1 % with all probes and small scales, 4 % for weak lensing with photometric clustering to k ~ 4/Mpc, and 23 % with conservative scale cuts. IAM's mu(z) differs in shape from that template, so these do not convert directly into a significance."
+    "IAM fixes the matter-sector coupling with no free parameter: mu(z=0) = 0.864, a deviation of -0.136 from GR today, mu = 0.948 at z = 0.5 and 0.982 at z = 1, with Sigma = 1 at every redshift. The survey forecast with IAM's own mu(z), for Euclid with Planck lensing and DESI, is in Section~\\ref{sec:sp_euclid}; the decisive test is the turn-on of the growth ramp across z ~ 0.3-1."
    ]
   ],
   "test_and_date": [
@@ -349,8 +349,7 @@
     "Euclid DR1 (mid-2027) and full survey; Euclid with Planck lensing and DESI"
    ]
   ],
-  "open": "The Euclid forecast with IAM's own mu(z), alone and with Planck lensing and DESI, is being computed.",
-  "reason": "Euclid sensitivity replaced by the published forecast, arXiv:2506.03008",
+  "reason": "Euclid sensitivity replaced by the published forecast, arXiv:2506.03008; forecast numbers moved to the book's forecast section (sec:sp_euclid)",
   "also": [
    "COS-004",
    "COS-072",

@@ -18,10 +18,10 @@ experiment no one has announced. A prediction built on a calibrated input says s
 are not in yet. \Stension{} The data currently disagree.
 
 \section{Cosmology: growth, with lensing and distances unchanged}
-Figure~\ref{fig:cosmo_tests} sets the coupling against present constraints and the published Euclid forecast, with the growth signatures that come with it.
+Figure~\ref{fig:cosmo_tests} sets the coupling against present constraints, with the growth signatures that come with it; the survey forecast is in Section~\ref{sec:sp_euclid}.
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part5/fig_cosmo_tests.pdf}
-\caption{(a) The coupling today, $\mu_0=-0.136$ \derived, against the present free-$\mu_0$ constraints, Planck with redshift-space distortions $0.039\pm0.125$ and DESI full shape $0.11^{+0.45}_{-0.54}$ \measured, and the published forecast for Euclid alone, full survey, conservative settings, all primary probes, $\Lambda$CDM fiducial: a 23.3\,\% relative error on $\bar\mu_0=1+\mu_0$ at 68.3\,\%, $\sigma(\mu_0)\approx0.23$~\cite{Albuquerque2025,Frusciante2025} \observed. The forecast's $\mu(z)$ tracks $\Omega_{\rm DE}(z)$ with $\Sigma_0$ free; the IAM $\mu(z)$, with $\Sigma=1$, falls off faster, and its template-equivalent $\mu_0\approx-0.07$ (dotted) lies about $0.3\sigma$ from general relativity on that forecast; with the published 4\,\% and 1\,\% errors it would lie about $1.8\sigma$ and $7\sigma$ away (Chapter~\ref{ch:latetime}) \calc. A forecast with the IAM $\mu(z)$ itself, and for Euclid with Planck lensing and DESI, is \openprob. (b) From the linear growth equation with the same early amplitude: $E_G$ above $\Lambda$CDM by 1.8\,\% at $z=0.3$ and 1.1\,\% at 0.5 (C8), and the growth factor 0.78\,\% lower today (C4), with $\Sigma=1$. \calc}\label{fig:cosmo_tests}
+\caption{(a) The coupling today, $\mu_0=-0.136$ \derived, against the present free-$\mu_0$ constraints, Planck with redshift-space distortions $0.039\pm0.125$ and DESI full shape $0.11^{+0.45}_{-0.54}$ \measured; the survey forecast is in Section~\ref{sec:sp_euclid}. (b) From the linear growth equation with the same early amplitude: $E_G$ above $\Lambda$CDM by 1.8\,\% at $z=0.3$ and 1.1\,\% at 0.5 (C8), and the growth factor 0.78\,\% lower today (C4), with $\Sigma=1$. \calc}\label{fig:cosmo_tests}
 \end{figure}
 
 The law fixes the matter-sector coupling with no free parameter: $\mu(a)=H^2_{\Lambda\rm CDM}/(H^2_{\Lambda\rm CDM}+\beta_mE(a)H_0^2)$,
@@ -32,20 +32,17 @@ $\beta_m=\Omega_m/2$, $E(a)=e^{1-1/a}$, and $\Sigma=1$ (Chapter~\ref{ch:theory})
 \toprule
 prediction & test and date & falsified if \\\midrule\endhead
 \textbf{C1.} \Spending{} The coupling today: $\mu(0)=0.864$, $\mu_0=-0.136$; $\mu=0.948$ at $z=0.5$, $0.982$ at $z=1$. [COS-004, 058, 072, 124, 127, 332]
- & Euclid clustering and weak lensing; Euclid's published sensitivity is about 1\,\% on $1+\mu_0$ with all probes and small scales, 4\,\% for weak lensing with photometric clustering, 23\,\% with conservative cuts~\cite{Albuquerque2025} \observed; the forecast for IAM's own $\mu(z)$ is being computed
- & a fit with IAM's own $\mu(z)$ excluding the predicted amplitude at survey precision \\ \cmidrule{1-3}
+ & Euclid clustering and weak lensing, with Planck lensing and DESI; forecast in Section~\ref{sec:sp_euclid}
+ & a fit with IAM's own $\mu(z)$ excluding the predicted amplitude at survey precision \\
 \textbf{C2.} \Spending{} Lensing is unchanged: $\Sigma_0=0$ exactly, at every redshift. [COS-301, 345, 021]
  & the same Euclid tomography; CMB lensing
  & $\Sigma\ne1$ detected \\ \cmidrule{1-3}
 \textbf{C3.} \Spending{} The $f\sigma_8$ deficit against $\Lambda$CDM (same early amplitude): 4.25\,\% at $z=0$, 3.42\,\% at 0.1, 2.17\,\% at 0.3, 1.35\,\% at 0.5,
  0.41\,\% at 1, 0.04\,\% at 2, a curved ramp, not a constant rescaling. [COS-324, 325, 069, 036, 331]
-I need both complete passages to merge them properly. You've provided two fragments that appear to be from different parts of a table or aligned environment (they each end mid-thought or with `\\`), and they describe different observational datasets and constraints.
-
-Please provide:
-1. The full VERSION A passage (from its opening to a natural end)
-2. The full VERSION B passage (from its opening to a natural end)
-
-Once I have the complete context, I can identify which corrections each version makes and produce the merged result with all corrections retained.
+ & growth surveys through the mid-2030s, about $2.5$--$3\sigma$ on its size with the CMB fixing the early amplitude; the switch-on itself needs per-cent
+ growth data at $z<0.3$ (Section~\ref{sec:sp_euclid}); next: DESI DR2 full shape. Today: thirteen binned points and the DESI DR1 peculiar-velocity
+ point (Table~\ref{tab:st_fsig8}) follow the ramp and are not yet precise enough to decide it
+ & $f\sigma_8(z)$ follows $\Lambda$CDM and excludes the deficit, or the deficit is a constant factor \\
 \textbf{C4.} \Spending{} The growth factor $D$ is 0.78\,\% lower today; the potentials follow it by the same 0.78\,\%. [COS-070, 331]
  & growth and lensing amplitude together
  & no growth deficit at survey precision \\ \cmidrule{1-3}
@@ -202,9 +199,9 @@ What the data in hand already say, and what each result means.
 \toprule
 claim and data & outcome & note \\\midrule\endhead
 Planck 2018 fit with the coupling fixed: $\Delta\chi^2=+0.54$ (Level~2), $+0.56$ to $+1.73$ (Level~1 combinations), no added parameter [COS-018, 117]
-& \Spassed & IAM's own equations, coupling fixed by the virial partition, reproduce the CMB as well as $\Lambda$CDM with no added parameter \\ \cmidrule{1-3}
+ & \Spassed & IAM's own equations, coupling fixed by the virial partition, reproduce the CMB as well as $\Lambda$CDM with no added parameter \\
 Only $\sigma_8$ moves in the chains: $0.8087\to0.7998$, $1.5\sigma$; $\ln A_s$ and $\Omega_m$ move under $0.1\sigma$ [COS-012, 061, 314]
- & \Spassed & the late-time term lowers $\sigma_8$ without moving the early-universe parameters \\ \cmidrule{1-3}
+ & \Spassed & the late-time term lowers $\sigma_8$ without moving the early-universe parameters \\
 Background form of the term: $H_0=61.45\pm0.42$, $10.9\sigma$ from Planck [COS-005, 240]
  & \Spassed{} background form excluded, as the test was built to show & in IAM the background does not change; the term lives in the entropy functional and enters through the perturbations \\ \cmidrule{1-3}
 Supernova distances with $\beta$ applied: $\Delta\chi^2=+23.6$ [COS-107]
@@ -231,8 +228,8 @@ Quasiparticle parity rates rise over 20--170~mK while $T_1$ stays flat to about 
 \end{longtable}}
 
 \section{What the list shows}
-The cosmology carries the decisive tests, and they are close. One parameter-free line fixes $\mu_0$, the $f\sigma_8$ ramp, $\Sigma=1$, $E_G$,
-$S_8$ and the two Hubble rates together; how strongly Euclid decides it depends on the smallest scales it can model, $0.3\sigma$ to about $7\sigma$ for the IAM $\mu(z)$ (Chapter~\ref{ch:latetime}), and redshift-space distortions at the per-cent level test the shape of the ramp. The device floors are derived, and the open device tests are
+The cosmology carries clear tests, and the surveys that make them are under way. One parameter-free line fixes $\mu_0$, the $f\sigma_8$ ramp, $\Sigma=1$, $E_G$,
+$S_8$ and the two Hubble rates together; growth surveys through the mid-2030s measure its size to about $2.5$--$3\sigma$ (Section~\ref{sec:sp_euclid}). The device floors are derived, and the open device tests are
 measurements that one laboratory can make on one device. The decoherence predictions are the most distinctive, a coherence time that
 grows with temperature, and the furthest from current experiments.
 

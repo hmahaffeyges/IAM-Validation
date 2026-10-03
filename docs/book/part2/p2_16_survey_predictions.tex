@@ -5,12 +5,12 @@
 % standard sirens (Eq. 8), CMB lensing, the equation of state, the scorecard (Table 6) and the conclusion. Not carried, each withdrawn by a
 % confirmed correction: the Fisher-forecast significances and detection timeline (Eqs. 2-4, Table 2, Fig. 1(c); errata SP5), the per-bin
 % sigma(mu) columns of Table 3 (same unsourced forecast, SP5), the tomographic mock and its beta_m recovery (Sec. 4.2, Fig. 3(c)-(f); SP7), the
-% neutrino-mass bound (Sec. 6.2; SP8), the S/N map of Fig. 4(f) (SP5). Euclid sensitivity is stated only as in Chapter ch:latetime,
-% Section sec:lt_euclid (verify_euclid_template.py). Corrections: PAPER_ERRATA.md rows SP1-SP10, ST4, ST7, T14, S10; check file
+% neutrino-mass bound (Sec. 6.2; SP8), the S/N map of Fig. 4(f) (SP5). Survey forecasts live only in this chapter, Section
+% sec:sp_euclid: the Fisher forecast with the IAM mu(z) (docs/verification/forecasts/euclid_fisher_iam_mu). Corrections: PAPER_ERRATA.md rows SP1-SP10, ST4, ST7, T14, S10; check file
 % docs/verification/observations/SURVEY_PREDICTIONS_CHECK.md; theory/THEORY_CHECK.md #10-#11. Numbers:
 % docs/verification/scripts/verify_dark_energy_far_future_surveys_book.py (section C), verify_survey_predictions.py, verify_obs_chapters.py
-% (E_G and CMB lensing: section H). Figures: figscripts/fig_p2_survey_tests.py (fig_survey_ramp, fig_survey_precision) and
-% fig_p2_de_survey_carry.py (fig_survey_transition, fig_survey_isw).
+% (E_G and CMB lensing: section H). Figures: figscripts/fig_p2_survey_tests.py (fig_survey_ramp, fig_survey_precision),
+% fig_p2_de_survey_carry.py (fig_survey_transition, fig_survey_isw) and fig_p2_euclid_forecast.py (fig_survey_euclid_forecast).
 \chapter{What the surveys will measure}\label{ch:surveys}
 
 \section*{The place}
@@ -167,22 +167,74 @@ $0.02\pm0.19$~\cite{Andrade2024}. The free-$\mu_0$ chains of Chapter~\ref{ch:lat
 end $-0.304$; Planck + RSD, median $+0.064$, lower end $-0.204$. The prediction $\mu_0=-0.136$ lies inside every one of these, and so does general
 relativity. \fitted\ No present measurement discriminates.
 
-\section{The timeline}\label{sec:sp_timeline}
-Euclid's complete first data release, with the clustering and lensing products needed for cosmology, is scheduled for mid-2027; no forecast of
-$\sigma(\mu_0)$ for it has been published, so none is quoted here. For the full survey: Euclid's own forecasts are made for $\mu(z)=1+\mu_0\,\Omega_{\rm DE}(z)/\Omega_{\rm DE}(0)$~\cite{Albuquerque2025,Frusciante2025}. The 68\,\% error
-on $1+\mu_0$ is $23.3\,\%$ with conservative scale cuts and all primary probes, $4\,\%$ for weak lensing and photometric clustering alone taken to
-$k\approx4\,{\rm Mpc}^{-1}$, where the nonlinear modelling has been validated to 1\,\%, and of order $1\,\%$ for all probes with those scales.
-\observed{} The IAM $\mu(z)$ falls off with redshift faster than that template: for the same $\mu_0=-0.136$ it gives $\mu=0.982$ at $z=1$ against
-the template's $0.958$, so the significance is not $|\mu_0|/\sigma$. Matching the linear-growth deficit over $0<z<2$ gives a template-equivalent
-$\mu_0\approx-0.07$ ($-0.03$ over the spectroscopic bins alone): about $0.3\sigma$ with conservative cuts, $1.8\sigma$ at $\sigma(\mu_0)=0.04$ and about
-$7\sigma$ at one per cent \calc{} (\texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}verify\_euclid\_template.py}). A forecast made
-with the IAM $\mu(z)$ itself, and for Euclid with CMB lensing and spectroscopic growth, is the next calculation. \openprob\
-Significances for intermediate releases and for combinations with DESI Year~5 and CMB-S4 need the same forecast and are not quoted.
+\section{Euclid, DESI and the turn-on of growth}\label{sec:sp_euclid}
+This is the book's one home for the survey forecasts; every other chapter points here. Euclid's complete first data release, with the
+clustering and weak-lensing products needed for cosmology, is scheduled for mid-2027~\cite{ESA2026DR1} \observed. Euclid's own forecasts are made
+for the template $\mu(z)=1+\mu_0\,\Omega_{\rm DE}(z)/\Omega_{\rm DE}(0)$, on which the full survey reaches about $1\,\%$ on $1+\mu_0$ with all
+probes to the smallest modelled scales, $4\,\%$ for weak lensing with photometric clustering and $23\,\%$ with conservative cuts~\cite{Albuquerque2025,Frusciante2025} \observed. The IAM
+$\mu(z)$ has its own shape, so the forecast here is made with it directly.
 
-Redshift-space distortions test the shape directly: the deficit falls from $4.25\,\%$ at $z=0$ to $1.35\,\%$ at $z=0.5$ and $0.41\,\%$ at $z=1$
-```latex
-(Section~\ref{sec:sp_falsify}). \calc\ \prediction
-```
+\paragraph{The forecast.} The amplitude $A$ scales IAM's deviation, $\mu(z)=1+A\,[\mu_{\rm IAM}(z)-1]$ with $\Sigma=1$: $A=1$ is IAM, $A=0$ is
+general relativity, and the significance of the test is $1/\sigma(A)$. Every case is marginalised over $\Omega_m$, $\Omega_b$, $h$, $n_s$,
+$\sigma_8$ and all nuisance parameters, about the Planck 2018 background, once with $\Sigma=1$ fixed, as IAM predicts, and once with $\Sigma_0$ free
+(Table~\ref{tab:sp_euclid}, Figure~\ref{fig:survey_euclid_forecast}) \calc. About a general-relativity fiducial the errors agree to about
+$1\,\%$.
+\begin{table}[htbp]\centering\small
+\caption[Fisher forecast with the IAM $\mu(z)$]{Fisher forecast with the IAM $\mu(z)$ for Euclid, Planck CMB lensing and DESI: the error $\sigma(A)$ on
+the amplitude of IAM's deviation ($A=1$ IAM, $A=0$ general relativity) and the significance $1/\sigma(A)$, IAM fiducial. Pessimistic and
+optimistic are the Euclid IST:F scale settings; DR1 is the full survey scaled by area. Forecast package
+\texttt{docs/\allowbreak{}verification/\allowbreak{}forecasts/\allowbreak{}euclid\_fisher\_iam\_mu} (\texttt{out/\allowbreak{}results.csv}). \calc}\label{tab:sp_euclid}
+\begin{tabular}{@{}lcccc@{}}\toprule
+ & \multicolumn{2}{c}{$\Sigma=1$ fixed} & \multicolumn{2}{c}{$\Sigma_0$ free}\\
+survey and combination & $\sigma(A)$ & $1/\sigma(A)$ & $\sigma(A)$ & $1/\sigma(A)$\\\midrule
+Euclid DR1 (1900\,deg$^2$), pessimistic & 2.532 & $0.39\sigma$ & 3.640 & $0.27\sigma$\\
+Euclid DR1 (1900\,deg$^2$), optimistic & 1.472 & $0.68\sigma$ & 1.754 & $0.57\sigma$\\
+Euclid full survey, pessimistic & 0.901 & $1.11\sigma$ & 1.295 & $0.77\sigma$\\
+Euclid full survey, optimistic & 0.524 & $1.91\sigma$ & 0.624 & $1.60\sigma$\\
+\quad + Planck lensing, pessimistic & 0.897 & $1.12\sigma$ & 1.295 & $0.77\sigma$\\
+\quad + Planck lensing, optimistic & 0.523 & $1.91\sigma$ & 0.624 & $1.60\sigma$\\
+\quad + Planck lensing + DESI, pessimistic & 0.759 & $1.32\sigma$ & 0.866 & $1.15\sigma$\\
+\quad + Planck lensing + DESI, optimistic & 0.482 & $2.07\sigma$ & 0.550 & $1.82\sigma$\\
+\quad + Planck lensing + DESI ($k_{\max}=0.2\,h$\,Mpc$^{-1}$), optimistic & 0.392 & $2.55\sigma$ & 0.413 & $2.42\sigma$\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_survey_euclid_forecast.pdf}
+\caption[The forecast with the IAM $\mu(z)$]{The forecast with the IAM $\mu(z)$. (a) The $f\sigma_8$ deficit of IAM against $\Lambda$CDM ($A=1$) with the
+$1\sigma$ band of $A$ for the pessimistic and optimistic combinations of the full Euclid survey with Planck lensing and DESI ($\sigma_A=0.76$ and
+$0.48$), the DESI $f\sigma_8$ errors (2016 forecast, $k<0.1\,h$\,Mpc$^{-1}$~\cite{DESI2016}) and the Euclid spectroscopic $f\sigma_8$ errors of
+this Fisher matrix. (b) The Euclid $3\times2$pt spectra of IAM against $\Lambda$CDM, shear (bin $5\times5$), galaxy--galaxy lensing (G3$\times$L9)
+and photometric clustering (bin $3\times3$), lowered by $0.3$--$1.1\,\%$, with their errors. Package
+\texttt{docs/\allowbreak{}verification/\allowbreak{}forecasts/\allowbreak{}euclid\_fisher\_iam\_mu}. \calc}\label{fig:survey_euclid_forecast}
+\end{figure}
+
+\paragraph{Method and its limits.} The forecast is a Fisher matrix. Euclid spectroscopic clustering and the photometric $3\times2$pt probes follow
+the IST:F specifications, with HALOFIT applied to the growth-rescaled linear spectrum; Planck CMB lensing uses a white reconstruction noise set to
+Planck's $40\sigma$ detection~\cite{Planck2018VIII}; DESI enters through its published $f\sigma_8$ projections~\cite{DESI2016}. Probes are added with
+no cross-covariances, which makes the combinations slightly optimistic, and DR1 (1900\,deg$^2$~\cite{ESA2026DR1}) is the full survey scaled by area.
+The pipeline reproduces IAM's growth numbers exactly, Euclid's published weak-lensing errors to within $10\,\%$, and the template error for
+spectroscopic clustering alone, $\sigma(\mu_0)=0.536$ against the published $0.530$~\cite{Albuquerque2025}. The published conservative
+$3\times2$pt case is not reproduced, so that setting is not carried here. Methods, validation and code:
+\texttt{docs/\allowbreak{}verification/\allowbreak{}forecasts/\allowbreak{}euclid\_fisher\_iam\_mu}. \calc
+
+\paragraph{Where the signal lives.} IAM's deficit lives at low redshift: $f\sigma_8$ is lower by $4.25\,\%$ at $z=0$, $2.17\,\%$ at $0.3$,
+$1.35\,\%$ at $0.5$ and $0.41\,\%$ at $1$ (Table~\ref{tab:sp_deviations}) \calc. Euclid's spectroscopic range, $0.9<z<1.8$, starts where the deficit
+has fallen to $0.5\,\%$, and the photometric spectra see it in projection, lowered by $0.3$--$1.1\,\%$ \calc. That is why the significances of
+Table~\ref{tab:sp_euclid} run from $0.27\sigma$ for DR1 to $2.55\sigma$ for the strongest combination: the forecast puts the decision where IAM puts its signal, in the
+growth data below $z\approx1$.
+
+\paragraph{The turn-on and the low-redshift surveys.} \prediction\ IAM predicts a growth deficit that switches on as structure takes over: it
+rises from $0.41\,\%$ at $z=1$ to $2.17\,\%$ at $z=0.3$ and $4.25\,\%$ today, a curved ramp and not a constant rescaling. The low-redshift growth
+surveys were projected onto the same amplitude $A$ \calc: DESI peculiar velocities and bright-galaxy redshift-space distortions, the full DESI
+survey in all its tracers, 4HS, WALLABY, supernova peculiar velocities from ZTF and Rubin, and galaxy--CMB-lensing cross-correlation. Close to us the
+deficit is nearly constant, so low-redshift growth data alone trade it against $\sigma_8$; with the CMB fixing the early amplitude, as IAM's own
+equations do, each survey reaches $0.2$--$1.5\sigma$. Growth surveys through the mid-2030s reach about $2.5$--$3\sigma$ on its size (Euclid with
+Planck lensing, all of DESI and the velocity surveys: $2.6\sigma$, $2.8\sigma$ with the CMB amplitude); the switch-on itself needs per-cent growth
+data at $z<0.3$. The next dataset is the DESI DR2 full-shape growth measurement (three years of data, about $0.1<z<2$). Today the thirteen binned
+points and the DESI DR1 peculiar-velocity point at $z=0.07$ (Table~\ref{tab:st_fsig8}) follow the ramp and are not yet precise enough to decide it
+\observed. Method: the same Fisher pipeline, with a peculiar-velocity module that reproduces the published DESI--LSST forecast of Howlett et al.\ to
+$1.2\,\%$; DESI DR2 errors are projected from DR1 by effective volume, and survey overlaps are added by inverse variance.
 
 \paragraph{Peculiar velocities.} In linear theory the amplitude of large-scale bulk flows scales with $f\sigma_8$ at the survey redshift. At $z=0.01$--$0.05$ the informational term lowers it by $4.2$--$3.8\,\%$ against $\Lambda$CDM with the same early amplitude \calc\ \prediction. CosmicFlows-4 gives $395\pm29$ km\,s$^{-1}$ in a sphere of radius $150\,h^{-1}$\,Mpc against a $\Lambda$CDM expectation of $139$ km\,s$^{-1}$ (Watkins et al.\ 2023~\cite{Watkins2023}) \observed. A four per cent change in the expectation is far smaller than that difference; whether the excess is a property of the flow or of the survey geometry and estimator is open, and bulk flows do not test the term at present precision \openprob.
 
@@ -198,8 +250,8 @@ network give a $2\,\%$ measurement of $H_0$ from about fifty binary-neutron-star
 \observed; at $2\,\%$ the two rates separate at $3.5\sigma$, and at $1\,\%$ at $7.1\sigma$. \calc\ SH0ES ($73.04\pm1.04$~\cite{Riess2022}) is
 $0.75\sigma$ from $72.26$. A siren sample at that precision provides a direct test of the sector split. \prediction
 \begin{figure}[htbp]\centering
-\includegraphics[width=\textwidth]{figures/part2/fig_survey_precision.pdf}
-\caption[The precision each test needs]{The precision each test needs. (a) Separation of the IAM $\mu(z)$ from general relativity against the error $\sigma(\mu_0)$ of Euclid's template, at the template-equivalent $\mu_0\approx-0.07$ (Chapter~\ref{ch:latetime}); points: the published errors on $1+\mu_0$, 23.3\,\% with conservative scale cuts, 4\,\% for weak lensing and photometric clustering to $k\approx4\,{\rm Mpc}^{-1}$ and about 1\,\% with all probes~\cite{Albuquerque2025,Frusciante2025}, giving about $0.3\sigma$, $1.8\sigma$ and $7\sigma$. A forecast with the IAM $\mu(z)$ itself is open. (b) Separation of the matter-sector rate 72.26 from the photon-sector 67.16 by a siren population against its $\sigma(H_0)$; $3\sigma$ needs $\sigma(H_0)\le1.70$. Square: GW170817 alone ($70.0^{+12.0}_{-8.0}$~\cite{Abbott2017Siren}, mean half-width 10). \prediction\ \calc}\label{fig:survey_precision}
+\includegraphics[width=0.6\textwidth]{figures/part2/fig_survey_precision.pdf}
+\caption[The precision the siren test needs]{The precision the siren test needs. Separation of the matter-sector rate 72.26 from the photon-sector 67.16 by a siren population against its $\sigma(H_0)$; $3\sigma$ needs $\sigma(H_0)\le1.70$. Square: GW170817 alone ($70.0^{+12.0}_{-8.0}$~\cite{Abbott2017Siren}, mean half-width 10). The growth forecast is in Section~\ref{sec:sp_euclid}. \prediction\ \calc}\label{fig:survey_precision}
 \end{figure}
 
 \section{The equation of state seen by surveys}\label{sec:sp_weff}
@@ -271,9 +323,9 @@ Growth, growth-rate and potential deviations; activation milestones; transition 
 ISW source from $\Sigma=1$, Eq.~\eqref{eq:sp_iswsrc} & \derived\\
 $E_G$, CMB lensing and ISW changes; per-sample $A_{\rm ISW}$ & \calc\\
 Shape of $\mu(z)$: $\beta_m$ from a tomographic reconstruction & \prediction\\
-Tomographic and combined-survey forecasts with the exact $\mu(z)$ & \openprob\\
-Current $\mu_0$ constraints; GW170817; SH0ES; Planck lensing; KiDS-1000 & \observed\\
+Fisher forecast with the IAM $\mu(z)$: Euclid DR1 $0.27$--$0.68\sigma$, full survey $0.77$--$1.91\sigma$, with Planck lensing and DESI $1.15$--$2.55\sigma$ & \calc\\
+Growth deficit switching on as structure takes over; about $2.5$--$3\sigma$ by the mid-2030s, DESI DR2 full shape next & \calc, \prediction\\
+Current $\mu_0$ constraints; Euclid's published template errors; GW170817; SH0ES; Planck lensing; KiDS-1000 & \observed\\
 Free-$\mu_0$ chain bounds & \fitted\\
-Euclid full survey, IAM $\mu(z)$: $0.3\sigma$ (conservative cuts) to ${\sim}7\sigma$ (smallest scales) & \calc\\
 Siren $H_0=72.26$; $3.5\sigma$ separation at a $2\,\%$ siren measurement & \prediction\ / \calc\\\bottomrule
 \end{tabularx}\end{center}

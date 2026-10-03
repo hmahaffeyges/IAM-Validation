@@ -259,10 +259,7 @@ IAM makes three near-term quantitative predictions.
 \item \textbf{Euclid $\mu$--$\Sigma$ measurement.} The IAM prediction $\mu_0=-0.136$, $\Sigma_0=0$ is directly testable by Euclid. The combination $\mu<1$
 with $\Sigma=1$ is the signature IAM predicts among viable models in the $\mu$--$\Sigma$ plane: in the quasi-static regime $f(R)$ gravity gives $\mu>1$ with
 $\Sigma=1$~\cite{PogosianSilvestri2016}; the normal branch of DGP gives $\mu>1$; the self-accelerating branch of DGP shares $\mu<1$, $\Sigma=1$ but carries a
-ghost~\cite{Koyama2007} and is in tension with CMB, supernova and $H_0$ data~\cite{Fang2008}; general Horndeski theories give $\Sigma\neq1$. The size of the
-test is set out in Section~\ref{sec:lt_euclid}: Euclid's forecasts use the template $\mu=1+\mu_0\,\Omega_{\rm DE}(z)/\Omega_{\rm DE}(0)$; the IAM $\mu(z)$
-falls off faster, and matching the linear-growth deficit over $0<z<2$ gives a template-equivalent $\mu_0\approx-0.07$ --- about $0.3\sigma$ with
-conservative scale cuts, $1.8\sigma$ at $\sigma(\mu_0)=0.04$, and about $7\sigma$ at one per cent. \calc\ \prediction
+ghost~\cite{Koyama2007} and is in tension with CMB, supernova and $H_0$ data~\cite{Fang2008}; general Horndeski theories give $\Sigma\neq1$. The forecast is in Section~\ref{sec:sp_euclid}. \prediction
 \item \textbf{The growth-rate trajectory.} The IAM $f\sigma_8(z)$ trajectory, suppressed by the matter-sector friction, is consistent with the DESI DR1
 full-shape growth data without requiring $w<-1$: on the six bins $\chi^2$ is $5.24$ for IAM (MGCAMB form) against $4.51$ for $\Lambda$CDM
 (Section~\ref{sec:vt_record}). \calc\ The interpretation proposed here is that the apparent phantom crossing at $z\sim0.5$ is a growth--geometry tension, not a
@@ -275,9 +272,8 @@ qualitatively distinct from a constant hydrostatic bias and testable with eROSIT
 throughout. \prediction\ The ratio holds in the Level~1 effective-coupling form; in the Level~2 form it is $1$ at every redshift, and which form applies
 inside virialised clusters is open (Chapter~\ref{ch:lensdyn}, Section~\ref{sec:ld_hold}). \openprob
 \end{enumerate}
-If Euclid, using the scales at which the nonlinear modelling has been validated, measures $\mu$ consistent with general relativity at the one-per-cent
-level, the IAM growth deficit is excluded at about $7\sigma$ and IAM in this form is ruled out. At $\sigma(\mu_0)\sim0.04$ the separation is $1.8\sigma$, which is
-not yet decisive. \prediction
+If the growth surveys measure $\mu$ consistent with general relativity at a precision that excludes the IAM amplitude, IAM in this form is
+ruled out; the decisive measurement is the turn-on of the growth ramp (Section~\ref{sec:sp_euclid}). \prediction
 
 % ============================================================
 \section{Summary}\label{sec:eg_summary}
@@ -292,8 +288,8 @@ The framework is consistent with the full Planck 2018 likelihood ($\Delta\chi^2=
 weak-lensing value, and places the two sector rates within $1\sigma$ of both Planck ($-0.37\sigma$) and SH0ES ($-0.75\sigma$) with no parameter
 adjustment. It carries no AIC penalty because no new free parameter is introduced.
 
-Euclid's $\mu$--$\Sigma$ measurement provides a direct test of the IAM prediction $\mu_0=-0.136$, $\Sigma_0=0$, with the sensitivity of
-Section~\ref{sec:lt_euclid}. The derivation chain, the Markov chains, the modified CAMB Fortran source and the analysis scripts are in the repository.
+Euclid's $\mu$--$\Sigma$ measurement provides a direct test of the IAM prediction $\mu_0=-0.136$, $\Sigma_0=0$, forecast in
+Section~\ref{sec:sp_euclid}. The derivation chain, the Markov chains, the modified CAMB Fortran source and the analysis scripts are in the repository.
 
 Everything here can be rerun today from the repository. A cosmologist can set the comparison with the other entropic proposals against the same likelihood, and a relativist can take the $\mu$--$\Sigma$ test to the survey forecasts before the data arrive.
 
@@ -301,41 +297,23 @@ Everything here can be rerun today from the repository. A cosmologist can set th
 \providecommand{\lightrowrule}{\arrayrulecolor{black!25}\specialrule{0.3pt}{0pt}{0pt}\arrayrulecolor{black}}
 \begin{center}\small\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xl}\toprule
 Result & Label\\\midrule
-First law on the apparent horizon returns the Friedmann equations, Eqs.~\eqref{eq:eg_flux}--\eqref{eq:eg_friedmann} & \derived\\
-\rowrule
-Field equations as thermodynamic equations of state & \interp\\
-\rowrule
-$S_{\rm total}=S_{\rm BH}+S_{\rm info}$, Eq.~\eqref{eq:eg_stotal}; records encoded on the horizon & \conjecture\\
-\rowrule
-Landauer cost $k_B\ln2$ per bit & \observed\\
-\rowrule
-Growth equation in the friction form, Eqs.~\eqref{eq:eg_growth}--\eqref{eq:eg_growthN}; growth in the three forms & \derived\ \calc\\
-\rowrule
-Decoherence eligibility (timelike worldlines only) & \conjecture\\
-\rowrule
-$\Sigma=1$, $\mu<1$ given eligibility & \derived\\
-\rowrule
-$2\langle T\rangle+\langle V\rangle=0$; the $\tfrac12$ partition & \derived\\
-\rowrule
-Kinetic channel as the decoherence channel & \conjecture\\
-\rowrule
-$\beta_m=\Omega_m/2=0.15765$ & \derived\ \calc\\
-\rowrule
-$E(a)=\exp(1-1/a)$, $n=7/2$ & \derived\\
-\rowrule
-Peak of the writing rate: per e-fold today, per unit time at $z=1.26$ & \calc\\
-\rowrule
-Barrow and Tsallis constraints after DESI DR2 & \observed\\
-\rowrule
-No AIC penalty; $\Delta{\rm AIC}=\Delta\chi^2_{\min}$ & \calc\\
-\rowrule
-Bekenstein--Hawking entropy may be exact & \conjecture\\
-\rowrule
-Chain results, Table~\ref{tab:eg_numbers} & \measured\\
-\rowrule
-Euclid, growth trajectory, cluster ratio & \prediction\\
-\rowrule
-Phantom crossing as growth--geometry tension & \conjecture\\
-\rowrule
+First law on the apparent horizon returns the Friedmann equations, Eqs.~\eqref{eq:eg_flux}--\eqref{eq:eg_friedmann} & \derived\\\lightrowrule
+Field equations as thermodynamic equations of state & \interp\\\lightrowrule
+$S_{\rm total}=S_{\rm BH}+S_{\rm info}$, Eq.~\eqref{eq:eg_stotal}; records encoded on the horizon & \conjecture\\\lightrowrule
+Landauer cost $k_B\ln2$ per bit & \observed\\\lightrowrule
+Growth equation in the friction form, Eqs.~\eqref{eq:eg_growth}--\eqref{eq:eg_growthN}; growth in the three forms & \derived\ \calc\\\lightrowrule
+Decoherence eligibility (timelike worldlines only) & \conjecture\\\lightrowrule
+$\Sigma=1$, $\mu<1$ given eligibility & \derived\\\lightrowrule
+$2\langle T\rangle+\langle V\rangle=0$; the $\tfrac12$ partition & \derived\\\lightrowrule
+Kinetic channel as the decoherence channel & \conjecture\\\lightrowrule
+$\beta_m=\Omega_m/2=0.15765$ & \derived\ \calc\\\lightrowrule
+$E(a)=\exp(1-1/a)$, $n=7/2$ & \derived\\\lightrowrule
+Peak of the writing rate: per e-fold today, per unit time at $z=1.26$ & \calc\\\lightrowrule
+Barrow and Tsallis constraints after DESI DR2 & \observed\\\lightrowrule
+No AIC penalty; $\Delta{\rm AIC}=\Delta\chi^2_{\min}$ & \calc\\\lightrowrule
+Bekenstein--Hawking entropy may be exact & \conjecture\\\lightrowrule
+Chain results, Table~\ref{tab:eg_numbers} & \measured\\\lightrowrule
+Euclid, growth trajectory, cluster ratio & \prediction\\\lightrowrule
+Phantom crossing as growth--geometry tension & \conjecture\\\lightrowrule
 Implementation form inside clusters; Planck-scale content of deformed laws & \openprob\\\bottomrule
 \end{tabularx}\end{center}

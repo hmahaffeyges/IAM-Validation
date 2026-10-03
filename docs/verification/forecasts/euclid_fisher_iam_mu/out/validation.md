@@ -1,0 +1,61 @@
+# Validation of the forecast pipeline (CALCULATED)
+
+Relative 1-sigma errors (sigma/fiducial) unless stated; ratio = ours/published.
+
+| test | case | parameter | published | ours | ratio |
+|---|---|---|---|---|---|
+| 0 IAM growth (chain values) | D(z=0) IAM/LCDM - 1 [%] | D0 | -0.78 | -0.7768 |  |
+| 0 IAM growth (chain values) | f sigma8 deficit at z=0.0 [%] | fs8 | 4.25 | 4.251 | 1.00 |
+| 0 IAM growth (chain values) | f sigma8 deficit at z=0.3 [%] | fs8 | 2.17 | 2.168 | 1.00 |
+| 0 IAM growth (chain values) | f sigma8 deficit at z=0.5 [%] | fs8 | 1.35 | 1.349 | 1.00 |
+| 0 IAM growth (chain values) | f sigma8 deficit at z=1.0 [%] | fs8 | 0.41 | 0.4086 | 1.00 |
+| 0 HALOFIT implementation | max |P_NL ours / CAMB takahashi - 1|, k 0.01-10/Mpc, z 0,1,2 | P_NL | 0 | 0.007726 |  |
+| 0 Planck lensing noise | white N_kk = 3.88e-07 gives S/N | S/N | 40 | 40 | 1.00 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp pessimistic (physical k units) | Om | 0.021 | 0.02101 | 1.00 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp pessimistic (physical k units) | Ob | 0.051 | 0.08965 | 1.76 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp pessimistic (physical k units) | h | 0.0063 | 0.06056 | 9.61 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp pessimistic (physical k units) | ns | 0.014 | 0.03102 | 2.22 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp pessimistic (physical k units) | s8 | 0.0094 | 0.008109 | 0.86 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp optimistic (physical k units) | Om | 0.013 | 0.01438 | 1.11 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp optimistic (physical k units) | Ob | 0.018 | 0.02222 | 1.23 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp optimistic (physical k units) | h | 0.0017 | 0.0134 | 7.88 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp optimistic (physical k units) | ns | 0.0099 | 0.008172 | 0.83 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp optimistic (physical k units) | s8 | 0.0077 | 0.007142 | 0.93 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp pessimistic (IST:F h-unit convention) | Om | 0.021 | 0.02186 | 1.04 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp pessimistic (IST:F h-unit convention) | Ob | 0.051 | 0.05216 | 1.02 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp pessimistic (IST:F h-unit convention) | h | 0.0063 | 0.006483 | 1.03 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp pessimistic (IST:F h-unit convention) | ns | 0.014 | 0.01309 | 0.94 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp pessimistic (IST:F h-unit convention) | s8 | 0.0094 | 0.009162 | 0.97 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp optimistic (IST:F h-unit convention) | Om | 0.013 | 0.01272 | 0.98 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp optimistic (IST:F h-unit convention) | Ob | 0.018 | 0.02983 | 1.66 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp optimistic (IST:F h-unit convention) | h | 0.0017 | 0.004171 | 2.45 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp optimistic (IST:F h-unit convention) | ns | 0.0099 | 0.008751 | 0.88 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | GCsp optimistic (IST:F h-unit convention) | s8 | 0.0077 | 0.00562 | 0.73 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL pessimistic | Om | 0.018 | 0.01736 | 0.96 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL pessimistic | Ob | 0.47 | 0.4547 | 0.97 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL pessimistic | h | 0.21 | 0.1953 | 0.93 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL pessimistic | ns | 0.035 | 0.03144 | 0.90 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL pessimistic | s8 | 0.0087 | 0.008648 | 0.99 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL optimistic | Om | 0.012 | 0.0126 | 1.05 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL optimistic | Ob | 0.42 | 0.4447 | 1.06 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL optimistic | h | 0.2 | 0.1909 | 0.95 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL optimistic | ns | 0.03 | 0.02876 | 0.96 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL optimistic | s8 | 0.0061 | 0.006377 | 1.05 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL+GCph+XC pessimistic | Om | 0.0081 | 0.00794 | 0.98 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL+GCph+XC pessimistic | Ob | 0.052 | 0.04968 | 0.96 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL+GCph+XC pessimistic | h | 0.027 | 0.02654 | 0.98 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL+GCph+XC pessimistic | ns | 0.0085 | 0.008798 | 1.04 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL+GCph+XC pessimistic | s8 | 0.0038 | 0.003775 | 0.99 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL+GCph+XC optimistic | Om | 0.0028 | 0.00276 | 0.99 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL+GCph+XC optimistic | Ob | 0.046 | 0.04357 | 0.95 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL+GCph+XC optimistic | h | 0.02 | 0.01891 | 0.95 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL+GCph+XC optimistic | ns | 0.0036 | 0.003481 | 0.97 |
+| 1 IST:F flat LCDM (Blanchard+20 Table 9) | WL+GCph+XC optimistic | s8 | 0.0013 | 0.001348 | 1.04 |
+| 2 Template mu0, Albuquerque+25 Table 5 / Sect. 6.1 (PMG-1, Sigma0 free unless noted) | GCsp k<0.1/Mpc alone, Sigma fixed (pub 53.0%) | mu0 (= rel. error on 1+mu0) | 0.53 | 0.5361 | 1.01 |
+| 2 Template mu0, Albuquerque+25 Table 5 / Sect. 6.1 (PMG-1, Sigma0 free unless noted) | 3x2pt k<0.25/Mpc alone, US (pub 169.4%) | mu0 (= rel. error on 1+mu0) | 1.694 | 0.2404 | 0.14 |
+| 2 Template mu0, Albuquerque+25 Table 5 / Sect. 6.1 (PMG-1, Sigma0 free unless noted) | 3x2pt cut rescaled to 807-element data vector (diagnostic; pub 169.4%) | mu0 (= rel. error on 1+mu0) | 1.694 | 1.736 | 1.02 |
+| 2 Template mu0, Albuquerque+25 Table 5 / Sect. 6.1 (PMG-1, Sigma0 free unless noted) | GCsp+3x2pt conservative, US (pub 23.3%) | mu0 (= rel. error on 1+mu0) | 0.233 | 0.119 | 0.51 |
+| 2 Template mu0, Albuquerque+25 Table 5 / Sect. 6.1 (PMG-1, Sigma0 free unless noted) | GCsp+3x2pt with 807-element 3x2pt cut (diagnostic; pub 23.3%) | mu0 (= rel. error on 1+mu0) | 0.233 | 0.2495 | 1.07 |
+| 2 Template mu0, Albuquerque+25 Table 5 / Sect. 6.1 (PMG-1, Sigma0 free unless noted) | 3x2pt k<4/Mpc alone (pub ~4%) | mu0 (= rel. error on 1+mu0) | 0.04 | 0.04799 | 1.20 |
+| 2 Template Sigma0, Albuquerque+25 | GCsp+3x2pt conservative, US (pub 2.6%) | Sigma0 | 0.026 | 0.02477 | 0.95 |
+| 2 Template Sigma0, Albuquerque+25 | 3x2pt k<4/Mpc (pub ~1%) | Sigma0 | 0.01 | 0.01486 | 1.49 |

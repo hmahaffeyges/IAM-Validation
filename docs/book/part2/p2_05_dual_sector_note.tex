@@ -1,7 +1,7 @@
 % Part 2 chapter: why matter and light are in different sectors. Source text (docs/papers/IAM_Dual_Sector_Note.pdf, version of record, read in
 % full, 573 lines; wording source docs/book/coverage/wave2/04_IAM_Dual_Sector_Note.tex) carried sentence by sentence, in order. Corrections applied
 % minimally where docs/verification/PAPER_ERRATA.md rows S1-S10 (and D7, T13, T27, W1) and docs/verification/chains/DUAL_SECTOR_NOTE_CHECK.md require.
-% Numbers: docs/verification/scripts/verify_dual_sector_chapters.py, verify_beta_gamma.py; Euclid only as in Section sec:lt_euclid.
+% Numbers: docs/verification/scripts/verify_dual_sector_chapters.py, verify_beta_gamma.py; survey forecasts only in Section sec:sp_euclid.
 % The two summary figures are redrawn with chain values (figscripts/fig_p2_dual_sector.py); the pre-chain chi^2 panel is not carried (S6).
 \chapter{Why matter and light are in different sectors}\label{ch:dsnote}
 
@@ -185,7 +185,7 @@ Chapter~\ref{ch:sectortension}, to be made next on real data \openprob.
 \section{Potential tensions with the current formulation}\label{sec:dsn_tensions}
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_mu0_constraints.pdf}
-\caption{Constraints on $\mu_0=\mu(z{=}0)-1$. Squares: published values as quoted in Chapter~\ref{ch:latetime} (68\,\% intervals): DES Y3 with external data $0.08^{+0.21}_{-0.19}$; DESI 2024 full shape with BAO and BBN $0.11^{+0.45}_{-0.54}$; DESI full shape with CMB and DES Y3 $0.04\pm0.22$; ACT + WMAP + SDSS + SN $0.02\pm0.19$ \observed. The prediction lies 1.14, 0.46, 0.80 and $0.82\sigma$ from them, general relativity within $0.42\sigma$. Circles: the Level~1 chains of Chapter~\ref{ch:latetime} with $\mu_0$ free (flat prior $[-0.5,+0.2]$, the tick marks its upper edge), median and central 90\,\% interval, from the chain files \measured. Vertical line: the prediction $\mu_0=-0.136$ \prediction. The published values are for the template $\mu(z)=1+\mu_0\,\Omega_{\rm DE}(z)/\Omega_{\rm DE}(0)$, whose deviation lasts to higher redshift than IAM's; matched in growth, the IAM $\mu(z)$ corresponds to $\mu_0\approx-0.07$ in that template (Section~\ref{sec:lt_euclid}) \calc, so the distances quoted for $-0.136$ overstate the separation.}\label{fig:mu0_constraints}
+\caption{Constraints on $\mu_0=\mu(z{=}0)-1$. Squares: published values as quoted in Chapter~\ref{ch:latetime} (68\,\% intervals): DES Y3 with external data $0.08^{+0.21}_{-0.19}$; DESI 2024 full shape with BAO and BBN $0.11^{+0.45}_{-0.54}$; DESI full shape with CMB and DES Y3 $0.04\pm0.22$; ACT + WMAP + SDSS + SN $0.02\pm0.19$ \observed. The prediction lies 1.14, 0.46, 0.80 and $0.82\sigma$ from them, general relativity within $0.42\sigma$. Circles: the Level~1 chains of Chapter~\ref{ch:latetime} with $\mu_0$ free (flat prior $[-0.5,+0.2]$, the tick marks its upper edge), median and central 90\,\% interval, from the chain files \measured. Vertical line: the prediction $\mu_0=-0.136$ \prediction. The published values are for the template $\mu(z)=1+\mu_0\,\Omega_{\rm DE}(z)/\Omega_{\rm DE}(0)$, whose deviation lasts to higher redshift than IAM's, so the distances quoted for $-0.136$ overstate the separation; the forecast with the IAM $\mu(z)$ itself is in Section~\ref{sec:sp_euclid}.}\label{fig:mu0_constraints}
 \end{figure}
 The following observations, if confirmed at high significance, would be in tension with IAM's current predictions and would warrant reexamination of the
 framework's assumptions:
@@ -206,13 +206,13 @@ than the current framework contains. \prediction
 Each of these is a genuine prediction that Euclid, DESI Year~5, and CMB-S4 will test. The framework is falsifiable in the standard sense, and any tension
 with these observations would be scientifically informative regardless of its direction.
 \begin{table}[htbp]\centering\small
-\caption[What would count against the dual-sector structure]{What would count against the dual-sector structure. Present values are from the chains and the acoustic-scale fit of this chapter; the Euclid range is the one its published forecasts give for the IAM $\mu(z)$ (Chapter~\ref{ch:latetime}).}\label{tab:dsnote_falsifiers}
+\caption[What would count against the dual-sector structure]{What would count against the dual-sector structure. Present values are from the chains and the acoustic-scale fit of this chapter; the survey forecast is in Section~\ref{sec:sp_euclid}.}\label{tab:dsnote_falsifiers}
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.17\linewidth}l}\toprule
 Statement & Value & Would count against it & Test & Label\\\midrule
 Light is not coupled (lensing) & $\Sigma=1$ at every $z$ & $\Sigma\neq1$ detected & Euclid tomography & \prediction\\
 Light is not coupled (acoustic scale) & $\beta_\gamma=0$; now $\beta_\gamma<0.0039$ (95\,\%) & $\beta_\gamma>0$ detected & CMB-S4 & \calc\\
 Virial amplitude & $\beta_m/\Omega_m=1/2$ & $\Omega_m$ revised while growth still needs the old $\beta_m$ & DESI Year~5, Euclid & \prediction\\
-Growth coupling today & $\mu_0=-0.136$ & $\mu_0$ consistent with 0 and excluding $-0.136$ & Euclid: about $0.3\sigma$ to $7\sigma$ by its published forecasts & \prediction\\
+Growth coupling today & $\mu_0=-0.136$ & $\mu_0$ consistent with 0 and excluding $-0.136$ & Euclid, DESI (Section~\ref{sec:sp_euclid}) & \prediction\\
 Redshift dependence only & $\mu(a)$, $\Sigma(a)$ & scale-dependent $\mu$ or $\Sigma$ & Euclid, DESI & \prediction\\\bottomrule
 \end{tabularx}
 \end{table}
