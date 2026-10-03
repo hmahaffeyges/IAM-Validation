@@ -33,3 +33,31 @@ M=grow(lambda a: 1-0.13495*(OL/H2(a))/OL)
 for z in (0,0.5,1.0): a=1/(1+z); print(f"   z {z}: S8 deficit {100*(1-D(M,a)/D(L,a)):.2f} %   fsigma8 deficit {100*(1-f(M,a)*D(M,a)/(f(L,a)*D(L,a))):.2f} %")
 print(f"   Level 1 chains (Planck only): sigma8 0.8139 -> 0.8014 = {100*(1-0.8014/0.8139):.2f} %")
 print(f"   exact form today: fsigma8 deficit {100*(1-f(I,1)*D(I,1)/(f(L,1)*D(L,1))):.2f} %")
+
+# ---------------------------------------------------------------------------------------------------------------
+# Book carriage (2026-10-03). The trend (MNRAS 528, L20; arXiv:2303.06928) is built from f sigma8(z) (redshift-space distortions)
+# with Om held to a Planck+BAO prior (0.3111 +- 0.0056) and data below z_min removed. The informational term's counterpart is
+# therefore the S8 a LCDM fit to f sigma8 data at z >= z_min infers, not the lensing amplitude.
+import sympy as sp
+b=sp.symbols('beta_m',positive=True); Om_s,OL_s=sp.symbols('Omega_m Omega_L',positive=True)
+mu1=1/(1+b/(Om_s+OL_s))
+print("\n7. sympy: mu0 = mu(1) - 1 =",sp.simplify(mu1-1)," (paper form -beta/(Om+OL+beta)); flat: ",sp.simplify((mu1-1).subs(OL_s,1-Om_s)),
+      "=",round(float((-b/(1+b)).subs(b,0.15765)),4))
+print("   E(a) < 10 % for z >",round(float(sp.log(10)),3)," ; E at z = 2.2:",round(float(np.exp(1-(1+2.2))),3))
+print("8. inferred S8 three ways (S8_Planck 0.832, same early amplitude, Om fixed 0.3153)")
+fsr=lambda z: f(I,1/(1+z))*D(I,1/(1+z))/(f(L,1/(1+z))*D(L,1/(1+z)))
+for z in (0,0.3,0.5,1.0,1.5,2.0):
+    a=1/(1+z); print(f"   z {z}: lensing amplitude {S8P*D(I,a)/D(L,a):.4f}   RSD at z (f sigma8 ratio) {S8P*fsr(z):.4f}   S8 x mu {S8P*mu(a):.3f}")
+zs=np.array([0.067,0.15,0.295,0.38,0.51,0.51,0.70,0.706,0.85,0.919,1.317,1.48,1.491]); er=np.array([0.055,0.16,0.094,0.047,0.039,0.064,0.043,0.053,0.095,0.047,0.037,0.045,0.044])
+print("   z_min cut on the 13 f sigma8 points of the DESI/SDSS table (errors as published), LCDM template fit of sigma8 at fixed Om:")
+for zmin in (0.0,0.2,0.4,0.6,0.8,1.0,1.3):
+    k=zs>=zmin; tL=np.array([f(L,1/(1+z))*D(L,1/(1+z)) for z in zs[k]]); w=(tL/er[k])**2; r=np.array([fsr(z) for z in zs[k]])
+    S=S8P*(w*r).sum()/w.sum(); t1=tL/D(L,1.0)   # template f D/D(1): f sigma8 per unit sigma8
+    sS8=np.sqrt(Om/0.3)/np.sqrt(((t1/er[k])**2).sum())
+    print(f"   z_min {zmin}: n {k.sum():2d}  inferred S8 {S:.4f}  (deficit {100*(1-S/S8P):.2f} %)   statistical sigma(S8) {sS8:.3f}  shift/sigma {(S-S8P)/sS8:+.2f}")
+print("9. growth index: f sigma8 of gamma = 0.633 (same early amplitude) against the informational term")
+from scipy.integrate import quad as _q
+def Dg(a,g): return np.exp(-_q(lambda x: Oma(x)**g/x, a, 1)[0])   # D(a)/D(1) with f = Om(a)^g
+for z in (0,0.5,1.0,1.5,2.0):
+    a=1/(1+z); g633=Oma(a)**0.633*Dg(a,0.633)/Dg(1e-3,0.633)*1e-3; gL=f(L,a)*D(L,a); gI=f(I,a)*D(I,a)
+    print(f"   z {z}: f sigma8 ratio to LCDM: gamma 0.633 {g633/gL:.4f}   IAM {gI/gL:.4f}")

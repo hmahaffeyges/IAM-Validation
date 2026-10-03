@@ -1,6 +1,8 @@
-% Part 2 chapter carrying "The Redshift-Dependent S8 Trend in the Context of IAM" (Mar 2026) in its order. Read in full 2026-10-02
-% (323 lines, 50-line ledger). Numbers: docs/verification/scripts/verify_s8_trend.py. Check: docs/verification/observations/S8_TREND_CHECK.md.
-% Naming rule: the compilation is cited by journal and arXiv number only.
+% Part 2 chapter carrying "The Redshift-Dependent S8 Trend in the Context of IAM" (Mar 2026) line for line, corrected.
+% Read in full 2026-10-02 and again 2026-10-03 (323 PDF-text lines, 50-line ledger; LaTeX docs/papers/latex/iam_ocolgain_note/, 417 lines).
+% Numbers: docs/verification/scripts/verify_s8_trend.py (+ _output.txt). Check: docs/verification/observations/S8_TREND_CHECK.md; errata ST1-ST7.
+% Figures: docs/book/figscripts/fig_p2_growth.py, fig_p2_sector_s8.py. Naming rule: the trend paper and the review are cited by journal and arXiv number only.
+% The common derivation of mu(a) is given here in full; Chapters ch:sectortension and ch:phantom refer back to it.
 \chapter{Growth across redshift: the $S_8$ trend}\label{ch:s8trend}
 
 \section*{The place}
@@ -8,16 +10,73 @@ The cosmic horizon, where matter's records are written as it collapses into stru
 coupling felt by matter, $\mu<1$, and leaves light untouched, $\Sigma=1$. This chapter follows that weakening through the redshifts at which surveys
 measure the clustering amplitude.
 
-\section{The observation}
-An analysis of redshift-space-distortion $f\sigma_8(z)$ measurements with $\Omega_m$ held to a Planck + BAO prior (\emph{MNRAS} 528, L20, 2024;
-arXiv:\allowbreak{}2303.06928) finds that the inferred $S_8\equiv\sigma_8\sqrt{\Omega_m/0.3}$ rises with effective redshift: a $\sim3\sigma$ tension with the Planck
-value of $0.832$~\cite{Planck2018VI} at lower redshifts becomes consistent within $1\sigma$ at high redshifts \observed. In $\Lambda$CDM, $S_8$ is one number at every redshift. The growth-index fit $f=\Omega_m(a)^\gamma$ to the same kind of data
-gives $\gamma=0.633^{+0.025}_{-0.024}$ against $0.55$ in general relativity (Nguyen, Huterer and Wen 2023~\cite{Nguyen2023}).
+\section*{Summary}
+An analysis of growth-rate data has found that the amplitude parameter $S_8\equiv\sigma_8\sqrt{\Omega_m/0.3}$ inferred from it rises with effective
+redshift, from roughly $3\sigma$ below the Planck $\Lambda$CDM expectation at low redshift to agreement within $1\sigma$ at high redshift. The
+informational term has the shape this trend requires: its activation function $E(a)=\exp(1-1/a)$ is largest today ($z=0$) and vanishes smoothly at
+high redshift. The coupling constant $\beta_m=\Omega_m/2$ is set by the virial partition and is held fixed in every chain; no free parameter is added to
+$\Lambda$CDM. The photon sector is kept exactly ($\Sigma=1$), so BAO positions and lensing geometry are those of $\Lambda$CDM by construction, which
+avoids a common difficulty of models that modify both sectors. The size of the effect is calculated here from the linear growth equation: the shape of
+the trend is reproduced, and its amplitude is about a tenth of the low-redshift deficit. The chapter states the mechanism and the predictions that
+existing compilations can already test.
 
-\section{The coupling}
-\begin{equation}\mu(a)=\frac{H^2(a)}{H^2(a)+\beta_mE(a)H_0^2},\qquad E(a)=e^{1-1/a},\qquad\beta_m=\Omega_m/2,\end{equation}
-so $\mu(z{=}0)=0.864$, $\mu(0.5)=0.948$, $\mu(1)=0.982$, $\mu(2)=0.998$. The weakening is strongest today and gone by $z\approx2$: the shape of the
-trend, with nothing adjusted.
+\section{The observation}
+\observed\ An analysis of redshift-space-distortion $f\sigma_8(z)$ measurements (\emph{MNRAS} 528, L20, 2024; arXiv:\allowbreak{}2303.06928) holds
+$\Omega_m$ to a Planck + BAO prior, $\Omega_m=0.3111\pm0.0056$, so that the only parameter fitted is $\sigma_8$, the scale of the $f\sigma_8(z)$
+curve, whose shape is then fixed. Removing the data below a minimum redshift $z_{\rm min}$ and refitting, it finds that the inferred $S_8$ rises with
+the effective redshift of what remains: a $\sim3\sigma$ tension with the Planck value at lower redshifts becomes consistent within $1\sigma$ at high
+redshifts. With the 20 points of its main sample taken as independent the shift is $1.6\sigma$; the same trend appears in a larger sample of 66
+points, where survey overlap overstates it ($2.8\sigma$). The flat $\Lambda$CDM model is still preferred over an ad hoc model with a jump in $S_8$ at
+one redshift, and without the $\Omega_m$ prior the high-redshift data are the more consistent with Planck. The analysis reads redshift-dependent
+fitting parameters as a hallmark of model breakdown.
+
+\observed\ The result is among the most carefully argued observational cases for redshift-dependent growth suppression: the apparent $S_8$ tension is
+not a fixed offset but a \emph{trend}, in which low-redshift data prefer a low $S_8$ and the preference weakens monotonically toward the Planck value
+of $0.832$~\cite{Planck2018VI} at high redshift. This behaviour is difficult to accommodate within $\Lambda$CDM, in which $S_8$ is one number at every
+redshift. It is also difficult to accommodate in modified-gravity models that rescale the growth rate by a scale-dependent or epoch-independent factor
+rather than with a specific redshift shape. \interp
+
+\observed\ The growth-index description $f=\Omega_m(a)^\gamma$, fitted to the same kind of data with Planck, gives
+$\gamma=0.633^{+0.025}_{-0.024}$ against $0.55$ in general relativity, excluding $0.55$ at $3.7\sigma$; with $f\sigma_8$ and Planck alone,
+$\gamma=0.639^{+0.024}_{-0.025}$ ($4.2\sigma$) (Nguyen, Huterer and Wen 2023~\cite{Nguyen2023}).
+
+\section{The coupling}\label{sec:s8_coupling}
+The informational term extends the thermodynamic route to gravity (Jacobson 1995~\cite{Jacobson1995}) by the Landauer cost~\cite{Landauer1961} of the
+records written by gravitational decoherence (Chapters~\ref{ch:theory} and \ref{ch:virial}). The change enters only the matter-sector perturbation
+equations; the background Friedmann equations and the photon sector are unchanged. The gravitational coupling felt by matter is
+\begin{equation}
+\mu(a)=\frac{H^2_{\Lambda\rm CDM}(a)}{H^2_{\Lambda\rm CDM}(a)+\beta_mE(a)H_0^2},\qquad H^2_{\Lambda\rm CDM}(a)=H_0^2\left(\Omega_ma^{-3}+\Omega_\Lambda\right),
+\label{eq:s8_mu}\end{equation}
+with the activation function
+\begin{equation}
+E(a)=\exp\!\left(1-\frac1a\right)
+\label{eq:s8_Ea}\end{equation}
+and the coupling constant
+\begin{equation}
+\beta_m=\frac{\Omega_m}{2}=0.15765\qquad(\Omega_m=0.3153),
+\label{eq:s8_beta}\end{equation}
+fixed by the virial partition of the virialised structures that source the decoherence flux (Chapter~\ref{ch:virial}). The photon coupling is
+$\Sigma(a)=1$ exactly: decoherence of this kind needs timelike worldlines, and null geodesics are unaffected.
+
+\paragraph{The value today.} The steps are:
+\begin{enumerate}
+\item At $a=1$ the activation function is $E(1)=e^0=1$.
+\item The background rate today is $H^2_{\Lambda\rm CDM}(1)=H_0^2(\Omega_m+\Omega_\Lambda)$, which is $H_0^2$ for a flat universe
+($\Omega_m+\Omega_\Lambda=1$; radiation is negligible today).
+\item Equation~\eqref{eq:s8_mu} then gives $\mu(1)=(\Omega_m+\Omega_\Lambda)/(\Omega_m+\Omega_\Lambda+\beta_m)=1/(1+\beta_m)$.
+\item So
+\begin{equation}
+\mu_0\equiv\mu(a{=}1)-1=-\frac{\beta_m}{\Omega_m+\Omega_\Lambda+\beta_m}=-\frac{\beta_m}{1+\beta_m}=-0.1362 .
+\label{eq:s8_mu0}\end{equation}
+\end{enumerate}
+\derived\ (given Eqs.~\ref{eq:s8_mu}--\ref{eq:s8_beta}; checked with sympy in \texttt{verify\_s8\_trend.py}). The value follows from the
+coupling alone; it was not adjusted to fit any $S_8$ data. The value $-0.135$ used in the Level~1 chains is the MGCAMB amplitude of
+Chapter~\ref{ch:latetime}; it differs from Eq.~\eqref{eq:s8_mu0} by about one per cent of the free-$\mu_0$ posterior width.
+
+\paragraph{The redshift shape.} Equation~\eqref{eq:s8_Ea} is the key object. $E(a)$ reaches its largest value, unity, at $a=1$ (today, $z=0$) and
+falls monotonically toward earlier times; it is below $0.1$ for $z>\ln10=2.30$ (Fig.~\ref{fig:s8_trend_iam}a). This is the shape that produces a trend
+in which the weakening is strongest at low redshift and vanishes at high redshift. With the Planck 2018 background, $\mu(z{=}0)=0.864$,
+$\mu(0.5)=0.948$, $\mu(1)=0.982$ and $\mu(2)=0.998$ \calc. The shape of the trend therefore comes with nothing adjusted.
 
 \section{What a survey infers}
 
@@ -25,45 +84,124 @@ trend, with nothing adjusted.
 \includegraphics[width=\textwidth]{figures/part2/fig_s8_inferred.pdf}
 \caption{(a) The $S_8$ a survey at redshift $z$ infers when it analyses with $\Lambda$CDM growth, $S_8^{\rm Planck}D_{\rm IAM}(z)/D_{\Lambda\rm CDM}(z)$, for the exact coupling (0.8255 today, a 0.78\,\% deficit) and for the MGCAMB form used in the Level~1 chains (1.68\,\% today); same early amplitude, Planck 2018 background. (b) The effective growth index $\gamma=\ln f/\ln\Omega_m(a)$: 0.585 today against 0.554 in $\Lambda$CDM \calc, and the measured $0.633^{+0.025}_{-0.024}$ (Nguyen, Huterer and Wen 2023, band) \observed.}\label{fig:s8_inferred}
 \end{figure}
-A survey measures the clustering amplitude at its redshift and, analysing with $\Lambda$CDM growth, reports $S_8$. The amplitude is the integrated
-growth, not the instantaneous coupling: the inferred value is $S_8^{\rm Planck}\,D_{\rm IAM}(z)/D_{\Lambda\rm CDM}(z)$, from the linear growth equation
-with the same early-time amplitude. ($S_8^{\rm Planck}\mu(z)$ treats a rate as an amount and overstates the effect about twentyfold.)
-\begin{center}\small\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xcccc}\toprule
-$z$ & $\mu$ & inferred $S_8$ & deficit & $f_{\rm IAM}/f_{\Lambda\rm CDM}$\\\midrule
-0 & 0.864 & 0.8255 & 0.78\,\% & 0.965\\ 0.25 & 0.914 & 0.8285 & 0.42\,\% & 0.980\\ 0.5 & 0.948 & 0.8302 & 0.22\,\% & 0.989\\
-1.0 & 0.982 & 0.8315 & 0.06\,\% & 0.997\\ 2.0 & 0.998 & 0.8320 & 0.01\,\% & 1.000\\\bottomrule
+A survey measures the clustering at its redshift and, analysing with $\Lambda$CDM growth, reports $S_8$. Two different quantities can be meant.
+\begin{itemize}
+\item \emph{Lensing amplitude.} A lensing survey measures the amount of structure, the integrated growth $D(z)$, not the instantaneous coupling. The
+inferred value is $S_8^{\rm Planck}\,D_{\rm IAM}(z)/D_{\Lambda\rm CDM}(z)$, with $S_8^{\rm Planck}=0.832$ and both growth factors from the linear
+growth equation (Eq.~\ref{eq:st_ode}) with the same early-time amplitude.
+\item \emph{Growth rate.} A redshift-space-distortion measurement is of $f\sigma_8(z)$. A $\Lambda$CDM fit of $\sigma_8$ to it at fixed $\Omega_m$ infers
+$S_8^{\rm Planck}\,(f\sigma_8)_{\rm IAM}/(f\sigma_8)_{\Lambda\rm CDM}$ at that redshift; the trend analysis of the previous section is of this kind.
+\end{itemize}
+Taking the coupling itself as the amplitude, $S_8^{\rm Planck}\mu(z)$, treats a rate as an amount and overstates the effect about twentyfold. \calc
+\begin{center}\small\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xccccc}\toprule
+$z$ & $\mu$ & lensing $S_8$ & deficit & $f_{\rm IAM}/f_{\Lambda\rm CDM}$ & growth-rate $S_8$\\\midrule
+0 & 0.864 & 0.8255 & 0.78\,\% & 0.965 & 0.7966\\ 0.25 & 0.914 & 0.8285 & 0.42\,\% & 0.980 & --\\ 0.3 & 0.922 & 0.8289 & 0.37\,\% & -- & 0.8140\\
+0.5 & 0.948 & 0.8302 & 0.22\,\% & 0.989 & 0.8208\\ 1.0 & 0.982 & 0.8315 & 0.06\,\% & 0.997 & 0.8286\\ 2.0 & 0.998 & 0.8320 & 0.01\,\% & 1.000 & 0.8316\\\bottomrule
 \end{tabularx}\end{center}
-The shape is the observed one: lowest today, recovering by $z\sim1$. The size is not. The predicted deficit today is $0.8\,\%$; the low-redshift weak-lensing surveys
-sit $6$--$9\,\%$ below Planck~\cite{Asgari2021,DESY3}. The growth \emph{rate} is affected more than the amplitude: $f\sigma_8$ is $4.25\,\%$ low today \calc. The effective growth
-index is $\gamma=0.585$ today ($0.572$ at $z=0.5$), against $0.554$ in $\Lambda$CDM and the measured $0.633$: about $40\,\%$ of the measured
-departure.
+\calc\ The shape is the observed one: lowest today, recovering by $z\sim1$. The size is not. The predicted lensing deficit today is $0.8\,\%$; the
+low-redshift weak-lensing surveys sit $6$--$9\,\%$ below Planck~\cite{Asgari2021,DESY3}. The growth \emph{rate} is affected more than the amplitude:
+$f\sigma_8$ is $4.25\,\%$ low today, $2.17\,\%$ at $z=0.3$, $1.35\,\%$ at $0.5$ and $0.41\,\%$ at $1$ \calc.
+
+\paragraph{The trend analysis repeated on the informational term.} The trend analysis can be run on growth data generated by the informational term.
+Take the thirteen $f\sigma_8$ points of Table~\ref{tab:st_fsig8} (Chapter~\ref{ch:sectortension}) at their redshifts and published errors, give each
+point the value the informational term predicts, fit the $\Lambda$CDM template for $\sigma_8$ with $\Omega_m$ fixed at $0.3153$, and remove the data
+below $z_{\rm min}$:
+\begin{center}\small\begin{tabular}{lccccccc}\toprule
+$z_{\rm min}$ & 0 & 0.2 & 0.4 & 0.6 & 0.8 & 1.0\\\midrule
+points & 13 & 11 & 9 & 7 & 5 & 3\\
+inferred $S_8$ & 0.8231 & 0.8249 & 0.8263 & 0.8282 & 0.8298 & 0.8306\\
+statistical $\sigma(S_8)$ & 0.027 & 0.028 & 0.030 & 0.035 & 0.043 & 0.052\\\bottomrule
+\end{tabular}\end{center}
+\calc\ The inferred $S_8$ rises with $z_{\rm min}$, as observed, from $1.1\,\%$ below Planck to $0.2\,\%$ below it (Fig.~\ref{fig:s8_trend_iam}b). The
+whole rise is $0.3\sigma$ of the statistical error of these data, against the $\sim3\sigma$ low-redshift offset of the measured trend.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_s8_trend_iam.pdf}
+\caption{(a) The activation function $E(a)=\exp(1-1/a)$, the single function responsible for the redshift dependence: unity today, below 0.1 for $z>2.30$. (b) The $S_8$ a $\Lambda$CDM analysis infers from the informational term: from the lensing amplitude at $z$ (blue), from $f\sigma_8$ at $z$ (green), and from a $\Lambda$CDM fit of $\sigma_8$ to the thirteen $f\sigma_8$ points of Table~\ref{tab:st_fsig8} above $z_{\rm min}=0,0.2,\dots,1.0$, plotted at the weighted mean redshift of the points kept, with the statistical error of those data (points). Same early amplitude, Planck 2018 background, $\Omega_m$ fixed. \texttt{docs/verification/scripts/\allowbreak{}verify\_s8\_trend.py}. \calc}\label{fig:s8_trend_iam}
+\end{figure}
 
 \paragraph{The chain form.} The Level 1 chains used MGCAMB's form~\cite{Zhao2009MGCAMB,Wang2023MGCAMB} $\mu=1+\mu_0\Omega_{\rm DE}(a)/\Omega_{\rm DE,0}$, which equals the exact $\mu$
 today but weakens growth more at $0.3<z<2$. The same integration with that form gives a $1.68\,\%$ amplitude deficit today, close to the chains'
 $\sigma_8$ shift ($0.8143\to0.8015$, $1.6\,\%$, Planck alone) \calc. The exact form gives half of it.
 
+\section{The perturbation level only}\label{sec:s8_perturbation}
+Does the weakening of $\mu(a)$ imply a change in the background expansion $H(z)$? It does not: the informational term acts on the perturbation
+equations, and the Friedmann background is that of $\Lambda$CDM. This is a result of the tests, not a modelling choice. Applying the same coupling
+$\beta_m$ to the background Friedmann equation gives $H_0\approx61.5\,{\rm km\,s^{-1}\,Mpc^{-1}}$ (Chapter~\ref{ch:level2}), excluded at high
+significance by every $H_0$ measurement. \fitted\ The perturbation-only implementation gives $\Delta\chi^2=+0.54$ against $\Lambda$CDM under the full
+Planck 2018 CamSpec TT, TE, EE likelihood~\cite{Planck2018VI}: on the CMB the two are statistically indistinguishable \fitted.
+
+$\beta_m=\Omega_m/2=0.15765$ was set before the Planck chains were run and is fixed in every one of the eighteen converged chains. It is not returned by
+them. What the chains test is consistency: the Level~2 posterior $\Omega_m=0.3166\pm0.0065$ gives $\Omega_m/2=0.1583\pm0.0033$, $0.2\sigma$ from the
+fixed value \calc. The test of the coupling's size is the free-amplitude run (Table~\ref{tab:lt_free}).
+
 \section{Light is unchanged}
-With $\Sigma=1$ photons follow standard null geodesics, so BAO angles, the CMB acoustic scale and lensing geometry are those of $\Lambda$CDM. The
-background is not modified: applying $\beta_m$ to the Friedmann equation gives $H_0\approx61.5$, excluded by every measurement, so the term acts on
-matter perturbations only.
+With $\Sigma=1$ photons follow standard null geodesics. BAO angular positions, set by the ratio of the sound horizon to the angular-diameter distance
+along photon paths, the CMB acoustic scale and the lensing geometry are therefore those of $\Lambda$CDM. This removes what could otherwise look like a
+conflict between a weaker growth and the well-measured BAO scale. \prediction
 
-\section{Signatures}
+Lensing and dynamics measure different things in a cluster. With $\Sigma=1$ the relation between the lensing potential and the density is that of
+general relativity, so lensing measures the mass $M_{\rm lens}$. Dynamics measures the response of matter, $\mu$ times the Newtonian pull. The
+observable difference from $\Lambda$CDM is therefore the ratio $M_{\rm lens}/M_{\rm dyn}=1/\mu(z)>1$, which depends on redshift: $1.16$ today, $1.06$ at
+$z=0.5$, $1.02$ at $z=1$ in the linear coupling \calc. It is a weaker dynamical response, not a change of lensing. Whether the linear $\mu$ applies
+inside virialised clusters is open (Chapter~\ref{ch:threeway}) \openprob.
 
+\section{Scale independence}
+The Landauer cost in the informational term is paid at the Hubble horizon, orders of magnitude larger than any survey scale. The change to the growth
+rate is therefore independent of $k$ at every observationally accessible scale: $\mu$ depends on $a$ only. \interp\ This discriminates between
+models. $f(R)$ gravity gives scale-dependent growth above a transition scale~\cite{PogosianSilvestri2008}. The informational term predicts a flat ratio
+$P_{\rm IAM}(k)/P_{\Lambda\rm CDM}(k)$, constant across the survey range, which sufficiently precise power-spectrum measurements can test. \prediction
+
+\section{Other models of the same trend}
+Several models have been proposed for the $S_8$ trend, among them a sign-switching cosmological constant ($\Lambda_s$CDM), interacting dark energy
+and modified-gravity families; the case for redshift-dependent $\Lambda$CDM parameters is reviewed in \emph{Universe} 10, 305 (2024;
+arXiv:\allowbreak{}2402.04767). \observed\ Locating the informational term among them sharpens the predictions.
+
+\paragraph{The growth index.} The most widely used empirical description of late-time growth suppression is $\gamma$CDM, $f(a)\approx\Omega_m(a)^\gamma$,
+with $\gamma=0.55$ in general relativity, and the data prefer $\gamma=0.633$ (above). It describes the redshift shape of the suppression well but
+carries no mechanism; it is an effective description. \interp\ The informational term supplies a mechanism for the same qualitative behaviour, the
+greatest weakening today and recovery toward high redshift, and its shape comes from horizon thermodynamics rather than from a fitted exponent.
+\interp\ The two are not the same curve. The informational term behaves as $\gamma_{\rm eff}=\ln f/\ln\Omega_m(a)=0.585$ today, $0.572$ at $z=0.5$ and
+$0.562$ at $z=1$, against $0.554$, $0.549$ and $0.547$ in $\Lambda$CDM: about $40\,\%$ of the measured departure today. With the same early
+amplitude, $\gamma=0.633$ lowers $f\sigma_8$ by $11.4\,\%$ today, $5.4\,\%$ at $z=0.5$, $2.7\,\%$ at $z=1$ and $1.5\,\%$ at $z=1.5$; the informational
+term by $4.25$, $1.35$, $0.41$ and $0.13\,\%$. \calc\ Data at the per-cent level can separate them at every redshift below $z\approx1$.
+
+\paragraph{Structural differences.} The informational term makes a set of predictions that differ structurally from the other proposals:
+\begin{itemize}
+\item \emph{BAO.} BAO positions identical to $\Lambda$CDM ($\Sigma=1$, background unchanged). $\Lambda_s$CDM changes the background and moves the BAO
+near its transition redshift, $z_\dagger\sim1.7$--$2.4$. \prediction
+\item \emph{ISW.} With $\Sigma=1$ the lensing potential follows $\delta_m$, which grows more slowly, so the potentials decay faster: the ISW source
+$(1-f)D/a$ is $3.4\,\%$ larger at $z\le0.5$, and the ISW--galaxy cross-correlation about $3\,\%$ larger (uniform weight over $0.05<z<1.5$) \calc.
+$f(R)$ gravity, which enhances growth, predicts the opposite sign, a clean discriminant \interp.
+\item \emph{Cluster mass ratio.} $M_{\rm lens}/M_{\rm dyn}=1/\mu(z)>1$ with that redshift dependence; the ratio is $1$ in $\Lambda$CDM and is not
+produced in this form by models that change lensing ($\Sigma\neq1$). \prediction
+\item \emph{The $\mu$--$\Sigma$ plane.} $\mu_0=-0.136$, $\Sigma_0=0$ exactly. Most modified-gravity models give $\Sigma\neq1$ or move $\mu$ and $\Sigma$
+together; the informational term sits at a distinct point of the plane. \prediction
+\item \emph{Scale dependence.} Unlike $f(R)$ or Galileon gravity, a $k$-independent growth change, because the Landauer cost is paid at the Hubble
+horizon. \prediction
+\end{itemize}
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_growth_signatures.pdf}
 \caption{(a) The ISW source $(1-f)D$ relative to $\Lambda$CDM with $\Sigma=1$: 3.4\,\% larger at $z\le0.5$. (b) $M_{\rm lens}/M_{\rm dyn}=1/\mu$ in the linear coupling: 1.16 today, 1.06 at $z=0.5$, 1.02 at $z=1$; whether the linear $\mu$ applies inside virialised clusters is open. Linear growth, same early amplitude. \prediction}\label{fig:growth_signatures}
 \end{figure}
+A joint analysis of the $f\sigma_8$ compilation with ISW or cluster mass-ratio data tests these differences directly and separates the informational
+term from the $\gamma$CDM description and from alternatives that change the background, such as $\Lambda_s$CDM. \prediction
+
+\section{Falsifiable predictions}
 \begin{itemize}
-\item \emph{Scale independence.} $\mu$ depends on $a$ only, so $P_{\rm IAM}(k)/P_{\Lambda\rm CDM}(k)$ is flat across survey scales; $f(R)$ growth is scale dependent~\cite{PogosianSilvestri2008}.
-\item \emph{ISW.} With $\Sigma=1$ the lensing potential follows $\delta_m$, which grows more slowly, so the potentials decay faster: the ISW source
-$(1-f)D/a$ is $3.4\,\%$ larger at $z\le0.5$, and the ISW--galaxy cross-correlation about $3\,\%$ larger. $f(R)$ predicts the opposite sign.
-\item \emph{Cluster masses.} Lensing measures the mass; dynamics measures $\mu$ times it. In the linear coupling $M_{\rm lens}/M_{\rm dyn}=1/\mu$:
-$1.16$ today, $1.06$ at $z=0.5$, $1.02$ at $z=1$. Whether the linear $\mu$ applies inside virialised clusters is open (Chapter~\ref{ch:threeway}) \openprob.
-\item \emph{The $\mu$--$\Sigma$ plane.} $\mu_0=-0.136$, $\Sigma_0=0$. With conservative scale cuts Euclid is forecast to give $1+\mu_0$ to $23.3\,\%$ but $1+\Sigma_0$ to $2.6\,\%$~\cite{Albuquerque2025} \observed, so the
-lensing half of the signature is the sharper test; a forecast for the full IAM $\mu(z)$ is open \openprob.
+\item \emph{Euclid.} The predicted coupling is $\mu_0=-0.136$ with $\Sigma_0=0$. Euclid's published forecasts are made for the $\Omega_{\rm DE}$-tracking
+template; with conservative scale cuts they give $1+\mu_0$ to $23.3\,\%$ but $1+\Sigma_0$ to $2.6\,\%$~\cite{Albuquerque2025} \observed. The
+informational $\mu(z)$ falls off faster than the template, and the significance it reaches runs from about $0.3\sigma$ (conservative cuts) to about
+$7\sigma$ (smallest scales modelled), as calculated in Section~\ref{sec:lt_euclid} \calc. A measurement of $\mu<1$ with $\Sigma=1$ and the redshift
+dependence of Eq.~\eqref{eq:s8_Ea} would be a detection; $\mu_0$ consistent with zero at the precision that separates the two would falsify the term.
+\prediction
+\item \emph{The growth-rate shape.} The term predicts a specific curved $f\sigma_8(z)$ deficit, not a parallel rescaling: $3.1\,\%$ at $z=0.15$, $1.9\,\%$
+at $0.35$, $0.9\,\%$ at $0.65$, $0.4\,\%$ at $1.05$ and $0.1\,\%$ at $1.55$, vanishing above $z\sim2$ \calc. Measured to $1\,\%$ in each of fifteen bins
+of width $0.1$ over $0.1<z<1.6$, this shape differs from $\Lambda$CDM by $5.0\sigma$ \calc.
 \end{itemize}
 
 \section{Status}
 Stands: the redshift shape of the weakening, the sector split, scale independence, the dated $\mu_0$. Calculated here \calc: the amplitude deficit the
-informational term produces is $0.8\,\%$ today, about a tenth of the low-redshift deficit; the growth-rate deficit is $4.25\,\%$, and the growth index
-moves $40\,\%$ of the way to the measured value. The $S_8$ trend is consistent in shape and smaller in size.
+informational term produces is $0.8\,\%$ today, about a tenth of the low-redshift deficit; the growth-rate deficit is $4.25\,\%$; the growth index moves
+$40\,\%$ of the way to the measured value; and the trend analysis applied to the term's own growth gives a rise of $S_8$ with $z_{\rm min}$ of $0.3\sigma$.
+The $S_8$ trend is consistent in shape and smaller in size. With $\beta_m=\Omega_m/2$ fixed, eighteen converged chains find the term consistent with the
+CMB ($\Delta\chi^2=+0.54$, Level~2). Code, chains and the modified CAMB source are in the repository (\texttt{camb\_validation/}, \texttt{docs/verification/}).

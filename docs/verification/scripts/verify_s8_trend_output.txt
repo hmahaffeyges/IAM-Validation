@@ -25,3 +25,27 @@
    z 1.0: S8 deficit 0.41 %   fsigma8 deficit 1.61 %
    Level 1 chains (Planck only): sigma8 0.8139 -> 0.8014 = 1.54 %
    exact form today: fsigma8 deficit 4.25 %
+
+7. sympy: mu0 = mu(1) - 1 = -beta_m/(Omega_L + Omega_m + beta_m)  (paper form -beta/(Om+OL+beta)); flat:  -beta_m/(beta_m + 1) = -0.1362
+   E(a) < 10 % for z > 2.303  ; E at z = 2.2: 0.111
+8. inferred S8 three ways (S8_Planck 0.832, same early amplitude, Om fixed 0.3153)
+   z 0: lensing amplitude 0.8255   RSD at z (f sigma8 ratio) 0.7966   S8 x mu 0.719
+   z 0.3: lensing amplitude 0.8289   RSD at z (f sigma8 ratio) 0.8140   S8 x mu 0.767
+   z 0.5: lensing amplitude 0.8302   RSD at z (f sigma8 ratio) 0.8208   S8 x mu 0.789
+   z 1.0: lensing amplitude 0.8315   RSD at z (f sigma8 ratio) 0.8286   S8 x mu 0.817
+   z 1.5: lensing amplitude 0.8319   RSD at z (f sigma8 ratio) 0.8309   S8 x mu 0.827
+   z 2.0: lensing amplitude 0.8320   RSD at z (f sigma8 ratio) 0.8316   S8 x mu 0.830
+   z_min cut on the 13 f sigma8 points of the DESI/SDSS table (errors as published), LCDM template fit of sigma8 at fixed Om:
+   z_min 0.0: n 13  inferred S8 0.8231  (deficit 1.07 %)   statistical sigma(S8) 0.027  shift/sigma -0.33
+   z_min 0.2: n 11  inferred S8 0.8249  (deficit 0.86 %)   statistical sigma(S8) 0.028  shift/sigma -0.26
+   z_min 0.4: n  9  inferred S8 0.8263  (deficit 0.69 %)   statistical sigma(S8) 0.030  shift/sigma -0.19
+   z_min 0.6: n  7  inferred S8 0.8282  (deficit 0.46 %)   statistical sigma(S8) 0.035  shift/sigma -0.11
+   z_min 0.8: n  5  inferred S8 0.8298  (deficit 0.27 %)   statistical sigma(S8) 0.043  shift/sigma -0.05
+   z_min 1.0: n  3  inferred S8 0.8306  (deficit 0.16 %)   statistical sigma(S8) 0.052  shift/sigma -0.03
+   z_min 1.3: n  3  inferred S8 0.8306  (deficit 0.16 %)   statistical sigma(S8) 0.052  shift/sigma -0.03
+9. growth index: f sigma8 of gamma = 0.633 (same early amplitude) against the informational term
+   z 0: f sigma8 ratio to LCDM: gamma 0.633 0.8863   IAM 0.9575
+   z 0.5: f sigma8 ratio to LCDM: gamma 0.633 0.9460   IAM 0.9865
+   z 1.0: f sigma8 ratio to LCDM: gamma 0.633 0.9729   IAM 0.9959
+   z 1.5: f sigma8 ratio to LCDM: gamma 0.633 0.9851   IAM 0.9987
+   z 2.0: f sigma8 ratio to LCDM: gamma 0.633 0.9911   IAM 0.9996

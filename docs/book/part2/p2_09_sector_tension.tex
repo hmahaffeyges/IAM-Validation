@@ -1,87 +1,305 @@
-% Part 2 chapter carrying "Dark Energy or Sector Tension? IAM Confrontation with DESI Full-Shape Growth Rates and Joint Weak Lensing" (
-% Mar 2026) in its order. Read in full 2026-10-02 (934 lines, 50-line ledger). Numbers: docs/verification/scripts/verify_sector_tension.py;
-% two-ruler mock: docs/verification/observations/TWO_RULER_DESI_TEST.md. Check: observations/SECTOR_TENSION_CHECK.md. Naming rule applied.
+% Part 2 chapter carrying "Dark Energy or Sector Tension? IAM Confrontation with DESI Full-Shape Growth Rates and Joint Weak Lensing" (Mar 2026)
+% line for line, corrected: sections 1-4 here, sections 5-7 in p2_09b_phantom_crossing.tex (ch:phantom).
+% Read in full 2026-10-02 and again 2026-10-03 (934 PDF-text lines, 50-line ledger; LaTeX docs/papers/latex/iam_desi_paper/, 1299 lines).
+% Numbers: docs/verification/scripts/verify_sector_tension.py (+ _output.txt). Two-ruler mock: docs/verification/observations/TWO_RULER_DESI_TEST.md.
+% Check: docs/verification/observations/SECTOR_TENSION_CHECK.md; errata SX1-SX10. Data read in full from the sources: DESI 2024 V Appendix A
+% (f sigma_s8, D_V/r_d, covariances) and Table 11 (fiducial values); eBOSS DR16 cosmology Table III; KiDS-Legacy joint analysis abstract.
+% Naming rule: the two consistency analyses of the DESI fits are cited by journal and arXiv number only.
 \chapter{Dark energy or two rulers?}\label{ch:sectortension}
 
 \section*{The place}
 The cosmic horizon (Chapter~\ref{ch:surfaces}). Matter writes the record and feels $\mu<1$; light writes nothing and keeps $\Sigma=1$. Any analysis that
-puts observables from the two sectors into one fluid fit can read the difference as something else. This chapter asks whether DESI's evidence for
-evolving dark energy is that.
+puts observables from the two sectors into one fluid fit can read the difference as something else. This chapter and the next ask whether DESI's
+evidence for evolving dark energy is that.
 
-\section{The observation}
-\observed\ DESI DR2 BAO with the CMB and supernovae prefers $w_0>-1$, $w_a<0$~\cite{DESI2025}:
-\begin{center}\small\begin{tabular}{lccc}\toprule
-Data & $w_0$ & $w_a$ & $z$ where $w=-1$\\\midrule
-DESI + CMB & $-0.42\pm0.21$ & $-1.75\pm0.58$ & 0.50\\
-DESI + CMB + Pantheon+~\cite{Brout2022} & $-0.838\pm0.055$ & $-0.62^{+0.22}_{-0.19}$ & 0.35\\
-DESI + CMB + Union3~\cite{Rubin2025} & $-0.667\pm0.088$ & $-1.09^{+0.31}_{-0.27}$ & 0.44\\
-DESI + CMB + DES Y5~\cite{DESY5SN2024} & $-0.752\pm0.057$ & $-0.86^{+0.23}_{-0.20}$ & 0.41\\\bottomrule
-\end{tabular}\end{center}
-at $3.1$, $2.8$, $3.8$ and $4.2\sigma$. Analyses of the internal consistency of these fits (MNRAS Lett.\ 542, L24; arXiv:2504.04417) argue that the
-preference may come from tension between data sets rather than from the dark energy itself, without naming a mechanism.
+\section*{Summary}
+The Dark Energy Spectroscopic Instrument (DESI) reports a preference for dynamical dark energy with $w_0>-1$, $w_a<0$ and a phantom crossing of the
+equation of state at $z\approx0.35$--$0.50$. The question tested here and in Chapter~\ref{ch:phantom} is whether that preference can be a
+sector-assignment artifact of the informational term, a perturbation-only extension of $\Lambda$CDM from horizon thermodynamics with no free parameter
+beyond the standard model. The term gives $\mu(a)<1$ and $\Sigma(a)=1$. Its physical origin is gravitational decoherence: timelike (matter)
+worldlines decohere as structure forms, null (photon) worldlines do not. The matter coupling $\beta_m=\Omega_m/2=0.15765$ is set by the virial
+partition and fixed in every chain; the Planck posterior is consistent with it ($0.2\sigma$).
 
-\section{The sector assignment}
-\begin{itemize}
-\item \emph{Photon ruler} ($\Lambda$CDM): the CMB acoustic angle, BAO angles $D_M/r_d$ and $D_H/r_d$, and the lensing relation between potential
-and density ($\Sigma=1$).
-\item \emph{Matter ruler}: growth ($f\sigma_8$, peculiar velocities), the dynamical response of matter ($\mu<1$), and the expansion rate measured by
-matter, $H_m^2=H^2+\beta_mE(a)H_0^2$, giving $H_0^{\rm m}=67.16\sqrt{1+\beta_m}=72.26$ against the photon $67.16$. \calc
-\item \emph{Supernovae} are standard candles in galaxies, on timelike worldlines: the matter ruler. Their distances are read with light, and with
-the magnitude free the supernova fit is exactly flat in $H_0$ (Chapter~\ref{ch:dsvalidation}).
-\end{itemize}
+The observational consequence is a sector split. BAO distances and photon propagation are those of $\Lambda$CDM ($\Sigma=1$ exactly); the growth
+rate of galaxies is weakened by $\mu(a)<1$, and the lensing amplitude follows the lower matter density. A single-fluid $w_0w_a$CDM fit that takes
+$\Lambda$CDM distances together with sub-$\Lambda$CDM growth must infer $w_{\rm eff}(z)\neq-1$ to reconcile them.
 
-\section{Growth at the DESI redshifts}
+The term is confronted with the DESI DR1 full-shape growth rates in six redshift bins ($0.295\le z_{\rm eff}\le1.491$)~\cite{DESI2024V}, the DESI DR1
+distances, weak-lensing $S_8$ from KiDS~\cite{Heymans2021,Asgari2021,Wright2025,Stolzner2025}, DES Y3~\cite{DESY3} and HSC Y3~\cite{HSCY3Dalal}, and the
+DESI DR2 $w_0w_a$ fits~\cite{DESI2025}. Under the full Planck 2018 likelihood the term and $\Lambda$CDM are statistically indistinguishable
+($\Delta\chi^2=+0.54$ at the best points, eighteen converged chains, $R-1<0.01$) \fitted. Its $\sigma_8=0.7998\pm0.0058$ agrees with the 2025 joint
+lensing value $\sigma_8=0.802^{+0.022}_{-0.018}$~\cite{Stolzner2025} at $0.1\sigma$ \calc. The growth deficits at the DESI redshifts are $0.1$--$2.2\,\%$,
+below the present errors \calc. The DESI DR2 fits use distances only, and the term predicts $\Lambda$CDM distances; Chapter~\ref{ch:phantom} shows
+that it does not produce DESI's preference \calc. Euclid and the completed DESI survey test the growth shape set by $E(a)=\exp(1-1/a)$
+(Section~\ref{sec:lt_euclid}; Chapter~\ref{ch:phantom}).
 
+\section{Three tensions}
+$\Lambda$CDM describes the CMB anisotropies, baryon acoustic oscillations, type Ia supernovae and large-scale structure over many decades of
+scale~\cite{Planck2018VI}. Yet at least two classes of inter-dataset tension have persisted through extensive scrutiny and cross-checks, and neither
+has a clear systematic explanation within the standard model. \interp
+
+\paragraph{The Hubble tension.} \observed\ The Planck 2018 CMB analysis under $\Lambda$CDM gives $H_0=67.4\pm0.5\,{\rm km\,s^{-1}\,Mpc^{-1}}$~\cite{Planck2018VI}. The
+Cepheid-calibrated supernova ladder of SH0ES gives $73.04\pm1.04$~\cite{Riess2022}, $4.9\sigma$ apart \calc. The tip of the red giant branch gives
+$70.39\pm1.94$~\cite{Freedman2025}, between the two, and time-delay lensing gives a similarly high value~\cite{Wong2020}. The tension is not confined to
+one calibration method. \interp
+
+\paragraph{The $S_8$ tension.} \observed\ Weak-lensing surveys measuring the matter power spectrum amplitude at low redshift have reported
+$S_8\equiv\sigma_8(\Omega_m/0.3)^{0.5}$ below the $\Lambda$CDM CMB value $0.832$~\cite{Planck2018VI}: KiDS-1000 $0.766^{+0.020}_{-0.014}$ (lensing with
+galaxy clustering)~\cite{Heymans2021} and $0.759^{+0.024}_{-0.021}$ (cosmic shear)~\cite{Asgari2021}; DES Y3 $0.776\pm0.017$ (lensing with galaxy
+clustering)~\cite{DESY3}; HSC Y3 $0.776^{+0.032}_{-0.033}$ (cosmic-shear power spectra)~\cite{HSCY3Dalal}; a 2--3$\sigma$ tension. The completed KiDS
+survey finds $S_8=0.815^{+0.016}_{-0.021}$ from cosmic shear~\cite{Wright2025}. Combined with DES Y3 cosmic shear, Pantheon+ supernovae and DESI DR1 BAO it
+gives $S_8=0.814^{+0.011}_{-0.012}$ and $\sigma_8=0.802^{+0.022}_{-0.018}$, consistent with Planck~\cite{Stolzner2025}.
+
+\paragraph{The DESI dark-energy signal.} \observed\ DESI DR1 BAO with the CMB prefer $w_0>-1$, $w_a<0$ at $2.6\sigma$; with supernovae added the
+preference is $2.5$, $3.5$ and $3.9\sigma$ for Pantheon+, Union3 and DES Y5~\cite{DESI2024VI}. DESI DR2 BAO strengthen it to $2.8$--$4.2\sigma$,
+depending on the supernova compilation~\cite{DESI2025}:
+\begin{table}[htbp]\centering\small
+\caption{DESI DR2 $w_0w_a$CDM fits~\cite{DESI2025} \observed\ and their phantom-crossing redshifts from Eq.~\eqref{eq:ph_zcross} \calc.}\label{tab:st_dr2}
+\begin{tabular}{lcccc}\toprule
+Data & $w_0$ & $w_a$ & significance & $z_{\rm cross}$\\\midrule
+DESI + CMB & $-0.42\pm0.21$ & $-1.75\pm0.58$ & $3.1\sigma$ & 0.50\\
+DESI + CMB + Pantheon+~\cite{Brout2022} & $-0.838\pm0.055$ & $-0.62^{+0.22}_{-0.19}$ & $2.8\sigma$ & 0.35\\
+DESI + CMB + Union3~\cite{Rubin2025} & $-0.667\pm0.088$ & $-1.09^{+0.31}_{-0.27}$ & $3.8\sigma$ & 0.44\\
+DESI + CMB + DES Y5~\cite{DESY5SN2024} & $-0.752\pm0.057$ & $-0.86^{+0.23}_{-0.20}$ & $4.2\sigma$ & 0.41\\\bottomrule
+\end{tabular}\end{table}
+In every case the best-fit $w(a)=w_0+w_a(1-a)$ crosses $-1$: $w>-1$ below $z_{\rm cross}$ (quintessence-like today) and $w<-1$ above it (phantom at
+higher redshift). A canonical single scalar field cannot cross $w=-1$ without a discontinuity or a ghost degree of freedom, so this combination is not
+produced by any theoretically well-motivated single field. \interp
+
+Two analyses of the internal consistency of these fits (\emph{MNRAS Lett.} 542, L24, 2025; arXiv:\allowbreak{}2504.04417, \emph{Phys.\ Dark Univ.}
+52, 102268) argue that the preference may come from inconsistencies between data sets that probe the background and the perturbations in different
+ways, and ask whether the DR2 constraints show genuine evolution relative to DR1 or the same internal tension amplified as the errors shrink.
+\observed\ Neither names a physical mechanism that would produce the phantom crossing as a calculable artifact.
+
+\paragraph{The question.} The informational term gives matter and photon observables different effective expansion rates, because gravitational
+decoherence changes only the matter perturbation equations. It therefore makes three statements:
+\begin{enumerate}
+\item \emph{Photon-sector observables} (BAO angular positions, comoving distances, the CMB acoustic scale) are those of $\Lambda$CDM. The
+potential that deflects light obeys the general-relativistic relation to the density ($\Sigma=1$ exactly). \prediction
+\item \emph{Matter-sector observables} (the growth rate $f\sigma_8$, peculiar velocities) are lowered through $\mu(a)<1$. The coupling deficit $1-\mu$ is
+$13.6\,\%$ today and vanishes above $z\approx2$; the growth-rate deficit it produces is $4.25\,\%$ today, $2.17\,\%$ at $z=0.3$ and $0.41\,\%$ at $z=1$.
+\prediction\ \calc
+\item \emph{A single-fluid $w_0w_a$CDM fit} to observables of both sectors at once would read the difference as $w\neq-1$. \conjecture\ Whether this
+produces the DESI crossing is tested in Chapter~\ref{ch:phantom}.
+\end{enumerate}
+All three follow from the one coupling $\beta_m=\Omega_m/2$, with no further amplitude.
+
+\section{The informational term in brief}\label{sec:st_model}
+\paragraph{Thermodynamic origin.} The term comes from an extension of the Jacobson--Cai--Kim thermodynamic route to gravity (Chapter~\ref{ch:theory}).
+Jacobson showed that the Einstein equations are an equation of state: they follow from $\delta Q=T\,\delta S$ applied to local Rindler horizons, with $S$
+the Bekenstein--Hawking entropy proportional to area~\cite{Jacobson1995}. Cai and Kim extended this to the apparent horizon of an expanding universe
+and obtained the Friedmann equations from the first law $dE=T\,dS+W\,dV$~\cite{CaiKim2005}. Both derivations assume that the entropy contains only the
+geometric term, $S=k_BA/(4\ell_P^2)$. \derived\ (in those references)
+
+The informational term adds an entropy that becomes significant at late times. Gravitational structure formation, the hierarchical collapse of matter
+into bound objects, is the dominant source of irreversible classical information in the late universe. Each virialised structure reduces the
+phase-space volume available to its matter and so writes classical information in Shannon's sense~\cite{Shannon1948}. By Landauer's
+principle~\cite{Landauer1961}, verified at the mesoscale~\cite{Berut2012}, creating or erasing one bit costs at least $k_BT\ln2$. By the holographic
+principle~\cite{Bousso2002} the entropy is carried on the cosmic apparent horizon. The horizon's entropy budget therefore has two parts,
+\begin{equation}
+S_{\rm total}=S_{\rm geometric}+S_{\rm informational},\qquad S_{\rm geometric}=\frac{k_BA}{4\ell_P^2},
+\label{eq:st_entropy}\end{equation}
+where $S_{\rm informational}$ accumulates from structure formation. \interp\ Inserted into the Cai--Kim first law, the extra term enters the matter
+perturbation equations as a modified effective expansion rate. It does \emph{not} change the background Friedmann equations: the background is
+$\Lambda$CDM throughout, as the Level~2 chains require (Section~\ref{sec:s8_perturbation}).
+
+\paragraph{The sector split.} The causal structure of spacetime decides which species couple to the informational entropy. Timelike worldlines (cold
+dark matter and baryons) interact with collapsed structures and feel the decoherence-induced friction. Null worldlines (photons) travel on the light
+cone and do not couple to the matter density fluctuations through this channel. \interp\ The split is therefore at the level of the perturbations:
+the cold-dark-matter and baryon equations see the effective rate
+\begin{equation}
+\tilde H_m^2(a)=H^2_{\Lambda\rm CDM}(a)+\beta_mE(a)H_0^2,\qquad H^2_{\Lambda\rm CDM}(a)=H_0^2\left(\Omega_ma^{-3}+\Omega_ra^{-4}+\Omega_\Lambda\right),
+\label{eq:st_hm}\end{equation}
+with $E(a)=\exp(1-1/a)$ (Chapter~\ref{ch:theory}) and $\beta_m=\Omega_m/2$ (Chapter~\ref{ch:virial}); the photon equations are not changed. In the
+$\mu$--$\Sigma$ parametrisation of modified gravity~\cite{PogosianSilvestri2016} this is
+\begin{equation}
+\mu(a)=\frac{H^2_{\Lambda\rm CDM}(a)}{H^2_{\Lambda\rm CDM}(a)+\beta_mE(a)H_0^2}<1,\qquad \Sigma(a)=1\ \text{(exact)},
+\label{eq:st_mu}\end{equation}
+the coupling of Eq.~\eqref{eq:s8_mu}, whose value today, $\mu(1)=1/(1+\beta_m)=0.864$, is derived step by step in Section~\ref{sec:s8_coupling}.
+$\mu<1$ weakens the gravitational source of structure growth. $\Sigma=1$ follows from the null-worldline argument: the relation between the
+potential that deflects light and the density is unchanged, so photon propagation (BAO angles, the geometry of lensing) is that of $\Lambda$CDM. The
+lensing \emph{amplitude} still follows the matter density, which grows more slowly (Section~\ref{sec:st_lensing}).
+
+\paragraph{Coupling and activation function.} At virialisation the gravitational energy of a collapsed structure divides equally between the kinetic
+energy of the virialised particles (the geometric channel) and the information of the collapsed state (the informational channel); this one-to-one
+partition, an instance of IAM's Law (Chapter~\ref{ch:virial}), gives $\beta_m=\Omega_m/2=0.3153/2=0.15765$. \interp\ The activation function comes from
+the Gibbons--Hawking temperature of the de Sitter horizon, which sets the thermal cost of a Landauer erasure, combined with the cumulative decoherence
+over cosmic history (Chapter~\ref{ch:theory}). It has $E(a\to0)\to0$ and $E(1)=1$, so the change vanishes in the early universe and is largest today.
+
+\paragraph{The coupling at the DESI redshifts.} With the Planck 2018 parameters ($\Omega_m=0.3153$, $\Omega_\Lambda=0.6847$, $H_0=67.36$),
+Eq.~\eqref{eq:st_mu} gives Table~\ref{tab:st_mu} and Fig.~\ref{fig:mu_evolution}. Nothing in it is fitted. Above $z\approx2$, $E(a)\to0$ and $\mu\to1$,
+the $\Lambda$CDM growth of the matter era.
+\begin{table}[htbp]\centering\small
+\caption{The coupling at the six DESI DR1 tracer redshifts, with $\beta_m=0.15765$ and the Planck 2018 background, and the deficits it produces against
+$\Lambda$CDM with the same early amplitude. The coupling deficit $1-\mu$ is not the growth deficit. \calc}\label{tab:st_mu}
+\begin{tabular}{lcccccc}\toprule
+Tracer & $z_{\rm eff}$ & $\mu$ & $1-\mu$ & $f\sigma_8$ deficit & $\sigma_8(z)$ deficit & $E_G$ change\\\midrule
+BGS & 0.295 & 0.921 & 7.9\,\% & 2.2\,\% & 0.37\,\% & $+1.9\,\%$\\ LRG1 & 0.510 & 0.949 & 5.1\,\% & 1.3\,\% & 0.21\,\% & $+1.1\,\%$\\
+LRG2 & 0.706 & 0.967 & 3.3\,\% & 0.8\,\% & 0.13\,\% & $+0.7\,\%$\\ LRG3 & 0.919 & 0.979 & 2.1\,\% & 0.5\,\% & 0.07\,\% & $+0.4\,\%$\\
+ELG2 & 1.317 & 0.991 & 0.9\,\% & 0.2\,\% & 0.03\,\% & $+0.2\,\%$\\ QSO & 1.491 & 0.994 & 0.6\,\% & 0.1\,\% & 0.02\,\% & $+0.1\,\%$\\\midrule
+today & 0 & 0.864 & 13.6\,\% & 4.25\,\% & 0.78\,\% & $+3.6\,\%$\\\bottomrule
+\end{tabular}\end{table}
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_mu_evolution.pdf}
+\caption{(a) The coupling $\mu(z)$ (Eq.~\ref{eq:st_mu}) against redshift (bottom axis) and scale factor (top axis); dashed, general relativity; points, the six DESI DR1 tracer redshifts (Table~\ref{tab:st_mu}). (b) The coupling deficit $1-\mu$ (dashed) and the $f\sigma_8$ deficit it produces (solid), with the DESI DR1 tracers on the latter; vertical lines, the phantom-crossing redshifts of the four DESI DR2 fits (Table~\ref{tab:st_dr2}), $0.35$--$0.50$, where $1-\mu$ is $5.2$--$7.0\,\%$ and the growth-rate deficit $1.4$--$1.9\,\%$. $\beta_m=\Omega_m/2=0.15765$, $E(a)=\exp(1-1/a)$, Planck 2018 background. \texttt{docs/book/figscripts/\allowbreak{}fig\_p2\_sector\_s8.py}. \calc}\label{fig:mu_evolution}
+\end{figure}
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.8\textwidth]{figures/part2/fig_mu_fsigma8.pdf}
 \caption{The coupling and the growth it produces, on one panel. Dotted (right axis): $\mu(z)=H^2/(H^2+\beta_mE(a)H_0^2)$. Dashed: the coupling deficit $1-\mu$, 13.6\,\% today, which is not a growth deficit. Solid: the deficit of $f\sigma_8$ against $\Lambda$CDM from the linear growth equation with the same early amplitude, 4.25\,\% at $z=0$, 2.17\,\% at $z=0.3$ and 0.41\,\% at $z=1$. Ticks: the DESI DR1 tracer redshifts (BGS, LRG1--3, ELG2, QSO), where the full-shape errors are 8--13\,\% per bin. Planck 2018 background ($\Omega_m=0.3153$), $\beta_m=0.15765$; \texttt{docs/verification/scripts/\allowbreak{}verify\_sector\_tension.py}. \calc}\label{fig:mu_fsigma8}
 \end{figure}
-The coupling deficit $1-\mu$ is not the growth deficit. With the same early amplitude, the exact coupling gives: \calc
-\begin{center}\small\begin{tabular}{lcccc}\toprule
-Tracer & $z$ & $1-\mu$ & $f\sigma_8$ deficit & $E_G$ change\\\midrule
-BGS & 0.295 & 7.9\,\% & 2.2\,\% & $+1.9\,\%$\\ LRG1 & 0.510 & 5.1\,\% & 1.3\,\% & $+1.1\,\%$\\ LRG2 & 0.706 & 3.3\,\% & 0.8\,\% & $+0.7\,\%$\\
-LRG3 & 0.919 & 2.1\,\% & 0.5\,\% & $+0.4\,\%$\\ ELG2 & 1.317 & 0.9\,\% & 0.2\,\% & $+0.2\,\%$\\ QSO & 1.491 & 0.6\,\% & 0.1\,\% & $+0.1\,\%$\\
-today & 0 & 13.6\,\% & 4.25\,\% & $+3.6\,\%$\\\bottomrule
-\end{tabular}\end{center}
-DESI DR1 full-shape $f\sigma_8$ errors~\cite{DESI2024V} are $8$--$13\,\%$ per bin, so the data cannot yet separate the two: on the six DESI bins $\chi^2$ is
-$4.51$ ($\Lambda$CDM) and $5.24$ (informational term, MGCAMB form), and on SDSS DR16~\cite{Alam2021} $6.19$ and $6.95$. \calc\ The statistic $E_G=\Omega_{m0}\Sigma/f$
-is the cleanest single signature: $\Sigma=1$ with a lower $f$ raises it, by $1.8\,\%$ at $z=0.3$. \calc
 
-\section{The clustering amplitude}
-The Level 2 chains give $\sigma_8=0.7998\pm0.0058$ against $0.8087\pm0.0059$, so $S_8=0.822\pm0.011$ against $0.830$. \fitted The joint analysis of
-KiDS-Legacy and DES Y3 cosmic shear with DESI DR1 BAO and Pantheon+ gives $\sigma_8=0.802^{+0.022}_{-0.018}$~\cite{Stolzner2025}, $0.1\sigma$ from the
-chain value. \observed{} On $S_8$ the lensing surveys now disagree with each other: KiDS-Legacy cosmic shear gives $0.815^{+0.016}_{-0.021}$~\cite{Wright2025},
-$0.4\sigma$ below the IAM value; DES Y3 galaxy clustering with weak lensing gives $0.776\pm0.017$~\cite{DESY3} ($2.3\sigma$ below) and HSC Y3 cosmic shear
-$0.776^{+0.032}_{-0.033}$~\cite{HSCY3Dalal} ($1.4\sigma$ below). \observed\ (values) \calc\ (offsets, with the error on the side facing $0.822$ added in quadrature to $\pm0.011$) The IAM shift is in the direction of the lower values and
-does not close the gap to them (Chapter~\ref{ch:s8trend}). With $\Sigma=1$ the lensing amplitude follows $\delta_m$: CMB lensing power is lower by $0.08\,\%$,
-below any current measurement.
+\paragraph{Validation status.} The term has been run against the full Planck 2018 CamSpec TT, TE, EE likelihood in eighteen converged MCMC chains
+($R-1<0.01$; Chapters~\ref{ch:dual}, \ref{ch:latetime} and \ref{ch:level2}). \fitted
+\begin{itemize}
+\item \emph{Level 1} (MGCAMB v1.5.2~\cite{Wang2023MGCAMB} with Cobaya~\cite{Torrado2021}): twelve chains over four data combinations (Planck; Planck +
+RSD; Planck + BAO; Planck + Pantheon+). With the coupling fixed, $\Delta\chi^2$ against $\Lambda$CDM lies between $+0.56$ and $+1.73$; by the likelihood
+ratio $e^{-\Delta\chi^2/2}\ge0.42$ none is excluded. The $\sigma_8$ shift, $-0.013$, is the same in every combination. \fitted
+\item \emph{Level 2} (the mechanism written directly into the CAMB v1.5.8 Fortran~\cite{Lewis2000CAMB}, the matter rate \texttt{adotoa\_matter} beside
+the photon rate \texttt{adotoa}, with Cobaya). Run A (the term, Planck) against Run C ($\Lambda$CDM, Planck): $\Delta\chi^2=+0.54$ at the best points,
+$\sigma_8=0.7998\pm0.0058$ against $0.8087\pm0.0059$. The $\sigma_8$ change is growth physics, not a rebalancing of the other parameters:
+$\ln10^{10}A_s$ moves by $+0.09\sigma$ and $\Omega_m$ by $+0.05\sigma$, both under the $0.3\sigma$ that a rebalancing would show
+(Fig.~\ref{fig:param_shifts}). \fitted
+\item $\beta_m=0.15765$ is fixed before any chain runs. The Level~2 posterior $\Omega_m=0.3166\pm0.0065$ gives $\Omega_m/2=0.1583\pm0.0033$, $0.2\sigma$
+from the fixed value: a consistency check, not a recovery of $\beta_m$. \calc
+\end{itemize}
+\begin{table}[htbp]\centering\small
+\caption{Parameters of the informational term and the Planck 2018 results. Upper block: no fitting. Lower blocks: chain results (Chapters~\ref{ch:latetime}, \ref{ch:level2}).}\label{tab:st_params}
+\begin{tabular}{lll}\toprule
+Quantity & Value & Source\\\midrule
+\multicolumn{3}{l}{\emph{Fixed by the theory (no free amplitude)}}\\
+$\beta_m$ & $0.15765$ & $\Omega_m/2$, virial partition\\
+$E(a)$ & $\exp(1-1/a)$ & horizon thermodynamics\\
+$\mu(z{=}0)$ & $0.864$ & Eq.~\eqref{eq:st_mu} at $a=1$ \calc\\
+$\mu_0=\mu(z{=}0)-1$ & $-0.136$ & Eq.~\eqref{eq:s8_mu0} \derived\\
+$\Sigma(a)$ & $1$ (exact) & null worldlines unmodified\\
+$H_0^{\rm matter}$ & $72.26\,{\rm km\,s^{-1}\,Mpc^{-1}}$ & $67.16\sqrt{1+\beta_m}$ \calc\\\midrule
+\multicolumn{3}{l}{\emph{Level 2 (Planck 2018 CamSpec TT, TE, EE)} \fitted}\\
+$\sigma_8$ (term, Run A) & $0.7998\pm0.0058$ & $-1.51\sigma$ from Run C\\
+$\sigma_8$ ($\Lambda$CDM, Run C) & $0.8087\pm0.0059$ & baseline\\
+$H_0$ (Run A, photon sector) & $67.16\pm0.47$ & $0.37\sigma$ from Planck $67.36\pm0.54$\\
+$\Omega_m$ (Run A) & $0.3166\pm0.0065$ & $+0.05\sigma$ from Run C\\
+$S_8$ (Run A) & $0.822\pm0.011$ & $-0.78\sigma$ from Run C\\
+$\Delta\chi^2$ best points (term $-$ $\Lambda$CDM) & $+0.54$ & likelihood ratio $0.76$\\
+converged chains & $18$ ($R-1<0.01$) & Levels 1 and 2\\\midrule
+\multicolumn{3}{l}{\emph{Consistency and free amplitude}}\\
+$\Omega_m/2$ from the Run A posterior & $0.1583\pm0.0033$ & $0.2\sigma$ from $0.15765$ \calc\\
+$\mu_0$ free (Level 1, Planck + RSD) & median $+0.064$, 90\,\% lower bound $-0.204$ & prediction inside (Table~\ref{tab:lt_free})\\\bottomrule
+\end{tabular}\end{table}
 
-\section{The phantom crossing}
+\section{Growth at the DESI redshifts}\label{sec:st_growth}
+\paragraph{Data.} \observed\ The DESI DR1 full-shape analysis~\cite{DESI2024V} gives, in its Appendix~A, compressed ShapeFit-only data vectors (the
+power-spectrum fit alone, without the post-reconstruction BAO) for six tracer samples, $0.295\le z_{\rm eff}\le1.491$, each with a Gaussian covariance of
+$D_V/r_d$, $D_H/D_M$, $f\sigma_{s8}$ and the shape parameter. These are appropriate for a comparison at fixed cosmology with the BAO constraint applied
+separately. The growth entry is $f\sigma_{s8}$, the growth rate times $\sigma_8$ in $8\,h^{-1}$Mpc of the template cosmology; DESI converts it to
+$f\sigma_8$ only for display, assuming the template's sound horizon, and uses $f\sigma_{s8}$ for inference. For legacy context at low redshift and as a
+check of the overall normalisation the comparison adds the 6dF Galaxy Survey at $z=0.067$~\cite{Beutler2012} and the SDSS redshift-space-distortion
+measurements (Main Galaxy Sample at $z=0.15$; BOSS DR12 at $0.38$ and $0.51$; eBOSS DR16 luminous red galaxies, emission-line galaxies and
+quasars)~\cite{Alam2021}.
 
-\begin{figure}[htbp]\centering
-\includegraphics[width=0.62\textwidth]{figures/part2/fig_w0wa.pdf}
-\caption{DESI DR2 $w_0$--$w_a$ fits with the CMB and with each supernova sample ~\cite{DESI2025} \observed, against $\Lambda$CDM, which is the informational term's prediction for photon-ruler distances, and the two-ruler mock (DESI DR2 BAO and the CMB on the photon ruler, 1,550 supernovae on $H_m$, magnitude free; $w_0=-1.19$, $w_a=+0.38$) \calc, which lands in the opposite quadrant.}\label{fig:w0wa}
-\end{figure}
-The sector-tension reading is that a one-fluid fit to $\Lambda$CDM distances and weaker growth must invent $w(z)\neq-1$. Three facts decide it.
+\paragraph{The growth equation.} For pressureless matter on sub-horizon scales the density contrast obeys
+$\ddot\delta+2H\dot\delta=4\pi G\mu\bar\rho_m\delta$. The steps to the form used here are:
 \begin{enumerate}
-\item The DR2 $w_0w_a$ fits use distances only --- BAO, the CMB and supernovae. No growth data enter them, so mixing distances with growth cannot be
-what moves them. \observed
-\item Supernovae on the matter ruler with the shape $H_m(z)$ do mix two rulers in a distance-only fit. The mock (DESI DR2 BAO and the CMB on the
-photon ruler, 1,550 supernovae on $H_m$, magnitude free) gives $w_0=-1.19$, $w_a=+0.38$: the opposite quadrant to DESI. \calc
-\item The real supernova data reject that shape. On Pantheon+ with full covariance~\cite{Brout2022}, applying $H_m$ to the supernova distances costs
-$\Delta\chi^2=+23.6$; the supernova geometry is $\Lambda$CDM, and the matter ruler enters only through the calibration, which the free magnitude absorbs. \calc
+\item With $x=\ln a$, $d/dt=H\,d/dx$, so $\dot\delta=H\delta'$ and $\ddot\delta=H^2\delta''+HH'\delta'$, where a prime is $d/dx$.
+\item Dividing by $H^2$: $\delta''+(2+H'/H)\delta'=4\pi G\mu\bar\rho_m\delta/H^2$.
+\item With $4\pi G\bar\rho_m=\tfrac32H_0^2\Omega_ma^{-3}$ the right side is $\tfrac32\mu\,\Omega_m(a)\delta$, where $\Omega_m(a)=\Omega_ma^{-3}/(H/H_0)^2$.
 \end{enumerate}
-So the informational term predicts photon-ruler distances that are $\Lambda$CDM, $w=-1$, and it does not produce DESI's preference. If that preference
-holds, it is not this term. \prediction
+So the linear growth factor $D(a)$ satisfies
+\begin{equation}
+\frac{d^2D}{dx^2}+\left(2+\frac{d\ln H}{dx}\right)\frac{dD}{dx}-\frac32\,\mu(a)\,\Omega_m(a)\,D=0,
+\label{eq:st_ode}\end{equation}
+with $H(a)$ the $\Lambda$CDM background and $\mu(a)$ from Eq.~\eqref{eq:st_mu}. \derived\ Initial conditions are set deep in matter domination on the
+growing mode, $D(a_{\rm ini})=a_{\rm ini}$ and $dD/dx=a_{\rm ini}$ at $a_{\rm ini}=10^{-4}$, where $\mu=1$. Equation~\eqref{eq:st_ode} is integrated with
+the DOP853 Runge--Kutta method in $x\in[\ln10^{-4},0]$, tolerances $10^{-11}$ (relative) and $10^{-14}$ (absolute). The growth rate is $f=d\ln D/d\ln a$,
+and the prediction is $f\sigma_8(z)=f(z)\,\sigma_8\,D(z)/D(0)$ with $\sigma_8=0.7998$ (Level~2 Run~A) for the informational term and $0.8087$ (Run~C) for
+$\Lambda$CDM.
 
-\section{Signatures}
-$\mu$ depends on time only, so the growth change is scale independent. $\Sigma=1$, so lensing follows $\delta_m$ and $E_G$ rises. The values are
-$\mu_0=-0.136$ and $\Sigma_0=0$. \prediction\ The Level~1 free-$\mu_0$ chain with redshift-space distortions reaches the upper prior edge; its
-median is $+0.064$ and its one-sided 90\,\% lower bound $-0.204$, so the prediction lies inside the interval, and so does general relativity
-(Chapter~\ref{ch:latetime}). \fitted\ Euclid's published forecasts bracket the test of the IAM $\mu(z)$ from about $0.3\sigma$ (conservative scale cuts) to about $7\sigma$ (smallest
-scales modelled), and a forecast made with the IAM $\mu(z)$ itself is still to be done (Chapter~\ref{ch:latetime}). The survey timeline is in Chapter~\ref{ch:surveys}.
+The equation is a reduced treatment of the full Boltzmann calculation of the Level~2 code. With the same early amplitude it lowers $\sigma_8$ by
+$0.78\,\%$, against $1.10\,\%$ in the Level~2 chains, so that $0.8087\times D_{\rm IAM}(1)/D_{\Lambda\rm CDM}(1)=0.8024$ lies $0.3\,\%$ above the Boltzmann
+value $0.7998$ \calc. The predictions in this section use the equation with the chain values of $\sigma_8$; the difference is small against the present
+errors.
 
-\section{Status}
-The sector assignment and the growth and lensing signatures are predictions of the informational term, with $\mu_0=-0.136$ \prediction; the $H_0$
-split, $67.16$ and $72.26$, follows from the Level~2 chains \calc. Calculated here: the growth deficits at the DESI redshifts are $0.1$--$2.2\,\%$,
-below current errors, and the DESI phantom crossing is not produced by the informational term. \calc
+\paragraph{Results.} Table~\ref{tab:st_fsig8} lists the measurements, the two predictions and the pulls; Fig.~\ref{fig:sector_phantom}a shows them.
+\begin{table}[htbp]\centering\small
+\caption{Growth-rate data and the two predictions. DESI DR1: $f\sigma_{s8}$ and its error from the ShapeFit-only data vectors (Appendix~A of~\cite{DESI2024V}); legacy: SDSS redshift-space-distortion-only values~\cite{Alam2021} and 6dFGS~\cite{Beutler2012} \observed. Predictions from Eq.~\eqref{eq:st_ode} with $\sigma_8=0.7998$ (term) and $0.8087$ ($\Lambda$CDM); pull $=({\rm obs}-{\rm pred})/\sigma_{\rm obs}$ \calc. No free parameter.}\label{tab:st_fsig8}
+\begin{tabular}{lccccccc}\toprule
+Sample & $z_{\rm eff}$ & observed & $\sigma_{\rm obs}$ & term & $\Lambda$CDM & pull, term & pull, $\Lambda$CDM\\\midrule
+\multicolumn{8}{l}{\emph{DESI DR1 (ShapeFit only)}}\\
+BGS & 0.295 & 0.377 & 0.094 & 0.460 & 0.472 & $-0.88$ & $-1.01$\\
+LRG1 & 0.510 & 0.514 & 0.064 & 0.465 & 0.473 & $+0.75$ & $+0.63$\\
+LRG2 & 0.706 & 0.484 & 0.053 & 0.455 & 0.460 & $+0.54$ & $+0.44$\\
+LRG3 & 0.919 & 0.422 & 0.047 & 0.436 & 0.439 & $-0.28$ & $-0.36$\\
+ELG2 & 1.317 & 0.377 & 0.037 & 0.392 & 0.394 & $-0.40$ & $-0.45$\\
+QSO & 1.491 & 0.435 & 0.044 & 0.373 & 0.374 & $+1.40$ & $+1.36$\\\midrule
+\multicolumn{8}{l}{\emph{Legacy (6dFGS, SDSS)}}\\
+6dFGS & 0.067 & 0.423 & 0.055 & 0.425 & 0.443 & $-0.04$ & $-0.36$\\
+MGS & 0.150 & 0.530 & 0.160 & 0.442 & 0.458 & $+0.55$ & $+0.45$\\
+BOSS & 0.380 & 0.500 & 0.047 & 0.465 & 0.475 & $+0.75$ & $+0.54$\\
+BOSS & 0.510 & 0.455 & 0.039 & 0.465 & 0.473 & $-0.26$ & $-0.46$\\
+eBOSS LRG & 0.700 & 0.448 & 0.043 & 0.455 & 0.461 & $-0.17$ & $-0.30$\\
+eBOSS ELG & 0.850 & 0.315 & 0.095 & 0.442 & 0.447 & $-1.34$ & $-1.38$\\
+eBOSS QSO & 1.480 & 0.462 & 0.045 & 0.374 & 0.375 & $+1.96$ & $+1.92$\\\bottomrule
+\end{tabular}\end{table}
+\calc\ Across the six DESI bins the pulls run from $-0.88$ to $+1.40$ for the informational term and from $-1.01$ to $+1.36$ for $\Lambda$CDM; the
+diagonal $\chi^2$ is $3.84$ and $3.81$ (six points), and on the seven legacy points $6.61$ and $6.53$. Neither model is preferred by these data. With the MGCAMB form of the coupling (Chapter~\ref{ch:latetime}) and the DESI growth values taken from the ShapeFit ratios of DESI's own table of results, the same comparison gives $\chi^2=4.51$ ($\Lambda$CDM) and $5.24$ on the six DESI bins and $6.19$ and $6.95$ on SDSS DR16~\cite{Alam2021}. \calc The
+statistical errors, 8--13\,\% per DESI bin, do not resolve the differences between the two predictions in the DESI bins below $z=0.5$, $2.5\,\%$ (BGS) and $1.7\,\%$ (LRG1).
+
+The physical point is the \emph{redshift dependence}. The term predicts a curved deficit, largest at low redshift and falling monotonically, set by
+$\mu(a)$; it is not a constant rescaling of the growth amplitude, and a fixed $f\sigma_8$ suppression at all redshifts is inconsistent with it. The
+functional form is a direct prediction of $E(a)=\exp(1-1/a)$ and can be separated from $\Lambda$CDM and from dynamical dark energy with per-cent data
+(Chapter~\ref{ch:phantom}). \prediction
+
+\section{The clustering amplitude}\label{sec:st_lensing}
+\paragraph{Survey data.} \observed\ Weak lensing gives the most direct low-redshift test of the clustering amplitude. The published values:
+\begin{itemize}
+\item KiDS-1000: $S_8=0.759^{+0.024}_{-0.021}$ from cosmic shear over $1000\,{\rm deg}^2$~\cite{Asgari2021}; $0.766^{+0.020}_{-0.014}$ with galaxy
+clustering~\cite{Heymans2021}.
+\item KiDS-Legacy, the completed survey of about $1350\,{\rm deg}^2$: $S_8=0.815^{+0.016}_{-0.021}$ from cosmic shear~\cite{Wright2025}. Joined with DES Y3 cosmic shear, Pantheon+ and DESI DR1 BAO:
+$S_8=0.814^{+0.011}_{-0.012}$, $\sigma_8=0.802^{+0.022}_{-0.018}$~\cite{Stolzner2025}.
+\item DES Y3: $S_8=0.776\pm0.017$ from cosmic shear and galaxy clustering over $\sim4100\,{\rm deg}^2$~\cite{DESY3}.
+\item HSC Y3: $S_8=0.776^{+0.032}_{-0.033}$ from cosmic-shear power spectra over $416\,{\rm deg}^2$~\cite{HSCY3Dalal}.
+\item Planck CMB lensing: $\sigma_8\Omega_m^{0.25}=0.589\pm0.020$~\cite{Planck2018VIII}.
+\end{itemize}
+
+\paragraph{The prediction.} The term lowers the amplitude of the matter power spectrum relative to $\Lambda$CDM. The Level~2 posteriors give \fitted
+\begin{equation}
+\sigma_8^{\rm IAM}=0.7998\pm0.0058\quad\text{against}\quad\sigma_8^{\Lambda\rm CDM}=0.8087\pm0.0059,
+\label{eq:st_sigma8}\end{equation}
+\begin{equation}
+S_8^{\rm IAM}=0.822\pm0.011\quad\text{against}\quad S_8^{\Lambda\rm CDM}=0.830\pm0.011,
+\label{eq:st_S8}\end{equation}
+with $S_8$ evaluated at each chain's own $\Omega_m$ ($0.7998\sqrt{0.3166/0.3}=0.822$) \calc. The change comes only from the $\mu<1$ friction term; nothing
+is changed in the primordial spectrum, the baryon-to-dark-matter ratio or any geometric parameter. The Level~2 posteriors confirm it: $\ln10^{10}A_s$
+moves by $+0.09\sigma$ and $\Omega_m$ by $+0.05\sigma$ against $\Lambda$CDM. With $\Sigma=1$ the lensing potential follows $\delta_m$, so CMB
+lensing power is lower by $0.08\,\%$ (Limber estimate) \calc, below any current measurement. The term's $\sigma_8\Omega_m^{0.25}=0.600$ lies $0.55\sigma$
+from the Planck lensing value \calc.
+
+\paragraph{Comparison.} Table~\ref{tab:st_s8} collects the comparison. The joint value $\sigma_8=0.802^{+0.022}_{-0.018}$ is $0.1\sigma$ from the
+term's $0.7998\pm0.0058$. On $S_8$ the lensing surveys now disagree with each other. The completed KiDS survey and the joint analysis lie $0.4$ and
+$0.5\sigma$ below the term's $0.822$; KiDS-1000, DES Y3 and HSC Y3 lie $2.4$--$2.5$, $2.3$ and $1.4\sigma$ below it. The term sits between the Planck
+$\Lambda$CDM value ($0.830$) and the lower surveys: the shift is in their direction and does not close the gap to them. \calc
+\begin{table}[htbp]\centering\small
+\caption{$S_8$ and $\sigma_8$ against the Level~2 values (term: Run~A; $\Lambda$CDM: Run~C) \fitted. Offset from the term's value in units of $\sqrt{\sigma^2_{\rm survey}+\sigma^2_{\rm IAM}}$, with the survey error on the side facing $0.822$ \calc. Survey values \observed.}\label{tab:st_s8}
+\begin{tabular}{lccc}\toprule
+Source & value & error & offset\\\midrule
+\multicolumn{4}{l}{\emph{Chains}}\\
+informational term (Level 2, Run A) & $S_8=0.822$ & $\pm0.011$ & --\\
+$\Lambda$CDM (Level 2, Run C) & $S_8=0.830$ & $\pm0.011$ & $+0.5\sigma$\\\midrule
+\multicolumn{4}{l}{\emph{Weak-lensing surveys}}\\
+KiDS-1000 cosmic shear~\cite{Asgari2021} & $S_8=0.759$ & $^{+0.024}_{-0.021}$ & $-2.4\sigma$\\
+KiDS-1000 with clustering~\cite{Heymans2021} & $S_8=0.766$ & $^{+0.020}_{-0.014}$ & $-2.5\sigma$\\
+KiDS-Legacy cosmic shear~\cite{Wright2025} & $S_8=0.815$ & $^{+0.016}_{-0.021}$ & $-0.4\sigma$\\
+DES Y3 with clustering~\cite{DESY3} & $S_8=0.776$ & $\pm0.017$ & $-2.3\sigma$\\
+HSC Y3 power spectra~\cite{HSCY3Dalal} & $S_8=0.776$ & $^{+0.032}_{-0.033}$ & $-1.4\sigma$\\\midrule
+\multicolumn{4}{l}{\emph{Joint analysis: KiDS-Legacy + DES Y3 shear + Pantheon+ + DESI DR1 BAO}~\cite{Stolzner2025}}\\
+& $S_8=0.814$ & $^{+0.011}_{-0.012}$ & $-0.5\sigma$\\
+& $\sigma_8=0.802$ & $^{+0.022}_{-0.018}$ & $+0.1\sigma$\\
+informational term (Level 2) & $\sigma_8=0.7998$ & $\pm0.0058$ & --\\\bottomrule
+\end{tabular}\end{table}
+
+A larger shift would need either a larger $|\mu_0|$, which would raise $\Delta\chi^2$ against Planck, or a photon coupling $\beta_\gamma$, which the
+CMB acoustic scale bounds to $\beta_\gamma<0.0039$, $\beta_\gamma/\beta_m<0.025$ at $95\,\%$ (Chapter~\ref{ch:dsnote}) \measured. Neither has a free
+parameter available. \interp
+
+What separates the term from dynamical dark energy is that its $\sigma_8$ shift is produced with $\Sigma=1$. A model that lowers $S_8$ by changing the
+relation between the lensing potential and the density ($\Sigma\neq1$) changes CMB lensing by much more than the $0.08\,\%$ the term gives. The
+combination $\mu<1$, $\Sigma=1$ is the diagnostic signature (Chapter~\ref{ch:phantom}). \prediction
