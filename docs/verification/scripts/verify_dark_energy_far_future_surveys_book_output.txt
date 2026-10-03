@@ -1,0 +1,126 @@
+A. Algebra
+  A1 dlnE/dlna = 1/a
+  A2 continuity rho' = -3(1+w) rho/a with rho = rho0 E(a)  ->  w_info = (-a - 1/3)/a
+     residual of continuity equation: 0
+  A3 w_info(1) = -4/3 ; lim a->oo w = -1 ; dw/da = 1/(3*a**2)
+  A4 CPL: w0 = -4/3 , wa = -dw/da|1 = -1/3
+  A5 E(0+) = 0 ; E(1) = 1 ; E(oo) = E
+  A6 d2E/da2 = -E*(2*a - 1)*exp(-1/a)/a**4  zero at a = [1/2]
+  A7 d2E/d(ln a)^2 = -E*(exp(x) - 1)*exp(-2*x)*exp(-exp(-x))  zero at ln a = [0]
+  A8 d(E/e)/da = exp(-1/a)/a**2 ; at a=1: exp(-1) = 0.36787944117144233 ; max at a = [1/2] value 4*exp(-2) = 0.5413
+     d(E/e)/dln a = exp(-1/a)/a ; max at a = [1] value exp(-1)
+  A9 a(f) from exp(1-1/a) = f e: [-1/log(f)]
+  A10 d(E/e)/dt|_{a=1} = d(E/e)/da * aH |_{a=1} = H0 *  exp(-1)
+  A11 matter-sector rate today H_m^2 = H0^2 (1 + beta_m)  [Omega_m + Omega_L = 1, E(1) = 1]: beta_m + 1
+  A12 mu(z=0) - 1 = -beta_m/(1+beta_m): -beta_m/(beta_m + 1)
+  A13 d(D/a)/deta = (a*Derivative(D(a), a) - D(a))*H(a)  = H D (f - 1) with f = dlnD/dlna
+  A14 E_G = Omega_m0 Sigma / f -> dE_G/E_G = -df/f at fixed Sigma = 1
+
+B. Background and rates
+  B1 Planck 2018 base: H0 67.4, H_inf = H0 sqrt(OL) = 55.78; sqrt(OL) = 0.8276; age today 13.796 Gyr
+     a=1: H  67.40  H_m  72.52  ratio 1.0759
+     a=2: H  57.36  H_m  66.87  ratio 1.1657
+     a=10: H  55.80  H_m  69.82  ratio 1.2513
+     a=1e+06: H  55.78  H_m  71.12  ratio 1.2750
+     asymptote H_m = H0 sqrt(OL + beta_m e) = 71.12; ratio sqrt(1 + beta_m e/OL) = 1.2750
+     rate today (1/e) H0 = 2.536 % per Gyr
+  B1 Level 2 photon sector: H0 67.16, H_inf = H0 sqrt(OL) = 55.57; sqrt(OL) = 0.8275; age today 13.842 Gyr
+     a=1: H  67.16  H_m  72.26  ratio 1.0759
+     a=2: H  57.15  H_m  66.62  ratio 1.1657
+     a=10: H  55.59  H_m  69.56  ratio 1.2514
+     a=1e+06: H  55.57  H_m  70.86  ratio 1.2751
+     asymptote H_m = H0 sqrt(OL + beta_m e) = 70.86; ratio sqrt(1 + beta_m e/OL) = 1.2751
+     rate today (1/e) H0 = 2.527 % per Gyr
+  B2 maturity table, Planck 2018 base (as printed) and Level 2 background (age differences)
+       1.0%  a   0.217  z   3.61  age   1.7  from now -12.1   | L2 age   1.7 from now -12.1
+       5.0%  a   0.334  z   2.00  age   3.3  from now -10.5   | L2 age   3.3 from now -10.6
+      10.0%  a   0.434  z   1.30  age   4.8  from now  -9.0   | L2 age   4.8 from now  -9.0
+      20.0%  a   0.621  z   0.61  age   7.8  from now  -6.0   | L2 age   7.9 from now  -6.0
+      36.8%  a   1.000  z   0.00  age  13.8  from now  +0.0   | L2 age  13.8 from now  +0.0
+      50.0%  a   1.443  z  -0.31  age  19.5  from now  +5.7   | L2 age  19.6 from now  +5.7
+      75.0%  a   3.476  z  -0.71  age  34.5  from now +20.7   | L2 age  34.6 from now +20.8
+      90.0%  a   9.491  z  -0.89  age  52.1  from now +38.3   | L2 age  52.3 from now +38.4
+      95.0%  a  19.496  z  -0.95  age  64.7  from now +50.9   | L2 age  64.9 from now +51.1
+      99.0%  a  99.499  z  -0.99  age  93.3  from now +79.5   | L2 age  93.6 from now +79.8
+     intervals: 36.8->50 5.7; 50->90 32.6; 90->99 41.2 Gyr
+  B3 dE/dt peak a 0.442 z 1.26, 8.9 Gyr ago; rate 3.38 %/Gyr; today 2.54
+     paper's 1/(e a^2) at a=0.5: 1.472; correct E/(e a^2): 0.541; at a=1 both 0.3679
+  B4 informational density weight (beta_m = 0.3153/2, OL 0.685)
+     z=0: w -1.333  rho_info/rho_L 0.2301  share 0.1871
+     z=0.5: w -1.500  rho_info/rho_L 0.1396  share 0.1225
+     z=1: w -1.667  rho_info/rho_L 0.0847  share 0.0781
+     z=2: w -2.000  rho_info/rho_L 0.0311  share 0.0302
+     z=3: w -2.333  rho_info/rho_L 0.0115  share 0.0113
+     saturation: 0.626 share 0.385
+  B5 no finite-time singularity: H_m^2/H0^2 <= Om a^-3 + OL + beta_m e; for a >= 1 the bound is 1.4285 -> a(t) grows at most as exp(H0 sqrt(OL+beta_m e) t) asymptotically; no a -> oo at finite t
+  B6 DESI DR2 (arXiv:2503.14738) vs CPL image (-4/3, -1/3)
+     Pantheon+: w0 off -9.0 sigma, wa off +1.4 sigma; crossing a 0.739 z 0.35
+     Union3: w0 off -7.6 sigma, wa off +2.6 sigma; crossing a 0.694 z 0.44
+     DES Y5: w0 off -10.2 sigma, wa off +2.4 sigma; crossing a 0.712 z 0.41
+  B7 CPL error of the image: w_info(a) - CPL(a)
+     a=0.25: w_info -2.3333  CPL -1.5833  diff -0.7500
+     a=0.5: w_info -1.6667  CPL -1.5000  diff -0.1667
+     a=1: w_info -1.3333  CPL -1.3333  diff +0.0000
+     a=2: w_info -1.1667  CPL -1.0000  diff -0.1667
+     a=5: w_info -1.0667  CPL 0.0000  diff -1.0667
+
+C. Survey predictions (Om 0.3153, OL 0.6847, beta_m 0.15765)
+  C1 beta_m 0.15765; mu0 = mu(0)-1 = -0.13618; with beta_m 0.1575 -0.13607; MGCAMB runs -0.13495; 1/mu(0) = 1.1577
+  C2 table: z, mu, mu-1 %, dD/D %, dfs8 %, dPhi/Phi % (= dD/D), mu_MGCAMB, (mu_exact - mu_MGCAMB) x100
+     z   0: mu 0.864  -13.62  dD/D  -0.78  dfs8  -4.25  dPhi  -0.78  mgc 0.865  diff -0.12
+     z 0.1: mu 0.886  -11.44  dD/D  -0.61  dfs8  -3.42  dPhi  -0.61  mgc 0.878  diff +0.78
+     z 0.3: mu 0.922   -7.82  dD/D  -0.37  dfs8  -2.17  dPhi  -0.37  mgc 0.902  diff +1.98
+     z 0.5: mu 0.948   -5.18  dD/D  -0.22  dfs8  -1.35  dPhi  -0.22  mgc 0.923  diff +2.53
+     z 0.7: mu 0.966   -3.39  dD/D  -0.13  dfs8  -0.83  dPhi  -0.13  mgc 0.940  diff +2.66
+     z 1.0: mu 0.982   -1.78  dD/D  -0.06  dfs8  -0.41  dPhi  -0.06  mgc 0.958  diff +2.43
+     z 1.5: mu 0.994   -0.62  dD/D  -0.02  dfs8  -0.13  dPhi  -0.02  mgc 0.976  diff +1.78
+     z 2.0: mu 0.998   -0.23  dD/D  -0.01  dfs8  -0.04  dPhi  -0.01  mgc 0.985  diff +1.24
+     max |exact - MGCAMB| = 2.66 x 1e-2 in mu at z = 0.68; relative 2.84 % at z = 0.65
+  C3 activation milestones (fraction of 1 - mu(0))
+        1%: a 0.305 z 2.28 lookback 10.9 Gyr
+        5%: a 0.407 z 1.46 lookback 9.4 Gyr
+       10%: a 0.471 z 1.12 lookback 8.4 Gyr
+       25%: a 0.589 z 0.70 lookback 6.5 Gyr
+       50%: a 0.731 z 0.37 lookback 4.2 Gyr
+       75%: a 0.861 z 0.16 lookback 2.1 Gyr
+       90%: a 0.942 z 0.06 lookback 0.9 Gyr
+       95%: a 0.971 z 0.03 lookback 0.4 Gyr
+       99%: a 0.994 z 0.01 lookback 0.1 Gyr
+     (lookback uses H0 = 67.36, Om 0.3153; age today 13.80 Gyr)
+  C4 |dmu/dz| max at z = 0.000; value at 0: 0.229; at 0.5: 0.109; mu rises monotonically with z on 0-3: True
+     MGCAMB |dmu/dz| at 0: 0.128, max at z = 0.028
+     E(a) = 0.1: a 0.303 z = 2.30
+     E(a) = 0.5: a 0.591 z = 0.69
+     E(a) = 0.9: a 0.905 z = 0.11
+  C5 ISW: source S = H D (1 - f) (Sigma = 1); ratio IAM/LCDM
+     z 0.0: S_IAM/S_LCDM 1.0310  (MGCAMB 1.0330)
+     z 0.3: S_IAM/S_LCDM 1.0354  (MGCAMB 1.0547)
+     z 0.5: S_IAM/S_LCDM 1.0338  (MGCAMB 1.0653)
+     z 0.7: S_IAM/S_LCDM 1.0304  (MGCAMB 1.0732)
+     z 1.0: S_IAM/S_LCDM 1.0242  (MGCAMB 1.0813)
+     z 1.5: S_IAM/S_LCDM 1.0151  (MGCAMB 1.0889)
+     DESI BGS z~0.3: A_IAM/A_LCDM = 1.035  (MGCAMB 1.054); paper printed 1.092/1.115/1.165
+     DESI LRG z~0.5: A_IAM/A_LCDM = 1.034  (MGCAMB 1.064); paper printed 1.092/1.115/1.165
+     DESI LRG z~0.7: A_IAM/A_LCDM = 1.031  (MGCAMB 1.072); paper printed 1.092/1.115/1.165
+     uniform weight 0.05<z<1.5: with H factor 1.030; source (1-f)D only 1.032
+     potential (Phi+Psi)(z)/(Phi+Psi)(z=3): z 0.5 LCDM 0.9143 IAM 0.9123 diff -0.22 %; z 0 diff -0.78 %
+  C6 E_G = Om/f: change z 0: +3.63 %; z 0.3: +1.84 %; z 0.5: +1.14 %; z 1.0: +0.35 %
+  C7 sirens
+     H0_m = 67.16 sqrt(1.15765) = 72.26; separation 5.10; 3 sigma needs sigma <= 1.70 = 2.4 % of 72.26
+     a 2 % siren measurement (sigma 1.45) separates them at 3.5 sigma; 1 %: 7.1 sigma
+     SH0ES 73.04 +- 1.04: 0.75 sigma from 72.26; GW170817 70.0 (+12/-8) offsets 0.19, 0.36 sigma
+  C8 scorecard checks
+     Planck lensing detected at 40 sigma -> amplitude error ~ 2.5 %; IAM C_phiphi change -0.08 % is 0.032 of it
+     KiDS-1000 3x2pt sigma8 0.76 (+0.025 -0.020; Heymans 2021) vs IAM 0.800: 1.6 sigma (upper error)
+     Planck lensing error / IAM change: 31
+     M_lens/M_dyn (Level 1 form) 1/mu(0) = 1.158
+  C9 effective equation of state of the vacuum-like total (Lambda + informational term), OL 0.685, beta_m 0.3153/2
+     z     3: a  0.250  w_eff -1.0151
+     z     2: a  0.333  w_eff -1.0302
+     z     1: a  0.500  w_eff -1.0520
+     z   0.5: a  0.667  w_eff -1.0612
+     z  0.25: a  0.800  w_eff -1.0633
+     z     0: a  1.000  w_eff -1.0624
+     z  -0.5: a  2.000  w_eff -1.0458
+     z  -0.9: a 10.000  w_eff -1.0120
+     minimum w_eff -1.0634 at a 0.840 (z 0.19)

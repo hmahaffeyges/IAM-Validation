@@ -1,18 +1,21 @@
-% Part 2 chapter carrying the observational side of "Dark Energy Evolution and the Far Future of an IAM Universe" (Feb 2026). Read in
-% full 2026-10-02 (PDF text 590 lines in this extraction, 609 in the check file's; every line read). Chapter ch:darkenergy (p2_11) already carries
-% the derivation of w_info, the two-ruler rates and the maturity table from the same paper; this chapter does not repeat them and carries the rest:
-% w(z) through time, how much of it is observable, the CPL image and its sign, the three clocks, the no-Big-Rip bound and the tests.
-% Numbers: docs/verification/scripts/verify_wz_far_future.py and verify_obs_chapters.py (section G). Check: observations/WZ_FAR_FUTURE_CHECK.md;
-% errata WZ1-WZ7, V5. Heat-death arguments 2-3 are interpretation (Part 5).
+% Part 2 chapter ch:wzfuture. Carries, in the author's own words and corrected, Sections 5-8 of "Dark Energy Evolution and the Far Future of
+% an IAM Universe" (Feb 2026; PDF text 609 lines, read in full in 50-line chunks, 2026-10-03; text base docs/book/coverage/wave2/
+% 18_wz_far_future.tex, 369 lines, read in full): the three arguments against the heat death (interpretation), the no-Big-Rip proof, the
+% comparison with DESI DR2 in the w0-wa plane and its limitations, the falsifiable predictions, the relation to existing dark-energy models,
+% the inflection point and the present epoch, and the conclusion (Eqs. 17-20, Fig. 3). Sections 1-4 are carried in ch:darkenergy (p2_11),
+% which derives w_info, the CPL mapping (eq:wz_cpl), the two rulers and the maturity table; this chapter does not repeat them.
+% Corrections: docs/verification/PAPER_ERRATA.md rows WZ1-WZ7, S10, V24; check file observations/WZ_FAR_FUTURE_CHECK.md; corrections made
+% in this carriage: docs/book/MANIFEST_darkenergy_surveys.md. Numbers: docs/verification/scripts/verify_dark_energy_far_future_surveys_book.py
+% (sections A, B), verify_wz_far_future.py, verify_obs_chapters.py (section G). Figures: figscripts/fig_p2_wz_history.py.
 \chapter{The equation of state through time, and the far future}\label{ch:wzfuture}
 
 \section*{The place}
 The cosmic horizon, at $T_{GH}=\hbar H/2\pi k_B$, holding the record $S_{\rm info}$ that matter writes as it collapses (Chapter~\ref{ch:surfaces}).
 Chapter~\ref{ch:darkenergy} derived the equation of state of that record, $w_{\rm info}=-1-1/(3a)$, from $\rho_{\rm info}\propto E(a)$ and energy
 conservation, and showed that it belongs to the matter-sector rate, not to the distances measured with light. This chapter follows it through time:
-how phantom it is, how much of it any survey could see, and how it ends.
+how phantom it is, how much of it any survey could see, how it compares with the dark-energy fits, how it ends, and what would test it.
 
-\section{$w$ through time}
+\section{$w$ through time}\label{sec:wz_history}
 With $a=1/(1+z)$, $w_{\rm info}(z)=-1-(1+z)/3$. The density it describes is $\rho_{\rm info}=\beta_mE(a)\rho_{\rm crit,0}$, so its weight against
 $\rho_\Lambda$ falls as fast as $E(a)$ into the past. \calc
 \begin{center}\small\begin{tabular}{lccc}\toprule
@@ -20,7 +23,7 @@ $z$ & $w_{\rm info}$ & $\rho_{\rm info}/\rho_\Lambda$ & $\rho_{\rm info}/(\rho_\
 0 & $-1.333$ & 0.230 & 0.187\\ 0.5 & $-1.500$ & 0.140 & 0.122\\ 1 & $-1.667$ & 0.085 & 0.078\\ 2 & $-2.000$ & 0.031 & 0.030\\
 3 & $-2.333$ & 0.011 & 0.011\\ $a\to\infty$ & $-1$ & 0.626 & 0.385\\\bottomrule
 \end{tabular}\end{center}
-The strongly phantom early values have almost nothing to act on: at $z=3$ the informational density is $1.1\,\%$ of $\rho_\Lambda$. A high-redshift
+The strongly phantom early values have almost nothing to act on: at $z=3$ the informational density is $1.15\,\%$ of $\rho_\Lambda$. A high-redshift
 probe of $w$ cannot see them. Today the informational term is $18.7\,\%$ of the vacuum-like total and $23\,\%$ of $\rho_\Lambda$; at saturation,
 $E\to e$, it reaches $0.626\,\rho_\Lambda$.
 \begin{figure}[htbp]\centering
@@ -28,57 +31,199 @@ $E\to e$, it reaches $0.626\,\rho_\Lambda$.
 \caption[The equation of state of the record and its weight through time]{(a) $w_{\rm info}(z)=-1-(1+z)/3$, which tends to $-1$ as $a\to\infty$. (b) The weight of the informational density, $\rho_{\rm info}/\rho_\Lambda=\beta_mE(a)/\Omega_\Lambda$ and its share of the vacuum-like total, from $a=0.2$ to $a=100$: 0.011 at $z=3$, 0.230 today, 0.626 at saturation. $H_0=67.4$, $\Omega_m=0.315$, $\beta_m=0.3153/2$. \calc}\label{fig:wz_history}
 \end{figure}
 
-\section{The CPL image and its sign}
-Matching the value and first derivative of $w_{\rm info}$ at $a=1$ to $w(a)=w_0+w_a(1-a)$~\cite{ChevallierPolarski2001,Linder2003} gives
-\begin{equation}w_0=-\tfrac43,\qquad w_a=-\left.\frac{dw_{\rm info}}{da}\right|_{a=1}=-\tfrac13 .\label{eq:wz_cpl}\end{equation}
-\calc\ $w_a$ is negative. The equation of state rises with time, $dw/da=1/(3a^2)>0$, so it becomes less phantom as the universe expands. Against the DESI DR2
-fits listed in Chapter~\ref{ch:darkenergy}~\cite{DESI2025}, Eq.~\eqref{eq:wz_cpl} is $9.0$, $7.6$ and $10.2\sigma$ away in $w_0$ (Pantheon+, Union3, DES Y5)
-and $1.4$--$2.6\sigma$ in $w_a$. \calc\ As shown there, that distance is not a test: DESI's fits use distances measured with light, on which the informational term predicts $w=-1$; $w_{\rm info}$ belongs to the matter-sector rate. The
-comparison that tests the term is the two-ruler one (Chapter~\ref{ch:sectortension}).
+\section{Against heat death: three arguments}\label{sec:wz_heatdeath}
+\interp\ The standard heat death picture follows from $w=-1$ eternal: dark energy drives accelerating expansion indefinitely, all matter dilutes,
+all structure dissolves, temperature approaches absolute zero everywhere, and thermodynamic gradients that enable work and information processing
+vanish. IAM contradicts this picture from three independent directions. Each is an interpretation of the results of Chapter~\ref{ch:darkenergy};
+the calculation underneath them is stated at the end of the section.
 
-\section{Three clocks}
-How fast the record is being written depends on the clock. Chapter~\ref{ch:darkenergy} gave two clocks: per e-fold of expansion, $dE/d\ln a=E/a$
-peaks at $a=1$, the inflection of $E$ in $\ln a$; per unit cosmic time, $dE/dt=HE/a$ peaked at $z=1.26$, $8.9$~Gyr ago, at $3.38\,\%$ of the eventual
-total per Gyr, and is $2.54\,\%$ per Gyr now. In the third clock, per unit scale factor, $d(E/e)/da=E/(e\,a^2)$ peaks at $a=0.5$ ($z=1$). \calc
-``Today is the epoch of fastest writing'' therefore holds per e-fold only.
-$E(1)=1$ because $1-1/a=0$ at $a=1$; it is today's normalisation, not a choice of reference epoch.
+\subsection{Argument 1: bounded informational pressure}
+In $\Lambda$CDM, the dark energy density is constant ($\rho_\Lambda=\mathrm{const}$) and the expansion it drives has no natural endpoint. In IAM,
+the informational contribution to the dark energy driver is $\propto E(a)$, which is bounded above by $e$. As $a\to\infty$, the informational
+pressure saturates and the informational term in the modified expansion equations approaches a constant.
+
+The universe does not accelerate forever without bound. It approaches a final expansion rate $H_\infty$ (Equation~\eqref{eq:de_Hinf}) at which point
+the informational contribution has been completely encoded and the remaining expansion is driven solely by the cosmological constant. The
+distinction is subtle but physical: the informational epoch ends, even if the $\Lambda$-driven expansion continues. \interp
+
+\subsection{Argument 2: thermodynamic drive toward equilibrium}
+Classical thermodynamics describes heat death as the maximum entropy state of a closed system. But the universe is not a closed system in the
+sense assumed by the heat death argument --- it is bounded by the cosmological horizon, which is itself a thermal surface at the Gibbons--Hawking
+temperature $T_{GH}=\hbar H/(2\pi k_B)$~\cite{GibbonsHawking1977}.
+
+A thermal system bounded by surfaces that can exchange energy approaches equilibrium with those surfaces, not infinite dissolution. IAM's
+self-limiting expansion ($E(a)$ bounded) means the horizon settles toward a final configuration. The system reaches \emph{equilibrium}, not the
+open-ended dissolution of classical heat death. These are thermodynamically distinct endpoints. \interp
+
+\subsection{Argument 3: the record is kept}
+The heat death scenario requires that all distinctions be erased --- all structure dissolved into maximum disorder. But in IAM, information is
+thermodynamically real and is kept. The Bekenstein--Hawking entropy $S=A/(4\ell_P^2)$ on the cosmological horizon represents a permanent record of
+every decoherence event that contributed to it. The horizon does not erase information; it \emph{encodes} it~\cite{Bekenstein1973,Hawking1975}.
+
+If information is kept on encoding surfaces, heat death in the classical sense cannot occur: the horizon retains the record of all structure that
+has ever existed. The universe at informational saturation is not maximally disordered --- it is maximally \emph{encoded}. Every bit that could be
+written has been written. This is not death. It is completion. \interp
+
+\paragraph{What the calculation fixes.} Whatever reading is preferred, the physics is the same: the far future of the photon sector is the
+de~Sitter state of $\Lambda$CDM at $H_\infty$, and what ends is the writing, $E\to e$ (Section~\ref{sec:wz_farfuture}). \calc\ How the end
+state relates to the thermodynamic arrow of time is taken up in Part~\ref{part:5}.
+
+\section{The no-Big-Rip proof}\label{sec:wz_norip}
+For completeness, the no-Big-Rip result is formalized here. A Big Rip requires $w<-1$ with a density that grows without bound, as for constant
+$w<-1$~\cite{Caldwell2002,Caldwell2003}, leading to divergent expansion at finite time. For IAM:
+\begin{equation}\frac{dw_{\rm info}}{da}=\frac{1}{3a^2}>0\quad\text{for all }a>0,\qquad\rho_{\rm info}(a)\le e\,\rho_{\rm info}(1).\label{eq:wz_norip}\end{equation}
+The equation of state increases monotonically toward $-1$, never decreasing further below $-1$. The phantom character is strictly decreasing over
+cosmic time. The proof has three steps.
+
+\paragraph{Step 1: the density from the equation of state.} Integrating the continuity equation \eqref{eq:de_cont},
+\begin{equation}\frac{\rho_{\rm info}(a)}{\rho_{\rm info}(1)}=\exp\!\left[-3\int_1^a\bigl(1+w_{\rm info}\bigr)\,\frac{da'}{a'}\right]
+=\exp\!\left[\int_1^a\frac{da'}{a'^2}\right]=e^{\,1-1/a}=E(a),\label{eq:wz_rho_from_w}\end{equation}
+since $-3(1+w_{\rm info})=1/a$. The equation of state returns the density it came from. \derived
+
+\paragraph{Step 2: the bound.} The integral $\int_1^\infty da'/a'^2=1$ converges, which gives the bound in Eq.~\eqref{eq:wz_norip}. A constant
+$w<-1$ makes the same integral diverge, which is why constant phantom dark energy rips and this term does not. The condition $dw/da>0$ gives the
+direction of travel, toward $-1$; the boundedness of Eq.~\eqref{eq:wz_rho_from_w} is what excludes the rip. \derived
+
+\paragraph{Step 3: no finite-time singularity.} With the bound, the matter-sector rate satisfies
+$H_m^2\le H_0^2(\Omega_ma^{-3}+\Omega_\Lambda+\beta_me)$, so for $a\ge1$, $H_m\le H_0\sqrt{1+\beta_me}=1.195\,H_0$. The scale factor then grows at
+most exponentially, $a(t)\le\exp[1.195\,H_0(t-t_0)]$, and reaches no infinite value at finite time. The Big Rip is excluded. \derived\ The bound
+follows from $E(a)\le e$ alone; no scalar field is introduced.
+
+\section{Comparison to DESI DR2}\label{sec:wz_cplsign}
+\subsection{DESI DR2 measurements}
+DESI DR2 BAO measurements, combined with CMB and supernova data, report~\cite{DESI2025}:
+\begin{align}
+w_0&=-0.838\pm0.055,& w_a&=-0.62\pm0.21 &&\text{(DR2 + CMB + Pantheon+~\cite{Brout2022})},\label{eq:wz_desi1}\\
+w_0&=-0.667\pm0.088,& w_a&=-1.09\pm0.29 &&\text{(DR2 + CMB + Union3~\cite{Rubin2025})},\label{eq:wz_desi2}\\
+w_0&=-0.752\pm0.057,& w_a&=-0.86\pm0.22 &&\text{(DR2 + CMB + DES Y5~\cite{DESY5SN2024})}.\label{eq:wz_desi3}
+\end{align}
+\observed\ The preference for dynamical dark energy over $\Lambda$CDM ranges from $2.8\sigma$ to $4.2\sigma$ depending on the supernova
+compilation. All three fits have $w(a=1)>-1$ and cross $w=-1$ at $a=0.739$, $0.694$ and $0.712$ ($z=0.35$, $0.44$, $0.41$). \calc
+
+\subsection{IAM in the $w_0$--$w_a$ plane}
+The IAM CPL mapping (Equation~\eqref{eq:wz_cpl}) gives:
+\begin{equation}(w_0,w_a)_{\rm IAM}=\left(-\tfrac43,\,-\tfrac13\right)\approx(-1.333,\,-0.333).\label{eq:wz_cplpoint}\end{equation}
+Figure~\ref{fig:wz_cpl_clocks}(a) shows the IAM point in the $w_0$--$w_a$ plane alongside the DESI DR2 fits. The IAM point lies outside the DESI
+contours: $9.0$, $7.6$ and $10.2\sigma$ away in $w_0$ and $1.4$, $2.6$ and $2.4\sigma$ in $w_a$ (Pantheon+, Union3, DES Y5). \calc\ It shares the
+negative sign of $w_a$ and the direction of travel, toward less phantom; it differs in where $w$ stands today, below $-1$ for the IAM point and above
+$-1$ for DESI.
+
+That distance is not a test. DESI's fits use distances measured with light, on which the informational term predicts $w=-1$; $w_{\rm info}$
+belongs to the matter-sector rate. The comparison that tests the term is the two-ruler one (Chapter~\ref{ch:sectortension}).
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_wz_cpl_clocks.pdf}
 \caption[The CPL image of the record term, and its writing rate in three clocks]{(a) The CPL image $(w_0,w_a)=(-\tfrac43,-\tfrac13)$ of $w_{\rm info}$ beside the DESI DR2 fits with the CMB and Pantheon+, Union3 or DES Y5 supernovae~\cite{DESI2025} (1$\sigma$ on each axis) \observed. The fits use light-ruler distances, on which the term predicts $w=-1$; the comparison is not a test. (b) The writing rate of $E(a)$ per unit $a$ (peak at $a=0.5$), per e-fold (peak today) and per unit cosmic time (peak at $z=1.26$), each normalised to its maximum. \calc}\label{fig:wz_cpl_clocks}
 \end{figure}
 
-\section{No Big Rip}
-A Big Rip needs a phantom density that grows without bound, as for constant $w<-1$~\cite{Caldwell2002,Caldwell2003}. Here
-\begin{equation}\frac{dw_{\rm info}}{da}=\frac{1}{3a^2}>0,\qquad\rho_{\rm info}(a)\le e\,\rho_{\rm info}(1),\label{eq:wz_norip}\end{equation}
-so the density is bounded by $e$ times its present value and the equation of state tends to $-1$ from below. No phantom divergence occurs at any epoch.
-\derived\ The bound follows from $E(a)\le e$ alone; no scalar field is introduced.
+\subsection{Limitations of the CPL comparison}\label{sec:wz_cpllimits}
+The $w_0$--$w_a$ parametrization is a Taylor expansion of $w(a)$ around $a=1$ and is exact only for linear models. IAM's equation of state
+$w_{\rm info}=-1-1/(3a)$ is nonlinear --- it maps to a one-dimensional curve in the infinite-dimensional function space of $w(a)$, and the CPL
+projection is an approximation that becomes less accurate at $a\ll1$ or $a\gg1$: \calc
+\begin{center}\small\begin{tabular}{lccccc}\toprule
+$a$ & 0.25 & 0.5 & 1 & 2 & 5\\\midrule
+$w_{\rm info}$ & $-2.333$ & $-1.667$ & $-1.333$ & $-1.167$ & $-1.067$\\
+CPL image & $-1.583$ & $-1.500$ & $-1.333$ & $-1.000$ & $0.000$\\
+difference & $-0.750$ & $-0.167$ & $0$ & $-0.167$ & $-1.067$\\\bottomrule
+\end{tabular}\end{center}
+The straight line follows the curve to within $0.17$ between $a=0.5$ and $a=2$ and fails outside that range; it reaches $w=-1$ at $a=2$ and keeps
+rising, while $w_{\rm info}$ only tends to $-1$.
 
-\section{The far future}
-As in Chapter~\ref{ch:darkenergy}, the background is $\Lambda$CDM, so the photon-sector rate settles at $H_\infty=H_0\sqrt{\Omega_\Lambda}=55.78~\mathrm{km\,s^{-1}\,Mpc^{-1}}$ ($H_0=67.4$)
-and the far future of the light sector is the de~Sitter state of $\Lambda$CDM. The matter-sector rate settles at $H_0\sqrt{\Omega_\Lambda+\beta_me}=71.12$.
+More importantly, DESI does not measure $w(a)$ directly; it measures BAO distances at discrete redshifts and fits them within the $w_0$--$w_a$
+framework assuming that framework is the correct model class. In IAM those distances are photon-ruler distances, and the photon-sector history is
+the $\Lambda$CDM history (Eq.~\eqref{eq:de_friedmann}); the direct likelihood of the IAM photon-sector expansion against the DESI BAO distances is
+therefore the $\Lambda$CDM likelihood. \derived\ The CPL comparison is indicative, not definitive. The comparison the informational term requires
+is between the expansion history measured with matter and the history measured with light; it has not yet been made. \openprob
+
+\subsection{Falsifiable predictions}\label{sec:wz_tests}
+IAM makes specific, testable predictions for the equation of state as a function of redshift, each stated on the ruler it belongs to:
+\begin{enumerate}
+\item \emph{$w(z)$ trajectory, on the matter ruler.} The informational equation of state follows $w(z)=-1-(1+z)/3$ exactly (substituting
+$a=1/(1+z)$). It is a property of the matter-sector rate. The test is the expansion history measured with matter (distance ladder, sirens, peculiar
+velocities) against the history measured with light, redshift by redshift: $H_m/H=1.076$ today, rising to $1.275$ as $a\to\infty$
+(Chapter~\ref{ch:darkenergy}). If the matter-ruler data follow the IAM curve rather than a constant $w=-1$ or a CPL-like fit, that is a strong signal.
+If $w>-1$ is confirmed on the matter ruler at any redshift, IAM is disfavored. \prediction
+\item \emph{Light-ruler distances follow $w=-1$.} Distances measured with light requiring $w\neq-1$, if confirmed, are not produced by this term.
+\prediction
+\item \emph{Asymptotic approach.} At high redshift ($z\gg1$, $a\ll1$) the IAM equation of state becomes strongly phantom,
+$w(z)\approx-1-(1+z)/3$, but $\rho_{\rm info}\propto E\to0$: $3.1\,\%$ of $\rho_\Lambda$ at $z=2$ and $1.15\,\%$ at $z=3$. No high-redshift
+supernova survey can separate it from $w=-1$. \calc
+\item \emph{No Big Rip.} If the equation of state is confirmed to be phantom but trending toward $-1$ over time, consistent with the IAM trajectory,
+and no Big Rip signature is detected by future surveys, that is consistent with the no-Big-Rip result (Section~\ref{sec:wz_norip}). \prediction
+\item \emph{Consistency with growth suppression.} The equation of state prediction and the growth suppression ($\sigma_8=0.800$ in the Level~2
+chains, $\mu<1$, $f\sigma_8$ low by $4.25\,\%$ today, Chapter~\ref{ch:surveys}) derive from the same activation function $E(a)$. A survey that
+simultaneously measures the matter-ruler expansion and the growth rate $f\sigma_8(z)$ can test whether both are consistent with the same underlying
+$E(a)$. This cross-check is unique to IAM and is not reproducible by generic $w_0$--$w_a$ models with separate growth parameters. \prediction
+\item \emph{Falsifier.} Matter-ruler data that require $w>-1$ where the term predicts $w_{\rm info}<-1$. No such comparison has been made yet.
+\openprob
+\end{enumerate}
+
+\section{Three clocks}\label{sec:wz_clocks}
+How fast the record is being written depends on the clock (Chapter~\ref{ch:darkenergy}, Section~\ref{sec:de_maturity}). Per e-fold of expansion,
+$dE/d\ln a=E/a$ peaks at $a=1$, the inflection of $E$ in $\ln a$; per unit cosmic time, $dE/dt=HE/a$ peaked at $z=1.26$, $8.9$~Gyr ago, at
+$3.38\,\%$ of the eventual total per Gyr, and is $2.54\,\%$ per Gyr now. In the third clock, per unit scale factor, $d(E/e)/da=E/(e\,a^2)$ peaks
+at $a=0.5$ ($z=1$). \calc
+
+\section{Discussion}
+\subsection{Relation to existing dark energy models}\label{sec:wz_models}
+IAM's equation of state $w_{\rm info}=-1-1/(3a)$ shares the phantom character ($w<-1$) with phantom scalar field models~\cite{Caldwell2002} but
+differs fundamentally in its mechanism and trajectory. Standard phantom models require a negative kinetic energy term, which violates energy
+conditions and, for constant $w<-1$, leads to a Big Rip at finite time~\cite{Caldwell2003}. IAM's phantom behavior emerges from the
+thermodynamics of information encoding, not a negative kinetic term, and is bounded by the saturation of $E(a)$ (Section~\ref{sec:wz_norip}).
+\derived
+
+The equation of state does not fit cleanly into any existing parametrization class. It is not constant, not CPL, not quintessence (which has
+$w\ge-1$). It is derived, with no free parameters, from a specific physical mechanism. This distinguishes it observationally from all fitting
+functions: the $w(z)$ trajectory is a prediction, not a model. \prediction
+
+\subsection{The inflection point and the present epoch}\label{sec:wz_inflection}
+The mathematical fact that $E(1)/e=1/e$ --- that the universe's informational maturity today equals $1/e$, precisely the inflection point of the
+activation function in $\ln a$ --- is a consequence of the normalization $E(1)=1$: the argument $(1-1/a)$ of the activation function vanishes at
+$a=1$. \derived
+
+At this inflection point the rate of informational maturation per e-fold, $d(E/e)/d\ln a$, is maximized. Per e-fold of expansion, the current
+epoch is the era of fastest growth in the universe's informational complexity: structure formation --- the production of irreversible
+gravitational information through galaxy formation, stellar evolution, and black hole growth --- is occurring at its maximum rate. \interp\ Per
+unit scale factor the peak was at $z=1$ and per unit cosmic time at $z=1.26$ (Section~\ref{sec:wz_clocks}); the present epoch is singled out by
+the e-fold clock only.
+
+\section{The far future}\label{sec:wz_farfuture}
+As in Chapter~\ref{ch:darkenergy}, the background is $\Lambda$CDM, so the photon-sector rate settles at
+$H_\infty=H_0\sqrt{\Omega_\Lambda}=55.57~\mathrm{km\,s^{-1}\,Mpc^{-1}}$ ($H_0=67.16$; $55.78$ for $H_0=67.4$) and the far future of the light
+sector is the de~Sitter state of $\Lambda$CDM. The matter-sector rate settles at $H_0\sqrt{\Omega_\Lambda+\beta_me}=70.86$ ($71.12$).
 \calc\ What ends is the writing: $E\to e$, structure formation stops, and the record on the horizon is complete; the informational term then behaves as a
-constant, $w\to-1$. Whether that end state differs physically from the heat death of $\Lambda$CDM is a question of interpretation and is taken up in
-Part~\ref{part:5}. \interp
+constant, $w\to-1$. Whether that end state differs physically from the heat death of $\Lambda$CDM is a question of interpretation
+(Section~\ref{sec:wz_heatdeath}) and is taken up in Part~\ref{part:5}. \interp
 
-\section{Tests}
-\begin{itemize}
-\item \emph{Two rulers.} The expansion history measured with matter (distance ladder, sirens, peculiar velocities) against the history measured with
-light, redshift by redshift: $H_m/H=1.076$ today, rising to $1.275$ as $a\to\infty$ (Chapter~\ref{ch:darkenergy}). \prediction
-\item \emph{One function twice.} The same $E(a)$ sets the growth weakening ($f\sigma_8$ low by $4.25\,\%$ today, Chapter~\ref{ch:surveys}) and the
-matter-ruler expansion. A survey that measures both tests one curve twice. \prediction
-\item \emph{Light-ruler distances follow $w=-1$.} Distances requiring $w\neq-1$, if confirmed, are not produced by this term. \prediction
-\item \emph{Falsifier.} Matter-ruler data that require $w>-1$ where the term predicts $w_{\rm info}<-1$. No such comparison has been made yet. \openprob
-\end{itemize}
+\section{Conclusion}
+IAM derives a specific dark energy equation of state from horizon thermodynamics with zero free parameters: $w_{\rm info}=-1-1/(3a)$. This
+equation of state is always mildly phantom, asymptotes toward $-1$ at late times, and excludes the Big Rip scenario through a built-in
+thermodynamic governor (Equation~\eqref{eq:wz_norip}). The activation function $E(a)$ saturates at $e$, bounding the informational contribution to
+cosmic expansion and ensuring a final state of informational completion rather than the indefinite dissolution of classical heat death. \interp
+
+The informational maturity framework quantifies where the universe stands in this process: at $a=1$ today, exactly $1/e\approx36.8\,\%$ of the
+universe's total informational record has been written, at the inflection point of maximum maturation rate per e-fold. The maturity milestone
+table (Table~\ref{tab:de_maturity}) provides a specific, falsifiable timeline derived from first principles. \calc
+
+The IAM prediction maps to $(w_0,w_a)=(-4/3,-1/3)$ in the CPL parametrization, lying outside current DESI DR2 contours and sharing the negative
+sign of $w_a$ (trending toward less phantom). Because the DESI fits use light-ruler distances, on which the term predicts $w=-1$, the comparison is
+not a test; the correct comparison is the matter-ruler expansion history against the light-ruler history.
+
+Three kinds of measurement will determine whether these predictions are correct: redshift-space growth rates $f\sigma_8(z)$ from DESI, Rubin-LSST
+weak lensing growth constraints that probe the $\mu<1$, $\Sigma=1$ signature directly, and the matter-ruler expansion rate from sirens and the
+distance ladder (Chapter~\ref{ch:surveys}). If confirmed, one mechanism accounts for the weakening of growth that bears on the $S_8$ comparison
+(Chapter~\ref{ch:s8trend}) and for the divergence of the two rulers. \prediction
 
 \section{Status}
 \begin{center}\small\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xl}\toprule
 Result & Label\\\midrule
 $w_{\rm info}(z)=-1-(1+z)/3$; $\rho_{\rm info}/\rho_\Lambda$ through time & \calc\\
-CPL image $(-\tfrac43,-\tfrac13)$; offsets from DESI DR2 (not a test) & \calc\\
-Peak writing rate in three clocks & \calc\\
-No Big Rip, $\rho_{\rm info}\le e\,\rho_{\rm info}(1)$ & \derived\\
-Asymptotic rates $55.78$ (light) and $71.12$ (matter) & \calc\\
-Two-ruler test; one $E(a)$ in growth and expansion & \prediction\\
+$\rho_{\rm info}(a)/\rho_{\rm info}(1)=E(a)$ from $w_{\rm info}$; no Big Rip, $\rho_{\rm info}\le e\,\rho_{\rm info}(1)$, $a(t)$ at most exponential & \derived\\
+DESI DR2 fits & \observed\\
+CPL image $(-\tfrac43,-\tfrac13)$; offsets from DESI DR2 (not a test); CPL error table & \calc\\
+Photon-sector likelihood against DESI distances is the $\Lambda$CDM likelihood & \derived\\
+Peak writing rate in three clocks; present epoch at the e-fold inflection & \calc\ / \derived\\
+Asymptotic rates $55.57$ (light) and $70.86$ (matter), $H_0=67.16$ & \calc\\
+Two-ruler test; light distances at $w=-1$; one $E(a)$ in growth and expansion & \prediction\\
 Comparison with matter-ruler data & \openprob\\
-End state versus heat death & \interp\\\bottomrule
+Three arguments against the heat death; informational completion as the end state & \interp\\\bottomrule
 \end{tabularx}\end{center}

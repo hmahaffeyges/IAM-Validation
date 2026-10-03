@@ -1,41 +1,185 @@
-% Part 2 chapter carrying "Dark Energy Evolution and the Far Future of an IAM Universe" (Feb 2026) in its order. Read in full
-% 2026-10-02 (609 lines, 50-line ledger). Numbers: docs/verification/scripts/verify_wz_far_future.py. Check: docs/verification/
-% observations/WZ_FAR_FUTURE_CHECK.md. Heat-death arguments 2-3 are interpretation (Part 5 closing chapter).
+% Part 2 chapter ch:darkenergy. Carries, in the author's own words and corrected, Sections 1-4 of "Dark Energy Evolution and the Far Future of
+% an IAM Universe" (Feb 2026; PDF text 609 lines, read in full in 50-line chunks, 2026-10-03; text base docs/book/coverage/wave2/
+% 18_wz_far_future.tex, 369 lines, read in full): introduction, the informational entropy, the equation of state and its properties, the CPL
+% mapping, the saturation of E(a), the asymptotic Hubble parameter, the final effective equation of state, the informational maturity
+% framework (Eqs. 1-16, Table 1, Figs. 1-2), with the two-ruler rates added. Sections 5-8 are carried in ch:wzfuture (p2_20).
+% Corrections: docs/verification/PAPER_ERRATA.md rows WZ1-WZ7, S10, V24; check file docs/verification/observations/WZ_FAR_FUTURE_CHECK.md;
+% corrections made in this carriage are listed in docs/book/MANIFEST_darkenergy_surveys.md. Every number:
+% docs/verification/scripts/verify_dark_energy_far_future_surveys_book.py (output beside it). Figures: figscripts/fig_p2_de_survey_carry.py
+% (fig_wz_eos_maturity_a, fig_two_rulers_future_l2) and fig_p2_sn_future.py (fig_maturity).
 \chapter{The equation of state of the record}\label{ch:darkenergy}
 
 \section*{The place}
 The cosmic horizon, at $T_{GH}=\hbar H/2\pi k_B$; the record is $S_{\rm info}$, written by matter as it collapses into structure
-(Chapter~\ref{ch:surfaces}). This chapter asks how the energy of that record behaves as the universe expands, and where it ends.
+(Chapter~\ref{ch:surfaces}). This chapter asks how the energy of that record behaves as the universe expands, where it stands today, and
+where it ends. Chapter~\ref{ch:wzfuture} follows it through time, compares it with the dark-energy fits, and sets out the tests.
 
-\section{The equation of state}
-The informational contribution enters the matter-sector expansion rate,
+\section{Introduction}\label{sec:de_intro}
+The accelerating expansion of the universe is one of the most precisely established facts in modern cosmology~\cite{Riess1998,Perlmutter1999,Planck2018VI}.
+\observed\ Its cause remains unexplained within standard physics. The simplest model, a cosmological constant $\Lambda$ with equation of state
+$w=-1$ exactly, fits current data well but carries significant theoretical difficulties: the fine-tuning problem (why is $\Lambda$ so small?), the
+coincidence problem (why is it comparable to the matter density now?), and a profound implication that is rarely stated explicitly --- if $w=-1$
+is eternal and exact, the universe will expand forever, all structure will dilute, and thermodynamic equilibrium will be approached
+asymptotically from above. Heat death. No saturation. No completion.
+
+DESI measurements of the baryon acoustic oscillation scale now provide observational evidence that dark energy is not a pure cosmological
+constant. DESI DR2 in combination with CMB and supernova data finds a preference for dynamical dark energy at $2.8$--$4.2\sigma$ depending on the
+supernova dataset~\cite{DESI2025}. The best-fit $w_0$--$w_a$ parametrization favors $w_0>-1$ and $w_a<0$, though the physical origin of this
+evolution is unknown within the $w_0$--$w_a$ framework. \observed\ That preference comes from distances alone (BAO, supernovae and the CMB
+acoustic scale), which are measured with light.
+
+IAM derives a specific dark energy equation of state from first principles, without free parameters. The derivation proceeds via the
+Jacobson--Cai-Kim thermodynamic procedure applied to the cosmological apparent horizon, with an additional informational entropy term
+$S_{\rm info}$ sourced by gravitational decoherence during structure formation~\cite{Jacobson1995,CaiKim2005}. The result is a perturbation-level
+modification of the growth equations (not the background Friedmann equation) producing the dual-sector signature $\mu<1$, $\Sigma=1$, consistent
+with all current observational constraints (Chapters~\ref{ch:latetime} and~\ref{ch:level2}). IAM does not replace $\Lambda$ or general
+relativity: it adds the Landauer cost of every irreversible record, here the gravitational record written to the cosmic horizon as structure
+forms (Part~\ref{part:1}).
+
+This chapter and Chapter~\ref{ch:wzfuture} derive the full future evolution of an IAM universe. Section~\ref{sec:de_eos} presents the IAM
+equation of state and its asymptotic properties. Section~\ref{sec:de_saturation} analyzes the saturation of the activation function and the
+asymptotic Hubble parameter. Section~\ref{sec:de_maturity} develops the informational maturity framework and milestone timeline.
+Chapter~\ref{ch:wzfuture} advances three arguments against the heat death picture, compares the IAM prediction to DESI DR2 in the $w_0$--$w_a$
+plane, identifies specific falsifiable tests, and summarizes the predictions and their observational consequences.
+
+\section{The IAM equation of state}\label{sec:de_eos}
+\subsection{Derivation from the informational sector}\label{sec:de_sinfo}
+IAM's derivation follows the Jacobson--Cai-Kim procedure applied to the cosmological apparent horizon. The standard procedure equates the first
+law of thermodynamics on the apparent horizon to the Friedmann equations~\cite{CaiKim2005}. IAM adds an informational entropy term
+\begin{equation}
+S_{\rm info}(a)=S_0\,E(a)=S_0\exp\!\left(1-\frac1a\right),\label{eq:de_sinfo}
+\end{equation}
+where $E(a)$ is the activation function derived from horizon thermodynamics (Chapter~\ref{ch:theory}). This term reflects the cumulative
+irreversible gravitational information produced by structure formation and encoded on the cosmological apparent horizon. The coupling constant
+$S_0$ is fixed by the virial theorem: $\beta_m=\Omega_m/2$ (Chapter~\ref{ch:virial_law}), $0.15765$ for $\Omega_m=0.3153$, the same value in
+every chain. \prediction
+
+In the expansion rate the term appears in the matter sector only:
 \begin{equation}H_m^2(a)=H^2(a)+\beta_mE(a)H_0^2,\qquad E(a)=e^{1-1/a},\qquad\beta_m=\Omega_m/2,\label{part2:eq:Hm}\end{equation}
-while the photon sector keeps $H(a)$, the $\Lambda$CDM rate. The term behaves as an energy density $\rho_{\rm info}\propto E(a)$. Energy conservation,
-$w=-1-\tfrac13\,d\ln\rho/d\ln a$, with $d\ln E/d\ln a=1/a$, gives
-\begin{equation}w_{\rm info}(a)=-1-\frac{1}{3a},\qquad w_{\rm info}(1)=-\tfrac43,\end{equation}
-with nothing adjusted. \calc\ A density that grows as the universe expands has $w<-1$; this one grows because structure keeps writing.
-\begin{itemize}
-\item It is phantom at every finite $a$, and $dw/da=1/3a^2>0$: it becomes less phantom with time and tends to $-1$.
-\item There is no Big Rip~\cite{CaldwellBigRip2003}. $E(a)$ is bounded by $e$, so $\rho_{\rm info}$ never exceeds $e$ times its present value.
-\item At early times $w_{\rm info}$ is strongly negative, but $\rho_{\rm info}\propto E\to0$: at $z=3$ it is $1.1\,\%$ of $\rho_\Lambda$. The
-early-time equation of state has nothing to act on, so high-redshift supernovae cannot see it.
-\end{itemize}
+while the photon sector keeps $H(a)$, the $\Lambda$CDM rate. The informational term therefore behaves as an energy density
+\begin{equation}\rho_{\rm info}(a)=\beta_m\,E(a)\,\rho_{\rm crit,0},\qquad\rho_{\rm crit,0}=\frac{3H_0^2}{8\pi G}.\label{eq:de_rhoinfo}\end{equation}
 
-\section{Two rulers}
+The informational contribution to the effective dark energy equation of state follows from the first-law identity relating the pressure to the
+rate of change of the informational energy density. No scalar field is introduced. The two assumptions are (i) the informational density is
+Eq.~\eqref{eq:de_rhoinfo}, $\rho_{\rm info}\propto E(a)$, and (ii) it is separately conserved, with pressure $p_{\rm info}=w_{\rm info}\rho_{\rm info}c^2$.
+Energy conservation in an expanding background then gives
+\begin{equation}\dot\rho_{\rm info}+3H\,(1+w_{\rm info})\,\rho_{\rm info}=0
+\quad\Longrightarrow\quad w_{\rm info}=-1-\frac13\,\frac{d\ln\rho_{\rm info}}{d\ln a}.\label{eq:de_cont}\end{equation}
+With assumption (i), $d\ln\rho_{\rm info}/d\ln a=d\ln E/d\ln a$, and since $\ln E=1-1/a$,
+\begin{equation}\frac{d\ln E}{d\ln a}=a\,\frac{d}{da}\left(1-\frac1a\right)=a\cdot\frac{1}{a^2}=\frac1a .\label{eq:de_dlnE}\end{equation}
+Substituting into Eq.~\eqref{eq:de_cont} gives the informational sector equation of state:
+\begin{equation}\boxed{w_{\rm info}(a)=-1-\frac{1}{3a}.}\label{eq:de_winfo}\end{equation}
+\derived\ This result contains no free parameters. The $-1$ arises from the vacuum-like pressure of the encoded information; the $-1/(3a)$ arises
+from the derivative of the activation function with respect to the scale factor. Substituting Eq.~\eqref{eq:de_winfo} back into
+Eq.~\eqref{eq:de_cont} with $\rho_{\rm info}=\rho_0E(a)$ leaves a residual of zero (verification script, section A2).
 
+Eq.~\eqref{eq:de_winfo} is the equation of state of the matter-sector term in Eq.~\eqref{part2:eq:Hm}. Distances measured with light follow the
+photon-sector rate $H(a)$, on which the term predicts $w=-1$ (Section~\ref{sec:de_rulers}).
+
+\subsection{Properties of the equation of state}\label{sec:de_props}
+Equation~\eqref{eq:de_winfo} has several immediate consequences.
+
+\paragraph{Always phantom.} $w_{\rm info}(a)<-1$ for all finite $a>0$. The phantom character is not divergent --- it is strictly bounded. \derived
+
+\paragraph{Asymptotically approaches $-1$.} As $a\to\infty$:
+\begin{equation}\lim_{a\to\infty}w_{\rm info}(a)=-1 .\label{eq:de_wlim}\end{equation}
+The informational equation of state becomes indistinguishable from a cosmological constant at late times. The phantom behavior is a transient
+feature of the structure-formation epoch, not a permanent property of the dark energy. \derived
+
+\paragraph{Current value.} At $a=1$ (today):
+\begin{equation}w_{\rm info}(1)=-1-\tfrac13=-\tfrac43 .\label{eq:de_w1}\end{equation}
+\derived
+
+\paragraph{No Big Rip.} A Big Rip requires $w<-1$ that is constant or grows more phantom over time. In IAM, $w_{\rm info}(a)$ is phantom but
+\emph{decreasing} in phantom character ($dw/da=1/(3a^2)>0$ for all $a$), approaching $-1$ from below; and because $E(a)\le e$, the
+informational density never exceeds $e$ times its present value. \derived\ The informational pressure term is self-limiting. As expansion
+accelerates, structure formation slows, reducing the rate of information production, which reduces the informational pressure contribution.
+This feedback mechanism prevents runaway acceleration. \interp\ The proof is given in Chapter~\ref{ch:wzfuture}, Section~\ref{sec:wz_norip}.
+
+\paragraph{Weight in the past.} At early times $w_{\rm info}$ is strongly negative, but $\rho_{\rm info}\propto E\to0$: at $z=3$ the
+informational density is $1.15\,\%$ of $\rho_\Lambda$. The early-time equation of state has almost nothing to act on (Chapter~\ref{ch:wzfuture},
+Section~\ref{sec:wz_history}). \calc
+
+Figure~\ref{fig:wz_eos_maturity_a}(a) shows $w_{\rm info}(a)$ as a function of scale factor alongside the $\Lambda$CDM baseline.
 \begin{figure}[htbp]\centering
-\includegraphics[width=\textwidth]{figures/part2/fig_two_rulers_future.pdf}
-\caption{(a) The photon-sector rate $H(a)$ and the matter-sector rate $H_m(a)$ into the future ($H_0=67.4$ for photons): 67.40 and 72.52 today; they settle at $H_0\sqrt{\Omega_\Lambda}=55.8$ and $H_0\sqrt{\Omega_\Lambda+\beta_me}=71.1$\,km\,s$^{-1}$Mpc$^{-1}$. (b) Their ratio: 1.076, 1.166 and 1.251 at $a=1$, 2 and 10, tending to 1.275. \calc}\label{fig:two_rulers_future}
+\includegraphics[width=\textwidth]{figures/part2/fig_wz_eos_maturity_a.pdf}
+\caption[The equation of state of the record and the informational maturity, against the scale factor]{(a) The IAM informational sector
+equation of state $w_{\rm info}(a)=-1-1/(3a)$ (solid) compared to the $\Lambda$CDM cosmological constant ($w=-1$, dashed). The point marks today
+($a=1$, $w=-4/3$). The IAM equation of state is always mildly phantom but asymptotes toward $-1$ as $a\to\infty$, ensuring no Big Rip scenario.
+(b) The informational maturity fraction $E(a)/e$ as a function of scale factor. The point marks today ($a=1$, maturity $=1/e\approx36.8\,\%$). The
+dashed horizontal line marks full saturation ($E/e=1$), approached asymptotically. (c) The rate of informational maturation per unit scale
+factor, $d(E/e)/da=E/(e\,a^2)$, which peaks at $a=1/2$ ($z=1$) at $4/e^2=0.541$ and declines monotonically thereafter, and per e-fold,
+$d(E/e)/d\ln a=E/(e\,a)$, which peaks today at $1/e$. \derived}\label{fig:wz_eos_maturity_a}
+\end{figure}
+
+\subsection{CPL mapping for observational comparison}\label{sec:de_cpl}
+The Chevallier--Polarski--Linder (CPL) parametrization $w(a)=w_0+w_a(1-a)$ is the standard tool for observational dark energy
+analysis~\cite{ChevallierPolarski2001,Linder2003}. To compare IAM's prediction to DESI DR2, $w_{\rm info}(a)$ is mapped to effective CPL parameters
+by matching the value and first derivative at $a=1$:
+\begin{equation}w_0=w_{\rm info}(a)\big|_{a=1}=-\tfrac43\approx-1.333,\qquad w_a=-\left.\frac{dw_{\rm info}(a)}{da}\right|_{a=1}=-\tfrac13\approx-0.333 .\label{eq:wz_cpl}\end{equation}
+\derived\ The IAM point $(w_0,w_a)=(-4/3,-1/3)$ lies in the phantom regime ($w_0<-1$) with a small negative $w_a$, meaning the effective equation
+of state becomes less phantom over time in the CPL approximation: in the CPL form $dw/da=-w_a>0$. How this point compares with what DESI DR2
+reports, why that comparison is not a test, and the limitations of the CPL comparison are discussed in Chapter~\ref{ch:wzfuture},
+Sections~\ref{sec:wz_cplsign} and~\ref{sec:wz_cpllimits}.
+
+\section{$E(a)$ saturation and the asymptotic universe}\label{sec:de_saturation}
+\subsection{The activation function and its ceiling}
+The activation function $E(a)=\exp(1-1/a)$ is a monotonically increasing function of the scale factor. Its properties:
+\begin{equation}E(0^+)=0,\qquad E(1)=1\ \ (\text{today}),\qquad\lim_{a\to\infty}E(a)=e\approx2.71828\ldots\label{eq:de_Elimits}\end{equation}
+\derived\ The function saturates at $e$. This is not an imposed ceiling --- it emerges from the thermodynamic structure of the activation function
+derived from horizon thermodynamics. As $a$ grows large, the argument $(1-1/a)\to1$ and the exponential approaches $e$ from below. No finite value
+of $a$ achieves saturation; the approach is asymptotic. $E(1)=1$ because $1-1/a=0$ at $a=1$: it is today's normalisation. $E$ has its inflection
+in $a$ at $a=1/2$ ($z=1$), where $d^2E/da^2=-E\,(2a-1)/a^4$ changes sign, and its inflection in $\ln a$ at $a=1$ (verification script, sections
+A6--A7). \derived
+
+\subsection{Asymptotic Hubble parameter}\label{sec:de_Hinf}
+The IAM background expansion is standard $\Lambda$CDM. The matter perturbation equations are modified by the informational sector, but the
+Friedmann equation governing the background is unchanged (Chapter~\ref{ch:level2}):
+\begin{equation}H^2(a)=H_0^2\left[\Omega_ma^{-3}+\Omega_\Lambda\right].\label{eq:de_friedmann}\end{equation}
+As $a\to\infty$, the matter term $\Omega_ma^{-3}\to0$ and the background expansion approaches de~Sitter behavior driven by the cosmological
+constant:
+\begin{equation}H_\infty=H_0\sqrt{\Omega_\Lambda}\approx H_0\times0.8275\approx55.6~\mathrm{km\,s^{-1}\,Mpc^{-1}},\label{eq:de_Hinf}\end{equation}
+\calc\ for the photon-sector $H_0=67.16$ and $\Omega_\Lambda=0.6847$ of the Level~2 chains ($55.57$; $55.78$ for the Planck 2018 base values
+$H_0=67.4$, $\Omega_\Lambda=0.685$).
+
+The expansion does not halt; it approaches a constant rate determined by $\Lambda$. However, the \emph{informational contribution} to the
+expansion driver (the $E(a)$ term that modifies the perturbation equations) saturates. The universe reaches a final state where the
+informational entropy has been fully encoded on the cosmic horizon, structure formation has ended, and the background expansion coasts at
+$H_\infty$. \calc
+
+This is not heat death. It is informational completion --- a distinct and physically meaningful final state that $\Lambda$CDM cannot describe
+(Chapter~\ref{ch:wzfuture}, Section~\ref{sec:wz_heatdeath}). \interp\ In the photon sector the end state is the de~Sitter state of $\Lambda$CDM;
+what ends is the writing.
+
+\subsection{Final effective equation of state}\label{sec:de_weff}
+As $a\to\infty$, the informational contribution to the departure of the total equation of state from $-1$ vanishes ($w_{\rm info}\to-1$), and the
+universe behaves as a pure cosmological constant. The \emph{effective} total equation of state, blending the $\Lambda$ sector with the saturated
+informational sector, approaches:
+\begin{equation}\lim_{a\to\infty}w_{\rm eff}(a)=-1 .\label{eq:de_weff}\end{equation}
+\derived\ The universe arrives at $w=-1$ not because it started there, but because the informational sector exhausts itself. The phantom phase is a
+transient --- the epoch of structure formation, from $z\sim2$ to the far future, during which information is being actively produced and encoded.
+Once structure formation is complete and the whole record has been written, the informational driver shuts off and the cosmological constant
+takes full control. \interp
+
+\section{Two rulers}\label{sec:de_rulers}
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_two_rulers_future_l2.pdf}
+\caption{(a) The photon-sector rate $H(a)$ and the matter-sector rate $H_m(a)$ of Eq.~\eqref{part2:eq:Hm} into the future, for the Level~2
+photon-sector $H_0=67.16$ and $\Omega_m=0.3153$: $67.16$ and $72.26$ today; they settle at $H_0\sqrt{\Omega_\Lambda}=55.57$ and
+$H_0\sqrt{\Omega_\Lambda+\beta_me}=70.86$\,km\,s$^{-1}$Mpc$^{-1}$. (b) Their ratio: $1.076$, $1.166$ and $1.251$ at $a=1$, $2$ and $10$,
+tending to $1.275$. \calc}\label{fig:two_rulers_future}
 \end{figure}
 The photon sector is $\Lambda$CDM, so distances measured with light --- the BAO scale, the CMB acoustic angle, supernova distances on the photon
-ruler --- follow $w=-1$. $w_{\rm info}$ belongs to the matter-sector rate \eqref{part2:eq:Hm}. The two rulers diverge as structure grows:
+ruler --- follow $w=-1$. $w_{\rm info}$ belongs to the matter-sector rate \eqref{part2:eq:Hm}. Today Eq.~\eqref{part2:eq:Hm} gives
+$H_m^2(1)=H_0^2(1+\beta_m)$, because $\Omega_m+\Omega_\Lambda=1$ and $E(1)=1$. The two rulers diverge as structure grows:
 \begin{center}\small\begin{tabular}{lccc}\toprule
 $a$ & $H$ (photon) & $H_m$ (matter) & $H_m/H$\\\midrule
-1 (today) & 67.40 & 72.52 & 1.076\\ 2 & 57.36 & 66.87 & 1.166\\ 10 & 55.80 & 69.82 & 1.251\\ $\to\infty$ & 55.78 & 71.12 & 1.275\\\bottomrule
+1 (today) & 67.16 & 72.26 & 1.076\\ 2 & 57.15 & 66.62 & 1.166\\ 10 & 55.59 & 69.56 & 1.251\\ $\to\infty$ & 55.57 & 70.86 & 1.275\\\bottomrule
 \end{tabular}\end{center}
-(km\,s$^{-1}$\,Mpc$^{-1}$, with $H_0=67.4$ for the photon sector.) The photon rate settles at $H_0\sqrt{\Omega_\Lambda}=55.8$; the matter rate
-settles at $H_0\sqrt{\Omega_\Lambda+\beta_me}=71.1$. \calc\ With the Level~2 photon value $H_0=67.16$ every rate scales by $0.9964$
-(the matter-sector rate today becomes $72.26$); the ratios are unchanged.
+(km\,s$^{-1}$\,Mpc$^{-1}$, photon-sector $H_0=67.16$, $\Omega_m=0.3153$.) The photon rate settles at $H_0\sqrt{\Omega_\Lambda}=55.57$; the matter
+rate settles at $H_0\sqrt{\Omega_\Lambda+\beta_me}=70.86$. \calc\ With the Planck 2018 base values ($H_0=67.4$, $\Omega_m=0.315$) the rates are
+$67.40$ and $72.52$ today and $55.78$ and $71.12$ in the limit; the ratios are the same to the third decimal. The matter-sector rate first falls
+below its asymptote and then rises toward it ($66.62$ at $a=2$), because $H^2$ is still falling while $\beta_mE$ has not yet saturated.
 
 \paragraph{DESI.} DESI DR2 with the CMB and supernovae~\cite{DESI2025} prefers $w_0=-0.838\pm0.055$, $w_a=-0.62$ (Pantheon+~\cite{Brout2022}), $w_0=-0.667\pm0.088$, $w_a=-1.09$
 (Union3~\cite{Rubin2025}) or $w_0=-0.752\pm0.057$, $w_a=-0.86$ (DES Y5~\cite{DESY5SN2024}): above $-1$ today, crossing $-1$ at $z=0.35$--$0.44$. \observed That preference comes from distances ---
@@ -45,27 +189,77 @@ The test is the two-ruler
 comparison: the expansion history measured with matter (distance ladder, sirens, peculiar velocities) against the history measured with light,
 redshift by redshift.
 
-\section{Maturity}
+\section{Informational maturity of the universe}\label{sec:de_maturity}
+\subsection{The maturity fraction}
+The normalized quantity $E(a)/e$ measures the fraction of the universe's total informational record that has been written through gravitational
+decoherence. Since $E(a)$ ranges from $0$ (no information encoded) to $e$ (saturation), the ratio $E(a)/e$ ranges from $0$ to $1$.
 
+At $a=1$ (today):
+\begin{equation}\frac{E(1)}{e}=\frac{e^0}{e}=\frac1e\approx0.36788=36.8\,\%.\label{eq:de_maturity_today}\end{equation}
+\derived\ The universe is currently at exactly $1/e$ maturity. This is not a coincidence of units --- it is the mathematical inflection point of
+the activation function in $\ln a$. The rate of informational maturation per unit scale factor,
+\begin{equation}\frac{d(E/e)}{da}=\frac{E(a)}{e\,a^2}=\frac{e^{-1/a}}{a^2},\label{eq:de_rate_a}\end{equation}
+equals $1/e\approx0.368$ per unit scale factor at $a=1$ and achieves its maximum, $4/e^2=0.541$, at $a=1/2$ ($z=1$). Per e-fold of expansion the
+rate,
+\begin{equation}\frac{d(E/e)}{d\ln a}=\frac{e^{-1/a}}{a},\label{eq:de_rate_lna}\end{equation}
+achieves its maximum, $1/e$, at $a=1$. \derived\ Today, per e-fold of expansion, the universe is maturing faster than at any other epoch in its past
+or future. Per unit cosmic time the peak lies in the past (Section~\ref{sec:de_rate_t}).
+
+\subsection{Maturity milestone table}
+Given a target maturity fraction $f=E(a)/e$, the corresponding scale factor is found by solving $\exp(1-1/a)=fe$:
+\begin{equation}a(f)=\frac{-1}{\ln f}.\label{eq:de_af}\end{equation}
+\derived\ The cosmic age at scale factor $a$ is computed numerically from the standard Friedmann equation, $t(a)=\int_0^a da'/[a'H(a')]$, using
+$H_0=67.4$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m=0.315$, $\Omega_\Lambda=0.685$~\cite{Planck2018VI}. Table~\ref{tab:de_maturity} presents the
+milestones from $1\,\%$ to $99\,\%$ informational maturity.
+\begin{table}[htbp]\centering\small
+\caption{Informational maturity milestones of the universe. Scale factors and redshifts are exact from Equation~\eqref{eq:de_af}; ages are
+computed numerically from the Planck 2018 cosmological parameters. Negative ``from now'' values are in the past. \calc}\label{tab:de_maturity}
+\begin{tabular}{lcccc}\toprule
+Maturity & Scale factor $a$ & Redshift $z$ & Age (Gyr) & From now\\\midrule
+1\,\% & 0.217 & 3.61 & 1.7 & $-12.1$\,Gyr\\ 5\,\% & 0.334 & 2.00 & 3.3 & $-10.5$\,Gyr\\ 10\,\% & 0.434 & 1.30 & 4.8 & $-9.0$\,Gyr\\
+20\,\% & 0.621 & 0.61 & 7.8 & $-6.0$\,Gyr\\ \textbf{36.8\,\% (today)} & \textbf{1.000} & \textbf{0.00} & \textbf{13.8} & \textbf{0}\\
+50\,\% & 1.443 & $-0.31$ & 19.5 & $+5.7$\,Gyr\\ 75\,\% & 3.476 & $-0.71$ & 34.5 & $+20.7$\,Gyr\\ 90\,\% & 9.491 & $-0.89$ & 52.1 & $+38.3$\,Gyr\\
+95\,\% & 19.50 & $-0.95$ & 64.7 & $+50.9$\,Gyr\\ 99\,\% & 99.50 & $-0.99$ & 93.3 & $+79.5$\,Gyr\\\bottomrule
+\end{tabular}\end{table}
+With the Level~2 background ($H_0=67.16$, $\Omega_m=0.3153$) the scale factors and redshifts are unchanged and the ages are larger by at most
+$0.3$~Gyr ($93.6$~Gyr at $99\,\%$). \calc
+
+\subsection{The maturation rate}\label{sec:de_rate_t}
+The current rate of informational maturation in cosmic time is
+\begin{equation}\left.\frac{d(E/e)}{dt}\right|_{a=1}=\left.\frac{d(E/e)}{da}\cdot\frac{da}{dt}\right|_{a=1}=\frac1e\cdot H_0\approx2.54\,\%\ \mathrm{Gyr^{-1}}\label{eq:de_rate_t}\end{equation}
+for $H_0=67.4$ ($2.53\,\%$ per Gyr for $67.16$). \calc\ In cosmic time the rate is $dE/dt=H\,E/a$. It peaked at $z=1.26$, $8.9$~Gyr ago, at
+$3.38\,\%$ of the eventual record per Gyr; it is now falling and will decline monotonically as $a$ increases. \calc
+
+The maturation trajectory is sigmoidal in cosmic time: slow at early times (structure formation just beginning, encoding surfaces sparse), rapid
+through the epoch of fastest decoherence, and long asymptotic approach to completion at late times. The universe spent $13.8$\,Gyr reaching
+$36.8\,\%$, will spend another ${\sim}5.7$\,Gyr reaching $50\,\%$, then ${\sim}32$\,Gyr more reaching $90\,\%$, then ${\sim}41$\,Gyr more reaching
+$99\,\%$ ($5.7$, $32.6$ and $41.2$\,Gyr). \calc
+
+Figure~\ref{fig:wz_eos_maturity_a} illustrates both the maturity fraction and its rate against the scale factor; Figure~\ref{fig:maturity} gives
+both against cosmic time.
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_maturity.pdf}
 \caption{(a) The fraction of the eventual record written, $E(a)/e$, against cosmic time (Planck 2018 background): 10\,\% at 4.8\,Gyr, $1/e$ today at 13.8\,Gyr, 50\,\% at 19.5, 75\,\% at 34.5 and 90\,\% at 52.1\,Gyr. (b) The writing rate per unit cosmic time, $dE/dt=HE/a$, as a percentage of the eventual record per Gyr: it peaked at 3.38\,\%\,Gyr$^{-1}$ at $z=1.26$ and is 2.54\,\%\,Gyr$^{-1}$ now. \calc}\label{fig:maturity}
 \end{figure}
-$E(a)/e$ is the fraction of the eventual record written so far; $a(f)=-1/\ln f$, with ages from the Planck 2018 background~\cite{Planck2018VI}.
-\begin{center}\small\begin{tabular}{rrrrr}\toprule
-Fraction & $a$ & $z$ & Age (Gyr) & From now\\\midrule
-1\,\% & 0.217 & 3.61 & 1.7 & $-12.1$\\ 5\,\% & 0.334 & 2.00 & 3.3 & $-10.5$\\ 10\,\% & 0.434 & 1.30 & 4.8 & $-9.0$\\
-20\,\% & 0.621 & 0.61 & 7.8 & $-6.0$\\ 36.8\,\% (today) & 1.000 & 0 & 13.8 & 0\\ 50\,\% & 1.443 & $-0.31$ & 19.5 & $+5.7$\\
-75\,\% & 3.476 & $-0.71$ & 34.5 & $+20.7$\\ 90\,\% & 9.491 & $-0.89$ & 52.1 & $+38.3$\\ 99\,\% & 99.50 & $-0.99$ & 93.3 & $+79.5$\\\bottomrule
-\end{tabular}\end{center}
-Today the record is $1/e=36.8\,\%$ written. How fast it is being written depends on the clock. Per e-fold of expansion, $dE/d\ln a=E/a$ peaks
-exactly today, the inflection of $E$ in $\ln a$. Per unit of cosmic time, $dE/dt=HE/a$ peaked at $z=1.26$, about 9 Gyr ago, at $3.4\,\%$ of the
-total per Gyr; it is $2.54\,\%$ per Gyr now and falling. \calc
 
 \section{The end state}
-The background expands forever, at $H\to55.8$; the far future of the photon sector is the de Sitter state of $\Lambda$CDM. What ends is the writing:
-$E\to e$, structure formation stops, and the record on the horizon is complete. The informational term then behaves as a constant, $w\to-1$. \calc
+The background expands forever, at $H\to55.57$ (Eq.~\eqref{eq:de_Hinf}); the far future of the photon sector is the de~Sitter state of
+$\Lambda$CDM. What ends is the writing: $E\to e$, structure formation stops, and the record on the horizon is complete. The informational term
+then behaves as a constant, $w\to-1$. \calc
 
 \section{Tests}
 The tests of the term --- the two-ruler expansion history $H_m(z)/H(z)$ from \eqref{part2:eq:Hm}, one $E(a)$ in growth and in expansion, and the
-falsifier --- are set out in Chapter~\ref{ch:wzfuture}.
+falsifier --- are set out in Chapter~\ref{ch:wzfuture}, Section~\ref{sec:wz_tests}.
+
+\section{Status}
+\begin{center}\small\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xl}\toprule
+Result & Label\\\midrule
+$S_{\rm info}=S_0E(a)$ with $\beta_m=\Omega_m/2$ fixed & \prediction\\
+$w_{\rm info}=-1-1/(3a)$ from $\rho_{\rm info}\propto E$ and energy conservation; $w_{\rm info}(1)=-4/3$; $w\to-1$ & \derived\\
+CPL image $(-\tfrac43,-\tfrac13)$, $w_a$ negative & \derived\\
+$E(0)=0$, $E(1)=1$, $E\to e$; inflections at $a=1/2$ (in $a$) and $a=1$ (in $\ln a$) & \derived\\
+$H_\infty=H_0\sqrt{\Omega_\Lambda}=55.57$; $w_{\rm eff}\to-1$ & \calc\ / \derived\\
+Two-ruler rates $67.16\to55.57$ and $72.26\to70.86$ & \calc\\
+Maturity today $1/e$; milestone table; rate $2.54\,\%$\,Gyr$^{-1}$ now, peak $3.38\,\%$ at $z=1.26$ & \calc\\
+Self-limiting writing; informational completion as the end state & \interp\\\bottomrule
+\end{tabularx}\end{center}

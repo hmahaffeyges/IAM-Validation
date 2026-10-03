@@ -1,23 +1,57 @@
-% Part 2 chapter carrying "Falsifiable Predictions of the Informational Actualization Model for Euclid, DESI, and Next-Generation Surveys"
-% (25 Feb 2026) in its order. Read in full 2026-10-02 (PDF text 725 lines in this extraction, 736 in the check file's; every line read).
-% Numbers: docs/verification/scripts/verify_survey_predictions.py and verify_obs_chapters.py (outputs beside them; E_G and CMB lensing: section H).
-% Check: docs/verification/observations/SURVEY_PREDICTIONS_CHECK.md; errata SP1-SP10.
+% Part 2 chapter ch:surveys. Carries, line for line and corrected, "Falsifiable Predictions of the Informational Actualization Model for
+% Euclid, DESI, and Next-Generation Surveys" (25 Feb 2026; PDF text 736 lines, read in full in 50-line chunks, 2026-10-03; LaTeX checked for
+% Eqs. 1 and 5-8): the mu-Sigma mapping, the current constraints (Table 1, traced), the ISW-galaxy prediction (Eqs. 5-6, Fig. 2), the
+% tomographic mu(z) values (Table 3) and the shape test, the transition zone (Eq. 7, Table 4, Fig. 4), the observable deviations (Table 5),
+% standard sirens (Eq. 8), CMB lensing, the equation of state, the scorecard (Table 6) and the conclusion. Not carried, each withdrawn by a
+% confirmed correction: the Fisher-forecast significances and detection timeline (Eqs. 2-4, Table 2, Fig. 1(c); errata SP5), the per-bin
+% sigma(mu) columns of Table 3 (same unsourced forecast, SP5), the tomographic mock and its beta_m recovery (Sec. 4.2, Fig. 3(c)-(f); SP7), the
+% neutrino-mass bound (Sec. 6.2; SP8), the S/N map of Fig. 4(f) (SP5). Euclid sensitivity is stated only as in Chapter ch:latetime,
+% Section sec:lt_euclid (verify_euclid_template.py). Corrections: PAPER_ERRATA.md rows SP1-SP10, ST4, ST7, T14, S10; check file
+% docs/verification/observations/SURVEY_PREDICTIONS_CHECK.md; theory/THEORY_CHECK.md #10-#11. Numbers:
+% docs/verification/scripts/verify_dark_energy_far_future_surveys_book.py (section C), verify_survey_predictions.py, verify_obs_chapters.py
+% (E_G and CMB lensing: section H). Figures: figscripts/fig_p2_survey_tests.py (fig_survey_ramp, fig_survey_precision) and
+% fig_p2_de_survey_carry.py (fig_survey_transition, fig_survey_isw).
 \chapter{What the surveys will measure}\label{ch:surveys}
 
 \section*{The place}
 The cosmic horizon, where matter's records are written as it collapses into structure (Chapter~\ref{ch:surfaces}). The cost of writing weakens the
 coupling felt by matter, $\mu<1$, and leaves light untouched, $\Sigma=1$. This chapter writes down, before the data arrive, the numbers that Euclid,
-DESI and the next surveys will measure, and the precision each test needs.
+DESI and the next surveys will measure, and the precision each test needs. IAM produces specific, parameter-free predictions for forthcoming
+cosmological surveys that differ from both $\Lambda$CDM and generic modified gravity theories. These are forecasts, not guarantees. Survey
+results may confirm, partially confirm, or challenge these predictions. Any outcome provides useful information about the model. The purpose of
+this chapter is to make the predictions explicit before the data arrive so that the comparison is unambiguous.
 
-\section{The coupling at survey redshifts}
-Everything below follows from one line with no free parameter (Chapter~\ref{ch:latetime}):
+\section{The dual-sector signature in the $\mu$--$\Sigma$ language}\label{sec:sp_mapping}
+IAM adds a single Hubble friction term to the matter-sector perturbation equations (Chapters~\ref{ch:theory} and~\ref{ch:level2}), producing a
+dual-sector structure in which the effective matter coupling $\mu(z)<1$ while the lensing coupling $\Sigma=1$ exactly. In the standard $\mu$--$\Sigma$
+modified gravity parametrization~\cite{PogosianSilvestri2016}, with the metric
+$ds^2=-a^2(1+2\Psi)d\tau^2+a^2(1-2\Phi)d\mathbf{x}^2$ and the comoving density contrast $\Delta$,
+\begin{equation}k^2\Psi=-4\pi G\,a^2\,\mu(a,k)\,\bar\rho\,\Delta,\qquad k^2(\Phi+\Psi)=-8\pi G\,a^2\,\Sigma(a,k)\,\bar\rho\,\Delta .\label{eq:sp_poisson}\end{equation}
+$\mu$ governs how matter falls; $\Sigma$ governs how light is bent. IAM maps onto this description as
 \begin{equation}
 \mu(a)=\frac{H^2_{\Lambda\rm CDM}(a)}{H^2_{\Lambda\rm CDM}(a)+\beta_mE(a)H_0^2},\qquad E(a)=e^{1-1/a},\qquad\beta_m=\frac{\Omega_m}{2},\qquad\Sigma(a)=1,
 \label{eq:sp_mu}\end{equation}
-with $\Omega_m=0.3153$, so $\beta_m=0.1577$ and $\mu_0\equiv\mu(z{=}0)-1=-0.136$. \prediction The coupling is not the growth. A survey measures the integrated
-growth $D$ and the growth rate $f\sigma_8$, which follow from the linear growth equation with the same early-time amplitude as $\Lambda$CDM.
-\calc
-\begin{center}\small\begin{tabular}{lccccc}\toprule
+where $H^2_{\Lambda\rm CDM}(a)=H_0^2(\Omega_ma^{-3}+\Omega_\Lambda)$, $\beta_m=\Omega_m/2$ (virial theorem), and $E(a)=\exp(1-1/a)$ (horizon
+thermodynamics). No parameters are fitted; everything below follows from this line (Chapter~\ref{ch:latetime}). With $\Omega_m=0.3153$, $\beta_m=0.15765$ and
+\begin{equation}\mu_0\equiv\mu(z{=}0)-1=-\frac{\beta_m}{1+\beta_m}=-0.136 .\label{eq:sp_mu0}\end{equation}
+\prediction\ $\beta_m$ is fixed at $\Omega_m/2$ by the virial partition (Chapter~\ref{ch:virial_law}) and is not fitted in any chain. The MGCAMB runs of
+Chapter~\ref{ch:latetime} use the tracking form with $\mu_0=-0.13495$; the exact Eq.~\eqref{eq:sp_mu} gives $-0.13618$. \calc
+
+The Level~2 modified-CAMB chains (Chapter~\ref{ch:level2}) are consistent with Planck 2018 CMB data, with $\Delta\chi^2=+0.54$ relative to
+$\Lambda$CDM and $\sigma_8=0.800$, suppressed in the direction favored by weak lensing surveys. \measured\ This chapter records the explicit
+numerical predictions that forthcoming surveys will test, and the precision each survey needs to test them.
+
+\section{The coupling at survey redshifts}\label{sec:sp_table}
+The coupling is not the growth. A survey measures the integrated growth $D$ and the growth rate $f\sigma_8$, which follow from the linear growth
+equation with the same early-time amplitude as $\Lambda$CDM. IAM's prediction for $\mu(z)$ in survey-relevant redshift bins, computed from
+Equation~\eqref{eq:sp_mu} with Planck 2018 parameters, and the deviations of IAM observables from $\Lambda$CDM computed from the IAM perturbation
+equations, are given in Table~\ref{tab:sp_deviations}. \calc
+\begin{table}[htbp]\centering\small
+\caption{IAM predicted $\mu(z)$ in survey-relevant redshift bins and the predicted deviations of IAM observables from $\Lambda$CDM as a function
+of redshift. $1-\mu$: effective gravitational coupling; $\Delta D/D$: linear growth factor; $\Delta(f\sigma_8)/(f\sigma_8)$: growth rate times
+amplitude; $\Delta\Phi/\Phi$: gravitational potential (equal to $\Delta D/D$ since $\Sigma=1$). All values computed from Equation~\eqref{eq:sp_mu}
+with $\beta_m=0.15765$ and the linear growth equation with the same early amplitude as $\Lambda$CDM. \calc}\label{tab:sp_deviations}
+\begin{tabular}{lccccc}\toprule
 $z$ & $\mu$ & $1-\mu$ & $\Delta D/D$ & $\Delta(f\sigma_8)/f\sigma_8$ & $\Delta\Phi/\Phi$\\\midrule
 0   & 0.864 & 13.62\,\% & $-0.78\,\%$ & $-4.25\,\%$ & $-0.78\,\%$\\
 0.1 & 0.886 & 11.44\,\% & $-0.61\,\%$ & $-3.42\,\%$ & $-0.61\,\%$\\
@@ -27,7 +61,7 @@ $z$ & $\mu$ & $1-\mu$ & $\Delta D/D$ & $\Delta(f\sigma_8)/f\sigma_8$ & $\Delta\P
 1.0 & 0.982 & 1.78\,\%  & $-0.06\,\%$ & $-0.41\,\%$ & $-0.06\,\%$\\
 1.5 & 0.994 & 0.62\,\%  & $-0.02\,\%$ & $-0.13\,\%$ & $-0.02\,\%$\\
 2.0 & 0.998 & 0.23\,\%  & $-0.01\,\%$ & $-0.04\,\%$ & $-0.01\,\%$\\\bottomrule
-\end{tabular}\end{center}
+\end{tabular}\end{table}
 The growth rate carries the signal: $f\sigma_8$ is $4.25\,\%$ low today and $2.17\,\%$ low at $z=0.3$, while the amplitude $D$ is lower by under
 $1\,\%$. With $\Sigma=1$ the lensing potential follows the matter density, so $\Delta\Phi/\Phi=\Delta D/D$. The ramp is curved, not a constant
 rescaling, and it is gone by $z\approx2$.
@@ -36,44 +70,104 @@ rescaling, and it is gone by $z\approx2$.
 \caption[The growth-rate ramp and what light sees]{(a) The coupling $1-\mu$, the $f\sigma_8$ deficit and the growth deficit $|\Delta D/D|$ against redshift, from the linear growth equation with the same early amplitude as $\Lambda$CDM ($\Omega_m=0.3153$, $\beta_m=\Omega_m/2$, $\Sigma=1$). Dotted lines: 10, 50 and 90\,\% of today's $1-\mu$ reached. (b) The $E_G$ change ($+1.8\,\%$ at $z=0.3$), the potential change $\Delta\Phi/\Phi=\Delta D/D$ and the ISW source $(1-f)D/a$. Equations of \texttt{docs/verification/scripts/\allowbreak{}verify\_obs\_chapters.py}. \calc}\label{fig:survey_ramp}
 \end{figure}
 
-\section{When the weakening switched on}
-The fraction of today's $1-\mu$ already present at each epoch:
-\calc
-\begin{center}\small\begin{tabular}{rccc}\toprule
+\section{When the weakening switched on}\label{sec:sp_transition}
+IAM's gravity modification activates through $E(a)=\exp(1-1/a)$, which rises from zero at $a\to0$ to $e$ at $a\to\infty$.
+Table~\ref{tab:sp_activation} gives the fraction of today's modification already present at each epoch. \calc
+\begin{table}[htbp]\centering\small
+\caption{Activation milestones for IAM's gravity modification, defined as the fraction of the total present-day modification
+$\Delta\mu_0=1-\mu(z{=}0)=0.136$ that has turned on at each epoch. Lookback times computed with Planck 2018 parameters ($H_0=67.36$,
+$\Omega_m=0.3153$). \calc}\label{tab:sp_activation}
+\begin{tabular}{rccc}\toprule
 Fraction of $1-\mu(0)$ & $a$ & $z$ & Lookback (Gyr)\\\midrule
 1\,\% & 0.305 & 2.28 & 10.9\\ 5\,\% & 0.407 & 1.46 & 9.4\\ 10\,\% & 0.471 & 1.12 & 8.4\\ 25\,\% & 0.589 & 0.70 & 6.5\\
 50\,\% & 0.731 & 0.37 & 4.2\\ 75\,\% & 0.861 & 0.16 & 2.1\\ 90\,\% & 0.942 & 0.06 & 0.9\\ 95\,\% & 0.971 & 0.03 & 0.4\\
 99\,\% & 0.994 & 0.01 & 0.1\\\bottomrule
-\end{tabular}\end{center}
-Ten to ninety per cent of the weakening lies between $z=1.12$ and $z=0.06$; half of it has switched on since $z=0.37$, 4.2~Gyr ago. That range is
-covered by the DESI bright-galaxy and luminous-red-galaxy samples and by Euclid's spectroscopic and photometric surveys. $\mu(z)$ is monotonic, and
-$|d\mu/dz|$ is largest today ($0.229$ per unit redshift, against $0.109$ at $z=0.5$). For $E(a)$ itself, $10$, $50$ and $90\,\%$ of today's value are
-reached at $z=2.30$, $0.69$ and $0.11$.
+\end{tabular}\end{table}
+The transition zone --- defined as the redshift range over which $10\,\%$--$90\,\%$ of the total gravity modification $\Delta\mu=1-\mu(z)$ is
+present --- spans:
+\begin{equation}0.06\lesssim z\lesssim1.12 .\label{eq:sp_zone}\end{equation}
+\calc\ The midpoint ($50\,\%$ of total modification) occurs at $z\approx0.37$, $4.2$~Gyr ago, squarely within the DESI Bright Galaxy Survey and
+Euclid photometric survey ranges; the zone as a whole is covered by both DESI and Euclid spectroscopic programs. $\mu(z)$ is monotonic, and $|d\mu/dz|$ is largest today ($0.229$ per unit redshift, against
+$0.109$ at $z=0.5$); the MGCAMB tracking form has $|d\mu/dz|=0.128$ at $z=0$, so the exact form switches on more sharply at low redshift. For $E(a)$
+itself, $10$, $50$ and $90\,\%$ of today's value are reached at $z=2.30$, $0.69$ and $0.11$; $E$ has its inflection in $a$ at $z=1$. \calc
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_survey_transition.pdf}
+\caption[Where the modification switches on]{(a) $E(a)$ against redshift with $10$, $50$ and $90\,\%$ of today's value ($z=2.30$, $0.69$,
+$0.11$) and its inflection in $a$ at $z=1$; band: the transition zone of $\mu$, $0.06<z<1.12$. (b) $\mu(z)$, exact (Eq.~\eqref{eq:sp_mu}) and in the
+MGCAMB tracking form; the shaded side $\mu>1$ is where $f(R)$ and normal-branch DGP lie. (c) The normalised turn-on $(1-\mu)/(1-\mu_0)$: the exact
+form switches on later and more sharply. (d) $|d\mu/dz|$, largest at $z=0$ ($0.229$). (e) Deviations from $\Lambda$CDM with the same early amplitude:
+$\mu-1$, $\Delta(f\sigma_8)/f\sigma_8$ and $\Delta D/D=\Delta\Phi/\Phi$. (f) The exact form minus the MGCAMB form, $\times100$: at most $2.66$ at
+$z=0.68$. $\Omega_m=0.3153$, $\beta_m=\Omega_m/2$, $\Sigma=1$. \calc}\label{fig:survey_transition}
+\end{figure}
 
-\section{What light sees}
+\section{The shape of $\mu(z)$}\label{sec:sp_shape}
+Three forms of $\mu(z)$ with the same value today can be told apart only by their redshift dependence. The exact form \eqref{eq:sp_mu} and the
+MGCAMB tracking form $\mu=1+\mu_0\,\Omega_{\rm DE}(a)/\Omega_\Lambda$ (Chapter~\ref{ch:latetime}) agree at $z=0$ ($0.864$ and $0.865$) and at high
+redshift; in between the tracking form suppresses more, by up to $0.027$ in $\mu$ ($2.8\,\%$) near $z\approx0.65$--$0.7$ (Figure~\ref{fig:survey_transition}f).
+A constant $\mu$ and a power law in $a$ give different shapes again. \calc
+
+A tomographic reconstruction of $\mu(z)$ in redshift bins tests whether the data prefer the specific shape of Eq.~\eqref{eq:sp_mu} over a
+constant $\mu$ or a power law. Because the shape is fixed by $\beta_m$ and $E(a)$, such a reconstruction measures $\beta_m$ from the shape alone and
+tests the virial value $\beta_m=\Omega_m/2$ directly. \prediction\ How precisely Euclid's bins can do this needs a forecast made with the exact
+$\mu(z)$ and Euclid's published binning and errors; that forecast has not been made. \openprob
+
+\section{What light sees}\label{sec:sp_light}
 $\Sigma=1$ fixes the relation between the lensing potential and the matter density; it does not make lensing observables identical to $\Lambda$CDM,
 because the density itself grows more slowly.
+
+\subsection{The integrated Sachs--Wolfe effect}
+The integrated Sachs--Wolfe (ISW) effect arises from time evolution of gravitational potentials along the photon path. In the metric of
+Eq.~\eqref{eq:sp_poisson},
+\begin{equation}\left.\frac{\Delta T}{T}\right|_{\rm ISW}=\int\left(\frac{\partial\Phi}{\partial\tau}+\frac{\partial\Psi}{\partial\tau}\right)d\tau ,\label{eq:sp_iswT}\end{equation}
+which reduces to $2\int\partial\Phi/\partial\tau\,d\tau$ when $\Phi=\Psi$; in the convention where the spatial potential carries the
+opposite sign, $\Phi\to-\Phi$ with $\Phi=-\Psi$, the same result reads $-2\int\partial\Phi/\partial\tau\,d\tau$. Photons follow the lensing combination $\Phi+\Psi$, which Eq.~\eqref{eq:sp_poisson}
+ties to $\Sigma$. Since $\bar\rho a^2\propto a^{-1}$ and $\Delta\propto D$, with $\Sigma=1$
+\begin{equation}\Phi+\Psi\propto\frac{D}{a},\qquad\frac{\partial(\Phi+\Psi)}{\partial\tau}\propto aH\,\frac{d(D/a)}{d\ln a}=H\,D\,(f-1),\qquad f\equiv\frac{d\ln D}{d\ln a}.\label{eq:sp_iswsrc}\end{equation}
+\derived\ The background $H$ is the same in IAM and $\Lambda$CDM, so the ISW source changes only through $D$ and $f$. In IAM, $\mu<1$ causes
+gravitational potentials to decay faster than in $\Lambda$CDM ($\Sigma=1$ leaves photon geodesics unchanged). The faster potential decay enhances
+the ISW signal. The potential itself follows $D$: normalised at $z=3$, $(\Phi+\Psi)$ is $0.22\,\%$ lower than
+in $\Lambda$CDM at $z=0.5$ and $0.78\,\%$ lower today. \calc
+
+The source ratio $(1-f)D|_{\rm IAM}/(1-f)D|_{\Lambda\rm CDM}$ is $1.031$ at $z=0$, $1.035$ at $z=0.3$, $1.034$ at $z=0.5$ and $1.024$ at $z=1$. For
+galaxy samples with Gaussian redshift windows ($\sigma_z=0.1$) centred on the DESI bright galaxies ($z\approx0.3$) and luminous red galaxies
+($z\approx0.5$ and $0.7$), the ISW--galaxy cross-correlation amplitude relative to $\Lambda$CDM is $1.035$, $1.034$ and $1.031$, with the galaxy bias
+calibrated from the galaxy auto-power. Weighted uniformly over $0.05<z<1.5$,
+\begin{equation}A_{\rm ISW}^{\rm IAM}/A_{\rm ISW}^{\Lambda\rm CDM}\approx1.03 .\label{eq:sp_isw}\end{equation}
+\calc\ The MGCAMB tracking form, which suppresses $\mu$ more at intermediate redshift, gives $1.054$, $1.064$ and $1.072$ for the same three samples;
+the shape matters at this level. The sign is opposite to that of $f(R)$ gravity, whose enhanced growth ($\mu>1$) slows the decay of the potentials
+and lowers $A_{\rm ISW}$; the size of that suppression depends on the $f(R)$ amplitude. This provides a sign-based discriminant that does not
+require precise amplitude measurement. The enhancement is concentrated at $z\lesssim1$ where IAM's modification is largest. Current ISW
+measurements from cross-correlation with SDSS, 2MASS, and WISE galaxy catalogs~\cite{Giannantonio2008,Planck2015ISW} are consistent with
+$\Lambda$CDM at ${\sim}4\sigma$ significance but with $20$--$30\,\%$ uncertainties; the IAM enhancement of about $3\,\%$ is within current error
+bars. \observed\ The ISW test is therefore not a near-term discriminator but provides a consistency check and a sign test.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part2/fig_survey_isw.pdf}
+\caption[The ISW prediction]{(a) The ISW source $H D(1-f)$ of Eq.~\eqref{eq:sp_iswsrc} for $\Lambda$CDM, the exact IAM form and the MGCAMB tracking
+form (normalised to $\Lambda$CDM today). (b) Its ratio to $\Lambda$CDM: $1.031$ today, at most $1.035$ near $z=0.3$ for the exact form. (c) The
+potential $(\Phi+\Psi)(z)/(\Phi+\Psi)(z{=}3)$: the IAM potential is $0.22\,\%$ lower at $z=0.5$. (d) The ISW--galaxy amplitude ratio against the mean
+redshift of a galaxy sample with a Gaussian window ($\sigma_z=0.1$); points: DESI BGS ($1.035$) and LRG samples ($1.034$, $1.031$). Linear growth
+with the same early amplitude, $\Omega_m=0.3153$, $\beta_m=\Omega_m/2$, $\Sigma=1$. \calc}\label{fig:survey_isw}
+\end{figure}
+
+\subsection{CMB lensing and $E_G$}
 \begin{itemize}
-\item \emph{CMB lensing.} A Limber estimate of $C_L^{\phi\phi}$ is lower by $0.08\,\%$ at fixed primordial amplitude, below any current or planned
-measurement (Chapter~\ref{ch:sectortension}). \calc
+\item \emph{CMB lensing.} $\Sigma=1$ fixes the relation between the potential and the density; it does not make $C_L^{\phi\phi}$ identical to
+$\Lambda$CDM. A Limber estimate of $C_L^{\phi\phi}$ is lower by $0.08\,\%$ at fixed primordial amplitude (Chapter~\ref{ch:sectortension}). \calc\
+Planck detects CMB lensing at $40\sigma$~\cite{Planck2018VIII}, an amplitude error of about $2.5\,\%$ \observed; the predicted change is about $30$ times
+smaller. A deviation of the lensing potential from the matter density that next-generation CMB experiments~\cite{Abazajian2016} can detect, $\Sigma\neq1$,
+would contradict the prediction. \prediction
 \item \emph{$E_G$.} $E_G=\Omega_{m0}\Sigma/f$ rises because $f$ falls while lensing does not: $+1.8\,\%$ at $z=0.3$, $+3.6\,\%$ today. \calc
 The first measurement, $E_G=0.39\pm0.06$ on scales of tens of megaparsecs from SDSS luminous red galaxies at $z\approx0.32$ (Reyes et al.\ 2010~\cite{Reyes2010}) \observed, lies $1.1\sigma$ below the general-relativity value for Planck's $\Omega_m$, $\Omega_{m0}/f=0.455$, and $1.2\sigma$ below the value with the informational term, $0.463$ \calc. Its error is $7.5$ times the predicted shift of $0.008$; separating the two needs $E_G$ at the per-cent level.
-\item \emph{The integrated Sachs--Wolfe effect.} Slower growth makes the potentials decay faster. The ISW source $(1-f)D/a$ is larger by $3.4\,\%$ at
-$z\le0.5$ and $2.4\,\%$ at $z=1$; weighted uniformly over $0.05<z<1.5$, the ISW--galaxy cross-correlation amplitude is
-\begin{equation}A_{\rm ISW}^{\rm IAM}/A_{\rm ISW}^{\Lambda\rm CDM}\approx1.03.\label{eq:sp_isw}\end{equation}
-\calc\ The sign is opposite to that of $f(R)$ gravity, whose enhanced growth slows the decay of the potentials. Current cross-correlations detect the
-ISW signal at about the $4\sigma$ level~\cite{Giannantonio2008,Planck2015ISW}, an amplitude error near $25\,\%$; a $3\,\%$ enhancement is far below
-it. The ISW test is a sign test for the future, not a near-term discriminator. \observed
 \end{itemize}
 
-\section{Current constraints on $\mu_0$}
-\observed\ In the same parameterisation (Chapter~\ref{ch:latetime}): DES Y3 with external data, $\mu_0=0.08^{+0.21}_{-0.19}$~\cite{DESY3Ext} (DES Y3
+\section{Current constraints on $\mu_0$}\label{sec:sp_current}
+The current constraint on IAM's $\mu_0=-0.136$ from existing data is consistent but not yet significant. \observed\ In the same parameterisation (Chapter~\ref{ch:latetime}): DES Y3 with external data, $\mu_0=0.08^{+0.21}_{-0.19}$~\cite{DESY3Ext} (DES Y3
 alone does not constrain $\mu_0$); DESI DR1 full-shape clustering alone, $0.11^{+0.45}_{-0.54}$~\cite{DESI2024VII}; ACT + WMAP + SDSS + supernovae,
-$0.02\pm0.19$~\cite{Andrade2024}. Our free-$\mu_0$ chains reach the upper prior edge ($+0.2$), so they are quoted as a median and a one-sided $90\,\%$ bound: Planck, median $+0.059$, lower
+$0.02\pm0.19$~\cite{Andrade2024}. The free-$\mu_0$ chains of Chapter~\ref{ch:latetime} reach the upper prior edge ($+0.2$), so they are quoted as a median and a one-sided $90\,\%$ bound: Planck, median $+0.059$, lower
 bound $-0.305$; Planck + RSD, median $+0.064$, lower bound $-0.204$. The prediction $\mu_0=-0.136$ lies inside every one of these, and so does general
 relativity. \fitted\ No present measurement discriminates.
 
-\section{The timeline}
+\section{The timeline}\label{sec:sp_timeline}
 Euclid's complete first data release, with the clustering and lensing products needed for cosmology, is scheduled for mid-2027; no forecast of
 $\sigma(\mu_0)$ for it has been published, so none is quoted here. For the full survey: Euclid's own forecasts are made for $\mu(z)=1+\mu_0\,\Omega_{\rm DE}(z)/\Omega_{\rm DE}(0)$~\cite{Albuquerque2025,Frusciante2025}. The 68\,\% error
 on $1+\mu_0$ is $23.3\,\%$ with conservative scale cuts and all primary probes, $4\,\%$ for weak lensing and photometric clustering alone taken to
@@ -82,27 +176,43 @@ $k\approx4\,{\rm Mpc}^{-1}$, where the nonlinear modelling has been validated to
 the template's $0.958$, so the significance is not $|\mu_0|/\sigma$. Matching the linear-growth deficit over $0<z<2$ gives a template-equivalent
 $\mu_0\approx-0.07$ ($-0.03$ over the spectroscopic bins alone): about $0.3\sigma$ with conservative cuts, $1.8\sigma$ at $\sigma(\mu_0)=0.04$ and about
 $7\sigma$ at one per cent \calc{} (\texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}verify\_euclid\_template.py}). A forecast made
-with the IAM $\mu(z)$ itself, and for Euclid with CMB lensing and spectroscopic growth, is the first calculation still to be done. \openprob
+with the IAM $\mu(z)$ itself, and for Euclid with CMB lensing and spectroscopic growth, is the first calculation still to be done. \openprob\
+Significances for intermediate releases and for combinations with DESI Year~5 and CMB-S4 need the same forecast and are not quoted.
 
 Redshift-space distortions test the shape directly: the deficit falls from $4.25\,\%$ at $z=0$ to $1.35\,\%$ at $z=0.5$ and $0.41\,\%$ at $z=1$
 (Section~\ref{sec:sp_falsify}).
 
 \paragraph{Peculiar velocities.} In linear theory the amplitude of large-scale bulk flows scales with $f\sigma_8$ at the survey redshift. At $z=0.01$--$0.05$ the informational term lowers it by $4.2$--$3.8\,\%$ against $\Lambda$CDM with the same early amplitude \calc\ \prediction. CosmicFlows-4 gives $395\pm29$ km\,s$^{-1}$ in a sphere of radius $150\,h^{-1}$\,Mpc against a $\Lambda$CDM expectation of $139$ km\,s$^{-1}$ (Watkins et al.\ 2023~\cite{Watkins2023}) \observed. A four per cent change in the expectation is far smaller than that difference; whether the excess is a property of the flow or of the survey geometry and estimator is open, and bulk flows do not test the term at present precision \openprob.
 
-\section{Standard sirens}
-Gravitational waves are emitted by matter on timelike worldlines, and the host galaxies trace the matter flow. The matter-sector rate is
+\section{Standard sirens}\label{sec:sp_sirens}
+Gravitational waves are emitted by matter on timelike worldlines, and the host galaxies trace the matter flow; siren distances against host
+redshifts therefore read the matter-sector rate. It is
 \begin{equation}H_0^{\rm m}=H_0^{\gamma}\sqrt{1+\beta_m}=67.16\times\sqrt{1.15765}=72.26~\mathrm{km\,s^{-1}\,Mpc^{-1}},\label{eq:sp_siren}\end{equation}
-against $H_0^{\gamma}=67.16$ for light (Level~2 chains, Chapter~\ref{ch:level2}). \calc\ GW170817 alone gives
-$70.0^{+12.0}_{-8.0}$~\cite{Abbott2017Siren}, consistent with both. \observed\ Separating the two values at $3\sigma$ needs
-$\sigma(H_0)\le1.70~\mathrm{km\,s^{-1}\,Mpc^{-1}}$, $2.4\,\%$ of $72.26$, from a siren population. \calc\ SH0ES
-($73.04\pm1.04$~\cite{Riess2022}) is $0.75\sigma$ from $72.26$.
+against $H_0^{\gamma}=67.16$ for light (Level~2 chains, Chapter~\ref{ch:level2}). \calc\ Analyses of the one siren with a counterpart, GW170817,
+range from $70.0^{+12.0}_{-8.0}$~\cite{Abbott2017Siren} and $68.9^{+4.7}_{-4.6}$~\cite{Hotokezaka2019} to $75.46^{+5.34}_{-5.39}$~\cite{Palmese2024}
+(a 2024 afterglow analysis), consistent with both rates. \observed\ Separating the two values at $3\sigma$ needs
+$\sigma(H_0)\le1.70~\mathrm{km\,s^{-1}\,Mpc^{-1}}$, $2.4\,\%$ of $72.26$, from a siren population. \calc\ Forecasts for the ground-based detector
+network give a $2\,\%$ measurement of $H_0$ from about fifty binary-neutron-star sirens with identified hosts~\cite{ChenFishbachHolz2018}
+\observed; at $2\,\%$ the two rates separate at $3.5\sigma$, and at $1\,\%$ at $7.1\sigma$. \calc\ SH0ES ($73.04\pm1.04$~\cite{Riess2022}) is
+$0.75\sigma$ from $72.26$. A siren population at that precision provides a direct test of the sector split. \prediction
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_survey_precision.pdf}
 \caption[The precision each test needs]{The precision each test needs. (a) Separation of the IAM $\mu(z)$ from general relativity against the error $\sigma(\mu_0)$ of Euclid's template, at the template-equivalent $\mu_0\approx-0.07$ (Chapter~\ref{ch:latetime}); points: the published errors on $1+\mu_0$, 23.3\,\% with conservative scale cuts, 4\,\% for weak lensing and photometric clustering to $k\approx4\,{\rm Mpc}^{-1}$ and about 1\,\% with all probes~\cite{Albuquerque2025,Frusciante2025}, giving about $0.3\sigma$, $1.8\sigma$ and $7\sigma$. A forecast with the IAM $\mu(z)$ itself is open. (b) Separation of the matter-sector rate 72.26 from the photon-sector 67.16 by a siren population against its $\sigma(H_0)$; $3\sigma$ needs $\sigma(H_0)\le1.70$. Square: GW170817 alone ($70.0^{+12.0}_{-8.0}$~\cite{Abbott2017Siren}, mean half-width 10). \prediction\ \calc}\label{fig:survey_precision}
 \end{figure}
 
-\section{Scorecard}
-Each entry with its present status. Chain values are from the final chain files (all 18 at $R-1\le0.010$); $\beta_m$ is fixed at $\Omega_m/2$ in
+\section{The equation of state seen by surveys}\label{sec:sp_weff}
+IAM's $E(a)$ produces an effective dark energy equation of state that evolves with redshift. Combining $\Lambda$ with the informational density,
+the vacuum-like total has $w_{\rm eff}=-1-\tfrac{1}{3a}\,\rho_{\rm info}/(\rho_\Lambda+\rho_{\rm info})$: $-1.015$ at $z=3$, $-1.052$ at $z=1$,
+lowest at $-1.063$ near $z=0.19$, $-1.062$ today, and back toward $-1$ in the future ($-1.012$ at $a=10$). \calc\ So $w_{\rm eff}<-1$ at recent times,
+transitioning to $w_{\rm eff}\to-1$ at high $z$, and this distinguishes IAM from a pure cosmological constant --- on the matter ruler. The informational density $\rho_{\rm info}\propto E(a)$ has the equation of state $w_{\rm info}=-1-1/(3a)$: $-4/3$ today, tending to $-1$
+(Chapter~\ref{ch:darkenergy}). It belongs to the matter-sector rate. DESI's preference for $w_0>-1$ comes from distances measured with light, on
+which the term predicts $w=-1$, so the two are not compared directly; the test is the two-ruler expansion history (Chapter~\ref{ch:wzfuture},
+Section~\ref{sec:wz_tests}). \derived\ What distinguishes the term from a pure cosmological constant in survey data is the matter ruler and the
+growth rate, not the light-ruler $w$.
+
+\section{Scorecard}\label{sec:sp_scorecard}
+All predictions follow from $\beta_m=\Omega_m/2$ and $E(a)=\exp(1-1/a)$ without free parameters. Each entry is given with its present status
+against the published data cited in this chapter. Chain values are from the final chain files (all 18 at $R-1\le0.010$); $\beta_m$ is fixed at $\Omega_m/2$ in
 every chain, so every comparison tests a prediction and none is a fit.
 \begin{center}\small\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{0.24\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}c>{\raggedright\arraybackslash}X}\toprule
 Quantity & IAM & $\Lambda$CDM & Data and status\\\midrule
@@ -110,18 +220,24 @@ $\mu_0$ & $-0.136$ & 0 & all constraints above contain both; not discriminating\
 $\Sigma_0$ & 0 & 0 & consistent; Euclid tests it\\
 $H_0$, light & 67.16 & 67.16 & Planck chains (the same number)\\
 $H_0$, matter & 72.26 & 67.16 & SH0ES $73.04\pm1.04$: $0.75\sigma$; assigning the local value to the matter sector is the prediction\\
-$\sigma_8$ & 0.800 & 0.809 & Level~2 chains: $-1.1\,\%$, a $1.5\sigma$ shift; lensing comparison in Chapter~\ref{ch:s8trend}\\
+$H_0$, sirens & 72.26 & 67.16 & GW170817 analyses $68$--$75.5$; consistent with both\\
+$\sigma_8$ & 0.800 & 0.809 & Level~2 chains: $-1.1\,\%$, a $1.5\sigma$ shift; KiDS-1000 $3\times2$pt $0.76^{+0.025}_{-0.020}$~\cite{Heymans2021}, $1.6\sigma$ below $0.800$; lensing comparison in Chapter~\ref{ch:s8trend}\\
 $S_8$ & 0.822 & 0.830 & Level~2 chains; $0.9\sigma$ below Planck's 0.832\\
 $f\sigma_8$ deficit, $z=0.3$ & 2.17\,\% & 0 & below current per-bin errors (8--13\,\%)\\
+$E_G$, $z=0.3$ & $+1.8\,\%$ & 0 & SDSS $0.39\pm0.06$; error $7.5$ times the shift\\
 $A_{\rm ISW}$ & $\approx1.03$ & 1 & below current errors ($\sim25\,\%$)\\
-$C_L^{\phi\phi}$ & $-0.08\,\%$ & 0 & below current errors\\
-$M_{\rm lens}/M_{\rm dyn}$ & $1/\mu$ (Level~1 form) & 1 & test form open (Chapters~\ref{ch:lensdyn} and~\ref{ch:threeway})\\\bottomrule
+$C_L^{\phi\phi}$ & $-0.08\,\%$ & 0 & below current errors (Planck $\approx2.5\,\%$)\\
+$M_{\rm lens}/M_{\rm dyn}$, $z=0$ & $1/\mu=1.158$ (Level~1 form) & 1 & test form open (Chapters~\ref{ch:lensdyn} and~\ref{ch:threeway})\\\bottomrule
 \end{tabularx}\end{center}
+Current data are consistent with every IAM prediction listed above. No prediction is excluded by existing measurements, and none is yet
+discriminating. The definitive sensitivity tests arrive with Euclid's full survey, DESI's growth rates, combined Euclid and DESI data, and a siren
+population. \observed
 
 \section{What would falsify it}\label{sec:sp_falsify}
 \prediction\ Any of the following falsifies the prediction:
 \begin{itemize}
 \item $\mu_0$ measured consistent with $0$ and excluding $-0.136$ (for example $\mu_0>-0.05$ at $95\,\%$).
+\item $\mu>1$ at late times, the sign of $f(R)$ and normal-branch DGP.
 \item $\Sigma\neq1$ detected at any redshift.
 \item $f\sigma_8(z)$ following $\Lambda$CDM to better than the predicted $2$--$4\,\%$ at $z<0.3$, or a deficit that is a constant factor rather than the ramp
 of the first table.
@@ -130,14 +246,30 @@ of the first table.
 \item A siren population precise enough to separate the two rates that excludes $72.26$.
 \end{itemize}
 
+\section{Conclusion: what the signature separates}\label{sec:sp_separates}
+IAM makes specific, falsifiable predictions for every major forthcoming cosmological survey. The predictions are parameter-free:
+$\beta_m=\Omega_m/2$ from the virial theorem and $E(a)=\exp(1-1/a)$ from horizon thermodynamics, with all other quantities following from Planck
+2018 cosmological parameters. \prediction
+
+$\mu<1$ with $\Sigma=1$ is the signature predicted here, and among viable models it is distinctive. $\Lambda$CDM has $\mu=\Sigma=1$. $f(R)$ gravity
+has $\mu>1$ with $\Sigma=1$, and normal-branch DGP has $\mu>1$; the self-accelerating DGP branch gives $\mu<1$ with $\Sigma=1$ but carries a ghost and
+is excluded. Background $w_0$--$w_a$ models change distances and keep $\mu=\Sigma=1$, and modified-gravity models in which $\mu$ and $\Sigma$
+depart from one together have $\Sigma\neq1$ whenever $\mu\neq1$~\cite{PogosianSilvestri2008,PogosianSilvestri2016}. \derived\ The sign of the ISW change --- enhanced for IAM, suppressed for
+$f(R)$ --- provides a model-discriminating observable independent of amplitude precision. If the data deviate from these predictions, those
+deviations are equally informative --- they constrain the parameter space and may point toward refinements or extensions of the model. The
+predictions recorded here are explicit, the measurement techniques are established, and the survey schedule is set. The surveys will decide.
+
 \section{Status}
 \begin{center}\small\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xl}\toprule
 Result & Label\\\midrule
-$\mu(z)$, $\Sigma=1$ from Eq.~\eqref{eq:sp_mu}, $\beta_m=\Omega_m/2$ fixed & \prediction\\
-Growth, growth-rate and potential deviations; activation milestones & \calc\\
-$E_G$, CMB lensing and ISW changes & \calc\\
-Current $\mu_0$ constraints; GW170817; SH0ES & \observed\\
+$\mu(z)$, $\Sigma=1$ from Eq.~\eqref{eq:sp_mu}, $\beta_m=\Omega_m/2$ fixed; $\mu_0=-0.136$ & \prediction\\
+Growth, growth-rate and potential deviations; activation milestones; transition zone $0.06\lesssim z\lesssim1.12$ & \calc\\
+ISW source from $\Sigma=1$, Eq.~\eqref{eq:sp_iswsrc} & \derived\\
+$E_G$, CMB lensing and ISW changes; per-sample $A_{\rm ISW}$ & \calc\\
+Shape of $\mu(z)$: $\beta_m$ from a tomographic reconstruction & \prediction\\
+Tomographic and combined-survey forecasts with the exact $\mu(z)$ & \openprob\\
+Current $\mu_0$ constraints; GW170817; SH0ES; Planck lensing; KiDS-1000 & \observed\\
+Free-$\mu_0$ chain bounds & \fitted\\
 Euclid full survey, IAM $\mu(z)$: $0.3\sigma$ (conservative cuts) to ${\sim}7\sigma$ (smallest scales) & \calc\\
-Combined Euclid + DESI + CMB-S4 significance & \openprob\\
-Siren $H_0=72.26$ & \prediction\\\bottomrule
+Siren $H_0=72.26$; $3.5\sigma$ separation at a $2\,\%$ siren measurement & \prediction\ / \calc\\\bottomrule
 \end{tabularx}\end{center}
