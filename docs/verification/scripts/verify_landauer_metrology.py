@@ -3,8 +3,8 @@ Part 4 (ch:landauer, ch:fixedorigin), recomputed.
 
 Run from the repository root:  python docs/verification/scripts/verify_landauer_metrology.py
 Writes docs/verification/scripts/verify_landauer_metrology_output.txt
-Inputs (read, never typed): Biological_Physics/MethylPhys/kit/results/PROC_TARE_01_per_array.parquet,
-Biological_Physics/MethylPhys/kit/results/FINDING_GSE125105_controls.csv.
+Inputs (read, never typed): docs/book/figscripts/cell_data/PROC_TARE_01_per_array.parquet,
+docs/book/figscripts/cell_data/FINDING_GSE125105_controls.csv (both copied from the retired kit/results/).
 Values quoted from sealed outcome records are marked [record] with the file name.
 """
 from pathlib import Path
@@ -14,7 +14,7 @@ import pandas as pd
 import sympy as sp
 
 ROOT = Path(__file__).resolve().parents[3]
-KIT = ROOT / "Biological_Physics/MethylPhys/kit/results"
+KIT = ROOT / "docs/book/figscripts/cell_data"   # copied from Biological_Physics/MethylPhys/kit/results/ (retired 2026-10-03)
 OUT = Path(__file__).with_name("verify_landauer_metrology_output.txt")
 lines = []
 

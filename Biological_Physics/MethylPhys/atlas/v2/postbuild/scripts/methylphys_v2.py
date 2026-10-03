@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Toolkit: not yet wired into chain v3; enters the chain at commissioning with its own pre-registered check.  (SOP v3 section 2b, stage 3 (atlas v2 reader preview); chain/TOOLKIT.md)
 """MethylPhys v2 reader (PREVIEW, 2026-09-30). Atlas v2 only: composition by deconv_v2 (frozen settings), then each present cell's
 A = H(mean beta over its v2 identity loci) / H_min(class). No v1 file, name, marker panel or scale map. Specimen on our Stage 1 scale."""
 import json, numpy as np, pandas as pd

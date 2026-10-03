@@ -1,7 +1,7 @@
 # PROC-SKY-01 — outcome: SKY WITHHELD. The panel scales are retired; no on-array spread fitted every laboratory.
 
 **Sealed 2026-09-27** against [`PROC_SKY_01_PREREG.md`](PROC_SKY_01_PREREG.md), committed (6ffb045) before any array was read.
-Script `kit/PROC_SKY_01.py`; results `kit/results/PROC_SKY_01.json`; 48 arrays, 12 per commissioning laboratory.
+Script kit/PROC_SKY_01.py (archived privately); results kit/results/PROC_SKY_01.json (archived privately); 48 arrays, 12 per commissioning laboratory.
 
 | bar | rule | measured | |
 |---|---|---|---|

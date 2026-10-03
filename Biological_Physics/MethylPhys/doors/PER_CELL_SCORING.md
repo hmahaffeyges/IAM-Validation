@@ -6,7 +6,7 @@ class's H_min"*, and *"I only care about the cell score."*
 
 **That is what the chain already does, and it has all along.** Verified in the source rather than recalled:
 
-`Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py`, `score_per_celltype` — docstring verbatim:
+Runtime Matrices/A_Scoring_Module/iamatlas_a_scoring.py (archived privately), `score_per_celltype` — docstring verbatim:
 
 > *"Score all 115 cell-type A-scores for one patient. Each cell type's H_min is looked up via its class
 > membership."*
@@ -38,7 +38,7 @@ single cell types wearing a class label.
 ## The actual gap
 
 **The per-cell A-scores have no healthy band.** Only immune has a measured band (width 0.0524, pooled
-p10–p90); every other entry in [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json) carries
+p10–p90); every other entry in iamatlas_gauge_identity_loci_v1_0.json (archived privately) carries
 `band_status: "UNMEASURED PLACEHOLDER"`. A per-cell A can therefore be computed but not *placed* — there is
 no healthy distribution to say whether a given cell's reading is ordinary or not.
 

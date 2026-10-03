@@ -2,10 +2,10 @@
 
 **Sealed 2026-09-25** against the bars fixed in [`PROC_BAND_01_PREREG.md`](PROC_BAND_01_PREREG.md) before any
 array was read. 318 healthy whole-blood arrays, four laboratories, scored through the chain's own path.
-Evidence: [`PROC_BAND_01_arrays.json`](../kit/results/PROC_BAND_01_arrays.json) (one record per array, with
-the age it was scored at) and [`PROC_BAND_01.json`](../kit/results/PROC_BAND_01.json) (the bars).
-Scripts: [`PROC_BAND_01_measure.py`](../kit/PROC_BAND_01_measure.py) and
-[`PROC_BAND_01_analyse.py`](../kit/PROC_BAND_01_analyse.py).
+Evidence: PROC_BAND_01_arrays.json (archived privately) (one record per array, with
+the age it was scored at) and PROC_BAND_01.json (archived privately) (the bars).
+Scripts: PROC_BAND_01_measure.py (archived privately) and
+PROC_BAND_01_analyse.py (archived privately).
 
 ## The verdict
 

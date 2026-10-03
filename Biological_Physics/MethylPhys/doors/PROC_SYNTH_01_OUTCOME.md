@@ -3,9 +3,9 @@
 **Run 2026-09-26** on the author's instruction to verify the chain against synthetic patients before anything
 further is built on it, and to run every future test **through the chain** rather than through its internals.
 Every specimen below entered via `run_sample.py --betas`, the same entry point a real specimen uses.
-Evidence: [`PROC_SYNTH_01.json`](../kit/results/PROC_SYNTH_01.json) ·
-[`PROC_SYNTH_01_cells.json`](../kit/results/PROC_SYNTH_01_cells.json) ·
-[`PROC_SYNTH_01_fraction.json`](../kit/results/PROC_SYNTH_01_fraction.json).
+Evidence: PROC_SYNTH_01.json (archived privately) ·
+PROC_SYNTH_01_cells.json (archived privately) ·
+PROC_SYNTH_01_fraction.json (archived privately).
 
 Truth was **constructed, not estimated**, so every failure below is unambiguous.
 

@@ -5,7 +5,7 @@ sentences after tables are collapsed to header + first rows) was read and checke
 chain's code, the runtime matrix it names, the bundle it prints from, or the sealed record. Verdicts:
 
 - **OK** — states what the code/file/record says.
-- **FIXED** — was wrong or stale; corrected in [`build_methylphys.py`](../chain/MethylPhys_Interface/build_methylphys.py) this session, re-rendered and re-read.
+- **FIXED** — was wrong or stale; corrected in build_methylphys.py (archived privately) this session, re-rendered and re-read.
 - **REMOVED** — accurate or not, it is a cohort-methodology statement or an internal item; taken off by the author's decision.
 - **UNVERIFIED** — could not be checked from this machine; left in place and *named here* rather than passed.
 
@@ -20,14 +20,14 @@ Sentence numbers refer to the audit's scratch sentence file (the extraction that
 | 17 | n = 54,000 / (8.314 × 310.15) = 20.94 | OK | recomputed: 20.942 |
 | 19–21 | ΔG_ATP ~54 kJ/mol; R = 8.314 | OK | textbook |
 | 23–43 | R·T is the thermal scale; ratio is dimensionless; not metabolism | OK | arithmetic and units |
-| 47–55 | three parts; one floor per class | OK | consistent with [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json): 8 H_min values |
+| 47–55 | three parts; one floor per class | OK | consistent with iamatlas_gauge_identity_loci_v1_0.json (archived privately): 8 H_min values |
 | 56–61 | eight sandcastles | OK | analogy, labelled as one |
-| 62 | for each class we found addresses where every healthy cell sits at the same level | OK — **extended** | per-CELL identity loci also exist ([`iamatlas_percell_identity_loci_v1_1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_1.json)) and are where the cell is read; sentence now says so |
+| 62 | for each class we found addresses where every healthy cell sits at the same level | OK — **extended** | per-CELL identity loci also exist (iamatlas_percell_identity_loci_v1_1.json (archived privately)) and are where the cell is read; sentence now says so |
 | 63 | 42,134 immune / 29,181 cycling / 29,617 secretory identity loci | OK | read from the file: immune 42,134; cycling 29,181; secretory 29,617 |
 | 64–65 | eight numbers measured once and frozen | OK | H_min values in the file; PROC-HMIN-BOOT-01 confirms unchanged |
 | 67–70 | entropy 0→1; computed from array data alone | OK | binary entropy |
 | 71–75 | "Take a sample. Go to the immune identity addresses… divide by 0.838889" | **FIXED** | described the pooled class gauge as *the* reading. Rewritten as the order the chain runs: calibrate → deconvolve (presence gate) → per present cell, H(mean β over that cell's identity loci)/H_min[class]. Pooled class A stated as an internal gate, never printed |
-| 76–77 | A = 1.00 healthy; 1.10 = 10 % more scrambled | OK — extended | added NORMAL 0.95–1.04, SUPPRESSED < 0.95, Warburg 1.07, breach 1.10 from [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json) |
+| 76–77 | A = 1.00 healthy; 1.10 = 10 % more scrambled | OK — extended | added NORMAL 0.95–1.04, SUPPRESSED < 0.95, Warburg 1.07, breach 1.10 from tier_breakpoints.json (archived privately) |
 | 78 | "The middle 80 % of healthy donors land between ? and ?, and that band is drawn on every gauge" | **FIXED** | two literal `?` placeholders (band dict has no p10/p90 keys), and a cohort band. Removed |
 | 79 | one sample can be read on its own — no cohort | OK | now true of the per-cell reading too |
 | 81–94 | same floor in a chip and a qubit; Landauer 1961 | OK | framework statement; Landauer's principle correctly dated |
@@ -132,7 +132,7 @@ Every number checked against the file it names - pipeline map, panel n per labor
 | # | claim | verdict | note |
 |---|---|---|---|
 | 13-14 | release check last run 2026-09-22 at 3b38e87; "re-run the release check" | OK, and acted on | the tab says so honestly; release_check.py re-run in this push |
-| 23-24 | NILC vs legacy class L1 0.0628 AGREE | OK | computed on this run |
+| 23-24 | NILC vs the deconvolver class L1 0.0628 AGREE | OK | computed on this run |
 | 31 | NILC switched off July 2026, PROC-NILC-01, PROC-SEP-03 | OK | provenance of the check; procedures in the record |
 | 43-44 | DETECT: limit 0.5-1 % (MF-02/03); full filter tied NNLS (MF-01) | OK | sealed |
 

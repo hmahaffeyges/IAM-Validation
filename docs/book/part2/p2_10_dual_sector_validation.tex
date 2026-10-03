@@ -138,10 +138,10 @@ For each test configuration, the quantity minimised is
 \chi^2=\sum_{i=1}^{1588}\left(\frac{m_{b,i}^{\rm corr}-m_b^{\rm model}(z_i;\Omega_m,H_0,\beta,M)}{\sigma_{m_b,i}}\right)^2+\chi^2_{\rm prior}, \label{eq:dsv_chi2}
 \end{equation}
 where $\chi^2_{\rm prior}$ implements external constraints:
-\begin{equation}
-\text{Test A: }\chi^2_{\rm prior}=\left(\frac{H_0-67.4}{0.5}\right)^2\ \text{(Planck)},\quad \text{Test B: }\chi^2_{\rm prior}=\left(\frac{H_0-73.04}{1.04}\right)^2\
-\text{(SH0ES)},\quad \text{Test C: }\chi^2_{\rm prior}=0\ \text{(unconstrained)}. \label{eq:dsv_priors}
-\end{equation}
+\begin{equation}\begin{gathered}
+\text{Test A: }\chi^2_{\rm prior}=\left(\frac{H_0-67.4}{0.5}\right)^2\ \text{(Planck)},\qquad \text{Test B: }\chi^2_{\rm prior}=\left(\frac{H_0-73.04}{1.04}\right)^2\ \text{(SH0ES)},\\
+\text{Test C: }\chi^2_{\rm prior}=0\ \text{(unconstrained)}.
+\end{gathered}\label{eq:dsv_priors}\end{equation}
 Free parameters are: $\Omega_m\in[0.20,0.40]$, $H_0\in[60,75]$ km\,s$^{-1}$\,Mpc$^{-1}$, $\beta\in[-0.30,+0.30]$, $M\in[-20.0,-18.0]$ mag.
 Minimization employs the Nelder--Mead simplex algorithm with 5000 maximum iterations and adaptive step sizing. A simplex does not guarantee a global
 minimum, and because of the exact degeneracy derived below every minimum in this chapter is checked by minimising $M$ analytically and scanning

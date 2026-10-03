@@ -36,4 +36,4 @@ is why the CMB toolkit â€” HEALPix, Mollweide, matched filters, residual maps â€
 
 ## Part II
 
-[`PART_II_CHAPTER_NOTES.md`](../manual/PART_II_CHAPTER_NOTES.md) is the outline for Part II - the chapters, including the biological write-head, that are written after the instrument is commissioned. It had no reader in the tree until 2026-09-25.
+PART_II_CHAPTER_NOTES.md (archived privately) is the outline for Part II - the chapters, including the biological write-head, that are written after the instrument is commissioned. It had no reader in the tree until 2026-09-25.

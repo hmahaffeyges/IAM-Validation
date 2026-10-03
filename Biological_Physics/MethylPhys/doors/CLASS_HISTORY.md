@@ -1,7 +1,7 @@
 # How the eight architecture classes came to be — the record
 
 Written 2026-09-28 from the author's the methylation report Day-2 session transcript (6 April 2026, `MPHYS_Day2AIChat.txt`, line numbers below),
-the G-002 sampler (`hmin_calibration/mphys_mcmc_g002.py`) and its deposit (10.5281/zenodo.22905819). This is the answer to
+the G-002 sampler (hmin_calibration/mphys_mcmc_g002.py (archived privately)) and its deposit (10.5281/zenodo.22905819). This is the answer to
 "why eight?" — stated as the record has it, including what the record does not show.
 
 ## 1. A class is a failure regime, borrowed from the quantum-processor report and the semiconductor report
@@ -10,7 +10,7 @@ an *architecture class* is a family that shares one dominant error source and so
 definition for cells: *"The question isn't how many cell types, it's how many distinct inversion regimes exist"* (l.293). Cells
 that share the same dominant regulatory mechanism — and therefore the same failure mode — are one class (l.73).
 
-| class | governing inversion (`manual/om_lib.py`) |
+| class | governing inversion (manual/om_lib.py (archived privately)) |
 |---|---|
 | stem_pluri | Differentiation Dose Inversion |
 | stem_adult | Niche Depletion |
@@ -42,7 +42,7 @@ reference cells of that class read A = 1.00?*
   sampler read six immune cells instead of one neutrophil (l.935, l.972).
 - Reproduced 2026-09-22 from the deposit: every floor inside its own posterior SD (largest difference 0.000245).
 - **Tried to break it, twice, and it held.** A bootstrap over the reference cells (PROC-HMIN-BOOT-01, 2026-09-20) put all eight methylation floors inside the MCMC's 95 % interval, mean relative difference 0.060 %, max 0.095 % (`chain/CPG_Lessons_Learned_2026-06-29.md`; record `Record/PROC_data/PROC-HMIN-BOOT-01/`). The April bootstrap did the same for the 32 non-methylation floors (24/32 in CI, 0.168 %).
-- **Tested on data it was not fitted to.** VAL-003 (April 2026, TCGA Pan-Cancer): adjacent-normal tissue read above its floor in **28 of 28** cancer types, 4,092 matched pairs, p = 1.32e-15, +20.2 % mean elevation (`kit/results/VAL_INDEX.json`). Each pair is one person's tumour-adjacent tissue against the fixed point. Pre-commissioning record.
+- **Tested on data it was not fitted to.** VAL-003 (April 2026, TCGA Pan-Cancer): adjacent-normal tissue read above its floor in **28 of 28** cancer types, 4,092 matched pairs, p = 1.32e-15, +20.2 % mean elevation (kit/results/VAL_INDEX.json (archived privately)). Each pair is one person's tumour-adjacent tissue against the fixed point. Pre-commissioning record.
 - The same eight classes were then calibrated on the four other substrates (nucleosome occupancy, fuzziness, WPS, fragment size).
 
 ## 4. What the record does NOT show
@@ -66,7 +66,7 @@ closer to 1.00 than eight do? Until that runs, eight is a definition with conver
 
 ## 6. What a class does in the instrument today
 One thing: it names the floor a cell is divided by. Nothing pools cells by class and no class has an A of its own
-([`CLASS_USE_INVENTORY.md`](CLASS_USE_INVENTORY.md), `kit/class_guard.py`). A new cell is assigned to a class by the written rule in
+([`CLASS_USE_INVENTORY.md`](CLASS_USE_INVENTORY.md), kit/class_guard.py (archived privately)). A new cell is assigned to a class by the written rule in
 [`CLASS_ASSIGNMENT_RULE_DRAFT.md`](CLASS_ASSIGNMENT_RULE_DRAFT.md) — which inversion governs it — never by opinion.
 
 ## 7. Regime and the 1-bit bound (2026-09-28, corrected by the author the same day)

@@ -45,7 +45,7 @@ The run is one Python process: Stage 0, Stage 1 (methylprep) and the v3 stages r
 | pandas | 1.5.3 (methylprep 1.7.1 calls `DataFrame.append`, removed in pandas 2) | same |
 | scipy | 1.17.1 | same |
 | pytz, python-dateutil | unpinned | same |
-| matplotlib, pyarrow | legacy engine only; not needed by v3 | same |
+| matplotlib, pyarrow | toolkit only (`chain/TOOLKIT.md`); not needed by v3 readings | same |
 
 ```
 python3.11 -m venv cpg_v3 && . cpg_v3/bin/activate

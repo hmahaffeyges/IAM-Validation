@@ -267,7 +267,7 @@ the animation in the source archive. \calc}\label{fig:ko:sweep}
 
 \begin{table}[htbp]\centering\small
 \caption{The circle parameters and the offset. PDG 2024 masses; \texttt{verify\_particle\_book.py}.}\label{tab:ko:fit}
-\begin{tabular}{llll}\toprule
+\begin{tabularx}{\linewidth}{@{}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xl@{}}\toprule
 quantity & value & from & label\\\midrule
 scale $x$, $x^2$ & $17.71584$\,MeV$^{1/2}$, $313.851$\,MeV & $\sum_k\sqrt{m_k}/3$ & \calc\\
 ratio $r=y/x$ & $1.414209$ ($\sqrt2=1.414214$) & Eq.~\eqref{eq:ko:Qr} & \calc\\
@@ -277,7 +277,7 @@ masses at $\delta=0$ & $26.92$, $26.92$, $1829.26$\,MeV & Eq.~\eqref{eq:ko:delta
 edge of the positive window & $\delta=\pi/12=0.2618$; measured $\delta$ is $0.0396$ inside & Eq.~\eqref{eq:ko:pos} & \calc\\
 offset if $Q=2/3$ exactly & $0.222222047\pm0.0000000004$\,rad (from $m_e$, $m_\mu$) & K13 & \calc\\
 $2/9-\delta$ at $Q=2/3$ exactly & $1.75\times10^{-7}$\,rad & K13 & \calc\\\bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 \paragraph{The value $2/9$.} If $Q=2/3$ holds exactly, the electron and muon masses alone fix the offset to $\delta=0.222222047$, with an

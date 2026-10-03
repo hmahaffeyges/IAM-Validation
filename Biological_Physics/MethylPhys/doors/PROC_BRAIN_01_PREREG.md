@@ -89,9 +89,9 @@ than anything about the cohort or the instrument.
    the atlas, so the **fractions were right**; but every per-cell A came back `nan` with status
    `INSUFFICIENT_MARKERS`, and B3 was unscoreable. Fixed by reading the artifact with its own loader and
    by not reducing the locus set at all — all 370,346 submitted CpGs are passed per specimen.
-2. The deconvolver cache was added to [`cpg_conductor.py`](../chain/cpg_conductor.py) **while the run was in flight**, so specimens
+2. The deconvolver cache was added to cpg_conductor.py (archived privately) **while the run was in flight**, so specimens
    scored before and after the edit went through different code. The cache was subsequently shown to change
-   no reported reading ([`PROC_CACHE_01.py`](../kit/PROC_CACHE_01.py)), but that was not known at the time.
+   no reported reading (PROC_CACHE_01.py (archived privately)), but that was not known at the time.
 3. The corrected run was started into the **same output directory and the same handoff file** while the
    first run was still alive. Two processes wrote both. The result — 19 of 24 CSF specimens present with no
    error row, and five stray tissue bundles — is mixed provenance and cannot support a bar.

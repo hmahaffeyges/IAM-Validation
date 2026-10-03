@@ -4,8 +4,8 @@
 scored. 48 healthy arrays (12 per laboratory, four laboratories, mapped), 1,506 markers present on every array, 768
 spikes into real arrays (4 cells × 4 fractions × 48), 160 into constructed blood. Covariance leave-one-laboratory-out,
 Ledoit–Wolf shrinkage 0.44–0.57.
-Evidence: [`PROC_MF_01.json`](../kit/results/PROC_MF_01.json) · [`PROC_MF_01_null.json`](../kit/results/PROC_MF_01_null.json)
-· [`PROC_MF_01.py`](../kit/PROC_MF_01.py) · [`PROC_MF_01.png`](../plates/PROC_MF_01.png)
+Evidence: PROC_MF_01.json (archived privately) · PROC_MF_01_null.json (archived privately)
+· PROC_MF_01.py (archived privately) · [`PROC_MF_01.png`](../plates/PROC_MF_01.png)
 
 ## Detection limit — smallest fraction detected in ≥ 90 % of real-array spikes at ≤ 1 false positive in 48
 

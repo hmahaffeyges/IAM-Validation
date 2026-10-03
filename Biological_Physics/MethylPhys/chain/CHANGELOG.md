@@ -1,6 +1,24 @@
+# Chain changelog
+
+## 2026-10-03 - chain v2 retired; chain v3 is the only engine
+
+The class-floor engine (v2) is retired from the public repository and archived privately (one archive, paths preserved, sha256
+recorded): its conductor, deconvolver, gauge engine, class floors and tiers, disease matrix and matching, synthetic patient
+generator, propagate and inventory generators, report builder, the old SOP and the Edition 003 operations manual with their
+generators, the v2 kit procedures and their results, the legacy example runs and the v2 Record folders.
+`run_sample.py`: the legacy branch and its flags (`--lab`, `--lab-zero`, `--pipeline`) are removed; `--engine` accepts only `v3`
+(kept so recorded commands still run); the bundle now carries `versions` (short hashes of every v3 frozen input and chain module).
+New: `TOOLKIT.md` (stages 3, 3b, 3c, 4, 10, 11, 11b, 12, 12b, built and not wired into v3), `toolkit_foreign_detection.py`
+(stage 3c, extracted from the retired conductor), `toolkit_surface_brightness.py` (stage 11b, extracted from the retired v1 conductor),
+`sky_statistics.py` (stage 12, from the PROC-CLS-01 script), `stage_2c_trace_detection.py` restored as stage 3b,
+`FROZEN_INPUTS_v3.json`, `release_check_v3.py`; `build_all.py`, `build_chain_sequence.py` and `guarded_push.sh` rebuilt for v3;
+the operations manual is now built from the v3 operator chapter (`manual/build_manual_v3.py`). No frozen input changed.
+
+---
+
 # CPG pipeline update — disease-wall matcher + RUN-everything sweep
 
-## 1. Per-cell directional matcher  (`chain/disease_matching.py` (the v1 conductor [`legacy_clinical.py`](legacy_clinical.py) was retired 2026-09-25 to `RETIRED_2026-09/v1_conductor_2026-09/`; this is the one function the live chain called), 1521 -> 1554 lines)
+## 1. Per-cell directional matcher  (chain/disease_matching.py (archived privately) (the v1 conductor the v1 clinical conductor (archived privately) was retired 2026-09-25 to `RETIRED_2026-09/v1_conductor_2026-09/`; this is the one function the live chain called), 1521 -> 1554 lines)
 Replaced the absolute-magnitude cosine (whose |dep|>=0.15 floor gated out subtle
 pre-dx directional signal) with a weighted directional matcher over each disease's
 SIGNAL cells (|Cohen d| >= 0.20). 'cosine' now carries directional concordance in
@@ -47,7 +65,7 @@ correctly leaves it quiet and the matched filter must screen it on its own.
 - healthy control (GSM1235534): second chain gate closed, no false flag.
 - positive control (injected MM): flags multiple_myeloma, confirmed.
 
-## 5. Systemic stress / inflammatory wellness signal  (`chain/disease_matching.py` (the v1 conductor [`legacy_clinical.py`](legacy_clinical.py) was retired 2026-09-25 to `RETIRED_2026-09/v1_conductor_2026-09/`; this is the one function the live chain called) + report)
+## 5. Systemic stress / inflammatory wellness signal  (chain/disease_matching.py (archived privately) (the v1 conductor the v1 clinical conductor (archived privately) was retired 2026-09-25 to `RETIRED_2026-09/v1_conductor_2026-09/`; this is the one function the live chain called) + report)
 New detect_systemic_stress_pattern(patient_departure): a wellness-level read (NONE / MILD /
 NOTABLE) of the neutrophil-to-lymphocyte axis (myeloid + progenitor up, lymphoid down). It is
 NEVER a disease call. Fires only on a coherent, real-magnitude pattern (n>=4 axis cells, mean
@@ -88,7 +106,7 @@ but Route C stood down in lean v1 and the module files were never placed.
 CHANGES:
 - Runtime Matrices/Directional Panel/: placed bidirectional_decomposition.py +
   directional_panels_v1_0.json (sealed VAL-051 Rule A 7-CpG immune panel).
-- `chain/disease_matching.py` (the v1 conductor [`legacy_clinical.py`](legacy_clinical.py) was retired 2026-09-25 to `RETIRED_2026-09/v1_conductor_2026-09/`; this is the one function the live chain called): Stage 4.5 wired into run_pipeline (computes per-class directional
+- chain/disease_matching.py (archived privately) (the v1 conductor the v1 clinical conductor (archived privately) was retired 2026-09-25 to `RETIRED_2026-09/v1_conductor_2026-09/`; this is the one function the live chain called): Stage 4.5 wired into run_pipeline (computes per-class directional
   composite after Stage 4, feeds stage_8); config path -> Directional Panel.
 - stage_5_second_chain.py: AD removed from _RESIDUAL_SWEEP_DISEASES (breast + immune-alarm
   only); AD directional read surfaced; gate fires on composite > 0.40 (the directional

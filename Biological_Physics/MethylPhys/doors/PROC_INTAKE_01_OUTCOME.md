@@ -1,8 +1,8 @@
 # PROC-INTAKE-01 — outcome: ADOPTED. The intake gate runs on the array's own numbers; a deferred check never advances.
 
 **Scored 2026-09-27** against [`PROC_INTAKE_01_PREREG.md`](PROC_INTAKE_01_PREREG.md) under the author's 0.93 line (recorded in the
-pre-registration's decision section before these bars were scored). Runner `kit/PROC_INTAKE_01.py`; results `kit/results/PROC_INTAKE_01.json`;
-the 48-array measurement behind the line `kit/results/PROC_INTAKE_01_48_array_measurement.csv`. A first run of the runner was voided:
+pre-registration's decision section before these bars were scored). Runner kit/PROC_INTAKE_01.py (archived privately); results kit/results/PROC_INTAKE_01.json (archived privately);
+the 48-array measurement behind the line kit/results/PROC_INTAKE_01_48_array_measurement.csv (archived privately). A first run of the runner was voided:
 a stray copy kept writing into the same log (this sandbox cannot stop a process started in an earlier cell), so the run was repeated
 on fresh paths and only that run is scored.
 

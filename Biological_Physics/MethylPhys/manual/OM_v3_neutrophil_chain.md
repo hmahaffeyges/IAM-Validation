@@ -1,7 +1,7 @@
 # Operations Manual — chain v3, neutrophils (operator chapter)
 
 **Build:** development v3 (2026-10-01), not commissioned. The procedure is in `sop/MethylPhys_CPG_SOP_v3.md`; this chapter covers running it and reading the output.
-The PDF manual in this folder covers the legacy class-floor engine (`--engine legacy`).
+The PDF manual in this folder (`MethylPhys_CPG_Operations_Manual.pdf`) is built from this chapter, the generated chain sequence and the toolkit list by `build_manual_v3.py`. The class-floor engine (v2) and its manual were retired on 2026-10-03 and are archived privately.
 
 ## Before a run
 1. Use EPIC v1 IDAT pairs (Grn and Red), with declared sex and age.

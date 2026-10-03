@@ -2,14 +2,14 @@
 
 **What was measured.** Each cell's own atlas profile, read on its own identity loci with the chain's statistic
 A = H(mean β over the loci) / H_min of its class, is the standard the instrument reads a specimen's cell against. On
-[`iamatlas_percell_identity_loci_v1_0.json`](../RETIRED_2026-09/percell_identity_v1_0/iamatlas_percell_identity_loci_v1_0.json) (every atlas locus within ±0.05 in β of H_min_β) the standard does **not** read
+iamatlas_percell_identity_loci_v1_0.json (archived privately) (every atlas locus within ±0.05 in β of H_min_β) the standard does **not** read
 1.000: 102 cells, median **0.9904**, IQR 0.986–0.994, range 0.936 (Oligo, 233 loci) to 1.020 (Microglia, 152 loci). The seven
-whole-blood cells read 0.989–0.992 ([`../kit/results/percell_self_reading.csv`](../kit/results/percell_self_reading.csv); the v1.1 loci counts in [`../kit/results/percell_rezero_v1_1.csv`](../kit/results/percell_rezero_v1_1.csv)).
+whole-blood cells read 0.989–0.992 (../kit/results/percell_self_reading.csv (archived privately); the v1.1 loci counts in ../kit/results/percell_rezero_v1_1.csv (archived privately)).
 
 **Why.** The window is symmetric in β about H_min_β but the atlas's locus density is not; the mean β inside the window sits below
 the target, so H(mean β) sits below H_min. A 1 % offset built into the ruler.
 
-**The change.** [`iamatlas_percell_identity_loci_v1_1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_percell_identity_loci_v1_1.json): start from the same ±0.05 window on the cell's own atlas mean, then trim
+**The change.** iamatlas_percell_identity_loci_v1_1.json (archived privately): start from the same ±0.05 window on the cell's own atlas mean, then trim
 loci from the far tail on whichever side pulls the mean off H_min_β, until the cell's own profile reads A = 1.000 (±1e-4). No
 specimen, no person, no laboratory enters the file; it is the atlas read against the floor. H_min is untouched. Blood cells keep
 88 % of their v1.0 loci (Neutrophils 32,642 → 28,344; CD4 37,031 → 32,625; CD8 44,949 → 40,493; NK 45,540 → 41,276; monocytes
@@ -21,7 +21,7 @@ high tail is thin-family cells with < 100 loci where trimming runs out of loci; 
 offset removed, uniform across cells.
 
 **Consistency check, unplanned.** PROC-TARE-01 recorded the raw immune reading per laboratory on the v1.0 standard: Uppsala
-0.992 (732 arrays), Karolinska 1.016, UCLA 0.961. The pipeline map ([`beta_scale_maps_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/beta_scale_maps_v1.json), stage1_noob_450K → Roadmap) was
+0.992 (732 arrays), Karolinska 1.016, UCLA 0.961. The pipeline map (beta_scale_maps_v1.json (archived privately), stage1_noob_450K → Roadmap) was
 fitted on Uppsala. With the standard at 1.000 the Uppsala median moves to **1.000**: the laboratory the map was fitted on reads
 the fixed point exactly once the ruler itself reads 1.000. Karolinska ~1.024 and UCLA ~0.969 remain the per-laboratory
 constants of order 0.03 that LAB-ZERO-01/02 measured; they are the instrument's, not the standard's.

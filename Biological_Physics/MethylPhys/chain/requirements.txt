@@ -7,7 +7,8 @@ pandas==1.5.3
 scipy==1.17.1
 pytz
 python-dateutil
-# legacy engine only (--engine legacy): the specimen's sky plate needs matplotlib; the synthetic generator writes parquet.
-# Chain v3 needs neither.
+# toolkit only (chain/TOOLKIT.md): the sky plate needs matplotlib; the atlas v2 solver reads parquet (pyarrow); the sky statistics need healpy.
+# Chain v3 readings need none of them. reportlab builds the operations manual (manual/build_manual_v3.py).
 matplotlib>=3.7
 pyarrow>=14
+reportlab>=3.6

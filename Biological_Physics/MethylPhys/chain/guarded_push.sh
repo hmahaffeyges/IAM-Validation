@@ -1,5 +1,5 @@
 #!/bin/sh
-# Push only if propagate.py passes. Usage: guarded_push.sh "<commit message>"
+# Push only if the canon check, build_all.py and release_check_v3.py pass. Usage: guarded_push.sh "<commit message>"
 #
 # Why this exists (2026-09-25). propagate.py exits non-zero on drift, and the instruction is to run it before
 # every push - but it was being run as `python3 propagate.py | tail -4`, and a pipe hands the shell TAIL's
@@ -12,7 +12,7 @@ set -e
 [ -n "$1" ] || { echo "guarded_push.sh: a commit message is required"; exit 2; }
 HERE=$(cd "$(dirname "$0")" && pwd)
 ROOT=$(git -C "$HERE" rev-parse --show-toplevel)
-LOG="$ROOT/.propagate_last_run.txt"
+LOG="$ROOT/.release_check_last_run.txt"
 
 echo "== build_all (regenerate every document that reports the chain) =="
 # Canon gate (2026-10-01): every LIVE file must agree with CANON/iam_canon.json (constants and names). Exit status read directly, no pipe.
@@ -30,11 +30,11 @@ if ! (cd "$HERE" && "${PYTHON:-python3}" build_all.py > "$ROOT/.build_all_last_r
 fi
 tail -2 "$ROOT/.build_all_last_run.txt"
 
-echo "== propagate =="
-if ! (cd "$HERE" && python3 propagate.py > "$LOG" 2>&1); then
+echo "== release check (chain v3 end to end, frozen-input hashes) =="
+if ! (cd "$HERE" && "${PYTHON:-python3}" release_check_v3.py > "$LOG" 2>&1); then
     tail -20 "$LOG"
     echo
-    echo "REFUSED: propagate.py failed. Nothing was committed and nothing was pushed."
+    echo "REFUSED: release_check_v3.py failed. Nothing was committed and nothing was pushed."
     echo "Full output: $LOG"
     exit 1
 fi

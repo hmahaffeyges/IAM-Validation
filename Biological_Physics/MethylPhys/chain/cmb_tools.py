@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Toolkit: not yet wired into chain v3; enters the chain at commissioning with its own pre-registered check.  (SOP v3 section 2b, stage 12 (registry of the cosmology tools); chain/TOOLKIT.md)
 """Every tool this chain borrowed from cosmology, and whether it worked on THIS run.
 
 The author's instruction, 2026-09-25: "We should have every one of the CMB tools we employed listed and it

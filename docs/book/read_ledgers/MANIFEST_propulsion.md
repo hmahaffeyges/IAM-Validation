@@ -4,7 +4,7 @@ Clone: `5f5997b` (sparse: docs/book, docs/verification, docs/papers, CANON, plus
 
 ## Key finding first
 The propulsion PDF is **not a separate paper**. `Gravitational_Propulsion_and_IAM.pdf` is no longer in docs/papers (moved by commit 3aeec57 to
-`docs/RETIRED_2026-10/top_level/Gravitational_Propulsion_and_IAM_duplicate.pdf`). Its title is "Gravitational Engineering and Interstellar Transit in the
+docs/RETIRED_2026-10/top_level/Gravitational_Propulsion_and_IAM_duplicate.pdf (archived privately)). Its title is "Gravitational Engineering and Interstellar Transit in the
 Informational Actualization Model". pypdfium2 text of it and of `docs/papers/IAM_Gravitational_Engineering_Exploration.pdf` differ by **0 lines**
 (268 lines each; SHA-256 f5939652... vs 248bbdc8..., errata GE5). Every line of it is already carried in `part5/p5_02_exploratory.tex`, with GE1-GE7 applied.
 So the new chapter does not repeat that text. It links to it and adds only the three propulsion checks the task names: momentum conservation,
@@ -21,7 +21,7 @@ equivalence-principle (universality) limits, and energy conditions. Proposed err
 main.tex placement: new line **102** `\input{part5/p5_02b_propulsion}`, directly after line 101 `\input{part5/p5_02_exploratory}`.
 
 ## Read ledger
-- Source: `docs/RETIRED_2026-10/top_level/Gravitational_Propulsion_and_IAM_duplicate.pdf`, 6 pages. Last line found first: line 268 (page number '6'); line 266-267 "Exploratory note. Zone I derivable ... Timestamped in repository."
+- Source: docs/RETIRED_2026-10/top_level/Gravitational_Propulsion_and_IAM_duplicate.pdf (archived privately), 6 pages. Last line found first: line 268 (page number '6'); line 266-267 "Exploratory note. Zone I derivable ... Timestamped in repository."
   pypdfium2 text: **268 lines**. Ledger row 46 says 274 = 268 text lines + 6 `=== PAGE` markers (the ledger's stated counting rule). Reconciled.
 - Chunks read in full, text shown, none truncated: 1-50, 51-100, 101-150, 151-200, 201-250, 251-268. Complete 1..268.
 - `part5/p5_02_exploratory.tex` read in full first (361 lines; chunks 1-50, 51-100, 101-150, 151-200, 201-250, 251-300, 301-361; the last chunk was 61 lines, over the 50-line rule, shown in full),

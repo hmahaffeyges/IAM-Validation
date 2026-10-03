@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
+# Toolkit: not yet wired into chain v3; enters the chain at commissioning with its own pre-registered check.  (SOP v3 section 2b, stage 10; chain/TOOLKIT.md)
 """
-bidirectional_decomposition.py — Stage 4.5 of the legacy Clinical Engine
+bidirectional_decomposition.py — Stage 4.5 of the clinical engine
 
 Implements the four-step bidirectional discipline at patient runtime, mirroring
 the sealed VAL-051 directional A-score methodology exactly.

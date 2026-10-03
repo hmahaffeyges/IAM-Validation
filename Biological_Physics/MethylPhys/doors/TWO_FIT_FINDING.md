@@ -5,7 +5,7 @@ before deconvolution."* Verified by running a real specimen and reading the numb
 
 ## What the deconvolver actually does
 
-`legacy_iam_deconvolver.deconvolve()` performs **two independent non-negative least-squares solves**:
+the class-era deconvolver's `deconvolve()` performs **two independent non-negative least-squares solves**:
 
 | solve | reference | produces |
 |---|---|---|

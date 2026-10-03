@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """run_sample.py - one command: IDAT pair (or a beta table, or single-molecule reads) to a MethylPhys report.
 
-Default engine v3 (development build, neutrophils, EPIC v1): Stage 0 intake -> Stage 1 IDAT calibration -> conductor_v3
+Chain v3 (development build, neutrophils, EPIC v1) - the only engine: Stage 0 intake -> Stage 1 IDAT calibration -> conductor_v3
 (platform check, Stage A composition, Stage M Met-A, Stage MC C-score, Stage T same-run tare) -> report_v3, plus Stage Q IAM-A
 when single-molecule input is given.
 
@@ -19,7 +19,7 @@ when single-molecule input is given.
     python3 run_sample.py --pat S.pat.gz --id S001 --out S001.html
     python3 run_sample.py --site-table S_sites.csv --seq-pipeline loyfer_pat_v1 --id S001 --out S001.html
 
---engine legacy runs the class-floor conductor kept for the record; --lab, --lab-zero and --pipeline apply to it only.
+The class-floor engine (v2) was retired on 2026-10-03 and is archived privately; chain v3 is the only engine.
 """
 import os, sys, argparse, pickle, json
 
@@ -41,42 +41,7 @@ def _bio_root(start=None):
     return _os.path.dirname(_os.path.dirname(_os.path.abspath(start or __file__)))
 
 HERE=os.path.dirname(os.path.abspath(__file__)); ENG=os.path.dirname(HERE); BIO=_bio_root()
-for d in (ENG, HERE, os.path.join(ENG,"legacy_iam_deconvolver")): sys.path.insert(0,d)
-
-def _atlas():
-    csv=os.path.join(BIO,"MethylPhys/atlas","IAMAtlasREBUILD.csv"); xz=csv+".xz"
-    if not os.path.exists(csv):
-        if not os.path.exists(xz): sys.exit(f"atlas not found: {xz}")
-        import lzma, shutil
-        print(f"decompressing the atlas once -> {csv} (605 MB)", flush=True)
-        with lzma.open(xz,"rb") as f, open(csv,"wb") as g: shutil.copyfileobj(f,g,1<<24)
-    return csv
-
-SUBSTRATE_TOKENS = ("whole_blood", "plasma_cfDNA", "tissue", "unknown")
-
-
-def substrate_token(text):
-    """Map a laboratory's own specimen description to the controlled token the report renders.
-
-    The custody record keeps what the laboratory wrote; the report gets a token. `--specimen "colorectal
-    tumour tissue"` crashed the report's vocabulary guard on 2026-09-23 - correctly, because a condition name
-    has no place in a reading - and the fix is not to forbid the description but to keep free text out of
-    report prose.
-    """
-    t = (text or "").strip().lower().replace("-", "_").replace(" ", "_")
-    if not t:
-        return "unknown"
-    if t in SUBSTRATE_TOKENS:
-        return t
-    if "blood" in t or "buffy" in t:
-        return "whole_blood"
-    if "cfdna" in t or "plasma" in t or "cell_free" in t:
-        return "plasma_cfDNA"
-    if any(k in t for k in ("tissue", "biopsy", "tumour", "tumor", "adenoma", "carcinoma", "colon",
-                            "breast", "lung", "resection")):
-        return "tissue"
-    return "unknown"
-
+for d in (ENG, HERE): sys.path.insert(0,d)
 
 def _assign_run_id(ledger_path):
     """RUN-YYYYMMDD-NN, sequential within the day, read from the ledger this run is about to append to.
@@ -155,109 +120,23 @@ def _versions(chain_dir):
     except Exception:
         out["chain_commit"] = "unknown"
     files = {}
-    for pat in ("**/iamatlas_gauge_identity_loci_v1_0.json", "**/identity_band_v3.json",
-                "**/beta_scale_maps_v1.json", "**/reference_age_curve_v1.json", "**/tier_breakpoints.json",
-                "**/percell_reference_v0_3.json", "../atlas/IAMAtlasREBUILD.csv",
-                "../atlas/IAMAtlasREBUILD.csv.xz", "../atlas/IAMAtlasREBUILD_celltype_to_class.json",
-                "cpg_conductor.py", "iamatlas_a_scoring.py", "stage_0_intake.py",
-                "stage_0_1_qc_handoff.py", "stage_1_idat_calibration.py",
-                "MethylPhys_Interface/build_methylphys.py"):
+    for pat in ("Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json", "Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv",
+                "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json", "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json",
+                "Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json", "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json",
+                "Runtime Matrices/IAM_A_Positions/iama_positions_v1.json", "Runtime Matrices/Intake/intake_thresholds_v1.json",
+                "conductor_v3.py", "stage_m_met_a.py", "stage_q_iam_a.py", "stage_0_intake.py", "stage_0_1_qc_handoff.py",
+                "stage_1_idat_calibration.py", "MethylPhys_Interface/report_v3.py", "MethylPhys_Interface/run_sample.py"):
         for p in _glob.glob(os.path.join(chain_dir, pat), recursive=True):
-            if "RETIRED" in p:
-                continue
             files[os.path.relpath(p, chain_dir)] = {"sha256_12": _sha12(p), "bytes": os.path.getsize(p)}
     out["inputs"] = files
     return out
-
-
-def _class_z(o, chain_dir=None):
-    """Put the z the chain already computed onto each class record, with the reference it was measured against.
-
-    Stage 5 computes z per class in departure["top_axis_contributions"] - patient A, the age-matched mean and
-    the sigma it used - but that list only carries the axes it reported, and a matrix wants the number on the
-    class row it belongs to. identity_band_v3.json is a POOLED percentile band (p10/p50/p90 plus per-decade),
-    not a per-class mean and sigma, so nothing here re-derives a band: the sigma is the one Stage 5 used, and
-    the per-locus sky statistics are carried across as they are.
-    """
-    dep = o.get("departure") or {}
-    by_class = {}
-    for ax in (dep.get("top_axis_contributions") or []):
-        if isinstance(ax, dict) and ax.get("class"):
-            by_class[ax["class"]] = ax
-    sky = ((o.get("patient_sky") or {}).get("classes") or {})
-    for cls, rec in (o.get("classes") or {}).items():
-        if not isinstance(rec, dict):
-            continue
-        ax = by_class.get(cls)
-        if ax:
-            rec["z"] = ax.get("z")
-            rec["age_matched_mean"] = ax.get("age_matched_mean")
-            rec["band_sigma"] = ax.get("sigma")
-            rec["band_widths_from_line"] = ax.get("band_widths_from_line")
-        sk = sky.get(cls)
-        if isinstance(sk, dict):
-            rec["sky_median_z"] = sk.get("median_z")
-            rec["sky_frac_abs_z_gt2"] = sk.get("frac_abs_z_gt2")
-            rec["sky_n_loci"] = sk.get("n")
-
-
-def _ledger_row(o, sample_id, out_path):
-    """One flat row per run: everything a disease matrix needs from this specimen, without opening the bundle."""
-    intake = o.get("intake") or {}
-    dep = o.get("departure") or {}
-    row = {"sample_id": sample_id, "report": os.path.basename(out_path),
-        "run_id": o.get("run_id"),
-           "run_timestamp_utc": (o.get("versions") or {}).get("run_timestamp_utc"),
-           "chain_commit": (o.get("versions") or {}).get("chain_commit"),
-           "sample_run_id": intake.get("sample_run_id"), "sentrix_id": intake.get("sentrix_id"),
-           "array_type": intake.get("array_type"), "substrate": o.get("context", {}).get("substrate"),
-           "declared_age": intake.get("declared_chronological_age"),
-           "declared_sex": intake.get("declared_sex"), "predicted_sex": intake.get("predicted_sex"),
-           "stage0_verdict": intake.get("stage0_verdict"),
-           "detection_pct": intake.get("pct_probes_detected_p_le_01"),
-           "call_rate": intake.get("call_rate"), "lab": (o.get("patient_sky") or {}).get("lab"),
-           "lab_zero": o.get("lab_zero"), "scale": o.get("scale"),
-           "second_opinion_agreement": (o.get("second_opinion") or {}).get("agreement"),
-           "cellular_age_reportable": (o.get("cellular_age") or {}).get("reportable")}
-    # Stage 2c, so a cross-sample matrix can ask which runs showed trace material without opening
-    # a bundle (2026-09-25)
-    for cls, rec in sorted((o.get("classes") or {}).items()):
-        row[f"A_abs.{cls}"] = rec.get("A_abs")
-        row[f"sky_median_z.{cls}"] = rec.get("sky_median_z")
-        row[f"sky_frac_abs_z_gt2.{cls}"] = rec.get("sky_frac_abs_z_gt2")
-        row[f"tier.{cls}"] = rec.get("tier")
-    for cls, pct in sorted(((o.get("composition") or {}).get("class") or {}).items()):
-        row[f"pct.{cls}"] = pct
-    for cell, rec in sorted((o.get("cells_all") or {}).items()):
-        if isinstance(rec, dict):
-            row[f"cellA.{cell}"] = rec.get("A")
-            row[f"cellCov.{cell}"] = rec.get("coverage")
-    for k, v in ((o.get("intake") or {}).get("covariates") or {}).items():
-        row[f"cov.{k}"] = v
-    return row
-
-
-def _plate_dependency_check():
-    """The specimen's own sky plate needs matplotlib. Without it the report silently showed only reference
-    figures for months (found 2026-09-25), so the run says it out loud."""
-    try:
-        import matplotlib  # noqa: F401
-        return True
-    except ImportError:
-        print("  WARNING: matplotlib is not installed in this environment, so this specimen's own sky plate "
-              "cannot be drawn. The report will say so on the Sky tab. Install it with "
-              "`pip install matplotlib` and re-run to get the plate.", flush=True)
-        return False
 
 
 def main():
     ap=argparse.ArgumentParser(description="IDAT pair or beta table -> MethylPhys report")
     ap.add_argument("--grn"); ap.add_argument("--red"); ap.add_argument("--betas")
     ap.add_argument("--age", type=float, help="declared age in years; without it the age term cannot be removed. Float because cohorts publish decimal ages (GEO carries 72.0 and 54.5 as readily as 72)")
-    ap.add_argument("--lab", help="(legacy engine only) laboratory / pipeline identity, e.g. GSE87571 for a commissioned one")
-    ap.add_argument("--pipeline", default="stage1_noob_450K", help="(legacy engine only) pipeline map name from beta_scale_maps_v1.json")
     ap.add_argument("--specimen", default="whole blood")
-    ap.add_argument("--lab-zero", type=float, default=None, help="(legacy engine only) this laboratory's measured zero; omit to read UNSET")
     ap.add_argument("--out", default="methylphys_report.html"); ap.add_argument("--id", default=None)
     ap.add_argument("--bundle", help="also write the full bundle as JSON - every stage's output, for a test harness or an integration that needs more than the report")
     ap.add_argument("--covariate", action="append", default=[], metavar="KEY=VALUE",
@@ -271,7 +150,7 @@ def main():
     ap.add_argument("--intake-log", default=None, help="append intake and integrity records here")
     ap.add_argument("--manifest-dir", default=None, help="write the immutable per-sample manifest here")
     ap.add_argument("--no-intake", action="store_true", help="skip Stage 0 (recorded in the report as skipped)")
-    ap.add_argument("--engine", default="v3", choices=("v3", "legacy"), help="v3 = neutrophil chain (Met-A, C-score, tare; development build). legacy = the class-floor conductor kept for the record")
+    ap.add_argument("--engine", default="v3", choices=("v3",), help="v3 is the only engine (the class-floor engine was retired 2026-10-03); the flag is kept so recorded v3 commands still run")
     ap.add_argument("--slide-ref-A", "--ref-A", dest="slide_ref_A", default=None, help="comma-separated untared Met-A of >= 3 same-run healthy reference arrays (same slide, else same batch) - v3 Stage T median tare, whole blood and isolated neutrophils")
     ap.add_argument("--slide-ref-table", "--ref-table", dest="slide_ref_table", default=None, help="CSV of same-run healthy references with column A (optional id): untared Met-A from pass 1. >= 3 rows -> median tare (nothing is fitted)")
     ap.add_argument("--pat", default=None, help="v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table)")
@@ -284,7 +163,6 @@ def main():
     if not (a.betas or (a.grn and a.red) or seq): ap.error("give --betas, both --grn and --red, or --pat / --site-table")
     if a.pat and a.site_table: ap.error("give --pat or --site-table, not both")
     if a.site_table and not a.seq_pipeline: ap.error("--site-table needs --seq-pipeline: the pipeline that produced the table")
-    if seq and a.engine != "v3": ap.error("--pat / --site-table run in the v3 engine only")
     if a.slide_ref_A and a.slide_ref_table: ap.error("give --slide-ref-A or --slide-ref-table, not both")
 
     intake = None; bead_ok = None
@@ -440,19 +318,11 @@ def main():
         import stage_0_intake as S0
         ref = None
         try:
-            import json as _json, glob as _glob
-            f = _glob.glob(os.path.join(BIO, "MethylPhys/chain/**/iamatlas_gauge_identity_loci_v1_0.json"),
-                           recursive=True)
-            if a.engine == "v3":   # v3: coverage of the neutrophil identity sites the reading uses
-                fl = _json.load(open(os.path.join(BIO, "MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json")))
-                st = set(fl["platforms"].get("EPIC", {}).get("neutrophils", {}).get("sites", []))
-                ref = len(st & set(beta)) / max(len(st), 1); f = []
-            if f:
-                loci = set()
-                for cls, d in _json.load(open(f[0])).items():
-                    if isinstance(d, dict) and d.get("loci"):
-                        loci.update(d["loci"])
-                ref = len(loci & set(beta)) / max(len(loci), 1)
+            import json as _json
+            # coverage of the neutrophil identity sites the v3 reading uses
+            fl = _json.load(open(os.path.join(BIO, "MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json")))
+            st = set(fl["platforms"].get("EPIC", {}).get("neutrophils", {}).get("sites", []))
+            ref = len(st & set(beta)) / max(len(st), 1)
         except Exception:
             ref = None
         intake = S0.step_0_7b_platform_coverage(intake, ref)
@@ -466,105 +336,57 @@ def main():
                   "Stage 0 rejected the specimen; see the flags above.", flush=True)
             sys.exit(2)
 
-    if a.engine == "v3":
-        import pandas as _pd, json as _json, datetime as _dt, conductor_v3 as C3, report_v3 as R3
-        refs = [float(x) for x in a.slide_ref_A.split(",") if x.strip()] if a.slide_ref_A else None
-        if a.slide_ref_table:
-            rt = _pd.read_csv(a.slide_ref_table)
-            if "A" not in rt.columns: sys.exit(f"--slide-ref-table {a.slide_ref_table}: needs a column A")
-            refs = [{k: (None if _pd.isna(r.get(k)) else r.get(k)) for k in ("A", "f_neu", "N", "id", "gsm") if k in rt.columns} for r in rt.to_dict("records")]
-        it = intake or {}
-        array_type = it.get("array_type_detected") or it.get("array_type") or a.array_type   # header first, then declared
-        if beta is not None:
-            o = C3.run_neutrophil(_pd.Series(beta, dtype="float64"), specimen=a.specimen, ref_A=refs, array_type=array_type, sample_id=sid)
+    import pandas as _pd, json as _json, datetime as _dt, conductor_v3 as C3, report_v3 as R3
+    refs = [float(x) for x in a.slide_ref_A.split(",") if x.strip()] if a.slide_ref_A else None
+    if a.slide_ref_table:
+        rt = _pd.read_csv(a.slide_ref_table)
+        if "A" not in rt.columns: sys.exit(f"--slide-ref-table {a.slide_ref_table}: needs a column A")
+        refs = [{k: (None if _pd.isna(r.get(k)) else r.get(k)) for k in ("A", "f_neu", "N", "id", "gsm") if k in rt.columns} for r in rt.to_dict("records")]
+    it = intake or {}
+    array_type = it.get("array_type_detected") or it.get("array_type") or a.array_type   # header first, then declared
+    if beta is not None:
+        o = C3.run_neutrophil(_pd.Series(beta, dtype="float64"), specimen=a.specimen, ref_A=refs, array_type=array_type, sample_id=sid)
+    else:
+        o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "neutrophils only", "note": "sequencing input only: no array reading"}
+    if seq:   # Stage Q - IAM-A from single-molecule reads
+        import stage_q_iam_a as Q
+        if a.pat:
+            if a.seq_pipeline and a.seq_pipeline != Q.PAT_PIPELINE:
+                sys.exit(f"--pat is read by the {Q.PAT_PIPELINE} extractor; --seq-pipeline {a.seq_pipeline} does not apply")
+            print(f"Stage Q: extracting per-site copy-error counts from {os.path.basename(a.pat)} ({Q.PAT_PIPELINE})", flush=True)
+            T = Q.pat_site_table(a.pat, max_bytes=a.pat_max_bytes); pipe = Q.PAT_PIPELINE
+            src = {"pat": os.path.abspath(a.pat), "max_bytes": a.pat_max_bytes, **{k: T.attrs.get(k) for k in ("n_lines", "n_qualifying_lines", "n_molecules")}}
         else:
-            o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "neutrophils only", "note": "sequencing input only: no array reading"}
-        if seq:   # Stage Q - IAM-A from single-molecule reads
-            import stage_q_iam_a as Q
-            if a.pat:
-                if a.seq_pipeline and a.seq_pipeline != Q.PAT_PIPELINE:
-                    sys.exit(f"--pat is read by the {Q.PAT_PIPELINE} extractor; --seq-pipeline {a.seq_pipeline} does not apply")
-                print(f"Stage Q: extracting per-site copy-error counts from {os.path.basename(a.pat)} ({Q.PAT_PIPELINE})", flush=True)
-                T = Q.pat_site_table(a.pat, max_bytes=a.pat_max_bytes); pipe = Q.PAT_PIPELINE
-                src = {"pat": os.path.abspath(a.pat), "max_bytes": a.pat_max_bytes, **{k: T.attrs.get(k) for k in ("n_lines", "n_qualifying_lines", "n_molecules")}}
-            else:
-                T = _pd.read_csv(a.site_table); pipe = a.seq_pipeline; src = {"site_table": os.path.abspath(a.site_table)}
-            o["iam_a"] = Q.read(T, cell=a.seq_cell, pipeline=pipe); o["iam_a"]["input"] = src
-        cov = _covariates(a)
-        o["intake"] = intake; o["intake_skipped"] = bool(a.no_intake); o["sample_id"] = sid; o["covariates"] = cov
-        if intake is not None: intake.setdefault("covariates", {}).update(cov)
-        if stage1_meta: o["stage1"] = {k: stage1_meta.get(k) for k in ("detection", "n_cpgs", "pipeline")}
-        led = a.ledger or os.path.join(os.path.dirname(os.path.abspath(a.out)) or ".", "evidence_ledger.jsonl")
-        o["run_id"] = _assign_run_id(led)
-        r = R3.build(o, a.out, sid)
-        m = o.get("met_a") or {}; t = o.get("tare") or {}; q_ = o.get("iam_a") or {}
-        print(f"\n{sid}: neutrophil Met-A {m.get('A')} ({m.get('state', m.get('reason', o.get('refusal')))}) | C {(o.get('met_a_cscore') or {}).get('C')} | "
-              f"tare {t.get('A_rel')}" + (f" | IAM-A {q_.get('A')} ({q_.get('state', q_.get('refusal'))})" if q_ else ""))
-        if not a.no_bundle:
-            bundle_path = a.bundle or (os.path.splitext(a.out)[0] + "_bundle.json")
-            _json.dump(o, open(bundle_path, "w"), default=str)
-            row = {"run_id": o["run_id"], "engine": "v3", "sample_id": sid, "utc": _dt.datetime.utcnow().isoformat(timespec="seconds"),
-                   "report": os.path.abspath(a.out), "bundle": os.path.abspath(bundle_path), "specimen": a.specimen,
-                   "platform": o.get("platform"), "array_type": o.get("array_type"), "refusal": o.get("refusal"),
-                   "floors_version": o.get("floors_version"), "reference_version": o.get("reference_version"),
-                   "stage0_verdict": it.get("stage0_verdict"), "call_rate_status": it.get("call_rate_status"),
-                   "f_neu": m.get("fraction"), "A": m.get("A"), "state": m.get("state", m.get("reason")), "n_sites": m.get("n_sites"),
-                   "shift_per_1pct_loss": m.get("shift_per_1pct_loss"), "past_entropy_ceiling": m.get("past_entropy_ceiling"),
-                   "C": (o.get("met_a_cscore") or {}).get("C"), "A_rel": t.get("A_rel"), "tare": t.get("state", t.get("reason")),
-                   "n_refs": t.get("n_refs"), "tare_method": t.get("method"), "noise_index": m.get("noise_index"),
-                   "detection_limit_pct_loss": t.get("detection_limit_pct_loss"),
-                   "iam_a": q_.get("A"), "iam_a_pipeline": q_.get("pipeline"), "covariates": cov}
-            with open(led, "a", encoding="utf-8") as fh: fh.write(_json.dumps(row, default=str) + "\n")
-            print(f"report: {r['out']} | bundle: {bundle_path} | evidence ledger: {led} (one row appended)")
-        else:
-            print(f"report: {r['out']} (no bundle, no ledger row: --no-bundle)")
-        return
-
-    import cpg_conductor as C, build_methylphys as B
-    cfg={"age":a.age,"pipeline":a.pipeline,"lab_zero":a.lab_zero,"substrate":substrate_token(a.specimen), "substrate_as_declared":a.specimen,
-         "intake": intake, "intake_skipped": bool(a.no_intake)}
-    if a.lab: cfg["lab"]=a.lab
-    if stage1_meta and stage1_meta.get("snp_noise"): cfg["snp_noise"]=stage1_meta["snp_noise"]
-    print(f"running the chain on {len(beta):,} CpGs", flush=True)
-    o=C.run_full(beta, _atlas(), cfg=cfg)
-    o["intake"] = intake          # the report prints the Stage 0 record, or NOT RUN when there is none
-    o["intake_skipped"] = bool(a.no_intake)
-    # 2026-09-27: a run's intake is VERIFIED only when Stage 1 handed Stage 0 the array's own detection numbers and the gate ran.
-    o["intake_verified"] = bool(intake is not None and (intake.get("call_rate_status") or "").startswith(("PASS","CALL_RATE_BORDERLINE")))
-    o["intake_note"] = (None if o["intake_verified"] else
-                        ("betas-only input: the array's detection and control probes were not available, so intake was not verified" if a.betas else
-                         "intake skipped (--no-intake)" if a.no_intake else "intake did not verify this array"))
-    if stage1_meta: o["stage1"] = {k: stage1_meta.get(k) for k in ("detection","controls","snp_noise","n_cpgs","pipeline")}
-    # Everything a disease matrix will need from this specimen, captured at the moment of the run: the
-    # phenotype it was declared with, and every input version that could change the reading. A run that
-    # records neither cannot be pooled with one from another month (2026-09-23).
+            T = _pd.read_csv(a.site_table); pipe = a.seq_pipeline; src = {"site_table": os.path.abspath(a.site_table)}
+        o["iam_a"] = Q.read(T, cell=a.seq_cell, pipeline=pipe); o["iam_a"]["input"] = src
     cov = _covariates(a)
-    # --no-intake leaves this None, and a run without a custody record must still record its covariates
-    intake = intake if isinstance(intake, dict) else {}
-    intake.setdefault("covariates", {}).update(cov)
-    _plate_dependency_check()
-    o["intake"] = intake
-    _led = a.ledger or (os.path.splitext(a.out)[0].rsplit("/", 1)[0] + "/evidence_ledger.jsonl")
-    o["run_id"] = _assign_run_id(_led)
-    o.setdefault("context", {})["report_path"] = os.path.abspath(a.out); o["context"]["sample_id"] = sid   # so the report prints its own filing plan (2026-09-26)
-    o["versions"] = _versions(os.path.dirname(os.path.abspath(__file__)) + "/..")
-    _class_z(o, os.path.dirname(os.path.abspath(__file__)) + "/..")
-    if cov:
-        print(f"covariates recorded: {cov}", flush=True)
-    r=B.build(o, a.out, sid)
-    # The bundle is written by default: a run that leaves only a 6 MB HTML cannot be pooled later.
-    bundle_path = a.bundle or (os.path.splitext(a.out)[0] + "_bundle.json")
+    o["intake"] = intake; o["intake_skipped"] = bool(a.no_intake); o["sample_id"] = sid; o["covariates"] = cov
+    if intake is not None: intake.setdefault("covariates", {}).update(cov)
+    if stage1_meta: o["stage1"] = {k: stage1_meta.get(k) for k in ("detection", "n_cpgs", "pipeline")}
+    led = a.ledger or os.path.join(os.path.dirname(os.path.abspath(a.out)) or ".", "evidence_ledger.jsonl")
+    o["run_id"] = _assign_run_id(led)
+    o["versions"] = _versions(ENG)   # every frozen input and chain module, with a short hash, so runs months apart are poolable
+    r = R3.build(o, a.out, sid)
+    m = o.get("met_a") or {}; t = o.get("tare") or {}; q_ = o.get("iam_a") or {}
+    print(f"\n{sid}: neutrophil Met-A {m.get('A')} ({m.get('state', m.get('reason', o.get('refusal')))}) | C {(o.get('met_a_cscore') or {}).get('C')} | "
+          f"tare {t.get('A_rel')}" + (f" | IAM-A {q_.get('A')} ({q_.get('state', q_.get('refusal'))})" if q_ else ""))
     if not a.no_bundle:
-        import json as _json
+        bundle_path = a.bundle or (os.path.splitext(a.out)[0] + "_bundle.json")
         _json.dump(o, open(bundle_path, "w"), default=str)
-        print(f"bundle: {bundle_path}", flush=True)
-        led = a.ledger or os.path.join(os.path.dirname(os.path.abspath(a.out)) or ".", "evidence_ledger.jsonl")
-        with open(led, "a", encoding="utf-8") as f:
-            f.write(_json.dumps(_ledger_row(o, sid, a.out), default=str) + "\n")
-        print(f"evidence ledger: {led} (one row appended)", flush=True)
-    imm=o["classes"].get("immune",{})
-    print(f"\n{sid}: immune A'' {imm.get('A_abs')}  placement {imm.get('placement')}  tier {imm.get('tier')}")
-    print(f"refusals: {len(r['refusals'])}" + (f" -> {r['refusals'][:3]}" if r["refusals"] else ""))
-    print(f"report: {r['out']}  ({r['bytes']//1000} KB)")
+        row = {"run_id": o["run_id"], "engine": "v3", "sample_id": sid, "utc": _dt.datetime.utcnow().isoformat(timespec="seconds"),
+               "report": os.path.abspath(a.out), "bundle": os.path.abspath(bundle_path), "specimen": a.specimen,
+               "platform": o.get("platform"), "array_type": o.get("array_type"), "refusal": o.get("refusal"),
+               "floors_version": o.get("floors_version"), "reference_version": o.get("reference_version"),
+               "stage0_verdict": it.get("stage0_verdict"), "call_rate_status": it.get("call_rate_status"),
+               "f_neu": m.get("fraction"), "A": m.get("A"), "state": m.get("state", m.get("reason")), "n_sites": m.get("n_sites"),
+               "shift_per_1pct_loss": m.get("shift_per_1pct_loss"), "past_entropy_ceiling": m.get("past_entropy_ceiling"),
+               "C": (o.get("met_a_cscore") or {}).get("C"), "A_rel": t.get("A_rel"), "tare": t.get("state", t.get("reason")),
+               "n_refs": t.get("n_refs"), "tare_method": t.get("method"), "noise_index": m.get("noise_index"),
+               "detection_limit_pct_loss": t.get("detection_limit_pct_loss"),
+               "iam_a": q_.get("A"), "iam_a_pipeline": q_.get("pipeline"), "covariates": cov}
+        with open(led, "a", encoding="utf-8") as fh: fh.write(_json.dumps(row, default=str) + "\n")
+        print(f"report: {r['out']} | bundle: {bundle_path} | evidence ledger: {led} (one row appended)")
+    else:
+        print(f"report: {r['out']} (no bundle, no ledger row: --no-bundle)")
 
 if __name__=="__main__": main()

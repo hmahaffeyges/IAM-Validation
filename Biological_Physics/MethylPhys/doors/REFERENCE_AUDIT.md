@@ -81,4 +81,4 @@ Identity loci exist **per class only**. Using a cell's class loci would give A â
 every cell in a class would share one surface and one observed value, so all 51 immune cells would read
 identically â€” which destroys the per-cell resolution that is the point. **Per-cell identity loci must be
 constructed**, the same way the eight class panels were, and the class panels' provenance is in
-[`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json) to mirror. That is the author's call to commission.
+iamatlas_gauge_identity_loci_v1_0.json (archived privately) to mirror. That is the author's call to commission.

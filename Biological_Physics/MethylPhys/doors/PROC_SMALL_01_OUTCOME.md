@@ -4,16 +4,16 @@
 configuration was run. Adopted and wired into the chain as **Stage 2c**, a side channel that adds a verdict
 and changes no existing number.
 
-Evidence: [`PROC_SMALL_01_configurations.json`](../kit/results/PROC_SMALL_01_configurations.json),
-[`PROC_SMALL_01_heldout_60_healthy.json`](../kit/results/PROC_SMALL_01_heldout_60_healthy.json).
-Scripts: [`PROC_SMALL_01_prepare.py`](../kit/PROC_SMALL_01_prepare.py),
-[`PROC_SMALL_01_compare.py`](../kit/PROC_SMALL_01_compare.py),
-[`PROC_SMALL_01_heldout.py`](../kit/PROC_SMALL_01_heldout.py).
-Implementation: [`stage_2c_trace_detection.py`](../chain/RETIRED_2026-09/trace_detection_2026-09-30/stage_2c_trace_detection.py) with the frozen panel
-`chain/RETIRED_2026-09/trace_detection_2026-09-30/trace_detection_panel_v1.json`. Example run:
+Evidence: PROC_SMALL_01_configurations.json (archived privately),
+PROC_SMALL_01_heldout_60_healthy.json (archived privately).
+Scripts: PROC_SMALL_01_prepare.py (archived privately),
+PROC_SMALL_01_compare.py (archived privately),
+PROC_SMALL_01_heldout.py (archived privately).
+Implementation: stage_2c_trace_detection.py (archived privately) with the frozen panel
+chain/RETIRED_2026-09/trace_detection_2026-09-30/trace_detection_panel_v1.json (archived privately). Example run:
 MethylPhys_GSM2333901_trace_detection.html (the example run it was filed under carried no bundle and was moved to RETIRED_2026-09/example_runs_no_bundle_2026-09-26 on 2026-09-26; the report is there, not re-renderable).
 
-![Where the limit went](../kit/results/PROC_SMALL_01_detection.png)
+Where the limit went (archived privately)
 
 ## The bars
 
@@ -73,4 +73,4 @@ Terminal, stromal, stem_pluri, progenitor and stem_adult have no such panel; onl
 measured. None of the eight classes other than immune has a healthy **band**, so none of them gets a
 placement or a tier, and that is unchanged by this work. The immune gauge's coupling to composition — a
 foreign component reads as immune drift, 0.15 sigma of the healthy band per 1 % — is recorded in
-[`SMALL_CLASS_DETECTION_NOTE_2026-09-23.md`](../kit/SMALL_CLASS_DETECTION_NOTE_2026-09-23.md) and remains open.
+SMALL_CLASS_DETECTION_NOTE_2026-09-23.md (archived privately) and remains open.

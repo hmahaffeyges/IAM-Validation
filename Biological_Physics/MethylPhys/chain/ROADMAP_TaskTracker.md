@@ -1,5 +1,5 @@
 # CPG_CMB_vKISS — Living Roadmap & Task Tracker
-**Owner:** Heath W. Mahaffey · **Scribe:** legacy · **Updated:** 2026-06-29 · read at the top of every session.
+**Owner:** Heath W. Mahaffey · **Scribe:** the assistant · **Updated:** 2026-06-29 · read at the top of every session.
 
 Legend: [x] done · [~] in progress · [ ] open · [B] blocked-on-Heath-go
 
@@ -7,7 +7,7 @@ Legend: [x] done · [~] in progress · [ ] open · [B] blocked-on-Heath-go
 ## TRACK 1 — vKISS chain (the lean clinical engine)
 - [x] Map the v5 chain against real code; verify A-score core reproduces documented numbers.
 - [x] Diagnose the false-fire (deconvolver-free per-cell = bulk-mixture artifact, sd~0.25).
-- [x] Corrected design: legacy-alone presence + derived-hull verdict (gates no call). Verified healthy→within-band.
+- [x] Corrected design: deconvolver-alone presence + derived-hull verdict (gates no call). Verified healthy→within-band.
 - [x] Conductor rewritten + verified (healthy clean, departure flagged & named).
 - [x] Presence rule locked: Mode-1 (3% composition gate, hull) vs Mode-2 (A-score-driven shed, NOT fraction-gated; 1.292% cortical neuron).
 - [x] **Noise fix found + built**: low-rep cells = wide MCMC posterior sd → (Microglia/Kupffer/aliases rel≈0, clean cells rel=1.0).
@@ -19,12 +19,12 @@ Legend: [x] done · [~] in progress · [ ] open · [B] blocked-on-Heath-go
 - [x] Surgical cuts verified clean: cfDNA (self-gates off for whole blood) · deconvolver-disagreement collapsible removed · NILC/two-deconvolver intro+footer reframed to **one deconvolver (composition/presence, gates no call)** · footer→vKISS. (Only "NILC" left in output is random chars inside a base64 gauge image — not text.)
 - [x] Run end-to-end: built `CPG_report_DEMO_vKISS.html` (full readout, CI rendering, Stage 4.6, machine-readable snapshot) and `CPG_report_SAMPLE_healthy_43M_vKISS.html` (scale guard correctly withheld on the cached healthy β — see gap below).
 - [x] **v1_13 repoint** (3 one-line edits): `cpg_conductor.py:158`, `builders/build_strawman.py:3`, `builders/enrich_strawman.py:8` → v1_13.
-- [x] **Strawman LIT UP**: fixed path resolution (find engine assets via `CPG_ENGINE_ROOT`) + the age/sex `None`→`""` bug (`html.escape(None)` crash). Patient wall (81 cols) + crown-jewel wall (81×81) render in iframes. ../../Record/crown_jewel_and_patient_strawman/strawman_data_v2.json`](../../Record/crown_jewel_and_patient_strawman/strawman_data_v2.json) (builders/) is the live one.
+- [x] **Strawman LIT UP**: fixed path resolution (find engine assets via `CPG_ENGINE_ROOT`) + the age/sex `None`→`""` bug (`html.escape(None)` crash). Patient wall (81 cols) + crown-jewel wall (81×81) render in iframes. Record/crown_jewel_and_patient_strawman/strawman_data_v2.json (archived privately) (builders/) is the live one.
 - [x] **Full whole-blood report**: `CPG_report_WHOLEBLOOD_RA_vKISS.html` — GSM1051525 (RA), passes scale guard (0/3 below floor), all sections, 28 per-cell CIs, Stage 4.6, strawman, honest Mode-1 resemblance (lung_cancer 100% shape resemblance — resemblance, not probability).
 - [x] **healpix provenance cleaned**: removed external manifest/Zhou-lab mentions; hg19-genomic-order framing + explicit "no external atlas/reference/matrix, ever" statement. (Production copy on Heath's box needs the same one-time edit.)
-- [ ] **DECISION (Heath):** embedded crown-jewel wall carries cfDNA/NILC mentions = honest provenance (HCC/glioma cfDNA-detected rows; one legacy-vs-NILC validation rho) in curated ../../Record/crown_jewel_and_patient_strawman/strawman_data_v2.json`. Keep as-is (a, recommended) / filter to whole-blood diseases (b) / reword tooltips (c). Not touched without go.
+- [ ] **DECISION (Heath):** embedded crown-jewel wall carries cfDNA/NILC mentions = honest provenance (HCC/glioma cfDNA-detected rows; one deconvolver-vs-NILC validation rho) in curated Record/crown_jewel_and_patient_strawman/strawman_data_v2.json (archived privately). Keep as-is (a, recommended) / filter to whole-blood diseases (b) / reword tooltips (c). Not touched without go.
 - [ ] Cached healthy whole-blood β trips the scale guard (LESSON-DECONV-01, raw vs noob) — production IDAT path doesn't; verify "healthy reads healthy" once a noob-calibrated whole-blood sample is available.
-- [ ] Assets to wire into the running dir: [`cpg_gauge.py`](cpg_gauge.py), `A1_reference_gauge.png`, `star_gauge.png`, [`iamatlas_cpg_to_healpix_nside128.npy`](../atlas/healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy).
+- [ ] Assets to wire into the running dir: cpg_gauge.py (archived privately), `A1_reference_gauge.png`, `star_gauge.png`, [`iamatlas_cpg_to_healpix_nside128.npy`](../atlas/healpix_mapping/iamatlas_cpg_to_healpix_nside128.npy).
 - Note: is the standalone proof of the noise finding; the report itself uses the bundle's per-cell CI (same brightness posteriors) for the "thin reference" tag, so the signal is already in the report. Wire the explicit reliability multiplier only if a separate number is wanted.
 
 ## TRACK 3 — Docs (after the report)
@@ -35,7 +35,7 @@ Legend: [x] done · [~] in progress · [ ] open · [B] blocked-on-Heath-go
       Document: the noise findings (low-rep → wide posterior → reliability fix), folding-not-cutting the CMB, the false-fire diagnosis, the presence-rule split.
 
 ## TRACK 4 — Validation (the Null Suite, N1–N8)
-- [ ] Run **N7 once** against the vKISS chain (chain-recovery; last: legacy MAE≈0.008 PASS, end-to-end wired).
+- [ ] Run **N7 once** against the vKISS chain (chain-recovery; last: deconvolver MAE≈0.008 PASS, end-to-end wired).
 - [ ] N1–N8 per VAL as we re-test.
 - [ ] Carry the N7 caveat: synthetic patients ≠ real n=601 HC distribution → use within-cohort/matched-arm reference for synthetic recovery, never the production hull.
 - [ ] N7 v0.2 carry-forward: `restrict_panel_to_cpgs` default to marker substrate; matched arms / k-fold; extend R1+R3 → R1–R8.
@@ -53,7 +53,7 @@ Legend: [x] done · [~] in progress · [ ] open · [B] blocked-on-Heath-go
 - Surgical edits, before/after line counts, no deletions without agreement; preserve evidence.
 - Push scope: `Biological_Physics/MethylPhys/chain/...` (2026-09-19 layout; formerly AstroGenetics/CPG_KISS_Commercial_Engine). `RETIRED/` read-only. Version-bump, one canonical copy.
 - Language: "consistent with / tested against / detectable"; never "proves/confirms/validates/resolves".
-- Heath sets direction + says go; legacy sets up sealed/ready and awaits go. Nothing pushed without it.
+- Heath sets direction + says go; the assistant sets up sealed/ready and awaits go. Nothing pushed without it.
 
 ---
 ## SESSION UPDATE 2026-06-29 (report fine-tooth-comb pass)

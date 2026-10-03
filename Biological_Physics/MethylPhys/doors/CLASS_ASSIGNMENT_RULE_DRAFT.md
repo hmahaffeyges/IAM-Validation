@@ -16,7 +16,7 @@ class (l. 73) — the methylation report equivalent of the quantum-processor rep
 source and its own Dennard-type transition (l. 159–171, 265). So the defining property of a class is its **dominant failure
 mode (inversion)**, with its own n_bio and floor:
 
-| class | dominant inversion (Issue 002, [`om_lib.py`](../manual/om_lib.py)) |
+| class | dominant inversion (Issue 002, om_lib.py (archived privately)) |
 |---|---|
 | stem_pluri | Differentiation Dose Inversion |
 | stem_adult | Niche Depletion |
@@ -37,8 +37,8 @@ is flagged for review of its facts or the rule.
 
 ## What the record held
 The classes were assigned by **example lists**, not a criterion: G-002's 37 reference cells
-([`reference_cells_37.csv`](../hmin_calibration/reference_cells_37.csv)), each class's `what_includes` in Issue 002
-(`manual/om_lib.py`), and the v1 map ([`IAMAtlasREBUILD_celltype_to_class.json`](../atlas/IAMAtlasREBUILD_celltype_to_class.json)).
+(reference_cells_37.csv (archived privately)), each class's `what_includes` in Issue 002
+(manual/om_lib.py (archived privately)), and the v1 map ([`IAMAtlasREBUILD_celltype_to_class.json`](../atlas/IAMAtlasREBUILD_celltype_to_class.json)).
 
 ## The rule those lists imply (biology only; no methylation data enters)
 Facts per cell: lineage, potency, whether it divides under normal adult conditions, whether its defining function is a secreted

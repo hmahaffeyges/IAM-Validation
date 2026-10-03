@@ -3,9 +3,9 @@
 **Sealed 2026-09-25** against the bars in [`PROC_CLS_01_PREREG.md`](PROC_CLS_01_PREREG.md), fixed before any
 spectrum was computed. 318 healthy whole-blood arrays, four laboratories, each one's residual sky built by
 `stage_4_6_patient_sky` exactly as a report builds it, then `healpy.anafast` to ℓ = 255 and 20 within-mask
-permutations as its own null. Evidence: [`PROC_CLS_01.json`](../kit/results/PROC_CLS_01.json).
-Scripts: [`PROC_CLS_01_measure.py`](../kit/PROC_CLS_01_measure.py) ·
-[`PROC_CLS_01_analyse.py`](../kit/PROC_CLS_01_analyse.py).
+permutations as its own null. Evidence: PROC_CLS_01.json (archived privately).
+Scripts: PROC_CLS_01_measure.py (archived privately) ·
+PROC_CLS_01_analyse.py (archived privately).
 
 ## The finding, which is the part worth reading
 
@@ -62,8 +62,8 @@ PROC-BAND-01 to 1e-9"*). That is a deferred check reported as a pass, which this
 and an auditor caught it. Worse, the informal half was false in the same sitting: sealing this procedure
 edited `chain/cmb_tools.py` to record the register note, so a chain file *was* touched.
 
-B6 has now been run as written — [`PROC_CLS_01_b6.py`](../kit/PROC_CLS_01_b6.py),
-[`PROC_CLS_01_b6.json`](../kit/results/PROC_CLS_01_b6.json) — recomputing immune A″ for all 318 arrays
+B6 has now been run as written — PROC_CLS_01_b6.py (archived privately),
+PROC_CLS_01_b6.json (archived privately) — recomputing immune A″ for all 318 arrays
 through the same path and differencing against PROC-BAND-01. The largest difference is exactly zero, so the
 bar is met on its own terms rather than by assertion. What the earlier wording should have said, and now
 does: the only chain file this procedure changed is the CMB tool register's **note text**, which no

@@ -1,5 +1,7 @@
 # CPG / the methylation report [[Issue 003](../manual/MethylPhys_CPG_Operations_Manual.pdf)](../manual/MethylPhys_CPG_Operations_Manual.pdf) — Reproduction Kit
 
+> **Record from the class-floor engine (chain v2, retired 2026-10-03, archived privately).** The current procedure is [`../sop/MethylPhys_CPG_SOP_v3.md`](../sop/MethylPhys_CPG_SOP_v3.md); the chain as it runs is [`CHAIN_SEQUENCE.md`](CHAIN_SEQUENCE.md); the toolkit is [`../chain/TOOLKIT.md`](../chain/TOOLKIT.md).
+
 **See also [`COMPONENT_MAP.md`](COMPONENT_MAP.md)** — what lives in the repo, what lives in the kit, what lives only in the author's folder, and the repo commits this kit implies.
 
 **Purpose.** Everything used to produce the methylation report Issue 003 and to verify the measurement core of the CPG chain,
@@ -21,14 +23,14 @@ claim nobody made, and a test that is filed as a run loses its bars.
 |---|---|---|
 | `VAL-###` | the pre-atlas validation record | [`Record/`](../../Record/) - historical and frozen; nothing new joins it |
 | `PROC-XXX-##` | a **test** of the instrument: a question, bars fixed in a pre-registration *before* any data is read, and a sealed outcome that scores each bar | [`doors/`](.) - PROC_&lt;name&gt;_PREREG.md then PROC_&lt;name&gt;_OUTCOME.md, evidence in [`kit/results/`](../kit/results/), one row in [`CHAIN_COMMISSIONING.md`](CHAIN_COMMISSIONING.md) |
-| `RUN-YYYYMMDD-NN` | one **execution** of the chain on one specimen | the run's own ledger row; exemplars committed to [`example_runs/`](../chain/example_runs/) and collected in [`RUN_INDEX.csv`](../chain/example_runs/RUN_INDEX.csv) |
+| `RUN-YYYYMMDD-NN` | one **execution** of the chain on one specimen | the run's own ledger row; exemplars committed to example_runs/ (archived privately) and collected in RUN_INDEX.csv (archived privately) |
 
 A run makes no claim and passes no bar, so it is neither a VAL nor a PROC. It is evidence, and it has to be
 findable a year from now - which is what the identifier is for. [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) assigns it at the moment of
 the run (sequential within the UTC day, read from the ledger it is about to append to) and writes it into the
 bundle, the ledger row and the report.
 
-`RUN_INDEX.csv` is **generated** by [`build_run_index.py`](../chain/build_run_index.py) from every ledger
+`RUN_INDEX.csv` is **generated** by build_run_index.py (archived privately) from every ledger
 under the tree - never typed. Re-run it after adding runs.
 
 ```
@@ -62,7 +64,7 @@ produced are **runs**, and the example in the repository is one of them - not a 
 | env | purpose | pins |
 |---|---|---|
 | `python` (default) | everything except Stage 1 | numpy ≥ 1.26, pandas ≥ 2, scipy, reportlab (for the Issue build), pypdfium2 (page checks) |
-| `methylprep` | Stage 1 only ([`PROC_CAL_01.py`](../kit/PROC_CAL_01.py)) | **python 3.11, methylprep==1.7.1, numpy==1.26.4, pandas==1.5.3, pytz, python-dateutil** — methylprep calls `DataFrame.append`, removed in pandas 2 |
+| `methylprep` | Stage 1 only (PROC_CAL_01.py (archived privately)) | **python 3.11, methylprep==1.7.1, numpy==1.26.4, pandas==1.5.3, pytz, python-dateutil** — methylprep calls `DataFrame.append`, removed in pandas 2 |
 
 Stage 1 also needs: `HOME` pointing at a writable directory (methylprep writes `$HOME/.methylprep_manifest_files/`), and
 network access to `https://array-manifest-files.s3.amazonaws.com/` for the Illumina manifests on first use
@@ -87,11 +89,11 @@ network access to `https://array-manifest-files.s3.amazonaws.com/` for the Illum
 
 | script | env | what it proves | expected | observed 2026-09-19 |
 |---|---|---|---|---|
-| [`PROC_CAL_01.py`](../kit/PROC_CAL_01.py) | methylprep | raw IDAT → β reproduces the project's Stage-1 cache | bit-identical | **11/11, r=1.000000, max diff 0.000000** |
-| [`PROC_DECON_01.py`](../kit/PROC_DECON_01.py) | python | deconvolver reproduces [`TEST_DATA_MANIFEST.md`](../chain/TEST_DATA/TEST_DATA_MANIFEST.md); whole blood reads epithelial ≈ 0; gauge read with presence gate and age band | MAE ≤ 0.001; epi < 0.02 | **MAE 0.0004 / 0.0002 / 0.0002; WB epi 0.000–0.011** |
-| [`PROC_ANCHOR_01.py`](../kit/PROC_ANCHOR_01.py) | python | sealed 115-cell anchors reproduce from raw GEO | r ≥ 0.9999 | **GSE51032 r=1.00000 (112/115); GSE51057 r=1.00000 (115/115)** |
-| [`PROC_FORMULA_01.py`](../kit/PROC_FORMULA_01.py) | python | the measurement behind RULING A3 | see docstring | WB immune Spearman +1.000, offset +0.029; tissue +0.24; band = H(mean β) 80/80 |
-| [`PROC_PLASMA_MIX_01.py`](../kit/PROC_PLASMA_MIX_01.py) | python | deconvolver vs real known mixtures (Moss Table 6) | per-tissue r ≥ 0.9 | **terminal PASS (r=0.945); secretory FAIL (0.19); cycling FAIL (0.10)** |
+| PROC_CAL_01.py (archived privately) | methylprep | raw IDAT → β reproduces the project's Stage-1 cache | bit-identical | **11/11, r=1.000000, max diff 0.000000** |
+| PROC_DECON_01.py (archived privately) | python | deconvolver reproduces [`TEST_DATA_MANIFEST.md`](../chain/TEST_DATA/TEST_DATA_MANIFEST.md); whole blood reads epithelial ≈ 0; gauge read with presence gate and age band | MAE ≤ 0.001; epi < 0.02 | **MAE 0.0004 / 0.0002 / 0.0002; WB epi 0.000–0.011** |
+| PROC_ANCHOR_01.py (archived privately) | python | sealed 115-cell anchors reproduce from raw GEO | r ≥ 0.9999 | **GSE51032 r=1.00000 (112/115); GSE51057 r=1.00000 (115/115)** |
+| PROC_FORMULA_01.py (archived privately) | python | the measurement behind RULING A3 | see docstring | WB immune Spearman +1.000, offset +0.029; tissue +0.24; band = H(mean β) 80/80 |
+| PROC_PLASMA_MIX_01.py (archived privately) | python | deconvolver vs real known mixtures (Moss Table 6) | per-tissue r ≥ 0.9 | **terminal PASS (r=0.945); secretory FAIL (0.19); cycling FAIL (0.10)** |
 
 Results land in `results/PROC_*.json`. `results/VAL_INDEX.{csv,json}` is the mechanical index of all 175 validation records (G, VAL-001..128, T1..T15, CPG-VAL-001..022, hull, N7, September PROCs; unique keys by series) in the repo (Issue 003 Appendix V).
 
@@ -115,7 +117,7 @@ Results land in `results/PROC_*.json`. `results/VAL_INDEX.{csv,json}` is the mec
 cd issue003_build
 CPG_TRIAL=../runtime python build_operations_manual.py MethylPhys_CPG_Operations_Manual.pdf
 ```
-[`om_data.py`](../manual/om_data.py) holds every number printed in the document; change a value there and rebuild. [`om_lib.py`](../manual/om_lib.py) is the Issue 002
+om_data.py (archived privately) holds every number printed in the document; change a value there and rebuild. om_lib.py (archived privately) is the Issue 002
 script with its `build()` cut into page functions — every 002 primitive, card and section reused verbatim.
 Note: `om_data.py` reads `handoff/*.json` relative to its parent for the live-run tables; in this kit those live in `results/` —
 set `CPG_HANDOFF=../results` or copy them.
@@ -143,11 +145,11 @@ In all seven Stage-1 whole-blood samples those same loci read at **β_mean 0.786
 reference** — outside the ±0.05 selection band in 7 of 7 (smallest shift +0.0544). Higher β at these loci means lower entropy, hence A ≈ 0.81–0.89 against
 a band centred near 0.95. So "below band" is a reference-β offset between the atlas's source pipelines and noob Stage-1 output,
 not a Stage-1 error and not a property of the donors. The test that closes it: re-derive `H_min_beta` and the age band from ≥30
-public healthy whole-blood IDATs run through Stage 1 ([`PROC_CAL_01.py`](../kit/PROC_CAL_01.py)), then re-read the seven.
+public healthy whole-blood IDATs run through Stage 1 (PROC_CAL_01.py (archived privately)), then re-read the seven.
 
 ## 7. PROC-CHAIN-01 — the conductor end to end (added 2026-09-19)
 
-`cpg_conductor.run_full(beta_dict, atlas_csv, cfg={"age": N})` from `MethylPhys/chain/` on the eleven Stage-1 betas. First run from the repository layout; two things had to be fixed to make it run at all: the conductor resolved every file as `HERE/<name>` (flat working-folder layout) and [`iam_cellular_age_scoring.py`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/iam_cellular_age_scoring.py) was not in the repo. Both fixed in the same commit.
+`cpg_conductor.run_full(beta_dict, atlas_csv, cfg={"age": N})` from `MethylPhys/chain/` on the eleven Stage-1 betas. First run from the repository layout; two things had to be fixed to make it run at all: the conductor resolved every file as `HERE/<name>` (flat working-folder layout) and iam_cellular_age_scoring.py (archived privately) was not in the repo. Both fixed in the same commit.
 
 Results (immune gauge): all seven whole-blood samples IN_BAND / NORMAL (0.954–1.006) — the shipped chain absorbs the Stage-1 β offset through the age band. Three defects recorded in Issue 003 RECON/PROC-CHAIN-01: stem_adult false BREACH on 6 of 7 blood samples — every one where its fraction cleared the 1% presence floor (its band is n = 28, one source), a Mahalanobis key mismatch between `run_full` and the report builder, and cellular age pinned at the curve floor. **Do not report stem_adult from blood, Stage 5 distance, or Stage 6 age until those are fixed.**
 
@@ -157,24 +159,24 @@ Results (immune gauge): all seven whole-blood samples IN_BAND / NORMAL (0.954–
 
 ## 9. PROC-N7-01 — end-to-end synthetic simulation (added 2026-09-19)
 
-*Record, 2026-09-19 - the class gauge this describes is an internal gate, retired at the atlas v2 switch-over.* `MethylPhys/chain/Synthetic_Patient_Generator/synthetic_patient_generator.py` (restored; now reads the repo atlas; `composition_alpha=WHOLE_BLOOD_ALPHA`) → 24 synthetic patients → `run_full`. Composition recovery PASS (MAE ≤ 0.015). **Gauge FAIL:** every synthetic healthy reads BREACH, because the conductor's class gauge is H(β̄) over the *marker union* (bimodal), not the identity loci — despite its docstring. Real blood masked this because the age band was compiled on the same statistic. Identity-loci H(β̄) reads the synthetic healthy at 0.99 and real adenoma at 1.10 (correct both times) but has no band until Phase 1. **Do not read a conductor gauge value as a class measurement until `gauge_surface` says `identity_loci`.** Section 7's 'healthy IN_BAND' is withdrawn as conformance.
+*Record, 2026-09-19 - the class gauge this describes is an internal gate, retired at the atlas v2 switch-over.* MethylPhys/chain/Synthetic_Patient_Generator/synthetic_patient_generator.py (archived privately) (restored; now reads the repo atlas; `composition_alpha=WHOLE_BLOOD_ALPHA`) → 24 synthetic patients → `run_full`. Composition recovery PASS (MAE ≤ 0.015). **Gauge FAIL:** every synthetic healthy reads BREACH, because the conductor's class gauge is H(β̄) over the *marker union* (bimodal), not the identity loci — despite its docstring. Real blood masked this because the age band was compiled on the same statistic. Identity-loci H(β̄) reads the synthetic healthy at 0.99 and real adenoma at 1.10 (correct both times) but has no band until Phase 1. **Do not read a conductor gauge value as a class measurement until `gauge_surface` says `identity_loci`.** Section 7's 'healthy IN_BAND' is withdrawn as conformance.
 
 ## 10. RULE — the cosmology-evidence ledger (added 2026-09-19)
 
-Every time a CMB-derived method (end-to-end simulation, injection-recovery, split-half cross-check, convergence/distinctness test, look-elsewhere correction, sealed pre-registration, transfer-function decomposition) surfaces something a cohort comparison could not have, add a row to `COSMO_EVIDENCE` in `MethylPhys/manual/om_data.py` the same day: date · method · why a cohort is blind to it · what was found · PROC/VAL. Reversals and withdrawals go in too. This ledger is Issue 003 §1.6 and is the pre-built answer to "your reasoning is circular".
+Every time a CMB-derived method (end-to-end simulation, injection-recovery, split-half cross-check, convergence/distinctness test, look-elsewhere correction, sealed pre-registration, transfer-function decomposition) surfaces something a cohort comparison could not have, add a row to `COSMO_EVIDENCE` in MethylPhys/manual/om_data.py (archived privately) the same day: date · method · why a cohort is blind to it · what was found · PROC/VAL. Reversals and withdrawals go in too. This ledger is Issue 003 §1.6 and is the pre-built answer to "your reasoning is circular".
 
 ## 11. RULE — a safeguard that can be switched off when it disagrees is not a safeguard (added 2026-09-19)
 
 > **Trust your equipment.** Cutting a check because it trips is ripping the methane detector out of the house because it went off. When the alarm sounds, the first question is not "is the detector broken?" but "what does the detector know that I don't?" — H. Mahaffey, senior grid operator, 2026-09-19.
 
-Two safeguards built in spring 2026 were switched off because their first real finding looked like a defect in the safeguard: NILC (disagreed with legacy on every blood sample → cut; it was reporting that the Atlas cannot split immune/progenitor/stem_adult in blood, PROC-NILC-01) and the synthetic patient generator (retired unused; on its first run it exposed the production gauge reading the marker union, PROC-N7-01). Rule: **N7 (synthetic cohort through the full chain) and the cross-method comparison run on every chain release.** A disagreement gets a row in the §1.6 ledger and a RECON entry; it is never resolved by disabling the check.
+Two safeguards built in spring 2026 were switched off because their first real finding looked like a defect in the safeguard: NILC (disagreed with the deconvolver on every blood sample → cut; it was reporting that the Atlas cannot split immune/progenitor/stem_adult in blood, PROC-NILC-01) and the synthetic patient generator (retired unused; on its first run it exposed the production gauge reading the marker union, PROC-N7-01). Rule: **N7 (synthetic cohort through the full chain) and the cross-method comparison run on every chain release.** A disagreement gets a row in the §1.6 ledger and a RECON entry; it is never resolved by disabling the check.
 
 
 ## 12. RULE — map β onto the floor's scale before any absolute reading (added 2026-09-20)
 
-**BETA SCALE (LESSON-SCALE-01, 2026-09-20).** H_min was calibrated by the G-002 MCMC on Roadmap/ENCODE reference β (GenomicStudio-normalised). The Atlas posteriors sit on that same scale. Other pipelines do NOT: on the 42,024 immune identity loci, healthy blood reads β̄ = 0.737 on the Roadmap/Atlas scale (A = 1.00), 0.774 on GEO author-processed EPIC (GSE51032 HC; A = 0.92), and 0.815 on Stage-1 noob from raw 450K IDATs (GSE87571; A = 0.82). The offset is additive (+0.066 β for Stage-1). Every within-pipeline comparison (Cohen d, ΔA, case-vs-control on one matrix) cancels this and never sees it — which is why 200 VALs never tripped on it and why the April 2026 VAL-003 output could say "ΔA valid within-pipeline; absolute thresholds require a pipeline-matched healthy reference." An ABSOLUTE reading of A against H_min requires the patient β to be mapped onto the Roadmap scale first: one affine map per pipeline, fit on healthy blood (`chain/Runtime Matrices/A_Scoring_Module/beta_scale_maps_v1.json`). The floors are not re-derived per pipeline — that would discard the MCMC confirmation. Three layers, keep them separate: FLOOR (Roadmap scale, MCMC, physics) → PIPELINE (affine map) → LAB (~0.01–0.02 A per cohort; plate/batch, N-plate). Record: `Record/VAL_PostAtlas/CPG_PHASE1_identity_band_GSE87571/OUTCOME.md`; Issue 003 RECON S1, §1.6.
+**BETA SCALE (LESSON-SCALE-01, 2026-09-20).** H_min was calibrated by the G-002 MCMC on Roadmap/ENCODE reference β (GenomicStudio-normalised). The Atlas posteriors sit on that same scale. Other pipelines do NOT: on the 42,024 immune identity loci, healthy blood reads β̄ = 0.737 on the Roadmap/Atlas scale (A = 1.00), 0.774 on GEO author-processed EPIC (GSE51032 HC; A = 0.92), and 0.815 on Stage-1 noob from raw 450K IDATs (GSE87571; A = 0.82). The offset is additive (+0.066 β for Stage-1). Every within-pipeline comparison (Cohen d, ΔA, case-vs-control on one matrix) cancels this and never sees it — which is why 200 VALs never tripped on it and why the April 2026 VAL-003 output could say "ΔA valid within-pipeline; absolute thresholds require a pipeline-matched healthy reference." An ABSOLUTE reading of A against H_min requires the patient β to be mapped onto the Roadmap scale first: one affine map per pipeline, fit on healthy blood (chain/Runtime Matrices/A_Scoring_Module/beta_scale_maps_v1.json (archived privately)). The floors are not re-derived per pipeline — that would discard the MCMC confirmation. Three layers, keep them separate: FLOOR (Roadmap scale, MCMC, physics) → PIPELINE (affine map) → LAB (~0.01–0.02 A per cohort; plate/batch, N-plate). Record: Record/VAL_PostAtlas/CPG_PHASE1_identity_band_GSE87571/OUTCOME.md (archived privately); Issue 003 RECON S1, §1.6.
 
-Pre-flight check: for every cohort, compute healthy-immune β̄ on the identity loci and compare to 0.737 (Roadmap). A departure > 0.01 without a matching entry in [`beta_scale_maps_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/beta_scale_maps_v1.json) halts absolute reporting for that cohort.
+Pre-flight check: for every cohort, compute healthy-immune β̄ on the identity loci and compare to 0.737 (Roadmap). A departure > 0.01 without a matching entry in beta_scale_maps_v1.json (archived privately) halts absolute reporting for that cohort.
 
 ## 13. Getting raw IDATs fast (added 2026-09-20)
 
@@ -197,8 +199,8 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 | step | do | where | check |
 |---|---|---|---|
 | 1 | **Seal the record.** OUTCOME.md with the sealed PREREG it answers, sha256 at the foot. Post-seal changes are labelled ADDENDUM/CORRECTION, never edits. | `Record/VAL_PostAtlas/<ID>/` | file exists, checksum line present |
-| 2 | **Kill what it overturns.** List the phrases the finding makes false ("retires"). Grep `MethylPhys/manual/build_operations_manual.py`, `MethylPhys/manual/om_data.py`, `SOP/*.md`, `MethylPhys/kit/*.md`, [`HANDOFF.md`](HANDOFF.md). Fix, or mark WITHDRAWN with the ID. | everywhere | none of the retired phrases render in the PDF (record-of-correction sentences excepted — they must contain the word WITHDRAWN/CORRECTED/SUPERSEDED) |
-| 3 | **Register it.** One row in each register it touches: RECON (a constant/rule changed), FALSIFICATION (a claim withdrawn), §1.6 COSMO_EVIDENCE (a CMB tool found it), CHAIN_COMMISSIONING.md (the stage's status), switching_order.py (the stage's lessons/procedures), FUTURE_GOALS (opened or closed). | [`om_data.py`](../manual/om_data.py), [`CHAIN_COMMISSIONING.md`](CHAIN_COMMISSIONING.md), [`switching_order.py`](../manual/switching_order.py) | the ID appears in each register the finding touches |
+| 2 | **Kill what it overturns.** List the phrases the finding makes false ("retires"). Grep MethylPhys/manual/build_operations_manual.py (archived privately), MethylPhys/manual/om_data.py (archived privately), `SOP/*.md`, `MethylPhys/kit/*.md`, [`HANDOFF.md`](HANDOFF.md). Fix, or mark WITHDRAWN with the ID. | everywhere | none of the retired phrases render in the PDF (record-of-correction sentences excepted — they must contain the word WITHDRAWN/CORRECTED/SUPERSEDED) |
+| 3 | **Register it.** One row in each register it touches: RECON (a constant/rule changed), FALSIFICATION (a claim withdrawn), §1.6 COSMO_EVIDENCE (a CMB tool found it), CHAIN_COMMISSIONING.md (the stage's status), switching_order.py (the stage's lessons/procedures), FUTURE_GOALS (opened or closed). | om_data.py (archived privately), [`CHAIN_COMMISSIONING.md`](CHAIN_COMMISSIONING.md), switching_order.py (archived privately) | the ID appears in each register the finding touches |
 | 4 | **Close it in code** if it is a lesson. A label, a guard, a refusal to report (`scale=UNMAPPED → reportable=False` is the model). A lesson that lives only in prose is re-learned. | `MethylPhys/chain/` | the guard has a test in the kit |
 | 5 | **Teach it.** ONE canonical paragraph, identical text, in every door a reader opens first: HANDOFF.md, root/Engine/Testing/Atlas READMEs, SOP (new §), RUNBOOK (new § or pre-flight), CPG_Lessons_Learned, README_FOR_FUTURE_AI, and the module docstring it bites. | the door list | the ID appears in every door |
 | 6 | **Rebuild and READ.** Page 1, page 2, §11 (coverage), and every touched section — by eye. Assertions catch strings; only reading catches a stale sentence that uses new words. | PDF | page count, ID rendered, retired phrases absent, visual check of touched pages |
@@ -217,11 +219,11 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 
 **H_min CROSS-CHECK (PROC-HMIN-BOOT-01, 2026-09-20).** The eight methylation floors were calibrated by G-002 MCMC (37 reference cells, R-hat < 1.001). The April bootstrap cross-check (0.168 %, 24/32 in CI) covered the 32 non-methylation floors only; the methylation eight were bootstrapped for the first time on 2026-09-20 — 8/8 inside the 95 % CI, 0.060 % mean / 0.095 % max relative difference. Values unchanged. The calibration scripts are not at HEAD (removed 2026-04-19 as commercial) but are in public history at 22749f0 — a disclosure decision for the author. Record: `Record/PROC_data/PROC-HMIN-BOOT-01/`.
 
-**LAB ZERO — PANEL SPECIFICATION (PROC-PANEL-01 → PROC-PANEL-03, 2026-09-20; supersedes the '20–30 arrays' wording above).** A laboratory's zero is measured once on **40** healthy arrays of any age mix through the same Stage 1 and map: z = median[A − c(decade)] − 1, where c is the reference healthy age curve ([`reference_age_curve_v1.json`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/reference_age_curve_v1.json); healthy immune A rises ≈0.045 from the teens to the eighties within a lab, while between-lab offsets are parallel). A patient reads A″ = A − c(decade) − z. Tested leave-one-lab-out on four labs: a band built on three holds 75–84 % of the fourth's healthy donors. In code: `../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/lab_zero.py` — panels under 40 are refused and `lab_zero=UNSET` is not reportable. Record: `Record/PROC_data/PROC-PANEL-01 → PROC-PANEL-03/`.
+**LAB ZERO — PANEL SPECIFICATION (PROC-PANEL-01 → PROC-PANEL-03, 2026-09-20; supersedes the '20–30 arrays' wording above).** A laboratory's zero is measured once on **40** healthy arrays of any age mix through the same Stage 1 and map: z = median[A − c(decade)] − 1, where c is the reference healthy age curve (reference_age_curve_v1.json (archived privately); healthy immune A rises ≈0.045 from the teens to the eighties within a lab, while between-lab offsets are parallel). A patient reads A″ = A − c(decade) − z. Tested leave-one-lab-out on four labs: a band built on three holds 75–84 % of the fourth's healthy donors. In code: ../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/lab_zero.py (archived privately) — panels under 40 are refused and `lab_zero=UNSET` is not reportable. Record: `Record/PROC_data/PROC-PANEL-01 → PROC-PANEL-03/`.
 
 **THE VALIDATION COUNT, CORRECTED (PROC-HISTORY-01, 2026-09-21).** The record, not the tree: 3 G-series calibrations; **119 pre-Atlas VALs (VAL-001..128; 107 executed)** incl. the **T1–T15** cross-population series of VAL-049 (12 executed, 6 populations); **22 post-Atlas CPG-VALs (001..022; 21 executed)**; the Mahalanobis hull v0_1→v0_5 (n=2,523, four populations incl. Han Chinese n=42); L9 N7; the September PROCs. The 2026-09-19 index said 103 — it keyed on bare numbers (VAL-001 collided with CPG-VAL-001) and counted folders. `Record/VAL_INDEX.csv` is rebuilt (175 rows, unique keys by series); AD folders CPG-VAL-008..014 moved to `VAL_PostAtlas/`. Record: `Record/PROC_data/PROC-HISTORY-01/`.
 
-**THE GAUGE SWITCH (PROC-SWITCH-01 → PROC-SWITCH-02, 2026-09-21; row B COMMISSIONED).** `cpg_conductor.run_full` now REPORTS the identity-loci gauge: A = H(β̄)/H_min on [`iamatlas_gauge_identity_loci_v1_0.json`](../chain/Runtime%20Matrices/A_Scoring_Module/iamatlas_gauge_identity_loci_v1_0.json), on mapped β, minus c(decade) (`reference_age_curve_v1.json`), minus the laboratory zero ([`lab_zero.py`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/lab_zero.py)), placed in [`identity_band_v3.json`](../RETIRED_2026-09/cohort_gauge_layers_2026-09-27/identity_band_v3.json) (four zeroed labs, n = 1,379, pooled p10–p90 0.9724–1.0248). The marker-union statistic is `diagnostic_marker_union` — never the reported A. Stages 5 and 6 carry `pending_recalibration=True`. Test: `MethylPhys/kit/test_gauge_switch.py`. **Finding:** the atlas posterior is a fifth laboratory (z = −0.0146) — SWITCH-01's S4 assumed zero and failed as sealed; every β source, including a simulator, is zeroed before it is read absolutely.
+**THE GAUGE SWITCH (PROC-SWITCH-01 → PROC-SWITCH-02, 2026-09-21; row B COMMISSIONED).** `cpg_conductor.run_full` now REPORTS the identity-loci gauge: A = H(β̄)/H_min on iamatlas_gauge_identity_loci_v1_0.json (archived privately), on mapped β, minus c(decade) (`reference_age_curve_v1.json`), minus the laboratory zero (lab_zero.py (archived privately)), placed in identity_band_v3.json (archived privately) (four zeroed labs, n = 1,379, pooled p10–p90 0.9724–1.0248). The marker-union statistic is `diagnostic_marker_union` — never the reported A. Stages 5 and 6 carry `pending_recalibration=True`. Test: MethylPhys/kit/test_gauge_switch.py (archived privately). **Finding:** the atlas posterior is a fifth laboratory (z = −0.0146) — SWITCH-01's S4 assumed zero and failed as sealed; every β source, including a simulator, is zeroed before it is read absolutely.
 
 **STAGE 5 RE-BASED (PROC-MAHA-01, 2026-09-21; row 5 BUILT, not commissioned).** The departure now reads the identity gauge: z = (A″ − 1)/σ, σ = 0.0204 from `identity_band_v3`; on whole blood one banded axis, so the number is |z_immune| against 1.960 / 2.576; `bundle['mahalanobis']` carries the long keys the report builder reads plus the short aliases; UNSET → not reportable. The eight-class derived hull is `diagnostic_hull_marker_union`. **M2 failed as sealed:** Karolinska 9.8 % of healthy beyond p95 (bar 7 %). **Cause measured — the Sentrix chip:** per-chip median SD 0.020 there vs 0.012 elsewhere; chip-centring cuts every lab to 2–4 %. A laboratory constant cannot touch it; row 5b (chip term) is open and the acceptable false-alarm rate is the author's decision (PROC-MAHA-02). Record: `Record/PROC_data/PROC-MAHA-01/`.
 
@@ -229,17 +231,17 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 
 **RECORD LESSON (PROC-RECORD-02, 2026-09-21).** VAL-025..028 (four-substrate aging, r = 0.9998) were carried as PASS in the index and record; their script types the age tables from the literature and Monte-Carlo scores them — no per-sample substrate data exists in Hannum or Wang 2020. Issue 002 had already called them '(modeled) — prediction filed'. Reclassified MODELED PREDICTION. **Rule: a PASS row names what was measured on which samples; a Monte Carlo around a typed table is a model and says so in its status column.** The methylation aging trajectory (VAL-006, CPG-VAL-015, PROC-AGE-01) is per-sample and stands.
 
-**RECORD (PROC-RECORD-03, 2026-09-21).** The 80-cell [`age_reference_matrix.json`](../chain/Runtime%20Matrices/A_Scoring_Module/age_reference_matrix.json) is the April HEALTHY_BASELINES table: typed β_mean per decade with literature labels, A by formula, Gaussian percentiles around a typed SD; no generating script. Its direction is confirmed by measurement (PROC-AGE-01), its slope is ~2× the measured 0.47 mA/yr, its level is pre-scale-offset; it is read by no reported path (`reference_age_curve_v1` supersedes it). The AD and breast 'cellular age in years' results were ΔA read through that typed slope: the ΔA (AD immune d = −0.56, *younger*, i.e. senescence) is the measurement; the years are withdrawn as a unit.
+**RECORD (PROC-RECORD-03, 2026-09-21).** The 80-cell age_reference_matrix.json (archived privately) is the April HEALTHY_BASELINES table: typed β_mean per decade with literature labels, A by formula, Gaussian percentiles around a typed SD; no generating script. Its direction is confirmed by measurement (PROC-AGE-01), its slope is ~2× the measured 0.47 mA/yr, its level is pre-scale-offset; it is read by no reported path (`reference_age_curve_v1` supersedes it). The AD and breast 'cellular age in years' results were ΔA read through that typed slope: the ΔA (AD immune d = −0.56, *younger*, i.e. senescence) is the measurement; the years are withdrawn as a unit.
 
 **DETECTION RULE (author, 2026-09-21).** No definitive statement about what the commissioned chain can or cannot detect until it has been run on that question under seal. 'Not yet tested', never 'cannot'. Measured defects stay (they are measurements). `finding_check.py --detection-scan` flags the vocabulary in the live documents; each hit must cite a PROC on the commissioned chain or be reworded.
 
-- **Row 4.6 — the patient's sky — COMMISSIONED (PROC-CMB-05, 2026-09-21, five seals; C2′ 4/4 on the restated bar [0.025, 0.08]).** `cpg_conductor.run_full` bundle key `patient_sky`: z = (β − Σ f_c μ_c − m_lab)/s_lab on the mapped β, class panels gated by measured presence floors (`chain/Runtime Matrices/Patient_CMB/`), HEALPix NSIDE 128 genomic order. NOT AVAILABLE without the laboratory's residual scale (built from the same 40-array healthy panel as the lab zero). Calibration constant stated on every sky: healthy held-out tail 2.6–3.2 %, not 5 % (C2′ failed as sealed by ≤ 0.004; recorded). The retired `patient_brightness_comparison.py` formula read 61 % of a healthy genome as anomalous (C1) and is closed. Kit test [`test_patient_sky.py`](../kit/test_patient_sky.py).
+- **Row 4.6 — the patient's sky — COMMISSIONED (PROC-CMB-05, 2026-09-21, five seals; C2′ 4/4 on the restated bar [0.025, 0.08]).** `cpg_conductor.run_full` bundle key `patient_sky`: z = (β − Σ f_c μ_c − m_lab)/s_lab on the mapped β, class panels gated by measured presence floors (`chain/Runtime Matrices/Patient_CMB/`), HEALPix NSIDE 128 genomic order. NOT AVAILABLE without the laboratory's residual scale (built from the same 40-array healthy panel as the lab zero). Calibration constant stated on every sky: healthy held-out tail 2.6–3.2 %, not 5 % (C2′ failed as sealed by ≤ 0.004; recorded). The retired `patient_brightness_comparison.py` formula read 61 % of a healthy genome as anomalous (C1) and is closed. Kit test test_patient_sky.py (archived privately).
 
 - **Lesson (2026-09-21, PROC-CMB-04 push):** a checker run as `check && next` under `set -e` does NOT stop the script when it fails — the push went out with the doors unlit. The gate must be its own statement (`python3 finding_check.py … || exit 1`). Fixed the same commit.
 
-- **Row 7 — tiers — COMMISSIONED (PROC-TIER-01, 2026-09-21).** One tier function, `MethylPhys/chain/cpg_tiers.py`, reads [`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json); no tier word on a non-reportable gauge (§108 / UNMAPPED / lab_zero UNSET). Measured, not moved: under the July 1.01 onset 30 % of 1,379 healthy donors read ELEVATED on the identity gauge (1.07 admits 1; 1.10 none; healthy central 95 % = 0.954–1.041). PROC-TIER-02 set NORMAL to the healthy central 95 % → `tier_breakpoints. **v1.5 (2026-09-27) retired that edge: a population had defined a tier boundary. NORMAL is [0.95, 1.05), symmetric about A = 1.00; the healthy central 95 % (0.954-1.041) is recorded on the Instrument tab as an observation about people.**json` v1.4 [0.95, 1.04): 2.5 % of healthy read ELEVATED. Kit test [`test_tiers.py`](../kit/test_tiers.py).
+- **Row 7 — tiers — COMMISSIONED (PROC-TIER-01, 2026-09-21).** One tier function, MethylPhys/chain/cpg_tiers.py (archived privately), reads tier_breakpoints.json (archived privately); no tier word on a non-reportable gauge (§108 / UNMAPPED / lab_zero UNSET). Measured, not moved: under the July 1.01 onset 30 % of 1,379 healthy donors read ELEVATED on the identity gauge (1.07 admits 1; 1.10 none; healthy central 95 % = 0.954–1.041). PROC-TIER-02 set NORMAL to the healthy central 95 % → `tier_breakpoints. **v1.5 (2026-09-27) retired that edge: a population had defined a tier boundary. NORMAL is [0.95, 1.05), symmetric about A = 1.00; the healthy central 95 % (0.954-1.041) is recorded on the Instrument tab as an observation about people.**json` v1.4 [0.95, 1.04): 2.5 % of healthy read ELEVATED. Kit test test_tiers.py (archived privately).
 
-- **Row 8 — disease matching — OPEN (PROC-MATCH-01, 2026-09-21).** Origin gate now fails CLOSED; substrate firewall verified; per-cell surface = the sealed anchor formula. But Stage 8's departure is (A − 1.0) on a surface where healthy per-cell A ≈ 0.44–0.52, so 0–5 cells enter on any sample and nothing can match. `run_full` carries it as `diagnostic_disease_matching`, reportable=False. Gate: per-cell healthy reference on the separation surface from the four-lab panels, then re-seal. Disease matching on the commissioned chain is not yet tested. Kit test [`test_disease_matching_gate.py`](../../Record/PROC_data/PROC-MATCH-01/test_disease_matching_gate.py).
+- **Row 8 — disease matching — OPEN (PROC-MATCH-01, 2026-09-21).** Origin gate now fails CLOSED; substrate firewall verified; per-cell surface = the sealed anchor formula. But Stage 8's departure is (A − 1.0) on a surface where healthy per-cell A ≈ 0.44–0.52, so 0–5 cells enter on any sample and nothing can match. `run_full` carries it as `diagnostic_disease_matching`, reportable=False. Gate: per-cell healthy reference on the separation surface from the four-lab panels, then re-seal. Disease matching on the commissioned chain is not yet tested. Kit test test_disease_matching_gate.py (archived privately).
 
 **SEALING RULE (author, 2026-09-21).** "We seal when we have a working tool." A PREREG/OUTCOME pair is for a BUILT tool whose question is whether it performs against a bar. Building the tool - finding the zero, the scale, the floors, the surface - is EXPLORATION: it gets a dated working note (what was tried, what was measured, what changed) in the row's PROC folder, no seal, no falsification row. The falsification register records claims that failed, not construction that iterated. Retrospective: PROC-CMB-01..04 and PROC-MATCH-01 were exploration and are so marked in the register; the tool the CMB work produced was sealed once, as CMB-05.
 
@@ -247,18 +249,18 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 
 **RENDER CHECK LESSON (2026-09-21).** A page render placed after an `assert` in the same script does not run when the assert fails - the on-disk image is then the STALE previous render, and text extraction does not see split words inside table cells. Render unconditionally (before any assert, or in its own statement), then READ the image; write 'verified visually' only after that read. An auditor caught a stale chk_phys1.png presented as verified.
 
-- **Row 4.5 — bidirectional detector — COMMISSIONED (PROC-BIDIR-01, 2026-09-21).** VAL-050/051 reproduce from the kit; engine == sealed formula (2e-16); 726 AIBL samples × 18 CpGs re-extracted from the raw GEO file match the sealed betas exactly. **Row 9 — the report — the interface is `MethylPhys/chain/MethylPhys_Interface/build_methylphys.py`:** 19 tabs read from the bundle - 9 for the specimen, 10 reference; the tab reference is generated from a finished report; Stage 2d added 2026-09-26. Not sealed: the report is commissioned when the stages it prints are, and it prints NOT RUN / WITHHELD rather than a pass for any that are not. 
+- **Row 4.5 — bidirectional detector — COMMISSIONED (PROC-BIDIR-01, 2026-09-21).** VAL-050/051 reproduce from the kit; engine == sealed formula (2e-16); 726 AIBL samples × 18 CpGs re-extracted from the raw GEO file match the sealed betas exactly. **Row 9 — the report — the interface is MethylPhys/chain/MethylPhys_Interface/build_methylphys.py (archived privately):** 19 tabs read from the bundle - 9 for the specimen, 10 reference; the tab reference is generated from a finished report; Stage 2d added 2026-09-26. Not sealed: the report is commissioned when the stages it prints are, and it prints NOT RUN / WITHHELD rather than a pass for any that are not. 
 
 ## Checking this work
 
 [`REVIEWER_MANIFEST.md`](REVIEWER_MANIFEST.md) is the download list: every file a reviewer could want, resolved from the tree rather than typed, with an explicit statement of what is not published and why.
 
 <!-- GENERATED:chain start -->
-**The chain as the code runs it** (generated 2026-09-30 by `../kit/build_marked_blocks.py` from `../chain/chain_sequence.json`; 20 steps; 2 chain-named files no path calls). One command regenerates every document that reports the chain: `python3 ../chain/build_all.py` - run by `guarded_push.sh` on every push.
+**The chain as the code runs it** (generated 2026-10-03 by `../kit/build_marked_blocks.py` from `../chain/chain_sequence.json`; 20 steps; 3 chain-named files no path calls). One command regenerates every document that reports the chain: `python3 ../chain/build_all.py` - run by `guarded_push.sh` on every push.
 
 | # | step | file | what it implements |
 |---|---|---|---|
-| 1 | `step_0_1_idat_arrival` | [`stage_0_intake.py`](../chain/stage_0_intake.py) | SOP section 0.1_idat_arrival |
+| 1 | `step_0_1_idat_arrival` | `stage_0_intake.py` | SOP section 0.1_idat_arrival |
 | 2 | `step_0_2_manifest_creation` | `stage_0_intake.py` | SOP section 0.2_manifest_creation |
 | 3 | `step_0_3_integrity_hash` | `stage_0_intake.py` | SOP section 0.3_integrity_hash |
 | 4 | `step_0_4_control_probe_validation` | `stage_0_intake.py` | SOP section 0.4_control_probe_validation |
@@ -269,17 +271,17 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 | 9 | `step_0_8_sex_check` | `stage_0_intake.py` | SOP section 0.8_sex_check |
 | 10 | `step_0_9_decision_gate` | `stage_0_intake.py` | SOP section 0.9_decision_gate |
 | 11 | `Stage 1 - IDAT calibration` | `stage_1_idat_calibration.py` | Stage 1 - IDAT calibration to beta (SOP Stage 1, steps 1.1-1.2 + 1.5) |
-| 12 | `stage_a_cells` | [`cpg_conductor.py`](../chain/cpg_conductor.py) | Stage A — find the cell types in the sample, their ratios, and their A-scores |
-| 13 | `stage_2b_second_opinion` | `cpg_conductor.py` | Row 2b - the second opinion. NILC (needlet internal linear combination, the Planck component-separation |
-| 14 | `stage_b_classes` | `cpg_conductor.py` | Stage B - per-class GAUGE. **AS WIRED (2026-07 -> today): A = H(beta_mean)/H_min over the |
-| 15 | `stage_1s_scale_map` | `cpg_conductor.py` | Stage 1s (LESSON-SCALE-01, SOP s109): put patient beta on the Roadmap scale that H_min and the Atlas |
-| 16 | `stage_b_identity` | `cpg_conductor.py` | THE CLASS GAUGE - INTERNAL GATE ONLY (PROC-SWITCH-01, 2026-09-21; RULING A3; author's ruling 2026-09-27) |
-| 17 | `stage_2d_foreign_detection` | `cpg_conductor.py` | Stage 2d - FOREIGN-CELL DETECTION as ONE JOINT FIT (PROC-STAGE2D-03, adopted 2026-09-27 by the author's ruling: B1's |
-| 18 | `stage_4_5_bidirectional` | `cpg_conductor.py` | Stage 4.5 (SOP §46.5) - bidirectional decomposition. Signed directional |
-| 19 | `stage_4_6_patient_sky` | `cpg_conductor.py` | Stage 4.6 - the patient's sky. z_i = (beta_i - sum_c f_c mu_ci) / sigma_i on the mapped beta, where |
-| 20 | `Report` | `MethylPhys_Interface/build_methylphys.py` | one self-contained HTML from the bundle |
+| 12 | `platform_refusal` | `conductor_v3.py` | None when the specimen is EPIC v1; otherwise the refusal text |
+| 13 | `stage_m_isolated` | `conductor_v3.py` | Isolated / sorted neutrophils against their own floor. The own-floor state is kept as state_own_floor; the reading's state is |
+| 14 | `stage_a_composition` | `conductor_v3.py` | EPIC blood composition (blood_composition_EPIC_v1): 8 groups from Salas purified EPIC cells; markers exclude the neutrophil sites; |
+| 15 | `stage_m_blood` | `conductor_v3.py` | Whole blood: Met-A = mean H(beta) / mean H(e) at the neutrophil sites, e = sum_g f_g mu_g (EPIC purified group profiles) |
+| 16 | `stage_t_tare` | `conductor_v3.py` | Same-run tare against >= MIN_REFS healthy references of the same specimen type run the same way (same slide, else same batch) |
+| 17 | `stage_mc_cscore` | `conductor_v3.py` |  |
+| 18 | `stage_q_iam_a.pat_site_table` | `stage_q_iam_a.py` | Per-site table (pos, opp_A, err_A, opp_B, err_B) from one .pat(.gz) file, pipeline loyfer_pat_v1. pos = 'chrom:CpG index' |
+| 19 | `stage_q_iam_a.read` | `stage_q_iam_a.py` | site_table: per-site table (see module doc). cell: e.g. 'neutrophils'. pipeline: the read-level pipeline that produced the table |
+| 20 | `Report` | `MethylPhys_Interface/report_v3.py` | one self-contained HTML page plus the JSON bundle |
 
-**Generated documents** (never edit; rerun build_all): `../chain/chain_sequence.json`, `../doors/CHAIN_SEQUENCE.md`, `../chain/Runtime Matrices/chain_inventory_v1.json`, `../doors/COMPONENT_MAP.md`, `../chain/Runtime Matrices/Cell_Descriptions/cell_descriptions_v1.json`, `../chain/example_runs/RUN_INDEX.csv`, `../sop/MethylPhys_CPG_SOP.md`, `../manual/MethylPhys_CPG_Operations_Manual.pdf`, `../doors/REVIEWER_MANIFEST.md`, `../doors/REPORT_TAB_REFERENCE.md`, `../doors/REPO_INVENTORY.md`, `../doors/RUNBOOK.md`, `../README.md`, `../chain/GENERATED_MANIFEST.json`
+**Generated documents** (never edit; rerun build_all): `../chain/chain_sequence.json`, `../doors/CHAIN_SEQUENCE.md`, `../manual/MethylPhys_CPG_Operations_Manual.pdf`, `../doors/REPO_INVENTORY.md`, `../doors/RUNBOOK.md`, `../chain/GENERATED_MANIFEST.json`
 <!-- GENERATED:chain end -->
 
 ## The order of steps
@@ -294,7 +296,7 @@ be and what produced the number, and neither can be recovered afterwards from an
 ```
 python3 chain/MethylPhys_Interface/run_sample.py \
   --grn SAMPLE_Grn.idat.gz --red SAMPLE_Red.idat.gz \
-  --age 61 --sex M --lab GSE87571 --lab-zero -0.0117 --specimen "whole blood" \
+  --age 61 --sex M --array-type EPIC_v1 --specimen "whole blood" \
   --covariate diagnosis=case --covariate stage=II --covariate cohort=YOUR_COHORT \
   --intake-log custody/intake.jsonl --out reports/SAMPLE.html --id SAMPLE
 ```
@@ -326,12 +328,12 @@ Nothing here is part of a reading. These are the programs that check the chain a
 | run this | what it does |
 |---|---|
 | [`guarded_push.sh`](../chain/guarded_push.sh) | the only sanctioned push - runs propagate.py without a pipe and refuses to commit or push if it fails |
-| [`propagate.py`](../chain/propagate.py) | the gate: regenerates every derived document, then checks the rules a human wrote; exits non-zero on drift |
+| propagate.py (archived privately) | the gate: regenerates every derived document, then checks the rules a human wrote; exits non-zero on drift |
 | [`link_check.py`](../kit/link_check.py) | every relative path in the live documentation set must resolve - a path in a document is a claim |
-| [`evaluate_necessity.py`](../kit/evaluate_necessity.py) | answers whether a file is necessary, from the tree: runs, imported, named in code, named in a document, or a generator |
-| [`build_report_tab_reference.py`](../kit/build_report_tab_reference.py) | generates the tab-by-tab report reference and one figure per tab by reading a finished report |
-| [`build_run_index.py`](../chain/build_run_index.py) | regenerates the run index from every evidence ledger in the tree |
-| [`build_reviewer_manifest.py`](../kit/build_reviewer_manifest.py) | regenerates the reviewer download list, resolving every path by basename from the tree |
+| evaluate_necessity.py (archived privately) | answers whether a file is necessary, from the tree: runs, imported, named in code, named in a document, or a generator |
+| build_report_tab_reference.py (archived privately) | generates the tab-by-tab report reference and one figure per tab by reading a finished report |
+| build_run_index.py (archived privately) | regenerates the run index from every evidence ledger in the tree |
+| build_reviewer_manifest.py (archived privately) | regenerates the reviewer download list, resolving every path by basename from the tree |
 | [`build_chain_sequence.py`](../chain/build_chain_sequence.py) | derives the step order from the code by AST, so a document cannot claim a stage the code does not call |
 | [`add_doc_links.py`](../kit/add_doc_links.py) | links code names in prose to the files they name, idempotently |
 

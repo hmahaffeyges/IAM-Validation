@@ -48,6 +48,6 @@ outputs -> `s3://methylphys-data-945451304272-us-west-2-an/results/PROC_REPL_V3_
 The chain script's own upload attempts used the global S3 endpoint and got HTTP 307 (`run.log`: "S3 failures 579"); no output was lost — the sync job copied them.
 
 ## 4. Tabulation (laptop, pandas)
-`doors/data/proc_repl_v3_01_readings.csv` = `proc_repl_v3_01_box_readings.csv` + person/prep/replicate parsed from the title
+doors/data/proc_repl_v3_01_readings.csv (archived privately) = `proc_repl_v3_01_box_readings.csv` + person/prep/replicate parsed from the title
 (`^subject(\w)`, `_(pooled|unpooled)_`, `replicate(\d+)`) + RUN3 `A_rel_tared` from `doors/data/chain_v3_dev3_readings.csv` joined on gsm.
 Statistics per `ANALYSIS_RULES_set_before_reading.md`.

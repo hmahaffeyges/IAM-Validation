@@ -5,10 +5,10 @@ array was scored. 845 EPIC-Italy arrays scored through the commissioned chain. 5
 enter the analysis** — 78 breast, 72 colorectal and 163 female controls. The remaining 203 are the 84
 male controls excluded by design (every case is female) and 119 held-out cases of other cancer types,
 which no bar tests.
-Evidence: [`PROC_EPIC_01.json`](../kit/results/PROC_EPIC_01.json) ·
-[`PROC_EPIC_01_scored.json`](../kit/results/PROC_EPIC_01_scored.json) (every array) ·
-scripts [`PROC_EPIC_01_score.py`](../kit/PROC_EPIC_01_score.py) ·
-[`PROC_EPIC_01_analyse.py`](../kit/PROC_EPIC_01_analyse.py).
+Evidence: PROC_EPIC_01.json (archived privately) ·
+PROC_EPIC_01_scored.json (archived privately) (every array) ·
+scripts PROC_EPIC_01_score.py (archived privately) ·
+PROC_EPIC_01_analyse.py (archived privately).
 
 **The class read is the immune identity gauge throughout** — the same class as the pre-atlas work. No
 non-blood class was scored; on whole blood the chain refuses, and PROC-PARTIAL-01 is the procedure that asks
@@ -112,4 +112,4 @@ against an unadjusted null.
 **The colorectal finding survives, at a smaller effect than sealed.** 21 % of it was composition. The
 headline above is left as it was recorded and this qualification sits beneath it, because the sealed
 numbers were correctly computed for what they measured — the correction is to their interpretation, not
-their arithmetic. Evidence: [`PROC_EPIC_01_composition_adjusted.json`](../kit/results/PROC_EPIC_01_composition_adjusted.json).
+their arithmetic. Evidence: PROC_EPIC_01_composition_adjusted.json (archived privately).

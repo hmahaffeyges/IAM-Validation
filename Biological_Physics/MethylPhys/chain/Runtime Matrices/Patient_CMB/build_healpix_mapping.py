@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Toolkit: not yet wired into chain v3; enters the chain at commissioning with its own pre-registered check.  (SOP v3 section 2b, stage 11 (build-time: the CpG-to-pixel mapping); chain/TOOLKIT.md)
 """Build iamatlas_cpg_to_healpix_nside128.npz — the CpG -> HEALPix pixel mapping for the patient's sky (Stage 4.6).
 Deterministic: atlas CpGs are ordered by (chromosome, position) from the combined manifest and assigned sequentially to
 the 12*NSIDE^2 = 196,608 pixels in RING order, so genomic order runs across the sky exactly as Plate 1 (April 2026) did.

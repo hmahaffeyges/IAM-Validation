@@ -252,7 +252,7 @@ T4: 570 whole bloods, tared healthy SD 0.052, untared ≈ 1.22; T4a passed as wr
 | salmonid records PROC-SALMON-01, PROC-CHARR-01, PROC-RIMOUSKI-01, DEV-COHO-CC-01; `doors/data/salmon_readings.csv`, `charr_readings.csv`, `rimouski_readings.csv`, `coho_cc_fish.csv` | fish chapters; these records sit under `../Salmonid/` (e.g. `../Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`), not under `doors/`; they are not chain v3 records and may not belong in this SOP **[new]** |
 
 ### 3.7 Figure and analysis scripts the book named
-`figsky/make_sky_figs.py` (in the repo at `reference_floors_v1/sky/make_sky_figs.py`); box jobs `fcb79e1e` (`remote_jobs/sky6/sky_neut6.py`; repo copy `reference_floors_v1/sky/sky_neut6.py`) and `f754cf20` (`remote_jobs/gate/cd_neut.py`; repo copy `reference_floors_v1/sky/cd_neut.py`);
+figsky/make_sky_figs.py (path on the compute box; not in the repository) (in the repo at `reference_floors_v1/sky/make_sky_figs.py`); box jobs `fcb79e1e` (remote_jobs/sky6/sky_neut6.py (path on the compute box; not in the repository); repo copy `reference_floors_v1/sky/sky_neut6.py`) and `f754cf20` (remote_jobs/gate/cd_neut.py (path on the compute box; not in the repository); repo copy `reference_floors_v1/sky/cd_neut.py`);
 `docs/book/figscripts/fig_chain_v3_flow.py`, `fig_p4.py --tables`, `p4carry_precedence_search.py` (precedence search, 2026-10-02);
 `docs/verification/scripts/verify_astrogenetics_book.py`; derivation checks 12/12 at commit `8d3ab37`.
 **[new]** These are provenance, not operator steps; they may belong in the book's provenance appendix (`docs/book/appendices/app_I_provenance.tex`

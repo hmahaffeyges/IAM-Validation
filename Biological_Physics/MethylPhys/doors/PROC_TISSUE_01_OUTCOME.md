@@ -4,10 +4,10 @@
 before the series was downloaded. GSE131013, 238 of 240 arrays scored (two have no column in the submitted
 matrix), 450K, one laboratory: 48 healthy mucosae, 95 adjacent normal, 95 tumour, 91 patients contributing
 both their own tumour and their own adjacent normal.
-Evidence: [`PROC_TISSUE_01.json`](../kit/results/PROC_TISSUE_01.json) ·
-[`PROC_TISSUE_01_scored.json`](../kit/results/PROC_TISSUE_01_scored.json) ·
-scripts [`PROC_TISSUE_01_score.py`](../kit/PROC_TISSUE_01_score.py) ·
-[`PROC_TISSUE_01_analyse.py`](../kit/PROC_TISSUE_01_analyse.py).
+Evidence: PROC_TISSUE_01.json (archived privately) ·
+PROC_TISSUE_01_scored.json (archived privately) ·
+scripts PROC_TISSUE_01_score.py (archived privately) ·
+PROC_TISSUE_01_analyse.py (archived privately).
 
 ## The verdict
 
@@ -36,7 +36,7 @@ roughly 45 % epithelial, not 23 %. **B6 still fails**, since the bar was > 0.50,
 still immune, since immune (0.382) remains the largest single class — so no verdict below changes. But
 the specimens are much closer to the bar than first reported, and the stated reason was wrong.
 See [`ATLAS_READABILITY.md`](ATLAS_READABILITY.md) §3 and
-[`PROC_TISSUE_01_b6_recheck.json`](../kit/results/PROC_TISSUE_01_b6_recheck.json).
+PROC_TISSUE_01_b6_recheck.json (archived privately).
 
 The median epithelium-containing fraction is **0.45** against an immune fraction of 0.34–0.38. These are **bulk mucosa**, not sorted
 epithelium — and colonic lamina propria is genuinely lymphocyte-rich, so that is a plausible composition for

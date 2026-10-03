@@ -15,6 +15,6 @@ Here the same bound is the ruler.
 | [`MethylPhys/doors/`](MethylPhys/doors/) | one pre-registration and one outcome record per procedure, including those that failed |
 | [`Salmonid/`](Salmonid/) | the fish work: copy error at water temperature (in development) |
 | [`Record/`](Record/) | the April–June 2026 validation runs on the earlier class-floor method, kept as the record of how the work developed; not evidence for the current instrument |
-| [`RETIRED_2026-09/`](RETIRED_2026-09/), [`RETIRED_2026-10/`](RETIRED_2026-10/) | earlier chain versions, reports, manuals and pages, kept unchanged with an index |
+| RETIRED_2026-09/ (archived privately), RETIRED_2026-10/ (archived privately) | earlier chain versions, reports, manuals and pages, kept unchanged with an index |
 
 The instrument is not commissioned and is not a diagnostic test. It gives no medical advice.

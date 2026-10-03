@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Toolkit: not yet wired into chain v3; enters the chain at commissioning with its own pre-registered check.  (SOP v3 section 2b, stage 12 (null suite; N8 look-elsewhere); chain/TOOLKIT.md)
 """
 cpg_null_runner.py — Unified null-test framework for CPG-VALs
 

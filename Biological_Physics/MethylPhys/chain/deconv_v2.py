@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Toolkit: not yet wired into chain v3; enters the chain at commissioning with its own pre-registered check.  (SOP v3 section 2b, stage 3; chain/TOOLKIT.md)
 """IAM-Atlas v2 composition solver (doors/PROC_DECONV_V2_01_PREREG.md). Built on atlas v2 alone: no v1 file, panel, name or code.
 Reference mu and variance v = mu_sd^2 + donor_sd^2 per cell and locus; loci measured by every modelled cell; per-cell markers
 chosen against the NEAREST other cell (margin >= 0.20, top 200 by margin / pooled SD); one joint solve, f >= 0, sum f = 1,

@@ -3,10 +3,10 @@
 **Sealed 2026-09-23** against the bars fixed in [`PROC_E2E_01_PREREG.md`](PROC_E2E_01_PREREG.md) before any
 array was read. Nine IDAT pairs, four cohorts, two platforms, three substrates, each through
 [`run_sample.py`](../chain/MethylPhys_Interface/run_sample.py) exactly as a reviewer would type it.
-Evidence: [`PROC_E2E_01_score.json`](../kit/results/PROC_E2E_01_score.json),
-[`PROC_E2E_01_calibration_vs_cache.json`](../kit/results/PROC_E2E_01_calibration_vs_cache.json),
-[`PROC_E2E_01_geo_metadata.json`](../kit/results/PROC_E2E_01_geo_metadata.json), and the scripts
-[`PROC_E2E_01_run.py`](../kit/PROC_E2E_01_run.py) / [`PROC_E2E_01_score.py`](../kit/PROC_E2E_01_score.py).
+Evidence: PROC_E2E_01_score.json (archived privately),
+PROC_E2E_01_calibration_vs_cache.json (archived privately),
+PROC_E2E_01_geo_metadata.json (archived privately), and the scripts
+PROC_E2E_01_run.py (archived privately) / PROC_E2E_01_score.py (archived privately).
 
 ## Verdict
 

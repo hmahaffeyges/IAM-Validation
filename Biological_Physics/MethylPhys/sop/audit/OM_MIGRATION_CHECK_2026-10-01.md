@@ -1,6 +1,6 @@
 # OM migration check — Issue 003 Operations Manual vs the full SOP v3
 
-**Sources read** (`Biological_Physics/MethylPhys/manual/`, `main` at `d5873bd`): the rendered `MethylPhys_CPG_Operations_Manual.pdf` (Edition 003, 234 pages, built from `build_operations_manual.py`, `om_data.py`, `om_part3.py`, `intro_blocks.json`, `appendix_vi_vii.json`, `report_tabs.json`, `switching_order.py`, `val_index.json`, `toc_pages.json`), `PART_II_CHAPTER_NOTES.md`, `OM_v3_neutrophil_chain.md`.
+**Sources read** (`Biological_Physics/MethylPhys/manual/`, `main` at `d5873bd`): the rendered `MethylPhys_CPG_Operations_Manual.pdf` (Edition 003, 234 pages, built from `build_operations_manual.py`, `om_data.py`, `om_part3.py`, `intro_blocks.json`, `appendix_vi_vii.json`, `report_tabs.json`, `switching_order.py`, `val_index.json`, `toc_pages.json`), PART_II_CHAPTER_NOTES.md (archived privately), `OM_v3_neutrophil_chain.md`.
 **How:** text of all 234 pages extracted; every page searched for intake, calibration, custody, install and operating terms; the pages that carry chain-v3-relevant content were read in full (pp. 1–2, 10–11, 112–114, 127–130, 134, 148–150, 156, 233). Sections whose heading names a retired method (class floors, class cards, atlas classes, five substrates, sky/CMB, tiers, laboratory zero, age band) were classed outdated from the heading and a keyword scan, not read line by line.
 **Test for "still true":** the statement describes what the current code does, or a rule/record that still holds for chain v3.
 
@@ -27,7 +27,7 @@
 
 **Cannot confirm (not counted):** p. 134 PROC-CAL-01 and p. 233 glossary — "Stage 1 bit-identical to the project cache on 11/11". Measured before Stage 1 began removing probes at poobah p > 0.05 (2026-09-27); not re-run on the current Stage 1.
 
-**Already in the SOP (no action):** Stage 0 step list and thresholds (§3b.1, values corrected to the code); refusal actions in §3b.5 (manifest fields, hashed id, missing channel, truncated upload, array-type mismatch → trust the header, corrupt IDAT, re-transmission → another `--intake-log` for a planned re-run, borderline/bead warnings); `HOME` writable cache and manifest download (§3b.7); run `run_sample.py` from its own directory; methylprep 1.7.1 needs pandas < 2 (p. 134, p. 233, `PART_II_CHAPTER_NOTES.md` Stage 1); `--patient-id`, `--intake-log`, `--manifest-dir` (III.11); hand-off module purpose (III.10); all of `OM_v3_neutrophil_chain.md` that is still current.
+**Already in the SOP (no action):** Stage 0 step list and thresholds (§3b.1, values corrected to the code); refusal actions in §3b.5 (manifest fields, hashed id, missing channel, truncated upload, array-type mismatch → trust the header, corrupt IDAT, re-transmission → another `--intake-log` for a planned re-run, borderline/bead warnings); `HOME` writable cache and manifest download (§3b.7); run `run_sample.py` from its own directory; methylprep 1.7.1 needs pandas < 2 (p. 134, p. 233, PART_II_CHAPTER_NOTES.md (archived privately) Stage 1); `--patient-id`, `--intake-log`, `--manifest-dir` (III.11); hand-off module purpose (III.10); all of `OM_v3_neutrophil_chain.md` that is still current.
 
 ## 2. Outdated — by heading only
 
@@ -81,7 +81,7 @@ Record and appendices
 - Glossary — CMB and chain terms; Glossary — chain links (pp. 230–234)
 
 Other sources
-- `PART_II_CHAPTER_NOTES.md` — Three kinds of file (FLOOR / RULER / BAND) and the per-stage chapter notes
+- PART_II_CHAPTER_NOTES.md (archived privately) — Three kinds of file (FLOOR / RULER / BAND) and the per-stage chapter notes
 - `OM_v3_neutrophil_chain.md` — Reading the report (composition ≥ 50 % row); Faults ("not the dominant cell" row)
 
 ## 3. Result

@@ -15,9 +15,9 @@ uses — A mapped minus the commissioned age term — and is not printed in the 
 
 | report | array | what it is | A' |
 |---|---|---|---|
-| [`MethylPhys_GSM1235738_methylation_RUN-20260925-02.html`](MethylPhys_GSM1235738_methylation_RUN-20260925-02.html) | GSM1235738 | a healthy control | 0.9099 |
-| [`MethylPhys_GSM1235762_methylation_RUN-20260925-01.html`](MethylPhys_GSM1235762_methylation_RUN-20260925-01.html) | GSM1235762 | a colorectal case, blood drawn 6.8 years before diagnosis | 0.9261 |
-| [`MethylPhys_GSM1236129_methylation_RUN-20260925-03.html`](MethylPhys_GSM1236129_methylation_RUN-20260925-03.html) | GSM1236129 | a breast case, blood drawn 10.4 years before diagnosis | 0.8890 |
+| MethylPhys_GSM1235738_methylation_RUN-20260925-02.html (archived privately) | GSM1235738 | a healthy control | 0.9099 |
+| MethylPhys_GSM1235762_methylation_RUN-20260925-01.html (archived privately) | GSM1235762 | a colorectal case, blood drawn 6.8 years before diagnosis | 0.9261 |
+| MethylPhys_GSM1236129_methylation_RUN-20260925-03.html (archived privately) | GSM1236129 | a breast case, blood drawn 10.4 years before diagnosis | 0.8890 |
 
 The control's A' of 0.9099 is the group median; the colorectal case sits above it and the breast case
 below, which is the whole finding in three specimens.

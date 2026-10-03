@@ -1,3 +1,4 @@
+# Toolkit: not yet wired into chain v3; enters the chain at commissioning with its own pre-registered check.  (SOP v3 section 2b, stage 12b (difference of two draws: delta_sky, delta_cells); chain/TOOLKIT.md)
 """serial_mode.py - one person, two or more draws (PROC-SERIAL-01). Pure functions over bundles and beta vectors; the chain's
 stages are untouched. Wired into run_sample.py (--prior) only after PROC-SERIAL-01's bars are scored."""
 import json, hashlib

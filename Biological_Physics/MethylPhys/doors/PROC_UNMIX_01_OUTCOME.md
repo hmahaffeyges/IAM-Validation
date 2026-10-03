@@ -1,7 +1,7 @@
 # PROC-UNMIX-01 — outcome: NOT ADOPTED. The dilution-line inversion is exact arithmetic the composition solver cannot feed.
 
 **Sealed 2026-09-27** against the bars in [`PROC_UNMIX_01_PREREG.md`](PROC_UNMIX_01_PREREG.md) (clarification to B6 dated
-2026-09-27, before any array was scored). Script: `kit/PROC_UNMIX_01.py`; results `kit/results/PROC_UNMIX_01.json`.
+2026-09-27, before any array was scored). Script: kit/PROC_UNMIX_01.py (archived privately); results kit/results/PROC_UNMIX_01.json (archived privately).
 Three constructed mixtures (typical, neutrophil-heavy, lymphocyte-heavy) from exact atlas means, plus 48 whole-blood arrays
 (12 per commissioning laboratory) through the chain's own pipeline map and composition solver.
 

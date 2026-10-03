@@ -1,19 +1,19 @@
 # atlas/iamatlas_class_archives
 
-Per-class MCMC archives from the atlas build. Not needed to run a sample; kept so the atlas can be rebuilt.
+Per-class MCMC archives from the atlas build; the per-CpG brightness posteriors read by the toolkit's stage 11b. Not needed to run a v3 sample.
 
 ## What is in here
 
 | file | |
 |---|---|
-| [`cycling_v0_1_REBUILD.tar.xz`](cycling_v0_1_REBUILD.tar.xz) | Per-class atlas rebuild archive (cycling). |
-| [`immune_v0_1_REBUILD.tar.xz`](immune_v0_1_REBUILD.tar.xz) | Per-class atlas rebuild archive (immune). |
-| [`progenitor_v0_1_REBUILD.tar.xz`](progenitor_v0_1_REBUILD.tar.xz) | Per-class atlas rebuild archive (progenitor). |
-| [`secretory_v0_1_REBUILD.tar.xz`](secretory_v0_1_REBUILD.tar.xz) | Per-class atlas rebuild archive (secretory). |
-| [`stem_adult_v0_1_REBUILD.tar.xz`](stem_adult_v0_1_REBUILD.tar.xz) | Per-class atlas rebuild archive (adult stem). |
-| [`stem_pluri_v0_1_REBUILD.tar.xz`](stem_pluri_v0_1_REBUILD.tar.xz) | Per-class atlas rebuild archive (pluripotent stem) - the raw MCMC output the merged atlas was assembled from. |
-| [`stromal_v0_1_REBUILD.tar.xz`](stromal_v0_1_REBUILD.tar.xz) | Per-class atlas rebuild archive (stromal). |
-| [`terminal_v0_1_REBUILD.tar.xz`](terminal_v0_1_REBUILD.tar.xz) | Per-class atlas rebuild archive (terminal). |
+| [`cycling_v0_1_REBUILD.tar.xz`](cycling_v0_1_REBUILD.tar.xz) |  |
+| [`immune_v0_1_REBUILD.tar.xz`](immune_v0_1_REBUILD.tar.xz) |  |
+| [`progenitor_v0_1_REBUILD.tar.xz`](progenitor_v0_1_REBUILD.tar.xz) |  |
+| [`secretory_v0_1_REBUILD.tar.xz`](secretory_v0_1_REBUILD.tar.xz) |  |
+| [`stem_adult_v0_1_REBUILD.tar.xz`](stem_adult_v0_1_REBUILD.tar.xz) |  |
+| [`stem_pluri_v0_1_REBUILD.tar.xz`](stem_pluri_v0_1_REBUILD.tar.xz) |  |
+| [`stromal_v0_1_REBUILD.tar.xz`](stromal_v0_1_REBUILD.tar.xz) |  |
+| [`terminal_v0_1_REBUILD.tar.xz`](terminal_v0_1_REBUILD.tar.xz) |  |
 
 _9 file(s)._ Paths above are relative to this folder, and [`kit/link_check.py`](../../kit/link_check.py) fails the build if any of them stops resolving.
 

@@ -22,7 +22,7 @@ UNSPECIFIC if ≥ 3 templates fire together. The B7 gate (a non-blood cell in wh
 - **B5** composition unchanged: class fractions and the composition check identical to 1e-9 on 12 arrays with the old and new
   stage_2d (the stage writes no composition field; this checks it).
 - **B6** the reference report's Glia row: NOT DETECTED, not scored; no non-blood cell scored undetected on 100 healthy arrays.
-- **B7** kit test [`test_stage2d_panels.py`](../kit/test_stage2d_panels.py) rewritten to this contract and passing.
+- **B7** kit test test_stage2d_panels.py (archived privately) rewritten to this contract and passing.
 
 ## Decision rule
 All met → adopted; detection_panel_v3.json replaces v2; v1 and v2 retired with the record. B3 or B4 failed for the thin templates

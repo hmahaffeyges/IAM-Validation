@@ -4,7 +4,7 @@
 
 | bar | result | verdict |
 |---|---|---|
-| M1 origin gate fail-closed | `disease_origin_cells.json` missing → Stage 8 status NOT AVAILABLE, 0 candidates (was: silently `{}`); present → OK | PASS (fixed in `legacy_clinical.py`) |
+| M1 origin gate fail-closed | `disease_origin_cells.json` missing → Stage 8 status NOT AVAILABLE, 0 candidates (was: silently `{}`); present → OK | PASS (fixed in the v1 clinical conductor) |
 | M2 surface = seal | 115 cells: conductor per-cell A = mean_i H(β_i)/H_min over v0_2 markers to 4e-16 — the formula that reproduced the sealed anchors | PASS |
 | M3 matrix integrity | v1_13: 80 rows, 53 diseases, 129 cell columns, 9 substrates; sha 53896622c1b4; **52 columns (cardiomyocytes, astrocytes, breast_ductal, brain_pooled …) are not reachable from the 115-cell atlas mapping** — tissue signatures the whole-blood atlas cannot score | REPORTED |
 | M4 substrate firewall | whole_blood patient: 12 signatures scored, none from plasma/tissue; plasma_cfDNA patient: 0 whole-blood signatures | PASS |

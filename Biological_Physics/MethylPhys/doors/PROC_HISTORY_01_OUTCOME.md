@@ -4,7 +4,7 @@
 
 **What was wrong, and why.** `VAL_INDEX.csv` (built 2026-09-19 by walking repository paths) had two defects. (1) It keyed on the bare number, so pre-Atlas **VAL-001** and post-Atlas **CPG-VAL-001** collapsed into one row — 22 collisions. (2) It counted only identifiers with a folder at HEAD; 51 pre-Atlas VALs whose records live in the RETIRED evidence report and the author's Zenodo deposit (CC-BY-4.0, 10.5281/zenodo.19633499) have no folder and were not counted. Seven post-Atlas AD folders (CPG-VAL-008..014) had also been mis-filed under `VAL_PreAtlas/` during the 2026-09-19 reorganisation; moved to `VAL_PostAtlas/`.
 
-**The record, counted from `RETIRED_VAL_inventory_report.md` (compiled line-by-line from the April evidence report and README, each outcome cross-checked against `validation_runs/`) and the post-Atlas v10 evidence report, plus repository folders:**
+**The record, counted from RETIRED_VAL_inventory_report.md (archived privately) (compiled line-by-line from the April evidence report and README, each outcome cross-checked against `validation_runs/`) and the post-Atlas v10 evidence report, plus repository folders:**
 
 | series | when | count | executed with a recorded outcome | notes |
 |---|---|---|---|---|
@@ -13,10 +13,10 @@
 | **T1 → T15** (VAL-049 cross-population) | Apr 2026 | 15 | 12 (T4, T6, T7 dbGaP-gated) | US / AU / UY / UK / PL / CN-SG populations, frozen panel + frozen H_min |
 | **CPG-VAL-001 → CPG-VAL-022** (post-Atlas, IAMAtlas REBUILD) | 29 May – 7 Jun 2026 | **22 slots** | **21** (021 deferred, cohort acquisition) | breast 001–007 (2 RESTATED), AD 008–014 (three cohorts, AD/FTD/PSP-CBD direction discrimination), immune/aging 015–020 & 022 (Hannum full chain 020); L9 null suite N1–N8 per VAL; PREREGs marked RETROSPECTIVE by the author |
 | **Mahalanobis HC hull** v0_1 → v0_5 | 6 Jun 2026 | 5 versions | n_HC 601 → 2,523; 8 cohorts; 4 populations incl. **Han Chinese GSE141682 n=42 (first Asian)** | fixed d ≥ 2.0 found invalid in 112-D and replaced by percentile-of-HC; anchor d fell honestly as the hull broadened |
-| **L9 N7** chain integrity | 5 Jun 2026 | 1 | synthetic truth through legacy → A-scoring → Mahalanobis | R1 MAE < 1 %; the September PROC-N7-01 rerun is what found the gauge reading the wrong loci |
+| **L9 N7** chain integrity | 5 Jun 2026 | 1 | synthetic truth through the deconvolver → A-scoring → Mahalanobis | R1 MAE < 1 %; the September PROC-N7-01 rerun is what found the gauge reading the wrong loci |
 | **September 2026 procedures** (rebuild from scratch) | 18–21 Sep | PROC-CAL/DECON/ANCHOR/FORMULA/N7/NILC/SEP/CHAIN/STAGE0/WB-IMMUNE/HMIN-BOOT/PANEL-01..03, PHASE 1/1c, band_v2, LAB-ZERO-01/02, CPG-NEW-001 | all sealed before data | this document's own record |
 
-**Corrected sentence for Paper 1 and Issue 003:** *Between April and June 2026 the author ran a G-series calibration, 119 pre-Atlas validations (107 executed; 12 not run for stated reasons) including a 15-cohort cross-population series, and 22 post-Atlas validations (21 executed) on the rebuilt atlas, followed by a five-version healthy-hull expansion to 2,523 controls across four populations and a chain-integrity test with synthetic truth. Records: RETIRED evidence report and inventory; v10 evidence report; Zenodo 10.5281/zenodo.19633499; `Testing_and_Code/VAL_INDEX.csv` (175 rows, unique keys by series).*
+**Corrected sentence for Paper 1 and Issue 003:** *Between April and June 2026 the author ran a G-series calibration, 119 pre-Atlas validations (107 executed; 12 not run for stated reasons) including a 15-cohort cross-population series, and 22 post-Atlas validations (21 executed) on the rebuilt atlas, followed by a five-version healthy-hull expansion to 2,523 controls across four populations and a chain-integrity test with synthetic truth. Records: RETIRED evidence report and inventory; v10 evidence report; Zenodo 10.5281/zenodo.19633499; Testing_and_Code/VAL_INDEX.csv (archived privately) (175 rows, unique keys by series).*
 
 **What none of them could see (unchanged):** every one was a within-pipeline comparison or a reading against a control centroid; the pipeline-scale offset and the age curve were found in September by absolute reading. The April caveats tab had predicted the scale offset.
 

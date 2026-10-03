@@ -14,7 +14,7 @@ Implemented so far:
   Step 0.9 (SOP §19) — Stage 0 decision gate (PROCEED / PROCEED_WITH_PENALTY / QUARANTINE).
 
 Design choices flagged for review (SOP marked these "TBD per orchestrator design"):
-  - Handler lives here in the legacy runtime, NOT in MPHYS_WEB_v13.py (frozen demo).
+  - Handler lives here in the chain runtime, NOT in MPHYS_WEB_v13.py (frozen demo).
   - All paths (staging dir, intake log) are passed in by the caller, not hardcoded.
   - Manifest is JSON with the seven SOP-required fields.
   - Array-type verification reads only nSNPsRead from the IDAT header; full IDAT

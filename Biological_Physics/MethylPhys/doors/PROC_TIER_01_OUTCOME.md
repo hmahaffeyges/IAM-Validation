@@ -4,7 +4,7 @@
 
 | bar | result | verdict |
 |---|---|---|
-| T1 one definition | Before: three tier definitions (report builder ×2 with NORMAL ending at 1.04, colour map a fourth; JSON v1.3 at 1.01). After: `CPG_Engine/cpg_tiers.py` reads `tier_breakpoints.json`; identity stage, both report-builder sites and the colour map call it; 0 literal breakpoints remain; every boundary ±1e-6 agrees | PASS |
+| T1 one definition | Before: three tier definitions (report builder ×2 with NORMAL ending at 1.04, colour map a fourth; JSON v1.3 at 1.01). After: CPG_Engine/cpg_tiers.py (archived privately) reads `tier_breakpoints.json`; identity stage, both report-builder sites and the colour map call it; 0 literal breakpoints remain; every boundary ±1e-6 agrees | PASS |
 | T3 no tier without a reportable gauge | identity components with `reportable=False` (§108 no band, UNMAPPED, lab_zero UNSET) carry `tier=None`; on GSM2333901 only immune carries a tier; with lab_zero UNSET every tier is None | PASS |
 | T4 ceiling | A ≥ 1/H_min → `AT_CEILING` with the ceiling value (immune 1/0.8389 = 1.1921); just below → BREACH | PASS |
 | **T2 healthy occupancy (measured, nothing moved)** | 1,379 healthy donors, four labs, A″ on the identity gauge under v1.3 breakpoints: **SUPPRESSED 2.2 %, NORMAL 67.5 %, ELEVATED 30.2 %, ≥ 1.07 one donor (0.07 %), ≥ 1.10 none.** Per lab ELEVATED 25.9–31.4 % — the same in every laboratory. Analyst's sealed prediction "≥ 25 % ELEVATED": **correct**. Central 95 % of healthy A″ = [0.954, 1.041]. | REPORTED |

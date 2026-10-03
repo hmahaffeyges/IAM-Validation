@@ -2178,7 +2178,7 @@
  {
   "series": "N7",
   "id": "L9 N7 chain integrity (2026-06-05)",
-  "title": "synthetic patients with declared truth through legacy -> A-scoring -> Mahalanobis",
+  "title": "synthetic patients with declared truth through the deconvolver -> A-scoring -> Mahalanobis",
   "date": "2026-06-05",
   "era": "post-Atlas",
   "cohorts": "3 synthetic cohorts x 250",

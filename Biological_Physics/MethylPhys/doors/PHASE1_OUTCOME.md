@@ -1,6 +1,6 @@
 # OUTCOME — PHASE 1: identity-loci healthy bands from GSE87571
 
-**Run:** 2026-09-19 22:14 → 2026-09-20 03:23 PDT, `phase1_run.py`, methylprep noob Stage 1, legacy HEAD (contrast off), identity-loci H(β̄)/H_min.
+**Run:** 2026-09-19 22:14 → 2026-09-20 03:23 PDT, `phase1_run.py`, methylprep noob Stage 1, the deconvolver at HEAD (contrast off), identity-loci H(β̄)/H_min.
 **Against:** PREREG.md sealed sha256 `4d8f40ace72eca1f…` (tar unopened at sealing). No condition was changed after data were seen.
 **Input:** GSE87571_RAW.tar sha256 `3245d0e59a031546…`, 732 IDAT pairs, GPL13534, all whole blood, age known 729, F 389 / M 341.
 

@@ -2,8 +2,8 @@
 
 **Sealed 2026-09-25** against the bars in [`PROC_LABBAND_01_PREREG.md`](PROC_LABBAND_01_PREREG.md), fixed
 before any width was computed. Input: the 318 immune A″ values PROC-BAND-01 published. Nothing recalibrated.
-Evidence: [`PROC_LABBAND_01.json`](../kit/results/PROC_LABBAND_01.json) ·
-script [`PROC_LABBAND_01.py`](../kit/PROC_LABBAND_01.py).
+Evidence: PROC_LABBAND_01.json (archived privately) ·
+script PROC_LABBAND_01.py (archived privately).
 
 ## The verdict
 

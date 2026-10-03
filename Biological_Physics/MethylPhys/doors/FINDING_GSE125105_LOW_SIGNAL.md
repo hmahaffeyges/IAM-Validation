@@ -5,7 +5,7 @@ interesting, every time is screaming that something may be off." GSE125105 was t
 T_scale 0.890, largest T_offset +0.043), carried the largest of the retired laboratory zeros (−0.035), and in PROC-SKY-01 was
 the laboratory on which the on-array noise model failed (3 of 12 in range; 12/12, 11/12, 10/12 elsewhere).
 
-**What was measured** (three arrays per laboratory through Stage 1 with the control probes kept; `kit/results/FINDING_GSE125105_controls.csv`):
+**What was measured** (three arrays per laboratory through Stage 1 with the control probes kept; kit/results/FINDING_GSE125105_controls.csv (archived privately)):
 
 | median | GSE87571 | GSE42861 | GSE111629 | **GSE125105** |
 |---|---|---|---|---|

@@ -4,7 +4,7 @@
 
 Outputs (docs/book/figures/part4/): fig_cell_budget, fig_division_floor, fig_p4_02_operating,
 fig_p4_15b_transfer, fig_p4_15b_lowsignal (.pdf + .png).
-Data read from Biological_Physics/MethylPhys/kit/results/ (PROC_TARE_01_per_array.parquet,
+Data read from docs/book/figscripts/cell_data/ (copied there from the retired kit/results/; PROC_TARE_01_per_array.parquet,
 FINDING_GSE125105_controls.csv). Constants recomputed as in docs/verification/scripts/verify_landauer_metrology.py.
 """
 import math
@@ -16,7 +16,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import _bookstyle as bs
 
 bs.apply()
-KIT = bs.REPO / "Biological_Physics/MethylPhys/kit/results"
+KIT = bs.REPO / "docs/book/figscripts/cell_data"   # copied from Biological_Physics/MethylPhys/kit/results/ (retired 2026-10-03)
 kB, NA = 1.380649e-23, 6.02214076e23
 Tb, ln2 = 310.15, math.log(2)
 M = 54000 / (kB * NA * Tb)

@@ -16,7 +16,7 @@ def block(up):
             "%d chain-named files no path calls). One command regenerates every document that reports the chain: `python3 %schain/build_all.py` - "
             "run by `guarded_push.sh` on every push.\n\n%s\n\n**Generated documents** (never edit; rerun build_all): %s\n%s"
             % (time.strftime("%Y-%m-%d"), up, up, len(seq["live_path"]), len(seq.get("not_in_live_path", [])), up, "\n".join(rows), gen, E))
-# README.md describes chain v3 and is written by hand (2026-10-02); this block, built from the v2 chain sequence, goes into RUNBOOK.md only.
+# README.md describes chain v3 and is written by hand (2026-10-02); this block, built from the v3 chain sequence, goes into RUNBOOK.md only.
 for rel, anchor in (("doors/RUNBOOK.md", "## The order of steps"),):
     p = os.path.join(MP, rel); t = open(p, encoding="utf-8").read(); b = block("../" if "/" in rel else "")
     if S in t and E in t: t = t[:t.index(S)] + b + t[t.index(E) + len(E):]

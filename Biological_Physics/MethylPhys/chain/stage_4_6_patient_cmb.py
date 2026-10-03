@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Toolkit: not yet wired into chain v3; enters the chain at commissioning with its own pre-registered check.  (SOP v3 section 2b, stage 11; chain/TOOLKIT.md)
 """Stage 4.6 — the patient's sky (PROC-CMB-01, 2026-09-21). Replaces the retired patient_brightness_comparison.py.
 
 What changed and why (PROC-CMB-01 C1): the retired module divided (beta_patient - mu_class) by the atlas POSTERIOR SD OF THE

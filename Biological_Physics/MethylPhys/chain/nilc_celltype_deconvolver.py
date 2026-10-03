@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Toolkit: not yet wired into chain v3; enters the chain at commissioning with its own pre-registered check.  (SOP v3 section 2b, stage 4; chain/TOOLKIT.md)
 """
 nilc_celltype_deconvolver.py — NILC at the CELL-TYPE level.
 
@@ -6,7 +7,7 @@ The class-level NILC (nilc_deconvolver-2.py) builds its reference from the 8 cla
 means and stops there. This module takes the SAME inverse-variance, departure-from-
 consensus GLS down to the 115 cell types, weighting each cell by its OWN posterior SD
 from the rebuilt IAMAtlas. It exists so the two deconvolvers can agree CELL-BY-CELL
-(legacy's constrained NNLS ∩ NILC's variance-weighted GLS), not just class-by-class.
+(the deconvolver's constrained NNLS ∩ NILC's variance-weighted GLS), not just class-by-class.
 
 Why this is meaningful now and was not before: the rebuilt IAMAtlas is separable at the
 cell level (see IAMAtlas_FLATNESS_LESSON.md) and carries per-cell mean + posterior SD
@@ -14,7 +15,7 @@ columns (`<Cell>_mean`, `<Cell>_sd`) — the covariances the MCMC produced. The 
 atlas could not have supported this; the rebuild can.
 
 PER-SAMPLE ONLY. No cohort, no population. Each cell is read against its own atlas
-posterior. Returns per-cell fractions; presence is decided by agreement with legacy.
+posterior. Returns per-cell fractions; presence is decided by agreement with the deconvolver.
 """
 from __future__ import annotations
 import json
@@ -127,7 +128,7 @@ class NILCCelltypeDeconvolver:
         # --- cell-level presence gate (bootstrap marker resample) -------------
         # Resample the matched marker rows with replacement, re-solve the GLS and
         # re-project to the simplex, and call a cell PRESENT iff the lower bound of
-        # its bootstrap fraction CI > presence_zero. Mirrors the legacy-cell gate
+        # its bootstrap fraction CI > presence_zero. Mirrors the deconvolver-cell gate
         # so the two can be intersected cell-by-cell (the agreement gate).
         present = {}
         fraction_ci = {}

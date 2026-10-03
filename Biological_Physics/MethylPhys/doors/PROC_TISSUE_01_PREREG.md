@@ -37,7 +37,7 @@ loci relative to the physical floor, i.e. *less* fidelity. A reversal at any run
 | **B4** | a null that does not know the answer | healthy split at random 2,000×: median \|d\| < 0.20 |
 | **B5** | age is not the cause | if median group ages differ by > 5 years, B1 and B2 must also hold on an age-matched subset |
 | **B6** | the specimens are what they claim | median epithelial-class fraction > 0.50 in the tissue groups; composition-guard withholding rate reported for every group |
-| **B7** | the instrument has not moved | max \|ΔA_mapped\| = 0 on the **318 arrays published in `kit/results/PROC_BAND_01_arrays.json`** — a source checked today to contain per-array readings |
+| **B7** | the instrument has not moved | max \|ΔA_mapped\| = 0 on the **318 arrays published in kit/results/PROC_BAND_01_arrays.json (archived privately)** — a source checked today to contain per-array readings |
 
 B7 names its evidence file explicitly because PROC-EPIC-01's equivalent bar named a sealed file that holds
 exit codes and timings but no readings, and could not be run as written. Checking what a bar's named source

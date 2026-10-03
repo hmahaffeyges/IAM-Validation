@@ -34,7 +34,7 @@ Status labels: **SET** = fixed by this note before reading; **INHERITED** = take
 ## 2. What was run
 
 1. `scripts/species_ageing_readings.py --stage groups`: species selection, adult/juvenile split, young reference, oldest decile (`groups.csv`, `species_qualification.csv`); lineage CpGs from the GSE110554 series matrix (`immune_marker_probes.csv`).
-2. `scripts/probe_level_confounds.py` on the box (methylphys-cpu-01) against the 3.3 GB beta matrix and the IDAT detection p-values: recomputed per-array mean H on both panels, lineage-CpG means, probe-level SDs (`box_outputs/`). The recomputed mean H matches the package's per-array values on all 3,890 arrays × 2 panels (largest difference 0.0).
+2. `data/DEV_SPECIES_AGEING_01/scripts/probe_level_confounds.py` on the box (methylphys-cpu-01) against the 3.3 GB beta matrix and the IDAT detection p-values: recomputed per-array mean H on both panels, lineage-CpG means, probe-level SDs (`box_outputs/`). The recomputed mean H matches the package's per-array values on all 3,890 arrays × 2 panels (largest difference 0.0).
 3. `scripts/species_ageing_readings.py --stage readings`: Met-A per animal, per-species summary, figures.
 
 ## 3. Which species qualify

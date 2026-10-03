@@ -37,7 +37,7 @@ Placement in `main.tex` (Part 4):
 | `app_B2_errata_cells.tex` | 27 | 1–27 | |
 | `CELL_ITEMS_VERDICTS.md` | 42 | 1–42 | |
 | outcome records | — | FINDING_GSE125105_LOW_SIGNAL (39, full), LABZERO01 (22, full), LABZERO02 (33, full), PHASE1 (79, full), PROC_HMIN_BOOT_01 (23, full), PROC_E2E_01 (72, full), PROC_DECONV_V2_01 (34, full), PROC_INTAKE_01 (38, full), PROC_SKY_01 (47, full), ATLAS_READABILITY (1–60), RUNBOOK §9–11 | |
-| data | — | `kit/results/PROC_TARE_01_per_array.parquet` (768 rows), `kit/results/FINDING_GSE125105_controls.csv` (12 rows) | recomputed |
+| data | — | docs/book/figscripts/cell_data/PROC_TARE_01_per_array.parquet (copied from the retired kit/results/) (768 rows), docs/book/figscripts/cell_data/FINDING_GSE125105_controls.csv (12 rows) | recomputed |
 
 The paper has no LaTeX under `docs/papers/latex/`; `Biological_Physics/MethylPhys/papers/Landauer_Metrology_of_the_Methylome.tex` (191 lines) is the author's
 source; the four numbered equations were retyped from the PDF and checked against it.
@@ -193,7 +193,7 @@ Paper location = PDF text line numbers. Book location = file:line in this delive
 
 Braces balanced; environments balanced and correctly nested; no label duplicated anywhere in the book; every `\ref`/`\eqref` (62) resolves against the
 current tree; every `\cite` (13 keys) is in `iam.bib`; every figure file exists. Floats use the preamble's `[htbp]` override. Fixed after a first pass:
-VAL index path (`kit/VAL_INDEX.csv`).
+VAL index path (kit/VAL_INDEX.csv (archived privately)).
 
 ## Citations checked (CrossRef, 2026-10-03)
 

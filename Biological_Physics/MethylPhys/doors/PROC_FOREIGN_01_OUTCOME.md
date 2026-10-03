@@ -3,9 +3,9 @@
 **Sealed 2026-09-25** against the bars in [`PROC_FOREIGN_01_PREREG.md`](PROC_FOREIGN_01_PREREG.md), fixed
 before any mixture was scored. 318 healthy whole-blood arrays × three non-blood classes × five mixing
 fractions = **5,088 scored mixtures**, all through the chain's own path.
-Evidence: [`PROC_FOREIGN_01.json`](../kit/results/PROC_FOREIGN_01.json) ·
-[`PROC_FOREIGN_01_mixtures.json`](../kit/results/PROC_FOREIGN_01_mixtures.json) (every mixture) ·
-scripts [`PROC_FOREIGN_01.py`](../kit/PROC_FOREIGN_01.py) · [`PROC_FOREIGN_01_analyse.py`](../kit/PROC_FOREIGN_01_analyse.py).
+Evidence: PROC_FOREIGN_01.json (archived privately) ·
+PROC_FOREIGN_01_mixtures.json (archived privately) (every mixture) ·
+scripts PROC_FOREIGN_01.py (archived privately) · PROC_FOREIGN_01_analyse.py (archived privately).
 
 **This is the first change adopted into the chain from the enhancement list.**
 
@@ -27,7 +27,7 @@ scripts [`PROC_FOREIGN_01.py`](../kit/PROC_FOREIGN_01.py) · [`PROC_FOREIGN_01_a
 The detector is not new: `stage_4_6_patient_cmb` already defines the blood lineage as *immune, progenitor,
 stem_adult*, and the composition step already reports every class fraction. The guard is their complement —
 **the share of the specimen assigned outside the blood lineage** — with its threshold in a runtime matrix
-([`composition_guard_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/composition_guard_v1.json)),
+(composition_guard_v1.json (archived privately)),
 not in code:
 
 | | |
@@ -103,4 +103,4 @@ catches 81.1 % of the specimens that misread, **below the 0.90 that B4 fixed**. 
 under this pre-registration: it would need a new one with B4 set at 0.80, and that is a clinical judgement
 about which error is worse, not an analytical one. The commissioned value stands at 0.0207 until the author
 decides otherwise, and moving it is a one-number change in
-[`composition_guard_v1.json`](../chain/Runtime%20Matrices/A_Scoring_Module/composition_guard_v1.json).
+composition_guard_v1.json (archived privately).

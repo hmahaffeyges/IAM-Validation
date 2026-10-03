@@ -1,19 +1,16 @@
 #!/usr/bin/env python3
-"""Derive the chain's step sequence from the code and write it out, so no document has to be trusted.
+"""Derive chain v3's step sequence from the code and write it out, so no document has to be trusted.
 
-Every document that states the order of steps - the SOP, the chain README, the report's Chain tab, the manual -
-was written by hand and can drift from what the code does. Three drifts had accumulated by 2026-09-23: the SOP
-said the conductor runs Stage 0 and Stage 1 (it runs neither), and a stage defined in the conductor was listed as
-part of the chain although run_full never calls it.
+Every document that states the order of steps (the SOP, the chain README, the manual) can drift from what the code does. This reads
+the AST of MethylPhys_Interface/run_sample.py, conductor_v3.py and stage_q_iam_a.py and emits:
+  doors/CHAIN_SEQUENCE.md    the ordered live path, then every stage module in chain/ that is NOT in it (the toolkit)
+  chain/chain_sequence.json  the same, as data
 
-This reads the AST and emits:
-  doors/CHAIN_SEQUENCE.md    the ordered live path, then what is implemented but NOT in it
-  chain/chain_sequence.json  the same, for the report to render instead of a hand-written table
-
-Run it after any change to run_sample.py, conductor_v3.py, stage_q_iam_a.py or cpg_conductor.py; release_check calls it and fails
-on a mismatch. live_path is the default engine (v3); legacy_path is the class-floor conductor (--engine legacy).
+Run it after any change to run_sample.py, conductor_v3.py or stage_q_iam_a.py; build_all.py runs it, and release_check_v3.py fails
+when the committed chain_sequence.json differs from what the code gives now. Chain v3 is the only engine (the class-floor engine was
+retired 2026-10-03 and is archived privately).
 """
-import ast, json, os, sys
+import ast, json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DOORS = os.path.normpath(os.path.join(HERE, "..", "doors"))
@@ -31,152 +28,50 @@ def _module_doc(path):
         return ""
 
 
+def _intake_steps(rs):
+    """Stage 0's steps, in SOP step order, as run_sample.py calls them (attribute calls on the imported module)."""
+    def _key(nm):
+        t = nm.split("step_0_")[1].split("_")[0]
+        return (int(t[0]), t)
+    names = sorted({n.func.attr for n in ast.walk(ast.parse(rs))
+                    if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute) and n.func.attr.startswith("step_0_")}, key=_key)
+    return [{"step": nm, "where": "stage_0_intake.py", "implements": "SOP " + nm.replace("step_0_", "section 0."),
+             "status": "runs in the live path, before calibration"} for nm in names]
+
+
+def _toolkit():
+    """The toolkit as chain/TOOLKIT.md lists it: (stage, name, first module named)."""
+    p = os.path.join(HERE, "TOOLKIT.md")
+    rows = []
+    if os.path.exists(p):
+        for l in open(p, encoding="utf-8"):
+            m = re.match(r"\|\s*(\d+[a-z]?)\s*\|\s*([^|]+?)\s*\|\s*([^|]*?)\s*\|", l)
+            if m:
+                mods = re.findall(r"`([^`]+\.py)`", m.group(3))
+                rows.append({"stage": m.group(1), "name": m.group(2), "where": mods[0] if mods else "none (not built)",
+                             "status": "toolkit: not yet wired into chain v3"})
+    return rows
+
+
 def derive():
-    cond_src = open(os.path.join(HERE, "cpg_conductor.py"), encoding="utf-8").read()
-    cond = ast.parse(cond_src)
-    defs = {n.name: n for n in cond.body if isinstance(n, ast.FunctionDef)}
-    run_full = defs["run_full"]
-
-    # ordered, de-duplicated calls to stage_* inside run_full, with the line they sit on
-    order, seen = [], set()
-    for c in ast.walk(run_full):
-        if isinstance(c, ast.Call) and isinstance(c.func, ast.Name) and c.func.id.startswith("stage_"):
-            if c.func.id not in seen:
-                seen.add(c.func.id)
-                order.append((c.lineno, c.func.id))
-    order.sort()
-    inside = [{"step": n, "implements": _doc(defs[n]) if n in defs else "", "where": "cpg_conductor.py"}
-              for _, n in order]
-
-    # what the runner does before and after the conductor
-    rs_path = os.path.join(HERE, "MethylPhys_Interface", "run_sample.py")
-    rs = open(rs_path, encoding="utf-8").read()
-    before = []
+    rs = open(os.path.join(HERE, "MethylPhys_Interface", "run_sample.py"), encoding="utf-8").read()
+    intake = _intake_steps(rs)
+    stage1 = []
     if "calibrate_idat_to_beta" in rs:
-        before.append({"step": "Stage 1 - IDAT calibration", "where": "stage_1_idat_calibration.py",
+        stage1.append({"step": "Stage 1 - IDAT calibration", "where": "stage_1_idat_calibration.py",
                        "implements": _module_doc(os.path.join(HERE, "stage_1_idat_calibration.py")),
                        "note": "called by run_sample.py when given --grn/--red; skipped when given --betas"})
-    after = [{"step": "Report", "where": "MethylPhys_Interface/build_methylphys.py",
-              "implements": "one self-contained HTML from the bundle"}] if "B.build(" in rs else []
-
-    # every stage_* function in the conductor, and every stage_*.py module in chain/, accounted for
-    not_wired = []
-    for name, node in defs.items():
-        if name.startswith("stage_") and name not in seen:
-            not_wired.append({"step": name, "where": "cpg_conductor.py", "implements": _doc(node),
-                              "status": "defined in the conductor; run_full does not call it"})
-    for f in sorted(os.listdir(HERE)):
-        if f.startswith("stage_") and f.endswith(".py"):
-            mod = f[:-3]
-            called_by_runner = mod in rs or mod.replace("stage_1_idat_calibration", "calibrate_idat_to_beta") in rs
-            called_by_cond = mod in cond_src
-            if not (called_by_runner or called_by_cond):
-                not_wired.append({"step": f, "where": f, "implements": _module_doc(os.path.join(HERE, f)),
-                                  "status": "module present; neither run_sample.py nor cpg_conductor.py calls it"})
-    # 2026-09-25: there is no second interface. The v1 conductor and the run_batch.py that drove it were
-    # retired to RETIRED_2026-09/v1_conductor_2026-09/ once the only function the live chain called -
-    # stage_8_dual_matching - had been extracted to disease_matching.py. A cohort is run by looping
-    # run_sample.py, so the single-specimen path IS the batch path and this derivation reports one path.
-    batch = []
-    # the record's own role for each file, and anything role=chain that no interface calls
-    roles, gaps = {}, []
-    inv = os.path.join(HERE, "Runtime Matrices", "chain_inventory_v1.json")
-    if os.path.exists(inv):
-        import json as _json
-        d_inv = _json.load(open(inv))
-        key = "files" if "files" in d_inv else list(d_inv)[0]
-        for r in d_inv[key]:
-            roles[os.path.basename(r.get("file", ""))] = r.get("role")
-        # A stage function loads its worker by path (importlib), so the worker's name appears only as a string
-        # literal inside it. Collect those too, or a file the chain genuinely runs looks uncalled: the first
-        # version of this check reported 16 gaps of which 15 were dynamic loads.
-        called = {st["where"] for st in before + inside + after + batch} | {st["step"] for st in before + inside + after + batch}
-        called |= {"cpg_conductor.py", "run_sample.py"}
-        # Scan literals ONLY inside functions that are actually on a path. Scanning whole modules counts a file
-        # whose path sits in a config constant as called - which is exactly the case of the intake module: its
-        # path was in the retired v1 conductor's DEFAULT_CONFIG, while nothing on the live path invokes it.
-        import re as _re
-        onpath = []
-        for fname in [st["step"] for st in inside]:
-            if fname in defs:
-                onpath.append(defs[fname])
-        for mod_src, names in ((rs, ["main"]), ):
-            try:
-                mtree = ast.parse(mod_src)
-                onpath += [n for n in ast.walk(mtree) if isinstance(n, ast.FunctionDef) and n.name in names]
-            except SyntaxError:
-                pass
-        onpath.append(defs["run_full"])
-        # helpers run_full calls by name (e.g. _trace_detect -> stage_2c_trace_detection.py) are on the path too;
-        # without this, a file loaded inside a helper was reported as called by nothing (2026-09-26)
-        _helpers = {c.func.id for c in ast.walk(defs["run_full"]) if isinstance(c, ast.Call) and isinstance(c.func, ast.Name)}
-        onpath += [defs[h] for h in _helpers if h in defs and defs[h] not in onpath]
-        for node in onpath:
-            for c in ast.walk(node):
-                if isinstance(c, ast.Constant) and isinstance(c.value, str):
-                    for lit in _re.findall(r"[\w./-]+\.(?:py|json|csv|npy)", c.value):
-                        called.add(os.path.basename(lit))
-        # run_sample.py's module level is its main
-        # A step invoked as S0.step_0_1_idat_arrival(...) is an attribute call on an imported module and
-        # the module's filename appears nowhere as a literal, so a name-only scan called stage_0_intake.py
-        # uncalled on the day it was wired in. Resolve imports to their module file.
-        for _text in (rs, cond_src):
-            try:
-                _t = ast.parse(_text)
-            except SyntaxError:
-                continue
-            for _n in ast.walk(_t):
-                if isinstance(_n, ast.Import):
-                    for _al in _n.names:
-                        called.add(_al.name.split('.')[0] + '.py')
-                elif isinstance(_n, ast.ImportFrom) and _n.module:
-                    called.add(_n.module.split('.')[0] + '.py')
-
-        for lit in _re.findall(r"[\w./-]+\.(?:py|json|csv|npy)", rs):
-            called.add(os.path.basename(lit))
-        BUILD_TIME = ("build_", "generate_")   # tools that make a runtime file once, not per-sample steps
-        for f, role in roles.items():
-            if role == "chain" and f.endswith(".py") and f not in called:
-                if f.startswith(BUILD_TIME):
-                    gaps.append({"file": f, "role": role,
-                                 "status": "build-time tool: makes a runtime file once, not a per-sample step"})
-                else:
-                    gaps.append({"file": f, "role": role,
-                                 "status": "role=chain in the inventory, and NO path calls it - a step the chain "
-                                           "is documented as performing does not run"})
-    # Stage 0's steps, in the order run_sample.py calls them, ahead of everything else in the live path.
-    # They are attribute calls on an imported module (S0.step_0_1_idat_arrival), which a name-only scan cannot
-    # see - that is why the derivation reported stage_0_intake.py as uncalled on the day it was wired in.
-    intake = []
-    try:
-        # ordered by SOP step number, not by line number: the decision gate is called twice in the source
-        # (once in the early-refusal branch) and a line-ordered list would show it fourth
-        def _key(nm):
-            t = nm.split("step_0_")[1].split("_")[0]
-            return (int(t[0]), t)
-        for nm in sorted({n.func.attr for n in ast.walk(ast.parse(rs))
-                          if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute)
-                          and n.func.attr.startswith("step_0_")}, key=_key):
-            if nm not in [x["step"] for x in intake]:
-                intake.append({"step": nm, "where": "stage_0_intake.py",
-                               "implements": "SOP " + nm.replace("step_0_", "section 0."),
-                               "status": "runs in the live path, before calibration"})
-    except SyntaxError:
-        pass
-    before = intake + before
-    legacy = before + inside + after
-    v3 = derive_v3(rs, intake, before[len(intake):])
-    # the v3 path is the default engine (run_sample.py --engine v3); the class-floor conductor is kept as legacy_path
-    v3_mods = {st["where"].split(":")[0] for st in v3}
+    live = derive_v3(rs, intake, stage1)
+    called = {st["where"].split(":")[0] for st in live} | {"conductor_v3.py", "stage_m_met_a.py"}
     v3_src = open(os.path.join(HERE, "conductor_v3.py"), encoding="utf-8").read()
-    not_wired = [dict(nw, status=nw["status"].replace("neither run_sample.py nor cpg_conductor.py calls it",
-                                                      "neither run_sample.py, conductor_v3.py nor cpg_conductor.py calls it"))
-                 for nw in not_wired if nw["where"] not in v3_mods and nw["step"] not in v3_mods
-                 and not (nw["step"].endswith(".py") and nw["step"][:-3] in v3_src)]
-    return {"live_path": v3, "legacy_path": legacy, "batch_path": batch, "not_in_live_path": not_wired,
-            "roles": roles, "role_gaps": gaps,
-            "counts": {"live": len(v3), "legacy": len(legacy), "batch": len(batch),
-                       "not_wired": len(not_wired), "role_gaps": len(gaps)}}
+    not_wired = []
+    for f in sorted(os.listdir(HERE)):
+        if f.startswith("stage_") and f.endswith(".py") and f not in called and f[:-3] not in rs and f[:-3] not in v3_src:
+            not_wired.append({"step": f, "where": f, "implements": _module_doc(os.path.join(HERE, f)),
+                              "status": "module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md)"})
+    tk = _toolkit()
+    return {"engine": "v3", "live_path": live, "not_in_live_path": not_wired, "toolkit": tk,
+            "counts": {"live": len(live), "not_wired": len(not_wired), "toolkit_rows": len(tk)}}
 
 
 def derive_v3(rs, intake, stage1):
@@ -207,63 +102,38 @@ def derive_v3(rs, intake, stage1):
 
 def write(d):
     json.dump(d, open(os.path.join(HERE, "chain_sequence.json"), "w"), indent=1)
-    L = ["# The chain, step by step — derived from the code",
-         "",
-         "Generated by `chain/build_chain_sequence.py` from the AST of `run_sample.py`, `conductor_v3.py`, `stage_q_iam_a.py` and `cpg_conductor.py`.",
-         "Do not edit by hand: re-run the generator. Every step below is a call the code actually makes, in the",
-         "order it makes it, and every stage module or function that is **not** in that path is listed underneath",
-         "rather than left out.",
-         "",
-         f"## The live path — {len(d['live_path'])} steps, in order", "",
+    L = ["# The chain, step by step - derived from the code", "",
+         "Generated by `chain/build_chain_sequence.py` from the AST of `run_sample.py`, `conductor_v3.py` and `stage_q_iam_a.py`.",
+         "Do not edit by hand: re-run the generator. Every step below is a call the code actually makes, in the order it makes it.",
+         "Chain v3 is the only engine; the class-floor engine (v2) was retired on 2026-10-03 and is archived privately.", "",
+         f"## The live path (chain v3) - {len(d['live_path'])} steps, in order", "",
          "| # | step | implemented in | what it does |", "|---|---|---|---|"]
     for i, s in enumerate(d["live_path"], 1):
         note = f" _{s['note']}_" if s.get("note") else ""
         L.append(f"| {i} | `{s['step']}` | `{s['where']}` | {s['implements']}{note} |")
-    if d.get("legacy_path"):
-        L += ["", f"## The legacy path (--engine legacy) — {len(d['legacy_path'])} steps, kept for the record", "",
-              "| # | step | implemented in | what it does |", "|---|---|---|---|"]
-        for i, st in enumerate(d["legacy_path"], 1):
-            L.append(f"| {i} | `{st['step']}` | `{st['where']}` | {st['implements']} |")
-    if d.get("batch_path"):
-        L += ["", f"## The batch path — {len(d['batch_path'])} steps, in order", "",
-              "Retired 2026-09-25: the v1 conductor and the run_batch.py that drove it are in",
-              "RETIRED_2026-09/v1_conductor_2026-09/. A cohort is a loop over run_sample.py. The numbers in the record and",
-              "in Issue 003 come from the path above, not from this one.", "",
-              "| # | step | implemented in | what it does |", "|---|---|---|---|"]
-        for i, st in enumerate(d["batch_path"], 1):
-            L.append(f"| {i} | `{st['step']}` | `{st['where']}` | {st['implements']} |")
-    if d.get("role_gaps"):
-        L += ["", "## Named as chain, called by nothing", "",
-              "The inventory gives these files `role=chain`, and no interface in this tree calls them. Every document",
-              "that presents them as a step the chain performs is wrong until they are wired.", "",
-              "| file | status |", "|---|---|"]
-        for g in d["role_gaps"]:
-            L.append(f"| `{g['file']}` | {g['status']} |")
-    L += ["", "## Implemented, but not in the live path", ""]
+    L += ["", "## Stage modules in chain/ that the live path does not call", ""]
     if not d["not_in_live_path"]:
-        L.append("_Nothing: every stage module and every stage function in the conductor is called._")
+        L.append("_None._")
     else:
-        L.append("These exist in the tree and are **not** run by `run_sample.py`. A document that lists them as")
-        L.append("steps of the chain is wrong; a reader who needs them must call them deliberately.")
-        L.append("")
-        L.append("| step | in | what it implements | status |")
-        L.append("|---|---|---|---|")
+        L += ["| module | what it implements | status |", "|---|---|---|"]
         for s in d["not_in_live_path"]:
-            L.append(f"| `{s['step']}` | `{s['where']}` | {s['implements']} | {s['status']} |")
+            L.append(f"| `{s['step']}` | {s['implements']} | {s['status']} |")
+    L += ["", "## The toolkit (chain/TOOLKIT.md) - built, not yet wired into v3", "",
+          "| stage (SOP 2b) | name | module | status |", "|---|---|---|---|"]
+    for t in d["toolkit"]:
+        L.append(f"| {t['stage']} | {t['name']} | `{t['where']}` | {t['status']} |")
     L.append("")
     open(os.path.join(DOORS, "CHAIN_SEQUENCE.md"), "w").write("\n".join(L))
 
 
 if __name__ == "__main__":
     d = derive()
+    if "--check" in sys.argv:
+        cur = json.load(open(os.path.join(HERE, "chain_sequence.json")))
+        same = cur == json.loads(json.dumps(d))
+        print("chain_sequence.json", "matches the code" if same else "DIFFERS from the code - run build_chain_sequence.py")
+        sys.exit(0 if same else 1)
     write(d)
-    print(f"live path: {d['counts']['live']} steps | batch path: {d['counts']['batch']} | "
-          f"not in the live path: {d['counts']['not_wired']} | role=chain but uncalled: {d['counts']['role_gaps']}")
+    print(f"live path: {d['counts']['live']} steps | stage modules not called: {d['counts']['not_wired']} | toolkit rows: {d['counts']['toolkit_rows']}")
     for s in d["live_path"]:
         print(f"   {s['step']}")
-    for s in d.get("batch_path", []):
-        print(f"   [batch] {s['step']}")
-    for g in d.get("role_gaps", []):
-        print(f"   GAP: {g['file']} - {g['status']}")
-    for s in d["not_in_live_path"]:
-        print(f"   NOT WIRED: {s['step']} - {s['status']}")

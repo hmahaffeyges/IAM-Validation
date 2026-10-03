@@ -16,7 +16,7 @@ numbers have been re-derived on the identity gauge. Four things a reader must kn
    **0.838889 ± 0.0012** during calibration, when six immune cell types replaced neutrophils alone.
 3. **The "detection threshold A > 1.05" in the generated README is that era's working threshold.** It is not a
    commissioned claim of this chain. Issue 003 states no detection threshold for any condition, and its
-   tier breakpoints are a separate, sealed file ([`tier_breakpoints.json`](../chain/Runtime%20Matrices/Tier_breakpoints/tier_breakpoints.json)).
+   tier breakpoints are a separate, sealed file (tier_breakpoints.json (archived privately)).
 4. **Disease evidence for the commissioned chain does not exist yet.** By the author's instruction it belongs in
    **Issue 004**, after sealed runs on the commissioned chain against pre-registered bars. Nothing here
    anticipates that result.

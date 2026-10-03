@@ -31,7 +31,7 @@ transistors, and at the methylation pattern a cell holds to remain the cell it i
 | The cell instrument (chain v3, development build) | [`Biological_Physics/MethylPhys/`](Biological_Physics/MethylPhys/) |
 | Cosmology chains | [`mgcamb_validation/`](mgcamb_validation/) (Level 1), [`camb_validation/`](camb_validation/) (Level 2) |
 | Recomputation scripts for the book's numbers | [`docs/verification/scripts/`](docs/verification/scripts/) |
-| Derivation checks for the device and cell numbers | [`DERIVATIONS QPROC_CHIP_MPHYS/`](DERIVATIONS%20QPROC_CHIP_MPHYS/) (`python3 mphys_derivation_tests.py`, and the quantum-processor report and the semiconductor report files) |
+| Derivation checks for the device and cell numbers | DERIVATIONS QPROC_CHIP_MPHYS/ (archived privately) (`python3 mphys_derivation_tests.py`, and the quantum-processor report and the semiconductor report files) |
 
 Every result carries one status label: DERIVED, CALCULATED, CALIBRATED, MEASURED, OBSERVED, FITTED, CONJECTURE, PREDICTION or OPEN.
 
@@ -62,7 +62,7 @@ The papers are the working record. Where a paper and the corrections list disagr
 - [The thermodynamic identity governing the virial theorem - physical identification of K, with evidence across domains](docs/papers/PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem.pdf)
 - [The virial partition across a wide range of physical scales - the cross-domain validation](docs/papers/Virial_Partitian_Across_Wide_Domains.pdf)
 - [The virial partition from atoms to the horizon](docs/papers/The_Virial_Partition_from_Atoms_to_the_Horizon.pdf)
-- [The Informational Actualization Model: a technical reference for physicists](docs/papers/The_Informational_Actualization_Model___A_Technical_Reference_for_Physicists.pdf)
+- The Informational Actualization Model: a technical reference for physicists (archived privately)
 
 **Cosmology and gravitation**
 - [Horizon thermodynamics and gravitational decoherence as the origin of mu < 1, Sigma = 1](docs/papers/IAM_Theory_Paper.pdf)
@@ -122,7 +122,7 @@ The papers are the working record. Where a paper and the corrections list disagr
 git clone https://github.com/hmahaffeyges/IAM-Validation && cd IAM-Validation
 pip install numpy scipy pandas matplotlib
 python3 CANON/canon_check.py                                   # constants and names consistent
-python3 "DERIVATIONS QPROC_CHIP_MPHYS/mphys_derivation_tests.py" # cell derivation checks
+# python3 "DERIVATIONS QPROC_CHIP_MPHYS/mphys_derivation_tests.py"   # cell derivation checks (folder archived privately)
 python3 docs/verification/scripts/verify_encoding_ladder.py    # the places table of Part 1
 ```
 The cell chain is run as in [`Biological_Physics/MethylPhys/README.md`](Biological_Physics/MethylPhys/README.md). The book compiles with
@@ -157,4 +157,4 @@ SH0ES, Pantheon+, DESI, KiDS and DES collaborations, and the authors of every pu
 record). Software: CAMB (Lewis, Challinor), MGCAMB (Wang, Mirpoorian, Pogosian, Silvestri, Zhao), Cobaya (Torrado, Lewis), HEALPix, NumPy,
 SciPy, Matplotlib, GetDist.
 
-The previous README (April 2026) is kept unchanged at [`docs/RETIRED_2026-10/README_2026-04.md`](docs/RETIRED_2026-10/README_2026-04.md).
+The previous README (April 2026) is kept unchanged at docs/RETIRED_2026-10/README_2026-04.md (archived privately).

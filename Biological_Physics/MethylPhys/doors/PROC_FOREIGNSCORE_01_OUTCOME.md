@@ -1,7 +1,7 @@
 # PROC-FOREIGNSCORE-01 — outcome: NOT ADOPTED. No scoring floor is set; a detected foreign cell stays "detected, fraction f, not scored".
 
-Scored 2026-09-27 against [`PROC_FOREIGNSCORE_01_PREREG.md`](PROC_FOREIGNSCORE_01_PREREG.md). Script `kit/PROC_FOREIGNSCORE_01.py`;
-results `kit/results/PROC_FOREIGNSCORE_01.json`. 12 healthy GSE87571 hosts × 6 foreign cells × 5 fractions (2, 5, 10, 20, 50 %) = 360
+Scored 2026-09-27 against [`PROC_FOREIGNSCORE_01_PREREG.md`](PROC_FOREIGNSCORE_01_PREREG.md). Script kit/PROC_FOREIGNSCORE_01.py (archived privately);
+results kit/results/PROC_FOREIGNSCORE_01.json (archived privately). 12 healthy GSE87571 hosts × 6 foreign cells × 5 fractions (2, 5, 10, 20, 50 %) = 360
 spikes; the spike is the cell's atlas profile at the loci where it is measured and the host's β elsewhere.
 
 | measured | |

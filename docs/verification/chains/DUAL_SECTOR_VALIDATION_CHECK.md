@@ -34,7 +34,7 @@ is set entirely by the prior; M absorbs it. Consequences:
    `results/mcmc_results_final.npz` (95 % = 1.425 × 10⁻⁶). Its θ_s integral reverses both arrays (`np.trapz(integrand[::-1], z_array[::-1])`), so the
    distance to last scattering comes out negative: θ_s(β_γ = 0) = −0.01025, 6,666σ from Planck. Against that χ² any β_γ ≈ 10⁻⁶ moves χ² by 4.
    **Corrected** (same model and data, `scripts/verify_beta_gamma.py`): **β_γ < 0.0039 (95 %)**, β_γ/β_m < 0.025, the same as the grid scan in
-   `docs/RETIRED_2026-10/top_level/development/archive/tests_27-29/test_29_beta_gamma_constraint.py`. Photons couple at under 2.5 % of the matter coupling.
+   docs/RETIRED_2026-10/top_level/development/archive/tests_27-29/test_29_beta_gamma_constraint.py (archived privately). Photons couple at under 2.5 % of the matter coupling.
    8b. `tests/iam_validation.py` hard-codes 1.4e-6 as "MCMC 95 % upper limit"; its Figure 9 corner plot is drawn from synthetic samples
    (`np.random.exponential(3.3e-7)`), not a chain.
    8c. **"36σ"**: `results/test_27_results.txt`, `test_28_output.txt` — β = 0.18 applied to photon paths with r_s = 144.43 Mpc and all other

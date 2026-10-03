@@ -4,9 +4,9 @@
 extracted. Four 450K laboratories as before (48 arrays, 768 spikes); GSE51032 re-extracted from the raw series matrix
 on the author's disk at **all 1,506 of the detector's markers** (median 3,887 of 4,444 deconvolver markers present per
 array), 424 controls, 6,784 spikes, scale-mapped through `GSE51032_450K` exactly as PROC-EPIC-01 did.
-Evidence: [`PROC_MF_03.json`](../kit/results/PROC_MF_03.json) · [`PROC_MF_03_null.json`](../kit/results/PROC_MF_03_null.json)
-· [`PROC_MF_03_extraction.json`](../kit/results/PROC_MF_03_extraction.json) · [`PROC_MF_03_null_mad_by_lab.json`](../kit/results/PROC_MF_03_null_mad_by_lab.json)
-· [`PROC_MF_03.py`](../kit/PROC_MF_03.py) · [`PROC_MF_03_extract.py`](../kit/PROC_MF_03_extract.py) · [`PROC_MF_03.png`](../plates/PROC_MF_03.png)
+Evidence: PROC_MF_03.json (archived privately) · PROC_MF_03_null.json (archived privately)
+· PROC_MF_03_extraction.json (archived privately) · PROC_MF_03_null_mad_by_lab.json (archived privately)
+· PROC_MF_03.py (archived privately) · PROC_MF_03_extract.py (archived privately) · [`PROC_MF_03.png`](../plates/PROC_MF_03.png)
 
 **A correction first.** MF-02's documents call GSE51032 "EPIC" and "a fifth platform". It is a **450K array**
 (GPL13534); "EPIC-Italy" is the cohort's name. It is a fifth *laboratory* on the same platform, with author-processed
@@ -85,4 +85,4 @@ ability to be *commissioned* at a new laboratory from that laboratory's own pane
 now, the weights do not yet, and the panel must be gated before it sets anything. That is the same shape as the
 laboratory zero, one level up.
 
-**Corrected 2026-09-26 after audit:** the first sealed text said the two arrays read 0.18–0.29 on "Breast, Prostate and neurons" and that the null was "4–11×" wider. The per-cell readings in [`PROC_MF_03_null.json`](../kit/results/PROC_MF_03_null.json) show neurons at 0.06–0.07 for those arrays and colon not elevated, and the width ratios run to 25× on colon and neurons. Both statements are corrected above; the verdict does not change.
+**Corrected 2026-09-26 after audit:** the first sealed text said the two arrays read 0.18–0.29 on "Breast, Prostate and neurons" and that the null was "4–11×" wider. The per-cell readings in PROC_MF_03_null.json (archived privately) show neurons at 0.06–0.07 for those arrays and colon not elevated, and the width ratios run to 25× on colon and neurons. Both statements are corrected above; the verdict does not change.

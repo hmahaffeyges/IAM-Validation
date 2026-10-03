@@ -113,7 +113,7 @@ The author's decisions are collected in Section 19, one line each; items elsewhe
 - [x] 7.2 Falsifiable predictions: part5/p5_07_predictions.tex, 519 non-cell register entries triaged, about 40 predictions with value, test, date, falsifier
       (11d6d8f; `CANON/predictions_triage_2026-10-02.json`); cell predictions only after commissioning (897db28). Four early predictions removed from book and repo (09708e5).
 - [x] 7.3 Exploratory: part5/p5_02_exploratory.tex, 361 lines, written for fun to show the reach of the law (33ca096; main.tex:101). The two repo PDFs are one paper
-      (erratum GE5; the propulsion copy is `docs/RETIRED_2026-10/top_level/Gravitational_Propulsion_and_IAM_duplicate.pdf`, e08384a).
+      (erratum GE5; the propulsion copy is docs/RETIRED_2026-10/top_level/Gravitational_Propulsion_and_IAM_duplicate.pdf (archived privately), e08384a).
 - [x] 7.4 Interpretation chapter: part5/p5_01_interpretation.tex (main.tex:88); black-hole information p5_01b (3a00e42).
 - [x] 7.5 Status table merged across all parts: part5/p5_11_status_all.tex (8bdffd4; rows added 74eefbe).
 - [x] 7.6 Open problems with the plan for each: part5/p5_09_open.tex "What is open, and the plan to close it" (12 derivations, 14 cell-instrument items, 6 device items; 636ddff).
@@ -154,7 +154,7 @@ The author's decisions are collected in Section 19, one line each; items elsewhe
 - [~] 11.1 Book folder README `docs/book/README.md` (23 lines) with the build command. Remains: its label list (l.11) lacks `\interp` and `\record`; its appendices line (l.18)
       still lists "corrections to the source papers"; status points to this file. Block in the MANIFEST.
 - [ ] 11.2 `Biological_Physics/MethylPhys/chain/README.md` describes the v2 stages: per-cell A = H/H_min of its class "and its tier" (l.19), class gauge (l.20), orchestrator
-      `cpg_conductor.py run_full` (l.24), tier file among the runtime constants (l.28); last changed 3942f8b (2026-09-27), before `conductor_v3.py` (bc4a651, 2026-10-01).
+      `cpg_conductor.py run_full` (retired with chain v2 on 2026-10-03, archived privately) (l.24), tier file among the runtime constants (l.28); last changed 3942f8b (2026-09-27), before `conductor_v3.py` (bc4a651, 2026-10-01).
       Rewrite it on chain v3 (Stages A, M, MC, T, IAM-A; median same-run tare, 03e15ad).
 - [ ] 11.3 v3 report rebuilt with the tab prose: `chain/MethylPhys_Interface/report_v3.py` last changed a8a7637 (2026-10-01); tab prose not yet in it.
 - [ ] 11.4 Everything shown to the author is in the repo (except private material).

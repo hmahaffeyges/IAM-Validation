@@ -1,6 +1,6 @@
 # Chain v3 audit fixes — CHANGES
 
-Base: `main` at `7cdbbf8` (floor v1.3). Local branch `audit-fixes`, not pushed. 15 files (14 changed, 1 added); no existing frozen file changed, no frozen number changed; one frozen file copied in unchanged. Audit item ids refer to `SOP_AUDIT.md`.
+Base: `main` at `7cdbbf8` (floor v1.3). Local branch `audit-fixes`, not pushed. 15 files (14 changed, 1 added); no existing frozen file changed, no frozen number changed; one frozen file copied in unchanged. Audit item ids refer to SOP_AUDIT.md (archived privately).
 
 | file (under `Biological_Physics/MethylPhys/`) | what changed |
 |---|---|

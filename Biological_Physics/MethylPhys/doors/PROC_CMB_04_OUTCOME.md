@@ -21,7 +21,7 @@
 
 **Four seals so far** (CMB-01 no zero; -02 blood classes masked by their own p99; -03 RMS-inflated scale, render-cap bar retired by the author; -04). Each failure is written where it happened.
 
-**In code.** `CPG_Engine/stage_4_6_patient_cmb.py`; `cpg_conductor.stage_4_6_patient_sky` in `run_full` (bundle key `patient_sky`; NOT AVAILABLE without the laboratory's residual scale); `Runtime Matrices/Patient_CMB/` (mapping, four lab scales, presence floors, `build_healpix_mapping.py`); kit test `test_patient_sky.py`; procedure `PROC_CMB_04.py`.
+**In code.** CPG_Engine/stage_4_6_patient_cmb.py (archived privately); `cpg_conductor.stage_4_6_patient_sky` in `run_full` (bundle key `patient_sky`; NOT AVAILABLE without the laboratory's residual scale); `Runtime Matrices/Patient_CMB/` (mapping, four lab scales, presence floors, `build_healpix_mapping.py`); kit test `test_patient_sky.py`; procedure `PROC_CMB_04.py`.
 
 ---
 **SEALED** sha256 `1ff79f5a67c4b8fc24ddffd828535e00e9f760e17336149fd3a1b53d8c1a01ca` · 2026-09-21 (rev 2)

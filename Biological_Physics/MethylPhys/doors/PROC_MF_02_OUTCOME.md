@@ -2,8 +2,8 @@
 
 **Sealed 2026-09-26** against [`PROC_MF_02_PREREG.md`](PROC_MF_02_PREREG.md), fixed before any spike was scored. Same
 null and spikes as MF-01: 48 healthy arrays from four laboratories, 1,506 common markers, 768 spikes into real arrays.
-Evidence: [`PROC_MF_02.json`](../kit/results/PROC_MF_02.json) · [`PROC_MF_02_null.json`](../kit/results/PROC_MF_02_null.json)
-· [`PROC_MF_02_b7_diagnosis.json`](../kit/results/PROC_MF_02_b7_diagnosis.json) · [`PROC_MF_02.py`](../kit/PROC_MF_02.py)
+Evidence: PROC_MF_02.json (archived privately) · PROC_MF_02_null.json (archived privately)
+· PROC_MF_02_b7_diagnosis.json (archived privately) · PROC_MF_02.py (archived privately)
 · [`PROC_MF_02.png`](../plates/PROC_MF_02.png)
 
 ## Detection limit — ≥ 90 % of real-array spikes detected at ≤ 1 false positive in 48

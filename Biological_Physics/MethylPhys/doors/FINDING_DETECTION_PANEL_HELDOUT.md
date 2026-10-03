@@ -1,7 +1,7 @@
 # FINDING — the foreign-cell detection panel, held out on 732 healthy blood arrays (2026-09-27)
 
-**Register row B-12: NOT VERIFIED.** [`detection_panel_v1.json`](../RETIRED_2026-09/detection_panel_v1_v2/detection_panel_v1.json) was commissioned on 12 arrays per laboratory (PROC-MF-02/03,
-2026-09-26). Run on all 732 Uppsala whole-blood arrays (`kit/HELDOUT_2D.py`, one shard per array, 1 s each; results
+**Register row B-12: NOT VERIFIED.** detection_panel_v1.json (archived privately) was commissioned on 12 arrays per laboratory (PROC-MF-02/03,
+2026-09-26). Run on all 732 Uppsala whole-blood arrays (kit/HELDOUT_2D.py (archived privately), one shard per array, 1 s each; results
 `kit/results/HELDOUT_2D_*.{json,csv}`), 720 of them never seen by the panel:
 
 | | measured |
@@ -13,10 +13,10 @@
 
 **Structure, not noise.** Detections per array are bimodal: median 0, p90 = 20 of 21. Half the arrays fire on nearly every
 template at once. That is a **per-array common mode** — a shift shared by all 21 templates, which is no cell. It is not the
-chip, not the SNP tare, not age, not A (all-fire vs none differ in none of these; [`HELDOUT_2D_per_array.csv`](../kit/results/HELDOUT_2D_per_array.csv)).
+chip, not the SNP tare, not age, not A (all-fire vs none differ in none of these; HELDOUT_2D_per_array.csv (archived privately)).
 
 **Diagnostic (after the measurement, not a bar): remove the common mode.** Subtract each array's median f̂ across the 21
-templates before applying the lines ([`HELDOUT_2D_commonmode_diagnostic.json`](../kit/results/HELDOUT_2D_commonmode_diagnostic.json)):
+templates before applying the lines (HELDOUT_2D_commonmode_diagnostic.json (archived privately)):
 
 | | raw | common mode removed |
 |---|---|---|

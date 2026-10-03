@@ -2,8 +2,8 @@
 
 **Sealed 2026-09-26** against the bars in [`PROC_COV_01_PREREG.md`](PROC_COV_01_PREREG.md), fixed before any
 residual was computed. 318 healthy whole-blood arrays, four laboratories, 149,982 identity loci, everything
-estimated leave-one-laboratory-out. Evidence: [`PROC_COV_01.json`](../kit/results/PROC_COV_01.json) ·
-script [`PROC_COV_01.py`](../kit/PROC_COV_01.py).
+estimated leave-one-laboratory-out. Evidence: PROC_COV_01.json (archived privately) ·
+script PROC_COV_01.py (archived privately).
 
 | bar | result | |
 |---|---|---|

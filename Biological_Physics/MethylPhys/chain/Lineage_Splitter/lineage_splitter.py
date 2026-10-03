@@ -1,6 +1,7 @@
+# Toolkit: not yet wired into chain v3; enters the chain at commissioning with its own pre-registered check.  (SOP v3 section 2b, stage 4 (lineage splitter, helper of NILC); chain/TOOLKIT.md)
 """lineage_splitter.py — Tool B of the two-tool composition design (PROC-SEP-03, 2026-09-19).
 
-Tool A (legacyIAMDeconvolver) answers "what is in the tube" on field-ranked class markers.
+Tool A (the class-era deconvolver) answers "what is in the tube" on field-ranked class markers.
 Tool B takes ONE compartment Tool A found (default: haematopoietic = progenitor + stem_adult) and asks
 only "how does that mass divide along the lineage", using ONLY the CpGs where the member classes differ
 (contrast CpGs, weighted by |mean_a - mean_b|), solving a small non-negative problem on the compartment

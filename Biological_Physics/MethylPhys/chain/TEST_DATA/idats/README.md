@@ -1,6 +1,6 @@
 # chain/TEST_DATA/idats
 
-Raw two-channel intensity files for the eleven commissioning arrays - the input the chain is designed to take.
+Raw two-channel intensity files: four EPIC v1 pairs (read by v3) and seven 450K pairs (refused by v3's platform check).
 
 ## What is in here
 

@@ -2,7 +2,7 @@
 
 The sealed outcome stands as sealed: B2 failed at 36 of 48 (bar 40). It named this follow-up: re-score once Stage 0 refuses
 low-signal input. No array was re-run; the 48 shards of the sealed run are re-read with the intake gate (call rate ≥ 0.93,
-`Runtime Matrices/Intake/intake_thresholds_v1.json`, PROC-INTAKE-01). Table: `kit/results/PROC_SKY_01_followup_intake_gate.csv`.
+`Runtime Matrices/Intake/intake_thresholds_v1.json`, PROC-INTAKE-01). Table: kit/results/PROC_SKY_01_followup_intake_gate.csv (archived privately).
 
 | | arrays | robust SD of z in [0.7, 1.4] |
 |---|---|---|

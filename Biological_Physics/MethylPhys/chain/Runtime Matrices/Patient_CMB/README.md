@@ -1,14 +1,14 @@
 # chain/Runtime Matrices/Patient_CMB
 
-The sky layer: the CpG-to-pixel mapping and the residual scales each laboratory's plate is drawn on.
+Toolkit, stage 11 (sky map): the CpG-to-pixel mapping, its builder, and the presence floors.
 
 ## What is in here
 
 | file | |
 |---|---|
-| [`build_healpix_mapping.py`](build_healpix_mapping.py) | Builds the CpG -> pixel mapping from the array manifest in genomic order. Deterministic: same atlas + manifest -> byte-identical output. |
-| [`iamatlas_cpg_to_healpix_nside128.npz`](iamatlas_cpg_to_healpix_nside128.npz) | The mapping itself: 483,092 CpGs onto 196,608 pixels. Measured 2026-09-22 to be genomically local - every pixel holds contiguous CpGs of one chromosom |
-| [`presence_floors_v1.json`](presence_floors_v1.json) | The measured healthy presence floor per class: below it a class IS NOT THERE in this specimen, so its panel is masked rather than scored. |
+| [`build_healpix_mapping.py`](build_healpix_mapping.py) |  |
+| [`iamatlas_cpg_to_healpix_nside128.npz`](iamatlas_cpg_to_healpix_nside128.npz) |  |
+| [`presence_floors_v1.json`](presence_floors_v1.json) |  |
 
 _4 file(s)._ Paths above are relative to this folder, and [`kit/link_check.py`](../../../kit/link_check.py) fails the build if any of them stops resolving.
 

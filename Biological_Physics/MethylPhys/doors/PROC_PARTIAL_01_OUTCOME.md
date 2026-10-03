@@ -3,10 +3,10 @@
 **Sealed 2026-09-26** against the bars fixed in [`PROC_PARTIAL_01_PREREG.md`](PROC_PARTIAL_01_PREREG.md)
 before any recovery was attempted. 2,862 mixtures estimated from the 5,088 PROC-FOREIGN-01 had already
 scored — same hosts, same fractions, same fitted compositions, no new data.
-Evidence: [`PROC_PARTIAL_01.json`](../kit/results/PROC_PARTIAL_01.json) ·
-[`PROC_PARTIAL_01_landing.json`](../kit/results/PROC_PARTIAL_01_landing.json) ·
-scripts [`PROC_PARTIAL_01.py`](../kit/PROC_PARTIAL_01.py) ·
-[`PROC_PARTIAL_01_analyse.py`](../kit/PROC_PARTIAL_01_analyse.py).
+Evidence: PROC_PARTIAL_01.json (archived privately) ·
+PROC_PARTIAL_01_landing.json (archived privately) ·
+scripts PROC_PARTIAL_01.py (archived privately) ·
+PROC_PARTIAL_01_analyse.py (archived privately).
 
 **No fraction qualifies at any level, and the failure is not close.** B1, B2 and B3 fail at every fraction
 for all three classes; B4 is untestable because no reporting floor exists to test; B5 holds.

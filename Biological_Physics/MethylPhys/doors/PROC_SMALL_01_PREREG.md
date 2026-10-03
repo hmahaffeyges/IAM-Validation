@@ -1,7 +1,7 @@
 # PROC-SMALL-01 — can the detection limit for a trace class in whole blood be brought below 5 %?
 
 **Pre-registered 2026-09-23, before any configuration was run.** The measured limit is 5 % for secretory and
-cycling ([`SMALL_CLASS_DETECTION_NOTE_2026-09-23.md`](../kit/SMALL_CLASS_DETECTION_NOTE_2026-09-23.md)), and
+cycling (SMALL_CLASS_DETECTION_NOTE_2026-09-23.md (archived privately)), and
 the same note shows why: two of three donors read *exactly* zero at every spike below 5 % because the
 non-negativity constraint pins a small component at the boundary, while the one donor whose solution sits in
 the interior responds monotonically to every 0.25 % step. The sensitivity exists in the data. This procedure

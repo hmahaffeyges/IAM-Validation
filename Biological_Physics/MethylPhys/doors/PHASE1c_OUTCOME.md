@@ -1,6 +1,6 @@
 # OUTCOME — PHASE 1c: scale-map and band transfer to GSE42861 controls
 
-**Run:** 2026-09-20 01:33 → 03:47 PDT, `phase1c_run.py`, methylprep noob Stage 1, legacy HEAD, identity loci v1_0, map `stage1_noob_450K` (slope 1.0127, intercept 0.0662) **as fit on GSE87571**, band `mapped_band` **as built on GSE87571**. Nothing fit on GSE42861.
+**Run:** 2026-09-20 01:33 → 03:47 PDT, `phase1c_run.py`, methylprep noob Stage 1, the deconvolver at HEAD, identity loci v1_0, map `stage1_noob_450K` (slope 1.0127, intercept 0.0662) **as fit on GSE87571**, band `mapped_band` **as built on GSE87571**. Nothing fit on GSE42861.
 **Against:** PREREG.md sealed sha256 `9adb8c587e56c396…` (tar not yet downloaded at sealing). No condition changed after data were seen.
 **Input:** GSE42861_RAW.tar 5.74 GB; 335 `disease state: Normal` controls only; the 354 RA arrays were not opened.
 

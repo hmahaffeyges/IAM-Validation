@@ -27,7 +27,7 @@ and subtract — or is it specimen-specific, in which case nothing can be remove
 ## Data and construction
 
 The **318 healthy whole-blood arrays** already calibrated and published in
-`kit/results/PROC_BAND_01_arrays.json`, across four laboratories (GSE87571, GSE42861, GSE111629, GSE125105).
+kit/results/PROC_BAND_01_arrays.json (archived privately), across four laboratories (GSE87571, GSE42861, GSE111629, GSE125105).
 No new data. Fractions are the chain's own fitted `f̂`, not refitted.
 
 **Everything is estimated leave-one-laboratory-out.** The bias vector is estimated on three laboratories and

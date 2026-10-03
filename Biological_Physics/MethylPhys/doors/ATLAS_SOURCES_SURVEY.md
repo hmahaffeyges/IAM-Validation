@@ -8,8 +8,8 @@ join the cell atlas.
 one at a time through the same script (scale map → coverage family → twin test → identity loci → reads 1.00 on its own profile).
 
 ## The target list — 44 cell columns the old disease matrix names that the 115-cell atlas cannot reach
-Read from `chain/Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_13.csv` against
-[`iamatlas_115_to_matrix_v0_2_mapping.json`](../chain/Disease%20Matrix/DISEASE_MATRIX/iamatlas_115_to_matrix_v0_2_mapping.json) (136 columns: 7 metadata, 8 class means, 121 cells; 77 reachable, 44 not).
+Read from chain/Disease Matrix/DISEASE_MATRIX/disease_cell_signature_matrix_v1_13.csv (archived privately) against
+iamatlas_115_to_matrix_v0_2_mapping.json (archived privately) (136 columns: 7 metadata, 8 class means, 121 cells; 77 reachable, 44 not).
 The "star cells" are **astrocytes** (astro = star) and **stellate cells** (hepatic, pancreatic).
 
 ## Sources, verified

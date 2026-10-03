@@ -1,6 +1,6 @@
 # OUTCOME — LAB-ZERO-02: the fourth lab decides the lab-zero route
 
-**Run 2026-09-20.** GSE111629 UCLA, 237 `PD-free control` arrays (PD arrays not opened), per-sample IDAT fetch (1.9 GB, 10 min), Stage 1 six-wide (237/237, 43 min), legacy presence gate, identity-loci gauge, map `stage1_noob_450K` frozen, control-probe features and ridge λ = 1 exactly as LAB-ZERO-01. **Against PREREG.md as sealed.**
+**Run 2026-09-20.** GSE111629 UCLA, 237 `PD-free control` arrays (PD arrays not opened), per-sample IDAT fetch (1.9 GB, 10 min), Stage 1 six-wide (237/237, 43 min), deconvolver presence gate, identity-loci gauge, map `stage1_noob_450K` frozen, control-probe features and ridge λ = 1 exactly as LAB-ZERO-01. **Against PREREG.md as sealed.**
 
 ## Verdict: **P4 FAIL, P4b FAIL, P6 FAIL. The control-probe route carries direction but not magnitude; the per-lab healthy-control panel (CLSI EP28) is the lab zero.**
 

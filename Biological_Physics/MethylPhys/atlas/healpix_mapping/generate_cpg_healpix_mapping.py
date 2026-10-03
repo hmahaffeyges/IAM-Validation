@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Toolkit: not yet wired into chain v3; enters the chain at commissioning with its own pre-registered check.  (SOP v3 section 2b, stage 11 (build-time: the earlier CpG-to-pixel mapping); chain/TOOLKIT.md)
 """
 generate_cpg_healpix_mapping.py — One-time generator for iamatlas_cpg_to_healpix_nside128.npy
 

@@ -11,7 +11,7 @@ noise, and it says nothing about any cell's A.
    every foreign template is no cell; it is this specimen's own number, no population enters.
 2. **Lines.** Per template, the line is the 0.99 quantile of common-mode-removed f̂ over all Uppsala arrays the intake gate
    admits (732 minus refusals), plus the Karolinska and UCLA admitted panel arrays for a cross-laboratory check; stated on the
-   report as "instrument noise floor, measured on N arrays known to lack the cell". [`detection_panel_v2.json`](../RETIRED_2026-09/detection_panel_v1_v2/detection_panel_v2.json) carries N, the
+   report as "instrument noise floor, measured on N arrays known to lack the cell". detection_panel_v2.json (archived privately) carries N, the
    quantile, and the per-template floor. No line is ever the raw maximum.
 3. **Not detectable.** A template whose common-mode-removed f̂ on blood is biased — median > 0 by more than one σ_cm, or
    0.99-quantile FP > 5 % under any line that also keeps 50 % detection at f = 0.02 in a spike — gets **no line** and prints
@@ -28,7 +28,7 @@ noise, and it says nothing about any cell's A.
   templates) into 12 healthy arrays — ≥ 90 % detected at 0.05, ≥ 50 % at 0.02.
 - **B4** the composition check (PROC-FOREIGN-01) is unchanged to 1e-6 on the 48 panel arrays.
 - **B5** the thin-source templates print NOT DETECTABLE on every one of the 48 panel arrays; no f̂ or line for them on the page.
-- **B6** the kit test ([`test_stage2d_panels.py`](../kit/test_stage2d_panels.py)) is rewritten to this contract and passes; it fails if a v1 line is read anywhere.
+- **B6** the kit test (test_stage2d_panels.py (archived privately)) is rewritten to this contract and passes; it fails if a v1 line is read anywhere.
 
 ## Decision rule
 B1–B6 met → adopted; v1 retired with this record. B3 failed → the common mode is removing signal: adopt lines and NOT-DETECTABLE
