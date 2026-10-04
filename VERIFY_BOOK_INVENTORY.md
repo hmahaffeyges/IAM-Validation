@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3832 PASS, 0 FAIL, 2506 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3849 PASS, 0 FAIL, 2489 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4515,35 +4515,35 @@ Totals: 3832 PASS, 0 FAIL, 2506 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 7 | eq:A | none |  | not run: displayed equation, not yet checked | - |
-| 22 |  | calc | `0.95` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 22 |  | calc | `1.05` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 7 | eq:A | none |  | not run: definition: A = reading / healthy reference (the gauge) | - |
+| 22 |  | calc | `0.95` | not run: definition: Normal band 0.95-1.05, a design tolerance A = 1 +- 5 % (stated at line 35) | - |
+| 22 |  | calc | `1.05` | not run: definition: Normal band 0.95-1.05, a design tolerance A = 1 +- 5 % (stated at line 35) | - |
 | 23 | ch:gauge:L23 | calc | `0.910` | file `CANON/iam_canon.json`: H_min for IAM-A, 1/P | PASS |
 | 24 | ch:gauge:L24 | calc | `3.03` | file `CANON/iam_canon.json`: Met-A full surface | PASS |
 | 24 | ch:gauge:L24:4.45 | calc | `4.45` | file `CANON/iam_canon.json`: IAM-A full surface | PASS |
 | 34 | ch:gauge:L34 | derived | `0.910` | file `CANON/iam_canon.json`: H_min for IAM-A, 1/P | PASS |
-| 35 |  | derived | `0.95` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 35 |  | derived | `1.05` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 35 |  | derived | `0.95` | not run: definition: Normal band, design tolerance, healthy is A = 1 +- 5 % | - |
+| 35 |  | derived | `1.05` | not run: definition: Normal band, design tolerance, healthy is A = 1 +- 5 % | - |
 | 38 | ch:gauge:L38 | calc | `3.03` | file `CANON/iam_canon.json`: Met-A full surface | PASS |
 | 38 | ch:gauge:L38:4.45 | calc | `4.45` | file `CANON/iam_canon.json`: IAM-A full surface | PASS |
 | 39 | ch:gauge:L39 | calc | `45` | numeric: C-score far end: var ratio 50 over the baseline | PASS |
-| 39 |  | derived | `50` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 39 |  | derived | `1.1104` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 53 |  | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 101 |  | measured | `0.685` | not run: measured, source not named | - |
-| 101 |  | measured | `0.695` | not run: measured, source not named | - |
-| 102 |  | measured | `1.077` | not run: measured, source not named | - |
-| 102 |  | measured | `1.120` | not run: measured, source not named | - |
-| 102 |  | measured | `0.965` | not run: measured, source not named | - |
-| 102 |  | measured | `0.975` | not run: measured, source not named | - |
-| 112 |  | measured | `+0.06` | not run: measured, source not named | - |
-| 112 |  | measured | `1.090` | not run: measured, source not named | - |
-| 113 |  | measured | `0.033` | not run: measured, source not named | - |
-| 113 |  | measured | `0.064` | not run: measured, source not named | - |
-| 114 |  | measured | `1.00` | not run: measured, source not named | - |
-| 114 |  | measured | `1.29` | not run: measured, source not named | - |
-| 114 |  | measured | `1.35` | not run: measured, source not named | - |
-| 120 |  | measured | `0.020` | not run: measured, source not named | - |
+| 39 | ch:gauge:L39:50 | derived | `50` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C-score block size, read from the frozen reference | PASS |
+| 39 | ch:gauge:L39:1.1104 | derived | `1.1104` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C-score healthy baseline: median of the six leave-one-out clustering values | PASS |
+| 53 | ch:gauge:L53 | derived |  | sympy: H(beta) at a site held methylated equals H of the error rate | PASS |
+| 101 | ch:gauge:L101 | measured | `0.685` | file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 senescent, unmethylated channel, lowest culture | PASS |
+| 101 | ch:gauge:L101:0.695 | measured | `0.695` | file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 senescent, unmethylated channel, highest culture | PASS |
+| 102 | ch:gauge:L102 | measured | `1.077` | file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 SV40, methylated channel, lowest culture | PASS |
+| 102 | ch:gauge:L102:1.120 | measured | `1.120` | file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 SV40, methylated channel, highest culture | PASS |
+| 102 | ch:gauge:L102:0.965 | measured | `0.965` | file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 SV40, both channels, lowest culture | PASS |
+| 102 | ch:gauge:L102:0.975 | measured | `0.975` | file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 SV40, both channels, highest culture | PASS |
+| 112 | ch:gauge:L112 | measured | `+0.06` | file `Biological_Physics/MethylPhys/doors/data/selfconsist.csv`: tared Met-A shift of a simulated 2 % neutrophil pattern loss | PASS |
+| 112 | ch:gauge:L112:1.090 | measured | `1.090` | file `Biological_Physics/MethylPhys/doors/data/selfconsist.csv`: tared Met-A of the damaged mixtures, highest | PASS |
+| 113 | ch:gauge:L113 | measured | `0.033` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: 2 % blur shift at 40-50 % neutrophils | PASS |
+| 113 | ch:gauge:L113:0.064 | measured | `0.064` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: 2 % blur shift above 70 % neutrophils | PASS |
+| 114 | ch:gauge:L114 | measured | `1.00` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: IAM-A of healthy granulocyte donors, mean | PASS |
+| 114 | ch:gauge:L114:1.29 | measured | `1.29` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: IAM-A after a simulated 2 % rise in copy error, lowest donor | PASS |
+| 114 | ch:gauge:L114:1.35 | measured | `1.35` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: IAM-A after a simulated 2 % rise in copy error, highest donor | PASS |
+| 120 | ch:gauge:L120 | measured | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: SD of the six held-out reference arrays | PASS |
 
 ## Part 6 - ch:meta - `docs/book/part4/p4_07_meta.tex`
 

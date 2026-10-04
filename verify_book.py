@@ -1752,6 +1752,43 @@ def _b08_jensen(which):
 _B08_IMR = 'Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv'
 DATA_FILES[_B08_IMR] = 'IMR90 per-channel Met-A readings, GSE48580 WGBS, 9 cultures (imr90_channels.py)'   # 1 kB
 _B08_PC5 = 'Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv'] = 'IMR90 per-channel Met-A readings, GSE48580 WGBS, 9 cultures (imr90_channels.py)'
+DATA_FILES['Biological_Physics/MethylPhys/doors/data/selfconsist.csv'] = 'Salas DNA mixtures: neutrophil Met-A untared and with a simulated 2 % neutrophil pattern loss (selfconsist.py)'
+DATA_FILES['Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv'] = 'DEV-LOWFRAC-01: neutrophil Met-A of 656 whole bloods, raw and with a simulated 2 % blur (lowfrac.py)'
+DATA_FILES['Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv'] = 'IAM-A floor comparison: 3 Loyfer granulocyte donors, copy-error counts and readings (iama_floor.py)'
+DATA_FILES['Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json'] = 'chain v3 frozen neutrophil reference: sites, profiles, H means, C-score baseline'
+
+# helpers of the part4/p4_06_gauge checks
+_B09_IMR = 'Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv'
+_B09_SC = 'Biological_Physics/MethylPhys/doors/data/selfconsist.csv'
+_B09_LF = 'Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv'
+_B09_IG = 'Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv'
+_B09_NR = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json'
+_B09_LOO = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv'
+
+def _b09_Hb(e):
+    return -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
+def _b09_imr(state, col):
+    return [float(r[col]) for r in load_csv_rows(_B09_IMR) if r['state'] == state]
+def _b09_tared():
+    """Salas DNA mixtures with >= 50 % neutrophils (n = 6): each reading tared by the median of the other five healthy readings."""
+    rows = [r for r in load_csv_rows(_B09_SC) if float(r['f_true']) >= 0.5]
+    a = np.array([float(r['A_nnls']) for r in rows]); ad = np.array([float(r['A_nnls_damaged']) for r in rows])
+    ref = np.array([np.median(np.delete(a, i)) for i in range(len(a))])
+    return a / ref, ad / ref
+def _b09_lowfrac_shift(lo, hi):
+    """Median, over the NEGATIVE (healthy) adults with a reading in the fraction bin, of A after a 2 % blur minus A."""
+    s = [float(r['A_dmg']) - float(r['A_raw']) for r in load_csv_rows(_B09_LF)
+         if r['group'] == 'NEGATIVE' and r['A_raw'] not in ('', None) and lo <= float(r['f_neu']) < hi]
+    return float(np.median(s)), len(s)
+def _b09_iama_own():
+    """IAM-A of each granulocyte donor against the pooled copy error of the other two (H(eps)/H(eps_others)), healthy and with 2 % added."""
+    rows = load_csv_rows(_B09_IG)
+    iso = np.array([float(r['iso']) for r in rows]); opp = np.array([float(r['opp']) for r in rows])
+    eps = iso / opp; ed = np.array([float(r['eps_damaged']) for r in rows])
+    ref = [(iso.sum() - iso[i]) / (opp.sum() - opp[i]) for i in range(len(rows))]
+    return (np.array([_b09_Hb(eps[i]) / _b09_Hb(ref[i]) for i in range(len(rows))]),
+            np.array([_b09_Hb(ed[i]) / _b09_Hb(ref[i]) for i in range(len(rows))]))
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -30733,6 +30770,137 @@ def check_2529():
     value=50/1.1104  # block size 50, healthy baseline 1.1104 (book input)
     return locals()
 
+@check(label='ch:gauge:L39:50', chapter='ch:gauge', part=6, title='C-score block size, read from the frozen reference',
+       file='part4/p4_06_gauge', line=39, status='derived', kind='file', printed='50', tol=0.0, source=_B09_NR)
+def check_3832():
+    'C-score block size: the far end of the C-score is reached when every block of this many sites moves as one. Book line 39, printed 50. Inputs: clustering_block of the frozen chain v3 neutrophil reference (neutrophil_reference_v1_1.json).'
+    value = load_json(_B09_NR)['clustering_block']
+    return locals()
+
+@check(label='ch:gauge:L39:1.1104', chapter='ch:gauge', part=6, title='C-score healthy baseline: median of the six leave-one-out clustering values',
+       file='part4/p4_06_gauge', line=39, status='derived', kind='file', printed='1.1104', tol=0.0, source=_B09_NR)
+def check_3833():
+    'Healthy C-score baseline c_healthy: the median of the six reference arrays\' clustering statistic, each read against the other five. Book line 39, printed 1.1104. Inputs: healthy_clustering_LOO of neutrophil_reference_v1_1.json (median recomputed here).'
+    loo = load_json(_B09_NR)['healthy_clustering_LOO']
+    value = float(np.median(loo))
+    return locals()
+
+@check(label='ch:gauge:L53', chapter='ch:gauge', part=6, title='H(beta) at a site held methylated equals H of the error rate',
+       file='part4/p4_06_gauge', line=53, status='derived', kind='sym', printed='', tol=0.0)
+def check_3834():
+    'At a site held methylated beta = 1 - eps; substituting into the binary entropy H(beta) gives H(eps), so A = H(error now)/H(error healthy). Book line 53. Control: one term of H weighted by 1.05 breaks the symmetry.'
+    b, e = sp.symbols('beta epsilon', positive=True)
+    Hs = lambda x: -(x * sp.log(x, 2) + (1 - x) * sp.log(1 - x, 2))
+    lhs = Hs(b).subs(b, 1 - e)
+    rhs = Hs(e)
+    neg_lhs = (-(sp.Rational(105, 100) * b * sp.log(b, 2) + (1 - b) * sp.log(1 - b, 2))).subs(b, 1 - e)
+    return locals()
+
+@check(label='ch:gauge:L101', chapter='ch:gauge', part=6, title='IMR90 senescent, unmethylated channel, lowest culture',
+       file='part4/p4_06_gauge', line=101, status='measured', kind='file', printed='0.685', tol=0.0, source=_B09_IMR)
+def check_3835():
+    'Senescent IMR90 cultures on the unmethylated channel, lower end of the range (WGBS GSE48580, Cruickshanks 2013). Book line 101, printed 0.685. Inputs: A_unmeth of the three Senescent rows of imr90_channels.csv.'
+    value = min(_b09_imr('Senescent', 'A_unmeth'))
+    return locals()
+
+@check(label='ch:gauge:L101:0.695', chapter='ch:gauge', part=6, title='IMR90 senescent, unmethylated channel, highest culture',
+       file='part4/p4_06_gauge', line=101, status='measured', kind='file', printed='0.695', tol=0.0, source=_B09_IMR)
+def check_3836():
+    'Senescent IMR90 cultures on the unmethylated channel, upper end of the range. Book line 101, printed 0.695. Inputs: A_unmeth of the Senescent rows of imr90_channels.csv.'
+    value = max(_b09_imr('Senescent', 'A_unmeth'))
+    return locals()
+
+@check(label='ch:gauge:L102', chapter='ch:gauge', part=6, title='IMR90 SV40, methylated channel, lowest culture',
+       file='part4/p4_06_gauge', line=102, status='measured', kind='file', printed='1.077', tol=0.0, source=_B09_IMR)
+def check_3837():
+    'SV40-immortalised IMR90 cultures on the methylated channel, lower end (1.077496 in the file; the README beside it prints 1.078). Book line 102, printed 1.077. Inputs: A_meth of the SV40 rows of imr90_channels.csv.'
+    value = min(_b09_imr('SV40', 'A_meth'))
+    return locals()
+
+@check(label='ch:gauge:L102:1.120', chapter='ch:gauge', part=6, title='IMR90 SV40, methylated channel, highest culture',
+       file='part4/p4_06_gauge', line=102, status='measured', kind='file', printed='1.120', tol=0.0, source=_B09_IMR)
+def check_3838():
+    'SV40-immortalised IMR90 cultures on the methylated channel, upper end. Book line 102, printed 1.120. Inputs: A_meth of the SV40 rows of imr90_channels.csv.'
+    value = max(_b09_imr('SV40', 'A_meth'))
+    return locals()
+
+@check(label='ch:gauge:L102:0.965', chapter='ch:gauge', part=6, title='IMR90 SV40, both channels, lowest culture',
+       file='part4/p4_06_gauge', line=102, status='measured', kind='file', printed='0.965', tol=0.0, source=_B09_IMR)
+def check_3839():
+    'SV40-immortalised IMR90 cultures read over both channels together, lower end. Book line 102, printed 0.965. Inputs: A_both of the SV40 rows of imr90_channels.csv.'
+    value = min(_b09_imr('SV40', 'A_both'))
+    return locals()
+
+@check(label='ch:gauge:L102:0.975', chapter='ch:gauge', part=6, title='IMR90 SV40, both channels, highest culture',
+       file='part4/p4_06_gauge', line=102, status='measured', kind='file', printed='0.975', tol=0.0, source=_B09_IMR)
+def check_3840():
+    'SV40-immortalised IMR90 cultures read over both channels together, upper end. Book line 102, printed 0.975. Inputs: A_both of the SV40 rows of imr90_channels.csv.'
+    value = max(_b09_imr('SV40', 'A_both'))
+    return locals()
+
+@check(label='ch:gauge:L112', chapter='ch:gauge', part=6, title='tared Met-A shift of a simulated 2 % neutrophil pattern loss',
+       file='part4/p4_06_gauge', line=112, status='measured', kind='file', printed='+0.06', tol=0.0, source=_B09_SC)
+def check_3841():
+    'How far a simulated 2 % loss of the neutrophil pattern moves tared Met-A on the six Salas DNA mixtures with >= 50 % neutrophils: median over the mixtures of (damaged - healthy), each tared by the median of the other five healthy readings (0.061, as WHOLE_BLOOD_COMPOSITION_DEV.md states). Book line 112, printed +0.06 ("about"). Inputs: A_nnls, A_nnls_damaged, f_true of selfconsist.csv.'
+    a, ad = _b09_tared()
+    value = float(np.median(ad - a))
+    return locals()
+
+@check(label='ch:gauge:L112:1.090', chapter='ch:gauge', part=6, title='tared Met-A of the damaged mixtures, highest',
+       file='part4/p4_06_gauge', line=112, status='measured', kind='file', printed='1.090', tol=0.0, source=_B09_SC)
+def check_3842():
+    'Upper end of tared Met-A on the six constructed mixtures with a simulated 2 % neutrophil pattern loss (the lower end, 1.052, comes out of the same computation). Book line 112, printed 1.090. Inputs: selfconsist.csv, mixtures with f_true >= 0.5, tare = median of the other five healthy readings.'
+    a, ad = _b09_tared()
+    low = float(ad.min())
+    value = float(ad.max())
+    return locals()
+
+@check(label='ch:gauge:L113', chapter='ch:gauge', part=6, title='2 % blur shift at 40-50 % neutrophils',
+       file='part4/p4_06_gauge', line=113, status='measured', kind='file', printed='0.033', tol=0.0, source=_B09_LF)
+def check_3843():
+    'Shift of whole-blood Met-A from a known 2 % neutrophil blur, neutrophil fraction 0.40-0.50: median over the 18 healthy (NEGATIVE) adults of A_dmg - A_raw (DEV_LOWFRAC_01_OUTCOME.md table). Book line 113, printed 0.033. Inputs: lowfrac_readings.csv.'
+    value, n = _b09_lowfrac_shift(0.40, 0.50)
+    return locals()
+
+@check(label='ch:gauge:L113:0.064', chapter='ch:gauge', part=6, title='2 % blur shift above 70 % neutrophils',
+       file='part4/p4_06_gauge', line=113, status='measured', kind='file', printed='0.064', tol=0.0, source=_B09_LF)
+def check_3844():
+    'Shift of whole-blood Met-A from a known 2 % neutrophil blur, neutrophil fraction 0.70-1.00: median over the 40 healthy (NEGATIVE) adults of A_dmg - A_raw. Book line 113, printed 0.064. Inputs: lowfrac_readings.csv.'
+    value, n = _b09_lowfrac_shift(0.70, 1.0000001)
+    return locals()
+
+@check(label='ch:gauge:L114', chapter='ch:gauge', part=6, title='IAM-A of healthy granulocyte donors, mean',
+       file='part4/p4_06_gauge', line=114, status='measured', kind='file', printed='1.00', tol=0.0, source=_B09_IG)
+def check_3845():
+    'IAM-A of the three healthy granulocyte donors (Loyfer 2023), each against the pooled copy error of the other two, recomputed from the isolated-error and opportunity counts; mean. Book line 114, printed 1.00 ("about"). Inputs: iso, opp of iama_floor_granulocytes.csv.'
+    a, ad = _b09_iama_own()
+    value = float(a.mean())
+    return locals()
+
+@check(label='ch:gauge:L114:1.29', chapter='ch:gauge', part=6, title='IAM-A after a simulated 2 % rise in copy error, lowest donor',
+       file='part4/p4_06_gauge', line=114, status='measured', kind='file', printed='1.29', tol=0.0, source=_B09_IG)
+def check_3846():
+    'IAM-A of the same molecules with 2 % copy error added, lowest of the three donors, H(eps_damaged)/H(pooled eps of the other two). Book line 114, printed 1.29. Inputs: iso, opp, eps_damaged of iama_floor_granulocytes.csv.'
+    a, ad = _b09_iama_own()
+    value = float(ad.min())
+    return locals()
+
+@check(label='ch:gauge:L114:1.35', chapter='ch:gauge', part=6, title='IAM-A after a simulated 2 % rise in copy error, highest donor',
+       file='part4/p4_06_gauge', line=114, status='measured', kind='file', printed='1.35', tol=0.0, source=_B09_IG)
+def check_3847():
+    'IAM-A of the same molecules with 2 % copy error added, highest of the three donors. Book line 114, printed 1.35. Inputs: iso, opp, eps_damaged of iama_floor_granulocytes.csv.'
+    a, ad = _b09_iama_own()
+    value = float(ad.max())
+    return locals()
+
+@check(label='ch:gauge:L120', chapter='ch:gauge', part=6, title='SD of the six held-out reference arrays',
+       file='part4/p4_06_gauge', line=120, status='measured', kind='file', printed='0.020', tol=0.0, source=_B09_LOO)
+def check_3848():
+    'Standard deviation (n - 1) of Met-A of the six purified neutrophil arrays, each read against a reference rebuilt from the other five with the identity sites re-chosen. Book line 120, printed 0.020. Inputs: A_loo of metA_floors_v1_3_loo.csv.'
+    a = np.array([float(r['A_loo']) for r in load_csv_rows(_B09_LOO)])
+    value = float(a.std(ddof=1))
+    return locals()
+
 
 # ======== Part 6 | ch:iama | docs/book/part4/p4_08_iama.tex
 @check(label='eq:eps0', chapter='ch:iama', part=6, title='eps0 = 1/(1+e^(phi M)) inverts E_hold = ln((1-eps)/eps) = phi M',
@@ -34931,28 +35099,11 @@ INVENTORY = [
     (6, 'ch:surface', 'part4/p4_03_surface', 57, 'eq:meanH', 'none', '', 'definition: mean of the per-site entropies, the Met-A statistic'),
     (6, 'ch:surface', 'part4/p4_03_surface', 115, '', 'calc', '0.03', "input: illustrative loss rate u = 0.03 of the two-state model (book's choice); beta_ss and H are checked at ch:surface:L115"),
     (6, 'ch:surface', 'part4/p4_03_surface', 115, '', 'calc', '0.08', "input: illustrative gain rate d = 0.08 of the two-state model (book's choice); beta_ss and H are checked at ch:surface:L115"),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 7, 'eq:A', 'none', '', 'displayed equation, not yet checked'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 22, '', 'calc', '0.95', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 22, '', 'calc', '1.05', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 35, '', 'derived', '0.95', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 35, '', 'derived', '1.05', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 39, '', 'derived', '50', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 39, '', 'derived', '1.1104', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 53, '', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 101, '', 'measured', '0.685', 'measured, source not named'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 101, '', 'measured', '0.695', 'measured, source not named'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 102, '', 'measured', '1.077', 'measured, source not named'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 102, '', 'measured', '1.120', 'measured, source not named'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 102, '', 'measured', '0.965', 'measured, source not named'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 102, '', 'measured', '0.975', 'measured, source not named'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 112, '', 'measured', '+0.06', 'measured, source not named'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 112, '', 'measured', '1.090', 'measured, source not named'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 113, '', 'measured', '0.033', 'measured, source not named'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 113, '', 'measured', '0.064', 'measured, source not named'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 114, '', 'measured', '1.00', 'measured, source not named'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 114, '', 'measured', '1.29', 'measured, source not named'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 114, '', 'measured', '1.35', 'measured, source not named'),
-    (6, 'ch:gauge', 'part4/p4_06_gauge', 120, '', 'measured', '0.020', 'measured, source not named'),
+    (6, 'ch:gauge', 'part4/p4_06_gauge', 7, 'eq:A', 'none', '', 'definition: A = reading / healthy reference (the gauge)'),
+    (6, 'ch:gauge', 'part4/p4_06_gauge', 22, '', 'calc', '0.95', 'definition: Normal band 0.95-1.05, a design tolerance A = 1 +- 5 % (stated at line 35)'),
+    (6, 'ch:gauge', 'part4/p4_06_gauge', 22, '', 'calc', '1.05', 'definition: Normal band 0.95-1.05, a design tolerance A = 1 +- 5 % (stated at line 35)'),
+    (6, 'ch:gauge', 'part4/p4_06_gauge', 35, '', 'derived', '0.95', 'definition: Normal band, design tolerance, healthy is A = 1 +- 5 %'),
+    (6, 'ch:gauge', 'part4/p4_06_gauge', 35, '', 'derived', '1.05', 'definition: Normal band, design tolerance, healthy is A = 1 +- 5 %'),
     (6, 'ch:meta', 'part4/p4_07_meta', 8, 'eq:meta', 'calibrated', '', 'displayed equation, not yet checked'),
     (6, 'ch:meta', 'part4/p4_07_meta', 23, '', 'measured', '0.75', 'measured, source not named'),
     (6, 'ch:meta', 'part4/p4_07_meta', 23, '', 'measured', '0.95', 'measured, source not named'),
