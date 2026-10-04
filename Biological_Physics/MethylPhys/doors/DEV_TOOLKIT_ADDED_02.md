@@ -29,3 +29,45 @@ Bar: on GSE250556 pooled-replicate pairs of the same person, |A1 - A2| <= sqrt(w
 read) and its base-call error (base qualities): the isolated copy errors those two alone would make on that read are the read's noise line, and
 the copy error is read above it. A `.pat` file keeps neither (no sequence, no quality), so the IAM-A versions of 3b, 3c and 11b cannot be tested on
 the single-molecule data available; they need BAM input. Written into the SOP as designed, not built.
+
+---
+## Outcome (recorded 2026-10-04 after the run; nothing above the line was changed)
+Box jobs 9bcbcf99 (3b, 3c) and 3003767d (11b; the first 11b run, job 9bcbcf99, returned no interval because sites without an expectation were not
+dropped - fixed in `dev_stages.brightness`, then re-run). Runtime file for 3c: `chain/Runtime Matrices/Development/dev_foreign_placenta_EPIC_v1.json`
+(963 markers + 500 placenta sites). Records: `data/DEV_TOOLKIT_ADDED_02/`.
+
+**v3 per-site uncertainty** (\measured, GSE250556 pooled replicates): SD at this array's own fixed sites, type I 0.004-0.006, type II 0.017-0.019.
+
+**3b trace cell** (24 GSE247195 purified neutrophil arrays x 15 GSE122244 spike arrays):
+
+| added fraction | 0 | 1 % | 2 % | 5 % | 10 % |
+|---|---|---|---|---|---|
+| spiked cell called | 0 % | 11 % | 34 % | 82.5 % | 93.1 % |
+
+- \measured At 5 %: **82.5 %** called (bar 95 %, outside); of the calls, **98.3 %** name the spiked cell (bar 95 %, within). B 100 %, T 71.7 %, monocytes 75.8 %.
+- \measured Unspiked: 0 of 360 called.
+- \observed Five of the 15 spike arrays are not pure by Stage 2 (GSM3462458 "monocyte" reads 0.76 neutrophil, GSM3462461 "T" 0.54 neutrophil, three T arrays
+  0.62-0.71 CD4T). Read beside the bar: with spike arrays whose own group is >= 0.90 by Stage 2, 97.9 % called at 5 % (240 constructed); with the other five,
+  51.7 %. The shortfall sits in the spike material, which is also recorded in DEV-NILC-01.
+
+**3c foreign cell** (63 GSE250556 arrays, placenta from the second half of GSE271697):
+
+| added fraction | 0 | 1 % | 2 % | 5 % | 10 % |
+|---|---|---|---|---|---|
+| called | 100 % | 100 % | 100 % | 100 % | 100 % |
+| fraction read (median) | 0.034 | 0.045 | 0.056 | 0.088 | 0.137 |
+
+- \measured With no placenta added, every array is called (bar <= 5 %, outside): the template takes 0.023-0.048 of a healthy whole blood from another laboratory,
+  against a standard error of ~0.004. At 5 %, 100 % called (bar 95 %, within).
+- \observed The read fraction moves with the added fraction (0.034 -> 0.137 for 0 -> 10 %); the zero is offset, not the slope. This array's own standard error does
+  not hold the laboratory difference between this blood and the purified profiles; the line needs a same-run zero (the same tare logic as Stage T).
+
+**11b surface brightness** (31 pooled replicates, 105 same-person pairs):
+- \measured Interval half-width median **0.0034**; same-person |A1 - A2| median 0.032; pairs inside the combined interval
+  **3.8 %** (bar 95 %, outside).
+- \observed Per-site noise averaged over ~5,600 sites is ten times smaller than the replicate spread: what moves A between replicates is array-wide (the offsets
+  the self-tare removes, DEV-SELFTARE-02), not site noise.
+
+**IAM-A versions.** Designed as written above; not built (.pat carries no sequence or quality).
+
+**Wiring.** 3b, 3c and 11b behind `--dev-trace`, `--dev-foreign`, `--dev-brightness`. Not part of the reading.

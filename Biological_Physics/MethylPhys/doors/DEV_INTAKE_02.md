@@ -32,3 +32,28 @@ rule) where >= 3 healthy-labelled references of the same series and specimen are
    Bar: 0 and 100 %.
 6. Purified healthy neutrophils that were lost at Stage 0 in round 1 (13 GSE118144 controls, 6 GSE167998) are read: tared A_rel recorded beside the
    DEV-BASE-CHAIN-01 (b) set; the round-1 bar (every array Normal on tared A_rel) is restated over the enlarged set.
+
+---
+
+## Outcome (2026-10-04, read after the checks above were written)
+
+Run: box ssh:methylphys-cpu-01, chain workspace commit 7c33552 on main 185f609, 1,569 arrays pass 1, 268 arrays pass 2 (same-run median tare), 7,804 s.
+Records: `doors/data/DEV_INTAKE_02/intake02_readings.csv` (one row per array and pass), `intake02_purified_neutrophils_tared.csv`; scripts `doors/data/DEV_ROUND2_box/r2_idat.py`.
+
+1. \measured No crash: 1,569 of 1,569 ran end to end with a report and a bundle. 0 crashes, 0 Stage 0 stops. One whole-blood array
+   (GSE191297 GSM5743153, 591,441 probes) stops with `PLATFORM_REFUSED` and a report (incomplete vector; chain v3 reads EPIC v1 only). Bar met.
+2. \measured Specimen rule: 955 arrays refused with `SPECIMEN_REFUSED` (PBMC 235, sorted T 189, cell line 134, placenta 93, sorted monocytes 86,
+   sorted B 76, bone marrow 71, unspecified 43, gMDSC 14, sorted basophils 6, sorted NK 4, sorted eosinophils 4); 955 of 955 name the specimen,
+   carry a report and a bundle, and have no Met-A. Whole blood 578 and isolated neutrophils 35 are not refused for their specimen (613 of 613). Bar met both ways.
+3. \measured Optional age and sex: 0 arrays stop on a missing age or sex. Sex declared on 335 (sex check PASS 335), not declared on 278
+   (`NOT_DECLARED`, no stop); age declared on 99. Bar met.
+4. \measured Noise coverage: 0 of the 613 read arrays have fewer than 43,676 noise sites measured (lowest 48,127 of 48,528), so the withheld-for-coverage
+   branch is not exercised by real data in this run; count 0. It is exercised on a constructed array by release check E8.
+   Readings of the 613: A on 550; A withheld on 63 for named reasons (neutrophil fraction < 0.2: 39; < 5,400 identity sites: 21; composition markers short: 3);
+   gauge withheld on 213 for noise index > 0.149 with no same-run tare (A printed as a number).
+5. \measured Hashed ids: the typed id (GSM accession) appears in 0 of 1,837 bundles and 0 of 1,837 ledgers; no GSM accession of any kind appears in a
+   bundle; 1,837 of 1,837 reports carry the typed id in the title and the label DEVELOPMENT - not commissioned. Bar met (0 and 100 %).
+6. \measured Purified healthy neutrophils lost at Stage 0 in round 1, now read and tared (same-run median tare, healthy-labelled references of the same series):
+   GSE167998 6 of 6 Normal (A_rel 0.991-1.008); GSE118144 controls 8 of 13 Normal (3 below, 2 above; A_rel 0.913-1.065).
+   Enlarged (b) set: floor 6 of 6, other laboratories 56 of 68 (round 1: 42 of 49). The round-1 bar (every array Normal on tared A_rel) is not met on the enlarged set.
+   Not run here: self-tare II then median tare (DEV-SELFTARE-02) on these 19 arrays.

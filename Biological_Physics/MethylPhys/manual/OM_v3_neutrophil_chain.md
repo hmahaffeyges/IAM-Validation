@@ -1,11 +1,11 @@
 # Operations Manual — chain v3, neutrophils (operator chapter)
 
-**Build:** development v3 (2026-10-01), not commissioned; this chapter re-checked against the code on 2026-10-03. The procedure is in `sop/MethylPhys_CPG_SOP_v3.md`; this chapter covers running it and reading the output.
+**Build:** development v3 (2026-10-01), DEVELOPMENT - not commissioned; this chapter re-checked against the code on 2026-10-03 and updated for development round 2 on 2026-10-04. The procedure is in `sop/MethylPhys_CPG_SOP_v3.md`; this chapter covers running it and reading the output.
 The PDF manual in this folder (`MethylPhys_CPG_Operations_Manual.pdf`) is built from this chapter, the generated chain sequence and the toolkit list by `build_manual_v3.py`. The class-floor engine (v2) and its manual were retired on 2026-10-03 and are archived privately.
 Paths are relative to `Biological_Physics/MethylPhys/`.
 
 ## Before a run
-1. Use EPIC v1 IDAT pairs (Grn and Red), with declared sex and age. Without `--sex` or `--age`, Stage 0 quarantines the specimen.
+1. Use EPIC v1 IDAT pairs (Grn and Red) of whole blood or isolated / sorted / purified neutrophils. Any other specimen (PBMC, other sorted fractions, bone marrow, cell lines, tissue, unspecified) is refused at intake with a report. Sex and age are optional: give them when known and they are recorded; with a declared sex Stage 0.8 compares it with the array.
 2. Put at least 3 healthy reference specimens of the same specimen type on the same slide (else the same batch), run the same way, so each reading can be tared. This applies to whole blood and to isolated neutrophils.
 3. Use Python 3.11 with the versions in `chain/requirements.txt` (methylprep 1.7.1, numpy 1.26.4, pandas 1.5.3, scipy 1.17.1; reportlab for the manual): `pip install -r chain/requirements.txt`.
 4. Stage 1 needs the Illumina manifest. methylprep downloads it on first use into `$HOME/.methylprep_manifest_files/` (`HOME` must be writable; network access to `array-manifest-files.s3.amazonaws.com`); offline, place the files there by hand (`doors/RUNBOOK.md` section 1). In a batch, run the first array alone so the download is not raced.
@@ -15,12 +15,14 @@ Paths are relative to `Biological_Physics/MethylPhys/`.
 From `chain/MethylPhys_Interface/` (run on the box: Stage 1 needs the manifest):
 ```
 python run_sample.py --grn <Grn> --red <Red> --engine v3 --specimen "whole blood" --array-type EPIC_v1 \
-  --sex <F|M> --age <years> --id <id> --out <id>.html
+  --id <id> --out <id>.html          # add --sex <F|M> --age <years> when known
 ```
 - Isolated neutrophils: `--specimen "isolated neutrophils"`.
 - Pass 2 (the tare): run each specimen again, whole blood and isolated alike, with `--slide-ref-A a1,a2,a3`, where those are the references' untared A values from pass 1, or with `--slide-ref-table refs.csv` (column `A`, optional column `id`; a row whose `id` is the specimen's own `--id` is left out). Fewer than 3 references: the reading stays untared.
 - A beta table already calibrated by this chain's Stage 1 (two-column CSV `cpg_id,beta`; Stage 0 does not run): `python run_sample.py --betas <table>.csv --specimen "whole blood" --id <id> --out <id>.html`.
 - Second draw of the same person (stage 12b): run the first draw with `--save-betas <id>_betas.parquet --patient-id <hash>`; run the second with the same `--patient-id` plus `--prior-betas <id>_betas.parquet --prior-bundle <id>_bundle.json`.
+- Identifiers: the bundle and the ledger carry the sha256 hash of `--id`; the report keeps the id you typed.
+- Development flags (DEVELOPMENT - not commissioned; never part of the reading): `--dev-selftare-ii --dev-direction --dev-trace --dev-foreign --dev-brightness` (no extra input); `--dev-nilc --dev-atlas-e --dev-percell-b --dev-sky` with `--atlas-v2 <IAMAtlas_v2.parquet>` (`--dev-sky` needs healpy); `--dev-epic-v2 --sesame-rscript <Rscript>` for an EPIC v2 IDAT pair. Each writes `development.<stage>` into the bundle and a report section.
 - Sequencing (Stage Q, IAM-A): `python run_sample.py --pat <file>.pat.gz --id <id> --out <id>.html`, or `python run_sample.py --site-table <sites>.csv --seq-pipeline loyfer_pat_v1 --id <id> --out <id>.html`.
 
 Output: `<id>.html`, `<id>_bundle.json` beside it, and one row appended to `evidence_ledger.jsonl` in the same folder (`--ledger` to
@@ -31,22 +33,24 @@ Batch runners (written for the compute box; they read box paths and roster files
 group as references; isolated specimens are not re-run) and `doors/data/DEV_REPL_V3_01_run/run_proc_repl_v3_01.py` (pass 2 with
 `--slide-ref-table` built from the other arrays on the same slide, else the batch; exact commands in `COMMANDS.md` beside it).
 
-Checks: `python chain/release_check_v3.py` (or `python kit/release_check.py`) - exit 0 only when every check passes. The IDAT checks E1-E3 need the manifest (run on the box).
+Checks: `python chain/release_check_v3.py` (or `python kit/release_check.py`) - exit 0 only when every check passes (F1, F1b, S1-S4, E1-E10, M1). The IDAT checks E1-E3 and E6 need the manifest (run on the box).
 Manual: `python manual/build_manual_v3.py` rebuilds the PDF.
 
 ## Reading the report
 | field | meaning |
 |---|---|
+| Refused (specimen) | `SPECIMEN_REFUSED`: the specimen has no reference in chain v3; the refusal names it. No reading, Stage 1 does not run |
 | Refused | the platform check: not an EPIC v1 vector (array type, EPIC v2 probe names, or 700,000 probes or fewer); an EPIC v2 IDAT pair is refused at intake, before Stage 1. No reading |
 | Stage 0 intake | verdict PROCEED / PROCEED_WITH_PENALTY / QUARANTINE (QUARANTINE produces no report), call rate, flags; `not run` for `--betas`, `--pat`, `--site-table` or `--no-intake` |
 | Stage 1 | poobah detection, call rate and controls: recorded, not gated |
 | Stage A composition | the 8 blood groups (groups at 1 % or more are listed). Whole blood is read when neutrophils are ≥ 20 % and ≥ 867 of the 963 markers are measured |
 | Stage M Met-A | isolated cells: A against the own floor, drawn on the gauge as untared until tared. Whole blood untared: A is a number only, no gauge position. Shift per 1 % loss of the neutrophil pattern |
 | Stage T tare | A_rel = A ÷ median of the references; number of references and their median; reference spread; detection limit (% loss of the pattern) = 2 × spread ÷ shift per 1 % loss. **Normal = 0.95–1.05** |
-| Noise index N | mean H(β) on the 48,528 noise sites. Above 0.149 on an untared reading: state `withheld`, A printed as a number |
+| Noise index N | mean H(β) on the 48,528 noise sites. Above 0.149 on an untared reading: state `withheld`, A printed as a number. Fewer than 90 % of the noise sites measured: N is not formed and the state is withheld, tared or not, with the counts and the reason |
 | Methylated sites mean β | below 0.5: past the entropy ceiling; read β, not A |
 | Stage MC C-score | genomic clustering of the departures (healthy = 1), with the healthy held-out range. Development: no band yet |
-| Stage Q IAM-A | sequencing only: IAM-A, copy error eps, position P, eps0, the two halves, opportunities |
+| Stage Q IAM-A | sequencing only: IAM-A, copy error eps, position P, eps0, the two halves, opportunities; the IAM-A C-score (development: independent copy errors give 1; band not set) |
+| Development stages | only with a development flag: one row per flagged stage, labelled DEVELOPMENT - not commissioned |
 | Withheld | what the build does not print, and why |
 | Stage 12b difference map | only with `--prior-betas`/`--prior-bundle`: per-address difference to an earlier draw of the same person, or the refusal naming what differs (identifier hash, array type, pipeline) |
 | Red flags | STOP / WITHHELD / CAUTION / NOTE, from the bundle; also written to the bundle as `red_flags` |
@@ -57,7 +61,9 @@ Manual: `python manual/build_manual_v3.py` rebuilds the PDF.
 ## Faults
 | symptom | cause | action |
 |---|---|---|
-| QUARANTINE_INCOMPLETE_MANIFEST | sex, age or array type not declared (and not readable from the IDAT header) | supply `--sex`, `--age`, `--array-type` |
+| QUARANTINE_INCOMPLETE_MANIFEST | array type not declared and not readable from the IDAT header (sex and age are optional since 2026-10-04) | supply `--array-type` |
+| `SPECIMEN_REFUSED` | the specimen is not whole blood or isolated / sorted / purified neutrophils | none: that specimen needs its own reference first |
+| `withheld: only <n> of the 48,528 noise sites were measured` | fewer than 90 % of the noise sites passed Stage 1 detection | re-hybridise or check the array's signal; the state cannot be shown without the array's own noise |
 | ENVIRONMENT_MISSING_MANIFEST (exit 3; before 2026-10-03 this showed as QUARANTINE_CORRUPT_IDAT) with PermissionError or a connection error on `.methylprep_manifest_files` | the manifest is not in its cache and could not be downloaded; the IDAT is not at fault and is not judged | make `HOME` writable and allow the download, or place the manifest files by hand; re-run |
 | Stage 0 QUARANTINE, other hard failures (`call_rate`, `detection`, `ctrl_qc`, `sex`, `integrity`, `hm450_coverage`, `intake_deferred:...`) | the array failed intake | none: no reading by rule; the flags name the check |
 | `neutrophil fraction <f> < 0.2: fraction reported, A withheld` | neutrophils < 20 % of the whole blood | none: the fraction is reported and A is withheld by rule |

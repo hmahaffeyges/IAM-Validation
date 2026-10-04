@@ -17,3 +17,21 @@ arrays of the same cell line (self excluded; 2 references where only 3 vehicle a
 2. GSE187291 (MV4-11 and HL-60; DMSO, decitabine, NTX-301 DNMT1 inhibitor; day 2; 3 replicates each): known push = loss of methylation, so methylated
    identity sites move toward 0.5. Bar: every decitabine and NTX-301 array reads "toward disorder"; every DMSO array reads "no direction".
 3. Reported only: GSE165185 (azacitidine / decitabine, sensitive and resistant lines, no vehicle in the series: D against the series' own median).
+
+---
+## Outcome (recorded 2026-10-04 after the run; nothing above the line was changed)
+Box job 5bd710b8. Records: `data/DEV_DIRECTION_02/`.
+
+1. \measured GSE250556 replicates (63, same-slide references): **56 of 63** "no direction" (88.9 %; bar 95 %, outside the bar); 4 toward disorder, 3 toward over-order
+   (A 2/0, B 0/1, C 0/2, D 2/0 by person).
+2. \measured GSE187291: **every decitabine and NTX-301 array reads toward disorder (12 of 12)**: D_rel HL-60 decitabine 0.080-0.082,
+   NTX-301 0.039-0.041; MV4-11 decitabine 0.064-0.068,
+   NTX-301 0.021-0.022; the vehicle spread is ~1e-5. DMSO arrays: **4 of 6** "no direction" (bar: all);
+   the two others sit 1e-5 from the median of the other two vehicles, against a spread of the same size.
+3. \observed GSE165185 was not read: its four arrays carry no vehicle in the series record, and D against the series' own median needs >= 3 references.
+- \observed The physics-only direction separates a known loss of methylation by four orders of magnitude over the vehicle spread. The vehicle arrays
+  were part of their own reference (sites and r from all three), which makes their spread artificially small; that, not the treated arrays, is why
+  two vehicle arrays are called.
+- \openprob The replicate rate (88.9 %) sits outside the bar because 2 s of same-slide references is a tight line when only 3-5 references exist.
+
+**Wiring.** Behind `--dev-direction` (reads D; D_rel when the reference table carries a D column). Not part of the reading.

@@ -74,6 +74,7 @@ def selftare_map(beta, st=None):
 
 
 def selftare_ii(beta, specimen="whole blood"):
+    """Met-A re-read after the type II self-tare: each design mapped onto the reference arrays' scale by this array's own fixed-site anchors (DEV-SELFTARE-02)."""
     import conductor_v3 as C3
     b2, info = selftare_map(beta)
     if b2 is None: return _rec("selftare_ii", status="NOT_RUN", **info)
@@ -112,6 +113,7 @@ def direction(beta, ref, sites=None):
 
 
 def direction_record(beta, specimen, comp, refs_D=None):
+    """Signed move toward or away from 0.5 at the neutrophil identity sites against the cell's own reference, tared on same-run references (DEV-DIRECTION-02)."""
     import conductor_v3 as C3
     B = _bc(); S = pd.Index(B["neutrophil_sites"]); P = {g: pd.Series(v, index=S, dtype="float64") for g, v in B["profiles_at_neutrophil_sites"].items()}
     if specimen.lower() in C3.ISOLATED: r = P["NEU"]
@@ -129,6 +131,7 @@ def direction_record(beta, specimen, comp, refs_D=None):
 
 # ---------------------------------------------------------------- 3b trace cell in an isolated-neutrophil specimen
 def trace_cell(beta, su=None, line=3.0):
+    """3b: another blood group in an isolated-neutrophil specimen, called above 3 x this array's own standard error (DEV-TOOLKIT-ADDED-02)."""
     B = _bc(); M = pd.DataFrame(B["mu_markers"], index=B["markers"])[B["groups"]]
     y = beta.reindex(M.index); ok = y.notna(); y, M = y[ok], M[ok]
     su = su or site_uncertainty(beta)
@@ -146,6 +149,7 @@ def trace_cell(beta, su=None, line=3.0):
 
 # ---------------------------------------------------------------- 3c foreign cell in whole blood
 def foreign_cell(beta, template=None, su=None, line=3.0):
+    """3c: a non-blood template in whole blood by NNLS with the blood groups, called above 3 x this array's own standard error (DEV-TOOLKIT-ADDED-02)."""
     from scipy.optimize import nnls
     T = template or _json("dev_foreign_placenta_EPIC_v1.json")
     if T is None: return _rec("foreign_cell", status="NOT_RUN", reason="no foreign template file")
@@ -170,6 +174,7 @@ def foreign_cell(beta, template=None, su=None, line=3.0):
 
 # ---------------------------------------------------------------- 11b surface brightness: interval on Met-A
 def brightness(beta, specimen, comp, n_draw=200, su=None, seed=20261004):
+    """11b: 95 % interval on Met-A from the v3 per-site uncertainty (this array's own fixed-site noise), by Monte Carlo (DEV-TOOLKIT-ADDED-02)."""
     import conductor_v3 as C3, stage_m_met_a as SM
     su = su or site_uncertainty(beta); rng = np.random.default_rng(seed)
     if su is None: return _rec("brightness", status="NOT_RUN", reason="dev_selftare_typeII_EPIC_v1.json (per-site uncertainty) not found")
@@ -179,7 +184,7 @@ def brightness(beta, specimen, comp, n_draw=200, su=None, seed=20261004):
     else:
         fr = (comp or {}).get("fractions")
         if not fr: return _rec("brightness", status="NOT_RUN", reason="no composition")
-        e = sum(v * P[g] for g, v in fr.items() if g in P)[ok]; den = float(_H(e.values).mean()); ref = e
+        e = sum(v * P[g] for g, v in fr.items() if g in P); ok = ok & e.notna(); xs = x[ok]; e = e[ok]; den = float(_H(e.values).mean()); ref = e
     s = s_for(xs.index, ref.values, su).values; A = []
     for _ in range(n_draw): A.append(float(_H(np.clip(xs.values + rng.normal(0, s), 1e-6, 1 - 1e-6)).mean() / den))
     A0 = float(_H(xs.values).mean() / den); lo, hi = np.percentile(A, [2.5, 97.5])
@@ -251,6 +256,7 @@ def load_atlas_parents(atlas_parquet):
 
 
 def sky(beta, fractions, atlas_parquet):
+    """Residual sky with the within-chromosome block-shuffle null and the look-elsewhere statistic by simulation (DEV-SKY-02)."""
     try: import healpy  # noqa: F401
     except ImportError: return _rec("sky", status="NOT_RUN", reason="healpy is not installed in this environment")
     if not atlas_parquet or not os.path.exists(atlas_parquet): return _rec("sky", status="NOT_RUN", reason="--atlas-v2 parquet not given or not found")
@@ -275,27 +281,32 @@ def _atlas_e(atlas_parquet):
 
 
 def atlas_e(beta, atlas_parquet):
+    """Stage 3 atlas_e composition (12 array-measured circulating atlas v2 cells, DEV-ATLAS-EPIC-02 method), 8-group sums."""
     if not atlas_parquet or not os.path.exists(atlas_parquet): return _rec("atlas_e", status="NOT_RUN", reason="--atlas-v2 parquet not given or not found")
     D, _, CM = _atlas_e(atlas_parquet); a = D.deconvolve(beta, n_boot=0); g = CM.to_groups(a["fractions"])
     return _rec("atlas_e", status="OK", fractions={k: round(float(g.get(k, 0.0)), 5) for k in BLOOD8}, cell_fractions={k: round(float(v), 5) for k, v in a["fractions"].items()})
 
 
 def nilc_e(beta, atlas_parquet):
+    """Stage 4 NILC-e composition on the atlas_e templates (DEV-NILC-01 method), 8-group sums and the noise per fraction."""
     if not atlas_parquet or not os.path.exists(atlas_parquet): return _rec("nilc_e", status="NOT_RUN", reason="--atlas-v2 parquet not given or not found")
     _, N, CM = _atlas_e(atlas_parquet); n = N.deconvolve(beta); g = CM.to_groups(n["fractions"])
     return _rec("nilc_e", status="OK", fractions={k: round(float(g.get(k, 0.0)), 5) for k in BLOOD8}, sum=round(n["sum"], 4), noise_sd={k: round(v, 5) for k, v in n["noise_sd"].items()})
 
 
 def percell_b(beta, fractions, atlas_parquet):
+    """Stage 5 B-cell Met-A against the composition-matched expectation on the development B-cell floor (DEV-PERCELL-01 method)."""
     FD = json.load(open(os.path.join(RM, "Met_A_Floors", "metA_floors_v1_2_ALLCELLS_development.json")))["platforms"]["EPIC"]["b cells"]
     sites = pd.Index(FD["sites"])
     if not fractions: return _rec("percell_b", status="NOT_RUN", reason="no composition (isolated specimen)")
     if not atlas_parquet or not os.path.exists(atlas_parquet): return _rec("percell_b", status="NOT_RUN", reason="--atlas-v2 parquet not given or not found")
     AP = load_atlas_parents(atlas_parquet); e = sum(fractions[g] * AP[f"{c}_mean"].reindex(sites) for g, c in PARENTS.items())
     x = beta.reindex(sites); ok = x.notna() & e.notna()
-    if ok.sum() < 0.9 * len(sites): return _rec("percell_b", status="NOT_RUN", reason=f"only {int(ok.sum())} of {len(sites)} B-cell sites measured")
+    if x.notna().sum() < 0.9 * len(sites): return _rec("percell_b", status="NOT_RUN", reason=f"only {int(x.notna().sum())} of {len(sites)} B-cell sites measured on the array")
     return _rec("percell_b", status="OK", A_untared=round(float(_H(x[ok].values).mean() / _H(e[ok].values).mean()), 4), fraction_B=round(fractions.get("B", 0.0), 4),
-                n_sites=int(ok.sum()), floor="metA_floors_v1_2_ALLCELLS_development.json (EPIC b cells, development)")
+                n_sites=int(ok.sum()), n_sites_measured=int(x.notna().sum()), n_sites_with_expectation=int(e.notna().sum()),
+                floor="metA_floors_v1_2_ALLCELLS_development.json (EPIC b cells, development)",
+                note="read against the composition-matched expectation (atlas v2 parent means x stage 2 fractions); Stage M's read line (fraction >= 0.20) is not applied here")
 
 
 # ---------------------------------------------------------------- EPIC v2 through SeSAMe (DEV-EPIC-V2-01)
@@ -316,8 +327,8 @@ def epicv2_calibrate(grn, red, rscript, prep="QCDPB"):
         d = pd.read_csv(out); d = d.dropna(subset=["beta"])
         d["cpg"] = d["probe"].astype(str).str.replace(r"_(?:TC|BC|TO|BO)\d{2}$", "", regex=True)
         n_v2 = int(len(d)); b = d.groupby("cpg")["beta"].mean().astype("float64"); b.index = b.index.astype(str)
-        b = b[b.index.str.startswith("cg")]
-        return b, {"calibrator": f"SeSAMe openSesame(prep='{prep}')", "n_v2_probes_detected": n_v2, "n_cpg_v1_names": int(len(b)),
+        b = b[b.index.str.startswith("cg")]; used = open(out + ".prep").read().strip() if os.path.exists(out + ".prep") else prep
+        return b, {"calibrator": f"SeSAMe: {used}", "n_v2_probes_detected": n_v2, "n_cpg_v1_names": int(len(b)),
                    "collapse": "replicate EPIC v2 probes of one CpG averaged into the EPIC v1 name"}
     finally:
         shutil.rmtree(tmp, ignore_errors=True)

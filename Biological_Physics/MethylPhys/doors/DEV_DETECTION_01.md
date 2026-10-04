@@ -30,3 +30,22 @@ neutrophils in Normal, under each statistic.
 **Wiring rule.** The chain's floor, profiles and noise gate were frozen under P. If G is adopted, the six floor arrays are re-read under G; when every
 one of them moves by <= 0.001 in A, G becomes Stage 1's default; otherwise G is wired as `--detection gaussian` and the default waits for the author
 (the frozen floor would need re-freezing under G).
+
+---
+
+## Outcome (2026-10-04, read after the checks above were written)
+
+Run: same job as DEV-INTAKE-02. 4,997 EPIC v1 and 450K arrays attempted, 4,996 read (one IDAT unreadable: GSE255057 GSM8063162, end of file, `crash_tails.txt`).
+Instrument from the IDAT run record: iScan 4,973, not stated 23. Records: `doors/data/DEV_DETECTION_01/detection01_rows.csv` (per array),
+`detection01_strata.csv` (per stratum, the rule applied), `detection01_secondary.csv`.
+
+- \measured Strata with >= 5 arrays: 55 (2 strata have 4 arrays and are not counted). P better in 31 (both 450K strata included); G better in 0;
+  neither in 24 - in each of these P has the lower median N (by 0.0001-0.0008) but more arrays below 90 % identity-site coverage.
+- \measured Rule result: P better in more strata. **P stays** for every array. No strata where G is better to list. Wiring: nothing changes.
+- \measured Overall: median N P 0.15362, G 0.15388; median probes kept P 845,524, G 862,369; EPIC v1 arrays below 90 % identity coverage P 367, G 2 (of 4,720).
+  On 450K both are below 90 % on every array (the array carries fewer of the 6,000 sites).
+- \measured Read beside the rule (no part in it): GSE250556 replicates, median tare (slide, then series) - P within-person SD 0.0369, 48 of 63 Normal;
+  G 0.0363, 49 of 63. Other-laboratory purified neutrophils (the 53 of DEV-SELFTARE-02), series median tare - P 43 Normal of 49 read (4 withheld:
+  fewer than 5,400 identity sites under P); G 40 of 53.
+- \observed P removes about 17,000 more probes per array than G and on 367 EPIC arrays takes identity coverage below 90 %; G keeps coverage but reads
+  slightly more background. Both points are recorded for the author; the rule set above decides.

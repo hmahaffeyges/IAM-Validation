@@ -16,3 +16,28 @@ DEV-NILC-01 bars: Stage 2 NNLS8, NILC-e, atlas_e (`STAGE_A_PROPOSAL.patch`), eac
   NNLS8 is refused as specified and also run at the markers present, labelled as below its own requirement.
 - Bars: neutrophil RMSE <= 0.02 and every other group in the truth RMSE <= 0.03 (groups the truth gives; T = CD4T + CD8T if the truth is not split).
 - The platform differs from the templates' (EPIC templates on a 450K array). That is stated with every number.
+
+---
+## Outcome (recorded 2026-10-04 after the run; nothing above the line was changed)
+Box job 5bd710b8 (Stage 1 on the 18 GSE77797 IDAT pairs, 450K) and scoring on the laptop (`data/DEV_COMPOSITION_TRUTH_02/gse77797_scores.csv`).
+
+- \measured Composition markers present on the 450K array: **307 of 963** (Stage 2 requires 867). Stage 2 NNLS8 is refused as specified; its numbers at the
+  307 markers are shown below, labelled.
+- \observed The truth gives granulocytes, not neutrophils: the neutrophil bar (0.02) is applied to the sum NEU + EOS + BASO.
+
+RMSE on the 12 reconstructed mixtures (bars: granulocytes <= 0.02, every other group <= 0.03):
+
+| method | GRAN | MONO | B | NK | CD4T | CD8T |
+|---|---|---|---|---|---|---|
+| atlas_e | 0.041 | 0.012 | 0.011 | 0.019 | 0.017 | 0.005 |
+| NILC-e | 0.061 | 0.020 | 0.019 | 0.012 | 0.036 | 0.017 |
+| NNLS8 (307 markers, below its requirement) | 0.033 | 0.011 | 0.011 | 0.013 | 0.022 | 0.015 |
+
+- \measured atlas_e meets every bar except granulocytes (0.041; bias -0.036). NILC-e: granulocytes 0.061 and CD4T 0.036 outside. NNLS8 at 307 markers:
+  granulocytes 0.033 outside.
+- \measured The 6 whole bloods (truth = the depositors' flow counts, which sum to 0.89-0.97): atlas_e 0.023 | 0.012 | 0.014 | 0.033 | 0.020 | 0.032; NNLS8 0.017 | 0.025 | 0.013 | 0.038 | 0.060 | 0.053 (same column order).
+- \observed Every method reads granulocytes low on this other-laboratory set (bias -0.027 to -0.052), as on the cord-blood set (DEV-NILC-01). The rest of the
+  composition is recovered within 0.03 by atlas_e on mixtures of another laboratory's purified cells.
+- \openprob An EPIC mixture or flow-counted set from another laboratory still does not exist on GEO; a wet-lab mixture is the clean test.
+
+**Wiring.** atlas_e and NILC-e stay behind `--dev-atlas-e` / `--dev-nilc`. Stage 2 stays NNLS8.

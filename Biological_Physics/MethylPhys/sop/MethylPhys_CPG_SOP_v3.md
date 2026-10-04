@@ -1,8 +1,8 @@
 # MethylPhys CPG SOP — chain v3 (running today: neutrophils; full chain and commissioning order in §2b)
 
-**Build:** development v3, 2026-10-01; frozen inputs re-checked against the code 2026-10-02; this SOP proofread against the code and the runtime files 2026-10-03. Not commissioned. Not a diagnostic test.
-**Scope:** one cell, neutrophils, on Illumina EPIC v1 arrays. Other cells are added one at a time after each passes the three tests
-(pure-cell precision, mixture recovery, known damage). 450K neutrophil floor: pending.
+**Build:** development v3, 2026-10-01; frozen inputs re-checked against the code 2026-10-02; this SOP proofread against the code and the runtime files 2026-10-03; development round 2 (author decisions A-O) written in 2026-10-04. **DEVELOPMENT - not commissioned.** Not a diagnostic test.
+**Scope:** one cell, neutrophils, on Illumina EPIC v1 arrays. Other cells are added one at a time after each passes the new-cell rule
+(three tests: purified-cell Normal, replicate spread, identifiability; §2b). 450K neutrophil floor: pending.
 **Readings:** Met-A (arrays) and its C-score. IAM-A (sequencing) runs through a separate stage (Stage Q), which is in development; it has no C-score yet.
 
 ## 1. Physics stated once
@@ -21,14 +21,14 @@ noise index → T → noise gate → MC → report; Stage Q runs only on sequenc
 
 | stage | what it does | code | frozen input |
 |---|---|---|---|
-| 0 Intake | manifest, hash, controls, detection p, bead count, call rate, sex check, decision gate | `chain/stage_0_intake.py` | `chain/Runtime Matrices/Intake/intake_thresholds_v1.json` |
+| 0 Intake | specimen rule first (whole blood and isolated / sorted / purified neutrophils accepted; every other specimen refused with a report, `specimen_refusal`); manifest (sex and age optional, recorded when given), hash, controls, detection p, bead count, call rate, sex check (`NOT_DECLARED` when no sex is given), decision gate; identifiers hashed in the bundle and the ledger (the report keeps the typed id) | `chain/stage_0_intake.py`, `chain/MethylPhys_Interface/run_sample.py` | `chain/Runtime Matrices/Intake/intake_thresholds_v1.json` |
 | 1 Calibration | IDAT → noob β; probes at background (poobah p > 0.05) removed | `chain/stage_1_idat_calibration.py` | Illumina manifest (methylprep downloads it on first use) |
 | A Composition (whole blood only) | 8 blood groups by NNLS on 963 markers, sum 1; the markers exclude the neutrophil sites; ≥ 867 of 963 measured (`MIN_MARKER_FRACTION` 0.9), else not solved and A withheld | `chain/conductor_v3.py: stage_a_composition` | `chain/Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json` |
 | M Met-A | isolated neutrophils: H̄ / own floor. Whole blood: H̄ / H̄(e), where e = Σ f_g μ_g from the purified EPIC profiles, read when f_NEU ≥ 0.20 (`MIN_READ_FRACTION`). Both: ≥ 5400 of the 6000 identity sites measured (`SITE_COVERAGE_MIN` 0.9). Records the shift per 1 % loss of the neutrophil pattern (A recomputed on β + 0.01 × (0.5 − μ_NEU), times f_NEU in whole blood) and the entropy-ceiling flag | `chain/stage_m_met_a.py`, `chain/conductor_v3.py: stage_m_isolated, stage_m_blood` | `chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`; whole blood: `blood_composition_EPIC_v1.json` (`profiles_at_neutrophil_sites`) |
 | MC C-score | residual z_i = (H(β_i) − H(ref_i)) / s_i in genomic order (ref_i: healthy neutrophil mean H, or H(e_i) in whole blood; s_i: shrunk healthy SD); C = variance of the 50-site block means × 50 ÷ variance of z ÷ healthy median 1.1104; ≥ 10 blocks, else no C | `chain/conductor_v3.py: stage_mc_cscore` | `chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json` |
 | T Tare | same-run healthy references of the same specimen type (same slide, else same batch), whole blood and isolated alike, ≥ 3 (`MIN_REFS`): A_rel = A ÷ median(reference A); spread = SD (ddof 1) of reference A ÷ median; detection limit = 2 × spread ÷ shift per 1 % loss; nothing is fitted; < 3 references → untared; a reference row carrying the specimen's own id is left out | `chain/conductor_v3.py: stage_t_tare` | — |
-| Noise | noise index N = mean H(β) over the 48,528 noise sites measured on the array (≥ 90 %, `MIN_NOISE_FRACTION`; fewer → N not computed, gate `not measured`, nothing withheld); N > N_max 0.149 on an untared reading → gauge state withheld, A printed as a number | `chain/conductor_v3.py: noise_index, noise_gate, run_neutrophil` | `chain/Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json`, `chain/Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json` (N_max = top of the 6 reference arrays' N range 0.1223–0.1489, DEV-NOISE-01) |
-| Q IAM-A (sequencing) | isolated copy error ε on qualifying molecules (≥ 6 calls, ≥ 80 % methylated); IAM-A = H(ε) ÷ (P × H(ε₀)); ≥ 100,000 opportunities; refuses any pipeline but the one P was measured on | `chain/stage_q_iam_a.py` (called by `chain/MethylPhys_Interface/run_sample.py` with `--pat` or `--site-table`) | `chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json` (`eps0` 0.032, `cells.neutrophils.P` 1.099, `pipeline` `loyfer_pat_v1`) |
+| Noise | noise index N = mean H(β) over the 48,528 noise sites measured on the array (≥ 90 %, `MIN_NOISE_FRACTION`); fewer → N not computed and the gauge state is withheld, tared or not, with the counts and the reason in plain words (author decision A, 2026-10-04); N > N_max 0.149 on an untared reading → gauge state withheld, A printed as a number | `chain/conductor_v3.py: noise_index, noise_gate, run_neutrophil` | `chain/Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json`, `chain/Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json` (N_max = top of the 6 reference arrays' N range 0.1223–0.1489, DEV-NOISE-01) |
+| Q IAM-A (sequencing) | isolated copy error ε on qualifying molecules (≥ 6 calls, ≥ 80 % methylated); IAM-A = H(ε) ÷ (P × H(ε₀)); ≥ 100,000 opportunities; refuses any pipeline but the one P was measured on. IAM-A C-score (development, decision C): blocks of 1,000 sites in genomic order, C = Σ(k_b − ε o_b)² / Σ ε(1 − ε) o_b; independent errors give 1 (derived); one C per A and per half; band not set | `chain/stage_q_iam_a.py` (called by `chain/MethylPhys_Interface/run_sample.py` with `--pat` or `--site-table`) | `chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json` (`eps0` 0.032, `cells.neutrophils.P` 1.099, `pipeline` `loyfer_pat_v1`) |
 | Report | one HTML page plus a JSON bundle; one row appended to the evidence ledger | `chain/MethylPhys_Interface/report_v3.py` (ledger row: `run_sample.py`) | — |
 
 Frozen values (read from the files, never typed):
@@ -44,19 +44,19 @@ pre-registered check on v3 has passed and the result is recorded in `doors/`.
 
 | # | stage | what it does | status |
 |---|---|---|---|
-| 0 | Intake | manifest, hashes, controls, detection, sex and platform checks, decision gate | **running** |
-| 1 | Calibration | IDAT to beta (noob) | **running** |
+| 0 | Intake | manifest, hashes, controls, detection, sex and platform checks, decision gate | **running**; round 2: sex and age optional, blood specimens only, ids hashed in bundle and ledger (DEV-INTAKE-02: 1,569/1,569 end to end, 955 refused naming the specimen, 0 typed ids in bundles or ledgers) |
+| 1 | Calibration | IDAT to beta (noob) | **running**; detection stays poobah (DEV-DETECTION-01: poobah better in 31 strata, the Gaussian negative-control test in 0, neither in 24) |
 | 2 | Composition, blood groups | whole blood split into 8 purified blood groups (NNLS, 963 markers) | **running** |
-| 3 | Atlas deconvolution | whole-tissue split into the atlas v2 cell types, each with its identifiability | toolkit (check failed 2026-10-03, DEV-ATLAS-EPIC-02) |
-| 4 | NILC component separation | cell-type separation by internal linear combination, the CMB method that needs no template per component | toolkit (check failed 2026-10-03, DEV-NILC-01) |
-| 5 | Met-A | each cell read against its own floor or its composition-matched healthy expectation | **running** (neutrophils) |
-| 6 | C-score | clustering of the residual map in genomic order | **running** (band not set) |
-| 7 | IAM-A | single-molecule reading on sequencing data | **running** (development; base-chain check on the constructed test data passed 2026-10-03, DEV-BASE-CHAIN-01 e) |
-| 8 | Same-run tare | A_rel = A / median of same-run healthy references | **running** |
-| 9 | Noise gate | noise index N; gauge state withheld above N_max untared | **running** |
-| 10 | Directional decomposition | which way a departure points (toward disorder or toward over-order), per cell | toolkit (not assessable as built, DEV-DIRECTION-01; author decision) |
-| 11 | Sky map | each site placed on the sphere (HEALPix), the residual map drawn per cell | toolkit (check failed 2026-10-03, DEV-SKY-01) |
-| 12 | Sky statistics | angular power spectrum, masks, spatially shuffled null, look-elsewhere by simulation | toolkit (not run: look-elsewhere by simulation not built, DEV-SKYSTAT-01) |
+| 3 | Atlas deconvolution | whole-tissue split into the atlas v2 cell types, each with its identifiability | development flag `--dev-atlas-e` (DEV-ATLAS-EPIC-02; DEV-COMPOSITION-TRUTH-02: within 0.03 on another laboratory's mixtures except granulocytes 0.041) |
+| 4 | NILC component separation | cell-type separation by internal linear combination, the CMB method that needs no template per component | development flag `--dev-nilc` (DEV-NILC-01, DEV-COMPOSITION-TRUTH-02: outside the truth bars) |
+| 5 | Met-A | each cell read against its own floor or its composition-matched healthy expectation | **running** (neutrophils); B cells behind `--dev-percell-b`; monocytes and B cells do not meet the new-cell rule (DEV-NEWCELL-01) |
+| 6 | C-score | clustering of the residual map in genomic order | **running** (band not set); IAM-A C-score in Stage Q (development, DEV-IAMA-CSCORE-01) |
+| 7 | IAM-A | single-molecule reading on sequencing data | **running** (development; constructed test data 2026-10-03, DEV-BASE-CHAIN-01 e; real Loyfer granulocyte files 2026-10-04, DEV-IAMA-REAL-01) |
+| 8 | Same-run tare | A_rel = A / median of same-run healthy references | **running** (median tare); self-tare on type II fixed sites then median tare behind `--dev-selftare-ii` meets every replicate and other-laboratory bar (DEV-SELFTARE-02) - author decision |
+| 9 | Noise gate | noise index N; gauge state withheld above N_max untared, and withheld whenever fewer than 90 % of the noise sites are measured | **running** |
+| 10 | Directional decomposition | which way a departure points (toward disorder or toward over-order), per cell | development flag `--dev-direction` (rebuilt physics-only, DEV-DIRECTION-02: known loss of methylation 12/12 toward disorder; replicates 56/63 no direction) |
+| 11 | Sky map | each site placed on the sphere (HEALPix), the residual map drawn per cell | development flag `--dev-sky` (DEV-SKY-02: against the within-chromosome block-shuffle null three of six bands inside 0.9-1.1) |
+| 12 | Sky statistics | angular power spectrum, masks, block-shuffle null, look-elsewhere by simulation | development flag `--dev-sky` (built 2026-10-04; DEV-SKY-02: look-elsewhere rate 91 % on healthy arrays, bar 8.4 %) |
 | 13 | Report | HTML page and JSON bundle | **running** |
 
 ### Checked against the retired v2 report (2026-10-03)
@@ -80,12 +80,12 @@ item when the chain work starts.
 | surface brightness | **added: stage 11b (toolkit)** |
 | difference map of two draws from one person | **added: stage 12b (toolkit; serial reading)** |
 | not built in v2: angular power spectrum, apodised mask, beam smoothing, cell-type covariance in the separation (GLS), Fisher degeneracy of the composition, ILC on the residual sky, per-specimen posterior for the composition, cross-spectra between cell panels | **listed under stage 12 as tools to build** |
-| Stage 5 Mahalanobis departure against an age-matched band; age tab | retired: a comparison with a population |
+| Stage 5 Mahalanobis departure against an age-matched band; age tab | retired: read against other people's readings, not the cell's own floor |
 | classes, tiers, 8 classes x 5 substrates chart, the 1.07 line | retired: class floors and tiers |
 | report: red flags (STOP / WITHHELD / CAUTION / NOTE, also as JSON), safeguards (rendered-claim scan, formula self-test, anchors, deconvolver conformance, atlas separability), troubleshooting, integrity (file hashes), the chain's file inventory, run it yourself, cosmology-toolkit table with PASS / NOT_RUN / NOT_BUILT | **required sections of the v3 report (stage 13)**; report_v3 holds the reading only today |
 
-Added stages: **3b trace-cell detection** (toolkit; not run, author decision), **3c foreign-cell detection** (toolkit; not run, author decision),
-**11b surface brightness** (toolkit; not run, author decision), **12b difference map** (**running** with `--prior-betas` / `--prior-bundle` since
+Added stages: **3b trace-cell detection** (`--dev-trace`, rebuilt on the array's own noise, DEV-TOOLKIT-ADDED-02), **3c foreign-cell detection** (`--dev-foreign`, same),
+**11b surface brightness** (`--dev-brightness`, same), **12b difference map** (**running** with `--prior-betas` / `--prior-bundle` since
 2026-10-03: per-address difference of two draws of one person and the same-person check, DEV-TOOLKIT-ADDED-01; the difference drawn as a sky is not built).
 Commissioning record (stage, check, result, wired): `doors/CHAIN_COMMISSIONING.md`.
 
@@ -105,13 +105,52 @@ Each step: pre-register the check in `doors/` before reading data, run it on v3,
 7. **Stage Q, IAM-A (stage 7)** - commissioned with the base chain (stages 0, 1, 2, 5, 6, 8, 9, 13), before step 1. Check: on the bundled
    single-molecule test data (constructed; no real file is bundled) IAM-A = 1 at the healthy position, another pipeline is refused, the `.pat`
    extractor returns the constructed errors (DEV-BASE-CHAIN-01 e: passed 2026-10-03).
-8. **Trace-cell detection (stage 3b).** Check written in DEV-TOOLKIT-ADDED-01; needs its line re-set without a population first (author).
-9. **Foreign-cell detection (stage 3c).** Check written in DEV-TOOLKIT-ADDED-01; needs a line without a population and a stated beta scale (author).
-10. **Surface brightness (stage 11b).** Check written in DEV-TOOLKIT-ADDED-01; needs a v3 per-site uncertainty source (author).
+8. **Trace-cell detection (stage 3b).** Check written in DEV-TOOLKIT-ADDED-01; line re-set on the array's own noise and tested 2026-10-04 (DEV-TOOLKIT-ADDED-02, `--dev-trace`).
+9. **Foreign-cell detection (stage 3c).** Check written in DEV-TOOLKIT-ADDED-01; line re-set on the array's own noise, beta scale = Stage 1 noob, tested 2026-10-04 (DEV-TOOLKIT-ADDED-02, `--dev-foreign`).
+10. **Surface brightness (stage 11b).** Check written in DEV-TOOLKIT-ADDED-01; v3 per-site uncertainty from the array's own fixed sites, tested 2026-10-04 (DEV-TOOLKIT-ADDED-02, `--dev-brightness`).
 11. **Difference map (stage 12b).** Check: the same-person check accepts one person and refuses two; same-person replicate differences are below
     differences to other people in >= 95 % of comparisons (DEV-TOOLKIT-ADDED-01: passed 2026-10-03, 348/348; wired).
 
 Order actually run on 2026-10-03: base chain with 7 -> 4 -> 3 -> 5 (B cells) -> 10 (not assessable) -> 11 -> 12 (not run) -> 3b, 3c, 11b (not run) -> 12b.
+Development round 2 (2026-10-04, author decisions A-O, test-only mode): intake (F, A, B, L, EPIC v2 refusal) -> detection statistic (E) -> self-tare II (G)
+-> composition truth search (H) -> direction (I) -> sky and sky statistics (J) -> 3b, 3c, 11b on own noise (K) -> IAM-A C-score (C) -> new-cell rule on
+monocytes (D) -> development flags (N) -> EPIC v2 (M) -> Stage Q on real single-molecule data. Summary: `doors/DEV_ROUND2_REPORT.md`; table: `doors/CHAIN_COMMISSIONING.md`.
+
+### New-cell rule (author decision D, 2026-10-04)
+
+A cell type is read only after it passes three tests on chain v3, recorded in `doors/` before the data are read:
+1. **Purified-cell Normal.** Purified healthy arrays of the cell from laboratories other than the floor's, median tare against >= 3 same-series arrays of
+   the cell (self excluded): >= 95 % of tared readings in Normal.
+2. **Replicate spread.** Repeated arrays of the same DNA or person: within-person SD of tared A <= 0.020.
+3. **Identifiability.** (a) Against the cell's floor, >= 99 % of purified healthy arrays of every other blood group read outside Normal; (b) the composition
+   stage recovers the cell's fraction within RMSE 0.03 on a held-out mixture truth set.
+Applied to monocytes and B cells on 2026-10-04 (DEV-NEWCELL-01): neither meets it. Neutrophils remain the only cell read.
+
+### Development flags (author decision N, 2026-10-04)
+
+`run_sample.py --dev-selftare-ii --dev-direction --dev-trace --dev-foreign --dev-brightness --dev-nilc --dev-atlas-e --dev-percell-b --dev-sky --dev-epic-v2`
+(`chain/dev_stages.py`). Each writes `bundle["development"][<stage>]` and a report section, labelled DEVELOPMENT - not commissioned. None changes the
+reading, the gauge or the tare (DEV-FLAGS-01: 63 of 63 readings identical with every flag on; release check E10). `--dev-atlas-e`, `--dev-nilc`,
+`--dev-percell-b` and `--dev-sky` need `--atlas-v2 <IAMAtlas_v2.parquet>` (not stored in the repository); `--dev-sky` needs healpy;
+`--dev-epic-v2` needs `--sesame-rscript <Rscript>` of an environment with Bioconductor sesame.
+
+### Kept out of the chain, and why
+
+| module | why it cannot work as designed |
+|---|---|
+| `Runtime Matrices/Directional Panel/bidirectional_decomposition.py` + `directional_panels_v1_0.json` (class-era stage 10) | z against other arrays' mean and SD and a disease sign; replaced by the physics-only direction (`--dev-direction`) |
+| `stage_2c_trace_detection.py` + `trace_detection_panel_v1.json` (class-era 3b) | its line was set from other arrays and it reads classes; replaced by `--dev-trace` |
+| `toolkit_foreign_detection.py` + `detection_panel_v3.json` (class-era 3c) | its line is a quantile over other arrays, on the class-era beta scale; replaced by `--dev-foreign` |
+| `toolkit_surface_brightness.py` (class-era 11b) | reads the class archives' per-CpG brightness; replaced by `--dev-brightness` |
+| `nilc_celltype_deconvolver.py` (toolkit NILC, N1) | every held-out truth bar outside (DEV-NILC-01); NILC-e is the one worked on |
+| `CPG_Null_Runner` null N7 | its synthetic generator was retired with chain v2 |
+| EPIC v2 reading in the chain | no purified neutrophil EPIC v2 arrays exist publicly to set a v2 floor (DEV-EPIC-V2-01); refused at intake |
+
+### Tare: what comes next (author decision G)
+
+The self-tare on type II fixed sites followed by the median tare met every replicate and other-laboratory bar (DEV-SELFTARE-02). Making it the Stage T reading
+changes the tare and needs the author. The second route stays written here: fully methylated and fully unmethylated control DNA (and a 50 % mix) on every slide
+measures the low and high anchors on the slide itself and the channel-gain term the fixed sites cannot see; it needs wet-lab runs.
 
 ## 3. Rules the chain enforces
 
@@ -123,10 +162,14 @@ Order actually run on 2026-10-03: base chain with 7 -> 4 -> 3 -> 5 (B cells) -> 
    A β vector of 700,000 probes or fewer is refused as 450K or incomplete, so an EPIC v1 array that loses that many probes at detection is refused too.
    A 450K IDAT pair does not reach the platform check: Stage 0 quarantines it (array-type mismatch at 0.1 when EPIC_v1 is declared, else coverage at 0.7b).
 4. **Quarantine stops the run.** A Stage 0 QUARANTINE produces no reading.
-5. **No population term.** Nothing in a reading depends on a cohort, a classifier or a disease label.
+5. **Nothing from other people.** Nothing in a reading depends on other people's readings, a classifier or a disease label.
 6. **Noise gate.** An untared reading on an array whose noise index is above the reference arrays' range (N > 0.149) gets no gauge state;
    A is printed as a number. A tared reading is not withheld by the gate. Nothing is fitted to N. If fewer than 90 % of the noise sites are measured,
-   N is not computed and the gate does not apply (`not measured`).
+   N is not computed and the gauge state is withheld, tared or not, with the counts and the reason (author decision A, 2026-10-04).
+7. **Specimen rule.** Intake reads whole blood and isolated / sorted / purified neutrophils. PBMC, other sorted fractions, bone marrow, cell lines, tissue and
+   unspecified specimens are refused at intake with a report naming the specimen; nothing is read (author decision L, 2026-10-04).
+8. **Identifiers.** The bundle and the evidence ledger carry the sha256 hash of the typed id (and of any path or command argument that carries it); the printed
+   report keeps the id the operator typed (author decision B, 2026-10-04). Age and sex are optional and recorded when given (decision F).
 
 ## 4. Running it (operator)
 
@@ -134,7 +177,7 @@ One specimen:
 ```
 cd Biological_Physics/MethylPhys/chain/MethylPhys_Interface
 python run_sample.py --grn S_Grn.idat --red S_Red.idat --engine v3 \
-  --specimen "whole blood" --array-type EPIC_v1 --sex F --age 52 --id S001 --out S001.html
+  --specimen "whole blood" --array-type EPIC_v1 --id S001 --out S001.html      # --sex F --age 52 optional, recorded when given
 ```
 Isolated neutrophils: `--specimen "isolated neutrophils"`.
 Tare, once ≥ 3 healthy references of the same specimen type on the same slide (else the same batch) have been read: add `--slide-ref-A 0.951,0.957,0.962`.
@@ -162,7 +205,15 @@ It is written for the compute box (box paths, roster files, `chain_v3.tgz`). The
 | End to end, 22 IDAT pairs | 22/22 processed. Isolated neutrophils 6/6 Normal (in-floor, untared). Known mixtures tared 6/6 Normal. AML remission blood from another lab tared 5/5 Normal; 5 withheld under the 0.50 read line then in force (four of them, 0.28–0.47, are above today's 0.20 line and have not been re-run). Tare references were the other specimens of the same group (§6, 3.2) |
 | Known damage, 2 % neutrophil pattern loss in mixtures (tared) | 6/6 above 1.05 (shift +0.061) |
 
-Not yet shown: real healthy whole blood, repeat pairs, any disease. The C-score band is not set.
+| Round 2, intake (DEV-INTAKE-02) | 1,569 arrays that stopped on a missing age or sex in round 1 re-run: 0 crashes; 955 refused naming the specimen; 613 blood specimens read; typed id in 0 bundles and 0 ledgers, in 1,837/1,837 report titles |
+| Round 2, purified healthy neutrophils, enlarged set (DEV-INTAKE-02) | tared A_rel: floor 6/6, other laboratories 56/68 Normal (round 1: 42/49) |
+| Round 2, detection statistic (DEV-DETECTION-01) | 4,996 EPIC v1 and 450K arrays: poobah better in 31 strata, Gaussian test in 0; poobah kept |
+| Round 2, self-tare on type II fixed sites then median tare (DEV-SELFTARE-02, flag) | replicate within-person SD 0.0164, 62/63 Normal; other laboratories 49/49; floor 6/6 |
+| Round 2, known loss of methylation (DEV-DIRECTION-02, flag) | decitabine and NTX-301 treated arrays 12/12 toward disorder; replicates 56/63 no direction |
+| Round 2, IAM-A on real single-molecule files (DEV-IAMA-REAL-01) | three Loyfer granulocyte files end to end: whole files 1.0394, 1.0632, 1.0344 (2/3 Normal) |
+
+Round 2 rows are development (DEVELOPMENT - not commissioned); each check and its full outcome is in the named `doors/` note.
+Not yet shown: any disease; a physical control DNA; an EPIC v2 floor. The C-score band is not set.
 
 ## 6. Detail held for operators (moved from the book, 2026-10-03)
 The book states each step and why; the exact values, records, files and development numbers it used to print are kept here.
@@ -193,7 +244,7 @@ The book states each step and why; the exact values, records, files and developm
 
 | stage | what it does | code | frozen input |
 |---|---|---|---|
-| Q IAM-A (sequencing) | isolated copy error ε on qualifying molecules (≥ 6 calls, ≥ 80 % methylated); IAM-A = H(ε) ÷ (P × H(ε₀)); ≥ 100,000 opportunities; refuses any pipeline but the one P was measured on | `chain/stage_q_iam_a.py` (called by `run_sample.py:351-361`) | `chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json` (`eps0` 0.032, `cells.neutrophils.P` 1.099, `pipeline` `loyfer_pat_v1`) |
+| Q IAM-A (sequencing) | isolated copy error ε on qualifying molecules (≥ 6 calls, ≥ 80 % methylated); IAM-A = H(ε) ÷ (P × H(ε₀)); ≥ 100,000 opportunities; refuses any pipeline but the one P was measured on. IAM-A C-score (development, decision C): blocks of 1,000 sites in genomic order, C = Σ(k_b − ε o_b)² / Σ ε(1 − ε) o_b; independent errors give 1 (derived); one C per A and per half; band not set | `chain/stage_q_iam_a.py` (called by `run_sample.py:351-361`) | `chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json` (`eps0` 0.032, `cells.neutrophils.P` 1.099, `pipeline` `loyfer_pat_v1`) |
 
 **Add to v3 §2, frozen-input list:** `noise_gate_EPIC_v1.json` (above); `iama_positions_v1.json` (in §2 since 2026-10-03); `metA_floors_v1_3.json` key `duplicates_removed` (the six GSE110554 / GSE167998 pairs). **[in full §3 except noise_gate]**
 

@@ -21,3 +21,22 @@ the runs are permuted within the chromosome; each site keeps its z and takes the
 - **Bar:** on healthy arrays (GSE250556 and the healthy-labelled whole bloods of DEV-BASE-CHAIN-01 in other series, up to 100), the rate of
   "structure beyond the null" <= 0.05 + 2 x its binomial standard error.
 Stage 11 enters behind a development flag if its bar holds; stage 12 likewise; otherwise both stay out of the reading.
+
+---
+## Outcome (recorded 2026-10-04 after the run; nothing above the line was changed)
+Box job 5bd710b8. Records: `data/DEV_SKY_02/sky02.csv` (one row per array: band ratios to the block null, to the free null for GSE250556, look-elsewhere T and p).
+
+| band (l) | 2-8 | 9-24 | 25-64 | 65-128 | 129-191 | 192-255 |
+|---|---|---|---|---|---|---|
+| GSE250556 median, power / block-shuffle null (bar 0.9-1.1) | 1.84 | 1.03 | 1.14 | 1.15 | 1.08 | 1.05 |
+| GSE250556 median, power / free shuffle (DEV-SKY-01 null) | 6.26 | 2.96 | 1.96 | 1.51 | 1.14 | 0.97 |
+
+- \measured Against the block-shuffle null, bands 2, 5 and 6 sit inside 0.9-1.1; bands 1, 3 and 4 sit outside (1.84, 1.14, 1.15). The bar is not met.
+- \observed Keeping the local run of neighbours removes most of the excess DEV-SKY-01 saw (l 9-24: 2.96 -> 1.03; l 2-8: 6.26 -> 1.84). What is left is at the
+  largest scales: structure longer than a run of 50 sites inside a chromosome.
+- \measured Look-elsewhere by simulation (built): structure beyond the null (p < 0.05) on **91 %** of 163 healthy arrays (GSE250556 100 %, 100 other healthy
+  whole bloods 86 %; bar <= 8.4 %). The statistic is driven by band 1.
+- \conjecture The large-scale residual is the expectation's own error spread along whole chromosome arms (atlas parent templates x stage 2 fractions), not
+  noise; a null with longer runs, or a per-arm expectation, is the next test.
+
+**Wiring.** Stage 11 and stage 12 behind `--dev-sky` (needs `--atlas-v2` and healpy). Not part of the reading.

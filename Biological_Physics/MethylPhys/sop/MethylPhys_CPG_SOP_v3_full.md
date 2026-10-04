@@ -1,6 +1,7 @@
 # MethylPhys CPG SOP — chain v3, neutrophils (full procedure)
 
-**Build:** development v3. Not commissioned. Not a diagnostic test. No tier beyond Normal is printed.
+**Build:** DEVELOPMENT - not commissioned (chain v3, neutrophils only). Not a diagnostic test. No tier beyond Normal is printed.
+**Round 2 (2026-10-04).** The intake, noise gate, identifiers and development flags changed in round 2: sex and age are optional (`NOT_DECLARED`); only blood specimens are accepted (others stop with `SPECIMEN_REFUSED`); identifiers are hashed in the bundle and ledger; if fewer than 90 % of the noise sites are read the gauge state is withheld with the reason; Stage Q prints the IAM-A C-score; development stages run only behind `--dev-*` flags. `MethylPhys_CPG_SOP_v3.md` (sections 2, 2b, 5) and the code are current where this file differs; the line numbers below are from the earlier build.
 **Scope:** one cell type (neutrophils); Illumina EPIC v1 arrays for Met-A; single-molecule reads (pipeline `loyfer_pat_v1`) for IAM-A. 450K neutrophil floor: pending (canon `Met_A_floor_450K_neutrophil` = null).
 **Written from:** repository `hmahaffeyges/IAM-Validation`, `main` at `7cdbbf8` (floor v1.3) **plus the audit-fix patch** (`chain_fix_patch.zip`, branch `audit-fixes`, not yet pushed). Line numbers refer to the patched files. Paths are relative to `Biological_Physics/MethylPhys/`. Every number is read from a frozen file or the canon; the file and key are given beside it.
 **Readings:** Met-A (arrays), Met-A C-score (arrays), A_rel (Met-A after the same-run tare), IAM-A (sequencing).

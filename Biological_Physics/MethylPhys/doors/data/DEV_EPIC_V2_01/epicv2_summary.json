@@ -1,0 +1,32 @@
+{
+ "n_v2": 72,
+ "v2_calibrated": 72,
+ "v1_calibrated": 71,
+ "v2_identity_sites_median": 5391.0,
+ "v2_markers_median": 870.0,
+ "pairs": 0,
+ "pair_diff_mean": null,
+ "pair_diff_sd": null,
+ "target_sd": 0.02,
+ "calibrator_v1_sesame_minus_methylprep_mean": -0.025994366197183084,
+ "calibrator_sd": 0.017616857894998054,
+ "n_cal": 71,
+ "duplicate_titles": 0,
+ "errors": {},
+ "flag_runs": [
+  {
+   "gsm": "GSM8723468",
+   "exit": 0,
+   "refusal": "EPIC v2 array (IDAT header): chain v3 reads EPIC v1 arrays only - no frozen neut",
+   "dev_status": "OK",
+   "dev_A": null
+  },
+  {
+   "gsm": "GSM8723469",
+   "exit": 0,
+   "refusal": "EPIC v2 array (IDAT header): chain v3 reads EPIC v1 arrays only - no frozen neut",
+   "dev_status": "OK",
+   "dev_A": null
+  }
+ ]
+}

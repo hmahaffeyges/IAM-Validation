@@ -32,3 +32,37 @@ neutrophils: every array that reaches Stage 5 in Normal (DEV-BASE-CHAIN-01 b). F
 **Physical control DNA (decision G, second route).** Fully methylated and fully unmethylated control DNA on every slide (and a 50 % mix) measures
 L and U on the slide itself, and the 50 % mix measures the channel-gain term the fixed sites cannot see (zero at b = 0 and b = 1). No public EPIC data
 carry such controls; this route needs wet-lab runs and is written into the SOP as the next step if (iv) does not meet the bars.
+
+---
+## Outcome (recorded 2026-10-04 after the run; nothing above the line was changed)
+Box job 9bcbcf99 (the run of record), chain = this round's development code; Stage 1 betas from DEV-BASE-CHAIN-01. Runtime file built by the rule above:
+`chain/Runtime Matrices/Development/dev_selftare_typeII_EPIC_v1.json` (development, not frozen). Records: `data/DEV_SELFTARE_02/`.
+
+**Type II fixed sites found** (\measured): 50,359 low and 166,379 high (the rule asked for >= 1,000), from 35 purified
+GSE110554 arrays in six groups (B, CD4T, CD8T, MONO, NEU, NK). Reference anchors (six floor arrays): type I 0.0186 / 0.9820,
+type II 0.0555 / 0.9486.
+
+| reading | replicates median | within-person SD (bar <= 0.020) | replicates in Normal (bar >= 95 %) | other-lab neutrophils in Normal (bar: all) | r with N |
+|---|---|---|---|---|---|
+| no tare | 1.205 | 0.0356 | 0/63 | 3/49 (0.862-1.286) | 0.84 |
+| median tare | 1.002 | 0.0369 | 48/63 | 43/49 (0.806-1.082) | 0.83 |
+| self-tare II | 1.007 | 0.0069 | 60/63 | 33/49 (0.929-1.047) | 0.27 |
+| self-tare II then median tare | 1.000 | 0.0164 | 62/63 | 49/49 (0.984-1.030) | 0.30 |
+
+- \measured (iv) self-tare II then median tare: within-person SD **0.0164** (A 0.0119, B 0.0113, C 0.0232, D 0.0169); **62 of 63** in Normal
+  (the one outside: GSM7981554, 1.0504); other-laboratory purified neutrophils **49 of 49** in Normal (0.984-1.030; GSE122244 4/4, GSE247193 21/21, GSE247195 24/24);
+  floor arrays 6 of 6 in Normal (self-tared 0.996, 1.024, 1.004, 1.019, 0.992, 0.965; read against the other five 0.995, 1.029, 1.005, 1.024, 0.989, 0.957).
+  Every bar of this note is met by reading (iv).
+- \measured (iii) self-tare II alone: within-person SD 0.0069, 60/63 in Normal, but other-laboratory neutrophils 33/49
+  (GSE247193 5/21, median 0.944): the self-tare alone does not carry another laboratory onto the reference scale for that series.
+- \observed The link to the noise index N falls from r 0.83 (median tare) to 0.30 (iv).
+- \observed Type II slope (Ur - Lr)/(U - L) on the replicates 1.036-1.082 (median 1.060): this laboratory's type II range is about 6 % narrower than the
+  reference arrays'. GSE247193 1.054, GSE247195 1.011, GSE122244 1.010.
+- \conjecture The remaining replicate spread (0.016) is the median tare's own reference noise: (iii) alone gives 0.007 on the same arrays.
+
+**First run, recorded as run** (box job 5bd710b8): the title parser left the T cells out of the fixed-site rule (four of six groups), against the rule
+above; the run of record re-ran with all six groups. Run 1 numbers: (iv) SD 0.0146, 63/63; other-lab 49/49; (iii) SD
+0.0064. Run-1 records are kept beside the run of record (`run1_T_cells_left_out_*`).
+
+**Wiring.** Behind `--dev-selftare-ii` (DEV-FLAGS-01). The median tare stays the reading. Next (author decision): make (iv) the Stage T reading
+(it changes the frozen tare, so it needs the author); the physical control DNA route stays in the SOP as the check on the fixed-site assumption.

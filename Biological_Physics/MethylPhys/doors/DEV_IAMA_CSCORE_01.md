@@ -12,3 +12,12 @@ other readings. One C per A: the pooled reading and each half (A, B) get their o
 **Checks.** Constructed: (i) independent binomial errors at eps 0.035 over 50,000 sites x 20 opportunities: |C - 1| <= 4 sqrt(2 / n_blocks);
 (ii) the same with the error rate tripled in one block of every ten: C > 1 + 4 sqrt(2 / n_blocks). Real (DEV-IAMA-REAL-01): C for each Loyfer
 granulocyte file and its halves, recorded (no band set).
+
+---
+## Outcome (recorded 2026-10-04 after the run; nothing above the line was changed)
+Constructed check run on the laptop with `stage_q_iam_a.cscore` (the same test is release check E9, run on the box):
+- \measured (i) independent errors (eps 0.035, 50,000 sites x 20 opportunities, 50 blocks): **C = 0.823** (limit 1 +/- 0.80, within); half A 0.616.
+- \measured (ii) error rate tripled in one block of every ten: **C = 447.5** (> 1.80, within the bar).
+- \measured Real data (DEV-IAMA-REAL-01): whole files C 604-1,047, heads 11-17; halves C about half of the pooled C (they carry half the opportunities).
+- \observed Healthy granulocytes do not hold the independent-error null: the copy-error rate changes along the genome. With 1,000-site blocks the C-score
+  measures that regional spread as much as any clustering in one specimen. No band is set; the reading stays development.

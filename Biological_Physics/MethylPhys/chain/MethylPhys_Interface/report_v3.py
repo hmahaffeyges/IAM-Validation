@@ -7,7 +7,7 @@ Sections (SOP v3 section 2b, stage 13 - the v3 report carries every section the 
   the reading (Stage 0 intake, Stage 1, composition, Met-A, tare, noise gate, C-score, IAM-A when sequencing input is given),
   red flags (STOP / WITHHELD / CAUTION / NOTE, also written into the bundle as `red_flags`), safeguards (rendered-claim scan,
   formula self-test, anchors, deconvolver conformance, atlas separability), troubleshooting, integrity (file hashes), the chain's
-  file inventory, run it yourself, the stage table (SOP 2b, 14 stages) and the toolkit table (PASS / FAIL / NOT_RUN / NOT_BUILT).
+  file inventory, run it yourself, the stage table (SOP 2b, 14 stages) and the toolkit table (PASS / FAIL / NOT_RUN / NOT_BUILT; development rows RAN / NOT_RUN / ERROR).
 Every section carries an HTML id listed in REPORT_SECTIONS so a harness can check the page without parsing prose."""
 import html, json, os, re
 import numpy as np
@@ -17,24 +17,29 @@ REPORT_SECTIONS = ("sec-reading-intake", "sec-composition", "sec-met-a", "sec-ta
                    "sec-safeguards", "sec-troubleshooting", "sec-integrity", "sec-inventory", "sec-run-yourself", "sec-stages",
                    "sec-toolkit", "sec-withheld", "sec-bundle")
 # SOP v3 section 2b - the 14 stages and their status on this build (kept in step with the SOP status column)
-STAGES_2B = [("0", "Intake", "running"), ("1", "Calibration", "running"), ("2", "Composition, blood groups", "running"),
-             ("3", "Atlas deconvolution", "toolkit"), ("4", "NILC component separation", "toolkit"), ("5", "Met-A", "running (neutrophils)"),
-             ("6", "C-score", "running (band not set)"), ("7", "IAM-A", "running (development)"), ("8", "Same-run tare", "running"),
-             ("9", "Noise gate", "running"), ("10", "Directional decomposition", "toolkit"), ("11", "Sky map", "toolkit"),
-             ("12", "Sky statistics", "toolkit"), ("13", "Report", "running"),
-             ("3b", "Trace-cell detection", "toolkit"), ("3c", "Foreign-cell detection", "toolkit"), ("11b", "Surface brightness", "toolkit"),
+STAGES_2B = [("0", "Intake", "running (specimen rule; sex and age optional; identifiers hashed in bundle and ledger)"), ("1", "Calibration", "running"),
+             ("2", "Composition, blood groups", "running"),
+             ("3", "Atlas deconvolution", "development flag --dev-atlas-e"), ("4", "NILC component separation", "development flag --dev-nilc"),
+             ("5", "Met-A", "running (neutrophils); B cells behind --dev-percell-b"),
+             ("6", "C-score", "running (band not set); IAM-A C-score in Stage Q (development)"), ("7", "IAM-A", "running (development)"),
+             ("8", "Same-run tare", "running (median tare); self-tare II behind --dev-selftare-ii"),
+             ("9", "Noise gate", "running (state withheld above N_max untared, and below 90 % noise-site coverage)"),
+             ("10", "Directional decomposition", "development flag --dev-direction"), ("11", "Sky map", "development flag --dev-sky"),
+             ("12", "Sky statistics", "development flag --dev-sky"), ("13", "Report", "running"),
+             ("3b", "Trace-cell detection", "development flag --dev-trace"), ("3c", "Foreign-cell detection", "development flag --dev-foreign"),
+             ("11b", "Surface brightness", "development flag --dev-brightness"),
              ("12b", "Difference map", "running with --prior-betas (per-address difference; the sky drawing is not built)")]
 # toolkit stages: (stage, name, module, bundle key written when the stage is wired and runs)
-TOOLKIT_STAGES = [("3", "Atlas deconvolution", "chain/deconv_v2.py", "atlas_composition"),
-                  ("3b", "Trace-cell detection", "chain/stage_2c_trace_detection.py", "trace_detection"),
-                  ("3c", "Foreign-cell detection", "chain/toolkit_foreign_detection.py", "foreign_detection"),
-                  ("4", "NILC component separation", "chain/nilc_celltype_deconvolver.py", "nilc"),
-                  ("10", "Directional decomposition", "chain/Runtime Matrices/Directional Panel/bidirectional_decomposition.py", "directional"),
-                  ("11", "Sky map", "chain/stage_4_6_patient_cmb.py", "sky_map"),
-                  ("11b", "Surface brightness", "chain/toolkit_surface_brightness.py", "surface_brightness"),
-                  ("12", "Sky statistics", "chain/sky_statistics.py", "sky_statistics"),
-                  ("12b", "Difference map", "chain/serial_mode.py", "difference_map")]   # 12b wired 2026-10-03 (DEV-TOOLKIT-ADDED-01 passed)
-NOT_BUILT = ["look-elsewhere by simulation over the sky", "apodised mask", "beam smoothing", "cell-type covariance in the separation (GLS)",
+TOOLKIT_STAGES = [("3", "Atlas deconvolution (atlas_e, --dev-atlas-e)", "chain/dev_stages.py", "dev:atlas_e"),
+                  ("3b", "Trace-cell detection (--dev-trace)", "chain/dev_stages.py", "dev:trace"),
+                  ("3c", "Foreign-cell detection (--dev-foreign)", "chain/dev_stages.py", "dev:foreign"),
+                  ("4", "NILC component separation (NILC-e, --dev-nilc)", "chain/dev_stages.py", "dev:nilc"),
+                  ("10", "Directional decomposition (--dev-direction)", "chain/dev_stages.py", "dev:direction"),
+                  ("11", "Sky map (--dev-sky)", "chain/dev_stages.py", "dev:sky"),
+                  ("11b", "Surface brightness (--dev-brightness)", "chain/dev_stages.py", "dev:brightness"),
+                  ("12", "Sky statistics (--dev-sky)", "chain/sky_statistics.py", "dev:sky"),
+                  ("12b", "Difference map", "chain/serial_mode.py", "difference_map")]   # 12b wired 2026-10-03; the rest behind development flags since 2026-10-04
+NOT_BUILT = ["apodised mask", "beam smoothing", "cell-type covariance in the separation (GLS)",
              "Fisher degeneracy of the composition", "ILC on the residual sky", "per-specimen composition posterior",
              "cross-spectra between cell panels", "difference map drawn as a sky"]
 # words the report prose must not carry (no disease, cohort or population vocabulary; the instrument reads one cell against itself)
@@ -155,11 +160,13 @@ def troubleshooting(o):
 def toolkit_table(o):
     out = []
     for st, name, mod, key in TOOLKIT_STAGES:
-        rec = o.get(key)
-        if rec is None: out.append((st, name, mod, "NOT_RUN", "built; not wired into this build, or not run on this specimen"))
+        rec = (o.get("development") or {}).get(key[4:]) if key.startswith("dev:") else o.get(key)
+        if rec is None: out.append((st, name, mod, "NOT_RUN", "behind a development flag (not given), or not run on this specimen" if key.startswith("dev:") else "built; not run on this specimen"))
+        elif isinstance(rec, dict) and rec.get("status") == "NOT_RUN": out.append((st, name, mod, "NOT_RUN", str(rec.get("reason"))[:160]))
+        elif isinstance(rec, dict) and rec.get("status") == "ERROR": out.append((st, name, mod, "ERROR", str(rec.get("reason"))[:160]))
         elif isinstance(rec, dict) and (rec.get("error") or rec.get("status") == "FAIL"): out.append((st, name, mod, "FAIL", str(rec.get("error") or rec.get("reason"))[:160]))
         elif isinstance(rec, dict) and rec.get("status") == "REFUSED": out.append((st, name, mod, "REFUSED", str(rec.get("reason"))[:160]))
-        else: out.append((st, name, mod, "PASS", "ran on this specimen" + (f" ({rec.get('status')})" if isinstance(rec, dict) and rec.get("status") else "")))
+        else: out.append((st, name, mod, "RAN" if key.startswith("dev:") else "PASS", ("DEVELOPMENT - not commissioned: ran on this specimen" if key.startswith("dev:") else "ran on this specimen") + (f" ({rec.get('status')})" if isinstance(rec, dict) and rec.get("status") else "")))
     out += [("12", n, "-", "NOT_BUILT", "listed under stage 12 as a tool to build") for n in NOT_BUILT]
     return out
 
