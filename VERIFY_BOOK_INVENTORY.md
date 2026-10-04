@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3942 PASS, 0 FAIL, 2396 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3959 PASS, 0 FAIL, 2379 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4661,26 +4661,26 @@ Totals: 3942 PASS, 0 FAIL, 2396 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 14 | eq:z | none |  | not run: displayed equation, not yet checked | - |
-| 26 | eq:C | calibrated |  | not run: displayed equation, not yet checked | - |
-| 31 |  | calibrated | `0.70` | not run: measured, source not named | - |
-| 31 |  | calibrated | `1.23` | not run: measured, source not named | - |
-| 38 |  | calc | `+0.5` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 39 |  | calc | `1.1104` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 46 |  | measured | `0.69` | not run: measured, source not named | - |
-| 46 |  | measured | `1.21` | not run: measured, source not named | - |
-| 46 |  | measured | `0.78` | not run: measured, source not named | - |
-| 46 |  | measured | `1.49` | not run: measured, source not named | - |
-| 63 |  | calibrated | `0.70` | not run: measured, source not named | - |
-| 63 |  | calibrated | `-1.23` | not run: measured, source not named | - |
-| 64 |  | measured | `0.69` | not run: measured, source not named | - |
-| 64 |  | measured | `-1.21` | not run: measured, source not named | - |
-| 65 |  | measured | `0.91` | not run: measured, source not named | - |
-| 65 |  | measured | `-1.49` | not run: measured, source not named | - |
-| 66 |  | measured | `0.78` | not run: measured, source not named | - |
-| 66 |  | measured | `-1.32` | not run: measured, source not named | - |
+| 14 | eq:z | none |  | not run: definition: residual z_i = (H(beta_i) - H(ref_i)) / s_i (the construction of the map) | - |
+| 26 | eq:C | calibrated | `1.1104` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: c_healthy: median of the six leave-one-out clustering values | PASS |
+| 31 | ch:cscore:L31 | calibrated | `0.70` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C of the healthy reference arrays, lowest | PASS |
+| 31 | ch:cscore:L31:1.23 | calibrated | `1.23` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C of the healthy reference arrays, highest | PASS |
+| 38 |  | calc | `+0.5` | not run: input: shift of +0.5 healthy SD given to every site of the simulated illustration map (no specimen), nothing to recompute | - |
+| 39 | ch:cscore:L39 | calc | `1.1104` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: healthy baseline used in the construction figure | PASS |
+| 46 | ch:cscore:L46 | measured | `0.69` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: acceptance run: isolated neutrophils, lowest C | PASS |
+| 46 | ch:cscore:L46:1.21 | measured | `1.21` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: acceptance run: isolated neutrophils, highest C | PASS |
+| 46 | ch:cscore:L46:0.78 | measured | `0.78` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: acceptance run: whole bloods, lowest C | PASS |
+| 46 | ch:cscore:L46:1.49 | measured | `1.49` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: acceptance run: whole bloods, highest C | PASS |
+| 63 | ch:cscore:L63 | calibrated | `0.70` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: table: healthy reference arrays, lowest C | PASS |
+| 63 | ch:cscore:L63:1.23 | calibrated | `1.23` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: table: healthy reference arrays, highest C | PASS |
+| 64 | ch:cscore:L64 | measured | `0.69` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: table: isolated reference neutrophils, lowest C | PASS |
+| 64 | ch:cscore:L64:1.21 | measured | `1.21` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: table: isolated reference neutrophils, highest C | PASS |
+| 65 | ch:cscore:L65 | measured | `0.91` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: table: DNA mixtures, lowest C | PASS |
+| 65 | ch:cscore:L65:1.49 | measured | `1.49` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: table: DNA mixtures, highest C | PASS |
+| 66 | ch:cscore:L66 | measured | `0.78` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: table: remission bloods, lowest C | PASS |
+| 66 | ch:cscore:L66:1.32 | measured | `1.32` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: table: remission bloods, highest C | PASS |
 | 67 | ch:cscore:L67 | calc | `45` | numeric: C far end | PASS |
-| 67 |  | calibrated | `50` | not run: measured, source not named | - |
+| 67 | ch:cscore:L67:50 | calibrated | `50` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C-score block size | PASS |
 
 ## Part 6 - ch:temperature - `docs/book/part4/p4_10_temperature.tex`
 

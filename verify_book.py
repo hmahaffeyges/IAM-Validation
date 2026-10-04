@@ -1864,6 +1864,18 @@ def _b09_gran():
     P = np.array([_b09_Hb(x) / _b09_Hb(e0) for x in oth])
     return eps, ed, oth, e0, P
 
+# helpers of the part4/p4_09_cscore checks
+_B09_NR = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json'
+_B09_CA = 'Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv'
+
+def _b09_c_healthy():
+    """The six reference arrays' clustering statistic c, each against the other five, and C = c / median(c)."""
+    loo = np.array(load_json(_B09_NR)['healthy_clustering_LOO'])
+    return loo, loo / np.median(loo)
+def _b09_accC(prefix):
+    """C-scores printed by the acceptance run for the rows whose group starts with prefix (rows with a C)."""
+    return [float(r['C']) for r in load_csv_rows(_B09_CA) if r['group'].startswith(prefix) and r['C'] not in ('', None)]
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -31685,11 +31697,140 @@ def check_3941():
 
 
 # ======== Part 6 | ch:cscore | docs/book/part4/p4_09_cscore.tex
+@check(label='eq:C', chapter='ch:cscore', part=6, title='c_healthy: median of the six leave-one-out clustering values',
+       file='part4/p4_09_cscore', line=26, status='calibrated', kind='file', printed='1.1104', tol=0.0, source=_B09_NR)
+def check_3942():
+    'Eq. C: the healthy clustering statistic c_healthy, the median over the six reference arrays of c, each read against the other five, recomputed from the six values. Book line 26, printed 1.1104. Inputs: healthy_clustering_LOO of neutrophil_reference_v1_1.json.'
+    loo, C = _b09_c_healthy()
+    value = float(np.median(loo))
+    return locals()
+
+@check(label='ch:cscore:L31', chapter='ch:cscore', part=6, title='C of the healthy reference arrays, lowest',
+       file='part4/p4_09_cscore', line=31, status='calibrated', kind='file', printed='0.70', tol=0.0, source=_B09_NR)
+def check_3943():
+    'C = c / c_healthy of the six reference arrays, each against the other five: lowest. Book line 31, printed 0.70. Inputs: healthy_clustering_LOO of neutrophil_reference_v1_1.json.'
+    loo, C = _b09_c_healthy()
+    value = float(C.min())
+    return locals()
+
+@check(label='ch:cscore:L31:1.23', chapter='ch:cscore', part=6, title='C of the healthy reference arrays, highest',
+       file='part4/p4_09_cscore', line=31, status='calibrated', kind='file', printed='1.23', tol=0.0, source=_B09_NR)
+def check_3944():
+    'C of the six reference arrays: highest. Book line 31, printed 1.23. Inputs: neutrophil_reference_v1_1.json.'
+    loo, C = _b09_c_healthy()
+    value = float(C.max())
+    return locals()
+
+@check(label='ch:cscore:L39', chapter='ch:cscore', part=6, title='healthy baseline used in the construction figure',
+       file='part4/p4_09_cscore', line=39, status='calc', kind='file', printed='1.1104', tol=0.0, source=_B09_NR)
+def check_3945():
+    'The healthy baseline the construction figure divides by: median of the six leave-one-out clustering values (as eq:C). Book line 39, printed 1.1104. Inputs: neutrophil_reference_v1_1.json.'
+    loo, C = _b09_c_healthy()
+    value = float(np.median(loo))
+    return locals()
+
+@check(label='ch:cscore:L46', chapter='ch:cscore', part=6, title='acceptance run: isolated neutrophils, lowest C',
+       file='part4/p4_09_cscore', line=46, status='measured', kind='file', printed='0.69', tol=0.0, source=_B09_CA)
+def check_3946():
+    'C-score of the isolated reference neutrophils on the chain v3 acceptance run: lowest. Book line 46, printed 0.69. Inputs: C of the "healthy purified neutrophil" rows of chain_acceptance.csv.'
+    value = min(_b09_accC('healthy purified neutrophil'))
+    return locals()
+
+@check(label='ch:cscore:L46:1.21', chapter='ch:cscore', part=6, title='acceptance run: isolated neutrophils, highest C',
+       file='part4/p4_09_cscore', line=46, status='measured', kind='file', printed='1.21', tol=0.0, source=_B09_CA)
+def check_3947():
+    'C-score of the isolated reference neutrophils on the acceptance run: highest. Book line 46, printed 1.21. Inputs: chain_acceptance.csv.'
+    value = max(_b09_accC('healthy purified neutrophil'))
+    return locals()
+
+@check(label='ch:cscore:L46:0.78', chapter='ch:cscore', part=6, title='acceptance run: whole bloods, lowest C',
+       file='part4/p4_09_cscore', line=46, status='measured', kind='file', printed='0.78', tol=0.0, source=_B09_CA)
+def check_3948():
+    'C-score of the whole bloods on the acceptance run (DNA mixtures and remission bloods with a reading): lowest. Book line 46, printed 0.78. Inputs: chain_acceptance.csv.'
+    value = min(_b09_accC('known mixture') + _b09_accC('AML second remission'))
+    return locals()
+
+@check(label='ch:cscore:L46:1.49', chapter='ch:cscore', part=6, title='acceptance run: whole bloods, highest C',
+       file='part4/p4_09_cscore', line=46, status='measured', kind='file', printed='1.49', tol=0.0, source=_B09_CA)
+def check_3949():
+    'C-score of the whole bloods on the acceptance run: highest. Book line 46, printed 1.49. Inputs: chain_acceptance.csv.'
+    value = max(_b09_accC('known mixture') + _b09_accC('AML second remission'))
+    return locals()
+
+@check(label='ch:cscore:L63', chapter='ch:cscore', part=6, title='table: healthy reference arrays, lowest C',
+       file='part4/p4_09_cscore', line=63, status='calibrated', kind='file', printed='0.70', tol=0.0, source=_B09_NR)
+def check_3950():
+    'Table row "healthy reference arrays, each against the other five", n = 6: lowest C. Book line 63, printed 0.70. Inputs: neutrophil_reference_v1_1.json.'
+    loo, C = _b09_c_healthy()
+    n = len(loo)
+    value = float(C.min())
+    return locals()
+
+@check(label='ch:cscore:L63:1.23', chapter='ch:cscore', part=6, title='table: healthy reference arrays, highest C',
+       file='part4/p4_09_cscore', line=63, status='calibrated', kind='file', printed='1.23', tol=0.0, source=_B09_NR)
+def check_3951():
+    'Table row healthy reference arrays: highest C (the inventory read the range "0.70--1.23" as -1.23). Book line 63, printed 1.23. Inputs: neutrophil_reference_v1_1.json.'
+    loo, C = _b09_c_healthy()
+    value = float(C.max())
+    return locals()
+
+@check(label='ch:cscore:L64', chapter='ch:cscore', part=6, title='table: isolated reference neutrophils, lowest C',
+       file='part4/p4_09_cscore', line=64, status='measured', kind='file', printed='0.69', tol=0.0, source=_B09_CA)
+def check_3952():
+    'Table row "isolated reference neutrophils, acceptance run", n = 6: lowest C. Book line 64, printed 0.69. Inputs: chain_acceptance.csv.'
+    c = _b09_accC('healthy purified neutrophil'); n = len(c)
+    value = min(c)
+    return locals()
+
+@check(label='ch:cscore:L64:1.21', chapter='ch:cscore', part=6, title='table: isolated reference neutrophils, highest C',
+       file='part4/p4_09_cscore', line=64, status='measured', kind='file', printed='1.21', tol=0.0, source=_B09_CA)
+def check_3953():
+    'Table row isolated reference neutrophils: highest C (inventory printed -1.21 from the range dash). Book line 64, printed 1.21. Inputs: chain_acceptance.csv.'
+    value = max(_b09_accC('healthy purified neutrophil'))
+    return locals()
+
+@check(label='ch:cscore:L65', chapter='ch:cscore', part=6, title='table: DNA mixtures, lowest C',
+       file='part4/p4_09_cscore', line=65, status='measured', kind='file', printed='0.91', tol=0.0, source=_B09_CA)
+def check_3954():
+    'Table row "DNA mixtures, acceptance run", n = 6: lowest C. Book line 65, printed 0.91. Inputs: C of the "known mixture" rows of chain_acceptance.csv.'
+    c = _b09_accC('known mixture'); n = len(c)
+    value = min(c)
+    return locals()
+
+@check(label='ch:cscore:L65:1.49', chapter='ch:cscore', part=6, title='table: DNA mixtures, highest C',
+       file='part4/p4_09_cscore', line=65, status='measured', kind='file', printed='1.49', tol=0.0, source=_B09_CA)
+def check_3955():
+    'Table row DNA mixtures: highest C (inventory printed -1.49 from the range dash). Book line 65, printed 1.49. Inputs: chain_acceptance.csv.'
+    value = max(_b09_accC('known mixture'))
+    return locals()
+
+@check(label='ch:cscore:L66', chapter='ch:cscore', part=6, title='table: remission bloods, lowest C',
+       file='part4/p4_09_cscore', line=66, status='measured', kind='file', printed='0.78', tol=0.0, source=_B09_CA)
+def check_3956():
+    'Table row "remission bloods, another laboratory", the 5 bloods with a reading: lowest C. Book line 66, printed 0.78. Inputs: C of the "AML second remission" rows of chain_acceptance.csv.'
+    c = _b09_accC('AML second remission'); n = len(c)
+    value = min(c)
+    return locals()
+
+@check(label='ch:cscore:L66:1.32', chapter='ch:cscore', part=6, title='table: remission bloods, highest C',
+       file='part4/p4_09_cscore', line=66, status='measured', kind='file', printed='1.32', tol=0.0, source=_B09_CA)
+def check_3957():
+    'Table row remission bloods: highest C (inventory printed -1.32 from the range dash). Book line 66, printed 1.32. Inputs: chain_acceptance.csv.'
+    value = max(_b09_accC('AML second remission'))
+    return locals()
+
 @check(label='ch:cscore:L67', chapter='ch:cscore', part=6, title='C far end',
        file='part4/p4_09_cscore', line=67, status='calc', kind='num', printed='45', tol=0)
 def check_2533():
     'C far end. Book line 67, printed 45.'
     value=50/1.1104  # block size 50, baseline 1.1104 (book input)
+    return locals()
+
+@check(label='ch:cscore:L67:50', chapter='ch:cscore', part=6, title='C-score block size',
+       file='part4/p4_09_cscore', line=67, status='calibrated', kind='file', printed='50', tol=0.0, source=_B09_NR)
+def check_3958():
+    'The block size of the C-score, 50 sites (the far end: every 50-site block moving as one). Book line 67, printed 50. Inputs: clustering_block of neutrophil_reference_v1_1.json.'
+    value = load_json(_B09_NR)['clustering_block']
     return locals()
 
 
@@ -35869,25 +36010,8 @@ INVENTORY = [
     (6, 'ch:meta', 'part4/p4_07_meta', 23, '', 'measured', '0.25', 'definition: identity-site selection band, unmethylated channel beta 0.05-0.25 (a rule of the chain)'),
     (6, 'ch:meta', 'part4/p4_07_meta', 79, 'eq:metawb', 'none', '', "definition: whole-blood Met-A with the specimen's own expectation e_i = sum_g f_g mu_g,i"),
     (6, 'ch:meta', 'part4/p4_07_meta', 112, '', 'measured', '2.8', 'measured, source not named'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 14, 'eq:z', 'none', '', 'displayed equation, not yet checked'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 26, 'eq:C', 'calibrated', '', 'displayed equation, not yet checked'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 31, '', 'calibrated', '0.70', 'measured, source not named'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 31, '', 'calibrated', '1.23', 'measured, source not named'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 38, '', 'calc', '+0.5', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 39, '', 'calc', '1.1104', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 46, '', 'measured', '0.69', 'measured, source not named'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 46, '', 'measured', '1.21', 'measured, source not named'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 46, '', 'measured', '0.78', 'measured, source not named'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 46, '', 'measured', '1.49', 'measured, source not named'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 63, '', 'calibrated', '0.70', 'measured, source not named'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 63, '', 'calibrated', '-1.23', 'measured, source not named'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 64, '', 'measured', '0.69', 'measured, source not named'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 64, '', 'measured', '-1.21', 'measured, source not named'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 65, '', 'measured', '0.91', 'measured, source not named'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 65, '', 'measured', '-1.49', 'measured, source not named'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 66, '', 'measured', '0.78', 'measured, source not named'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 66, '', 'measured', '-1.32', 'measured, source not named'),
-    (6, 'ch:cscore', 'part4/p4_09_cscore', 67, '', 'calibrated', '50', 'measured, source not named'),
+    (6, 'ch:cscore', 'part4/p4_09_cscore', 14, 'eq:z', 'none', '', 'definition: residual z_i = (H(beta_i) - H(ref_i)) / s_i (the construction of the map)'),
+    (6, 'ch:cscore', 'part4/p4_09_cscore', 38, '', 'calc', '+0.5', 'input: shift of +0.5 healthy SD given to every site of the simulated illustration map (no specimen), nothing to recompute'),
     (6, 'ch:temperature', 'part4/p4_10_temperature', 6, '', 'calc', '38.5', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:temperature', 'part4/p4_10_temperature', 17, '', 'calc', '38.5', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:temperature', 'part4/p4_10_temperature', 23, '', 'calc', '3.41', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
