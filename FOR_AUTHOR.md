@@ -3,7 +3,7 @@
 Items a check raised that would change a result, a prediction, a locked value, an equation of IAM or the framing of a
 claim. The book was left unchanged for each; the decision is the author's. Every FAIL of `verify_book.py` is listed here.
 
-Items: 8
+Items: 10
 
 ## 1. `docs/book/part2/p2_02_virial.tex:L86-87`
 
@@ -54,7 +54,21 @@ Items: 8
 - **Why it matters:** The unrounded value is 3.1499e-8, which rounds to 3.1e-8; 3.2e-8 comes from rounding the committed 3.15e-8 (verify_cc_and_baryon_output.txt; Table lambda_numbers, p2_12_lambda.tex:394) a second time. No result changes; it is a two-digit rounding edge.
 - **Recommendation:** Optional: print 3.1e-8, or 3.15e-8 as in the table. The check passes either way within 2 %.
 
-## 8. `docs/book/part2/p2_01_blackholes.tex:L76`
+## 8. `docs/book/part2/p2_13b_baryon_chain.tex:L53 and L57 (and L188)`
+
+- **Now:** line 57 quotes Omega_Lambda = 0.6847 (Planck central value); the +0.79 % on lines 53 and 188 comes from ch:lambda (Eq. corr), which uses Omega_Lambda = 1 - Omega_m - Omega_r = 0.6846
+- **Proposed:** no change needed; optionally say on line 53 that the offset uses the ch:lambda inputs (Omega_Lambda = 0.6846)
+- **Why it matters:** with 0.6847 the same offset is +0.78 %, so a reader recomputing from the inputs printed in this chapter gets the last digit one lower
+- **Recommendation:** leave as is, or add the input in a parenthesis; the checks use 0.6846 as ch:lambda does
+
+## 9. `docs/book/part2/p2_13b_baryon_chain.tex:L56 (eq:bc_etaob)`
+
+- **Now:** eta = 2.739e-8 Omega_b h^2 (Steigman 2006)
+- **Proposed:** no change; the factor is reproduced from first principles only with T0 = 2.725 K and a mean baryon mass with Y_P ~ 0.24 (as in that paper); with today's T0 = 2.7255 K it is 2.737e-8
+- **Why it matters:** all eta values in the chapter carry this factor; the 0.1 % difference does not change any statement
+- **Recommendation:** optional footnote naming T0 = 2.725 K
+
+## 10. `docs/book/part2/p2_01_blackholes.tex:L76`
 
 - **Now:** caption says 'CODATA 2018; M_sun = 1.98847e30 kg'
 - **Proposed:** either keep 1.98847e30 and drop the implication that it follows from CODATA 2018, or use GM_sun(IAU 2015 nominal) / G(CODATA 2018) = 1.98841e30 kg

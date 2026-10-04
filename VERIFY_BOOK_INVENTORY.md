@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3543 PASS, 0 FAIL, 2797 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3586 PASS, 0 FAIL, 2750 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -2346,37 +2346,37 @@ Totals: 3543 PASS, 0 FAIL, 2797 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 21 | eq:bc_eta | observed |  | not run: displayed equation, not yet checked | - |
-| 33 | eq:bc_law | derived |  | not run: not yet run: draft rejected (does not run: ValueError no value) | - |
-| 45 | eq:bc_cc | openprob |  | not run: displayed equation, not yet checked | - |
+| 21 | eq:bc_eta | observed | `6.1\times10^{-10}` | numeric: eta from the Planck 2018 Omega_b h^2 and the n_b/n_gamma conversion | PASS |
+| 33 | eq:bc_law | derived |  | sympy: Landauer bound: maximising the entropy of one binary record gives k_B ln 2, so the cost at T_H is k_B T_H ln 2 | PASS |
+| 45 | eq:bc_cc | openprob |  | sympy: eq:bc_cc with rho_L and rho_vac written from their definitions, solved for Omega_b/Omega_m, gives (3/16) Omega_L | PASS |
 | 49 | eq:bc_tratio | derived |  | sympy: H_dS = c sqrt(Lambda/3) for the horizon set by Lambda alone and Omega_L = Lambda c^2/(3 H0^2) give H_dS/H0 = sqrt(Omega_L); T_GH is proportional to H | PASS |
 | 51 | eq:bc_cccorr | derived | `1.142\times10^{-123}` | numeric: eq:bc_cc times T_dS/T_H, with T_dS from H_dS = c sqrt(Lambda/3) and Lambda = 3 Omega_L H0^2/c^2, evaluated with the book's Planck 2018 inputs | PASS |
 | 53 | ch:baryon_chain:L53 | fitted | `1.133\times10^{-123}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 53 |  | fitted | `0.79` | not run: measured, too few printed digits to match against the named files | - |
-| 56 | eq:bc_etaob | derived |  | not run: not yet run: draft rejected (does not run: ValueError no value) | - |
+| 53 | ch:baryon_chain:L53:0.79 | fitted | `0.79` | numeric: eq:bc_cccorr above the observed rho_L/rho_vac, per cent | PASS |
+| 56 | eq:bc_etaob | derived | `2.739\times10^{-8}` | numeric: eta / Omega_b h^2 from rho_crit, the mean baryon mass and n_gamma (Steigman 2006 conversion) | PASS |
 | 57 | ch:baryon_chain:L57 | derived | `0.1431` | numeric: Omega_m h^2 | PASS |
-| 57 |  | derived | `0.6847` | not run: not yet run: draft rejected (drafter skipped: Line 57: Ω_Λ = 0.6847 is cited as Planck 2018 central value (Planck2018VI) | - |
+| 57 | ch:baryon_chain:L57:0.6847 | derived | `0.6847` | numeric: Omega_L = 1 - Omega_m (flat), Planck 2018 | PASS |
 | 58 | ch:baryon_chain:L58 | calc | `0.01837` | numeric: Omega_b h^2 without sqrt | PASS |
 | 58 | ch:baryon_chain:L58:5.03\times10^{-10} | calc | `5.03\times10^{-10}` | numeric: eta without sqrt | PASS |
 | 58 | ch:baryon_chain:L58:0.02220 | calc | `0.02220` | numeric: Omega_b h^2 with sqrt | PASS |
 | 59 | ch:baryon_chain:L59 | calc | `6.08\times10^{-10}` | numeric: eta with sqrt | PASS |
 | 59 | ch:baryon_chain:L59:0.8 | calc | `0.8` | numeric: below Planck 6.127 | PASS |
-| 59 |  | calc | `6.127` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 69 | eq:bc_std | calc |  | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 59 | ch:baryon_chain:L59:6.127 | calc | `6.127` | numeric: Planck 2018 eta (1e-10) from its Omega_b h^2 | PASS |
+| 69 | eq:bc_std | calc | `0.00014` | file `mgcamb_validation/chains/lcdm_baseline.updated.yaml`: other runs: Omega_b h^2 flat on [0.020, 0.025], start N(0.02242, 0.00014^2), from the four LambdaCDM YAML files | PASS |
 | 73 | ch:baryon_chain:L73 | calc | `0.030` | numeric: 18th-chain prior width | PASS |
 | 73 | ch:baryon_chain:L73:0.005 | calc | `0.005` | numeric: other runs' prior width | PASS |
 | 115 | eq:bc_ob | none | `0.022320` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain Omega_b h^2 and sd | PASS |
 | 117 | eq:bc_etares | measured | `6.113` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: eta = 2.739e-8 Omega_b h^2 from the 18th chain | PASS |
-| 118 |  | measured | `0.022319` | not run: measured, not found in the files the chapter names | - |
-| 118 |  | measured | `6.1155\times10^{-10}` | not run: measured, not found in the files the chapter names | - |
-| 119 |  | calc | `2.74\times10^{-8}` | not run: not yet run: draft does not reproduce the printed value (recomputed 75125.8); drafting error on review | - |
-| 119 |  | calc | `2.739\times10^{-8}` | not run: not yet run: draft does not reproduce the printed value (recomputed 75129.1); drafting error on review | - |
+| 118 | ch:baryon_chain:L118 | measured | `0.022319` | heavy file `docs/book/read_ledgers/bl_MANIFEST.md`: the run record's Omega_b h^2 (30 % burn-in on the chain copy) | PASS |
+| 118 | ch:baryon_chain:L118:6.1155\times10^{-10} | measured | `6.1155\times10^{-10}` | heavy file `docs/book/read_ledgers/bl_MANIFEST.md`: the record's eta = 2.74e-8 x the record's Omega_b h^2 | PASS |
+| 119 | ch:baryon_chain:L119 | calc | `2.74\times10^{-8}` | numeric: the record's conversion factor 2.74e-8 is the derived factor to three figures | PASS |
+| 119 | ch:baryon_chain:L119:2.739\times10^{-8} | calc | `2.739\times10^{-8}` | numeric: the conversion factor used in the chapter, recomputed | PASS |
 | 120 | ch:baryon_chain:L120 | measured | `0.0218` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 120 | ch:baryon_chain:L120:0.0228 | measured | `0.0228` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 121 | ch:baryon_chain:L121 | measured | `67.04` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 121 | ch:baryon_chain:L121:0.3198 | measured | `0.3198` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 121 |  | measured | `0.010` | not run: measured, too few printed digits to match against the named files | - |
-| 121 |  | measured | `0.040` | not run: measured, too few printed digits to match against the named files | - |
+| 121 | ch:baryon_chain:L121:0.010 | measured | `0.010` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: 18th chain: lower end of the flat Omega_b h^2 range | PASS |
+| 121 | ch:baryon_chain:L121:0.040 | measured | `0.040` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: 18th chain: upper end of the flat Omega_b h^2 range | PASS |
 | 122 | ch:baryon_chain:L122 | measured | `0.1554` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 123 | eq:bc_ratio | measured | `1.0046` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: ratio on the 18th chain, committed output | PASS |
 | 128 | ch:baryon_chain:L128 | observed | `273.9\times10^{-10}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
@@ -2386,79 +2386,74 @@ Totals: 3543 PASS, 0 FAIL, 2797 inventoried and not run. Each run item carries t
 | 128 | ch:baryon_chain:L128:0.1431 | calc | `0.1431` | numeric: same value as p2_13_baryon:165 (Omega_m h^2 = 0.3153 x 0.6736^2) | PASS |
 | 128 | ch:baryon_chain:L128:6.080 | calc | `6.080` | numeric: eta (1e-10) from the expression with sqrt | PASS |
 | 128 | ch:baryon_chain:L128:5.031 | calc | `5.031` | numeric: eta (1e-10) without sqrt | PASS |
-| 136 |  | measured | `10` | not run: measured, too few printed digits to match against the named files | - |
+| 136 |  | measured | `10` | not run: unit: '$10^{-10}$' in the table caption, the unit of the eta column, nothing to recompute | - |
 | 137 | ch:baryon_chain:L137 | measured | `6.180` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 138 | ch:baryon_chain:L138 | measured | `6.108` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 139 | ch:baryon_chain:L139 | measured | `6.098` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 140 | ch:baryon_chain:L140 | measured | `6.127` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 141 | ch:baryon_chain:L141 | measured | `6.141` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 142 | ch:baryon_chain:L142 | measured | `6.113` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 142 |  | measured | `0.010` | not run: measured, too few printed digits to match against the named files | - |
-| 142 |  | measured | `-0.040` | not run: measured, too few printed digits to match against the named files | - |
-| 142 |  | measured | `18` | not run: measured, too few printed digits to match against the named files | - |
+| 142 | ch:baryon_chain:L142:0.010 | measured | `0.010` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: Table tab:bc_compare, 18th chain: lower end of the flat range | PASS |
+| 142 | ch:baryon_chain:L142:0.040 | measured | `0.040` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: Table tab:bc_compare, 18th chain: upper end of the flat range | PASS |
+| 142 |  | measured | `18` | not run: label: '18th' in '18th chain' is the ordinal name of the chain, not a number to recompute | - |
 | 143 | ch:baryon_chain:L143 | calc | `6.080` | numeric: eta (1e-10) from the expression with sqrt | PASS |
 | 144 | ch:baryon_chain:L144 | calc | `5.031` | numeric: eta (1e-10) without sqrt | PASS |
 | 148 | ch:baryon_chain:L148 | calc | `6.113` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain eta | PASS |
 | 148 | ch:baryon_chain:L148:0.3 | calc | `0.3` | numeric: chain vs nucleosynthesis, sigma | PASS |
 | 148 | ch:baryon_chain:L148:0.2 | calc | `0.2` | numeric: below Planck 6.127, per cent | PASS |
-| 148 |  | calc | `6.180` | not run: not yet run: draft rejected (drafter skipped: Nucleosynthesis Omega_b h^2 value (6.180±0.195) is a cited external measu) | - |
-| 148 |  | calc | `6.127` | not run: not yet run: draft rejected (drafter skipped: Planck 2018 Omega_b h^2 value (6.127) is a cited external measurement
-# () | - |
+| 148 | ch:baryon_chain:L148:6.180 | calc | `6.180` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: nucleosynthesis with deuterium, Cyburt et al. 2016 Table IV, as traced in the committed output | PASS |
+| 148 | ch:baryon_chain:L148:6.127 | calc | `6.127` | numeric: Planck 2018 eta (1e-10) from its Omega_b h^2 | PASS |
 | 159 | ch:baryon_chain:L159 | measured | `1.0046` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output) | PASS |
-| 159 |  | measured | `0.7` | not run: measured, too few printed digits to match against the named files | - |
-| 165 |  | measured | `10` | not run: measured, too few printed digits to match against the named files | - |
+| 159 | ch:baryon_chain:L159:0.7 | measured | `0.7` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: ratio (Ob/Om)/[(3/16) sqrt(OL)] on the 18th chain: distance from 1 in sigma | PASS |
+| 165 |  | measured | `10` | not run: unit: '$10^{10}\eta$' column header, nothing to recompute | - |
 | 166 | ch:baryon_chain:L166 | measured | `0.02232` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 166 | ch:baryon_chain:L166:6.113 | measured | `6.113` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 166 | ch:baryon_chain:L166:1.0046 | measured | `1.0046` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output) | PASS |
 | 166 | ch:baryon_chain:L166:957 | measured | `957` | file `docs/verification/cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md`: measured: printed value found in CC_AND_BARYON_CHECK.md, a file the chapter names | PASS |
-| 166 |  | measured | `0.010` | not run: measured, too few printed digits to match against the named files | - |
-| 166 |  | measured | `-0.040` | not run: measured, too few printed digits to match against the named files | - |
-| 166 |  | measured | `14` | not run: measured, too few printed digits to match against the named files | - |
-| 166 |  | measured | `18` | not run: measured, too few printed digits to match against the named files | - |
+| 166 | ch:baryon_chain:L166:0.010 | measured | `0.010` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: Table tab:baryon_chains, iam_baryon_test: lower end of the flat Omega_b h^2 range | PASS |
+| 166 | ch:baryon_chain:L166:0.040 | measured | `0.040` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: Table tab:baryon_chains, iam_baryon_test: upper end of the flat Omega_b h^2 range | PASS |
+| 166 | ch:baryon_chain:L166:14{,}957 | measured | `14{,}957` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Table tab:baryon_chains, iam_baryon_test: rows after 30 % burn-in | PASS |
+| 166 |  | measured | `18` | not run: label: '18th' in '18th chain (CMB only)' is the ordinal name of the chain, not a number to recompute | - |
 | 167 | ch:baryon_chain:L167 | measured | `0.02234` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 167 | ch:baryon_chain:L167:6.118 | measured | `6.118` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 167 | ch:baryon_chain:L167:1.0058 | measured | `1.0058` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 167 |  | measured | `0.020` | not run: measured, too few printed digits to match against the named files | - |
-| 167 |  | measured | `-0.025` | not run: measured, too few printed digits to match against the named files | - |
-| 167 |  | measured | `12` | not run: measured, too few printed digits to match against the named files | - |
-| 167 |  | measured | `544` | not run: measured, not found in the files the chapter names | - |
+| 167 | ch:baryon_chain:L167:0.020 | measured | `0.020` | file `mgcamb_validation/chains/lcdm_baseline.updated.yaml`: Table tab:baryon_chains, lcdm_baseline: lower end of the flat Omega_b h^2 range | PASS |
+| 167 | ch:baryon_chain:L167:0.025 | measured | `0.025` | file `mgcamb_validation/chains/lcdm_baseline.updated.yaml`: Table tab:baryon_chains, lcdm_baseline: upper end of the flat Omega_b h^2 range | PASS |
+| 167 | ch:baryon_chain:L167:12{,}544 | measured | `12{,}544` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Table tab:baryon_chains, lcdm_baseline: rows after 30 % burn-in | PASS |
 | 168 | ch:baryon_chain:L168 | measured | `0.02240` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 168 | ch:baryon_chain:L168:6.137 | measured | `6.137` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 168 | ch:baryon_chain:L168:1.0106 | measured | `1.0106` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 168 |  | measured | `0.020` | not run: measured, too few printed digits to match against the named files | - |
-| 168 |  | measured | `-0.025` | not run: measured, too few printed digits to match against the named files | - |
-| 168 |  | measured | `12` | not run: measured, too few printed digits to match against the named files | - |
-| 168 |  | measured | `600` | not run: measured, not found in the files the chapter names | - |
+| 168 | ch:baryon_chain:L168:0.020 | measured | `0.020` | file `mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_bao_lcdm_baseline: lower end of the flat Omega_b h^2 range | PASS |
+| 168 | ch:baryon_chain:L168:0.025 | measured | `0.025` | file `mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_bao_lcdm_baseline: upper end of the flat Omega_b h^2 range | PASS |
+| 168 | ch:baryon_chain:L168:12{,}600 | measured | `12{,}600` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Table tab:baryon_chains, planck_bao_lcdm_baseline: rows after 30 % burn-in | PASS |
 | 169 | ch:baryon_chain:L169 | measured | `0.02233` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 169 | ch:baryon_chain:L169:6.117 | measured | `6.117` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 169 | ch:baryon_chain:L169:1.0056 | measured | `1.0056` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 169 |  | measured | `0.020` | not run: measured, too few printed digits to match against the named files | - |
-| 169 |  | measured | `-0.025` | not run: measured, too few printed digits to match against the named files | - |
-| 169 |  | measured | `21` | not run: measured, too few printed digits to match against the named files | - |
-| 169 |  | measured | `168` | not run: measured, not found in the files the chapter names | - |
+| 169 | ch:baryon_chain:L169:0.020 | measured | `0.020` | file `mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_pantheon_lcdm_baseline: lower end of the flat Omega_b h^2 range | PASS |
+| 169 | ch:baryon_chain:L169:0.025 | measured | `0.025` | file `mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_pantheon_lcdm_baseline: upper end of the flat Omega_b h^2 range | PASS |
+| 169 | ch:baryon_chain:L169:21{,}168 | measured | `21{,}168` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Table tab:baryon_chains, planck_pantheon_lcdm_baseline: rows after 30 % burn-in | PASS |
 | 170 | ch:baryon_chain:L170 | measured | `0.02239` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 170 | ch:baryon_chain:L170:6.134 | measured | `6.134` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 170 | ch:baryon_chain:L170:1.0098 | measured | `1.0098` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 170 |  | measured | `0.020` | not run: measured, too few printed digits to match against the named files | - |
-| 170 |  | measured | `-0.025` | not run: measured, too few printed digits to match against the named files | - |
-| 170 |  | measured | `18` | not run: measured, too few printed digits to match against the named files | - |
-| 170 |  | measured | `424` | not run: measured, not found in the files the chapter names | - |
+| 170 | ch:baryon_chain:L170:0.020 | measured | `0.020` | file `mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_rsd_lcdm_baseline: lower end of the flat Omega_b h^2 range | PASS |
+| 170 | ch:baryon_chain:L170:0.025 | measured | `0.025` | file `mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_rsd_lcdm_baseline: upper end of the flat Omega_b h^2 range | PASS |
+| 170 | ch:baryon_chain:L170:18{,}424 | measured | `18{,}424` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Table tab:baryon_chains, planck_rsd_lcdm_baseline: rows after 30 % burn-in | PASS |
 | 171 | ch:baryon_chain:L171 | calc | `0.01837` | numeric: Omega_b h^2 without sqrt | PASS |
 | 171 | ch:baryon_chain:L171:5.031 | calc | `5.031` | numeric: eta (1e-10) without sqrt | PASS |
 | 172 | ch:baryon_chain:L172 | calc | `0.02220` | numeric: with sqrt | PASS |
 | 172 | ch:baryon_chain:L172:6.080 | calc | `6.080` | numeric: eta (1e-10) from the expression with sqrt | PASS |
 | 179 | ch:baryon_chain:L179 | measured | `0.02232` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 179 |  | measured | `0.010` | not run: measured, too few printed digits to match against the named files | - |
-| 179 |  | measured | `0.040` | not run: measured, too few printed digits to match against the named files | - |
-| 179 |  | measured | `0.020` | not run: measured, too few printed digits to match against the named files | - |
-| 179 |  | measured | `0.025` | not run: measured, too few printed digits to match against the named files | - |
-| 183 |  | openprob | `6\times10^{-10}` | not run: not yet checked | - |
+| 179 | ch:baryon_chain:L179:0.010 | measured | `0.010` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: fig:baryon_posterior caption: 18th chain, lower end of the flat Omega_b h^2 range | PASS |
+| 179 | ch:baryon_chain:L179:0.040 | measured | `0.040` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: fig:baryon_posterior caption: 18th chain, upper end of the flat Omega_b h^2 range | PASS |
+| 179 | ch:baryon_chain:L179:0.020 | measured | `0.020` | file `mgcamb_validation/chains/lcdm_baseline.updated.yaml`: fig:baryon_posterior caption: other runs, lower end of the flat Omega_b h^2 range | PASS |
+| 179 | ch:baryon_chain:L179:0.025 | measured | `0.025` | file `mgcamb_validation/chains/lcdm_baseline.updated.yaml`: fig:baryon_posterior caption: other runs, upper end of the flat Omega_b h^2 range | PASS |
+| 183 | ch:baryon_chain:L183 | openprob | `6\times10^{-10}` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: the eta every CMB fit returns, to one figure: the 18th chain | PASS |
 | 188 | ch:baryon_chain:L188 | fitted | `0.827` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 188 |  | fitted | `+0.79` | not run: measured, too few printed digits to match against the named files | - |
+| 188 | ch:baryon_chain:L188:+0.79 | fitted | `+0.79` | numeric: sqrt(Omega_L) brings eq:bc_cc to +0.79 % of the observed Lambda | PASS |
 | 189 | ch:baryon_chain:L189 | fitted | `5.03` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 189 |  | fitted | `6.08\times10^{-10}` | not run: measured, not found in the files the chapter names | - |
-| 196 |  | measured | `0.2` | not run: measured, too few printed digits to match against the named files | - |
-| 196 |  | measured | `0.3` | not run: measured, too few printed digits to match against the named files | - |
+| 189 | ch:baryon_chain:L189:6.08\times10^{-10} | fitted | `6.08\times10^{-10}` | numeric: eq:bc_cccorr inverted for eta at the Planck Omega_m h^2 | PASS |
+| 196 | ch:baryon_chain:L196 | measured | `0.2` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain eta below the Planck 2018 value, per cent | PASS |
+| 196 | ch:baryon_chain:L196:0.3 | measured | `0.3` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain eta from nucleosynthesis with deuterium, in sigma | PASS |
 
 ## Part 2 - ch:surveys - `docs/book/part2/p2_16_survey_predictions.tex`
 

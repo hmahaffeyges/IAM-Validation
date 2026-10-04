@@ -1508,6 +1508,51 @@ def _b02_bar_chains():
 
 _B02_STEIGMAN = 273.9e-10     # eta = 273.9e-10 Omega_b h^2, Steigman, JCAP 10 (2006) 016, doi:10.1088/1475-7516/2006/10/016 (the book's conversion)
 _B02_OBH2_PLANCK = 0.02237    # Omega_b h^2, Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing, doi:10.1051/0004-6361/201833910
+DATA_FILES['mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml'] = 'Cobaya settings of the 18th chain (priors, start distributions)'   # 4 kB
+DATA_FILES['mgcamb_validation/chains/lcdm_baseline.updated.yaml'] = 'Cobaya settings, LambdaCDM Planck chain'   # 4 kB
+DATA_FILES['mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml'] = 'Cobaya settings, LambdaCDM Planck + BAO chain'   # 6 kB
+DATA_FILES['mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml'] = 'Cobaya settings, LambdaCDM Planck + Pantheon+ chain'   # 4 kB
+DATA_FILES['mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml'] = 'Cobaya settings, LambdaCDM Planck + BOSS DR12 fsigma8 + BAO chain'   # 6 kB
+DATA_FILES['docs/book/read_ledgers/bl_MANIFEST.md'] = 'reading ledger of the cosmological-constant and baryon chapters (quotes the 18th-chain run record)'   # 31 kB
+
+# helpers of the part2/p2_13b_baryon_chain checks
+_B03_LB_OUT = 'docs/verification/scripts/verify_lambda_baryon_book_output.txt'
+_B03_LB_RERUN = 'python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt'
+_B03_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
+                    'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+                    '(no extraction script is committed)')
+_B03_YAML = {'18th': 'mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml',
+             'planck': 'mgcamb_validation/chains/lcdm_baseline.updated.yaml',
+             'bao': 'mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml',
+             'pantheon': 'mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml',
+             'rsd': 'mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml'}
+
+def _b03_ombh2_setting(run, key):
+    """Omega_b h^2 setting of one chain from its Cobaya YAML: key in min, max (flat prior), loc, scale (start normal)."""
+    t = file_text(_B03_YAML[run])
+    m = re.search(r"\n  ombh2:\n    prior:\n      min: (\S+)\n      max: (\S+)\n    ref:\n      dist: norm\n      loc: (\S+)\n      scale: (\S+)", t)
+    return float(dict(min=m.group(1), max=m.group(2), loc=m.group(3), scale=m.group(4))[key])
+
+def _b03_eta_factor():
+    """eta / (Omega_b h^2) from first principles, as in Steigman, JCAP 10 (2006) 016: eta = n_b/n_gamma with
+    n_b = Omega_b rho_crit(h=1) / m_B and n_gamma = (2 zeta(3)/pi^2)(k_B T0/(hbar c))^3. Inputs: T0 = 2.725 K (the CMB temperature
+    used in that paper, Mather et al. 1999); mean mass per baryon m_B = (1-Y) m(1H) + Y m(4He)/4 with Y_P = 0.24 (the helium binding
+    correction); atomic masses m(1H) = 1.00782503223 u, m(4He) = 4.00260325413 u (AME2016), u = 1.66053906660e-27 kg and G (CODATA 2018)."""
+    T0 = 2.725; Y = 0.24; u_kg = 1.66053906660e-27
+    mH = 1.00782503223 * u_kg; mHe = 4.00260325413 * u_kg
+    mB = (1 - Y) * mH + Y * mHe / 4
+    n_gam = 2 * special.zeta(3) / math.pi**2 * (kB * T0 / (hbar * c))**3
+    rho_c1 = 3 * Hsi(100.0)**2 / (8 * math.pi * G)
+    return rho_c1 / (mB * n_gam)
+
+def _b03_lb(pattern):
+    m = re.search(pattern, file_text(_B03_LB_OUT))
+    return m
+
+def _b03_chain_eta():
+    return _b03_eta_factor() * csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_baryon_test', 'ombh2')
+
+OB_H2_PLANCK18 = 0.02237   # Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing, Omega_b h^2 = 0.02237 +/- 0.00015 (doi:10.1051/0004-6361/201833910)
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -15853,6 +15898,53 @@ def check_1435():
 
 
 # ======== Part 2 | ch:baryon_chain | docs/book/part2/p2_13b_baryon_chain.tex
+@check(label='eq:bc_eta', chapter='ch:baryon_chain', part=2, title='eta from the Planck 2018 Omega_b h^2 and the n_b/n_gamma conversion',
+       file='part2/p2_13b_baryon_chain', line=21, status='observed', kind='num', printed='6.1\\times10^{-10}', tol=0.0)
+def check_3543():
+    'eta = (n_b - n_bbar)/n_gamma ~ 6.1e-10 (Eq. eq:bc_eta). Book line 21. Recomputed as n_b/n_gamma from the Planck 2018 VI Table 2 Omega_b h^2 = 0.02237 (doi:10.1051/0004-6361/201833910) with the conversion factor derived from rho_crit, the mean baryon mass and the photon number density (inputs in _b03_eta_factor).'
+    factor = _b03_eta_factor()
+    value = factor * OB_H2_PLANCK18
+    return locals()
+
+@check(label='eq:bc_law', chapter='ch:baryon_chain', part=2, title='Landauer bound: maximising the entropy of one binary record gives k_B ln 2, so the cost at T_H is k_B T_H ln 2',
+       file='part2/p2_13b_baryon_chain', line=33, status='derived', kind='sym', printed='', tol=0.0)
+def check_3544():
+    'Delta E_act = k_B T_H ln 2 per bit (Eq. eq:bc_law). Book line 33. The Gibbs entropy of a two-state record, S(p) = -k_B[p ln p + (1-p) ln(1-p)], is maximised (dS/dp = 0, d2S/dp2 < 0) at p = 1/2; the maximum k_B ln 2 is the entropy one bit carries, and erasing / writing it at the surface temperature T_H costs at least T_H times that (Landauer).'
+    p, kB_, T = sp.symbols('p k_B T_H', positive=True)
+    S = -kB_ * (p * sp.log(p) + (1 - p) * sp.log(1 - p))
+    p_star = sp.solve(sp.diff(S, p), p)[0]
+    assert sp.simplify(sp.diff(S, p, 2).subs(p, p_star)) .is_negative
+    S_bit = sp.simplify(S.subs(p, p_star))
+    lhs = T * S_bit
+    rhs = kB_ * T * sp.log(2)
+    neg_lhs = T * S_bit * sp.Rational(21, 20)
+    return locals()
+
+@check(label='eq:bc_cc', chapter='ch:baryon_chain', part=2, title='eq:bc_cc with rho_L and rho_vac written from their definitions, solved for Omega_b/Omega_m, gives (3/16) Omega_L',
+       file='part2/p2_13b_baryon_chain', line=45, status='openprob', kind='sym', printed='', tol=0.0)
+def check_3545():
+    'rho_L/rho_vac = (2/pi)(l_P/l_H)^2 Omega_b/Omega_m (Eq. eq:bc_cc), coefficient 2/pi taken as given (open problem). Book line 45. With rho_L = Omega_L 3 H0^2 c^2/(8 pi G), rho_vac = E_P^4/(hbar c)^3, E_P = sqrt(hbar c^5/G), l_P = sqrt(hbar G/c^3), l_H = c/H0, solving the equation for Omega_b/Omega_m gives (3/16) Omega_L, the relation the chapter inverts (lines 58, 144).'
+    hb, G_, c_, H0, OL_, x = sp.symbols('hbar G c H_0 Omega_L x', positive=True)
+    EP = sp.sqrt(hb * c_**5 / G_)
+    rho_vac = EP**4 / (hb * c_)**3
+    rho_L = OL_ * 3 * H0**2 * c_**2 / (8 * sp.pi * G_)
+    lP_ = sp.sqrt(hb * G_ / c_**3); lH_ = c_ / H0
+    def _solve(coef):
+        return sp.solve(sp.Eq(rho_L / rho_vac, coef * (lP_ / lH_)**2 * x), x)[0]
+    lhs = _solve(2 / sp.pi)
+    rhs = sp.Rational(3, 16) * OL_
+    neg_lhs = _solve(sp.Rational(21, 20) * 2 / sp.pi)
+    return locals()
+
+def _b03_corr_offset():
+    """Per cent by which (2/pi)(l_P/l_H)^2 sqrt(Omega_L) Omega_b/Omega_m exceeds the observed rho_L/rho_vac, with the inputs of
+    ch:lambda (Eq. eq:corr): H0 = 67.4, Omega_b = 0.0493, Omega_m = 0.3153, Omega_L = 1 - Omega_m - Omega_r with Omega_r = 9.15e-5
+    (Planck 2018 VI; p2_12_lambda line 42 prints Omega_L = 0.6846)."""
+    H0_SI = Hsi(67.4); lH = c / H0_SI; OL_v = 1 - Om - 9.15e-5
+    corr = (2 / math.pi) * (lP / lH)**2 * math.sqrt(OL_v) * (Ob / Om)
+    obs = OL_v * 3 * H0_SI**2 / (8 * math.pi * G) * c**2 / (c**7 / (hbar * G**2))
+    return 100 * (corr / obs - 1)
+
 @check(label='eq:bc_tratio', chapter='ch:baryon_chain', part=2, title='H_dS = c sqrt(Lambda/3) for the horizon set by Lambda alone and Omega_L = Lambda c^2/(3 H0^2) give H_dS/H0 = sqrt(Omega_L); T_GH is proportional to H',
        file='part2/p2_13b_baryon_chain', line=49, status='derived', kind='sym', printed='', tol=0)
 def check_1436():
@@ -15884,11 +15976,32 @@ def check_1438():
     ok = file_has('docs/verification/scripts/verify_lambda_baryon_book_output.txt', '1.133\\times10^{-123}')
     return locals()
 
+@check(label='ch:baryon_chain:L53:0.79', chapter='ch:baryon_chain', part=2, title='eq:bc_cccorr above the observed rho_L/rho_vac, per cent',
+       file='part2/p2_13b_baryon_chain', line=53, status='fitted', kind='num', printed='0.79', tol=0.0)
+def check_3546():
+    'The sqrt(Omega_L)-corrected expression is 0.79 % above the observed 1.133e-123. Book line 53. Both sides from CODATA constants and the ch:lambda inputs (H0 67.4, Omega_b 0.0493, Omega_m 0.3153, Omega_L = 1 - Omega_m - Omega_r, Planck 2018 VI); see _b03_corr_offset.'
+    value = _b03_corr_offset()
+    return locals()
+
+@check(label='eq:bc_etaob', chapter='ch:baryon_chain', part=2, title='eta / Omega_b h^2 from rho_crit, the mean baryon mass and n_gamma (Steigman 2006 conversion)',
+       file='part2/p2_13b_baryon_chain', line=56, status='derived', kind='num', printed='2.739\\times10^{-8}', tol=0.0)
+def check_3547():
+    'eta = 2.739e-8 Omega_b h^2 (Eq. eq:bc_etaob), Steigman, JCAP 10 (2006) 016, doi:10.1088/1475-7516/2006/10/016. Book line 56. Recomputed: n_b = Omega_b rho_crit(h=1)/m_B over n_gamma = (2 zeta(3)/pi^2)(k_B T0/hbar c)^3, T0 = 2.725 K, m_B with Y_P = 0.24 (inputs in _b03_eta_factor). With T0 = 2.7255 K the factor is 2.737e-8.'
+    value = _b03_eta_factor()
+    return locals()
+
 @check(label='ch:baryon_chain:L57', chapter='ch:baryon_chain', part=2, title='Omega_m h^2',
        file='part2/p2_13b_baryon_chain', line=57, status='derived', kind='num', printed='0.1431', tol=0)
 def check_1439():
     'Omega_m h^2. Book line 57, printed 0.1431.'
     value=Om*h_pl**2
+    return locals()
+
+@check(label='ch:baryon_chain:L57:0.6847', chapter='ch:baryon_chain', part=2, title='Omega_L = 1 - Omega_m (flat), Planck 2018',
+       file='part2/p2_13b_baryon_chain', line=57, status='derived', kind='num', printed='0.6847', tol=0.0)
+def check_3548():
+    'Planck 2018 central Omega_L = 0.6847. Book line 57. Flat LambdaCDM: Omega_L = 1 - Omega_m with Omega_m = 0.3153 (Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing, doi:10.1051/0004-6361/201833910), which prints Omega_L = 0.6847 +/- 0.0073.'
+    value = 1 - Om
     return locals()
 
 @check(label='ch:baryon_chain:L58', chapter='ch:baryon_chain', part=2, title='Omega_b h^2 without sqrt',
@@ -15936,6 +16049,33 @@ def check_1444():
     value=100*(1-eta_c*Omh2*3/16*math.sqrt(OL)/6.127e-10)
     return locals()
 
+@check(label='ch:baryon_chain:L59:6.127', chapter='ch:baryon_chain', part=2, title='Planck 2018 eta (1e-10) from its Omega_b h^2',
+       file='part2/p2_13b_baryon_chain', line=59, status='calc', kind='num', printed='6.127', tol=0.0)
+def check_3549():
+    'The Planck value 6.127 (1e-10). Book line 59. Eq. eq:bc_etaob applied to Planck 2018 VI Table 2 Omega_b h^2 = 0.02237 (TT,TE,EE+lowE+lensing, doi:10.1051/0004-6361/201833910); factor recomputed in _b03_eta_factor.'
+    value = _b03_eta_factor() * OB_H2_PLANCK18 * 1e10
+    return locals()
+
+@check(label='eq:bc_std', chapter='ch:baryon_chain', part=2, title='other runs: Omega_b h^2 flat on [0.020, 0.025], start N(0.02242, 0.00014^2), from the four LambdaCDM YAML files',
+       file='part2/p2_13b_baryon_chain', line=69, status='calc', kind='file', printed='0.00014', tol=0.0, source='mgcamb_validation/chains/lcdm_baseline.updated.yaml')
+def check_3550():
+    'Other runs: Omega_b h^2 flat on [0.020, 0.025], start N(0.02242, 0.00014^2) (Eq. eq:bc_std). Book line 69. Read from the Cobaya settings of the four LambdaCDM chains (Planck, + BAO, + Pantheon+, + BOSS DR12): every one carries the same range and start; value = the start width.'
+    runs = ['planck', 'bao', 'pantheon', 'rsd']
+    widths = [_b03_ombh2_setting(r, 'scale') for r in runs]
+    assert all(abs(_b03_ombh2_setting(r, 'min') - 0.020) < 1e-12 and abs(_b03_ombh2_setting(r, 'max') - 0.025) < 1e-12
+               and abs(_b03_ombh2_setting(r, 'loc') - 0.02242) < 1e-12 for r in runs)
+    assert max(widths) == min(widths)
+    value = widths[0]
+    return locals()
+
+_B03_REC_RERUN = ("python3 -c \"import numpy as np; d=np.loadtxt('mgcamb_validation/iam_baryon_test.1.txt'); d=d[int(0.3*len(d)):]; "
+                  "m=np.average(d[:,2],weights=d[:,0]); print(m, np.sqrt(np.average((d[:,2]-m)**2,weights=d[:,0])))\"  "
+                  "(the 22,400-row copy of the chain, 30 % burn-in, weighted: 0.022319473 +/- 0.000136384)")
+
+def _b03_record_ombh2():
+    m = re.search(r"ombh2 mean (\d\.\d+), std (\d\.\d+), 30 % burn-in", file_text('docs/book/read_ledgers/bl_MANIFEST.md'))
+    return float(m.group(1)), float(m.group(2))
+
 @check(label='ch:baryon_chain:L73', chapter='ch:baryon_chain', part=2, title='18th-chain prior width',
        file='part2/p2_13b_baryon_chain', line=73, status='calc', kind='num', printed='0.030', tol=0)
 def check_1445():
@@ -15964,6 +16104,40 @@ def check_1447():
 def check_1448():
     'eta = 2.739e-8 Omega_b h^2 from the 18th chain (Eq. eq:bc_etares). Book line 117, printed 6.113.'
     value=2.739e-8*csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2')*1e10
+    return locals()
+
+@check(label='ch:baryon_chain:L118', chapter='ch:baryon_chain', part=2, title="the run record's Omega_b h^2 (30 % burn-in on the chain copy)",
+       file='part2/p2_13b_baryon_chain', line=118, status='measured', kind='file', printed='0.022319', tol=0.0, source='docs/book/read_ledgers/bl_MANIFEST.md',
+       heavy=True, rerun=_B03_REC_RERUN)
+def check_3551():
+    "The record of the run gives Omega_b h^2 = 0.022319 +/- 0.000136. Book line 118. The record (an RTF, not committed) is quoted in docs/book/read_ledgers/bl_MANIFEST.md: ombh2 mean 0.022319473, std 0.000136384; the same numbers come from the committed chain copy mgcamb_validation/iam_baryon_test.1.txt (22,400 rows, 30 % burn-in, weighted; rerun command)."
+    value, sd = _b03_record_ombh2()
+    assert abs(sd - 0.000136) < 5e-7
+    return locals()
+
+@check(label='ch:baryon_chain:L118:6.1155\\times10^{-10}', chapter='ch:baryon_chain', part=2, title="the record's eta = 2.74e-8 x the record's Omega_b h^2",
+       file='part2/p2_13b_baryon_chain', line=118, status='measured', kind='file', printed='6.1155\\times10^{-10}', tol=0.0, source='docs/book/read_ledgers/bl_MANIFEST.md',
+       heavy=True, rerun=_B03_REC_RERUN)
+def check_3552():
+    "The record's eta = 6.1155e-10. Book line 118. Recomputed with the record's conversion factor 2.74e-8 (book line 119) times the record's Omega_b h^2 0.022319473 (quoted in bl_MANIFEST.md, reproduced from the chain copy by the rerun command)."
+    ombh2_rec, _ = _b03_record_ombh2()
+    value = 2.74e-8 * ombh2_rec
+    return locals()
+
+@check(label='ch:baryon_chain:L119', chapter='ch:baryon_chain', part=2, title="the record's conversion factor 2.74e-8 is the derived factor to three figures",
+       file='part2/p2_13b_baryon_chain', line=119, status='calc', kind='num', printed='2.74\\times10^{-8}', tol=0.0)
+def check_3553():
+    "The record's factor 2.74e-8. Book line 119. The n_b/n_gamma conversion recomputed in _b03_eta_factor (Steigman 2006 inputs) rounds to 2.74e-8."
+    value = _b03_eta_factor()
+    return locals()
+
+@check(label='ch:baryon_chain:L119:2.739\\times10^{-8}', chapter='ch:baryon_chain', part=2, title='the conversion factor used in the chapter, recomputed',
+       file='part2/p2_13b_baryon_chain', line=119, status='calc', kind='num', printed='2.739\\times10^{-8}', tol=0.0)
+def check_3554():
+    "The chapter's factor 2.739e-8 (Eq. eq:bc_etaob, Steigman 2006, doi:10.1088/1475-7516/2006/10/016). Book line 119. Recomputed in _b03_eta_factor; also: with it the record's 0.022319 gives 6.113, not 6.1155, which is the difference the sentence names."
+    value = _b03_eta_factor()
+    ombh2_rec, _ = _b03_record_ombh2()
+    assert round(value * ombh2_rec * 1e10, 3) != round(2.74e-8 * ombh2_rec * 1e10, 3)
     return locals()
 
 @check(label='ch:baryon_chain:L120', chapter='ch:baryon_chain', part=2, title='measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names',
@@ -15996,6 +16170,20 @@ def check_1451():
 def check_1452():
     'measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names. Book line 121, printed 0.3198.'
     ok = file_has('docs/verification/scripts/verify_lambda_baryon_book_output.txt', '0.3198')
+    return locals()
+
+@check(label='ch:baryon_chain:L121:0.010', chapter='ch:baryon_chain', part=2, title='18th chain: lower end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=121, status='measured', kind='file', printed='0.010', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+def check_3555():
+    'The range allowed is 0.010-0.040: lower end. Book line 121. Prior min of ombh2 in the 18th chain settings (iam_baryon_test.updated.yaml).'
+    value = _b03_ombh2_setting('18th', 'min')
+    return locals()
+
+@check(label='ch:baryon_chain:L121:0.040', chapter='ch:baryon_chain', part=2, title='18th chain: upper end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=121, status='measured', kind='file', printed='0.040', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+def check_3556():
+    'The range allowed is 0.010-0.040: upper end. Book line 121. Prior max of ombh2 in the 18th chain settings (iam_baryon_test.updated.yaml).'
+    value = _b03_ombh2_setting('18th', 'max')
     return locals()
 
 @check(label='ch:baryon_chain:L122', chapter='ch:baryon_chain', part=2, title='measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names',
@@ -16119,6 +16307,20 @@ def check_1467():
     ok = file_has('docs/verification/scripts/verify_lambda_baryon_book_output.txt', '6.113')
     return locals()
 
+@check(label='ch:baryon_chain:L142:0.010', chapter='ch:baryon_chain', part=2, title='Table tab:bc_compare, 18th chain: lower end of the flat range',
+       file='part2/p2_13b_baryon_chain', line=142, status='measured', kind='file', printed='0.010', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+def check_3557():
+    'Table tab:bc_compare, 18th chain, flat range 0.010-0.040: lower end. Book line 142. Prior min of ombh2 in iam_baryon_test.updated.yaml.'
+    value = _b03_ombh2_setting('18th', 'min')
+    return locals()
+
+@check(label='ch:baryon_chain:L142:0.040', chapter='ch:baryon_chain', part=2, title='Table tab:bc_compare, 18th chain: upper end of the flat range',
+       file='part2/p2_13b_baryon_chain', line=142, status='measured', kind='file', printed='0.040', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+def check_3558():
+    'Table tab:bc_compare, 18th chain, flat range 0.010-0.040: upper end. Book line 142. Prior max of ombh2 in iam_baryon_test.updated.yaml.'
+    value = _b03_ombh2_setting('18th', 'max')
+    return locals()
+
 @check(label='ch:baryon_chain:L143', chapter='ch:baryon_chain', part=2, title='eta (1e-10) from the expression with sqrt',
        file='part2/p2_13b_baryon_chain', line=143, status='calc', kind='num', printed='6.080', tol=0)
 def check_1468():
@@ -16159,6 +16361,22 @@ def check_1472():
     value=100*(1-6.113/6.127)
     return locals()
 
+@check(label='ch:baryon_chain:L148:6.180', chapter='ch:baryon_chain', part=2, title='nucleosynthesis with deuterium, Cyburt et al. 2016 Table IV, as traced in the committed output',
+       file='part2/p2_13b_baryon_chain', line=148, status='calc', kind='file', printed='6.180', tol=0.0, source=_B03_LB_OUT,
+       heavy=True, rerun=_B03_LB_RERUN)
+def check_3559():
+    'Nucleosynthesis with deuterium, 6.180 +/- 0.195 (1e-10), Cyburt et al. 2016 Table IV (bib key Cyburt2016). Book line 148. Read from section F2 of the committed output of verify_lambda_baryon_book.py, which traces the comparators to the source.'
+    m = _b03_lb(r"BBN\+D (\d\.\d+) \+/- (\d\.\d+)")
+    value = float(m.group(1)); sd = float(m.group(2))
+    return locals()
+
+@check(label='ch:baryon_chain:L148:6.127', chapter='ch:baryon_chain', part=2, title='Planck 2018 eta (1e-10) from its Omega_b h^2',
+       file='part2/p2_13b_baryon_chain', line=148, status='calc', kind='num', printed='6.127', tol=0.0)
+def check_3560():
+    'Planck, 6.127 (1e-10). Book line 148. Eq. eq:bc_etaob (factor recomputed) times Planck 2018 VI Table 2 Omega_b h^2 = 0.02237 (doi:10.1051/0004-6361/201833910).'
+    value = _b03_eta_factor() * OB_H2_PLANCK18 * 1e10
+    return locals()
+
 @check(label='ch:baryon_chain:L159', chapter='ch:baryon_chain', part=2, title='same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output)',
        file='part2/p2_13b_baryon_chain', line=159, status='measured', kind='file', printed='1.0046', tol=0, source='docs/verification/scripts/verify_cc_and_baryon_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cc_and_baryon.py > docs/verification/scripts/verify_cc_and_baryon_output.txt')
@@ -16166,6 +16384,20 @@ def check_1473():
     'same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output). Book line 159, printed 1.0046.'
     ok=file_has('docs/verification/scripts/verify_cc_and_baryon_output.txt','1.0046') and file_has('docs/verification/scripts/verify_cc_and_baryon_output.txt','0.0068')
     return locals()
+
+@check(label='ch:baryon_chain:L159:0.7', chapter='ch:baryon_chain', part=2, title='ratio (Ob/Om)/[(3/16) sqrt(OL)] on the 18th chain: distance from 1 in sigma',
+       file='part2/p2_13b_baryon_chain', line=159, status='measured', kind='file', printed='0.7', tol=0.0, source=_B03_LB_OUT,
+       heavy=True, rerun=_B03_LB_RERUN)
+def check_3561():
+    '1.0046 +/- 0.0068, 0.7 sigma. Book line 159. (ratio - 1)/sd from the 18th-chain line (E1 iam_baryon_test) of the committed output of verify_lambda_baryon_book.py.'
+    m = _b03_lb(r"E1 iam_baryon_test .*?ratio (\d\.\d+) \+/- (\d\.\d+)")
+    r, s = float(m.group(1)), float(m.group(2))
+    value = (r - 1) / s
+    return locals()
+
+def _b03_rows_after_burnin(chain):
+    m = _b03_lb(r"E1 %s\s+rows (\d+) -> (\d+)" % re.escape(chain))
+    return int(m.group(1)), int(m.group(2))
 
 @check(label='ch:baryon_chain:L166', chapter='ch:baryon_chain', part=2, title='measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names',
        file='part2/p2_13b_baryon_chain', line=166, status='measured', kind='file', printed='0.02232', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
@@ -16198,6 +16430,29 @@ def check_1477():
     ok = file_has('docs/verification/cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md', '957')
     return locals()
 
+@check(label='ch:baryon_chain:L166:0.010', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, iam_baryon_test: lower end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=166, status='measured', kind='file', printed='0.010', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+def check_3562():
+    'Table tab:baryon_chains, iam_baryon_test chain: Omega_b h^2 range 0.010-0.040, lower end. Book line 166. Prior min of ombh2 in mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml.'
+    value = _b03_ombh2_setting('18th', 'min')
+    return locals()
+
+@check(label='ch:baryon_chain:L166:0.040', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, iam_baryon_test: upper end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=166, status='measured', kind='file', printed='0.040', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+def check_3563():
+    'Table tab:baryon_chains, iam_baryon_test chain: Omega_b h^2 range 0.010-0.040, upper end. Book line 166. Prior max of ombh2 in mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml.'
+    value = _b03_ombh2_setting('18th', 'max')
+    return locals()
+
+@check(label='ch:baryon_chain:L166:14{,}957', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, iam_baryon_test: rows after 30 % burn-in',
+       file='part2/p2_13b_baryon_chain', line=166, status='measured', kind='file', printed='14{,}957', tol=0.0, source=_B03_LB_OUT,
+       heavy=True, rerun=_B03_LB_RERUN)
+def check_3564():
+    'Table tab:baryon_chains, iam_baryon_test chain: rows after 30 % burn-in, 14,957. Book line 166. Read from the E1 line of the committed output of verify_lambda_baryon_book.py (rows in the chain file -> rows kept); kept = rows less the first 30 % (int(0.3 n)).'
+    rows_all, value = _b03_rows_after_burnin('iam_baryon_test')
+    assert value == rows_all - int(0.3 * rows_all)
+    return locals()
+
 @check(label='ch:baryon_chain:L167', chapter='ch:baryon_chain', part=2, title='measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names',
        file='part2/p2_13b_baryon_chain', line=167, status='measured', kind='file', printed='0.02234', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt')
@@ -16220,6 +16475,29 @@ def check_1479():
 def check_1480():
     'measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names. Book line 167, printed 1.0058.'
     ok = file_has('docs/verification/scripts/verify_lambda_baryon_book_output.txt', '1.0058')
+    return locals()
+
+@check(label='ch:baryon_chain:L167:0.020', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, lcdm_baseline: lower end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=167, status='measured', kind='file', printed='0.020', tol=0.0, source='mgcamb_validation/chains/lcdm_baseline.updated.yaml')
+def check_3565():
+    'Table tab:baryon_chains, lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, lower end. Book line 167. Prior min of ombh2 in mgcamb_validation/chains/lcdm_baseline.updated.yaml.'
+    value = _b03_ombh2_setting('planck', 'min')
+    return locals()
+
+@check(label='ch:baryon_chain:L167:0.025', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, lcdm_baseline: upper end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=167, status='measured', kind='file', printed='0.025', tol=0.0, source='mgcamb_validation/chains/lcdm_baseline.updated.yaml')
+def check_3566():
+    'Table tab:baryon_chains, lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, upper end. Book line 167. Prior max of ombh2 in mgcamb_validation/chains/lcdm_baseline.updated.yaml.'
+    value = _b03_ombh2_setting('planck', 'max')
+    return locals()
+
+@check(label='ch:baryon_chain:L167:12{,}544', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, lcdm_baseline: rows after 30 % burn-in',
+       file='part2/p2_13b_baryon_chain', line=167, status='measured', kind='file', printed='12{,}544', tol=0.0, source=_B03_LB_OUT,
+       heavy=True, rerun=_B03_LB_RERUN)
+def check_3567():
+    'Table tab:baryon_chains, lcdm_baseline chain: rows after 30 % burn-in, 12,544. Book line 167. Read from the E1 line of the committed output of verify_lambda_baryon_book.py (rows in the chain file -> rows kept); kept = rows less the first 30 % (int(0.3 n)).'
+    rows_all, value = _b03_rows_after_burnin('lcdm_baseline')
+    assert value == rows_all - int(0.3 * rows_all)
     return locals()
 
 @check(label='ch:baryon_chain:L168', chapter='ch:baryon_chain', part=2, title='measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names',
@@ -16246,6 +16524,29 @@ def check_1483():
     ok = file_has('docs/verification/scripts/verify_lambda_baryon_book_output.txt', '1.0106')
     return locals()
 
+@check(label='ch:baryon_chain:L168:0.020', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, planck_bao_lcdm_baseline: lower end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=168, status='measured', kind='file', printed='0.020', tol=0.0, source='mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml')
+def check_3568():
+    'Table tab:baryon_chains, planck_bao_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, lower end. Book line 168. Prior min of ombh2 in mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml.'
+    value = _b03_ombh2_setting('bao', 'min')
+    return locals()
+
+@check(label='ch:baryon_chain:L168:0.025', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, planck_bao_lcdm_baseline: upper end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=168, status='measured', kind='file', printed='0.025', tol=0.0, source='mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml')
+def check_3569():
+    'Table tab:baryon_chains, planck_bao_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, upper end. Book line 168. Prior max of ombh2 in mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml.'
+    value = _b03_ombh2_setting('bao', 'max')
+    return locals()
+
+@check(label='ch:baryon_chain:L168:12{,}600', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, planck_bao_lcdm_baseline: rows after 30 % burn-in',
+       file='part2/p2_13b_baryon_chain', line=168, status='measured', kind='file', printed='12{,}600', tol=0.0, source=_B03_LB_OUT,
+       heavy=True, rerun=_B03_LB_RERUN)
+def check_3570():
+    'Table tab:baryon_chains, planck_bao_lcdm_baseline chain: rows after 30 % burn-in, 12,600. Book line 168. Read from the E1 line of the committed output of verify_lambda_baryon_book.py (rows in the chain file -> rows kept); kept = rows less the first 30 % (int(0.3 n)).'
+    rows_all, value = _b03_rows_after_burnin('planck_bao_lcdm_baseline')
+    assert value == rows_all - int(0.3 * rows_all)
+    return locals()
+
 @check(label='ch:baryon_chain:L169', chapter='ch:baryon_chain', part=2, title='measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names',
        file='part2/p2_13b_baryon_chain', line=169, status='measured', kind='file', printed='0.02233', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt')
@@ -16270,6 +16571,29 @@ def check_1486():
     ok = file_has('docs/verification/scripts/verify_lambda_baryon_book_output.txt', '1.0056')
     return locals()
 
+@check(label='ch:baryon_chain:L169:0.020', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, planck_pantheon_lcdm_baseline: lower end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=169, status='measured', kind='file', printed='0.020', tol=0.0, source='mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml')
+def check_3571():
+    'Table tab:baryon_chains, planck_pantheon_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, lower end. Book line 169. Prior min of ombh2 in mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml.'
+    value = _b03_ombh2_setting('pantheon', 'min')
+    return locals()
+
+@check(label='ch:baryon_chain:L169:0.025', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, planck_pantheon_lcdm_baseline: upper end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=169, status='measured', kind='file', printed='0.025', tol=0.0, source='mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml')
+def check_3572():
+    'Table tab:baryon_chains, planck_pantheon_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, upper end. Book line 169. Prior max of ombh2 in mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml.'
+    value = _b03_ombh2_setting('pantheon', 'max')
+    return locals()
+
+@check(label='ch:baryon_chain:L169:21{,}168', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, planck_pantheon_lcdm_baseline: rows after 30 % burn-in',
+       file='part2/p2_13b_baryon_chain', line=169, status='measured', kind='file', printed='21{,}168', tol=0.0, source=_B03_LB_OUT,
+       heavy=True, rerun=_B03_LB_RERUN)
+def check_3573():
+    'Table tab:baryon_chains, planck_pantheon_lcdm_baseline chain: rows after 30 % burn-in, 21,168. Book line 169. Read from the E1 line of the committed output of verify_lambda_baryon_book.py (rows in the chain file -> rows kept); kept = rows less the first 30 % (int(0.3 n)).'
+    rows_all, value = _b03_rows_after_burnin('planck_pantheon_lcdm_baseline')
+    assert value == rows_all - int(0.3 * rows_all)
+    return locals()
+
 @check(label='ch:baryon_chain:L170', chapter='ch:baryon_chain', part=2, title='measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names',
        file='part2/p2_13b_baryon_chain', line=170, status='measured', kind='file', printed='0.02239', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt')
@@ -16292,6 +16616,29 @@ def check_1488():
 def check_1489():
     'measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names. Book line 170, printed 1.0098.'
     ok = file_has('docs/verification/scripts/verify_lambda_baryon_book_output.txt', '1.0098')
+    return locals()
+
+@check(label='ch:baryon_chain:L170:0.020', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, planck_rsd_lcdm_baseline: lower end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=170, status='measured', kind='file', printed='0.020', tol=0.0, source='mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml')
+def check_3574():
+    'Table tab:baryon_chains, planck_rsd_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, lower end. Book line 170. Prior min of ombh2 in mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml.'
+    value = _b03_ombh2_setting('rsd', 'min')
+    return locals()
+
+@check(label='ch:baryon_chain:L170:0.025', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, planck_rsd_lcdm_baseline: upper end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=170, status='measured', kind='file', printed='0.025', tol=0.0, source='mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml')
+def check_3575():
+    'Table tab:baryon_chains, planck_rsd_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, upper end. Book line 170. Prior max of ombh2 in mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml.'
+    value = _b03_ombh2_setting('rsd', 'max')
+    return locals()
+
+@check(label='ch:baryon_chain:L170:18{,}424', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, planck_rsd_lcdm_baseline: rows after 30 % burn-in',
+       file='part2/p2_13b_baryon_chain', line=170, status='measured', kind='file', printed='18{,}424', tol=0.0, source=_B03_LB_OUT,
+       heavy=True, rerun=_B03_LB_RERUN)
+def check_3576():
+    'Table tab:baryon_chains, planck_rsd_lcdm_baseline chain: rows after 30 % burn-in, 18,424. Book line 170. Read from the E1 line of the committed output of verify_lambda_baryon_book.py (rows in the chain file -> rows kept); kept = rows less the first 30 % (int(0.3 n)).'
+    rows_all, value = _b03_rows_after_burnin('planck_rsd_lcdm_baseline')
+    assert value == rows_all - int(0.3 * rows_all)
     return locals()
 
 @check(label='ch:baryon_chain:L171', chapter='ch:baryon_chain', part=2, title='Omega_b h^2 without sqrt',
@@ -16338,6 +16685,42 @@ def check_1494():
     ok = file_has('docs/verification/scripts/verify_lambda_baryon_book_output.txt', '0.02232')
     return locals()
 
+@check(label='ch:baryon_chain:L179:0.010', chapter='ch:baryon_chain', part=2, title='fig:baryon_posterior caption: 18th chain, lower end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=179, status='measured', kind='file', printed='0.010', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+def check_3577():
+    'Figure fig:baryon_posterior caption: 18th chain, range 0.010-0.040, lower end. Book line 179. Prior min of ombh2 in mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml.'
+    value = _b03_ombh2_setting('18th', 'min')
+    return locals()
+
+@check(label='ch:baryon_chain:L179:0.040', chapter='ch:baryon_chain', part=2, title='fig:baryon_posterior caption: 18th chain, upper end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=179, status='measured', kind='file', printed='0.040', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+def check_3578():
+    'Figure fig:baryon_posterior caption: 18th chain, range 0.010-0.040, upper end. Book line 179. Prior max of ombh2 in mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml.'
+    value = _b03_ombh2_setting('18th', 'max')
+    return locals()
+
+@check(label='ch:baryon_chain:L179:0.020', chapter='ch:baryon_chain', part=2, title='fig:baryon_posterior caption: other runs, lower end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=179, status='measured', kind='file', printed='0.020', tol=0.0, source='mgcamb_validation/chains/lcdm_baseline.updated.yaml')
+def check_3579():
+    'Figure fig:baryon_posterior caption: other runs, range 0.020-0.025, lower end. Book line 179. Prior min of ombh2 in mgcamb_validation/chains/lcdm_baseline.updated.yaml.'
+    value = _b03_ombh2_setting('planck', 'min')
+    return locals()
+
+@check(label='ch:baryon_chain:L179:0.025', chapter='ch:baryon_chain', part=2, title='fig:baryon_posterior caption: other runs, upper end of the flat Omega_b h^2 range',
+       file='part2/p2_13b_baryon_chain', line=179, status='measured', kind='file', printed='0.025', tol=0.0, source='mgcamb_validation/chains/lcdm_baseline.updated.yaml')
+def check_3580():
+    'Figure fig:baryon_posterior caption: other runs, range 0.020-0.025, upper end. Book line 179. Prior max of ombh2 in mgcamb_validation/chains/lcdm_baseline.updated.yaml.'
+    value = _b03_ombh2_setting('planck', 'max')
+    return locals()
+
+@check(label='ch:baryon_chain:L183', chapter='ch:baryon_chain', part=2, title='the eta every CMB fit returns, to one figure: the 18th chain',
+       file='part2/p2_13b_baryon_chain', line=183, status='openprob', kind='file', printed='6\\times10^{-10}', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B03_CHAIN_RERUN)
+def check_3581():
+    'A chain returning eta far from 6e-10. Book line 183. The 18th chain eta, factor (recomputed) times its Omega_b h^2 from CHAIN_EXTRACTION_FINAL.csv, to one figure.'
+    value = _b03_chain_eta()
+    return locals()
+
 @check(label='ch:baryon_chain:L188', chapter='ch:baryon_chain', part=2, title='measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names',
        file='part2/p2_13b_baryon_chain', line=188, status='fitted', kind='file', printed='0.827', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt')
@@ -16346,12 +16729,45 @@ def check_1495():
     ok = file_has('docs/verification/scripts/verify_lambda_baryon_book_output.txt', '0.827')
     return locals()
 
+@check(label='ch:baryon_chain:L188:+0.79', chapter='ch:baryon_chain', part=2, title='sqrt(Omega_L) brings eq:bc_cc to +0.79 % of the observed Lambda',
+       file='part2/p2_13b_baryon_chain', line=188, status='fitted', kind='num', printed='+0.79', tol=0.0)
+def check_3582():
+    'sqrt(Omega_L) = 0.827 brings Eq. eq:bc_cc to +0.79 % of the observed Lambda. Book line 188. Same computation as line 53 (_b03_corr_offset: CODATA constants, ch:lambda inputs from Planck 2018 VI).'
+    value = _b03_corr_offset()
+    return locals()
+
 @check(label='ch:baryon_chain:L189', chapter='ch:baryon_chain', part=2, title='measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names',
        file='part2/p2_13b_baryon_chain', line=189, status='fitted', kind='file', printed='5.03', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt')
 def check_1496():
     'measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names. Book line 189, printed 5.03.'
     ok = file_has('docs/verification/scripts/verify_lambda_baryon_book_output.txt', '5.03')
+    return locals()
+
+@check(label='ch:baryon_chain:L189:6.08\\times10^{-10}', chapter='ch:baryon_chain', part=2, title='eq:bc_cccorr inverted for eta at the Planck Omega_m h^2',
+       file='part2/p2_13b_baryon_chain', line=189, status='fitted', kind='num', printed='6.08\\times10^{-10}', tol=0.0)
+def check_3583():
+    'The inverted eta moves to 6.08e-10. Book line 189. Omega_b/Omega_m = (3/16) sqrt(Omega_L) (eq:bc_cccorr solved against the observed identity) times Planck 2018 Omega_m h^2 = 0.3153 x 0.6736^2, times the factor of eq:bc_etaob (recomputed).'
+    Omh2 = Om * h_pl**2
+    value = _b03_eta_factor() * Omh2 * 3 / 16 * math.sqrt(OL)
+    return locals()
+
+@check(label='ch:baryon_chain:L196', chapter='ch:baryon_chain', part=2, title='18th chain eta below the Planck 2018 value, per cent',
+       file='part2/p2_13b_baryon_chain', line=196, status='measured', kind='file', printed='0.2', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B03_CHAIN_RERUN)
+def check_3584():
+    '0.2 % below the Planck 2018 value. Book line 196. 18th chain Omega_b h^2 (CHAIN_EXTRACTION_FINAL.csv) against Planck 2018 VI Table 2 Omega_b h^2 = 0.02237, both converted with the same factor.'
+    value = 100 * (1 - _b03_chain_eta() / (_b03_eta_factor() * OB_H2_PLANCK18))
+    return locals()
+
+@check(label='ch:baryon_chain:L196:0.3', chapter='ch:baryon_chain', part=2, title='18th chain eta from nucleosynthesis with deuterium, in sigma',
+       file='part2/p2_13b_baryon_chain', line=196, status='measured', kind='file', printed='0.3', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B03_CHAIN_RERUN)
+def check_3585():
+    '0.3 sigma from nucleosynthesis with deuterium. Book line 196. (6.180 - eta_chain)/0.195 with Cyburt et al. 2016 Table IV BBN+D 6.180 +/- 0.195 (read from section F2 of the committed verify_lambda_baryon_book output) and eta_chain from CHAIN_EXTRACTION_FINAL.csv with the recomputed factor.'
+    m = _b03_lb(r"BBN\+D (\d\.\d+) \+/- (\d\.\d+)")
+    bbn, sd = float(m.group(1)), float(m.group(2))
+    value = (bbn - _b03_chain_eta() * 1e10) / sd
     return locals()
 
 
@@ -31720,57 +32136,10 @@ INVENTORY = [
     (2, 'ch:baryon', 'part2/p2_13_baryon', 150, '', 'calc', '150', 'input: QCD transition temperature T = 150 MeV used as the epoch; the quantities computed at it are checked at ch:baryon:L105, L150, L151'),
     (2, 'ch:baryon', 'part2/p2_13_baryon', 164, '', 'calc', '273.9\\times10^{-10}', "input: Steigman's conversion eta = 273.9e-10 Omega_b h^2 (JCAP 10 (2006) 016, doi:10.1088/1475-7516/2006/10/016), quoted"),
     (2, 'ch:baryon', 'part2/p2_13_baryon', 165, '', 'calc', '0.3153', 'input: Omega_m = 0.3153 (Planck 2018 VI Table 2) restated; Omega_m h^2 = 0.1431 is checked at ch:baryon:L165'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 21, 'eq:bc_eta', 'observed', '', 'displayed equation, not yet checked'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 33, 'eq:bc_law', 'derived', '', 'not yet run: draft rejected (does not run: ValueError no value)'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 45, 'eq:bc_cc', 'openprob', '', 'displayed equation, not yet checked'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 53, '', 'fitted', '0.79', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 56, 'eq:bc_etaob', 'derived', '', 'not yet run: draft rejected (does not run: ValueError no value)'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 57, '', 'derived', '0.6847', 'not yet run: draft rejected (drafter skipped: Line 57: Ω_Λ = 0.6847 is cited as Planck 2018 central value (Planck2018VI)'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 59, '', 'calc', '6.127', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 69, 'eq:bc_std', 'calc', '', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 118, '', 'measured', '0.022319', 'measured, not found in the files the chapter names'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 118, '', 'measured', '6.1155\\times10^{-10}', 'measured, not found in the files the chapter names'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 119, '', 'calc', '2.74\\times10^{-8}', 'not yet run: draft does not reproduce the printed value (recomputed 75125.8); drafting error on review'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 119, '', 'calc', '2.739\\times10^{-8}', 'not yet run: draft does not reproduce the printed value (recomputed 75129.1); drafting error on review'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 121, '', 'measured', '0.010', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 121, '', 'measured', '0.040', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 136, '', 'measured', '10', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 142, '', 'measured', '0.010', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 142, '', 'measured', '-0.040', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 142, '', 'measured', '18', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 148, '', 'calc', '6.180', 'not yet run: draft rejected (drafter skipped: Nucleosynthesis Omega_b h^2 value (6.180±0.195) is a cited external measu)'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 148, '', 'calc', '6.127', 'not yet run: draft rejected (drafter skipped: Planck 2018 Omega_b h^2 value (6.127) is a cited external measurement\n# ()'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 159, '', 'measured', '0.7', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 165, '', 'measured', '10', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 166, '', 'measured', '0.010', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 166, '', 'measured', '-0.040', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 166, '', 'measured', '14', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 166, '', 'measured', '18', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 167, '', 'measured', '0.020', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 167, '', 'measured', '-0.025', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 167, '', 'measured', '12', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 167, '', 'measured', '544', 'measured, not found in the files the chapter names'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 168, '', 'measured', '0.020', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 168, '', 'measured', '-0.025', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 168, '', 'measured', '12', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 168, '', 'measured', '600', 'measured, not found in the files the chapter names'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 169, '', 'measured', '0.020', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 169, '', 'measured', '-0.025', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 169, '', 'measured', '21', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 169, '', 'measured', '168', 'measured, not found in the files the chapter names'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 170, '', 'measured', '0.020', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 170, '', 'measured', '-0.025', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 170, '', 'measured', '18', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 170, '', 'measured', '424', 'measured, not found in the files the chapter names'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 179, '', 'measured', '0.010', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 179, '', 'measured', '0.040', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 179, '', 'measured', '0.020', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 179, '', 'measured', '0.025', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 183, '', 'openprob', '6\\times10^{-10}', 'not yet checked'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 188, '', 'fitted', '+0.79', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 189, '', 'fitted', '6.08\\times10^{-10}', 'measured, not found in the files the chapter names'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 196, '', 'measured', '0.2', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 196, '', 'measured', '0.3', 'measured, too few printed digits to match against the named files'),
+    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 136, '', 'measured', '10', "unit: '$10^{-10}$' in the table caption, the unit of the eta column, nothing to recompute"),
+    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 142, '', 'measured', '18', "label: '18th' in '18th chain' is the ordinal name of the chain, not a number to recompute"),
+    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 165, '', 'measured', '10', "unit: '$10^{10}\\eta$' column header, nothing to recompute"),
+    (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 166, '', 'measured', '18', "label: '18th' in '18th chain (CMB only)' is the ordinal name of the chain, not a number to recompute"),
     (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 29, 'eq:sp_poisson', 'none', '', 'displayed equation, not yet checked'),
     (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 31, 'eq:sp_mu', 'none', '', 'displayed equation, not yet checked'),
     (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 38, '', 'calc', '-0.13495', 'not yet run: draft rejected (printed value typed into the code)'),
