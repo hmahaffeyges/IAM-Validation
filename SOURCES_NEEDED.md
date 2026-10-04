@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 16
+Entries: 18
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -16,6 +16,8 @@ Entries: 16
 | ch:theory | `docs/book/part2/p2_03_theory.tex:861` | `0.13%` | CMB TT difference IAM vs LambdaCDM below 0.13 % at l > 30 from the Level 1 posterior means: needs the CAMB/MGCAMB TT spectra; searched results/, mgcamb_validation/, camb_validation/, docs/verification/ for a committed spectrum or output; only CANON registers repeat the claim |
 | ch:theory | `docs/book/part2/p2_03_theory.tex:891` | `68.9` | GW170817 H0 = 68.9 +4.7 -4.6 cited to Hotokezaka2019 (doi 10.1038/s41550-019-0820-1); no repository file records the published value (grep of md/txt/json/csv) |
 | ch:theory | `docs/book/part2/p2_03_theory.tex:891` | `75.46` | GW170817 afterglow H0 = 75.46 +5.34 -5.39 cited to Palmese2024 (doi 10.1103/PhysRevD.109.063508); no repository file records the published value |
+| ch:dsnote | `docs/book/part2/p2_05_dual_sector_note.tex:154` | `0.05` | Limber estimate of the CMB lensing power change at fixed primordial amplitude, 0.05--0.3 % for 30 <= L <= 1000 (also in p2_07_late_time_growth.tex line 107); no committed script prints the L dependence; searched docs/verification/scripts, tests/, mgcamb_validation/forecasts for Limber code |
+| ch:dsnote | `docs/book/part2/p2_05_dual_sector_note.tex:154` | `0.3` | upper end of the same Limber range; same search |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:34` | `0.1` | Lower end of the hydrostatic-bias estimates 'b from about 0.1 to about 0.4 depending on the method', cited to Nagai2007ICM, Rasia2012, Biffi2016. No repository file holds the values. |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:34` | `0.4` | Upper end of the same range (Nagai2007ICM, Rasia2012, Biffi2016). No repository file holds it. |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:37` | `0.15` | Simulation range b about 0.1-0.15 (Lau2009, Nelson2014); also restated at line 186. No repository file holds it; the committed cluster script does not list it. |

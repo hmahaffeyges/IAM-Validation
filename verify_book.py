@@ -1107,6 +1107,33 @@ def _b01l2_param(name):
     t = file_text('docs/verification/scripts/verify_late_time_level2_output.txt')
     m = re.search(r'\n\s+' + re.escape(name) + r'\s+C ([\d.]+) \+/- ([\d.]+) \| A ([\d.]+) \+/- ([\d.]+) \|.*?\| D ([\d.]+) \+/- ([\d.]+)', t)
     return tuple(float(x) for x in m.groups())
+DATA_FILES['docs/verification/scripts/verify_dual_sector_chapters_data.json'] = 'Pantheon+ beta profiles written by verify_dual_sector_chapters.py'   # 99 kB
+
+# helpers of the part2/p2_05_dual_sector_note checks
+_B01DS_CHAIN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml), '
+                'then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+_B01DS_PANTHEON = 'python3 docs/verification/scripts/verify_dual_sector_chapters.py (Pantheon+SH0ES data and covariance) -> verify_dual_sector_chapters_data.json'
+def _b01ds_sn_profile():
+    """Full-covariance Pantheon+ profile Delta chi2(beta) at Omega_m 0.315 (1590 SNe, z_HD > 0.01), committed json."""
+    J = load_json('docs/verification/scripts/verify_dual_sector_chapters_data.json')
+    return np.array(J['full_beta']), np.array(J['full_dchi2'])
+_B01DS_G4 = {}
+def _b01ds_fs8(model, z):
+    """f sigma8 = dD/dln a relative to LambdaCDM (same early amplitude, a = 1e-3), per cent, for the four placements of the record term in
+    Fig. dsnote_growth: B background only (H^2 = H^2_LCDM + beta_m E H0^2, mu = 1), C perturbations only (mu(a), LambdaCDM background), D both.
+    Omega_m 0.3153, beta_m canon. Port of docs/book/figscripts/fig_p2_dual_sector.py."""
+    if not _B01DS_G4:
+        def grow4(bkg, use_mu):
+            h2 = lambda a: H2_lcdm(a) + (beta_m * E_act(a) if bkg else 0.0)
+            dlnh = lambda a: 0.5 * (-3 * Om * a**-3 + (beta_m * E_act(a) / a if bkg else 0.0)) / h2(a)
+            def rhs(l, y):
+                a = np.exp(l); src = 1.5 * Om * a**-3 / h2(a) * (mu_iam(a) if use_mu else 1.0)
+                return [y[1], -(2 + dlnh(a)) * y[1] + src * y[0]]
+            return solve_ivp(rhs, (np.log(1e-3), 0), [1e-3, 1e-3], dense_output=True, rtol=1e-10, atol=1e-14)
+        for k, v in dict(A=(False, False), B=(True, False), C=(False, True), D=(True, True)).items():
+            _B01DS_G4[k] = grow4(*v)
+    fD = lambda k: float(_B01DS_G4[k].sol(np.log(1 / (1 + z)))[1])
+    return 100 * (fD(model) / fD('A') - 1)
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -8851,6 +8878,30 @@ def check_0774():
 
 
 # ======== Part 2 | ch:dsnote | docs/book/part2/p2_05_dual_sector_note.tex
+@check(label='eq:dsn_iff', chapter='ch:dsnote', part=2, title='d tau = 0 on null worldlines, > 0 on timelike ones',
+       file='part2/p2_05_dual_sector_note', line=80, status='derived', kind='sym', printed='', tol=0.0)
+def check_3344():
+    'S_info > 0 iff d tau > 0: proper time d tau^2 = dt^2 - dx^2/c^2 evaluated along a light ray (dx = c dt) is exactly 0, along a massive worldline (dx = v dt, v < c) positive; so records (which need d tau > 0) are written for matter and never for photons. Book line 80.'
+    dt, c_, v = sp.symbols('dt c v', positive=True)
+    dtau2 = lambda dx: dt**2 - dx**2 / c_**2
+    null = sp.simplify(dtau2(c_ * dt))
+    timelike = sp.simplify(dtau2(v * dt).subs(v, c_ / 2))
+    ok = (null == 0) and bool(timelike > 0)
+    neg_ok = sp.simplify(dtau2(sp.Rational(21, 20) * c_ * dt)) == 0
+    return locals()
+
+@check(label='eq:dsn_mu', chapter='ch:dsnote', part=2, title='mu = H^2/(H^2 + beta_m E H0^2) from the matter-sector Hubble time',
+       file='part2/p2_05_dual_sector_note', line=88, status='derived', kind='sym', printed='', tol=0.0)
+def check_3345():
+    'mu(a): the growth source 4 pi G rho_m/H_m^2 per matter-sector Hubble time, with H_m^2 = H^2 + beta_m E H0^2 and Omega_m(a) = 8 pi G rho_m/(3 H^2), set equal to (3/2) Omega_m(a) mu and solved for mu. Book line 88.'
+    G_, rho, H, H0, b, E, mu = sp.symbols('G rho H H_0 beta E mu', positive=True)
+    Hm2 = H**2 + b * E * H0**2
+    Omega_a = 8 * sp.pi * G_ * rho / (3 * H**2)
+    lhs = sp.solve(sp.Eq(4 * sp.pi * G_ * rho / Hm2, sp.Rational(3, 2) * Omega_a * mu), mu)[0]
+    rhs = H**2 / (H**2 + b * E * H0**2)
+    neg_lhs = sp.solve(sp.Eq(4 * sp.pi * G_ * rho / (H**2 + sp.Rational(21, 20) * b * E * H0**2), sp.Rational(3, 2) * Omega_a * mu), mu)[0]
+    return locals()
+
 @check(label='ch:dsnote:L92', chapter='ch:dsnote', part=2, title='beta_m = Omega_m/2 virial coupling',
        file='part2/p2_05_dual_sector_note', line=92, status='derived', kind='num', printed='0.15765', tol=0.0001)
 def check_0775():
@@ -8926,6 +8977,25 @@ def check_0784():
     value=Om/2
     return locals()
 
+@check(label='ch:dsnote:L117', chapter='ch:dsnote', part=2, title='best beta in the Pantheon+ distances (full covariance)',
+       file='part2/p2_05_dual_sector_note', line=117, status='observed', kind='file', printed='-0.035', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_data.json',
+       heavy=True, rerun=_B01DS_PANTHEON)
+def check_3346():
+    'Best-fit beta E(a) in the supernova distances: minimum of the committed full-covariance Delta chi2(beta) profile (Pantheon+SH0ES, 1590 SNe, Omega_m 0.315, offset marginalised). Book line 117, printed -0.035.'
+    b, P = _b01ds_sn_profile()
+    value = float(b[np.argmin(P)])
+    return locals()
+
+@check(label='ch:dsnote:L117:-0.068', chapter='ch:dsnote', part=2, title='lower 68 % edge of beta in the Pantheon+ distances',
+       file='part2/p2_05_dual_sector_note', line=117, status='observed', kind='file', printed='-0.068', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_data.json',
+       heavy=True, rerun=_B01DS_PANTHEON)
+def check_3347():
+    'Lower 68 % edge: where the committed profile rises by Delta chi2 = 1 above its minimum on the negative side, linear interpolation between grid points (the grid itself, step 0.005, gives -0.065 as printed in the committed text output). Book line 117, printed -0.068.'
+    b, P = _b01ds_sn_profile()
+    i = int(np.argmin(P)); m = b <= b[i]
+    value = float(np.interp(P[i] + 1, P[m][::-1], b[m][::-1]))
+    return locals()
+
 @check(label='ch:dsnote:L118', chapter='ch:dsnote', part=2, title='measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names',
        file='part2/p2_05_dual_sector_note', line=118, status='observed', kind='file', printed='73.04', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_dual_sector_chapters.py > docs/verification/scripts/verify_dual_sector_chapters_output.txt')
@@ -8947,6 +9017,14 @@ def check_0786():
 def check_0787():
     'likelihood ratio from Delta chi^2=0.54. Book line 127, printed 0.76.'
     value=math.exp(-0.54/2)
+    return locals()
+
+@check(label='ch:dsnote:L127:0.54', chapter='ch:dsnote', part=2, title='Level 2 Delta chi2 lowest points, Run A minus Run C',
+       file='part2/p2_05_dual_sector_note', line=127, status='calc', kind='file', printed='0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B01DS_CHAIN)
+def check_3348():
+    'Delta chi2 between the lowest points of Run A (dual sector) and Run C (LambdaCDM), from the chain extraction. Book line 127, printed 0.54.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min') - csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min')
     return locals()
 
 @check(label='ch:dsnote:L129', chapter='ch:dsnote', part=2, title='Level2 LCDM chain sigma8',
@@ -8973,11 +9051,42 @@ def check_0790():
     ok = file_has('docs/verification/scripts/verify_dual_sector_chapters_output.txt', '67.16')
     return locals()
 
+@check(label='ch:dsnote:L130:0.47', chapter='ch:dsnote', part=2, title='photon-sector H0 posterior sd (Run A)',
+       file='part2/p2_05_dual_sector_note', line=130, status='measured', kind='file', printed='0.47', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B01DS_CHAIN)
+def check_3349():
+    'Posterior sd of H0 in the Level 2 Run A chain (photon sector), chain extraction. Book line 130, printed 0.47.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0_sd')
+    return locals()
+
+@check(label='ch:dsnote:L130:0.37', chapter='ch:dsnote', part=2, title='photon-sector H0 against Planck, sigma',
+       file='part2/p2_05_dual_sector_note', line=130, status='measured', kind='file', printed='0.37', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B01DS_CHAIN)
+def check_3350():
+    'Distance of the Run A H0 from Planck 2018 67.36 +- 0.54 (doi 10.1051/0004-6361/201833910) in Planck errors. Book line 130, printed 0.37.'
+    value = (67.36 - csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')) / 0.54
+    return locals()
+
 @check(label='ch:dsnote:L131', chapter='ch:dsnote', part=2, title='matter-sector H0 from photon H0 and beta_m',
        file='part2/p2_05_dual_sector_note', line=131, status='calc', kind='num', printed='72.26', tol=0.0001)
 def check_0791():
     'matter-sector H0 from photon H0 and beta_m. Book line 131, printed 72.26.'
     H0_photon=67.16; pass; value=H0_photon*math.sqrt(1+beta_m)
+    return locals()
+
+@check(label='ch:dsnote:L131:0.50', chapter='ch:dsnote', part=2, title='matter-sector H0 error, sd x sqrt(1 + beta_m)',
+       file='part2/p2_05_dual_sector_note', line=131, status='calc', kind='file', printed='0.50', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B01DS_CHAIN)
+def check_3351():
+    'Error of H0(matter) = H0(photon) sqrt(1 + beta_m): the Run A H0 sd times sqrt(1 + beta_m) (beta_m fixed, no error). Book line 131, printed 0.50.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0_sd') * math.sqrt(1 + beta_m)
+    return locals()
+
+@check(label='ch:dsnote:L131:0.75', chapter='ch:dsnote', part=2, title='matter-sector H0 against SH0ES, sigma',
+       file='part2/p2_05_dual_sector_note', line=131, status='calc', kind='num', printed='0.75', tol=0.0)
+def check_3352():
+    'Distance of H0(matter) = 67.16 sqrt(1 + beta_m) from SH0ES 73.04 +- 1.04 (Riess et al. 2022, doi 10.3847/2041-8213/ac5c5b), in SH0ES errors. Book line 131, printed 0.75.'
+    value = (73.04 - H0_photon * math.sqrt(1 + beta_m)) / 1.04
     return locals()
 
 @check(label='ch:dsnote:L132', chapter='ch:dsnote', part=2, title='background-level chain H0 (falsification test)',
@@ -9249,6 +9358,41 @@ def check_0823():
     pass; value=100*(1/(1+beta_m)-1)
     return locals()
 
+@check(label='ch:dsnote:L168', chapter='ch:dsnote', part=2, title='f sigma8 rel. LambdaCDM, z = 0, term in the background only (B)',
+       file='part2/p2_05_dual_sector_note', line=168, status='calc', kind='num', printed='-9.4', tol=0.0)
+def check_3353():
+    'Model B (record term in the background only, H^2 = H^2_LCDM + beta_m E H0^2, mu = 1): f sigma8 relative to LambdaCDM at z = 0, same early amplitude, per cent. Book line 168, printed -9.4.'
+    value = _b01ds_fs8('B', 0.0)
+    return locals()
+
+@check(label='ch:dsnote:L169', chapter='ch:dsnote', part=2, title='f sigma8 rel. LambdaCDM, z = 0, perturbations only (C)',
+       file='part2/p2_05_dual_sector_note', line=169, status='calc', kind='num', printed='-4.25', tol=0.0)
+def check_3354():
+    'Model C (mu(a) on the LambdaCDM background, the dual-sector form): f sigma8 relative to LambdaCDM at z = 0, per cent. Book line 169, printed -4.25.'
+    value = _b01ds_fs8('C', 0.0)
+    return locals()
+
+@check(label='ch:dsnote:L169:-1.35', chapter='ch:dsnote', part=2, title='f sigma8 rel. LambdaCDM, z = 0.5, model C',
+       file='part2/p2_05_dual_sector_note', line=169, status='calc', kind='num', printed='-1.35', tol=0.0)
+def check_3355():
+    'Model C: f sigma8 relative to LambdaCDM at z = 0.5, per cent. Book line 169, printed -1.35.'
+    value = _b01ds_fs8('C', 0.5)
+    return locals()
+
+@check(label='ch:dsnote:L169:-0.41', chapter='ch:dsnote', part=2, title='f sigma8 rel. LambdaCDM, z = 1, model C',
+       file='part2/p2_05_dual_sector_note', line=169, status='calc', kind='num', printed='-0.41', tol=0.0)
+def check_3356():
+    'Model C: f sigma8 relative to LambdaCDM at z = 1, per cent. Book line 169, printed -0.41.'
+    value = _b01ds_fs8('C', 1.0)
+    return locals()
+
+@check(label='ch:dsnote:L169:-13.2', chapter='ch:dsnote', part=2, title='f sigma8 rel. LambdaCDM, z = 0, both placements (D)',
+       file='part2/p2_05_dual_sector_note', line=169, status='calc', kind='num', printed='-13.2', tol=0.0)
+def check_3357():
+    'Model D (record term in the background and mu(a)): f sigma8 relative to LambdaCDM at z = 0, per cent. Book line 169, printed -13.2.'
+    value = _b01ds_fs8('D', 0.0)
+    return locals()
+
 @check(label='ch:dsnote:L171', chapter='ch:dsnote', part=2, title='Level2 LCDM chain S8',
        file='part2/p2_05_dual_sector_note', line=171, status='measured', kind='file', printed='0.830', tol=0.0006, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
@@ -9293,6 +9437,13 @@ def check_0828():
 def check_0829():
     'measured: printed value found in PAPER_ERRATA.md, a file the chapter names. Book line 172, printed 0.776.'
     ok = file_has('docs/verification/PAPER_ERRATA.md', '0.776')
+    return locals()
+
+@check(label='ch:dsnote:L172:0.017', chapter='ch:dsnote', part=2, title='DES Y3 3x2pt S8 error (errata ledger)',
+       file='part2/p2_05_dual_sector_note', line=172, status='observed', kind='file', printed='0.017', tol=0.0, source='docs/verification/PAPER_ERRATA.md')
+def check_3358():
+    'Error of the DES Y3 3x2pt S8 = 0.776 +- 0.017 (DES Collaboration 2022, doi 10.1103/physrevd.105.023520), read at row ST7 of the errata ledger. Book line 172, printed 0.017.'
+    value = float(re.search(r'0\.776 ± ([\d.]+) is DES Y3 3×2pt', file_text('docs/verification/PAPER_ERRATA.md')).group(1))
     return locals()
 
 @check(label='ch:dsnote:L173', chapter='ch:dsnote', part=2, title='measured: printed value found in PAPER_ERRATA.md, a file the chapter names',
@@ -9373,6 +9524,18 @@ def check_0838():
     path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8')
     return locals()
 
+@check(label='ch:dsnote:L177:0.8', chapter='ch:dsnote', part=2, title='S8 shift, Run C to Run A, in sigma',
+       file='part2/p2_05_dual_sector_note', line=177, status='measured', kind='file', printed='0.8', tol=0.0, source='docs/verification/scripts/verify_late_time_level2_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt')
+def check_3359():
+    'S8 shift from 0.830 (Run C) to 0.822 (Run A) in units of Run C posterior sd, means and sd committed in verify_late_time_level2_output.txt section D. Book line 177, printed 0.8.'
+    m = re.search(r'\n\s+S8\s+C ([\d.]+) \+/- ([\d.]+) \| A ([\d.]+)', file_text('docs/verification/scripts/verify_late_time_level2_output.txt'))
+    value = (float(m.group(1)) - float(m.group(3))) / float(m.group(2))
+    return locals()
+
+def _b01ds_pub(pat, path):
+    return float(re.search(pat, file_text(path)).group(1))
+
 @check(label='ch:dsnote:L180', chapter='ch:dsnote', part=2, title='redshift where E(a) is half present value',
        file='part2/p2_05_dual_sector_note', line=180, status='interp', kind='num', printed='0.69', tol=0.0072)
 def check_0839():
@@ -9422,12 +9585,68 @@ def check_0845():
     pairs=[(0.08,0.19),(0.11,0.54),(0.04,0.22),(0.02,0.19)]; value=max(abs(c)/e for c,e in pairs)
     return locals()
 
+@check(label='ch:dsnote:L188:0.08', chapter='ch:dsnote', part=2, title='published mu0, DES Y3 with external data',
+       file='part2/p2_05_dual_sector_note', line=188, status='observed', kind='file', printed='0.08^{+0.21}_{-0.19}', tol=0.0, source='docs/verification/PAPER_ERRATA.md')
+def check_3360():
+    'mu0 = 0.08 +0.21 -0.19 from DES Y3 with external data (arXiv 2207.05766), read at row LG4 of the errata ledger; the upper error is also read and must be 0.21. Book line 188.'
+    t = file_text('docs/verification/PAPER_ERRATA.md')
+    m = re.search(r'DES Y3 \+ external µ0 = ([\d.]+) \(\+([\d.]+)/−([\d.]+)\)', t)
+    value = float(m.group(1)) if abs(float(m.group(2)) - 0.21) < 1e-9 else float('nan')
+    return locals()
+
+@check(label='ch:dsnote:L188:0.11', chapter='ch:dsnote', part=2, title='published mu0, DESI 2024 full shape + BAO + BBN',
+       file='part2/p2_05_dual_sector_note', line=188, status='observed', kind='file', printed='0.11^{+0.45}_{-0.54}', tol=0.0, source='docs/verification/scripts/verify_theory_derivations_output.txt')
+def check_3361():
+    'mu0 = 0.11 +0.45 -0.54, DESI 2024 full shape (DESI2024VII), as committed in verify_theory_derivations_output.txt section 14. Book line 188.'
+    value = _b01ds_pub(r'DESI FS mu0 = ([\d.]+) \(\+0\.45/-0\.54\)', 'docs/verification/scripts/verify_theory_derivations_output.txt')
+    return locals()
+
+@check(label='ch:dsnote:L188:0.04', chapter='ch:dsnote', part=2, title='published mu0, DESI full shape + CMB + DES Y3',
+       file='part2/p2_05_dual_sector_note', line=188, status='observed', kind='file', printed='0.04\\pm0.22', tol=0.0, source='docs/verification/scripts/verify_entropic_gravity_output.txt')
+def check_3362():
+    'mu0 = 0.04 +- 0.22, DESI DR1 full shape + BAO with CMB and DES Y3 (DESI2024VII), as committed in verify_entropic_gravity_output.txt. Book line 188.'
+    value = _b01ds_pub(r'mu0 vs DESI FS\+BAO\+CMB\+DESY3 ([\d.]+) \+- 0\.22', 'docs/verification/scripts/verify_entropic_gravity_output.txt')
+    return locals()
+
+@check(label='ch:dsnote:L188:0.02', chapter='ch:dsnote', part=2, title='published mu0, ACT + WMAP + SDSS + SN',
+       file='part2/p2_05_dual_sector_note', line=188, status='observed', kind='file', printed='0.02\\pm0.19', tol=0.0, source='docs/verification/scripts/verify_entropic_gravity_output.txt')
+def check_3363():
+    'mu0 = 0.02 +- 0.19, ACT + WMAP + SDSS + SN (Andrade2024), as committed in verify_entropic_gravity_output.txt. Book line 188.'
+    value = _b01ds_pub(r'mu0 vs ACT\+WMAP\+SDSS\+SN ([\d.]+) \+- 0\.19', 'docs/verification/scripts/verify_entropic_gravity_output.txt')
+    return locals()
+
+@check(label='ch:dsnote:L213:0.0052', chapter='ch:dsnote', part=2, title='beta_gamma 95 % bound in the falsifier table (committed output)',
+       file='part2/p2_05_dual_sector_note', line=213, status='calc', kind='file', printed='0.0052', tol=0.0, source='docs/verification/scripts/verify_beta_gamma_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt')
+def check_3364():
+    'beta_gamma < 0.0052 (95 %, Delta chi2 = 4 on theta_s), committed output of verify_beta_gamma.py. Book line 213 (the inventory row carried the earlier 0.0039; the book now prints 0.0052).'
+    value = float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))
+    return locals()
+
 @check(label='ch:dsnote:L234', chapter='ch:dsnote', part=2, title='Planck-only chi2 diff IAM vs LCDM, level-2 chains',
        file='part2/p2_05_dual_sector_note', line=234, status='record', kind='file', printed='+0.54', tol=0.0093, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0846():
     'Planck-only chi2 diff IAM vs LCDM, level-2 chains. Book line 234, printed +0.54.'
     a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
+    return locals()
+
+@check(label='ch:dsnote:L235', chapter='ch:dsnote', part=2, title='Planck posterior Omega_m/2 against fixed beta_m, sigma',
+       file='part2/p2_05_dual_sector_note', line=235, status='record', kind='file', printed='0.2', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B01DS_CHAIN)
+def check_3365():
+    'Distance of the Run A posterior Omega_m/2 from the fixed beta_m = 0.15765, in units of its sd/2 (chain extraction). Book line 235, printed 0.2.'
+    Omc = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'omegam')
+    sd = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'omegam_sd')
+    value = (Omc / 2 - beta_m) / (sd / 2)
+    return locals()
+
+@check(label='ch:dsnote:L236', chapter='ch:dsnote', part=2, title='beta_gamma 95 % bound in the summary (committed output)',
+       file='part2/p2_05_dual_sector_note', line=236, status='record', kind='file', printed='0.0052', tol=0.0, source='docs/verification/scripts/verify_beta_gamma_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt')
+def check_3366():
+    'beta_gamma < 0.0052 (95 %), committed output of verify_beta_gamma.py. Book line 236 (the inventory row carried the earlier 0.0039; the book now prints 0.0052).'
+    value = float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))
     return locals()
 
 
@@ -29667,50 +29886,27 @@ INVENTORY = [
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 20, 'eq:dsn_timelike', 'none', '', 'definition: timelike geodesic normalization (GR)'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 21, 'eq:dsn_null', 'none', '', 'definition: null geodesic condition (GR)'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 72, 'eq:dsn_firstlaw', 'none', '', 'definition: IAM modified first law (postulated)'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 80, 'eq:dsn_iff', 'derived', '', 'not yet run: draft rejected (drafter skipped: Line 80 is a logical condition (S_info > 0 ⟺ dτ > 0), not a numerical res)'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 88, 'eq:dsn_mu', 'derived', '', 'not yet run: draft rejected (does not run: ValueError no value)'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 89, 'eq:dsn_sigma', 'none', '', 'trivial definition: photon sector unmodified'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 96, '', 'none', '4/3', 'cited f(R) gravity bound on mu (external)'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 117, '', 'observed', '-0.035', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 117, '', 'observed', '-0.068', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 127, '', 'calc', '0.54', 'not yet run: draft rejected (drafter skipped: Line 127: Δχ² = +0.54 is a best-fit difference between two MCMC chains.\n#)'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 130, '', 'measured', '0.47', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 130, '', 'measured', '0.37', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 131, '', 'calc', '0.50', 'not yet run: draft rejected (drafter skipped: Line 131: H_0(matter) = 72.26 ± 0.50 km/s/Mpc uncertainty.\n# The book doe)'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 131, '', 'calc', '0.75', "not yet run: draft rejected (drafter skipped: Line 131: The 0.75σ deviation from SH0ES requires SH0ES's reported H_0 an)"),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 145, '', 'none', '144.43', 'input: sound horizon fixed value'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 145, '', 'none', '0.0104110', 'input: Planck theta_s measurement'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 145, '', 'none', '0.0000031', 'input: theta_s uncertainty'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 145, '', 'none', '67.4', 'text changed at HEAD; input: background H0 for toy model'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 145, '', 'none', '0.315', 'text changed at HEAD; input: Omega_m for toy model'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 145, '', 'none', '9.24\\times10^{-5}', 'text changed at HEAD; input: Omega_r for toy model'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 154, '', 'calc', '0.05', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 154, '', 'calc', '0.3', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 168, '', 'calc', '-9.4', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 169, '', 'calc', '-4.25', 'not yet run: draft does not reproduce the printed value (recomputed 4.25055); drafting error on review'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 169, '', 'calc', '-1.35', 'not yet run: draft does not reproduce the printed value (recomputed 1.34873); drafting error on review'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 169, '', 'calc', '-0.41', 'not yet run: draft does not reproduce the printed value (recomputed 0.408631); drafting error on review'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 169, '', 'calc', '-13.2', 'not yet run: draft rejected (printed value typed into the code)'),
+    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 154, '', 'calc', '0.05', 'calc, method not committed: the L-dependent Limber estimate of the CMB lensing power (0.05 % at the low end of 30 <= L <= 1000) has no committed script or output (verify_obs_chapters.py and verify_sector_tension.py only give the L-averaged ratio 0.9992); an Eisenstein-Hu Limber integral written here gives 0.03-0.24 %, so the printed range is not reproduced without the original method'),
+    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 154, '', 'calc', '0.3', 'calc, method not committed: upper end 0.3 % of the same Limber estimate (see row 483); no committed script or output'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 170, '', 'none', '61.5', 'H0 background restated approx'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 171, '', 'none', '0.832', 'Planck 2018 published S8 (external)'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 171, '', 'none', '0.013', 'uncertainty on Planck S8'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 172, '', 'observed', '0.017', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 177, '', 'measured', '0.8', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 188, '', 'observed', '0.08^{+0.21}_{-0.19}', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 188, '', 'observed', '0.11^{+0.45}_{-0.54}', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 188, '', 'observed', '0.04\\pm0.22', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 188, '', 'observed', '0.02\\pm0.19', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 188, '', 'prediction', '-0.136', 'canon mu0 prediction value, restated in caption'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 193, '', 'prediction', '1', 'exact photon-sector prediction Sigma(a)=1'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 197, '', 'none', '0.0039', 'text changed at HEAD; present beta_gamma bound, restated, no macro'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 199, '', 'prediction', '1/2', 'definition beta_m=Om/2, virial ratio restated'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 212, '', 'prediction', '1', 'table: exact prediction Sigma=1, restated'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 213, '', 'calc', '0', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 213, '', 'calc', '0.0039', 'not yet run: draft rejected (no draft returned)'),
+    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 213, '', 'calc', '0', 'prediction, nothing to recompute: beta_gamma = 0 is the photon exemption itself (eq:dsn_iff, checked there); the measured side of the row is the bound 0.0052 (ch:dsnote:L213:0.0052)'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 214, '', 'prediction', '1/2', 'table: definition beta_m=Om/2, restated'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 215, '', 'prediction', '-0.136', 'table Value column: canon mu0 prediction restated'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 235, '', 'record', '0.2', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 236, '', 'record', '0.0039', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 15, '', 'observed', '3', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 15, '', 'observed', '1', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 25, '', 'measured', '0.3111+/-0.0056', 'measured, not found in the files the chapter names'),

@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3344 PASS, 0 FAIL, 2990 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3367 PASS, 0 FAIL, 2967 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -1333,8 +1333,8 @@ Totals: 3344 PASS, 0 FAIL, 2990 inventoried and not run. Each run item carries t
 | 20 | eq:dsn_timelike | none |  | not run: definition: timelike geodesic normalization (GR) | - |
 | 21 | eq:dsn_null | none |  | not run: definition: null geodesic condition (GR) | - |
 | 72 | eq:dsn_firstlaw | none |  | not run: definition: IAM modified first law (postulated) | - |
-| 80 | eq:dsn_iff | derived |  | not run: not yet run: draft rejected (drafter skipped: Line 80 is a logical condition (S_info > 0 ⟺ dτ > 0), not a numerical res) | - |
-| 88 | eq:dsn_mu | derived |  | not run: not yet run: draft rejected (does not run: ValueError no value) | - |
+| 80 | eq:dsn_iff | derived |  | sympy: d tau = 0 on null worldlines, > 0 on timelike ones | PASS |
+| 88 | eq:dsn_mu | derived |  | sympy: mu = H^2/(H^2 + beta_m E H0^2) from the matter-sector Hubble time | PASS |
 | 89 | eq:dsn_sigma | none |  | not run: trivial definition: photon sector unmodified | - |
 | 92 | ch:dsnote:L92 | derived | `0.15765` | numeric: beta_m = Omega_m/2 virial coupling | PASS |
 | 93 | ch:dsnote:L93 | derived | `0.864` | numeric: mu at z=0 from beta_m | PASS |
@@ -1347,22 +1347,20 @@ Totals: 3344 PASS, 0 FAIL, 2990 inventoried and not run. Each run item carries t
 | 113 | ch:dsnote:L113:0.0032 | measured | `0.0032` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: uncertainty on Omega_m/2 posterior | PASS |
 | 114 | ch:dsnote:L114 | measured | `0.2` | numeric: sigma deviation of Omega_m/2 from beta_m | PASS |
 | 114 | ch:dsnote:L114:0.15765 | measured | `0.15765` | numeric: beta_m value restated for comparison | PASS |
-| 117 |  | observed | `-0.035` | not run: measured, too few printed digits to match against the named files | - |
-| 117 |  | observed | `-0.068` | not run: measured, too few printed digits to match against the named files | - |
+| 117 | ch:dsnote:L117 | observed | `-0.035` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: best beta in the Pantheon+ distances (full covariance) | PASS |
+| 117 | ch:dsnote:L117:-0.068 | observed | `-0.068` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: lower 68 % edge of beta in the Pantheon+ distances | PASS |
 | 118 | ch:dsnote:L118 | observed | `73.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 126 | ch:dsnote:L126 | measured | `0.010` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: worst-case chain convergence R-1 | PASS |
 | 127 | ch:dsnote:L127 | calc | `0.76` | numeric: likelihood ratio from Delta chi^2=0.54 | PASS |
-| 127 |  | calc | `0.54` | not run: not yet run: draft rejected (drafter skipped: Line 127: Δχ² = +0.54 is a best-fit difference between two MCMC chains.
-#) | - |
+| 127 | ch:dsnote:L127:0.54 | calc | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2 lowest points, Run A minus Run C | PASS |
 | 129 | ch:dsnote:L129 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain sigma8 | PASS |
 | 129 | ch:dsnote:L129:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 beta_m-fixed chain sigma8 | PASS |
 | 130 | ch:dsnote:L130 | measured | `67.16` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
-| 130 |  | measured | `0.47` | not run: measured, too few printed digits to match against the named files | - |
-| 130 |  | measured | `0.37` | not run: measured, too few printed digits to match against the named files | - |
+| 130 | ch:dsnote:L130:0.47 | measured | `0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 posterior sd (Run A) | PASS |
+| 130 | ch:dsnote:L130:0.37 | measured | `0.37` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 against Planck, sigma | PASS |
 | 131 | ch:dsnote:L131 | calc | `72.26` | numeric: matter-sector H0 from photon H0 and beta_m | PASS |
-| 131 |  | calc | `0.50` | not run: not yet run: draft rejected (drafter skipped: Line 131: H_0(matter) = 72.26 ± 0.50 km/s/Mpc uncertainty.
-# The book doe) | - |
-| 131 |  | calc | `0.75` | not run: not yet run: draft rejected (drafter skipped: Line 131: The 0.75σ deviation from SH0ES requires SH0ES's reported H_0 an) | - |
+| 131 | ch:dsnote:L131:0.50 | calc | `0.50` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 error, sd x sqrt(1 + beta_m) | PASS |
+| 131 | ch:dsnote:L131:0.75 | calc | `0.75` | numeric: matter-sector H0 against SH0ES, sigma | PASS |
 | 132 | ch:dsnote:L132 | measured | `61.45` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: background-level chain H0 (falsification test) | PASS |
 | 132 | ch:dsnote:L132:0.42 | measured | `0.42` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: uncertainty on background chain H0 (runA) | PASS |
 | 132 | ch:dsnote:L132:61.52 | measured | `61.52` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: second background chain H0 | PASS |
@@ -1386,8 +1384,8 @@ Totals: 3344 PASS, 0 FAIL, 2990 inventoried and not run. Each run item carries t
 | 150 | ch:dsnote:L150 | calc | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: photon coupling bound restated | PASS |
 | 151 | ch:dsnote:L151 | calc | `3.8\times10^{-4}` | numeric: 1-mu at z=3 | PASS |
 | 152 | ch:dsnote:L152 | calc | `1.5\times10^{-5}` | numeric: 1-mu at z=5 | PASS |
-| 154 |  | calc | `0.05` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 154 |  | calc | `0.3` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 154 |  | calc | `0.05` | not run: calc, method not committed: the L-dependent Limber estimate of the CMB lensing power (0.05 % at the low end of 30 <= L <= 1000) has no committed script or output (verify_obs_chapters.py and verify_sector_tension.py only give the L-averaged ratio 0.9992); an Eisenstein-Hu Limber integral written here gives 0.03-0.24 %, so the printed range is not reproduced without the original method | - |
+| 154 |  | calc | `0.3` | not run: calc, method not committed: upper end 0.3 % of the same Limber estimate (see row 483); no committed script or output | - |
 | 158 | ch:dsnote:L158 | derived | `0.15765` | numeric: beta_m restated in figure caption | PASS |
 | 158 | ch:dsnote:L158:67.16 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 chain H0 restated | PASS |
 | 159 | ch:dsnote:L159 | measured | `67.16` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
@@ -1403,11 +1401,11 @@ Totals: 3344 PASS, 0 FAIL, 2990 inventoried and not run. Each run item carries t
 | 162 | ch:dsnote:L162:1.8 | calc | `1.8` | numeric: sector gap at z=0.69 | PASS |
 | 162 | ch:dsnote:L162:0.1 | calc | `0.1` | numeric: sector gap at z=2.3 | PASS |
 | 163 | ch:dsnote:L163 | calc | `-13.6` | numeric: matter density suppression at z=0 | PASS |
-| 168 |  | calc | `-9.4` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 169 |  | calc | `-4.25` | not run: not yet run: draft does not reproduce the printed value (recomputed 4.25055); drafting error on review | - |
-| 169 |  | calc | `-1.35` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.34873); drafting error on review | - |
-| 169 |  | calc | `-0.41` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.408631); drafting error on review | - |
-| 169 |  | calc | `-13.2` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 168 | ch:dsnote:L168 | calc | `-9.4` | numeric: f sigma8 rel. LambdaCDM, z = 0, term in the background only (B) | PASS |
+| 169 | ch:dsnote:L169 | calc | `-4.25` | numeric: f sigma8 rel. LambdaCDM, z = 0, perturbations only (C) | PASS |
+| 169 | ch:dsnote:L169:-1.35 | calc | `-1.35` | numeric: f sigma8 rel. LambdaCDM, z = 0.5, model C | PASS |
+| 169 | ch:dsnote:L169:-0.41 | calc | `-0.41` | numeric: f sigma8 rel. LambdaCDM, z = 1, model C | PASS |
+| 169 | ch:dsnote:L169:-13.2 | calc | `-13.2` | numeric: f sigma8 rel. LambdaCDM, z = 0, both placements (D) | PASS |
 | 170 |  | none | `61.5` | not run: H0 background restated approx | - |
 | 171 | ch:dsnote:L171 | measured | `0.830` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain S8 | PASS |
 | 171 | ch:dsnote:L171:0.011 | measured | `0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: uncertainty on LCDM chain S8 | PASS |
@@ -1417,7 +1415,7 @@ Totals: 3344 PASS, 0 FAIL, 2990 inventoried and not run. Each run item carries t
 | 171 |  | none | `0.013` | not run: uncertainty on Planck S8 | - |
 | 172 | ch:dsnote:L172 | observed | `0.815` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
 | 172 | ch:dsnote:L172:0.776 | observed | `0.776` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
-| 172 |  | observed | `0.017` | not run: measured, too few printed digits to match against the named files | - |
+| 172 | ch:dsnote:L172:0.017 | observed | `0.017` | file `docs/verification/PAPER_ERRATA.md`: DES Y3 3x2pt S8 error (errata ledger) | PASS |
 | 173 | ch:dsnote:L173 | observed | `0.759` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
 | 176 | ch:dsnote:L176 | calc | `4.25` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 176 | ch:dsnote:L176:2.17 | calc | `2.17` | numeric: drafted check, screened (runs; negative control fails) | PASS |
@@ -1427,7 +1425,7 @@ Totals: 3344 PASS, 0 FAIL, 2990 inventoried and not run. Each run item carries t
 | 177 | ch:dsnote:L177:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 restated (beta_m-fixed Level2) | PASS |
 | 177 | ch:dsnote:L177:0.830 | measured | `0.830` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 restated (LCDM Level2) | PASS |
 | 177 | ch:dsnote:L177:0.822 | measured | `0.822` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 restated (beta_m-fixed Level2) | PASS |
-| 177 |  | measured | `0.8` | not run: measured, too few printed digits to match against the named files | - |
+| 177 | ch:dsnote:L177:0.8 | measured | `0.8` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: S8 shift, Run C to Run A, in sigma | PASS |
 | 180 | ch:dsnote:L180 | interp | `0.69` | numeric: redshift where E(a) is half present value | PASS |
 | 180 | ch:dsnote:L180:0.11 | interp | `0.11` | numeric: redshift where E(a) reaches 90% of present value | PASS |
 | 188 | ch:dsnote:L188 | calc | `1.14` | numeric: sigma distance of prediction from DES Y3 | PASS |
@@ -1435,22 +1433,22 @@ Totals: 3344 PASS, 0 FAIL, 2990 inventoried and not run. Each run item carries t
 | 188 | ch:dsnote:L188:0.80 | calc | `0.80` | numeric: sigma distance of prediction from DESI CMB+DES Y3 | PASS |
 | 188 | ch:dsnote:L188:0.82 | calc | `0.82` | numeric: sigma distance of prediction from ACT combo | PASS |
 | 188 | ch:dsnote:L188:0.42 | calc | `0.42` | numeric: GR max sigma distance from published mu0 values | PASS |
-| 188 |  | observed | `0.08^{+0.21}_{-0.19}` | not run: measured, too few printed digits to match against the named files | - |
-| 188 |  | observed | `0.11^{+0.45}_{-0.54}` | not run: measured, too few printed digits to match against the named files | - |
-| 188 |  | observed | `0.04\pm0.22` | not run: measured, too few printed digits to match against the named files | - |
-| 188 |  | observed | `0.02\pm0.19` | not run: measured, too few printed digits to match against the named files | - |
+| 188 | ch:dsnote:L188:0.08 | observed | `0.08^{+0.21}_{-0.19}` | file `docs/verification/PAPER_ERRATA.md`: published mu0, DES Y3 with external data | PASS |
+| 188 | ch:dsnote:L188:0.11 | observed | `0.11^{+0.45}_{-0.54}` | file `docs/verification/scripts/verify_theory_derivations_output.txt`: published mu0, DESI 2024 full shape + BAO + BBN | PASS |
+| 188 | ch:dsnote:L188:0.04 | observed | `0.04\pm0.22` | file `docs/verification/scripts/verify_entropic_gravity_output.txt`: published mu0, DESI full shape + CMB + DES Y3 | PASS |
+| 188 | ch:dsnote:L188:0.02 | observed | `0.02\pm0.19` | file `docs/verification/scripts/verify_entropic_gravity_output.txt`: published mu0, ACT + WMAP + SDSS + SN | PASS |
 | 188 |  | prediction | `-0.136` | not run: canon mu0 prediction value, restated in caption | - |
 | 193 |  | prediction | `1` | not run: exact photon-sector prediction Sigma(a)=1 | - |
 | 197 |  | none | `0.0039` | not run: text changed at HEAD; present beta_gamma bound, restated, no macro | - |
 | 199 |  | prediction | `1/2` | not run: definition beta_m=Om/2, virial ratio restated | - |
 | 212 |  | prediction | `1` | not run: table: exact prediction Sigma=1, restated | - |
-| 213 |  | calc | `0` | not run: not yet run: draft rejected (no draft returned) | - |
-| 213 |  | calc | `0.0039` | not run: not yet run: draft rejected (no draft returned) | - |
+| 213 | ch:dsnote:L213:0.0052 | calc | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma 95 % bound in the falsifier table (committed output) | PASS |
+| 213 |  | calc | `0` | not run: prediction, nothing to recompute: beta_gamma = 0 is the photon exemption itself (eq:dsn_iff, checked there); the measured side of the row is the bound 0.0052 (ch:dsnote:L213:0.0052) | - |
 | 214 |  | prediction | `1/2` | not run: table: definition beta_m=Om/2, restated | - |
 | 215 |  | prediction | `-0.136` | not run: table Value column: canon mu0 prediction restated | - |
 | 234 | ch:dsnote:L234 | record | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Planck-only chi2 diff IAM vs LCDM, level-2 chains | PASS |
-| 235 |  | record | `0.2` | not run: measured, too few printed digits to match against the named files | - |
-| 236 |  | record | `0.0039` | not run: measured, too few printed digits to match against the named files | - |
+| 235 | ch:dsnote:L235 | record | `0.2` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Planck posterior Omega_m/2 against fixed beta_m, sigma | PASS |
+| 236 | ch:dsnote:L236 | record | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma 95 % bound in the summary (committed output) | PASS |
 
 ## Part 2 - ch:s8trend - `docs/book/part2/p2_08_s8_trend.tex`
 

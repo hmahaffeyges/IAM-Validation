@@ -3,7 +3,7 @@
 Items a check raised that would change a result, a prediction, a locked value, an equation of IAM or the framing of a
 claim. The book was left unchanged for each; the decision is the author's. Every FAIL of `verify_book.py` is listed here.
 
-Items: 4
+Items: 5
 
 ## 1. `docs/book/part2/p2_02_virial.tex:L86-87`
 
@@ -26,7 +26,14 @@ Items: 4
 - **Why it matters:** the committed DESI DR1 f sigma8 tables (verify_shapefit_chi2.py, verify_sector_tension.py) put the BGS error at 19-25 %, outside 8-13 %
 - **Recommendation:** check the per-bin errors in DESI 2024 V and either keep 8-13 % with the table it comes from, or correct the range
 
-## 4. `docs/book/part2/p2_01_blackholes.tex:L76`
+## 4. `docs/book/part2/p2_05_dual_sector_note.tex:L154 (and p2_07_late_time_growth.tex:L107)`
+
+- **Now:** a Limber estimate lowers the lensing power by 0.05--0.3 % for 30 <= L <= 1000
+- **Proposed:** commit the script that produces the L-dependent range, or print the range a committed script gives
+- **Why it matters:** the range cannot be rerun from the repository; an Eisenstein-Hu linear-power Limber integral with the IAM growth (G_eff = mu G, same early amplitude) gives 0.24 % at L = 30 falling to 0.03 % at L = 1000, i.e. the opposite L ordering and a lower floor
+- **Recommendation:** add the Limber calculation to verify_obs_chapters.py with its output, then check it in verify_book.py
+
+## 5. `docs/book/part2/p2_01_blackholes.tex:L76`
 
 - **Now:** caption says 'CODATA 2018; M_sun = 1.98847e30 kg'
 - **Proposed:** either keep 1.98847e30 and drop the implication that it follows from CODATA 2018, or use GM_sun(IAU 2015 nominal) / G(CODATA 2018) = 1.98841e30 kg
