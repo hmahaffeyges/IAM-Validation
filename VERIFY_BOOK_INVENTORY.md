@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3061 PASS, 0 FAIL, 3273 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3084 PASS, 0 FAIL, 3250 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -3417,48 +3417,43 @@ Totals: 3061 PASS, 0 FAIL, 3273 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 33 | eq:qr_SE | derived |  | not run: not yet run: draft rejected (drafter skipped: The equation |\Psi\rangle_{S\mathcal E}=\sum_i c_i\,|s_i\rangle_S\otimes|) | - |
-| 40 | eq:qr_tauD | derived |  | not run: not yet run: draft rejected (drafter skipped: The equation tau_D ~ tau_R (lambda_th / Delta x)^2, lambda_th = hbar / sq) | - |
+| 33 | eq:qr_SE | derived |  | sympy: a controlled unitary takes (sum c_i s_i) x e_0 to sum c_i s_i x e_i | PASS |
+| 40 | eq:qr_tauD | derived |  | sympy: tau_D from the Caldeira-Leggett decoherence rate equals tau_R (lambda_th/Delta x)^2 | PASS |
 | 44 | ch:quantumrecords:L44 | calc | `3.7\times 10^{-23}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 71 |  | calc | `2.5\times10^{-87}` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.096050e-88); drafting error on review | - |
-| 88 | eq:qr_virial_n | none |  | not run: displayed equation, not yet checked | - |
+| 71 | ch:quantumrecords:L71 | calc | `2.5\times10^{-87}` | numeric: hbar R/(G M^2) for a Milky Way halo, 1e12 M_sun and 200 kpc (figure caption) | PASS |
+| 88 | eq:qr_virial_n | none |  | sympy: circular orbit in V = -k r^-n gives 2K/|V| = n | PASS |
 | 92 | eq:qr_virial_1 | derived |  | sympy: n=1 in 2K = n|V| gives K = |V|/2 | PASS |
 | 104 | eq:qr_betam | derived | `0.15765` | numeric: beta_m = Omega_m/2 = 0.15765 | PASS |
 | 107 | ch:quantumrecords:L107 | derived | `0.3153` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 127 | eq:qr_tauhalo | none |  | not run: displayed equation, not yet checked | - |
+| 127 | eq:qr_tauhalo | none |  | sympy: hbar/|U_self| of a uniform sphere scales as hbar R/(G M^2) (order-one factor 5/3) | PASS |
 | 131 | eq:qr_tauMW | calc | `2.5\times10^{-87}` | numeric: tau_D = hbar R_vir/(G M^2), 1e12 M_sun, 200 kpc (book inputs line 129) | PASS |
-| 134 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.863061e+104); drafting error on review | - |
-| 143 | eq:qr_Idot_particle | none |  | not run: displayed equation, not yet checked | - |
+| 134 | ch:quantumrecords:L134 | calc | `10^{104}` | numeric: Hubble time 1/H0 over the Milky Way halo decoherence time | PASS |
+| 143 | eq:qr_Idot_particle | none |  | not run: definition: the one-record-per-particle writing rate (Press-Schechter integral, no number); its exact consequence n_eff = nu_min^2 - 1 is checked at eq:qr_neff_nu | - |
 | 149 | eq:qr_neff_nu | derived |  | sympy: dF/dlnD and n_eff = nu^2 - 1 with nu = delta_c/(sigma D) | PASS |
 | 153 | ch:quantumrecords:L153 | derived | `2.12` | numeric: nu_min for n_eff = 7/2 | PASS |
 | 154 | ch:quantumrecords:L154 | calc | `1.87` | numeric: nu_min for n_eff = 5/2 | PASS |
-| 168 | eq:qr_Stot | none |  | not run: displayed equation, not yet checked | - |
-| 176 | eq:qr_Sinfo | none |  | not run: displayed equation, not yet checked | - |
-| 181 | eq:qr_n72 | derived |  | not run: not yet run: draft rejected (does not run: NameError) | - |
+| 168 | eq:qr_Stot | none |  | not run: definition: the split of the horizon entropy into S_geo and S_info (interpretation, no number) | - |
+| 176 | eq:qr_Sinfo | none |  | sympy: matter-era scalings give dS_info/da propto a^(n-11/2), S_info propto a^(n-9/2)/(n-9/2) | PASS |
+| 181 | eq:qr_n72 | derived |  | sympy: S_info propto -1/a requires n - 9/2 = -1, n = 7/2 | PASS |
 | 183 | ch:quantumrecords:L183 | calc | `-2.02` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: slope p, n=5/2, a=0.01-0.1, full LCDM growth (committed output) | PASS |
 | 183 | ch:quantumrecords:L183:-1.52 | calc | `-1.52` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: slope p, n=3, a=0.01-0.1 (committed output) | PASS |
 | 183 | ch:quantumrecords:L183:-1.02 | calc | `-1.02` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: slope p, n=7/2, a=0.01-0.1 (committed output) | PASS |
-| 183 |  | calc | `0.01` | not run: not yet run: draft rejected (drafter skipped: Line 183 reports ranges of p values from integrating with full ΛCDM growt) | - |
-| 183 |  | calc | `0.1` | not run: not yet run: draft rejected (drafter skipped: Line 183 reports ranges of p values from integrating with full ΛCDM growt) | - |
-| 183 |  | calc | `0.25` | not run: not yet run: draft rejected (drafter skipped: Line 183 reports p values at a=0.25–1 from ΛCDM integration;
-# the excerp) | - |
+| 183 |  | calc | `0.01` | not run: input: lower end a = 0.01 of the matter-era window over which the slope p is measured (the slopes themselves are checked at ch:quantumrecords:L183) | - |
+| 183 |  | calc | `0.1` | not run: input: upper end a = 0.1 of the matter-era window over which the slope p is measured (the slopes are checked at ch:quantumrecords:L183) | - |
+| 183 |  | calc | `0.25` | not run: input: lower end a = 0.25 of the late window over which the slope p is measured (the slopes are checked at ch:quantumrecords:L184) | - |
 | 184 | ch:quantumrecords:L184 | calc | `-2.42` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: slope, n=5/2, a=0.25-1 (committed output) | PASS |
 | 184 | ch:quantumrecords:L184:-1.99 | calc | `-1.99` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: slope, n=3, a=0.25-1 (committed output) | PASS |
 | 184 | ch:quantumrecords:L184:-1.57 | calc | `-1.57` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: slope, n=7/2, a=0.25-1 (committed output) | PASS |
-| 186 | eq:qr_Idot | none |  | not run: displayed equation, not yet checked | - |
+| 186 | eq:qr_Idot | none |  | sympy: I_dot propto rho_m D^(7/2) f H accumulates to S_info propto -1/a in matter domination | PASS |
 | 193 | ch:quantumrecords:L193 | calc | `3.3` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: z where the bottom-up exponent equals 7/2, Press-Schechter (committed output [3.29]) | PASS |
-| 193 |  | calc | `4.0` | not run: not yet run: draft rejected (drafter skipped: Line 193 reports that the Sheth–Tormen mass function gives n_eff = 7/2
-# ) | - |
-| 193 |  | calc | `3.2` | not run: not yet run: draft rejected (drafter skipped: Line 193 reports that the Tinker et al. 2008 mass function gives n_eff = ) | - |
-| 203 |  | calc | `0.02` | not run: not yet run: draft rejected (drafter skipped: Line 203 reports that halo definition moves n_eff by at most 0.02 at z=4;) | - |
-| 203 |  | calc | `0.09` | not run: not yet run: draft rejected (drafter skipped: Line 203 reports that halo definition moves n_eff by up to 0.09 at z=2;
-#) | - |
-| 203 |  | calc | `0.77` | not run: not yet run: draft rejected (drafter skipped: σ₈ = 0.77 is a lower bound cited in sensitivity analysis (line 203).
-# Th) | - |
-| 203 |  | calc | `0.85` | not run: not yet run: draft rejected (drafter skipped: σ₈ = 0.85 is an upper bound cited in sensitivity analysis (line 203).
-# T) | - |
-| 204 |  | calc | `5.5` | not run: not yet run: draft rejected (drafter skipped: The bottom-up exponent "runs from about 5.5 at z=9" (line 204) is an empi) | - |
-| 224 | eq:qr_Ea | interp |  | not run: displayed equation, not yet checked | - |
+| 193 | ch:quantumrecords:L193:4.0 | calc | `4.0` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: z where the bottom-up exponent equals 7/2, Sheth-Tormen (committed output) | PASS |
+| 193 | ch:quantumrecords:L193:3.2 | calc | `3.2` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: z where the bottom-up exponent equals 7/2, Tinker et al. 2008 (committed output) | PASS |
+| 203 |  | calc | `0.02` | not run: measured, source not named: shift of n_eff by the halo definition (at most 0.02 at z = 4) comes from a sensitivity run of verify_bottom_up_exponent.py whose output is not committed | - |
+| 203 |  | calc | `0.09` | not run: measured, source not named: shift of n_eff by the halo definition (up to 0.09 at z = 2) comes from a sensitivity run of verify_bottom_up_exponent.py whose output is not committed | - |
+| 203 |  | calc | `0.77` | not run: input: lower end sigma8 = 0.77 of the range used in the sensitivity test | - |
+| 203 |  | calc | `0.85` | not run: input: upper end sigma8 = 0.85 of the range used in the sensitivity test | - |
+| 204 |  | calc | `5.5` | not run: about 5.5 summarises the spread of the three committed values at z = 9 (5.84, 5.31, 5.78 in verify_bottom_up_exponent_output.txt); no single value to compare, and a 5 % control cannot be told from the spread | - |
+| 224 | eq:qr_Ea | interp |  | sympy: E(a) = exp(1-1/a): E(1) = 1, increasing, E -> e as a -> infinity, E -> 0 as a -> 0 | PASS |
 | 235 | eq:qr_mu | derived |  | sympy: mu < 1 for beta E > 0 | PASS |
 | 246 | eq:qr_Scompton | conjecture |  | sympy: S = 4 pi lambdabar_C^2/(4 l_P^2) = pi (m_P/m)^2 | PASS |
 | 251 | eq:qr_ELcompton | calc |  | sympy: E_L = S k_B T_GH ln 2 | PASS |
@@ -3466,48 +3461,48 @@ Totals: 3061 PASS, 0 FAIL, 3273 inventoried and not run. Each run item carries t
 | 254 | ch:quantumrecords:L254:2.54\times10^{-53} | calc | `2.54\times10^{-53}` | numeric: k_B T_GH ln2, H0 = 67.4 | PASS |
 | 254 | ch:quantumrecords:L254:4.6\times10^{-8} | calc | `4.6\times10^{-8}` | numeric: E_L for the electron, J | PASS |
 | 254 | ch:quantumrecords:L254:5.6\times10^5 | calc | `5.6\times10^5` | numeric: E_L / m_e c^2 | PASS |
-| 254 |  | calc | `67.4` | not run: not yet run: draft rejected (drafter skipped: The book states "H_0=67.4" as the input to the calculation of k_BT_GH*ln2) | - |
-| 257 |  | conjecture | `0.3` | not run: not yet checked | - |
-| 264 | eq:qr_GammaBH | interp |  | not run: displayed equation, not yet checked | - |
+| 254 | ch:quantumrecords:L254:67.4 | calc | `67.4` | numeric: H0 of Planck 2018 used for the bit price, 100 h | PASS |
+| 257 |  | conjecture | `0.3` | not run: restates ch:electronmass:L188 (0.4 sigma(H0)/H0 = 0.32 %), printed here to one digit, too coarse for the 5 % negative control | - |
+| 264 | eq:qr_GammaBH | interp |  | sympy: Hawking power over k_B T ln 2 is c^3/(1920 G M ln 2) | PASS |
 | 267 | ch:quantumrecords:L267 | derived | `152.5` | numeric: same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass) | PASS |
-| 268 |  | calc | `203.4` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.928738e+36); drafting error on review | - |
+| 268 | ch:quantumrecords:L268 | calc | `203.4` | numeric: radiation entropy rate (4/3) P/T in bits per second, one solar mass | PASS |
 | 273 | eq:qr_smarr | derived |  | sympy: T_BH S_BH = Mc^2/2 | PASS |
 | 283 | ch:quantumrecords:L283 | derived | `0.8638` | numeric: mu(0) = 1/(1+beta_m) | PASS |
 | 284 | ch:quantumrecords:L284 | calc | `4.25` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 284 | ch:quantumrecords:L284:2.17 | calc | `2.17` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 284 | ch:quantumrecords:L284:1.35 | calc | `1.35` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 284 | ch:quantumrecords:L284:0.41 | calc | `0.41` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 285 |  | calc | `0.3` | not run: not yet run: draft rejected (drafter skipped: Line 285: "z=0.3" is a redshift label for the DESI tracer bin, not a calc) | - |
-| 285 |  | calc | `0.5` | not run: not yet run: draft rejected (drafter skipped: Line 285: "z=0.5" is a redshift label for the DESI tracer bin, not a calc) | - |
+| 285 |  | calc | `0.3` | not run: input: redshift z = 0.3 at which the f sigma8 deficit is evaluated (deficit checked at ch:quantumrecords:L284:2.17) | - |
+| 285 |  | calc | `0.5` | not run: input: redshift z = 0.5 at which the f sigma8 deficit is evaluated (deficit checked at ch:quantumrecords:L284:1.35) | - |
 | 292 | ch:quantumrecords:L292 | derived | `-0.136` | numeric: mu0 = mu(1) - 1 from beta_m | PASS |
 | 298 | ch:quantumrecords:L298 | calc | `4.25` | numeric: f sigma8 deficit at z=0 | PASS |
 | 298 | ch:quantumrecords:L298:2.17 | calc | `2.17` | numeric: f sigma8 deficit at z=0.3 | PASS |
 | 298 | ch:quantumrecords:L298:1.35 | calc | `1.35` | numeric: f sigma8 deficit at z=0.5 | PASS |
-| 298 |  | calc | `0.3` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 298 |  | calc | `0.3` | not run: input: redshift z = 0.3 at which the f sigma8 deficit is evaluated (deficit checked at ch:quantumrecords:L298:2.17) | - |
 | 299 | ch:quantumrecords:L299 | calc | `0.41` | numeric: f sigma8 deficit at z=1.0 | PASS |
 | 299 | ch:quantumrecords:L299:0.800 | calc | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8, Level 2 Run A | PASS |
-| 299 |  | calc | `0.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 299 |  | calc | `0.5` | not run: input: redshift z = 0.5 at which the f sigma8 deficit is evaluated (deficit checked at ch:quantumrecords:L298:1.35) | - |
 | 303 | eq:qr_H0 | calc | `72.26` | numeric: H0 matter = 67.16 sqrt(1.15765) | PASS |
 | 306 | ch:quantumrecords:L306 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
-| 307 |  | interp | `72.26` | not run: not yet checked | - |
-| 311 |  | measured | `+0.54` | not run: measured, too few printed digits to match against the named files | - |
-| 330 |  | observed | `1.3` | not run: measured, too few printed digits to match against the named files | - |
+| 307 | ch:quantumrecords:L307 | interp | `72.26` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 from the Level 2 chain H0 times sqrt(1+beta_m) | PASS |
+| 311 | ch:quantumrecords:L311 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (runA) minus LCDM (runC) | PASS |
+| 330 | ch:quantumrecords:L330 | observed | `1.3` | numeric: separation of the electron spins in the loophole-free Bell test, km | PASS |
 | 339 | ch:quantumrecords:L339 | prediction | `2.2\times10^{-10}` | numeric: mass where tau_IAM = tau_PD at 10 mK, kg | PASS |
 | 339 | ch:quantumrecords:L339:7.5 | prediction | `7.5` | numeric: tau_PD = hbar/E_G at 1e-12 kg, microseconds | PASS |
 | 339 | ch:quantumrecords:L339:509 | prediction | `509` | numeric: tau_IAM at 1e-12 kg, 10 mK, s | PASS |
-| 339 |  | prediction | `2200` | not run: not yet checked | - |
-| 339 |  | prediction | `10` | not run: not yet checked | - |
-| 344 | eq:qr_tauIAM | none |  | not run: displayed equation, not yet checked | - |
+| 339 |  | prediction | `2200` | not run: input: silica density 2200 kg/m^3 of the sphere (figure caption) | - |
+| 339 |  | prediction | `10` | not run: input: bath temperature 10 mK of the figure (caption) | - |
+| 344 | eq:qr_tauIAM | none |  | sympy: at fixed density tau_IAM propto T^2 m^-5 and tau_PD propto m^-5/3 | PASS |
 | 345 | ch:quantumrecords:L345 | calc | `509` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 345 | ch:quantumrecords:L345:7.5 | calc | `7.5` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 345 |  | calc | `10` | not run: not yet run: draft rejected (negative control (printed value x1.05) also passes) | - |
-| 345 |  | calc | `2200` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 347 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 7.82917); drafting error on review | - |
+| 345 |  | calc | `10` | not run: input: bath temperature 10 mK of the worked example | - |
+| 345 |  | calc | `2200` | not run: input: silica density 2200 kg/m^3 of the worked example | - |
+| 347 |  | calc | `10` | not run: input: mass 10^-12 kg (a nanogram) of the worked example; the times at that mass are checked at ch:quantumrecords:L345 and L345:7.5 | - |
 | 369 | ch:quantumrecords:L369 | calc | `2.5\times10^{-87}` | numeric: tau_D, Milky Way halo | PASS |
-| 373 |  | prediction | `-0.136` | not run: not yet checked | - |
-| 373 |  | prediction | `0.800` | not run: not yet checked | - |
-| 373 |  | prediction | `72.26` | not run: not yet checked | - |
-| 373 |  | prediction | `67.16` | not run: not yet checked | - |
+| 373 | ch:quantumrecords:L373 | prediction | `-0.136` | numeric: mu0 = 1/(1+beta_m) - 1 (status list) | PASS |
+| 373 | ch:quantumrecords:L373:0.800 | prediction | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8, Level 2 Run A (status list) | PASS |
+| 373 | ch:quantumrecords:L373:72.26 | prediction | `72.26` | numeric: H0 matter = H0 photon sqrt(1+beta_m) (status list) | PASS |
+| 373 | ch:quantumrecords:L373:67.16 | prediction | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level 2 Run A chain (status list) | PASS |
 
 ## Part 4 - ch:entanglement - `docs/book/part2/p2_21_entanglement_records.tex`
 

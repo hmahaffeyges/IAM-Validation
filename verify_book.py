@@ -17885,6 +17885,37 @@ def check_1947():
 
 
 # ======== Part 4 | ch:quantumrecords | docs/book/part2/p2_14_quantum_records.tex
+@check(label='eq:qr_SE', chapter='ch:quantumrecords', part=4, title='a controlled unitary takes (sum c_i s_i) x e_0 to sum c_i s_i x e_i',
+       file='part2/p2_14_quantum_records', line=33, status='derived', kind='sym', printed='', tol=0)
+def check_3061():
+    'Eq. eq:qr_SE. Derived: for three pointer states, the system-environment interaction U = sum_i |s_i><s_i| x X^i (X the cyclic shift on the '         'environment, X^i |e_0> = |e_i>) is checked unitary, and applied to (sum_i c_i |s_i>) x |e_0> it gives sum_i c_i |s_i> x |e_i>. Control: c_1 moved by 5 % '         'does not reproduce the state. Book line 33.'
+    c0, c1, c2 = sp.symbols('c0 c1 c2')
+    n = 3
+    X = sp.Matrix(n, n, lambda i, j: 1 if i == (j + 1) % n else 0)
+    P = [sp.Matrix(n, n, lambda a, b: 1 if a == b == i else 0) for i in range(n)]
+    U = sum((sp.kronecker_product(P[i], X**i) for i in range(n)), sp.zeros(n * n, n * n))
+    assert sp.simplify(U.H * U - sp.eye(n * n)) == sp.zeros(n * n, n * n)
+    ket = lambda i: sp.Matrix(n, 1, lambda a, b: 1 if a == i else 0)
+    psi0 = sp.kronecker_product(c0 * ket(0) + c1 * ket(1) + c2 * ket(2), ket(0))
+    out = U * psi0
+    target = sum((ci * sp.kronecker_product(ket(i), ket(i)) for i, ci in enumerate((c0, c1, c2))), sp.zeros(n * n, 1))
+    ok = sp.simplify(out - target) == sp.zeros(n * n, 1)
+    neg_target = sum((ci * sp.kronecker_product(ket(i), ket(i)) for i, ci in enumerate((c0, sp.Rational(105, 100) * c1, c2))), sp.zeros(n * n, 1))
+    neg_ok = sp.simplify(out - neg_target) == sp.zeros(n * n, 1)
+    return locals()
+
+@check(label='eq:qr_tauD', chapter='ch:quantumrecords', part=4, title='tau_D from the Caldeira-Leggett decoherence rate equals tau_R (lambda_th/Delta x)^2',
+       file='part2/p2_14_quantum_records', line=40, status='derived', kind='sym', printed='', tol=0)
+def check_3062():
+    'Eq. eq:qr_tauD. Derived: the high-temperature (Caldeira-Leggett) master equation suppresses the off-diagonal element rho(x, x\') at the rate '         '2 M gamma k_B T (x - x\')^2/hbar^2 with gamma = 1/tau_R (Zurek 2003, Joos and Zeh 1985, cited by the chapter); the inverse rate at x - x\' = Delta x is '         'computed and equals tau_R (lambda_th/Delta x)^2 with lambda_th = hbar/sqrt(2 M k_B T). Book line 40.'
+    hb, M, kB_, T_, tauR, dx = sp.symbols('hbar M k_B T tau_R Delta_x', positive=True)
+    rate = 2 * M * (1 / tauR) * kB_ * T_ * dx**2 / hb**2
+    lam_th = hb / sp.sqrt(2 * M * kB_ * T_)
+    lhs = 1 / rate
+    rhs = tauR * (lam_th / dx)**2
+    neg_lhs = 1 / (sp.Rational(105, 100) * rate)
+    return locals()
+
 @check(label='ch:quantumrecords:L44', chapter='ch:quantumrecords', part=4, title='drafted check, screened (runs; negative control fails)',
        file='part2/p2_14_quantum_records', line=44, status='calc', kind='num', printed='3.7\\times 10^{-23}', tol=0.0)
 def check_1948():
@@ -17894,6 +17925,28 @@ def check_1948():
     T = 300   # K
     lambda_th = hbar / np.sqrt(2 * M * kB * T)
     value = lambda_th
+    return locals()
+
+@check(label='ch:quantumrecords:L71', chapter='ch:quantumrecords', part=4, title='hbar R/(G M^2) for a Milky Way halo, 1e12 M_sun and 200 kpc (figure caption)',
+       file='part2/p2_14_quantum_records', line=71, status='calc', kind='num', printed='2.5\\times10^{-87}', tol=0.0)
+def check_3063():
+    'Decoherence time hbar R_vir/(G M^2) of a Milky Way halo. Book line 71 (caption), printed 2.5e-87 s. Inputs: M = 1e12 M_sun, R_vir = 200 kpc (book line 130); '         'CODATA 2018 G, hbar; IAU M_sun and pc.'
+    M = 1e12 * Msun
+    R = 200e3 * pc
+    value = hbar * R / (G * M**2)
+    return locals()
+
+@check(label='eq:qr_virial_n', chapter='ch:quantumrecords', part=4, title='circular orbit in V = -k r^-n gives 2K/|V| = n',
+       file='part2/p2_14_quantum_records', line=88, status='none', kind='sym', printed='', tol=0)
+def check_3064():
+    'Eq. eq:qr_virial_n. Derived (book line 95): for V = -k r^-n the force is computed as -dV/dr; m v^2/r = |F| is solved for v^2 and 2K/|V| = m v^2/|V| '         'simplifies to n. Book line 88.'
+    m, k, r, n, v2 = sp.symbols('m k r n v2', positive=True)
+    V = -k * r**(-n)
+    F = -sp.diff(V, r)
+    v2s = sp.solve(sp.Eq(m * v2 / r, sp.Abs(F)), v2)[0]
+    lhs = sp.simplify(m * v2s / sp.Abs(V))
+    rhs = n
+    neg_lhs = sp.simplify(m * sp.Rational(105, 100) * v2s / sp.Abs(V))
     return locals()
 
 @check(label='eq:qr_virial_1', chapter='ch:quantumrecords', part=4, title='n=1 in 2K = n|V| gives K = |V|/2',
@@ -17918,11 +17971,32 @@ def check_1951():
     value = Om
     return locals()
 
+@check(label='eq:qr_tauhalo', chapter='ch:quantumrecords', part=4, title='hbar/|U_self| of a uniform sphere scales as hbar R/(G M^2) (order-one factor 5/3)',
+       file='part2/p2_14_quantum_records', line=127, status='none', kind='sym', printed='', tol=0)
+def check_3065():
+    'Eq. eq:qr_tauhalo, tau_D ~ hbar R_vir/(G M^2). Derived: the gravitational self-energy of a uniform sphere is integrated shell by shell, '         'U = -int_0^R G m(r) dm/r = -(3/5) G M^2/R; the Diosi-Penrose time hbar/|U| divided by hbar R/(G M^2) is the pure number 5/3 (no dependence on '         'M or R), the order-one factor that the "~" leaves out. Book line 127.'
+    G_, M, R, r, hb = sp.symbols('G M R r hbar', positive=True)
+    rho = M / (sp.Rational(4, 3) * sp.pi * R**3)
+    mr = sp.Rational(4, 3) * sp.pi * r**3 * rho
+    U = -sp.integrate(G_ * mr * 4 * sp.pi * r**2 * rho / r, (r, 0, R))
+    lhs = sp.simplify((hb / sp.Abs(U)) / (hb * R / (G_ * M**2)))
+    rhs = sp.Rational(5, 3)
+    neg_lhs = sp.Rational(105, 100) * lhs
+    return locals()
+
 @check(label='eq:qr_tauMW', chapter='ch:quantumrecords', part=4, title='tau_D = hbar R_vir/(G M^2), 1e12 M_sun, 200 kpc (book inputs line 129)',
        file='part2/p2_14_quantum_records', line=131, status='calc', kind='num', printed='2.5\\times10^{-87}', tol=0)
 def check_1952():
     'tau_D = hbar R_vir/(G M^2), 1e12 M_sun, 200 kpc (book inputs line 129) (Eq. eq:qr_tauMW). Book line 131, printed 2.5\\times10^{-87}.'
     value=hbar*200*1e3*pc/(G*(1e12*Msun)**2)
+    return locals()
+
+@check(label='ch:quantumrecords:L134', chapter='ch:quantumrecords', part=4, title='Hubble time 1/H0 over the Milky Way halo decoherence time',
+       file='part2/p2_14_quantum_records', line=134, status='calc', kind='num', printed='10^{104}', tol=0.0)
+def check_3066():
+    'Ratio of the Hubble time 1/H0 to tau_D = hbar R/(G M^2) of a Milky Way halo (1e12 M_sun, 200 kpc). Book line 134, printed "about 10^104 times". '         'Inputs: H0 = 67.4 (Planck 2018, the value the chapter uses at line 254); CODATA 2018 G, hbar.'
+    tau_D = hbar * 200e3 * pc / (G * (1e12 * Msun)**2)
+    value = (1 / Hsi(67.4)) / tau_D
     return locals()
 
 @check(label='eq:qr_neff_nu', chapter='ch:quantumrecords', part=4, title='dF/dlnD and n_eff = nu^2 - 1 with nu = delta_c/(sigma D)',
@@ -17944,6 +18018,34 @@ def check_1954():
 def check_1955():
     'nu_min for n_eff = 5/2. Book line 154, printed 1.87.'
     value=math.sqrt(2.5+1)
+    return locals()
+
+@check(label='eq:qr_Sinfo', chapter='ch:quantumrecords', part=4, title='matter-era scalings give dS_info/da propto a^(n-11/2), S_info propto a^(n-9/2)/(n-9/2)',
+       file='part2/p2_14_quantum_records', line=176, status='none', kind='sym', printed='', tol=0)
+def check_3067():
+    'Eq. eq:qr_Sinfo. Derived: with H = a^-3/2, A_H = 4 pi/H^2, T_H = H/2 pi, D = a, f = 1, rho_m = a^-3 (book line 175), dS/da = rho_m D^n f H/(T_H A_H)/(a H) is '         'built and its logarithmic slope a d ln(dS/da)/da is computed: n - 11/2; integrating a^(n-11/2) gives a^(n-9/2)/(n-9/2) (checked). Book line 176.'
+    a, n = sp.symbols('a n', positive=True)
+    def slope(rho_exp):
+        H = a**sp.Rational(-3, 2)
+        dSda = a**rho_exp * a**n * 1 * H / ((H / (2 * sp.pi)) * (4 * sp.pi / H**2)) / (a * H)
+        return sp.simplify(a * sp.diff(sp.log(dSda), a))
+    assert sp.simplify(sp.integrate(a**(n - sp.Rational(11, 2)), a, conds='none') - a**(n - sp.Rational(9, 2)) / (n - sp.Rational(9, 2))) == 0
+    lhs = slope(-3)
+    rhs = n - sp.Rational(11, 2)
+    neg_lhs = slope(-3 * sp.Rational(105, 100))
+    return locals()
+
+@check(label='eq:qr_n72', chapter='ch:quantumrecords', part=4, title='S_info propto -1/a requires n - 9/2 = -1, n = 7/2',
+       file='part2/p2_14_quantum_records', line=181, status='derived', kind='sym', printed='', tol=0)
+def check_3068():
+    'Eq. eq:qr_n72. Derived: the exponent of S_info is obtained by integrating dS/da = a^(n-11/2) (sympy); requiring it to equal the exponent -1 of the '         'form -1/a (from exp(1 - 1/a)) is solved for n: 7/2; with n = 7/2 the integral is exactly -1/a (book line 182). Book line 181.'
+    a, n = sp.symbols('a n', positive=True)
+    S = sp.integrate(a**(n - sp.Rational(11, 2)), a, conds='none')
+    expo = sp.simplify(a * sp.diff(sp.log(S), a))
+    lhs = sp.solve(sp.Eq(expo, -1), n)[0]
+    rhs = sp.Rational(7, 2)
+    assert sp.simplify(sp.integrate(a**(rhs - sp.Rational(11, 2)), a) + 1 / a) == 0
+    neg_lhs = sp.solve(sp.Eq(expo, -sp.Rational(105, 100)), n)[0]
     return locals()
 
 @check(label='ch:quantumrecords:L183', chapter='ch:quantumrecords', part=4, title='slope p, n=5/2, a=0.01-0.1, full LCDM growth (committed output)',
@@ -17995,12 +18097,56 @@ def check_1961():
     value=float(re.search(r'n = 3.5: power .*?late \(0.25-1\) (-?[\d.]+)', file_text('docs/verification/scripts/verify_theory_derivations_output.txt')).group(1))
     return locals()
 
+@check(label='eq:qr_Idot', chapter='ch:quantumrecords', part=4, title='I_dot propto rho_m D^(7/2) f H accumulates to S_info propto -1/a in matter domination',
+       file='part2/p2_14_quantum_records', line=186, status='none', kind='sym', printed='', tol=0)
+def check_3069():
+    'Eq. eq:qr_Idot. Derived: the rate rho_m D^(7/2) f H with the matter-era scalings, divided by T_H A_H and by a H, is integrated in a; the product a S_info '         'is computed and is independent of a, i.e. S_info propto -1/a, the ledger of E(a) = exp(1 - 1/a). Control: D^(7/2 x 1.05) leaves a dependence on a. Book line 186.'
+    a = sp.symbols('a', positive=True)
+    def aS(nn):
+        H = a**sp.Rational(-3, 2)
+        dSda = a**-3 * a**nn * H / ((H / (2 * sp.pi)) * (4 * sp.pi / H**2)) / (a * H)
+        return sp.simplify(a * sp.integrate(dSda, a))
+    ok = sp.diff(aS(sp.Rational(7, 2)), a) == 0 and bool(aS(sp.Rational(7, 2)) < 0)
+    neg_ok = sp.simplify(sp.diff(aS(sp.Rational(7, 2) * sp.Rational(105, 100)), a)) == 0
+    return locals()
+
 @check(label='ch:quantumrecords:L193', chapter='ch:quantumrecords', part=4, title='z where the bottom-up exponent equals 7/2, Press-Schechter (committed output [3.29])',
        file='part2/p2_14_quantum_records', line=193, status='calc', kind='file', printed='3.3', tol=0, source='docs/verification/scripts/verify_bottom_up_exponent_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt')
 def check_1962():
     'z where the bottom-up exponent equals 7/2, Press-Schechter (committed output [3.29]). Book line 193, printed 3.3.'
     ok=file_has('docs/verification/scripts/verify_bottom_up_exponent_output.txt','3.29')
+    return locals()
+
+@check(label='ch:quantumrecords:L193:4.0', chapter='ch:quantumrecords', part=4, title='z where the bottom-up exponent equals 7/2, Sheth-Tormen (committed output)',
+       file='part2/p2_14_quantum_records', line=193, status='calc', kind='file', printed='4.0', tol=0.0, source='docs/verification/scripts/verify_bottom_up_exponent_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt')
+def check_3070():
+    'Redshift at which n_eff crosses 7/2 for the Sheth-Tormen mass function. Book line 193, printed 4.0. Read from the sheth99 row, column "crosses 7/2 at z", '         'of docs/verification/scripts/verify_bottom_up_exponent_output.txt (needs colossus to regenerate).'
+    row = [l for l in file_text('docs/verification/scripts/verify_bottom_up_exponent_output.txt').splitlines() if l.startswith('sheth99')][0]
+    value = float(re.search(r'\|\s*\[([\d.]+)\]', row).group(1))
+    return locals()
+
+@check(label='ch:quantumrecords:L193:3.2', chapter='ch:quantumrecords', part=4, title='z where the bottom-up exponent equals 7/2, Tinker et al. 2008 (committed output)',
+       file='part2/p2_14_quantum_records', line=193, status='calc', kind='file', printed='3.2', tol=0.0, source='docs/verification/scripts/verify_bottom_up_exponent_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt')
+def check_3071():
+    'Redshift at which n_eff crosses 7/2 for the Tinker et al. 2008 mass function. Book line 193, printed 3.2. Read from the tinker08 row, column "crosses 7/2 at z", '         'of docs/verification/scripts/verify_bottom_up_exponent_output.txt (3.15 there; the file prints two decimals).'
+    row = [l for l in file_text('docs/verification/scripts/verify_bottom_up_exponent_output.txt').splitlines() if l.startswith('tinker08')][0]
+    value = float(re.search(r'\|\s*\[([\d.]+)\]', row).group(1))
+    return locals()
+
+@check(label='eq:qr_Ea', chapter='ch:quantumrecords', part=4, title='E(a) = exp(1-1/a): E(1) = 1, increasing, E -> e as a -> infinity, E -> 0 as a -> 0',
+       file='part2/p2_14_quantum_records', line=224, status='interp', kind='sym', printed='', tol=0)
+def check_3072():
+    'Eq. eq:qr_Ea and the properties stated at book line 228: E(1) = 1, dE/da > 0 for a > 0, lim_{a->inf} E = e, lim_{a->0+} E = 0, each computed with sympy. '         'Control: exp(1.05 - 1/a) fails E(1) = 1 and the limit e. Book line 224.'
+    a = sp.symbols('a', positive=True)
+    def props(c1):
+        E = sp.exp(c1 - 1 / a)
+        return (sp.simplify(E.subs(a, 1) - 1) == 0 and bool(sp.simplify(sp.diff(E, a)).is_positive)
+                and sp.simplify(sp.limit(E, a, sp.oo) - sp.E) == 0 and sp.limit(E, a, 0, '+') == 0)
+    ok = props(1)
+    neg_ok = props(sp.Rational(105, 100))
     return locals()
 
 @check(label='eq:qr_mu', chapter='ch:quantumrecords', part=4, title='mu < 1 for beta E > 0',
@@ -18052,11 +18198,43 @@ def check_1969():
     value=math.pi*(mP/m_e)**2*hbar*Hsi(67.4)*LN2/(2*math.pi)/(m_e*c**2)
     return locals()
 
+@check(label='ch:quantumrecords:L254:67.4', chapter='ch:quantumrecords', part=4, title='H0 of Planck 2018 used for the bit price, 100 h',
+       file='part2/p2_14_quantum_records', line=254, status='calc', kind='num', printed='67.4', tol=0.0)
+def check_3073():
+    'The H0 used for k_B T_GH ln 2 at book line 254, printed 67.4 (Planck 2018). Input: h = 0.6736, Planck 2018 VI Table 2 TT,TE,EE+lowE+lensing '         '(Aghanim et al. 2020, doi:10.1051/0004-6361/201833910).'
+    value = 100 * h_pl
+    return locals()
+
+@check(label='eq:qr_GammaBH', chapter='ch:quantumrecords', part=4, title='Hawking power over k_B T ln 2 is c^3/(1920 G M ln 2)',
+       file='part2/p2_14_quantum_records', line=264, status='interp', kind='sym', printed='', tol=0)
+def check_3074():
+    'Eq. eq:qr_GammaBH. Derived: P = sigma_SB T^4 A with sigma_SB = pi^2 k_B^4/(60 hbar^3 c^2), T = hbar c^3/(8 pi G M k_B) and A = 16 pi G^2 M^2/c^4; '         'P/(k_B T ln 2) simplifies to c^3/(1920 G M ln 2). Book line 264.'
+    hb, c_, G_, M, kB_ = sp.symbols('hbar c G M k_B', positive=True)
+    sig = sp.pi**2 * kB_**4 / (60 * hb**3 * c_**2)
+    T = hb * c_**3 / (8 * sp.pi * G_ * M * kB_)
+    A = 16 * sp.pi * G_**2 * M**2 / c_**4
+    P = sig * T**4 * A
+    lhs = sp.simplify(P / (kB_ * T * sp.log(2)))
+    rhs = c_**3 / (1920 * G_ * M * sp.log(2))
+    neg_lhs = sp.simplify(sp.Rational(105, 100) * P / (kB_ * T * sp.log(2)))
+    return locals()
+
 @check(label='ch:quantumrecords:L267', chapter='ch:quantumrecords', part=4, title='same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass)',
        file='part2/p2_14_quantum_records', line=267, status='derived', kind='num', printed='152.5', tol=0.00033)
 def check_1970():
     'same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass). Book line 267, printed 152.5.'
     value=c**3/(1920*G*Msun*LN2)
+    return locals()
+
+@check(label='ch:quantumrecords:L268', chapter='ch:quantumrecords', part=4, title='radiation entropy rate (4/3) P/T in bits per second, one solar mass',
+       file='part2/p2_14_quantum_records', line=268, status='calc', kind='num', printed='203.4', tol=0.0)
+def check_3075():
+    'Entropy rate of the Hawking radiation, (4/3) P/(k_B T ln 2), for one solar mass. Book line 268, printed 203.4 bits/s. P = sigma_SB T^4 A with T and A '         'of a Schwarzschild hole of M_sun (IAU nominal); CODATA 2018 constants.'
+    T = hbar * c**3 / (8 * math.pi * G * Msun * kB)
+    A = 16 * math.pi * G**2 * Msun**2 / c**4
+    sig = math.pi**2 * kB**4 / (60 * hbar**3 * c**2)
+    P = sig * T**4 * A
+    value = 4 / 3 * P / (kB * T * LN2)
     return locals()
 
 @check(label='eq:qr_smarr', chapter='ch:quantumrecords', part=4, title='T_BH S_BH = Mc^2/2',
@@ -18163,6 +18341,30 @@ def check_1984():
     value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
+@check(label='ch:quantumrecords:L307', chapter='ch:quantumrecords', part=4, title='matter-sector H0 from the Level 2 chain H0 times sqrt(1+beta_m)',
+       file='part2/p2_14_quantum_records', line=307, status='interp', kind='file', printed='72.26', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_3076():
+    '"72.26 is also the Level 2 chain value": the photon-sector H0 of the Level 2 Run A chain (CHAIN_EXTRACTION_FINAL.csv, row iam_level2_runA, column H0) '         'times sqrt(1 + beta_m), beta_m from CANON. Book line 307, printed 72.26.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0') * math.sqrt(1 + beta_m)
+    return locals()
+
+@check(label='ch:quantumrecords:L311', chapter='ch:quantumrecords', part=4, title='Level 2 chi2_min IAM (runA) minus LCDM (runC)',
+       file='part2/p2_14_quantum_records', line=311, status='measured', kind='file', printed='+0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_3077():
+    'Delta chi^2 of the best fit, IAM minus LambdaCDM at Level 2: chi2_min of iam_level2_runA minus chi2_min of iam_level2_runC_lcdm in '         'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv. Book line 311, printed +0.54.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min') - csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min')
+    return locals()
+
+@check(label='ch:quantumrecords:L330', chapter='ch:quantumrecords', part=4, title='separation of the electron spins in the loophole-free Bell test, km',
+       file='part2/p2_14_quantum_records', line=330, status='observed', kind='num', printed='1.3', tol=0.0)
+def check_3078():
+    'Electron spins 1.3 km apart (Hensen et al. 2015). Book line 330, printed 1.3 km. Published: the two NV-centre labs are 1,280 m apart '         '(Hensen et al., Nature 526, 682 (2015), doi:10.1038/nature15759, bib Hensen2015).'
+    sep_m = 1280.0
+    value = sep_m / 1000
+    return locals()
+
 @check(label='ch:quantumrecords:L339', chapter='ch:quantumrecords', part=4, title='mass where tau_IAM = tau_PD at 10 mK, kg',
        file='part2/p2_14_quantum_records', line=339, status='prediction', kind='num', printed='2.2\\times10^{-10}', tol=0)
 def check_1985():
@@ -18197,6 +18399,23 @@ def check_1987():
     def tIAM(m,T): return hbar*(kB*T)**2*LN2/EG(m)**3
     def tPD(m): return hbar/EG(m)
     value=tIAM(1e-12,0.010)
+    return locals()
+
+@check(label='eq:qr_tauIAM', chapter='ch:quantumrecords', part=4, title='at fixed density tau_IAM propto T^2 m^-5 and tau_PD propto m^-5/3',
+       file='part2/p2_14_quantum_records', line=344, status='none', kind='sym', printed='', tol=0)
+def check_3079():
+    'Eq. eq:qr_tauIAM. Derived: with R = (3m/(4 pi rho))^(1/3) and E_G = G m^2/R, the logarithmic slopes of tau_IAM = hbar (k_B T)^2 ln2/E_G^3 in m and T and of '         'tau_PD = hbar/E_G in m are computed: -5, 2 and -5/3. The three are packed into one expression (lhs) compared with (-5, 2, -5/3). Book line 344.'
+    m, T_, rho, G_, hb, kB_ = sp.symbols('m T rho G hbar k_B', positive=True)
+    R = (3 * m / (4 * sp.pi * rho))**sp.Rational(1, 3)
+    EG = G_ * m**2 / R
+    def slopes(p):
+        tI = hb * (kB_ * T_)**2 * sp.log(2) / EG**p
+        tP = hb / EG
+        return [sp.simplify(m * sp.diff(sp.log(tI), m)), sp.simplify(T_ * sp.diff(sp.log(tI), T_)), sp.simplify(m * sp.diff(sp.log(tP), m))]
+    w = sp.symbols('w1 w2 w3')
+    lhs = sum(wi * si for wi, si in zip(w, slopes(3)))
+    rhs = -5 * w[0] + 2 * w[1] - sp.Rational(5, 3) * w[2]
+    neg_lhs = sum(wi * si for wi, si in zip(w, slopes(3 * sp.Rational(105, 100))))
     return locals()
 
 @check(label='ch:quantumrecords:L345', chapter='ch:quantumrecords', part=4, title='drafted check, screened (runs; negative control fails)',
@@ -18238,6 +18457,36 @@ def check_1989():
 def check_1990():
     'tau_D, Milky Way halo. Book line 369, printed 2.5\\times10^{-87}.'
     value=hbar*200*1e3*pc/(G*(1e12*Msun)**2)
+    return locals()
+
+@check(label='ch:quantumrecords:L373', chapter='ch:quantumrecords', part=4, title='mu0 = 1/(1+beta_m) - 1 (status list)',
+       file='part2/p2_14_quantum_records', line=373, status='prediction', kind='num', printed='-0.136', tol=0.0)
+def check_3080():
+    'Predicted mu0 = mu(a=1) - 1, with mu(a) = H^2/(H^2 + beta_m E(a) H0^2) evaluated through mu_iam at a = 1. Book line 373, printed -0.136. Input: beta_m from CANON.'
+    value = float(mu_iam(1.0)) - 1
+    return locals()
+
+@check(label='ch:quantumrecords:L373:0.800', chapter='ch:quantumrecords', part=4, title='sigma8, Level 2 Run A (status list)',
+       file='part2/p2_14_quantum_records', line=373, status='prediction', kind='file', printed='0.800', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_3081():
+    'Predicted sigma8 = 0.800: row iam_level2_runA, column sigma8 of mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv. Book line 373, printed 0.800.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    return locals()
+
+@check(label='ch:quantumrecords:L373:72.26', chapter='ch:quantumrecords', part=4, title='H0 matter = H0 photon sqrt(1+beta_m) (status list)',
+       file='part2/p2_14_quantum_records', line=373, status='prediction', kind='num', printed='72.26', tol=0.0)
+def check_3082():
+    'Predicted matter-sector H0 = H0_photon sqrt(1 + beta_m) (Eq. eq:qr_H0). Book line 373, printed 72.26. Inputs: H0_photon 67.16 (locked), beta_m from CANON.'
+    value = H0_photon * math.sqrt(1 + beta_m)
+    return locals()
+
+@check(label='ch:quantumrecords:L373:67.16', chapter='ch:quantumrecords', part=4, title='photon-sector H0, Level 2 Run A chain (status list)',
+       file='part2/p2_14_quantum_records', line=373, status='prediction', kind='file', printed='67.16', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_3083():
+    'Photon-sector H0: row iam_level2_runA, column H0 of mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv. Book line 373, printed 67.16.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 
@@ -27735,49 +27984,26 @@ INVENTORY = [
     (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 109, 'eq:bk_SpropA', 'none', '', 'definition: the area-law proportionality S propto A, carried as interpretation (no coefficient); the coefficient is checked at eq:bk_SetaA and eq:bk_structure'),
     (3, 'ch:saturation', 'part3/p3_07_saturation', 66, '', 'derived', '0.95', 'definition: lower edge 0.95 of the shaded Normal band of the gauge (a chosen band, nothing to recompute)'),
     (3, 'ch:saturation', 'part3/p3_07_saturation', 66, '', 'derived', '1.05', 'definition: upper edge 1.05 of the shaded Normal band of the gauge (a chosen band, nothing to recompute)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 33, 'eq:qr_SE', 'derived', '', 'not yet run: draft rejected (drafter skipped: The equation |\\Psi\\rangle_{S\\mathcal E}=\\sum_i c_i\\,|s_i\\rangle_S\\otimes|)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 40, 'eq:qr_tauD', 'derived', '', 'not yet run: draft rejected (drafter skipped: The equation tau_D ~ tau_R (lambda_th / Delta x)^2, lambda_th = hbar / sq)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 71, '', 'calc', '2.5\\times10^{-87}', 'not yet run: draft does not reproduce the printed value (recomputed 1.096050e-88); drafting error on review'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 88, 'eq:qr_virial_n', 'none', '', 'displayed equation, not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 127, 'eq:qr_tauhalo', 'none', '', 'displayed equation, not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 134, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 1.863061e+104); drafting error on review'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 143, 'eq:qr_Idot_particle', 'none', '', 'displayed equation, not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 168, 'eq:qr_Stot', 'none', '', 'displayed equation, not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 176, 'eq:qr_Sinfo', 'none', '', 'displayed equation, not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 181, 'eq:qr_n72', 'derived', '', 'not yet run: draft rejected (does not run: NameError)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 183, '', 'calc', '0.01', 'not yet run: draft rejected (drafter skipped: Line 183 reports ranges of p values from integrating with full ΛCDM growt)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 183, '', 'calc', '0.1', 'not yet run: draft rejected (drafter skipped: Line 183 reports ranges of p values from integrating with full ΛCDM growt)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 183, '', 'calc', '0.25', 'not yet run: draft rejected (drafter skipped: Line 183 reports p values at a=0.25–1 from ΛCDM integration;\n# the excerp)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 186, 'eq:qr_Idot', 'none', '', 'displayed equation, not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 193, '', 'calc', '4.0', 'not yet run: draft rejected (drafter skipped: Line 193 reports that the Sheth–Tormen mass function gives n_eff = 7/2\n# )'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 193, '', 'calc', '3.2', 'not yet run: draft rejected (drafter skipped: Line 193 reports that the Tinker et al. 2008 mass function gives n_eff = )'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 203, '', 'calc', '0.02', 'not yet run: draft rejected (drafter skipped: Line 203 reports that halo definition moves n_eff by at most 0.02 at z=4;)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 203, '', 'calc', '0.09', 'not yet run: draft rejected (drafter skipped: Line 203 reports that halo definition moves n_eff by up to 0.09 at z=2;\n#)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 203, '', 'calc', '0.77', 'not yet run: draft rejected (drafter skipped: σ₈ = 0.77 is a lower bound cited in sensitivity analysis (line 203).\n# Th)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 203, '', 'calc', '0.85', 'not yet run: draft rejected (drafter skipped: σ₈ = 0.85 is an upper bound cited in sensitivity analysis (line 203).\n# T)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 204, '', 'calc', '5.5', 'not yet run: draft rejected (drafter skipped: The bottom-up exponent "runs from about 5.5 at z=9" (line 204) is an empi)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 224, 'eq:qr_Ea', 'interp', '', 'displayed equation, not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 254, '', 'calc', '67.4', 'not yet run: draft rejected (drafter skipped: The book states "H_0=67.4" as the input to the calculation of k_BT_GH*ln2)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 257, '', 'conjecture', '0.3', 'not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 264, 'eq:qr_GammaBH', 'interp', '', 'displayed equation, not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 268, '', 'calc', '203.4', 'not yet run: draft does not reproduce the printed value (recomputed 1.928738e+36); drafting error on review'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 285, '', 'calc', '0.3', 'not yet run: draft rejected (drafter skipped: Line 285: "z=0.3" is a redshift label for the DESI tracer bin, not a calc)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 285, '', 'calc', '0.5', 'not yet run: draft rejected (drafter skipped: Line 285: "z=0.5" is a redshift label for the DESI tracer bin, not a calc)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 298, '', 'calc', '0.3', 'not yet run: draft rejected (printed value typed into the code)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 299, '', 'calc', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 307, '', 'interp', '72.26', 'not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 311, '', 'measured', '+0.54', 'measured, too few printed digits to match against the named files'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 330, '', 'observed', '1.3', 'measured, too few printed digits to match against the named files'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 339, '', 'prediction', '2200', 'not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 339, '', 'prediction', '10', 'not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 344, 'eq:qr_tauIAM', 'none', '', 'displayed equation, not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 345, '', 'calc', '10', 'not yet run: draft rejected (negative control (printed value x1.05) also passes)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 345, '', 'calc', '2200', 'not yet run: draft rejected (printed value typed into the code)'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 347, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 7.82917); drafting error on review'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 373, '', 'prediction', '-0.136', 'not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 373, '', 'prediction', '0.800', 'not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 373, '', 'prediction', '72.26', 'not yet checked'),
-    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 373, '', 'prediction', '67.16', 'not yet checked'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 143, 'eq:qr_Idot_particle', 'none', '', 'definition: the one-record-per-particle writing rate (Press-Schechter integral, no number); its exact consequence n_eff = nu_min^2 - 1 is checked at eq:qr_neff_nu'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 168, 'eq:qr_Stot', 'none', '', 'definition: the split of the horizon entropy into S_geo and S_info (interpretation, no number)'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 183, '', 'calc', '0.01', 'input: lower end a = 0.01 of the matter-era window over which the slope p is measured (the slopes themselves are checked at ch:quantumrecords:L183)'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 183, '', 'calc', '0.1', 'input: upper end a = 0.1 of the matter-era window over which the slope p is measured (the slopes are checked at ch:quantumrecords:L183)'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 183, '', 'calc', '0.25', 'input: lower end a = 0.25 of the late window over which the slope p is measured (the slopes are checked at ch:quantumrecords:L184)'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 203, '', 'calc', '0.02', 'measured, source not named: shift of n_eff by the halo definition (at most 0.02 at z = 4) comes from a sensitivity run of verify_bottom_up_exponent.py whose output is not committed'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 203, '', 'calc', '0.09', 'measured, source not named: shift of n_eff by the halo definition (up to 0.09 at z = 2) comes from a sensitivity run of verify_bottom_up_exponent.py whose output is not committed'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 203, '', 'calc', '0.77', 'input: lower end sigma8 = 0.77 of the range used in the sensitivity test'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 203, '', 'calc', '0.85', 'input: upper end sigma8 = 0.85 of the range used in the sensitivity test'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 204, '', 'calc', '5.5', 'about 5.5 summarises the spread of the three committed values at z = 9 (5.84, 5.31, 5.78 in verify_bottom_up_exponent_output.txt); no single value to compare, and a 5 % control cannot be told from the spread'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 257, '', 'conjecture', '0.3', 'restates ch:electronmass:L188 (0.4 sigma(H0)/H0 = 0.32 %), printed here to one digit, too coarse for the 5 % negative control'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 285, '', 'calc', '0.3', 'input: redshift z = 0.3 at which the f sigma8 deficit is evaluated (deficit checked at ch:quantumrecords:L284:2.17)'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 285, '', 'calc', '0.5', 'input: redshift z = 0.5 at which the f sigma8 deficit is evaluated (deficit checked at ch:quantumrecords:L284:1.35)'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 298, '', 'calc', '0.3', 'input: redshift z = 0.3 at which the f sigma8 deficit is evaluated (deficit checked at ch:quantumrecords:L298:2.17)'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 299, '', 'calc', '0.5', 'input: redshift z = 0.5 at which the f sigma8 deficit is evaluated (deficit checked at ch:quantumrecords:L298:1.35)'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 339, '', 'prediction', '2200', 'input: silica density 2200 kg/m^3 of the sphere (figure caption)'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 339, '', 'prediction', '10', 'input: bath temperature 10 mK of the figure (caption)'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 345, '', 'calc', '10', 'input: bath temperature 10 mK of the worked example'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 345, '', 'calc', '2200', 'input: silica density 2200 kg/m^3 of the worked example'),
+    (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 347, '', 'calc', '10', 'input: mass 10^-12 kg (a nanogram) of the worked example; the times at that mass are checked at ch:quantumrecords:L345 and L345:7.5'),
     (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 70, '', 'analogy', '0.5', 'not yet checked'),
     (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 83, '', 'calc', '10', 'not yet run: draft rejected (no draft returned)'),
     (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 85, '', 'prediction', '10', 'not yet checked'),

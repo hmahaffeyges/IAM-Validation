@@ -2686,14 +2686,22 @@ PASS  ch:saturation:L66:4.45             ch:saturation:p3_07_saturation:66  prin
 PASS  ch:saturation:L71                  ch:saturation:p3_07_saturation:71  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] E_hold from the canon record  file CANON/iam_canon.json
 
 == Part 4: Particles and Quantum Records | ch:quantumrecords (part2/p2_14_quantum_records.tex)
+PASS  eq:qr_SE                           ch:quantumrecords:p2_14_quantum_records:33  printed (algebra)  recomputed True  [derived] a controlled unitary takes (sum c_i s_i) x e_0 to sum c_i s_i x e_i
+PASS  eq:qr_tauD                         ch:quantumrecords:p2_14_quantum_records:40  printed (algebra)  recomputed lhs-rhs=0  [derived] tau_D from the Caldeira-Leggett decoherence rate equals tau_R (lambda_th/Delta x)^2
 PASS  ch:quantumrecords:L44              ch:quantumrecords:p2_14_quantum_records:44  printed 3.7\times 10^{-23}  recomputed 3.664029e-23  tol 5.000005e-25  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:quantumrecords:L71              ch:quantumrecords:p2_14_quantum_records:71  printed 2.5\times10^{-87}  recomputed 2.466113e-87  tol 5.000005e-89  [calc] hbar R/(G M^2) for a Milky Way halo, 1e12 M_sun and 200 kpc (figure caption)
+PASS  eq:qr_virial_n                     ch:quantumrecords:p2_14_quantum_records:88  printed (algebra)  recomputed lhs-rhs=0  [none] circular orbit in V = -k r^-n gives 2K/|V| = n
 PASS  eq:qr_virial_1                     ch:quantumrecords:p2_14_quantum_records:92  printed (algebra)  recomputed True  [derived] n=1 in 2K = n|V| gives K = |V|/2
 PASS  eq:qr_betam                        ch:quantumrecords:p2_14_quantum_records:104  printed 0.15765  recomputed 0.15765  tol 5.000005e-06  [derived] beta_m = Omega_m/2 = 0.15765
 PASS  ch:quantumrecords:L107             ch:quantumrecords:p2_14_quantum_records:107  printed 0.3153  recomputed 0.3153  tol 5.000005e-05  [derived] drafted check, screened (runs; negative control fails)
+PASS  eq:qr_tauhalo                      ch:quantumrecords:p2_14_quantum_records:127  printed (algebra)  recomputed lhs-rhs=0  [none] hbar/|U_self| of a uniform sphere scales as hbar R/(G M^2) (order-one factor 5/3)
 PASS  eq:qr_tauMW                        ch:quantumrecords:p2_14_quantum_records:131  printed 2.5\times10^{-87}  recomputed 2.466113e-87  tol 5.000005e-89  [calc] tau_D = hbar R_vir/(G M^2), 1e12 M_sun, 200 kpc (book inputs line 129)
+PASS  ch:quantumrecords:L134             ch:quantumrecords:p2_14_quantum_records:134  printed 10^{104}  recomputed 1.856426e+104  tol 2.162278e+104  [calc] Hubble time 1/H0 over the Milky Way halo decoherence time
 PASS  eq:qr_neff_nu                      ch:quantumrecords:p2_14_quantum_records:149  printed (algebra)  recomputed True  [derived] dF/dlnD and n_eff = nu^2 - 1 with nu = delta_c/(sigma D)
 PASS  ch:quantumrecords:L153             ch:quantumrecords:p2_14_quantum_records:153  printed 2.12  recomputed 2.12132  tol 0.00500001  [derived] nu_min for n_eff = 7/2
 PASS  ch:quantumrecords:L154             ch:quantumrecords:p2_14_quantum_records:154  printed 1.87  recomputed 1.87083  tol 0.00500001  [calc] nu_min for n_eff = 5/2
+PASS  eq:qr_Sinfo                        ch:quantumrecords:p2_14_quantum_records:176  printed (algebra)  recomputed lhs-rhs=0  [none] matter-era scalings give dS_info/da propto a^(n-11/2), S_info propto a^(n-9/2)/(n-9/2)
+PASS  eq:qr_n72                          ch:quantumrecords:p2_14_quantum_records:181  printed (algebra)  recomputed lhs-rhs=0  [derived] S_info propto -1/a requires n - 9/2 = -1, n = 7/2
 PASS  ch:quantumrecords:L183             ch:quantumrecords:p2_14_quantum_records:183  printed -2.02  recomputed -2.02  tol 0.00500001  [calc] slope p, n=5/2, a=0.01-0.1, full LCDM growth (committed output)  file docs/verification/scripts/verify_theory_derivations_output.txt
       heavy: python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt
 PASS  ch:quantumrecords:L183:-1.52       ch:quantumrecords:p2_14_quantum_records:183  printed -1.52  recomputed -1.52  tol 0.00500001  [calc] slope p, n=3, a=0.01-0.1 (committed output)  file docs/verification/scripts/verify_theory_derivations_output.txt
@@ -2706,8 +2714,14 @@ PASS  ch:quantumrecords:L184:-1.99       ch:quantumrecords:p2_14_quantum_records
       heavy: python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt
 PASS  ch:quantumrecords:L184:-1.57       ch:quantumrecords:p2_14_quantum_records:184  printed -1.57  recomputed -1.57  tol 0.00500001  [calc] slope, n=7/2, a=0.25-1 (committed output)  file docs/verification/scripts/verify_theory_derivations_output.txt
       heavy: python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt
+PASS  eq:qr_Idot                         ch:quantumrecords:p2_14_quantum_records:186  printed (algebra)  recomputed True  [none] I_dot propto rho_m D^(7/2) f H accumulates to S_info propto -1/a in matter domination
 PASS  ch:quantumrecords:L193             ch:quantumrecords:p2_14_quantum_records:193  printed 3.3  recomputed found in file  [calc] z where the bottom-up exponent equals 7/2, Press-Schechter (committed output [3.29])  file docs/verification/scripts/verify_bottom_up_exponent_output.txt
       heavy: python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt
+PASS  ch:quantumrecords:L193:4.0         ch:quantumrecords:p2_14_quantum_records:193  printed 4.0  recomputed 3.97  tol 0.05  [calc] z where the bottom-up exponent equals 7/2, Sheth-Tormen (committed output)  file docs/verification/scripts/verify_bottom_up_exponent_output.txt
+      heavy: python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt
+PASS  ch:quantumrecords:L193:3.2         ch:quantumrecords:p2_14_quantum_records:193  printed 3.2  recomputed 3.15  tol 0.05  [calc] z where the bottom-up exponent equals 7/2, Tinker et al. 2008 (committed output)  file docs/verification/scripts/verify_bottom_up_exponent_output.txt
+      heavy: python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt
+PASS  eq:qr_Ea                           ch:quantumrecords:p2_14_quantum_records:224  printed (algebra)  recomputed True  [interp] E(a) = exp(1-1/a): E(1) = 1, increasing, E -> e as a -> infinity, E -> 0 as a -> 0
 PASS  eq:qr_mu                           ch:quantumrecords:p2_14_quantum_records:235  printed (algebra)  recomputed True  [derived] mu < 1 for beta E > 0
 PASS  eq:qr_Scompton                     ch:quantumrecords:p2_14_quantum_records:246  printed (algebra)  recomputed lhs-rhs=0  [conjecture] S = 4 pi lambdabar_C^2/(4 l_P^2) = pi (m_P/m)^2
 PASS  eq:qr_ELcompton                    ch:quantumrecords:p2_14_quantum_records:251  printed (algebra)  recomputed lhs-rhs=0  [calc] E_L = S k_B T_GH ln 2
@@ -2715,7 +2729,10 @@ PASS  ch:quantumrecords:L254             ch:quantumrecords:p2_14_quantum_records
 PASS  ch:quantumrecords:L254:2.54\times10^{-53} ch:quantumrecords:p2_14_quantum_records:254  printed 2.54\times10^{-53}  recomputed 2.541155e-53  tol 5.000005e-56  [calc] k_B T_GH ln2, H0 = 67.4
 PASS  ch:quantumrecords:L254:4.6\times10^{-8} ch:quantumrecords:p2_14_quantum_records:254  printed 4.6\times10^{-8}  recomputed 4.557158e-08  tol 5.000005e-10  [calc] E_L for the electron, J
 PASS  ch:quantumrecords:L254:5.6\times10^5 ch:quantumrecords:p2_14_quantum_records:254  printed 5.6\times10^5  recomputed 5.566263e+05  tol 5000  [calc] E_L / m_e c^2
+PASS  ch:quantumrecords:L254:67.4        ch:quantumrecords:p2_14_quantum_records:254  printed 67.4  recomputed 67.36  tol 0.05  [calc] H0 of Planck 2018 used for the bit price, 100 h
+PASS  eq:qr_GammaBH                      ch:quantumrecords:p2_14_quantum_records:264  printed (algebra)  recomputed lhs-rhs=0  [interp] Hawking power over k_B T ln 2 is c^3/(1920 G M ln 2)
 PASS  ch:quantumrecords:L267             ch:quantumrecords:p2_14_quantum_records:267  printed 152.5  recomputed 152.549  tol 0.0503251  [derived] same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass)
+PASS  ch:quantumrecords:L268             ch:quantumrecords:p2_14_quantum_records:268  printed 203.4  recomputed 203.399  tol 0.05  [calc] radiation entropy rate (4/3) P/T in bits per second, one solar mass
 PASS  eq:qr_smarr                        ch:quantumrecords:p2_14_quantum_records:273  printed (algebra)  recomputed lhs-rhs=0  [derived] T_BH S_BH = Mc^2/2
 PASS  ch:quantumrecords:L283             ch:quantumrecords:p2_14_quantum_records:283  printed 0.8638  recomputed 0.863819  tol 5.000005e-05  [derived] mu(0) = 1/(1+beta_m)
 PASS  ch:quantumrecords:L284             ch:quantumrecords:p2_14_quantum_records:284  printed 4.25  recomputed 4.25055  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
@@ -2732,12 +2749,24 @@ PASS  ch:quantumrecords:L299:0.800       ch:quantumrecords:p2_14_quantum_records
 PASS  eq:qr_H0                           ch:quantumrecords:p2_14_quantum_records:303  printed 72.26  recomputed 72.2602  tol 0.00500001  [calc] H0 matter = 67.16 sqrt(1.15765)
 PASS  ch:quantumrecords:L306             ch:quantumrecords:p2_14_quantum_records:306  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:quantumrecords:L307             ch:quantumrecords:p2_14_quantum_records:307  printed 72.26  recomputed 72.2614  tol 0.00500001  [interp] matter-sector H0 from the Level 2 chain H0 times sqrt(1+beta_m)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:quantumrecords:L311             ch:quantumrecords:p2_14_quantum_records:311  printed +0.54  recomputed 0.541  tol 0.00500001  [measured] Level 2 chi2_min IAM (runA) minus LCDM (runC)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:quantumrecords:L330             ch:quantumrecords:p2_14_quantum_records:330  printed 1.3  recomputed 1.28  tol 0.05  [observed] separation of the electron spins in the loophole-free Bell test, km
 PASS  ch:quantumrecords:L339             ch:quantumrecords:p2_14_quantum_records:339  printed 2.2\times10^{-10}  recomputed 2.232297e-10  tol 5.000005e-12  [prediction] mass where tau_IAM = tau_PD at 10 mK, kg
 PASS  ch:quantumrecords:L339:7.5         ch:quantumrecords:p2_14_quantum_records:339  printed 7.5  recomputed 7.53645  tol 0.05  [prediction] tau_PD = hbar/E_G at 1e-12 kg, microseconds
 PASS  ch:quantumrecords:L339:509         ch:quantumrecords:p2_14_quantum_records:339  printed 509  recomputed 508.557  tol 0.5  [prediction] tau_IAM at 1e-12 kg, 10 mK, s
+PASS  eq:qr_tauIAM                       ch:quantumrecords:p2_14_quantum_records:344  printed (algebra)  recomputed lhs-rhs=0  [none] at fixed density tau_IAM propto T^2 m^-5 and tau_PD propto m^-5/3
 PASS  ch:quantumrecords:L345             ch:quantumrecords:p2_14_quantum_records:345  printed 509  recomputed 508.557  tol 0.5  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:quantumrecords:L345:7.5         ch:quantumrecords:p2_14_quantum_records:345  printed 7.5  recomputed 7.53645  tol 0.05  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:quantumrecords:L369             ch:quantumrecords:p2_14_quantum_records:369  printed 2.5\times10^{-87}  recomputed 2.466113e-87  tol 5.000005e-89  [calc] tau_D, Milky Way halo
+PASS  ch:quantumrecords:L373             ch:quantumrecords:p2_14_quantum_records:373  printed -0.136  recomputed -0.136181  tol 5.000005e-04  [prediction] mu0 = 1/(1+beta_m) - 1 (status list)
+PASS  ch:quantumrecords:L373:0.800       ch:quantumrecords:p2_14_quantum_records:373  printed 0.800  recomputed 0.799751  tol 5.000005e-04  [prediction] sigma8, Level 2 Run A (status list)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:quantumrecords:L373:72.26       ch:quantumrecords:p2_14_quantum_records:373  printed 72.26  recomputed 72.2602  tol 0.00500001  [prediction] H0 matter = H0 photon sqrt(1+beta_m) (status list)
+PASS  ch:quantumrecords:L373:67.16       ch:quantumrecords:p2_14_quantum_records:373  printed 67.16  recomputed 67.1611  tol 0.00500001  [prediction] photon-sector H0, Level 2 Run A chain (status list)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
 == Part 4: Particles and Quantum Records | ch:entanglement (part2/p2_21_entanglement_records.tex)
 PASS  eq:ent:smax                        ch:entanglement:p2_21_entanglement_records:44  printed (algebra)  recomputed True  [derived] Horodecki: dephased Bell state, S_max = 2 sqrt(1+c^2)
@@ -3833,4 +3862,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3061  FAIL 0  (heavy, read from committed outputs: 623)  inventoried-not-run 3273  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3084  FAIL 0  (heavy, read from committed outputs: 629)  inventoried-not-run 3250  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
