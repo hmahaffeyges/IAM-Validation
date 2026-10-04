@@ -30666,29 +30666,8 @@ def check_3797():
     value = 100 * (float(m.group(1)) - 1)
     return locals()
 
-@check(label='ch:astrogenetics:L295', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names',
-       file='part4/p4_00b_astrogenetics', line=295, status='measured', kind='file', printed='1.65', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_book_output.txt',
-       heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')
-def check_2447():
-    'measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names. Book line 295, printed 1.65.'
-    ok = file_has('docs/verification/scripts/verify_astrogenetics_book_output.txt', '1.65')
-    return locals()
 
-@check(label='ch:astrogenetics:L295:1.97', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names',
-       file='part4/p4_00b_astrogenetics', line=295, status='measured', kind='file', printed='1.97', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_book_output.txt',
-       heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')
-def check_2448():
-    'measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names. Book line 295, printed 1.97.'
-    ok = file_has('docs/verification/scripts/verify_astrogenetics_book_output.txt', '1.97')
-    return locals()
 
-@check(label='ch:astrogenetics:L295:1.05', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names',
-       file='part4/p4_00b_astrogenetics', line=295, status='measured', kind='file', printed='1.05', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_book_output.txt',
-       heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')
-def check_2449():
-    'measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names. Book line 295, printed 1.05.'
-    ok = file_has('docs/verification/scripts/verify_astrogenetics_book_output.txt', '1.05')
-    return locals()
 
 @check(label='ch:astrogenetics:L298', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names',
        file='part4/p4_00b_astrogenetics', line=298, status='measured', kind='file', printed='1.148', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_book_output.txt',
@@ -32794,50 +32773,10 @@ def check_2548():
     value=7**(310.15/315.15)
     return locals()
 
-@check(label='ch:temperature:L74', chapter='ch:temperature', part=6, title='steelhead red blood cells, median holding energy',
-       file='part4/p4_10_temperature', line=74, status='measured', kind='file', printed='3.31', tol=0.0, source=_B09_SAL)
-def check_3960():
-    'Methow River steelhead, red blood cells (RRBS, 20 fish): median holding energy E = ln((1-eps)/eps) in kT. Book line 74, printed 3.31. Inputs: E_kT of the RBC rows of salmon_readings.csv.'
-    E = [float(r['E_kT']) for r in load_csv_rows(_B09_SAL) if r['tissue'] == 'RBC']
-    n = len(E)
-    value = float(np.median(E))
-    return locals()
 
-@check(label='ch:temperature:L74:4.02', chapter='ch:temperature', part=6, title='steelhead sperm, median holding energy',
-       file='part4/p4_10_temperature', line=74, status='measured', kind='file', printed='4.02', tol=0.0, source=_B09_SAL)
-def check_3961():
-    'Methow River steelhead, sperm (RRBS, 20 fish): median holding energy in kT. Book line 74, printed 4.02. Inputs: E_kT of the Sp rows of salmon_readings.csv.'
-    E = [float(r['E_kT']) for r in load_csv_rows(_B09_SAL) if r['tissue'] == 'Sp']
-    n = len(E)
-    value = float(np.median(E))
-    return locals()
 
-@check(label='ch:temperature:L75', chapter='ch:temperature', part=6, title='brook charr sperm, median holding energy',
-       file='part4/p4_10_temperature', line=75, status='measured', kind='file', printed='3.81', tol=0.0, source=_B09_CHR)
-def check_3962():
-    'Brook charr sperm (WGBS), the 39 fish with a complete run: median holding energy in kT. Book line 75, printed 3.81. Inputs: E_kT, pairs of charr_readings.csv.'
-    E = [float(r['E_kT']) for r in _b09_charr()]
-    n = len(E)
-    value = float(np.median(E))
-    return locals()
 
-@check(label='ch:temperature:L75:3.47', chapter='ch:temperature', part=6, title='Atlantic salmon fin, F0, median holding energy',
-       file='part4/p4_10_temperature', line=75, status='measured', kind='file', printed='3.47', tol=0.0, source=_B09_RIM)
-def check_3963():
-    'Rimouski Atlantic salmon fin (WGBS), generation F0: median holding energy in kT (rimouski_score.json P2 stores 3.4651). Book line 75, printed 3.47. Inputs: E_kT of the F0 rows of rimouski_readings.csv.'
-    E = [float(r['E_kT']) for r in load_csv_rows(_B09_RIM) if r['generation'] == 'F0']
-    n = len(E)
-    value = float(np.median(E))
-    return locals()
 
-@check(label='ch:temperature:L75:3.56', chapter='ch:temperature', part=6, title='Atlantic salmon fin, F1, median holding energy',
-       file='part4/p4_10_temperature', line=75, status='measured', kind='file', printed='3.56', tol=0.0, source=_B09_RIM)
-def check_3964():
-    'Rimouski Atlantic salmon fin, generation F1: median holding energy in kT. Book line 75, printed 3.56. Inputs: E_kT of the F1 rows of rimouski_readings.csv.'
-    E = [float(r['E_kT']) for r in load_csv_rows(_B09_RIM) if r['generation'] == 'F1']
-    n = len(E)
-    value = float(np.median(E))
-    return locals()
 
 @check(label='ch:temperature:L76', chapter='ch:temperature', part=6, title='human cells at 37 C (dashed line)',
        file='part4/p4_10_temperature', line=76, status='measured', kind='file', printed='3.41', tol=0.0, source=_B09_PC)
@@ -32846,31 +32785,8 @@ def check_3965():
     value = _b09_nums(_b09_md_line(_B09_PC, '| methylated sites (copy error)'))[2]
     return locals()
 
-@check(label='ch:temperature:L76:3.74', chapter='ch:temperature', part=6, title='a fixed holding energy carried to 10 C, in kT',
-       file='part4/p4_10_temperature', line=76, status='measured', kind='num', printed='3.74', tol=0.0)
-def check_3966():
-    'A holding energy fixed in joules at its 37 C value, E_hold kB T_cell, expressed in units of kB T at 10 C (283.15 K): E_hold T_cell / 283.15. Book line 76, printed 3.74 (dotted line). Inputs: E_hold, T_cell (CANON).'
-    T10 = 10 + 273.15
-    value = E_hold * kB * T_cell / (kB * T10)
-    return locals()
 
-@check(label='ch:temperature:L77', chapter='ch:temperature', part=6, title='charr: holding energy against duplicate fraction, Spearman rho',
-       file='part4/p4_10_temperature', line=77, status='measured', kind='file', printed='-0.57', tol=0.0, source=_B09_CHR)
-def check_3967():
-    'Brook charr, 39 fish with a complete run: Spearman correlation of holding energy with the library duplicate fraction (PROC_CHARR_01_OUTCOME.md: 0.57 in magnitude without the failed fish). Book line 77, printed -0.57. Inputs: E_kT, dup_frac of charr_readings.csv.'
-    from scipy.stats import spearmanr
-    rows = _b09_charr()
-    value = float(spearmanr([float(r['E_kT']) for r in rows], [float(r['dup_frac']) for r in rows])[0])
-    return locals()
 
-@check(label='ch:temperature:L77:-0.38', chapter='ch:temperature', part=6, title='Atlantic salmon: holding energy against conversion failure, Spearman rho',
-       file='part4/p4_10_temperature', line=77, status='measured', kind='file', printed='-0.38', tol=0.0, source=_B09_RIM)
-def check_3968():
-    'Rimouski Atlantic salmon, 64 fish: Spearman correlation of holding energy with the conversion-failure rate (the copy error correlates +0.375, rimouski_score.json P1). Book line 77, printed -0.38. Inputs: E_kT, conv_fail of rimouski_readings.csv.'
-    from scipy.stats import spearmanr
-    rows = load_csv_rows(_B09_RIM)
-    value = float(spearmanr([float(r['E_kT']) for r in rows], [float(r['conv_fail']) for r in rows])[0])
-    return locals()
 
 @check(label='ch:temperature:L111', chapter='ch:temperature', part=6, title='M for a dog at 38.5 C',
        file='part4/p4_10_temperature', line=111, status='prediction', kind='num', printed='20.84', tol=0.0)
@@ -32904,13 +32820,6 @@ def check_3971():
 
 
 # ======== Part 6 | ch:instrument | docs/book/part4/p4_12_instrument.tex
-@check(label='ch:instrument:L31:0.985', title='intake call rate, first laboratory median', line=31, status='measured', printed='0.985', tol=0.0,
-       source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
-def check_3972():
-    'Call rate of the 48-array intake measurement, first laboratory, median. Book line 31, printed 0.985. Read from the committed '\
-    'outcome record of the intake procedure (the per-array file behind it is archived privately), first number of the 48-array record.'
-    value = _b10_intake(0)
-    return locals()
 
 @check(label='ch:instrument:L31:0.979', title='intake call rate, first laboratory minimum', line=31, status='measured', printed='0.979', tol=0.0,
        source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
@@ -34016,87 +33925,15 @@ def check_4097():
     value = float(np.std(a, ddof=1))
     return locals()
 
-@check(label='ch:serial:L31:0.044', chapter='ch:serial', part=6, title='within-person SD, donor 2 (GSE247193), untared isolated neutrophils',
-       file='part4/p4_17_serial', line=31, status='measured', kind='file', printed='0.044', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
-def check_4098():
-    'Within-person SD of untared Met-A, donor 2 (GSE247193, 21 arrays read), computed from the T2 diagnostic. Book line 31, printed 0.044. Inputs: t2_diag.csv.'
-    a = np.array(_b11_t2_A('GSE247193'))
-    value = float(np.std(a, ddof=1))
-    return locals()
 
-@check(label='ch:serial:L34', chapter='ch:serial', part=6, title='GSE250556 replicates: lowest neutrophil fraction',
-       file='part4/p4_17_serial', line=34, status='measured', kind='file', printed='0.30', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv')
-def check_4099():
-    'Lowest neutrophil fraction (Stage A) of the whole-blood technical replicates GSE250556 (test T3, 63 arrays with a fraction). Book line 34, printed 0.30. Inputs: chain_v3_dev3_readings.csv, column f_neu.'
-    value = min(_b11_t3_fneu())
-    return locals()
 
-@check(label='ch:serial:L34:0.56', chapter='ch:serial', part=6, title='GSE250556 replicates: highest neutrophil fraction',
-       file='part4/p4_17_serial', line=34, status='measured', kind='file', printed='0.56', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv')
-def check_4100():
-    'Highest neutrophil fraction (Stage A) of the whole-blood technical replicates GSE250556 (test T3). Book line 34, printed 0.56. Inputs: chain_v3_dev3_readings.csv, column f_neu.'
-    value = max(_b11_t3_fneu())
-    return locals()
 
-@check(label='ch:serial:L37', chapter='ch:serial', part=6, title='remission pairs: agreement bar of S5',
-       file='part4/p4_17_serial', line=37, status='measured', kind='file', printed='0.05', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md')
-def check_4101():
-    'The agreement within which the same person\'s two remission draws read (|A(Rm1) - A(Rm2)|), read from bar S5 of the PROC-AML-SERIAL-01 outcome table. Book line 37, printed 0.05. Inputs: PROC_AML_SERIAL_01_OUTCOME.md, row S5.'
-    bar, k, n = _b11_s5_row()
-    value = bar
-    return locals()
 
-@check(label='ch:serial:L47', chapter='ch:serial', part=6, title='figure caption: within-person SD, donor 1',
-       file='part4/p4_17_serial', line=47, status='measured', kind='file', printed='0.045', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
-def check_4102():
-    'Figure fig:p4_repeats caption: within-person SD 0.045 (24 arrays), donor 1 (GSE247195), recomputed from the T2 diagnostic. Book line 47, printed 0.045. Inputs: t2_diag.csv.'
-    value = float(np.std(np.array(_b11_t2_A('GSE247195')), ddof=1))
-    return locals()
 
-@check(label='ch:serial:L47:0.044', chapter='ch:serial', part=6, title='figure caption: within-person SD, donor 2',
-       file='part4/p4_17_serial', line=47, status='measured', kind='file', printed='0.044', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
-def check_4103():
-    'Figure fig:p4_repeats caption: within-person SD 0.044 (21 arrays), donor 2 (GSE247193), recomputed from the T2 diagnostic. Book line 47, printed 0.044. Inputs: t2_diag.csv.'
-    value = float(np.std(np.array(_b11_t2_A('GSE247193')), ddof=1))
-    return locals()
 
-@check(label='ch:serial:L57', chapter='ch:serial', part=6, title='table: arrays read, donor 1',
-       file='part4/p4_17_serial', line=57, status='measured', kind='file', printed='24', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
-def check_4104():
-    'Table tab:p4_changefloor: number of donor-1 arrays (GSE247195) that gave an untared reading in the T2 diagnostic. Book line 57, printed 24. Inputs: t2_diag.csv.'
-    value = len(_b11_t2_A('GSE247195'))
-    return locals()
 
-@check(label='ch:serial:L57:0.045', chapter='ch:serial', part=6, title='table: within-person SD, donor 1',
-       file='part4/p4_17_serial', line=57, status='measured', kind='file', printed='0.045', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
-def check_4105():
-    'Table tab:p4_changefloor: SD of untared Met-A, donor 1 (GSE247195). Book line 57, printed 0.045. Inputs: t2_diag.csv.'
-    value = float(np.std(np.array(_b11_t2_A('GSE247195')), ddof=1))
-    return locals()
 
-@check(label='ch:serial:L58', chapter='ch:serial', part=6, title='table: arrays read, donor 2',
-       file='part4/p4_17_serial', line=58, status='measured', kind='file', printed='21', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
-def check_4106():
-    'Table tab:p4_changefloor: number of donor-2 arrays (GSE247193) that gave an untared reading (24 run, 3 gave none). Book line 58, printed 21. Inputs: t2_diag.csv.'
-    value = len(_b11_t2_A('GSE247193'))
-    return locals()
 
-@check(label='ch:serial:L58:0.044', chapter='ch:serial', part=6, title='table: within-person SD, donor 2',
-       file='part4/p4_17_serial', line=58, status='measured', kind='file', printed='0.044', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
-def check_4107():
-    'Table tab:p4_changefloor: SD of untared Met-A, donor 2 (GSE247193). Book line 58, printed 0.044. Inputs: t2_diag.csv.'
-    value = float(np.std(np.array(_b11_t2_A('GSE247193')), ddof=1))
-    return locals()
 
 @check(label='ch:serial:L60', chapter='ch:serial', part=6, title='table: remission pairs, number of pairs',
        file='part4/p4_17_serial', line=60, status='measured', kind='file', printed='10', tol=0.0,
@@ -34107,14 +33944,6 @@ def check_4108():
     value = n
     return locals()
 
-@check(label='ch:serial:L60:0.05', chapter='ch:serial', part=6, title='table: remission pairs, agreement bar',
-       file='part4/p4_17_serial', line=60, status='measured', kind='file', printed='0.05', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md')
-def check_4109():
-    'Table tab:p4_changefloor: "10 of 10 within 0.05"; the 0.05 is bar S5 of the PROC-AML-SERIAL-01 outcome, and every pair met it (k = n). Book line 60, printed 0.05. Inputs: PROC_AML_SERIAL_01_OUTCOME.md, row S5.'
-    bar, k, n = _b11_s5_row()
-    value = bar if k == n else float('nan')
-    return locals()
 
 @check(label='ch:serial:L71', chapter='ch:serial', part=6, title='E-MTAB-7309 Stage 1: median call rate',
        file='part4/p4_17_serial', line=71, status='measured', kind='file', printed='0.894', tol=0.0,
@@ -34259,99 +34088,17 @@ def check_4124():
 
 
 # ======== Part 6 | ch:firstreadings | docs/book/part4/p4_21_firstreadings.tex
-@check(label='ch:firstreadings:L22', chapter='ch:firstreadings', part=6, title='held-out reading of the reference arrays: lowest',
-       file='part4/p4_21_firstreadings', line=22, status='openprob', kind='file', printed='0.983', tol=0.0,
-       source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
-def check_4125():
-    'Held-out (leave-one-out, sites re-chosen) Met-A of the six EPIC neutrophil reference arrays: lowest. Book line 22, printed 0.983. Inputs: metA_floors_v1_3_loo.csv (A_loo).'
-    value = min(_b11fr_loo())
-    return locals()
 
-@check(label='ch:firstreadings:L22:1.045', chapter='ch:firstreadings', part=6, title='held-out reading of the reference arrays: highest',
-       file='part4/p4_21_firstreadings', line=22, status='openprob', kind='file', printed='1.045', tol=0.0,
-       source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
-def check_4126():
-    'Held-out (leave-one-out) Met-A of the six EPIC neutrophil reference arrays: highest. Book line 22, printed 1.045. Inputs: metA_floors_v1_3_loo.csv (A_loo).'
-    value = max(_b11fr_loo())
-    return locals()
 
-@check(label='ch:firstreadings:L24', chapter='ch:firstreadings', part=6, title='withheld remission bloods: lowest neutrophil fraction',
-       file='part4/p4_21_firstreadings', line=24, status='openprob', kind='file', printed='0.06', tol=0.0,
-       source='Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv')
-def check_4127():
-    'Acceptance run: the five remission bloods whose A was withheld at the earlier read line; lowest neutrophil fraction. Book line 24, printed 0.06. Inputs: chain_acceptance.csv (f_neu where A is empty).'
-    f = _b11fr_withheld_remission()
-    n_withheld = len(f)
-    value = min(f)
-    return locals()
 
-@check(label='ch:firstreadings:L24:0.47', chapter='ch:firstreadings', part=6, title='withheld remission bloods: highest neutrophil fraction',
-       file='part4/p4_21_firstreadings', line=24, status='openprob', kind='file', printed='0.47', tol=0.0,
-       source='Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv')
-def check_4128():
-    'Acceptance run: the five withheld remission bloods; highest neutrophil fraction. Book line 24, printed 0.47. Inputs: chain_acceptance.csv.'
-    value = max(_b11fr_withheld_remission())
-    return locals()
 
 
 # ---------------------------------------------------------------- L32-L47: the second laboratory
 
-@check(label='ch:firstreadings:L32', chapter='ch:firstreadings', part=6, title='T1c predicted band: lower edge',
-       file='part4/p4_21_firstreadings', line=32, status='measured', kind='file', printed='0.93', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_PREREG.md')
-def check_4129():
-    'The predicted band of untared A (bar T1c), read from the pre-registration: lower edge. Book line 32, printed 0.93. Inputs: PROC_NEUT_TEST_01_PREREG.md, line T1c.'
-    value = _b11fr_t1c()[0]
-    return locals()
 
-@check(label='ch:firstreadings:L32:0.98', chapter='ch:firstreadings', part=6, title='T1c predicted band: upper edge',
-       file='part4/p4_21_firstreadings', line=32, status='measured', kind='file', printed='0.98', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_PREREG.md')
-def check_4130():
-    'The predicted band of untared A (bar T1c), read from the pre-registration: upper edge. Book line 32, printed 0.98. Inputs: PROC_NEUT_TEST_01_PREREG.md, line T1c.'
-    value = _b11fr_t1c()[1]
-    return locals()
 
-@check(label='ch:firstreadings:L34', chapter='ch:firstreadings', part=6, title='untared A of the infection study, typical value',
-       file='part4/p4_21_firstreadings', line=34, status='measured', kind='file', printed='1.22', tol=0.01,
-       source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
-def check_4131():
-    'Untared A of the infection-study whole bloods in the battery (570 read; A on 495): median. Book line 34, printed "around 1.22"; tol 0.01 because the sentence says "around" (median 1.229, mean 1.226 in this file; the outcome record says "around 1.22"). Inputs: neut_test_T1T3T4_readings.csv (A, test T4).'
-    a = [float(r['A']) for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
-         if r['test'] == 'T4' and r['status'] == 'ok' and r['A'] not in ('', 'nan')]
-    value = float(np.median(a))
-    return locals()
 
-@check(label='ch:firstreadings:L37', chapter='ch:firstreadings', part=6, title='healthy expectation from fraction and noise index: R^2',
-       file='part4/p4_21_firstreadings', line=37, status='measured', kind='file', printed='0.85', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv')
-def check_4132():
-    'R^2 of the least-squares fit A = a + b f_neu + c N on the 76 healthy (NEGATIVE) infection-study arrays with fraction >= 0.5, development run 3. Book line 37, printed 0.85. Inputs: chain_v3_dev3_readings.csv (A, f_neu, N).'
-    rows, neg, X, y, b = _b11fr_covid495()
-    pred = X(neg) @ b
-    n_healthy, n_all = len(neg), len(rows)
-    value = float(1 - np.var(y - pred) / np.var(y))
-    return locals()
 
-@check(label='ch:firstreadings:L47', chapter='ch:firstreadings', part=6, title='above Normal, severe against healthy, after the fitted expectation: p',
-       file='part4/p4_21_firstreadings', line=47, status='fitted', kind='file', printed='0.81', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv')
-def check_4133():
-    'Each of the 495 arrays divided by the expectation for its own fraction and noise index (healthy arrays: leave-one-out fit); arrays above 1.05 counted per group, severe against healthy, one-sided Fisher exact test. Book line 47, printed p = 0.81. Inputs: chain_v3_dev3_readings.csv.'
-    from scipy import stats
-    rows, neg, X, y, b = _b11fr_covid495()
-    r_all = np.array([float(r['A']) for r in rows]) / (X(rows) @ b)
-    Xn = X(neg); loo = {}
-    for i in range(len(y)):
-        m = np.ones(len(y), bool); m[i] = False
-        bb = np.linalg.lstsq(Xn[m], y[m], rcond=None)[0]
-        loo[neg[i]['gsm']] = y[i] / (Xn[i] @ bb)
-    r_all = np.array([loo.get(r['gsm'], v) for r, v in zip(rows, r_all)])
-    grp = np.array([r['group'] for r in rows])
-    s, h = r_all[grp == 'SEVERE'], r_all[grp == 'NEGATIVE']
-    a, c = int((s > 1.05).sum()), int((h > 1.05).sum())
-    value = float(stats.fisher_exact([[a, len(s) - a], [c, len(h) - c]], alternative='greater')[1])
-    return locals()
 
 
 # ---------------------------------------------------------------- L57-L60: DNMT1 inhibitor on arrays
@@ -34359,376 +34106,56 @@ def _b11fr_rng_check(sel, which, key='A'):
     v = _b11fr_A(sel, key)
     return float(v.min() if which == 'min' else v.max())
 
-@check(label='ch:firstreadings:L57', chapter='ch:firstreadings', part=6, title='vehicle arrays: lowest Met-A',
-       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='0.968', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4134():
-    'Vehicle (DMSO) arrays, each line against its own vehicle arrays: lowest Met-A (12 arrays). Book line 57, printed 0.968. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_VEH, 'min')
-    return locals()
 
-@check(label='ch:firstreadings:L57:1.048', chapter='ch:firstreadings', part=6, title='vehicle arrays: highest Met-A',
-       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='1.048', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4135():
-    'Vehicle (DMSO) arrays: highest Met-A. Book line 57, printed 1.048. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_VEH, 'max')
-    return locals()
 
-@check(label='ch:firstreadings:L57:1.002', chapter='ch:firstreadings', part=6, title='inactive analogue 10 uM: lowest Met-A',
-       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='1.002', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4136():
-    'Inactive analogue (GSK477, 10 uM, 6 arrays): lowest Met-A. Book line 57, printed 1.002. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_ANA, 'min')
-    return locals()
 
-@check(label='ch:firstreadings:L57:1.032', chapter='ch:firstreadings', part=6, title='inactive analogue 10 uM: highest Met-A',
-       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='1.032', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4137():
-    'Inactive analogue (GSK477, 10 uM): highest Met-A. Book line 57, printed 1.032. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_ANA, 'max')
-    return locals()
 
-@check(label='ch:firstreadings:L57:3.2', chapter='ch:firstreadings', part=6, title='lowest active-drug dose in the series',
-       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='3.2', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4138():
-    'Lowest non-zero dose (nM) of the active drug GSK032 among the arrays read. Book line 57, printed 3.2 nM. Inputs: dnmt_arrays_readings.csv (dose_nM).'
-    value = min(float(r['dose_nM']) for r in _b11fr_dnmt(lambda r: r['cmpd'] == 'GSK032' and float(r['dose_nM']) > 0))
-    return locals()
 
-@check(label='ch:firstreadings:L57:1.001', chapter='ch:firstreadings', part=6, title='active drug 3.2-16 nM: lowest Met-A',
-       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='1.001', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4139():
-    'Active drug GSK032 at 3.2-16 nM (6 arrays): lowest Met-A. Book line 57, printed 1.001. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_LO, 'min')
-    return locals()
 
-@check(label='ch:firstreadings:L57:1.028', chapter='ch:firstreadings', part=6, title='active drug 3.2-16 nM: highest Met-A',
-       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='1.028', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4140():
-    'Active drug GSK032 at 3.2-16 nM: highest Met-A. Book line 57, printed 1.028. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_LO, 'max')
-    return locals()
 
-@check(label='ch:firstreadings:L57:1.16', chapter='ch:firstreadings', part=6, title='active drug >= 80 nM: lowest Met-A',
-       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='1.16', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4141():
-    'Active drug GSK032 at >= 80 nM, time series included (21 arrays): lowest Met-A. Book line 57, printed 1.16. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_HI, 'min')
-    return locals()
 
-@check(label='ch:firstreadings:L57:1.87', chapter='ch:firstreadings', part=6, title='active drug >= 80 nM: highest Met-A',
-       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='1.87', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4142():
-    'Active drug GSK032 at >= 80 nM: highest Met-A. Book line 57, printed 1.87. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_HI, 'max')
-    return locals()
 
-@check(label='ch:firstreadings:L58', chapter='ch:firstreadings', part=6, title='methylated channel: median rise, active compounds',
-       file='part4/p4_21_firstreadings', line=58, status='measured', kind='file', printed='+1.56', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4143():
-    'Median A_meth - 1 over the arrays of both active compounds (GSK032 at every dose, GSK862; 33 arrays). Book line 58, printed +1.56. Inputs: dnmt_arrays_readings.csv (A_meth).'
-    value = float(np.median(_b11fr_A(_B11_ACTIVE, 'A_meth') - 1))
-    return locals()
 
-@check(label='ch:firstreadings:L58:0.017', chapter='ch:firstreadings', part=6, title='unmethylated channel: median rise, active compounds',
-       file='part4/p4_21_firstreadings', line=58, status='measured', kind='file', printed='+0.017', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4144():
-    'Median A_unmeth - 1 over the same 33 active-compound arrays. Book line 58, printed +0.017. Inputs: dnmt_arrays_readings.csv (A_unmeth).'
-    value = float(np.median(_b11fr_A(_B11_ACTIVE, 'A_unmeth') - 1))
-    return locals()
 
-@check(label='ch:firstreadings:L58:1.60', chapter='ch:firstreadings', part=6, title='second active compound: lowest Met-A',
-       file='part4/p4_21_firstreadings', line=58, status='measured', kind='file', printed='1.60', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4145():
-    'Second active compound GSK862 (1 uM, days 2 and 4, 6 arrays): lowest Met-A. Book line 58, printed 1.60. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_SECOND, 'min')
-    return locals()
 
-@check(label='ch:firstreadings:L58:1.85', chapter='ch:firstreadings', part=6, title='second active compound: highest Met-A',
-       file='part4/p4_21_firstreadings', line=58, status='measured', kind='file', printed='1.85', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4146():
-    'Second active compound GSK862: highest Met-A. Book line 58, printed 1.85. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_SECOND, 'max')
-    return locals()
 
-@check(label='ch:firstreadings:L59', chapter='ch:firstreadings', part=6, title='methylated-site median beta at 80 nM: lowest',
-       file='part4/p4_21_firstreadings', line=59, status='measured', kind='file', printed='0.57', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4147():
-    'Median beta of the methylated identity sites, active drug at 80 nM (three lines): lowest. Book line 59, printed 0.57. Inputs: dnmt_arrays_readings.csv (beta_meth_median).'
-    value = float(_b11fr_A(lambda r: r['cmpd'] == 'GSK032' and float(r['dose_nM']) == 80, 'beta_meth_median').min())
-    return locals()
 
-@check(label='ch:firstreadings:L59:0.89', chapter='ch:firstreadings', part=6, title='methylated-site median beta at 80 nM: highest',
-       file='part4/p4_21_firstreadings', line=59, status='measured', kind='file', printed='0.89', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4148():
-    'Median beta of the methylated identity sites, active drug at 80 nM: highest. Book line 59, printed 0.89. Inputs: dnmt_arrays_readings.csv (beta_meth_median).'
-    value = float(_b11fr_A(lambda r: r['cmpd'] == 'GSK032' and float(r['dose_nM']) == 80, 'beta_meth_median').max())
-    return locals()
 
-@check(label='ch:firstreadings:L59:0.36', chapter='ch:firstreadings', part=6, title='methylated-site beta by 400 nM: lowest (record)',
-       file='part4/p4_21_firstreadings', line=59, status='measured', kind='file', printed='0.36', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md')
-def check_4149():
-    'Methylated-site beta "by 400 nM", lower end, read from the PROC-DNMT-01 Part A record (the per-array file does not single out the array set; see for_author). Book line 59, printed 0.36. Inputs: PROC_DNMT_01_PARTA_OUTCOME.md.'
-    value = _b11fr_ceiling_record()[0]
-    return locals()
 
-@check(label='ch:firstreadings:L59:0.60', chapter='ch:firstreadings', part=6, title='methylated-site beta by 400 nM: highest (record)',
-       file='part4/p4_21_firstreadings', line=59, status='measured', kind='file', printed='0.60', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md')
-def check_4150():
-    'Methylated-site beta "by 400 nM", upper end, read from the PROC-DNMT-01 Part A record. Book line 59, printed 0.60. Inputs: PROC_DNMT_01_PARTA_OUTCOME.md.'
-    value = _b11fr_ceiling_record()[1]
-    return locals()
 
-@check(label='ch:firstreadings:L60', chapter='ch:firstreadings', part=6, title='methylated channel at the ceiling: lowest observed (record)',
-       file='part4/p4_21_firstreadings', line=60, status='measured', kind='file', printed='2.66', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md')
-def check_4151():
-    'Methylated channel reading at the ceiling, observed range, lower end, read from the PROC-DNMT-01 Part A record. Book line 60, printed 2.66. Inputs: PROC_DNMT_01_PARTA_OUTCOME.md.'
-    value = _b11fr_ceiling_record()[3]
-    return locals()
 
-@check(label='ch:firstreadings:L60:2.85', chapter='ch:firstreadings', part=6, title='methylated channel at the ceiling: highest observed',
-       file='part4/p4_21_firstreadings', line=60, status='measured', kind='file', printed='2.85', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4152():
-    'Highest methylated-channel reading A_meth of any active-compound array (the top of the observed ceiling range). Book line 60, printed 2.85. Inputs: dnmt_arrays_readings.csv (A_meth); the Part A record gives the same range end.'
-    value = float(_b11fr_A(_B11_ACTIVE, 'A_meth').max())
-    return locals()
 
-@check(label='ch:firstreadings:L60:2.8', chapter='ch:firstreadings', part=6, title='ceiling of the methylated channel, 1/H(floor) (record)',
-       file='part4/p4_21_firstreadings', line=60, status='measured', kind='file', printed='2.8', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md')
-def check_4153():
-    'Ceiling of the methylated channel, 1/H(floor) "about 2.8", read from the PROC-DNMT-01 Part A record (the per-site floor of these lines is not committed, so it cannot be recomputed here). Book line 60, printed 2.8. Inputs: PROC_DNMT_01_PARTA_OUTCOME.md.'
-    value = _b11fr_ceiling_record()[2]
-    return locals()
 
 
 # ---------------------------------------------------------------- L63-L64: single molecules
 
-@check(label='ch:firstreadings:L63', chapter='ch:firstreadings', part=6, title='EM-seq vehicle copy error: lowest',
-       file='part4/p4_21_firstreadings', line=63, status='measured', kind='file', printed='0.0209', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
-def check_4154():
-    'Copy error eps (sequencing error removed) of the eight vehicle EM-seq libraries: lowest. Book line 63, printed 0.0209. Inputs: dnmt_b_readings.csv (eps_corr).'
-    value = float(_b11fr_molecules()[0].min())
-    return locals()
 
-@check(label='ch:firstreadings:L63:0.0217', chapter='ch:firstreadings', part=6, title='EM-seq vehicle copy error: highest',
-       file='part4/p4_21_firstreadings', line=63, status='measured', kind='file', printed='0.0217', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
-def check_4155():
-    'Copy error of the vehicle libraries: highest. Book line 63, printed 0.0217. Inputs: dnmt_b_readings.csv (eps_corr).'
-    value = float(_b11fr_molecules()[0].max())
-    return locals()
 
-@check(label='ch:firstreadings:L63:0.0405', chapter='ch:firstreadings', part=6, title='EM-seq treated copy error: lowest',
-       file='part4/p4_21_firstreadings', line=63, status='measured', kind='file', printed='0.0405', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
-def check_4156():
-    'Copy error of the eight treated libraries (100 nM, 7 days): lowest. Book line 63, printed 0.0405. Inputs: dnmt_b_readings.csv (eps_corr).'
-    value = float(_b11fr_molecules()[1].min())
-    return locals()
 
-@check(label='ch:firstreadings:L63:0.0511', chapter='ch:firstreadings', part=6, title='EM-seq treated copy error: highest',
-       file='part4/p4_21_firstreadings', line=63, status='measured', kind='file', printed='0.0511', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
-def check_4157():
-    'Copy error of the treated libraries: highest. Book line 63, printed 0.0511. Inputs: dnmt_b_readings.csv (eps_corr).'
-    value = float(_b11fr_molecules()[1].max())
-    return locals()
 
-@check(label='ch:firstreadings:L63:1.65', chapter='ch:firstreadings', part=6, title='IAM-A against own vehicle: lowest',
-       file='part4/p4_21_firstreadings', line=63, status='measured', kind='file', printed='1.65', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
-def check_4158():
-    'IAM-A = H(eps treated)/H(mean eps of the same genotype\'s vehicle libraries), binary entropy in bits, recomputed for the eight treated libraries: lowest. Book line 63, printed 1.65. Inputs: dnmt_b_readings.csv.'
-    value = float(_b11fr_molecules()[2].min())
-    return locals()
 
-@check(label='ch:firstreadings:L63:1.97', chapter='ch:firstreadings', part=6, title='IAM-A against own vehicle: highest',
-       file='part4/p4_21_firstreadings', line=63, status='measured', kind='file', printed='1.97', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
-def check_4159():
-    'IAM-A of the treated libraries against their own genotype\'s vehicle, recomputed: highest. Book line 63, printed 1.97. Inputs: dnmt_b_readings.csv.'
-    value = float(_b11fr_molecules()[2].max())
-    return locals()
 
-@check(label='ch:firstreadings:L74:0.968', chapter='ch:firstreadings', part=6, title='caption: vehicle lowest Met-A',
-       file='part4/p4_21_firstreadings', line=74, status='measured', kind='file', printed='0.968', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4161():
-    'Figure fig:p4_dnmt_arrays caption: vehicle arrays, lowest Met-A. Book line 74, printed 0.968. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_VEH, 'min')
-    return locals()
 
-@check(label='ch:firstreadings:L74:1.048', chapter='ch:firstreadings', part=6, title='caption: vehicle highest Met-A',
-       file='part4/p4_21_firstreadings', line=74, status='measured', kind='file', printed='1.048', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4162():
-    'Figure fig:p4_dnmt_arrays caption: vehicle arrays, highest Met-A. Book line 74, printed 1.048. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_VEH, 'max')
-    return locals()
 
-@check(label='ch:firstreadings:L74:3.2', chapter='ch:firstreadings', part=6, title='caption: lowest active-drug dose',
-       file='part4/p4_21_firstreadings', line=74, status='measured', kind='file', printed='3.2', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4163():
-    'Figure fig:p4_dnmt_arrays caption: lowest non-zero active-drug dose (nM). Book line 74, printed 3.2. Inputs: dnmt_arrays_readings.csv.'
-    value = min(float(r['dose_nM']) for r in _b11fr_dnmt(lambda r: r['cmpd'] == 'GSK032' and float(r['dose_nM']) > 0))
-    return locals()
 
-@check(label='ch:firstreadings:L74:1.001', chapter='ch:firstreadings', part=6, title='caption: 3.2-16 nM lowest Met-A',
-       file='part4/p4_21_firstreadings', line=74, status='measured', kind='file', printed='1.001', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4164():
-    'Figure fig:p4_dnmt_arrays caption: active drug 3.2-16 nM, lowest Met-A. Book line 74, printed 1.001. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_LO, 'min')
-    return locals()
 
-@check(label='ch:firstreadings:L74:1.028', chapter='ch:firstreadings', part=6, title='caption: 3.2-16 nM highest Met-A',
-       file='part4/p4_21_firstreadings', line=74, status='measured', kind='file', printed='1.028', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4165():
-    'Figure fig:p4_dnmt_arrays caption: active drug 3.2-16 nM, highest Met-A. Book line 74, printed 1.028. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_LO, 'max')
-    return locals()
 
-@check(label='ch:firstreadings:L74:1.16', chapter='ch:firstreadings', part=6, title='caption: >= 80 nM lowest Met-A',
-       file='part4/p4_21_firstreadings', line=74, status='measured', kind='file', printed='1.16', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4166():
-    'Figure fig:p4_dnmt_arrays caption: active drug >= 80 nM, lowest Met-A. Book line 74, printed 1.16. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_HI, 'min')
-    return locals()
 
-@check(label='ch:firstreadings:L74:1.87', chapter='ch:firstreadings', part=6, title='caption: >= 80 nM highest Met-A',
-       file='part4/p4_21_firstreadings', line=74, status='measured', kind='file', printed='1.87', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4167():
-    'Figure fig:p4_dnmt_arrays caption: active drug >= 80 nM, highest Met-A. Book line 74, printed 1.87. Inputs: dnmt_arrays_readings.csv.'
-    value = _b11fr_rng_check(_B11_HI, 'max')
-    return locals()
 
 
 # ---------------------------------------------------------------- L81-L82: caption of fig:p4_dnmt_molecules (same values as L63-L64)
 
-@check(label='ch:firstreadings:L81:0.0209', chapter='ch:firstreadings', part=6, title='caption: vehicle copy error lowest',
-       file='part4/p4_21_firstreadings', line=81, status='measured', kind='file', printed='0.0209', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
-def check_4168():
-    'Figure fig:p4_dnmt_molecules caption: vehicle copy error, lowest. Book line 81, printed 0.0209. Inputs: dnmt_b_readings.csv.'
-    value = float(_b11fr_molecules()[0].min())
-    return locals()
 
-@check(label='ch:firstreadings:L81:0.0217', chapter='ch:firstreadings', part=6, title='caption: vehicle copy error highest',
-       file='part4/p4_21_firstreadings', line=81, status='measured', kind='file', printed='0.0217', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
-def check_4169():
-    'Figure fig:p4_dnmt_molecules caption: vehicle copy error, highest. Book line 81, printed 0.0217. Inputs: dnmt_b_readings.csv.'
-    value = float(_b11fr_molecules()[0].max())
-    return locals()
 
-@check(label='ch:firstreadings:L81:0.0405', chapter='ch:firstreadings', part=6, title='caption: treated copy error lowest',
-       file='part4/p4_21_firstreadings', line=81, status='measured', kind='file', printed='0.0405', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
-def check_4170():
-    'Figure fig:p4_dnmt_molecules caption: treated copy error, lowest. Book line 81, printed 0.0405. Inputs: dnmt_b_readings.csv.'
-    value = float(_b11fr_molecules()[1].min())
-    return locals()
 
-@check(label='ch:firstreadings:L81:0.0511', chapter='ch:firstreadings', part=6, title='caption: treated copy error highest',
-       file='part4/p4_21_firstreadings', line=81, status='measured', kind='file', printed='0.0511', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
-def check_4171():
-    'Figure fig:p4_dnmt_molecules caption: treated copy error, highest. Book line 81, printed 0.0511. Inputs: dnmt_b_readings.csv.'
-    value = float(_b11fr_molecules()[1].max())
-    return locals()
 
-@check(label='ch:firstreadings:L81:1.65', chapter='ch:firstreadings', part=6, title='caption: IAM-A lowest',
-       file='part4/p4_21_firstreadings', line=81, status='measured', kind='file', printed='1.65', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
-def check_4172():
-    'Figure fig:p4_dnmt_molecules caption: IAM-A against own vehicle, lowest, recomputed. Book line 81, printed 1.65. Inputs: dnmt_b_readings.csv.'
-    value = float(_b11fr_molecules()[2].min())
-    return locals()
 
-@check(label='ch:firstreadings:L81:1.97', chapter='ch:firstreadings', part=6, title='caption: IAM-A highest',
-       file='part4/p4_21_firstreadings', line=81, status='measured', kind='file', printed='1.97', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
-def check_4173():
-    'Figure fig:p4_dnmt_molecules caption: IAM-A against own vehicle, highest, recomputed. Book line 81, printed 1.97. Inputs: dnmt_b_readings.csv.'
-    value = float(_b11fr_molecules()[2].max())
-    return locals()
 
-@check(label='ch:firstreadings:L89', chapter='ch:firstreadings', part=6, title='remission draws agree within the S5 bar',
-       file='part4/p4_21_firstreadings', line=89, status='measured', kind='file', printed='0.05', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md')
-def check_4175():
-    'Agreement of the same person\'s two remission draws, bar S5 of PROC-AML-SERIAL-01, met by every pair (k = n = 10). Book line 89, printed 0.05. Inputs: PROC_AML_SERIAL_01_OUTCOME.md, row S5.'
-    bar, k, n = _b11fr_s5_bar()
-    value = bar if k == n else float('nan')
-    return locals()
 
-@check(label='ch:firstreadings:L97', chapter='ch:firstreadings', part=6, title='450K held-out controls read Normal (per cent)',
-       file='part4/p4_21_firstreadings', line=97, status='measured', kind='file', printed='67.9', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md')
-def check_4176():
-    'Per cent of held-out controls in Normal, computed from the counts of bar P1 (k/n) in the PROC-PREDX-NEUT-01 outcome. Book line 97, printed 67.9. Inputs: PROC_PREDX_NEUT_01_OUTCOME.md.'
-    k, n, w, m, pw, pm = _b11fr_predx()
-    value = 100.0 * k / n
-    return locals()
 
-@check(label='ch:firstreadings:L97:0.961', chapter='ch:firstreadings', part=6, title='450K controls: women median reading (record)',
-       file='part4/p4_21_firstreadings', line=97, status='measured', kind='file', printed='0.961', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md')
-def check_4177():
-    'Reading of the female controls, read from the PROC-PREDX-NEUT-01 outcome ("women read ... and men ..."); no per-array file is committed. Book line 97, printed 0.961. Inputs: PROC_PREDX_NEUT_01_OUTCOME.md.'
-    value = _b11fr_predx()[2]
-    return locals()
 
-@check(label='ch:firstreadings:L97:1.007', chapter='ch:firstreadings', part=6, title='450K controls: men median reading (record)',
-       file='part4/p4_21_firstreadings', line=97, status='measured', kind='file', printed='1.007', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md')
-def check_4178():
-    'Reading of the male controls, read from the PROC-PREDX-NEUT-01 outcome; no per-array file is committed. Book line 97, printed 1.007. Inputs: PROC_PREDX_NEUT_01_OUTCOME.md.'
-    value = _b11fr_predx()[3]
-    return locals()
 
-@check(label='ch:firstreadings:L98', chapter='ch:firstreadings', part=6, title='purified 450K neutrophils: sex difference',
-       file='part4/p4_21_firstreadings', line=98, status='measured', kind='file', printed='0.008', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md')
-def check_4179():
-    'Sex difference of the purified neutrophils of the 450K floor, men minus women, computed from the two readings in the PROC-PREDX-NEUT-01 follow-up. Book line 98, printed 0.008. Inputs: PROC_PREDX_NEUT_01_OUTCOME.md.'
-    k, n, w, m, pw, pm = _b11fr_predx()
-    value = pm - pw
-    return locals()
 
-@check(label='ch:firstreadings:L98:92.9', chapter='ch:firstreadings', part=6, title='same-slide tare: controls in Normal (per cent)',
-       file='part4/p4_21_firstreadings', line=98, status='measured', kind='file', printed='92.9', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_PREDX_SLIDE_01_OUTCOME.md')
-def check_4180():
-    'Per cent of the 170 controls in Normal after the same-slide tare, computed from the counts of bar S1 (k/n) of the PROC-PREDX-SLIDE-01 outcome. Book line 98, printed 92.9. Inputs: PROC_PREDX_SLIDE_01_OUTCOME.md.'
-    t = file_text('Biological_Physics/MethylPhys/doors/PROC_PREDX_SLIDE_01_OUTCOME.md')
-    k, n = re.search(r'S1 controls[^|]*\|\s*(\d+)/(\d+)', t).groups()
-    value = 100.0 * int(k) / int(n)
-    return locals()
 
 
 # ======== Part 6 | ch:leukocyte | docs/book/part4/p4_22_leukocyte.tex
@@ -34743,966 +34170,123 @@ def check_4181():
 
 
 # ======== Part 6 | ch:salmonid | docs/book/part4/p4_22b_salmonid.tex
-@check(label='ch:salmonid:L52', chapter='ch:salmonid', part=6, title='Methow ICC of the two halves',
-       file='part4/p4_22b_salmonid', line=52, status='measured', kind='file', printed='0.998', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4182():
-    'Methow steelhead, P0: ICC of the two halves (alternate reads) of all 40 specimens, recomputed from the per-specimen eps_corr_A/eps_corr_B of salmon_readings.csv with the formula of score_salmon.py (salmon_score.json prints 0.9983). Book line 52, printed 0.998.'
-    R = load_csv_rows(_B12_SAL)
-    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
-    return locals()
-
-@check(label='ch:salmonid:L52:0.0025', chapter='ch:salmonid', part=6, title='Methow between-fish SD, red cells',
-       file='part4/p4_22b_salmonid', line=52, status='measured', kind='file', printed='0.0025', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4183():
-    'Methow steelhead, P0: between-fish standard deviation of eps_corr in red cells (sample SD, 20 fish), salmon_readings.csv. Book line 52, printed 0.0025.'
-    value = float(np.std(_b12_col(_b12_rows(_B12_SAL, tissue='RBC'), 'eps_corr'), ddof=1))
-    return locals()
-
-@check(label='ch:salmonid:L53', chapter='ch:salmonid', part=6, title='Methow between-fish SD, sperm',
-       file='part4/p4_22b_salmonid', line=53, status='measured', kind='file', printed='0.0029', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4184():
-    'Methow steelhead, P0: between-fish standard deviation of eps_corr in sperm (sample SD, 20 fish), salmon_readings.csv. Book line 53, printed 0.0029.'
-    value = float(np.std(_b12_col(_b12_rows(_B12_SAL, tissue='Sp'), 'eps_corr'), ddof=1))
-    return locals()
-
-@check(label='ch:salmonid:L53:0.0025', chapter='ch:salmonid', part=6, title='Methow P1 between-fish SD, red cells',
-       file='part4/p4_22b_salmonid', line=53, status='measured', kind='file', printed='0.0025', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4185():
-    'Methow steelhead, P1: between-fish standard deviation of red-cell eps_corr (the P0 number restated), recomputed from salmon_readings.csv. Book line 53, printed 0.0025.'
-    value = float(np.std(_b12_col(_b12_rows(_B12_SAL, tissue='RBC'), 'eps_corr'), ddof=1))
-    return locals()
-
-@check(label='ch:salmonid:L53:0.0005', chapter='ch:salmonid', part=6, title='Methow within-fish half-split SD, red cells',
-       file='part4/p4_22b_salmonid', line=53, status='measured', kind='file', printed='0.0005', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4186():
-    'Methow steelhead, P1: within-fish half-split SD in red cells, sqrt(mean((A-B)^2/2)) as in score_salmon.py, salmon_readings.csv. Book line 53, printed 0.0005.'
-    g = _b12_rows(_B12_SAL, tissue='RBC')
-    value = float(np.sqrt((((_b12_col(g, 'eps_corr_A') - _b12_col(g, 'eps_corr_B'))**2) / 2).mean()))
-    return locals()
-
-@check(label='ch:salmonid:L53:0.0002', chapter='ch:salmonid', part=6, title='Methow within-fish half-split SD, sperm',
-       file='part4/p4_22b_salmonid', line=53, status='measured', kind='file', printed='0.0002', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4187():
-    'Methow steelhead, P1: within-fish half-split SD in sperm, sqrt(mean((A-B)^2/2)) as in score_salmon.py, salmon_readings.csv. Book line 53, printed 0.0002.'
-    g = _b12_rows(_B12_SAL, tissue='Sp')
-    value = float(np.sqrt((((_b12_col(g, 'eps_corr_A') - _b12_col(g, 'eps_corr_B'))**2) / 2).mean()))
-    return locals()
-
-@check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='Methow steelhead: median red-cell eps_corr',
-       file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='0.0354', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
-def check_2549():
-    'P2: the median red-cell fish reads eps_corr = 0.0354: median of eps_corr over the 20 RBC rows of salmon_readings.csv. Book line 54, printed 0.0354.'
-    value = _f03_med(_F03_SALMON, 'eps_corr', tissue='RBC')
-    return locals()
-
-@check(label='ch:salmonid:L54:3.31', chapter='ch:salmonid', part=6, title='Methow steelhead: median red-cell holding energy, kT',
-       file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='3.31', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
-def check_2550():
-    'P2: the median red-cell fish reads E = 3.31 kT: median of E_kT over the 20 RBC rows of salmon_readings.csv. Book line 54, printed 3.31.'
-    value = _f03_med(_F03_SALMON, 'E_kT', tissue='RBC')
-    return locals()
-
-@check(label='ch:salmonid:L55', chapter='ch:salmonid', part=6, title='Methow steelhead: median eps_corr of hatchery red cells',
-       file='part4/p4_22b_salmonid', line=55, status='measured', kind='file', printed='0.0356', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
-def check_2551():
-    'P3: red cells 0.0356 (hatchery): median eps_corr over the RBC rows of origin Hat in salmon_readings.csv (the steelhead table; the coho table named before holds a different 0.0356). Book line 55, printed 0.0356.'
-    value = _f03_med(_F03_SALMON, 'eps_corr', tissue='RBC', origin='Hat')
-    return locals()
-
-@check(label='ch:salmonid:L55:0.0352', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=55, status='measured', kind='file', printed='0.0352', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
-def check_2552():
-    'measured: printed value found in salmon_readings.csv, a file the chapter names. Book line 55, printed 0.0352.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '0.0352')
-    return locals()
-
-@check(label='ch:salmonid:L55:0.0165', chapter='ch:salmonid', part=6, title='Methow steelhead: median eps_corr of hatchery sperm',
-       file='part4/p4_22b_salmonid', line=55, status='measured', kind='file', printed='0.0165', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
-def check_2553():
-    'P3: sperm 0.0165 (hatchery): median eps_corr over the Sp rows of origin Hat in salmon_readings.csv. Book line 55, printed 0.0165.'
-    value = _f03_med(_F03_SALMON, 'eps_corr', tissue='Sp', origin='Hat')
-    return locals()
-
-@check(label='ch:salmonid:L55:0.31', chapter='ch:salmonid', part=6, title='Methow P3 red cells, Mann-Whitney p',
-       file='part4/p4_22b_salmonid', line=55, status='measured', kind='file', printed='0.31', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4188():
-    'Methow steelhead, P3: hatchery against natural red-cell eps_corr, two-sided Mann-Whitney p, salmon_readings.csv. Book line 55, printed 0.31.'
-    h, nn, p = _b12_sal_mwu('RBC')
-    value = float(p)
-    return locals()
-
-@check(label='ch:salmonid:L55:0.0184', chapter='ch:salmonid', part=6, title='Methow P3 sperm, natural median',
-       file='part4/p4_22b_salmonid', line=55, status='measured', kind='file', printed='0.0184', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4189():
-    'Methow steelhead, P3: median sperm eps_corr of the ten natural-origin fish, salmon_readings.csv. Book line 55, printed 0.0184.'
-    h, nn, p = _b12_sal_mwu('Sp')
-    value = float(np.median(nn))
-    return locals()
-
-@check(label='ch:salmonid:L55:0.34', chapter='ch:salmonid', part=6, title='Methow P3 sperm, Mann-Whitney p',
-       file='part4/p4_22b_salmonid', line=55, status='measured', kind='file', printed='0.34', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4190():
-    'Methow steelhead, P3: hatchery against natural sperm eps_corr, two-sided Mann-Whitney p, salmon_readings.csv. Book line 55, printed 0.34.'
-    h, nn, p = _b12_sal_mwu('Sp')
-    value = float(p)
-    return locals()
-
-@check(label='ch:salmonid:L56', chapter='ch:salmonid', part=6, title='Methow P4 largest |z|, red cells',
-       file='part4/p4_22b_salmonid', line=56, status='measured', kind='file', printed='6.0', tol=0.0, source=_B12_SALJ,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4191():
-    'Methow steelhead, P4: largest |z| of the hatchery-natural per-CpG map on 82,006 red-cell sites. Source: salmon_score.json P4.RBC.max_absz (the per-site maps are not committed). Book line 56, printed 6.0.'
-    value = load_json(_B12_SALJ)['P4']['RBC']['max_absz']
-    return locals()
-
-@check(label='ch:salmonid:L56:5.9', chapter='ch:salmonid', part=6, title='Methow P4 largest |z|, sperm',
-       file='part4/p4_22b_salmonid', line=56, status='measured', kind='file', printed='5.9', tol=0.0, source=_B12_SALJ,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4192():
-    'Methow steelhead, P4: largest |z| on 83,245 sperm sites. Source: salmon_score.json P4.Sp.max_absz. Book line 56, printed 5.9.'
-    value = load_json(_B12_SALJ)['P4']['Sp']['max_absz']
-    return locals()
-
-@check(label='ch:salmonid:L56:16.0', chapter='ch:salmonid', part=6, title='Methow P4 threshold, red cells',
-       file='part4/p4_22b_salmonid', line=56, status='measured', kind='file', printed='16.0', tol=0.0, source=_B12_SALJ,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4193():
-    'Methow steelhead, P4: 95th percentile of the largest |z| over the 126 five-against-five splits of the natural fish, red cells. Source: salmon_score.json P4.RBC.threshold_absz. Book line 56, printed 16.0.'
-    d = load_json(_B12_SALJ)['P4']['RBC']
-    n_splits = d['n_splits']   # 126
-    value = d['threshold_absz']
-    return locals()
-
-@check(label='ch:salmonid:L57', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=57, status='measured', kind='file', printed='23.0', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
-def check_2554():
-    'measured: printed value found in salmon_readings.csv, a file the chapter names. Book line 57, printed 23.0.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '23.0')
-    return locals()
-
-@check(label='ch:salmonid:L63', chapter='ch:salmonid', part=6, title='Methow red cells: rho with conversion failure',
-       file='part4/p4_22b_salmonid', line=63, status='measured', kind='file', printed='-0.58', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4194():
-    'Methow steelhead red cells: Spearman rho of eps_corr against conversion failure, 20 fish, salmon_readings.csv. Book line 63, printed -0.58.'
-    value = _b12_sal_spear('RBC', 'conv_fail').correlation
-    return locals()
-
-@check(label='ch:salmonid:L63:0.007', chapter='ch:salmonid', part=6, title='Methow red cells: p of rho with conversion failure',
-       file='part4/p4_22b_salmonid', line=63, status='measured', kind='file', printed='0.007', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4195():
-    'Methow steelhead red cells: p-value of the Spearman rho of eps_corr against conversion failure, salmon_readings.csv. Book line 63, printed 0.007.'
-    value = float(_b12_sal_spear('RBC', 'conv_fail').pvalue)
-    return locals()
-
-@check(label='ch:salmonid:L64', chapter='ch:salmonid', part=6, title='Methow red cells: rho with masked sites',
-       file='part4/p4_22b_salmonid', line=64, status='measured', kind='file', printed='-0.69', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4196():
-    'Methow steelhead red cells: Spearman rho of eps_corr against the number of masked sites, salmon_readings.csv. Book line 64, printed -0.69.'
-    value = _b12_sal_spear('RBC', 'masked').correlation
-    return locals()
-
-@check(label='ch:salmonid:L64:0.001', chapter='ch:salmonid', part=6, title='Methow red cells: p of rho with masked sites',
-       file='part4/p4_22b_salmonid', line=64, status='measured', kind='file', printed='0.001', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4197():
-    'Methow steelhead red cells: p-value of the Spearman rho of eps_corr against masked sites, salmon_readings.csv. Book line 64, printed 0.001.'
-    value = float(_b12_sal_spear('RBC', 'masked').pvalue)
-    return locals()
-
-@check(label='ch:salmonid:L64:-0.54', chapter='ch:salmonid', part=6, title='Methow sperm: rho with conversion failure',
-       file='part4/p4_22b_salmonid', line=64, status='measured', kind='file', printed='-0.54', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4198():
-    'Methow steelhead sperm: Spearman rho of eps_corr against conversion failure, salmon_readings.csv. Book line 64, printed -0.54.'
-    value = _b12_sal_spear('Sp', 'conv_fail').correlation
-    return locals()
-
-@check(label='ch:salmonid:L65', chapter='ch:salmonid', part=6, title='Methow sperm: p of rho with conversion failure',
-       file='part4/p4_22b_salmonid', line=65, status='measured', kind='file', printed='0.014', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4199():
-    'Methow steelhead sperm: p-value of the Spearman rho of eps_corr against conversion failure, salmon_readings.csv. Book line 65, printed 0.014.'
-    value = float(_b12_sal_spear('Sp', 'conv_fail').pvalue)
-    return locals()
-
-@check(label='ch:salmonid:L65:-0.47', chapter='ch:salmonid', part=6, title='Methow sperm: rho with depth',
-       file='part4/p4_22b_salmonid', line=65, status='measured', kind='file', printed='-0.47', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4200():
-    'Methow steelhead sperm: Spearman rho of eps_corr against depth (qualifying molecules), salmon_readings.csv. Book line 65, printed -0.47.'
-    value = _b12_sal_spear('Sp', 'qualifying').correlation
-    return locals()
-
-@check(label='ch:salmonid:L65:0.04', chapter='ch:salmonid', part=6, title='Methow sperm: p of rho with depth',
-       file='part4/p4_22b_salmonid', line=65, status='measured', kind='file', printed='0.04', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4201():
-    'Methow steelhead sperm: p-value of the Spearman rho of eps_corr against depth (qualifying molecules), salmon_readings.csv. Book line 65, printed 0.04.'
-    value = float(_b12_sal_spear('Sp', 'qualifying').pvalue)
-    return locals()
-
-@check(label='ch:salmonid:L65:0.016', chapter='ch:salmonid', part=6, title='Methow sperm lanes: lowest median of the other lanes',
-       file='part4/p4_22b_salmonid', line=65, status='measured', kind='file', printed='0.016', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4202():
-    'Methow steelhead sperm: specimens grouped by the lanes they were sequenced on (methow_run_map.csv); the high lane reads 0.0224, the others 0.016-0.019. Value: the lowest group median of eps_corr. Book line 65, printed 0.016.'
-    med = _b12_sal_lane_medians()
-    high = med[-1]   # the one higher lane, 0.0224
-    value = med[0]
-    return locals()
-
-@check(label='ch:salmonid:L65:0.019', chapter='ch:salmonid', part=6, title='Methow sperm lanes: highest median of the other lanes',
-       file='part4/p4_22b_salmonid', line=65, status='measured', kind='file', printed='0.019', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4203():
-    'Methow steelhead sperm: specimens grouped by lanes (methow_run_map.csv). Value: the highest group median of eps_corr after the one higher lane. Book line 65, printed 0.019.'
-    med = _b12_sal_lane_medians()
-    value = med[-2]
-    return locals()
-
-@check(label='ch:salmonid:L66', chapter='ch:salmonid', part=6, title='Methow: red cell against sperm of one fish, rho',
-       file='part4/p4_22b_salmonid', line=66, status='measured', kind='file', printed='0.06', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4204():
-    'Methow steelhead: Spearman rho between the red-cell and sperm eps_corr of the same 20 fish, salmon_readings.csv. Book line 66, printed 0.06.'
-    A = {r['fish']: float(r['eps_corr']) for r in _b12_rows(_B12_SAL, tissue='RBC')}
-    S = {r['fish']: float(r['eps_corr']) for r in _b12_rows(_B12_SAL, tissue='Sp')}
-    f = sorted(A)
-    value = _b12_stats.spearmanr([A[x] for x in f], [S[x] for x in f]).correlation
-    return locals()
-
-@check(label='ch:salmonid:L66:0.81', chapter='ch:salmonid', part=6, title='Methow: red cell against sperm of one fish, p',
-       file='part4/p4_22b_salmonid', line=66, status='measured', kind='file', printed='0.81', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4205():
-    'Methow steelhead: p-value of the Spearman rho between red-cell and sperm eps_corr of the same fish, salmon_readings.csv. Book line 66, printed 0.81.'
-    A = {r['fish']: float(r['eps_corr']) for r in _b12_rows(_B12_SAL, tissue='RBC')}
-    S = {r['fish']: float(r['eps_corr']) for r in _b12_rows(_B12_SAL, tissue='Sp')}
-    f = sorted(A)
-    value = float(_b12_stats.spearmanr([A[x] for x in f], [S[x] for x in f]).pvalue)
-    return locals()
-
-@check(label='ch:salmonid:L67', chapter='ch:salmonid', part=6, title='Methow steelhead: median red-cell holding energy, kT (sperm comparison)',
-       file='part4/p4_22b_salmonid', line=67, status='measured', kind='file', printed='3.31', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
-def check_2555():
-    'Sperm 4.02 against red cells 3.31 kT: median of E_kT over the RBC rows of salmon_readings.csv. Book line 67, printed 3.31.'
-    value = _f03_med(_F03_SALMON, 'E_kT', tissue='RBC')
-    return locals()
-
-@check(label='ch:salmonid:L67:4.02', chapter='ch:salmonid', part=6, title='Methow sperm holding energy',
-       file='part4/p4_22b_salmonid', line=67, status='measured', kind='file', printed='4.02', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4206():
-    'Methow steelhead sperm: holding energy E = ln[(1-eps)/eps] k_B T at the median sperm eps_corr of salmon_readings.csv (outcome: median 0.0177, E = 4.02). Book line 67, printed 4.02.'
-    value = _b12_E(float(np.median(_b12_col(_b12_rows(_B12_SAL, tissue='Sp'), 'eps_corr'))))
-    return locals()
-
-@check(label='ch:salmonid:L87', chapter='ch:salmonid', part=6, title='brook charr ICC, 36 fish',
-       file='part4/p4_22b_salmonid', line=87, status='measured', kind='file', printed='0.924', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4207():
-    'Brook charr, P0: ICC of the two halves on the 36 fish with both halves (failed download and the three one-half fish left out), formula of score_charr.py, from charr_readings.csv. Book line 87, printed 0.924.'
-    R = [r for r in _b12_chr_ok() if r['eps_corr_A'] and r['eps_corr_B']]
-    n_both = len(R)   # 36
-    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
-    return locals()
-
-@check(label='ch:salmonid:L87:-0.01', chapter='ch:salmonid', part=6, title='brook charr P1: rho with conversion failure',
-       file='part4/p4_22b_salmonid', line=87, status='measured', kind='file', printed='-0.01', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4208():
-    'Brook charr, P1: Spearman rho of eps_corr against conversion failure, all 40 fish, charr_readings.csv. Book line 87, printed -0.01.'
-    R = load_csv_rows(_B12_CHR)
-    value = _b12_stats.spearmanr(_b12_col(R, 'eps_corr'), _b12_col(R, 'conv_fail')).correlation
-    return locals()
-
-@check(label='ch:salmonid:L87:+0.45', chapter='ch:salmonid', part=6, title='brook charr P1: rho with duplicate fraction',
-       file='part4/p4_22b_salmonid', line=87, status='measured', kind='file', printed='+0.45', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4209():
-    'Brook charr, P1: Spearman rho of eps_corr against duplicate fraction, all 40 fish, charr_readings.csv. Book line 87, printed +0.45.'
-    R = load_csv_rows(_B12_CHR)
-    value = _b12_stats.spearmanr(_b12_col(R, 'eps_corr'), _b12_col(R, 'dup_frac')).correlation
-    return locals()
-
-@check(label='ch:salmonid:L87:+0.57', chapter='ch:salmonid', part=6, title='brook charr: rho with duplicates, failed fish left out',
-       file='part4/p4_22b_salmonid', line=87, status='measured', kind='file', printed='+0.57', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4210():
-    'Brook charr: Spearman rho of eps_corr against duplicate fraction on the 39 fish without the failed download, charr_readings.csv. Book line 87, printed +0.57.'
-    R = _b12_chr_ok()
-    value = _b12_stats.spearmanr(_b12_col(R, 'eps_corr'), _b12_col(R, 'dup_frac')).correlation
-    return locals()
-
-@check(label='ch:salmonid:L88', chapter='ch:salmonid', part=6, title='measured: printed value found in charr_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=88, status='measured', kind='file', printed='3.82', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/charr_readings.csv')
-def check_2556():
-    'measured: printed value found in charr_readings.csv, a file the chapter names. Book line 88, printed 3.82.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/charr_readings.csv', '3.82')
-    return locals()
-
-@check(label='ch:salmonid:L88:0.0216', chapter='ch:salmonid', part=6, title='brook charr P2: median ambient eps_corr',
-       file='part4/p4_22b_salmonid', line=88, status='measured', kind='file', printed='0.0216', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/charr_readings.csv')
-def check_2557():
-    'P2 passed at its lower edge (eps_corr 0.0216): median eps_corr over the ambient rows of charr_readings.csv, all 22 fish as score_charr.py takes it. Book line 88, printed 0.0216.'
-    value = _f03_med(_F03_CHARR, 'eps_corr', temp='ambient')
-    return locals()
-
-@check(label='ch:salmonid:L88:+0.29', chapter='ch:salmonid', part=6, title='brook charr P1: rho with masked fraction',
-       file='part4/p4_22b_salmonid', line=88, status='measured', kind='file', printed='+0.29', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4211():
-    'Brook charr, P1: Spearman rho of eps_corr against masked fraction, all 40 fish, charr_readings.csv. Book line 88, printed +0.29.'
-    R = load_csv_rows(_B12_CHR)
-    value = _b12_stats.spearmanr(_b12_col(R, 'eps_corr'), _b12_col(R, 'masked_frac')).correlation
-    return locals()
-
-@check(label='ch:salmonid:L89', chapter='ch:salmonid', part=6, title='brook charr P3: warm/ambient ratio',
-       file='part4/p4_22b_salmonid', line=89, status='measured', kind='file', printed='0.92', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4212():
-    'Brook charr, P3: least squares eps_corr ~ temperature + line + year (40 fish, charr_readings.csv); ratio (ambient mean + warm term)/ambient mean, as score_charr.py. Book line 89, printed 0.92.'
-    value = _b12_chr_ratio()[0]
-    return locals()
-
-@check(label='ch:salmonid:L89:0.79', chapter='ch:salmonid', part=6, title='brook charr P3: ratio, lower 95 % bound',
-       file='part4/p4_22b_salmonid', line=89, status='measured', kind='file', printed='0.79', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4213():
-    'Brook charr, P3: lower end of the 95 % interval of the warm/ambient ratio (t interval of the warm term over the ambient mean), charr_readings.csv. Book line 89, printed 0.79.'
-    value = _b12_chr_ratio()[1]
-    return locals()
-
-@check(label='ch:salmonid:L89:1.05', chapter='ch:salmonid', part=6, title='brook charr P3: ratio, upper 95 % bound',
-       file='part4/p4_22b_salmonid', line=89, status='measured', kind='file', printed='1.05', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4214():
-    'Brook charr, P3: upper end of the 95 % interval of the warm/ambient ratio, charr_readings.csv. Book line 89, printed 1.05.'
-    value = _b12_chr_ratio()[2]
-    return locals()
-
-@check(label='ch:salmonid:L89:0.24', chapter='ch:salmonid', part=6, title='brook charr P3: p of the temperature term',
-       file='part4/p4_22b_salmonid', line=89, status='measured', kind='file', printed='0.24', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4215():
-    'Brook charr, P3: two-sided p of the temperature term of the least-squares model, charr_readings.csv. Book line 89, printed 0.24.'
-    value = float(_b12_chr_ratio()[3])
-    return locals()
-
-@check(label='ch:salmonid:L90', chapter='ch:salmonid', part=6, title='measured: printed value found in charr_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=90, status='measured', kind='file', printed='3.74', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/charr_readings.csv')
-def check_2558():
-    'measured: printed value found in charr_readings.csv, a file the chapter names. Book line 90, printed 3.74.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/charr_readings.csv', '3.74')
-    return locals()
-
-@check(label='ch:salmonid:L90:3.88', chapter='ch:salmonid', part=6, title='measured: printed value found in charr_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=90, status='measured', kind='file', printed='3.88', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/charr_readings.csv')
-def check_2559():
-    'measured: printed value found in charr_readings.csv, a file the chapter names. Book line 90, printed 3.88.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/charr_readings.csv', '3.88')
-    return locals()
-
-@check(label='ch:salmonid:L90:-0.0015', chapter='ch:salmonid', part=6, title='brook charr P4: line term',
-       file='part4/p4_22b_salmonid', line=90, status='measured', kind='file', printed='-0.0015', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4216():
-    'Brook charr, P4: selected-line term of eps_corr ~ temperature + line + year, charr_readings.csv. Book line 90, printed -0.0015.'
-    y, warm, (b, lo, hi, p) = _b12_chr_ols()
-    value = b[2]
-    return locals()
-
-@check(label='ch:salmonid:L90:-0.0045', chapter='ch:salmonid', part=6, title='brook charr P4: line term, lower 95 % bound',
-       file='part4/p4_22b_salmonid', line=90, status='measured', kind='file', printed='-0.0045', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4217():
-    'Brook charr, P4: lower end of the 95 % interval of the line term, charr_readings.csv. Book line 90, printed -0.0045.'
-    y, warm, (b, lo, hi, p) = _b12_chr_ols()
-    value = lo[2]
-    return locals()
-
-@check(label='ch:salmonid:L90:+0.0015', chapter='ch:salmonid', part=6, title='brook charr P4: line term, upper 95 % bound',
-       file='part4/p4_22b_salmonid', line=90, status='measured', kind='file', printed='+0.0015', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4218():
-    'Brook charr, P4: upper end of the 95 % interval of the line term, charr_readings.csv. Book line 90, printed +0.0015.'
-    y, warm, (b, lo, hi, p) = _b12_chr_ols()
-    value = hi[2]
-    return locals()
-
-@check(label='ch:salmonid:L90:0.31', chapter='ch:salmonid', part=6, title='brook charr P4: p of the line term',
-       file='part4/p4_22b_salmonid', line=90, status='measured', kind='file', printed='0.31', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4219():
-    'Brook charr, P4: two-sided p of the line term, charr_readings.csv. Book line 90, printed 0.31.'
-    y, warm, (b, lo, hi, p) = _b12_chr_ols()
-    value = float(p[2])
-    return locals()
-
-@check(label='ch:salmonid:L91', chapter='ch:salmonid', part=6, title='brook charr between-fish SD of eps',
-       file='part4/p4_22b_salmonid', line=91, status='measured', kind='file', printed='0.0007', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4220():
-    'Brook charr: between-fish standard deviation of eps_corr on the 39 fish without the failed download (the fish that span 3.74-3.88 k_B T), charr_readings.csv. Book line 91, printed 0.0007.'
-    value = float(np.std(_b12_col(_b12_chr_ok(), 'eps_corr'), ddof=1))
-    return locals()
-
-@check(label='ch:salmonid:L107', chapter='ch:salmonid', part=6, title='Rimouski ICC of the two halves',
-       file='part4/p4_22b_salmonid', line=107, status='measured', kind='file', printed='0.996', tol=0.0, source=_B12_RIM,
-       heavy=True, rerun=_B12_RR_RIM)
-def check_4221():
-    'Rimouski Atlantic salmon, P0: ICC of the two halves of all 64 fish, formula of score_rimouski.py, from rimouski_readings.csv (rimouski_score.json prints 0.9963). Book line 107, printed 0.996.'
-    R = load_csv_rows(_B12_RIM)
-    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
-    return locals()
-
-@check(label='ch:salmonid:L107:+0.38', chapter='ch:salmonid', part=6, title='Rimouski P1: rho with conversion failure',
-       file='part4/p4_22b_salmonid', line=107, status='measured', kind='file', printed='+0.38', tol=0.0, source=_B12_RIM,
-       heavy=True, rerun=_B12_RR_RIM)
-def check_4222():
-    'Rimouski, P1: Spearman rho of eps_corr against conversion failure, 64 fish, rimouski_readings.csv. Book line 107, printed +0.38.'
-    value = _b12_rim_spear('conv_fail')
-    return locals()
-
-@check(label='ch:salmonid:L107:-0.20', chapter='ch:salmonid', part=6, title='Rimouski P1: rho with duplicates',
-       file='part4/p4_22b_salmonid', line=107, status='measured', kind='file', printed='-0.20', tol=0.0, source=_B12_RIM,
-       heavy=True, rerun=_B12_RR_RIM)
-def check_4223():
-    'Rimouski, P1: Spearman rho of eps_corr against duplicate fraction, rimouski_readings.csv. Book line 107, printed -0.20.'
-    value = _b12_rim_spear('dup_frac')
-    return locals()
-
-@check(label='ch:salmonid:L108', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=108, status='measured', kind='file', printed='3.47', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
-def check_2560():
-    'measured: printed value found in rimouski_readings.csv, a file the chapter names. Book line 108, printed 3.47.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '3.47')
-    return locals()
-
-@check(label='ch:salmonid:L108:-0.15', chapter='ch:salmonid', part=6, title='Rimouski P1: rho with masked fraction',
-       file='part4/p4_22b_salmonid', line=108, status='measured', kind='file', printed='-0.15', tol=0.0, source=_B12_RIM,
-       heavy=True, rerun=_B12_RR_RIM)
-def check_4224():
-    'Rimouski, P1: Spearman rho of eps_corr against masked fraction, rimouski_readings.csv. Book line 108, printed -0.15.'
-    value = _b12_rim_spear('masked_frac')
-    return locals()
-
-@check(label='ch:salmonid:L108:+0.0021', chapter='ch:salmonid', part=6, title='Rimouski P3: stocked minus wild',
-       file='part4/p4_22b_salmonid', line=108, status='measured', kind='file', printed='+0.0021', tol=0.0, source=_B12_RIM,
-       heavy=True, rerun=_B12_RR_RIM)
-def check_4225():
-    'Rimouski, P3: origin term (stocked minus wild) of eps_corr ~ origin + sex on the 32 F0 fish, least squares, rimouski_readings.csv. Book line 108, printed +0.0021.'
-    b, lo, hi, p = _b12_rim_F0()
-    value = b[1]
-    return locals()
-
-@check(label='ch:salmonid:L108:0.0031', chapter='ch:salmonid', part=6, title='Rimouski P3: upper 95 % bound',
-       file='part4/p4_22b_salmonid', line=108, status='measured', kind='file', printed='0.0031', tol=0.0, source=_B12_RIM,
-       heavy=True, rerun=_B12_RR_RIM)
-def check_4226():
-    'Rimouski, P3: upper end of the 95 % interval of the origin term, rimouski_readings.csv. Book line 108, printed 0.0031.'
-    b, lo, hi, p = _b12_rim_F0()
-    value = hi[1]
-    return locals()
-
-@check(label='ch:salmonid:L109', chapter='ch:salmonid', part=6, title='Rimouski P3: p of the origin term',
-       file='part4/p4_22b_salmonid', line=109, status='measured', kind='file', printed='0.0003', tol=0.0, source=_B12_RIM,
-       heavy=True, rerun=_B12_RR_RIM)
-def check_4227():
-    'Rimouski, P3: two-sided p of the origin term, rimouski_readings.csv. Book line 109, printed 0.0003.'
-    b, lo, hi, p = _b12_rim_F0()
-    value = float(p[1])
-    return locals()
-
-@check(label='ch:salmonid:L109:0.71', chapter='ch:salmonid', part=6, title='Rimouski P4: p of the father term',
-       file='part4/p4_22b_salmonid', line=109, status='measured', kind='file', printed='0.71', tol=0.0, source=_B12_RIM,
-       heavy=True, rerun=_B12_RR_RIM)
-def check_4228():
-    'Rimouski, P4: two-sided p of the father\'s-origin term, rimouski_readings.csv. Book line 109, printed 0.71.'
-    b, lo, hi, p = _b12_rim_F1()
-    value = float(p[1])
-    return locals()
-
-@check(label='ch:salmonid:L109:0.27', chapter='ch:salmonid', part=6, title='Rimouski P4: p of the mother term',
-       file='part4/p4_22b_salmonid', line=109, status='measured', kind='file', printed='0.27', tol=0.0, source=_B12_RIM,
-       heavy=True, rerun=_B12_RR_RIM)
-def check_4229():
-    'Rimouski, P4: two-sided p of the mother\'s-origin term, rimouski_readings.csv. Book line 109, printed 0.27.'
-    b, lo, hi, p = _b12_rim_F1()
-    value = float(p[2])
-    return locals()
-
-@check(label='ch:salmonid:L110', chapter='ch:salmonid', part=6, title='Atlantic salmon fin: F0 median eps_corr',
-       file='part4/p4_22b_salmonid', line=110, status='measured', kind='file', printed='0.0303', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
-def check_2561():
-    'The F0 median is 0.0303: median eps_corr over the generation F0 rows of rimouski_readings.csv. Book line 110, printed 0.0303.'
-    value = _f03_med(_F03_RIMOUSKI, 'eps_corr', generation='F0')
-    return locals()
-
-@check(label='ch:salmonid:L110:3.47', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=110, status='measured', kind='file', printed='3.47', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
-def check_2562():
-    'measured: printed value found in rimouski_readings.csv, a file the chapter names. Book line 110, printed 3.47.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '3.47')
-    return locals()
-
-@check(label='ch:salmonid:L110:0.0278', chapter='ch:salmonid', part=6, title='Atlantic salmon fin: F1 median eps_corr',
-       file='part4/p4_22b_salmonid', line=110, status='measured', kind='file', printed='0.0278', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
-def check_2563():
-    'The F1 median is 0.0278: median eps_corr over the generation F1 rows of rimouski_readings.csv. Book line 110, printed 0.0278.'
-    value = _f03_med(_F03_RIMOUSKI, 'eps_corr', generation='F1')
-    return locals()
-
-@check(label='ch:salmonid:L110:3.56', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=110, status='measured', kind='file', printed='3.56', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
-def check_2564():
-    'measured: printed value found in rimouski_readings.csv, a file the chapter names. Book line 110, printed 3.56.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '3.56')
-    return locals()
-
-@check(label='ch:salmonid:L126', chapter='ch:salmonid', part=6, title='coho D1: ICC',
-       file='part4/p4_22b_salmonid', line=126, status='measured', kind='file', printed='0.826', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4230():
-    'Coho smolts, D1: ICC(1) of the two halves of eps_cc on common sites, recomputed from coho_cc_fish.csv as in score_coho_cc.py (coho_cc_summary.json prints 0.8259). Book line 126, printed 0.826.'
-    value = _b12_coho_icc()
-    return locals()
-
-@check(label='ch:salmonid:L126:-0.384', chapter='ch:salmonid', part=6, title='coho D2: rho with conversion failure',
-       file='part4/p4_22b_salmonid', line=126, status='measured', kind='file', printed='-0.384', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4231():
-    'Coho smolts, D2: Spearman rho of the filtered copy error on common sites (eps_cc_common) against conversion failure, 39 fish, coho_cc_fish.csv. Book line 126, printed -0.384.'
-    R = load_csv_rows(_B12_COHO)
-    value = _b12_stats.spearmanr(_b12_col(R, 'eps_cc_common'), _b12_col(R, 'conv_fail')).correlation
-    return locals()
-
-@check(label='ch:salmonid:L127', chapter='ch:salmonid', part=6, title='coho D2: rho with depth',
-       file='part4/p4_22b_salmonid', line=127, status='measured', kind='file', printed='-0.224', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4232():
-    'Coho smolts, D2: Spearman rho of eps_cc_common against depth (qualifying molecules), coho_cc_fish.csv. Book line 127, printed -0.224.'
-    R = load_csv_rows(_B12_COHO)
-    value = _b12_stats.spearmanr(_b12_col(R, 'eps_cc_common'), _b12_col(R, 'qualifying')).correlation
-    return locals()
-
-@check(label='ch:salmonid:L127:92.8', chapter='ch:salmonid', part=6, title='coho: share of qualifying molecules kept by the filter',
-       file='part4/p4_22b_salmonid', line=127, status='measured', kind='file', printed='92.8', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4233():
-    'Coho smolts: per-read conversion filter, per cent of qualifying molecules kept, mean over the 39 fish of qualifying_cc/qualifying, coho_cc_fish.csv. (The pooled ratio is 92.73 %; the book\'s 92.8 is the per-fish average, 92.75 %.) Book line 127, printed 92.8.'
-    R = load_csv_rows(_B12_COHO)
-    value = 100 * float(np.mean(_b12_col(R, 'qualifying_cc') / _b12_col(R, 'qualifying')))
-    return locals()
-
-@check(label='ch:salmonid:L128', chapter='ch:salmonid', part=6, title='coho: rho with conversion failure before the filter',
-       file='part4/p4_22b_salmonid', line=128, status='measured', kind='file', printed='-0.384', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4234():
-    'Coho smolts: Spearman rho of the unfiltered copy error on common sites (eps_all_common) against conversion failure, coho_cc_fish.csv; the filtered value is checked at line 126. Book line 128, printed -0.384.'
-    R = load_csv_rows(_B12_COHO)
-    value = _b12_stats.spearmanr(_b12_col(R, 'eps_all_common'), _b12_col(R, 'conv_fail')).correlation
-    return locals()
-
-@check(label='ch:salmonid:L131', chapter='ch:salmonid', part=6, title='coho: lowest within-lane rho',
-       file='part4/p4_22b_salmonid', line=131, status='measured', kind='file', printed='-1.0', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4235():
-    'Coho smolts: Spearman rho of eps_cc_common against conversion failure within each of the eight sequencing lanes (coho_cc_fish.csv); value: the lowest. Book line 131, printed -1.0.'
-    value = min(_b12_stats.spearmanr(e, c).correlation for e, c in _b12_coho_lanes('eps_cc_common'))
-    return locals()
-
-@check(label='ch:salmonid:L131:+0.6', chapter='ch:salmonid', part=6, title='coho: highest within-lane rho',
-       file='part4/p4_22b_salmonid', line=131, status='measured', kind='file', printed='+0.6', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4236():
-    'Coho smolts: within-lane Spearman rho of eps_cc_common against conversion failure (eight lanes); value: the highest. Book line 131, printed +0.6.'
-    value = max(_b12_stats.spearmanr(e, c).correlation for e, c in _b12_coho_lanes('eps_cc_common'))
-    return locals()
-
-@check(label='ch:salmonid:L131:0.36', chapter='ch:salmonid', part=6, title='coho: copy error between lanes, p',
-       file='part4/p4_22b_salmonid', line=131, status='measured', kind='file', printed='0.36', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4237():
-    'Coho smolts: does eps_cc_common differ between the eight lanes? Kruskal-Wallis p, coho_cc_fish.csv. Book line 131, printed 0.36.'
-    value = float(_b12_stats.kruskal(*[e for e, c in _b12_coho_lanes('eps_cc_common')]).pvalue)
-    return locals()
-
-@check(label='ch:salmonid:L131:0.33', chapter='ch:salmonid', part=6, title='coho: conversion failure between lanes, p',
-       file='part4/p4_22b_salmonid', line=131, status='measured', kind='file', printed='0.33', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4238():
-    'Coho smolts: does conversion failure differ between the eight lanes? Kruskal-Wallis p, coho_cc_fish.csv. Book line 131, printed 0.33.'
-    value = float(_b12_stats.kruskal(*[c for e, c in _b12_coho_lanes('eps_cc_common')]).pvalue)
-    return locals()
-
-@check(label='ch:salmonid:L132', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=132, status='measured', kind='file', printed='0.0337', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
-def check_2565():
-    'measured: printed value found in rimouski_readings.csv, a file the chapter names. Book line 132, printed 0.0337.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '0.0337')
-    return locals()
-
-@check(label='ch:salmonid:L132:0.0373', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=132, status='measured', kind='file', printed='0.0373', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
-def check_2566():
-    'measured: printed value found in salmon_readings.csv, a file the chapter names. Book line 132, printed 0.0373.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '0.0373')
-    return locals()
-
-@check(label='ch:salmonid:L132:0.0356', chapter='ch:salmonid', part=6, title='coho: median copy error on common sites',
-       file='part4/p4_22b_salmonid', line=132, status='measured', kind='file', printed='0.0356', tol=0.0, source='Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv')
-def check_2567():
-    'On 43,554 common sites the fish read 0.0337-0.0373 (median 0.0356): median of eps_cc_common over the 39 fish of coho_cc_fish.csv. Book line 132, printed 0.0356.'
-    value = _f03_med(_F03_COHO, 'eps_cc_common')
-    return locals()
-
-@check(label='ch:salmonid:L132:0.00089', chapter='ch:salmonid', part=6, title='coho between-fish SD',
-       file='part4/p4_22b_salmonid', line=132, status='measured', kind='file', printed='0.00089', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4239():
-    'Coho smolts: between-fish standard deviation of eps_cc_common (sample SD, 39 fish), coho_cc_fish.csv. Book line 132, printed 0.00089.'
-    value = float(np.std(_b12_col(load_csv_rows(_B12_COHO), 'eps_cc_common'), ddof=1))
-    return locals()
-
-@check(label='ch:salmonid:L133', chapter='ch:salmonid', part=6, title='coho half-split noise',
-       file='part4/p4_22b_salmonid', line=133, status='measured', kind='file', printed='0.00039', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4240():
-    'Coho smolts: within-fish half-split noise sqrt(mean((A-B)^2/2)) of eps_cc_common, coho_cc_fish.csv. Book line 133, printed 0.00039.'
-    R = load_csv_rows(_B12_COHO)
-    value = float(np.sqrt((((_b12_col(R, 'eps_cc_common_A') - _b12_col(R, 'eps_cc_common_B'))**2) / 2).mean()))
-    return locals()
-
-@check(label='ch:salmonid:L136', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=136, status='measured', kind='file', printed='3.25', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
-def check_2568():
-    'measured: printed value found in salmon_readings.csv, a file the chapter names. Book line 136, printed 3.25.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '3.25')
-    return locals()
-
-@check(label='ch:salmonid:L136:3.36', chapter='ch:salmonid', part=6, title='coho: highest holding energy, kT (as scored)',
-       file='part4/p4_22b_salmonid', line=136, status='measured', kind='file', printed='3.36', tol=0.0, source='Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv')
-def check_2569():
-    'As scored, the coho read 3.25-3.36 kT: the largest E_kT over the fish of coho_cc_fish.csv (the Atlantic salmon table named before holds no such range). Book line 136, printed 3.36.'
-    value = max(float(r['E_kT']) for r in load_csv_rows(_F03_COHO))
-    return locals()
-
-@check(label='ch:salmonid:L136:3.30', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=136, status='measured', kind='file', printed='3.30', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
-def check_2570():
-    'measured: printed value found in salmon_readings.csv, a file the chapter names. Book line 136, printed 3.30.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '3.30')
-    return locals()
-
-@check(label='ch:salmonid:L150', chapter='ch:salmonid', part=6, title='table: Methow steelhead red cells, median holding energy, kT',
-       file='part4/p4_22b_salmonid', line=150, status='measured', kind='file', printed='3.31', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
-def check_2571():
-    'Table row Methow steelhead, last column 3.31: median E_kT over the RBC rows of salmon_readings.csv. Book line 150, printed 3.31.'
-    value = _f03_med(_F03_SALMON, 'E_kT', tissue='RBC')
-    return locals()
-
-@check(label='ch:salmonid:L150:20', chapter='ch:salmonid', part=6, title='Table: Methow males',
-       file='part4/p4_22b_salmonid', line=150, status='measured', kind='file', printed='20', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4241():
-    'Table tab:fishsets: number of Methow steelhead males, distinct fish in salmon_readings.csv. Book line 150, printed 20.'
-    value = len({r['fish'] for r in load_csv_rows(_B12_SAL)})
-    return locals()
-
-@check(label='ch:salmonid:L150:0.998', chapter='ch:salmonid', part=6, title='Table: Methow ICC',
-       file='part4/p4_22b_salmonid', line=150, status='measured', kind='file', printed='0.998', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4242():
-    'Methow steelhead, P0: ICC of the two halves (alternate reads) of all 40 specimens, recomputed from the per-specimen eps_corr_A/eps_corr_B of salmon_readings.csv with the formula of score_salmon.py (salmon_score.json prints 0.9983). Book line 150, printed 0.998.'
-    R = load_csv_rows(_B12_SAL)
-    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
-    return locals()
-
-@check(label='ch:salmonid:L150:-0.58', chapter='ch:salmonid', part=6, title='Table: Methow red cells, rho with conversion',
-       file='part4/p4_22b_salmonid', line=150, status='measured', kind='file', printed='-0.58', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4243():
-    'Table tab:fishsets: Methow red cells, Spearman rho of eps_corr against conversion failure, salmon_readings.csv. Book line 150, printed -0.58.'
-    value = _b12_sal_spear('RBC', 'conv_fail').correlation
-    return locals()
-
-@check(label='ch:salmonid:L151', chapter='ch:salmonid', part=6, title='Table: Methow sperm, rho with conversion',
-       file='part4/p4_22b_salmonid', line=151, status='measured', kind='file', printed='-0.54', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4244():
-    'Table tab:fishsets: Methow sperm, Spearman rho of eps_corr against conversion failure, salmon_readings.csv. Book line 151, printed -0.54.'
-    value = _b12_sal_spear('Sp', 'conv_fail').correlation
-    return locals()
-
-@check(label='ch:salmonid:L151:4.02', chapter='ch:salmonid', part=6, title='Table: Methow sperm E',
-       file='part4/p4_22b_salmonid', line=151, status='measured', kind='file', printed='4.02', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4245():
-    'Methow steelhead sperm: holding energy E = ln[(1-eps)/eps] k_B T at the median sperm eps_corr of salmon_readings.csv (outcome: median 0.0177, E = 4.02). Book line 151, printed 4.02.'
-    value = _b12_E(float(np.median(_b12_col(_b12_rows(_B12_SAL, tissue='Sp'), 'eps_corr'))))
-    return locals()
-
-@check(label='ch:salmonid:L152', chapter='ch:salmonid', part=6, title='table: brook charr sperm, median holding energy, kT',
-       file='part4/p4_22b_salmonid', line=152, status='measured', kind='file', printed='3.81', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/charr_readings.csv')
-def check_2572():
-    'Table row brook charr, last column 3.81: median E_kT over all 40 rows of charr_readings.csv. Book line 152, printed 3.81.'
-    value = _f03_med(_F03_CHARR, 'E_kT')
-    return locals()
-
-@check(label='ch:salmonid:L152:40', chapter='ch:salmonid', part=6, title='Table: brook charr males',
-       file='part4/p4_22b_salmonid', line=152, status='measured', kind='file', printed='40', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4246():
-    'Table tab:fishsets: number of brook charr males, rows of charr_readings.csv. Book line 152, printed 40.'
-    value = len(load_csv_rows(_B12_CHR))
-    return locals()
-
-@check(label='ch:salmonid:L152:0.924', chapter='ch:salmonid', part=6, title='Table: brook charr ICC',
-       file='part4/p4_22b_salmonid', line=152, status='measured', kind='file', printed='0.924', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4247():
-    'Brook charr, P0: ICC of the two halves on the 36 fish with both halves (failed download and the three one-half fish left out), formula of score_charr.py, from charr_readings.csv. Book line 152, printed 0.924.'
-    R = [r for r in _b12_chr_ok() if r['eps_corr_A'] and r['eps_corr_B']]
-    n_both = len(R)   # 36
-    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
-    return locals()
-
-@check(label='ch:salmonid:L152:+0.45', chapter='ch:salmonid', part=6, title='Table: brook charr, rho with duplicates',
-       file='part4/p4_22b_salmonid', line=152, status='measured', kind='file', printed='+0.45', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4248():
-    'Table tab:fishsets: brook charr, Spearman rho of eps_corr against duplicate fraction, all 40 fish, charr_readings.csv. Book line 152, printed +0.45.'
-    R = load_csv_rows(_B12_CHR)
-    value = _b12_stats.spearmanr(_b12_col(R, 'eps_corr'), _b12_col(R, 'dup_frac')).correlation
-    return locals()
-
-@check(label='ch:salmonid:L153', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=153, status='measured', kind='file', printed='3.47', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
-def check_2573():
-    'measured: printed value found in rimouski_readings.csv, a file the chapter names. Book line 153, printed 3.47.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '3.47')
-    return locals()
-
-@check(label='ch:salmonid:L153:32', chapter='ch:salmonid', part=6, title='Table: Rimouski F0 fish',
-       file='part4/p4_22b_salmonid', line=153, status='measured', kind='file', printed='32', tol=0.0, source=_B12_RIM,
-       heavy=True, rerun=_B12_RR_RIM)
-def check_4249():
-    'Table tab:fishsets: number of Rimouski F0 fish (32 F0 + 32 F1), rows with generation F0 in rimouski_readings.csv. Book line 153, printed 32.'
-    n_F1 = len(_b12_rows(_B12_RIM, generation='F1'))
-    value = len(_b12_rows(_B12_RIM, generation='F0'))
-    return locals()
-
-@check(label='ch:salmonid:L153:0.996', chapter='ch:salmonid', part=6, title='Table: Rimouski ICC',
-       file='part4/p4_22b_salmonid', line=153, status='measured', kind='file', printed='0.996', tol=0.0, source=_B12_RIM,
-       heavy=True, rerun=_B12_RR_RIM)
-def check_4250():
-    'Rimouski Atlantic salmon, P0: ICC of the two halves of all 64 fish, formula of score_rimouski.py, from rimouski_readings.csv (rimouski_score.json prints 0.9963). Book line 153, printed 0.996.'
-    R = load_csv_rows(_B12_RIM)
-    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
-    return locals()
-
-@check(label='ch:salmonid:L153:+0.38', chapter='ch:salmonid', part=6, title='Table: Rimouski, rho with conversion',
-       file='part4/p4_22b_salmonid', line=153, status='measured', kind='file', printed='+0.38', tol=0.0, source=_B12_RIM,
-       heavy=True, rerun=_B12_RR_RIM)
-def check_4251():
-    'Table tab:fishsets: Rimouski, Spearman rho of eps_corr against conversion failure, rimouski_readings.csv. Book line 153, printed +0.38.'
-    value = _b12_rim_spear('conv_fail')
-    return locals()
-
-@check(label='ch:salmonid:L154', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=154, status='measured', kind='file', printed='3.30', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
-def check_2574():
-    'measured: printed value found in salmon_readings.csv, a file the chapter names. Book line 154, printed 3.30.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '3.30')
-    return locals()
-
-@check(label='ch:salmonid:L154:39', chapter='ch:salmonid', part=6, title='Table: coho smolts',
-       file='part4/p4_22b_salmonid', line=154, status='measured', kind='file', printed='39', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4252():
-    'Table tab:fishsets: number of coho smolts, rows of coho_cc_fish.csv. Book line 154, printed 39.'
-    value = len(load_csv_rows(_B12_COHO))
-    return locals()
-
-@check(label='ch:salmonid:L154:0.826', chapter='ch:salmonid', part=6, title='Table: coho ICC',
-       file='part4/p4_22b_salmonid', line=154, status='measured', kind='file', printed='0.826', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4253():
-    'Coho smolts, D1: ICC(1) of the two halves of eps_cc on common sites, recomputed from coho_cc_fish.csv as in score_coho_cc.py (coho_cc_summary.json prints 0.8259). Book line 154, printed 0.826.'
-    value = _b12_coho_icc()
-    return locals()
-
-@check(label='ch:salmonid:L154:-0.38', chapter='ch:salmonid', part=6, title='Table: coho, rho with conversion',
-       file='part4/p4_22b_salmonid', line=154, status='measured', kind='file', printed='-0.38', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4254():
-    'Table tab:fishsets: coho, Spearman rho of eps_cc_common against conversion failure (two digits here), coho_cc_fish.csv. Book line 154, printed -0.38.'
-    R = load_csv_rows(_B12_COHO)
-    value = _b12_stats.spearmanr(_b12_col(R, 'eps_cc_common'), _b12_col(R, 'conv_fail')).correlation
-    return locals()
-
-@check(label='ch:salmonid:L163', chapter='ch:salmonid', part=6, title='human cells, lower end of the holding energy, kT (figure caption)',
-       file='part4/p4_22b_salmonid', line=163, status='measured', kind='file', printed='3.29', tol=0.0, source='Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md')
-def check_2575():
-    'Grey band, healthy human cells 3.29-3.51 kT: E = ln((1-eps)/eps) at eps = 0.036, the upper end of the human copy-error range 0.029-0.036 written in PROC_SALMON_01_PREREG.md (PROC-MOLECULE-01). Book line 163, printed 3.29.'
-    value = _f03_human_E_low()
-    return locals()
-
-@check(label='ch:salmonid:L163:3.51', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=163, status='measured', kind='file', printed='3.51', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
-def check_2576():
-    'measured: printed value found in rimouski_readings.csv, a file the chapter names. Book line 163, printed 3.51.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '3.51')
-    return locals()
-
-@check(label='ch:salmonid:L164', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=164, status='measured', kind='file', printed='3.60', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
-def check_2577():
-    'measured: printed value found in rimouski_readings.csv, a file the chapter names. Book line 164, printed 3.60.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '3.60')
-    return locals()
-
-@check(label='ch:salmonid:L164:3.85', chapter='ch:salmonid', part=6, title='measured: printed value found in charr_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=164, status='measured', kind='file', printed='3.85', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/charr_readings.csv')
-def check_2578():
-    'measured: printed value found in charr_readings.csv, a file the chapter names. Book line 164, printed 3.85.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/charr_readings.csv', '3.85')
-    return locals()
-
-@check(label='ch:salmonid:L169', chapter='ch:salmonid', part=6, title='lowest ICC of the four sets (coho)',
-       file='part4/p4_22b_salmonid', line=169, status='measured', kind='file', printed='0.83', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4255():
-    'The instrument repeats: the lowest half-split ICC of the four sets is the coho D1 ICC, recomputed from coho_cc_fish.csv. Book line 169, printed 0.83.'
-    value = _b12_coho_icc()
-    return locals()
-
-@check(label='ch:salmonid:L170', chapter='ch:salmonid', part=6, title='highest ICC of the four sets (Methow)',
-       file='part4/p4_22b_salmonid', line=170, status='measured', kind='file', printed='0.998', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4256():
-    'The instrument repeats: the highest half-split ICC of the four sets is the Methow P0 ICC, recomputed from salmon_readings.csv. Book line 170, printed 0.998.'
-    R = load_csv_rows(_B12_SAL)
-    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
-    return locals()
-
-@check(label='ch:salmonid:L179', chapter='ch:salmonid', part=6, title='human cells, lower end of the holding energy, kT',
-       file='part4/p4_22b_salmonid', line=179, status='measured', kind='file', printed='3.29', tol=0.0, source='Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md')
-def check_2579():
-    'Healthy human cells 3.29-3.51 kT: E = ln((1-eps)/eps) at eps = 0.036, the upper end of the human copy-error range in PROC_SALMON_01_PREREG.md. Book line 179, printed 3.29.'
-    value = _f03_human_E_low()
-    return locals()
-
-@check(label='ch:salmonid:L179:3.51', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=179, status='measured', kind='file', printed='3.51', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
-def check_2580():
-    'measured: printed value found in rimouski_readings.csv, a file the chapter names. Book line 179, printed 3.51.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '3.51')
-    return locals()
-
-@check(label='ch:salmonid:L179:3.60', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=179, status='measured', kind='file', printed='3.60', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
-def check_2581():
-    'measured: printed value found in rimouski_readings.csv, a file the chapter names. Book line 179, printed 3.60.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '3.60')
-    return locals()
-
-@check(label='ch:salmonid:L179:3.85', chapter='ch:salmonid', part=6, title='measured: printed value found in charr_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=179, status='measured', kind='file', printed='3.85', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/charr_readings.csv')
-def check_2582():
-    'measured: printed value found in charr_readings.csv, a file the chapter names. Book line 179, printed 3.85.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/charr_readings.csv', '3.85')
-    return locals()
-
-@check(label='ch:salmonid:L180', chapter='ch:salmonid', part=6, title='brook charr sperm, median holding energy, kT',
-       file='part4/p4_22b_salmonid', line=180, status='measured', kind='file', printed='3.81', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/charr_readings.csv')
-def check_2583():
-    'Sperm read 3.81 kT in brook charr: median E_kT over all 40 rows of charr_readings.csv. Book line 180, printed 3.81.'
-    value = _f03_med(_F03_CHARR, 'E_kT')
-    return locals()
-
-@check(label='ch:salmonid:L180:4.02', chapter='ch:salmonid', part=6, title='Methow sperm holding energy (holding-energy paragraph)',
-       file='part4/p4_22b_salmonid', line=180, status='measured', kind='file', printed='4.02', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4257():
-    'Methow steelhead sperm: holding energy E = ln[(1-eps)/eps] k_B T at the median sperm eps_corr of salmon_readings.csv (outcome: median 0.0177, E = 4.02). Book line 180, printed 4.02.'
-    value = _b12_E(float(np.median(_b12_col(_b12_rows(_B12_SAL, tissue='Sp'), 'eps_corr'))))
-    return locals()
-
-@check(label='ch:salmonid:L184', chapter='ch:salmonid', part=6, title='ENCODE immune cells, lower E',
-       file='part4/p4_22b_salmonid', line=184, status='openprob', kind='file', printed='3.76', tol=0.0, source=_B12_ENC,
-       heavy=True, rerun='methylation chain on 43 ENCODE WGBS alignments (PROC-ENCODE-01); the record is the outcome file')
-def check_4258():
-    'ENCODE human blood cells (B, monocyte, NK, T; one donor each) on the same statistic: E = ln[(1-eps)/eps] at the highest instrument-corrected immune copy error of PROC-ENCODE-01 (immune range 0.0193-0.0227, read from the outcome table). Book line 184, printed 3.76.'
-    m = re.search(r'immune \(instrument-corrected\) ([\d.]+)\D+([\d.]+)', file_text(_B12_ENC))
-    value = _b12_E(float(m.group(2)))
-    return locals()
-
-@check(label='ch:salmonid:L184:3.93', chapter='ch:salmonid', part=6, title='ENCODE immune cells, upper E',
-       file='part4/p4_22b_salmonid', line=184, status='openprob', kind='file', printed='3.93', tol=0.0, source=_B12_ENC,
-       heavy=True, rerun='methylation chain on 43 ENCODE WGBS alignments (PROC-ENCODE-01); the record is the outcome file')
-def check_4259():
-    'ENCODE human blood cells on the same statistic: E = ln[(1-eps)/eps] at the lowest instrument-corrected immune copy error of PROC-ENCODE-01 (0.0193, B cell). Book line 184, printed 3.93.'
-    m = re.search(r'immune \(instrument-corrected\) ([\d.]+)\D+([\d.]+)', file_text(_B12_ENC))
-    value = _b12_E(float(m.group(1)))
-    return locals()
-
-@check(label='ch:salmonid:L207', chapter='ch:salmonid', part=6, title='Methow red-cell holding energy (next-set requirement)',
-       file='part4/p4_22b_salmonid', line=207, status='calc', kind='file', printed='3.31', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4260():
-    'Requirement 4 starts from the Methow red-cell holding energy: E = ln[(1-eps)/eps] at the median red-cell eps_corr of salmon_readings.csv. Book line 207, printed 3.31.'
-    value = _b12_E(float(np.median(_b12_col(_b12_rows(_B12_SAL, tissue='RBC'), 'eps_corr'))))
-    return locals()
-
-@check(label='ch:salmonid:L209', chapter='ch:salmonid', part=6, title='brook charr ratio interval, upper end (restated)',
-       file='part4/p4_22b_salmonid', line=209, status='calc', kind='file', printed='1.05', tol=0.0, source=_B12_CHR,
-       heavy=True, rerun=_B12_RR_CHR)
-def check_4261():
-    'Requirement 4 restates the brook charr warm/ambient interval 0.79-1.05: upper end recomputed by least squares from charr_readings.csv. Book line 209, printed 1.05.'
-    value = _b12_chr_ratio()[2]
-    return locals()
-
-@check(label='ch:salmonid:L216', chapter='ch:salmonid', part=6, title='keybox: lowest ICC (coho)',
-       file='part4/p4_22b_salmonid', line=216, status='measured', kind='file', printed='0.83', tol=0.0, source=_B12_COHO,
-       heavy=True, rerun=_B12_RR_COHO)
-def check_4262():
-    'Coho smolts, D1: ICC(1) of the two halves of eps_cc on common sites, recomputed from coho_cc_fish.csv as in score_coho_cc.py (coho_cc_summary.json prints 0.8259). Book line 216, printed 0.83.'
-    value = _b12_coho_icc()
-    return locals()
-
-@check(label='ch:salmonid:L216:0.998', chapter='ch:salmonid', part=6, title='keybox: highest ICC (Methow)',
-       file='part4/p4_22b_salmonid', line=216, status='measured', kind='file', printed='0.998', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4263():
-    'Methow steelhead, P0: ICC of the two halves (alternate reads) of all 40 specimens, recomputed from the per-specimen eps_corr_A/eps_corr_B of salmon_readings.csv with the formula of score_salmon.py (salmon_score.json prints 0.9983). Book line 216, printed 0.998.'
-    R = load_csv_rows(_B12_SAL)
-    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
-    return locals()
-
-@check(label='ch:salmonid:L218', chapter='ch:salmonid', part=6, title='keybox: about 3.3 k_B T in red cells and coho',
-       file='part4/p4_22b_salmonid', line=218, status='measured', kind='file', printed='3.3', tol=0.0, source=_B12_SAL,
-       heavy=True, rerun=_B12_RR_SAL)
-def check_4264():
-    'Keybox: holding energy about 3.3 k_B T in steelhead red cells and coho smolts. Value: mean of the Methow red-cell E at the median eps_corr (salmon_readings.csv) and the coho median E (coho_cc_fish.csv); both read 3.3 at the printed digit. Book line 218, printed 3.3.'
-    E_rbc = _b12_E(float(np.median(_b12_col(_b12_rows(_B12_SAL, tissue='RBC'), 'eps_corr'))))
-    E_coho = float(np.median(_b12_col(load_csv_rows(_B12_COHO), 'E_kT')))
-    both = round(E_rbc, 1) == round(E_coho, 1)
-    value = (E_rbc + E_coho) / 2
-    return locals()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # ======== Part 6 | part4:ch:reach | docs/book/part4/p4_23_reach.tex
@@ -36244,14 +34828,6 @@ def check_4324():
     value = float(m.group(1))
     return locals()
 
-@check(label='part4:ch:reach:L82:1.5', chapter='part4:ch:reach', part=6, title='constructed mixtures: most molecules',
-       file='part4/p4_23_reach', line=82, status='measured', kind='file', printed='1.5', tol=0.0, source=_B12_MOL,
-       heavy=True, rerun=_B12_RR_MOL)
-def check_4325():
-    'Constructed mixtures of PROC-MOLECULE-01: upper end of 0.5-1.5 million qualifying molecules, read from the outcome record. Book line 82, printed 1.5.'
-    m = re.search(r'with ([\d.]+)[\u2013-]([\d.]+) M molecules', file_text(_B12_MOL))
-    value = float(m.group(2))
-    return locals()
 
 
 # ======== Part 6 | ch:status | docs/book/part4/p4_24_status.tex
@@ -36416,59 +34992,11 @@ def check_4345():
     value = float(m.group(1))
     return locals()
 
-@check(label='ch:status:L35', chapter='ch:status', part=6, title='Stage A on known mixtures: median fraction error',
-       file='part4/p4_24_status', line=35, status='calc', kind='file', printed='0.034', tol=0.0, source=_B12_LOWF,
-       heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/data/lowfrac.py (needs the raw EPIC arrays through chain Stage 1 and Stage A)')
-def check_4346():
-    'Composition (Stage A) on the 12 known DNA mixtures: median |f_neu - f_true| of lowfrac_readings.csv (DEV-LOWFRAC-01: \'median error 0.034\'). Book line 35, printed 0.034.'
-    R = [r for r in load_csv_rows(_B12_LOWF) if r['f_true']]
-    n_mix = len(R)   # 12
-    value = float(np.median([abs(float(r['f_neu']) - float(r['f_true'])) for r in R]))
-    return locals()
 
-@check(label='ch:status:L36', chapter='ch:status', part=6, title='neutrophil fraction against flow cytometry',
-       file='part4/p4_24_status', line=36, status='calc', kind='file', printed='0.035', tol=0.0, source=_B12_T1,
-       heavy=True, rerun='chain v3 neutrophil tests T1/T3/T4 on the raw EPIC arrays (Stage 1 and Stage A)')
-def check_4347():
-    'Neutrophil fraction against flow cytometry on six healthy whole bloods (test T1, GSE112618): median |f_neu - counted proportion|, neut_test_T1T3T4_readings.csv. Book line 36, printed 0.035.'
-    R = [r for r in load_csv_rows(_B12_T1) if r['test'] == 'T1']
-    n_bloods = len(R)   # 6
-    value = float(np.median([abs(float(r['f_neu']) - float(r['neutrophils proportion'])) for r in R]))
-    return locals()
 
-@check(label='ch:status:L43', chapter='ch:status', part=6, title='DNMT1 inhibitor >= 80 nM: lowest Met-A',
-       file='part4/p4_24_status', line=43, status='calc', kind='file', printed='1.16', tol=0.0, source=_B12_DNMTA,
-       heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/data/dnmt_arrays.py (needs the GSE135205 raw IDATs through chain Stage 1)')
-def check_4348():
-    'DNMT1 inhibitor GSK3685032 at >= 80 nM (all days): lowest Met-A against each line\'s own vehicle arrays, dnmt_arrays_readings.csv (21 arrays). Book line 43, printed 1.16.'
-    value = min(_b12_dnmtA())
-    return locals()
 
-@check(label='ch:status:L43:1.87', chapter='ch:status', part=6, title='DNMT1 inhibitor >= 80 nM: highest Met-A',
-       file='part4/p4_24_status', line=43, status='calc', kind='file', printed='1.87', tol=0.0, source=_B12_DNMTA,
-       heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/data/dnmt_arrays.py (needs the GSE135205 raw IDATs through chain Stage 1)')
-def check_4349():
-    'DNMT1 inhibitor at >= 80 nM: highest Met-A, dnmt_arrays_readings.csv. (The inventory row read the range 1.16--1.87 as -1.87; the printed number is 1.87.) Book line 43, printed 1.87.'
-    value = max(_b12_dnmtA())
-    return locals()
 
-@check(label='ch:status:L44', chapter='ch:status', part=6, title='DNMT1 inhibitor 100 nM, single molecules: lowest IAM-A',
-       file='part4/p4_24_status', line=44, status='calc', kind='file', printed='1.65', tol=0.0, source=_B12_DNMTB,
-       heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/score_dnmt_b.py (needs the per-library site tables of the methylation chain)')
-def check_4350():
-    'DNMT1 inhibitor 100 nM on single molecules: IAM-A = H(eps treated)/H(eps vehicle) of the 8 treated libraries against their own genotype\'s vehicle libraries, dnmt_b_pairs.csv; lowest. Book line 44, printed 1.65.'
-    A = _b12_dnmtB()
-    n_treated = len(A)   # 8
-    value = min(A)
-    return locals()
 
-@check(label='ch:status:L44:1.97', chapter='ch:status', part=6, title='DNMT1 inhibitor 100 nM, single molecules: highest IAM-A',
-       file='part4/p4_24_status', line=44, status='calc', kind='file', printed='1.97', tol=0.0, source=_B12_DNMTB,
-       heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/score_dnmt_b.py (needs the per-library site tables of the methylation chain)')
-def check_4351():
-    'Highest IAM-A of the 8 treated libraries, dnmt_b_pairs.csv. (The inventory row read the range 1.65--1.97 as -1.97; the printed number is 1.97.) Book line 44, printed 1.97.'
-    value = max(_b12_dnmtB())
-    return locals()
 
 @check(label='ch:status:L45', chapter='ch:status', part=6, title='healthy DNA mixtures against neutrophils alone, lowest',
        file='part4/p4_24_status', line=45, status='calc', kind='file', printed='1.062', tol=0.0, source=_B12_WBN,
@@ -36502,14 +35030,6 @@ def check_4355():
     value = _b12_wbn('own')[1]
     return locals()
 
-@check(label='ch:status:L47', chapter='ch:status', part=6, title='Methow red cells: holding energy',
-       file='part4/p4_24_status', line=47, status='calc', kind='file', printed='3.31', tol=0.0, source=_B12_SAL2,
-       heavy=True, rerun='python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain)')
-def check_4356():
-    'Methow steelhead red cells: E = ln[(1-eps)/eps] k_B T at the median red-cell eps_corr of salmon_readings.csv (Chapter ch:salmonid). Book line 47, printed 3.31.'
-    eps = float(np.median([float(r['eps_corr']) for r in load_csv_rows(_B12_SAL2) if r['tissue'] == 'RBC']))
-    value = math.log((1 - eps) / eps)
-    return locals()
 
 
 # ======== Part 7 | ch:theoryinterp | docs/book/part5/p5_01_interpretation.tex
@@ -39659,33 +38179,12 @@ def _b15_dnmt_A():
     return [float(r['A']) for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
             if r['cmpd'] == 'GSK032' and float(r['dose_nM']) >= 80]
 
-@check(label='ch:statusall:L102', chapter='ch:statusall', part=7, title='Met-A under DNMT1 block, lowest (>= 80 nM)',
-       file='part5/p5_11_status_all', line=102, status='calc', kind='file', printed='1.16', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv', heavy=True, rerun=_B15_METH_RERUN)
-def check_4622():
-    'Lowest Met-A of all GSK3685032 arrays at >= 80 nM (dose series and time series), GSE135205. Book line 102, printed 1.16.'
-    value = min(_b15_dnmt_A())
-    return locals()
 
-@check(label='ch:statusall:L102:1.87', chapter='ch:statusall', part=7, title='Met-A under DNMT1 block, highest (>= 80 nM)',
-       file='part5/p5_11_status_all', line=102, status='calc', kind='file', printed='1.87', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv', heavy=True, rerun=_B15_METH_RERUN)
-def check_4623():
-    'Highest Met-A of all GSK3685032 arrays at >= 80 nM. Book line 102, printed 1.16--1.87 (upper end 1.87).'
-    value = max(_b15_dnmt_A())
-    return locals()
 
 def _b15_dnmt_b():
     m = re.search(r'8/8, A = ([\d.]+)–([\d.]+)', file_text('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md'))
     return float(m.group(1)), float(m.group(2))
 
-@check(label='ch:statusall:L102:1.65', chapter='ch:statusall', part=7, title='IAM-A on single molecules under DNMT1 block, lowest',
-       file='part5/p5_11_status_all', line=102, status='calc', kind='file', printed='1.65', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md', heavy=True, rerun=_B15_METH_RERUN)
-def check_4624():
-    'Lowest IAM-A of the 8 treated libraries, bar Q1 of PROC-DNMT-01 Part B (GSE329728). Book line 102, printed 1.65.'
-    value = _b15_dnmt_b()[0]
-    return locals()
 
 @check(label='ch:statusall:L102:1.97', chapter='ch:statusall', part=7, title='IAM-A on single molecules under DNMT1 block, highest',
        file='part5/p5_11_status_all', line=102, status='calc', kind='file', printed='1.97', tol=0.0,
@@ -44918,11 +43417,11 @@ def check_5010():
     value = 1 / float(mu_iam(1 / 1.25))
     return locals()
 
-@check(label='app:register:L55:2.0', chapter='app:register', part=8, title='COS-217: IAM below the WtG value, in sigma',
-       file='appendices/app_G_predictions_register', line=55, status='openprob', kind='num', printed='2.0', tol=0.0)
+@check(label='app:register:L55:2.4', chapter='app:register', part=8, title='COS-217: IAM below the WtG value, in sigma',
+       file='appendices/app_G_predictions_register', line=55, status='openprob', kind='num', printed='2.4', tol=0.0)
 def check_5011():
-    'COS-217: (1.31 - 1/mu(0.25))/0.11. Book line 55, printed 2.0 (about). Inputs: the register value 1.31 +/- 0.11 attributed to Weighing the Giants (source to trace, listed in SOURCES_NEEDED), beta_m (CANON).'
-    value = (1.31 - 1 / float(mu_iam(1 / 1.25))) / 0.11
+    'COS-217: (1.45 - 1/mu(0.25))/0.15. Book line 55, printed 2.4 (about). Inputs: WtG with the Planck prior, 1-b = 0.688 +- 0.072, ratio 1.45 +- 0.15 (Planck 2015 XXIV Table 2, doi 10.1051/0004-6361/201525833), as ch:lensdyn Table; beta_m (CANON).'
+    value = (1.45 - 1 / float(mu_iam(1 / 1.25))) / 0.15
     return locals()
 
 @check(label='app:register:L57:61.45', chapter='app:register', part=8, title='COS-240: Level 2b H0',
@@ -44972,11 +43471,11 @@ def check_5016():
     value = 1 / float(mu_iam(1 / 1.3))
     return locals()
 
-@check(label='app:register:L61:1.0', chapter='app:register', part=8, title='COS-272: IAM below the CCCP value, in sigma',
-       file='appendices/app_G_predictions_register', line=61, status='openprob', kind='num', printed='1.0', tol=0.0)
+@check(label='app:register:L61:1.3', chapter='app:register', part=8, title='COS-272: IAM below the CCCP value, in sigma',
+       file='appendices/app_G_predictions_register', line=61, status='openprob', kind='num', printed='1.3', tol=0.0)
 def check_5017():
-    'COS-272: (1.20 - 1/mu(0.3))/0.12. Book line 61, printed 1.0 (about). Inputs: the register value 1.20 +/- 0.12 attributed to CCCP (source to trace, listed in SOURCES_NEEDED), beta_m (CANON).'
-    value = (1.20 - 1 / float(mu_iam(1 / 1.3))) / 0.12
+    'COS-272: (1.28 - 1/mu(0.3))/0.15. Book line 61, printed 1.3 (about). Inputs: CCCP with the Planck prior, 1-b = 0.780 +- 0.092, ratio 1.28 +- 0.15 (Planck 2015 XXIV Table 2, doi 10.1051/0004-6361/201525833), as ch:lensdyn Table; beta_m (CANON).'
+    value = (1.28 - 1 / float(mu_iam(1 / 1.3))) / 0.15
     return locals()
 
 @check(label='app:register:L64:0.11', chapter='app:register', part=8, title='COS-309: DESI full-shape mu0 (recorded value)',
@@ -45149,7 +43648,7 @@ def check_5040():
 
 
 # ---------------------------------------------------------------- items inventoried and not run: (part, chapter, file, line, label, status, printed, why)
-CHAPTER_ORDER = ['part0/p0_abstract', 'part0/p0_preface', 'part0/p0_giants', 'part0/p0_how_to_read', 'part1/p1_01_encoding_surfaces', 'part1/p1_02_iams_law', 'part1/p1_03_virial_law', 'part1/p1_04_virial_identity', 'part2/p2_02_virial', 'part2/p2_02b_virial_tests', 'part2/p2_03_theory', 'part2/p2_03a_entropic_gravity', 'part2/p2_04_dualsector_chains', 'part2/p2_07_late_time_growth', 'part2/p2_06_dual_sector_perturbation', 'part2/p2_05_dual_sector_note', 'part2/p2_08_s8_trend', 'part2/p2_09_sector_tension', 'part2/p2_09b_phantom_crossing', 'part2/p2_10_dual_sector_validation', 'part2/p2_11_dark_energy', 'part2/p2_20_wz_far_future', 'part2/p2_12_lambda', 'part2/p2_12b_lambda_history', 'part2/p2_13_baryon', 'part2/p2_13b_baryon_chain', 'part2/p2_16_survey_predictions', 'part2/p2_17_lensing_dynamics', 'part2/p2_18_three_way_clusters', 'part2/p2_19_missing_satellites', 'part2/p2_01_blackholes', 'part2/p2_01a_bekenstein', 'part5/p5_01b_bh_information', 'part3/p3_07_saturation', 'part2/p2_14_quantum_records', 'part2/p2_21_entanglement_records', 'part5/p5_04_measurement', 'part5/p5_05_gravdec', 'part5/p5_06_nonlocality', 'part2/p2_22_electroweak', 'part2/p2_22b_higgs_record', 'part2/p2_15a_lepton_koide', 'part2/p2_15b_electron_mass', 'part3/p3_01_sc_primer', 'part3/p3_02_xqp', 'part3/p3_03_a_for_processors', 'part3/p3_04_thermal_n', 'part3/p3_05_coherence_optimum', 'part3/p3_10_qubit_platforms', 'part3/p3_06_cmos', 'part3/p3_11_chip_generations', 'part4/p4_01_bridge', 'part4/p4_00b_astrogenetics', 'part4/p4_02_landauer', 'part4/p4_03_surface', 'part4/p4_04_ledgers', 'part4/p4_05_floorbreach', 'part4/p4_06_gauge', 'part4/p4_07_meta', 'part4/p4_08_iama', 'part4/p4_09_cscore', 'part4/p4_10_temperature', 'part4/p4_11_translation', 'part4/p4_12_instrument', 'part4/p4_13_separation', 'part4/p4_14_atlas', 'part4/p4_15_identity', 'part4/p4_16a_skytools', 'part4/p4_16_sky', 'part4/p4_17_serial', 'part4/p4_18_discipline', 'part4/p4_19_chain', 'part4/p4_20_report', 'part4/p4_21_firstreadings', 'part4/p4_22_leukocyte', 'part4/p4_22b_salmonid', 'part4/p4_23_reach', 'part4/p4_24_status', 'part5/p5_01_interpretation', 'part5/p5_03_time', 'part5/p5_05b_virial_partners', 'part5/p5_05c_virial_decoherence', 'part3/p3_08_one_gauge', 'part5/p5_08_synthesis', 'part3/p3_09_reach', 'part5/p5_07_predictions', 'part5/p5_09_open', 'part5/p5_02_exploratory', 'part5/p5_11_status_all', 'part5/p5_10_conclusion', 'appendices/app_A_canon', 'appendices/app_A2_frozen_values', 'appendices/app_N_notation', 'appendices/app_E_formulas', 'appendices/app_C3_derivations', 'appendices/app_F_glossary', 'appendices/app_C_reproduce_physics', 'appendices/app_C2_reproduce_cells', 'appendices/app_G_predictions_register', 'appendices/app_I_provenance']
+CHAPTER_ORDER = ['part0/p0_abstract', 'part0/p0_preface', 'part0/p0_giants', 'part0/p0_how_to_read', 'part1/p1_01_encoding_surfaces', 'part1/p1_02_iams_law', 'part1/p1_03_virial_law', 'part1/p1_04_virial_identity', 'part2/p2_02_virial', 'part2/p2_02b_virial_tests', 'part2/p2_03_theory', 'part2/p2_03a_entropic_gravity', 'part2/p2_04_dualsector_chains', 'part2/p2_07_late_time_growth', 'part2/p2_06_dual_sector_perturbation', 'part2/p2_05_dual_sector_note', 'part2/p2_08_s8_trend', 'part2/p2_09_sector_tension', 'part2/p2_09b_phantom_crossing', 'part2/p2_10_dual_sector_validation', 'part2/p2_11_dark_energy', 'part2/p2_20_wz_far_future', 'part2/p2_12_lambda', 'part2/p2_12b_lambda_history', 'part2/p2_13_baryon', 'part2/p2_13b_baryon_chain', 'part2/p2_16_survey_predictions', 'part2/p2_17_lensing_dynamics', 'part2/p2_18_three_way_clusters', 'part2/p2_19_missing_satellites', 'part2/p2_01_blackholes', 'part2/p2_01a_bekenstein', 'part5/p5_01b_bh_information', 'part3/p3_07_saturation', 'part2/p2_14_quantum_records', 'part2/p2_21_entanglement_records', 'part5/p5_04_measurement', 'part5/p5_05_gravdec', 'part5/p5_06_nonlocality', 'part2/p2_22_electroweak', 'part2/p2_22b_higgs_record', 'part2/p2_15a_lepton_koide', 'part2/p2_15b_electron_mass', 'part3/p3_01_sc_primer', 'part3/p3_02_xqp', 'part3/p3_03_a_for_processors', 'part3/p3_04_thermal_n', 'part3/p3_05_coherence_optimum', 'part3/p3_10_qubit_platforms', 'part3/p3_06_cmos', 'part3/p3_11_chip_generations', 'part4/p4_01_bridge', 'part4/p4_00b_astrogenetics', 'part4/p4_02_landauer', 'part4/p4_03_surface', 'part4/p4_04_ledgers', 'part4/p4_05_floorbreach', 'part4/p4_06_gauge', 'part4/p4_07_meta', 'part4/p4_08_iama', 'part4/p4_09_cscore', 'part4/p4_10_temperature', 'part4/p4_11_translation', 'part4/p4_12_instrument', 'part4/p4_13_separation', 'part4/p4_14_atlas', 'part4/p4_15_identity', 'part4/p4_16a_skytools', 'part4/p4_16_sky', 'part4/p4_17_serial', 'part4/p4_18_discipline', 'part4/p4_19_chain', 'part4/p4_20_report', 'part4/p4_22_leukocyte', 'part4/p4_23_reach', 'part4/p4_24_status', 'part5/p5_01_interpretation', 'part5/p5_03_time', 'part5/p5_05b_virial_partners', 'part5/p5_05c_virial_decoherence', 'part3/p3_08_one_gauge', 'part5/p5_08_synthesis', 'part3/p3_09_reach', 'part5/p5_07_predictions', 'part5/p5_09_open', 'part5/p5_02_exploratory', 'part5/p5_11_status_all', 'part5/p5_10_conclusion', 'appendices/app_A_canon', 'appendices/app_A2_frozen_values', 'appendices/app_N_notation', 'appendices/app_E_formulas', 'appendices/app_C3_derivations', 'appendices/app_F_glossary', 'appendices/app_C_reproduce_physics', 'appendices/app_C2_reproduce_cells', 'appendices/app_G_predictions_register', 'appendices/app_I_provenance']
 INVENTORY = [
     (0, 'ch:p0_preface', 'part0/p0_preface', 53, '', 'none', '72.26', 'H0_matter canon locked result, input'),
     (0, 'ch:p0_preface', 'part0/p0_preface', 54, '', 'none', '67.16', 'H0_photon canon locked result, input'),
@@ -46006,15 +44505,8 @@ INVENTORY = [
     (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '0.01', 'input: illustrative array measurement noise 0.01 (figure reference line)'),
     (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '0.02', 'input: illustrative array measurement noise 0.02 (figure reference line)'),
     (6, 'ch:discipline', 'part4/p4_18_discipline', 58, '', 'measured', '1.05', 'definition: 1.05 is the upper edge of the Normal band (0.95-1.05), the line the planted readings are counted against; the reading itself is checked in ch:discipline:L57'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 63, '', 'measured', '1.05', 'definition: 1.05 is the upper edge of the Normal band (bar Q1 of PROC-DNMT-01 Part B: IAM-A > 1.05); the readings are checked in ch:firstreadings:L63:1.65 and L63:1.97'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 74, '', 'measured', '0.5', 'definition: 0.5 nM is the plotting position of the vehicle arrays on the log dose axis (figure convention, not a measurement)'),
     (6, 'ch:leukocyte', 'part4/p4_22_leukocyte', 16, '', 'conjecture', '0.95', "definition: 0.95 is the lower edge of the Normal band (0.95-1.05) that defines 'Below Normal'"),
     (6, 'ch:leukocyte', 'part4/p4_22_leukocyte', 19, '', 'conjecture', '1.05', "definition: 1.05 is the upper edge of the Normal band (0.95-1.05) that defines 'Above Normal'"),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 52, '', 'measured', '0.00011', 'measured: median half difference 0.000114 recomputed from salmon_readings.csv (eps_corr_A, eps_corr_B; salmon_score.json P0.median_abs_halfdiff) rounds to the printed 0.00011, but at two printed digits the 5 % shifted value (0.0001155) lies within half its last digit of 0.000114, so no check can carry a failing negative control'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 108, '', 'measured', '0.0010', 'measured: lower 95 % bound of the Rimouski P3 origin term, 0.001032 by least squares from rimouski_readings.csv (rimouski_score.json P3.ci[0]), rounds to the printed 0.0010; the 5 % shifted value (0.00105) lies within half its last digit of 0.001032, so no check can carry a failing negative control (the term itself and its upper bound are checked: ch:salmonid:L108:+0.0021, ch:salmonid:L108:0.0031)'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 109, '', 'measured', '+0.0001', "measured: Rimouski P4 father's-origin term 0.000107 by least squares from rimouski_readings.csv (rimouski_score.json P4) rounds to the printed +0.0001; a one-digit value cannot carry the 5 % negative control (0.000105 lies within half its last digit of 0.000107); its p (0.71) is checked by ch:salmonid:L109:0.71"),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 109, '', 'measured', '+0.0003', "measured: Rimouski P4 mother's-origin term 0.000322 by least squares from rimouski_readings.csv (rimouski_score.json P4) rounds to the printed +0.0003; a one-digit value cannot carry the 5 % negative control (0.000315 lies within half its last digit of 0.000322); its p (0.27) is checked by ch:salmonid:L109:0.27"),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 128, '', 'measured', '+0.00008', 'measured: mean shift eps_cc_common - eps_all_common = 0.0000824 over the 39 coho fish (coho_cc_fish.csv) rounds to the printed +0.00008; a one-digit value cannot carry the 5 % negative control (0.000084 lies within half its last digit of 0.0000824)'),
     (6, 'part4:ch:reach', 'part4/p4_23_reach', 30, '', 'prediction', '1.00', 'prediction, nothing to recompute: each lineage of a blood-cancer specimen read against its own healthy floor, against 1.00 (the healthy reference value of Met-A)'),
     (6, 'part4:ch:reach', 'part4/p4_23_reach', 66, '', 'measured', '0.0004', 'measured: OSCC1 oxWGBS conversion-failure difference |0.004662 - 0.005079| = 0.000417 from tumour_readings.csv (PROC-TUMOUR-01) rounds to the printed 0.0004; a one-digit value cannot carry the 5 % negative control (0.00042 lies within half its last digit of 0.000417)'),
     (6, 'part4:ch:reach', 'part4/p4_23_reach', 79, '', 'measured', '10', 'restates Chapter ch:sky (p4_16_sky.tex L72-73): about 10^3 genome equivalents per millilitre of plasma (Sender2024), so a draw yields of order 10^3-10^4 copies of a site; an order of magnitude carried over, nothing to recompute here'),
@@ -46503,8 +44995,6 @@ INVENTORY = [
     (8, 'app:glossary', 'appendices/app_F_glossary', 258, '', 'observed', '1.00', 'definition: an atlas cell reads 1.00 on its own profile by construction (entry rule); nothing to compute, and the number is not in MethylPhys_CPG_SOP_v3.md (the earlier match was an unrelated number)'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 567, '', 'observed', '1.01', 'convention: R-hat < 1.01 is the acceptance threshold of the atlas fits, not a computed value; it is not in MethylPhys_CPG_SOP_v3.md (the earlier match was an unrelated number)'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 607, '', 'observed', '1.00', 'definition: 1.00 is the reading a reference sample should give by construction; nothing to compute; the selection-noise SDs (0.020, 0.006) are the measured part, and the earlier match in MethylPhys_CPG_SOP_v3.md was an unrelated number'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 64, '', 'measured', '0.0007', 'printed value 0.0007 has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.000742 from the committed readings)'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 82, '', 'measured', '0.0007', 'printed value 0.0007 (figure caption) has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.000742; same value as line 64)'),
     (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'calc', '1.1', 'printed value 1.1 % has two significant digits and the recomputed E_G change, 1.144 %, lies within 2.5 % of 1.1 x 1.05: a 5 % change cannot be told from rounding'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 124, '', 'observed', '0.05', 'printed value 0.05 has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0526; the same quantity is printed to one digit at ch:skytools:L125)'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 243, '', 'observed', '0.3', 'printed value 0.3 % has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.320 %; the precise 0.32 % is checked at ch:electronmass:L188)'),

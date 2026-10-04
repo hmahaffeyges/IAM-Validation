@@ -74,6 +74,8 @@ repository, because the book corrects and supersedes them. Every correction, wit
 
 **Check the book's derivations in one command:** `python3 verify_book.py` runs every derivation and calculated number the script covers, in the book's order, each with PASS/FAIL and its equation label (`--part N`, `--label L`, `--fails`, `--json`). Today: 2,927 pass, 0 fail; 601 of those read committed chain outputs; 3,407 items are listed in `VERIFY_BOOK_INVENTORY.md` as not yet run, each with the reason.
 
+**Development logs:** every development finding, good or bad, is logged as it happens in [`development/`](development/), one running log per project (Met-A, IAM-A and C-scores; wild versus hatchery fish). The book carries results once the chain that produced them is commissioned.
+
 
 ```
 git clone https://github.com/hmahaffeyges/IAM-Validation && cd IAM-Validation

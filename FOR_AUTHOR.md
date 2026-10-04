@@ -2,7 +2,7 @@
 
 Items a check raised that would change a result, the framing of a claim, or that need a source or a script before they can be checked. The book is unchanged for each open item.
 
-Open items: 8. Resolved by the lead on 2026-10-04 (result-neutral, rule 2026-10-03): 19.
+Open items: 6 (sources or scripts the lead is supplying). Resolved 2026-10-04: 21.
 
 ## 3. `docs/book/part2/p2_02b_virial_tests.tex:L31`
 
@@ -17,13 +17,6 @@ Open items: 8. Resolved by the lead on 2026-10-04 (result-neutral, rule 2026-10-
 - **Proposed:** commit the script that produces the L-dependent range, or print the range a committed script gives
 - **Why it matters:** the range cannot be rerun from the repository; an Eisenstein-Hu linear-power Limber integral with the IAM growth (G_eff = mu G, same early amplitude) gives 0.24 % at L = 30 falling to 0.03 % at L = 1000, i.e. the opposite L ordering and a lower floor
 - **Recommendation:** add the Limber calculation to verify_obs_chapters.py with its output, then check it in verify_book.py
-
-## 12. `docs/book/part4/p4_13_separation.tex:L44-46`
-
-- **Now:** a solver built on references from several platforms under-read EPIC neutrophils by about 0.05 and split T cells into subtypes that have no purified EPIC profile, and the expectation built from its fractions was wrong
-- **Proposed:** re-read against DEV_ATLAS_EPIC_01 (2026-10-03): on FACS-counted EPIC bloods the atlas solver does not under-read neutrophils (bias -0.007 to -0.013; NNLS8 -0.030), and on the six blood-like DNA mixtures every method reads low, the chain's own NNLS8 included (-0.053; atlas -0.043 to -0.047)
-- **Why it matters:** The sentence frames the 0.05 under-read as a property of the multi-platform solver; the committed later record (doors/DEV_ATLAS_EPIC_01.md, results/metrics_by_set.csv) finds it is a property of the mixtures shared by every method. Changing it changes the framing of a finding, so it is not edited here.
-- **Recommendation:** author to decide whether to keep the sentence as the history of the choice, or add the later measurement
 
 ## 13. `docs/book/part4/p4_13_separation.tex:L61 and L76`
 
@@ -53,16 +46,10 @@ Open items: 8. Resolved by the lead on 2026-10-04 (result-neutral, rule 2026-10-
 - **Why it matters:** the plotted bar and the printed range differ (3.4-3.9 kT plotted vs 3.4-3.7 kT from the text); the overall range 1.9-4.4 kT is unaffected
 - **Recommendation:** confirm the Goyal 2006 value and align the figure label and bar with the text (or the text with the figure).
 
-## 25. `docs/book/appendices/app_G_predictions_register.tex:L55 and L61 (COS-217, COS-272; generated from CANON/predictions_triage_2026-10-02.json)`
-
-- **Now:** WtG observed 1.31 +/- 0.11 (IAM ~2.0 sigma below); CCCP observed 1.20 +/- 0.12 (~1.0 sigma)
-- **Proposed:** Use the traced values recorded in docs/book/read_ledgers/st_MANIFEST_clusters_satellites.md (LD4): Planck 2015 XXIV Table 2 priors 1-b = 0.688 +/- 0.072 (WtG, ratio 1.45 +/- 0.15) and 0.780 +/- 0.092 (CCCP, ratio 1.28 +/- 0.15), with the sigma distances recomputed, or drop the numeric comparison
-- **Why it matters:** The ledger and docs/verification/PAPER_ERRATA.md (LD4) say 1.20 +/- 0.12 and 1.31 +/- 0.11 were replaced by traced values in the lensing-dynamics chapter, but the register rows still print the untraced numbers; the sigma distances 2.0 and 1.0 (checked here from the printed inputs) would change (about 2.4 and 1.3 sigma with the traced values).
-- **Recommendation:** Update the triage statements of COS-217 and COS-272 (or add overrides) and regenerate the appendix with make_app_G.py; the rows 1.31, 0.11, 1.20, 0.12 are listed in SOURCES_NEEDED until then.
-
-
 ## Resolved 2026-10-04
 
+- 12. p4_13 solver sentence - author 2026-10-04: no development findings added to the book
+- 25. WtG/CCCP register rows - author approved 2026-10-04: traced Planck 2015 XXIV values (1.45 +/- 0.15, ~2.4 sigma; 1.28 +/- 0.15, ~1.3 sigma), as ch:lensdyn
 - 1. `docs/book/part2/p2_02_virial.tex:L86-87` - printed 0.77-0.89 (traced read-offs)
 - 2. `docs/book/part2/p2_02_virial.tex:L143` - kept (the book quotes the two-decimal fit)
 - 5. `docs/book/part2/p2_08_s8_trend.tex:L101` - printed 7-9 %

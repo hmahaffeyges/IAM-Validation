@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4984 PASS, 0 FAIL, 1358 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4365,9 +4365,6 @@ Totals: 4984 PASS, 0 FAIL, 1358 inventoried and not run. Each run item carries t
 | 286 | ch:astrogenetics:L286 | fitted | `1.133\times10^{-123}` | numeric: measured rho_L/rho_vac | PASS |
 | 286 | ch:astrogenetics:L286:0.79 | fitted | `0.79` | numeric: expression above the measured ratio, per cent | PASS |
 | 288 | ch:astrogenetics:L288 | observed | `0.5` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Ob/Om = (3/16) sqrt(OL) holds to 0.5 % on the CMB-only chain | PASS |
-| 295 | ch:astrogenetics:L295 | measured | `1.65` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
-| 295 | ch:astrogenetics:L295:1.97 | measured | `1.97` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
-| 295 | ch:astrogenetics:L295:1.05 | measured | `1.05` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 298 | ch:astrogenetics:L298 | measured | `1.148` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 
 ## Part 6 - ch:landauer - `docs/book/part4/p4_02_landauer.tex`
@@ -4704,15 +4701,7 @@ Totals: 4984 PASS, 0 FAIL, 1358 inventoried and not run. Each run item carries t
 | 32 | ch:temperature:L32 | calc | `0.821` | numeric: floor at 15 C | PASS |
 | 36 | ch:temperature:L36 | calc | `8.1` | numeric: 7-fold selectivity at 15 C | PASS |
 | 36 | ch:temperature:L36:6.8 | calc | `6.8` | numeric: at 42 C | PASS |
-| 74 | ch:temperature:L74 | measured | `3.31` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: steelhead red blood cells, median holding energy | PASS |
-| 74 | ch:temperature:L74:4.02 | measured | `4.02` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: steelhead sperm, median holding energy | PASS |
-| 75 | ch:temperature:L75 | measured | `3.81` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr sperm, median holding energy | PASS |
-| 75 | ch:temperature:L75:3.47 | measured | `3.47` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Atlantic salmon fin, F0, median holding energy | PASS |
-| 75 | ch:temperature:L75:3.56 | measured | `3.56` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Atlantic salmon fin, F1, median holding energy | PASS |
 | 76 | ch:temperature:L76 | measured | `3.41` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: human cells at 37 C (dashed line) | PASS |
-| 76 | ch:temperature:L76:3.74 | measured | `3.74` | numeric: a fixed holding energy carried to 10 C, in kT | PASS |
-| 77 | ch:temperature:L77 | measured | `-0.57` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: charr: holding energy against duplicate fraction, Spearman rho | PASS |
-| 77 | ch:temperature:L77:-0.38 | measured | `-0.38` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Atlantic salmon: holding energy against conversion failure, Spearman rho | PASS |
 | 98 |  | observed | `0.96` | not run: measured, source not named | - |
 | 111 | ch:temperature:L111 | prediction | `20.84` | numeric: M for a dog at 38.5 C | PASS |
 | 113 |  | prediction | `1.00` | not run: prediction, nothing to recompute (held-out canine cells should read 1.00 on a canine reference) | - |
@@ -4730,7 +4719,6 @@ Totals: 4984 PASS, 0 FAIL, 1358 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 31 | ch:instrument:L31:0.985 | measured | `0.985` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: intake call rate, first laboratory median | PASS |
 | 31 | ch:instrument:L31:0.979 | measured | `0.979` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: intake call rate, first laboratory minimum | PASS |
 | 31 | ch:instrument:L31:0.975 | measured | `0.975` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: intake call rate, second laboratory median | PASS |
 | 31 | ch:instrument:L31:0.891 | measured | `0.891` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: intake call rate, second laboratory minimum | PASS |
@@ -4931,18 +4919,7 @@ Totals: 4984 PASS, 0 FAIL, 1358 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 31 | ch:serial:L31 | measured | `0.045` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, donor 1 (GSE247195), untared isolated neutrophils | PASS |
-| 31 | ch:serial:L31:0.044 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, donor 2 (GSE247193), untared isolated neutrophils | PASS |
-| 34 | ch:serial:L34 | measured | `0.30` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: GSE250556 replicates: lowest neutrophil fraction | PASS |
-| 34 | ch:serial:L34:0.56 | measured | `0.56` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: GSE250556 replicates: highest neutrophil fraction | PASS |
-| 37 | ch:serial:L37 | measured | `0.05` | file `Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md`: remission pairs: agreement bar of S5 | PASS |
-| 47 | ch:serial:L47 | measured | `0.045` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: figure caption: within-person SD, donor 1 | PASS |
-| 47 | ch:serial:L47:0.044 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: figure caption: within-person SD, donor 2 | PASS |
-| 57 | ch:serial:L57 | measured | `24` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: table: arrays read, donor 1 | PASS |
-| 57 | ch:serial:L57:0.045 | measured | `0.045` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: table: within-person SD, donor 1 | PASS |
-| 58 | ch:serial:L58 | measured | `21` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: table: arrays read, donor 2 | PASS |
-| 58 | ch:serial:L58:0.044 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: table: within-person SD, donor 2 | PASS |
 | 60 | ch:serial:L60 | measured | `10` | file `Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md`: table: remission pairs, number of pairs | PASS |
-| 60 | ch:serial:L60:0.05 | measured | `0.05` | file `Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md`: table: remission pairs, agreement bar | PASS |
 | 71 | ch:serial:L71 | measured | `0.894` | file `Biological_Physics/MethylPhys/doors/PLAN.md`: E-MTAB-7309 Stage 1: median call rate | PASS |
 
 ## Part 6 - ch:discipline - `docs/book/part4/p4_18_discipline.tex`
@@ -4970,69 +4947,6 @@ Totals: 4984 PASS, 0 FAIL, 1358 inventoried and not run. Each run item carries t
 | 25 | ch:chain:L25 | calibrated | `1.099` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json`: Stage Q neutrophil position P | PASS |
 | 72 | ch:chain:L72 | openprob | `1.1104` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C-score healthy baseline (Stage MC text) | PASS |
 
-## Part 6 - ch:firstreadings - `docs/book/part4/p4_21_firstreadings.tex`
-
-| line | label | status | printed | checked how | result |
-|---:|---|---|---|---|---|
-| 22 | ch:firstreadings:L22 | openprob | `0.983` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out reading of the reference arrays: lowest | PASS |
-| 22 | ch:firstreadings:L22:1.045 | openprob | `1.045` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out reading of the reference arrays: highest | PASS |
-| 24 | ch:firstreadings:L24 | openprob | `0.06` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: withheld remission bloods: lowest neutrophil fraction | PASS |
-| 24 | ch:firstreadings:L24:0.47 | openprob | `0.47` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: withheld remission bloods: highest neutrophil fraction | PASS |
-| 32 | ch:firstreadings:L32 | measured | `0.93` | file `Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_PREREG.md`: T1c predicted band: lower edge | PASS |
-| 32 | ch:firstreadings:L32:0.98 | measured | `0.98` | file `Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_PREREG.md`: T1c predicted band: upper edge | PASS |
-| 34 | ch:firstreadings:L34 | measured | `1.22` | file `Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv`: untared A of the infection study, typical value | PASS |
-| 37 | ch:firstreadings:L37 | measured | `0.85` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: healthy expectation from fraction and noise index: R^2 | PASS |
-| 47 | ch:firstreadings:L47 | fitted | `0.81` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: above Normal, severe against healthy, after the fitted expectation: p | PASS |
-| 57 | ch:firstreadings:L57 | measured | `0.968` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: vehicle arrays: lowest Met-A | PASS |
-| 57 | ch:firstreadings:L57:1.048 | measured | `1.048` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: vehicle arrays: highest Met-A | PASS |
-| 57 | ch:firstreadings:L57:1.002 | measured | `1.002` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: inactive analogue 10 uM: lowest Met-A | PASS |
-| 57 | ch:firstreadings:L57:1.032 | measured | `1.032` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: inactive analogue 10 uM: highest Met-A | PASS |
-| 57 | ch:firstreadings:L57:3.2 | measured | `3.2` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: lowest active-drug dose in the series | PASS |
-| 57 | ch:firstreadings:L57:1.001 | measured | `1.001` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: active drug 3.2-16 nM: lowest Met-A | PASS |
-| 57 | ch:firstreadings:L57:1.028 | measured | `1.028` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: active drug 3.2-16 nM: highest Met-A | PASS |
-| 57 | ch:firstreadings:L57:1.16 | measured | `1.16` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: active drug >= 80 nM: lowest Met-A | PASS |
-| 57 | ch:firstreadings:L57:1.87 | measured | `1.87` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: active drug >= 80 nM: highest Met-A | PASS |
-| 58 | ch:firstreadings:L58 | measured | `+1.56` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: methylated channel: median rise, active compounds | PASS |
-| 58 | ch:firstreadings:L58:0.017 | measured | `+0.017` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: unmethylated channel: median rise, active compounds | PASS |
-| 58 | ch:firstreadings:L58:1.60 | measured | `1.60` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: second active compound: lowest Met-A | PASS |
-| 58 | ch:firstreadings:L58:1.85 | measured | `1.85` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: second active compound: highest Met-A | PASS |
-| 59 | ch:firstreadings:L59 | measured | `0.57` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: methylated-site median beta at 80 nM: lowest | PASS |
-| 59 | ch:firstreadings:L59:0.89 | measured | `0.89` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: methylated-site median beta at 80 nM: highest | PASS |
-| 59 | ch:firstreadings:L59:0.36 | measured | `0.36` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: methylated-site beta by 400 nM: lowest (record) | PASS |
-| 59 | ch:firstreadings:L59:0.60 | measured | `0.60` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: methylated-site beta by 400 nM: highest (record) | PASS |
-| 60 | ch:firstreadings:L60 | measured | `2.66` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: methylated channel at the ceiling: lowest observed (record) | PASS |
-| 60 | ch:firstreadings:L60:2.85 | measured | `2.85` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: methylated channel at the ceiling: highest observed | PASS |
-| 60 | ch:firstreadings:L60:2.8 | measured | `2.8` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: ceiling of the methylated channel, 1/H(floor) (record) | PASS |
-| 63 | ch:firstreadings:L63 | measured | `0.0209` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: EM-seq vehicle copy error: lowest | PASS |
-| 63 | ch:firstreadings:L63:0.0217 | measured | `0.0217` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: EM-seq vehicle copy error: highest | PASS |
-| 63 | ch:firstreadings:L63:0.0405 | measured | `0.0405` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: EM-seq treated copy error: lowest | PASS |
-| 63 | ch:firstreadings:L63:0.0511 | measured | `0.0511` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: EM-seq treated copy error: highest | PASS |
-| 63 | ch:firstreadings:L63:1.65 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: IAM-A against own vehicle: lowest | PASS |
-| 63 | ch:firstreadings:L63:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: IAM-A against own vehicle: highest | PASS |
-| 63 |  | measured | `1.05` | not run: definition: 1.05 is the upper edge of the Normal band (bar Q1 of PROC-DNMT-01 Part B: IAM-A > 1.05); the readings are checked in ch:firstreadings:L63:1.65 and L63:1.97 | - |
-| 64 |  | measured | `0.0007` | not run: printed value 0.0007 has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.000742 from the committed readings) | - |
-| 74 | ch:firstreadings:L74:0.968 | measured | `0.968` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: vehicle lowest Met-A | PASS |
-| 74 | ch:firstreadings:L74:1.048 | measured | `1.048` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: vehicle highest Met-A | PASS |
-| 74 | ch:firstreadings:L74:3.2 | measured | `3.2` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: lowest active-drug dose | PASS |
-| 74 | ch:firstreadings:L74:1.001 | measured | `1.001` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: 3.2-16 nM lowest Met-A | PASS |
-| 74 | ch:firstreadings:L74:1.028 | measured | `1.028` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: 3.2-16 nM highest Met-A | PASS |
-| 74 | ch:firstreadings:L74:1.16 | measured | `1.16` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: >= 80 nM lowest Met-A | PASS |
-| 74 | ch:firstreadings:L74:1.87 | measured | `1.87` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: >= 80 nM highest Met-A | PASS |
-| 74 |  | measured | `0.5` | not run: definition: 0.5 nM is the plotting position of the vehicle arrays on the log dose axis (figure convention, not a measurement) | - |
-| 81 | ch:firstreadings:L81:0.0209 | measured | `0.0209` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: vehicle copy error lowest | PASS |
-| 81 | ch:firstreadings:L81:0.0217 | measured | `0.0217` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: vehicle copy error highest | PASS |
-| 81 | ch:firstreadings:L81:0.0405 | measured | `0.0405` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: treated copy error lowest | PASS |
-| 81 | ch:firstreadings:L81:0.0511 | measured | `0.0511` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: treated copy error highest | PASS |
-| 81 | ch:firstreadings:L81:1.65 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: IAM-A lowest | PASS |
-| 81 | ch:firstreadings:L81:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: IAM-A highest | PASS |
-| 82 |  | measured | `0.0007` | not run: printed value 0.0007 (figure caption) has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.000742; same value as line 64) | - |
-| 89 | ch:firstreadings:L89 | measured | `0.05` | file `Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md`: remission draws agree within the S5 bar | PASS |
-| 97 | ch:firstreadings:L97 | measured | `67.9` | file `Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md`: 450K held-out controls read Normal (per cent) | PASS |
-| 97 | ch:firstreadings:L97:0.961 | measured | `0.961` | file `Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md`: 450K controls: women median reading (record) | PASS |
-| 97 | ch:firstreadings:L97:1.007 | measured | `1.007` | file `Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md`: 450K controls: men median reading (record) | PASS |
-| 98 | ch:firstreadings:L98 | measured | `0.008` | file `Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md`: purified 450K neutrophils: sex difference | PASS |
-| 98 | ch:firstreadings:L98:92.9 | measured | `92.9` | file `Biological_Physics/MethylPhys/doors/PROC_PREDX_SLIDE_01_OUTCOME.md`: same-slide tare: controls in Normal (per cent) | PASS |
-
 ## Part 6 - ch:leukocyte - `docs/book/part4/p4_22_leukocyte.tex`
 
 | line | label | status | printed | checked how | result |
@@ -5040,134 +4954,6 @@ Totals: 4984 PASS, 0 FAIL, 1358 inventoried and not run. Each run item carries t
 | 16 |  | conjecture | `0.95` | not run: definition: 0.95 is the lower edge of the Normal band (0.95-1.05) that defines 'Below Normal' | - |
 | 19 |  | conjecture | `1.05` | not run: definition: 1.05 is the upper edge of the Normal band (0.95-1.05) that defines 'Above Normal' | - |
 | 45 | ch:leukocyte:L45 | observed | `0.23` | file `Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md`: 450K development reading: rank correlation with age among controls | PASS |
-
-## Part 6 - ch:salmonid - `docs/book/part4/p4_22b_salmonid.tex`
-
-| line | label | status | printed | checked how | result |
-|---:|---|---|---|---|---|
-| 52 | ch:salmonid:L52 | measured | `0.998` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow ICC of the two halves | PASS |
-| 52 | ch:salmonid:L52:0.0025 | measured | `0.0025` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow between-fish SD, red cells | PASS |
-| 52 |  | measured | `0.00011` | not run: measured: median half difference 0.000114 recomputed from salmon_readings.csv (eps_corr_A, eps_corr_B; salmon_score.json P0.median_abs_halfdiff) rounds to the printed 0.00011, but at two printed digits the 5 % shifted value (0.0001155) lies within half its last digit of 0.000114, so no check can carry a failing negative control | - |
-| 53 | ch:salmonid:L53 | measured | `0.0029` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow between-fish SD, sperm | PASS |
-| 53 | ch:salmonid:L53:0.0025 | measured | `0.0025` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow P1 between-fish SD, red cells | PASS |
-| 53 | ch:salmonid:L53:0.0005 | measured | `0.0005` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow within-fish half-split SD, red cells | PASS |
-| 53 | ch:salmonid:L53:0.0002 | measured | `0.0002` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow within-fish half-split SD, sperm | PASS |
-| 54 | ch:salmonid:L54 | measured | `0.0354` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow steelhead: median red-cell eps_corr | PASS |
-| 54 | ch:salmonid:L54:3.31 | measured | `3.31` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow steelhead: median red-cell holding energy, kT | PASS |
-| 55 | ch:salmonid:L55 | measured | `0.0356` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow steelhead: median eps_corr of hatchery red cells | PASS |
-| 55 | ch:salmonid:L55:0.0352 | measured | `0.0352` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 55 | ch:salmonid:L55:0.0165 | measured | `0.0165` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow steelhead: median eps_corr of hatchery sperm | PASS |
-| 55 | ch:salmonid:L55:0.31 | measured | `0.31` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow P3 red cells, Mann-Whitney p | PASS |
-| 55 | ch:salmonid:L55:0.0184 | measured | `0.0184` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow P3 sperm, natural median | PASS |
-| 55 | ch:salmonid:L55:0.34 | measured | `0.34` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow P3 sperm, Mann-Whitney p | PASS |
-| 56 | ch:salmonid:L56 | measured | `6.0` | heavy file `Biological_Physics/Salmonid/PROC_SALMON_01/salmon_score.json`: Methow P4 largest |z|, red cells | PASS |
-| 56 | ch:salmonid:L56:5.9 | measured | `5.9` | heavy file `Biological_Physics/Salmonid/PROC_SALMON_01/salmon_score.json`: Methow P4 largest |z|, sperm | PASS |
-| 56 | ch:salmonid:L56:16.0 | measured | `16.0` | heavy file `Biological_Physics/Salmonid/PROC_SALMON_01/salmon_score.json`: Methow P4 threshold, red cells | PASS |
-| 57 | ch:salmonid:L57 | measured | `23.0` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 63 | ch:salmonid:L63 | measured | `-0.58` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow red cells: rho with conversion failure | PASS |
-| 63 | ch:salmonid:L63:0.007 | measured | `0.007` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow red cells: p of rho with conversion failure | PASS |
-| 64 | ch:salmonid:L64 | measured | `-0.69` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow red cells: rho with masked sites | PASS |
-| 64 | ch:salmonid:L64:0.001 | measured | `0.001` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow red cells: p of rho with masked sites | PASS |
-| 64 | ch:salmonid:L64:-0.54 | measured | `-0.54` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm: rho with conversion failure | PASS |
-| 65 | ch:salmonid:L65 | measured | `0.014` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm: p of rho with conversion failure | PASS |
-| 65 | ch:salmonid:L65:-0.47 | measured | `-0.47` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm: rho with depth | PASS |
-| 65 | ch:salmonid:L65:0.04 | measured | `0.04` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm: p of rho with depth | PASS |
-| 65 | ch:salmonid:L65:0.016 | measured | `0.016` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm lanes: lowest median of the other lanes | PASS |
-| 65 | ch:salmonid:L65:0.019 | measured | `0.019` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm lanes: highest median of the other lanes | PASS |
-| 66 | ch:salmonid:L66 | measured | `0.06` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow: red cell against sperm of one fish, rho | PASS |
-| 66 | ch:salmonid:L66:0.81 | measured | `0.81` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow: red cell against sperm of one fish, p | PASS |
-| 67 | ch:salmonid:L67 | measured | `3.31` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow steelhead: median red-cell holding energy, kT (sperm comparison) | PASS |
-| 67 | ch:salmonid:L67:4.02 | measured | `4.02` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm holding energy | PASS |
-| 87 | ch:salmonid:L87 | measured | `0.924` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr ICC, 36 fish | PASS |
-| 87 | ch:salmonid:L87:-0.01 | measured | `-0.01` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P1: rho with conversion failure | PASS |
-| 87 | ch:salmonid:L87:+0.45 | measured | `+0.45` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P1: rho with duplicate fraction | PASS |
-| 87 | ch:salmonid:L87:+0.57 | measured | `+0.57` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr: rho with duplicates, failed fish left out | PASS |
-| 88 | ch:salmonid:L88 | measured | `3.82` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
-| 88 | ch:salmonid:L88:0.0216 | measured | `0.0216` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P2: median ambient eps_corr | PASS |
-| 88 | ch:salmonid:L88:+0.29 | measured | `+0.29` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P1: rho with masked fraction | PASS |
-| 89 | ch:salmonid:L89 | measured | `0.92` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P3: warm/ambient ratio | PASS |
-| 89 | ch:salmonid:L89:0.79 | measured | `0.79` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P3: ratio, lower 95 % bound | PASS |
-| 89 | ch:salmonid:L89:1.05 | measured | `1.05` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P3: ratio, upper 95 % bound | PASS |
-| 89 | ch:salmonid:L89:0.24 | measured | `0.24` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P3: p of the temperature term | PASS |
-| 90 | ch:salmonid:L90 | measured | `3.74` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
-| 90 | ch:salmonid:L90:3.88 | measured | `3.88` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
-| 90 | ch:salmonid:L90:-0.0015 | measured | `-0.0015` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P4: line term | PASS |
-| 90 | ch:salmonid:L90:-0.0045 | measured | `-0.0045` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P4: line term, lower 95 % bound | PASS |
-| 90 | ch:salmonid:L90:+0.0015 | measured | `+0.0015` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P4: line term, upper 95 % bound | PASS |
-| 90 | ch:salmonid:L90:0.31 | measured | `0.31` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P4: p of the line term | PASS |
-| 91 | ch:salmonid:L91 | measured | `0.0007` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr between-fish SD of eps | PASS |
-| 107 | ch:salmonid:L107 | measured | `0.996` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski ICC of the two halves | PASS |
-| 107 | ch:salmonid:L107:+0.38 | measured | `+0.38` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P1: rho with conversion failure | PASS |
-| 107 | ch:salmonid:L107:-0.20 | measured | `-0.20` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P1: rho with duplicates | PASS |
-| 108 | ch:salmonid:L108 | measured | `3.47` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
-| 108 | ch:salmonid:L108:-0.15 | measured | `-0.15` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P1: rho with masked fraction | PASS |
-| 108 | ch:salmonid:L108:+0.0021 | measured | `+0.0021` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P3: stocked minus wild | PASS |
-| 108 | ch:salmonid:L108:0.0031 | measured | `0.0031` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P3: upper 95 % bound | PASS |
-| 108 |  | measured | `0.0010` | not run: measured: lower 95 % bound of the Rimouski P3 origin term, 0.001032 by least squares from rimouski_readings.csv (rimouski_score.json P3.ci[0]), rounds to the printed 0.0010; the 5 % shifted value (0.00105) lies within half its last digit of 0.001032, so no check can carry a failing negative control (the term itself and its upper bound are checked: ch:salmonid:L108:+0.0021, ch:salmonid:L108:0.0031) | - |
-| 109 | ch:salmonid:L109 | measured | `0.0003` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P3: p of the origin term | PASS |
-| 109 | ch:salmonid:L109:0.71 | measured | `0.71` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P4: p of the father term | PASS |
-| 109 | ch:salmonid:L109:0.27 | measured | `0.27` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P4: p of the mother term | PASS |
-| 109 |  | measured | `+0.0001` | not run: measured: Rimouski P4 father's-origin term 0.000107 by least squares from rimouski_readings.csv (rimouski_score.json P4) rounds to the printed +0.0001; a one-digit value cannot carry the 5 % negative control (0.000105 lies within half its last digit of 0.000107); its p (0.71) is checked by ch:salmonid:L109:0.71 | - |
-| 109 |  | measured | `+0.0003` | not run: measured: Rimouski P4 mother's-origin term 0.000322 by least squares from rimouski_readings.csv (rimouski_score.json P4) rounds to the printed +0.0003; a one-digit value cannot carry the 5 % negative control (0.000315 lies within half its last digit of 0.000322); its p (0.27) is checked by ch:salmonid:L109:0.27 | - |
-| 110 | ch:salmonid:L110 | measured | `0.0303` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Atlantic salmon fin: F0 median eps_corr | PASS |
-| 110 | ch:salmonid:L110:3.47 | measured | `3.47` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
-| 110 | ch:salmonid:L110:0.0278 | measured | `0.0278` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Atlantic salmon fin: F1 median eps_corr | PASS |
-| 110 | ch:salmonid:L110:3.56 | measured | `3.56` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
-| 126 | ch:salmonid:L126 | measured | `0.826` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho D1: ICC | PASS |
-| 126 | ch:salmonid:L126:-0.384 | measured | `-0.384` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho D2: rho with conversion failure | PASS |
-| 127 | ch:salmonid:L127 | measured | `-0.224` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho D2: rho with depth | PASS |
-| 127 | ch:salmonid:L127:92.8 | measured | `92.8` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: share of qualifying molecules kept by the filter | PASS |
-| 128 | ch:salmonid:L128 | measured | `-0.384` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: rho with conversion failure before the filter | PASS |
-| 128 |  | measured | `+0.00008` | not run: measured: mean shift eps_cc_common - eps_all_common = 0.0000824 over the 39 coho fish (coho_cc_fish.csv) rounds to the printed +0.00008; a one-digit value cannot carry the 5 % negative control (0.000084 lies within half its last digit of 0.0000824) | - |
-| 131 | ch:salmonid:L131 | measured | `-1.0` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: lowest within-lane rho | PASS |
-| 131 | ch:salmonid:L131:+0.6 | measured | `+0.6` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: highest within-lane rho | PASS |
-| 131 | ch:salmonid:L131:0.36 | measured | `0.36` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: copy error between lanes, p | PASS |
-| 131 | ch:salmonid:L131:0.33 | measured | `0.33` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: conversion failure between lanes, p | PASS |
-| 132 | ch:salmonid:L132 | measured | `0.0337` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
-| 132 | ch:salmonid:L132:0.0373 | measured | `0.0373` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 132 | ch:salmonid:L132:0.0356 | measured | `0.0356` | file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: median copy error on common sites | PASS |
-| 132 | ch:salmonid:L132:0.00089 | measured | `0.00089` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho between-fish SD | PASS |
-| 133 | ch:salmonid:L133 | measured | `0.00039` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho half-split noise | PASS |
-| 136 | ch:salmonid:L136 | measured | `3.25` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 136 | ch:salmonid:L136:3.36 | measured | `3.36` | file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: highest holding energy, kT (as scored) | PASS |
-| 136 | ch:salmonid:L136:3.30 | measured | `3.30` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 150 | ch:salmonid:L150 | measured | `3.31` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: table: Methow steelhead red cells, median holding energy, kT | PASS |
-| 150 | ch:salmonid:L150:20 | measured | `20` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Table: Methow males | PASS |
-| 150 | ch:salmonid:L150:0.998 | measured | `0.998` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Table: Methow ICC | PASS |
-| 150 | ch:salmonid:L150:-0.58 | measured | `-0.58` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Table: Methow red cells, rho with conversion | PASS |
-| 151 | ch:salmonid:L151 | measured | `-0.54` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Table: Methow sperm, rho with conversion | PASS |
-| 151 | ch:salmonid:L151:4.02 | measured | `4.02` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Table: Methow sperm E | PASS |
-| 152 | ch:salmonid:L152 | measured | `3.81` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: table: brook charr sperm, median holding energy, kT | PASS |
-| 152 | ch:salmonid:L152:40 | measured | `40` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: Table: brook charr males | PASS |
-| 152 | ch:salmonid:L152:0.924 | measured | `0.924` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: Table: brook charr ICC | PASS |
-| 152 | ch:salmonid:L152:+0.45 | measured | `+0.45` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: Table: brook charr, rho with duplicates | PASS |
-| 153 | ch:salmonid:L153 | measured | `3.47` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
-| 153 | ch:salmonid:L153:32 | measured | `32` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Table: Rimouski F0 fish | PASS |
-| 153 | ch:salmonid:L153:0.996 | measured | `0.996` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Table: Rimouski ICC | PASS |
-| 153 | ch:salmonid:L153:+0.38 | measured | `+0.38` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Table: Rimouski, rho with conversion | PASS |
-| 154 | ch:salmonid:L154 | measured | `3.30` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 154 | ch:salmonid:L154:39 | measured | `39` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: Table: coho smolts | PASS |
-| 154 | ch:salmonid:L154:0.826 | measured | `0.826` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: Table: coho ICC | PASS |
-| 154 | ch:salmonid:L154:-0.38 | measured | `-0.38` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: Table: coho, rho with conversion | PASS |
-| 163 | ch:salmonid:L163 | measured | `3.29` | file `Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md`: human cells, lower end of the holding energy, kT (figure caption) | PASS |
-| 163 | ch:salmonid:L163:3.51 | measured | `3.51` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
-| 164 | ch:salmonid:L164 | measured | `3.60` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
-| 164 | ch:salmonid:L164:3.85 | measured | `3.85` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
-| 169 | ch:salmonid:L169 | measured | `0.83` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: lowest ICC of the four sets (coho) | PASS |
-| 170 | ch:salmonid:L170 | measured | `0.998` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: highest ICC of the four sets (Methow) | PASS |
-| 179 | ch:salmonid:L179 | measured | `3.29` | file `Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md`: human cells, lower end of the holding energy, kT | PASS |
-| 179 | ch:salmonid:L179:3.51 | measured | `3.51` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
-| 179 | ch:salmonid:L179:3.60 | measured | `3.60` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
-| 179 | ch:salmonid:L179:3.85 | measured | `3.85` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
-| 180 | ch:salmonid:L180 | measured | `3.81` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr sperm, median holding energy, kT | PASS |
-| 180 | ch:salmonid:L180:4.02 | measured | `4.02` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm holding energy (holding-energy paragraph) | PASS |
-| 184 | ch:salmonid:L184 | openprob | `3.76` | heavy file `Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md`: ENCODE immune cells, lower E | PASS |
-| 184 | ch:salmonid:L184:3.93 | openprob | `3.93` | heavy file `Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md`: ENCODE immune cells, upper E | PASS |
-| 207 | ch:salmonid:L207 | calc | `3.31` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow red-cell holding energy (next-set requirement) | PASS |
-| 209 | ch:salmonid:L209 | calc | `1.05` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr ratio interval, upper end (restated) | PASS |
-| 216 | ch:salmonid:L216 | measured | `0.83` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: keybox: lowest ICC (coho) | PASS |
-| 216 | ch:salmonid:L216:0.998 | measured | `0.998` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: keybox: highest ICC (Methow) | PASS |
-| 218 | ch:salmonid:L218 | measured | `3.3` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: keybox: about 3.3 k_B T in red cells and coho | PASS |
 
 ## Part 6 - part4:ch:reach - `docs/book/part4/p4_23_reach.tex`
 
@@ -5236,7 +5022,6 @@ Totals: 4984 PASS, 0 FAIL, 1358 inventoried and not run. Each run item carries t
 | 72 | part4:ch:reach:L72:0.0005 | measured | `0.0005` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC4 oxWGBS: conversion difference | PASS |
 | 79 |  | measured | `10` | not run: restates Chapter ch:sky (p4_16_sky.tex L72-73): about 10^3 genome equivalents per millilitre of plasma (Sender2024), so a draw yields of order 10^3-10^4 copies of a site; an order of magnitude carried over, nothing to recompute here | - |
 | 82 | part4:ch:reach:L82 | measured | `0.5` | heavy file `Biological_Physics/MethylPhys/doors/PROC_MOLECULE_01_OUTCOME.md`: constructed mixtures: fewest molecules | PASS |
-| 82 | part4:ch:reach:L82:1.5 | measured | `1.5` | heavy file `Biological_Physics/MethylPhys/doors/PROC_MOLECULE_01_OUTCOME.md`: constructed mixtures: most molecules | PASS |
 | 109 |  | prediction | `1.00` | not run: prediction, nothing to recompute: sorted healthy canine cells held out of a canine reference read 1.00 within tolerance | - |
 
 ## Part 6 - ch:status - `docs/book/part4/p4_24_status.tex`
@@ -5270,18 +5055,11 @@ Totals: 4984 PASS, 0 FAIL, 1358 inventoried and not run. Each run item carries t
 | 34 |  | calc | `95` | not run: definition: the pre-registered bar, 95 % of held-out readings in Normal (Chapter ch:atlas) | - |
 | 34 |  | calc | `87.7` | not run: measured: recorded only in the _provenance.tests field of Biological_Physics/MethylPhys/atlas/v2/postbuild/runtime/iamatlas_v2_identity_loci_v1_1.json ('array->array 87.7% of held-out readings in NORMAL, 28/29 cell medians'), a 15 MB file above the DATA_FILES size limit; restates Chapter ch:atlas L181 | - |
 | 34 |  | calc | `73.1` | not run: measured: recorded only in the _provenance.tests field of Biological_Physics/MethylPhys/atlas/v2/postbuild/runtime/iamatlas_v2_identity_loci_v1_1.json ('Loyfer->array with this correction 73.1%, 14/17 cell medians'), a 15 MB file above the DATA_FILES size limit; restates Chapter ch:atlas L182 | - |
-| 35 | ch:status:L35 | calc | `0.034` | heavy file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: Stage A on known mixtures: median fraction error | PASS |
-| 36 | ch:status:L36 | calc | `0.035` | heavy file `Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv`: neutrophil fraction against flow cytometry | PASS |
-| 43 | ch:status:L43 | calc | `1.16` | heavy file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT1 inhibitor >= 80 nM: lowest Met-A | PASS |
-| 43 | ch:status:L43:1.87 | calc | `1.87` | heavy file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT1 inhibitor >= 80 nM: highest Met-A | PASS |
-| 44 | ch:status:L44 | calc | `1.65` | heavy file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv`: DNMT1 inhibitor 100 nM, single molecules: lowest IAM-A | PASS |
-| 44 | ch:status:L44:1.97 | calc | `1.97` | heavy file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv`: DNMT1 inhibitor 100 nM, single molecules: highest IAM-A | PASS |
 | 44 |  | calc | `100` | not run: input: the 100 nM dose of the single-molecule DNMT1 inhibitor libraries (Part B design) | - |
 | 45 | ch:status:L45 | calc | `1.062` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures against neutrophils alone, lowest | PASS |
 | 45 | ch:status:L45:1.118 | calc | `1.118` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures against neutrophils alone, highest | PASS |
 | 45 | ch:status:L45:0.982 | calc | `0.982` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures against own composition, lowest | PASS |
 | 45 | ch:status:L45:1.016 | calc | `1.016` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures against own composition, highest | PASS |
-| 47 | ch:status:L47 | calc | `3.31` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow red cells: holding energy | PASS |
 
 ## Part 7 - ch:theoryinterp - `docs/book/part5/p5_01_interpretation.tex`
 
@@ -5814,9 +5592,6 @@ Totals: 4984 PASS, 0 FAIL, 1358 inventoried and not run. Each run item carries t
 | 100 | ch:statusall:L100:1.079 | measured | `1.079` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: 2 % neutrophil-pattern loss, untared, highest | PASS |
 | 100 | ch:statusall:L100:1.052 | measured | `1.052` | heavy file `Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md`: 2 % loss, tared, lowest | PASS |
 | 100 | ch:statusall:L100:1.090 | measured | `1.090` | heavy file `Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md`: 2 % loss, tared, highest | PASS |
-| 102 | ch:statusall:L102 | calc | `1.16` | heavy file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: Met-A under DNMT1 block, lowest (>= 80 nM) | PASS |
-| 102 | ch:statusall:L102:1.87 | calc | `1.87` | heavy file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: Met-A under DNMT1 block, highest (>= 80 nM) | PASS |
-| 102 | ch:statusall:L102:1.65 | calc | `1.65` | heavy file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: IAM-A on single molecules under DNMT1 block, lowest | PASS |
 | 102 | ch:statusall:L102:1.97 | calc | `1.97` | heavy file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: IAM-A on single molecules under DNMT1 block, highest | PASS |
 | 106 | ch:statusall:L106 | calc | `2.3\times10^{22}` | numeric: M_eq today | PASS |
 | 108 | ch:statusall:L108 | conjecture | `0.0179` | numeric: Q_L = k_B T ln 2 at room temperature, eV | PASS |
@@ -6728,7 +6503,7 @@ Totals: 4984 PASS, 0 FAIL, 1358 inventoried and not run. Each run item carries t
 | 53 |  | openprob | `172` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 54 |  | openprob | `179` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 55 | app:register:L55:1.094 | openprob | `1.094` | numeric: COS-217: 1/mu at z = 0.25 | PASS |
-| 55 | app:register:L55:2.0 | openprob | `2.0` | numeric: COS-217: IAM below the WtG value, in sigma | PASS |
+| 55 | app:register:L55:2.4 | openprob | `2.4` | numeric: COS-217: IAM below the WtG value, in sigma | PASS |
 | 55 |  | openprob | `217` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 55 |  | openprob | `0.25` | not run: input: median redshift z ~ 0.25 of the Weighing the Giants sample | - |
 | 55 |  | openprob | `1.31` | not run: measured, source not named: observed lensing-to-hydrostatic ratio 1.31 attributed to Weighing the Giants (von der Linden et al. 2014); the value is carried only by the register files and is marked untraced (PAPER_ERRATA.md LD4) | - |
@@ -6753,7 +6528,7 @@ Totals: 4984 PASS, 0 FAIL, 1358 inventoried and not run. Each run item carries t
 | 60 |  | openprob | `20` | not run: measured, source not named: number of galaxy clusters (~20) behind the virial 1/2 partition entry; the register names no data | - |
 | 60 |  | openprob | `20 \%` | not run: measured, source not named: stated accuracy (~20 %) of the virial partition for galaxy clusters; the register names no data | - |
 | 61 | app:register:L61:1.085 | openprob | `1.085` | numeric: COS-272: 1/mu at z = 0.3 | PASS |
-| 61 | app:register:L61:1.0 | openprob | `1.0` | numeric: COS-272: IAM below the CCCP value, in sigma | PASS |
+| 61 | app:register:L61:1.3 | openprob | `1.3` | numeric: COS-272: IAM below the CCCP value, in sigma | PASS |
 | 61 |  | openprob | `272` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 61 |  | openprob | `50` | not run: input: CCCP sample size, 50 clusters (Hoekstra2015) | - |
 | 61 |  | openprob | `0.15` | not run: input: lower end of the CCCP redshift range 0.15 < z < 0.55 (Hoekstra2015) | - |
