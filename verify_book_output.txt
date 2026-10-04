@@ -170,6 +170,8 @@ PASS  ch:iams_law:L517:1.0090            ch:iams_law:p1_02_iams_law:517  printed
 PASS  ch:iams_law:L517:1.0012            ch:iams_law:p1_02_iams_law:517  printed 1.0012  recomputed 1.00116  tol 5.006005e-05  [calc] H_m/H at z=2
 PASS  ch:iams_law:L517:1.0002            ch:iams_law:p1_02_iams_law:517  printed 1.0002  recomputed 1.00019  tol 5.001005e-05  [calc] H_m/H at z=3
 PASS  ch:iams_law:L529                   ch:iams_law:p1_02_iams_law:529  printed -0.78  recomputed -0.776789  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:iams_law:L529:-0.67             ch:iams_law:p1_02_iams_law:529  printed -0.67  recomputed -0.667048  tol 0.00500001  [calc] Delta D/D today, form (ii): friction 2H_m, LambdaCDM clock
+PASS  ch:iams_law:L529:-1.87             ch:iams_law:p1_02_iams_law:529  printed -1.87  recomputed -1.87329  tol 0.00500001  [calc] Delta D/D today, form (iii): whole equation on H_m
 PASS  ch:iams_law:L531                   ch:iams_law:p1_02_iams_law:531  printed 4.25  recomputed 4.25055  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:iams_law:L531:2.17              ch:iams_law:p1_02_iams_law:531  printed 2.17  recomputed 2.16814  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:iams_law:L531:1.35              ch:iams_law:p1_02_iams_law:531  printed 1.35  recomputed 1.34873  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
@@ -181,10 +183,29 @@ PASS  ch:iams_law:L553                   ch:iams_law:p1_02_iams_law:553  printed
 PASS  eq:law_dSdlna                      ch:iams_law:p1_02_iams_law:561  printed (algebra)  recomputed lhs-rhs=0  [none] exponent of a in dS/dlna scaling
 PASS  eq:law_Sa                          ch:iams_law:p1_02_iams_law:565  printed (algebra)  recomputed lhs-rhs=0  [none] integral of a^(n-11/2), n != 9/2
 PASS  eq:law_n                           ch:iams_law:p1_02_iams_law:569  printed 7/2  recomputed 3.5  tol 1.000001e-09  [calc] exponent n solving n-9/2=-1
+PASS  ch:iams_law:L573                   ch:iams_law:p1_02_iams_law:573  printed -1.02  recomputed -1.0228  tol 0.00500001  [calc] power of dS_info/dln a, n = 7/2, 0.01 <= a <= 0.1
+PASS  ch:iams_law:L573:-2.02             ch:iams_law:p1_02_iams_law:573  printed -2.02  recomputed -2.0158  tol 0.00500001  [calc] power of dS_info/dln a, n = 5/2, 0.01 <= a <= 0.1
+PASS  ch:iams_law:L573:-1.52             ch:iams_law:p1_02_iams_law:573  printed -1.52  recomputed -1.5193  tol 0.00500001  [calc] power of dS_info/dln a, n = 3, 0.01 <= a <= 0.1
+PASS  ch:iams_law:L573:-0.53             ch:iams_law:p1_02_iams_law:573  printed -0.53  recomputed -0.526309  tol 0.00500001  [calc] power of dS_info/dln a, n = 4, 0.01 <= a <= 0.1
+PASS  ch:iams_law:L574                   ch:iams_law:p1_02_iams_law:574  printed -1.57  recomputed -1.57078  tol 0.00500001  [calc] power of dS_info/dln a, n = 7/2, Lambda era 0.25 <= a <= 1
+PASS  ch:iams_law:L581                   ch:iams_law:p1_02_iams_law:581  printed -2.02  recomputed -2.0158  tol 0.00500001  [calc] caption: fitted power, n = 5/2, 0.01 <= a <= 0.1
+PASS  ch:iams_law:L581:-1.52             ch:iams_law:p1_02_iams_law:581  printed -1.52  recomputed -1.5193  tol 0.00500001  [calc] caption: fitted power, n = 3, 0.01 <= a <= 0.1
+PASS  ch:iams_law:L581:-1.02             ch:iams_law:p1_02_iams_law:581  printed -1.02  recomputed -1.0228  tol 0.00500001  [calc] caption: fitted power, n = 7/2, 0.01 <= a <= 0.1
+PASS  ch:iams_law:L581:-0.53             ch:iams_law:p1_02_iams_law:581  printed -0.53  recomputed -0.526309  tol 0.00500001  [calc] caption: fitted power, n = 4, 0.01 <= a <= 0.1
 PASS  ch:iams_law:L582                   ch:iams_law:p1_02_iams_law:582  printed 0.864  recomputed 0.863819  tol 5.002565e-04  [calc] mu(z=0), fig caption rounded
 PASS  ch:iams_law:L582:0.948             ch:iams_law:p1_02_iams_law:582  printed 0.948  recomputed 0.948158  tol 5.000005e-04  [calc] mu(z=0.5), fig caption rounded
 PASS  ch:iams_law:L582:0.982             ch:iams_law:p1_02_iams_law:582  printed 0.982  recomputed 0.982238  tol 5.000005e-04  [calc] mu(z=1), fig caption rounded
 PASS  ch:iams_law:L589                   ch:iams_law:p1_02_iams_law:589  printed (algebra)  recomputed lhs-rhs=0  [derived] d ln nu/d ln D = -1 for nu = delta_c/(sigma_M D)
+PASS  ch:iams_law:L590                   ch:iams_law:p1_02_iams_law:590  printed 5.5  recomputed 5.575  tol 0.0825001  [calc] bottom-up n_eff at z = 9, middle of the three mass functions  file docs/verification/scripts/verify_bottom_up_exponent_output.txt
+      heavy: python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt (needs colossus)
+PASS  ch:iams_law:L590:7/2               ch:iams_law:p1_02_iams_law:590  printed 7/2  recomputed 3.52167  tol 0.035  [calc] bottom-up n_eff over z = 3-4, mean of three mass functions  file docs/verification/scripts/verify_bottom_up_exponent_output.txt
+      heavy: python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt (needs colossus)
+PASS  ch:iams_law:L590:2                 ch:iams_law:p1_02_iams_law:590  printed 2  recomputed 2.20333  tol 0.5  [calc] bottom-up n_eff at z = 1, mean of three mass functions  file docs/verification/scripts/verify_bottom_up_exponent_output.txt
+      heavy: python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt (needs colossus)
+PASS  ch:iams_law:L591                   ch:iams_law:p1_02_iams_law:591  printed 3.9  recomputed 3.89  tol 0.05  [calc] lowest model mean of n_eff over z = 2.3-9  file docs/verification/scripts/verify_bottom_up_exponent_output.txt
+      heavy: python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt (needs colossus)
+PASS  ch:iams_law:L591:4.3               ch:iams_law:p1_02_iams_law:591  printed 4.3  recomputed 4.29  tol 0.05  [calc] highest model mean of n_eff over z = 2.3-9  file docs/verification/scripts/verify_bottom_up_exponent_output.txt
+      heavy: python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt (needs colossus)
 PASS  eq:law_hoop                        ch:iams_law:p1_02_iams_law:634  printed (algebra)  recomputed lhs-rhs=0  [derived] S_BH/A at Schwarzschild radius equals holographic bound
 PASS  eq:law_Meq                         ch:iams_law:p1_02_iams_law:643  printed (algebra)  recomputed lhs-rhs=0  [derived] equilibrium mass from T_BH=T_H
 PASS  ch:iams_law:L645                   ch:iams_law:p1_02_iams_law:645  printed (algebra)  recomputed lhs-rhs=0  [derived] ratio identity T_BH/T_H=Meq/M
@@ -208,6 +229,9 @@ PASS  ch:iams_law:L695:0.800             ch:iams_law:p1_02_iams_law:695  printed
 PASS  ch:iams_law:L696                   ch:iams_law:p1_02_iams_law:696  printed -0.37  recomputed -0.37037  tol 0.00500001  [calc] sigma offset from Planck H0
 PASS  ch:iams_law:L696:67.36             ch:iams_law:p1_02_iams_law:696  printed 67.36  recomputed found in file  [measured] measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names  file docs/verification/scripts/verify_iams_law_derivations_output.txt
       heavy: python3 docs/verification/scripts/verify_iams_law_derivations.py > docs/verification/scripts/verify_iams_law_derivations_output.txt
+PASS  ch:iams_law:L696:0.47              ch:iams_law:p1_02_iams_law:696  printed 0.47  recomputed 0.466857  tol 0.00500001  [measured] photon-sector H0 error, Level 2 Run A  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:iams_law:L696:0.54              ch:iams_law:p1_02_iams_law:696  printed 0.54  recomputed 0.54  tol 0.00500001  [observed] Planck 2018 H0 error (published)
 PASS  ch:iams_law:L697                   ch:iams_law:p1_02_iams_law:697  printed 72.26  recomputed 72.2602  tol 0.00505821  [none] H0 matter-sector formula
 PASS  ch:iams_law:L697:-0.75             ch:iams_law:p1_02_iams_law:697  printed -0.75  recomputed -0.749781  tol 0.00500251  [calc] sigma offset from SH0ES
 PASS  ch:iams_law:L697:73.04             ch:iams_law:p1_02_iams_law:697  printed 73.04  recomputed found in file  [measured] measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names  file docs/verification/scripts/verify_iams_law_derivations_output.txt
@@ -226,10 +250,14 @@ PASS  ch:iams_law:L714:12.0              ch:iams_law:p1_02_iams_law:714  printed
       heavy: python3 docs/verification/scripts/verify_iams_law_derivations.py > docs/verification/scripts/verify_iams_law_derivations_output.txt
 PASS  ch:iams_law:L714:68.9              ch:iams_law:p1_02_iams_law:714  printed 68.9  recomputed found in file  [observed] measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names  file docs/verification/scripts/verify_iams_law_derivations_output.txt
       heavy: python3 docs/verification/scripts/verify_iams_law_derivations.py > docs/verification/scripts/verify_iams_law_derivations_output.txt
+PASS  ch:iams_law:L714:8.0               ch:iams_law:p1_02_iams_law:714  printed 8.0  recomputed 8  tol 0.05  [observed] GW170817 siren H0 lower error (published)
 PASS  ch:iams_law:L715                   ch:iams_law:p1_02_iams_law:715  printed 75.46  recomputed found in file  [observed] measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names  file docs/verification/scripts/verify_iams_law_derivations_output.txt
       heavy: python3 docs/verification/scripts/verify_iams_law_derivations.py > docs/verification/scripts/verify_iams_law_derivations_output.txt
 PASS  ch:iams_law:L715:5.34              ch:iams_law:p1_02_iams_law:715  printed 5.34  recomputed found in file  [observed] measured: printed value found in IAM_LAW_CHECK.md, a file the chapter names  file docs/verification/theory/IAM_LAW_CHECK.md
 PASS  ch:iams_law:L715:5.39              ch:iams_law:p1_02_iams_law:715  printed 5.39  recomputed found in file  [observed] measured: printed value found in IAM_LAW_CHECK.md, a file the chapter names  file docs/verification/theory/IAM_LAW_CHECK.md
+PASS  ch:iams_law:L718                   ch:iams_law:p1_02_iams_law:718  printed 0.11  recomputed 0.11  tol 0.00500001  [observed] DESI 2024 full-shape mu0 (recorded value)  file docs/verification/theory/IAM_LAW_CHECK.md
+PASS  ch:iams_law:L718:0.45              ch:iams_law:p1_02_iams_law:718  printed 0.45  recomputed 0.45  tol 0.00500001  [observed] DESI 2024 full-shape mu0 upper error (recorded value)  file docs/verification/theory/IAM_LAW_CHECK.md
+PASS  ch:iams_law:L718:0.54              ch:iams_law:p1_02_iams_law:718  printed 0.54  recomputed 0.54  tol 0.00500001  [observed] DESI 2024 full-shape mu0 lower error (recorded value)  file docs/verification/theory/IAM_LAW_CHECK.md
 PASS  ch:iams_law:L730                   ch:iams_law:p1_02_iams_law:730  printed 1.133\times10^{-123}  recomputed 1.133388e-123  tol 5.000005e-127  [calc] Lambda/rho_vac identity at H0=67.4
 PASS  ch:iams_law:L735                   ch:iams_law:p1_02_iams_law:735  printed 1.380\times10^{-123}  recomputed 1.380385e-123  tol 5.000005e-127  [calc] baseline Lambda/rho_vac with Ob,Om
 PASS  ch:iams_law:L735:1.22              ch:iams_law:p1_02_iams_law:735  printed 1.22  recomputed 1.21793  tol 0.00500201  [calc] ratio baseline to measured Lambda
@@ -237,6 +265,10 @@ PASS  eq:law_TdS                         ch:iams_law:p1_02_iams_law:738  printed
 PASS  ch:iams_law:L740                   ch:iams_law:p1_02_iams_law:740  printed 1.142\times10^{-123}  recomputed 1.142221e-123  tol 5.024805e-127  [calc] corrected Lambda/rho_vac with sqrt(OmegaL)
 PASS  ch:iams_law:L740:0.8\%             ch:iams_law:p1_02_iams_law:740  printed 0.8\%  recomputed 0.779341  tol 0.05  [calc] percent offset corrected vs measured
 PASS  ch:iams_law:L741                   ch:iams_law:p1_02_iams_law:741  printed (algebra)  recomputed lhs-rhs=0  [derived] algebra: Ob/Om=(3/16)sqrt(OmegaL)
+PASS  ch:iams_law:L742                   ch:iams_law:p1_02_iams_law:742  printed 0.5\%  recomputed 0.46  tol 0.05  [calc] Ob/Om over (3/16)sqrt(OL) on the CMB-only chain, per cent  file docs/verification/scripts/verify_cc_and_baryon_output.txt
+      heavy: python3 docs/verification/scripts/verify_cc_and_baryon.py > docs/verification/scripts/verify_cc_and_baryon_output.txt (reads the iam_baryon_test chain)
+PASS  ch:iams_law:L742:0.7               ch:iams_law:p1_02_iams_law:742  printed 0.7  recomputed 0.676471  tol 0.05  [calc] same offset in units of its posterior error  file docs/verification/scripts/verify_cc_and_baryon_output.txt
+      heavy: python3 docs/verification/scripts/verify_cc_and_baryon.py > docs/verification/scripts/verify_cc_and_baryon_output.txt (reads the iam_baryon_test chain)
 PASS  eq:law_eta_chain                   ch:iams_law:p1_02_iams_law:752  printed 0.02232  recomputed 0.0223199  tol 5.000005e-06  [fitted] baryon chain Ombh2 fitted value  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  eq:law_eta_chain:0.00014           ch:iams_law:p1_02_iams_law:752  printed 0.00014  recomputed 1.359427e-04  tol 5.000005e-06  [fitted] baryon chain Ombh2 uncertainty  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
@@ -247,6 +279,9 @@ PASS  ch:iams_law:L754                   ch:iams_law:p1_02_iams_law:754  printed
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:iams_law:L754:6.137\times10^{-10} ch:iams_law:p1_02_iams_law:754  printed 6.137\times10^{-10}  recomputed 6.136671e-10  tol 5.001660e-13  [none] max eta across 4 LCDM L1 chains  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:iams_law:L805                   ch:iams_law:p1_02_iams_law:805  printed (algebra)  recomputed lhs-rhs=0  [derived] E(a) = exp(1 - 1/a) from integrating the record constraint
+PASS  ch:iams_law:L807                   ch:iams_law:p1_02_iams_law:807  printed 7/2  recomputed 3.5  tol 1.000001e-09  [derived] n = 7/2 from the horizon accounting
+PASS  ch:iams_law:L808                   ch:iams_law:p1_02_iams_law:808  printed -0.136  recomputed -0.136181  tol 5.000005e-04  [derived] mu0 = mu(1) - 1 = -beta_m/(1+beta_m)
 PASS  ch:iams_law:L840                   ch:iams_law:p1_02_iams_law:840  printed 1/2  recomputed lhs-rhs=0  [derived] virial ratio for converged 1/r potential
 PASS  ch:iams_law:L841                   ch:iams_law:p1_02_iams_law:841  printed 1.456  recomputed 1.45626  tol 5.000005e-04  [derived] Chandrasekhar mass, mu_e=2, m_u
 PASS  ch:iams_law:L887                   ch:iams_law:p1_02_iams_law:887  printed 2\pi/8\pi  recomputed lhs-rhs=0  [derived] Jacobson eta=1/(4lP^2) ratio check
@@ -3932,4 +3967,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3146  FAIL 0  (heavy, read from committed outputs: 637)  inventoried-not-run 3188  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3173  FAIL 0  (heavy, read from committed outputs: 645)  inventoried-not-run 3161  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

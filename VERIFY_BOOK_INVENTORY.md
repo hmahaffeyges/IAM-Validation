@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3146 PASS, 0 FAIL, 3188 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3173 PASS, 0 FAIL, 3161 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -240,40 +240,36 @@ Totals: 3146 PASS, 0 FAIL, 3188 inventoried and not run. Each run item carries t
 | 526 |  | none |  | not run: growth eq form (ii), friction on LCDM clock, definition | - |
 | 527 |  | none |  | not run: growth eq form (iii), whole eq on H_m, definition | - |
 | 529 | ch:iams_law:L529 | calc | `-0.78` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 529 |  | calc | `-0.67` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 529 |  | calc | `-1.87` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 529 | ch:iams_law:L529:-0.67 | calc | `-0.67` | numeric: Delta D/D today, form (ii): friction 2H_m, LambdaCDM clock | PASS |
+| 529 | ch:iams_law:L529:-1.87 | calc | `-1.87` | numeric: Delta D/D today, form (iii): whole equation on H_m | PASS |
 | 531 | ch:iams_law:L531 | calc | `4.25` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 531 | ch:iams_law:L531:2.17 | calc | `2.17` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 531 | ch:iams_law:L531:1.35 | calc | `1.35` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 531 | ch:iams_law:L531:0.41 | calc | `0.41` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 536 |  | calc | `0.13` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 536 |  | calc | `0.13` | not run: not reproducible here: a CAMB TT-spectrum comparison (tests/iam_camb_full_boltzmann.py); the sentence itself says the spectra are not stored in the repository, so there is no committed output to read | - |
 | 552 | ch:iams_law:L552 | none | `61.5` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2b background-modification H0 chain output | PASS |
 | 553 | ch:iams_law:L553 | measured | `\le0.010` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: largest final R-1 over all 18 chains | PASS |
 | 561 | eq:law_dSdlna | none |  | sympy: exponent of a in dS/dlna scaling | PASS |
 | 565 | eq:law_Sa | none |  | sympy: integral of a^(n-11/2), n != 9/2 | PASS |
 | 569 | eq:law_n | calc | `7/2` | numeric: exponent n solving n-9/2=-1 | PASS |
-| 573 |  | calc | `-1.02` | not run: not yet run: draft does not reproduce the printed value (recomputed 3.4993); drafting error on review | - |
-| 573 |  | calc | `-2.02` | not run: not yet run: draft does not reproduce the printed value (recomputed 2.49941); drafting error on review | - |
-| 573 |  | calc | `-1.52` | not run: not yet run: draft does not reproduce the printed value (recomputed 2.99936); drafting error on review | - |
-| 573 |  | calc | `-0.53` | not run: not yet run: draft does not reproduce the printed value (recomputed 3.99925); drafting error on review | - |
-| 574 |  | calc | `-1.57` | not run: not yet run: draft does not reproduce the printed value (recomputed 2.5581); drafting error on review | - |
-| 581 |  | calc | `-2.02` | not run: not yet run: draft does not reproduce the printed value (recomputed 2.49941); drafting error on review | - |
-| 581 |  | calc | `-1.52` | not run: not yet run: draft does not reproduce the printed value (recomputed 2.99936); drafting error on review | - |
-| 581 |  | calc | `-1.02` | not run: not yet run: draft does not reproduce the printed value (recomputed 3.4993); drafting error on review | - |
-| 581 |  | calc | `-0.53` | not run: not yet run: draft rejected (drafter skipped: Line 581: power p = -0.53 for n=4, fitted over 0.01 ≤ a ≤ 0.1
-# Requires:) | - |
+| 573 | ch:iams_law:L573 | calc | `-1.02` | numeric: power of dS_info/dln a, n = 7/2, 0.01 <= a <= 0.1 | PASS |
+| 573 | ch:iams_law:L573:-2.02 | calc | `-2.02` | numeric: power of dS_info/dln a, n = 5/2, 0.01 <= a <= 0.1 | PASS |
+| 573 | ch:iams_law:L573:-1.52 | calc | `-1.52` | numeric: power of dS_info/dln a, n = 3, 0.01 <= a <= 0.1 | PASS |
+| 573 | ch:iams_law:L573:-0.53 | calc | `-0.53` | numeric: power of dS_info/dln a, n = 4, 0.01 <= a <= 0.1 | PASS |
+| 574 | ch:iams_law:L574 | calc | `-1.57` | numeric: power of dS_info/dln a, n = 7/2, Lambda era 0.25 <= a <= 1 | PASS |
+| 581 | ch:iams_law:L581 | calc | `-2.02` | numeric: caption: fitted power, n = 5/2, 0.01 <= a <= 0.1 | PASS |
+| 581 | ch:iams_law:L581:-1.52 | calc | `-1.52` | numeric: caption: fitted power, n = 3, 0.01 <= a <= 0.1 | PASS |
+| 581 | ch:iams_law:L581:-1.02 | calc | `-1.02` | numeric: caption: fitted power, n = 7/2, 0.01 <= a <= 0.1 | PASS |
+| 581 | ch:iams_law:L581:-0.53 | calc | `-0.53` | numeric: caption: fitted power, n = 4, 0.01 <= a <= 0.1 | PASS |
 | 582 | ch:iams_law:L582 | calc | `0.864` | numeric: mu(z=0), fig caption rounded | PASS |
 | 582 | ch:iams_law:L582:0.948 | calc | `0.948` | numeric: mu(z=0.5), fig caption rounded | PASS |
 | 582 | ch:iams_law:L582:0.982 | calc | `0.982` | numeric: mu(z=1), fig caption rounded | PASS |
 | 589 | ch:iams_law:L589 | derived |  | sympy: d ln nu/d ln D = -1 for nu = delta_c/(sigma_M D) | PASS |
-| 590 |  | calc | `5.5` | not run: not yet run: draft rejected (drafter skipped: Line 590: n_eff ≈ 5.5 at z=9
-# Requires: halo mass function (Press-Schech) | - |
-| 590 |  | calc | `7/2` | not run: not yet run: draft rejected (drafter skipped: Line 590: n_eff = 7/2 at z ≈ 3–4
-# Requires: halo mass function data and ) | - |
-| 590 |  | calc | `2` | not run: not yet run: draft rejected (drafter skipped: Line 590: n_eff ≈ 2 at z=1
-# Requires: halo mass function and growth fact) | - |
-| 591 |  | calc | `3.9` | not run: not yet run: draft rejected (drafter skipped: Line 591: n_eff averages 3.9 over matter-dominated window z=2.3–9 (Press-) | - |
-| 591 |  | calc | `4.3` | not run: not yet run: draft rejected (drafter skipped: Line 591: n_eff averages 4.3 over matter-dominated window z=2.3–9 (Tinker) | - |
+| 590 | ch:iams_law:L590 | calc | `5.5` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: bottom-up n_eff at z = 9, middle of the three mass functions | PASS |
+| 590 | ch:iams_law:L590:7/2 | calc | `7/2` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: bottom-up n_eff over z = 3-4, mean of three mass functions | PASS |
+| 590 | ch:iams_law:L590:2 | calc | `2` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: bottom-up n_eff at z = 1, mean of three mass functions | PASS |
+| 591 | ch:iams_law:L591 | calc | `3.9` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: lowest model mean of n_eff over z = 2.3-9 | PASS |
+| 591 | ch:iams_law:L591:4.3 | calc | `4.3` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: highest model mean of n_eff over z = 2.3-9 | PASS |
 | 630 | eq:law_saturation | none |  | not run: holographic saturation condition, definition | - |
 | 634 | eq:law_hoop | derived |  | sympy: S_BH/A at Schwarzschild radius equals holographic bound | PASS |
 | 643 | eq:law_Meq | derived |  | sympy: equilibrium mass from T_BH=T_H | PASS |
@@ -296,9 +292,9 @@ Totals: 3146 PASS, 0 FAIL, 3188 inventoried and not run. Each run item carries t
 | 695 | ch:iams_law:L695:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM Level2 chain value | PASS |
 | 696 | ch:iams_law:L696 | calc | `-0.37` | numeric: sigma offset from Planck H0 | PASS |
 | 696 | ch:iams_law:L696:67.36 | measured | `67.36` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
+| 696 | ch:iams_law:L696:0.47 | measured | `0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 error, Level 2 Run A | PASS |
+| 696 | ch:iams_law:L696:0.54 | observed | `0.54` | numeric: Planck 2018 H0 error (published) | PASS |
 | 696 |  | none | `67.16` | not run: locked canon H0_photon, input | - |
-| 696 |  | measured | `0.47` | not run: measured, too few printed digits to match against the named files | - |
-| 696 |  | measured | `0.54` | not run: measured, too few printed digits to match against the named files | - |
 | 697 | ch:iams_law:L697 | none | `72.26` | numeric: H0 matter-sector formula | PASS |
 | 697 | ch:iams_law:L697:-0.75 | calc | `-0.75` | numeric: sigma offset from SH0ES | PASS |
 | 697 | ch:iams_law:L697:73.04 | measured | `73.04` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
@@ -313,16 +309,16 @@ Totals: 3146 PASS, 0 FAIL, 3188 inventoried and not run. Each run item carries t
 | 714 | ch:iams_law:L714 | observed | `70.0` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
 | 714 | ch:iams_law:L714:12.0 | observed | `12.0` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
 | 714 | ch:iams_law:L714:68.9 | observed | `68.9` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
-| 714 |  | observed | `8.0` | not run: measured, too few printed digits to match against the named files | - |
-| 714 |  | observed | `4.7` | not run: measured, too few printed digits to match against the named files | - |
-| 714 |  | observed | `4.6` | not run: measured, too few printed digits to match against the named files | - |
+| 714 | ch:iams_law:L714:8.0 | observed | `8.0` | numeric: GW170817 siren H0 lower error (published) | PASS |
+| 714 |  | observed | `4.7` | not run: measured, source not named | - |
+| 714 |  | observed | `4.6` | not run: measured, source not named | - |
 | 715 | ch:iams_law:L715 | observed | `75.46` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
 | 715 | ch:iams_law:L715:5.34 | observed | `5.34` | file `docs/verification/theory/IAM_LAW_CHECK.md`: measured: printed value found in IAM_LAW_CHECK.md, a file the chapter names | PASS |
 | 715 | ch:iams_law:L715:5.39 | observed | `5.39` | file `docs/verification/theory/IAM_LAW_CHECK.md`: measured: printed value found in IAM_LAW_CHECK.md, a file the chapter names | PASS |
 | 717 |  | none | `-0.136` | not run: mu0 prediction restated | - |
-| 718 |  | observed | `0.11` | not run: measured, too few printed digits to match against the named files | - |
-| 718 |  | observed | `0.45` | not run: measured, too few printed digits to match against the named files | - |
-| 718 |  | observed | `0.54` | not run: measured, too few printed digits to match against the named files | - |
+| 718 | ch:iams_law:L718 | observed | `0.11` | file `docs/verification/theory/IAM_LAW_CHECK.md`: DESI 2024 full-shape mu0 (recorded value) | PASS |
+| 718 | ch:iams_law:L718:0.45 | observed | `0.45` | file `docs/verification/theory/IAM_LAW_CHECK.md`: DESI 2024 full-shape mu0 upper error (recorded value) | PASS |
+| 718 | ch:iams_law:L718:0.54 | observed | `0.54` | file `docs/verification/theory/IAM_LAW_CHECK.md`: DESI 2024 full-shape mu0 lower error (recorded value) | PASS |
 | 730 | ch:iams_law:L730 | calc | `1.133\times10^{-123}` | numeric: Lambda/rho_vac identity at H0=67.4 | PASS |
 | 733 | eq:law_ccbase | none |  | not run: baseline expression restated from ch:lambda | - |
 | 735 | ch:iams_law:L735 | calc | `1.380\times10^{-123}` | numeric: baseline Lambda/rho_vac with Ob,Om | PASS |
@@ -331,8 +327,8 @@ Totals: 3146 PASS, 0 FAIL, 3188 inventoried and not run. Each run item carries t
 | 740 | ch:iams_law:L740 | calc | `1.142\times10^{-123}` | numeric: corrected Lambda/rho_vac with sqrt(OmegaL) | PASS |
 | 740 | ch:iams_law:L740:0.8\% | calc | `0.8\%` | numeric: percent offset corrected vs measured | PASS |
 | 741 | ch:iams_law:L741 | derived |  | sympy: algebra: Ob/Om=(3/16)sqrt(OmegaL) | PASS |
-| 742 |  | calc | `0.5\%` | not run: not yet run: draft rejected (no draft returned) | - |
-| 742 |  | calc | `0.7` | not run: not yet run: draft rejected (no draft returned) | - |
+| 742 | ch:iams_law:L742 | calc | `0.5\%` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: Ob/Om over (3/16)sqrt(OL) on the CMB-only chain, per cent | PASS |
+| 742 | ch:iams_law:L742:0.7 | calc | `0.7` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: same offset in units of its posterior error | PASS |
 | 750 |  | none | `0.009273` | not run: chain convergence stat, no matching csv row | - |
 | 752 | eq:law_eta_chain | fitted | `0.02232` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: baryon chain Ombh2 fitted value | PASS |
 | 752 | eq:law_eta_chain:0.00014 | fitted | `0.00014` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: baryon chain Ombh2 uncertainty | PASS |
@@ -340,10 +336,10 @@ Totals: 3146 PASS, 0 FAIL, 3188 inventoried and not run. Each run item carries t
 | 752 | eq:law_eta_chain:0.037\times10^{-10} | fitted | `0.037\times10^{-10}` | numeric: eta uncertainty from Ombh2 sd | PASS |
 | 754 | ch:iams_law:L754 | measured | `6.117\times10^{-10}` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: min eta across 4 LCDM L1 chains | PASS |
 | 754 | ch:iams_law:L754:6.137\times10^{-10} | none | `6.137\times10^{-10}` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: max eta across 4 LCDM L1 chains | PASS |
-| 805 |  | derived |  | not run: not yet run: draft rejected (drafter skipped: Line 805 refers to "the activation function E(a)=exp(1-1/a)" displayed as) | - |
+| 805 | ch:iams_law:L805 | derived |  | sympy: E(a) = exp(1 - 1/a) from integrating the record constraint | PASS |
 | 806 |  | derived | `1` | not run: Sigma=1 sector rule, trivial restatement | - |
-| 807 |  | derived | `7/2` | not run: not yet run: draft rejected (drafter skipped: Line 807 states the exponent n=7/2 is "from the horizon accounting (Secti) | - |
-| 808 |  | derived | `-0.136` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 807 | ch:iams_law:L807 | derived | `7/2` | numeric: n = 7/2 from the horizon accounting | PASS |
+| 808 | ch:iams_law:L808 | derived | `-0.136` | numeric: mu0 = mu(1) - 1 = -beta_m/(1+beta_m) | PASS |
 | 840 | ch:iams_law:L840 | derived | `1/2` | sympy: virial ratio for converged 1/r potential | PASS |
 | 841 | ch:iams_law:L841 | derived | `1.456` | numeric: Chandrasekhar mass, mu_e=2, m_u | PASS |
 | 887 | ch:iams_law:L887 | derived | `2\pi/8\pi` | sympy: Jacobson eta=1/(4lP^2) ratio check | PASS |

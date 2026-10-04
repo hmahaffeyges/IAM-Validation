@@ -4,10 +4,13 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 8
+Entries: 11
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
+| ch:iams_law | `docs/book/part1/p1_02_iams_law.tex:536` | `0.13` | IAM vs LambdaCDM CMB TT spectra differ by less than 0.13 % at l > 30, from tests/iam_camb_full_boltzmann.py; the chapter says the spectra are not stored. Searched docs/verification, tests/, camb_validation/ for a committed output of that comparison: none. A committed output (or the two Cl tables) is needed to check it. |
+| ch:iams_law | `docs/book/part1/p1_02_iams_law.tex:714` | `4.7` | Upper error of the GW170817 siren H0 68.9 (+4.7 -4.6) attributed to Hotokezaka et al. 2019 (doi 10.1038/s41550-019-0820-1). No committed file holds the errors (verify_iams_law_derivations_output.txt has only the central 68.9). The errors, and which posterior of the paper they belong to, need to be confirmed against the paper and recorded in a committed file. |
+| ch:iams_law | `docs/book/part1/p1_02_iams_law.tex:714` | `4.6` | Lower error of the same Hotokezaka et al. 2019 siren H0; same search and same open point as the upper error. |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:34` | `0.1` | Lower end of the hydrostatic-bias estimates 'b from about 0.1 to about 0.4 depending on the method', cited to Nagai2007ICM, Rasia2012, Biffi2016. No repository file holds the values. |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:34` | `0.4` | Upper end of the same range (Nagai2007ICM, Rasia2012, Biffi2016). No repository file holds it. |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:37` | `0.15` | Simulation range b about 0.1-0.15 (Lau2009, Nelson2014); also restated at line 186. No repository file holds it; the committed cluster script does not list it. |

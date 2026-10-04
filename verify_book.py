@@ -747,6 +747,76 @@ def _b00_hold_energy():
 
 _B00_HOLD_RERUN = 'methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file'
 
+# helpers of the part1/p1_02_iams_law checks
+_B00_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
+                    'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+                    '(no extraction script is committed)')
+_B00_NEFF_RERUN = 'python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt (needs colossus)'
+
+_B00_GROWTH = {}
+def _b00_growth_today(form):
+    """D(a=1) for LambdaCDM and the three implementations of the record term (port of verify_iams_law_derivations.py V14): Planck 2018
+    background Omega_m = 0.3153, Omega_L = 1 - Omega_m, H_m^2 = H^2 + beta_m E(a) H0^2, same early amplitude D = a at a = 1e-3."""
+    if form not in _B00_GROWTH:
+        def rhs(lna, Y):
+            a = np.exp(lna); h2 = H2_lcdm(a); dlnh = -1.5 * Om / a**3 / h2; Om_a = Om / a**3 / h2
+            hm2 = h2 + beta_m * E_act(a)
+            if form == 'lcdm':
+                return [Y[1], -(2 + dlnh) * Y[1] + 1.5 * Om_a * Y[0]]
+            if form == 'i':
+                return [Y[1], -(2 + dlnh) * Y[1] + 1.5 * Om_a * (h2 / hm2) * Y[0]]
+            if form == 'ii':
+                return [Y[1], -(dlnh + 2 * np.sqrt(hm2 / h2)) * Y[1] + 1.5 * Om_a * Y[0]]
+            dhm2 = -3 * Om / a**3 + beta_m * E_act(a) / a           # d(H_m^2/H0^2)/d ln a
+            return [Y[1], -(2 + 0.5 * dhm2 / hm2) * Y[1] + 1.5 * Om / a**3 / hm2 * Y[0]]
+        s = solve_ivp(rhs, [np.log(1e-3), 0], [1e-3, 1e-3], rtol=1e-10, atol=1e-13)
+        _B00_GROWTH[form] = float(s.y[0, -1])
+    return _B00_GROWTH[form]
+
+_B00_SLOPE = {}
+def _b00_rate_slope(n, a1, a2):
+    """Power p of dS_info/dln a ~ rho_m D^n f/(T_H A_H) ~ a^-3 D^n f H, least-squares in ln a over a1..a2, full LambdaCDM growth with
+    radiation (Omega_m = 0.3153, Omega_r = 9.1e-5, Omega_L = 1 - Omega_m - Omega_r; port of verify_iams_law_derivations.py V9)."""
+    if 'sol' not in _B00_SLOPE:
+        Or_ = 9.1e-5; OL_ = 1 - Om - Or_
+        H2 = lambda a: Om / a**3 + Or_ / a**4 + OL_
+        def rhs(lna, Y):
+            a = np.exp(lna); h2 = H2(a); dlnh = -(1.5 * Om / a**3 + 2 * Or_ / a**4) / h2
+            return [Y[1], -(2 + dlnh) * Y[1] + 1.5 * Om / a**3 / h2 * Y[0]]
+        ai = 1e-6; yeq = ai * Om / Or_
+        _B00_SLOPE['sol'] = solve_ivp(rhs, [np.log(ai), np.log(3)], [1 + 1.5 * yeq, 1.5 * yeq], dense_output=True, rtol=1e-10, atol=1e-14)
+        _B00_SLOPE['H2'] = H2
+    sol, H2 = _B00_SLOPE['sol'], _B00_SLOPE['H2']
+    aa = np.logspace(np.log10(a1), np.log10(a2), 60); D, Dp = sol.sol(np.log(aa)); f = Dp / D
+    y = aa**-3 * D**n * f * np.sqrt(H2(aa))
+    return float(np.polyfit(np.log(aa), np.log(y), 1)[0])
+
+def _b00_neff_table():
+    """Rows of verify_bottom_up_exponent_output.txt: model -> dict(z -> n_eff at z = 9,5,4,3,2,1,0; cross35, cross25 lists; mean)."""
+    out = {}
+    for ln in file_text('docs/verification/scripts/verify_bottom_up_exponent_output.txt').splitlines():
+        m = re.match(r'^(press74|sheth99|tinker08)\s+(.*)$', ln)
+        if not m:
+            continue
+        parts = m.group(2).split('|')
+        vals = [float(x) for x in parts[0].split()]
+        out[m.group(1)] = dict(nz=dict(zip((9, 5, 4, 3, 2, 1, 0), vals)),
+                               cross35=[float(x) for x in re.findall(r'[\d.]+', parts[1])],
+                               cross25=[float(x) for x in re.findall(r'[\d.]+', parts[2])], mean=float(parts[3]))
+    return out
+
+def _b00_baryon_ratio():
+    """(ratio, sd) of Ob/Om to (3/16)sqrt(OL) on the 18th chain (iam_baryon_test), from verify_cc_and_baryon_output.txt."""
+    m = re.search(r'iam_baryon_test .*?ratio to \(3/16\)sqrt\(OL\) ([\d.]+) \+/- ([\d.]+)', file_text('docs/verification/scripts/verify_cc_and_baryon_output.txt'))
+    return float(m.group(1)), float(m.group(2))
+
+def _b00_desi_mu0():
+    """DESI 2024 full-shape mu0 and its upper/lower errors as recorded in docs/verification/theory/IAM_LAW_CHECK.md."""
+    m = re.search(r'DESI 2024 full shape: \S+ = ([-\d.]+) \(\+([\d.]+)/[\-−]([\d.]+)\)', file_text('docs/verification/theory/IAM_LAW_CHECK.md'))
+    return float(m.group(1)), float(m.group(2)), float(m.group(3))
+
+# ---- growth, three implementations (Eqs. at book lines 525-527)
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -1876,6 +1946,22 @@ def check_0124():
     value = delta_D_i
     return locals()
 
+@check(label='ch:iams_law:L529:-0.67', chapter='ch:iams_law', part=1, title='Delta D/D today, form (ii): friction 2H_m, LambdaCDM clock',
+       file='part1/p1_02_iams_law', line=529, status='calc', kind='num', printed='-0.67', tol=0.0)
+def check_3146():
+    'Growth factor today of form (ii), D\'\' + (dlnH/dlna + 2 H_m/H) D\' - 3/2 Omega_m(a) D = 0, against LambdaCDM with the same early amplitude, in per cent. Book line 529, printed -0.67. Inputs: Planck 2018 Omega_m = 0.3153; beta_m from the canon.'
+    value = 100 * (_b00_growth_today('ii') / _b00_growth_today('lcdm') - 1)
+    return locals()
+
+@check(label='ch:iams_law:L529:-1.87', chapter='ch:iams_law', part=1, title='Delta D/D today, form (iii): whole equation on H_m',
+       file='part1/p1_02_iams_law', line=529, status='calc', kind='num', printed='-1.87', tol=0.0)
+def check_3147():
+    'Growth factor today of form (iii), D\'\' + (2 + dlnH_m/dlna) D\' - 3/2 Omega_m a^-3 H0^2/H_m^2 D = 0, against LambdaCDM, same early amplitude, in per cent. Book line 529, printed -1.87.'
+    value = 100 * (_b00_growth_today('iii') / _b00_growth_today('lcdm') - 1)
+    return locals()
+
+# ---- the exponent: local power of dS_info/dln a (book lines 573-581)
+
 @check(label='ch:iams_law:L531', chapter='ch:iams_law', part=1, title='drafted check, screened (runs; negative control fails)',
        file='part1/p1_02_iams_law', line=531, status='calc', kind='num', printed='4.25', tol=0.0)
 def check_0125():
@@ -1947,6 +2033,71 @@ def check_0133():
     n=sp.symbols('n'); value=float(sp.solve(sp.Eq(n-sp.Rational(9,2),-1),n)[0])
     return locals()
 
+@check(label='ch:iams_law:L573', chapter='ch:iams_law', part=1, title='power of dS_info/dln a, n = 7/2, 0.01 <= a <= 0.1',
+       file='part1/p1_02_iams_law', line=573, status='calc', kind='num', printed='-1.02', tol=0.0)
+def check_3148():
+    'Fitted power of dS_info/dln a ~ rho_m D^n f/(T_H A_H) for n = 7/2 over 0.01 <= a <= 0.1, full LambdaCDM growth with radiation. Book line 573, printed -1.02.'
+    value = _b00_rate_slope(3.5, 0.01, 0.1)
+    return locals()
+
+@check(label='ch:iams_law:L573:-2.02', chapter='ch:iams_law', part=1, title='power of dS_info/dln a, n = 5/2, 0.01 <= a <= 0.1',
+       file='part1/p1_02_iams_law', line=573, status='calc', kind='num', printed='-2.02', tol=0.0)
+def check_3149():
+    'Fitted power of dS_info/dln a for n = 5/2 over 0.01 <= a <= 0.1, full LambdaCDM growth. Book line 573, printed -2.02.'
+    value = _b00_rate_slope(2.5, 0.01, 0.1)
+    return locals()
+
+@check(label='ch:iams_law:L573:-1.52', chapter='ch:iams_law', part=1, title='power of dS_info/dln a, n = 3, 0.01 <= a <= 0.1',
+       file='part1/p1_02_iams_law', line=573, status='calc', kind='num', printed='-1.52', tol=0.0)
+def check_3150():
+    'Fitted power of dS_info/dln a for n = 3 over 0.01 <= a <= 0.1, full LambdaCDM growth. Book line 573, printed -1.52.'
+    value = _b00_rate_slope(3.0, 0.01, 0.1)
+    return locals()
+
+@check(label='ch:iams_law:L573:-0.53', chapter='ch:iams_law', part=1, title='power of dS_info/dln a, n = 4, 0.01 <= a <= 0.1',
+       file='part1/p1_02_iams_law', line=573, status='calc', kind='num', printed='-0.53', tol=0.0)
+def check_3151():
+    'Fitted power of dS_info/dln a for n = 4 over 0.01 <= a <= 0.1, full LambdaCDM growth. Book line 573, printed -0.53.'
+    value = _b00_rate_slope(4.0, 0.01, 0.1)
+    return locals()
+
+@check(label='ch:iams_law:L574', chapter='ch:iams_law', part=1, title='power of dS_info/dln a, n = 7/2, Lambda era 0.25 <= a <= 1',
+       file='part1/p1_02_iams_law', line=574, status='calc', kind='num', printed='-1.57', tol=0.0)
+def check_3152():
+    'Fitted power of dS_info/dln a for n = 7/2 over 0.25 <= a <= 1 (the Lambda era steepens it). Book line 574, printed -1.57.'
+    value = _b00_rate_slope(3.5, 0.25, 1.0)
+    return locals()
+
+@check(label='ch:iams_law:L581', chapter='ch:iams_law', part=1, title='caption: fitted power, n = 5/2, 0.01 <= a <= 0.1',
+       file='part1/p1_02_iams_law', line=581, status='calc', kind='num', printed='-2.02', tol=0.0)
+def check_3153():
+    'Figure fig:law_derivations(a) caption: fitted power of dS_info/dln a for n = 5/2 over 0.01 <= a <= 0.1. Book line 581, printed -2.02.'
+    value = _b00_rate_slope(2.5, 0.01, 0.1)
+    return locals()
+
+@check(label='ch:iams_law:L581:-1.52', chapter='ch:iams_law', part=1, title='caption: fitted power, n = 3, 0.01 <= a <= 0.1',
+       file='part1/p1_02_iams_law', line=581, status='calc', kind='num', printed='-1.52', tol=0.0)
+def check_3154():
+    'Figure caption: fitted power for n = 3 over 0.01 <= a <= 0.1. Book line 581, printed -1.52.'
+    value = _b00_rate_slope(3.0, 0.01, 0.1)
+    return locals()
+
+@check(label='ch:iams_law:L581:-1.02', chapter='ch:iams_law', part=1, title='caption: fitted power, n = 7/2, 0.01 <= a <= 0.1',
+       file='part1/p1_02_iams_law', line=581, status='calc', kind='num', printed='-1.02', tol=0.0)
+def check_3155():
+    'Figure caption: fitted power for n = 7/2 over 0.01 <= a <= 0.1. Book line 581, printed -1.02.'
+    value = _b00_rate_slope(3.5, 0.01, 0.1)
+    return locals()
+
+@check(label='ch:iams_law:L581:-0.53', chapter='ch:iams_law', part=1, title='caption: fitted power, n = 4, 0.01 <= a <= 0.1',
+       file='part1/p1_02_iams_law', line=581, status='calc', kind='num', printed='-0.53', tol=0.0)
+def check_3156():
+    'Figure caption: fitted power for n = 4 over 0.01 <= a <= 0.1. Book line 581, printed -0.53.'
+    value = _b00_rate_slope(4.0, 0.01, 0.1)
+    return locals()
+
+# ---- bottom-up exponent from the halo mass functions (committed colossus output)
+
 @check(label='ch:iams_law:L582', chapter='ch:iams_law', part=1, title='mu(z=0), fig caption rounded',
        file='part1/p1_02_iams_law', line=582, status='calc', kind='num', printed='0.864', tol=0.000579)
 def check_0134():
@@ -1974,6 +2125,55 @@ def check_0137():
     'd ln nu/d ln D = -1 for nu = delta_c/(sigma_M D). Book line 589.'
     dc,s,D=sp.symbols('delta_c sigma_M D',positive=True); nu=dc/(s*D); lhs=sp.simplify(D*sp.diff(sp.log(nu),D)); rhs=sp.Integer(-1)
     return locals()
+
+@check(label='ch:iams_law:L590', chapter='ch:iams_law', part=1, title='bottom-up n_eff at z = 9, middle of the three mass functions',
+       file='part1/p1_02_iams_law', line=590, status='calc', kind='file', printed='5.5', tol=0.015,
+       source='docs/verification/scripts/verify_bottom_up_exponent_output.txt', heavy=True, rerun=_B00_NEFF_RERUN)
+def check_3157():
+    'n_eff = d ln[(dU/dln a)/f]/d ln D at z = 9 for Press-Schechter, Sheth-Tormen and Tinker (5.84, 5.31, 5.78 in the committed output); the book says "about 5.5": the middle of the model range is compared, tol 1.5 % because the sentence is approximate. Book line 590, printed 5.5.'
+    t = _b00_neff_table()
+    v = [t[k]['nz'][9] for k in ('press74', 'sheth99', 'tinker08')]
+    value = 0.5 * (min(v) + max(v))
+    return locals()
+
+@check(label='ch:iams_law:L590:7/2', chapter='ch:iams_law', part=1, title='bottom-up n_eff over z = 3-4, mean of three mass functions',
+       file='part1/p1_02_iams_law', line=590, status='calc', kind='file', printed='7/2', tol=0.01,
+       source='docs/verification/scripts/verify_bottom_up_exponent_output.txt', heavy=True, rerun=_B00_NEFF_RERUN)
+def check_3158():
+    'n_eff averaged over z = 3 and z = 4 and over the three mass functions (committed output): it passes through 7/2 in that window (the crossing redshifts 3.29, 3.97, 3.15 all lie in 3-4). Book line 590, printed 7/2; tol 1 % for "z ~ 3-4".'
+    t = _b00_neff_table()
+    crossings_in_window = all(3 <= zc <= 4 for k in t for zc in t[k]['cross35'])
+    value = float(np.mean([0.5 * (t[k]['nz'][3] + t[k]['nz'][4]) for k in t])) if crossings_in_window else float('nan')
+    return locals()
+
+@check(label='ch:iams_law:L590:2', chapter='ch:iams_law', part=1, title='bottom-up n_eff at z = 1, mean of three mass functions',
+       file='part1/p1_02_iams_law', line=590, status='calc', kind='file', printed='2', tol=0.0,
+       source='docs/verification/scripts/verify_bottom_up_exponent_output.txt', heavy=True, rerun=_B00_NEFF_RERUN)
+def check_3159():
+    'n_eff at z = 1, mean over Press-Schechter, Sheth-Tormen and Tinker (committed output). Book line 590, printed 2 ("about 2").'
+    t = _b00_neff_table()
+    value = float(np.mean([t[k]['nz'][1] for k in t]))
+    return locals()
+
+@check(label='ch:iams_law:L591', chapter='ch:iams_law', part=1, title='lowest model mean of n_eff over z = 2.3-9',
+       file='part1/p1_02_iams_law', line=591, status='calc', kind='file', printed='3.9', tol=0.0,
+       source='docs/verification/scripts/verify_bottom_up_exponent_output.txt', heavy=True, rerun=_B00_NEFF_RERUN)
+def check_3160():
+    'Smallest of the three model averages of n_eff over the matter-dominated window z = 2.3-9 (column "mean z 2.3-9"). Book line 591, printed 3.9.'
+    t = _b00_neff_table()
+    value = min(t[k]['mean'] for k in t)
+    return locals()
+
+@check(label='ch:iams_law:L591:4.3', chapter='ch:iams_law', part=1, title='highest model mean of n_eff over z = 2.3-9',
+       file='part1/p1_02_iams_law', line=591, status='calc', kind='file', printed='4.3', tol=0.0,
+       source='docs/verification/scripts/verify_bottom_up_exponent_output.txt', heavy=True, rerun=_B00_NEFF_RERUN)
+def check_3161():
+    'Largest of the three model averages of n_eff over z = 2.3-9 (committed output). Book line 591, printed 4.3.'
+    t = _b00_neff_table()
+    value = max(t[k]['mean'] for k in t)
+    return locals()
+
+# ---- table tab:law_consistency and the sirens
 
 @check(label='eq:law_hoop', chapter='ch:iams_law', part=1, title='S_BH/A at Schwarzschild radius equals holographic bound',
        file='part1/p1_02_iams_law', line=634, status='derived', kind='sym', printed='', tol=0.0)
@@ -2100,6 +2300,22 @@ def check_0154():
     ok = file_has('docs/verification/scripts/verify_iams_law_derivations_output.txt', '67.36')
     return locals()
 
+@check(label='ch:iams_law:L696:0.47', chapter='ch:iams_law', part=1, title='photon-sector H0 error, Level 2 Run A',
+       file='part1/p1_02_iams_law', line=696, status='measured', kind='file', printed='0.47', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B00_CHAIN_RERUN)
+def check_3162():
+    'Posterior standard deviation of H0 in the Level 2 IAM chain (row iam_level2_runA, column H0_sd). Book line 696, printed 0.47.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0_sd')
+    return locals()
+
+@check(label='ch:iams_law:L696:0.54', chapter='ch:iams_law', part=1, title='Planck 2018 H0 error (published)',
+       file='part1/p1_02_iams_law', line=696, status='observed', kind='num', printed='0.54', tol=0.0)
+def check_3163():
+    'One-sigma error of the Planck 2018 H0, 67.36 +- 0.54. Book line 696, printed 0.54. Input: Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing (doi 10.1051/0004-6361/201833910).'
+    H0_planck, sd_planck = 67.36, 0.54
+    value = sd_planck
+    return locals()
+
 @check(label='ch:iams_law:L697', chapter='ch:iams_law', part=1, title='H0 matter-sector formula',
        file='part1/p1_02_iams_law', line=697, status='none', kind='num', printed='72.26', tol=7e-05)
 def check_0155():
@@ -2190,6 +2406,14 @@ def check_0166():
     ok = file_has('docs/verification/scripts/verify_iams_law_derivations_output.txt', '68.9')
     return locals()
 
+@check(label='ch:iams_law:L714:8.0', chapter='ch:iams_law', part=1, title='GW170817 siren H0 lower error (published)',
+       file='part1/p1_02_iams_law', line=714, status='observed', kind='num', printed='8.0', tol=0.0)
+def check_3164():
+    'Lower 68 % error of the first standard-siren H0, 70.0 (+12.0, -8.0). Book line 714, printed 8.0. Input: Abbott et al. 2017, Nature 551, 85 (doi 10.1038/nature24471).'
+    H0_siren, err_up, err_lo = 70.0, 12.0, 8.0
+    value = err_lo
+    return locals()
+
 @check(label='ch:iams_law:L715', chapter='ch:iams_law', part=1, title='measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names',
        file='part1/p1_02_iams_law', line=715, status='observed', kind='file', printed='75.46', tol=0.0, source='docs/verification/scripts/verify_iams_law_derivations_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_iams_law_derivations.py > docs/verification/scripts/verify_iams_law_derivations_output.txt')
@@ -2211,6 +2435,32 @@ def check_0169():
     'measured: printed value found in IAM_LAW_CHECK.md, a file the chapter names. Book line 715, printed 5.39.'
     ok = file_has('docs/verification/theory/IAM_LAW_CHECK.md', '5.39')
     return locals()
+
+@check(label='ch:iams_law:L718', chapter='ch:iams_law', part=1, title='DESI 2024 full-shape mu0 (recorded value)',
+       file='part1/p1_02_iams_law', line=718, status='observed', kind='file', printed='0.11', tol=0.0, source='docs/verification/theory/IAM_LAW_CHECK.md')
+def check_3165():
+    'DESI 2024 VII full-shape mu0 as recorded in the chapter check record IAM_LAW_CHECK.md (DESI2024VII). Book line 718, printed 0.11.'
+    mu0_desi, up, lo = _b00_desi_mu0()
+    value = mu0_desi
+    return locals()
+
+@check(label='ch:iams_law:L718:0.45', chapter='ch:iams_law', part=1, title='DESI 2024 full-shape mu0 upper error (recorded value)',
+       file='part1/p1_02_iams_law', line=718, status='observed', kind='file', printed='0.45', tol=0.0, source='docs/verification/theory/IAM_LAW_CHECK.md')
+def check_3166():
+    'Upper error of the DESI 2024 VII full-shape mu0, as recorded in IAM_LAW_CHECK.md. Book line 718, printed 0.45.'
+    mu0_desi, up, lo = _b00_desi_mu0()
+    value = up
+    return locals()
+
+@check(label='ch:iams_law:L718:0.54', chapter='ch:iams_law', part=1, title='DESI 2024 full-shape mu0 lower error (recorded value)',
+       file='part1/p1_02_iams_law', line=718, status='observed', kind='file', printed='0.54', tol=0.0, source='docs/verification/theory/IAM_LAW_CHECK.md')
+def check_3167():
+    'Lower error of the DESI 2024 VII full-shape mu0, as recorded in IAM_LAW_CHECK.md. Book line 718, printed 0.54.'
+    mu0_desi, up, lo = _b00_desi_mu0()
+    value = lo
+    return locals()
+
+# ---- Omega_b/Omega_m = (3/16) sqrt(Omega_L) on the 18th chain
 
 @check(label='ch:iams_law:L730', chapter='ch:iams_law', part=1, title='Lambda/rho_vac identity at H0=67.4',
        file='part1/p1_02_iams_law', line=730, status='calc', kind='num', printed='1.133\\times10^{-123}', tol=0.00044)
@@ -2261,6 +2511,26 @@ def check_0176():
     OL_=sp.symbols('OL',positive=True); lhs=(sp.Rational(3,8)*OL_/sp.pi)/((2/sp.pi)*sp.sqrt(OL_)); rhs=sp.Rational(3,16)*sp.sqrt(OL_)
     return locals()
 
+@check(label='ch:iams_law:L742', chapter='ch:iams_law', part=1, title='Ob/Om over (3/16)sqrt(OL) on the CMB-only chain, per cent',
+       file='part1/p1_02_iams_law', line=742, status='calc', kind='file', printed='0.5\\%', tol=0.0, source='docs/verification/scripts/verify_cc_and_baryon_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_cc_and_baryon.py > docs/verification/scripts/verify_cc_and_baryon_output.txt (reads the iam_baryon_test chain)')
+def check_3168():
+    'Offset of Omega_b/Omega_m from (3/16)sqrt(Omega_L) on the 18th chain (iam_baryon_test, wide Omega_b h^2 prior, no BBN): ratio - 1, in per cent. Book line 742, printed 0.5 %.'
+    ratio, sd = _b00_baryon_ratio()
+    value = 100 * (ratio - 1)
+    return locals()
+
+@check(label='ch:iams_law:L742:0.7', chapter='ch:iams_law', part=1, title='same offset in units of its posterior error',
+       file='part1/p1_02_iams_law', line=742, status='calc', kind='file', printed='0.7', tol=0.0, source='docs/verification/scripts/verify_cc_and_baryon_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_cc_and_baryon.py > docs/verification/scripts/verify_cc_and_baryon_output.txt (reads the iam_baryon_test chain)')
+def check_3169():
+    '(ratio - 1)/sd of Omega_b/Omega_m over (3/16)sqrt(Omega_L) on the 18th chain. Book line 742, printed 0.7 (sigma).'
+    ratio, sd = _b00_baryon_ratio()
+    value = (ratio - 1) / sd
+    return locals()
+
+# ---- what is derived, given these (book lines 805-808)
+
 @check(label='eq:law_eta_chain', chapter='ch:iams_law', part=1, title='baryon chain Ombh2 fitted value',
        file='part1/p1_02_iams_law', line=752, status='fitted', kind='file', printed='0.02232', tol=0.000224, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
@@ -2305,6 +2575,33 @@ def check_0181():
 def check_0182():
     'max eta across 4 LCDM L1 chains. Book line 754, printed 6.137\\times10^{-10}.'
     rows=['lcdm_baseline','planck_bao_lcdm_baseline','planck_rsd_lcdm_baseline','planck_pantheon_lcdm_baseline']; vals=[273.9e-10*csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',r,'ombh2') for r in rows]; value=max(vals)
+    return locals()
+
+@check(label='ch:iams_law:L805', chapter='ch:iams_law', part=1, title='E(a) = exp(1 - 1/a) from integrating the record constraint',
+       file='part1/p1_02_iams_law', line=805, status='derived', kind='sym', printed='', tol=0.0)
+def check_3170():
+    'The record constraint phi_dot = H/a, i.e. d phi/da = 1/a^2, integrated from today (phi(1) = 0) gives phi = 1 - 1/a, and E = exp(phi) = exp(1 - 1/a). Book line 805.'
+    a, ap = sp.symbols('a aprime', positive=True)
+    phi = sp.integrate(1 / ap**2, (ap, 1, a))
+    lhs = sp.exp(phi)
+    rhs = sp.exp(1 - 1 / a)
+    neg_lhs = sp.exp(sp.integrate(sp.Rational(105, 100) / ap**2, (ap, 1, a)))
+    return locals()
+
+@check(label='ch:iams_law:L807', chapter='ch:iams_law', part=1, title='n = 7/2 from the horizon accounting',
+       file='part1/p1_02_iams_law', line=807, status='derived', kind='num', printed='7/2', tol=0.0)
+def check_3171():
+    'Exponent of a in rho_m D^n f/(T_H A_H) with rho_m ~ a^-3, D ~ a, f = 1, T_H ~ a^-3/2, A_H ~ a^3 (matter domination), set equal to -1 (S_info ~ -1/a) and solved for n. Book line 807, printed 7/2.'
+    a, n = sp.symbols('a n', positive=True)
+    expo = sp.simplify(sp.log(sp.powsimp(a**-3 * a**n / (a**sp.Rational(-3, 2) * a**3), force=True)).expand(force=True) / sp.log(a))
+    value = float(sp.solve(sp.Eq(expo, -1), n)[0])
+    return locals()
+
+@check(label='ch:iams_law:L808', chapter='ch:iams_law', part=1, title='mu0 = mu(1) - 1 = -beta_m/(1+beta_m)',
+       file='part1/p1_02_iams_law', line=808, status='derived', kind='num', printed='-0.136', tol=0.0)
+def check_3172():
+    'mu0 = mu(a=1) - 1 with mu = H^2/(H^2 + beta_m E(a) H0^2), E(1) = 1, beta_m = Omega_m/2 from the canon: no free parameter. Book line 808, printed -0.136.'
+    value = float(mu_iam(1.0)) - 1
     return locals()
 
 @check(label='ch:iams_law:L840', chapter='ch:iams_law', part=1, title='virial ratio for converged 1/r potential',
@@ -27507,48 +27804,21 @@ INVENTORY = [
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 525, '', 'none', '', 'growth eq form (i), G_eff=mu*G, definition'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 526, '', 'none', '', 'growth eq form (ii), friction on LCDM clock, definition'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 527, '', 'none', '', 'growth eq form (iii), whole eq on H_m, definition'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 529, '', 'calc', '-0.67', 'not yet run: draft rejected (printed value typed into the code)'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 529, '', 'calc', '-1.87', 'not yet run: draft rejected (printed value typed into the code)'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 536, '', 'calc', '0.13', 'not yet run: draft rejected (printed value typed into the code)'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 573, '', 'calc', '-1.02', 'not yet run: draft does not reproduce the printed value (recomputed 3.4993); drafting error on review'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 573, '', 'calc', '-2.02', 'not yet run: draft does not reproduce the printed value (recomputed 2.49941); drafting error on review'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 573, '', 'calc', '-1.52', 'not yet run: draft does not reproduce the printed value (recomputed 2.99936); drafting error on review'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 573, '', 'calc', '-0.53', 'not yet run: draft does not reproduce the printed value (recomputed 3.99925); drafting error on review'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 574, '', 'calc', '-1.57', 'not yet run: draft does not reproduce the printed value (recomputed 2.5581); drafting error on review'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 581, '', 'calc', '-2.02', 'not yet run: draft does not reproduce the printed value (recomputed 2.49941); drafting error on review'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 581, '', 'calc', '-1.52', 'not yet run: draft does not reproduce the printed value (recomputed 2.99936); drafting error on review'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 581, '', 'calc', '-1.02', 'not yet run: draft does not reproduce the printed value (recomputed 3.4993); drafting error on review'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 581, '', 'calc', '-0.53', 'not yet run: draft rejected (drafter skipped: Line 581: power p = -0.53 for n=4, fitted over 0.01 ≤ a ≤ 0.1\n# Requires:)'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 590, '', 'calc', '5.5', 'not yet run: draft rejected (drafter skipped: Line 590: n_eff ≈ 5.5 at z=9\n# Requires: halo mass function (Press-Schech)'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 590, '', 'calc', '7/2', 'not yet run: draft rejected (drafter skipped: Line 590: n_eff = 7/2 at z ≈ 3–4\n# Requires: halo mass function data and )'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 590, '', 'calc', '2', 'not yet run: draft rejected (drafter skipped: Line 590: n_eff ≈ 2 at z=1\n# Requires: halo mass function and growth fact)'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 591, '', 'calc', '3.9', 'not yet run: draft rejected (drafter skipped: Line 591: n_eff averages 3.9 over matter-dominated window z=2.3–9 (Press-)'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 591, '', 'calc', '4.3', 'not yet run: draft rejected (drafter skipped: Line 591: n_eff averages 4.3 over matter-dominated window z=2.3–9 (Tinker)'),
+    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 536, '', 'calc', '0.13', 'not reproducible here: a CAMB TT-spectrum comparison (tests/iam_camb_full_boltzmann.py); the sentence itself says the spectra are not stored in the repository, so there is no committed output to read'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 630, 'eq:law_saturation', 'none', '', 'holographic saturation condition, definition'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 669, '', 'none', '1', 'trivial E(1)=exp(0)'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 669, '', 'none', '0', 'approx E(a) at a~1e-3, not exact'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 684, '', 'none', '-0.13495', 'MGCAMB fixed amplitude, not derived here'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 687, '', 'none', '-0.13495', 'mu0 fixed amplitude repeated in caption'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 696, '', 'none', '67.16', 'locked canon H0_photon, input'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 696, '', 'measured', '0.47', 'measured, too few printed digits to match against the named files'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 696, '', 'measured', '0.54', 'measured, too few printed digits to match against the named files'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 698, '', 'none', '-0.136', 'mu0 prediction restated in table'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 705, '', 'derived', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 714, '', 'observed', '8.0', 'measured, too few printed digits to match against the named files'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 714, '', 'observed', '4.7', 'measured, too few printed digits to match against the named files'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 714, '', 'observed', '4.6', 'measured, too few printed digits to match against the named files'),
+    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 714, '', 'observed', '4.7', 'measured, source not named'),
+    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 714, '', 'observed', '4.6', 'measured, source not named'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 717, '', 'none', '-0.136', 'mu0 prediction restated'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 718, '', 'observed', '0.11', 'measured, too few printed digits to match against the named files'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 718, '', 'observed', '0.45', 'measured, too few printed digits to match against the named files'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 718, '', 'observed', '0.54', 'measured, too few printed digits to match against the named files'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 733, 'eq:law_ccbase', 'none', '', 'baseline expression restated from ch:lambda'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 742, '', 'calc', '0.5\\%', 'not yet run: draft rejected (no draft returned)'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 742, '', 'calc', '0.7', 'not yet run: draft rejected (no draft returned)'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 750, '', 'none', '0.009273', 'chain convergence stat, no matching csv row'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 805, '', 'derived', '', 'not yet run: draft rejected (drafter skipped: Line 805 refers to "the activation function E(a)=exp(1-1/a)" displayed as)'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 806, '', 'derived', '1', 'Sigma=1 sector rule, trivial restatement'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 807, '', 'derived', '7/2', 'not yet run: draft rejected (drafter skipped: Line 807 states the exponent n=7/2 is "from the horizon accounting (Secti)'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 808, '', 'derived', '-0.136', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 921, '', 'none', '', 'restates law eq:law, definition'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 948, '', 'none', '1', 'trivial restatement E(1)=exp(0)=1'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 963, 'eq:law_mahaffey', 'none', '', 'defines Mahaffey number M'),
