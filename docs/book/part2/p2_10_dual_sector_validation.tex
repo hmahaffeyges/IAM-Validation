@@ -68,8 +68,8 @@ where $E(a)=\exp(1-1/a)$ is the activation function that vanishes at early times
 (Appendix~\ref{app:der:activation}; sympy check of $E(1)=1$, of the inflection at $a=1/2$ and of the maximum of $dE/d\ln a$ at $a=1$ in
 \texttt{verify\_dual\_sector\_chapters.py}, Section~0). The coupling parameter $\beta$ is sector-specific:
 \begin{align}
-\text{photon sector (CMB, photon propagation):}\quad &\beta_\gamma<0.0052\quad(95\,\%,\ \text{acoustic scale}), \label{eq:dsv_bg}\\
-\text{matter sector (local $H_0$, structure growth):}\quad &\beta_m=\Omega_m/2=0.15765\quad(\text{zero free parameters}). \label{eq:dsv_bm}
+&\text{photon sector (CMB, photon propagation):}\nonumber\\&\qquad\beta_\gamma<0.0052\quad(95\,\%,\ \text{acoustic scale}), \label{eq:dsv_bg}\\
+&\text{matter sector (local $H_0$, structure growth):}\nonumber\\&\qquad\beta_m=\Omega_m/2=0.15765\quad(\text{zero free parameters}). \label{eq:dsv_bm}
 \end{align}
 The first is \calc\ (\texttt{verify\_beta\_gamma.py}); the second is \prediction, with $\Omega_m=0.3153$ from Planck~\cite{Planck2018VI}.
 Level~2 MCMC posterior: $\Omega_m=0.3166\pm0.0065$, implying $\Omega_m/2=0.1583\pm0.0032$, consistent with the fixed $\beta_m$ at $0.2\sigma$ ($\beta_m$

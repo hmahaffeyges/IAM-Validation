@@ -268,7 +268,7 @@ def brace(s, i):
     return s[i + 1:]
 
 
-STATUS = r"\\(?:derived|calc|calibrated|measured|observed|fitted|conjecture|analogy|prediction|openprob|interp)\b(?:\{\})?"
+STATUS = r"\\(?:derived|calc|calibrated|measured|observed|fitted|conjecture|analogy|prediction|openprob|interp)\b(?:\{\}|\\ )?"
 
 
 def shows(blk, words=16):
@@ -283,7 +283,7 @@ def shows(blk, words=16):
     c = re.sub(r"\\(?:textbf|emph|textit|mathrm)\{([^{}]*)\}", r"\1", c)
     c = re.sub(r"\(\s*\)|\[\s*\]", "", c)                     # empty brackets
     # cross-references are kept: every \\ref resolves book-wide, and removing them left broken sentences
-    c = re.sub(r"\s+([,.;:])", r"\1", c)
+    c = re.sub(r"\s+([,.;:)])", r"\1", c)
     c = re.sub(r"\s+", " ", c).strip(" ,;:")
     # first sentence outside math
     out, inm = "", False
