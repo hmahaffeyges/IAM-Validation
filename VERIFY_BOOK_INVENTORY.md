@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3330 PASS, 0 FAIL, 3004 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3331 PASS, 0 FAIL, 3003 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -1121,7 +1121,7 @@ Totals: 3330 PASS, 0 FAIL, 3004 inventoried and not run. Each run item carries t
 | 252 | ch:dual:L252:73.04 | observed | `73.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 252 | ch:dual:L252:1.04 | observed | `1.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 252 | ch:dual:L252:-0.75 | observed | `-0.75` | numeric: sigma tension matter H0 vs SH0ES | PASS |
-| 252 |  | observed | `0.54` | not run: measured, too few printed digits to match against the named files | - |
+| 252 | ch:dual:L252:0.54 | observed | `0.54` | file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Planck 2018 H0 error, committed output | PASS |
 | 255 | ch:dual:L255 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: restated photon-sector H0 (Level 2) | PASS |
 | 256 | ch:dual:L256 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon H0 used as multiplicand | PASS |
 | 256 | ch:dual:L256:1.0759 | derived | `1.0759` | numeric: sqrt(1+beta_m) factor | PASS |

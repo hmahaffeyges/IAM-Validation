@@ -13702,6 +13702,23 @@
   "source": ""
  },
  {
+  "label": "ch:dual:L252:0.54",
+  "title": "Planck 2018 H0 error, committed output",
+  "part": 2,
+  "chapter": "ch:dual",
+  "file": "part2/p2_04_dualsector_chains",
+  "line": 252,
+  "status": "observed",
+  "kind": "file",
+  "printed": "0.54",
+  "recomputed": "0.54",
+  "tol": 0.005000005,
+  "passed": true,
+  "note": "",
+  "heavy": false,
+  "source": "docs/verification/scripts/verify_dual_sector_chapters_output.txt"
+ },
+ {
   "label": "ch:dual:L255",
   "title": "restated photon-sector H0 (Level 2)",
   "part": 2,

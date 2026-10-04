@@ -1014,6 +1014,7 @@ PASS  ch:dual:L252:73.04                 ch:dual:p2_04_dualsector_chains:252  pr
 PASS  ch:dual:L252:1.04                  ch:dual:p2_04_dualsector_chains:252  printed 1.04  recomputed found in file  [observed] measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names  file docs/verification/scripts/verify_dual_sector_chapters_output.txt
       heavy: python3 docs/verification/scripts/verify_dual_sector_chapters.py > docs/verification/scripts/verify_dual_sector_chapters_output.txt
 PASS  ch:dual:L252:-0.75                 ch:dual:p2_04_dualsector_chains:252  printed -0.75  recomputed -0.75  tol 0.00500026  [observed] sigma tension matter H0 vs SH0ES
+PASS  ch:dual:L252:0.54                  ch:dual:p2_04_dualsector_chains:252  printed 0.54  recomputed 0.54  tol 0.00500001  [observed] Planck 2018 H0 error, committed output  file docs/verification/scripts/verify_dual_sector_chapters_output.txt
 PASS  ch:dual:L255                       ch:dual:p2_04_dualsector_chains:255  printed 67.16  recomputed 67.1611  tol 0.00500001  [measured] restated photon-sector H0 (Level 2)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:dual:L256                       ch:dual:p2_04_dualsector_chains:256  printed 67.16  recomputed 67.1611  tol 0.00500001  [measured] photon H0 used as multiplicand  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
@@ -4140,4 +4141,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3330  FAIL 0  (heavy, read from committed outputs: 661)  inventoried-not-run 3004  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3331  FAIL 0  (heavy, read from committed outputs: 661)  inventoried-not-run 3003  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

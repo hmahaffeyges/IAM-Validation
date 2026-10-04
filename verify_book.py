@@ -7393,6 +7393,13 @@ def check_0597():
     value = (H0_matter - 73.04)/1.04
     return locals()
 
+@check(label='ch:dual:L252:0.54', chapter='ch:dual', part=2, title='Planck 2018 H0 error, committed output',
+       file='part2/p2_04_dualsector_chains', line=252, status='observed', kind='file', printed='0.54', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_output.txt')
+def check_3330():
+    'Error of the Planck 2018 H0 = 67.36 +- 0.54 (Planck 2018 VI, TT,TE,EE+lowE+lensing, doi 10.1051/0004-6361/201833910), read at the photon-vs-Planck line of verify_dual_sector_chapters_output.txt. Book line 252, printed 0.54.'
+    value = float(re.search(r'photon vs Planck 2018 67\.36 \+- ([\d.]+)', file_text('docs/verification/scripts/verify_dual_sector_chapters_output.txt')).group(1))
+    return locals()
+
 @check(label='ch:dual:L255', chapter='ch:dual', part=2, title='restated photon-sector H0 (Level 2)',
        file='part2/p2_04_dualsector_chains', line=255, status='measured', kind='file', printed='67.16', tol=7.44e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
@@ -29533,7 +29540,6 @@ INVENTORY = [
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 274, '', 'openprob', '1', 'Level2 form ratio statement, no computation'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 292, '', 'prediction', '-0.136', 'input restated (Euclid prediction target)'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 292, '', 'prediction', '0', 'input restated (Euclid prediction target)'),
-    (2, 'ch:dual', 'part2/p2_04_dualsector_chains', 252, '', 'observed', '0.54', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:dual', 'part2/p2_04_dualsector_chains', 256, '', 'none', '0.15765', 'restated canon beta_m value, input'),
     (2, 'ch:dual', 'part2/p2_04_dualsector_chains', 263, '', 'prediction', '-0.136', 'restated canon mu0 prediction value'),
     (2, 'ch:dual', 'part2/p2_04_dualsector_chains', 263, '', 'prediction', '1', 'Sigma=1, unmodified lensing slip, model statement'),
