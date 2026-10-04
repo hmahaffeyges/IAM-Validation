@@ -1,11 +1,14 @@
 """Tests for run1_driver.py: fake inputs, fake job commands, a local directory as the bucket, a fake shutdown hook.
-Nothing here touches S3 or AWS.  Run:  python3 -m pytest Biological_Physics/MethylPhys/boxruns/run1/test_run1_driver.py -q"""
+Nothing here touches S3 or AWS (the boto3 path runs against a stub client).  Run:  python3 -m pytest Biological_Physics/MethylPhys/boxruns/run1/test_run1_driver.py -q"""
 import csv
+import datetime
 import json
 import os
+import shutil
 import subprocess
 import sys
 import textwrap
+import types
 
 import pytest
 
@@ -64,10 +67,15 @@ class Recorder:
         self.calls += 1; log("fake shutdown"); return 0
 
 
-def make_bucket(root):
-    for _k, (pre, *_r) in D.INPUTS.items():
+def make_bucket(root, gse128733=True, atlas=True):
+    """The JOBS.md input prefixes, plus (by default) the default GSE128733 prefix and the default atlas v2 key."""
+    pres = [pre for pre, *_r in D.INPUTS.values()] + ([D.GSE128733_PREFIX_DEFAULT] if gse128733 else [])
+    for pre in pres:
         os.makedirs(os.path.join(root, pre), exist_ok=True)
         open(os.path.join(root, pre, "input.txt"), "w").write(pre)
+    if atlas:
+        os.makedirs(os.path.join(root, os.path.dirname(D.ATLAS_V2_KEY_DEFAULT)), exist_ok=True)
+        open(os.path.join(root, D.ATLAS_V2_KEY_DEFAULT), "w").write("atlas v2 stand-in")
     return root
 
 
@@ -112,6 +120,8 @@ def test_all_jobs_run_in_order_and_sync(env):
     assert os.path.isfile(s3(env, "log.txt")) and os.path.isfile(s3(env, "state.json"))
     assert "BOXRUN1 driver end" in open(s3(env, "log.txt")).read()
     assert os.path.isfile(os.path.join(env["work"], "data", "downloads", "G_chain_tests", "infection", "input.txt"))  # inputs synced
+    assert os.path.isfile(os.path.join(env["work"], "data", D.GSE128733_PREFIX_DEFAULT, "input.txt"))       # default GSE128733 (A)
+    assert os.path.isfile(os.path.join(env["work"], "data", *D.ATLAS_V2_KEY_DEFAULT.split("/")))           # default atlas (D, E)
     assert sh.calls == 1
 
 
@@ -278,17 +288,91 @@ def test_default_D_blocked_and_E_skipped(tmp_path):
     assert rc == D.EXIT_BLOCKED and sh.calls == 1
     st = json.load(open(os.path.join(bucket, "results", "BOXRUN1", "state.json")))
     assert st["jobs"]["D"]["status"] == "blocked" and "apodised mask (PR #18) not merged yet" in " ".join(st["jobs"]["D"]["reason"])
-    assert st["jobs"]["E"]["status"] == "skipped" and "GSE112618 or GSE182379" in " ".join(st["jobs"]["E"]["reason"])
+    assert st["jobs"]["E"]["status"] == "skipped"
+    assert st["jobs"]["E"]["reason"][0].startswith("job E skipped: inputs absent (GSE112618 / GSE182379 location not given")
+    assert not any("atlas" in w for w in st["jobs"]["D"]["reason"])     # the default atlas was synced before the check
     log = open(os.path.join(bucket, "results", "BOXRUN1", "log.txt")).read()
     assert "[D] BLOCKED: apodised mask (PR #18) not merged yet" in log
+    assert "[E] SKIPPED: job E skipped: inputs absent (GSE112618 / GSE182379 location not given" in log
 
 
-def test_default_A_blocked_without_gse128733(tmp_path):
+def test_E_skipped_when_given_location_holds_no_files(tmp_path):
     bucket = make_bucket(str(tmp_path / "bucket"))
-    rc = D.main(["--work", str(tmp_path / "w"), "--only", "A"], store=D.LocalStore(bucket), shutdown=Recorder())
-    assert rc == D.EXIT_BLOCKED
+    os.makedirs(os.path.join(bucket, "downloads", "GSE112618"))                  # the prefix exists but is empty
+    empty = tmp_path / "e_dir"; empty.mkdir()
+    sh = Recorder()
+    rc = D.main(["--work", str(tmp_path / "w"), "--only", "E", "--job-e-prefix", "downloads/GSE112618", "--job-e-prefix", "downloads/GSE182379",
+                 "--job-e-dir", str(empty)], store=D.LocalStore(bucket), shutdown=sh)
+    assert rc == D.EXIT_OK and sh.calls == 1                                      # a skip is not a failure
     st = json.load(open(os.path.join(bucket, "results", "BOXRUN1", "state.json")))
-    assert "GSE128733" in " ".join(st["jobs"]["A"]["reason"])
+    why = " ".join(st["jobs"]["E"]["reason"])
+    assert st["jobs"]["E"]["status"] == "skipped" and why.startswith("job E skipped: inputs absent (no files under ")
+    assert "downloads/GSE112618/" in why and "downloads/GSE182379/" in why and str(empty) in why
+    assert "[E] SKIPPED: job E skipped: inputs absent (no files under" in open(os.path.join(bucket, "results", "BOXRUN1", "log.txt")).read()
+    assert not os.path.exists(os.path.join(tmp_path, "w", "data", "atlas_v2"))   # nothing synced for a skipped job
+
+
+def test_E_not_skipped_when_its_location_has_files(tmp_path):
+    bucket = make_bucket(str(tmp_path / "bucket"))
+    os.makedirs(os.path.join(bucket, "downloads", "GSE112618", "idat"))
+    open(os.path.join(bucket, "downloads", "GSE112618", "idat", "x.idat"), "w").write("x")
+    rc = D.main(["--work", str(tmp_path / "w"), "--only", "E", "--job-e-prefix", "downloads/GSE112618", "--chain-dir", str(tmp_path / "nochain")],
+                store=D.LocalStore(bucket), shutdown=Recorder())
+    st = json.load(open(os.path.join(bucket, "results", "BOXRUN1", "state.json")))
+    assert rc == D.EXIT_BLOCKED and st["jobs"]["E"]["status"] == "blocked"      # past the skip: stopped by the missing chain only
+    assert all("chain entry point" in w or "manifest" in w for w in st["jobs"]["E"]["reason"]), st["jobs"]["E"]["reason"]
+
+
+def _cfg(argv):
+    return D.make_config(D.build_parser().parse_args(argv))
+
+
+def test_default_locations_and_overrides(tmp_path, monkeypatch):
+    monkeypatch.delenv("CPG_ATLAS_V2_PARQUET", raising=False)
+    w = str(tmp_path / "w")
+    cfg = _cfg(["--work", w])
+    assert cfg.gse128733_prefix == "downloads/G_chain_tests/neutrophil_ref_GSE128733"
+    assert cfg.atlas_v2_key == "atlas_v2/IAMAtlas_v2.parquet" and cfg.atlas_v2 == os.path.join(w, "data", "atlas_v2", "IAMAtlas_v2.parquet")
+    assert (D.GSE128733_PREFIX_DEFAULT, os.path.join(cfg.data_dir, D.GSE128733_PREFIX_DEFAULT)) in D.job_inputs("A", cfg)
+    cmd = D.default_command("A", cfg, "/o")
+    assert cmd[cmd.index("--extra-dir") + 1] == os.path.join(cfg.data_dir, D.GSE128733_PREFIX_DEFAULT)
+    assert cmd[cmd.index("--atlas-v2") + 1] == cfg.atlas_v2
+    assert not any("GSE128733" in r for r in D.requirements("A", cfg)[1])            # A is no longer blocked for want of a location
+    # overrides
+    assert _cfg(["--work", w, "--gse128733-prefix", "x/y"]).gse128733_prefix == "x/y"
+    c = _cfg(["--work", w, "--gse128733-dir", "/g"])
+    assert c.gse128733_prefix is None and c.gse128733_dir == ["/g"] and all(p != D.GSE128733_PREFIX_DEFAULT for p, _ in D.job_inputs("A", c))
+    c = _cfg(["--work", w, "--atlas-v2", "/a.parquet"])
+    assert c.atlas_v2 == "/a.parquet" and c.atlas_v2_key is None
+    monkeypatch.setenv("CPG_ATLAS_V2_PARQUET", "/env.parquet")
+    c = _cfg(["--work", w])
+    assert c.atlas_v2 == "/env.parquet" and c.atlas_v2_key is None
+
+
+def test_default_A_runs_with_default_gse128733_from_the_store(tmp_path):
+    """Default worker command for A (fake chain): the GSE128733 prefix is synced from the store and handed to the worker."""
+    chain = tmp_path / "chain"; (chain / "MethylPhys_Interface").mkdir(parents=True)
+    (chain / "MethylPhys_Interface" / "run_sample.py").write_text("")
+    (chain / "Runtime Matrices" / "Development").mkdir(parents=True)
+    (chain / "Runtime Matrices" / "Development" / "dev_selftare_typeII_EPIC_v1.json").write_text("{}")
+    man = tmp_path / "m.csv"; man.write_text("series,gsm\n")
+    bucket = make_bucket(str(tmp_path / "bucket"))
+    work = tmp_path / "w"
+    rc = D.main(["--work", str(work), "--only", "A", "--chain-dir", str(chain), "--manifest", str(man), "--python", PY],
+                store=D.LocalStore(bucket), shutdown=Recorder())
+    st = state({"work": str(work)})
+    assert st["jobs"]["A"]["status"] != "blocked", st["jobs"]["A"]                    # it ran (the fake chain has no floors: it fails)
+    assert rc == D.EXIT_CRASH
+    assert os.path.isfile(os.path.join(work, "data", D.GSE128733_PREFIX_DEFAULT, "input.txt"))
+    assert os.path.join(str(work), "data", D.GSE128733_PREFIX_DEFAULT) in st["jobs"]["A"]["command"]
+
+
+def test_default_atlas_missing_in_store_blocks_D(tmp_path):
+    bucket = make_bucket(str(tmp_path / "bucket"), atlas=False)
+    rc = D.main(["--work", str(tmp_path / "w"), "--only", "D"], store=D.LocalStore(bucket), shutdown=Recorder())
+    st = json.load(open(os.path.join(bucket, "results", "BOXRUN1", "state.json")))
+    assert rc == D.EXIT_BLOCKED and any("atlas v2 parquet not found" in w and "atlas_v2/IAMAtlas_v2.parquet" in w for w in st["jobs"]["D"]["reason"])
+    assert "[D] atlas v2 not found in the store: atlas_v2/IAMAtlas_v2.parquet" in open(os.path.join(bucket, "results", "BOXRUN1", "log.txt")).read()
 
 
 def test_dry_run_touches_nothing(env, capsys):
@@ -302,6 +386,14 @@ def test_dry_run_touches_nothing(env, capsys):
     out = capsys.readouterr().out
     assert rc == 0 and sh.calls == 0 and order(env) == [] and not os.path.exists(env["work"])
     assert "[A] Commissioning check" in out and "[E] Atlas composition" in out and "about 150.6 GB" in out
+    assert f"s3://{D.BUCKET}/downloads/G_chain_tests/neutrophil_ref_GSE128733/" in out
+    assert f"atlas   s3://{D.BUCKET}/atlas_v2/IAMAtlas_v2.parquet" in out
+
+
+def test_dry_run_needs_no_boto3(tmp_path, monkeypatch, capsys):
+    monkeypatch.setitem(sys.modules, "boto3", None)
+    rc = D.main(["--work", str(tmp_path / "w"), "--dry-run", "--aws-region", "us-west-2"], shutdown=Recorder())
+    assert rc == 0 and f"s3://{D.BUCKET} (boto3, default credential chain, region us-west-2)" in capsys.readouterr().out
 
 
 def test_usage_errors():
@@ -422,20 +514,141 @@ def test_chain_tare_rule():
     assert rows[6]["t"] == pytest.approx(2.0 / D.median([1.0, 1.01, 1.02, 1.03]))   # same slide (4 healthy refs)
 
 
-def test_aws_cli_store_commands(tmp_path):
-    calls = []
+class FakeClientError(Exception):
+    def __init__(self, code):
+        super().__init__(f"An error occurred ({code})"); self.response = {"Error": {"Code": code}}
 
-    class R:
-        returncode = 0; stdout = ""; stderr = ""
 
-    def fake_run(cmd, **kw):
-        calls.append(cmd); return R()
-    st = D.AwsCliStore(run=fake_run, region="us-west-2")
-    st.upload_file("/x/log.txt", "results/BOXRUN1/log.txt")
-    st.download_prefix("downloads/G_chain_tests/GSE250556", str(tmp_path / "in"))
-    assert calls[0][:5] == ["aws", "s3", "cp", "/x/log.txt", f"s3://{D.BUCKET}/results/BOXRUN1/log.txt"]
-    assert calls[1][:4] == ["aws", "s3", "sync", f"s3://{D.BUCKET}/downloads/G_chain_tests/GSE250556/"]
-    assert "--region" in calls[0]
+class FakeS3:
+    """A stub boto3 S3 client over a dict: key -> (bytes, LastModified). Pages of 2 keys, so listing must paginate."""
+
+    def __init__(self, bucket=D.BUCKET):
+        self.bucket = bucket; self.objects = {}; self.calls = []
+
+    def put(self, key, data, when=None):
+        self.objects[key] = (data, when or datetime.datetime.now(datetime.timezone.utc))
+
+    def load_dir(self, root):
+        for r, _d, files in os.walk(root):
+            for fn in files:
+                p = os.path.join(r, fn); self.put(os.path.relpath(p, root).replace(os.sep, "/"), open(p, "rb").read())
+        return self
+
+    def get_paginator(self, op):
+        assert op == "list_objects_v2"
+        outer = self
+
+        class P:
+            def paginate(self, Bucket, Prefix):
+                assert Bucket == outer.bucket
+                outer.calls.append(("list", Prefix))
+                keys = sorted(k for k in outer.objects if k.startswith(Prefix))
+                for i in range(0, max(len(keys), 1), 2):
+                    page = keys[i:i + 2]
+                    yield ({"Contents": [{"Key": k, "Size": len(outer.objects[k][0]), "LastModified": outer.objects[k][1]} for k in page],
+                            "KeyCount": len(page)} if page else {"KeyCount": 0})
+        return P()
+
+    def head_object(self, Bucket, Key):
+        self.calls.append(("head", Key))
+        if Key not in self.objects:
+            raise FakeClientError("404")
+        return {"ContentLength": len(self.objects[Key][0])}
+
+    def download_file(self, Bucket, Key, Filename):
+        self.calls.append(("get", Key))
+        if Key not in self.objects:
+            raise FakeClientError("404")
+        open(Filename, "wb").write(self.objects[Key][0])
+
+    def upload_file(self, Filename, Bucket, Key):
+        self.calls.append(("put", Key)); self.put(Key, open(Filename, "rb").read())
+
+
+@pytest.fixture
+def fake_boto3(monkeypatch):
+    """Replaces the boto3 module: boto3.session.Session(**kw).client('s3') returns one FakeS3; the session kwargs are recorded."""
+    rec = {"sessions": [], "clients": [], "client": FakeS3()}
+
+    class Session:
+        def __init__(self, **kw):
+            rec["sessions"].append(kw)
+
+        def client(self, name, **kw):
+            rec["clients"].append((name, kw)); return rec["client"]
+    mod = types.ModuleType("boto3"); mod.session = types.SimpleNamespace(Session=Session)
+    monkeypatch.setitem(sys.modules, "boto3", mod)
+    return rec
+
+
+def test_boto3_store_default_credential_chain(fake_boto3):
+    D.Boto3Store()
+    D.Boto3Store(region="us-west-2")
+    D.Boto3Store(profile="p1")
+    assert fake_boto3["sessions"] == [{"region_name": None}, {"region_name": "us-west-2"}, {"region_name": None, "profile_name": "p1"}]
+    assert fake_boto3["clients"] == [("s3", {})] * 3                                 # no keys, no endpoint, no role
+
+
+def test_boto3_store_sync_semantics(tmp_path):
+    s3c = FakeS3()
+    for i in range(5):
+        s3c.put(f"downloads/G_chain_tests/GSE250556/sub/f{i}.txt", b"x" * (i + 1))
+    s3c.put("downloads/G_chain_tests/GSE250556_other/z.txt", b"not under the prefix")
+    st = D.Boto3Store(client=s3c); dest = tmp_path / "in"
+    st.download_prefix("downloads/G_chain_tests/GSE250556", str(dest))
+    assert sorted(os.listdir(dest / "sub")) == [f"f{i}.txt" for i in range(5)] and not (dest / "z.txt").exists()
+    assert sum(c[0] == "get" for c in s3c.calls) == 5
+    (dest / "sub" / "f0.txt").write_text("changed size")                              # one local file differs in size
+    s3c.calls.clear(); st.download_prefix("downloads/G_chain_tests/GSE250556/", str(dest))
+    assert [c for c in s3c.calls if c[0] == "get"] == [("get", "downloads/G_chain_tests/GSE250556/sub/f0.txt")]
+    assert (dest / "sub" / "f0.txt").read_text() == "x"
+    assert st.has_files("downloads/G_chain_tests/GSE250556") and not st.has_files("downloads/nothing")
+    # single files: a missing key gives False; sync_file skips a same-size copy
+    assert st.download_file("results/BOXRUN1/state.json", str(tmp_path / "s.json")) is False
+    s3c.put("atlas_v2/IAMAtlas_v2.parquet", b"atlas")
+    a = tmp_path / "data" / "atlas_v2" / "IAMAtlas_v2.parquet"
+    assert st.sync_file("atlas_v2/IAMAtlas_v2.parquet", str(a)) and a.read_bytes() == b"atlas"
+    s3c.calls.clear()
+    assert st.sync_file("atlas_v2/IAMAtlas_v2.parquet", str(a)) and ("get", "atlas_v2/IAMAtlas_v2.parquet") not in s3c.calls
+    assert st.sync_file("atlas_v2/missing.parquet", str(tmp_path / "m")) is False
+    # uploads: a directory sync skips keys of the same size that are not older than the local file; a file upload always copies
+    out = tmp_path / "out"; out.mkdir(); (out / "a.csv").write_text("1"); (out / "b.csv").write_text("22")
+    st.upload_dir(str(out), "results/BOXRUN1/A")
+    assert {k for k in s3c.objects if k.startswith("results/")} == {"results/BOXRUN1/A/a.csv", "results/BOXRUN1/A/b.csv"}
+    s3c.calls.clear(); (out / "b.csv").write_text("333"); st.upload_dir(str(out), "results/BOXRUN1/A")
+    assert [c for c in s3c.calls if c[0] == "put"] == [("put", "results/BOXRUN1/A/b.csv")]
+    old = datetime.datetime(2000, 1, 1, tzinfo=datetime.timezone.utc)
+    s3c.objects["results/BOXRUN1/A/a.csv"] = (b"9", old)                               # same size, older than the local file
+    s3c.calls.clear(); st.upload_dir(str(out), "results/BOXRUN1/A")
+    assert [c for c in s3c.calls if c[0] == "put"] == [("put", "results/BOXRUN1/A/a.csv")] and s3c.objects["results/BOXRUN1/A/a.csv"][0] == b"1"
+    st.upload_file(str(out / "a.csv"), "results/BOXRUN1/log.txt")
+    assert s3c.objects["results/BOXRUN1/log.txt"][0] == b"1"
+
+
+def test_driver_run_through_boto3(env, fake_boto3):
+    """The whole driver with no injected store: boto3 (stub) with the default credential chain, inputs, atlas, outputs, log, state."""
+    s3c = fake_boto3["client"].load_dir(env["bucket"])
+    sh = Recorder()
+    rc = D.main(env["args"] + ["--aws-region", "us-west-2"], shutdown=sh)
+    assert rc == D.EXIT_OK and sh.calls == 1 and order(env) == ["A", "B", "C", "D", "E"]
+    assert fake_boto3["sessions"] == [{"region_name": "us-west-2"}]
+    for j in D.JOB_ORDER:
+        assert f"results/BOXRUN1/{j}/{D.REQUIRED_OUTPUTS[j][0]}" in s3c.objects
+    assert b"BOXRUN1 driver end" in s3c.objects["results/BOXRUN1/log.txt"][0]
+    assert json.loads(s3c.objects["results/BOXRUN1/state.json"][0])["bucket"] == D.BUCKET
+    assert os.path.isfile(os.path.join(env["work"], "data", D.GSE128733_PREFIX_DEFAULT, "input.txt"))
+    assert os.path.isfile(os.path.join(env["work"], "data", "atlas_v2", "IAMAtlas_v2.parquet"))
+    shutil.rmtree(env["work"])                                       # new disk: state and outputs restored from the (stub) bucket
+    assert D.main(env["args"], shutdown=Recorder()) == D.EXIT_OK and order(env) == ["A", "B", "C", "D", "E"]
+
+
+def test_missing_boto3_fails_early(env, monkeypatch, capsys):
+    monkeypatch.setitem(sys.modules, "boto3", None)                  # import boto3 -> ImportError
+    sh = Recorder()
+    rc = D.main(env["args"], shutdown=sh)
+    assert rc == D.EXIT_CRASH and sh.calls == 0 and order(env) == []
+    assert "boto3 is not installed" in capsys.readouterr().err
+    assert D.main(env["args"] + ["--s3-local-root", env["bucket"]], shutdown=sh) == D.EXIT_OK   # the local store needs no boto3
 
 
 # ------------------------------------------------------------------------------------------------ job D: apodised mask (PR #18)
