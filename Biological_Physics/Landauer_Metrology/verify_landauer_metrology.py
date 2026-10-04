@@ -1,8 +1,8 @@
 """verify_landauer_metrology.py -- every number and algebraic step carried from the Landauer-metrology paper into
 Part 4 (ch:landauer, ch:fixedorigin), recomputed.
 
-Run from the repository root:  python docs/verification/scripts/verify_landauer_metrology.py
-Writes docs/verification/scripts/verify_landauer_metrology_output.txt
+Run from the repository root:  python Biological_Physics/Landauer_Metrology/verify_landauer_metrology.py
+Writes Biological_Physics/Landauer_Metrology/verify_landauer_metrology_output.txt
 Inputs (read, never typed): docs/book/figscripts/cell_data/PROC_TARE_01_per_array.parquet,
 docs/book/figscripts/cell_data/FINDING_GSE125105_controls.csv (both copied from the retired kit/results/).
 Values quoted from sealed outcome records are marked [record] with the file name.
