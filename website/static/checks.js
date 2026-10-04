@@ -13,6 +13,10 @@
   var root = document.documentElement.getAttribute("data-root") || "./";
   var meta = null, py = null, loading = null;
 
+  function plain(t) {
+    return String(t || "").replace(/\\times\s*10\^\{?([-+]?\d+)\}?/g, " × 10^$1").replace(/\\%/g, "%").replace(/\$/g, "")
+      .replace(/\\,|\\!|~/g, "").replace(/\{,\}/g, ",").replace(/\\(lesssim|leq|le)\b/g, "≤").replace(/\\(gtrsim|geq|ge)\b/g, "≥");
+  }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   var box, bar, msg;
   function progress(frac, text) {
@@ -62,7 +66,7 @@
     var head = el("span", r.passed ? "pass" : "fail", r.passed ? "PASS" : "FAIL");
     out.appendChild(head);
     out.appendChild(document.createTextNode("  " + r.label + "\n" +
-      "book value:  " + (r.printed || "(algebra)") + "\n" +
+      "book value:  " + (plain(r.printed) || "(algebra)") + "\n" +
       "recomputed:  " + r.recomputed + "\n" +
       "tolerance:   " + (r.tol ? r.tol : "half the last printed digit / exact") + "\n" +
       (r.title ? "what:        " + r.title : "")));
@@ -74,7 +78,7 @@
     var r = c.committed || {};
     out.appendChild(el("span", r.passed ? "pass" : "fail", r.passed ? "PASS (committed result)" : "FAIL (committed result)"));
     out.appendChild(document.createTextNode("  " + label + "\n" +
-      "book value:  " + (r.printed || "") + "\nrecomputed:  " + (r.recomputed || "") + "\n" +
+      "book value:  " + plain(r.printed) + "\nrecomputed:  " + (r.recomputed || "") + "\n" +
       "This check reads an output of Planck chains, CAMB or the methylation chain; it does not run in the browser.\nrerun:       " + (c.rerun || "") + "\n"));
     var a = el("a", null, "Open in Codespaces"); a.href = CODESPACES; a.rel = "noopener"; out.appendChild(a);
     target.appendChild(out);
