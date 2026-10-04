@@ -1,0 +1,1363 @@
+{
+ "_about": [
+  "Hand content of Appendix E (the formula sheet) that the chapters do not hold, applied by make_app_E.py.",
+  "Keys: '<chapter label>|<first equation label of the display>', or '<chapter label>|body:<display body, white space removed>' for a",
+  "display with no label ('#2', '#3' for a repeat within one chapter).",
+  "omit: displays left out of the sheet. body / status / intext: the sheet's text ('sheet') replaces what the chapter rule gives",
+  "('chapter'); if the chapter no longer gives 'chapter', make_app_E.py warns and uses the chapter, so a chapter change is never hidden.",
+  "desc: the one-line descriptions written for the earlier selection of the sheet. 'entry' is the sheet entry number when the override",
+  "was written (for reading only; it is not used). 'why' says what each override is."
+ ],
+ "omit": {
+  "ch:bridge|body:\\varepsilon=\\frac{\\text{errors}}{\\text{opportunities}}.": {
+   "chapter": "\\varepsilon=\\frac{\\text{errors}}{\\text{opportunities}} .",
+   "why": "display in the chapter's section 'Two readings of one record', added in 4736ecf after the sheet was generated (96210e4); the committed sheet does not list it (open question: list it)"
+  },
+  "ch:bridge|body:\\text{IAM-A}=\\frac{H(\\varepsilon)}{P_{\\rmcell}\\,H(\\varepsilon_0)}": {
+   "chapter": "\\text{IAM-A}=\\frac{H(\\varepsilon)}{P_{\\rm cell}\\,H(\\varepsilon_0)}",
+   "why": "display in the chapter's section 'Two readings of one record', added in 4736ecf after the sheet was generated (96210e4); the committed sheet does not list it (open question: list it)"
+  }
+ },
+ "body": {
+  "ch:iams_law|eq:law_jacobson": {
+   "entry": 17,
+   "chapter": "R_{ab}-\\tfrac12Rg_{ab}+\\Lambda g_{ab}=\\frac{2\\pi}{\\hbar c\\,\\eta}T_{ab}\\equiv\\frac{8\\pi G}{c^4}T_{ab},\\qquad G=\\frac{c^3}{4\\hbar\\eta}.",
+   "sheet": "R_{ab}-\\tfrac12Rg_{ab}+\\Lambda g_{ab}=\\frac{2\\pi}{\\hbar\\eta}T_{ab}\\equiv\\frac{8\\pi G}{c^4}T_{ab},\\qquad G=\\frac{c^3}{4\\hbar\\eta}.",
+   "why": "the sheet keeps the coefficient as 2pi/(hbar eta); the chapter was changed to 2pi/(hbar c eta) in 94a80ec after the sheet was generated (open question: update the sheet to the chapter)"
+  },
+  "ch:lambda_history|eq:lh_weights": {
+   "entry": 293,
+   "chapter": "\\begin{gathered}\n\\int_0^1\\!\\Big(\\frac{H_0}{H}\\Big)^2dE=0.470,\\quad \\int_0^1\\!\\frac{H_0}{H}\\,dE=0.641,\\quad \\int_0^1\\!dE=1,\\quad\n\\\\ \\int_0^1\\!\\frac{H}{H_0}\\,dE=1.983,\\quad \\int_0^1\\!\\Big(\\frac{H}{H_0}\\Big)^2dE=5.797 .\n\\end{gathered}",
+   "sheet": "\\begin{gathered}\\int_0^1\\!\\Big(\\frac{H_0}{H}\\Big)^2dE=0.470,\\quad \\int_0^1\\!\\frac{H_0}{H}\\,dE=0.641,\\quad \\int_0^1\\!dE=1,\\\\\n\\int_0^1\\!\\frac{H}{H_0}\\,dE=1.983,\\quad \\int_0^1\\!\\Big(\\frac{H}{H_0}\\Big)^2dE=5.797 .\\end{gathered}",
+   "why": "the sheet keeps the line break of the earlier display; the chapter's display was re-broken in the layout pass 1b7b851 (same math)"
+  }
+ },
+ "status": {
+  "ch:iams_law|eq:law": {
+   "entry": 8,
+   "chapter": "no status label attached in the chapter",
+   "sheet": "\\conjecture{} (Assumption~2: the horizon is the reservoir); in its laboratory limit it is Landauer's bound, \\observed",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iams_law|eq:law_entangle": {
+   "entry": 9,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (standard quantum mechanics)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iams_law|eq:epochcost": {
+   "entry": 13,
+   "chapter": "\\calc{}",
+   "sheet": "\\derived{} (given Eq.~\\eqref{eq:law}, a \\conjecture, with $T=T_{GH}$)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iams_law|eq:law_eta": {
+   "entry": 19,
+   "chapter": "\\derived{}",
+   "sheet": "\\calc{} (as labelled in the chapter)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iams_law|eq:law_F2": {
+   "entry": 22,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (Cai and Kim 2005)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iams_law|eq:firstlaw": {
+   "entry": 23,
+   "chapter": "\\derived{}",
+   "sheet": "\\conjecture{} (Assumption~2)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iams_law|eq:Hm": {
+   "entry": 26,
+   "chapter": "\\conjecture{}",
+   "sheet": "\\derived{} (given the completed first law, Eq.~\\eqref{eq:firstlaw}, a \\conjecture, and the sector split, a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iams_law|eq:rate": {
+   "entry": 27,
+   "chapter": "\\conjecture{}",
+   "sheet": "\\conjecture{} (assumed form of the writing rate)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iams_law|eq:Ea": {
+   "entry": 30,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (given the record-density constraint, a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iams_law|eq:law_action": {
+   "entry": 32,
+   "chapter": "\\derived{}",
+   "sheet": "definition (the action); that its variation returns Eq.~\\eqref{eq:Hm} is \\derived",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iams_law|eq:law_winfo": {
+   "entry": 34,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (given $\\rho_{\\rm info}\\propto E(a)$ from the record constraint, a \\conjecture); values \\calc",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iams_law|eq:mu": {
+   "entry": 37,
+   "chapter": "\\prediction{}",
+   "sheet": "\\derived{} (given Eq.~\\eqref{eq:Hm} read as an effective Newton constant; that reading is a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iams_law|eq:law_dphi": {
+   "entry": 39,
+   "chapter": "\\conjecture{}",
+   "sheet": "\\derived{} (given the record constraint, a \\conjecture, and an unperturbed background horizon at first order)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iams_law|eq:law_mahaffey": {
+   "entry": 55,
+   "chapter": "\\conjecture{}",
+   "sheet": "definition",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:virial_law|eq:vl_euler": {
+   "entry": 56,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (Clausius; Euler's theorem)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:virial_identity|eq:vi_virial": {
+   "entry": 64,
+   "chapter": "no status label attached in the chapter",
+   "sheet": "\\derived{} (Clausius; Euler's theorem)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:virial|eq:vc_firstlaw": {
+   "entry": 69,
+   "chapter": "no status label attached in the chapter",
+   "sheet": "\\conjecture{} (Assumption~2)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:virial|eq:vc_E": {
+   "entry": 74,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (given the record-density constraint, a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:virial|part2:eq:mu_virial": {
+   "entry": 75,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (given Eq.~\\eqref{eq:Hm} read as an effective Newton constant; that reading is a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:virial|eq:vc_h0": {
+   "entry": 77,
+   "chapter": "\\derived{}",
+   "sheet": "\\calc{} from the Level~2 chain value of $H_0$ (\\measured); that matter-sector probes read this rate is a \\conjecture{} (Ch.~\\ref{ch:dual})",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:theory|eq:th:entangle": {
+   "entry": 84,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (standard quantum mechanics)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:theory|eq:th:dQ": {
+   "entry": 90,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (Jacobson 1995)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:theory|eq:th:Tab": {
+   "entry": 95,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (Jacobson 1995)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:theory|eq:th:einstein": {
+   "entry": 96,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (Jacobson 1995)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:theory|eq:th:dAmin": {
+   "entry": 100,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived",
+   "why": "same label; the sheet writes it without {} as in the chapter's paragraph"
+  },
+  "ch:theory|eq:th:Hdot": {
+   "entry": 108,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (Cai and Kim 2005)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:theory|eq:th:friedmann": {
+   "entry": 109,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (given the completed first law, Eq.~\\eqref{eq:firstlaw}, a \\conjecture, and the sector split, a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:theory|eq:Idot": {
+   "entry": 112,
+   "chapter": "\\conjecture{}",
+   "sheet": "\\conjecture{} (assumed form of the writing rate)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:theory|eq:dSdt": {
+   "entry": 113,
+   "chapter": "no status label attached in the chapter",
+   "sheet": "\\conjecture{} (assumed accounting: Landauer factor $1/T$ and storage per unit horizon area, Assumption~2)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:theory|eq:th:dH2": {
+   "entry": 127,
+   "chapter": "no status label attached in the chapter",
+   "sheet": "\\conjecture{}",
+   "why": "label set by hand for the sheet in d7d1d72 (the chapter's paragraph gives a different or no label)"
+  },
+  "ch:theory|part2:eq:Ea": {
+   "entry": 129,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (given the record-density constraint, a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:theory|eq:th:firstlaw3": {
+   "entry": 133,
+   "chapter": "\\derived{}",
+   "sheet": "\\conjecture{} (Assumption~2)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:theory|eq:HIAM": {
+   "entry": 134,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (given the completed first law, Eq.~\\eqref{eq:firstlaw}, a \\conjecture, and the sector split, a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:theory|eq:th:mudef": {
+   "entry": 137,
+   "chapter": "\\derived{}",
+   "sheet": "definition ($\\mu$--$\\Sigma$ parametrisation)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:theory|eq:th:growth": {
+   "entry": 163,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (standard perturbation theory with $H_m$ as the friction term; placing $H_m$ there is the sector split, a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:entropicgravity|eq:eg_Hdot": {
+   "entry": 177,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (Cai and Kim 2005)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:dual|body:-dE=T_H\\,d\\!\\left(S_{\\mathrm{geo}}+S_{\\mathrm{info}}\\right).": {
+   "entry": 188,
+   "chapter": "\\conjecture{}",
+   "sheet": "\\conjecture{} (as labelled)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:dual|part2:eq:Ea_chains": {
+   "entry": 189,
+   "chapter": "\\calc{}",
+   "sheet": "\\derived{} (given $\\dot\\rho_{\\rm info}=\\rho_{\\rm info}H/a$, a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:dual|part2:eq:mu": {
+   "entry": 190,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (as labelled; given Eq.~\\eqref{eq:Hm}, a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:latetime|eq:lt_mu": {
+   "entry": 192,
+   "chapter": "\\calc{}",
+   "sheet": "\\derived{} (given Eq.~\\eqref{eq:Hm} read as an effective Newton constant; that reading is a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:latetime|eq:lt_poisson": {
+   "entry": 196,
+   "chapter": "no status label attached in the chapter",
+   "sheet": "definition ($\\mu$--$\\Sigma$ parametrisation)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:latetime|eq:lt_mgcamb": {
+   "entry": 197,
+   "chapter": "\\derived{}",
+   "sheet": "definition (MGCAMB form); its match to Eq.~\\eqref{eq:lt_mu} is \\calc",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:level2|eq:l2_friedmann": {
+   "entry": 198,
+   "chapter": "\\measured{}",
+   "sheet": "definition (standard $\\Lambda$CDM)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:level2|eq:l2_Hm": {
+   "entry": 199,
+   "chapter": "\\measured{}",
+   "sheet": "\\derived{} (given the completed first law, Eq.~\\eqref{eq:firstlaw}, a \\conjecture, and the sector split, a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:dsnote|eq:dsn_firstlaw": {
+   "entry": 210,
+   "chapter": "no status label attached in the chapter",
+   "sheet": "\\conjecture{} (Assumption~2)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:sectortension|eq:st_mu": {
+   "entry": 219,
+   "chapter": "no status label attached in the chapter",
+   "sheet": "\\interp{}",
+   "why": "label set by hand for the sheet in d7d1d72 (the chapter's paragraph gives a different or no label)"
+  },
+  "ch:dsvalidation|eq:dsv_Hm": {
+   "entry": 224,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (given the completed first law, Eq.~\\eqref{eq:firstlaw}, a \\conjecture, and the sector split, a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:dsvalidation|eq:dsv_Omdil": {
+   "entry": 237,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived",
+   "why": "same label; the sheet writes it without {} as in the chapter's paragraph"
+  },
+  "ch:darkenergy|part2:eq:Hm": {
+   "entry": 242,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (given the completed first law, Eq.~\\eqref{eq:firstlaw}, a \\conjecture, and the sector split, a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:wzfuture|eq:wz_norip": {
+   "entry": 259,
+   "chapter": "no status label attached in the chapter",
+   "sheet": "\\derived{} (given $E(a)\\le e$, from the record constraint, a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:lambda|eq:base": {
+   "entry": 270,
+   "chapter": "\\openprob{}",
+   "sheet": "\\fitted{} (the writing fraction and the $2/\\pi$ were introduced as the residual was reduced; the $2/\\pi$ is not derived); value \\calc",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:lambda|eq:corr": {
+   "entry": 279,
+   "chapter": "\\calc{}",
+   "sheet": "\\fitted{} (the $\\sqrt{\\Omega_\\Lambda}$ was applied to close the residual of Eq.~\\eqref{eq:base}); value \\calc",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:lambda|eq:ident": {
+   "entry": 281,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (an identity)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:lambda_history|eq:lh_integral": {
+   "entry": 291,
+   "chapter": "\\conjecture{}",
+   "sheet": "\\conjecture; fails as written (\\openprob)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:surveys|eq:sp_mu": {
+   "entry": 310,
+   "chapter": "\\prediction{}",
+   "sheet": "\\prediction{} (as labelled in the chapter's status table; $\\beta_m=\\Omega_m/2$ fixed)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:surveys|eq:sp_siren": {
+   "entry": 316,
+   "chapter": "\\calc{}",
+   "sheet": "\\calc{} from the Level~2 chain value of $H_0^\\gamma$; the siren value is a \\prediction",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:threeway|eq:tw_R": {
+   "entry": 332,
+   "chapter": "\\derived{}",
+   "sheet": "\\calc{} (Level~1 form); which implementation form holds inside clusters is \\openprob",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:blackholes|body:S_{\\rmBH}=\\frac{k_Bc^3A}{4G\\hbar}=\\frac{4\\piGk_BM^2}{\\hbarc},\\qquadT_{\\rmBH}=\\frac{\\hbarc^3}{8\\piGk_BM},\\qquadA=\\frac{16\\piG^2M^2}{c^4}.": {
+   "entry": 347,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (Bekenstein 1973; Hawking 1975)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:blackholes|eq:bh_Tuniv": {
+   "entry": 348,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (standard physics)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:blackholes|eq:bh_smarr": {
+   "entry": 356,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (Smarr 1973); the Landauer reading is \\interp",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:blackholes|body:\\begin{aligned}\\frac{T_{\\rmBH}S_{\\rmBH}}{Mc^2}&=\\frac{\\sqrt{1-\\chi^2}}{2}:\\\\&\\qquad0.433\\(\\chi=0.5),\\quad0.218\\(\\chi=0.9),\\quad0.032\\(\\chi=0.998).\\end{aligned}": {
+   "entry": 357,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived; values \\calc",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:blackholes|eq:bh_Mt": {
+   "entry": 359,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived",
+   "why": "same label; the sheet writes it without {} as in the chapter's paragraph"
+  },
+  "ch:blackholes|body:M_{\\rmCMB}=\\frac{\\hbarc^3}{8\\piGk_BT_{\\rmCMB}}=4.5\\times10^{22}\\\\text{kg}\\approx0.6\\,\\text{lunarmasses};": {
+   "entry": 366,
+   "chapter": "\\calc{}",
+   "sheet": "\\derived; value \\calc",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:blackholes|eq:bh_hoop": {
+   "entry": 368,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived",
+   "why": "same label; the sheet writes it without {} as in the chapter's paragraph"
+  },
+  "ch:blackholes|body:\\frac{\\hbar\\eta}{2\\pi}=\\frac{c^3}{8\\piG}\\qquad\\Longrightarrow\\qquad\\eta=\\frac{c^3}{4\\hbarG}=\\frac{1}{4\\ell_P^2}.": {
+   "entry": 370,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (Jacobson 1995)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:bekenstein|body:\\frac14=\\frac{2\\pi}{8\\pi},": {
+   "entry": 371,
+   "chapter": "no status label attached in the chapter",
+   "sheet": "\\derived{}",
+   "why": "label set by hand for the sheet in d7d1d72 (the chapter's paragraph gives a different or no label)"
+  },
+  "ch:quantumrecords|eq:qr_mu": {
+   "entry": 417,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (given Eq.~\\eqref{eq:Hm} read as an effective Newton constant; that reading is a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:quantumrecords|eq:qr_tauIAM": {
+   "entry": 423,
+   "chapter": "\\calc{}",
+   "sheet": "\\derived{} (given the postulated rate and the boundary capacity $\\kB T/E_G$, both \\conjecture); its $T^2$ and mass scaling are a \\prediction",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:entanglement|eq:ent:smax": {
+   "entry": 424,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (standard quantum mechanics for pointer-basis dephasing; Horodecki criterion)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:measurement|eq:mp_QL": {
+   "entry": 425,
+   "chapter": "\\calc{}",
+   "sheet": "\\conjecture{} (as labelled); see Bennett's erasure result (\\openprob)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:measurement|eq:F": {
+   "entry": 427,
+   "chapter": "\\calc{}",
+   "sheet": "\\conjecture{} (form not derived); the universal curve is a \\prediction",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:gravdec|eq:gd_dp": {
+   "entry": 429,
+   "chapter": "\\observed{}",
+   "sheet": "definition (the Di\\'osi--Penrose proposal)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:gravdec|eq:gd_bitrate": {
+   "entry": 430,
+   "chapter": "\\conjecture{}",
+   "sheet": "\\conjecture{} (postulated)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:gravdec|eq:tauIAM": {
+   "entry": 431,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (given the postulated rate and the boundary capacity, both \\conjecture); $T^2$ and mass scaling \\prediction",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:nonlocal|body:S_{\\max}(t)=2\\sqrt{1+c(t)^2}": {
+   "entry": 436,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (standard quantum mechanics for pointer-basis dephasing)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:electroweak|eq:ew:virial": {
+   "entry": 437,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (Clausius; Euler's theorem)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:electroweak|body:V(r)=-\\frac43\\frac{\\alpha_s}{r}+\\sigmar,\\qquad\\sigma\\approx0.18\\{\\rmGeV}^2=0.91\\{\\rmGeV\\,fm}^{-1}.": {
+   "entry": 438,
+   "chapter": "\\calc{}",
+   "sheet": "\\calc{} (as labelled; the Cornell form is a published phenomenological potential)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:koide|eq:ko:Q": {
+   "entry": 440,
+   "chapter": "\\derived{}",
+   "sheet": "\\observed",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:electronmass|eq:em:result": {
+   "entry": 470,
+   "chapter": "\\calc{}",
+   "sheet": "\\fitted{} (prefactor $(2\\pi)^{3/10}$ selected numerically by search); precision limited by $H_0$ to $\\pm0.3\\,\\%$",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:scprimer|body:\\xqp^{\\mathrm{th}}(T)=\\sqrt{\\frac{2\\pi\\kBT}{\\Delta}}\\,e^{-\\Delta/\\kBT}": {
+   "entry": 471,
+   "chapter": "\\calc{}",
+   "sheet": "\\derived{} (standard BCS physics)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:scprimer|eq:catelani": {
+   "entry": 472,
+   "chapter": "\\observed{}",
+   "sheet": "\\derived{} (published theory)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:xqp|body:x_{\\rmqp}=n_{\\rmqp}/n_{\\rmcp}\\sim10^{-8}\\text{--}10^{-6},\\qquadn_{\\rmcp}=2\\nu_0\\Delta\\approx4\\times10^6\\,\\mu{\\rmm}^{-3},": {
+   "entry": 473,
+   "chapter": "\\observed{}",
+   "sheet": "definition; the floor $\\sim10^{-7}$ is \\observed",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:xqp|body:\\frac{x_{\\rmqp}\\,n_{\\rmcp}\\,V\\,\\tau_{\\rmTLS}}{N\\,\\tau_{\\rmqp}}=2.": {
+   "entry": 477,
+   "chapter": "\\prediction{}",
+   "sheet": "\\prediction",
+   "why": "same label; the sheet writes it without {} as in the chapter's paragraph"
+  },
+  "ch:ascoreqc|eq:Agate": {
+   "entry": 478,
+   "chapter": "\\calc{}",
+   "sheet": "definition",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:walls|eq:pdecomp": {
+   "entry": 480,
+   "chapter": "\\derived{}",
+   "sheet": "definition; the material/control split is a model, \\conjecture",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:qplatforms|eq:qp_peq": {
+   "entry": 483,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (detailed balance)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:qplatforms|eq:qp_rydberg": {
+   "entry": 485,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} within a \\conjecture{} model; $a$, $b$ unmeasured",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:cmos|body:\\kBT_j\\ln2=3.33\\times10^{-21}\\\\mathrmJ=0.021\\\\mathrm{eV}.": {
+   "entry": 486,
+   "chapter": "\\calc{}",
+   "sheet": "\\calc",
+   "why": "same label; the sheet writes it without {} as in the chapter's paragraph"
+  },
+  "ch:chipgen|eq:cg_nfloor": {
+   "entry": 488,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived; values \\calc",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:bridge|eq:landauer": {
+   "entry": 489,
+   "chapter": "\\observed{}",
+   "sheet": "\\derived{} (Landauer 1961); \\observed{} (B\\'erut 2012; Hong 2016)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:astrogenetics|body:H(\\beta)=-\\beta\\log_2\\beta-(1-\\beta)\\log_2(1-\\beta),": {
+   "entry": 490,
+   "chapter": "\\derived{}",
+   "sheet": "definition; its properties are \\derived",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:landauer|eq:ebit": {
+   "entry": 491,
+   "chapter": "\\calc{}",
+   "sheet": "\\calc",
+   "why": "same label; the sheet writes it without {} as in the chapter's paragraph"
+  },
+  "ch:landauer|eq:M": {
+   "entry": 492,
+   "chapter": "\\calc{}",
+   "sheet": "\\calc{} (from a definition)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:landauer|body:M=\\frac{\\Edrive}{\\kBT}.": {
+   "entry": 493,
+   "chapter": "no status label attached in the chapter",
+   "sheet": "definition",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:landauer|eq:bitsperATP": {
+   "entry": 494,
+   "chapter": "\\calc{}",
+   "sheet": "\\calc{} (a unit conversion)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:landauer|eq:efloor": {
+   "entry": 497,
+   "chapter": "\\calc{}",
+   "sheet": "\\calc",
+   "why": "same label; the sheet writes it without {} as in the chapter's paragraph"
+  },
+  "ch:landauer|body:\\frac{\\Delta\\DeltaG}{\\kBT}=\\ln\\frac{1}{0.02\\text{--}0.10}=2.3\\text{--}3.9.": {
+   "entry": 498,
+   "chapter": "\\calc{}",
+   "sheet": "\\calc{} (from Genereux et al.\\ 2005)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:landauer|eq:phi": {
+   "entry": 499,
+   "chapter": "\\calc{}",
+   "sheet": "\\measured",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:surface|eq:H": {
+   "entry": 502,
+   "chapter": "\\derived{}",
+   "sheet": "definition; its properties are \\derived",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:surface|eq:jensen": {
+   "entry": 503,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived",
+   "why": "same label; the sheet writes it without {} as in the chapter's paragraph"
+  },
+  "ch:surface|eq:meanH": {
+   "entry": 504,
+   "chapter": "\\derived{}",
+   "sheet": "definition",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:surface|eq:steady": {
+   "entry": 505,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (toy model)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:ledgers|eq:smarr": {
+   "entry": 507,
+   "chapter": "\\calc{}",
+   "sheet": "\\derived{} (Smarr 1973); one-solar-mass check \\calc",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:floorbreach|eq:Amax": {
+   "entry": 508,
+   "chapter": "\\calc{}",
+   "sheet": "\\calc{} (from the healthy reference alone)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:gauge|eq:A": {
+   "entry": 509,
+   "chapter": "no status label attached in the chapter",
+   "sheet": "definition",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:gauge|body:A=\\frac{H(\\text{errornow})}{H(\\text{errorinthesamecellwhenhealthy})},": {
+   "entry": 510,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (from $H(\\beta)=H(1-\\beta)$)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:meta|eq:metawb": {
+   "entry": 512,
+   "chapter": "\\measured{}",
+   "sheet": "definition; validated on known mixtures (\\measured)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iama|eq:eps": {
+   "entry": 513,
+   "chapter": "\\derived{}",
+   "sheet": "definition; \\derived{} for the form, selection rules \\calibrated",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:iama|eq:eps0": {
+   "entry": 514,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} for the form; height \\measured{} ($\\varepsilon_0=0.032$, $H_{\\min}=0.2043$ bits)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:cscore|eq:z": {
+   "entry": 516,
+   "chapter": "\\derived{}",
+   "sheet": "definition (\\derived{} as a construction)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:cscore|eq:C": {
+   "entry": 517,
+   "chapter": "\\calibrated{}",
+   "sheet": "definition; $c_{\\rm healthy}$ \\calibrated",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:temperature|eq:eps0T": {
+   "entry": 518,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (given a fixed holding energy, a \\conjecture)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:separation|eq:mix": {
+   "entry": 519,
+   "chapter": "no status label attached in the chapter",
+   "sheet": "definition (the mixture model); profiles and markers \\calibrated",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:atlas|body:\\begin{aligned}\\beta^{\\mathrm{obs}}_{ics}&\\sim\\mathcalN\\!\\left(\\mu_{ic}+\\delta_{is},\\\\sigma^2_{\\mathrm{obs},s}+\\sigma^2_{\\mathrm{loc},i}\\right)\\quad\\text{wheremeasured},\\\\\\mu_{ic}&=m_i+e_{ic},\\qquade_{ic}\\sim\\mathcalN(0,\\tau^2),\\end{aligned}": {
+   "entry": 520,
+   "chapter": "no status label attached in the chapter",
+   "sheet": "definition (the statistical model); the fit is \\measured",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:skytools|body:z_i=\\frac{H(\\beta_i)-\\overline{H}_i}{s_i},": {
+   "entry": 521,
+   "chapter": "\\derived{}",
+   "sheet": "definition",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:sky|eq:sky": {
+   "entry": 522,
+   "chapter": "\\derived{}",
+   "sheet": "definition (\\derived{} as a construction); $s_i$ \\calibrated",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:sky|eq:cellcount": {
+   "entry": 523,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived",
+   "why": "same label; the sheet writes it without {} as in the chapter's paragraph"
+  },
+  "ch:sky|eq:outspan": {
+   "entry": 524,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} (a projection); its tests are \\prediction{} (pre-registered)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:theoryinterp|body:\\frac{S_{\\rminfo}(R)}{A(R)}\\ge\\frac{1}{4\\ell_P^2}.": {
+   "entry": 525,
+   "chapter": "\\calc{}",
+   "sheet": "\\derived{} (equality at $R_s$); its reading as the collapse criterion is \\interp",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:theoryinterp|body:M_{\\rmeq}=\\frac{c^3}{4GH}\\approx2.3\\times10^{22}M_\\odot\\quad(H_0=67.16),": {
+   "entry": 526,
+   "chapter": "\\calc{}",
+   "sheet": "\\calc{} (as labelled)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:onegauge|body:H(\\beta)=H(\\varepsilon),\\qquadH(x)=-x\\log_2x-(1-x)\\log_2(1-x).": {
+   "entry": 535,
+   "chapter": "\\derived{}",
+   "sheet": "\\derived{} ($H(\\beta)=H(1-\\beta)$); $H(x)$ is a definition",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:onegauge|body:\\text{Met-A}=\\frac{\\langleH(\\beta)\\rangle_{\\rmidentity\\sites}}{\\langleH(\\beta)\\rangle_{\\rmhealthy\\reference}}.": {
+   "entry": 536,
+   "chapter": "\\derived{}",
+   "sheet": "definition; the reference is \\calibrated{} (Stage~1)",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  },
+  "ch:onegauge|body:\\text{IAM-A}=\\frac{H(\\varepsilon)}{P_{\\rmcell}\\,H(\\varepsilon_0)},\\qquad\\varepsilon_0=\\frac{1}{1+e^{\\varphiM}}=0.032,": {
+   "entry": 537,
+   "chapter": "no status label attached in the chapter",
+   "sheet": "definition; the Boltzmann form of $\\varepsilon_0$ is \\derived, its height \\measured; $P$ \\measured",
+   "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
+  }
+ },
+ "intext": {
+  "ch:iams_law|eq:law": {
+   "entry": 8,
+   "chapter": "Eq.~\\eqref{eq:law}; Chapter~\\ref{ch:iams_law}, section ``Statement of the law''; see also (\\ref{app:fs:54})",
+   "sheet": "Eq.~\\eqref{eq:law}; Chapter~\\ref{ch:iams_law}, section ``Statement of the law''",
+   "why": "the sheet does not point to the restatement in section 'Discussion' (hand edit in PR #17)"
+  },
+  "ch:iams_law|body:\\DeltaE_{\\rmrec}=k_BT_H\\ln2\\quad\\text{perbit},": {
+   "entry": 54,
+   "chapter": "Chapter~\\ref{ch:iams_law}, section ``Discussion''; see also (\\ref{app:fs:8})",
+   "sheet": "Eq.~\\eqref{eq:law}, restated; Chapter~\\ref{ch:iams_law}, section ``Discussion''",
+   "why": "the sheet says the display restates Eq. (eq:law) and does not point back to it (hand edit in PR #17); the display itself has no label"
+  }
+ },
+ "desc": {
+  "ch:iams_law|eq:law": {
+   "entry": 8,
+   "sheet": "IAM's Law: the minimum cost of one classical bit, paid at the temperature of the nearest encoding surface (horizon temperature $T_H$)."
+  },
+  "ch:iams_law|eq:law_entangle": {
+   "entry": 9,
+   "sheet": "Decoherence: a system--environment product state evolves into an entangled sum over pointer states."
+  },
+  "ch:iams_law|eq:epochcost": {
+   "entry": 13,
+   "sheet": "Cost per bit at the cosmic horizon at scale factor $a$, using the Gibbons--Hawking temperature."
+  },
+  "ch:iams_law|eq:law_eta": {
+   "entry": 19,
+   "sheet": "The Bekenstein--Hawking coefficient as the ratio of the Euclidean period $2\\pi$ to the $8\\pi$ of the field equations."
+  },
+  "ch:iams_law|eq:law_F2": {
+   "entry": 22,
+   "sheet": "Cai--Kim: the first law at the apparent horizon gives the second Friedmann equation."
+  },
+  "ch:iams_law|eq:firstlaw": {
+   "entry": 23,
+   "sheet": "Horizon entropy completed by the record term, and the first law applied to it at the apparent horizon. $S_{\\rm total}$ is defined here."
+  },
+  "ch:iams_law|eq:Hm": {
+   "entry": 26,
+   "sheet": "Matter-sector expansion rate: the record term adds $\\beta_mE(a)H_0^2$ to the rate that matter perturbations feel."
+  },
+  "ch:iams_law|eq:rate": {
+   "entry": 27,
+   "sheet": "Assumed form of the rate of record production from structure formation."
+  },
+  "ch:iams_law|eq:Sdot": {
+   "entry": 28,
+   "sheet": "Rate of change of the record entropy: records priced at $k_BT_H\\ln2$ and stored per unit horizon area."
+  },
+  "ch:iams_law|eq:Ea": {
+   "entry": 30,
+   "sheet": "The activation function $E(a)$, normalised to $E(1)=1$."
+  },
+  "ch:iams_law|eq:law_action": {
+   "entry": 32,
+   "sheet": "Constrained action for the record term ($\\phi=\\ln E$, Lagrange multiplier $\\lambda$); its metric variation returns Eq.~\\eqref{eq:Hm}."
+  },
+  "ch:iams_law|eq:law_winfo": {
+   "entry": 34,
+   "sheet": "Effective equation of state of the record term, with values at $a=0.5,1,2$."
+  },
+  "ch:iams_law|eq:mu": {
+   "entry": 37,
+   "sheet": "Effective growth coupling of matter, $\\mu(a)<1$; light keeps $\\Sigma=1$."
+  },
+  "ch:iams_law|eq:law_dphi": {
+   "entry": 39,
+   "sheet": "The record field is unperturbed in linear theory."
+  },
+  "ch:iams_law|eq:law_mahaffey": {
+   "entry": 55,
+   "sheet": "The Mahaffey number: drive energy over the thermal quantum."
+  },
+  "ch:virial_law|eq:vl_euler": {
+   "entry": 56,
+   "sheet": "Virial theorem for a potential homogeneous of degree $k$."
+  },
+  "ch:virial_law|eq:vl_beta": {
+   "entry": 63,
+   "sheet": "The cosmological coupling from the virial half, with Planck 2018 $\\Omega_m=0.3153$."
+  },
+  "ch:virial_identity|eq:vi_virial": {
+   "entry": 64,
+   "sheet": "Virial theorem for $1/r$ binding ($k=-1$): the kinetic half."
+  },
+  "ch:virial|eq:vc_firstlaw": {
+   "entry": 69,
+   "sheet": "Horizon first law with the record entropy added (as Eq.~\\eqref{eq:firstlaw})."
+  },
+  "ch:virial|eq:vc_beta": {
+   "entry": 70,
+   "sheet": "The cosmological coupling from the virial half, with Planck 2018 $\\Omega_m=0.3153$."
+  },
+  "ch:virial|eq:vc_E": {
+   "entry": 74,
+   "sheet": "The activation function in scale factor and redshift (as Eq.~\\eqref{eq:Ea})."
+  },
+  "ch:virial|part2:eq:mu_virial": {
+   "entry": 75,
+   "sheet": "Linear growth equation in the $\\mu$--$\\Sigma$ form used by the Level~1 chains, with the growth coupling $\\mu(a)$."
+  },
+  "ch:virial|eq:vc_h0": {
+   "entry": 77,
+   "sheet": "Matter-sector Hubble constant from the photon-sector value of the Level~2 chain."
+  },
+  "ch:theory|eq:th:entangle": {
+   "entry": 84,
+   "sheet": "Decoherence: a system--environment product state evolves into an entangled sum over pointer states."
+  },
+  "ch:theory|eq:th:dQ": {
+   "entry": 90,
+   "sheet": "Heat flux across a local Rindler horizon, written with the boost Killing vector."
+  },
+  "ch:theory|eq:th:Tab": {
+   "entry": 95,
+   "sheet": "Clausius relation for every null vector forces $T_{ab}$ proportional to $R_{ab}$ up to a term in $g_{ab}$."
+  },
+  "ch:theory|eq:th:einstein": {
+   "entry": 96,
+   "sheet": "The Einstein equations as an equation of state, with $G$ fixed by $\\eta$."
+  },
+  "ch:theory|eq:th:dAmin": {
+   "entry": 100,
+   "sheet": "Smallest horizon area that holds one unit of entropy $k_B$: $4\\ell_P^2$, independent of surface gravity."
+  },
+  "ch:theory|eq:th:Hdot": {
+   "entry": 108,
+   "sheet": "Cai--Kim: the first law at the apparent horizon gives the second Friedmann equation."
+  },
+  "ch:theory|eq:th:friedmann": {
+   "entry": 109,
+   "sheet": "Matter-sector expansion rate $H_{\\rm IAM}$: the rate in the friction term of matter perturbations; the background stays $\\Lambda$CDM."
+  },
+  "ch:theory|eq:Idot": {
+   "entry": 112,
+   "sheet": "Assumed rate of information production by structure formation (as Eq.~\\eqref{eq:rate})."
+  },
+  "ch:theory|eq:dSdt": {
+   "entry": 113,
+   "sheet": "Accumulation of record entropy on the horizon: Landauer factor $1/T_H$ and holographic factor $1/A_H$."
+  },
+  "ch:theory|eq:th:beta": {
+   "entry": 115,
+   "sheet": "The coupling from the virial partition $\\rho_{\\rm info}(1)=\\tfrac12\\rho_m$."
+  },
+  "ch:theory|eq:Sn": {
+   "entry": 120,
+   "sheet": "Matter-era scaling of the record entropy per $\\ln a$ and per $a$."
+  },
+  "ch:theory|part2:eq:Ea": {
+   "entry": 129,
+   "sheet": "The activation function, boxed result of the decoherence constraint with $E(1)=1$."
+  },
+  "ch:theory|eq:th:firstlaw3": {
+   "entry": 133,
+   "sheet": "Horizon first law with the record entropy (the sector split enters through (\\ref{app:fs:68}))."
+  },
+  "ch:theory|eq:HIAM": {
+   "entry": 134,
+   "sheet": "Matter-sector expansion rate $H_{\\rm IAM}$: the rate in the friction term of matter perturbations; the background stays $\\Lambda$CDM."
+  },
+  "ch:theory|eq:th:mudef": {
+   "entry": 137,
+   "sheet": "Modified Poisson equations of the $\\mu$--$\\Sigma$ framework in Fourier space; GR is $\\mu=\\Sigma=1$."
+  },
+  "ch:theory|eq:th:action": {
+   "entry": 144,
+   "sheet": "Constrained action for the record term in the variational form."
+  },
+  "ch:theory|body:w_0=-1.062,\\qquadw_a=-\\frac{dw^{\\rmeff}}{da}\\Big|_{a=1}=-\\frac{\\Omega_m^2}{3(2-\\Omega_m)^2}=-0.012.": {
+   "entry": 152,
+   "sheet": "CPL parameters matched to $w_{\\rm eff}$ and its slope at $a=1$."
+  },
+  "ch:theory|eq:th:growth": {
+   "entry": 163,
+   "sheet": "Growth equation of matter perturbations with friction from the matter-sector rate."
+  },
+  "ch:theory|eq:th:hoop": {
+   "entry": 170,
+   "sheet": "Collapse criterion as holographic saturation: record entropy per area reaching $1/4\\ell_P^2$ (met exactly at the Schwarzschild radius)."
+  },
+  "ch:entropicgravity|eq:eg_Hdot": {
+   "entry": 177,
+   "sheet": "Cai--Kim: the first law at the apparent horizon gives the second Friedmann equation."
+  },
+  "ch:dual|body:-dE=T_H\\,d\\!\\left(S_{\\mathrm{geo}}+S_{\\mathrm{info}}\\right).": {
+   "entry": 188,
+   "sheet": "Horizon first law with the record entropy added; the record density is taken to grow as $\\dot\\rho_{\\rm info}=\\rho_{\\rm info}H/a$."
+  },
+  "ch:dual|part2:eq:Ea_chains": {
+   "entry": 189,
+   "sheet": "The activation function as the solution of the record-density law, normalised to one today."
+  },
+  "ch:dual|part2:eq:mu": {
+   "entry": 190,
+   "sheet": "The standard modified-growth form: $\\mu(a)$ multiplies $G$ in the growth equation, $\\Sigma=1$ in the lensing potential."
+  },
+  "ch:latetime|eq:lt_mu": {
+   "entry": 192,
+   "sheet": "The form of $\\mu(a)$ tested in the Level~1 MGCAMB chains, with $\\beta=\\Omega_m/2$."
+  },
+  "ch:latetime|eq:lt_poisson": {
+   "entry": 196,
+   "sheet": "Modified Poisson equations of the $\\mu$--$\\Sigma$ framework in Fourier space; GR is $\\mu=\\Sigma=1$."
+  },
+  "ch:latetime|eq:lt_mgcamb": {
+   "entry": 197,
+   "sheet": "The DES parametrisation implemented in MGCAMB; the runs set $\\mu_0=-0.13495$, $\\Sigma_0=0$."
+  },
+  "ch:level2|eq:l2_friedmann": {
+   "entry": 198,
+   "sheet": "The $\\Lambda$CDM background expansion rate used for photons and the background in the Level~2 code."
+  },
+  "ch:level2|eq:l2_Hm": {
+   "entry": 199,
+   "sheet": "Matter-sector rate used by the CDM and baryon perturbations in the modified CAMB, with $\\beta_m=0.15765$."
+  },
+  "ch:level2|eq:l2_mu": {
+   "entry": 202,
+   "sheet": "Growth coupling if the change acted as $G_{\\rm eff}=\\mu G$; present value $1/(1+\\beta_m)$."
+  },
+  "ch:dsnote|eq:dsn_firstlaw": {
+   "entry": 210,
+   "sheet": "Horizon first law with the record entropy added (as Eq.~\\eqref{eq:firstlaw})."
+  },
+  "ch:dsvalidation|eq:dsv_Hm": {
+   "entry": 224,
+   "sheet": "Matter-sector expansion rate in density-parameter form, used against the supernova Hubble diagram."
+  },
+  "ch:dsvalidation|eq:dsv_Omdil": {
+   "entry": 237,
+   "sheet": "Matter density fraction with the record term in the denominator; lower than in $\\Lambda$CDM, which lowers growth."
+  },
+  "ch:darkenergy|part2:eq:Hm": {
+   "entry": 242,
+   "sheet": "Matter-sector expansion rate; the photon sector keeps the $\\Lambda$CDM rate."
+  },
+  "ch:darkenergy|eq:wz_cpl": {
+   "entry": 249,
+   "sheet": "CPL image of $w_{\\rm info}$ at $a=1$: $w_0=-4/3$, $w_a=-1/3$."
+  },
+  "ch:wzfuture|eq:wz_norip": {
+   "entry": 259,
+   "sheet": "No-Big-Rip condition: $w_{\\rm info}$ rises with $a$ and $\\rho_{\\rm info}$ is bounded by $e\\,\\rho_{\\rm info}(1)$."
+  },
+  "ch:lambda|eq:base": {
+   "entry": 270,
+   "sheet": "The cosmological-constant expression with writing fraction $\\Omega_b/\\Omega_m$ and geometric factor $2/\\pi$; $1.218$ times the measured ratio."
+  },
+  "ch:lambda|eq:corr": {
+   "entry": 279,
+   "sheet": "The same expression with the de Sitter temperature factor $\\sqrt{\\Omega_\\Lambda}$; $0.79\\,\\%$ above the measured value."
+  },
+  "ch:lambda|eq:ident": {
+   "entry": 281,
+   "sheet": "Horizon identity: the ratio rewritten exactly in Planck units; the 123 orders are $(l_P/l_H)^2$."
+  },
+  "ch:lambda|eq:rel": {
+   "entry": 283,
+   "sheet": "What Eq.~\\eqref{eq:corr} asserts once the identity is divided out: a present-epoch relation between baryon fraction and dark-energy fraction."
+  },
+  "ch:lambda_history|eq:lh_integral": {
+   "entry": 291,
+   "sheet": "The accumulation integral for $\\Lambda(a)$ over cosmic history; as written it overshoots by $\\sim10^{30}$."
+  },
+  "ch:surveys|eq:sp_mu": {
+   "entry": 310,
+   "sheet": "Matter coupling $\\mu(a)$ with $E(a)$, $\\beta_m=\\Omega_m/2$ and $\\Sigma=1$, as used for survey forecasts."
+  },
+  "ch:surveys|eq:sp_isw": {
+   "entry": 315,
+   "sheet": "ISW--galaxy cross-correlation amplitude relative to $\\Lambda$CDM."
+  },
+  "ch:surveys|eq:sp_siren": {
+   "entry": 316,
+   "sheet": "Matter-sector Hubble rate read by standard sirens, $H_0^{\\rm m}=H_0^\\gamma\\sqrt{1+\\beta_m}=72.26$."
+  },
+  "ch:lensdyn|eq:ld_ratio": {
+   "entry": 323,
+   "sheet": "Lensing-to-dynamical mass ratio of a cluster, $1/\\mu(z)$, in the Level~1 form."
+  },
+  "ch:threeway|eq:tw_R": {
+   "entry": 332,
+   "sheet": "Lensing-to-hydrostatic mass ratio $R(z)=1/\\mu(z)$ for the three-estimator cluster test."
+  },
+  "ch:satellites|eq:ms_ps": {
+   "entry": 346,
+   "sheet": "Press--Schechter change in halo abundance for a fractional change $\\epsilon$ in $\\sigma_M$."
+  },
+  "ch:blackholes|body:S_{\\rmBH}=\\frac{k_Bc^3A}{4G\\hbar}=\\frac{4\\piGk_BM^2}{\\hbarc},\\qquadT_{\\rmBH}=\\frac{\\hbarc^3}{8\\piGk_BM},\\qquadA=\\frac{16\\piG^2M^2}{c^4}.": {
+   "entry": 347,
+   "sheet": "Bekenstein--Hawking entropy, Hawking temperature and horizon area of a Schwarzschild black hole of mass $M$."
+  },
+  "ch:blackholes|eq:bh_Tuniv": {
+   "entry": 348,
+   "sheet": "Temperature of any causal horizon from its surface gravity $\\kappa$ (black hole, de Sitter, Unruh)."
+  },
+  "ch:blackholes|eq:bh_smarr": {
+   "entry": 356,
+   "sheet": "Horizon bits priced at Landauer's minimum: the total is half the rest energy (Smarr relation)."
+  },
+  "ch:blackholes|body:\\begin{aligned}\\frac{T_{\\rmBH}S_{\\rmBH}}{Mc^2}&=\\frac{\\sqrt{1-\\chi^2}}{2}:\\\\&\\qquad0.433\\(\\chi=0.5),\\quad0.218\\(\\chi=0.9),\\quad0.032\\(\\chi=0.998).\\end{aligned}": {
+   "entry": 357,
+   "sheet": "Kerr black hole: fraction of rest energy held as $T_{\\rm BH}S_{\\rm BH}$ versus spin $\\chi$, with three values."
+  },
+  "ch:blackholes|eq:bh_Mt": {
+   "entry": 359,
+   "sheet": "Mass loss by Hawking radiation and the evaporation time (black-body approximation)."
+  },
+  "ch:blackholes|body:M_{\\rmCMB}=\\frac{\\hbarc^3}{8\\piGk_BT_{\\rmCMB}}=4.5\\times10^{22}\\\\text{kg}\\approx0.6\\,\\text{lunarmasses};": {
+   "entry": 366,
+   "sheet": "Mass at which a black hole is in radiative balance with the CMB today."
+  },
+  "ch:blackholes|eq:bh_hoop": {
+   "entry": 368,
+   "sheet": "At the Schwarzschild radius the entropy per area equals the holographic bound $k_B/4\\ell_P^2$."
+  },
+  "ch:blackholes|body:\\frac{\\hbar\\eta}{2\\pi}=\\frac{c^3}{8\\piG}\\qquad\\Longrightarrow\\qquad\\eta=\\frac{c^3}{4\\hbarG}=\\frac{1}{4\\ell_P^2}.": {
+   "entry": 370,
+   "sheet": "Jacobson's Clausius relation fixes $\\eta=1/4\\ell_P^2$."
+  },
+  "ch:quantumrecords|eq:qr_n72": {
+   "entry": 414,
+   "sheet": "The exponent required by $E(a)$, read from the horizon accounting (top-down)."
+  },
+  "ch:quantumrecords|eq:qr_mu": {
+   "entry": 417,
+   "sheet": "Growth coupling $\\mu(a)<1$ for matter and $\\Sigma=1$ for light."
+  },
+  "ch:quantumrecords|eq:qr_tauIAM": {
+   "entry": 423,
+   "sheet": "IAM gravitational decoherence time of a massive superposition, with the boundary capacity taken as $k_BT/E_G$; compared with Penrose--Di\\'osi."
+  },
+  "ch:entanglement|eq:ent:smax": {
+   "entry": 424,
+   "sheet": "Largest CHSH value of a pair dephasing in its pointer basis, as a function of the coherence $c(t)$."
+  },
+  "ch:measurement|eq:mp_QL": {
+   "entry": 425,
+   "sheet": "IAM measurement criterion: an interaction is irreversible when the heat dissipated in the detector reaches $k_BT_D\\ln2$."
+  },
+  "ch:measurement|eq:F": {
+   "entry": 427,
+   "sheet": "Proposed erasure fidelity of a quantum eraser as a function of dissipated energy; the form carries over the activation ramp."
+  },
+  "ch:gravdec|eq:gd_dp": {
+   "entry": 429,
+   "sheet": "Di\\'osi--Penrose collapse time from the gravitational self-energy of the mass-distribution difference."
+  },
+  "ch:gravdec|eq:gd_bitrate": {
+   "entry": 430,
+   "sheet": "Postulated rate of information production of a massive superposition."
+  },
+  "ch:gravdec|eq:tauIAM": {
+   "entry": 431,
+   "sheet": "Integrated decoherence of a massive superposition with boundary capacity $k_BT/E_G$: an exponential with time constant $\\tau_{\\rm IAM}$."
+  },
+  "ch:nonlocal|body:S_{\\max}(t)=2\\sqrt{1+c(t)^2}": {
+   "entry": 436,
+   "sheet": "Largest CHSH value under pointer-basis dephasing (repeated from Part~\\ref{part:qp})."
+  },
+  "ch:electroweak|eq:ew:virial": {
+   "entry": 437,
+   "sheet": "Time-averaged virial theorem for a potential homogeneous of degree $k$."
+  },
+  "ch:electroweak|body:V(r)=-\\frac43\\frac{\\alpha_s}{r}+\\sigmar,\\qquad\\sigma\\approx0.18\\{\\rmGeV}^2=0.91\\{\\rmGeV\\,fm}^{-1}.": {
+   "entry": 438,
+   "sheet": "Cornell static quark potential, with string tension $\\sigma\\approx0.18$~GeV$^2$."
+  },
+  "ch:koide|eq:ko:Q": {
+   "entry": 440,
+   "sheet": "Koide's relation for the charged-lepton pole masses (PDG 2024; $0.66666051$ with the 2022 $m_\\tau$)."
+  },
+  "ch:electronmass|eq:em:result": {
+   "entry": 470,
+   "sheet": "The electron-mass fixed point; the factor $(2\\pi)^{3/10}$ inside the prefactor $(2\\pi)^{-1/10}$ was found by numerical search."
+  },
+  "ch:scprimer|body:\\xqp^{\\mathrm{th}}(T)=\\sqrt{\\frac{2\\pi\\kBT}{\\Delta}}\\,e^{-\\Delta/\\kBT}": {
+   "entry": 471,
+   "sheet": "Thermal-equilibrium quasiparticle density in a BCS superconductor at $T\\ll T_c$, normalised per Cooper pair near the gap."
+  },
+  "ch:scprimer|eq:catelani": {
+   "entry": 472,
+   "sheet": "Qubit relaxation rate from quasiparticle tunnelling across the junction (Catelani et al.\\ 2011)."
+  },
+  "ch:xqp|body:x_{\\rmqp}=n_{\\rmqp}/n_{\\rmcp}\\sim10^{-8}\\text{--}10^{-6},\\qquadn_{\\rmcp}=2\\nu_0\\Delta\\approx4\\times10^6\\,\\mu{\\rmm}^{-3},": {
+   "entry": 473,
+   "sheet": "Quasiparticle density in the field's normalisation; $n_{\\rm cp}=2\\nu_0\\Delta$ counts pairs within $\\Delta$ of the Fermi surface. Defines $x_{\\rm qp}$."
+  },
+  "ch:xqp|eq:xqp": {
+   "entry": 474,
+   "sheet": "Steady-state quasiparticle density from $N$ erasure sites, two quasiparticles per event, diffusing over the island volume $V$."
+  },
+  "ch:xqp|body:\\frac{x_{\\rmqp}\\,n_{\\rmcp}\\,V\\,\\tau_{\\rmTLS}}{N\\,\\tau_{\\rmqp}}=2.": {
+   "entry": 477,
+   "sheet": "Same-device test: the dimensionless combination the proposal predicts equals the pair-breaking yield, 2."
+  },
+  "ch:ascoreqc|eq:Agate": {
+   "entry": 478,
+   "sheet": "Gate error in nats from the two-qubit error probability; equals $p$ to within about $0.5\\,\\%$ for $p<10^{-2}$ ($\\varepsilon/p-1\\simeq p/2$)."
+  },
+  "ch:thermaln|eq:thermal_slope": {
+   "entry": 479,
+   "sheet": "Local logarithmic slope of the held-record thermal floor $p_{\\rm eq}=1/(1+e^M)$; not a constant (6.85 at 35\\,mK, 16.0 at 15\\,mK for 5\\,GHz)."
+  },
+  "ch:walls|eq:pdecomp": {
+   "entry": 480,
+   "sheet": "Three-part decomposition of a superconducting two-qubit error: coherence, material, control."
+  },
+  "ch:walls|eq:t1star": {
+   "entry": 481,
+   "sheet": "The coherence optimum of the model $p=a/T_1+b/(T_{1,\\mathrm{free}}-T_1)$; its location is set by each device's constants $a$ and $b$."
+  },
+  "ch:qplatforms|eq:qp_peq": {
+   "entry": 483,
+   "sheet": "Equilibrium occupation of the wrong level of a two-level record with gap $E=hf$ against a bath at $T$: the held-record thermal floor, the left-hand mark of the qubit gauge."
+  },
+  "ch:qplatforms|eq:qp_pth": {
+   "entry": 484,
+   "sheet": "Thermal floor of one gate of duration $t\\ll T_1$: $6.2\\times10^{-7}$ for a 5\\,GHz transmon at 35\\,mK, $T_1=68\\,\\mu$s, $t=40$\\,ns."
+  },
+  "ch:qplatforms|eq:qp_rydberg": {
+   "entry": 485,
+   "sheet": "Drive optimum of a Rydberg gate: decay falls with the drive, blockade leakage and scattering rise with it."
+  },
+  "ch:cmos|body:\\kBT_j\\ln2=3.33\\times10^{-21}\\\\mathrmJ=0.021\\\\mathrm{eV}.": {
+   "entry": 486,
+   "sheet": "Landauer floor for logic at a junction temperature $T_j=348$\\,K."
+  },
+  "ch:chipgen|eq:cg_nfloor": {
+   "entry": 488,
+   "sheet": "Generations after which a chip reading $R$ times its floor and improving by a constant fraction $s$ per generation would reach the floor: 6.2 at $s=0.646$, 18.5 at $s=1-1/\\sqrt2\\approx0.293$ for $R=600$."
+  },
+  "ch:bridge|eq:landauer": {
+   "entry": 489,
+   "sheet": "Landauer's principle: the least heat dissipated in erasing one bit at reservoir temperature $T$."
+  },
+  "ch:astrogenetics|body:H(\\beta)=-\\beta\\log_2\\beta-(1-\\beta)\\log_2(1-\\beta),": {
+   "entry": 490,
+   "sheet": "Shannon (binary) entropy of a locus with methylated fraction $\\beta$, in bits."
+  },
+  "ch:landauer|eq:ebit": {
+   "entry": 491,
+   "sheet": "Cost of one bit at body temperature, $310.15$\\,K."
+  },
+  "ch:landauer|eq:M": {
+   "entry": 492,
+   "sheet": "The Mahaffey number of the cell: cytosolic ATP drive over $RT$ at body temperature."
+  },
+  "ch:landauer|body:M=\\frac{\\Edrive}{\\kBT}.": {
+   "entry": 493,
+   "sheet": "The Mahaffey number for any system: drive energy per event over $k_BT$ (no $\\ln2$)."
+  },
+  "ch:landauer|eq:bitsperATP": {
+   "entry": 494,
+   "sheet": "Landauer bits one ATP can pay for: $M$ in Landauer units."
+  },
+  "ch:landauer|eq:markmargin": {
+   "entry": 496,
+   "sheet": "Cellular margin: chemical cost of one methyl mark over the Landauer floor of one bit."
+  },
+  "ch:landauer|eq:efloor": {
+   "entry": 497,
+   "sheet": "Landauer floor for one rewrite of all 28,217,448 CpGs."
+  },
+  "ch:landauer|body:\\frac{\\Delta\\DeltaG}{\\kBT}=\\ln\\frac{1}{0.02\\text{--}0.10}=2.3\\text{--}3.9.": {
+   "entry": 498,
+   "sheet": "Discrimination energy implied by maintenance error rates of 2--10\\,\\% (equilibrium-discrimination limit)."
+  },
+  "ch:landauer|eq:phi": {
+   "entry": 499,
+   "sheet": "Fraction of one ATP spent per held bit: holding energy over $M$."
+  },
+  "ch:surface|eq:H": {
+   "entry": 502,
+   "sheet": "Shannon (binary) entropy of a locus with methylated fraction $\\beta$, in bits."
+  },
+  "ch:surface|eq:jensen": {
+   "entry": 503,
+   "sheet": "Jensen's inequality: the entropy of the mean exceeds the mean of the entropies."
+  },
+  "ch:surface|eq:meanH": {
+   "entry": 504,
+   "sheet": "Mean of the per-site entropies, the statistic of Met-A."
+  },
+  "ch:surface|eq:steady": {
+   "entry": 505,
+   "sheet": "Steady state of a two-state maintenance chain with loss $u$ and gain $d$ per division."
+  },
+  "ch:ledgers|eq:virial": {
+   "entry": 506,
+   "sheet": "Virial theorem for a potential homogeneous of degree $k$ (as in Chapter~\\ref{ch:virial_law})."
+  },
+  "ch:ledgers|eq:smarr": {
+   "entry": 507,
+   "sheet": "Smarr relation for a Schwarzschild black hole: rest energy is twice $T_HS$."
+  },
+  "ch:floorbreach|eq:Amax": {
+   "entry": 508,
+   "sheet": "Far end of the Met-A gauge for neutrophils: every identity site at a coin flip, one bit over the healthy reference."
+  },
+  "ch:gauge|eq:A": {
+   "entry": 509,
+   "sheet": "The informational fidelity ratio: a reading over the same cell type's healthy reading on the same instrument."
+  },
+  "ch:gauge|body:A=\\frac{H(\\text{errornow})}{H(\\text{errorinthesamecellwhenhealthy})},": {
+   "entry": 510,
+   "sheet": "The reading as an error rate: entropy of the error now over the entropy of the error in the same cell when healthy."
+  },
+  "ch:meta|eq:meta": {
+   "entry": 511,
+   "sheet": "Met-A on arrays, with the frozen EPIC neutrophil reference $0.330263$ bits."
+  },
+  "ch:meta|eq:metawb": {
+   "entry": 512,
+   "sheet": "Met-A in whole blood: the denominator is the specimen's own composition-matched healthy expectation."
+  },
+  "ch:iama|eq:eps": {
+   "entry": 513,
+   "sheet": "Copy error on single molecules and the holding energy it implies."
+  },
+  "ch:iama|eq:eps0": {
+   "entry": 514,
+   "sheet": "The thermal floor of the copy error from a two-state Boltzmann factor, and $H_{\\min}=H(\\varepsilon_0)$."
+  },
+  "ch:iama|eq:iama": {
+   "entry": 515,
+   "sheet": "IAM-A with the neutrophil position $P=1.099$ (pipeline \\texttt{loyfer\\_pat\\_v1})."
+  },
+  "ch:cscore|eq:z": {
+   "entry": 516,
+   "sheet": "Residual map: each identity site's entropy departure from the healthy reference, in units of the healthy spread $s_i$."
+  },
+  "ch:cscore|eq:C": {
+   "entry": 517,
+   "sheet": "C-score: variance of $\\sqrt{50}\\times$ the 50-site block means over the site variance, divided by the healthy median $1.1104$."
+  },
+  "ch:temperature|eq:eps0T": {
+   "entry": 518,
+   "sheet": "The copy-error floor as a function of body temperature at a fixed holding energy."
+  },
+  "ch:separation|eq:mix": {
+   "entry": 519,
+   "sheet": "Composition model of Stage~A: measured $\\beta$ as a non-negative, sum-to-one mixture of blood-group profiles."
+  },
+  "ch:atlas|body:\\begin{aligned}\\beta^{\\mathrm{obs}}_{ics}&\\sim\\mathcalN\\!\\left(\\mu_{ic}+\\delta_{is},\\\\sigma^2_{\\mathrm{obs},s}+\\sigma^2_{\\mathrm{loc},i}\\right)\\quad\\text{wheremeasured},\\\\\\mu_{ic}&=m_i+e_{ic},\\qquade_{ic}\\sim\\mathcalN(0,\\tau^2),\\end{aligned}": {
+   "entry": 520,
+   "sheet": "Atlas v2 hierarchical model: observed $\\beta$ per locus, cell and source with a source term $\\delta_{is}$; cell means drawn around a shared locus level."
+  },
+  "ch:skytools|body:z_i=\\frac{H(\\beta_i)-\\overline{H}_i}{s_i},": {
+   "entry": 521,
+   "sheet": "Residual of one array's site entropy from the healthy reference mean, in units of the shrunk healthy spread (as Eq.~\\eqref{eq:z})."
+  },
+  "ch:sky|eq:sky": {
+   "entry": 522,
+   "sheet": "Sky value at identity site $i$: entropy offset from the healthy reference in units of the reference spread."
+  },
+  "ch:sky|eq:cellcount": {
+   "entry": 523,
+   "sheet": "Cell-count floor: binomial spread of a measured fraction from $N$ diploid genome copies (the counterpart of cosmic variance)."
+  },
+  "ch:sky|eq:outspan": {
+   "entry": 524,
+   "sheet": "The out-of-span map: the residual split into a part any mixture of atlas cells can make and a part none can."
+  },
+  "ch:theoryinterp|body:\\frac{S_{\\rminfo}(R)}{A(R)}\\ge\\frac{1}{4\\ell_P^2}.": {
+   "entry": 525,
+   "sheet": "Collapse criterion as holographic saturation: record entropy per area reaching $1/4\\ell_P^2$ (met exactly at the Schwarzschild radius)."
+  },
+  "ch:theoryinterp|body:M_{\\rmeq}=\\frac{c^3}{4GH}\\approx2.3\\times10^{22}M_\\odot\\quad(H_0=67.16),": {
+   "entry": 526,
+   "sheet": "Mass at which a black hole is as cold as the cosmic horizon (as in Chapter~\\ref{ch:blackholes})."
+  },
+  "ch:onegauge|body:H(\\beta)=H(\\varepsilon),\\qquadH(x)=-x\\log_2x-(1-x)\\log_2(1-x).": {
+   "entry": 535,
+   "sheet": "At an identity site the entropy of $\\beta$ is the entropy of the error; the binary entropy $H(x)$ in bits is that of Chapter~\\ref{ch:surface}."
+  },
+  "ch:onegauge|body:\\text{Met-A}=\\frac{\\langleH(\\beta)\\rangle_{\\rmidentity\\sites}}{\\langleH(\\beta)\\rangle_{\\rmhealthy\\reference}}.": {
+   "entry": 536,
+   "sheet": "Met-A: mean binary entropy over the cell's identity sites over the same quantity on purified healthy cells (same type, same platform)."
+  },
+  "ch:onegauge|body:\\text{IAM-A}=\\frac{H(\\varepsilon)}{P_{\\rmcell}\\,H(\\varepsilon_0)},\\qquad\\varepsilon_0=\\frac{1}{1+e^{\\varphiM}}=0.032,": {
+   "entry": 537,
+   "sheet": "IAM-A: copy-error entropy over the physics floor at the cell's position $P_{\\rm cell}$; $\\varepsilon_0=1/(1+e^{\\varphi M})=0.032$."
+  }
+ }
+}
