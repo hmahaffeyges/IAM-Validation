@@ -1640,6 +1640,21 @@ def _b04_weff(a):
     E = float(E_act(a))
     return -1 - (1 / (3 * a)) * beta_m * E / ((1 - Om) + beta_m * E)
 
+# helpers of the part2/p2_22b_higgs_record checks
+def _b07_hr_t(T_GeV, gs=106.75):
+    # t = 0.301 g*^(-1/2) m_P / T^2 in seconds; m_P = 1.220890e19 GeV (CODATA 2018), hbar = 6.582119569e-25 GeV s (CODATA 2018)
+    mP_GeV = 1.220890e19; hbar_GeVs = 6.582119569e-25
+    coef = 1 / (2 * math.sqrt(4 * math.pi**3 / 45))   # t = 1/(2H), H = sqrt(4 pi^3 g*/45) T^2/m_P (radiation era)
+    return coef * gs**-0.5 * mP_GeV / T_GeV**2 * hbar_GeVs
+
+def _b07_hr_fH():
+    # Hubble rate at T_c = 159.5 GeV redshifted to today (book line 110): a_EW H(T_c)/hbar, a_EW from entropy conservation
+    hbar_GeVs = 6.582119569e-25; mP_GeV = 1.220890e19
+    Tc = 159.5; gs = 106.75; gs0 = 2 + 7 / 8 * 2 * 3.046 * 4 / 11
+    a_EW = (gs0 / gs) ** (1 / 3) * (kB * T_CMB / e_ch / 1e9) / Tc
+    H_GeV = math.sqrt(4 * math.pi**3 / 45) * gs**0.5 * Tc**2 / mP_GeV
+    return a_EW * H_GeV / hbar_GeVs
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -25322,6 +25337,14 @@ def check_2103():
     ok = file_has('docs/verification/scripts/verify_entanglement_electroweak_output.txt', '106.75')
     return locals()
 
+@check(label='ch:higgsrecord:L17:0.301', chapter='ch:higgsrecord', part=4, title='coefficient 0.301 of t = 0.301 g*^(-1/2) m_P/T^2',
+       file='part2/p2_22b_higgs_record', line=17, status='observed', kind='num', printed='0.301', tol=0.0)
+def check_3690():
+    'The radiation-era coefficient: H = sqrt(4 pi^3 g*/45) T^2/m_P (Friedmann with rho = (pi^2/30) g* T^4) and t = 1/(2H) give '         't = [1/(2 sqrt(4 pi^3/45))] g*^(-1/2) m_P/T^2. Book line 17, printed 0.301. No inputs beyond pi.'
+    H_coef = math.sqrt(8 * math.pi / 3 * math.pi**2 / 30)   # H = sqrt(8 pi rho / (3 m_P^2)), rho = (pi^2/30) g* T^4
+    value = 1 / (2 * H_coef)
+    return locals()
+
 @check(label='ch:higgsrecord:L18', chapter='ch:higgsrecord', part=4, title='t = 0.301 g*^(-1/2) m_P/T^2 at T_c, s',
        file='part2/p2_22b_higgs_record', line=18, status='calc', kind='num', printed='9.2\\times10^{-12}', tol=0)
 def check_2104():
@@ -25333,6 +25356,20 @@ def check_2104():
     kT0=kB*T_CMB/e_ch/1e9
     a_EW=(gs0/gs)**(1/3)*kT0/Tc
     value=0.301*gs**-0.5*mP_GeV/Tc**2*hbar_GeVs
+    return locals()
+
+@check(label='ch:higgsrecord:L18:9.0', chapter='ch:higgsrecord', part=4, title='crossover time at T_c + 1.5 GeV, units of 1e-12 s',
+       file='part2/p2_22b_higgs_record', line=18, status='calc', kind='num', printed='9.0', tol=0.0)
+def check_3691():
+    'Lower end of the range 9.0-9.4e-12 s: t = 0.301 g*^(-1/2) m_P/T^2 at T = 159.5 + 1.5 = 161.0 GeV, in units of 1e-12 s. Book line 18, '         'printed 9.0. Inputs: T_c = 159.5 +- 1.5 GeV (DOnofrio2016, doi:10.1103/physrevd.93.025003), g* = 106.75 (Standard Model), '         'm_P and hbar CODATA 2018.'
+    value = _b07_hr_t(159.5 + 1.5) / 1e-12
+    return locals()
+
+@check(label='ch:higgsrecord:L18:9.4', chapter='ch:higgsrecord', part=4, title='crossover time at T_c - 1.5 GeV, s',
+       file='part2/p2_22b_higgs_record', line=18, status='calc', kind='num', printed='9.4\\times10^{-12}', tol=0.0)
+def check_3692():
+    'Upper end of the range 9.0-9.4e-12 s: t = 0.301 g*^(-1/2) m_P/T^2 at T = 159.5 - 1.5 = 158.0 GeV. Book line 18, printed 9.4e-12 s. '         'Inputs: T_c = 159.5 +- 1.5 GeV (DOnofrio2016, doi:10.1103/physrevd.93.025003), g* = 106.75, m_P and hbar CODATA 2018.'
+    value = _b07_hr_t(159.5 - 1.5)
     return locals()
 
 @check(label='ch:higgsrecord:L19', chapter='ch:higgsrecord', part=4, title='v = (sqrt2 G_F)^(-1/2)',
@@ -25381,6 +25418,14 @@ def check_2110():
     'y_t = sqrt2 m_t/v. Book line 23, printed 0.991.'
     G_F=1.1663788e-5; v=(math.sqrt(2)*G_F)**-0.5; m_t=172.57  # GeV, PDG 2024
     value=math.sqrt(2)*m_t/v
+    return locals()
+
+@check(label='ch:higgsrecord:L25', chapter='ch:higgsrecord', part=4, title='photon mass bound, PDG 2024, eV',
+       file='part2/p2_22b_higgs_record', line=25, status='observed', kind='num', printed='10^{-18}', tol=0.0)
+def check_3693():
+    'Experimental bound on the photon mass, m_gamma < 1e-18 eV. Book line 25 (inventory printed the base 10 of 10^{-18}). Published: '         'PDG 2024 photon mass limit 1e-18 eV (doi:10.1103/PhysRevD.110.030001, bib PDG2024).'
+    m_gamma_limit_eV = 1e-18
+    value = m_gamma_limit_eV
     return locals()
 
 @check(label='ch:higgsrecord:L65', chapter='ch:higgsrecord', part=4, title='a at the crossover',
@@ -25502,6 +25547,23 @@ def check_2122():
     value=1/a_EW-1
     return locals()
 
+@check(label='ch:higgsrecord:L100:1.1e3', chapter='ch:higgsrecord', part=4, title='-ln E = z at recombination',
+       file='part2/p2_22b_higgs_record', line=100, status='calc', kind='num', printed='1.1\\times10^3', tol=0.0)
+def check_3694():
+    '-ln E(a) = 1/a - 1 = z at recombination, a = T_0/T_rec (g*s constant after e+e- annihilation). Book line 100, printed 1.1e3. '         'Inputs: T_rec = 0.256 eV (book, ch:electroweak table), T_CMB = 2.7255 K (Fixsen 2009).'
+    T0_eV = kB * T_CMB / e_ch
+    a_rec = T0_eV / 0.256
+    value = 1 / a_rec - 1
+    return locals()
+
+@check(label='ch:higgsrecord:L101:3.938', chapter='ch:higgsrecord', part=4, title='g*s today, photons plus neutrinos',
+       file='part2/p2_22b_higgs_record', line=101, status='calc', kind='num', printed='3.938', tol=0.0)
+def check_3695():
+    'Entropy degrees of freedom today: g*s0 = 2 + (7/8) 2 N_eff (T_nu/T)^3 with T_nu/T = (4/11)^(1/3). Book line 101, printed 3.938. '         'Input: N_eff = 3.046 (standard value, as in theta_s_fixed_rs).'
+    N_eff = 3.046
+    value = 2 + 7 / 8 * 2 * N_eff * ((4 / 11) ** (1 / 3)) ** 3
+    return locals()
+
 @check(label='ch:higgsrecord:L110', chapter='ch:higgsrecord', part=4, title='Hubble rate at T_c redshifted to today, Hz',
        file='part2/p2_22b_higgs_record', line=110, status='calc', kind='num', printed='2.7\\times10^{-5}', tol=0)
 def check_2123():
@@ -25514,6 +25576,36 @@ def check_2123():
     a_EW=(gs0/gs)**(1/3)*kT0/Tc
     H_GeV=1.66*gs**0.5*Tc**2/mP_GeV
     value=a_EW*H_GeV/hbar_GeVs
+    return locals()
+
+@check(label='ch:higgsrecord:L111', chapter='ch:higgsrecord', part=4, title='bubble-collision peak / Hubble frequency per beta/H',
+       file='part2/p2_22b_higgs_record', line=111, status='calc', kind='num', printed='0.23', tol=0.0)
+def check_3696():
+    'Peak of the bubble-collision signal relative to the redshifted Hubble frequency, per unit beta/H: f*/beta = 0.62/(1.8 - 0.1 v_w + v_w^2) '         'at wall speed v_w = 1 (c). Book line 111, printed 0.23. Input: envelope fit of Caprini et al. 2016 (doi:10.1088/1475-7516/2016/04/001).'
+    v_w = 1.0
+    value = 0.62 / (1.8 - 0.1 * v_w + v_w**2)
+    return locals()
+
+@check(label='ch:higgsrecord:L111:1.15', chapter='ch:higgsrecord', part=4, title='sound-wave peak / Hubble frequency per beta/H',
+       file='part2/p2_22b_higgs_record', line=111, status='calc', kind='num', printed='1.15', tol=0.0)
+def check_3697():
+    'Sound-wave peak relative to the redshifted Hubble frequency, per unit beta/H, at v_w = 1: f_sw / f_H = (1.9e-5 Hz / v_w) / 1.65e-5 Hz. '         'Book line 111, printed 1.15. Inputs: Caprini et al. 2016 (doi:10.1088/1475-7516/2016/04/001): f_sw = 1.9e-5 Hz (1/v_w)(beta/H)(T/100 GeV)(g/100)^(1/6), '         'redshifted Hubble rate 1.65e-5 Hz (T/100 GeV)(g/100)^(1/6).'
+    v_w = 1.0
+    value = (1.9e-5 / v_w) / 1.65e-5
+    return locals()
+
+@check(label='ch:higgsrecord:L111:10^{-4}', chapter='ch:higgsrecord', part=4, title='low end of the signal band, beta/H = 10, Hz',
+       file='part2/p2_22b_higgs_record', line=111, status='calc', kind='num', printed='10^{-4}', tol=0.0)
+def check_3698():
+    'Low end of the band, bubble collisions at beta/H = 10: 0.62/2.7 x 10 x f_H, f_H the Hubble rate at T_c redshifted to today. Book line 111, '         'printed 10^{-4} Hz (order of magnitude). Inputs: Caprini et al. 2016 envelope fit; T_c = 159.5 GeV, g* = 106.75, CODATA 2018.'
+    value = 0.62 / 2.7 * 10 * _b07_hr_fH()
+    return locals()
+
+@check(label='ch:higgsrecord:L111:10^{-2}', chapter='ch:higgsrecord', part=4, title='high end of the signal band, beta/H = 1000, Hz',
+       file='part2/p2_22b_higgs_record', line=111, status='calc', kind='num', printed='10^{-2}', tol=0.0)
+def check_3699():
+    'High end of the band, sound waves at beta/H = 1000: (1.9/1.65) x 1000 x f_H. Book line 111, printed 10^{-2} Hz (order of magnitude). '         'Inputs: Caprini et al. 2016 sound-wave fit; T_c = 159.5 GeV, g* = 106.75, CODATA 2018.'
+    value = 1.9 / 1.65 * 1000 * _b07_hr_fH()
     return locals()
 
 @check(label='ch:higgsrecord:L125', chapter='ch:higgsrecord', part=4, title='measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names',
@@ -25538,6 +25630,13 @@ def check_2125():
 def check_2126():
     'measured: printed value found in verify_particle_book_output.txt, a file the chapter names. Book line 125, printed 125.20.'
     ok = file_has('docs/verification/scripts/verify_particle_book_output.txt', '125.20')
+    return locals()
+
+@check(label='ch:higgsrecord:L125:9.2', chapter='ch:higgsrecord', part=4, title='crossover time at T_c (status table), s',
+       file='part2/p2_22b_higgs_record', line=125, status='observed', kind='num', printed='9.2\\times10^{-12}', tol=0.0)
+def check_3700():
+    'Status table restates t at the crossover: t = 0.301 g*^(-1/2) m_P/T_c^2 at T_c = 159.5 GeV. Book line 125, printed 9.2e-12 s. '         'Inputs: T_c (DOnofrio2016), g* = 106.75, CODATA 2018.'
+    value = _b07_hr_t(159.5)
     return locals()
 
 @check(label='ch:higgsrecord:L130', chapter='ch:higgsrecord', part=4, title='ln E at the crossover',
@@ -33325,22 +33424,12 @@ INVENTORY = [
     (4, 'ch:electroweak', 'part2/p2_22_electroweak', 109, '', 'prediction', '-0.136', 'locked value mu0 restated (prediction)'),
     (4, 'ch:electroweak', 'part2/p2_22_electroweak', 115, '', 'derived', '159.5', "restates ch:electroweak:L53 (T_c = 159.5 GeV, D'Onofrio and Rummukainen 2016, input)"),
     (4, 'ch:electroweak', 'part2/p2_22_electroweak', 119, '', 'prediction', '-0.136', 'locked value mu0 restated (prediction)'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 17, '', 'observed', '0.301', 'measured, not found in the files the chapter names'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 18, '', 'calc', '9.0', 'not yet run: draft does not reproduce the printed value (recomputed 1.555594e+08); drafting error on review'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 18, '', 'calc', '9.4\\times10^{-12}', 'not yet run: draft does not reproduce the printed value (recomputed 1.526743e+08); drafting error on review'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 20, '', 'calc', '125.20', 'not yet run: draft rejected (printed value typed into the code)'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 25, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 98, '', 'calc', '159.5', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 99, '', 'calc', '10', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 100, '', 'calc', '1.1\\times10^3', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 100, '', 'calc', '30', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 101, '', 'calc', '3.938', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 111, '', 'calc', '0.23', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 111, '', 'calc', '1.15', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 111, '', 'calc', '10', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 111, '', 'calc', '1000', 'not yet run: draft rejected (printed value typed into the code)'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 125, '', 'observed', '9.2\\times10^{-12}', 'measured, too few printed digits to match against the named files'),
-    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 134, '', 'prediction', '-0.136', 'not yet checked'),
+    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 20, '', 'calc', '125.20', 'input: m_H = 125.20 +- 0.11 GeV (PDG 2024, doi:10.1103/PhysRevD.110.030001), used by ch:higgsrecord:L20; also read from file by ch:higgsrecord:L125:125.20'),
+    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 98, '', 'calc', '159.5', 'restates ch:higgsrecord:L17 (T_c = 159.5 GeV, input from DOnofrio2016) in the figure caption'),
+    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 99, '', 'calc', '10', 'restates ch:higgsrecord:L25 (photon mass bound 10^-18 eV) in the figure caption'),
+    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 100, '', 'calc', '30', 'input: z = 30, the end of the figure axis (first haloes), nothing to recompute'),
+    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 111, '', 'calc', '1000', 'input: beta/H = 10-1000, the range of transition rates considered (Caprini2016); the band it gives is checked by ch:higgsrecord:L111:10^{-4} and ch:higgsrecord:L111:10^{-2}'),
+    (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 134, '', 'prediction', '-0.136', 'locked value mu0 restated (prediction)'),
     (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 29, '', 'observed', '0.51099895000', 'measured, not found in the files the chapter names'),
     (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 30, '', 'observed', '105.6583755', 'measured, not found in the files the chapter names'),
     (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 39, '', 'observed', '2.2\\times10^{-6}', 'measured, too few printed digits to match against the named files'),

@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3690 PASS, 0 FAIL, 2646 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3701 PASS, 0 FAIL, 2636 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -3707,18 +3707,18 @@ Totals: 3690 PASS, 0 FAIL, 2646 inventoried and not run. Each run item carries t
 |---:|---|---|---|---|---|
 | 17 | ch:higgsrecord:L17 | observed | `159.5` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names | PASS |
 | 17 | ch:higgsrecord:L17:106.75 | observed | `106.75` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names | PASS |
-| 17 |  | observed | `0.301` | not run: measured, not found in the files the chapter names | - |
+| 17 | ch:higgsrecord:L17:0.301 | observed | `0.301` | numeric: coefficient 0.301 of t = 0.301 g*^(-1/2) m_P/T^2 | PASS |
 | 18 | ch:higgsrecord:L18 | calc | `9.2\times10^{-12}` | numeric: t = 0.301 g*^(-1/2) m_P/T^2 at T_c, s | PASS |
-| 18 |  | calc | `9.0` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.555594e+08); drafting error on review | - |
-| 18 |  | calc | `9.4\times10^{-12}` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.526743e+08); drafting error on review | - |
+| 18 | ch:higgsrecord:L18:9.0 | calc | `9.0` | numeric: crossover time at T_c + 1.5 GeV, units of 1e-12 s | PASS |
+| 18 | ch:higgsrecord:L18:9.4 | calc | `9.4\times10^{-12}` | numeric: crossover time at T_c - 1.5 GeV, s | PASS |
 | 19 | ch:higgsrecord:L19 | calc | `246.22` | numeric: v = (sqrt2 G_F)^(-1/2) | PASS |
 | 20 | ch:higgsrecord:L20 | calc | `0.129` | numeric: lambda = m_H^2/(2 v^2) | PASS |
-| 20 |  | calc | `125.20` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 20 |  | calc | `125.20` | not run: input: m_H = 125.20 +- 0.11 GeV (PDG 2024, doi:10.1103/PhysRevD.110.030001), used by ch:higgsrecord:L20; also read from file by ch:higgsrecord:L125:125.20 | - |
 | 22 | ch:higgsrecord:L22 | observed | `80.3692` | heavy file `docs/verification/scripts/verify_particle_book_output.txt`: measured: printed value found in verify_particle_book_output.txt, a file the chapter names | PASS |
 | 22 | ch:higgsrecord:L22:91.1880 | observed | `91.1880` | heavy file `docs/verification/scripts/verify_particle_book_output.txt`: measured: printed value found in verify_particle_book_output.txt, a file the chapter names | PASS |
 | 23 | ch:higgsrecord:L23 | calc | `2.9\times10^{-6}` | numeric: y_e = sqrt2 m_e/v | PASS |
 | 23 | ch:higgsrecord:L23:0.991 | calc | `0.991` | numeric: y_t = sqrt2 m_t/v | PASS |
-| 25 |  | observed | `10` | not run: measured, too few printed digits to match against the named files | - |
+| 25 | ch:higgsrecord:L25 | observed | `10^{-18}` | numeric: photon mass bound, PDG 2024, eV | PASS |
 | 65 | ch:higgsrecord:L65 | calc | `4.9\times10^{-16}` | numeric: a at the crossover | PASS |
 | 66 | ch:higgsrecord:L66 | calc | `-2.04\times10^{15}` | numeric: ln E at the crossover | PASS |
 | 66 | ch:higgsrecord:L66:0.17 | calc | `0.17` | numeric: E = e^-z at z = 1.77 | PASS |
@@ -3730,23 +3730,24 @@ Totals: 3690 PASS, 0 FAIL, 2646 inventoried and not run. Each run item carries t
 | 88 | ch:higgsrecord:L88 | calc | `9.4\times10^{-14}` | numeric: E(z=30) = e^-30 | PASS |
 | 88 | ch:higgsrecord:L88:4.5\times10^{-5} | calc | `4.5\times10^{-5}` | numeric: E(z=10) = e^-10 | PASS |
 | 92 | ch:higgsrecord:L92 | calc | `110.6` | numeric: k_B T_c ln2 in GeV | PASS |
-| 98 |  | calc | `159.5` | not run: not yet run: draft rejected (no draft returned) | - |
-| 99 |  | calc | `10` | not run: not yet run: draft rejected (no draft returned) | - |
+| 98 |  | calc | `159.5` | not run: restates ch:higgsrecord:L17 (T_c = 159.5 GeV, input from DOnofrio2016) in the figure caption | - |
+| 99 |  | calc | `10` | not run: restates ch:higgsrecord:L25 (photon mass bound 10^-18 eV) in the figure caption | - |
 | 100 | ch:higgsrecord:L100 | calc | `2.0\times10^{15}` | numeric: z at the crossover | PASS |
-| 100 |  | calc | `1.1\times10^3` | not run: not yet run: draft rejected (no draft returned) | - |
-| 100 |  | calc | `30` | not run: not yet run: draft rejected (no draft returned) | - |
-| 101 |  | calc | `3.938` | not run: not yet run: draft rejected (no draft returned) | - |
+| 100 | ch:higgsrecord:L100:1.1e3 | calc | `1.1\times10^3` | numeric: -ln E = z at recombination | PASS |
+| 100 |  | calc | `30` | not run: input: z = 30, the end of the figure axis (first haloes), nothing to recompute | - |
+| 101 | ch:higgsrecord:L101:3.938 | calc | `3.938` | numeric: g*s today, photons plus neutrinos | PASS |
 | 110 | ch:higgsrecord:L110 | calc | `2.7\times10^{-5}` | numeric: Hubble rate at T_c redshifted to today, Hz | PASS |
-| 111 |  | calc | `0.23` | not run: not yet run: draft rejected (no draft returned) | - |
-| 111 |  | calc | `1.15` | not run: not yet run: draft rejected (no draft returned) | - |
-| 111 |  | calc | `10` | not run: not yet run: draft rejected (no draft returned) | - |
-| 111 |  | calc | `1000` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 111 | ch:higgsrecord:L111 | calc | `0.23` | numeric: bubble-collision peak / Hubble frequency per beta/H | PASS |
+| 111 | ch:higgsrecord:L111:1.15 | calc | `1.15` | numeric: sound-wave peak / Hubble frequency per beta/H | PASS |
+| 111 | ch:higgsrecord:L111:10^{-4} | calc | `10^{-4}` | numeric: low end of the signal band, beta/H = 10, Hz | PASS |
+| 111 | ch:higgsrecord:L111:10^{-2} | calc | `10^{-2}` | numeric: high end of the signal band, beta/H = 1000, Hz | PASS |
+| 111 |  | calc | `1000` | not run: input: beta/H = 10-1000, the range of transition rates considered (Caprini2016); the band it gives is checked by ch:higgsrecord:L111:10^{-4} and ch:higgsrecord:L111:10^{-2} | - |
 | 125 | ch:higgsrecord:L125 | observed | `159.5` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names | PASS |
 | 125 | ch:higgsrecord:L125:246.22 | observed | `246.22` | numeric: same value as p2_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV) | PASS |
 | 125 | ch:higgsrecord:L125:125.20 | observed | `125.20` | heavy file `docs/verification/scripts/verify_particle_book_output.txt`: measured: printed value found in verify_particle_book_output.txt, a file the chapter names | PASS |
-| 125 |  | observed | `9.2\times10^{-12}` | not run: measured, too few printed digits to match against the named files | - |
+| 125 | ch:higgsrecord:L125:9.2 | observed | `9.2\times10^{-12}` | numeric: crossover time at T_c (status table), s | PASS |
 | 130 | ch:higgsrecord:L130 | calc | `-2.04\times10^{15}` | numeric: ln E at the crossover | PASS |
-| 134 |  | prediction | `-0.136` | not run: not yet checked | - |
+| 134 |  | prediction | `-0.136` | not run: locked value mu0 restated (prediction) | - |
 
 ## Part 4 - ch:koide - `docs/book/part2/p2_15a_lepton_koide.tex`
 
