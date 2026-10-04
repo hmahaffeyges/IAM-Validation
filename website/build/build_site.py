@@ -113,7 +113,7 @@ def part_page(site, p, parts, chapters):
 <p><b>For a referee in this field:</b> {html.escape(p['referee'])}</p>
 <p><a class="iam-btn" href="../pdf/part-{p['n']}.pdf">Download Part {p['roman']} (PDF)</a></p>
 <h2>Chapters</h2>
-<ol class="iam-chlist">{items}</ol>
+<ul class="iam-chlist">{items}</ul>
 <h2>Checks</h2>
 <p><button class="iam-run iam-btn" type="button" data-part="{p['n']}">Run all checks in this Part</button></p>
 </main></body></html>"""
@@ -281,8 +281,16 @@ def main(build, site):
         total += decorate_chapter(page, "../", part, parts_by_n, index, results,
                                   f"part-{part}" if 1 <= part <= 7 else "general")
         if f and 1 <= part <= 7:
-            t = BeautifulSoup(page.read_text(), "html.parser").find("title")
-            pages.setdefault(part, []).append((order.index(f), dict(href=page.name, title=html.escape(t.get_text().split("‣")[0].strip() if t else stem))))
+            ps = BeautifulSoup(page.read_text(), "html.parser")
+            h = ps.find(class_="ltx_title_chapter")
+            if h:
+                for tag in h.select(".ltx_tag"):
+                    tag.decompose()
+                ttl = "".join(str(x) for x in h.contents).strip()
+            else:
+                t = ps.find("title")
+                ttl = html.escape(t.get_text().split("‣")[0].strip() if t else stem)
+            pages.setdefault(part, []).append((order.index(f), dict(href=page.name, title=ttl)))
     fixed = fix_longtable_refs(site)
     for p in pj:
         part_page(site, p, pj, [c for _, c in sorted(pages.get(p["n"], []))])
