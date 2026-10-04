@@ -2150,9 +2150,16 @@ PASS  ch:surveys:L259                    ch:surveys:p2_16_survey_predictions:259
 PASS  ch:surveys:L260                    ch:surveys:p2_16_survey_predictions:260  printed -1.062  recomputed -1.06231  tol 5.000005e-04  [calc] same value as p2_03_theory:514 (tangent w0 value)
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:lensdyn (part2/p2_17_lensing_dynamics.tex)
+PASS  ch:lensdyn:L38:0.58                ch:lensdyn:p2_17_lensing_dynamics:38  printed 0.58  recomputed 0.58  tol 0.00500001  [observed] 1-b needed by Planck SZ counts + primary CMB  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+      heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L46                     ch:lensdyn:p2_17_lensing_dynamics:46  printed 0.7998  recomputed found in file  [fitted] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L46:+0.54               ch:lensdyn:p2_17_lensing_dynamics:46  printed +0.54  recomputed 0.541  tol 0.00500001  [fitted] Level 2 chi2_min IAM (Run A) minus LCDM (Run C)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  eq:ld_mu                           ch:lensdyn:p2_17_lensing_dynamics:62  printed (algebra)  recomputed True  [prediction] mu(a) = H_L^2/(H_L^2 + beta_m E H0^2) from the matter-sector rate
 PASS  ch:lensdyn:L65                     ch:lensdyn:p2_17_lensing_dynamics:65  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [prediction] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
+PASS  eq:ld_mdyn                         ch:lensdyn:p2_17_lensing_dynamics:77  printed (algebra)  recomputed lhs-rhs=0  [none] M_dyn = mu M_true (Gauss law on the mu Poisson equation)
+PASS  eq:ld_mlens                        ch:lensdyn:p2_17_lensing_dynamics:82  printed (algebra)  recomputed lhs-rhs=0  [none] M_lens = Sigma M_true = M_true (Gauss law on the lensing potential)
 PASS  eq:ld_ratio_mu                     ch:lensdyn:p2_17_lensing_dynamics:86  printed (algebra)  recomputed True  [derived] M_lens/M_dyn = Sigma/mu = 1/mu
 PASS  ch:lensdyn:L98                     ch:lensdyn:p2_17_lensing_dynamics:98  printed 0.864  recomputed 0.863819  tol 5.000005e-04  [calc] mu at z=0.0
 PASS  ch:lensdyn:L98:1.158               ch:lensdyn:p2_17_lensing_dynamics:98  printed 1.158  recomputed 1.15765  tol 5.000005e-04  [calc] 1/mu at z=0.0
@@ -2208,11 +2215,15 @@ PASS  eq:ld_slip                         ch:lensdyn:p2_17_lensing_dynamics:127  
 PASS  ch:lensdyn:L130                    ch:lensdyn:p2_17_lensing_dynamics:130  printed 1.315  recomputed 1.3153  tol 5.000005e-04  [calc] Phi/Psi at z=0.0
 PASS  ch:lensdyn:L130:1.170              ch:lensdyn:p2_17_lensing_dynamics:130  printed 1.170  recomputed 1.16958  tol 5.000005e-04  [calc] Phi/Psi at z=0.3
 PASS  ch:lensdyn:L130:1.036              ch:lensdyn:p2_17_lensing_dynamics:130  printed 1.036  recomputed 1.03617  tol 5.000005e-04  [calc] Phi/Psi at z=1.0
+PASS  ch:lensdyn:L143:0.08               ch:lensdyn:p2_17_lensing_dynamics:143  printed 0.08  recomputed 0.0806114  tol 0.00500001  [derived] CMB lensing power lower, Limber estimate, per cent
 PASS  ch:lensdyn:L149                    ch:lensdyn:p2_17_lensing_dynamics:149  printed 1.205  recomputed 1.20482  tol 5.000005e-04  [calc] 1/(1-b), b = 0.17
 PASS  ch:lensdyn:L178                    ch:lensdyn:p2_17_lensing_dynamics:178  printed 1.158  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L183:0.58               ch:lensdyn:p2_17_lensing_dynamics:183  printed 0.58  recomputed 0.58  tol 0.00500001  [observed] 1-b needed by Planck SZ counts + primary CMB (data section)  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+      heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L184                    ch:lensdyn:p2_17_lensing_dynamics:184  printed 1.57  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L184:0.8                ch:lensdyn:p2_17_lensing_dynamics:184  printed 0.8  recomputed 0.8  tol 0.05  [observed] baseline 1-b of the 2013 Planck SZ analysis
 PASS  ch:lensdyn:L185                    ch:lensdyn:p2_17_lensing_dynamics:185  printed 0.8143  recomputed 0.814334  tol 5.000005e-05  [calc] same value as p2_08_s8_trend:122 (LCDM chain sigma8, Planck-only)  file mgcamb_validation/CHAIN_PAIRS_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:lensdyn:L185:1.11               ch:lensdyn:p2_17_lensing_dynamics:185  printed 1.11  recomputed 1.1074  tol 0.00500001  [calc] sigma8 lower, Level 2  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
@@ -2227,7 +2238,11 @@ PASS  ch:lensdyn:L201                    ch:lensdyn:p2_17_lensing_dynamics:201  
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L201:1.28               ch:lensdyn:p2_17_lensing_dynamics:201  printed 1.28  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L202:0.99               ch:lensdyn:p2_17_lensing_dynamics:202  printed 0.99  recomputed 0.99  tol 0.00500001  [observed] CMB-lensing calibration 1/(1-b)  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+      heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L203                    ch:lensdyn:p2_17_lensing_dynamics:203  printed 1.72  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+      heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L203:0.58               ch:lensdyn:p2_17_lensing_dynamics:203  printed 0.58  recomputed 0.58  tol 0.00500001  [observed] 1-b needed by counts + CMB (table)  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L204                    ch:lensdyn:p2_17_lensing_dynamics:204  printed 1.05  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
@@ -2235,22 +2250,48 @@ PASS  ch:lensdyn:L204:0.909              ch:lensdyn:p2_17_lensing_dynamics:204  
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L204:0.225              ch:lensdyn:p2_17_lensing_dynamics:204  printed 0.225  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L204:0.95               ch:lensdyn:p2_17_lensing_dynamics:204  printed 0.95  recomputed 0.95  tol 0.00500001  [observed] LoCuSS beta_X = M_X/M_WL  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+      heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L204:+0.8               ch:lensdyn:p2_17_lensing_dynamics:204  printed +0.8  recomputed 0.811061  tol 0.05  [observed] LoCuSS offset (beta_X - mu(0.225))/sigma  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L205                    ch:lensdyn:p2_17_lensing_dynamics:205  printed 0.909  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L205:0.225              ch:lensdyn:p2_17_lensing_dynamics:205  printed 0.225  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L205:0.90               ch:lensdyn:p2_17_lensing_dynamics:205  printed 0.90  recomputed 0.9  tol 0.00500001  [observed] WtG reanalysed z<0.3, beta_P  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+      heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L205:-0.1               ch:lensdyn:p2_17_lensing_dynamics:205  printed -0.1  recomputed -0.104966  tol 0.05  [observed] WtG z<0.3 offset (beta_P - mu(0.225))/sigma  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L206                    ch:lensdyn:p2_17_lensing_dynamics:206  printed 0.936  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L206:0.71               ch:lensdyn:p2_17_lensing_dynamics:206  printed 0.71  recomputed 0.71  tol 0.00500001  [observed] WtG reanalysed z>0.3, beta_P  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+      heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L206:-3.2               ch:lensdyn:p2_17_lensing_dynamics:206  printed -3.2  recomputed -3.23099  tol 0.05  [observed] WtG z>0.3 offset (beta_P - mu(0.4))/sigma  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L207                    ch:lensdyn:p2_17_lensing_dynamics:207  printed 0.909  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L207:0.225              ch:lensdyn:p2_17_lensing_dynamics:207  printed 0.225  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L207:0.96               ch:lensdyn:p2_17_lensing_dynamics:207  printed 0.96  recomputed 0.96  tol 0.00500001  [observed] CCCP reanalysed z<0.3, beta_P  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+      heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L207:+0.6               ch:lensdyn:p2_17_lensing_dynamics:207  printed +0.6  recomputed 0.561701  tol 0.05  [observed] CCCP z<0.3 offset (beta_P - mu(0.225))/sigma  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L208                    ch:lensdyn:p2_17_lensing_dynamics:208  printed 0.936  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L208:0.61               ch:lensdyn:p2_17_lensing_dynamics:208  printed 0.61  recomputed 0.61  tol 0.00500001  [observed] CCCP reanalysed z>0.3, beta_P  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+      heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L208:-3.6               ch:lensdyn:p2_17_lensing_dynamics:208  printed -3.6  recomputed -3.6241  tol 0.05  [observed] CCCP z>0.3 offset (beta_P - mu(0.4))/sigma  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L209                    ch:lensdyn:p2_17_lensing_dynamics:209  printed 1.19  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+      heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L209:0.84               ch:lensdyn:p2_17_lensing_dynamics:209  printed 0.84  recomputed 0.84  tol 0.00500001  [observed] CCCP + MENeaCS 1-b (Herbonnet 2020)  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L212                    ch:lensdyn:p2_17_lensing_dynamics:212  printed 1.07  recomputed 1.06818  tol 0.0107  [calc] 1/mu at z=0.4 ('approx')
 PASS  ch:lensdyn:L212:1.10               ch:lensdyn:p2_17_lensing_dynamics:212  printed 1.10  recomputed 1.10498  tol 0.011  [calc] 1/mu at z=0.2 ('approx')
+PASS  ch:lensdyn:L214:0.96               ch:lensdyn:p2_17_lensing_dynamics:214  printed 0.96  recomputed 0.96  tol 0.00500001  [calc] upper end of beta_P at 0.15<z<0.3 (CCCP)  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+      heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L214:0.95               ch:lensdyn:p2_17_lensing_dynamics:214  printed 0.95  recomputed 0.95  tol 0.00500001  [calc] LoCuSS beta_X (text)  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+      heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L214:0.909              ch:lensdyn:p2_17_lensing_dynamics:214  printed 0.909  recomputed 0.909447  tol 5.000005e-04  [calc] mu at z=0.225 (Level 1 form)
+PASS  ch:lensdyn:L215:0.71               ch:lensdyn:p2_17_lensing_dynamics:215  printed 0.71  recomputed 0.71  tol 0.00500001  [observed] WtG reanalysed z>0.3 beta_P (text)  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+      heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L215:0.61               ch:lensdyn:p2_17_lensing_dynamics:215  printed 0.61  recomputed 0.61  tol 0.00500001  [observed] CCCP reanalysed z>0.3 beta_P (text)  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+      heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L231                    ch:lensdyn:p2_17_lensing_dynamics:231  printed 10.5  recomputed 10.4977  tol 0.05  [calc] excess at z=0.2
 PASS  ch:lensdyn:L234                    ch:lensdyn:p2_17_lensing_dynamics:234  printed 1.105  recomputed 1.10498  tol 5.000005e-04  [calc] 1/mu at z=0.2
 PASS  ch:lensdyn:L234:10.5               ch:lensdyn:p2_17_lensing_dynamics:234  printed 10.5  recomputed 10.4977  tol 0.05  [calc] excess at z=0.2
@@ -2277,6 +2318,7 @@ PASS  ch:lensdyn:L270:1.35               ch:lensdyn:p2_17_lensing_dynamics:270  
 PASS  ch:lensdyn:L270:0.41               ch:lensdyn:p2_17_lensing_dynamics:270  printed 0.41  recomputed 0.408631  tol 0.00500001  [calc] f sigma8 deficit z=1.0
 PASS  ch:lensdyn:L285                    ch:lensdyn:p2_17_lensing_dynamics:285  printed 0.864  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L291:1.158              ch:lensdyn:p2_17_lensing_dynamics:291  printed 1.158  recomputed 1.15765  tol 5.000005e-04  [prediction] M_lens/M_dyn = 1/mu at z=0 (falsification list)
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:threeway (part2/p2_18_three_way_clusters.tex)
 PASS  eq:tw_adot                         ch:threeway:p2_18_three_way_clusters:48  printed (algebra)  recomputed lhs-rhs=0  [derived] drafted check, screened (runs; negative control fails)
@@ -2817,7 +2859,7 @@ PASS  ch:koide:L277:0.0396               ch:koide:p2_15a_lepton_koide:277  print
 PASS  ch:koide:L278                      ch:koide:p2_15a_lepton_koide:278  printed 0.222222047  recomputed 0.222222  tol 5.000005e-10  [calc] delta fixed by m_e, m_mu at Q = 2/3
 PASS  ch:koide:L279                      ch:koide:p2_15a_lepton_koide:279  printed 1.75\times10^{-7}  recomputed 1.751244e-07  tol 5.000005e-10  [calc] 2/9 - delta at Q = 2/3
 PASS  ch:koide:L283                      ch:koide:p2_15a_lepton_koide:283  printed 0.222222047  recomputed 0.222222  tol 5.000005e-10  [calc] delta fixed by m_e, m_mu at Q = 2/3
-PASS  ch:koide:L284                      ch:koide:p2_15a_lepton_koide:284  printed 4\times10^{-10}  recomputed 3.918518e-10  tol 5.000005e-11  [calc] uncertainty of delta from m_mu
+PASS  ch:koide:L284                      ch:koide:p2_15a_lepton_koide:284  printed 4\times10^{-10}  recomputed 3.918519e-10  tol 5.000005e-11  [calc] uncertainty of delta from m_mu
 PASS  ch:koide:L284:1.75\times10^{-7}    ch:koide:p2_15a_lepton_koide:284  printed 1.75\times10^{-7}  recomputed 1.751244e-07  tol 5.000005e-10  [calc] 2/9 - delta at Q = 2/3
 PASS  ch:koide:L285                      ch:koide:p2_15a_lepton_koide:285  printed 0.4  recomputed 0.405655  tol 0.05  [calc] delta - 2/9 in sigma
 PASS  ch:koide:L295                      ch:koide:p2_15a_lepton_koide:295  printed 1776.9690  recomputed 1776.97  tol 5.000005e-05  [calc] m_tau fixed by Q = 2/3, MeV
@@ -3677,4 +3719,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 2927  FAIL 0  (heavy, read from committed outputs: 601)  inventoried-not-run 3407  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 2954  FAIL 0  (heavy, read from committed outputs: 616)  inventoried-not-run 3380  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

@@ -13,16 +13,14 @@ outside Part VI), as an item already checked reuses that check and says where it
 
 Checked how: `sympy` = algebra, lhs - rhs simplifies to zero or a stated property holds; `numeric` = recomputed from first principles
 (IAM's constants from `CANON/iam_canon.json`, published inputs written in the check); `file` = read from the committed file named;
-`heavy` = read from a committed output that needs chains, CAMB or the methylation chain to regenerate (the command is in the check); `heavy` = read from a committed output that needs chains, CAMB or the methylation chain to regenerate (the command is in the check); `heavy` = read from a committed output that needs chains, CAMB or the methylation chain to regenerate (the command is in the check); `heavy` = read from a committed output that needs chains, CAMB or the methylation chain to regenerate (the command is in the check); `heavy` = read from a committed output that needs chains, CAMB or the methylation chain to regenerate (the command is in the check); `not run` = inventoried only (definition, input restated, conjecture, prediction, calibrated value, or not yet checked).
-
+`heavy` = read from a committed output that needs chains, CAMB or the methylation chain to regenerate (the command is in the check); `not run` = inventoried only (definition, input restated, conjecture, prediction, calibrated value, or a measured value whose source is listed in `SOURCES_NEEDED.md`).
 
 Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 
+This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-
-
-Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 2954 PASS, 0 FAIL, 3380 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -297,14 +295,14 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 695 | ch:iams_law:L695 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM Level2 chain value | PASS |
 | 695 | ch:iams_law:L695:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM Level2 chain value | PASS |
 | 696 | ch:iams_law:L696 | calc | `-0.37` | numeric: sigma offset from Planck H0 | PASS |
-| 696 | ch:iams_law:L696:67.36 | measured | `67.36` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter | PASS |
+| 696 | ch:iams_law:L696:67.36 | measured | `67.36` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
 | 696 |  | none | `67.16` | not run: locked canon H0_photon, input | - |
 | 696 |  | measured | `0.47` | not run: measured, too few printed digits to match against the named files | - |
 | 696 |  | measured | `0.54` | not run: measured, too few printed digits to match against the named files | - |
 | 697 | ch:iams_law:L697 | none | `72.26` | numeric: H0 matter-sector formula | PASS |
 | 697 | ch:iams_law:L697:-0.75 | calc | `-0.75` | numeric: sigma offset from SH0ES | PASS |
-| 697 | ch:iams_law:L697:73.04 | measured | `73.04` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter | PASS |
-| 697 | ch:iams_law:L697:1.04 | measured | `1.04` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter | PASS |
+| 697 | ch:iams_law:L697:73.04 | measured | `73.04` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
+| 697 | ch:iams_law:L697:1.04 | measured | `1.04` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
 | 698 |  | none | `-0.136` | not run: mu0 prediction restated in table | - |
 | 701 | ch:iams_law:L701 | none | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 dchi2 repeated | PASS |
 | 704 | ch:iams_law:L704 | derived | `1.076` | numeric: Hubble sector ratio sqrt(1+beta_m) | PASS |
@@ -312,13 +310,13 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 707 | ch:iams_law:L707 | calc | `72.26` | numeric: H0 photon to matter conversion | PASS |
 | 712 | eq:law_sirens | prediction | `1.0759` | numeric: siren prediction intermediate factor | PASS |
 | 712 | eq:law_sirens:72.26 | prediction | `72.26` | numeric: siren H0 prediction | PASS |
-| 714 | ch:iams_law:L714 | observed | `70.0` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter | PASS |
-| 714 | ch:iams_law:L714:12.0 | observed | `12.0` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter | PASS |
-| 714 | ch:iams_law:L714:68.9 | observed | `68.9` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter | PASS |
+| 714 | ch:iams_law:L714 | observed | `70.0` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
+| 714 | ch:iams_law:L714:12.0 | observed | `12.0` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
+| 714 | ch:iams_law:L714:68.9 | observed | `68.9` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
 | 714 |  | observed | `8.0` | not run: measured, too few printed digits to match against the named files | - |
 | 714 |  | observed | `4.7` | not run: measured, too few printed digits to match against the named files | - |
 | 714 |  | observed | `4.6` | not run: measured, too few printed digits to match against the named files | - |
-| 715 | ch:iams_law:L715 | observed | `75.46` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter | PASS |
+| 715 | ch:iams_law:L715 | observed | `75.46` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
 | 715 | ch:iams_law:L715:5.34 | observed | `5.34` | file `docs/verification/theory/IAM_LAW_CHECK.md`: measured: printed value found in IAM_LAW_CHECK.md, a file the chapter names | PASS |
 | 715 | ch:iams_law:L715:5.39 | observed | `5.39` | file `docs/verification/theory/IAM_LAW_CHECK.md`: measured: printed value found in IAM_LAW_CHECK.md, a file the chapter names | PASS |
 | 717 |  | none | `-0.136` | not run: mu0 prediction restated | - |
@@ -367,15 +365,15 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 |---:|---|---|---|---|---|
 | 33 | eq:vl_euler | derived |  | sympy: Euler homogeneous-function relation, virial degree | PASS |
 | 37 | eq:vl_virial | derived |  | sympy: virial relation 2K+V=0, E=-K for k=-1 | PASS |
-| 44 | eq:vl_n | derived |  | sympy: virial relation T=n/2/V/ for V~-r^-n | PASS |
+| 44 | eq:vl_n | derived |  | sympy: virial relation T=n/2|V| for V~-r^-n | PASS |
 | 69 | ch:virial_law:L69 | calc | `-13.6057` | numeric: hydrogen ground-state energy, Rydberg formula | PASS |
 | 69 | ch:virial_law:L69:-27.2114 | calc | `-27.2114` | numeric: hydrogen potential energy V=2E1 | PASS |
 | 69 |  | none | `13.6057` | not run: trivial sign restatement K=-E1 | - |
-| 69 |  | none | `1/2` | not run: trivial ratio K//V/ by construction | - |
+| 69 |  | none | `1/2` | not run: trivial ratio K/|V| by construction | - |
 | 70 |  | none | `13.6057` | not run: trivial, photon energy equals kinetic half | - |
 | 75 | ch:virial_law:L75 | calc | `1.0000000000` | sympy: virial ratio eta=-T/E identity | PASS |
 | 77 |  | none | `-0.500000` | not run: input: H Hartree-Fock energy, cited | - |
-| 77 |  | none | `0.500000` | not run: input: H Hartree-Fock /V//T, cited | - |
+| 77 |  | none | `0.500000` | not run: input: H Hartree-Fock |V|/T, cited | - |
 | 77 |  | none | `1.000000` | not run: trivial ratio of equal cited numbers | - |
 | 77 |  | none | `-128.547` | not run: input: Ne Hartree-Fock energy, cited | - |
 | 77 |  | none | `128.547` | not run: input: Ne Hartree-Fock energy magnitude, cited | - |
@@ -415,8 +413,8 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 136 | ch:virial_law:L136:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 posterior mean, IAM Level2 chain | PASS |
 | 137 | ch:virial_law:L137 | calc | `0.864` | numeric: mu(z=0) growth coupling from mu0 | PASS |
 | 137 |  | none | `-0.136` | not run: input: IAM locked mu0 result, restated | - |
-| 144 | ch:virial_law:L144 | derived | `13.606` | numeric: hydrogen /E/ = alpha^2 m_e c^2/2 (infinite-mass Rydberg) | PASS |
-| 144 | ch:virial_law:L144:27.211 | derived | `27.211` | numeric: hydrogen /V/ = alpha^2 m_e c^2 | PASS |
+| 144 | ch:virial_law:L144 | derived | `13.606` | numeric: hydrogen |E| = alpha^2 m_e c^2/2 (infinite-mass Rydberg) | PASS |
+| 144 | ch:virial_law:L144:27.211 | derived | `27.211` | numeric: hydrogen |V| = alpha^2 m_e c^2 | PASS |
 | 144 | ch:virial_law:L144:0.5000000000 | calc | `0.5000000000` | sympy: Smarr ratio, caption repeat | PASS |
 | 144 | ch:virial_law:L144:0.15765 | prediction | `0.15765` | numeric: beta_m prediction, caption repeat | PASS |
 | 144 | ch:virial_law:L144:0.3166 | measured | `0.3166` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 Planck posterior Omega_m mean | PASS |
@@ -429,11 +427,11 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 144 |  | none | `1.17` | not run: surface-pressure ratio upper bound, repeat | - |
 | 144 |  | none | `1/2` | not run: trivial beta_m/Omega_m ratio by definition | - |
 | 156 |  | conjecture | `0.3\%` | not run: conjecture: electron Compton-scale deviation | - |
-| 157 | ch:virial_law:L157 | derived | `13.6057` | numeric: hydrogen /E/ = alpha^2 m_e c^2/2 (infinite-mass Rydberg) | PASS |
-| 157 | ch:virial_law:L157:27.2114 | derived | `27.2114` | numeric: hydrogen /V/ = alpha^2 m_e c^2 | PASS |
+| 157 | ch:virial_law:L157 | derived | `13.6057` | numeric: hydrogen |E| = alpha^2 m_e c^2/2 (infinite-mass Rydberg) | PASS |
+| 157 | ch:virial_law:L157:27.2114 | derived | `27.2114` | numeric: hydrogen |V| = alpha^2 m_e c^2 | PASS |
 | 157 |  | none | `1/2` | not run: trivial ratio restatement, table row | - |
 | 158 | ch:virial_law:L158 | calc | `1.0000000000` | sympy: virial ratio identity, table repeat | PASS |
-| 158 |  | none | `1/2` | not run: trivial T//V/ ratio restatement | - |
+| 158 |  | none | `1/2` | not run: trivial T/|V| ratio restatement | - |
 | 160 | ch:virial_law:L160 | derived | `1.456` | numeric: Chandrasekhar mass, table repeat | PASS |
 | 160 |  | none | `2` | not run: input: mu_e, table repeat | - |
 | 160 |  | none | `1.33` | not run: measured white-dwarf mass lower bound, repeat | - |
@@ -501,8 +499,8 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 75 |  | none | `0.62` | not run: input f_coll value used in eq:vc_eta | - |
 | 76 | eq:vc_eta | none | `0.81` | numeric: eta_vir = 1/(2 f_coll) | PASS |
 | 85 |  | observed | `17\%` | not run: measured, too few printed digits to match against the named files | - |
-| 86 |  | calc | `0.77` | not run: not yet run: draft rejected (drafter skipped: The range [0.77, 0.91] for /U//2T is stated as a summary of published sim) | - |
-| 86 |  | calc | `0.91` | not run: not yet run: draft rejected (drafter skipped: The range [0.77, 0.91] for /U//2T is stated as a summary of published sim) | - |
+| 86 |  | calc | `0.77` | not run: not yet run: draft rejected (drafter skipped: The range [0.77, 0.91] for |U|/2T is stated as a summary of published sim) | - |
+| 86 |  | calc | `0.91` | not run: not yet run: draft rejected (drafter skipped: The range [0.77, 0.91] for |U|/2T is stated as a summary of published sim) | - |
 | 87 | ch:virial:L87 | calc | `0.85` | numeric: reciprocal of Klypin corrected ratio | PASS |
 | 88 | ch:virial:L88 | calc | `0.98` | numeric: reciprocal of Klypin corrected ratio | PASS |
 | 88 | ch:virial:L88:1.1 | calc | `1.1` | numeric: reciprocal of Power surface-corrected eta' | PASS |
@@ -858,7 +856,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 622 | ch:theory:L622 | calc | `0.7` | numeric: virial efficiency lower bound | PASS |
 | 622 | ch:theory:L622:0.8 | calc | `0.8` | numeric: virial efficiency upper bound | PASS |
 | 627 |  | observed | `1.35` | not run: measured, not found in the files the chapter names | - |
-| 628 | ch:theory:L628 | observed | `1.15` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: measured: printed value found in verify_theory_derivations_output.txt, a file the chapter nam | PASS |
+| 628 | ch:theory:L628 | observed | `1.15` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: measured: printed value found in verify_theory_derivations_output.txt, a file the chapter names | PASS |
 | 628 |  | observed | `1.25` | not run: measured, not found in the files the chapter names | - |
 | 642 |  | calc | `1.02` | not run: not yet run: draft rejected (drafter skipped: The calculation of D^{7/2} from full-background integration (Section 4.8 ) | - |
 | 663 |  | none | `0.315` | not run: input Om for numerical verification | - |
@@ -933,7 +931,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 779 | ch:theory:L779 | measured | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 chi^2 diff, IAM vs LCDM | PASS |
 | 780 | ch:theory:L780 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: LCDM sigma8 from Level2 chain | PASS |
 | 780 | ch:theory:L780:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: IAM sigma8 from Level2 chain | PASS |
-| 780 | ch:theory:L780:72.26 | measured | `72.26` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: measured: printed value found in verify_theory_derivations_output.txt, a file the chapter nam | PASS |
+| 780 | ch:theory:L780:72.26 | measured | `72.26` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: measured: printed value found in verify_theory_derivations_output.txt, a file the chapter names | PASS |
 | 780 |  | measured | `0.75` | not run: measured, too few printed digits to match against the named files | - |
 | 785 | eq:th:mu2 | derived |  | sympy: mu<1 since E_IAM^2>E_LCDM^2 | PASS |
 | 788 | ch:theory:L788 | calc | `0.864` | numeric: mu(z=0) from E^2 ratio | PASS |
@@ -1132,10 +1130,10 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 252 | ch:dual:L252:0.47 | measured | `0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chain H0 std dev, photon sector | PASS |
 | 252 | ch:dual:L252:72.26 | calc | `72.26` | numeric: matter-sector H0 = photon H0 * sqrt(1+beta_m) | PASS |
 | 252 | ch:dual:L252:0.50 | calc | `0.50` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: propagated uncertainty on matter-sector H0 | PASS |
-| 252 | ch:dual:L252:67.36 | observed | `67.36` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
+| 252 | ch:dual:L252:67.36 | observed | `67.36` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 252 | ch:dual:L252:-0.37 | observed | `-0.37` | numeric: sigma tension photon H0 vs Planck 2018 | PASS |
-| 252 | ch:dual:L252:73.04 | observed | `73.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
-| 252 | ch:dual:L252:1.04 | observed | `1.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
+| 252 | ch:dual:L252:73.04 | observed | `73.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
+| 252 | ch:dual:L252:1.04 | observed | `1.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 252 | ch:dual:L252:-0.75 | observed | `-0.75` | numeric: sigma tension matter H0 vs SH0ES | PASS |
 | 252 |  | observed | `0.54` | not run: measured, too few printed digits to match against the named files | - |
 | 255 | ch:dual:L255 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: restated photon-sector H0 (Level 2) | PASS |
@@ -1365,14 +1363,14 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 114 | ch:dsnote:L114:0.15765 | measured | `0.15765` | numeric: beta_m value restated for comparison | PASS |
 | 117 |  | observed | `-0.035` | not run: measured, too few printed digits to match against the named files | - |
 | 117 |  | observed | `-0.068` | not run: measured, too few printed digits to match against the named files | - |
-| 118 | ch:dsnote:L118 | observed | `73.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
+| 118 | ch:dsnote:L118 | observed | `73.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 126 | ch:dsnote:L126 | measured | `0.010` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: worst-case chain convergence R-1 | PASS |
 | 127 | ch:dsnote:L127 | calc | `0.76` | numeric: likelihood ratio from Delta chi^2=0.54 | PASS |
 | 127 |  | calc | `0.54` | not run: not yet run: draft rejected (drafter skipped: Line 127: Δχ² = +0.54 is a best-fit difference between two MCMC chains.
 #) | - |
 | 129 | ch:dsnote:L129 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain sigma8 | PASS |
 | 129 | ch:dsnote:L129:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 beta_m-fixed chain sigma8 | PASS |
-| 130 | ch:dsnote:L130 | measured | `67.16` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
+| 130 | ch:dsnote:L130 | measured | `67.16` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 130 |  | measured | `0.47` | not run: measured, too few printed digits to match against the named files | - |
 | 130 |  | measured | `0.37` | not run: measured, too few printed digits to match against the named files | - |
 | 131 | ch:dsnote:L131 | calc | `72.26` | numeric: matter-sector H0 from photon H0 and beta_m | PASS |
@@ -1387,7 +1385,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 133 | ch:dsnote:L133:8.6 | measured | `8.6` | numeric: sigma below Planck, chain error in quadrature | PASS |
 | 135 | ch:dsnote:L135 | calc | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: photon coupling bound restated | PASS |
 | 135 | ch:dsnote:L135:0.033 | calc | `0.033` | numeric: sector ratio beta_gamma/beta_m from the committed 95 % bound | PASS |
-| 136 | ch:dsnote:L136 | observed | `23.6` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
+| 136 | ch:dsnote:L136 | observed | `23.6` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 145 | ch:dsnote:L145 | calc | `1.4` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: sigma offset of the beta_gamma=0 point from the observed theta_s (committed output) | PASS |
 | 145 | ch:dsnote:L145:0.0052 | calc | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: photon coupling bound (figure) | PASS |
 | 145 | ch:dsnote:L145:0.033 | calc | `0.033` | numeric: sector ratio beta_gamma/beta_m from the committed 95 % bound | PASS |
@@ -1406,7 +1404,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 154 |  | calc | `0.3` | not run: not yet run: draft rejected (printed value typed into the code) | - |
 | 158 | ch:dsnote:L158 | derived | `0.15765` | numeric: beta_m restated in figure caption | PASS |
 | 158 | ch:dsnote:L158:67.16 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 chain H0 restated | PASS |
-| 159 | ch:dsnote:L159 | measured | `67.16` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
+| 159 | ch:dsnote:L159 | measured | `67.16` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 159 | ch:dsnote:L159:72.26 | calc | `72.26` | numeric: matter-sector H0 restated | PASS |
 | 160 | ch:dsnote:L160 | calc | `0.864` | numeric: mu at z=0 restated | PASS |
 | 160 | ch:dsnote:L160:0.888 | calc | `0.888` | numeric: mu at z=0.11 | PASS |
@@ -1817,7 +1815,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 84 |  | derived |  | not run: not yet run: draft rejected (uses imports or file access) | - |
 | 90 | ch:dsvalidation:L90 | prediction | `72.26` | numeric: Prediction 1 H0(matter), repeat of eq:dsv_H0m | PASS |
 | 110 |  | observed | `0.21` | not run: measured, too few printed digits to match against the named files | - |
-| 111 | ch:dsvalidation:L111 | observed | `0.212` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
+| 111 | ch:dsvalidation:L111 | observed | `0.212` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 115 | eq:dsv_mbcorr | none |  | not run: definition of distance modulus | - |
 | 122 | eq:dsv_mu | none |  | sympy: magnitude formula, pc vs Mpc identity | PASS |
 | 126 | eq:dsv_dL | none |  | not run: definition of luminosity distance integral | - |
@@ -1841,7 +1839,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 260 |  | calc | `721.12` | not run: not yet run: draft rejected (drafter skipped: Line 260: "χ² = 721.12" — same chi-squared as Test A, by design (text sta) | - |
 | 261 |  | calc | `-0.30` | not run: not yet run: draft rejected (no draft returned) | - |
 | 261 |  | calc | `721.12` | not run: not yet run: draft rejected (no draft returned) | - |
-| 266 | ch:dsvalidation:L266 | observed | `73.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
+| 266 | ch:dsvalidation:L266 | observed | `73.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 266 |  | derived | `-28.935` | not run: not yet run: draft rejected (no draft returned) | - |
 | 271 |  | calc | `+23.6` | not run: not yet run: draft rejected (no draft returned) | - |
 | 271 |  | fitted | `-0.035` | not run: measured, too few printed digits to match against the named files | - |
@@ -1864,10 +1862,10 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 443 | ch:dsvalidation:L443 | calc | `<0.033` | numeric: sector ratio from the committed 95 % bound | PASS |
 | 456 |  | calc | `\beta_\gamma<0.0039` | not run: not yet run: draft rejected (uses imports or file access) | - |
 | 457 | ch:dsvalidation:L457 | measured | `67.16\pm0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon sector from Level2 chain | PASS |
-| 457 | ch:dsvalidation:L457:67.36\pm0.54 | measured | `67.36\pm0.54` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
-| 458 | ch:dsvalidation:L458 | measured | `0.809` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
+| 457 | ch:dsvalidation:L457:67.36\pm0.54 | measured | `67.36\pm0.54` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
+| 458 | ch:dsvalidation:L458 | measured | `0.809` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 458 | ch:dsvalidation:L458:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 prediction from Level2 chain | PASS |
-| 460 | ch:dsvalidation:L460 | observed | `73.04\pm1.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
+| 460 | ch:dsvalidation:L460 | observed | `73.04\pm1.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 460 |  | prediction | `72.26` | not run: locked IAM matter-sector H0 prediction | - |
 | 462 |  | observed | `-0.035^{+0.035}_{-0.033}` | not run: measured, too few printed digits to match against the named files | - |
 | 463 |  | calc | `+23.6` | not run: not yet run: draft rejected (drafter skipped: Line 463 states: beta_m excluded, Delta chi^2 = +23.6 This is a goodness-) | - |
@@ -1892,7 +1890,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 493 |  | prediction | `2.17\%` | not run: fsigma8 deficit forecast, no data here | - |
 | 494 | ch:dsvalidation:L494 | prediction | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chain posterior sigma8 restated | PASS |
 | 496 |  | prediction | `72.26` | not run: predicted matter-sector H0 restated | - |
-| 497 | ch:dsvalidation:L497 | observed | `70.0^{+12.0}_{-8.0}` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
+| 497 | ch:dsvalidation:L497 | observed | `70.0^{+12.0}_{-8.0}` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 497 | ch:dsvalidation:L497:75.5^{+5.3}_{-5.4} | observed | `75.5^{+5.3}_{-5.4}` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
 | 498 |  | prediction | `-0.136` | not run: locked IAM mu0 prediction, input | - |
 | 507 | eq:dsv_poisson | none |  | not run: definition of standard mu-Sigma parametrization | - |
@@ -1910,8 +1908,8 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 # Book) | - |
 | 533 |  | calc | `0.41` | not run: not yet run: draft rejected (drafter skipped: Requires fitting Pantheon+ SNe with beta_distance term to derive
 # the Om) | - |
-| 536 | ch:dsvalidation:L536 | observed | `73.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
-| 536 | ch:dsvalidation:L536:72.26 | observed | `72.26` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
+| 536 | ch:dsvalidation:L536 | observed | `73.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
+| 536 | ch:dsvalidation:L536:72.26 | observed | `72.26` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 536 |  | derived | `721.12` | not run: not yet run: draft rejected (drafter skipped: Requires full Pantheon+ SN covariance likelihood minimization across
 # al) | - |
 | 537 | ch:dsvalidation:L537 | observed | `-0.75\sigma` | numeric: sigma deviation of prediction from SH0ES | PASS |
@@ -1920,7 +1918,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 543 |  | interp | `73.04` | not run: H0 matter measured restated, input | - |
 | 549 | ch:dsvalidation:L549 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2 difference IAM vs LCDM, restated | PASS |
 | 550 | ch:dsvalidation:L550 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 posterior restated from chain | PASS |
-| 550 | ch:dsvalidation:L550:72.26 | measured | `72.26` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter | PASS |
+| 550 | ch:dsvalidation:L550:72.26 | measured | `72.26` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 550 | ch:dsvalidation:L550:\approx61.5 | measured | `\approx61.5` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from second Level2b background run | PASS |
 
 ## Part 2 - ch:darkenergy - `docs/book/part2/p2_11_dark_energy.tex`
@@ -2106,7 +2104,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 126 | ch:wzfuture:L126:0 | calc | `0` | numeric: difference at a=1 | PASS |
 | 126 | ch:wzfuture:L126:-0.167' | calc | `-0.167` | numeric: difference at a=2 | PASS |
 | 126 | ch:wzfuture:L126:-1.067 | calc | `-1.067` | numeric: difference at a=5 | PASS |
-| 128 | ch:wzfuture:L128 | calc | `0.17` | numeric: max /CPL deviation/ between a=0.5 and 2 | PASS |
+| 128 | ch:wzfuture:L128 | calc | `0.17` | numeric: max |CPL deviation| between a=0.5 and 2 | PASS |
 | 142 | ch:wzfuture:L142 | derived | `1.076` | numeric: H_m/H today | PASS |
 | 142 | ch:wzfuture:L142:1.275 | derived | `1.275` | numeric: H_m/H as a to infinity | PASS |
 | 148 | ch:wzfuture:L148 | calc | `3.1` | numeric: info density pct of rho_Lambda at z=2 | PASS |
@@ -2147,7 +2145,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 35 | eq:lam_rhovac | calc | `4.633\times10^{113}` | numeric: Planck-cutoff vacuum energy density | PASS |
 | 37 | ch:lambda:L37 | calc | `1.956\times10^9` | numeric: Planck energy E_P | PASS |
 | 40 | eq:lam_rhoL | observed | `5.250\times10^{-10}` | numeric: observed dark-energy density | PASS |
-| 42 | ch:lambda:L42 | observed | `67.4` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 42 | ch:lambda:L42 | observed | `67.4` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 42 | ch:lambda:L42:0.6846 | observed | `0.6846` | numeric: Omega_Lambda from 1-Om-Omega_r | PASS |
 | 42 |  | measured | `0.6847\pm0.0073` | not run: measured, not found in the files the chapter names | - |
 | 44 | eq:lam_ratio | calc | `1.133\times10^{-123}` | numeric: ratio of densities | PASS |
@@ -2162,11 +2160,11 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 152 | eq:lam_fb | conjecture |  | not run: assumed baryon writing fraction | - |
 | 157 | eq:base | openprob |  | not run: formula, coefficient 2/pi unresolved | - |
 | 164 | eq:lam_in1 | measured | `1.616\times10^{-35}` | numeric: Planck length | PASS |
-| 165 | eq:lam_in2 | measured | `67.4` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 165 | eq:lam_in2 | measured | `67.4` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 165 | eq:lam_in2:2.184\times10^{-18} | calc | `2.184\times10^{-18}` | numeric: H0 converted to SI | PASS |
 | 166 | eq:lam_in3 | calc | `1.372\times10^{26}` | numeric: Hubble length today | PASS |
-| 167 | eq:lam_in4 | measured | `0.0493` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 167 | eq:lam_in4:0.3153 | measured | `0.3153` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 167 | eq:lam_in4 | measured | `0.0493` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 167 | eq:lam_in4:0.3153 | measured | `0.3153` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 171 | eq:lam_geo | calc | `1.387\times10^{-122}` | numeric: square of Planck/Hubble length ratio | PASS |
 | 172 | eq:lam_geo:0.1564 | calc | `0.1564` | numeric: baryon fraction of matter | PASS |
 | 176 | eq:lam_result | calc | `1.380\times10^{-123}` | numeric: IAM predicted density ratio | PASS |
@@ -2175,7 +2173,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 194 | eq:lam_TH | derived |  | not run: not yet run: draft rejected (does not run: ValueError no value) | - |
 | 196 | eq:lam_TdS | derived |  | sympy: T_dS = hbar H_dS/(2 pi k_B) with H_dS = c sqrt(Lambda/3) equals T_H sqrt(Omega_L), Omega_L = Lambda c^2/(3 H0^2) | PASS |
 | 198 | eq:lam_Eeff | derived |  | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
-| 201 | eq:corr | derived | `1.142\times10^{-123}` | numeric: eq:base times T_dS/T_H, with T_dS from H_dS = c sqrt(Lambda/3) and Lambda = 3 Omega_L H0^2/c^2, evaluated with the book's Planck 2018 inputs (value printed at li | PASS |
+| 201 | eq:corr | derived | `1.142\times10^{-123}` | numeric: eq:base times T_dS/T_H, with T_dS from H_dS = c sqrt(Lambda/3) and Lambda = 3 Omega_L H0^2/c^2, evaluated with the book's Planck 2018 inputs (value printed at line 205) | PASS |
 | 205 | eq:lam_corr_num | calc | `0.8274` | numeric: square root of Omega_Lambda | PASS |
 | 205 | eq:lam_corr_num:1.142\times10^{-123} | calc | `1.142\times10^{-123}` | numeric: de-Sitter-corrected density ratio | PASS |
 | 207 | ch:lambda:L207 | calc | `0.79` | numeric: percent excess over observed | PASS |
@@ -2187,24 +2185,24 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 214 | ch:lambda:L214:1.0079 | calc | `1.0079` | numeric: after sqrt(Omega_Lambda) applied | PASS |
 | 214 | ch:lambda:L214:0.521 | calc | `0.521` | numeric: closing exponent p (repeat) | PASS |
 | 214 | ch:lambda:L214:0.79 | calc | `0.79` | numeric: p=1/2 residual percent (repeat) | PASS |
-| 223 | ch:lambda:L223 | measured | `1.616\times10^{-35}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 223 | ch:lambda:L223 | measured | `1.616\times10^{-35}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 224 | ch:lambda:L224 | calc | `1.372\times10^{26}` | numeric: same value as p2_12_lambda:166 (Hubble length today) | PASS |
 | 225 | ch:lambda:L225 | calc | `1.387\times10^{-122}` | numeric: same value as p2_12_lambda:171 (square of Planck/Hubble length ratio) | PASS |
 | 226 |  | openprob | `0.6366` | not run: not yet checked | - |
-| 227 | ch:lambda:L227 | measured | `0.1564` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 227 | ch:lambda:L227 | measured | `0.1564` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 228 | ch:lambda:L228 | calc | `1.380\times10^{-123}` | numeric: same value as p1_02_iams_law:734 (baseline Lambda/rho_vac with Ob,Om) | PASS |
 | 229 | ch:lambda:L229 | calc | `1.133\times10^{-123}` | numeric: same value as p1_02_iams_law:729 (Lambda/rho_vac identity at H0=67.4) | PASS |
 | 230 | ch:lambda:L230 | calc | `1.218` | numeric: same value as p2_12_lambda:184 (ratio of prediction to observation) | PASS |
-| 231 | ch:lambda:L231 | fitted | `0.8274` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 231 | ch:lambda:L231:1.142\times10^{-123} | fitted | `1.142\times10^{-123}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 231 | ch:lambda:L231 | fitted | `0.8274` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 231 | ch:lambda:L231:1.142\times10^{-123} | fitted | `1.142\times10^{-123}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 231 |  | fitted | `+0.79` | not run: measured, too few printed digits to match against the named files | - |
 | 237 | eq:ident | derived |  | sympy: rho_L/rho_vac = (3 Omega_L/8pi)(l_P/l_H)^2 | PASS |
 | 239 | ch:lambda:L239 | derived | `1.133\times10^{-123}` | numeric: same value as p1_02_iams_law:729 (Lambda/rho_vac identity at H0=67.4) | PASS |
 | 242 | eq:lam_smarr | derived |  | sympy: T_GH S = c^5/(2GH) for any H | PASS |
 | 247 | ch:lambda:L247 | calc | `0.0817` | numeric: 3 Omega_L/8 pi | PASS |
 | 253 | ch:lambda:L253 | observed | `1.0046` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output) | PASS |
-| 253 | ch:lambda:L253:1.0056 | observed | `1.0056` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 253 | ch:lambda:L253:1.0106 | observed | `1.0106` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 253 | ch:lambda:L253:1.0056 | observed | `1.0056` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 253 | ch:lambda:L253:1.0106 | observed | `1.0106` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 253 | ch:lambda:L253:1.0079 | observed | `1.0079` | numeric: same value as p2_12_lambda:214 (after sqrt(Omega_Lambda) applied) | PASS |
 | 256 | eq:rel | derived |  | sympy: Omega_b/Omega_m = (3/16) sqrt(Omega_L) | PASS |
 | 259 | ch:lambda:L259 | calc | `0.1564` | numeric: same value as p2_12_lambda:172 (baryon fraction of matter) | PASS |
@@ -2212,8 +2210,8 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 259 | ch:lambda:L259:1.0079 | calc | `1.0079` | numeric: same value as p2_12_lambda:214 (after sqrt(Omega_Lambda) applied) | PASS |
 | 259 | ch:lambda:L259:1.0079' | calc | `1.0079` | numeric: ratio of the two sides | PASS |
 | 260 | ch:lambda:L260 | measured | `1.0046` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output) | PASS |
-| 260 | ch:lambda:L260:1.0056 | measured | `1.0056` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 260 | ch:lambda:L260:1.0106 | measured | `1.0106` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 260 | ch:lambda:L260:1.0056 | measured | `1.0056` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 260 | ch:lambda:L260:1.0106 | measured | `1.0106` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 260 |  | measured | `0.7` | not run: measured, too few printed digits to match against the named files | - |
 | 270 | ch:lambda:L270 | calc | `0.0817` | numeric: 3 Omega_L/8 pi | PASS |
 | 270 |  | calc | `0.7` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
@@ -2242,21 +2240,21 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 367 |  | openprob | `0.79` | not run: not yet checked | - |
 | 373 |  | observed | `1.1` | not run: measured, too few printed digits to match against the named files | - |
 | 382 | ch:lambda:L382 | calc | `4.633\times10^{113}` | numeric: same value as p2_12_lambda:35 (Planck-cutoff vacuum energy density) | PASS |
-| 383 | ch:lambda:L383 | observed | `5.250\times10^{-10}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 383 | ch:lambda:L383 | observed | `5.250\times10^{-10}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 384 | ch:lambda:L384 | derived | `1.133\times10^{-123}` | numeric: same value as p1_02_iams_law:729 (Lambda/rho_vac identity at H0=67.4) | PASS |
 | 385 | ch:lambda:L385 | calc | `2.265\times10^{122}` | numeric: same value as p2_12_lambda:94 (max horizon info, nats) | PASS |
 | 385 | ch:lambda:L385:3.268\times10^{122} | calc | `3.268\times10^{122}` | numeric: same value as p2_12_lambda:94 (max horizon info, bits) | PASS |
 | 386 | ch:lambda:L386 | calc | `1.380\times10^{-123}` | numeric: same value as p1_02_iams_law:734 (baseline Lambda/rho_vac with Ob,Om) | PASS |
-| 387 | ch:lambda:L387 | fitted | `1.142\times10^{-123}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 387 | ch:lambda:L387 | fitted | `1.142\times10^{-123}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 387 |  | fitted | `+0.79` | not run: measured, too few printed digits to match against the named files | - |
 | 388 | ch:lambda:L388 | calc | `0.521` | numeric: exponent p of Omega_L that closes the expression | PASS |
-| 389 | ch:lambda:L389 | observed | `0.1564` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 389 | ch:lambda:L389:0.1551 | observed | `0.1551` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 389 | ch:lambda:L389 | observed | `0.1564` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 389 | ch:lambda:L389:0.1551 | observed | `0.1551` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 390 | ch:lambda:L390 | measured | `1.0046` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output) | PASS |
 | 390 |  | calc | `18` | not run: not yet run: draft rejected (drafter skipped: Measured quantity from Planck 18th chain (CMB only);
 # requires chain MCM) | - |
-| 391 | ch:lambda:L391 | measured | `1.0056` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 391 | ch:lambda:L391:1.0106 | measured | `1.0106` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 391 | ch:lambda:L391 | measured | `1.0056` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 391 | ch:lambda:L391:1.0106 | measured | `1.0106` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 392 |  | calc | `414` | not run: not yet run: draft rejected (drafter skipped: Count of O(1) forms within 1% of 3Ω_Λ/8π from a search over 414 candidate) | - |
 | 393 |  | calc | `0.523` | not run: not yet run: draft rejected (printed value typed into the code) | - |
 | 393 |  | calc | `3.1\times10^{30}` | not run: not yet run: draft rejected (drafter skipped: Line 393: "History integral as written, coefficient against the required ) | - |
@@ -2323,18 +2321,18 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 29 | eq:bar_eta | none |  | not run: displayed equation, not yet checked | - |
-| 31 | ch:baryon:L31 | observed | `6.180` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 31 | ch:baryon:L31:6.108 | observed | `6.108` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 32 | ch:baryon:L32 | observed | `6.127` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 32 | ch:baryon:L32:0.02237 | observed | `0.02237` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 33 | ch:baryon:L33 | observed | `273.9\times10^{-10}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 31 | ch:baryon:L31 | observed | `6.180` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 31 | ch:baryon:L31:6.108 | observed | `6.108` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 32 | ch:baryon:L32 | observed | `6.127` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 32 | ch:baryon:L32:0.02237 | observed | `0.02237` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 33 | ch:baryon:L33 | observed | `273.9\times10^{-10}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 33 |  | observed | `10` | not run: measured, too few printed digits to match against the named files | - |
 | 83 |  | calc | `3.1\times10^{30}` | not run: not yet run: draft rejected (drafter skipped: Line 83, printed 3.1×10^30: the integral computation requires
 # the expli) | - |
 | 83 |  | calc | `0.523` | not run: not yet run: draft rejected (drafter skipped: Line 83, printed 0.523: described as "required" but no derivation
 # or co) | - |
 | 91 |  | conjecture | `13.8` | not run: not yet checked | - |
-| 97 | ch:baryon:L97 | observed | `0.1564` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 97 | ch:baryon:L97 | observed | `0.1564` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 105 | ch:baryon:L105 | calc | `9.5\times10^{-13}` | numeric: a at T = 150 MeV, entropy conservation ('approx') | PASS |
 | 105 |  | calc | `17.25` | not run: not yet run: draft rejected (printed value typed into the code) | - |
 | 106 | ch:baryon:L106 | calc | `0.6` | numeric: baryons per 1e9 photons at eta = 6.1e-10 | PASS |
@@ -2371,7 +2369,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 45 | eq:bc_cc | openprob |  | not run: displayed equation, not yet checked | - |
 | 49 | eq:bc_tratio | derived |  | sympy: H_dS = c sqrt(Lambda/3) for the horizon set by Lambda alone and Omega_L = Lambda c^2/(3 H0^2) give H_dS/H0 = sqrt(Omega_L); T_GH is proportional to H | PASS |
 | 51 | eq:bc_cccorr | derived | `1.142\times10^{-123}` | numeric: eq:bc_cc times T_dS/T_H, with T_dS from H_dS = c sqrt(Lambda/3) and Lambda = 3 Omega_L H0^2/c^2, evaluated with the book's Planck 2018 inputs | PASS |
-| 53 | ch:baryon_chain:L53 | fitted | `1.133\times10^{-123}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 53 | ch:baryon_chain:L53 | fitted | `1.133\times10^{-123}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 53 |  | fitted | `0.79` | not run: measured, too few printed digits to match against the named files | - |
 | 56 | eq:bc_etaob | derived |  | not run: not yet run: draft rejected (does not run: ValueError no value) | - |
 | 57 | ch:baryon_chain:L57 | derived | `0.1431` | numeric: Omega_m h^2 | PASS |
@@ -2391,28 +2389,28 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 118 |  | measured | `6.1155\times10^{-10}` | not run: measured, not found in the files the chapter names | - |
 | 119 |  | calc | `2.74\times10^{-8}` | not run: not yet run: draft does not reproduce the printed value (recomputed 75125.8); drafting error on review | - |
 | 119 |  | calc | `2.739\times10^{-8}` | not run: not yet run: draft does not reproduce the printed value (recomputed 75129.1); drafting error on review | - |
-| 120 | ch:baryon_chain:L120 | measured | `0.0218` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 120 | ch:baryon_chain:L120:0.0228 | measured | `0.0228` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 121 | ch:baryon_chain:L121 | measured | `67.04` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 121 | ch:baryon_chain:L121:0.3198 | measured | `0.3198` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 120 | ch:baryon_chain:L120 | measured | `0.0218` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 120 | ch:baryon_chain:L120:0.0228 | measured | `0.0228` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 121 | ch:baryon_chain:L121 | measured | `67.04` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 121 | ch:baryon_chain:L121:0.3198 | measured | `0.3198` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 121 |  | measured | `0.010` | not run: measured, too few printed digits to match against the named files | - |
 | 121 |  | measured | `0.040` | not run: measured, too few printed digits to match against the named files | - |
-| 122 | ch:baryon_chain:L122 | measured | `0.1554` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 122 | ch:baryon_chain:L122 | measured | `0.1554` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 123 | eq:bc_ratio | measured | `1.0046` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: ratio on the 18th chain, committed output | PASS |
-| 128 | ch:baryon_chain:L128 | observed | `273.9\times10^{-10}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 128 | ch:baryon_chain:L128:6.113 | observed | `6.113` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 128 | ch:baryon_chain:L128:6.117 | observed | `6.117` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 128 | ch:baryon_chain:L128:6.137 | observed | `6.137` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 128 | ch:baryon_chain:L128 | observed | `273.9\times10^{-10}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 128 | ch:baryon_chain:L128:6.113 | observed | `6.113` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 128 | ch:baryon_chain:L128:6.117 | observed | `6.117` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 128 | ch:baryon_chain:L128:6.137 | observed | `6.137` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 128 | ch:baryon_chain:L128:0.1431 | calc | `0.1431` | numeric: same value as p2_13_baryon:165 (Omega_m h^2 = 0.3153 x 0.6736^2) | PASS |
 | 128 | ch:baryon_chain:L128:6.080 | calc | `6.080` | numeric: eta (1e-10) from the expression with sqrt | PASS |
 | 128 | ch:baryon_chain:L128:5.031 | calc | `5.031` | numeric: eta (1e-10) without sqrt | PASS |
 | 136 |  | measured | `10` | not run: measured, too few printed digits to match against the named files | - |
-| 137 | ch:baryon_chain:L137 | measured | `6.180` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 138 | ch:baryon_chain:L138 | measured | `6.108` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 139 | ch:baryon_chain:L139 | measured | `6.098` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 140 | ch:baryon_chain:L140 | measured | `6.127` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 141 | ch:baryon_chain:L141 | measured | `6.141` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 142 | ch:baryon_chain:L142 | measured | `6.113` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 137 | ch:baryon_chain:L137 | measured | `6.180` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 138 | ch:baryon_chain:L138 | measured | `6.108` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 139 | ch:baryon_chain:L139 | measured | `6.098` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 140 | ch:baryon_chain:L140 | measured | `6.127` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 141 | ch:baryon_chain:L141 | measured | `6.141` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 142 | ch:baryon_chain:L142 | measured | `6.113` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 142 |  | measured | `0.010` | not run: measured, too few printed digits to match against the named files | - |
 | 142 |  | measured | `-0.040` | not run: measured, too few printed digits to match against the named files | - |
 | 142 |  | measured | `18` | not run: measured, too few printed digits to match against the named files | - |
@@ -2427,38 +2425,38 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 159 | ch:baryon_chain:L159 | measured | `1.0046` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output) | PASS |
 | 159 |  | measured | `0.7` | not run: measured, too few printed digits to match against the named files | - |
 | 165 |  | measured | `10` | not run: measured, too few printed digits to match against the named files | - |
-| 166 | ch:baryon_chain:L166 | measured | `0.02232` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 166 | ch:baryon_chain:L166:6.113 | measured | `6.113` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 166 | ch:baryon_chain:L166 | measured | `0.02232` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 166 | ch:baryon_chain:L166:6.113 | measured | `6.113` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 166 | ch:baryon_chain:L166:1.0046 | measured | `1.0046` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output) | PASS |
 | 166 | ch:baryon_chain:L166:957 | measured | `957` | file `docs/verification/cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md`: measured: printed value found in CC_AND_BARYON_CHECK.md, a file the chapter names | PASS |
 | 166 |  | measured | `0.010` | not run: measured, too few printed digits to match against the named files | - |
 | 166 |  | measured | `-0.040` | not run: measured, too few printed digits to match against the named files | - |
 | 166 |  | measured | `14` | not run: measured, too few printed digits to match against the named files | - |
 | 166 |  | measured | `18` | not run: measured, too few printed digits to match against the named files | - |
-| 167 | ch:baryon_chain:L167 | measured | `0.02234` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 167 | ch:baryon_chain:L167:6.118 | measured | `6.118` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 167 | ch:baryon_chain:L167:1.0058 | measured | `1.0058` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 167 | ch:baryon_chain:L167 | measured | `0.02234` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 167 | ch:baryon_chain:L167:6.118 | measured | `6.118` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 167 | ch:baryon_chain:L167:1.0058 | measured | `1.0058` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 167 |  | measured | `0.020` | not run: measured, too few printed digits to match against the named files | - |
 | 167 |  | measured | `-0.025` | not run: measured, too few printed digits to match against the named files | - |
 | 167 |  | measured | `12` | not run: measured, too few printed digits to match against the named files | - |
 | 167 |  | measured | `544` | not run: measured, not found in the files the chapter names | - |
-| 168 | ch:baryon_chain:L168 | measured | `0.02240` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 168 | ch:baryon_chain:L168:6.137 | measured | `6.137` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 168 | ch:baryon_chain:L168:1.0106 | measured | `1.0106` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 168 | ch:baryon_chain:L168 | measured | `0.02240` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 168 | ch:baryon_chain:L168:6.137 | measured | `6.137` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 168 | ch:baryon_chain:L168:1.0106 | measured | `1.0106` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 168 |  | measured | `0.020` | not run: measured, too few printed digits to match against the named files | - |
 | 168 |  | measured | `-0.025` | not run: measured, too few printed digits to match against the named files | - |
 | 168 |  | measured | `12` | not run: measured, too few printed digits to match against the named files | - |
 | 168 |  | measured | `600` | not run: measured, not found in the files the chapter names | - |
-| 169 | ch:baryon_chain:L169 | measured | `0.02233` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 169 | ch:baryon_chain:L169:6.117 | measured | `6.117` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 169 | ch:baryon_chain:L169:1.0056 | measured | `1.0056` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 169 | ch:baryon_chain:L169 | measured | `0.02233` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 169 | ch:baryon_chain:L169:6.117 | measured | `6.117` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 169 | ch:baryon_chain:L169:1.0056 | measured | `1.0056` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 169 |  | measured | `0.020` | not run: measured, too few printed digits to match against the named files | - |
 | 169 |  | measured | `-0.025` | not run: measured, too few printed digits to match against the named files | - |
 | 169 |  | measured | `21` | not run: measured, too few printed digits to match against the named files | - |
 | 169 |  | measured | `168` | not run: measured, not found in the files the chapter names | - |
-| 170 | ch:baryon_chain:L170 | measured | `0.02239` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 170 | ch:baryon_chain:L170:6.134 | measured | `6.134` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
-| 170 | ch:baryon_chain:L170:1.0098 | measured | `1.0098` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 170 | ch:baryon_chain:L170 | measured | `0.02239` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 170 | ch:baryon_chain:L170:6.134 | measured | `6.134` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
+| 170 | ch:baryon_chain:L170:1.0098 | measured | `1.0098` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 170 |  | measured | `0.020` | not run: measured, too few printed digits to match against the named files | - |
 | 170 |  | measured | `-0.025` | not run: measured, too few printed digits to match against the named files | - |
 | 170 |  | measured | `18` | not run: measured, too few printed digits to match against the named files | - |
@@ -2467,15 +2465,15 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 171 | ch:baryon_chain:L171:5.031 | calc | `5.031` | numeric: eta (1e-10) without sqrt | PASS |
 | 172 | ch:baryon_chain:L172 | calc | `0.02220` | numeric: with sqrt | PASS |
 | 172 | ch:baryon_chain:L172:6.080 | calc | `6.080` | numeric: eta (1e-10) from the expression with sqrt | PASS |
-| 179 | ch:baryon_chain:L179 | measured | `0.02232` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 179 | ch:baryon_chain:L179 | measured | `0.02232` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 179 |  | measured | `0.010` | not run: measured, too few printed digits to match against the named files | - |
 | 179 |  | measured | `0.040` | not run: measured, too few printed digits to match against the named files | - |
 | 179 |  | measured | `0.020` | not run: measured, too few printed digits to match against the named files | - |
 | 179 |  | measured | `0.025` | not run: measured, too few printed digits to match against the named files | - |
 | 183 |  | openprob | `6\times10^{-10}` | not run: not yet checked | - |
-| 188 | ch:baryon_chain:L188 | fitted | `0.827` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 188 | ch:baryon_chain:L188 | fitted | `0.827` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 188 |  | fitted | `+0.79` | not run: measured, too few printed digits to match against the named files | - |
-| 189 | ch:baryon_chain:L189 | fitted | `5.03` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter nam | PASS |
+| 189 | ch:baryon_chain:L189 | fitted | `5.03` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 189 |  | fitted | `6.08\times10^{-10}` | not run: measured, not found in the files the chapter names | - |
 | 196 |  | measured | `0.2` | not run: measured, too few printed digits to match against the named files | - |
 | 196 |  | measured | `0.3` | not run: measured, too few printed digits to match against the named files | - |
@@ -2490,7 +2488,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 38 | ch:surveys:L38 | calc | `-0.13618` | numeric: same value as p1_02_iams_law:465 (mu0 at beta_m=0.15765, precise) | PASS |
 | 38 |  | calc | `-0.13495` | not run: not yet run: draft rejected (printed value typed into the code) | - |
 | 40 |  | measured | `+0.54` | not run: measured, too few printed digits to match against the named files | - |
-| 41 | ch:surveys:L41 | measured | `0.800` | heavy file `docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt`: measured: printed value found in verify_dark_energy_far_future_surveys_book_ | PASS |
+| 41 | ch:surveys:L41 | measured | `0.800` | heavy file `docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt`: measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names | PASS |
 | 53 | ch:surveys:L53 | calc | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
 | 56 | ch:surveys:L56 | calc | `0.864` | numeric: mu at z=0.0 | PASS |
 | 56 | ch:surveys:L56:13.62 | calc | `13.62` | numeric: 1 - mu at z=0.0, per cent | PASS |
@@ -2573,9 +2571,9 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 89 | ch:surveys:L89 | calc | `4.2` | numeric: midpoint lookback, Gyr | PASS |
 | 89 | ch:surveys:L89:0.37 | calc | `0.37` | numeric: midpoint z | PASS |
 | 89 |  | calc | `50` | not run: not yet run: draft rejected (does not run: ValueError) | - |
-| 90 | ch:surveys:L90 | calc | `0.229` | numeric: /dmu/dz/ today | PASS |
-| 91 | ch:surveys:L91 | calc | `0.109` | numeric: /dmu/dz/ at z=0.5 | PASS |
-| 91 | ch:surveys:L91:0.128 | calc | `0.128` | numeric: /dmu/dz/ MGCAMB form at z=0 | PASS |
+| 90 | ch:surveys:L90 | calc | `0.229` | numeric: |dmu/dz| today | PASS |
+| 91 | ch:surveys:L91 | calc | `0.109` | numeric: |dmu/dz| at z=0.5 | PASS |
+| 91 | ch:surveys:L91:0.128 | calc | `0.128` | numeric: |dmu/dz| MGCAMB form at z=0 | PASS |
 | 91 |  | calc | `0.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
 | 92 | ch:surveys:L92 | calc | `2.30` | numeric: z where E = 10% of today | PASS |
 | 92 | ch:surveys:L92:0.69 | calc | `0.69` | numeric: z where E = 50% of today | PASS |
@@ -2635,7 +2633,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 160 |  | calc | `1.1` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
 | 160 |  | calc | `1.2` | not run: not yet run: draft rejected (negative control (printed value x1.05) also passes) | - |
 | 160 |  | calc | `0.008` | not run: not yet run: draft rejected (negative control (printed value x1.05) also passes) | - |
-| 164 | ch:surveys:L164 | observed | `-0.136` | heavy file `docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt`: measured: printed value found in verify_dark_energy_far_future_surveys_book_ | PASS |
+| 164 | ch:surveys:L164 | observed | `-0.136` | heavy file `docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt`: measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names | PASS |
 | 164 |  | observed | `0.08` | not run: measured, too few printed digits to match against the named files | - |
 | 164 |  | observed | `0.19` | not run: measured, too few printed digits to match against the named files | - |
 | 165 |  | fitted | `0.11` | not run: measured, too few printed digits to match against the named files | - |
@@ -2644,7 +2642,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 166 |  | fitted | `+0.2` | not run: measured, too few printed digits to match against the named files | - |
 | 166 |  | fitted | `90` | not run: measured, too few printed digits to match against the named files | - |
 | 166 |  | fitted | `+0.059` | not run: measured, too few printed digits to match against the named files | - |
-| 167 | ch:surveys:L167 | fitted | `-0.136` | heavy file `docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt`: measured: printed value found in verify_dark_energy_far_future_surveys_book_ | PASS |
+| 167 | ch:surveys:L167 | fitted | `-0.136` | heavy file `docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt`: measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names | PASS |
 | 167 |  | fitted | `-0.304` | not run: measured, not found in the files the chapter names | - |
 | 167 |  | fitted | `+0.064` | not run: measured, too few printed digits to match against the named files | - |
 | 167 |  | fitted | `-0.204` | not run: measured, not found in the files the chapter names | - |
@@ -2741,7 +2739,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 239 |  | observed | `139` | not run: measured, not found in the files the chapter names | - |
 | 244 | eq:sp_siren | calc |  | not run: not yet run: draft rejected (does not run: ValueError no value) | - |
 | 245 | ch:surveys:L245 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
-| 246 | ch:surveys:L246 | observed | `70.0` | heavy file `docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt`: measured: printed value found in verify_dark_energy_far_future_surveys_book_ | PASS |
+| 246 | ch:surveys:L246 | observed | `70.0` | heavy file `docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt`: measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names | PASS |
 | 246 |  | observed | `8.0` | not run: measured, too few printed digits to match against the named files | - |
 | 246 |  | observed | `68.9` | not run: measured, not found in the files the chapter names | - |
 | 246 |  | observed | `4.6` | not run: measured, too few printed digits to match against the named files | - |
@@ -2789,176 +2787,175 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 31 | eq:ld_b | observed |  | not run: displayed equation, not yet checked | - |
-| 34 |  | observed | `0.1` | not run: measured, too few printed digits to match against the named files | - |
-| 34 |  | observed | `0.4` | not run: measured, too few printed digits to match against the named files | - |
-| 37 |  | observed | `0.15` | not run: measured, too few printed digits to match against the named files | - |
-| 38 |  | observed | `0.58` | not run: measured, too few printed digits to match against the named files | - |
-| 46 | ch:lensdyn:L46 | fitted | `0.7998` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 46 |  | fitted | `+0.54` | not run: measured, too few printed digits to match against the named files | - |
-| 53 | eq:ld_poisson | derived |  | not run: not yet run: draft rejected (drafter skipped: ITEM 819 is the Poisson equation ∇²Ψ = 4πGa²μ(a)ρ̄δ itself (line 53-54),
-) | - |
-| 62 | eq:ld_mu | prediction |  | not run: displayed equation, not yet checked | - |
+| 31 | eq:ld_b | observed |  | not run: definition: hydrostatic mass-bias parametrisation M_true = M_X/(1-b) | - |
+| 34 |  | observed | `0.1` | not run: measured, source not named (approximate literature range of the hydrostatic bias b; cited papers' values are not held in any repository file) | - |
+| 34 |  | observed | `0.4` | not run: measured, source not named (approximate literature range of the hydrostatic bias b; cited papers' values are not held in any repository file) | - |
+| 37 |  | observed | `0.15` | not run: measured, source not named (approximate literature range of the hydrostatic bias b from simulations (Lau2009, Nelson2014); cited papers' values are not held in any repository file) | - |
+| 38 | ch:lensdyn:L38:0.58 | observed | `0.58` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: 1-b needed by Planck SZ counts + primary CMB | PASS |
+| 46 | ch:lensdyn:L46 | fitted | `0.7998` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 46 | ch:lensdyn:L46:+0.54 | fitted | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (Run A) minus LCDM (Run C) | PASS |
+| 53 | eq:ld_poisson | derived |  | not run: definition: mu-Sigma parametrisation of the Poisson equation (the chapter marks it '(definitions)') | - |
+| 62 | eq:ld_mu | prediction |  | sympy: mu(a) = H_L^2/(H_L^2 + beta_m E H0^2) from the matter-sector rate | PASS |
 | 65 | ch:lensdyn:L65 | prediction | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 77 | eq:ld_mdyn | none |  | not run: displayed equation, not yet checked | - |
-| 82 | eq:ld_mlens | none |  | not run: displayed equation, not yet checked | - |
+| 77 | eq:ld_mdyn | none |  | sympy: M_dyn = mu M_true (Gauss law on the mu Poisson equation) | PASS |
+| 82 | eq:ld_mlens | none |  | sympy: M_lens = Sigma M_true = M_true (Gauss law on the lensing potential) | PASS |
 | 86 | eq:ld_ratio_mu | derived |  | sympy: M_lens/M_dyn = Sigma/mu = 1/mu | PASS |
 | 98 | ch:lensdyn:L98 | calc | `0.864` | numeric: mu at z=0.0 | PASS |
 | 98 | ch:lensdyn:L98:1.158 | calc | `1.158` | numeric: 1/mu at z=0.0 | PASS |
 | 98 | ch:lensdyn:L98:15.8 | calc | `15.8` | numeric: lensing excess at z=0.0, per cent | PASS |
-| 98 |  | calc | `0.0` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 98 |  | calc | `0.0` | not run: input: redshift z=0.0 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L98) | - |
 | 99 | ch:lensdyn:L99 | calc | `0.886` | numeric: mu at z=0.1 | PASS |
 | 99 | ch:lensdyn:L99:1.129 | calc | `1.129` | numeric: 1/mu at z=0.1 | PASS |
 | 99 | ch:lensdyn:L99:12.9 | calc | `12.9` | numeric: lensing excess at z=0.1, per cent | PASS |
-| 99 |  | calc | `0.1` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 99 |  | calc | `0.1` | not run: input: redshift z=0.1 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L99) | - |
 | 100 | ch:lensdyn:L100 | calc | `0.905` | numeric: mu at z=0.2 | PASS |
 | 100 | ch:lensdyn:L100:1.105 | calc | `1.105` | numeric: 1/mu at z=0.2 | PASS |
 | 100 | ch:lensdyn:L100:10.5 | calc | `10.5` | numeric: lensing excess at z=0.2, per cent | PASS |
-| 100 |  | calc | `0.2` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 100 |  | calc | `0.2` | not run: input: redshift z=0.2 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L100) | - |
 | 101 | ch:lensdyn:L101 | calc | `0.922` | numeric: mu at z=0.3 | PASS |
 | 101 | ch:lensdyn:L101:1.085 | calc | `1.085` | numeric: 1/mu at z=0.3 | PASS |
 | 101 | ch:lensdyn:L101:8.5 | calc | `8.5` | numeric: lensing excess at z=0.3, per cent | PASS |
-| 101 |  | calc | `0.3` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 101 |  | calc | `0.3` | not run: input: redshift z=0.3 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L101) | - |
 | 102 | ch:lensdyn:L102 | calc | `0.948` | numeric: mu at z=0.5 | PASS |
 | 102 | ch:lensdyn:L102:1.055 | calc | `1.055` | numeric: 1/mu at z=0.5 | PASS |
 | 102 | ch:lensdyn:L102:5.5 | calc | `5.5` | numeric: lensing excess at z=0.5, per cent | PASS |
-| 102 |  | calc | `0.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 102 |  | calc | `0.5` | not run: input: redshift z=0.5 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L102) | - |
 | 103 | ch:lensdyn:L103 | calc | `0.966` | numeric: mu at z=0.7 | PASS |
 | 103 | ch:lensdyn:L103:1.035 | calc | `1.035` | numeric: 1/mu at z=0.7 | PASS |
 | 103 | ch:lensdyn:L103:3.5 | calc | `3.5` | numeric: lensing excess at z=0.7, per cent | PASS |
-| 103 |  | calc | `0.7` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 103 |  | calc | `0.7` | not run: input: redshift z=0.7 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L103) | - |
 | 104 | ch:lensdyn:L104 | calc | `0.982` | numeric: mu at z=1.0 | PASS |
 | 104 | ch:lensdyn:L104:1.018 | calc | `1.018` | numeric: 1/mu at z=1.0 | PASS |
 | 104 | ch:lensdyn:L104:1.8 | calc | `1.8` | numeric: lensing excess at z=1.0, per cent | PASS |
-| 104 |  | calc | `1.0` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 104 |  | calc | `1.0` | not run: input: redshift z=1.0 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L104) | - |
 | 105 | ch:lensdyn:L105 | calc | `0.994` | numeric: mu at z=1.5 | PASS |
 | 105 | ch:lensdyn:L105:1.006 | calc | `1.006` | numeric: 1/mu at z=1.5 | PASS |
 | 105 | ch:lensdyn:L105:0.6 | calc | `0.6` | numeric: lensing excess at z=1.5, per cent | PASS |
-| 105 |  | calc | `1.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 105 |  | calc | `1.5` | not run: input: redshift z=1.5 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L105) | - |
 | 106 | ch:lensdyn:L106 | calc | `0.998` | numeric: mu at z=2.0 | PASS |
 | 106 | ch:lensdyn:L106:1.002 | calc | `1.002` | numeric: 1/mu at z=2.0 | PASS |
 | 106 | ch:lensdyn:L106:0.2 | calc | `0.2` | numeric: lensing excess at z=2.0, per cent | PASS |
-| 106 |  | calc | `2.0` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 106 |  | calc | `2.0` | not run: input: redshift z=2.0 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L106) | - |
 | 107 | ch:lensdyn:L107 | calc | `1.000` | numeric: 1/mu at z=3.0 | PASS |
 | 107 | ch:lensdyn:L107:0.0 | calc | `0.0` | numeric: lensing excess at z=3.0, per cent | PASS |
-| 107 |  | calc | `3.0` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 107 |  | calc | `3.0` | not run: input: redshift z=3.0 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L107) | - |
 | 112 | eq:ld_ratio | derived |  | sympy: 1/mu = 1 + beta_m E H0^2/H^2 | PASS |
 | 116 | ch:lensdyn:L116 | calc | `-0.31` | numeric: dR/dz at z=0.0 | PASS |
 | 116 | ch:lensdyn:L116:-0.18 | calc | `-0.18` | numeric: dR/dz at z=0.3 | PASS |
 | 116 | ch:lensdyn:L116:-0.12 | calc | `-0.12` | numeric: dR/dz at z=0.5 | PASS |
-| 116 |  | calc | `0.3` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 116 |  | calc | `0.3` | not run: input: redshift z=0.3 at which the slope dR/dz is evaluated (slopes checked at ch:lensdyn:L116 ff.) | - |
 | 117 | ch:lensdyn:L117 | calc | `-0.04` | numeric: dR/dz at z=1.0 | PASS |
-| 117 |  | calc | `0.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 121 | ch:lensdyn:L121 | measured | `-1.57` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 121 | ch:lensdyn:L121:-1.10 | measured | `-1.10` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
+| 117 |  | calc | `0.5` | not run: input: redshift z=0.5 at which the slope dR/dz is evaluated (slopes checked at ch:lensdyn:L116 ff.) | - |
+| 121 | ch:lensdyn:L121 | measured | `-1.57` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 121 | ch:lensdyn:L121:-1.10 | measured | `-1.10` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
 | 121 | ch:lensdyn:L121:1.105 | calc | `1.105` | numeric: same value as p2_17_lensing_dynamics:100 (1/mu at z=0.2) | PASS |
 | 121 | ch:lensdyn:L121:1.055 | calc | `1.055` | numeric: same value as p2_17_lensing_dynamics:102 (1/mu at z=0.5) | PASS |
 | 121 | ch:lensdyn:L121:1.018 | calc | `1.018` | numeric: same value as p2_17_lensing_dynamics:104 (1/mu at z=1.0) | PASS |
 | 121 | ch:lensdyn:L121:1.002 | calc | `1.002` | numeric: same value as p2_17_lensing_dynamics:106 (1/mu at z=2.0) | PASS |
-| 121 | ch:lensdyn:L121:0.8143 | measured | `0.8143` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 121 | ch:lensdyn:L121:0.8015 | measured | `0.8015` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 121 | ch:lensdyn:L121:0.8087 | measured | `0.8087` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 121 | ch:lensdyn:L121:0.7998 | measured | `0.7998` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
+| 121 | ch:lensdyn:L121:0.8143 | measured | `0.8143` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 121 | ch:lensdyn:L121:0.8015 | measured | `0.8015` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 121 | ch:lensdyn:L121:0.8087 | measured | `0.8087` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 121 | ch:lensdyn:L121:0.7998 | measured | `0.7998` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
 | 127 | eq:ld_slip | derived |  | sympy: Phi/Psi = (2-mu)/mu with Psi = mu Psi_GR and (Phi+Psi)/2 = Psi_GR | PASS |
 | 130 | ch:lensdyn:L130 | calc | `1.315` | numeric: Phi/Psi at z=0.0 | PASS |
 | 130 | ch:lensdyn:L130:1.170 | calc | `1.170` | numeric: Phi/Psi at z=0.3 | PASS |
 | 130 | ch:lensdyn:L130:1.036 | calc | `1.036` | numeric: Phi/Psi at z=1.0 | PASS |
-| 130 |  | calc | `0.3` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 143 |  | derived | `0.08` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 130 |  | calc | `0.3` | not run: input: redshift z=0.3 at which Phi/Psi is evaluated (checked at ch:lensdyn:L130:1.170) | - |
+| 143 | ch:lensdyn:L143:0.08 | derived | `0.08` | numeric: CMB lensing power lower, Limber estimate, per cent | PASS |
 | 149 | ch:lensdyn:L149 | calc | `1.205` | numeric: 1/(1-b), b = 0.17 | PASS |
-| 149 |  | calc | `0.17` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 178 | ch:lensdyn:L178 | observed | `1.158` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 183 |  | observed | `0.58` | not run: measured, too few printed digits to match against the named files | - |
-| 184 | ch:lensdyn:L184 | observed | `1.57` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 184 |  | observed | `0.8` | not run: measured, too few printed digits to match against the named files | - |
+| 149 |  | calc | `0.17` | not run: input: b = 0.17, the illustrative bias value (1/(1-b) = 1.205 is checked at ch:lensdyn:L149) | - |
+| 178 | ch:lensdyn:L178 | observed | `1.158` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 183 | ch:lensdyn:L183:0.58 | observed | `0.58` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: 1-b needed by Planck SZ counts + primary CMB (data section) | PASS |
+| 184 | ch:lensdyn:L184 | observed | `1.57` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 184 | ch:lensdyn:L184:0.8 | observed | `0.8` | numeric: baseline 1-b of the 2013 Planck SZ analysis | PASS |
 | 185 | ch:lensdyn:L185 | calc | `0.8143` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: same value as p2_08_s8_trend:122 (LCDM chain sigma8, Planck-only) | PASS |
 | 185 | ch:lensdyn:L185:1.11 | calc | `1.11` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 lower, Level 2 | PASS |
 | 185 | ch:lensdyn:L185:0.8087 | calc | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_02_virial:212 (Level2 LCDM chain sigma8) | PASS |
-| 186 |  | openprob | `0.15` | not run: not yet checked | - |
-| 200 | ch:lensdyn:L200 | observed | `0.688` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 200 | ch:lensdyn:L200:1.45 | observed | `1.45` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 201 | ch:lensdyn:L201 | observed | `0.780` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 201 | ch:lensdyn:L201:1.28 | observed | `1.28` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 202 |  | observed | `0.99` | not run: measured, too few printed digits to match against the named files | - |
-| 203 | ch:lensdyn:L203 | observed | `1.72` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 203 |  | observed | `0.58` | not run: measured, too few printed digits to match against the named files | - |
-| 204 | ch:lensdyn:L204 | observed | `1.05` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 204 | ch:lensdyn:L204:0.909 | observed | `0.909` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 204 | ch:lensdyn:L204:0.225 | observed | `0.225` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 204 |  | observed | `0.15` | not run: measured, too few printed digits to match against the named files | - |
-| 204 |  | observed | `0.3` | not run: measured, too few printed digits to match against the named files | - |
-| 204 |  | observed | `0.95` | not run: measured, too few printed digits to match against the named files | - |
-| 204 |  | observed | `+0.8` | not run: measured, too few printed digits to match against the named files | - |
-| 205 | ch:lensdyn:L205 | observed | `0.909` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 205 | ch:lensdyn:L205:0.225 | observed | `0.225` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 205 |  | observed | `0.3` | not run: measured, too few printed digits to match against the named files | - |
-| 205 |  | observed | `0.90` | not run: measured, too few printed digits to match against the named files | - |
-| 205 |  | observed | `-0.1` | not run: measured, too few printed digits to match against the named files | - |
-| 206 | ch:lensdyn:L206 | observed | `0.936` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 206 |  | observed | `0.3` | not run: measured, too few printed digits to match against the named files | - |
-| 206 |  | observed | `0.71` | not run: measured, too few printed digits to match against the named files | - |
-| 206 |  | observed | `0.4` | not run: measured, too few printed digits to match against the named files | - |
-| 206 |  | observed | `-3.2` | not run: measured, too few printed digits to match against the named files | - |
-| 207 | ch:lensdyn:L207 | observed | `0.909` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 207 | ch:lensdyn:L207:0.225 | observed | `0.225` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 207 |  | observed | `0.3` | not run: measured, too few printed digits to match against the named files | - |
-| 207 |  | observed | `0.96` | not run: measured, too few printed digits to match against the named files | - |
-| 207 |  | observed | `+0.6` | not run: measured, too few printed digits to match against the named files | - |
-| 208 | ch:lensdyn:L208 | observed | `0.936` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 208 |  | observed | `0.3` | not run: measured, too few printed digits to match against the named files | - |
-| 208 |  | observed | `0.61` | not run: measured, too few printed digits to match against the named files | - |
-| 208 |  | observed | `0.4` | not run: measured, too few printed digits to match against the named files | - |
-| 208 |  | observed | `-3.6` | not run: measured, too few printed digits to match against the named files | - |
-| 209 | ch:lensdyn:L209 | observed | `1.19` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 209 |  | observed | `0.84` | not run: measured, too few printed digits to match against the named files | - |
+| 186 |  | openprob | `0.15` | not run: restates the simulation range b about 0.1-0.15 of line 37 (Lau2009, Nelson2014); measured, source not named (listed in sources_needed at line 37) | - |
+| 200 | ch:lensdyn:L200 | observed | `0.688` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 200 | ch:lensdyn:L200:1.45 | observed | `1.45` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 201 | ch:lensdyn:L201 | observed | `0.780` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 201 | ch:lensdyn:L201:1.28 | observed | `1.28` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 202 | ch:lensdyn:L202:0.99 | observed | `0.99` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: CMB-lensing calibration 1/(1-b) | PASS |
+| 203 | ch:lensdyn:L203 | observed | `1.72` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 203 | ch:lensdyn:L203:0.58 | observed | `0.58` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: 1-b needed by counts + CMB (table) | PASS |
+| 204 | ch:lensdyn:L204 | observed | `1.05` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 204 | ch:lensdyn:L204:0.909 | observed | `0.909` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 204 | ch:lensdyn:L204:0.225 | observed | `0.225` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 204 | ch:lensdyn:L204:0.95 | observed | `0.95` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: LoCuSS beta_X = M_X/M_WL | PASS |
+| 204 | ch:lensdyn:L204:+0.8 | observed | `+0.8` | numeric `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: LoCuSS offset (beta_X - mu(0.225))/sigma | PASS |
+| 204 |  | observed | `0.15` | not run: input: redshift bound z=0.15 of the published cluster sample split (Smith2016LoCuSS), a sample definition | - |
+| 204 |  | observed | `0.3` | not run: input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition | - |
+| 205 | ch:lensdyn:L205 | observed | `0.909` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 205 | ch:lensdyn:L205:0.225 | observed | `0.225` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 205 | ch:lensdyn:L205:0.90 | observed | `0.90` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: WtG reanalysed z<0.3, beta_P | PASS |
+| 205 | ch:lensdyn:L205:-0.1 | observed | `-0.1` | numeric `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: WtG z<0.3 offset (beta_P - mu(0.225))/sigma | PASS |
+| 205 |  | observed | `0.3` | not run: input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition | - |
+| 206 | ch:lensdyn:L206 | observed | `0.936` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 206 | ch:lensdyn:L206:0.71 | observed | `0.71` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: WtG reanalysed z>0.3, beta_P | PASS |
+| 206 | ch:lensdyn:L206:-3.2 | observed | `-3.2` | numeric `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: WtG z>0.3 offset (beta_P - mu(0.4))/sigma | PASS |
+| 206 |  | observed | `0.3` | not run: input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition | - |
+| 206 |  | observed | `0.4` | not run: input: representative redshift z=0.4 at which mu is evaluated for the z>0.3 samples (mu(0.4) enters ch:lensdyn:L206:-3.2 and L208:-3.6) | - |
+| 207 | ch:lensdyn:L207 | observed | `0.909` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 207 | ch:lensdyn:L207:0.225 | observed | `0.225` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 207 | ch:lensdyn:L207:0.96 | observed | `0.96` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: CCCP reanalysed z<0.3, beta_P | PASS |
+| 207 | ch:lensdyn:L207:+0.6 | observed | `+0.6` | numeric `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: CCCP z<0.3 offset (beta_P - mu(0.225))/sigma | PASS |
+| 207 |  | observed | `0.3` | not run: input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition | - |
+| 208 | ch:lensdyn:L208 | observed | `0.936` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 208 | ch:lensdyn:L208:0.61 | observed | `0.61` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: CCCP reanalysed z>0.3, beta_P | PASS |
+| 208 | ch:lensdyn:L208:-3.6 | observed | `-3.6` | numeric `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: CCCP z>0.3 offset (beta_P - mu(0.4))/sigma | PASS |
+| 208 |  | observed | `0.3` | not run: input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition | - |
+| 208 |  | observed | `0.4` | not run: input: representative redshift z=0.4 at which mu is evaluated for the z>0.3 samples (mu(0.4) enters ch:lensdyn:L206:-3.2 and L208:-3.6) | - |
+| 209 | ch:lensdyn:L209 | observed | `1.19` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 209 | ch:lensdyn:L209:0.84 | observed | `0.84` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: CCCP + MENeaCS 1-b (Herbonnet 2020) | PASS |
 | 212 | ch:lensdyn:L212 | calc | `1.07` | numeric: 1/mu at z=0.4 ('approx') | PASS |
 | 212 | ch:lensdyn:L212:1.10 | calc | `1.10` | numeric: 1/mu at z=0.2 ('approx') | PASS |
-| 212 |  | calc | `0.4` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 213 |  | calc | `0.15` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 213 |  | calc | `0.3` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 214 |  | calc | `0.96` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 214 |  | calc | `0.95` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 214 |  | calc | `0.909` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 215 |  | observed | `0.3` | not run: measured, too few printed digits to match against the named files | - |
-| 215 |  | observed | `0.71` | not run: measured, too few printed digits to match against the named files | - |
-| 215 |  | observed | `0.61` | not run: measured, too few printed digits to match against the named files | - |
-| 223 |  | prediction | `10` | not run: not yet checked | - |
+| 212 |  | calc | `0.4` | not run: input: upper end z=0.4 of the sample redshifts z about 0.2-0.4 (1/mu there is checked at ch:lensdyn:L212) | - |
+| 213 |  | calc | `0.15` | not run: input: redshift bound z=0.15 of the published cluster sample split (Smith2016LoCuSS), a sample definition | - |
+| 213 |  | calc | `0.3` | not run: input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition | - |
+| 214 | ch:lensdyn:L214:0.96 | calc | `0.96` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: upper end of beta_P at 0.15<z<0.3 (CCCP) | PASS |
+| 214 | ch:lensdyn:L214:0.95 | calc | `0.95` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: LoCuSS beta_X (text) | PASS |
+| 214 | ch:lensdyn:L214:0.909 | calc | `0.909` | numeric: mu at z=0.225 (Level 1 form) | PASS |
+| 215 | ch:lensdyn:L215:0.71 | observed | `0.71` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: WtG reanalysed z>0.3 beta_P (text) | PASS |
+| 215 | ch:lensdyn:L215:0.61 | observed | `0.61` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: CCCP reanalysed z>0.3 beta_P (text) | PASS |
+| 215 |  | observed | `0.3` | not run: input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition | - |
+| 223 |  | prediction | `10` | not run: prediction, nothing to recompute: 'of order 10^5' clusters from the mission planning (a count) | - |
 | 231 | ch:lensdyn:L231 | calc | `10.5` | numeric: excess at z=0.2 | PASS |
-| 231 |  | calc | `0.2` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 231 |  | calc | `0.2` | not run: input: lower redshift 0.2 of the Euclid range in the caption (the 10.5 % there is checked at ch:lensdyn:L234:10.5) | - |
 | 234 | ch:lensdyn:L234 | calc | `1.105` | numeric: 1/mu at z=0.2 | PASS |
 | 234 | ch:lensdyn:L234:10.5 | calc | `10.5` | numeric: excess at z=0.2 | PASS |
-| 234 |  | calc | `0.2` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 234 |  | calc | `0.2` | not run: input: redshift z=0.2 of the row of Table tab:ld_euclid (its values are checked at ch:lensdyn:L234) | - |
 | 235 | ch:lensdyn:L235 | calc | `1.055` | numeric: 1/mu at z=0.5 | PASS |
 | 235 | ch:lensdyn:L235:5.5 | calc | `5.5` | numeric: excess at z=0.5 | PASS |
-| 235 |  | calc | `0.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 235 |  | calc | `0.5` | not run: input: redshift z=0.5 of the row of Table tab:ld_euclid (its values are checked at ch:lensdyn:L235) | - |
 | 236 | ch:lensdyn:L236 | calc | `1.018` | numeric: 1/mu at z=1.0 | PASS |
 | 236 | ch:lensdyn:L236:1.8 | calc | `1.8` | numeric: excess at z=1.0 | PASS |
-| 236 |  | calc | `1.0` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 236 |  | calc | `1.0` | not run: input: redshift z=1.0 of the row of Table tab:ld_euclid (its values are checked at ch:lensdyn:L236) | - |
 | 237 | ch:lensdyn:L237 | calc | `1.006` | numeric: 1/mu at z=1.5 | PASS |
 | 237 | ch:lensdyn:L237:0.6 | calc | `0.6` | numeric: excess at z=1.5 | PASS |
-| 237 |  | calc | `1.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 237 |  | calc | `1.5` | not run: input: redshift z=1.5 of the row of Table tab:ld_euclid (its values are checked at ch:lensdyn:L237) | - |
 | 238 | ch:lensdyn:L238 | calc | `1.002` | numeric: 1/mu at z=2.0 | PASS |
 | 238 | ch:lensdyn:L238:0.2 | calc | `0.2` | numeric: excess at z=2.0 | PASS |
-| 238 |  | calc | `2.0` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 242 |  | prediction | `10` | not run: not yet checked | - |
-| 246 |  | prediction | `10` | not run: not yet checked | - |
-| 247 |  | prediction | `1.5` | not run: not yet checked | - |
-| 250 |  | calc | `0.1` | not run: not yet run: draft rejected (no draft returned) | - |
-| 258 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft returned) | - |
-| 258 |  | calc | `0.5` | not run: not yet run: draft rejected (no draft returned) | - |
-| 258 |  | calc | `0.8` | not run: not yet run: draft rejected (no draft returned) | - |
-| 258 |  | calc | `1.2` | not run: not yet run: draft rejected (drafter skipped: Bin centre z=1.2 is a chosen parameter of the test design (line 258), not) | - |
+| 238 |  | calc | `2.0` | not run: input: redshift z=2.0 of the row of Table tab:ld_euclid (its values are checked at ch:lensdyn:L238) | - |
+| 242 |  | prediction | `10` | not run: prediction, nothing to recompute: 'of order 10^5' clusters (a count) | - |
+| 246 |  | prediction | `10` | not run: input: 'of order 10^5' clusters in the eROSITA survey planning (a count, Merloni2012) | - |
+| 247 |  | prediction | `1.5` | not run: input: redshift range 0<z<1.5 of the cross-matched sample (a survey specification) | - |
+| 250 |  | calc | `0.1` | not run: input: redshift range 0.1<z<2 of the test design | - |
+| 258 |  | calc | `0.2` | not run: input: bin centre z=0.2 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7) | - |
+| 258 |  | calc | `0.5` | not run: input: bin centre z=0.5 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7) | - |
+| 258 |  | calc | `0.8` | not run: input: bin centre z=0.8 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7) | - |
+| 258 |  | calc | `1.2` | not run: input: bin centre z=1.2 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7) | - |
 | 259 | ch:lensdyn:L259 | calc | `2.7` | numeric: absolute error per bin (in per cent of the ratio) for chi2 = 9 against the best constant | PASS |
-| 259 |  | calc | `1.8` | not run: not yet run: draft rejected (drafter skipped: Bin centre z=1.8 is a chosen parameter of the test design (line 258), not) | - |
+| 259 |  | calc | `1.8` | not run: input: bin centre z=1.8 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7) | - |
 | 263 | ch:lensdyn:L263 | calc | `-0.31` | numeric: dR/dz at z=0.0 | PASS |
 | 263 | ch:lensdyn:L263:-0.18 | calc | `-0.18` | numeric: dR/dz at z=0.3 | PASS |
 | 263 | ch:lensdyn:L263:2.7 | calc | `2.7` | numeric: absolute error per bin (in per cent of the ratio) for chi2 = 9 against the best constant | PASS |
-| 263 |  | calc | `0.3` | not run: not yet run: draft rejected (drafter skipped: Bin centre z=0.3 is a chosen parameter of the test design (line 263), not) | - |
-| 263 |  | calc | `0.2` | not run: not yet run: draft rejected (drafter skipped: Bin centre z=0.2 is a chosen parameter of the test design (line 263), not) | - |
-| 263 |  | calc | `0.5` | not run: not yet run: draft rejected (drafter skipped: Bin centre z=0.5 is a chosen parameter of the test design (line 263), not) | - |
-| 263 |  | calc | `0.8` | not run: not yet run: draft rejected (drafter skipped: Bin centre z=0.8 is a chosen parameter of the test design (line 263), not) | - |
-| 263 |  | calc | `1.2` | not run: not yet run: draft rejected (drafter skipped: Bin centre z=1.2 is a chosen parameter of the test design (line 263), not) | - |
-| 263 |  | calc | `1.8` | not run: not yet run: draft rejected (drafter skipped: Bin centre z=1.8 is a chosen parameter of the test design (line 263), not) | - |
+| 263 |  | calc | `0.3` | not run: input: redshift z=0.3 at which the slope is quoted in the caption (dR/dz there is checked at ch:lensdyn:L263:-0.18) | - |
+| 263 |  | calc | `0.2` | not run: input: bin centre z=0.2 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7) | - |
+| 263 |  | calc | `0.5` | not run: input: bin centre z=0.5 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7) | - |
+| 263 |  | calc | `0.8` | not run: input: bin centre z=0.8 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7) | - |
+| 263 |  | calc | `1.2` | not run: input: bin centre z=1.2 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7) | - |
+| 263 |  | calc | `1.8` | not run: input: bin centre z=1.8 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7) | - |
 | 268 | ch:lensdyn:L268 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
 | 268 | ch:lensdyn:L268:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 269 | ch:lensdyn:L269 | calc | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_02_virial:212 (Level2 LCDM chain sigma8) | PASS |
@@ -2966,10 +2963,10 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 270 | ch:lensdyn:L270 | calc | `2.17` | numeric: f sigma8 deficit z=0.3 | PASS |
 | 270 | ch:lensdyn:L270:1.35 | calc | `1.35` | numeric: f sigma8 deficit z=0.5 | PASS |
 | 270 | ch:lensdyn:L270:0.41 | calc | `0.41` | numeric: f sigma8 deficit z=1.0 | PASS |
-| 270 |  | calc | `0.3` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 270 |  | calc | `0.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 285 | ch:lensdyn:L285 | observed | `0.864` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 291 |  | prediction | `1.158` | not run: not yet checked | - |
+| 270 |  | calc | `0.3` | not run: input: redshift z=0.3 of the f sigma8 deficit list (2.17 % checked at ch:lensdyn:L270) | - |
+| 270 |  | calc | `0.5` | not run: input: redshift z=0.5 of the f sigma8 deficit list (1.35 % checked at ch:lensdyn:L270:1.35) | - |
+| 285 | ch:lensdyn:L285 | observed | `0.864` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 291 | ch:lensdyn:L291:1.158 | prediction | `1.158` | numeric: M_lens/M_dyn = 1/mu at z=0 (falsification list) | PASS |
 
 ## Part 2 - ch:threeway - `docs/book/part2/p2_18_three_way_clusters.tex`
 
@@ -3134,7 +3131,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 21 | ch:satellites:L21:1.1 | calc | `1.1` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 lower, Level 2 chains | PASS |
 | 21 | ch:satellites:L21:1.6 | calc | `1.6` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 lower, Level 1 chains | PASS |
 | 27 |  | observed | `10` | not run: measured, too few printed digits to match against the named files | - |
-| 42 | eq:ms_virial | derived |  | sympy: 2K + V = 0 gives K = /V//2 (the display's K+V=0 reads the bound-state energy E = -K) | PASS |
+| 42 | eq:ms_virial | derived |  | sympy: 2K + V = 0 gives K = |V|/2 (the display's K+V=0 reads the bound-state energy E = -K) | PASS |
 | 51 | eq:ms_beta | prediction | `0.15765` | numeric: beta_m | PASS |
 | 55 | ch:satellites:L55 | calc | `0.1583` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_05_dual_sector_note:113 (Omega_m/2 from Planck posterior (beta_m-fixed chain)) | PASS |
 | 56 | ch:satellites:L56 | calc | `0.3166` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p1_03_virial_law:144 (Level2 Planck posterior Omega_m mean) | PASS |
@@ -3171,12 +3168,12 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 123 |  | calc | `0.24` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
 | 123 |  | calc | `0.35` | not run: not yet run: draft rejected (printed value typed into the code) | - |
 | 136 | ch:satellites:L136 | calc | `0.1583` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_05_dual_sector_note:113 (Omega_m/2 from Planck posterior (beta_m-fixed chain)) | PASS |
-| 137 | ch:satellites:L137 | fitted | `0.7998` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 137 | ch:satellites:L137:0.802 | fitted | `0.802` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
+| 137 | ch:satellites:L137 | fitted | `0.7998` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 137 | ch:satellites:L137:0.802 | fitted | `0.802` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
 | 137 |  | fitted | `0.018` | not run: measured, too few printed digits to match against the named files | - |
 | 137 |  | fitted | `0.1` | not run: measured, too few printed digits to match against the named files | - |
-| 138 | ch:satellites:L138 | fitted | `67.16` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
-| 138 | ch:satellites:L138:67.36 | fitted | `67.36` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the c | PASS |
+| 138 | ch:satellites:L138 | fitted | `67.16` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 138 | ch:satellites:L138:67.36 | fitted | `67.36` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
 | 138 |  | fitted | `0.37` | not run: measured, too few printed digits to match against the named files | - |
 | 139 | ch:satellites:L139 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
 | 139 | ch:satellites:L139:67.161 | calc | `67.161` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_03_theory:889 (Level2 posterior mean H0) | PASS |
@@ -3248,7 +3245,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 106 | ch:blackholes:L106 | derived |  | sympy: P_SB/P_Hawking = 1 | PASS |
 | 122 | eq:bh_transfer_rate | none |  | sympy: transfer rate = Gamma | PASS |
 | 126 | ch:blackholes:L126 | derived |  | sympy: loss of S_BH in bits per second = Gamma | PASS |
-| 136 | ch:blackholes:L136 | calc | `<2\times10^{-16}` | numeric: max /T S/Mc^2 - 1/2/ for 1 to 1e11 M_sun (floating point) | PASS |
+| 136 | ch:blackholes:L136 | calc | `<2\times10^{-16}` | numeric: max |T S/Mc^2 - 1/2| for 1 to 1e11 M_sun (floating point) | PASS |
 | 136 | ch:blackholes:L136:0.433 | calc | `0.433` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 136 | ch:blackholes:L136:0.218 | calc | `0.218` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 136 | ch:blackholes:L136:0.032 | calc | `0.032` | numeric: drafted check, screened (runs; negative control fails) | PASS |
@@ -3327,7 +3324,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 307 |  | calc | `9.8\times10^{5}` | not run: not yet run: draft does not reproduce the printed value (recomputed 8.448507e+72); drafting error on review | - |
 | 308 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 95); drafting error on review | - |
 | 308 |  | calc | `9.8\times10^{8}` | not run: not yet run: draft does not reproduce the printed value (recomputed 8.448507e+78); drafting error on review | - |
-| 316 | ch:blackholes:L316 | observed | `1.456` | heavy file `docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt`: measured: printed value found in verify_virial_atoms_to_horizon_output.txt, a file the c | PASS |
+| 316 | ch:blackholes:L316 | observed | `1.456` | heavy file `docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt`: measured: printed value found in verify_virial_atoms_to_horizon_output.txt, a file the chapter names | PASS |
 | 316 |  | observed | `1.44` | not run: measured, not found in the files the chapter names | - |
 | 318 |  | observed | `2.25` | not run: measured, not found in the files the chapter names | - |
 | 318 |  | observed | `0.07` | not run: measured, too few printed digits to match against the named files | - |
@@ -3353,7 +3350,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 24 | ch:bekenstein:L24 | none |  | sympy: 1/4 = 2pi/8pi | PASS |
 | 46 | eq:bk_unruh | none |  | not run: displayed equation, not yet checked | - |
 | 51 | eq:bk_SetaA | none |  | not run: displayed equation, not yet checked | - |
-| 57 | eq:bk_Geta | derived |  | sympy: G from matching 2pi/(hbar c eta) to the Newtonian-limit 8 pi G/c^4 equals c^3/(4 hbar eta), and agrees with inverting the Bekenstein-Hawking eta; the c-less match  | PASS |
+| 57 | eq:bk_Geta | derived |  | sympy: G from matching 2pi/(hbar c eta) to the Newtonian-limit 8 pi G/c^4 equals c^3/(4 hbar eta), and agrees with inverting the Bekenstein-Hawking eta; the c-less match is shown to fail | PASS |
 | 79 | eq:bk_decoherence | none |  | not run: displayed equation, not yet checked | - |
 | 84 | eq:bk_diagonal | none |  | not run: displayed equation, not yet checked | - |
 | 109 | eq:bk_SpropA | none |  | not run: displayed equation, not yet checked | - |
@@ -3377,7 +3374,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 230 |  | none |  | not run: displayed equation, not yet checked | - |
 | 235 |  | none |  | not run: displayed equation, not yet checked | - |
 | 242 |  | none |  | not run: displayed equation, not yet checked | - |
-| 246 | ch:bekenstein:L246 | derived |  | sympy: f from the Bianchi step equals -(hbar c eta/2pi)(R/2 - Lambda); the coefficient 2pi/(hbar c eta), with eta = c^3/(4 hbar G) from the Bekenstein-Hawking area law, e | PASS |
+| 246 | ch:bekenstein:L246 | derived |  | sympy: f from the Bianchi step equals -(hbar c eta/2pi)(R/2 - Lambda); the coefficient 2pi/(hbar c eta), with eta = c^3/(4 hbar G) from the Bekenstein-Hawking area law, equals 8 pi G/c^4 from the Newtonian limit; the c-less form 2pi/(hbar eta) is shown to fail | PASS |
 | 251 | eq:bk_core | derived |  | sympy: the two forms of the core identity agree | PASS |
 | 261 | eq:bk_eta | derived |  | sympy: eta = 1/(4 l_P^2), l_P^2 = hbar G/c^3 | PASS |
 | 271 | eq:bk_etasolve | derived |  | sympy: eta = (c^3/8piG)(2pi/hbar) = (1/4) c^3/(hbar G) | PASS |
@@ -3429,12 +3426,12 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 33 | eq:qr_SE | derived |  | not run: not yet run: draft rejected (drafter skipped: The equation /\Psi\rangle_{S\mathcal E}=\sum_i c_i\,/s_i\rangle_S\otimes/) | - |
+| 33 | eq:qr_SE | derived |  | not run: not yet run: draft rejected (drafter skipped: The equation |\Psi\rangle_{S\mathcal E}=\sum_i c_i\,|s_i\rangle_S\otimes|) | - |
 | 40 | eq:qr_tauD | derived |  | not run: not yet run: draft rejected (drafter skipped: The equation tau_D ~ tau_R (lambda_th / Delta x)^2, lambda_th = hbar / sq) | - |
 | 44 | ch:quantumrecords:L44 | calc | `3.7\times 10^{-23}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 71 |  | calc | `2.5\times10^{-87}` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.096050e-88); drafting error on review | - |
 | 88 | eq:qr_virial_n | none |  | not run: displayed equation, not yet checked | - |
-| 92 | eq:qr_virial_1 | derived |  | sympy: n=1 in 2K = n/V/ gives K = /V//2 | PASS |
+| 92 | eq:qr_virial_1 | derived |  | sympy: n=1 in 2K = n|V| gives K = |V|/2 | PASS |
 | 104 | eq:qr_betam | derived | `0.15765` | numeric: beta_m = Omega_m/2 = 0.15765 | PASS |
 | 107 | ch:quantumrecords:L107 | derived | `0.3153` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 127 | eq:qr_tauhalo | none |  | not run: displayed equation, not yet checked | - |
@@ -3534,7 +3531,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 89 | ch:entanglement:L89 | calc | `2.2\times10^{-10}` | numeric: tau_IAM = tau_PD at 10 mK, silica | PASS |
 | 89 |  | calc | `2200` | not run: not yet run: draft rejected (no draft returned) | - |
 | 89 |  | calc | `10` | not run: not yet run: draft rejected (no draft returned) | - |
-| 94 | ch:entanglement:L94 | observed | `1.42` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the | PASS |
+| 94 | ch:entanglement:L94 | observed | `1.42` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names | PASS |
 | 94 |  | observed | `4.6\times10^{-25}` | not run: measured, too few printed digits to match against the named files | - |
 | 119 |  | prediction | `10` | not run: not yet checked | - |
 
@@ -3543,7 +3540,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 28 | ch:measurement:L28 | measured | `0.800` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
-| 28 | ch:measurement:L28:72.26 | measured | `72.26` | heavy file `docs/verification/scripts/verify_records_measurement_time_output.txt`: measured: printed value found in verify_records_measurement_time_output.txt, a file the | PASS |
+| 28 | ch:measurement:L28:72.26 | measured | `72.26` | heavy file `docs/verification/scripts/verify_records_measurement_time_output.txt`: measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names | PASS |
 | 42 | ch:measurement:L42 | calc | `16.7` | numeric: flight time over 5 m, ns | PASS |
 | 49 | eq:mp_QL | calc |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
 | 52 | ch:measurement:L52 | calc | `0.0179` | numeric: Q_L = k_B T ln2 at 300 K, eV | PASS |
@@ -3620,7 +3617,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 195 | eq:mp_smax | derived |  | sympy: Horodecki: dephased Bell state, S_max = 2 sqrt(1+c^2) | PASS |
 | 199 | ch:measurement:L199 | calc | `0.586` | numeric: sqrt2 (1+c) = 2 at c = 1-D: D = 2 - sqrt2 | PASS |
 | 199 | ch:measurement:L199:0.293 | calc | `0.293` | numeric: 2 sqrt2 (1-D) = 2: D = 1 - 1/sqrt2 | PASS |
-| 201 | ch:measurement:L201 | observed | `2.42` | heavy file `docs/verification/scripts/verify_records_measurement_time_output.txt`: measured: printed value found in verify_records_measurement_time_output.txt, a file the | PASS |
+| 201 | ch:measurement:L201 | observed | `2.42` | heavy file `docs/verification/scripts/verify_records_measurement_time_output.txt`: measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names | PASS |
 | 201 |  | observed | `1.3` | not run: measured, too few printed digits to match against the named files | - |
 | 209 | ch:measurement:L209 | calc | `2\times10^3` | numeric: 1,000 photons of 2 eV | PASS |
 | 209 | ch:measurement:L209:1.1\times10^5 | calc | `1.1\times10^5` | numeric: 2e3 eV over Q_L at 300 K | PASS |
@@ -3628,7 +3625,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 210 | ch:measurement:L210:33599 | calc | `33599` | numeric: log10 of 2^111612 | PASS |
 | 224 |  | interp | `10` | not run: not yet checked | - |
 | 224 |  | interp | `13.8` | not run: not yet checked | - |
-| 256 | ch:measurement:L256 | observed | `0.0179` | heavy file `docs/verification/scripts/verify_measurement_problem_output.txt`: measured: printed value found in verify_measurement_problem_output.txt, a file the chapter n | PASS |
+| 256 | ch:measurement:L256 | observed | `0.0179` | heavy file `docs/verification/scripts/verify_measurement_problem_output.txt`: measured: printed value found in verify_measurement_problem_output.txt, a file the chapter names | PASS |
 
 ## Part 4 - ch:gravdec - `docs/book/part5/p5_05_gravdec.tex`
 
@@ -3737,7 +3734,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 32 |  | calc | `80.369` | not run: not yet run: draft rejected (printed value typed into the code) | - |
 | 36 |  | observed | `80.4` | not run: measured, not found in the files the chapter names | - |
 | 36 |  | observed | `91.2` | not run: measured, not found in the files the chapter names | - |
-| 53 | ch:electroweak:L53 | observed | `159.5` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the | PASS |
+| 53 | ch:electroweak:L53 | observed | `159.5` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names | PASS |
 | 53 | ch:electroweak:L53:0.301 | observed | `0.301` | file `docs/verification/particle/ELECTROWEAK_CHECK.md`: measured: printed value found in ELECTROWEAK_CHECK.md, a file the chapter names | PASS |
 | 54 | ch:electroweak:L54 | calc | `4.9\times10^{-16}` | numeric: scale factor at the crossover, entropy conservation | PASS |
 | 54 |  | calc | `106.75` | not run: not yet run: draft rejected (drafter skipped: g_* is the effective number of relativistic degrees of freedom at T_c = 1) | - |
@@ -3758,8 +3755,8 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 17 | ch:higgsrecord:L17 | observed | `159.5` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the | PASS |
-| 17 | ch:higgsrecord:L17:106.75 | observed | `106.75` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the | PASS |
+| 17 | ch:higgsrecord:L17 | observed | `159.5` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names | PASS |
+| 17 | ch:higgsrecord:L17:106.75 | observed | `106.75` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names | PASS |
 | 17 |  | observed | `0.301` | not run: measured, not found in the files the chapter names | - |
 | 18 | ch:higgsrecord:L18 | calc | `9.2\times10^{-12}` | numeric: t = 0.301 g*^(-1/2) m_P/T^2 at T_c, s | PASS |
 | 18 |  | calc | `9.0` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.555594e+08); drafting error on review | - |
@@ -3794,7 +3791,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 111 |  | calc | `1.15` | not run: not yet run: draft rejected (no draft returned) | - |
 | 111 |  | calc | `10` | not run: not yet run: draft rejected (no draft returned) | - |
 | 111 |  | calc | `1000` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 125 | ch:higgsrecord:L125 | observed | `159.5` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the | PASS |
+| 125 | ch:higgsrecord:L125 | observed | `159.5` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names | PASS |
 | 125 | ch:higgsrecord:L125:246.22 | observed | `246.22` | numeric: same value as p2_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV) | PASS |
 | 125 | ch:higgsrecord:L125:125.20 | observed | `125.20` | heavy file `docs/verification/scripts/verify_particle_book_output.txt`: measured: printed value found in verify_particle_book_output.txt, a file the chapter names | PASS |
 | 125 |  | observed | `9.2\times10^{-12}` | not run: measured, too few printed digits to match against the named files | - |
@@ -3850,7 +3847,7 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 174 |  | calc | `0.67` | not run: not yet run: draft rejected (printed value typed into the code) | - |
 | 181 | eq:ko:weights | conjecture |  | not run: displayed equation, not yet checked | - |
 | 186 | eq:ko:ratio | conjecture |  | not run: displayed equation, not yet checked | - |
-| 196 | eq:ko:pos | derived |  | sympy: 1 + sqrt2 cos(phi) > 0 iff /phi - pi/ > pi/4 | PASS |
+| 196 | eq:ko:pos | derived |  | sympy: 1 + sqrt2 cos(phi) > 0 iff |phi - pi| > pi/4 | PASS |
 | 206 | ch:koide:L206 | derived | `0.2222` | numeric: measured offset delta | PASS |
 | 212 | ch:koide:L212 | derived | `0.50` | numeric: fraction of offsets admitting n=2 | PASS |
 | 212 | ch:koide:L212:0.25 | derived | `0.25` | numeric: fraction of offsets admitting n=3 | PASS |
@@ -4398,19 +4395,19 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 63 | ch:astrogenetics:L63 | calc | `3.03` | file `CANON/iam_canon.json`: Met-A at a coin flip: 1/0.330263 (canon floor) | PASS |
 | 63 | ch:astrogenetics:L63:4.45 | calc | `4.45` | file `CANON/iam_canon.json`: IAM-A at a coin flip: 1/(P H(eps0)) | PASS |
 | 63 | ch:astrogenetics:L63:0.2043 | calc | `0.2043` | numeric: H(eps0), bits | PASS |
-| 73 | ch:astrogenetics:L73 | measured | `1.148` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter nam | PASS |
+| 73 | ch:astrogenetics:L73 | measured | `1.148` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 88 | ch:astrogenetics:L88 | derived | `0.910` | file `CANON/iam_canon.json`: 1/P | PASS |
 | 88 |  | derived | `310` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 89 | ch:astrogenetics:L89 | calibrated | `0.330263` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter nam | PASS |
+| 89 | ch:astrogenetics:L89 | calibrated | `0.330263` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 90 | ch:astrogenetics:L90 | calc | `3.03` | file `CANON/iam_canon.json`: Met-A at a coin flip | PASS |
 | 90 | ch:astrogenetics:L90:4.45 | calc | `4.45` | file `CANON/iam_canon.json`: IAM-A at a coin flip | PASS |
 | 98 |  | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
 | 116 |  | calc | `2.40` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 139 | ch:astrogenetics:L139 | measured | `1.016` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter nam | PASS |
-| 140 | ch:astrogenetics:L140 | measured | `0.695` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter nam | PASS |
-| 140 | ch:astrogenetics:L140:1.120 | measured | `1.120` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter nam | PASS |
-| 141 | ch:astrogenetics:L141 | measured | `0.664` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter nam | PASS |
-| 141 | ch:astrogenetics:L141:0.975 | measured | `0.975` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter nam | PASS |
+| 139 | ch:astrogenetics:L139 | measured | `1.016` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
+| 140 | ch:astrogenetics:L140 | measured | `0.695` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
+| 140 | ch:astrogenetics:L140:1.120 | measured | `1.120` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
+| 141 | ch:astrogenetics:L141 | measured | `0.664` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
+| 141 | ch:astrogenetics:L141:0.975 | measured | `0.975` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 280 | ch:astrogenetics:L280 | derived | `0.15765` | numeric: beta_m | PASS |
 | 283 |  | measured | `0.2` | not run: measured, too few printed digits to match against the named files | - |
 | 283 |  | measured | `0.3` | not run: measured, too few printed digits to match against the named files | - |
@@ -4418,10 +4415,10 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 286 |  | fitted | `1.133\times10^{-123}` | not run: measured, not found in the files the chapter names | - |
 | 286 |  | fitted | `0.79` | not run: measured, too few printed digits to match against the named files | - |
 | 288 |  | observed | `0.5` | not run: measured, too few printed digits to match against the named files | - |
-| 295 | ch:astrogenetics:L295 | measured | `1.65` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter nam | PASS |
-| 295 | ch:astrogenetics:L295:1.97 | measured | `1.97` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter nam | PASS |
-| 295 | ch:astrogenetics:L295:1.05 | measured | `1.05` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter nam | PASS |
-| 298 | ch:astrogenetics:L298 | measured | `1.148` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter nam | PASS |
+| 295 | ch:astrogenetics:L295 | measured | `1.65` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
+| 295 | ch:astrogenetics:L295:1.97 | measured | `1.97` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
+| 295 | ch:astrogenetics:L295:1.05 | measured | `1.05` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
+| 298 | ch:astrogenetics:L298 | measured | `1.148` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 
 ## Part 6 - ch:landauer - `docs/book/part4/p4_02_landauer.tex`
 
@@ -5363,8 +5360,8 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 43 |  | calc | `4.5\times10^{-5}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
 | 60 | eq:time_Ea | none |  | not run: displayed equation, not yet checked | - |
 | 78 | eq:time_Ephoton | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 92 | ch:time:L92 | measured | `13.8` | heavy file `docs/verification/scripts/verify_records_measurement_time_output.txt`: measured: printed value found in verify_records_measurement_time_output.txt, a file the | PASS |
-| 93 | ch:time:L93 | measured | `67.16` | heavy file `docs/verification/scripts/verify_records_measurement_time_output.txt`: measured: printed value found in verify_records_measurement_time_output.txt, a file the | PASS |
+| 92 | ch:time:L92 | measured | `13.8` | heavy file `docs/verification/scripts/verify_records_measurement_time_output.txt`: measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names | PASS |
+| 93 | ch:time:L93 | measured | `67.16` | heavy file `docs/verification/scripts/verify_records_measurement_time_output.txt`: measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names | PASS |
 | 94 | ch:time:L94 | measured | `67.36` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
 | 96 | ch:time:L96 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
 | 97 | ch:time:L97 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
@@ -6032,9 +6029,9 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 33 | app:derivations:L33 | derived |  | sympy: dG/dt = sum p^2/m + sum F.r (one degree of freedom, F = m r'') | PASS |
-| 49 | app:derivations:L49 | calc | `13.606` | numeric: same value as p1_03_virial_law:144 (hydrogen /E/ = alpha^2 m_e c^2/2 (infinite-mass Rydberg)) | PASS |
+| 49 | app:derivations:L49 | calc | `13.606` | numeric: same value as p1_03_virial_law:144 (hydrogen |E| = alpha^2 m_e c^2/2 (infinite-mass Rydberg)) | PASS |
 | 49 | app:derivations:L49:-27.211 | calc | `-27.211` | numeric: <V> hydrogen, eV | PASS |
-| 50 | app:derivations:L50 | calc | `23.6` | numeric: Kelvin-Helmholtz /U//2L, n=3 polytrope, Myr | PASS |
+| 50 | app:derivations:L50 | calc | `23.6` | numeric: Kelvin-Helmholtz |U|/2L, n=3 polytrope, Myr | PASS |
 | 51 | app:derivations:L51 | calc | `1.456` | numeric: same value as p1_02_iams_law:840 (Chandrasekhar mass, mu_e=2, m_u) | PASS |
 | 51 |  | calc | `2.01824` | not run: not yet run: draft rejected (drafter skipped: ω₃⁰ is a zero of the Lane-Emden equation of index 3, from Chandrasekhar 1) | - |
 | 56 | app:derivations:L56 | derived |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
@@ -6077,9 +6074,9 @@ Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries t
 | 142 |  | calc | `5.2\times10^{121}` | not run: not yet run: draft does not reproduce the printed value (recomputed 2.246516e+45); drafting error on review | - |
 | 145 |  | openprob | `5\times10^{121}` | not run: not yet checked | - |
 | 154 |  | calc |  | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 163 | app:derivations:L163 | calc | `-2.02` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: slope of dS/dln a, full LambdaCDM growth (committed output; same value as ch:quantumrecords:L | PASS |
-| 163 | app:derivations:L163:-1.52 | calc | `-1.52` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: slope of dS/dln a, full LambdaCDM growth (committed output; same value as ch:quantumrecords:L | PASS |
-| 163 | app:derivations:L163:-1.02 | calc | `-1.02` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: slope of dS/dln a, full LambdaCDM growth (committed output; same value as ch:quantumrecords:L | PASS |
+| 163 | app:derivations:L163 | calc | `-2.02` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: slope of dS/dln a, full LambdaCDM growth (committed output; same value as ch:quantumrecords:L183) | PASS |
+| 163 | app:derivations:L163:-1.52 | calc | `-1.52` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: slope of dS/dln a, full LambdaCDM growth (committed output; same value as ch:quantumrecords:L183) | PASS |
+| 163 | app:derivations:L163:-1.02 | calc | `-1.02` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: slope of dS/dln a, full LambdaCDM growth (committed output; same value as ch:quantumrecords:L183) | PASS |
 | 163 |  | calc | `0.315` | not run: not yet run: draft rejected (printed value typed into the code) | - |
 | 163 |  | calc | `9.1\times10^{-5}` | not run: not yet run: draft rejected (printed value typed into the code) | - |
 | 163 |  | calc | `0.01` | not run: not yet run: draft rejected (printed value typed into the code) | - |

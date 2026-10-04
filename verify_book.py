@@ -605,6 +605,20 @@ DATA_FILES['docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv'] = 'N-
 DATA_FILES['mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'] = 'chain record: 18 final chains, 30 % burn-in'   # 4 kB
 DATA_FILES['mgcamb_validation/CHAIN_PAIRS_FINAL.csv'] = 'chain record: Level 1 IAM vs LambdaCDM pairs'   # 1 kB
 
+# helpers of the part2/p2_17_lensing_dynamics checks
+_B04_CL = 'docs/verification/scripts/verify_cluster_mass_satellites_output.txt'
+_B04_CL_RERUN = 'python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt'
+_B04_CHAINS = 'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
+_B04_CHAINS_RERUN = 'chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)'
+
+def _b04_cl(key):
+    '(value, error) of one published cluster calibration as the committed output lists it (section E/H), e.g. key "beta_P WtG z>0.3".'
+    m = re.search(re.escape(key) + r' = ([\d.]+) \+/- ([\d.]+)', file_text(_B04_CL))
+    return float(m.group(1)), float(m.group(2))
+
+def _b04_mu_z(z):
+    return float(mu_iam(1 / (1 + z)))
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -13485,6 +13499,13 @@ def check_1626():
 
 
 # ======== Part 2 | ch:lensdyn | docs/book/part2/p2_17_lensing_dynamics.tex
+@check(label='ch:lensdyn:L38:0.58', chapter='ch:lensdyn', part=2, title='1-b needed by Planck SZ counts + primary CMB',
+       file='part2/p2_17_lensing_dynamics', line=38, status='observed', kind='file', printed='0.58', tol=0.0, source=_B04_CL, heavy=True, rerun=_B04_CL_RERUN)
+def check_2927():
+    '1-b = 0.58 +- 0.04 needed to reconcile the Planck SZ counts with the primary CMB, Planck 2015 XXIV (doi 10.1051/0004-6361/201525833), read at its row of the committed cluster output. Book line 38, printed 0.58.'
+    value = _b04_cl('needed by counts + CMB 1-b')[0]
+    return locals()
+
 @check(label='ch:lensdyn:L46', chapter='ch:lensdyn', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
        file='part2/p2_17_lensing_dynamics', line=46, status='fitted', kind='file', printed='0.7998', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt')
@@ -13493,11 +13514,64 @@ def check_1627():
     ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '0.7998')
     return locals()
 
+@check(label='ch:lensdyn:L46:+0.54', chapter='ch:lensdyn', part=2, title='Level 2 chi2_min IAM (Run A) minus LCDM (Run C)',
+       file='part2/p2_17_lensing_dynamics', line=46, status='fitted', kind='file', printed='+0.54', tol=0.0, source=_B04_CHAINS, heavy=True, rerun=_B04_CHAINS_RERUN)
+def check_2928():
+    'Delta chi2 = chi2_min(Level 2 Run A, IAM) - chi2_min(Level 2 Run C, LambdaCDM), from the chain record. Book line 46, printed +0.54.'
+    value = csv_val(_B04_CHAINS, 'iam_level2_runA', 'chi2_min') - csv_val(_B04_CHAINS, 'iam_level2_runC_lcdm', 'chi2_min')
+    return locals()
+
+@check(label='eq:ld_mu', chapter='ch:lensdyn', part=2, title='mu(a) = H_L^2/(H_L^2 + beta_m E H0^2) from the matter-sector rate',
+       file='part2/p2_17_lensing_dynamics', line=62, status='prediction', kind='sym', printed='', tol=0.0)
+def check_2929():
+    'Eq. ld_mu from the mapping of Appendix der:growth: the density parameter that sources growth, 8 pi G rho_m/(3 H_m^2) with H_m^2 = H_L^2 + beta_m E H0^2 and H_L^2 = H0^2(Om a^-3 + OL), divided by its LambdaCDM value 8 pi G rho_m/(3 H_L^2), gives mu(a); at a=1 (Om+OL=1, E=1) it gives mu = 1/(1+beta_m). Book line 62.'
+    a, b, H0, G_, rho, Om_ = sp.symbols('a beta_m H_0 G rho_m Omega_m', positive=True)
+    HL2 = H0**2 * (Om_ * a**-3 + (1 - Om_))
+    E = sp.exp(1 - 1 / a)
+    Om_m = 8 * sp.pi * G_ * rho / (3 * (HL2 + b * E * H0**2))
+    Om_L = 8 * sp.pi * G_ * rho / (3 * HL2)
+    lhs = sp.simplify(Om_m / Om_L)
+    rhs = (Om_ * a**-3 + (1 - Om_)) / ((Om_ * a**-3 + (1 - Om_)) + b * sp.exp(1 - 1 / a))
+    ok = sp.simplify(lhs - rhs) == 0 and sp.simplify(lhs.subs(a, 1) - 1 / (1 + b)) == 0
+    neg_ok = sp.simplify(lhs - rhs.subs(b, sp.Rational(105, 100) * b)) == 0
+    return locals()
+
 @check(label='ch:lensdyn:L65', chapter='ch:lensdyn', part=2, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
        file='part2/p2_17_lensing_dynamics', line=65, status='prediction', kind='num', printed='0.15765', tol=3.2e-05)
 def check_1628():
     'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 65, printed 0.15765.'
     value = Om/2
+    return locals()
+
+@check(label='eq:ld_mdyn', chapter='ch:lensdyn', part=2, title='M_dyn = mu M_true (Gauss law on the mu Poisson equation)',
+       file='part2/p2_17_lensing_dynamics', line=77, status='none', kind='sym', printed='', tol=0.0)
+def check_2930():
+    'Eq. ld_mdyn: integrate (1/r^2) d/dr(r^2 dPsi/dr) = 4 pi G mu rho(r) over a sphere, so r^2 Psi\'(r) = G mu M_true(<r) with M_true = int 4 pi s^2 rho ds; an observer assuming GR infers M_dyn = r^2 |grad Psi|/G, hence M_dyn/M_true = mu. Profile: NFW, rho = rho_s/((s/r_s)(1+s/r_s)^2). Book line 77.'
+    s, r, rs, rhos, G_, mu = sp.symbols('s r r_s rho_s G mu', positive=True)
+    rho = rhos / ((s / rs) * (1 + s / rs)**2)
+    M_true = sp.integrate(4 * sp.pi * s**2 * rho, (s, 0, r))
+    def dyn_mass(coef):
+        r2dPsi = sp.integrate(coef * G_ * mu * rho * s**2, (s, 0, r))     # r^2 Psi'(r) from Gauss's law
+        return r2dPsi / G_                                               # M_dyn = r^2 |grad Psi| / G
+    lhs = sp.simplify(dyn_mass(4 * sp.pi) / M_true)
+    rhs = mu
+    neg_lhs = sp.simplify(dyn_mass(sp.Rational(105, 100) * 4 * sp.pi) / M_true)
+    return locals()
+
+@check(label='eq:ld_mlens', chapter='ch:lensdyn', part=2, title='M_lens = Sigma M_true = M_true (Gauss law on the lensing potential)',
+       file='part2/p2_17_lensing_dynamics', line=82, status='none', kind='sym', printed='', tol=0.0)
+def check_2931():
+    'Eq. ld_mlens: integrate (1/r^2) d/dr(r^2 d(Phi+Psi)/dr) = 8 pi G Sigma rho(r) over a sphere; the deflection is set by grad (Phi+Psi)/2, so M_lens = r^2 |grad (Phi+Psi)/2|/G = Sigma M_true, = M_true for Sigma = 1. NFW profile. Book line 82.'
+    s, r, rs, rhos, G_ = sp.symbols('s r r_s rho_s G', positive=True)
+    Sg = sp.Integer(1)
+    rho = rhos / ((s / rs) * (1 + s / rs)**2)
+    M_true = sp.integrate(4 * sp.pi * s**2 * rho, (s, 0, r))
+    def lens_mass(coef):
+        r2dW = sp.integrate(coef * G_ * Sg * rho * s**2, (s, 0, r))       # r^2 (Phi+Psi)'(r)
+        return r2dW / 2 / G_
+    lhs = sp.simplify(lens_mass(8 * sp.pi))
+    rhs = M_true
+    neg_lhs = sp.simplify(lens_mass(sp.Rational(105, 100) * 8 * sp.pi))
     return locals()
 
 @check(label='eq:ld_ratio_mu', chapter='ch:lensdyn', part=2, title='M_lens/M_dyn = Sigma/mu = 1/mu',
@@ -14009,6 +14083,22 @@ def check_1677():
     value=(2-mu(1.0))/mu(1.0)
     return locals()
 
+@check(label='ch:lensdyn:L143:0.08', chapter='ch:lensdyn', part=2, title='CMB lensing power lower, Limber estimate, per cent',
+       file='part2/p2_17_lensing_dynamics', line=143, status='derived', kind='num', printed='0.08', tol=0.0)
+def check_2932():
+    'Limber estimate of C_L^phiphi(IAM)/C_L^phiphi(LCDM) - 1 with Sigma = 1: kernel ((chi_s - chi)/chi_s (1+z))^2 dchi, power ~ D(z)^2, same early amplitude (as docs/verification/scripts/verify_sector_tension.py, item 3), z_s = 1089. Book line 143, printed 0.08 (per cent lower). Inputs: Planck 2018 background, CANON beta_m.'
+    zf = np.linspace(0, 1089, 200001)
+    Hf = np.sqrt(H2_lcdm(1 / (1 + zf)))
+    chif = np.concatenate([[0], np.cumsum(0.5 * (1 / Hf[1:] + 1 / Hf[:-1]) * np.diff(zf))])
+    cs = chif[-1]
+    zg = np.linspace(0.02, 10, 500)
+    ch = np.interp(zg, zf, chif)
+    W = ((cs - ch) / cs * (1 + zg))**2 / np.sqrt(H2_lcdm(1 / (1 + zg)))
+    rat = np.array([(D_of('iam', z) / D_of('lcdm', z))**2 for z in zg])
+    trap = lambda y: float(np.sum(0.5 * (y[1:] + y[:-1]) * np.diff(zg)))
+    value = -100 * (trap(W * rat) / trap(W) - 1)
+    return locals()
+
 @check(label='ch:lensdyn:L149', chapter='ch:lensdyn', part=2, title='1/(1-b), b = 0.17',
        file='part2/p2_17_lensing_dynamics', line=149, status='calc', kind='num', printed='1.205', tol=0)
 def check_1678():
@@ -14024,12 +14114,27 @@ def check_1679():
     ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '1.158')
     return locals()
 
+@check(label='ch:lensdyn:L183:0.58', chapter='ch:lensdyn', part=2, title='1-b needed by Planck SZ counts + primary CMB (data section)',
+       file='part2/p2_17_lensing_dynamics', line=183, status='observed', kind='file', printed='0.58', tol=0.0, source=_B04_CL, heavy=True, rerun=_B04_CL_RERUN)
+def check_2933():
+    '1-b = 0.58 +- 0.04, Planck 2015 XXIV (doi 10.1051/0004-6361/201525833), read at its row of the committed cluster output. Book line 183, printed 0.58.'
+    value = _b04_cl('needed by counts + CMB 1-b')[0]
+    return locals()
+
 @check(label='ch:lensdyn:L184', chapter='ch:lensdyn', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
        file='part2/p2_17_lensing_dynamics', line=184, status='observed', kind='file', printed='1.57', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt')
 def check_1680():
     'measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names. Book line 184, printed 1.57.'
     ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '1.57')
+    return locals()
+
+@check(label='ch:lensdyn:L184:0.8', chapter='ch:lensdyn', part=2, title='baseline 1-b of the 2013 Planck SZ analysis',
+       file='part2/p2_17_lensing_dynamics', line=184, status='observed', kind='num', printed='0.8', tol=0.0)
+def check_2934():
+    'Baseline mass bias of the Planck 2013 SZ cluster-count analysis, b = 0.2, i.e. 1-b = 0.8, as restated by Planck 2015 XXIV (doi 10.1051/0004-6361/201525833). Book line 184, printed 0.8.'
+    b_2013 = 0.2                                # Planck 2013 XX baseline, restated in Planck 2015 XXIV
+    value = 1 - b_2013
     return locals()
 
 @check(label='ch:lensdyn:L185', chapter='ch:lensdyn', part=2, title='same value as p2_08_s8_trend:122 (LCDM chain sigma8, Planck-only)',
@@ -14088,12 +14193,27 @@ def check_1687():
     ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '1.28')
     return locals()
 
+@check(label='ch:lensdyn:L202:0.99', chapter='ch:lensdyn', part=2, title='CMB-lensing calibration 1/(1-b)',
+       file='part2/p2_17_lensing_dynamics', line=202, status='observed', kind='file', printed='0.99', tol=0.0, source=_B04_CL, heavy=True, rerun=_B04_CL_RERUN)
+def check_2935():
+    'CMB-lensing mass-scale prior 1/(1-b) = 0.99 +- 0.19, Planck 2015 XXIV Table 2, read at its row of the committed cluster output. Book line 202, printed 0.99.'
+    m = re.search(r'CMB lensing 1/\(1-b\) = ([\d.]+) \+/- ([\d.]+)', file_text(_B04_CL))
+    value = float(m.group(1))
+    return locals()
+
 @check(label='ch:lensdyn:L203', chapter='ch:lensdyn', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
        file='part2/p2_17_lensing_dynamics', line=203, status='observed', kind='file', printed='1.72', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt')
 def check_1688():
     'measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names. Book line 203, printed 1.72.'
     ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '1.72')
+    return locals()
+
+@check(label='ch:lensdyn:L203:0.58', chapter='ch:lensdyn', part=2, title='1-b needed by counts + CMB (table)',
+       file='part2/p2_17_lensing_dynamics', line=203, status='observed', kind='file', printed='0.58', tol=0.0, source=_B04_CL, heavy=True, rerun=_B04_CL_RERUN)
+def check_2936():
+    '1-b = 0.58 +- 0.04, Planck 2015 XXIV, read at its row of the committed cluster output. Book line 203, printed 0.58.'
+    value = _b04_cl('needed by counts + CMB 1-b')[0]
     return locals()
 
 @check(label='ch:lensdyn:L204', chapter='ch:lensdyn', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
@@ -14120,6 +14240,23 @@ def check_1691():
     ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '0.225')
     return locals()
 
+@check(label='ch:lensdyn:L204:0.95', chapter='ch:lensdyn', part=2, title='LoCuSS beta_X = M_X/M_WL',
+       file='part2/p2_17_lensing_dynamics', line=204, status='observed', kind='file', printed='0.95', tol=0.0, source=_B04_CL, heavy=True, rerun=_B04_CL_RERUN)
+def check_2937():
+    'LoCuSS beta_X = 0.95 +- 0.05 (Smith et al. 2016), read at its row of the committed cluster output. Book line 204, printed 0.95.'
+    m = re.search(r'LoCuSS beta_X ([\d.]+) \+/- ([\d.]+)', file_text(_B04_CL))
+    value = float(m.group(1))
+    return locals()
+
+@check(label='ch:lensdyn:L204:+0.8', chapter='ch:lensdyn', part=2, title='LoCuSS offset (beta_X - mu(0.225))/sigma',
+       file='part2/p2_17_lensing_dynamics', line=204, status='observed', kind='num', printed='+0.8', tol=0.0, source=_B04_CL)
+def check_2938():
+    '(beta_X - mu(z=0.225))/sigma with LoCuSS beta_X = 0.95 +- 0.05 (Smith et al. 2016; read from the committed cluster output) and the IAM Level 1 mu. Book line 204, printed +0.8.'
+    m = re.search(r'LoCuSS beta_X ([\d.]+) \+/- ([\d.]+)', file_text(_B04_CL))
+    beta, sig = float(m.group(1)), float(m.group(2))
+    value = (beta - _b04_mu_z(0.225)) / sig
+    return locals()
+
 @check(label='ch:lensdyn:L205', chapter='ch:lensdyn', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
        file='part2/p2_17_lensing_dynamics', line=205, status='observed', kind='file', printed='0.909', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt')
@@ -14136,12 +14273,42 @@ def check_1693():
     ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '0.225')
     return locals()
 
+@check(label='ch:lensdyn:L205:0.90', chapter='ch:lensdyn', part=2, title='WtG reanalysed z<0.3, beta_P',
+       file='part2/p2_17_lensing_dynamics', line=205, status='observed', kind='file', printed='0.90', tol=0.0, source=_B04_CL, heavy=True, rerun=_B04_CL_RERUN)
+def check_2939():
+    'beta_P of the WtG clusters reanalysed by Smith et al. 2016, z<0.3, read at its row of the committed cluster output. Book line 205, printed 0.90.'
+    value = _b04_cl('beta_P WtG z<0.3')[0]
+    return locals()
+
+@check(label='ch:lensdyn:L205:-0.1', chapter='ch:lensdyn', part=2, title='WtG z<0.3 offset (beta_P - mu(0.225))/sigma',
+       file='part2/p2_17_lensing_dynamics', line=205, status='observed', kind='num', printed='-0.1', tol=0.0, source=_B04_CL)
+def check_2940():
+    '(beta_P - mu(z=0.225))/sigma, WtG reanalysed z<0.3 (beta_P, sigma from the committed cluster output; Smith et al. 2016), IAM Level 1 mu. Book line 205, printed -0.1.'
+    beta, sig = _b04_cl('beta_P WtG z<0.3')
+    value = (beta - _b04_mu_z(0.225)) / sig
+    return locals()
+
 @check(label='ch:lensdyn:L206', chapter='ch:lensdyn', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
        file='part2/p2_17_lensing_dynamics', line=206, status='observed', kind='file', printed='0.936', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt')
 def check_1694():
     'measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names. Book line 206, printed 0.936.'
     ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '0.936')
+    return locals()
+
+@check(label='ch:lensdyn:L206:0.71', chapter='ch:lensdyn', part=2, title='WtG reanalysed z>0.3, beta_P',
+       file='part2/p2_17_lensing_dynamics', line=206, status='observed', kind='file', printed='0.71', tol=0.0, source=_B04_CL, heavy=True, rerun=_B04_CL_RERUN)
+def check_2941():
+    'beta_P of the WtG clusters reanalysed by Smith et al. 2016, z>0.3, read at its row of the committed cluster output. Book line 206, printed 0.71.'
+    value = _b04_cl('beta_P WtG z>0.3')[0]
+    return locals()
+
+@check(label='ch:lensdyn:L206:-3.2', chapter='ch:lensdyn', part=2, title='WtG z>0.3 offset (beta_P - mu(0.4))/sigma',
+       file='part2/p2_17_lensing_dynamics', line=206, status='observed', kind='num', printed='-3.2', tol=0.0, source=_B04_CL)
+def check_2942():
+    '(beta_P - mu(z=0.4))/sigma, WtG reanalysed z>0.3 (from the committed cluster output; Smith et al. 2016), IAM Level 1 mu. Book line 206, printed -3.2.'
+    beta, sig = _b04_cl('beta_P WtG z>0.3')
+    value = (beta - _b04_mu_z(0.4)) / sig
     return locals()
 
 @check(label='ch:lensdyn:L207', chapter='ch:lensdyn', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
@@ -14160,6 +14327,21 @@ def check_1696():
     ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '0.225')
     return locals()
 
+@check(label='ch:lensdyn:L207:0.96', chapter='ch:lensdyn', part=2, title='CCCP reanalysed z<0.3, beta_P',
+       file='part2/p2_17_lensing_dynamics', line=207, status='observed', kind='file', printed='0.96', tol=0.0, source=_B04_CL, heavy=True, rerun=_B04_CL_RERUN)
+def check_2943():
+    'beta_P of the CCCP clusters reanalysed by Smith et al. 2016, z<0.3, read at its row of the committed cluster output. Book line 207, printed 0.96.'
+    value = _b04_cl('beta_P CCCP z<0.3')[0]
+    return locals()
+
+@check(label='ch:lensdyn:L207:+0.6', chapter='ch:lensdyn', part=2, title='CCCP z<0.3 offset (beta_P - mu(0.225))/sigma',
+       file='part2/p2_17_lensing_dynamics', line=207, status='observed', kind='num', printed='+0.6', tol=0.0, source=_B04_CL)
+def check_2944():
+    '(beta_P - mu(z=0.225))/sigma, CCCP reanalysed z<0.3 (from the committed cluster output; Smith et al. 2016), IAM Level 1 mu. Book line 207, printed +0.6.'
+    beta, sig = _b04_cl('beta_P CCCP z<0.3')
+    value = (beta - _b04_mu_z(0.225)) / sig
+    return locals()
+
 @check(label='ch:lensdyn:L208', chapter='ch:lensdyn', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
        file='part2/p2_17_lensing_dynamics', line=208, status='observed', kind='file', printed='0.936', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt')
@@ -14168,12 +14350,34 @@ def check_1697():
     ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '0.936')
     return locals()
 
+@check(label='ch:lensdyn:L208:0.61', chapter='ch:lensdyn', part=2, title='CCCP reanalysed z>0.3, beta_P',
+       file='part2/p2_17_lensing_dynamics', line=208, status='observed', kind='file', printed='0.61', tol=0.0, source=_B04_CL, heavy=True, rerun=_B04_CL_RERUN)
+def check_2945():
+    'beta_P of the CCCP clusters reanalysed by Smith et al. 2016, z>0.3, read at its row of the committed cluster output. Book line 208, printed 0.61.'
+    value = _b04_cl('beta_P CCCP z>0.3')[0]
+    return locals()
+
+@check(label='ch:lensdyn:L208:-3.6', chapter='ch:lensdyn', part=2, title='CCCP z>0.3 offset (beta_P - mu(0.4))/sigma',
+       file='part2/p2_17_lensing_dynamics', line=208, status='observed', kind='num', printed='-3.6', tol=0.0, source=_B04_CL)
+def check_2946():
+    '(beta_P - mu(z=0.4))/sigma, CCCP reanalysed z>0.3 (from the committed cluster output; Smith et al. 2016), IAM Level 1 mu. Book line 208, printed -3.6.'
+    beta, sig = _b04_cl('beta_P CCCP z>0.3')
+    value = (beta - _b04_mu_z(0.4)) / sig
+    return locals()
+
 @check(label='ch:lensdyn:L209', chapter='ch:lensdyn', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
        file='part2/p2_17_lensing_dynamics', line=209, status='observed', kind='file', printed='1.19', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt')
 def check_1698():
     'measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names. Book line 209, printed 1.19.'
     ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '1.19')
+    return locals()
+
+@check(label='ch:lensdyn:L209:0.84', chapter='ch:lensdyn', part=2, title='CCCP + MENeaCS 1-b (Herbonnet 2020)',
+       file='part2/p2_17_lensing_dynamics', line=209, status='observed', kind='file', printed='0.84', tol=0.0, source=_B04_CL, heavy=True, rerun=_B04_CL_RERUN)
+def check_2947():
+    '1-b = 0.84 +- 0.04 +- 0.05 of CCCP + MENeaCS (Herbonnet et al. 2020), read at its row of the committed cluster output. Book line 209, printed 0.84.'
+    value = _b04_cl('Herbonnet 1-b')[0]
     return locals()
 
 @check(label='ch:lensdyn:L212', chapter='ch:lensdyn', part=2, title="1/mu at z=0.4 ('approx')",
@@ -14196,6 +14400,42 @@ def check_1700():
     CNT=lambda z: 1+0.20*(1+z)**0.2
     d=lambda fn,z,hh=1e-5: (fn(z+hh)-fn(z-hh))/(2*hh)
     value=R(0.2)
+    return locals()
+
+@check(label='ch:lensdyn:L214:0.96', chapter='ch:lensdyn', part=2, title='upper end of beta_P at 0.15<z<0.3 (CCCP)',
+       file='part2/p2_17_lensing_dynamics', line=214, status='calc', kind='file', printed='0.96', tol=0.0, source=_B04_CL, heavy=True, rerun=_B04_CL_RERUN)
+def check_2948():
+    'Largest beta_P of the like-for-like z<0.3 values (WtG, CCCP reanalysed; Smith et al. 2016), from the committed cluster output. Book line 214, printed 0.96.'
+    value = max(_b04_cl('beta_P WtG z<0.3')[0], _b04_cl('beta_P CCCP z<0.3')[0])
+    return locals()
+
+@check(label='ch:lensdyn:L214:0.95', chapter='ch:lensdyn', part=2, title='LoCuSS beta_X (text)',
+       file='part2/p2_17_lensing_dynamics', line=214, status='calc', kind='file', printed='0.95', tol=0.0, source=_B04_CL, heavy=True, rerun=_B04_CL_RERUN)
+def check_2949():
+    'LoCuSS beta_X (Smith et al. 2016), from the committed cluster output. Book line 214, printed 0.95.'
+    m = re.search(r'LoCuSS beta_X ([\d.]+) \+/- ([\d.]+)', file_text(_B04_CL))
+    value = float(m.group(1))
+    return locals()
+
+@check(label='ch:lensdyn:L214:0.909', chapter='ch:lensdyn', part=2, title='mu at z=0.225 (Level 1 form)',
+       file='part2/p2_17_lensing_dynamics', line=214, status='calc', kind='num', printed='0.909', tol=0.0)
+def check_2950():
+    'mu(z) = H_L^2/(H_L^2 + beta_m E H0^2) at z = 0.225, the centre of 0.15<z<0.3. Book line 214, printed 0.909. Inputs: CANON beta_m, Planck 2018 Omega_m.'
+    value = _b04_mu_z(0.225)
+    return locals()
+
+@check(label='ch:lensdyn:L215:0.71', chapter='ch:lensdyn', part=2, title='WtG reanalysed z>0.3 beta_P (text)',
+       file='part2/p2_17_lensing_dynamics', line=215, status='observed', kind='file', printed='0.71', tol=0.0, source=_B04_CL, heavy=True, rerun=_B04_CL_RERUN)
+def check_2951():
+    'beta_P of WtG reanalysed z>0.3 (Smith et al. 2016), from the committed cluster output. Book line 215, printed 0.71.'
+    value = _b04_cl('beta_P WtG z>0.3')[0]
+    return locals()
+
+@check(label='ch:lensdyn:L215:0.61', chapter='ch:lensdyn', part=2, title='CCCP reanalysed z>0.3 beta_P (text)',
+       file='part2/p2_17_lensing_dynamics', line=215, status='observed', kind='file', printed='0.61', tol=0.0, source=_B04_CL, heavy=True, rerun=_B04_CL_RERUN)
+def check_2952():
+    'beta_P of CCCP reanalysed z>0.3 (Smith et al. 2016), from the committed cluster output. Book line 215, printed 0.61.'
+    value = _b04_cl('beta_P CCCP z>0.3')[0]
     return locals()
 
 @check(label='ch:lensdyn:L231', chapter='ch:lensdyn', part=2, title='excess at z=0.2',
@@ -14420,6 +14660,13 @@ def check_1722():
 def check_1723():
     'measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names. Book line 285, printed 0.864.'
     ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '0.864')
+    return locals()
+
+@check(label='ch:lensdyn:L291:1.158', chapter='ch:lensdyn', part=2, title='M_lens/M_dyn = 1/mu at z=0 (falsification list)',
+       file='part2/p2_17_lensing_dynamics', line=291, status='prediction', kind='num', printed='1.158', tol=0.0)
+def check_2953():
+    '1/mu(z=0) = 1 + beta_m E(1) H0^2/H_L^2(1) (Eq. ld_ratio). Book line 291, printed 1.158. Inputs: CANON beta_m, Planck 2018 Omega_m.'
+    value = 1 / _b04_mu_z(0.0)
     return locals()
 
 
@@ -26224,89 +26471,62 @@ INVENTORY = [
     (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 328, '', 'prediction', '1000', 'not yet checked'),
     (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 330, '', 'prediction', '72.26', 'not yet checked'),
     (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 330, '', 'prediction', '3.5', 'not yet checked'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 31, 'eq:ld_b', 'observed', '', 'displayed equation, not yet checked'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 34, '', 'observed', '0.1', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 34, '', 'observed', '0.4', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 37, '', 'observed', '0.15', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 38, '', 'observed', '0.58', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 46, '', 'fitted', '+0.54', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 53, 'eq:ld_poisson', 'derived', '', 'not yet run: draft rejected (drafter skipped: ITEM 819 is the Poisson equation ∇²Ψ = 4πGa²μ(a)ρ̄δ itself (line 53-54),\n)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 62, 'eq:ld_mu', 'prediction', '', 'displayed equation, not yet checked'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 77, 'eq:ld_mdyn', 'none', '', 'displayed equation, not yet checked'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 82, 'eq:ld_mlens', 'none', '', 'displayed equation, not yet checked'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 98, '', 'calc', '0.0', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 99, '', 'calc', '0.1', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 100, '', 'calc', '0.2', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 101, '', 'calc', '0.3', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 102, '', 'calc', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 103, '', 'calc', '0.7', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 104, '', 'calc', '1.0', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 105, '', 'calc', '1.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 106, '', 'calc', '2.0', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 107, '', 'calc', '3.0', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 116, '', 'calc', '0.3', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 117, '', 'calc', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 130, '', 'calc', '0.3', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 143, '', 'derived', '0.08', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 149, '', 'calc', '0.17', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 183, '', 'observed', '0.58', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 184, '', 'observed', '0.8', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 186, '', 'openprob', '0.15', 'not yet checked'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 202, '', 'observed', '0.99', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 203, '', 'observed', '0.58', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 204, '', 'observed', '0.15', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 204, '', 'observed', '0.3', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 204, '', 'observed', '0.95', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 204, '', 'observed', '+0.8', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 205, '', 'observed', '0.3', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 205, '', 'observed', '0.90', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 205, '', 'observed', '-0.1', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 206, '', 'observed', '0.3', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 206, '', 'observed', '0.71', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 206, '', 'observed', '0.4', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 206, '', 'observed', '-3.2', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 207, '', 'observed', '0.3', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 207, '', 'observed', '0.96', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 207, '', 'observed', '+0.6', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 208, '', 'observed', '0.3', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 208, '', 'observed', '0.61', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 208, '', 'observed', '0.4', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 208, '', 'observed', '-3.6', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 209, '', 'observed', '0.84', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 212, '', 'calc', '0.4', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 213, '', 'calc', '0.15', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 213, '', 'calc', '0.3', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 214, '', 'calc', '0.96', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 214, '', 'calc', '0.95', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 214, '', 'calc', '0.909', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 215, '', 'observed', '0.3', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 215, '', 'observed', '0.71', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 215, '', 'observed', '0.61', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 223, '', 'prediction', '10', 'not yet checked'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 231, '', 'calc', '0.2', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 234, '', 'calc', '0.2', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 235, '', 'calc', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 236, '', 'calc', '1.0', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 237, '', 'calc', '1.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 238, '', 'calc', '2.0', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 242, '', 'prediction', '10', 'not yet checked'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 246, '', 'prediction', '10', 'not yet checked'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 247, '', 'prediction', '1.5', 'not yet checked'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 250, '', 'calc', '0.1', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 258, '', 'calc', '0.2', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 258, '', 'calc', '0.5', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 258, '', 'calc', '0.8', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 258, '', 'calc', '1.2', 'not yet run: draft rejected (drafter skipped: Bin centre z=1.2 is a chosen parameter of the test design (line 258), not)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 259, '', 'calc', '1.8', 'not yet run: draft rejected (drafter skipped: Bin centre z=1.8 is a chosen parameter of the test design (line 258), not)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 263, '', 'calc', '0.3', 'not yet run: draft rejected (drafter skipped: Bin centre z=0.3 is a chosen parameter of the test design (line 263), not)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 263, '', 'calc', '0.2', 'not yet run: draft rejected (drafter skipped: Bin centre z=0.2 is a chosen parameter of the test design (line 263), not)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 263, '', 'calc', '0.5', 'not yet run: draft rejected (drafter skipped: Bin centre z=0.5 is a chosen parameter of the test design (line 263), not)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 263, '', 'calc', '0.8', 'not yet run: draft rejected (drafter skipped: Bin centre z=0.8 is a chosen parameter of the test design (line 263), not)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 263, '', 'calc', '1.2', 'not yet run: draft rejected (drafter skipped: Bin centre z=1.2 is a chosen parameter of the test design (line 263), not)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 263, '', 'calc', '1.8', 'not yet run: draft rejected (drafter skipped: Bin centre z=1.8 is a chosen parameter of the test design (line 263), not)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 270, '', 'calc', '0.3', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 270, '', 'calc', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 291, '', 'prediction', '1.158', 'not yet checked'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 31, 'eq:ld_b', 'observed', '', 'definition: hydrostatic mass-bias parametrisation M_true = M_X/(1-b)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 34, '', 'observed', '0.1', "measured, source not named (approximate literature range of the hydrostatic bias b; cited papers' values are not held in any repository file)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 34, '', 'observed', '0.4', "measured, source not named (approximate literature range of the hydrostatic bias b; cited papers' values are not held in any repository file)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 37, '', 'observed', '0.15', "measured, source not named (approximate literature range of the hydrostatic bias b from simulations (Lau2009, Nelson2014); cited papers' values are not held in any repository file)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 53, 'eq:ld_poisson', 'derived', '', "definition: mu-Sigma parametrisation of the Poisson equation (the chapter marks it '(definitions)')"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 98, '', 'calc', '0.0', "input: redshift z=0.0 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L98)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 99, '', 'calc', '0.1', "input: redshift z=0.1 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L99)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 100, '', 'calc', '0.2', "input: redshift z=0.2 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L100)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 101, '', 'calc', '0.3', "input: redshift z=0.3 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L101)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 102, '', 'calc', '0.5', "input: redshift z=0.5 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L102)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 103, '', 'calc', '0.7', "input: redshift z=0.7 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L103)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 104, '', 'calc', '1.0', "input: redshift z=1.0 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L104)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 105, '', 'calc', '1.5', "input: redshift z=1.5 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L105)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 106, '', 'calc', '2.0', "input: redshift z=2.0 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L106)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 107, '', 'calc', '3.0', "input: redshift z=3.0 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L107)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 116, '', 'calc', '0.3', 'input: redshift z=0.3 at which the slope dR/dz is evaluated (slopes checked at ch:lensdyn:L116 ff.)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 117, '', 'calc', '0.5', 'input: redshift z=0.5 at which the slope dR/dz is evaluated (slopes checked at ch:lensdyn:L116 ff.)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 130, '', 'calc', '0.3', 'input: redshift z=0.3 at which Phi/Psi is evaluated (checked at ch:lensdyn:L130:1.170)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 149, '', 'calc', '0.17', 'input: b = 0.17, the illustrative bias value (1/(1-b) = 1.205 is checked at ch:lensdyn:L149)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 186, '', 'openprob', '0.15', 'restates the simulation range b about 0.1-0.15 of line 37 (Lau2009, Nelson2014); measured, source not named (listed in sources_needed at line 37)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 204, '', 'observed', '0.15', 'input: redshift bound z=0.15 of the published cluster sample split (Smith2016LoCuSS), a sample definition'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 204, '', 'observed', '0.3', 'input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 205, '', 'observed', '0.3', 'input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 206, '', 'observed', '0.3', 'input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 206, '', 'observed', '0.4', 'input: representative redshift z=0.4 at which mu is evaluated for the z>0.3 samples (mu(0.4) enters ch:lensdyn:L206:-3.2 and L208:-3.6)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 207, '', 'observed', '0.3', 'input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 208, '', 'observed', '0.3', 'input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 208, '', 'observed', '0.4', 'input: representative redshift z=0.4 at which mu is evaluated for the z>0.3 samples (mu(0.4) enters ch:lensdyn:L206:-3.2 and L208:-3.6)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 212, '', 'calc', '0.4', 'input: upper end z=0.4 of the sample redshifts z about 0.2-0.4 (1/mu there is checked at ch:lensdyn:L212)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 213, '', 'calc', '0.15', 'input: redshift bound z=0.15 of the published cluster sample split (Smith2016LoCuSS), a sample definition'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 213, '', 'calc', '0.3', 'input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 215, '', 'observed', '0.3', 'input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 223, '', 'prediction', '10', "prediction, nothing to recompute: 'of order 10^5' clusters from the mission planning (a count)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 231, '', 'calc', '0.2', 'input: lower redshift 0.2 of the Euclid range in the caption (the 10.5 % there is checked at ch:lensdyn:L234:10.5)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 234, '', 'calc', '0.2', 'input: redshift z=0.2 of the row of Table tab:ld_euclid (its values are checked at ch:lensdyn:L234)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 235, '', 'calc', '0.5', 'input: redshift z=0.5 of the row of Table tab:ld_euclid (its values are checked at ch:lensdyn:L235)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 236, '', 'calc', '1.0', 'input: redshift z=1.0 of the row of Table tab:ld_euclid (its values are checked at ch:lensdyn:L236)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 237, '', 'calc', '1.5', 'input: redshift z=1.5 of the row of Table tab:ld_euclid (its values are checked at ch:lensdyn:L237)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 238, '', 'calc', '2.0', 'input: redshift z=2.0 of the row of Table tab:ld_euclid (its values are checked at ch:lensdyn:L238)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 242, '', 'prediction', '10', "prediction, nothing to recompute: 'of order 10^5' clusters (a count)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 246, '', 'prediction', '10', "input: 'of order 10^5' clusters in the eROSITA survey planning (a count, Merloni2012)"),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 247, '', 'prediction', '1.5', 'input: redshift range 0<z<1.5 of the cross-matched sample (a survey specification)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 250, '', 'calc', '0.1', 'input: redshift range 0.1<z<2 of the test design'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 258, '', 'calc', '0.2', 'input: bin centre z=0.2 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 258, '', 'calc', '0.5', 'input: bin centre z=0.5 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 258, '', 'calc', '0.8', 'input: bin centre z=0.8 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 258, '', 'calc', '1.2', 'input: bin centre z=1.2 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 259, '', 'calc', '1.8', 'input: bin centre z=1.8 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 263, '', 'calc', '0.3', 'input: redshift z=0.3 at which the slope is quoted in the caption (dR/dz there is checked at ch:lensdyn:L263:-0.18)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 263, '', 'calc', '0.2', 'input: bin centre z=0.2 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 263, '', 'calc', '0.5', 'input: bin centre z=0.5 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 263, '', 'calc', '0.8', 'input: bin centre z=0.8 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 263, '', 'calc', '1.2', 'input: bin centre z=1.2 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 263, '', 'calc', '1.8', 'input: bin centre z=1.8 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 270, '', 'calc', '0.3', 'input: redshift z=0.3 of the f sigma8 deficit list (2.17 % checked at ch:lensdyn:L270)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 270, '', 'calc', '0.5', 'input: redshift z=0.5 of the f sigma8 deficit list (1.35 % checked at ch:lensdyn:L270:1.35)'),
     (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 37, '', 'observed', '20', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 37, '', 'observed', '45', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 38, '', 'observed', '0.15', 'measured, too few printed digits to match against the named files'),
