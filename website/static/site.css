@@ -169,3 +169,6 @@ html[data-theme="dark"] .ltx_graphics, html[data-theme="sepia"] .ltx_graphics {
   table.ltx_equation:not(.ltx_equationgroup) td.ltx_eqn_cell.ltx_eqn_eqno { margin-left: auto; }
   table.ltx_eqn_table mjx-container[jax="CHTML"] { font-size: 92% !important; }
 }
+
+/* LaTeXML drops the \quad between a text label and its math in an aligned row ("photon sector (...):β"); restore the gap. */
+td.ltx_eqn_cell.ltx_align_right:has(> .ltx_markedasmath) { padding-right: 1em; }
