@@ -84,7 +84,8 @@ for k, (key, lab, col, dx) in enumerate((("diag", "own offset, diagonal", S.GR, 
         bb, lo, hi = B[key]; x = i + dx * 10
         ax[0].errorbar(x, bb, [[bb - lo], [hi - bb]], fmt="o", ms=3, color=col, elinewidth=0.8, label=lab if i == 0 else None)
 ax[0].axhline(0, color=S.GR, lw=0.6, ls=":"); ax[0].axhline(bm, color=S.LIGHT, lw=0.8)
-ax[0].set_xticks([0, 1, 2]); ax[0].set_xticklabels([f"{B['lo']:.2f}-{B['hi']:.2f}\nN={B['n_full']}" for B in J["bins"]], fontsize=5.5)
+zmax = max(J["hd_z"])  # the high bin ends at the largest redshift of the sample (2.26), not at its nominal edge 2.30
+ax[0].set_xticks([0, 1, 2]); ax[0].set_xticklabels([f"{B['lo']:.2f}-{min(B['hi'], zmax):.2f}\nN={B['n_full']}" for B in J["bins"]], fontsize=5.5)
 ax[0].set_ylabel(r"best $\beta$ (68 %)"); ax[0].legend(fontsize=5, loc="upper left"); ax[0].set_ylim(-0.6, 1.5)
 S.panel_letter(ax[0], "a", dx=-0.3)
 oms = [0.308, 0.315, 0.322]
