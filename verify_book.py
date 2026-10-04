@@ -36374,6 +36374,27 @@ def check_4365():
 
 
 # ======== Part 7 | ch:time | docs/book/part5/p5_03_time.tex
+@check(label='ch:time:L43', chapter='ch:time', part=7, title='accumulated record E(z=10) = exp(-z)',
+       file='part5/p5_03_time', line=43, status='calc', kind='num', printed='4.5\\times10^{-5}', tol=0.0)
+def check_4366():
+    'Activation function E(a) = exp(1 - 1/a) (Eq. eq:time_Ea) at a = 1/(1+z), z = 10. Book line 43, printed 4.5e-5.'
+    z = 10.0
+    value = float(E_act(1 / (1 + z)))
+    return locals()
+
+@check(label='ch:time:L60', chapter='ch:time', part=7, title='properties of E(a): limits, E(1) = 1, dE/da > 0',
+       file='part5/p5_03_time', line=60, status='derived', kind='sym', printed='', tol=0.0)
+def check_4367():
+    'E(a) = exp(1 - 1/a) (Eq. eq:time_Ea) has the properties listed at lines 65-68: limit 0 as a -> 0+, E(1) = 1, limit e as a -> oo, and dE/da = a^-2 exp(1 - 1/a) (sympy diff). Book line 60.'
+    a = sp.symbols('a', positive=True)
+    def props(k):
+        E = sp.exp(k - 1 / a)
+        return [sp.limit(E, a, 0, '+') == 0, sp.simplify(E.subs(a, 1) - 1) == 0, sp.simplify(sp.limit(E, a, sp.oo) - sp.E) == 0,
+                sp.simplify(sp.diff(E, a) - a**-2 * sp.exp(1 - 1 / a)) == 0]
+    ok = all(props(1))
+    neg_ok = all(props(sp.Rational(105, 100)))
+    return locals()
+
 @check(label='ch:time:L92', chapter='ch:time', part=7, title='measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names',
        file='part5/p5_03_time', line=92, status='measured', kind='file', printed='13.8', tol=0.0, source='docs/verification/scripts/verify_records_measurement_time_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_records_measurement_time.py > docs/verification/scripts/verify_records_measurement_time_output.txt')
@@ -36417,6 +36438,45 @@ def check_2590():
 def check_2591():
     'same value as p1_02_iams_law:696 (H0 matter-sector formula). Book line 97, printed 72.26.'
     value=H0_photon*math.sqrt(1+beta_m)
+    return locals()
+
+@check(label='ch:time:L97:73.04', chapter='ch:time', part=7, title='SH0ES H0 (Riess et al. 2022, published)',
+       file='part5/p5_03_time', line=97, status='observed', kind='num', printed='73.04', tol=0.0)
+def check_4368():
+    'Local distance-ladder H0 in km/s/Mpc. Book line 97, printed 73.04 +- 1.04. Input: Riess et al. 2022, ApJL 934, L7 (doi 10.3847/2041-8213/ac5c5b): 73.04 +- 1.04.'
+    H0_SH0ES, H0_SH0ES_err = 73.04, 1.04     # Riess et al. 2022
+    value = H0_SH0ES
+    return locals()
+
+@check(label='ch:time:L102', chapter='ch:time', part=7, title='beta_m = Omega_m/2 (virial partition), Planck Omega_m',
+       file='part5/p5_03_time', line=102, status='derived', kind='num', printed='0.15765', tol=0.0)
+def check_4369():
+    'Eq. eq:time_betam: beta_m = Omega_m/2 with Omega_m = 0.3153 (Planck 2018, Aghanim et al. 2020, doi 10.1051/0004-6361/201833910); also equals CANON beta_m. Book line 102, printed 0.15765.'
+    same_as_canon = abs(Om / 2 - beta_m) < 1e-12
+    value = Om / 2 if same_as_canon else float('nan')
+    return locals()
+
+@check(label='ch:time:L113', chapter='ch:time', part=7, title='growth source term 4 pi G rho_m mu = (3/2) Omega_m H0^2 a^-3 mu',
+       file='part5/p5_03_time', line=113, status='derived', kind='sym', printed='', tol=0.0)
+def check_4370():
+    'Eq. eq:time_growth: the source of delta_m-dd + 2H delta_m-d = 4 pi G mu rho_m delta_m, with rho_m = 3 H0^2 Omega_m a^-3/(8 pi G) (critical density today times Omega_m a^-3), is (3/2) Omega_m H0^2 a^-3 mu delta_m; and mu = H^2/(H^2 + beta E H0^2) < 1 for beta E > 0 (1 - mu is positive). Book line 113.'
+    G_, H0_, Om_, a, mu, dl, H2, b, E = sp.symbols('G H0 Omega_m a mu delta H2 beta E', positive=True)
+    rho_m = 3 * H0_**2 * Om_ * a**-3 / (8 * sp.pi * G_)
+    lhs = 4 * sp.pi * G_ * rho_m * mu * dl
+    rhs = sp.Rational(3, 2) * Om_ * H0_**2 * a**-3 * mu * dl
+    one_minus_mu = sp.simplify(1 - H2 / (H2 + b * E * H0_**2))
+    mu_below_one = bool(one_minus_mu.is_positive)
+    if not mu_below_one:
+        rhs = rhs + 1
+    neg_lhs = 4 * sp.pi * G_ * sp.Rational(105, 100) * rho_m * mu * dl
+    return locals()
+
+@check(label='ch:time:L133', chapter='ch:time', part=7, title='scale factor at electroweak breaking a_EW ~ 10^-15',
+       file='part5/p5_03_time', line=133, status='calc', kind='num', printed='10^{-15}', tol=0.0)
+def check_4371():
+    'a_EW ~ T_0/T_EW: CMB temperature today k_B T_0 (T_0 = 2.7255 K, Fixsen 2009) over the transition temperature 160 GeV (line 41, Chapter ch:electroweak); an order of magnitude (degrees-of-freedom factor ~0.3 ignored). Book line 133, printed a_EW ~ 10^-15.'
+    T_EW_eV = 160e9
+    value = kB * T_CMB / eV / T_EW_eV
     return locals()
 
 
@@ -40195,14 +40255,8 @@ INVENTORY = [
     (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '0.3153', "input: Omega_m = 0.3153, Planck 2018 (Aghanim et al. 2020, doi 10.1051/0004-6361/201833910), the figure's input"),
     (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '9.1\\times10^{-5}', "input: Omega_r = 9.1e-5, the figure's stated radiation density input (docs/book/figscripts/fig_p5_extra.py line 22); used by ch:theoryinterp:L30:1.3\\times10^{22} and L30:2.4\\times10^{12}"),
     (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '10', 'input: the base of a power of ten (z = 10^6, a redshift chosen for the figure; ~7x10^10), not a computed number; the 7x10^10 is checked as ch:theoryinterp:L41:7\\times10^{10}'),
-    (7, 'ch:time', 'part5/p5_03_time', 24, 'eq:time_tau', 'none', '', 'displayed equation, not yet checked'),
-    (7, 'ch:time', 'part5/p5_03_time', 43, '', 'calc', '4.5\\times10^{-5}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:time', 'part5/p5_03_time', 60, 'eq:time_Ea', 'none', '', 'displayed equation, not yet checked'),
-    (7, 'ch:time', 'part5/p5_03_time', 78, 'eq:time_Ephoton', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:time', 'part5/p5_03_time', 97, '', 'calc', '73.04', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:time', 'part5/p5_03_time', 102, 'eq:time_betam', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:time', 'part5/p5_03_time', 113, 'eq:time_growth', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:time', 'part5/p5_03_time', 133, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
+    (7, 'ch:time', 'part5/p5_03_time', 24, 'eq:time_tau', 'none', '', 'definition: proper time as the length of a worldline, tau = (1/c) int sqrt(-g dx dx) (Eq. eq:time_tau)'),
+    (7, 'ch:time', 'part5/p5_03_time', 78, 'eq:time_Ephoton', 'derived', '', 'definition: E(a)|photon = 0 (Eq. eq:time_Ephoton), the sector split stated by construction (no record on a null worldline); nothing to recompute'),
     (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 17, '', 'conjecture', '2.0', 'not yet checked'),
     (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 29, '', 'calc', '0.38', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 36, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),

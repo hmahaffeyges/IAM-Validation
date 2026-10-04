@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4366 PASS, 0 FAIL, 1972 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4372 PASS, 0 FAIL, 1966 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5306,20 +5306,20 @@ Totals: 4366 PASS, 0 FAIL, 1972 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 24 | eq:time_tau | none |  | not run: displayed equation, not yet checked | - |
-| 43 |  | calc | `4.5\times10^{-5}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 60 | eq:time_Ea | none |  | not run: displayed equation, not yet checked | - |
-| 78 | eq:time_Ephoton | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 24 | eq:time_tau | none |  | not run: definition: proper time as the length of a worldline, tau = (1/c) int sqrt(-g dx dx) (Eq. eq:time_tau) | - |
+| 43 | ch:time:L43 | calc | `4.5\times10^{-5}` | numeric: accumulated record E(z=10) = exp(-z) | PASS |
+| 60 | ch:time:L60 | derived |  | sympy: properties of E(a): limits, E(1) = 1, dE/da > 0 | PASS |
+| 78 | eq:time_Ephoton | derived |  | not run: definition: E(a)|photon = 0 (Eq. eq:time_Ephoton), the sector split stated by construction (no record on a null worldline); nothing to recompute | - |
 | 92 | ch:time:L92 | measured | `13.8` | heavy file `docs/verification/scripts/verify_records_measurement_time_output.txt`: measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names | PASS |
 | 93 | ch:time:L93 | measured | `67.16` | heavy file `docs/verification/scripts/verify_records_measurement_time_output.txt`: measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names | PASS |
 | 94 | ch:time:L94 | measured | `67.36` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
 | 96 | ch:time:L96 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
 | 97 | ch:time:L97 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 97 | ch:time:L97:72.26 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
-| 97 |  | calc | `73.04` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 102 | eq:time_betam | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 113 | eq:time_growth | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 133 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 97 | ch:time:L97:73.04 | observed | `73.04` | numeric: SH0ES H0 (Riess et al. 2022, published) | PASS |
+| 102 | ch:time:L102 | derived | `0.15765` | numeric: beta_m = Omega_m/2 (virial partition), Planck Omega_m | PASS |
+| 113 | ch:time:L113 | derived |  | sympy: growth source term 4 pi G rho_m mu = (3/2) Omega_m H0^2 a^-3 mu | PASS |
+| 133 | ch:time:L133 | calc | `10^{-15}` | numeric: scale factor at electroweak breaking a_EW ~ 10^-15 | PASS |
 
 ## Part 7 - ch:virial_partners - `docs/book/part5/p5_05b_virial_partners.tex`
 

@@ -5082,6 +5082,8 @@ PASS  ch:theoryinterp:L54:2.65\times10^{-30} ch:theoryinterp:p5_01_interpretatio
 PASS  ch:theoryinterp:L54:2.3\times10^{22} ch:theoryinterp:p5_01_interpretation:54  printed 2.3\times10^{22}  recomputed 2.331939e+22  tol 5.000005e+20  [calc] M_eq where T_BH = T_GH today, solar masses
 
 == Part 7: Thirty-Seven Orders of Magnitude and the Web that is IAM | ch:time (part5/p5_03_time.tex)
+PASS  ch:time:L43                        ch:time:p5_03_time:43  printed 4.5\times10^{-5}  recomputed 4.539993e-05  tol 5.000005e-07  [calc] accumulated record E(z=10) = exp(-z)
+PASS  ch:time:L60                        ch:time:p5_03_time:60  printed (algebra)  recomputed True  [derived] properties of E(a): limits, E(1) = 1, dE/da > 0
 PASS  ch:time:L92                        ch:time:p5_03_time:92  printed 13.8  recomputed found in file  [measured] measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names  file docs/verification/scripts/verify_records_measurement_time_output.txt
       heavy: python3 docs/verification/scripts/verify_records_measurement_time.py > docs/verification/scripts/verify_records_measurement_time_output.txt
 PASS  ch:time:L93                        ch:time:p5_03_time:93  printed 67.16  recomputed found in file  [measured] measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names  file docs/verification/scripts/verify_records_measurement_time_output.txt
@@ -5091,6 +5093,10 @@ PASS  ch:time:L96                        ch:time:p5_03_time:96  printed 72.26  r
 PASS  ch:time:L97                        ch:time:p5_03_time:97  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:time:L97:72.26                  ch:time:p5_03_time:97  printed 72.26  recomputed 72.2602  tol 0.00505821  [calc] same value as p1_02_iams_law:696 (H0 matter-sector formula)
+PASS  ch:time:L97:73.04                  ch:time:p5_03_time:97  printed 73.04  recomputed 73.04  tol 0.00500001  [observed] SH0ES H0 (Riess et al. 2022, published)
+PASS  ch:time:L102                       ch:time:p5_03_time:102  printed 0.15765  recomputed 0.15765  tol 5.000005e-06  [derived] beta_m = Omega_m/2 (virial partition), Planck Omega_m
+PASS  ch:time:L113                       ch:time:p5_03_time:113  printed (algebra)  recomputed lhs-rhs=0  [derived] growth source term 4 pi G rho_m mu = (3/2) Omega_m H0^2 a^-3 mu
+PASS  ch:time:L133                       ch:time:p5_03_time:133  printed 10^{-15}  recomputed 1.467909e-15  tol 2.162278e-15  [calc] scale factor at electroweak breaking a_EW ~ 10^-15
 
 == Part 7: Thirty-Seven Orders of Magnitude and the Web that is IAM | ch:virial_partners (part5/p5_05b_virial_partners.tex)
 PASS  ch:virial_partners:L87             ch:virial_partners:p5_05b_virial_partners:87  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [calc] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
@@ -5474,4 +5480,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 4366  FAIL 0  (heavy, read from committed outputs: 929)  inventoried-not-run 1972  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4372  FAIL 0  (heavy, read from committed outputs: 929)  inventoried-not-run 1966  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
