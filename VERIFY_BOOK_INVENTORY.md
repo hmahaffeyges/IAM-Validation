@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4057 PASS, 0 FAIL, 2281 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4084 PASS, 0 FAIL, 2254 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4864,40 +4864,40 @@ Totals: 4057 PASS, 0 FAIL, 2281 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
+| 23 | ch:skytools:L23:3.5 | observed | `3.5` | numeric: Penzias and Wilson excess antenna temperature | PASS |
 | 23 |  | observed | `3.3` | not run: measured, source not named | - |
-| 23 |  | observed | `3.5` | not run: measured, source not named | - |
-| 58 |  | calc | `12` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 60 |  | calc | `64` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 60 |  | calc | `17.6` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 61 |  | calc | `128` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 61 |  | calc | `2.5` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 83 |  | none |  | not run: displayed equation, not yet checked | - |
-| 90 |  | derived | `1.1104` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 90 |  | derived | `0.70` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 90 |  | derived | `1.23` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 94 |  | measured | `0.71` | not run: measured, source not named | - |
-| 94 |  | measured | `1.23` | not run: measured, source not named | - |
-| 94 |  | measured | `0.705` | not run: measured, source not named | - |
-| 95 |  | measured | `0.70` | not run: measured, source not named | - |
-| 95 |  | measured | `1.23` | not run: measured, source not named | - |
-| 95 |  | measured | `0.699` | not run: measured, source not named | - |
-| 95 |  | measured | `0.1` | not run: measured, source not named | - |
-| 96 |  | measured | `1.05` | not run: measured, source not named | - |
-| 96 |  | measured | `12.5` | not run: measured, source not named | - |
-| 96 |  | measured | `15.7` | not run: measured, source not named | - |
-| 114 |  | measured | `0.3` | not run: measured, source not named | - |
-| 114 |  | measured | `0.7` | not run: measured, source not named | - |
-| 125 |  | measured | `0.32` | not run: measured, source not named | - |
-| 125 |  | measured | `1.8` | not run: measured, source not named | - |
-| 125 |  | measured | `0.05` | not run: measured, source not named | - |
-| 126 |  | measured | `0.327` | not run: measured, source not named | - |
-| 138 |  | measured | `0.02` | not run: measured, source not named | - |
-| 139 |  | measured | `0.05` | not run: measured, source not named | - |
-| 139 |  | measured | `0.08` | not run: measured, source not named | - |
-| 142 |  | measured | `0.171` | not run: measured, source not named | - |
-| 143 |  | measured | `0.131` | not run: measured, source not named | - |
-| 143 |  | measured | `1.31` | not run: measured, source not named | - |
-| 165 |  | calc | `0.00047` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 58 |  | calc | `12` | not run: definition: HEALPix divides the sphere into 12 N_side^2 pixels (Gorski2005) | - |
+| 60 | ch:skytools:L60:64 | calc | `64` | numeric: HEALPix N_side for 49,152 pixels | PASS |
+| 60 | ch:skytools:L60:17.6 | calc | `17.6` | numeric: EPIC CpGs per HEALPix pixel, N_side 64 | PASS |
+| 61 | ch:skytools:L61:2.5 | calc | `2.5` | numeric: atlas CpGs per HEALPix pixel, N_side 128 | PASS |
+| 61 |  | calc | `128` | not run: input: N_side = 128 chosen for the atlas map (a display choice); the CpGs per pixel it gives are checked at ch:skytools:L61:2.5 | - |
+| 83 |  | none |  | not run: definition: residual z_i = (H(beta_i) - mean H_i)/s_i at each site (same construction as eq:sky) | - |
+| 90 | ch:skytools:L90:1.1104 | derived | `1.1104` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: healthy clustering baseline | PASS |
+| 90 | ch:skytools:L90:0.70 | derived | `0.70` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: healthy C-score, lowest | PASS |
+| 90 | ch:skytools:L90:1.23 | derived | `1.23` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: healthy C-score, highest | PASS |
+| 94 | ch:skytools:L94:0.71 | measured | `0.71` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv`: sky-map healthy C-score, lowest (two digits) | PASS |
+| 94 | ch:skytools:L94:1.23 | measured | `1.23` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv`: sky-map healthy C-score, highest | PASS |
+| 94 | ch:skytools:L94:0.705 | measured | `0.705` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv`: sky-map healthy C-score, lowest (three digits) | PASS |
+| 95 | ch:skytools:L95:0.70 | measured | `0.70` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: chain healthy C-score, lowest | PASS |
+| 95 | ch:skytools:L95:1.23 | measured | `1.23` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: chain healthy C-score, highest | PASS |
+| 95 | ch:skytools:L95:0.699 | measured | `0.699` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: chain healthy C-score, lowest (three digits) | PASS |
+| 95 | ch:skytools:L95:0.1 | measured | `0.1` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv`: spread damage moves Met-A by about 0.1 | PASS |
+| 96 | ch:skytools:L96:12.5 | measured | `12.5` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv`: regional damage C-score, lowest | PASS |
+| 96 | ch:skytools:L96:15.7 | measured | `15.7` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv`: regional damage C-score, highest | PASS |
+| 96 |  | measured | `1.05` | not run: definition: upper edge of the Normal band 0.95-1.05 restated | - |
+| 114 |  | measured | `0.3` | not run: definition: beta window 0.3-0.7 used to count heterozygous-looking chrX sites (the classification threshold, not a measurement) | - |
+| 114 |  | measured | `0.7` | not run: definition: beta window 0.3-0.7 used to count heterozygous-looking chrX sites | - |
+| 125 | ch:skytools:L125:0.32 | measured | `0.32` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d) of beta at 1-1.8 kb | PASS |
+| 125 | ch:skytools:L125:1.8 | measured | `1.8` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: upper edge of the 1 kb distance bin | PASS |
+| 125 | ch:skytools:L125:0.05 | measured | `0.05` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d) of beta at 3-6 kb | PASS |
+| 126 | ch:skytools:L126 | measured | `0.327` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d) at 1 kb, highest of the six arrays | PASS |
+| 138 | ch:skytools:L138 | measured | `0.02` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: healthy residual uncorrelated beyond 1 kb | PASS |
+| 139 | ch:skytools:L139:0.05 | measured | `0.05` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: regional-damage plateau, lower end | PASS |
+| 139 | ch:skytools:L139:0.08 | measured | `0.08` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: regional-damage plateau, upper end | PASS |
+| 142 | ch:skytools:L142 | measured | `0.171` | file `Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md`: smoothed healthy whole-array sky, spread | PASS |
+| 143 | ch:skytools:L143:0.131 | measured | `0.131` | file `Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md`: same sky shuffled, spread | PASS |
+| 143 | ch:skytools:L143:1.31 | measured | `1.31` | file `Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md`: smoothed over shuffled spread | PASS |
+| 165 | ch:skytools:L165 | calc | `0.00047` | file `Biological_Physics/MethylPhys/doors/PROC_AGE_01_OUTCOME.md`: age-ladder slope per year | PASS |
 
 ## Part 6 - ch:sky - `docs/book/part4/p4_16_sky.tex`
 

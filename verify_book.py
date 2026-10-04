@@ -2011,6 +2011,41 @@ def _b10_shared(group):
         return 100 * float(np.mean(np.abs(x - neu) <= 0.05))
 
 _B10_ID = dict(chapter='ch:identity', part=6, file='part4/p4_15_identity')
+DATA_FILES['Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv'] = 'sky maps of the six reference neutrophil arrays: Met-A and C-score, healthy and with constructed damage'   # 2 kB
+DATA_FILES['Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv'] = 'genome-distance correlation C(d) of beta and of the residual z, six reference neutrophil arrays'   # 11 kB
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md'] = 'entropy-ceiling outcome; finding 3: smoothed healthy sky against a shuffled null'   # 6 kB
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_AGE_01_OUTCOME.md'] = 'cellular-age resolution outcome: slope of the age curve and within-laboratory spread'   # 3 kB
+
+# helpers of the part4/p4_16a_skytools checks
+_B10_NUMRE = re.compile(r"(?<![\d.,])−?\d{1,3}(?:,\d{3})+(?:\.\d+)?|(?<![\d.,])−?\d+(?:\.\d+)?")
+def _b10_nums(path, anchor, n):
+    """The first n numbers after the first occurrence of anchor in a committed text file (thousands commas and the minus sign read)."""
+    t = file_text(path)
+    i = t.index(anchor) + len(anchor)
+    out = []
+    for m in _B10_NUMRE.finditer(t, i):
+        out.append(float(m.group().replace('−', '-').replace(',', '')))
+        if len(out) == n:
+            return out
+    raise ValueError(f'{path}: fewer than {n} numbers after {anchor!r}')
+
+_B10_NREF = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json'
+_B10_SKY = 'Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv'
+_B10_CD = 'Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv'
+
+def _b10_cbase():
+    """The healthy clustering baseline: median of the six leave-one-out clustering values of the reference arrays."""
+    return float(np.median(load_json(_B10_NREF)['healthy_clustering_LOO']))
+def _b10_cscore_healthy():
+    """C-score of each reference array read against the other five: its clustering over the baseline."""
+    return np.array(load_json(_B10_NREF)['healthy_clustering_LOO'], float) / _b10_cbase()
+def _b10_sky(mapname, col):
+    return np.array([float(r[col]) for r in load_csv_rows(_B10_SKY) if r['map'] == mapname])
+def _b10_cd(quantity, d_lo=None):
+    return [(int(r['d_lo']), int(r['d_hi']), float(r['C']), r['array']) for r in load_csv_rows(_B10_CD) if r['quantity'] == quantity
+            and (d_lo is None or int(r['d_lo']) == d_lo)]
+
+_B10_K = dict(chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -33026,6 +33061,228 @@ def check_4056():
     return locals()
 
 
+# ======== Part 6 | ch:skytools | docs/book/part4/p4_16a_skytools.tex
+@check(label='ch:skytools:L23:3.5', title='Penzias and Wilson excess antenna temperature', line=23, status='observed', printed='3.5', tol=0.0,
+       kind='num', chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4057():
+    '3.5 K in Penzias and Wilson\'s horn in 1965. Published value: excess antenna temperature 3.5 +- 1.0 K at 4080 Mc/s (Penzias and Wilson '\
+    '1965, Astrophys. J. 142, 419, doi 10.1086/148307). Book line 23, printed 3.5 K.'
+    T_excess_K = 3.5          # Penzias & Wilson 1965, doi 10.1086/148307
+    value = T_excess_K
+    return locals()
+
+@check(label='ch:skytools:L60:64', title='HEALPix N_side for 49,152 pixels', line=60, status='calc', printed='64', tol=0.0, kind='num', chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4058():
+    'HEALPix divides the sphere into 12 N_side^2 pixels; 49,152 pixels is N_side = 64. Solved N_side = sqrt(N_pix/12). Book line 60, '\
+    'printed 64. Inputs: N_pix = 49,152 (book), 12 N_side^2 (Gorski et al. 2005).'
+    value = math.sqrt(49152 / 12)
+    return locals()
+
+@check(label='ch:skytools:L60:17.6', title='EPIC CpGs per HEALPix pixel, N_side 64', line=60, status='calc', printed='17.6', tol=0.0, kind='num', chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4059():
+    '865,873 EPIC CpGs on the 12 x 64^2 pixels of N_side = 64: CpGs per pixel. Book line 60, printed 17.6. Inputs: 865,873 CpGs, '\
+    'N_side = 64 (book).'
+    value = 865873 / (12 * 64**2)
+    return locals()
+
+@check(label='ch:skytools:L61:2.5', title='atlas CpGs per HEALPix pixel, N_side 128', line=61, status='calc', printed='2.5', tol=0.0, kind='num', chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4060():
+    'The atlas map uses N_side = 128 for its 483,092 CpGs: CpGs per pixel over 12 x 128^2 pixels. Book line 61, printed 2.5. Inputs: '\
+    '483,092 CpGs, N_side = 128 (book).'
+    value = 483092 / (12 * 128**2)
+    return locals()
+
+@check(label='ch:skytools:L90:1.1104', title='healthy clustering baseline', line=90, status='derived', printed='1.1104', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4061():
+    'The healthy baseline 1.1104 of the C-score: recomputed as the median of the six leave-one-out clustering values of the reference '\
+    'arrays (each read against the other five) stored in the frozen reference. Book line 90, printed 1.1104. Input: '\
+    'neutrophil_reference_v1_1.json (healthy_clustering_LOO).'
+    value = _b10_cbase()
+    return locals()
+
+@check(label='ch:skytools:L90:0.70', title='healthy C-score, lowest', line=90, status='derived', printed='0.70', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4062():
+    'Divided by the healthy baseline, the healthy arrays read 0.70-1.23; lower end = smallest leave-one-out clustering over the median. '\
+    'Book line 90, printed 0.70. Input: neutrophil_reference_v1_1.json.'
+    value = float(_b10_cscore_healthy().min())
+    return locals()
+
+@check(label='ch:skytools:L90:1.23', title='healthy C-score, highest', line=90, status='derived', printed='1.23', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4063():
+    'Upper end of the healthy C-score 0.70-1.23: largest leave-one-out clustering over the median. Book line 90, printed 1.23. '\
+    'Input: neutrophil_reference_v1_1.json.'
+    value = float(_b10_cscore_healthy().max())
+    return locals()
+
+@check(label='ch:skytools:L94:0.71', title='sky-map healthy C-score, lowest (two digits)', line=94, status='measured', printed='0.71', tol=0.0,
+       kind='file', source=_B10_SKY, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4064():
+    'The table\'s healthy C-score, 0.71-1.23, from the sky-map construction; lower end = smallest C_6000 of the six healthy maps. '\
+    'Book line 94, printed 0.71. Input: sky_neut6_stats.csv.'
+    value = float(_b10_sky('healthy', 'C_6000').min())
+    return locals()
+
+@check(label='ch:skytools:L94:1.23', title='sky-map healthy C-score, highest', line=94, status='measured', printed='1.23', tol=0.0,
+       kind='file', source=_B10_SKY, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4065():
+    'Upper end of the table\'s healthy C-score 0.71-1.23: largest C_6000 of the six healthy maps. Book line 94, printed 1.23. '\
+    'Input: sky_neut6_stats.csv.'
+    value = float(_b10_sky('healthy', 'C_6000').max())
+    return locals()
+
+@check(label='ch:skytools:L94:0.705', title='sky-map healthy C-score, lowest (three digits)', line=94, status='measured', printed='0.705', tol=0.0,
+       kind='file', source=_B10_SKY, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4066():
+    'The lowest healthy array of the sky-map construction reads 0.705: smallest C_6000 of the six healthy maps. Book line 94, printed 0.705. '\
+    'Input: sky_neut6_stats.csv.'
+    value = float(_b10_sky('healthy', 'C_6000').min())
+    return locals()
+
+@check(label='ch:skytools:L95:0.70', title='chain healthy C-score, lowest', line=95, status='measured', printed='0.70', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4067():
+    'The chain\'s own reading of the same six arrays is 0.70-1.23: smallest leave-one-out clustering over the baseline (frozen reference). '\
+    'Book line 95, printed 0.70. Input: neutrophil_reference_v1_1.json.'
+    value = float(_b10_cscore_healthy().min())
+    return locals()
+
+@check(label='ch:skytools:L95:1.23', title='chain healthy C-score, highest', line=95, status='measured', printed='1.23', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4068():
+    'Upper end of the chain\'s healthy C-score 0.70-1.23 (frozen reference). Book line 95, printed 1.23. Input: neutrophil_reference_v1_1.json.'
+    value = float(_b10_cscore_healthy().max())
+    return locals()
+
+@check(label='ch:skytools:L95:0.699', title='chain healthy C-score, lowest (three digits)', line=95, status='measured', printed='0.699', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4069():
+    'The chain\'s lowest healthy reading, 0.699: smallest leave-one-out clustering over the baseline. Book line 95, printed 0.699. '\
+    'Input: neutrophil_reference_v1_1.json.'
+    value = float(_b10_cscore_healthy().min())
+    return locals()
+
+@check(label='ch:skytools:L95:0.1', title='spread damage moves Met-A by about 0.1', line=95, status='measured', printed='0.1', tol=0.0,
+       kind='file', source=_B10_SKY, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4070():
+    'Damage spread over every site (2 % blur toward beta = 0.5) moves Met-A by about 0.1: median over the six arrays of Met-A (blurred) '\
+    'minus Met-A (healthy). Book line 95, printed 0.1. Input: sky_neut6_stats.csv.'
+    value = float(np.median(_b10_sky('blur2pct', 'MetA_6000') - _b10_sky('healthy', 'MetA_6000')))
+    return locals()
+
+@check(label='ch:skytools:L96:12.5', title='regional damage C-score, lowest', line=96, status='measured', printed='12.5', tol=0.0,
+       kind='file', source=_B10_SKY, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4071():
+    'The same damage concentrated in ten regions (5 % of the sites) raises the C-score to 12.5-15.7; lower end = smallest C_6000 of the '\
+    'six local5pct maps. Book line 96, printed 12.5. Input: sky_neut6_stats.csv.'
+    value = float(_b10_sky('local5pct', 'C_6000').min())
+    return locals()
+
+@check(label='ch:skytools:L96:15.7', title='regional damage C-score, highest', line=96, status='measured', printed='15.7', tol=0.0,
+       kind='file', source=_B10_SKY, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4072():
+    'Upper end of 12.5-15.7: largest C_6000 of the six regional-damage maps. Book line 96, printed 15.7. Input: sky_neut6_stats.csv.'
+    value = float(_b10_sky('local5pct', 'C_6000').max())
+    return locals()
+
+@check(label='ch:skytools:L125:0.32', title='C(d) of beta at 1-1.8 kb', line=125, status='measured', printed='0.32', tol=0.0,
+       kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4073():
+    'Agreement between CpGs falls to 0.32 at 1-1.8 kb: median over the six arrays of C(d) of beta in the 1,000-1,778 bp bin. '\
+    'Book line 125, printed 0.32. Input: cd_neut.csv.'
+    value = float(np.median([c for _, _, c, _ in _b10_cd('beta', 1000)]))
+    return locals()
+
+@check(label='ch:skytools:L125:1.8', title='upper edge of the 1 kb distance bin', line=125, status='measured', printed='1.8', tol=0.0,
+       kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4074():
+    'The 1-1.8 kb bin: upper edge (bp) of the distance bin that starts at 1,000 bp, in kb (bins are logarithmic, quarter decades). '\
+    'Book line 125, printed 1.8. Input: cd_neut.csv.'
+    value = _b10_cd('beta', 1000)[0][1] / 1000
+    return locals()
+
+@check(label='ch:skytools:L125:0.05', title='C(d) of beta at 3-6 kb', line=125, status='measured', printed='0.05', tol=0.0,
+       kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4075():
+    'Agreement falls to 0.05 at 3-6 kb: median over the six arrays of C(d) of beta in the 3,162-5,623 bp bin. Book line 125, printed 0.05. '\
+    'Input: cd_neut.csv.'
+    value = float(np.median([c for _, _, c, _ in _b10_cd('beta', 3162)]))
+    return locals()
+
+@check(label='ch:skytools:L126', title='C(d) at 1 kb, highest of the six arrays', line=126, status='measured', printed='0.327', tol=0.0,
+       kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4076():
+    'The six arrays give the same curve to the second decimal (0.321-0.327 at 1 kb); upper end = largest C(d) of beta in the 1,000-1,778 bp '\
+    'bin. Book line 126, printed 0.327. Input: cd_neut.csv.'
+    value = max(c for _, _, c, _ in _b10_cd('beta', 1000))
+    return locals()
+
+@check(label='ch:skytools:L138', title='healthy residual uncorrelated beyond 1 kb', line=138, status='measured', printed='0.02', tol=0.0,
+       kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4077():
+    'In a healthy array the residual is uncorrelated beyond 1 kb (0.00-0.02); upper end = largest C(d) of the healthy residual z over the '\
+    'bins from 1 kb out. Book line 138, printed 0.02. Input: cd_neut.csv (z_healthy, the array of Figure fig:cd b).'
+    value = max(c for lo, _, c, _ in _b10_cd('z_healthy') if lo >= 1000)
+    return locals()
+
+def _b10_plateau():
+    return [c for lo, _, c, _ in _b10_cd('z_local5pct') if 1000 <= lo <= 1000000]
+
+@check(label='ch:skytools:L139:0.05', title='regional-damage plateau, lower end', line=139, status='measured', printed='0.05', tol=0.0,
+       kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4078():
+    'Regional damage adds a plateau of 0.05-0.08 from 1 kb out to about a megabase; lower end = smallest C(d) of the damaged residual over '\
+    'the bins starting from 1 kb to 1 Mb. Book line 139, printed 0.05. Input: cd_neut.csv (z_local5pct).'
+    value = min(_b10_plateau())
+    return locals()
+
+@check(label='ch:skytools:L139:0.08', title='regional-damage plateau, upper end', line=139, status='measured', printed='0.08', tol=0.0,
+       kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4079():
+    'Upper end of the 0.05-0.08 plateau: largest C(d) of the damaged residual over the bins starting from 1 kb to 1 Mb. Book line 139, '\
+    'printed 0.08. Input: cd_neut.csv.'
+    value = max(_b10_plateau())
+    return locals()
+
+_B10_CEIL = 'Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md'
+
+@check(label='ch:skytools:L142', title='smoothed healthy whole-array sky, spread', line=142, status='measured', printed='0.171', tol=0.0,
+       kind='file', source=_B10_CEIL, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4080():
+    'Smoothing a healthy whole-array sky over the 32 nearest pixels left a spread of 0.171. Read from the committed outcome record '\
+    '(finding 3). Book line 142, printed 0.171.'
+    value = _b10_nums(_B10_CEIL, 'smoothed spread of **', 2)[0]
+    return locals()
+
+@check(label='ch:skytools:L143:0.131', title='same sky shuffled, spread', line=143, status='measured', printed='0.131', tol=0.0,
+       kind='file', source=_B10_CEIL, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4081():
+    'The same values shuffled across the sphere give 0.131 +- 0.001. Read from the committed outcome record (finding 3). Book line 143, '\
+    'printed 0.131.'
+    value = _b10_nums(_B10_CEIL, 'smoothed spread of **', 2)[1]
+    return locals()
+
+@check(label='ch:skytools:L143:1.31', title='smoothed over shuffled spread', line=143, status='measured', printed='1.31', tol=0.0,
+       kind='file', source=_B10_CEIL, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4082():
+    'A factor of 1.31: recomputed as the smoothed spread over the shuffled spread, both read from the committed outcome record. '\
+    'Book line 143, printed 1.31.'
+    s, s0 = _b10_nums(_B10_CEIL, 'smoothed spread of **', 2)
+    value = s / s0
+    return locals()
+
+@check(label='ch:skytools:L165', title='age-ladder slope per year', line=165, status='calc', printed='0.00047', tol=0.0,
+       kind='file', source='Biological_Physics/MethylPhys/doors/PROC_AGE_01_OUTCOME.md', chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
+def check_4083():
+    'Inverting a group-built age ladder for one array: 0.0235 spread over a slope of 0.00047 per year. The slope, recorded as 0.47 mA per '\
+    'year in the committed age-resolution outcome (bar A2), converted to units of A per year (1 mA = 0.001). Book line 165, printed 0.00047.'
+    slope_mA = _b10_nums('Biological_Physics/MethylPhys/doors/PROC_AGE_01_OUTCOME.md', 'slope **', 1)[0]
+    value = slope_mA * 1e-3
+    return locals()
+
+
 # ======== Part 6 | ch:salmonid | docs/book/part4/p4_22b_salmonid.tex
 @check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='0.0354', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
@@ -37073,39 +37330,12 @@ INVENTORY = [
     (6, 'ch:identity', 'part4/p4_15_identity', 57, '', 'calc', '0.05', 'definition: the 0.05 threshold in |Delta beta| that defines a shared site; the shares are checked at ch:identity:L57:98.7 and L57:75.6'),
     (6, 'ch:identity', 'part4/p4_15_identity', 66, '', 'calc', '0.05', 'definition: the 0.05 threshold in |Delta beta| (grey band of the figure); the shares are checked at ch:identity:L66'),
     (6, 'ch:skytools', 'part4/p4_16a_skytools', 23, '', 'observed', '3.3', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 23, '', 'observed', '3.5', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 58, '', 'calc', '12', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 60, '', 'calc', '64', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 60, '', 'calc', '17.6', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 61, '', 'calc', '128', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 61, '', 'calc', '2.5', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 83, '', 'none', '', 'displayed equation, not yet checked'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 90, '', 'derived', '1.1104', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 90, '', 'derived', '0.70', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 90, '', 'derived', '1.23', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 94, '', 'measured', '0.71', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 94, '', 'measured', '1.23', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 94, '', 'measured', '0.705', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 95, '', 'measured', '0.70', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 95, '', 'measured', '1.23', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 95, '', 'measured', '0.699', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 95, '', 'measured', '0.1', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 96, '', 'measured', '1.05', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 96, '', 'measured', '12.5', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 96, '', 'measured', '15.7', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 114, '', 'measured', '0.3', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 114, '', 'measured', '0.7', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 125, '', 'measured', '0.32', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 125, '', 'measured', '1.8', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 125, '', 'measured', '0.05', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 126, '', 'measured', '0.327', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 138, '', 'measured', '0.02', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 139, '', 'measured', '0.05', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 139, '', 'measured', '0.08', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 142, '', 'measured', '0.171', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 143, '', 'measured', '0.131', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 143, '', 'measured', '1.31', 'measured, source not named'),
-    (6, 'ch:skytools', 'part4/p4_16a_skytools', 165, '', 'calc', '0.00047', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
+    (6, 'ch:skytools', 'part4/p4_16a_skytools', 58, '', 'calc', '12', 'definition: HEALPix divides the sphere into 12 N_side^2 pixels (Gorski2005)'),
+    (6, 'ch:skytools', 'part4/p4_16a_skytools', 61, '', 'calc', '128', 'input: N_side = 128 chosen for the atlas map (a display choice); the CpGs per pixel it gives are checked at ch:skytools:L61:2.5'),
+    (6, 'ch:skytools', 'part4/p4_16a_skytools', 83, '', 'none', '', 'definition: residual z_i = (H(beta_i) - mean H_i)/s_i at each site (same construction as eq:sky)'),
+    (6, 'ch:skytools', 'part4/p4_16a_skytools', 96, '', 'measured', '1.05', 'definition: upper edge of the Normal band 0.95-1.05 restated'),
+    (6, 'ch:skytools', 'part4/p4_16a_skytools', 114, '', 'measured', '0.3', 'definition: beta window 0.3-0.7 used to count heterozygous-looking chrX sites (the classification threshold, not a measurement)'),
+    (6, 'ch:skytools', 'part4/p4_16a_skytools', 114, '', 'measured', '0.7', 'definition: beta window 0.3-0.7 used to count heterozygous-looking chrX sites'),
     (6, 'ch:sky', 'part4/p4_16_sky', 19, 'eq:sky', 'none', '', 'displayed equation, not yet checked'),
     (6, 'ch:sky', 'part4/p4_16_sky', 30, '', 'measured', '0.69', 'measured, source not named'),
     (6, 'ch:sky', 'part4/p4_16_sky', 30, '', 'measured', '1.21', 'measured, source not named'),
