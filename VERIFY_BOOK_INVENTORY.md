@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3437 PASS, 0 FAIL, 2897 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3476 PASS, 0 FAIL, 2858 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -1761,10 +1761,10 @@ Totals: 3437 PASS, 0 FAIL, 2897 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 17 |  | observed | `-0.035` | not run: measured, too few printed digits to match against the named files | - |
-| 17 |  | observed | `-0.068` | not run: measured, too few printed digits to match against the named files | - |
-| 17 |  | observed | `0.000` | not run: measured, too few printed digits to match against the named files | - |
-| 19 |  | calc | `+23.6` | not run: not yet run: draft rejected (drafter skipped: Delta chi-squared for beta term exclusion in supernova fit requires the f) | - |
+| 17 | ch:dsvalidation:L17 | observed | `-0.035` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: best beta on SN distances, full covariance | PASS |
+| 17 | ch:dsvalidation:L17:-0.068 | observed | `-0.068` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: lower 68 % end of beta on SN distances, full covariance | PASS |
+| 17 | ch:dsvalidation:L17:0.000 | observed | `0.000` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: upper 68 % end of beta on SN distances, full covariance | PASS |
+| 19 | ch:dsvalidation:L19 | calc | `+23.6` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Delta chi2 of beta_m on SN distances, full covariance | PASS |
 | 27 | ch:dsvalidation:L27 | observed | `4.9` | numeric: Hubble tension significance from cited H0 values | PASS |
 | 34 | ch:dsvalidation:L34 | prediction | `0.15765` | numeric: β_m = Ω_m/2 virial coupling value | PASS |
 | 36 | ch:dsvalidation:L36 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Δχ² IAM vs ΛCDM Level-2 chains | PASS |
@@ -1773,15 +1773,15 @@ Totals: 3437 PASS, 0 FAIL, 2897 inventoried and not run. Each run item carries t
 | 37 | ch:dsvalidation:L37:67.16 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon-sector chain value | PASS |
 | 38 | ch:dsvalidation:L38 | measured | `72.26` | numeric: H0(matter)=H0(photon)*sqrt(1+β_m) | PASS |
 | 38 | ch:dsvalidation:L38:0.75 | measured | `0.75` | numeric: significance of H0(matter) vs SH0ES | PASS |
-| 38 |  | measured | `0.37` | not run: measured, too few printed digits to match against the named files | - |
+| 38 | ch:dsvalidation:L38:0.37 | measured | `0.37` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon (Level 2 Run A) from Planck 2018, in Planck sigma | PASS |
 | 39 | ch:dsvalidation:L39 | calc | `0.033` | numeric: sector ratio from the committed 95 % bound | PASS |
 | 39 | ch:dsvalidation:L39:30 | calc | `30` | numeric: 'at least 30x': beta_m/beta_gamma bound, whole multiples | PASS |
-| 39 |  | calc | `0.0039` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.00520245); drafting error on review | - |
+| 39 | ch:dsvalidation:L39:0.0052 | calc | `0.0052` | numeric: beta_gamma 95 % bound from the acoustic angle | PASS |
 | 64 | eq:dsv_Hm | none |  | not run: definition of matter-sector Friedmann equation | - |
 | 67 | ch:dsvalidation:L67 | derived |  | sympy: activation function E(1)=1 check | PASS |
 | 67 | ch:dsvalidation:L67:3 | derived |  | sympy: inflection of E(a) at a=1/2 | PASS |
 | 67 | ch:dsvalidation:L67:4 | derived |  | sympy: maximum of dE/dlna at a=1 | PASS |
-| 71 | eq:dsv_bg | calc | `0.0039` | not run: not yet run: draft rejected (drafter skipped: Line 71 states β_γ < 0.0052 (95%, acoustic scale) as result of verify_bet) | - |
+| 71 | ch:dsvalidation:L71 | calc | `0.0052` | numeric: beta_gamma 95 % bound, Eq. dsv_bg | PASS |
 | 72 | eq:dsv_bm | prediction | `0.15765` | numeric: β_m=Ω_m/2 definition | PASS |
 | 75 | ch:dsvalidation:L75 | calc | `0.3166` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Ωm Level-2 MCMC posterior | PASS |
 | 75 | ch:dsvalidation:L75:0.0065 | calc | `0.0065` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Ωm posterior standard deviation | PASS |
@@ -1794,39 +1794,39 @@ Totals: 3437 PASS, 0 FAIL, 2897 inventoried and not run. Each run item carries t
 | 81 | eq:dsv_H0m:1.0759 | calc | `1.0759` | numeric: sqrt(1+β_m) factor | PASS |
 | 81 | eq:dsv_H0m:72.26 | calc | `72.26` | numeric: H0(matter)=H0(photon)*sqrt(1+β_m) | PASS |
 | 81 | eq:dsv_H0m:0.50 | calc | `0.50` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A H0 sd x sqrt(1+beta_m) | PASS |
-| 84 |  | derived |  | not run: not yet run: draft rejected (uses imports or file access) | - |
+| 84 | ch:dsvalidation:L84 | derived |  | sympy: H_m^2(1) = H0^2 (1 + beta_m) in a flat universe | PASS |
 | 90 | ch:dsvalidation:L90 | prediction | `72.26` | numeric: Prediction 1 H0(matter), repeat of eq:dsv_H0m | PASS |
-| 110 |  | observed | `0.21` | not run: measured, too few printed digits to match against the named files | - |
+| 110 | ch:dsvalidation:L110 | observed | `0.21` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: median diagonal m_b error of the 1588 SNe | PASS |
 | 111 | ch:dsvalidation:L111 | observed | `0.212` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 115 | eq:dsv_mbcorr | none |  | not run: definition of distance modulus | - |
 | 122 | eq:dsv_mu | none |  | sympy: magnitude formula, pc vs Mpc identity | PASS |
 | 126 | eq:dsv_dL | none |  | not run: definition of luminosity distance integral | - |
 | 130 | eq:dsv_Hz | none |  | not run: definition of sector-dependent Hubble rate | - |
-| 240 |  | calc | `721.12` | not run: not yet run: draft rejected (drafter skipped: Book states: at H0 ∈ {64.00, 67.40, 70.00, 73.04} km/s/Mpc, chi2_min = 72) | - |
-| 240 |  | calc | `-28.935` | not run: not yet run: draft rejected (no draft returned) | - |
-| 241 |  | calc | `721.12` | not run: not yet run: draft rejected (no draft returned) | - |
-| 241 |  | calc | `-28.935` | not run: not yet run: draft rejected (no draft returned) | - |
-| 242 |  | calc | `721.12` | not run: not yet run: draft rejected (no draft returned) | - |
-| 242 |  | calc | `-28.935` | not run: not yet run: draft rejected (no draft returned) | - |
-| 243 |  | calc | `721.12` | not run: not yet run: draft rejected (no draft returned) | - |
-| 243 |  | calc | `-28.935` | not run: not yet run: draft rejected (no draft returned) | - |
-| 246 |  | calc | `60.0` | not run: not yet run: draft rejected (drafter skipped: Line 246: "parameter boundary (here 60.0 km/s/Mpc)" — this is a simplex o) | - |
-| 247 |  | calc | `10^{-4}` | not run: not yet run: draft rejected (drafter skipped: Line 247: "flat to 10^{-4}" — describes numerical precision of profile fl) | - |
-| 259 |  | calc | `-0.30` | not run: not yet run: draft rejected (drafter skipped: Line 259: "Best-fit β = -0.30 (boundary)" — optimized parameter from SNe ) | - |
-| 259 |  | calc | `67.40` | not run: not yet run: draft rejected (drafter skipped: Line 259: "Best-fit H0 = 67.40 (prior)" — this is the Planck prior mean, ) | - |
-| 259 |  | calc | `721.12` | not run: not yet run: draft rejected (drafter skipped: Line 259: "χ² = 721.12" — chi-squared minimum from supernova magnitude fi) | - |
+| 240 | ch:dsvalidation:L240 | calc | `721.12` | numeric: Test C: chi2_min at H0 = 64.00 | PASS |
+| 240 | ch:dsvalidation:L240:-28.935 | calc | `-28.935` | numeric: Test C: M - 5 log10 H0 at H0 = 64.00 | PASS |
+| 241 | ch:dsvalidation:L241 | calc | `721.12` | numeric: Test C: chi2_min at H0 = 67.40 | PASS |
+| 241 | ch:dsvalidation:L241:-28.935 | calc | `-28.935` | numeric: Test C: M - 5 log10 H0 at H0 = 67.40 | PASS |
+| 242 | ch:dsvalidation:L242 | calc | `721.12` | numeric: Test C: chi2_min at H0 = 70.00 | PASS |
+| 242 | ch:dsvalidation:L242:-28.935 | calc | `-28.935` | numeric: Test C: M - 5 log10 H0 at H0 = 70.00 | PASS |
+| 243 | ch:dsvalidation:L243 | calc | `721.12` | numeric: Test C: chi2_min at H0 = 73.04 | PASS |
+| 243 | ch:dsvalidation:L243:-28.935 | calc | `-28.935` | numeric: Test C: M - 5 log10 H0 at H0 = 73.04 | PASS |
+| 246 | ch:dsvalidation:L246 | calc | `60.0` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Test C simplex ends at the H0 boundary | PASS |
+| 247 |  | calc | `10^{-4}` | not run: precision statement: 'flat to 10^-4' bounds the numerical spread of the H0 profile, nothing to recompute; the flatness itself is checked at ch:dsvalidation:L240-L243 (same chi2_min and M - 5 log10 H0 at all four H0) | - |
+| 259 | ch:dsvalidation:L259:-0.30 | calc | `-0.30` | numeric: Test A best-fit beta (boundary) | PASS |
+| 259 | ch:dsvalidation:L259:67.40 | calc | `67.40` | numeric: Test A best-fit H0 (prior met) | PASS |
+| 259 | ch:dsvalidation:L259:721.12 | calc | `721.12` | numeric: Test A chi2 | PASS |
 | 260 | ch:dsvalidation:L260 | calc | `0.1745` | numeric: M offset shift between Test A/B | PASS |
-| 260 |  | calc | `-0.30` | not run: not yet run: draft rejected (drafter skipped: Line 260: "Best-fit β = -0.30 (boundary)" — same as ITEM 568, optimized p) | - |
-| 260 |  | calc | `73.04` | not run: not yet run: draft rejected (drafter skipped: Line 260: "Best-fit H0 = 73.04 (prior)" — SH0ES prior mean (Riess 2022), ) | - |
-| 260 |  | calc | `721.12` | not run: not yet run: draft rejected (drafter skipped: Line 260: "χ² = 721.12" — same chi-squared as Test A, by design (text sta) | - |
-| 261 |  | calc | `-0.30` | not run: not yet run: draft rejected (no draft returned) | - |
-| 261 |  | calc | `721.12` | not run: not yet run: draft rejected (no draft returned) | - |
+| 260 | ch:dsvalidation:L260:-0.30 | calc | `-0.30` | numeric: Test B best-fit beta (boundary) | PASS |
+| 260 | ch:dsvalidation:L260:73.04 | calc | `73.04` | numeric: Test B best-fit H0 (prior met) | PASS |
+| 260 | ch:dsvalidation:L260:721.12 | calc | `721.12` | numeric: Test B chi2 | PASS |
+| 261 | ch:dsvalidation:L261 | calc | `-0.30` | numeric: Test C best-fit beta (boundary) | PASS |
+| 261 | ch:dsvalidation:L261:721.12 | calc | `721.12` | numeric: Test C chi2 | PASS |
 | 266 | ch:dsvalidation:L266 | observed | `73.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
-| 266 |  | derived | `-28.935` | not run: not yet run: draft rejected (no draft returned) | - |
-| 271 |  | calc | `+23.6` | not run: not yet run: draft rejected (no draft returned) | - |
-| 271 |  | fitted | `-0.035` | not run: measured, too few printed digits to match against the named files | - |
-| 271 |  | calc | `721.12` | not run: not yet run: draft rejected (no draft returned) | - |
-| 271 |  | calc | `-28.935` | not run: not yet run: draft rejected (no draft returned) | - |
+| 266 | ch:dsvalidation:L266:-28.935 | derived | `-28.935` | numeric: shared minimum M - 5 log10 H0 | PASS |
+| 271 | ch:dsvalidation:L271 | calc | `+23.6` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: figure caption: Delta chi2 of beta_m on SN distances | PASS |
+| 271 | ch:dsvalidation:L271:-0.035 | fitted | `-0.035` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: figure caption: best beta, full covariance | PASS |
+| 271 | ch:dsvalidation:L271:721.12 | calc | `721.12` | numeric: figure caption: flat chi2_min | PASS |
+| 271 | ch:dsvalidation:L271:-28.935 | calc | `-28.935` | numeric: figure caption: M - 5 log10 H0 at every H0 | PASS |
 | 289 | eq:dsv_H0local | prediction | `72.26` | numeric: matter-sector local H0 prediction | PASS |
 | 295 | eq:dsv_shape | none |  | not run: definition of luminosity distance integral | - |
 | 298 | ch:dsvalidation:L298 | calc | `-6.5` | numeric: d_L change at z=0.1, fixed H0, beta_m=0.15765 (text says 0.157) | PASS |
@@ -1842,15 +1842,15 @@ Totals: 3437 PASS, 0 FAIL, 2897 inventoried and not run. Each run item carries t
 | 441 | ch:dsvalidation:L441:30\sigma | calc | `30\sigma` | numeric: shift with beta_m in Planck errors | PASS |
 | 442 | ch:dsvalidation:L442 | measured | `\approx61.5` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from Level2b exploratory chain | PASS |
 | 443 | ch:dsvalidation:L443 | calc | `<0.033` | numeric: sector ratio from the committed 95 % bound | PASS |
-| 456 |  | calc | `\beta_\gamma<0.0039` | not run: not yet run: draft rejected (uses imports or file access) | - |
+| 456 | ch:dsvalidation:L456 | calc | `0.0052` | numeric: Table dsv_observables: beta_gamma bound | PASS |
 | 457 | ch:dsvalidation:L457 | measured | `67.16\pm0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon sector from Level2 chain | PASS |
 | 457 | ch:dsvalidation:L457:67.36\pm0.54 | measured | `67.36\pm0.54` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 458 | ch:dsvalidation:L458 | measured | `0.809` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 458 | ch:dsvalidation:L458:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 prediction from Level2 chain | PASS |
 | 460 | ch:dsvalidation:L460 | observed | `73.04\pm1.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 460 |  | prediction | `72.26` | not run: locked IAM matter-sector H0 prediction | - |
-| 462 |  | observed | `-0.035^{+0.035}_{-0.033}` | not run: measured, too few printed digits to match against the named files | - |
-| 463 |  | calc | `+23.6` | not run: not yet run: draft rejected (drafter skipped: Line 463 states: beta_m excluded, Delta chi^2 = +23.6 This is a goodness-) | - |
+| 462 | ch:dsvalidation:L462 | observed | `-0.035^{+0.035}_{-0.033}` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: Table dsv_observables: beta_distance | PASS |
+| 463 | ch:dsvalidation:L463 | calc | `+23.6` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Table dsv_observables: beta_m on SN distances excluded | PASS |
 | 466 |  | interp | `67.16` | not run: H0 photon sector restated, input | - |
 | 467 |  | interp | `0.157` | not run: beta_m growth value restated, input | - |
 | 467 |  | interp | `72.26` | not run: H0 matter sector restated, input | - |
@@ -1881,19 +1881,16 @@ Totals: 3437 PASS, 0 FAIL, 2897 inventoried and not run. Each run item carries t
 | 514 | ch:dsvalidation:L514 | calc | `13.6\%` | numeric: fractional Newton-constant suppression | PASS |
 | 515 | ch:dsvalidation:L515 | calc | `0.982` | numeric: mu(a) at z=1 from formula | PASS |
 | 515 | ch:dsvalidation:L515:1-\mu<4\times10^{-4} | calc | `1-\mu<4\times10^{-4}` | sympy: mu(a) deviation at z=3 below bound | PASS |
-| 515 |  | calc | `4.25\%` | not run: not yet run: draft does not reproduce the printed value (recomputed 3.50096); drafting error on review | - |
+| 515 | ch:dsvalidation:L515:4.25\% | calc | `4.25\%` | numeric: f sigma8 deficit at z = 0 | PASS |
 | 517 |  | none | `\beta_\gamma<0.0039` | not run: text changed at HEAD; photon-sector bound restated | - |
 | 520 | ch:dsvalidation:L520 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2 difference IAM vs LCDM Level2 | PASS |
 | 525 | ch:dsvalidation:L525 | derived | `\Omega_m/2` | sympy: beta_m amplitude equals Omega_m/2 | PASS |
-| 531 |  | observed | `-0.035 (68\%: -0.068 to 0.000)` | not run: measured, too few printed digits to match against the named files | - |
-| 533 |  | calc | `+23.6` | not run: not yet run: draft rejected (drafter skipped: Requires full Pantheon+ SN covariance fit with beta_distance term.
-# Book) | - |
-| 533 |  | calc | `0.41` | not run: not yet run: draft rejected (drafter skipped: Requires fitting Pantheon+ SNe with beta_distance term to derive
-# the Om) | - |
+| 531 | ch:dsvalidation:L531 | observed | `-0.035` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: Conclusions: beta_distance | PASS |
+| 533 | ch:dsvalidation:L533 | calc | `+23.6` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Conclusions: Delta chi2 of beta_m on SN distances | PASS |
+| 533 | ch:dsvalidation:L533:0.41 | calc | `0.41` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Omega_m that offsets beta_m on SN distances | PASS |
 | 536 | ch:dsvalidation:L536 | observed | `73.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 536 | ch:dsvalidation:L536:72.26 | observed | `72.26` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
-| 536 |  | derived | `721.12` | not run: not yet run: draft rejected (drafter skipped: Requires full Pantheon+ SN covariance likelihood minimization across
-# al) | - |
+| 536 | ch:dsvalidation:L536:721.12 | derived | `721.12` | numeric: Conclusions: shared chi2 minimum | PASS |
 | 537 | ch:dsvalidation:L537 | observed | `-0.75\sigma` | numeric: sigma deviation of prediction from SH0ES | PASS |
 | 543 |  | interp | `67.16` | not run: H0 photon restated, input | - |
 | 543 |  | interp | `72.26` | not run: H0 matter predicted restated, input | - |

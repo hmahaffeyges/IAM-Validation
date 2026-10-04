@@ -1211,6 +1211,64 @@ def _b02_shapefit_chi2(which, data):
         pts = [(0.15, 0.53, 0.16), (0.38, 0.497, 0.045), (0.51, 0.459, 0.038), (0.70, 0.473, 0.041), (0.85, 0.315, 0.095), (1.48, 0.462, 0.045)]
     return sum(((v - fs8_pred(g, z, s8)) / e) ** 2 for z, v, e in pts)
 
+# helpers of the part2/p2_10_dual_sector_validation checks
+_B02_DSV = {}
+_B02_DSV_RERUN = 'python3 docs/verification/scripts/verify_dual_sector_chapters.py > docs/verification/scripts/verify_dual_sector_chapters_output.txt (downloads the public Pantheon+ release; writes verify_dual_sector_chapters_data.json)'
+_B02_CHAINS_RERUN = 'chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)'
+
+def _b02_sn():
+    """The diagonal setup of the three tests (Eqs. dsv_mu, dsv_dL, dsv_Hz, dsv_chi2): 1588 Pantheon+ SNe, 0.01 < zCMB < 2.26, with the
+    comoving integral on a 4000-point grid in z (trapezoid), as verify_dual_sector_chapters.py section 2."""
+    if 'sn' not in _B02_DSV:
+        d = load_json('docs/verification/scripts/verify_dual_sector_chapters_data.json')
+        _B02_DSV['sn'] = (np.array(d['hd_z']), np.array(d['hd_mb']), np.array(d['hd_err']))
+    return _B02_DSV['sn']
+
+def _b02_dl(Omm, H0v, b, zz):
+    """Luminosity distance in Mpc, Eq. dsv_dL with H(z; beta) of Eq. dsv_Hz (Omega_L = 1 - Omega_m)."""
+    zg = np.linspace(0, 2.4, 4000); aa = 1 / (1 + zg)
+    Hn = np.sqrt(Omm * aa**-3 + 1 - Omm + b * np.exp(1 - 1 / aa))
+    dc = np.concatenate([[0], np.cumsum(0.5 * (1 / Hn[1:] + 1 / Hn[:-1]) * np.diff(zg))])
+    return (1 + zz) * (c / 1e3) / H0v * np.interp(zz, zg, dc)
+
+def _b02_chi2_M(Omm, b, H0v):
+    """SN chi2 of Eq. dsv_chi2 at fixed (Omega_m, beta, H0) with M minimised analytically: (chi2, M_hat)."""
+    zs, mb, dm = _b02_sn(); w = 1 / dm**2
+    r = mb - 5 * np.log10(_b02_dl(Omm, H0v, b, zs)) - 25
+    Mh = np.sum(w * r) / np.sum(w)
+    return float(np.sum(w * (r - Mh)**2)), float(Mh)
+
+def _b02_best(H0v):
+    """Minimum over Omega_m in [0.20, 0.40] and beta in [-0.30, 0.30] (grid 0.01) at fixed H0, M analytic: (chi2, Om, beta, M)."""
+    key = ('best', H0v)
+    if key not in _B02_DSV:
+        best = None
+        for b in np.round(np.linspace(-0.3, 0.3, 61), 4):
+            r = minimize_scalar(lambda o: _b02_chi2_M(o, b, H0v)[0], bounds=(0.2, 0.4), method='bounded', options=dict(xatol=1e-5))
+            if best is None or r.fun < best[0]:
+                best = (float(r.fun), float(r.x), float(b))
+        best = best + (_b02_chi2_M(best[1], best[2], H0v)[1],)
+        _B02_DSV[key] = best
+    return _B02_DSV[key]
+
+_B02_PLANCK_PRIOR = (67.4, 0.5)     # Planck 2018 VI (doi:10.1051/0004-6361/201833910), H0 prior of Test A, Eq. dsv_priors
+_B02_SHOES_PRIOR = (73.04, 1.04)    # Riess et al. 2022 (doi:10.3847/2041-8213/ac5c5b), H0 prior of Test B, Eq. dsv_priors
+
+def _b02_test(prior):
+    """One test of Eq. dsv_priors: minimise SN chi2 (M analytic) + prior over H0 in [60, 75] at the (Om, beta) of the minimum: (H0, chi2 total)."""
+    ch, Om_b, b_b, _ = _b02_best(70.0)
+    f = lambda H: _b02_chi2_M(Om_b, b_b, H)[0] + (((H - prior[0]) / prior[1])**2 if prior else 0.0)
+    r = minimize_scalar(f, bounds=(60, 75), method='bounded', options=dict(xatol=1e-6))
+    return float(r.x), float(r.fun)
+
+def _b02_full_profile():
+    d = load_json('docs/verification/scripts/verify_dual_sector_chapters_data.json')
+    return np.array(d['full_beta']), np.array(d['full_dchi2'])
+
+def _b02_out(pattern, group=1):
+    m = re.search(pattern, file_text('docs/verification/scripts/verify_dual_sector_chapters_output.txt'))
+    return float(m.group(group))
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -11799,6 +11857,44 @@ def check_3436():
 
 
 # ======== Part 2 | ch:dsvalidation | docs/book/part2/p2_10_dual_sector_validation.tex
+@check(label='ch:dsvalidation:L17', chapter='ch:dsvalidation', part=2, title='best beta on SN distances, full covariance',
+       file='part2/p2_10_dual_sector_validation', line=17, status='observed', kind='file', printed='-0.035', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_data.json',
+       heavy=True, rerun=_B02_DSV_RERUN)
+def check_3437():
+    'Best beta in the distances, Pantheon+ full STAT+SYS covariance, 1590 SNe, Om 0.315, M marginalised. Book line 17, printed -0.035. Read: argmin of the committed profile full_beta / full_dchi2.'
+    bs, dc = _b02_full_profile()
+    value = bs[int(np.argmin(dc))]
+    return locals()
+
+@check(label='ch:dsvalidation:L17:-0.068', chapter='ch:dsvalidation', part=2, title='lower 68 % end of beta on SN distances, full covariance',
+       file='part2/p2_10_dual_sector_validation', line=17, status='observed', kind='file', printed='-0.068', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_data.json',
+       heavy=True, rerun=_B02_DSV_RERUN)
+def check_3438():
+    'Lower end of the 68 % range of beta_distance (book line 17, printed -0.068): where the committed full-covariance profile crosses min + 1 below the minimum, by linear interpolation between its grid points (step 0.005; the script prints the grid point -0.065 inside the range).'
+    bs, dc = _b02_full_profile()
+    i = int(np.argmin(dc)); d1 = dc - dc[i]
+    value = float(np.interp(1.0, d1[:i + 1][::-1], bs[:i + 1][::-1]))
+    return locals()
+
+@check(label='ch:dsvalidation:L17:0.000', chapter='ch:dsvalidation', part=2, title='upper 68 % end of beta on SN distances, full covariance',
+       file='part2/p2_10_dual_sector_validation', line=17, status='observed', kind='file', printed='0.000', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_data.json',
+       heavy=True, rerun=_B02_DSV_RERUN)
+def check_3439():
+    'Upper end of the 68 % range of beta_distance (book line 17, printed 0.000): largest beta of the committed full-covariance profile with dchi2 <= min + 1.'
+    bs, dc = _b02_full_profile()
+    value = bs[dc <= dc.min() + 1].max()
+    return locals()
+
+@check(label='ch:dsvalidation:L19', chapter='ch:dsvalidation', part=2, title='Delta chi2 of beta_m on SN distances, full covariance',
+       file='part2/p2_10_dual_sector_validation', line=19, status='calc', kind='file', printed='+23.6', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_output.txt',
+       heavy=True, rerun=_B02_DSV_RERUN)
+def check_3440():
+    'Delta chi2 of beta_m = 0.15765 put into the SN distances, full covariance, Om 0.315 (book line 19, printed +23.6): chi2 with beta_m minus LambdaCDM chi2, both read from section 3 of verify_dual_sector_chapters_output.txt.'
+    c0 = _b02_out(r"Om 0\.315: LCDM chi2 ([\d.]+);")
+    c1 = _b02_out(r"in the distances ([\d.]+);")
+    value = c1 - c0
+    return locals()
+
 @check(label='ch:dsvalidation:L27', chapter='ch:dsvalidation', part=2, title='Hubble tension significance from cited H0 values',
        file='part2/p2_10_dual_sector_validation', line=27, status='observed', kind='num', printed='4.9', tol=0.0102)
 def check_1051():
@@ -11866,6 +11962,21 @@ def check_1058():
     value=(73.04-H0m)/1.04
     return locals()
 
+@check(label='ch:dsvalidation:L38:0.37', chapter='ch:dsvalidation', part=2, title='H0 photon (Level 2 Run A) from Planck 2018, in Planck sigma',
+       file='part2/p2_10_dual_sector_validation', line=38, status='measured', kind='file', printed='0.37', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_3441():
+    'Distance of H0(photon) = 67.16 (Level 2 Run A posterior) from Planck 2018 67.36 +- 0.54 (Planck 2018 VI Table 2, doi:10.1051/0004-6361/201833910), in units of the Planck error. Book line 38, printed 0.37.'
+    H0g = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = (100 * h_pl - H0g) / 0.54
+    return locals()
+
+def _b02_bg_bound(lev=4.0):
+    if ('bg', lev) not in _B02_DSV:
+        t0 = theta_s_fixed_rs(0.0); c0 = ((t0 - THETA_S_OBS) / THETA_S_ERR)**2
+        _B02_DSV[('bg', lev)] = brentq(lambda b: ((theta_s_fixed_rs(b) - THETA_S_OBS) / THETA_S_ERR)**2 - c0 - lev, 1e-6, 0.05)
+    return _B02_DSV[('bg', lev)]
+
 @check(label='ch:dsvalidation:L39', chapter='ch:dsvalidation', part=2, title='sector ratio from the committed 95 % bound',
        file='part2/p2_10_dual_sector_validation', line=39, status='calc', kind='num', printed='0.033', tol=0)
 def check_1059():
@@ -11880,6 +11991,13 @@ def check_1060():
     "'at least 30x': beta_m/beta_gamma bound, whole multiples. Book line 39, printed 30."
     bg=float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))  # 95 % bound, committed output
     value=math.floor(beta_m/bg)
+    return locals()
+
+@check(label='ch:dsvalidation:L39:0.0052', chapter='ch:dsvalidation', part=2, title='beta_gamma 95 % bound from the acoustic angle',
+       file='part2/p2_10_dual_sector_validation', line=39, status='calc', kind='num', printed='0.0052', tol=0.0)
+def check_3442():
+    'beta_gamma < 0.0052 (95 %): Delta chi2 = 4 on theta_s with r_* fixed, every input from one Planck 2018 fit (theta_s_fixed_rs; port of verify_beta_gamma.py). Book line 39, printed 0.0052 (the inventory row carried the superseded 0.0039).'
+    value = _b02_bg_bound(4.0)
     return locals()
 
 @check(label='ch:dsvalidation:L67', chapter='ch:dsvalidation', part=2, title='activation function E(1)=1 check',
@@ -11911,6 +12029,13 @@ def check_1063():
     g=sp.diff(E,a)*a
     dg=sp.diff(g,a); d2g=sp.diff(g,a,2)
     ok=(sp.simplify(dg.subs(a,1))==0) and (d2g.subs(a,1)<0)
+    return locals()
+
+@check(label='ch:dsvalidation:L71', chapter='ch:dsvalidation', part=2, title='beta_gamma 95 % bound, Eq. dsv_bg',
+       file='part2/p2_10_dual_sector_validation', line=71, status='calc', kind='num', printed='0.0052', tol=0.0)
+def check_3443():
+    'Eq. dsv_bg, beta_gamma < 0.0052 (95 %, acoustic scale), recomputed as Delta chi2 = 4 on theta_s at fixed r_* (one Planck 2018 fit). Book line 71, printed 0.0052 (the inventory row carried the superseded 0.0039).'
+    value = _b02_bg_bound(4.0)
     return locals()
 
 @check(label='eq:dsv_bm', chapter='ch:dsvalidation', part=2, title='β_m=Ω_m/2 definition',
@@ -12008,12 +12133,36 @@ def check_1075():
     value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')*math.sqrt(1+beta_m)
     return locals()
 
+@check(label='ch:dsvalidation:L84', chapter='ch:dsvalidation', part=2, title='H_m^2(1) = H0^2 (1 + beta_m) in a flat universe',
+       file='part2/p2_10_dual_sector_validation', line=84, status='derived', kind='sym', printed='', tol=0.0)
+def check_3444():
+    'Eq. dsv_Hm at a = 1 with E(1) = exp(0) and Omega_L = 1 - Omega_m gives H_m^2(1)/H0^2 = 1 + beta_m. Book line 84.'
+    a, Omm, b = sp.symbols('a Omega_m beta', positive=True)
+    Hm2 = lambda coef: Omm * a**-3 + (1 - Omm) + coef * b * sp.exp(1 - 1 / a)
+    lhs = Hm2(1).subs(a, 1)
+    rhs = 1 + b
+    neg_lhs = Hm2(sp.Rational(105, 100)).subs(a, 1)
+    return locals()
+
 @check(label='ch:dsvalidation:L90', chapter='ch:dsvalidation', part=2, title='Prediction 1 H0(matter), repeat of eq:dsv_H0m',
        file='part2/p2_10_dual_sector_validation', line=90, status='prediction', kind='num', printed='72.26', tol=6.92e-05)
 def check_1076():
     'Prediction 1 H0(matter), repeat of eq:dsv_H0m. Book line 90, printed 72.26.'
     value=67.161*math.sqrt(1+beta_m)
     return locals()
+
+@check(label='ch:dsvalidation:L110', chapter='ch:dsvalidation', part=2, title='median diagonal m_b error of the 1588 SNe',
+       file='part2/p2_10_dual_sector_validation', line=110, status='observed', kind='file', printed='0.21', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_data.json',
+       heavy=True, rerun=_B02_DSV_RERUN)
+def check_3445():
+    'Median sigma_mb of the 1588 Hubble-flow SNe (0.01 < zCMB < 2.26), the diagonal error column of the Pantheon+ release as committed in the data file. Book line 110, printed 0.21.'
+    zs, mb, dm = _b02_sn()
+    value = float(np.median(dm))
+    return locals()
+
+def _b02_tc(H0v):
+    ch, Om_b, b_b, Mh = _b02_best(H0v)
+    return ch, Mh - 5 * math.log10(H0v)
 
 @check(label='ch:dsvalidation:L111', chapter='ch:dsvalidation', part=2, title='measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names',
        file='part2/p2_10_dual_sector_validation', line=111, status='observed', kind='file', printed='0.212', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_output.txt',
@@ -12033,11 +12182,131 @@ def check_1078():
     ok=sp.simplify(lhs-rhs)==0
     return locals()
 
+@check(label='ch:dsvalidation:L240', chapter='ch:dsvalidation', part=2, title='Test C: chi2_min at H0 = 64.00',
+       file='part2/p2_10_dual_sector_validation', line=240, status='calc', kind='num', printed='721.12', tol=0.0)
+def check_3446():
+    'Table dsv_testC: minimum chi2 at fixed H0 = 64.00, over Omega_m, beta and M (M analytic), 1588 Pantheon+ SNe, diagonal errors. Book line 240, printed 721.12.'
+    value = _b02_tc(64.00)[0]
+    return locals()
+
+@check(label='ch:dsvalidation:L240:-28.935', chapter='ch:dsvalidation', part=2, title='Test C: M - 5 log10 H0 at H0 = 64.00',
+       file='part2/p2_10_dual_sector_validation', line=240, status='calc', kind='num', printed='-28.935', tol=0.0)
+def check_3447():
+    'Table dsv_testC: M - 5 log10 H0 at the minimum with H0 = 64.00. Book line 240, printed -28.935.'
+    value = _b02_tc(64.00)[1]
+    return locals()
+
+@check(label='ch:dsvalidation:L241', chapter='ch:dsvalidation', part=2, title='Test C: chi2_min at H0 = 67.40',
+       file='part2/p2_10_dual_sector_validation', line=241, status='calc', kind='num', printed='721.12', tol=0.0)
+def check_3448():
+    'Table dsv_testC: minimum chi2 at fixed H0 = 67.40. Book line 241, printed 721.12.'
+    value = _b02_tc(67.40)[0]
+    return locals()
+
+@check(label='ch:dsvalidation:L241:-28.935', chapter='ch:dsvalidation', part=2, title='Test C: M - 5 log10 H0 at H0 = 67.40',
+       file='part2/p2_10_dual_sector_validation', line=241, status='calc', kind='num', printed='-28.935', tol=0.0)
+def check_3449():
+    'Table dsv_testC: M - 5 log10 H0 at H0 = 67.40. Book line 241, printed -28.935.'
+    value = _b02_tc(67.40)[1]
+    return locals()
+
+@check(label='ch:dsvalidation:L242', chapter='ch:dsvalidation', part=2, title='Test C: chi2_min at H0 = 70.00',
+       file='part2/p2_10_dual_sector_validation', line=242, status='calc', kind='num', printed='721.12', tol=0.0)
+def check_3450():
+    'Table dsv_testC: minimum chi2 at fixed H0 = 70.00. Book line 242, printed 721.12.'
+    value = _b02_tc(70.00)[0]
+    return locals()
+
+@check(label='ch:dsvalidation:L242:-28.935', chapter='ch:dsvalidation', part=2, title='Test C: M - 5 log10 H0 at H0 = 70.00',
+       file='part2/p2_10_dual_sector_validation', line=242, status='calc', kind='num', printed='-28.935', tol=0.0)
+def check_3451():
+    'Table dsv_testC: M - 5 log10 H0 at H0 = 70.00. Book line 242, printed -28.935.'
+    value = _b02_tc(70.00)[1]
+    return locals()
+
+@check(label='ch:dsvalidation:L243', chapter='ch:dsvalidation', part=2, title='Test C: chi2_min at H0 = 73.04',
+       file='part2/p2_10_dual_sector_validation', line=243, status='calc', kind='num', printed='721.12', tol=0.0)
+def check_3452():
+    'Table dsv_testC: minimum chi2 at fixed H0 = 73.04. Book line 243, printed 721.12.'
+    value = _b02_tc(_B02_SHOES_PRIOR[0])[0]
+    return locals()
+
+@check(label='ch:dsvalidation:L243:-28.935', chapter='ch:dsvalidation', part=2, title='Test C: M - 5 log10 H0 at H0 = 73.04',
+       file='part2/p2_10_dual_sector_validation', line=243, status='calc', kind='num', printed='-28.935', tol=0.0)
+def check_3453():
+    'Table dsv_testC: M - 5 log10 H0 at H0 = 73.04. Book line 243, printed -28.935.'
+    value = _b02_tc(_B02_SHOES_PRIOR[0])[1]
+    return locals()
+
+@check(label='ch:dsvalidation:L246', chapter='ch:dsvalidation', part=2, title='Test C simplex ends at the H0 boundary',
+       file='part2/p2_10_dual_sector_validation', line=246, status='calc', kind='file', printed='60.0', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_output.txt',
+       heavy=True, rerun=_B02_DSV_RERUN)
+def check_3454():
+    'H0 at which the Nelder-Mead simplex of Test C (started at H0 = 70) stops, read from the "Nelder-Mead C no prior" row of verify_dual_sector_chapters_output.txt. Book line 246, printed 60.0.'
+    value = _b02_out(r"Nelder-Mead C no prior\s+Om \S+ H0 ([\d.]+)")
+    return locals()
+
+@check(label='ch:dsvalidation:L259:-0.30', chapter='ch:dsvalidation', part=2, title='Test A best-fit beta (boundary)',
+       file='part2/p2_10_dual_sector_validation', line=259, status='calc', kind='num', printed='-0.30', tol=0.0)
+def check_3455():
+    'Best-fit beta of Test A (Planck prior): beta at the minimum over the beta grid in [-0.30, 0.30] with Omega_m and M free, 1588 SNe. Book line 259, printed -0.30.'
+    value = _b02_best(67.40)[2]
+    return locals()
+
+@check(label='ch:dsvalidation:L259:67.40', chapter='ch:dsvalidation', part=2, title='Test A best-fit H0 (prior met)',
+       file='part2/p2_10_dual_sector_validation', line=259, status='calc', kind='num', printed='67.40', tol=0.0)
+def check_3456():
+    'Best-fit H0 of Test A: SN chi2 (M analytic) plus the Planck prior ((H0 - 67.4)/0.5)^2, minimised over H0 in [60, 75]. Book line 259, printed 67.40.'
+    value = _b02_test(_B02_PLANCK_PRIOR)[0]
+    return locals()
+
+@check(label='ch:dsvalidation:L259:721.12', chapter='ch:dsvalidation', part=2, title='Test A chi2',
+       file='part2/p2_10_dual_sector_validation', line=259, status='calc', kind='num', printed='721.12', tol=0.0)
+def check_3457():
+    'chi2 of Test A at its best fit (SN part plus Planck prior term). Book line 259, printed 721.12.'
+    value = _b02_test(_B02_PLANCK_PRIOR)[1]
+    return locals()
+
 @check(label='ch:dsvalidation:L260', chapter='ch:dsvalidation', part=2, title='M offset shift between Test A/B',
        file='part2/p2_10_dual_sector_validation', line=260, status='calc', kind='num', printed='0.1745', tol=0.00029)
 def check_1079():
     'M offset shift between Test A/B. Book line 260, printed 0.1745.'
     value=5*math.log10(73.04/67.40)
+    return locals()
+
+@check(label='ch:dsvalidation:L260:-0.30', chapter='ch:dsvalidation', part=2, title='Test B best-fit beta (boundary)',
+       file='part2/p2_10_dual_sector_validation', line=260, status='calc', kind='num', printed='-0.30', tol=0.0)
+def check_3458():
+    'Best-fit beta of Test B (SH0ES prior), minimum over the beta grid with Omega_m and M free at H0 = 73.04. Book line 260, printed -0.30.'
+    value = _b02_best(_B02_SHOES_PRIOR[0])[2]
+    return locals()
+
+@check(label='ch:dsvalidation:L260:73.04', chapter='ch:dsvalidation', part=2, title='Test B best-fit H0 (prior met)',
+       file='part2/p2_10_dual_sector_validation', line=260, status='calc', kind='num', printed='73.04', tol=0.0)
+def check_3459():
+    'Best-fit H0 of Test B: SN chi2 plus the SH0ES prior ((H0 - 73.04)/1.04)^2 (Riess et al. 2022, doi:10.3847/2041-8213/ac5c5b), minimised over H0. Book line 260, printed 73.04.'
+    value = _b02_test(_B02_SHOES_PRIOR)[0]
+    return locals()
+
+@check(label='ch:dsvalidation:L260:721.12', chapter='ch:dsvalidation', part=2, title='Test B chi2',
+       file='part2/p2_10_dual_sector_validation', line=260, status='calc', kind='num', printed='721.12', tol=0.0)
+def check_3460():
+    'chi2 of Test B at its best fit (SN part plus SH0ES prior term). Book line 260, printed 721.12.'
+    value = _b02_test(_B02_SHOES_PRIOR)[1]
+    return locals()
+
+@check(label='ch:dsvalidation:L261', chapter='ch:dsvalidation', part=2, title='Test C best-fit beta (boundary)',
+       file='part2/p2_10_dual_sector_validation', line=261, status='calc', kind='num', printed='-0.30', tol=0.0)
+def check_3461():
+    'Best-fit beta of Test C (no prior): the minimum over the beta grid at any H0 (here H0 = 70). Book line 261, printed -0.30.'
+    value = _b02_best(70.0)[2]
+    return locals()
+
+@check(label='ch:dsvalidation:L261:721.12', chapter='ch:dsvalidation', part=2, title='Test C chi2',
+       file='part2/p2_10_dual_sector_validation', line=261, status='calc', kind='num', printed='721.12', tol=0.0)
+def check_3462():
+    'chi2 of Test C (no prior term). Book line 261, printed 721.12.'
+    value = _b02_test(None)[1]
     return locals()
 
 @check(label='ch:dsvalidation:L266', chapter='ch:dsvalidation', part=2, title='measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names',
@@ -12046,6 +12315,44 @@ def check_1079():
 def check_1080():
     'measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names. Book line 266, printed 73.04.'
     ok = file_has('docs/verification/scripts/verify_dual_sector_chapters_output.txt', '73.04')
+    return locals()
+
+@check(label='ch:dsvalidation:L266:-28.935', chapter='ch:dsvalidation', part=2, title='shared minimum M - 5 log10 H0',
+       file='part2/p2_10_dual_sector_validation', line=266, status='derived', kind='num', printed='-28.935', tol=0.0)
+def check_3463():
+    'M - 5 log10 H0 at the shared minimum (book line 266, printed -28.935), recomputed at the SH0ES value H0 = 73.04.'
+    value = _b02_tc(_B02_SHOES_PRIOR[0])[1]
+    return locals()
+
+@check(label='ch:dsvalidation:L271', chapter='ch:dsvalidation', part=2, title='figure caption: Delta chi2 of beta_m on SN distances',
+       file='part2/p2_10_dual_sector_validation', line=271, status='calc', kind='file', printed='+23.6', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_output.txt',
+       heavy=True, rerun=_B02_DSV_RERUN)
+def check_3464():
+    'Fig. sn_h0_flat caption, Delta chi2 = +23.6 for beta_m in the distances (book line 271): difference of the two full-covariance chi2 of section 3 of verify_dual_sector_chapters_output.txt.'
+    value = _b02_out(r"in the distances ([\d.]+);") - _b02_out(r"Om 0\.315: LCDM chi2 ([\d.]+);")
+    return locals()
+
+@check(label='ch:dsvalidation:L271:-0.035', chapter='ch:dsvalidation', part=2, title='figure caption: best beta, full covariance',
+       file='part2/p2_10_dual_sector_validation', line=271, status='fitted', kind='file', printed='-0.035', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_data.json',
+       heavy=True, rerun=_B02_DSV_RERUN)
+def check_3465():
+    'Fig. sn_h0_flat caption, best beta = -0.035 (book line 271): argmin of the committed full-covariance profile.'
+    bs, dc = _b02_full_profile()
+    value = bs[int(np.argmin(dc))]
+    return locals()
+
+@check(label='ch:dsvalidation:L271:721.12', chapter='ch:dsvalidation', part=2, title='figure caption: flat chi2_min',
+       file='part2/p2_10_dual_sector_validation', line=271, status='calc', kind='num', printed='721.12', tol=0.0)
+def check_3466():
+    'Fig. sn_h0_flat(b) caption, minimum chi2 flat at 721.12 (book line 271), recomputed at H0 = 64.00 and 73.04 and the larger of the two taken.'
+    value = max(_b02_tc(64.00)[0], _b02_tc(_B02_SHOES_PRIOR[0])[0])
+    return locals()
+
+@check(label='ch:dsvalidation:L271:-28.935', chapter='ch:dsvalidation', part=2, title='figure caption: M - 5 log10 H0 at every H0',
+       file='part2/p2_10_dual_sector_validation', line=271, status='calc', kind='num', printed='-28.935', tol=0.0)
+def check_3467():
+    'Fig. sn_h0_flat(b) caption, M - 5 log10 H0 = -28.935 at every H0 (book line 271), recomputed at H0 = 64.00.'
+    value = _b02_tc(64.00)[1]
     return locals()
 
 @check(label='eq:dsv_H0local', chapter='ch:dsvalidation', part=2, title='matter-sector local H0 prediction',
@@ -12151,6 +12458,13 @@ def check_1094():
     value=bg/beta_m
     return locals()
 
+@check(label='ch:dsvalidation:L456', chapter='ch:dsvalidation', part=2, title='Table dsv_observables: beta_gamma bound',
+       file='part2/p2_10_dual_sector_validation', line=456, status='calc', kind='num', printed='0.0052', tol=0.0)
+def check_3468():
+    'Table dsv_observables, CMB theta_s row, beta_gamma < 0.0052 (95 %), recomputed as at line 71. Book line 456 (the inventory row carried the superseded 0.0039).'
+    value = _b02_bg_bound(4.0)
+    return locals()
+
 @check(label='ch:dsvalidation:L457', chapter='ch:dsvalidation', part=2, title='H0 photon sector from Level2 chain',
        file='part2/p2_10_dual_sector_validation', line=457, status='measured', kind='file', printed='67.16\\pm0.47', tol=0.0001, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
@@ -12189,6 +12503,23 @@ def check_1098():
 def check_1099():
     'measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names. Book line 460, printed 73.04\\pm1.04.'
     ok = file_has('docs/verification/scripts/verify_dual_sector_chapters_output.txt', '73.04\\pm1.04')
+    return locals()
+
+@check(label='ch:dsvalidation:L462', chapter='ch:dsvalidation', part=2, title='Table dsv_observables: beta_distance',
+       file='part2/p2_10_dual_sector_validation', line=462, status='observed', kind='file', printed='-0.035^{+0.035}_{-0.033}', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_data.json',
+       heavy=True, rerun=_B02_DSV_RERUN)
+def check_3469():
+    'Table dsv_observables, beta_distance central value -0.035 (book line 462): argmin of the committed full-covariance profile. The errors are checked by the line-17 checks (the lower one fails, see for_author).'
+    bs, dc = _b02_full_profile()
+    value = bs[int(np.argmin(dc))]
+    return locals()
+
+@check(label='ch:dsvalidation:L463', chapter='ch:dsvalidation', part=2, title='Table dsv_observables: beta_m on SN distances excluded',
+       file='part2/p2_10_dual_sector_validation', line=463, status='calc', kind='file', printed='+23.6', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_output.txt',
+       heavy=True, rerun=_B02_DSV_RERUN)
+def check_3470():
+    'Table dsv_observables, Delta chi2 = +23.6 (book line 463), difference of the two full-covariance chi2 in verify_dual_sector_chapters_output.txt.'
+    value = _b02_out(r"in the distances ([\d.]+);") - _b02_out(r"Om 0\.315: LCDM chi2 ([\d.]+);")
     return locals()
 
 @check(label='ch:dsvalidation:L490', chapter='ch:dsvalidation', part=2, title='S8 forecast from sigma8 and Omega_m',
@@ -12270,6 +12601,13 @@ def check_1108():
     ok=(1-mu)<4e-4
     return locals()
 
+@check(label='ch:dsvalidation:L515:4.25\\%', chapter='ch:dsvalidation', part=2, title='f sigma8 deficit at z = 0',
+       file='part2/p2_10_dual_sector_validation', line=515, status='calc', kind='num', printed='4.25\\%', tol=0.0)
+def check_3471():
+    'f sigma8 lower by 4.25 % at z = 0: 1 - (f D)_IAM/(f D)_LCDM from the growth equation with mu(a) = H^2/(H^2 + beta_m E(a)), same early amplitude. Book line 515. Inputs: beta_m (canon), Planck 2018 background.'
+    value = fs8_deficit(0.0, 'iam')
+    return locals()
+
 @check(label='ch:dsvalidation:L520', chapter='ch:dsvalidation', part=2, title='chi2 difference IAM vs LCDM Level2',
        file='part2/p2_10_dual_sector_validation', line=520, status='measured', kind='file', printed='+0.54', tol=0.0093, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
@@ -12287,6 +12625,31 @@ def check_1110():
     ok=abs(lhs-rhs)<1e-3
     return locals()
 
+@check(label='ch:dsvalidation:L531', chapter='ch:dsvalidation', part=2, title='Conclusions: beta_distance',
+       file='part2/p2_10_dual_sector_validation', line=531, status='observed', kind='file', printed='-0.035', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_data.json',
+       heavy=True, rerun=_B02_DSV_RERUN)
+def check_3472():
+    'Conclusions, beta_distance = -0.035 (book line 531; the 68 % range -0.068 to 0.000 is the line-17 pair of checks): argmin of the committed full-covariance profile.'
+    bs, dc = _b02_full_profile()
+    value = bs[int(np.argmin(dc))]
+    return locals()
+
+@check(label='ch:dsvalidation:L533', chapter='ch:dsvalidation', part=2, title='Conclusions: Delta chi2 of beta_m on SN distances',
+       file='part2/p2_10_dual_sector_validation', line=533, status='calc', kind='file', printed='+23.6', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_output.txt',
+       heavy=True, rerun=_B02_DSV_RERUN)
+def check_3473():
+    'Conclusions, Delta chi2 = +23.6 (book line 533), difference of the two full-covariance chi2 in verify_dual_sector_chapters_output.txt.'
+    value = _b02_out(r"in the distances ([\d.]+);") - _b02_out(r"Om 0\.315: LCDM chi2 ([\d.]+);")
+    return locals()
+
+@check(label='ch:dsvalidation:L533:0.41', chapter='ch:dsvalidation', part=2, title='Omega_m that offsets beta_m on SN distances',
+       file='part2/p2_10_dual_sector_validation', line=533, status='calc', kind='file', printed='0.41', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_output.txt',
+       heavy=True, rerun=_B02_DSV_RERUN)
+def check_3474():
+    'Omega_m at which beta_m = 0.15765 in the distances returns to the LambdaCDM chi2 (book line 533, printed 0.41): the "beta 0.15765 fixed, Om free" row of section 3 of verify_dual_sector_chapters_output.txt.'
+    value = _b02_out(r"beta 0\.15765 fixed, Om free: Om ([\d.]+)")
+    return locals()
+
 @check(label='ch:dsvalidation:L536', chapter='ch:dsvalidation', part=2, title='measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names',
        file='part2/p2_10_dual_sector_validation', line=536, status='observed', kind='file', printed='73.04', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_dual_sector_chapters.py > docs/verification/scripts/verify_dual_sector_chapters_output.txt')
@@ -12301,6 +12664,13 @@ def check_1111():
 def check_1112():
     'measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names. Book line 536, printed 72.26.'
     ok = file_has('docs/verification/scripts/verify_dual_sector_chapters_output.txt', '72.26')
+    return locals()
+
+@check(label='ch:dsvalidation:L536:721.12', chapter='ch:dsvalidation', part=2, title='Conclusions: shared chi2 minimum',
+       file='part2/p2_10_dual_sector_validation', line=536, status='derived', kind='num', printed='721.12', tol=0.0)
+def check_3475():
+    'Conclusions, Tests A, B and C share chi2 = 721.12 (book line 536): the smallest of the three test minima.'
+    value = min(_b02_test(_B02_PLANCK_PRIOR)[1], _b02_test(_B02_SHOES_PRIOR)[1], _b02_test(None)[1])
     return locals()
 
 @check(label='ch:dsvalidation:L537', chapter='ch:dsvalidation', part=2, title='sigma deviation of prediction from SH0ES',
@@ -30523,47 +30893,13 @@ INVENTORY = [
     (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 247, '', 'observed', '0.055', 'measured, source not named'),
     (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 249, '', 'observed', '0.055', 'measured, source not named'),
     (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 280, '', 'none', '+0.09\\sigma', 'ln(1e10 As) shift between chains; As not in committed CSV'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 17, '', 'observed', '-0.035', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 17, '', 'observed', '-0.068', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 17, '', 'observed', '0.000', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 19, '', 'calc', '+23.6', 'not yet run: draft rejected (drafter skipped: Delta chi-squared for beta term exclusion in supernova fit requires the f)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 38, '', 'measured', '0.37', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 39, '', 'calc', '0.0039', 'not yet run: draft does not reproduce the printed value (recomputed 0.00520245); drafting error on review'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 64, 'eq:dsv_Hm', 'none', '', 'definition of matter-sector Friedmann equation'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 71, 'eq:dsv_bg', 'calc', '0.0039', 'not yet run: draft rejected (drafter skipped: Line 71 states β_γ < 0.0052 (95%, acoustic scale) as result of verify_bet)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 84, '', 'derived', '', 'not yet run: draft rejected (uses imports or file access)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 110, '', 'observed', '0.21', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 115, 'eq:dsv_mbcorr', 'none', '', 'definition of distance modulus'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 126, 'eq:dsv_dL', 'none', '', 'definition of luminosity distance integral'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 130, 'eq:dsv_Hz', 'none', '', 'definition of sector-dependent Hubble rate'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 240, '', 'calc', '721.12', 'not yet run: draft rejected (drafter skipped: Book states: at H0 ∈ {64.00, 67.40, 70.00, 73.04} km/s/Mpc, chi2_min = 72)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 240, '', 'calc', '-28.935', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 241, '', 'calc', '721.12', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 241, '', 'calc', '-28.935', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 242, '', 'calc', '721.12', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 242, '', 'calc', '-28.935', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 243, '', 'calc', '721.12', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 243, '', 'calc', '-28.935', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 246, '', 'calc', '60.0', 'not yet run: draft rejected (drafter skipped: Line 246: "parameter boundary (here 60.0 km/s/Mpc)" — this is a simplex o)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 247, '', 'calc', '10^{-4}', 'not yet run: draft rejected (drafter skipped: Line 247: "flat to 10^{-4}" — describes numerical precision of profile fl)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 259, '', 'calc', '-0.30', 'not yet run: draft rejected (drafter skipped: Line 259: "Best-fit β = -0.30 (boundary)" — optimized parameter from SNe )'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 259, '', 'calc', '67.40', 'not yet run: draft rejected (drafter skipped: Line 259: "Best-fit H0 = 67.40 (prior)" — this is the Planck prior mean, )'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 259, '', 'calc', '721.12', 'not yet run: draft rejected (drafter skipped: Line 259: "χ² = 721.12" — chi-squared minimum from supernova magnitude fi)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 260, '', 'calc', '-0.30', 'not yet run: draft rejected (drafter skipped: Line 260: "Best-fit β = -0.30 (boundary)" — same as ITEM 568, optimized p)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 260, '', 'calc', '73.04', 'not yet run: draft rejected (drafter skipped: Line 260: "Best-fit H0 = 73.04 (prior)" — SH0ES prior mean (Riess 2022), )'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 260, '', 'calc', '721.12', 'not yet run: draft rejected (drafter skipped: Line 260: "χ² = 721.12" — same chi-squared as Test A, by design (text sta)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 261, '', 'calc', '-0.30', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 261, '', 'calc', '721.12', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 266, '', 'derived', '-28.935', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 271, '', 'calc', '+23.6', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 271, '', 'fitted', '-0.035', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 271, '', 'calc', '721.12', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 271, '', 'calc', '-28.935', 'not yet run: draft rejected (no draft returned)'),
+    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 247, '', 'calc', '10^{-4}', "precision statement: 'flat to 10^-4' bounds the numerical spread of the H0 profile, nothing to recompute; the flatness itself is checked at ch:dsvalidation:L240-L243 (same chi2_min and M - 5 log10 H0 at all four H0)"),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 295, 'eq:dsv_shape', 'none', '', 'definition of luminosity distance integral'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 456, '', 'calc', '\\beta_\\gamma<0.0039', 'not yet run: draft rejected (uses imports or file access)'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 460, '', 'prediction', '72.26', 'locked IAM matter-sector H0 prediction'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 462, '', 'observed', '-0.035^{+0.035}_{-0.033}', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 463, '', 'calc', '+23.6', 'not yet run: draft rejected (drafter skipped: Line 463 states: beta_m excluded, Delta chi^2 = +23.6 This is a goodness-)'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 466, '', 'interp', '67.16', 'H0 photon sector restated, input'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 467, '', 'interp', '0.157', 'beta_m growth value restated, input'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 467, '', 'interp', '72.26', 'H0 matter sector restated, input'),
@@ -30585,12 +30921,7 @@ INVENTORY = [
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 496, '', 'prediction', '72.26', 'predicted matter-sector H0 restated'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 498, '', 'prediction', '-0.136', 'locked IAM mu0 prediction, input'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 507, 'eq:dsv_poisson', 'none', '', 'definition of standard mu-Sigma parametrization'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 515, '', 'calc', '4.25\\%', 'not yet run: draft does not reproduce the printed value (recomputed 3.50096); drafting error on review'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 517, '', 'none', '\\beta_\\gamma<0.0039', 'text changed at HEAD; photon-sector bound restated'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 531, '', 'observed', '-0.035 (68\\%: -0.068 to 0.000)', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 533, '', 'calc', '+23.6', 'not yet run: draft rejected (drafter skipped: Requires full Pantheon+ SN covariance fit with beta_distance term.\n# Book)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 533, '', 'calc', '0.41', 'not yet run: draft rejected (drafter skipped: Requires fitting Pantheon+ SNe with beta_distance term to derive\n# the Om)'),
-    (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 536, '', 'derived', '721.12', 'not yet run: draft rejected (drafter skipped: Requires full Pantheon+ SN covariance likelihood minimization across\n# al)'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 543, '', 'interp', '67.16', 'H0 photon restated, input'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 543, '', 'interp', '72.26', 'H0 matter predicted restated, input'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 543, '', 'interp', '73.04', 'H0 matter measured restated, input'),
