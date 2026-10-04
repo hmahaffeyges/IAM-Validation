@@ -1655,6 +1655,22 @@ def _b07_hr_fH():
     H_GeV = math.sqrt(4 * math.pi**3 / 45) * gs**0.5 * Tc**2 / mP_GeV
     return a_EW * H_GeV / hbar_GeVs
 
+# helpers of the part2/p2_15a_lepton_koide checks
+# Koide helpers: masses in MeV. m_e from CODATA 2018 m_e (kg) and c, e (SI exact); m_mu from CODATA 2018 m_mu/m_e = 206.7682830;
+# m_tau = 1776.93 +- 0.09 MeV (PDG 2024, doi:10.1103/PhysRevD.110.030001).
+_B07_ME = m_e * c**2 / e_ch / 1e6
+_B07_MMU = 206.7682830 * _B07_ME
+_B07_MTAU24, _B07_STAU24 = 1776.93, 0.09
+def _b07_Q(a, b, cc):
+    return (a + b + cc) / (math.sqrt(a) + math.sqrt(b) + math.sqrt(cc))**2
+def _b07_delta(mt):
+    s = [math.sqrt(mt), math.sqrt(_B07_ME), math.sqrt(_B07_MMU)]
+    x = sum(s) / 3; r = math.sqrt(2 * (3 * _b07_Q(_B07_ME, _B07_MMU, mt) - 1))
+    return math.acos((s[0] / x - 1) / r)
+def _b07_mtau_exact():
+    # m_tau fixed by Q = 2/3 exactly: solve Q(m_e, m_mu, m_tau) = 2/3 for the heavy root
+    return brentq(lambda mt: _b07_Q(_B07_ME, _B07_MMU, mt) - 2 / 3, 1500.0, 2000.0, xtol=1e-12)
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -25661,6 +25677,20 @@ def check_2128():
     a,b,cc=sp.symbols('a b c',positive=True); Q=(a**2+b**2+cc**2)/(a+b+cc)**2; ok=sp.simplify(Q.subs({a:1,b:1,cc:1})-sp.Rational(1,3))==0 and sp.limit(Q.subs({b:a,cc:a*0}),a,1)<1
     return locals()
 
+@check(label='ch:koide:L29', chapter='ch:koide', part=4, title='electron mass, MeV (CODATA 2018)',
+       file='part2/p2_15a_lepton_koide', line=29, status='observed', kind='num', printed='0.51099895000', tol=0.0)
+def check_3701():
+    'Electron rest energy m_e c^2 in MeV from the CODATA 2018 mass in kg. Book line 29, printed 0.51099895000(15) MeV. Inputs: m_e = 9.1093837015e-31 kg (CODATA 2018), c and e exact (SI 2019); PDG 2024 (doi:10.1103/PhysRevD.110.030001) quotes the same value.'
+    value = m_e * c**2 / e_ch / 1e6
+    return locals()
+
+@check(label='ch:koide:L30', chapter='ch:koide', part=4, title='muon mass, MeV (CODATA 2018 ratio)',
+       file='part2/p2_15a_lepton_koide', line=30, status='observed', kind='num', printed='105.6583755', tol=0.0)
+def check_3702():
+    'Muon rest energy from the CODATA 2018 mass ratio m_mu/m_e = 206.7682830(46) and m_e c^2. Book line 30, printed 105.6583755(23) MeV. Inputs: CODATA 2018; PDG 2024 (doi:10.1103/PhysRevD.110.030001) quotes 105.6583755(23) MeV.'
+    value = 206.7682830 * (m_e * c**2 / e_ch / 1e6)
+    return locals()
+
 @check(label='ch:koide:L31', chapter='ch:koide', part=4, title='measured: printed value found in verify_particle_book_output.txt, a file the chapter names',
        file='part2/p2_15a_lepton_koide', line=31, status='observed', kind='file', printed='1776.93', tol=0.0, source='docs/verification/scripts/verify_particle_book_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_particle_book.py > docs/verification/scripts/verify_particle_book_output.txt')
@@ -25757,11 +25787,45 @@ def check_2135():
     value=2/3-Qk(me_,mmu_,mtau22)
     return locals()
 
+@check(label='ch:koide:L39', chapter='ch:koide', part=4, title='2/3 - Q, PDG 2024 masses (text restatement)',
+       file='part2/p2_15a_lepton_koide', line=39, status='observed', kind='num', printed='2.2\\times10^{-6}', tol=0.0)
+def check_3703():
+    'The relation holds to 2/3 - Q with the 2024 masses. Book line 39, printed 2.2e-6 (restates the table, ch:koide:L34). Inputs: m_e, m_mu (CODATA 2018), m_tau 1776.93 MeV (PDG 2024).'
+    value = 2 / 3 - _b07_Q(_B07_ME, _B07_MMU, _B07_MTAU24)
+    return locals()
+
+def _b07_Q_run(mu):
+    # one-loop QED MSbar running, m(mu) = M [1 - (alpha/pi)(1 + (3/2) ln(mu/M))], alpha = 1/137.036 (book, line 44)
+    a = 1 / 137.036
+    ms = [M * (1 - (a / math.pi) * (1 + 1.5 * math.log(mu / M))) for M in (_B07_ME, _B07_MMU, _B07_MTAU24)]
+    return _b07_Q(*ms)
+
+@check(label='ch:koide:L45:0.667824', chapter='ch:koide', part=4, title='Q of the running masses at mu = m_tau',
+       file='part2/p2_15a_lepton_koide', line=45, status='calc', kind='num', printed='0.667824', tol=0.0)
+def check_3704():
+    'Q of the one-loop QED MSbar masses at mu = m_tau. Book line 45 (displayed, line 46), printed 0.667824. Inputs: pole masses as in the table (CODATA 2018, PDG 2024 m_tau), alpha = 1/137.036.'
+    value = _b07_Q_run(_B07_MTAU24)
+    return locals()
+
+@check(label='ch:koide:L45:0.667840', chapter='ch:koide', part=4, title='Q of the running masses at mu = M_Z',
+       file='part2/p2_15a_lepton_koide', line=45, status='calc', kind='num', printed='0.667840', tol=0.0)
+def check_3705():
+    'Q of the one-loop QED MSbar masses at mu = M_Z. Book line 45 (displayed, line 46), printed 0.667840. Inputs: pole masses as in the table, alpha = 1/137.036, M_Z = 91.1880 GeV (PDG 2024, as in ch:higgsrecord).'
+    value = _b07_Q_run(91.1880e3)
+    return locals()
+
 @check(label='ch:koide:L48', chapter='ch:koide', part=4, title='departure of running-mass Q from 2/3',
        file='part2/p2_15a_lepton_koide', line=48, status='calc', kind='num', printed='1.2\\times10^{-3}', tol=0)
 def check_2136():
     'departure of running-mass Q from 2/3. Book line 48, printed 1.2\\times10^{-3}.'
     value=0.667824-2/3  # book input line 45 (running masses at mu = m_tau)
+    return locals()
+
+@check(label='ch:koide:L48:10^{-6}', chapter='ch:koide', part=4, title='pole-mass agreement is at the 1e-6 level',
+       file='part2/p2_15a_lepton_koide', line=48, status='calc', kind='num', printed='10^{-6}', tol=0.0)
+def check_3706():
+    'The agreement of the pole masses with 2/3 is at 10^-6 (order of magnitude of 2/3 - Q). Book line 48 (inventory printed the base 10 of 10^{-6}). Inputs: table masses.'
+    value = 2 / 3 - _b07_Q(_B07_ME, _B07_MMU, _B07_MTAU24)
     return locals()
 
 @check(label='ch:koide:L54', chapter='ch:koide', part=4, title='square-root mass vector, MeV^1/2',
@@ -25900,6 +25964,23 @@ def check_2145():
     value=koide(mtau24)[0]**2
     return locals()
 
+@check(label='eq:ko:param', chapter='ch:koide', part=4, title='any three square roots fit x[1 + r cos(delta + 2 pi k/3)]',
+       file='part2/p2_15a_lepton_koide', line=77, status='derived', kind='sym')
+def check_3707():
+    'Eq. eq:ko:param is a change of variables: for arbitrary s_0, s_1, s_2, take x = mean, x r cos(delta) = (2/3) sum s_k cos(2 pi k/3) and x r sin(delta) = -(2/3) sum s_k sin(2 pi k/3) (discrete Fourier transform on Z3); then x[1 + r cos(delta + 2 pi k/3)] returns every s_k. Book line 77.'
+    s = sp.symbols('s0:3', real=True)
+    ck = [sp.cos(2 * sp.pi * k / 3) for k in range(3)]; sk = [sp.sin(2 * sp.pi * k / 3) for k in range(3)]
+    def fit(coef):
+        x = sum(s) / 3
+        A = coef * sum(s[k] * ck[k] for k in range(3))          # x r cos(delta)
+        B = -coef * sum(s[k] * sk[k] for k in range(3))         # x r sin(delta)
+        return sp.Matrix([sp.expand(x + A * ck[k] - B * sk[k]) for k in range(3)])   # x + x r cos(delta + 2 pi k/3)
+    lhs = fit(sp.Rational(2, 3)).T * sp.Matrix([1, 10, 100])
+    rhs = sp.Matrix(s).T * sp.Matrix([1, 10, 100])
+    lhs, rhs = sp.nsimplify(sp.simplify(lhs[0])), rhs[0]
+    neg_lhs = sp.simplify((fit(sp.Rational(2, 3) * sp.Rational(105, 100)).T * sp.Matrix([1, 10, 100]))[0])
+    return locals()
+
 @check(label='eq:ko:Z3', chapter='ch:koide', part=4, title='Z3 sums of cos and cos^2',
        file='part2/p2_15a_lepton_koide', line=82, status='derived', kind='sym', printed='', tol=0)
 def check_2146():
@@ -26024,11 +26105,39 @@ def check_2155():
     dd=(koide(mtau24+1e-4)[2]-koide(mtau24-1e-4)[2])/2e-4; value=(koide(mtau24)[2]-2/9)/abs(dd*stau24)
     return locals()
 
+@check(label='eq:ko:TU', chapter='ch:koide', part=4, title='Unruh temperature from regularity of the Euclidean Rindler plane',
+       file='part2/p2_15a_lepton_koide', line=120, status='none', kind='sym')
+def check_3708():
+    'Eq. eq:ko:TU, T = hbar kappa/(2 pi k_B). Derived: in the Euclidean Rindler metric ds^2 = kappa^2 rho^2 dtau^2 + drho^2 a circle of radius rho has circumference kappa rho beta; regularity at rho = 0 requires dC/drho = 2 pi, which is solved for the period beta; T = hbar/(k_B beta). Book line 120.'
+    rho, kappa, beta, hb, kb = sp.symbols('rho kappa beta hbar k_B', positive=True)
+    C = kappa * rho * beta                           # proper circumference at proper radius rho
+    beta_sol = sp.solve(sp.Eq(sp.diff(C, rho), 2 * sp.pi), beta)[0]
+    lhs = hb / (kb * beta_sol)
+    rhs = hb * kappa / (2 * sp.pi * kb)
+    neg_lhs = hb / (kb * sp.solve(sp.Eq(sp.diff(C, rho), sp.Rational(105, 100) * 2 * sp.pi), beta)[0])
+    return locals()
+
 @check(label='eq:ko:eta', chapter='ch:koide', part=4, title='eta = c^3/(4 hbar G) = 1/(4 l_P^2)',
        file='part2/p2_15a_lepton_koide', line=125, status='derived', kind='sym', printed='', tol=0)
 def check_2156():
     'eta = c^3/(4 hbar G) = 1/(4 l_P^2) (Eq. eq:ko:eta). Book line 125.'
     hb,c_,G_,eta=sp.symbols('hbar c G eta',positive=True); lhs=sp.solve(sp.Eq(hb*eta/(2*sp.pi),c_**3/(8*sp.pi*G_)),eta)[0]; rhs=1/(4*hb*G_/c_**3)
+    return locals()
+
+@check(label='eq:ko:onebit', chapter='ch:koide', part=4, title='eta dA_min = 1, dA_min = 4 l_P^2',
+       file='part2/p2_15a_lepton_koide', line=133, status='derived', kind='sym')
+def check_3709():
+    'Eq. eq:ko:onebit. Derived: absorbing dE = k_B T at temperature T gives dS = dE/T = k_B (first law), i.e. one unit; with S = k_B eta A and eta = c^3/(4 hbar G) (eq:ko:eta) the area step is solved for and is 4 l_P^2 = 4 hbar G/c^3, so eta dA_min = 1. Book line 133.'
+    T, kb, hb, G_, c_, dA = sp.symbols('T k_B hbar G c dA', positive=True)
+    def area_step(eta_coef):
+        eta = eta_coef * c_**3 / (hb * G_)
+        dS = (kb * T) / T                              # first law, in J/K
+        return sp.solve(sp.Eq(kb * eta * dA, dS), dA)[0], eta
+    dA_min, eta = area_step(sp.Rational(1, 4))
+    lhs = dA_min
+    rhs = 4 * hb * G_ / c_**3                          # 4 l_P^2
+    ok_unit = sp.simplify(eta * dA_min - 1) == 0
+    neg_lhs = area_step(sp.Rational(105, 400))[0]
     return locals()
 
 @check(label='eq:ko:maxent', chapter='ch:koide', part=4, title='maximum entropy over K states gives p_k = 1/K (K=3)',
@@ -26063,6 +26172,68 @@ def check_2158():
 
     # Wrong version: multiply one coefficient by 1.05
     rhs_wrong = (n**2 / 2.1) * omega0**2
+    return locals()
+
+@check(label='eq:ko:boltz', chapter='ch:koide', part=4, title='Boltzmann suppression of mode n relative to mode 1',
+       file='part2/p2_15a_lepton_koide', line=161, status='conjecture', kind='sym')
+def check_3710():
+    'Eq. eq:ko:boltz: with the gradient cost E_n = n^2 omega_0^2/2 (eq:ko:grad, computed here from the orbit average of |d/dphi cos n phi|^2), the Boltzmann ratio exp[-(E_n - E_1)/(k_B T_enc)] is exp[-(n^2 - 1) omega_0^2/(2 k_B T_enc)]. Book line 161. The occupation by a Boltzmann factor is the conjecture; the exponent is checked.'
+    n = sp.symbols('n', positive=True, integer=True)
+    phi, w0, kT = sp.symbols('phi omega_0 kT', positive=True)
+    def E(m):
+        return w0**2 * sp.integrate(sp.diff(sp.cos(m * phi), phi)**2, (phi, 0, 2 * sp.pi)) / (2 * sp.pi)
+    lhs = sp.simplify(sp.exp(-(E(n) - E(1)) / kT))
+    rhs = sp.exp(-(n**2 - 1) * w0**2 / (2 * kT))
+    neg_lhs = sp.simplify(sp.exp(-(sp.Rational(105, 100) * E(n) - E(1)) / kT))
+    return locals()
+
+@check(label='eq:ko:two', chapter='ch:koide', part=4, title='reflection symmetry removes sin(phi): sqrt m = x + y cos(phi)',
+       file='part2/p2_15a_lepton_koide', line=166, status='conjecture', kind='sym')
+def check_3711():
+    'Eq. eq:ko:two: the two lowest modes a_0 + a_1 cos(phi) + b_1 sin(phi); imposing the reflection symmetry f(phi) = f(-phi) at all phi is solved for b_1 (= 0), leaving x + y cos(phi) with x = a_0, y = a_1. Book line 166. The truncation to two modes is the conjecture.'
+    phi, a0, a1, b1 = sp.symbols('phi a0 a1 b1', real=True)
+    f = a0 + a1 * sp.cos(phi) + b1 * sp.sin(phi)
+    b1_sol = sp.solve(sp.Eq((f - f.subs(phi, -phi)).subs(phi, sp.pi / 2), 0), b1)[0]
+    lhs = f.subs(b1, b1_sol)
+    x, y = a0, a1
+    rhs = x + y * sp.cos(phi)
+    neg_lhs = lhs + sp.Rational(5, 100) * a1 * sp.sin(phi)
+    return locals()
+
+@check(label='ch:koide:L174', chapter='ch:koide', part=4, title='largest shift of Q per unit a_2/y from a cos(2 phi) admixture',
+       file='part2/p2_15a_lepton_koide', line=174, status='calc', kind='num', printed='0.67', tol=0.0)
+def check_3712():
+    'A cos(2 phi) admixture of amplitude a_2 on the three Z3 samples x + y cos(phi_k) (y = sqrt2 x) shifts Q by (dQ/d(a_2/y)) a_2/y; the slope is computed numerically at small a_2 and maximised over the offset delta. Book line 174, printed 0.67 (K15).'
+    x = 1.0; y = math.sqrt(2) * x; eps = 1e-7
+    def Q(a2, d):
+        r = [x + y * math.cos(d + 2 * math.pi * k / 3) + a2 * math.cos(2 * (d + 2 * math.pi * k / 3)) for k in range(3)]
+        m = [v * v for v in r]
+        return sum(m) / sum(r)**2
+    slopes = [abs(Q(eps * y, d) - Q(-eps * y, d)) / (2 * eps) for d in np.linspace(0, 2 * math.pi / 3, 721)]
+    value = max(slopes)
+    return locals()
+
+@check(label='eq:ko:weights', chapter='ch:koide', part=4, title='Parseval weights of the constant and first-harmonic channels',
+       file='part2/p2_15a_lepton_koide', line=181, status='conjecture', kind='sym')
+def check_3713():
+    'Eq. eq:ko:weights: the orbit averages (1/2pi) int x^2 dphi = x^2 and (1/2pi) int (y cos phi)^2 dphi = y^2/2, integrated with sympy; both combined with a bookkeeping symbol t. Book line 181. Identifying weight with mean squared amplitude is the conjecture.'
+    phi, x, y, t = sp.symbols('phi x y t', positive=True)
+    avg = lambda f: sp.integrate(f, (phi, 0, 2 * sp.pi)) / (2 * sp.pi)
+    lhs = avg(x**2) + t * avg((y * sp.cos(phi))**2)
+    rhs = x**2 + t * y**2 / 2
+    neg_lhs = avg(x**2) + t * avg((y * sp.Rational(105, 100) * sp.cos(phi))**2)
+    return locals()
+
+@check(label='eq:ko:ratio', chapter='ch:koide', part=4, title='equal weights x^2 = y^2/2 give y/x = sqrt2',
+       file='part2/p2_15a_lepton_koide', line=186, status='conjecture', kind='sym')
+def check_3714():
+    'Eq. eq:ko:ratio: equal channel weights w_DC = w_harm (eq:ko:weights, eq:ko:maxent with K = 2) are solved for y > 0; y/x = sqrt2, and inserted in Q = (1 + r^2/2)/3 it gives 2/3. Book line 186.'
+    x, y = sp.symbols('x y', positive=True)
+    ysol = sp.solve(sp.Eq(x**2, y**2 / 2), y)[0]
+    lhs = ysol / x
+    rhs = sp.sqrt(2)
+    ok_Q = sp.simplify(sp.Rational(1, 3) * (1 + lhs**2 / 2) - sp.Rational(2, 3)) == 0
+    neg_lhs = sp.solve(sp.Eq(x**2, sp.Rational(105, 100) * y**2 / 2), y)[0] / x
     return locals()
 
 @check(label='eq:ko:pos', chapter='ch:koide', part=4, title='1 + sqrt2 cos(phi) > 0 iff |phi - pi| > pi/4',
@@ -26146,6 +26317,13 @@ def check_2166():
         from scipy.optimize import fsolve
         x,d=fsolve(f,[17.7,0.2222],xtol=1e-14); return x,d,(x*(1+math.sqrt(2)*math.cos(d)))**2
     x2=koide(mtau24)[0]**2; ok=abs(x2*(1-math.sqrt(2)/2)**2-26.92)<0.005 and abs(x2*(1+math.sqrt(2))**2-1829.26)<0.005
+    return locals()
+
+@check(label='ch:koide:L243', chapter='ch:koide', part=4, title='measured offset delta (restated)',
+       file='part2/p2_15a_lepton_koide', line=243, status='openprob', kind='num', printed='0.2222', tol=0.0)
+def check_3715():
+    'The measured spectrum needs delta = 0.2222 rad: offset of the first harmonic of the three square roots, tau at k = 0. Book line 243 (restates ch:koide:L92). Inputs: table masses.'
+    value = _b07_delta(_B07_MTAU24)
     return locals()
 
 @check(label='ch:koide:L246', chapter='ch:koide', part=4, title='electron amplitude zero at delta = pi/12',
@@ -26576,6 +26754,13 @@ def check_2195():
     value=(mtau22-exact23()[2])/stau22
     return locals()
 
+@check(label='ch:koide:L297', chapter='ch:koide', part=4, title='separation of 1776.93 and the Q = 2/3 tau mass at +-0.01 MeV',
+       file='part2/p2_15a_lepton_koide', line=297, status='prediction', kind='num', printed='3.9', tol=0.0)
+def check_3716():
+    'A measurement at +-0.01 MeV with the present central value 1776.93 MeV would separate it from the Q = 2/3 value of m_tau (solved here from m_e, m_mu) at (m_tau(Q=2/3) - 1776.93)/0.01 sigma. Book line 297, printed 3.9. Inputs: m_e, m_mu CODATA 2018; m_tau 1776.93 (PDG 2024).'
+    value = (_b07_mtau_exact() - _B07_MTAU24) / 0.01
+    return locals()
+
 @check(label='ch:koide:L299', chapter='ch:koide', part=4, title='m_tau fixed by Q = 2/3, MeV',
        file='part2/p2_15a_lepton_koide', line=299, status='calc', kind='num', printed='1776.969', tol=0)
 def check_2196():
@@ -26624,6 +26809,14 @@ def check_2198():
     value=Qk(me_,mmu_,mtau24)
     return locals()
 
+@check(label='ch:koide:L315:0.43', chapter='ch:koide', part=4, title='2/3 - Q in standard deviations (status table)',
+       file='part2/p2_15a_lepton_koide', line=315, status='observed', kind='num', printed='0.43', tol=0.0)
+def check_3717():
+    '(2/3 - Q)/sigma(Q), sigma(Q) from sigma(m_tau) = 0.09 MeV by a numerical derivative. Book line 315, printed 0.43 (restates ch:koide:L34:0.43). Inputs: table masses (CODATA 2018, PDG 2024).'
+    dQ = (_b07_Q(_B07_ME, _B07_MMU, _B07_MTAU24 + 1e-4) - _b07_Q(_B07_ME, _B07_MMU, _B07_MTAU24 - 1e-4)) / 2e-4
+    value = (2 / 3 - _b07_Q(_B07_ME, _B07_MMU, _B07_MTAU24)) / abs(dQ * _B07_STAU24)
+    return locals()
+
 @check(label='ch:koide:L316', chapter='ch:koide', part=4, title='drafted check, screened (runs; negative control fails)',
        file='part2/p2_15a_lepton_koide', line=316, status='derived', kind='sym', printed='45', tol=0.0)
 def check_2199():
@@ -26631,6 +26824,13 @@ def check_2199():
     lhs = sp.atan2(1, 1) * 180 / sp.pi
     rhs = sp.Integer(45)
     rhs_wrong = rhs * sp.Rational(21, 20)
+    return locals()
+
+@check(label='ch:koide:L322', chapter='ch:koide', part=4, title='offset delta in the status table',
+       file='part2/p2_15a_lepton_koide', line=322, status='openprob', kind='num', printed='0.2222', tol=0.0)
+def check_3718():
+    'Status table: the offset delta = 0.2222. Book line 322 (restates ch:koide:L92). Inputs: table masses.'
+    value = _b07_delta(_B07_MTAU24)
     return locals()
 
 @check(label='ch:koide:L323', chapter='ch:koide', part=4, title='same value as p2_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV)',
@@ -33430,29 +33630,12 @@ INVENTORY = [
     (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 100, '', 'calc', '30', 'input: z = 30, the end of the figure axis (first haloes), nothing to recompute'),
     (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 111, '', 'calc', '1000', 'input: beta/H = 10-1000, the range of transition rates considered (Caprini2016); the band it gives is checked by ch:higgsrecord:L111:10^{-4} and ch:higgsrecord:L111:10^{-2}'),
     (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 134, '', 'prediction', '-0.136', 'locked value mu0 restated (prediction)'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 29, '', 'observed', '0.51099895000', 'measured, not found in the files the chapter names'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 30, '', 'observed', '105.6583755', 'measured, not found in the files the chapter names'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 39, '', 'observed', '2.2\\times10^{-6}', 'measured, too few printed digits to match against the named files'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 45, '', 'calc', '', 'not yet run: draft rejected (does not run: ValueError no value)'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 48, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 7.27273); drafting error on review'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 77, 'eq:ko:param', 'derived', '', 'not yet run: draft rejected (does not run: NameError)'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 120, 'eq:ko:TU', 'none', '', 'displayed equation, not yet checked'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 133, 'eq:ko:onebit', 'derived', '', 'not yet run: draft rejected (does not run: ValueError no value)'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 152, 'eq:ko:fourier', 'none', '', 'displayed equation, not yet checked'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 161, 'eq:ko:boltz', 'conjecture', '', 'displayed equation, not yet checked'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 166, 'eq:ko:two', 'conjecture', '', 'displayed equation, not yet checked'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 174, '', 'calc', '0.67', 'not yet run: draft rejected (printed value typed into the code)'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 181, 'eq:ko:weights', 'conjecture', '', 'displayed equation, not yet checked'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 186, 'eq:ko:ratio', 'conjecture', '', 'displayed equation, not yet checked'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 243, '', 'openprob', '0.2222', 'not yet checked'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 260, '', 'calc', '0.10', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 261, '', 'calc', '0.40', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 295, '', 'calc', '1776.93', 'not yet run: draft rejected (drafter skipped: The 2024 PDG average for m_tau is an empirical measurement, not derived f)'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 296, '', 'calc', '1776.86', 'not yet run: draft rejected (drafter skipped: The 2022 PDG average for m_tau is an empirical measurement, not derived f)'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 297, '', 'prediction', '3.9', 'not yet checked'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 297, '', 'prediction', '1777.09', 'not yet checked'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 315, '', 'observed', '0.43', 'measured, too few printed digits to match against the named files'),
-    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 322, '', 'openprob', '0.2222', 'not yet checked'),
+    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 152, 'eq:ko:fourier', 'none', '', 'definition: the general Fourier series of sqrt(m) on the orbit S^1'),
+    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 260, '', 'calc', '0.10', 'input: delta = 0.10, an offset chosen for the sweep figure, nothing to recompute'),
+    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 261, '', 'calc', '0.40', 'input: delta = 0.40, an offset chosen for the sweep figure, nothing to recompute'),
+    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 295, '', 'calc', '1776.93', 'input: m_tau = 1776.93 MeV (PDG 2024, doi:10.1103/PhysRevD.110.030001), restates the table value read by ch:koide:L31'),
+    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 296, '', 'calc', '1776.86', 'input: m_tau = 1776.86 MeV (PDG 2022, doi:10.1093/ptep/ptac097), restates the table value read by ch:koide:L32'),
+    (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 297, '', 'prediction', '1777.09', 'input: single measurement m_tau = 1777.09 +- 0.08 +- 0.11 MeV quoted from BelleII2023tau, nothing to recompute'),
     (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 17, 'eq:em:T', 'derived', '', 'not yet run: draft rejected (uses imports or file access)'),
     (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 22, '', 'calc', '67.4', 'not yet run: draft rejected (printed value typed into the code)'),
     (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 58, 'eq:em:ft', 'conjecture', '', 'displayed equation, not yet checked'),

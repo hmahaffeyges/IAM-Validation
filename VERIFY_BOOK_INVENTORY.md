@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3701 PASS, 0 FAIL, 2636 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3719 PASS, 0 FAIL, 2619 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -3754,8 +3754,8 @@ Totals: 3701 PASS, 0 FAIL, 2636 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 18 | eq:ko:Q | derived |  | sympy: Q = 1/3 for equal masses, Q < 1 (sqrt-mass form) | PASS |
-| 29 |  | observed | `0.51099895000` | not run: measured, not found in the files the chapter names | - |
-| 30 |  | observed | `105.6583755` | not run: measured, not found in the files the chapter names | - |
+| 29 | ch:koide:L29 | observed | `0.51099895000` | numeric: electron mass, MeV (CODATA 2018) | PASS |
+| 30 | ch:koide:L30 | observed | `105.6583755` | numeric: muon mass, MeV (CODATA 2018 ratio) | PASS |
 | 31 | ch:koide:L31 | observed | `1776.93` | heavy file `docs/verification/scripts/verify_particle_book_output.txt`: measured: printed value found in verify_particle_book_output.txt, a file the chapter names | PASS |
 | 32 | ch:koide:L32 | observed | `1776.86` | heavy file `docs/verification/scripts/verify_koide_output.txt`: measured: printed value found in verify_koide_output.txt, a file the chapter names | PASS |
 | 33 | ch:koide:L33 | calc | `0.66666446` | numeric: Koide Q, PDG 2024 masses | PASS |
@@ -3763,10 +3763,11 @@ Totals: 3701 PASS, 0 FAIL, 2636 inventoried and not run. Each run item carries t
 | 34 | ch:koide:L34:0.43 | calc | `0.43` | numeric: (2/3 - Q)/sigma(Q) from sigma(m_tau) | PASS |
 | 35 | ch:koide:L35 | calc | `0.66666051` | numeric: Koide Q with the 2022 m_tau | PASS |
 | 35 | ch:koide:L35:6.2\times10^{-6} | calc | `6.2\times10^{-6}` | numeric: 2/3 - Q, 2022 | PASS |
-| 39 |  | observed | `2.2\times10^{-6}` | not run: measured, too few printed digits to match against the named files | - |
-| 45 |  | calc |  | not run: not yet run: draft rejected (does not run: ValueError no value) | - |
+| 39 | ch:koide:L39 | observed | `2.2\times10^{-6}` | numeric: 2/3 - Q, PDG 2024 masses (text restatement) | PASS |
+| 45 | ch:koide:L45:0.667824 | calc | `0.667824` | numeric: Q of the running masses at mu = m_tau | PASS |
+| 45 | ch:koide:L45:0.667840 | calc | `0.667840` | numeric: Q of the running masses at mu = M_Z | PASS |
 | 48 | ch:koide:L48 | calc | `1.2\times10^{-3}` | numeric: departure of running-mass Q from 2/3 | PASS |
-| 48 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 7.27273); drafting error on review | - |
+| 48 | ch:koide:L48:10^{-6} | calc | `10^{-6}` | numeric: pole-mass agreement is at the 1e-6 level | PASS |
 | 54 | ch:koide:L54 | calc |  | sympy: square-root mass vector, MeV^1/2 | PASS |
 | 58 | eq:ko:angle | calc |  | sympy: cos^2 theta = 1/(3Q) | PASS |
 | 61 | ch:koide:L61 | derived | `45` | numeric: drafted check, screened (runs; negative control fails) | PASS |
@@ -3776,7 +3777,7 @@ Totals: 3701 PASS, 0 FAIL, 2636 inventoried and not run. Each run item carries t
 | 67 | ch:koide:L67:42 | calc | `42` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 68 | ch:koide:L68 | calc | `45` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 69 | ch:koide:L69 | calc | `313.85` | numeric: x^2, MeV | PASS |
-| 77 | eq:ko:param | derived |  | not run: not yet run: draft rejected (does not run: NameError) | - |
+| 77 | eq:ko:param | derived |  | sympy: any three square roots fit x[1 + r cos(delta + 2 pi k/3)] | PASS |
 | 82 | eq:ko:Z3 | derived |  | sympy: Z3 sums of cos and cos^2 | PASS |
 | 86 | eq:ko:Qr | derived |  | sympy: Q = (1 + r^2/2)/3 from the parametrisation | PASS |
 | 91 | ch:koide:L91 | calc | `17.71584` | numeric: x = sum sqrt(m)/3 | PASS |
@@ -3787,17 +3788,17 @@ Totals: 3701 PASS, 0 FAIL, 2636 inventoried and not run. Each run item carries t
 | 92 | ch:koide:L92:0.222222 | calc | `0.222222` | numeric: 2/9 | PASS |
 | 93 | ch:koide:L93 | calc | `2.5\times10^{-6}` | numeric: delta - 2/9 | PASS |
 | 93 | ch:koide:L93:0.41 | calc | `0.41` | numeric: (delta - 2/9)/sigma(delta) | PASS |
-| 120 | eq:ko:TU | none |  | not run: displayed equation, not yet checked | - |
+| 120 | eq:ko:TU | none |  | sympy: Unruh temperature from regularity of the Euclidean Rindler plane | PASS |
 | 125 | eq:ko:eta | derived |  | sympy: eta = c^3/(4 hbar G) = 1/(4 l_P^2) | PASS |
-| 133 | eq:ko:onebit | derived |  | not run: not yet run: draft rejected (does not run: ValueError no value) | - |
+| 133 | eq:ko:onebit | derived |  | sympy: eta dA_min = 1, dA_min = 4 l_P^2 | PASS |
 | 143 | eq:ko:maxent | derived |  | sympy: maximum entropy over K states gives p_k = 1/K (K=3) | PASS |
-| 152 | eq:ko:fourier | none |  | not run: displayed equation, not yet checked | - |
+| 152 | eq:ko:fourier | none |  | not run: definition: the general Fourier series of sqrt(m) on the orbit S^1 | - |
 | 156 | eq:ko:grad | derived |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
-| 161 | eq:ko:boltz | conjecture |  | not run: displayed equation, not yet checked | - |
-| 166 | eq:ko:two | conjecture |  | not run: displayed equation, not yet checked | - |
-| 174 |  | calc | `0.67` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 181 | eq:ko:weights | conjecture |  | not run: displayed equation, not yet checked | - |
-| 186 | eq:ko:ratio | conjecture |  | not run: displayed equation, not yet checked | - |
+| 161 | eq:ko:boltz | conjecture |  | sympy: Boltzmann suppression of mode n relative to mode 1 | PASS |
+| 166 | eq:ko:two | conjecture |  | sympy: reflection symmetry removes sin(phi): sqrt m = x + y cos(phi) | PASS |
+| 174 | ch:koide:L174 | calc | `0.67` | numeric: largest shift of Q per unit a_2/y from a cos(2 phi) admixture | PASS |
+| 181 | eq:ko:weights | conjecture |  | sympy: Parseval weights of the constant and first-harmonic channels | PASS |
+| 186 | eq:ko:ratio | conjecture |  | sympy: equal weights x^2 = y^2/2 give y/x = sqrt2 | PASS |
 | 196 | eq:ko:pos | derived |  | sympy: 1 + sqrt2 cos(phi) > 0 iff |phi - pi| > pi/4 | PASS |
 | 206 | ch:koide:L206 | derived | `0.2222` | numeric: measured offset delta | PASS |
 | 212 | ch:koide:L212 | derived | `0.50` | numeric: fraction of offsets admitting n=2 | PASS |
@@ -3806,7 +3807,7 @@ Totals: 3701 PASS, 0 FAIL, 2636 inventoried and not run. Each run item carries t
 | 213 | ch:koide:L213:0.975 | derived | `0.975` | numeric: cos delta | PASS |
 | 228 | eq:ko:thm2 | derived |  | sympy: Q = 2/3 at y/x = sqrt2 | PASS |
 | 240 | eq:ko:delta0 | calc |  | sympy: masses at delta = 0 with x^2 = 313.851 MeV | PASS |
-| 243 |  | openprob | `0.2222` | not run: not yet checked | - |
+| 243 | ch:koide:L243 | openprob | `0.2222` | numeric: measured offset delta (restated) | PASS |
 | 246 | ch:koide:L246 | calc | `0.2618` | numeric: electron amplitude zero at delta = pi/12 | PASS |
 | 247 | ch:koide:L247 | calc | `0.0396` | numeric: measured delta inside the edge | PASS |
 | 253 | ch:koide:L253 | calc | `0.2222` | numeric: measured offset delta | PASS |
@@ -3816,8 +3817,8 @@ Totals: 3701 PASS, 0 FAIL, 2636 inventoried and not run. Each run item carries t
 | 255 | ch:koide:L255:0.293 | calc | `0.293` | numeric: e and mu amplitude at delta = 0 | PASS |
 | 260 | ch:koide:L260 | calc | `313.85` | numeric: x^2, MeV | PASS |
 | 260 | ch:koide:L260:0.2222 | calc | `0.2222` | numeric: measured offset delta | PASS |
-| 260 |  | calc | `0.10` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 261 |  | calc | `0.40` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 260 |  | calc | `0.10` | not run: input: delta = 0.10, an offset chosen for the sweep figure, nothing to recompute | - |
+| 261 |  | calc | `0.40` | not run: input: delta = 0.40, an offset chosen for the sweep figure, nothing to recompute | - |
 | 263 | ch:koide:L263 | calc | `26.92` | numeric: m_e = m_mu at delta = 0, MeV | PASS |
 | 272 | ch:koide:L272 | calc | `17.71584` | numeric: x = sum sqrt(m)/3 | PASS |
 | 272 | ch:koide:L272:313.851 | calc | `313.851` | numeric: x^2, MeV | PASS |
@@ -3836,18 +3837,18 @@ Totals: 3701 PASS, 0 FAIL, 2636 inventoried and not run. Each run item carries t
 | 284 | ch:koide:L284:1.75\times10^{-7} | calc | `1.75\times10^{-7}` | numeric: 2/9 - delta at Q = 2/3 | PASS |
 | 285 | ch:koide:L285 | calc | `0.4` | numeric: delta - 2/9 in sigma | PASS |
 | 295 | ch:koide:L295 | calc | `1776.9690` | numeric: m_tau fixed by Q = 2/3, MeV | PASS |
-| 295 |  | calc | `1776.93` | not run: not yet run: draft rejected (drafter skipped: The 2024 PDG average for m_tau is an empirical measurement, not derived f) | - |
+| 295 |  | calc | `1776.93` | not run: input: m_tau = 1776.93 MeV (PDG 2024, doi:10.1103/PhysRevD.110.030001), restates the table value read by ch:koide:L31 | - |
 | 296 | ch:koide:L296 | calc | `-0.43` | numeric: pull of the 2024 average | PASS |
 | 296 | ch:koide:L296:-0.9 | calc | `-0.9` | numeric: pull of the 2022 average | PASS |
-| 296 |  | calc | `1776.86` | not run: not yet run: draft rejected (drafter skipped: The 2022 PDG average for m_tau is an empirical measurement, not derived f) | - |
-| 297 |  | prediction | `3.9` | not run: not yet checked | - |
-| 297 |  | prediction | `1777.09` | not run: not yet checked | - |
+| 296 |  | calc | `1776.86` | not run: input: m_tau = 1776.86 MeV (PDG 2022, doi:10.1093/ptep/ptac097), restates the table value read by ch:koide:L32 | - |
+| 297 | ch:koide:L297 | prediction | `3.9` | numeric: separation of 1776.93 and the Q = 2/3 tau mass at +-0.01 MeV | PASS |
+| 297 |  | prediction | `1777.09` | not run: input: single measurement m_tau = 1777.09 +- 0.08 +- 0.11 MeV quoted from BelleII2023tau, nothing to recompute | - |
 | 299 | ch:koide:L299 | calc | `1776.969` | numeric: m_tau fixed by Q = 2/3, MeV | PASS |
 | 299 | ch:koide:L299:0.2222220 | calc | `0.2222220` | numeric: delta at m_tau = 1776.969 | PASS |
 | 315 | ch:koide:L315 | observed | `0.66666446` | numeric: same value as p2_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
-| 315 |  | observed | `0.43` | not run: measured, too few printed digits to match against the named files | - |
+| 315 | ch:koide:L315:0.43 | observed | `0.43` | numeric: 2/3 - Q in standard deviations (status table) | PASS |
 | 316 | ch:koide:L316 | derived | `45` | sympy: drafted check, screened (runs; negative control fails) | PASS |
-| 322 |  | openprob | `0.2222` | not run: not yet checked | - |
+| 322 | ch:koide:L322 | openprob | `0.2222` | numeric: offset delta in the status table | PASS |
 | 323 | ch:koide:L323 | prediction | `1776.969` | numeric: same value as p2_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV) | PASS |
 
 ## Part 4 - ch:electronmass - `docs/book/part2/p2_15b_electron_mass.tex`
