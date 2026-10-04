@@ -2116,6 +2116,10 @@ def _b11_planted():
     ref = np.array([np.median(np.delete(A, i)) for i in range(len(A))])   # median tare against the other healthy mixtures
     return rows, D - A, Df - Af, A / ref, D / ref
 
+# helpers of the part4/p4_19_chain checks
+def _b11_neutref():
+    return load_json('Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json')
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -33695,6 +33699,46 @@ def check_4120():
     return locals()
 
 
+# ======== Part 6 | ch:chain | docs/book/part4/p4_19_chain.tex
+@check(label='ch:chain:L23', chapter='ch:chain', part=6, title='Stage MC block size',
+       file='part4/p4_19_chain', line=23, status='calibrated', kind='file', printed='50', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json')
+def check_4121():
+    'Table tab:p4_gates, Stage MC: sites per block of the C-score, read from the frozen neutrophil reference (key clustering_block). Book line 23, printed 50. Inputs: neutrophil_reference_v1_1.json.'
+    value = int(_b11_neutref()['clustering_block'])
+    return locals()
+
+@check(label='ch:chain:L23:1.1104', chapter='ch:chain', part=6, title='Stage MC healthy C-score baseline (median of leave-one-out)',
+       file='part4/p4_19_chain', line=23, status='calibrated', kind='file', printed='1.1104', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json')
+def check_4122():
+    'Table tab:p4_gates, Stage MC: healthy C-score baseline = median of the six leave-one-out healthy clustering values (block 50) stored in the frozen neutrophil reference (key healthy_clustering_LOO); recomputed here as the median, and compared with the stored healthy_clustering_median too. Book line 23, printed 1.1104. Inputs: neutrophil_reference_v1_1.json.'
+    d = _b11_neutref()
+    loo = [float(x) for x in d['healthy_clustering_LOO']]
+    stored = float(d['healthy_clustering_median'])
+    value = float(np.median(loo)) if abs(float(np.median(loo)) - stored) < 1e-9 else float('nan')
+    return locals()
+
+@check(label='ch:chain:L25', chapter='ch:chain', part=6, title='Stage Q neutrophil position P',
+       file='part4/p4_19_chain', line=25, status='calibrated', kind='file', printed='1.099', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json')
+def check_4123():
+    'Table tab:p4_gates, Stage Q: neutrophil position P = H(eps_healthy)/H(eps0), frozen in iama_positions_v1.json (mean of 3 Loyfer granulocyte donors, range 1.0841-1.1079; per-donor values not committed); also checked to agree with CANON P_neutrophil_IAM_A and to lie inside the stored per-donor range. Book line 25, printed 1.099. Inputs: iama_positions_v1.json.'
+    neu = load_json('Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json')['cells']['neutrophils']
+    P = float(neu['P']); lo, hi = neu['P_range']
+    value = P if (lo <= P <= hi and abs(P - _cv('P_neutrophil_IAM_A')) < 1e-12) else float('nan')
+    return locals()
+
+@check(label='ch:chain:L72', chapter='ch:chain', part=6, title='C-score healthy baseline (Stage MC text)',
+       file='part4/p4_19_chain', line=72, status='openprob', kind='file', printed='1.1104', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json')
+def check_4124():
+    'Stage MC: the C-score is divided by the healthy baseline, the median of the six leave-one-out healthy clustering values of the frozen neutrophil reference, recomputed here. Book line 72, printed 1.1104. Inputs: neutrophil_reference_v1_1.json (healthy_clustering_LOO).'
+    loo = np.array([float(x) for x in _b11_neutref()['healthy_clustering_LOO']])
+    value = float(np.median(loo))
+    return locals()
+
+
 # ======== Part 6 | ch:salmonid | docs/book/part4/p4_22b_salmonid.tex
 @check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='0.0354', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
@@ -37758,10 +37802,6 @@ INVENTORY = [
     (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '0.01', 'input: illustrative array measurement noise 0.01 (figure reference line)'),
     (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '0.02', 'input: illustrative array measurement noise 0.02 (figure reference line)'),
     (6, 'ch:discipline', 'part4/p4_18_discipline', 58, '', 'measured', '1.05', 'definition: 1.05 is the upper edge of the Normal band (0.95-1.05), the line the planted readings are counted against; the reading itself is checked in ch:discipline:L57'),
-    (6, 'ch:chain', 'part4/p4_19_chain', 23, '', 'calibrated', '50', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:chain', 'part4/p4_19_chain', 23, '', 'calibrated', '1.1104', 'measured, not found in the files the chapter names'),
-    (6, 'ch:chain', 'part4/p4_19_chain', 25, '', 'calibrated', '1.099', 'measured, not found in the files the chapter names'),
-    (6, 'ch:chain', 'part4/p4_19_chain', 72, '', 'openprob', '1.1104', 'not yet checked'),
     (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 22, '', 'openprob', '0.983', 'not yet checked'),
     (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 22, '', 'openprob', '1.045', 'not yet checked'),
     (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 24, '', 'openprob', '0.06', 'not yet checked'),

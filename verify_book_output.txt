@@ -4621,6 +4621,12 @@ PASS  ch:discipline:L68:0.067            ch:discipline:p4_18_discipline:68  prin
 PASS  ch:discipline:L68:0.044            ch:discipline:p4_18_discipline:68  printed 0.044  recomputed 0.0444338  tol 5.000005e-04  [measured] planted loss, fraction re-fitted: smallest rise  file Biological_Physics/MethylPhys/doors/data/selfconsist.csv
 PASS  ch:discipline:L68:0.056            ch:discipline:p4_18_discipline:68  printed 0.056  recomputed 0.0558553  tol 5.000005e-04  [measured] planted loss, fraction re-fitted: largest rise  file Biological_Physics/MethylPhys/doors/data/selfconsist.csv
 
+== Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:chain (part4/p4_19_chain.tex)
+PASS  ch:chain:L23                       ch:chain:p4_19_chain:23  printed 50  recomputed 50  tol 0.5  [calibrated] Stage MC block size  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
+PASS  ch:chain:L23:1.1104                ch:chain:p4_19_chain:23  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [calibrated] Stage MC healthy C-score baseline (median of leave-one-out)  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
+PASS  ch:chain:L25                       ch:chain:p4_19_chain:25  printed 1.099  recomputed 1.099  tol 5.000005e-04  [calibrated] Stage Q neutrophil position P  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  ch:chain:L72                       ch:chain:p4_19_chain:72  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [openprob] C-score healthy baseline (Stage MC text)  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
+
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:salmonid (part4/p4_22b_salmonid.tex)
 PASS  ch:salmonid:L54                    ch:salmonid:p4_22b_salmonid:54  printed 0.0354  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
 PASS  ch:salmonid:L54:3.31               ch:salmonid:p4_22b_salmonid:54  printed 3.31  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
@@ -5057,4 +5063,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 4121  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2217  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4125  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2213  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

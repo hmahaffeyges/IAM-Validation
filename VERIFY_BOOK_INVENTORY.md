@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4121 PASS, 0 FAIL, 2217 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4125 PASS, 0 FAIL, 2213 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4965,10 +4965,10 @@ Totals: 4121 PASS, 0 FAIL, 2217 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 23 |  | calibrated | `50` | not run: measured, too few printed digits to match against the named files | - |
-| 23 |  | calibrated | `1.1104` | not run: measured, not found in the files the chapter names | - |
-| 25 |  | calibrated | `1.099` | not run: measured, not found in the files the chapter names | - |
-| 72 |  | openprob | `1.1104` | not run: not yet checked | - |
+| 23 | ch:chain:L23 | calibrated | `50` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: Stage MC block size | PASS |
+| 23 | ch:chain:L23:1.1104 | calibrated | `1.1104` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: Stage MC healthy C-score baseline (median of leave-one-out) | PASS |
+| 25 | ch:chain:L25 | calibrated | `1.099` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json`: Stage Q neutrophil position P | PASS |
+| 72 | ch:chain:L72 | openprob | `1.1104` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C-score healthy baseline (Stage MC text) | PASS |
 
 ## Part 6 - ch:firstreadings - `docs/book/part4/p4_21_firstreadings.tex`
 
