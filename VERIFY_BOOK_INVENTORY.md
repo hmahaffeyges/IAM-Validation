@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4043 PASS, 0 FAIL, 2295 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4057 PASS, 0 FAIL, 2281 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4834,31 +4834,31 @@ Totals: 4043 PASS, 0 FAIL, 2295 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 19 |  | calibrated | `0.05` | not run: measured, source not named | - |
-| 20 |  | calibrated | `0.75` | not run: measured, source not named | - |
-| 20 |  | calibrated | `0.95` | not run: measured, source not named | - |
-| 20 |  | calibrated | `0.05` | not run: measured, source not named | - |
-| 20 |  | calibrated | `0.25` | not run: measured, source not named | - |
-| 25 |  | calc | `1.58` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 26 |  | calc | `0.25` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 26 |  | calc | `0.05` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 26 |  | calc | `4.25` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 26 |  | calc | `0.75` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 26 |  | calc | `0.95` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 27 |  | calc | `0.95` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 34 |  | calibrated | `0.0114` | not run: measured, source not named | - |
-| 34 |  | calibrated | `0.0094` | not run: measured, source not named | - |
-| 34 |  | calibrated | `0.0137` | not run: measured, source not named | - |
-| 35 |  | calibrated | `0.05` | not run: measured, source not named | - |
-| 35 |  | calibrated | `0.95` | not run: measured, source not named | - |
-| 52 |  | measured | `1.00` | not run: measured, source not named | - |
-| 57 |  | calc | `0.05` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 57 |  | calc | `98.7` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 57 |  | calc | `75.6` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 66 |  | calc | `98.7` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 66 |  | calc | `0.05` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 66 |  | calc | `75.6` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 76 |  | openprob | `0.020` | not run: not yet checked | - |
+| 19 |  | calibrated | `0.05` | not run: definition: site-selection rule, across-array SD of beta at most 0.05 (calibrated rule; the per-array betas behind it are not in a committed file) | - |
+| 20 | ch:identity:L20:0.95 | calibrated | `0.95` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: identity sites: upper edge of the methylated window | PASS |
+| 20 | ch:identity:L20:0.05 | calibrated | `0.05` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: identity sites: lower edge of the unmethylated window | PASS |
+| 20 |  | calibrated | `0.75` | not run: definition: site-selection rule, inner edge 0.75 of the methylated window (calibrated); the frozen set's sites sit inside it (lowest methylated-side mean beta 0.775) | - |
+| 20 |  | calibrated | `0.25` | not run: definition: site-selection rule, inner edge 0.25 of the unmethylated window (calibrated); the frozen set's sites sit inside it (highest unmethylated-side mean beta 0.244) | - |
+| 25 | ch:identity:L25 | calc | `1.58` | numeric: dH/dbeta at beta = 0.25 | PASS |
+| 26 | ch:identity:L26:4.25 | calc | `4.25` | numeric: dH/dbeta at beta = 0.05 | PASS |
+| 26 | ch:identity:L26:0.75 | calc | `0.75` | numeric: same steepness at 0.75 as at 0.25 | PASS |
+| 26 | ch:identity:L26:0.95 | calc | `0.95` | numeric: same steepness at 0.95 as at 0.05 | PASS |
+| 26 |  | calc | `0.25` | not run: input: beta = 0.25, the point at which dH/dbeta is evaluated (the window edge); the slope is checked at ch:identity:L25 | - |
+| 26 |  | calc | `0.05` | not run: input: beta = 0.05, the point at which dH/dbeta is evaluated (the window edge); the slope is checked at ch:identity:L26:4.25 | - |
+| 27 |  | calc | `0.95` | not run: restates ch:identity:L26:0.95 (a site near 0.95, where the slope magnitude equals that at 0.05) | - |
+| 34 | ch:identity:L34:0.0114 | calibrated | `0.0114` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: shrunk SD of H at the identity sites, median | PASS |
+| 34 | ch:identity:L34:0.0094 | calibrated | `0.0094` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: shrunk SD of H at the identity sites, smallest | PASS |
+| 34 | ch:identity:L34:0.0137 | calibrated | `0.0137` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: shrunk SD of H at the identity sites, largest | PASS |
+| 35 |  | calibrated | `0.05` | not run: definition: window edge beta = 0.05 restated in the caption (where the spread is largest); restates ch:identity:L20:0.05 | - |
+| 35 |  | calibrated | `0.95` | not run: definition: window edge beta = 0.95 restated in the caption; restates ch:identity:L20:0.95 | - |
+| 52 |  | measured | `1.00` | not run: definition: healthy is A = 1.00 (the reference arrays read 1.00 by construction); the held-out readings are checked at ch:atlas:L34 | - |
+| 57 | ch:identity:L57:98.7 | calc | `98.7` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json`: identity sites shared by monocytes | PASS |
+| 57 | ch:identity:L57:75.6 | calc | `75.6` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json`: identity sites shared by CD4 T cells | PASS |
+| 57 |  | calc | `0.05` | not run: definition: the 0.05 threshold in |Delta beta| that defines a shared site; the shares are checked at ch:identity:L57:98.7 and L57:75.6 | - |
+| 66 | ch:identity:L66:98.7 | calc | `98.7` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json`: monocytes within 0.05 (figure) | PASS |
+| 66 | ch:identity:L66:75.6 | calc | `75.6` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json`: CD4 T cells within 0.05 (figure) | PASS |
+| 66 |  | calc | `0.05` | not run: definition: the 0.05 threshold in |Delta beta| (grey band of the figure); the shares are checked at ch:identity:L66 | - |
+| 76 | ch:identity:L76 | openprob | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: held-out SD of the neutrophil set (status box) | PASS |
 
 ## Part 6 - ch:skytools - `docs/book/part4/p4_16a_skytools.tex`
 

@@ -1990,6 +1990,27 @@ def _b10_loo():
     return np.array([float(r['A_loo']) for r in load_csv_rows(_B10_LOO)])
 
 _B10_A = dict(chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+DATA_FILES['Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json'] = 'frozen EPIC composition profiles of eight blood groups, at the markers and at the neutrophil identity sites'   # 573 kB
+
+# helpers of the part4/p4_15_identity checks
+_B10_NREF = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json'
+_B10_COMP = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json'
+_B10_FLOOR = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json'
+
+def _b10_dHdb():
+    """dH/dbeta of the binary entropy H(beta) = -beta log2 beta - (1-beta) log2(1-beta), by sympy differentiation, as a float function."""
+    b = sp.symbols('beta', positive=True)
+    H = -b * sp.log(b, 2) - (1 - b) * sp.log(1 - b, 2)
+    return sp.lambdify(b, sp.diff(H, b), 'math')
+
+def _b10_shared(group):
+    """Per cent of the 6,000 neutrophil identity sites at which a group's healthy profile lies within 0.05 in beta of the neutrophil profile."""
+    P = load_json(_B10_COMP)['profiles_at_neutrophil_sites']
+    neu = np.array(P['NEU'], float); x = np.array(P[group], float)
+    with np.errstate(invalid='ignore'):
+        return 100 * float(np.mean(np.abs(x - neu) <= 0.05))
+
+_B10_ID = dict(chapter='ch:identity', part=6, file='part4/p4_15_identity')
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -32886,6 +32907,125 @@ def check_4042():
     return locals()
 
 
+# ======== Part 6 | ch:identity | docs/book/part4/p4_15_identity.tex
+@check(label='ch:identity:L20:0.95', title='identity sites: upper edge of the methylated window', line=20, status='calibrated', printed='0.95', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:identity', part=6, file='part4/p4_15_identity')
+def check_4043():
+    'Site rule: mean beta in 0.75-0.95 (methylated channel). The frozen 6,000-site set reaches the upper edge: largest neutrophil mean beta '\
+    'over the identity sites. Book line 20, printed 0.95. Input: neutrophil_reference_v1_1.json (profiles_mean_beta, neutrophils).'
+    nb = np.array(load_json(_B10_NREF)['profiles_mean_beta']['neutrophils'], float)
+    n = len(nb)
+    value = float(nb.max())
+    return locals()
+
+@check(label='ch:identity:L20:0.05', title='identity sites: lower edge of the unmethylated window', line=20, status='calibrated', printed='0.05', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:identity', part=6, file='part4/p4_15_identity')
+def check_4044():
+    'Site rule: mean beta in 0.05-0.25 (unmethylated channel). The frozen 6,000-site set reaches the lower edge: smallest neutrophil mean '\
+    'beta over the identity sites. Book line 20, printed 0.05. Input: neutrophil_reference_v1_1.json.'
+    nb = np.array(load_json(_B10_NREF)['profiles_mean_beta']['neutrophils'], float)
+    value = float(nb.min())
+    return locals()
+
+@check(label='ch:identity:L25', title='dH/dbeta at beta = 0.25', line=25, status='calc', printed='1.58', tol=0.0, kind='num', chapter='ch:identity', part=6, file='part4/p4_15_identity')
+def check_4045():
+    'dH/dbeta = log2[(1-beta)/beta] is 1.58 bits per unit beta at beta = 0.25. Recomputed by differentiating the binary entropy with sympy '\
+    'and evaluating at beta = 0.25 (book). Book line 25, printed 1.58.'
+    value = _b10_dHdb()(0.25)
+    return locals()
+
+@check(label='ch:identity:L26:4.25', title='dH/dbeta at beta = 0.05', line=26, status='calc', printed='4.25', tol=0.0, kind='num', chapter='ch:identity', part=6, file='part4/p4_15_identity')
+def check_4046():
+    'dH/dbeta is 4.25 bits per unit beta at beta = 0.05. Same derivative, evaluated at beta = 0.05 (book). Book line 26, printed 4.25.'
+    value = _b10_dHdb()(0.05)
+    return locals()
+
+@check(label='ch:identity:L26:0.75', title='same steepness at 0.75 as at 0.25', line=26, status='calc', printed='0.75', tol=0.0, kind='num', chapter='ch:identity', part=6, file='part4/p4_15_identity')
+def check_4047():
+    '"With the same magnitudes at 0.75 and 0.95": the methylated-side beta at which |dH/dbeta| equals its value at 0.25, solved by root '\
+    'finding on (0.5, 0.999). Book line 26, printed 0.75. Input: beta = 0.25 (book).'
+    d = _b10_dHdb()
+    target = abs(d(0.25))
+    value = brentq(lambda x: abs(d(x)) - target, 0.5 + 1e-9, 0.999)
+    return locals()
+
+@check(label='ch:identity:L26:0.95', title='same steepness at 0.95 as at 0.05', line=26, status='calc', printed='0.95', tol=0.0, kind='num', chapter='ch:identity', part=6, file='part4/p4_15_identity')
+def check_4048():
+    'The methylated-side beta at which |dH/dbeta| equals its value at 0.05, solved by root finding on (0.5, 0.9999). Book line 26, '\
+    'printed 0.95. Input: beta = 0.05 (book).'
+    d = _b10_dHdb()
+    target = abs(d(0.05))
+    value = brentq(lambda x: abs(d(x)) - target, 0.5 + 1e-9, 0.9999)
+    return locals()
+
+def _b10_sdH():
+    return np.array(load_json(_B10_NREF)['neutrophil_H_sd_shrunk'], float)
+
+@check(label='ch:identity:L34:0.0114', title='shrunk SD of H at the identity sites, median', line=34, status='calibrated', printed='0.0114', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:identity', part=6, file='part4/p4_15_identity')
+def check_4049():
+    'Figure fig:p4_window caption: healthy spread of H at each site across the six reference arrays (shrunk SD), median 0.0114 bits. '\
+    'Median of neutrophil_H_sd_shrunk over the 6,000 sites. Book line 34, printed 0.0114. Input: neutrophil_reference_v1_1.json.'
+    value = float(np.median(_b10_sdH()))
+    return locals()
+
+@check(label='ch:identity:L34:0.0094', title='shrunk SD of H at the identity sites, smallest', line=34, status='calibrated', printed='0.0094', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:identity', part=6, file='part4/p4_15_identity')
+def check_4050():
+    'Shrunk SD of H, range 0.0094-0.0137 bits; lower end = minimum over the 6,000 sites. Book line 34, printed 0.0094. '\
+    'Input: neutrophil_reference_v1_1.json.'
+    value = float(_b10_sdH().min())
+    return locals()
+
+@check(label='ch:identity:L34:0.0137', title='shrunk SD of H at the identity sites, largest', line=34, status='calibrated', printed='0.0137', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:identity', part=6, file='part4/p4_15_identity')
+def check_4051():
+    'Shrunk SD of H, upper end = maximum over the 6,000 sites. Book line 34, printed 0.0137. Input: neutrophil_reference_v1_1.json.'
+    value = float(_b10_sdH().max())
+    return locals()
+
+@check(label='ch:identity:L57:98.7', title='identity sites shared by monocytes', line=57, status='calc', printed='98.7', tol=0.0,
+       kind='file', source=_B10_COMP, chapter='ch:identity', part=6, file='part4/p4_15_identity')
+def check_4052():
+    'Most neutrophil identity sites are held within 0.05 in beta by the other blood cells: 98.7 % for monocytes. Recomputed from the frozen '\
+    'composition profiles at the 6,000 neutrophil sites: share with |beta_MONO - beta_NEU| <= 0.05. Book line 57, printed 98.7 %. '\
+    'Input: blood_composition_EPIC_v1.json (profiles_at_neutrophil_sites).'
+    value = _b10_shared('MONO')
+    return locals()
+
+@check(label='ch:identity:L57:75.6', title='identity sites shared by CD4 T cells', line=57, status='calc', printed='75.6', tol=0.0,
+       kind='file', source=_B10_COMP, chapter='ch:identity', part=6, file='part4/p4_15_identity')
+def check_4053():
+    'Share of the 6,000 neutrophil identity sites with |beta_CD4T - beta_NEU| <= 0.05 (sites where the CD4 profile is missing count as not '\
+    'shared). Book line 57, printed 75.6 %. Input: blood_composition_EPIC_v1.json.'
+    value = _b10_shared('CD4T')
+    return locals()
+
+@check(label='ch:identity:L66:98.7', title='monocytes within 0.05 (figure)', line=66, status='calc', printed='98.7', tol=0.0,
+       kind='file', source=_B10_COMP, chapter='ch:identity', part=6, file='part4/p4_15_identity')
+def check_4054():
+    'Figure fig:p4_shared caption: monocytes hold 98.7 % of the sites within 0.05; recomputed from the frozen composition profiles. '\
+    'Book line 66, printed 98.7 %. Input: blood_composition_EPIC_v1.json.'
+    value = _b10_shared('MONO')
+    return locals()
+
+@check(label='ch:identity:L66:75.6', title='CD4 T cells within 0.05 (figure)', line=66, status='calc', printed='75.6', tol=0.0,
+       kind='file', source=_B10_COMP, chapter='ch:identity', part=6, file='part4/p4_15_identity')
+def check_4055():
+    'Figure fig:p4_shared caption: CD4 T cells hold 75.6 % of the sites within 0.05; recomputed from the frozen composition profiles. '\
+    'Book line 66, printed 75.6 %. Input: blood_composition_EPIC_v1.json.'
+    value = _b10_shared('CD4T')
+    return locals()
+
+@check(label='ch:identity:L76', title='held-out SD of the neutrophil set (status box)', line=76, status='openprob', printed='0.020', tol=0.0,
+       kind='file', source=_B10_FLOOR, chapter='ch:identity', part=6, file='part4/p4_15_identity')
+def check_4056():
+    'Status box: neutrophils on EPIC v1, 6,000 sites, held-out SD 0.020. Read from the frozen floor file (precision_heldout, sd: each of '\
+    'the six physical arrays read against the other five with the sites re-chosen). Book line 76, printed 0.020.'
+    value = load_json(_B10_FLOOR)['platforms']['EPIC']['neutrophils']['precision_heldout']['sd']
+    return locals()
+
+
 # ======== Part 6 | ch:salmonid | docs/book/part4/p4_22b_salmonid.tex
 @check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='0.0354', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
@@ -36921,31 +37061,17 @@ INVENTORY = [
     (6, 'ch:atlas', 'part4/p4_14_atlas', 101, '', 'none', '', 'definition: the hierarchical model of atlas v2 (likelihood and prior of beta_obs, mu_ic = m_i + e_ic); a model statement, nothing to derive'),
     (6, 'ch:atlas', 'part4/p4_14_atlas', 144, '', 'measured', '0.015', 'measured, source not named'),
     (6, 'ch:atlas', 'part4/p4_14_atlas', 173, '', 'derived', '36', 'input: illustrative number of independent samples n = 36 (the derived factor six is sqrt(36) applied to it)'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 19, '', 'calibrated', '0.05', 'measured, source not named'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 20, '', 'calibrated', '0.75', 'measured, source not named'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 20, '', 'calibrated', '0.95', 'measured, source not named'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 20, '', 'calibrated', '0.05', 'measured, source not named'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 20, '', 'calibrated', '0.25', 'measured, source not named'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 25, '', 'calc', '1.58', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 26, '', 'calc', '0.25', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 26, '', 'calc', '0.05', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 26, '', 'calc', '4.25', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 26, '', 'calc', '0.75', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 26, '', 'calc', '0.95', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 27, '', 'calc', '0.95', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 34, '', 'calibrated', '0.0114', 'measured, source not named'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 34, '', 'calibrated', '0.0094', 'measured, source not named'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 34, '', 'calibrated', '0.0137', 'measured, source not named'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 35, '', 'calibrated', '0.05', 'measured, source not named'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 35, '', 'calibrated', '0.95', 'measured, source not named'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 52, '', 'measured', '1.00', 'measured, source not named'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 57, '', 'calc', '0.05', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 57, '', 'calc', '98.7', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 57, '', 'calc', '75.6', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 66, '', 'calc', '98.7', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 66, '', 'calc', '0.05', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 66, '', 'calc', '75.6', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:identity', 'part4/p4_15_identity', 76, '', 'openprob', '0.020', 'not yet checked'),
+    (6, 'ch:identity', 'part4/p4_15_identity', 19, '', 'calibrated', '0.05', 'definition: site-selection rule, across-array SD of beta at most 0.05 (calibrated rule; the per-array betas behind it are not in a committed file)'),
+    (6, 'ch:identity', 'part4/p4_15_identity', 20, '', 'calibrated', '0.75', "definition: site-selection rule, inner edge 0.75 of the methylated window (calibrated); the frozen set's sites sit inside it (lowest methylated-side mean beta 0.775)"),
+    (6, 'ch:identity', 'part4/p4_15_identity', 20, '', 'calibrated', '0.25', "definition: site-selection rule, inner edge 0.25 of the unmethylated window (calibrated); the frozen set's sites sit inside it (highest unmethylated-side mean beta 0.244)"),
+    (6, 'ch:identity', 'part4/p4_15_identity', 26, '', 'calc', '0.25', 'input: beta = 0.25, the point at which dH/dbeta is evaluated (the window edge); the slope is checked at ch:identity:L25'),
+    (6, 'ch:identity', 'part4/p4_15_identity', 26, '', 'calc', '0.05', 'input: beta = 0.05, the point at which dH/dbeta is evaluated (the window edge); the slope is checked at ch:identity:L26:4.25'),
+    (6, 'ch:identity', 'part4/p4_15_identity', 27, '', 'calc', '0.95', 'restates ch:identity:L26:0.95 (a site near 0.95, where the slope magnitude equals that at 0.05)'),
+    (6, 'ch:identity', 'part4/p4_15_identity', 35, '', 'calibrated', '0.05', 'definition: window edge beta = 0.05 restated in the caption (where the spread is largest); restates ch:identity:L20:0.05'),
+    (6, 'ch:identity', 'part4/p4_15_identity', 35, '', 'calibrated', '0.95', 'definition: window edge beta = 0.95 restated in the caption; restates ch:identity:L20:0.95'),
+    (6, 'ch:identity', 'part4/p4_15_identity', 52, '', 'measured', '1.00', 'definition: healthy is A = 1.00 (the reference arrays read 1.00 by construction); the held-out readings are checked at ch:atlas:L34'),
+    (6, 'ch:identity', 'part4/p4_15_identity', 57, '', 'calc', '0.05', 'definition: the 0.05 threshold in |Delta beta| that defines a shared site; the shares are checked at ch:identity:L57:98.7 and L57:75.6'),
+    (6, 'ch:identity', 'part4/p4_15_identity', 66, '', 'calc', '0.05', 'definition: the 0.05 threshold in |Delta beta| (grey band of the figure); the shares are checked at ch:identity:L66'),
     (6, 'ch:skytools', 'part4/p4_16a_skytools', 23, '', 'observed', '3.3', 'measured, source not named'),
     (6, 'ch:skytools', 'part4/p4_16a_skytools', 23, '', 'observed', '3.5', 'measured, source not named'),
     (6, 'ch:skytools', 'part4/p4_16a_skytools', 58, '', 'calc', '12', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),

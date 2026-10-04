@@ -8,3 +8,11 @@ Fixes: 0
 
 | file:line | old -> new | why |
 |---|---|---|
+
+## Every book edit made and reverted on this branch
+
+Edits that were made and later undone are listed too, so the branch history can be read against this file. Net change to the
+book from these: none.
+
+| commit | file:line | old -> new | why |
+|---|---|---|---|
