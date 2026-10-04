@@ -149,5 +149,23 @@ html[data-theme="dark"] .ltx_graphics, html[data-theme="sepia"] .ltx_graphics {
 .iam-results-table td.num { font-family: ui-monospace, Menlo, monospace; font-size: .75rem; }
 .iam-results-table td.src { color: var(--muted); font-size: .75rem; min-width: 9rem; }
 .iam-results-table td.chap { min-width: 16rem; } .iam-results-table td.what { min-width: 16rem; }
+.iam-results-table td.links { white-space: nowrap; font-size: .75rem; }
+.iam-panel .iam-links { font-size: .78rem; white-space: nowrap; }
 .iam-results-table .pass { color: var(--chip-cal); font-weight: 700; } .iam-results-table .fail { color: var(--chip-pre); font-weight: 700; }
 .iam-row-target { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+/* Displayed equations on narrow screens. LaTeXML hangs the equation number into a zero-width cell, so an equation wider than the
+   column runs under its number; give the number its own width, and let a long equation scroll inside its own box rather than the
+   page. LaTeX \parbox widths (the formula sheet's status lines) are fixed in points; cap them at the column. */
+@media (max-width: 700px) {
+  table.ltx_equation, table.ltx_equationgroup { display: block; width: 100%; max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+  table.ltx_equation > tbody, table.ltx_equationgroup > tbody { display: table; min-width: 100%; }
+  td.ltx_eqn_cell.ltx_eqn_eqno { max-width: none; width: auto; padding-left: .6em; white-space: nowrap; }
+  td.ltx_eqn_center_padleft, td.ltx_eqn_center_padright { width: 0; padding: 0; }
+  .ltx_parbox { max-width: 100%; width: auto !important; }
+  /* a one-line equation and its number: the number drops below when the two do not fit side by side (multi-line ones keep
+     their alignment and scroll) */
+  table.ltx_equation:not(.ltx_equationgroup) > tbody > tr.ltx_eqn_row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; }
+  table.ltx_equation:not(.ltx_equationgroup) td.ltx_eqn_cell.ltx_eqn_eqno { margin-left: auto; }
+  table.ltx_eqn_table mjx-container[jax="CHTML"] { font-size: 92% !important; }
+}

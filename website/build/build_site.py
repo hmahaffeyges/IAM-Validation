@@ -13,7 +13,7 @@ verify_book.py, and writes <site_dir>/:
   static/, art/                   CSS, JS, banner art
 The book's text is not changed: only page chrome is added around LaTeXML's output.
 """
-import sys, json, re, shutil, pathlib, html, importlib.util, dataclasses
+import sys, json, re, shutil, pathlib, html, importlib.util, dataclasses, inspect, urllib.parse
 from bs4 import BeautifulSoup
 
 REPO = pathlib.Path(__file__).resolve().parents[2]
@@ -137,7 +137,12 @@ def checks_bundle(site, vb, index):
     checks = {}
     for c in vb.CHECKS:
         r = results.get(c.label, {})
+        # links for the panel and the results list: the check's source data file and its code in verify_book.py (the @check line)
+        src = c.meta.get("source") or ""
+        code_line = inspect.getsourcelines(c.fn)[1]
         checks[c.label] = dict(part=c.meta["part"], heavy=bool(c.meta["heavy"]), rerun=c.meta["rerun"], title=c.meta["title"],
+                               source_url=f"{REPO_URL}/blob/main/{urllib.parse.quote(src)}" if src else "",
+                               code_url=f"{REPO_URL}/blob/main/docs/book/verify_book.py#L{code_line}",
                                committed=dict(passed=r.get("passed"), printed=r.get("printed"), recomputed=r.get("recomputed"), tol=r.get("tol")))
     json.dump(dict(data_files=sorted(vb.DATA_FILES), checks=checks), open(d / "checks.json", "w"))
     return results
