@@ -1269,6 +1269,16 @@ def _b02_out(pattern, group=1):
     m = re.search(pattern, file_text('docs/verification/scripts/verify_dual_sector_chapters_output.txt'))
     return float(m.group(group))
 
+# helpers of the part2/p2_11_dark_energy checks
+def _b02_de_dr2_sig():
+    """DESI DR2 w0waCDM preference over LambdaCDM, DESI DR2 results II (doi:10.1103/tr6y-kpc6, arXiv:2503.14738): DESI+CMB with Pantheon+,
+    Union3 and DES Y5 supernovae."""
+    return {'DESI+CMB+Pantheon+': 2.8, 'DESI+CMB+Union3': 3.8, 'DESI+CMB+DESY5': 4.2}
+
+def _b02_de_age(a, H0v=67.4, Omm=0.315, OLm=0.685):
+    """Cosmic age in Gyr at scale factor a, t(a) = int_0^a da'/(a' H(a')), Planck 2018 parameters as the chapter states (line 216)."""
+    return quad(lambda ap: 1.0 / (ap * Hsi(H0v) * math.sqrt(Omm / ap**3 + OLm)), 1e-8, a, limit=200)[0] / Gyr
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -12714,6 +12724,20 @@ def check_1117():
 
 
 # ======== Part 2 | ch:darkenergy | docs/book/part2/p2_11_dark_energy.tex
+@check(label='ch:darkenergy:L26', chapter='ch:darkenergy', part=2, title='DESI DR2 preference, lowest over the supernova sets',
+       file='part2/p2_11_dark_energy', line=26, status='observed', kind='num', printed='2.8', tol=0.0)
+def check_3476():
+    'Lower end of "2.8--4.2 sigma" (book line 26): smallest DESI DR2 + CMB + supernova significance over Pantheon+, Union3, DES Y5 (DESI DR2 results II, doi:10.1103/tr6y-kpc6).'
+    value = min(_b02_de_dr2_sig().values())
+    return locals()
+
+@check(label='ch:darkenergy:L26:4.2', chapter='ch:darkenergy', part=2, title='DESI DR2 preference, highest over the supernova sets',
+       file='part2/p2_11_dark_energy', line=26, status='observed', kind='num', printed='4.2', tol=0.0)
+def check_3477():
+    'Upper end of "2.8--4.2 sigma" (book line 26): largest DESI DR2 + CMB + supernova significance (DESI DR2 results II, doi:10.1103/tr6y-kpc6).'
+    value = max(_b02_de_dr2_sig().values())
+    return locals()
+
 @check(label='ch:darkenergy:L54', chapter='ch:darkenergy', part=2, title='beta_m = Omega_m/2 virial coupling',
        file='part2/p2_11_dark_energy', line=54, status='prediction', kind='num', printed='0.15765', tol=3.2e-05)
 def check_1118():
@@ -13239,6 +13263,32 @@ def check_1192():
     value=100/math.e
     return locals()
 
+@check(label='ch:darkenergy:L224:1.000', chapter='ch:darkenergy', part=2, title='scale factor at 36.8 % maturity (today)',
+       file='part2/p2_11_dark_energy', line=224, status='calc', kind='num', printed='1.000', tol=0.0)
+def check_3478():
+    'Scale factor at maturity f = E(1)/e (today) from Eq. de_af, a(f) = -1/ln f, with E(1) = exp(1 - 1/1). Book line 224, printed 1.000.'
+    f = float(E_act(1.0)) / math.e
+    value = -1 / math.log(f)
+    return locals()
+
+@check(label='ch:darkenergy:L224:0.00', chapter='ch:darkenergy', part=2, title='redshift at 36.8 % maturity (today)',
+       file='part2/p2_11_dark_energy', line=224, status='calc', kind='num', printed='0.00', tol=0.0)
+def check_3479():
+    'Redshift z = 1/a - 1 at maturity f = E(1)/e from Eq. de_af. Book line 224, printed 0.00.'
+    f = float(E_act(1.0)) / math.e
+    a = -1 / math.log(f)
+    value = 1 / a - 1
+    return locals()
+
+@check(label='ch:darkenergy:L224:0', chapter='ch:darkenergy', part=2, title='time from now at 36.8 % maturity',
+       file='part2/p2_11_dark_energy', line=224, status='calc', kind='num', printed='0', tol=0.0)
+def check_3480():
+    'Time from now at maturity f = 1/e: t(a(f)) - t(1) with a(f) from Eq. de_af and t from the Friedmann integral (H0 67.4, Om 0.315, OL 0.685, Planck 2018). Book line 224, printed 0.'
+    f = math.exp(-1)
+    a = -1 / math.log(f)
+    value = _b02_de_age(a) - _b02_de_age(1.0)
+    return locals()
+
 @check(label='ch:darkenergy:L225', chapter='ch:darkenergy', part=2, title='scale factor at 50% maturity',
        file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='1.443', tol=0.000347)
 def check_1193():
@@ -13377,6 +13427,14 @@ def check_1211():
 def check_1212():
     'time from now at 99% maturity. Book line 226, printed 79.5.'
     H0=67.4;Om=0.315;OL=0.685;age=lambda x:quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,x)[0]/Gyr;a=-1/math.log(0.99);value=age(a)-age(1.0)
+    return locals()
+
+@check(label='ch:darkenergy:L228', chapter='ch:darkenergy', part=2, title='Level 2 background H0',
+       file='part2/p2_11_dark_energy', line=228, status='calc', kind='file', printed='67.16', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_3481():
+    'H0 of the Level 2 background (book line 228, printed 67.16): the Level 2 Run A posterior mean H0 in the committed chain record.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:darkenergy:L229', chapter='ch:darkenergy', part=2, title='max age increase under Level2 params',
@@ -30925,8 +30983,6 @@ INVENTORY = [
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 543, '', 'interp', '67.16', 'H0 photon restated, input'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 543, '', 'interp', '72.26', 'H0 matter predicted restated, input'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 543, '', 'interp', '73.04', 'H0 matter measured restated, input'),
-    (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 26, '', 'observed', '2.8', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 26, '', 'observed', '4.2', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 50, 'eq:de_sinfo', 'none', '', 'definition of informational entropy S_info(a)'),
     (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 58, 'part2:eq:Hm', 'none', '', 'definition of matter-sector expansion rate'),
     (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 60, 'eq:de_rhoinfo', 'none', '', 'definition of informational energy density'),
@@ -30934,11 +30990,7 @@ INVENTORY = [
     (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 142, 'eq:de_friedmann', 'none', '', 'definition, standard LCDM Friedmann equation'),
     (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 172, '', 'none', '67.16', 'H0_photon restated, trivial H(a=1)=H0'),
     (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 181, '', 'none', '67.16', 'table: H(a=1)=H0, trivial restatement'),
-    (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 224, '', 'calc', '1.000', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 224, '', 'calc', '0.00', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 224, '', 'calc', '0', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 228, '', 'calc', '67.16', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 228, '', 'calc', '0.3153', 'not yet run: draft rejected (printed value typed into the code)'),
+    (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 228, '', 'calc', '0.3153', 'input: Omega_m = 0.3153 (Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing) restated as the Level 2 background'),
     (2, 'ch:wzfuture', 'part2/p2_20_wz_far_future', 96, 'eq:wz_desi1', 'observed', 'w_0=-0.838±0.055, w_a=-0.62^{+0.22}_{-0.19}', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:wzfuture', 'part2/p2_20_wz_far_future', 97, 'eq:wz_desi2', 'observed', 'w_0=-0.667±0.088, w_a=-1.09^{+0.31}_{-0.27}', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:wzfuture', 'part2/p2_20_wz_far_future', 98, 'eq:wz_desi3', 'observed', 'w_0=-0.752±0.057, w_a=-0.86^{+0.23}_{-0.20}', 'measured, too few printed digits to match against the named files'),

@@ -1935,6 +1935,8 @@ PASS  ch:dsvalidation:L550:\approx61.5   ch:dsvalidation:p2_10_dual_sector_valid
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:darkenergy (part2/p2_11_dark_energy.tex)
+PASS  ch:darkenergy:L26                  ch:darkenergy:p2_11_dark_energy:26  printed 2.8  recomputed 2.8  tol 0.05  [observed] DESI DR2 preference, lowest over the supernova sets
+PASS  ch:darkenergy:L26:4.2              ch:darkenergy:p2_11_dark_energy:26  printed 4.2  recomputed 4.2  tol 0.05  [observed] DESI DR2 preference, highest over the supernova sets
 PASS  ch:darkenergy:L54                  ch:darkenergy:p2_11_dark_energy:54  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [prediction] beta_m = Omega_m/2 virial coupling
 PASS  eq:de_cont                         ch:darkenergy:p2_11_dark_energy:67  printed (algebra)  recomputed True  [none] continuity eq gives w_info formula, step
 PASS  eq:de_dlnE                         ch:darkenergy:p2_11_dark_energy:69  printed (algebra)  recomputed True  [none] d ln E/d ln a derivative step
@@ -2010,6 +2012,9 @@ PASS  ch:darkenergy:L224:7.8             ch:darkenergy:p2_11_dark_energy:224  pr
 PASS  ch:darkenergy:L224:-6.0            ch:darkenergy:p2_11_dark_energy:224  printed -6.0  recomputed -5.9577  tol 0.05  [calc] time from now at 20% maturity
 PASS  ch:darkenergy:L224:13.8            ch:darkenergy:p2_11_dark_energy:224  printed 13.8  recomputed 13.7962  tol 0.05  [calc] age of universe today
 PASS  ch:darkenergy:L224:36.8\%          ch:darkenergy:p2_11_dark_energy:224  printed 36.8\%  recomputed 36.7879  tol 0.0500481  [calc] repeat: maturity today as percent
+PASS  ch:darkenergy:L224:1.000           ch:darkenergy:p2_11_dark_energy:224  printed 1.000  recomputed 1  tol 5.000005e-04  [calc] scale factor at 36.8 % maturity (today)
+PASS  ch:darkenergy:L224:0.00            ch:darkenergy:p2_11_dark_energy:224  printed 0.00  recomputed 0  tol 0.00500001  [calc] redshift at 36.8 % maturity (today)
+PASS  ch:darkenergy:L224:0               ch:darkenergy:p2_11_dark_energy:224  printed 0  recomputed 0  tol 0.5  [calc] time from now at 36.8 % maturity
 PASS  ch:darkenergy:L225                 ch:darkenergy:p2_11_dark_energy:225  printed 1.443  recomputed 1.4427  tol 5.007215e-04  [calc] scale factor at 50% maturity
 PASS  ch:darkenergy:L225:-0.31           ch:darkenergy:p2_11_dark_energy:225  printed -0.31  recomputed -0.306853  tol 0.00500001  [calc] redshift at 50% maturity
 PASS  ch:darkenergy:L225:19.5            ch:darkenergy:p2_11_dark_energy:225  printed 19.5  recomputed 19.4868  tol 0.05  [calc] age at 50% maturity
@@ -2030,6 +2035,8 @@ PASS  ch:darkenergy:L226:99.50           ch:darkenergy:p2_11_dark_energy:226  pr
 PASS  ch:darkenergy:L226:-0.99           ch:darkenergy:p2_11_dark_energy:226  printed -0.99  recomputed -0.98995  tol 0.00500001  [calc] redshift at 99% maturity
 PASS  ch:darkenergy:L226:93.3            ch:darkenergy:p2_11_dark_energy:226  printed 93.3  recomputed 93.2719  tol 0.0500089  [calc] age at 99% maturity
 PASS  ch:darkenergy:L226:79.5            ch:darkenergy:p2_11_dark_energy:226  printed 79.5  recomputed 79.4756  tol 0.0500056  [calc] time from now at 99% maturity
+PASS  ch:darkenergy:L228                 ch:darkenergy:p2_11_dark_energy:228  printed 67.16  recomputed 67.1611  tol 0.00500001  [calc] Level 2 background H0  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:darkenergy:L229                 ch:darkenergy:p2_11_dark_energy:229  printed 0.3  recomputed 0.345664  tol 0.0501001  [calc] max age increase under Level2 params
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:wzfuture (part2/p2_20_wz_far_future.tex)
@@ -4319,4 +4326,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3476  FAIL 0  (heavy, read from committed outputs: 694)  inventoried-not-run 2858  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3482  FAIL 0  (heavy, read from committed outputs: 695)  inventoried-not-run 2852  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

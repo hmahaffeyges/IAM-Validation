@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3476 PASS, 0 FAIL, 2858 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3482 PASS, 0 FAIL, 2852 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -1904,8 +1904,8 @@ Totals: 3476 PASS, 0 FAIL, 2858 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 26 |  | observed | `2.8` | not run: measured, too few printed digits to match against the named files | - |
-| 26 |  | observed | `4.2` | not run: measured, too few printed digits to match against the named files | - |
+| 26 | ch:darkenergy:L26 | observed | `2.8` | numeric: DESI DR2 preference, lowest over the supernova sets | PASS |
+| 26 | ch:darkenergy:L26:4.2 | observed | `4.2` | numeric: DESI DR2 preference, highest over the supernova sets | PASS |
 | 50 | eq:de_sinfo | none |  | not run: definition of informational entropy S_info(a) | - |
 | 54 | ch:darkenergy:L54 | prediction | `0.15765` | numeric: beta_m = Omega_m/2 virial coupling | PASS |
 | 58 | part2:eq:Hm | none |  | not run: definition of matter-sector expansion rate | - |
@@ -1988,9 +1988,9 @@ Totals: 3476 PASS, 0 FAIL, 2858 inventoried and not run. Each run item carries t
 | 224 | ch:darkenergy:L224:-6.0 | calc | `-6.0` | numeric: time from now at 20% maturity | PASS |
 | 224 | ch:darkenergy:L224:13.8 | calc | `13.8` | numeric: age of universe today | PASS |
 | 224 | ch:darkenergy:L224:36.8\% | calc | `36.8\%` | numeric: repeat: maturity today as percent | PASS |
-| 224 |  | calc | `1.000` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 224 |  | calc | `0.00` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 224 |  | calc | `0` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 224 | ch:darkenergy:L224:1.000 | calc | `1.000` | numeric: scale factor at 36.8 % maturity (today) | PASS |
+| 224 | ch:darkenergy:L224:0.00 | calc | `0.00` | numeric: redshift at 36.8 % maturity (today) | PASS |
+| 224 | ch:darkenergy:L224:0 | calc | `0` | numeric: time from now at 36.8 % maturity | PASS |
 | 225 | ch:darkenergy:L225 | calc | `1.443` | numeric: scale factor at 50% maturity | PASS |
 | 225 | ch:darkenergy:L225:-0.31 | calc | `-0.31` | numeric: redshift at 50% maturity | PASS |
 | 225 | ch:darkenergy:L225:19.5 | calc | `19.5` | numeric: age at 50% maturity | PASS |
@@ -2011,8 +2011,8 @@ Totals: 3476 PASS, 0 FAIL, 2858 inventoried and not run. Each run item carries t
 | 226 | ch:darkenergy:L226:-0.99 | calc | `-0.99` | numeric: redshift at 99% maturity | PASS |
 | 226 | ch:darkenergy:L226:93.3 | calc | `93.3` | numeric: age at 99% maturity | PASS |
 | 226 | ch:darkenergy:L226:79.5 | calc | `79.5` | numeric: time from now at 99% maturity | PASS |
-| 228 |  | calc | `67.16` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 228 |  | calc | `0.3153` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 228 | ch:darkenergy:L228 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 background H0 | PASS |
+| 228 |  | calc | `0.3153` | not run: input: Omega_m = 0.3153 (Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing) restated as the Level 2 background | - |
 | 229 | ch:darkenergy:L229 | calc | `0.3` | numeric: max age increase under Level2 params | PASS |
 
 ## Part 2 - ch:wzfuture - `docs/book/part2/p2_20_wz_far_future.tex`
