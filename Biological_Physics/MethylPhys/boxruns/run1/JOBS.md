@@ -22,7 +22,7 @@ progress log at `results/BOXRUN1/log.txt`. The driver's last step stops the inst
 | `downloads/G_chain_tests/neutrophil_state` | 8 | 2.5 | B |
 | GSE128733 neutrophils (2 arrays, local, to upload) | 4 | 0.03 | A (another laboratory) |
 
-About 125 GB is read in total. Every job works from the calibrated betas where they exist and calibrates only the arrays that lack them.
+About 151 GB is read in total (sum of the table). Every job works from the calibrated betas where they exist and calibrates only the arrays that lack them.
 
 ## Jobs, in run order
 
