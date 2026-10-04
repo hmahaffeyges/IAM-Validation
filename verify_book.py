@@ -1833,6 +1833,36 @@ def _b09_noise_rho(gse):
     return float(spearmanr(x[:, 0], x[:, 1])[0])
 def _b09_dnmt(sel, col='A'):
     return [float(r[col]) for r in load_csv_rows(_B09_DN) if sel(r)]
+DATA_FILES['Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md'] = 'IAM-A floor comparison record (three floors; second read pipeline)'
+DATA_FILES['Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json'] = 'chain v3 frozen IAM-A positions (P per cell type, frozen eps0)'
+
+# helpers of the part4/p4_08_iama checks
+_B09_IG = 'Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv'
+_B09_IFC = 'Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md'
+_B09_POS = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json'
+_B09_PC = 'Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'
+
+def _b09_Hb(e):
+    return -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
+def _b09_md_line(path, start):
+    """The first line of a committed record that starts with the given text (a table row)."""
+    for ln in file_text(path).splitlines():
+        if ln.strip().startswith(start):
+            return ln
+    raise KeyError(f"{path}: no line starting {start!r}")
+def _b09_nums(s):
+    return [float(x) for x in re.findall(r"\d+\.\d+", s)]
+def _b09_gran():
+    """The three Loyfer granulocyte donors: copy error eps = iso/opp, the pooled copy error of the other two donors, the damaged eps,
+    the floor eps0 = 1/(1+e^E_hold) with E_hold the canon holding energy, and per donor P_i = H(eps_others)/H(eps0)."""
+    rows = load_csv_rows(_B09_IG)
+    iso = np.array([float(r['iso']) for r in rows]); opp = np.array([float(r['opp']) for r in rows])
+    eps = iso / opp
+    ed = np.array([float(r['eps_damaged']) for r in rows])
+    oth = np.array([(iso.sum() - iso[i]) / (opp.sum() - opp[i]) for i in range(len(rows))])
+    e0 = 1 / (1 + math.exp(E_hold))
+    P = np.array([_b09_Hb(x) / _b09_Hb(e0) for x in oth])
+    return eps, ed, oth, e0, P
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -31412,6 +31442,17 @@ def check_3877():
 
 
 # ======== Part 6 | ch:iama | docs/book/part4/p4_08_iama.tex
+@check(label='eq:eps', chapter='ch:iama', part=6, title='E_hold = kT ln((1-eps)/eps) solves the two-state Boltzmann error',
+       file='part4/p4_08_iama', line=14, status='derived', kind='sym', printed='', tol=0.0)
+def check_3914():
+    'Eq. eps, second part: E_hold = kT ln((1-eps)/eps) inverts the two-state Boltzmann error. Substituting it into eps0 = 1/(1+exp(E/kT)) (Eq. eps0) returns eps. Book line 14 (the counting statistic eps itself is a definition). Control: with exponent 1.05 E/kT the substitution does not return eps.'
+    eps, E, kB_, T = sp.symbols('epsilon E k_B T', positive=True)
+    E_hold_form = kB_ * T * sp.log((1 - eps) / eps)
+    lhs = sp.simplify((1 / (1 + sp.exp(E / (kB_ * T)))).subs(E, E_hold_form))
+    rhs = eps
+    neg_lhs = (1 / (1 + sp.exp(sp.Rational(105, 100) * E / (kB_ * T)))).subs(E, E_hold_form)
+    return locals()
+
 @check(label='eq:eps0', chapter='ch:iama', part=6, title='eps0 = 1/(1+e^(phi M)) inverts E_hold = ln((1-eps)/eps) = phi M',
        file='part4/p4_08_iama', line=27, status='derived', kind='sym', printed='', tol=0)
 def check_2530():
@@ -31431,6 +31472,215 @@ def check_2531():
 def check_2532():
     'phi = E_hold/M. Book line 31, printed 0.1628.'
     value=E_hold/(dG_ATP/(R_gas*T_cell))
+    return locals()
+
+@check(label='ch:iama:L32', chapter='ch:iama', part=6, title='eps0 = 1/(1+e^(phi M))',
+       file='part4/p4_08_iama', line=32, status='measured', kind='num', printed='0.032', tol=0.0)
+def check_3915():
+    'The floor copy error eps0 = 1/(1+exp(phi M)) with M = dG_ATP/(R T_cell) and phi = 0.1628 (canon, measured holding energy over M). Book line 32, printed 0.032. Inputs: CANON dG_ATP, R, T_cell, phi.'
+    M = dG_ATP / (R_gas * T_cell)
+    value = 1 / (1 + math.exp(phi_hold * M))
+    return locals()
+
+@check(label='ch:iama:L32:0.2043', chapter='ch:iama', part=6, title='H_min = H(eps0) at the frozen eps0',
+       file='part4/p4_08_iama', line=32, status='measured', kind='file', printed='0.2043', tol=0.0, source=_B09_POS)
+def check_3916():
+    'H_min = H(eps0) in bits, with eps0 = 0.032 as the chain freezes it (iama_positions_v1.json; canon eps0_meth). Note: with eps0 unrounded, 1/(1+exp(phi M)) = 0.032012, H = 0.20438. Book line 32, printed 0.2043. Inputs: eps0 of iama_positions_v1.json.'
+    e0 = load_json(_B09_POS)['eps0']
+    value = _b09_Hb(e0)
+    return locals()
+
+@check(label='eq:iama', chapter='ch:iama', part=6, title='P of neutrophils from the three granulocyte donors',
+       file='part4/p4_08_iama', line=40, status='measured', kind='file', printed='1.099', tol=0.0, source=_B09_IG)
+def check_3917():
+    'Eq. iama: P_neutrophil, the mean over the three Loyfer granulocyte donors of H(pooled copy error of the other two)/H(eps0), eps0 = 1/(1+e^3.41), recomputed from the isolated-error and opportunity counts. Book line 40, printed 1.099. Inputs: iso, opp of iama_floor_granulocytes.csv; E_hold (CANON).'
+    eps, ed, oth, e0, P = _b09_gran()
+    value = float(P.mean())
+    return locals()
+
+@check(label='ch:iama:L44', chapter='ch:iama', part=6, title='P range over the donors, lowest',
+       file='part4/p4_08_iama', line=44, status='measured', kind='file', printed='1.084', tol=0.0, source=_B09_IG)
+def check_3918():
+    'Per-donor P = H(pooled copy error of the other two)/H(eps0): lowest. Book line 44, printed 1.084. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    eps, ed, oth, e0, P = _b09_gran()
+    value = float(P.min())
+    return locals()
+
+@check(label='ch:iama:L44:1.108', chapter='ch:iama', part=6, title='P range over the donors, highest',
+       file='part4/p4_08_iama', line=44, status='measured', kind='file', printed='1.108', tol=0.0, source=_B09_IG)
+def check_3919():
+    'Per-donor P: highest. Book line 44, printed 1.108. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    eps, ed, oth, e0, P = _b09_gran()
+    value = float(P.max())
+    return locals()
+
+@check(label='ch:iama:L44:1.2', chapter='ch:iama', part=6, title='coefficient of variation of P across donors, per cent',
+       file='part4/p4_08_iama', line=44, status='measured', kind='file', printed='1.2', tol=0.0, source=_B09_IG)
+def check_3920():
+    'Coefficient of variation (SD with n - 1 over the mean) of the per-donor P, in per cent (frozen file: 0.0118). Book line 44, printed 1.2 %. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    eps, ed, oth, e0, P = _b09_gran()
+    value = float(100 * P.std(ddof=1) / P.mean())
+    return locals()
+
+@check(label='ch:iama:L46', chapter='ch:iama', part=6, title='the floor at A = 1/P',
+       file='part4/p4_08_iama', line=46, status='measured', kind='file', printed='0.910', tol=0.0, source=_B09_IG)
+def check_3921():
+    'Where the floor sits on the IAM-A gauge, 1/P, with P recomputed from the three donors. Book line 46, printed 0.910. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    eps, ed, oth, e0, P = _b09_gran()
+    value = float(1 / P.mean())
+    return locals()
+
+@check(label='ch:iama:L52', chapter='ch:iama', part=6, title='healthy donors on eps0 alone, lowest',
+       file='part4/p4_08_iama', line=52, status='measured', kind='file', printed='1.084', tol=0.0, source=_B09_IG)
+def check_3922():
+    'Healthy granulocyte donors on the bare floor, H(eps)/H(eps0): lowest. Book line 52, printed 1.084. Inputs: iso, opp of iama_floor_granulocytes.csv; E_hold (CANON).'
+    eps, ed, oth, e0, P = _b09_gran()
+    value = float(min(_b09_Hb(x) / _b09_Hb(e0) for x in eps))
+    return locals()
+
+@check(label='ch:iama:L52:1.127', chapter='ch:iama', part=6, title='healthy donors on eps0 alone, highest',
+       file='part4/p4_08_iama', line=52, status='measured', kind='file', printed='1.127', tol=0.0, source=_B09_IG)
+def check_3923():
+    'Healthy donors on the bare floor: highest (the inventory read the range "1.084--1.127" as -1.127; the number is the upper end, 1.127). Book line 52, printed 1.127. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    eps, ed, oth, e0, P = _b09_gran()
+    value = float(max(_b09_Hb(x) / _b09_Hb(e0) for x in eps))
+    return locals()
+
+@check(label='ch:iama:L53', chapter='ch:iama', part=6, title='healthy donors with P, leave-one-donor-out, lowest',
+       file='part4/p4_08_iama', line=53, status='measured', kind='file', printed='0.978', tol=0.0, source=_B09_IG)
+def check_3924():
+    'Each donor read with its own leave-one-donor-out P: H(eps_i)/(P_i H(eps0)): lowest. Book line 53, printed 0.978. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    eps, ed, oth, e0, P = _b09_gran()
+    value = float(min(_b09_Hb(eps[i]) / (P[i] * _b09_Hb(e0)) for i in range(len(eps))))
+    return locals()
+
+@check(label='ch:iama:L53:1.040', chapter='ch:iama', part=6, title='healthy donors with P, leave-one-donor-out, highest',
+       file='part4/p4_08_iama', line=53, status='measured', kind='file', printed='1.040', tol=0.0, source=_B09_IG)
+def check_3925():
+    'Each donor with its own leave-one-donor-out P: highest (inventory printed -1.040 from the range dash). Book line 53, printed 1.040. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    eps, ed, oth, e0, P = _b09_gran()
+    value = float(max(_b09_Hb(eps[i]) / (P[i] * _b09_Hb(e0)) for i in range(len(eps))))
+    return locals()
+
+@check(label='ch:iama:L55', chapter='ch:iama', part=6, title='simulated 2 % rise in copy error, lowest',
+       file='part4/p4_08_iama', line=55, status='measured', kind='file', printed='1.285', tol=0.0, source=_B09_IG)
+def check_3926():
+    'The same molecules with 2 % copy error added, each donor with its leave-one-donor-out P: lowest. Book line 55, printed 1.285. Inputs: eps_damaged, iso, opp of iama_floor_granulocytes.csv; E_hold (CANON).'
+    eps, ed, oth, e0, P = _b09_gran()
+    value = float(min(_b09_Hb(ed[i]) / (P[i] * _b09_Hb(e0)) for i in range(len(eps))))
+    return locals()
+
+@check(label='ch:iama:L55:1.346', chapter='ch:iama', part=6, title='simulated 2 % rise in copy error, highest',
+       file='part4/p4_08_iama', line=55, status='measured', kind='file', printed='1.346', tol=0.0, source=_B09_IG)
+def check_3927():
+    'The same molecules with 2 % copy error added: highest (inventory printed -1.346 from the range dash). Book line 55, printed 1.346. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    eps, ed, oth, e0, P = _b09_gran()
+    value = float(max(_b09_Hb(ed[i]) / (P[i] * _b09_Hb(e0)) for i in range(len(eps))))
+    return locals()
+
+@check(label='ch:iama:L56', chapter='ch:iama', part=6, title='same cells on a second read pipeline, bare floor, lowest',
+       file='part4/p4_08_iama', line=56, status='measured', kind='file', printed='0.70', tol=0.0, source=_B09_IFC)
+def check_3928():
+    'Healthy blood cells read on a second read pipeline against the bare floor (uncorrected): lower end, from the record\'s table row. Book line 56, printed 0.70. Inputs: IAMA_FLOOR_COMPARISON.md, row "same healthy blood, other lab/pipeline".'
+    value = _b09_nums(_b09_md_line(_B09_IFC, '| same healthy blood'))[0]
+    return locals()
+
+@check(label='ch:iama:L56:0.79', chapter='ch:iama', part=6, title='same cells on a second read pipeline, bare floor, highest',
+       file='part4/p4_08_iama', line=56, status='measured', kind='file', printed='0.79', tol=0.0, source=_B09_IFC)
+def check_3929():
+    'Second read pipeline, bare floor, uncorrected: upper end (inventory printed -0.79 from the range dash). Book line 56, printed 0.79. Inputs: IAMA_FLOOR_COMPARISON.md.'
+    value = _b09_nums(_b09_md_line(_B09_IFC, '| same healthy blood'))[1]
+    return locals()
+
+@check(label='ch:iama:L74', chapter='ch:iama', part=6, title='P in the curve of the figure',
+       file='part4/p4_08_iama', line=74, status='calc', kind='file', printed='1.099', tol=0.0, source=_B09_IG)
+def check_3930():
+    'P used for the curve H(eps)/(P H(eps0)) in the figure: the same P, recomputed from the three donors (see eq:iama). Book line 74, printed 1.099. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
+    eps, ed, oth, e0, P = _b09_gran()
+    value = float(P.mean())
+    return locals()
+
+@check(label='ch:iama:L75', chapter='ch:iama', part=6, title='a 2 % rise in copy error moves the reading by about 0.3',
+       file='part4/p4_08_iama', line=75, status='calc', kind='file', printed='0.3', tol=0.0, source=_B09_IG)
+def check_3931():
+    'On the curve A = H(eps)/(P H(eps0)), eps0 = 1/(1+e^3.41), P recomputed: the mean over the three donors of A(eps with 2 % added) - A(eps). Book line 75, printed 0.3 ("about"). Inputs: eps (iso/opp) and eps_damaged of iama_floor_granulocytes.csv; E_hold (CANON).'
+    eps, ed, oth, e0, P = _b09_gran()
+    Pm = P.mean()
+    value = float(np.mean([(_b09_Hb(ed[i]) - _b09_Hb(eps[i])) / (Pm * _b09_Hb(e0)) for i in range(len(eps))]))
+    return locals()
+
+@check(label='ch:iama:L90', chapter='ch:iama', part=6, title='copy error across 56 healthy cell types, lowest',
+       file='part4/p4_08_iama', line=90, status='measured', kind='file', printed='0.024', tol=0.0, source=_B09_PC)
+def check_3932():
+    'Copy error across the 56 healthy cell types (Loyfer 2023, 399 windows): lower end, from the methylated-sites row of the record. Book line 90, printed 0.024. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
+    value = _b09_nums(_b09_md_line(_B09_PC, '| methylated sites (copy error)'))[0]
+    return locals()
+
+@check(label='ch:iama:L90:0.042', chapter='ch:iama', part=6, title='copy error across 56 healthy cell types, highest',
+       file='part4/p4_08_iama', line=90, status='measured', kind='file', printed='0.042', tol=0.0, source=_B09_PC)
+def check_3933():
+    'Copy error across the 56 healthy cell types: upper end. Book line 90, printed 0.042. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
+    value = _b09_nums(_b09_md_line(_B09_PC, '| methylated sites (copy error)'))[1]
+    return locals()
+
+@check(label='ch:iama:L90:3.41', chapter='ch:iama', part=6, title='holding energy across 56 cell types, mean',
+       file='part4/p4_08_iama', line=90, status='measured', kind='file', printed='3.41', tol=0.0, source=_B09_PC)
+def check_3934():
+    'Holding energy per methylated site across the 56 cell types, mean (in kT), from the methylated-sites row of the record. Book line 90, printed 3.41. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
+    value = _b09_nums(_b09_md_line(_B09_PC, '| methylated sites (copy error)'))[2]
+    return locals()
+
+@check(label='ch:iama:L91', chapter='ch:iama', part=6, title='healthy cell types on one physics floor, lowest',
+       file='part4/p4_08_iama', line=91, status='measured', kind='file', printed='0.79', tol=0.0, source=_B09_PC)
+def check_3935():
+    'The 56 healthy cell types read on the one physics floor eps0 (methylated channel): lowest A (0.794). Book line 91, printed 0.79. Inputs: PROC_CHANNEL_01_OUTCOME.md section 3, row "methylated".'
+    value = _b09_nums(_b09_md_line(_B09_PC, '| methylated |'))[2]
+    return locals()
+
+@check(label='ch:iama:L91:1.23', chapter='ch:iama', part=6, title='healthy cell types on one physics floor, highest',
+       file='part4/p4_08_iama', line=91, status='measured', kind='file', printed='1.23', tol=0.0, source=_B09_PC)
+def check_3936():
+    'The 56 healthy cell types on the one physics floor: highest A (1.225). Book line 91, printed 1.23. Inputs: PROC_CHANNEL_01_OUTCOME.md section 3.'
+    value = _b09_nums(_b09_md_line(_B09_PC, '| methylated |'))[3]
+    return locals()
+
+@check(label='ch:iama:L91:1.01', chapter='ch:iama', part=6, title='healthy cell types on one physics floor, median',
+       file='part4/p4_08_iama', line=91, status='measured', kind='file', printed='1.01', tol=0.0, source=_B09_PC)
+def check_3937():
+    'The 56 healthy cell types on the one physics floor: median A (1.009). Book line 91, printed 1.01. Inputs: PROC_CHANNEL_01_OUTCOME.md section 3.'
+    value = _b09_nums(_b09_md_line(_B09_PC, '| methylated |'))[4]
+    return locals()
+
+@check(label='ch:iama:L94', chapter='ch:iama', part=6, title='copy error on the common sites, highest over lowest',
+       file='part4/p4_08_iama', line=94, status='measured', kind='file', printed='1.66', tol=0.0, source=_B09_PC)
+def check_3938():
+    'Fold difference of copy error on the 26,800 CpGs all 56 cell types keep methylated: highest over lowest, recomputed from the range 0.0136-0.0226 in the record. Book line 94, printed 1.66. Inputs: PROC_CHANNEL_01_OUTCOME.md section 7.'
+    lo, hi = _b09_nums(_b09_md_line(_B09_PC, '- Copy error on the common sites'))[1:3]
+    value = hi / lo
+    return locals()
+
+@check(label='ch:iama:L95', chapter='ch:iama', part=6, title='intraclass correlation of the common-site copy error across donors',
+       file='part4/p4_08_iama', line=95, status='measured', kind='file', printed='0.80', tol=0.0, source=_B09_PC)
+def check_3939():
+    'Replicate agreement of the common-site copy error, 53 cell types with >= 2 samples from different donors: intraclass correlation. Book line 95, printed 0.80. Inputs: PROC_CHANNEL_01_OUTCOME.md section 7.'
+    value = float(re.search(r"intraclass\s+correlation\s+(\d+\.\d+)", file_text(_B09_PC)).group(1))
+    return locals()
+
+@check(label='ch:iama:L96', chapter='ch:iama', part=6, title='colon epithelium lifespan (days)',
+       file='part4/p4_08_iama', line=96, status='measured', kind='file', printed='3.4', tol=0.0, source=_B09_PC)
+def check_3940():
+    'Colon epithelium lifespan in days as taken from Sender and Milo 2021 (Summary table) into the record of the turnover test. Book line 96, printed 3.4. Inputs: PROC_CHANNEL_01_OUTCOME.md section 4.'
+    value = float(re.search(r"Colon epithelium \((\d+\.\d+)-day lifespan\)", file_text(_B09_PC)).group(1))
+    return locals()
+
+@check(label='ch:iama:L97', chapter='ch:iama', part=6, title='copy error of colon epithelium and cardiomyocytes',
+       file='part4/p4_08_iama', line=97, status='measured', kind='file', printed='0.031', tol=0.0, source=_B09_PC)
+def check_3941():
+    'Copy error of colon epithelium, the same as that of cardiomyocytes, from the record of the turnover test. Book line 97, printed 0.031. Inputs: PROC_CHANNEL_01_OUTCOME.md section 4.'
+    m = re.search(r"lifespan\) carries copy error (\d+\.\d+), cardiomyocytes \([\d,]+ days\) (\d+\.\d+)", file_text(_B09_PC))
+    colon, cardio = float(m.group(1)), float(m.group(2))
+    same = colon == cardio
+    value = colon
     return locals()
 
 
@@ -35619,34 +35869,6 @@ INVENTORY = [
     (6, 'ch:meta', 'part4/p4_07_meta', 23, '', 'measured', '0.25', 'definition: identity-site selection band, unmethylated channel beta 0.05-0.25 (a rule of the chain)'),
     (6, 'ch:meta', 'part4/p4_07_meta', 79, 'eq:metawb', 'none', '', "definition: whole-blood Met-A with the specimen's own expectation e_i = sum_g f_g mu_g,i"),
     (6, 'ch:meta', 'part4/p4_07_meta', 112, '', 'measured', '2.8', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 14, 'eq:eps', 'none', '', 'displayed equation, not yet checked'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 32, '', 'measured', '0.032', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 32, '', 'measured', '0.2043', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 40, 'eq:iama', 'measured', '', 'displayed equation, not yet checked'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 44, '', 'measured', '1.084', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 44, '', 'measured', '1.108', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 44, '', 'measured', '1.2', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 46, '', 'measured', '0.910', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 52, '', 'measured', '1.084', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 52, '', 'measured', '-1.127', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 53, '', 'measured', '0.978', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 53, '', 'measured', '-1.040', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 55, '', 'measured', '1.285', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 55, '', 'measured', '-1.346', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 56, '', 'measured', '0.70', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 56, '', 'measured', '-0.79', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 74, '', 'calc', '1.099', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 75, '', 'calc', '0.3', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 90, '', 'measured', '0.024', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 90, '', 'measured', '0.042', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 90, '', 'measured', '3.41', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 91, '', 'measured', '0.79', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 91, '', 'measured', '1.23', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 91, '', 'measured', '1.01', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 94, '', 'measured', '1.66', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 95, '', 'measured', '0.80', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 96, '', 'measured', '3.4', 'measured, source not named'),
-    (6, 'ch:iama', 'part4/p4_08_iama', 97, '', 'measured', '0.031', 'measured, source not named'),
     (6, 'ch:cscore', 'part4/p4_09_cscore', 14, 'eq:z', 'none', '', 'displayed equation, not yet checked'),
     (6, 'ch:cscore', 'part4/p4_09_cscore', 26, 'eq:C', 'calibrated', '', 'displayed equation, not yet checked'),
     (6, 'ch:cscore', 'part4/p4_09_cscore', 31, '', 'calibrated', '0.70', 'measured, source not named'),

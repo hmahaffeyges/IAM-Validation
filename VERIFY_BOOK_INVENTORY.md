@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3914 PASS, 0 FAIL, 2424 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3942 PASS, 0 FAIL, 2396 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4625,37 +4625,37 @@ Totals: 3914 PASS, 0 FAIL, 2424 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 14 | eq:eps | none |  | not run: displayed equation, not yet checked | - |
+| 14 | eq:eps | derived |  | sympy: E_hold = kT ln((1-eps)/eps) solves the two-state Boltzmann error | PASS |
 | 27 | eq:eps0 | derived |  | sympy: eps0 = 1/(1+e^(phi M)) inverts E_hold = ln((1-eps)/eps) = phi M | PASS |
 | 31 | ch:iama:L31 | derived | `20.94` | numeric: M | PASS |
 | 31 | ch:iama:L31:0.1628 | derived | `0.1628` | numeric: phi = E_hold/M | PASS |
-| 32 |  | measured | `0.032` | not run: measured, source not named | - |
-| 32 |  | measured | `0.2043` | not run: measured, source not named | - |
-| 40 | eq:iama | measured |  | not run: displayed equation, not yet checked | - |
-| 44 |  | measured | `1.084` | not run: measured, source not named | - |
-| 44 |  | measured | `1.108` | not run: measured, source not named | - |
-| 44 |  | measured | `1.2` | not run: measured, source not named | - |
-| 46 |  | measured | `0.910` | not run: measured, source not named | - |
-| 52 |  | measured | `1.084` | not run: measured, source not named | - |
-| 52 |  | measured | `-1.127` | not run: measured, source not named | - |
-| 53 |  | measured | `0.978` | not run: measured, source not named | - |
-| 53 |  | measured | `-1.040` | not run: measured, source not named | - |
-| 55 |  | measured | `1.285` | not run: measured, source not named | - |
-| 55 |  | measured | `-1.346` | not run: measured, source not named | - |
-| 56 |  | measured | `0.70` | not run: measured, source not named | - |
-| 56 |  | measured | `-0.79` | not run: measured, source not named | - |
-| 74 |  | calc | `1.099` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 75 |  | calc | `0.3` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 90 |  | measured | `0.024` | not run: measured, source not named | - |
-| 90 |  | measured | `0.042` | not run: measured, source not named | - |
-| 90 |  | measured | `3.41` | not run: measured, source not named | - |
-| 91 |  | measured | `0.79` | not run: measured, source not named | - |
-| 91 |  | measured | `1.23` | not run: measured, source not named | - |
-| 91 |  | measured | `1.01` | not run: measured, source not named | - |
-| 94 |  | measured | `1.66` | not run: measured, source not named | - |
-| 95 |  | measured | `0.80` | not run: measured, source not named | - |
-| 96 |  | measured | `3.4` | not run: measured, source not named | - |
-| 97 |  | measured | `0.031` | not run: measured, source not named | - |
+| 32 | ch:iama:L32 | measured | `0.032` | numeric: eps0 = 1/(1+e^(phi M)) | PASS |
+| 32 | ch:iama:L32:0.2043 | measured | `0.2043` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json`: H_min = H(eps0) at the frozen eps0 | PASS |
+| 40 | eq:iama | measured | `1.099` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: P of neutrophils from the three granulocyte donors | PASS |
+| 44 | ch:iama:L44 | measured | `1.084` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: P range over the donors, lowest | PASS |
+| 44 | ch:iama:L44:1.108 | measured | `1.108` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: P range over the donors, highest | PASS |
+| 44 | ch:iama:L44:1.2 | measured | `1.2` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: coefficient of variation of P across donors, per cent | PASS |
+| 46 | ch:iama:L46 | measured | `0.910` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: the floor at A = 1/P | PASS |
+| 52 | ch:iama:L52 | measured | `1.084` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors on eps0 alone, lowest | PASS |
+| 52 | ch:iama:L52:1.127 | measured | `1.127` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors on eps0 alone, highest | PASS |
+| 53 | ch:iama:L53 | measured | `0.978` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors with P, leave-one-donor-out, lowest | PASS |
+| 53 | ch:iama:L53:1.040 | measured | `1.040` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors with P, leave-one-donor-out, highest | PASS |
+| 55 | ch:iama:L55 | measured | `1.285` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: simulated 2 % rise in copy error, lowest | PASS |
+| 55 | ch:iama:L55:1.346 | measured | `1.346` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: simulated 2 % rise in copy error, highest | PASS |
+| 56 | ch:iama:L56 | measured | `0.70` | file `Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md`: same cells on a second read pipeline, bare floor, lowest | PASS |
+| 56 | ch:iama:L56:0.79 | measured | `0.79` | file `Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md`: same cells on a second read pipeline, bare floor, highest | PASS |
+| 74 | ch:iama:L74 | calc | `1.099` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: P in the curve of the figure | PASS |
+| 75 | ch:iama:L75 | calc | `0.3` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: a 2 % rise in copy error moves the reading by about 0.3 | PASS |
+| 90 | ch:iama:L90 | measured | `0.024` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: copy error across 56 healthy cell types, lowest | PASS |
+| 90 | ch:iama:L90:0.042 | measured | `0.042` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: copy error across 56 healthy cell types, highest | PASS |
+| 90 | ch:iama:L90:3.41 | measured | `3.41` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy across 56 cell types, mean | PASS |
+| 91 | ch:iama:L91 | measured | `0.79` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: healthy cell types on one physics floor, lowest | PASS |
+| 91 | ch:iama:L91:1.23 | measured | `1.23` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: healthy cell types on one physics floor, highest | PASS |
+| 91 | ch:iama:L91:1.01 | measured | `1.01` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: healthy cell types on one physics floor, median | PASS |
+| 94 | ch:iama:L94 | measured | `1.66` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: copy error on the common sites, highest over lowest | PASS |
+| 95 | ch:iama:L95 | measured | `0.80` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: intraclass correlation of the common-site copy error across donors | PASS |
+| 96 | ch:iama:L96 | measured | `3.4` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: colon epithelium lifespan (days) | PASS |
+| 97 | ch:iama:L97 | measured | `0.031` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: copy error of colon epithelium and cardiomyocytes | PASS |
 
 ## Part 6 - ch:cscore - `docs/book/part4/p4_09_cscore.tex`
 
