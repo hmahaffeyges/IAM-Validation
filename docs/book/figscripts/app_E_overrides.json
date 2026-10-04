@@ -19,12 +19,6 @@
   }
  },
  "body": {
-  "ch:iams_law|eq:law_jacobson": {
-   "entry": 17,
-   "chapter": "R_{ab}-\\tfrac12Rg_{ab}+\\Lambda g_{ab}=\\frac{2\\pi}{\\hbar c\\,\\eta}T_{ab}\\equiv\\frac{8\\pi G}{c^4}T_{ab},\\qquad G=\\frac{c^3}{4\\hbar\\eta}.",
-   "sheet": "R_{ab}-\\tfrac12Rg_{ab}+\\Lambda g_{ab}=\\frac{2\\pi}{\\hbar\\eta}T_{ab}\\equiv\\frac{8\\pi G}{c^4}T_{ab},\\qquad G=\\frac{c^3}{4\\hbar\\eta}.",
-   "why": "the sheet keeps the coefficient as 2pi/(hbar eta); the chapter was changed to 2pi/(hbar c eta) in 94a80ec after the sheet was generated (open question: update the sheet to the chapter)"
-  },
   "ch:lambda_history|eq:lh_weights": {
    "entry": 293,
    "chapter": "\\begin{gathered}\n\\int_0^1\\!\\Big(\\frac{H_0}{H}\\Big)^2dE=0.470,\\quad \\int_0^1\\!\\frac{H_0}{H}\\,dE=0.641,\\quad \\int_0^1\\!dE=1,\\quad\n\\\\ \\int_0^1\\!\\frac{H}{H_0}\\,dE=1.983,\\quad \\int_0^1\\!\\Big(\\frac{H}{H_0}\\Big)^2dE=5.797 .\n\\end{gathered}",
