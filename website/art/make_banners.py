@@ -4,15 +4,16 @@
   python3 website/art/make_banners.py        writes website/art/out/*.jpg
 
 Themes (one per Part):
-  cmb      Parts I and II  - a synthetic Gaussian random field with a CMB-like angular power spectrum (acoustic peaks, damping
+  cmb      Part II         - a synthetic Gaussian random field with a CMB-like angular power spectrum (acoustic peaks, damping
                              tail), drawn in an all-sky ellipse. Synthetic: it is not the measured sky.
   bh       Part III        - a dark horizon with a lensed, Doppler-brightened emission ring, drawn procedurally.
-  lattice  Parts IV and V  - a square lattice of coupled nodes (a qubit / chip grid) with a standing wave across it.
+  lattice  Part IV         - a square lattice of coupled nodes (a qubit / chip grid) with a standing wave across it.
   genome   Part VI         - the book's own genome sky: panel b of docs/book/figures/part4/fig_sky_cmb_vs_neutrophil.pdf (one
                              healthy neutrophil's pixel residual, the genome laid on the sphere).
-  web      Part VII        - the four skies joined, blended left to right (Part VII's banner; also Part I's front-page card).
+  web      Part I          - the four skies joined, blended left to right (Part I's banner and card; also the front-page banner).
   chip     Part V          - a processor die from above: standard-cell rows, metal routing, memory macros.
-  mosaic   Part VII's card - the four skies as a 2 x 2 mosaic, so that no two front-page cards are alike.
+  mosaic   Part VII        - the four skies side by side: a 2 x 2 mosaic for the card, a row of four for the banner.
+Each Part uses the same art for its banner and its front-page card, and no two Parts share art.
 Each banner is 2400 x 600 px; each opening art is 1200 x 1200 px.
 """
 import pathlib, subprocess, tempfile
@@ -207,6 +208,21 @@ def mosaic(name, size=(1200, 1200)):
     out.save(OUT / name, quality=82, optimize=True)
 
 
+def mosaic_banner(name, size=(W, H)):
+    """The four skies in a row (CMB, black hole, lattice, genome), for Part VII's banner, matching its 2 x 2 card."""
+    w, h = size
+    tiles = ["cmb_opening.jpg", "bh_opening.jpg", "lattice_opening.jpg", "genome_opening.jpg"]
+    out = Image.new("RGB", (w, h), (5, 7, 13))
+    gap = 8
+    tw = (w - 3 * gap) // 4
+    for k, t in enumerate(tiles):
+        im = Image.open(OUT / t).convert("RGB")
+        side = min(im.size)
+        im = im.crop((0, (side - side * h // tw) // 2, side, (side + side * h // tw) // 2)).resize((tw, h))
+        out.paste(im, (k * (tw + gap), 0))
+    out.save(OUT / name, quality=82, optimize=True)
+
+
 def square(src_name, name):
     im = Image.open(OUT / src_name).convert("RGB")
     w, h = im.size
@@ -224,4 +240,5 @@ if __name__ == "__main__":
     for b in ("cmb", "cmb2", "bh", "lattice", "genome", "web", "chip"):
         square(f"{b}_banner.jpg", f"{b}_opening.jpg")
     mosaic("mosaic_opening.jpg")
+    mosaic_banner("mosaic_banner.jpg")
     print("\n".join(sorted(p.name for p in OUT.iterdir())))
