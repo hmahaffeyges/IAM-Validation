@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3798 PASS, 0 FAIL, 2540 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3809 PASS, 0 FAIL, 2529 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4381,8 +4381,8 @@ Totals: 3798 PASS, 0 FAIL, 2540 inventoried and not run. Each run item carries t
 | 65 | ch:landauer:L65 | measured | `0.024` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: healthy copy error, lowest of 56 cell types | PASS |
 | 65 | ch:landauer:L65:0.042 | measured | `0.042` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: highest | PASS |
 | 70 | ch:landauer:L70 | calc | `0.69` | numeric: ln 2 | PASS |
-| 71 |  | calc | `3.41` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 71 |  | calc | `20.94` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 71 | ch:landauer:L71 | calc | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy per site 3.41 k_B T (figure caption) | PASS |
+| 71 | ch:landauer:L71:20.94 | calc | `20.94` | numeric: M = dG_ATP/(R T) per ATP (figure caption) | PASS |
 | 72 | ch:landauer:L72 | calc | `1.00` | numeric: Landauer floor in Landauer units | PASS |
 | 72 | ch:landauer:L72:4.92 | calc | `4.92` | numeric: E_hold/ln2 (E_hold canon) | PASS |
 | 72 | ch:landauer:L72:30.21 | calc | `30.21` | numeric: M/ln2 | PASS |
@@ -4390,11 +4390,11 @@ Totals: 3798 PASS, 0 FAIL, 2540 inventoried and not run. Each run item carries t
 | 88 | ch:landauer:L88:411 | calc | `411` | numeric: 9950X upper end of the range | PASS |
 | 88 | ch:landauer:L88:576 | calc | `576` | numeric: E_sw/(k_B T_j ln2), upper count | PASS |
 | 88 | ch:landauer:L88:593 | calc | `593` | numeric: 9950X upper end of the range | PASS |
-| 88 |  | calc | `9950` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 88 |  | calc | `348.15` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 88 |  | calc | `9950` | not run: not a number: part of the processor name (Ryzen 9 9950X) | - |
+| 88 |  | calc | `348.15` | not run: input: junction temperature 75 C = 348.15 K (Chapter ch:cmos, book line 6 there) | - |
 | 89 | ch:landauer:L89 | calc | `20.94` | numeric: M | PASS |
 | 89 | ch:landauer:L89:30.21 | calc | `30.21` | numeric: M/ln2 | PASS |
-| 89 |  | calc | `310` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 89 | ch:landauer:L89:310 | calc | `310` | file `CANON/iam_canon.json`: cell nucleus at 310 K (table tab:p4operating) | PASS |
 | 90 | ch:landauer:L90 | calc | `0.693` | numeric: ln 2 | PASS |
 | 95 | eq:Mtransmon | derived |  | sympy: M_transmon = ln 2 | PASS |
 | 100 | ch:landauer:L100 | calc | `20.94` | numeric: M | PASS |
@@ -4403,43 +4403,43 @@ Totals: 3798 PASS, 0 FAIL, 2540 inventoried and not run. Each run item carries t
 | 138 | eq:efloor | calc | `8.38\times10^{-14}` | numeric: N k_B T ln2, N = 28,217,448 | PASS |
 | 143 | ch:landauer:L143 | calc | `9.3\times10^5` | numeric: floor in ATP at 54 kJ/mol | PASS |
 | 143 | ch:landauer:L143:1.0\times10^6 | calc | `1.0\times10^6` | numeric: floor in ATP at 50 kJ/mol | PASS |
-| 149 |  | calc | `54` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 149 | ch:landauer:L149 | calc | `54` | file `CANON/iam_canon.json`: dG_ATP = 54 kJ/mol in the figure caption | PASS |
 | 150 | ch:landauer:L150 | calc | `9.34\times10^5` | numeric: floor in ATP | PASS |
-| 155 |  | calc | `3000` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 155 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 156 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 155 |  | calc | `3000` | not run: input: cell volume of about 3000 um^3 (Milo2015) | - |
+| 155 |  | calc | `10` | not run: input: ATP turnover of order 1e9 per second (Milo2015) | - |
+| 156 | ch:landauer:L156 | calc | `10^{14}` | numeric: ATP over a 24-hour cycle, order 1e14 | PASS |
 | 157 | ch:landauer:L157 | calc | `2.0\times10^7` | numeric: 70 % of CpGs methylated | PASS |
-| 157 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 157 | ch:landauer:L157:10^{-7} | calc | `10^{-7}` | numeric: methyl writing as a fraction of the daily ATP budget, order 1e-7 | PASS |
 | 158 | ch:landauer:L158 | calc | `9.3\times10^5` | numeric: floor in ATP at 54 kJ/mol | PASS |
 | 173 |  | observed | `0.90` | not run: measured, source not named | - |
 | 173 |  | observed | `0.98` | not run: measured, source not named | - |
 | 176 | ch:landauer:L176 | calc | `2.3` | numeric: ln(1/0.10) | PASS |
 | 176 | ch:landauer:L176:3.9 | calc | `3.9` | numeric: ln(1/0.02) | PASS |
-| 176 |  | calc | `0.10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 176 |  | calc | `0.10` | not run: input: failure rate 10 % = 1 - 0.90, the lower maintenance efficiency of line 173 restated; ln(1/0.10) is checked at ch:landauer:L176 | - |
 | 178 | ch:landauer:L178 | calc | `21` | numeric: kT per ATP | PASS |
 | 186 | ch:landauer:L186 | measured | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy across 56 cell types (Loyfer read-level) | PASS |
 | 186 | ch:landauer:L186:3.13 | measured | `3.13` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy across 56 cell types (Loyfer read-level) | PASS |
 | 186 | ch:landauer:L186:3.72 | measured | `3.72` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy across 56 cell types (Loyfer read-level) | PASS |
 | 187 | ch:landauer:L187 | calc | `4.92` | numeric: 3.41/ln2 | PASS |
 | 188 | eq:phi | measured | `0.163` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: phi = E_hold/(M k T): committed record and E_hold/M (canon) | PASS |
-| 194 |  | calc | `1.9` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 194 |  | calc | `4.4` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 205 | eq:sanchezH | none |  | not run: displayed equation, not yet checked | - |
-| 211 | eq:sanchezER | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 249 |  | measured | `0.075` | not run: measured, source not named | - |
+| 194 | ch:landauer:L194 | calc | `1.9` | numeric: Hopfield discrimination ln(7) from the enzyme selectivity | PASS |
+| 194 | ch:landauer:L194:4.4 | calc | `4.4` | numeric: Hopfield discrimination ln(80) from the enzyme selectivity | PASS |
+| 205 | eq:sanchezH | none |  | not run: definition: per-site Shannon entropy of methylation status (Sanchez2016) | - |
+| 211 | eq:sanchezER | derived |  | sympy: E_R = I_R k_B T ln2 from Landauer, with H in bits | PASS |
+| 249 | ch:landauer:L249 | measured | `0.075` | file `Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md`: pipeline offset in beta on the immune identity sites, 450K | PASS |
 | 259 | ch:landauer:L259 | calc | `2.968\times10^{-21}` | numeric: k_B T_body ln2 | PASS |
 | 260 | ch:landauer:L260 | calc | `20.94` | numeric: M | PASS |
 | 261 | ch:landauer:L261 | calc | `30.21` | numeric: M/ln2 | PASS |
 | 262 | ch:landauer:L262 | derived | `0.693` | numeric: ln 2 | PASS |
 | 263 | ch:landauer:L263 | calc | `399` | numeric: M = E_sw/k_B T_j, upper count | PASS |
 | 263 | ch:landauer:L263:411 | calc | `411` | numeric: M, lower count | PASS |
-| 263 |  | calc | `9950` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 263 |  | calc | `9950` | not run: not a number: part of the processor name (AMD 9950X) | - |
 | 264 | ch:landauer:L264 | calc | `8.38\times10^{-14}` | numeric: floor for all CpGs, J | PASS |
 | 264 | ch:landauer:L264:9.3\times10^5 | calc | `9.3\times10^5` | numeric: floor in ATP at 54 kJ/mol | PASS |
 | 267 | ch:landauer:L267 | measured | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy, 56 cell types | PASS |
-| 267 |  | calc | `56` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 267 | ch:landauer:L267:56 | calc | `56` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy read in 56 cell types | PASS |
 | 268 | ch:landauer:L268 | measured | `0.163` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: phi, committed record | PASS |
-| 269 |  | calc | `450` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 269 |  | calc | `450` | not run: not a number: array platform name (450K) | - |
 
 ## Part 6 - ch:surface - `docs/book/part4/p4_03_surface.tex`
 

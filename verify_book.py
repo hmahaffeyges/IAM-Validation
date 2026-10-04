@@ -1725,6 +1725,12 @@ def _b08_cc():
     obs = rho_L / rho_vac
     corr = (2 / math.pi) * (lP * H0s / c)**2 * (Ob_ / Om_) * math.sqrt(OL_)
     return obs, corr
+DATA_FILES['Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md'] = 'PHASE1 record: Stage-1 noob against the processed reference scale on the immune identity loci, affine map'   # 8 kB
+
+# helpers of the part4/p4_02_landauer checks
+_B08_PC = 'Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'
+_B08_PC_RERUN = ('methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not '
+                 'committed, the record is this file')
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -29818,6 +29824,24 @@ def check_2457():
     value=LN2
     return locals()
 
+@check(label='ch:landauer:L71', chapter='ch:landauer', part=6, title='holding energy per site 3.41 k_B T (figure caption)',
+       file='part4/p4_02_landauer', line=71, status='calc', kind='file', printed='3.41', tol=0.0, source=_B08_PC,
+       heavy=True, rerun=_B08_PC_RERUN)
+def check_3798():
+    'Holding energy per methylated site measured on single molecules, in k_B T (Figure fig:budget caption). Book line 71, printed 3.41. '\
+    'Source: the copy-error row of the PROC-CHANNEL-01 record table (E_hold column).'
+    m = re.search(r"methylated sites \(copy error\)\s*\|[^|]*\|\s*([\d.]+)\s*±", file_text(_B08_PC))
+    value = float(m.group(1))
+    return locals()
+
+@check(label='ch:landauer:L71:20.94', chapter='ch:landauer', part=6, title='M = dG_ATP/(R T) per ATP (figure caption)',
+       file='part4/p4_02_landauer', line=71, status='calc', kind='num', printed='20.94', tol=0.0)
+def check_3799():
+    'One ATP hydrolysis under cytosolic conditions in units of k_B T, M = dG_ATP/(R T_cell). Book line 71, printed 20.94. Inputs: CANON '\
+    'dG_ATP (54 kJ/mol), R, T_cell (310.15 K).'
+    value = dG_ATP / (R_gas * T_cell)
+    return locals()
+
 @check(label='ch:landauer:L72', chapter='ch:landauer', part=6, title='Landauer floor in Landauer units',
        file='part4/p4_02_landauer', line=72, status='calc', kind='num', printed='1.00', tol=0)
 def check_2458():
@@ -29885,6 +29909,13 @@ def check_2466():
     value=dG_ATP/(R_gas*T_cell)/LN2
     return locals()
 
+@check(label='ch:landauer:L89:310', chapter='ch:landauer', part=6, title='cell nucleus at 310 K (table tab:p4operating)',
+       file='part4/p4_02_landauer', line=89, status='calc', kind='file', printed='310', tol=0.0, source='CANON/iam_canon.json')
+def check_3800():
+    'Table tab:p4operating, human cell nucleus row: T = 310 K, the cell temperature to the kelvin. Book line 89, printed 310. Source: CANON T_cell.'
+    value = load_json('CANON/iam_canon.json')['constants']['T_cell']['value']
+    return locals()
+
 @check(label='ch:landauer:L90', chapter='ch:landauer', part=6, title='ln 2',
        file='part4/p4_02_landauer', line=90, status='calc', kind='num', printed='0.693', tol=0)
 def check_2467():
@@ -29941,6 +29972,13 @@ def check_2474():
     value=28217448*kB*T_cell*LN2/(50000/N_A)
     return locals()
 
+@check(label='ch:landauer:L149', chapter='ch:landauer', part=6, title='dG_ATP = 54 kJ/mol in the figure caption',
+       file='part4/p4_02_landauer', line=149, status='calc', kind='file', printed='54', tol=0.0, source='CANON/iam_canon.json')
+def check_3801():
+    'Free energy of ATP hydrolysis used for the ATP equivalents of Figure fig:divfloor, kJ/mol. Book line 149, printed 54. Source: CANON dG_ATP.'
+    value = load_json('CANON/iam_canon.json')['constants']['dG_ATP']['value'] / 1000
+    return locals()
+
 @check(label='ch:landauer:L150', chapter='ch:landauer', part=6, title='floor in ATP',
        file='part4/p4_02_landauer', line=150, status='calc', kind='num', printed='9.34\\times10^5', tol=0)
 def check_2475():
@@ -29948,11 +29986,31 @@ def check_2475():
     value=28217448*kB*T_cell*LN2/(dG_ATP/N_A)
     return locals()
 
+@check(label='ch:landauer:L156', chapter='ch:landauer', part=6, title='ATP over a 24-hour cycle, order 1e14',
+       file='part4/p4_02_landauer', line=156, status='calc', kind='num', printed='10^{14}', tol=0.0)
+def check_3802():
+    'ATP turned over in a 24-hour cycle at a rate of order 1e9 per second. Book line 156, printed 10^{14} (order of magnitude). Input: '\
+    'ATP turnover of order 1e9 per second for a growing mammalian cell of about 3000 um^3 (Milo2015, book line 155).'
+    rate = 1e9
+    value = rate * 24 * 3600
+    return locals()
+
 @check(label='ch:landauer:L157', chapter='ch:landauer', part=6, title='70 % of CpGs methylated',
        file='part4/p4_02_landauer', line=157, status='calc', kind='num', printed='2.0\\times10^7', tol=0)
 def check_2476():
     '70 % of CpGs methylated. Book line 157, printed 2.0\\times10^7.'
     value=0.70*28217448
+    return locals()
+
+@check(label='ch:landauer:L157:10^{-7}', chapter='ch:landauer', part=6, title='methyl writing as a fraction of the daily ATP budget, order 1e-7',
+       file='part4/p4_02_landauer', line=157, status='calc', kind='num', printed='10^{-7}', tol=0.0)
+def check_3803():
+    'Fraction of the 24-hour ATP budget spent writing methyl groups at one ATP each, for one copy. Book line 157, printed 10^{-7} (order of '\
+    'magnitude). Inputs: 70 % of the 28,217,448 CpGs of one haploid genome methylated (book lines 150, 156); ATP turnover of order 1e9 per '\
+    'second over 24 h (Milo2015).'
+    marks = 0.70 * 28217448
+    budget = 1e9 * 24 * 3600
+    value = marks / budget
     return locals()
 
 @check(label='ch:landauer:L158', chapter='ch:landauer', part=6, title='floor in ATP at 54 kJ/mol',
@@ -30022,6 +30080,52 @@ def check_2485():
     ok=file_has('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md','0.163') and abs(E_hold/M_cell-0.163)<5e-4
     return locals()
 
+@check(label='ch:landauer:L194', chapter='ch:landauer', part=6, title='Hopfield discrimination ln(7) from the enzyme selectivity',
+       file='part4/p4_02_landauer', line=194, status='calc', kind='num', printed='1.9', tol=0.0)
+def check_3804():
+    'k_B T ln(selectivity) at the low end, the 7-fold hemimethylated preference of the purified human DNMT1, in k_B T. Book line 194, '\
+    'printed 1.9. Input: 7-fold (Pradhan1999, book line 193), Hopfield 1974 relation.'
+    value = math.log(7)
+    return locals()
+
+@check(label='ch:landauer:L194:4.4', chapter='ch:landauer', part=6, title='Hopfield discrimination ln(80) from the enzyme selectivity',
+       file='part4/p4_02_landauer', line=194, status='calc', kind='num', printed='4.4', tol=0.0)
+def check_3805():
+    'k_B T ln(selectivity) at the high end, the 80-fold average preference across flanking sequences, in k_B T. Book line 194, printed 4.4. '\
+    'Input: 80-fold (Adam2023, book line 194), Hopfield 1974 relation.'
+    value = math.log(80)
+    return locals()
+
+@check(label='eq:sanchezER', chapter='ch:landauer', part=6, title='E_R = I_R k_B T ln2 from Landauer, with H in bits',
+       file='part4/p4_02_landauer', line=211, status='derived', kind='sym', printed='', tol=0.0)
+def check_3806():
+    'E_R = I_R k_B T ln 2 (Eq. eq:sanchezER). Book line 211. Derived: the least heat to change the methylation state of a site from '\
+    'level p0 to p1 is T times the change of its Gibbs entropy -k_B [p ln p + (1-p) ln(1-p)] (nats); written with the per-site Shannon '\
+    'entropy of Eq. eq:sanchezH in bits, I = H(p1) - H(p0), it is I k_B T ln 2.'
+    p0, p1, kBs, T = sp.symbols('p0 p1 k_B T', positive=True)
+    S_nat = lambda p: -kBs * (p * sp.log(p) + (1 - p) * sp.log(1 - p))
+    H_bit = lambda p: -p * sp.log(p, 2) - (1 - p) * sp.log(1 - p, 2)
+    lhs = sp.expand_log(T * (S_nat(p1) - S_nat(p0)), force=True)
+    I_R = H_bit(p1) - H_bit(p0)
+    rhs = sp.expand_log(I_R * kBs * T * sp.log(2), force=True)
+    neg_lhs = lhs * sp.Rational(105, 100)
+    return locals()
+
+@check(label='ch:landauer:L249', chapter='ch:landauer', part=6, title='pipeline offset in beta on the immune identity sites, 450K',
+       file='part4/p4_02_landauer', line=249, status='measured', kind='file', printed='0.075', tol=0.01,
+       source='Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md')
+def check_3807():
+    'Offset in beta between raw-IDAT noob processing and the processed reference methylomes on the immune identity sites of 450K arrays, '\
+    'at the reference identity mean: beta_noob - beta_ref = (a - 1) beta_ref + b with the affine map beta_stage1 = a beta_atlas + b fitted '\
+    'on 560 healthy donors and beta_ref = 0.737 (Atlas immune mean on the same loci), both from PHASE1_OUTCOME.md. Book line 249, printed '\
+    '0.075, "about": tol 1 % because the record gives 0.0756 and the sentence states the offset approximately.'
+    t = file_text('Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md')
+    m = re.search(r"=\s*([\d.]+)\s*·\s*β_atlas\s*\+\s*([\d.]+)", t)
+    a, b = float(m.group(1)), float(m.group(2))
+    beta_ref = float(re.search(r"Atlas immune_mean on the same loci \|\s*([\d.]+)", t).group(1))
+    value = (a - 1) * beta_ref + b
+    return locals()
+
 @check(label='ch:landauer:L259', chapter='ch:landauer', part=6, title='k_B T_body ln2',
        file='part4/p4_02_landauer', line=259, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0)
 def check_2486():
@@ -30086,6 +30190,15 @@ def check_2493():
 def check_2494():
     'holding energy, 56 cell types. Book line 267, printed 3.41.'
     ok=file_has('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md','3.41')
+    return locals()
+
+@check(label='ch:landauer:L267:56', chapter='ch:landauer', part=6, title='holding energy read in 56 cell types',
+       file='part4/p4_02_landauer', line=267, status='calc', kind='file', printed='56', tol=0.0, source=_B08_PC,
+       heavy=True, rerun=_B08_PC_RERUN)
+def check_3808():
+    'Number of cell types in which the holding energy was read on single molecules (summary table). Book line 267, printed 56. Source: '\
+    'the PROC-CHANNEL-01 record header (Loyfer 2023 read-level WGBS, cell types, samples).'
+    value = int(re.search(r"(\d+) cell types, (\d+) samples", file_text(_B08_PC)).group(1))
     return locals()
 
 @check(label='ch:landauer:L268', chapter='ch:landauer', part=6, title='phi, committed record',
@@ -34564,27 +34677,16 @@ INVENTORY = [
     (6, 'ch:bridge', 'part4/p4_01_bridge', 66, '', 'calc', '67.4', 'locked value H0 = 67.16 (photon sector) restated in the caption; the 67.4 of the inventory row is no longer printed at line 66'),
     (6, 'ch:bridge', 'part4/p4_01_bridge', 236, '', 'calc', '10', "input: horizon of 10^6 solar masses (table row label, book's choice); its entries are checked at ch:bridge:L236"),
     (6, 'ch:bridge', 'part4/p4_01_bridge', 237, '', 'calc', '20', 'input: qubit temperature 20 mK (table row label); its entries are checked at ch:bridge:L237'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 71, '', 'calc', '3.41', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 71, '', 'calc', '20.94', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 88, '', 'calc', '9950', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 88, '', 'calc', '348.15', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 89, '', 'calc', '310', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 149, '', 'calc', '54', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 155, '', 'calc', '3000', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 155, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 156, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 157, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
+    (6, 'ch:landauer', 'part4/p4_02_landauer', 88, '', 'calc', '9950', 'not a number: part of the processor name (Ryzen 9 9950X)'),
+    (6, 'ch:landauer', 'part4/p4_02_landauer', 88, '', 'calc', '348.15', 'input: junction temperature 75 C = 348.15 K (Chapter ch:cmos, book line 6 there)'),
+    (6, 'ch:landauer', 'part4/p4_02_landauer', 155, '', 'calc', '3000', 'input: cell volume of about 3000 um^3 (Milo2015)'),
+    (6, 'ch:landauer', 'part4/p4_02_landauer', 155, '', 'calc', '10', 'input: ATP turnover of order 1e9 per second (Milo2015)'),
     (6, 'ch:landauer', 'part4/p4_02_landauer', 173, '', 'observed', '0.90', 'measured, source not named'),
     (6, 'ch:landauer', 'part4/p4_02_landauer', 173, '', 'observed', '0.98', 'measured, source not named'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 176, '', 'calc', '0.10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 194, '', 'calc', '1.9', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 194, '', 'calc', '4.4', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 205, 'eq:sanchezH', 'none', '', 'displayed equation, not yet checked'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 211, 'eq:sanchezER', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 249, '', 'measured', '0.075', 'measured, source not named'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 263, '', 'calc', '9950', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 267, '', 'calc', '56', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:landauer', 'part4/p4_02_landauer', 269, '', 'calc', '450', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
+    (6, 'ch:landauer', 'part4/p4_02_landauer', 176, '', 'calc', '0.10', 'input: failure rate 10 % = 1 - 0.90, the lower maintenance efficiency of line 173 restated; ln(1/0.10) is checked at ch:landauer:L176'),
+    (6, 'ch:landauer', 'part4/p4_02_landauer', 205, 'eq:sanchezH', 'none', '', 'definition: per-site Shannon entropy of methylation status (Sanchez2016)'),
+    (6, 'ch:landauer', 'part4/p4_02_landauer', 263, '', 'calc', '9950', 'not a number: part of the processor name (AMD 9950X)'),
+    (6, 'ch:landauer', 'part4/p4_02_landauer', 269, '', 'calc', '450', 'not a number: array platform name (450K)'),
     (6, 'ch:surface', 'part4/p4_03_surface', 55, '', 'derived', '0.9', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:surface', 'part4/p4_03_surface', 55, '', 'derived', '0.1', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:surface', 'part4/p4_03_surface', 57, 'eq:meanH', 'none', '', 'displayed equation, not yet checked'),

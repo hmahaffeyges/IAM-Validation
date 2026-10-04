@@ -4149,6 +4149,9 @@ PASS  ch:landauer:L65                    ch:landauer:p4_02_landauer:65  printed 
 PASS  ch:landauer:L65:0.042              ch:landauer:p4_02_landauer:65  printed 0.042  recomputed found in file  [measured] highest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
       heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
 PASS  ch:landauer:L70                    ch:landauer:p4_02_landauer:70  printed 0.69  recomputed 0.693147  tol 0.00500001  [calc] ln 2
+PASS  ch:landauer:L71                    ch:landauer:p4_02_landauer:71  printed 3.41  recomputed 3.41  tol 0.00500001  [calc] holding energy per site 3.41 k_B T (figure caption)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:landauer:L71:20.94              ch:landauer:p4_02_landauer:71  printed 20.94  recomputed 20.9405  tol 0.00500001  [calc] M = dG_ATP/(R T) per ATP (figure caption)
 PASS  ch:landauer:L72                    ch:landauer:p4_02_landauer:72  printed 1.00  recomputed 1  tol 0.00500001  [calc] Landauer floor in Landauer units
 PASS  ch:landauer:L72:4.92               ch:landauer:p4_02_landauer:72  printed 4.92  recomputed 4.91959  tol 0.00500001  [calc] E_hold/ln2 (E_hold canon)
 PASS  ch:landauer:L72:30.21              ch:landauer:p4_02_landauer:72  printed 30.21  recomputed 30.2108  tol 0.00500001  [calc] M/ln2
@@ -4158,6 +4161,7 @@ PASS  ch:landauer:L88:576                ch:landauer:p4_02_landauer:88  printed 
 PASS  ch:landauer:L88:593                ch:landauer:p4_02_landauer:88  printed 593  recomputed 593.301  tol 0.5  [calc] 9950X upper end of the range
 PASS  ch:landauer:L89                    ch:landauer:p4_02_landauer:89  printed 20.94  recomputed 20.9405  tol 0.00500001  [calc] M
 PASS  ch:landauer:L89:30.21              ch:landauer:p4_02_landauer:89  printed 30.21  recomputed 30.2108  tol 0.00500001  [calc] M/ln2
+PASS  ch:landauer:L89:310                ch:landauer:p4_02_landauer:89  printed 310  recomputed 310.15  tol 0.5  [calc] cell nucleus at 310 K (table tab:p4operating)  file CANON/iam_canon.json
 PASS  ch:landauer:L90                    ch:landauer:p4_02_landauer:90  printed 0.693  recomputed 0.693147  tol 5.000005e-04  [calc] ln 2
 PASS  eq:Mtransmon                       ch:landauer:p4_02_landauer:95  printed (algebra)  recomputed lhs-rhs=0  [derived] M_transmon = ln 2
 PASS  ch:landauer:L100                   ch:landauer:p4_02_landauer:100  printed 20.94  recomputed 20.9405  tol 0.00500001  [calc] M
@@ -4166,8 +4170,11 @@ PASS  eq:markmargin                      ch:landauer:p4_02_landauer:123  printed
 PASS  eq:efloor                          ch:landauer:p4_02_landauer:138  printed 8.38\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-17  [calc] N k_B T ln2, N = 28,217,448
 PASS  ch:landauer:L143                   ch:landauer:p4_02_landauer:143  printed 9.3\times10^5  recomputed 9.340183e+05  tol 5000  [calc] floor in ATP at 54 kJ/mol
 PASS  ch:landauer:L143:1.0\times10^6     ch:landauer:p4_02_landauer:143  printed 1.0\times10^6  recomputed 1.008740e+06  tol 50000  [calc] floor in ATP at 50 kJ/mol
+PASS  ch:landauer:L149                   ch:landauer:p4_02_landauer:149  printed 54  recomputed 54  tol 0.5  [calc] dG_ATP = 54 kJ/mol in the figure caption  file CANON/iam_canon.json
 PASS  ch:landauer:L150                   ch:landauer:p4_02_landauer:150  printed 9.34\times10^5  recomputed 9.340183e+05  tol 500  [calc] floor in ATP
+PASS  ch:landauer:L156                   ch:landauer:p4_02_landauer:156  printed 10^{14}  recomputed 8.640000e+13  tol 2.162278e+14  [calc] ATP over a 24-hour cycle, order 1e14
 PASS  ch:landauer:L157                   ch:landauer:p4_02_landauer:157  printed 2.0\times10^7  recomputed 1.975221e+07  tol 5.000005e+05  [calc] 70 % of CpGs methylated
+PASS  ch:landauer:L157:10^{-7}           ch:landauer:p4_02_landauer:157  printed 10^{-7}  recomputed 2.286136e-07  tol 2.162278e-07  [calc] methyl writing as a fraction of the daily ATP budget, order 1e-7
 PASS  ch:landauer:L158                   ch:landauer:p4_02_landauer:158  printed 9.3\times10^5  recomputed 9.340183e+05  tol 5000  [calc] floor in ATP at 54 kJ/mol
 PASS  ch:landauer:L176                   ch:landauer:p4_02_landauer:176  printed 2.3  recomputed 2.30259  tol 0.05  [calc] ln(1/0.10)
 PASS  ch:landauer:L176:3.9               ch:landauer:p4_02_landauer:176  printed 3.9  recomputed 3.91202  tol 0.05  [calc] ln(1/0.02)
@@ -4181,6 +4188,10 @@ PASS  ch:landauer:L186:3.72              ch:landauer:p4_02_landauer:186  printed
 PASS  ch:landauer:L187                   ch:landauer:p4_02_landauer:187  printed 4.92  recomputed 4.91959  tol 0.00500001  [calc] 3.41/ln2
 PASS  eq:phi                             ch:landauer:p4_02_landauer:188  printed 0.163  recomputed found in file  [measured] phi = E_hold/(M k T): committed record and E_hold/M (canon)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
       heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:landauer:L194                   ch:landauer:p4_02_landauer:194  printed 1.9  recomputed 1.94591  tol 0.05  [calc] Hopfield discrimination ln(7) from the enzyme selectivity
+PASS  ch:landauer:L194:4.4               ch:landauer:p4_02_landauer:194  printed 4.4  recomputed 4.38203  tol 0.05  [calc] Hopfield discrimination ln(80) from the enzyme selectivity
+PASS  eq:sanchezER                       ch:landauer:p4_02_landauer:211  printed (algebra)  recomputed lhs-rhs=0  [derived] E_R = I_R k_B T ln2 from Landauer, with H in bits
+PASS  ch:landauer:L249                   ch:landauer:p4_02_landauer:249  printed 0.075  recomputed 0.0755599  tol 7.500007e-04  [measured] pipeline offset in beta on the immune identity sites, 450K  file Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md
 PASS  ch:landauer:L259                   ch:landauer:p4_02_landauer:259  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-25  [calc] k_B T_body ln2
 PASS  ch:landauer:L260                   ch:landauer:p4_02_landauer:260  printed 20.94  recomputed 20.9405  tol 0.00500001  [calc] M
 PASS  ch:landauer:L261                   ch:landauer:p4_02_landauer:261  printed 30.21  recomputed 30.2108  tol 0.00500001  [calc] M/ln2
@@ -4190,6 +4201,8 @@ PASS  ch:landauer:L263:411               ch:landauer:p4_02_landauer:263  printed
 PASS  ch:landauer:L264                   ch:landauer:p4_02_landauer:264  printed 8.38\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-17  [calc] floor for all CpGs, J
 PASS  ch:landauer:L264:9.3\times10^5     ch:landauer:p4_02_landauer:264  printed 9.3\times10^5  recomputed 9.340183e+05  tol 5000  [calc] floor in ATP at 54 kJ/mol
 PASS  ch:landauer:L267                   ch:landauer:p4_02_landauer:267  printed 3.41  recomputed found in file  [measured] holding energy, 56 cell types  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:landauer:L267:56                ch:landauer:p4_02_landauer:267  printed 56  recomputed 56  tol 0.5  [calc] holding energy read in 56 cell types  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
       heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
 PASS  ch:landauer:L268                   ch:landauer:p4_02_landauer:268  printed 0.163  recomputed found in file  [measured] phi, committed record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
       heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
@@ -4697,4 +4710,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3798  FAIL 0  (heavy, read from committed outputs: 750)  inventoried-not-run 2540  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3809  FAIL 0  (heavy, read from committed outputs: 752)  inventoried-not-run 2529  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
