@@ -1,7 +1,7 @@
 """Part 2, Chapter 'Entropy law or entropy source' (p2_03a_entropic_gravity.tex).
 fig_eg_forms: (a) the extra Hubble friction on matter perturbations, in units of H, for the friction form (2 + beta_m E(a)) H and for the
 Level 2 form 2 H_IAM; (b) the linear growth factor relative to LambdaCDM, D/D_LCDM - 1, for the friction form, the Level 2 form and the
-Level 1 effective-coupling form G_eff = mu G. Same early amplitude, beta_m = Omega_m/2 fixed, Omega_m = 0.3153.
+effective-coupling form G_eff = mu G with the exact mu(a). Same early amplitude, beta_m = Omega_m/2 fixed, Omega_m = 0.3153.
 Numbers: docs/verification/scripts/verify_entropic_gravity.py, section 5."""
 import sys, pathlib; sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import numpy as np
@@ -47,7 +47,7 @@ S.panel_letter(a1, "a", dx=-0.16)
 a2.axhline(0, color=S.GR, lw=0.8)
 a2.plot(z, D["fric"], color=S.IAM, lw=1.5, label=f"friction form ({D['fric'][0]:+.2f} % today)")
 a2.plot(z, D["L2"], color=S.ALT, lw=1.5, ls="--", label=f"Level 2, $2H_{{\\rm IAM}}$ ({D['L2'][0]:+.2f} %)")
-a2.plot(z, D["L1"], color=S.ALT2, lw=1.5, ls=":", label=f"Level 1, $\\mu G$ ({D['L1'][0]:+.2f} %)")
+a2.plot(z, D["L1"], color=S.ALT2, lw=1.5, ls=":", label=f"exact $\\mu(a)$, $\\mu G$ ({D['L1'][0]:+.2f} %)")
 a2.set_xlim(0, 3); a2.set_ylim(-1.9, 0.2)
 a2.set_xlabel("redshift $z$"); a2.set_ylabel(r"$D/D_{\Lambda{\rm CDM}}-1$ (%)")
 a2.set_title("Linear growth factor")

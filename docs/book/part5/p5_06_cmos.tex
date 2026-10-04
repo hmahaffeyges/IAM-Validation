@@ -9,7 +9,7 @@ a junction temperature $T_j=348.15$~K (75~$^\circ$C) is
 \end{equation}
 The chip gauge (Chapter~\ref{ch:ascoreqc}) uses whole-chip power divided by transistor count and clock,
 $E_{\mathrm{sw}}=\mathrm{TDP}/(N_{\mathrm{trans}}f)$. For the AMD Ryzen~9 9950X (default TDP 170~W, base clock 4.3~GHz~\cite{AMD9950X};
-$N_{\mathrm{trans}}=(20.0$--$20.6)\times10^9$ transistors in two compute dies and an I/O die) this gives $E_{\mathrm{sw}}=(1.92$--$1.98)\times10^{-18}$~J
+$N_{\mathrm{trans}}=(20.0\text{--}20.6)\times10^9$ transistors in two compute dies and an I/O die) this gives $E_{\mathrm{sw}}=(1.92\text{--}1.98)\times10^{-18}$~J
 per transistor per cycle, 576--593 times $\kB T_j\ln2$, or $M=E_{\mathrm{sw}}/\kB T_j=399$--$411$ (Chapter~\ref{ch:iams_law}) \calc. The
 floor therefore sits at 0.0017 on the chip gauge. Most transistors do not switch every cycle,
 which raises the energy per actual switch, while TDP also contains leakage and static power, which lowers it; the reading is an

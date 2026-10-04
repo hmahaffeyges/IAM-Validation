@@ -45,7 +45,8 @@ print(f"   CMB lensing 1/(1-b) = 0.99 +/- 0.19 (input)")
 print(f"   LoCuSS beta_X 0.95 +/- 0.05 -> M_WL/M_X = {1/0.95:.3f} +/- {0.05/0.95**2:.3f}; IAM Level 1 at z 0.225: mu {mu(1/1.225):.3f}, 1/mu {R(0.225):.3f}; offset {(0.95-mu(1/1.225))/0.05:+.2f} sigma in beta")
 for nm, bz, s, z in (("WtG z<0.3", 0.90, 0.09, 0.225), ("WtG z>0.3", 0.71, 0.07, 0.4), ("CCCP z<0.3", 0.96, 0.09, 0.225), ("CCCP z>0.3", 0.61, 0.09, 0.4)):
     print(f"   beta_P {nm} = {bz} +/- {s}; IAM mu at z {z} = {mu(1/(1+z)):.3f}; offset {(bz-mu(1/(1+z)))/s:+.2f} sigma")
-print(f"   sigma8: Level 1 0.8143 -> 0.8015 {100*(0.8015/0.8143-1):.2f} %; Level 2 0.8087 -> 0.7998 {100*(0.7998/0.8087-1):.2f} %")
+import csv; s8 = {r["chain"]: float(r["sigma8"]) for r in csv.DictReader(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../../Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv")))}  # unrounded chain means
+print(f"   sigma8: Level 1 {s8['lcdm_baseline']:.4f} -> {s8['iam_fixed_mu0 (r2 final)']:.4f} {100*(s8['iam_fixed_mu0 (r2 final)']/s8['lcdm_baseline']-1):.2f} %; Level 2 {s8['iam_level2_runC_lcdm']:.4f} -> {s8['iam_level2_runA']:.4f} {100*(s8['iam_level2_runA']/s8['iam_level2_runC_lcdm']-1):.2f} %")
 print("F. growth (same early amplitude), three forms, and Press-Schechter")
 Oma = lambda a: Om*a**-3/H2(a); Hm2 = lambda a: H2(a)+bm*E(a); dlnH = lambda a: -1.5*Om*a**-3/H2(a)
 dlnHm = lambda a: (-3*Om*a**-3+bm*E(a)/a)/(2*Hm2(a))

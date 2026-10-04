@@ -9,7 +9,7 @@ synchrotron emission from our own galaxy, with detectors whose gain changes by t
 measurement on. The tools it built for that are the tools this chapter carries into the methylome. Some are algorithms; the more important ones
 are a discipline against fooling oneself.
 Cosmology was forced into this precision by its data: an accelerating expansion, and a microwave background that had to be measured to
-fractions of a per cent. In meeting that demand it built Markov-chain Monte Carlo for many-parameter models, convergence diagnostics that
+fractions of a percent. In meeting that demand it built Markov-chain Monte Carlo for many-parameter models, convergence diagnostics that
 say when a result can be trusted~\cite{Gelman1992}, and a culture of stating a prediction before the data arrive. Biology was rarely forced
 to build the equivalent. We are not borrowing cosmology's vocabulary. We are borrowing its measuring equipment, which it spent decades
 building, and pointing it at the cell.
@@ -66,7 +66,7 @@ $N_{\rm side}=128$ for its 483,092 CpGs, 2.5 per pixel. \calc
 chromosome; its width is its number of EPIC CpGs.}\label{fig:genomesphere}
 \end{figure}
 
-The layout is a display choice, not physics. Neighbours along a ring are genomic neighbours; neighbours above and below are millions of bases
+The layout is a display choice, not physics. Neighbors along a ring are genomic neighbors; neighbors above and below are millions of bases
 apart. Everything quantitative in the chain therefore works along the genome itself, and the sphere is how a person sees it: a quiet sky, a
 streak along a ring (one genomic region), a band (one chromosome).
 
@@ -74,7 +74,7 @@ streak along a ring (one genomic region), a band (one chromosome).
 is computed along it. For the toolkit it is convenient, because needlets, harmonic decompositions and masked-sky spectra are written for
 the sphere. For a person reading one specimen it is probably the wrong picture, since the sphere carries no chromosome coordinates. A
 per-chromosome linear track, the format of every genome browser, or a Hilbert-curve layout, a space-filling curve already used to show
-genomic data~\cite{Anders2009}, keeps neighbouring sites together and stays rectangular. The intended display is both, drawn from one
+genomic data~\cite{Anders2009}, keeps neighboring sites together and stays rectangular. The intended display is both, drawn from one
 residual so that the two cannot disagree. \openprob{} (not built)
 
 \section{Reading a cell's sky}
@@ -84,7 +84,7 @@ At each site $i$ the residual is
   z_i=\frac{H(\beta_i)-\overline{H}_i}{s_i},
 \end{equation}
 where $\overline{H}_i$ is the mean of $H(\beta)$ over the healthy reference arrays and $s_i$ their spread, shrunk toward the pooled spread as in
-the chain. Two numbers summarise the sky. Met-A is its monopole, the mean of $H(\beta)$ over the 6,000 identity sites divided by the healthy
+the chain. Two numbers summarize the sky. Met-A is its monopole, the mean of $H(\beta)$ over the 6,000 identity sites divided by the healthy
 reference. The C-score asks whether the departures sit together along the genome: take $z$ in genome order, average it in blocks of 50 sites,
 and compare the variance of the block means (times 50) with the variance of $z$. Independent scatter gives 1; a pattern in which every 50-site
 block moves as one gives 50. Divided by the healthy baseline 1.1104, the healthy arrays read 0.70--1.23 and the far end is 45 (Chapter~\ref{ch:cscore}). \derived{} (construction) \calibrated{} (baseline)
@@ -106,7 +106,7 @@ construction applied to the identity sites).}\label{fig:whatitsees}
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part6/fig_sky_cscore_unrolled.pdf}
-\caption{The C-score, unrolled. Pixel $z$ along the genome (grey points) with a 25-pixel running mean, for a healthy array and the same array
+\caption{The C-score, unrolled. Pixel $z$ along the genome (gray points) with a 25-pixel running mean, for a healthy array and the same array
 with damage in ten regions. Each damaged region is a run of consecutive sites; the block average catches it while the mean over all sites
 barely moves.}\label{fig:cunrolled}
 \end{figure}
@@ -121,7 +121,7 @@ the same sex, before its structure means anything. \openprob
 
 The CMB's first statistic is its angular power spectrum: how strongly two points of the sky agree as a function of the angle between them.
 The genome's counterpart is the correlation of methylation between two CpGs as a function of the number of bases between them, $C(d)$,
-measured inside one specimen. Figure~\ref{fig:cd}a is $C(d)$ for each of the six healthy neutrophil arrays. \measured{} Neighbouring CpGs
+measured inside one specimen. Figure~\ref{fig:cd}a is $C(d)$ for each of the six healthy neutrophil arrays. \measured{} Neighboring CpGs
 agree almost completely (0.97 at 10--18~bp); agreement halves just below 1~kb, falls to 0.32 at 1--1.8~kb and to 0.05 at 3--6~kb, and a weak tail
 remains out to megabases. The six arrays give the same curve to the second decimal (0.321--0.327 at 1~kb). Co-methylation that falls with the distance between CpGs
 is also seen in bisulfite sequencing~\cite{Eckhardt2006}. At this resolution the curve falls smoothly; it shows no peak at the nucleosome
@@ -135,20 +135,20 @@ the other five: healthy, and with 5\,\% blur in ten regions.}\label{fig:cd}
 \end{figure}
 
 The residual's $C(d)$ (Figure~\ref{fig:cd}b) is the noise model's check. In a healthy array the residual is correlated over a few hundred
-bases, because the probe chemistry and neighbouring CpGs share it, and is uncorrelated beyond 1~kb (0.00--0.02). Regional damage adds a
+bases, because the probe chemistry and neighboring CpGs share it, and is uncorrelated beyond 1~kb (0.00--0.02). Regional damage adds a
 plateau of 0.05--0.08 from 1~kb out to about a megabase, the size of the damaged regions. \measured{} This is the spectrum the C-score
 condenses into one number, and it is the right null for any whole-array map: a healthy map is correlated at short range, so a structure has
 to be tested against a genome-shuffled healthy map, not against independent noise.
 A Gaussian null would call the healthy baseline a finding every time.
 
-\paragraph{A test the C-score was built for.} Cancer and ageing erode methylation over whole genomic neighbourhoods, the late-replicating
+\paragraph{A test the C-score was built for.} Cancer and aging erode methylation over whole genomic neighbourhoods, the late-replicating
 partially methylated domains~\cite{Berman2012,Zhou2018PMD}. If that
 erosion is regional in one person's cells, the C-score will rise where Met-A, which averages over all identity sites, barely moves, as the
 constructed damage of Figure~\ref{fig:whatitsees}c does. \prediction{} The blood-cancer arrays are the first test, read per person against the
 healthy reference of the same cell type.
 
 \paragraph{Isotropy by chromosome arm.} The same per-person map, averaged by chromosome arm, separates a change spread over the whole genome
-from one confined to an arm. Tumours often gain or lose whole arms (8q, 17p and others); on an array that shows as a shift in total intensity
+from one confined to an arm. Tumors often gain or lose whole arms (8q, 17p and others); on an array that shows as a shift in total intensity
 and in $\beta$ along the arm. Panel~\ref{fig:whatitsees}d is this test finding the X chromosome. The arm-level map, with a copy-number track
 from the same array's intensities beside it, is on the build list.
 
@@ -159,7 +159,7 @@ Before the chain was built, a CMB analysis pipeline was translated into methylom
 \input{part6/16a_skytools_map79}
 
 Three rows were turned down on purpose (rows 39 and 47 refused; row 71 out, its per-array inversion refused), and each refusal is a rule of the instrument. A disease prior (row 39) would let other people's
-outcomes set one person's reading. De-ageing (row 47) would subtract a group trend from one person's cells. A group-built age ladder (row
+outcomes set one person's reading. De-aging (row 47) would subtract a group trend from one person's cells. A group-built age ladder (row
 71) measured the wrong thing: inverting it for one array gives an age uncertainty of about 50 years (0.0235 spread over a slope of 0.00047 per year). \calc{} Where the CMB analogy breaks, the break is
 the finding.
 
@@ -172,19 +172,19 @@ the finding.
 \toprule tool & what it caught & what changed \\\midrule\endhead
 split data, held-out reference & two public series deposit the same six neutrophil arrays; a ``held-out'' check that kept each array's twin
 read its own copy & reference counted once by physical array; held-out SD 0.020 \\
-noise model & a severe-infection signal in neutrophils was array noise and composition: with both modelled, 2 of 110 severe specimens sit above Normal
+noise model & a severe-infection signal in neutrophils was array noise and composition: with both modeled, 2 of 110 severe specimens sit above Normal
 and 73 of 76 healthy read Normal & noise index $N$ on every array; gauge state withheld outside the reference arrays' range \\
 component separation & DNA mixtures of healthy cells read 1.062--1.118 against the pure-cell reference, 0.982--1.016 against the
 composition-matched expectation & whole blood read against its own composition \\
-instrument characterisation & in fish, copy error tracked library duplicates (brook charr) and conversion failure (Atlantic salmon) & fish
+instrument characterization & in fish, copy error tracked library duplicates (brook charr) and conversion failure (Atlantic salmon) & fish
 readings withheld until the instrument term is removed \\
 detector saturation & a DNMT1 inhibitor drove methylated sites past $\beta=0.5$, where entropy turns over; dose order was lost at the
 ceiling & entropy-ceiling flag in Met-A \\
-E/B separation & the tumour's excess copy error survived removal of 5hmC in 3 of 4 oral tumour pairs & 5mC-only reads kept as a check \\
-residual map & localised damage invisible to Met-A (this chapter) & C-score reported beside every Met-A \\
+E/B separation & the tumor's excess copy error survived removal of 5hmC in 3 of 4 oral tumor pairs & 5mC-only reads kept as a check \\
+residual map & localized damage invisible to Met-A (this chapter) & C-score reported beside every Met-A \\
 isotropy test & a sex foreground in whole-array maps (this chapter) & sex mask required for whole-array maps \\
-reproducibility & numbers typed in by hand drift from the files the chain reads & derivation tests that read the frozen files
-(12 of 12 pass) \\\bottomrule
+reproducibility & numbers typed in by hand drift from the files the chain reads & derivation and calculation checks that read the frozen files
+(verify\_astrogenetics\_book.py: 36 of 36 pass) \\\bottomrule
 \end{longtable}
 \end{center}
 
@@ -192,7 +192,7 @@ reproducibility & numbers typed in by hand drift from the files the chain reads 
 
 \begin{enumerate}
 \item \textbf{Sex mask for whole-array maps} (row 16). Small, and required before any whole-array sky is read.
-\item \textbf{Foreground marginalisation} (row 21). Carry composition and tare uncertainty into each reading, so a reading carries an interval,
+\item \textbf{Foreground marginalization} (row 21). Carry composition and tare uncertainty into each reading, so a reading carries an interval,
 not only a detection limit.
 \item \textbf{Transfer function} (row 14). Inject known damage into real mixtures and measure how much the composition solve absorbs; without it
 a quiet reading cannot be told from a filtered one.
@@ -219,15 +219,15 @@ fields already have, so the claim is the transfer, not the invention.
 \caption{CMB tools in other areas of genetics.}\label{tab:elsewhere}\\
 \toprule tool & field & what it buys & the field already has \\\midrule\endfirsthead
 \toprule tool & field & what it buys & the field already has \\\midrule\endhead
-component separation & spatial transcriptomics; bulk RNA; tumour purity & cell mix per spot or sample with stated uncertainty & reference
+component separation & spatial transcriptomics; bulk RNA; tumor purity & cell mix per spot or sample with stated uncertainty & reference
 deconvolution methods \\
 residual sky & any reference-based assay & what the reference cannot explain, shown where it sits & residual plots, rarely mapped \\
 cosmic variance & cell-free DNA, prenatal testing, minimal residual disease & the counting floor on the smallest detectable fraction & fetal
-and tumour fraction limits \\
+and tumor fraction limits \\
 split-half cross-spectra & single-cell assays; replicate sequencing & noise-free correlation from two noisy halves & replicate concordance \\
 pseudo-$C_\ell$ on a masked sky & Hi-C and chromatin maps; sparse single-cell data & unbiased spectra when most sites are missing & contact
 decay curves \\
-beam and bandpass & sequencing and array chemistry & instrument response fixed before biology is read & platform normalisation \\
+beam and bandpass & sequencing and array chemistry & instrument response fixed before biology is read & platform normalization \\
 null tests and blinding & association studies, clinical biomarkers & results fixed before labels are seen & genome-wide thresholds; blinding
 rare \\
 isotropy tests & any genome-wide map & finds sex, copy number and batch as foregrounds & sex checks in quality control \\
@@ -243,7 +243,7 @@ temperature at fixed holding energy, so a reading must name the temperature at w
 \section{Whose tools these are}\label{sec:p4whosetools}
 
 Every tool in this chapter except the biology was built by the cosmology community over some thirty years: the HEALPix
-pixelisation~\cite{Gorski2005}, component separation and needlets, beam deconvolution, per-pixel noise models, simulation-based nulls,
+pixelization~\cite{Gorski2005}, component separation and needlets, beam deconvolution, per-pixel noise models, simulation-based nulls,
 and the habit of scoring an anomaly against a null rather than against intuition. What is new here is the recognition that a
 methylome is the same kind of object and can be read with the same instruments.
 
@@ -253,5 +253,5 @@ and sky statistics to it. The search behind that sentence was run on 2 October 2
 returned no records; \emph{HEALPix} with \emph{methylation} returned 2 and with \emph{genome} 4, all structural-biology papers by title.
 In arXiv, five query forms (HEALPix and methylation; power spectrum and methylome; cosmic microwave background and epigenome; needlet and
 biological; spherical harmonics and DNA methylation) returned none. \observed{} A bounded search is not a proof of absence. The HEALPix
-hits make a point of their own: the pixelisation is already in biology's toolbox, as an orientation-sampling grid in cryo-electron
+hits make a point of their own: the pixelization is already in biology's toolbox, as an orientation-sampling grid in cryo-electron
 microscopy~\cite{Scheres2012}. Its use here is a different one.

@@ -8558,11 +8558,11 @@ def check_0532():
     ok = file_has('docs/verification/scripts/verify_entropic_gravity_output.txt', '1.64')
     return locals()
 
-@check(label='ch:entropicgravity:L107', chapter='ch:entropicgravity', part=2, title='growth-factor deficit, Level-1 MGCAMB form',
+@check(label='ch:entropicgravity:L107', chapter='ch:entropicgravity', part=2, title='growth-factor deficit, G_eff = mu G with the exact mu(a)',
        file='part2/p2_03a_entropic_gravity', line=107, status='calc', kind='file', printed='0.78', tol=0.00641, source='docs/verification/scripts/verify_entropic_gravity_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_entropic_gravity.py > docs/verification/scripts/verify_entropic_gravity_output.txt')
 def check_0533():
-    'growth-factor deficit, Level-1 MGCAMB form: minus dD/D at z = 0 of the row "L1_muG" of the committed output. Book line 107, printed 0.78 (per cent below).'
+    'growth-factor deficit, G_eff = mu G with the exact mu(a) (not the MGCAMB form of the Level 1 chains): minus dD/D at z = 0 of the row "L1_muG" of the committed output. Book line 107, printed 0.78 (per cent below).'
     value = -_f00_read('docs/verification/scripts/verify_entropic_gravity_output.txt', r"L1_muG\s*: dD/D at z = 0, 0\.5, 1, 2: ([-\d.]+) %")
     return locals()
 
@@ -20643,13 +20643,13 @@ def check_1664():
     ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '-1.57')
     return locals()
 
-@check(label='ch:lensdyn:L121:-1.10', chapter='ch:lensdyn', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
-       file='part2/p2_17_lensing_dynamics', line=121, status='measured', kind='file', printed='-1.10', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt',
+@check(label='ch:lensdyn:L121:-1.11', chapter='ch:lensdyn', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
+       file='part2/p2_17_lensing_dynamics', line=121, status='measured', kind='file', printed='-1.11', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt')
 def check_1665():
-    'Level 2 sigma8 change, per cent, from the two committed chain sigma8 values (LCDM -> IAM). Book line 121, printed -1.10.'
-    m=re.search(r'Level 2 ([\d.]+) -> ([\d.]+)', file_text('docs/verification/scripts/verify_cluster_mass_satellites_output.txt'))
-    value=100*(float(m.group(2))/float(m.group(1))-1)
+    'Level 2 sigma8 change, per cent, from the two committed chain sigma8 values (LCDM -> IAM), unrounded chain means as the script prints it. Book line 121, printed -1.11.'
+    m=re.search(r'Level 2 ([\d.]+) -> ([\d.]+) (-?[\d.]+) %', file_text('docs/verification/scripts/verify_cluster_mass_satellites_output.txt'))
+    value=float(m.group(3))
     return locals()
 
 @check(label='ch:lensdyn:L121:1.105', chapter='ch:lensdyn', part=2, title='same value as p2_17_lensing_dynamics:100 (1/mu at z=0.2)',

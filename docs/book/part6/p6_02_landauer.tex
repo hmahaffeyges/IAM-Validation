@@ -58,7 +58,7 @@ what it is. \derived{} for the units. That a cell can turn over ATP quickly with
 one, is \interp.
 
 \paragraph{Three quantities, not two.} It is tempting to call ATP the information and temperature the noise. Three quantities are
-involved. Thermal motion, on the scale $R\Tb$, randomises marks; it is the denominator of $M$. The free energy of ATP is what the
+involved. Thermal motion, on the scale $R\Tb$, randomizes marks; it is the denominator of $M$. The free energy of ATP is what the
 cell spends to hold its pattern against that motion; it is the numerator. The pattern, which sites are held methylated and which are
 held unmethylated, is the information, and it is what an array or a sequencing read records. The first two are the same in every
 human cell at 37~\textdegree C. \derived{} The third differs from one cell type to the next: on single molecules the healthy copy
@@ -76,7 +76,7 @@ Landauer units, $E/\kB T\ln2$, the same three are 1.00, 4.92 and 30.21. \calc{} 
 \section{The cell beside a transistor and a qubit}\label{sec:p4operating}
 
 The same ratio places engineered information-writing substrates, whose inputs are fully measured, relative to the thermal noise at which they
-run. Table~\ref{tab:p4operating} and Figure~\ref{fig:p4operating} set the cell beside a CMOS logic transistor and an aluminium transmon.
+run. Table~\ref{tab:p4operating} and Figure~\ref{fig:p4operating} set the cell beside a CMOS logic transistor and an aluminum transmon.
 
 \begin{table}[htbp]\centering\small
 \caption{The dimensionless operating ratio $M=\Edrive/\kB T$ for three information-writing substrates, with its value in Landauer units
@@ -87,7 +87,7 @@ $T_{\rm gap}=\Delta_{\rm Al}/\kB$; the gap cancels and $M=\ln2$. The chip value 
 substrate & $\Edrive$ & $T$ & $M$ & $M/\ln2$ \\\midrule
 CMOS logic, AMD Ryzen 9 9950X & $\mathrm{TDP}/(N_{\rm trans}f)$ & 348.15~K & 399--411 & 576--593 \\
 human cell nucleus & $\dGATP$ & 310~K & 20.94 & 30.21 \\
-aluminium transmon & $\Delta_{\rm Al}\ln2$ & $\Delta_{\rm Al}/\kB$ & $\ln2=0.693$ & 1 \\\bottomrule
+aluminum transmon & $\Delta_{\rm Al}\ln2$ & $\Delta_{\rm Al}/\kB$ & $\ln2=0.693$ & 1 \\\bottomrule
 \end{tabular}
 \end{table}
 
@@ -102,7 +102,7 @@ At 310~K it spends $20.94\,\kB T$ per ATP, 30.2 times the Landauer floor of one 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part6/fig_p4_02_operating.pdf}
 \caption{The operating ratio $M=\Edrive/\kB T$ of Table~\ref{tab:p4operating} on a log axis; the vertical line is the Landauer floor, $M=\ln2$.
-The chip's bar is the range set by its two published transistor counts. \calc}
+The chip's point is labeled with the range set by its two published transistor counts. \calc}
 \label{fig:p4operating}
 \end{figure}
 
@@ -117,8 +117,8 @@ depends on that argument.
 
 The methyl group on cytosine comes from $S$-adenosylmethionine (SAM). Methionine adenosyltransferase
 builds SAM from methionine and ATP and releases all three phosphates, as pyrophosphate and
-phosphate; pyrophosphate is then hydrolysed. The methyl transfer leaves $S$-adenosylhomocysteine,
-which is hydrolysed and recycled to methionine through the folate and B$_{12}$ cycle, at further
+phosphate; pyrophosphate is then hydrolyzed. The methyl transfer leaves $S$-adenosylhomocysteine,
+which is hydrolyzed and recycled to methionine through the folate and B$_{12}$ cycle, at further
 cost. So each methyl mark costs the cell at least one ATP-equivalent, and in practice more.
 \begin{equation}
   \frac{\text{chemical cost of one mark}}{\text{Landauer floor of one bit}}\gtrsim\frac{M}{\ln2}\approx30 .
@@ -175,14 +175,14 @@ corresponds to
 \[
   \frac{\Delta\Delta G}{\kB T}=\ln\frac{1}{0.02\text{--}0.10}=2.3\text{--}3.9 .
 \]
-\calc{} The cell spends about $21\,\kB T$ per ATP and realises a discrimination of about $2$--$4\,\kB T$
+\calc{} The cell spends about $21\,\kB T$ per ATP and realizes a discrimination of about $2$--$4\,\kB T$
 per methylation decision. The large gap between the two is where the physics of methylation
 lives.
 
 \paragraph{The holding energy, measured on molecules.}\label{sec:p4holding} The same quantity can be read directly on single DNA molecules.
 On read-level whole-genome bisulfite data from a public atlas of sorted healthy human cells~\cite{Loyfer2023}, 153 of its 205 samples
 grouped here into 56 cell types (the atlas paper groups its 205 samples into 39), the copy error $\varepsilon$
-(an unmethylated CpG isolated between methylated neighbours, on molecules that are otherwise methylated) gives, through
+(an unmethylated CpG isolated between methylated neighbors, on molecules that are otherwise methylated) gives, through
 $E_{\rm hold}=\kB T\ln[(1-\varepsilon)/\varepsilon]$, a holding energy of $3.41\pm0.12\,\kB T$ per site, range 3.13--3.72, in
 every cell type. \measured{} In Landauer units that is $3.41/\ln2=4.92$. \calc{} As a fraction of one ATP it is
 \begin{equation}
@@ -214,7 +214,7 @@ $\sum_{i\in R}H(C_i)$, and by Landauer's principle the least energy dissipated t
 \end{equation}
 \derived{} (from Landauer's principle, given Eq.~\eqref{eq:sanchezH}) They showed that the distribution of $E_R$ across genomic regions, the
 background of methylation change induced by thermal fluctuation, is well described by a Weibull distribution (a member of the
-generalised-gamma family) whose scale parameter recovers the persistence length of DNA, 39--67~nm, from methylome data alone, and that
+generalized-gamma family) whose scale parameter recovers the persistence length of DNA, 39--67~nm, from methylome data alone, and that
 regulatory signal can be discriminated from that background by signal-detection theory. \observed{} Their 2019 paper~\cite{Sanchez2019}
 turned this into a method, the MethylIT package: an information divergence (Hellinger) of each sample from a reference built from control
 individuals, a per-sample Weibull or gamma fit yielding a critical value, and a classifier-derived optimal cutoff separating disease-induced

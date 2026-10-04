@@ -4,13 +4,13 @@
 
 An array reports, at each site, the fraction of copies that are methylated. A sequencing read reports one molecule: a run of
 CpGs, each methylated or not, on one strand of one cell's DNA. On a molecule that is otherwise methylated, an unmethylated CpG
-between two methylated neighbours is a site the maintenance machinery failed to copy at the last division. That is the
+between two methylated neighbors is a site the maintenance machinery failed to copy at the last division. That is the
 \emph{copy error}, and it is the most direct reading of the writing process the book's physics is about.
 
 \section{The statistic}
 
 A molecule qualifies when it carries at least six CpG calls and at least 80~\% of them are methylated. Each interior call is
-an opportunity; an unmethylated interior call with both neighbours methylated is an isolated error. The copy error is
+an opportunity; an unmethylated interior call with both neighbors methylated is an isolated error. The copy error is
 \begin{equation}
   \varepsilon=\frac{\sum\text{isolated errors}}{\sum\text{opportunities}},
   \qquad E_{\rm hold}=\kB T\ln\frac{1-\varepsilon}{\varepsilon},
@@ -65,7 +65,7 @@ IAM-A follows.
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part6/fig_p4_08_donors.pdf}
 \caption{The three healthy granulocyte donors on single molecules~\cite{Loyfer2023}. Circles: on the bare floor $\varepsilon_0$; squares: with the
-frozen position $P$, each donor held out of its own $P$ (the shaded stroke joins its odd and even molecule halves); triangles: the same molecules
+frozen position $P$, each donor held out of its own $P$ (its odd and even molecule halves fall within the square); triangles: the same molecules
 with 2~\% copy error added. The line is the floor $1/P$. \measured}
 \label{fig:p4_donors}
 \end{figure}
@@ -98,8 +98,8 @@ Read on the same 399 genomic windows for 153 samples of 56 healthy cell types, w
 \end{itemize}
 \measured{} for all four. The architecture of each cell's maintenance, not how often it is replaced, sets its position.
 
-\section{Tumours}
+\section{Tumors}
 
-The same statistic reads tumours against the same person's normal tissue with no reference group: in six early-onset
-colorectal pairs the tumour's copy error is higher in all six, by 7--33~\%, and in oral squamous carcinoma in four of four, and in
+The same statistic reads tumors against the same person's normal tissue with no reference group: in six early-onset
+colorectal pairs the tumor's copy error is higher in all six, by 7--33~\%, and in oral squamous carcinoma in four of four, and in
 three of the four when 5-hydroxymethylcytosine is removed (Chapter~\ref{part4:ch:reach}). \measured

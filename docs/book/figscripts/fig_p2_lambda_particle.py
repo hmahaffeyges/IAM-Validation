@@ -97,7 +97,7 @@ ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlim(1e-15, 1e-8); ax.set_yli
 ax.set_xticks([1e-14, 1e-12, 1e-10, 1e-8]); ax.set_yticks([1e-12, 1e-6, 1, 1e6, 1e12, 1e18])
 ax.set_xlabel("mass of a silica sphere (kg)"); ax.set_ylabel("coherence time (s)")
 ax.legend(loc="upper right", fontsize=7)
-ax.set_title("Eight orders apart at the picogram scale")
+ax.set_title("Eight orders apart at the nanogram scale")
 S.save(fig, "part4", "fig_tau_mass")
 
 # ---------------- Koide -----------------

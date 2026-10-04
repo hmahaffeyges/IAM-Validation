@@ -40,7 +40,7 @@ E. published cluster ratios
    beta_P WtG z>0.3 = 0.71 +/- 0.07; IAM mu at z 0.4 = 0.936; offset -3.23 sigma
    beta_P CCCP z<0.3 = 0.96 +/- 0.09; IAM mu at z 0.225 = 0.909; offset +0.56 sigma
    beta_P CCCP z>0.3 = 0.61 +/- 0.09; IAM mu at z 0.4 = 0.936; offset -3.62 sigma
-   sigma8: Level 1 0.8143 -> 0.8015 -1.57 %; Level 2 0.8087 -> 0.7998 -1.10 %
+   sigma8: Level 1 0.8143 -> 0.8015 -1.57 %; Level 2 0.8087 -> 0.7998 -1.11 %
 F. growth (same early amplitude), three forms, and Press-Schechter
    Delta D/D today, form i G_eff: -0.78 %
    Delta D/D today, form ii friction: -0.67 %
