@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3101 PASS, 0 FAIL, 3233 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3118 PASS, 0 FAIL, 3216 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -3623,80 +3623,80 @@ Totals: 3101 PASS, 0 FAIL, 3233 inventoried and not run. Each run item carries t
 | 33 | ch:gravdec:L33:0.7998 | measured | `0.7998` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 33 | ch:gravdec:L33:0.822 | measured | `0.822` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 33 | ch:gravdec:L33:72.26 | measured | `72.26` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
-| 33 |  | measured | `+0.54` | not run: measured, too few printed digits to match against the named files | - |
+| 33 | ch:gravdec:L33:+0.54 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (runA) minus LCDM (runC) | PASS |
 | 34 | ch:gravdec:L34 | calc | `72.26` | numeric: H0 matter sector | PASS |
 | 34 | ch:gravdec:L34:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 34 | ch:gravdec:L34:0.75 | calc | `0.75` | numeric: H0 matter vs SH0ES, sigma | PASS |
 | 34 | ch:gravdec:L34:0.37 | calc | `0.37` | numeric: H0 photon vs Planck, sigma | PASS |
 | 39 | ch:gravdec:L39 | measured | `0.0100` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
-| 39 |  | measured | `0.0068` | not run: measured, too few printed digits to match against the named files | - |
+| 39 | ch:gravdec:L39:0.0068 | measured | `0.0068` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: final R-1 of the second Level 2b chain (runD) | PASS |
 | 40 | ch:gravdec:L40 | measured | `61.45` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 40 | ch:gravdec:L40:61.52 | measured | `61.52` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 40 | ch:gravdec:L40:67.4 | measured | `67.4` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
-| 53 | eq:gd_dp | none |  | not run: displayed equation, not yet checked | - |
-| 63 | eq:gd_bitrate | conjecture |  | not run: displayed equation, not yet checked | - |
-| 69 | eq:tauIAM | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 76 | eq:gd_ramp | conjecture |  | not run: displayed equation, not yet checked | - |
-| 83 |  | prediction | `10` | not run: not yet checked | - |
-| 83 |  | prediction | `2200` | not run: not yet checked | - |
-| 83 |  | prediction | `4.8` | not run: not yet checked | - |
-| 83 |  | prediction | `1.4\times10^{-29}` | not run: not yet checked | - |
-| 83 |  | prediction | `7.5` | not run: not yet checked | - |
+| 53 | eq:gd_dp | none |  | not run: definition: the Diosi-Penrose proposal tau_DP = hbar/E_G with E_G = G m^2/R up to an order-one factor (published form, no coefficient to recompute); its numbers are checked at ch:gravdec:L83:7.5 and L83:1.4e-29 | - |
+| 63 | eq:gd_bitrate | conjecture |  | not run: definition: assumed bit rate E_G^2/(hbar k_B T ln 2) (conjecture, taken as given in the text); its consequence tau_IAM is checked at eq:tauIAM | - |
+| 69 | eq:tauIAM | derived |  | sympy: integral of Gamma_info/S_boundary is linear in t; its time constant is hbar k_B^2 T^2 ln2/E_G^3, in seconds | PASS |
+| 76 | eq:gd_ramp | conjecture |  | sympy: ramp C = 1 - E_q(eta)/e: C(0+) = 1 and the rate -dC/d eta peaks at eta = 1/2 | PASS |
+| 83 | ch:gravdec:L83:4.8 | prediction | `4.8` | numeric: radius of a 1e-12 kg silica sphere, um | PASS |
+| 83 | ch:gravdec:L83:1.4\times10^{-29} | prediction | `1.4\times10^{-29}` | numeric: E_G = G m^2/R of a 1e-12 kg silica sphere, J | PASS |
+| 83 | ch:gravdec:L83:7.5 | prediction | `7.5` | numeric: tau_DP = hbar/E_G of a 1e-12 kg silica sphere, us | PASS |
+| 83 |  | prediction | `10` | not run: input: 10 mK bath temperature of the caption | - |
+| 83 |  | prediction | `2200` | not run: input: silica density 2200 kg/m^3 (caption) | - |
 | 85 | ch:gravdec:L85 | calc | `509` | numeric: tau_IAM, 1e-12 kg silica, 10 mK | PASS |
-| 85 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 93 |  | prediction | `2200` | not run: not yet checked | - |
-| 93 |  | prediction | `2.2\times10^{-10}` | not run: not yet checked | - |
+| 85 |  | calc | `10` | not run: input: 10^-12 kg nanosphere at 10 mK (worked example; tau_IAM = 509 s checked at ch:gravdec:L85) | - |
+| 93 | ch:gravdec:L93 | prediction | `2.2\times10^{-10}` | numeric: mass at which tau_IAM = tau_DP at 10 mK, silica | PASS |
+| 93 |  | prediction | `2200` | not run: input: silica density 2200 kg/m^3 (caption) | - |
 | 97 | ch:gravdec:L97 | calc | `5\times10^{17}` | numeric: tau_IAM, 1e-15 kg, 10 mK | PASS |
-| 97 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 97 |  | calc | `10` | not run: input: masses 10^-15 kg and temperature 10 mK at which tau_IAM is quoted (the times are checked at ch:gravdec:L97 and L85) | - |
 | 98 | ch:gravdec:L98 | calc | `5\times10^{-8}` | numeric: tau_IAM, 1e-10 kg, 10 mK | PASS |
 | 98 | ch:gravdec:L98:3.5\times10^{-12} | calc | `3.5\times10^{-12}` | numeric: mass where tau_IAM = 1 s at 10 mK | PASS |
-| 98 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 98 |  | calc | `10` | not run: input: masses 10^-12 and 10^-10 kg at which tau_IAM is quoted (times checked at ch:gravdec:L98) | - |
 | 99 | ch:gravdec:L99 | calc | `1.4\times10^{-11}` | numeric: mass where tau_IAM = 1 ms at 10 mK | PASS |
-| 100 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 100 |  | calc | `10` | not run: restates the testable mass range 10^-12-10^-11 kg bounded by ch:gravdec:L98:3.5e-12 (1 s) and ch:gravdec:L99 (1.4e-11 kg, 1 ms) | - |
 | 108 | ch:gravdec:L108 | calc | `3.33` | numeric: exponent difference m^-5 vs m^-5/3 | PASS |
 | 115 | eq:gd_heating | calc |  | sympy: P_IAM = k_B T ln2 / tau_IAM = E_G^3/(hbar k_B T) | PASS |
 | 119 | ch:gravdec:L119 | calc | `1.9\times10^{-28}` | numeric: P_IAM, 1e-12 kg, 10 mK, W | PASS |
-| 119 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 119 |  | calc | `2.8` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 120 |  | calc | `0.8\times10^{-12}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 121 |  | openprob | `1.9\times10^{-24}` | not run: not yet checked | - |
-| 130 | eq:gd_gamma | none |  | not run: displayed equation, not yet checked | - |
-| 134 | eq:gd_lindblad | conjecture |  | not run: displayed equation, not yet checked | - |
+| 119 | ch:gravdec:L119:2.8 | calc | `2.8` | numeric: phonon rate E_G^3/(hbar^2 k_B T omega0), 1e-12 kg, 10 mK, 100 kHz | PASS |
+| 119 |  | calc | `10` | not run: input: 10^-12 kg sphere at 10 mK for which the heating numbers are computed (checked at ch:gravdec:L119 and ch:gravdec:L119:2.8) | - |
+| 120 | ch:gravdec:L120 | calc | `0.8\times10^{-12}` | numeric: mass at which the phonon rate is 1 per second at 10 mK, 100 kHz | PASS |
+| 121 | ch:gravdec:L121 | openprob | `1.9\times10^{-24}` | numeric: bit rate priced at k_B T ln2: E_G^2/hbar, 1e-12 kg silica, W | PASS |
+| 130 | eq:gd_gamma | none |  | sympy: Gamma = dE_q/d eta = eta^-2 exp(1 - 1/eta), and its integral from 0 is E_q | PASS |
+| 134 | eq:gd_lindblad | conjecture |  | sympy: position dephasing L = x heats: d<n>/d eta = Gamma/2 for any state | PASS |
 | 143 | ch:gravdec:L143 | calc | `0.225` | numeric: eta of the largest purity difference (ramp vs constant rate) | PASS |
 | 143 | ch:gravdec:L143:0.139 | calc | `0.139` | numeric: largest purity difference | PASS |
-| 147 |  | calc | `0.5` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 147 | ch:gravdec:L147 | calc | `0.5` | numeric: edge of the protected regime: the ramp rate peaks at eta = 0.5 (numerical maximum) | PASS |
 | 148 | ch:gravdec:L148 | calc | `0.5` | numeric: peak of the ramp rate Gamma = e^(1-1/eta)/eta^2 | PASS |
 | 149 | ch:gravdec:L149 | calc | `0.759` | numeric: purity 1/sqrt(1+2 x), ramp, eta=0.5 | PASS |
 | 149 | ch:gravdec:L149:0.707 | calc | `0.707` | numeric: purity 1/sqrt(1+2 x), constant, eta=0.5 | PASS |
 | 149 | ch:gravdec:L149:0.577 | calc | `0.577` | numeric: purity 1/sqrt(1+2 x), eta=1 (both) | PASS |
 | 149 | ch:gravdec:L149:0.482 | calc | `0.482` | numeric: purity 1/sqrt(1+2 x), ramp, eta=2 | PASS |
 | 149 | ch:gravdec:L149:0.447 | calc | `0.447` | numeric: purity 1/sqrt(1+2 x), constant, eta=2 | PASS |
-| 149 |  | calc | `0.5` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 149 |  | calc | `0.5` | not run: input: eta = 0.5 at which the two purities are compared (purities checked at ch:gravdec:L149) | - |
 | 150 | ch:gravdec:L150 | calc | `0.43` | numeric: purity, ramp, eta=5 | PASS |
 | 150 | ch:gravdec:L150:0.30 | calc | `0.30` | numeric: purity, constant, eta=5 | PASS |
 | 154 | ch:gravdec:L154 | derived | `0.5` | numeric: peak of the ramp rate | PASS |
-| 157 |  | calc | `50` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 159 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 157 |  | calc | `50` | not run: input: N = 50 time points of the proposed experiment | - |
+| 159 |  | calc | `10` | not run: input: 10^-12 kg (509 s) named as the lower mass of the profile test (509 s checked at ch:gravdec:L85) | - |
 | 160 | ch:gravdec:L160 | calc | `3.5\times10^{-12}` | numeric: mass where tau_IAM = 1 s at 10 mK | PASS |
 | 160 | ch:gravdec:L160:2.2\times10^{-10} | calc | `2.2\times10^{-10}` | numeric: crossover tau_IAM = tau_DP at 10 mK | PASS |
-| 164 |  | calc | `9.8` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 165 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 168 |  | prediction | `10` | not run: not yet checked | - |
+| 164 | ch:gravdec:L164 | calc | `9.8` | numeric: significance of the factor 16 (10 to 40 mK) against constant tau, 20 % precision on each tau | PASS |
+| 165 |  | calc | `10` | not run: restates the measurable mass range 10^-12-10^-11 kg at 10 mK (bounds checked at ch:gravdec:L98:3.5e-12 and ch:gravdec:L99) | - |
+| 168 |  | prediction | `10` | not run: input: 10^-12 kg (a nanogram) near which the heating rate passes 1 phonon/s (the crossing mass is checked at ch:gravdec:L120) | - |
 | 172 | ch:gravdec:L172 | calc | `3.5\times10^{-12}` | numeric: mass where tau_IAM = 1 s at 10 mK | PASS |
-| 172 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 172 |  | calc | `10` | not run: input: 10^-19 kg, the mass of present nanoparticle quantum control (cited Rossi2025, Neumeier2024) | - |
 | 207 | ch:gravdec:L207 | calc | `7.1\times10^{-9}` | numeric: E_G cat, m 4 kg, R 0.15 m | PASS |
-| 207 |  | calc | `300` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 207 |  | calc | `300` | not run: input: T = 300 K of the cat example | - |
 | 208 | ch:gravdec:L208 | calc | `3.5\times10^{-51}` | numeric: tau_IAM cat at 300 K | PASS |
-| 211 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 211 |  | calc | `2200` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 211 |  | calc | `10` | not run: input: 10^-12 kg mass of the nanosphere example | - |
+| 211 |  | calc | `2200` | not run: input: silica density 2200 kg/m^3 | - |
 | 212 | ch:gravdec:L212 | calc | `4.8` | numeric: radius of 1e-12 kg silica sphere, um | PASS |
 | 212 | ch:gravdec:L212:1.4\times10^{-29} | calc | `1.4\times10^{-29}` | numeric: E_G of the nanosphere | PASS |
 | 212 | ch:gravdec:L212:509 | calc | `509` | numeric: tau_IAM at 10 mK | PASS |
 | 213 | ch:gravdec:L213 | calc | `7.5` | numeric: tau_DP, us | PASS |
 | 214 | ch:gravdec:L214 | calc | `7\times10^{7}` | numeric: tau_IAM / tau_DP | PASS |
-| 214 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 231 |  | conjecture | `0.5` | not run: not yet checked | - |
-| 248 |  | conjecture | `13.8` | not run: not yet checked | - |
+| 214 |  | calc | `10` | not run: input: 10^-12 kg mass of the nanosphere example (the ratio 7e7 is checked at ch:gravdec:L214) | - |
+| 231 | ch:gravdec:L231 | conjecture | `0.5` | numeric: t < 0.5 tau_IAM: the ramp rate is largest at eta = 1/2 (sympy) | PASS |
+| 248 | ch:gravdec:L248 | conjecture | `13.8` | numeric: age of the universe, flat LCDM with Planck 2018 parameters, Gyr | PASS |
 
 ## Part 4 - ch:nonlocal - `docs/book/part5/p5_06_nonlocality.tex`
 

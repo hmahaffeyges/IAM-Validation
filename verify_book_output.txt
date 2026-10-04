@@ -2857,6 +2857,8 @@ PASS  ch:gravdec:L33:0.822               ch:gravdec:p5_05_gravdec:33  printed 0.
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
 PASS  ch:gravdec:L33:72.26               ch:gravdec:p5_05_gravdec:33  printed 72.26  recomputed found in file  [measured] measured: printed value found in verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
+PASS  ch:gravdec:L33:+0.54               ch:gravdec:p5_05_gravdec:33  printed +0.54  recomputed 0.541  tol 0.00500001  [measured] Level 2 chi2_min IAM (runA) minus LCDM (runC)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:gravdec:L34                     ch:gravdec:p5_05_gravdec:34  printed 72.26  recomputed 72.2602  tol 0.00500001  [calc] H0 matter sector
 PASS  ch:gravdec:L34:67.16               ch:gravdec:p5_05_gravdec:34  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
@@ -2864,13 +2866,21 @@ PASS  ch:gravdec:L34:0.75                ch:gravdec:p5_05_gravdec:34  printed 0.
 PASS  ch:gravdec:L34:0.37                ch:gravdec:p5_05_gravdec:34  printed 0.37  recomputed 0.37037  tol 0.00500001  [calc] H0 photon vs Planck, sigma
 PASS  ch:gravdec:L39                     ch:gravdec:p5_05_gravdec:39  printed 0.0100  recomputed found in file  [measured] measured: printed value found in verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
+PASS  ch:gravdec:L39:0.0068              ch:gravdec:p5_05_gravdec:39  printed 0.0068  recomputed 0.006843  tol 5.000005e-05  [measured] final R-1 of the second Level 2b chain (runD)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:gravdec:L40                     ch:gravdec:p5_05_gravdec:40  printed 61.45  recomputed found in file  [measured] measured: printed value found in verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
 PASS  ch:gravdec:L40:61.52               ch:gravdec:p5_05_gravdec:40  printed 61.52  recomputed found in file  [measured] measured: printed value found in verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
 PASS  ch:gravdec:L40:67.4                ch:gravdec:p5_05_gravdec:40  printed 67.4  recomputed found in file  [measured] measured: printed value found in verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
+PASS  eq:tauIAM                          ch:gravdec:p5_05_gravdec:69  printed (algebra)  recomputed lhs-rhs=0  [derived] integral of Gamma_info/S_boundary is linear in t; its time constant is hbar k_B^2 T^2 ln2/E_G^3, in seconds
+PASS  eq:gd_ramp                         ch:gravdec:p5_05_gravdec:76  printed (algebra)  recomputed lhs-rhs=0  [conjecture] ramp C = 1 - E_q(eta)/e: C(0+) = 1 and the rate -dC/d eta peaks at eta = 1/2
+PASS  ch:gravdec:L83:4.8                 ch:gravdec:p5_05_gravdec:83  printed 4.8  recomputed 4.76976  tol 0.05  [prediction] radius of a 1e-12 kg silica sphere, um
+PASS  ch:gravdec:L83:1.4\times10^{-29}   ch:gravdec:p5_05_gravdec:83  printed 1.4\times10^{-29}  recomputed 1.399296e-29  tol 5.000005e-31  [prediction] E_G = G m^2/R of a 1e-12 kg silica sphere, J
+PASS  ch:gravdec:L83:7.5                 ch:gravdec:p5_05_gravdec:83  printed 7.5  recomputed 7.53645  tol 0.05  [prediction] tau_DP = hbar/E_G of a 1e-12 kg silica sphere, us
 PASS  ch:gravdec:L85                     ch:gravdec:p5_05_gravdec:85  printed 509  recomputed 508.557  tol 0.5  [calc] tau_IAM, 1e-12 kg silica, 10 mK
+PASS  ch:gravdec:L93                     ch:gravdec:p5_05_gravdec:93  printed 2.2\times10^{-10}  recomputed 2.232297e-10  tol 5.000005e-12  [prediction] mass at which tau_IAM = tau_DP at 10 mK, silica
 PASS  ch:gravdec:L97                     ch:gravdec:p5_05_gravdec:97  printed 5\times10^{17}  recomputed 5.085571e+17  tol 5.000005e+16  [calc] tau_IAM, 1e-15 kg, 10 mK
 PASS  ch:gravdec:L98                     ch:gravdec:p5_05_gravdec:98  printed 5\times10^{-8}  recomputed 5.085571e-08  tol 5.000005e-09  [calc] tau_IAM, 1e-10 kg, 10 mK
 PASS  ch:gravdec:L98:3.5\times10^{-12}   ch:gravdec:p5_05_gravdec:98  printed 3.5\times10^{-12}  recomputed 3.477506e-12  tol 5.000005e-14  [calc] mass where tau_IAM = 1 s at 10 mK
@@ -2878,8 +2888,14 @@ PASS  ch:gravdec:L99                     ch:gravdec:p5_05_gravdec:99  printed 1.
 PASS  ch:gravdec:L108                    ch:gravdec:p5_05_gravdec:108  printed 3.33  recomputed 3.33333  tol 0.00500001  [calc] exponent difference m^-5 vs m^-5/3
 PASS  eq:gd_heating                      ch:gravdec:p5_05_gravdec:115  printed (algebra)  recomputed lhs-rhs=0  [calc] P_IAM = k_B T ln2 / tau_IAM = E_G^3/(hbar k_B T)
 PASS  ch:gravdec:L119                    ch:gravdec:p5_05_gravdec:119  printed 1.9\times10^{-28}  recomputed 1.881781e-28  tol 5.000005e-30  [calc] P_IAM, 1e-12 kg, 10 mK, W
+PASS  ch:gravdec:L119:2.8                ch:gravdec:p5_05_gravdec:119  printed 2.8  recomputed 2.83997  tol 0.05  [calc] phonon rate E_G^3/(hbar^2 k_B T omega0), 1e-12 kg, 10 mK, 100 kHz
+PASS  ch:gravdec:L120                    ch:gravdec:p5_05_gravdec:120  printed 0.8\times10^{-12}  recomputed 8.115913e-13  tol 5.000005e-14  [calc] mass at which the phonon rate is 1 per second at 10 mK, 100 kHz
+PASS  ch:gravdec:L121                    ch:gravdec:p5_05_gravdec:121  printed 1.9\times10^{-24}  recomputed 1.856705e-24  tol 5.000005e-26  [openprob] bit rate priced at k_B T ln2: E_G^2/hbar, 1e-12 kg silica, W
+PASS  eq:gd_gamma                        ch:gravdec:p5_05_gravdec:130  printed (algebra)  recomputed lhs-rhs=0  [none] Gamma = dE_q/d eta = eta^-2 exp(1 - 1/eta), and its integral from 0 is E_q
+PASS  eq:gd_lindblad                     ch:gravdec:p5_05_gravdec:134  printed (algebra)  recomputed True  [conjecture] position dephasing L = x heats: d<n>/d eta = Gamma/2 for any state
 PASS  ch:gravdec:L143                    ch:gravdec:p5_05_gravdec:143  printed 0.225  recomputed 0.224696  tol 5.000005e-04  [calc] eta of the largest purity difference (ramp vs constant rate)
 PASS  ch:gravdec:L143:0.139              ch:gravdec:p5_05_gravdec:143  printed 0.139  recomputed 0.139075  tol 5.000005e-04  [calc] largest purity difference
+PASS  ch:gravdec:L147                    ch:gravdec:p5_05_gravdec:147  printed 0.5  recomputed 0.5  tol 0.05  [calc] edge of the protected regime: the ramp rate peaks at eta = 0.5 (numerical maximum)
 PASS  ch:gravdec:L148                    ch:gravdec:p5_05_gravdec:148  printed 0.5  recomputed 0.5  tol 0.05  [calc] peak of the ramp rate Gamma = e^(1-1/eta)/eta^2
 PASS  ch:gravdec:L149                    ch:gravdec:p5_05_gravdec:149  printed 0.759  recomputed 0.759024  tol 5.000005e-04  [calc] purity 1/sqrt(1+2 x), ramp, eta=0.5
 PASS  ch:gravdec:L149:0.707              ch:gravdec:p5_05_gravdec:149  printed 0.707  recomputed 0.707107  tol 5.000005e-04  [calc] purity 1/sqrt(1+2 x), constant, eta=0.5
@@ -2891,6 +2907,7 @@ PASS  ch:gravdec:L150:0.30               ch:gravdec:p5_05_gravdec:150  printed 0
 PASS  ch:gravdec:L154                    ch:gravdec:p5_05_gravdec:154  printed 0.5  recomputed 0.5  tol 0.05  [derived] peak of the ramp rate
 PASS  ch:gravdec:L160                    ch:gravdec:p5_05_gravdec:160  printed 3.5\times10^{-12}  recomputed 3.477506e-12  tol 5.000005e-14  [calc] mass where tau_IAM = 1 s at 10 mK
 PASS  ch:gravdec:L160:2.2\times10^{-10}  ch:gravdec:p5_05_gravdec:160  printed 2.2\times10^{-10}  recomputed 2.232297e-10  tol 5.000005e-12  [calc] crossover tau_IAM = tau_DP at 10 mK
+PASS  ch:gravdec:L164                    ch:gravdec:p5_05_gravdec:164  printed 9.8  recomputed 9.80258  tol 0.05  [calc] significance of the factor 16 (10 to 40 mK) against constant tau, 20 % precision on each tau
 PASS  ch:gravdec:L172                    ch:gravdec:p5_05_gravdec:172  printed 3.5\times10^{-12}  recomputed 3.477506e-12  tol 5.000005e-14  [calc] mass where tau_IAM = 1 s at 10 mK
 PASS  ch:gravdec:L207                    ch:gravdec:p5_05_gravdec:207  printed 7.1\times10^{-9}  recomputed 7.119253e-09  tol 5.000005e-11  [calc] E_G cat, m 4 kg, R 0.15 m
 PASS  ch:gravdec:L208                    ch:gravdec:p5_05_gravdec:208  printed 3.5\times10^{-51}  recomputed 3.475420e-51  tol 5.000005e-53  [calc] tau_IAM cat at 300 K
@@ -2899,6 +2916,8 @@ PASS  ch:gravdec:L212:1.4\times10^{-29}  ch:gravdec:p5_05_gravdec:212  printed 1
 PASS  ch:gravdec:L212:509                ch:gravdec:p5_05_gravdec:212  printed 509  recomputed 508.557  tol 0.5  [calc] tau_IAM at 10 mK
 PASS  ch:gravdec:L213                    ch:gravdec:p5_05_gravdec:213  printed 7.5  recomputed 7.53645  tol 0.05  [calc] tau_DP, us
 PASS  ch:gravdec:L214                    ch:gravdec:p5_05_gravdec:214  printed 7\times10^{7}  recomputed 6.747969e+07  tol 5.000005e+06  [calc] tau_IAM / tau_DP
+PASS  ch:gravdec:L231                    ch:gravdec:p5_05_gravdec:231  printed 0.5  recomputed 0.5  tol 0.05  [conjecture] t < 0.5 tau_IAM: the ramp rate is largest at eta = 1/2 (sympy)
+PASS  ch:gravdec:L248                    ch:gravdec:p5_05_gravdec:248  printed 13.8  recomputed 13.7952  tol 0.05  [conjecture] age of the universe, flat LCDM with Planck 2018 parameters, Gyr
 
 == Part 4: Particles and Quantum Records | ch:nonlocal (part5/p5_06_nonlocality.tex)
 PASS  ch:nonlocal:L31                    ch:nonlocal:p5_06_nonlocality:31  printed (algebra)  recomputed True  [derived] Horodecki: dephased Bell state, S_max = 2 sqrt(1+c^2)
@@ -3879,4 +3898,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3101  FAIL 0  (heavy, read from committed outputs: 629)  inventoried-not-run 3233  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3118  FAIL 0  (heavy, read from committed outputs: 631)  inventoried-not-run 3216  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

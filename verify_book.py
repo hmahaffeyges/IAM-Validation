@@ -712,6 +712,11 @@ def _b05_half_transfer():
     return brentq(lambda x: (1 - (1 - x)**(2 / 3)) - (1 - x)**(2 / 3), 1e-9, 1 - 1e-12, xtol=1e-14)
 DATA_FILES['docs/book/figscripts/fig_p2_bekenstein.py'] = 'figure script of fig:rindler_cone (horizon masses and surface gravities used in panel b)'
 
+# helpers of the part5/p5_05_gravdec checks
+_CHAIN_RERUN_B06 = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
+                    'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+                    '(no extraction script is committed)')
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -19140,6 +19145,14 @@ def check_2049():
     ok = file_has('docs/verification/scripts/verify_virial_papers_output.txt', '72.26')
     return locals()
 
+@check(label='ch:gravdec:L33:+0.54', chapter='ch:gravdec', part=4, title='Level 2 chi2_min IAM (runA) minus LCDM (runC)',
+       file='part5/p5_05_gravdec', line=33, status='measured', kind='file', printed='+0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_CHAIN_RERUN_B06)
+def check_3101():
+    'Delta chi^2 at the best points, IAM minus LambdaCDM, Level 2: chi2_min of iam_level2_runA minus chi2_min of iam_level2_runC_lcdm in '         'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv. Book line 33, printed +0.54.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min') - csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min')
+    return locals()
+
 @check(label='ch:gravdec:L34', chapter='ch:gravdec', part=4, title='H0 matter sector',
        file='part5/p5_05_gravdec', line=34, status='calc', kind='num', printed='72.26', tol=0)
 def check_2050():
@@ -19177,6 +19190,14 @@ def check_2054():
     ok = file_has('docs/verification/scripts/verify_virial_papers_output.txt', '0.0100')
     return locals()
 
+@check(label='ch:gravdec:L39:0.0068', chapter='ch:gravdec', part=4, title='final R-1 of the second Level 2b chain (runD)',
+       file='part5/p5_05_gravdec', line=39, status='measured', kind='file', printed='0.0068', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_CHAIN_RERUN_B06)
+def check_3102():
+    'Convergence of the second Level 2b chain: row iam_l2b_runD, column R-1_final(progress) of mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (0.006843). '         'Book line 39, printed 0.0068.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_l2b_runD', 'R-1_final(progress)')
+    return locals()
+
 @check(label='ch:gravdec:L40', chapter='ch:gravdec', part=4, title='measured: printed value found in verify_virial_papers_output.txt, a file the chapter names',
        file='part5/p5_05_gravdec', line=40, status='measured', kind='file', printed='61.45', tol=0.0, source='docs/verification/scripts/verify_virial_papers_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt')
@@ -19201,6 +19222,65 @@ def check_2057():
     ok = file_has('docs/verification/scripts/verify_virial_papers_output.txt', '67.4')
     return locals()
 
+@check(label='eq:tauIAM', chapter='ch:gravdec', part=4, title='integral of Gamma_info/S_boundary is linear in t; its time constant is hbar k_B^2 T^2 ln2/E_G^3, in seconds',
+       file='part5/p5_05_gravdec', line=69, status='derived', kind='sym', printed='', tol=0)
+def check_3103():
+    'Eq. eq:tauIAM. Derived: the bit rate E_G^2/(hbar k_B T ln 2) (Eq. eq:gd_bitrate) divided by the boundary capacity k_B T/E_G is integrated from 0 to t '         '(sympy); the result is linear in t, so ln E_q = t/tau, and tau is solved from ln E_q(tau) = 1: hbar k_B^2 T^2 ln 2/E_G^3. Units (book line 204): '         'J s J^2/J^3 reduces to s. Book line 69.'
+    from sympy.physics import units as U
+    hb, kB_, T_, EG, t, tp, tau = sp.symbols('hbar k_B T E_G t tprime tau', positive=True)
+    def tau_from(rate_coef):
+        Gam = rate_coef * EG**2 / (hb * kB_ * T_ * sp.log(2))
+        lnE = sp.integrate(Gam / (kB_ * T_ / EG), (tp, 0, t))
+        assert sp.diff(lnE, t, 2) == 0
+        return sp.solve(sp.Eq(lnE.subs(t, tau), 1), tau)[0]
+    units_ok = sp.simplify(U.convert_to(U.joule * U.second * U.joule**2 / U.joule**3, U.second) - U.second) == 0
+    assert units_ok
+    lhs = tau_from(1)
+    rhs = hb * kB_**2 * T_**2 * sp.log(2) / EG**3
+    neg_lhs = tau_from(sp.Rational(105, 100))
+    return locals()
+
+@check(label='eq:gd_ramp', chapter='ch:gravdec', part=4, title='ramp C = 1 - E_q(eta)/e: C(0+) = 1 and the rate -dC/d eta peaks at eta = 1/2',
+       file='part5/p5_05_gravdec', line=76, status='conjecture', kind='sym', printed='', tol=0)
+def check_3104():
+    'Eq. eq:gd_ramp and the statements at book line 86: with E_q(eta) = exp(1 - 1/eta), C = 1 - E_q/e tends to 1 as eta -> 0+ (computed limit), its rate '         '-dC/d eta tends to 0 at eta -> 0+, and the rate is maximal where d^2C/d eta^2 = 0, solved: eta = 1/2. Control: exp(1 - 1.05/eta) peaks at 0.525. Book line 76.'
+    eta = sp.symbols('eta', positive=True)
+    def peak(k):
+        C = 1 - sp.exp(1 - k / eta) / sp.E
+        rate = -sp.diff(C, eta)
+        assert sp.limit(C, eta, 0, '+') == 1 and sp.limit(rate, eta, 0, '+') == 0
+        return sp.solve(sp.diff(rate, eta), eta)[0]
+    lhs = peak(1)
+    rhs = sp.Rational(1, 2)
+    neg_lhs = peak(sp.Rational(105, 100))
+    return locals()
+
+@check(label='ch:gravdec:L83:4.8', chapter='ch:gravdec', part=4, title='radius of a 1e-12 kg silica sphere, um',
+       file='part5/p5_05_gravdec', line=83, status='prediction', kind='num', printed='4.8', tol=0.0)
+def check_3105():
+    'Radius R = (3m/(4 pi rho))^(1/3) of a 1e-12 kg silica sphere, rho = 2200 kg/m^3 (book inputs). Book line 83 (caption), printed 4.8 um.'
+    m, rho_s = 1e-12, 2200.0
+    value = (3 * m / (4 * math.pi * rho_s))**(1 / 3) * 1e6
+    return locals()
+
+@check(label='ch:gravdec:L83:1.4\\times10^{-29}', chapter='ch:gravdec', part=4, title='E_G = G m^2/R of a 1e-12 kg silica sphere, J',
+       file='part5/p5_05_gravdec', line=83, status='prediction', kind='num', printed='1.4\\times10^{-29}', tol=0.0)
+def check_3106():
+    'Gravitational self-energy E_G = G m^2/R of a 1e-12 kg silica sphere (rho = 2200 kg/m^3, R from the mass and density). Book line 83, printed 1.4e-29 J. '         'Input: G CODATA 2018.'
+    m, rho_s = 1e-12, 2200.0
+    R = (3 * m / (4 * math.pi * rho_s))**(1 / 3)
+    value = G * m**2 / R
+    return locals()
+
+@check(label='ch:gravdec:L83:7.5', chapter='ch:gravdec', part=4, title='tau_DP = hbar/E_G of a 1e-12 kg silica sphere, us',
+       file='part5/p5_05_gravdec', line=83, status='prediction', kind='num', printed='7.5', tol=0.0)
+def check_3107():
+    'Diosi-Penrose time hbar/E_G for a 1e-12 kg silica sphere (rho = 2200 kg/m^3). Book line 83, printed 7.5 us.'
+    m, rho_s = 1e-12, 2200.0
+    R = (3 * m / (4 * math.pi * rho_s))**(1 / 3)
+    value = hbar / (G * m**2 / R) * 1e6
+    return locals()
+
 @check(label='ch:gravdec:L85', chapter='ch:gravdec', part=4, title='tau_IAM, 1e-12 kg silica, 10 mK',
        file='part5/p5_05_gravdec', line=85, status='calc', kind='num', printed='509', tol=0)
 def check_2058():
@@ -19211,6 +19291,16 @@ def check_2058():
     def tIAM(m,T): return hbar*(kB*T)**2*LN2/EG(m)**3
     def tPD(m): return hbar/EG(m)
     value=tIAM(1e-12,0.010)
+    return locals()
+
+@check(label='ch:gravdec:L93', chapter='ch:gravdec', part=4, title='mass at which tau_IAM = tau_DP at 10 mK, silica',
+       file='part5/p5_05_gravdec', line=93, status='prediction', kind='num', printed='2.2\\times10^{-10}', tol=0.0)
+def check_3108():
+    'Crossover mass: hbar (k_B T)^2 ln2/E_G^3 = hbar/E_G at T = 10 mK for silica spheres (rho = 2200 kg/m^3), solved by root finding in ln m. '         'Book line 93 (caption), printed 2.2e-10 kg.'
+    rho_s, T = 2200.0, 0.010
+    EG = lambda m: G * m**2 / (3 * m / (4 * math.pi * rho_s))**(1 / 3)
+    f = lambda lm: math.log((hbar * (kB * T)**2 * LN2 / EG(math.exp(lm))**3) / (hbar / EG(math.exp(lm))))
+    value = math.exp(brentq(f, math.log(1e-15), math.log(1e-6)))
     return locals()
 
 @check(label='ch:gravdec:L97', chapter='ch:gravdec', part=4, title='tau_IAM, 1e-15 kg, 10 mK',
@@ -19287,6 +19377,64 @@ def check_2065():
     value=EG(1e-12)**3/(hbar*kB*0.010)
     return locals()
 
+@check(label='ch:gravdec:L119:2.8', chapter='ch:gravdec', part=4, title='phonon rate E_G^3/(hbar^2 k_B T omega0), 1e-12 kg, 10 mK, 100 kHz',
+       file='part5/p5_05_gravdec', line=119, status='calc', kind='num', printed='2.8', tol=0.0)
+def check_3109():
+    'Phonon excitation rate dn/dt = E_G^3/(hbar^2 k_B T omega0) (Eq. eq:gd_heating) for a 1e-12 kg silica sphere (rho = 2200 kg/m^3) at 10 mK, '         'omega0 = 2 pi x 100 kHz. Book line 119, printed 2.8 phonons/s.'
+    m, rho_s, T, w0 = 1e-12, 2200.0, 0.010, 2 * math.pi * 1e5
+    EG = G * m**2 / (3 * m / (4 * math.pi * rho_s))**(1 / 3)
+    value = EG**3 / (hbar**2 * kB * T * w0)
+    return locals()
+
+@check(label='ch:gravdec:L120', chapter='ch:gravdec', part=4, title='mass at which the phonon rate is 1 per second at 10 mK, 100 kHz',
+       file='part5/p5_05_gravdec', line=120, status='calc', kind='num', printed='0.8\\times10^{-12}', tol=0.0)
+def check_3110():
+    'Mass at which dn/dt = E_G^3/(hbar^2 k_B T omega0) = 1 s^-1 for silica spheres (rho = 2200 kg/m^3) at 10 mK, omega0 = 2 pi x 100 kHz, by root finding in ln m. '         'Book line 120, printed 0.8e-12 kg.'
+    rho_s, T, w0 = 2200.0, 0.010, 2 * math.pi * 1e5
+    EG = lambda m: G * m**2 / (3 * m / (4 * math.pi * rho_s))**(1 / 3)
+    value = math.exp(brentq(lambda lm: math.log(EG(math.exp(lm))**3 / (hbar**2 * kB * T * w0)), math.log(1e-14), math.log(1e-10)))
+    return locals()
+
+@check(label='ch:gravdec:L121', chapter='ch:gravdec', part=4, title='bit rate priced at k_B T ln2: E_G^2/hbar, 1e-12 kg silica, W',
+       file='part5/p5_05_gravdec', line=121, status='openprob', kind='num', printed='1.9\\times10^{-24}', tol=0.0)
+def check_3111():
+    'The bit rate of Eq. eq:gd_bitrate times the price k_B T ln 2, E_G^2/hbar, for a 1e-12 kg silica sphere (rho = 2200 kg/m^3). Book line 121, printed 1.9e-24 W.'
+    m, rho_s = 1e-12, 2200.0
+    EG = G * m**2 / (3 * m / (4 * math.pi * rho_s))**(1 / 3)
+    value = EG**2 / hbar
+    return locals()
+
+@check(label='eq:gd_gamma', chapter='ch:gravdec', part=4, title='Gamma = dE_q/d eta = eta^-2 exp(1 - 1/eta), and its integral from 0 is E_q',
+       file='part5/p5_05_gravdec', line=130, status='none', kind='sym', printed='', tol=0)
+def check_3112():
+    'Eq. eq:gd_gamma. Derived: E_q(eta) = exp(1 - 1/eta) is differentiated (sympy) and gives eta^-2 exp(1 - 1/eta); integrating it back from 0 recovers E_q, '         'which equals the constant-rate value eta at eta = 1 (book line 139). Book line 130.'
+    eta, s = sp.symbols('eta s', positive=True)
+    lhs = sp.diff(sp.exp(1 - 1 / eta), eta)
+    rhs = sp.exp(1 - 1 / eta) / eta**2
+    assert sp.simplify(sp.integrate(rhs.subs(eta, s), (s, 0, eta)) - sp.exp(1 - 1 / eta)) == 0
+    assert sp.exp(1 - 1 / eta).subs(eta, 1) == 1
+    neg_lhs = sp.diff(sp.exp(1 - sp.Rational(105, 100) / eta), eta)
+    return locals()
+
+@check(label='eq:gd_lindblad', chapter='ch:gravdec', part=4, title='position dephasing L = x heats: d<n>/d eta = Gamma/2 for any state',
+       file='part5/p5_05_gravdec', line=134, status='conjecture', kind='sym', printed='', tol=0)
+def check_3113():
+    'Eq. eq:gd_lindblad and the statement at book line 138: with L = x = (a + a^dag)/sqrt2 in a truncated Fock space (30 levels) the dissipator '         'L rho L - (1/2){L^2, rho} is applied to a random density matrix supported on the lowest 8 levels; Tr(n D[rho]) = 1/2 for every such state (three seeds), '         'so <n> grows at Gamma/2 per unit eta. Control: L = 1.05 x gives 0.55.'
+    N = 30
+    a = np.diag(np.sqrt(np.arange(1, N)), 1)
+    x = (a + a.T) / np.sqrt(2)
+    n_op = a.T @ a
+    def rate(Lop, seed):
+        rng = np.random.default_rng(seed)
+        A = rng.normal(size=(8, 8)) + 1j * rng.normal(size=(8, 8))
+        r8 = A @ A.conj().T; r8 /= np.trace(r8)
+        rho = np.zeros((N, N), complex); rho[:8, :8] = r8
+        D = Lop @ rho @ Lop.conj().T - 0.5 * (Lop.conj().T @ Lop @ rho + rho @ Lop.conj().T @ Lop)
+        return float(np.real(np.trace(n_op @ D)))
+    ok = all(abs(rate(x, s) - 0.5) < 1e-12 for s in (1, 2, 3))
+    neg_ok = all(abs(rate(1.05 * x, s) - 0.5) < 1e-12 for s in (1, 2, 3))
+    return locals()
+
 @check(label='ch:gravdec:L143', chapter='ch:gravdec', part=4, title='eta of the largest purity difference (ramp vs constant rate)',
        file='part5/p5_05_gravdec', line=143, status='calc', kind='num', printed='0.225', tol=0)
 def check_2066():
@@ -19303,6 +19451,14 @@ def check_2067():
     Eq=lambda x: math.exp(1-1/x)
     Pr=lambda x: 1/math.sqrt(1+2*Eq(x)); Ps=lambda x: 1/math.sqrt(1+2*x)
     x=minimize_scalar(lambda x: -(Pr(x)-Ps(x)), bounds=(0.05,1.0), method='bounded').x; value=Pr(x)-Ps(x)
+    return locals()
+
+@check(label='ch:gravdec:L147', chapter='ch:gravdec', part=4, title='edge of the protected regime: the ramp rate peaks at eta = 0.5 (numerical maximum)',
+       file='part5/p5_05_gravdec', line=147, status='calc', kind='num', printed='0.5', tol=0.0)
+def check_3114():
+    'The protected regime eta < 0.5 ends where the ramp rate Gamma(eta) = eta^-2 exp(1 - 1/eta) is largest; the maximum is located numerically '         '(bounded scalar minimisation of -Gamma on 0.05-5). Book line 147, printed 0.5.'
+    Gam = lambda e: e**-2 * math.exp(1 - 1 / e)
+    value = minimize_scalar(lambda e: -Gam(e), bounds=(0.05, 5), method='bounded', options={'xatol': 1e-10}).x
     return locals()
 
 @check(label='ch:gravdec:L148', chapter='ch:gravdec', part=4, title='peak of the ramp rate Gamma = e^(1-1/eta)/eta^2',
@@ -19406,6 +19562,14 @@ def check_2078():
     value=math.exp(brentq(lambda lm: math.log(tIAM(math.exp(lm),0.010)/tPD(math.exp(lm))), math.log(1e-14), math.log(1e-6)))
     return locals()
 
+@check(label='ch:gravdec:L164', chapter='ch:gravdec', part=4, title='significance of the factor 16 (10 to 40 mK) against constant tau, 20 % precision on each tau',
+       file='part5/p5_05_gravdec', line=164, status='calc', kind='num', printed='9.8', tol=0.0)
+def check_3115():
+    'tau propto T^2 gives tau(40 mK)/tau(10 mK) = (40/10)^2; with 20 % precision on each tau the error of ln of the ratio is sqrt(0.2^2 + 0.2^2), '         'so the separation from a constant tau is ln(ratio)/that error. Book line 164, printed 9.8 sigma.'
+    ratio = (0.040 / 0.010)**2
+    value = math.log(ratio) / math.sqrt(0.2**2 + 0.2**2)
+    return locals()
+
 @check(label='ch:gravdec:L172', chapter='ch:gravdec', part=4, title='mass where tau_IAM = 1 s at 10 mK',
        file='part5/p5_05_gravdec', line=172, status='calc', kind='num', printed='3.5\\times10^{-12}', tol=0)
 def check_2079():
@@ -19490,6 +19654,24 @@ def check_2086():
     def tIAM(m,T): return hbar*(kB*T)**2*LN2/EG(m)**3
     def tPD(m): return hbar/EG(m)
     value=tIAM(1e-12,0.010)/tPD(1e-12)
+    return locals()
+
+@check(label='ch:gravdec:L231', chapter='ch:gravdec', part=4, title='t < 0.5 tau_IAM: the ramp rate is largest at eta = 1/2 (sympy)',
+       file='part5/p5_05_gravdec', line=231, status='conjecture', kind='num', printed='0.5', tol=0.0)
+def check_3116():
+    'The bound t < 0.5 tau_IAM of the first principle is the peak of the ramp rate: d Gamma/d eta = 0 with Gamma = eta^-2 exp(1 - 1/eta), solved with sympy. '         'Book line 231, printed 0.5.'
+    e = sp.symbols('eta', positive=True)
+    value = float(sp.solve(sp.diff(e**-2 * sp.exp(1 - 1 / e), e), e)[0])
+    return locals()
+
+@check(label='ch:gravdec:L248', chapter='ch:gravdec', part=4, title='age of the universe, flat LCDM with Planck 2018 parameters, Gyr',
+       file='part5/p5_05_gravdec', line=248, status='conjecture', kind='num', printed='13.8', tol=0.0)
+def check_3117():
+    'Cosmic time t0 = int_0^1 da/(a H(a)) for flat LambdaCDM with radiation. Book line 248, printed 13.8 Gyr. Inputs: Planck 2018 VI Table 2 '         '(Aghanim et al. 2020, doi:10.1051/0004-6361/201833910) H0 = 67.36, Omega_m = 0.3153; Omega_r from T_CMB = 2.7255 K and N_eff = 3.046.'
+    H0 = 100 * h_pl
+    Or = 2.4728e-5 * (1 + 0.2271 * 3.046) / h_pl**2
+    Hf = lambda a: Hsi(H0) * math.sqrt(Om * a**-3 + Or * a**-4 + (1 - Om - Or))
+    value = quad(lambda a: 1 / (a * Hf(a)), 1e-12, 1, limit=200)[0] / Gyr
     return locals()
 
 
@@ -28172,43 +28354,26 @@ INVENTORY = [
     (4, 'ch:measurement', 'part5/p5_04_measurement', 169, '', 'calc', '0.1', 'input: Q = 0.1 eV dissipated in the which-path interaction of the temperature test'),
     (4, 'ch:measurement', 'part5/p5_04_measurement', 175, '', 'conjecture', '0.1', 'input: Q = 0.1 eV of panel b'),
     (4, 'ch:measurement', 'part5/p5_04_measurement', 224, '', 'interp', '10', 'measured, source not named: about 10^11 galaxies, an order-of-magnitude count stated without a citation'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 33, '', 'measured', '+0.54', 'measured, too few printed digits to match against the named files'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 39, '', 'measured', '0.0068', 'measured, too few printed digits to match against the named files'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 53, 'eq:gd_dp', 'none', '', 'displayed equation, not yet checked'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 63, 'eq:gd_bitrate', 'conjecture', '', 'displayed equation, not yet checked'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 69, 'eq:tauIAM', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 76, 'eq:gd_ramp', 'conjecture', '', 'displayed equation, not yet checked'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 83, '', 'prediction', '10', 'not yet checked'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 83, '', 'prediction', '2200', 'not yet checked'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 83, '', 'prediction', '4.8', 'not yet checked'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 83, '', 'prediction', '1.4\\times10^{-29}', 'not yet checked'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 83, '', 'prediction', '7.5', 'not yet checked'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 85, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 93, '', 'prediction', '2200', 'not yet checked'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 93, '', 'prediction', '2.2\\times10^{-10}', 'not yet checked'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 97, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 98, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 100, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 119, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 119, '', 'calc', '2.8', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 120, '', 'calc', '0.8\\times10^{-12}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 121, '', 'openprob', '1.9\\times10^{-24}', 'not yet checked'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 130, 'eq:gd_gamma', 'none', '', 'displayed equation, not yet checked'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 134, 'eq:gd_lindblad', 'conjecture', '', 'displayed equation, not yet checked'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 147, '', 'calc', '0.5', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 149, '', 'calc', '0.5', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 157, '', 'calc', '50', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 159, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 164, '', 'calc', '9.8', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 165, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 168, '', 'prediction', '10', 'not yet checked'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 172, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 207, '', 'calc', '300', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 211, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 211, '', 'calc', '2200', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 214, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 231, '', 'conjecture', '0.5', 'not yet checked'),
-    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 248, '', 'conjecture', '13.8', 'not yet checked'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 53, 'eq:gd_dp', 'none', '', 'definition: the Diosi-Penrose proposal tau_DP = hbar/E_G with E_G = G m^2/R up to an order-one factor (published form, no coefficient to recompute); its numbers are checked at ch:gravdec:L83:7.5 and L83:1.4e-29'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 63, 'eq:gd_bitrate', 'conjecture', '', 'definition: assumed bit rate E_G^2/(hbar k_B T ln 2) (conjecture, taken as given in the text); its consequence tau_IAM is checked at eq:tauIAM'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 83, '', 'prediction', '10', 'input: 10 mK bath temperature of the caption'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 83, '', 'prediction', '2200', 'input: silica density 2200 kg/m^3 (caption)'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 85, '', 'calc', '10', 'input: 10^-12 kg nanosphere at 10 mK (worked example; tau_IAM = 509 s checked at ch:gravdec:L85)'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 93, '', 'prediction', '2200', 'input: silica density 2200 kg/m^3 (caption)'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 97, '', 'calc', '10', 'input: masses 10^-15 kg and temperature 10 mK at which tau_IAM is quoted (the times are checked at ch:gravdec:L97 and L85)'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 98, '', 'calc', '10', 'input: masses 10^-12 and 10^-10 kg at which tau_IAM is quoted (times checked at ch:gravdec:L98)'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 100, '', 'calc', '10', 'restates the testable mass range 10^-12-10^-11 kg bounded by ch:gravdec:L98:3.5e-12 (1 s) and ch:gravdec:L99 (1.4e-11 kg, 1 ms)'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 119, '', 'calc', '10', 'input: 10^-12 kg sphere at 10 mK for which the heating numbers are computed (checked at ch:gravdec:L119 and ch:gravdec:L119:2.8)'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 149, '', 'calc', '0.5', 'input: eta = 0.5 at which the two purities are compared (purities checked at ch:gravdec:L149)'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 157, '', 'calc', '50', 'input: N = 50 time points of the proposed experiment'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 159, '', 'calc', '10', 'input: 10^-12 kg (509 s) named as the lower mass of the profile test (509 s checked at ch:gravdec:L85)'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 165, '', 'calc', '10', 'restates the measurable mass range 10^-12-10^-11 kg at 10 mK (bounds checked at ch:gravdec:L98:3.5e-12 and ch:gravdec:L99)'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 168, '', 'prediction', '10', 'input: 10^-12 kg (a nanogram) near which the heating rate passes 1 phonon/s (the crossing mass is checked at ch:gravdec:L120)'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 172, '', 'calc', '10', 'input: 10^-19 kg, the mass of present nanoparticle quantum control (cited Rossi2025, Neumeier2024)'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 207, '', 'calc', '300', 'input: T = 300 K of the cat example'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 211, '', 'calc', '10', 'input: 10^-12 kg mass of the nanosphere example'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 211, '', 'calc', '2200', 'input: silica density 2200 kg/m^3'),
+    (4, 'ch:gravdec', 'part5/p5_05_gravdec', 214, '', 'calc', '10', 'input: 10^-12 kg mass of the nanosphere example (the ratio 7e7 is checked at ch:gravdec:L214)'),
     (4, 'ch:nonlocal', 'part5/p5_06_nonlocality', 20, '', 'conjecture', '0.414', 'not yet checked'),
     (4, 'ch:nonlocal', 'part5/p5_06_nonlocality', 20, '', 'conjecture', '1.87', 'not yet checked'),
     (4, 'ch:nonlocal', 'part5/p5_06_nonlocality', 41, '', 'observed', '1.3', 'measured, source not named'),
