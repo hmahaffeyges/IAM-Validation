@@ -54,7 +54,7 @@
   "ch:iams_law|eq:law_eta": {
    "entry": 19,
    "chapter": "\\derived{}",
-   "sheet": "\\calc{} (as labelled in the chapter)",
+   "sheet": "\\calc{} (as labeled in the chapter)",
    "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
   },
   "ch:iams_law|eq:law_F2": {
@@ -234,7 +234,7 @@
   "ch:theory|eq:th:mudef": {
    "entry": 137,
    "chapter": "\\derived{}",
-   "sheet": "definition ($\\mu$--$\\Sigma$ parametrisation)",
+   "sheet": "definition ($\\mu$--$\\Sigma$ parametrization)",
    "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
   },
   "ch:theory|eq:th:growth": {
@@ -252,7 +252,7 @@
   "ch:dual|body:-dE=T_H\\,d\\!\\left(S_{\\mathrm{geo}}+S_{\\mathrm{info}}\\right).": {
    "entry": 188,
    "chapter": "\\conjecture{}",
-   "sheet": "\\conjecture{} (as labelled)",
+   "sheet": "\\conjecture{} (as labeled)",
    "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
   },
   "ch:dual|part2:eq:Ea_chains": {
@@ -264,7 +264,7 @@
   "ch:dual|part2:eq:mu": {
    "entry": 190,
    "chapter": "\\derived{}",
-   "sheet": "\\derived{} (as labelled; given Eq.~\\eqref{eq:Hm}, a \\conjecture)",
+   "sheet": "\\derived{} (as labeled; given Eq.~\\eqref{eq:Hm}, a \\conjecture)",
    "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
   },
   "ch:latetime|eq:lt_mu": {
@@ -276,7 +276,7 @@
   "ch:latetime|eq:lt_poisson": {
    "entry": 196,
    "chapter": "no status label attached in the chapter",
-   "sheet": "definition ($\\mu$--$\\Sigma$ parametrisation)",
+   "sheet": "definition ($\\mu$--$\\Sigma$ parametrization)",
    "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
   },
   "ch:latetime|eq:lt_mgcamb": {
@@ -360,7 +360,7 @@
   "ch:surveys|eq:sp_mu": {
    "entry": 310,
    "chapter": "\\prediction{}",
-   "sheet": "\\prediction{} (as labelled in the chapter's status table; $\\beta_m=\\Omega_m/2$ fixed)",
+   "sheet": "\\prediction{} (as labeled in the chapter's status table; $\\beta_m=\\Omega_m/2$ fixed)",
    "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
   },
   "ch:surveys|eq:sp_siren": {
@@ -450,7 +450,7 @@
   "ch:measurement|eq:mp_QL": {
    "entry": 425,
    "chapter": "\\calc{}",
-   "sheet": "\\conjecture{} (as labelled); see Bennett's erasure result (\\openprob)",
+   "sheet": "\\conjecture{} (as labeled); see Bennett's erasure result (\\openprob)",
    "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
   },
   "ch:measurement|eq:F": {
@@ -492,7 +492,7 @@
   "ch:electroweak|body:V(r)=-\\frac43\\frac{\\alpha_s}{r}+\\sigmar,\\qquad\\sigma\\approx0.18\\{\\rmGeV}^2=0.91\\{\\rmGeV\\,fm}^{-1}.": {
    "entry": 438,
    "chapter": "\\calc{}",
-   "sheet": "\\calc{} (as labelled; the Cornell form is a published phenomenological potential)",
+   "sheet": "\\calc{} (as labeled; the Cornell form is a published phenomenological potential)",
    "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
   },
   "ch:koide|eq:ko:Q": {
@@ -750,7 +750,7 @@
   "ch:theoryinterp|body:M_{\\rmeq}=\\frac{c^3}{4GH}\\approx2.3\\times10^{22}M_\\odot\\quad(H_0=67.16),": {
    "entry": 526,
    "chapter": "\\calc{}",
-   "sheet": "\\calc{} (as labelled)",
+   "sheet": "\\calc{} (as labeled)",
    "why": "status wording of the sheet (earlier selection or later hand edit), more specific than the chapter's label"
   },
   "ch:onegauge|body:H(\\beta)=H(\\varepsilon),\\qquadH(x)=-x\\log_2x-(1-x)\\log_2(1-x).": {
@@ -825,7 +825,7 @@
   },
   "ch:iams_law|eq:Ea": {
    "entry": 30,
-   "sheet": "The activation function $E(a)$, normalised to $E(1)=1$."
+   "sheet": "The activation function $E(a)$, normalized to $E(1)=1$."
   },
   "ch:iams_law|eq:law_action": {
    "entry": 32,
@@ -965,7 +965,7 @@
   },
   "ch:dual|part2:eq:Ea_chains": {
    "entry": 189,
-   "sheet": "The activation function as the solution of the record-density law, normalised to one today."
+   "sheet": "The activation function as the solution of the record-density law, normalized to one today."
   },
   "ch:dual|part2:eq:mu": {
    "entry": 190,
@@ -981,7 +981,7 @@
   },
   "ch:latetime|eq:lt_mgcamb": {
    "entry": 197,
-   "sheet": "The DES parametrisation implemented in MGCAMB; the runs set $\\mu_0=-0.13495$, $\\Sigma_0=0$."
+   "sheet": "The DES parametrization implemented in MGCAMB; the runs set $\\mu_0=-0.13495$, $\\Sigma_0=0$."
   },
   "ch:level2|eq:l2_friedmann": {
    "entry": 198,
@@ -1153,15 +1153,15 @@
   },
   "ch:scprimer|body:\\xqp^{\\mathrm{th}}(T)=\\sqrt{\\frac{2\\pi\\kBT}{\\Delta}}\\,e^{-\\Delta/\\kBT}": {
    "entry": 471,
-   "sheet": "Thermal-equilibrium quasiparticle density in a BCS superconductor at $T\\ll T_c$, normalised per Cooper pair near the gap."
+   "sheet": "Thermal-equilibrium quasiparticle density in a BCS superconductor at $T\\ll T_c$, normalized per Cooper pair near the gap."
   },
   "ch:scprimer|eq:catelani": {
    "entry": 472,
-   "sheet": "Qubit relaxation rate from quasiparticle tunnelling across the junction (Catelani et al.\\ 2011)."
+   "sheet": "Qubit relaxation rate from quasiparticle tunneling across the junction (Catelani et al.\\ 2011)."
   },
   "ch:xqp|body:x_{\\rmqp}=n_{\\rmqp}/n_{\\rmcp}\\sim10^{-8}\\text{--}10^{-6},\\qquadn_{\\rmcp}=2\\nu_0\\Delta\\approx4\\times10^6\\,\\mu{\\rmm}^{-3},": {
    "entry": 473,
-   "sheet": "Quasiparticle density in the field's normalisation; $n_{\\rm cp}=2\\nu_0\\Delta$ counts pairs within $\\Delta$ of the Fermi surface. Defines $x_{\\rm qp}$."
+   "sheet": "Quasiparticle density in the field's normalization; $n_{\\rm cp}=2\\nu_0\\Delta$ counts pairs within $\\Delta$ of the Fermi surface. Defines $x_{\\rm qp}$."
   },
   "ch:xqp|eq:xqp": {
    "entry": 474,
