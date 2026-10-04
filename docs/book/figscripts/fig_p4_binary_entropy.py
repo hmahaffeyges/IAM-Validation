@@ -1,4 +1,4 @@
-"""part4/fig_binary_entropy (Chapter 'The methylome as an encoding surface', Figure fig:binent).
+"""part6/fig_binary_entropy (Chapter 'The methylome as an encoding surface', Figure fig:binent).
 
 H(beta) = -beta log2 beta - (1-beta) log2(1-beta) (the chapter's Eq. eq:H). A site held near 0 or 1 carries little entropy; a coin flip
 carries one bit. H is symmetric, so a site held unmethylated and a site held methylated reach the same entropy (the two channels):
@@ -29,4 +29,4 @@ ax.text(0.84, 0.10, "held methylated:\nlosing methylation raises $H$", fontsize=
 ax.set_xlim(-0.02, 1.02); ax.set_ylim(0, 1.12)
 ax.set_xlabel(r"methylation fraction $\beta$ at a site"); ax.set_ylabel(r"entropy $H(\beta)$ (bits)")
 ax.set_title("A site held near 0 or 1 carries little entropy; a coin flip carries one bit")
-S.save(fig, "part4", "fig_binary_entropy")
+S.save(fig, "part6", "fig_binary_entropy")

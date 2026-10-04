@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Figures for Part 2 'Records at the quantum scale' (p2_14) and Part 5 'Duration ...' (p5_03) and 'Measurement ...' (p5_04).
 Numbers: docs/verification/scripts/verify_records_measurement_time.py (same equations).
-Outputs: figures/part2/fig_qd_local_cosmic, fig_qd_exponent, fig_qd_mu; figures/part5/fig_time_two_faces, fig_mp_record, fig_mp_tau_systems.
+Outputs: figures/part4/fig_qd_local_cosmic, fig_qd_exponent, fig_qd_mu; figures/part7/fig_time_two_faces, fig_mp_record, fig_mp_tau_systems.
 """
 import sys
 from pathlib import Path
@@ -46,7 +46,7 @@ for y in (0.76, 0.56, 0.36):
 for y in (0.815, 0.615, 0.415, 0.215):
     arrow(ax, 0.405, y, 0.555, y, bs.LIGHT)
 ax.text(0.48, 0.05, "the virial half sets how much bound energy writes ($\\beta_m=\\Omega_m/2$)", ha="center", fontsize=6.5, color=bs.GR)
-bs.save(fig, "part2", "fig_qd_local_cosmic")
+bs.save(fig, "part4", "fig_qd_local_cosmic")
 
 # QD Fig. 3, quantitative: the exponent from both directions
 def grow():
@@ -76,7 +76,7 @@ for v, lab in ((np.sqrt(4.5), "7/2 at $\\nu=2.12$"), (np.sqrt(3.5), "5/2 at $\\n
     a2.plot([v], [v**2 - 1], "o", ms=3.5, color=bs.DATA); a2.annotate(lab, (v, v**2 - 1), xytext=(-62, 8), textcoords="offset points", fontsize=6.5)
 a2.set_xlabel("peak height $\\nu=\\delta_c/\\sigma(M_{\\min})D$"); a2.set_ylabel("$n_{\\rm eff}$, one record per particle")
 bs.panel_letter(a2, "b")
-fig.tight_layout(); bs.save(fig, "part2", "fig_qd_exponent")
+fig.tight_layout(); bs.save(fig, "part4", "fig_qd_exponent")
 
 # QD Fig. 4: mu(z), 1-mu and the f sigma8 deficit
 z = np.linspace(0, 3.5, 300); a = 1 / (1 + z)
@@ -92,7 +92,7 @@ for zz in (0, 0.3, 0.5, 1.0):
     aa = 1 / (1 + zz); v = 100 * (1 - f(IAM, aa) * D(IAM, aa) / (f(LCDM, aa) * D(LCDM, aa)))
     b2.plot([zz], [v], "o", ms=3, color=bs.DATA)
 b2.set_xlabel("redshift $z$"); b2.set_ylabel("per cent"); b2.legend(loc="upper right"); bs.panel_letter(b2, "b")
-fig.tight_layout(); bs.save(fig, "part2", "fig_qd_mu")
+fig.tight_layout(); bs.save(fig, "part4", "fig_qd_mu")
 
 # Two Faces Fig. 1
 fig, ax = plt.subplots(1, 3, figsize=(bs.TEXTW, 2.3))
@@ -110,7 +110,7 @@ ax[2].axhline(np.e, color=bs.LIGHT, lw=0.8); ax[2].text(0.05, np.e + 0.06, "asym
 ax[2].axvline(1, color=bs.LIGHT, lw=0.8); ax[2].text(1.03, 0.1, "today", fontsize=6.3, color=bs.GR)
 ax[2].set_ylim(-0.1, 3.2); ax[2].legend(loc="upper left", bbox_to_anchor=(0.0, 0.82))
 ax[2].set_xlabel("scale factor $a$"); ax[2].set_ylabel("accumulated record"); ax[2].set_title("accumulated record", fontsize=7); bs.panel_letter(ax[2], "c")
-fig.tight_layout(); bs.save(fig, "part5", "fig_time_two_faces")
+fig.tight_layout(); bs.save(fig, "part7", "fig_time_two_faces")
 
 # Measurement Figs. 1-2
 fig, (m1, m2) = plt.subplots(1, 2, figsize=(bs.TEXTW, 2.6), gridspec_kw={"width_ratios": [1.15, 1]})
@@ -128,7 +128,7 @@ m2.plot([t_det], [5], "o", ms=4, color=bs.IAM); m2.annotate(f"absorbed: record w
 m2.set_xlim(0, 19); m2.set_ylim(0, 5.9)
 m2.set_xlabel("time since emission (ns)"); m2.set_ylabel("distance along apparatus (m)"); m2.legend(loc="upper left")
 bs.panel_letter(m2, "b")
-fig.tight_layout(); bs.save(fig, "part5", "fig_mp_record")
+fig.tight_layout(); bs.save(fig, "part4", "fig_mp_record")
 
 # Measurement Fig. 5 / Table 1
 hb, G, kB = C.hbar, C.G, C.k
@@ -147,4 +147,4 @@ for (name, mm, rr), t in zip(rows, tI):
     off = (-14, -9) if name == "cat" else (3, 3)
     axx.annotate(name, (mm, t), xytext=off, textcoords="offset points", fontsize=5.8)
 axx.set_xlabel("mass (kg)"); axx.set_ylabel("time (s)"); axx.legend(loc="upper right", fontsize=6)
-bs.save(fig, "part5", "fig_mp_tau_systems")
+bs.save(fig, "part4", "fig_mp_tau_systems")

@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 
 S.apply()
 REPO, BOOK = S.REPO, S.BOOK
-TAB = BOOK / "tables" / "part5"; TAB.mkdir(parents=True, exist_ok=True)
+TAB = BOOK / "tables" / "part7"; TAB.mkdir(parents=True, exist_ok=True)
 c, G, hbar, k = C.c, C.G, C.hbar, C.k
 Msun, Mpc, ly, yr = 1.98847e30, 3.0857e22, 9.4607e15, 3.15576e7
 CANON = json.load(open(REPO / "CANON" / "iam_canon.json"))["constants"]
@@ -72,7 +72,7 @@ Mm = np.logspace(0, 11, 100) * Msun
 a2.plot(Mm / Msun, Gam(Mm), color=S.GR); a2.set_xscale("log"); a2.set_yscale("log")
 a2.set_xlabel(r"mass (M$_\odot$)"); a2.set_ylabel("Hawking emission (bits s$^{-1}$)")
 a2.set_title(r"$\Gamma=c^3/(1920\,GM\ln2)$"); S.panel_letter(a2, "b")
-fig.tight_layout(); S.save(fig, "part5", "fig_two_surfaces")
+fig.tight_layout(); S.save(fig, "part7", "fig_two_surfaces")
 rows = []
 for m in (1, 1e3, 1e6, 1e9, 7e10, Meq / Msun):
     MM = m * Msun
@@ -103,7 +103,7 @@ for LL in (10, 100):
     a2.annotate(f"{LL} m: {S.sci(v, 2)} g", (LL, v), xytext=(6, -8), textcoords="offset points", fontsize=6)
 a2.set_xlabel("length of the body $L$ (m)"); a2.set_ylabel(r"tidal residual $2GML/r^3$ in units of $g$")
 a2.set_title("What a body in free fall feels at Earth's surface"); S.panel_letter(a2, "b")
-fig.tight_layout(); S.save(fig, "part5", "fig_transit")
+fig.tight_layout(); S.save(fig, "part7", "fig_transit")
 
 # ===================== p5_03: satellites =====================
 sat = pd.read_csv(REPO / "docs/verification/observations/data/lvdb_dwarf_mw.csv")
@@ -126,7 +126,7 @@ s2 = sat[sat.name == "Segue 2"].iloc[0]
 a1.annotate("Segue 2", (s2.distance_gc, s2.vlos_sigma_ul), xytext=(-30, -10), textcoords="offset points", fontsize=6)
 a1.set_title("Dispersion against Galactocentric distance"); a2.set_title("Dispersion against stellar mass")
 S.panel_letter(a1, "a"); S.panel_letter(a2, "b", dx=-0.06)
-fig.tight_layout(); S.save(fig, "part5", "fig_satellite_context")
+fig.tight_layout(); S.save(fig, "part7", "fig_satellite_context")
 br = [(r["name"], (f"$<{r.sig:.2f}$" if r.lim else f"{r.sig:.2f}"), f"{r.distance_gc:.0f}") for _, r in below.iterrows()]
 half = (len(br) + 1) // 2
 rows = [(*br[i], *(br[i + half] if i + half < len(br) else ("", "", ""))) for i in range(half)]
@@ -154,11 +154,11 @@ for T_ in (0.010, 4.0, 300.0):
     print(f"F(Q=0.1 eV, T={T_} K) = {v:.4f}")
 a2.set_xscale("log"); a2.set_xlabel("detector temperature $T_D$ (K)"); a2.set_ylabel("$F$ at $Q=0.1$ eV")
 a2.set_title("One marker, three temperatures"); S.panel_letter(a2, "b")
-fig.tight_layout(); S.save(fig, "part5", "fig_eraser_temperature")
+fig.tight_layout(); S.save(fig, "part4", "fig_eraser_temperature")
 rows = [(f"$Q_L$ at {T_:g}~K", f"{num(QL(T_))}~eV", "", "") for T_ in Ts] + ["\\midrule\n"]
 for nm, Qv in (("CCD pixel", 3.0), ("retinal rod", 2.5), ("crossover $Q=Q_L$", QL(300)), ("reversible marker, $Q/Q_L=0.04$", 0.04 * QL(300))):
     r = Qv / QL(300); rows.append((nm, f"{num(Qv)}~eV", f"{r:.3g}", f"{F(Qv, 300):.3g}" if F(Qv, 300) < 0.999 else f"$1-{sci_tex(np.exp(-1/r),2).strip('$')}$"))
-table(TAB / "tab_eraser.tex",
+table(BOOK / "tables" / "part4" / "tab_eraser.tex",
       "Top: the threshold $Q_L=k_BT_D\\ln2$ at four detector temperatures. Bottom: the chapter's examples at 300~K, with $Q/Q_L$ and the "
       "erasure fidelity of Eq.~\\eqref{eq:F}. The criterion is \\conjecture; the fidelity form is assumed.", "tab:eraser", "@{}lccc@{}",
       "case & $Q$ & $Q/Q_L$ & $F$", rows)
@@ -182,7 +182,7 @@ for T_, ls in ((0.010, "-"), (0.020, "--"), (0.040, ":")):
 ax.plot(1e-12, tIAM(EG(1e-12), 0.01), "s", color=S.DATA, ms=4); ax.plot(1e-12, tDP(EG(1e-12)), "s", color=S.DATA, ms=4)
 ax.set_xscale("log"); ax.set_yscale("log"); ax.set_ylim(1e-12, 1e25); ax.set_xlabel("mass of a silica sphere (kg)")
 ax.set_ylabel("coherence time (s)"); ax.legend(loc="upper right", fontsize=5.8); ax.set_title("Two laws, two mass exponents")
-fig.tight_layout(); S.save(fig, "part5", "fig_mass_scaling")
+fig.tight_layout(); S.save(fig, "part7", "fig_mass_scaling")
 rows = []
 Ecat = 7.1e-9                                         # p5_05 line 61
 rows.append(("4~kg (the cat)", "0.15~m (implied)", sci_tex(Ecat, 2), "300~K", sci_tex(tIAM(Ecat, 300), 2), sci_tex(tDP(Ecat), 2)))
@@ -218,14 +218,14 @@ for n, col, ls in ((2.5, S.DATA, "--"), (3.5, S.IAM, ":")):
     al, be = fits[n]; a2.plot(a, np.exp(al - be / a), color=col, ls=ls, label=f"$n$ = {n:g}: $e^{{{al}-{be}/a}}$")
 a2.set_yscale("log"); a2.set_xlabel("scale factor $a$"); a2.set_ylabel("accumulated record, normalised")
 a2.legend(loc="lower right", fontsize=6); a2.set_title("5/2 does not reproduce the activation"); S.panel_letter(a2, "b")
-fig.tight_layout(); S.save(fig, "part5", "fig_exponent_fit")
+fig.tight_layout(); S.save(fig, "part4", "fig_exponent_fit")
 rows = []
 cstar = np.sqrt(2) - 1; tstar = 1 / np.log(1 / (1 - cstar))
 for x in sorted((0.5, 1.0, 1.5, tstar, 2.0, 3.0, 5.0, 10.0)):
     D = np.exp(-1 / x); cc = 1 - D
     rows.append((f"{x:.2f}", f"{D:.3f}", f"{cc:.3f}", f"{2*np.sqrt(1+cc**2):.3f}", f"{np.sqrt(2)*(1+cc):.3f}"))
 print(f"S_fixed = 2 at c = {cstar:.4f}, t/tau = {tstar:.3f}")
-table(TAB / "tab_chsh.tex",
+table(BOOK / "tables" / "part4" / "tab_chsh.tex",
       "CHSH values for an entangled massive pair under pointer-basis dephasing with the assumed ramp, $D=E_q(t/\\tau_{\\rm IAM})/e="
       "e^{-\\tau_{\\rm IAM}/t}$, $c=1-D$: the largest value $2\\sqrt{1+c^2}$ \\derived, and the value at the settings optimal for the "
       "undecohered pair, $\\sqrt2(1+c)$, which reaches 2 at $t/\\tau_{\\rm IAM}=" + f"{tstar:.2f}" + "$. Entangled photons stay at $2\\sqrt2=2.828$. "
@@ -259,7 +259,7 @@ for z0 in (0.3, 0.5):
 a2.plot(0, Dd[0], "s", color=S.ALT, ms=3.5); a2.annotate(f"{Dd[0]:.2f} %", (0, Dd[0]), xytext=(5, -9), textcoords="offset points", fontsize=6)
 a2.set_xlabel("redshift $z$"); a2.set_ylabel("difference from $\\Lambda$CDM (%)"); a2.legend(loc="upper right", fontsize=6)
 a2.set_title(r"Growth falls, lensing ($\Sigma=1$) does not"); S.panel_letter(a2, "b")
-fig.tight_layout(); S.save(fig, "part5", "fig_cosmo_tests")
+fig.tight_layout(); S.save(fig, "part7", "fig_cosmo_tests")
 
 # ===================== p5_08: the half that recurs =====================
 fig, ax = plt.subplots(1, 3, figsize=(S.TEXTW, 2.3))
@@ -286,7 +286,7 @@ ax[2].set_xlabel("orbital eccentricity"); ax[2].set_ylabel(r"$\langle K\rangle/|
 print(f"RC fraction {min(frac):.6f}-{max(frac):.6f}; Smarr {ratio.min():.6f}-{ratio.max():.6f}; virial {min(vr):.5f}-{max(vr):.5f}")
 for i, a in enumerate(ax):
     a.axhline(0.5, color=S.LIGHT, lw=0.8, ls="--", zorder=0); S.panel_letter(a, "abc"[i], dx=-0.28)
-fig.tight_layout(w_pad=0.8); S.save(fig, "part5", "fig_one_half")
+fig.tight_layout(w_pad=0.8); S.save(fig, "part7", "fig_one_half")
 
 # p5_08 cell-readings figure retired 2026-10-04 (development readings; author ruling)
 
@@ -323,7 +323,7 @@ for f, t_ in txt.items():
         cnt[file_part[f]][mm] += len(re.findall(r"\\" + mm + r"(?![A-Za-z])", t_))
 
 # p5_09 open items
-p509 = txt["part5/p5_09_open"]
+p509 = txt["part7/p7_09_open"]
 groups = {}
 for sec, body in re.findall(r"\\section\{([^}]*)\}\s*\{\\small\\begin\{longtable\}(.*?)\\end\{longtable\}", p509, re.S):
     items = []
@@ -358,7 +358,7 @@ for p, v in origin.items():
     a2.text(p, v + 0.2, str(v), ha="center", fontsize=6)
 a2.set_xticks(list(origin)); a2.set_xticklabels([ROMAN[p] for p in origin], fontsize=6.5); a2.set_xlabel("part of the book"); a2.set_ylabel("items citing a chapter there")
 a2.set_title("Where the open items arise"); S.panel_letter(a2, "b", dx=-0.16)
-fig.tight_layout(); S.save(fig, "part5", "fig_open_items")
+fig.tight_layout(); S.save(fig, "part7", "fig_open_items")
 print("origin by part", origin)
 
 # open problems per chapter, book-wide
@@ -374,7 +374,7 @@ for p, i0 in starts.items():
     ax.text(i0, max(v for _, v in op) * (1.06 if p % 2 else 0.95), f"Part {ROMAN[p]}", fontsize=6.5, color=colp[p])
 ax.set_ylim(0, max(v for _, v in op) * 1.2); ax.set_xticks([]); ax.set_xlabel("chapters in book order"); ax.set_ylabel(r"open problems labelled")
 ax.set_title(f"{sum(v for _, v in op)} open-problem labels across {len(op)} chapters")
-fig.tight_layout(); S.save(fig, "part5", "fig_open_map")
+fig.tight_layout(); S.save(fig, "part7", "fig_open_map")
 
 # p5_10: the status summary of the whole book
 fig, ax = plt.subplots(figsize=(S.TEXTW, 3.1))
@@ -392,6 +392,6 @@ for i, p in enumerate(parts):
 ax.set_yticks(range(len(parts))); ax.set_yticklabels([f"Part {ROMAN[p]}" for p in parts]); ax.invert_yaxis()
 ax.set_xlabel("status labels in the text"); ax.legend(ncol=6, fontsize=5.8, loc="upper center", bbox_to_anchor=(0.5, -0.25))
 ax.set_title("What the book claims, and with what standing")
-fig.tight_layout(); S.save(fig, "part5", "fig_status_summary")
-json.dump({str(p): cnt[p] for p in cnt}, open(BOOK / "figures" / "part5" / "status_counts.json", "w"), indent=1)
+fig.tight_layout(); S.save(fig, "part7", "fig_status_summary")
+json.dump({str(p): cnt[p] for p in cnt}, open(BOOK / "figures" / "part7" / "status_counts.json", "w"), indent=1)
 print("status counts", {p: sum(cnt[p].values()) for p in cnt})

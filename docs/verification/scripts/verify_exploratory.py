@@ -1,4 +1,4 @@
-"""Checks for Part 5, Chapter 'Exploratory: what the law permits for gravitational engineering' (part5/p5_02_exploratory.tex).
+"""Checks for Part 5, Chapter 'Exploratory: what the law permits for gravitational engineering' (part7/p7_02_exploratory.tex).
 Every number and algebraic step printed in the chapter is recomputed here. Run: python docs/verification/scripts/verify_exploratory.py
 Sections follow the chapter: premise, free fall, tides, hover sign, orientation, recession, displaced region, transit, steering geometry,
 weight test."""

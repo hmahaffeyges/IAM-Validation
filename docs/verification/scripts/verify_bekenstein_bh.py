@@ -1,7 +1,7 @@
 """verify_bekenstein_bh.py -- checks for the black-hole chapters of Part 2 and Part 5.
 
-Chapters: docs/book/part2/p2_01_blackholes.tex (ch:blackholes), docs/book/part2/p2_01a_bekenstein.tex (ch:bekenstein),
-docs/book/part5/p5_01b_bh_information.tex (ch:bhinformation).
+Chapters: docs/book/part3/p3_01_blackholes.tex (ch:blackholes), docs/book/part3/p3_01a_bekenstein.tex (ch:bekenstein),
+docs/book/part3/p3_01b_bh_information.tex (ch:bhinformation).
 Sources read in full (2026-10-02): Bekenstein_coefficient (596 PDF lines), IAM_BH_Thermodynamics (431), IAM_Black_Hole_Information_Paradox (453).
 Corrections applied: PAPER_ERRATA B1, B2, B4, B6, B7, B8, V17, V20; BLACK_HOLES_CHECK #3, #4, #6, #8-#11.
 

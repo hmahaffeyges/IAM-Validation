@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Numbers for book chapters p2_15a_lepton_koide.tex, p2_15b_electron_mass.tex and p2_22b_higgs_record.tex.
+"""Numbers for book chapters p4_15a_lepton_koide.tex, p4_15b_electron_mass.tex and p4_22b_higgs_record.tex.
 Inputs: PDG 2024 (Navas et al., Phys. Rev. D 110, 030001) lepton and boson masses; CODATA via scipy.constants;
 Planck 2018 (TT,TE,EE+lowE+lensing) cosmology; book sector values H0 = 67.16 (photon sector), 72.26 (matter sector).
 Run: python docs/verification/scripts/verify_particle_book.py > docs/verification/scripts/verify_particle_book_output.txt"""

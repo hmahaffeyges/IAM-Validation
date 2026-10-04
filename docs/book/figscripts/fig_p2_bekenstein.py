@@ -1,4 +1,4 @@
-"""Part 2, Chapters 'Black-hole horizons' (p2_01_blackholes.tex) and 'The horizon coefficient' (p2_01a_bekenstein.tex).
+"""Part 2, Chapters 'Black-hole horizons' (p3_01_blackholes.tex) and 'The horizon coefficient' (p3_01a_bekenstein.tex).
 fig_bh_transfer: (a) entropy carried off by black-body evaporation, S_tr/S_0 = 1 - (1 - t/tau)^(2/3), with the entropy left on the horizon
   and the upper envelope min(S_tr, S_BH(t)) that bounds the fine-grained entropy of the radiation (Page); (b) mass, temperature and bit rate.
 fig_rindler_cone: (a) the Euclidean Rindler plane: with theta = kappa tau / c of period 2 pi the tip is smooth; any other period leaves a cone;
@@ -40,7 +40,7 @@ a2.set_xlabel("$t/\\tau_{\\rm evap}$"); a2.set_ylabel("ratio to initial value")
 a2.legend(loc="upper left", fontsize=6.5)
 a2.set_title("Smaller and hotter, it writes faster")
 S.panel_letter(a2, "b", dx=-0.16)
-S.save(fig, "part2", "fig_bh_transfer")
+S.save(fig, "part3", "fig_bh_transfer")
 
 # ---------------- fig_rindler_cone -----------------
 fig, (b1, b2) = plt.subplots(1, 2, figsize=(S.TEXTW, 2.8), gridspec_kw=dict(wspace=0.35, width_ratios=[1, 1.25]))
@@ -86,4 +86,4 @@ b2.legend(loc="upper center", fontsize=6.5, ncol=2, bbox_to_anchor=(0.56, 1.0))
 b2.set_title("The same area at every surface gravity")
 S.panel_letter(b2, "b", dx=-0.12)
 print("dA per nat / l_P^2:", dA_nat, " per bit:", dA_bit)
-S.save(fig, "part2", "fig_rindler_cone")
+S.save(fig, "part3", "fig_rindler_cone")

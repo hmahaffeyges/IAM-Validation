@@ -1,4 +1,4 @@
-"""part4/fig_landauer_temperatures (Chapter 'From the horizon to the nucleus', Figure fig:landauerT).
+"""part6/fig_landauer_temperatures (Chapter 'From the horizon to the nucleus', Figure fig:landauerT).
 
 E_bit = k_B T ln2 at the surfaces of the book: the de Sitter horizon at the Gibbons-Hawking temperature hbar H0/(2 pi k_B) with
 H0 = 67.16 km/s/Mpc (photon sector, Level 2 chain, as the caption states); a one-solar-mass black hole at its Hawking temperature
@@ -36,4 +36,4 @@ for lab, t, off, ha in PTS:
 ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlim(1e-32, 1e5); ax.set_ylim(1e-55, 1e-17); ax.set_yticks([1e-52, 1e-44, 1e-36, 1e-28, 1e-20]); ax.set_xticks([1e-30, 1e-24, 1e-18, 1e-12, 1e-6, 1e0])
 ax.set_xlabel("temperature of the encoding surface (K)"); ax.set_ylabel(r"Landauer cost per bit, $k_BT\ln2$ (J)")
 ax.set_title("One cost per bit; the surface's temperature sets its size")
-S.save(fig, "part4", "fig_landauer_temperatures")
+S.save(fig, "part6", "fig_landauer_temperatures")

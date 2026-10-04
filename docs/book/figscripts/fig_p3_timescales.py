@@ -1,4 +1,4 @@
-"""part3/fig_timescales (Chapter 'The superconducting qubit as an encoding surface', Figure fig:timescales).
+"""part5/fig_timescales (Chapter 'The superconducting qubit as an encoding surface', Figure fig:timescales).
 
 Timescales at an Al/AlOx junction, as the chapter gives them: hbar/Delta_Al = 3.6 ps (Delta_Al = 182 ueV, calculated); the qubit
 period at 5 GHz, 0.2 ns; quasiparticle recombination, tens of ns to ms depending on density; TLS switching, 1-100 us (book working
@@ -37,4 +37,4 @@ ax.set_xlabel("time (s)")
 dec = (np.log10(1e-6 / tphi), np.log10(1e-4 / tphi))
 ax.set_title(f"{dec[0]:.0f} to {dec[1]:.0f} decades from phase restoration to a TLS flip")
 print(f"hbar/Delta = {tphi*1e12:.2f} ps; decades to 1 and 100 us: {dec[0]:.2f}, {dec[1]:.2f}")
-S.save(fig, "part3", "fig_timescales")
+S.save(fig, "part5", "fig_timescales")

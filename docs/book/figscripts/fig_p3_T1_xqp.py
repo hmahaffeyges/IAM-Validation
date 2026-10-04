@@ -1,4 +1,4 @@
-"""part3/fig_T1_xqp (Chapter 'The superconducting qubit as an encoding surface', Figure fig:T1xqp).
+"""part5/fig_T1_xqp (Chapter 'The superconducting qubit as an encoding surface', Figure fig:T1xqp).
 
 Quasiparticle-limited T1 from the chapter's Eq. eq:catelani, Gamma_1 = x_qp (omega_q/pi) sqrt(2 Delta/(hbar omega_q))
 (Catelani et al. 2011, PRB 84, 064517), for Al (Delta = 182 ueV) at the two frequencies of Table tab:T1xqp (4 and 5 GHz).
@@ -36,4 +36,4 @@ ax.set_xlabel(r"quasiparticle density $x_{\rm qp}$"); ax.set_ylabel(r"$T_1^{\rm 
 ax.legend(loc="upper right")
 ax.set_title(f"At $x_{{\\rm qp}}=10^{{-7}}$ a 5 GHz Al transmon is capped near {t5:.2f} ms")
 print(f"T1(1e-7, 5 GHz) = {t5:.3f} ms; 1 ms needs x_qp <= {x1ms:.2e}; T1(1e-7, 4 GHz) = {T1(1e-7, 4e9)*1e3:.3f} ms")
-S.save(fig, "part3", "fig_T1_xqp")
+S.save(fig, "part5", "fig_T1_xqp")

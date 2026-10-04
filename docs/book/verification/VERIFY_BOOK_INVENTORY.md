@@ -23,7 +23,7 @@ This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/
 Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
-## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
+## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -45,7 +45,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 65 |  | calc | `+0.54` | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
 | 65 |  | calc | `+0.54` | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
 
-## Part 0 - ch:giants - `docs/book/part0/p0_giants.tex`
+## Part 0 - ch:giants - `docs/book/front/p0_giants.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -66,7 +66,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 177 | ch:giants:L177 | derived | `0.032` | numeric: Boltzmann floor computed from holding energy input | PASS |
 | 205 |  | prediction |  | not run: statement, no numeric value | - |
 
-## Part 0 - ch:p0_how_to_read - `docs/book/part0/p0_how_to_read.tex`
+## Part 0 - ch:p0_how_to_read - `docs/book/front/p0_how_to_read.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -3170,7 +3170,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 186 | ch:satellites:L186:0.35 | calc | `0.35` | numeric: nu at 1e9 M_sun (status table) | PASS |
 | 188 | ch:satellites:L188 | prediction | `-0.136` | numeric: mu0 (status table) | PASS |
 
-## Part 3 - ch:blackholes - `docs/book/part2/p2_01_blackholes.tex`
+## Part 3 - ch:blackholes - `docs/book/part3/p3_01_blackholes.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -3220,7 +3220,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 136 |  | calc | `0.998` | not run: input: Kerr spin chi = 0.998 at which 0.032 is evaluated (0.032 checked by ch:blackholes:L136:0.032) | - |
 | 136 |  | calc | `<2\times10^{-16}` | not run: a floating-point round-off bound, not a quantity of the equation: the Smarr ratio is exactly 1/2 (checked symbolically at eq:vl_smarr and ch:virial_law:L121); the recomputed max |Delta| = 2.22e-16 is machine epsilon (2^-52), set by the platform arithmetic, so a 5 % change of the printed 2e-16 cannot be told from round-off (see FOR_AUTHOR: the printed bound is below the recomputed value) | - |
 | 139 | eq:bh_smarr | none |  | sympy: Smarr: N k_B T ln2 = T S = Mc^2/2 | PASS |
-| 142 | ch:blackholes:L142 | derived | `0.5000000000` | numeric: same value as p5_11_status_all:27 (Smarr share at 6.5e9 M_sun) | PASS |
+| 142 | ch:blackholes:L142 | derived | `0.5000000000` | numeric: same value as p7_11_status_all:27 (Smarr share at 6.5e9 M_sun) | PASS |
 | 142 | ch:blackholes:L142:4.3\times10^6 | derived | `4.3\times10^6` | numeric: Sgr A* mass (Gillessen 2009) | PASS |
 | 143 | ch:blackholes:L143 | derived | `6.5\times10^9` | numeric: M87* mass (EHT 2019) | PASS |
 | 148 | ch:blackholes:L148 | derived |  | sympy: Kerr T S/(Mc^2) = sqrt(1-chi^2)/2 and its three values (G=c=hbar=k_B=1) | PASS |
@@ -3305,7 +3305,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 372 | ch:blackholes:L372 | prediction | `1.158` | numeric: 1/mu(z=0) = 1 + beta_m | PASS |
 | 393 | ch:blackholes:L393 | none |  | sympy: eta = c^3/(4 hbar G) | PASS |
 
-## Part 3 - ch:bekenstein - `docs/book/part2/p2_01a_bekenstein.tex`
+## Part 3 - ch:bekenstein - `docs/book/part3/p3_01a_bekenstein.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -3352,7 +3352,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 338 | ch:bekenstein:L338:7.24\times10^{-70} | calc | `7.24\times10^{-70}` | numeric: one bit = 4 ln2 l_P^2 in m^2 | PASS |
 | 345 | eq:bk_structure | none |  | sympy: hbar eta/2 pi = c^3/8 pi G has the single solution eta = 1/(4 l_P^2) | PASS |
 
-## Part 3 - ch:bhinformation - `docs/book/part5/p5_01b_bh_information.tex`
+## Part 3 - ch:bhinformation - `docs/book/part3/p3_01b_bh_information.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -3384,7 +3384,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 66 |  | derived | `1.05` | not run: definition: upper edge 1.05 of the shaded Normal band of the gauge (a chosen band, nothing to recompute) | - |
 | 71 | ch:saturation:L71 | measured | `3.41` | file `CANON/iam_canon.json`: E_hold from the canon record | PASS |
 
-## Part 4 - ch:quantumrecords - `docs/book/part2/p2_14_quantum_records.tex`
+## Part 4 - ch:quantumrecords - `docs/book/part4/p4_14_quantum_records.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -3475,7 +3475,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 373 | ch:quantumrecords:L373:72.26 | prediction | `72.26` | numeric: H0 matter = H0 photon sqrt(1+beta_m) (status list) | PASS |
 | 373 | ch:quantumrecords:L373:67.16 | prediction | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level 2 Run A chain (status list) | PASS |
 
-## Part 4 - ch:entanglement - `docs/book/part2/p2_21_entanglement_records.tex`
+## Part 4 - ch:entanglement - `docs/book/part4/p4_21_entanglement_records.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -3492,7 +3492,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 94 | ch:entanglement:L94:4.6\times10^{-25} | observed | `4.6\times10^{-25}` | numeric: top-quark lifetime hbar/Gamma_t, Gamma_t = 1.42 GeV | PASS |
 | 119 |  | prediction | `10` | not run: prediction, nothing to recompute: mass 10^-12 kg near which the two times separate (the crossover is checked at ch:entanglement:L89) | - |
 
-## Part 4 - ch:measurement - `docs/book/part5/p5_04_measurement.tex`
+## Part 4 - ch:measurement - `docs/book/part4/p4_04_measurement.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -3584,7 +3584,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 224 |  | interp | `10` | not run: measured, source not named: about 10^11 galaxies, an order-of-magnitude count stated without a citation | - |
 | 256 | ch:measurement:L256 | observed | `0.0179` | heavy file `docs/verification/scripts/verify_measurement_problem_output.txt`: measured: printed value found in verify_measurement_problem_output.txt, a file the chapter names | PASS |
 
-## Part 4 - ch:gravdec - `docs/book/part5/p5_05_gravdec.tex`
+## Part 4 - ch:gravdec - `docs/book/part4/p4_05_gravdec.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -3669,7 +3669,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 231 | ch:gravdec:L231 | conjecture | `0.5` | numeric: t < 0.5 tau_IAM: the ramp rate is largest at eta = 1/2 (sympy) | PASS |
 | 248 | ch:gravdec:L248 | conjecture | `13.8` | numeric: age of the universe, flat LCDM with Planck 2018 parameters, Gyr | PASS |
 
-## Part 4 - ch:nonlocal - `docs/book/part5/p5_06_nonlocality.tex`
+## Part 4 - ch:nonlocal - `docs/book/part4/p4_06_nonlocality.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -3681,7 +3681,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 41 | ch:nonlocal:L41 | observed | `1.3` | numeric: separation of the NV-centre electron spins in the loophole-free Bell test, km | PASS |
 | 41 | ch:nonlocal:L41:10^3 | observed | `10^3` | numeric: ratio of the satellite photon distance to the NV-spin separation | PASS |
 
-## Part 4 - ch:electroweak - `docs/book/part2/p2_22_electroweak.tex`
+## Part 4 - ch:electroweak - `docs/book/part4/p4_22_electroweak.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -3708,7 +3708,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 115 |  | derived | `159.5` | not run: restates ch:electroweak:L53 (T_c = 159.5 GeV, D'Onofrio and Rummukainen 2016, input) | - |
 | 119 |  | prediction | `-0.136` | not run: locked value mu0 restated (prediction) | - |
 
-## Part 4 - ch:higgsrecord - `docs/book/part2/p2_22b_higgs_record.tex`
+## Part 4 - ch:higgsrecord - `docs/book/part4/p4_22b_higgs_record.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -3750,13 +3750,13 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 111 | ch:higgsrecord:L111:10^{-2} | calc | `10^{-2}` | numeric: high end of the signal band, beta/H = 1000, Hz | PASS |
 | 111 |  | calc | `1000` | not run: input: beta/H = 10-1000, the range of transition rates considered (Caprini2016); the band it gives is checked by ch:higgsrecord:L111:10^{-4} and ch:higgsrecord:L111:10^{-2} | - |
 | 125 | ch:higgsrecord:L125 | observed | `159.5` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names | PASS |
-| 125 | ch:higgsrecord:L125:246.22 | observed | `246.22` | numeric: same value as p2_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV) | PASS |
+| 125 | ch:higgsrecord:L125:246.22 | observed | `246.22` | numeric: same value as p4_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV) | PASS |
 | 125 | ch:higgsrecord:L125:125.20 | observed | `125.20` | heavy file `docs/verification/scripts/verify_particle_book_output.txt`: measured: printed value found in verify_particle_book_output.txt, a file the chapter names | PASS |
 | 125 | ch:higgsrecord:L125:9.2 | observed | `9.2\times10^{-12}` | numeric: crossover time at T_c (status table), s | PASS |
 | 130 | ch:higgsrecord:L130 | calc | `-2.04\times10^{15}` | numeric: ln E at the crossover | PASS |
 | 134 |  | prediction | `-0.136` | not run: locked value mu0 restated (prediction) | - |
 
-## Part 4 - ch:koide - `docs/book/part2/p2_15a_lepton_koide.tex`
+## Part 4 - ch:koide - `docs/book/part4/p4_15a_lepton_koide.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -3852,13 +3852,13 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 297 |  | prediction | `1777.09` | not run: input: single measurement m_tau = 1777.09 +- 0.08 +- 0.11 MeV quoted from BelleII2023tau, nothing to recompute | - |
 | 299 | ch:koide:L299 | calc | `1776.969` | numeric: m_tau fixed by Q = 2/3, MeV | PASS |
 | 299 | ch:koide:L299:0.2222220 | calc | `0.2222220` | numeric: delta at m_tau = 1776.969 | PASS |
-| 315 | ch:koide:L315 | observed | `0.66666446` | numeric: same value as p2_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
+| 315 | ch:koide:L315 | observed | `0.66666446` | numeric: same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
 | 315 | ch:koide:L315:0.43 | observed | `0.43` | numeric: 2/3 - Q in standard deviations (status table) | PASS |
 | 316 | ch:koide:L316 | derived | `45` | sympy: drafted check, screened (runs; negative control fails) | PASS |
 | 322 | ch:koide:L322 | openprob | `0.2222` | numeric: offset delta in the status table | PASS |
-| 323 | ch:koide:L323 | prediction | `1776.969` | numeric: same value as p2_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV) | PASS |
+| 323 | ch:koide:L323 | prediction | `1776.969` | numeric: same value as p4_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV) | PASS |
 
-## Part 4 - ch:electronmass - `docs/book/part2/p2_15b_electron_mass.tex`
+## Part 4 - ch:electronmass - `docs/book/part4/p4_15b_electron_mass.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -3941,7 +3941,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 188 | ch:electronmass:L188:67.399 | calc | `67.399` | numeric: H0 at which the fixed point is exact | PASS |
 | 189 | ch:electronmass:L189 | calc | `+2.8` | numeric: matter-sector H0 | PASS |
 
-## Part 5 - ch:scprimer - `docs/book/part3/p3_01_sc_primer.tex`
+## Part 5 - ch:scprimer - `docs/book/part5/p5_01_sc_primer.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4004,7 +4004,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 171 | ch:scprimer:L162 | calc | `4\times10^{-6}` | numeric: tau_phi/tau_TLS at 1 us | PASS |
 | 171 | ch:scprimer:L162:4\times10^{-8} | calc | `4\times10^{-8}` | numeric: tau_phi/tau_TLS at 100 us | PASS |
 
-## Part 5 - ch:xqp - `docs/book/part3/p3_02_xqp.tex`
+## Part 5 - ch:xqp - `docs/book/part5/p5_02_xqp.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4050,7 +4050,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 149 | ch:xqp:L149 | calc | `0.5` | file `docs/book/iam.bib`: best transmon T1, ms, from the cited title | PASS |
 | 149 | ch:xqp:L149:10^{-7} | calc | `<10^{-7}` | numeric: x_qp allowed at T1 = 0.3 ms is below 1e-7 | PASS |
 
-## Part 5 - ch:ascoreqc - `docs/book/part3/p3_03_a_for_processors.tex`
+## Part 5 - ch:ascoreqc - `docs/book/part5/p5_03_a_for_processors.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4078,7 +4078,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 90 |  | calc | `10` | not run: input: fault-tolerance target about 1e-3 quoted from Fowler2012 and GoogleWillow2025, an order of magnitude | - |
 | 93 |  | calc | `6\times10^{-4}` | not run: printed value 6e-4 has one significant digit: a 5 % change cannot be told from rounding (recomputed 6.188e-4; 1.05 x 6e-4 = 6.3e-4). Its input p_eq at 35 mK is checked to three digits at ch:qplatforms:L52 (1.05e-3) | - |
 
-## Part 5 - ch:thermaln - `docs/book/part3/p3_04_thermal_n.tex`
+## Part 5 - ch:thermaln - `docs/book/part5/p5_04_thermal_n.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4094,7 +4094,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 37 | ch:thermaln:L37:6.86 | calc | `6.86` | numeric: M at 35 mK | PASS |
 | 37 | ch:thermaln:L37:13.7 | calc | `13.7` | numeric: M at 17.5 mK | PASS |
 
-## Part 5 - ch:walls - `docs/book/part3/p3_05_coherence_optimum.tex`
+## Part 5 - ch:walls - `docs/book/part5/p5_05_coherence_optimum.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4116,7 +4116,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 101 | ch:walls:L101:10^{-3} | calc | `10^{-3}` | numeric: relative gap between exact and linear crosstalk forms | PASS |
 | 106 | ch:walls:L106 | calc | `1.15` | numeric: ln200/ln100 | PASS |
 
-## Part 5 - ch:qplatforms - `docs/book/part3/p3_10_qubit_platforms.tex`
+## Part 5 - ch:qplatforms - `docs/book/part5/p5_10_qubit_platforms.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4250,7 +4250,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 296 |  | observed | `12.4` | not run: measured, source not named | - |
 | 297 |  | observed | `0.5` | not run: measured, source not named | - |
 
-## Part 5 - ch:cmos - `docs/book/part3/p3_06_cmos.tex`
+## Part 5 - ch:cmos - `docs/book/part5/p5_06_cmos.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4285,7 +4285,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 108 |  | calc | `70.7` | not run: input: the step of an unnamed generation pair read on mixed power definitions; the chips' power, count and clock are not stated in the book, so nothing to recompute (the 40.7 % derived from it is checked at ch:cmos:L108) | - |
 | 109 | ch:cmos:L109 | calc | `8.6` | numeric: k_B T_j ln2, 105 C over 75 C | PASS |
 
-## Part 5 - ch:chipgen - `docs/book/part3/p3_11_chip_generations.tex`
+## Part 5 - ch:chipgen - `docs/book/part5/p5_11_chip_generations.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4315,7 +4315,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 72 | ch:chipgen:L72:18.5 | calc | `18.5` | numeric: R = 600, fixed-voltage rate | PASS |
 | 72 |  | calc | `600` | not run: input: illustrative R = 600, a round figure for the 576-593 floors of ch:cmos:L12:576; used in ch:chipgen:L72 | - |
 
-## Part 6 - ch:bridge - `docs/book/part4/p4_01_bridge.tex`
+## Part 6 - ch:bridge - `docs/book/part6/p6_01_bridge.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4343,7 +4343,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 238 | ch:bridge:L238:8.4\times10^{-14} | calc | `8.4\times10^{-14}` | numeric: N k_B T ln2 | PASS |
 | 238 | ch:bridge:L238:310.15 | calc | `310.15` | file `CANON/iam_canon.json`: cell nucleus row, T = 310.15 K | PASS |
 
-## Part 6 - ch:astrogenetics - `docs/book/part4/p4_00b_astrogenetics.tex`
+## Part 6 - ch:astrogenetics - `docs/book/part6/p6_00b_astrogenetics.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4372,7 +4372,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 286 | ch:astrogenetics:L286:0.79 | fitted | `0.79` | numeric: expression above the measured ratio, per cent | PASS |
 | 288 | ch:astrogenetics:L288 | observed | `0.5` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Ob/Om = (3/16) sqrt(OL) holds to 0.5 % on the CMB-only chain | PASS |
 
-## Part 6 - ch:landauer - `docs/book/part4/p4_02_landauer.tex`
+## Part 6 - ch:landauer - `docs/book/part6/p6_02_landauer.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4443,7 +4443,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 268 | ch:landauer:L268 | measured | `0.163` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: phi, committed record | PASS |
 | 269 |  | calc | `450` | not run: not a number: array platform name (450K) | - |
 
-## Part 6 - ch:surface - `docs/book/part4/p4_03_surface.tex`
+## Part 6 - ch:surface - `docs/book/part6/p6_03_surface.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4474,7 +4474,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 115 |  | calc | `0.08` | not run: input: illustrative gain rate d = 0.08 of the two-state model (book's choice); beta_ss and H are checked at ch:surface:L115 | - |
 | 125 | ch:surface:L125 | calc | `2.8\times10^7` | numeric: CpG sites, one bit each | PASS |
 
-## Part 6 - ch:ledgers - `docs/book/part4/p4_04_ledgers.tex`
+## Part 6 - ch:ledgers - `docs/book/part6/p6_04_ledgers.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4495,7 +4495,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 126 | ch:ledgers:L126 | derived | `2.14\times10^{-21}` | numeric: k_B T/2 at 310.15 K | PASS |
 | 126 | ch:ledgers:L126:310.15 | calc | `310.15` | file `CANON/iam_canon.json`: equipartition row at 310.15 K | PASS |
 
-## Part 6 - ch:floorbreach - `docs/book/part4/p4_05_floorbreach.tex`
+## Part 6 - ch:floorbreach - `docs/book/part6/p6_05_floorbreach.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4513,7 +4513,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 80 | ch:floorbreach:L80 | conjecture | `10^{-7}` | numeric: methylation maintenance share of the cell ATP, order 1e-7 | PASS |
 | 96 | ch:floorbreach:L96 | measured | `0.695` | heavy file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: senescent IMR90 unmethylated channel, upper end | PASS |
 
-## Part 6 - ch:gauge - `docs/book/part4/p4_06_gauge.tex`
+## Part 6 - ch:gauge - `docs/book/part6/p6_06_gauge.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4547,7 +4547,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 114 | ch:gauge:L114:1.35 | measured | `1.35` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: IAM-A after a simulated 2 % rise in copy error, highest donor | PASS |
 | 120 | ch:gauge:L120 | measured | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: SD of the six held-out reference arrays | PASS |
 
-## Part 6 - ch:meta - `docs/book/part4/p4_07_meta.tex`
+## Part 6 - ch:meta - `docs/book/part6/p6_07_meta.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4617,7 +4617,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 111 | ch:meta:L111:1.002 | measured | `1.002` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: inactive analogue, lowest | PASS |
 | 112 |  | measured | `2.8` | not run: measured, source not named | - |
 
-## Part 6 - ch:iama - `docs/book/part4/p4_08_iama.tex`
+## Part 6 - ch:iama - `docs/book/part6/p6_08_iama.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4653,7 +4653,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 96 | ch:iama:L96 | measured | `3.4` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: colon epithelium lifespan (days) | PASS |
 | 97 | ch:iama:L97 | measured | `0.031` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: copy error of colon epithelium and cardiomyocytes | PASS |
 
-## Part 6 - ch:cscore - `docs/book/part4/p4_09_cscore.tex`
+## Part 6 - ch:cscore - `docs/book/part6/p6_09_cscore.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4678,7 +4678,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 67 | ch:cscore:L67 | calc | `45` | numeric: C far end | PASS |
 | 67 | ch:cscore:L67:50 | calibrated | `50` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C-score block size | PASS |
 
-## Part 6 - ch:temperature - `docs/book/part4/p4_10_temperature.tex`
+## Part 6 - ch:temperature - `docs/book/part6/p6_10_temperature.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4705,7 +4705,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 98 |  | observed | `0.96` | not run: measured, source not named | - |
 | 113 |  | prediction | `1.00` | not run: prediction, nothing to recompute (held-out canine cells should read 1.00 on a canine reference) | - |
 
-## Part 6 - ch:translation - `docs/book/part4/p4_11_translation.tex`
+## Part 6 - ch:translation - `docs/book/part6/p6_11_translation.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4714,7 +4714,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 111 | ch:translation:L111:0.2 | calc | `0.2` | numeric: TOV mass not fixed to better than about 0.2 M_sun | PASS |
 | 111 |  | calc | `0.15` | not run: input: lower error -0.15 M_sun of the TOV bound 2.16 (+0.17, -0.15) M_sun (Rezzolla2018, doi 10.3847/2041-8213/aaa401) | - |
 
-## Part 6 - ch:instrument - `docs/book/part4/p4_12_instrument.tex`
+## Part 6 - ch:instrument - `docs/book/part6/p6_12_instrument.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4753,7 +4753,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 126 | ch:instrument:L126:-0.14 | measured | `-0.14` | file `Biological_Physics/MethylPhys/doors/PROC_TARE_01_OUTCOME.md`: SNP tare scale does not predict the reading | PASS |
 | 126 | ch:instrument:L126:-0.07 | measured | `-0.07` | file `Biological_Physics/MethylPhys/doors/PROC_TARE_01_OUTCOME.md`: SNP tare offset does not predict the reading | PASS |
 
-## Part 6 - ch:separation - `docs/book/part4/p4_13_separation.tex`
+## Part 6 - ch:separation - `docs/book/part6/p6_13_separation.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4766,7 +4766,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 99 |  | measured | `1.05` | not run: definition: upper edge of the Normal band (0.95-1.05) restated, the line the tared reading is compared with | - |
 | 100 |  | measured | `1.05` | not run: definition: upper edge of the Normal band (0.95-1.05) restated | - |
 
-## Part 6 - ch:atlas - `docs/book/part4/p4_14_atlas.tex`
+## Part 6 - ch:atlas - `docs/book/part6/p6_14_atlas.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4809,7 +4809,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 223 | ch:atlas:L223:0.982 | measured | `0.982` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: six DNA mixtures against the expectation from their own composition, lowest | PASS |
 | 223 | ch:atlas:L223:1.016 | measured | `1.016` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: six DNA mixtures against the expectation from their own composition, highest | PASS |
 
-## Part 6 - ch:identity - `docs/book/part4/p4_15_identity.tex`
+## Part 6 - ch:identity - `docs/book/part6/p6_15_identity.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4839,7 +4839,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 66 |  | calc | `0.05` | not run: definition: the 0.05 threshold in |Delta beta| (grey band of the figure); the shares are checked at ch:identity:L66 | - |
 | 76 | ch:identity:L76 | openprob | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: held-out SD of the neutrophil set (status box) | PASS |
 
-## Part 6 - ch:skytools - `docs/book/part4/p4_16a_skytools.tex`
+## Part 6 - ch:skytools - `docs/book/part6/p6_16a_skytools.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4875,7 +4875,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 139 |  | measured | `0.05` | not run: printed value 0.05 has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0517); the upper end is checked at ch:skytools:L139:0.08 | - |
 | 165 | ch:skytools:L165 | calc | `0.00047` | file `Biological_Physics/MethylPhys/doors/PROC_AGE_01_OUTCOME.md`: age-ladder slope per year | PASS |
 
-## Part 6 - ch:sky - `docs/book/part4/p4_16_sky.tex`
+## Part 6 - ch:sky - `docs/book/part6/p6_16_sky.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4902,14 +4902,14 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 81 |  | calc | `0.02` | not run: input: illustrative array measurement noise 0.02 (figure reference line) | - |
 | 90 | eq:outspan | derived |  | sympy: out-of-span residual is blind to composition error | PASS |
 
-## Part 6 - ch:serial - `docs/book/part4/p4_17_serial.tex`
+## Part 6 - ch:serial - `docs/book/part6/p6_17_serial.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 31 | ch:serial:L31 | measured | `0.045` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, donor 1 (GSE247195), untared isolated neutrophils | PASS |
 | 35 | ch:serial:L71 | measured | `0.894` | file `Biological_Physics/MethylPhys/doors/PLAN.md`: E-MTAB-7309 Stage 1: median call rate | PASS |
 
-## Part 6 - ch:discipline - `docs/book/part4/p4_18_discipline.tex`
+## Part 6 - ch:discipline - `docs/book/part6/p6_18_discipline.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4925,7 +4925,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 68 | ch:discipline:L68:0.044 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/selfconsist.csv`: planted loss, fraction re-fitted: smallest rise | PASS |
 | 68 | ch:discipline:L68:0.056 | measured | `0.056` | file `Biological_Physics/MethylPhys/doors/data/selfconsist.csv`: planted loss, fraction re-fitted: largest rise | PASS |
 
-## Part 6 - ch:chain - `docs/book/part4/p4_19_chain.tex`
+## Part 6 - ch:chain - `docs/book/part6/p6_19_chain.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4934,7 +4934,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 25 | ch:chain:L25 | calibrated | `1.099` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json`: Stage Q neutrophil position P | PASS |
 | 72 | ch:chain:L72 | openprob | `1.1104` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C-score healthy baseline (Stage MC text) | PASS |
 
-## Part 6 - ch:leukocyte - `docs/book/part4/p4_22_leukocyte.tex`
+## Part 6 - ch:leukocyte - `docs/book/part6/p6_22_leukocyte.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -4942,7 +4942,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 19 |  | conjecture | `1.05` | not run: definition: 1.05 is the upper edge of the Normal band (0.95-1.05) that defines 'Above Normal' | - |
 | 45 | ch:leukocyte:L45 | observed | `0.23` | file `Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md`: 450K development reading: rank correlation with age among controls | PASS |
 
-## Part 6 - part4:ch:reach - `docs/book/part4/p4_23_reach.tex`
+## Part 6 - part4:ch:reach - `docs/book/part6/p6_23_reach.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -5006,11 +5006,11 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 72 | part4:ch:reach:L72:0.04107 | measured | `0.04107` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC4 oxWGBS: eps tumour | PASS |
 | 72 | part4:ch:reach:L72:1.049 | measured | `1.049` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC4 oxWGBS: ratio | PASS |
 | 72 | part4:ch:reach:L72:0.0005 | measured | `0.0005` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC4 oxWGBS: conversion difference | PASS |
-| 79 |  | measured | `10` | not run: restates Chapter ch:sky (p4_16_sky.tex L72-73): about 10^3 genome equivalents per millilitre of plasma (Sender2024), so a draw yields of order 10^3-10^4 copies of a site; an order of magnitude carried over, nothing to recompute here | - |
+| 79 |  | measured | `10` | not run: restates Chapter ch:sky (p6_16_sky.tex L72-73): about 10^3 genome equivalents per millilitre of plasma (Sender2024), so a draw yields of order 10^3-10^4 copies of a site; an order of magnitude carried over, nothing to recompute here | - |
 | 82 | part4:ch:reach:L82 | measured | `0.5` | heavy file `Biological_Physics/MethylPhys/doors/PROC_MOLECULE_01_OUTCOME.md`: constructed mixtures: fewest molecules | PASS |
 | 109 |  | prediction | `1.00` | not run: prediction, nothing to recompute: sorted healthy canine cells held out of a canine reference read 1.00 within tolerance | - |
 
-## Part 6 - ch:status - `docs/book/part4/p4_24_status.tex`
+## Part 6 - ch:status - `docs/book/part6/p6_24_status.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -5043,7 +5043,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 34 |  | calc | `73.1` | not run: measured: recorded only in the _provenance.tests field of Biological_Physics/MethylPhys/atlas/v2/postbuild/runtime/iamatlas_v2_identity_loci_v1_1.json ('Loyfer->array with this correction 73.1%, 14/17 cell medians'), a 15 MB file above the DATA_FILES size limit; restates Chapter ch:atlas L182 | - |
 | 44 |  | calc | `100` | not run: input: the 100 nM dose of the single-molecule DNMT1 inhibitor libraries (Part B design) | - |
 
-## Part 7 - ch:theoryinterp - `docs/book/part5/p5_01_interpretation.tex`
+## Part 7 - ch:theoryinterp - `docs/book/part7/p7_01_interpretation.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -5062,7 +5062,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 54 | ch:theoryinterp:L54:2.65\times10^{-30} | calc | `2.65\times10^{-30}` | numeric: cosmic-horizon temperature T_GH = hbar H0/2 pi k_B | PASS |
 | 54 | ch:theoryinterp:L54:2.3\times10^{22} | calc | `2.3\times10^{22}` | numeric: M_eq where T_BH = T_GH today, solar masses | PASS |
 
-## Part 7 - ch:time - `docs/book/part5/p5_03_time.tex`
+## Part 7 - ch:time - `docs/book/part7/p7_03_time.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -5081,7 +5081,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 113 | ch:time:L113 | derived |  | sympy: growth source term 4 pi G rho_m mu = (3/2) Omega_m H0^2 a^-3 mu | PASS |
 | 133 | ch:time:L133 | calc | `10^{-15}` | numeric: scale factor at electroweak breaking a_EW ~ 10^-15 | PASS |
 
-## Part 7 - ch:virial_partners - `docs/book/part5/p5_05b_virial_partners.tex`
+## Part 7 - ch:virial_partners - `docs/book/part7/p7_05b_virial_partners.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -5114,7 +5114,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 151 | ch:virial_partners:L151 | prediction | `-0.136` | numeric: mu0 = mu(a=1) - 1 from beta_m = Omega_m/2 | PASS |
 | 155 | ch:virial_partners:L155 | interp | `-0.136` | numeric: mu0 = mu(a=1) - 1 (repeat) | PASS |
 
-## Part 7 - ch:virial_decoherence - `docs/book/part5/p5_05c_virial_decoherence.tex`
+## Part 7 - ch:virial_decoherence - `docs/book/part7/p7_05c_virial_decoherence.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -5132,7 +5132,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 175 | ch:virial_decoherence:L175 | prediction | `13.6` | numeric: coupling reduction today 1 - mu(1) | PASS |
 | 176 | ch:virial_decoherence:L176 | prediction | `4.25` | numeric: f sigma8 deficit at z = 0, same early amplitude | PASS |
 
-## Part 7 - ch:onegauge - `docs/book/part3/p3_08_one_gauge.tex`
+## Part 7 - ch:onegauge - `docs/book/part7/p7_08_one_gauge.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -5143,7 +5143,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 22 | ch:onegauge:L22:411 | calc | `411` | numeric: drafted check, screened (runs; negative control fails) (tolerance: E_sw is printed to 3 figures) | PASS |
 | 22 | ch:onegauge:L22:0.0017 | calc | `0.0017` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 41 | ch:onegauge:L41 | calc | `10` | numeric: transmon worked example: error-correction threshold at A = 10 | PASS |
-| 42 | ch:onegauge:L42 | calc | `0.2043` | numeric: same value as p4_00b_astrogenetics:63 (H(eps0), bits) | PASS |
+| 42 | ch:onegauge:L42 | calc | `0.2043` | numeric: same value as p6_00b_astrogenetics:63 (H(eps0), bits) | PASS |
 | 42 | ch:onegauge:L42:3.03 | calc | `3.03` | numeric: full surface on Met-A: 1/(healthy reference) | PASS |
 | 42 | ch:onegauge:L42:4.45 | calc | `4.45` | numeric: full surface on IAM-A: 1/(P H(eps0)), neutrophils | PASS |
 | 42 | ch:onegauge:L42:0.032 | calc | `0.032` | numeric: eps0 = 1/(1 + exp(phi M)) | PASS |
@@ -5174,7 +5174,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 156 | ch:onegauge:L156:1.9 | observed | `1.9` | numeric: Delta E = ln 7 (Hopfield) | PASS |
 | 156 | ch:onegauge:L156:4.4 | observed | `4.4` | numeric: Delta E = ln 80 (Hopfield) | PASS |
 
-## Part 7 - ch:synthesis - `docs/book/part5/p5_08_synthesis.tex`
+## Part 7 - ch:synthesis - `docs/book/part7/p7_08_synthesis.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -5212,11 +5212,11 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 88 |  | derived | `10` | not run: input: the base 10 of a two-qubit error near 10^-3, an illustrative device value stated in the sentence; nothing to recompute | - |
 | 93 | ch:synthesis:L93 | calibrated | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out SD of the six reference arrays | PASS |
 
-## Part 7 - ch:reach - `docs/book/part3/p3_09_reach.tex`
+## Part 7 - ch:reach - `docs/book/part7/p7_09_reach.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 68 | ch:reach:L68 | calc | `1.012` | numeric: same value as p4_10_temperature:17 (floor at 38.5 C) | PASS |
+| 68 | ch:reach:L68 | calc | `1.012` | numeric: same value as p6_10_temperature:17 (floor at 38.5 C) | PASS |
 | 68 | ch:reach:L68:0.78 | calc | `0.78` | numeric: copy-error floor at 10 C relative to 37 C, fixed holding energy | PASS |
 | 68 |  | calc | `38.5` | not run: input: a dog's body temperature 38.5 C, the temperature at which the floor ratio 1.012 is evaluated (checked as ch:reach:L68) | - |
 | 90 | ch:reach:L90 | calc | `6.2\times10^{-7}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
@@ -5227,7 +5227,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 104 |  | calc | `170` | not run: input: TDP 170 W of the 9950X, manufacturer specification (\cite{AMD9950X}); E_sw from it is checked as ch:onegauge:L22 | - |
 | 104 |  | calc | `20` | not run: input: transistor count (20.0-20.6)x10^9 from die-level reports (\cite{AMD9950X}); E_sw from it is checked as ch:onegauge:L22 | - |
 
-## Part 7 - ch:predictions - `docs/book/part5/p5_07_predictions.tex`
+## Part 7 - ch:predictions - `docs/book/part7/p7_07_predictions.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -5250,7 +5250,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 174 | ch:predictions:L174 | derived |  | sympy: internal-source quasiparticle density, steady state | PASS |
 | 191 | ch:predictions:L191 | openprob | `0.24` | numeric: quasiparticle-limited T1 of a 5 GHz Al transmon at x_qp = 1e-7, ms | PASS |
 
-## Part 7 - ch:exploratory - `docs/book/part5/p5_02_exploratory.tex`
+## Part 7 - ch:exploratory - `docs/book/part7/p7_02_exploratory.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -5400,7 +5400,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 527 | ch:exploratory:L527:2.3\times10^4 | calc | `2.3\times10^4` | numeric: status table: Pleiades rate xi | PASS |
 | 527 | ch:exploratory:L527:0.56 | calc | `0.56` | numeric: status table: 1 m wall in solar masses | PASS |
 
-## Part 7 - ch:statusall - `docs/book/part5/p5_11_status_all.tex`
+## Part 7 - ch:statusall - `docs/book/part7/p7_11_status_all.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -5487,9 +5487,9 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 61 | ch:statusall:L61:2.53 | calc | `2.53` | numeric: writing rate now, per cent per Gyr | PASS |
 | 62 | ch:statusall:L62 | observed | `0.79` | numeric: baryon relation (3/16) sqrt(Omega_L), per cent off | PASS |
 | 68 | ch:statusall:L68 | calc | `2.1\times10^{67}` | numeric: evaporation time 1 M_sun | PASS |
-| 71 | ch:statusall:L71 | observed | `0.66666446` | numeric: same value as p2_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
+| 71 | ch:statusall:L71 | observed | `0.66666446` | numeric: same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
 | 71 | ch:statusall:L71:0.43 | observed | `0.43` | numeric: Koide Q from 2/3, sigma | PASS |
-| 72 | ch:statusall:L72 | derived | `0.2222` | numeric: same value as p2_15a_lepton_koide:206 (measured offset delta) | PASS |
+| 72 | ch:statusall:L72 | derived | `0.2222` | numeric: same value as p4_15a_lepton_koide:206 (measured offset delta) | PASS |
 | 73 | ch:statusall:L73 | calc | `-0.02` | numeric: electron fixed point at H0 = 67.36, per cent | PASS |
 | 73 |  | calc | `67.36` | not run: input: Planck 2018 H0 = 67.36 (Aghanim et al. 2020), the rate at which the electron-mass relation is evaluated; the -0.02 % is checked in ch:statusall:L73 | - |
 | 76 | ch:statusall:L76:60 | calc | `60` | numeric: active fluctuators for x_qp = 1e-7, 1e3 um^3 island | PASS |
@@ -5536,7 +5536,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 96 | ch:statusall:L96:3.03 | calc | `3.03` | file `CANON/iam_canon.json`: Met-A full | PASS |
 | 96 | ch:statusall:L96:4.45 | calc | `4.45` | file `CANON/iam_canon.json`: IAM-A full | PASS |
 | 98 | ch:statusall:L98 | calc | `0.78` | numeric: floor at 10 C | PASS |
-| 98 | ch:statusall:L98:1.012 | calc | `1.012` | numeric: same value as p4_10_temperature:17 (floor at 38.5 C) | PASS |
+| 98 | ch:statusall:L98:1.012 | calc | `1.012` | numeric: same value as p6_10_temperature:17 (floor at 38.5 C) | PASS |
 | 98 | ch:statusall:L98:1.012' | calc | `1.012` | numeric: floor at 38.5 C | PASS |
 | 98 |  | calc | `10` | not run: input: temperature 10 C at which the floor is evaluated; checked in ch:statusall:L98 | - |
 | 98 |  | calc | `38.5` | not run: input: temperature 38.5 C at which the floor is evaluated; checked in ch:statusall:L98:1.012 | - |
@@ -5547,7 +5547,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 110 | ch:statusall:L110:7.5 | prediction | `7.5` | numeric: tau_DP of the same sphere, microseconds | PASS |
 | 110 |  | prediction | `10` | not run: input: temperature 10 mK of the gravitational-decoherence prediction; tau values checked in ch:statusall:L110:509 and L110:7.5 | - |
 
-## Part 7 - ch:conclusion - `docs/book/part5/p5_10_conclusion.tex`
+## Part 7 - ch:conclusion - `docs/book/part7/p7_10_conclusion.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
@@ -5555,7 +5555,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 17 | ch:conclusion:L17 | derived | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 17 | ch:conclusion:L17:4.25 | derived | `4.25` | numeric: f sigma8 deficit today, per cent | PASS |
 | 18 | ch:conclusion:L18 | derived | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
-| 23 | ch:conclusion:L23 | observed | `0.66666446` | numeric: same value as p2_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
+| 23 | ch:conclusion:L23 | observed | `0.66666446` | numeric: same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
 | 23 | ch:conclusion:L23:0.43 | observed | `0.43` | numeric: Koide Q from 2/3, sigma | PASS |
 | 25 | ch:conclusion:L25 | calc | `576` | numeric: switching energy over k_B T_j ln 2, 20.6e9 transistors | PASS |
 | 25 | ch:conclusion:L25:593 | calc | `593` | numeric: switching energy over k_B T_j ln 2, 20.0e9 transistors | PASS |
@@ -5599,14 +5599,14 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 104 |  | observed | `50` | not run: observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:notation:L104 | - |
 | 104 |  | observed | `-65` | not run: observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:notation:L104 | - |
 | 105 | app:notation:L105 | calc | `2.968\times10^{-21}` | numeric: same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature) | PASS |
-| 105 | app:notation:L105:1.787 | calc | `1.787` | numeric: same value as p4_02_landauer:17 (per mole of bits, kJ) | PASS |
+| 105 | app:notation:L105:1.787 | calc | `1.787` | numeric: same value as p6_02_landauer:17 (per mole of bits, kJ) | PASS |
 | 106 | app:notation:L106 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C) | PASS |
 | 107 | app:notation:L107 | observed | `30.2` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 108 | app:notation:L108 | measured | `3.41` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 109 | app:notation:L109 | observed | `4.9` | file `CANON/iam_canon.json`: E_hold in Landauer units | PASS |
 | 110 | app:notation:L110 | measured | `0.1628` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 111 | app:notation:L111 | derived | `0.032` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 112 | app:notation:L112 | calc | `0.2043` | numeric: same value as p4_00b_astrogenetics:63 (H(eps0), bits) | PASS |
+| 112 | app:notation:L112 | calc | `0.2043` | numeric: same value as p6_00b_astrogenetics:63 (H(eps0), bits) | PASS |
 | 113 | app:notation:L113 | measured | `1.099` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 113 | app:notation:L113:1.084 | measured | `1.084` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 113 | app:notation:L113:-1.108 | measured | `-1.108` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
@@ -5668,7 +5668,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 456 |  | derived | `67.4` | not run: input: Planck 2018 H0 = 67.4 km/s/Mpc (rounded 67.36, Aghanim et al. 2020) at which M_eq is evaluated | - |
 | 457 | app:formulas:L457 | derived | `4.5\times10^{22}` | numeric: black hole in balance with the CMB, kg | PASS |
 | 540 | app:formulas:L540 | calc | `0.91` | numeric: string tension in GeV/fm | PASS |
-| 543 | app:formulas:L543 | observed | `0.66666051` | numeric: same value as p2_15a_lepton_koide:35 (Koide Q with the 2022 m_tau) | PASS |
+| 543 | app:formulas:L543 | observed | `0.66666051` | numeric: same value as p4_15a_lepton_koide:35 (Koide Q with the 2022 m_tau) | PASS |
 | 589 | app:formulas:L589 | derived | `16.0` | numeric: slope of the held-record floor at 15 mK, 5 GHz | PASS |
 | 596 | app:formulas:L596 | derived | `6.2\times10^{-7}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 596 |  | derived | `68` | not run: input: T_1 = 68 microseconds of the worked transmon example (GoogleWillow2025, as cited in ch:qplatforms) | - |
@@ -5683,7 +5683,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 610 | app:formulas:L610 | calc | `310.15` | file `CANON/iam_canon.json`: body temperature, K (canon) | PASS |
 | 610 | app:formulas:L610:2.968 | calc | `2.968\times10^{-21}` | numeric: Landauer cost of one bit at body temperature | PASS |
 | 611 | app:formulas:L611 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C) | PASS |
-| 613 | app:formulas:L613 | calc | `30.21` | numeric: same value as p4_02_landauer:48 (M/ln2) | PASS |
+| 613 | app:formulas:L613 | calc | `30.21` | numeric: same value as p6_02_landauer:48 (M/ln2) | PASS |
 | 616 | app:formulas:L616 | calc | `2.822\times10^{7}` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpG sites of the hg19 index | PASS |
 | 617 | app:formulas:L617 | calc | `8.38\times10^{-14}` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: Landauer floor of one copy of the methylome | PASS |
 | 618 | app:formulas:L618:2.3 | calc | `2.3` | numeric: discrimination energy at 10 % maintenance error | PASS |
@@ -5912,8 +5912,8 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 303 | app:derivations:L303 | calc | `5.03\times10^{-10}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 303 | app:derivations:L303:6.08\times10^{-10} | calc | `6.08\times10^{-10}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 308 | app:derivations:L308 | derived |  | sympy: m c^2 = E_bit N/f solved: m = (2 pi)^(-2/5) B^(2/5) | PASS |
-| 311 | app:derivations:L311 | derived | `1.2018` | numeric: same value as p2_15b_electron_mass:80 (B/m_e at H0 = 67.4) | PASS |
-| 311 | app:derivations:L311:0.832112 | derived | `0.832112` | numeric: same value as p2_15b_electron_mass:90 ((2 pi)^(-1/10)) | PASS |
+| 311 | app:derivations:L311 | derived | `1.2018` | numeric: same value as p4_15b_electron_mass:80 (B/m_e at H0 = 67.4) | PASS |
+| 311 | app:derivations:L311:0.832112 | derived | `0.832112` | numeric: same value as p4_15b_electron_mass:90 ((2 pi)^(-1/10)) | PASS |
 | 311 |  | derived | `67.4` | not run: input: H0 = 67.4 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated | - |
 | 312 | app:derivations:L312 | calc | `1.7356` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 312 | app:derivations:L312:+6.6\times10^{-6} | calc | `+6.6\times10^{-6}` | numeric: m/m_e - 1 with (2 pi)^(-1/10) at H0 = 67.4 | PASS |
@@ -5927,7 +5927,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 314 | app:derivations:L314:0.32 | calc | `0.32` | numeric: sigma(H0) = 0.54 as a per cent in m (m ~ H0^(2/5)) | PASS |
 | 314 |  | calc | `0.54` | not run: input: sigma(H0) = 0.54, the Planck 2018 uncertainty (propagated at app:derivations:L314:0.32) | - |
 | 318 | app:derivations:L318 | derived |  | sympy: Koide Q = (1/3)(1 + y^2/2x^2) = 2/3 at y = sqrt2 x | PASS |
-| 321 | app:derivations:L321 | conjecture | `0.66666051` | numeric: same value as p2_15a_lepton_koide:35 (Koide Q with the 2022 m_tau) | PASS |
+| 321 | app:derivations:L321 | conjecture | `0.66666051` | numeric: same value as p4_15a_lepton_koide:35 (Koide Q with the 2022 m_tau) | PASS |
 | 321 | app:derivations:L321:313.84 | conjecture | `313.84` | numeric: Koide scale x^2 from the measured masses, MeV | PASS |
 | 322 | app:derivations:L322:0.22227 | calc | `0.22227` | numeric: Koide offset delta, rad | PASS |
 | 322 | app:derivations:L322:0.510 | calc | `0.510` | numeric: m_e returned by x and delta, MeV | PASS |
@@ -5935,8 +5935,8 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 323 | app:derivations:L323 | calc | `26.9` | numeric: the two lighter masses at delta = 0, MeV | PASS |
 | 327 | app:derivations:L327:0.50 | derived | `0.50` | numeric: allowed fraction of offsets, n = 2 | PASS |
 | 327 | app:derivations:L327:0.25 | derived | `0.25` | numeric: allowed fraction of offsets, n = 3 | PASS |
-| 330 | app:derivations:L330 | calc | `0.1330` | numeric: same value as p2_22_electroweak:90 (Omega_dm/2) | PASS |
-| 330 | app:derivations:L330:0.1577 | calc | `0.1577` | numeric: same value as p2_22_electroweak:90 (beta_m = Omega_b/2 + Omega_dm/2 (Planck 2018 Omega_b 0.0493)) | PASS |
+| 330 | app:derivations:L330 | calc | `0.1330` | numeric: same value as p4_22_electroweak:90 (Omega_dm/2) | PASS |
+| 330 | app:derivations:L330:0.1577 | calc | `0.1577` | numeric: same value as p4_22_electroweak:90 (beta_m = Omega_b/2 + Omega_dm/2 (Planck 2018 Omega_b 0.0493)) | PASS |
 | 330 | app:derivations:L330:0.0247 | calc | `0.0247` | numeric: Omega_b/2 | PASS |
 | 330 | app:derivations:L330:15.6 | calc | `15.6` | numeric: baryon share of beta_m, per cent | PASS |
 | 333 | app:derivations:L333 | calc | `2.5\times10^{-87}` | numeric: hbar R/(G M^2) for 1e12 M_sun within 200 kpc, s | PASS |
@@ -6065,7 +6065,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 243 |  | observed | `0.3` | not run: printed value 0.3 % has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.320 %; the precise 0.32 % is checked at ch:electronmass:L188) | - |
 | 245 | app:glossary:L245:159.5 | observed | `159.5` | numeric: electroweak crossover temperature (lattice) | PASS |
 | 245 | app:glossary:L245:9.2e-12 | observed | `9.2\times10^{-12}` | numeric: time of the electroweak crossover, s | PASS |
-| 246 | app:glossary:L246 | observed | `246.22` | numeric: same value as p2_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV) | PASS |
+| 246 | app:glossary:L246 | observed | `246.22` | numeric: same value as p4_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV) | PASS |
 | 246 | app:glossary:L246:159.5 | observed | `159.5` | numeric: electroweak crossover temperature (lattice), restated | PASS |
 | 247 |  | conjecture | `1.05` | not run: definition: upper edge of the Normal band 0.95-1.05 (canon Normal_band) | - |
 | 247 |  | conjecture | `0.95` | not run: definition: lower edge of the Normal band 0.95-1.05 (canon Normal_band) | - |
@@ -6125,7 +6125,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 341 |  | observed | `448` | not run: not a separate number: last group of "28,217,448", checked at app:glossary:L341:28217448 | - |
 | 342 | app:glossary:L342:2.8e7 | observed | `2.8\times10^7` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpGs per haploid genome (hg19 count) | PASS |
 | 342 |  | observed | `217` | not run: not a separate number: thousands group of "28,217,448", checked at app:glossary:L341:28217448 | - |
-| 344 | app:glossary:L344 | observed | `246.22` | numeric: same value as p2_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV) | PASS |
+| 344 | app:glossary:L344 | observed | `246.22` | numeric: same value as p4_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV) | PASS |
 | 344 | app:glossary:L344:125.20 | observed | `125.20` | numeric: Higgs boson mass (PDG 2024) | PASS |
 | 344 | app:glossary:L344:0.129 | observed | `0.129` | numeric: Higgs self-coupling m_H^2/(2 v^2) | PASS |
 | 348 | app:glossary:L348 | observed | `0.2043` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |

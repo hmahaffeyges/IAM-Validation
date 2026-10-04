@@ -1,4 +1,4 @@
-"""Part 5, Chapter 'Exploratory' (part5/p5_02_exploratory.tex): four figures, each computed from the chapter's own formulas.
+"""Part 5, Chapter 'Exploratory' (part7/p7_02_exploratory.tex): four figures, each computed from the chapter's own formulas.
 fig_exploratory_transit:   (a) xi = D/(c t) for a one-way transit to the Pleiades (136 pc) against t; (b) tidal residual 2GML/r^3 at the
                            Earth's surface against body length L.                                                   [calculated / derived]
 fig_exploratory_recession: v_rec/c = H0 D/c against proper distance for the photon-sector (67.16) and matter-sector (72.26) H0.  [calculated]
@@ -36,7 +36,7 @@ for LL in (10, 100):
     print(f"tidal {LL} m: {v:.3e} g")
 a2.set_xlabel("length of the body $L$ (m)"); a2.set_ylabel(r"tidal residual $2GML/r^3$ in units of $g$")
 a2.set_title("What a body in free fall feels at the Earth's surface"); S.panel_letter(a2, "b", dx=-0.2)
-fig.tight_layout(); S.save(fig, "part5", "fig_exploratory_transit")
+fig.tight_layout(); S.save(fig, "part7", "fig_exploratory_transit")
 
 # ---------------- recession ----------------
 D = np.logspace(1, 11, 300)
@@ -53,7 +53,7 @@ ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlim(10, 1e11); ax.set_ylim(1
 ax.set_xlabel("proper distance $D$ (ly)"); ax.set_ylabel("recession speed $H_0D/c$")
 ax.legend(loc="lower right", fontsize=6)
 ax.set_title("Recession exceeds $c$ beyond the Hubble radius")
-S.save(fig, "part5", "fig_exploratory_recession")
+S.save(fig, "part7", "fig_exploratory_recession")
 
 # ---------------- twin comparison ----------------
 beta = np.linspace(0.05, 0.9999, 400); gam = 1 / np.sqrt(1 - beta**2)
@@ -67,7 +67,7 @@ for b in (0.9, 0.99, 0.999):
 ax.set_yscale("log"); ax.set_xlim(0, 1); ax.set_ylim(5e-3, 2e4)
 ax.set_xlabel("speed through space $v/c$"); ax.set_ylabel("one-way elapsed time (yr)")
 ax.legend(loc="center left", fontsize=6); ax.set_title(f"One way to the Pleiades ({Dly:.0f} ly)")
-S.save(fig, "part5", "fig_exploratory_twin")
+S.save(fig, "part7", "fig_exploratory_twin")
 
 # ---------------- steering geometry ----------------
 k = 2 * np.pi / 1.0
@@ -93,4 +93,4 @@ for ax, src, ttl, let in ((axs[0], S3, "3 coplanar sources (z = 0)", "a"), (axs[
     Im = I(src)[np.argmin(abs(zz[:, 0] + tgt[2])), np.argmin(abs(xx[0] - tgt[0]))]
     print(f"{ttl}: target {It:.3f}, mirror {Im:.3f}")
 cb = fig.colorbar(im, ax=axs, shrink=0.85, pad=0.02); cb.set_label(r"$\langle|\Phi_{\rm drive}|^2\rangle$ / focal maximum", fontsize=7)
-S.save(fig, "part5", "fig_exploratory_steering")
+S.save(fig, "part7", "fig_exploratory_steering")

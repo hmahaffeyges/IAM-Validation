@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 
 S.apply()
 REPO, BOOK = S.REPO, S.BOOK
-TAB = BOOK / "tables" / "part3"; TAB.mkdir(parents=True, exist_ok=True)
+TAB = BOOK / "tables" / "part5"; TAB.mkdir(parents=True, exist_ok=True)
 
 
 CANON = json.load(open(REPO / "CANON" / "iam_canon.json"))["constants"]
@@ -113,7 +113,7 @@ a2.set_xscale("log"); a2.set_yscale("log"); a2.set_ylim(1e-3, 10)
 a2.set_xlabel("two-qubit error $p_{2Q}$"); a2.set_ylabel(r"$(\varepsilon-p)/p$ (%)")
 a2.set_title(r"$\varepsilon=-\ln(1-p)$ equals $p$ to $p/2$", fontsize=7)
 S.panel_letter(a2, "b", dx=-0.22)
-fig.tight_layout(); S.save(fig, "part3", "fig_qubit_gauge")
+fig.tight_layout(); S.save(fig, "part5", "fig_qubit_gauge")
 
 # ============ p3_06 table: the scales at the gate and the floor against junction temperature ============
 k = C.k; Tj = 348.15

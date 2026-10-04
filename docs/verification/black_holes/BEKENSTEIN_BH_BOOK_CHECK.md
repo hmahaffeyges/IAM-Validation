@@ -1,7 +1,7 @@
 # BEKENSTEIN_BH_BOOK_CHECK — additions found while carrying the three G6 papers into the book (2026-10-02)
 Papers: Bekenstein_coefficient (596 lines), IAM_Black_Hole_Information_Paradox (453), IAM_BH_Thermodynamics (431), read in full in <=50-line chunks
 (last Info-Paradox chunk 401-453). Script: `scripts/verify_bekenstein_bh.py` (44 of 44 checks pass; output in `_output.txt`).
-Chapters: `docs/book/part2/p2_01_blackholes.tex`, `docs/book/part2/p2_01a_bekenstein.tex`, `docs/book/part5/p5_01b_bh_information.tex`.
+Chapters: `docs/book/part3/p3_01_blackholes.tex`, `docs/book/part3/p3_01a_bekenstein.tex`, `docs/book/part3/p3_01b_bh_information.tex`.
 
 ## Confirmed again (existing rows)
 - B1: sigma_SB A T^4 = hbar c^6/(15360 pi G^2 M^2) symbolically; numerical ratio 1.000000000000 at 1, 10, 1e6, 1e9 Msun (by construction).

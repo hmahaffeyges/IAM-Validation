@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Chain v3 flow (neutrophils, EPIC v1). Stage names and rules as in
 Biological_Physics/MethylPhys/chain/conductor_v3.py, stage_m_met_a.py, stage_q_iam_a.py and MethylPhys_Interface/run_sample.py.
-Writes figures/part4/fig_chain_v3_flow.pdf (run from docs/book)."""
+Writes figures/part6/fig_chain_v3_flow.pdf (run from docs/book)."""
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -33,5 +33,5 @@ ax.text(xq + w * 1.3, 0.42, "IAM-A = $H(\\varepsilon)/(P\\,H(\\varepsilon_0))$; 
 ax.annotate("", xy=(7.05 + w / 2, y), xytext=(xq + w * 2.6, 0.62), arrowprops=dict(arrowstyle="->", lw=0.9, color="#7a5b3b", connectionstyle="arc3,rad=0.15"))
 ax.text(3.5 * 1.0 + 0.5, 3.22, "Stage A runs on whole blood only; isolated neutrophils go from the platform check to Stage M against their own floor",
         ha="center", va="center", fontsize=7.4, style="italic")
-fig.savefig("figures/part4/fig_chain_v3_flow.pdf", bbox_inches="tight")
-fig.savefig("figures/part4/fig_chain_v3_flow.png", dpi=150, bbox_inches="tight")
+fig.savefig("figures/part6/fig_chain_v3_flow.pdf", bbox_inches="tight")
+fig.savefig("figures/part6/fig_chain_v3_flow.png", dpi=150, bbox_inches="tight")

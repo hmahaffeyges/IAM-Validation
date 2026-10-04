@@ -27,7 +27,7 @@ ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlim(1, 1e5); ax.set_ylim(1e-
 ax.legend(loc="lower right", fontsize=7)
 ax.set_xlabel("active fluctuators $N$ on the island"); ax.set_ylabel("quasiparticle fraction $x_{\\rm qp}$")
 ax.set_title("Hundreds to thousands of sites hold the floor")
-S.save(fig, "part3", "fig_xqp_sites")
+S.save(fig, "part5", "fig_xqp_sites")
 
 k = C.k; Delta = 182e-6 * C.e
 T = np.linspace(0.010, 0.300, 400); xth = np.sqrt(2 * np.pi * k * T / Delta) * np.exp(-Delta / (k * T))
@@ -45,7 +45,7 @@ ax.set_yscale("log"); ax.set_xlim(0, 300); ax.set_ylim(1e-66, 1)
 ax.set_yticks([1e-60, 1e-45, 1e-30, 1e-15, 1])
 ax.set_xlabel("temperature (mK)"); ax.set_ylabel("quasiparticle fraction $x_{\\rm qp}$")
 ax.set_title("The measured background is 55 orders above equilibrium")
-S.save(fig, "part3", "fig_xqp_thermal")
+S.save(fig, "part5", "fig_xqp_thermal")
 
 # ---------------- IMR90 channels -----------------
 states = [("proliferating (held out)", [(0.991, 1.005), (0.991, 1.016), (0.997, 1.002)]),
@@ -67,7 +67,7 @@ ax.set_yticks(range(3)); ax.set_yticklabels([s[0] for s in states[::-1]], fontsi
 ax.set_xlim(0.45, 1.2); ax.set_ylim(-0.45, 2.9)
 ax.set_xlabel("Met-A, each culture against the proliferating cultures")
 ax.set_title("The two channels err in opposite directions")
-S.save(fig, "part3", "fig_imr90_channels")
+S.save(fig, "part7", "fig_imr90_channels")
 
 # ---------------- holding energy against Hopfield -----------------
 sel = [("purified enzyme, 7–21×", 7, 21), ("Goyal et al. 2006, 30–40×", 30, 40), ("across flanking sequences, 80×", 80, 80)]
@@ -84,4 +84,4 @@ ax.set_yticks(range(3)); ax.set_yticklabels([s[0] for s in sel[::-1]], fontsize=
 ax.set_xlim(1.5, 5.0); ax.set_ylim(-0.5, 2.95)
 ax.set_xlabel("energy gap $k_BT\\ln$(selectivity) or measured $E_{\\rm hold}$ ($k_BT$)")
 ax.set_title("Measured holding energy inside DNMT1's range")
-S.save(fig, "part3", "fig_holding_energy")
+S.save(fig, "part7", "fig_holding_energy")

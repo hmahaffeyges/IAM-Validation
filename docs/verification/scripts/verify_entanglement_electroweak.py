@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Numbers for book chapters p2_21_entanglement_records.tex and p2_22_electroweak.tex.
+"""Numbers for book chapters p4_21_entanglement_records.tex and p4_22_electroweak.tex.
 Sources: 'Entanglement, Decoherence, and the Thermodynamic Cost of Classical Records' (Oct 2026 rev.) and
 'Electroweak Symmetry Breaking and the Matter Sector' (Oct 2026 rev.). Constants: scipy.constants (CODATA), PDG 2022, Planck 2018."""
 import numpy as np, scipy.constants as C

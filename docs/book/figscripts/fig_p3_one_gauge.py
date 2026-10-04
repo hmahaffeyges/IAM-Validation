@@ -95,4 +95,4 @@ def draw_onegauge(path):
     fig.savefig(path + ".pdf")
     return fig
 
-fig = draw_onegauge(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "figures", "part3", "one_gauge"))
+fig = draw_onegauge(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "figures", "part7", "one_gauge"))

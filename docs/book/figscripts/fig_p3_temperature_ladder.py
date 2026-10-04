@@ -1,5 +1,5 @@
 """Temperature ladder of the encoding surfaces in Part 3, against the cosmic microwave background.
-Numbers: computed below from CODATA constants. Output: figures/part3/fig_p3_temperature_ladder.pdf
+Numbers: computed below from CODATA constants. Output: figures/part5/fig_p3_temperature_ladder.pdf
 """
 import math
 import numpy as np
@@ -33,4 +33,4 @@ for i,(lab,T,col) in enumerate(rows):
 ax.set_xscale('log'); ax.set_xlim(1e-8,3e3); ax.set_ylim(-0.7,len(rows)-0.1)
 ax.set_yticks([]); ax.set_xlabel("temperature (K)")
 for s in ('left','right','top'): ax.spines[s].set_visible(False)
-bs.save(fig,"part3","fig_p3_temperature_ladder")
+bs.save(fig,"part5","fig_p3_temperature_ladder")

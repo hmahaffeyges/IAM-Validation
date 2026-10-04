@@ -34,7 +34,7 @@ for zz in (0, 1, 1e6):
 ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlim(1, 3e6); ax.set_ylim(1e9, 1e24)
 ax.set_xlabel("$1+z$"); ax.set_ylabel("$M_{\\rm eq}$, where $T_{\\rm BH}=T_{\\rm GH}$ (M$_\\odot$)")
 ax.set_title("Known black holes are lighter than $M_{\\rm eq}$ back to $z=10^6$")
-S.save(fig, "part5", "fig_meq")
+S.save(fig, "part7", "fig_meq")
 
 # ---------------- p5_02 -----------------
 D = np.logspace(1, 11, 300)
@@ -51,7 +51,7 @@ ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlim(10, 1e11); ax.set_ylim(1
 ax.set_xlabel("proper distance $D$ (ly)"); ax.set_ylabel("recession speed $H_0D/c$")
 ax.legend(loc="center right", fontsize=7)
 ax.set_title("Recession exceeds $c$ beyond the Hubble radius")
-S.save(fig, "part5", "fig_recession")
+S.save(fig, "part7", "fig_recession")
 
 # ---------------- p5_03 -----------------
 d = pd.read_csv(S.REPO / "docs/verification/observations/data/lvdb_dwarf_mw.csv")
@@ -73,7 +73,7 @@ ax.annotate("Segue 2 (< 2.06)", (s2.M_V, s2.vlos_sigma_ul), xytext=(8, -10), tex
 ax.set_yscale("log"); ax.set_ylim(0.5, 40); ax.set_yticks([1, 2, 4, 10, 20]); ax.set_yticklabels(["1", "2", "4", "10", "20"])
 ax.invert_xaxis(); ax.set_xlabel("absolute magnitude $M_V$ (brighter to the right)"); ax.set_ylabel("velocity dispersion (km s$^{-1}$)")
 ax.set_title(f"{below} of {len(kk)} Milky Way satellites lie below the proposed floor")
-S.save(fig, "part5", "fig_satellites")
+S.save(fig, "part7", "fig_satellites")
 
 # ---------------- p5_04 -----------------
 QL = k * 300 * np.log(2) / C.e
@@ -91,7 +91,7 @@ ax.text(1900, 0.42, "irreversible\ndetectors", fontsize=7, color=S.DATA, ha="rig
 ax.set_xscale("log"); ax.set_xlim(1e-2, r[-1]); ax.set_ylim(-0.03, 1.05)
 ax.set_xlabel("dissipated energy over the Landauer quantum, $Q/Q_L$"); ax.set_ylabel("erasure fidelity $F$")
 ax.set_title("Proposed universal curve $F=1-e^{-Q_L/Q}$")
-S.save(fig, "part5", "fig_eraser")
+S.save(fig, "part4", "fig_eraser")
 
 # ---------------- p5_05 -----------------
 eta = np.linspace(1e-3, 5, 600); Eq = np.exp(1 - 1 / eta)
@@ -118,7 +118,7 @@ a2.set_xticks([1, 10, 100, 1000]); a2.set_xticklabels(["1", "10", "100", "1000"]
 a2.set_xlabel("temperature (mK)"); a2.set_ylabel("coherence time (s)")
 a2.set_title("$10^{-12}$ kg silica sphere")
 S.panel_letter(a2, "b", dx=-0.16)
-S.save(fig, "part5", "fig_decoherence_profiles")
+S.save(fig, "part4", "fig_decoherence_profiles")
 
 # ---------------- p5_06 -----------------
 cc = 1 - Eq / np.e; Smax = 2 * np.sqrt(1 + cc**2); Sfix = np.sqrt(2) * (1 + cc)
@@ -134,4 +134,4 @@ ax.plot([tx], [2], "o", color=S.IAM, ms=4); ax.annotate(f"$t/\\tau$ = {tx:.2f}",
 ax.set_xlim(0, 5); ax.set_ylim(0, 3.2)
 ax.set_xlabel("$t/\\tau_{\\rm IAM}$"); ax.set_ylabel("CHSH value $|S|$")
 ax.set_title("Bell violation for massive pairs under the assumed ramp")
-S.save(fig, "part5", "fig_bell_decay")
+S.save(fig, "part4", "fig_bell_decay")

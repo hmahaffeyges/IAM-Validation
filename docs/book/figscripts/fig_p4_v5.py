@@ -1,4 +1,4 @@
-"""part4/fig_v5 (Chapter 'The reference: purified healthy cells on the specimen's platform', Figure fig:v5).
+"""part6/fig_v5 (Chapter 'The reference: purified healthy cells on the specimen's platform', Figure fig:v5).
 
 Coverage of held-out observations by the atlas v2 90 % predictive interval, read from the pre-registered outcome record
 Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md (B1 overall; B2 by kind of data). Band: the pre-registered pass range 85-95 %.
@@ -28,4 +28,4 @@ ax.set_xlim(84, 99); ax.set_ylim(-0.6, len(ROWS) - 0.4)
 ax.set_xlabel("held-out values inside the atlas's 90 % interval (%)")
 ax.set_title("The atlas's stated uncertainty holds on data it never saw")
 print(ROWS)
-S.save(fig, "part4", "fig_v5")
+S.save(fig, "part6", "fig_v5")

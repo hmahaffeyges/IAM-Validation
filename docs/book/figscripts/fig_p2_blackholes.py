@@ -1,4 +1,4 @@
-"""Part 2, Chapter 'Black-hole horizons' (p2_01_blackholes.tex).
+"""Part 2, Chapter 'Black-hole horizons' (p3_01_blackholes.tex).
 fig_smarr: (a) the bits of a horizon priced at its own temperature, N k_B T ln2, against M c^2: Schwarzschild horizons give M c^2/2
 (Smarr), the cosmic horizon gives its enclosed mass-energy M_H c^2; (b) Kerr: T S/(M c^2) = sqrt(1 - chi^2)/2 and the spin share 2 Omega_H J.
 fig_bh_temperature: (a) Hawking temperature against mass with T_CMB and T_GH; (b) black-body evaporation time.
@@ -52,7 +52,7 @@ a2.set_xlim(-0.02, 1.02); a2.set_ylim(0, 1.0)
 a2.set_xlabel("spin $\\chi = Jc/GM^2$"); a2.set_ylabel("share of $Mc^2$")
 a2.set_title("Rotation moves the half into spin")
 S.panel_letter(a2, "b", dx=-0.16)
-S.save(fig, "part2", "fig_smarr")
+S.save(fig, "part3", "fig_smarr")
 
 # ---------------- temperature and evaporation -----------------
 T_cmb = 2.7255; H0 = 67.16e3 / Mpc; T_gh = hbar * H0 / (2 * np.pi * k)   # photon-sector H0, as the caption
@@ -85,4 +85,4 @@ a2.set_xticks([1e-20, 1e-10, 1, 1e10, 1e20]); a2.set_yticks([1e10, 1e50, 1e90, 1
 a2.set_xlabel("mass ($M_\\odot$)"); a2.set_ylabel("evaporation time (yr)")
 a2.set_title("Evaporation time (black body)")
 S.panel_letter(a2, "b", dx=-0.18)
-S.save(fig, "part2", "fig_bh_temperature")
+S.save(fig, "part3", "fig_bh_temperature")

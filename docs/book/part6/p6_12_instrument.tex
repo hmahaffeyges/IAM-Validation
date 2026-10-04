@@ -1,0 +1,130 @@
+\chapter{The instrument layer: intake, calibration, tare}\label{ch:instrument}
+
+\section{From intensities to $\beta$}
+
+A bisulfite array does not report $\beta$. It reports two fluorescence intensities per probe, methylated $M$ and unmethylated
+$U$, in two colour channels, stored in IDAT files. $\beta=M/(M+U+\alpha)$ with a small offset $\alpha$ is computed only after
+background correction, dye-bias correction and probe-type handling~\cite{Triche2013,Fortin2017}. This is the methylome's
+map-making step, and like map-making it is where most of the instrument's errors enter. The chain does it itself, from the IDATs,
+one array at a time (Stage~1): noob background and dye-bias correction with
+probe-type normalisation, using only the array's own control and out-of-band probes. No other array and no reference matrix enters
+this step. Stage~1 also records what the array reports about itself: per-probe detection, control-probe intensities and the spread of the
+SNP probes.
+
+\section{Intake: the array's own numbers}
+
+Before any cell is read, Stage~0 asks whether the array is a measurement at all. It checks
+the manifest (array type, declared sex and age, a hashed identifier), the integrity hash of the IDAT pair, the control probes, per-probe
+detection, the sample call rate and the sex check. Every quantity is the array's own; none refers to a person. The lines are in the SOP:
+
+\begin{center}\small
+\begin{tabular}{@{}ll@{}}\toprule
+call rate & decision \\\midrule
+above the upper line & proceed \\
+between the lines & proceed with penalty, flagged \\
+below the lower line & quarantine: no reading is written \\\bottomrule
+\end{tabular}
+\end{center}
+The call rate is the fraction of probes that are detected and carry enough beads; a probe is detected when its Gaussian detection $p$,
+$1-\Phi\big((I-\mu_{\rm bg})/\sigma_{\rm bg}\big)$ against the array's own negative-control background, is below the detection line.
+Stage~1 records a second detection statistic, poobah, and a call rate on it; these are recorded, not
+gated. The lower line was set from a 48-array measurement across four laboratories: medians 0.985 (minimum 0.979), 0.975 (minimum 0.891) and 0.953
+(minimum 0.932) in three, and 0.878 (maximum 0.928) in the fourth. \measured{} The line
+sits in the gap between the fourth laboratory's best array and the third's worst; one array of the second laboratory
+(0.891) falls below it. That measurement used poobah, not the statistic the gate applies; the line has not yet been
+re-measured on the gate's own statistic. \openprob
+
+Three further rules decide the verdict. A sex mismatch between the array and the manifest quarantines the specimen and is never silently
+corrected. A deferred detection or call-rate check is a hard quarantine: a check that cannot run never advances a specimen.
+Bead counts are extracted at the Stage~0 hand-off; a low-bead warning gives \emph{proceed with penalty}, and probes with too few
+beads do not count toward the call rate. The bisulfite-conversion threshold is recorded and not gated: as written it refused all 731 healthy
+arrays it was tried on, and it is printed as provisional. \openprob{} A quarantined
+specimen produces no reading; the run stops.
+
+\paragraph{How a fault hides.} A gate that cannot read its input never fires, and a check that is deferred acts as a pass. So a deferred
+check quarantines the specimen, and every check that has never reported a failure is tested with an input known to be bad.
+
+\paragraph{Probes at background.} A probe at background reads both channels near noise, so its $\beta$ sits near 0.33--0.42 whatever the
+true methylation. \measured{} Met-A identity sites sit at 0.75--0.95 or 0.05--0.25
+(Chapter~\ref{ch:identity}), where such a value raises $H(\beta)$ toward one bit. Stage~1 therefore removes every probe that fails detection before any stage reads a $\beta$.
+
+\section{One platform per reference}
+
+The chain reads EPIC v1 arrays only. It refuses a specimen when Stage~0 reports another array type, when probe names carry the EPIC v2
+design suffix, or when the $\beta$ vector holds too few probes for EPIC v1. The reason is
+measured: a reference built on one platform does not transfer to another (Chapter~\ref{ch:meta}). A 450K neutrophil reference is not
+yet frozen. \openprob
+
+\section{The noise index}
+
+Array noise raises $H$ at every site, and the identity sites are where the gauge reads it. The chain therefore measures the noise of each
+array on sites that biology holds still. The noise index $N$ is the mean $H(\beta)$ over the EPIC sites at which every purified blood
+group of the reference is fully unmethylated or fully methylated, with little spread in any group; no
+neutrophil identity site is among them. $N$ is computed when nearly all of those sites are measured. \calibrated{} (the site list)
+
+\begin{center}\small
+\begin{tabular}{@{}lrll@{}}\toprule
+arrays & $n$ & $N$, median (range) & Met-A, median \\\midrule
+reference neutrophils & 12 & 0.1285 (0.1223--0.1489) & 1.001 \\
+second laboratory, donor 1 & 24 & 0.1504 (0.1067--0.1655) & 1.069 \\
+second laboratory, donor 2 & 24 & 0.1656 (0.1365--0.2434) & 1.192 \\\bottomrule
+\end{tabular}
+\end{center}
+\measured{} (The 12 reference rows are the six physical arrays deposited twice.) Within the second laboratory
+Met-A follows $N$ ($\rho=0.79$ and 0.83). $N$ does not explain all of it: some second-laboratory arrays with $N$ at the reference level still read
+about 1.07. That residual is the reason the chain also tares every reading against references run beside it.
+
+\section{The tare: references run beside the specimen}
+
+A physical instrument is zeroed against a known input measured the same way. Chain v3 does this with healthy reference specimens of the same
+type, run on the same slide, else in the same batch, through the same chain (Stage~T). The
+references are part of the run, not a stored group, and the specimen is never among its own references.
+\begin{itemize}
+\item \textbf{Median tare}: $A_{\rm rel}=A/\mathrm{median}(A_{\rm ref})$. There is no fitted correction.
+\item \textbf{Noise gate:} the noise index $N$ (mean $H(\beta)$ over the sites every purified blood group holds fixed) is measured on
+      every array and gates the gauge state: outside the range of the purified reference arrays the state is withheld.
+\item \textbf{Detection limit:} $2\times$ the references' spread divided by the shift that a 1~\% loss of the neutrophil pattern would cause at this
+      specimen's own fraction. Every tared reading states the smallest loss it could have shown.
+\end{itemize}
+With too few references the reading is untared. Isolated neutrophils are then drawn on the gauge against their own reference,
+labelled \emph{untared}, with the own-reference state kept in the state text; whole blood gets no gauge position until it is tared.
+The operating procedure is in the SOP.
+
+The acceptance run shows what the tare does and what it has not yet been tested on. Untared whole-blood Met-A read 0.943--0.968 on six DNA mixtures from the reference laboratory and 1.073--1.115 on
+five whole bloods from another laboratory. The acceptance script re-reads whole blood only, with a median tare whose references are the other
+specimens of the same group: for the second laboratory these were the other remission bloods, not healthy references. So tared, they read
+in Normal. \measured{} That is a test of the arithmetic, not of the tare against healthy references; isolated
+specimens were not tared in that run. Isolated neutrophils need the tare as well: a second laboratory's purified neutrophils (the 33 arrays of the scored test) read 0.86--1.26
+against the frozen reference with no tare, and the spread followed the arrays' noise, not purity. \measured
+
+% COMMISSIONING-RETURN fig:p4_tare: figure taken out 2026-10-03 (plotted development values from the removed fitted tare). Put back, redrawn from the commissioned chain; see development/COMMISSIONING_RETURNS.md.
+
+
+In one laboratory's 76 healthy-control whole-blood arrays, untared $A$ tracks the noise index and the neutrophil fraction: a linear fit
+$A\approx0.60+0.205\,f_{\rm neu}+2.51\,N$ has $R^2=0.85$. \fitted{} The fit was made after looking at
+those data and the chain does not apply it.
+
+Figure~\ref{fig:p4_noisefit} shows the fit on the 76 healthy arrays.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.5\textwidth]{figures/part6/fig_p4_12_noisefit.pdf}
+\caption{Untared whole-blood Met-A of 76 healthy adults (GSE179325, neutrophils $\ge50$~\%) against the expectation
+$0.60+0.205\,f_{\rm neu}+2.51\,N$ fitted on them ($R^2=0.85$). \fitted}
+\label{fig:p4_noisefit}
+\end{figure}
+
+\paragraph{A tare from the SNP probes.} Every array carries probes on common polymorphisms that read $\beta=0$, $\tfrac12$ or $1$ by genotype. A
+linear tare fitted to them was tested on 768 arrays from four laboratories and not commissioned: it moved the reading by a near-constant amount on
+94~\% of arrays, its scale term varied more within a chip than between chips, and neither parameter predicted the reading ($r=-0.14$ and $-0.07$). \measured{} Compression at $\beta=0$ and 1 says little about the response where identity sites sit.
+
+\section{What remains open}
+
+The planned tare is a slide tare: fully methylated and fully unmethylated control DNA run on every slide, so that each slide is zeroed
+against known inputs measured the same way. It is \openprob{} until a laboratory runs it. A second route, a nonlinear response model using the
+control probes as well as the SNP clusters, is not started. The intake call-rate line needs re-measuring on the gate's own detection statistic,
+the bisulfite-conversion line needs calibration, and a 450K reference needs freezing before 450K arrays can be read. \openprob
+
+Three further checks on the array's own numbers are not built: that the $\beta$ distribution shows its two peaks near 0 and near 1,
+as a converted array must; that no probe identifier appears twice in a $\beta$ vector, which only a corrupted file produces; and that
+few probes sit at exactly 0 or exactly 1, values a calibrated $\beta$ reaches only through a failed probe or a broken pipeline. Each
+needs its line measured on healthy arrays before it can gate. \openprob

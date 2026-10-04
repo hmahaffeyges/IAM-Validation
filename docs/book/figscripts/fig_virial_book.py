@@ -1,5 +1,5 @@
 """Figures for the virial and gravitational-decoherence chapters:
-part2/p2_02_virial.tex, part2/p2_02b_virial_tests.tex, part5/p5_05_gravdec.tex, part5/p5_05b_virial_partners.tex.
+part2/p2_02_virial.tex, part2/p2_02b_virial_tests.tex, part4/p4_05_gravdec.tex, part7/p7_05b_virial_partners.tex.
 Numbers as docs/verification/scripts/verify_virial_papers.py (Planck 2018 Omega_m = 0.3153, beta_m = Omega_m/2; Level 2 chains from
 Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv; halo mass-function slopes from docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv).
   fig_virial_mu_E          E(a), mu(z), 1 - mu and the f sigma8 deficit
@@ -119,7 +119,7 @@ for zz in (0.3, 0.7, 1.5):
     v = 100 * E(1 / (1 + zz)) / (1 + zz)**2 / 6; ax.plot([zz], [v], "o", ms=3, color=S.IAM); ax.text(zz + 0.07, v + 0.4, f"{v:.1f} %", fontsize=5.5)
 ax.axvspan(0.3, 0.7, color=S.SKY, alpha=0.2, lw=0); S.panel_letter(ax, "f")
 fig.tight_layout()
-S.save(fig, "part5", "fig_virial_partition")
+S.save(fig, "part7", "fig_virial_partition")
 
 # ---------------------------------------------------------------- fig_gravdec_scaling
 G, hbar, k = C.G, C.hbar, C.k; rho = 2200.0; ln2 = np.log(2)
@@ -139,7 +139,7 @@ ax2.plot(eta, np.exp(-eta), color=S.DATA, ls="--", label="exponential: −dC/dη
 ax2.axvline(0.5, color=S.LIGHT, lw=0.8); ax2.text(0.55, 0.05, "η = 1/2", fontsize=6)
 ax2.set_xlabel("η = t/τ"); ax2.set_ylabel("normalised rate of loss of coherence"); ax2.set_ylim(0, 1.05); ax2.legend(fontsize=5.5, loc="upper right", bbox_to_anchor=(1.0, 1.08))
 S.panel_letter(ax2, "b")
-S.save(fig, "part5", "fig_gravdec_scaling")
+S.save(fig, "part4", "fig_gravdec_scaling")
 
 # ---------------------------------------------------------------- fig_gravdec_lindblad
 N = 40; aop = np.diag(np.sqrt(np.arange(1, N)), 1); X = (aop + aop.T) / np.sqrt(2); nop = aop.T @ aop
@@ -159,7 +159,7 @@ for j, (col, lab) in enumerate(((1, "purity Tr ρ²"), (3, "|ρ₀₄| / |ρ₀�
     ax.set_xlabel("η = t/τ"); ax.set_ylabel(lab); S.panel_letter(ax, "abcd"[j], dx=-0.22)
 axs[0].legend(fontsize=5.5, loc="upper right")
 fig.tight_layout()
-S.save(fig, "part5", "fig_gravdec_lindblad")
+S.save(fig, "part4", "fig_gravdec_lindblad")
 dP = rmp[:, 1] - std[:, 1]; i = int(np.argmax(dP)); print(f"purity difference peak eta = {rmp[i,0]:.3f}, dP = {dP[i]:.3f}")
 
 # ---------------------------------------------------------------- fig_gravdec_heating
@@ -171,4 +171,4 @@ for T, cc in zip((0.01, 0.02, 0.04, 0.3), (S.IAM, S.ALT, S.GOLD, S.GR)):
 ax.axhline(1.0, color=S.LIGHT, ls="--", lw=0.8); ax.text(1.2e-14, 1.3, "1 phonon s⁻¹", fontsize=6)
 ax.set_xlabel("mass (kg), silica 2200 kg m⁻³"); ax.set_ylabel("dn/dt (phonons s⁻¹)"); ax.set_ylim(1e-8, 1e8)
 ax.legend(fontsize=6, loc="upper left")
-S.save(fig, "part5", "fig_gravdec_heating")
+S.save(fig, "part4", "fig_gravdec_heating")

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Book carriage of the quasiparticle-floor chapter (docs/book/part3/p3_02_xqp.tex): every equation and number, recomputed.
+"""Book carriage of the quasiparticle-floor chapter (docs/book/part5/p5_02_xqp.tex): every equation and number, recomputed.
 Corrections applied (docs/verification/PAPER_ERRATA.md XQ1-XQ8; particle/XQP_CHECK.md; particle/XQP_REFEREE_NOTE.md) and the
 source checks made in this carriage. Sympy for the algebra, numpy for numbers.
 Run: python docs/verification/scripts/verify_xqp_book.py > docs/verification/scripts/verify_xqp_book_output.txt"""

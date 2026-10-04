@@ -7,16 +7,16 @@ insertion blocks below. Every anchor below was checked to occur exactly once in 
 
 | file | content |
 |---|---|
-| `docs/book/part2/p2_15a_lepton_koide.tex` | Chapter "Three charged leptons and the Koide relation", `\label{ch:koide}`; 3 figures, 2 tables + status table |
-| `docs/book/part2/p2_15b_electron_mass.tex` | Chapter "The electron rest mass as a fixed point", `\label{ch:electronmass}`; 1 figure, 2 tables + status table |
-| `docs/book/part2/p2_22b_higgs_record.tex` | Chapter "The Higgs field and the onset of proper time", `\label{ch:higgsrecord}`; 1 figure, 1 table + status table |
+| `docs/book/part4/p4_15a_lepton_koide.tex` | Chapter "Three charged leptons and the Koide relation", `\label{ch:koide}`; 3 figures, 2 tables + status table |
+| `docs/book/part4/p4_15b_electron_mass.tex` | Chapter "The electron rest mass as a fixed point", `\label{ch:electronmass}`; 1 figure, 2 tables + status table |
+| `docs/book/part4/p4_22b_higgs_record.tex` | Chapter "The Higgs field and the onset of proper time", `\label{ch:higgsrecord}`; 1 figure, 1 table + status table |
 | `docs/book/bib_particle.bib` | 10 new entries (DOIs checked on CrossRef; 2 arXiv ids on the arXiv API). Add to the `\bibliography{}` line. |
 | `docs/book/figscripts/fig_p2_particle.py` | draws the five figures; imports `_bookstyle.py` |
-| `docs/book/figures/part2/fig_koide_flavour.{pdf,png}` | flavour-space vector, (1,1,1) and the 45° circle (3D), and the plane Σ√m = 3x |
-| `docs/book/figures/part2/fig_koide_orbit.{pdf,png}` | the charge orbit with the three phases; √m(φ)/x |
-| `docs/book/figures/part2/fig_koide_sweep.{pdf,png}` | the δ sweep (static version of the animation) |
-| `docs/book/figures/part2/fig_electron_fp.{pdf,png}` | the two sides of the fixed point; H0 dependence; α exponent |
-| `docs/book/figures/part2/fig_higgs_proper.{pdf,png}` | masses and Compton times at the crossover; −ln E = z |
+| `docs/book/figures/part4/fig_koide_flavour.{pdf,png}` | flavour-space vector, (1,1,1) and the 45° circle (3D), and the plane Σ√m = 3x |
+| `docs/book/figures/part4/fig_koide_orbit.{pdf,png}` | the charge orbit with the three phases; √m(φ)/x |
+| `docs/book/figures/part4/fig_koide_sweep.{pdf,png}` | the δ sweep (static version of the animation) |
+| `docs/book/figures/part4/fig_electron_fp.{pdf,png}` | the two sides of the fixed point; H0 dependence; α exponent |
+| `docs/book/figures/part4/fig_higgs_proper.{pdf,png}` | masses and Compton times at the crossover; −ln E = z |
 | `docs/verification/scripts/verify_particle_book.py` + `_output.txt` | every number of the three chapters (K1-K18, E1-E12, H1-H10) |
 
 ## main.tex and bibliography
@@ -48,7 +48,7 @@ insertion blocks below. Every anchor below was checked to occur exactly once in 
 | `docs/verification/particle/ELECTROWEAK_CHECK.md` | 22 | |
 | `docs/verification/PAPER_ERRATA.md` rows EM1-EM4, KO1-KO4, EW1-EW5, TR1/TR7/TR8 (lines 260-289 of 341) | 30 | rows read; file not read in full |
 | `docs/book/part2/p2_15_particle_masses.tex` | 89 | retired by this deliverable |
-| `docs/book/part2/p2_22_electroweak.tex` | 109 | kept; blocks below |
+| `docs/book/part4/p4_22_electroweak.tex` | 109 | kept; blocks below |
 | `docs/book/figscripts/_bookstyle.py` | 98 | house style |
 | `docs/verification/scripts/verify_koide.py` / `_output.txt` | 13 / 10 | reproduced |
 | `docs/verification/scripts/verify_electron_mass.py` / `_output.txt` | 11 / 10 | reproduced |
@@ -88,8 +88,8 @@ Anchor:
 ```
 Replace with:
 ```latex
-\input{part2/p2_15a_lepton_koide}
-\input{part2/p2_15b_electron_mass}
+\input{part4/p4_15a_lepton_koide}
+\input{part4/p4_15b_electron_mass}
 ```
 Note: p2_15 is retired; the two new chapters take its slot (the new line holds two \input lines).
 
@@ -97,15 +97,15 @@ Note: p2_15 is retired; the two new chapters take its slot (the new line holds t
 
 Anchor:
 ```latex
-\input{part2/p2_22_electroweak}
+\input{part4/p4_22_electroweak}
 ```
 Insert after it:
 ```latex
-\input{part2/p2_22b_higgs_record}
+\input{part4/p4_22b_higgs_record}
 ```
 Note: new chapter directly after the electroweak chapter.
 
-### 3. `docs/book/part2/p2_22_electroweak.tex` (line 5) — REPLACE
+### 3. `docs/book/part4/p4_22_electroweak.tex` (line 5) — REPLACE
 
 Anchor:
 ```latex
@@ -117,7 +117,7 @@ Replace with:
 ```
 Note: header comment only.
 
-### 4. `docs/book/part2/p2_22_electroweak.tex` (line 9) — REPLACE
+### 4. `docs/book/part4/p4_22_electroweak.tex` (line 9) — REPLACE
 
 Anchor:
 ```latex
@@ -128,7 +128,7 @@ Replace with:
 The result of this chapter is that a matter sector able to decohere gravitationally exists from electroweak symmetry breaking, and the
 ```
 
-### 5. `docs/book/part2/p2_22_electroweak.tex` (line 44) — REPLACE
+### 5. `docs/book/part4/p4_22_electroweak.tex` (line 44) — REPLACE
 
 Anchor:
 ```latex
@@ -139,7 +139,7 @@ Replace with:
 with it the baryonic part of $\beta_m$ (Section~\ref{sec:ew:betam} and Chapter~\ref{ch:baryon}). The phase of the quark mixing matrix is too small to produce
 ```
 
-### 6. `docs/book/part2/p2_22_electroweak.tex` (line 64) — REPLACE
+### 6. `docs/book/part4/p4_22_electroweak.tex` (line 64) — REPLACE
 
 Anchor:
 ```latex
@@ -150,7 +150,7 @@ Replace with:
 Section~\ref{sec:hr:proper} (a degree of freedom decoheres gravitationally only if it accumulates proper time), the matter sector exists from here on. Dark matter, whose particle nature is unknown, joins it by the same criterion if it
 ```
 
-### 7. `docs/book/part2/p2_22_electroweak.tex` (line 69) — REPLACE
+### 7. `docs/book/part4/p4_22_electroweak.tex` (line 69) — REPLACE
 
 Anchor:
 ```latex
@@ -161,7 +161,7 @@ Replace with:
 ($m_\gamma<10^{-18}$\,eV~\cite{PDG2024}). Its exemption from writing follows from an established symmetry, not from an added assumption. \derived{}
 ```
 
-### 8. `docs/book/part2/p2_22_electroweak.tex` (line 88) — REPLACE
+### 8. `docs/book/part4/p4_22_electroweak.tex` (line 88) — REPLACE
 
 Anchor:
 ```latex
@@ -172,7 +172,7 @@ Replace with:
 Chapter~\ref{ch:time} and Chapter~\ref{ch:higgsrecord} take up whether the settling of the Higgs field into its vacuum is itself a record written at
 ```
 
-### 9. `docs/book/part2/p2_22_electroweak.tex` (line 85) — INSERT AFTER
+### 9. `docs/book/part4/p4_22_electroweak.tex` (line 85) — INSERT AFTER
 
 Anchor:
 ```latex
@@ -193,7 +193,7 @@ parameter to them. That $\beta_m/\Omega_m=1/2$ for any revision of $\Omega_m$ is
 ```
 Note: insert after this line, and after any figure block already inserted at the same anchor (fig_ew_timeline from the figures pass); before \section{The vacuum question}.
 
-### 10. `docs/book/part2/p2_22_electroweak.tex` (line 99) — REPLACE
+### 10. `docs/book/part4/p4_22_electroweak.tex` (line 99) — REPLACE
 
 Anchor:
 ```latex
@@ -205,7 +205,7 @@ Replace with:
 ```
 Note: lead directive 2026-10-02 (Euclid). Line 100 is deleted (next block).
 
-### 11. `docs/book/part2/p2_22_electroweak.tex` (line 100) — REPLACE
+### 11. `docs/book/part4/p4_22_electroweak.tex` (line 100) — REPLACE
 
 Anchor:
 ```latex
@@ -216,7 +216,7 @@ Replace with:
 (delete this line; its content is replaced by the new line 99)
 ```
 
-### 12. `docs/book/part5/p5_06_nonlocality.tex` (line 61) — REPLACE
+### 12. `docs/book/part4/p4_06_nonlocality.tex` (line 61) — REPLACE
 
 Anchor:
 ```latex
@@ -227,7 +227,7 @@ Replace with:
 appears in the electron mass of Chapter~\ref{ch:electronmass} and in the decoherence argument, and not in the cosmology, which takes $7/2$. Whether the
 ```
 
-### 13. `docs/book/part5/p5_09_open.tex` (line 20) — REPLACE
+### 13. `docs/book/part7/p7_09_open.tex` (line 20) — REPLACE
 
 Anchor:
 ```latex
@@ -238,7 +238,7 @@ Replace with:
 \textbf{D3. The electron-mass prefactor.} $(2\pi)^{3/10}$ was found by search (Chapter~\ref{ch:electronmass}).
 ```
 
-### 14. `docs/book/part5/p5_09_open.tex` (line 26) — REPLACE
+### 14. `docs/book/part7/p7_09_open.tex` (line 26) — REPLACE
 
 Anchor:
 ```latex
@@ -489,11 +489,11 @@ Anchor:
 ```
 Insert after it:
 ```
-| EM5 | | §3.5 | T_C/T_GH separated by 47 orders of magnitude | m_e c²/ħH0 = 3.55 × 10³⁸, 38.6 orders (E7) | found 2026-10-02 | `book/part2/p2_15b_electron_mass.tex`; `scripts/verify_particle_book.py` |
-| EM6 | | §2, §3.1 | Compton sphere saturates the Bekenstein bound | Bekenstein bound for m_e c² in λ̄_C is 2π; the area count π(m_P/m)² = 1.79 × 10⁴⁵ exceeds it by 2.9 × 10⁴⁴; it is the area law applied to the Compton sphere (E11) | found 2026-10-02 | `book/part2/p2_15b_electron_mass.tex`; `scripts/verify_particle_book.py` |
-| EM7 | | §4, Eqs 13-14 | fixed point gives m_e | as derived (Eq. 13) it gives 0.5762 m_e; the identified (2π)^(3/10) = 1.7356 (equivalently a coefficient (2π)^(3/4) = 3.969 in N) is a fitted factor (E2, E3, E9) | found 2026-10-02 | `book/part2/p2_15b_electron_mass.tex`; `scripts/verify_particle_book.py` |
-| EM8 | | §3.3, §3.4 | dimensional consistency uniquely produces (m_P/m)^(3/2); (r_e/λ̄_C)^(3/2) a phase-space volume | every power of the dimensionless m_P/m is homogeneous; the exponent is assumed; a volume ratio of lengths would be cubed | found 2026-10-02 | `book/part2/p2_15b_electron_mass.tex`; `scripts/verify_particle_book.py` |
-| EM9 | | §5 | H0 = 67.4 | book sector values: photon sector 67.16 gives −0.14 %, matter sector 72.26 gives +2.82 % (8.8 × the H0-propagated spread); which H prices the bit is open (E4) | found 2026-10-02 | `book/part2/p2_15b_electron_mass.tex`; `scripts/verify_particle_book.py` |
+| EM5 | | §3.5 | T_C/T_GH separated by 47 orders of magnitude | m_e c²/ħH0 = 3.55 × 10³⁸, 38.6 orders (E7) | found 2026-10-02 | `book/part4/p4_15b_electron_mass.tex`; `scripts/verify_particle_book.py` |
+| EM6 | | §2, §3.1 | Compton sphere saturates the Bekenstein bound | Bekenstein bound for m_e c² in λ̄_C is 2π; the area count π(m_P/m)² = 1.79 × 10⁴⁵ exceeds it by 2.9 × 10⁴⁴; it is the area law applied to the Compton sphere (E11) | found 2026-10-02 | `book/part4/p4_15b_electron_mass.tex`; `scripts/verify_particle_book.py` |
+| EM7 | | §4, Eqs 13-14 | fixed point gives m_e | as derived (Eq. 13) it gives 0.5762 m_e; the identified (2π)^(3/10) = 1.7356 (equivalently a coefficient (2π)^(3/4) = 3.969 in N) is a fitted factor (E2, E3, E9) | found 2026-10-02 | `book/part4/p4_15b_electron_mass.tex`; `scripts/verify_particle_book.py` |
+| EM8 | | §3.3, §3.4 | dimensional consistency uniquely produces (m_P/m)^(3/2); (r_e/λ̄_C)^(3/2) a phase-space volume | every power of the dimensionless m_P/m is homogeneous; the exponent is assumed; a volume ratio of lengths would be cubed | found 2026-10-02 | `book/part4/p4_15b_electron_mass.tex`; `scripts/verify_particle_book.py` |
+| EM9 | | §5 | H0 = 67.4 | book sector values: photon sector 67.16 gives −0.14 %, matter sector 72.26 gives +2.82 % (8.8 × the H0-propagated spread); which H prices the bit is open (E4) | found 2026-10-02 | `book/part4/p4_15b_electron_mass.tex`; `scripts/verify_particle_book.py` |
 ```
 Note: new rows after EM4.
 
@@ -505,10 +505,10 @@ Anchor:
 ```
 Insert after it:
 ```
-| KO5 | | Theorem 1 | n = 3 unique | refines KO2: n ≥ 4 excluded for every δ; n = 2 admissible for π/4 < δ < 3π/4 (mod π), half of all offsets; n = 3 for a quarter; at δ = 0 and at the measured δ = 0.2222, exactly three (K10, K18). The condition is on the sign of the encoded amplitude, not on the mass; with signed amplitudes Q_n = 2/n (K11) | found 2026-10-02 | `book/part2/p2_15a_lepton_koide.tex`; `scripts/verify_particle_book.py` |
-| KO6 | | §III D, Eqs 8-10 | δA = (8πG/c⁴)E; κ_min = c²/ℓ_P gives δA_min = 4ℓ_P² | Eq. 8 is not an area dimensionally; δA_min = 4ℓ_P² follows from the first law at any κ for δS = 1 nat; Eq. 10 restates the area law (extends KO3) | found 2026-10-02 | `book/part2/p2_15a_lepton_koide.tex`; `scripts/verify_particle_book.py` |
-| KO7 | | §V C, §IX (ii) | w₂/w₁ ≲ 10⁻⁵, k_BT_enc ≲ ω₀²/8 | on Z₃ the second harmonic aliases onto the first; Q shifts by up to 0.67 a₂/y, so the data need a₂/y ≲ 10⁻⁵, w₂/w₁ ≲ 10⁻¹⁰, k_BT_enc ≲ ω₀²/15; three masses cannot test the two-mode truncation (K15-K17) | found 2026-10-02 | `book/part2/p2_15a_lepton_koide.tex`; `scripts/verify_particle_book.py` |
-| KO8 | | §VIII | PDG 2022 masses | PDG 2024 (m_τ = 1776.93 ± 0.09): Q = 0.66666446 ± 0.00000508 (0.43σ); m_τ from Q = 2/3 is 1776.969 MeV (−0.43σ); Q = 2/3 and δ = 2/9 cannot both be exact (2/9 − δ = 1.75 × 10⁻⁷ rad at Q = 2/3, σ = 4 × 10⁻¹⁰) (K1, K8, K13) | found 2026-10-02 | `book/part2/p2_15a_lepton_koide.tex`; `scripts/verify_particle_book.py` |
+| KO5 | | Theorem 1 | n = 3 unique | refines KO2: n ≥ 4 excluded for every δ; n = 2 admissible for π/4 < δ < 3π/4 (mod π), half of all offsets; n = 3 for a quarter; at δ = 0 and at the measured δ = 0.2222, exactly three (K10, K18). The condition is on the sign of the encoded amplitude, not on the mass; with signed amplitudes Q_n = 2/n (K11) | found 2026-10-02 | `book/part4/p4_15a_lepton_koide.tex`; `scripts/verify_particle_book.py` |
+| KO6 | | §III D, Eqs 8-10 | δA = (8πG/c⁴)E; κ_min = c²/ℓ_P gives δA_min = 4ℓ_P² | Eq. 8 is not an area dimensionally; δA_min = 4ℓ_P² follows from the first law at any κ for δS = 1 nat; Eq. 10 restates the area law (extends KO3) | found 2026-10-02 | `book/part4/p4_15a_lepton_koide.tex`; `scripts/verify_particle_book.py` |
+| KO7 | | §V C, §IX (ii) | w₂/w₁ ≲ 10⁻⁵, k_BT_enc ≲ ω₀²/8 | on Z₃ the second harmonic aliases onto the first; Q shifts by up to 0.67 a₂/y, so the data need a₂/y ≲ 10⁻⁵, w₂/w₁ ≲ 10⁻¹⁰, k_BT_enc ≲ ω₀²/15; three masses cannot test the two-mode truncation (K15-K17) | found 2026-10-02 | `book/part4/p4_15a_lepton_koide.tex`; `scripts/verify_particle_book.py` |
+| KO8 | | §VIII | PDG 2022 masses | PDG 2024 (m_τ = 1776.93 ± 0.09): Q = 0.66666446 ± 0.00000508 (0.43σ); m_τ from Q = 2/3 is 1776.969 MeV (−0.43σ); Q = 2/3 and δ = 2/9 cannot both be exact (2/9 − δ = 1.75 × 10⁻⁷ rad at Q = 2/3, σ = 4 × 10⁻¹⁰) (K1, K8, K13) | found 2026-10-02 | `book/part4/p4_15a_lepton_koide.tex`; `scripts/verify_particle_book.py` |
 ```
 Note: new rows after KO4.
 
@@ -521,19 +521,19 @@ Anchor:
 Insert after it:
 ```
 | **The Higgs Boson and the Origin of Duration (`particle/iam_higgs_duration.tex`, Mar 2026)**, read in full 2026-10-02 (746 lines) |||||||
-| HD1 | | Abstract, §2 | gravity, electromagnetism and the strong force all satisfy 2⟨K⟩+⟨V⟩ = 0 | the Cornell potential is linear at confinement, 2⟨K⟩ = +⟨V_lin⟩; only 1/r interactions have the virial half | found 2026-10-02 | `book/part2/p2_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
-| HD2 | | Abstract, §1, §3 | without weak CP and P violation no arrow of time, no irreversible decoherence | the thermodynamic arrow, decoherence and Landauer's bound hold for every interaction (as p2_22) | found 2026-10-02 | `book/part2/p2_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
-| HD3 | | §4.1, §4.2 | before EWSB no handedness, no CP violation; CP violation established at the transition | SU(2)_L × U(1)_Y is chiral at every temperature; the CP phase lies in the Yukawa couplings on both sides | found 2026-10-02 | `book/part2/p2_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
-| HD4 | | §4.1, §6 | E(a) ≡ 0 exactly before EWSB; E steps away from zero at the Higgs moment | E = exp(1 − 1/a) = e^(−z); ln E(a_EW) = −2.04 × 10¹⁵; no step (H4) | found 2026-10-02 | `book/part2/p2_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
-| HD5 | | Abstract, §4.2, Table 2 | t ≈ 10⁻¹² s at ~100 GeV; symmetry breaking by a fluctuation into one minimum | crossover at 159.5 ± 1.5 GeV, t = 9.2 × 10⁻¹² s (as EW3); no order parameter (as EW4) | found 2026-10-02 | `book/part2/p2_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
-| HD6 | | §7 | the Higgs field decohered into one direction: the first decoherence event, the first bit on the horizon | vacuum points are gauge-related (Elitzur 1975); no gauge-invariant record; irreversible processes occur before the crossover; not carried as a claim (as EW4) | found 2026-10-02 | `book/part2/p2_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
-| HD7 | | Abstract, §5, §6 | Ω_b (15.6 % of β_m) set at 10⁻¹² s by weak CP violation; η determined at EWSB | the SM crossover cannot produce η; when η was set is unknown (leptogenesis is one earlier route) | found 2026-10-02 | `book/part2/p2_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
-| HD8 | | Abstract, §5 | Ω_dm (84.4 %) accumulated over 13.8 Gyr of decoherence | the CMB fixes Ω_c h² = 0.120 at z ≈ 1090; the comoving dark-matter density was in place at recombination | found 2026-10-02 | `book/part2/p2_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
-| HD9 | | Abstract, §4 Table 2 | cosmological virialisation Ω_m/[β_m E(a)] = 2 exactly today | an identity of β_m = Ω_m/2 and E(1) = 1 (H7) | found 2026-10-02 | `book/part2/p2_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
-| HD10 | | Table 2 | ~9 Gyr: E ≈ 17 %; QCD 10⁻⁶ s; recombination 0.3 eV; GUT and gravity rows | E = 0.64 at age 9 Gyr (z = 0.44); E = 0.17 at z = 1.77 (3.67 Gyr); QCD 1.4-2.6 × 10⁻⁵ s; 0.256 eV; hypothetical rows not carried (H5, H6, W2, W5) | found 2026-10-02 | `book/part2/p2_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
-| HD11 | | §4.3, §8 | Σ = 1 a retrodiction, confirmed in 1983 | photon masslessness does not establish Σ = 1; weak lensing tests it (as p2_22) | found 2026-10-02 | `book/part2/p2_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
-| HD12 | | §6, §9, §10 | β_m recovered to 0.2σ without fitting; Euclid DR1 October 2026 decisive; σ(Σ0) ≈ 0.02 | untraced (as TR1); DR1 mid-2027 (as TR8); Euclid sensitivity stated from EuclidMG2025/EuclidReview2025 with IAM-template caveat | found 2026-10-02 | `book/part2/p2_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
-| HD13 | | §1-§3, §5 | "being/becoming", efficient cause, "Davar", "God particle", "origin of duration" | not carried; physics content stated as the onset of rest-mass proper time | found 2026-10-02 | `book/part2/p2_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
+| HD1 | | Abstract, §2 | gravity, electromagnetism and the strong force all satisfy 2⟨K⟩+⟨V⟩ = 0 | the Cornell potential is linear at confinement, 2⟨K⟩ = +⟨V_lin⟩; only 1/r interactions have the virial half | found 2026-10-02 | `book/part4/p4_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
+| HD2 | | Abstract, §1, §3 | without weak CP and P violation no arrow of time, no irreversible decoherence | the thermodynamic arrow, decoherence and Landauer's bound hold for every interaction (as p2_22) | found 2026-10-02 | `book/part4/p4_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
+| HD3 | | §4.1, §4.2 | before EWSB no handedness, no CP violation; CP violation established at the transition | SU(2)_L × U(1)_Y is chiral at every temperature; the CP phase lies in the Yukawa couplings on both sides | found 2026-10-02 | `book/part4/p4_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
+| HD4 | | §4.1, §6 | E(a) ≡ 0 exactly before EWSB; E steps away from zero at the Higgs moment | E = exp(1 − 1/a) = e^(−z); ln E(a_EW) = −2.04 × 10¹⁵; no step (H4) | found 2026-10-02 | `book/part4/p4_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
+| HD5 | | Abstract, §4.2, Table 2 | t ≈ 10⁻¹² s at ~100 GeV; symmetry breaking by a fluctuation into one minimum | crossover at 159.5 ± 1.5 GeV, t = 9.2 × 10⁻¹² s (as EW3); no order parameter (as EW4) | found 2026-10-02 | `book/part4/p4_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
+| HD6 | | §7 | the Higgs field decohered into one direction: the first decoherence event, the first bit on the horizon | vacuum points are gauge-related (Elitzur 1975); no gauge-invariant record; irreversible processes occur before the crossover; not carried as a claim (as EW4) | found 2026-10-02 | `book/part4/p4_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
+| HD7 | | Abstract, §5, §6 | Ω_b (15.6 % of β_m) set at 10⁻¹² s by weak CP violation; η determined at EWSB | the SM crossover cannot produce η; when η was set is unknown (leptogenesis is one earlier route) | found 2026-10-02 | `book/part4/p4_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
+| HD8 | | Abstract, §5 | Ω_dm (84.4 %) accumulated over 13.8 Gyr of decoherence | the CMB fixes Ω_c h² = 0.120 at z ≈ 1090; the comoving dark-matter density was in place at recombination | found 2026-10-02 | `book/part4/p4_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
+| HD9 | | Abstract, §4 Table 2 | cosmological virialisation Ω_m/[β_m E(a)] = 2 exactly today | an identity of β_m = Ω_m/2 and E(1) = 1 (H7) | found 2026-10-02 | `book/part4/p4_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
+| HD10 | | Table 2 | ~9 Gyr: E ≈ 17 %; QCD 10⁻⁶ s; recombination 0.3 eV; GUT and gravity rows | E = 0.64 at age 9 Gyr (z = 0.44); E = 0.17 at z = 1.77 (3.67 Gyr); QCD 1.4-2.6 × 10⁻⁵ s; 0.256 eV; hypothetical rows not carried (H5, H6, W2, W5) | found 2026-10-02 | `book/part4/p4_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
+| HD11 | | §4.3, §8 | Σ = 1 a retrodiction, confirmed in 1983 | photon masslessness does not establish Σ = 1; weak lensing tests it (as p2_22) | found 2026-10-02 | `book/part4/p4_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
+| HD12 | | §6, §9, §10 | β_m recovered to 0.2σ without fitting; Euclid DR1 October 2026 decisive; σ(Σ0) ≈ 0.02 | untraced (as TR1); DR1 mid-2027 (as TR8); Euclid sensitivity stated from EuclidMG2025/EuclidReview2025 with IAM-template caveat | found 2026-10-02 | `book/part4/p4_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
+| HD13 | | §1-§3, §5 | "being/becoming", efficient cause, "Davar", "God particle", "origin of duration" | not carried; physics content stated as the onset of rest-mass proper time | found 2026-10-02 | `book/part4/p4_22b_higgs_record.tex`; `scripts/verify_particle_book.py` |
 ```
 Note: new rows after EW5 (a new paper block).
 
@@ -551,6 +551,6 @@ Note: new rows after EW5 (a new paper block).
 5. The book was not compiled (no TeX in the sandbox). Static checks: braces and environments balance in all three chapters and in every
    block; every \ref resolves to a label in the book or the new files; every \cite resolves to iam.bib or bib_particle.bib; no new label
    collides with an existing one; no `[h]` floats; no non-ASCII characters in the .tex files.
-6. `p5_03_time.tex` line 24 (t ≈ 10⁻¹² s, flagged in ELECTROWEAK_CHECK #4) was not touched here.
+6. `p7_03_time.tex` line 24 (t ≈ 10⁻¹² s, flagged in ELECTROWEAK_CHECK #4) was not touched here.
 7. Part 5 and the appendices may contain other statements that depend on the old p2_15 wording ("at most three", "6.6 ppm"); only the
    lines that reference `ch:particle` were changed.

@@ -1,5 +1,5 @@
-"""Part 2, Chapters 'Entanglement and the cost of records' (p2_21_entanglement_records.tex) and 'Electroweak symmetry breaking and the
-matter sector' (p2_22_electroweak.tex). Equations and constants as docs/verification/scripts/verify_entanglement_electroweak.py
+"""Part 2, Chapters 'Entanglement and the cost of records' (p4_21_entanglement_records.tex) and 'Electroweak symmetry breaking and the
+matter sector' (p4_22_electroweak.tex). Equations and constants as docs/verification/scripts/verify_entanglement_electroweak.py
 (scipy.constants CODATA; PDG 2022; Planck 2018).
 fig_chsh_dephasing: (a) CHSH value against the coherence c of a Bell pair: S_max = 2 sqrt(1 + c^2) for pointer-basis dephasing
   (Horodecki criterion, computed from the density matrix), S = sqrt2 (1 + c) with the pure-state settings, and S_max = 2 sqrt2 p for
@@ -62,7 +62,7 @@ a2.set_xlabel("$t/\\tau_{\\rm IAM}$"); a2.set_ylabel("$S_{\\max}$")
 a2.legend(loc="upper right", fontsize=6.5)
 a2.set_title("The violation fades to 2, never below")
 S.panel_letter(a2, "b", dx=-0.14)
-S.save(fig, "part2", "fig_chsh_dephasing")
+S.save(fig, "part4", "fig_chsh_dephasing")
 
 # ---------------- tau(T) -----------------
 rho = 2200.0
@@ -96,7 +96,7 @@ a2.set_xlabel("mass $m$ (kg)"); a2.set_ylabel("$\\tau_{\\rm IAM}/\\tau_{\\rm PD}
 a2.legend(loc="upper right", fontsize=6.5)
 a2.set_title("Where the two channels separate")
 S.panel_letter(a2, "b", dx=-0.14)
-S.save(fig, "part2", "fig_tau_temperature")
+S.save(fig, "part4", "fig_tau_temperature")
 
 # ---------------- electroweak timeline -----------------
 GeV = 1e9 * C.e; hbar_GeVs = hb / GeV

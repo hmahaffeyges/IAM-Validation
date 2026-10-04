@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Every equation and number carried into Part 2 'Records at the quantum scale' (p2_14_quantum_records.tex),
-Part 5 'Duration, the arrow of time ...' (p5_03_time.tex) and Part 5 'Measurement as the writing of a record' (p5_04_measurement.tex).
+"""Every equation and number carried into Part 2 'Records at the quantum scale' (p4_14_quantum_records.tex),
+Part 5 'Duration, the arrow of time ...' (p7_03_time.tex) and Part 5 'Measurement as the writing of a record' (p4_04_measurement.tex).
 Sources read in full: Quantum_Darwinism_at_Cosmological_Scales (861 PDF lines), IAM_Measurement_Problem_Quantum (388),
 The_Two_Faces_of_Time (249). Corrections: PAPER_ERRATA.md rows QD1-QD9, MP1-MP7, TF1-TF3, GD1-GD4, EN8, V17, EM1, KO2.
 Run: python docs/verification/scripts/verify_records_measurement_time.py > ..._output.txt

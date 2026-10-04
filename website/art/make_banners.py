@@ -8,7 +8,7 @@ Themes (one per Part):
                              tail), drawn in an all-sky ellipse. Synthetic: it is not the measured sky.
   bh       Part III        - a dark horizon with a lensed, Doppler-brightened emission ring, drawn procedurally.
   lattice  Part IV         - a square lattice of coupled nodes (a qubit / chip grid) with a standing wave across it.
-  genome   Part VI         - the book's own genome sky: panel b of docs/book/figures/part4/fig_sky_cmb_vs_neutrophil.pdf (one
+  genome   Part VI         - the book's own genome sky: panel b of docs/book/figures/part6/fig_sky_cmb_vs_neutrophil.pdf (one
                              healthy neutrophil's pixel residual, the genome laid on the sphere).
   web      Part I          - the four skies joined, blended left to right (Part I's banner and card; also the front-page banner).
   chip     Part V          - a processor die from above: standard-cell rows, metal routing, memory macros.
@@ -119,7 +119,7 @@ def lattice(name, size=(W, H), seed=7):
 def genome_sky():
     """The genome sky: panel b of the book's fig_sky_cmb_vs_neutrophil (one healthy neutrophil minus five others, the genome laid on
     the sphere), cut out of the rendered PDF along its all-sky ellipse."""
-    pdf = REPO / "docs/book/figures/part4/fig_sky_cmb_vs_neutrophil.pdf"
+    pdf = REPO / "docs/book/figures/part6/fig_sky_cmb_vs_neutrophil.pdf"
     with tempfile.TemporaryDirectory() as td:
         subprocess.run(["pdftoppm", "-png", "-r", "300", "-singlefile", str(pdf), f"{td}/g"], check=True)
         im = np.asarray(Image.open(f"{td}/g.png").convert("RGB")).astype(float)
