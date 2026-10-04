@@ -76,6 +76,64 @@ the gate; for a cell it is the chromatin on which the methylation pattern is wri
 maintained. Parts~\ref{part:2} and~\ref{part:3} test this identification in cosmology, particle physics and
 quantum hardware, and label each result by how well it holds. This part tests it on the cell.
 
+\section{Two readings of one record}\label{sec:two_readings}
+
+A cell holds its identity as a methylation pattern. The pattern is a record, and the cell copies it at every division. The record can be
+read at two scales: on single molecules, and across the many cells of a specimen. The instrument reads it both ways.
+
+\paragraph{IAM-A: copy errors on single molecules.} Take one molecule from a long read. Where the molecule is methylated along its length,
+an unmethylated call standing alone between methylated neighbours is a copy error: the copy did not carry the mark across. Count the errors
+and the places where one could have happened,
+\begin{equation*}
+\varepsilon=\frac{\text{errors}}{\text{opportunities}} .
+\end{equation*}
+\measured{} The floor is $\varepsilon_0=0.032$, set by the energy that holds a mark at 310\,K (Eq.~\eqref{eq:eps0}). \derived{} The reading is
+\begin{equation*}
+\text{IAM-A}=\frac{H(\varepsilon)}{P_{\rm cell}\,H(\varepsilon_0)}
+\end{equation*}
+(Eq.~\eqref{eq:iama}), where $H$ is the binary entropy and $P_{\rm cell}$ is the healthy position of that cell type on one read-level
+pipeline. \calibrated{} This is the cell's error per gate, read against a thermal floor.
+
+\paragraph{Met-A: the pattern across the ensemble.} An array does not see molecules. It sees $\beta$, the fraction of copies methylated at
+each site, over all the cells in the specimen. Met-A is the Shannon entropy of $\beta$ at the cell's identity sites, over the healthy floor of
+that cell type on the same platform (Eq.~\eqref{eq:meta}). The floor comes from purified healthy cells. \calibrated{} This is the cell's state
+fidelity, read across the ensemble.
+
+\paragraph{Is Met-A a comparison?} In one sense, and it is worth saying plainly. Its floor is measured on purified healthy cells, so it is
+calibrated, not derived. But it is a reference standard, like a calibration weight on a scale: one cell type, one platform, one number. It is not
+a distribution of people with a percentile. IAM-A is closer to derived: its floor is physics, and only the healthy position is measured. So the
+honest labels are: Met-A, a physics quantity on a calibrated floor; IAM-A, a physics quantity on a derived floor with a calibrated position.
+
+\paragraph{One record, two scales.} The two readings are of one record. Copy errors are what blur the pattern: an error moves the $\beta$ of
+its site toward one half, where $H(\beta)$ is largest. \derived{} So IAM-A reads the cause on single molecules and Met-A reads its result
+across the specimen. Each A score carries one C-score beside it, computed from the same sites, which says where along the genome the
+departures sit (Chapter~\ref{ch:cscore}). \calc
+
+\paragraph{The efficiency side.} The Mahaffey number is the drive over the thermal quantum, $\mathcal M=\Delta G_{\rm ATP}/\kB T$. For one
+ATP at 310\,K it is about 21 ($\mathcal M=20.94$). \calc{} The chip gauge is the efficiency one, how far above $\kB T\ln2$ each switch runs; the Mahaffey number is its counterpart in the cell. It is not a score of its own: and it sets $\varepsilon_0$ through
+the holding energy (Eq.~\eqref{eq:eps0}). \derived
+
+\begin{table}[htbp]\centering\small
+\caption[Two readings of one record, beside the qubit and the chip]{Each surface read against its own floor. The qubit and the chip are in
+Chapters~\ref{ch:ascoreqc} and~\ref{ch:cmos}; IAM-A and Met-A in Chapters~\ref{ch:iama} and~\ref{ch:meta}.}\label{tab:two_readings}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}\toprule
+ & qubit & chip & cell, IAM-A & cell, Met-A\\\midrule
+what is read & error per gate & energy per switch & copy error per CpG & blur of the stored pattern\\ \iamrowrule
+scale & one operation & one switch & one molecule & the whole specimen\\ \iamrowrule
+floor & thermal floor at its own temperature & $\kB T_j\ln2$ & $\varepsilon_0=0.032$ from the holding energy at 310\,K & the cell type's healthy floor, same platform\\ \iamrowrule
+status of the floor & \derived & \derived & \derived; healthy position \calibrated & \calibrated\\ \iamrowrule
+reads 1 & as built & as built & healthy cell & healthy cell\\\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Two kinds of method.} Most methods that read methylation for disease are classifiers: machine-learning models trained on large
+groups of people with and without disease; a multi-cancer blood test built this way is one example~\cite{Klein2021}. Ageing clocks are regressions trained on large groups of people of known age. Both ask which group a
+specimen looks like. The readings here ask a different question: how far is this cell from its own healthy record, measured against a physical
+floor? One compares a specimen with other people; the other measures one cell. They are different methods, and nothing here says which detects
+disease better. Detection is not tested. \openprob
+
+Both readings are open to anyone with a long-read run or an array. Take a healthy cell, read it both ways, and try to break it.
+
 \section{What the bridge claims, and what it does not}
 
 \paragraph{Why your cells follow the same law as the stars.} Anything that lasts holds a balance between the energy of motion and the energy
