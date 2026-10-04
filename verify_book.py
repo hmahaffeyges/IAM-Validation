@@ -2400,6 +2400,13 @@ def _b13_rate_ratio(z):
     den_ = abs((Om * (a + d)**-3 - Om * (a - d)**-3) / (2 * d))
     return num_ / den_
 
+# helpers of the part5/p5_05c_virial_decoherence checks
+def _b13_age_gyr():
+    """Cosmic time t0 = int_0^1 da/(a H(a)), flat LambdaCDM with radiation, Planck 2018 H0 = 67.36, Omega_m = 0.3153, Omega_r from T_CMB and N_eff."""
+    Or = 2.4728e-5 * (1 + 0.2271 * 3.046) / h_pl**2
+    Hf = lambda a: Hsi(100 * h_pl) * math.sqrt(Om * a**-3 + Or * a**-4 + (1 - Om - Or))
+    return quad(lambda a: 1 / (a * Hf(a)), 1e-12, 1, limit=200)[0] / Gyr
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -36671,12 +36678,115 @@ def check_4392():
 
 
 # ======== Part 7 | ch:virial_decoherence | docs/book/part5/p5_05c_virial_decoherence.tex
+@check(label='ch:virial_decoherence:L19', chapter='ch:virial_decoherence', part=7, title='age of the universe, flat LCDM, Planck 2018',
+       file='part5/p5_05c_virial_decoherence', line=19, status='interp', kind='num', printed='13.8', tol=0.0)
+def check_4393():
+    'Cosmic time t0 = int_0^1 da/(a H(a)) in Gyr. Book line 19, printed 13.8 (billion years). Inputs: Planck 2018 VI Table 2 (Aghanim et al. 2020, doi 10.1051/0004-6361/201833910) H0 = 67.36, Omega_m = 0.3153; Omega_r from T_CMB = 2.7255 K and N_eff = 3.046.'
+    value = _b13_age_gyr()
+    return locals()
+
+@check(label='ch:virial_decoherence:L23', chapter='ch:virial_decoherence', part=7, title='Level 2 Delta chi2, IAM Run A minus LCDM Run C',
+       file='part5/p5_05c_virial_decoherence', line=23, status='interp', kind='file', printed='+0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_4394():
+    'Delta chi2 = chi2_min(iam_level2_runA) - chi2_min(iam_level2_runC_lcdm), the Level 2 chains on Planck 2018. Book line 23, printed +0.54.'
+    a = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min')
+    b = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min')
+    value = a - b
+    return locals()
+
+@check(label='ch:virial_decoherence:L73', chapter='ch:virial_decoherence', part=7, title='Gibbons-Hawking temperature today, H0 = 67.16',
+       file='part5/p5_05c_virial_decoherence', line=73, status='calc', kind='num', printed='2.65\\times10^{-30}', tol=0.0)
+def check_4395():
+    'T_H = hbar H0/(2 pi k_B) with H0 = 67.16 (photon sector, locked), in K. Book line 73, printed 2.65e-30. Inputs: SI hbar, k_B.'
+    value = hbar * Hsi(H0_photon) / (2 * math.pi * kB)
+    return locals()
+
 @check(label='ch:virial_decoherence:L74', chapter='ch:virial_decoherence', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
        file='part5/p5_05c_virial_decoherence', line=74, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2594():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 74, printed 67.16.'
     value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    return locals()
+
+@check(label='ch:virial_decoherence:L81', chapter='ch:virial_decoherence', part=7, title='E(z = 10) = exp(1 - 1/a)',
+       file='part5/p5_05c_virial_decoherence', line=81, status='calc', kind='num', printed='4.5\\times10^{-5}', tol=0.0)
+def check_4396():
+    'Activation function E(a) = exp(1 - 1/a) at a = 1/11. Book line 81, printed 4.5e-5.'
+    value = float(E_act(1 / 11))
+    return locals()
+
+@check(label='ch:virial_decoherence:L92', chapter='ch:virial_decoherence', part=7, title='age of the universe (repeat)',
+       file='part5/p5_05c_virial_decoherence', line=92, status='derived', kind='num', printed='13.8', tol=0.0)
+def check_4397():
+    'Cosmic time t0 in Gyr, flat LambdaCDM with Planck 2018 inputs as ch:virial_decoherence:L19. Book line 92, printed 13.8 (billion years).'
+    value = _b13_age_gyr()
+    return locals()
+
+@check(label='ch:virial_decoherence:L100', chapter='ch:virial_decoherence', part=7, title='H0 photon sector, Level 2 chain value',
+       file='part5/p5_05c_virial_decoherence', line=100, status='openprob', kind='file', printed='67.16', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_4398():
+    'H0 posterior mean of iam_level2_runA (photon sector, locked 67.16). Book line 100, printed 67.16.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    return locals()
+
+@check(label='ch:virial_decoherence:L106', chapter='ch:virial_decoherence', part=7, title='saturation bound S/A = k_B/4 l_P^2 at R_s',
+       file='part5/p5_05c_virial_decoherence', line=106, status='conjecture', kind='sym', printed='', tol=0.0)
+def check_4399():
+    'Eq. eq:vd_sat: the Bekenstein-Hawking entropy S = 4 pi G M^2 k_B/(hbar c) on the sphere at R_s = 2GM/c^2, divided by its area 4 pi R_s^2, is k_B c^3/(4 hbar G) = k_B/(4 l_P^2): the bound is met with equality at the horizon. Book line 106.'
+    G_, M, hb, c_, k = sp.symbols('G M hbar c k_B', positive=True)
+    Rs = 2 * G_ * M / c_**2
+    S = 4 * sp.pi * G_ * M**2 * k / (hb * c_)
+    lhs = sp.simplify(S / (4 * sp.pi * Rs**2))
+    rhs = k / (4 * hb * G_ / c_**3)
+    neg_lhs = sp.simplify(S / (4 * sp.pi * (sp.Rational(105, 100) * Rs)**2))
+    return locals()
+
+@check(label='ch:virial_decoherence:L111', chapter='ch:virial_decoherence', part=7, title='Hawking power and bit rate c^3/(1920 G M ln2)',
+       file='part5/p5_05c_virial_decoherence', line=111, status='derived', kind='sym', printed='', tol=0.0)
+def check_4400():
+    'Eq. eq:vd_gamma: Stefan-Boltzmann power sigma T^4 A of a black body at T_BH = hbar c^3/(8 pi G M k_B) on A = 4 pi R_s^2 (sigma = pi^2 k_B^4/(60 hbar^3 c^2)) gives P_H = hbar c^6/(15360 pi G^2 M^2); divided by k_B T_BH ln2 it gives c^3/(1920 G M ln2). Both checked. Book line 111.'
+    G_, M, hb, c_, k = sp.symbols('G M hbar c k_B', positive=True)
+    T = hb * c_**3 / (8 * sp.pi * G_ * M * k)
+    sigma = sp.pi**2 * k**4 / (60 * hb**3 * c_**2)
+    P = sp.simplify(sigma * T**4 * 4 * sp.pi * (2 * G_ * M / c_**2)**2)
+    P_ok = sp.simplify(P - hb * c_**6 / (15360 * sp.pi * G_**2 * M**2)) == 0
+    lhs = sp.simplify(P / (k * T * sp.log(2)))
+    rhs = c_**3 / (1920 * G_ * M * sp.log(2)) if P_ok else 0
+    neg_lhs = sp.simplify(P / (k * sp.Rational(105, 100) * T * sp.log(2)))
+    return locals()
+
+@check(label='ch:virial_decoherence:L115', chapter='ch:virial_decoherence', part=7, title='Hawking evaporation time of a solar-mass black hole',
+       file='part5/p5_05c_virial_decoherence', line=115, status='calc', kind='num', printed='2.1\\times10^{67}', tol=0.0)
+def check_4401():
+    'Evaporation time from dM/dt = -P_H/c^2 with P_H = hbar c^6/(15360 pi G^2 M^2) (Eq. eq:vd_gamma), integrated numerically from M_sun to 0, in years. Book line 115, printed 2.1e67 yr. Inputs: CODATA G, hbar; IAU solar mass; Julian year.'
+    K = hbar * c**4 / (15360 * math.pi * G**2)      # dM/dt = -K/M^2
+    t_s = quad(lambda m: m**2 / K, 0, Msun)[0]
+    value = t_s / yr
+    return locals()
+
+@check(label='ch:virial_decoherence:L160', chapter='ch:virial_decoherence', part=7, title='sigma8 IAM Level 2 chain value',
+       file='part5/p5_05c_virial_decoherence', line=160, status='interp', kind='file', printed='0.800', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_4402():
+    'sigma8 posterior mean of iam_level2_runA. Book line 160, printed 0.800.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    return locals()
+
+@check(label='ch:virial_decoherence:L175', chapter='ch:virial_decoherence', part=7, title='coupling reduction today 1 - mu(1)',
+       file='part5/p5_05c_virial_decoherence', line=175, status='prediction', kind='num', printed='13.6', tol=0.0)
+def check_4403():
+    '1 - mu(a=1), mu = H^2/(H^2 + beta_m E H0^2) with beta_m = Omega_m/2, in per cent. Book line 175, printed 13.6 %.'
+    value = 100 * (1 - float(mu_iam(1.0)))
+    return locals()
+
+@check(label='ch:virial_decoherence:L176', chapter='ch:virial_decoherence', part=7, title='f sigma8 deficit at z = 0, same early amplitude',
+       file='part5/p5_05c_virial_decoherence', line=176, status='prediction', kind='num', printed='4.25', tol=0.0)
+def check_4404():
+    'f sigma8 of IAM below LambdaCDM at z = 0 with the same early amplitude, linear growth with mu(a) (fs8_deficit), in per cent. Book line 176, printed 4.25 %.'
+    value = fs8_deficit(0.0, which='iam')
     return locals()
 
 
@@ -40436,18 +40546,6 @@ INVENTORY = [
     (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '1.5', 'input: the redshift z = 1.5 at which panels (c) and (f) are read (checked as ch:virial_partners:L87:4.9 and L87:0.6)'),
     (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '0.3', 'input: z = 0.3, lower edge of the transition zone and an evaluation redshift of panel (f) (checked as ch:virial_partners:L87:7.3)'),
     (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 90, '', 'calc', '0.7', 'definition: the transition zone z = 0.3-0.7 (its edge 0.7), a range named for the figure, nothing to recompute'),
-    (7, 'ch:virial_decoherence', 'part5/p5_05c_virial_decoherence', 19, '', 'interp', '13.8', 'not yet checked'),
-    (7, 'ch:virial_decoherence', 'part5/p5_05c_virial_decoherence', 23, '', 'interp', '+0.54', 'not yet checked'),
-    (7, 'ch:virial_decoherence', 'part5/p5_05c_virial_decoherence', 73, '', 'calc', '2.65\\times10^{-30}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_decoherence', 'part5/p5_05c_virial_decoherence', 81, '', 'calc', '4.5\\times10^{-5}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_decoherence', 'part5/p5_05c_virial_decoherence', 92, '', 'derived', '13.8', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_decoherence', 'part5/p5_05c_virial_decoherence', 100, '', 'openprob', '67.16', 'not yet checked'),
-    (7, 'ch:virial_decoherence', 'part5/p5_05c_virial_decoherence', 106, 'eq:vd_sat', 'conjecture', '', 'displayed equation, not yet checked'),
-    (7, 'ch:virial_decoherence', 'part5/p5_05c_virial_decoherence', 111, 'eq:vd_gamma', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_decoherence', 'part5/p5_05c_virial_decoherence', 115, '', 'calc', '2.1\\times10^{67}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_decoherence', 'part5/p5_05c_virial_decoherence', 160, '', 'interp', '0.800', 'not yet checked'),
-    (7, 'ch:virial_decoherence', 'part5/p5_05c_virial_decoherence', 175, '', 'prediction', '13.6', 'not yet checked'),
-    (7, 'ch:virial_decoherence', 'part5/p5_05c_virial_decoherence', 176, '', 'prediction', '4.25', 'not yet checked'),
     (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 21, '', 'calc', '20', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
     (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 21, '', 'calc', '4.3', 'not yet run: draft rejected (printed value typed into the code)'),
     (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 21, '', 'calc', '75', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),

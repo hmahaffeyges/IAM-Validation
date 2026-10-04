@@ -5124,8 +5124,23 @@ PASS  ch:virial_partners:L151            ch:virial_partners:p5_05b_virial_partne
 PASS  ch:virial_partners:L155            ch:virial_partners:p5_05b_virial_partners:155  printed -0.136  recomputed -0.136181  tol 5.000005e-04  [interp] mu0 = mu(a=1) - 1 (repeat)
 
 == Part 7: Thirty-Seven Orders of Magnitude and the Web that is IAM | ch:virial_decoherence (part5/p5_05c_virial_decoherence.tex)
+PASS  ch:virial_decoherence:L19          ch:virial_decoherence:p5_05c_virial_decoherence:19  printed 13.8  recomputed 13.7952  tol 0.05  [interp] age of the universe, flat LCDM, Planck 2018
+PASS  ch:virial_decoherence:L23          ch:virial_decoherence:p5_05c_virial_decoherence:23  printed +0.54  recomputed 0.541  tol 0.00500001  [interp] Level 2 Delta chi2, IAM Run A minus LCDM Run C  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:virial_decoherence:L73          ch:virial_decoherence:p5_05c_virial_decoherence:73  printed 2.65\times10^{-30}  recomputed 2.645898e-30  tol 5.000005e-33  [calc] Gibbons-Hawking temperature today, H0 = 67.16
 PASS  ch:virial_decoherence:L74          ch:virial_decoherence:p5_05c_virial_decoherence:74  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:virial_decoherence:L81          ch:virial_decoherence:p5_05c_virial_decoherence:81  printed 4.5\times10^{-5}  recomputed 4.539993e-05  tol 5.000005e-07  [calc] E(z = 10) = exp(1 - 1/a)
+PASS  ch:virial_decoherence:L92          ch:virial_decoherence:p5_05c_virial_decoherence:92  printed 13.8  recomputed 13.7952  tol 0.05  [derived] age of the universe (repeat)
+PASS  ch:virial_decoherence:L100         ch:virial_decoherence:p5_05c_virial_decoherence:100  printed 67.16  recomputed 67.1611  tol 0.00500001  [openprob] H0 photon sector, Level 2 chain value  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:virial_decoherence:L106         ch:virial_decoherence:p5_05c_virial_decoherence:106  printed (algebra)  recomputed lhs-rhs=0  [conjecture] saturation bound S/A = k_B/4 l_P^2 at R_s
+PASS  ch:virial_decoherence:L111         ch:virial_decoherence:p5_05c_virial_decoherence:111  printed (algebra)  recomputed lhs-rhs=0  [derived] Hawking power and bit rate c^3/(1920 G M ln2)
+PASS  ch:virial_decoherence:L115         ch:virial_decoherence:p5_05c_virial_decoherence:115  printed 2.1\times10^{67}  recomputed 2.095682e+67  tol 5.000005e+65  [calc] Hawking evaporation time of a solar-mass black hole
+PASS  ch:virial_decoherence:L160         ch:virial_decoherence:p5_05c_virial_decoherence:160  printed 0.800  recomputed 0.799751  tol 5.000005e-04  [interp] sigma8 IAM Level 2 chain value  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:virial_decoherence:L175         ch:virial_decoherence:p5_05c_virial_decoherence:175  printed 13.6  recomputed 13.6181  tol 0.05  [prediction] coupling reduction today 1 - mu(1)
+PASS  ch:virial_decoherence:L176         ch:virial_decoherence:p5_05c_virial_decoherence:176  printed 4.25  recomputed 4.25055  tol 0.00500001  [prediction] f sigma8 deficit at z = 0, same early amplitude
 
 == Part 7: Thirty-Seven Orders of Magnitude and the Web that is IAM | ch:onegauge (part3/p3_08_one_gauge.tex)
 PASS  ch:onegauge:L22                    ch:onegauge:p3_08_one_gauge:22  printed 399  recomputed 399.44  tol 0.5  [calc] drafted check, screened (runs; negative control fails)
@@ -5501,4 +5516,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 4393  FAIL 0  (heavy, read from committed outputs: 929)  inventoried-not-run 1946  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4405  FAIL 0  (heavy, read from committed outputs: 932)  inventoried-not-run 1934  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

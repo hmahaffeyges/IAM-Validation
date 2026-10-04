@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4393 PASS, 0 FAIL, 1946 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4405 PASS, 0 FAIL, 1934 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5358,19 +5358,19 @@ Totals: 4393 PASS, 0 FAIL, 1946 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 19 |  | interp | `13.8` | not run: not yet checked | - |
-| 23 |  | interp | `+0.54` | not run: not yet checked | - |
-| 73 |  | calc | `2.65\times10^{-30}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 19 | ch:virial_decoherence:L19 | interp | `13.8` | numeric: age of the universe, flat LCDM, Planck 2018 | PASS |
+| 23 | ch:virial_decoherence:L23 | interp | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2, IAM Run A minus LCDM Run C | PASS |
+| 73 | ch:virial_decoherence:L73 | calc | `2.65\times10^{-30}` | numeric: Gibbons-Hawking temperature today, H0 = 67.16 | PASS |
 | 74 | ch:virial_decoherence:L74 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
-| 81 |  | calc | `4.5\times10^{-5}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 92 |  | derived | `13.8` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 100 |  | openprob | `67.16` | not run: not yet checked | - |
-| 106 | eq:vd_sat | conjecture |  | not run: displayed equation, not yet checked | - |
-| 111 | eq:vd_gamma | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 115 |  | calc | `2.1\times10^{67}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 160 |  | interp | `0.800` | not run: not yet checked | - |
-| 175 |  | prediction | `13.6` | not run: not yet checked | - |
-| 176 |  | prediction | `4.25` | not run: not yet checked | - |
+| 81 | ch:virial_decoherence:L81 | calc | `4.5\times10^{-5}` | numeric: E(z = 10) = exp(1 - 1/a) | PASS |
+| 92 | ch:virial_decoherence:L92 | derived | `13.8` | numeric: age of the universe (repeat) | PASS |
+| 100 | ch:virial_decoherence:L100 | openprob | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon sector, Level 2 chain value | PASS |
+| 106 | ch:virial_decoherence:L106 | conjecture |  | sympy: saturation bound S/A = k_B/4 l_P^2 at R_s | PASS |
+| 111 | ch:virial_decoherence:L111 | derived |  | sympy: Hawking power and bit rate c^3/(1920 G M ln2) | PASS |
+| 115 | ch:virial_decoherence:L115 | calc | `2.1\times10^{67}` | numeric: Hawking evaporation time of a solar-mass black hole | PASS |
+| 160 | ch:virial_decoherence:L160 | interp | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM Level 2 chain value | PASS |
+| 175 | ch:virial_decoherence:L175 | prediction | `13.6` | numeric: coupling reduction today 1 - mu(1) | PASS |
+| 176 | ch:virial_decoherence:L176 | prediction | `4.25` | numeric: f sigma8 deficit at z = 0, same early amplitude | PASS |
 
 ## Part 7 - ch:onegauge - `docs/book/part3/p3_08_one_gauge.tex`
 
