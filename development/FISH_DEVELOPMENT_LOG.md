@@ -13,7 +13,7 @@ after the fact.
 
 ## Findings moved from the book (2026-10-04)
 
-- [Fish at river temperature chapter](../docs/book/RETIRED_drafts_2026-10/p4_22b_salmonid.tex), as it stood in the book: the four
+- [Fish at river temperature chapter](archive/p4_22b_salmonid.tex), as it stood in the book: the four
   salmonid sets (Methow steelhead, brook charr, Atlantic salmon, coho smolts), the pre-registered bars and the library-quality term.
 
 ## Records

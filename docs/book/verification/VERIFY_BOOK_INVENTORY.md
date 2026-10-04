@@ -1021,7 +1021,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 60 | eq:eg_tsallis | none |  | not run: definition: Tsallis non-extensive entropy | - |
 | 71 | eq:eg_stotal | conjecture |  | not run: conjecture: additional entropy source definition | - |
 | 78 | eq:eg_bitcost | conjecture |  | sympy: Landauer bit cost at horizon temperature | PASS |
-| 91 | ch:entropicgravity:L91 | observed | `72.2\pm0.9` | file `docs/book/read_ledgers/eg_MANIFEST.md`: Barrow fit H0 in one DESI DR2 combination (Luciano 2025) | PASS |
+| 91 | ch:entropicgravity:L91 | observed | `72.2\pm0.9` | file `docs/book/verification/sources/eg_MANIFEST.md`: Barrow fit H0 in one DESI DR2 combination (Luciano 2025) | PASS |
 | 96 | eq:eg_growth | none |  | sympy: friction-form growth eq, matter-density identity | PASS |
 | 99 | eq:eg_growthN | derived |  | sympy: e-fold transform of growth equation | PASS |
 | 106 | ch:entropicgravity:L106 | calc | `1.64` | heavy file `docs/verification/scripts/verify_entropic_gravity_output.txt`: growth-factor deficit, friction form | PASS |
@@ -1059,7 +1059,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 176 | ch:entropicgravity:L176:a=1/2 | calc | `a=1/2` | sympy: scale factor of peak dE/da | PASS |
 | 199 | ch:entropicgravity:L199 | measured | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level-2 chain | PASS |
 | 199 | ch:entropicgravity:L199:0.47 | measured | `0.47` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 uncertainty, Level-2 chain | PASS |
-| 199 | ch:entropicgravity:L199:72.2 | observed | `72.2\pm0.9` | file `docs/book/read_ledgers/eg_MANIFEST.md`: Barrow fit H0 (table), Luciano 2025 | PASS |
+| 199 | ch:entropicgravity:L199:72.2 | observed | `72.2\pm0.9` | file `docs/book/verification/sources/eg_MANIFEST.md`: Barrow fit H0 (table), Luciano 2025 | PASS |
 | 200 | ch:entropicgravity:L200 | calc | `72.26` | numeric: matter-sector H0 from photon H0 and beta_m | PASS |
 | 201 | ch:entropicgravity:L201 | calc | `0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2 (lower end of the quoted range) | PASS |
 | 201 | ch:entropicgravity:L201:1.73 | calc | `1.73` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: maximum dchi2 across chain pairs | PASS |
@@ -1467,13 +1467,13 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 25 | ch:s8trend:L25 | measured | `0.3111+/-0.0056` | file `docs/verification/scripts/verify_s8_trend.py`: Omega_m prior of the trend analysis (Planck + BAO) | PASS |
 | 26 |  | observed | `3` | not run: measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), '~3 sigma tension at lower redshifts'; the source does not tabulate it and no repository file records it | - |
 | 26 |  | observed | `1` | not run: measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), 'consistent within 1 sigma at high redshifts'; the source does not tabulate it and no repository file records it | - |
-| 27 | ch:s8trend:L27:1.6 | observed | `1.6` | file `docs/book/read_ledgers/ts_MANIFEST_sector_s8.md`: trend significance, 20-point sample (read ledger) | PASS |
-| 28 | ch:s8trend:L28 | observed | `2.8` | file `docs/book/read_ledgers/ts_MANIFEST_sector_s8.md`: trend significance, 66-point sample (read ledger) | PASS |
+| 27 | ch:s8trend:L27:1.6 | observed | `1.6` | file `docs/book/verification/sources/ts_MANIFEST_sector_s8.md`: trend significance, 20-point sample (read ledger) | PASS |
+| 28 | ch:s8trend:L28 | observed | `2.8` | file `docs/book/verification/sources/ts_MANIFEST_sector_s8.md`: trend significance, 66-point sample (read ledger) | PASS |
 | 35 | ch:s8trend:L35 | observed | `0.832` | heavy file `docs/verification/scripts/verify_s8_trend_output.txt`: measured: printed value found in verify_s8_trend_output.txt, a file the chapter names | PASS |
 | 40 | ch:s8trend:L40 | observed | `0.633(+0.025/-0.024)` | heavy file `docs/verification/scripts/verify_s8_trend_output.txt`: measured: printed value found in verify_s8_trend_output.txt, a file the chapter names | PASS |
-| 40 | ch:s8trend:L40:3.7 | observed | `3.7` | file `docs/book/read_ledgers/ts_MANIFEST_sector_s8.md`: gamma = 0.55 excluded at 3.7 sigma (Nguyen 2023, read ledger) | PASS |
+| 40 | ch:s8trend:L40:3.7 | observed | `3.7` | file `docs/book/verification/sources/ts_MANIFEST_sector_s8.md`: gamma = 0.55 excluded at 3.7 sigma (Nguyen 2023, read ledger) | PASS |
 | 40 |  | none | `0.55` | not run: GR growth-index prediction, input | - |
-| 41 | ch:s8trend:L41:4.2 | observed | `4.2` | file `docs/book/read_ledgers/ts_MANIFEST_sector_s8.md`: f sigma8 + Planck only: 4.2 sigma (Nguyen 2023, read ledger) | PASS |
+| 41 | ch:s8trend:L41:4.2 | observed | `4.2` | file `docs/book/verification/sources/ts_MANIFEST_sector_s8.md`: f sigma8 + Planck only: 4.2 sigma (Nguyen 2023, read ledger) | PASS |
 | 41 |  | observed | `0.639(+0.024/-0.025)` | not run: measured, source not named: gamma = 0.639 +0.024 -0.025 (f sigma8 + Planck only) of Nguyen, Huterer and Wen 2023 (PRL 131, 111001); the read ledger records 0.633, 3.7 sigma and 4.2 sigma from the abstract but not 0.639, and no other repository file has it | - |
 | 48 | eq:s8_mu | none |  | not run: definition of modified coupling μ(a) | - |
 | 52 | eq:s8_Ea | none |  | not run: definition of activation function E(a) | - |
@@ -2374,8 +2374,8 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 73 | ch:baryon_chain:L73:0.005 | calc | `0.005` | numeric: other runs' prior width | PASS |
 | 115 | eq:bc_ob | none | `0.022320` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain Omega_b h^2 and sd | PASS |
 | 117 | eq:bc_etares | measured | `6.113` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: eta = 2.739e-8 Omega_b h^2 from the 18th chain | PASS |
-| 118 | ch:baryon_chain:L118 | measured | `0.022319` | heavy file `docs/book/read_ledgers/bl_MANIFEST.md`: the run record's Omega_b h^2 (30 % burn-in on the chain copy) | PASS |
-| 118 | ch:baryon_chain:L118:6.1155\times10^{-10} | measured | `6.1155\times10^{-10}` | heavy file `docs/book/read_ledgers/bl_MANIFEST.md`: the record's eta = 2.74e-8 x the record's Omega_b h^2 | PASS |
+| 118 | ch:baryon_chain:L118 | measured | `0.022319` | heavy file `docs/book/verification/sources/bl_MANIFEST.md`: the run record's Omega_b h^2 (30 % burn-in on the chain copy) | PASS |
+| 118 | ch:baryon_chain:L118:6.1155\times10^{-10} | measured | `6.1155\times10^{-10}` | heavy file `docs/book/verification/sources/bl_MANIFEST.md`: the record's eta = 2.74e-8 x the record's Omega_b h^2 | PASS |
 | 119 | ch:baryon_chain:L119 | calc | `2.74\times10^{-8}` | numeric: the record's conversion factor 2.74e-8 is the derived factor to three figures | PASS |
 | 119 | ch:baryon_chain:L119:2.739\times10^{-8} | calc | `2.739\times10^{-8}` | numeric: the conversion factor used in the chapter, recomputed | PASS |
 | 120 | ch:baryon_chain:L120 | measured | `0.0218` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
@@ -3733,7 +3733,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 67 | ch:higgsrecord:L67:3.67 | calc | `3.67` | numeric: cosmic age at z=1.77, Gyr (Planck 2018 LCDM) | PASS |
 | 67 | ch:higgsrecord:L67:0.44 | calc | `0.44` | numeric: z at a cosmic age of 9 Gyr | PASS |
 | 67 | ch:higgsrecord:L67:0.64 | calc | `0.64` | numeric: E at z = 0.44 | PASS |
-| 72 | ch:higgsrecord:L72 | observed | `0.120` | file `docs/book/read_ledgers/MANIFEST_particle.md`: measured: printed value found in MANIFEST_particle.md, a file the chapter names | PASS |
+| 72 | ch:higgsrecord:L72 | observed | `0.120` | file `docs/book/verification/sources/MANIFEST_particle.md`: measured: printed value found in MANIFEST_particle.md, a file the chapter names | PASS |
 | 88 | ch:higgsrecord:L88 | calc | `9.4\times10^{-14}` | numeric: E(z=30) = e^-30 | PASS |
 | 88 | ch:higgsrecord:L88:4.5\times10^{-5} | calc | `4.5\times10^{-5}` | numeric: E(z=10) = e^-10 | PASS |
 | 92 | ch:higgsrecord:L92 | calc | `110.6` | numeric: k_B T_c ln2 in GeV | PASS |

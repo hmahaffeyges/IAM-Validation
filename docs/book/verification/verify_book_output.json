@@ -12118,7 +12118,7 @@
   "passed": true,
   "note": "",
   "heavy": false,
-  "source": "docs/book/read_ledgers/eg_MANIFEST.md"
+  "source": "docs/book/verification/sources/eg_MANIFEST.md"
  },
  {
   "label": "eq:eg_growth",
@@ -12662,7 +12662,7 @@
   "passed": true,
   "note": "",
   "heavy": false,
-  "source": "docs/book/read_ledgers/eg_MANIFEST.md"
+  "source": "docs/book/verification/sources/eg_MANIFEST.md"
  },
  {
   "label": "ch:entropicgravity:L200",
@@ -18289,7 +18289,7 @@
   "passed": true,
   "note": "",
   "heavy": false,
-  "source": "docs/book/read_ledgers/ts_MANIFEST_sector_s8.md"
+  "source": "docs/book/verification/sources/ts_MANIFEST_sector_s8.md"
  },
  {
   "label": "ch:s8trend:L28",
@@ -18306,7 +18306,7 @@
   "passed": true,
   "note": "",
   "heavy": false,
-  "source": "docs/book/read_ledgers/ts_MANIFEST_sector_s8.md"
+  "source": "docs/book/verification/sources/ts_MANIFEST_sector_s8.md"
  },
  {
   "label": "ch:s8trend:L35",
@@ -18357,7 +18357,7 @@
   "passed": true,
   "note": "",
   "heavy": false,
-  "source": "docs/book/read_ledgers/ts_MANIFEST_sector_s8.md"
+  "source": "docs/book/verification/sources/ts_MANIFEST_sector_s8.md"
  },
  {
   "label": "ch:s8trend:L41:4.2",
@@ -18374,7 +18374,7 @@
   "passed": true,
   "note": "",
   "heavy": false,
-  "source": "docs/book/read_ledgers/ts_MANIFEST_sector_s8.md"
+  "source": "docs/book/verification/sources/ts_MANIFEST_sector_s8.md"
  },
  {
   "label": "eq:s8_beta",
@@ -31532,7 +31532,7 @@
   "passed": true,
   "note": "python3 -c \"import numpy as np; d=np.loadtxt('Cosmological_Physics/mgcamb_validation/iam_baryon_test.1.txt'); d=d[int(0.3*len(d)):]; m=np.average(d[:,2],weights=d[:,0]); print(m, np.sqrt(np.average((d[:,2]-m)**2,weights=d[:,0])))\"  (the 22,400-row copy of the chain, 30 % burn-in, weighted: 0.022319473 +/- 0.000136384)",
   "heavy": true,
-  "source": "docs/book/read_ledgers/bl_MANIFEST.md"
+  "source": "docs/book/verification/sources/bl_MANIFEST.md"
  },
  {
   "label": "ch:baryon_chain:L118:6.1155\\times10^{-10}",
@@ -31549,7 +31549,7 @@
   "passed": true,
   "note": "python3 -c \"import numpy as np; d=np.loadtxt('Cosmological_Physics/mgcamb_validation/iam_baryon_test.1.txt'); d=d[int(0.3*len(d)):]; m=np.average(d[:,2],weights=d[:,0]); print(m, np.sqrt(np.average((d[:,2]-m)**2,weights=d[:,0])))\"  (the 22,400-row copy of the chain, 30 % burn-in, weighted: 0.022319473 +/- 0.000136384)",
   "heavy": true,
-  "source": "docs/book/read_ledgers/bl_MANIFEST.md"
+  "source": "docs/book/verification/sources/bl_MANIFEST.md"
  },
  {
   "label": "ch:baryon_chain:L119",
@@ -48498,7 +48498,7 @@
   "passed": true,
   "note": "",
   "heavy": false,
-  "source": "docs/book/read_ledgers/MANIFEST_particle.md"
+  "source": "docs/book/verification/sources/MANIFEST_particle.md"
  },
  {
   "label": "ch:higgsrecord:L88",

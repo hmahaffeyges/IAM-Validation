@@ -608,7 +608,7 @@ DATA_FILES['Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv'] = 'com
 DATA_FILES['CANON/GLOSSARY.md'] = 'committed data file'   # 13 kB
 DATA_FILES['CANON/predictions_triage_2026-10-02.json'] = 'committed data file'   # 220 kB
 DATA_FILES['Cosmological_Physics/camb_validation/likelihood_rsd.py'] = 'RSD data table used by the chains'   # 1 kB
-DATA_FILES['docs/book/read_ledgers/MANIFEST_particle.md'] = 'committed data file'   # 36 kB
+DATA_FILES['docs/book/verification/sources/MANIFEST_particle.md'] = 'committed data file'   # 36 kB
 DATA_FILES['docs/verification/PAPER_ERRATA.md'] = 'committed data file'   # 72 kB
 DATA_FILES['docs/verification/chains/DUAL_SECTOR_PERTURBATION_CHECK.md'] = 'committed data file'   # 7 kB
 DATA_FILES['docs/verification/chains/data/growth_off.json'] = 'CAMB 1.5.8 growth, Level 2 switch off'   # 0 kB
@@ -1129,13 +1129,13 @@ def _b01_n_exponent():
     return sp.solve(sp.Eq(S_exp, -1), n)[0]
 
 # ---------------------------------------------------------------- checks
-DATA_FILES['docs/book/read_ledgers/eg_MANIFEST.md'] = 'read ledger of the entropic-gravity chapter: published values checked against the papers'   # 16 kB
+DATA_FILES['docs/book/verification/sources/eg_MANIFEST.md'] = 'read ledger of the entropic-gravity chapter: published values checked against the papers'   # 16 kB
 DATA_FILES['docs/verification/scripts/verify_shapefit_chi2_output.txt'] = 'committed output of verify_shapefit_chi2.py'   # 1 kB
 
 # helpers of the part2/p2_03a_entropic_gravity checks
 def _b01eg_luciano():
     'H0 and its error of Luciano, Paliathanasis and Saridakis 2025 (doi 10.1088/1475-7516/2025/09/013), as recorded from the published abstract in the read ledger.'
-    m = re.search(r'one combination H0 = ([\d.]+) ± ([\d.]+)', file_text('docs/book/read_ledgers/eg_MANIFEST.md'))
+    m = re.search(r'one combination H0 = ([\d.]+) ± ([\d.]+)', file_text('docs/book/verification/sources/eg_MANIFEST.md'))
     return float(m.group(1)), float(m.group(2))
 
 # helpers of the part2/p2_06_dual_sector_perturbation checks
@@ -1173,7 +1173,7 @@ def _b01ds_fs8(model, z):
             _B01DS_G4[k] = grow4(*v)
     fD = lambda k: float(_B01DS_G4[k].sol(np.log(1 / (1 + z)))[1])
     return 100 * (fD(model) / fD('A') - 1)
-DATA_FILES['docs/book/read_ledgers/ts_MANIFEST_sector_s8.md'] = 'read ledger of the S8-trend and sector-tension chapters: values checked against the source papers'   # 21 kB
+DATA_FILES['docs/book/verification/sources/ts_MANIFEST_sector_s8.md'] = 'read ledger of the S8-trend and sector-tension chapters: values checked against the source papers'   # 21 kB
 DATA_FILES['docs/verification/scripts/verify_s8_trend.py'] = 'verify_s8_trend.py (its header records the published Omega_m prior of the trend analysis)'   # 6 kB
 
 # helpers of the part2/p2_08_s8_trend checks
@@ -1194,7 +1194,7 @@ def _b01st_trend(zmin):
     t1 = tL / D_of('lcdm', 0.0)
     return S, math.sqrt(Om / 0.3) / math.sqrt(((t1 / ek)**2).sum())
 def _b01st_ledger(pat):
-    return float(re.search(pat, file_text('docs/book/read_ledgers/ts_MANIFEST_sector_s8.md')).group(1))
+    return float(re.search(pat, file_text('docs/book/verification/sources/ts_MANIFEST_sector_s8.md')).group(1))
 def _b01st_gamma(which):
     'Effective growth index today, gamma = ln f / ln Omega_m(a=1), f from the linear growth equation (same early amplitude), Omega_m 0.3153.'
     return math.log(f_of(which, 0.0)) / math.log(Om)
@@ -1552,7 +1552,7 @@ DATA_FILES['Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.
 DATA_FILES['Cosmological_Physics/mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml'] = 'Cobaya settings, LambdaCDM Planck + BAO chain'   # 6 kB
 DATA_FILES['Cosmological_Physics/mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml'] = 'Cobaya settings, LambdaCDM Planck + Pantheon+ chain'   # 4 kB
 DATA_FILES['Cosmological_Physics/mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml'] = 'Cobaya settings, LambdaCDM Planck + BOSS DR12 fsigma8 + BAO chain'   # 6 kB
-DATA_FILES['docs/book/read_ledgers/bl_MANIFEST.md'] = 'reading ledger of the cosmological-constant and baryon chapters (quotes the 18th-chain run record)'   # 31 kB
+DATA_FILES['docs/book/verification/sources/bl_MANIFEST.md'] = 'reading ledger of the cosmological-constant and baryon chapters (quotes the 18th-chain run record)'   # 31 kB
 
 # helpers of the part2/p2_13b_baryon_chain checks
 _B03_LB_OUT = 'docs/verification/scripts/verify_lambda_baryon_book_output.txt'
@@ -8530,7 +8530,7 @@ def check_0529():
     return locals()
 
 @check(label='ch:entropicgravity:L91', chapter='ch:entropicgravity', part=2, title='Barrow fit H0 in one DESI DR2 combination (Luciano 2025)',
-       file='part2/p2_03a_entropic_gravity', line=91, status='observed', kind='file', printed='72.2\\pm0.9', tol=0.0, source='docs/book/read_ledgers/eg_MANIFEST.md')
+       file='part2/p2_03a_entropic_gravity', line=91, status='observed', kind='file', printed='72.2\\pm0.9', tol=0.0, source='docs/book/verification/sources/eg_MANIFEST.md')
 def check_3314():
     'H0 = 72.2 +- 0.9 in one data combination of the Barrow/Tsallis fits after DESI DR2, Luciano et al. 2025 (doi 10.1088/1475-7516/2025/09/013), read from the read ledger that records the published abstract. Book line 91.'
     value = _b01eg_luciano()[0]
@@ -8775,7 +8775,7 @@ def check_0559():
     return locals()
 
 @check(label='ch:entropicgravity:L199:72.2', chapter='ch:entropicgravity', part=2, title='Barrow fit H0 (table), Luciano 2025',
-       file='part2/p2_03a_entropic_gravity', line=199, status='observed', kind='file', printed='72.2\\pm0.9', tol=0.0, source='docs/book/read_ledgers/eg_MANIFEST.md')
+       file='part2/p2_03a_entropic_gravity', line=199, status='observed', kind='file', printed='72.2\\pm0.9', tol=0.0, source='docs/book/verification/sources/eg_MANIFEST.md')
 def check_3316():
     'Table row H0: 72.2 +- 0.9 in one combination (Luciano et al. 2025, doi 10.1088/1475-7516/2025/09/013), as ch:entropicgravity:L91; the error is also read and must be 0.9. Book line 199.'
     v, e = _b01eg_luciano()
@@ -11352,14 +11352,14 @@ def check_3367():
     return locals()
 
 @check(label='ch:s8trend:L27:1.6', chapter='ch:s8trend', part=2, title='trend significance, 20-point sample (read ledger)',
-       file='part2/p2_08_s8_trend', line=27, status='observed', kind='file', printed='1.6', tol=0.0, source='docs/book/read_ledgers/ts_MANIFEST_sector_s8.md')
+       file='part2/p2_08_s8_trend', line=27, status='observed', kind='file', printed='1.6', tol=0.0, source='docs/book/verification/sources/ts_MANIFEST_sector_s8.md')
 def check_3368():
     'Shift of the inferred S8 with the 20 points of the main sample taken as independent, 1.6 sigma (MNRAS 528, L20, 2024), as read from the source and recorded in the read ledger (S8 carriage table, section 1). Book line 27.'
     value = _b01st_ledger(r'20 points, ([\d.]+)σ')
     return locals()
 
 @check(label='ch:s8trend:L28', chapter='ch:s8trend', part=2, title='trend significance, 66-point sample (read ledger)',
-       file='part2/p2_08_s8_trend', line=28, status='observed', kind='file', printed='2.8', tol=0.0, source='docs/book/read_ledgers/ts_MANIFEST_sector_s8.md')
+       file='part2/p2_08_s8_trend', line=28, status='observed', kind='file', printed='2.8', tol=0.0, source='docs/book/verification/sources/ts_MANIFEST_sector_s8.md')
 def check_3369():
     'Shift in the larger 66-point sample, 2.8 sigma (MNRAS 528, L20, 2024), as recorded in the read ledger. Book line 28.'
     value = _b01st_ledger(r'66 points ([\d.]+)σ')
@@ -11382,14 +11382,14 @@ def check_0849():
     return locals()
 
 @check(label='ch:s8trend:L40:3.7', chapter='ch:s8trend', part=2, title='gamma = 0.55 excluded at 3.7 sigma (Nguyen 2023, read ledger)',
-       file='part2/p2_08_s8_trend', line=40, status='observed', kind='file', printed='3.7', tol=0.0, source='docs/book/read_ledgers/ts_MANIFEST_sector_s8.md')
+       file='part2/p2_08_s8_trend', line=40, status='observed', kind='file', printed='3.7', tol=0.0, source='docs/book/verification/sources/ts_MANIFEST_sector_s8.md')
 def check_3370():
     'Significance with which the growth-index fit (Nguyen, Huterer and Wen 2023, PRL 131, 111001) excludes gamma = 0.55, as read from the abstract and recorded in the read ledger (section 7 growth index row). Book line 40.'
     value = _b01st_ledger(r'γ 0\.633, ([\d.]+)σ, [\d.]+σ')
     return locals()
 
 @check(label='ch:s8trend:L41:4.2', chapter='ch:s8trend', part=2, title='f sigma8 + Planck only: 4.2 sigma (Nguyen 2023, read ledger)',
-       file='part2/p2_08_s8_trend', line=41, status='observed', kind='file', printed='4.2', tol=0.0, source='docs/book/read_ledgers/ts_MANIFEST_sector_s8.md')
+       file='part2/p2_08_s8_trend', line=41, status='observed', kind='file', printed='4.2', tol=0.0, source='docs/book/verification/sources/ts_MANIFEST_sector_s8.md')
 def check_3371():
     'Significance of the f sigma8 + Planck-only growth-index fit (Nguyen, Huterer and Wen 2023), as recorded in the read ledger. Book line 41.'
     value = _b01st_ledger(r'γ 0\.633, [\d.]+σ, ([\d.]+)σ')
@@ -17345,7 +17345,7 @@ _B03_REC_RERUN = ("python3 -c \"import numpy as np; d=np.loadtxt('Cosmological_P
                   "(the 22,400-row copy of the chain, 30 % burn-in, weighted: 0.022319473 +/- 0.000136384)")
 
 def _b03_record_ombh2():
-    m = re.search(r"ombh2 mean (\d\.\d+), std (\d\.\d+), 30 % burn-in", file_text('docs/book/read_ledgers/bl_MANIFEST.md'))
+    m = re.search(r"ombh2 mean (\d\.\d+), std (\d\.\d+), 30 % burn-in", file_text('docs/book/verification/sources/bl_MANIFEST.md'))
     return float(m.group(1)), float(m.group(2))
 
 @check(label='ch:baryon_chain:L73', chapter='ch:baryon_chain', part=2, title='18th-chain prior width',
@@ -17379,16 +17379,16 @@ def check_1448():
     return locals()
 
 @check(label='ch:baryon_chain:L118', chapter='ch:baryon_chain', part=2, title="the run record's Omega_b h^2 (30 % burn-in on the chain copy)",
-       file='part2/p2_13b_baryon_chain', line=118, status='measured', kind='file', printed='0.022319', tol=0.0, source='docs/book/read_ledgers/bl_MANIFEST.md',
+       file='part2/p2_13b_baryon_chain', line=118, status='measured', kind='file', printed='0.022319', tol=0.0, source='docs/book/verification/sources/bl_MANIFEST.md',
        heavy=True, rerun=_B03_REC_RERUN)
 def check_3551():
-    "The record of the run gives Omega_b h^2 = 0.022319 +/- 0.000136. Book line 118. The record (an RTF, not committed) is quoted in docs/book/read_ledgers/bl_MANIFEST.md: ombh2 mean 0.022319473, std 0.000136384; the same numbers come from the committed chain copy Cosmological_Physics/mgcamb_validation/iam_baryon_test.1.txt (22,400 rows, 30 % burn-in, weighted; rerun command)."
+    "The record of the run gives Omega_b h^2 = 0.022319 +/- 0.000136. Book line 118. The record (an RTF, not committed) is quoted in docs/book/verification/sources/bl_MANIFEST.md: ombh2 mean 0.022319473, std 0.000136384; the same numbers come from the committed chain copy Cosmological_Physics/mgcamb_validation/iam_baryon_test.1.txt (22,400 rows, 30 % burn-in, weighted; rerun command)."
     value, sd = _b03_record_ombh2()
     assert abs(sd - 0.000136) < 5e-7
     return locals()
 
 @check(label='ch:baryon_chain:L118:6.1155\\times10^{-10}', chapter='ch:baryon_chain', part=2, title="the record's eta = 2.74e-8 x the record's Omega_b h^2",
-       file='part2/p2_13b_baryon_chain', line=118, status='measured', kind='file', printed='6.1155\\times10^{-10}', tol=0.0, source='docs/book/read_ledgers/bl_MANIFEST.md',
+       file='part2/p2_13b_baryon_chain', line=118, status='measured', kind='file', printed='6.1155\\times10^{-10}', tol=0.0, source='docs/book/verification/sources/bl_MANIFEST.md',
        heavy=True, rerun=_B03_REC_RERUN)
 def check_3552():
     "The record's eta = 6.1155e-10. Book line 118. Recomputed with the record's conversion factor 2.74e-8 (book line 119) times the record's Omega_b h^2 0.022319473 (quoted in bl_MANIFEST.md, reproduced from the chain copy by the rerun command)."
@@ -26614,10 +26614,10 @@ def check_2117():
     return locals()
 
 @check(label='ch:higgsrecord:L72', chapter='ch:higgsrecord', part=4, title='measured: printed value found in MANIFEST_particle.md, a file the chapter names',
-       file='part2/p2_22b_higgs_record', line=72, status='observed', kind='file', printed='0.120', tol=0.0, source='docs/book/read_ledgers/MANIFEST_particle.md')
+       file='part2/p2_22b_higgs_record', line=72, status='observed', kind='file', printed='0.120', tol=0.0, source='docs/book/verification/sources/MANIFEST_particle.md')
 def check_2118():
     'measured: printed value found in MANIFEST_particle.md, a file the chapter names. Book line 72, printed 0.120.'
-    ok = file_has('docs/book/read_ledgers/MANIFEST_particle.md', '0.120')
+    ok = file_has('docs/book/verification/sources/MANIFEST_particle.md', '0.120')
     return locals()
 
 @check(label='ch:higgsrecord:L88', chapter='ch:higgsrecord', part=4, title='E(z=30) = e^-30',
