@@ -144,9 +144,9 @@ if excluded:
              r" floor (Chapter~\ref{ch:qplatforms}).")
 L.append("")
 
-COLS = (r"{@{}>{\raggedright\arraybackslash}p{0.10\textwidth}>{\raggedright\arraybackslash}p{0.38\textwidth}"
-        r">{\raggedright\arraybackslash}p{0.19\textwidth}>{\raggedright\arraybackslash}p{0.19\textwidth}"
-        r">{\raggedright\arraybackslash}p{0.11\textwidth}@{}}")
+COLS = (r"{@{}>{\raggedright\arraybackslash}p{0.10\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}"
+        r">{\raggedright\arraybackslash}p{0.18\textwidth}>{\raggedright\arraybackslash}p{0.18\textwidth}"
+        r">{\raggedright\arraybackslash}p{0.12\textwidth}@{}}")
 HEAD = r"entry & statement & test and date & falsified if & status\\\midrule"
 for code, name in DOMAINS:
     rr = sorted((r for r in rows if r["dom"] == code), key=lambda r: r["pid"])

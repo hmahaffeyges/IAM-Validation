@@ -240,14 +240,14 @@ from the chain files with the first $30\,\%$ removed as burn-in, weighted.
 \begin{table}[htbp]\centering\small
 \caption{Chain configurations, all with CAMB 1.5.8 built from \texttt{equations\_iam\_level2.f90}; final $R-1$ from the \texttt{.progress} files. The
 two exploratory background chains (Section~\ref{sec:l2_background}) are listed with them. \measured}\label{tab:l2_chains}
-\begin{tabular}{llll}\hline
+\resizebox{\linewidth}{!}{\begin{tabular}{llll}\hline
 Run & Description & Likelihoods & final $R-1$\\\hline
 A & informational term in the perturbations & CamSpec + low-$\ell$ + lensing & 0.0099\\
 C & $\Lambda$CDM (switch off) & CamSpec + low-$\ell$ + lensing & 0.0081\\
 D & informational term in the perturbations & CamSpec + low-$\ell$ + lensing + $f\sigma_8$ & 0.0080\\
 A$_{\rm b}$ & background term, Eq.~\eqref{eq:l2_bg} (\texttt{dtauda}) & CamSpec + low-$\ell$ + lensing & 0.0100\\
 D$_{\rm b}$ & background term, Eq.~\eqref{eq:l2_bg} (\texttt{dtauda}) & CamSpec + low-$\ell$ + lensing + $f\sigma_8$ & 0.0068\\\hline
-\end{tabular}\end{table}
+\end{tabular}}\end{table}
 Runs A and C share identical likelihoods and sampled parameters and differ only in whether the three Fortran changes are active, so any difference
 between them arises from the dual-sector modification and not from code-level systematics.
 
