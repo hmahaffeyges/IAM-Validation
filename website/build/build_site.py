@@ -95,7 +95,7 @@ def front_page(site, parts):
 <div class="iam-runall-front"><p><button class="iam-run iam-btn" type="button" data-part="all">Run every check</button></p>
 <p class="iam-local">Or on your own machine: <code>python3 docs/book/verify_book.py</code></p></div>
 <p>IAM, the Informational Actualization Model</p>
-<p><a class="iam-btn" href="pdf/IAMs_Law_and_Order.pdf">Download the PDF</a><a class="iam-btn secondary" href="book/">Read online</a></p>
+<p><a class="iam-btn" href="pdf/IAMs_Law_and_Order.pdf">Download the PDF</a><a class="iam-btn" href="epub/IAMs_Law_and_Order.epub" type="application/epub+zip">Download for Apple Books (EPUB)</a><a class="iam-btn secondary" href="book/">Read online</a></p>
 <h2>The seven Parts</h2>
 <div class="iam-tiles">{tiles}</div>
 <h2>Cite this book</h2>
@@ -143,8 +143,9 @@ def checks_bundle(site, vb, index):
     return results
 
 
-def decorate_chapter(path, root, part, parts_by_n, index, results, discuss_cat):
+def decorate_chapter(path, root, part, parts_by_n, index, results, discuss_cat, where):
     soup = BeautifulSoup(path.read_text(), "html.parser")
+    chapter = soup.find("title").get_text().split("\u2023")[0].strip() if soup.find("title") else path.stem
     htmltag = soup.find("html")
     htmltag["data-root"] = root
     head = soup.find("head")
@@ -170,7 +171,7 @@ def decorate_chapter(path, root, part, parts_by_n, index, results, discuss_cat):
         p = parts_by_n[part]
         main.insert(0, BeautifulSoup(f'<div class="iam-banner" style="background-image:url({root}art/{p["banner"]})" role="img" '
                                      f'aria-label="Part {p["roman"]} banner"></div>', "html.parser"))
-    n_buttons = place_check_markers(soup, index)
+    n_buttons = place_check_markers(soup, index, path.name, re.sub(r"\s+", " ", chapter), where)
     if n_buttons:
         top = soup.find(class_="ltx_title_chapter") or soup.find(class_="ltx_title_appendix") or soup.find(class_="ltx_title")
         bar = BeautifulSoup(f'<div class="iam-pagechecks"><button class="iam-btn secondary iam-runpage" type="button">'
@@ -230,9 +231,10 @@ def _text_before(span, p):
     return False
 
 
-def place_check_markers(soup, index):
+def place_check_markers(soup, index, page, chapter, where):
     """Replace the build markers (\\iamcheck) with one marker per paragraph or display: "\u2713 N checks" at the end of the
-    paragraph, or just under the equation, figure or table the checks belong to. A marker that LaTeXML put at the very start of a
+    paragraph, or just under the equation, figure or table the checks belong to; where[label] records the page, the anchor of
+    that paragraph or display, and the chapter, for the results list of "Run every check". A marker that LaTeXML put at the very start of a
     paragraph, with nothing before it, belongs to the display or float right above that paragraph (the source marker was placed
     after its \\end{...}). Clicking a marker opens a panel listing its checks, each with its own Run button (checks.js)."""
     groups, order = {}, []
@@ -263,6 +265,10 @@ def place_check_markers(soup, index):
             if index[i]["label"] not in labels:
                 labels.append(index[i]["label"])
         n += len(labels)
+        if not block.get("id"):
+            block["id"] = f"iam-checks-{n}"
+        for lab in labels:
+            where[lab] = dict(page=page, anchor=block["id"], chapter=chapter)
         word = "check" if len(labels) == 1 else "checks"
         data = html.escape(json.dumps(labels), quote=True)
         btn = (f'<button class="iam-mark" type="button" aria-expanded="false" data-labels="{data}" '
@@ -418,6 +424,7 @@ def main(build, site):
             label_of[m.group(1)] = f
     pages = {}
     total = 0
+    where = {}
     for page in sorted((site / "book").glob("*.html")):
         stem = page.stem
         f = next((label_of[l] for l in label_of if re.sub(r"[^A-Za-z0-9]", "_", l) == re.sub(r"[^A-Za-z0-9]", "_", stem)), None)
@@ -425,7 +432,7 @@ def main(build, site):
         if stem.startswith("part_") or stem.startswith("Pt"):
             m = re.search(r"(\d+)", stem)
         total += decorate_chapter(page, "../", part, parts_by_n, index, results,
-                                  f"part-{part}" if 1 <= part <= 7 else "general")
+                                  f"part-{part}" if 1 <= part <= 7 else "general", where)
         if f and 1 <= part <= 7:
             ps = BeautifulSoup(page.read_text(), "html.parser")
             h = ps.find(class_="ltx_title_chapter")
@@ -437,6 +444,14 @@ def main(build, site):
                 t = ps.find("title")
                 ttl = html.escape(t.get_text().split("‣")[0].strip() if t else stem)
             pages.setdefault(part, []).append((order.index(f), dict(href=page.name, title=ttl)))
+    # each check's place in the book, for the results list (one row per check, linked to its paragraph or display)
+    cj = json.load(open(site / "checks" / "checks.json"))
+    missing = [lab for lab in cj["checks"] if lab not in where]
+    if missing:
+        raise SystemExit(f"{len(missing)} checks have no place in the book, e.g. {missing[:5]}")
+    for lab, c in cj["checks"].items():
+        c.update(where[lab])
+    json.dump(cj, open(site / "checks" / "checks.json", "w"))
     fixed = fix_longtable_refs(site)
     for p in pj:
         part_page(site, p, pj, [c for _, c in sorted(pages.get(p["n"], []))])
