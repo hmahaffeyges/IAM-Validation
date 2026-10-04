@@ -56,8 +56,7 @@ vehicle (GSE135205~\cite{Pappalardi2021}). Normal shaded. \measured}
 A constructed specimen has a known change planted in it. Chain v3 computes one on every whole-blood reading: the shift a 1~\% loss of the neutrophil pattern
 would cause at this specimen's own fraction, which sets its detection limit. On six known mixtures, a planted 2~\% loss moved the tared reading by $+0.061$
 and above 1.05 on 6 of 6. \measured{} A planted change tests the arithmetic, not the biology. The stronger test is a
-known physical cause: a DNA-methyltransferase inhibitor, an inactive analogue, and a dose series, read on arrays and on single molecules
-(Chapter~\ref{ch:firstreadings}). The construction also found the entropy ceiling: past $\beta=\tfrac12$ further loss lowers $H$, so the chain prints the
+known physical cause: a DNA-methyltransferase inhibitor, an inactive analogue, and a dose series, read on arrays and on single molecules. The construction also found the entropy ceiling: past $\beta=\tfrac12$ further loss lowers $H$, so the chain prints the
 methylated sites' mean $\beta$ beside every reading and flags a specimen past the ceiling.
 
 Figure~\ref{fig:p4_planted} shows the planted loss on the six mixtures before any tare, with the fraction held and with it re-fitted.
@@ -76,28 +75,6 @@ A search over many places must be corrected for the number of places. Chain v3 r
 C-score, each defined before any specimen is read, so a reading involves no search. A comparison across many specimens, many sites or many lead times is a
 search, and it carries the correction. Most patterns found by looking are the product of looking.
 
-\section{The procedures behind chain v3}
-
-\begin{center}\small
-\begin{longtable}{@{}p{0.25\textwidth}p{0.38\textwidth}p{0.29\textwidth}@{}}
-\caption{Procedures and development records behind chain v3, with their outcomes. The record identifiers and files are in the SOP.}\label{tab:procs}\\
-\toprule record & question & outcome \\\midrule\endfirsthead
-\toprule record & question & outcome \\\midrule\endhead
-intake & does intake run on the array's own numbers? & adopted; a deferred check quarantines \\
-SNP-probe tare & can SNP probes zero the array? & not commissioned \\
-whole-blood expectation & does the composition-matched expectation read healthy mixtures Normal? & passed \\
-composition on the reference's platform & composition on the reference's own platform & adopted as Stage~A; tare required \\
-end-to-end acceptance & does the chain run from IDATs to a report? & every IDAT pair processed \\
-four tests of the neutrophil reading & four tests of chain v3 & composition tests passed; untared whole blood, second-laboratory isolated cells and one infection test failed; replicates not assessable; one pass was a composition effect \\
-noise index & what sets the whole-blood reading? & noise index $N$; a noise-corrected tare fitted in development, not used by the chain \\
-low neutrophil fraction & does the reading need half the specimen to be neutrophils? & no; a lower read line and a per-specimen detection limit \\
-leukaemic blood, serial & does the neutrophil reading see leukaemic blood? & four bars failed; same-person remission agreement passed \\
-known block of methylation copying & does a known block of methylation copying read? & arrays: measured; single molecules: both bars passed \\
-out-of-span map & does the out-of-span map separate unknowns? & pre-registered; not run \\
-serial mode & serial mode and its change floor & pre-registered; not wired \\
-\bottomrule
-\end{longtable}
-\end{center}
 
 \section{Guards that run at every change}
 

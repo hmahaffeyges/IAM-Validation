@@ -28,11 +28,8 @@ has not been tested, never that it cannot be read.
 
 A leukaemic cell is usually the majority cell in the tube, so the fraction that limits a minor cell does not limit it. The test is per cell: the affected
 lineage read against its own healthy floor, the other lineages in the same specimen against theirs, each against 1.00. \prediction{} The affected lineage
-reads above Normal; the unaffected lineages do not. Two records set what is needed first. On the neutrophil identity sites, leukaemic blood at diagnosis stayed
-in Normal in 6 of 10 patients, because the blasts share those sites. On pre-registered 450K
-progenitor floors (four to five donors per type), Met-A did not separate leukaemic CD34$^+$ cells from healthy progenitors reliably: 16 of 29 outside Normal
-(bar 80~\%, failed), 13 of those 16 above it. \measured{} Progenitor floors on EPIC with more donors, the C-score on the same arrays, and IAM-A on single-molecule
-leukaemia data are the next steps. \openprob
+reads above Normal; the unaffected lineages do not. The first steps are progenitor floors on EPIC with more donors, the C-score on the same arrays, and IAM-A on single-molecule
+leukaemia data. \openprob
 
 \section{Tumours against the same person's normal tissue}
 
@@ -78,18 +75,9 @@ OSCC4 & oxWGBS & 0.03917 & 0.04107 & 1.049 & 0.0005 \\
 
 In plasma, cell-free DNA from solid tissues is a much larger share than in whole blood. Two things change. The genome count is of order $10^3$--$10^4$, so the cell-count floor
 of Chapter~\ref{ch:sky} becomes part of every interval. And a shed cell has to be found before it is read, which on arrays needs a template for it and on molecules needs
-enough of its molecules. On single molecules, a per-molecule threshold found cancer DNA at 1~\% in 0 of 20 constructed mixtures (bar 18 of 20, failed); the total isolated-error count,
-with no threshold and not pre-registered, found it in 20 of 20 at 10~\%, 18--20 of 20 at 3~\% and 1--6 of 20 at 1~\%, with 0.5--1.5 million molecules. \measured{} The limit scales as $1/\sqrt N$ in the number of molecules; a deep plasma library would reach lower, which is an
+enough of its molecules. The detection limit scales as $1/\sqrt N$ in the number of molecules; a deep plasma library would reach lower, which is an
 estimate, not a measurement. \calc
 
-Figure~\ref{fig:p4_plasma} shows the two statistics on the constructed mixtures.
-
-\begin{figure}[htbp]\centering
-\includegraphics[width=0.55\textwidth]{figures/part4/fig_p4_23_plasma.pdf}
-\caption{Constructed mixtures of cancer-line DNA in healthy DNA, 20 mixtures per point. Blue: the total isolated-error count, range over three cancer
-lines (not pre-registered). Crosses: the pre-registered per-molecule threshold. Values parsed from the outcome record. \measured}
-\label{fig:p4_plasma}
-\end{figure}
 
 \section{Stool}
 
@@ -110,10 +98,8 @@ read on it. \prediction{} They read 1.00 within tolerance.
 
 \section{Salmonids}
 
-Fish red blood cells are nucleated, so salmonid blood is close to one cell type and needs almost no separation. Four sets have been read on single molecules with the same
-statistic (Chapters~\ref{ch:temperature} and~\ref{ch:salmonid}). In each the instrument repeats almost perfectly, and in each the small differences between fish track the library, for example
-duplicates in brook charr sperm, conversion failure in Atlantic salmon fin, Methow steelhead and coho smolts. \measured{} A
-library-quality term has to be removed before any fish-level difference is read, and the floor at 10~\textdegree C has to be measured on fish, not assumed. \openprob
+Fish red blood cells are nucleated, so salmonid blood is close to one cell type and needs almost no separation. Each fish is read against its own floor at its recorded water temperature, on single molecules (Chapter~\ref{ch:temperature}). A
+library-quality term has to be removed before any fish-level difference is read (a known-pattern control in every library), and the floor at 10~\textdegree C has to be measured on fish, not assumed. \openprob
 
 \section{Ageing in one person}
 

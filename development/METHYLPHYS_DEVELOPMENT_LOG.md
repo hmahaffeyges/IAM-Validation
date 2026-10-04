@@ -1,0 +1,212 @@
+# Met-A, IAM-A and C-score development log
+
+Status: **open** (development stage). Every development finding of this project is logged here, whether it passes, fails or is
+inconclusive, with a link to the full record. Nothing here is a commissioned result; results become book material only after
+the chain passes commissioning.
+
+Scope: the methylation chain (chain v3): Met-A, IAM-A and both C-scores, on arrays and single molecules, every cell type and specimen kind.
+
+## How an entry is written
+
+Date - the question - what was run (data, chain version) - the outcome in one or two lines - link to the full record. Entries are
+appended, never edited after the fact; a later finding that changes an earlier one is a new entry that links back to it.
+
+## Findings moved from the book (2026-10-04)
+
+Development readings that were in the book until 2026-10-04 were moved here, unchanged, so the book carries only the physics,
+the method and commissioned results. Their full text, as it stood in the book, is kept at:
+- [First readings chapter](../docs/book/RETIRED_drafts_2026-10/p4_21_firstreadings.tex): neutrophil tests, infection bloods, leukaemia and remission, DNMT1-inhibitor series on arrays and single molecules.
+- The removed passages from the separation, atlas, instrument, serial, astrogenetics, leukocyte, reach, discipline and status chapters: see the commit "Part VI: development readings moved to development/" in the repo history (`git log -- development`).
+
+## Records
+
+| Date | Record | Title |
+|---|---|---|
+| 2026-09-22 | [PROC_E2E_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_E2E_01_PREREG.md) | PROC-E2E-01 — the commissioned chain, end to end, against the test package's own documented outputs |
+| 2026-09-22 | [PROC_STAGE0_02_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_STAGE0_02_OUTCOME.md) | PROC-STAGE0-02 — outcome: Stage 0 run retrospectively over the Uppsala cohort |
+| 2026-09-22 | [PROC_STAGE0_02_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_STAGE0_02_PREREG.md) | PROC-STAGE0-02 — Stage 0 intake, run retrospectively over the Uppsala cohort |
+| 2026-09-22 | [PROC_STAGE0_04_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_STAGE0_04_PREREG.md) | PROC-STAGE0-04 — the bisulfite-conversion threshold, to be set by the author |
+| 2026-09-25 | [ATLAS_READABILITY.md](../Biological_Physics/MethylPhys/doors/ATLAS_READABILITY.md) | What this instrument can and cannot read — measured from the atlas, 2026-09-26 |
+| 2026-09-25 | [PROC_BAND_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_BAND_01_PREREG.md) | PROC-BAND-01 — can progenitor and stem_adult carry a commissioned healthy band in whole blood? |
+| 2026-09-25 | [PROC_CLS_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_CLS_01_PREREG.md) | PROC-CLS-01 — does the residual sky have scale structure worth reporting? |
+| 2026-09-25 | [PROC_EPIC_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_EPIC_01_PREREG.md) | PROC-EPIC-01 — does the commissioned chain see a pre-diagnostic immune signal in genuinely held-out EPIC-Italy blood? |
+| 2026-09-25 | [PROC_FOREIGN_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_FOREIGN_01_PREREG.md) | PROC-FOREIGN-01 — should the immune tier be withheld when a specimen carries material the gauge was not built for? |
+| 2026-09-25 | [PROC_LABBAND_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_LABBAND_01_PREREG.md) | PROC-LABBAND-01 — should each laboratory be judged against its own width? |
+| 2026-09-25 | [PROC_PARTIAL_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_PARTIAL_01_PREREG.md) | PROC-PARTIAL-01 — can a non-blood class's fidelity score be recovered from an ordinary blood draw? |
+| 2026-09-26 | [DECONVOLVER_REPAIR_2026-09-26.md](../Biological_Physics/MethylPhys/doors/DECONVOLVER_REPAIR_2026-09-26.md) | The deconvolver repair of 2026-09-26 — why Breast read zero in breast tissue, and what was changed |
+| 2026-09-26 | [PROC_MF_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_MF_01_PREREG.md) | PROC-MF-01 — pre-registration: does a covariance-weighted matched filter lower the minimum detectable fraction of a fore |
+| 2026-09-26 | [PROC_MF_02_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_MF_02_PREREG.md) | PROC-MF-02 — pre-registration: inverse-variance weighted detection of a foreign cell in blood, as a stage of the chain |
+| 2026-09-26 | [PROC_MF_03_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_MF_03_PREREG.md) | PROC-MF-03 — pre-registration: the inverse-variance detector with a per-laboratory threshold, tested on a fifth laborato |
+| 2026-09-26 | [PROC_UNMIX_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_UNMIX_01_PREREG.md) | PROC-UNMIX-01 — pre-registration: does inverting the dilution line put every present cell's A at 1.00 on constructed tru |
+| 2026-09-27 | [PHYSICS_LEUKOCYTE_GAUGE.md](../Biological_Physics/MethylPhys/doors/PHYSICS_LEUKOCYTE_GAUGE.md) | What moves a leukocyte on the gauge — the two ends are different physics (2026-09-27) |
+| 2026-09-27 | [PROC_FOREIGNSCORE_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_FOREIGNSCORE_01_PREREG.md) | PROC-FOREIGNSCORE-01 — pre-registration: the scoring floor for a detected foreign cell |
+| 2026-09-27 | [PROC_INTAKE_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_PREREG.md) | PROC-INTAKE-01 — pre-registration: the intake gate runs on the array's own numbers, and a deferred check never advances |
+| 2026-09-27 | [PROC_SERIAL_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_SERIAL_01_PREREG.md) | PROC-SERIAL-01 — pre-registration: serial mode — one person, two or more draws |
+| 2026-09-27 | [PROC_SKY_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_SKY_01_PREREG.md) | PROC-SKY-01 — pre-registration: the sky's zero and spread with no population in them |
+| 2026-09-27 | [PROC_STAGE2D_02_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_STAGE2D_02_OUTCOME.md) | PROC-STAGE2D-02 — outcome: NOT ADOPTED. The detector's design, not its lines, was the defect. |
+| 2026-09-27 | [PROC_TARE_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_TARE_01_OUTCOME.md) | PROC-TARE-01 — outcome: NOT COMMISSIONED. The array's SNP probes see a real compression, and it carries almost no inform |
+| 2026-09-28 | [ATLAS_V2_SPEC.md](../Biological_Physics/MethylPhys/doors/ATLAS_V2_SPEC.md) | Atlas v2 — specification (PLAN item 20), written 2026-09-27 before any machine is rented |
+| 2026-09-28 | [PROC_OUTSPAN_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_OUTSPAN_01_PREREG.md) | PROC-OUTSPAN-01 — pre-registration: the clean map of what the atlas cannot explain |
+| 2026-09-28 | [PROC_PARTIALCOV_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_PARTIALCOV_01_PREREG.md) | PROC-PARTIALCOV-01 — pre-registration: entering a cell measured on part of the array |
+| 2026-09-30 | [PROC_CLASS_COUNT_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_CLASS_COUNT_01_PREREG.md) | PROC-CLASS-COUNT-01 — pre-registration: how many entropy levels do cells form, measured without any floor |
+| 2026-09-30 | [PROC_DECONV_V2_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_DECONV_V2_01_OUTCOME.md) | PROC-DECONV-V2-01 — outcome (2026-09-29): A5 FAILED on CD4 and CD8; NK passes |
+| 2026-09-30 | [PROC_DECONV_V2_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_DECONV_V2_01_PREREG.md) | PROC-DECONV-V2-01 — pre-registration: a new composition solver built on atlas v2 alone, tested on real known mixtures |
+| 2026-09-30 | [PROC_HMIN_REFIT_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_HMIN_REFIT_01_PREREG.md) | PROC-HMIN-REFIT-01 — pre-registration: measuring the methylation floors from sorted cells (option A), before anything mo |
+| 2026-09-30 | [PROC_V12_DIAG_01.md](../Biological_Physics/MethylPhys/doors/PROC_V12_DIAG_01.md) | PROC-V12-DIAG-01 — diagnostic (not a bar): is the V12 scatter selection noise or donor spread? |
+| 2026-09-30 | [PROC_V12_DIAG_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_V12_DIAG_01_OUTCOME.md) | PROC-V12-DIAG-01 — outcome (2026-09-29): the scatter follows the SOURCE, not the number of samples |
+| 2026-09-30 | [PROC_V12_IDENTITY_02_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_V12_IDENTITY_02_OUTCOME.md) | PROC-V12-IDENTITY-02 — outcome (2026-09-29): B3 PASS, B1 FAIL, B2 FAIL |
+| 2026-09-30 | [PROC_V12_IDENTITY_02_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_V12_IDENTITY_02_PREREG.md) | PROC-V12-IDENTITY-02 — pre-registration: identity loci on atlas v2, point rule; held-out self-read |
+| 2026-09-30 | [PROC_V12_IDENTITY_OUTCOME_01.md](../Biological_Physics/MethylPhys/doors/PROC_V12_IDENTITY_OUTCOME_01.md) | PROC-V12-IDENTITY — outcome of the first build (2026-09-29): B3 FAILED; the rule, not the atlas |
+| 2026-09-30 | [PROC_V12_IDENTITY_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_V12_IDENTITY_PREREG.md) | PROC-V12-IDENTITY — pre-registration: identity loci built on atlas v2 alone, and the held-out self-read |
+| 2026-09-30 | [PROC_V5_HELDOUT_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md) | PROC-V5-HELDOUT — outcome (2026-09-30): PASS |
+| 2026-09-30 | [PROC_V5_HELDOUT_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_PREREG.md) | PROC-V5-HELDOUT — pre-registration: can the atlas v2 posterior predict data it never saw? |
+| 2026-10-01 | [BANDv2_OUTCOME.md](../Biological_Physics/MethylPhys/doors/BANDv2_OUTCOME.md) | OUTCOME — identity_band_v2 tested on GSE125105 controls (Munich) |
+| 2026-10-01 | [DEV_CHAIN_V3_RUN2.md](../Biological_Physics/MethylPhys/doors/DEV_CHAIN_V3_RUN2.md) | DEV-CHAIN-V3-RUN2 — chain v3 end to end with the new read rules (development, 2026-10-01; commit d5873bd, floors v1.2) |
+| 2026-10-01 | [DEV_CHAIN_V3_RUN3.md](../Biological_Physics/MethylPhys/doors/DEV_CHAIN_V3_RUN3.md) | DEV-CHAIN-V3-RUN3 — chain v3 with the audit fixes and the noise-corrected tare, end to end on real IDATs (development, 2 |
+| 2026-10-01 | [DEV_COLON_BLOCKS_02.md](../Biological_Physics/MethylPhys/doors/DEV_COLON_BLOCKS_02.md) | DEV-COLON-BLOCKS-02 — colon-epithelium marker regions against every Loyfer cell type (development, 2026-10-02) |
+| 2026-10-01 | [DEV_LOWFRAC_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/DEV_LOWFRAC_01_OUTCOME.md) | DEV-LOWFRAC-01 — neutrophil Met-A below 50 % neutrophils (development, 2026-10-01; after looking) |
+| 2026-10-01 | [DEV_MOLECULE_COLON_01.md](../Biological_Physics/MethylPhys/doors/DEV_MOLECULE_COLON_01.md) | DEV-MOLECULE-COLON-01 — reading colon cells' copy error from their own molecules (development, 2026-10-01) |
+| 2026-10-01 | [DEV_NOISE_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/DEV_NOISE_01_OUTCOME.md) | DEV-NOISE-01 — array noise index (development, 2026-10-01; follows the PROC-NEUT-TEST-01 T2 failure) |
+| 2026-10-01 | [DEV_NOISE_02_OUTCOME.md](../Biological_Physics/MethylPhys/doors/DEV_NOISE_02_OUTCOME.md) | DEV-NOISE-02 — what the whole-blood neutrophil Met-A is reading (development, after looking; 2026-10-01) |
+| 2026-10-01 | [DEV_STOOL_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/DEV_STOOL_01_OUTCOME.md) | DEV-STOOL-01 — can stool carry enough colon-lining molecules for IAM-A and Met-A? (development, 2026-10-02) |
+| 2026-10-01 | [DIAG_450K_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/DIAG_450K_01_OUTCOME.md) | DIAG-450K-01 — why the v2 reader flagged an immune cell in every EPIC-Italy control (2026-10-01, development diagnosis) |
+| 2026-10-01 | [LABZERO01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/LABZERO01_OUTCOME.md) | OUTCOME — LAB-ZERO-01: predicting the per-lab offset from the array's control probes |
+| 2026-10-01 | [PROC_AGE_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_AGE_01_OUTCOME.md) | OUTCOME — PROC-AGE-01: cellular age on the identity gauge — NOT REPORTABLE at single-array resolution |
+| 2026-10-01 | [PROC_AML_PROG_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_AML_PROG_01_OUTCOME.md) | PROC-AML-PROG-01 — outcome (2026-10-01; pre-registration sha 3d4b365f, unchanged) + development follow-up |
+| 2026-10-01 | [PROC_AML_PROG_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_AML_PROG_01_PREREG.md) | PROC-AML-PROG-01 — pre-registration (written 2026-10-01, before any AML array is read on these floors) |
+| 2026-10-01 | [PROC_AML_SERIAL_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md) | PROC-AML-SERIAL-01 — outcome (2026-10-01; pre-registration sha 6fe8dc63, unchanged) |
+| 2026-10-01 | [PROC_AML_SERIAL_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_PREREG.md) | PROC-AML-SERIAL-01 — pre-registration (written 2026-10-01, before any GSE315367 array is read) |
+| 2026-10-01 | [PROC_BIDIR_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_BIDIR_01_OUTCOME.md) | OUTCOME — PROC-BIDIR-01: Stage 4.5 bidirectional detector. B1–B5 PASS — **row 4.5 COMMISSIONED** (`row_4_5_commissioned: |
+| 2026-10-01 | [PROC_CEIL_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md) | OUTCOME - PROC-CEIL-01 (T-CEIL): the ceiling conformance guard. PASS, and it produced three findings the guard itself wa |
+| 2026-10-01 | [PROC_CHANNEL_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md) | PROC-CHANNEL-01 — each cell type's error budget and holding energy, from single DNA molecules (2026-09-30) |
+| 2026-10-01 | [PROC_CLASS_COUNT_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_CLASS_COUNT_01_OUTCOME.md) | PROC-CLASS-COUNT-01 — outcome (2026-09-30) |
+| 2026-10-01 | [PROC_CMB_05_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_CMB_05_OUTCOME.md) | OUTCOME — PROC-CMB-05: the patient's sky. C2′ 4/4, C4″, C5, C6 PASS. **Row 4.6 COMMISSIONED** (`row_4_6_commissioned: Tr |
+| 2026-10-01 | [PROC_DERIVE_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_DERIVE_01_OUTCOME.md) | PROC-DERIVE-01 — outcome (2026-09-30). Pre-registration: PROC_DERIVE_01_PREREG.md (sha 7521c01ccf37e041). |
+| 2026-10-01 | [PROC_DERIVE_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_DERIVE_01_PREREG.md) | PROC-DERIVE-01 — pre-registration (written 2026-09-30, before the time-course files are summarised) |
+| 2026-10-01 | [PROC_DNMT_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PREREG.md) | PROC-DNMT-01 — pre-registration (written 2026-10-01, before any array or read of these datasets is read by us) |
+| 2026-10-01 | [PROC_ENCODE_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md) | PROC-ENCODE-01 — outcome (2026-09-30). Pre-registration: PROC_ENCODE_01_PREREG.md (sha b0e92114d6367453), written before |
+| 2026-10-01 | [PROC_ENCODE_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_PREREG.md) | PROC-ENCODE-01 — pre-registration (written 2026-09-30, before any ENCODE read was counted) |
+| 2026-10-01 | [PROC_G002_TRACE_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_G002_TRACE_OUTCOME.md) | PROC-G002-TRACE — how the eight original floors were made, and what IAM's law says about them (2026-09-30) |
+| 2026-10-01 | [PROC_HMIN_BOOT_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_HMIN_BOOT_01_OUTCOME.md) | PROC-HMIN-BOOT-01 — the bootstrap cross-check of the eight methylation H_min values, run for the first time |
+| 2026-10-01 | [PROC_HMIN_PERCELL_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_HMIN_PERCELL_01_OUTCOME.md) | PROC-HMIN-PERCELL-01 — outcome (2026-09-30): do cells share one floor? |
+| 2026-10-01 | [PROC_HMIN_REFIT_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_HMIN_REFIT_01_OUTCOME.md) | PROC-HMIN-REFIT-01 — outcome (2026-09-30): option A measured; NOT adoptable as it stands |
+| 2026-10-01 | [PROC_LINES_01_BJ_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_LINES_01_BJ_OUTCOME.md) | PROC-LINES-01, first series — BJ fibroblasts (GSE91069), 31 arrays, our Stage 1; every stage read against the same cells |
+| 2026-10-01 | [PROC_MAHA_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_MAHA_01_OUTCOME.md) | OUTCOME — PROC-MAHA-01: Stage 5 re-based on the identity gauge (as sealed) |
+| 2026-10-01 | [PROC_MAHA_02_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_MAHA_02_OUTCOME.md) | OUTCOME — PROC-MAHA-02: row 5 commissioned; row 5b opened |
+| 2026-10-01 | [PROC_MOLECULE_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_MOLECULE_01_OUTCOME.md) | PROC-MOLECULE-01 — outcome (2026-10-01). Pre-registration: PROC_MOLECULE_01_PREREG.md (sha eb71b9146a8ed367). |
+| 2026-10-01 | [PROC_MOLECULE_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_MOLECULE_01_PREREG.md) | PROC-MOLECULE-01 — pre-registration (written 2026-09-30, before any per-molecule record was read) |
+| 2026-10-01 | [PROC_NEUT_TEST_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_OUTCOME.md) | PROC-NEUT-TEST-01 — outcome, all four tests (2026-10-01). Chain v3 (bc4a651), unchanged, run_sample.py --engine v3 on ev |
+| 2026-10-01 | [PROC_NEUT_TEST_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_PREREG.md) | PROC-NEUT-TEST-01 — pre-registration (written 2026-10-01, before any array below is read by chain v3) |
+| 2026-10-01 | [PROC_NEUT_TEST_01_T2_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_T2_OUTCOME.md) | PROC-NEUT-TEST-01 T2 — outcome (2026-10-01): FAIL as pre-registered. Cause found: array noise in the second lab. |
+| 2026-10-01 | [PROC_PANEL_03_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_PANEL_03_OUTCOME.md) | OUTCOME — PROC-PANEL-03: the age-referenced lab zero — **LAB ZERO COMMISSIONED** |
+| 2026-10-01 | [PROC_PREDX_NEUT_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md) | PROC-PREDX-NEUT-01 — outcome (2026-10-01). Pre-registration: PROC_PREDX_NEUT_01_PREREG.md (sha 97fdf967972519ef). |
+| 2026-10-01 | [PROC_PREDX_NEUT_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_PREREG.md) | PROC-PREDX-NEUT-01 — pre-registration (written 2026-10-01, before EPIC-Italy is read with the corrected rules) |
+| 2026-10-01 | [PROC_PREDX_SEQUENCE_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_PREDX_SEQUENCE_01_PREREG.md) | PROC-PREDX-SEQUENCE-01 — pre-registration (written 2026-09-30, before any EPIC-Italy array is read by the current chain) |
+| 2026-10-01 | [PROC_PREDX_SLIDE_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_PREDX_SLIDE_01_OUTCOME.md) | PROC-PREDX-SLIDE-01 — outcome (2026-10-01). Pre-registration sha 434b2ed9da21be30. |
+| 2026-10-01 | [PROC_PREDX_SLIDE_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_PREDX_SLIDE_01_PREREG.md) | PROC-PREDX-SLIDE-01 — pre-registration (written 2026-10-01, before the 329 GSE51057 arrays are looked at under this rule |
+| 2026-10-01 | [PROC_RECORD_02_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_RECORD_02_OUTCOME.md) | PROC-RECORD-02 — VAL-025 to VAL-028 (four-substrate aging trajectory) reclassified: modeled prediction, not measurement |
+| 2026-10-01 | [PROC_RECORD_03_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_RECORD_03_OUTCOME.md) | PROC-RECORD-03 — the 80-cell age reference matrix: provenance stated; AD / breast "cellular age in years" restated as ΔA |
+| 2026-10-01 | [PROC_SCORE_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_SCORE_01_OUTCOME.md) | PROC-SCORE-01 — outcome (2026-09-30): per-cell floors work on pure cells; reading a cell out of a mixture does not yet |
+| 2026-10-01 | [PROC_SCORE_03_RESOLUTION.md](../Biological_Physics/MethylPhys/doors/PROC_SCORE_03_RESOLUTION.md) | PROC-SCORE-03 — per-specimen resolution in blood, in β units (2026-09-30) |
+| 2026-10-01 | [PROC_SWITCH_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_SWITCH_01_OUTCOME.md) | OUTCOME — PROC-SWITCH-01: the gauge switch (as sealed) |
+| 2026-10-01 | [PROC_SWITCH_02_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_SWITCH_02_OUTCOME.md) | OUTCOME — PROC-SWITCH-02: the gauge switch commissioned (CHAIN_COMMISSIONING row B) |
+| 2026-10-01 | [PROC_TIER_02_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_TIER_02_OUTCOME.md) | OUTCOME — PROC-TIER-02: NORMAL set to the commissioned healthy population. U1, U2, U3 PASS. |
+| 2026-10-01 | [PROC_TUMOUR_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md) | PROC-TUMOUR-01 — outcome (2026-10-01). Scored exactly as pre-registered (sha 5ab460cf5af368d5) |
+| 2026-10-01 | [PROC_TUMOUR_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_PREREG.md) | PROC-TUMOUR-01 — pre-registration (written 2026-10-01, before any read of these datasets is aligned) |
+| 2026-10-01 | [PROC_WARBURG_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_WARBURG_01_OUTCOME.md) | PROC-WARBURG-01 — outcome (2026-09-30). Pre-registration: PROC_WARBURG_01_PREREG.md (sha a4683f03c3ca92de), written befo |
+| 2026-10-01 | [PROC_WARBURG_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_WARBURG_01_PREREG.md) | PROC-WARBURG-01 — pre-registration (written 2026-09-30, before any methylation array of this set was read) |
+| 2026-10-01 | [PROC_WB_NEUT_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md) | PROC-WB-NEUT-01 — outcome, part 1 (2026-10-01; pre-registration sha 36e8620f, unchanged) |
+| 2026-10-01 | [PROC_WB_NEUT_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_PREREG.md) | PROC-WB-NEUT-01 — pre-registration (written 2026-10-01, before any mixture is read on this reading) |
+| 2026-10-02 | [DEV_REPL_V3_01.md](../Biological_Physics/MethylPhys/doors/DEV_REPL_V3_01.md) | DEV-REPL-V3-01 — technical replicates on chain v3 with the median tare (development note, 2026-10-03; \measured) |
+| 2026-10-02 | [DEV_REPL_V3_01_PLAN.md](../Biological_Physics/MethylPhys/doors/DEV_REPL_V3_01_PLAN.md) | DEV-REPL-V3-01 — run plan (development, written 2026-10-03 before any array was read) |
+| 2026-10-02 | [DEV_SELFTARE_01.md](../Biological_Physics/MethylPhys/doors/DEV_SELFTARE_01.md) | DEV-SELFTARE-01 — the array tares itself from its own fixed sites (development note, 2026-10-03) |
+| 2026-10-02 | [DEV_TARE_02_OUTCOME.md](../Biological_Physics/MethylPhys/doors/DEV_TARE_02_OUTCOME.md) | DEV-TARE-02 — Stage T without a fitted term (development, 2026-10-02) |
+| 2026-10-02 | [PROC_DNMT_01_PARTB_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md) | DNMT-01 Part B — IAM-A on single molecules under a known DNMT1 block (scored 2026-10-02) |
+| 2026-10-03 | [ATLAS_SOURCES_SURVEY.md](../Biological_Physics/MethylPhys/doors/ATLAS_SOURCES_SURVEY.md) | Atlas sources survey — what exists for the cells we are missing (2026-09-27) |
+| 2026-10-03 | [CHAIN_COMMISSIONING.md](../Biological_Physics/MethylPhys/doors/CHAIN_COMMISSIONING.md) | Chain v3 commissioning — stage by stage (development) |
+| 2026-10-03 | [CHAIN_SEQUENCE.md](../Biological_Physics/MethylPhys/doors/CHAIN_SEQUENCE.md) | The chain, step by step - derived from the code |
+| 2026-10-03 | [CLASS_ASSIGNMENT_RULE_DRAFT.md](../Biological_Physics/MethylPhys/doors/CLASS_ASSIGNMENT_RULE_DRAFT.md) | Architecture-class assignment — a written rule, tested against the existing classes (DRAFT, 2026-09-28) |
+| 2026-10-03 | [CLASS_HISTORY.md](../Biological_Physics/MethylPhys/doors/CLASS_HISTORY.md) | How the eight architecture classes came to be — the record |
+| 2026-10-03 | [CLASS_USE_INVENTORY.md](../Biological_Physics/MethylPhys/doors/CLASS_USE_INVENTORY.md) | Class-use inventory and removal plan — 2026-09-28 |
+| 2026-10-03 | [CMB_TO_METHYLOME_MAP.md](../Biological_Physics/MethylPhys/doors/CMB_TO_METHYLOME_MAP.md) | CMB → Methylome: the translation map, scored |
+| 2026-10-03 | [COMPLETION_SPRINT_scored.md](../Biological_Physics/MethylPhys/doors/COMPLETION_SPRINT_scored.md) | The completion sprint (spring 2026), scored 2026-09-19 |
+| 2026-10-03 | [COMPONENT_MAP.md](../Biological_Physics/MethylPhys/doors/COMPONENT_MAP.md) | COMPONENT MAP — what lives where, and what a future test needs |
+| 2026-10-03 | [DEV_ATLAS_EPIC_01.md](../Biological_Physics/MethylPhys/doors/DEV_ATLAS_EPIC_01.md) | DEV-ATLAS-EPIC-01 — atlas v2 and NILC composition on EPIC whole blood (development, 2026-10-03) |
+| 2026-10-03 | [DEV_ATLAS_EPIC_02.md](../Biological_Physics/MethylPhys/doors/DEV_ATLAS_EPIC_02.md) | DEV-ATLAS-EPIC-02 — stage 3 atlas deconvolution on chain v3: the held Stage A patch (development; check written 2026-10- |
+| 2026-10-03 | [DEV_BASE_CHAIN_01.md](../Biological_Physics/MethylPhys/doors/DEV_BASE_CHAIN_01.md) | DEV-BASE-CHAIN-01 — base chain v3 on every EPIC array in the bucket (development, checks written 2026-10-03 before any a |
+| 2026-10-03 | [DEV_COMPOSITION_TRUTH_02.md](../Biological_Physics/MethylPhys/doors/DEV_COMPOSITION_TRUTH_02.md) | DEV-COMPOSITION-TRUTH-02 - an adult, other-laboratory mixture truth set for composition, NILC and atlas_e (development,  |
+| 2026-10-03 | [DEV_DETECTION_01.md](../Biological_Physics/MethylPhys/doors/DEV_DETECTION_01.md) | DEV-DETECTION-01 - detection p-value: poobah against the Gaussian negative-control test (development, 2026-10-04) |
+| 2026-10-03 | [DEV_DIRECTION_01.md](../Biological_Physics/MethylPhys/doors/DEV_DIRECTION_01.md) | DEV-DIRECTION-01 — stage 10 directional decomposition (development; check written 2026-10-03 before any data were read) |
+| 2026-10-03 | [DEV_DIRECTION_02.md](../Biological_Physics/MethylPhys/doors/DEV_DIRECTION_02.md) | DEV-DIRECTION-02 - directional decomposition rebuilt physics-only (development, 2026-10-04) |
+| 2026-10-03 | [DEV_EPIC_V2_01.md](../Biological_Physics/MethylPhys/doors/DEV_EPIC_V2_01.md) | DEV-EPIC-V2-01 - EPIC v2 support behind a development flag (development, 2026-10-04) |
+| 2026-10-03 | [DEV_FLAGS_01.md](../Biological_Physics/MethylPhys/doors/DEV_FLAGS_01.md) | DEV-FLAGS-01 - development flags for the stages likely to work, and the stages kept out (development, 2026-10-04) |
+| 2026-10-03 | [DEV_IAMA_CSCORE_01.md](../Biological_Physics/MethylPhys/doors/DEV_IAMA_CSCORE_01.md) | DEV-IAMA-CSCORE-01 - the IAM-A C-score (development, 2026-10-04) |
+| 2026-10-03 | [DEV_IAMA_REAL_01.md](../Biological_Physics/MethylPhys/doors/DEV_IAMA_REAL_01.md) | DEV-IAMA-REAL-01 - Stage Q (IAM-A) end to end on real single-molecule blood data (development, 2026-10-04) |
+| 2026-10-03 | [DEV_INTAKE_02.md](../Biological_Physics/MethylPhys/doors/DEV_INTAKE_02.md) | DEV-INTAKE-02 - intake changes F, A, B, L and the EPIC v2 refusal (development, 2026-10-04) |
+| 2026-10-03 | [DEV_NEWCELL_01.md](../Biological_Physics/MethylPhys/doors/DEV_NEWCELL_01.md) | DEV-NEWCELL-01 - the new-cell rule (three tests) applied to the next cell after neutrophils (development, 2026-10-04) |
+| 2026-10-03 | [DEV_NILC_01.md](../Biological_Physics/MethylPhys/doors/DEV_NILC_01.md) | DEV-NILC-01 — stage 4 NILC component separation on chain v3 (development; check written 2026-10-03 before the data were  |
+| 2026-10-03 | [DEV_PERCELL_01.md](../Biological_Physics/MethylPhys/doors/DEV_PERCELL_01.md) | DEV-PERCELL-01 — stage 5 Met-A for each newly separated cell type (development; check written 2026-10-03 before the data |
+| 2026-10-03 | [DEV_ROUND2_REPORT.md](../Biological_Physics/MethylPhys/doors/DEV_ROUND2_REPORT.md) | Chain v3 development round 2 - report (DEVELOPMENT - not commissioned) |
+| 2026-10-03 | [DEV_SELFTARE_02.md](../Biological_Physics/MethylPhys/doors/DEV_SELFTARE_02.md) | DEV-SELFTARE-02 - self-tare on type II fixed sites (development, 2026-10-04) |
+| 2026-10-03 | [DEV_SKYSTAT_01.md](../Biological_Physics/MethylPhys/doors/DEV_SKYSTAT_01.md) | DEV-SKYSTAT-01 — stage 12 sky statistics (development; check written 2026-10-03 before any data were read) |
+| 2026-10-03 | [DEV_SKY_01.md](../Biological_Physics/MethylPhys/doors/DEV_SKY_01.md) | DEV-SKY-01 — stage 11 sky map on chain v3 (development; check written 2026-10-03 before the data were read) |
+| 2026-10-03 | [DEV_SKY_02.md](../Biological_Physics/MethylPhys/doors/DEV_SKY_02.md) | DEV-SKY-02 - sky map against a within-chromosome block-shuffle null; sky statistics (development, 2026-10-04) |
+| 2026-10-03 | [DEV_SPECIES_AGEING_01.md](../Biological_Physics/MethylPhys/doors/DEV_SPECIES_AGEING_01.md) | DEV_SPECIES_AGEING_01 — within-species ageing on the consortium blood arrays |
+| 2026-10-03 | [DEV_TOOLKIT_ADDED_02.md](../Biological_Physics/MethylPhys/doors/DEV_TOOLKIT_ADDED_02.md) | DEV-TOOLKIT-ADDED-02 - trace cell (3b), foreign cell (3c), surface brightness (11b) on each array's own noise; IAM-A ver |
+| 2026-10-03 | [DEV_TOOLKIT_ADDED_STAGES_01.md](../Biological_Physics/MethylPhys/doors/DEV_TOOLKIT_ADDED_STAGES_01.md) | DEV-TOOLKIT-ADDED-01 — stages 3b, 3c, 11b, 12b (development; checks written 2026-10-03 before any data were read) |
+| 2026-10-03 | [ENHANCEMENTS.md](../Biological_Physics/MethylPhys/doors/ENHANCEMENTS.md) | What would make this chain more sensitive, ranked — and what it would cost |
+| 2026-10-03 | [FINDING_DETECTION_PANEL_HELDOUT.md](../Biological_Physics/MethylPhys/doors/FINDING_DETECTION_PANEL_HELDOUT.md) | FINDING — the foreign-cell detection panel, held out on 732 healthy blood arrays (2026-09-27) |
+| 2026-10-03 | [FINDING_GSE125105_LOW_SIGNAL.md](../Biological_Physics/MethylPhys/doors/FINDING_GSE125105_LOW_SIGNAL.md) | Finding 2026-09-27 — GSE125105 (Munich) arrays are low-signal, and the intake gate that should refuse them never fires |
+| 2026-10-03 | [FRACTION_AND_A.md](../Biological_Physics/MethylPhys/doors/FRACTION_AND_A.md) | Fraction and A — what mixing does to the per-cell A, measured on constructed specimens, 2026-09-26 |
+| 2026-10-03 | [HANDOFF.md](../Biological_Physics/MethylPhys/doors/HANDOFF.md) | HANDOFF — the physics of methylation, for whoever picks this up |
+| 2026-10-03 | [LABZERO02_OUTCOME.md](../Biological_Physics/MethylPhys/doors/LABZERO02_OUTCOME.md) | OUTCOME — LAB-ZERO-02: the fourth lab decides the lab-zero route |
+| 2026-10-03 | [PERCELL_STANDARD_REZERO_2026-09-27.md](../Biological_Physics/MethylPhys/doors/PERCELL_STANDARD_REZERO_2026-09-27.md) | The per-cell standard re-zeroed to 1.000 (PLAN item 4, first step) — 2026-09-27 |
+| 2026-10-03 | [PER_CELL_SCORING.md](../Biological_Physics/MethylPhys/doors/PER_CELL_SCORING.md) | The per-cell reading already exists — what is missing is a healthy band |
+| 2026-10-03 | [PHASE1_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md) | OUTCOME — PHASE 1: identity-loci healthy bands from GSE87571 |
+| 2026-10-03 | [PHASE1c_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PHASE1c_OUTCOME.md) | OUTCOME — PHASE 1c: scale-map and band transfer to GSE42861 controls |
+| 2026-10-03 | [PLAN.md](../Biological_Physics/MethylPhys/doors/PLAN.md) | PLAN — what we do next, in order |
+| 2026-10-03 | [PROC_BAND_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_BAND_01_OUTCOME.md) | PROC-BAND-01 — outcome: NOT COMMISSIONED. The joint component fails reproducibility on one laboratory in four. |
+| 2026-10-03 | [PROC_BRAIN_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_BRAIN_01_OUTCOME.md) | PROC-BRAIN-01 — outcome: brain-derived cells ARE found in cerebrospinal fluid, in every patient. Whether they can be SCO |
+| 2026-10-03 | [PROC_BRAIN_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_BRAIN_01_PREREG.md) | PROC-BRAIN-01 — can the instrument find terminal-class cells in a liquid specimen from a CNS tumour patient? |
+| 2026-10-03 | [PROC_CLS_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_CLS_01_OUTCOME.md) | PROC-CLS-01 — outcome: the residual sky HAS large-scale structure. The reference is NOT COMMISSIONED. |
+| 2026-10-03 | [PROC_CMB_04_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_CMB_04_OUTCOME.md) | OUTCOME — PROC-CMB-04: the patient's sky. C2′ FAILED AS SEALED (1/4 labs, all four within 0.004 of the bar); C4″, C5, C6 |
+| 2026-10-03 | [PROC_COV_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_COV_01_OUTCOME.md) | PROC-COV-01 — outcome: the misfit IS a reproducible, removable bias. Removing it does not rescue fidelity recovery. |
+| 2026-10-03 | [PROC_COV_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_COV_01_PREREG.md) | PROC-COV-01 — is the reference's misfit against real blood a reproducible bias that can be measured and removed? |
+| 2026-10-03 | [PROC_DNMT_01_PARTA_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md) | DNMT-01 Part A — Met-A under a known DNMT1 block (development measurement, 2026-10-01) |
+| 2026-10-03 | [PROC_E2E_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_E2E_01_OUTCOME.md) | PROC-E2E-01 — outcome: the commissioned chain reproduces the test package, and the run found three defects |
+| 2026-10-03 | [PROC_EPIC_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_EPIC_01_OUTCOME.md) | PROC-EPIC-01 — outcome: the colorectal signal replicates in held-out blood. The breast signal does not. |
+| 2026-10-03 | [PROC_FOREIGNSCORE_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_FOREIGNSCORE_01_OUTCOME.md) | PROC-FOREIGNSCORE-01 — outcome: NOT ADOPTED. No scoring floor is set; a detected foreign cell stays "detected, fraction  |
+| 2026-10-03 | [PROC_FOREIGN_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_FOREIGN_01_OUTCOME.md) | PROC-FOREIGN-01 — outcome: COMMISSIONED. The immune tier is withheld when a specimen is not whole blood. |
+| 2026-10-03 | [PROC_HISTORY_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_HISTORY_01_OUTCOME.md) | PROC-HISTORY-01 — the complete validation history, counted from the record (2026-09-21) |
+| 2026-10-03 | [PROC_INTAKE_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md) | PROC-INTAKE-01 — outcome: ADOPTED. The intake gate runs on the array's own numbers; a deferred check never advances. |
+| 2026-10-03 | [PROC_LABBAND_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_LABBAND_01_OUTCOME.md) | PROC-LABBAND-01 — outcome: NOT COMMISSIONED. At 80 arrays a laboratory's width cannot be told from noise, and using it m |
+| 2026-10-03 | [PROC_MAHA_03_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_MAHA_03_OUTCOME.md) | PROC-MAHA-03 — outcome: the chip term is real where it matters most, and a control array per chip is the wrong protocol |
+| 2026-10-03 | [PROC_MAHA_03_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_MAHA_03_PREREG.md) | PROC-MAHA-03 — the Sentrix-chip term, and which panel protocol recovers it |
+| 2026-10-03 | [PROC_MATCH_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_MATCH_01_OUTCOME.md) | OUTCOME — PROC-MATCH-01: Stage 8 disease matching. M1, M2, M4 PASS; M3 reported; M5 prediction correct — **row 8 stays O |
+| 2026-10-03 | [PROC_MF_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_MF_01_OUTCOME.md) | PROC-MF-01 — outcome: NOT COMMISSIONED as written. The full-covariance matched filter ties NNLS; the diagonal control ar |
+| 2026-10-03 | [PROC_MF_02_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_MF_02_OUTCOME.md) | PROC-MF-02 — outcome: NOT COMMISSIONED. Six of seven bars met, and the detection limit falls to 0.5–1 %; the threshold d |
+| 2026-10-03 | [PROC_MF_03_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_MF_03_OUTCOME.md) | PROC-MF-03 — outcome: NOT COMMISSIONED. B1–B6 met again; B7 failed on the fifth laboratory — its healthy null is 4–25× w |
+| 2026-10-03 | [PROC_PARTIAL_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_PARTIAL_01_OUTCOME.md) | PROC-PARTIAL-01 — outcome: NOT COMMISSIONED. A non-blood class's fidelity score cannot be recovered from whole blood. |
+| 2026-10-03 | [PROC_SKY_01_FOLLOWUP.md](../Biological_Physics/MethylPhys/doors/PROC_SKY_01_FOLLOWUP.md) | PROC-SKY-01 — follow-up named by the outcome: the same 48 arrays with the intake gate applied (2026-09-27) |
+| 2026-10-03 | [PROC_SKY_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_SKY_01_OUTCOME.md) | PROC-SKY-01 — outcome: SKY WITHHELD. The panel scales are retired; no on-array spread fitted every laboratory. |
+| 2026-10-03 | [PROC_SMALL_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_SMALL_01_OUTCOME.md) | PROC-SMALL-01 — outcome: the trace-class detection limit in whole blood is 2 %, down from 5 % |
+| 2026-10-03 | [PROC_SMALL_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_SMALL_01_PREREG.md) | PROC-SMALL-01 — can the detection limit for a trace class in whole blood be brought below 5 %? |
+| 2026-10-03 | [PROC_STAGE2D_02_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_STAGE2D_02_PREREG.md) | PROC-STAGE2D-02 — pre-registration: the foreign-cell detector rebuilt on the held-out finding |
+| 2026-10-03 | [PROC_STAGE2D_03_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_STAGE2D_03_OUTCOME.md) | PROC-STAGE2D-03 — outcome: ADOPTED by the author's ruling. B1's unspecific bar failed as written and was superseded, not |
+| 2026-10-03 | [PROC_STAGE2D_03_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_STAGE2D_03_PREREG.md) | PROC-STAGE2D-03 — pre-registration: foreign-cell detection as one joint fit |
+| 2026-10-03 | [PROC_SYNTH_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_SYNTH_01_OUTCOME.md) | PROC-SYNTH-01 — outcome: the chain recovers what it is handed. But the per-cell A is confounded with the cell's FRACTION |
+| 2026-10-03 | [PROC_TARE_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_TARE_01_PREREG.md) | PROC-TARE-01 — pre-registration: can the array's own known-value probes tare the instrument, so that no healthy panel de |
+| 2026-10-03 | [PROC_TIER_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_TIER_01_OUTCOME.md) | OUTCOME — PROC-TIER-01: Stage 7 tiers on the commissioned gauge. T1, T3, T4 PASS — row 7 COMMISSIONED. T2 measured; pred |
+| 2026-10-03 | [PROC_TISSUE_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_TISSUE_01_OUTCOME.md) | PROC-TISSUE-01 — outcome: the gating bar failed. No field effect; adjacent normal reads BELOW healthy, and seven of eigh |
+| 2026-10-03 | [PROC_TISSUE_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_TISSUE_01_PREREG.md) | PROC-TISSUE-01 — does the gauge place healthy, adjacent-normal and tumour colon in order, without being shown the order? |
+| 2026-10-03 | [PROC_UNMIX_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_UNMIX_01_OUTCOME.md) | PROC-UNMIX-01 — outcome: NOT ADOPTED. The dilution-line inversion is exact arithmetic the composition solver cannot feed |
+| 2026-10-03 | [README.md](../Biological_Physics/MethylPhys/doors/README.md) | doors/ — the record of how the chain was built, and what is next |
+| 2026-10-03 | [README_LOG_2026-09-20_to_21_RECORD.md](../Biological_Physics/MethylPhys/doors/README_LOG_2026-09-20_to_21_RECORD.md) | Record: the dated notes that were appended to three READMEs, 20-21 September 2026 |
+| 2026-10-03 | [REFERENCE_AUDIT.md](../Biological_Physics/MethylPhys/doors/REFERENCE_AUDIT.md) | The per-cell A is computed on the wrong surface — measured 2026-09-26 |
+| 2026-10-03 | [REPORT_LINE_AUDIT_2026-09-26.md](../Biological_Physics/MethylPhys/doors/REPORT_LINE_AUDIT_2026-09-26.md) | Report interface — line-by-line accuracy audit, 2026-09-26 |
+| 2026-10-03 | [REPORT_TAB_REFERENCE.md](../Biological_Physics/MethylPhys/doors/REPORT_TAB_REFERENCE.md) | The report, tab by tab - the operating reference |
+| 2026-10-03 | [REPO_INVENTORY.md](../Biological_Physics/MethylPhys/doors/REPO_INVENTORY.md) | What is in this repository - measured |
+| 2026-10-03 | [REVIEWER_MANIFEST.md](../Biological_Physics/MethylPhys/doors/REVIEWER_MANIFEST.md) | What a reviewer can download, and what we have not published |
+| 2026-10-03 | [RUNBOOK.md](../Biological_Physics/MethylPhys/doors/RUNBOOK.md) | CPG runbook |
+| 2026-10-03 | [SUBSTRATE_STRATEGY.md](../Biological_Physics/MethylPhys/doors/SUBSTRATE_STRATEGY.md) | Which substrate can this instrument read? — the plan, decided by the physics rather than by preference |
+| 2026-10-03 | [TWO_FIT_FINDING.md](../Biological_Physics/MethylPhys/doors/TWO_FIT_FINDING.md) | The chain runs TWO deconvolutions, and the reported one is the pooled-first fit |

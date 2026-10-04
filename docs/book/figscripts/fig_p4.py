@@ -816,11 +816,9 @@ def fig_summary():
     pr = pd.read_csv(MP / "doors" / "PROC_DNMT_01_PARTB" / "dnmt_b_pairs.csv"); tp = pd.read_csv(DD / "tumour_pairs.csv").dropna(subset=["ratio"]); im = imr90()
     g = pd.read_csv(MP / "chain_tests" / "iama_floor_granulocytes.csv")
     rows = [("held-out reference neutrophils (Met-A)", loo.A_loo, S.IAM), ("healthy granulocytes, held out (IAM-A)", g.A_own, S.IAM),
-            ("tared DNA mixtures and remission bloods (Met-A)", acc.A_rel_tared.dropna(), S.IAM),
+            ("tared DNA mixtures (Met-A)", acc.loc[acc.group.str.contains("mixture", case=False), "A_rel_tared"].dropna(), S.IAM),
             ("senescent IMR90, unmethylated channel", im.loc[im.state == "Senescent", "A_unmeth"], S.GOLD),
-            ("SV40 IMR90, methylated channel", im.loc[im.state == "SV40", "A_meth"], S.DATA),
-            ("DNMT1 inhibitor ≥ 80 nM (Met-A)", d.loc[(d.cmpd == "GSK032") & (d.dose_nM >= 80), "A"], S.DATA),
-            ("DNMT1 inhibitor 100 nM (IAM-A)", pr.A, S.DATA)]
+            ("SV40 IMR90, methylated channel", im.loc[im.state == "SV40", "A_meth"], S.DATA)]
     fig, ax = plt.subplots(figsize=(S.TEXTW, 2.4))
     normal_band(ax, axis="x")
     y = np.arange(len(rows))[::-1]; out = []
@@ -834,9 +832,9 @@ def fig_summary():
     return out
 
 
-ALL = [fig_jensen, fig_ledger, fig_fullsurface, fig_surfaces, fig_imr90_plane, fig_heldout, fig_iama, fig_cscore, fig_fish, fig_map79, fig_tare, fig_noisefit,
-       fig_lowfrac, fig_markers, fig_profiles, fig_window, fig_shared, fig_noiseterm, fig_repeats, fig_nulls, fig_detlimit, fig_report, fig_dnmt_arrays,
-       fig_dnmt_molecules, fig_dnmt_channels, fig_fraction_free, fig_tumour, fig_plasma, fig_status, fig_summary]
+ALL = [fig_jensen, fig_ledger, fig_fullsurface, fig_surfaces, fig_imr90_plane, fig_heldout, fig_iama, fig_cscore, fig_map79, fig_tare, fig_noisefit,
+       fig_lowfrac, fig_markers, fig_profiles, fig_window, fig_shared, fig_noiseterm, fig_nulls, fig_detlimit, fig_report, 
+       fig_fraction_free, fig_tumour, fig_status, fig_summary]
 
 def tex_sci(x, d=2, dollars=True):
     e = int(np.floor(np.log10(abs(x)))); m = x / 10**e

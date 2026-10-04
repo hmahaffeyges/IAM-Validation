@@ -38,25 +38,12 @@ preference is the same at every temperature, the enzyme holds its error fixed in
 Figure~\ref{fig:eps0T}). This is measurable by single-molecule DNMT1 kinetics --- a direct test in a cell-free system.
 \prediction
 
-\section{What the fish say so far}
+\section{Reading ectotherms}
 
-Four salmonid sets have been read with the same single-molecule statistic, three of them pre-registered (Chapter~\ref{ch:salmonid}):
-\begin{center}\small
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}\toprule
-set & tissue, method & holding energy & instrument \\\midrule
-Methow River steelhead, 20 fish & red blood cells, RRBS & 3.31 $\kB T$ (median) & halves agree, ICC 0.998 \\
- & sperm, RRBS & 4.02 $\kB T$ & \\
-brook charr, 40 males & sperm, WGBS & 3.81 $\kB T$ & ICC 0.92 \\
-Rimouski Atlantic salmon, 64 fish & fin, WGBS & 3.47 $\kB T$ (F0) & ICC 0.996 \\
-coho smolts, 39 fish & RRBS & 3.30 $\kB T$ & ICC 0.83 \\\bottomrule
-\end{tabularx}
-\end{center}
-\measured{} The instrument repeats almost perfectly in every set. In every set the small differences between fish track the
-library (conversion failure, duplicate fraction), so no fish-level difference has yet been read. The steelhead red cells, at
-about 10~\textdegree C, read close to healthy human cells at 37~\textdegree C on the same statistic, against the fixed-energy
-prediction of a higher value in $\kB T$ units. That comparison is not the test: one small study, reduced-representation
-sequencing of CpG-dense regions against whole-genome human reads, a nucleated red cell against human granulocytes, and a
-body temperature assumed from the water. \openprob
+The test is one species, one cell type and one pipeline at two recorded temperatures, each fish read against its own floor on single
+molecules, with molecular identifiers and a known-pattern control in every library so that the library's own errors are read and removed.
+The floor at 10~\textdegree C is measured on fish, not assumed. \prediction{} The salmonid sets read in development are in the
+development log (\href{https://github.com/hmahaffeyges/IAM-Validation/tree/main/development}{\texttt{development/}}).
 
 \paragraph{Published values for ectotherms are a different quantity.} The global methylation values published for reptiles,
 amphibians and fish come from reversed-phase high-performance liquid chromatography of hydrolysed
@@ -65,19 +52,8 @@ including repetitive elements, transposable elements and intergenic regions. \ob
 a per-site $\beta$ on the sites that make a cell what it is, and from the mean of per-site entropies that the gauge reads, so
 no such value is placed on the gauge. \derived{} (from the definitions, Chapter~\ref{ch:surface}) The definitive route
 is to read ectotherm cells with a site-resolved method on one pipeline --- an array with degenerate probes designed to
-tolerate cross-species sequence variation~\cite{Arneson2022}, or read-level sequencing as in Chapter~\ref{ch:salmonid}.
+tolerate cross-species sequence variation~\cite{Arneson2022}, or read-level single-molecule sequencing.
 
-Figure~\ref{fig:p4_fish} shows every fish on the human statistic and the library terms that the small differences between fish follow.
-
-\begin{figure}[htbp]\centering
-\includegraphics[width=0.98\textwidth]{figures/part4/fig_p4_10_fish.pdf}
-\caption{Salmonids on the single-molecule statistic. (a) Holding energy per fish; bar: median (steelhead red cells 3.31, sperm 4.02;
-brook charr sperm 3.81, 39 fish with a complete run; Atlantic salmon fin F0 3.47, F1 3.56, in $\kB T$). Dashed: human cells at
-37~\textdegree C, 3.41; dotted: a fixed holding energy carried to 10~\textdegree C, 3.74. (b) Charr: holding energy against the library's duplicate
-fraction (Spearman $\rho=-0.57$). (c) Salmon: against conversion failure ($\rho=-0.38$; the sign is reversed from that of the copy error).
-\measured{} points; \calc{} dotted line.}
-\label{fig:p4_fish}
-\end{figure}
 
 \begin{keybox}[title=The test that decides]
 One species, one cell type, one read pipeline, at two recorded temperatures. A rearing-temperature experiment does it; a

@@ -41,16 +41,8 @@ beads do not count toward the call rate. The bisulfite-conversion threshold is r
 arrays it was tried on, and it is printed as provisional. \openprob{} A quarantined
 specimen produces no reading; the run stops.
 
-\paragraph{How a fault hides.} Four defects found while wiring intake carry one lesson.
-\measured{} A gate that cannot read its input never fires: the header reader opened IDAT files raw while public downloads are compressed,
-so the array-type check could not run on any public array, and it reported nothing. A value that fails to propagate looks like bad
-data: an identifier dropped between two steps made the next step quarantine every array of a 732-array set as carrying a cleartext
-identifier. A refusal that does not stop the run is reported as a different refusal downstream. And a failed decode, caught and passed
-on as six deferred checks, would have scored a truncated file with no quality control. A second record shows a deferred check acting as
-a pass: one laboratory's arrays carried 0.15--0.31 of three other laboratories' median signal on the methylation-independent control
-probes, with 12.5~\% of probes at background, and cleared intake because the call-rate check was deferred and the code advanced.
-\measured{} Both are why a deferred check now quarantines. The general rule
-is to test every check that has never reported a failure with an input known to be bad.
+\paragraph{How a fault hides.} A gate that cannot read its input never fires, and a check that is deferred acts as a pass. So a deferred
+check quarantines the specimen, and every check that has never reported a failure is tested with an input known to be bad.
 
 \paragraph{Probes at background.} A probe at background reads both channels near noise, so its $\beta$ sits near 0.33--0.42 whatever the
 true methylation. \measured{} Met-A identity sites sit at 0.75--0.95 or 0.05--0.25

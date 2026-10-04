@@ -145,8 +145,7 @@ is carried with status ASSUMED and an estimated effect on $A$ of at most about 0
 
 \section{The fit}
 
-A first attempt to fit the source terms jointly with every cell mean did not converge ($\hat R$ up to 4.35): a source's terms trade off against the
-means of every cell only it measured. With the source terms fixed from the closed form, a test block of about 1,000 loci converged
+A source's terms trade off against the means of every cell only it measured, so the source terms are fixed from the closed form. A test block of about 1,000 loci converged
 ($\hat R$ 99th percentile 1.005, effective sample size 1st percentile 753, no divergences), at 0.83~s per locus. The full fit then ran over about
 814,000 loci in 700 blocks with NUTS~\cite{Hoffman2014} in NumPyro, on rented cloud machines, every finished block copied to storage as it landed.
 Twenty posterior draws per cell per locus were kept. A whole-atlas gate confirmed that no two cells came out identical and that no value was filled
@@ -177,9 +176,6 @@ a posterior interval as a range. Two intervals are kept apart instead: the preci
 EPIC, the held-out standard deviation 0.020, Chapter~\ref{ch:meta}) and the specimen's own detection limit
 (Chapter~\ref{ch:instrument}). Neither is a range of people; healthy is $A=1$.
 
-The identity sites of the cell types after neutrophils were also drawn from atlas v2 and read on samples held out of the fit. Their bar was
-95~\% of held-out readings in Normal. Array to array, 87.7~\% were in Normal (28 of 29 cell medians); sequencing to array, after a per-locus
-correction, 73.1~\% (14 of 17). The bar is not met. \measured
 
 \section{What is in it}
 
