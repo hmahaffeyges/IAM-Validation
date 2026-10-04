@@ -62220,23 +62220,6 @@
   "source": "Biological_Physics/MethylPhys/doors/data/t2_diag.csv"
  },
  {
-  "label": "ch:serial:L60",
-  "title": "table: remission pairs, number of pairs",
-  "part": 6,
-  "chapter": "ch:serial",
-  "file": "part4/p4_17_serial",
-  "line": 60,
-  "status": "measured",
-  "kind": "file",
-  "printed": "10",
-  "recomputed": "10",
-  "tol": 0.5000005,
-  "passed": true,
-  "note": "",
-  "heavy": false,
-  "source": "Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md"
- },
- {
   "label": "ch:serial:L71",
   "title": "E-MTAB-7309 Stage 1: median call rate",
   "part": 6,

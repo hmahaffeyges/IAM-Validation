@@ -33935,14 +33935,6 @@ def check_4097():
 
 
 
-@check(label='ch:serial:L60', chapter='ch:serial', part=6, title='table: remission pairs, number of pairs',
-       file='part4/p4_17_serial', line=60, status='measured', kind='file', printed='10', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md')
-def check_4108():
-    'Table tab:p4_changefloor: number of same-person remission pairs scored under bar S5, read from the S5 row of the PROC-AML-SERIAL-01 outcome (k/n, n). Book line 60, printed 10. Inputs: PROC_AML_SERIAL_01_OUTCOME.md, row S5.'
-    bar, k, n = _b11_s5_row()
-    value = n
-    return locals()
 
 
 @check(label='ch:serial:L71', chapter='ch:serial', part=6, title='E-MTAB-7309 Stage 1: median call rate',

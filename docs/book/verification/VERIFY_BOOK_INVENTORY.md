@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4777 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4776 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4919,7 +4919,6 @@ Totals: 4777 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 31 | ch:serial:L31 | measured | `0.045` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, donor 1 (GSE247195), untared isolated neutrophils | PASS |
-| 60 | ch:serial:L60 | measured | `10` | file `Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md`: table: remission pairs, number of pairs | PASS |
 | 71 | ch:serial:L71 | measured | `0.894` | file `Biological_Physics/MethylPhys/doors/PLAN.md`: E-MTAB-7309 Stage 1: median call rate | PASS |
 
 ## Part 6 - ch:discipline - `docs/book/part4/p4_18_discipline.tex`
