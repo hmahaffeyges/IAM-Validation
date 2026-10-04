@@ -57,7 +57,7 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | D4 | | §VIII.D | Euclid/LSST "S8 = 0.78 ± 0.01" | S8 = 0.822 (σ8 0.7998, Ω_m 0.3166, Level 2) | confirmed | same, #5 |
 | D5 | | Table V vs Fig. 4 | two different bin counts and β values | one set, recomputed | confirmed (inconsistent) | #6 |
 | D6 | | Table VI | BAO "matter sector, H0 = 72.5" | BAO angles are photon paths (Level 1 paper) | confirmed | #7 |
-| D7 | | §I, §II, Table VI | "β_γ < 1.4 × 10⁻⁶ (95 % CL, MCMC)"; "β_γ/β_m < 8.5 × 10⁻⁶" | β_γ < 0.0039 (95 %), β_γ/β_m < 0.025; the 1.4e-6 is a sign error in the emcee θ_s integral | confirmed | #8, `scripts/verify_beta_gamma.py` |
+| D7 | | §I, §II, Table VI | "β_γ < 1.4 × 10⁻⁶ (95 % CL, MCMC)"; "β_γ/β_m < 8.5 × 10⁻⁶" | β_γ < 0.0052 (95 %), β_γ/β_m < 0.033 (one Planck fit, TT,TE,EE+lowE+lensing; was 0.0039/0.025 with mixed inputs); the 1.4e-6 is a sign error in the emcee θ_s integral | confirmed | #8, `scripts/verify_beta_gamma.py` |
 | D8 | | §VIII.A | "catastrophic 36σ CMB acoustic scale tension" with uniform β | β = 0.18 at fixed parameters: +1.08 % (36σ); with β_m = 0.1577: +0.90 % (30σ); state "at fixed parameters" (free parameters → H0 ≈ 61.5, Level 2b) | confirmed | #8c |
 | D9 | | §V.A | "geometric modification to d_L subdominant (< 1 % for z < 2)" | shape change +2.3 % at z 0.5, +4.8 % at z 2 (0.05–0.10 mag), excluded by Pantheon+ (Δχ² +23.6); SN distances do not follow the β-modified H(z) | confirmed | #10 |
 | D10 | | §I | "photons couple at least 100,000× more weakly" | at least 40× (β_γ/β_m < 0.025) | confirmed | #11, D7 |
@@ -82,11 +82,11 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | **Wording across papers (author, 2026-10-02)** |||||||
 | W1 | `iam_law_v2.tex` (l. 54, 114), `Evidence_Baryon.tex` (l. 94), `iam_cosmological_constant.tex` (l. 275) | IAM's law statement | "from quantum potential to classical actuality" | "from a quantum superposition to a classical record" | author approved | `CANON/iam_canon.json` |
 | D12 | Dual_Sector_Validation_Paper | title, abstract, §IX | "Type Ia Supernovae Validate Matter-Sector H0 Normalization"; conclusions 1–3, 5 | "Type Ia Supernovae in the Dual-Sector Picture: ΛCDM Distances with a Locally Calibrated H0"; conclusions: (1) SN distances follow ΛCDM geometry; (2) β applied to SN distances excluded (Δχ² +23.6); wording final after the matter-ruler read | author approved (title) | `chains/DUAL_SECTOR_VALIDATION_CHECK.md` |
-| D13 | | §VIII.D | CMB-S4 β_γ < 10⁻⁷; sirens ≈ 73; σ8 0.800 'confirmed' | forecast from corrected 0.0039; 72.26 (one event spans 68–75.5); chain value | confirmed | `chains/DUAL_SECTOR_VALIDATION_CHECK.md` #14 |
+| D13 | | §VIII.D | CMB-S4 β_γ < 10⁻⁷; sirens ≈ 73; σ8 0.800 'confirmed' | forecast from corrected 0.0052; 72.26 (one event spans 68–75.5); chain value | confirmed | `chains/DUAL_SECTOR_VALIDATION_CHECK.md` #14 |
 | D14 | | §VII.C–D | MG affects all matter equally; IAM improves S8 | µ–Σ separates growth and lensing; S8 0.822 vs 0.832 (~1σ) | confirmed | `chains/DUAL_SECTOR_VALIDATION_CHECK.md` #15 |
 | **IAM Dual Sector Note** (`IAM_Dual_Sector_Note.pdf`, March 2026) |||||||
 | S1 | | §3 | "µ < 1, Σ = 1 unique; f(R) µ > 1, Σ > 1; DGP µ > 1" | f(R): Σ = 1, µ 1–4/3; DGP: Σ = 1, self-accelerating branch µ < 1; IAM-specific is Eq. 5 with no free parameter | confirmed (f(R)); DGP pending trace | `chains/DUAL_SECTOR_NOTE_CHECK.md` #1 |
-| S2 | | Table 1, Fig. 1(a), §5, §7 | β_γ < 1.4 × 10⁻⁶, ratio > 10⁵, "100,000×" | β_γ < 0.0039, β_γ/β_m < 0.025, ≥ 40× | confirmed | #2 |
+| S2 | | Table 1, Fig. 1(a), §5, §7 | β_γ < 1.4 × 10⁻⁶, ratio > 10⁵, "100,000×" | β_γ < 0.0052, β_γ/β_m < 0.033, ≥ 30× (one Planck fit) | confirmed | #2 |
 | S3 | | Table 1, §7 | "Planck recovers β_m without fitting … strongest single result" | consistency of fixed β_m with Ω_m/2 (0.2σ) | confirmed | #3 |
 | S4 | | Table 1, §7 | "1,588 supernovae select matter sector" | SNe: ΛCDM distances; β on distances excluded | confirmed | #4 |
 | S5 | | Table 1, §5, Fig. 2(g) | DESI phantom crossing "predicted artifact" | open: mock gave opposite quadrant; real-data two-ruler test pending | pending test | #5 |
@@ -176,9 +176,9 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | N4 | | binned µ; peak dµ/dz | "~15 % precision" vs fig. ~54 %; peak z ≈ 1.0 vs fig. 0.05 | reconcile | pending re-read | audit |
 | **Code** |||||||
 | X1 | `tests/plot_cl_comparison.py` | line 319 | hard-coded "Δχ² = +0.75" | compute from the chain files | confirmed | T6 |
-| X2 | `tests/mcmc_final_iam.py` | `compute_theta_s` | `np.trapz(integrand[::-1], z_array[::-1])` → negative distance, θ_s = −0.01025 | `np.trapz(integrand, z_array)`; re-run → β_γ < 0.0039 | confirmed | D7 |
-| X3 | `tests/iam_validation.py` | l. 392–393, Figure 9 | BETA_GAMMA_95CL = 1.4e-6, SECTOR_RATIO = 8.5e-6; corner plot from synthetic exponential samples | 0.0039, 0.025; plot the real chain | confirmed | D7 |
-| X4 | every file quoting 1.4 × 10⁻⁶ / 8.5 × 10⁻⁶ | Dual_Sector_Note, IAM_CAMB_Technical_Note, Supplementary_Methods, Test_Validation_Compendium, Variational_Derivation, iam_desi_paper (LaTeX); docs/RETIRED_2026-10/top_level/development/IAM_Manuscript.tex; docs/README.md; CANON/PREDICTIONS_REGISTER COS-017, COS-255; code/Koide/scripts/Virial tests/cross_scale_validation* | 1.4 × 10⁻⁶; 8.5 × 10⁻⁶ | 0.0039; 0.025 | confirmed | D7 |
+| X2 | `tests/mcmc_final_iam.py` | `compute_theta_s` | `np.trapz(integrand[::-1], z_array[::-1])` → negative distance, θ_s = −0.01025 | `np.trapz(integrand, z_array)`; re-run → β_γ < 0.0052 (one Planck fit) | confirmed | D7 |
+| X3 | `tests/iam_validation.py` | l. 392–393, Figure 9 | BETA_GAMMA_95CL = 1.4e-6, SECTOR_RATIO = 8.5e-6; corner plot from synthetic exponential samples | 0.0052, 0.033 (one Planck fit); plot the real chain | confirmed | D7 |
+| X4 | every file quoting 1.4 × 10⁻⁶ / 8.5 × 10⁻⁶ | Dual_Sector_Note, IAM_CAMB_Technical_Note, Supplementary_Methods, Test_Validation_Compendium, Variational_Derivation, iam_desi_paper (LaTeX); docs/RETIRED_2026-10/top_level/development/IAM_Manuscript.tex; docs/README.md; CANON/PREDICTIONS_REGISTER COS-017, COS-255; code/Koide/scripts/Virial tests/cross_scale_validation* | 1.4 × 10⁻⁶; 8.5 × 10⁻⁶ | 0.0052; 0.033 | confirmed | D7 |
 | X5 | `mgcamb_validation/yaml_configs/run_d/e/f` ("Planck + RSD") | likelihood block | label "fσ8 from BOSS DR12 and eBOSS DR16" | growth data = BOSS DR12 final consensus only (3 fσ8 points); the DR16 likelihoods are BAO distances; relabel "Planck + BOSS DR12 fσ8 + BAO" (L-paper §3, tables) | confirmed (Cobaya 3.5 data file; LG11) | `LATE_TIME_GROWTH_CHECK.md` |
 | X6 | `camb_validation/likelihood_rsd.py` | `get_fsigma8` | fσ8 from CAMB velocities | fσ8 = −(1+z) dσ8/dz from `get_sigma8_z` for the modified code | confirmed | P12 |
 | **Cosmological Constant** (`The_Cosmological_Constant_as_Actualized_Vacuum_Energy.pdf`) and **Baryon Asymmetry** (`Baryon_Asymmetry_as_a_Derived_Quantity…pdf`) |||||||

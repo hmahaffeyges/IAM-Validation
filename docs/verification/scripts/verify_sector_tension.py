@@ -24,7 +24,7 @@ zs=1089; c=1.0; chi=lambda z: quad(lambda x: 1/np.sqrt(H2(1/(1+x))),0,z)[0]; cs=
 zg=np.linspace(0.02,10,500); ch=np.array([chi(z) for z in zg]); W=((cs-ch)/cs*(1+zg))**2/np.sqrt(H2(1/(1+zg)))
 rat=np.array([(D(I,1/(1+z))/D(L,1/(1+z)))**2 for z in zg]); print(f"   C_phiphi IAM/LCDM ~ {np.trapezoid(W*rat,zg)/np.trapezoid(W,zg):.4f}  (paper: 'no change')")
 print("4. H_matter = 67.16 sqrt(1 + beta_m) =", round(67.16*np.sqrt(1+0.15765),2), "; SH0ES offset", round((73.04-72.26)/1.04,2), "sigma")
-print("5. beta_gamma/beta_m: paper < 8.5e-6 (from the 1.4e-6 bound, reversed-array bug); corrected beta_gamma < 0.0039 gives", round(0.0039/0.15765,4))
+print("5. beta_gamma/beta_m: paper < 8.5e-6 (from the 1.4e-6 bound, reversed-array bug); corrected beta_gamma < 0.0052 (one Planck fit; verify_beta_gamma.py) gives", round(0.0052/0.15765,4))
 
 # ---------------------------------------------------------------------------------------------------------------
 # Book carriage (2026-10-03): every remaining number of the chapter, recomputed. Sources read in full for the values:

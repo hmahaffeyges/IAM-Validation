@@ -84,7 +84,7 @@ same type on the same platform, calibrated by the chain's own Stage~1:
 Identity sites: across-array SD $\le0.05$; $\beta$ in $0.75$--$0.95$ or $0.05$--$0.25$; at most 3,000 per channel, and enough of them
 measured. Neutrophils on EPIC v1: healthy reference $0.330263$ bits, from 6 purified healthy arrays (held-out SD $0.020$). In whole blood the denominator is
 the healthy expectation for that person's own composition, $\langle H(\sum_c f_c\mu_{c,i})\rangle_i$, from their own cell fractions $f_c$ and
-purified healthy profiles $\mu_c$; no cohort enters. The reading is made when neutrophils are above the read line.
+purified healthy profiles $\mu_c$; no group of other people enters. The reading is made when neutrophils are above the read line.
 \paragraph{The tare.} Every Met-A is read against healthy specimens run the same way (same slide, else same batch):
 $A_{\rm rel}=A/\mathrm{median}(A_{\rm ref})$; nothing is fitted. The array's own noise index $N$, the mean $H(\beta)$ over the sites every
 blood cell holds fixed, is checked against the references' range, and if it falls outside, the gauge state is withheld. The gauge is read on
@@ -144,7 +144,7 @@ decay leave behind together. $A$ says how much error there is; read-level data s
 \end{figure}
 Met-A and IAM-A both measure in bits. Only IAM-A prices those bits against thermal noise, and that adds three things a reference standard
 cannot give.
-\paragraph{A physical floor.} $\varepsilon_0=1/(1+e^{\varphi M})$ comes from the energy budget, not from a reference population.
+\paragraph{A physical floor.} $\varepsilon_0=1/(1+e^{\varphi M})$ comes from the energy budget, not from a reference group.
 \paragraph{The holding energy in the law's units.} The measured copy error gives the energy the cell spends holding one methylation bit,
 $E_{\rm hold}/k_BT=\ln[(1-\varepsilon)/\varepsilon]=3.41$, which is $4.9$ Landauer units ($k_BT\ln2$). One ATP is $\Delta G_{\rm ATP}/RT=
 54{,}000/(8.314\times310.15)=20.94\,k_BT$ (this is $M$), or $30.2$ Landauer units. The cell spends $\varphi=3.41/20.94=0.163$ of one ATP per held

@@ -63,7 +63,7 @@ The author's decisions are collected in Section 19, one line each; items elsewhe
       (32f661f, e6c184e, c8a60ec, adf5d99, 2f32f60, 12d8fb1); GRF essay carried into the framing (94feee7).
 - [~] 4.3 Headline numbers re-run from the repo chains: late-time growth and Level 2 (`verify_late_time_level2.py` 31/31, 51208f8); dual-sector chapters
       (`verify_dual_sector_chapters.py`, 69e700a); sector tension and S8 (`verify_sector_tension.py`, `verify_s8_trend.py`, a0bca9d). Remains: the DESI χ² values
-      4.51/5.24 and SDSS 6.19/6.95 cited at p2_02b were not re-run (`ts_MANIFEST_sector_s8.md` finding 10; the diagonal Appendix-A values are 3.84/3.81 and 6.61/6.53).
+- DONE 2026-10-04: DESI/SDSS ShapeFit chi2 now scripted (docs/verification/scripts/verify_shapefit_chi2.py: 4.52/5.14, 6.20/6.96); the book prints the scripted values.
 - [ ] 4.4 Level 2 open runs: Run D rerun with the IAM growth inside CAMB (errata P7, P12; `cg_MANIFEST.md` exclusion 1) and a Level 2b background chain
       with Eq. 13 coded as written (erratum P17; `cg_MANIFEST.md` finding 1).
 - [ ] 4.5 Free-µ0 value: PAPER_ERRATA T16 gives 0.039 ± 0.125; p2_04's table gives medians +0.059/+0.064 at the prior edge. Reconcile and print one
