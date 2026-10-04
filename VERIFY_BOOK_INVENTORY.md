@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3176 PASS, 0 FAIL, 3158 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3215 PASS, 0 FAIL, 3119 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -494,52 +494,51 @@ Totals: 3176 PASS, 0 FAIL, 3158 inventoried and not run. Each run item carries t
 | 70 | eq:vc_decompose | none |  | not run: definition: coupling decomposition Om*fcoll*etavir | - |
 | 75 |  | none | `0.62` | not run: input f_coll value used in eq:vc_eta | - |
 | 76 | eq:vc_eta | none | `0.81` | numeric: eta_vir = 1/(2 f_coll) | PASS |
-| 85 |  | observed | `17\%` | not run: measured, too few printed digits to match against the named files | - |
-| 86 |  | calc | `0.77` | not run: not yet run: draft rejected (drafter skipped: The range [0.77, 0.91] for |U|/2T is stated as a summary of published sim) | - |
-| 86 |  | calc | `0.91` | not run: not yet run: draft rejected (drafter skipped: The range [0.77, 0.91] for |U|/2T is stated as a summary of published sim) | - |
+| 85 | ch:virial:L85 | observed | `17\%` | file `docs/verification/virial/NBODY_TRACE.md`: largest surface-corrected excess of 2K/|W| over 1 (Klypin 2016) | PASS |
+| 86 | ch:virial:L86 | calc | `0.77` | file `docs/verification/virial/NBODY_TRACE.md`: reciprocal |U|/2T, lower end, within r_vir | PASS |
+| 86 | ch:virial:L86:0.91 | calc | `0.91` | file `docs/verification/virial/NBODY_TRACE.md`: reciprocal |U|/2T, upper end, within r_vir | PASS |
 | 87 | ch:virial:L87 | calc | `0.85` | numeric: reciprocal of Klypin corrected ratio | PASS |
 | 88 | ch:virial:L88 | calc | `0.98` | numeric: reciprocal of Klypin corrected ratio | PASS |
 | 88 | ch:virial:L88:1.1 | calc | `1.1` | numeric: reciprocal of Power surface-corrected eta' | PASS |
 | 88 |  | none | `0.9` | not run: restates Power et al. table value | - |
-| 97 |  | observed | `-0.2` | not run: measured, too few printed digits to match against the named files | - |
-| 97 |  | observed | `-0.3` | not run: measured, too few printed digits to match against the named files | - |
-| 97 |  | observed | `1.2` | not run: measured, too few printed digits to match against the named files | - |
-| 97 |  | observed | `1.3` | not run: measured, too few printed digits to match against the named files | - |
-| 97 |  | observed | `0.5` | not run: measured, too few printed digits to match against the named files | - |
-| 97 |  | observed | `1.5` | not run: measured, too few printed digits to match against the named files | - |
+| 97 | ch:virial:L97 | observed | `-0.2` | file `docs/verification/virial/NBODY_TRACE.md`: Bett 2007: ridge of 2T/U + 1, upper | PASS |
+| 97 | ch:virial:L97:-0.3 | observed | `-0.3` | file `docs/verification/virial/NBODY_TRACE.md`: Bett 2007: ridge of 2T/U + 1, lower | PASS |
+| 97 | ch:virial:L97:1.2 | calc | `1.2` | file `docs/verification/virial/NBODY_TRACE.md`: Bett 2007: 2T/|U| from the ridge -0.2 | PASS |
+| 97 | ch:virial:L97:1.3 | calc | `1.3` | file `docs/verification/virial/NBODY_TRACE.md`: Bett 2007: 2T/|U| from the ridge -0.3 | PASS |
+| 97 | ch:virial:L97:0.5 | calc | `0.5` | file `docs/verification/virial/NBODY_TRACE.md`: Bett 2007 quasi-equilibrium cut, lower edge of 2T/|U| | PASS |
+| 97 | ch:virial:L97:1.5 | calc | `1.5` | file `docs/verification/virial/NBODY_TRACE.md`: Bett 2007 quasi-equilibrium cut, upper edge of 2T/|U| | PASS |
 | 98 | ch:virial:L98 | observed | `1.12` | file `docs/verification/virial/NBODY_TRACE.md`: measured: printed value found in NBODY_TRACE.md, a file the chapter names | PASS |
 | 98 | ch:virial:L98:1.26 | observed | `1.26` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 98 | ch:virial:L98:1.35 | observed | `1.35` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 99 | ch:virial:L99 | observed | `1.15` | file `docs/verification/virial/NBODY_TRACE.md`: measured: printed value found in NBODY_TRACE.md, a file the chapter names | PASS |
 | 99 | ch:virial:L99:1.25 | observed | `1.25` | file `docs/verification/virial/NBODY_TRACE.md`: measured: printed value found in NBODY_TRACE.md, a file the chapter names | PASS |
-| 99 |  | observed | `0.9` | not run: measured, too few printed digits to match against the named files | - |
+| 99 | ch:virial:L99:0.9 | observed | `0.9` | file `docs/verification/virial/NBODY_TRACE.md`: Power 2012: surface-corrected eta' centre | PASS |
 | 100 | ch:virial:L100 | observed | `1.02` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 100 | ch:virial:L100:1.17 | observed | `1.17` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
-| 100 |  | observed | `1.1` | not run: measured, too few printed digits to match against the named files | - |
-| 100 |  | observed | `1.4` | not run: measured, too few printed digits to match against the named files | - |
-| 101 |  | observed | `1.3` | not run: measured, too few printed digits to match against the named files | - |
-| 102 |  | observed | `0.82` | not run: measured, too few printed digits to match against the named files | - |
-| 102 |  | observed | `0.89` | not run: measured, too few printed digits to match against the named files | - |
-| 102 |  | observed | `0.75` | not run: measured, too few printed digits to match against the named files | - |
-| 102 |  | observed | `0.79` | not run: measured, too few printed digits to match against the named files | - |
+| 100 | ch:virial:L100:1.1 | calc | `1.1` | file `docs/verification/virial/NBODY_TRACE.md`: Klypin 2016: 2K/|W| at 10^12 | PASS |
+| 100 | ch:virial:L100:1.4 | calc | `1.4` | file `docs/verification/virial/NBODY_TRACE.md`: Klypin 2016: 2K/|W| at 10^15 | PASS |
+| 101 | ch:virial:L101 | observed | `1.3` | file `docs/verification/virial/NBODY_TRACE.md`: Ludlow 2010 relaxation cut on 2K/|Phi| | PASS |
+| 102 | ch:virial:L102 | observed | `0.82` | file `docs/verification/virial/NBODY_TRACE.md`: Bryan & Norman 1998: f_sigma, lower | PASS |
+| 102 | ch:virial:L102:0.89 | observed | `0.89` | file `docs/verification/virial/NBODY_TRACE.md`: Bryan & Norman 1998: f_sigma, upper | PASS |
+| 102 | ch:virial:L102:0.75 | observed | `0.75` | file `docs/verification/virial/NBODY_TRACE.md`: Bryan & Norman 1998: f_T, lower | PASS |
+| 102 | ch:virial:L102:0.79 | observed | `0.79` | file `docs/verification/virial/NBODY_TRACE.md`: Bryan & Norman 1998: f_T, upper | PASS |
 | 108 | ch:virial:L108 | calc | `0.5` | file `docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv`: collapse-fraction log-slope at 10^10, six mass functions | PASS |
 | 108 | ch:virial:L108:3 | calc | `3` | file `docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv`: collapse-fraction log-slope at 10^14, six mass functions | PASS |
-| 125 |  | calc | `0.486` | not run: not yet run: draft rejected (drafter skipped: Requires numerical integration of mass function; input not fully specifie) | - |
-| 126 |  | calc | `0.447` | not run: not yet run: draft rejected (drafter skipped: Requires numerical integration of mass function; input not fully specifie) | - |
-| 126 |  | calc | `0.348` | not run: not yet run: draft rejected (drafter skipped: Requires numerical integration of mass function; input not fully specifie) | - |
-| 126 |  | calc | `0.62` | not run: not yet run: draft rejected (drafter skipped: Requires numerical integration of Tinker mass function over specified mas) | - |
-| 126 |  | calc | `8.2` | not run: not yet run: draft rejected (drafter skipped: Requires numerical integration of Tinker mass function; input not fully s) | - |
+| 125 | ch:virial:L125 | calc | `0.486` | numeric: Tinker 2008 collapsed fraction above 10^10.5 h^-1 Msun | PASS |
+| 126 | ch:virial:L126 | calc | `0.447` | numeric: Tinker 2008 collapsed fraction above 10^11 | PASS |
+| 126 | ch:virial:L126:0.348 | calc | `0.348` | numeric: Tinker 2008 collapsed fraction above 10^12 | PASS |
+| 126 | ch:virial:L126:8.2 | calc | `8.2` | numeric: log10 M_min where the Tinker collapsed fraction reaches 0.62 | PASS |
+| 126 |  | calc | `0.62` | not run: input: f_coll = 0.62 restated from Eq. vc_eta (book line 75), the target value whose M_min is then computed (checked in ch:virial:L126:8.2) | - |
 | 139 | eq:vc_n | derived |  | sympy: matter-domination exponent n=7/2 from n-9/2=-1 | PASS |
 | 143 | ch:virial:L143 | calc | `7/2` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 143 |  | calc | `2\%` | not run: not yet run: draft rejected (drafter skipped: Statement is qualitative: "within 2%" is a tolerance, not a computed valu) | - |
-| 143 |  | calc | `7\%` | not run: not yet run: draft rejected (drafter skipped: Statement is qualitative: "within 7%" is a tolerance, not a computed valu) | - |
+| 143 | ch:virial:L143:2\% | calc | `2\%` | numeric: coefficient of 1/a in the fitted record, offset from 1 | PASS |
+| 143 | ch:virial:L143:7\% | calc | `7\%` | numeric: constant of the fitted record, offset from 1 | PASS |
 | 148 | ch:virial:L148 | calc | `0.5` | file `docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv`: collapse-fraction log-slope above 10^10 | PASS |
 | 148 | ch:virial:L148:1 | calc | `1` | file `docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv`: collapse-fraction log-slope above 10^12 | PASS |
 | 148 | ch:virial:L148:3 | calc | `3` | file `docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv`: collapse-fraction log-slope above 10^14 | PASS |
-| 151 |  | calc | `7/2` | not run: not yet run: draft rejected (drafter skipped: Line 151 states this as a result from simulation analysis of kinetic ener) | - |
-| 151 |  | calc | `3` | not run: not yet run: draft rejected (drafter skipped: Line 151 states this as averaging over the matter era in simulations.
-# T) | - |
-| 151 |  | calc | `4` | not run: not yet run: draft rejected (drafter skipped: Line 151 states this as a result from summing kinetic half-energy in halo) | - |
+| 151 | ch:virial:L151 | calc | `7/2` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: bottom-up n_eff passes through 7/2 at z = 3-4 | PASS |
+| 151 | ch:virial:L151:3 | calc | `3` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: lower edge of the z window of the 7/2 crossings | PASS |
+| 151 | ch:virial:L151:4 | calc | `4` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: upper edge of the z window of the 7/2 crossings | PASS |
 | 156 | eq:vc_E | derived |  | sympy: activation function E(a)=e^{-z} identity | PASS |
 | 159 | ch:virial:L159 | derived | `0` | sympy: drafted check, screened (runs; negative control fails) | PASS |
 | 159 | ch:virial:L159:4.5\times10^{-5} | derived | `4.5\times10^{-5}` | numeric: E at z=10 | PASS |
@@ -554,14 +553,14 @@ Totals: 3176 PASS, 0 FAIL, 3158 inventoried and not run. Each run item carries t
 | 165 | part2:eq:mu_virial | none |  | not run: definition: modified growth ODE and mu(a) function | - |
 | 169 | ch:virial:L169 | none | `0.864` | numeric: mu(1)=1/(1+beta_m) today | PASS |
 | 169 | ch:virial:L169:-0.136 | none | `-0.136` | numeric: mu0 = mu(1)-1 | PASS |
-| 170 |  | derived | `1` | not run: not yet run: draft rejected (vacuous: lhs is a literal) | - |
+| 170 | ch:virial:L170 | derived | `1` | numeric: Sigma = 1 from Phi = Psi and the unmodified Poisson equation | PASS |
 | 181 | ch:virial:L181 | derived |  | sympy: E inflection at a=1/2, fig caption repeat | PASS |
 | 181 | ch:virial:L181:3 | derived |  | sympy: E tends to e, fig caption repeat | PASS |
 | 181 | ch:virial:L181:13.6\% | calc | `13.6\%` | numeric: today's mu coupling deficit 1-mu(1) | PASS |
 | 181 | ch:virial:L181:7.8\% | calc | `7.8\%` | numeric: mu coupling deficit at z=0.3 | PASS |
 | 181 | ch:virial:L181:4.25\% | calc | `4.25\%` | numeric: fsigma8 deficit today vs LCDM growth ODE | PASS |
-| 181 |  | derived | `0` | not run: not yet run: draft does not reproduce the printed value (recomputed 13.6181); drafting error on review | - |
-| 181 |  | derived | `1` | not run: not yet run: draft does not reproduce the printed value (recomputed 4.25055); drafting error on review | - |
+| 181 | ch:virial:L181:0 | derived | `0` | numeric: E(a) -> 0 at early times | PASS |
+| 181 | ch:virial:L181:1 | derived | `1` | numeric: E(1) = 1 today | PASS |
 | 190 | ch:virial:L190 | calc | `1.000` | numeric: E(a) at z=0 table row | PASS |
 | 190 | ch:virial:L190:0.864 | calc | `0.864` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 190 | ch:virial:L190:13.6\% | calc | `13.6\%` | numeric: coupling deficit 1-mu at z=0 | PASS |
@@ -584,13 +583,13 @@ Totals: 3176 PASS, 0 FAIL, 3158 inventoried and not run. Each run item carries t
 | 196 | ch:virial:L196:0.998 | calc | `0.998` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 196 | ch:virial:L196:0.2\% | calc | `0.2\%` | numeric: coupling deficit 1-mu at z=2.0 | PASS |
 | 199 | ch:virial:L199 | calc | `0.864` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 203 |  | calc | `4.25\%` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 203 |  | calc | `2.19\%` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 203 |  | calc | `2.17\%` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 203 |  | calc | `1.35\%` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 204 |  | calc | `0.41\%` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 204 |  | calc | `0.13\%` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 204 |  | calc | `0.4\%` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 203 | ch:virial:L203 | calc | `4.25\%` | numeric: f sigma8 deficit today, mu-Sigma form | PASS |
+| 203 | ch:virial:L203:2.19\% | calc | `2.19\%` | numeric: f sigma8 deficit at z = 0.295 | PASS |
+| 203 | ch:virial:L203:2.17\% | calc | `2.17\%` | numeric: f sigma8 deficit at z = 0.3 | PASS |
+| 203 | ch:virial:L203:1.35\% | calc | `1.35\%` | numeric: f sigma8 deficit at z = 0.5 | PASS |
+| 204 | ch:virial:L204 | calc | `0.41\%` | numeric: f sigma8 deficit at z = 1 | PASS |
+| 204 | ch:virial:L204:0.13\% | calc | `0.13\%` | numeric: f sigma8 deficit at z = 1.491 | PASS |
+| 204 | ch:virial:L204:0.4\% | calc | `0.4\%` | numeric: Level 2 (matter-rate) form against mu-Sigma form, largest f sigma8 gap | PASS |
 | 206 | eq:vc_fs8 | prediction |  | not run: definition of predicted fsigma8 shape | - |
 | 212 | ch:virial:L212 | measured | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain sigma8 | PASS |
 | 212 | ch:virial:L212:0.0059 | measured | `0.0059` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain sigma8 sd | PASS |
@@ -602,7 +601,7 @@ Totals: 3176 PASS, 0 FAIL, 3158 inventoried and not run. Each run item carries t
 | 213 | ch:virial:L213:-0.78\sigma | calc | `-0.78\sigma` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 shift Level2 chains | PASS |
 | 214 | ch:virial:L214 | calc | `-0.07\sigma` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: omega_b shift Level2 chains | PASS |
 | 214 | ch:virial:L214:+0.05\sigma | calc | `+0.05\sigma` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Omega_m shift Level2 chains | PASS |
-| 214 |  | calc | `+0.09\sigma` | not run: not yet run: draft rejected (drafter skipped: ln A_s shift in sigma units requires the full Planck chain covariance mat) | - |
+| 214 | ch:virial:L214:+0.09\sigma | measured | `+0.09\sigma` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: Level 2 shift of ln(10^10 A_s), IAM minus LambdaCDM | PASS |
 | 224 | ch:virial:L224 | measured | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A sigma8 | PASS |
 | 224 | ch:virial:L224:0.0058 | measured | `0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A sigma8 sd | PASS |
 | 224 | ch:virial:L224:0.822 | measured | `0.822` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A S8 | PASS |
@@ -610,14 +609,14 @@ Totals: 3176 PASS, 0 FAIL, 3158 inventoried and not run. Each run item carries t
 | 224 | ch:virial:L224:67.16 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A H0 | PASS |
 | 224 | ch:virial:L224:0.47 | measured | `0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A H0 sd | PASS |
 | 224 | ch:virial:L224:+0.54 | calc | `+0.54` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2 Run A vs Run C | PASS |
-| 224 |  | derived | `-0.136` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.0759381); drafting error on review | - |
+| 224 | ch:virial:L224:-0.136 | derived | `-0.136` | numeric: mu0 of Run A, derived from beta_m | PASS |
 | 225 | ch:virial:L225 | measured | `0.7995` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D sigma8 | PASS |
 | 225 | ch:virial:L225:0.0058 | measured | `0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D sigma8 sd | PASS |
 | 225 | ch:virial:L225:0.821 | measured | `0.821` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D S8 | PASS |
 | 225 | ch:virial:L225:0.011 | measured | `0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D S8 sd | PASS |
 | 225 | ch:virial:L225:67.19 | measured | `67.19` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D H0 | PASS |
 | 225 | ch:virial:L225:0.46 | measured | `0.46` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D H0 sd | PASS |
-| 225 |  | derived | `-0.136` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.0759381); drafting error on review | - |
+| 225 | ch:virial:L225:-0.136 | derived | `-0.136` | numeric: mu0 of Run D, derived from beta_m | PASS |
 | 226 | ch:virial:L226 | measured | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C sigma8 | PASS |
 | 226 | ch:virial:L226:0.0059 | measured | `0.0059` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C sigma8 sd | PASS |
 | 226 | ch:virial:L226:0.830 | measured | `0.830` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C S8 | PASS |

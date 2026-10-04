@@ -831,6 +831,93 @@ def _b00_nb(source_prefix, pattern):
 
 _B00_NBODY_NOTE = 'record of figure read-offs and fits; arXiv sources traced by hand (docs/verification/virial/NBODY_TRACE.md), no script'
 
+# helpers of the part2/p2_02_virial checks
+def _b00_nb(source_prefix, pattern):
+    """Numbers from the 'What the source reports' cell of the Table 1 row of NBODY_TRACE.md whose source cell starts with source_prefix
+    (the published N-body virial ratios traced to their pages and figures); pattern is a regex whose groups are the numbers."""
+    for ln in file_text('docs/verification/virial/NBODY_TRACE.md').splitlines():
+        cells = [x.strip() for x in re.split(r'(?<!\\)\|', ln)]
+        if len(cells) > 4 and cells[1].startswith(source_prefix):
+            m = re.search(pattern, cells[3].replace('−', '-'))
+            if m:
+                return tuple(float(g) for g in m.groups())
+    raise KeyError(f'{source_prefix}: {pattern!r} not found in NBODY_TRACE.md')
+
+_B00_NEFF_RERUN = 'python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt (needs colossus)'
+_B00_KLYPIN = r'corrected 2K/\\\|W\\\| ≈ (\d+\.\d+)–(\d+\.\d+)'
+_B00_BNP = (('Bett', r'2T/\\\|U\\\| ≈ (\d+\.\d+)–(\d+\.\d+)'), ('Neto', r'i\.e\. ≈ (\d+\.\d+)–(\d+\.\d+)'),
+            ('Power', r'η ≈ (\d+\.\d+) \(10\^12\) to (\d+\.\d+) \(10\^15\)'))
+
+def _b00_tinker_F(sigma_M):
+    """Collapsed fraction above M, F(>M) = int_{x(M)}^inf f(sigma) d ln(1/sigma) = int_0^sigma_M f(s) ds/s, for the Tinker et al. 2008
+    Delta = 200m multiplicity function at z = 0, f = A[(s/b)^-a + 1] exp(-c/s^2), A = 0.186, a = 1.47, b = 2.57, c = 1.19 (Tinker 2008 Table 2)."""
+    A, a_, b, c_ = 0.186, 1.47, 2.57, 1.19
+    f = lambda s: A * ((s / b) ** -a_ + 1) * math.exp(-c_ / s**2)
+    return quad(lambda s: f(s) / s, 1e-4, sigma_M, limit=200)[0]
+
+def _b00_sigma_of_M(M):
+    """sigma(M) of Planck 2018 at z = 0, read from the committed grid (NBODY_TRACE_massfunction_slopes.csv, rows Tinker08_D200m; colossus
+    planck18), interpolated in ln sigma against log10 M."""
+    rows = [r for r in load_csv_rows('docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv') if r['mf'] == 'Tinker08_D200m']
+    lm = np.array([math.log10(float(r['M_hinv_Msun'])) for r in rows]); ls = np.log([float(r['sigma']) for r in rows])
+    return float(np.exp(np.interp(math.log10(M), lm, ls)))
+
+def _b00_neff_table():
+    out = {}
+    for ln in file_text('docs/verification/scripts/verify_bottom_up_exponent_output.txt').splitlines():
+        m = re.match(r'^(press74|sheth99|tinker08)\s+(.*)$', ln)
+        if not m:
+            continue
+        parts = m.group(2).split('|')
+        vals = [float(x) for x in parts[0].split()]
+        out[m.group(1)] = dict(nz=dict(zip((9, 5, 4, 3, 2, 1, 0), vals)),
+                               cross35=[float(x) for x in re.findall(r'[\d.]+', parts[1])],
+                               cross25=[float(x) for x in re.findall(r'[\d.]+', parts[2])], mean=float(parts[3]))
+    return out
+
+_B00_ACC = {}
+def _b00_accumulated_fit():
+    """(alpha, beta) of the fit exp(alpha - beta/a) to the record accumulated per unit time with source D^{7/2} Omega_m(a) f (port of
+    verify_theory_derivations.py section 12): full LambdaCDM with radiation, Omega_m = 0.315, Omega_r = 9.1e-5 (the source integration's
+    values), D normalised to 1 today, fit over 0.15 <= a <= 2 after normalising the record to 1 at a = 1."""
+    if not _B00_ACC:
+        from scipy.integrate import cumulative_trapezoid
+        from scipy.optimize import curve_fit
+        Om_, Or_ = 0.315, 9.1e-5
+        OL_ = 1 - Om_ - Or_
+        E2 = lambda x: Om_ / x**3 + Or_ / x**4 + OL_
+        def rhs(l, y):
+            x = np.exp(l); e2 = E2(x)
+            dlnH = 0.5 * (-3 * Om_ / x**3 - 4 * Or_ / x**4) / e2
+            return [y[1], -(2 + dlnH) * y[1] + 1.5 * (Om_ / x**3 / e2) * y[0]]
+        lg = np.linspace(np.log(1e-5), np.log(2.0), 40001)
+        s = solve_ivp(rhs, [lg[0], lg[-1]], [1.0, 0.0], t_eval=lg, rtol=1e-10, atol=1e-13)
+        ag = np.exp(lg); i1 = np.argmin(abs(ag - 1)); fg = s.y[1] / s.y[0]; Dg = s.y[0] / s.y[0][i1]
+        I = cumulative_trapezoid(Dg**3.5 * (Om_ / ag**3 / E2(ag)) * fg / ag, ag, initial=0)
+        m = (ag >= 0.15) & (ag <= 2.0); y = I / np.interp(1.0, ag, I)
+        pp, _ = curve_fit(lambda x, al, be: np.exp(al - be / x), ag[m], y[m], p0=[1, 1], maxfev=20000)
+        _B00_ACC['p'] = (float(pp[0]), float(pp[1]))
+    return _B00_ACC['p']
+
+_B00_FS8II = {}
+def _b00_fs8_ratio_ii_to_i(z):
+    """f sigma8 of the Level 2 (matter-rate) form, friction 2 H_m, over that of the mu-Sigma form, same early amplitude (fD = D')."""
+    if 'sol' not in _B00_FS8II:
+        def rhs(l, Y):
+            a = np.exp(l); h2 = H2_lcdm(a); dlnh = -1.5 * Om / a**3 / h2; hm2 = h2 + beta_m * E_act(a)
+            return [Y[1], -(dlnh + 2 * np.sqrt(hm2 / h2)) * Y[1] + 1.5 * Om / a**3 / h2 * Y[0]]
+        _B00_FS8II['sol'] = solve_ivp(rhs, (np.log(1e-3), 0), [1e-3, 1e-3], dense_output=True, rtol=1e-10, atol=1e-14)
+    la = np.log(1 / (1 + z))
+    return float(_B00_FS8II['sol'].sol(la)[1] / _g('iam').sol(la)[1])
+
+def _b00_l2_shift(param):
+    """(C mean, C sd, A mean, A sd) of one parameter of the Level 2 chains from verify_late_time_level2_output.txt (section D)."""
+    m = re.search(r'^\s*' + re.escape(param) + r'\s+C ([-\d.]+) \+/- ([\d.]+) \| A ([-\d.]+) \+/- ([\d.]+)',
+                  file_text('docs/verification/scripts/verify_late_time_level2_output.txt'), re.M)
+    return tuple(float(g) for g in m.groups())
+
+# ---------------- what the simulations measure (lines 85-102)
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -3263,6 +3350,30 @@ def check_0263():
     value = 1/(2*0.62)  # f_coll book input line75
     return locals()
 
+@check(label='ch:virial:L85', chapter='ch:virial', part=2, title='largest surface-corrected excess of 2K/|W| over 1 (Klypin 2016)',
+       file='part2/p2_02_virial', line=85, status='observed', kind='file', printed='17\\%', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3176():
+    'With the surface-pressure term the ratio comes within a few to 17 % of equilibrium: (upper end of Klypin et al. 2016 corrected 2K/|W|) - 1, in per cent, from the traced read-off 1.02-1.17 (NBODY_TRACE.md). Book line 85, printed 17 %.'
+    lo, hi = _b00_nb('Klypin', _B00_KLYPIN)
+    value = 100 * (hi - 1)
+    return locals()
+
+@check(label='ch:virial:L86', chapter='ch:virial', part=2, title='reciprocal |U|/2T, lower end, within r_vir',
+       file='part2/p2_02_virial', line=86, status='calc', kind='file', printed='0.77', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3177():
+    'Reciprocal of the highest 2T/|U| within the virial radius over Bett, Neto and Power (traced in NBODY_TRACE.md; envelope 1.1-1.3, as Chapter virial_identity prints it). Book line 86, printed 0.77.'
+    hi = max(_b00_nb(s, p)[1] for s, p in _B00_BNP)
+    value = 1 / hi
+    return locals()
+
+@check(label='ch:virial:L86:0.91', chapter='ch:virial', part=2, title='reciprocal |U|/2T, upper end, within r_vir',
+       file='part2/p2_02_virial', line=86, status='calc', kind='file', printed='0.91', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3178():
+    'Reciprocal of the lowest 2T/|U| within the virial radius over Bett, Neto and Power, the envelope taken at one decimal as the book summarises it (2T/|U| ~ 1.1-1.3, Chapter virial_identity line 132; the traced Neto read-off starts at 1.12, which alone would give 0.89). Book line 86, printed 0.91.'
+    lo = min(_b00_nb(s, p)[0] for s, p in _B00_BNP)
+    value = 1 / round(lo, 1)
+    return locals()
+
 @check(label='ch:virial:L87', chapter='ch:virial', part=2, title='reciprocal of Klypin corrected ratio',
        file='part2/p2_02_virial', line=87, status='calc', kind='num', printed='0.85', tol=0.00588)
 def check_0264():
@@ -3282,6 +3393,54 @@ def check_0265():
 def check_0266():
     "reciprocal of Power surface-corrected eta'. Book line 88, printed 1.1."
     value = 1/0.9  # Power eta' near 0.9, line99
+    return locals()
+
+@check(label='ch:virial:L97', chapter='ch:virial', part=2, title='Bett 2007: ridge of 2T/U + 1, upper',
+       file='part2/p2_02_virial', line=97, status='observed', kind='file', printed='-0.2', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3179():
+    'Bett et al. 2007 Fig. 4: the ridge of the virial ratio 2T/U + 1 (U < 0), read off as -0.2 to -0.3 (NBODY_TRACE.md). Book line 97, printed -0.2.'
+    r1, r2 = _b00_nb('Bett', r'2T/U\+1 ≈ (-\d+\.\d+) to (-\d+\.\d+)')
+    value = r1
+    return locals()
+
+@check(label='ch:virial:L97:-0.3', chapter='ch:virial', part=2, title='Bett 2007: ridge of 2T/U + 1, lower',
+       file='part2/p2_02_virial', line=97, status='observed', kind='file', printed='-0.3', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3180():
+    'Bett et al. 2007 Fig. 4 ridge of 2T/U + 1, other end of the read-off (NBODY_TRACE.md). Book line 97, printed -0.3.'
+    r1, r2 = _b00_nb('Bett', r'2T/U\+1 ≈ (-\d+\.\d+) to (-\d+\.\d+)')
+    value = r2
+    return locals()
+
+@check(label='ch:virial:L97:1.2', chapter='ch:virial', part=2, title='Bett 2007: 2T/|U| from the ridge -0.2',
+       file='part2/p2_02_virial', line=97, status='calc', kind='file', printed='1.2', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3181():
+    'Converting the ridge 2T/U + 1 = -0.2 to 2T/|U| (U < 0, so 2T/|U| = -(2T/U) = 1 - (2T/U + 1)). Book line 97, printed 1.2.'
+    r1, r2 = _b00_nb('Bett', r'2T/U\+1 ≈ (-\d+\.\d+) to (-\d+\.\d+)')
+    value = 1 - r1
+    return locals()
+
+@check(label='ch:virial:L97:1.3', chapter='ch:virial', part=2, title='Bett 2007: 2T/|U| from the ridge -0.3',
+       file='part2/p2_02_virial', line=97, status='calc', kind='file', printed='1.3', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3182():
+    'Converting the ridge 2T/U + 1 = -0.3 to 2T/|U| = 1 - (2T/U + 1). Book line 97, printed 1.3.'
+    r1, r2 = _b00_nb('Bett', r'2T/U\+1 ≈ (-\d+\.\d+) to (-\d+\.\d+)')
+    value = 1 - r2
+    return locals()
+
+@check(label='ch:virial:L97:0.5', chapter='ch:virial', part=2, title='Bett 2007 quasi-equilibrium cut, lower edge of 2T/|U|',
+       file='part2/p2_02_virial', line=97, status='calc', kind='file', printed='0.5', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3183():
+    'Bett et al. 2007 quasi-equilibrium cut |2T/U + 1| <= Q, Q = 0.5 (eq. 12, traced in NBODY_TRACE.md): lower edge 1 - Q of 2T/|U|. Book line 97, printed 0.5.'
+    Q, = _b00_nb('Bett', r'Q = (\d+\.\d+)')
+    value = 1 - Q
+    return locals()
+
+@check(label='ch:virial:L97:1.5', chapter='ch:virial', part=2, title='Bett 2007 quasi-equilibrium cut, upper edge of 2T/|U|',
+       file='part2/p2_02_virial', line=97, status='calc', kind='file', printed='1.5', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3184():
+    'Upper edge 1 + Q of 2T/|U| for the Bett et al. 2007 cut |2T/U + 1| <= Q = 0.5. Book line 97, printed 1.5.'
+    Q, = _b00_nb('Bett', r'Q = (\d+\.\d+)')
+    value = 1 + Q
     return locals()
 
 @check(label='ch:virial:L98', chapter='ch:virial', part=2, title='measured: printed value found in NBODY_TRACE.md, a file the chapter names',
@@ -3321,6 +3480,13 @@ def check_0271():
     ok = file_has('docs/verification/virial/NBODY_TRACE.md', '1.25')
     return locals()
 
+@check(label='ch:virial:L99:0.9', chapter='ch:virial', part=2, title='Power 2012: surface-corrected eta\' centre',
+       file='part2/p2_02_virial', line=99, status='observed', kind='file', printed='0.9', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3185():
+    'Power, Knebe & Knollmann 2012: distribution of the surface-corrected eta\' = (2T - E_s)/|W| centred near 0.9 (traced in NBODY_TRACE.md). Book line 99, printed 0.9.'
+    value, = _b00_nb('Power', r'centred on \*\*≈ (\d+\.\d+)')
+    return locals()
+
 @check(label='ch:virial:L100', chapter='ch:virial', part=2, title='measured: printed value found in verify_virial_papers_output.txt, a file the chapter names',
        file='part2/p2_02_virial', line=100, status='observed', kind='file', printed='1.02', tol=0.0, source='docs/verification/scripts/verify_virial_papers_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt')
@@ -3337,6 +3503,59 @@ def check_0273():
     ok = file_has('docs/verification/scripts/verify_virial_papers_output.txt', '1.17')
     return locals()
 
+@check(label='ch:virial:L100:1.1', chapter='ch:virial', part=2, title='Klypin 2016: 2K/|W| at 10^12',
+       file='part2/p2_02_virial', line=100, status='calc', kind='file', printed='1.1', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3186():
+    'Klypin et al. 2016 Fig. 6 (MDPL, z = 0, uncorrected) reports 2K/|W| - 1 of about 0.1 at 10^12 (NBODY_TRACE.md); 2K/|W| = 1 + that. Book line 100, printed 1.1.'
+    x12, x15 = _b00_nb('Klypin', r'≈ (\d+\.\d+) at 10\^12 rising to ≈ (\d+\.\d+) at 10\^15')
+    value = 1 + x12
+    return locals()
+
+@check(label='ch:virial:L100:1.4', chapter='ch:virial', part=2, title='Klypin 2016: 2K/|W| at 10^15',
+       file='part2/p2_02_virial', line=100, status='calc', kind='file', printed='1.4', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3187():
+    'Klypin et al. 2016 Fig. 6: 2K/|W| - 1 of about 0.4 at 10^15 (NBODY_TRACE.md); 2K/|W| = 1 + that. Book line 100, printed 1.4.'
+    x12, x15 = _b00_nb('Klypin', r'≈ (\d+\.\d+) at 10\^12 rising to ≈ (\d+\.\d+) at 10\^15')
+    value = 1 + x15
+    return locals()
+
+@check(label='ch:virial:L101', chapter='ch:virial', part=2, title='Ludlow 2010 relaxation cut on 2K/|Phi|',
+       file='part2/p2_02_virial', line=101, status='observed', kind='file', printed='1.3', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3188():
+    'Ludlow et al. 2010 use 2K/|Phi| < 1.3 only as a relaxation cut (sec. 2.2, traced in NBODY_TRACE.md). Book line 101, printed 1.3.'
+    value, = _b00_nb('Ludlow', r'2K/\\\|Φ\\\| < (\d+\.\d+)')
+    return locals()
+
+@check(label='ch:virial:L102', chapter='ch:virial', part=2, title='Bryan & Norman 1998: f_sigma, lower',
+       file='part2/p2_02_virial', line=102, status='observed', kind='file', printed='0.82', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3189():
+    'Bryan & Norman 1998 Table 2: velocity-dispersion normalisation f_sigma = 0.82-0.89 (traced in NBODY_TRACE.md), lower end. Book line 102, printed 0.82.'
+    value = _b00_nb('Bryan', r'f_σ = (\d+\.\d+)–(\d+\.\d+)')[0]
+    return locals()
+
+@check(label='ch:virial:L102:0.89', chapter='ch:virial', part=2, title='Bryan & Norman 1998: f_sigma, upper',
+       file='part2/p2_02_virial', line=102, status='observed', kind='file', printed='0.89', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3190():
+    'Bryan & Norman 1998 f_sigma, upper end (NBODY_TRACE.md). Book line 102, printed 0.89.'
+    value = _b00_nb('Bryan', r'f_σ = (\d+\.\d+)–(\d+\.\d+)')[1]
+    return locals()
+
+@check(label='ch:virial:L102:0.75', chapter='ch:virial', part=2, title='Bryan & Norman 1998: f_T, lower',
+       file='part2/p2_02_virial', line=102, status='observed', kind='file', printed='0.75', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3191():
+    'Bryan & Norman 1998 temperature normalisation f_T = 0.75-0.79 (NBODY_TRACE.md), lower end. Book line 102, printed 0.75.'
+    value = _b00_nb('Bryan', r'f_T = (\d+\.\d+)–(\d+\.\d+)')[0]
+    return locals()
+
+@check(label='ch:virial:L102:0.79', chapter='ch:virial', part=2, title='Bryan & Norman 1998: f_T, upper',
+       file='part2/p2_02_virial', line=102, status='observed', kind='file', printed='0.79', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3192():
+    'Bryan & Norman 1998 f_T, upper end (NBODY_TRACE.md). Book line 102, printed 0.79.'
+    value = _b00_nb('Bryan', r'f_T = (\d+\.\d+)–(\d+\.\d+)')[1]
+    return locals()
+
+# ---------------- the collapsed fraction (lines 125-126)
+
 @check(label='ch:virial:L108', chapter='ch:virial', part=2, title='collapse-fraction log-slope at 10^10, six mass functions',
        file='part2/p2_02_virial', line=108, status='calc', kind='file', printed='0.5', tol=0.1, source='docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv')
 def check_0274():
@@ -3350,6 +3569,40 @@ def check_0275():
     'collapse-fraction log-slope at 10^14, six mass functions. Book line 108, printed 3.'
     ok = file_has('docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv', '3')
     return locals()
+
+@check(label='ch:virial:L125', chapter='ch:virial', part=2, title='Tinker 2008 collapsed fraction above 10^10.5 h^-1 Msun',
+       file='part2/p2_02_virial', line=125, status='calc', kind='num', printed='0.486', tol=0.0)
+def check_3193():
+    'F(>M) = int_0^sigma_M f(s) ds/s for the Tinker 2008 Delta = 200m fit at z = 0, at M = 10^10.5 h^-1 Msun; sigma(M) of Planck 2018 from the committed grid (NBODY_TRACE_massfunction_slopes.csv). Book line 125, printed 0.486.'
+    value = _b00_tinker_F(_b00_sigma_of_M(10**10.5))
+    return locals()
+
+@check(label='ch:virial:L126', chapter='ch:virial', part=2, title='Tinker 2008 collapsed fraction above 10^11',
+       file='part2/p2_02_virial', line=126, status='calc', kind='num', printed='0.447', tol=0.0)
+def check_3194():
+    'Tinker 2008 (Delta = 200m, z = 0) collapsed fraction above 10^11 h^-1 Msun, integrated from sigma(M). Book line 126, printed 0.447.'
+    value = _b00_tinker_F(_b00_sigma_of_M(1e11))
+    return locals()
+
+@check(label='ch:virial:L126:0.348', chapter='ch:virial', part=2, title='Tinker 2008 collapsed fraction above 10^12',
+       file='part2/p2_02_virial', line=126, status='calc', kind='num', printed='0.348', tol=0.0)
+def check_3195():
+    'Tinker 2008 (Delta = 200m, z = 0) collapsed fraction above 10^12 h^-1 Msun. Book line 126, printed 0.348.'
+    value = _b00_tinker_F(_b00_sigma_of_M(1e12))
+    return locals()
+
+@check(label='ch:virial:L126:8.2', chapter='ch:virial', part=2, title='log10 M_min where the Tinker collapsed fraction reaches 0.62',
+       file='part2/p2_02_virial', line=126, status='calc', kind='num', printed='8.2', tol=0.0)
+def check_3196():
+    'Solve F(>M_min) = f_coll = 0.62 (the value of Eq. vc_eta, line 75) for sigma, then log10 M_min from the committed sigma(M) grid (interpolated in ln sigma). Book line 126, printed 8.2 (M_min ~ 10^8.2 h^-1 Msun).'
+    f_coll = 0.62
+    s_star = brentq(lambda s: _b00_tinker_F(s) - f_coll, 3.0, 8.0)
+    rows = [r for r in load_csv_rows('docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv') if r['mf'] == 'Tinker08_D200m']
+    lm = np.array([math.log10(float(r['M_hinv_Msun'])) for r in rows]); ls = np.log([float(r['sigma']) for r in rows])
+    value = float(np.interp(math.log(s_star), ls[::-1], lm[::-1]))
+    return locals()
+
+# ---------------- the exponent (lines 143, 151)
 
 @check(label='eq:vc_n', chapter='ch:virial', part=2, title='matter-domination exponent n=7/2 from n-9/2=-1',
        file='part2/p2_02_virial', line=139, status='derived', kind='sym', printed='', tol=0.0)
@@ -3365,6 +3618,22 @@ def check_0277():
     # Analytical derivation: n - 9/2 = -1, solve for n
     n = sp.Rational(9, 2) - 1
     value = float(n)
+    return locals()
+
+@check(label='ch:virial:L143:2\\%', chapter='ch:virial', part=2, title='coefficient of 1/a in the fitted record, offset from 1',
+       file='part2/p2_02_virial', line=143, status='calc', kind='num', printed='2\\%', tol=0.0)
+def check_3197():
+    'Fit exp(alpha - beta/a) to the record accumulated with source D^{7/2} over the full LambdaCDM history; the book quotes the fit at two decimals, exp(0.93 - 1.02/a) (ch:theory line 399), and the offset of beta from 1 from that. Unrounded beta gives 2.1 %. Book line 143, printed 2 %.'
+    alpha, beta = _b00_accumulated_fit()
+    value = 100 * abs(round(beta, 2) - 1)
+    return locals()
+
+@check(label='ch:virial:L143:7\\%', chapter='ch:virial', part=2, title='constant of the fitted record, offset from 1',
+       file='part2/p2_02_virial', line=143, status='calc', kind='num', printed='7\\%', tol=0.0)
+def check_3198():
+    'Same fit; offset of the two-decimal constant alpha (0.93) from the analytical 1. Unrounded alpha gives 7.3 %. Book line 143, printed 7 %.'
+    alpha, beta = _b00_accumulated_fit()
+    value = 100 * abs(1 - round(alpha, 2))
     return locals()
 
 @check(label='ch:virial:L148', chapter='ch:virial', part=2, title='collapse-fraction log-slope above 10^10',
@@ -3387,6 +3656,36 @@ def check_0280():
     'collapse-fraction log-slope above 10^14. Book line 148, printed 3.'
     ok = file_has('docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv', '3')
     return locals()
+
+@check(label='ch:virial:L151', chapter='ch:virial', part=2, title='bottom-up n_eff passes through 7/2 at z = 3-4',
+       file='part2/p2_02_virial', line=151, status='calc', kind='file', printed='7/2', tol=0.01,
+       source='docs/verification/scripts/verify_bottom_up_exponent_output.txt', heavy=True, rerun=_B00_NEFF_RERUN)
+def check_3199():
+    'Bottom-up exponent n_eff averaged over z = 3 and 4 and over Press-Schechter, Sheth-Tormen and Tinker (committed output); every model crosses 7/2 inside 3 <= z <= 4. Book line 151, printed 7/2; tol 1 % for "z ~ 3-4".'
+    t = _b00_neff_table()
+    crossings_in_window = all(3 <= zc <= 4 for k in t for zc in t[k]['cross35'])
+    value = float(np.mean([0.5 * (t[k]['nz'][3] + t[k]['nz'][4]) for k in t])) if crossings_in_window else float('nan')
+    return locals()
+
+@check(label='ch:virial:L151:3', chapter='ch:virial', part=2, title='lower edge of the z window of the 7/2 crossings',
+       file='part2/p2_02_virial', line=151, status='calc', kind='file', printed='3', tol=0.0,
+       source='docs/verification/scripts/verify_bottom_up_exponent_output.txt', heavy=True, rerun=_B00_NEFF_RERUN)
+def check_3200():
+    'Lower edge of the smallest integer window of z holding all three redshifts at which n_eff crosses 7/2 (committed output: 3.29, 3.97, 3.15): floor of the lowest. Book line 151, printed 3 (z ~ 3-4).'
+    t = _b00_neff_table()
+    value = math.floor(min(zc for k in t for zc in t[k]['cross35']))
+    return locals()
+
+@check(label='ch:virial:L151:4', chapter='ch:virial', part=2, title='upper edge of the z window of the 7/2 crossings',
+       file='part2/p2_02_virial', line=151, status='calc', kind='file', printed='4', tol=0.0,
+       source='docs/verification/scripts/verify_bottom_up_exponent_output.txt', heavy=True, rerun=_B00_NEFF_RERUN)
+def check_3201():
+    'Upper edge of the smallest integer window of z holding all three 7/2 crossings (committed output): ceiling of the highest, the 4 of "z ~ 3-4". Book line 151, printed 4.'
+    t = _b00_neff_table()
+    value = math.ceil(max(zc for k in t for zc in t[k]['cross35']))
+    return locals()
+
+# ---------------- the coupling (lines 170, 181)
 
 @check(label='eq:vc_E', chapter='ch:virial', part=2, title='activation function E(a)=e^{-z} identity',
        file='part2/p2_02_virial', line=156, status='derived', kind='sym', printed='', tol=0.0)
@@ -3494,6 +3793,17 @@ def check_0293():
     value = 1/(1+beta_m) - 1
     return locals()
 
+@check(label='ch:virial:L170', chapter='ch:virial', part=2, title='Sigma = 1 from Phi = Psi and the unmodified Poisson equation',
+       file='part2/p2_02_virial', line=170, status='derived', kind='num', printed='1', tol=0.0)
+def check_3202():
+    'Lensing responds to (Phi + Psi)/2. With the unmodified Poisson equation for the lensing potential, k^2 Psi = -4 pi G a^2 rho Delta, and no anisotropic stress, Phi = Psi; Sigma is defined by k^2 (Phi + Psi) = -8 pi G a^2 rho Delta Sigma. Solved with sympy. Book line 170, printed 1.'
+    k, G_, a, rho, D_, Sig = sp.symbols('k G a rho Delta Sigma', positive=True)
+    Psi = -4 * sp.pi * G_ * a**2 * rho * D_ / k**2
+    Phi = Psi
+    sol = sp.solve(sp.Eq(k**2 * (Phi + Psi), -8 * sp.pi * G_ * a**2 * rho * D_ * Sig), Sig)[0]
+    value = float(sol)
+    return locals()
+
 @check(label='ch:virial:L181', chapter='ch:virial', part=2, title='E inflection at a=1/2, fig caption repeat',
        file='part2/p2_02_virial', line=181, status='derived', kind='sym', printed='', tol=0.0)
 def check_0294():
@@ -3538,6 +3848,23 @@ def check_0298():
     dl,ddl=sl.y[:,-1]; di,ddi=si.y[:,-1]
     value = 1-(ddi/di*di)/(ddl/dl*dl)
     return locals()
+
+@check(label='ch:virial:L181:0', chapter='ch:virial', part=2, title='E(a) -> 0 at early times',
+       file='part2/p2_02_virial', line=181, status='derived', kind='num', printed='0', tol=0.0)
+def check_3203():
+    'Limit of E(a) = exp(1 - 1/a) as a -> 0+ (sympy). Book line 181 (caption), printed 0.'
+    a = sp.symbols('a', positive=True)
+    value = float(sp.limit(sp.exp(1 - 1 / a), a, 0, '+'))
+    return locals()
+
+@check(label='ch:virial:L181:1', chapter='ch:virial', part=2, title='E(1) = 1 today',
+       file='part2/p2_02_virial', line=181, status='derived', kind='num', printed='1', tol=0.0)
+def check_3204():
+    'E(a) = exp(1 - 1/a) at a = 1. Book line 181 (caption), printed 1.'
+    value = float(E_act(1.0))
+    return locals()
+
+# ---------------- the growth deficit (lines 203-204)
 
 @check(label='ch:virial:L190', chapter='ch:virial', part=2, title='E(a) at z=0 table row',
        file='part2/p2_02_virial', line=190, status='calc', kind='num', printed='1.000', tol=0.0005)
@@ -3716,6 +4043,58 @@ def check_0320():
     value = round(value, 3)
     return locals()
 
+@check(label='ch:virial:L203', chapter='ch:virial', part=2, title='f sigma8 deficit today, mu-Sigma form',
+       file='part2/p2_02_virial', line=203, status='calc', kind='num', printed='4.25\\%', tol=0.0)
+def check_3205():
+    'f sigma8 of IAM (mu-Sigma form) below LambdaCDM, same early amplitude, at z = 0, in per cent. Book line 203, printed 4.25 %.'
+    value = fs8_deficit(0.0)
+    return locals()
+
+@check(label='ch:virial:L203:2.19\\%', chapter='ch:virial', part=2, title='f sigma8 deficit at z = 0.295',
+       file='part2/p2_02_virial', line=203, status='calc', kind='num', printed='2.19\\%', tol=0.0)
+def check_3206():
+    'f sigma8 deficit of IAM against LambdaCDM at z = 0.295 (DESI BGS), same early amplitude. Book line 203, printed 2.19 %.'
+    value = fs8_deficit(0.295)
+    return locals()
+
+@check(label='ch:virial:L203:2.17\\%', chapter='ch:virial', part=2, title='f sigma8 deficit at z = 0.3',
+       file='part2/p2_02_virial', line=203, status='calc', kind='num', printed='2.17\\%', tol=0.0)
+def check_3207():
+    'f sigma8 deficit at z = 0.3. Book line 203, printed 2.17 %.'
+    value = fs8_deficit(0.3)
+    return locals()
+
+@check(label='ch:virial:L203:1.35\\%', chapter='ch:virial', part=2, title='f sigma8 deficit at z = 0.5',
+       file='part2/p2_02_virial', line=203, status='calc', kind='num', printed='1.35\\%', tol=0.0)
+def check_3208():
+    'f sigma8 deficit at z = 0.5. Book line 203, printed 1.35 %.'
+    value = fs8_deficit(0.5)
+    return locals()
+
+@check(label='ch:virial:L204', chapter='ch:virial', part=2, title='f sigma8 deficit at z = 1',
+       file='part2/p2_02_virial', line=204, status='calc', kind='num', printed='0.41\\%', tol=0.0)
+def check_3209():
+    'f sigma8 deficit at z = 1. Book line 204, printed 0.41 %.'
+    value = fs8_deficit(1.0)
+    return locals()
+
+@check(label='ch:virial:L204:0.13\\%', chapter='ch:virial', part=2, title='f sigma8 deficit at z = 1.491',
+       file='part2/p2_02_virial', line=204, status='calc', kind='num', printed='0.13\\%', tol=0.0)
+def check_3210():
+    'f sigma8 deficit at z = 1.491 (DESI QSO). Book line 204, printed 0.13 %.'
+    value = fs8_deficit(1.491)
+    return locals()
+
+@check(label='ch:virial:L204:0.4\\%', chapter='ch:virial', part=2, title='Level 2 (matter-rate) form against mu-Sigma form, largest f sigma8 gap',
+       file='part2/p2_02_virial', line=204, status='calc', kind='num', printed='0.4\\%', tol=0.0)
+def check_3211():
+    'Largest |f sigma8(Level 2 form, friction 2H_m) / f sigma8(mu-Sigma form) - 1| over 0 <= z <= 2, same early amplitude, in per cent ("agrees within 0.4 %"). Book line 204, printed 0.4 %.'
+    zz = np.linspace(0, 2, 201)
+    value = float(max(abs(100 * (_b00_fs8_ratio_ii_to_i(z) - 1)) for z in zz))
+    return locals()
+
+# ---------------- the amplitude (line 214) and the chain table (224-225)
+
 @check(label='ch:virial:L212', chapter='ch:virial', part=2, title='Level2 LCDM chain sigma8',
        file='part2/p2_02_virial', line=212, status='measured', kind='file', printed='0.8087', tol=6.18e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
@@ -3796,6 +4175,16 @@ def check_0330():
     P='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; om_i=csv_val(P,'iam_level2_runA','omegam'); om_l=csv_val(P,'iam_level2_runC_lcdm','omegam'); sd_l=csv_val(P,'iam_level2_runC_lcdm','omegam_sd'); value=(om_i-om_l)/sd_l
     return locals()
 
+@check(label='ch:virial:L214:+0.09\\sigma', chapter='ch:virial', part=2, title='Level 2 shift of ln(10^10 A_s), IAM minus LambdaCDM',
+       file='part2/p2_02_virial', line=214, status='measured', kind='file', printed='+0.09\\sigma', tol=0.0,
+       source='docs/verification/scripts/verify_late_time_level2_output.txt', heavy=True,
+       rerun='python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt (reads the Level 2 chains)')
+def check_3212():
+    '(A - C)/sd_C of ln(10^10 A_s): Level 2 Run A (IAM) minus Run C (LambdaCDM) posterior means over the Run C standard deviation, the convention of the -1.51 sigma in sigma8 on the same line of the output. Book line 214, printed +0.09 sigma.'
+    mC, sC, mA, sA = _b00_l2_shift('ln10^10As')
+    value = (mA - mC) / sC
+    return locals()
+
 @check(label='ch:virial:L224', chapter='ch:virial', part=2, title='Run A sigma8',
        file='part2/p2_02_virial', line=224, status='measured', kind='file', printed='0.7998', tol=6.25e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
@@ -3852,6 +4241,13 @@ def check_0337():
     P='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val(P,'iam_level2_runA','chi2_min')-csv_val(P,'iam_level2_runC_lcdm','chi2_min')
     return locals()
 
+@check(label='ch:virial:L224:-0.136', chapter='ch:virial', part=2, title='mu0 of Run A, derived from beta_m',
+       file='part2/p2_02_virial', line=224, status='derived', kind='num', printed='-0.136', tol=0.0)
+def check_3213():
+    'mu0 = mu(1) - 1 = -beta_m/(1 + beta_m) for the Level 2 Run A (coupling fixed at beta_m = Omega_m/2, canon). Book line 224, printed -0.136.'
+    value = -beta_m / (1 + beta_m)
+    return locals()
+
 @check(label='ch:virial:L225', chapter='ch:virial', part=2, title='Run D sigma8',
        file='part2/p2_02_virial', line=225, status='measured', kind='file', printed='0.7995', tol=6.26e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
@@ -3898,6 +4294,13 @@ def check_0342():
 def check_0343():
     'Run D H0 sd. Book line 225, printed 0.46.'
     value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','H0_sd')
+    return locals()
+
+@check(label='ch:virial:L225:-0.136', chapter='ch:virial', part=2, title='mu0 of Run D, derived from beta_m',
+       file='part2/p2_02_virial', line=225, status='derived', kind='num', printed='-0.136', tol=0.0)
+def check_3214():
+    'mu0 = mu(a = 1) - 1 from mu = H^2/(H^2 + beta_m E H0^2) for the Level 2 Run D (same fixed coupling). Book line 225, printed -0.136.'
+    value = float(mu_iam(1.0)) - 1
     return locals()
 
 @check(label='ch:virial:L226', chapter='ch:virial', part=2, title='Run C sigma8',
@@ -27917,49 +28320,10 @@ INVENTORY = [
     (2, 'ch:virial', 'part2/p2_02_virial', 39, 'eq:vc_firstlaw', 'none', '', 'definition: IAM horizon first law extension'),
     (2, 'ch:virial', 'part2/p2_02_virial', 70, 'eq:vc_decompose', 'none', '', 'definition: coupling decomposition Om*fcoll*etavir'),
     (2, 'ch:virial', 'part2/p2_02_virial', 75, '', 'none', '0.62', 'input f_coll value used in eq:vc_eta'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 85, '', 'observed', '17\\%', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 86, '', 'calc', '0.77', 'not yet run: draft rejected (drafter skipped: The range [0.77, 0.91] for |U|/2T is stated as a summary of published sim)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 86, '', 'calc', '0.91', 'not yet run: draft rejected (drafter skipped: The range [0.77, 0.91] for |U|/2T is stated as a summary of published sim)'),
     (2, 'ch:virial', 'part2/p2_02_virial', 88, '', 'none', '0.9', 'restates Power et al. table value'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 97, '', 'observed', '-0.2', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 97, '', 'observed', '-0.3', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 97, '', 'observed', '1.2', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 97, '', 'observed', '1.3', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 97, '', 'observed', '0.5', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 97, '', 'observed', '1.5', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 99, '', 'observed', '0.9', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 100, '', 'observed', '1.1', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 100, '', 'observed', '1.4', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 101, '', 'observed', '1.3', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 102, '', 'observed', '0.82', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 102, '', 'observed', '0.89', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 102, '', 'observed', '0.75', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 102, '', 'observed', '0.79', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 125, '', 'calc', '0.486', 'not yet run: draft rejected (drafter skipped: Requires numerical integration of mass function; input not fully specifie)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 126, '', 'calc', '0.447', 'not yet run: draft rejected (drafter skipped: Requires numerical integration of mass function; input not fully specifie)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 126, '', 'calc', '0.348', 'not yet run: draft rejected (drafter skipped: Requires numerical integration of mass function; input not fully specifie)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 126, '', 'calc', '0.62', 'not yet run: draft rejected (drafter skipped: Requires numerical integration of Tinker mass function over specified mas)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 126, '', 'calc', '8.2', 'not yet run: draft rejected (drafter skipped: Requires numerical integration of Tinker mass function; input not fully s)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 143, '', 'calc', '2\\%', 'not yet run: draft rejected (drafter skipped: Statement is qualitative: "within 2%" is a tolerance, not a computed valu)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 143, '', 'calc', '7\\%', 'not yet run: draft rejected (drafter skipped: Statement is qualitative: "within 7%" is a tolerance, not a computed valu)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 151, '', 'calc', '7/2', 'not yet run: draft rejected (drafter skipped: Line 151 states this as a result from simulation analysis of kinetic ener)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 151, '', 'calc', '3', 'not yet run: draft rejected (drafter skipped: Line 151 states this as averaging over the matter era in simulations.\n# T)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 151, '', 'calc', '4', 'not yet run: draft rejected (drafter skipped: Line 151 states this as a result from summing kinetic half-energy in halo)'),
+    (2, 'ch:virial', 'part2/p2_02_virial', 126, '', 'calc', '0.62', 'input: f_coll = 0.62 restated from Eq. vc_eta (book line 75), the target value whose M_min is then computed (checked in ch:virial:L126:8.2)'),
     (2, 'ch:virial', 'part2/p2_02_virial', 165, 'part2:eq:mu_virial', 'none', '', 'definition: modified growth ODE and mu(a) function'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 170, '', 'derived', '1', 'not yet run: draft rejected (vacuous: lhs is a literal)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 181, '', 'derived', '0', 'not yet run: draft does not reproduce the printed value (recomputed 13.6181); drafting error on review'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 181, '', 'derived', '1', 'not yet run: draft does not reproduce the printed value (recomputed 4.25055); drafting error on review'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 203, '', 'calc', '4.25\\%', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 203, '', 'calc', '2.19\\%', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 203, '', 'calc', '2.17\\%', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 203, '', 'calc', '1.35\\%', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 204, '', 'calc', '0.41\\%', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 204, '', 'calc', '0.13\\%', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 204, '', 'calc', '0.4\\%', 'not yet run: draft rejected (printed value typed into the code)'),
     (2, 'ch:virial', 'part2/p2_02_virial', 206, 'eq:vc_fs8', 'prediction', '', 'definition of predicted fsigma8 shape'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 214, '', 'calc', '+0.09\\sigma', 'not yet run: draft rejected (drafter skipped: ln A_s shift in sigma units requires the full Planck chain covariance mat)'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 224, '', 'derived', '-0.136', 'not yet run: draft does not reproduce the printed value (recomputed 0.0759381); drafting error on review'),
-    (2, 'ch:virial', 'part2/p2_02_virial', 225, '', 'derived', '-0.136', 'not yet run: draft does not reproduce the printed value (recomputed 0.0759381); drafting error on review'),
     (2, 'ch:virial', 'part2/p2_02_virial', 227, '', 'none', '-0.135', 'coupling fixed value, MGCAMB restated'),
     (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 11, '', 'none', '-0.136', 'mu0 locked IAM value restated'),
     (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 11, '', 'none', '0', 'Sigma0 locked value restated'),
