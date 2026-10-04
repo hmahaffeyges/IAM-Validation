@@ -3884,17 +3884,27 @@ PASS  ch:scprimer:L162                   ch:scprimer:p3_01_sc_primer:162  printe
 PASS  ch:scprimer:L162:4\times10^{-8}    ch:scprimer:p3_01_sc_primer:162  printed 4\times10^{-8}  recomputed 3.616549e-08  tol 5.000005e-09  [calc] tau_phi/tau_TLS at 100 us
 
 == Part 5: The Quantum Order of Informational Actualization: Qubits and Semiconductors | ch:xqp (part3/p3_02_xqp.tex)
+PASS  ch:xqp:L14                         ch:xqp:p3_02_xqp:14  printed 1.5\times10^{-62}  recomputed 1.497882e-62  tol 5.000005e-64  [observed] equilibrium x_qp in Al at 15 mK
+PASS  ch:xqp:L14:141                     ch:xqp:p3_02_xqp:14  printed 141  recomputed 140.801  tol 0.5  [observed] Delta/k_B T, Al, 15 mK
+PASS  ch:xqp:L20                         ch:xqp:p3_02_xqp:20  printed 1\times10^{-8}  recomputed 1.000000e-08  tol 5.000005e-09  [calc] x_qp from n_qp = 0.04 per um^3 and n_cp = 4e6 per um^3
+PASS  ch:xqp:L55                         ch:xqp:p3_02_xqp:55  printed 2\times10^{-3}  recomputed 0.002  tol 5.000005e-04  [conjecture] phase kick g/omega_q at g/2pi = 10 MHz, 5 GHz
 PASS  ch:xqp:L67                         ch:xqp:p3_02_xqp:67  printed 364  recomputed 364  tol 0.5  [derived] 2 Delta_Al, ueV
 PASS  ch:xqp:L68                         ch:xqp:p3_02_xqp:68  printed 126  recomputed 126.153  tol 0.5  [derived] Delta ln2, ueV
+PASS  ch:xqp:L71                         ch:xqp:p3_02_xqp:71  printed 800  recomputed 800  tol 0.5  [calc] diffusion length sqrt(D tau_qp), upper end, um
 PASS  ch:xqp:L77                         ch:xqp:p3_02_xqp:77  printed 9\times10^{10}  recomputed 9.050000e+10  tol 5.000005e+09  [calc] n_e/2 for Al, per um^3
 PASS  ch:xqp:L77:22600                   ch:xqp:p3_02_xqp:77  printed 22600  recomputed 22625  tol 113  [calc] n_e/2 over n_cp = 4e6 per um^3
+PASS  eq:xqp                             ch:xqp:p3_02_xqp:79  printed (algebra)  recomputed lhs-rhs=0  [derived] steady state x_qp = 2 N tau_qp/(tau_TLS n_cp V)
 PASS  eq:xqp_veff                        ch:xqp:p3_02_xqp:86  printed (algebra)  recomputed lhs-rhs=0  [derived] V_eff = 4 pi int e^(-2r/lambda) r^2 dr = pi lambda^3
 PASS  ch:xqp:L90                         ch:xqp:p3_02_xqp:90  printed 3.9\times10^{-4}  recomputed 3.926991e-04  tol 5.000005e-06  [calc] V_eff, um^3
 PASS  ch:xqp:L90:1.6\times10^{3}         ch:xqp:p3_02_xqp:90  printed 1.6\times10^{3}  recomputed 1570.8  tol 50  [calc] pairs in V_eff at n_cp = 4e6 per um^3
 PASS  eq:xqp_feedback                    ch:xqp:p3_02_xqp:101  printed (algebra)  recomputed lhs-rhs=0  [derived] fixed point of x = x0 + g x
 PASS  ch:xqp:L103                        ch:xqp:p3_02_xqp:103  printed <0.15  recomputed 0.15  tol 0.00500001  [calc] g = 2 phi tau_qp/tau_TLS < 1 gives phi < tau_TLS/(2 tau_qp)
+PASS  ch:xqp:L129                        ch:xqp:p3_02_xqp:129  printed (algebra)  recomputed lhs-rhs=0  [prediction] the predicted ratio x n_cp V tau_TLS/(N tau_qp) = 2
+PASS  ch:xqp:L134                        ch:xqp:p3_02_xqp:134  printed <10^{-9}  recomputed 3.667283e-10  tol 0.5  [prediction] thermal x_qp at 100 mK below 1e-9
 PASS  ch:xqp:L148                        ch:xqp:p3_02_xqp:148  printed 0.24  recomputed 0.238346  tol 0.00500001  [calc] T1 cap at x_qp = 1e-7, ms
 PASS  ch:xqp:L148:0.02                   ch:xqp:p3_02_xqp:148  printed 0.02  recomputed 0.0238346  tol 0.00500001  [calc] T1 cap at x_qp = 1e-6, ms
+PASS  ch:xqp:L149                        ch:xqp:p3_02_xqp:149  printed 0.5  recomputed 0.5  tol 0.05  [calc] best transmon T1, ms, from the cited title  file docs/book/iam.bib
+PASS  ch:xqp:L149:10^{-7}                ch:xqp:p3_02_xqp:149  printed <10^{-7}  recomputed 7.944853e-08  tol 0.5  [calc] x_qp allowed at T1 = 0.3 ms is below 1e-7
 
 == Part 5: The Quantum Order of Informational Actualization: Qubits and Semiconductors | ch:ascoreqc (part3/p3_03_a_for_processors.tex)
 PASS  eq:Agate                           ch:ascoreqc:p3_03_a_for_processors:23  printed (algebra)  recomputed True  [calc] -ln(1-p) = p + p^2/2 + ...
@@ -4633,4 +4643,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3737  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2601  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3747  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2591  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

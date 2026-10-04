@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3737 PASS, 0 FAIL, 2601 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3747 PASS, 0 FAIL, 2591 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4001,49 +4001,47 @@ Totals: 3737 PASS, 0 FAIL, 2601 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 14 |  | calc | `182` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 14 |  | observed | `1.5\times10^{-62}` | not run: measured, too few printed digits to match against the named files | - |
-| 14 |  | observed | `141` | not run: measured, not found in the files the chapter names | - |
-| 14 |  | observed | `10` | not run: measured, too few printed digits to match against the named files | - |
-| 17 |  | observed |  | not run: displayed equation, not yet checked | - |
-| 19 |  | observed | `0.04` | not run: measured, too few printed digits to match against the named files | - |
-| 20 |  | calc | `1\times10^{-8}` | not run: not yet run: draft rejected (negative control (printed value x1.05) also passes) | - |
-| 55 |  | conjecture | `2\times10^{-3}` | not run: not yet checked | - |
-| 56 |  | conjecture | `100` | not run: not yet checked | - |
+| 14 | ch:xqp:L14 | observed | `1.5\times10^{-62}` | numeric: equilibrium x_qp in Al at 15 mK | PASS |
+| 14 | ch:xqp:L14:141 | observed | `141` | numeric: Delta/k_B T, Al, 15 mK | PASS |
+| 14 |  | calc | `182` | not run: input: Delta_Al = 182 ueV restated (recomputed from BCS by ch:scprimer:L16:182) | - |
+| 14 |  | observed | `10` | not run: measured, source not named | - |
+| 17 |  | observed |  | not run: measured, source not named | - |
+| 19 |  | observed | `0.04` | not run: measured, source not named | - |
+| 20 | ch:xqp:L20 | calc | `1\times10^{-8}` | numeric: x_qp from n_qp = 0.04 per um^3 and n_cp = 4e6 per um^3 | PASS |
+| 55 | ch:xqp:L55 | conjecture | `2\times10^{-3}` | numeric: phase kick g/omega_q at g/2pi = 10 MHz, 5 GHz | PASS |
+| 56 |  | conjecture | `100` | not run: input: tau_TLS ~ 1-100 us, the range of TLS switching times assumed, nothing to recompute | - |
 | 67 | ch:xqp:L67 | derived | `364` | numeric: 2 Delta_Al, ueV | PASS |
 | 68 | ch:xqp:L68 | derived | `126` | numeric: Delta ln2, ueV | PASS |
-| 71 |  | calc | `800` | not run: not yet run: draft rejected (no draft returned) | - |
-| 72 |  | calc | `6.4` | not run: not yet run: draft rejected (no draft returned) | - |
+| 71 | ch:xqp:L71 | calc | `800` | numeric: diffusion length sqrt(D tau_qp), upper end, um | PASS |
+| 72 |  | calc | `6.4` | not run: input: diffusion constant D = 0.6-6.4 um^2/ns of quasiparticles in Al (docs/verification/scripts/verify_xqp.py: normal-state value ~ 6 um^2/ns); used by ch:xqp:L71 | - |
 | 77 | ch:xqp:L77 | calc | `9\times10^{10}` | numeric: n_e/2 for Al, per um^3 | PASS |
 | 77 | ch:xqp:L77:22600 | calc | `22600` | numeric: n_e/2 over n_cp = 4e6 per um^3 | PASS |
-| 79 | eq:xqp | derived |  | not run: not yet run: draft rejected (no draft returned) | - |
+| 79 | eq:xqp | derived |  | sympy: steady state x_qp = 2 N tau_qp/(tau_TLS n_cp V) | PASS |
 | 86 | eq:xqp_veff | derived |  | sympy: V_eff = 4 pi int e^(-2r/lambda) r^2 dr = pi lambda^3 | PASS |
 | 90 | ch:xqp:L90 | calc | `3.9\times10^{-4}` | numeric: V_eff, um^3 | PASS |
 | 90 | ch:xqp:L90:1.6\times10^{3} | calc | `1.6\times10^{3}` | numeric: pairs in V_eff at n_cp = 4e6 per um^3 | PASS |
-| 90 |  | calc | `4\times10^{6}` | not run: not yet run: draft rejected (no draft returned) | - |
+| 90 |  | calc | `4\times10^{6}` | not run: input: n_cp = 4e6 per um^3 restated from line 17 (see sources_needed for idx 1479) | - |
 | 101 | eq:xqp_feedback | derived |  | sympy: fixed point of x = x0 + g x | PASS |
 | 103 | ch:xqp:L103 | calc | `<0.15` | numeric: g = 2 phi tau_qp/tau_TLS < 1 gives phi < tau_TLS/(2 tau_qp) | PASS |
-| 103 |  | calc | `100` | not run: not yet run: draft rejected (no draft returned) | - |
-| 103 |  | calc | `30` | not run: not yet run: draft rejected (no draft returned) | - |
-| 111 |  | derived | `4\times10^{6}` | not run: not yet run: draft rejected (no draft returned) | - |
-| 111 |  | derived | `30` | not run: not yet run: draft rejected (no draft returned) | - |
-| 111 |  | derived | `100` | not run: not yet run: draft rejected (drafter skipped: Line 111: "60, 600 and 6,000 active fluctuators hold 10^{-7}".
-# The item) | - |
-| 111 |  | derived | `10` | not run: not yet run: draft rejected (drafter skipped: Line 111: No number "10" appears in the caption text itself.
-# The expone) | - |
-| 117 |  | calc | `30` | not run: not yet run: draft rejected (drafter skipped: Line 117: τ_TLS = 30 μs is stated parenthetically as a given input, not d) | - |
-| 117 |  | calc | `100` | not run: not yet run: draft rejected (drafter skipped: Line 117: τ_qp = 100 μs is stated parenthetically as a given input, not d) | - |
-| 122 |  | observed | `0.25` | not run: measured, too few printed digits to match against the named files | - |
-| 122 |  | observed | `5.4` | not run: measured, too few printed digits to match against the named files | - |
-| 124 |  | observed | `0.1` | not run: measured, too few printed digits to match against the named files | - |
-| 129 |  | prediction |  | not run: displayed equation, not yet checked | - |
-| 134 |  | prediction | `10` | not run: not yet checked | - |
+| 103 |  | calc | `100` | not run: input: tau_qp = 100 us, assumed lifetime for the worked example | - |
+| 103 |  | calc | `30` | not run: input: tau_TLS = 30 us, assumed switching time for the worked example | - |
+| 111 |  | derived | `4\times10^{6}` | not run: input: n_cp = 4e6 per um^3 restated in the figure caption | - |
+| 111 |  | derived | `30` | not run: input: tau_TLS = 30 us restated in the figure caption | - |
+| 111 |  | derived | `100` | not run: input: tau_qp = 100 us restated in the figure caption | - |
+| 111 |  | derived | `10` | not run: input: island volumes 10^3-10^5 um^3 and target x_qp = 10^-7 of the figure (the '10' is the base of a printed power), nothing to recompute | - |
+| 117 |  | calc | `30` | not run: input: tau_TLS = 30 us restated under the table | - |
+| 117 |  | calc | `100` | not run: input: tau_qp = 100 us restated under the table | - |
+| 122 |  | observed | `0.25` | not run: measured, source not named | - |
+| 122 |  | observed | `5.4` | not run: measured, source not named | - |
+| 124 |  | observed | `0.1` | not run: measured, source not named | - |
+| 129 | ch:xqp:L129 | prediction |  | sympy: the predicted ratio x n_cp V tau_TLS/(N tau_qp) = 2 | PASS |
+| 134 | ch:xqp:L134 | prediction | `<10^{-9}` | numeric: thermal x_qp at 100 mK below 1e-9 | PASS |
 | 148 | ch:xqp:L148 | calc | `0.24` | numeric: T1 cap at x_qp = 1e-7, ms | PASS |
 | 148 | ch:xqp:L148:0.02 | calc | `0.02` | numeric: T1 cap at x_qp = 1e-6, ms | PASS |
-| 148 |  | calc | `182` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 148 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed -7); drafting error on review | - |
-| 149 |  | calc | `0.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 149 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed -6); drafting error on review | - |
+| 148 |  | calc | `182` | not run: input: Delta_Al = 182 ueV restated (recomputed from BCS by ch:scprimer:L16:182) | - |
+| 148 |  | calc | `10` | not run: input: x_qp = 1e-7 and 1e-6, the densities at which the T1 cap is evaluated (the '10' is the base of a printed power); the caps are checked by ch:xqp:L148 and ch:xqp:L148:0.02 | - |
+| 149 | ch:xqp:L149 | calc | `0.5` | file `docs/book/iam.bib`: best transmon T1, ms, from the cited title | PASS |
+| 149 | ch:xqp:L149:10^{-7} | calc | `<10^{-7}` | numeric: x_qp allowed at T1 = 0.3 ms is below 1e-7 | PASS |
 
 ## Part 5 - ch:ascoreqc - `docs/book/part3/p3_03_a_for_processors.tex`
 

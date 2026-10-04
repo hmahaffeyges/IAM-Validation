@@ -1680,6 +1680,16 @@ def _b07_em_fp(H0):
     return (2 * math.pi)**-0.1 * _b07_em_B(H0) / m_e
 DATA_FILES['docs/book/iam.bib'] = "the book's bibliography (titles of cited measurements)"
 
+# helpers of the part3/p3_02_xqp checks
+def _b07_xth(T, Delta_ueV=182.0):
+    # equilibrium quasiparticle fraction x = sqrt(2 pi k_B T/Delta) exp(-Delta/k_B T) (book line 14, Glazman2021)
+    r = Delta_ueV * 1e-6 * e_ch / (kB * T)
+    return math.sqrt(2 * math.pi / r) * math.exp(-r)
+def _b07_rate_per_xqp(f=5e9, Delta_ueV=182.0):
+    # Catelani 2011: Gamma_1 = (x_qp/pi) sqrt(2 omega Delta/hbar), per unit x_qp
+    w = 2 * math.pi * f
+    return math.sqrt(2 * w * Delta_ueV * 1e-6 * e_ch / hbar) / math.pi
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -27751,6 +27761,36 @@ def check_2289():
 
 
 # ======== Part 5 | ch:xqp | docs/book/part3/p3_02_xqp.tex
+@check(label='ch:xqp:L14', chapter='ch:xqp', part=5, title='equilibrium x_qp in Al at 15 mK',
+       file='part3/p3_02_xqp', line=14, status='observed', kind='num', printed='1.5\\times10^{-62}', tol=0.0)
+def check_3737():
+    'Equilibrium quasiparticle fraction x = sqrt(2 pi k_B T/Delta) e^(-Delta/k_B T) at 15 mK with Delta = 182 ueV. Book line 14, printed 1.5e-62. Inputs: Delta_Al = 182 ueV, T = 15 mK (book).'
+    value = _b07_xth(0.015)
+    return locals()
+
+@check(label='ch:xqp:L14:141', chapter='ch:xqp', part=5, title='Delta/k_B T, Al, 15 mK',
+       file='part3/p3_02_xqp', line=14, status='observed', kind='num', printed='141', tol=0.0)
+def check_3738():
+    'Delta/(k_B T) for Delta = 182 ueV at 15 mK. Book line 14, printed 141. Inputs: Delta_Al = 182 ueV, T = 15 mK (book).'
+    value = 182e-6 * e_ch / (kB * 0.015)
+    return locals()
+
+@check(label='ch:xqp:L20', chapter='ch:xqp', part=5, title='x_qp from n_qp = 0.04 per um^3 and n_cp = 4e6 per um^3',
+       file='part3/p3_02_xqp', line=20, status='calc', kind='num', printed='1\\times10^{-8}', tol=0.0)
+def check_3739():
+    'x_qp = n_qp/n_cp. Book line 20, printed 1e-8. Inputs: n_qp = 0.04 per um^3 (Riste2013, as quoted on line 19), n_cp = 4e6 per um^3 (book line 17).'
+    n_qp = 0.04; n_cp = 4e6
+    value = n_qp / n_cp
+    return locals()
+
+@check(label='ch:xqp:L55', chapter='ch:xqp', part=5, title='phase kick g/omega_q at g/2pi = 10 MHz, 5 GHz',
+       file='part3/p3_02_xqp', line=55, status='conjecture', kind='num', printed='2\\times10^{-3}', tol=0.0)
+def check_3740():
+    'Phase kick of one TLS flip, delta phi ~ g/omega_q, upper end g/2pi = 10 MHz at omega_q/2pi = 5 GHz. Book line 55, printed 2e-3. Inputs: g/2pi = 1-10 MHz, 5 GHz (book).'
+    g = 2 * math.pi * 10e6; w = 2 * math.pi * 5e9
+    value = g / w
+    return locals()
+
 @check(label='ch:xqp:L67', chapter='ch:xqp', part=5, title='2 Delta_Al, ueV',
        file='part3/p3_02_xqp', line=67, status='derived', kind='num', printed='364', tol=0)
 def check_2290():
@@ -27763,6 +27803,14 @@ def check_2290():
 def check_2291():
     'Delta ln2, ueV. Book line 68, printed 126.'
     value=182*LN2
+    return locals()
+
+@check(label='ch:xqp:L71', chapter='ch:xqp', part=5, title='diffusion length sqrt(D tau_qp), upper end, um',
+       file='part3/p3_02_xqp', line=71, status='calc', kind='num', printed='800', tol=0.0)
+def check_3741():
+    'Diffusion length sqrt(D tau_qp) with D = 6.4 um^2/ns and tau_qp = 100 us. Book line 71, printed 800 um. Inputs: D range 0.6-6.4 um^2/ns and tau_qp ~ 100 us (book, lines 71-72).'
+    D_um2_per_ns = 6.4; tau_ns = 100e3
+    value = math.sqrt(D_um2_per_ns * tau_ns)
     return locals()
 
 @check(label='ch:xqp:L77', chapter='ch:xqp', part=5, title='n_e/2 for Al, per um^3',
@@ -27779,6 +27827,18 @@ def check_2293():
     'n_e/2 over n_cp = 4e6 per um^3. Book line 77, printed 22600.'
     n_e=18.1e28
     value=n_e/2/1e18/4e6
+    return locals()
+
+@check(label='eq:xqp', chapter='ch:xqp', part=5, title='steady state x_qp = 2 N tau_qp/(tau_TLS n_cp V)',
+       file='part3/p3_02_xqp', line=79, status='derived', kind='sym')
+def check_3742():
+    'Eq. eq:xqp from the rate balance dN_qp/dt = Y N/tau_TLS - N_qp/tau_qp = 0 with yield Y = 2 per event (two quasiparticles per broken pair), solved for N_qp, divided by the pair count n_cp V. Book line 79.'
+    N, tq, tt, ncp, V, Nqp = sp.symbols('N tau_qp tau_TLS n_cp V N_qp', positive=True)
+    def x(Y):
+        return sp.solve(sp.Eq(Y * N / tt - Nqp / tq, 0), Nqp)[0] / (ncp * V)
+    lhs = x(2)
+    rhs = 2 * N * tq / (tt * ncp * V)
+    neg_lhs = x(sp.Rational(21, 10))
     return locals()
 
 @check(label='eq:xqp_veff', chapter='ch:xqp', part=5, title='V_eff = 4 pi int e^(-2r/lambda) r^2 dr = pi lambda^3',
@@ -27818,6 +27878,26 @@ def check_2298():
     value=30/(2*100)
     return locals()
 
+@check(label='ch:xqp:L129', chapter='ch:xqp', part=5, title='the predicted ratio x n_cp V tau_TLS/(N tau_qp) = 2',
+       file='part3/p3_02_xqp', line=129, status='prediction', kind='sym')
+def check_3743():
+    'The test ratio: inserting the steady state of the rate balance (yield 2 per event, solved for N_qp) into x_qp n_cp V tau_TLS/(N tau_qp) gives 2. Book line 129.'
+    N, tq, tt, ncp, V, Nqp = sp.symbols('N tau_qp tau_TLS n_cp V N_qp', positive=True)
+    def ratio(Y):
+        xq = sp.solve(sp.Eq(Y * N / tt - Nqp / tq, 0), Nqp)[0] / (ncp * V)
+        return sp.simplify(xq * ncp * V * tt / (N * tq))
+    lhs = ratio(2)
+    rhs = 2
+    neg_lhs = ratio(sp.Rational(21, 10))
+    return locals()
+
+@check(label='ch:xqp:L134', chapter='ch:xqp', part=5, title='thermal x_qp at 100 mK below 1e-9',
+       file='part3/p3_02_xqp', line=134, status='prediction', kind='num', printed='<10^{-9}', tol=0.0)
+def check_3744():
+    'Below about 100 mK the thermal fraction is below 1e-9: x = sqrt(2 pi k_B T/Delta) e^(-Delta/k_B T) at T = 100 mK, Delta = 182 ueV. Book line 134 (inventory printed the base 10 of 10^{-9}).'
+    value = _b07_xth(0.100)
+    return locals()
+
 @check(label='ch:xqp:L148', chapter='ch:xqp', part=5, title='T1 cap at x_qp = 1e-7, ms',
        file='part3/p3_02_xqp', line=148, status='calc', kind='num', printed='0.24', tol=0)
 def check_2299():
@@ -27832,6 +27912,23 @@ def check_2300():
     'T1 cap at x_qp = 1e-6, ms. Book line 148, printed 0.02.'
     def T1qp(x, f=5e9, D=182e-6*eV): w=2*math.pi*f; return 1/(x*w/math.pi*math.sqrt(2*D/(hbar*w)))
     value=T1qp(1e-6)*1e3
+    return locals()
+
+@check(label='ch:xqp:L149', chapter='ch:xqp', part=5, title='best transmon T1, ms, from the cited title',
+       file='part3/p3_02_xqp', line=149, status='calc', kind='file', printed='0.5', tol=0.0, source='docs/book/iam.bib')
+def check_3745():
+    'Upper end of T1 ~ 0.3-0.5 ms (restated from ch:scprimer): the lifetime in the title of Wang2022Ta, "transmon qubit with a lifetime approaching 0.5 milliseconds" (doi:10.1038/s41534-021-00510-2), read from docs/book/iam.bib. Book line 149, printed 0.5.'
+    bib = file_text('docs/book/iam.bib')
+    entry = bib[bib.index('{Wang2022Ta,'):]
+    title = re.search(r'title\s*=\s*\{(.*?)\},', entry).group(1)
+    value = float(re.search(r'approaching\s+([\d.]+)\s+milliseconds', title).group(1))
+    return locals()
+
+@check(label='ch:xqp:L149:10^{-7}', chapter='ch:xqp', part=5, title='x_qp allowed at T1 = 0.3 ms is below 1e-7',
+       file='part3/p3_02_xqp', line=149, status='calc', kind='num', printed='<10^{-7}', tol=0.0)
+def check_3746():
+    'Transmons with T1 = 0.3 ms carry less than 1e-7: x_qp = 1/(T1 Gamma per unit x_qp), Catelani rate with Delta_Al = 182 ueV at 5 GHz. Book line 149 (inventory printed the base 10 of 10^{-7}).'
+    value = 1 / (0.3e-3 * _b07_rate_per_xqp())
     return locals()
 
 
@@ -33833,36 +33930,26 @@ INVENTORY = [
     (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 134, '', 'observed', '10', 'input: surface-code threshold of about 1e-2 quoted from Fowler2012 (doi:10.1103/physreva.86.032324), an order of magnitude, nothing to recompute'),
     (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 135, '', 'observed', '68', 'measured, source not named'),
     (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 135, '', 'observed', '89', 'measured, source not named'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 14, '', 'calc', '182', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 14, '', 'observed', '1.5\\times10^{-62}', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 14, '', 'observed', '141', 'measured, not found in the files the chapter names'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 14, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 17, '', 'observed', '', 'displayed equation, not yet checked'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 19, '', 'observed', '0.04', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 20, '', 'calc', '1\\times10^{-8}', 'not yet run: draft rejected (negative control (printed value x1.05) also passes)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 55, '', 'conjecture', '2\\times10^{-3}', 'not yet checked'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 56, '', 'conjecture', '100', 'not yet checked'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 71, '', 'calc', '800', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 72, '', 'calc', '6.4', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 79, 'eq:xqp', 'derived', '', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 90, '', 'calc', '4\\times10^{6}', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 103, '', 'calc', '100', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 103, '', 'calc', '30', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 111, '', 'derived', '4\\times10^{6}', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 111, '', 'derived', '30', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 111, '', 'derived', '100', 'not yet run: draft rejected (drafter skipped: Line 111: "60, 600 and 6,000 active fluctuators hold 10^{-7}".\n# The item)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 111, '', 'derived', '10', 'not yet run: draft rejected (drafter skipped: Line 111: No number "10" appears in the caption text itself.\n# The expone)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 117, '', 'calc', '30', 'not yet run: draft rejected (drafter skipped: Line 117: τ_TLS = 30 μs is stated parenthetically as a given input, not d)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 117, '', 'calc', '100', 'not yet run: draft rejected (drafter skipped: Line 117: τ_qp = 100 μs is stated parenthetically as a given input, not d)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 122, '', 'observed', '0.25', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 122, '', 'observed', '5.4', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 124, '', 'observed', '0.1', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 129, '', 'prediction', '', 'displayed equation, not yet checked'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 134, '', 'prediction', '10', 'not yet checked'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 148, '', 'calc', '182', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 148, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed -7); drafting error on review'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 149, '', 'calc', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:xqp', 'part3/p3_02_xqp', 149, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed -6); drafting error on review'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 14, '', 'calc', '182', 'input: Delta_Al = 182 ueV restated (recomputed from BCS by ch:scprimer:L16:182)'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 14, '', 'observed', '10', 'measured, source not named'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 17, '', 'observed', '', 'measured, source not named'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 19, '', 'observed', '0.04', 'measured, source not named'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 56, '', 'conjecture', '100', 'input: tau_TLS ~ 1-100 us, the range of TLS switching times assumed, nothing to recompute'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 72, '', 'calc', '6.4', 'input: diffusion constant D = 0.6-6.4 um^2/ns of quasiparticles in Al (docs/verification/scripts/verify_xqp.py: normal-state value ~ 6 um^2/ns); used by ch:xqp:L71'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 90, '', 'calc', '4\\times10^{6}', 'input: n_cp = 4e6 per um^3 restated from line 17 (see sources_needed for idx 1479)'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 103, '', 'calc', '100', 'input: tau_qp = 100 us, assumed lifetime for the worked example'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 103, '', 'calc', '30', 'input: tau_TLS = 30 us, assumed switching time for the worked example'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 111, '', 'derived', '4\\times10^{6}', 'input: n_cp = 4e6 per um^3 restated in the figure caption'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 111, '', 'derived', '30', 'input: tau_TLS = 30 us restated in the figure caption'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 111, '', 'derived', '100', 'input: tau_qp = 100 us restated in the figure caption'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 111, '', 'derived', '10', "input: island volumes 10^3-10^5 um^3 and target x_qp = 10^-7 of the figure (the '10' is the base of a printed power), nothing to recompute"),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 117, '', 'calc', '30', 'input: tau_TLS = 30 us restated under the table'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 117, '', 'calc', '100', 'input: tau_qp = 100 us restated under the table'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 122, '', 'observed', '0.25', 'measured, source not named'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 122, '', 'observed', '5.4', 'measured, source not named'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 124, '', 'observed', '0.1', 'measured, source not named'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 148, '', 'calc', '182', 'input: Delta_Al = 182 ueV restated (recomputed from BCS by ch:scprimer:L16:182)'),
+    (5, 'ch:xqp', 'part3/p3_02_xqp', 148, '', 'calc', '10', "input: x_qp = 1e-7 and 1e-6, the densities at which the T1 cap is evaluated (the '10' is the base of a printed power); the caps are checked by ch:xqp:L148 and ch:xqp:L148:0.02"),
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 27, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 0.503359); drafting error on review'),
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 28, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 0.503359); drafting error on review'),
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 51, '', 'observed', '2.8\\times10^{-3}', 'measured, source not named'),

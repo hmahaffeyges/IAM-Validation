@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 47
+Entries: 53
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -55,3 +55,9 @@ Entries: 47
 | ch:scprimer | `docs/book/part3/p3_01_sc_primer.tex:69` | `10` | the 1e-10 error floor reported for the processor of GoogleWillow2025 (doi:10.1038/s41586-024-08449-y), as read by Pinckney2026; not confirmed and not in the repository |
 | ch:scprimer | `docs/book/part3/p3_01_sc_primer.tex:135` | `68` | mean T1 = 68 us of the 105-qubit processor, GoogleWillow2025 (doi:10.1038/s41586-024-08449-y); no repository file holds it (the ratio 89/68 is checked by ch:scprimer:L137 from the book's own numbers) |
 | ch:scprimer | `docs/book/part3/p3_01_sc_primer.tex:135` | `89` | mean T2,CPMG = 89 us of the same processor, GoogleWillow2025 (doi:10.1038/s41586-024-08449-y); not in the repository |
+| ch:xqp | `docs/book/part3/p3_02_xqp.tex:14` | `10` | figure caption band of measured background x_qp 10^-8 to 10^-6, up to 10^-5 (restating line 17; cited in the text to Serniak2018, Riste2013, Connolly2024); per-paper values not in the repository and not confirmed |
+| ch:xqp | `docs/book/part3/p3_02_xqp.tex:17` | `` | displayed range x_qp ~ 1e-8 to 1e-6 and n_cp = 2 nu0 Delta ~ 4e6 per um^3; no citation on the equation; docs/verification/scripts/verify_xqp.py names Wang et al. Nat. Commun. 5, 5836 and two preprints for n_cp, but the value of nu0 behind 4e6 is not written anywhere in the repository |
+| ch:xqp | `docs/book/part3/p3_02_xqp.tex:19` | `0.04` | n_qp = 0.04 +- 0.01 per um^3 at 20 mK, cited to Riste2013 (doi:10.1038/ncomms2936); not in the repository and not confirmed |
+| ch:xqp | `docs/book/part3/p3_02_xqp.tex:122` | `0.25` | TLS energy relaxation times 0.25 us to 5.4 ms for 56 TLS, cited to ChenTLS2024; not in the repository and not confirmed |
+| ch:xqp | `docs/book/part3/p3_02_xqp.tex:122` | `5.4` | upper end 5.4 ms of the same range, ChenTLS2024; not confirmed |
+| ch:xqp | `docs/book/part3/p3_02_xqp.tex:124` | `0.1` | 1/f frequency noise of the TLS bath near 0.1 Hz in a superconducting resonator, cited to Burnett2014; not confirmed |
