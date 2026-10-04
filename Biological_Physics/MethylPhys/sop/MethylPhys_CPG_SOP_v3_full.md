@@ -2,6 +2,7 @@
 
 **Build:** DEVELOPMENT - not commissioned (chain v3, neutrophils only). Not a diagnostic test. No tier beyond Normal is printed.
 **Round 2 (2026-10-04).** The intake, noise gate, identifiers and development flags changed in round 2: sex and age are optional (`NOT_DECLARED`); only blood specimens are accepted (others stop with `SPECIMEN_REFUSED`); identifiers are hashed in the bundle and ledger; if fewer than 90 % of the noise sites are read the gauge state is withheld with the reason; Stage Q prints the IAM-A C-score; development stages run only behind `--dev-*` flags. `MethylPhys_CPG_SOP_v3.md` (sections 2, 2b, 5) and the code are current where this file differs; the line numbers below are from the earlier build.
+**Stage T (2026-10-04).** Stage T is self-tare II, then the median tare, adopted by the author on 2026-10-04 (`boxruns/run1/JOBS.md` job A; `doors/DEV_SELFTARE_02.md` reading (iv); development log 2026-10-04, DEV-PAIRED-01). Section 1 (tare rows), 4.1, 4.3, Stage T in section 5, section 6 item 6, the tare rows of section 7 and section 9 items 2 and 10 are updated for it. The noise-corrected tare described in this file before was removed on 2026-10-02 (DEV-TARE-02) and is kept here only as history.
 **Scope:** one cell type (neutrophils); Illumina EPIC v1 arrays for Met-A; single-molecule reads (pipeline `loyfer_pat_v1`) for IAM-A. 450K neutrophil floor: pending (canon `Met_A_floor_450K_neutrophil` = null).
 **Written from:** repository `hmahaffeyges/IAM-Validation`, `main` at `7cdbbf8` (floor v1.3) **plus the audit-fix patch** (`chain_fix_patch.zip`, branch `audit-fixes`, not yet pushed). Line numbers refer to the patched files. Paths are relative to `Biological_Physics/MethylPhys/`. Every number is read from a frozen file or the canon; the file and key are given beside it.
 **Readings:** Met-A (arrays), Met-A C-score (arrays), A_rel (Met-A after the same-run tare), IAM-A (sequencing).
@@ -21,9 +22,10 @@
 | residual map | z_i = (H(β_i) − H(ref_i)) ÷ s_i; ref_i = healthy neutrophil mean H (isolated) or H(e_i) (whole blood); s_i = shrunk healthy SD of H | `chain/conductor_v3.py:117, 138` |
 | Met-A C-score | c = var(means of consecutive blocks of `clustering_block` sites of z, × √block) ÷ var(z); C = c ÷ healthy median clustering | `chain/conductor_v3.py:84-88, 141-148` |
 | noise index | N = mean H(β) over the noise sites measured on this array (≥ 90 % of 48,528, else None) | `chain/conductor_v3.py:52-57` |
-| tare, noise-corrected (≥ 20 reference records) | whole blood: A = a + b f_NEU + c N fitted by least squares on the references; isolated: A = a + c N; A_rel = A ÷ prediction(this specimen's f_NEU, N) | `chain/conductor_v3.py:183-190` |
-| tare, median (3–19 references, or no N) | A_rel = A ÷ median(untared A of the references) | `chain/conductor_v3.py:191-194` |
-| reference spread | noise-corrected: SD (ddof 1) of each reference's leave-one-out A ÷ prediction; median: SD of reference A ÷ median | `chain/conductor_v3.py:186-187, 193` |
+| tare, step 1: self-tare II (adopted 2026-10-04) | per probe design (type I, type II): L, U = mean β over this array's low and high fixed sites; β′ = Lr + (β − L)(Ur − Lr) ÷ (U − L), Lr, Ur = the same anchors averaged over the six reference arrays; Met-A formed from β′; nothing fitted; a design with anchors missing or U − L ≤ 0.1 is left unmapped | `chain/dev_stages.py` (`anchors`, `selftare_map`, `selftare_ii`), behind `--dev-selftare-ii` until wired into Stage T |
+| tare, step 2: median (≥ 3 references) | A_rel = A ÷ median(A of the references) | `chain/conductor_v3.py: stage_t_tare` |
+| reference spread | SD (ddof 1) of reference A ÷ median | `chain/conductor_v3.py: stage_t_tare` |
+| history: tare, noise-corrected (removed 2026-10-02, DEV-TARE-02) | whole blood: A = a + b f_NEU + c N fitted by least squares on the references; isolated: A = a + c N; A_rel = A ÷ prediction(this specimen's f_NEU, N); spread = SD of each reference's leave-one-out A ÷ prediction | was `chain/conductor_v3.py:183-190` |
 | detection limit | 2 × reference_spread_sd ÷ shift_per_1pct_loss, in % loss of the neutrophil pattern | `chain/conductor_v3.py:195` |
 | IAM-A | A = H(ε) ÷ (P_cell × H(ε₀)), ε = isolated copy errors ÷ opportunities | `chain/stage_q_iam_a.py:79-81` |
 | holding energy | E = ln((1−ε)/ε), in kT | `chain/stage_q_iam_a.py:83` |
@@ -107,7 +109,8 @@ python run_sample.py --grn S_Grn.idat.gz --red S_Red.idat.gz --specimen "whole b
 - `--array-type`: omit it and the IDAT header decides. If the header is unreadable and the flag is omitted, Stage 0 quarantines (`QUARANTINE_INCOMPLETE_MANIFEST`, array_type missing). Only EPIC_v1 is read.
 - `--specimen`: `isolated neutrophils`, `sorted neutrophils`, `purified neutrophils` or `neutrophils` select the isolated path; **any other string is read as whole blood**.
 - Custody: `--patient-id <hashed id>`, `--intake-log <path.jsonl>`, `--manifest-dir <dir>`.
-- References (pass 2): `--slide-ref-table refs.csv` (columns `A,f_neu,N`, optional `id`; ≥ 20 rows → noise-corrected tare, 3–19 → median tare) or `--slide-ref-A a1,a2,a3` (plain A → median tare); not both.
+- References (pass 2, Stage T step 2): `--slide-ref-table refs.csv` (column `A`, optional `id`) or `--slide-ref-A a1,a2,a3`; ≥ 3 → median tare; not both. (Before 2026-10-02, ≥ 20 rows with `f_neu,N` gave the noise-corrected tare; removed, DEV-TARE-02.)
+- Stage T step 1 (self-tare II, adopted 2026-10-04): `--dev-selftare-ii`; no references; recorded under `development.selftare_ii` (`A_selftared`), not in `tare.A_rel` until it is wired into Stage T.
 - Record: `--covariate KEY=VALUE` (repeatable) or `--covariates file.json`; `--ledger <path.jsonl>` (default `evidence_ledger.jsonl` beside the report); `--no-bundle` writes neither bundle nor ledger row.
 - Already-calibrated β: `--betas S.csv` (two columns `cpg_id,beta`; Stage 0 and Stage 1 do not run).
 - IDAT pair without a custody record (lab-made DNA mixtures): `--no-intake`.
@@ -126,9 +129,9 @@ python run_sample.py --site-table S_sites.csv --seq-pipeline loyfer_pat_v1 --id 
 The gauge state of every Met-A reading comes from the tare: whole blood always; isolated neutrophils when ≥ 3 same-run references are supplied (untared otherwise, and so labelled).
 1. **Plan the run.** ≥ 3 healthy reference specimens of the same specimen type on the same slide as the specimens (else in the same batch), processed the same way (extraction, bisulfite batch, scanner, Stage 1).
 2. **Pass 1.** Run every array (references and specimens) without references. From each bundle take `met_a.A`, `met_a.fraction` (f_neu; null for isolated) and `met_a.noise_index` (N), or the ledger columns `A`, `f_neu`, `noise_index`.
-3. **Choose each specimen's references.** Healthy references of the same specimen type, excluding the specimen itself, with `A` a number: the whole batch when it holds ≥ 20 such references with f_neu and N (noise-corrected tare); otherwise the same slide (≥ 3), else the same batch (median tare). The code does not check that a reference is healthy, in the same run or of the same specimen type: the operator is responsible. Put the specimen's id in the table's `id` column only for references; a row whose `id` equals the specimen's `--id` is dropped.
-4. **Pass 2.** Re-run each specimen with `--slide-ref-table refs.csv` (columns `A,f_neu,N[,id]`), or with `--slide-ref-A a1,a2,a3,…` for a plain median tare. Pass 2 repeats Stage 0 and Stage 1. **Use a different `--intake-log` (or none) for pass 2**: the same bytes logged twice in one intake log stop the run before calibration (`RE_TRANSMISSION_DETECTED`).
-5. Read `tare.A_rel`, `tare.state`, `tare.method`, `tare.fit`, `tare.detection_limit_pct_loss`.
+3. **Choose each specimen's references.** Healthy references of the same specimen type, excluding the specimen itself, with `A` a number: the same slide (≥ 3), else the same batch (median tare, Stage T step 2). (Before 2026-10-02 a batch of ≥ 20 references with f_neu and N gave the noise-corrected tare; removed, DEV-TARE-02.) The code does not check that a reference is healthy, in the same run or of the same specimen type: the operator is responsible. Put the specimen's id in the table's `id` column only for references; a row whose `id` equals the specimen's `--id` is dropped.
+4. **Pass 2.** Re-run each specimen with `--slide-ref-table refs.csv` (columns `A[,id]`), or with `--slide-ref-A a1,a2,a3,…`, for the median tare. Stage T step 1, self-tare II, is given by `--dev-selftare-ii` (it needs no references); until it is wired into Stage T the median tare runs on the untared A. Pass 2 repeats Stage 0 and Stage 1. **Use a different `--intake-log` (or none) for pass 2**: the same bytes logged twice in one intake log stop the run before calibration (`RE_TRANSMISSION_DETECTED`).
+5. Read `tare.A_rel`, `tare.state`, `tare.method`, `tare.detection_limit_pct_loss`, and `development.selftare_ii` (`A_selftared`, `maps`) when self-tare II was given.
 
 `chain_tests/chain_batch.py` implements steps 2–4 (pass 2 writes `reports/<gsm>_refs.csv` and passes `--slide-ref-table`); it and `run_chain_acceptance.py` carry the author's machine paths and are worked examples, not the operator tool.
 
@@ -199,17 +202,22 @@ The gauge state of every Met-A reading comes from the tare: whole blood always; 
 **Outputs:** bundle `met_a_cscore` = {`stage`, `reading`, `C`, `clustering`, `healthy_baseline` 1.1104, `n_healthy_baseline` 6, `block_sites` 50, `healthy_range` [0.6991, 1.2277], `status` "development: healthy band not yet set", `frac_abs_z_gt3`}.
 **Operator:** record C; no interpretation against a band. In whole blood the residual includes composition error.
 
-### Stage T — same-run tare (`conductor_v3.py:150-199`)
-**Purpose:** read the specimen against healthy references run the same way, removing the composition and laboratory offset and, with enough references, the array-noise term (DEV-NOISE-02); state the smallest loss this specimen could show. Applies to whole blood and isolated neutrophils.
-**Inputs:** `met_a.A`, `met_a.fraction`, `met_a.noise_index`, `met_a.shift_per_1pct_loss`; references as plain A values (`--slide-ref-A`) or records {A, f_neu, N[, id]} (`--slide-ref-table`). A record whose id equals the specimen's id is dropped (`n_self_excluded`).
-**Method, as coded:**
-1. Fewer than 3 references with A → no tare.
-2. ≥ 20 records with A, N (and f_neu for whole blood) **and** a noise index for this specimen → noise-corrected: least squares A = a + b f_neu + c N (isolated: A = a + c N) on the references; A_rel = A ÷ prediction; spread = SD of each reference's leave-one-out A ÷ prediction.
-3. Otherwise → median tare: A_rel = A ÷ median(reference A); spread = SD of reference A ÷ median; `method` says why (`noise not corrected (<20 references)` or `noise not corrected (this specimen has no noise index)`).
-4. Detection limit = 2 × spread ÷ shift per 1 % loss (null when the shift is missing or ≤ 0).
-**Rules:** no A → `reason` `no A`; fewer than 3 references → `A_rel` null, `reason` `untared: <n> same-run reference arrays (>= 3 required)`.
-**Outputs:** bundle `tare` = {`stage`, `A_rel`, `state`, `method`, `fit` {`a`, `b` (null for isolated), `c`, `n_refs_fitted`} or null, `prediction` (noise-corrected), `reference_median`, `n_refs`, `n_self_excluded`, `reference_spread_sd`, `detection_limit_pct_loss`, `detection_note`}.
-**Operator:** for the noise-corrected tare the references must span the run's range of neutrophil fraction and noise; a specimen far outside that range is an extrapolation. With 3–19 references the spread is itself imprecise. A detection limit above the change you need to see means this specimen cannot show it.
+### Stage T — same-run tare: self-tare II, then the median tare (adopted 2026-10-04)
+**Purpose:** read the specimen on the reference arrays' scale and against healthy references run the same way, removing the composition and laboratory offset; state the smallest loss this specimen could show. Applies to whole blood and isolated neutrophils.
+**Adopted:** by the author on 2026-10-04 (`boxruns/run1/JOBS.md` job A); the method is `doors/DEV_SELFTARE_02.md` reading (iv), which met every replicate and other-laboratory bar (replicate within-person SD 0.0164, 62/63 Normal; other laboratories 49/49; floor 6/6); development log 2026-10-04, DEV-PAIRED-01.
+**Step 1, self-tare II (`chain/dev_stages.py`: `anchors`, `selftare_map`, `selftare_ii`):**
+- Inputs: this array's β; `chain/Runtime Matrices/Development/dev_selftare_typeII_EPIC_v1.json` (development file): the fixed-site sets `I_low`, `I_high`, `II_low`, `II_high`, the design of each probe, and `ref_anchors` (the six reference arrays: type I 0.0186 / 0.9820, type II 0.0555 / 0.9486).
+- Fixed sites: type I = the noise sites of the same state (DEV-NOISE-01); type II = EPIC type II probes, not a neutrophil identity site and not a composition marker, with every purified GSE110554 group mean ≤ 0.15 (low) or ≥ 0.85 (high), group SD ≤ 0.02, largest difference between group means ≤ 0.03.
+- Method, as coded: per design d, L = mean β over this array's `d_low` sites, U = mean β over its `d_high` sites; β′ = Lr + (β − L)(Ur − Lr) ÷ (U − L) at the sites of design d, clipped to [1e-6, 1 − 1e-6]; other sites unchanged. A design with L or U missing or U − L ≤ 0.1 is left unmapped. Met-A is then formed from β′ as Stage A and Stage M form it. Nothing is fitted; no references are needed.
+- Assumption (conjecture, DEV-SELFTARE-02 step 3): the fixed sites hold the same true state on every array of healthy blood.
+- Output, today: bundle `development.selftare_ii` = {`stage`, `label`, `status`, `A_selftared`, `reason`, `anchors`, `maps` {per design: `L`, `U`, `L_ref`, `U_ref`, `slope`, `n_sites_mapped`}, `note`}; status `NOT_RUN` with the reason when the file is missing. It runs only behind `--dev-selftare-ii`; it is not yet wired into Stage T, so `tare.A_rel` below is still the median tare of the untared A.
+**Step 2, median tare (`conductor_v3.py: stage_t_tare`):**
+- Inputs: `met_a.A`, `met_a.shift_per_1pct_loss`; references as plain A values (`--slide-ref-A`) or records {A[, id]} (`--slide-ref-table`). A record whose id equals the specimen's id is dropped (`n_self_excluded`).
+- Method, as coded: fewer than 3 references with A → no tare; otherwise A_rel = A ÷ median(reference A); spread = SD (ddof 1) of reference A ÷ median; detection limit = 2 × spread ÷ shift per 1 % loss (null when the shift is missing or ≤ 0). Nothing is fitted.
+**Rules:** no A → `reason` `no A`; fewer than 3 references → `A_rel` null, `reason` `untared: <n> same-run reference arrays (>= 3 required)`. With fewer than 3 references the median step cannot run; DEV-PAIRED-01 (two arrays on one slide) read self-tare II alone (A 1.0437 / 1.0426) and the gauge state was withheld on the noise index.
+**Outputs:** bundle `tare` = {`stage`, `A_rel`, `state`, `method` "median tare (same-run healthy references)", `reference_median`, `n_refs`, `n_self_excluded`, `reference_spread_sd`, `detection_limit_pct_loss`, `detection_note`}.
+**Operator:** with 3–19 references the spread is itself imprecise. A detection limit above the change you need to see means this specimen cannot show it. Self-tare II rests on the fixed-site assumption; the physical control DNA route (fully methylated and fully unmethylated control DNA and a 50 % mix on every slide) stays the check on it.
+**History (kept):** until 2026-10-04 Stage T was the median tare alone (step 2 above; DEV-TARE-02, 2026-10-02). Before 2026-10-02 (`conductor_v3.py:150-199` of the earlier build): with ≥ 20 records with A, N (and f_neu for whole blood) and a noise index for this specimen, a noise-corrected tare, least squares A = a + b f_neu + c N (isolated: A = a + c N) on the references, A_rel = A ÷ prediction, spread = SD of each reference's leave-one-out A ÷ prediction, bundle fields `fit` and `prediction`; removed on 2026-10-02 (DEV-TARE-02).
 
 ### Report (`chain/MethylPhys_Interface/report_v3.py`)
 **Outputs:** `<out>.html`; `<out stem>_bundle.json` unless `--no-bundle`; bundle top level: `build`, `specimen`, `platform`, `array_type`, `scope`, `floors_version`, `reference_version`, [`refusal`], `composition`, `met_a`, `met_a_cscore`, `tare`, `withheld`, [`iam_a`], `intake`, `intake_skipped`, `sample_id`, `covariates`, `run_id`, [`stage1`]. Ledger row (`run_sample.py:506-517`): run_id, engine, sample_id, utc, report, bundle, specimen, platform, array_type, refusal, floors/reference versions, stage0_verdict, call_rate_status, f_neu, A, state, n_sites, shift_per_1pct_loss, past_entropy_ceiling, C, A_rel, tare, n_refs, tare_method, noise_index, detection_limit_pct_loss, iam_a, iam_a_pipeline, covariates.
@@ -231,7 +239,7 @@ The gauge state of every Met-A reading comes from the tare: whole blood always; 
 3. **Stage 0 intake:** verdict (PROCEED / PROCEED_WITH_PENALTY; `not run` for `--betas`, `--no-intake` or sequencing-only), call rate status and value, flags (first 300 characters); a second line with the Stage-1 values recorded beside the record (poobah detection, poobah × bead call rate, controls).
 4. **Stage A composition:** groups ≥ 1 %, highest first; or the refusal reason; isolated: the note.
 5. **Stage M Met-A — neutrophils:** gauge 0.80–1.30 with Normal 0.95–1.05 shaded. Marker = `A_rel` whenever the specimen was tared (label "tared: A_rel …"); untared isolated neutrophils: own-floor A (label "untared: … against the own floor"); untared whole blood: no marker, text "no gauge position until Stage T". Then A with state or reason, fraction, sites, expectation, shift per 1 % loss.
-6. **Stage T same-run tare:** A_rel with state or reason; number of references and their median; detection limit (% loss of the neutrophil pattern) and reference spread; tare method (noise-corrected with a, b, c, number fitted and prediction, or median with the reason); noise index N and the noise sites measured; methylated-site mean β with **"past the entropy ceiling: … read beta, not A"** when flagged.
+6. **Stage T same-run tare:** A_rel with state or reason; number of references and their median; detection limit (% loss of the neutrophil pattern) and reference spread; tare method (median tare); self-tare II (adopted 2026-10-04) appears in the development section while it runs behind `--dev-selftare-ii` (A_selftared, anchors and the map per design); (the noise-corrected method with a, b, c was removed on 2026-10-02, DEV-TARE-02); noise index N and the noise sites measured; methylated-site mean β with **"past the entropy ceiling: … read beta, not A"** when flagged.
 7. **Stage MC Met-A C-score:** C, the healthy held-out range, status.
 8. **Stage Q IAM-A** (when sequencing input was given): gauge, A with state or refusal, pipeline, ε, P, ε₀, halves, opportunities, E in kT.
 9. **Withheld:** tier lines beyond Normal; other cell types.
@@ -264,8 +272,10 @@ What to read: `A_rel` and its state with the detection limit; for untared isolat
 | `only <n> of 6000 neutrophil sites measured (>= 5400 required)` / `only <n> of 6000 identity sites measured` | identity sites missing | low-quality array; re-run |
 | `neutrophil fraction <f> < 0.2: fraction reported, A withheld` | neutrophils < 20 % of the specimen | none; the fraction is the result |
 | `untared: <n> same-run reference arrays (>= 3 required)` | fewer than 3 references | run pass 2 with `--slide-ref-table` or `--slide-ref-A` |
-| `method: median tare: noise not corrected (<20 references)` | fewer than 20 reference records with A, f_neu, N | none for this specimen; for the next run plan ≥ 20 healthy references in the batch |
-| `method: median tare: noise not corrected (this specimen has no noise index)` / `noise_index` null | < 90 % of the 48,528 noise sites measured on the specimen | low-quality array; re-run |
+| history: `method: median tare: noise not corrected (<20 references)` | printed until 2026-10-02, when the noise-corrected tare was removed (DEV-TARE-02) | none |
+| `noise_index` null (until 2026-10-02 also `method: median tare: noise not corrected (this specimen has no noise index)`) | < 90 % of the 48,528 noise sites measured on the specimen | low-quality array; re-run |
+| `development.selftare_ii` status `NOT_RUN`, `dev_selftare_typeII_EPIC_v1.json not found` | the self-tare II file is not in `chain/Runtime Matrices/Development/` | restore the file from the repository |
+| `development.selftare_ii` `maps.<design>` null | this array's anchors for that design are missing or U − L ≤ 0.1 | none: that design is left unmapped; report it with the reading |
 | `give --slide-ref-A or --slide-ref-table, not both` / `--slide-ref-table …: needs a column A` | usage | supply one reference input, with columns A, f_neu, N |
 | `C` null, `no residual map` | A withheld, or < 10 blocks | none |
 | `past_entropy_ceiling: true` | methylated sites average below β 0.5 | read `methylated_sites_mean_beta`; A understates loss |
@@ -308,7 +318,7 @@ Every code path above was run on synthetic β vectors, synthetic .pat files and 
 ## 9. Pending changes (not yet in the code)
 
 1. A gate on the noise index N (proposed: state withheld when N is above the floor arrays' range, 0.122–0.149, unless noise-corrected); N is recorded, not gated.
-2. A held-out laboratory with ≥ 20 healthy references to measure the noise-corrected tare (its coefficients were fitted after looking, DEV-NOISE-02).
+2. A held-out laboratory with ≥ 20 healthy references to measure the noise-corrected tare (its coefficients were fitted after looking, DEV-NOISE-02). History: the noise-corrected tare was removed on 2026-10-02 (DEV-TARE-02); Stage T is self-tare II then the median tare since 2026-10-04.
 3. Fraction-dependent precision rule: report A only where the shift at the specimen's own fraction is ≥ 2 × the healthy spread, in place of the fixed 0.20 line.
 4. Bisulfite-conversion threshold calibrated at intake (`BS_THRESHOLD_CALIBRATED` set from healthy arrays).
 5. Intake detection statistic: one statistic for the gate and the thresholds file (the gate uses p ≤ 0.01 against the negative-control background; `intake_thresholds_v1.json` provenance and the Stage-1 record use poobah p ≤ 0.05).
@@ -316,3 +326,4 @@ Every code path above was run on synthetic β vectors, synthetic .pat files and 
 7. Molecule-assignment IAM-A (per-molecule cell assignment before the copy-error count).
 8. IAM-A C-score (per-region copy-error map against the floor).
 9. 450K neutrophil floor (purified 450K neutrophils, GSE88824), with donor sex stated.
+10. Self-tare II wired into Stage T (`conductor_v3.py: stage_t_tare`), so that A_rel is the median tare of the self-tared A; today it runs behind `--dev-selftare-ii` (adopted 2026-10-04; DEV-SELFTARE-02; DEV-PAIRED-01).
