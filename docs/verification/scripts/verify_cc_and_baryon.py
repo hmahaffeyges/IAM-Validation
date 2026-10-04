@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Recomputes every number in the G4 papers (CC as Actualized Vacuum Energy; Matter-Antimatter Asymmetry; Baryon Asymmetry
 as a Derived Quantity; 18th-chain record) and runs the no-free-factor accumulation test. CODATA via scipy.constants.
-Chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted. numpy, scipy, pandas."""
+Chains: Cosmological_Physics/mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted. numpy, scipy, pandas."""
 import numpy as np, pandas as pd, scipy.constants as C, os
 from scipy.integrate import quad
 hbar,c,G,k=C.hbar,C.c,C.G,C.k; Mpc=3.0857e22; Msun=1.98847e30
 lP=np.sqrt(hbar*G/c**3); EP=np.sqrt(hbar*c**5/G)
 def chain(stem):
-    f=f"mgcamb_validation/chains/{stem}.1.txt"; cols=open(f).readline().lstrip("#").split()
+    f=f"Cosmological_Physics/mgcamb_validation/chains/{stem}.1.txt"; cols=open(f).readline().lstrip("#").split()
     X=pd.read_csv(f,sep=r"\s+",comment="#",names=cols); return X.iloc[int(0.3*len(X)):]
 def ms(v,w): m=np.average(v,weights=w); return m,np.sqrt(np.average((v-m)**2,weights=w))
 print("1. Planck 2018 inputs (paper): H0 67.4, Ob 0.0493, Om 0.3153, OL 0.6846")

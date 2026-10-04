@@ -1,16 +1,16 @@
 """Part 2, Chapters 'The matter ledger of the horizon' (p2_04_dualsector_chains.tex) and 'Why matter and light are in different sectors'
 (p2_05_dual_sector_note.tex).
 fig_two_hubble: H0 for the photon sector (Level 2 Run A posterior) and the matter sector (x sqrt(1 + beta_m)), against Planck 2018 and SH0ES.
-fig_sigma8_shift: sigma8 and H0 per data combination, LambdaCDM against the fixed coupling (mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv).
+fig_sigma8_shift: sigma8 and H0 per data combination, LambdaCDM against the fixed coupling (Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv).
 fig_mu0_constraints: the growth amplitude mu0: published constraints as quoted in p2_07, the book's Level 1 free-mu0 posteriors
-(median and 90 % interval, chains in mgcamb_validation/chains; the prior ends at +0.2), and the prediction (survey forecasts: fig_p2_euclid_forecast.py, Section sec:sp_euclid)."""
+(median and 90 % interval, chains in Cosmological_Physics/mgcamb_validation/chains; the prior ends at +0.2), and the prediction (survey forecasts: fig_p2_euclid_forecast.py, Section sec:sp_euclid)."""
 import sys, pathlib; sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import numpy as np, csv
 import _bookstyle as S, _chains as CH
 import matplotlib.pyplot as plt
 
 bm = 0.15765
-rows = {r["chain"]: r for r in csv.DictReader(open(S.REPO / "mgcamb_validation" / "CHAIN_EXTRACTION_FINAL.csv"))}
+rows = {r["chain"]: r for r in csv.DictReader(open(S.REPO / "Cosmological_Physics/mgcamb_validation" / "CHAIN_EXTRACTION_FINAL.csv"))}
 H0g, H0g_sd = float(rows["iam_level2_runA"]["H0"]), float(rows["iam_level2_runA"]["H0_sd"])
 H0m, H0m_sd = H0g * np.sqrt(1 + bm), H0g_sd * np.sqrt(1 + bm)
 planck, shoes = (67.36, 0.54), (73.04, 1.04)

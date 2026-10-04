@@ -99,9 +99,9 @@ def direct_refs(line):
         r = v if (REPO / v).is_file() else resolve(v.split("/")[-1])
         d.append(r if r else v + " (not in repository)")
     if re.search(r"\bCH\.(L1|MG)\b", line):
-        d.append("Level 1 chains, mgcamb_validation/chains (via _chains.py)")
+        d.append("Level 1 chains, Cosmological_Physics/mgcamb_validation/chains (via _chains.py)")
     if re.search(r"\bCH\.L2\b", line):
-        d.append("Level 2 chains, camb_validation/chains (via _chains.py)")
+        d.append("Level 2 chains, Cosmological_Physics/camb_validation/chains (via _chains.py)")
     if re.search(r"\bK\.\w+", line):
         d.append("_cosmo.py (linear growth, no data file)")
     if "iam_canon" in line:

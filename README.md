@@ -40,8 +40,11 @@ every number in the book is recomputed by a script in this repository. The invit
 | Every constant and name, defined once | [`CANON/GLOSSARY.md`](CANON/GLOSSARY.md) (generated from `CANON/iam_canon.json`; `python3 CANON/canon_check.py`) |
 | Every prediction, with its test and status | the book's predictions chapter and register appendix; source list [`CANON/predictions_register.csv`](CANON/predictions_register.csv) |
 | Recomputation scripts for the book's numbers | [`docs/verification/scripts/`](docs/verification/scripts/) |
-| Cosmology chains | [`mgcamb_validation/`](mgcamb_validation/) (Level 1), [`camb_validation/`](camb_validation/) (Level 2) |
-| The cell instrument (chain v3, in development) | [`Biological_Physics/MethylPhys/`](Biological_Physics/MethylPhys/) — SOP, operations manual, toolkit, development records in `doors/` |
+| Check every derivation in the book | [`docs/book/verify_book.py`](docs/book/verify_book.py): `python3 docs/book/verify_book.py` (results and inventory in [`docs/book/verification/`](docs/book/verification/)) |
+| Cosmology and gravitation | [`Cosmological_Physics/`](Cosmological_Physics/) — Level 1 and Level 2 chains, data, early tests |
+| Cellular physics | [`Biological_Physics/`](Biological_Physics/) — the cell instrument (chain v3, in development): SOP, operations manual, toolkit |
+| Quantum and particle physics | [`Quantum_and_Particle_Physics/`](Quantum_and_Particle_Physics/) — the scripts behind Parts IV and V |
+| Development logs | [`development/`](development/) — every development finding, one running log per project |
 
 ## Results, with their status
 
@@ -72,7 +75,7 @@ repository, because the book corrects and supersedes them. Every correction, wit
 
 ## Reproduce
 
-**Check the book's derivations in one command:** `python3 verify_book.py` runs every derivation and calculated number the script covers, in the book's order, each with PASS/FAIL and its equation label (`--part N`, `--label L`, `--fails`, `--json`). Today: 2,927 pass, 0 fail; 601 of those read committed chain outputs; 3,407 items are listed in `VERIFY_BOOK_INVENTORY.md` as not yet run, each with the reason.
+**Check the book's derivations in one command:** `python3 docs/book/verify_book.py` runs every derivation and calculated number the script covers, in the book's order, each with PASS/FAIL and its equation label (`--part N`, `--label L`, `--fails`, `--json`). Today: 2,927 pass, 0 fail; 601 of those read committed chain outputs; 3,407 items are listed in `VERIFY_BOOK_INVENTORY.md` as not yet run, each with the reason.
 
 **Development logs:** every development finding, good or bad, is logged as it happens in [`development/`](development/), one running log per project (Met-A, IAM-A and C-scores; wild versus hatchery fish). The book carries results once the chain that produced them is commissioned.
 

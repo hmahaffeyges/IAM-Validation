@@ -76,7 +76,7 @@ H. Growth (linear, Planck 2018 background, same early amplitude, Level 1 mu*G fo
    z = 1.000: 1-mu =  1.78 %   f sigma8 deficit =  0.41 %   E_G change f_L/f_I - 1 = +0.35 %
    z = 1.491: 1-mu =  0.63 %   f sigma8 deficit =  0.13 %   E_G change f_L/f_I - 1 = +0.12 %
 
-I. Chains (mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv)
+I. Chains (Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv)
    number of chains in the record: 18  (levels: L1, L2, L2b, baryon)
    iam_level2_runA        sigma8 0.7998+/-0.0058  H0 67.16+/-0.47  Om 0.3166+/-0.0065  S8 0.822+/-0.011  chi2min 10972.612  R-1 0.009949
    iam_level2_runD        sigma8 0.7995+/-0.0058  H0 67.19+/-0.46  Om 0.3162+/-0.0064  S8 0.821+/-0.011  chi2min 10979.427  R-1 0.007981

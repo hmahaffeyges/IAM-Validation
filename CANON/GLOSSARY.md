@@ -20,7 +20,7 @@ This file is the single source of truth for constants and names. To change a val
 | phi | 0.1628 | fraction of one ATP per held bit | E_hold_meth / M_cell — PROC-CHANNEL-01 |
 | eps0_meth | 0.032 | error per methylated site per copy | 1/(1+exp(phi*M_cell)) with phi*M_cell = E_hold_meth = 3.41 kT MEASURED from cells' copy error: the form is physics (Boltzmann), the height is measured — PROC-CHANNEL-01; a physics-only height (DNMT1 discrimination energy or derived phi) is open |
 | Normal_band | [0.95, 1.05] | A |  — healthy is A = 1 within 5 % |
-| beta_m | 0.15765 | dimensionless | beta_m = Omega_m/2 with Omega_m = 0.3153 (Planck 2018 TT,TE,EE+lowE+lensing best fit, Aghanim et al. 2020 Table 2); value used in every Level 2 chain — camb_validation/equations_iam_level2.f90; IAM's Law paper (cosmological expression) |
+| beta_m | 0.15765 | dimensionless | beta_m = Omega_m/2 with Omega_m = 0.3153 (Planck 2018 TT,TE,EE+lowE+lensing best fit, Aghanim et al. 2020 Table 2); value used in every Level 2 chain — Cosmological_Physics/camb_validation/equations_iam_level2.f90; IAM's Law paper (cosmological expression) |
 | E_of_a | exp(1 - 1/a) | activation function |  — IAM's Law paper |
 | Met_A_floor_EPIC_neutrophil | 0.330263 | bits (mean per-site H(beta)) | mean over 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554; GSE167998 re-deposits the same 6 arrays) of the mean H(beta) over 6000 identity sites, our Stage 1 — chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json (frozen 2026-10-01); held-out precision (sites re-chosen on the other 5 arrays): SD 0.020, 0.983-1.045 (metA_floors_v1_3_loo.csv) |
 | Met_A_floor_450K_neutrophil | None | bits | pending: v1.2 rebuild from purified 450K neutrophils (GSE88824, 8 donors) — to be frozen |

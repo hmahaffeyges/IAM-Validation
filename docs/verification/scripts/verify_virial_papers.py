@@ -6,7 +6,7 @@ Gravitational Decoherence, the Virial Partition and the Emergence of Classical S
 Thermodynamics (quantum level).
 Chapters: part1/p1_03_virial_law.tex, part1/p1_04_virial_identity.tex, part2/p2_02_virial.tex, part2/p2_02b_virial_tests.tex,
 part5/p5_05_gravdec.tex, part5/p5_05b_virial_partners.tex, part5/p5_05c_virial_decoherence.tex.
-CODATA 2018 via scipy.constants. Planck 2018: Omega_m = 0.3153, H0 = 67.36; Level 2 chains from mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv.
+CODATA 2018 via scipy.constants. Planck 2018: Omega_m = 0.3153, H0 = 67.36; Level 2 chains from Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv.
 Run from the repository root:  python docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
 """
 import csv, pathlib
@@ -133,8 +133,8 @@ for z in (0.0, 0.295, 0.3, 0.5, 1.0, 1.491):
     a = 1/(1+z); r = f(Ig, a)*D(Ig, a)/(f(Lg, a)*D(Lg, a))
     print(f"   z = {z:5.3f}: 1-mu = {100*(1-mu(a)):5.2f} %   f sigma8 deficit = {100*(1-r):5.2f} %   E_G change f_L/f_I - 1 = {100*(f(Lg,a)/f(Ig,a)-1):+5.2f} %")
 
-hdr("I. Chains (mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv)")
-ch = {r["chain"]: r for r in csv.DictReader(open(REPO/"mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv"))}
+hdr("I. Chains (Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv)")
+ch = {r["chain"]: r for r in csv.DictReader(open(REPO/"Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv"))}
 print(f"   number of chains in the record: {len(ch)}  (levels: " + ", ".join(sorted({r['level'] for r in ch.values()})) + ")")
 for nm in ("iam_level2_runA", "iam_level2_runD", "iam_level2_runC_lcdm", "iam_l2b_runA", "iam_l2b_runD"):
     r = ch[nm]

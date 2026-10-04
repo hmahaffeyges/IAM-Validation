@@ -64,7 +64,7 @@ All Delta-chi2 values are below 3.84 (95% CL threshold). The sigma_8 shift of -0
 
 **MGCAMB Boltzmann diagnostics: 7/7 tests passed** (CMB TT < 0.17%, lensing +0.30%, sigma_8 = 0.795, Sigma = 1 exact, P(k) scale-independent, f*sigma_8 consistent).
 
-**Full reproducibility** -- chains, YAML configs, GetDist scripts, Boltzmann diagnostic script, forecast analyses: [`mgcamb_validation/`](mgcamb_validation/)
+**Full reproducibility** -- chains, YAML configs, GetDist scripts, Boltzmann diagnostic script, forecast analyses: [`Cosmological_Physics/mgcamb_validation/`](Cosmological_Physics/mgcamb_validation/)
 
 ---
 
@@ -244,7 +244,7 @@ All 9 figures generated successfully!
 ```
 IAM-Validation/
 ├── README.md                                  # This file
-├── mgcamb_validation/                         # *** PRIMARY VALIDATION DIRECTORY ***
+├── Cosmological_Physics/mgcamb_validation/                         # *** PRIMARY VALIDATION DIRECTORY ***
 │   ├── README.md                              # Detailed MGCAMB documentation
 │   ├── iam_mu_sigma.py                        # 7/7 Boltzmann diagnostic tests (reproduces 6-panel figure)
 │   ├── chains/                                # Raw MCMC chain files (Runs A–L complete)
@@ -260,7 +260,7 @@ IAM-Validation/
 └── data/                                      # Observational datasets
 ```
 
-**For referees:** Start with [`mgcamb_validation/`](mgcamb_validation/) — it contains everything needed to reproduce the MCMC results, Boltzmann diagnostics, and forecasts.
+**For referees:** Start with [`Cosmological_Physics/mgcamb_validation/`](Cosmological_Physics/mgcamb_validation/) — it contains everything needed to reproduce the MCMC results, Boltzmann diagnostics, and forecasts.
 
 ---
 
@@ -407,7 +407,7 @@ Sigma(a) = 1 (standard photon deflection)
 | 1.0 | 0.982 | Near-GR |
 | 3.0 | 0.9998 | Recovers LambdaCDM |
 
-**Key signature:** mu < 1 with Sigma = 1 means matter feels weaker gravity while photon deflection is standard. This has been validated through MGCAMB (7/7 Boltzmann tests passed) and tested against Planck via full MCMC (6 chains across 2 dataset combinations, Delta-chi2 = +1.43 and +1.34 vs LCDM, statistically indistinguishable). The signature uniquely distinguishes IAM from generic modified gravity theories and is directly testable by Euclid at 3.4 sigma. See the [IAM--CAMB Technical Note](docs/IAM_CAMB_Technical_Note.pdf) for complete results and [`mgcamb_validation/chains/`](mgcamb_validation/chains/) for raw MCMC chain data.
+**Key signature:** mu < 1 with Sigma = 1 means matter feels weaker gravity while photon deflection is standard. This has been validated through MGCAMB (7/7 Boltzmann tests passed) and tested against Planck via full MCMC (6 chains across 2 dataset combinations, Delta-chi2 = +1.43 and +1.34 vs LCDM, statistically indistinguishable). The signature uniquely distinguishes IAM from generic modified gravity theories and is directly testable by Euclid at 3.4 sigma. See the [IAM--CAMB Technical Note](docs/IAM_CAMB_Technical_Note.pdf) for complete results and [`Cosmological_Physics/mgcamb_validation/chains/`](Cosmological_Physics/mgcamb_validation/chains/) for raw MCMC chain data.
 
 ---
 
@@ -525,13 +525,13 @@ Three independent tests using Pantheon+ data demonstrate that Type Ia supernovae
 
 IAM's mu < 1, Sigma = 1 prediction has been validated at the perturbation level through the MGCAMB modified Einstein-Boltzmann solver (v1.5.2; Wang et al. 2023) and twelve independent Planck MCMC chains via Cobaya across four dataset combinations. All results are documented in the **[IAM--CAMB Technical Note: Planck Level-1 Validation](docs/IAM_CAMB_Technical_Note.pdf)**.
 
-**Full reproducibility package:** [`mgcamb_validation/`](mgcamb_validation/)
+**Full reproducibility package:** [`Cosmological_Physics/mgcamb_validation/`](Cosmological_Physics/mgcamb_validation/)
 
-- **[Raw MCMC chains](mgcamb_validation/chains/)** -- complete chain data for all 12 runs (Runs A/B/C: Planck only; Runs D/E/F: Planck + RSD; Runs G/H/I: Planck + BAO; Runs J/K/L: Planck + Pantheon+), independently verifiable via GetDist
-- **[Cobaya YAML configs](mgcamb_validation/yaml_configs/)** -- exact configuration files to re-run all 12 chains from scratch
-- **[GetDist extraction scripts](mgcamb_validation/getdist_scripts/)** -- reproduce every posterior table and Delta-chi2 comparison in the Technical Note
-- **[Forecast analyses](mgcamb_validation/forecasts/)** -- Fisher forecast, ISW prediction, binned mu(z) reconstruction, transition zone analysis
-- **[7/7 Boltzmann diagnostic script](mgcamb_validation/iam_mu_sigma.py)** -- MGCAMB validation code reproducing all 7 diagnostic tests and 6-panel figure
+- **[Raw MCMC chains](Cosmological_Physics/mgcamb_validation/chains/)** -- complete chain data for all 12 runs (Runs A/B/C: Planck only; Runs D/E/F: Planck + RSD; Runs G/H/I: Planck + BAO; Runs J/K/L: Planck + Pantheon+), independently verifiable via GetDist
+- **[Cobaya YAML configs](Cosmological_Physics/mgcamb_validation/yaml_configs/)** -- exact configuration files to re-run all 12 chains from scratch
+- **[GetDist extraction scripts](Cosmological_Physics/mgcamb_validation/getdist_scripts/)** -- reproduce every posterior table and Delta-chi2 comparison in the Technical Note
+- **[Forecast analyses](Cosmological_Physics/mgcamb_validation/forecasts/)** -- Fisher forecast, ISW prediction, binned mu(z) reconstruction, transition zone analysis
+- **[7/7 Boltzmann diagnostic script](Cosmological_Physics/mgcamb_validation/iam_mu_sigma.py)** -- MGCAMB validation code reproducing all 7 diagnostic tests and 6-panel figure
 
 **MGCAMB Diagnostic Results (7/7 tests PASSED):**
 
@@ -587,8 +587,8 @@ The MCMC chains above (Runs A–L) test IAM's perturbation-level μ–Σ signatu
 
 **Important distinction:** This is a phenomenological consistency test using a lightweight growth ODE and Hu & Sugiyama fitting formulae, not a full Boltzmann MCMC. It does not replace the Planck likelihood analysis but extends it to probes the MCMC chains do not cover (local H₀ measurements, cosmic chronometers, weak lensing S₈, multi-survey BAO). All Planck 2018 parameters are held fixed; the only model input is β = Ω_m/2. Zero free parameters are fitted to the data.
 
-**Script:** [`mgcamb_validation/iam_dual_sector_combined.py`](mgcamb_validation/iam_dual_sector_combined.py)
-**Figure:** [`mgcamb_validation/iam_dual_sector_combined.pdf`](mgcamb_validation/iam_dual_sector_combined.pdf) (9-panel diagnostic figure)
+**Script:** [`Cosmological_Physics/mgcamb_validation/iam_dual_sector_combined.py`](Cosmological_Physics/mgcamb_validation/iam_dual_sector_combined.py)
+**Figure:** [`Cosmological_Physics/mgcamb_validation/iam_dual_sector_combined.pdf`](Cosmological_Physics/mgcamb_validation/iam_dual_sector_combined.pdf) (9-panel diagnostic figure)
 
 ### Framework
 
@@ -718,7 +718,7 @@ This repository presents the final validated framework. Complete development his
 - **Test 30:** Final synthesis (consolidated validation)
 - **Current:** 9 tests in `iam_validation.py` with full MCMC analysis
 - **MGCAMB:** Full Boltzmann validation via modified Einstein-Boltzmann solver (7/7 tests passed)
-- **Planck MCMC:** 12 independent chains across 4 dataset combinations (Planck only: Runs A/B/C; Planck + RSD: Runs D/E/F; Planck + BAO: Runs G/H/I; Planck + Pantheon+: Runs J/K/L) -- IAM compatible with Planck across all datasets (Delta-chi2 = +1.43 to +2.32, all below exclusion threshold). Raw chain data: [`mgcamb_validation/chains/`](mgcamb_validation/chains/)
+- **Planck MCMC:** 12 independent chains across 4 dataset combinations (Planck only: Runs A/B/C; Planck + RSD: Runs D/E/F; Planck + BAO: Runs G/H/I; Planck + Pantheon+: Runs J/K/L) -- IAM compatible with Planck across all datasets (Delta-chi2 = +1.43 to +2.32, all below exclusion threshold). Raw chain data: [`Cosmological_Physics/mgcamb_validation/chains/`](Cosmological_Physics/mgcamb_validation/chains/)
 - **Level 2:** Background-modified CAMB (dual-sector Friedmann equation via modified equations.f90) -- quicktest passed (sigma_8 = 0.801), full chains in progress
 
 **Main validation consolidated into `iam_validation.py` for clarity and reproducibility.**

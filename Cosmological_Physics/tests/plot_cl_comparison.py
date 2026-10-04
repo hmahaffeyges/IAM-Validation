@@ -32,8 +32,8 @@ import sys
 # PATHS — adjust if your repo is elsewhere
 # =============================================================================
 REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
-CHAIN_DIR_L2  = os.path.join(REPO_ROOT, "camb_validation", "chains")
-CHAIN_DIR_MG  = os.path.join(REPO_ROOT, "mgcamb_validation", "chains")
+CHAIN_DIR_L2  = os.path.join(REPO_ROOT, "Cosmological_Physics/camb_validation", "chains")
+CHAIN_DIR_MG  = os.path.join(REPO_ROOT, "Cosmological_Physics/mgcamb_validation", "chains")
 FIG_DIR       = os.path.join(REPO_ROOT, "figures")
 os.makedirs(FIG_DIR, exist_ok=True)
 

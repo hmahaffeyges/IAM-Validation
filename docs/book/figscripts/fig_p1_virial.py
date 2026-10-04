@@ -2,7 +2,7 @@
 fig_virial_domains: the virial share that the 1/r theorem fixes at 1/2, by system size: hydrogen (<K>/|<V>|, exact),
 Hartree-Fock atoms and molecules (1/2 by construction), simulated halos (published 2K/|W| = 1.1-1.3, 1.02-1.17 with surface pressure,
 plotted as K/|W|), Schwarzschild horizons (T_H S/(M c^2), computed), cosmic horizon (beta_m/Omega_m: the fixed coupling over the
-Level 2 Run A posterior Omega_m, mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv).
+Level 2 Run A posterior Omega_m, Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv).
 fig_binding_ledger: (a) hydrogen captured from rest; (b) the Sun's contraction (Kelvin-Helmholtz) time against its age.
 Numbers as docs/verification/scripts/verify_virial_atoms_to_horizon.py."""
 import sys, pathlib; sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
@@ -20,7 +20,7 @@ bhs = []
 for m in (1.0, 10.0, 1e6, 4.3e6, 1e9, 6.5e9):
     M = m * Msun; T = hbar * c**3 / (8 * np.pi * G * M * k); Sbh = k * 4 * np.pi * G * M**2 / (hbar * c)
     bhs.append((2 * G * M / c**2, T * Sbh / (M * c**2)))
-rowsC = {r["chain"]: r for r in csv.DictReader(open(S.REPO / "mgcamb_validation" / "CHAIN_EXTRACTION_FINAL.csv"))}
+rowsC = {r["chain"]: r for r in csv.DictReader(open(S.REPO / "Cosmological_Physics/mgcamb_validation" / "CHAIN_EXTRACTION_FINAL.csv"))}
 Om_A, Om_A_sd = float(rowsC["iam_level2_runA"]["omegam"]), float(rowsC["iam_level2_runA"]["omegam_sd"])
 bm = 0.15765; r_cos = bm / Om_A; r_cos_sd = bm * Om_A_sd / Om_A**2
 R_H = c / (67.36e3 / 3.0857e22)

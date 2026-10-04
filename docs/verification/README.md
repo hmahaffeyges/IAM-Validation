@@ -31,7 +31,7 @@ those chapters rely on. A paper is listed only after it has been read in full. T
 | `scripts/` | `verify_theory_paper.py` (+ output) | Theory Paper | Reruns every number in `theory/` in about 2 s (numpy, scipy, sympy); growth suppression shown for all three implementations |
 
 ## Related records elsewhere in the repository
-- Chain numbers: `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv` and `CHAIN_PAIRS_FINAL.csv`, one documented extraction of all 18 final chain files (30 % burn-in). Every Δχ², σ8 and µ0 in the book comes from these.
+- Chain numbers: `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv` and `CHAIN_PAIRS_FINAL.csv`, one documented extraction of all 18 final chain files (30 % burn-in). Every Δχ², σ8 and µ0 in the book comes from these.
 - Derivation test suite: `tests/iam_derivation_tests.py`.
 
 ## Conventions

@@ -1,5 +1,5 @@
 """Read the repository's Cobaya chains with the book's convention: 30 % burn-in per file, weighted statistics
-(same as mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv and docs/verification/scripts/verify_cc_and_baryon.py)."""
+(same as Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv and docs/verification/scripts/verify_cc_and_baryon.py)."""
 import numpy as np, pandas as pd
 from _bookstyle import REPO
 
@@ -25,7 +25,7 @@ def wquant(v, w, q):
     return np.interp(q, cw, v)
 
 
-MG = "mgcamb_validation/chains/"
+MG = "Cosmological_Physics/mgcamb_validation/chains/"
 L1 = {  # data combination: (LambdaCDM, IAM fixed, mu0 free) file lists
     "Planck": ([MG + "lcdm_baseline.1.txt"], [MG + f"iam_fixed_mu0_r2.{i}.txt" for i in range(1, 5)],
                [MG + f"iam_float_mu0_r2.{i}.txt" for i in range(1, 5)]),
@@ -33,4 +33,4 @@ L1 = {  # data combination: (LambdaCDM, IAM fixed, mu0 free) file lists
     "Planck + BAO": ([MG + "planck_bao_lcdm_baseline.1.txt"], [MG + "planck_bao_iam_fixed.1.txt"], [MG + "planck_bao_mu0_float.1.txt"]),
     "Planck + Pantheon+": ([MG + "planck_pantheon_lcdm_baseline.1.txt"], [MG + "planck_pantheon_iam_fixed.1.txt"], [MG + "planck_pantheon_mu0_float.1.txt"]),
 }
-L2 = {"A": ["camb_validation/chains/iam_level2_runA.1.txt"], "C": ["camb_validation/chains/iam_level2_runC_lcdm.1.txt"]}
+L2 = {"A": ["Cosmological_Physics/camb_validation/chains/iam_level2_runA.1.txt"], "C": ["Cosmological_Physics/camb_validation/chains/iam_level2_runC_lcdm.1.txt"]}

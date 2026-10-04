@@ -1,15 +1,15 @@
 """Part 2, Chapter 'The mechanism in the Boltzmann code' (p2_06_dual_sector_perturbation.tex).
 fig_sector_rates: H(z) for photons (LambdaCDM background) and H_m(z) for matter, H_m^2 = H^2 + beta_m E(a) H0^2, at the Run A posterior
-(H0 = 67.161, Omega_m = 0.3166; mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv); (b) their ratio.
+(H0 = 67.161, Omega_m = 0.3166; Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv); (b) their ratio.
 fig_param_shifts: parameter shifts Run A (informational term) minus Run C (LambdaCDM, same code), in units of Run C's posterior sd,
-from camb_validation/chains (30 % burn-in, weighted)."""
+from Cosmological_Physics/camb_validation/chains (30 % burn-in, weighted)."""
 import sys, pathlib; sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import numpy as np, csv
 import _bookstyle as S, _chains as CH
 import matplotlib.pyplot as plt
 
 bm = 0.15765
-rows = {r["chain"]: r for r in csv.DictReader(open(S.REPO / "mgcamb_validation" / "CHAIN_EXTRACTION_FINAL.csv"))}
+rows = {r["chain"]: r for r in csv.DictReader(open(S.REPO / "Cosmological_Physics/mgcamb_validation" / "CHAIN_EXTRACTION_FINAL.csv"))}
 H0, Om = float(rows["iam_level2_runA"]["H0"]), float(rows["iam_level2_runA"]["omegam"])
 H = lambda z: H0 * np.sqrt(Om * (1 + z)**3 + 1 - Om)
 Hm = lambda z: np.sqrt(H(z)**2 + bm * np.exp(-z) * H0**2)

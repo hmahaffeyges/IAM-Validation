@@ -97,7 +97,7 @@
    "value": 0.15765,
    "units": "dimensionless",
    "derivation": "beta_m = Omega_m/2 with Omega_m = 0.3153 (Planck 2018 TT,TE,EE+lowE+lensing 68 % limits, Aghanim et al. 2020 Table 2; the best fit is 0.3158); value used in every Level 2 chain",
-   "source": "camb_validation/equations_iam_level2.f90; IAM's Law paper (cosmological expression)",
+   "source": "Cosmological_Physics/camb_validation/equations_iam_level2.f90; IAM's Law paper (cosmological expression)",
    "accept": [
     0.1575
    ]
@@ -299,8 +299,8 @@
   "skip_dirs": [
    "RETIRED_2026-09",
    "Record",
-   "camb_validation/chains",
-   "mgcamb_validation/chains",
+   "Cosmological_Physics/camb_validation/chains",
+   "Cosmological_Physics/mgcamb_validation/chains",
    ".git",
    "data",
    "results",

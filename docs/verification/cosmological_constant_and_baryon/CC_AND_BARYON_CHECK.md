@@ -1,7 +1,7 @@
 # Cosmological constant derivation — recomputation (2026-10-01)
 
 Source: docs/papers/latex/iam_cosmological_constant/iam_cosmological_constant.tex. Parameters from the 18th chain
-(mgcamb_validation/chains/iam_baryon_test.1.txt, BBN prior on Ω_b h² removed, 30 % burn-in, 14,957 weighted rows).
+(Cosmological_Physics/mgcamb_validation/chains/iam_baryon_test.1.txt, BBN prior on Ω_b h² removed, 30 % burn-in, 14,957 weighted rows).
 
 ## The 18th chain (CMB only, no BBN prior)
 | | posterior |

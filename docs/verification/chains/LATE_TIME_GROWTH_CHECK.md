@@ -1,6 +1,6 @@
 # LATE_TIME_GROWTH_CHECK — "Constraints on Late-Time fσ8 Suppression from µ < 1, Σ = 1" (19 Feb 2026, 13 pp), read in full 2026-10-02; re-confirmed in 50-line chunks (PDF text 567 lines, ledger complete, no gaps)
 
-Chapter: `docs/book/part2_drafts/p2_late_time_growth.tex` (the paper carried in its order). Chain numbers: `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`
+Chapter: `docs/book/part2_drafts/p2_late_time_growth.tex` (the paper carried in its order). Chain numbers: `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`
 and `CHAIN_PAIRS_FINAL.csv` (final files, 30 % burn-in; all final R − 1 ≤ 0.0099).
 
 ## Reproduced
