@@ -1,6 +1,6 @@
 # Task: build the website for the book "IAM's Law and Order"
 
-**Who runs this:** a Claude Code cloud session on this repository, started by the author.
+**Who runs this:** a Claude Code cloud session on this repository, started by the author. Do `docs/tasks/VERIFY_BOOK_COMPLETE.md` first.
 **How to deliver:** work on a new branch `website`, commit there, and open ONE pull request against `main`.
 Do not push to `main`. Do not edit anything under `docs/book/` except adding build files (LaTeXML bindings) if needed.
 The book's text, numbers and figures are final and owned by the author; the website only presents them.
