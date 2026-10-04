@@ -52,8 +52,8 @@ offered as a new way to predict stars; it reproduces what astronomy already know
 read by one instrument. The predictive novelty is on the biological side, where no such gauge existed before. \interp
 
 \begin{figure}[htbp]\centering\includegraphics[width=\textwidth]{figures/part7/one_gauge.pdf}
-\caption{One gauge for every score. $A=1$ is the healthy reading of that same system (green); $H_{\min}$ (grey line) is the lowest error it can hold
-before thermal kicks win, and nothing reads below it (grey zone). Cell: neutrophil IAM-A (healthy granulocytes from three donors at 1), $H_{\min}=H(\varepsilon_0)$ at $1/P_{\rm cell}=0.910$, Normal
+\caption{One gauge for every score. $A=1$ is the healthy reading of that same system (green); $H_{\min}$ (gray line) is the lowest error it can hold
+before thermal kicks win, and nothing reads below it (gray zone). Cell: neutrophil IAM-A (healthy granulocytes from three donors at 1), $H_{\min}=H(\varepsilon_0)$ at $1/P_{\rm cell}=0.910$, Normal
 band 0.95--1.05; breach to be measured; surface full at 4.45. Qubit: a transmon at 5\,GHz and its own 35\,mK~\cite{Jin2015}, $T_1=68\,\mu$s~\cite{GoogleWillow2025}, an
 illustrative 40\,ns gate and two-qubit error $10^{-3}$, against its thermal floor $p_{\rm eq}t_g/T_1=6.2\times10^{-7}$ (at $6.2\times10^{-4}$); error correction fails near
 $p=1\,\%$. Chip: AMD Ryzen 9 9950X (170\,W, $(20.0\text{--}20.6)\times10^9$ transistors, 4.3\,GHz, $T_j=75\,^\circ$C) against the Landauer floor.
@@ -107,7 +107,7 @@ The commissioned cell is the neutrophil. Other cells are added one at a time aft
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.8\textwidth]{figures/part7/fig_imr90_channels.pdf}
-\caption{Met-A ranges per channel for IMR90 lung fibroblasts (WGBS, GSE48580), each culture read against the proliferating cultures. Senescent cultures hold the methylated channel near 1 and clean the unmethylated channel (0.685--0.695); SV40-immortalised cultures carry more error on the methylated channel (1.077--1.120) and less on the unmethylated one (0.587--0.664), and the combined reading (0.965--0.975) hides both. Grey: Normal, 0.95--1.05. \measured}\label{fig:imr90_channels}
+\caption{Met-A ranges per channel for IMR90 lung fibroblasts (WGBS, GSE48580), each culture read against the proliferating cultures. Senescent cultures hold the methylated channel near 1 and clean the unmethylated channel (0.685--0.695); SV40-immortalized cultures carry more error on the methylated channel (1.077--1.120) and less on the unmethylated one (0.587--0.664), and the combined reading (0.965--0.975) hides both. Gray: Normal, 0.95--1.05. \measured}\label{fig:imr90_channels}
 \end{figure}
 Methylated and unmethylated identity sites can err in opposite directions at once, so $A$ is reported per channel. IMR90 lung fibroblasts (WGBS, GSE48580~\cite{Cruickshanks2013}), each culture read against
 the proliferating cultures, with sites chosen on one proliferating culture and the reference taken from another:
@@ -115,9 +115,9 @@ the proliferating cultures, with sites chosen on one proliferating culture and t
 IMR90 & methylated channel & unmethylated channel & both\\\midrule
 proliferating (held out) & 0.991--1.005 & 0.991--1.016 & 0.997--1.002\\
 senescent & 0.941--1.016 & 0.685--0.695 & 0.874--0.925\\
-SV40-immortalised & 1.077--1.120 & 0.587--0.664 & 0.965--0.975\\\bottomrule
+SV40-immortalized & 1.077--1.120 & 0.587--0.664 & 0.965--0.975\\\bottomrule
 \end{tabular}\end{center}
-Senescent cells hold the methylated channel at the healthy rate and clean the unmethylated channel. Immortalised cells carry more error on the
+Senescent cells hold the methylated channel at the healthy rate and clean the unmethylated channel. Immortalized cells carry more error on the
 methylated channel and less on the unmethylated one; the two cancel, and the reading over both channels sits inside Normal. Channels are
 reported apart.
 
@@ -130,7 +130,7 @@ intended state & the cell's identity pattern & the cell's own standard\\
 gate error (a write goes wrong) & copy error at division (DNMT1 misses a site) & isolated mismatches on single reads\\
 $T_1$ decay (a stored bit relaxes) & erasure between divisions & region-wide loss, slow drift with age\\
 leakage / crosstalk & de novo writing where it should not & coherent gains, often at CpG islands\\
-error correction & neighbouring sites agreeing & neighbour agreement on single reads\\
+error correction & neighboring sites agreeing & neighbor agreement on single reads\\
 error rate against specification & $A$ & $A$ per channel\\\bottomrule
 \end{tabular}\end{center}
 One caution. The array gauge measures \emph{state} error: the fraction of copies holding the wrong mark at one moment, which is what gate errors and

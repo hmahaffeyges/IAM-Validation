@@ -30,7 +30,7 @@ people; IAM's Law supplies the floor, and the atlas supplies the reference.
 The cell instrument is in development: one cell type (neutrophils) on one platform (EPIC v1 arrays), with IAM-A on single-molecule
 sequencing beside it. What follows is what it could give, with what exists for each.
 
-\paragraph{Cancer: reading the patient's own tissue against itself.} A tumour is a group of cells whose pattern has blurred. The potential is a reading for one patient that needs no reference group of
+\paragraph{Cancer: reading the patient's own tissue against itself.} A tumor is a group of cells whose pattern has blurred. The potential is a reading for one patient that needs no reference group of
 other patients: a biopsy read against the same patient's normal tissue, and later a blood draw read against the same person's earlier draw.
 The blood reading, the size of a change it can see, and where breach and the cancer region lie on the gauge are to be measured. \openprob
 
@@ -44,9 +44,9 @@ on the current chain.
 the fidelity of the cells it targets, in each person, read against that person's own pre-treatment specimen, and on which channel (marks lost
 or marks gained). No patient specimens have been read this way. \openprob
 
-\paragraph{Ageing.} Ageing clocks~\cite{Horvath2013} place a person against an age curve built from many people. This instrument would instead read the
+\paragraph{Aging.} Aging clocks~\cite{Horvath2013} place a person against an age curve built from many people. This instrument would instead read the
 rate at which one person's cells lose their pattern, against their own earlier reading. Cultured lung fibroblasts~\cite{Cruickshanks2013} show what a channel-level
-reading sees: senescent cells hold the methylated channel at the healthy rate and clean the unmethylated channel (0.69), while immortalised
+reading sees: senescent cells hold the methylated channel at the healthy rate and clean the unmethylated channel (0.69), while immortalized
 cells carry more error on the methylated channel and less on the unmethylated one, and the two cancel in a combined number
 (Chapter~\ref{ch:onegauge}). \measured{} Whether an intervention slows the loss in one person, read serially, is a test this design can make.
 \prediction
@@ -54,7 +54,7 @@ cells carry more error on the methylated channel and less on the unmethylated on
 \paragraph{Animals and temperature.} IAM's Law prices a bit at the local temperature. At a fixed holding energy the copy-error floor of a cell
 at 10\,\textdegree C is 0.78 times the human floor $H(\varepsilon_0)$, and at a dog's 38.5\,\textdegree C it is 1.012 times. \calc{} That makes the
 instrument usable on any vertebrate whose cell types can be referenced, and makes temperature itself a variable: farmed and wild fish at
-water temperature, ectotherms under warming, veterinary ageing and disease in companion animals. \prediction
+water temperature, ectotherms under warming, veterinary aging and disease in companion animals. \prediction
 
 \paragraph{The laboratory itself.} Before any biology, the chain checks the specimen and the array: custody hashes, detection, call rate, sex,
 conversion. A reading that states its instrument, its reference and its failures is
@@ -75,7 +75,7 @@ per-gate floor $p_{\rm eq}t_g/T_1$ with nothing assigned: $6.2\times10^{-7}$ for
 three orders of magnitude below present two-qubit errors \calc. Halving the qubit's own temperature lowers its held-record floor from
 $1.05\times10^{-3}$ to $1.1\times10^{-6}$ \calc; whether the gate error follows is a measurement any refrigerator sweep can make on one device.
 \openprob
-\item \textbf{The quasiparticle limit.} An excess quasiparticle fraction of $10^{-7}$ alone limits an aluminium transmon at 5~GHz to
+\item \textbf{The quasiparticle limit.} An excess quasiparticle fraction of $10^{-7}$ alone limits an aluminum transmon at 5~GHz to
 $T_1\approx0.24$~ms (Chapter~\ref{ch:xqp}). \calc{} The proposed internal source makes a test that existing devices can run: the background should
 scale with the active-fluctuator count over island volume, $N/(\tau_{\rm TLS}V)$. \prediction
 \end{itemize}
@@ -100,7 +100,7 @@ cell applications above is available for use until the instrument is commissione
 \begin{enumerate}
 \item Commission neutrophils on EPIC arrays end to end; then add one cell type at a time, each with its own healthy reference.
 \item Read serial specimens of the same people and measure the smallest change a difference can see.
-\item Place breach and the cancer region on the gauge from per-person data: tumour/normal pairs, the drug series, blood cancers.
+\item Place breach and the cancer region on the gauge from per-person data: tumor/normal pairs, the drug series, blood cancers.
 \item Derive the Met-A floor, and read the single-molecule drug response on patient specimens.
 \item For fish, remove library duplication and conversion failure, then repeat the temperature test.
 \item For qubits, publish the gap, the qubit's own temperature, the gate time, $T_1$ and the isolated two-qubit error of one device together, and test the

@@ -653,7 +653,7 @@
    "GD1",
    "GD2"
   ],
-  "reason": "Experimental timeline projection built on the uncorrected tau normalisation (GD1) and m^-6 scaling (GD2); values inconsistent within the row (2028-2032 vs 2033-2037); no physics test of its own.",
+  "reason": "Experimental timeline projection built on the uncorrected tau normalization (GD1) and m^-6 scaling (GD2); values inconsistent within the row (2028-2032 vs 2033-2037); no physics test of its own.",
   "needs_check": true,
   "topic": "decoherence"
  },
@@ -684,7 +684,7 @@
    "GD1",
    "GD4"
   ],
-  "reason": "The 1/T discriminator is kept. The magnitude '~1 phonon/s at picogram masses, already above sensitivity' depends on the tau normalisation corrected by GD1 (560 us -> 559 s) and must be recomputed before it is printed; not in the record.",
+  "reason": "The 1/T discriminator is kept. The magnitude '~1 phonon/s at picogram masses, already above sensitivity' depends on the tau normalization corrected by GD1 (560 us -> 559 s) and must be recomputed before it is printed; not in the record.",
   "needs_check": true,
   "topic": "decoherence"
  },
@@ -758,7 +758,7 @@
    "GD2",
    "GD1"
   ],
-  "reason": "Same test as COS-102; Delta alpha corrected 4.33 -> 3.33 (GD2); the crossover mass depends on the corrected normalisation (GD1) and must be recomputed.",
+  "reason": "Same test as COS-102; Delta alpha corrected 4.33 -> 3.33 (GD2); the crossover mass depends on the corrected normalization (GD1) and must be recomputed.",
   "needs_check": true,
   "topic": "decoherence",
   "dup_of": "COS-102"
@@ -849,7 +849,7 @@
    "EG4",
    "TR5"
   ],
-  "reason": "Definition: E(1)/e = 1/e = 0.368 (computed). The inflection is a peak per e-fold only (WZ2, EG4, TR5); normalisation at a = 1, anthropic remark removed (WZ5).",
+  "reason": "Definition: E(1)/e = 1/e = 0.368 (computed). The inflection is a peak per e-fold only (WZ2, EG4, TR5); normalization at a = 1, anthropic remark removed (WZ5).",
   "needs_check": false,
   "topic": "E(a) definition"
  },
@@ -1154,7 +1154,7 @@
  {
   "pid": "COS-244",
   "verdict": "DROP",
-  "statement": "Consistency of Tests A/B/C validates matter-sector normalisation.",
+  "statement": "Consistency of Tests A/B/C validates matter-sector normalization.",
   "value": "",
   "falsified_if": "",
   "test_and_date": "",
@@ -2266,9 +2266,9 @@
  {
   "pid": "COS-324",
   "verdict": "CORRECT",
-  "statement": "IAM predicts f sigma8(z) below LCDM (same early amplitude) by 4.25 % at z = 0, 3.42 % at z = 0.1, 2.17 % at z = 0.3, 1.35 % at z = 0.5, 0.41 % at z = 1 and 0.04 % at z = 2; RSD measurements at the per-cent level falsify it if f sigma8 follows LCDM at these redshifts.",
+  "statement": "IAM predicts f sigma8(z) below LCDM (same early amplitude) by 4.25 % at z = 0, 3.42 % at z = 0.1, 2.17 % at z = 0.3, 1.35 % at z = 0.5, 0.41 % at z = 1 and 0.04 % at z = 2; RSD measurements at the percent level falsify it if f sigma8 follows LCDM at these redshifts.",
   "value": "f sigma8 drop: 4.25/3.42/2.17/1.35/0.41/0.04 % at z = 0/0.1/0.3/0.5/1/2",
-  "falsified_if": "per-cent-level f sigma8(z) consistent with LCDM and excluding the predicted deficit",
+  "falsified_if": "percent-level f sigma8(z) consistent with LCDM and excluding the predicted deficit",
   "test_and_date": "DESI Year 5 RSD (projected); no sourced date",
   "errata_ids": [
    "V22",
@@ -2381,7 +2381,7 @@
  {
   "pid": "COS-165",
   "verdict": "DROP",
-  "statement": "Rubin/LSST ~200,000 clusters enable per-cent mass ratios.",
+  "statement": "Rubin/LSST ~200,000 clusters enable percent mass ratios.",
   "value": "",
   "falsified_if": "",
   "test_and_date": "",
@@ -3098,7 +3098,7 @@
    "M7",
    "M2"
   ],
-  "reason": "Not carried: the sigma^3/sigma^2/sigma^4 family and M-sigma are abandoned (M7); the normalisation offset is not in the paper's equation (M2).",
+  "reason": "Not carried: the sigma^3/sigma^2/sigma^4 family and M-sigma are abandoned (M7); the normalization offset is not in the paper's equation (M2).",
   "needs_check": false,
   "topic": "dwarf satellites"
  },

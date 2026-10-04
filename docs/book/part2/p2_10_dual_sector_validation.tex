@@ -133,7 +133,7 @@ The Planck 2018 baseline cosmology is adopted: $\Omega_m=0.315$, $\Omega_\Lambda
 rate of Eq.~\eqref{eq:dsv_Hm} into the distances; $\beta=0$ is $\Lambda$CDM. \derived{}
 
 \subsection{Chi-squared analysis}
-For each test configuration, the quantity minimised is
+For each test configuration, the quantity minimized is
 \begin{equation}
 \chi^2=\sum_{i=1}^{1588}\left(\frac{m_{b,i}^{\rm corr}-m_b^{\rm model}(z_i;\Omega_m,H_0,\beta,M)}{\sigma_{m_b,i}}\right)^2+\chi^2_{\rm prior}, \label{eq:dsv_chi2}
 \end{equation}
@@ -144,7 +144,7 @@ where $\chi^2_{\rm prior}$ implements external constraints:
 \end{gathered}\label{eq:dsv_priors}\end{equation}
 Free parameters are: $\Omega_m\in[0.20,0.40]$, $H_0\in[60,75]$ km\,s$^{-1}$\,Mpc$^{-1}$, $\beta\in[-0.30,+0.30]$, $M\in[-20.0,-18.0]$ mag.
 Minimization employs the Nelder--Mead simplex algorithm with 5000 maximum iterations and SciPy's default step sizing (the listing of Section~\ref{sec:dsv_code}). A simplex does not guarantee a global
-minimum, and because of the exact degeneracy derived below every minimum in this chapter is checked by minimising $M$ analytically and scanning
+minimum, and because of the exact degeneracy derived below every minimum in this chapter is checked by minimizing $M$ analytically and scanning
 $(\Omega_m,\beta)$ on a grid. \derived{}
 
 \paragraph{Full covariance.} The diagonal errors of Eq.~\eqref{eq:dsv_chi2} omit the correlated systematics. The geometry results of
@@ -173,9 +173,9 @@ only $\Omega_m$ and $\beta$, through the shape of $I(z)$.
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_dsv_three_tests.pdf}
 \caption[The three supernova tests: one valley, flat in $H_0$]{Three-panel comparison of Test A (Planck prior), Test B (SH0ES prior) and Test C (no
-prior), redrawn from the Pantheon+ release (1588 light curves, $0.01<z_{\rm CMB}<2.26$, diagonal errors). (a) Minimum $\chi^2$ against $\beta$ with $M$ minimised
+prior), redrawn from the Pantheon+ release (1588 light curves, $0.01<z_{\rm CMB}<2.26$, diagonal errors). (a) Minimum $\chi^2$ against $\beta$ with $M$ minimized
 analytically and $\Omega_m$ free in $[0.20,0.40]$: the same curve for Tests A, B and C, lowest ($721.12$) at the boundary $\beta=-0.30$ with
-$\Omega_m=0.205$; for $\beta>0.05$, $\Omega_m$ sits at its upper edge $0.40$. Dashed: $\Omega_m$ fixed at $0.315$. Grey line: $\beta_m$. (b) Parameter
+$\Omega_m=0.205$; for $\beta>0.05$, $\Omega_m$ sits at its upper edge $0.40$. Dashed: $\Omega_m$ fixed at $0.315$. Gray line: $\beta_m$. (b) Parameter
 space ($\beta$ against $H_0$) with $68\,\%$ and $95\,\%$ regions for two parameters ($\Delta\chi^2=2.30$, $6.18$): horizontal bands, $\beta<0.03$ and
 $\beta<0.11$, at every $H_0$; the Planck ($H_0=67.4$) and SH0ES ($H_0=73.04$) values lie in the same band. The $\chi^2$ profile in $H_0$ (Test C)
 is Figure~\ref{fig:sn_h0_flat}(b). Script \texttt{figscripts/\allowbreak{}fig\_p2\_dual\_sector.py}. \calc}\label{fig:dsv_three_tests}
@@ -233,7 +233,7 @@ tested by the Cepheid calibration, not by this fit; Prediction~2 ($\Lambda$CDM g
 \subsection{Test C: unconstrained (no prior)}
 Removing all $H_0$ constraints to let the data alone select a preferred expansion rate:
 \begin{table}[htbp]\centering\small
-\caption[Test C: no $H_0$ prior]{Test C results with no $H_0$ prior: the minimum $\chi^2$ at fixed $H_0$, minimised over $\Omega_m$, $\beta$ and $M$. The
+\caption[Test C: no $H_0$ prior]{Test C results with no $H_0$ prior: the minimum $\chi^2$ at fixed $H_0$, minimized over $\Omega_m$, $\beta$ and $M$. The
 profile is flat; $M-5\log_{10}H_0$ is the same at every $H_0$. \calc}\label{tab:dsv_testC}
 \begin{tabular}{lrr}\toprule
 $H_0$ [km\,s$^{-1}$\,Mpc$^{-1}$] & $\chi^2_{\min}$ & $M-5\log_{10}H_0$\\\midrule
@@ -301,14 +301,14 @@ carry the matter-sector \emph{normalization} through their calibration while mai
 follow $H$ with the $\beta$ term (next paragraph).
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part2/fig_sn_beta.pdf}
-\caption{Pantheon+SH0ES, 1590 Hubble-flow light curves ($z_{\rm HD}>0.01$), full statistical and systematic covariance, $M$ marginalised, $\Omega_m=0.315$: $\Delta\chi^2$ against $\Lambda$CDM when $\beta E(a)$ is put into the distances. Best $\beta=-0.035$ (68\,\%: $-0.068$ to $0.000$, shaded); the full coupling $\beta_m=0.15765$ on the distances costs $\Delta\chi^2=+23.6$. Method of \texttt{docs/verification/scripts/\allowbreak{}verify\_dual\_sector\_validation.py}. \observed}\label{fig:sn_beta}
+\caption{Pantheon+SH0ES, 1590 Hubble-flow light curves ($z_{\rm HD}>0.01$), full statistical and systematic covariance, $M$ marginalized, $\Omega_m=0.315$: $\Delta\chi^2$ against $\Lambda$CDM when $\beta E(a)$ is put into the distances. Best $\beta=-0.035$ (68\,\%: $-0.068$ to $0.000$, shaded); the full coupling $\beta_m=0.15765$ on the distances costs $\Delta\chi^2=+23.6$. Method of \texttt{docs/verification/scripts/\allowbreak{}verify\_dual\_sector\_validation.py}. \observed}\label{fig:sn_beta}
 \end{figure}
-\observed\ With the full covariance and $M$ marginalised, the shape of the Hubble diagram at Planck's $\Omega_m=0.315$ gives $\beta=-0.035$ ($68\,\%$:
+\observed\ With the full covariance and $M$ marginalized, the shape of the Hubble diagram at Planck's $\Omega_m=0.315$ gives $\beta=-0.035$ ($68\,\%$:
 $-0.068$ to $0.000$). Supernova distances follow $\Lambda$CDM geometry: Prediction~2 holds. As a check of the reproduction, $\Lambda$CDM with $\Omega_m$
 free returns $\Omega_m=0.33$, matching the Pantheon+ result ($0.334\pm0.018$~\cite{Brout2022}).
 \calc\ Applying the full matter-sector rate $H_m(z)$ to supernova distances worsens the fit by $\Delta\chi^2=+23.6$ at $\Omega_m=0.315$
 ($\chi^2=1427.39$ against $1403.77$). It can be offset only with $\Omega_m=0.41$ ($\Delta\chi^2=-0.1$ relative to $\Lambda$CDM at $0.315$), which Planck
-excludes. The data favour the reading in which supernovae carry the matter-sector normalization through their calibration and $\Lambda$CDM geometry
+excludes. The data favor the reading in which supernovae carry the matter-sector normalization through their calibration and $\Lambda$CDM geometry
 through their Hubble-flow shape, the reading of the two predictions above. The Level~1 Planck + Pantheon+ chains, with the background unmodified,
 agree: $\Delta\chi^2=+1.58$ (Chapter~\ref{ch:latetime}) \measured.
 
@@ -382,7 +382,7 @@ $0.70<z\le2.26$ & 75 & $+0.675$ [$+0.145$, $+1.385$] & 75 & $+0.665$ [$+0.160$, 
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_dsv_systematics.pdf}
 \caption[Systematic checks of the supernova geometry]{Systematic validation, $\Omega_m=0.315$ unless stated. (a) Redshift bins (Table~\ref{tab:dsv_bins}):
-own offset per bin with diagonal errors (grey) and full covariance (blue); common offset, full covariance (green). Grey line: $\beta_m$. (b) $\Omega_m$
+own offset per bin with diagonal errors (gray) and full covariance (blue); common offset, full covariance (green). Gray line: $\beta_m$. (b) $\Omega_m$
 variation: best $\beta$ against the fixed $\Omega_m$, full covariance and diagonal errors. (c) Sample-size convergence: best $\beta$ against the number of
 SNe, mean and spread of thirty random subsamples (diagonal errors). Script \texttt{figscripts/\allowbreak{}fig\_p2\_dual\_sector.py}. \calc}\label{fig:dsv_systematics}
 \end{figure}
@@ -396,7 +396,7 @@ $\beta_m=0.15765$, confirming robustness (Figure~\ref{fig:dsv_systematics}b) \ca
 \calc\ Because of the flat $H_0$ direction and the shallow $\Omega_m$--$\beta$ valley, the result returned by a numerical minimizer depends on the method.
 With the listing of Section~\ref{sec:dsv_code} (SciPy 1.17, default Nelder--Mead) the simplex reaches the valley floor ($\chi^2=721.12$) on Test~A and
 stops at $723.16$ on Test~B; with adaptive step sizing the two swap ($721.12$ on B, $723.16$ on A). L-BFGS-B ends within $0.04$ of the floor
-($721.16$ on A, $721.14$ on B); Powell stops at $722.56$ on Test~B ($\Omega_m=0.329$, $\beta=-0.080$) and at $724.61$ on Test~A. The analytic minimisation over $M-5\log_{10}H_0$ with a grid in $(\Omega_m,\beta)$, used for every number in this chapter, removes the dependence
+($721.16$ on A, $721.14$ on B); Powell stops at $722.56$ on Test~B ($\Omega_m=0.329$, $\beta=-0.080$) and at $724.61$ on Test~A. The analytic minimization over $M-5\log_{10}H_0$ with a grid in $(\Omega_m,\beta)$, used for every number in this chapter, removes the dependence
 on the minimizer. The result is stable across sample sizes and not driven by outliers: random subsamples of 100 to 1200 SNe (thirty draws each, diagonal
 errors, $\Omega_m=0.315$) give mean best $\beta$ between $-0.102$ and $-0.117$, with a spread that falls from $0.073$ ($N=100$) to $0.013$ ($N=1200$); the
 full sample gives $-0.108$ (Figure~\ref{fig:dsv_systematics}c).
@@ -551,7 +551,7 @@ $\sigma_8=0.800$ and $H_0(\mathrm{matter})=72.26$ km\,s$^{-1}$\,Mpc$^{-1}$ \meas
 km\,s$^{-1}$\,Mpc$^{-1}$) show that the dual-sector split operates at the perturbation level, not in the background Friedmann equation. The complete
 chain record is in Chapter~\ref{ch:dual}.
 
-The code in Section~\ref{sec:dsv_code} is the whole test. A cosmologist can pull the public catalogue, run the three priors, then push the cuts and the covariance and see whether the geometry holds.
+The code in Section~\ref{sec:dsv_code} is the whole test. A cosmologist can pull the public catalog, run the three priors, then push the cuts and the covariance and see whether the geometry holds.
 
 \section{Analysis code and data}\label{sec:dsv_code}
 \paragraph{Pantheon+ data.} The complete Pantheon+SH0ES dataset is publicly available at \url{https://github.com/PantheonPlusSH0ES/DataRelease}; specific file

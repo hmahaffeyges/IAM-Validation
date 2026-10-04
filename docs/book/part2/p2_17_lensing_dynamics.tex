@@ -17,7 +17,7 @@ In the $\mu$--$\Sigma$ language, the dual-sector term of Chapters~\ref{ch:lateti
 for light at linear order. This chapter follows that signature into cluster masses. In the Level~1 form, where $\mu$ multiplies Newton's constant in
 the Poisson equation for $\Psi$, a dynamical mass reads $\mu M_{\rm true}$ and a lensing mass reads $M_{\rm true}$, so
 $M_{\rm lens}/M_{\rm dyn}=1/\mu(z)$: 15.8\,\% above unity today and falling monotonically to zero excess at high redshift, with no adjusted
-parameter. In the Level~2 form, where the term is a matter-sector expansion rate in the perturbation equations and the linearised Einstein equations
+parameter. In the Level~2 form, where the term is a matter-sector expansion rate in the perturbation equations and the linearized Einstein equations
 for the potentials are unmodified, $M_{\rm lens}/M_{\rm dyn}=1$ and weak lensing feels the term only through the growth history of $\delta_m$, with
 the relation between the Weyl potential and the matter density preserved. The cluster prediction is therefore stated for the Level~1 form, and which
 form applies inside clusters is open. The chapter states the prediction, separates it from hydrostatic bias, MOND and other modified-gravity models,
@@ -27,7 +27,7 @@ sets it against the published cluster mass ratios, and specifies the redshift-sh
 Cluster masses estimated from gravitational lensing are larger than those estimated from dynamical methods, galaxy velocity dispersions and X-ray
 hydrostatic equilibrium~\cite{Mahdavi2013,Israel2014,Hoekstra2015,vonderLinden2014,Smith2016LoCuSS}. The usual reading is hydrostatic bias: the
 assumption that the intracluster medium is in exact hydrostatic equilibrium neglects non-thermal pressure from bulk motions, turbulence and cosmic
-rays. The standard parametrisation is
+rays. The standard parametrization is
 \begin{equation}
 M_{\rm true}=\frac{M_{X\text{-ray}}}{1-b},
 \label{eq:ld_b}\end{equation}
@@ -48,7 +48,7 @@ converged chains in all, Chapter~\ref{ch:dual}). \measured
 
 \section{The prediction}\label{sec:ld_prediction}
 \subsection{The $\mu$--$\Sigma$ framework}
-In the standard parametrisation of modified gravity~\cite{PogosianSilvestri2016,Amendola2008}, deviations from general relativity at linear order
+In the standard parametrization of modified gravity~\cite{PogosianSilvestri2016,Amendola2008}, deviations from general relativity at linear order
 are carried by two functions of the scale factor:
 \begin{align}
 \nabla^2\Psi&=4\pi Ga^2\,\mu(a)\,\bar\rho\,\delta\qquad\text{(Poisson equation; dynamics)},\label{eq:ld_poisson}\\
@@ -129,21 +129,21 @@ $\nabla^2\Phi=4\pi Ga^2(2-\mu)\bar\rho\delta$, so
 \label{eq:ld_slip}\end{equation}
 \derived\ (sympy). With $\mu<1$ the two potentials differ: $\Phi/\Psi=1.315$ today, $1.170$ at $z=0.3$, $1.036$ at $z=1$. \calc\ In the Level~1 form
 the term therefore acts as an effective gravitational slip, the signature of an anisotropic stress in the metric equations, while the Weyl potential
-$\Phi+\Psi$ keeps its general-relativistic relation to $\delta$. A form with unmodified linearised Einstein equations has $\Phi=\Psi$ and $\mu=1$ in
+$\Phi+\Psi$ keeps its general-relativistic relation to $\delta$. A form with unmodified linearized Einstein equations has $\Phi=\Psi$ and $\mu=1$ in
 Eq.~\eqref{eq:ld_poisson}. The two statements, a cluster mass ratio $1/\mu$ and potentials that obey the unmodified Einstein equations, cannot both hold;
 Section~\ref{sec:ld_hold} takes this up.
 
 \section{The form of the term}\label{sec:ld_hold}
 The ratio~\eqref{eq:ld_ratio} needs $\mu$ in the Poisson equation for $\Psi$ (the Level~1 effective-coupling form, the form MGCAMB implements,
 Chapter~\ref{ch:latetime}). In the Level~2 form the term is a matter-sector expansion rate in the perturbation equations (Chapter~\ref{ch:level2}):
-the linearised Einstein equations for the metric potentials are unmodified, the informational term introduces no anisotropic stress and no
-perturbative degree of freedom, and $\Phi=\Psi$. Then $\Psi$ obeys the standard Poisson equation, matter in a virialised cluster moves in the true
+the linearized Einstein equations for the metric potentials are unmodified, the informational term introduces no anisotropic stress and no
+perturbative degree of freedom, and $\Phi=\Psi$. Then $\Psi$ obeys the standard Poisson equation, matter in a virialized cluster moves in the true
 potential, and $M_{\rm lens}/M_{\rm dyn}=1$ at every redshift. In that form weak-lensing observables feel the term only indirectly, through the altered
 growth history of $\delta_m$, and the relation between the Weyl potential and the matter density is preserved; the CMB lensing power, for example, is
 lower by $0.08\,\%$ (Chapter~\ref{ch:surveys}). \derived\ (structure of the equations)
 
 The cluster prediction is therefore stated in the Level~1 form only. Two questions are open: which form is the physical one, and whether a linear
-$\mu$ applies inside virialised, non-linear clusters at all. \openprob
+$\mu$ applies inside virialized, non-linear clusters at all. \openprob
 
 \section{Other explanations and how they differ}\label{sec:ld_alternatives}
 \paragraph{Hydrostatic bias.} A constant bias gives a constant ratio $M_{\rm lens}/M_{\rm dyn}=1/(1-b)$, $1.205$ for $b=0.17$ \calc, independent of
@@ -202,20 +202,20 @@ CCCP (Planck prior) & $1-b=0.780\pm0.092$ & $1.28\pm0.15$ & & \\
 CMB lensing (Planck) & $1/(1-b)=0.99\pm0.19$ & $0.99\pm0.19$ & & \\
 Needed by counts + CMB & $1-b=0.58\pm0.04$ & $1.72\pm0.12$ & & \\
 LoCuSS, $0.15<z<0.3$ & $\beta_X=0.95\pm0.05$ & $1.05\pm0.06$ & $0.909$ ($0.225$) & $+0.8\sigma$\\
-WtG reanalysed, $z<0.3$ & $\beta_P=0.90\pm0.09$ & & $0.909$ ($0.225$) & $-0.1\sigma$\\
-WtG reanalysed, $z>0.3$ & $\beta_P=0.71\pm0.07$ & & $0.936$ ($0.4$) & $-3.2\sigma$\\
-CCCP reanalysed, $z<0.3$ & $\beta_P=0.96\pm0.09$ & & $0.909$ ($0.225$) & $+0.6\sigma$\\
-CCCP reanalysed, $z>0.3$ & $\beta_P=0.61\pm0.09$ & & $0.936$ ($0.4$) & $-3.6\sigma$\\
+WtG reanalyzed, $z<0.3$ & $\beta_P=0.90\pm0.09$ & & $0.909$ ($0.225$) & $-0.1\sigma$\\
+WtG reanalyzed, $z>0.3$ & $\beta_P=0.71\pm0.07$ & & $0.936$ ($0.4$) & $-3.2\sigma$\\
+CCCP reanalyzed, $z<0.3$ & $\beta_P=0.96\pm0.09$ & & $0.909$ ($0.225$) & $+0.6\sigma$\\
+CCCP reanalyzed, $z>0.3$ & $\beta_P=0.61\pm0.09$ & & $0.936$ ($0.4$) & $-3.6\sigma$\\
 CCCP + MENeaCS (100 clusters) & $1-b=0.84\pm0.04\pm0.05$ & $1.19\pm0.09$ & & \\\bottomrule
 \end{tabularx}\end{table}
 
 Three points follow. First, the Level~1 gravitational part alone is $1/\mu=1.07$--$1.10$ at the redshifts of these samples ($z\approx0.2$--$0.4$),
 so most of the 19--45\,\% excess in the calibrations of the Planck masses (28--45\,\% with the Planck prior, 19\,\% for CCCP + MENeaCS) would still be astrophysical. \calc\ Second, at $0.15<z<0.3$ the like-for-like
 LoCuSS, WtG and CCCP values, $\beta_P\simeq0.90$--$0.96$ and $\beta_X=0.95\pm0.05$~\cite{Smith2016LoCuSS}, are within $1\sigma$ of $\mu=0.909$. \calc\
-Third, above $z=0.3$ the reanalysed WtG and CCCP values fall to $\beta_P=0.71$ and $0.61$: the ratio $M_{\rm WL}/M_{\rm Planck}$ rises with redshift
+Third, above $z=0.3$ the reanalyzed WtG and CCCP values fall to $\beta_P=0.71$ and $0.61$: the ratio $M_{\rm WL}/M_{\rm Planck}$ rises with redshift
 in these samples~\cite{Smith2016LoCuSS}, whereas the Level~1 gravitational part falls. \observed\ The sign is the one expected from non-thermal pressure
 and from the selection of the higher-redshift clusters, so the split does not by itself test Eq.~\eqref{eq:ld_ratio}; it shows that the astrophysical
-part must be modelled before the gravitational part can be read off. The updated CCCP + MENeaCS analysis finds no statistically significant trend of
+part must be modeled before the gravitational part can be read off. The updated CCCP + MENeaCS analysis finds no statistically significant trend of
 the bias with redshift or mass~\cite{Herbonnet2020}. \observed\ No existing analysis has measured the redshift evolution of the lensing--dynamics ratio
 with one method over a wide redshift baseline; that is the test. \openprob
 
@@ -238,11 +238,11 @@ $z=1.5$ & 1.006 & 0.6\\
 $z=2.0$ & 1.002 & 0.2\\\bottomrule
 \end{tabular}\end{table}
 
-\paragraph{Rubin Observatory LSST.} The Legacy Survey of Space and Time~\cite{Ivezic2019} will provide photometric cluster catalogues and weak-lensing
+\paragraph{Rubin Observatory LSST.} The Legacy Survey of Space and Time~\cite{Ivezic2019} will provide photometric cluster catalogs and weak-lensing
 mass maps; samples of order $10^5$ clusters allow percent-level mass ratios in narrow redshift bins, which test the shape of the predicted curve.
 \prediction
 
-\paragraph{eROSITA.} The eROSITA all-sky survey~\cite{Merloni2024} provides X-ray masses for clusters across the sky (the first catalogue,
+\paragraph{eROSITA.} The eROSITA all-sky survey~\cite{Merloni2024} provides X-ray masses for clusters across the sky (the first catalog,
 Ref.~\cite{Bulbul2024}; of order $10^5$ clusters in the survey planning, Ref.~\cite{Merloni2012}). Cross-matched with Euclid and Rubin lensing it gives a
 uniform lensing-against-X-ray sample over $0<z<1.5$. In the Level~1 form lensing against X-ray and lensing against velocity dispersions are the same
 test, because both dynamical estimators follow $\Psi$. \prediction
@@ -255,12 +255,12 @@ test, because both dynamical estimators follow $\Psi$. \prediction
 \item fit three shapes: a constant (hydrostatic bias), Eq.~\eqref{eq:ld_ratio} with no free parameter, and a power law $1+A(1+z)^n$ (two free parameters);
 \item compare them by BIC and AIC.
 \end{enumerate}
-The discriminant is the functional form of the redshift dependence, not the existence of an offset. With five bins (centres 0.2, 0.5, 0.8, 1.2 and
+The discriminant is the functional form of the redshift dependence, not the existence of an offset. With five bins (centers 0.2, 0.5, 0.8, 1.2 and
 1.8) and equal errors, the parameter-free curve is separated from the best constant at $3\sigma$ when the error per bin on the ratio is $2.7\,\%$.
 \calc
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_lensdyn_test.pdf}
-\caption[What the redshift-shape test needs]{Level~1 form. (a) The slope of $M_{\rm lens}/M_{\rm dyn}=1/\mu(z)$: $-0.31$ at $z=0$ and $-0.18$ at $z=0.3$, against a hydrostatic bias whose slope is zero or positive. (b) The significance with which five redshift bins (centres 0.2, 0.5, 0.8, 1.2 and 1.8, one mass method throughout, equal errors) separate the parameter-free curve from the best constant: $3\sigma$ needs an error of 2.7\,\% per bin on the ratio. \calc\ \prediction}\label{fig:lensdyn_test}
+\caption[What the redshift-shape test needs]{Level~1 form. (a) The slope of $M_{\rm lens}/M_{\rm dyn}=1/\mu(z)$: $-0.31$ at $z=0$ and $-0.18$ at $z=0.3$, against a hydrostatic bias whose slope is zero or positive. (b) The significance with which five redshift bins (centers 0.2, 0.5, 0.8, 1.2 and 1.8, one mass method throughout, equal errors) separate the parameter-free curve from the best constant: $3\sigma$ needs an error of 2.7\,\% per bin on the ratio. \calc\ \prediction}\label{fig:lensdyn_test}
 \end{figure}
 
 \section{Connection to the dual-sector cosmology}\label{sec:ld_cosmo}
@@ -268,7 +268,7 @@ The lensing--dynamics ratio is one face of the split between matter and photon o
 $\beta_m=\Omega_m/2$ and $E(a)=\exp(1-1/a)$ and nothing added, gives a matter-sector Hubble constant $72.26$ against the photon-sector $67.16$
 km\,s$^{-1}$\,Mpc$^{-1}$ (Chapter~\ref{ch:level2}), the lower $\sigma_8$ ($0.8087\to0.7998$ at Level~2), and $f\sigma_8$ lower by $4.25\,\%$,
 $2.17\,\%$, $1.35\,\%$ and $0.41\,\%$ at $z=0$, $0.3$, $0.5$ and $1$ (form (i) of Appendix~\ref{app:der:growth}). \calc\ The cluster test has three
-strengths: it is measurable with current and near-future data, it does not depend on CMB modelling, and it has a distinctive shape in redshift. It
+strengths: it is measurable with current and near-future data, it does not depend on CMB modeling, and it has a distinctive shape in redshift. It
 carries one condition the other results do not: the Hubble-rate split and $\sigma_8$ come from the Level~2 mechanism, in which the cluster ratio is 1,
 so the cluster curve tests the Level~1 form, not the mechanism as coded (Section~\ref{sec:ld_hold}). \openprob
 
@@ -287,17 +287,17 @@ prediction, $\mu(a)$ falling from 1 at high redshift to $0.864$ at $z=0$ with $\
 \paragraph{Falsifiability.} In the Level~1 form the prediction is explicitly falsifiable. \prediction
 \begin{itemize}
 \item If $M_{\rm lens}/M_{\rm dyn}$ shows no redshift dependence in a clean, uniformly measured sample, hydrostatic bias is preferred.
-\item If it rises with $z$ after the non-thermal part is modelled, the gravitational part is absent or of the other sign.
-\item If its value at $z=0$ differs from $1.158$ by more than $3\sigma$ in a sample large enough, the normalisation is challenged.
+\item If it rises with $z$ after the non-thermal part is modeled, the gravitational part is absent or of the other sign.
+\item If its value at $z=0$ differs from $1.158$ by more than $3\sigma$ in a sample large enough, the normalization is challenged.
 \item If the redshift dependence follows Eq.~\eqref{eq:ld_ratio}, the comparison is a direct measurement of $\mu(z)$ from clusters.
 \end{itemize}
 Whatever the surveys find, the comparison with Eq.~\eqref{eq:ld_ratio} is unambiguous once the implementation form is fixed.
 
-\paragraph{The dual-sector construction.} $\Sigma=1$ follows from the dual-sector construction: the informational contribution renormalises only the
+\paragraph{The dual-sector construction.} $\Sigma=1$ follows from the dual-sector construction: the informational contribution renormalizes only the
 effective expansion rate of the matter sector, so the photon sector and the relation between the Weyl potential and the density are those of
 $\Lambda$CDM. That keeps growth and lensing observables consistent with one another in both forms. \derived\ (structure of the equations)
 
-The redshift-binned lensing-to-dynamical mass ratio is a test anyone with cluster lensing and velocity-dispersion data can run now. A cosmologist with the coming cluster catalogues does not have to wait to find out where it lands.
+The redshift-binned lensing-to-dynamical mass ratio is a test anyone with cluster lensing and velocity-dispersion data can run now. A cosmologist with the coming cluster catalogs does not have to wait to find out where it lands.
 
 \section{Status}
 \begin{center}\small\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xl}\toprule

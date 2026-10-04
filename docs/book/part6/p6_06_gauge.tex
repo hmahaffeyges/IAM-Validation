@@ -33,7 +33,7 @@ The Met-A C-score sits on the same gauge: 1 is the healthy baseline, and its far
 point & value (neutrophils) & status \\\midrule
 $\Hmin$ & IAM-A $0.910$; Met-A not yet defined & IAM-A: form \derived, height \measured{} (Ch.~\ref{ch:iama}); Met-A \openprob \\
 Normal & $0.95$--$1.05$ & a design tolerance: healthy is $A=1\pm5$~\%; no group of people sets it \\
-breach & to be measured & placed from per-person data: tumour/normal pairs, the DNMT1-inhibitor series, blood cancers \\
+breach & to be measured & placed from per-person data: tumor/normal pairs, the DNMT1-inhibitor series, blood cancers \\
 cancer region & beyond breach & to be measured the same way \\
 full surface & Met-A $3.03$; IAM-A $4.45$ & \calc{} from the healthy reference alone \\
 C-score far end & Met-A C-score $45$ & \calc{} block size 50 over the healthy baseline 1.1104; the IAM-A C-score is not built \\\bottomrule
@@ -79,18 +79,18 @@ that is what copy error and decay leave behind together. Met-A says how much err
 it. Second, the two channels can move in opposite directions, and a reading over both can hide both.
 
 \paragraph{Two channels, read apart.} IMR90 lung fibroblasts (WGBS, GSE48580): three proliferating, three replicatively senescent and three
-SV40-immortalised cultures, each read against the proliferating cultures, with the sites chosen on one proliferating culture and the
+SV40-immortalized cultures, each read against the proliferating cultures, with the sites chosen on one proliferating culture and the
 reference taken from a different one so that the reference is not computed on the data that chose the sites. \measured
 \begin{center}\small
 \begin{tabular}{@{}lccc@{}}\toprule
 IMR90 & methylated channel & unmethylated channel & both \\\midrule
 proliferating (held out) & 0.991--1.005 & 0.991--1.016 & 0.997--1.002 \\
 senescent & 0.941--1.016 & 0.685--0.695 & 0.874--0.925 \\
-SV40-immortalised & 1.077--1.120 & 0.587--0.664 & 0.965--0.975 \\\bottomrule
+SV40-immortalized & 1.077--1.120 & 0.587--0.664 & 0.965--0.975 \\\bottomrule
 \end{tabular}
 \end{center}
 Senescent cells keep the methylated channel at the healthy rate and clean the unmethylated channel: fewer errors there, so the combined
-reading sits below Normal. Immortalised cells do both at once, more error on the methylated channel and less on the unmethylated one, and the
+reading sits below Normal. Immortalized cells do both at once, more error on the methylated channel and less on the unmethylated one, and the
 two cancel: the combined reading, 0.965--0.975, sits inside Normal. A single number over both channels would call these cells healthy.
 
 Figure~\ref{fig:p4_imr90} places every culture on the plane of the two channels.
@@ -99,7 +99,7 @@ Figure~\ref{fig:p4_imr90} places every culture on the plane of the two channels.
 \includegraphics[width=0.62\textwidth]{figures/part6/fig_p4_06_imr90_channels.pdf}
 \caption{IMR90 fibroblasts on the two channels (WGBS, GSE48580~\cite{Cruickshanks2013}), each culture read against the proliferating cultures, sites
 and reference taken from different proliferating cultures. Shaded: Normal on each channel. Senescent cultures read 0.685--0.695 on the
-unmethylated channel; SV40-immortalised cultures read 1.077--1.120 on the methylated channel and 0.965--0.975 on both together.
+unmethylated channel; SV40-immortalized cultures read 1.077--1.120 on the methylated channel and 0.965--0.975 on both together.
 \measured}
 \label{fig:p4_imr90}
 \end{figure}

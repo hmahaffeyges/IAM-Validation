@@ -20,8 +20,8 @@ it was built and benchmarked. It is the denominator of the gauge, so the device 
 
 \paragraph{Full surface.} On the right is the error at which the device stops being able to protect a record by error correction.
 For the surface code it is about $10^{-2}$ per operation~\cite{Fowler2012}; on the gauge it sits at $10^{-2}/\varepsilon$ \calc. A
-platform that uses a different code, or a measurement-based scheme, carries the threshold of that scheme instead. For the colour code, which reconfigurable neutral-atom arrays with arbitrary connectivity have run on up to 40 logical
-qubits~\cite{Bluvstein2024} \observed, the storage threshold of the triangular colour code under circuit-level depolarising noise has been
+platform that uses a different code, or a measurement-based scheme, carries the threshold of that scheme instead. For the color code, which reconfigurable neutral-atom arrays with arbitrary connectivity have run on up to 40 logical
+qubits~\cite{Bluvstein2024} \observed, the storage threshold of the triangular color code under circuit-level depolarizing noise has been
 estimated at 0.2\,\%~\cite{Chamberland2020NJP} \observed, so its right-hand mark sits five times further left than the surface code's
 \calc. A threshold belongs to a code, a decoder and a noise model together \interp.
 
@@ -68,10 +68,10 @@ experiments are \observed\ as cited.}\label{tab:qp_which}
 platform & record and gap & temperature it sees & $M$ & occupation \\\midrule
 transmon & charge--phase states of the junction circuit, 5~GHz & the qubit itself, 35~mK~\cite{Jin2015} (refrigerator 15~mK) & 6.86 (16.0) & $1.1\times10^{-3}$ ($1.1\times10^{-7}$)\\
 fluxonium & flux states of a superinductor loop, 0.2--1~GHz & as transmon, 20~mK & 0.48--2.4 & 0.38--0.083\\
-ion, spin & hyperfine levels, 3.2~GHz ($^{43}$Ca$^+$), 8.0 ($^{137}$Ba$^+$), 12.6 ($^{171}$Yb$^+$) & none: the spin is isolated, not thermalised & ($5\times10^{-4}$--$2\times10^{-3}$ at 300~K) & set by optical pumping, not by $T$\\
+ion, spin & hyperfine levels, 3.2~GHz ($^{43}$Ca$^+$), 8.0 ($^{137}$Ba$^+$), 12.6 ($^{171}$Yb$^+$) & none: the spin is isolated, not thermalized & ($5\times10^{-4}$--$2\times10^{-3}$ at 300~K) & set by optical pumping, not by $T$\\
 ion, motion (gate bus) & axial mode, 1--2~MHz & motional temperature; Doppler limit 0.47~mK for Yb$^+$ & 0.10--0.20 & $\bar n=9.3$--4.4\\
 neutral atom & Rydberg transitions, 10--100~GHz & the radiation field, 300~K (4~K in a cryogenic array) & 0.0016--0.016 (0.12--1.2) & $\bar n=620$--62 (7.8--0.43)\\
-NV centre & electron-spin triplet, $D=2.87$~GHz & the diamond lattice, 300~K (4~K) & $4.6\times10^{-4}$ (0.034) & sublevels equal to $10^{-3}$\\
+NV center & electron-spin triplet, $D=2.87$~GHz & the diamond lattice, 300~K (4~K) & $4.6\times10^{-4}$ (0.034) & sublevels equal to $10^{-3}$\\
 silicon spin & Zeeman levels, 3.5--15~GHz & electrons near 0.1~K; ``hot'' operation 1.5~K~\cite{Yang2020hot} & 7.2 (15~GHz, 0.1~K); 0.11 (3.5~GHz, 1.5~K) & $7.5\times10^{-4}$; 0.47\\
 photon & one optical photon, 1550~nm (193~THz) & the waveguide, 300~K; detectors a few kelvin & 30.9 & $3.7\times10^{-14}$\\\bottomrule
 \end{tabularx}
@@ -83,7 +83,7 @@ photon & one optical photon, 1550~nm (193~THz) & the waveguide, 300~K; detectors
 10~$\mu$K to $3\times10^{-21}$~J for anything in contact with room-temperature radiation or lattice; the chip junction at 75\,$^\circ$C is
 marked for comparison. (b) Thermal occupation of each platform's encoding gap against the temperature of the bath it couples to:
 two-level records (solid, dashed) and photons per mode (dotted, dash-dotted); dots at the operating points of Table~\ref{tab:qp_which}.
-Dashed grey: 1\,\%. \calc}\label{fig:qp_floors}
+Dashed gray: 1\,\%. \calc}\label{fig:qp_floors}
 \end{figure}
 
 Three lessons follow directly from the table \interp. First, for every platform except the photon, some degree of freedom in the gate
@@ -122,13 +122,13 @@ Lowering the qubit's effective temperature moves the thermal floor; shortening t
 thermal-kick part.
 The refrigerator does not set that temperature by itself: the dilution refrigerator of Ref.~\cite{Krinner2019} reaches about 6~mK on its mixing chamber
 in a heat-load test and runs at 14~mK under the load of a 50-qubit wiring scheme, while a qubit's own temperature saturated at 35~mK as the refrigerator went lower~\cite{Jin2015} \observed, so this lever acts
-through the qubit's thermalisation and filtering more than through the base temperature \interp. A further lever is the gate itself:
+through the qubit's thermalization and filtering more than through the base temperature \interp. A further lever is the gate itself:
 redesigning the two-qubit gate changes which channel binds without changing the material \interp. The geometric lever has been measured
 directly. With a clean electromagnetic environment and the non-equilibrium quasiparticle density suppressed, the relaxation rates of 3D
 transmons were found approximately proportional to their surface participation ratios~\cite{Wang2015TLS} \observed: a device carries two
 floors, the dielectric one that geometry and material move, and the quasiparticle one, which shielding, filtering and gap engineering
 move (Chapter~\ref{ch:xqp}) \interp. The material and geometric levers have been combined: a tantalum-based platform on annealed
-sapphire, with device geometry optimised for coherence, gave on-chip quantum memories with energy relaxation times of
+sapphire, with device geometry optimized for coherence, gave on-chip quantum memories with energy relaxation times of
 1.0--1.4~ms~\cite{Ganjam2024} \observed.
 
 \paragraph{What a laboratory learns.} From $T_1$, $T_\phi$, $t_g$, the effective temperature and the isolated two-qubit error measured on
@@ -159,11 +159,11 @@ $T_1$ at two operating frequencies, at one refrigerator temperature \interp.
 
 \section{Trapped ions with laser-driven gates}\label{sec:qp_ionlaser}
 \paragraph{The surface and its temperature.} The record is a hyperfine level pair of an ion in vacuum, with no solid surface and no oxide
-in contact with it. Its spin is not thermalised by anything: at 300~K its $M$ is of order $10^{-3}$, and its state is set by optical pumping, not by
+in contact with it. Its spin is not thermalized by anything: at 300~K its $M$ is of order $10^{-3}$, and its state is set by optical pumping, not by
 temperature (Table~\ref{tab:qp_which}). The two-qubit gate, however, runs through the shared motion of the ions, and that motion has a
 temperature: the cooling limit (the Doppler limit of Yb$^+$ is 0.47~mK) plus the heating driven by electric-field noise from the trap
 electrodes~\cite{Brownnutt2015}. At the Doppler limit a 1~MHz mode holds $\bar n=9.3$ quanta \calc. An ion has no superconducting gap and no Cooper pairs, so the quasiparticle channel of Chapter~\ref{ch:xqp} has no counterpart in it,
-nor in a neutral atom or in a photon in flight; that channel returns wherever a superconductor enters the record, as in the proximitised
+nor in a neutral atom or in a photon in flight; that channel returns wherever a superconductor enters the record, as in the proximitized
 wire of a topological qubit (Section~\ref{sec:qp_topo}) or the superconducting detectors of a photonic computer \interp.
 
 \paragraph{Where the dissipation goes.} Three channels: laser noise, motional heating and control. Two of them
@@ -173,7 +173,7 @@ The electrodes have a thermal floor of their own: Johnson--Nyquist noise, whose 
 times its resistance~\cite{Brownnutt2015} \derived. Measured heating lies far above it, and in surface traps cooled to 6~K the heating
 rates fell by seven orders of magnitude~\cite{Labaziewicz2008} \observed: of the ion's channels, motional heating is the one furthest above
 its thermal floor, and the one that cooling the electrodes moves. Spontaneous Raman scattering from the gate beams sets a further,
-non-thermal floor for laser gates~\cite{Ozeri2007} \observed. Background heating rates of $29\pm4$ quanta/s for the centre-of-mass mode and
+non-thermal floor for laser gates~\cite{Ozeri2007} \observed. Background heating rates of $29\pm4$ quanta/s for the center-of-mass mode and
 $3.0\pm0.5$ quanta/s for the stretch mode were measured for a $^{138}$Ba$^+$--$^{171}$Yb$^+$ crystal in an X-junction surface-electrode
 trap~\cite{Burton2023} \observed. Published two-qubit errors: Helios ($^{137}$Ba$^+$) $7.9(2)\times10^{-4}$ averaged over all operational
 zones~\cite{Ransford2025}, H2 ($^{171}$Yb$^+$) $1.57\times10^{-3}$~\cite{DeCross2025}, Forte ($^{171}$Yb$^+$) $4.64\times10^{-3}$ median by direct
@@ -188,7 +188,7 @@ than from its gate channels, has not been worked out on its own gauge \openprob.
 optimum outward \interp; cryogenic electrodes and surface treatment lower the heating; a different gate class removes the laser channel
 (Section~\ref{sec:qp_ionelec}). The physics of sympathetic cooling is the separation of the two species. When the cooling transitions of the coolant and the qubit
 ion are far apart (more than 30~nm for $^{9}$Be$^+$ and $^{24}$Mg$^+$), laser light on one has negligible effect on the other, so the
-motion can be re-initialised without touching the stored information, the coolant taking up the motional energy through
+motion can be re-initialized without touching the stored information, the coolant taking up the motional energy through
 the modes the two ions share~\cite{Barrett2003} \observed. Even isotopes can serve: a $^{43}$Ca$^+$ memory qubit sympathetically cooled by a
 $^{40}$Ca$^+$ coolant near the ground state of both axial modes lost 3.3\,\% of its coherence per cooling cycle, against a natural limit
 of order $10^{-4}$ per cycle~\cite{Home2009} \observed.
@@ -237,7 +237,7 @@ of the experiment, and the gate error against drive strength on the same apparat
 radiation field delivers \interp.
 
 \section{Spin defects in diamond}\label{sec:qp_nv}
-\paragraph{The surface and its temperature.} The NV centre's record is its electron-spin triplet, split by $D=2.87$~GHz at zero field,
+\paragraph{The surface and its temperature.} The NV center's record is its electron-spin triplet, split by $D=2.87$~GHz at zero field,
 with nuclear spins of the lattice as memory. At room temperature $M=4.6\times10^{-4}$: the three sublevels are equally occupied to one part in
 a thousand, and the state is prepared by optical pumping \calc. The temperature that writes on the record is the lattice's: above room
 temperature a two-phonon Raman process dominates the longitudinal relaxation, below it an Orbach-type process with activation energy
@@ -245,7 +245,7 @@ $73(4)$~meV, and at the lowest temperatures sample-dependent cross-relaxation le
 \observed. The thermal floor per gate, Eq.~\eqref{eq:qp_pth}, therefore carries a temperature dependence that is a power law over one window
 and activated over another; a single exponent describes it only locally (Chapter~\ref{ch:thermaln}).
 
-\paragraph{The published gate, and the levers.} An electron--nuclear two-qubit gate set characterised by gate-set tomography has reached a
+\paragraph{The published gate, and the levers.} An electron--nuclear two-qubit gate set characterized by gate-set tomography has reached a
 two-qubit gate fidelity of $99.93(5)$\,\%~\cite{Bartling2025} \observed, $\varepsilon=7.0\times10^{-4}$, with the surface-code threshold at 14.3
 on its own gauge \calc. The levers are cooling (which freezes out the Raman and Orbach channels), isotopic purification of the lattice (fewer
 nuclear spins in the bath), and decoupling sequences that keep the gate insensitive to the remaining bath.
@@ -262,7 +262,7 @@ words, the qubit energy is well below the thermal energy~\cite{Yang2020hot}, and
 \observed. At 3.5~GHz and 1.5~K, $M=0.11$ and $p_{\rm eq}=0.47$ \calc: the held record is close to random, yet the gates work.
 
 \paragraph{The held record and the gate are different floors.} The hot spin qubit is the cleanest case of the distinction in
-Section~\ref{sec:qp_marks}. Its equilibrium floor is high, but initialisation is done by tunnelling rather than by waiting for equilibrium,
+Section~\ref{sec:qp_marks}. Its equilibrium floor is high, but initialization is done by tunneling rather than by waiting for equilibrium,
 and the gate is short compared with $T_1$, so the per-gate thermal floor $p_{\rm eq}t_g/T_1$ stays small \derived. Two-qubit fidelities: all
 gate fidelities above 99.5\,\% by gate-set tomography~\cite{Xue2022}, a two-qubit gate fidelity of 99.5\,\%~\cite{Noiri2022}, and single- and
 two-qubit control fidelities exceeding 99\,\%~\cite{Mills2022} \observed; at 99.5\,\%, $\varepsilon=5.0\times10^{-3}$ and the surface-code
@@ -285,7 +285,7 @@ loss~\cite{PsiQuantum2025} \observed. Fusion is a measurement, not a gate, and t
 loss and fusion error; the right-hand mark of the photonic gauge is scheme-specific \openprob.
 
 \section{Topological qubits}\label{sec:qp_topo}
-The proposed topological qubit stores its record in the shared fermion parity of Majorana zero modes at the ends of a proximitised
+The proposed topological qubit stores its record in the shared fermion parity of Majorana zero modes at the ends of a proximitized
 semiconductor nanowire. The thermal kick on such a record is quasiparticle poisoning, which flips the parity; its source is the same
 non-equilibrium quasiparticle background as in Chapter~\ref{ch:xqp} \interp. A single-shot interferometric parity measurement in
 InAs--Al devices has been reported, with a parity dwell time longer than 1~ms at in-plane fields of about 2~T~\cite{Aghaee2025}
@@ -315,7 +315,7 @@ coherence-optimum check & asks whether more $T_1$ on unchanged material still lo
 drive-optimum check & locates the drive at which a falling and a rising part of the error are equal (Eqs.~\eqref{eq:walls_mhi}, \eqref{eq:qp_rydberg}) & tells whether more drive helps or hurts \\
 generation comparison & compares a device with its predecessor on one stated benchmark & a rise is a signal only on matched statistics~\cite{Proctor2022,McKay2023} \\
 lever map & sorts each engineering change by the mark it moves: the as-built reading or a floor & separates changes that improve today from changes that make room \\
-connectivity reading & carries an isolated two-qubit error to a gate inside a full circuit (Chapter~\ref{ch:walls}) & published errors are measured with neighbours idle \\
+connectivity reading & carries an isolated two-qubit error to a gate inside a full circuit (Chapter~\ref{ch:walls}) & published errors are measured with neighbors idle \\
 step-series end & a constant fractional improvement per generation crosses the floor after a finite number of generations, so it must slow before it & the floor cannot be crossed (Chapter~\ref{ch:cmos}) \\\bottomrule
 \end{tabularx}
 \end{table}

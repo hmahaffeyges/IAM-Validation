@@ -8,7 +8,7 @@
 \chapter{The mechanism in the Boltzmann code: a matter-sector expansion rate}\label{ch:level2}
 
 \section*{Summary}
-Chapter~\ref{ch:latetime} tested the dual-sector prediction through MGCAMB's parameterised $\mu$~\cite{Zhao2009MGCAMB,Wang2023MGCAMB}. This chapter
+Chapter~\ref{ch:latetime} tested the dual-sector prediction through MGCAMB's parameterized $\mu$~\cite{Zhao2009MGCAMB,Wang2023MGCAMB}. This chapter
 puts the mechanism itself into the CAMB Boltzmann solver~\cite{Lewis2000CAMB}: cold dark matter and baryons experience a modified effective
 expansion rate, while the photon perturbation equations, neutrinos, recombination and the background Friedmann equation remain standard
 $\Lambda$CDM. The modification is governed by a single quantity, $\beta_m=\Omega_m/2=0.15765$, obtained from the virial theorem applied to the Planck
@@ -50,13 +50,13 @@ universe?
 
 Chapter~\ref{ch:latetime} showed that a scale-independent suppression $\mu(a)<1$ with $\Sigma(a)=1$ in the $\mu$--$\Sigma$
 framework~\cite{PogosianSilvestri2016} is compatible with the full Planck likelihood in four data combinations (twelve chains, $\Delta\chi^2$ from
-$+0.56$ to $+1.73$). That analysis used the MGCAMB parameterisation~\cite{Wang2023MGCAMB}, which imposes $\mu$ and $\Sigma$ as effective functions
+$+0.56$ to $+1.73$). That analysis used the MGCAMB parameterization~\cite{Wang2023MGCAMB}, which imposes $\mu$ and $\Sigma$ as effective functions
 inside the Boltzmann solver without specifying the physical mechanism.
 
 This chapter goes beyond the parametric level. The physical mechanism is coded directly into the CAMB Fortran source: the cold dark matter and baryon
 perturbation equations use a modified effective expansion rate (\texttt{adotoa\_matter}), while the photon perturbation equations use the standard
 $\Lambda$CDM rate. The global background Friedmann equation is unmodified. This produces the same $\mu<1$, $\Sigma=1$ signature as the MGCAMB
-parameterisation, but through an explicit sector-dependent coupling rather than an imposed functional form.
+parameterization, but through an explicit sector-dependent coupling rather than an imposed functional form.
 
 The dual-sector mechanism predicts that the expansion rate experienced by matter-sector observables differs from that experienced by photon-sector
 observables. At the present epoch this gives the Hubble-parameter split $H_0^{(m)}/H_0^{(\gamma)}=\sqrt{1+\beta_m}$, with $\beta_m=\Omega_m/2$ the
@@ -101,7 +101,7 @@ which identifies the effective coupling, while the lensing equation, which invol
 \mu(a)&=\frac{H^2_{\Lambda\rm CDM}(a)}{H^2_{\Lambda\rm CDM}(a)+\beta_mE(a)H_0^2},\label{eq:l2_mu}\\
 \Sigma(a)&=1\quad\text{(exact)}.\label{eq:l2_sigma}
 \end{align}
-\derived\ (for a Newton constant scaled by $H^2/H_m^2$; how the code realises it is given below). At the present epoch,
+\derived\ (for a Newton constant scaled by $H^2/H_m^2$; how the code realizes it is given below). At the present epoch,
 \begin{equation}
 \mu(z{=}0)=\frac{1}{1+\beta_m}=\frac{1}{1.15765}=0.864,
 \label{eq:l2_mu0}\end{equation}
@@ -172,7 +172,7 @@ The metric source that drives matter density growth is thus weakened by the fact
 photon Boltzmann hierarchy, the neutrino equations, recombination, the background (\texttt{dtauda}), lensing and the $C_\ell$ calculation are
 untouched. The global background expansion history is standard $\Lambda$CDM.
 
-\paragraph{How the code realises the mechanism.} Built with the switch on and off at the Run~A posterior-mean parameters
+\paragraph{How the code realizes the mechanism.} Built with the switch on and off at the Run~A posterior-mean parameters
 (\texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}l2growth.sh}; outputs in
 \texttt{docs/\allowbreak{}verification/\allowbreak{}chains/\allowbreak{}data/}), the coded change lowers $\sigma_8$ today by $1.2\,\%$, against $0.8\,\%$ for
 Eq.~\eqref{eq:l2_mu} applied as $G_{\rm eff}=\mu G$ at the same parameters, with the same redshift dependence (Table~\ref{tab:l2_growth}) \measured.
@@ -192,7 +192,7 @@ $z$ & $\sigma_8$ ratio (code) & $D$ ratio (Eq.~\ref{eq:l2_mu}) & $f$ density, on
 2 & 0.9999 & -- & 0.955 / 0.956 & 0.960 / 0.960\\\hline
 \end{tabular}\end{table}
 
-The MGCAMB parameterisation of Chapter~\ref{ch:latetime} approximates the exact $\mu(a)$ by $\mu(a)=1+\mu_0\,\Omega_{\rm DE}(a)/\Omega_\Lambda$ with
+The MGCAMB parameterization of Chapter~\ref{ch:latetime} approximates the exact $\mu(a)$ by $\mu(a)=1+\mu_0\,\Omega_{\rm DE}(a)/\Omega_\Lambda$ with
 $\mu_0=-0.135$; this agrees with Eq.~\eqref{eq:l2_mu} at $z=0$ and $z\gg1$ and differs by up to $2.8\,\%$ in between (Table~\ref{tab:lt_mu_compare})
 \calc. The present implementation replaces the imposed function with the coded mechanism itself.
 
@@ -201,7 +201,7 @@ The model introduces no free parameter beyond standard $\Lambda$CDM:
 \begin{itemize}
 \item the coupling $\beta_m=\Omega_m/2$: the factor $1/2$ from the virial theorem, $\Omega_m$ the independently measured matter density;
 \item the activation function $E(a)=\exp(1-1/a)$, from horizon thermodynamics (Chapter~\ref{ch:theory}, Eq.~\eqref{eq:lt_lnE});
-\item the normalisation $E(1)=1$, set by definition.
+\item the normalization $E(1)=1$, set by definition.
 \end{itemize}
 The six sampled parameters are identical to those of $\Lambda$CDM: $\{\Omega_bh^2,\Omega_ch^2,\theta_{\rm MC},\tau,\ln(10^{10}A_s),n_s\}$.
 
@@ -209,7 +209,7 @@ The six sampled parameters are identical to those of $\Lambda$CDM: $\{\Omega_bh^
 \subsection{Data sets}
 \paragraph{Planck CMB.} The CamSpec TTTEEE likelihood at high multipoles ($\ell\ge30$) in its NPIPE (PR4) version
 (\texttt{planck\_NPIPE\_highl\_CamSpec.TTTEEE}; Rosenberg, Gratton and Efstathiou 2022~\cite{Rosenberg2022}), the Planck 2018 low-$\ell$
-temperature (\texttt{lowl.TT}) and polarisation (\texttt{lowl.EE}) likelihoods~\cite{Planck2018V}, and the CMB lensing likelihood
+temperature (\texttt{lowl.TT}) and polarization (\texttt{lowl.EE}) likelihoods~\cite{Planck2018V}, and the CMB lensing likelihood
 (\texttt{lensing.CMBMarged})~\cite{Planck2018VIII}. Chapter~\ref{ch:latetime} used \texttt{plik\_lite} (PR3), so $\chi^2$ values are compared within
 one chapter, not across the two.
 
@@ -259,7 +259,7 @@ derivation or by definition.
 Quantity & Status & Origin\\\hline
 $\beta_m$ & factor $1/2$ \derived; $\Omega_m$ \measured & virial theorem for the $1/r$ interaction, applied to all bound structure (Chapter~\ref{ch:virial})\\
 exponent in $E(a)$ & \derived & horizon record scaling (Chapter~\ref{ch:theory}, Appendix~\ref{app:der:activation})\\
-normalisation $E(1)=1$ & fixed & definition\\
+normalization $E(1)=1$ & fixed & definition\\
 $\Omega_m$, $H_0$ (CMB) & standard & Planck 2018\\\hline
 \end{tabularx}
 \end{center}
@@ -268,7 +268,7 @@ No parameter is tuned to late-time structure data. All chains, GetDist outputs, 
 
 \section{Results}\label{sec:l2_results}
 \subsection{Planck alone: Run A against Run C}
-Table~\ref{tab:l2_planck} gives the marginalised constraints. Every standard cosmological parameter agrees between the two chains, with shifts below
+Table~\ref{tab:l2_planck} gives the marginalized constraints. Every standard cosmological parameter agrees between the two chains, with shifts below
 $0.1\sigma$; the modification is effectively invisible to the standard parameter set \measured.
 
 \begin{table}[htbp]\centering\small
@@ -300,12 +300,12 @@ $\Omega_m$ to compensate for the modified growth, rather than from genuine growt
 $\Delta\Omega_m=+0.05\sigma$, against $-1.51\sigma$ for $\sigma_8$ \measured: parameter rebalancing is not the source of the shift. It is slower growth.
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.75\textwidth]{figures/part2/fig_l2_triangle.pdf}
-\caption{Marginalised posteriors for $H_0$, $\sigma_8$ and $\Omega_m$ from Run~A (informational term, blue) and Run~C ($\Lambda$CDM, grey); contours
+\caption{Marginalized posteriors for $H_0$, $\sigma_8$ and $\Omega_m$ from Run~A (informational term, blue) and Run~C ($\Lambda$CDM, gray); contours
 enclose $68\,\%$ and $95\,\%$. The $H_0$ and $\Omega_m$ posteriors stay where the early universe puts them; $\sigma_8$ moves down by $1.5\sigma$, as the late-time term predicts. Chain files,
 $30\,\%$ burn-in, weighted. \measured}\label{fig:l2_triangle}\end{figure}
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.62\textwidth]{figures/part2/fig_l2_sigma8.pdf}
-\caption{One-dimensional posterior of $\sigma_8$ from Run~A (blue) and Run~C (grey); dashed lines mark the posterior means, $0.7998$ and $0.8087$. The
+\caption{One-dimensional posterior of $\sigma_8$ from Run~A (blue) and Run~C (gray); dashed lines mark the posterior means, $0.7998$ and $0.8087$. The
 shift is toward the values reported by the weak-lensing surveys (Section~\ref{sec:l2_intro}). \measured}\label{fig:l2_sigma8}\end{figure}
 
 \begin{figure}[htbp]\centering
@@ -378,7 +378,7 @@ Matter (local) & $72.26\pm0.50$ & $73.04\pm1.04$ (SH0ES) & $0.75\sigma$\\\hline
 \end{tabular}\end{table}
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.75\textwidth]{figures/part2/fig_l2_h0split.pdf}
-\caption{The dual-sector Hubble split from the Run~A posterior. Grey: $H_0^{(\gamma)}$, sampled directly. Blue: $H_0^{(m)}$, each posterior sample
+\caption{The dual-sector Hubble split from the Run~A posterior. Gray: $H_0^{(\gamma)}$, sampled directly. Blue: $H_0^{(m)}$, each posterior sample
 multiplied by $\sqrt{1+\beta_m}=1.0759$. Bands: $1\sigma$ ranges of Planck $\Lambda$CDM ($67.36\pm0.54$) and SH0ES ($73.04\pm1.04$). Both lie within
 $1\sigma$ of their observational counterparts. \measured}\label{fig:l2_h0split}\end{figure}
 
@@ -429,7 +429,7 @@ on null geodesics through the unmodified background, sees standard $\Lambda$CDM 
 \begin{figure}[htbp]\centering\includegraphics[width=0.75\textwidth]{figures/part2/fig_l2_background.pdf}
 \caption{Background against perturbation-level placement. With the term in the background (orange, Planck and Planck + growth) $H_0$ moves
 to $61.5$. With the
-term in the matter perturbations (blue, Run~A) the photon-sector $H_0$ stays at $67.16$, where the CMB places it (grey, $\Lambda$CDM Run~C), and the
+term in the matter perturbations (blue, Run~A) the photon-sector $H_0$ stays at $67.16$, where the CMB places it (gray, $\Lambda$CDM Run~C), and the
 matter-sector value is $72.26$ (blue dashed). Bands: Planck $\Lambda$CDM $67.36\pm0.54$ and SH0ES $73.04\pm1.04$. Posteriors from the chain files.
 \measured}\label{fig:l2_background}\end{figure}
 
@@ -466,7 +466,7 @@ models. The measurement that can separate them is the growth rate at the predict
 (Section~\ref{sec:l2_rund}).
 
 \subsection{Relation to the MGCAMB analysis}
-Chapter~\ref{ch:latetime} tested the same prediction ($\mu_0=-0.135$, $\Sigma_0=0$) with the MGCAMB parameterisation in twelve chains and four data
+Chapter~\ref{ch:latetime} tested the same prediction ($\mu_0=-0.135$, $\Sigma_0=0$) with the MGCAMB parameterization in twelve chains and four data
 combinations. The present analysis extends it by implementing the mechanism directly in the Boltzmann solver. The results agree: $\sigma_8=0.800$--$0.802$
 with the informational term in both analyses, from the same $\beta_m$ \measured. The fractional shifts differ, $1.6\,\%$ with MGCAMB's $\mu$ (from
 $0.814$, \texttt{plik\_lite}) and $1.1\,\%$ here (from $0.809$, NPIPE CamSpec), because the $\Lambda$CDM baselines and the likelihoods differ. At the
@@ -489,7 +489,7 @@ A dual-sector perturbation mechanism, in which matter and photons experience dif
 the CAMB Boltzmann solver. It requires three changes to the Fortran source and introduces no free parameter beyond standard $\Lambda$CDM.
 
 Against the full Planck likelihood the mechanism reproduces the CMB as well as $\Lambda$CDM with no added parameter ($\Delta\chi^2=+0.54$ between the lowest points)
-while lowering $\sigma_8$ from $0.809$ to $0.800$, in the direction favoured by weak-lensing surveys. Every standard cosmological parameter shifts by
+while lowering $\sigma_8$ from $0.809$ to $0.800$, in the direction favored by weak-lensing surveys. Every standard cosmological parameter shifts by
 less than $0.1\sigma$.
 
 The sector-dependent expansion rate produces a Hubble-parameter split: $H_0^{(\gamma)}=67.16$\,km\,s$^{-1}$\,Mpc$^{-1}$ ($0.37\sigma$ from Planck) and
