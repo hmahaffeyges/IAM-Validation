@@ -19,8 +19,8 @@ __pycache__/
 # Root-level files that belong in subdirectories
 # These were accidentally committed to root and should live in their proper homes:
 #   - PDFs → docs/
-#   - Python scripts → tests/ or mgcamb_validation/
-#   - YAML configs → mgcamb_validation/yaml_configs/
+#   - Python scripts → tests/ or Cosmological_Physics/mgcamb_validation/
+#   - YAML configs → Cosmological_Physics/mgcamb_validation/yaml_configs/
 #   - Figures → figures/
 # ==============================================================================
 
@@ -33,7 +33,7 @@ __pycache__/
 /Supplementary_Methods_Reproducibiity_Guide.pdf
 /Variational_Derivation_of_IAM.pdf
 
-# Root-level scripts (canonical copies live in mgcamb_validation/ or tests/)
+# Root-level scripts (canonical copies live in Cosmological_Physics/mgcamb_validation/ or tests/)
 /iam_camb_full_boltzmann.py
 /iam_mu_sigma.py
 /iam_planck_mcmc.yaml
@@ -52,7 +52,7 @@ __pycache__/
 
 # ==============================================================================
 # Duplicate/working directories that shouldn't be in the repo
-# (Canonical locations: docs/, tests/, mgcamb_validation/)
+# (Canonical locations: docs/, tests/, Cosmological_Physics/mgcamb_validation/)
 # ==============================================================================
 CAMB Validation IAM Dual Sector/
 Holographic Derivation/

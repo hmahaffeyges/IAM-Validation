@@ -1,6 +1,6 @@
 """Part 2, Chapters 'The cosmological constant' (p2_12_lambda.tex), 'The baryon density' (p2_13_baryon.tex), 'Records at the quantum scale'
 (p2_14_quantum_records.tex) and 'The particle scale' (p2_15_particle_masses.tex).
-fig_cc_relation: (Omega_b/Omega_m) / ((3/16) sqrt(Omega_L)) on each chain (mgcamb_validation/chains, 30 % burn-in, weighted; as
+fig_cc_relation: (Omega_b/Omega_m) / ((3/16) sqrt(Omega_L)) on each chain (Cosmological_Physics/mgcamb_validation/chains, 30 % burn-in, weighted; as
 verify_cc_and_baryon.py) and on the Planck 2018 values the chapter quotes (Ob 0.0493, Om 0.3153, OL 0.6846).
 fig_eta: eta = 273.9e-10 Omega_b h^2 on the same chains, and the two inversions of the cosmological-constant expressions at Omega_m h^2 = 0.1430.
 fig_neff_bottomup: bottom-up exponent n_eff(z) from halo mass functions (colossus; method and parameters of verify_bottom_up_exponent.py).

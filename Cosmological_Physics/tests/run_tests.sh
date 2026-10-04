@@ -37,7 +37,7 @@ elapsed=$((end_time - start_time))
 echo ""
 echo "Total runtime: ${elapsed} seconds"
 echo ""
-echo "Results saved to: results/validation_results.npz"
+echo "Results saved to: Cosmological_Physics/results/validation_results.npz"
 echo ""
 echo "For detailed analysis, see: tests/test_03_final.py"
 echo "For reproducibility guide, see: IAM_Reproducibility_Quick_Guide.pdf"

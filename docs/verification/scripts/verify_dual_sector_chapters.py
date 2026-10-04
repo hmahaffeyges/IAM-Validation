@@ -9,7 +9,7 @@ recomputed here. Sections:
      Powell, L-BFGS-B; the H0 profile; the beta profile; the (H0, beta) grid
   3. Pantheon+ full STAT+SYS covariance (zHD > 0.01): Delta chi2 of beta_m on distances, best beta, Omega_m free,
      Omega_m variation, redshift bins, sample-size convergence (diagonal), distance-shape change of beta_m in H(z)
-  4. Chain record from mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (Delta chi2, sigma8, H0, S8, R-1, samples)
+  4. Chain record from Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (Delta chi2, sigma8, H0, S8, R-1, samples)
 Data: public Pantheon+ release (github.com/PantheonPlusSH0ES/DataRelease), downloaded into the working directory if absent.
 Writes verify_dual_sector_chapters_data.json (profiles and grids used by docs/book/figscripts/fig_p2_dual_sector.py).
 numpy, scipy, pandas, sympy. Runtime about two minutes.
@@ -191,7 +191,7 @@ zc = np.linspace(0.01, 2.3, 300); rc = dl(0.315, 70, bm, zc)/dl(0.315, 70, 0, zc
 OUT["shape_z"] = zc.tolist(); OUT["shape_mag"] = (5*np.log10(rc/(dl(0.315,70,bm,np.array([0.05]))/dl(0.315,70,0,np.array([0.05])))[0])).tolist()
 
 # ---------------------------------------------------------------- 4. chain record
-T = pd.read_csv(REPO/"mgcamb_validation"/"CHAIN_EXTRACTION_FINAL.csv")
+T = pd.read_csv(REPO/"Cosmological_Physics/mgcamb_validation"/"CHAIN_EXTRACTION_FINAL.csv")
 print(f"4. Chain record: {len(T)} chains; max final R-1 {T['R-1_final(progress)'].max():.4f}; samples {T.samples.min()}-{T.samples.max()}")
 g = lambda n: T[T.chain.str.startswith(n)].iloc[0]
 pairs = (("Planck", "iam_fixed_mu0", "lcdm_baseline", "iam_float_mu0"), ("Planck+RSD", "planck_rsd_iam_fixed", "planck_rsd_lcdm", "planck_rsd_mu0"),

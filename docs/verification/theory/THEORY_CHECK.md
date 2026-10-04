@@ -18,7 +18,7 @@ w_eff(1) = −1.062; continuity identity (§12.4); H0 sirens 72.51; M_eq = 2.32 
    greater than unity", relaxed cut < 1.35); Power, Knebe & Knollmann 2012 p9 eqs 17–18 (η ≈ 1.15 at 10^12, 1.25 at 10^15, "systematically greater than unity").
    The six-study η table and the four-study n_eff table are not printed (NBODY_TRACE.md: no source reports n_eff as a collapse-rate slope). f_coll noted as an
    extrapolation below Tinker's calibrated range.
-4. §12.3 Fig. 2: the "Δχ² = +0.75" is typed text in tests/plot_cl_comparison.py line 319, not computed from a chain. The book labels the figure from
+4. §12.3 Fig. 2: the "Δχ² = +0.75" is typed text in Cosmological_Physics/tests/plot_cl_comparison.py line 319, not computed from a chain. The book labels the figure from
    CHAIN_EXTRACTION_FINAL (Planck-only chain-minimum +0.96; paper table minimizer +1.43).
 
 5. §11.5 bispectrum (no source script). Three implementations of the growth equation, fixed parameters, ΔD/D at z = 0:

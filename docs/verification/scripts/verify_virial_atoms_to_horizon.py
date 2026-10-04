@@ -25,4 +25,4 @@ for chi in (0.0, 0.5, 0.9, 0.998):
     print(f"   chi = {chi:5.3f}: TS/M = {T*S:.4f}  2 Omega J / M = {2*Om*J:.4f}  sum = {2*T*S+2*Om*J:.4f}")
 print("5. Cosmic horizon: beta_m = Omega_m/2")
 for Om_ in (0.3153, 0.3166): print(f"   Omega_m = {Om_}: beta_m = {Om_/2:.5f}")
-print("   Level 2 chains (camb_validation/chains, 30 % burn-in): beta_m fixed at 0.15765; Delta chi2 vs LCDM +0.54 (lowest chi2 in each chain)")
+print("   Level 2 chains (Cosmological_Physics/camb_validation/chains, 30 % burn-in): beta_m fixed at 0.15765; Delta chi2 vs LCDM +0.54 (lowest chi2 in each chain)")

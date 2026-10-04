@@ -17,10 +17,10 @@ Checked how: `sympy` = algebra, lhs - rhs simplifies to zero or a stated propert
 
 Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 
-This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
+This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4777 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -34,12 +34,12 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 59 | ch:p0_preface:L59:0.54 | observed | `0.54` | numeric: Planck 2018 H0 error (published) | PASS |
 | 60 | ch:p0_preface:L60 | observed | `73.04` | numeric: SH0ES distance-ladder H0 (published) | PASS |
 | 60 | ch:p0_preface:L60:1.04 | observed | `1.04` | numeric: SH0ES H0 error (published) | PASS |
-| 60 | ch:p0_preface:L60:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level 2 chain Run A posterior mean | PASS |
+| 60 | ch:p0_preface:L60:67.16 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level 2 chain Run A posterior mean | PASS |
 | 61 | ch:p0_preface:L61 | calc | `0.37` | numeric: sigma deviation of IAM photon H0 from Planck | PASS |
 | 61 | ch:p0_preface:L61:0.75 | calc | `0.75` | numeric: sigma deviation of IAM matter H0 from Riess22 | PASS |
 | 61 | ch:p0_preface:L61:72.26 | calc | `72.26` | numeric: matter-sector H0 = chain H0 x sqrt(1+beta_m) | PASS |
-| 62 | ch:p0_preface:L62 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM-sector level-2 chain result | PASS |
-| 62 | ch:p0_preface:L62:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM matter-sector level-2 chain result | PASS |
+| 62 | ch:p0_preface:L62 | measured | `0.809` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM-sector level-2 chain result | PASS |
+| 62 | ch:p0_preface:L62:0.800 | measured | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM matter-sector level-2 chain result | PASS |
 | 65 | ch:p0_preface:L65 | calc | `-0.27` | numeric: half Delta-chi2 exponent for likelihood ratio | PASS |
 | 65 | ch:p0_preface:L65:0.76 | calc | `0.76` | numeric: likelihood ratio exp(-Delta-chi2/2) | PASS |
 | 65 |  | calc | `+0.54` | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
@@ -50,7 +50,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 24 | ch:giants:L24 | observed | `153` | numeric: Timeline span, 2023 minus 1870 publication years | PASS |
-| 41 | ch:giants:L41 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon sector matches Level2 chain value | PASS |
+| 41 | ch:giants:L41 | measured | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon sector matches Level2 chain value | PASS |
 | 41 | ch:giants:L41:72.26 | calc | `72.26` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 55 | ch:giants:L55 | derived | `6.2\times10^{-8}` | numeric: Hawking temperature of one-solar-mass black hole | PASS |
 | 58 | ch:giants:L58 | derived | `2.65\times10^{-30}` | numeric: de Sitter temperature today from current H0 | PASS |
@@ -94,7 +94,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 81 | ch:surfaces:L81 | derived |  | sympy: Clausius relation on Rindler horizons gives the coupling 8 pi G | PASS |
 | 92 |  | conjecture |  | not run: definition of total entropy functional, new term | - |
 | 99 | ch:surfaces:L99 | derived |  | sympy: coupling beta_m defined as Omega_m/2 | PASS |
-| 103 | ch:surfaces:L103 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (runA) minus LCDM (runC) | PASS |
+| 103 | ch:surfaces:L103 | measured | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (runA) minus LCDM (runC) | PASS |
 | 108 |  | conjecture |  | not run: floor-breach inequality, definitional condition | - |
 | 114 | ch:surfaces:L114 | calc | `2.97\times10^{-21}` | numeric: Landauer cost per CpG site at body temp | PASS |
 | 117 | ch:surfaces:L117 | calc | `8.38\times10^{-14}` | numeric: N_CpG k_B T ln2 with N = 28,217,448 (printed 2.82e7) | PASS |
@@ -139,7 +139,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 183 | ch:surfaces:L183:1.9\times10^{14} | calc | `1.9\times10^{14}` | numeric: ratio, CMB to Sgr A* horizon temperature | PASS |
 | 185 | ch:surfaces:L185 | calc | `4.5\times10^{22}` | numeric: black-hole mass with Hawking temp equal CMB | PASS |
 | 185 | ch:surfaces:L185:182 | calc | `182` | numeric: ratio, CMB temperature to qubit stage | PASS |
-| 193 | ch:surfaces:L193 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (runA) minus LCDM (runC) | PASS |
+| 193 | ch:surfaces:L193 | measured | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (runA) minus LCDM (runC) | PASS |
 | 194 |  | prediction | `-0.136` | not run: predicted growth-deficit parameter, locked result | - |
 | 195 | ch:surfaces:L195 | measured | `0.020` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out spread of the neutrophil reference readings (SD) | PASS |
 | 202 | ch:surfaces:L202 | derived | `0.032` | numeric: thermal floor fraction from holding energy | PASS |
@@ -246,9 +246,9 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 531 | ch:iams_law:L531:2.17 | calc | `2.17` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 531 | ch:iams_law:L531:1.35 | calc | `1.35` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 531 | ch:iams_law:L531:0.41 | calc | `0.41` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 536 |  | calc | `0.13` | not run: not reproducible here: a CAMB TT-spectrum comparison (tests/iam_camb_full_boltzmann.py); the sentence itself says the spectra are not stored in the repository, so there is no committed output to read | - |
-| 552 | ch:iams_law:L552 | none | `61.5` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2b background-modification H0 chain output | PASS |
-| 553 | ch:iams_law:L553 | measured | `\le0.010` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: largest final R-1 over all 18 chains | PASS |
+| 536 |  | calc | `0.13` | not run: not reproducible here: a CAMB TT-spectrum comparison (Cosmological_Physics/tests/iam_camb_full_boltzmann.py); the sentence itself says the spectra are not stored in the repository, so there is no committed output to read | - |
+| 552 | ch:iams_law:L552 | none | `61.5` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2b background-modification H0 chain output | PASS |
+| 553 | ch:iams_law:L553 | measured | `\le0.010` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: largest final R-1 over all 18 chains | PASS |
 | 561 | eq:law_dSdlna | none |  | sympy: exponent of a in dS/dlna scaling | PASS |
 | 565 | eq:law_Sa | none |  | sympy: integral of a^(n-11/2), n != 9/2 | PASS |
 | 569 | eq:law_n | calc | `7/2` | numeric: exponent n solving n-9/2=-1 | PASS |
@@ -285,14 +285,14 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 684 |  | none | `-0.13495` | not run: MGCAMB fixed amplitude, not derived here | - |
 | 687 |  | none | `-0.13495` | not run: mu0 fixed amplitude repeated in caption | - |
 | 692 | ch:iams_law:L692 | none | `0.15765` | numeric: beta_m repeated in table | PASS |
-| 693 | ch:iams_law:L693 | calc | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 dchi2, IAM minus LCDM | PASS |
-| 694 | ch:iams_law:L694 | calc | `+0.56` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: min dchi2 across 4 L1 combos | PASS |
-| 694 | ch:iams_law:L694:+1.73 | calc | `+1.73` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: max dchi2 across 4 L1 combos | PASS |
-| 695 | ch:iams_law:L695 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM Level2 chain value | PASS |
-| 695 | ch:iams_law:L695:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM Level2 chain value | PASS |
+| 693 | ch:iams_law:L693 | calc | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 dchi2, IAM minus LCDM | PASS |
+| 694 | ch:iams_law:L694 | calc | `+0.56` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: min dchi2 across 4 L1 combos | PASS |
+| 694 | ch:iams_law:L694:+1.73 | calc | `+1.73` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: max dchi2 across 4 L1 combos | PASS |
+| 695 | ch:iams_law:L695 | measured | `0.809` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM Level2 chain value | PASS |
+| 695 | ch:iams_law:L695:0.800 | measured | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM Level2 chain value | PASS |
 | 696 | ch:iams_law:L696 | calc | `-0.37` | numeric: sigma offset from Planck H0 | PASS |
 | 696 | ch:iams_law:L696:67.36 | measured | `67.36` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
-| 696 | ch:iams_law:L696:0.47 | measured | `0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 error, Level 2 Run A | PASS |
+| 696 | ch:iams_law:L696:0.47 | measured | `0.47` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 error, Level 2 Run A | PASS |
 | 696 | ch:iams_law:L696:0.54 | observed | `0.54` | numeric: Planck 2018 H0 error (published) | PASS |
 | 696 |  | none | `67.16` | not run: locked canon H0_photon, input | - |
 | 697 | ch:iams_law:L697 | none | `72.26` | numeric: H0 matter-sector formula | PASS |
@@ -300,7 +300,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 697 | ch:iams_law:L697:73.04 | measured | `73.04` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
 | 697 | ch:iams_law:L697:1.04 | measured | `1.04` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: measured: printed value found in verify_iams_law_derivations_output.txt, a file the chapter names | PASS |
 | 698 |  | none | `-0.136` | not run: mu0 prediction restated in table | - |
-| 701 | ch:iams_law:L701 | none | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 dchi2 repeated | PASS |
+| 701 | ch:iams_law:L701 | none | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 dchi2 repeated | PASS |
 | 704 | ch:iams_law:L704 | derived | `1.076` | numeric: Hubble sector ratio sqrt(1+beta_m) | PASS |
 | 705 |  | derived |  | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
 | 707 | ch:iams_law:L707 | calc | `72.26` | numeric: H0 photon to matter conversion | PASS |
@@ -330,12 +330,12 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 742 | ch:iams_law:L742 | calc | `0.5\%` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: Ob/Om over (3/16)sqrt(OL) on the CMB-only chain, per cent | PASS |
 | 742 | ch:iams_law:L742:0.7 | calc | `0.7` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: same offset in units of its posterior error | PASS |
 | 750 |  | none | `0.009273` | not run: chain convergence stat, no matching csv row | - |
-| 752 | eq:law_eta_chain | fitted | `0.02232` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: baryon chain Ombh2 fitted value | PASS |
-| 752 | eq:law_eta_chain:0.00014 | fitted | `0.00014` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: baryon chain Ombh2 uncertainty | PASS |
+| 752 | eq:law_eta_chain | fitted | `0.02232` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: baryon chain Ombh2 fitted value | PASS |
+| 752 | eq:law_eta_chain:0.00014 | fitted | `0.00014` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: baryon chain Ombh2 uncertainty | PASS |
 | 752 | eq:law_eta_chain:6.113\times10^{-10} | fitted | `6.113\times10^{-10}` | numeric: baryon-to-photon ratio from Ombh2 | PASS |
 | 752 | eq:law_eta_chain:0.037\times10^{-10} | fitted | `0.037\times10^{-10}` | numeric: eta uncertainty from Ombh2 sd | PASS |
-| 754 | ch:iams_law:L754 | measured | `6.117\times10^{-10}` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: min eta across 4 LCDM L1 chains | PASS |
-| 754 | ch:iams_law:L754:6.137\times10^{-10} | none | `6.137\times10^{-10}` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: max eta across 4 LCDM L1 chains | PASS |
+| 754 | ch:iams_law:L754 | measured | `6.117\times10^{-10}` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: min eta across 4 LCDM L1 chains | PASS |
+| 754 | ch:iams_law:L754:6.137\times10^{-10} | none | `6.137\times10^{-10}` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: max eta across 4 LCDM L1 chains | PASS |
 | 805 | ch:iams_law:L805 | derived |  | sympy: E(a) = exp(1 - 1/a) from integrating the record constraint | PASS |
 | 806 |  | derived | `1` | not run: Sigma=1 sector rule, trivial restatement | - |
 | 807 | ch:iams_law:L807 | derived | `7/2` | numeric: n = 7/2 from the horizon accounting | PASS |
@@ -404,17 +404,17 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 124 | ch:virial_law:L124:0.032 | calc | `0.032` | numeric: Kerr horizon energy share, chi=0.998 | PASS |
 | 132 | eq:vl_beta | prediction | `0.15765` | numeric: cosmic coupling beta_m = Omega_m/2 | PASS |
 | 132 |  | none | `0.3153` | not run: input: Planck 2018 Omega_m, cited | - |
-| 135 | ch:virial_law:L135 | measured | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2, IAM vs LCDM Level2 chains | PASS |
-| 136 | ch:virial_law:L136 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 posterior mean, LCDM Level2 chain | PASS |
-| 136 | ch:virial_law:L136:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 posterior mean, IAM Level2 chain | PASS |
+| 135 | ch:virial_law:L135 | measured | `0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2, IAM vs LCDM Level2 chains | PASS |
+| 136 | ch:virial_law:L136 | measured | `0.809` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 posterior mean, LCDM Level2 chain | PASS |
+| 136 | ch:virial_law:L136:0.800 | measured | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 posterior mean, IAM Level2 chain | PASS |
 | 137 | ch:virial_law:L137 | calc | `0.864` | numeric: mu(z=0) growth coupling from mu0 | PASS |
 | 137 |  | none | `-0.136` | not run: input: IAM locked mu0 result, restated | - |
 | 144 | ch:virial_law:L144 | derived | `13.606` | numeric: hydrogen |E| = alpha^2 m_e c^2/2 (infinite-mass Rydberg) | PASS |
 | 144 | ch:virial_law:L144:27.211 | derived | `27.211` | numeric: hydrogen |V| = alpha^2 m_e c^2 | PASS |
 | 144 | ch:virial_law:L144:0.5000000000 | calc | `0.5000000000` | sympy: Smarr ratio, caption repeat | PASS |
 | 144 | ch:virial_law:L144:0.15765 | prediction | `0.15765` | numeric: beta_m prediction, caption repeat | PASS |
-| 144 | ch:virial_law:L144:0.3166 | measured | `0.3166` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 Planck posterior Omega_m mean | PASS |
-| 144 | ch:virial_law:L144:0.0065 | measured | `0.0065` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 Planck posterior Omega_m sd | PASS |
+| 144 | ch:virial_law:L144:0.3166 | measured | `0.3166` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 Planck posterior Omega_m mean | PASS |
+| 144 | ch:virial_law:L144:0.0065 | measured | `0.0065` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 Planck posterior Omega_m sd | PASS |
 | 144 | ch:virial_law:L144:0.498 | calc | `0.498` | numeric: beta_m/Omega_m at Level2 posterior mean | PASS |
 | 144 | ch:virial_law:L144:0.010 | calc | `0.010` | numeric: propagated sd of beta_m/Omega_m ratio | PASS |
 | 144 |  | none | `1.1` | not run: published virial ratio lower bound, repeat | - |
@@ -438,7 +438,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 163 |  | none | `1.02` | not run: surface-pressure ratio lower bound, table repeat | - |
 | 163 |  | none | `1.17` | not run: surface-pressure ratio upper bound, table repeat | - |
 | 164 | ch:virial_law:L164 | calc | `1/2` | sympy: Smarr relation, table repeat | PASS |
-| 165 | ch:virial_law:L165 | measured | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2, table repeat | PASS |
+| 165 | ch:virial_law:L165 | measured | `0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2, table repeat | PASS |
 | 165 |  | none | `1/2` | not run: trivial beta_m/Omega_m ratio, table repeat | - |
 | 173 | ch:virial_law:L173 | calc | `33` | numeric: orders of magnitude, atom to cluster | PASS |
 | 173 | ch:virial_law:L173:thirty-seven | calc | `thirty-seven` | numeric: decades, atom to cosmic horizon | PASS |
@@ -472,12 +472,12 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 133 | ch:virial_identity:L133:1.1 | observed | `1.1` | file `docs/verification/virial/NBODY_TRACE.md`: lowest published 2T/|U| of simulated halos (Bett, Neto, Power) | PASS |
 | 133 | ch:virial_identity:L133:1.3 | observed | `1.3` | file `docs/verification/virial/NBODY_TRACE.md`: highest published 2T/|U| of simulated halos (Bett, Neto, Power) | PASS |
 | 139 | ch:virial_identity:L139 | calc | `0.15765` | numeric: beta_m from Omega_m/2 partition | PASS |
-| 140 | ch:virial_identity:L140 | measured | `0.3166` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 posterior Omega_m mean | PASS |
-| 140 | ch:virial_identity:L140:0.0065 | measured | `0.0065` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 posterior Omega_m std dev | PASS |
+| 140 | ch:virial_identity:L140 | measured | `0.3166` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 posterior Omega_m mean | PASS |
+| 140 | ch:virial_identity:L140:0.0065 | measured | `0.0065` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 posterior Omega_m std dev | PASS |
 | 140 |  | none | `-0.13495` | not run: locked IAM mu0 input, fixed in chains | - |
-| 141 | ch:virial_identity:L141 | calc | `0.498` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: beta_m over Omega_m ratio | PASS |
-| 141 | ch:virial_identity:L141:0.010 | calc | `0.010` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: propagated uncertainty on beta_m/Omega_m | PASS |
-| 141 | ch:virial_identity:L141:0.54 | measured | `0.54` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: growth chi2 difference vs LCDM baseline | PASS |
+| 141 | ch:virial_identity:L141 | calc | `0.498` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: beta_m over Omega_m ratio | PASS |
+| 141 | ch:virial_identity:L141:0.010 | calc | `0.010` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: propagated uncertainty on beta_m/Omega_m | PASS |
+| 141 | ch:virial_identity:L141:0.54 | measured | `0.54` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: growth chi2 difference vs LCDM baseline | PASS |
 | 151 | ch:virial_identity:L151 | observed | `33` | numeric: orders of magnitude tested, repeat | PASS |
 | 159 | ch:virial_identity:L159 | calc | `37` | numeric: decades 10^-11 m to 10^26 m (book inputs, ch:virial_law line 173) | PASS |
 
@@ -488,9 +488,9 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 19 | ch:virial:L19 | none | `0.15765` | numeric: beta_m preview value, Om/2 | PASS |
 | 39 | eq:vc_firstlaw | none |  | not run: definition: IAM horizon first law extension | - |
 | 49 | eq:vc_beta | prediction | `0.15765` | numeric: beta_m=Om/2, stated prediction | PASS |
-| 64 | ch:virial:L64 | measured | `0.3166` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 posterior Om_m mean | PASS |
+| 64 | ch:virial:L64 | measured | `0.3166` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 posterior Om_m mean | PASS |
 | 64 | ch:virial:L64:0.498 | calc | `0.498` | numeric: beta_m/Om_m ratio for fixed beta_m | PASS |
-| 65 | ch:virial:L65 | measured | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2_min excess of IAM vs LCDM, L2 chains | PASS |
+| 65 | ch:virial:L65 | measured | `0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2_min excess of IAM vs LCDM, L2 chains | PASS |
 | 70 | eq:vc_decompose | none |  | not run: definition: coupling decomposition Om*fcoll*etavir | - |
 | 75 |  | none | `0.62` | not run: input f_coll value used in eq:vc_eta | - |
 | 76 | eq:vc_eta | none | `0.81` | numeric: eta_vir = 1/(2 f_coll) | PASS |
@@ -591,41 +591,41 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 204 | ch:virial:L204:0.13\% | calc | `0.13\%` | numeric: f sigma8 deficit at z = 1.491 | PASS |
 | 204 | ch:virial:L204:0.4\% | calc | `0.4\%` | numeric: Level 2 (matter-rate) form against mu-Sigma form, largest f sigma8 gap | PASS |
 | 206 | eq:vc_fs8 | prediction |  | not run: definition of predicted fsigma8 shape | - |
-| 212 | ch:virial:L212 | measured | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain sigma8 | PASS |
-| 212 | ch:virial:L212:0.0059 | measured | `0.0059` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain sigma8 sd | PASS |
-| 212 | ch:virial:L212:0.7998 | measured | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 IAM chain sigma8 | PASS |
-| 212 | ch:virial:L212:0.0058 | measured | `0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 IAM chain sigma8 sd | PASS |
-| 212 | ch:virial:L212:0.814 | measured | `0.814` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 LCDM chain sigma8 | PASS |
-| 212 | ch:virial:L212:0.802 | measured | `0.802` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 IAM chain sigma8 | PASS |
-| 213 | ch:virial:L213 | calc | `-1.51\sigma` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 shift Level2 chains | PASS |
-| 213 | ch:virial:L213:-0.78\sigma | calc | `-0.78\sigma` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 shift Level2 chains | PASS |
-| 214 | ch:virial:L214 | calc | `-0.07\sigma` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: omega_b shift Level2 chains | PASS |
-| 214 | ch:virial:L214:+0.05\sigma | calc | `+0.05\sigma` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Omega_m shift Level2 chains | PASS |
+| 212 | ch:virial:L212 | measured | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain sigma8 | PASS |
+| 212 | ch:virial:L212:0.0059 | measured | `0.0059` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain sigma8 sd | PASS |
+| 212 | ch:virial:L212:0.7998 | measured | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 IAM chain sigma8 | PASS |
+| 212 | ch:virial:L212:0.0058 | measured | `0.0058` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 IAM chain sigma8 sd | PASS |
+| 212 | ch:virial:L212:0.814 | measured | `0.814` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 LCDM chain sigma8 | PASS |
+| 212 | ch:virial:L212:0.802 | measured | `0.802` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 IAM chain sigma8 | PASS |
+| 213 | ch:virial:L213 | calc | `-1.51\sigma` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 shift Level2 chains | PASS |
+| 213 | ch:virial:L213:-0.78\sigma | calc | `-0.78\sigma` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 shift Level2 chains | PASS |
+| 214 | ch:virial:L214 | calc | `-0.07\sigma` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: omega_b shift Level2 chains | PASS |
+| 214 | ch:virial:L214:+0.05\sigma | calc | `+0.05\sigma` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Omega_m shift Level2 chains | PASS |
 | 214 | ch:virial:L214:+0.09\sigma | measured | `+0.09\sigma` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: Level 2 shift of ln(10^10 A_s), IAM minus LambdaCDM | PASS |
-| 224 | ch:virial:L224 | measured | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A sigma8 | PASS |
-| 224 | ch:virial:L224:0.0058 | measured | `0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A sigma8 sd | PASS |
-| 224 | ch:virial:L224:0.822 | measured | `0.822` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A S8 | PASS |
-| 224 | ch:virial:L224:0.011 | measured | `0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A S8 sd | PASS |
-| 224 | ch:virial:L224:67.16 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A H0 | PASS |
-| 224 | ch:virial:L224:0.47 | measured | `0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A H0 sd | PASS |
-| 224 | ch:virial:L224:+0.54 | calc | `+0.54` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2 Run A vs Run C | PASS |
+| 224 | ch:virial:L224 | measured | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A sigma8 | PASS |
+| 224 | ch:virial:L224:0.0058 | measured | `0.0058` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A sigma8 sd | PASS |
+| 224 | ch:virial:L224:0.822 | measured | `0.822` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A S8 | PASS |
+| 224 | ch:virial:L224:0.011 | measured | `0.011` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A S8 sd | PASS |
+| 224 | ch:virial:L224:67.16 | measured | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A H0 | PASS |
+| 224 | ch:virial:L224:0.47 | measured | `0.47` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A H0 sd | PASS |
+| 224 | ch:virial:L224:+0.54 | calc | `+0.54` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2 Run A vs Run C | PASS |
 | 224 | ch:virial:L224:-0.136 | derived | `-0.136` | numeric: mu0 of Run A, derived from beta_m | PASS |
-| 225 | ch:virial:L225 | measured | `0.7995` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D sigma8 | PASS |
-| 225 | ch:virial:L225:0.0058 | measured | `0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D sigma8 sd | PASS |
-| 225 | ch:virial:L225:0.821 | measured | `0.821` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D S8 | PASS |
-| 225 | ch:virial:L225:0.011 | measured | `0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D S8 sd | PASS |
-| 225 | ch:virial:L225:67.19 | measured | `67.19` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D H0 | PASS |
-| 225 | ch:virial:L225:0.46 | measured | `0.46` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D H0 sd | PASS |
+| 225 | ch:virial:L225 | measured | `0.7995` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D sigma8 | PASS |
+| 225 | ch:virial:L225:0.0058 | measured | `0.0058` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D sigma8 sd | PASS |
+| 225 | ch:virial:L225:0.821 | measured | `0.821` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D S8 | PASS |
+| 225 | ch:virial:L225:0.011 | measured | `0.011` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D S8 sd | PASS |
+| 225 | ch:virial:L225:67.19 | measured | `67.19` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D H0 | PASS |
+| 225 | ch:virial:L225:0.46 | measured | `0.46` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D H0 sd | PASS |
 | 225 | ch:virial:L225:-0.136 | derived | `-0.136` | numeric: mu0 of Run D, derived from beta_m | PASS |
-| 226 | ch:virial:L226 | measured | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C sigma8 | PASS |
-| 226 | ch:virial:L226:0.0059 | measured | `0.0059` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C sigma8 sd | PASS |
-| 226 | ch:virial:L226:0.830 | measured | `0.830` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C S8 | PASS |
-| 226 | ch:virial:L226:0.011 | measured | `0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C S8 sd | PASS |
-| 226 | ch:virial:L226:67.19 | measured | `67.19` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C H0 | PASS |
-| 226 | ch:virial:L226:0.46 | measured | `0.46` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C H0 sd | PASS |
-| 227 | ch:virial:L227 | measured | `0.8015` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 IAM fixed sigma8 | PASS |
-| 227 | ch:virial:L227:0.0058 | measured | `0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 IAM fixed sigma8 sd | PASS |
-| 227 | ch:virial:L227:67.08 | measured | `67.08` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 IAM fixed H0 | PASS |
+| 226 | ch:virial:L226 | measured | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C sigma8 | PASS |
+| 226 | ch:virial:L226:0.0059 | measured | `0.0059` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C sigma8 sd | PASS |
+| 226 | ch:virial:L226:0.830 | measured | `0.830` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C S8 | PASS |
+| 226 | ch:virial:L226:0.011 | measured | `0.011` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C S8 sd | PASS |
+| 226 | ch:virial:L226:67.19 | measured | `67.19` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C H0 | PASS |
+| 226 | ch:virial:L226:0.46 | measured | `0.46` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C H0 sd | PASS |
+| 227 | ch:virial:L227 | measured | `0.8015` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 IAM fixed sigma8 | PASS |
+| 227 | ch:virial:L227:0.0058 | measured | `0.0058` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 IAM fixed sigma8 sd | PASS |
+| 227 | ch:virial:L227:67.08 | measured | `67.08` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 IAM fixed H0 | PASS |
 | 227 |  | none | `-0.135` | not run: coupling fixed value, MGCAMB restated | - |
 
 ## Part 2 - ch:virial_tests - `docs/book/part2/p2_02b_virial_tests.tex`
@@ -636,14 +636,14 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 11 |  | none | `0` | not run: Sigma0 locked value restated | - |
 | 12 |  | none | `67.16` | not run: H0 photon-sector locked value restated | - |
 | 12 |  | none | `72.26` | not run: H0 matter-sector locked value restated | - |
-| 26 | ch:virial_tests:L26 | calc | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: IAM sigma8 prediction from Level2 chain | PASS |
-| 26 | ch:virial_tests:L26:0.0058 | calc | `0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 chain standard deviation | PASS |
+| 26 | ch:virial_tests:L26 | calc | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: IAM sigma8 prediction from Level2 chain | PASS |
+| 26 | ch:virial_tests:L26:0.0058 | calc | `0.0058` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 chain standard deviation | PASS |
 | 26 | ch:virial_tests:L26:0.802 | observed | `0.802` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 26 | ch:virial_tests:L26:0.022 | observed | `0.022` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: joint sigma8 upper error (KiDS-Legacy + DES Y3 + DESI + Pantheon+) | PASS |
 | 26 | ch:virial_tests:L26:0.018 | observed | `0.018` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: joint sigma8 lower error | PASS |
 | 26 |  | calc | `0.12` | not run: printed value 0.12 sigma has two significant digits: recomputed |0.79975 - 0.802|/0.018 = 0.1249 lies at the rounding edge, within 0.0011 of the value moved by 5 % (0.126), so a 5 % change cannot be told from rounding (the committed verify_entropic_gravity_output.txt prints the same -0.12 sigma) | - |
-| 27 | ch:virial_tests:L27 | calc | `0.822` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: IAM S8 prediction from Level2 chain | PASS |
-| 27 | ch:virial_tests:L27:0.011 | calc | `0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 chain standard deviation | PASS |
+| 27 | ch:virial_tests:L27 | calc | `0.822` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: IAM S8 prediction from Level2 chain | PASS |
+| 27 | ch:virial_tests:L27:0.011 | calc | `0.011` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 chain standard deviation | PASS |
 | 27 | ch:virial_tests:L27:0.815 | observed | `0.815` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 27 | ch:virial_tests:L27:0.33 | calc | `0.33` | numeric: S8 Level 2 vs KiDS-Legacy: difference over the combined error (chain sd, KiDS upper error) | PASS |
 | 27 | ch:virial_tests:L27:0.016 | observed | `0.016` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: KiDS-Legacy S8 upper error | PASS |
@@ -652,8 +652,8 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 28 | ch:virial_tests:L28:73.04 | observed | `73.04` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 28 | ch:virial_tests:L28:1.04 | observed | `1.04` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 28 | ch:virial_tests:L28:0.75 | calc | `0.75` | numeric: H0 matter-sector tension in sigma | PASS |
-| 29 | ch:virial_tests:L29 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: IAM H0 photon prediction from Level2 chain | PASS |
-| 29 | ch:virial_tests:L29:0.47 | calc | `0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon chain standard deviation | PASS |
+| 29 | ch:virial_tests:L29 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: IAM H0 photon prediction from Level2 chain | PASS |
+| 29 | ch:virial_tests:L29:0.47 | calc | `0.47` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon chain standard deviation | PASS |
 | 29 | ch:virial_tests:L29:67.36 | observed | `67.36` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 29 | ch:virial_tests:L29:0.37 | calc | `0.37` | numeric: H0 photon-sector tension in sigma | PASS |
 | 29 | ch:virial_tests:L29:0.54 | observed | `0.54` | numeric: Planck 2018 H0 error (published) | PASS |
@@ -695,10 +695,10 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 137 |  | interp | `0` | not run: Sigma0 locked value, repeat | - |
 | 138 |  | interp | `0` | not run: mu0 falsification threshold, repeat | - |
 | 147 |  | interp | `-0.136` | not run: mu0 locked value, repeat | - |
-| 149 | ch:virial_tests:L149 | calc | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 restated rounded, chain repeat | PASS |
+| 149 | ch:virial_tests:L149 | calc | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 restated rounded, chain repeat | PASS |
 | 149 | ch:virial_tests:L149:0.1 | calc | `0.1` | numeric: sigma8 tension restated, repeat | PASS |
-| 151 | ch:virial_tests:L151 | prediction | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 prediction restated, repeat | PASS |
-| 151 | ch:virial_tests:L151:67.16 | prediction | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon prediction restated, repeat | PASS |
+| 151 | ch:virial_tests:L151 | prediction | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 prediction restated, repeat | PASS |
+| 151 | ch:virial_tests:L151:67.16 | prediction | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon prediction restated, repeat | PASS |
 | 151 |  | prediction | `-0.136` | not run: mu0 locked prediction, repeat | - |
 | 151 |  | prediction | `0` | not run: Sigma0 locked prediction, repeat | - |
 | 152 |  | prediction | `72.26` | not run: H0 matter prediction restated, repeat | - |
@@ -709,7 +709,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 |---:|---|---|---|---|---|
 | 23 | ch:theory:L23 | derived | `0.864` | numeric: mu(z=0) from locked mu0 | PASS |
 | 23 |  | none | `-0.136` | not run: mu0 canon locked value restated | - |
-| 29 | ch:theory:L29 | derived | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Δχ² IAM vs ΛCDM full Planck L2 chains | PASS |
+| 29 | ch:theory:L29 | derived | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Δχ² IAM vs ΛCDM full Planck L2 chains | PASS |
 | 53 |  | none | `-0.136` | not run: mu0 canon value repeated | - |
 | 101 | ch:theory:L101 | interp | `2.718` | numeric: asymptote of E(a)=exp(1-1/a) as a->infty | PASS |
 | 108 | eq:th:entangle | none |  | not run: defines system-environment entanglement (definition) | - |
@@ -787,8 +787,8 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 400 | ch:theory:L400:7\% | calc | `7\%` | numeric: pct deviation of fitted constant from analytic 1 | PASS |
 | 405 | eq:th:firstlaw2 | none |  | not run: definition of modified first law | - |
 | 408 | ch:theory:L408 | calc | `e^{-999}` | sympy: activation function at recombination | PASS |
-| 411 | ch:theory:L411 | measured | `61.45` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from Level2b chain A | PASS |
-| 411 | ch:theory:L411:61.52 | measured | `61.52` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from Level2b chain D | PASS |
+| 411 | ch:theory:L411 | measured | `61.45` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from Level2b chain A | PASS |
+| 411 | ch:theory:L411:61.52 | measured | `61.52` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from Level2b chain D | PASS |
 | 430 | eq:th:firstlaw3 | none |  | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
 | 432 | eq:HIAM | none |  | not run: result of entropy first law, physics derivation not pure algebra | - |
 | 435 | eq:th:rhoinfo | none |  | not run: definition of informational energy density | - |
@@ -913,10 +913,10 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 768 | eq:th:growth | derived |  | sympy: growth equation from continuity, Euler and Poisson | PASS |
 | 772 | ch:theory:L772 | calc | `0.67` | numeric: growth deficit today, friction form (Eq. th:growth) | PASS |
 | 772 | ch:theory:L772:0.78 | calc | `0.78` | numeric: growth deficit today, G_eff = mu G | PASS |
-| 778 | ch:theory:L778 | measured | `61.5` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2b background-modified H0 from chains | PASS |
-| 779 | ch:theory:L779 | measured | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 chi^2 diff, IAM vs LCDM | PASS |
-| 780 | ch:theory:L780 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: LCDM sigma8 from Level2 chain | PASS |
-| 780 | ch:theory:L780:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: IAM sigma8 from Level2 chain | PASS |
+| 778 | ch:theory:L778 | measured | `61.5` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2b background-modified H0 from chains | PASS |
+| 779 | ch:theory:L779 | measured | `0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 chi^2 diff, IAM vs LCDM | PASS |
+| 780 | ch:theory:L780 | measured | `0.809` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: LCDM sigma8 from Level2 chain | PASS |
+| 780 | ch:theory:L780:0.800 | measured | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: IAM sigma8 from Level2 chain | PASS |
 | 780 | ch:theory:L780:72.26 | measured | `72.26` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: measured: printed value found in verify_theory_derivations_output.txt, a file the chapter names | PASS |
 | 780 | ch:theory:L780:0.75 | measured | `0.75` | numeric: matter-sector H0 against SH0ES, sigma | PASS |
 | 785 | eq:th:mu2 | derived |  | sympy: mu<1 since E_IAM^2>E_LCDM^2 | PASS |
@@ -950,17 +950,17 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 836 | ch:theory:L836 | calc | `0.759` | numeric: nonlinear scale k_nl, LambdaCDM, z = 1 | PASS |
 | 836 | ch:theory:L836:0.760 | calc | `0.760` | numeric: nonlinear scale k_nl, IAM, z = 1 | PASS |
 | 845 |  | none | `-0.136` | not run: mu0 prediction, restated canon value | - |
-| 849 | ch:theory:L849 | measured | `+0.96` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Delta chi2 Planck-only chain pair | PASS |
-| 849 | ch:theory:L849:+0.56 | measured | `+0.56` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Delta chi2 Planck+RSD chain pair | PASS |
-| 850 | ch:theory:L850 | measured | `+0.56` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: smallest Level 1 Delta chi2 over the four combinations | PASS |
-| 850 | ch:theory:L850:+1.73 | measured | `+1.73` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: upper bound of dchi2 range across combos | PASS |
-| 851 | ch:theory:L851 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 chi2 difference IAM vs LCDM | PASS |
-| 855 | ch:theory:L855 | measured | `0.814` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 LCDM sigma8 | PASS |
-| 855 | ch:theory:L855:0.802 | measured | `0.802` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 IAM-fixed sigma8 | PASS |
-| 855 | ch:theory:L855:-1.6% | measured | `-1.6%` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 sigma8 percent shift | PASS |
-| 855 | ch:theory:L855:0.809 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM sigma8 | PASS |
-| 855 | ch:theory:L855:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 IAM sigma8 | PASS |
-| 856 | ch:theory:L856 | measured | `-1.1%` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 sigma8 percent shift | PASS |
+| 849 | ch:theory:L849 | measured | `+0.96` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Delta chi2 Planck-only chain pair | PASS |
+| 849 | ch:theory:L849:+0.56 | measured | `+0.56` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Delta chi2 Planck+RSD chain pair | PASS |
+| 850 | ch:theory:L850 | measured | `+0.56` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: smallest Level 1 Delta chi2 over the four combinations | PASS |
+| 850 | ch:theory:L850:+1.73 | measured | `+1.73` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: upper bound of dchi2 range across combos | PASS |
+| 851 | ch:theory:L851 | measured | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 chi2 difference IAM vs LCDM | PASS |
+| 855 | ch:theory:L855 | measured | `0.814` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 LCDM sigma8 | PASS |
+| 855 | ch:theory:L855:0.802 | measured | `0.802` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 IAM-fixed sigma8 | PASS |
+| 855 | ch:theory:L855:-1.6% | measured | `-1.6%` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level1 sigma8 percent shift | PASS |
+| 855 | ch:theory:L855:0.809 | measured | `0.809` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM sigma8 | PASS |
+| 855 | ch:theory:L855:0.800 | measured | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 IAM sigma8 | PASS |
+| 856 | ch:theory:L856 | measured | `-1.1%` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 sigma8 percent shift | PASS |
 | 861 |  | calc | `0.13%` | not run: measured, source not named: the TT residual (< 0.13 % at l > 30, Level 1 posterior means) needs CAMB spectra; no committed spectra or output holds it (CANON/predictions_triage_2026-10-02.json: 'a CMB TT number not in the record') | - |
 | 867 | ch:theory:L867 | derived |  | sympy: continuity-equation identity for w_info(a) | PASS |
 | 873 | eq:th:conservation | derived |  | sympy: total continuity: matter, Lambda and info each conserved | PASS |
@@ -973,8 +973,8 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 889 | eq:th:sirens | calc | `72.26` | numeric: matter-sector H0 from photon-sector H0 and beta_m | PASS |
 | 889 |  | none | `67.16` | not run: input, photon-sector H0 restated (canon) | - |
 | 889 |  | none | `1.15765` | not run: trivial arithmetic 1+beta_m | - |
-| 890 | ch:theory:L890 | calc | `67.161` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 posterior mean H0 | PASS |
-| 890 | ch:theory:L890:0.467 | calc | `0.467` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 posterior H0 std dev | PASS |
+| 890 | ch:theory:L890 | calc | `67.161` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 posterior mean H0 | PASS |
+| 890 | ch:theory:L890:0.467 | calc | `0.467` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 posterior H0 std dev | PASS |
 | 890 | ch:theory:L890:70.0 | observed | `70.0` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
 | 891 |  | observed | `68.9` | not run: measured, source not named: published H0 of Hotokezaka et al. 2019 (doi 10.1038/s41550-019-0820-1); no repository file records it and the value could not be confirmed offline | - |
 | 891 |  | observed | `75.46` | not run: measured, source not named: published H0 of Palmese et al. 2024 (doi 10.1103/PhysRevD.109.063508); no repository file records it and the value could not be confirmed offline | - |
@@ -987,10 +987,10 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 956 | eq:th:Gamma | derived |  | sympy: thermally limited bit-encoding rate from Hawking power | PASS |
 | 1042 | ch:theory:L1042 | calc | `2.8\%` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 1042 | ch:theory:L1042:0.65 | calc | `0.65` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 1045 | ch:theory:L1045 | record | `61.5` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from two background-level exploratory chains | PASS |
-| 1047 | ch:theory:L1047 | calc | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 IAM minus LCDM best-fit chi2 | PASS |
-| 1047 | ch:theory:L1047:0.809 | record | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 from Level2 LCDM chain | PASS |
-| 1047 | ch:theory:L1047:0.800 | record | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 from Level2 IAM chain | PASS |
+| 1045 | ch:theory:L1045 | record | `61.5` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from two background-level exploratory chains | PASS |
+| 1047 | ch:theory:L1047 | calc | `0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 IAM minus LCDM best-fit chi2 | PASS |
+| 1047 | ch:theory:L1047:0.809 | record | `0.809` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 from Level2 LCDM chain | PASS |
+| 1047 | ch:theory:L1047:0.800 | record | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 from Level2 IAM chain | PASS |
 | 1047 | ch:theory:L1047:72.26 | derived | `72.26` | numeric: matter-sector H0 from photon H0 and beta_m | PASS |
 | 1048 | ch:theory:L1048 | calc | `0.75` | numeric: tension of matter H0 vs SH0ES, sigma units | PASS |
 | 1060 | ch:theory:L1060 | prediction | `0.864` | numeric: IAM mu prediction at z=0 | PASS |
@@ -1057,32 +1057,32 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 175 | ch:entropicgravity:L175 | calc | `a=1` | sympy: inflection of dE/dlna at a=1 today | PASS |
 | 176 | ch:entropicgravity:L176 | calc | `1.26` | numeric: redshift of peak dE/dt rate | PASS |
 | 176 | ch:entropicgravity:L176:a=1/2 | calc | `a=1/2` | sympy: scale factor of peak dE/da | PASS |
-| 199 | ch:entropicgravity:L199 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level-2 chain | PASS |
-| 199 | ch:entropicgravity:L199:0.47 | measured | `0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 uncertainty, Level-2 chain | PASS |
+| 199 | ch:entropicgravity:L199 | measured | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level-2 chain | PASS |
+| 199 | ch:entropicgravity:L199:0.47 | measured | `0.47` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 uncertainty, Level-2 chain | PASS |
 | 199 | ch:entropicgravity:L199:72.2 | observed | `72.2\pm0.9` | file `docs/book/read_ledgers/eg_MANIFEST.md`: Barrow fit H0 (table), Luciano 2025 | PASS |
 | 200 | ch:entropicgravity:L200 | calc | `72.26` | numeric: matter-sector H0 from photon H0 and beta_m | PASS |
-| 201 | ch:entropicgravity:L201 | calc | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2 (lower end of the quoted range) | PASS |
-| 201 | ch:entropicgravity:L201:1.73 | calc | `1.73` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: maximum dchi2 across chain pairs | PASS |
-| 210 | ch:entropicgravity:L210 | calc | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 Planck chi2 difference IAM vs LCDM | PASS |
-| 210 | ch:entropicgravity:L210:0.56 | calc | `0.56` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level1 min chi2 diff (Planck+RSD pair) | PASS |
-| 210 | ch:entropicgravity:L210:1.73 | calc | `1.73` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level1 max chi2 diff (Planck+BAO pair) | PASS |
-| 232 | ch:entropicgravity:L232 | measured | `61.45` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2b background-term H0 | PASS |
-| 232 | ch:entropicgravity:L232:61.52 | measured | `61.52` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2b background-term H0, run D | PASS |
-| 233 | ch:entropicgravity:L233 | measured | `0.010` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: max last-recorded Gelman-Rubin R-1 across chains | PASS |
+| 201 | ch:entropicgravity:L201 | calc | `0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2 (lower end of the quoted range) | PASS |
+| 201 | ch:entropicgravity:L201:1.73 | calc | `1.73` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: maximum dchi2 across chain pairs | PASS |
+| 210 | ch:entropicgravity:L210 | calc | `0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 Planck chi2 difference IAM vs LCDM | PASS |
+| 210 | ch:entropicgravity:L210:0.56 | calc | `0.56` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level1 min chi2 diff (Planck+RSD pair) | PASS |
+| 210 | ch:entropicgravity:L210:1.73 | calc | `1.73` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level1 max chi2 diff (Planck+BAO pair) | PASS |
+| 232 | ch:entropicgravity:L232 | measured | `61.45` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2b background-term H0 | PASS |
+| 232 | ch:entropicgravity:L232:61.52 | measured | `61.52` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2b background-term H0, run D | PASS |
+| 233 | ch:entropicgravity:L233 | measured | `0.010` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: max last-recorded Gelman-Rubin R-1 across chains | PASS |
 | 237 | ch:entropicgravity:L237 | calc | `-0.80\sigma` | numeric: mu0 tension vs DESI in sigma | PASS |
 | 237 | ch:entropicgravity:L237:-0.82\sigma | calc | `-0.82\sigma` | numeric: mu0 tension vs ACT combo in sigma | PASS |
 | 238 | ch:entropicgravity:L238 | calc | `-0.94\sigma` | numeric: Sigma0 tension vs DESI in sigma | PASS |
 | 238 | ch:entropicgravity:L238:-0.31\sigma | calc | `-0.31\sigma` | numeric: Sigma0 tension vs ACT combo in sigma | PASS |
-| 238 | ch:entropicgravity:L238:-0.12\sigma | calc | `-0.12\sigma` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 tension vs KiDS/DES/DESI/Pantheon+ | PASS |
+| 238 | ch:entropicgravity:L238:-0.12\sigma | calc | `-0.12\sigma` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 tension vs KiDS/DES/DESI/Pantheon+ | PASS |
 | 238 | ch:entropicgravity:L238:-0.75\sigma | calc | `-0.75\sigma` | numeric: matter-sector H0 tension vs SH0ES | PASS |
 | 244 | ch:entropicgravity:L244 | derived | `-0.136` | numeric: mu0 = -beta_m/(1 + beta_m) | PASS |
 | 246 | ch:entropicgravity:L246 | derived | `0` | numeric: Sigma_0 = 0 from the unmodified photon source | PASS |
-| 248 | ch:entropicgravity:L248 | measured | `0.7998\pm0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 IAM chain sigma8 | PASS |
-| 248 | ch:entropicgravity:L248:0.8087 | measured | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain sigma8 | PASS |
+| 248 | ch:entropicgravity:L248 | measured | `0.7998\pm0.0058` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 IAM chain sigma8 | PASS |
+| 248 | ch:entropicgravity:L248:0.8087 | measured | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain sigma8 | PASS |
 | 249 | ch:entropicgravity:L249 | calc | `72.26` | numeric: matter-sector H0 = H0_photon sqrt(1 + beta_m) | PASS |
-| 250 | ch:entropicgravity:L250 | measured | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: table repeat: Level2 chi2 diff | PASS |
-| 250 | ch:entropicgravity:L250:0.56 | measured | `0.56` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: table repeat: Level1 min chi2 diff | PASS |
-| 250 | ch:entropicgravity:L250:1.73 | measured | `1.73` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: table repeat: Level1 max chi2 diff | PASS |
+| 250 | ch:entropicgravity:L250 | measured | `0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: table repeat: Level2 chi2 diff | PASS |
+| 250 | ch:entropicgravity:L250:0.56 | measured | `0.56` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: table repeat: Level1 min chi2 diff | PASS |
+| 250 | ch:entropicgravity:L250:1.73 | measured | `1.73` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: table repeat: Level1 max chi2 diff | PASS |
 | 251 | eq:eg_stotal | derived | `0.15765` | numeric: beta_m defined as Omega_m/2 | PASS |
 | 259 |  | prediction | `-0.136` | not run: input restated (Euclid prediction target) | - |
 | 259 |  | prediction | `0` | not run: input restated (Euclid prediction target) | - |
@@ -1094,8 +1094,8 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 271 | ch:entropicgravity:L271:1.105 | calc | `1.105` | numeric: M_lens/M_dyn = 1/mu at z = 0.2 | PASS |
 | 271 | ch:entropicgravity:L271:1.055 | calc | `1.055` | numeric: M_lens/M_dyn = 1/mu at z = 0.5 | PASS |
 | 274 |  | openprob | `1` | not run: Level2 form ratio statement, no computation | - |
-| 288 | ch:entropicgravity:L288 | calc | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: summary repeat: Level2 chi2 diff | PASS |
-| 288 | ch:entropicgravity:L288:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: summary repeat: Level2 IAM sigma8 rounded | PASS |
+| 288 | ch:entropicgravity:L288 | calc | `0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: summary repeat: Level2 chi2 diff | PASS |
+| 288 | ch:entropicgravity:L288:0.800 | measured | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: summary repeat: Level2 IAM sigma8 rounded | PASS |
 | 288 |  | calc | `0.12\sigma` | not run: printed value 0.12 sigma has two significant digits: a 5 % change (0.006) is about the rounding half-unit (0.005), so it cannot be told from rounding (recomputed 0.1249 from CHAIN_EXTRACTION_FINAL.csv, Run A sigma8 vs joint 0.802 +- 0.018) | - |
 | 289 | ch:entropicgravity:L289 | calc | `-0.37\sigma` | numeric: photon-sector H0 tension vs Planck | PASS |
 | 289 | ch:entropicgravity:L289:-0.75\sigma | calc | `-0.75\sigma` | numeric: summary repeat: matter-sector H0 tension | PASS |
@@ -1112,18 +1112,18 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 252 | ch:dual:L252 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Planck chain photon-sector H0 | PASS |
-| 252 | ch:dual:L252:0.47 | measured | `0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chain H0 std dev, photon sector | PASS |
+| 252 | ch:dual:L252 | measured | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Planck chain photon-sector H0 | PASS |
+| 252 | ch:dual:L252:0.47 | measured | `0.47` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chain H0 std dev, photon sector | PASS |
 | 252 | ch:dual:L252:72.26 | calc | `72.26` | numeric: matter-sector H0 = photon H0 * sqrt(1+beta_m) | PASS |
-| 252 | ch:dual:L252:0.50 | calc | `0.50` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: propagated uncertainty on matter-sector H0 | PASS |
+| 252 | ch:dual:L252:0.50 | calc | `0.50` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: propagated uncertainty on matter-sector H0 | PASS |
 | 252 | ch:dual:L252:67.36 | observed | `67.36` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 252 | ch:dual:L252:-0.37 | observed | `-0.37` | numeric: sigma tension photon H0 vs Planck 2018 | PASS |
 | 252 | ch:dual:L252:73.04 | observed | `73.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 252 | ch:dual:L252:1.04 | observed | `1.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 252 | ch:dual:L252:-0.75 | observed | `-0.75` | numeric: sigma tension matter H0 vs SH0ES | PASS |
 | 252 | ch:dual:L252:0.54 | observed | `0.54` | file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Planck 2018 H0 error, committed output | PASS |
-| 255 | ch:dual:L255 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: restated photon-sector H0 (Level 2) | PASS |
-| 256 | ch:dual:L256 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon H0 used as multiplicand | PASS |
+| 255 | ch:dual:L255 | measured | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: restated photon-sector H0 (Level 2) | PASS |
+| 256 | ch:dual:L256 | measured | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon H0 used as multiplicand | PASS |
 | 256 | ch:dual:L256:1.0759 | derived | `1.0759` | numeric: sqrt(1+beta_m) factor | PASS |
 | 256 | ch:dual:L256:72.26 | derived | `72.26` | numeric: matter-sector H0 derived result | PASS |
 | 256 |  | none | `0.15765` | not run: restated canon beta_m value, input | - |
@@ -1136,18 +1136,18 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 |---:|---|---|---|---|---|
 | 14 | ch:level2:L14 | derived | `0.15765` | numeric: beta_m = Omega_m/2 | PASS |
 | 14 | ch:level2:L14:0.3153 | measured | `0.3153` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
-| 19 | ch:level2:L19 | calc | `+0.54` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2_min diff, lowest points of two L2 chains | PASS |
+| 19 | ch:level2:L19 | calc | `+0.54` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2_min diff, lowest points of two L2 chains | PASS |
 | 19 | ch:level2:L19:-0.01 | calc | `-0.01` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: chain-average chi2, Run A minus Run C | PASS |
-| 20 | ch:level2:L20 | calc | `0.76` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: likelihood ratio from dchi2 | PASS |
-| 21 | ch:level2:L21 | measured | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM posterior, L2 chain | PASS |
-| 21 | ch:level2:L21:0.7998 | measured | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 dual-sector posterior, L2 chain | PASS |
-| 21 | ch:level2:L21:1.1 | calc | `1.1` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: percent reduction in sigma8 | PASS |
+| 20 | ch:level2:L20 | calc | `0.76` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: likelihood ratio from dchi2 | PASS |
+| 21 | ch:level2:L21 | measured | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM posterior, L2 chain | PASS |
+| 21 | ch:level2:L21:0.7998 | measured | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 dual-sector posterior, L2 chain | PASS |
+| 21 | ch:level2:L21:1.1 | calc | `1.1` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: percent reduction in sigma8 | PASS |
 | 24 | ch:level2:L24 | measured | `67.16` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 24 | ch:level2:L24:0.37 | calc | `0.37` | numeric: H0 photon sector vs Planck LCDM | PASS |
 | 25 | ch:level2:L25 | measured | `72.26` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 25 | ch:level2:L25:0.75 | calc | `0.75` | numeric: sigma of H0_matter from SH0ES | PASS |
-| 26 | ch:level2:L26 | measured | `61.5` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from background-Friedmann exploratory chains | PASS |
-| 26 | ch:level2:L26:10.9 | calc | `10.9` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2b H0 against Planck, in Planck sigma | PASS |
+| 26 | ch:level2:L26 | measured | `61.5` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from background-Friedmann exploratory chains | PASS |
+| 26 | ch:level2:L26:10.9 | calc | `10.9` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2b H0 against Planck, in Planck sigma | PASS |
 | 33 | ch:level2:L33 | measured | `67.4` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 33 | ch:level2:L33:0.5 | measured | `0.5` | file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Planck 2018 H0 error, rounded | PASS |
 | 34 | ch:level2:L34 | measured | `73.04` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
@@ -1167,8 +1167,8 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 43 | ch:level2:L43:0.776 | observed | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DES Y3 3x2pt S8 (committed output) | PASS |
 | 44 | ch:level2:L44:0.769 | observed | `0.769` | numeric: HSC Y3 cosmic shear S8 (Li et al. 2023) | PASS |
 | 45 | ch:level2:L45 | observed | `0.815` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
-| 52 | ch:level2:L52 | calc | `+0.56` | heavy numeric `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: min dchi2 across four chain pairs | PASS |
-| 52 | ch:level2:L52:+1.73 | calc | `+1.73` | heavy numeric `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: max dchi2 across four chain pairs | PASS |
+| 52 | ch:level2:L52 | calc | `+0.56` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: min dchi2 across four chain pairs | PASS |
+| 52 | ch:level2:L52:+1.73 | calc | `+1.73` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: max dchi2 across four chain pairs | PASS |
 | 75 | eq:l2_friedmann | none |  | not run: definition: standard Friedmann equation | - |
 | 79 | eq:l2_Hm | none |  | not run: definition: matter-sector expansion rate ansatz | - |
 | 83 | eq:l2_beta | derived | `0.15765` | numeric: beta_m equation, Omega_m/2 | PASS |
@@ -1238,36 +1238,36 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 192 | ch:level2:L192:0.960 | measured | `0.960` | heavy file `docs/verification/chains/data/growth_on.json`: f CAMB = fsigma8/sigma8, on and off, z=2.0 | PASS |
 | 196 | ch:level2:L196:2.8 | calc | `2.8` | numeric: largest gap MGCAMB mu (mu0 -0.135) vs exact mu | PASS |
 | 196 |  | none | `-0.135` | not run: MGCAMB mu0, input restated from Ch. latetime | - |
-| 225 | ch:level2:L225 | observed | `0.423` | file `camb_validation/likelihood_rsd.py`: 6dFGS fsigma8 | PASS |
-| 225 | ch:level2:L225:0.055 | observed | `0.055` | file `camb_validation/likelihood_rsd.py`: 6dFGS fsigma8 error | PASS |
-| 226 | ch:level2:L226 | observed | `0.530` | file `camb_validation/likelihood_rsd.py`: SDSS MGS fsigma8 | PASS |
-| 226 | ch:level2:L226:0.160 | observed | `0.160` | file `camb_validation/likelihood_rsd.py`: SDSS MGS fsigma8 error | PASS |
-| 227 | ch:level2:L227 | observed | `0.497` | file `camb_validation/likelihood_rsd.py`: BOSS DR12 z=0.38 fsigma8 | PASS |
-| 227 | ch:level2:L227:0.045 | observed | `0.045` | file `camb_validation/likelihood_rsd.py`: BOSS DR12 z=0.38 fsigma8 error | PASS |
-| 228 | ch:level2:L228 | observed | `0.459` | file `camb_validation/likelihood_rsd.py`: BOSS DR12 z=0.51 fsigma8 | PASS |
-| 228 | ch:level2:L228:0.038 | observed | `0.038` | file `camb_validation/likelihood_rsd.py`: BOSS DR12 z=0.51 fsigma8 error | PASS |
-| 229 | ch:level2:L229 | observed | `0.473` | file `camb_validation/likelihood_rsd.py`: eBOSS LRG fsigma8 | PASS |
-| 229 | ch:level2:L229:0.041 | observed | `0.041` | file `camb_validation/likelihood_rsd.py`: eBOSS LRG fsigma8 error | PASS |
-| 230 | ch:level2:L230 | observed | `0.315` | file `camb_validation/likelihood_rsd.py`: eBOSS ELG fsigma8 | PASS |
-| 230 | ch:level2:L230:0.095 | observed | `0.095` | file `camb_validation/likelihood_rsd.py`: eBOSS ELG fsigma8 error | PASS |
-| 231 | ch:level2:L231 | observed | `0.462` | file `camb_validation/likelihood_rsd.py`: eBOSS quasars fsigma8 | PASS |
-| 231 | ch:level2:L231:0.045 | observed | `0.045` | file `camb_validation/likelihood_rsd.py`: eBOSS quasars fsigma8 error | PASS |
-| 245 | ch:level2:L245 | measured | `0.0099` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A final R-1 convergence stat | PASS |
-| 246 | ch:level2:L246 | measured | `0.0081` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C final R-1 convergence stat | PASS |
-| 247 | ch:level2:L247 | measured | `0.0080` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D final R-1 convergence stat | PASS |
-| 248 | ch:level2:L248 | measured | `0.0100` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run Ab final R-1 convergence stat | PASS |
-| 249 | ch:level2:L249 | measured | `0.0068` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run Db final R-1 convergence stat | PASS |
-| 279 | ch:level2:L279 | measured | `67.188\pm0.465` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C posterior H0 mean | PASS |
-| 279 | ch:level2:L279:67.161\pm0.467 | measured | `67.161\pm0.467` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior H0 mean | PASS |
+| 225 | ch:level2:L225 | observed | `0.423` | file `Cosmological_Physics/camb_validation/likelihood_rsd.py`: 6dFGS fsigma8 | PASS |
+| 225 | ch:level2:L225:0.055 | observed | `0.055` | file `Cosmological_Physics/camb_validation/likelihood_rsd.py`: 6dFGS fsigma8 error | PASS |
+| 226 | ch:level2:L226 | observed | `0.530` | file `Cosmological_Physics/camb_validation/likelihood_rsd.py`: SDSS MGS fsigma8 | PASS |
+| 226 | ch:level2:L226:0.160 | observed | `0.160` | file `Cosmological_Physics/camb_validation/likelihood_rsd.py`: SDSS MGS fsigma8 error | PASS |
+| 227 | ch:level2:L227 | observed | `0.497` | file `Cosmological_Physics/camb_validation/likelihood_rsd.py`: BOSS DR12 z=0.38 fsigma8 | PASS |
+| 227 | ch:level2:L227:0.045 | observed | `0.045` | file `Cosmological_Physics/camb_validation/likelihood_rsd.py`: BOSS DR12 z=0.38 fsigma8 error | PASS |
+| 228 | ch:level2:L228 | observed | `0.459` | file `Cosmological_Physics/camb_validation/likelihood_rsd.py`: BOSS DR12 z=0.51 fsigma8 | PASS |
+| 228 | ch:level2:L228:0.038 | observed | `0.038` | file `Cosmological_Physics/camb_validation/likelihood_rsd.py`: BOSS DR12 z=0.51 fsigma8 error | PASS |
+| 229 | ch:level2:L229 | observed | `0.473` | file `Cosmological_Physics/camb_validation/likelihood_rsd.py`: eBOSS LRG fsigma8 | PASS |
+| 229 | ch:level2:L229:0.041 | observed | `0.041` | file `Cosmological_Physics/camb_validation/likelihood_rsd.py`: eBOSS LRG fsigma8 error | PASS |
+| 230 | ch:level2:L230 | observed | `0.315` | file `Cosmological_Physics/camb_validation/likelihood_rsd.py`: eBOSS ELG fsigma8 | PASS |
+| 230 | ch:level2:L230:0.095 | observed | `0.095` | file `Cosmological_Physics/camb_validation/likelihood_rsd.py`: eBOSS ELG fsigma8 error | PASS |
+| 231 | ch:level2:L231 | observed | `0.462` | file `Cosmological_Physics/camb_validation/likelihood_rsd.py`: eBOSS quasars fsigma8 | PASS |
+| 231 | ch:level2:L231:0.045 | observed | `0.045` | file `Cosmological_Physics/camb_validation/likelihood_rsd.py`: eBOSS quasars fsigma8 error | PASS |
+| 245 | ch:level2:L245 | measured | `0.0099` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A final R-1 convergence stat | PASS |
+| 246 | ch:level2:L246 | measured | `0.0081` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C final R-1 convergence stat | PASS |
+| 247 | ch:level2:L247 | measured | `0.0080` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D final R-1 convergence stat | PASS |
+| 248 | ch:level2:L248 | measured | `0.0100` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run Ab final R-1 convergence stat | PASS |
+| 249 | ch:level2:L249 | measured | `0.0068` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run Db final R-1 convergence stat | PASS |
+| 279 | ch:level2:L279 | measured | `67.188\pm0.465` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C posterior H0 mean | PASS |
+| 279 | ch:level2:L279:67.161\pm0.467 | measured | `67.161\pm0.467` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior H0 mean | PASS |
 | 279 |  | calc | `-0.06\sigma` | not run: printed value -0.06 sigma has one significant digit: a 5 % change (0.003) is below the rounding half-unit (0.005) and cannot be told from rounding (recomputed -0.0576 from CHAIN_EXTRACTION_FINAL.csv; -0.06 also in section D of verify_late_time_level2_output.txt) | - |
-| 280 | ch:level2:L280 | measured | `0.8087\pm0.0059` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C posterior sigma8 mean | PASS |
-| 280 | ch:level2:L280:0.7998\pm0.0058 | measured | `0.7998\pm0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior sigma8 mean | PASS |
+| 280 | ch:level2:L280 | measured | `0.8087\pm0.0059` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C posterior sigma8 mean | PASS |
+| 280 | ch:level2:L280:0.7998\pm0.0058 | measured | `0.7998\pm0.0058` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior sigma8 mean | PASS |
 | 280 | ch:level2:L280:-1.51\sigma | calc | `-1.51\sigma` | numeric: sigma8 shift A vs C in sigma | PASS |
-| 281 | ch:level2:L281 | measured | `0.830\pm0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C posterior S8 mean | PASS |
-| 281 | ch:level2:L281:0.822\pm0.011 | measured | `0.822\pm0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior S8 mean | PASS |
+| 281 | ch:level2:L281 | measured | `0.830\pm0.011` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C posterior S8 mean | PASS |
+| 281 | ch:level2:L281:0.822\pm0.011 | measured | `0.822\pm0.011` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior S8 mean | PASS |
 | 281 | ch:level2:L281:-0.78\sigma | calc | `-0.78\sigma` | numeric: S8 shift A vs C in sigma | PASS |
-| 282 | ch:level2:L282 | measured | `0.02218\pm0.00013` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C posterior ombh2 mean | PASS |
-| 282 | ch:level2:L282:0.02217\pm0.00013 | measured | `0.02217\pm0.00013` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior ombh2 mean | PASS |
+| 282 | ch:level2:L282 | measured | `0.02218\pm0.00013` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C posterior ombh2 mean | PASS |
+| 282 | ch:level2:L282:0.02217\pm0.00013 | measured | `0.02217\pm0.00013` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior ombh2 mean | PASS |
 | 282 | ch:level2:L282:-0.07\sigma | calc | `-0.07\sigma` | numeric: ombh2 shift A vs C in sigma | PASS |
 | 283 | ch:level2:L283 | measured | `0.11989\pm0.00105` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 283 | ch:level2:L283:0.11994\pm0.00105 | measured | `0.11994\pm0.00105` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
@@ -1281,20 +1281,20 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 286 | ch:level2:L286 | measured | `3.0393\pm0.0146` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 286 | ch:level2:L286:3.0407\pm0.0145 | measured | `3.0407\pm0.0145` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 286 |  | calc | `+0.09\sigma` | not run: printed value +0.09 sigma has one significant digit: a 5 % change (0.0045) is below the rounding half-unit (0.005) and cannot be told from rounding (recomputed 0.0959 from the table inputs 3.0407, 3.0393, 0.0146; 0.091 from the chain means in verify_late_time_level2_output.txt section D) | - |
-| 287 | ch:level2:L287 | measured | `0.3162\pm0.0065` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C posterior Omega_m mean | PASS |
-| 287 | ch:level2:L287:0.3166\pm0.0065 | measured | `0.3166\pm0.0065` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior Omega_m mean | PASS |
+| 287 | ch:level2:L287 | measured | `0.3162\pm0.0065` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C posterior Omega_m mean | PASS |
+| 287 | ch:level2:L287:0.3166\pm0.0065 | measured | `0.3166\pm0.0065` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior Omega_m mean | PASS |
 | 287 | ch:level2:L287:+0.05\sigma | calc | `+0.05\sigma` | numeric: Omega_m shift A vs C in sigma | PASS |
-| 288 | ch:level2:L288 | measured | `10972.07` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C lowest chi2 | PASS |
-| 288 | ch:level2:L288:10972.61 | measured | `10972.61` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A lowest chi2 | PASS |
+| 288 | ch:level2:L288 | measured | `10972.07` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C lowest chi2 | PASS |
+| 288 | ch:level2:L288:10972.61 | measured | `10972.61` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A lowest chi2 | PASS |
 | 288 | ch:level2:L288:+0.54 | calc | `+0.54` | numeric: chi2 difference A minus C | PASS |
 | 289 | ch:level2:L289 | measured | `10985.08` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 289 | ch:level2:L289:10985.07 | measured | `10985.07` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 289 | ch:level2:L289:-0.01 | calc | `-0.01` | numeric: chain-average chi2 difference | PASS |
-| 290 | ch:level2:L290 | measured | `0.0081` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: final R-1 Run C, repeated | PASS |
-| 290 | ch:level2:L290:0.0099 | measured | `0.0099` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: final R-1 Run A, repeated | PASS |
+| 290 | ch:level2:L290 | measured | `0.0081` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: final R-1 Run C, repeated | PASS |
+| 290 | ch:level2:L290:0.0099 | measured | `0.0099` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: final R-1 Run A, repeated | PASS |
 | 293 | ch:level2:L293 | calc | `0.009` | numeric: sigma8 drop, rounded values | PASS |
-| 293 | ch:level2:L293:0.809 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 Run C, rounded repeat | PASS |
-| 293 | ch:level2:L293:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 Run A, rounded repeat | PASS |
+| 293 | ch:level2:L293:0.809 | measured | `0.809` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 Run C, rounded repeat | PASS |
+| 293 | ch:level2:L293:0.800 | measured | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 Run A, rounded repeat | PASS |
 | 294 | ch:level2:L294 | calc | `-1.1\%` | numeric: percent sigma8 drop | PASS |
 | 294 | ch:level2:L294:-1.51\sigma | calc | `-1.51\sigma` | numeric: sigma8 shift, repeated | PASS |
 | 295 | ch:level2:L295 | calc | `0.76` | numeric: likelihood ratio exp(-0.54/2) | PASS |
@@ -1304,22 +1304,22 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 300 | ch:level2:L300 | calc | `+0.05\sigma` | numeric: Omega_m shift, repeat | PASS |
 | 300 | ch:level2:L300:-1.51\sigma | calc | `-1.51\sigma` | numeric: sigma8 shift, repeat | PASS |
 | 304 | ch:level2:L304 | calc | `1.5\sigma` | numeric: sigma8 shift, rounded repeat | PASS |
-| 308 | ch:level2:L308 | measured | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 Run A posterior mean, repeat | PASS |
-| 308 | ch:level2:L308:0.8087 | measured | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 Run C posterior mean, repeat | PASS |
+| 308 | ch:level2:L308 | measured | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 Run A posterior mean, repeat | PASS |
+| 308 | ch:level2:L308:0.8087 | measured | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 Run C posterior mean, repeat | PASS |
 | 314 | ch:level2:L314 | calc | `-1.51\sigma` | numeric: sigma8 shift, repeat | PASS |
 | 315 | ch:level2:L315 | calc | `-0.78\sigma` | numeric: S8 shift, repeat | PASS |
 | 316 |  | calc | `+0.09\sigma` | not run: restatement of ch:level2:L286 in a caption (+0.09 sigma); printed value has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0959) | - |
 | 320 | ch:level2:L320 | calc | `0.06\sigma` | numeric: Run D vs A H0 agreement in sigma | PASS |
-| 321 | ch:level2:L321 | measured | `0.7995\pm0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D posterior sigma8 mean | PASS |
-| 321 | ch:level2:L321:0.7998\pm0.0058 | measured | `0.7998\pm0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior sigma8 mean, repeat | PASS |
+| 321 | ch:level2:L321 | measured | `0.7995\pm0.0058` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D posterior sigma8 mean | PASS |
+| 321 | ch:level2:L321:0.7998\pm0.0058 | measured | `0.7998\pm0.0058` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior sigma8 mean, repeat | PASS |
 | 322 | ch:level2:L322 | calc | `0.00\sigma` | numeric: Omega_m shift Run D vs C | PASS |
 | 322 |  | calc | `+0.08\sigma` | not run: printed value +0.08 sigma has one significant digit: a 5 % change (0.004) is below the rounding half-unit (0.005) and cannot be told from rounding (recomputed 0.0836 from Run D and Run C ln10^10As in verify_late_time_level2_output.txt section D) | - |
 | 325 | ch:level2:L325 | measured | `0.542` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 325 | ch:level2:L325:0.498 | measured | `0.498` | heavy file `docs/verification/chains/data/growth_on.json`: density growth rate f at z = 0, switch on (CAMB record) | PASS |
 | 326 | ch:level2:L326 | calc | `8.1\%` | numeric: percent diff f velocity vs density | PASS |
-| 491 | ch:level2:L491 | calc | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2_min difference between IAM and LCDM runs | PASS |
-| 492 | ch:level2:L492 | record | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 before (LCDM-like run) | PASS |
-| 492 | ch:level2:L492:0.800 | record | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 after (IAM run) | PASS |
+| 491 | ch:level2:L491 | calc | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2_min difference between IAM and LCDM runs | PASS |
+| 492 | ch:level2:L492 | record | `0.809` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 before (LCDM-like run) | PASS |
+| 492 | ch:level2:L492:0.800 | record | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 after (IAM run) | PASS |
 | 493 | ch:level2:L493:0.1 | calc | `0.1` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: largest standard-parameter shift A vs C, in sigma | PASS |
 | 495 | ch:level2:L495 | record | `67.16` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 495 | ch:level2:L495:0.37 | calc | `0.37` | numeric: sigma tension vs Planck 2018 H0 | PASS |
@@ -1343,28 +1343,28 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 111 | ch:dsnote:L111 | calc | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: photon coupling bound from theta_s fit | PASS |
 | 111 | ch:dsnote:L111:0.033 | calc | `0.033` | numeric: sector ratio beta_gamma/beta_m from the committed 95 % bound | PASS |
 | 112 | ch:dsnote:L112 | calc | `30` | numeric: 'at least 30x': beta_m/beta_gamma bound, whole multiples | PASS |
-| 113 | ch:dsnote:L113 | measured | `0.1583` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Omega_m/2 from Planck posterior (beta_m-fixed chain) | PASS |
-| 113 | ch:dsnote:L113:0.0032 | measured | `0.0032` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: uncertainty on Omega_m/2 posterior | PASS |
+| 113 | ch:dsnote:L113 | measured | `0.1583` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Omega_m/2 from Planck posterior (beta_m-fixed chain) | PASS |
+| 113 | ch:dsnote:L113:0.0032 | measured | `0.0032` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: uncertainty on Omega_m/2 posterior | PASS |
 | 114 | ch:dsnote:L114 | measured | `0.2` | numeric: sigma deviation of Omega_m/2 from beta_m | PASS |
 | 114 | ch:dsnote:L114:0.15765 | measured | `0.15765` | numeric: beta_m value restated for comparison | PASS |
 | 117 | ch:dsnote:L117 | observed | `-0.035` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: best beta in the Pantheon+ distances (full covariance) | PASS |
 | 117 | ch:dsnote:L117:-0.068 | observed | `-0.068` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: lower 68 % edge of beta in the Pantheon+ distances | PASS |
 | 118 | ch:dsnote:L118 | observed | `73.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
-| 126 | ch:dsnote:L126 | measured | `0.010` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: worst-case chain convergence R-1 | PASS |
+| 126 | ch:dsnote:L126 | measured | `0.010` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: worst-case chain convergence R-1 | PASS |
 | 127 | ch:dsnote:L127 | calc | `0.76` | numeric: likelihood ratio from Delta chi^2=0.54 | PASS |
-| 127 | ch:dsnote:L127:0.54 | calc | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2 lowest points, Run A minus Run C | PASS |
-| 129 | ch:dsnote:L129 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain sigma8 | PASS |
-| 129 | ch:dsnote:L129:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 beta_m-fixed chain sigma8 | PASS |
+| 127 | ch:dsnote:L127:0.54 | calc | `0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2 lowest points, Run A minus Run C | PASS |
+| 129 | ch:dsnote:L129 | measured | `0.809` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain sigma8 | PASS |
+| 129 | ch:dsnote:L129:0.800 | measured | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 beta_m-fixed chain sigma8 | PASS |
 | 130 | ch:dsnote:L130 | measured | `67.16` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
-| 130 | ch:dsnote:L130:0.47 | measured | `0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 posterior sd (Run A) | PASS |
-| 130 | ch:dsnote:L130:0.37 | measured | `0.37` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 against Planck, sigma | PASS |
+| 130 | ch:dsnote:L130:0.47 | measured | `0.47` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 posterior sd (Run A) | PASS |
+| 130 | ch:dsnote:L130:0.37 | measured | `0.37` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 against Planck, sigma | PASS |
 | 131 | ch:dsnote:L131 | calc | `72.26` | numeric: matter-sector H0 from photon H0 and beta_m | PASS |
-| 131 | ch:dsnote:L131:0.50 | calc | `0.50` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 error, sd x sqrt(1 + beta_m) | PASS |
+| 131 | ch:dsnote:L131:0.50 | calc | `0.50` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 error, sd x sqrt(1 + beta_m) | PASS |
 | 131 | ch:dsnote:L131:0.75 | calc | `0.75` | numeric: matter-sector H0 against SH0ES, sigma | PASS |
-| 132 | ch:dsnote:L132 | measured | `61.45` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: background-level chain H0 (falsification test) | PASS |
-| 132 | ch:dsnote:L132:0.42 | measured | `0.42` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: uncertainty on background chain H0 (runA) | PASS |
-| 132 | ch:dsnote:L132:61.52 | measured | `61.52` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: second background chain H0 | PASS |
-| 132 | ch:dsnote:L132:0.43 | measured | `0.43` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: uncertainty on background chain H0 (runD) | PASS |
+| 132 | ch:dsnote:L132 | measured | `61.45` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: background-level chain H0 (falsification test) | PASS |
+| 132 | ch:dsnote:L132:0.42 | measured | `0.42` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: uncertainty on background chain H0 (runA) | PASS |
+| 132 | ch:dsnote:L132:61.52 | measured | `61.52` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: second background chain H0 | PASS |
+| 132 | ch:dsnote:L132:0.43 | measured | `0.43` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: uncertainty on background chain H0 (runD) | PASS |
 | 133 | ch:dsnote:L133 | measured | `10.9` | numeric: sigma below Planck H0 (background chains) | PASS |
 | 133 | ch:dsnote:L133:8.6 | measured | `8.6` | numeric: sigma below Planck, chain error in quadrature | PASS |
 | 135 | ch:dsnote:L135 | calc | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: photon coupling bound restated | PASS |
@@ -1387,7 +1387,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 154 |  | calc | `0.05` | not run: calc, method not committed: the L-dependent Limber estimate of the CMB lensing power (0.05 % at the low end of 30 <= L <= 1000) has no committed script or output (verify_obs_chapters.py and verify_sector_tension.py only give the L-averaged ratio 0.9992); an Eisenstein-Hu Limber integral written here gives 0.03-0.24 %, so the printed range is not reproduced without the original method | - |
 | 154 |  | calc | `0.3` | not run: calc, method not committed: upper end 0.3 % of the same Limber estimate (see row 483); no committed script or output | - |
 | 158 | ch:dsnote:L158 | derived | `0.15765` | numeric: beta_m restated in figure caption | PASS |
-| 158 | ch:dsnote:L158:67.16 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 chain H0 restated | PASS |
+| 158 | ch:dsnote:L158:67.16 | measured | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 chain H0 restated | PASS |
 | 159 | ch:dsnote:L159 | measured | `67.16` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 159 | ch:dsnote:L159:72.26 | calc | `72.26` | numeric: matter-sector H0 restated | PASS |
 | 160 | ch:dsnote:L160 | calc | `0.864` | numeric: mu at z=0 restated | PASS |
@@ -1407,10 +1407,10 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 169 | ch:dsnote:L169:-0.41 | calc | `-0.41` | numeric: f sigma8 rel. LambdaCDM, z = 1, model C | PASS |
 | 169 | ch:dsnote:L169:-13.2 | calc | `-13.2` | numeric: f sigma8 rel. LambdaCDM, z = 0, both placements (D) | PASS |
 | 170 |  | none | `61.5` | not run: H0 background restated approx | - |
-| 171 | ch:dsnote:L171 | measured | `0.830` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain S8 | PASS |
-| 171 | ch:dsnote:L171:0.011 | measured | `0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: uncertainty on LCDM chain S8 | PASS |
-| 171 | ch:dsnote:L171:0.822 | measured | `0.822` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 beta_m-fixed chain S8 | PASS |
-| 171 | ch:dsnote:L171:0.011' | measured | `0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: uncertainty on beta_m-fixed chain S8 | PASS |
+| 171 | ch:dsnote:L171 | measured | `0.830` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain S8 | PASS |
+| 171 | ch:dsnote:L171:0.011 | measured | `0.011` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: uncertainty on LCDM chain S8 | PASS |
+| 171 | ch:dsnote:L171:0.822 | measured | `0.822` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 beta_m-fixed chain S8 | PASS |
+| 171 | ch:dsnote:L171:0.011' | measured | `0.011` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: uncertainty on beta_m-fixed chain S8 | PASS |
 | 171 |  | none | `0.832` | not run: Planck 2018 published S8 (external) | - |
 | 171 |  | none | `0.013` | not run: uncertainty on Planck S8 | - |
 | 172 | ch:dsnote:L172 | observed | `0.815` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
@@ -1421,10 +1421,10 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 176 | ch:dsnote:L176:2.17 | calc | `2.17` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 176 | ch:dsnote:L176:1.35 | calc | `1.35` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 176 | ch:dsnote:L176:0.41 | calc | `0.41` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 177 | ch:dsnote:L177 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 restated (LCDM Level2) | PASS |
-| 177 | ch:dsnote:L177:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 restated (beta_m-fixed Level2) | PASS |
-| 177 | ch:dsnote:L177:0.830 | measured | `0.830` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 restated (LCDM Level2) | PASS |
-| 177 | ch:dsnote:L177:0.822 | measured | `0.822` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 restated (beta_m-fixed Level2) | PASS |
+| 177 | ch:dsnote:L177 | measured | `0.809` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 restated (LCDM Level2) | PASS |
+| 177 | ch:dsnote:L177:0.800 | measured | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 restated (beta_m-fixed Level2) | PASS |
+| 177 | ch:dsnote:L177:0.830 | measured | `0.830` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 restated (LCDM Level2) | PASS |
+| 177 | ch:dsnote:L177:0.822 | measured | `0.822` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 restated (beta_m-fixed Level2) | PASS |
 | 177 | ch:dsnote:L177:0.8 | measured | `0.8` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: S8 shift, Run C to Run A, in sigma | PASS |
 | 180 | ch:dsnote:L180 | interp | `0.69` | numeric: redshift where E(a) is half present value | PASS |
 | 180 | ch:dsnote:L180:0.11 | interp | `0.11` | numeric: redshift where E(a) reaches 90% of present value | PASS |
@@ -1446,8 +1446,8 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 213 |  | calc | `0` | not run: prediction, nothing to recompute: beta_gamma = 0 is the photon exemption itself (eq:dsn_iff, checked there); the measured side of the row is the bound 0.0052 (ch:dsnote:L213:0.0052) | - |
 | 214 |  | prediction | `1/2` | not run: table: definition beta_m=Om/2, restated | - |
 | 215 |  | prediction | `-0.136` | not run: table Value column: canon mu0 prediction restated | - |
-| 234 | ch:dsnote:L234 | record | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Planck-only chi2 diff IAM vs LCDM, level-2 chains | PASS |
-| 235 | ch:dsnote:L235 | record | `0.2` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Planck posterior Omega_m/2 against fixed beta_m, sigma | PASS |
+| 234 | ch:dsnote:L234 | record | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Planck-only chi2 diff IAM vs LCDM, level-2 chains | PASS |
+| 235 | ch:dsnote:L235 | record | `0.2` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Planck posterior Omega_m/2 against fixed beta_m, sigma | PASS |
 | 236 | ch:dsnote:L236 | record | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma 95 % bound in the summary (committed output) | PASS |
 
 ## Part 2 - ch:s8trend - `docs/book/part2/p2_08_s8_trend.tex`
@@ -1543,17 +1543,17 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 115 | ch:s8trend:L115 | calc | `0.3` | numeric: rise in units of statistical sigma | PASS |
 | 115 |  | observed | `3` | not run: measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), '~3 sigma low-redshift offset of the measured trend'; the source does not tabulate it and no repository file records it | - |
 | 118 | ch:s8trend:L118 | calc | `2.30` | numeric: repeat threshold where E(a)<0.1 | PASS |
-| 122 | ch:s8trend:L122 | record | `0.8143` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: LCDM chain sigma8, Planck-only | PASS |
-| 122 | ch:s8trend:L122:0.8015 | record | `0.8015` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: IAM chain sigma8, Planck-only | PASS |
+| 122 | ch:s8trend:L122 | record | `0.8143` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: LCDM chain sigma8, Planck-only | PASS |
+| 122 | ch:s8trend:L122:0.8015 | record | `0.8015` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: IAM chain sigma8, Planck-only | PASS |
 | 122 | ch:s8trend:L122:1.68 | calc | `1.68` | numeric: amplitude deficit today, MGCAMB chain form | PASS |
-| 123 | ch:s8trend:L123 | calc | `1.6` | heavy numeric `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: sigma8 shift percent, Planck chains | PASS |
+| 123 | ch:s8trend:L123 | calc | `1.6` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: sigma8 shift percent, Planck chains | PASS |
 | 123 | ch:s8trend:L123:half | calc | `half` | numeric: exact-form fraction of MGCAMB deficit | PASS |
-| 128 | ch:s8trend:L128 | calc | `61.5` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from background-coupled Level2b chains | PASS |
-| 129 | ch:s8trend:L129 | fitted | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: delta chi2, perturbation-only vs LCDM | PASS |
+| 128 | ch:s8trend:L128 | calc | `61.5` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from background-coupled Level2b chains | PASS |
+| 129 | ch:s8trend:L129 | fitted | `0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: delta chi2, perturbation-only vs LCDM | PASS |
 | 132 | ch:s8trend:L132 | derived | `0.15765` | numeric: repeat beta_m from Om/2 | PASS |
-| 133 | ch:s8trend:L133 | measured | `0.3166+/-0.0065` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level-2 posterior Omega_m | PASS |
-| 133 | ch:s8trend:L133:0.1583+/-0.0032 | calc | `0.1583+/-0.0032` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Omega_m/2 from Level-2 posterior | PASS |
-| 134 | ch:s8trend:L134 | calc | `0.2` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma distance from fixed beta_m | PASS |
+| 133 | ch:s8trend:L133 | measured | `0.3166+/-0.0065` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level-2 posterior Omega_m | PASS |
+| 133 | ch:s8trend:L133:0.1583+/-0.0032 | calc | `0.1583+/-0.0032` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Omega_m/2 from Level-2 posterior | PASS |
+| 134 | ch:s8trend:L134 | calc | `0.2` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma distance from fixed beta_m | PASS |
 | 143 | ch:s8trend:L143 | calc | `1.16` | numeric: M_lens/M_dyn today | PASS |
 | 143 | ch:s8trend:L143:1.05 | calc | `1.05` | numeric: M_lens/M_dyn at z=0.5 | PASS |
 | 190 |  | prediction | `-0.136` | not run: predicted coupling mu0, canon locked input | - |
@@ -1569,7 +1569,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 203 |  | calc | `a tenth` | not run: ratio to low-z deficit, imprecise restatement | - |
 | 204 | ch:s8trend:L204 | calc | `40\%` | numeric: growth index moved toward the measured value, per cent of the way | PASS |
 | 204 | ch:s8trend:L204:0.3 | calc | `0.3\sigma` | numeric: rise of inferred S8 with z_min in statistical sigma | PASS |
-| 206 | ch:s8trend:L206 | calc | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2 IAM vs LCDM, Level2 chains | PASS |
+| 206 | ch:s8trend:L206 | calc | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2 IAM vs LCDM, Level2 chains | PASS |
 
 ## Part 2 - ch:sectortension - `docs/book/part2/p2_09_sector_tension.tex`
 
@@ -1578,12 +1578,12 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 16 | ch:sectortension:L16 | calc | `0.35` | numeric: phantom-crossing z, DESI+CMB+Pantheon+ fit | PASS |
 | 16 | ch:sectortension:L16:0.50 | calc | `0.50` | numeric: phantom-crossing z, DESI+CMB fit | PASS |
 | 20 | ch:sectortension:L20 | calc | `0.15765` | numeric: beta_m=Omega_m/2 virial partition | PASS |
-| 21 | ch:sectortension:L21 | calc | `0.2` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Planck posterior vs fixed beta_m sigma | PASS |
-| 30 | ch:sectortension:L30 | measured | `+0.54` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2 difference term vs LCDM best points | PASS |
-| 30 | ch:sectortension:L30:0.010 | measured | `0.010` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: max chain convergence R-1 across 18 chains | PASS |
-| 30 | ch:sectortension:L30:0.7998 | measured | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: IAM term sigma8 posterior | PASS |
+| 21 | ch:sectortension:L21 | calc | `0.2` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Planck posterior vs fixed beta_m sigma | PASS |
+| 30 | ch:sectortension:L30 | measured | `+0.54` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2 difference term vs LCDM best points | PASS |
+| 30 | ch:sectortension:L30:0.010 | measured | `0.010` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: max chain convergence R-1 across 18 chains | PASS |
+| 30 | ch:sectortension:L30:0.7998 | measured | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: IAM term sigma8 posterior | PASS |
 | 31 | ch:sectortension:L31 | observed | `0.802` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
-| 31 | ch:sectortension:L31:0.1 | calc | `0.1` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma agreement IAM vs lensing sigma8 | PASS |
+| 31 | ch:sectortension:L31:0.1 | calc | `0.1` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma agreement IAM vs lensing sigma8 | PASS |
 | 31 | ch:sectortension:L31:0.1' | calc | `0.1` | numeric: fsigma8 deficit at QSO redshift z=1.491 | PASS |
 | 31 | ch:sectortension:L31:2.2 | calc | `2.2` | numeric: fsigma8 deficit at BGS redshift z=0.295 | PASS |
 | 41 | ch:sectortension:L41 | observed | `67.4` | numeric: Planck 2018 H0 under LambdaCDM | PASS |
@@ -1629,16 +1629,16 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 99 | eq:st_entropy | none |  | not run: definition: entropy budget geometric+informational split | - |
 | 110 | eq:st_hm | none |  | not run: definition: modified matter effective expansion rate ansatz | - |
 | 208 | eq:st_ode | none |  | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
-| 213 | ch:sectortension:L213 | fitted | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 term, Level2 Run A chain | PASS |
-| 213 | ch:sectortension:L213:0.8087 | fitted | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM, Level2 Run C chain | PASS |
-| 216 | ch:sectortension:L216 | calc | `1.11\%` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 % diff between Level2 chains | PASS |
+| 213 | ch:sectortension:L213 | fitted | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 term, Level2 Run A chain | PASS |
+| 213 | ch:sectortension:L213:0.8087 | fitted | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM, Level2 Run C chain | PASS |
+| 216 | ch:sectortension:L216 | calc | `1.11\%` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 % diff between Level2 chains | PASS |
 | 216 | ch:sectortension:L216:0.78\% | calc | `0.78\%` | numeric: sigma8 lowered by the growth equation, same early amplitude | PASS |
-| 217 | ch:sectortension:L217 | fitted | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM repeated | PASS |
+| 217 | ch:sectortension:L217 | fitted | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM repeated | PASS |
 | 217 | ch:sectortension:L217:0.8024 | calc | `0.8024` | numeric: IAM sigma8 estimate from ODE ratio x LCDM sigma8 | PASS |
 | 217 | ch:sectortension:L217:0.3\% | calc | `0.3\%` | numeric: offset of ODE estimate above Boltzmann value | PASS |
-| 217 | ch:sectortension:L217:0.7998 | fitted | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Boltzmann sigma8 repeated | PASS |
-| 223 | ch:sectortension:L223 | fitted | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 term repeated in caption | PASS |
-| 223 | ch:sectortension:L223:0.8087 | fitted | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM repeated in caption | PASS |
+| 217 | ch:sectortension:L217:0.7998 | fitted | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Boltzmann sigma8 repeated | PASS |
+| 223 | ch:sectortension:L223 | fitted | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 term repeated in caption | PASS |
+| 223 | ch:sectortension:L223:0.8087 | fitted | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM repeated in caption | PASS |
 | 227 | ch:sectortension:L227 | observed | `0.377` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 227 | ch:sectortension:L227:0.460 | calc | `0.460` | numeric: f sigma8 prediction, term, z=0.295, sigma8 0.7998 (Run A) | PASS |
 | 227 | ch:sectortension:L227:0.472 | calc | `0.472` | numeric: f sigma8 prediction, LCDM, z=0.295, sigma8 0.8087 (Run C) | PASS |
@@ -1747,14 +1747,14 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 266 | ch:sectortension:L266 | observed | `0.776\pm0.017` | heavy file `docs/verification/scripts/verify_sector_tension.py`: DES Y3 S8 and error in verify_sector_tension.py, the script of the chapter | PASS |
 | 267 | ch:sectortension:L267 | observed | `0.776^{+0.032}_{-0.033}` | heavy file `docs/verification/scripts/verify_sector_tension.py`: HSC Y3 S8 and errors in verify_sector_tension.py, the script of the chapter | PASS |
 | 268 | ch:sectortension:L268 | observed | `0.589\pm0.020` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
-| 273 | eq:st_sigma8 | fitted | `0.7998\pm0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM Level2 posterior | PASS |
-| 273 | eq:st_sigma8:0.8087\pm0.0059 | fitted | `0.8087\pm0.0059` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM Level2 posterior | PASS |
-| 276 | eq:st_S8 | fitted | `0.822\pm0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 IAM Level2 posterior | PASS |
-| 276 | eq:st_S8:0.830\pm0.011 | fitted | `0.830\pm0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 LCDM Level2 posterior | PASS |
+| 273 | eq:st_sigma8 | fitted | `0.7998\pm0.0058` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM Level2 posterior | PASS |
+| 273 | eq:st_sigma8:0.8087\pm0.0059 | fitted | `0.8087\pm0.0059` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM Level2 posterior | PASS |
+| 276 | eq:st_S8 | fitted | `0.822\pm0.011` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 IAM Level2 posterior | PASS |
+| 276 | eq:st_S8:0.830\pm0.011 | fitted | `0.830\pm0.011` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 LCDM Level2 posterior | PASS |
 | 278 | ch:sectortension:L278 | calc | `0.822` | numeric: S8 recomputed at chain's own Om | PASS |
-| 280 | ch:sectortension:L280 | none | `+0.05\sigma` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Omega_m shift between chains, in sigma | PASS |
+| 280 | ch:sectortension:L280 | none | `+0.05\sigma` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Omega_m shift between chains, in sigma | PASS |
 | 280 |  | none | `+0.09\sigma` | not run: ln(1e10 As) shift between chains; As not in committed CSV | - |
-| 281 | ch:sectortension:L281 | calc | `0.600` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: term sigma8 Om^0.25 | PASS |
+| 281 | ch:sectortension:L281 | calc | `0.600` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: term sigma8 Om^0.25 | PASS |
 | 281 | ch:sectortension:L281:0.08\% | calc | `0.08\%` | numeric: CMB lensing power lowered, Limber estimate | PASS |
 
 ## Part 2 - ch:dsvalidation - `docs/book/part2/p2_10_dual_sector_validation.tex`
@@ -1767,13 +1767,13 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 19 | ch:dsvalidation:L19 | calc | `+23.6` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Delta chi2 of beta_m on SN distances, full covariance | PASS |
 | 27 | ch:dsvalidation:L27 | observed | `4.9` | numeric: Hubble tension significance from cited H0 values | PASS |
 | 34 | ch:dsvalidation:L34 | prediction | `0.15765` | numeric: β_m = Ω_m/2 virial coupling value | PASS |
-| 36 | ch:dsvalidation:L36 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Δχ² IAM vs ΛCDM Level-2 chains | PASS |
-| 37 | ch:dsvalidation:L37 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: σ8 ΛCDM Level-2 chain value | PASS |
-| 37 | ch:dsvalidation:L37:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: σ8 IAM suppressed value, avg IAM Level-2 runs | PASS |
-| 37 | ch:dsvalidation:L37:67.16 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon-sector chain value | PASS |
+| 36 | ch:dsvalidation:L36 | measured | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Δχ² IAM vs ΛCDM Level-2 chains | PASS |
+| 37 | ch:dsvalidation:L37 | measured | `0.809` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: σ8 ΛCDM Level-2 chain value | PASS |
+| 37 | ch:dsvalidation:L37:0.800 | measured | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: σ8 IAM suppressed value, avg IAM Level-2 runs | PASS |
+| 37 | ch:dsvalidation:L37:67.16 | measured | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon-sector chain value | PASS |
 | 38 | ch:dsvalidation:L38 | measured | `72.26` | numeric: H0(matter)=H0(photon)*sqrt(1+β_m) | PASS |
 | 38 | ch:dsvalidation:L38:0.75 | measured | `0.75` | numeric: significance of H0(matter) vs SH0ES | PASS |
-| 38 | ch:dsvalidation:L38:0.37 | measured | `0.37` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon (Level 2 Run A) from Planck 2018, in Planck sigma | PASS |
+| 38 | ch:dsvalidation:L38:0.37 | measured | `0.37` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon (Level 2 Run A) from Planck 2018, in Planck sigma | PASS |
 | 39 | ch:dsvalidation:L39 | calc | `0.033` | numeric: sector ratio from the committed 95 % bound | PASS |
 | 39 | ch:dsvalidation:L39:30 | calc | `30` | numeric: 'at least 30x': beta_m/beta_gamma bound, whole multiples | PASS |
 | 39 | ch:dsvalidation:L39:0.0052 | calc | `0.0052` | numeric: beta_gamma 95 % bound from the acoustic angle | PASS |
@@ -1783,17 +1783,17 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 67 | ch:dsvalidation:L67:4 | derived |  | sympy: maximum of dE/dlna at a=1 | PASS |
 | 71 | ch:dsvalidation:L71 | calc | `0.0052` | numeric: beta_gamma 95 % bound, Eq. dsv_bg | PASS |
 | 72 | eq:dsv_bm | prediction | `0.15765` | numeric: β_m=Ω_m/2 definition | PASS |
-| 75 | ch:dsvalidation:L75 | calc | `0.3166` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Ωm Level-2 MCMC posterior | PASS |
-| 75 | ch:dsvalidation:L75:0.0065 | calc | `0.0065` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Ωm posterior standard deviation | PASS |
+| 75 | ch:dsvalidation:L75 | calc | `0.3166` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Ωm Level-2 MCMC posterior | PASS |
+| 75 | ch:dsvalidation:L75:0.0065 | calc | `0.0065` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Ωm posterior standard deviation | PASS |
 | 75 | ch:dsvalidation:L75:0.1583 | calc | `0.1583` | numeric: Ωm/2 implied value | PASS |
 | 75 | ch:dsvalidation:L75:0.0032 | calc | `0.0032` | numeric: sd of Ωm/2 | PASS |
 | 75 | ch:dsvalidation:L75:0.2 | calc | `0.2` | numeric: consistency of Ωm/2 with fixed β_m, sigma | PASS |
-| 80 | eq:dsv_H0g | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon-sector Level-2 posterior | PASS |
-| 80 | eq:dsv_H0g:0.47 | measured | `0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon-sector posterior uncertainty | PASS |
-| 81 | eq:dsv_H0m | calc | `67.161` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon value restated, extra digit | PASS |
+| 80 | eq:dsv_H0g | measured | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon-sector Level-2 posterior | PASS |
+| 80 | eq:dsv_H0g:0.47 | measured | `0.47` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon-sector posterior uncertainty | PASS |
+| 81 | eq:dsv_H0m | calc | `67.161` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon value restated, extra digit | PASS |
 | 81 | eq:dsv_H0m:1.0759 | calc | `1.0759` | numeric: sqrt(1+β_m) factor | PASS |
 | 81 | eq:dsv_H0m:72.26 | calc | `72.26` | numeric: H0(matter)=H0(photon)*sqrt(1+β_m) | PASS |
-| 81 | eq:dsv_H0m:0.50 | calc | `0.50` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A H0 sd x sqrt(1+beta_m) | PASS |
+| 81 | eq:dsv_H0m:0.50 | calc | `0.50` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A H0 sd x sqrt(1+beta_m) | PASS |
 | 84 | ch:dsvalidation:L84 | derived |  | sympy: H_m^2(1) = H0^2 (1 + beta_m) in a flat universe | PASS |
 | 90 | ch:dsvalidation:L90 | prediction | `72.26` | numeric: Prediction 1 H0(matter), repeat of eq:dsv_H0m | PASS |
 | 110 | ch:dsvalidation:L110 | observed | `0.21` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: median diagonal m_b error of the 1588 SNe | PASS |
@@ -1831,22 +1831,22 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 295 | eq:dsv_shape | none |  | not run: definition of luminosity distance integral | - |
 | 298 | ch:dsvalidation:L298 | calc | `-6.5` | numeric: d_L change at z=0.1, fixed H0, beta_m=0.15765 (text says 0.157) | PASS |
 | 298 | ch:dsvalidation:L298:-2.3 | calc | `-2.3` | numeric: dL shift at z=2, fixed H0 | PASS |
-| 432 | ch:dsvalidation:L432 | measured | `0.822\pm0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 from IAM Level2 chain | PASS |
-| 433 | ch:dsvalidation:L433 | measured | `0.830\pm0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 from LCDM Level2 baseline chain | PASS |
-| 433 | ch:dsvalidation:L433:0.8\sigma | calc | `0.8\sigma` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 shift significance between chains | PASS |
+| 432 | ch:dsvalidation:L432 | measured | `0.822\pm0.011` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 from IAM Level2 chain | PASS |
+| 433 | ch:dsvalidation:L433 | measured | `0.830\pm0.011` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 from LCDM Level2 baseline chain | PASS |
+| 433 | ch:dsvalidation:L433:0.8\sigma | calc | `0.8\sigma` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 shift significance between chains | PASS |
 | 440 | ch:dsvalidation:L440 | calc | `+1.02\%` | numeric: theta_s shift, beta=0.18 on photon paths, from LCDM | PASS |
 | 440 | ch:dsvalidation:L440:34\sigma | calc | `34\sigma` | numeric: theta_s shift / Planck error | PASS |
 | 441 | ch:dsvalidation:L441 | calc | `+1.06\%` | numeric: theta_s shift, beta=0.18, from the observed value | PASS |
 | 441 | ch:dsvalidation:L441:36\sigma | calc | `36\sigma` | numeric: from the observed value, in Planck errors | PASS |
 | 441 | ch:dsvalidation:L441:+0.90\% | calc | `+0.90\%` | numeric: theta_s shift with beta_m | PASS |
 | 441 | ch:dsvalidation:L441:30\sigma | calc | `30\sigma` | numeric: shift with beta_m in Planck errors | PASS |
-| 442 | ch:dsvalidation:L442 | measured | `\approx61.5` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from Level2b exploratory chain | PASS |
+| 442 | ch:dsvalidation:L442 | measured | `\approx61.5` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from Level2b exploratory chain | PASS |
 | 443 | ch:dsvalidation:L443 | calc | `<0.033` | numeric: sector ratio from the committed 95 % bound | PASS |
 | 456 | ch:dsvalidation:L456 | calc | `0.0052` | numeric: Table dsv_observables: beta_gamma bound | PASS |
-| 457 | ch:dsvalidation:L457 | measured | `67.16\pm0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon sector from Level2 chain | PASS |
+| 457 | ch:dsvalidation:L457 | measured | `67.16\pm0.47` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon sector from Level2 chain | PASS |
 | 457 | ch:dsvalidation:L457:67.36\pm0.54 | measured | `67.36\pm0.54` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 458 | ch:dsvalidation:L458 | measured | `0.809` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
-| 458 | ch:dsvalidation:L458:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 prediction from Level2 chain | PASS |
+| 458 | ch:dsvalidation:L458:0.800 | measured | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 prediction from Level2 chain | PASS |
 | 460 | ch:dsvalidation:L460 | observed | `73.04\pm1.04` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 460 |  | prediction | `72.26` | not run: locked IAM matter-sector H0 prediction | - |
 | 462 | ch:dsvalidation:L462 | observed | `-0.035^{+0.035}_{-0.033}` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: Table dsv_observables: beta_distance | PASS |
@@ -1870,7 +1870,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 492 |  | prediction | `0.38\%` | not run: published DESI forecast precision, input | - |
 | 493 |  | prediction | `1.35\%` | not run: fsigma8 deficit forecast, no data here | - |
 | 493 |  | prediction | `2.17\%` | not run: fsigma8 deficit forecast, no data here | - |
-| 494 | ch:dsvalidation:L494 | prediction | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chain posterior sigma8 restated | PASS |
+| 494 | ch:dsvalidation:L494 | prediction | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chain posterior sigma8 restated | PASS |
 | 496 |  | prediction | `72.26` | not run: predicted matter-sector H0 restated | - |
 | 497 | ch:dsvalidation:L497 | observed | `70.0^{+12.0}_{-8.0}` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 497 | ch:dsvalidation:L497:75.5^{+5.3}_{-5.4} | observed | `75.5^{+5.3}_{-5.4}` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
@@ -1883,7 +1883,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 515 | ch:dsvalidation:L515:1-\mu<4\times10^{-4} | calc | `<4\times10^{-4}` | numeric: mu(a) deviation at z=3 below bound | PASS |
 | 515 | ch:dsvalidation:L515:4.25\% | calc | `4.25\%` | numeric: f sigma8 deficit at z = 0 | PASS |
 | 517 |  | none | `\beta_\gamma<0.0039` | not run: text changed at HEAD; photon-sector bound restated | - |
-| 520 | ch:dsvalidation:L520 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2 difference IAM vs LCDM Level2 | PASS |
+| 520 | ch:dsvalidation:L520 | measured | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2 difference IAM vs LCDM Level2 | PASS |
 | 525 | ch:dsvalidation:L525 | derived | `\Omega_m/2` | sympy: beta_m amplitude equals Omega_m/2 | PASS |
 | 531 | ch:dsvalidation:L531 | observed | `-0.035` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: Conclusions: beta_distance | PASS |
 | 533 | ch:dsvalidation:L533 | calc | `+23.6` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Conclusions: Delta chi2 of beta_m on SN distances | PASS |
@@ -1895,10 +1895,10 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 543 |  | interp | `67.16` | not run: H0 photon restated, input | - |
 | 543 |  | interp | `72.26` | not run: H0 matter predicted restated, input | - |
 | 543 |  | interp | `73.04` | not run: H0 matter measured restated, input | - |
-| 549 | ch:dsvalidation:L549 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2 difference IAM vs LCDM, restated | PASS |
-| 550 | ch:dsvalidation:L550 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 posterior restated from chain | PASS |
+| 549 | ch:dsvalidation:L549 | measured | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2 difference IAM vs LCDM, restated | PASS |
+| 550 | ch:dsvalidation:L550 | measured | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 posterior restated from chain | PASS |
 | 550 | ch:dsvalidation:L550:72.26 | measured | `72.26` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
-| 550 | ch:dsvalidation:L550:\approx61.5 | measured | `\approx61.5` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from second Level2b background run | PASS |
+| 550 | ch:dsvalidation:L550:\approx61.5 | measured | `\approx61.5` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from second Level2b background run | PASS |
 
 ## Part 2 - ch:darkenergy - `docs/book/part2/p2_11_dark_energy.tex`
 
@@ -2011,7 +2011,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 226 | ch:darkenergy:L226:-0.99 | calc | `-0.99` | numeric: redshift at 99% maturity | PASS |
 | 226 | ch:darkenergy:L226:93.3 | calc | `93.3` | numeric: age at 99% maturity | PASS |
 | 226 | ch:darkenergy:L226:79.5 | calc | `79.5` | numeric: time from now at 99% maturity | PASS |
-| 228 | ch:darkenergy:L228 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 background H0 | PASS |
+| 228 | ch:darkenergy:L228 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 background H0 | PASS |
 | 228 |  | calc | `0.3153` | not run: input: Omega_m = 0.3153 (Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing) restated as the Level 2 background | - |
 | 229 | ch:darkenergy:L229 | calc | `0.3` | numeric: max age increase under Level2 params | PASS |
 
@@ -2091,7 +2091,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 142 | ch:wzfuture:L142:1.275 | derived | `1.275` | numeric: H_m/H as a to infinity | PASS |
 | 148 | ch:wzfuture:L148 | calc | `3.1` | numeric: info density pct of rho_Lambda at z=2 | PASS |
 | 148 | ch:wzfuture:L148:1.15 | calc | `1.15` | numeric: repeat: info density pct at z=3 | PASS |
-| 152 | ch:wzfuture:L152 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 from Level-2 chain | PASS |
+| 152 | ch:wzfuture:L152 | measured | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 from Level-2 chain | PASS |
 | 153 | ch:wzfuture:L153 | derived | `4.25` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 162 | ch:wzfuture:L162 | calc | `1` | sympy: peak of e-fold clock dE/dlna | PASS |
 | 162 | ch:wzfuture:L162:1.26 | calc | `1.26` | numeric: z of cosmic-time clock peak | PASS |
@@ -2335,7 +2335,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 167 | ch:baryon:L167 | calc | `0.02220` | numeric: Omega_b h^2 from (3/16) sqrt(Omega_L) | PASS |
 | 168 | ch:baryon:L168 | calc | `6.08\times10^{-10}` | numeric: eta from it | PASS |
 | 168 | ch:baryon:L168:0.5 | calc | `0.5` | numeric: below the 18th-chain 6.113 | PASS |
-| 168 | ch:baryon:L168:6.113 | calc | `6.113` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_13b_baryon_chain:117 (eta = 2.739e-8 Omega_b h^2 from the 18th chain) | PASS |
+| 168 | ch:baryon:L168:6.113 | calc | `6.113` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_13b_baryon_chain:117 (eta = 2.739e-8 Omega_b h^2 from the 18th chain) | PASS |
 | 168 | ch:baryon:L168:0.8 | calc | `0.8` | numeric: below Planck 6.127 | PASS |
 | 168 | ch:baryon:L168:6.137 | calc | `6.137` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: largest eta of the CMB chains | PASS |
 | 168 |  | calc | `0.9` | not run: printed value 0.9 (per cent) has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.936; 1.05 x 0.9 = 0.945 lies within the capped tolerance). The eta it rests on is checked at ch:baryon:L168 (6.08e-10) and the 6.137 at ch:baryon:L168:6.137 | - |
@@ -2362,11 +2362,11 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 59 | ch:baryon_chain:L59 | calc | `6.08\times10^{-10}` | numeric: eta with sqrt | PASS |
 | 59 | ch:baryon_chain:L59:0.8 | calc | `0.8` | numeric: below Planck 6.127 | PASS |
 | 59 | ch:baryon_chain:L59:6.127 | calc | `6.127` | numeric: Planck 2018 eta (1e-10) from its Omega_b h^2 | PASS |
-| 69 | eq:bc_std | calc | `0.00014` | file `mgcamb_validation/chains/lcdm_baseline.updated.yaml`: other runs: Omega_b h^2 flat on [0.020, 0.025], start N(0.02242, 0.00014^2), from the four LambdaCDM YAML files | PASS |
+| 69 | eq:bc_std | calc | `0.00014` | file `Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml`: other runs: Omega_b h^2 flat on [0.020, 0.025], start N(0.02242, 0.00014^2), from the four LambdaCDM YAML files | PASS |
 | 73 | ch:baryon_chain:L73 | calc | `0.030` | numeric: 18th-chain prior width | PASS |
 | 73 | ch:baryon_chain:L73:0.005 | calc | `0.005` | numeric: other runs' prior width | PASS |
-| 115 | eq:bc_ob | none | `0.022320` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain Omega_b h^2 and sd | PASS |
-| 117 | eq:bc_etares | measured | `6.113` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: eta = 2.739e-8 Omega_b h^2 from the 18th chain | PASS |
+| 115 | eq:bc_ob | none | `0.022320` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain Omega_b h^2 and sd | PASS |
+| 117 | eq:bc_etares | measured | `6.113` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: eta = 2.739e-8 Omega_b h^2 from the 18th chain | PASS |
 | 118 | ch:baryon_chain:L118 | measured | `0.022319` | heavy file `docs/book/read_ledgers/bl_MANIFEST.md`: the run record's Omega_b h^2 (30 % burn-in on the chain copy) | PASS |
 | 118 | ch:baryon_chain:L118:6.1155\times10^{-10} | measured | `6.1155\times10^{-10}` | heavy file `docs/book/read_ledgers/bl_MANIFEST.md`: the record's eta = 2.74e-8 x the record's Omega_b h^2 | PASS |
 | 119 | ch:baryon_chain:L119 | calc | `2.74\times10^{-8}` | numeric: the record's conversion factor 2.74e-8 is the derived factor to three figures | PASS |
@@ -2375,8 +2375,8 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 120 | ch:baryon_chain:L120:0.0228 | measured | `0.0228` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 121 | ch:baryon_chain:L121 | measured | `67.04` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 121 | ch:baryon_chain:L121:0.3198 | measured | `0.3198` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 121 | ch:baryon_chain:L121:0.010 | measured | `0.010` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: 18th chain: lower end of the flat Omega_b h^2 range | PASS |
-| 121 | ch:baryon_chain:L121:0.040 | measured | `0.040` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: 18th chain: upper end of the flat Omega_b h^2 range | PASS |
+| 121 | ch:baryon_chain:L121:0.010 | measured | `0.010` | file `Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: 18th chain: lower end of the flat Omega_b h^2 range | PASS |
+| 121 | ch:baryon_chain:L121:0.040 | measured | `0.040` | file `Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: 18th chain: upper end of the flat Omega_b h^2 range | PASS |
 | 122 | ch:baryon_chain:L122 | measured | `0.1554` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 123 | eq:bc_ratio | measured | `1.0046` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: ratio on the 18th chain, committed output | PASS |
 | 128 | ch:baryon_chain:L128 | observed | `273.9\times10^{-10}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
@@ -2393,12 +2393,12 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 140 | ch:baryon_chain:L140 | measured | `6.127` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 141 | ch:baryon_chain:L141 | measured | `6.141` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 142 | ch:baryon_chain:L142 | measured | `6.113` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 142 | ch:baryon_chain:L142:0.010 | measured | `0.010` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: Table tab:bc_compare, 18th chain: lower end of the flat range | PASS |
-| 142 | ch:baryon_chain:L142:0.040 | measured | `0.040` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: Table tab:bc_compare, 18th chain: upper end of the flat range | PASS |
+| 142 | ch:baryon_chain:L142:0.010 | measured | `0.010` | file `Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: Table tab:bc_compare, 18th chain: lower end of the flat range | PASS |
+| 142 | ch:baryon_chain:L142:0.040 | measured | `0.040` | file `Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: Table tab:bc_compare, 18th chain: upper end of the flat range | PASS |
 | 142 |  | measured | `18` | not run: label: '18th' in '18th chain' is the ordinal name of the chain, not a number to recompute | - |
 | 143 | ch:baryon_chain:L143 | calc | `6.080` | numeric: eta (1e-10) from the expression with sqrt | PASS |
 | 144 | ch:baryon_chain:L144 | calc | `5.031` | numeric: eta (1e-10) without sqrt | PASS |
-| 148 | ch:baryon_chain:L148 | calc | `6.113` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain eta | PASS |
+| 148 | ch:baryon_chain:L148 | calc | `6.113` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain eta | PASS |
 | 148 | ch:baryon_chain:L148:0.3 | calc | `0.3` | numeric: chain vs nucleosynthesis, sigma | PASS |
 | 148 | ch:baryon_chain:L148:0.2 | calc | `0.2` | numeric: below Planck 6.127, per cent | PASS |
 | 148 | ch:baryon_chain:L148:6.180 | calc | `6.180` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: nucleosynthesis with deuterium, Cyburt et al. 2016 Table IV, as traced in the committed output | PASS |
@@ -2410,50 +2410,50 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 166 | ch:baryon_chain:L166:6.113 | measured | `6.113` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 166 | ch:baryon_chain:L166:1.0046 | measured | `1.0046` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output) | PASS |
 | 166 | ch:baryon_chain:L166:957 | measured | `957` | file `docs/verification/cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md`: measured: printed value found in CC_AND_BARYON_CHECK.md, a file the chapter names | PASS |
-| 166 | ch:baryon_chain:L166:0.010 | measured | `0.010` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: Table tab:baryon_chains, iam_baryon_test: lower end of the flat Omega_b h^2 range | PASS |
-| 166 | ch:baryon_chain:L166:0.040 | measured | `0.040` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: Table tab:baryon_chains, iam_baryon_test: upper end of the flat Omega_b h^2 range | PASS |
+| 166 | ch:baryon_chain:L166:0.010 | measured | `0.010` | file `Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: Table tab:baryon_chains, iam_baryon_test: lower end of the flat Omega_b h^2 range | PASS |
+| 166 | ch:baryon_chain:L166:0.040 | measured | `0.040` | file `Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: Table tab:baryon_chains, iam_baryon_test: upper end of the flat Omega_b h^2 range | PASS |
 | 166 | ch:baryon_chain:L166:14{,}957 | measured | `14{,}957` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Table tab:baryon_chains, iam_baryon_test: rows after 30 % burn-in | PASS |
 | 166 |  | measured | `18` | not run: label: '18th' in '18th chain (CMB only)' is the ordinal name of the chain, not a number to recompute | - |
 | 167 | ch:baryon_chain:L167 | measured | `0.02234` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 167 | ch:baryon_chain:L167:6.118 | measured | `6.118` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 167 | ch:baryon_chain:L167:1.0058 | measured | `1.0058` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 167 | ch:baryon_chain:L167:0.020 | measured | `0.020` | file `mgcamb_validation/chains/lcdm_baseline.updated.yaml`: Table tab:baryon_chains, lcdm_baseline: lower end of the flat Omega_b h^2 range | PASS |
-| 167 | ch:baryon_chain:L167:0.025 | measured | `0.025` | file `mgcamb_validation/chains/lcdm_baseline.updated.yaml`: Table tab:baryon_chains, lcdm_baseline: upper end of the flat Omega_b h^2 range | PASS |
+| 167 | ch:baryon_chain:L167:0.020 | measured | `0.020` | file `Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml`: Table tab:baryon_chains, lcdm_baseline: lower end of the flat Omega_b h^2 range | PASS |
+| 167 | ch:baryon_chain:L167:0.025 | measured | `0.025` | file `Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml`: Table tab:baryon_chains, lcdm_baseline: upper end of the flat Omega_b h^2 range | PASS |
 | 167 | ch:baryon_chain:L167:12{,}544 | measured | `12{,}544` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Table tab:baryon_chains, lcdm_baseline: rows after 30 % burn-in | PASS |
 | 168 | ch:baryon_chain:L168 | measured | `0.02240` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 168 | ch:baryon_chain:L168:6.137 | measured | `6.137` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 168 | ch:baryon_chain:L168:1.0106 | measured | `1.0106` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 168 | ch:baryon_chain:L168:0.020 | measured | `0.020` | file `mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_bao_lcdm_baseline: lower end of the flat Omega_b h^2 range | PASS |
-| 168 | ch:baryon_chain:L168:0.025 | measured | `0.025` | file `mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_bao_lcdm_baseline: upper end of the flat Omega_b h^2 range | PASS |
+| 168 | ch:baryon_chain:L168:0.020 | measured | `0.020` | file `Cosmological_Physics/mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_bao_lcdm_baseline: lower end of the flat Omega_b h^2 range | PASS |
+| 168 | ch:baryon_chain:L168:0.025 | measured | `0.025` | file `Cosmological_Physics/mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_bao_lcdm_baseline: upper end of the flat Omega_b h^2 range | PASS |
 | 168 | ch:baryon_chain:L168:12{,}600 | measured | `12{,}600` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Table tab:baryon_chains, planck_bao_lcdm_baseline: rows after 30 % burn-in | PASS |
 | 169 | ch:baryon_chain:L169 | measured | `0.02233` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 169 | ch:baryon_chain:L169:6.117 | measured | `6.117` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 169 | ch:baryon_chain:L169:1.0056 | measured | `1.0056` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 169 | ch:baryon_chain:L169:0.020 | measured | `0.020` | file `mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_pantheon_lcdm_baseline: lower end of the flat Omega_b h^2 range | PASS |
-| 169 | ch:baryon_chain:L169:0.025 | measured | `0.025` | file `mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_pantheon_lcdm_baseline: upper end of the flat Omega_b h^2 range | PASS |
+| 169 | ch:baryon_chain:L169:0.020 | measured | `0.020` | file `Cosmological_Physics/mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_pantheon_lcdm_baseline: lower end of the flat Omega_b h^2 range | PASS |
+| 169 | ch:baryon_chain:L169:0.025 | measured | `0.025` | file `Cosmological_Physics/mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_pantheon_lcdm_baseline: upper end of the flat Omega_b h^2 range | PASS |
 | 169 | ch:baryon_chain:L169:21{,}168 | measured | `21{,}168` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Table tab:baryon_chains, planck_pantheon_lcdm_baseline: rows after 30 % burn-in | PASS |
 | 170 | ch:baryon_chain:L170 | measured | `0.02239` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 170 | ch:baryon_chain:L170:6.134 | measured | `6.134` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 170 | ch:baryon_chain:L170:1.0098 | measured | `1.0098` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 170 | ch:baryon_chain:L170:0.020 | measured | `0.020` | file `mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_rsd_lcdm_baseline: lower end of the flat Omega_b h^2 range | PASS |
-| 170 | ch:baryon_chain:L170:0.025 | measured | `0.025` | file `mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_rsd_lcdm_baseline: upper end of the flat Omega_b h^2 range | PASS |
+| 170 | ch:baryon_chain:L170:0.020 | measured | `0.020` | file `Cosmological_Physics/mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_rsd_lcdm_baseline: lower end of the flat Omega_b h^2 range | PASS |
+| 170 | ch:baryon_chain:L170:0.025 | measured | `0.025` | file `Cosmological_Physics/mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml`: Table tab:baryon_chains, planck_rsd_lcdm_baseline: upper end of the flat Omega_b h^2 range | PASS |
 | 170 | ch:baryon_chain:L170:18{,}424 | measured | `18{,}424` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Table tab:baryon_chains, planck_rsd_lcdm_baseline: rows after 30 % burn-in | PASS |
 | 171 | ch:baryon_chain:L171 | calc | `0.01837` | numeric: Omega_b h^2 without sqrt | PASS |
 | 171 | ch:baryon_chain:L171:5.031 | calc | `5.031` | numeric: eta (1e-10) without sqrt | PASS |
 | 172 | ch:baryon_chain:L172 | calc | `0.02220` | numeric: with sqrt | PASS |
 | 172 | ch:baryon_chain:L172:6.080 | calc | `6.080` | numeric: eta (1e-10) from the expression with sqrt | PASS |
 | 179 | ch:baryon_chain:L179 | measured | `0.02232` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 179 | ch:baryon_chain:L179:0.010 | measured | `0.010` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: fig:baryon_posterior caption: 18th chain, lower end of the flat Omega_b h^2 range | PASS |
-| 179 | ch:baryon_chain:L179:0.040 | measured | `0.040` | file `mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: fig:baryon_posterior caption: 18th chain, upper end of the flat Omega_b h^2 range | PASS |
-| 179 | ch:baryon_chain:L179:0.020 | measured | `0.020` | file `mgcamb_validation/chains/lcdm_baseline.updated.yaml`: fig:baryon_posterior caption: other runs, lower end of the flat Omega_b h^2 range | PASS |
-| 179 | ch:baryon_chain:L179:0.025 | measured | `0.025` | file `mgcamb_validation/chains/lcdm_baseline.updated.yaml`: fig:baryon_posterior caption: other runs, upper end of the flat Omega_b h^2 range | PASS |
-| 183 | ch:baryon_chain:L183 | openprob | `6\times10^{-10}` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: the eta every CMB fit returns, to one figure: the 18th chain | PASS |
+| 179 | ch:baryon_chain:L179:0.010 | measured | `0.010` | file `Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: fig:baryon_posterior caption: 18th chain, lower end of the flat Omega_b h^2 range | PASS |
+| 179 | ch:baryon_chain:L179:0.040 | measured | `0.040` | file `Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml`: fig:baryon_posterior caption: 18th chain, upper end of the flat Omega_b h^2 range | PASS |
+| 179 | ch:baryon_chain:L179:0.020 | measured | `0.020` | file `Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml`: fig:baryon_posterior caption: other runs, lower end of the flat Omega_b h^2 range | PASS |
+| 179 | ch:baryon_chain:L179:0.025 | measured | `0.025` | file `Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml`: fig:baryon_posterior caption: other runs, upper end of the flat Omega_b h^2 range | PASS |
+| 183 | ch:baryon_chain:L183 | openprob | `6\times10^{-10}` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: the eta every CMB fit returns, to one figure: the 18th chain | PASS |
 | 188 | ch:baryon_chain:L188 | fitted | `0.827` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 188 | ch:baryon_chain:L188:+0.79 | fitted | `+0.79` | numeric: sqrt(Omega_L) brings eq:bc_cc to +0.79 % of the observed Lambda | PASS |
 | 189 | ch:baryon_chain:L189 | fitted | `5.03` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 189 | ch:baryon_chain:L189:6.08\times10^{-10} | fitted | `6.08\times10^{-10}` | numeric: eq:bc_cccorr inverted for eta at the Planck Omega_m h^2 | PASS |
-| 196 | ch:baryon_chain:L196 | measured | `0.2` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain eta below the Planck 2018 value, per cent | PASS |
-| 196 | ch:baryon_chain:L196:0.3 | measured | `0.3` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain eta from nucleosynthesis with deuterium, in sigma | PASS |
+| 196 | ch:baryon_chain:L196 | measured | `0.2` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain eta below the Planck 2018 value, per cent | PASS |
+| 196 | ch:baryon_chain:L196:0.3 | measured | `0.3` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain eta from nucleosynthesis with deuterium, in sigma | PASS |
 
 ## Part 2 - ch:surveys - `docs/book/part2/p2_16_survey_predictions.tex`
 
@@ -2463,8 +2463,8 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 31 | eq:sp_mu | none |  | sympy: mu(a) of Eq. sp_mu: mu(a=1) = 1/(1+Omega_m/2) and mu -> 1 as a -> 0 | PASS |
 | 36 | eq:sp_mu0 | prediction |  | sympy: mu0 = -beta_m/(1+beta_m) = -0.136 | PASS |
 | 38 | ch:surveys:L38 | calc | `-0.13618` | numeric: same value as p1_02_iams_law:465 (mu0 at beta_m=0.15765, precise) | PASS |
-| 38 | ch:surveys:L38:-0.13495 | calc | `-0.13495` | file `mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml`: mu0 of the MGCAMB tracking form in the Level 1 chains, from the chain settings | PASS |
-| 40 | ch:surveys:L40 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2: Delta chi2 of the IAM run against LambdaCDM (chain minima) | PASS |
+| 38 | ch:surveys:L38:-0.13495 | calc | `-0.13495` | file `Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml`: mu0 of the MGCAMB tracking form in the Level 1 chains, from the chain settings | PASS |
+| 40 | ch:surveys:L40 | measured | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2: Delta chi2 of the IAM run against LambdaCDM (chain minima) | PASS |
 | 41 | ch:surveys:L41 | measured | `0.800` | heavy file `docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt`: measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names | PASS |
 | 53 | ch:surveys:L53 | calc | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
 | 56 | ch:surveys:L56 | calc | `0.864` | numeric: mu at z=0.0 | PASS |
@@ -2616,7 +2616,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 165 | ch:surveys:L165 | observed | `0.11` | file `docs/verification/chains/LATE_TIME_GROWTH_CHECK.md`: DESI DR1 full shape + BAO mu0, central value | PASS |
 | 165 | ch:surveys:L165:0.54 | observed | `0.54` | file `docs/verification/chains/LATE_TIME_GROWTH_CHECK.md`: DESI DR1 full shape + BAO mu0, lower error | PASS |
 | 166 | ch:surveys:L166 | observed | `0.02` | file `docs/verification/chains/LATE_TIME_GROWTH_CHECK.md`: ACT + WMAP + SDSS + supernovae mu0, central value (Andrade et al. 2024) | PASS |
-| 166 | ch:surveys:L166:+0.2 | fitted | `+0.2` | file `mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml`: upper prior edge of mu0 in the free-mu0 chains | PASS |
+| 166 | ch:surveys:L166:+0.2 | fitted | `+0.2` | file `Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml`: upper prior edge of mu0 in the free-mu0 chains | PASS |
 | 166 | ch:surveys:L166:+0.059 | fitted | `+0.059` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: free-mu0 chain, Planck: median of mu0 | PASS |
 | 166 |  | fitted | `90` | not run: definition: the central 90 % interval whose lower end (5 % quantile) is quoted; the median and quantiles are checked by ch:surveys:L166:+0.059 and ch:surveys:L167:-0.304 | - |
 | 167 | ch:surveys:L167 | fitted | `-0.136` | heavy file `docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt`: measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names | PASS |
@@ -2704,7 +2704,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 239 |  | observed | `395` | not run: measured, source not named in the repository: CosmicFlows-4 bulk flow 395 +- 29 km/s (Watkins et al. 2023, doi 10.1093/mnras/stad1984); no repository file holds the value | - |
 | 239 |  | observed | `139` | not run: measured, source not named in the repository: LambdaCDM bulk-flow expectation 139 km/s (Watkins et al. 2023, doi 10.1093/mnras/stad1984); no repository file holds the value | - |
 | 244 | eq:sp_siren | calc | `72.26` | numeric: H0 matter = H0 photon sqrt(1+beta_m) | PASS |
-| 245 | ch:surveys:L245 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 245 | ch:surveys:L245 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 246 | ch:surveys:L246 | observed | `70.0` | heavy file `docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt`: measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names | PASS |
 | 246 | ch:surveys:L246:8.0 | observed | `8.0` | file `docs/verification/scripts/verify_iams_law_derivations.py`: GW170817 (Abbott 2017) lower error on H0 | PASS |
 | 246 | ch:surveys:L246:68.9 | observed | `68.9` | file `docs/verification/scripts/verify_iams_law_derivations.py`: GW170817 H0 (Hotokezaka 2019) | PASS |
@@ -2721,7 +2721,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 254 | ch:surveys:L254:70.0 | prediction | `70.0` | file `docs/verification/scripts/verify_iams_law_derivations.py`: GW170817 H0 (Abbott 2017), figure caption | PASS |
 | 254 | ch:surveys:L254:8.0 | prediction | `8.0` | file `docs/verification/scripts/verify_iams_law_derivations.py`: GW170817 (Abbott 2017) lower error, figure caption | PASS |
 | 254 | ch:surveys:L254:72.26 | prediction | `72.26` | numeric: H0 matter, recomputed (figure caption) | PASS |
-| 254 | ch:surveys:L254:67.16 | prediction | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon sector, Level 2 Run A chain (figure caption) | PASS |
+| 254 | ch:surveys:L254:67.16 | prediction | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon sector, Level 2 Run A chain (figure caption) | PASS |
 | 259 | ch:surveys:L259 | calc | `-1.052` | numeric: same value as p2_03_theory:882 (w_eff at z=1) | PASS |
 | 259 | ch:surveys:L259:-1.015 | calc | `-1.015` | numeric: w_eff at z=3 | PASS |
 | 260 | ch:surveys:L260 | calc | `-1.062` | numeric: same value as p2_03_theory:514 (tangent w0 value) | PASS |
@@ -2757,7 +2757,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 37 |  | observed | `0.15` | not run: measured, source not named (approximate literature range of the hydrostatic bias b from simulations (Lau2009, Nelson2014); cited papers' values are not held in any repository file) | - |
 | 38 | ch:lensdyn:L38:0.58 | observed | `0.58` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: 1-b needed by Planck SZ counts + primary CMB | PASS |
 | 46 | ch:lensdyn:L46 | fitted | `0.7998` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
-| 46 | ch:lensdyn:L46:+0.54 | fitted | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (Run A) minus LCDM (Run C) | PASS |
+| 46 | ch:lensdyn:L46:+0.54 | fitted | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (Run A) minus LCDM (Run C) | PASS |
 | 53 | eq:ld_poisson | derived |  | not run: definition: mu-Sigma parametrisation of the Poisson equation (the chapter marks it '(definitions)') | - |
 | 62 | eq:ld_mu | prediction |  | sympy: mu(a) = H_L^2/(H_L^2 + beta_m E H0^2) from the matter-sector rate | PASS |
 | 65 | ch:lensdyn:L65 | prediction | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
@@ -2832,9 +2832,9 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 183 | ch:lensdyn:L183:0.58 | observed | `0.58` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: 1-b needed by Planck SZ counts + primary CMB (data section) | PASS |
 | 184 | ch:lensdyn:L184 | observed | `1.57` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
 | 184 | ch:lensdyn:L184:0.8 | observed | `0.8` | numeric: baseline 1-b of the 2013 Planck SZ analysis | PASS |
-| 185 | ch:lensdyn:L185 | calc | `0.8143` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: same value as p2_08_s8_trend:122 (LCDM chain sigma8, Planck-only) | PASS |
-| 185 | ch:lensdyn:L185:1.11 | calc | `1.11` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 lower, Level 2 | PASS |
-| 185 | ch:lensdyn:L185:0.8087 | calc | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_02_virial:212 (Level2 LCDM chain sigma8) | PASS |
+| 185 | ch:lensdyn:L185 | calc | `0.8143` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: same value as p2_08_s8_trend:122 (LCDM chain sigma8, Planck-only) | PASS |
+| 185 | ch:lensdyn:L185:1.11 | calc | `1.11` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 lower, Level 2 | PASS |
+| 185 | ch:lensdyn:L185:0.8087 | calc | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_02_virial:212 (Level2 LCDM chain sigma8) | PASS |
 | 186 |  | openprob | `0.15` | not run: restates the simulation range b about 0.1-0.15 of line 37 (Lau2009, Nelson2014); measured, source not named (listed in sources_needed at line 37) | - |
 | 200 | ch:lensdyn:L200 | observed | `0.688` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
 | 200 | ch:lensdyn:L200:1.45 | observed | `1.45` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
@@ -2921,8 +2921,8 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 263 |  | calc | `1.2` | not run: input: bin centre z=1.2 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7) | - |
 | 263 |  | calc | `1.8` | not run: input: bin centre z=1.8 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7) | - |
 | 268 | ch:lensdyn:L268 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
-| 268 | ch:lensdyn:L268:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
-| 269 | ch:lensdyn:L269 | calc | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_02_virial:212 (Level2 LCDM chain sigma8) | PASS |
+| 268 | ch:lensdyn:L268:67.16 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 269 | ch:lensdyn:L269 | calc | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_02_virial:212 (Level2 LCDM chain sigma8) | PASS |
 | 269 | ch:lensdyn:L269:4.25 | calc | `4.25` | numeric: f sigma8 deficit z=0 | PASS |
 | 270 | ch:lensdyn:L270 | calc | `2.17` | numeric: f sigma8 deficit z=0.3 | PASS |
 | 270 | ch:lensdyn:L270:1.35 | calc | `1.35` | numeric: f sigma8 deficit z=0.5 | PASS |
@@ -3087,13 +3087,13 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 21 | ch:satellites:L21 | calc | `0.78` | numeric: D deficit today, form (i) | PASS |
 | 21 | ch:satellites:L21:0.67 | calc | `0.67` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: D deficit, form (ii) (committed output) | PASS |
 | 21 | ch:satellites:L21:1.87 | calc | `1.87` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: D deficit, form (iii) (committed output) | PASS |
-| 21 | ch:satellites:L21:1.1 | calc | `1.1` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 lower, Level 2 chains | PASS |
-| 21 | ch:satellites:L21:1.6 | calc | `1.6` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 lower, Level 1 chains | PASS |
+| 21 | ch:satellites:L21:1.1 | calc | `1.1` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 lower, Level 2 chains | PASS |
+| 21 | ch:satellites:L21:1.6 | calc | `1.6` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 lower, Level 1 chains | PASS |
 | 27 |  | observed | `10` | not run: input: circular-velocity cut v_c > 10 km/s of the cited simulations (Klypin1999, Moore1999), a selection threshold, nothing to recompute | - |
 | 42 | eq:ms_virial | derived |  | sympy: 2K + V = 0 gives K = |V|/2 (the display's K+V=0 reads the bound-state energy E = -K) | PASS |
 | 51 | eq:ms_beta | prediction | `0.15765` | numeric: beta_m | PASS |
-| 55 | ch:satellites:L55 | calc | `0.1583` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_05_dual_sector_note:113 (Omega_m/2 from Planck posterior (beta_m-fixed chain)) | PASS |
-| 56 | ch:satellites:L56 | calc | `0.3166` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p1_03_virial_law:144 (Level2 Planck posterior Omega_m mean) | PASS |
+| 55 | ch:satellites:L55 | calc | `0.1583` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_05_dual_sector_note:113 (Omega_m/2 from Planck posterior (beta_m-fixed chain)) | PASS |
+| 56 | ch:satellites:L56 | calc | `0.3166` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p1_03_virial_law:144 (Level2 Planck posterior Omega_m mean) | PASS |
 | 61 | eq:ms_E | interp |  | sympy: E(a): E(1) = 1, E -> 0 as a -> 0, dE/da > 0 | PASS |
 | 69 | eq:ms_mu | interp |  | sympy: mu(a): 1/(1+beta_m) today, 1 at early times | PASS |
 | 74 | eq:ms_mu0 | interp | `0.864` | numeric: mu(0) = 1/(1+Omega_m/2) | PASS |
@@ -3125,29 +3125,29 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 123 | ch:satellites:L123:0.24 | calc | `0.24` | numeric: nu at 1e7 M_sun (fig caption) | PASS |
 | 123 | ch:satellites:L123:0.35 | calc | `0.35` | numeric: nu at 1e9 M_sun (fig caption) | PASS |
 | 123 |  | calc | `10` | not run: input: the tenfold (order-of-magnitude) satellite deficit the figure compares against; its logarithm ln 10 = 2.30 is checked by ch:satellites:L118 | - |
-| 136 | ch:satellites:L136 | calc | `0.1583` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_05_dual_sector_note:113 (Omega_m/2 from Planck posterior (beta_m-fixed chain)) | PASS |
+| 136 | ch:satellites:L136 | calc | `0.1583` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_05_dual_sector_note:113 (Omega_m/2 from Planck posterior (beta_m-fixed chain)) | PASS |
 | 137 | ch:satellites:L137 | fitted | `0.7998` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
 | 137 | ch:satellites:L137:0.802 | fitted | `0.802` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
 | 137 | ch:satellites:L137:0.018 | fitted | `0.018` | file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: lower error of the joint weak-lensing sigma8 | PASS |
-| 137 | ch:satellites:L137:0.1 | fitted | `0.1` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 sigma8 vs joint weak lensing, in sigma | PASS |
+| 137 | ch:satellites:L137:0.1 | fitted | `0.1` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 sigma8 vs joint weak lensing, in sigma | PASS |
 | 138 | ch:satellites:L138 | fitted | `67.16` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
 | 138 | ch:satellites:L138:67.36 | fitted | `67.36` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
-| 138 | ch:satellites:L138:0.37 | fitted | `0.37` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 vs Planck 2018, in sigma | PASS |
+| 138 | ch:satellites:L138:0.37 | fitted | `0.37` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 vs Planck 2018, in sigma | PASS |
 | 139 | ch:satellites:L139 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
-| 139 | ch:satellites:L139:67.161 | calc | `67.161` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_03_theory:889 (Level2 posterior mean H0) | PASS |
+| 139 | ch:satellites:L139:67.161 | calc | `67.161` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_03_theory:889 (Level2 posterior mean H0) | PASS |
 | 139 | ch:satellites:L139:0.75 | calc | `0.75` | numeric: H0 matter vs SH0ES | PASS |
 | 139 |  | calc | `73.04` | not run: input: SH0ES H0 = 73.04 +- 1.04 (Riess2022, published), used as input by ch:satellites:L139:0.75; nothing to recompute | - |
-| 140 | ch:satellites:L140 | fitted | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi^2 of Level 2 against the LCDM best fit | PASS |
-| 143 | ch:satellites:L143 | calc | `0.1` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 0.1 sigma from joint weak lensing, restated | PASS |
-| 144 | ch:satellites:L144 | interp | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Planck LCDM sigma8 in the same code (Level 2 LCDM chain) | PASS |
+| 140 | ch:satellites:L140 | fitted | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi^2 of Level 2 against the LCDM best fit | PASS |
+| 143 | ch:satellites:L143 | calc | `0.1` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 0.1 sigma from joint weak lensing, restated | PASS |
+| 144 | ch:satellites:L144 | interp | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Planck LCDM sigma8 in the same code (Level 2 LCDM chain) | PASS |
 | 157 | ch:satellites:L157 | prediction | `-0.136` | numeric: mu0 = mu(z=0) - 1 | PASS |
 | 157 |  | prediction | `0.90` | not run: prediction, nothing to recompute: tension threshold mu(z=0) > 0.90 at 2 sigma for a future measurement | - |
 | 160 | ch:satellites:L160 | prediction | `4.25` | numeric: f sigma8 deficit at z = 0, form (i) | PASS |
 | 160 | ch:satellites:L160:2.17 | prediction | `2.17` | numeric: f sigma8 deficit at z = 0.3, form (i) | PASS |
 | 160 | ch:satellites:L160:1.35 | prediction | `1.35` | numeric: f sigma8 deficit at z = 0.5, form (i) | PASS |
 | 160 | ch:satellites:L160:0.41 | prediction | `0.41` | numeric: f sigma8 deficit at z = 1, form (i) | PASS |
-| 161 | ch:satellites:L161:0.7998 | prediction | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 sigma8 (chain) | PASS |
-| 161 | ch:satellites:L161:0.8087 | prediction | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: LCDM sigma8 in the same code (chain) | PASS |
+| 161 | ch:satellites:L161:0.7998 | prediction | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 sigma8 (chain) | PASS |
+| 161 | ch:satellites:L161:0.8087 | prediction | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: LCDM sigma8 in the same code (chain) | PASS |
 | 161 |  | prediction | `0.3` | not run: input: redshift z = 0.3 at which the f sigma8 deficit is quoted (checked by ch:satellites:L160:2.17) | - |
 | 161 |  | prediction | `0.5` | not run: input: redshift z = 0.5 at which the f sigma8 deficit is quoted (checked by ch:satellites:L160:1.35) | - |
 | 165 | ch:satellites:L165 | prediction | `-0.78` | numeric: growth deficit in D today, form (i) | PASS |
@@ -3238,11 +3238,11 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 206 | eq:bh_TGH | calc |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
 | 209 | ch:blackholes:L209 | calc | `2.66\times10^{-30}` | numeric: T_GH, H0 = 67.4 | PASS |
 | 209 | ch:blackholes:L209:2.65\times10^{-30} | calc | `2.65\times10^{-30}` | numeric: T_GH, H0 = 67.16 | PASS |
-| 209 | ch:blackholes:L209:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 209 | ch:blackholes:L209:67.16 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 209 | ch:blackholes:L209:67.4 | calc | `67.4` | numeric: H0 = 67.4 (Planck 2018) | PASS |
 | 213 | eq:bh_Pnet | derived |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
 | 221 | eq:bh_Meq | derived |  | sympy: M_eq from T_BH = T_GH | PASS |
-| 224 | ch:blackholes:L224 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 224 | ch:blackholes:L224 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 224 | ch:blackholes:L224:2.33\times10^{22} | calc | `2.33\times10^{22}` | numeric: M_eq at H0 = 67.16 | PASS |
 | 228 |  | calc | `6.6\times10^{10}` | not run: input: TON 618 mass 6.6e10 M_sun, an observed value from the cited Shemmer2004 (doi 10.1086/423607), nothing to recompute | - |
 | 228 |  | calc | `10` | not run: input: epoch z = 10^10 of the table row | - |
@@ -3444,12 +3444,12 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 298 | ch:quantumrecords:L298:1.35 | calc | `1.35` | numeric: f sigma8 deficit at z=0.5 | PASS |
 | 298 |  | calc | `0.3` | not run: input: redshift z = 0.3 at which the f sigma8 deficit is evaluated (deficit checked at ch:quantumrecords:L298:2.17) | - |
 | 299 | ch:quantumrecords:L299 | calc | `0.41` | numeric: f sigma8 deficit at z=1.0 | PASS |
-| 299 | ch:quantumrecords:L299:0.800 | calc | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8, Level 2 Run A | PASS |
+| 299 | ch:quantumrecords:L299:0.800 | calc | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8, Level 2 Run A | PASS |
 | 299 |  | calc | `0.5` | not run: input: redshift z = 0.5 at which the f sigma8 deficit is evaluated (deficit checked at ch:quantumrecords:L298:1.35) | - |
 | 303 | eq:qr_H0 | calc | `72.26` | numeric: H0 matter = 67.16 sqrt(1.15765) | PASS |
-| 306 | ch:quantumrecords:L306 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
-| 307 | ch:quantumrecords:L307 | interp | `72.26` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 from the Level 2 chain H0 times sqrt(1+beta_m) | PASS |
-| 311 | ch:quantumrecords:L311 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (runA) minus LCDM (runC) | PASS |
+| 306 | ch:quantumrecords:L306 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 307 | ch:quantumrecords:L307 | interp | `72.26` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 from the Level 2 chain H0 times sqrt(1+beta_m) | PASS |
+| 311 | ch:quantumrecords:L311 | measured | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (runA) minus LCDM (runC) | PASS |
 | 330 | ch:quantumrecords:L330 | observed | `1.3` | numeric: separation of the electron spins in the loophole-free Bell test, km | PASS |
 | 339 | ch:quantumrecords:L339 | prediction | `2.2\times10^{-10}` | numeric: mass where tau_IAM = tau_PD at 10 mK, kg | PASS |
 | 339 | ch:quantumrecords:L339:7.5 | prediction | `7.5` | numeric: tau_PD = hbar/E_G at 1e-12 kg, microseconds | PASS |
@@ -3464,9 +3464,9 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 347 |  | calc | `10` | not run: input: mass 10^-12 kg (a nanogram) of the worked example; the times at that mass are checked at ch:quantumrecords:L345 and L345:7.5 | - |
 | 369 | ch:quantumrecords:L369 | calc | `2.5\times10^{-87}` | numeric: tau_D, Milky Way halo | PASS |
 | 373 | ch:quantumrecords:L373 | prediction | `-0.136` | numeric: mu0 = 1/(1+beta_m) - 1 (status list) | PASS |
-| 373 | ch:quantumrecords:L373:0.800 | prediction | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8, Level 2 Run A (status list) | PASS |
+| 373 | ch:quantumrecords:L373:0.800 | prediction | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8, Level 2 Run A (status list) | PASS |
 | 373 | ch:quantumrecords:L373:72.26 | prediction | `72.26` | numeric: H0 matter = H0 photon sqrt(1+beta_m) (status list) | PASS |
-| 373 | ch:quantumrecords:L373:67.16 | prediction | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level 2 Run A chain (status list) | PASS |
+| 373 | ch:quantumrecords:L373:67.16 | prediction | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level 2 Run A chain (status list) | PASS |
 
 ## Part 4 - ch:entanglement - `docs/book/part2/p2_21_entanglement_records.tex`
 
@@ -3587,13 +3587,13 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 33 | ch:gravdec:L33:0.7998 | measured | `0.7998` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 33 | ch:gravdec:L33:0.822 | measured | `0.822` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 33 | ch:gravdec:L33:72.26 | measured | `72.26` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
-| 33 | ch:gravdec:L33:+0.54 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (runA) minus LCDM (runC) | PASS |
+| 33 | ch:gravdec:L33:+0.54 | measured | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (runA) minus LCDM (runC) | PASS |
 | 34 | ch:gravdec:L34 | calc | `72.26` | numeric: H0 matter sector | PASS |
-| 34 | ch:gravdec:L34:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 34 | ch:gravdec:L34:67.16 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 34 | ch:gravdec:L34:0.75 | calc | `0.75` | numeric: H0 matter vs SH0ES, sigma | PASS |
 | 34 | ch:gravdec:L34:0.37 | calc | `0.37` | numeric: H0 photon vs Planck, sigma | PASS |
 | 39 | ch:gravdec:L39 | measured | `0.0100` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
-| 39 | ch:gravdec:L39:0.0068 | measured | `0.0068` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: final R-1 of the second Level 2b chain (runD) | PASS |
+| 39 | ch:gravdec:L39:0.0068 | measured | `0.0068` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: final R-1 of the second Level 2b chain (runD) | PASS |
 | 40 | ch:gravdec:L40 | measured | `61.45` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 40 | ch:gravdec:L40:61.52 | measured | `61.52` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 40 | ch:gravdec:L40:67.4 | measured | `67.4` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
@@ -3857,7 +3857,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 |---:|---|---|---|---|---|
 | 17 | eq:em:T | derived |  | sympy: Hawking temperature from T = hbar kappa/(2 pi k_B) | PASS |
 | 22 | ch:electronmass:L22 | calc | `2.66\times10^{-30}` | numeric: T_GH, H0 = 67.4 | PASS |
-| 22 | ch:electronmass:L22:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 22 | ch:electronmass:L22:67.16 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 22 | ch:electronmass:L22:2.65\times10^{-30} | calc | `2.65\times10^{-30}` | numeric: T_GH, H0 = 67.16 | PASS |
 | 22 |  | calc | `67.4` | not run: input: H0 = 67.4 km/s/Mpc (Planck 2018, Aghanim et al. 2020, doi:10.1051/0004-6361/201833910), nothing to recompute | - |
 | 27 | eq:em:S | conjecture | `1.79\times10^{45}` | numeric: S = pi (m_P/m_e)^2 | PASS |
@@ -3892,7 +3892,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 115 | ch:electronmass:L115 | calc | `0.576` | numeric: crossing as derived | PASS |
 | 116 | ch:electronmass:L116 | calc | `1.00001` | numeric: crossing with the identified factor | PASS |
 | 116 | ch:electronmass:L116:-0.14 | calc | `-0.14` | numeric: fixed point offset at H0 = 67.16, per cent | PASS |
-| 116 | ch:electronmass:L116:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 116 | ch:electronmass:L116:67.16 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 116 | ch:electronmass:L116:-0.02 | calc | `-0.02` | numeric: fixed point offset at H0 = 67.36, per cent | PASS |
 | 116 |  | calc | `67.4` | not run: input: H0 = 67.4 restated in the figure caption | - |
 | 117 | ch:electronmass:L117 | calc | `+2.82` | numeric: fixed point offset at H0 = 72.26, per cent | PASS |
@@ -3907,7 +3907,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 125 | ch:electronmass:L125 | calc | `6.6` | numeric: ppm offset at 67.4 | PASS |
 | 125 |  | calc | `67.4` | not run: input: H0 = 67.4 restated | - |
 | 126 |  | calc | `0.3` | not run: restates ch:electronmass:L137 (0.32 per cent) rounded to one digit; a one-digit 0.3 cannot pass a 5 % negative control (0.315 lies within half its last digit of 0.320) | - |
-| 136 | ch:electronmass:L136 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 136 | ch:electronmass:L136 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 136 | ch:electronmass:L136:0.14 | calc | `0.14` | numeric: per cent low at 67.16 | PASS |
 | 137 | ch:electronmass:L137 | openprob | `0.32` | numeric: spread from sigma(H0), per cent | PASS |
 | 137 | ch:electronmass:L137:2.8 | openprob | `2.8` | numeric: fixed point at the matter-sector H0, per cent high | PASS |
@@ -4359,7 +4359,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 141 | ch:astrogenetics:L141 | measured | `0.664` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 141 | ch:astrogenetics:L141:0.975 | measured | `0.975` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 280 | ch:astrogenetics:L280 | derived | `0.15765` | numeric: beta_m | PASS |
-| 283 | ch:astrogenetics:L283 | measured | `0.2` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain eta below Planck 2018, per cent | PASS |
+| 283 | ch:astrogenetics:L283 | measured | `0.2` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain eta below Planck 2018, per cent | PASS |
 | 283 | ch:astrogenetics:L283:0.3 | measured | `0.3` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: 18th chain eta from nucleosynthesis with deuterium, sigma | PASS |
 | 285 | ch:astrogenetics:L285 | openprob | `1.142\times10^{-123}` | numeric: rho_L/rho_vac from (2/pi)(l_P/l_H)^2 (Ob/Om) sqrt(OL) | PASS |
 | 286 | ch:astrogenetics:L286 | fitted | `1.133\times10^{-123}` | numeric: measured rho_L/rho_vac | PASS |
@@ -5065,7 +5065,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 30 | ch:theoryinterp:L30 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 30 | ch:theoryinterp:L30 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 30 | ch:theoryinterp:L30:2.3\times10^{22} | calc | `2.3\times10^{22}` | numeric: M_eq = c^3/4GH0 today, solar masses | PASS |
 | 30 | ch:theoryinterp:L30:1.3\times10^{22} | calc | `1.3\times10^{22}` | numeric: M_eq = c^3/4GH(z) at z = 1 | PASS |
 | 30 | ch:theoryinterp:L30:2.4\times10^{12} | calc | `2.4\times10^{12}` | numeric: M_eq = c^3/4GH(z) at z = 10^6 | PASS |
@@ -5076,7 +5076,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 40 | ch:theoryinterp:L40 | none |  | sympy: T_BH = T_GH solved for M gives M_eq = c^3/4GH | PASS |
 | 41 | ch:theoryinterp:L41 | observed | `10.82` | numeric: TON 618 black-hole mass, log M/Msun (published) | PASS |
 | 41 | ch:theoryinterp:L41:7\times10^{10} | calc | `7\times10^{10}` | numeric: TON 618 mass about 7e10 Msun from log M = 10.82 | PASS |
-| 54 | ch:theoryinterp:L54 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 54 | ch:theoryinterp:L54 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 54 | ch:theoryinterp:L54:2.65\times10^{-30} | calc | `2.65\times10^{-30}` | numeric: cosmic-horizon temperature T_GH = hbar H0/2 pi k_B | PASS |
 | 54 | ch:theoryinterp:L54:2.3\times10^{22} | calc | `2.3\times10^{22}` | numeric: M_eq where T_BH = T_GH today, solar masses | PASS |
 
@@ -5092,7 +5092,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 93 | ch:time:L93 | measured | `67.16` | heavy file `docs/verification/scripts/verify_records_measurement_time_output.txt`: measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names | PASS |
 | 94 | ch:time:L94 | measured | `67.36` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
 | 96 | ch:time:L96 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
-| 97 | ch:time:L97 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 97 | ch:time:L97 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 97 | ch:time:L97:72.26 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
 | 97 | ch:time:L97:73.04 | observed | `73.04` | numeric: SH0ES H0 (Riess et al. 2022, published) | PASS |
 | 102 | ch:time:L102 | derived | `0.15765` | numeric: beta_m = Omega_m/2 (virial partition), Planck Omega_m | PASS |
@@ -5137,16 +5137,16 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 19 | ch:virial_decoherence:L19 | interp | `13.8` | numeric: age of the universe, flat LCDM, Planck 2018 | PASS |
-| 23 | ch:virial_decoherence:L23 | interp | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2, IAM Run A minus LCDM Run C | PASS |
+| 23 | ch:virial_decoherence:L23 | interp | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2, IAM Run A minus LCDM Run C | PASS |
 | 73 | ch:virial_decoherence:L73 | calc | `2.65\times10^{-30}` | numeric: Gibbons-Hawking temperature today, H0 = 67.16 | PASS |
-| 74 | ch:virial_decoherence:L74 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 74 | ch:virial_decoherence:L74 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 81 | ch:virial_decoherence:L81 | calc | `4.5\times10^{-5}` | numeric: E(z = 10) = exp(1 - 1/a) | PASS |
 | 92 | ch:virial_decoherence:L92 | derived | `13.8` | numeric: age of the universe (repeat) | PASS |
-| 100 | ch:virial_decoherence:L100 | openprob | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon sector, Level 2 chain value | PASS |
+| 100 | ch:virial_decoherence:L100 | openprob | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon sector, Level 2 chain value | PASS |
 | 106 | ch:virial_decoherence:L106 | conjecture |  | sympy: saturation bound S/A = k_B/4 l_P^2 at R_s | PASS |
 | 111 | ch:virial_decoherence:L111 | derived |  | sympy: Hawking power and bit rate c^3/(1920 G M ln2) | PASS |
 | 115 | ch:virial_decoherence:L115 | calc | `2.1\times10^{67}` | numeric: Hawking evaporation time of a solar-mass black hole | PASS |
-| 160 | ch:virial_decoherence:L160 | interp | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM Level 2 chain value | PASS |
+| 160 | ch:virial_decoherence:L160 | interp | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM Level 2 chain value | PASS |
 | 175 | ch:virial_decoherence:L175 | prediction | `13.6` | numeric: coupling reduction today 1 - mu(1) | PASS |
 | 176 | ch:virial_decoherence:L176 | prediction | `4.25` | numeric: f sigma8 deficit at z = 0, same early amplitude | PASS |
 
@@ -5196,7 +5196,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 29 | ch:synthesis:L29 | derived | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 29 | ch:synthesis:L29 | derived | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 29 | ch:synthesis:L29:2.65\times10^{-30} | derived | `2.65\times10^{-30}` | numeric: cosmic-horizon temperature T_GH, H0 = 67.16 | PASS |
 | 29 | ch:synthesis:L29:-0.136 | calc | `-0.136` | numeric: mu0 = mu(a=1) - 1 | PASS |
 | 30 | ch:synthesis:L30 | derived | `6.2\times10^{-8}` | numeric: Hawking temperature of a solar-mass black hole | PASS |
@@ -5216,15 +5216,15 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 53 | ch:synthesis:L53:0.032 | measured | `0.032` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: eps0 from the measured holding energy | PASS |
 | 53 | ch:synthesis:L53:3.41 | measured | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy E_hold, PROC-CHANNEL-01 | PASS |
 | 54 | ch:synthesis:L54 | calc | `-0.136` | numeric: mu0 = mu(a=1) - 1 (slot table) | PASS |
-| 54 | ch:synthesis:L54:0.7998 | measured | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM Level 2 chain | PASS |
+| 54 | ch:synthesis:L54:0.7998 | measured | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM Level 2 chain | PASS |
 | 64 | ch:synthesis:L64 | derived | `0.500000` | numeric: capacitor charging: dissipated over drawn energy, any R | PASS |
 | 64 |  | derived | `10` | not run: input: the resistance range 10^-2 to 10^2 ohm over which the capacitor ratio is computed (checked as ch:synthesis:L64) | - |
 | 69 | ch:synthesis:L69 | derived | `-0.136` | numeric: mu0 from beta_m = Omega_m/2 | PASS |
 | 77 | ch:synthesis:L77 | measured | `1.05` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names | PASS |
 | 77 | ch:synthesis:L77:0.95 | measured | `0.95` | file `CANON/iam_canon.json`: Normal band lower edge (CANON) | PASS |
 | 77 |  | measured | `1.8` | not run: measured, source not named | - |
-| 79 | ch:synthesis:L79 | fitted | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2, IAM minus LCDM | PASS |
-| 80 | ch:synthesis:L80 | fitted | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM Level 2 chain (Run C) | PASS |
+| 79 | ch:synthesis:L79 | fitted | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2, IAM minus LCDM | PASS |
+| 80 | ch:synthesis:L80 | fitted | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM Level 2 chain (Run C) | PASS |
 | 80 | ch:synthesis:L80:4.25 | fitted | `4.25` | numeric: f sigma8 deficit at z = 0 | PASS |
 | 80 | ch:synthesis:L80:0.41 | fitted | `0.41` | numeric: f sigma8 deficit at z = 1 | PASS |
 | 87 | ch:synthesis:L87 | derived | `6.2\times10^{-7}` | numeric: transmon per-gate thermal floor p_eq t_g/T1 | PASS |
@@ -5279,7 +5279,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 24 | ch:predictions:L24 | derived | `-0.136` | numeric: mu0 = mu(a=1) - 1 (fig:cosmo_tests panel a) | PASS |
-| 24 | ch:predictions:L24:0.039 | measured | `0.039` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: free mu0, Planck + RSD chain posterior mean | PASS |
+| 24 | ch:predictions:L24:0.039 | measured | `0.039` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: free mu0, Planck + RSD chain posterior mean | PASS |
 | 24 | ch:predictions:L24:0.11 | measured | `0.11` | file `docs/verification/theory/IAM_LAW_CHECK.md`: DESI 2024 full-shape mu0 (recorded value) | PASS |
 | 24 | ch:predictions:L24:0.54 | measured | `0.54` | file `docs/verification/theory/IAM_LAW_CHECK.md`: DESI 2024 full-shape mu0 lower error (recorded value) | PASS |
 | 24 | ch:predictions:L24:1.8 | calc | `1.8` | numeric: E_G above LCDM at z = 0.3 (C8) | PASS |
@@ -5289,7 +5289,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 24 |  | calc | `1.1` | not run: printed value 1.1 % has two significant digits and the recomputed E_G change, 1.144 %, lies within 2.5 % of 1.1 x 1.05: a 5 % change cannot be told from rounding | - |
 | 86 | ch:predictions:L86 | observed | `70.0` | numeric: GW170817 standard-siren H0 (published) | PASS |
 | 86 | ch:predictions:L86:8.0 | observed | `8.0` | numeric: GW170817 siren H0 lower error (published) | PASS |
-| 87 | ch:predictions:L87 | openprob | `72.26` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 = H0_photon sqrt(1 + beta_m) | PASS |
+| 87 | ch:predictions:L87 | openprob | `72.26` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 = H0_photon sqrt(1 + beta_m) | PASS |
 | 154 | ch:predictions:L154 | observed | `5\times10^{-6}` | numeric: bound on drift of m_p/m_e from H2 quasar absorbers (published) | PASS |
 | 154 | ch:predictions:L154:2.0 | observed | `2.0` | numeric: lowest absorber redshift of the m_p/m_e bound (published) | PASS |
 | 174 | ch:predictions:L174 | derived |  | sympy: internal-source quasiparticle density, steady state | PASS |
@@ -5301,7 +5301,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 |---:|---|---|---|---|---|
 | 16 | eq:ge_landauer | none |  | not run: definition: Landauer cost k_B T ln 2 per bit at the Gibbons-Hawking horizon temperature T_H = hbar H/(2 pi k_B) (published results, cited); its values are checked at ch:exploratory:L20 to L22 | - |
 | 20 | ch:exploratory:L20 | calc | `2.65\times10^{-30}` | numeric: horizon temperature T_H = hbar H/(2 pi k_B) at H0_photon | PASS |
-| 21 | ch:exploratory:L21 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 21 | ch:exploratory:L21 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 21 | ch:exploratory:L21:2.53\times10^{-53} | calc | `2.53\times10^{-53}` | numeric: Landauer cost k_B T_H ln 2 per bit at H0_photon | PASS |
 | 21 | ch:exploratory:L21:2.85\times10^{-30} | calc | `2.85\times10^{-30}` | numeric: horizon temperature T_H = hbar H/(2 pi k_B) at H0_matter | PASS |
 | 22 | ch:exploratory:L22 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
@@ -5325,7 +5325,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 123 | eq:ge_DH | calc | `1.46\times10^{10}` | numeric: Hubble radius c/H0 at 67.16, light-years | PASS |
 | 123 | eq:ge_DH:1.35\times10^{10} | calc | `1.35\times10^{10}` | numeric: Hubble radius c/H0 at 72.26, light-years | PASS |
 | 127 |  | calc | `70` | not run: input: round value H0 = 70 km/s/Mpc used for illustration | - |
-| 136 | ch:exploratory:L136 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 136 | ch:exploratory:L136 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 136 | ch:exploratory:L136:72.26 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
 | 137 | ch:exploratory:L137 | calc | `1.46` | numeric: Hubble radius at 67.16 in 1e10 ly (figure caption) | PASS |
 | 137 | ch:exploratory:L137:1.35\times10^{10} | calc | `1.35\times10^{10}` | numeric: Hubble radius at 72.26 in ly (figure caption) | PASS |
@@ -5451,7 +5451,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 |---:|---|---|---|---|---|
 | 12 | ch:statusall:L12 | calc | `-0.28` | numeric: photon-sector H0 vs Planck 67.36 +- 0.54, errors in quadrature | PASS |
 | 12 | ch:statusall:L12:-0.68 | calc | `-0.68` | numeric: matter-sector H0 vs SH0ES 73.04 +- 1.04 | PASS |
-| 12 | ch:statusall:L12:8.6 | calc | `8.6` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2b H0 vs Planck | PASS |
+| 12 | ch:statusall:L12:8.6 | calc | `8.6` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2b H0 vs Planck | PASS |
 | 12 |  | calc | `0.54` | not run: input: Planck 2018 H0 error 0.54 km/s/Mpc (Aghanim et al. 2020, doi:10.1051/0004-6361/201833910), the reference error a distance in sigma divides by; used in ch:statusall:L45:-0.37 | - |
 | 12 |  | calc | `1.04` | not run: input: SH0ES H0 error 1.04 km/s/Mpc (Riess et al. 2022, doi:10.3847/2041-8213/ac5c5b), the reference error a distance in sigma divides by; used in ch:statusall:L46:-0.75 | - |
 | 21 | ch:statusall:L21 | calc | `1.2\times10^{32}` | numeric: cost per bit cell / cosmic horizon | PASS |
@@ -5474,28 +5474,28 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 35 |  | derived | `-0.012` | not run: restates ch:theory:L515:-0.012 (w_a = -Omega_m^2/3(2-Omega_m)^2 = -0.0116; a fresh check cannot carry a working negative control at two printed digits, the value sits 0.00025 from the 5 % shifted number) | - |
 | 37 | ch:statusall:L37 | calc | `-0.136` | numeric: mu0 | PASS |
 | 37 | ch:statusall:L37:13.62 | calc | `13.62` | numeric: same value as p1_02_iams_law:466 (percent change of coupling today) | PASS |
-| 38 | ch:statusall:L38 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2, IAM minus LambdaCDM | PASS |
-| 39 | ch:statusall:L39 | measured | `+0.96` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level 1 Delta chi2, Planck | PASS |
-| 39 | ch:statusall:L39:+0.56 | measured | `+0.56` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level 1 Delta chi2, Planck + RSD | PASS |
-| 39 | ch:statusall:L39:+1.73 | measured | `+1.73` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level 1 Delta chi2, Planck + BAO | PASS |
-| 39 | ch:statusall:L39:+1.58 | measured | `+1.58` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level 1 Delta chi2, Planck + Pantheon+ | PASS |
-| 40 | ch:statusall:L40 | measured | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8, Level 2 LambdaCDM (run C) | PASS |
-| 40 | ch:statusall:L40:-1.1 | measured | `-1.1` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 change run C to run A, per cent | PASS |
-| 40 | ch:statusall:L40:-1.51 | measured | `-1.51` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 shift in run C sigma | PASS |
-| 41 | ch:statusall:L41 | measured | `0.830` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8, Level 2 LambdaCDM (run C) | PASS |
-| 41 | ch:statusall:L41:-0.78 | measured | `-0.78` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 shift in run C sigma | PASS |
-| 42 | ch:statusall:L42 | measured | `0.1` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: largest shift of the other Level 2 parameters, sigma | PASS |
-| 43 | ch:statusall:L43 | measured | `-1.6` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: sigma8 change, Level 1, each data combination, per cent | PASS |
+| 38 | ch:statusall:L38 | measured | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2, IAM minus LambdaCDM | PASS |
+| 39 | ch:statusall:L39 | measured | `+0.96` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level 1 Delta chi2, Planck | PASS |
+| 39 | ch:statusall:L39:+0.56 | measured | `+0.56` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level 1 Delta chi2, Planck + RSD | PASS |
+| 39 | ch:statusall:L39:+1.73 | measured | `+1.73` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level 1 Delta chi2, Planck + BAO | PASS |
+| 39 | ch:statusall:L39:+1.58 | measured | `+1.58` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level 1 Delta chi2, Planck + Pantheon+ | PASS |
+| 40 | ch:statusall:L40 | measured | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8, Level 2 LambdaCDM (run C) | PASS |
+| 40 | ch:statusall:L40:-1.1 | measured | `-1.1` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 change run C to run A, per cent | PASS |
+| 40 | ch:statusall:L40:-1.51 | measured | `-1.51` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 shift in run C sigma | PASS |
+| 41 | ch:statusall:L41 | measured | `0.830` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8, Level 2 LambdaCDM (run C) | PASS |
+| 41 | ch:statusall:L41:-0.78 | measured | `-0.78` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 shift in run C sigma | PASS |
+| 42 | ch:statusall:L42 | measured | `0.1` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: largest shift of the other Level 2 parameters, sigma | PASS |
+| 43 | ch:statusall:L43 | measured | `-1.6` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: sigma8 change, Level 1, each data combination, per cent | PASS |
 | 44 | ch:statusall:L44 | calc | `+0.030` | heavy file `docs/verification/chains/LATE_TIME_GROWTH_CHECK.md`: free mu0: smallest posterior median | PASS |
 | 44 | ch:statusall:L44:+0.064 | calc | `+0.064` | heavy file `docs/verification/chains/LATE_TIME_GROWTH_CHECK.md`: free mu0: largest posterior median | PASS |
-| 44 | ch:statusall:L44:+0.2 | calc | `+0.2` | file `mgcamb_validation/chains/planck_rsd_mu0_float.input.yaml`: free mu0: upper prior edge | PASS |
+| 44 | ch:statusall:L44:+0.2 | calc | `+0.2` | file `Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.input.yaml`: free mu0: upper prior edge | PASS |
 | 44 |  | calc | `90` | not run: definition: the central 90 % credible interval used to report the free-mu0 posteriors | - |
-| 45 | ch:statusall:L45 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level 2 chain | PASS |
-| 45 | ch:statusall:L45:-0.37 | measured | `-0.37` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 from Planck, Planck error alone | PASS |
+| 45 | ch:statusall:L45 | measured | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level 2 chain | PASS |
+| 45 | ch:statusall:L45:-0.37 | measured | `-0.37` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 from Planck, Planck error alone | PASS |
 | 46 | ch:statusall:L46 | derived | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
-| 46 | ch:statusall:L46:-0.75 | derived | `-0.75` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 from SH0ES, SH0ES error alone | PASS |
-| 47 | ch:statusall:L47 | measured | `61.45` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 with the term in the background (Level 2b) | PASS |
-| 47 | ch:statusall:L47:10.9 | measured | `10.9` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2b H0 below Planck, Planck error alone | PASS |
+| 46 | ch:statusall:L46:-0.75 | derived | `-0.75` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 from SH0ES, SH0ES error alone | PASS |
+| 47 | ch:statusall:L47 | measured | `61.45` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 with the term in the background (Level 2b) | PASS |
+| 47 | ch:statusall:L47:10.9 | measured | `10.9` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2b H0 below Planck, Planck error alone | PASS |
 | 48 | ch:statusall:L48 | measured | `-0.035` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: best beta on supernova distances | PASS |
 | 48 | ch:statusall:L48:-0.068 | measured | `-0.068` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: lower 68 % end of beta on supernova distances | PASS |
 | 48 | ch:statusall:L48:0.000 | measured | `0.000` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: upper 68 % end of beta on supernova distances | PASS |
@@ -5514,20 +5514,20 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 52 |  | calc | `0.3` | not run: input: the redshift z = 0.3 at which the E_G change is quoted | - |
 | 53 | ch:statusall:L53 | calc | `0.08` | numeric: CMB lensing power lower, per cent | PASS |
 | 55 |  | prediction | `0.3` | not run: prediction, nothing to recompute: the redshift range 0.3 < z < 1 of the growth-ramp turn-on that the survey test targets | - |
-| 57 | ch:statusall:L57 | observed | `0.1` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 sigma8 against the 2025 joint lensing value, sigma | PASS |
+| 57 | ch:statusall:L57 | observed | `0.1` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 sigma8 against the 2025 joint lensing value, sigma | PASS |
 | 57 | ch:statusall:L57:0.815 | observed | `0.815` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: KiDS-Legacy S8 | PASS |
-| 57 | ch:statusall:L57:0.3 | observed | `0.3` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 S8 against KiDS-Legacy, sigma | PASS |
+| 57 | ch:statusall:L57:0.3 | observed | `0.3` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 S8 against KiDS-Legacy, sigma | PASS |
 | 57 | ch:statusall:L57:0.776 | calc | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DES Y3 3x2pt S8 | PASS |
 | 57 | ch:statusall:L57:2.3 | observed | `2.3` | numeric: Level 2 S8 against DES Y3 3x2pt, sigma | PASS |
 | 58 | ch:statusall:L58 | calc | `7.6` | numeric: w0 distance of the CPL image from DESI, Union3 | PASS |
 | 58 | ch:statusall:L58:10.2 | calc | `10.2` | numeric: w0 distance of the CPL image from DESI, DES Y5 | PASS |
-| 59 | ch:statusall:L59 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 59 | ch:statusall:L59 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 59 | ch:statusall:L59:55.57 | calc | `55.57` | numeric: same value as p2_11_dark_energy:146 (precise H_infinity, Level 2 chains) | PASS |
 | 59 | ch:statusall:L59:70.86 | calc | `70.86` | numeric: same value as p2_11_dark_energy:173 (H_m asymptote, matter-sector) | PASS |
 | 60 | ch:statusall:L60 | calc | `1.076` | numeric: same value as p1_02_iams_law:703 (Hubble sector ratio sqrt(1+beta_m)) | PASS |
 | 60 | ch:statusall:L60:1.275 | calc | `1.275` | numeric: same value as p2_11_dark_energy:174 (H_m/H ratio limit a->infinity) | PASS |
 | 61 | ch:statusall:L61 | calc | `1.26` | numeric: z of the peak | PASS |
-| 61 | ch:statusall:L61:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 61 | ch:statusall:L61:67.16 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 61 | ch:statusall:L61:3.37 | calc | `3.37` | numeric: peak writing rate, per cent per Gyr, H0 67.16 | PASS |
 | 61 | ch:statusall:L61:2.53 | calc | `2.53` | numeric: writing rate now, per cent per Gyr | PASS |
 | 62 | ch:statusall:L62 | observed | `0.79` | numeric: baryon relation (3/16) sqrt(Omega_L), per cent off | PASS |
@@ -5592,7 +5592,6 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 100 | ch:statusall:L100:1.079 | measured | `1.079` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: 2 % neutrophil-pattern loss, untared, highest | PASS |
 | 100 | ch:statusall:L100:1.052 | measured | `1.052` | heavy file `Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md`: 2 % loss, tared, lowest | PASS |
 | 100 | ch:statusall:L100:1.090 | measured | `1.090` | heavy file `Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md`: 2 % loss, tared, highest | PASS |
-| 102 | ch:statusall:L102:1.97 | calc | `1.97` | heavy file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: IAM-A on single molecules under DNMT1 block, highest | PASS |
 | 106 | ch:statusall:L106 | calc | `2.3\times10^{22}` | numeric: M_eq today | PASS |
 | 108 | ch:statusall:L108 | conjecture | `0.0179` | numeric: Q_L = k_B T ln 2 at room temperature, eV | PASS |
 | 110 | ch:statusall:L110:509 | prediction | `509` | numeric: tau_IAM of a 1e-12 kg silica sphere at 10 mK, s | PASS |
@@ -5604,7 +5603,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 16 | ch:conclusion:L16 | derived | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 17 | ch:conclusion:L17 | derived | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 17 | ch:conclusion:L17 | derived | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 17 | ch:conclusion:L17:4.25 | derived | `4.25` | numeric: f sigma8 deficit today, per cent | PASS |
 | 18 | ch:conclusion:L18 | derived | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
 | 23 | ch:conclusion:L23 | observed | `0.66666446` | numeric: same value as p2_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
@@ -5613,7 +5612,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 25 | ch:conclusion:L25:593 | calc | `593` | numeric: switching energy over k_B T_j ln 2, 20.0e9 transistors | PASS |
 | 33 | ch:conclusion:L33 | prediction | `-0.136` | numeric: mu0 = mu(a=1) - 1 | PASS |
 | 34 | ch:conclusion:L34 | prediction | `4.25` | numeric: growth deficit today, per cent | PASS |
-| 36 | ch:conclusion:L36 | prediction | `72.26` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 from the Level 2 chain | PASS |
+| 36 | ch:conclusion:L36 | prediction | `72.26` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 from the Level 2 chain | PASS |
 
 ## Part 8 - app:constants - `docs/book/appendices/app_A2_frozen_values.tex`
 
@@ -5630,8 +5629,8 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 12 | app:constants:L12 | calc | `2.968\times10^{-21}` | numeric: same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature) | PASS |
 | 13 | app:constants:L13 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C) | PASS |
 | 14 | app:constants:L14 | observed | `67.36` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Planck 2018 H0, standard LambdaCDM fit | PASS |
-| 15 | app:constants:L15 | observed | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level 2 chain | PASS |
-| 15 | app:constants:L15:72.26 | observed | `72.26` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 from the Level 2 chain | PASS |
+| 15 | app:constants:L15 | observed | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level 2 chain | PASS |
+| 15 | app:constants:L15:72.26 | observed | `72.26` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 from the Level 2 chain | PASS |
 | 16 | app:constants:L16 | observed | `3.41` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 16 | app:constants:L16:0.032 | observed | `0.032` | file `CANON/iam_canon.json`: copy-error floor eps0 from E_hold | PASS |
 | 17 | app:constants:L17 | calibrated | `0.330263` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
@@ -5687,7 +5686,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 58 | app:formulas:L58:0.3153 | derived | `0.3153` | file `CANON/iam_canon.json`: Omega_m behind beta_m (canon) | PASS |
 | 100 | app:formulas:L100 | derived | `0.3153` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 100 | app:formulas:L100:0.15765 | derived | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 108 | app:formulas:L108 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 108 | app:formulas:L108 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 108 | app:formulas:L108:72.26 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
 | 126 | app:formulas:L126 | derived |  | sympy: area change of a local Rindler horizon from Raychaudhuri | PASS |
 | 139 | app:formulas:L139 | derived |  | sympy: energy flux across the apparent horizon | PASS |
@@ -5696,7 +5695,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 189 | app:formulas:L189:1.062 | calc | `1.062` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 190 | app:formulas:L190 | calc | `0.012` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 226 | app:formulas:L226 | derived | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 240 | app:formulas:L240 | calc | `-0.13495` | file `mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml`: MGCAMB amplitude mu0 set in the runs | PASS |
+| 240 | app:formulas:L240 | calc | `-0.13495` | file `Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml`: MGCAMB amplitude mu0 set in the runs | PASS |
 | 243 | app:formulas:L243 | derived | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
 | 248 | app:formulas:L248 | derived | `0.864` | numeric: mu today | PASS |
 | 250 | app:formulas:L250 | derived | `1.0759` | numeric: same value as p1_02_iams_law:516 (H_m/H at z=0) | PASS |
@@ -5709,7 +5708,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 372 |  | measured | `0.02232` | not run: definition: line 372 is n_b = eta n_gamma (labelled a definition); it prints no 0.02232 (the scan line drifted; Omega_b h^2 = 0.02232 appears at lines 79 and 385, outside this batch) | - |
 | 387 | app:formulas:L387 | measured | `1.0046` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output) | PASS |
 | 396 | app:formulas:L396 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
-| 396 | app:formulas:L396:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 396 | app:formulas:L396:67.16 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 447 | app:formulas:L447 | derived | `0.433` | numeric: Kerr T S / M c^2 at chi = 0.5 | PASS |
 | 447 | app:formulas:L447:0.218 | derived | `0.218` | numeric: Kerr T S / M c^2 at chi = 0.9 | PASS |
 | 447 | app:formulas:L447:0.032 | derived | `0.032` | numeric: Kerr T S / M c^2 at chi = 0.998 | PASS |
@@ -5907,7 +5906,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 275 | app:derivations:L275:0.195 | calc | `0.195` | numeric: Omega_m f_coll | PASS |
 | 277 | app:derivations:L277 | calc | `1.0759` | numeric: same value as p1_02_iams_law:516 (H_m/H at z=0) | PASS |
 | 277 | app:derivations:L277:72.26 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
-| 277 | app:derivations:L277:67.161 | calc | `67.161` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_03_theory:889 (Level2 posterior mean H0) | PASS |
+| 277 | app:derivations:L277:67.161 | calc | `67.161` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_03_theory:889 (Level2 posterior mean H0) | PASS |
 | 278 | app:derivations:L278 | calc | `72.51` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 278 | app:derivations:L278:72.48 | calc | `72.48` | numeric: H0_m = H0 sqrt(1+beta_m) from 67.36 | PASS |
 | 278 | app:derivations:L278:-0.75 | calc | `-0.75` | numeric: H0_m 72.26 against SH0ES 73.04 +- 1.04, in sigma | PASS |
@@ -5915,11 +5914,11 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 278 |  | calc | `67.4` | not run: input: H0 = 67.4 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated | - |
 | 278 |  | calc | `0.1575` | not run: input: beta_m = 0.1575 (= 0.315/2) used with H0 = 67.4 (result checked at app:derivations:L278) | - |
 | 278 |  | calc | `73.04` | not run: input: SH0ES H0 = 73.04 +- 1.04 (Riess et al. 2022), the comparison value (sigma distance checked at app:derivations:L278:-0.75) | - |
-| 279 | app:derivations:L279 | calc | `67.161` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_03_theory:889 (Level2 posterior mean H0) | PASS |
-| 279 | app:derivations:L279:0.3166 | calc | `0.3166` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p1_03_virial_law:144 (Level2 Planck posterior Omega_m mean) | PASS |
+| 279 | app:derivations:L279 | calc | `67.161` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_03_theory:889 (Level2 posterior mean H0) | PASS |
+| 279 | app:derivations:L279:0.3166 | calc | `0.3166` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p1_03_virial_law:144 (Level2 Planck posterior Omega_m mean) | PASS |
 | 279 | app:derivations:L279:88.89 | calc | `88.89` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 279 | app:derivations:L279:91.29 | calc | `91.29` | numeric: drafted check, screened (runs; negative control fails) (tolerance: the posterior Omega_m is printed to 4 figures) | PASS |
-| 279 | app:derivations:L279:-0.37 | calc | `-0.37` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chain H0 against Planck 67.36 +- 0.54, in sigma | PASS |
+| 279 | app:derivations:L279:-0.37 | calc | `-0.37` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chain H0 against Planck 67.36 +- 0.54, in sigma | PASS |
 | 279 |  | calc | `0.5` | not run: input: redshift z = 0.5 at which H and H_m are evaluated (checked at app:derivations:L279:88.89, L279:91.29) | - |
 | 280 | app:derivations:L280 | calc | `120.44` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 280 | app:derivations:L280:121.53 | calc | `121.53` | numeric: drafted check, screened (runs; negative control fails) | PASS |
@@ -6045,7 +6044,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 58 | app:glossary:L58 | observed | `1.099` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 58 | app:glossary:L58:1.084 | observed | `1.084` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
 | 60 | app:glossary:L60 | observed | `450` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 68 | app:glossary:L68 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 68 | app:glossary:L68 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 68 | app:glossary:L68:55.57 | calc | `55.57` | numeric: same value as p2_11_dark_energy:146 (precise H_infinity, Level 2 chains) | PASS |
 | 68 | app:glossary:L68:70.86 | calc | `70.86` | numeric: same value as p2_11_dark_energy:173 (H_m asymptote, matter-sector) | PASS |
 | 68 | app:glossary:L68:67.4 | calc | `67.4` | numeric: drafted check, screened (runs; negative control fails) | PASS |
@@ -6056,8 +6055,8 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 70 |  | observed | `000` | not run: not a separate number: thousands group of "814,000", checked at app:glossary:L70:814 | - |
 | 72 | app:glossary:L72 | observed | `20.94` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
 | 72 | app:glossary:L72:54 | observed | `54` | file `CANON/iam_canon.json`: ATP free energy of hydrolysis, kJ/mol | PASS |
-| 74 | app:glossary:L74:61.5 | observed | `61.5` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2b H0 (term in the background) | PASS |
-| 74 | app:glossary:L74:10.9 | observed | `10.9` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2b H0 from Planck, in Planck errors | PASS |
+| 74 | app:glossary:L74:61.5 | observed | `61.5` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2b H0 (term in the background) | PASS |
+| 74 | app:glossary:L74:10.9 | observed | `10.9` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2b H0 from Planck, in Planck errors | PASS |
 | 88 | app:glossary:L88:0.0052 | observed | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma 95 % bound | PASS |
 | 88 | app:glossary:L88:3.3 | observed | `3.3` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma bound over beta_m, per cent | PASS |
 | 89 | app:glossary:L89 | observed | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
@@ -6079,7 +6078,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 126 |  | observed | `10` | not run: input: about 10^4 genome equivalents in a millilitre-scale draw, an order of magnitude (used in ch:sky L73-74) | - |
 | 133 | app:glossary:L133:1.456 | observed | `1.456` | numeric: Chandrasekhar mass for mu_e = 2 from the constants | PASS |
 | 133 |  | observed | `1.44` | not run: input: Chandrasekhar mass 1.44 M_sun as conventionally quoted (Chandrasekhar1931); the constants-only 1.456 beside it is checked at app:glossary:L133:1.456 | - |
-| 138 | app:glossary:L138:+0.54 | observed | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2 IAM minus LambdaCDM, Level 2 | PASS |
+| 138 | app:glossary:L138:+0.54 | observed | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2 IAM minus LambdaCDM, Level 2 | PASS |
 | 144 | app:glossary:L144:2.7255 | observed | `2.7255` | numeric: CMB temperature today (Fixsen 2009) | PASS |
 | 149 | app:glossary:L149:1.2 | observed | `1.2` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: coefficient of variation of P across three donors, per cent | PASS |
 | 153 | app:glossary:L153:1.68 | observed | `1.68` | numeric: best 2D transmon T1 (Bland et al. 2025) | PASS |
@@ -6091,7 +6090,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 180 |  | observed | `10` | not run: not a separate number: base of 10^{123}; the 123 orders are checked at app:glossary:L355:123 | - |
 | 183 | app:glossary:L183:2.8e7 | observed | `2.8\times10^7` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpGs per haploid human genome | PASS |
 | 183 |  | observed | `70` | not run: measured, source not named | - |
-| 185 | app:glossary:L185:+0.2 | observed | `+0.2` | file `mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml`: upper prior edge of mu0 | PASS |
+| 185 | app:glossary:L185:+0.2 | observed | `+0.2` | file `Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml`: upper prior edge of mu0 | PASS |
 | 185 |  | observed | `90` | not run: definition: central 90 % credible interval whose lower end (5 % quantile) is quoted | - |
 | 187 |  | observed | `20` | not run: definition: a level of comparison ("rankings at the 20 % level"), not a computed number | - |
 | 188 | app:glossary:L188:2.2e-10 | calc | `2.2\times10^{-10}` | numeric: crossover mass, tau_IAM = tau_DP at 10 mK | PASS |
@@ -6099,7 +6098,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 189 | app:glossary:L189 | observed | `1.1104` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 189 |  | observed | `50` | not run: definition: block size of the C-score, 50 consecutive sites | - |
 | 193 | app:glossary:L193:84.4 | observed | `84.4` | numeric: dark-matter share of beta_m, per cent | PASS |
-| 198 | app:glossary:L198:55.57 | observed | `55.57` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector de Sitter rate H_infinity | PASS |
+| 198 | app:glossary:L198:55.57 | observed | `55.57` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector de Sitter rate H_infinity | PASS |
 | 201 | app:glossary:L201 | observed | `963` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 211 | app:glossary:L211:0.776 | observed | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DES Y3 S8 | PASS |
 | 214 |  | observed | `0.93` | not run: definition: Stage 0 call-rate quarantine threshold 0.93 (chain setting) | - |
@@ -6167,8 +6166,8 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 324 | app:glossary:L324:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: GSE329728: highest IAM-A of the treated libraries | PASS |
 | 325 |  | observed | `-70` | not run: measured, source not named | - |
 | 325 |  | observed | `75` | not run: measured, source not named | - |
-| 327 | app:glossary:L327:67.16 | observed | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 (Level 2 chain) | PASS |
-| 327 | app:glossary:L327:72.26 | observed | `72.26` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 = 67.16 sqrt(1 + beta_m) | PASS |
+| 327 | app:glossary:L327:67.16 | observed | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 (Level 2 chain) | PASS |
+| 327 | app:glossary:L327:72.26 | observed | `72.26` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 = 67.16 sqrt(1 + beta_m) | PASS |
 | 327 | app:glossary:L327:67.36 | observed | `67.36` | numeric: Planck 2018 H0 | PASS |
 | 327 | app:glossary:L327:73.04 | observed | `73.04` | numeric: SH0ES H0 | PASS |
 | 328 |  | observed | `0.90` | not run: measured, source not named | - |
@@ -6228,9 +6227,9 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 413 | app:glossary:L413:30.2 | observed | `30.2` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
 | 413 | app:glossary:L413:3.41 | observed | `3.41` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 413 | app:glossary:L413:4.9 | observed | `4.9` | numeric: holding energy in Landauer units | PASS |
-| 420 | app:glossary:L420 | observed | `61.45` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 of the Level 2b background chain A | PASS |
-| 420 | app:glossary:L420:61.52 | observed | `61.52` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 of the Level 2b background chain D | PASS |
-| 422 | app:glossary:L422 | observed | `0.76` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: likelihood ratio of the Level 2 Planck chain | PASS |
+| 420 | app:glossary:L420 | observed | `61.45` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 of the Level 2b background chain A | PASS |
+| 420 | app:glossary:L420:61.52 | observed | `61.52` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 of the Level 2b background chain D | PASS |
+| 422 | app:glossary:L422 | observed | `0.76` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: likelihood ratio of the Level 2 Planck chain | PASS |
 | 426 | app:glossary:L426 | observed | `68` | file `docs/verification/observations/MISSING_SATELLITES_CHECK.md`: Milky Way satellites in the Local Volume Database | PASS |
 | 429 | app:glossary:L429 | observed | `1.3` | numeric: separation of the spins in the 2015 loophole-free Bell test, km | PASS |
 | 430 | app:glossary:L430 | observed | `56` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: cell types of the Loyfer atlas read for the holding energy | PASS |
@@ -6254,7 +6253,7 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 464 | app:glossary:L464 | observed | `-1.5` | numeric: MICROSCOPE Eotvos parameter Ti-Pt, central value | PASS |
 | 464 | app:glossary:L464:2.7e-15 | observed | `2.7\times10^{-15}` | numeric: MICROSCOPE total uncertainty, stat and syst in quadrature | PASS |
 | 474 | app:glossary:L474 | observed | `-0.136` | numeric: mu0 = -beta_m/(1+beta_m) | PASS |
-| 474 | app:glossary:L474:-0.13495 | observed | `-0.13495` | file `mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml`: mu0 fixed in the MGCAMB runs | PASS |
+| 474 | app:glossary:L474:-0.13495 | observed | `-0.13495` | file `Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml`: mu0 fixed in the MGCAMB runs | PASS |
 | 474 | app:glossary:L474:4.25 | observed | `4.25` | numeric: f sigma8 deficit today, per cent | PASS |
 | 479 |  | observed | `10` | not run: measured, source not named | - |
 | 480 |  | observed | `1.4` | not run: input: canonical neutron-star mass 1.4 M_sun, nothing to recompute | - |
@@ -6285,8 +6284,8 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 536 |  | observed | `20` | not run: definition: atlas v2 stores 20 posterior draws per value (a design choice), nothing to recompute | - |
 | 539 | app:glossary:L539 | observed | `92.7` | file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: atlas v2 held-out 90 % interval coverage, per cent | PASS |
 | 539 |  | observed | `90` | not run: definition: nominal 90 % coverage of the predictive interval (the interval level itself) | - |
-| 542 | app:glossary:L542 | observed | `-0.5` | file `mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml`: lower bound of the flat prior on free mu0 | PASS |
-| 542 | app:glossary:L542:+0.2 | observed | `+0.2` | file `mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml`: upper bound of the flat prior on free mu0 | PASS |
+| 542 | app:glossary:L542 | observed | `-0.5` | file `Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml`: lower bound of the flat prior on free mu0 | PASS |
+| 542 | app:glossary:L542:+0.2 | observed | `+0.2` | file `Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml`: upper bound of the flat prior on free mu0 | PASS |
 | 544 | app:glossary:L544:56 | observed | `56` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: cell types of PROC-CHANNEL-01 | PASS |
 | 544 |  | observed | `01` | not run: not a number: part of the identifier PROC-CHANNEL-01 | - |
 | 553 | app:glossary:L553 | observed | `150` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
@@ -6303,12 +6302,12 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 583 | app:glossary:L583:0.83 | observed | `0.83` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: rho of Met-A and noise index, second laboratory, 54 y | PASS |
 | 587 | app:glossary:L587 | observed | `1.2\times10^{-3}` | numeric: departure of running-mass Koide Q from 2/3 | PASS |
 | 588 | app:glossary:L588 | measured | `0.830` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 588 | app:glossary:L588:67.16 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 of Level 2 run A | PASS |
-| 588 | app:glossary:L588:0.7998 | measured | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of Level 2 run A | PASS |
-| 588 | app:glossary:L588:0.822 | measured | `0.822` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 of Level 2 run A | PASS |
-| 588 | app:glossary:L588:0.821 | measured | `0.821` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 of Level 2 run D | PASS |
+| 588 | app:glossary:L588:67.16 | measured | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 of Level 2 run A | PASS |
+| 588 | app:glossary:L588:0.7998 | measured | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of Level 2 run A | PASS |
+| 588 | app:glossary:L588:0.822 | measured | `0.822` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 of Level 2 run A | PASS |
+| 588 | app:glossary:L588:0.821 | measured | `0.821` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 of Level 2 run D | PASS |
 | 593 | app:glossary:L593 | observed | `0.830` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 593 | app:glossary:L593:0.822 | observed | `0.822` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 of the Level 2 IAM chain | PASS |
+| 593 | app:glossary:L593:0.822 | observed | `0.822` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 of the Level 2 IAM chain | PASS |
 | 599 | app:glossary:L599 | observed | `738` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 599 | app:glossary:L599:1056 | observed | `1{,}056` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: SATSA raw arrays | PASS |
 | 599 |  | observed | `0.93` | not run: definition: intake call-rate line 0.93 restated (quarantine rule); the count 1,056 is checked at app:glossary:L599:1056 | - |
@@ -6317,9 +6316,9 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 613 |  | observed | `4.3\times10^6` | not run: input: Sgr A* mass 4.3e6 M_sun (Gillessen 2009), as taken in Chapter ch:iams_law; nothing to recompute | - |
 | 614 | app:glossary:L614 | observed | `73.04` | numeric: SH0ES H0 | PASS |
 | 619 | app:glossary:L619 | observed | `0.91` | numeric: Cornell sigma = 0.18 GeV^2 in GeV/fm | PASS |
-| 620 | app:glossary:L620 | observed | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of the Level 2 LambdaCDM chain | PASS |
-| 620 | app:glossary:L620:0.800 | observed | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of the Level 2 IAM chain | PASS |
-| 620 | app:glossary:L620:0.813 | observed | `0.813` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of the Level 1 LambdaCDM baseline (Planck + RSD) | PASS |
+| 620 | app:glossary:L620 | observed | `0.809` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of the Level 2 LambdaCDM chain | PASS |
+| 620 | app:glossary:L620:0.800 | observed | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of the Level 2 IAM chain | PASS |
+| 620 | app:glossary:L620:0.813 | observed | `0.813` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of the Level 1 LambdaCDM baseline (Planck + RSD) | PASS |
 | 622 | app:glossary:L622:509 | calc | `509` | numeric: tau_IAM of a 1e-12 kg silica sphere at 10 mK, s | PASS |
 | 622 | app:glossary:L622:7.5 | calc | `7.5` | numeric: tau_DP = hbar/E_G of a 1e-12 kg silica sphere, us | PASS |
 | 622 |  | calc | `10` | not run: input: test mass 1e-12 kg of the worked example (the 10 is the base of a printed power); tau values checked at app:glossary:L622:509 and L622:7.5 | - |
@@ -6389,15 +6388,15 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 24 | app:register:L24:57 | observed | `57` | file `CANON/predictions_triage_2026-10-02.json`: register counts: all restated | PASS |
 | 24 | app:register:L24:54 | observed | `54` | file `CANON/predictions_triage_2026-10-02.json`: register counts: all compared with data | PASS |
 | 24 | app:register:L24:421 | observed | `421` | file `CANON/predictions_triage_2026-10-02.json`: register counts: all entries | PASS |
-| 35 | app:register:L35 | openprob | `67.161` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_03_theory:889 (Level2 posterior mean H0) | PASS |
-| 35 | app:register:L35:67.16 | openprob | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-001: photon-sector H0, Level 2 posterior | PASS |
-| 35 | app:register:L35:72.26 | openprob | `72.26` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-001: matter-sector H0 = H0 sqrt(1 + beta_m) | PASS |
+| 35 | app:register:L35 | openprob | `67.161` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_03_theory:889 (Level2 posterior mean H0) | PASS |
+| 35 | app:register:L35:67.16 | openprob | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-001: photon-sector H0, Level 2 posterior | PASS |
+| 35 | app:register:L35:72.26 | openprob | `72.26` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-001: matter-sector H0 = H0 sqrt(1 + beta_m) | PASS |
 | 35 |  | openprob | `001` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 35 |  | openprob | `108` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 35 |  | openprob | `110` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 35 |  | openprob | `70.0` | not run: input: GW170817 standard-siren H0 70.0 +12.0/-8.0 (Abbott2017Siren, doi:10.1038/nature24471, cited at ch:theory line 890) | - |
-| 36 | app:register:L36:72.26 | openprob | `72.26` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-007: matter-sector H0 = H0 sqrt(1 + beta_m) | PASS |
-| 36 | app:register:L36:0.75 | openprob | `0.75` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-007: matter-sector H0 from SH0ES, in sigma | PASS |
+| 36 | app:register:L36:72.26 | openprob | `72.26` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-007: matter-sector H0 = H0 sqrt(1 + beta_m) | PASS |
+| 36 | app:register:L36:0.75 | openprob | `0.75` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-007: matter-sector H0 from SH0ES, in sigma | PASS |
 | 36 |  | openprob | `007` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 36 |  | openprob | `73.04` | not run: input: SH0ES H0 73.04 +/- 1.04 (Riess2022, doi:10.3847/2041-8213/ac5c5b, cited in the preface line 60) | - |
 | 37 | app:register:L37:1.062 | openprob | `1.062` | numeric: COS-010: effective w0 | PASS |
@@ -6415,12 +6414,12 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 39 |  | openprob | `017` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 39 |  | openprob | `229` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 39 |  | openprob | `003` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
-| 40 | app:register:L40:+0.96 | openprob | `+0.96` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: COS-018: Level 1 Delta chi2, Planck only | PASS |
-| 40 | app:register:L40:+0.56 | openprob | `+0.56` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: COS-018: Level 1 Delta chi2, Planck + RSD | PASS |
-| 40 | app:register:L40:+1.73 | openprob | `+1.73` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: COS-018: Level 1 Delta chi2, Planck + BAO | PASS |
-| 40 | app:register:L40:+1.58 | openprob | `+1.58` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: COS-018: Level 1 Delta chi2, Planck + Pantheon+ | PASS |
-| 40 | app:register:L40:+0.54 | openprob | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-018: Level 2 Delta chi2 | PASS |
-| 40 | app:register:L40:18 | openprob | `18` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-018: number of MCMC chains | PASS |
+| 40 | app:register:L40:+0.96 | openprob | `+0.96` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: COS-018: Level 1 Delta chi2, Planck only | PASS |
+| 40 | app:register:L40:+0.56 | openprob | `+0.56` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: COS-018: Level 1 Delta chi2, Planck + RSD | PASS |
+| 40 | app:register:L40:+1.73 | openprob | `+1.73` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: COS-018: Level 1 Delta chi2, Planck + BAO | PASS |
+| 40 | app:register:L40:+1.58 | openprob | `+1.58` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: COS-018: Level 1 Delta chi2, Planck + Pantheon+ | PASS |
+| 40 | app:register:L40:+0.54 | openprob | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-018: Level 2 Delta chi2 | PASS |
+| 40 | app:register:L40:18 | openprob | `18` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-018: number of MCMC chains | PASS |
 | 40 |  | openprob | `018` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 40 |  | openprob | `008` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 40 |  | openprob | `050` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
@@ -6444,8 +6443,8 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 42 |  | openprob | `332` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 42 |  | openprob | `0.5` | not run: input: redshift z = 0.5 at which mu is quoted | - |
 | 42 |  | openprob | `0.3` | not run: input: lower end of the redshift range z ~ 0.3-1 of the growth ramp, a range named for the test, nothing to recompute | - |
-| 43 | app:register:L43:0.800 | openprob | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-062: Level 2 sigma8 | PASS |
-| 43 | app:register:L43:0.1 | openprob | `0.1` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-062: Level 2 sigma8 from the joint lensing value, in sigma | PASS |
+| 43 | app:register:L43:0.800 | openprob | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-062: Level 2 sigma8 | PASS |
+| 43 | app:register:L43:0.1 | openprob | `0.1` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-062: Level 2 sigma8 from the joint lensing value, in sigma | PASS |
 | 43 | app:register:L43:0.020 | openprob | `0.020` | numeric: COS-062: symmetrised error of the joint lensing sigma8 | PASS |
 | 43 |  | openprob | `062` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 43 |  | openprob | `0.802` | not run: input: joint lensing sigma8 0.802 +0.022/-0.018 (Stolzner2025, cited in ch:virial line 237 and ch:sectortension line 51) | - |
@@ -6463,18 +6462,18 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 46 |  | openprob | `0.5` | not run: input: redshift z = 0.5 at which 1/mu is quoted | - |
 | 47 | app:register:L47:+0.064 | openprob | `+0.064` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: COS-123: free-mu0 Planck + RSD median | PASS |
 | 47 | app:register:L47:0.204 | openprob | `0.204` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: COS-123: free-mu0 Planck + RSD 5 % quantile | PASS |
-| 47 | app:register:L47:+0.2 | openprob | `+0.2` | heavy file `mgcamb_validation/chains/planck_rsd_mu0_float.updated.yaml`: COS-123: upper prior edge of free mu0 | PASS |
+| 47 | app:register:L47:+0.2 | openprob | `+0.2` | heavy file `Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.updated.yaml`: COS-123: upper prior edge of free mu0 | PASS |
 | 47 | app:register:L47:0.10 | openprob | `0.10` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: COS-123: P(mu0 < -0.135) in the free-mu0 chain | PASS |
 | 47 |  | openprob | `123` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 47 |  | openprob | `057` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 47 |  | openprob | `90 \%` | not run: definition: the central 90 % interval of the posterior | - |
 | 47 |  | openprob | `5 \%` | not run: definition: the 5 % quantile, lower end of the central 90 % interval | - |
 | 47 |  | openprob | `0.136` | not run: locked value mu0 = -0.136 restated | - |
-| 48 | app:register:L48:0.8087 | openprob | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-131: Level 2 LambdaCDM sigma8 (Run C) | PASS |
-| 48 | app:register:L48:0.7998 | openprob | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-131: Level 2 IAM sigma8 (Run A) | PASS |
-| 48 | app:register:L48:0.009 | openprob | `0.009` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-131: Level 2 sigma8 drop | PASS |
-| 48 | app:register:L48:1.1 \% | openprob | `1.1 \%` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-131: Level 2 sigma8 drop, per cent | PASS |
-| 48 | app:register:L48:0.822 | openprob | `0.822` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-131: Level 2 IAM S8 (Run A) | PASS |
+| 48 | app:register:L48:0.8087 | openprob | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-131: Level 2 LambdaCDM sigma8 (Run C) | PASS |
+| 48 | app:register:L48:0.7998 | openprob | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-131: Level 2 IAM sigma8 (Run A) | PASS |
+| 48 | app:register:L48:0.009 | openprob | `0.009` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-131: Level 2 sigma8 drop | PASS |
+| 48 | app:register:L48:1.1 \% | openprob | `1.1 \%` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-131: Level 2 sigma8 drop, per cent | PASS |
+| 48 | app:register:L48:0.822 | openprob | `0.822` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-131: Level 2 IAM S8 (Run A) | PASS |
 | 48 | app:register:L48:0.832 | openprob | `0.832` | numeric: COS-131: LambdaCDM S8 (Planck 2018) | PASS |
 | 48 |  | openprob | `131` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 48 |  | openprob | `012` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
@@ -6510,9 +6509,9 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 55 |  | openprob | `0.11` | not run: measured, source not named: error 0.11 of the Weighing the Giants ratio 1.31; marked untraced (PAPER_ERRATA.md LD4) | - |
 | 56 |  | openprob | `219` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 56 |  | openprob | `100` | not run: input: oscillator frequency omega_0 = 2 pi x 100 kHz of the proposed test | - |
-| 57 | app:register:L57:61.45 | openprob | `61.45` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-240: Level 2b H0 | PASS |
-| 57 | app:register:L57:0.42 | openprob | `0.42` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-240: Level 2b H0 error | PASS |
-| 57 | app:register:L57:10.9 | openprob | `10.9` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-240: Level 2b H0 from Planck LambdaCDM, in sigma | PASS |
+| 57 | app:register:L57:61.45 | openprob | `61.45` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-240: Level 2b H0 | PASS |
+| 57 | app:register:L57:0.42 | openprob | `0.42` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-240: Level 2b H0 error | PASS |
+| 57 | app:register:L57:10.9 | openprob | `10.9` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-240: Level 2b H0 from Planck LambdaCDM, in sigma | PASS |
 | 57 |  | openprob | `240` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 57 |  | openprob | `005` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 57 |  | openprob | `241` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
@@ -6543,8 +6542,8 @@ Totals: 4778 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 64 |  | openprob | `309` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 64 |  | openprob | `0.136` | not run: locked value mu0 = -0.136 restated | - |
 | 65 |  | openprob | `317` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
-| 66 | app:register:L66:0.822 | openprob | `0.822` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-319: Level 2 IAM S8 (Run A) | PASS |
-| 66 | app:register:L66:0.011 | openprob | `0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-319: Level 2 IAM S8 error (Run A) | PASS |
+| 66 | app:register:L66:0.822 | openprob | `0.822` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-319: Level 2 IAM S8 (Run A) | PASS |
+| 66 | app:register:L66:0.011 | openprob | `0.011` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-319: Level 2 IAM S8 error (Run A) | PASS |
 | 66 | app:register:L66:0.832 | openprob | `0.832` | numeric: COS-319: LambdaCDM S8 (Planck 2018) | PASS |
 | 66 |  | openprob | `319` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 66 |  | openprob | `067` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |

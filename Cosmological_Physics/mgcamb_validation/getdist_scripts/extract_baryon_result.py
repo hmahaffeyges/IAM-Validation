@@ -4,11 +4,11 @@ IAM Baryon Asymmetry Chain — GetDist Extraction Script
 =======================================================
 Extracts the final posterior results from the converged baryon test chain.
 
-Chain: mgcamb_validation/iam_planck_chains/iam_baryon_test
+Chain: Cosmological_Physics/mgcamb_validation/iam_planck_chains/iam_baryon_test
 Test: BBN prior removed, Omega_b h^2 free across [0.010, 0.040]
       Planck 2018 full CMB likelihood only — no nuclear physics input
 
-Usage (from mgcamb_validation directory):
+Usage (from Cosmological_Physics/mgcamb_validation directory):
     python3 extract_baryon_result.py
 
 Or with explicit chain path:
@@ -41,7 +41,7 @@ try:
     samples = loadMCSamples(chain_root, settings={'ignore_rows': 0.3})
 except Exception as e:
     print(f"ERROR loading chain: {e}")
-    print("Try running from the mgcamb_validation directory.")
+    print("Try running from the Cosmological_Physics/mgcamb_validation directory.")
     sys.exit(1)
 
 # ── Extract key parameters ────────────────────────────────────────────────────

@@ -3,7 +3,7 @@
 GetDist extraction and three-way comparison for Planck + RSD runs (D/E/F).
 
 Usage:
-    cd mgcamb_validation/getdist_scripts/
+    cd Cosmological_Physics/mgcamb_validation/getdist_scripts/
     python getdist_planck_rsd_comparison.py
 
 Requires:

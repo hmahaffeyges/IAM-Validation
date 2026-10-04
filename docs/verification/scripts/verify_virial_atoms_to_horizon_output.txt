@@ -19,4 +19,4 @@
 5. Cosmic horizon: beta_m = Omega_m/2
    Omega_m = 0.3153: beta_m = 0.15765
    Omega_m = 0.3166: beta_m = 0.15830
-   Level 2 chains (camb_validation/chains, 30 % burn-in): beta_m fixed at 0.15765; Delta chi2 vs LCDM +0.54 (lowest chi2 in each chain)
+   Level 2 chains (Cosmological_Physics/camb_validation/chains, 30 % burn-in): beta_m fixed at 0.15765; Delta chi2 vs LCDM +0.54 (lowest chi2 in each chain)

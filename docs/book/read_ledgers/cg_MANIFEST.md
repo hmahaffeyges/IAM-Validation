@@ -25,7 +25,7 @@ Clone: HEAD e37aabb (later than 12d8fb1 and 41f7646). Nothing was pushed or comm
 | docs/papers/latex/iam_mu_sigma_paper/iam_mu_sigma_paper.tex | 591 | equation and figure environments extracted by script | equations match the PDF (Eq. 1 without H0^2 = LG10) |
 | PAPER_ERRATA.md rows LG1-LG12, P1-P16; LATE_TIME_GROWTH_CHECK.md (52 lines); DUAL_SECTOR_PERTURBATION_CHECK.md (63 lines) | -- | in full | all applied |
 | previous p2_07 (211 lines) and p2_06 (193 lines) | -- | in full | every label kept |
-| mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv, CHAIN_PAIRS_FINAL.csv; camb_validation/likelihood_rsd.py, getdist_scripts/rsd_apples_to_apples.py, prepare_level2b.sh, equations_iam_level2.f90 (IAM lines and dtauda); chain input.yaml headers and priors; verify_euclid_template.py + output | -- | in full (f90: the IAM blocks and dtauda only) | |
+| Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv, CHAIN_PAIRS_FINAL.csv; Cosmological_Physics/camb_validation/likelihood_rsd.py, getdist_scripts/rsd_apples_to_apples.py, prepare_level2b.sh, equations_iam_level2.f90 (IAM lines and dtauda); chain input.yaml headers and priors; verify_euclid_template.py + output | -- | in full (f90: the IAM blocks and dtauda only) | |
 
 ## Late-Time Growth Suppression (Level 1): every item
 | paper location | content | book location | verdict | status label |

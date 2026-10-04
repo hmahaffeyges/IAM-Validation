@@ -55,9 +55,9 @@ the book's own figures `docs/book/figures/part4/fig_sky_*.png`.
 
 ## 4. "Run this check" buttons (derivations in the browser)
 
-`verify_book.py` at the repository root (it may arrive on `main` later; build against this interface) registers one check per
+`docs/book/verify_book.py` (moved there from the repository root on 2026-10-04; it finds the repository root itself) registers one check per
 equation or number with `@check(label=..., chapter=..., part=..., heavy=...)`, offers `run(label=None, part=None)` returning
-results, `python3 verify_book.py --json`, and lists the small data files it reads in `DATA_FILES` (read via `load_data`).
+results, `python3 docs/book/verify_book.py --json`, and lists the small data files it reads in `DATA_FILES` (read via `load_data`).
 
 - Load Pyodide in the page, with numpy, scipy and sympy; fetch `verify_book.py` and the `DATA_FILES` from the same site.
 - Next to each equation or number that has a check (match by its LaTeX `\label` or the script's label), show a small

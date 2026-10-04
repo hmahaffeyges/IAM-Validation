@@ -1,3 +1,6 @@
+> **Completed** (pull request #13, merged 2026-10-04). Kept as a record. The script is now `docs/book/verify_book.py`, and its
+> companion files are in `docs/book/verification/`.
+
 # Task: complete `verify_book.py` so it checks every derivation and number in the book
 
 **Who runs this:** a Claude Code cloud session on this repository, started by the author. Do this task BEFORE `WEBSITE_BUILD.md`.

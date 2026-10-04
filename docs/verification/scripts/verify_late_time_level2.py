@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Verification for Part 2, Chapters ch:latetime (p2_07_late_time_growth.tex, the MGCAMB runs, 'Level 1') and ch:level2
 (p2_06_dual_sector_perturbation.tex, the modified-CAMB runs, 'Level 2'). Every number printed in those chapters is recomputed here
-from the model algebra (sympy), from the chain files (30 % burn-in per file, weighted statistics, as mgcamb_validation/
+from the model algebra (sympy), from the chain files (30 % burn-in per file, weighted statistics, as Cosmological_Physics/mgcamb_validation/
 CHAIN_EXTRACTION_FINAL.csv) or from the CAMB growth outputs docs/verification/chains/data/growth_on.json / growth_off.json.
 Run from anywhere:  python docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt
 Corrections applied (docs/verification/PAPER_ERRATA.md): LG1-LG12, P1-P16; checks LATE_TIME_GROWTH_CHECK.md, DUAL_SECTOR_PERTURBATION_CHECK.md.
@@ -83,7 +83,7 @@ def wq(v, w, q):
     i = np.argsort(v); v, w = np.asarray(v)[i], np.asarray(w)[i]; cw = (np.cumsum(w) - 0.5 * w) / w.sum(); return np.interp(q, cw, v)
 def rminus1(prog):
     last = [l for l in open(REPO / prog) if l.strip() and not l.startswith("#")][-1].split(); return float(last[3])
-MG = "mgcamb_validation/chains/"
+MG = "Cosmological_Physics/mgcamb_validation/chains/"
 L1 = {"Planck": ("lcdm_baseline", ["iam_fixed_mu0_r2"], ["iam_float_mu0_r2"]),
       "Planck + RSD": ("planck_rsd_lcdm_baseline", ["planck_rsd_iam_fixed"], ["planck_rsd_mu0_float"]),
       "Planck + BAO": ("planck_bao_lcdm_baseline", ["planck_bao_iam_fixed"], ["planck_bao_mu0_float"]),
@@ -119,7 +119,7 @@ check("L1 Planck Delta chi2", L1res["Planck"], 0.96, 0.01); check("L1 Planck+RSD
 check("L1 Planck+BAO Delta chi2", L1res["Planck + BAO"], 1.73, 0.01); check("L1 Planck+Pantheon+ Delta chi2", L1res["Planck + Pantheon+"], 1.58, 0.01)
 
 print("=" * 100); print("D. Level 2 chains (CAMB 1.5.8, equations_iam_level2.f90)"); print("=" * 100)
-CV = "camb_validation/chains/"
+CV = "Cosmological_Physics/camb_validation/chains/"
 A, Cc, D = load([CV + "iam_level2_runA.1.txt"]), load([CV + "iam_level2_runC_lcdm.1.txt"]), load([CV + "iam_level2_runD.1.txt"])
 p2 = [("H0", "H0"), ("sigma8", "sigma8"), ("S8", "S8"), ("ombh2", "omega_b"), ("omch2", "omega_c"), ("tau", "tau"), ("ns", "n_s"), ("logA", "ln10^10As"), ("omegam", "Omega_m")]
 for c, lab in p2:
@@ -161,7 +161,7 @@ for X, nm in ((Bb, "L2b A (background, Planck)"), (Bd, "L2b D (background, Planc
     print(f"       (67.36 - H0)/0.54 = {(67.36-h)/0.54:.1f}; in quadrature with own sd {(67.36-h)/np.hypot(0.54,sh):.1f}; vs SH0ES (73.04-H0)/hypot(1.04,sd) = {(73.04-h)/np.hypot(1.04,sh):.1f};"
           f" vs Run C: H0 {(h-ms(Cc,'H0')[0])/ms(Cc,'H0')[1]:+.1f} sigma, Omega_m {(o-ms(Cc,'omegam')[0])/ms(Cc,'omegam')[1]:+.1f} sigma")
 h = ms(Bb, "H0")[0]; check("background run H0 vs Planck in Planck sigma", (67.36 - h) / 0.54, 10.9, 0.05)
-# What the background chains actually coded (camb_validation/prepare_level2b.sh): dtauda's grhoa2 = 8 pi G rho a^4 (CAMB comment), and the patch adds
+# What the background chains actually coded (Cosmological_Physics/camb_validation/prepare_level2b.sh): dtauda's grhoa2 = 8 pi G rho a^4 (CAMB comment), and the patch adds
 # 0.15765 * E(a) * a^2 * grho0, i.e. rho_extra a^4 = beta E a^2 rho0  ->  Delta H^2 = beta_m E(a) H0^2 / a^2 (not beta_m E(a) H0^2), with Omega_L unchanged.
 asym = sp.Symbol("a", positive=True)
 print("    background patch: Delta(8piG rho a^4) = beta E a^2 rho0 -> Delta H^2/H0^2 =", sp.simplify(b * Ea * asym**2 / asym**4), "; at a = 1:", sp.simplify((b*Ea/a**2).subs(a, 1)))

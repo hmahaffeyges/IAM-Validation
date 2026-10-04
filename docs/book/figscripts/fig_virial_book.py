@@ -1,7 +1,7 @@
 """Figures for the virial and gravitational-decoherence chapters:
 part2/p2_02_virial.tex, part2/p2_02b_virial_tests.tex, part5/p5_05_gravdec.tex, part5/p5_05b_virial_partners.tex.
 Numbers as docs/verification/scripts/verify_virial_papers.py (Planck 2018 Omega_m = 0.3153, beta_m = Omega_m/2; Level 2 chains from
-mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv; halo mass-function slopes from docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv).
+Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv; halo mass-function slopes from docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv).
   fig_virial_mu_E          E(a), mu(z), 1 - mu and the f sigma8 deficit
   fig_virial_halo_slope    published halo virial ratios; d ln F(>M)/d ln D from six mass functions
   fig_virial_h0_census     H0 measurements against the photon and matter rates (worldline rule)
@@ -77,7 +77,7 @@ ax2.legend(loc="upper left", fontsize=5.5); S.panel_letter(ax2, "b")
 S.save(fig, "part2", "fig_virial_halo_slope")
 
 # ---------------------------------------------------------------- fig_virial_h0_census
-ch = {r["chain"]: r for r in csv.DictReader(open(S.REPO / "mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv"))}
+ch = {r["chain"]: r for r in csv.DictReader(open(S.REPO / "Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv"))}
 Hg = float(ch["iam_level2_runA"]["H0"]); Hm = Hg * np.sqrt(1 + bm)
 data = [("Planck 2018 CMB", 67.36, 0.54, "photon"), ("ACT DR4 + WMAP", 67.6, 1.1, "photon"), ("H0LiCOW time delays", 73.3, 1.8, "photon"),
         ("SH0ES Cepheids", 73.04, 1.04, "matter"), ("Megamasers (MCP)", 73.9, 3.0, "matter"), ("Surface brightness fluct.", 73.3, 2.5, "matter")]

@@ -11,7 +11,7 @@ cd data
 git clone --depth 1 https://github.com/PantheonPlusSH0ES/DataRelease.git pantheon_repoThe test suite expects the data at:
 
 Code
-data/pantheon_repo/Pantheon+_Data/4_DISTANCES_AND_COVAR/Pantheon+SH0ES.dat
+Cosmological_Physics/data/pantheon_repo/Pantheon+_Data/4_DISTANCES_AND_COVAR/Pantheon+SH0ES.dat
 Citation
 
 Pantheon+:

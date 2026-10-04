@@ -110,7 +110,7 @@ S.save(fig, "part2", "fig_mu0_posterior_final")
 
 # ---------------- Level 2 ----------------
 A = CH.load(*CH.L2["A"]); Cc = CH.load(*CH.L2["C"])
-Bb = CH.load("camb_validation/chains/iam_l2b_runA.1.txt"); Bd = CH.load("camb_validation/chains/iam_l2b_runD.1.txt")
+Bb = CH.load("Cosmological_Physics/camb_validation/chains/iam_l2b_runA.1.txt"); Bd = CH.load("Cosmological_Physics/camb_validation/chains/iam_l2b_runD.1.txt")
 tri = [("H0", "$H_0$"), ("sigma8", "$\\sigma_8$"), ("omegam", "$\\Omega_m$")]
 rng = {p: (min(A[p].quantile(0.002), Cc[p].quantile(0.002)), max(A[p].quantile(0.998), Cc[p].quantile(0.998))) for p, _ in tri}
 fig, axs = plt.subplots(3, 3, figsize=(0.75 * S.TEXTW, 0.75 * S.TEXTW), gridspec_kw=dict(wspace=0.08, hspace=0.08))

@@ -4,7 +4,7 @@ cosmological constant' (p2_12b_lambda_history.tex), 'The baryon density' (p2_13_
 from the microwave background alone' (p2_13b_baryon_chain.tex).
 
 Every equation and number those chapters carry is recomputed here; algebra with sympy, numbers with CODATA
-(scipy.constants). Chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted (book convention).
+(scipy.constants). Chains: Cosmological_Physics/mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted (book convention).
 Run from the repository root:  python docs/verification/scripts/verify_lambda_baryon_book.py
 Output: docs/verification/scripts/verify_lambda_baryon_book_output.txt
 Extends verify_cc_and_baryon.py (same inputs, same chains); adds the sympy steps, the history integral in the form
@@ -95,7 +95,7 @@ P("D2 the hits:", "; ".join(hits))
 
 P("\n== E. Chains (30 % burn-in, weighted); eta = 273.9e-10 Ob h^2 (Steigman 2006) ==")
 def chain(stem):
-    f = f"mgcamb_validation/chains/{stem}.1.txt"; cols = open(f).readline().lstrip("#").split()
+    f = f"Cosmological_Physics/mgcamb_validation/chains/{stem}.1.txt"; cols = open(f).readline().lstrip("#").split()
     X = pd.read_csv(f, sep=r"\s+", comment="#", names=cols); return X, X.iloc[int(0.3 * len(X)):]
 def ms(v, w): m = np.average(v, weights=w); return m, np.sqrt(np.average((v - m)**2, weights=w))
 for st in ("iam_baryon_test", "lcdm_baseline", "planck_bao_lcdm_baseline", "planck_pantheon_lcdm_baseline", "planck_rsd_lcdm_baseline"):
@@ -108,7 +108,7 @@ for st in ("iam_baryon_test", "lcdm_baseline", "planck_bao_lcdm_baseline", "plan
         P(f"E2 18th chain: eta with 2.74e-8 (the record's factor) = {274.0*mob:.4f}e-10; with 273.9 = {273.9*mob:.4f}e-10; "
           f"no burn-in ombh2 = {ms(Xall.ombh2.values, Xall.weight.values)[0]:.6f}; sum of weights after burn-in {w.sum():.0f}")
         P(f"E3 18th chain ombh2 range in chain: {ob.min():.5f} - {ob.max():.5f} (prior 0.010-0.040)")
-prog = pd.read_csv("mgcamb_validation/chains/iam_baryon_test.progress", sep=r"\s+", comment="#", names=["N", "time", "acc", "R1", "R1cl"])
+prog = pd.read_csv("Cosmological_Physics/mgcamb_validation/chains/iam_baryon_test.progress", sep=r"\s+", comment="#", names=["N", "time", "acc", "R1", "R1cl"])
 P(f"E4 progress file: first {prog.time.iloc[0]}, last {prog.time.iloc[-1]}; last N {prog.N.iloc[-1]:.0f}; last R-1 {prog.R1.iloc[-1]:.6f}; min R-1 {prog.R1.min():.6f}")
 
 P("\n== F. Comparators traced to the sources ==")

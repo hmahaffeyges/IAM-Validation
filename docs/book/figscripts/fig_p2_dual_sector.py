@@ -1,7 +1,7 @@
 """Figures for the dual-sector chapters (ch:dsvalidation p2_10, ch:dsnote p2_05).
 
 Inputs: docs/verification/scripts/verify_dual_sector_chapters_data.json (written by verify_dual_sector_chapters.py, run it first)
-and the chain table mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv. Equations as in _cosmo.py: LambdaCDM background (Planck 2018,
+and the chain table Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv. Equations as in _cosmo.py: LambdaCDM background (Planck 2018,
 Om 0.3153), beta_m = Om/2 = 0.15765, E(a) = exp(1 - 1/a), mu(a) = H^2/(H^2 + beta_m E(a) H0^2), Sigma = 1.
 Outputs (docs/book/figures/part2/): fig_dsv_three_tests, fig_dsv_hubble, fig_dsv_systematics, fig_dsv_schematic,
 fig_dsnote_probes, fig_dsnote_growth.
@@ -16,7 +16,7 @@ import _bookstyle as S
 
 S.apply()
 J = json.load(open(S.REPO / "docs/verification/scripts/verify_dual_sector_chapters_data.json"))
-T = pd.read_csv(S.REPO / "mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv")
+T = pd.read_csv(S.REPO / "Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv")
 row = lambda n: T[T.chain.str.startswith(n)].iloc[0]
 Om, OL = 0.3153, 0.6847
 bm = Om / 2

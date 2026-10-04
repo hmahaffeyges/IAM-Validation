@@ -124,4 +124,4 @@ It is a PREDICTION from the IAM framework, confirmed by CMB.
 Test complete. Results saved.
 ======================================================================
 
-Results saved to results/test_28_dual_sector.npy
+Results saved to Cosmological_Physics/results/test_28_dual_sector.npy

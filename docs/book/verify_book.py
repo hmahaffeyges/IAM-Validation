@@ -24,12 +24,12 @@ Pyodide file system at its repo-relative path (or call set_data_root(path) / set
 checks; CANON/iam_canon.json must be in place before import), then  import verify_book; verify_book.run(label="eq:law_Sa").
 
 Usage:
-    python3 verify_book.py                 run everything (exit code 1 if any FAIL)
-    python3 verify_book.py --part 2        one Part (0-8; I-VII, front and app also accepted)
-    python3 verify_book.py --label eq:Sn   one check by its book label
-    python3 verify_book.py --list          the inventory: every check and every item not run
-    python3 verify_book.py --json          results as JSON (for the web book)
-    python3 verify_book.py --fails         only the FAIL lines
+    python3 docs/book/verify_book.py                 run everything (exit code 1 if any FAIL)
+    python3 docs/book/verify_book.py --part 2        one Part (0-8; I-VII, front and app also accepted)
+    python3 docs/book/verify_book.py --label eq:Sn   one check by its book label
+    python3 docs/book/verify_book.py --list          the inventory: every check and every item not run
+    python3 docs/book/verify_book.py --json          results as JSON (for the web book)
+    python3 docs/book/verify_book.py --fails         only the FAIL lines
     from verify_book import run; results = run(part=6)
 Try to break it: change an input and watch which lines fail.
 """
@@ -42,7 +42,7 @@ from scipy.optimize import brentq, minimize_scalar
 
 warnings.filterwarnings("ignore")
 try:
-    REPO = pathlib.Path(__file__).resolve().parent
+    REPO = pathlib.Path(__file__).resolve().parents[2]
 except NameError:                     # run from a string (Pyodide): data relative to the working directory
     REPO = pathlib.Path(".")
 _DATA_ROOT = [REPO]
@@ -508,7 +508,7 @@ Checked how: `sympy` = algebra, lhs - rhs simplifies to zero or a stated propert
 
 Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 
-This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
+This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 """
 
 def inventory_md(results=None):
@@ -518,7 +518,7 @@ def inventory_md(results=None):
     rows = inventory()
     npass = sum(r.passed for r in res.values()); nfail = len(res) - npass
     out = [INVENTORY_MD_HEAD, "", f"Totals: {npass} PASS, {nfail} FAIL, {len(INVENTORY)} inventoried and not run. Each run item carries the "
-           "label of its check: `python3 verify_book.py --label <label>` runs it alone.", ""]
+           "label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.", ""]
     cur = None
     for r in rows:
         if r["file"] != cur:
@@ -607,7 +607,7 @@ DATA_FILES['Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md'] = 'comm
 DATA_FILES['Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv'] = 'committed data file'   # 9 kB
 DATA_FILES['CANON/GLOSSARY.md'] = 'committed data file'   # 13 kB
 DATA_FILES['CANON/predictions_triage_2026-10-02.json'] = 'committed data file'   # 220 kB
-DATA_FILES['camb_validation/likelihood_rsd.py'] = 'RSD data table used by the chains'   # 1 kB
+DATA_FILES['Cosmological_Physics/camb_validation/likelihood_rsd.py'] = 'RSD data table used by the chains'   # 1 kB
 DATA_FILES['docs/book/read_ledgers/MANIFEST_particle.md'] = 'committed data file'   # 36 kB
 DATA_FILES['docs/verification/PAPER_ERRATA.md'] = 'committed data file'   # 72 kB
 DATA_FILES['docs/verification/chains/DUAL_SECTOR_PERTURBATION_CHECK.md'] = 'committed data file'   # 7 kB
@@ -641,14 +641,14 @@ DATA_FILES['docs/verification/scripts/verify_virial_papers_output.txt'] = 'commi
 DATA_FILES['docs/verification/theory/IAM_LAW_CHECK.md'] = 'committed data file'   # 8 kB
 DATA_FILES['docs/verification/virial/NBODY_TRACE.md'] = 'committed data file'   # 12 kB
 DATA_FILES['docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv'] = 'N-body mass-function slopes traced to the papers'   # 6 kB
-DATA_FILES['mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'] = 'chain record: 18 final chains, 30 % burn-in'   # 4 kB
-DATA_FILES['mgcamb_validation/CHAIN_PAIRS_FINAL.csv'] = 'chain record: Level 1 IAM vs LambdaCDM pairs'   # 1 kB
+DATA_FILES['Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'] = 'chain record: 18 final chains, 30 % burn-in'   # 4 kB
+DATA_FILES['Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv'] = 'chain record: Level 1 IAM vs LambdaCDM pairs'   # 1 kB
 
 # helpers of the part2/p2_17_lensing_dynamics checks
 _B04_CL = 'docs/verification/scripts/verify_cluster_mass_satellites_output.txt'
 _B04_CL_RERUN = 'python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt'
-_B04_CHAINS = 'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
-_B04_CHAINS_RERUN = 'chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)'
+_B04_CHAINS = 'Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
+_B04_CHAINS_RERUN = 'chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)'
 
 def _b04_cl(key):
     '(value, error) of one published cluster calibration as the committed output lists it (section E/H), e.g. key "beta_P WtG z>0.3".'
@@ -683,10 +683,10 @@ def _b05_tw_masses(mu_c=1, sig_c=1):
 # helpers of the part2/p2_19_missing_satellites checks
 # Batch b05 -- ch:satellites (docs/book/part2/p2_19_missing_satellites.tex)
 
-_B05_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
-                    'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+_B05_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; '
+                    'Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
                     '(no extraction script is committed)')
-_B05_CHAINS = 'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
+_B05_CHAINS = 'Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
 _B05_SATOUT = 'docs/verification/scripts/verify_cluster_mass_satellites_output.txt'
 
 def _b05_sat_sigma_M(M_sun):
@@ -752,13 +752,13 @@ def _b05_half_transfer():
 DATA_FILES['docs/book/figscripts/fig_p2_bekenstein.py'] = 'figure script of fig:rindler_cone (horizon masses and surface gravities used in panel b)'
 
 # helpers of the part5/p5_05_gravdec checks
-_CHAIN_RERUN_B06 = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
-                    'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+_CHAIN_RERUN_B06 = ('chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; '
+                    'Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
                     '(no extraction script is committed)')
 
 # helpers of the part0/p0_preface checks
-_B00_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
-                    'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+_B00_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; '
+                    'Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
                     '(no extraction script is committed)')
 
 # helpers of the part0/p0_giants checks
@@ -787,8 +787,8 @@ def _b00_hold_energy():
 _B00_HOLD_RERUN = 'methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file'
 
 # helpers of the part1/p1_02_iams_law checks
-_B00_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
-                    'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+_B00_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; '
+                    'Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
                     '(no extraction script is committed)')
 _B00_NEFF_RERUN = 'python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt (needs colossus)'
 
@@ -1139,7 +1139,7 @@ def _b01eg_luciano():
     return float(m.group(1)), float(m.group(2))
 
 # helpers of the part2/p2_06_dual_sector_perturbation checks
-_B01L2_RERUN = ('chains: rerun with Cobaya from the committed input YAML (camb_validation/yaml_configs/*.yaml), then '
+_B01L2_RERUN = ('chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/camb_validation/yaml_configs/*.yaml), then '
                 'python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt')
 def _b01l2_param(name):
     """(C mean, C sd, A mean, A sd, D mean, D sd) of one Level 2 parameter, section D of verify_late_time_level2_output.txt (chains, 30 % burn-in, weighted)."""
@@ -1149,8 +1149,8 @@ def _b01l2_param(name):
 DATA_FILES['docs/verification/scripts/verify_dual_sector_chapters_data.json'] = 'Pantheon+ beta profiles written by verify_dual_sector_chapters.py'   # 99 kB
 
 # helpers of the part2/p2_05_dual_sector_note checks
-_B01DS_CHAIN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml), '
-                'then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+_B01DS_CHAIN = ('chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml), '
+                'then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 _B01DS_PANTHEON = 'python3 docs/verification/scripts/verify_dual_sector_chapters.py (Pantheon+SH0ES data and covariance) -> verify_dual_sector_chapters_data.json'
 def _b01ds_sn_profile():
     """Full-covariance Pantheon+ profile Delta chi2(beta) at Omega_m 0.315 (1590 SNe, z_HD > 0.01), committed json."""
@@ -1253,7 +1253,7 @@ def _b02_shapefit_chi2(which, data):
 # helpers of the part2/p2_10_dual_sector_validation checks
 _B02_DSV = {}
 _B02_DSV_RERUN = 'python3 docs/verification/scripts/verify_dual_sector_chapters.py > docs/verification/scripts/verify_dual_sector_chapters_output.txt (downloads the public Pantheon+ release; writes verify_dual_sector_chapters_data.json)'
-_B02_CHAINS_RERUN = 'chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)'
+_B02_CHAINS_RERUN = 'chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)'
 
 def _b02_sn():
     """The diagonal setup of the three tests (Eqs. dsv_mu, dsv_dL, dsv_Hz, dsv_chi2): 1588 Pantheon+ SNe, 0.01 < zCMB < 2.26, with the
@@ -1335,7 +1335,7 @@ _B02_WZ_RERUN = 'python3 docs/verification/scripts/verify_sector_tension.py > do
 
 # helpers of the part2/p2_12_lambda checks
 _b02_lam_C = {}
-_b02_lam_RERUN = 'python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)'
+_b02_lam_RERUN = 'python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: Cosmological_Physics/mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)'
 
 def _b02_lam_cc():
     """The cosmological-constant numbers with the chapter's inputs (Planck 2018 VI, doi:10.1051/0004-6361/201833910: H0 67.4, Ob 0.0493,
@@ -1424,7 +1424,7 @@ def _b02_lam_chains():
 
 # helpers of the part2/p2_12b_lambda_history checks
 _b02_lh_C = {}
-_b02_lh_RERUN = 'python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)'
+_b02_lh_RERUN = 'python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: Cosmological_Physics/mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)'
 
 def _b02_lh_cc():
     """The cosmological-constant numbers with the chapter's inputs (Planck 2018 VI, doi:10.1051/0004-6361/201833910: H0 67.4, Ob 0.0493,
@@ -1505,7 +1505,7 @@ def _b02_lh_chains():
 
 # helpers of the part2/p2_13_baryon checks
 _b02_bar_C = {}
-_b02_bar_RERUN = 'python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)'
+_b02_bar_RERUN = 'python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: Cosmological_Physics/mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)'
 
 def _b02_bar_cc():
     """The cosmological-constant numbers with the chapter's inputs (Planck 2018 VI, doi:10.1051/0004-6361/201833910: H0 67.4, Ob 0.0493,
@@ -1547,24 +1547,24 @@ def _b02_bar_chains():
 
 _B02_STEIGMAN = 273.9e-10     # eta = 273.9e-10 Omega_b h^2, Steigman, JCAP 10 (2006) 016, doi:10.1088/1475-7516/2006/10/016 (the book's conversion)
 _B02_OBH2_PLANCK = 0.02237    # Omega_b h^2, Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing, doi:10.1051/0004-6361/201833910
-DATA_FILES['mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml'] = 'Cobaya settings of the 18th chain (priors, start distributions)'   # 4 kB
-DATA_FILES['mgcamb_validation/chains/lcdm_baseline.updated.yaml'] = 'Cobaya settings, LambdaCDM Planck chain'   # 4 kB
-DATA_FILES['mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml'] = 'Cobaya settings, LambdaCDM Planck + BAO chain'   # 6 kB
-DATA_FILES['mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml'] = 'Cobaya settings, LambdaCDM Planck + Pantheon+ chain'   # 4 kB
-DATA_FILES['mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml'] = 'Cobaya settings, LambdaCDM Planck + BOSS DR12 fsigma8 + BAO chain'   # 6 kB
+DATA_FILES['Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml'] = 'Cobaya settings of the 18th chain (priors, start distributions)'   # 4 kB
+DATA_FILES['Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml'] = 'Cobaya settings, LambdaCDM Planck chain'   # 4 kB
+DATA_FILES['Cosmological_Physics/mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml'] = 'Cobaya settings, LambdaCDM Planck + BAO chain'   # 6 kB
+DATA_FILES['Cosmological_Physics/mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml'] = 'Cobaya settings, LambdaCDM Planck + Pantheon+ chain'   # 4 kB
+DATA_FILES['Cosmological_Physics/mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml'] = 'Cobaya settings, LambdaCDM Planck + BOSS DR12 fsigma8 + BAO chain'   # 6 kB
 DATA_FILES['docs/book/read_ledgers/bl_MANIFEST.md'] = 'reading ledger of the cosmological-constant and baryon chapters (quotes the 18th-chain run record)'   # 31 kB
 
 # helpers of the part2/p2_13b_baryon_chain checks
 _B03_LB_OUT = 'docs/verification/scripts/verify_lambda_baryon_book_output.txt'
 _B03_LB_RERUN = 'python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt'
-_B03_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
-                    'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+_B03_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; '
+                    'Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
                     '(no extraction script is committed)')
-_B03_YAML = {'18th': 'mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml',
-             'planck': 'mgcamb_validation/chains/lcdm_baseline.updated.yaml',
-             'bao': 'mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml',
-             'pantheon': 'mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml',
-             'rsd': 'mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml'}
+_B03_YAML = {'18th': 'Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml',
+             'planck': 'Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml',
+             'bao': 'Cosmological_Physics/mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml',
+             'pantheon': 'Cosmological_Physics/mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml',
+             'rsd': 'Cosmological_Physics/mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml'}
 
 def _b03_ombh2_setting(run, key):
     """Omega_b h^2 setting of one chain from its Cobaya YAML: key in min, max (flat prior), loc, scale (start normal)."""
@@ -1589,12 +1589,12 @@ def _b03_lb(pattern):
     return m
 
 def _b03_chain_eta():
-    return _b03_eta_factor() * csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_baryon_test', 'ombh2')
+    return _b03_eta_factor() * csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_baryon_test', 'ombh2')
 
 OB_H2_PLANCK18 = 0.02237   # Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing, Omega_b h^2 = 0.02237 +/- 0.00015 (doi:10.1051/0004-6361/201833910)
-DATA_FILES['mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml'] = 'Cobaya settings, Level 1 Planck chain with mu0 fixed (MGCAMB tracking amplitude)'   # 4 kB
-DATA_FILES['mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml'] = 'Cobaya settings, Level 1 Planck chain with mu0 free (prior range)'   # 5 kB
-DATA_FILES['mgcamb_validation/chains/planck_rsd_mu0_float.updated.yaml'] = 'Cobaya settings, Level 1 Planck + RSD chain with mu0 free (prior range)'   # 6 kB
+DATA_FILES['Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml'] = 'Cobaya settings, Level 1 Planck chain with mu0 fixed (MGCAMB tracking amplitude)'   # 4 kB
+DATA_FILES['Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml'] = 'Cobaya settings, Level 1 Planck chain with mu0 free (prior range)'   # 5 kB
+DATA_FILES['Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.updated.yaml'] = 'Cobaya settings, Level 1 Planck + RSD chain with mu0 free (prior range)'   # 6 kB
 DATA_FILES['docs/verification/chains/LATE_TIME_GROWTH_CHECK.md'] = 'check file of the late-time growth chapter (literature mu0 constraints traced to their sources)'   # 6 kB
 DATA_FILES['docs/verification/forecasts/euclid_fisher_iam_mu/out/template_validation.json'] = 'Fisher forecast: template sigma(mu0) against the published values'   # 1 kB
 DATA_FILES['docs/verification/forecasts/euclid_fisher_iam_mu/out/validation.csv'] = 'Fisher forecast: validation against published errors'   # 6 kB
@@ -1603,8 +1603,8 @@ DATA_FILES['docs/verification/forecasts/euclid_fisher_iam_mu/METHODS.md'] = 'Fis
 # helpers of the part2/p2_16_survey_predictions checks
 _B03_FC = 'docs/verification/forecasts/euclid_fisher_iam_mu/'
 _B03_FC_RERUN = 'CAMB Fisher forecast: cd docs/verification/forecasts/euclid_fisher_iam_mu && python run_forecast.py && python analysis.py'
-_B03_CHAINS_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
-                     'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+_B03_CHAINS_RERUN = ('chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; '
+                     'Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
                      '(no extraction script is committed)')
 _B03_LT_OUT = 'docs/verification/scripts/verify_late_time_level2_output.txt'
 _B03_LT_RERUN = 'python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt'
@@ -1743,8 +1743,8 @@ def _b08_eps(F_percent):              # gate error in nats, eps = -ln(1 - p), p 
     return -math.log(F_percent / 100)
 
 # helpers of the part4/p4_00b_astrogenetics checks
-_B08_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
-                    'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+_B08_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; '
+                    'Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
                     '(no extraction script is committed)')
 _B08_LB_OUT = 'docs/verification/scripts/verify_lambda_baryon_book_output.txt'
 _B08_LB_RERUN = 'python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt'
@@ -2502,13 +2502,13 @@ def _b13_wrong_level(f, T):
 # b14 drafts: ch:exploratory (docs/book/part5/p5_02_exploratory.tex)
 DATA_FILES['Biological_Physics/MethylPhys/atlas/v2/README.md'] = 'atlas v2 build notes (hg19 CpG index: 28,217,448 sites)'   # 6 kB
 DATA_FILES['Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md'] = 'tared Met-A on constructed whole-blood mixtures, development record'   # 2 kB
-DATA_FILES['mgcamb_validation/chains/planck_rsd_mu0_float.input.yaml'] = 'Cobaya input of the Level 1 Planck + RSD chain with mu0 free (prior range)'   # 3 kB
+DATA_FILES['Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.input.yaml'] = 'Cobaya input of the Level 1 Planck + RSD chain with mu0 free (prior range)'   # 3 kB
 
 # helpers of the part5/p5_11_status_all checks
-_B15_CHAINS = 'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
-_B15_PAIRS = 'mgcamb_validation/CHAIN_PAIRS_FINAL.csv'
-_B15_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
-                    'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+_B15_CHAINS = 'Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
+_B15_PAIRS = 'Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv'
+_B15_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; '
+                    'Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
                     '(no extraction script is committed)')
 _B15_ST_RERUN = 'python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt'
 _B15_S8T_RERUN = 'python3 docs/verification/scripts/verify_s8_trend.py > docs/verification/scripts/verify_s8_trend_output.txt'
@@ -2565,8 +2565,8 @@ def _b15_koide_sigma():
 # ---------------------------------------------------------------- line 23
 
 # helpers of the part5/p5_10_conclusion checks
-_B15C_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
-                     'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+_B15C_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; '
+                     'Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
                      '(no extraction script is committed)')
 
 def _b15c_esw_ratio(N_trans):
@@ -2576,8 +2576,8 @@ def _b15c_esw_ratio(N_trans):
 DATA_FILES['Biological_Physics/MethylPhys/chain/Runtime Matrices/Intake/intake_thresholds_v1.json'] = 'intake thresholds v1 of the methylation chain (call-rate quarantine line)'   # 1.5 kB
 
 # helpers of the appendices/app_A2_frozen_values checks
-_B15A_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
-                     'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+_B15A_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; '
+                     'Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
                      '(no extraction script is committed)')
 _B15A_METH_RERUN = 'methylation chain (Met-A Stage 1 on EPIC IDATs); the frozen file named in source is the committed output'
 _B15A_RM = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/'
@@ -2588,7 +2588,7 @@ _B15N_RM = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/'
 _B15N_METH_RERUN = 'methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output'
 def _b15n_Hb(e):
     return -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
-DATA_FILES['mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml'] = 'Cobaya input of the Level 1 Planck chain with mu0 fixed (MGCAMB amplitude)'   # 4 kB
+DATA_FILES['Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml'] = 'Cobaya input of the Level 1 Planck chain with mu0 fixed (MGCAMB amplitude)'   # 4 kB
 
 # helpers of the appendices/app_E_formulas checks
 _B15E_RM = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/'
@@ -2725,9 +2725,9 @@ def _b16_mu_mg_gap():
 
 _B17_K = dict(chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 _B17_ST = 'docs/verification/scripts/verify_sector_tension_output.txt'
-_B17_CHAINS = 'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
-_B17_CHAINS_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
-                     'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+_B17_CHAINS = 'Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
+_B17_CHAINS_RERUN = ('chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; '
+                     'Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
                      '(no extraction script is committed)')
 _B17_BG_RERUN = 'python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt'
 _B17_S8_RERUN = 'python3 docs/verification/scripts/verify_s8_trend.py > docs/verification/scripts/verify_s8_trend_output.txt'
@@ -2798,7 +2798,7 @@ def _b17_koide():
 DATA_FILES['docs/verification/observations/MISSING_SATELLITES_CHECK.md'] = 'missing-satellites check: Local Volume Database Milky Way dwarf catalogue, sigma_crit test'   # 5 kB
 
 # helpers of the appendices/app_F_glossary checks
-_B18_CH = 'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
+_B18_CH = 'Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
 _B18_SOP = 'Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md'
 _B18_PC = 'Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'
 _B18_PC_RERUN = ('methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not '
@@ -2849,7 +2849,7 @@ def _b19_counts():
 # Uses verify_book helpers mu_iam, fs8_deficit, amp_deficit, _b00_desi_mu0, _b05_sat_sigma_M, _b03_isw_amp, csv_val (as b19 does).
 
 _B20_F = 'appendices/app_G_predictions_register'
-_B20_CHAINS = 'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
+_B20_CHAINS = 'Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
 
 def _b20_one_minus_mu(z):
     """1 - mu(z) in per cent, mu(a) = H^2/(H^2 + beta_m E(a) H0^2)."""
@@ -2941,11 +2941,11 @@ def check_3125():
     return locals()
 
 @check(label='ch:p0_preface:L60:67.16', chapter='ch:p0_preface', part=0, title='photon-sector H0, Level 2 chain Run A posterior mean',
-       file='part0/p0_preface', line=60, status='calc', kind='file', printed='67.16', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part0/p0_preface', line=60, status='calc', kind='file', printed='67.16', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B00_CHAIN_RERUN)
 def check_3126():
-    'Photon-sector H0 with the record term: posterior mean of the Level 2 IAM chain (Run A). Book line 60, printed 67.16. Source: mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv, row iam_level2_runA, column H0.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    'Photon-sector H0 with the record term: posterior mean of the Level 2 IAM chain (Run A). Book line 60, printed 67.16. Source: Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv, row iam_level2_runA, column H0.'
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:p0_preface:L61', chapter='ch:p0_preface', part=0, title='sigma deviation of IAM photon H0 from Planck',
@@ -2971,25 +2971,25 @@ def check_0001():
 @check(label='ch:p0_preface:L61:72.26', chapter='ch:p0_preface', part=0, title='matter-sector H0 = chain H0 x sqrt(1+beta_m)',
        file='part0/p0_preface', line=61, status='calc', kind='num', printed='72.26', tol=0.0)
 def check_3127():
-    'Matter-sector H0 from the same posterior: the Run A photon-sector H0 times sqrt(1+beta_m), beta_m = Omega_m/2 from the canon. Book line 61, printed 72.26. Inputs: H0 from mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (iam_level2_runA); beta_m from CANON.'
-    H0_ph = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    'Matter-sector H0 from the same posterior: the Run A photon-sector H0 times sqrt(1+beta_m), beta_m = Omega_m/2 from the canon. Book line 61, printed 72.26. Inputs: H0 from Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (iam_level2_runA); beta_m from CANON.'
+    H0_ph = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     value = H0_ph * math.sqrt(1 + beta_m)
     return locals()
 
 @check(label='ch:p0_preface:L62', chapter='ch:p0_preface', part=0, title='sigma8 LCDM-sector level-2 chain result',
-       file='part0/p0_preface', line=62, status='measured', kind='file', printed='0.809', tol=0.000618, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part0/p0_preface', line=62, status='measured', kind='file', printed='0.809', tol=0.000618, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0002():
     'sigma8 LCDM-sector level-2 chain result. Book line 62, printed 0.809.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:p0_preface:L62:0.800', chapter='ch:p0_preface', part=0, title='sigma8 IAM matter-sector level-2 chain result',
-       file='part0/p0_preface', line=62, status='measured', kind='file', printed='0.800', tol=0.000625, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part0/p0_preface', line=62, status='measured', kind='file', printed='0.800', tol=0.000625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0003():
     'sigma8 IAM matter-sector level-2 chain result. Book line 62, printed 0.800.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:p0_preface:L65', chapter='ch:p0_preface', part=0, title='half Delta-chi2 exponent for likelihood ratio',
@@ -3018,11 +3018,11 @@ def check_0006():
     return locals()
 
 @check(label='ch:giants:L41', chapter='ch:giants', part=0, title='H0 photon sector matches Level2 chain value',
-       file='part0/p0_giants', line=41, status='measured', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part0/p0_giants', line=41, status='measured', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0007():
     'H0 photon sector matches Level2 chain value. Book line 41, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:giants:L41:72.26', chapter='ch:giants', part=0, title='drafted check, screened (runs; negative control fails)',
@@ -3249,11 +3249,11 @@ def check_0026():
     return locals()
 
 @check(label='ch:surfaces:L103', chapter='ch:surfaces', part=1, title='Level 2 chi2_min IAM (runA) minus LCDM (runC)',
-       file='part1/p1_01_encoding_surfaces', line=103, status='measured', kind='file', printed='+0.54', tol=0.00926, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_01_encoding_surfaces', line=103, status='measured', kind='file', printed='+0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0027():
     'Level 2 chi2_min IAM (runA) minus LCDM (runC). Book line 103, printed +0.54.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
     return locals()
 
 @check(label='ch:surfaces:L114', chapter='ch:surfaces', part=1, title='Landauer cost per CpG site at body temp',
@@ -3557,11 +3557,11 @@ def check_0063():
     return locals()
 
 @check(label='ch:surfaces:L193', chapter='ch:surfaces', part=1, title='Level 2 chi2_min IAM (runA) minus LCDM (runC)',
-       file='part1/p1_01_encoding_surfaces', line=193, status='measured', kind='file', printed='+0.54', tol=0.00926, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_01_encoding_surfaces', line=193, status='measured', kind='file', printed='+0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0064():
     'Level 2 chi2_min IAM (runA) minus LCDM (runC). Book line 193, printed +0.54.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
     return locals()
 
 @check(label='ch:surfaces:L195', chapter='ch:surfaces', part=1, title='held-out spread of the neutrophil reference readings (SD)',
@@ -4109,19 +4109,19 @@ def check_0128():
     return locals()
 
 @check(label='ch:iams_law:L552', chapter='ch:iams_law', part=1, title='Level2b background-modification H0 chain output',
-       file='part1/p1_02_iams_law', line=552, status='none', kind='file', printed='61.5', tol=0.01, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_02_iams_law', line=552, status='none', kind='file', printed='61.5', tol=0.01, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0129():
     'Level2b background-modification H0 chain output. Book line 552, printed 61.5.'
-    v1=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0'); v2=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0'); value=(v1+v2)/2
+    v1=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0'); v2=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0'); value=(v1+v2)/2
     return locals()
 
 @check(label='ch:iams_law:L553', chapter='ch:iams_law', part=1, title='largest final R-1 over all 18 chains',
-       file='part1/p1_02_iams_law', line=553, status='measured', kind='file', printed='\\le0.010', tol=0.05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_02_iams_law', line=553, status='measured', kind='file', printed='\\le0.010', tol=0.05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0130():
     'largest final R-1 over all 18 chains. Book line 553, printed \\le0.010.'
-    import csv as _c; rows=list(load_csv_rows('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv')); value=max(float(r['R-1_final(progress)']) for r in rows)
+    import csv as _c; rows=list(load_csv_rows('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv')); value=max(float(r['R-1_final(progress)']) for r in rows)
     return locals()
 
 @check(label='eq:law_dSdlna', chapter='ch:iams_law', part=1, title='exponent of a in dS/dlna scaling',
@@ -4359,43 +4359,43 @@ def check_0147():
     return locals()
 
 @check(label='ch:iams_law:L693', chapter='ch:iams_law', part=1, title='Level2 dchi2, IAM minus LCDM',
-       file='part1/p1_02_iams_law', line=693, status='calc', kind='file', printed='+0.54', tol=0.0093, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_02_iams_law', line=693, status='calc', kind='file', printed='+0.54', tol=0.0093, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0148():
     'Level2 dchi2, IAM minus LCDM. Book line 693, printed +0.54.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
     return locals()
 
 @check(label='ch:iams_law:L694', chapter='ch:iams_law', part=1, title='min dchi2 across 4 L1 combos',
-       file='part1/p1_02_iams_law', line=694, status='calc', kind='file', printed='+0.56', tol=0.0089, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_02_iams_law', line=694, status='calc', kind='file', printed='+0.56', tol=0.0089, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0149():
     'min dchi2 across 4 L1 combos. Book line 694, printed +0.56.'
-    value=min(csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv',r,'dchi2') for r in ['Planck','Planck+RSD','Planck+BAO','Planck+Pantheon+'])
+    value=min(csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',r,'dchi2') for r in ['Planck','Planck+RSD','Planck+BAO','Planck+Pantheon+'])
     return locals()
 
 @check(label='ch:iams_law:L694:+1.73', chapter='ch:iams_law', part=1, title='max dchi2 across 4 L1 combos',
-       file='part1/p1_02_iams_law', line=694, status='calc', kind='file', printed='+1.73', tol=0.0029, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_02_iams_law', line=694, status='calc', kind='file', printed='+1.73', tol=0.0029, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0150():
     'max dchi2 across 4 L1 combos. Book line 694, printed +1.73.'
-    value=max(csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv',r,'dchi2') for r in ['Planck','Planck+RSD','Planck+BAO','Planck+Pantheon+'])
+    value=max(csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',r,'dchi2') for r in ['Planck','Planck+RSD','Planck+BAO','Planck+Pantheon+'])
     return locals()
 
 @check(label='ch:iams_law:L695', chapter='ch:iams_law', part=1, title='sigma8 LCDM Level2 chain value',
-       file='part1/p1_02_iams_law', line=695, status='measured', kind='file', printed='0.809', tol=0.00062, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_02_iams_law', line=695, status='measured', kind='file', printed='0.809', tol=0.00062, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0151():
     'sigma8 LCDM Level2 chain value. Book line 695, printed 0.809.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:iams_law:L695:0.800', chapter='ch:iams_law', part=1, title='sigma8 IAM Level2 chain value',
-       file='part1/p1_02_iams_law', line=695, status='measured', kind='file', printed='0.800', tol=0.000625, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_02_iams_law', line=695, status='measured', kind='file', printed='0.800', tol=0.000625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0152():
     'sigma8 IAM Level2 chain value. Book line 695, printed 0.800.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:iams_law:L696', chapter='ch:iams_law', part=1, title='sigma offset from Planck H0',
@@ -4414,11 +4414,11 @@ def check_0154():
     return locals()
 
 @check(label='ch:iams_law:L696:0.47', chapter='ch:iams_law', part=1, title='photon-sector H0 error, Level 2 Run A',
-       file='part1/p1_02_iams_law', line=696, status='measured', kind='file', printed='0.47', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part1/p1_02_iams_law', line=696, status='measured', kind='file', printed='0.47', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B00_CHAIN_RERUN)
 def check_3162():
     'Posterior standard deviation of H0 in the Level 2 IAM chain (row iam_level2_runA, column H0_sd). Book line 696, printed 0.47.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0_sd')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0_sd')
     return locals()
 
 @check(label='ch:iams_law:L696:0.54', chapter='ch:iams_law', part=1, title='Planck 2018 H0 error (published)',
@@ -4460,11 +4460,11 @@ def check_0158():
     return locals()
 
 @check(label='ch:iams_law:L701', chapter='ch:iams_law', part=1, title='Level2 dchi2 repeated',
-       file='part1/p1_02_iams_law', line=701, status='none', kind='file', printed='+0.54', tol=0.0093, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_02_iams_law', line=701, status='none', kind='file', printed='+0.54', tol=0.0093, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0159():
     'Level2 dchi2 repeated. Book line 701, printed +0.54.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
     return locals()
 
 @check(label='ch:iams_law:L704', chapter='ch:iams_law', part=1, title='Hubble sector ratio sqrt(1+beta_m)',
@@ -4645,49 +4645,49 @@ def check_3169():
 # ---- what is derived, given these (book lines 805-808)
 
 @check(label='eq:law_eta_chain', chapter='ch:iams_law', part=1, title='baryon chain Ombh2 fitted value',
-       file='part1/p1_02_iams_law', line=752, status='fitted', kind='file', printed='0.02232', tol=0.000224, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_02_iams_law', line=752, status='fitted', kind='file', printed='0.02232', tol=0.000224, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0177():
     'baryon chain Ombh2 fitted value (Eq. eq:law_eta_chain). Book line 752, printed 0.02232.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2')
     return locals()
 
 @check(label='eq:law_eta_chain:0.00014', chapter='ch:iams_law', part=1, title='baryon chain Ombh2 uncertainty',
-       file='part1/p1_02_iams_law', line=752, status='fitted', kind='file', printed='0.00014', tol=0.0357, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_02_iams_law', line=752, status='fitted', kind='file', printed='0.00014', tol=0.0357, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0178():
     'baryon chain Ombh2 uncertainty (Eq. eq:law_eta_chain). Book line 752, printed 0.00014.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2_sd')
     return locals()
 
 @check(label='eq:law_eta_chain:6.113\\times10^{-10}', chapter='ch:iams_law', part=1, title='baryon-to-photon ratio from Ombh2',
        file='part1/p1_02_iams_law', line=752, status='fitted', kind='num', printed='6.113\\times10^{-10}', tol=0.000818)
 def check_0179():
     'baryon-to-photon ratio from Ombh2 (Eq. eq:law_eta_chain). Book line 752, printed 6.113\\times10^{-10}.'
-    ombh2=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2'); value=273.9e-10*ombh2
+    ombh2=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2'); value=273.9e-10*ombh2
     return locals()
 
 @check(label='eq:law_eta_chain:0.037\\times10^{-10}', chapter='ch:iams_law', part=1, title='eta uncertainty from Ombh2 sd',
        file='part1/p1_02_iams_law', line=752, status='fitted', kind='num', printed='0.037\\times10^{-10}', tol=0.0135)
 def check_0180():
     'eta uncertainty from Ombh2 sd (Eq. eq:law_eta_chain). Book line 752, printed 0.037\\times10^{-10}.'
-    sd=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2_sd'); value=273.9e-10*sd
+    sd=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2_sd'); value=273.9e-10*sd
     return locals()
 
 @check(label='ch:iams_law:L754', chapter='ch:iams_law', part=1, title='min eta across 4 LCDM L1 chains',
-       file='part1/p1_02_iams_law', line=754, status='measured', kind='num', printed='6.117\\times10^{-10}', tol=0.000817, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_02_iams_law', line=754, status='measured', kind='num', printed='6.117\\times10^{-10}', tol=0.000817, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0181():
     'min eta across 4 LCDM L1 chains. Book line 754, printed 6.117\\times10^{-10}.'
-    rows=['lcdm_baseline','planck_bao_lcdm_baseline','planck_rsd_lcdm_baseline','planck_pantheon_lcdm_baseline']; vals=[273.9e-10*csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',r,'ombh2') for r in rows]; value=min(vals)
+    rows=['lcdm_baseline','planck_bao_lcdm_baseline','planck_rsd_lcdm_baseline','planck_pantheon_lcdm_baseline']; vals=[273.9e-10*csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',r,'ombh2') for r in rows]; value=min(vals)
     return locals()
 
 @check(label='ch:iams_law:L754:6.137\\times10^{-10}', chapter='ch:iams_law', part=1, title='max eta across 4 LCDM L1 chains',
-       file='part1/p1_02_iams_law', line=754, status='none', kind='num', printed='6.137\\times10^{-10}', tol=0.000815, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_02_iams_law', line=754, status='none', kind='num', printed='6.137\\times10^{-10}', tol=0.000815, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0182():
     'max eta across 4 LCDM L1 chains. Book line 754, printed 6.137\\times10^{-10}.'
-    rows=['lcdm_baseline','planck_bao_lcdm_baseline','planck_rsd_lcdm_baseline','planck_pantheon_lcdm_baseline']; vals=[273.9e-10*csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',r,'ombh2') for r in rows]; value=max(vals)
+    rows=['lcdm_baseline','planck_bao_lcdm_baseline','planck_rsd_lcdm_baseline','planck_pantheon_lcdm_baseline']; vals=[273.9e-10*csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',r,'ombh2') for r in rows]; value=max(vals)
     return locals()
 
 @check(label='ch:iams_law:L805', chapter='ch:iams_law', part=1, title='E(a) = exp(1 - 1/a) from integrating the record constraint',
@@ -4948,27 +4948,27 @@ def check_0212():
     return locals()
 
 @check(label='ch:virial_law:L135', chapter='ch:virial_law', part=1, title='Delta chi2, IAM vs LCDM Level2 chains',
-       file='part1/p1_03_virial_law', line=135, status='measured', kind='file', printed='0.54', tol=0.00926, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_03_virial_law', line=135, status='measured', kind='file', printed='0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0213():
     'Delta chi2, IAM vs LCDM Level2 chains. Book line 135, printed 0.54.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
     return locals()
 
 @check(label='ch:virial_law:L136', chapter='ch:virial_law', part=1, title='sigma8 posterior mean, LCDM Level2 chain',
-       file='part1/p1_03_virial_law', line=136, status='measured', kind='file', printed='0.809', tol=0.000618, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_03_virial_law', line=136, status='measured', kind='file', printed='0.809', tol=0.000618, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0214():
     'sigma8 posterior mean, LCDM Level2 chain. Book line 136, printed 0.809.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:virial_law:L136:0.800', chapter='ch:virial_law', part=1, title='sigma8 posterior mean, IAM Level2 chain',
-       file='part1/p1_03_virial_law', line=136, status='measured', kind='file', printed='0.800', tol=0.000625, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_03_virial_law', line=136, status='measured', kind='file', printed='0.800', tol=0.000625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0215():
     'sigma8 posterior mean, IAM Level2 chain. Book line 136, printed 0.800.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:virial_law:L137', chapter='ch:virial_law', part=1, title='mu(z=0) growth coupling from mu0',
@@ -5008,33 +5008,33 @@ def check_0220():
     return locals()
 
 @check(label='ch:virial_law:L144:0.3166', chapter='ch:virial_law', part=1, title='Level2 Planck posterior Omega_m mean',
-       file='part1/p1_03_virial_law', line=144, status='measured', kind='file', printed='0.3166', tol=0.0001579, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_03_virial_law', line=144, status='measured', kind='file', printed='0.3166', tol=0.0001579, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0221():
     'Level2 Planck posterior Omega_m mean. Book line 144, printed 0.3166.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
     return locals()
 
 @check(label='ch:virial_law:L144:0.0065', chapter='ch:virial_law', part=1, title='Level2 Planck posterior Omega_m sd',
-       file='part1/p1_03_virial_law', line=144, status='measured', kind='file', printed='0.0065', tol=0.007692, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_03_virial_law', line=144, status='measured', kind='file', printed='0.0065', tol=0.007692, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0222():
     'Level2 Planck posterior Omega_m sd. Book line 144, printed 0.0065.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd')
     return locals()
 
 @check(label='ch:virial_law:L144:0.498', chapter='ch:virial_law', part=1, title='beta_m/Omega_m at Level2 posterior mean',
        file='part1/p1_03_virial_law', line=144, status='calc', kind='num', printed='0.498', tol=0.001004)
 def check_0223():
     'beta_m/Omega_m at Level2 posterior mean. Book line 144, printed 0.498.'
-    om=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam'); value=(Om/2)/om
+    om=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam'); value=(Om/2)/om
     return locals()
 
 @check(label='ch:virial_law:L144:0.010', chapter='ch:virial_law', part=1, title='propagated sd of beta_m/Omega_m ratio',
        file='part1/p1_03_virial_law', line=144, status='calc', kind='num', printed='0.010', tol=0.05)
 def check_0224():
     'propagated sd of beta_m/Omega_m ratio. Book line 144, printed 0.010.'
-    om=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam'); om_sd=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd'); value=(Om/2)/om**2*om_sd
+    om=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam'); om_sd=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd'); value=(Om/2)/om**2*om_sd
     return locals()
 
 @check(label='ch:virial_law:L157', chapter='ch:virial_law', part=1, title='hydrogen |E| = alpha^2 m_e c^2/2 (infinite-mass Rydberg)',
@@ -5082,11 +5082,11 @@ def check_0230():
     return locals()
 
 @check(label='ch:virial_law:L165', chapter='ch:virial_law', part=1, title='Delta chi2, table repeat',
-       file='part1/p1_03_virial_law', line=165, status='measured', kind='file', printed='0.54', tol=0.00926, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_03_virial_law', line=165, status='measured', kind='file', printed='0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0231():
     'Delta chi2, table repeat. Book line 165, printed 0.54.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
     return locals()
 
 @check(label='ch:virial_law:L173', chapter='ch:virial_law', part=1, title='orders of magnitude, atom to cluster',
@@ -5267,47 +5267,47 @@ def check_0250():
     return locals()
 
 @check(label='ch:virial_identity:L140', chapter='ch:virial_identity', part=1, title='Level2 posterior Omega_m mean',
-       file='part1/p1_04_virial_identity', line=140, status='measured', kind='file', printed='0.3166', tol=0.000158, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_04_virial_identity', line=140, status='measured', kind='file', printed='0.3166', tol=0.000158, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0251():
     'Level2 posterior Omega_m mean. Book line 140, printed 0.3166.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
     return locals()
 
 @check(label='ch:virial_identity:L140:0.0065', chapter='ch:virial_identity', part=1, title='Level2 posterior Omega_m std dev',
-       file='part1/p1_04_virial_identity', line=140, status='measured', kind='file', printed='0.0065', tol=0.007692, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_04_virial_identity', line=140, status='measured', kind='file', printed='0.0065', tol=0.007692, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0252():
     'Level2 posterior Omega_m std dev. Book line 140, printed 0.0065.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd')
     return locals()
 
 @check(label='ch:virial_identity:L141', chapter='ch:virial_identity', part=1, title='beta_m over Omega_m ratio',
-       file='part1/p1_04_virial_identity', line=141, status='calc', kind='num', printed='0.498', tol=0.001004, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_04_virial_identity', line=141, status='calc', kind='num', printed='0.498', tol=0.001004, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0253():
     'beta_m over Omega_m ratio. Book line 141, printed 0.498.'
-    om=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
+    om=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
     value=beta_m/om
     return locals()
 
 @check(label='ch:virial_identity:L141:0.010', chapter='ch:virial_identity', part=1, title='propagated uncertainty on beta_m/Omega_m',
-       file='part1/p1_04_virial_identity', line=141, status='calc', kind='num', printed='0.010', tol=0.05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_04_virial_identity', line=141, status='calc', kind='num', printed='0.010', tol=0.05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0254():
     'propagated uncertainty on beta_m/Omega_m. Book line 141, printed 0.010.'
-    om=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
-    sd=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd')
+    om=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
+    sd=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd')
     value=beta_m*sd/om**2
     return locals()
 
 @check(label='ch:virial_identity:L141:0.54', chapter='ch:virial_identity', part=1, title='growth chi2 difference vs LCDM baseline',
-       file='part1/p1_04_virial_identity', line=141, status='measured', kind='num', printed='0.54', tol=0.009259, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part1/p1_04_virial_identity', line=141, status='measured', kind='num', printed='0.54', tol=0.009259, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0255():
     'growth chi2 difference vs LCDM baseline. Book line 141, printed 0.54.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')
-    b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')
+    b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
     value=a-b
     return locals()
 
@@ -5342,11 +5342,11 @@ def check_0259():
     return locals()
 
 @check(label='ch:virial:L64', chapter='ch:virial', part=2, title='Level2 posterior Om_m mean',
-       file='part2/p2_02_virial', line=64, status='measured', kind='file', printed='0.3166', tol=0.0205, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=64, status='measured', kind='file', printed='0.3166', tol=0.0205, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0260():
     'Level2 posterior Om_m mean. Book line 64, printed 0.3166.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
     return locals()
 
 @check(label='ch:virial:L64:0.498', chapter='ch:virial', part=2, title='beta_m/Om_m ratio for fixed beta_m',
@@ -5357,11 +5357,11 @@ def check_0261():
     return locals()
 
 @check(label='ch:virial:L65', chapter='ch:virial', part=2, title='chi2_min excess of IAM vs LCDM, L2 chains',
-       file='part2/p2_02_virial', line=65, status='measured', kind='file', printed='0.54', tol=0.00926, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=65, status='measured', kind='file', printed='0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0262():
     'chi2_min excess of IAM vs LCDM, L2 chains. Book line 65, printed 0.54.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value = csv_val(p,'iam_level2_runA','chi2_min') - csv_val(p,'iam_level2_runC_lcdm','chi2_min')
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value = csv_val(p,'iam_level2_runA','chi2_min') - csv_val(p,'iam_level2_runC_lcdm','chi2_min')
     return locals()
 
 @check(label='eq:vc_eta', chapter='ch:virial', part=2, title='eta_vir = 1/(2 f_coll)',
@@ -6091,83 +6091,83 @@ def check_3211():
 # ---------------- the amplitude (line 214) and the chain table (224-225)
 
 @check(label='ch:virial:L212', chapter='ch:virial', part=2, title='Level2 LCDM chain sigma8',
-       file='part2/p2_02_virial', line=212, status='measured', kind='file', printed='0.8087', tol=6.18e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=212, status='measured', kind='file', printed='0.8087', tol=6.18e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0321():
     'Level2 LCDM chain sigma8. Book line 212, printed 0.8087.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:virial:L212:0.0059', chapter='ch:virial', part=2, title='Level2 LCDM chain sigma8 sd',
-       file='part2/p2_02_virial', line=212, status='measured', kind='file', printed='0.0059', tol=0.008475, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=212, status='measured', kind='file', printed='0.0059', tol=0.008475, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0322():
     'Level2 LCDM chain sigma8 sd. Book line 212, printed 0.0059.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8_sd')
     return locals()
 
 @check(label='ch:virial:L212:0.7998', chapter='ch:virial', part=2, title='Level2 IAM chain sigma8',
-       file='part2/p2_02_virial', line=212, status='measured', kind='file', printed='0.7998', tol=6.25e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=212, status='measured', kind='file', printed='0.7998', tol=6.25e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0323():
     'Level2 IAM chain sigma8. Book line 212, printed 0.7998.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:virial:L212:0.0058', chapter='ch:virial', part=2, title='Level2 IAM chain sigma8 sd',
-       file='part2/p2_02_virial', line=212, status='measured', kind='file', printed='0.0058', tol=0.008621, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=212, status='measured', kind='file', printed='0.0058', tol=0.008621, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0324():
     'Level2 IAM chain sigma8 sd. Book line 212, printed 0.0058.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8_sd')
     return locals()
 
 @check(label='ch:virial:L212:0.814', chapter='ch:virial', part=2, title='Level1 LCDM chain sigma8',
-       file='part2/p2_02_virial', line=212, status='measured', kind='file', printed='0.814', tol=0.000614, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=212, status='measured', kind='file', printed='0.814', tol=0.000614, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0325():
     'Level1 LCDM chain sigma8. Book line 212, printed 0.814.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','lcdm_baseline','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','lcdm_baseline','sigma8')
     return locals()
 
 @check(label='ch:virial:L212:0.802', chapter='ch:virial', part=2, title='Level1 IAM chain sigma8',
-       file='part2/p2_02_virial', line=212, status='measured', kind='file', printed='0.802', tol=0.000623, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=212, status='measured', kind='file', printed='0.802', tol=0.000623, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0326():
     'Level1 IAM chain sigma8. Book line 212, printed 0.802.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_fixed_mu0','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_fixed_mu0','sigma8')
     return locals()
 
 @check(label='ch:virial:L213', chapter='ch:virial', part=2, title='sigma8 shift Level2 chains',
-       file='part2/p2_02_virial', line=213, status='calc', kind='num', printed='-1.51\\sigma', tol=0.003311, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=213, status='calc', kind='num', printed='-1.51\\sigma', tol=0.003311, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0327():
     'sigma8 shift Level2 chains. Book line 213, printed -1.51\\sigma.'
-    P='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; s_i=csv_val(P,'iam_level2_runA','sigma8'); s_l=csv_val(P,'iam_level2_runC_lcdm','sigma8'); sd_l=csv_val(P,'iam_level2_runC_lcdm','sigma8_sd'); value=(s_i-s_l)/sd_l
+    P='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; s_i=csv_val(P,'iam_level2_runA','sigma8'); s_l=csv_val(P,'iam_level2_runC_lcdm','sigma8'); sd_l=csv_val(P,'iam_level2_runC_lcdm','sigma8_sd'); value=(s_i-s_l)/sd_l
     return locals()
 
 @check(label='ch:virial:L213:-0.78\\sigma', chapter='ch:virial', part=2, title='S8 shift Level2 chains',
-       file='part2/p2_02_virial', line=213, status='calc', kind='num', printed='-0.78\\sigma', tol=0.00641, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=213, status='calc', kind='num', printed='-0.78\\sigma', tol=0.00641, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0328():
     'S8 shift Level2 chains. Book line 213, printed -0.78\\sigma.'
-    P='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; S_i=csv_val(P,'iam_level2_runA','S8'); S_l=csv_val(P,'iam_level2_runC_lcdm','S8'); sd_l=csv_val(P,'iam_level2_runC_lcdm','S8_sd'); value=(S_i-S_l)/sd_l
+    P='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; S_i=csv_val(P,'iam_level2_runA','S8'); S_l=csv_val(P,'iam_level2_runC_lcdm','S8'); sd_l=csv_val(P,'iam_level2_runC_lcdm','S8_sd'); value=(S_i-S_l)/sd_l
     return locals()
 
 @check(label='ch:virial:L214', chapter='ch:virial', part=2, title='omega_b shift Level2 chains',
-       file='part2/p2_02_virial', line=214, status='calc', kind='num', printed='-0.07\\sigma', tol=0.071429, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=214, status='calc', kind='num', printed='-0.07\\sigma', tol=0.071429, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0329():
     'omega_b shift Level2 chains. Book line 214, printed -0.07\\sigma.'
-    P='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; ob_i=csv_val(P,'iam_level2_runA','ombh2'); ob_l=csv_val(P,'iam_level2_runC_lcdm','ombh2'); sd_l=csv_val(P,'iam_level2_runC_lcdm','ombh2_sd'); value=(ob_i-ob_l)/sd_l
+    P='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; ob_i=csv_val(P,'iam_level2_runA','ombh2'); ob_l=csv_val(P,'iam_level2_runC_lcdm','ombh2'); sd_l=csv_val(P,'iam_level2_runC_lcdm','ombh2_sd'); value=(ob_i-ob_l)/sd_l
     return locals()
 
 @check(label='ch:virial:L214:+0.05\\sigma', chapter='ch:virial', part=2, title='Omega_m shift Level2 chains',
-       file='part2/p2_02_virial', line=214, status='calc', kind='num', printed='+0.05\\sigma', tol=0.1, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=214, status='calc', kind='num', printed='+0.05\\sigma', tol=0.1, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0330():
     'Omega_m shift Level2 chains. Book line 214, printed +0.05\\sigma.'
-    P='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; om_i=csv_val(P,'iam_level2_runA','omegam'); om_l=csv_val(P,'iam_level2_runC_lcdm','omegam'); sd_l=csv_val(P,'iam_level2_runC_lcdm','omegam_sd'); value=(om_i-om_l)/sd_l
+    P='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; om_i=csv_val(P,'iam_level2_runA','omegam'); om_l=csv_val(P,'iam_level2_runC_lcdm','omegam'); sd_l=csv_val(P,'iam_level2_runC_lcdm','omegam_sd'); value=(om_i-om_l)/sd_l
     return locals()
 
 @check(label='ch:virial:L214:+0.09\\sigma', chapter='ch:virial', part=2, title='Level 2 shift of ln(10^10 A_s), IAM minus LambdaCDM',
@@ -6181,59 +6181,59 @@ def check_3212():
     return locals()
 
 @check(label='ch:virial:L224', chapter='ch:virial', part=2, title='Run A sigma8',
-       file='part2/p2_02_virial', line=224, status='measured', kind='file', printed='0.7998', tol=6.25e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=224, status='measured', kind='file', printed='0.7998', tol=6.25e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0331():
     'Run A sigma8. Book line 224, printed 0.7998.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:virial:L224:0.0058', chapter='ch:virial', part=2, title='Run A sigma8 sd',
-       file='part2/p2_02_virial', line=224, status='measured', kind='file', printed='0.0058', tol=0.008621, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=224, status='measured', kind='file', printed='0.0058', tol=0.008621, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0332():
     'Run A sigma8 sd. Book line 224, printed 0.0058.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8_sd')
     return locals()
 
 @check(label='ch:virial:L224:0.822', chapter='ch:virial', part=2, title='Run A S8',
-       file='part2/p2_02_virial', line=224, status='measured', kind='file', printed='0.822', tol=0.000608, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=224, status='measured', kind='file', printed='0.822', tol=0.000608, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0333():
     'Run A S8. Book line 224, printed 0.822.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8')
     return locals()
 
 @check(label='ch:virial:L224:0.011', chapter='ch:virial', part=2, title='Run A S8 sd',
-       file='part2/p2_02_virial', line=224, status='measured', kind='file', printed='0.011', tol=0.045455, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=224, status='measured', kind='file', printed='0.011', tol=0.045455, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0334():
     'Run A S8 sd. Book line 224, printed 0.011.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8_sd')
     return locals()
 
 @check(label='ch:virial:L224:67.16', chapter='ch:virial', part=2, title='Run A H0',
-       file='part2/p2_02_virial', line=224, status='measured', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=224, status='measured', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0335():
     'Run A H0. Book line 224, printed 67.16.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='ch:virial:L224:0.47', chapter='ch:virial', part=2, title='Run A H0 sd',
-       file='part2/p2_02_virial', line=224, status='measured', kind='file', printed='0.47', tol=0.010638, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=224, status='measured', kind='file', printed='0.47', tol=0.010638, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0336():
     'Run A H0 sd. Book line 224, printed 0.47.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')
     return locals()
 
 @check(label='ch:virial:L224:+0.54', chapter='ch:virial', part=2, title='Delta chi2 Run A vs Run C',
-       file='part2/p2_02_virial', line=224, status='calc', kind='num', printed='+0.54', tol=0.009259, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=224, status='calc', kind='num', printed='+0.54', tol=0.009259, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0337():
     'Delta chi2 Run A vs Run C. Book line 224, printed +0.54.'
-    P='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val(P,'iam_level2_runA','chi2_min')-csv_val(P,'iam_level2_runC_lcdm','chi2_min')
+    P='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val(P,'iam_level2_runA','chi2_min')-csv_val(P,'iam_level2_runC_lcdm','chi2_min')
     return locals()
 
 @check(label='ch:virial:L224:-0.136', chapter='ch:virial', part=2, title='mu0 of Run A, derived from beta_m',
@@ -6244,51 +6244,51 @@ def check_3213():
     return locals()
 
 @check(label='ch:virial:L225', chapter='ch:virial', part=2, title='Run D sigma8',
-       file='part2/p2_02_virial', line=225, status='measured', kind='file', printed='0.7995', tol=6.26e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=225, status='measured', kind='file', printed='0.7995', tol=6.26e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0338():
     'Run D sigma8. Book line 225, printed 0.7995.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','sigma8')
     return locals()
 
 @check(label='ch:virial:L225:0.0058', chapter='ch:virial', part=2, title='Run D sigma8 sd',
-       file='part2/p2_02_virial', line=225, status='measured', kind='file', printed='0.0058', tol=0.008621, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=225, status='measured', kind='file', printed='0.0058', tol=0.008621, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0339():
     'Run D sigma8 sd. Book line 225, printed 0.0058.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','sigma8_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','sigma8_sd')
     return locals()
 
 @check(label='ch:virial:L225:0.821', chapter='ch:virial', part=2, title='Run D S8',
-       file='part2/p2_02_virial', line=225, status='measured', kind='file', printed='0.821', tol=0.000609, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=225, status='measured', kind='file', printed='0.821', tol=0.000609, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0340():
     'Run D S8. Book line 225, printed 0.821.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','S8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','S8')
     return locals()
 
 @check(label='ch:virial:L225:0.011', chapter='ch:virial', part=2, title='Run D S8 sd',
-       file='part2/p2_02_virial', line=225, status='measured', kind='file', printed='0.011', tol=0.045455, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=225, status='measured', kind='file', printed='0.011', tol=0.045455, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0341():
     'Run D S8 sd. Book line 225, printed 0.011.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','S8_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','S8_sd')
     return locals()
 
 @check(label='ch:virial:L225:67.19', chapter='ch:virial', part=2, title='Run D H0',
-       file='part2/p2_02_virial', line=225, status='measured', kind='file', printed='67.19', tol=7.44e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=225, status='measured', kind='file', printed='67.19', tol=7.44e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0342():
     'Run D H0. Book line 225, printed 67.19.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','H0')
     return locals()
 
 @check(label='ch:virial:L225:0.46', chapter='ch:virial', part=2, title='Run D H0 sd',
-       file='part2/p2_02_virial', line=225, status='measured', kind='file', printed='0.46', tol=0.01087, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=225, status='measured', kind='file', printed='0.46', tol=0.01087, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0343():
     'Run D H0 sd. Book line 225, printed 0.46.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','H0_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','H0_sd')
     return locals()
 
 @check(label='ch:virial:L225:-0.136', chapter='ch:virial', part=2, title='mu0 of Run D, derived from beta_m',
@@ -6299,93 +6299,93 @@ def check_3214():
     return locals()
 
 @check(label='ch:virial:L226', chapter='ch:virial', part=2, title='Run C sigma8',
-       file='part2/p2_02_virial', line=226, status='measured', kind='file', printed='0.8087', tol=6.18e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=226, status='measured', kind='file', printed='0.8087', tol=6.18e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0344():
     'Run C sigma8. Book line 226, printed 0.8087.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:virial:L226:0.0059', chapter='ch:virial', part=2, title='Run C sigma8 sd',
-       file='part2/p2_02_virial', line=226, status='measured', kind='file', printed='0.0059', tol=0.008475, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=226, status='measured', kind='file', printed='0.0059', tol=0.008475, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0345():
     'Run C sigma8 sd. Book line 226, printed 0.0059.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8_sd')
     return locals()
 
 @check(label='ch:virial:L226:0.830', chapter='ch:virial', part=2, title='Run C S8',
-       file='part2/p2_02_virial', line=226, status='measured', kind='file', printed='0.830', tol=0.000602, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=226, status='measured', kind='file', printed='0.830', tol=0.000602, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0346():
     'Run C S8. Book line 226, printed 0.830.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8')
     return locals()
 
 @check(label='ch:virial:L226:0.011', chapter='ch:virial', part=2, title='Run C S8 sd',
-       file='part2/p2_02_virial', line=226, status='measured', kind='file', printed='0.011', tol=0.045455, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=226, status='measured', kind='file', printed='0.011', tol=0.045455, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0347():
     'Run C S8 sd. Book line 226, printed 0.011.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8_sd')
     return locals()
 
 @check(label='ch:virial:L226:67.19', chapter='ch:virial', part=2, title='Run C H0',
-       file='part2/p2_02_virial', line=226, status='measured', kind='file', printed='67.19', tol=7.44e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=226, status='measured', kind='file', printed='67.19', tol=7.44e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0348():
     'Run C H0. Book line 226, printed 67.19.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','H0')
     return locals()
 
 @check(label='ch:virial:L226:0.46', chapter='ch:virial', part=2, title='Run C H0 sd',
-       file='part2/p2_02_virial', line=226, status='measured', kind='file', printed='0.46', tol=0.01087, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=226, status='measured', kind='file', printed='0.46', tol=0.01087, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0349():
     'Run C H0 sd. Book line 226, printed 0.46.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','H0_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','H0_sd')
     return locals()
 
 @check(label='ch:virial:L227', chapter='ch:virial', part=2, title='Level1 IAM fixed sigma8',
-       file='part2/p2_02_virial', line=227, status='measured', kind='file', printed='0.8015', tol=6.24e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=227, status='measured', kind='file', printed='0.8015', tol=6.24e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0350():
     'Level1 IAM fixed sigma8. Book line 227, printed 0.8015.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_fixed_mu0','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_fixed_mu0','sigma8')
     return locals()
 
 @check(label='ch:virial:L227:0.0058', chapter='ch:virial', part=2, title='Level1 IAM fixed sigma8 sd',
-       file='part2/p2_02_virial', line=227, status='measured', kind='file', printed='0.0058', tol=0.008621, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=227, status='measured', kind='file', printed='0.0058', tol=0.008621, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0351():
     'Level1 IAM fixed sigma8 sd. Book line 227, printed 0.0058.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_fixed_mu0','sigma8_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_fixed_mu0','sigma8_sd')
     return locals()
 
 @check(label='ch:virial:L227:67.08', chapter='ch:virial', part=2, title='Level1 IAM fixed H0',
-       file='part2/p2_02_virial', line=227, status='measured', kind='file', printed='67.08', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02_virial', line=227, status='measured', kind='file', printed='67.08', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0352():
     'Level1 IAM fixed H0. Book line 227, printed 67.08.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_fixed_mu0','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_fixed_mu0','H0')
     return locals()
 
 
 # ======== Part 2 | ch:virial_tests | docs/book/part2/p2_02b_virial_tests.tex
 @check(label='ch:virial_tests:L26', chapter='ch:virial_tests', part=2, title='IAM sigma8 prediction from Level2 chain',
-       file='part2/p2_02b_virial_tests', line=26, status='calc', kind='file', printed='0.7998', tol=6.25e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02b_virial_tests', line=26, status='calc', kind='file', printed='0.7998', tol=6.25e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0353():
     'IAM sigma8 prediction from Level2 chain. Book line 26, printed 0.7998.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:virial_tests:L26:0.0058', chapter='ch:virial_tests', part=2, title='sigma8 chain standard deviation',
-       file='part2/p2_02b_virial_tests', line=26, status='calc', kind='file', printed='0.0058', tol=0.00862, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02b_virial_tests', line=26, status='calc', kind='file', printed='0.0058', tol=0.00862, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0354():
     'sigma8 chain standard deviation. Book line 26, printed 0.0058.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8_sd')
     return locals()
 
 @check(label='ch:virial_tests:L26:0.802', chapter='ch:virial_tests', part=2, title='measured: printed value found in verify_virial_papers_output.txt, a file the chapter names',
@@ -6415,19 +6415,19 @@ def check_3216():
     return locals()
 
 @check(label='ch:virial_tests:L27', chapter='ch:virial_tests', part=2, title='IAM S8 prediction from Level2 chain',
-       file='part2/p2_02b_virial_tests', line=27, status='calc', kind='file', printed='0.822', tol=0.000608, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02b_virial_tests', line=27, status='calc', kind='file', printed='0.822', tol=0.000608, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0357():
     'IAM S8 prediction from Level2 chain. Book line 27, printed 0.822.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8')
     return locals()
 
 @check(label='ch:virial_tests:L27:0.011', chapter='ch:virial_tests', part=2, title='S8 chain standard deviation',
-       file='part2/p2_02b_virial_tests', line=27, status='calc', kind='file', printed='0.011', tol=0.04545, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02b_virial_tests', line=27, status='calc', kind='file', printed='0.011', tol=0.04545, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0358():
     'S8 chain standard deviation. Book line 27, printed 0.011.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8_sd')
     return locals()
 
 @check(label='ch:virial_tests:L27:0.815', chapter='ch:virial_tests', part=2, title='measured: printed value found in verify_virial_papers_output.txt, a file the chapter names',
@@ -6442,7 +6442,7 @@ def check_0359():
        file='part2/p2_02b_virial_tests', line=27, status='calc', kind='num', printed='0.33', tol=0.01515)
 def check_0360():
     'S8 Level 2 vs KiDS-Legacy: difference over the combined error (chain sd, KiDS upper error). Book line 27, printed 0.33.'
-    S8=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8'); sd=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8_sd'); value=(S8-0.815)/math.hypot(sd,0.016)  # KiDS-Legacy 0.815 +0.016 -0.021 (Wright 2025)
+    S8=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8'); sd=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8_sd'); value=(S8-0.815)/math.hypot(sd,0.016)  # KiDS-Legacy 0.815 +0.016 -0.021 (Wright 2025)
     return locals()
 
 @check(label='ch:virial_tests:L27:0.016', chapter='ch:virial_tests', part=2, title='KiDS-Legacy S8 upper error',
@@ -6494,19 +6494,19 @@ def check_0364():
     return locals()
 
 @check(label='ch:virial_tests:L29', chapter='ch:virial_tests', part=2, title='IAM H0 photon prediction from Level2 chain',
-       file='part2/p2_02b_virial_tests', line=29, status='calc', kind='file', printed='67.16', tol=7.44e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02b_virial_tests', line=29, status='calc', kind='file', printed='67.16', tol=7.44e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0365():
     'IAM H0 photon prediction from Level2 chain. Book line 29, printed 67.16.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='ch:virial_tests:L29:0.47', chapter='ch:virial_tests', part=2, title='H0 photon chain standard deviation',
-       file='part2/p2_02b_virial_tests', line=29, status='calc', kind='file', printed='0.47', tol=0.01064, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02b_virial_tests', line=29, status='calc', kind='file', printed='0.47', tol=0.01064, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0366():
     'H0 photon chain standard deviation. Book line 29, printed 0.47.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')
     return locals()
 
 @check(label='ch:virial_tests:L29:67.36', chapter='ch:virial_tests', part=2, title='measured: printed value found in verify_virial_papers_output.txt, a file the chapter names',
@@ -6521,7 +6521,7 @@ def check_0367():
        file='part2/p2_02b_virial_tests', line=29, status='calc', kind='num', printed='0.37', tol=0.01351)
 def check_0368():
     'H0 photon-sector tension in sigma. Book line 29, printed 0.37.'
-    H0_pred=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0'); obs=67.36; obs_sd=0.54; value=abs(H0_pred-obs)/obs_sd
+    H0_pred=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0'); obs=67.36; obs_sd=0.54; value=abs(H0_pred-obs)/obs_sd
     return locals()
 
 @check(label='ch:virial_tests:L29:0.54', chapter='ch:virial_tests', part=2, title='Planck 2018 H0 error (published)',
@@ -6665,34 +6665,34 @@ def check_3233():
     return locals()
 
 @check(label='ch:virial_tests:L149', chapter='ch:virial_tests', part=2, title='sigma8 restated rounded, chain repeat',
-       file='part2/p2_02b_virial_tests', line=149, status='calc', kind='file', printed='0.800', tol=0.000625, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02b_virial_tests', line=149, status='calc', kind='file', printed='0.800', tol=0.000625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0372():
     'sigma8 restated rounded, chain repeat. Book line 149, printed 0.800.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:virial_tests:L149:0.1', chapter='ch:virial_tests', part=2, title='sigma8 tension restated, repeat',
        file='part2/p2_02b_virial_tests', line=149, status='calc', kind='num', printed='0.1', tol=0.5)
 def check_0373():
     'sigma8 tension restated, repeat. Book line 149, printed 0.1.'
-    sigma8_pred=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8'); obs=0.802; obs_lo=0.018; value=abs(sigma8_pred-obs)/obs_lo
+    sigma8_pred=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8'); obs=0.802; obs_lo=0.018; value=abs(sigma8_pred-obs)/obs_lo
     return locals()
 
 @check(label='ch:virial_tests:L151', chapter='ch:virial_tests', part=2, title='sigma8 prediction restated, repeat',
-       file='part2/p2_02b_virial_tests', line=151, status='prediction', kind='file', printed='0.800', tol=0.000625, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02b_virial_tests', line=151, status='prediction', kind='file', printed='0.800', tol=0.000625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0374():
     'sigma8 prediction restated, repeat. Book line 151, printed 0.800.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:virial_tests:L151:67.16', chapter='ch:virial_tests', part=2, title='H0 photon prediction restated, repeat',
-       file='part2/p2_02b_virial_tests', line=151, status='prediction', kind='file', printed='67.16', tol=7.44e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_02b_virial_tests', line=151, status='prediction', kind='file', printed='67.16', tol=7.44e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0375():
     'H0 photon prediction restated, repeat. Book line 151, printed 67.16.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 
@@ -6705,11 +6705,11 @@ def check_0376():
     return locals()
 
 @check(label='ch:theory:L29', chapter='ch:theory', part=2, title='Δχ² IAM vs ΛCDM full Planck L2 chains',
-       file='part2/p2_03_theory', line=29, status='derived', kind='file', printed='+0.54', tol=0.0093, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=29, status='derived', kind='file', printed='+0.54', tol=0.0093, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0377():
     'Δχ² IAM vs ΛCDM full Planck L2 chains. Book line 29, printed +0.54.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
     return locals()
 
 @check(label='ch:theory:L101', chapter='ch:theory', part=2, title='asymptote of E(a)=exp(1-1/a) as a->infty',
@@ -7118,19 +7118,19 @@ def check_0427():
     return locals()
 
 @check(label='ch:theory:L411', chapter='ch:theory', part=2, title='H0 from Level2b chain A',
-       file='part2/p2_03_theory', line=411, status='measured', kind='file', printed='61.45', tol=8.14e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=411, status='measured', kind='file', printed='61.45', tol=8.14e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0428():
     'H0 from Level2b chain A. Book line 411, printed 61.45.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0')
     return locals()
 
 @check(label='ch:theory:L411:61.52', chapter='ch:theory', part=2, title='H0 from Level2b chain D',
-       file='part2/p2_03_theory', line=411, status='measured', kind='file', printed='61.52', tol=8.13e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=411, status='measured', kind='file', printed='61.52', tol=8.13e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0429():
     'H0 from Level2b chain D. Book line 411, printed 61.52.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0')
     return locals()
 
 @check(label='eq:th:cancel', chapter='ch:theory', part=2, title='cancel 8piG/3 factors substituting rho_info',
@@ -7860,35 +7860,35 @@ def check_3289():
     return locals()
 
 @check(label='ch:theory:L778', chapter='ch:theory', part=2, title='Level2b background-modified H0 from chains',
-       file='part2/p2_03_theory', line=778, status='measured', kind='file', printed='61.5', tol=0.01, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=778, status='measured', kind='file', printed='61.5', tol=0.01, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0475():
     'Level2b background-modified H0 from chains. Book line 778, printed 61.5.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=(csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0')+csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0'))/2
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=(csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0')+csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0'))/2
     return locals()
 
 @check(label='ch:theory:L779', chapter='ch:theory', part=2, title='Level2 chi^2 diff, IAM vs LCDM',
-       file='part2/p2_03_theory', line=779, status='measured', kind='file', printed='0.54', tol=0.00926, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=779, status='measured', kind='file', printed='0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0476():
     'Level2 chi^2 diff, IAM vs LCDM. Book line 779, printed 0.54.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
     return locals()
 
 @check(label='ch:theory:L780', chapter='ch:theory', part=2, title='LCDM sigma8 from Level2 chain',
-       file='part2/p2_03_theory', line=780, status='measured', kind='file', printed='0.809', tol=0.000618, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=780, status='measured', kind='file', printed='0.809', tol=0.000618, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0477():
     'LCDM sigma8 from Level2 chain. Book line 780, printed 0.809.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:theory:L780:0.800', chapter='ch:theory', part=2, title='IAM sigma8 from Level2 chain',
-       file='part2/p2_03_theory', line=780, status='measured', kind='file', printed='0.800', tol=0.000625, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=780, status='measured', kind='file', printed='0.800', tol=0.000625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0478():
     'IAM sigma8 from Level2 chain. Book line 780, printed 0.800.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:theory:L780:72.26', chapter='ch:theory', part=2, title='measured: printed value found in verify_theory_derivations_output.txt, a file the chapter names',
@@ -8121,96 +8121,96 @@ def check_3306():
     return locals()
 
 @check(label='ch:theory:L849', chapter='ch:theory', part=2, title='Delta chi2 Planck-only chain pair',
-       file='part2/p2_03_theory', line=849, status='measured', kind='file', printed='+0.96', tol=0.0052, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=849, status='measured', kind='file', printed='+0.96', tol=0.0052, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0491():
     'Delta chi2 Planck-only chain pair. Book line 849, printed +0.96.'
-    value=csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck','dchi2')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck','dchi2')
     return locals()
 
 @check(label='ch:theory:L849:+0.56', chapter='ch:theory', part=2, title='Delta chi2 Planck+RSD chain pair',
-       file='part2/p2_03_theory', line=849, status='measured', kind='file', printed='+0.56', tol=0.00893, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=849, status='measured', kind='file', printed='+0.56', tol=0.00893, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0492():
     'Delta chi2 Planck+RSD chain pair. Book line 849, printed +0.56.'
-    value=csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+RSD','dchi2')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+RSD','dchi2')
     return locals()
 
 @check(label='ch:theory:L850', chapter='ch:theory', part=2, title='smallest Level 1 Delta chi2 over the four combinations',
-       file='part2/p2_03_theory', line=850, status='measured', kind='file', printed='+0.56', tol=0, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=850, status='measured', kind='file', printed='+0.56', tol=0, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0493():
     'smallest Level 1 Delta chi2 over the four combinations. Book line 850, printed +0.56.'
-    value=min(csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv',r,'dchi2') for r in ['Planck','Planck+RSD','Planck+BAO','Planck+Pantheon+'])
+    value=min(csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',r,'dchi2') for r in ['Planck','Planck+RSD','Planck+BAO','Planck+Pantheon+'])
     return locals()
 
 @check(label='ch:theory:L850:+1.73', chapter='ch:theory', part=2, title='upper bound of dchi2 range across combos',
-       file='part2/p2_03_theory', line=850, status='measured', kind='file', printed='+1.73', tol=0, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=850, status='measured', kind='file', printed='+1.73', tol=0, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0494():
     'upper bound of dchi2 range across combos. Book line 850, printed +1.73.'
     p=['Planck','Planck+RSD','Planck+BAO','Planck+Pantheon+']
-    vals=[csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv',s,'dchi2') for s in p]
+    vals=[csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',s,'dchi2') for s in p]
     value=max(vals)
     return locals()
 
 @check(label='ch:theory:L851', chapter='ch:theory', part=2, title='Level2 chi2 difference IAM vs LCDM',
-       file='part2/p2_03_theory', line=851, status='measured', kind='file', printed='+0.54', tol=0.00926, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=851, status='measured', kind='file', printed='+0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0495():
     'Level2 chi2 difference IAM vs LCDM. Book line 851, printed +0.54.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
     return locals()
 
 @check(label='ch:theory:L855', chapter='ch:theory', part=2, title='Level1 LCDM sigma8',
-       file='part2/p2_03_theory', line=855, status='measured', kind='file', printed='0.814', tol=0.000614, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=855, status='measured', kind='file', printed='0.814', tol=0.000614, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0496():
     'Level1 LCDM sigma8. Book line 855, printed 0.814.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','lcdm_baseline','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','lcdm_baseline','sigma8')
     return locals()
 
 @check(label='ch:theory:L855:0.802', chapter='ch:theory', part=2, title='Level1 IAM-fixed sigma8',
-       file='part2/p2_03_theory', line=855, status='measured', kind='file', printed='0.802', tol=0.000623, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=855, status='measured', kind='file', printed='0.802', tol=0.000623, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0497():
     'Level1 IAM-fixed sigma8. Book line 855, printed 0.802.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_fixed_mu0','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_fixed_mu0','sigma8')
     return locals()
 
 @check(label='ch:theory:L855:-1.6%', chapter='ch:theory', part=2, title='Level1 sigma8 percent shift',
-       file='part2/p2_03_theory', line=855, status='measured', kind='file', printed='-1.6%', tol=0.03125, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=855, status='measured', kind='file', printed='-1.6%', tol=0.03125, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0498():
     'Level1 sigma8 percent shift. Book line 855, printed -1.6%.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','lcdm_baseline','sigma8')
-    b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_fixed_mu0','sigma8')
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','lcdm_baseline','sigma8')
+    b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_fixed_mu0','sigma8')
     value=(b-a)/a*100
     return locals()
 
 @check(label='ch:theory:L855:0.809', chapter='ch:theory', part=2, title='Level2 LCDM sigma8',
-       file='part2/p2_03_theory', line=855, status='measured', kind='file', printed='0.809', tol=0.000618, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=855, status='measured', kind='file', printed='0.809', tol=0.000618, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0499():
     'Level2 LCDM sigma8. Book line 855, printed 0.809.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:theory:L855:0.800', chapter='ch:theory', part=2, title='Level2 IAM sigma8',
-       file='part2/p2_03_theory', line=855, status='measured', kind='file', printed='0.800', tol=0.000625, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=855, status='measured', kind='file', printed='0.800', tol=0.000625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0500():
     'Level2 IAM sigma8. Book line 855, printed 0.800.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:theory:L856', chapter='ch:theory', part=2, title='Level2 sigma8 percent shift',
-       file='part2/p2_03_theory', line=856, status='measured', kind='file', printed='-1.1%', tol=0.04545, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=856, status='measured', kind='file', printed='-1.1%', tol=0.04545, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0501():
     'Level2 sigma8 percent shift. Book line 856, printed -1.1%.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
-    b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     value=(b-a)/a*100
     return locals()
 
@@ -8302,19 +8302,19 @@ def check_0506():
     return locals()
 
 @check(label='ch:theory:L890', chapter='ch:theory', part=2, title='Level2 posterior mean H0',
-       file='part2/p2_03_theory', line=890, status='calc', kind='file', printed='67.161', tol=7.44e-06, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=890, status='calc', kind='file', printed='67.161', tol=7.44e-06, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0507():
     'Level2 posterior mean H0. Book line 890, printed 67.161.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='ch:theory:L890:0.467', chapter='ch:theory', part=2, title='Level2 posterior H0 std dev',
-       file='part2/p2_03_theory', line=890, status='calc', kind='file', printed='0.467', tol=0.00107, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=890, status='calc', kind='file', printed='0.467', tol=0.00107, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0508():
     'Level2 posterior H0 std dev. Book line 890, printed 0.467.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')
     return locals()
 
 @check(label='ch:theory:L890:70.0', chapter='ch:theory', part=2, title='measured: printed value found in PAPER_ERRATA.md, a file the chapter names',
@@ -8398,35 +8398,35 @@ def check_0515():
     return locals()
 
 @check(label='ch:theory:L1045', chapter='ch:theory', part=2, title='H0 from two background-level exploratory chains',
-       file='part2/p2_03_theory', line=1045, status='record', kind='file', printed='61.5', tol=0.02, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=1045, status='record', kind='file', printed='61.5', tol=0.02, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0516():
     'H0 from two background-level exploratory chains. Book line 1045, printed 61.5.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=(csv_val(p,'iam_l2b_runA','H0')+csv_val(p,'iam_l2b_runD','H0'))/2
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=(csv_val(p,'iam_l2b_runA','H0')+csv_val(p,'iam_l2b_runD','H0'))/2
     return locals()
 
 @check(label='ch:theory:L1047', chapter='ch:theory', part=2, title='Level2 IAM minus LCDM best-fit chi2',
-       file='part2/p2_03_theory', line=1047, status='calc', kind='file', printed='0.54', tol=0.00926, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=1047, status='calc', kind='file', printed='0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0517():
     'Level2 IAM minus LCDM best-fit chi2. Book line 1047, printed 0.54.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val(p,'iam_level2_runA','chi2_min')-csv_val(p,'iam_level2_runC_lcdm','chi2_min')
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val(p,'iam_level2_runA','chi2_min')-csv_val(p,'iam_level2_runC_lcdm','chi2_min')
     return locals()
 
 @check(label='ch:theory:L1047:0.809', chapter='ch:theory', part=2, title='sigma8 from Level2 LCDM chain',
-       file='part2/p2_03_theory', line=1047, status='record', kind='file', printed='0.809', tol=0.000618, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=1047, status='record', kind='file', printed='0.809', tol=0.000618, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0518():
     'sigma8 from Level2 LCDM chain. Book line 1047, printed 0.809.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:theory:L1047:0.800', chapter='ch:theory', part=2, title='sigma8 from Level2 IAM chain',
-       file='part2/p2_03_theory', line=1047, status='record', kind='file', printed='0.800', tol=0.000625, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03_theory', line=1047, status='record', kind='file', printed='0.800', tol=0.000625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0519():
     'sigma8 from Level2 IAM chain. Book line 1047, printed 0.800.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:theory:L1047:72.26', chapter='ch:theory', part=2, title='matter-sector H0 from photon H0 and beta_m',
@@ -8759,19 +8759,19 @@ def check_0557():
     return locals()
 
 @check(label='ch:entropicgravity:L199', chapter='ch:entropicgravity', part=2, title='photon-sector H0, Level-2 chain',
-       file='part2/p2_03a_entropic_gravity', line=199, status='measured', kind='file', printed='67.16', tol=7.44e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=199, status='measured', kind='file', printed='67.16', tol=7.44e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0558():
     'photon-sector H0, Level-2 chain. Book line 199, printed 67.16.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='ch:entropicgravity:L199:0.47', chapter='ch:entropicgravity', part=2, title='photon-sector H0 uncertainty, Level-2 chain',
-       file='part2/p2_03a_entropic_gravity', line=199, status='measured', kind='file', printed='0.47', tol=0.01064, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=199, status='measured', kind='file', printed='0.47', tol=0.01064, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0559():
     'photon-sector H0 uncertainty, Level-2 chain. Book line 199, printed 0.47.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')
     return locals()
 
 @check(label='ch:entropicgravity:L199:72.2', chapter='ch:entropicgravity', part=2, title='Barrow fit H0 (table), Luciano 2025',
@@ -8790,67 +8790,67 @@ def check_0560():
     return locals()
 
 @check(label='ch:entropicgravity:L201', chapter='ch:entropicgravity', part=2, title='Level 2 Delta chi2 (lower end of the quoted range)',
-       file='part2/p2_03a_entropic_gravity', line=201, status='calc', kind='file', printed='0.54', tol=0.00926, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=201, status='calc', kind='file', printed='0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0561():
     'Level 2 Delta chi2 (lower end of the quoted range). Book line 201, printed 0.54.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
     return locals()
 
 @check(label='ch:entropicgravity:L201:1.73', chapter='ch:entropicgravity', part=2, title='maximum dchi2 across chain pairs',
-       file='part2/p2_03a_entropic_gravity', line=201, status='calc', kind='file', printed='1.73', tol=0.00289, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=201, status='calc', kind='file', printed='1.73', tol=0.00289, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0562():
     'maximum dchi2 across chain pairs. Book line 201, printed 1.73.'
-    vals=[csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck','dchi2'),csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+RSD','dchi2'),csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+BAO','dchi2'),csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+Pantheon+','dchi2')]; value=max(vals)
+    vals=[csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck','dchi2'),csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+RSD','dchi2'),csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+BAO','dchi2'),csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+Pantheon+','dchi2')]; value=max(vals)
     return locals()
 
 @check(label='ch:entropicgravity:L210', chapter='ch:entropicgravity', part=2, title='Level2 Planck chi2 difference IAM vs LCDM',
-       file='part2/p2_03a_entropic_gravity', line=210, status='calc', kind='file', printed='0.54', tol=0.00926, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=210, status='calc', kind='file', printed='0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0563():
     'Level2 Planck chi2 difference IAM vs LCDM. Book line 210, printed 0.54.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
     return locals()
 
 @check(label='ch:entropicgravity:L210:0.56', chapter='ch:entropicgravity', part=2, title='Level1 min chi2 diff (Planck+RSD pair)',
-       file='part2/p2_03a_entropic_gravity', line=210, status='calc', kind='file', printed='0.56', tol=0.00893, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=210, status='calc', kind='file', printed='0.56', tol=0.00893, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0564():
     'Level1 min chi2 diff (Planck+RSD pair). Book line 210, printed 0.56.'
-    value=csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+RSD','dchi2')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+RSD','dchi2')
     return locals()
 
 @check(label='ch:entropicgravity:L210:1.73', chapter='ch:entropicgravity', part=2, title='Level1 max chi2 diff (Planck+BAO pair)',
-       file='part2/p2_03a_entropic_gravity', line=210, status='calc', kind='file', printed='1.73', tol=0.00289, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=210, status='calc', kind='file', printed='1.73', tol=0.00289, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0565():
     'Level1 max chi2 diff (Planck+BAO pair). Book line 210, printed 1.73.'
-    value=csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+BAO','dchi2')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+BAO','dchi2')
     return locals()
 
 @check(label='ch:entropicgravity:L232', chapter='ch:entropicgravity', part=2, title='Level2b background-term H0',
-       file='part2/p2_03a_entropic_gravity', line=232, status='measured', kind='file', printed='61.45', tol=8.14e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=232, status='measured', kind='file', printed='61.45', tol=8.14e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0566():
     'Level2b background-term H0. Book line 232, printed 61.45.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0')
     return locals()
 
 @check(label='ch:entropicgravity:L232:61.52', chapter='ch:entropicgravity', part=2, title='Level2b background-term H0, run D',
-       file='part2/p2_03a_entropic_gravity', line=232, status='measured', kind='file', printed='61.52', tol=8.13e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=232, status='measured', kind='file', printed='61.52', tol=8.13e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0567():
     'Level2b background-term H0, run D. Book line 232, printed 61.52.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0')
     return locals()
 
 @check(label='ch:entropicgravity:L233', chapter='ch:entropicgravity', part=2, title='max last-recorded Gelman-Rubin R-1 across chains',
-       file='part2/p2_03a_entropic_gravity', line=233, status='measured', kind='file', printed='0.010', tol=0.05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=233, status='measured', kind='file', printed='0.010', tol=0.05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0568():
     'max last-recorded Gelman-Rubin R-1 across chains. Book line 233, printed 0.010.'
-    chains=['iam_baryon_test','iam_fixed_mu0','iam_float_mu0','lcdm_baseline','planck_bao_iam_fixed','planck_bao_lcdm_baseline','planck_bao_mu0_float','planck_pantheon_iam_fixed','planck_pantheon_lcdm_baseline','planck_pantheon_mu0_float','planck_rsd_iam_fixed','planck_rsd_lcdm_baseline','planck_rsd_mu0_float','iam_level2_runA','iam_level2_runC_lcdm','iam_level2_runD','iam_l2b_runA','iam_l2b_runD']; value=max(csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',c,'R-1_final(progress)') for c in chains)
+    chains=['iam_baryon_test','iam_fixed_mu0','iam_float_mu0','lcdm_baseline','planck_bao_iam_fixed','planck_bao_lcdm_baseline','planck_bao_mu0_float','planck_pantheon_iam_fixed','planck_pantheon_lcdm_baseline','planck_pantheon_mu0_float','planck_rsd_iam_fixed','planck_rsd_lcdm_baseline','planck_rsd_mu0_float','iam_level2_runA','iam_level2_runC_lcdm','iam_level2_runD','iam_l2b_runA','iam_l2b_runD']; value=max(csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',c,'R-1_final(progress)') for c in chains)
     return locals()
 
 @check(label='ch:entropicgravity:L237', chapter='ch:entropicgravity', part=2, title='mu0 tension vs DESI in sigma',
@@ -8882,11 +8882,11 @@ def check_0572():
     return locals()
 
 @check(label='ch:entropicgravity:L238:-0.12\\sigma', chapter='ch:entropicgravity', part=2, title='sigma8 tension vs KiDS/DES/DESI/Pantheon+',
-       file='part2/p2_03a_entropic_gravity', line=238, status='calc', kind='num', printed='-0.12\\sigma', tol=0.04167, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=238, status='calc', kind='num', printed='-0.12\\sigma', tol=0.04167, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0573():
     'sigma8 tension vs KiDS/DES/DESI/Pantheon+. Book line 238, printed -0.12\\sigma.'
-    s8=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8'); value=(s8-0.802)/0.018  # book input line248, lower err
+    s8=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8'); value=(s8-0.802)/0.018  # book input line248, lower err
     return locals()
 
 @check(label='ch:entropicgravity:L238:-0.75\\sigma', chapter='ch:entropicgravity', part=2, title='matter-sector H0 tension vs SH0ES',
@@ -8913,19 +8913,19 @@ def check_3318():
     return locals()
 
 @check(label='ch:entropicgravity:L248', chapter='ch:entropicgravity', part=2, title='Level2 IAM chain sigma8',
-       file='part2/p2_03a_entropic_gravity', line=248, status='measured', kind='file', printed='0.7998\\pm0.0058', tol=6.25e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=248, status='measured', kind='file', printed='0.7998\\pm0.0058', tol=6.25e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0575():
     'Level2 IAM chain sigma8. Book line 248, printed 0.7998\\pm0.0058.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:entropicgravity:L248:0.8087', chapter='ch:entropicgravity', part=2, title='Level2 LCDM chain sigma8',
-       file='part2/p2_03a_entropic_gravity', line=248, status='measured', kind='file', printed='0.8087', tol=6.18e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=248, status='measured', kind='file', printed='0.8087', tol=6.18e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0576():
     'Level2 LCDM chain sigma8. Book line 248, printed 0.8087.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:entropicgravity:L249', chapter='ch:entropicgravity', part=2, title='matter-sector H0 = H0_photon sqrt(1 + beta_m)',
@@ -8936,27 +8936,27 @@ def check_3319():
     return locals()
 
 @check(label='ch:entropicgravity:L250', chapter='ch:entropicgravity', part=2, title='table repeat: Level2 chi2 diff',
-       file='part2/p2_03a_entropic_gravity', line=250, status='measured', kind='file', printed='0.54', tol=0.00926, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=250, status='measured', kind='file', printed='0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0577():
     'table repeat: Level2 chi2 diff. Book line 250, printed 0.54.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
     return locals()
 
 @check(label='ch:entropicgravity:L250:0.56', chapter='ch:entropicgravity', part=2, title='table repeat: Level1 min chi2 diff',
-       file='part2/p2_03a_entropic_gravity', line=250, status='measured', kind='file', printed='0.56', tol=0.00893, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=250, status='measured', kind='file', printed='0.56', tol=0.00893, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0578():
     'table repeat: Level1 min chi2 diff. Book line 250, printed 0.56.'
-    value=csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+RSD','dchi2')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+RSD','dchi2')
     return locals()
 
 @check(label='ch:entropicgravity:L250:1.73', chapter='ch:entropicgravity', part=2, title='table repeat: Level1 max chi2 diff',
-       file='part2/p2_03a_entropic_gravity', line=250, status='measured', kind='file', printed='1.73', tol=0.00289, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=250, status='measured', kind='file', printed='1.73', tol=0.00289, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0579():
     'table repeat: Level1 max chi2 diff. Book line 250, printed 1.73.'
-    value=csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+BAO','dchi2')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck+BAO','dchi2')
     return locals()
 
 @check(label='eq:eg_stotal', chapter='ch:entropicgravity', part=2, title='beta_m defined as Omega_m/2',
@@ -9024,19 +9024,19 @@ def check_3324():
     return locals()
 
 @check(label='ch:entropicgravity:L288', chapter='ch:entropicgravity', part=2, title='summary repeat: Level2 chi2 diff',
-       file='part2/p2_03a_entropic_gravity', line=288, status='calc', kind='file', printed='0.54', tol=0.00926, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=288, status='calc', kind='file', printed='0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0583():
     'summary repeat: Level2 chi2 diff. Book line 288, printed 0.54.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
     return locals()
 
 @check(label='ch:entropicgravity:L288:0.800', chapter='ch:entropicgravity', part=2, title='summary repeat: Level2 IAM sigma8 rounded',
-       file='part2/p2_03a_entropic_gravity', line=288, status='measured', kind='file', printed='0.800', tol=0.000625, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_03a_entropic_gravity', line=288, status='measured', kind='file', printed='0.800', tol=0.000625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0584():
     'summary repeat: Level2 IAM sigma8 rounded. Book line 288, printed 0.800.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:entropicgravity:L289', chapter='ch:entropicgravity', part=2, title='photon-sector H0 tension vs Planck',
@@ -9110,19 +9110,19 @@ def check_3329():
 
 # ======== Part 2 | ch:dual | docs/book/part2/p2_04_dualsector_chains.tex
 @check(label='ch:dual:L252', chapter='ch:dual', part=2, title='Level 2 Planck chain photon-sector H0',
-       file='part2/p2_04_dualsector_chains', line=252, status='measured', kind='file', printed='67.16', tol=7.44e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_04_dualsector_chains', line=252, status='measured', kind='file', printed='67.16', tol=7.44e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0589():
     'Level 2 Planck chain photon-sector H0. Book line 252, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='ch:dual:L252:0.47', chapter='ch:dual', part=2, title='Level 2 chain H0 std dev, photon sector',
-       file='part2/p2_04_dualsector_chains', line=252, status='measured', kind='file', printed='0.47', tol=0.010638, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_04_dualsector_chains', line=252, status='measured', kind='file', printed='0.47', tol=0.010638, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0590():
     'Level 2 chain H0 std dev, photon sector. Book line 252, printed 0.47.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')
     return locals()
 
 @check(label='ch:dual:L252:72.26', chapter='ch:dual', part=2, title='matter-sector H0 = photon H0 * sqrt(1+beta_m)',
@@ -9133,11 +9133,11 @@ def check_0591():
     return locals()
 
 @check(label='ch:dual:L252:0.50', chapter='ch:dual', part=2, title='propagated uncertainty on matter-sector H0',
-       file='part2/p2_04_dualsector_chains', line=252, status='calc', kind='num', printed='0.50', tol=0.01, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_04_dualsector_chains', line=252, status='calc', kind='num', printed='0.50', tol=0.01, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0592():
     'propagated uncertainty on matter-sector H0. Book line 252, printed 0.50.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')*math.sqrt(1+beta_m)
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')*math.sqrt(1+beta_m)
     return locals()
 
 @check(label='ch:dual:L252:67.36', chapter='ch:dual', part=2, title='measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names',
@@ -9186,19 +9186,19 @@ def check_3330():
     return locals()
 
 @check(label='ch:dual:L255', chapter='ch:dual', part=2, title='restated photon-sector H0 (Level 2)',
-       file='part2/p2_04_dualsector_chains', line=255, status='measured', kind='file', printed='67.16', tol=7.44e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_04_dualsector_chains', line=255, status='measured', kind='file', printed='67.16', tol=7.44e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0598():
     'restated photon-sector H0 (Level 2). Book line 255, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='ch:dual:L256', chapter='ch:dual', part=2, title='photon H0 used as multiplicand',
-       file='part2/p2_04_dualsector_chains', line=256, status='measured', kind='file', printed='67.16', tol=7.44e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_04_dualsector_chains', line=256, status='measured', kind='file', printed='67.16', tol=7.44e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0599():
     'photon H0 used as multiplicand. Book line 256, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='ch:dual:L256:1.0759', chapter='ch:dual', part=2, title='sqrt(1+beta_m) factor',
@@ -9233,11 +9233,11 @@ def check_0603():
     return locals()
 
 @check(label='ch:level2:L19', chapter='ch:level2', part=2, title='chi2_min diff, lowest points of two L2 chains',
-       file='part2/p2_06_dual_sector_perturbation', line=19, status='calc', kind='num', printed='+0.54', tol=0.01, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=19, status='calc', kind='num', printed='+0.54', tol=0.01, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0604():
     'chi2_min diff, lowest points of two L2 chains. Book line 19, printed +0.54.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
     return locals()
 
 @check(label='ch:level2:L19:-0.01', chapter='ch:level2', part=2, title='chain-average chi2, Run A minus Run C',
@@ -9250,35 +9250,35 @@ def check_3331():
     return locals()
 
 @check(label='ch:level2:L20', chapter='ch:level2', part=2, title='likelihood ratio from dchi2',
-       file='part2/p2_06_dual_sector_perturbation', line=20, status='calc', kind='num', printed='0.76', tol=0.013, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=20, status='calc', kind='num', printed='0.76', tol=0.013, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0605():
     'likelihood ratio from dchi2. Book line 20, printed 0.76.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=math.exp(-(a-b)/2)
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=math.exp(-(a-b)/2)
     return locals()
 
 @check(label='ch:level2:L21', chapter='ch:level2', part=2, title='sigma8 LCDM posterior, L2 chain',
-       file='part2/p2_06_dual_sector_perturbation', line=21, status='measured', kind='file', printed='0.8087', tol=6e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=21, status='measured', kind='file', printed='0.8087', tol=6e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0606():
     'sigma8 LCDM posterior, L2 chain. Book line 21, printed 0.8087.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:level2:L21:0.7998', chapter='ch:level2', part=2, title='sigma8 dual-sector posterior, L2 chain',
-       file='part2/p2_06_dual_sector_perturbation', line=21, status='measured', kind='file', printed='0.7998', tol=6e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=21, status='measured', kind='file', printed='0.7998', tol=6e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0607():
     'sigma8 dual-sector posterior, L2 chain. Book line 21, printed 0.7998.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:level2:L21:1.1', chapter='ch:level2', part=2, title='percent reduction in sigma8',
-       file='part2/p2_06_dual_sector_perturbation', line=21, status='calc', kind='num', printed='1.1', tol=0.045, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=21, status='calc', kind='num', printed='1.1', tol=0.045, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0608():
     'percent reduction in sigma8. Book line 21, printed 1.1.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8'); value=(a-b)/a*100
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8'); value=(a-b)/a*100
     return locals()
 
 @check(label='ch:level2:L24', chapter='ch:level2', part=2, title='measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names',
@@ -9312,19 +9312,19 @@ def check_0612():
     return locals()
 
 @check(label='ch:level2:L26', chapter='ch:level2', part=2, title='H0 from background-Friedmann exploratory chains',
-       file='part2/p2_06_dual_sector_perturbation', line=26, status='measured', kind='num', printed='61.5', tol=0.01, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=26, status='measured', kind='num', printed='61.5', tol=0.01, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0613():
     'H0 from background-Friedmann exploratory chains. Book line 26, printed 61.5.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0'); value=(a+b)/2
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0'); value=(a+b)/2
     return locals()
 
 @check(label='ch:level2:L26:10.9', chapter='ch:level2', part=2, title='Level 2b H0 against Planck, in Planck sigma',
-       file='part2/p2_06_dual_sector_perturbation', line=26, status='calc', kind='file', printed='10.9', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: bash camb_validation/run_level2b_chain.sh, then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv')
+       file='part2/p2_06_dual_sector_perturbation', line=26, status='calc', kind='file', printed='10.9', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh, then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv')
 def check_3332():
     'Distance of the Level 2b (term in the background) H0 of Run A from Planck 2018 67.36 +- 0.54 (doi 10.1051/0004-6361/201833910), in units of the Planck error; H0 from the chain extraction. Book line 26, printed 10.9.'
-    H0b = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_l2b_runA', 'H0')
+    H0b = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_l2b_runA', 'H0')
     value = (67.36 - H0b) / 0.54
     return locals()
 
@@ -9471,19 +9471,19 @@ def check_0626():
     return locals()
 
 @check(label='ch:level2:L52', chapter='ch:level2', part=2, title='min dchi2 across four chain pairs',
-       file='part2/p2_06_dual_sector_perturbation', line=52, status='calc', kind='num', printed='+0.56', tol=0.01, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=52, status='calc', kind='num', printed='+0.56', tol=0.01, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0627():
     'min dchi2 across four chain pairs. Book line 52, printed +0.56.'
-    p='mgcamb_validation/CHAIN_PAIRS_FINAL.csv'; vals=[csv_val(p,r,'dchi2') for r in ['Planck','Planck+RSD','Planck+BAO','Planck+Pantheon+']]; value=min(vals)
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv'; vals=[csv_val(p,r,'dchi2') for r in ['Planck','Planck+RSD','Planck+BAO','Planck+Pantheon+']]; value=min(vals)
     return locals()
 
 @check(label='ch:level2:L52:+1.73', chapter='ch:level2', part=2, title='max dchi2 across four chain pairs',
-       file='part2/p2_06_dual_sector_perturbation', line=52, status='calc', kind='num', printed='+1.73', tol=0.01, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=52, status='calc', kind='num', printed='+1.73', tol=0.01, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0628():
     'max dchi2 across four chain pairs. Book line 52, printed +1.73.'
-    p='mgcamb_validation/CHAIN_PAIRS_FINAL.csv'; vals=[csv_val(p,r,'dchi2') for r in ['Planck','Planck+RSD','Planck+BAO','Planck+Pantheon+']]; value=max(vals)
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv'; vals=[csv_val(p,r,'dchi2') for r in ['Planck','Planck+RSD','Planck+BAO','Planck+Pantheon+']]; value=max(vals)
     return locals()
 
 @check(label='eq:l2_beta', chapter='ch:level2', part=2, title='beta_m equation, Omega_m/2',
@@ -9771,7 +9771,7 @@ def check_0668():
 
 @check(label='ch:level2:L189', chapter='ch:level2', part=2, title='sigma8 on/off at z=0.0, committed CAMB growth record',
        file='part2/p2_06_dual_sector_perturbation', line=189, status='measured', kind='file', printed='0.9880', tol=0.0417, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0669():
     'sigma8 on/off at z=0.0, committed CAMB growth record. Book line 189, printed 0.9880.'
     value=growth_at('on','s8',0.0)/growth_at('off','s8',0.0)
@@ -9786,7 +9786,7 @@ def check_0670():
 
 @check(label='ch:level2:L189:0.498', chapter='ch:level2', part=2, title='f = dln sigma8/dln a, switch on, z=0.0',
        file='part2/p2_06_dual_sector_perturbation', line=189, status='measured', kind='file', printed='0.498', tol=0.0005, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0671():
     'f = dln sigma8/dln a, switch on, z=0.0. Book line 189, printed 0.498.'
     value=f_density('on',0.0)
@@ -9794,7 +9794,7 @@ def check_0671():
 
 @check(label='ch:level2:L189:0.524', chapter='ch:level2', part=2, title='f = dln sigma8/dln a, switch off, z=0.0',
        file='part2/p2_06_dual_sector_perturbation', line=189, status='measured', kind='file', printed='0.524', tol=0.0005, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0672():
     'f = dln sigma8/dln a, switch off, z=0.0. Book line 189, printed 0.524.'
     value=f_density('off',0.0)
@@ -9802,7 +9802,7 @@ def check_0672():
 
 @check(label='ch:level2:L189:0.542', chapter='ch:level2', part=2, title='f CAMB = fsigma8/sigma8, on, z=0.0',
        file='part2/p2_06_dual_sector_perturbation', line=189, status='measured', kind='file', printed='0.542', tol=0.0005, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0673():
     'f CAMB = fsigma8/sigma8, on, z=0.0. Book line 189, printed 0.542.'
     value=growth_at('on','fs8',0.0)/growth_at('on','s8',0.0)
@@ -9810,7 +9810,7 @@ def check_0673():
 
 @check(label='ch:level2:L189:0.529', chapter='ch:level2', part=2, title='f CAMB = fsigma8/sigma8, off, z=0.0',
        file='part2/p2_06_dual_sector_perturbation', line=189, status='measured', kind='file', printed='0.529', tol=0.0005, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0674():
     'f CAMB = fsigma8/sigma8, off, z=0.0. Book line 189, printed 0.529.'
     value=growth_at('off','fs8',0.0)/growth_at('off','s8',0.0)
@@ -9818,7 +9818,7 @@ def check_0674():
 
 @check(label='ch:level2:L190', chapter='ch:level2', part=2, title='sigma8 on/off at z=0.5, committed CAMB growth record',
        file='part2/p2_06_dual_sector_perturbation', line=190, status='measured', kind='file', printed='0.9962', tol=0.0417, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0675():
     'sigma8 on/off at z=0.5, committed CAMB growth record. Book line 190, printed 0.9962.'
     value=growth_at('on','s8',0.5)/growth_at('off','s8',0.5)
@@ -9833,7 +9833,7 @@ def check_0676():
 
 @check(label='ch:level2:L190:0.746', chapter='ch:level2', part=2, title='f = dln sigma8/dln a, switch on, z=0.5',
        file='part2/p2_06_dual_sector_perturbation', line=190, status='measured', kind='file', printed='0.746', tol=0.0005, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0677():
     'f = dln sigma8/dln a, switch on, z=0.5. Book line 190, printed 0.746.'
     value=f_density('on',0.5)
@@ -9841,7 +9841,7 @@ def check_0677():
 
 @check(label='ch:level2:L190:0.760', chapter='ch:level2', part=2, title='f = dln sigma8/dln a, switch off, z=0.5',
        file='part2/p2_06_dual_sector_perturbation', line=190, status='measured', kind='file', printed='0.760', tol=0.0005, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0678():
     'f = dln sigma8/dln a, switch off, z=0.5. Book line 190, printed 0.760.'
     value=f_density('off',0.5)
@@ -9849,7 +9849,7 @@ def check_0678():
 
 @check(label='ch:level2:L190:0.770', chapter='ch:level2', part=2, title='f CAMB = fsigma8/sigma8, on, z=0.5',
        file='part2/p2_06_dual_sector_perturbation', line=190, status='measured', kind='file', printed='0.770', tol=0.0005, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0679():
     'f CAMB = fsigma8/sigma8, on, z=0.5. Book line 190, printed 0.770.'
     value=growth_at('on','fs8',0.5)/growth_at('on','s8',0.5)
@@ -9857,7 +9857,7 @@ def check_0679():
 
 @check(label='ch:level2:L190:0.763', chapter='ch:level2', part=2, title='f CAMB = fsigma8/sigma8, off, z=0.5',
        file='part2/p2_06_dual_sector_perturbation', line=190, status='measured', kind='file', printed='0.763', tol=0.0005, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0680():
     'f CAMB = fsigma8/sigma8, off, z=0.5. Book line 190, printed 0.763.'
     value=growth_at('off','fs8',0.5)/growth_at('off','s8',0.5)
@@ -9865,7 +9865,7 @@ def check_0680():
 
 @check(label='ch:level2:L191', chapter='ch:level2', part=2, title='sigma8 on/off at z=1.0, committed CAMB growth record',
        file='part2/p2_06_dual_sector_perturbation', line=191, status='measured', kind='file', printed='0.9988', tol=0.0417, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0681():
     'sigma8 on/off at z=1.0, committed CAMB growth record. Book line 191, printed 0.9988.'
     value=growth_at('on','s8',1.0)/growth_at('off','s8',1.0)
@@ -9880,7 +9880,7 @@ def check_0682():
 
 @check(label='ch:level2:L191:0.869', chapter='ch:level2', part=2, title='f = dln sigma8/dln a, switch on, z=1.0',
        file='part2/p2_06_dual_sector_perturbation', line=191, status='measured', kind='file', printed='0.869', tol=0.0005, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0683():
     'f = dln sigma8/dln a, switch on, z=1.0. Book line 191, printed 0.869.'
     value=f_density('on',1.0)
@@ -9888,7 +9888,7 @@ def check_0683():
 
 @check(label='ch:level2:L191:0.875', chapter='ch:level2', part=2, title='f = dln sigma8/dln a, switch off, z=1.0',
        file='part2/p2_06_dual_sector_perturbation', line=191, status='measured', kind='file', printed='0.875', tol=0.0005, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0684():
     'f = dln sigma8/dln a, switch off, z=1.0. Book line 191, printed 0.875.'
     value=f_density('off',1.0)
@@ -9896,7 +9896,7 @@ def check_0684():
 
 @check(label='ch:level2:L191:0.881', chapter='ch:level2', part=2, title='f CAMB = fsigma8/sigma8, on, z=1.0',
        file='part2/p2_06_dual_sector_perturbation', line=191, status='measured', kind='file', printed='0.881', tol=0.0005, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0685():
     'f CAMB = fsigma8/sigma8, on, z=1.0. Book line 191, printed 0.881.'
     value=growth_at('on','fs8',1.0)/growth_at('on','s8',1.0)
@@ -9904,7 +9904,7 @@ def check_0685():
 
 @check(label='ch:level2:L191:0.879', chapter='ch:level2', part=2, title='f CAMB = fsigma8/sigma8, off, z=1.0',
        file='part2/p2_06_dual_sector_perturbation', line=191, status='measured', kind='file', printed='0.879', tol=0.0005, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0686():
     'f CAMB = fsigma8/sigma8, off, z=1.0. Book line 191, printed 0.879.'
     value=growth_at('off','fs8',1.0)/growth_at('off','s8',1.0)
@@ -9912,7 +9912,7 @@ def check_0686():
 
 @check(label='ch:level2:L192', chapter='ch:level2', part=2, title='sigma8 on/off at z=2.0, committed CAMB growth record',
        file='part2/p2_06_dual_sector_perturbation', line=192, status='measured', kind='file', printed='0.9999', tol=0.0417, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0687():
     'sigma8 on/off at z=2.0, committed CAMB growth record. Book line 192, printed 0.9999.'
     value=growth_at('on','s8',2.0)/growth_at('off','s8',2.0)
@@ -9920,7 +9920,7 @@ def check_0687():
 
 @check(label='ch:level2:L192:0.955', chapter='ch:level2', part=2, title='f = dln sigma8/dln a, switch on, z=2.0',
        file='part2/p2_06_dual_sector_perturbation', line=192, status='measured', kind='file', printed='0.955', tol=0.0005, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0688():
     'f = dln sigma8/dln a, switch on, z=2.0. Book line 192, printed 0.955.'
     value=f_density('on',2.0)
@@ -9928,7 +9928,7 @@ def check_0688():
 
 @check(label='ch:level2:L192:0.956', chapter='ch:level2', part=2, title='f = dln sigma8/dln a, switch off, z=2.0',
        file='part2/p2_06_dual_sector_perturbation', line=192, status='measured', kind='file', printed='0.956', tol=0.0005, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0689():
     'f = dln sigma8/dln a, switch off, z=2.0. Book line 192, printed 0.956.'
     value=f_density('off',2.0)
@@ -9936,7 +9936,7 @@ def check_0689():
 
 @check(label='ch:level2:L192:0.960', chapter='ch:level2', part=2, title='f CAMB = fsigma8/sigma8, on and off, z=2.0',
        file='part2/p2_06_dual_sector_perturbation', line=192, status='measured', kind='file', printed='0.960', tol=0.0005, source='docs/verification/chains/data/growth_on.json',
-       heavy=True, rerun='CAMB 1.5.8 built twice from camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
+       heavy=True, rerun='CAMB 1.5.8 built twice from Cosmological_Physics/camb_validation/equations_iam_level2.f90: bash docs/verification/scripts/l2growth.sh')
 def check_0690():
     'f CAMB = fsigma8/sigma8, on and off, z=2.0. Book line 192, printed 0.960.'
     value=growth_at('on','fs8',2.0)/growth_at('on','s8',2.0); value2=growth_at('off','fs8',2.0)/growth_at('off','s8',2.0); assert abs(value-value2)<6e-4
@@ -9951,226 +9951,226 @@ def check_3340():
     return locals()
 
 @check(label='ch:level2:L225', chapter='ch:level2', part=2, title='6dFGS fsigma8',
-       file='part2/p2_06_dual_sector_perturbation', line=225, status='observed', kind='file', printed='0.423', tol=0.0005, source='camb_validation/likelihood_rsd.py')
+       file='part2/p2_06_dual_sector_perturbation', line=225, status='observed', kind='file', printed='0.423', tol=0.0005, source='Cosmological_Physics/camb_validation/likelihood_rsd.py')
 def check_0691():
     '6dFGS fsigma8. Book line 225, printed 0.423.'
-    ok = file_has('camb_validation/likelihood_rsd.py', '0.423')
+    ok = file_has('Cosmological_Physics/camb_validation/likelihood_rsd.py', '0.423')
     return locals()
 
 @check(label='ch:level2:L225:0.055', chapter='ch:level2', part=2, title='6dFGS fsigma8 error',
-       file='part2/p2_06_dual_sector_perturbation', line=225, status='observed', kind='file', printed='0.055', tol=0.0005, source='camb_validation/likelihood_rsd.py')
+       file='part2/p2_06_dual_sector_perturbation', line=225, status='observed', kind='file', printed='0.055', tol=0.0005, source='Cosmological_Physics/camb_validation/likelihood_rsd.py')
 def check_0692():
     '6dFGS fsigma8 error. Book line 225, printed 0.055.'
-    ok = file_has('camb_validation/likelihood_rsd.py', '0.055')
+    ok = file_has('Cosmological_Physics/camb_validation/likelihood_rsd.py', '0.055')
     return locals()
 
 @check(label='ch:level2:L226', chapter='ch:level2', part=2, title='SDSS MGS fsigma8',
-       file='part2/p2_06_dual_sector_perturbation', line=226, status='observed', kind='file', printed='0.530', tol=0.0005, source='camb_validation/likelihood_rsd.py')
+       file='part2/p2_06_dual_sector_perturbation', line=226, status='observed', kind='file', printed='0.530', tol=0.0005, source='Cosmological_Physics/camb_validation/likelihood_rsd.py')
 def check_0693():
     'SDSS MGS fsigma8. Book line 226, printed 0.530.'
-    ok = file_has('camb_validation/likelihood_rsd.py', '0.530')
+    ok = file_has('Cosmological_Physics/camb_validation/likelihood_rsd.py', '0.530')
     return locals()
 
 @check(label='ch:level2:L226:0.160', chapter='ch:level2', part=2, title='SDSS MGS fsigma8 error',
-       file='part2/p2_06_dual_sector_perturbation', line=226, status='observed', kind='file', printed='0.160', tol=0.0005, source='camb_validation/likelihood_rsd.py')
+       file='part2/p2_06_dual_sector_perturbation', line=226, status='observed', kind='file', printed='0.160', tol=0.0005, source='Cosmological_Physics/camb_validation/likelihood_rsd.py')
 def check_0694():
     'SDSS MGS fsigma8 error. Book line 226, printed 0.160.'
-    ok = file_has('camb_validation/likelihood_rsd.py', '0.160')
+    ok = file_has('Cosmological_Physics/camb_validation/likelihood_rsd.py', '0.160')
     return locals()
 
 @check(label='ch:level2:L227', chapter='ch:level2', part=2, title='BOSS DR12 z=0.38 fsigma8',
-       file='part2/p2_06_dual_sector_perturbation', line=227, status='observed', kind='file', printed='0.497', tol=0.0005, source='camb_validation/likelihood_rsd.py')
+       file='part2/p2_06_dual_sector_perturbation', line=227, status='observed', kind='file', printed='0.497', tol=0.0005, source='Cosmological_Physics/camb_validation/likelihood_rsd.py')
 def check_0695():
     'BOSS DR12 z=0.38 fsigma8. Book line 227, printed 0.497.'
-    ok = file_has('camb_validation/likelihood_rsd.py', '0.497')
+    ok = file_has('Cosmological_Physics/camb_validation/likelihood_rsd.py', '0.497')
     return locals()
 
 @check(label='ch:level2:L227:0.045', chapter='ch:level2', part=2, title='BOSS DR12 z=0.38 fsigma8 error',
-       file='part2/p2_06_dual_sector_perturbation', line=227, status='observed', kind='file', printed='0.045', tol=0.0005, source='camb_validation/likelihood_rsd.py')
+       file='part2/p2_06_dual_sector_perturbation', line=227, status='observed', kind='file', printed='0.045', tol=0.0005, source='Cosmological_Physics/camb_validation/likelihood_rsd.py')
 def check_0696():
     'BOSS DR12 z=0.38 fsigma8 error. Book line 227, printed 0.045.'
-    ok = file_has('camb_validation/likelihood_rsd.py', '0.045')
+    ok = file_has('Cosmological_Physics/camb_validation/likelihood_rsd.py', '0.045')
     return locals()
 
 @check(label='ch:level2:L228', chapter='ch:level2', part=2, title='BOSS DR12 z=0.51 fsigma8',
-       file='part2/p2_06_dual_sector_perturbation', line=228, status='observed', kind='file', printed='0.459', tol=0.0005, source='camb_validation/likelihood_rsd.py')
+       file='part2/p2_06_dual_sector_perturbation', line=228, status='observed', kind='file', printed='0.459', tol=0.0005, source='Cosmological_Physics/camb_validation/likelihood_rsd.py')
 def check_0697():
     'BOSS DR12 z=0.51 fsigma8. Book line 228, printed 0.459.'
-    ok = file_has('camb_validation/likelihood_rsd.py', '0.459')
+    ok = file_has('Cosmological_Physics/camb_validation/likelihood_rsd.py', '0.459')
     return locals()
 
 @check(label='ch:level2:L228:0.038', chapter='ch:level2', part=2, title='BOSS DR12 z=0.51 fsigma8 error',
-       file='part2/p2_06_dual_sector_perturbation', line=228, status='observed', kind='file', printed='0.038', tol=0.0005, source='camb_validation/likelihood_rsd.py')
+       file='part2/p2_06_dual_sector_perturbation', line=228, status='observed', kind='file', printed='0.038', tol=0.0005, source='Cosmological_Physics/camb_validation/likelihood_rsd.py')
 def check_0698():
     'BOSS DR12 z=0.51 fsigma8 error. Book line 228, printed 0.038.'
-    ok = file_has('camb_validation/likelihood_rsd.py', '0.038')
+    ok = file_has('Cosmological_Physics/camb_validation/likelihood_rsd.py', '0.038')
     return locals()
 
 @check(label='ch:level2:L229', chapter='ch:level2', part=2, title='eBOSS LRG fsigma8',
-       file='part2/p2_06_dual_sector_perturbation', line=229, status='observed', kind='file', printed='0.473', tol=0.0, source='camb_validation/likelihood_rsd.py')
+       file='part2/p2_06_dual_sector_perturbation', line=229, status='observed', kind='file', printed='0.473', tol=0.0, source='Cosmological_Physics/camb_validation/likelihood_rsd.py')
 def check_0699():
     'eBOSS LRG fsigma8: the f sigma8 column of the z = 0.700 row of the RSD table in likelihood_rsd.py. Book line 229, printed 0.473.'
-    value = _f01_num('camb_validation/likelihood_rsd.py', r'\[0\.700,\s*([\d.]+),\s*[\d.]+\]')
+    value = _f01_num('Cosmological_Physics/camb_validation/likelihood_rsd.py', r'\[0\.700,\s*([\d.]+),\s*[\d.]+\]')
     return locals()
 
 @check(label='ch:level2:L229:0.041', chapter='ch:level2', part=2, title='eBOSS LRG fsigma8 error',
-       file='part2/p2_06_dual_sector_perturbation', line=229, status='observed', kind='file', printed='0.041', tol=0.0005, source='camb_validation/likelihood_rsd.py')
+       file='part2/p2_06_dual_sector_perturbation', line=229, status='observed', kind='file', printed='0.041', tol=0.0005, source='Cosmological_Physics/camb_validation/likelihood_rsd.py')
 def check_0700():
     'eBOSS LRG fsigma8 error. Book line 229, printed 0.041.'
-    ok = file_has('camb_validation/likelihood_rsd.py', '0.041')
+    ok = file_has('Cosmological_Physics/camb_validation/likelihood_rsd.py', '0.041')
     return locals()
 
 @check(label='ch:level2:L230', chapter='ch:level2', part=2, title='eBOSS ELG fsigma8',
-       file='part2/p2_06_dual_sector_perturbation', line=230, status='observed', kind='file', printed='0.315', tol=0.0005, source='camb_validation/likelihood_rsd.py')
+       file='part2/p2_06_dual_sector_perturbation', line=230, status='observed', kind='file', printed='0.315', tol=0.0005, source='Cosmological_Physics/camb_validation/likelihood_rsd.py')
 def check_0701():
     'eBOSS ELG fsigma8. Book line 230, printed 0.315.'
-    ok = file_has('camb_validation/likelihood_rsd.py', '0.315')
+    ok = file_has('Cosmological_Physics/camb_validation/likelihood_rsd.py', '0.315')
     return locals()
 
 @check(label='ch:level2:L230:0.095', chapter='ch:level2', part=2, title='eBOSS ELG fsigma8 error',
-       file='part2/p2_06_dual_sector_perturbation', line=230, status='observed', kind='file', printed='0.095', tol=0.0005, source='camb_validation/likelihood_rsd.py')
+       file='part2/p2_06_dual_sector_perturbation', line=230, status='observed', kind='file', printed='0.095', tol=0.0005, source='Cosmological_Physics/camb_validation/likelihood_rsd.py')
 def check_0702():
     'eBOSS ELG fsigma8 error. Book line 230, printed 0.095.'
-    ok = file_has('camb_validation/likelihood_rsd.py', '0.095')
+    ok = file_has('Cosmological_Physics/camb_validation/likelihood_rsd.py', '0.095')
     return locals()
 
 @check(label='ch:level2:L231', chapter='ch:level2', part=2, title='eBOSS quasars fsigma8',
-       file='part2/p2_06_dual_sector_perturbation', line=231, status='observed', kind='file', printed='0.462', tol=0.0005, source='camb_validation/likelihood_rsd.py')
+       file='part2/p2_06_dual_sector_perturbation', line=231, status='observed', kind='file', printed='0.462', tol=0.0005, source='Cosmological_Physics/camb_validation/likelihood_rsd.py')
 def check_0703():
     'eBOSS quasars fsigma8. Book line 231, printed 0.462.'
-    ok = file_has('camb_validation/likelihood_rsd.py', '0.462')
+    ok = file_has('Cosmological_Physics/camb_validation/likelihood_rsd.py', '0.462')
     return locals()
 
 @check(label='ch:level2:L231:0.045', chapter='ch:level2', part=2, title='eBOSS quasars fsigma8 error',
-       file='part2/p2_06_dual_sector_perturbation', line=231, status='observed', kind='file', printed='0.045', tol=0.0005, source='camb_validation/likelihood_rsd.py')
+       file='part2/p2_06_dual_sector_perturbation', line=231, status='observed', kind='file', printed='0.045', tol=0.0005, source='Cosmological_Physics/camb_validation/likelihood_rsd.py')
 def check_0704():
     'eBOSS quasars fsigma8 error. Book line 231, printed 0.045.'
-    ok = file_has('camb_validation/likelihood_rsd.py', '0.045')
+    ok = file_has('Cosmological_Physics/camb_validation/likelihood_rsd.py', '0.045')
     return locals()
 
 @check(label='ch:level2:L245', chapter='ch:level2', part=2, title='Run A final R-1 convergence stat',
-       file='part2/p2_06_dual_sector_perturbation', line=245, status='measured', kind='file', printed='0.0099', tol=0.0051, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=245, status='measured', kind='file', printed='0.0099', tol=0.0051, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0705():
     'Run A final R-1 convergence stat. Book line 245, printed 0.0099.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','R-1_final(progress)')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','R-1_final(progress)')
     return locals()
 
 @check(label='ch:level2:L246', chapter='ch:level2', part=2, title='Run C final R-1 convergence stat',
-       file='part2/p2_06_dual_sector_perturbation', line=246, status='measured', kind='file', printed='0.0081', tol=0.0062, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=246, status='measured', kind='file', printed='0.0081', tol=0.0062, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0706():
     'Run C final R-1 convergence stat. Book line 246, printed 0.0081.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','R-1_final(progress)')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','R-1_final(progress)')
     return locals()
 
 @check(label='ch:level2:L247', chapter='ch:level2', part=2, title='Run D final R-1 convergence stat',
-       file='part2/p2_06_dual_sector_perturbation', line=247, status='measured', kind='file', printed='0.0080', tol=0.0063, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=247, status='measured', kind='file', printed='0.0080', tol=0.0063, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0707():
     'Run D final R-1 convergence stat. Book line 247, printed 0.0080.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','R-1_final(progress)')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','R-1_final(progress)')
     return locals()
 
 @check(label='ch:level2:L248', chapter='ch:level2', part=2, title='Run Ab final R-1 convergence stat',
-       file='part2/p2_06_dual_sector_perturbation', line=248, status='measured', kind='file', printed='0.0100', tol=0.005, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=248, status='measured', kind='file', printed='0.0100', tol=0.005, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0708():
     'Run Ab final R-1 convergence stat. Book line 248, printed 0.0100.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','R-1_final(progress)')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','R-1_final(progress)')
     return locals()
 
 @check(label='ch:level2:L249', chapter='ch:level2', part=2, title='Run Db final R-1 convergence stat',
-       file='part2/p2_06_dual_sector_perturbation', line=249, status='measured', kind='file', printed='0.0068', tol=0.0074, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=249, status='measured', kind='file', printed='0.0068', tol=0.0074, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0709():
     'Run Db final R-1 convergence stat. Book line 249, printed 0.0068.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','R-1_final(progress)')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','R-1_final(progress)')
     return locals()
 
 @check(label='ch:level2:L279', chapter='ch:level2', part=2, title='Run C posterior H0 mean',
-       file='part2/p2_06_dual_sector_perturbation', line=279, status='measured', kind='file', printed='67.188\\pm0.465', tol=7.5e-06, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=279, status='measured', kind='file', printed='67.188\\pm0.465', tol=7.5e-06, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0710():
     'Run C posterior H0 mean. Book line 279, printed 67.188\\pm0.465.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','H0')
     return locals()
 
 @check(label='ch:level2:L279:67.161\\pm0.467', chapter='ch:level2', part=2, title='Run A posterior H0 mean',
-       file='part2/p2_06_dual_sector_perturbation', line=279, status='measured', kind='file', printed='67.161\\pm0.467', tol=7.5e-06, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=279, status='measured', kind='file', printed='67.161\\pm0.467', tol=7.5e-06, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0711():
     'Run A posterior H0 mean. Book line 279, printed 67.161\\pm0.467.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='ch:level2:L280', chapter='ch:level2', part=2, title='Run C posterior sigma8 mean',
-       file='part2/p2_06_dual_sector_perturbation', line=280, status='measured', kind='file', printed='0.8087\\pm0.0059', tol=6.2e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=280, status='measured', kind='file', printed='0.8087\\pm0.0059', tol=6.2e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0713():
     'Run C posterior sigma8 mean. Book line 280, printed 0.8087\\pm0.0059.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:level2:L280:0.7998\\pm0.0058', chapter='ch:level2', part=2, title='Run A posterior sigma8 mean',
-       file='part2/p2_06_dual_sector_perturbation', line=280, status='measured', kind='file', printed='0.7998\\pm0.0058', tol=6.3e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=280, status='measured', kind='file', printed='0.7998\\pm0.0058', tol=6.3e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0714():
     'Run A posterior sigma8 mean. Book line 280, printed 0.7998\\pm0.0058.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:level2:L280:-1.51\\sigma', chapter='ch:level2', part=2, title='sigma8 shift A vs C in sigma',
        file='part2/p2_06_dual_sector_perturbation', line=280, status='calc', kind='num', printed='-1.51\\sigma', tol=0.0033)
 def check_0715():
     'sigma8 shift A vs C in sigma. Book line 280, printed -1.51\\sigma.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','sigma8');C=csv_val(p,'iam_level2_runC_lcdm','sigma8');Cs=csv_val(p,'iam_level2_runC_lcdm','sigma8_sd');value=(A-C)/Cs
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','sigma8');C=csv_val(p,'iam_level2_runC_lcdm','sigma8');Cs=csv_val(p,'iam_level2_runC_lcdm','sigma8_sd');value=(A-C)/Cs
     return locals()
 
 @check(label='ch:level2:L281', chapter='ch:level2', part=2, title='Run C posterior S8 mean',
-       file='part2/p2_06_dual_sector_perturbation', line=281, status='measured', kind='file', printed='0.830\\pm0.011', tol=0.0006, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=281, status='measured', kind='file', printed='0.830\\pm0.011', tol=0.0006, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0716():
     'Run C posterior S8 mean. Book line 281, printed 0.830\\pm0.011.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8')
     return locals()
 
 @check(label='ch:level2:L281:0.822\\pm0.011', chapter='ch:level2', part=2, title='Run A posterior S8 mean',
-       file='part2/p2_06_dual_sector_perturbation', line=281, status='measured', kind='file', printed='0.822\\pm0.011', tol=0.00061, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=281, status='measured', kind='file', printed='0.822\\pm0.011', tol=0.00061, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0717():
     'Run A posterior S8 mean. Book line 281, printed 0.822\\pm0.011.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8')
     return locals()
 
 @check(label='ch:level2:L281:-0.78\\sigma', chapter='ch:level2', part=2, title='S8 shift A vs C in sigma',
        file='part2/p2_06_dual_sector_perturbation', line=281, status='calc', kind='num', printed='-0.78\\sigma', tol=0.0064)
 def check_0718():
     'S8 shift A vs C in sigma. Book line 281, printed -0.78\\sigma.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','S8');C=csv_val(p,'iam_level2_runC_lcdm','S8');Cs=csv_val(p,'iam_level2_runC_lcdm','S8_sd');value=(A-C)/Cs
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','S8');C=csv_val(p,'iam_level2_runC_lcdm','S8');Cs=csv_val(p,'iam_level2_runC_lcdm','S8_sd');value=(A-C)/Cs
     return locals()
 
 @check(label='ch:level2:L282', chapter='ch:level2', part=2, title='Run C posterior ombh2 mean',
-       file='part2/p2_06_dual_sector_perturbation', line=282, status='measured', kind='file', printed='0.02218\\pm0.00013', tol=2.3e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=282, status='measured', kind='file', printed='0.02218\\pm0.00013', tol=2.3e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0719():
     'Run C posterior ombh2 mean. Book line 282, printed 0.02218\\pm0.00013.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','ombh2')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','ombh2')
     return locals()
 
 @check(label='ch:level2:L282:0.02217\\pm0.00013', chapter='ch:level2', part=2, title='Run A posterior ombh2 mean',
-       file='part2/p2_06_dual_sector_perturbation', line=282, status='measured', kind='file', printed='0.02217\\pm0.00013', tol=2.3e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=282, status='measured', kind='file', printed='0.02217\\pm0.00013', tol=2.3e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0720():
     'Run A posterior ombh2 mean. Book line 282, printed 0.02217\\pm0.00013.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','ombh2')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','ombh2')
     return locals()
 
 @check(label='ch:level2:L282:-0.07\\sigma', chapter='ch:level2', part=2, title='ombh2 shift A vs C in sigma',
        file='part2/p2_06_dual_sector_perturbation', line=282, status='calc', kind='num', printed='-0.07\\sigma', tol=0.07)
 def check_0721():
     'ombh2 shift A vs C in sigma. Book line 282, printed -0.07\\sigma.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','ombh2');C=csv_val(p,'iam_level2_runC_lcdm','ombh2');Cs=csv_val(p,'iam_level2_runC_lcdm','ombh2_sd');value=(A-C)/Cs
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','ombh2');C=csv_val(p,'iam_level2_runC_lcdm','ombh2');Cs=csv_val(p,'iam_level2_runC_lcdm','ombh2_sd');value=(A-C)/Cs
     return locals()
 
 @check(label='ch:level2:L283', chapter='ch:level2', part=2, title='measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names',
@@ -10263,49 +10263,49 @@ def check_0732():
     return locals()
 
 @check(label='ch:level2:L287', chapter='ch:level2', part=2, title='Run C posterior Omega_m mean',
-       file='part2/p2_06_dual_sector_perturbation', line=287, status='measured', kind='file', printed='0.3162\\pm0.0065', tol=0.00016, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=287, status='measured', kind='file', printed='0.3162\\pm0.0065', tol=0.00016, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0734():
     'Run C posterior Omega_m mean. Book line 287, printed 0.3162\\pm0.0065.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','omegam')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','omegam')
     return locals()
 
 @check(label='ch:level2:L287:0.3166\\pm0.0065', chapter='ch:level2', part=2, title='Run A posterior Omega_m mean',
-       file='part2/p2_06_dual_sector_perturbation', line=287, status='measured', kind='file', printed='0.3166\\pm0.0065', tol=0.00016, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=287, status='measured', kind='file', printed='0.3166\\pm0.0065', tol=0.00016, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0735():
     'Run A posterior Omega_m mean. Book line 287, printed 0.3166\\pm0.0065.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
     return locals()
 
 @check(label='ch:level2:L287:+0.05\\sigma', chapter='ch:level2', part=2, title='Omega_m shift A vs C in sigma',
        file='part2/p2_06_dual_sector_perturbation', line=287, status='calc', kind='num', printed='+0.05\\sigma', tol=0.1)
 def check_0736():
     'Omega_m shift A vs C in sigma. Book line 287, printed +0.05\\sigma.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','omegam');C=csv_val(p,'iam_level2_runC_lcdm','omegam');Cs=csv_val(p,'iam_level2_runC_lcdm','omegam_sd');value=(A-C)/Cs
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','omegam');C=csv_val(p,'iam_level2_runC_lcdm','omegam');Cs=csv_val(p,'iam_level2_runC_lcdm','omegam_sd');value=(A-C)/Cs
     return locals()
 
 @check(label='ch:level2:L288', chapter='ch:level2', part=2, title='Run C lowest chi2',
-       file='part2/p2_06_dual_sector_perturbation', line=288, status='measured', kind='file', printed='10972.07', tol=4.6e-07, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=288, status='measured', kind='file', printed='10972.07', tol=4.6e-07, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0737():
     'Run C lowest chi2. Book line 288, printed 10972.07.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
     return locals()
 
 @check(label='ch:level2:L288:10972.61', chapter='ch:level2', part=2, title='Run A lowest chi2',
-       file='part2/p2_06_dual_sector_perturbation', line=288, status='measured', kind='file', printed='10972.61', tol=4.6e-07, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=288, status='measured', kind='file', printed='10972.61', tol=4.6e-07, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0738():
     'Run A lowest chi2. Book line 288, printed 10972.61.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')
     return locals()
 
 @check(label='ch:level2:L288:+0.54', chapter='ch:level2', part=2, title='chi2 difference A minus C',
        file='part2/p2_06_dual_sector_perturbation', line=288, status='calc', kind='num', printed='+0.54', tol=0.01)
 def check_0739():
     'chi2 difference A minus C. Book line 288, printed +0.54.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','chi2_min');C=csv_val(p,'iam_level2_runC_lcdm','chi2_min');value=A-C
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','chi2_min');C=csv_val(p,'iam_level2_runC_lcdm','chi2_min');value=A-C
     return locals()
 
 @check(label='ch:level2:L289', chapter='ch:level2', part=2, title='measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names',
@@ -10333,19 +10333,19 @@ def check_0742():
     return locals()
 
 @check(label='ch:level2:L290', chapter='ch:level2', part=2, title='final R-1 Run C, repeated',
-       file='part2/p2_06_dual_sector_perturbation', line=290, status='measured', kind='file', printed='0.0081', tol=0.0062, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=290, status='measured', kind='file', printed='0.0081', tol=0.0062, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0743():
     'final R-1 Run C, repeated. Book line 290, printed 0.0081.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','R-1_final(progress)')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','R-1_final(progress)')
     return locals()
 
 @check(label='ch:level2:L290:0.0099', chapter='ch:level2', part=2, title='final R-1 Run A, repeated',
-       file='part2/p2_06_dual_sector_perturbation', line=290, status='measured', kind='file', printed='0.0099', tol=0.0051, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=290, status='measured', kind='file', printed='0.0099', tol=0.0051, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0744():
     'final R-1 Run A, repeated. Book line 290, printed 0.0099.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','R-1_final(progress)')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','R-1_final(progress)')
     return locals()
 
 @check(label='ch:level2:L293', chapter='ch:level2', part=2, title='sigma8 drop, rounded values',
@@ -10356,19 +10356,19 @@ def check_0745():
     return locals()
 
 @check(label='ch:level2:L293:0.809', chapter='ch:level2', part=2, title='sigma8 Run C, rounded repeat',
-       file='part2/p2_06_dual_sector_perturbation', line=293, status='measured', kind='file', printed='0.809', tol=0.00062, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=293, status='measured', kind='file', printed='0.809', tol=0.00062, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0746():
     'sigma8 Run C, rounded repeat. Book line 293, printed 0.809.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:level2:L293:0.800', chapter='ch:level2', part=2, title='sigma8 Run A, rounded repeat',
-       file='part2/p2_06_dual_sector_perturbation', line=293, status='measured', kind='file', printed='0.800', tol=0.00063, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=293, status='measured', kind='file', printed='0.800', tol=0.00063, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0747():
     'sigma8 Run A, rounded repeat. Book line 293, printed 0.800.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:level2:L294', chapter='ch:level2', part=2, title='percent sigma8 drop',
@@ -10382,7 +10382,7 @@ def check_0748():
        file='part2/p2_06_dual_sector_perturbation', line=294, status='calc', kind='num', printed='-1.51\\sigma', tol=0.0033)
 def check_0749():
     'sigma8 shift, repeated. Book line 294, printed -1.51\\sigma.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','sigma8');C=csv_val(p,'iam_level2_runC_lcdm','sigma8');Cs=csv_val(p,'iam_level2_runC_lcdm','sigma8_sd');value=(A-C)/Cs
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','sigma8');C=csv_val(p,'iam_level2_runC_lcdm','sigma8');Cs=csv_val(p,'iam_level2_runC_lcdm','sigma8_sd');value=(A-C)/Cs
     return locals()
 
 @check(label='ch:level2:L295', chapter='ch:level2', part=2, title='likelihood ratio exp(-0.54/2)',
@@ -10412,81 +10412,81 @@ def check_0752():
        file='part2/p2_06_dual_sector_perturbation', line=300, status='calc', kind='num', printed='+0.05\\sigma', tol=0.1)
 def check_0754():
     'Omega_m shift, repeat. Book line 300, printed +0.05\\sigma.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','omegam');C=csv_val(p,'iam_level2_runC_lcdm','omegam');Cs=csv_val(p,'iam_level2_runC_lcdm','omegam_sd');value=(A-C)/Cs
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','omegam');C=csv_val(p,'iam_level2_runC_lcdm','omegam');Cs=csv_val(p,'iam_level2_runC_lcdm','omegam_sd');value=(A-C)/Cs
     return locals()
 
 @check(label='ch:level2:L300:-1.51\\sigma', chapter='ch:level2', part=2, title='sigma8 shift, repeat',
        file='part2/p2_06_dual_sector_perturbation', line=300, status='calc', kind='num', printed='-1.51\\sigma', tol=0.0033)
 def check_0755():
     'sigma8 shift, repeat. Book line 300, printed -1.51\\sigma.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','sigma8');C=csv_val(p,'iam_level2_runC_lcdm','sigma8');Cs=csv_val(p,'iam_level2_runC_lcdm','sigma8_sd');value=(A-C)/Cs
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','sigma8');C=csv_val(p,'iam_level2_runC_lcdm','sigma8');Cs=csv_val(p,'iam_level2_runC_lcdm','sigma8_sd');value=(A-C)/Cs
     return locals()
 
 @check(label='ch:level2:L304', chapter='ch:level2', part=2, title='sigma8 shift, rounded repeat',
        file='part2/p2_06_dual_sector_perturbation', line=304, status='calc', kind='num', printed='1.5\\sigma', tol=0.033)
 def check_0756():
     'sigma8 shift, rounded repeat. Book line 304, printed 1.5\\sigma.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','sigma8');C=csv_val(p,'iam_level2_runC_lcdm','sigma8');Cs=csv_val(p,'iam_level2_runC_lcdm','sigma8_sd');value=abs((A-C)/Cs)
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','sigma8');C=csv_val(p,'iam_level2_runC_lcdm','sigma8');Cs=csv_val(p,'iam_level2_runC_lcdm','sigma8_sd');value=abs((A-C)/Cs)
     return locals()
 
 @check(label='ch:level2:L308', chapter='ch:level2', part=2, title='sigma8 Run A posterior mean, repeat',
-       file='part2/p2_06_dual_sector_perturbation', line=308, status='measured', kind='file', printed='0.7998', tol=6.3e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=308, status='measured', kind='file', printed='0.7998', tol=6.3e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0757():
     'sigma8 Run A posterior mean, repeat. Book line 308, printed 0.7998.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:level2:L308:0.8087', chapter='ch:level2', part=2, title='sigma8 Run C posterior mean, repeat',
-       file='part2/p2_06_dual_sector_perturbation', line=308, status='measured', kind='file', printed='0.8087', tol=6.2e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=308, status='measured', kind='file', printed='0.8087', tol=6.2e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0758():
     'sigma8 Run C posterior mean, repeat. Book line 308, printed 0.8087.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:level2:L314', chapter='ch:level2', part=2, title='sigma8 shift, repeat',
        file='part2/p2_06_dual_sector_perturbation', line=314, status='calc', kind='num', printed='-1.51\\sigma', tol=0.0033)
 def check_0759():
     'sigma8 shift, repeat. Book line 314, printed -1.51\\sigma.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','sigma8');C=csv_val(p,'iam_level2_runC_lcdm','sigma8');Cs=csv_val(p,'iam_level2_runC_lcdm','sigma8_sd');value=(A-C)/Cs
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','sigma8');C=csv_val(p,'iam_level2_runC_lcdm','sigma8');Cs=csv_val(p,'iam_level2_runC_lcdm','sigma8_sd');value=(A-C)/Cs
     return locals()
 
 @check(label='ch:level2:L315', chapter='ch:level2', part=2, title='S8 shift, repeat',
        file='part2/p2_06_dual_sector_perturbation', line=315, status='calc', kind='num', printed='-0.78\\sigma', tol=0.0064)
 def check_0760():
     'S8 shift, repeat. Book line 315, printed -0.78\\sigma.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','S8');C=csv_val(p,'iam_level2_runC_lcdm','S8');Cs=csv_val(p,'iam_level2_runC_lcdm','S8_sd');value=(A-C)/Cs
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','S8');C=csv_val(p,'iam_level2_runC_lcdm','S8');Cs=csv_val(p,'iam_level2_runC_lcdm','S8_sd');value=(A-C)/Cs
     return locals()
 
 @check(label='ch:level2:L320', chapter='ch:level2', part=2, title='Run D vs A H0 agreement in sigma',
        file='part2/p2_06_dual_sector_perturbation', line=320, status='calc', kind='num', printed='0.06\\sigma', tol=0.08)
 def check_0762():
     'Run D vs A H0 agreement in sigma. Book line 320, printed 0.06\\sigma.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';D=csv_val(p,'iam_level2_runD','H0');A=csv_val(p,'iam_level2_runA','H0');Asd=csv_val(p,'iam_level2_runA','H0_sd');value=abs((D-A)/Asd)
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';D=csv_val(p,'iam_level2_runD','H0');A=csv_val(p,'iam_level2_runA','H0');Asd=csv_val(p,'iam_level2_runA','H0_sd');value=abs((D-A)/Asd)
     return locals()
 
 @check(label='ch:level2:L321', chapter='ch:level2', part=2, title='Run D posterior sigma8 mean',
-       file='part2/p2_06_dual_sector_perturbation', line=321, status='measured', kind='file', printed='0.7995\\pm0.0058', tol=6.3e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=321, status='measured', kind='file', printed='0.7995\\pm0.0058', tol=6.3e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0763():
     'Run D posterior sigma8 mean. Book line 321, printed 0.7995\\pm0.0058.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','sigma8')
     return locals()
 
 @check(label='ch:level2:L321:0.7998\\pm0.0058', chapter='ch:level2', part=2, title='Run A posterior sigma8 mean, repeat',
-       file='part2/p2_06_dual_sector_perturbation', line=321, status='measured', kind='file', printed='0.7998\\pm0.0058', tol=6.3e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=321, status='measured', kind='file', printed='0.7998\\pm0.0058', tol=6.3e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0764():
     'Run A posterior sigma8 mean, repeat. Book line 321, printed 0.7998\\pm0.0058.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:level2:L322', chapter='ch:level2', part=2, title='Omega_m shift Run D vs C',
        file='part2/p2_06_dual_sector_perturbation', line=322, status='calc', kind='num', printed='0.00\\sigma', tol=0.1)
 def check_0765():
     'Omega_m shift Run D vs C. Book line 322, printed 0.00\\sigma.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';D=csv_val(p,'iam_level2_runD','omegam');C=csv_val(p,'iam_level2_runC_lcdm','omegam');Cs=csv_val(p,'iam_level2_runC_lcdm','omegam_sd');value=(D-C)/Cs
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';D=csv_val(p,'iam_level2_runD','omegam');C=csv_val(p,'iam_level2_runC_lcdm','omegam');Cs=csv_val(p,'iam_level2_runC_lcdm','omegam_sd');value=(D-C)/Cs
     return locals()
 
 @check(label='ch:level2:L325', chapter='ch:level2', part=2, title='measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names',
@@ -10513,27 +10513,27 @@ def check_0767():
     return locals()
 
 @check(label='ch:level2:L491', chapter='ch:level2', part=2, title='chi2_min difference between IAM and LCDM runs',
-       file='part2/p2_06_dual_sector_perturbation', line=491, status='calc', kind='file', printed='+0.54', tol=0.01, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=491, status='calc', kind='file', printed='+0.54', tol=0.01, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0768():
     'chi2_min difference between IAM and LCDM runs. Book line 491, printed +0.54.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
     return locals()
 
 @check(label='ch:level2:L492', chapter='ch:level2', part=2, title='sigma8 before (LCDM-like run)',
-       file='part2/p2_06_dual_sector_perturbation', line=492, status='record', kind='file', printed='0.809', tol=0.0006, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=492, status='record', kind='file', printed='0.809', tol=0.0006, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0769():
     'sigma8 before (LCDM-like run). Book line 492, printed 0.809.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:level2:L492:0.800', chapter='ch:level2', part=2, title='sigma8 after (IAM run)',
-       file='part2/p2_06_dual_sector_perturbation', line=492, status='record', kind='file', printed='0.800', tol=0.0006, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_06_dual_sector_perturbation', line=492, status='record', kind='file', printed='0.800', tol=0.0006, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0770():
     'sigma8 after (IAM run). Book line 492, printed 0.800.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:level2:L493:0.1', chapter='ch:level2', part=2, title='largest standard-parameter shift A vs C, in sigma',
@@ -10650,26 +10650,26 @@ def check_0780():
     return locals()
 
 @check(label='ch:dsnote:L113', chapter='ch:dsnote', part=2, title='Omega_m/2 from Planck posterior (beta_m-fixed chain)',
-       file='part2/p2_05_dual_sector_note', line=113, status='measured', kind='file', printed='0.1583', tol=0.0003, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=113, status='measured', kind='file', printed='0.1583', tol=0.0003, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0781():
     'Omega_m/2 from Planck posterior (beta_m-fixed chain). Book line 113, printed 0.1583.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')/2
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')/2
     return locals()
 
 @check(label='ch:dsnote:L113:0.0032', chapter='ch:dsnote', part=2, title='uncertainty on Omega_m/2 posterior',
-       file='part2/p2_05_dual_sector_note', line=113, status='measured', kind='file', printed='0.0032', tol=0.016, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=113, status='measured', kind='file', printed='0.0032', tol=0.016, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0782():
     'uncertainty on Omega_m/2 posterior. Book line 113, printed 0.0032.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd')/2
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd')/2
     return locals()
 
 @check(label='ch:dsnote:L114', chapter='ch:dsnote', part=2, title='sigma deviation of Omega_m/2 from beta_m',
        file='part2/p2_05_dual_sector_note', line=114, status='measured', kind='num', printed='0.2', tol=0.25)
 def check_0783():
     'sigma deviation of Omega_m/2 from beta_m. Book line 114, printed 0.2.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; om=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')/2; sd=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd')/2; value=abs(om-beta_m)/sd
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; om=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')/2; sd=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd')/2; value=abs(om-beta_m)/sd
     return locals()
 
 @check(label='ch:dsnote:L114:0.15765', chapter='ch:dsnote', part=2, title='beta_m value restated for comparison',
@@ -10707,11 +10707,11 @@ def check_0785():
     return locals()
 
 @check(label='ch:dsnote:L126', chapter='ch:dsnote', part=2, title='worst-case chain convergence R-1',
-       file='part2/p2_05_dual_sector_note', line=126, status='measured', kind='file', printed='0.010', tol=0.05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=126, status='measured', kind='file', printed='0.010', tol=0.05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0786():
     'worst-case chain convergence R-1. Book line 126, printed 0.010.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','R-1_final(progress)')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','R-1_final(progress)')
     return locals()
 
 @check(label='ch:dsnote:L127', chapter='ch:dsnote', part=2, title='likelihood ratio from Delta chi^2=0.54',
@@ -10722,27 +10722,27 @@ def check_0787():
     return locals()
 
 @check(label='ch:dsnote:L127:0.54', chapter='ch:dsnote', part=2, title='Level 2 Delta chi2 lowest points, Run A minus Run C',
-       file='part2/p2_05_dual_sector_note', line=127, status='calc', kind='file', printed='0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_05_dual_sector_note', line=127, status='calc', kind='file', printed='0.54', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B01DS_CHAIN)
 def check_3348():
     'Delta chi2 between the lowest points of Run A (dual sector) and Run C (LambdaCDM), from the chain extraction. Book line 127, printed 0.54.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min') - csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min') - csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min')
     return locals()
 
 @check(label='ch:dsnote:L129', chapter='ch:dsnote', part=2, title='Level2 LCDM chain sigma8',
-       file='part2/p2_05_dual_sector_note', line=129, status='measured', kind='file', printed='0.809', tol=0.0006, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=129, status='measured', kind='file', printed='0.809', tol=0.0006, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0788():
     'Level2 LCDM chain sigma8. Book line 129, printed 0.809.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:dsnote:L129:0.800', chapter='ch:dsnote', part=2, title='Level2 beta_m-fixed chain sigma8',
-       file='part2/p2_05_dual_sector_note', line=129, status='measured', kind='file', printed='0.800', tol=0.0006, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=129, status='measured', kind='file', printed='0.800', tol=0.0006, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0789():
     'Level2 beta_m-fixed chain sigma8. Book line 129, printed 0.800.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:dsnote:L130', chapter='ch:dsnote', part=2, title='measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names',
@@ -10754,19 +10754,19 @@ def check_0790():
     return locals()
 
 @check(label='ch:dsnote:L130:0.47', chapter='ch:dsnote', part=2, title='photon-sector H0 posterior sd (Run A)',
-       file='part2/p2_05_dual_sector_note', line=130, status='measured', kind='file', printed='0.47', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_05_dual_sector_note', line=130, status='measured', kind='file', printed='0.47', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B01DS_CHAIN)
 def check_3349():
     'Posterior sd of H0 in the Level 2 Run A chain (photon sector), chain extraction. Book line 130, printed 0.47.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0_sd')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0_sd')
     return locals()
 
 @check(label='ch:dsnote:L130:0.37', chapter='ch:dsnote', part=2, title='photon-sector H0 against Planck, sigma',
-       file='part2/p2_05_dual_sector_note', line=130, status='measured', kind='file', printed='0.37', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_05_dual_sector_note', line=130, status='measured', kind='file', printed='0.37', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B01DS_CHAIN)
 def check_3350():
     'Distance of the Run A H0 from Planck 2018 67.36 +- 0.54 (doi 10.1051/0004-6361/201833910) in Planck errors. Book line 130, printed 0.37.'
-    value = (67.36 - csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')) / 0.54
+    value = (67.36 - csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')) / 0.54
     return locals()
 
 @check(label='ch:dsnote:L131', chapter='ch:dsnote', part=2, title='matter-sector H0 from photon H0 and beta_m',
@@ -10777,11 +10777,11 @@ def check_0791():
     return locals()
 
 @check(label='ch:dsnote:L131:0.50', chapter='ch:dsnote', part=2, title='matter-sector H0 error, sd x sqrt(1 + beta_m)',
-       file='part2/p2_05_dual_sector_note', line=131, status='calc', kind='file', printed='0.50', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_05_dual_sector_note', line=131, status='calc', kind='file', printed='0.50', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B01DS_CHAIN)
 def check_3351():
     'Error of H0(matter) = H0(photon) sqrt(1 + beta_m): the Run A H0 sd times sqrt(1 + beta_m) (beta_m fixed, no error). Book line 131, printed 0.50.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0_sd') * math.sqrt(1 + beta_m)
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0_sd') * math.sqrt(1 + beta_m)
     return locals()
 
 @check(label='ch:dsnote:L131:0.75', chapter='ch:dsnote', part=2, title='matter-sector H0 against SH0ES, sigma',
@@ -10792,43 +10792,43 @@ def check_3352():
     return locals()
 
 @check(label='ch:dsnote:L132', chapter='ch:dsnote', part=2, title='background-level chain H0 (falsification test)',
-       file='part2/p2_05_dual_sector_note', line=132, status='measured', kind='file', printed='61.45', tol=0.0001, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=132, status='measured', kind='file', printed='61.45', tol=0.0001, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0792():
     'background-level chain H0 (falsification test). Book line 132, printed 61.45.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0')
     return locals()
 
 @check(label='ch:dsnote:L132:0.42', chapter='ch:dsnote', part=2, title='uncertainty on background chain H0 (runA)',
-       file='part2/p2_05_dual_sector_note', line=132, status='measured', kind='file', printed='0.42', tol=0.012, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=132, status='measured', kind='file', printed='0.42', tol=0.012, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0793():
     'uncertainty on background chain H0 (runA). Book line 132, printed 0.42.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0_sd')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0_sd')
     return locals()
 
 @check(label='ch:dsnote:L132:61.52', chapter='ch:dsnote', part=2, title='second background chain H0',
-       file='part2/p2_05_dual_sector_note', line=132, status='measured', kind='file', printed='61.52', tol=0.0001, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=132, status='measured', kind='file', printed='61.52', tol=0.0001, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0794():
     'second background chain H0. Book line 132, printed 61.52.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0')
     return locals()
 
 @check(label='ch:dsnote:L132:0.43', chapter='ch:dsnote', part=2, title='uncertainty on background chain H0 (runD)',
-       file='part2/p2_05_dual_sector_note', line=132, status='measured', kind='file', printed='0.43', tol=0.012, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=132, status='measured', kind='file', printed='0.43', tol=0.012, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0795():
     'uncertainty on background chain H0 (runD). Book line 132, printed 0.43.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0_sd')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0_sd')
     return locals()
 
 @check(label='ch:dsnote:L133', chapter='ch:dsnote', part=2, title='sigma below Planck H0 (background chains)',
        file='part2/p2_05_dual_sector_note', line=133, status='measured', kind='num', printed='10.9', tol=0.005)
 def check_0796():
     'sigma below Planck H0 (background chains). Book line 133, printed 10.9.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; H0_planck=67.36; sigma_planck=0.54 # Planck 2018 TT,TE,EE+lowE+lensing
-    h1=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0'); h2=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; H0_planck=67.36; sigma_planck=0.54 # Planck 2018 TT,TE,EE+lowE+lensing
+    h1=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0'); h2=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0')
     avg=(h1+h2)/2
     value=(H0_planck-avg)/sigma_planck
     return locals()
@@ -10837,10 +10837,10 @@ def check_0796():
        file='part2/p2_05_dual_sector_note', line=133, status='measured', kind='num', printed='8.6', tol=0.006)
 def check_0797():
     'sigma below Planck, chain error in quadrature. Book line 133, printed 8.6.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; H0_planck=67.36; sigma_planck=0.54 # Planck 2018 TT,TE,EE+lowE+lensing
-    h1=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0'); h2=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; H0_planck=67.36; sigma_planck=0.54 # Planck 2018 TT,TE,EE+lowE+lensing
+    h1=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0'); h2=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0')
     avg=(h1+h2)/2
-    s1=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0_sd'); s2=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0_sd')
+    s1=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0_sd'); s2=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0_sd')
     savg=(s1+s2)/2
     comb=math.sqrt(sigma_planck**2+savg**2)
     value=(H0_planck-avg)/comb
@@ -10936,11 +10936,11 @@ def check_0809():
     return locals()
 
 @check(label='ch:dsnote:L158:67.16', chapter='ch:dsnote', part=2, title='Level2 chain H0 restated',
-       file='part2/p2_05_dual_sector_note', line=158, status='measured', kind='file', printed='67.16', tol=0.0001, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=158, status='measured', kind='file', printed='67.16', tol=0.0001, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0810():
     'Level2 chain H0 restated. Book line 158, printed 67.16.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='ch:dsnote:L159', chapter='ch:dsnote', part=2, title='measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names',
@@ -11086,35 +11086,35 @@ def check_3357():
     return locals()
 
 @check(label='ch:dsnote:L171', chapter='ch:dsnote', part=2, title='Level2 LCDM chain S8',
-       file='part2/p2_05_dual_sector_note', line=171, status='measured', kind='file', printed='0.830', tol=0.0006, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=171, status='measured', kind='file', printed='0.830', tol=0.0006, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0824():
     'Level2 LCDM chain S8. Book line 171, printed 0.830.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8')
     return locals()
 
 @check(label='ch:dsnote:L171:0.011', chapter='ch:dsnote', part=2, title='uncertainty on LCDM chain S8',
-       file='part2/p2_05_dual_sector_note', line=171, status='measured', kind='file', printed='0.011', tol=0.045, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=171, status='measured', kind='file', printed='0.011', tol=0.045, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0825():
     'uncertainty on LCDM chain S8. Book line 171, printed 0.011.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8_sd')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8_sd')
     return locals()
 
 @check(label='ch:dsnote:L171:0.822', chapter='ch:dsnote', part=2, title='Level2 beta_m-fixed chain S8',
-       file='part2/p2_05_dual_sector_note', line=171, status='measured', kind='file', printed='0.822', tol=0.0006, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=171, status='measured', kind='file', printed='0.822', tol=0.0006, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0826():
     'Level2 beta_m-fixed chain S8. Book line 171, printed 0.822.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8')
     return locals()
 
 @check(label="ch:dsnote:L171:0.011'", chapter='ch:dsnote', part=2, title='uncertainty on beta_m-fixed chain S8',
-       file='part2/p2_05_dual_sector_note', line=171, status='measured', kind='file', printed='0.011', tol=0.045, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=171, status='measured', kind='file', printed='0.011', tol=0.045, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0827():
     'uncertainty on beta_m-fixed chain S8. Book line 171, printed 0.011.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8_sd')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8_sd')
     return locals()
 
 @check(label='ch:dsnote:L172', chapter='ch:dsnote', part=2, title='measured: printed value found in PAPER_ERRATA.md, a file the chapter names',
@@ -11185,35 +11185,35 @@ def check_0834():
     return locals()
 
 @check(label='ch:dsnote:L177', chapter='ch:dsnote', part=2, title='sigma8 restated (LCDM Level2)',
-       file='part2/p2_05_dual_sector_note', line=177, status='measured', kind='file', printed='0.809', tol=0.0006, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=177, status='measured', kind='file', printed='0.809', tol=0.0006, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0835():
     'sigma8 restated (LCDM Level2). Book line 177, printed 0.809.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:dsnote:L177:0.800', chapter='ch:dsnote', part=2, title='sigma8 restated (beta_m-fixed Level2)',
-       file='part2/p2_05_dual_sector_note', line=177, status='measured', kind='file', printed='0.800', tol=0.0006, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=177, status='measured', kind='file', printed='0.800', tol=0.0006, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0836():
     'sigma8 restated (beta_m-fixed Level2). Book line 177, printed 0.800.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:dsnote:L177:0.830', chapter='ch:dsnote', part=2, title='S8 restated (LCDM Level2)',
-       file='part2/p2_05_dual_sector_note', line=177, status='measured', kind='file', printed='0.830', tol=0.0006, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=177, status='measured', kind='file', printed='0.830', tol=0.0006, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0837():
     'S8 restated (LCDM Level2). Book line 177, printed 0.830.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8')
     return locals()
 
 @check(label='ch:dsnote:L177:0.822', chapter='ch:dsnote', part=2, title='S8 restated (beta_m-fixed Level2)',
-       file='part2/p2_05_dual_sector_note', line=177, status='measured', kind='file', printed='0.822', tol=0.0006, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=177, status='measured', kind='file', printed='0.822', tol=0.0006, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0838():
     'S8 restated (beta_m-fixed Level2). Book line 177, printed 0.822.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8')
     return locals()
 
 @check(label='ch:dsnote:L177:0.8', chapter='ch:dsnote', part=2, title='S8 shift, Run C to Run A, in sigma',
@@ -11316,20 +11316,20 @@ def check_3364():
     return locals()
 
 @check(label='ch:dsnote:L234', chapter='ch:dsnote', part=2, title='Planck-only chi2 diff IAM vs LCDM, level-2 chains',
-       file='part2/p2_05_dual_sector_note', line=234, status='record', kind='file', printed='+0.54', tol=0.0093, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_05_dual_sector_note', line=234, status='record', kind='file', printed='+0.54', tol=0.0093, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0846():
     'Planck-only chi2 diff IAM vs LCDM, level-2 chains. Book line 234, printed +0.54.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
     return locals()
 
 @check(label='ch:dsnote:L235', chapter='ch:dsnote', part=2, title='Planck posterior Omega_m/2 against fixed beta_m, sigma',
-       file='part2/p2_05_dual_sector_note', line=235, status='record', kind='file', printed='0.2', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_05_dual_sector_note', line=235, status='record', kind='file', printed='0.2', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B01DS_CHAIN)
 def check_3365():
     'Distance of the Run A posterior Omega_m/2 from the fixed beta_m = 0.15765, in units of its sd/2 (chain extraction). Book line 235, printed 0.2.'
-    Omc = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'omegam')
-    sd = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'omegam_sd')
+    Omc = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'omegam')
+    sd = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'omegam_sd')
     value = (Omc / 2 - beta_m) / (sd / 2)
     return locals()
 
@@ -11875,19 +11875,19 @@ def check_0902():
     return locals()
 
 @check(label='ch:s8trend:L122', chapter='ch:s8trend', part=2, title='LCDM chain sigma8, Planck-only',
-       file='part2/p2_08_s8_trend', line=122, status='record', kind='file', printed='0.8143', tol=4e-05, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_08_s8_trend', line=122, status='record', kind='file', printed='0.8143', tol=4e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0903():
     'LCDM chain sigma8, Planck-only. Book line 122, printed 0.8143.'
-    value=csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck','s8_lcdm')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck','s8_lcdm')
     return locals()
 
 @check(label='ch:s8trend:L122:0.8015', chapter='ch:s8trend', part=2, title='IAM chain sigma8, Planck-only',
-       file='part2/p2_08_s8_trend', line=122, status='record', kind='file', printed='0.8015', tol=4e-05, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_08_s8_trend', line=122, status='record', kind='file', printed='0.8015', tol=4e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0904():
     'IAM chain sigma8, Planck-only. Book line 122, printed 0.8015.'
-    value=csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck','s8_iam')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck','s8_iam')
     return locals()
 
 @check(label='ch:s8trend:L122:1.68', chapter='ch:s8trend', part=2, title='amplitude deficit today, MGCAMB chain form',
@@ -11901,11 +11901,11 @@ def _b01st_fs8(z):
     return fs8_deficit(z, 'iam')
 
 @check(label='ch:s8trend:L123', chapter='ch:s8trend', part=2, title='sigma8 shift percent, Planck chains',
-       file='part2/p2_08_s8_trend', line=123, status='calc', kind='num', printed='1.6', tol=0.0313, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_08_s8_trend', line=123, status='calc', kind='num', printed='1.6', tol=0.0313, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0905():
     'sigma8 shift percent, Planck chains. Book line 123, printed 1.6.'
-    s8l=csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck','s8_lcdm'); s8i=csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck','s8_iam'); value=(s8l-s8i)/s8l*100
+    s8l=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck','s8_lcdm'); s8i=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck','s8_iam'); value=(s8l-s8i)/s8l*100
     return locals()
 
 @check(label='ch:s8trend:L123:half', chapter='ch:s8trend', part=2, title='exact-form fraction of MGCAMB deficit',
@@ -11916,19 +11916,19 @@ def check_0906():
     return locals()
 
 @check(label='ch:s8trend:L128', chapter='ch:s8trend', part=2, title='H0 from background-coupled Level2b chains',
-       file='part2/p2_08_s8_trend', line=128, status='calc', kind='file', printed='61.5', tol=0.02, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_08_s8_trend', line=128, status='calc', kind='file', printed='61.5', tol=0.02, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0907():
     'H0 from background-coupled Level2b chains. Book line 128, printed 61.5.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0'); value=(a+b)/2
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0'); value=(a+b)/2
     return locals()
 
 @check(label='ch:s8trend:L129', chapter='ch:s8trend', part=2, title='delta chi2, perturbation-only vs LCDM',
-       file='part2/p2_08_s8_trend', line=129, status='fitted', kind='file', printed='0.54', tol=0.02, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_08_s8_trend', line=129, status='fitted', kind='file', printed='0.54', tol=0.02, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0908():
     'delta chi2, perturbation-only vs LCDM. Book line 129, printed 0.54.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
     return locals()
 
 @check(label='ch:s8trend:L132', chapter='ch:s8trend', part=2, title='repeat beta_m from Om/2',
@@ -11939,27 +11939,27 @@ def check_0909():
     return locals()
 
 @check(label='ch:s8trend:L133', chapter='ch:s8trend', part=2, title='Level-2 posterior Omega_m',
-       file='part2/p2_08_s8_trend', line=133, status='measured', kind='file', printed='0.3166+/-0.0065', tol=0.00016, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_08_s8_trend', line=133, status='measured', kind='file', printed='0.3166+/-0.0065', tol=0.00016, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0910():
     'Level-2 posterior Omega_m. Book line 133, printed 0.3166+/-0.0065.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
     return locals()
 
 @check(label='ch:s8trend:L133:0.1583+/-0.0032', chapter='ch:s8trend', part=2, title='Omega_m/2 from Level-2 posterior',
-       file='part2/p2_08_s8_trend', line=133, status='calc', kind='num', printed='0.1583+/-0.0032', tol=0.00032, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_08_s8_trend', line=133, status='calc', kind='num', printed='0.1583+/-0.0032', tol=0.00032, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0911():
     'Omega_m/2 from Level-2 posterior. Book line 133, printed 0.1583+/-0.0032.'
-    om=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam'); value=om/2
+    om=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam'); value=om/2
     return locals()
 
 @check(label='ch:s8trend:L134', chapter='ch:s8trend', part=2, title='sigma distance from fixed beta_m',
-       file='part2/p2_08_s8_trend', line=134, status='calc', kind='num', printed='0.2', tol=0.25, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_08_s8_trend', line=134, status='calc', kind='num', printed='0.2', tol=0.25, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0912():
     'sigma distance from fixed beta_m. Book line 134, printed 0.2.'
-    om=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam'); sd=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd'); value=abs(om/2-beta_m)/(sd/2)
+    om=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam'); sd=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd'); value=abs(om/2-beta_m)/(sd/2)
     return locals()
 
 @check(label='ch:s8trend:L143', chapter='ch:s8trend', part=2, title='M_lens/M_dyn today',
@@ -12047,11 +12047,11 @@ def check_3395():
     return locals()
 
 @check(label='ch:s8trend:L206', chapter='ch:s8trend', part=2, title='Delta chi2 IAM vs LCDM, Level2 chains',
-       file='part2/p2_08_s8_trend', line=206, status='calc', kind='file', printed='+0.54', tol=0.00926, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_08_s8_trend', line=206, status='calc', kind='file', printed='+0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0916():
     'Delta chi2 IAM vs LCDM, Level2 chains. Book line 206, printed +0.54.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min') - csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min') - csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
     return locals()
 
 
@@ -12078,35 +12078,35 @@ def check_0919():
     return locals()
 
 @check(label='ch:sectortension:L21', chapter='ch:sectortension', part=2, title='Planck posterior vs fixed beta_m sigma',
-       file='part2/p2_09_sector_tension', line=21, status='calc', kind='num', printed='0.2', tol=0.25, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=21, status='calc', kind='num', printed='0.2', tol=0.25, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0920():
     'Planck posterior vs fixed beta_m sigma. Book line 21, printed 0.2.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';om=csv_val(p,'iam_level2_runA','omegam');sd=csv_val(p,'iam_level2_runA','omegam_sd');value=(om/2-beta_m)/(sd/2)
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';om=csv_val(p,'iam_level2_runA','omegam');sd=csv_val(p,'iam_level2_runA','omegam_sd');value=(om/2-beta_m)/(sd/2)
     return locals()
 
 @check(label='ch:sectortension:L30', chapter='ch:sectortension', part=2, title='chi2 difference term vs LCDM best points',
-       file='part2/p2_09_sector_tension', line=30, status='measured', kind='num', printed='+0.54', tol=0.0093, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=30, status='measured', kind='num', printed='+0.54', tol=0.0093, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0921():
     'chi2 difference term vs LCDM best points. Book line 30, printed +0.54.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';value=csv_val(p,'iam_level2_runA','chi2_min')-csv_val(p,'iam_level2_runC_lcdm','chi2_min')
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';value=csv_val(p,'iam_level2_runA','chi2_min')-csv_val(p,'iam_level2_runC_lcdm','chi2_min')
     return locals()
 
 @check(label='ch:sectortension:L30:0.010', chapter='ch:sectortension', part=2, title='max chain convergence R-1 across 18 chains',
-       file='part2/p2_09_sector_tension', line=30, status='measured', kind='file', printed='0.010', tol=0.05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=30, status='measured', kind='file', printed='0.010', tol=0.05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0922():
     'max chain convergence R-1 across 18 chains. Book line 30, printed 0.010.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';rows=['iam_baryon_test','iam_fixed_mu0','iam_float_mu0','lcdm_baseline','planck_bao_iam_fixed','planck_bao_lcdm_baseline','planck_bao_mu0_float','planck_pantheon_iam_fixed','planck_pantheon_lcdm_baseline','planck_pantheon_mu0_float','planck_rsd_iam_fixed','planck_rsd_lcdm_baseline','planck_rsd_mu0_float','iam_level2_runA','iam_level2_runC_lcdm','iam_level2_runD','iam_l2b_runA','iam_l2b_runD'];value=max(csv_val(p,r,'R-1_final(progress)') for r in rows)
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';rows=['iam_baryon_test','iam_fixed_mu0','iam_float_mu0','lcdm_baseline','planck_bao_iam_fixed','planck_bao_lcdm_baseline','planck_bao_mu0_float','planck_pantheon_iam_fixed','planck_pantheon_lcdm_baseline','planck_pantheon_mu0_float','planck_rsd_iam_fixed','planck_rsd_lcdm_baseline','planck_rsd_mu0_float','iam_level2_runA','iam_level2_runC_lcdm','iam_level2_runD','iam_l2b_runA','iam_l2b_runD'];value=max(csv_val(p,r,'R-1_final(progress)') for r in rows)
     return locals()
 
 @check(label='ch:sectortension:L30:0.7998', chapter='ch:sectortension', part=2, title='IAM term sigma8 posterior',
-       file='part2/p2_09_sector_tension', line=30, status='measured', kind='file', printed='0.7998', tol=0.00036, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=30, status='measured', kind='file', printed='0.7998', tol=0.00036, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0923():
     'IAM term sigma8 posterior. Book line 30, printed 0.7998.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:sectortension:L31', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
@@ -12118,11 +12118,11 @@ def check_0924():
     return locals()
 
 @check(label='ch:sectortension:L31:0.1', chapter='ch:sectortension', part=2, title='sigma agreement IAM vs lensing sigma8',
-       file='part2/p2_09_sector_tension', line=31, status='calc', kind='num', printed='0.1', tol=0.5, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=31, status='calc', kind='num', printed='0.1', tol=0.5, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0925():
     'sigma agreement IAM vs lensing sigma8. Book line 31, printed 0.1.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';s=csv_val(p,'iam_level2_runA','sigma8');sd=csv_val(p,'iam_level2_runA','sigma8_sd');value=(0.802-s)/math.sqrt(sd**2+0.02**2)
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';s=csv_val(p,'iam_level2_runA','sigma8');sd=csv_val(p,'iam_level2_runA','sigma8_sd');value=(0.802-s)/math.sqrt(sd**2+0.02**2)
     return locals()
 
 @check(label="ch:sectortension:L31:0.1'", chapter='ch:sectortension', part=2, title='fsigma8 deficit at QSO redshift z=1.491',
@@ -12466,27 +12466,27 @@ def check_0948():
     return locals()
 
 @check(label='ch:sectortension:L213', chapter='ch:sectortension', part=2, title='sigma8 term, Level2 Run A chain',
-       file='part2/p2_09_sector_tension', line=213, status='fitted', kind='file', printed='0.7998', tol=6.25e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=213, status='fitted', kind='file', printed='0.7998', tol=6.25e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0949():
     'sigma8 term, Level2 Run A chain. Book line 213, printed 0.7998.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:sectortension:L213:0.8087', chapter='ch:sectortension', part=2, title='sigma8 LCDM, Level2 Run C chain',
-       file='part2/p2_09_sector_tension', line=213, status='fitted', kind='file', printed='0.8087', tol=6.18e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=213, status='fitted', kind='file', printed='0.8087', tol=6.18e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0950():
     'sigma8 LCDM, Level2 Run C chain. Book line 213, printed 0.8087.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:sectortension:L216', chapter='ch:sectortension', part=2, title='sigma8 % diff between Level2 chains',
-       file='part2/p2_09_sector_tension', line=216, status='calc', kind='file', printed='1.11\\%', tol=0.001, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=216, status='calc', kind='file', printed='1.11\\%', tol=0.001, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0951():
     'sigma8 % diff between Level2 chains. Book line 216, printed 1.11\\%.'
-    value=1-csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')/csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=1-csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')/csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:sectortension:L216:0.78\\%', chapter='ch:sectortension', part=2, title='sigma8 lowered by the growth equation, same early amplitude',
@@ -12501,11 +12501,11 @@ def _b02_sigma_obs(nm):
     return math.sqrt(c33 * 1e-4)
 
 @check(label='ch:sectortension:L217', chapter='ch:sectortension', part=2, title='sigma8 LCDM repeated',
-       file='part2/p2_09_sector_tension', line=217, status='fitted', kind='file', printed='0.8087', tol=6.18e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=217, status='fitted', kind='file', printed='0.8087', tol=6.18e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0952():
     'sigma8 LCDM repeated. Book line 217, printed 0.8087.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:sectortension:L217:0.8024', chapter='ch:sectortension', part=2, title='IAM sigma8 estimate from ODE ratio x LCDM sigma8',
@@ -12523,27 +12523,27 @@ def check_0954():
     return locals()
 
 @check(label='ch:sectortension:L217:0.7998', chapter='ch:sectortension', part=2, title='Boltzmann sigma8 repeated',
-       file='part2/p2_09_sector_tension', line=217, status='fitted', kind='file', printed='0.7998', tol=6.25e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=217, status='fitted', kind='file', printed='0.7998', tol=6.25e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0955():
     'Boltzmann sigma8 repeated. Book line 217, printed 0.7998.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:sectortension:L223', chapter='ch:sectortension', part=2, title='sigma8 term repeated in caption',
-       file='part2/p2_09_sector_tension', line=223, status='fitted', kind='file', printed='0.7998', tol=6.25e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=223, status='fitted', kind='file', printed='0.7998', tol=6.25e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0956():
     'sigma8 term repeated in caption. Book line 223, printed 0.7998.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:sectortension:L223:0.8087', chapter='ch:sectortension', part=2, title='sigma8 LCDM repeated in caption',
-       file='part2/p2_09_sector_tension', line=223, status='fitted', kind='file', printed='0.8087', tol=6.18e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=223, status='fitted', kind='file', printed='0.8087', tol=6.18e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0957():
     'sigma8 LCDM repeated in caption. Book line 223, printed 0.8087.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:sectortension:L227', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
@@ -13313,35 +13313,35 @@ def check_1043():
     return locals()
 
 @check(label='eq:st_sigma8', chapter='ch:sectortension', part=2, title='sigma8 IAM Level2 posterior',
-       file='part2/p2_09_sector_tension', line=273, status='fitted', kind='file', printed='0.7998\\pm0.0058', tol=6.25e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=273, status='fitted', kind='file', printed='0.7998\\pm0.0058', tol=6.25e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1044():
     'sigma8 IAM Level2 posterior (Eq. eq:st_sigma8). Book line 273, printed 0.7998\\pm0.0058.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='eq:st_sigma8:0.8087\\pm0.0059', chapter='ch:sectortension', part=2, title='sigma8 LCDM Level2 posterior',
-       file='part2/p2_09_sector_tension', line=273, status='fitted', kind='file', printed='0.8087\\pm0.0059', tol=6.18e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=273, status='fitted', kind='file', printed='0.8087\\pm0.0059', tol=6.18e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1045():
     'sigma8 LCDM Level2 posterior (Eq. eq:st_sigma8). Book line 273, printed 0.8087\\pm0.0059.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='eq:st_S8', chapter='ch:sectortension', part=2, title='S8 IAM Level2 posterior',
-       file='part2/p2_09_sector_tension', line=276, status='fitted', kind='file', printed='0.822\\pm0.011', tol=0.000608, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=276, status='fitted', kind='file', printed='0.822\\pm0.011', tol=0.000608, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1046():
     'S8 IAM Level2 posterior (Eq. eq:st_S8). Book line 276, printed 0.822\\pm0.011.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8')
     return locals()
 
 @check(label='eq:st_S8:0.830\\pm0.011', chapter='ch:sectortension', part=2, title='S8 LCDM Level2 posterior',
-       file='part2/p2_09_sector_tension', line=276, status='fitted', kind='file', printed='0.830\\pm0.011', tol=0.000602, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=276, status='fitted', kind='file', printed='0.830\\pm0.011', tol=0.000602, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1047():
     'S8 LCDM Level2 posterior (Eq. eq:st_S8). Book line 276, printed 0.830\\pm0.011.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8')
     return locals()
 
 @check(label='ch:sectortension:L278', chapter='ch:sectortension', part=2, title="S8 recomputed at chain's own Om",
@@ -13352,19 +13352,19 @@ def check_1048():
     return locals()
 
 @check(label='ch:sectortension:L280', chapter='ch:sectortension', part=2, title='Omega_m shift between chains, in sigma',
-       file='part2/p2_09_sector_tension', line=280, status='none', kind='num', printed='+0.05\\sigma', tol=0.1, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=280, status='none', kind='num', printed='+0.05\\sigma', tol=0.1, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1049():
     'Omega_m shift between chains, in sigma. Book line 280, printed +0.05\\sigma.'
-    a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam');c=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','omegam');sd=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','omegam_sd');value=(a-c)/sd
+    a=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam');c=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','omegam');sd=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','omegam_sd');value=(a-c)/sd
     return locals()
 
 @check(label='ch:sectortension:L281', chapter='ch:sectortension', part=2, title='term sigma8 Om^0.25',
-       file='part2/p2_09_sector_tension', line=281, status='calc', kind='num', printed='0.600', tol=0.00083, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_09_sector_tension', line=281, status='calc', kind='num', printed='0.600', tol=0.00083, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1050():
     'term sigma8 Om^0.25. Book line 281, printed 0.600.'
-    s8=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8');om=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam');value=s8*om**0.25
+    s8=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8');om=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam');value=s8*om**0.25
     return locals()
 
 @check(label='ch:sectortension:L281:0.08\\%', chapter='ch:sectortension', part=2, title='CMB lensing power lowered, Limber estimate',
@@ -13438,39 +13438,39 @@ def check_1052():
     return locals()
 
 @check(label='ch:dsvalidation:L36', chapter='ch:dsvalidation', part=2, title='Δχ² IAM vs ΛCDM Level-2 chains',
-       file='part2/p2_10_dual_sector_validation', line=36, status='measured', kind='file', printed='+0.54', tol=0.0093, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=36, status='measured', kind='file', printed='+0.54', tol=0.0093, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1053():
     'Δχ² IAM vs ΛCDM Level-2 chains. Book line 36, printed +0.54.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
     value=csv_val(p,'iam_level2_runA','chi2_min')-csv_val(p,'iam_level2_runC_lcdm','chi2_min')
     return locals()
 
 @check(label='ch:dsvalidation:L37', chapter='ch:dsvalidation', part=2, title='σ8 ΛCDM Level-2 chain value',
-       file='part2/p2_10_dual_sector_validation', line=37, status='measured', kind='file', printed='0.809', tol=0.000618, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=37, status='measured', kind='file', printed='0.809', tol=0.000618, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1054():
     'σ8 ΛCDM Level-2 chain value. Book line 37, printed 0.809.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:dsvalidation:L37:0.800', chapter='ch:dsvalidation', part=2, title='σ8 IAM suppressed value, avg IAM Level-2 runs',
-       file='part2/p2_10_dual_sector_validation', line=37, status='measured', kind='file', printed='0.800', tol=0.000625, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=37, status='measured', kind='file', printed='0.800', tol=0.000625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1055():
     'σ8 IAM suppressed value, avg IAM Level-2 runs. Book line 37, printed 0.800.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
+    p='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
     v1=csv_val(p,'iam_level2_runA','sigma8')
     v2=csv_val(p,'iam_level2_runD','sigma8')
     value=(v1+v2)/2
     return locals()
 
 @check(label='ch:dsvalidation:L37:67.16', chapter='ch:dsvalidation', part=2, title='H0 photon-sector chain value',
-       file='part2/p2_10_dual_sector_validation', line=37, status='measured', kind='file', printed='67.16', tol=7.44e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=37, status='measured', kind='file', printed='67.16', tol=7.44e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1056():
     'H0 photon-sector chain value. Book line 37, printed 67.16.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='ch:dsvalidation:L38', chapter='ch:dsvalidation', part=2, title='H0(matter)=H0(photon)*sqrt(1+β_m)',
@@ -13490,11 +13490,11 @@ def check_1058():
     return locals()
 
 @check(label='ch:dsvalidation:L38:0.37', chapter='ch:dsvalidation', part=2, title='H0 photon (Level 2 Run A) from Planck 2018, in Planck sigma',
-       file='part2/p2_10_dual_sector_validation', line=38, status='measured', kind='file', printed='0.37', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_10_dual_sector_validation', line=38, status='measured', kind='file', printed='0.37', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_3441():
     'Distance of H0(photon) = 67.16 (Level 2 Run A posterior) from Planck 2018 67.36 +- 0.54 (Planck 2018 VI Table 2, doi:10.1051/0004-6361/201833910), in units of the Planck error. Book line 38, printed 0.37.'
-    H0g = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    H0g = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     value = (100 * h_pl - H0g) / 0.54
     return locals()
 
@@ -13575,19 +13575,19 @@ def check_1064():
     return locals()
 
 @check(label='ch:dsvalidation:L75', chapter='ch:dsvalidation', part=2, title='Ωm Level-2 MCMC posterior',
-       file='part2/p2_10_dual_sector_validation', line=75, status='calc', kind='file', printed='0.3166', tol=0.000158, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=75, status='calc', kind='file', printed='0.3166', tol=0.000158, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1065():
     'Ωm Level-2 MCMC posterior. Book line 75, printed 0.3166.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
     return locals()
 
 @check(label='ch:dsvalidation:L75:0.0065', chapter='ch:dsvalidation', part=2, title='Ωm posterior standard deviation',
-       file='part2/p2_10_dual_sector_validation', line=75, status='calc', kind='file', printed='0.0065', tol=0.0077, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=75, status='calc', kind='file', printed='0.0065', tol=0.0077, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1066():
     'Ωm posterior standard deviation. Book line 75, printed 0.0065.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd')
     return locals()
 
 @check(label='ch:dsvalidation:L75:0.1583', chapter='ch:dsvalidation', part=2, title='Ωm/2 implied value',
@@ -13617,27 +13617,27 @@ def check_1069():
     return locals()
 
 @check(label='eq:dsv_H0g', chapter='ch:dsvalidation', part=2, title='H0 photon-sector Level-2 posterior',
-       file='part2/p2_10_dual_sector_validation', line=80, status='measured', kind='file', printed='67.16', tol=7.44e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=80, status='measured', kind='file', printed='67.16', tol=7.44e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1070():
     'H0 photon-sector Level-2 posterior (Eq. eq:dsv_H0g). Book line 80, printed 67.16.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='eq:dsv_H0g:0.47', chapter='ch:dsvalidation', part=2, title='H0 photon-sector posterior uncertainty',
-       file='part2/p2_10_dual_sector_validation', line=80, status='measured', kind='file', printed='0.47', tol=0.0106, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=80, status='measured', kind='file', printed='0.47', tol=0.0106, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1071():
     'H0 photon-sector posterior uncertainty (Eq. eq:dsv_H0g). Book line 80, printed 0.47.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')
     return locals()
 
 @check(label='eq:dsv_H0m', chapter='ch:dsvalidation', part=2, title='H0 photon value restated, extra digit',
-       file='part2/p2_10_dual_sector_validation', line=81, status='calc', kind='file', printed='67.161', tol=7.44e-06, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=81, status='calc', kind='file', printed='67.161', tol=7.44e-06, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1072():
     'H0 photon value restated, extra digit (Eq. eq:dsv_H0m). Book line 81, printed 67.161.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='eq:dsv_H0m:1.0759', chapter='ch:dsvalidation', part=2, title='sqrt(1+β_m) factor',
@@ -13655,11 +13655,11 @@ def check_1074():
     return locals()
 
 @check(label='eq:dsv_H0m:0.50', chapter='ch:dsvalidation', part=2, title='Run A H0 sd x sqrt(1+beta_m)',
-       file='part2/p2_10_dual_sector_validation', line=81, status='calc', kind='num', printed='0.50', tol=0.01, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=81, status='calc', kind='num', printed='0.50', tol=0.01, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1075():
     'Run A H0 sd x sqrt(1+beta_m) (Eq. eq:dsv_H0m). Book line 81, printed 0.50.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')*math.sqrt(1+beta_m)
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')*math.sqrt(1+beta_m)
     return locals()
 
 @check(label='ch:dsvalidation:L84', chapter='ch:dsvalidation', part=2, title='H_m^2(1) = H0^2 (1 + beta_m) in a flat universe',
@@ -13906,27 +13906,27 @@ def check_1083():
     return locals()
 
 @check(label='ch:dsvalidation:L432', chapter='ch:dsvalidation', part=2, title='S8 from IAM Level2 chain',
-       file='part2/p2_10_dual_sector_validation', line=432, status='measured', kind='file', printed='0.822\\pm0.011', tol=0.0006, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=432, status='measured', kind='file', printed='0.822\\pm0.011', tol=0.0006, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1084():
     'S8 from IAM Level2 chain. Book line 432, printed 0.822\\pm0.011.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8')
     return locals()
 
 @check(label='ch:dsvalidation:L433', chapter='ch:dsvalidation', part=2, title='S8 from LCDM Level2 baseline chain',
-       file='part2/p2_10_dual_sector_validation', line=433, status='measured', kind='file', printed='0.830\\pm0.011', tol=0.0006, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=433, status='measured', kind='file', printed='0.830\\pm0.011', tol=0.0006, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1085():
     'S8 from LCDM Level2 baseline chain. Book line 433, printed 0.830\\pm0.011.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8')
     return locals()
 
 @check(label='ch:dsvalidation:L433:0.8\\sigma', chapter='ch:dsvalidation', part=2, title='S8 shift significance between chains',
-       file='part2/p2_10_dual_sector_validation', line=433, status='calc', kind='file', printed='0.8\\sigma', tol=0.0625, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=433, status='calc', kind='file', printed='0.8\\sigma', tol=0.0625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1086():
     'S8 shift significance between chains. Book line 433, printed 0.8\\sigma.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; s8i=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8'); s8l=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8'); sd=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8_sd'); value=(s8l-s8i)/sd
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; s8i=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8'); s8l=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8'); sd=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','S8_sd'); value=(s8l-s8i)/sd
     return locals()
 
 @check(label='ch:dsvalidation:L440', chapter='ch:dsvalidation', part=2, title='theta_s shift, beta=0.18 on photon paths, from LCDM',
@@ -13972,11 +13972,11 @@ def check_1092():
     return locals()
 
 @check(label='ch:dsvalidation:L442', chapter='ch:dsvalidation', part=2, title='H0 from Level2b exploratory chain',
-       file='part2/p2_10_dual_sector_validation', line=442, status='measured', kind='file', printed='\\approx61.5', tol=0.02, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=442, status='measured', kind='file', printed='\\approx61.5', tol=0.02, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1093():
     'H0 from Level2b exploratory chain. Book line 442, printed \\approx61.5.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0')
     return locals()
 
 @check(label='ch:dsvalidation:L443', chapter='ch:dsvalidation', part=2, title='sector ratio from the committed 95 % bound',
@@ -13995,11 +13995,11 @@ def check_3468():
     return locals()
 
 @check(label='ch:dsvalidation:L457', chapter='ch:dsvalidation', part=2, title='H0 photon sector from Level2 chain',
-       file='part2/p2_10_dual_sector_validation', line=457, status='measured', kind='file', printed='67.16\\pm0.47', tol=0.0001, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=457, status='measured', kind='file', printed='67.16\\pm0.47', tol=0.0001, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1095():
     'H0 photon sector from Level2 chain. Book line 457, printed 67.16\\pm0.47.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='ch:dsvalidation:L457:67.36\\pm0.54', chapter='ch:dsvalidation', part=2, title='measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names',
@@ -14019,11 +14019,11 @@ def check_1097():
     return locals()
 
 @check(label='ch:dsvalidation:L458:0.800', chapter='ch:dsvalidation', part=2, title='sigma8 prediction from Level2 chain',
-       file='part2/p2_10_dual_sector_validation', line=458, status='measured', kind='file', printed='0.800', tol=0.000625, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=458, status='measured', kind='file', printed='0.800', tol=0.000625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1098():
     'sigma8 prediction from Level2 chain. Book line 458, printed 0.800.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','sigma8')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','sigma8')
     return locals()
 
 @check(label='ch:dsvalidation:L460', chapter='ch:dsvalidation', part=2, title='measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names',
@@ -14059,11 +14059,11 @@ def check_1100():
     return locals()
 
 @check(label='ch:dsvalidation:L494', chapter='ch:dsvalidation', part=2, title='chain posterior sigma8 restated',
-       file='part2/p2_10_dual_sector_validation', line=494, status='prediction', kind='file', printed='0.800', tol=0.000625, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=494, status='prediction', kind='file', printed='0.800', tol=0.000625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1101():
     'chain posterior sigma8 restated. Book line 494, printed 0.800.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:dsvalidation:L497', chapter='ch:dsvalidation', part=2, title='measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names',
@@ -14138,11 +14138,11 @@ def check_3471():
     return locals()
 
 @check(label='ch:dsvalidation:L520', chapter='ch:dsvalidation', part=2, title='chi2 difference IAM vs LCDM Level2',
-       file='part2/p2_10_dual_sector_validation', line=520, status='measured', kind='file', printed='+0.54', tol=0.0093, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=520, status='measured', kind='file', printed='+0.54', tol=0.0093, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1109():
     'chi2 difference IAM vs LCDM Level2. Book line 520, printed +0.54.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
     return locals()
 
 @check(label='ch:dsvalidation:L525', chapter='ch:dsvalidation', part=2, title='beta_m amplitude equals Omega_m/2',
@@ -14210,19 +14210,19 @@ def check_1113():
     return locals()
 
 @check(label='ch:dsvalidation:L549', chapter='ch:dsvalidation', part=2, title='chi2 difference IAM vs LCDM, restated',
-       file='part2/p2_10_dual_sector_validation', line=549, status='measured', kind='file', printed='+0.54', tol=0.0093, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=549, status='measured', kind='file', printed='+0.54', tol=0.0093, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1114():
     'chi2 difference IAM vs LCDM, restated. Book line 549, printed +0.54.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
     return locals()
 
 @check(label='ch:dsvalidation:L550', chapter='ch:dsvalidation', part=2, title='sigma8 posterior restated from chain',
-       file='part2/p2_10_dual_sector_validation', line=550, status='measured', kind='file', printed='0.800', tol=0.000625, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=550, status='measured', kind='file', printed='0.800', tol=0.000625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1115():
     'sigma8 posterior restated from chain. Book line 550, printed 0.800.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','sigma8')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runD','sigma8')
     return locals()
 
 @check(label='ch:dsvalidation:L550:72.26', chapter='ch:dsvalidation', part=2, title='measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names',
@@ -14234,11 +14234,11 @@ def check_1116():
     return locals()
 
 @check(label='ch:dsvalidation:L550:\\approx61.5', chapter='ch:dsvalidation', part=2, title='H0 from second Level2b background run',
-       file='part2/p2_10_dual_sector_validation', line=550, status='measured', kind='file', printed='\\approx61.5', tol=0.02, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_10_dual_sector_validation', line=550, status='measured', kind='file', printed='\\approx61.5', tol=0.02, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1117():
     'H0 from second Level2b background run. Book line 550, printed \\approx61.5.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0')
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0')
     return locals()
 
 
@@ -14958,11 +14958,11 @@ def check_1212():
     return locals()
 
 @check(label='ch:darkenergy:L228', chapter='ch:darkenergy', part=2, title='Level 2 background H0',
-       file='part2/p2_11_dark_energy', line=228, status='calc', kind='file', printed='67.16', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_11_dark_energy', line=228, status='calc', kind='file', printed='67.16', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_3481():
     'H0 of the Level 2 background (book line 228, printed 67.16): the Level 2 Run A posterior mean H0 in the committed chain record.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:darkenergy:L229', chapter='ch:darkenergy', part=2, title='max age increase under Level2 params',
@@ -15469,11 +15469,11 @@ def check_1277():
     return locals()
 
 @check(label='ch:wzfuture:L152', chapter='ch:wzfuture', part=2, title='sigma8 from Level-2 chain',
-       file='part2/p2_20_wz_far_future', line=152, status='measured', kind='file', printed='0.800', tol=0.01, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_20_wz_far_future', line=152, status='measured', kind='file', printed='0.800', tol=0.01, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1278():
     'sigma8 from Level-2 chain. Book line 152, printed 0.800.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='ch:wzfuture:L153', chapter='ch:wzfuture', part=2, title='drafted check, screened (runs; negative control fails)',
@@ -17093,11 +17093,11 @@ def check_1431():
     return locals()
 
 @check(label='ch:baryon:L168:6.113', chapter='ch:baryon', part=2, title='same value as p2_13b_baryon_chain:117 (eta = 2.739e-8 Omega_b h^2 from the 18th chain)',
-       file='part2/p2_13_baryon', line=168, status='calc', kind='file', printed='6.113', tol=0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_13_baryon', line=168, status='calc', kind='file', printed='6.113', tol=0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1433():
     'same value as p2_13b_baryon_chain:117 (eta = 2.739e-8 Omega_b h^2 from the 18th chain). Book line 168, printed 6.113.'
-    value=2.739e-8*csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2')*1e10
+    value=2.739e-8*csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2')*1e10
     return locals()
 
 @check(label='ch:baryon:L168:0.8', chapter='ch:baryon', part=2, title='below Planck 6.127',
@@ -17292,7 +17292,7 @@ def check_3549():
     return locals()
 
 @check(label='eq:bc_std', chapter='ch:baryon_chain', part=2, title='other runs: Omega_b h^2 flat on [0.020, 0.025], start N(0.02242, 0.00014^2), from the four LambdaCDM YAML files',
-       file='part2/p2_13b_baryon_chain', line=69, status='calc', kind='file', printed='0.00014', tol=0.0, source='mgcamb_validation/chains/lcdm_baseline.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=69, status='calc', kind='file', printed='0.00014', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml')
 def check_3550():
     'Other runs: Omega_b h^2 flat on [0.020, 0.025], start N(0.02242, 0.00014^2) (Eq. eq:bc_std). Book line 69. Read from the Cobaya settings of the four LambdaCDM chains (Planck, + BAO, + Pantheon+, + BOSS DR12): every one carries the same range and start; value = the start width.'
     runs = ['planck', 'bao', 'pantheon', 'rsd']
@@ -17303,7 +17303,7 @@ def check_3550():
     value = widths[0]
     return locals()
 
-_B03_REC_RERUN = ("python3 -c \"import numpy as np; d=np.loadtxt('mgcamb_validation/iam_baryon_test.1.txt'); d=d[int(0.3*len(d)):]; "
+_B03_REC_RERUN = ("python3 -c \"import numpy as np; d=np.loadtxt('Cosmological_Physics/mgcamb_validation/iam_baryon_test.1.txt'); d=d[int(0.3*len(d)):]; "
                   "m=np.average(d[:,2],weights=d[:,0]); print(m, np.sqrt(np.average((d[:,2]-m)**2,weights=d[:,0])))\"  "
                   "(the 22,400-row copy of the chain, 30 % burn-in, weighted: 0.022319473 +/- 0.000136384)")
 
@@ -17326,26 +17326,26 @@ def check_1446():
     return locals()
 
 @check(label='eq:bc_ob', chapter='ch:baryon_chain', part=2, title='18th chain Omega_b h^2 and sd',
-       file='part2/p2_13b_baryon_chain', line=115, status='none', kind='file', printed='0.022320', tol=0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_13b_baryon_chain', line=115, status='none', kind='file', printed='0.022320', tol=0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1447():
     '18th chain Omega_b h^2 and sd (Eq. eq:bc_ob). Book line 115, printed 0.022320.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2'); sd=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2_sd'); assert abs(sd-0.000136)<5e-7
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2'); sd=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2_sd'); assert abs(sd-0.000136)<5e-7
     return locals()
 
 @check(label='eq:bc_etares', chapter='ch:baryon_chain', part=2, title='eta = 2.739e-8 Omega_b h^2 from the 18th chain',
-       file='part2/p2_13b_baryon_chain', line=117, status='measured', kind='file', printed='6.113', tol=0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_13b_baryon_chain', line=117, status='measured', kind='file', printed='6.113', tol=0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1448():
     'eta = 2.739e-8 Omega_b h^2 from the 18th chain (Eq. eq:bc_etares). Book line 117, printed 6.113.'
-    value=2.739e-8*csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2')*1e10
+    value=2.739e-8*csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2')*1e10
     return locals()
 
 @check(label='ch:baryon_chain:L118', chapter='ch:baryon_chain', part=2, title="the run record's Omega_b h^2 (30 % burn-in on the chain copy)",
        file='part2/p2_13b_baryon_chain', line=118, status='measured', kind='file', printed='0.022319', tol=0.0, source='docs/book/read_ledgers/bl_MANIFEST.md',
        heavy=True, rerun=_B03_REC_RERUN)
 def check_3551():
-    "The record of the run gives Omega_b h^2 = 0.022319 +/- 0.000136. Book line 118. The record (an RTF, not committed) is quoted in docs/book/read_ledgers/bl_MANIFEST.md: ombh2 mean 0.022319473, std 0.000136384; the same numbers come from the committed chain copy mgcamb_validation/iam_baryon_test.1.txt (22,400 rows, 30 % burn-in, weighted; rerun command)."
+    "The record of the run gives Omega_b h^2 = 0.022319 +/- 0.000136. Book line 118. The record (an RTF, not committed) is quoted in docs/book/read_ledgers/bl_MANIFEST.md: ombh2 mean 0.022319473, std 0.000136384; the same numbers come from the committed chain copy Cosmological_Physics/mgcamb_validation/iam_baryon_test.1.txt (22,400 rows, 30 % burn-in, weighted; rerun command)."
     value, sd = _b03_record_ombh2()
     assert abs(sd - 0.000136) < 5e-7
     return locals()
@@ -17408,14 +17408,14 @@ def check_1452():
     return locals()
 
 @check(label='ch:baryon_chain:L121:0.010', chapter='ch:baryon_chain', part=2, title='18th chain: lower end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=121, status='measured', kind='file', printed='0.010', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=121, status='measured', kind='file', printed='0.010', tol=0.0, source='Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
 def check_3555():
     'The range allowed is 0.010-0.040: lower end. Book line 121. Prior min of ombh2 in the 18th chain settings (iam_baryon_test.updated.yaml).'
     value = _b03_ombh2_setting('18th', 'min')
     return locals()
 
 @check(label='ch:baryon_chain:L121:0.040', chapter='ch:baryon_chain', part=2, title='18th chain: upper end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=121, status='measured', kind='file', printed='0.040', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=121, status='measured', kind='file', printed='0.040', tol=0.0, source='Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
 def check_3556():
     'The range allowed is 0.010-0.040: upper end. Book line 121. Prior max of ombh2 in the 18th chain settings (iam_baryon_test.updated.yaml).'
     value = _b03_ombh2_setting('18th', 'max')
@@ -17543,14 +17543,14 @@ def check_1467():
     return locals()
 
 @check(label='ch:baryon_chain:L142:0.010', chapter='ch:baryon_chain', part=2, title='Table tab:bc_compare, 18th chain: lower end of the flat range',
-       file='part2/p2_13b_baryon_chain', line=142, status='measured', kind='file', printed='0.010', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=142, status='measured', kind='file', printed='0.010', tol=0.0, source='Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
 def check_3557():
     'Table tab:bc_compare, 18th chain, flat range 0.010-0.040: lower end. Book line 142. Prior min of ombh2 in iam_baryon_test.updated.yaml.'
     value = _b03_ombh2_setting('18th', 'min')
     return locals()
 
 @check(label='ch:baryon_chain:L142:0.040', chapter='ch:baryon_chain', part=2, title='Table tab:bc_compare, 18th chain: upper end of the flat range',
-       file='part2/p2_13b_baryon_chain', line=142, status='measured', kind='file', printed='0.040', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=142, status='measured', kind='file', printed='0.040', tol=0.0, source='Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
 def check_3558():
     'Table tab:bc_compare, 18th chain, flat range 0.010-0.040: upper end. Book line 142. Prior max of ombh2 in iam_baryon_test.updated.yaml.'
     value = _b03_ombh2_setting('18th', 'max')
@@ -17575,11 +17575,11 @@ def check_1469():
     return locals()
 
 @check(label='ch:baryon_chain:L148', chapter='ch:baryon_chain', part=2, title='18th chain eta',
-       file='part2/p2_13b_baryon_chain', line=148, status='calc', kind='file', printed='6.113', tol=0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_13b_baryon_chain', line=148, status='calc', kind='file', printed='6.113', tol=0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1470():
     '18th chain eta. Book line 148, printed 6.113.'
-    value=2.739e-8*csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2')*1e10
+    value=2.739e-8*csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_baryon_test','ombh2')*1e10
     return locals()
 
 @check(label='ch:baryon_chain:L148:0.3', chapter='ch:baryon_chain', part=2, title='chain vs nucleosynthesis, sigma',
@@ -17666,16 +17666,16 @@ def check_1477():
     return locals()
 
 @check(label='ch:baryon_chain:L166:0.010', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, iam_baryon_test: lower end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=166, status='measured', kind='file', printed='0.010', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=166, status='measured', kind='file', printed='0.010', tol=0.0, source='Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
 def check_3562():
-    'Table tab:baryon_chains, iam_baryon_test chain: Omega_b h^2 range 0.010-0.040, lower end. Book line 166. Prior min of ombh2 in mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml.'
+    'Table tab:baryon_chains, iam_baryon_test chain: Omega_b h^2 range 0.010-0.040, lower end. Book line 166. Prior min of ombh2 in Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml.'
     value = _b03_ombh2_setting('18th', 'min')
     return locals()
 
 @check(label='ch:baryon_chain:L166:0.040', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, iam_baryon_test: upper end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=166, status='measured', kind='file', printed='0.040', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=166, status='measured', kind='file', printed='0.040', tol=0.0, source='Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
 def check_3563():
-    'Table tab:baryon_chains, iam_baryon_test chain: Omega_b h^2 range 0.010-0.040, upper end. Book line 166. Prior max of ombh2 in mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml.'
+    'Table tab:baryon_chains, iam_baryon_test chain: Omega_b h^2 range 0.010-0.040, upper end. Book line 166. Prior max of ombh2 in Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml.'
     value = _b03_ombh2_setting('18th', 'max')
     return locals()
 
@@ -17713,16 +17713,16 @@ def check_1480():
     return locals()
 
 @check(label='ch:baryon_chain:L167:0.020', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, lcdm_baseline: lower end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=167, status='measured', kind='file', printed='0.020', tol=0.0, source='mgcamb_validation/chains/lcdm_baseline.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=167, status='measured', kind='file', printed='0.020', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml')
 def check_3565():
-    'Table tab:baryon_chains, lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, lower end. Book line 167. Prior min of ombh2 in mgcamb_validation/chains/lcdm_baseline.updated.yaml.'
+    'Table tab:baryon_chains, lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, lower end. Book line 167. Prior min of ombh2 in Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml.'
     value = _b03_ombh2_setting('planck', 'min')
     return locals()
 
 @check(label='ch:baryon_chain:L167:0.025', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, lcdm_baseline: upper end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=167, status='measured', kind='file', printed='0.025', tol=0.0, source='mgcamb_validation/chains/lcdm_baseline.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=167, status='measured', kind='file', printed='0.025', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml')
 def check_3566():
-    'Table tab:baryon_chains, lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, upper end. Book line 167. Prior max of ombh2 in mgcamb_validation/chains/lcdm_baseline.updated.yaml.'
+    'Table tab:baryon_chains, lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, upper end. Book line 167. Prior max of ombh2 in Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml.'
     value = _b03_ombh2_setting('planck', 'max')
     return locals()
 
@@ -17760,16 +17760,16 @@ def check_1483():
     return locals()
 
 @check(label='ch:baryon_chain:L168:0.020', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, planck_bao_lcdm_baseline: lower end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=168, status='measured', kind='file', printed='0.020', tol=0.0, source='mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=168, status='measured', kind='file', printed='0.020', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml')
 def check_3568():
-    'Table tab:baryon_chains, planck_bao_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, lower end. Book line 168. Prior min of ombh2 in mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml.'
+    'Table tab:baryon_chains, planck_bao_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, lower end. Book line 168. Prior min of ombh2 in Cosmological_Physics/mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml.'
     value = _b03_ombh2_setting('bao', 'min')
     return locals()
 
 @check(label='ch:baryon_chain:L168:0.025', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, planck_bao_lcdm_baseline: upper end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=168, status='measured', kind='file', printed='0.025', tol=0.0, source='mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=168, status='measured', kind='file', printed='0.025', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml')
 def check_3569():
-    'Table tab:baryon_chains, planck_bao_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, upper end. Book line 168. Prior max of ombh2 in mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml.'
+    'Table tab:baryon_chains, planck_bao_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, upper end. Book line 168. Prior max of ombh2 in Cosmological_Physics/mgcamb_validation/chains/planck_bao_lcdm_baseline.updated.yaml.'
     value = _b03_ombh2_setting('bao', 'max')
     return locals()
 
@@ -17807,16 +17807,16 @@ def check_1486():
     return locals()
 
 @check(label='ch:baryon_chain:L169:0.020', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, planck_pantheon_lcdm_baseline: lower end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=169, status='measured', kind='file', printed='0.020', tol=0.0, source='mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=169, status='measured', kind='file', printed='0.020', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml')
 def check_3571():
-    'Table tab:baryon_chains, planck_pantheon_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, lower end. Book line 169. Prior min of ombh2 in mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml.'
+    'Table tab:baryon_chains, planck_pantheon_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, lower end. Book line 169. Prior min of ombh2 in Cosmological_Physics/mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml.'
     value = _b03_ombh2_setting('pantheon', 'min')
     return locals()
 
 @check(label='ch:baryon_chain:L169:0.025', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, planck_pantheon_lcdm_baseline: upper end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=169, status='measured', kind='file', printed='0.025', tol=0.0, source='mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=169, status='measured', kind='file', printed='0.025', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml')
 def check_3572():
-    'Table tab:baryon_chains, planck_pantheon_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, upper end. Book line 169. Prior max of ombh2 in mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml.'
+    'Table tab:baryon_chains, planck_pantheon_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, upper end. Book line 169. Prior max of ombh2 in Cosmological_Physics/mgcamb_validation/chains/planck_pantheon_lcdm_baseline.updated.yaml.'
     value = _b03_ombh2_setting('pantheon', 'max')
     return locals()
 
@@ -17854,16 +17854,16 @@ def check_1489():
     return locals()
 
 @check(label='ch:baryon_chain:L170:0.020', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, planck_rsd_lcdm_baseline: lower end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=170, status='measured', kind='file', printed='0.020', tol=0.0, source='mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=170, status='measured', kind='file', printed='0.020', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml')
 def check_3574():
-    'Table tab:baryon_chains, planck_rsd_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, lower end. Book line 170. Prior min of ombh2 in mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml.'
+    'Table tab:baryon_chains, planck_rsd_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, lower end. Book line 170. Prior min of ombh2 in Cosmological_Physics/mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml.'
     value = _b03_ombh2_setting('rsd', 'min')
     return locals()
 
 @check(label='ch:baryon_chain:L170:0.025', chapter='ch:baryon_chain', part=2, title='Table tab:baryon_chains, planck_rsd_lcdm_baseline: upper end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=170, status='measured', kind='file', printed='0.025', tol=0.0, source='mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=170, status='measured', kind='file', printed='0.025', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml')
 def check_3575():
-    'Table tab:baryon_chains, planck_rsd_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, upper end. Book line 170. Prior max of ombh2 in mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml.'
+    'Table tab:baryon_chains, planck_rsd_lcdm_baseline chain: Omega_b h^2 range 0.020-0.025, upper end. Book line 170. Prior max of ombh2 in Cosmological_Physics/mgcamb_validation/chains/planck_rsd_lcdm_baseline.updated.yaml.'
     value = _b03_ombh2_setting('rsd', 'max')
     return locals()
 
@@ -17921,35 +17921,35 @@ def check_1494():
     return locals()
 
 @check(label='ch:baryon_chain:L179:0.010', chapter='ch:baryon_chain', part=2, title='fig:baryon_posterior caption: 18th chain, lower end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=179, status='measured', kind='file', printed='0.010', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=179, status='measured', kind='file', printed='0.010', tol=0.0, source='Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
 def check_3577():
-    'Figure fig:baryon_posterior caption: 18th chain, range 0.010-0.040, lower end. Book line 179. Prior min of ombh2 in mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml.'
+    'Figure fig:baryon_posterior caption: 18th chain, range 0.010-0.040, lower end. Book line 179. Prior min of ombh2 in Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml.'
     value = _b03_ombh2_setting('18th', 'min')
     return locals()
 
 @check(label='ch:baryon_chain:L179:0.040', chapter='ch:baryon_chain', part=2, title='fig:baryon_posterior caption: 18th chain, upper end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=179, status='measured', kind='file', printed='0.040', tol=0.0, source='mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=179, status='measured', kind='file', printed='0.040', tol=0.0, source='Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml')
 def check_3578():
-    'Figure fig:baryon_posterior caption: 18th chain, range 0.010-0.040, upper end. Book line 179. Prior max of ombh2 in mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml.'
+    'Figure fig:baryon_posterior caption: 18th chain, range 0.010-0.040, upper end. Book line 179. Prior max of ombh2 in Cosmological_Physics/mgcamb_validation/yaml_configs/iam_baryon_test.updated.yaml.'
     value = _b03_ombh2_setting('18th', 'max')
     return locals()
 
 @check(label='ch:baryon_chain:L179:0.020', chapter='ch:baryon_chain', part=2, title='fig:baryon_posterior caption: other runs, lower end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=179, status='measured', kind='file', printed='0.020', tol=0.0, source='mgcamb_validation/chains/lcdm_baseline.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=179, status='measured', kind='file', printed='0.020', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml')
 def check_3579():
-    'Figure fig:baryon_posterior caption: other runs, range 0.020-0.025, lower end. Book line 179. Prior min of ombh2 in mgcamb_validation/chains/lcdm_baseline.updated.yaml.'
+    'Figure fig:baryon_posterior caption: other runs, range 0.020-0.025, lower end. Book line 179. Prior min of ombh2 in Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml.'
     value = _b03_ombh2_setting('planck', 'min')
     return locals()
 
 @check(label='ch:baryon_chain:L179:0.025', chapter='ch:baryon_chain', part=2, title='fig:baryon_posterior caption: other runs, upper end of the flat Omega_b h^2 range',
-       file='part2/p2_13b_baryon_chain', line=179, status='measured', kind='file', printed='0.025', tol=0.0, source='mgcamb_validation/chains/lcdm_baseline.updated.yaml')
+       file='part2/p2_13b_baryon_chain', line=179, status='measured', kind='file', printed='0.025', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml')
 def check_3580():
-    'Figure fig:baryon_posterior caption: other runs, range 0.020-0.025, upper end. Book line 179. Prior max of ombh2 in mgcamb_validation/chains/lcdm_baseline.updated.yaml.'
+    'Figure fig:baryon_posterior caption: other runs, range 0.020-0.025, upper end. Book line 179. Prior max of ombh2 in Cosmological_Physics/mgcamb_validation/chains/lcdm_baseline.updated.yaml.'
     value = _b03_ombh2_setting('planck', 'max')
     return locals()
 
 @check(label='ch:baryon_chain:L183', chapter='ch:baryon_chain', part=2, title='the eta every CMB fit returns, to one figure: the 18th chain',
-       file='part2/p2_13b_baryon_chain', line=183, status='openprob', kind='file', printed='6\\times10^{-10}', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_13b_baryon_chain', line=183, status='openprob', kind='file', printed='6\\times10^{-10}', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B03_CHAIN_RERUN)
 def check_3581():
     'A chain returning eta far from 6e-10. Book line 183. The 18th chain eta, factor (recomputed) times its Omega_b h^2 from CHAIN_EXTRACTION_FINAL.csv, to one figure.'
@@ -17988,7 +17988,7 @@ def check_3583():
     return locals()
 
 @check(label='ch:baryon_chain:L196', chapter='ch:baryon_chain', part=2, title='18th chain eta below the Planck 2018 value, per cent',
-       file='part2/p2_13b_baryon_chain', line=196, status='measured', kind='file', printed='0.2', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_13b_baryon_chain', line=196, status='measured', kind='file', printed='0.2', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B03_CHAIN_RERUN)
 def check_3584():
     '0.2 % below the Planck 2018 value. Book line 196. 18th chain Omega_b h^2 (CHAIN_EXTRACTION_FINAL.csv) against Planck 2018 VI Table 2 Omega_b h^2 = 0.02237, both converted with the same factor.'
@@ -17996,7 +17996,7 @@ def check_3584():
     return locals()
 
 @check(label='ch:baryon_chain:L196:0.3', chapter='ch:baryon_chain', part=2, title='18th chain eta from nucleosynthesis with deuterium, in sigma',
-       file='part2/p2_13b_baryon_chain', line=196, status='measured', kind='file', printed='0.3', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_13b_baryon_chain', line=196, status='measured', kind='file', printed='0.3', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B03_CHAIN_RERUN)
 def check_3585():
     '0.3 sigma from nucleosynthesis with deuterium. Book line 196. (6.180 - eta_chain)/0.195 with Cyburt et al. 2016 Table IV BBN+D 6.180 +/- 0.195 (read from section F2 of the committed verify_lambda_baryon_book output) and eta_chain from CHAIN_EXTRACTION_FINAL.csv with the recomputed factor.'
@@ -18038,19 +18038,19 @@ def check_1498():
     return locals()
 
 @check(label='ch:surveys:L38:-0.13495', chapter='ch:surveys', part=2, title='mu0 of the MGCAMB tracking form in the Level 1 chains, from the chain settings',
-       file='part2/p2_16_survey_predictions', line=38, status='calc', kind='file', printed='-0.13495', tol=0.0, source='mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml')
+       file='part2/p2_16_survey_predictions', line=38, status='calc', kind='file', printed='-0.13495', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml')
 def check_3587():
     'The MGCAMB runs use the tracking form with mu0 = -0.13495. Book line 38. Read from the fixed mu0 value in the Cobaya settings of the Level 1 Planck chain (iam_fixed_mu0_r2.updated.yaml); the 18th chain carries the same value.'
-    value = _b03_yaml_param('mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml', 'mu0', 'value')
+    value = _b03_yaml_param('Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml', 'mu0', 'value')
     return locals()
 
 @check(label='ch:surveys:L40', chapter='ch:surveys', part=2, title='Level 2: Delta chi2 of the IAM run against LambdaCDM (chain minima)',
-       file='part2/p2_16_survey_predictions', line=40, status='measured', kind='file', printed='+0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_16_survey_predictions', line=40, status='measured', kind='file', printed='+0.54', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B03_CHAINS_RERUN)
 def check_3588():
     'Level 2 chains: Delta chi2 = +0.54 relative to LambdaCDM. Book line 40. chi2_min of Level 2 Run A (IAM) minus Run C (LambdaCDM) in CHAIN_EXTRACTION_FINAL.csv (10972.612 - 10972.071).'
-    value = (csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min')
-             - csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min'))
+    value = (csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min')
+             - csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min'))
     return locals()
 
 @check(label='ch:surveys:L41', chapter='ch:surveys', part=2, title='measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names',
@@ -19253,11 +19253,11 @@ def check_3621():
     return locals()
 
 @check(label='ch:surveys:L166:+0.2', chapter='ch:surveys', part=2, title='upper prior edge of mu0 in the free-mu0 chains',
-       file='part2/p2_16_survey_predictions', line=166, status='fitted', kind='file', printed='+0.2', tol=0.0, source='mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml')
+       file='part2/p2_16_survey_predictions', line=166, status='fitted', kind='file', printed='+0.2', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml')
 def check_3622():
     'The free-mu0 chains reach the upper prior edge (+0.2). Book line 166. Prior max of mu0 in the Planck free-mu0 chain settings (iam_float_mu0_r2.updated.yaml); the Planck + RSD chain (planck_rsd_mu0_float.updated.yaml) has the same edge.'
-    value = _b03_yaml_param('mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml', 'mu0', 'max')
-    assert value == _b03_yaml_param('mgcamb_validation/chains/planck_rsd_mu0_float.updated.yaml', 'mu0', 'max')
+    value = _b03_yaml_param('Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml', 'mu0', 'max')
+    assert value == _b03_yaml_param('Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.updated.yaml', 'mu0', 'max')
     return locals()
 
 @check(label='ch:surveys:L166:+0.059', chapter='ch:surveys', part=2, title='free-mu0 chain, Planck: median of mu0',
@@ -19868,11 +19868,11 @@ def check_3652():
     return locals()
 
 @check(label='ch:surveys:L245', chapter='ch:surveys', part=2, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part2/p2_16_survey_predictions', line=245, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_16_survey_predictions', line=245, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1622():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 245, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:surveys:L246', chapter='ch:surveys', part=2, title='measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names',
@@ -20002,11 +20002,11 @@ def check_3666():
     return locals()
 
 @check(label='ch:surveys:L254:67.16', chapter='ch:surveys', part=2, title='H0 photon sector, Level 2 Run A chain (figure caption)',
-       file='part2/p2_16_survey_predictions', line=254, status='prediction', kind='file', printed='67.16', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_16_survey_predictions', line=254, status='prediction', kind='file', printed='67.16', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_3667():
     'Photon-sector H0 of the Level 2 Run A chain, read from the chain record. Book line 254 (caption), printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:surveys:L259', chapter='ch:surveys', part=2, title='same value as p2_03_theory:882 (w_eff at z=1)',
@@ -20786,27 +20786,27 @@ def check_2934():
     return locals()
 
 @check(label='ch:lensdyn:L185', chapter='ch:lensdyn', part=2, title='same value as p2_08_s8_trend:122 (LCDM chain sigma8, Planck-only)',
-       file='part2/p2_17_lensing_dynamics', line=185, status='calc', kind='file', printed='0.8143', tol=4e-05, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_17_lensing_dynamics', line=185, status='calc', kind='file', printed='0.8143', tol=4e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1681():
     'same value as p2_08_s8_trend:122 (LCDM chain sigma8, Planck-only). Book line 185, printed 0.8143.'
-    value=csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck','s8_lcdm')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck','s8_lcdm')
     return locals()
 
 @check(label='ch:lensdyn:L185:1.11', chapter='ch:lensdyn', part=2, title='sigma8 lower, Level 2',
-       file='part2/p2_17_lensing_dynamics', line=185, status='calc', kind='file', printed='1.11', tol=0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_17_lensing_dynamics', line=185, status='calc', kind='file', printed='1.11', tol=0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1682():
     'sigma8 lower, Level 2. Book line 185, printed 1.11.'
-    value=100*(1-csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')/csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8'))
+    value=100*(1-csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')/csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8'))
     return locals()
 
 @check(label='ch:lensdyn:L185:0.8087', chapter='ch:lensdyn', part=2, title='same value as p2_02_virial:212 (Level2 LCDM chain sigma8)',
-       file='part2/p2_17_lensing_dynamics', line=185, status='calc', kind='file', printed='0.8087', tol=6.18e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_17_lensing_dynamics', line=185, status='calc', kind='file', printed='0.8087', tol=6.18e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1683():
     'same value as p2_02_virial:212 (Level2 LCDM chain sigma8). Book line 185, printed 0.8087.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:lensdyn:L200', chapter='ch:lensdyn', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
@@ -21252,19 +21252,19 @@ def check_1716():
     return locals()
 
 @check(label='ch:lensdyn:L268:67.16', chapter='ch:lensdyn', part=2, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part2/p2_17_lensing_dynamics', line=268, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_17_lensing_dynamics', line=268, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1717():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 268, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:lensdyn:L269', chapter='ch:lensdyn', part=2, title='same value as p2_02_virial:212 (Level2 LCDM chain sigma8)',
-       file='part2/p2_17_lensing_dynamics', line=269, status='calc', kind='file', printed='0.8087', tol=6.18e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_17_lensing_dynamics', line=269, status='calc', kind='file', printed='0.8087', tol=6.18e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1718():
     'same value as p2_02_virial:212 (Level2 LCDM chain sigma8). Book line 269, printed 0.8087.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
 
 @check(label='ch:lensdyn:L269:4.25', chapter='ch:lensdyn', part=2, title='f sigma8 deficit z=0',
@@ -22313,19 +22313,19 @@ def check_1805():
     return locals()
 
 @check(label='ch:satellites:L21:1.1', chapter='ch:satellites', part=2, title='sigma8 lower, Level 2 chains',
-       file='part2/p2_19_missing_satellites', line=21, status='calc', kind='file', printed='1.1', tol=0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_19_missing_satellites', line=21, status='calc', kind='file', printed='1.1', tol=0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1806():
     'sigma8 lower, Level 2 chains. Book line 21, printed 1.1.'
-    value=100*(1-csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')/csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8'))
+    value=100*(1-csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')/csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8'))
     return locals()
 
 @check(label='ch:satellites:L21:1.6', chapter='ch:satellites', part=2, title='sigma8 lower, Level 1 chains',
-       file='part2/p2_19_missing_satellites', line=21, status='calc', kind='file', printed='1.6', tol=0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_19_missing_satellites', line=21, status='calc', kind='file', printed='1.6', tol=0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1807():
     'sigma8 lower, Level 1 chains. Book line 21, printed 1.6.'
-    value=100*(1-csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_fixed_mu0','sigma8')/csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','lcdm_baseline','sigma8'))
+    value=100*(1-csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_fixed_mu0','sigma8')/csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','lcdm_baseline','sigma8'))
     return locals()
 
 @check(label='eq:ms_virial', chapter='ch:satellites', part=2, title="2K + V = 0 gives K = |V|/2 (the display's K+V=0 reads the bound-state energy E = -K)",
@@ -22344,19 +22344,19 @@ def check_1809():
     return locals()
 
 @check(label='ch:satellites:L55', chapter='ch:satellites', part=2, title='same value as p2_05_dual_sector_note:113 (Omega_m/2 from Planck posterior (beta_m-fixed chain))',
-       file='part2/p2_19_missing_satellites', line=55, status='calc', kind='file', printed='0.1583', tol=0.0003, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_19_missing_satellites', line=55, status='calc', kind='file', printed='0.1583', tol=0.0003, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1810():
     'same value as p2_05_dual_sector_note:113 (Omega_m/2 from Planck posterior (beta_m-fixed chain)). Book line 55, printed 0.1583.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')/2
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')/2
     return locals()
 
 @check(label='ch:satellites:L56', chapter='ch:satellites', part=2, title='same value as p1_03_virial_law:144 (Level2 Planck posterior Omega_m mean)',
-       file='part2/p2_19_missing_satellites', line=56, status='calc', kind='file', printed='0.3166', tol=0.0001579, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_19_missing_satellites', line=56, status='calc', kind='file', printed='0.3166', tol=0.0001579, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1811():
     'same value as p1_03_virial_law:144 (Level2 Planck posterior Omega_m mean). Book line 56, printed 0.3166.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
     return locals()
 
 @check(label='eq:ms_E', chapter='ch:satellites', part=2, title='E(a): E(1) = 1, E -> 0 as a -> 0, dE/da > 0',
@@ -22605,11 +22605,11 @@ def check_2984():
     return locals()
 
 @check(label='ch:satellites:L136', chapter='ch:satellites', part=2, title='same value as p2_05_dual_sector_note:113 (Omega_m/2 from Planck posterior (beta_m-fixed chain))',
-       file='part2/p2_19_missing_satellites', line=136, status='calc', kind='file', printed='0.1583', tol=0.0003, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_19_missing_satellites', line=136, status='calc', kind='file', printed='0.1583', tol=0.0003, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1828():
     'same value as p2_05_dual_sector_note:113 (Omega_m/2 from Planck posterior (beta_m-fixed chain)). Book line 136, printed 0.1583.'
-    path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')/2
+    path='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')/2
     return locals()
 
 @check(label='ch:satellites:L137', chapter='ch:satellites', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
@@ -22637,7 +22637,7 @@ def check_2985():
     return locals()
 
 @check(label='ch:satellites:L137:0.1', chapter='ch:satellites', part=2, title='Level 2 sigma8 vs joint weak lensing, in sigma',
-       file='part2/p2_19_missing_satellites', line=137, status='fitted', kind='file', printed='0.1', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_19_missing_satellites', line=137, status='fitted', kind='file', printed='0.1', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B05_CHAIN_RERUN)
 def check_2986():
     'Distance of the Level 2 sigma8 (chain iam_level2_runA) from the joint weak-lensing 0.802 (-0.018 on that side; Stolzner2025, as transcribed in verify_cluster_mass_satellites_output.txt), errors in quadrature. Book line 137, printed 0.1 sigma.'
@@ -22663,7 +22663,7 @@ def check_1832():
     return locals()
 
 @check(label='ch:satellites:L138:0.37', chapter='ch:satellites', part=2, title='photon-sector H0 vs Planck 2018, in sigma',
-       file='part2/p2_19_missing_satellites', line=138, status='fitted', kind='file', printed='0.37', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_19_missing_satellites', line=138, status='fitted', kind='file', printed='0.37', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B05_CHAIN_RERUN)
 def check_2987():
     'Distance of the Level 2 photon-sector H0 (chain iam_level2_runA) from Planck 2018 67.36 +- 0.54 (Aghanim et al. 2020, doi 10.1051/0004-6361/201833910; verify_book h_pl), in units of the Planck error. Book line 138, printed 0.37 sigma.'
@@ -22680,11 +22680,11 @@ def check_1833():
     return locals()
 
 @check(label='ch:satellites:L139:67.161', chapter='ch:satellites', part=2, title='same value as p2_03_theory:889 (Level2 posterior mean H0)',
-       file='part2/p2_19_missing_satellites', line=139, status='calc', kind='file', printed='67.161', tol=7.44e-06, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_19_missing_satellites', line=139, status='calc', kind='file', printed='67.161', tol=7.44e-06, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1834():
     'same value as p2_03_theory:889 (Level2 posterior mean H0). Book line 139, printed 67.161.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='ch:satellites:L139:0.75', chapter='ch:satellites', part=2, title='H0 matter vs SH0ES',
@@ -22695,7 +22695,7 @@ def check_1835():
     return locals()
 
 @check(label='ch:satellites:L140', chapter='ch:satellites', part=2, title='Delta chi^2 of Level 2 against the LCDM best fit',
-       file='part2/p2_19_missing_satellites', line=140, status='fitted', kind='file', printed='+0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_19_missing_satellites', line=140, status='fitted', kind='file', printed='+0.54', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B05_CHAIN_RERUN)
 def check_2988():
     'Delta chi^2 = chi2_min(iam_level2_runA) - chi2_min(iam_level2_runC_lcdm), same data. Book line 140, printed +0.54.'
@@ -22703,7 +22703,7 @@ def check_2988():
     return locals()
 
 @check(label='ch:satellites:L143', chapter='ch:satellites', part=2, title='sigma8 0.1 sigma from joint weak lensing, restated',
-       file='part2/p2_19_missing_satellites', line=143, status='calc', kind='file', printed='0.1', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_19_missing_satellites', line=143, status='calc', kind='file', printed='0.1', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B05_CHAIN_RERUN)
 def check_2989():
     'The sigma8 value lies 0.1 sigma from the joint weak-lensing analysis (restates line 137). Book line 143, printed 0.1. Same computation as ch:satellites:L137:0.1.'
@@ -22713,7 +22713,7 @@ def check_2989():
     return locals()
 
 @check(label='ch:satellites:L144', chapter='ch:satellites', part=2, title='Planck LCDM sigma8 in the same code (Level 2 LCDM chain)',
-       file='part2/p2_19_missing_satellites', line=144, status='interp', kind='file', printed='0.8087', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_19_missing_satellites', line=144, status='interp', kind='file', printed='0.8087', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B05_CHAIN_RERUN)
 def check_2990():
     'sigma8 of the LCDM chain run in the same modified CAMB (iam_level2_runC_lcdm). Book line 144, printed 0.8087.'
@@ -22756,7 +22756,7 @@ def check_2995():
     return locals()
 
 @check(label='ch:satellites:L161:0.7998', chapter='ch:satellites', part=2, title='Level 2 sigma8 (chain)',
-       file='part2/p2_19_missing_satellites', line=161, status='prediction', kind='file', printed='0.7998', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_19_missing_satellites', line=161, status='prediction', kind='file', printed='0.7998', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B05_CHAIN_RERUN)
 def check_2996():
     'sigma8 at Level 2, chain iam_level2_runA. Book line 161, printed 0.7998.'
@@ -22764,7 +22764,7 @@ def check_2996():
     return locals()
 
 @check(label='ch:satellites:L161:0.8087', chapter='ch:satellites', part=2, title='LCDM sigma8 in the same code (chain)',
-       file='part2/p2_19_missing_satellites', line=161, status='prediction', kind='file', printed='0.8087', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_19_missing_satellites', line=161, status='prediction', kind='file', printed='0.8087', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B05_CHAIN_RERUN)
 def check_2997():
     'sigma8 for LCDM in the same modified CAMB, chain iam_level2_runC_lcdm. Book line 161, printed 0.8087.'
@@ -23397,11 +23397,11 @@ def check_1885():
     return locals()
 
 @check(label='ch:blackholes:L209:67.16', chapter='ch:blackholes', part=3, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part2/p2_01_blackholes', line=209, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_01_blackholes', line=209, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1886():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 209, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:blackholes:L209:67.4', chapter='ch:blackholes', part=3, title='H0 = 67.4 (Planck 2018)',
@@ -23429,11 +23429,11 @@ def check_1888():
     return locals()
 
 @check(label='ch:blackholes:L224', chapter='ch:blackholes', part=3, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part2/p2_01_blackholes', line=224, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_01_blackholes', line=224, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1889():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 224, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:blackholes:L224:2.33\\times10^{22}', chapter='ch:blackholes', part=3, title='M_eq at H0 = 67.16',
@@ -24868,11 +24868,11 @@ def check_1981():
     return locals()
 
 @check(label='ch:quantumrecords:L299:0.800', chapter='ch:quantumrecords', part=4, title='sigma8, Level 2 Run A',
-       file='part2/p2_14_quantum_records', line=299, status='calc', kind='file', printed='0.800', tol=0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_14_quantum_records', line=299, status='calc', kind='file', printed='0.800', tol=0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1982():
     'sigma8, Level 2 Run A. Book line 299, printed 0.800.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
     return locals()
 
 @check(label='eq:qr_H0', chapter='ch:quantumrecords', part=4, title='H0 matter = 67.16 sqrt(1.15765)',
@@ -24883,27 +24883,27 @@ def check_1983():
     return locals()
 
 @check(label='ch:quantumrecords:L306', chapter='ch:quantumrecords', part=4, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part2/p2_14_quantum_records', line=306, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_14_quantum_records', line=306, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1984():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 306, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:quantumrecords:L307', chapter='ch:quantumrecords', part=4, title='matter-sector H0 from the Level 2 chain H0 times sqrt(1+beta_m)',
-       file='part2/p2_14_quantum_records', line=307, status='interp', kind='file', printed='72.26', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_14_quantum_records', line=307, status='interp', kind='file', printed='72.26', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_3076():
     '"72.26 is also the Level 2 chain value": the photon-sector H0 of the Level 2 Run A chain (CHAIN_EXTRACTION_FINAL.csv, row iam_level2_runA, column H0) '         'times sqrt(1 + beta_m), beta_m from CANON. Book line 307, printed 72.26.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0') * math.sqrt(1 + beta_m)
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0') * math.sqrt(1 + beta_m)
     return locals()
 
 @check(label='ch:quantumrecords:L311', chapter='ch:quantumrecords', part=4, title='Level 2 chi2_min IAM (runA) minus LCDM (runC)',
-       file='part2/p2_14_quantum_records', line=311, status='measured', kind='file', printed='+0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_14_quantum_records', line=311, status='measured', kind='file', printed='+0.54', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_3077():
-    'Delta chi^2 of the best fit, IAM minus LambdaCDM at Level 2: chi2_min of iam_level2_runA minus chi2_min of iam_level2_runC_lcdm in '         'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv. Book line 311, printed +0.54.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min') - csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min')
+    'Delta chi^2 of the best fit, IAM minus LambdaCDM at Level 2: chi2_min of iam_level2_runA minus chi2_min of iam_level2_runC_lcdm in '         'Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv. Book line 311, printed +0.54.'
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min') - csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min')
     return locals()
 
 @check(label='ch:quantumrecords:L330', chapter='ch:quantumrecords', part=4, title='separation of the electron spins in the loophole-free Bell test, km',
@@ -25016,11 +25016,11 @@ def check_3080():
     return locals()
 
 @check(label='ch:quantumrecords:L373:0.800', chapter='ch:quantumrecords', part=4, title='sigma8, Level 2 Run A (status list)',
-       file='part2/p2_14_quantum_records', line=373, status='prediction', kind='file', printed='0.800', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_14_quantum_records', line=373, status='prediction', kind='file', printed='0.800', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_3081():
-    'Predicted sigma8 = 0.800: row iam_level2_runA, column sigma8 of mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv. Book line 373, printed 0.800.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    'Predicted sigma8 = 0.800: row iam_level2_runA, column sigma8 of Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv. Book line 373, printed 0.800.'
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
     return locals()
 
 @check(label='ch:quantumrecords:L373:72.26', chapter='ch:quantumrecords', part=4, title='H0 matter = H0 photon sqrt(1+beta_m) (status list)',
@@ -25031,11 +25031,11 @@ def check_3082():
     return locals()
 
 @check(label='ch:quantumrecords:L373:67.16', chapter='ch:quantumrecords', part=4, title='photon-sector H0, Level 2 Run A chain (status list)',
-       file='part2/p2_14_quantum_records', line=373, status='prediction', kind='file', printed='67.16', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_14_quantum_records', line=373, status='prediction', kind='file', printed='67.16', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_3083():
-    'Photon-sector H0: row iam_level2_runA, column H0 of mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv. Book line 373, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    'Photon-sector H0: row iam_level2_runA, column H0 of Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv. Book line 373, printed 67.16.'
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 
@@ -25653,11 +25653,11 @@ def check_2049():
     return locals()
 
 @check(label='ch:gravdec:L33:+0.54', chapter='ch:gravdec', part=4, title='Level 2 chi2_min IAM (runA) minus LCDM (runC)',
-       file='part5/p5_05_gravdec', line=33, status='measured', kind='file', printed='+0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part5/p5_05_gravdec', line=33, status='measured', kind='file', printed='+0.54', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_CHAIN_RERUN_B06)
 def check_3101():
-    'Delta chi^2 at the best points, IAM minus LambdaCDM, Level 2: chi2_min of iam_level2_runA minus chi2_min of iam_level2_runC_lcdm in '         'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv. Book line 33, printed +0.54.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min') - csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min')
+    'Delta chi^2 at the best points, IAM minus LambdaCDM, Level 2: chi2_min of iam_level2_runA minus chi2_min of iam_level2_runC_lcdm in '         'Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv. Book line 33, printed +0.54.'
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min') - csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min')
     return locals()
 
 @check(label='ch:gravdec:L34', chapter='ch:gravdec', part=4, title='H0 matter sector',
@@ -25668,11 +25668,11 @@ def check_2050():
     return locals()
 
 @check(label='ch:gravdec:L34:67.16', chapter='ch:gravdec', part=4, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part5/p5_05_gravdec', line=34, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_05_gravdec', line=34, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2051():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 34, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:gravdec:L34:0.75', chapter='ch:gravdec', part=4, title='H0 matter vs SH0ES, sigma',
@@ -25698,11 +25698,11 @@ def check_2054():
     return locals()
 
 @check(label='ch:gravdec:L39:0.0068', chapter='ch:gravdec', part=4, title='final R-1 of the second Level 2b chain (runD)',
-       file='part5/p5_05_gravdec', line=39, status='measured', kind='file', printed='0.0068', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part5/p5_05_gravdec', line=39, status='measured', kind='file', printed='0.0068', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_CHAIN_RERUN_B06)
 def check_3102():
-    'Convergence of the second Level 2b chain: row iam_l2b_runD, column R-1_final(progress) of mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (0.006843). '         'Book line 39, printed 0.0068.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_l2b_runD', 'R-1_final(progress)')
+    'Convergence of the second Level 2b chain: row iam_l2b_runD, column R-1_final(progress) of Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (0.006843). '         'Book line 39, printed 0.0068.'
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_l2b_runD', 'R-1_final(progress)')
     return locals()
 
 @check(label='ch:gravdec:L40', chapter='ch:gravdec', part=4, title='measured: printed value found in verify_virial_papers_output.txt, a file the chapter names',
@@ -27928,11 +27928,11 @@ def check_2201():
     return locals()
 
 @check(label='ch:electronmass:L22:67.16', chapter='ch:electronmass', part=4, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part2/p2_15b_electron_mass', line=22, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_15b_electron_mass', line=22, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2202():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 22, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:electronmass:L22:2.65\\times10^{-30}', chapter='ch:electronmass', part=4, title='T_GH, H0 = 67.16',
@@ -28200,11 +28200,11 @@ def check_2229():
     return locals()
 
 @check(label='ch:electronmass:L116:67.16', chapter='ch:electronmass', part=4, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part2/p2_15b_electron_mass', line=116, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_15b_electron_mass', line=116, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2230():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 116, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:electronmass:L116:-0.02', chapter='ch:electronmass', part=4, title='fixed point offset at H0 = 67.36, per cent',
@@ -28263,11 +28263,11 @@ def check_2237():
     return locals()
 
 @check(label='ch:electronmass:L136', chapter='ch:electronmass', part=4, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part2/p2_15b_electron_mass', line=136, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part2/p2_15b_electron_mass', line=136, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2238():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 136, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:electronmass:L136:0.14', chapter='ch:electronmass', part=4, title='per cent low at 67.16',
@@ -30605,13 +30605,13 @@ def check_2446():
     return locals()
 
 @check(label='ch:astrogenetics:L283', chapter='ch:astrogenetics', part=6, title='18th chain eta below Planck 2018, per cent',
-       file='part4/p4_00b_astrogenetics', line=283, status='measured', kind='file', printed='0.2', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part4/p4_00b_astrogenetics', line=283, status='measured', kind='file', printed='0.2', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B08_CHAIN_RERUN)
 def check_3792():
     'eta of the CMB-only 18th chain below the Planck 2018 value, in per cent; eta is proportional to Omega_b h^2 (eta = 273.9e-10 '\
     'Omega_b h^2), so the ratio is that of Omega_b h^2. Book line 283, printed 0.2. Inputs: 18th chain (iam_baryon_test) ombh2 from '\
     'CHAIN_EXTRACTION_FINAL.csv; Planck 2018 VI Table 2 Omega_b h^2 = 0.02237 (doi 10.1051/0004-6361/201833910).'
-    eta_chain = 273.9e-10 * csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_baryon_test', 'ombh2')
+    eta_chain = 273.9e-10 * csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_baryon_test', 'ombh2')
     eta_planck = 273.9e-10 * 0.02237
     value = 100 * (1 - eta_chain / eta_planck)
     return locals()
@@ -35034,11 +35034,11 @@ def check_4355():
 
 # ======== Part 7 | ch:theoryinterp | docs/book/part5/p5_01_interpretation.tex
 @check(label='ch:theoryinterp:L30', chapter='ch:theoryinterp', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part5/p5_01_interpretation', line=30, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_01_interpretation', line=30, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2584():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 30, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:theoryinterp:L30:2.3\\times10^{22}', chapter='ch:theoryinterp', part=7, title='M_eq = c^3/4GH0 today, solar masses',
@@ -35104,11 +35104,11 @@ def check_4363():
     return locals()
 
 @check(label='ch:theoryinterp:L54', chapter='ch:theoryinterp', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part5/p5_01_interpretation', line=54, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_01_interpretation', line=54, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2585():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 54, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:theoryinterp:L54:2.65\\times10^{-30}', chapter='ch:theoryinterp', part=7, title='cosmic-horizon temperature T_GH = hbar H0/2 pi k_B',
@@ -35181,11 +35181,11 @@ def check_2589():
     return locals()
 
 @check(label='ch:time:L97', chapter='ch:time', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part5/p5_03_time', line=97, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_03_time', line=97, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2590():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 97, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:time:L97:72.26', chapter='ch:time', part=7, title='same value as p1_02_iams_law:696 (H0 matter-sector formula)',
@@ -35416,12 +35416,12 @@ def check_4393():
     return locals()
 
 @check(label='ch:virial_decoherence:L23', chapter='ch:virial_decoherence', part=7, title='Level 2 Delta chi2, IAM Run A minus LCDM Run C',
-       file='part5/p5_05c_virial_decoherence', line=23, status='interp', kind='file', printed='+0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_05c_virial_decoherence', line=23, status='interp', kind='file', printed='+0.54', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_4394():
     'Delta chi2 = chi2_min(iam_level2_runA) - chi2_min(iam_level2_runC_lcdm), the Level 2 chains on Planck 2018. Book line 23, printed +0.54.'
-    a = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min')
-    b = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min')
+    a = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min')
+    b = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min')
     value = a - b
     return locals()
 
@@ -35433,11 +35433,11 @@ def check_4395():
     return locals()
 
 @check(label='ch:virial_decoherence:L74', chapter='ch:virial_decoherence', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part5/p5_05c_virial_decoherence', line=74, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_05c_virial_decoherence', line=74, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2594():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 74, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:virial_decoherence:L81', chapter='ch:virial_decoherence', part=7, title='E(z = 10) = exp(1 - 1/a)',
@@ -35455,11 +35455,11 @@ def check_4397():
     return locals()
 
 @check(label='ch:virial_decoherence:L100', chapter='ch:virial_decoherence', part=7, title='H0 photon sector, Level 2 chain value',
-       file='part5/p5_05c_virial_decoherence', line=100, status='openprob', kind='file', printed='67.16', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_05c_virial_decoherence', line=100, status='openprob', kind='file', printed='67.16', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_4398():
     'H0 posterior mean of iam_level2_runA (photon sector, locked 67.16). Book line 100, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:virial_decoherence:L106', chapter='ch:virial_decoherence', part=7, title='saturation bound S/A = k_B/4 l_P^2 at R_s',
@@ -35498,11 +35498,11 @@ def check_4401():
     return locals()
 
 @check(label='ch:virial_decoherence:L160', chapter='ch:virial_decoherence', part=7, title='sigma8 IAM Level 2 chain value',
-       file='part5/p5_05c_virial_decoherence', line=160, status='interp', kind='file', printed='0.800', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_05c_virial_decoherence', line=160, status='interp', kind='file', printed='0.800', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_4402():
     'sigma8 posterior mean of iam_level2_runA. Book line 160, printed 0.800.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
     return locals()
 
 @check(label='ch:virial_decoherence:L175', chapter='ch:virial_decoherence', part=7, title='coupling reduction today 1 - mu(1)',
@@ -35769,11 +35769,11 @@ def check_4423():
 
 # ======== Part 7 | ch:synthesis | docs/book/part5/p5_08_synthesis.tex
 @check(label='ch:synthesis:L29', chapter='ch:synthesis', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part5/p5_08_synthesis', line=29, status='derived', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_08_synthesis', line=29, status='derived', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2605():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 29, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:synthesis:L29:2.65\\times10^{-30}', chapter='ch:synthesis', part=7, title='cosmic-horizon temperature T_GH, H0 = 67.16',
@@ -35885,11 +35885,11 @@ def check_4436():
     return locals()
 
 @check(label='ch:synthesis:L54:0.7998', chapter='ch:synthesis', part=7, title='sigma8 IAM Level 2 chain',
-       file='part5/p5_08_synthesis', line=54, status='measured', kind='file', printed='0.7998', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_08_synthesis', line=54, status='measured', kind='file', printed='0.7998', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_4437():
     'sigma8 posterior mean of iam_level2_runA. Book line 54, printed 0.7998.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
     return locals()
 
 @check(label='ch:synthesis:L64', chapter='ch:synthesis', part=7, title='capacitor charging: dissipated over drawn energy, any R',
@@ -35930,20 +35930,20 @@ def check_4440():
     return locals()
 
 @check(label='ch:synthesis:L79', chapter='ch:synthesis', part=7, title='Level 2 Delta chi2, IAM minus LCDM',
-       file='part5/p5_08_synthesis', line=79, status='fitted', kind='file', printed='+0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_08_synthesis', line=79, status='fitted', kind='file', printed='+0.54', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_4441():
     'chi2_min(iam_level2_runA) - chi2_min(iam_level2_runC_lcdm). Book line 79, printed +0.54.'
-    value = (csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min')
-             - csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min'))
+    value = (csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min')
+             - csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min'))
     return locals()
 
 @check(label='ch:synthesis:L80', chapter='ch:synthesis', part=7, title='sigma8 LCDM Level 2 chain (Run C)',
-       file='part5/p5_08_synthesis', line=80, status='fitted', kind='file', printed='0.8087', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_08_synthesis', line=80, status='fitted', kind='file', printed='0.8087', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_4442():
     'sigma8 posterior mean of iam_level2_runC_lcdm. Book line 80, printed 0.8087.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'sigma8')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'sigma8')
     return locals()
 
 @check(label='ch:synthesis:L80:4.25', chapter='ch:synthesis', part=7, title='f sigma8 deficit at z = 0',
@@ -36257,11 +36257,11 @@ def check_4460():
     return locals()
 
 @check(label='ch:predictions:L24:0.039', chapter='ch:predictions', part=7, title='free mu0, Planck + RSD chain posterior mean',
-       file='part5/p5_07_predictions', line=24, status='measured', kind='file', printed='0.039', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_07_predictions', line=24, status='measured', kind='file', printed='0.039', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_4461():
     'Posterior mean of mu0 (flat prior [-0.5, 0.2]) in the planck_rsd_mu0_float chain, CHAIN_EXTRACTION_FINAL.csv (as tab:lt_free, Planck + RSD (E)). Book line 24, printed 0.039 (+- 0.125).'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'planck_rsd_mu0_float', 'mu0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'planck_rsd_mu0_float', 'mu0')
     return locals()
 
 @check(label='ch:predictions:L24:0.11', chapter='ch:predictions', part=7, title='DESI 2024 full-shape mu0 (recorded value)',
@@ -36309,11 +36309,11 @@ def check_4468():
     return locals()
 
 @check(label='ch:predictions:L87', chapter='ch:predictions', part=7, title='matter-sector H0 = H0_photon sqrt(1 + beta_m)',
-       file='part5/p5_07_predictions', line=87, status='openprob', kind='file', printed='72.26', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_07_predictions', line=87, status='openprob', kind='file', printed='72.26', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_4469():
     'H0_matter = H0_photon sqrt(1 + beta_m) (C12), H0_photon the iam_level2_runA posterior mean, beta_m from CANON. Book line 84-87, printed 72.26.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0') * math.sqrt(1 + beta_m)
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0') * math.sqrt(1 + beta_m)
     return locals()
 
 @check(label='ch:predictions:L154', chapter='ch:predictions', part=7, title='bound on drift of m_p/m_e from H2 quasar absorbers (published)',
@@ -36364,11 +36364,11 @@ def check_4474():
     return locals()
 
 @check(label='ch:exploratory:L21', chapter='ch:exploratory', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part5/p5_02_exploratory', line=21, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_02_exploratory', line=21, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2628():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 21, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:exploratory:L21:2.53\\times10^{-53}', chapter='ch:exploratory', part=7, title='Landauer cost k_B T_H ln 2 per bit at H0_photon', file='part5/p5_02_exploratory', line=21,
@@ -36587,11 +36587,11 @@ def check_4492():
     return locals()
 
 @check(label='ch:exploratory:L136', chapter='ch:exploratory', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part5/p5_02_exploratory', line=136, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_02_exploratory', line=136, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2631():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 136, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:exploratory:L136:72.26', chapter='ch:exploratory', part=7, title='same value as p1_02_iams_law:696 (H0 matter-sector formula)',
@@ -37214,11 +37214,11 @@ def check_2634():
     return locals()
 
 @check(label='ch:statusall:L12:8.6', chapter='ch:statusall', part=7, title='Level 2b H0 vs Planck',
-       file='part5/p5_11_status_all', line=12, status='calc', kind='file', printed='8.6', tol=0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_11_status_all', line=12, status='calc', kind='file', printed='8.6', tol=0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2635():
     'Level 2b H0 vs Planck. Book line 12, printed 8.6.'
-    h2=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0'); s2=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0_sd'); value=abs(h2-67.36)/math.hypot(s2,0.54)
+    h2=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0'); s2=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0_sd'); value=abs(h2-67.36)/math.hypot(s2,0.54)
     return locals()
 
 @check(label='ch:statusall:L21', chapter='ch:statusall', part=7, title='cost per bit cell / cosmic horizon',
@@ -37454,10 +37454,10 @@ def check_4572():
     return locals()
 
 @check(label='ch:statusall:L44:+0.2', chapter='ch:statusall', part=7, title='free mu0: upper prior edge',
-       file='part5/p5_11_status_all', line=44, status='calc', kind='file', printed='+0.2', tol=0.0, source='mgcamb_validation/chains/planck_rsd_mu0_float.input.yaml')
+       file='part5/p5_11_status_all', line=44, status='calc', kind='file', printed='+0.2', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.input.yaml')
 def check_4573():
     'Upper edge of the flat mu0 prior in the Cobaya input of the free-amplitude chain (params: mu0: prior: max). Book line 44, printed +0.2.'
-    m = re.search(r'\n  mu0:\s*\n\s+prior:\s*\n\s+min:\s*([-\d.]+)\s*\n\s+max:\s*([-\d.]+)', file_text('mgcamb_validation/chains/planck_rsd_mu0_float.input.yaml'))
+    m = re.search(r'\n  mu0:\s*\n\s+prior:\s*\n\s+min:\s*([-\d.]+)\s*\n\s+max:\s*([-\d.]+)', file_text('Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.input.yaml'))
     value = float(m.group(2))
     return locals()
 
@@ -37699,11 +37699,11 @@ def check_4597():
 # ---------------------------------------------------------------- line 62: baryon relation
 
 @check(label='ch:statusall:L59', chapter='ch:statusall', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part5/p5_11_status_all', line=59, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_11_status_all', line=59, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2649():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 59, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:statusall:L59:55.57', chapter='ch:statusall', part=7, title='same value as p2_11_dark_energy:146 (precise H_infinity, Level 2 chains)',
@@ -37744,11 +37744,11 @@ def check_2654():
     return locals()
 
 @check(label='ch:statusall:L61:67.16', chapter='ch:statusall', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part5/p5_11_status_all', line=61, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_11_status_all', line=61, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2655():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 61, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:statusall:L61:3.37', chapter='ch:statusall', part=7, title='peak writing rate, per cent per Gyr, H0 67.16',
@@ -38186,13 +38186,6 @@ def _b15_dnmt_b():
     return float(m.group(1)), float(m.group(2))
 
 
-@check(label='ch:statusall:L102:1.97', chapter='ch:statusall', part=7, title='IAM-A on single molecules under DNMT1 block, highest',
-       file='part5/p5_11_status_all', line=102, status='calc', kind='file', printed='1.97', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md', heavy=True, rerun=_B15_METH_RERUN)
-def check_4625():
-    'Highest IAM-A of the 8 treated libraries, bar Q1 of PROC-DNMT-01 Part B. Book line 102, printed 1.65--1.97 (upper end 1.97).'
-    value = _b15_dnmt_b()[1]
-    return locals()
 
 # ---------------------------------------------------------------- lines 108-110
 
@@ -38239,11 +38232,11 @@ def check_2681():
     return locals()
 
 @check(label='ch:conclusion:L17', chapter='ch:conclusion', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part5/p5_10_conclusion', line=17, status='derived', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='part5/p5_10_conclusion', line=17, status='derived', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2682():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 17, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:conclusion:L17:4.25', chapter='ch:conclusion', part=7, title='f sigma8 deficit today, per cent',
@@ -38316,10 +38309,10 @@ def check_4634():
 
 @check(label='ch:conclusion:L36', chapter='ch:conclusion', part=7, title='matter-sector H0 from the Level 2 chain',
        file='part5/p5_10_conclusion', line=36, status='prediction', kind='file', printed='72.26', tol=0.0,
-       source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', heavy=True, rerun=_B15C_CHAIN_RERUN)
+       source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', heavy=True, rerun=_B15C_CHAIN_RERUN)
 def check_4635():
     'H0 (run A, Level 2 chain) times sqrt(1 + beta_m). Book line 36, printed 72.26.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0') * math.sqrt(1 + beta_m)
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0') * math.sqrt(1 + beta_m)
     return locals()
 
 
@@ -38390,18 +38383,18 @@ def check_4639():
 
 @check(label='app:constants:L15', chapter='app:constants', part=8, title='photon-sector H0, Level 2 chain',
        file='appendices/app_A2_frozen_values', line=15, status='observed', kind='file', printed='67.16', tol=0.0,
-       source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', heavy=True, rerun=_B15A_CHAIN_RERUN)
+       source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', heavy=True, rerun=_B15A_CHAIN_RERUN)
 def check_4640():
     'H0 posterior mean of the Level 2 IAM chain, run A. Book line 15, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='app:constants:L15:72.26', chapter='app:constants', part=8, title='matter-sector H0 from the Level 2 chain',
        file='appendices/app_A2_frozen_values', line=15, status='observed', kind='file', printed='72.26', tol=0.0,
-       source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', heavy=True, rerun=_B15A_CHAIN_RERUN)
+       source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', heavy=True, rerun=_B15A_CHAIN_RERUN)
 def check_4641():
     'H0 (run A) times sqrt(1 + beta_m). Book line 15, printed 72.26.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0') * math.sqrt(1 + beta_m)
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0') * math.sqrt(1 + beta_m)
     return locals()
 
 @check(label='app:constants:L16', chapter='app:constants', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
@@ -38717,11 +38710,11 @@ def check_2712():
     return locals()
 
 @check(label='app:formulas:L108', chapter='app:formulas', part=8, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='appendices/app_E_formulas', line=108, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='appendices/app_E_formulas', line=108, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2713():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 108, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='app:formulas:L108:72.26', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:696 (H0 matter-sector formula)',
@@ -38805,10 +38798,10 @@ def check_2719():
 
 @check(label='app:formulas:L240', chapter='app:formulas', part=8, title='MGCAMB amplitude mu0 set in the runs',
        file='appendices/app_E_formulas', line=240, status='calc', kind='file', printed='-0.13495', tol=0.0,
-       source='mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml')
+       source='Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml')
 def check_4662():
     'mu0 value of the fixed-amplitude Level 1 chain input (params: mu0: value). Book line 240, printed -0.13495.'
-    m = re.search(r'\n  mu0:\s*\n\s+value:\s*([-\d.]+)', file_text('mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml'))
+    m = re.search(r'\n  mu0:\s*\n\s+value:\s*([-\d.]+)', file_text('Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml'))
     value = float(m.group(1))
     return locals()
 
@@ -38893,11 +38886,11 @@ def check_2723():
     return locals()
 
 @check(label='app:formulas:L396:67.16', chapter='app:formulas', part=8, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='appendices/app_E_formulas', line=396, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='appendices/app_E_formulas', line=396, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2724():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 396, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='app:formulas:L447', chapter='app:formulas', part=8, title='Kerr T S / M c^2 at chi = 0.5',
@@ -40197,11 +40190,11 @@ def check_2803():
     return locals()
 
 @check(label='app:derivations:L277:67.161', chapter='app:derivations', part=8, title='same value as p2_03_theory:889 (Level2 posterior mean H0)',
-       file='appendices/app_C3_derivations', line=277, status='calc', kind='file', printed='67.161', tol=7.44e-06, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='appendices/app_C3_derivations', line=277, status='calc', kind='file', printed='67.161', tol=7.44e-06, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2804():
     'same value as p2_03_theory:889 (Level2 posterior mean H0). Book line 277, printed 67.161.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='app:derivations:L278', chapter='app:derivations', part=8, title='drafted check, screened (runs; negative control fails)',
@@ -40229,19 +40222,19 @@ def check_4735():
     return locals()
 
 @check(label='app:derivations:L279', chapter='app:derivations', part=8, title='same value as p2_03_theory:889 (Level2 posterior mean H0)',
-       file='appendices/app_C3_derivations', line=279, status='calc', kind='file', printed='67.161', tol=7.44e-06, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='appendices/app_C3_derivations', line=279, status='calc', kind='file', printed='67.161', tol=7.44e-06, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2806():
     'same value as p2_03_theory:889 (Level2 posterior mean H0). Book line 279, printed 67.161.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='app:derivations:L279:0.3166', chapter='app:derivations', part=8, title='same value as p1_03_virial_law:144 (Level2 Planck posterior Omega_m mean)',
-       file='appendices/app_C3_derivations', line=279, status='calc', kind='file', printed='0.3166', tol=0.0001579, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='appendices/app_C3_derivations', line=279, status='calc', kind='file', printed='0.3166', tol=0.0001579, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2807():
     'same value as p1_03_virial_law:144 (Level2 Planck posterior Omega_m mean). Book line 279, printed 0.3166.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
     return locals()
 
 @check(label='app:derivations:L279:88.89', chapter='app:derivations', part=8, title='drafted check, screened (runs; negative control fails)',
@@ -40276,11 +40269,11 @@ def check_2809():
     return locals()
 
 @check(label='app:derivations:L279:-0.37', chapter='app:derivations', part=8, title='Level 2 chain H0 against Planck 67.36 +- 0.54, in sigma',
-       file='appendices/app_C3_derivations', line=279, status='calc', kind='file', printed='-0.37', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='appendices/app_C3_derivations', line=279, status='calc', kind='file', printed='-0.37', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_4736():
     '(H0_chain - 67.36)/0.54 with the Level 2 posterior mean H0 read from the committed chain extraction. Book line 279, printed -0.37. Inputs: Planck 2018 67.36 +- 0.54 (as stated).'
-    H0_chain = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    H0_chain = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     value = (H0_chain - 67.36) / 0.54
     return locals()
 
@@ -41185,11 +41178,11 @@ def check_2855():
     return locals()
 
 @check(label='app:glossary:L68', chapter='app:glossary', part=8, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='appendices/app_F_glossary', line=68, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='appendices/app_F_glossary', line=68, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2856():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 68, printed 67.16.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='app:glossary:L68:55.57', chapter='app:glossary', part=8, title='same value as p2_11_dark_energy:146 (precise H_infinity, Level 2 chains)',
@@ -41440,10 +41433,10 @@ def check_4810():
     return locals()
 
 @check(label='app:glossary:L185:+0.2', title='upper prior edge of mu0', line=185, status='observed', kind='file', printed='+0.2', tol=0.0,
-       source='mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+       source='Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4811():
     'The mu0 prior edge at +0.2: prior max of mu0 in the Cobaya settings of the free-mu0 Planck chain. Book line 185, printed +0.2.'
-    t = file_text('mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml')
+    t = file_text('Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml')
     blk = re.search(r'\n  mu0:\n((?:    .*\n)+)', t).group(1)
     value = float(re.search(r'\bmax: (\S+)', blk).group(1))
     return locals()
@@ -42268,10 +42261,10 @@ def check_4892():
 
 @check(label='app:glossary:L474:-0.13495', chapter='app:glossary', part=8, title='mu0 fixed in the MGCAMB runs',
        file='appendices/app_F_glossary', line=474, status='observed', kind='file', printed='-0.13495', tol=0.0,
-       source='mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml')
+       source='Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml')
 def check_4893():
     'Value of mu0 fixed in the Level 1 MGCAMB IAM chain, read from the committed chain input. Book line 474, printed -0.13495.'
-    t = file_text('mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml')
+    t = file_text('Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml')
     value = float(re.search(r'\n  mu0:\s*\n\s*value:\s*([-\d.]+)', t).group(1))
     return locals()
 
@@ -42430,19 +42423,19 @@ def check_4908():
 
 @check(label='app:glossary:L542', chapter='app:glossary', part=8, title='lower bound of the flat prior on free mu0',
        file='appendices/app_F_glossary', line=542, status='observed', kind='file', printed='-0.5', tol=0.0,
-       source='mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml')
+       source='Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml')
 def check_4909():
     'Lower bound of the flat prior on mu0 in the free-mu0 Level 1 chain, read from the committed chain input. Book line 542, printed -0.5.'
-    m = re.search(r'\n  mu0:\s*\n\s*prior:\s*\n\s*min:\s*([-\d.]+)\s*\n\s*max:\s*([-\d.]+)', file_text('mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml'))
+    m = re.search(r'\n  mu0:\s*\n\s*prior:\s*\n\s*min:\s*([-\d.]+)\s*\n\s*max:\s*([-\d.]+)', file_text('Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml'))
     value = float(m.group(1))
     return locals()
 
 @check(label='app:glossary:L542:+0.2', chapter='app:glossary', part=8, title='upper bound of the flat prior on free mu0',
        file='appendices/app_F_glossary', line=542, status='observed', kind='file', printed='+0.2', tol=0.0,
-       source='mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml')
+       source='Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml')
 def check_4910():
     'Upper bound of the flat prior on mu0 in the free-mu0 Level 1 chain, read from the committed chain input. Book line 542, printed +0.2.'
-    m = re.search(r'\n  mu0:\s*\n\s*prior:\s*\n\s*min:\s*([-\d.]+)\s*\n\s*max:\s*([-\d.]+)', file_text('mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml'))
+    m = re.search(r'\n  mu0:\s*\n\s*prior:\s*\n\s*min:\s*([-\d.]+)\s*\n\s*max:\s*([-\d.]+)', file_text('Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml'))
     value = float(m.group(2))
     return locals()
 
@@ -42987,45 +42980,45 @@ def check_4959():
     return locals()
 
 @check(label='app:register:L35', chapter='app:register', part=8, title='same value as p2_03_theory:889 (Level2 posterior mean H0)',
-       file='appendices/app_G_predictions_register', line=35, status='openprob', kind='file', printed='67.161', tol=7.44e-06, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+       file='appendices/app_G_predictions_register', line=35, status='openprob', kind='file', printed='67.161', tol=7.44e-06, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2926():
     'same value as p2_03_theory:889 (Level2 posterior mean H0). Book line 35, printed 67.161.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
+    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
 
 @check(label='app:register:L35:67.16', chapter='app:register', part=8, title='COS-001: photon-sector H0, Level 2 posterior',
-       file='appendices/app_G_predictions_register', line=35, status='openprob', kind='file', printed='67.16', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=35, status='openprob', kind='file', printed='67.16', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4960():
-    'COS-001: photon-sector H0 = 67.16 km/s/Mpc, the Level 2 chain posterior mean (Run A). Book line 35, printed 67.16. Input: mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv, row iam_level2_runA, column H0.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    'COS-001: photon-sector H0 = 67.16 km/s/Mpc, the Level 2 chain posterior mean (Run A). Book line 35, printed 67.16. Input: Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv, row iam_level2_runA, column H0.'
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='app:register:L35:72.26', chapter='app:register', part=8, title='COS-001: matter-sector H0 = H0 sqrt(1 + beta_m)',
-       file='appendices/app_G_predictions_register', line=35, status='openprob', kind='file', printed='72.26', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=35, status='openprob', kind='file', printed='72.26', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4961():
     'COS-001: matter-sector H0 = 67.161 x sqrt(1.15765) = 72.26 km/s/Mpc: the Level 2 photon-sector posterior mean times sqrt(1 + beta_m). Book line 35, printed 72.26. Inputs: CHAIN_EXTRACTION_FINAL.csv (iam_level2_runA, H0), beta_m from CANON.'
-    H0g = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    H0g = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     value = H0g * math.sqrt(1 + beta_m)
     return locals()
 
 @check(label='app:register:L36:72.26', chapter='app:register', part=8, title='COS-007: matter-sector H0 = H0 sqrt(1 + beta_m)',
-       file='appendices/app_G_predictions_register', line=36, status='openprob', kind='file', printed='72.26', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=36, status='openprob', kind='file', printed='72.26', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4962():
     'COS-007: the matter-sector H0, 67.161 x sqrt(1 + beta_m). Book line 36, printed 72.26. Inputs: CHAIN_EXTRACTION_FINAL.csv (iam_level2_runA, H0), beta_m from CANON.'
-    H0g = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    H0g = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     value = H0g * math.sqrt(1 + beta_m)
     return locals()
 
 @check(label='app:register:L36:0.75', chapter='app:register', part=8, title='COS-007: matter-sector H0 from SH0ES, in sigma',
-       file='appendices/app_G_predictions_register', line=36, status='openprob', kind='file', printed='0.75', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=36, status='openprob', kind='file', printed='0.75', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4963():
     'COS-007: (73.04 - H0_matter)/1.04 with H0_matter = H0_photon(Level 2) x sqrt(1 + beta_m). Book line 36, printed 0.75. Inputs: SH0ES 73.04 +/- 1.04 (Riess2022, doi:10.3847/2041-8213/ac5c5b, cited in the preface line 60), CHAIN_EXTRACTION_FINAL.csv, beta_m from CANON.'
-    H0g = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    H0g = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     H0m = H0g * math.sqrt(1 + beta_m)
     value = (73.04 - H0m) / 1.04
     return locals()
@@ -43092,51 +43085,51 @@ def check_4971():
     return locals()
 
 @check(label='app:register:L40:+0.96', chapter='app:register', part=8, title='COS-018: Level 1 Delta chi2, Planck only',
-       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='+0.96', tol=0.0, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='+0.96', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4972():
-    'COS-018: final-chain Delta chi2 (IAM fixed mu0 minus LambdaCDM), Level 1, Planck only. Book line 40, printed +0.96. Input: mgcamb_validation/CHAIN_PAIRS_FINAL.csv, row Planck, column dchi2.'
-    value = [float(r['dchi2']) for r in load_csv_rows('mgcamb_validation/CHAIN_PAIRS_FINAL.csv') if r['data'] == 'Planck'][0]
+    'COS-018: final-chain Delta chi2 (IAM fixed mu0 minus LambdaCDM), Level 1, Planck only. Book line 40, printed +0.96. Input: Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv, row Planck, column dchi2.'
+    value = [float(r['dchi2']) for r in load_csv_rows('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv') if r['data'] == 'Planck'][0]
     return locals()
 
 @check(label='app:register:L40:+0.56', chapter='app:register', part=8, title='COS-018: Level 1 Delta chi2, Planck + RSD',
-       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='+0.56', tol=0.0, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='+0.56', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4973():
-    'COS-018: final-chain Delta chi2 (IAM fixed mu0 minus LambdaCDM), Level 1, Planck + RSD. Book line 40, printed +0.56. Input: mgcamb_validation/CHAIN_PAIRS_FINAL.csv, row Planck+RSD, column dchi2.'
-    value = csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv', 'Planck+RSD', 'dchi2')
+    'COS-018: final-chain Delta chi2 (IAM fixed mu0 minus LambdaCDM), Level 1, Planck + RSD. Book line 40, printed +0.56. Input: Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv, row Planck+RSD, column dchi2.'
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv', 'Planck+RSD', 'dchi2')
     return locals()
 
 @check(label='app:register:L40:+1.73', chapter='app:register', part=8, title='COS-018: Level 1 Delta chi2, Planck + BAO',
-       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='+1.73', tol=0.0, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='+1.73', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4974():
-    'COS-018: final-chain Delta chi2 (IAM fixed mu0 minus LambdaCDM), Level 1, Planck + BAO. Book line 40, printed +1.73. Input: mgcamb_validation/CHAIN_PAIRS_FINAL.csv, row Planck+BAO, column dchi2.'
-    value = csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv', 'Planck+BAO', 'dchi2')
+    'COS-018: final-chain Delta chi2 (IAM fixed mu0 minus LambdaCDM), Level 1, Planck + BAO. Book line 40, printed +1.73. Input: Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv, row Planck+BAO, column dchi2.'
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv', 'Planck+BAO', 'dchi2')
     return locals()
 
 @check(label='app:register:L40:+1.58', chapter='app:register', part=8, title='COS-018: Level 1 Delta chi2, Planck + Pantheon+',
-       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='+1.58', tol=0.0, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='+1.58', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4975():
-    'COS-018: final-chain Delta chi2 (IAM fixed mu0 minus LambdaCDM), Level 1, Planck + Pantheon+. Book line 40, printed +1.58. Input: mgcamb_validation/CHAIN_PAIRS_FINAL.csv, row Planck+Pantheon+, column dchi2.'
-    value = csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv', 'Planck+Pantheon+', 'dchi2')
+    'COS-018: final-chain Delta chi2 (IAM fixed mu0 minus LambdaCDM), Level 1, Planck + Pantheon+. Book line 40, printed +1.58. Input: Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv, row Planck+Pantheon+, column dchi2.'
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv', 'Planck+Pantheon+', 'dchi2')
     return locals()
 
 @check(label='app:register:L40:+0.54', chapter='app:register', part=8, title='COS-018: Level 2 Delta chi2',
-       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='+0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='+0.54', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4976():
     'COS-018: Level 2 chi2_min of IAM (Run A) minus LambdaCDM (Run C). Book line 40, printed +0.54. Input: CHAIN_EXTRACTION_FINAL.csv, column chi2_min.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min') - csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min') - csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min')
     return locals()
 
 @check(label='app:register:L40:18', chapter='app:register', part=8, title='COS-018: number of MCMC chains',
-       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='18', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='18', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4977():
     'COS-018: 18 MCMC chains, the number of final chains in the chain record (one row each, Level 1, Level 2, Level 2b and the baryon test). Book line 40, printed 18. Input: CHAIN_EXTRACTION_FINAL.csv.'
-    value = len(load_csv_rows('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'))
+    value = len(load_csv_rows('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'))
     return locals()
 
 @check(label='app:register:L41:0.7', chapter='app:register', part=8, title='COS-046: Ob/Om over (3/16) sqrt(OL), in sigma',
@@ -43185,19 +43178,19 @@ def check_4983():
     return locals()
 
 @check(label='app:register:L43:0.800', chapter='app:register', part=8, title='COS-062: Level 2 sigma8',
-       file='appendices/app_G_predictions_register', line=43, status='openprob', kind='file', printed='0.800', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=43, status='openprob', kind='file', printed='0.800', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4984():
     'COS-062: Level 2 sigma8 (Run A posterior mean). Book line 43, printed 0.800. Input: CHAIN_EXTRACTION_FINAL.csv, iam_level2_runA, sigma8.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
     return locals()
 
 @check(label='app:register:L43:0.1', chapter='app:register', part=8, title='COS-062: Level 2 sigma8 from the joint lensing value, in sigma',
-       file='appendices/app_G_predictions_register', line=43, status='openprob', kind='file', printed='0.1', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=43, status='openprob', kind='file', printed='0.1', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4985():
     'COS-062: (0.802 - sigma8_L2)/0.020. Book line 43, printed 0.1. Inputs: joint lensing sigma8 = 0.802 +0.022/-0.018 (Stolzner2025, cited in ch:virial line 237), symmetrised error 0.020; Level 2 sigma8 from CHAIN_EXTRACTION_FINAL.csv.'
-    s8 = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    s8 = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
     value = (0.802 - s8) / ((0.022 + 0.018) / 2)
     return locals()
 
@@ -43272,11 +43265,11 @@ def check_4993():
     return locals()
 
 @check(label='app:register:L47:+0.2', chapter='app:register', part=8, title='COS-123: upper prior edge of free mu0',
-       file='appendices/app_G_predictions_register', line=47, status='openprob', kind='file', printed='+0.2', tol=0.0, source='mgcamb_validation/chains/planck_rsd_mu0_float.updated.yaml',
+       file='appendices/app_G_predictions_register', line=47, status='openprob', kind='file', printed='+0.2', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.updated.yaml',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4994():
     'COS-123: the upper end of the 90 % interval is the prior edge +0.2, the max of the mu0 prior in the Cobaya settings of the Planck + RSD chain with mu0 free. Book line 47, printed +0.2.'
-    value = _b03_yaml_param('mgcamb_validation/chains/planck_rsd_mu0_float.updated.yaml', 'mu0', 'max')
+    value = _b03_yaml_param('Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.updated.yaml', 'mu0', 'max')
     return locals()
 
 @check(label='app:register:L47:0.10', chapter='app:register', part=8, title='COS-123: P(mu0 < -0.135) in the free-mu0 chain',
@@ -43290,51 +43283,51 @@ def check_4995():
     return locals()
 
 @check(label='app:register:L48:0.8087', chapter='app:register', part=8, title='COS-131: Level 2 LambdaCDM sigma8 (Run C)',
-       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='file', printed='0.8087', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='file', printed='0.8087', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4996():
     'COS-131: Level 2 LambdaCDM sigma8, Run C. Book line 48, printed 0.8087. Input: CHAIN_EXTRACTION_FINAL.csv.'
-    sA = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
-    sC = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'sigma8')
+    sA = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    sC = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'sigma8')
     value = sC
     return locals()
 
 @check(label='app:register:L48:0.7998', chapter='app:register', part=8, title='COS-131: Level 2 IAM sigma8 (Run A)',
-       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='file', printed='0.7998', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='file', printed='0.7998', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4997():
     'COS-131: Level 2 IAM sigma8, Run A. Book line 48, printed 0.7998. Input: CHAIN_EXTRACTION_FINAL.csv.'
-    sA = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
-    sC = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'sigma8')
+    sA = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    sC = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'sigma8')
     value = sA
     return locals()
 
 @check(label='app:register:L48:0.009', chapter='app:register', part=8, title='COS-131: Level 2 sigma8 drop',
-       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='file', printed='0.009', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='file', printed='0.009', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4998():
     'COS-131: sigma8(Run C) - sigma8(Run A). Book line 48, printed 0.009. Input: CHAIN_EXTRACTION_FINAL.csv.'
-    sA = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
-    sC = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'sigma8')
+    sA = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    sC = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'sigma8')
     value = sC - sA
     return locals()
 
 @check(label='app:register:L48:1.1 \\%', chapter='app:register', part=8, title='COS-131: Level 2 sigma8 drop, per cent',
-       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='file', printed='1.1 \\%', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='file', printed='1.1 \\%', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_4999():
     'COS-131: (sigma8(Run C) - sigma8(Run A))/sigma8(Run C), in per cent. Book line 48, printed 1.1 %. Input: CHAIN_EXTRACTION_FINAL.csv.'
-    sA = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
-    sC = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'sigma8')
+    sA = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    sC = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'sigma8')
     value = 100 * (sC - sA) / sC
     return locals()
 
 @check(label='app:register:L48:0.822', chapter='app:register', part=8, title='COS-131: Level 2 IAM S8 (Run A)',
-       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='file', printed='0.822', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='file', printed='0.822', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_5000():
     'COS-131: the matching S8 of Level 2 Run A. Book line 48, printed 0.822. Input: CHAIN_EXTRACTION_FINAL.csv, column S8.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'S8')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'S8')
     return locals()
 
 @check(label='app:register:L48:0.832', chapter='app:register', part=8, title='COS-131: LambdaCDM S8 (Planck 2018)',
@@ -43425,27 +43418,27 @@ def check_5011():
     return locals()
 
 @check(label='app:register:L57:61.45', chapter='app:register', part=8, title='COS-240: Level 2b H0',
-       file='appendices/app_G_predictions_register', line=57, status='openprob', kind='file', printed='61.45', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=57, status='openprob', kind='file', printed='61.45', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_5012():
     'COS-240: H0 with the dual-sector term in the background Friedmann equation, Level 2b Run A posterior mean. Book line 57, printed 61.45. Input: CHAIN_EXTRACTION_FINAL.csv, iam_l2b_runA, H0.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_l2b_runA', 'H0')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_l2b_runA', 'H0')
     return locals()
 
 @check(label='app:register:L57:0.42', chapter='app:register', part=8, title='COS-240: Level 2b H0 error',
-       file='appendices/app_G_predictions_register', line=57, status='openprob', kind='file', printed='0.42', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=57, status='openprob', kind='file', printed='0.42', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_5013():
     'COS-240: posterior sd of H0 in the Level 2b Run A chain. Book line 57, printed 0.42. Input: CHAIN_EXTRACTION_FINAL.csv, iam_l2b_runA, H0_sd.'
-    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_l2b_runA', 'H0_sd')
+    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_l2b_runA', 'H0_sd')
     return locals()
 
 @check(label='app:register:L57:10.9', chapter='app:register', part=8, title='COS-240: Level 2b H0 from Planck LambdaCDM, in sigma',
-       file='appendices/app_G_predictions_register', line=57, status='openprob', kind='file', printed='10.9', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_G_predictions_register', line=57, status='openprob', kind='file', printed='10.9', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B02_CHAINS_RERUN)
 def check_5014():
     'COS-240: (67.36 - H0_L2b)/0.54, on the Planck error alone. Book line 57, printed 10.9. Inputs: Planck 2018 H0 = 67.36 +/- 0.54 (Aghanim et al. 2020, doi:10.1051/0004-6361/201833910); Level 2b H0 from CHAIN_EXTRACTION_FINAL.csv.'
-    H0b = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_l2b_runA', 'H0')
+    H0b = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_l2b_runA', 'H0')
     value = (100 * h_pl - H0b) / 0.54
     return locals()
 
@@ -43694,7 +43687,7 @@ INVENTORY = [
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 525, '', 'none', '', 'growth eq form (i), G_eff=mu*G, definition'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 526, '', 'none', '', 'growth eq form (ii), friction on LCDM clock, definition'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 527, '', 'none', '', 'growth eq form (iii), whole eq on H_m, definition'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 536, '', 'calc', '0.13', 'not reproducible here: a CAMB TT-spectrum comparison (tests/iam_camb_full_boltzmann.py); the sentence itself says the spectra are not stored in the repository, so there is no committed output to read'),
+    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 536, '', 'calc', '0.13', 'not reproducible here: a CAMB TT-spectrum comparison (Cosmological_Physics/tests/iam_camb_full_boltzmann.py); the sentence itself says the spectra are not stored in the repository, so there is no committed output to read'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 630, 'eq:law_saturation', 'none', '', 'holographic saturation condition, definition'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 669, '', 'none', '1', 'trivial E(1)=exp(0)'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 669, '', 'none', '0', 'approx E(a) at a~1e-3, not exact'),

@@ -155,7 +155,7 @@ sigma0 = 0.0         # Sigma = 1 exactly
 ## Repository Structure
 
 ```
-mgcamb_validation/
+Cosmological_Physics/mgcamb_validation/
 ├── README.md                          # This file
 ├── chains/                            # Raw MCMC chain outputs (Runs A–L, 12 chains)
 │   ├── iam_fixed_mu0.*                # Run A: Planck, IAM fixed

@@ -1,5 +1,5 @@
 # DUAL_SECTOR_PERTURBATION_CHECK — "Dual-Sector Perturbation Cosmology: A Modified CAMB Implementation with µ < 1, Σ = 1" (Level 2, 28 Feb 2026, 17 pp)
-Read in full 2026-10-02 (all 595 extracted lines; first pass saw previews only, re-read completely before this version; confirmed again in 50-line chunks with a line ledger, no gaps). Checked against `camb_validation/` (equations_iam_level2.f90, likelihood_rsd.py, getdist_scripts/rsd_apples_to_apples.py,
+Read in full 2026-10-02 (all 595 extracted lines; first pass saw previews only, re-read completely before this version; confirmed again in 50-line chunks with a line ledger, no gaps). Checked against `Cosmological_Physics/camb_validation/` (equations_iam_level2.f90, likelihood_rsd.py, getdist_scripts/rsd_apples_to_apples.py,
 chains/*.input.yaml and the chain files, 30 % burn-in).
 
 ## Reproduced from the chain files
