@@ -25976,23 +25976,6 @@
   "source": ""
  },
  {
-  "label": "ch:darkenergy:L224:0",
-  "title": "time from now at 36.8 % maturity",
-  "part": 2,
-  "chapter": "ch:darkenergy",
-  "file": "part2/p2_11_dark_energy",
-  "line": 224,
-  "status": "calc",
-  "kind": "num",
-  "printed": "0",
-  "recomputed": "0",
-  "tol": 0.5000005,
-  "passed": true,
-  "note": "",
-  "heavy": false,
-  "source": ""
- },
- {
   "label": "ch:darkenergy:L225",
   "title": "scale factor at 50% maturity",
   "part": 2,

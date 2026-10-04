@@ -1986,7 +1986,6 @@ PASS  ch:darkenergy:L224:13.8            ch:darkenergy:p2_11_dark_energy:224  pr
 PASS  ch:darkenergy:L224:36.8\%          ch:darkenergy:p2_11_dark_energy:224  printed 36.8\%  recomputed 36.7879  tol 0.0500481  [calc] repeat: maturity today as percent
 PASS  ch:darkenergy:L224:1.000           ch:darkenergy:p2_11_dark_energy:224  printed 1.000  recomputed 1  tol 5.000005e-04  [calc] scale factor at 36.8 % maturity (today)
 PASS  ch:darkenergy:L224:0.00            ch:darkenergy:p2_11_dark_energy:224  printed 0.00  recomputed 0  tol 0.00500001  [calc] redshift at 36.8 % maturity (today)
-PASS  ch:darkenergy:L224:0               ch:darkenergy:p2_11_dark_energy:224  printed 0  recomputed 0  tol 0.5  [calc] time from now at 36.8 % maturity
 PASS  ch:darkenergy:L225                 ch:darkenergy:p2_11_dark_energy:225  printed 1.443  recomputed 1.4427  tol 5.007215e-04  [calc] scale factor at 50% maturity
 PASS  ch:darkenergy:L225:-0.31           ch:darkenergy:p2_11_dark_energy:225  printed -0.31  recomputed -0.306853  tol 0.00500001  [calc] redshift at 50% maturity
 PASS  ch:darkenergy:L225:19.5            ch:darkenergy:p2_11_dark_energy:225  printed 19.5  recomputed 19.4868  tol 0.05  [calc] age at 50% maturity
@@ -6245,6 +6244,6 @@ PASS  app:register:L73:1.55 \%           app:register:app_G_predictions_register
 PASS  app:register:L73:0.78 \%           app:register:app_G_predictions_register:73  printed 0.78 \%  recomputed 0.776789  tol 0.00500001  [openprob] COS-357: D lowered at z = 0, per cent
 PASS  app:register:L74:1.03              app:register:app_G_predictions_register:74  printed 1.03  recomputed 1.03045  tol 0.00500001  [openprob] COS-365: ISW amplitude ratio A_ISW
 
-SUMMARY  PASS 4984  FAIL 1  (heavy, read from committed outputs: 1079)  inventoried-not-run 1357  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4983  FAIL 1  (heavy, read from committed outputs: 1079)  inventoried-not-run 1358  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
 FAILS:
   FAIL  app:register:L53:1.07              app:register:app_G_predictions_register:53  printed 1.07  recomputed 1.05468  tol 0.00500001  [openprob] COS-172: lower end of 1/mu over 0 < z < 0.5

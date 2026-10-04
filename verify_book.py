@@ -7786,13 +7786,24 @@ def check_3283():
 @check(label='eq:th:dphi', chapter='ch:theory', part=2, title='delta phi = 0 from the perturbed constraint',
        file='part2/p2_03_theory', line=752, status='derived', kind='sym', printed='', tol=0.0)
 def check_3284():
-    'delta phi = 0: the constraint phi_dot = H/a with H(t), a(t) background functions has no first-order variation with a local density perturbation (d(H/a)/d delta_rho = 0), so delta phi_dot = 0; solved with delta phi(0) = 0. Book line 752.'
-    t, drho = sp.symbols('t delta_rho')
-    H_, a_, dphi = sp.Function('H')(t), sp.Function('a')(t), sp.Function('dphi')
-    src = sp.diff(H_ / a_, drho)
-    lhs = sp.dsolve(sp.Eq(dphi(t).diff(t), src), dphi(t), ics={dphi(0): 0}).rhs
+    'delta phi = 0 (Eq. th:dphi), book line 752. The apparent horizon r_A = 1/H is set by the volume-averaged density (Friedmann, H^2 = 8 pi G <rho>/3); '\
+    'a local perturbation rho0 (1 + eps A cos kx) has zero volume mean, so the first-order (d/d eps) shift of H, of r_A and, through d ln a/dt = H and '\
+    'phi = 1 - 1/a (delta phi = delta ln a / a), of phi all vanish. Computed with sympy: average over one wavelength, differentiate in eps at 0, integrate in t. '\
+    'Control: the perturbation given a volume mean of 5 % of its amplitude must give delta phi different from 0.'
+    eps, x, k, A, Gs, rho0, t, a_ = sp.symbols('epsilon x k A G rho0 t a', positive=True)
+    Lbox = 2 * sp.pi / k
+    def first_order(mean_frac):
+        drho = A * (sp.cos(k * x) + mean_frac)                                    # local density contrast, volume mean = mean_frac * A
+        rho_avg = sp.integrate(rho0 * (1 + eps * drho), (x, 0, Lbox)) / Lbox     # what the background (apparent horizon) sees
+        H = sp.sqrt(8 * sp.pi * Gs * rho_avg / 3)
+        dH = sp.simplify(sp.diff(H, eps).subs(eps, 0))
+        drA = sp.simplify(sp.diff(1 / H, eps).subs(eps, 0))
+        dlna = sp.integrate(dH, (t, 0, t))                                         # d ln a/dt = H
+        return dH, drA, sp.simplify(dlna / a_)                                     # delta phi = delta a/a^2 = delta ln a/a
+    dH, drA, lhs = first_order(0)
     rhs = 0
-    neg_lhs = sp.dsolve(sp.Eq(dphi(t).diff(t), src), dphi(t), ics={dphi(0): sp.Rational(1, 20)}).rhs
+    assert dH == 0 and drA == 0
+    neg_lhs = first_order(sp.Rational(5, 100))[2]
     return locals()
 
 @check(label='eq:th:poisson', chapter='ch:theory', part=2, title='Fourier form of the comoving Poisson equation',
@@ -14804,15 +14815,6 @@ def check_3479():
     f = float(E_act(1.0)) / math.e
     a = -1 / math.log(f)
     value = 1 / a - 1
-    return locals()
-
-@check(label='ch:darkenergy:L224:0', chapter='ch:darkenergy', part=2, title='time from now at 36.8 % maturity',
-       file='part2/p2_11_dark_energy', line=224, status='calc', kind='num', printed='0', tol=0.0)
-def check_3480():
-    'Time from now at maturity f = 1/e: t(a(f)) - t(1) with a(f) from Eq. de_af and t from the Friedmann integral (H0 67.4, Om 0.315, OL 0.685, Planck 2018). Book line 224, printed 0.'
-    f = math.exp(-1)
-    a = -1 / math.log(f)
-    value = _b02_de_age(a) - _b02_de_age(1.0)
     return locals()
 
 @check(label='ch:darkenergy:L225', chapter='ch:darkenergy', part=2, title='scale factor at 50% maturity',
@@ -46506,6 +46508,7 @@ INVENTORY = [
     (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'calc', '1.1', 'printed value 1.1 % has two significant digits and the recomputed E_G change, 1.144 %, lies within 2.5 % of 1.1 x 1.05: a 5 % change cannot be told from rounding'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 124, '', 'observed', '0.05', 'printed value 0.05 has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0526; the same quantity is printed to one digit at ch:skytools:L125)'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 243, '', 'observed', '0.3', 'printed value 0.3 % has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.320 %; the precise 0.32 % is checked at ch:electronmass:L188)'),
+    (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 224, '', 'calc', '0', 'definition: the row is labelled 36.8 % (today), so its time from now is zero by definition; the check computed t(a(1/e)) - t(1) with a(1/e) = 1 exactly, i.e. t(1) - t(1), identically zero whatever the inputs. The one non-trivial step, a(1/e) = 1 from Eq. de_af, is checked at ch:darkenergy:L224:1.000'),
 ]
 
 if __name__ == "__main__":

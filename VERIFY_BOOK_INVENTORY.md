@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4984 PASS, 1 FAIL, 1357 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4983 PASS, 1 FAIL, 1358 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -1990,7 +1990,7 @@ Totals: 4984 PASS, 1 FAIL, 1357 inventoried and not run. Each run item carries t
 | 224 | ch:darkenergy:L224:36.8\% | calc | `36.8\%` | numeric: repeat: maturity today as percent | PASS |
 | 224 | ch:darkenergy:L224:1.000 | calc | `1.000` | numeric: scale factor at 36.8 % maturity (today) | PASS |
 | 224 | ch:darkenergy:L224:0.00 | calc | `0.00` | numeric: redshift at 36.8 % maturity (today) | PASS |
-| 224 | ch:darkenergy:L224:0 | calc | `0` | numeric: time from now at 36.8 % maturity | PASS |
+| 224 |  | calc | `0` | not run: definition: the row is labelled 36.8 % (today), so its time from now is zero by definition; the check computed t(a(1/e)) - t(1) with a(1/e) = 1 exactly, i.e. t(1) - t(1), identically zero whatever the inputs. The one non-trivial step, a(1/e) = 1 from Eq. de_af, is checked at ch:darkenergy:L224:1.000 | - |
 | 225 | ch:darkenergy:L225 | calc | `1.443` | numeric: scale factor at 50% maturity | PASS |
 | 225 | ch:darkenergy:L225:-0.31 | calc | `-0.31` | numeric: redshift at 50% maturity | PASS |
 | 225 | ch:darkenergy:L225:19.5 | calc | `19.5` | numeric: age at 50% maturity | PASS |
