@@ -2,7 +2,7 @@
 
 **Read status.** PDF text 277 / 641 / 674 / 560 / 222 = 2,374 lines. Earlier versions of this file said "re-read in full in 100-line chunks"; several of
 those chunks were previews only, so that claim was false. All five were read in full 2026-10-02 in 50-line chunks, ledger complete with no gaps
-(`docs/book/read_ledgers/LEDGER_G3_Virial.md`). Items 19–29 are from that read.
+Items 19–29 are from that read.
 
 Read start to finish, oldest first: *Virial Efficiency and Effective Nonlinear Exponent* (25 Feb 2026, 7 pp), *The Virial Partition Across Wide Range of Physical
 Scales* (25 Feb, 13 pp), *Dark Matter and Dark Energy as Virial Partners* (Mar, 12 pp), *Gravitational Decoherence, the Virial Partition, and the

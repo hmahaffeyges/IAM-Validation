@@ -24,7 +24,7 @@ A website on GitHub Pages (`https://hmahaffeyges.github.io/IAM-Validation/`), ge
 
 ## 2. Structure
 
-- **Front page:** title, subtitle ("The Actualization of Reality — The Cost of Recording It, and the Price to Maintain It"),
+- **Front page:** title, subtitle ("The Actualization of Reality — The Cost of Recording It, and the Price of Maintaining It"),
   author (Heath W. Mahaffey), the line "IAM, the Informational Actualization Model", the seven Parts as large tiles,
   a "Download the PDF" button, and a "Cite this book" box (DOI placeholder `DOI-TO-BE-MINTED`, filled at release).
 - **One landing page per Part** with its own short URL (e.g. `/part-2/`): the Part's title, a three-to-five sentence summary

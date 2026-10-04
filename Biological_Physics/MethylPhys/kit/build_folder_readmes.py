@@ -53,9 +53,6 @@ PURPOSE = {
  "hmin_calibration": ("The MCMC calibration behind the class floors, with the reference cells it was fitted "
                       "on and a runner that reproduces every floor in about fifteen seconds."),
  "reference_data": ("The calibrated beta matrices the constants were fitted on, published beside them."),
- "evidence_pre_atlas_2026-04": ("The April 2026 evidence database, published unedited. A DIFFERENT SURFACE "
-                                "from the commissioned chain - read its README_FIRST before quoting any "
-                                "number from it."),
 }
 
 

@@ -1,6 +1,6 @@
 # IAM's Law and Order
 
-*IAM's Law and Order: The Actualization of Reality — The Cost of Recording It, and the Price to Maintain It* — Heath W. Mahaffey.
+*IAM's Law and Order: The Actualization of Reality — The Cost of Recording It, and the Price of Maintaining It* — Heath W. Mahaffey.
 This folder is the master copy of the book.
 
 ## Build

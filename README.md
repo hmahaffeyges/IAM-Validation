@@ -1,6 +1,6 @@
 # IAM's Law and Order
 
-**The Actualization of Reality** — *The Cost of Recording It, and the Price to Maintain It.*
+**The Actualization of Reality** — *The Cost of Recording It, and the Price of Maintaining It.*
 
 > IAM, the Informational Actualization Model. Not a new theory: a new perspective. Jacobson's exact formulas, taken one step further. General Relativity, with a new piece of information: information.
 
@@ -119,3 +119,11 @@ SH0ES, Pantheon+, DESI, KiDS and DES collaborations, and the authors of every pu
 record). Software: CAMB (Lewis, Challinor), MGCAMB (Wang, Mirpoorian, Pogosian, Silvestri, Zhao), Cobaya (Torrado, Lewis), HEALPix, NumPy,
 SciPy, Matplotlib, GetDist.
 
+---
+
+*I den frie forskers tradition — i taknemmelighed for dem, der gik forud.*  
+*In the tradition of the independent researcher — in gratitude to those who came before.*
+
+Heath W. Mahaffey, IAMPerformance (independent research). He lived and studied in Denmark and the Faroe Islands, where independent
+research (*fri forskning*) is an old and respected tradition; the work is offered in that spirit. Collaborators are welcome: see
+[`CONTRIBUTING.md`](CONTRIBUTING.md).
