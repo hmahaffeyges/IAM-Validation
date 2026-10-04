@@ -6,9 +6,9 @@ name: website
 on:
   push:
     branches: [main]
-    paths: ["docs/book/**", "website/**", "verify_book.py", ".github/workflows/website.yml"]
+    paths: ["docs/book/**", "website/**", "CANON/**", ".github/workflows/website.yml"]
   pull_request:
-    paths: ["docs/book/**", "website/**", "verify_book.py", ".github/workflows/website.yml"]
+    paths: ["docs/book/**", "website/**", "CANON/**", ".github/workflows/website.yml"]
   workflow_dispatch:
 
 permissions:

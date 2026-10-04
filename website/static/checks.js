@@ -53,8 +53,10 @@
         p.FS.mkdirTree(dir); p.FS.writeFile("/iam/" + rel, txt);
       }
       var src = await (await fetch(root + "checks/verify_book.py")).text();
-      p.FS.writeFile("/iam/verify_book.py", src);
-      p.runPython("import sys, os, json, dataclasses\nos.chdir('/iam')\nsys.path.insert(0, '/iam')\nimport verify_book\nverify_book.set_data_root('/iam')");
+      // verify_book.py lives at docs/book/ and finds the repository root two folders up: same layout here, rooted at /iam
+      p.FS.mkdirTree("/iam/docs/book");
+      p.FS.writeFile("/iam/docs/book/verify_book.py", src);
+      p.runPython("import sys, os, json, dataclasses\nos.chdir('/iam')\nsys.path.insert(0, '/iam/docs/book')\nimport verify_book\nverify_book.set_data_root('/iam')");
       done("Python is ready.");
       py = p; return p;
     })();

@@ -3,6 +3,6 @@
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
   "postCreateCommand": "pip install numpy scipy sympy",
   "customizations": {
-    "codespaces": { "openFiles": ["verify_book.py"] }
+    "codespaces": { "openFiles": ["docs/book/verify_book.py"] }
   }
 }

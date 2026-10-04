@@ -22,7 +22,7 @@ END = re.compile(r"\\end\{([^}]+)\}")
 
 
 def load_checks():
-    spec = importlib.util.spec_from_file_location("verify_book", REPO / "verify_book.py")
+    spec = importlib.util.spec_from_file_location("verify_book", REPO / "docs" / "book" / "verify_book.py")
     vb = importlib.util.module_from_spec(spec)
     sys.modules["verify_book"] = vb
     spec.loader.exec_module(vb)

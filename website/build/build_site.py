@@ -29,7 +29,7 @@ HYPOTHESIS = "https://hypothes.is/embed.js"
 
 
 def load_vb():
-    spec = importlib.util.spec_from_file_location("verify_book", REPO / "verify_book.py")
+    spec = importlib.util.spec_from_file_location("verify_book", REPO / "docs" / "book" / "verify_book.py")
     vb = importlib.util.module_from_spec(spec)
     sys.modules["verify_book"] = vb
     spec.loader.exec_module(vb)
@@ -95,7 +95,7 @@ def front_page(site, parts):
 <div class="iam-cite">{html.escape(cite)}</div>
 <div class="iam-cite">{html.escape(bib)}</div>
 <h2>Check the book</h2>
-<p>Every derivation and number the book checks is one function of <a href="{REPO_URL}/blob/main/verify_book.py">verify_book.py</a>.
+<p>Every derivation and number the book checks is one function of <a href="{REPO_URL}/blob/main/docs/book/verify_book.py">verify_book.py</a>.
 They run here, in this browser. Checks that need the Planck chains, CAMB or the methylation chain show their committed result and the command that reruns them.</p>
 <p><button class="iam-run iam-btn" type="button" data-part="all">Run every check</button></p>
 </main></body></html>"""
@@ -125,7 +125,7 @@ def part_page(site, p, parts, chapters):
 def checks_bundle(site, vb, index):
     d = site / "checks"
     (d / "data").mkdir(parents=True, exist_ok=True)
-    shutil.copy(REPO / "verify_book.py", d / "verify_book.py")
+    shutil.copy(REPO / "docs" / "book" / "verify_book.py", d / "verify_book.py")
     for rel in vb.DATA_FILES:
         dst = d / "data" / rel
         dst.parent.mkdir(parents=True, exist_ok=True)
@@ -243,6 +243,72 @@ def fix_longtable_refs(site):
     return n
 
 
+def short_links(site):
+    """/go/<file name without extension> -> the file's current GitHub path, for every file in the repository (git ls-files).
+    Where several files share a name, each gets /go/<parent folder>/<name> instead; if that is still shared, the full folder path
+    is used, and where one folder holds the name in several formats (a figure's .pdf and .png) the file name keeps its extension.
+    Files at the repository root use the repository name as their parent folder. Writes go/index.html (the full list) and go/clashes.json (every shared name and where its files went)."""
+    import subprocess, collections, urllib.parse
+    files = subprocess.run(["git", "-C", str(REPO), "ls-files"], capture_output=True, text=True, check=True).stdout.splitlines()
+    files = [f for f in files if not f.startswith("website/_")]
+    def stem(f):
+        n = f.rsplit("/", 1)[-1]
+        return n.rsplit(".", 1)[0] if "." in n.lstrip(".") else n
+    by = collections.defaultdict(list)
+    for f in files:
+        by[stem(f)].append(f)
+    def parent(f):
+        return f.rsplit("/", 2)[-2] if "/" in f else REPO_URL.rsplit("/", 1)[-1]
+    def folder(f):
+        return f.rsplit("/", 1)[0] if "/" in f else REPO_URL.rsplit("/", 1)[-1]
+    links, clashes = {}, {}
+    for name, fs in by.items():
+        if len(fs) == 1:
+            links[name] = fs[0]
+            continue
+        placed = {}
+        g1 = collections.defaultdict(list)
+        for f in fs:
+            g1[f"{parent(f)}/{name}"].append(f)
+        for key, g in g1.items():
+            if len(g) == 1:
+                placed[key] = g[0]
+                continue
+            g2 = collections.defaultdict(list)
+            for f in g:
+                g2[f"{folder(f)}/{name}"].append(f)
+            if all(len(h) == 1 for h in g2.values()):          # same parent-folder name, different folders: full folder path
+                for key2, h in g2.items():
+                    placed[key2] = h[0]
+                continue
+            # one folder holds this name in several formats (a figure's .pdf and .png): the file name keeps its extension
+            withext = collections.Counter(f"{parent(f)}/{f.rsplit('/', 1)[-1]}" for f in g)
+            for f in g:
+                k = f"{parent(f)}/{f.rsplit('/', 1)[-1]}"
+                placed[k if withext[k] == 1 else f"{folder(f)}/{f.rsplit('/', 1)[-1]}"] = f
+        assert len(placed) == len(fs), name
+        links.update(placed)
+        clashes[name] = {k: v for k, v in sorted(placed.items())}
+    assert len(links) == len(files)
+    go = site / "go"
+    for key, f in links.items():
+        d = go / key
+        d.mkdir(parents=True, exist_ok=True)
+        url = f"{REPO_URL}/blob/main/" + urllib.parse.quote(f)
+        (d / "index.html").write_text(
+            f'<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>{html.escape(f)}</title>'
+            f'<meta http-equiv="refresh" content="0; url={html.escape(url, quote=True)}"><link rel="canonical" href="{html.escape(url, quote=True)}">'
+            f'<meta name="robots" content="noindex"></head><body><p>Redirecting to <a href="{html.escape(url, quote=True)}">{html.escape(f)}</a>.</p></body></html>')
+    rows = "\n".join(f'<li><a href="{urllib.parse.quote(k)}/"><code>/go/{html.escape(k)}</code></a> &rarr; {html.escape(v)}</li>'
+                     for k, v in sorted(links.items(), key=lambda kv: kv[0].lower()))
+    (go / "index.html").write_text(head_html("../", "light", f"Short links - {TITLE}") +
+        f'<body><main class="iam-main iam-front" id="content"><h1>Short links</h1><p>Every file of the repository at '
+        f'<code>/go/&lt;file name without extension&gt;</code>; where two files share a name, <code>/go/&lt;parent folder&gt;/&lt;name&gt;</code>. '
+        f'Each link opens the file on GitHub at its current path.</p><ul>{rows}</ul></main></body></html>')
+    json.dump(clashes, open(go / "clashes.json", "w"), indent=1, sort_keys=True)
+    return len(links), clashes
+
+
 def main(build, site):
     build, site = pathlib.Path(build), pathlib.Path(site)
     pj = json.load(open(WEB / "build/parts.json"))["parts"]
@@ -295,9 +361,11 @@ def main(build, site):
     for p in pj:
         part_page(site, p, pj, [c for _, c in sorted(pages.get(p["n"], []))])
     front_page(site, pj)
+    n_go, clashes = short_links(site)
     (site / ".nojekyll").write_text("")
     print(f"site: {site}; chapter pages: {len(list((site / 'book').glob('*.html')))}; check buttons: {total}; "
-          f"checks: {len(vb.CHECKS)}; data files: {len(vb.DATA_FILES)}; long-table references linked: {fixed}")
+          f"checks: {len(vb.CHECKS)}; data files: {len(vb.DATA_FILES)}; long-table references linked: {fixed}; "
+          f"short links: {n_go} ({len(clashes)} shared names)")
 
 
 if __name__ == "__main__":
