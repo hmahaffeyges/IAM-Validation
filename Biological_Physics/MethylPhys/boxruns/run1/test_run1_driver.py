@@ -367,6 +367,41 @@ def test_default_A_runs_with_default_gse128733_from_the_store(tmp_path):
     assert os.path.join(str(work), "data", D.GSE128733_PREFIX_DEFAULT) in st["jobs"]["A"]["command"]
 
 
+@pytest.mark.parametrize("case", ["missing", "empty"])
+def test_A_continues_with_warning_when_default_gse128733_absent(env, case):
+    loc = os.path.join(env["bucket"], D.GSE128733_PREFIX_DEFAULT)
+    if case == "missing":
+        shutil.rmtree(loc)
+    else:
+        os.remove(os.path.join(loc, "input.txt"))                    # the folder is there but holds no files
+    sh = Recorder()
+    rc = D.main(env["args"] + ["--only", "A"], store=D.LocalStore(env["bucket"]), shutdown=sh)
+    assert rc == D.EXIT_OK and sh.calls == 1 and order(env) == ["A"]   # a warning only: A runs, exit code unaffected
+    js = state(env)["jobs"]["A"]
+    assert js["status"] == "done" and len(js["warnings"]) == 1
+    assert js["warnings"][0].startswith(f"GSE128733 location missing or empty: no files under {loc}")
+    assert "job A continues without the 2 GSE128733 arrays" in js["warnings"][0]
+    assert "[A] WARNING: GSE128733 location missing or empty" in open(s3(env, "log.txt")).read()
+    assert not os.path.exists(os.path.join(env["work"], "data", D.GSE128733_PREFIX_DEFAULT))   # not synced
+
+
+@pytest.mark.parametrize("case", ["missing", "empty"])
+def test_A_continues_with_warning_when_gse128733_dir_absent(env, case):
+    d = env["tmp"] / "g128"
+    if case == "empty":
+        d.mkdir()
+    rc = D.main(env["args"] + ["--only", "A", "--gse128733-dir", str(d)], store=D.LocalStore(env["bucket"]), shutdown=Recorder())
+    js = state(env)["jobs"]["A"]
+    assert rc == D.EXIT_OK and js["status"] == "done"
+    assert js["warnings"] == [f"GSE128733 location missing or empty: no files under {d}; job A continues without the 2 GSE128733 arrays "
+                              "(GSM3684010, GSM3684011)"]
+
+
+def test_A_no_warning_when_gse128733_present(env):
+    assert D.main(env["args"] + ["--only", "A"], store=D.LocalStore(env["bucket"]), shutdown=Recorder()) == D.EXIT_OK
+    assert state(env)["jobs"]["A"]["warnings"] is None and "WARNING" not in open(s3(env, "log.txt")).read()
+
+
 def test_default_atlas_missing_in_store_blocks_D(tmp_path):
     bucket = make_bucket(str(tmp_path / "bucket"), atlas=False)
     rc = D.main(["--work", str(tmp_path / "w"), "--only", "D"], store=D.LocalStore(bucket), shutdown=Recorder())
@@ -492,6 +527,15 @@ def test_workers_A_B_C_end_to_end_on_fake_chain(tmp_path, monkeypatch):
     assert sum(1 for r in c.values() if r["series"] == "GSE250556" and r["status"] == "ok") == 6
     lab = {r["series"]: r for r in csv.DictReader(open(os.path.join(work, "results", "BOXRUN1", "C", "C_spread_by_lab.csv")))}
     assert lab["GSE250556"]["n"] == "6" and float(lab["GSE250556"]["median"]) == pytest.approx(1.1)
+    # job A again with an empty GSE128733 folder: a warning, and the set without the 2 arrays
+    empty = tmp_path / "gse128733_empty"; empty.mkdir()
+    rc = D.main(["--work", str(work), "--only", "A", "--force", "A", "--chain-dir", str(chain), "--manifest", str(manifest), "--python", PY,
+                 "--workers", "4", "--gse128733-dir", str(empty)], store=D.LocalStore(bucket), shutdown=sh)
+    assert rc == D.EXIT_OK
+    rows = list(csv.DictReader(open(os.path.join(work, "results", "BOXRUN1", "A", "A_arrays.csv"))))
+    assert len(rows) == 6 + 4 + 6 and not {"GSM3684010", "GSM3684011"} & {r["gsm"] for r in rows}
+    assert "WARNING: GSE128733 arrays without an input" in open(os.path.join(work, "results", "BOXRUN1", "A", "job_A.log")).read()
+    assert json.load(open(os.path.join(work, "results", "BOXRUN1", "A", "bars.json")))["all_met"]
 
 
 # ------------------------------------------------------------------------------------------------ helpers
