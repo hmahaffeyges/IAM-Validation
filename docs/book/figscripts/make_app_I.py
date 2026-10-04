@@ -131,7 +131,11 @@ def docstring_inputs(text):
 
 FIGROWS, NOSCRIPT = [], []
 for inp, s in SRC.items():
-    for a, b in ((m.start(), s.find("\\end{figure", m.end())) for m in re.finditer(r"\\begin\{figure\*?\}", s)):
+    spans = [(m.start(), s.find("\\end{figure", m.end())) for m in re.finditer(r"\\begin\{figure\*?\}", s)]
+    # a figure set in a minipage with \captionof{figure} (no figure float) is a figure too
+    spans += [(m.start(), s.find("\\end{minipage}", m.end())) for m in re.finditer(r"\\begin\{minipage\}", s)
+              if "\\captionof{figure}" in s[m.start():s.find("\\end{minipage}", m.end())]]
+    for a, b in sorted(spans):
         blk = s[a:b]
         for g in re.findall(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}", strip_comments(blk)):
             lab = re.findall(r"\\label\{([^}]+)\}", strip_comments(blk))
@@ -139,7 +143,7 @@ for inp, s in SRC.items():
             q = re.compile(r"[\"'/]" + re.escape(base) + r"(\.pdf|\.png)?[\"']")
             hits = [p for p, t in PY.items() if q.search(t)]
             hits.sort(key=lambda p: (not p.startswith("docs/book/figscripts"), p))
-            row = dict(inp=inp, ch=CH[inp], file=g, label=lab[0] if lab else None, exists=(BOOK / g).exists(),
+            row = dict(inp=inp, ch=CH[inp], file=g, label=lab[0] if lab else None, exists=(BOOK / g).exists(), blk=blk,
                        line=s.count("\n", 0, a) + 1, script=None, lines=None, data=[])
             if hits:
                 sc = hits[0]
@@ -299,8 +303,7 @@ def shows(blk, words=16):
 
 # caption text for each figure and table row
 for r in FIGROWS:
-    s_ = SRC[r["inp"]]; a = s_.rfind("\\begin{figure", 0, s_.find(r["file"]) + 1)
-    r["shows"] = shows(s_[a:s_.find("\\end{figure", a)]) if a >= 0 else None
+    r["shows"] = shows(r["blk"])
 for r in TABROWS:
     s_ = SRC[r["inp"]]; lines_ = s_.splitlines(); a = len("\n".join(lines_[:r["line"] - 1]))
     e = min([x for x in (s_.find("\\end{table", a), s_.find("\\end{longtable", a), s_.find("\\end{tabular", a)) if x > 0] or [len(s_)])
