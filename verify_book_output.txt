@@ -2287,24 +2287,50 @@ PASS  ch:lambda:L394                     ch:lambda:p2_12_lambda:394  printed 3.1
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:lambda_history (part2/p2_12b_lambda_history.tex)
 PASS  eq:lh_dE                           ch:lambda_history:p2_12b_lambda_history:21  printed (algebra)  recomputed True  [derived] dE/da = E/a^2, 1 at a = 1
 PASS  eq:lh_w                            ch:lambda_history:p2_12b_lambda_history:24  printed (algebra)  recomputed True  [derived] w = -1 - (1/3) dln rho/dln a from continuity
+PASS  eq:lh_eps                          ch:lambda_history:p2_12b_lambda_history:26  printed (algebra)  recomputed lhs-rhs=0  [derived] w = -1 - epsilon from the continuity equation
 PASS  eq:lh_winfo                        ch:lambda_history:p2_12b_lambda_history:29  printed (algebra)  recomputed True  [derived] w_info = -1 - 1/(3a), -4/3 today
+PASS  ch:lambda_history:L34              ch:lambda_history:p2_12b_lambda_history:34  printed 2.8  recomputed 2.8  tol 0.05  [observed] DESI DR2 preference, lowest
+PASS  ch:lambda_history:L34:4.2          ch:lambda_history:p2_12b_lambda_history:34  printed 4.2  recomputed 4.2  tol 0.05  [observed] DESI DR2 preference, highest
+PASS  ch:lambda_history:L59              ch:lambda_history:p2_12b_lambda_history:59  printed 9.22\times10^{-5}  recomputed 9.220425e-05  tol 5.000005e-08  [derived] Omega_r from T_CMB and N_eff 3.046
+PASS  eq:lh_K                            ch:lambda_history:p2_12b_lambda_history:61  printed (algebra)  recomputed lhs-rhs=0  [calc] required coefficient K = (3 OL/8 pi)/(Ob/Om)
 PASS  ch:lambda_history:L63              ch:lambda_history:p2_12b_lambda_history:63  printed 7.8\times10^{-16}  recomputed 7.818468e-16  tol 5.000005e-18  [calc] a at T = 100 GeV, entropy conservation
+PASS  ch:lambda_history:L63:106.75       ch:lambda_history:p2_12b_lambda_history:63  printed 106.75  recomputed 106.75  tol 0.00500001  [calc] g_*s of the standard model above the electroweak scale
+PASS  ch:lambda_history:L64              ch:lambda_history:p2_12b_lambda_history:64  printed 2.7\times10^{31}  recomputed 2.698616e+31  tol 5.000005e+29  [calc] K from a at 100 GeV (entropy conservation)
+PASS  ch:lambda_history:L65              ch:lambda_history:p2_12b_lambda_history:65  printed 6.9\times10^{31}  recomputed 6.865347e+31  tol 5.000005e+29  [calc] K from a at the 159.5 GeV crossover
+PASS  ch:lambda_history:L65:6.5\times10^6 ch:lambda_history:p2_12b_lambda_history:65  printed 6.5\times10^6  recomputed 6.466633e+06  tol 50000  [calc] K from a = 1e-3
 PASS  ch:lambda_history:L72              ch:lambda_history:p2_12b_lambda_history:72  printed 0.523  recomputed 0.522708  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:lambda_history:L72:0.470        ch:lambda_history:p2_12b_lambda_history:72  printed 0.470  recomputed 0.470212  tol 5.000005e-04  [calc] int (H/H0)^-2 dE, Omega_m 0.3198
 PASS  ch:lambda_history:L72:0.641        ch:lambda_history:p2_12b_lambda_history:72  printed 0.641  recomputed 0.641089  tol 5.000005e-04  [calc] int (H/H0)^-1 dE, Omega_m 0.3198
 PASS  ch:lambda_history:L72:1.983        ch:lambda_history:p2_12b_lambda_history:72  printed 1.983  recomputed 1.98302  tol 5.000005e-04  [calc] int (H/H0)^1 dE, Omega_m 0.3198
 PASS  ch:lambda_history:L72:5.797        ch:lambda_history:p2_12b_lambda_history:72  printed 5.797  recomputed 5.797  tol 5.000005e-04  [calc] int (H/H0)^2 dE, Omega_m 0.3198
+PASS  ch:lambda_history:L72:3.1\times10^{30} ch:lambda_history:p2_12b_lambda_history:72  printed 3.1\times10^{30}  recomputed 3.103579e+30  tol 5.000005e+28  [calc] figure caption: K from the printed a_EW
+PASS  ch:lambda_history:L72:0.3198       ch:lambda_history:p2_12b_lambda_history:72  printed 0.3198  recomputed 0.3198  tol 5.000005e-05  [calc] 18th-chain Omega_m  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
+      heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)
 PASS  eq:lh_weights                      ch:lambda_history:p2_12b_lambda_history:77  printed (algebra)  recomputed True  [calc] the five weights int (H/H0)^p dE
 PASS  ch:lambda_history:L81              ch:lambda_history:p2_12b_lambda_history:81  printed 0.470  recomputed 0.470212  tol 5.000005e-04  [calc] int (H0/H)^2 dE
 PASS  ch:lambda_history:L81:0.523        ch:lambda_history:p2_12b_lambda_history:81  printed 0.523  recomputed 0.522708  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:lambda_history:L81:10           ch:lambda_history:p2_12b_lambda_history:81  printed 10  recomputed 10.0933  tol 0.5  [calc] per cent below the required 0.523
+PASS  ch:lambda_history:L87              ch:lambda_history:p2_12b_lambda_history:87  printed 0.811  recomputed 0.8111  tol 5.000005e-04  [calc] sigma8 normalisation of the power spectrum
+PASS  ch:lambda_history:L91              ch:lambda_history:p2_12b_lambda_history:91  printed 0.58  recomputed 0.5762  tol 0.00500001  [calc] baryon mass fraction in halos above 1e8 Msun
+PASS  ch:lambda_history:L91:213          ch:lambda_history:p2_12b_lambda_history:91  printed 213  recomputed 213.288  tol 0.5  [calc] mean dispersion sigma_eff, km/s
+PASS  ch:lambda_history:L92              ch:lambda_history:p2_12b_lambda_history:92  printed 3.2\times10^{-8}  recomputed 3.149942e-08  tol 6.400006e-10  [calc] accumulated virial heat of baryons over rho_L c^2
+PASS  ch:lambda_history:L93              ch:lambda_history:p2_12b_lambda_history:93  printed 2.6\times10^{-44}  recomputed 2.570780e-44  tol 5.000005e-46  [calc] virial heat priced at the horizon, over rho_L c^2
 PASS  ch:lambda_history:L94              ch:lambda_history:p2_12b_lambda_history:94  printed 0.072  recomputed 0.0720023  tol 5.000005e-04  [calc] Omega_b/Omega_L
+PASS  ch:lambda_history:L129             ch:lambda_history:p2_12b_lambda_history:129  printed 13.8  recomputed 13.8007  tol 0.05  [conjecture] age of the universe, Gyr
+PASS  eq:lh_base                         ch:lambda_history:p2_12b_lambda_history:133  printed 1.380\times10^{-123}  recomputed 1.380385e-123  tol 5.000005e-127  [none] (2/pi)(l_P/l_H)^2 Ob/Om
+PASS  eq:lh_corr                         ch:lambda_history:p2_12b_lambda_history:137  printed 1.142\times10^{-123}  recomputed 1.142145e-123  tol 5.000005e-127  [calc] (2/pi)(l_P/l_H)^2 sqrt(OL) Ob/Om
+PASS  ch:lambda_history:L140             ch:lambda_history:p2_12b_lambda_history:140  printed 0.79  recomputed 0.786127  tol 0.00500001  [calc] Eq. lh_corr above the observed ratio, per cent
+PASS  ch:lambda_history:L141             ch:lambda_history:p2_12b_lambda_history:141  printed 0.5  recomputed 0.46  tol 0.05  [observed] relation on the CMB-only chain, per cent  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
+      heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)
+PASS  ch:lambda_history:L156             ch:lambda_history:p2_12b_lambda_history:156  printed 13.8  recomputed 13.8007  tol 0.05  [calc] age of the universe, Gyr (conclusions)
 PASS  ch:lambda_history:L157             ch:lambda_history:p2_12b_lambda_history:157  printed 8.5\times10^{60}  recomputed 8.491833e+60  tol 5.000005e+58  [calc] Hubble radius in Planck lengths (H0 = 67.4)
 PASS  ch:lambda_history:L157:15.6        ch:lambda_history:p2_12b_lambda_history:157  printed 15.6  recomputed 15.6359  tol 0.05  [calc] baryon share of matter
 PASS  ch:lambda_history:L157:68.5        ch:lambda_history:p2_12b_lambda_history:157  printed 68.5  recomputed 68.47  tol 0.05  [calc] Omega_L in per cent
 PASS  ch:lambda_history:L158             ch:lambda_history:p2_12b_lambda_history:158  printed 0.827  recomputed 0.827466  tol 5.000005e-04  [calc] sqrt Omega_L
 PASS  ch:lambda_history:L158:1.142\times10^{-123} ch:lambda_history:p2_12b_lambda_history:158  printed 1.142\times10^{-123}  recomputed 1.142221e-123  tol 5.024805e-127  [calc] same value as p1_02_iams_law:739 (corrected Lambda/rho_vac with sqrt(OmegaL))
 PASS  ch:lambda_history:L158:1.133\times10^{-123} ch:lambda_history:p2_12b_lambda_history:158  printed 1.133\times10^{-123}  recomputed 1.133388e-123  tol 5.000005e-127  [calc] same value as p1_02_iams_law:729 (Lambda/rho_vac identity at H0=67.4)
+PASS  ch:lambda_history:L160             ch:lambda_history:p2_12b_lambda_history:160  printed 0.5  recomputed 0.46  tol 0.05  [observed] relation observed to 0.5 % (conclusions)  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
+      heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:baryon (part2/p2_13_baryon.tex)
 PASS  ch:baryon:L31                      ch:baryon:p2_13_baryon:31  printed 6.180  recomputed found in file  [observed] measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
@@ -4366,4 +4392,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3513  FAIL 0  (heavy, read from committed outputs: 704)  inventoried-not-run 2827  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3536  FAIL 0  (heavy, read from committed outputs: 707)  inventoried-not-run 2804  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

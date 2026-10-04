@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3513 PASS, 0 FAIL, 2827 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3536 PASS, 0 FAIL, 2804 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -2250,55 +2250,55 @@ Totals: 3513 PASS, 0 FAIL, 2827 inventoried and not run. Each run item carries t
 |---:|---|---|---|---|---|
 | 21 | eq:lh_dE | derived |  | sympy: dE/da = E/a^2, 1 at a = 1 | PASS |
 | 24 | eq:lh_w | derived |  | sympy: w = -1 - (1/3) dln rho/dln a from continuity | PASS |
-| 26 | eq:lh_eps | derived |  | not run: not yet run: draft does not reproduce the printed value (recomputed -d_ln_rho_d_ln_a/3 + epsilon); drafting error on review | - |
+| 26 | eq:lh_eps | derived |  | sympy: w = -1 - epsilon from the continuity equation | PASS |
 | 29 | eq:lh_winfo | derived |  | sympy: w_info = -1 - 1/(3a), -4/3 today | PASS |
-| 34 |  | observed | `2.8` | not run: measured, too few printed digits to match against the named files | - |
-| 34 |  | observed | `4.2` | not run: measured, too few printed digits to match against the named files | - |
-| 45 | eq:lh_integral | conjecture |  | not run: displayed equation, not yet checked | - |
-| 59 |  | derived | `2.3\times10^{-15}` | not run: not yet run: draft rejected (drafter skipped: Skip: the excerpt does not state how a_EW = 2.3e-15 was derived; it is pr) | - |
-| 59 |  | derived | `9.22\times10^{-5}` | not run: not yet run: draft rejected (drafter skipped: Skip: the excerpt cites this as a Planck 2018 density parameter, not deri) | - |
-| 61 | eq:lh_K | calc |  | not run: not yet run: draft rejected (does not run: ValueError no value) | - |
+| 34 | ch:lambda_history:L34 | observed | `2.8` | numeric: DESI DR2 preference, lowest | PASS |
+| 34 | ch:lambda_history:L34:4.2 | observed | `4.2` | numeric: DESI DR2 preference, highest | PASS |
+| 45 | eq:lh_integral | conjecture |  | not run: conjecture: the history integral Eq. lh_integral is the conjectured form of the accumulation (a definition); its evaluation is checked at ch:lambda_history:L72:3.1\times10^{30}, ch:lambda_history:L64, L65 | - |
+| 59 | ch:lambda_history:L59 | derived | `9.22\times10^{-5}` | numeric: Omega_r from T_CMB and N_eff 3.046 | PASS |
+| 59 |  | derived | `2.3\times10^{-15}` | not run: input: a_EW = 2.3e-15 as printed in Chapter electroweak, used as the lower limit; the entropy-conserving value 7.8e-16 is checked at ch:lambda_history:L63 | - |
+| 61 | eq:lh_K | calc |  | sympy: required coefficient K = (3 OL/8 pi)/(Ob/Om) | PASS |
 | 63 | ch:lambda_history:L63 | calc | `7.8\times10^{-16}` | numeric: a at T = 100 GeV, entropy conservation | PASS |
-| 63 |  | calc | `106.75` | not run: not yet run: draft rejected (drafter skipped: Skip: this is a particle-physics input (effective number of entropy degre) | - |
-| 64 |  | calc | `2.3\times10^{-15}` | not run: not yet run: draft does not reproduce the printed value (recomputed 4.494361e-16); drafting error on review | - |
-| 64 |  | calc | `2.7\times10^{31}` | not run: not yet run: draft rejected (drafter skipped: Skip: the integral K_integral requires numerical evaluation of the full i) | - |
-| 64 |  | calc | `159.5` | not run: not yet run: draft rejected (drafter skipped: Skip: this is cited as "the crossover temperature (Chapter~ref{ch:electro) | - |
-| 65 |  | calc | `6.9\times10^{31}` | not run: not yet run: draft rejected (drafter skipped: Skip: like ITEM 605, this requires numerical integration of the full inte) | - |
-| 65 |  | calc | `6.5\times10^6` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 66 |  | calc | `10` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 63 | ch:lambda_history:L63:106.75 | calc | `106.75` | numeric: g_*s of the standard model above the electroweak scale | PASS |
+| 64 | ch:lambda_history:L64 | calc | `2.7\times10^{31}` | numeric: K from a at 100 GeV (entropy conservation) | PASS |
+| 64 |  | calc | `2.3\times10^{-15}` | not run: input restated: the printed a_EW = 2.3e-15 (see line 59); the corrected 7.8e-16 is checked at ch:lambda_history:L63 | - |
+| 64 |  | calc | `159.5` | not run: input: electroweak crossover temperature 159.5 GeV (Chapter electroweak, lattice result), used as a lower-limit temperature | - |
+| 65 | ch:lambda_history:L65 | calc | `6.9\times10^{31}` | numeric: K from a at the 159.5 GeV crossover | PASS |
+| 65 | ch:lambda_history:L65:6.5\times10^6 | calc | `6.5\times10^6` | numeric: K from a = 1e-3 | PASS |
+| 66 |  | calc | `10` | not run: input: the lower limit a = 10^-3 chosen for the comparison; the K it gives is checked at ch:lambda_history:L65:6.5\times10^6 | - |
 | 72 | ch:lambda_history:L72 | calc | `0.523` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 72 | ch:lambda_history:L72:0.470 | calc | `0.470` | numeric: int (H/H0)^-2 dE, Omega_m 0.3198 | PASS |
 | 72 | ch:lambda_history:L72:0.641 | calc | `0.641` | numeric: int (H/H0)^-1 dE, Omega_m 0.3198 | PASS |
 | 72 | ch:lambda_history:L72:1.983 | calc | `1.983` | numeric: int (H/H0)^1 dE, Omega_m 0.3198 | PASS |
 | 72 | ch:lambda_history:L72:5.797 | calc | `5.797` | numeric: int (H/H0)^2 dE, Omega_m 0.3198 | PASS |
-| 72 |  | calc | `2.3\times10^{-15}` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 72 |  | calc | `3.1\times10^{30}` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 72 |  | calc | `0.3198` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 72 | ch:lambda_history:L72:3.1\times10^{30} | calc | `3.1\times10^{30}` | numeric: figure caption: K from the printed a_EW | PASS |
+| 72 | ch:lambda_history:L72:0.3198 | calc | `0.3198` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: 18th-chain Omega_m | PASS |
+| 72 |  | calc | `2.3\times10^{-15}` | not run: input restated: the printed a_EW = 2.3e-15 in the figure caption | - |
 | 77 | eq:lh_weights | calc |  | sympy: the five weights int (H/H0)^p dE | PASS |
 | 81 | ch:lambda_history:L81 | calc | `0.470` | numeric: int (H0/H)^2 dE | PASS |
 | 81 | ch:lambda_history:L81:0.523 | calc | `0.523` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 81 | ch:lambda_history:L81:10 | calc | `10` | numeric: per cent below the required 0.523 | PASS |
-| 86 |  | calc | `10` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 87 |  | calc | `0.811` | not run: not yet run: draft rejected (no draft returned) | - |
-| 91 |  | calc | `0.58` | not run: not yet run: draft rejected (no draft returned) | - |
-| 91 |  | calc | `213` | not run: not yet run: draft rejected (no draft returned) | - |
-| 92 |  | calc | `3.2\times10^{-8}` | not run: not yet run: draft rejected (no draft returned) | - |
-| 93 |  | calc | `2.6\times10^{-44}` | not run: not yet run: draft rejected (no draft returned) | - |
+| 86 |  | calc | `10` | not run: input: halo mass cut 10^8 Msun of the Sheth-Tormen sum (the printed 10 is its base) | - |
+| 87 | ch:lambda_history:L87 | calc | `0.811` | numeric: sigma8 normalisation of the power spectrum | PASS |
+| 91 | ch:lambda_history:L91 | calc | `0.58` | numeric: baryon mass fraction in halos above 1e8 Msun | PASS |
+| 91 | ch:lambda_history:L91:213 | calc | `213` | numeric: mean dispersion sigma_eff, km/s | PASS |
+| 92 | ch:lambda_history:L92 | calc | `3.2\times10^{-8}` | numeric: accumulated virial heat of baryons over rho_L c^2 | PASS |
+| 93 | ch:lambda_history:L93 | calc | `2.6\times10^{-44}` | numeric: virial heat priced at the horizon, over rho_L c^2 | PASS |
 | 94 | ch:lambda_history:L94 | calc | `0.072` | numeric: Omega_b/Omega_L | PASS |
-| 96 |  | interp | `3\times10^{-8}` | not run: not yet checked | - |
-| 129 |  | conjecture | `13.8` | not run: not yet checked | - |
-| 133 | eq:lh_base | none |  | not run: displayed equation, not yet checked | - |
-| 137 | eq:lh_corr | calc |  | not run: not yet run: draft rejected (does not run: ValueError no value) | - |
-| 140 |  | calc | `0.79` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.694271); drafting error on review | - |
-| 141 |  | observed | `0.5` | not run: measured, too few printed digits to match against the named files | - |
-| 156 |  | calc | `13.8` | not run: not yet run: draft rejected (drafter skipped: Line 156 states "universe 13.8 billion years old" as an observational fac) | - |
+| 96 |  | interp | `3\times10^{-8}` | not run: restates ch:lambda_history:L92 and ch:lambda:L394 (3.15e-8) to one digit; the 5 % shifted value 3.15e-8 coincides with the computed value, so no check can carry a failing negative control | - |
+| 129 | ch:lambda_history:L129 | conjecture | `13.8` | numeric: age of the universe, Gyr | PASS |
+| 133 | eq:lh_base | none | `1.380\times10^{-123}` | numeric: (2/pi)(l_P/l_H)^2 Ob/Om | PASS |
+| 137 | eq:lh_corr | calc | `1.142\times10^{-123}` | numeric: (2/pi)(l_P/l_H)^2 sqrt(OL) Ob/Om | PASS |
+| 140 | ch:lambda_history:L140 | calc | `0.79` | numeric: Eq. lh_corr above the observed ratio, per cent | PASS |
+| 141 | ch:lambda_history:L141 | observed | `0.5` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: relation on the CMB-only chain, per cent | PASS |
+| 156 | ch:lambda_history:L156 | calc | `13.8` | numeric: age of the universe, Gyr (conclusions) | PASS |
 | 157 | ch:lambda_history:L157 | calc | `8.5\times10^{60}` | numeric: Hubble radius in Planck lengths (H0 = 67.4) | PASS |
 | 157 | ch:lambda_history:L157:15.6 | calc | `15.6` | numeric: baryon share of matter | PASS |
 | 157 | ch:lambda_history:L157:68.5 | calc | `68.5` | numeric: Omega_L in per cent | PASS |
 | 158 | ch:lambda_history:L158 | calc | `0.827` | numeric: sqrt Omega_L | PASS |
 | 158 | ch:lambda_history:L158:1.142\times10^{-123} | calc | `1.142\times10^{-123}` | numeric: same value as p1_02_iams_law:739 (corrected Lambda/rho_vac with sqrt(OmegaL)) | PASS |
 | 158 | ch:lambda_history:L158:1.133\times10^{-123} | calc | `1.133\times10^{-123}` | numeric: same value as p1_02_iams_law:729 (Lambda/rho_vac identity at H0=67.4) | PASS |
-| 160 |  | observed | `0.5` | not run: measured, too few printed digits to match against the named files | - |
+| 160 | ch:lambda_history:L160 | observed | `0.5` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: relation observed to 0.5 % (conclusions) | PASS |
 
 ## Part 2 - ch:baryon - `docs/book/part2/p2_13_baryon.tex`
 

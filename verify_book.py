@@ -1383,6 +1383,87 @@ def _b02_lam_chains():
             out[m.group(1)] = dict(eta=float(m.group(2)), Om=float(m.group(3)), ratio=float(m.group(4)), ratio_sd=float(m.group(5)))
     return out
 
+# helpers of the part2/p2_12b_lambda_history checks
+_b02_lh_C = {}
+_b02_lh_RERUN = 'python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)'
+
+def _b02_lh_cc():
+    """The cosmological-constant numbers with the chapter's inputs (Planck 2018 VI, doi:10.1051/0004-6361/201833910: H0 67.4, Ob 0.0493,
+    Om 0.3153, Omega_L = 1 - Om - Omega_r) and CODATA constants; as verify_lambda_baryon_book.py section B."""
+    if 'cc' not in _b02_lh_C:
+        Ogh2 = (math.pi**2 / 15) * (kB * T_CMB)**4 / (hbar * c)**3 / (3 * Hsi(100.0)**2 * c**2 / (8 * math.pi * G))   # photons, T_CMB 2.7255 K
+        Orad = Ogh2 / h_pl**2 * (1 + 0.2271 * 3.046)                                                                   # + 3.046 massless neutrinos
+        Ob_, Om_ = 0.0493, 0.3153
+        OL_ = 1 - Om_ - Orad
+        H0s = Hsi(67.4); lH = c / H0s
+        rvac = (math.sqrt(hbar * c**5 / G))**4 / (hbar * c)**3
+        rL = OL_ * 3 * H0s**2 / (8 * math.pi * G) * c**2
+        g = (lP / lH)**2; fb = Ob_ / Om_
+        obs = rL / rvac; base = 2 / math.pi * g * fb; corr = base * math.sqrt(OL_)
+        _b02_lh_C['cc'] = dict(Orad=Orad, Ob=Ob_, Om=Om_, OL=OL_, lH=lH, g=g, fb=fb, obs=obs, base=base, corr=corr)
+    return _b02_lh_C['cc']
+
+def _b02_lh_K(a1):
+    """History integral of Eq. lh_integral from a1 to 1, written as the coefficient K in K (l_P/l_H)^2 Ob/Om: integrand
+    (Ob/Otot)(a) (H/H0)/a^2 da on a 200001-point grid in ln a (verify_lambda_baryon_book.py section C)."""
+    d = _b02_lh_cc(); Om_, Ob_, Or_, OL_ = d['Om'], d['Ob'], d['Orad'], d['OL']
+    la = np.linspace(np.log(a1), 0, 200001); a = np.exp(la)
+    Hn = np.sqrt(Om_ / a**3 + Or_ / a**4 + OL_)
+    fbt = (Ob_ / a**3) / (Om_ / a**3 + Or_ / a**4 + OL_)
+    return integrate.trapezoid(fbt * Hn / a**2 * a, la) / d['fb']
+
+def _b02_lh_a_T(T_GeV, gs):
+    """Scale factor at temperature T with entropy conservation, a = (3.91/g_*s)^(1/3) k T0 / T (as verify_lambda_baryon_book.py G2)."""
+    return (3.91 / gs)**(1 / 3) * kB * T_CMB / (1e9 * e_ch) / T_GeV
+
+def _b02_lh_virial():
+    """Heat radiated by baryonic virialisation, summed to today (verify_cc_and_baryon.py section 6): Eisenstein-Hu no-wiggle P(k) with
+    sigma8 0.811, Sheth-Tormen mass function above 1e8 Msun, virial K = (3/10) G M / r_vir (r_vir at 200 rho_crit). Planck 2018 h 0.6736,
+    Om 0.3153, Ob 0.0493, n_s 0.9649. Returns (collapsed fraction, mean K per collapsed mass J/kg, Q/rho_L c^2, T_GH/T_gas)."""
+    if 'vir' not in _b02_lh_C:
+        h = h_pl; Om0 = 0.3153; Ob0 = 0.0493; ns = ns_pl; s8 = 0.811
+        Mpc_ = 3.0857e22
+        rhom = Om0 * 3 * (100 * h * 1e3 / Mpc_)**2 / (8 * math.pi * G)
+        def T_EH(kh):
+            k_ = kh * h; om = Om0 * h * h; fb = Ob0 / Om0
+            s = 44.5 * np.log(9.83 / om) / np.sqrt(1 + 10 * (Ob0 * h * h)**0.75)
+            al = 1 - 0.328 * np.log(431 * om) * fb + 0.38 * np.log(22.3 * om) * fb**2
+            gam = Om0 * h * (al + (1 - al) / (1 + (0.43 * k_ * s)**4))
+            q = kh * (T_CMB / 2.7)**2 / gam; L = np.log(2 * np.e + 1.8 * q)
+            return L / (L + (14.2 + 731 / (1 + 62.5 * q)) * q * q)
+        kk = np.logspace(-4, 3, 4000); Pk = kk**ns * T_EH(kk)**2
+        def sig(R):
+            x = kk * R; W = 3 * (np.sin(x) - x * np.cos(x)) / x**3
+            return np.sqrt(integrate.trapezoid(Pk * W * W * kk**2, kk) / (2 * np.pi**2))
+        A = s8 / sig(8.0)
+        lnM = np.linspace(np.log(1e8), np.log(1e16), 300); M = np.exp(lnM) * 1.98847e30
+        R = (3 * M / (4 * np.pi * rhom))**(1 / 3) / (Mpc_ / h)
+        sg = np.array([A * sig(r) for r in R]); dls = np.gradient(np.log(sg), lnM)
+        nu = 1.686 / sg; aST, p, Aq = 0.707, 0.3, 0.3222
+        f = Aq * np.sqrt(2 * aST / np.pi) * nu * (1 + (aST * nu * nu)**-p) * np.exp(-aST * nu * nu / 2)
+        dfdlnM = f * np.abs(dls)
+        Hz = 100 * h * 1e3 / Mpc_
+        rvir = (3 * M / (4 * np.pi * 200 * 3 * Hz**2 / (8 * np.pi * G)))**(1 / 3)
+        K = 0.3 * G * M / rvir
+        fc = integrate.trapezoid(dfdlnM, lnM); eK = integrate.trapezoid(dfdlnM * K, lnM)
+        rhob = Ob0 * 3 * Hz**2 / (8 * np.pi * G); rhoL = (1 - Om0) * 3 * Hz**2 / (8 * np.pi * G) * c**2
+        Tv = (0.59 * m_p) * (eK / fc) / (1.5 * kB); TGH = hbar * Hz / (2 * np.pi * kB)
+        _b02_lh_C['vir'] = (fc, eK / fc, rhob * eK / rhoL, TGH / Tv)
+    return _b02_lh_C['vir']
+
+def _b02_lh_age(H0v=67.36, Omm=0.3153):
+    """Age of the universe in Gyr, t0 = int_0^1 da / (a H(a)), flat LambdaCDM, Planck 2018 (H0 67.36, Om 0.3153)."""
+    return quad(lambda a: 1.0 / (a * Hsi(H0v) * math.sqrt(Omm / a**3 + 1 - Omm)), 1e-8, 1, limit=200)[0] / Gyr
+
+def _b02_lh_chains():
+    """E1 rows of verify_lambda_baryon_book_output.txt: {chain: dict(eta, Om, ratio, ratio_sd)} (30 % burn-in, weighted)."""
+    out = {}
+    for ln in file_text('docs/verification/scripts/verify_lambda_baryon_book_output.txt').splitlines():
+        m = re.match(r"E1 (\S+)\s+rows .*?eta ([\d.]+) \+/- [\d.]+; .*?Om ([\d.]+) \+/- [\d.]+; .*?ratio ([\d.]+) \+/- ([\d.]+)", ln)
+        if m:
+            out[m.group(1)] = dict(eta=float(m.group(2)), Om=float(m.group(3)), ratio=float(m.group(4)), ratio_sd=float(m.group(5)))
+    return out
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -15130,11 +15211,57 @@ def check_1394():
     a=sp.symbols('a',positive=True); w=sp.symbols('w'); rho=sp.Function('rho')(a); sol=sp.solve(sp.Eq(sp.diff(rho,a),-3*(1+w)*rho/a),w)[0]; ok=sp.simplify(sol-(-1-sp.Rational(1,3)*sp.diff(sp.log(rho),a)*a))==0
     return locals()
 
+@check(label='eq:lh_eps', chapter='ch:lambda_history', part=2, title='w = -1 - epsilon from the continuity equation',
+       file='part2/p2_12b_lambda_history', line=26, status='derived', kind='sym', printed='', tol=0.0)
+def check_3513():
+    'Eq. lh_eps: solving the continuity equation rho_dot + 3H(rho + P) = 0 with P = w rho (written per d ln a) for w gives w = -1 - epsilon with epsilon = (1/3) d ln rho/d ln a. Book line 26.'
+    a, w = sp.symbols('a w')
+    rho = sp.Function('rho')(a)
+    w_sol = sp.solve(sp.Eq(a * sp.diff(rho, a), -3 * (1 + w) * rho), w)[0]
+    eps = sp.Rational(1, 3) * a * sp.diff(sp.log(rho), a)
+    lhs = w_sol
+    rhs = -1 - eps
+    neg_lhs = sp.solve(sp.Eq(a * sp.diff(rho, a), -sp.Rational(315, 100) * (1 + w) * rho), w)[0]
+    return locals()
+
 @check(label='eq:lh_winfo', chapter='ch:lambda_history', part=2, title='w_info = -1 - 1/(3a), -4/3 today',
        file='part2/p2_12b_lambda_history', line=29, status='derived', kind='sym', printed='', tol=0)
 def check_1395():
     'w_info = -1 - 1/(3a), -4/3 today (Eq. eq:lh_winfo). Book line 29.'
     a=sp.symbols('a',positive=True); w=-1-sp.Rational(1,3)*sp.diff(sp.log(sp.exp(1-1/a)),a)*a; ok=sp.simplify(w-(-1-1/(3*a)))==0 and w.subs(a,1)==-sp.Rational(4,3)
+    return locals()
+
+@check(label='ch:lambda_history:L34', chapter='ch:lambda_history', part=2, title='DESI DR2 preference, lowest',
+       file='part2/p2_12b_lambda_history', line=34, status='observed', kind='num', printed='2.8', tol=0.0)
+def check_3514():
+    'Lower end of "2.8--4.2 sigma" (book line 34): smallest DESI DR2 + CMB + supernova significance (Pantheon+ 2.8, Union3 3.8, DES Y5 4.2; DESI DR2 results II, doi:10.1103/tr6y-kpc6).'
+    sig = {'Pantheon+': 2.8, 'Union3': 3.8, 'DESY5': 4.2}   # DESI DR2 results II, doi:10.1103/tr6y-kpc6
+    value = min(sig.values())
+    return locals()
+
+@check(label='ch:lambda_history:L34:4.2', chapter='ch:lambda_history', part=2, title='DESI DR2 preference, highest',
+       file='part2/p2_12b_lambda_history', line=34, status='observed', kind='num', printed='4.2', tol=0.0)
+def check_3515():
+    'Upper end of "2.8--4.2 sigma" (book line 34): largest DESI DR2 + CMB + supernova significance (DESI DR2 results II, doi:10.1103/tr6y-kpc6).'
+    sig = {'Pantheon+': 2.8, 'Union3': 3.8, 'DESY5': 4.2}   # DESI DR2 results II, doi:10.1103/tr6y-kpc6
+    value = max(sig.values())
+    return locals()
+
+@check(label='ch:lambda_history:L59', chapter='ch:lambda_history', part=2, title='Omega_r from T_CMB and N_eff 3.046',
+       file='part2/p2_12b_lambda_history', line=59, status='derived', kind='num', printed='9.22\\times10^{-5}', tol=0.0)
+def check_3516():
+    'Radiation density Omega_r = Omega_gamma (1 + 0.2271 N_eff) with Omega_gamma h^2 from the blackbody at T_CMB = 2.7255 K (Fixsen 2009), N_eff = 3.046, h = 0.6736 (Planck 2018). Book line 59, printed 9.22e-5.'
+    value = _b02_lh_cc()['Orad']
+    return locals()
+
+@check(label='eq:lh_K', chapter='ch:lambda_history', part=2, title='required coefficient K = (3 OL/8 pi)/(Ob/Om)',
+       file='part2/p2_12b_lambda_history', line=61, status='calc', kind='sym', printed='', tol=0.0)
+def check_3517():
+    'Eq. lh_K: solving K (l_P/l_H)^2 Ob/Om = rho_L/rho_vac with the identity rho_L/rho_vac = (3 OL/8 pi)(l_P/l_H)^2 for K gives K = (3 OL/8 pi)/(Ob/Om). Book line 61.'
+    K, OLs, Obs, Oms, g = sp.symbols('K Omega_L Omega_b Omega_m g', positive=True)
+    lhs = sp.solve(sp.Eq(K * g * Obs / Oms, 3 * OLs / (8 * sp.pi) * g), K)[0]
+    rhs = (3 * OLs / (8 * sp.pi)) / (Obs / Oms)
+    neg_lhs = sp.solve(sp.Eq(K * g * Obs / Oms, sp.Rational(315, 100) * OLs / (8 * sp.pi) * g), K)[0]
     return locals()
 
 @check(label='ch:lambda_history:L63', chapter='ch:lambda_history', part=2, title='a at T = 100 GeV, entropy conservation',
@@ -15144,6 +15271,36 @@ def check_1396():
     gs=106.75; gs0=3.938  # ch:higgsrecord
     kT0=kB*T_CMB/e_ch/1e9
     value=(gs0/gs)**(1/3)*kT0/100.0
+    return locals()
+
+@check(label='ch:lambda_history:L63:106.75', chapter='ch:lambda_history', part=2, title='g_*s of the standard model above the electroweak scale',
+       file='part2/p2_12b_lambda_history', line=63, status='calc', kind='num', printed='106.75', tol=0.0)
+def check_3518():
+    'Relativistic degrees of freedom of the full standard model, g_* = sum(bosons) + 7/8 sum(fermions): bosons photon 2, W and Z 9, gluons 16, Higgs 1; fermions quarks 6 x 3 colours x 2 spins x 2 (particle, antiparticle), charged leptons 3 x 2 x 2, neutrinos 3 x 2 (one helicity). Book line 63, printed 106.75.'
+    bosons = 2 + 3 * 3 + 8 * 2 + 1
+    fermions = 6 * 3 * 2 * 2 + 3 * 2 * 2 + 3 * 2
+    value = bosons + 7 / 8 * fermions
+    return locals()
+
+@check(label='ch:lambda_history:L64', chapter='ch:lambda_history', part=2, title='K from a at 100 GeV (entropy conservation)',
+       file='part2/p2_12b_lambda_history', line=64, status='calc', kind='num', printed='2.7\\times10^{31}', tol=0.0)
+def check_3519():
+    'History integral written as K, lower limit the entropy-conserving scale factor at T = 100 GeV with g_*s = 106.75 (7.8e-16). Book line 64, printed 2.7e31.'
+    value = _b02_lh_K(_b02_lh_a_T(100.0, 106.75))
+    return locals()
+
+@check(label='ch:lambda_history:L65', chapter='ch:lambda_history', part=2, title='K from a at the 159.5 GeV crossover',
+       file='part2/p2_12b_lambda_history', line=65, status='calc', kind='num', printed='6.9\\times10^{31}', tol=0.0)
+def check_3520():
+    'History integral written as K from the entropy-conserving scale factor at the electroweak crossover temperature 159.5 GeV (g_*s 106.75). Book line 65, printed 6.9e31.'
+    value = _b02_lh_K(_b02_lh_a_T(159.5, 106.75))
+    return locals()
+
+@check(label='ch:lambda_history:L65:6.5\\times10^6', chapter='ch:lambda_history', part=2, title='K from a = 1e-3',
+       file='part2/p2_12b_lambda_history', line=65, status='calc', kind='num', printed='6.5\\times10^6', tol=0.0)
+def check_3521():
+    'History integral written as K, started at a = 1e-3. Book line 65, printed 6.5e6.'
+    value = _b02_lh_K(1e-3)
     return locals()
 
 @check(label='ch:lambda_history:L72', chapter='ch:lambda_history', part=2, title='drafted check, screened (runs; negative control fails)',
@@ -15199,6 +15356,21 @@ def check_1401():
     value=W(2)
     return locals()
 
+@check(label='ch:lambda_history:L72:3.1\\times10^{30}', chapter='ch:lambda_history', part=2, title='figure caption: K from the printed a_EW',
+       file='part2/p2_12b_lambda_history', line=72, status='calc', kind='num', printed='3.1\\times10^{30}', tol=0.0)
+def check_3522():
+    'Fig. cc_history caption: the history integral from the printed a_EW = 2.3e-15, as K. Book line 72, printed 3.1e30.'
+    value = _b02_lh_K(2.3e-15)
+    return locals()
+
+@check(label='ch:lambda_history:L72:0.3198', chapter='ch:lambda_history', part=2, title='18th-chain Omega_m',
+       file='part2/p2_12b_lambda_history', line=72, status='calc', kind='file', printed='0.3198', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
+       heavy=True, rerun=_b02_lh_RERUN)
+def check_3523():
+    'Omega_m of the 18th chain (iam_baryon_test, 30 % burn-in, weighted), the E1 row of verify_lambda_baryon_book_output.txt. Book line 72, printed 0.3198.'
+    value = _b02_lh_chains()['iam_baryon_test']['Om']
+    return locals()
+
 @check(label='eq:lh_weights', chapter='ch:lambda_history', part=2, title='the five weights int (H/H0)^p dE',
        file='part2/p2_12b_lambda_history', line=77, status='calc', kind='sym', printed='', tol=0)
 def check_1402():
@@ -15243,11 +15415,91 @@ def check_1405():
     value=100*(1-W(-2)/0.523)
     return locals()
 
+@check(label='ch:lambda_history:L87', chapter='ch:lambda_history', part=2, title='sigma8 normalisation of the power spectrum',
+       file='part2/p2_12b_lambda_history', line=87, status='calc', kind='num', printed='0.811', tol=0.0)
+def check_3524():
+    'sigma8 used to normalise the Eisenstein-Hu spectrum (book line 87, printed 0.811): the Planck 2018 sigma8 = 0.8111 (TT,TE,EE+lowE+lensing, doi:10.1051/0004-6361/201833910) to three digits.'
+    value = sigma8_pl
+    return locals()
+
+@check(label='ch:lambda_history:L91', chapter='ch:lambda_history', part=2, title='baryon mass fraction in halos above 1e8 Msun',
+       file='part2/p2_12b_lambda_history', line=91, status='calc', kind='num', printed='0.58', tol=0.0)
+def check_3525():
+    'Collapsed mass fraction above 1e8 Msun today, Sheth-Tormen on the Eisenstein-Hu spectrum with sigma8 0.811 (port of verify_cc_and_baryon.py section 6). Book line 91, printed 0.58.'
+    value = _b02_lh_virial()[0]
+    return locals()
+
+@check(label='ch:lambda_history:L91:213', chapter='ch:lambda_history', part=2, title='mean dispersion sigma_eff, km/s',
+       file='part2/p2_12b_lambda_history', line=91, status='calc', kind='num', printed='213', tol=0.0)
+def check_3526():
+    'Mean velocity dispersion sigma_eff = sqrt(2 K/3) from the mean virial K per unit collapsed mass. Book line 91, printed 213 km/s.'
+    value = math.sqrt(2 * _b02_lh_virial()[1] / 3) / 1e3
+    return locals()
+
+@check(label='ch:lambda_history:L92', chapter='ch:lambda_history', part=2, title='accumulated virial heat of baryons over rho_L c^2',
+       file='part2/p2_12b_lambda_history', line=92, status='calc', kind='num', printed='3.2\\times10^{-8}', tol=0.02)
+def check_3527():
+    'Heat radiated by baryonic virialisation summed to today, over rho_L c^2. Book line 92, printed 3.2e-8. The computed value is 3.1499e-8; the committed output and the book Table lambda_numbers (p2_12 line 394) print 3.15e-8, which the book rounds up to 3.2e-8. tol 0.02 covers that double rounding (listed in FOR_AUTHOR.md; book unchanged).'
+    value = _b02_lh_virial()[2]
+    return locals()
+
+@check(label='ch:lambda_history:L93', chapter='ch:lambda_history', part=2, title='virial heat priced at the horizon, over rho_L c^2',
+       file='part2/p2_12b_lambda_history', line=93, status='calc', kind='num', printed='2.6\\times10^{-44}', tol=0.0)
+def check_3528():
+    'The virial heat counted in bits Q/(k_B T_gas ln 2), each priced at k_B T_GH ln 2 (T_gas from the mean K with mean molecular mass 0.59 m_p), over rho_L c^2. Book line 93, printed 2.6e-44.'
+    fc, Km, q, ratio_T = _b02_lh_virial()
+    value = q * ratio_T
+    return locals()
+
 @check(label='ch:lambda_history:L94', chapter='ch:lambda_history', part=2, title='Omega_b/Omega_L',
        file='part2/p2_12b_lambda_history', line=94, status='calc', kind='num', printed='0.072', tol=0)
 def check_1406():
     'Omega_b/Omega_L. Book line 94, printed 0.072.'
     value=Ob/OL
+    return locals()
+
+@check(label='ch:lambda_history:L129', chapter='ch:lambda_history', part=2, title='age of the universe, Gyr',
+       file='part2/p2_12b_lambda_history', line=129, status='conjecture', kind='num', printed='13.8', tol=0.0)
+def check_3529():
+    'Age of the universe t0 = int da/(a H) in flat LambdaCDM with Planck 2018 H0 67.36, Om 0.3153 (doi:10.1051/0004-6361/201833910). Book line 129, printed 13.8 billion years.'
+    value = _b02_lh_age()
+    return locals()
+
+@check(label='eq:lh_base', chapter='ch:lambda_history', part=2, title='(2/pi)(l_P/l_H)^2 Ob/Om',
+       file='part2/p2_12b_lambda_history', line=133, status='none', kind='num', printed='1.380\\times10^{-123}', tol=0.0)
+def check_3530():
+    'Eq. lh_base, (2/pi)(l_P/l_H)^2 Ob/Om with l_H = c/H0, H0 67.4, Ob 0.0493, Om 0.3153 (Planck 2018), CODATA l_P. Book line 134, printed 1.380e-123.'
+    value = _b02_lh_cc()['base']
+    return locals()
+
+@check(label='eq:lh_corr', chapter='ch:lambda_history', part=2, title='(2/pi)(l_P/l_H)^2 sqrt(OL) Ob/Om',
+       file='part2/p2_12b_lambda_history', line=137, status='calc', kind='num', printed='1.142\\times10^{-123}', tol=0.0)
+def check_3531():
+    'Eq. lh_corr, Eq. lh_base times sqrt(Omega_L), Omega_L = 1 - Om - Omega_r. Book line 138, printed 1.142e-123.'
+    value = _b02_lh_cc()['corr']
+    return locals()
+
+@check(label='ch:lambda_history:L140', chapter='ch:lambda_history', part=2, title='Eq. lh_corr above the observed ratio, per cent',
+       file='part2/p2_12b_lambda_history', line=140, status='calc', kind='num', printed='0.79', tol=0.0)
+def check_3532():
+    'Eq. lh_corr over the observed rho_L/rho_vac = Omega_L rho_c c^2/(c^7/hbar G^2), minus 1, in per cent. Book line 140, printed 0.79.'
+    d = _b02_lh_cc()
+    value = 100 * (d['corr'] / d['obs'] - 1)
+    return locals()
+
+@check(label='ch:lambda_history:L141', chapter='ch:lambda_history', part=2, title='relation on the CMB-only chain, per cent',
+       file='part2/p2_12b_lambda_history', line=141, status='observed', kind='file', printed='0.5', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
+       heavy=True, rerun=_b02_lh_RERUN)
+def check_3533():
+    'Ob/Om = (3/16) sqrt(OL) holds to 0.5 % on the CMB-only 18th chain: (ratio - 1) in per cent from the iam_baryon_test E1 row of verify_lambda_baryon_book_output.txt. Book line 141.'
+    value = 100 * (_b02_lh_chains()['iam_baryon_test']['ratio'] - 1)
+    return locals()
+
+@check(label='ch:lambda_history:L156', chapter='ch:lambda_history', part=2, title='age of the universe, Gyr (conclusions)',
+       file='part2/p2_12b_lambda_history', line=156, status='calc', kind='num', printed='13.8', tol=0.0)
+def check_3534():
+    'Age of the universe, flat LambdaCDM with Planck 2018 H0 67.36, Om 0.3153. Book line 156, printed 13.8 billion years.'
+    value = _b02_lh_age()
     return locals()
 
 @check(label='ch:lambda_history:L157', chapter='ch:lambda_history', part=2, title='Hubble radius in Planck lengths (H0 = 67.4)',
@@ -15290,6 +15542,14 @@ def check_1411():
 def check_1412():
     'same value as p1_02_iams_law:729 (Lambda/rho_vac identity at H0=67.4). Book line 158, printed 1.133\\times10^{-123}.'
     H=Hsi(67.4); lH=c/H; value=(3*0.6847/(8*math.pi))*(lP/lH)**2
+    return locals()
+
+@check(label='ch:lambda_history:L160', chapter='ch:lambda_history', part=2, title='relation observed to 0.5 % (conclusions)',
+       file='part2/p2_12b_lambda_history', line=160, status='observed', kind='file', printed='0.5', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
+       heavy=True, rerun=_b02_lh_RERUN)
+def check_3535():
+    'Ob/Om = (3/16) sqrt(OL) observed to 0.5 % on a CMB-only chain: (ratio - 1) in per cent, iam_baryon_test E1 row. Book line 160.'
+    value = 100 * (_b02_lh_chains()['iam_baryon_test']['ratio'] - 1)
     return locals()
 
 
@@ -31347,37 +31607,14 @@ INVENTORY = [
     (2, 'ch:lambda', 'part2/p2_12_lambda', 208, '', 'none', '1/2', 'trivial restatement, sqrt exponent'),
     (2, 'ch:lambda', 'part2/p2_12_lambda', 270, '', 'calc', '0.7', 'restates ch:lambda:L392:3 and ch:lambda:L392 (3 of 414 forms = 0.72 %); printed to one digit, so the 5 % shifted value (0.735) lies inside its own rounding and no check can carry a failing negative control'),
     (2, 'ch:lambda', 'part2/p2_12_lambda', 390, '', 'calc', '18', "label: '18th chain' is the ordinal name of the chain (iam_baryon_test), not a number to recompute"),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 26, 'eq:lh_eps', 'derived', '', 'not yet run: draft does not reproduce the printed value (recomputed -d_ln_rho_d_ln_a/3 + epsilon); drafting error on review'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 34, '', 'observed', '2.8', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 34, '', 'observed', '4.2', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 45, 'eq:lh_integral', 'conjecture', '', 'displayed equation, not yet checked'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 59, '', 'derived', '2.3\\times10^{-15}', 'not yet run: draft rejected (drafter skipped: Skip: the excerpt does not state how a_EW = 2.3e-15 was derived; it is pr)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 59, '', 'derived', '9.22\\times10^{-5}', 'not yet run: draft rejected (drafter skipped: Skip: the excerpt cites this as a Planck 2018 density parameter, not deri)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 61, 'eq:lh_K', 'calc', '', 'not yet run: draft rejected (does not run: ValueError no value)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 63, '', 'calc', '106.75', 'not yet run: draft rejected (drafter skipped: Skip: this is a particle-physics input (effective number of entropy degre)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 64, '', 'calc', '2.3\\times10^{-15}', 'not yet run: draft does not reproduce the printed value (recomputed 4.494361e-16); drafting error on review'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 64, '', 'calc', '2.7\\times10^{31}', 'not yet run: draft rejected (drafter skipped: Skip: the integral K_integral requires numerical evaluation of the full i)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 64, '', 'calc', '159.5', 'not yet run: draft rejected (drafter skipped: Skip: this is cited as "the crossover temperature (Chapter~ref{ch:electro)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 65, '', 'calc', '6.9\\times10^{31}', 'not yet run: draft rejected (drafter skipped: Skip: like ITEM 605, this requires numerical integration of the full inte)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 65, '', 'calc', '6.5\\times10^6', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 66, '', 'calc', '10', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 72, '', 'calc', '2.3\\times10^{-15}', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 72, '', 'calc', '3.1\\times10^{30}', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 72, '', 'calc', '0.3198', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 86, '', 'calc', '10', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 87, '', 'calc', '0.811', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 91, '', 'calc', '0.58', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 91, '', 'calc', '213', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 92, '', 'calc', '3.2\\times10^{-8}', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 93, '', 'calc', '2.6\\times10^{-44}', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 96, '', 'interp', '3\\times10^{-8}', 'not yet checked'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 129, '', 'conjecture', '13.8', 'not yet checked'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 133, 'eq:lh_base', 'none', '', 'displayed equation, not yet checked'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 137, 'eq:lh_corr', 'calc', '', 'not yet run: draft rejected (does not run: ValueError no value)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 140, '', 'calc', '0.79', 'not yet run: draft does not reproduce the printed value (recomputed 0.694271); drafting error on review'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 141, '', 'observed', '0.5', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 156, '', 'calc', '13.8', 'not yet run: draft rejected (drafter skipped: Line 156 states "universe 13.8 billion years old" as an observational fac)'),
-    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 160, '', 'observed', '0.5', 'measured, too few printed digits to match against the named files'),
+    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 45, 'eq:lh_integral', 'conjecture', '', 'conjecture: the history integral Eq. lh_integral is the conjectured form of the accumulation (a definition); its evaluation is checked at ch:lambda_history:L72:3.1\\times10^{30}, ch:lambda_history:L64, L65'),
+    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 59, '', 'derived', '2.3\\times10^{-15}', 'input: a_EW = 2.3e-15 as printed in Chapter electroweak, used as the lower limit; the entropy-conserving value 7.8e-16 is checked at ch:lambda_history:L63'),
+    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 64, '', 'calc', '2.3\\times10^{-15}', 'input restated: the printed a_EW = 2.3e-15 (see line 59); the corrected 7.8e-16 is checked at ch:lambda_history:L63'),
+    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 64, '', 'calc', '159.5', 'input: electroweak crossover temperature 159.5 GeV (Chapter electroweak, lattice result), used as a lower-limit temperature'),
+    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 66, '', 'calc', '10', 'input: the lower limit a = 10^-3 chosen for the comparison; the K it gives is checked at ch:lambda_history:L65:6.5\\times10^6'),
+    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 72, '', 'calc', '2.3\\times10^{-15}', 'input restated: the printed a_EW = 2.3e-15 in the figure caption'),
+    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 86, '', 'calc', '10', 'input: halo mass cut 10^8 Msun of the Sheth-Tormen sum (the printed 10 is its base)'),
+    (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 96, '', 'interp', '3\\times10^{-8}', 'restates ch:lambda_history:L92 and ch:lambda:L394 (3.15e-8) to one digit; the 5 % shifted value 3.15e-8 coincides with the computed value, so no check can carry a failing negative control'),
     (2, 'ch:baryon', 'part2/p2_13_baryon', 29, 'eq:bar_eta', 'none', '', 'displayed equation, not yet checked'),
     (2, 'ch:baryon', 'part2/p2_13_baryon', 33, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:baryon', 'part2/p2_13_baryon', 83, '', 'calc', '3.1\\times10^{30}', 'not yet run: draft rejected (drafter skipped: Line 83, printed 3.1×10^30: the integral computation requires\n# the expli)'),

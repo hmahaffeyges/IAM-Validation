@@ -3,7 +3,7 @@
 Items a check raised that would change a result, a prediction, a locked value, an equation of IAM or the framing of a
 claim. The book was left unchanged for each; the decision is the author's. Every FAIL of `verify_book.py` is listed here.
 
-Items: 7
+Items: 8
 
 ## 1. `docs/book/part2/p2_02_virial.tex:L86-87`
 
@@ -47,7 +47,14 @@ Items: 7
 - **Why it matters:** (0.5852 - 0.5543)/(0.633 - 0.5543) = 39.2 %; the check accepts 40 % as a round figure (tol 0.02)
 - **Recommendation:** optional: print 'about 40 %' or '39 %'
 
-## 7. `docs/book/part2/p2_01_blackholes.tex:L76`
+## 7. `docs/book/part2/p2_12b_lambda_history.tex:92`
+
+- **Now:** accumulated virial heat of baryons $3.2\times10^{-8}\,\rho_\Lambda c^2$
+- **Proposed:** $3.1\times10^{-8}$ (or keep 3.2)
+- **Why it matters:** The unrounded value is 3.1499e-8, which rounds to 3.1e-8; 3.2e-8 comes from rounding the committed 3.15e-8 (verify_cc_and_baryon_output.txt; Table lambda_numbers, p2_12_lambda.tex:394) a second time. No result changes; it is a two-digit rounding edge.
+- **Recommendation:** Optional: print 3.1e-8, or 3.15e-8 as in the table. The check passes either way within 2 %.
+
+## 8. `docs/book/part2/p2_01_blackholes.tex:L76`
 
 - **Now:** caption says 'CODATA 2018; M_sun = 1.98847e30 kg'
 - **Proposed:** either keep 1.98847e30 and drop the implication that it follows from CODATA 2018, or use GM_sun(IAU 2015 nominal) / G(CODATA 2018) = 1.98841e30 kg
