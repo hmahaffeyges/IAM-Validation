@@ -907,8 +907,18 @@ def main(argv=None, store=None, shutdown=None):
         else:
             try:
                 store = Boto3Store(a.bucket, a.aws_region, a.aws_profile)      # fails here, before any job, if boto3 is missing
-            except SystemExit as e:
-                print(f"run1_driver.py: {e}", file=sys.stderr); return EXIT_CRASH
+            except SystemExit as e:                                             # no S3: log locally, still stop the instance
+                print(f"run1_driver.py: {e}", file=sys.stderr)
+                os.makedirs(cfg.results_dir, exist_ok=True)
+                log = Log(os.path.join(cfg.results_dir, LOG_NAME))
+                log(f"DRIVER CRASH before any job: {e}")
+                log("shutdown skipped (--no-shutdown)" if a.no_shutdown else f"stopping the instance now (exit code {EXIT_CRASH})")
+                if not a.no_shutdown:
+                    try:
+                        shutdown(log)
+                    except Exception as e2:
+                        log("SHUTDOWN failed:", type(e2).__name__, e2)
+                return EXIT_CRASH
 
     os.makedirs(cfg.results_dir, exist_ok=True)
     log = Log(os.path.join(cfg.results_dir, LOG_NAME))

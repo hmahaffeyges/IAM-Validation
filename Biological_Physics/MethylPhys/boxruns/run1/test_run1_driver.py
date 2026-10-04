@@ -646,8 +646,9 @@ def test_missing_boto3_fails_early(env, monkeypatch, capsys):
     monkeypatch.setitem(sys.modules, "boto3", None)                  # import boto3 -> ImportError
     sh = Recorder()
     rc = D.main(env["args"], shutdown=sh)
-    assert rc == D.EXIT_CRASH and sh.calls == 0 and order(env) == []
+    assert rc == D.EXIT_CRASH and sh.calls == 1 and order(env) == []      # no job ran, but the instance is still stopped
     assert "boto3 is not installed" in capsys.readouterr().err
+    assert D.main(env["args"] + ["--no-shutdown"], shutdown=sh) == D.EXIT_CRASH and sh.calls == 1
     assert D.main(env["args"] + ["--s3-local-root", env["bucket"]], shutdown=sh) == D.EXIT_OK   # the local store needs no boto3
 
 
