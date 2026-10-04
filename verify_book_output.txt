@@ -2920,9 +2920,13 @@ PASS  ch:gravdec:L231                    ch:gravdec:p5_05_gravdec:231  printed 0
 PASS  ch:gravdec:L248                    ch:gravdec:p5_05_gravdec:248  printed 13.8  recomputed 13.7952  tol 0.05  [conjecture] age of the universe, flat LCDM with Planck 2018 parameters, Gyr
 
 == Part 4: Particles and Quantum Records | ch:nonlocal (part5/p5_06_nonlocality.tex)
+PASS  ch:nonlocal:L20                    ch:nonlocal:p5_06_nonlocality:20  printed 0.414  recomputed 0.414214  tol 5.000005e-04  [conjecture] coherence at which sqrt2 (1+c) = 2
+PASS  ch:nonlocal:L20:1.87               ch:nonlocal:p5_06_nonlocality:20  printed 1.87  recomputed 1.86986  tol 0.00500001  [conjecture] t/tau_IAM at which the assumed ramp c = 1 - E(t/tau)/e reaches the crossing
 PASS  ch:nonlocal:L31                    ch:nonlocal:p5_06_nonlocality:31  printed (algebra)  recomputed True  [derived] Horodecki: dephased Bell state, S_max = 2 sqrt(1+c^2)
 PASS  ch:nonlocal:L35                    ch:nonlocal:p5_06_nonlocality:35  printed 0.414  recomputed 0.414214  tol 5.000005e-04  [calc] sqrt2 (1+c) = 2 at c = sqrt2 - 1
 PASS  ch:nonlocal:L36                    ch:nonlocal:p5_06_nonlocality:36  printed 0.586  recomputed 0.585786  tol 5.000005e-04  [calc] D = 1 - c = 2 - sqrt2
+PASS  ch:nonlocal:L41                    ch:nonlocal:p5_06_nonlocality:41  printed 1.3  recomputed 1.28  tol 0.05  [observed] separation of the NV-centre electron spins in the loophole-free Bell test, km
+PASS  ch:nonlocal:L41:10^3               ch:nonlocal:p5_06_nonlocality:41  printed 10^3  recomputed 937.5  tol 2162.28  [observed] ratio of the satellite photon distance to the NV-spin separation
 
 == Part 4: Particles and Quantum Records | ch:electroweak (part2/p2_22_electroweak.tex)
 PASS  ch:electroweak:L25                 ch:electroweak:p2_22_electroweak:25  printed 0.91  recomputed 0.912192  tol 0.00500001  [calc] string tension 0.18 GeV^2 in GeV/fm
@@ -3898,4 +3902,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3118  FAIL 0  (heavy, read from committed outputs: 631)  inventoried-not-run 3216  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3122  FAIL 0  (heavy, read from committed outputs: 631)  inventoried-not-run 3212  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

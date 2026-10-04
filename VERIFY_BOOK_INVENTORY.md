@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3118 PASS, 0 FAIL, 3216 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3122 PASS, 0 FAIL, 3212 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -3702,13 +3702,13 @@ Totals: 3118 PASS, 0 FAIL, 3216 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 20 |  | conjecture | `0.414` | not run: not yet checked | - |
-| 20 |  | conjecture | `1.87` | not run: not yet checked | - |
+| 20 | ch:nonlocal:L20 | conjecture | `0.414` | numeric: coherence at which sqrt2 (1+c) = 2 | PASS |
+| 20 | ch:nonlocal:L20:1.87 | conjecture | `1.87` | numeric: t/tau_IAM at which the assumed ramp c = 1 - E(t/tau)/e reaches the crossing | PASS |
 | 31 | ch:nonlocal:L31 | derived |  | sympy: Horodecki: dephased Bell state, S_max = 2 sqrt(1+c^2) | PASS |
 | 35 | ch:nonlocal:L35 | calc | `0.414` | numeric: sqrt2 (1+c) = 2 at c = sqrt2 - 1 | PASS |
 | 36 | ch:nonlocal:L36 | calc | `0.586` | numeric: D = 1 - c = 2 - sqrt2 | PASS |
-| 41 |  | observed | `1.3` | not run: measured, source not named | - |
-| 41 |  | observed | `10` | not run: measured, source not named | - |
+| 41 | ch:nonlocal:L41 | observed | `1.3` | numeric: separation of the NV-centre electron spins in the loophole-free Bell test, km | PASS |
+| 41 | ch:nonlocal:L41:10^3 | observed | `10^3` | numeric: ratio of the satellite photon distance to the NV-spin separation | PASS |
 
 ## Part 4 - ch:electroweak - `docs/book/part2/p2_22_electroweak.tex`
 

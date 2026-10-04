@@ -19676,6 +19676,21 @@ def check_3117():
 
 
 # ======== Part 4 | ch:nonlocal | docs/book/part5/p5_06_nonlocality.tex
+@check(label='ch:nonlocal:L20', chapter='ch:nonlocal', part=4, title='coherence at which sqrt2 (1+c) = 2',
+       file='part5/p5_06_nonlocality', line=20, status='conjecture', kind='num', printed='0.414', tol=0.0)
+def check_3118():
+    'With the settings optimal for the undecohered pair, |S| = sqrt2 (1 + c) crosses the local bound 2; solved for c by root finding. Book line 20, printed 0.414.'
+    value = brentq(lambda cc: math.sqrt(2) * (1 + cc) - 2, 0, 1)
+    return locals()
+
+@check(label='ch:nonlocal:L20:1.87', chapter='ch:nonlocal', part=4, title='t/tau_IAM at which the assumed ramp c = 1 - E(t/tau)/e reaches the crossing',
+       file='part5/p5_06_nonlocality', line=20, status='conjecture', kind='num', printed='1.87', tol=0.0)
+def check_3119():
+    'Time of the crossing: the assumed ramp c(t) = 1 - E_q(t/tau_IAM)/e with E_q(eta) = exp(1 - 1/eta) is set equal to the crossing coherence of '         'sqrt2 (1 + c) = 2, and solved for eta = t/tau_IAM by root finding. Book line 20, printed 1.87.'
+    c_cross = brentq(lambda cc: math.sqrt(2) * (1 + cc) - 2, 0, 1)
+    value = brentq(lambda eta: 1 - float(E_act(eta)) / math.e - c_cross, 0.1, 50)
+    return locals()
+
 @check(label='ch:nonlocal:L31', chapter='ch:nonlocal', part=4, title='Horodecki: dephased Bell state, S_max = 2 sqrt(1+c^2)',
        file='part5/p5_06_nonlocality', line=31, status='derived', kind='sym', printed='', tol=0)
 def check_2087():
@@ -19695,6 +19710,23 @@ def check_2088():
 def check_2089():
     'D = 1 - c = 2 - sqrt2. Book line 36, printed 0.586.'
     value=2-math.sqrt(2)
+    return locals()
+
+@check(label='ch:nonlocal:L41', chapter='ch:nonlocal', part=4, title='separation of the NV-centre electron spins in the loophole-free Bell test, km',
+       file='part5/p5_06_nonlocality', line=41, status='observed', kind='num', printed='1.3', tol=0.0)
+def check_3120():
+    'Electron spins in NV centres 1.3 km apart. Book line 41, printed 1.3 km. Published: the two labs are 1,280 m apart (Hensen et al., Nature 526, 682 (2015), '         'doi:10.1038/nature15759, bib Hensen2015).'
+    sep_m = 1280.0
+    value = sep_m / 1000
+    return locals()
+
+@check(label='ch:nonlocal:L41:10^3', chapter='ch:nonlocal', part=4, title='ratio of the satellite photon distance to the NV-spin separation',
+       file='part5/p5_06_nonlocality', line=41, status='observed', kind='num', printed='10^3', tol=0.0)
+def check_3121():
+    'Ratio of the two entanglement distances, "about 10^3". Book line 41. Inputs: 1,200 km photon-pair distribution (Yin et al., Science 356, 1140 (2017), '         'doi:10.1126/science.aan3211, bib Yin2017, the distance the book states at line 10); 1,280 m spin separation (Hensen et al. 2015, doi:10.1038/nature15759).'
+    d_photon_km = 1200.0
+    d_spin_km = 1280.0 / 1000
+    value = d_photon_km / d_spin_km
     return locals()
 
 
@@ -28374,10 +28406,6 @@ INVENTORY = [
     (4, 'ch:gravdec', 'part5/p5_05_gravdec', 211, '', 'calc', '10', 'input: 10^-12 kg mass of the nanosphere example'),
     (4, 'ch:gravdec', 'part5/p5_05_gravdec', 211, '', 'calc', '2200', 'input: silica density 2200 kg/m^3'),
     (4, 'ch:gravdec', 'part5/p5_05_gravdec', 214, '', 'calc', '10', 'input: 10^-12 kg mass of the nanosphere example (the ratio 7e7 is checked at ch:gravdec:L214)'),
-    (4, 'ch:nonlocal', 'part5/p5_06_nonlocality', 20, '', 'conjecture', '0.414', 'not yet checked'),
-    (4, 'ch:nonlocal', 'part5/p5_06_nonlocality', 20, '', 'conjecture', '1.87', 'not yet checked'),
-    (4, 'ch:nonlocal', 'part5/p5_06_nonlocality', 41, '', 'observed', '1.3', 'measured, source not named'),
-    (4, 'ch:nonlocal', 'part5/p5_06_nonlocality', 41, '', 'observed', '10', 'measured, source not named'),
     (4, 'ch:electroweak', 'part2/p2_22_electroweak', 18, 'eq:ew:virial', 'derived', '', 'not yet run: draft rejected (does not run: TypeError)'),
     (4, 'ch:electroweak', 'part2/p2_22_electroweak', 32, '', 'calc', '80.369', 'not yet run: draft rejected (printed value typed into the code)'),
     (4, 'ch:electroweak', 'part2/p2_22_electroweak', 36, '', 'observed', '80.4', 'measured, not found in the files the chapter names'),
