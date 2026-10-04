@@ -3,7 +3,7 @@
 Items a check raised that would change a result, a prediction, a locked value, an equation of IAM or the framing of a
 claim. The book was left unchanged for each; the decision is the author's. Every FAIL of `verify_book.py` is listed here.
 
-Items: 10
+Items: 11
 
 ## 1. `docs/book/part2/p2_02_virial.tex:L86-87`
 
@@ -74,4 +74,11 @@ Items: 10
 - **Proposed:** either keep 1.98847e30 and drop the implication that it follows from CODATA 2018, or use GM_sun(IAU 2015 nominal) / G(CODATA 2018) = 1.98841e30 kg
 - **Why it matters:** 1.98847e30 is GM_sun / G with the CODATA 2014 G (6.67408e-11); with CODATA 2018 G (6.67430e-11) it is 1.98841e30. The difference (3e-5) changes no printed digit in the table, so this is wording/consistency only.
 - **Recommendation:** low priority; no printed result changes
+
+## 11. `docs/book/part4/p4_12_instrument.tex:L105`
+
+- **Now:** a second laboratory's purified neutrophils read 0.86--1.26 against the frozen reference with no tare
+- **Proposed:** either state that the range is of the 33 arrays read in test T2, or give the range of all 48 arrays re-read in the diagnostic (0.86--1.29)
+- **Why it matters:** PROC_NEUT_TEST_01_T2_OUTCOME.md gives 0.86-1.26 for the 33 arrays of the scored test; the committed diagnostic re-read of all 48 arrays (doors/data/t2_diag.csv, also noise_index.csv) reaches 1.286 (GSM7885063). The check reads 1.26 from the T2 record and passes; a reader rebuilding the range from the committed per-array file gets 1.29.
+- **Recommendation:** low priority; name the 33 arrays or widen to 1.29
 

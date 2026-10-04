@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3972 PASS, 0 FAIL, 2366 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4003 PASS, 0 FAIL, 2335 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4730,41 +4730,41 @@ Totals: 3972 PASS, 0 FAIL, 2366 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 31 |  | measured | `0.985` | not run: measured, not found in the files the chapter names | - |
-| 31 |  | measured | `0.979` | not run: measured, not found in the files the chapter names | - |
-| 31 |  | measured | `0.975` | not run: measured, not found in the files the chapter names | - |
-| 31 |  | measured | `0.891` | not run: measured, not found in the files the chapter names | - |
-| 31 |  | measured | `0.953` | not run: measured, not found in the files the chapter names | - |
-| 32 |  | measured | `0.932` | not run: measured, not found in the files the chapter names | - |
-| 32 |  | measured | `0.878` | not run: measured, not found in the files the chapter names | - |
-| 32 |  | measured | `0.928` | not run: measured, not found in the files the chapter names | - |
-| 50 |  | measured | `0.15` | not run: measured, too few printed digits to match against the named files | - |
-| 50 |  | measured | `0.31` | not run: measured, too few printed digits to match against the named files | - |
-| 51 |  | measured | `12.5` | not run: measured, not found in the files the chapter names | - |
-| 55 |  | measured | `0.33` | not run: measured, too few printed digits to match against the named files | - |
-| 55 |  | measured | `0.42` | not run: measured, too few printed digits to match against the named files | - |
-| 56 |  | measured | `0.75` | not run: measured, too few printed digits to match against the named files | - |
-| 56 |  | measured | `0.95` | not run: measured, too few printed digits to match against the named files | - |
-| 56 |  | measured | `0.05` | not run: measured, too few printed digits to match against the named files | - |
-| 56 |  | measured | `0.25` | not run: measured, too few printed digits to match against the named files | - |
-| 82 |  | measured | `0.79` | not run: measured, too few printed digits to match against the named files | - |
-| 82 |  | measured | `0.83` | not run: measured, too few printed digits to match against the named files | - |
-| 83 |  | measured | `1.07` | not run: measured, not found in the files the chapter names | - |
-| 101 |  | measured | `0.943` | not run: measured, not found in the files the chapter names | - |
-| 101 |  | measured | `0.968` | not run: measured, not found in the files the chapter names | - |
-| 101 |  | measured | `1.073` | not run: measured, not found in the files the chapter names | - |
-| 101 |  | measured | `1.115` | not run: measured, not found in the files the chapter names | - |
-| 105 |  | measured | `0.86` | not run: measured, too few printed digits to match against the named files | - |
-| 105 |  | measured | `1.26` | not run: measured, not found in the files the chapter names | - |
-| 112 |  | fitted | `0.205` | not run: measured, not found in the files the chapter names | - |
-| 112 |  | fitted | `+2.51` | not run: measured, not found in the files the chapter names | - |
-| 112 |  | fitted | `0.85` | not run: measured, too few printed digits to match against the named files | - |
-| 120 |  | fitted | `0.60` | not run: measured, too few printed digits to match against the named files | - |
-| 120 |  | fitted | `0.205` | not run: measured, not found in the files the chapter names | - |
-| 120 |  | fitted | `+2.51` | not run: measured, not found in the files the chapter names | - |
-| 120 |  | fitted | `0.85` | not run: measured, too few printed digits to match against the named files | - |
-| 126 |  | measured | `-0.14` | not run: measured, too few printed digits to match against the named files | - |
-| 126 |  | measured | `-0.07` | not run: measured, too few printed digits to match against the named files | - |
+| 31 | ch:instrument:L31:0.985 | measured | `0.985` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: intake call rate, first laboratory median | PASS |
+| 31 | ch:instrument:L31:0.979 | measured | `0.979` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: intake call rate, first laboratory minimum | PASS |
+| 31 | ch:instrument:L31:0.975 | measured | `0.975` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: intake call rate, second laboratory median | PASS |
+| 31 | ch:instrument:L31:0.891 | measured | `0.891` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: intake call rate, second laboratory minimum | PASS |
+| 31 | ch:instrument:L31:0.953 | measured | `0.953` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: intake call rate, third laboratory median | PASS |
+| 32 | ch:instrument:L32:0.932 | measured | `0.932` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: intake call rate, third laboratory minimum | PASS |
+| 32 | ch:instrument:L32:0.878 | measured | `0.878` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: intake call rate, fourth laboratory median | PASS |
+| 32 | ch:instrument:L32:0.928 | measured | `0.928` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: intake call rate, fourth laboratory maximum | PASS |
+| 50 | ch:instrument:L50:0.15 | measured | `0.15` | file `Biological_Physics/MethylPhys/doors/FINDING_GSE125105_LOW_SIGNAL.md`: low-signal laboratory: lowest control-signal ratio | PASS |
+| 50 | ch:instrument:L50:0.31 | measured | `0.31` | file `Biological_Physics/MethylPhys/doors/FINDING_GSE125105_LOW_SIGNAL.md`: low-signal laboratory: highest control-signal ratio | PASS |
+| 51 | ch:instrument:L51 | measured | `12.5` | file `Biological_Physics/MethylPhys/doors/FINDING_GSE125105_LOW_SIGNAL.md`: low-signal laboratory: probes at background | PASS |
+| 55 | ch:instrument:L55:0.33 | measured | `0.33` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: beta of probes at background, lower end | PASS |
+| 55 | ch:instrument:L55:0.42 | measured | `0.42` | file `Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md`: beta of probes at background, upper end | PASS |
+| 56 |  | measured | `0.75` | not run: definition: identity-site window 0.75-0.95 restated from the site rule (ch:identity L20, calibrated) | - |
+| 56 |  | measured | `0.95` | not run: definition: identity-site window 0.75-0.95 restated from the site rule (ch:identity L20, calibrated); the site set's upper extreme is checked at ch:identity:L20:0.95 | - |
+| 56 |  | measured | `0.05` | not run: definition: identity-site window 0.05-0.25 restated from the site rule (ch:identity L20, calibrated); the site set's lower extreme is checked at ch:identity:L20:0.05 | - |
+| 56 |  | measured | `0.25` | not run: definition: identity-site window 0.05-0.25 restated from the site rule (ch:identity L20, calibrated) | - |
+| 82 | ch:instrument:L82:0.79 | measured | `0.79` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: Met-A follows N, second laboratory donor 2 | PASS |
+| 82 | ch:instrument:L82:0.83 | measured | `0.83` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: Met-A follows N, second laboratory donor 1 | PASS |
+| 83 | ch:instrument:L83 | measured | `1.07` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: second-laboratory arrays at reference N still read high | PASS |
+| 101 | ch:instrument:L101:0.943 | measured | `0.943` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: untared Met-A of six DNA mixtures, lowest | PASS |
+| 101 | ch:instrument:L101:0.968 | measured | `0.968` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: untared Met-A of six DNA mixtures, highest | PASS |
+| 101 | ch:instrument:L101:1.073 | measured | `1.073` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: untared Met-A of five remission bloods, lowest | PASS |
+| 101 | ch:instrument:L101:1.115 | measured | `1.115` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: untared Met-A of five remission bloods, highest | PASS |
+| 105 | ch:instrument:L105:0.86 | measured | `0.86` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: second-laboratory purified neutrophils, lowest untared A | PASS |
+| 105 | ch:instrument:L105:1.26 | measured | `1.26` | file `Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_T2_OUTCOME.md`: second-laboratory purified neutrophils, highest untared A | PASS |
+| 112 | ch:instrument:L112:0.205 | fitted | `0.205` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: noise fit: slope on neutrophil fraction | PASS |
+| 112 | ch:instrument:L112:+2.51 | fitted | `+2.51` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: noise fit: slope on noise index | PASS |
+| 112 | ch:instrument:L112:0.85 | fitted | `0.85` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: noise fit: R^2 | PASS |
+| 120 | ch:instrument:L120:0.60 | fitted | `0.60` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: noise fit (figure): intercept | PASS |
+| 120 | ch:instrument:L120:0.205 | fitted | `0.205` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: noise fit (figure): slope on neutrophil fraction | PASS |
+| 120 | ch:instrument:L120:+2.51 | fitted | `+2.51` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: noise fit (figure): slope on noise index | PASS |
+| 120 | ch:instrument:L120:0.85 | fitted | `0.85` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: noise fit (figure): R^2 | PASS |
+| 126 | ch:instrument:L126:-0.14 | measured | `-0.14` | file `Biological_Physics/MethylPhys/doors/PROC_TARE_01_OUTCOME.md`: SNP tare scale does not predict the reading | PASS |
+| 126 | ch:instrument:L126:-0.07 | measured | `-0.07` | file `Biological_Physics/MethylPhys/doors/PROC_TARE_01_OUTCOME.md`: SNP tare offset does not predict the reading | PASS |
 
 ## Part 6 - ch:separation - `docs/book/part4/p4_13_separation.tex`
 

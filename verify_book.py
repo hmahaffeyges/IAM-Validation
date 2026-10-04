@@ -1893,6 +1893,49 @@ def _b09_nums(s):
 def _b09_charr():
     """Brook charr sperm, WGBS: the 39 fish with a complete run (the failed run, 297 read pairs, left out)."""
     return [r for r in load_csv_rows(_B09_CHR) if float(r['pairs']) >= 1000]
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md'] = 'intake procedure outcome: the 48-array call-rate measurement behind the intake line'   # 5 kB
+DATA_FILES['Biological_Physics/MethylPhys/doors/FINDING_GSE125105_LOW_SIGNAL.md'] = 'low-signal laboratory finding: control-probe medians per laboratory'   # 4 kB
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_TARE_01_OUTCOME.md'] = 'SNP-probe tare outcome, 768 arrays'   # 5 kB
+DATA_FILES['Biological_Physics/MethylPhys/doors/data/t2_diag.csv'] = 'second-laboratory isolated neutrophils, all 48 arrays re-read (diagnostic)'   # 7 kB
+DATA_FILES['Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv'] = 'chain v3 readings of 574 whole bloods (GSE179325) with noise index N'   # 369 kB
+
+# helpers of the part4/p4_12_instrument checks
+_B10_NUMRE = re.compile(r"(?<![\d.,])−?\d{1,3}(?:,\d{3})+(?:\.\d+)?|(?<![\d.,])−?\d+(?:\.\d+)?")
+def _b10_nums(path, anchor, n):
+    """The first n numbers after the first occurrence of anchor in a committed text file (thousands commas and the minus sign read)."""
+    t = file_text(path)
+    i = t.index(anchor) + len(anchor)
+    out = []
+    for m in _B10_NUMRE.finditer(t, i):
+        out.append(float(m.group().replace('−', '-').replace(',', '')))
+        if len(out) == n:
+            return out
+    raise ValueError(f'{path}: fewer than {n} numbers after {anchor!r}')
+
+_B10_INTAKE = 'Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md'
+def _b10_intake(k):
+    """The 48-array call-rate record, in the order the book prints it: medians and minima of laboratories one to three, then the
+    fourth laboratory's median and maximum."""
+    return _b10_nums(_B10_INTAKE, 'the 48-array measurement:', 8)[k]
+
+def _b10_noise_rows():
+    return [r for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/noise_index.csv') if r['N'] and r['A_own']]
+
+def _b10_fit76():
+    """Least-squares fit A = a + b f_neu + c N on the 76 healthy (NEGATIVE) whole bloods of GSE179325 with neutrophils >= 50 %."""
+    rows = [r for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv')
+            if r['gse'] == 'GSE179325' and r['group'] == 'NEGATIVE' and r['A'] and r['N'] and r['f_neu'] and float(r['f_neu']) >= 0.5]
+    A = np.array([float(r['A']) for r in rows]); f = np.array([float(r['f_neu']) for r in rows]); N = np.array([float(r['N']) for r in rows])
+    X = np.c_[np.ones(len(A)), f, N]
+    coef = np.linalg.lstsq(X, A, rcond=None)[0]
+    res = A - X @ coef
+    r2 = 1 - (res @ res) / ((A - A.mean()) @ (A - A.mean()))
+    return len(A), coef, r2
+
+def _b10_accept(group_test):
+    return [float(r['A']) for r in load_csv_rows('Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv') if group_test(r['group']) and r['A']]
+
+_B10_I = dict(chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -32134,6 +32177,288 @@ def check_3971():
     return locals()
 
 
+# ======== Part 6 | ch:instrument | docs/book/part4/p4_12_instrument.tex
+@check(label='ch:instrument:L31:0.985', title='intake call rate, first laboratory median', line=31, status='measured', printed='0.985', tol=0.0,
+       source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3972():
+    'Call rate of the 48-array intake measurement, first laboratory, median. Book line 31, printed 0.985. Read from the committed '\
+    'outcome record of the intake procedure (the per-array file behind it is archived privately), first number of the 48-array record.'
+    value = _b10_intake(0)
+    return locals()
+
+@check(label='ch:instrument:L31:0.979', title='intake call rate, first laboratory minimum', line=31, status='measured', printed='0.979', tol=0.0,
+       source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3973():
+    'Call rate of the 48-array intake measurement, first laboratory, minimum. Book line 31, printed 0.979. Read from the intake outcome record.'
+    value = _b10_intake(1)
+    return locals()
+
+@check(label='ch:instrument:L31:0.975', title='intake call rate, second laboratory median', line=31, status='measured', printed='0.975', tol=0.0,
+       source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3974():
+    'Call rate of the 48-array intake measurement, second laboratory, median. Book line 31, printed 0.975. Read from the intake outcome record.'
+    value = _b10_intake(2)
+    return locals()
+
+@check(label='ch:instrument:L31:0.891', title='intake call rate, second laboratory minimum', line=31, status='measured', printed='0.891', tol=0.0,
+       source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3975():
+    'Call rate of the 48-array intake measurement, second laboratory, minimum (the one array below the line). Book line 31, printed 0.891. '\
+    'Read from the intake outcome record.'
+    value = _b10_intake(3)
+    return locals()
+
+@check(label='ch:instrument:L31:0.953', title='intake call rate, third laboratory median', line=31, status='measured', printed='0.953', tol=0.0,
+       source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3976():
+    'Call rate of the 48-array intake measurement, third laboratory, median. Book line 31, printed 0.953. Read from the intake outcome record.'
+    value = _b10_intake(4)
+    return locals()
+
+@check(label='ch:instrument:L32:0.932', title='intake call rate, third laboratory minimum', line=32, status='measured', printed='0.932', tol=0.0,
+       source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3977():
+    'Call rate of the 48-array intake measurement, third laboratory, minimum. Book line 32, printed 0.932. Read from the intake outcome record.'
+    value = _b10_intake(5)
+    return locals()
+
+@check(label='ch:instrument:L32:0.878', title='intake call rate, fourth laboratory median', line=32, status='measured', printed='0.878', tol=0.0,
+       source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3978():
+    'Call rate of the 48-array intake measurement, fourth laboratory, median. Book line 32, printed 0.878. Read from the intake outcome record.'
+    value = _b10_intake(6)
+    return locals()
+
+@check(label='ch:instrument:L32:0.928', title='intake call rate, fourth laboratory maximum', line=32, status='measured', printed='0.928', tol=0.0,
+       source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3979():
+    'Call rate of the 48-array intake measurement, fourth laboratory, maximum (its best array). Book line 32, printed 0.928. Read from the '\
+    'intake outcome record.'
+    value = _b10_intake(7)
+    return locals()
+
+_B10_LOW = 'Biological_Physics/MethylPhys/doors/FINDING_GSE125105_LOW_SIGNAL.md'
+def _b10_lowsig_ratios():
+    """Fourth laboratory's median non-polymorphic control signal (green, red) over each of the three other laboratories' medians."""
+    v = _b10_nums(_B10_LOW, '| non-polymorphic control G / R (raw signal, methylation-independent) |', 8)
+    others, low = [(v[0], v[1]), (v[2], v[3]), (v[4], v[5])], (v[6], v[7])
+    return [low[ch] / o[ch] for o in others for ch in (0, 1)]
+
+@check(label='ch:instrument:L50:0.15', title='low-signal laboratory: lowest control-signal ratio', line=50, status='measured', printed='0.15', tol=0.0,
+       source=_B10_LOW, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3980():
+    'One laboratory carried 0.15-0.31 of three other laboratories\' median signal on the methylation-independent control probes. Lower end '\
+    'recomputed as the smallest ratio of its median non-polymorphic control signal to each other laboratory\'s, over both colour channels. '\
+    'Book line 50, printed 0.15. Inputs: control-probe medians of the four laboratories, committed finding record (table row '\
+    '"non-polymorphic control G / R").'
+    value = min(_b10_lowsig_ratios())
+    return locals()
+
+@check(label='ch:instrument:L50:0.31', title='low-signal laboratory: highest control-signal ratio', line=50, status='measured', printed='0.31', tol=0.0,
+       source=_B10_LOW, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3981():
+    'Upper end of the 0.15-0.31 range: the largest ratio of the low-signal laboratory\'s median non-polymorphic control signal to another '\
+    'laboratory\'s median, over both colour channels. Book line 50, printed 0.31. Inputs: committed finding record, same table row.'
+    value = max(_b10_lowsig_ratios())
+    return locals()
+
+@check(label='ch:instrument:L51', title='low-signal laboratory: probes at background', line=51, status='measured', printed='12.5', tol=0.0,
+       source=_B10_LOW, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3982():
+    'Per cent of probes at background (detection p > 0.05) on the low-signal laboratory\'s arrays, median. Book line 51, printed 12.5 %. '\
+    'Read from the committed finding record, row "probes at background", fourth laboratory column.'
+    v = _b10_nums(_B10_LOW, '| probes at background, poobah p > 0.05 |', 4)
+    value = v[3]
+    return locals()
+
+@check(label='ch:instrument:L55:0.33', title='beta of probes at background, lower end', line=55, status='measured', printed='0.33', tol=0.0,
+       source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3983():
+    'A probe at background reads beta near 0.33-0.42 whatever the true methylation; lower end. Book line 55, printed 0.33. Read from the '\
+    'intake outcome record (diagnostic after bar B3: the masked probes\' unmasked beta).'
+    value = _b10_nums(_B10_INTAKE, 'unmasked β sits at', 2)[0]
+    return locals()
+
+@check(label='ch:instrument:L55:0.42', title='beta of probes at background, upper end', line=55, status='measured', printed='0.42', tol=0.0,
+       source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3984():
+    'Upper end of the 0.33-0.42 beta of probes at background. Book line 55, printed 0.42. Read from the intake outcome record.'
+    value = _b10_nums(_B10_INTAKE, 'unmasked β sits at', 2)[1]
+    return locals()
+
+def _b10_rho_second(gse):
+    from scipy.stats import spearmanr
+    rows = [r for r in _b10_noise_rows() if r['set'] == gse]
+    return float(spearmanr([float(r['N']) for r in rows], [float(r['A_own']) for r in rows])[0])
+
+@check(label='ch:instrument:L82:0.79', title='Met-A follows N, second laboratory donor 2', line=82, status='measured', printed='0.79', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/noise_index.csv', chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3985():
+    'Within the second laboratory Met-A follows the noise index N (rho = 0.79 and 0.83). Recomputed as Spearman rho of own-floor Met-A '\
+    'against N over the arrays of donor 2 (GSE247193, median N 0.1656 in the table) that carry both. Book line 82, printed 0.79. '\
+    'Input: noise_index.csv (per-array N and Met-A).'
+    value = _b10_rho_second('GSE247193')
+    return locals()
+
+@check(label='ch:instrument:L82:0.83', title='Met-A follows N, second laboratory donor 1', line=82, status='measured', printed='0.83', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/noise_index.csv', chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3986():
+    'Spearman rho of own-floor Met-A against the noise index N over the arrays of donor 1 of the second laboratory (GSE247195, median N '\
+    '0.1504 in the table). Book line 82, printed 0.83. Input: noise_index.csv.'
+    value = _b10_rho_second('GSE247195')
+    return locals()
+
+@check(label='ch:instrument:L83', title='second-laboratory arrays at reference N still read high', line=83, status='measured', printed='1.07', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/noise_index.csv', chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3987():
+    'Some second-laboratory arrays with N at the reference level still read about 1.07. Recomputed as the median own-floor Met-A of the '\
+    'second-laboratory arrays whose N lies inside the range of the 12 reference rows (0.1223-0.1489). Book line 83, printed 1.07. '\
+    'Input: noise_index.csv.'
+    rows = _b10_noise_rows()
+    ref = [float(r['N']) for r in rows if not r['set'].startswith('GSE')]
+    lo, hi = min(ref), max(ref)
+    sec = [float(r['A_own']) for r in rows if r['set'].startswith('GSE') and lo <= float(r['N']) <= hi]
+    value = float(np.median(sec))
+    return locals()
+
+_B10_MIX = lambda g: g.startswith('known mixture')
+_B10_REM = lambda g: 'other lab' in g
+
+@check(label='ch:instrument:L101:0.943', title='untared Met-A of six DNA mixtures, lowest', line=101, status='measured', printed='0.943', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv', chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3988():
+    'Untared whole-blood Met-A read 0.943-0.968 on six DNA mixtures from the reference laboratory; lower end = the smallest untared A of '\
+    'the six known-mixture rows of the acceptance run. Book line 101, printed 0.943. Input: chain_acceptance.csv.'
+    a = _b10_accept(_B10_MIX)
+    n = len(a)
+    value = min(a)
+    return locals()
+
+@check(label='ch:instrument:L101:0.968', title='untared Met-A of six DNA mixtures, highest', line=101, status='measured', printed='0.968', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv', chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3989():
+    'Upper end of 0.943-0.968: the largest untared A of the six known-mixture rows of the acceptance run. Book line 101, printed 0.968. '\
+    'Input: chain_acceptance.csv.'
+    value = max(_b10_accept(_B10_MIX))
+    return locals()
+
+@check(label='ch:instrument:L101:1.073', title='untared Met-A of five remission bloods, lowest', line=101, status='measured', printed='1.073', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv', chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3990():
+    'Untared Met-A read 1.073-1.115 on five whole bloods from another laboratory; lower end = the smallest A of the remission-blood rows '\
+    'that carry a reading (five; the other five had A withheld). Book line 101, printed 1.073. Input: chain_acceptance.csv.'
+    a = _b10_accept(_B10_REM)
+    n = len(a)
+    value = min(a)
+    return locals()
+
+@check(label='ch:instrument:L101:1.115', title='untared Met-A of five remission bloods, highest', line=101, status='measured', printed='1.115', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv', chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3991():
+    'Upper end of 1.073-1.115: the largest A of the five read remission bloods of the acceptance run. Book line 101, printed 1.115. '\
+    'Input: chain_acceptance.csv.'
+    value = max(_b10_accept(_B10_REM))
+    return locals()
+
+@check(label='ch:instrument:L105:0.86', title='second-laboratory purified neutrophils, lowest untared A', line=105, status='measured', printed='0.86',
+       tol=0.0, source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv', chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3992():
+    'A second laboratory\'s purified neutrophils read 0.86-1.26 against the frozen reference with no tare; lower end = the smallest '\
+    'own-floor A of the second-laboratory arrays (GSE247193, GSE247195). Book line 105, printed 0.86. Input: t2_diag.csv (all 48 arrays).'
+    a = [float(r['A_own']) for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/t2_diag.csv') if r['group'].startswith('GSE') and r['A_own']]
+    value = min(a)
+    return locals()
+
+@check(label='ch:instrument:L105:1.26', title='second-laboratory purified neutrophils, highest untared A', line=105, status='measured', printed='1.26',
+       tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_T2_OUTCOME.md', chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3993():
+    'Upper end of 0.86-1.26: the highest untared A of the 33 second-laboratory arrays read in test T2, as recorded in the T2 outcome '\
+    '(bar T2a). Book line 105, printed 1.26. Note: the diagnostic re-read of all 48 arrays (t2_diag.csv) reaches 1.286; the printed range '\
+    'is that of the 33 arrays of the scored test.'
+    value = _b10_nums('Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_T2_OUTCOME.md', 'FAIL** (A ', 2)[1]
+    return locals()
+
+_B10_DEV3 = 'Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv'
+
+@check(label='ch:instrument:L112:0.205', title='noise fit: slope on neutrophil fraction', line=112, status='fitted', printed='0.205', tol=0.0,
+       source=_B10_DEV3, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3994():
+    'Linear fit A ~ 0.60 + 0.205 f_neu + 2.51 N on one laboratory\'s 76 healthy-control whole bloods. Refitted by least squares on the '\
+    'NEGATIVE whole bloods of GSE179325 with neutrophils >= 50 % (76 arrays); coefficient of f_neu. Book line 112, printed 0.205. '\
+    'Input: chain_v3_dev3_readings.csv (A, f_neu, N per array).'
+    n, coef, r2 = _b10_fit76()
+    value = coef[1]
+    return locals()
+
+@check(label='ch:instrument:L112:+2.51', title='noise fit: slope on noise index', line=112, status='fitted', printed='+2.51', tol=0.0,
+       source=_B10_DEV3, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3995():
+    'Same refit on the 76 healthy whole bloods; coefficient of the noise index N. Book line 112, printed +2.51. Input: chain_v3_dev3_readings.csv.'
+    n, coef, r2 = _b10_fit76()
+    value = coef[2]
+    return locals()
+
+@check(label='ch:instrument:L112:0.85', title='noise fit: R^2', line=112, status='fitted', printed='0.85', tol=0.0,
+       source=_B10_DEV3, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3996():
+    'Same refit on the 76 healthy whole bloods; coefficient of determination R^2. Book line 112, printed 0.85. Input: chain_v3_dev3_readings.csv.'
+    n, coef, r2 = _b10_fit76()
+    value = r2
+    return locals()
+
+@check(label='ch:instrument:L120:0.60', title='noise fit (figure): intercept', line=120, status='fitted', printed='0.60', tol=0.0,
+       source=_B10_DEV3, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3997():
+    'Figure fig:p4_noisefit caption: expectation 0.60 + 0.205 f_neu + 2.51 N fitted on the 76 healthy arrays; intercept of the refit. '\
+    'Book line 120, printed 0.60. Input: chain_v3_dev3_readings.csv.'
+    n, coef, r2 = _b10_fit76()
+    value = coef[0]
+    return locals()
+
+@check(label='ch:instrument:L120:0.205', title='noise fit (figure): slope on neutrophil fraction', line=120, status='fitted', printed='0.205', tol=0.0,
+       source=_B10_DEV3, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3998():
+    'Figure fig:p4_noisefit caption, coefficient of f_neu of the refit on the 76 healthy arrays. Book line 120, printed 0.205. '\
+    'Input: chain_v3_dev3_readings.csv.'
+    n, coef, r2 = _b10_fit76()
+    value = coef[1]
+    return locals()
+
+@check(label='ch:instrument:L120:+2.51', title='noise fit (figure): slope on noise index', line=120, status='fitted', printed='+2.51', tol=0.0,
+       source=_B10_DEV3, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_3999():
+    'Figure fig:p4_noisefit caption, coefficient of N of the refit on the 76 healthy arrays. Book line 120, printed +2.51. '\
+    'Input: chain_v3_dev3_readings.csv.'
+    n, coef, r2 = _b10_fit76()
+    value = coef[2]
+    return locals()
+
+@check(label='ch:instrument:L120:0.85', title='noise fit (figure): R^2', line=120, status='fitted', printed='0.85', tol=0.0,
+       source=_B10_DEV3, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_4000():
+    'Figure fig:p4_noisefit caption, R^2 of the refit on the 76 healthy arrays. Book line 120, printed 0.85. Input: chain_v3_dev3_readings.csv.'
+    n, coef, r2 = _b10_fit76()
+    value = r2
+    return locals()
+
+_B10_TARE = 'Biological_Physics/MethylPhys/doors/PROC_TARE_01_OUTCOME.md'
+
+@check(label='ch:instrument:L126:-0.14', title='SNP tare scale does not predict the reading', line=126, status='measured', printed='-0.14', tol=0.0,
+       source=_B10_TARE, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_4001():
+    'Neither SNP-tare parameter predicted the reading (r = -0.14 and -0.07); first: correlation of the scale term with raw A. Book line 126, '\
+    'printed -0.14. Read from the committed tare outcome record (diagnostics after the bars).'
+    value = _b10_nums(_B10_TARE, 'corr(T_scale, A_raw) = ', 1)[0]
+    return locals()
+
+@check(label='ch:instrument:L126:-0.07', title='SNP tare offset does not predict the reading', line=126, status='measured', printed='-0.07', tol=0.0,
+       source=_B10_TARE, chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+def check_4002():
+    'Correlation of the SNP-tare offset term with raw A. Book line 126, printed -0.07. Read from the committed tare outcome record.'
+    value = _b10_nums(_B10_TARE, 'corr(T_offset, A_raw) = ', 1)[0]
+    return locals()
+
+
 # ======== Part 6 | ch:salmonid | docs/book/part4/p4_22b_salmonid.tex
 @check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='0.0354', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
@@ -36151,41 +36476,10 @@ INVENTORY = [
     (6, 'ch:temperature', 'part4/p4_10_temperature', 113, '', 'prediction', '1.00', 'prediction, nothing to recompute (held-out canine cells should read 1.00 on a canine reference)'),
     (6, 'ch:translation', 'part4/p4_11_translation', 33, '', 'derived', '10', "input restated: a plasma draw carries of order 10^4 genome equivalents, the upper end of the 10^3-10^4 copies of ch:sky L72-73 (about 10^3 genome equivalents per millilitre, Sender2024); the printed '10' is the base of 10^4, nothing to recompute here"),
     (6, 'ch:translation', 'part4/p4_11_translation', 111, '', 'calc', '0.15', 'input: lower error -0.15 M_sun of the TOV bound 2.16 (+0.17, -0.15) M_sun (Rezzolla2018, doi 10.3847/2041-8213/aaa401)'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 31, '', 'measured', '0.985', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 31, '', 'measured', '0.979', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 31, '', 'measured', '0.975', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 31, '', 'measured', '0.891', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 31, '', 'measured', '0.953', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 32, '', 'measured', '0.932', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 32, '', 'measured', '0.878', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 32, '', 'measured', '0.928', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 50, '', 'measured', '0.15', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 50, '', 'measured', '0.31', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 51, '', 'measured', '12.5', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 55, '', 'measured', '0.33', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 55, '', 'measured', '0.42', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 56, '', 'measured', '0.75', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 56, '', 'measured', '0.95', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 56, '', 'measured', '0.05', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 56, '', 'measured', '0.25', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 82, '', 'measured', '0.79', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 82, '', 'measured', '0.83', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 83, '', 'measured', '1.07', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 101, '', 'measured', '0.943', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 101, '', 'measured', '0.968', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 101, '', 'measured', '1.073', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 101, '', 'measured', '1.115', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 105, '', 'measured', '0.86', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 105, '', 'measured', '1.26', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 112, '', 'fitted', '0.205', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 112, '', 'fitted', '+2.51', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 112, '', 'fitted', '0.85', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 120, '', 'fitted', '0.60', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 120, '', 'fitted', '0.205', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 120, '', 'fitted', '+2.51', 'measured, not found in the files the chapter names'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 120, '', 'fitted', '0.85', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 126, '', 'measured', '-0.14', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:instrument', 'part4/p4_12_instrument', 126, '', 'measured', '-0.07', 'measured, too few printed digits to match against the named files'),
+    (6, 'ch:instrument', 'part4/p4_12_instrument', 56, '', 'measured', '0.75', 'definition: identity-site window 0.75-0.95 restated from the site rule (ch:identity L20, calibrated)'),
+    (6, 'ch:instrument', 'part4/p4_12_instrument', 56, '', 'measured', '0.95', "definition: identity-site window 0.75-0.95 restated from the site rule (ch:identity L20, calibrated); the site set's upper extreme is checked at ch:identity:L20:0.95"),
+    (6, 'ch:instrument', 'part4/p4_12_instrument', 56, '', 'measured', '0.05', "definition: identity-site window 0.05-0.25 restated from the site rule (ch:identity L20, calibrated); the site set's lower extreme is checked at ch:identity:L20:0.05"),
+    (6, 'ch:instrument', 'part4/p4_12_instrument', 56, '', 'measured', '0.25', 'definition: identity-site window 0.05-0.25 restated from the site rule (ch:identity L20, calibrated)'),
     (6, 'ch:separation', 'part4/p4_13_separation', 6, 'eq:mix', 'none', '', 'displayed equation, not yet checked'),
     (6, 'ch:separation', 'part4/p4_13_separation', 45, '', 'measured', '0.05', 'measured, source not named'),
     (6, 'ch:separation', 'part4/p4_13_separation', 48, '', 'measured', '0.035', 'measured, source not named'),
