@@ -2321,13 +2321,21 @@ PASS  ch:lensdyn:L285                    ch:lensdyn:p2_17_lensing_dynamics:285  
 PASS  ch:lensdyn:L291:1.158              ch:lensdyn:p2_17_lensing_dynamics:291  printed 1.158  recomputed 1.15765  tol 5.000005e-04  [prediction] M_lens/M_dyn = 1/mu at z=0 (falsification list)
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:threeway (part2/p2_18_three_way_clusters.tex)
+PASS  ch:threeway:L37                    ch:threeway:p2_18_three_way_clusters:37  printed 20  recomputed 19.0476  tol 1  [observed] low end of the lensing excess over Planck masses, per cent
+PASS  ch:threeway:L37:45                 ch:threeway:p2_18_three_way_clusters:37  printed 45  recomputed 45.3488  tol 0.5  [observed] high end of the lensing excess over Planck masses, per cent
 PASS  eq:tw_adot                         ch:threeway:p2_18_three_way_clusters:48  printed (algebra)  recomputed lhs-rhs=0  [derived] drafted check, screened (runs; negative control fails)
 PASS  eq:tw_E                            ch:threeway:p2_18_three_way_clusters:53  printed (algebra)  recomputed True  [derived] E(1) = 1, E -> e
 PASS  eq:tw_beta                         ch:threeway:p2_18_three_way_clusters:58  printed 0.15765  recomputed 0.15765  tol 5.000005e-06  [prediction] beta_m = Omega_m/2
+PASS  eq:tw_mu                           ch:threeway:p2_18_three_way_clusters:66  printed (algebra)  recomputed True  [interp] mu(a): 1/(1+beta_m) today, 1 at early times
 PASS  ch:threeway:L70                    ch:threeway:p2_18_three_way_clusters:70  printed 0.8638  recomputed 0.863819  tol 5.001407e-05  [calc] same value as p1_02_iams_law:465 (mu at a=1 from beta_m)
 PASS  ch:threeway:L71                    ch:threeway:p2_18_three_way_clusters:71  printed 13.62  recomputed 13.6181  tol 0.00500001  [calc] same value as p1_02_iams_law:466 (percent change of coupling today)
 PASS  ch:threeway:L71:0.78               ch:threeway:p2_18_three_way_clusters:71  printed 0.78  recomputed 0.776789  tol 0.00500001  [calc] linear growth deficit at z=0, per cent
+PASS  eq:tw_mhydro                       ch:threeway:p2_18_three_way_clusters:79  printed (algebra)  recomputed lhs-rhs=0  [derived] M_hydro = mu M_true from hydrostatic balance
+PASS  eq:tw_msz                          ch:threeway:p2_18_three_way_clusters:85  printed (algebra)  recomputed lhs-rhs=0  [derived] M_SZ = mu M_true through the Y-M calibration
+PASS  eq:tw_mlens                        ch:threeway:p2_18_three_way_clusters:91  printed (algebra)  recomputed lhs-rhs=0  [derived] M_lens = Sigma M_true = M_true
 PASS  eq:tw_R                            ch:threeway:p2_18_three_way_clusters:98  printed (algebra)  recomputed lhs-rhs=0  [derived] M_lens/M_hydro = 1/mu with Sigma = 1
+PASS  eq:tw_szx                          ch:threeway:p2_18_three_way_clusters:103  printed (algebra)  recomputed lhs-rhs=0  [none] M_SZ/M_hydro = mu/mu = 1
+PASS  eq:tw_order                        ch:threeway:p2_18_three_way_clusters:107  printed (algebra)  recomputed True  [calc] M_lens > M_SZ = M_hydro for mu(z) < 1, 0 <= z <= 2
 PASS  ch:threeway:L116                   ch:threeway:p2_18_three_way_clusters:116  printed 0.3153  recomputed 0.3153  tol 5.000005e-05  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:threeway:L116:0.6847            ch:threeway:p2_18_three_way_clusters:116  printed 0.6847  recomputed 0.6847  tol 5.000005e-05  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:threeway:L116:67.36             ch:threeway:p2_18_three_way_clusters:116  printed 67.36  recomputed 67.36  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
@@ -2335,6 +2343,7 @@ PASS  ch:threeway:L117                   ch:threeway:p2_18_three_way_clusters:11
 PASS  ch:threeway:L117:1.002             ch:threeway:p2_18_three_way_clusters:117  printed 1.002  recomputed 1.00232  tol 5.000005e-04  [calc] R at z=2
 PASS  ch:threeway:L117:1.10              ch:threeway:p2_18_three_way_clusters:117  printed 1.10  recomputed 1.10498  tol 0.011  [calc] R at z=0.2 ('approx')
 PASS  ch:threeway:L117:1.07              ch:threeway:p2_18_three_way_clusters:117  printed 1.07  recomputed 1.06818  tol 0.0107  [calc] R at z=0.4 ('approx')
+PASS  ch:threeway:L118                   ch:threeway:p2_18_three_way_clusters:118  printed 10  recomputed True  [calc] the 7-10 % range is 100(R-1) at z = 0.4 and 0.2, rounded
 PASS  ch:threeway:L122                   ch:threeway:p2_18_three_way_clusters:122  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [calc] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
 PASS  ch:threeway:L125                   ch:threeway:p2_18_three_way_clusters:125  printed 1.000  recomputed 1  tol 5.000005e-04  [calc] a at z=0.0
 PASS  ch:threeway:L125:0.8638            ch:threeway:p2_18_three_way_clusters:125  printed 0.8638  recomputed 0.863819  tol 5.000005e-05  [calc] mu at z=0.0
@@ -2371,6 +2380,7 @@ PASS  ch:threeway:L139:1.5               ch:threeway:p2_18_three_way_clusters:13
 PASS  ch:threeway:L145                   ch:threeway:p2_18_three_way_clusters:145  printed -0.183  recomputed -0.183192  tol 5.000005e-04  [calc] dR/dz at z=0.3
 PASS  ch:threeway:L145:-0.31             ch:threeway:p2_18_three_way_clusters:145  printed -0.31  recomputed -0.306771  tol 0.00500001  [calc] dR/dz at z=0
 PASS  ch:threeway:L145:-0.12             ch:threeway:p2_18_three_way_clusters:145  printed -0.12  recomputed -0.121215  tol 0.00500001  [calc] dR/dz at z=0.5
+PASS  eq:tw_bias                         ch:threeway:p2_18_three_way_clusters:152  printed (algebra)  recomputed lhs-rhs=0  [derived] 1 - b_hydro = (1 - b_NT)(1 - b_IAM); biases add at first order
 PASS  ch:threeway:L155                   ch:threeway:p2_18_three_way_clusters:155  printed 0.014  recomputed 0.0136066  tol 5.000005e-04  [derived] cross term b_NT b_IAM at z=0.3
 PASS  ch:threeway:L159                   ch:threeway:p2_18_three_way_clusters:159  printed +0.027  recomputed 0.0267962  tol 5.000005e-04  [calc] dC_NT/dz at z=0.65
 PASS  ch:threeway:L159:+0.036            ch:threeway:p2_18_three_way_clusters:159  printed +0.036  recomputed 0.0357686  tol 5.000005e-04  [calc] dC_NT/dz at z=0.15
@@ -2394,10 +2404,18 @@ PASS  ch:threeway:L178:+0.027            ch:threeway:p2_18_three_way_clusters:17
 PASS  ch:threeway:L178:+0.036            ch:threeway:p2_18_three_way_clusters:178  printed +0.036  recomputed 0.0357686  tol 5.000005e-04  [calc] dC_NT/dz at z=0.15
 PASS  ch:threeway:L182                   ch:threeway:p2_18_three_way_clusters:182  printed -0.152  recomputed -0.15154  tol 5.000005e-04  [calc] straight-line slope over the four bin centres
 PASS  ch:threeway:L182:1.5               ch:threeway:p2_18_three_way_clusters:182  printed 1.5  recomputed 1.45377  tol 0.05  [calc] fractional error per bin for a 3 sigma slope
+PASS  ch:threeway:L184                   ch:threeway:p2_18_three_way_clusters:184  printed -0.18  recomputed -0.183192  tol 0.00500001  [calc] slope -0.18 at z = 0.3, restated
 PASS  ch:threeway:L189                   ch:threeway:p2_18_three_way_clusters:189  printed 1.07  recomputed 1.06818  tol 0.0107  [calc] R at z=0.4 ('approx')
 PASS  ch:threeway:L189:1.10              ch:threeway:p2_18_three_way_clusters:189  printed 1.10  recomputed 1.10498  tol 0.011  [calc] R at z=0.2 ('approx')
 PASS  ch:threeway:L189:1.27              ch:threeway:p2_18_three_way_clusters:189  printed 1.27  recomputed 1.2689  tol 0.00508001  [calc] total at the last bin
 PASS  ch:threeway:L189:1.35              ch:threeway:p2_18_three_way_clusters:189  printed 1.35  recomputed 1.34619  tol 0.00540001  [calc] total at the first bin
+PASS  ch:threeway:L190                   ch:threeway:p2_18_three_way_clusters:190  printed 1.28  recomputed 1.28205  tol 0.00500001  [calc] CCCP Planck-prior calibration 1/(1-b)
+PASS  ch:threeway:L190:1.45              ch:threeway:p2_18_three_way_clusters:190  printed 1.45  recomputed 1.45349  tol 0.00500001  [calc] WtG Planck-prior calibration 1/(1-b)
+PASS  ch:threeway:L191                   ch:threeway:p2_18_three_way_clusters:191  printed 1.05  recomputed 1.05263  tol 0.00500001  [calc] LoCuSS like-for-like M_WL/M_X = 1/beta_X
+PASS  eq:tw_test1                        ch:threeway:p2_18_three_way_clusters:201  printed (algebra)  recomputed True  [calibrated] three conditions: SZ/hydro = 1, lens/hydro > 1, slope < 0 (Level 1)
+PASS  ch:threeway:L211                   ch:threeway:p2_18_three_way_clusters:211  printed 10  recomputed True  [interp] the 7-10 % range is 100(R-1) at z = 0.4 and 0.2, rounded
+PASS  ch:threeway:L220                   ch:threeway:p2_18_three_way_clusters:220  printed -0.18  recomputed -0.183192  tol 0.00500001  [interp] Level 1 slope -0.18, restated
+PASS  ch:threeway:L237                   ch:threeway:p2_18_three_way_clusters:237  printed (algebra)  recomputed lhs-rhs=0  [prediction] R = M_lens/M_hydro = 1/mu (what would test it)
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:satellites (part2/p2_19_missing_satellites.tex)
 PASS  ch:satellites:L19                  ch:satellites:p2_19_missing_satellites:19  printed 0.864  recomputed 0.863819  tol 5.000005e-04  [calc] mu today
@@ -3719,4 +3737,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 2954  FAIL 0  (heavy, read from committed outputs: 616)  inventoried-not-run 3380  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 2972  FAIL 0  (heavy, read from committed outputs: 616)  inventoried-not-run 3362  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

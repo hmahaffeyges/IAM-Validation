@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 2954 PASS, 0 FAIL, 3380 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 2972 PASS, 0 FAIL, 3362 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -2972,23 +2972,23 @@ Totals: 2954 PASS, 0 FAIL, 3380 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 37 |  | observed | `20` | not run: measured, too few printed digits to match against the named files | - |
-| 37 |  | observed | `45` | not run: measured, too few printed digits to match against the named files | - |
-| 38 |  | observed | `0.15` | not run: measured, too few printed digits to match against the named files | - |
-| 38 |  | observed | `0.3` | not run: measured, too few printed digits to match against the named files | - |
+| 37 | ch:threeway:L37 | observed | `20` | numeric: low end of the lensing excess over Planck masses, per cent | PASS |
+| 37 | ch:threeway:L37:45 | observed | `45` | numeric: high end of the lensing excess over Planck masses, per cent | PASS |
+| 38 |  | observed | `0.15` | not run: input: redshift range 0.15<z<0.3 of the LoCuSS sample (Smith2016LoCuSS, doi 10.1093/mnrasl/slv175), as in tab:ld_published; a sample boundary, nothing to recompute | - |
+| 38 |  | observed | `0.3` | not run: input: redshift range 0.15<z<0.3 of the LoCuSS sample (Smith2016LoCuSS, doi 10.1093/mnrasl/slv175), as in tab:ld_published; a sample boundary, nothing to recompute | - |
 | 48 | eq:tw_adot | derived |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
 | 53 | eq:tw_E | derived |  | sympy: E(1) = 1, E -> e | PASS |
 | 58 | eq:tw_beta | prediction | `0.15765` | numeric: beta_m = Omega_m/2 | PASS |
-| 66 | eq:tw_mu | interp |  | not run: displayed equation, not yet checked | - |
+| 66 | eq:tw_mu | interp |  | sympy: mu(a): 1/(1+beta_m) today, 1 at early times | PASS |
 | 70 | ch:threeway:L70 | calc | `0.8638` | numeric: same value as p1_02_iams_law:465 (mu at a=1 from beta_m) | PASS |
 | 71 | ch:threeway:L71 | calc | `13.62` | numeric: same value as p1_02_iams_law:466 (percent change of coupling today) | PASS |
 | 71 | ch:threeway:L71:0.78 | calc | `0.78` | numeric: linear growth deficit at z=0, per cent | PASS |
-| 79 | eq:tw_mhydro | derived |  | not run: not yet run: draft rejected (drafter skipped: This is a derived statement from hydrostatic equilibrium with Level 1 for) | - |
-| 85 | eq:tw_msz | derived |  | not run: not yet run: draft rejected (drafter skipped: This is a derived statement about the SZ mass estimator inheriting the μ ) | - |
-| 91 | eq:tw_mlens | derived |  | not run: not yet run: draft rejected (drafter skipped: This is a derived statement asserting that lensing mass recovers the true) | - |
+| 79 | eq:tw_mhydro | derived |  | sympy: M_hydro = mu M_true from hydrostatic balance | PASS |
+| 85 | eq:tw_msz | derived |  | sympy: M_SZ = mu M_true through the Y-M calibration | PASS |
+| 91 | eq:tw_mlens | derived |  | sympy: M_lens = Sigma M_true = M_true | PASS |
 | 98 | eq:tw_R | derived |  | sympy: M_lens/M_hydro = 1/mu with Sigma = 1 | PASS |
-| 103 | eq:tw_szx | none |  | not run: displayed equation, not yet checked | - |
-| 107 | eq:tw_order | calc |  | not run: not yet run: draft rejected (drafter skipped: This is a qualitative ordering statement derived from Eqs. 79, 85, 86, 92) | - |
+| 103 | eq:tw_szx | none |  | sympy: M_SZ/M_hydro = mu/mu = 1 | PASS |
+| 107 | eq:tw_order | calc |  | sympy: M_lens > M_SZ = M_hydro for mu(z) < 1, 0 <= z <= 2 | PASS |
 | 116 | ch:threeway:L116 | calc | `0.3153` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 116 | ch:threeway:L116:0.6847 | calc | `0.6847` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 116 | ch:threeway:L116:67.36 | calc | `67.36` | numeric: drafted check, screened (runs; negative control fails) | PASS |
@@ -2996,128 +2996,123 @@ Totals: 2954 PASS, 0 FAIL, 3380 inventoried and not run. Each run item carries t
 | 117 | ch:threeway:L117:1.002 | calc | `1.002` | numeric: R at z=2 | PASS |
 | 117 | ch:threeway:L117:1.10 | calc | `1.10` | numeric: R at z=0.2 ('approx') | PASS |
 | 117 | ch:threeway:L117:1.07 | calc | `1.07` | numeric: R at z=0.4 ('approx') | PASS |
-| 117 |  | calc | `0.4` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 118 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.1); drafting error on review | - |
+| 117 |  | calc | `0.4` | not run: input: redshift range z ~ 0.2-0.4 of eROSITA cluster samples; R at 0.2 and 0.4 is checked by ch:threeway:L117:1.10 and ch:threeway:L117:1.07 | - |
+| 118 | ch:threeway:L118 | calc | `10` | sympy: the 7-10 % range is 100(R-1) at z = 0.4 and 0.2, rounded | PASS |
 | 122 | ch:threeway:L122 | calc | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
 | 125 | ch:threeway:L125 | calc | `1.000` | numeric: a at z=0.0 | PASS |
 | 125 | ch:threeway:L125:0.8638 | calc | `0.8638` | numeric: mu at z=0.0 | PASS |
 | 125 | ch:threeway:L125:1.158 | calc | `1.158` | numeric: R = 1/mu at z=0.0 | PASS |
-| 125 |  | calc | `0.0` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 125 |  | calc | `0.0` | not run: input: redshift z = 0.0 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
 | 126 | ch:threeway:L126 | calc | `0.909` | numeric: a at z=0.1 | PASS |
 | 126 | ch:threeway:L126:0.8856 | calc | `0.8856` | numeric: mu at z=0.1 | PASS |
 | 126 | ch:threeway:L126:1.129 | calc | `1.129` | numeric: R = 1/mu at z=0.1 | PASS |
-| 126 |  | calc | `0.1` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 126 |  | calc | `0.1` | not run: input: redshift z = 0.1 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
 | 127 | ch:threeway:L127 | calc | `0.833` | numeric: a at z=0.2 | PASS |
 | 127 | ch:threeway:L127:0.9050 | calc | `0.9050` | numeric: mu at z=0.2 | PASS |
 | 127 | ch:threeway:L127:1.105 | calc | `1.105` | numeric: R = 1/mu at z=0.2 | PASS |
-| 127 |  | calc | `0.2` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 127 |  | calc | `0.2` | not run: input: redshift z = 0.2 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
 | 128 | ch:threeway:L128 | calc | `0.769` | numeric: a at z=0.3 | PASS |
 | 128 | ch:threeway:L128:0.9218 | calc | `0.9218` | numeric: mu at z=0.3 | PASS |
 | 128 | ch:threeway:L128:1.085 | calc | `1.085` | numeric: R = 1/mu at z=0.3 | PASS |
-| 128 |  | calc | `0.3` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 128 |  | calc | `0.3` | not run: input: redshift z = 0.3 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
 | 129 | ch:threeway:L129 | calc | `0.714` | numeric: a at z=0.4 | PASS |
 | 129 | ch:threeway:L129:0.9362 | calc | `0.9362` | numeric: mu at z=0.4 | PASS |
 | 129 | ch:threeway:L129:1.068 | calc | `1.068` | numeric: R = 1/mu at z=0.4 | PASS |
-| 129 |  | calc | `0.4` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 129 |  | calc | `0.4` | not run: input: redshift z = 0.4 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
 | 130 | ch:threeway:L130 | calc | `0.667` | numeric: a at z=0.5 | PASS |
 | 130 | ch:threeway:L130:0.9482 | calc | `0.9482` | numeric: mu at z=0.5 | PASS |
 | 130 | ch:threeway:L130:1.055 | calc | `1.055` | numeric: R = 1/mu at z=0.5 | PASS |
-| 130 |  | calc | `0.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 130 |  | calc | `0.5` | not run: input: redshift z = 0.5 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
 | 131 | ch:threeway:L131 | calc | `0.588` | numeric: a at z=0.7 | PASS |
 | 131 | ch:threeway:L131:0.9661 | calc | `0.9661` | numeric: mu at z=0.7 | PASS |
 | 131 | ch:threeway:L131:1.035 | calc | `1.035` | numeric: R = 1/mu at z=0.7 | PASS |
-| 131 |  | calc | `0.7` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 131 |  | calc | `0.7` | not run: input: redshift z = 0.7 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
 | 132 | ch:threeway:L132 | calc | `0.500` | numeric: a at z=1.0 | PASS |
 | 132 | ch:threeway:L132:0.9822 | calc | `0.9822` | numeric: mu at z=1.0 | PASS |
 | 132 | ch:threeway:L132:1.018 | calc | `1.018` | numeric: R = 1/mu at z=1.0 | PASS |
-| 132 |  | calc | `1.0` | not run: not yet run: draft rejected (no draft returned) | - |
+| 132 |  | calc | `1.0` | not run: input: redshift z = 1.0 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
 | 133 | ch:threeway:L133 | calc | `0.400` | numeric: a at z=1.5 | PASS |
 | 133 | ch:threeway:L133:0.9938 | calc | `0.9938` | numeric: mu at z=1.5 | PASS |
 | 133 | ch:threeway:L133:1.006 | calc | `1.006` | numeric: R = 1/mu at z=1.5 | PASS |
-| 133 |  | calc | `1.5` | not run: not yet run: draft rejected (no draft returned) | - |
+| 133 |  | calc | `1.5` | not run: input: redshift z = 1.5 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
 | 134 | ch:threeway:L134 | calc | `0.333` | numeric: a at z=2.0 | PASS |
 | 134 | ch:threeway:L134:0.9977 | calc | `0.9977` | numeric: mu at z=2.0 | PASS |
 | 134 | ch:threeway:L134:1.002 | calc | `1.002` | numeric: R = 1/mu at z=2.0 | PASS |
-| 134 |  | calc | `2.0` | not run: not yet run: draft rejected (no draft returned) | - |
+| 134 |  | calc | `2.0` | not run: input: redshift z = 2.0 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
 | 139 | ch:threeway:L139 | calc | `-0.152` | numeric: straight-line slope over the four bin centres | PASS |
 | 139 | ch:threeway:L139:1.5 | calc | `1.5` | numeric: fractional error per bin for a 3 sigma slope | PASS |
 | 145 | ch:threeway:L145 | calc | `-0.183` | numeric: dR/dz at z=0.3 | PASS |
 | 145 | ch:threeway:L145:-0.31 | calc | `-0.31` | numeric: dR/dz at z=0 | PASS |
 | 145 | ch:threeway:L145:-0.12 | calc | `-0.12` | numeric: dR/dz at z=0.5 | PASS |
-| 145 |  | calc | `0.3` | not run: not yet run: draft rejected (no draft returned) | - |
-| 145 |  | calc | `0.5` | not run: not yet run: draft rejected (no draft returned) | - |
-| 152 | eq:tw_bias | derived |  | not run: not yet run: draft rejected (no draft returned) | - |
+| 145 |  | calc | `0.3` | not run: input: redshift z = 0.3 at which dR/dz is evaluated (slope checked by ch:threeway:L145) | - |
+| 145 |  | calc | `0.5` | not run: input: redshift z = 0.5 at which dR/dz is evaluated (slope checked by ch:threeway:L145:-0.12) | - |
+| 152 | eq:tw_bias | derived |  | sympy: 1 - b_hydro = (1 - b_NT)(1 - b_IAM); biases add at first order | PASS |
 | 155 | ch:threeway:L155 | derived | `0.014` | numeric: cross term b_NT b_IAM at z=0.3 | PASS |
-| 155 |  | derived | `0.3` | not run: not yet run: draft rejected (no draft returned) | - |
+| 155 |  | derived | `0.3` | not run: input: redshift z = 0.3 at which the cross term is evaluated (0.014 checked by ch:threeway:L155) | - |
 | 159 | ch:threeway:L159 | calc | `+0.027` | numeric: dC_NT/dz at z=0.65 | PASS |
 | 159 | ch:threeway:L159:+0.036 | calc | `+0.036` | numeric: dC_NT/dz at z=0.15 | PASS |
-| 159 |  | calc | `0.20` | not run: not yet run: draft rejected (no draft returned) | - |
-| 159 |  | calc | `0.15` | not run: not yet run: draft rejected (no draft returned) | - |
-| 159 |  | calc | `0.65` | not run: not yet run: draft rejected (no draft returned) | - |
-| 160 |  | openprob | `+0.02` | not run: not yet checked | - |
-| 160 |  | openprob | `+0.04` | not run: not yet checked | - |
+| 159 |  | calc | `0.20` | not run: input: assumed normalisation 0.20 of the illustrative non-thermal factor C_NT = 1+0.20(1+z)^0.2 (the chapter states the form is assumed) | - |
+| 159 |  | calc | `0.15` | not run: input: lowest bin centre z = 0.15 of the range over which dC_NT/dz is quoted (slope checked by ch:threeway:L159:+0.036) | - |
+| 159 |  | calc | `0.65` | not run: input: highest bin centre z = 0.65 of the range over which dC_NT/dz is quoted (slope checked by ch:threeway:L159) | - |
+| 160 |  | openprob | `+0.02` | not run: input: lower end of the non-thermal slope range suggested by the cited simulations (Nelson2014, ShiKomatsu2014), quoted, nothing to recompute | - |
+| 160 |  | openprob | `+0.04` | not run: input: upper end of the non-thermal slope range suggested by the cited simulations (Nelson2014, ShiKomatsu2014), quoted, nothing to recompute | - |
 | 161 | ch:threeway:L161 | calc | `-0.187` | numeric: slope of R C_NT at z=0.3 | PASS |
 | 161 | ch:threeway:L161:-0.025 | calc | `-0.025` | numeric: slope at z=1 | PASS |
 | 161 | ch:threeway:L161:1.40 | calc | `1.40` | numeric: turnover of R C_NT | PASS |
-| 161 |  | calc | `0.3` | not run: not yet run: draft rejected (no draft returned) | - |
+| 161 |  | calc | `0.3` | not run: input: redshift z = 0.3 at which the slope of R x C_NT is evaluated (-0.187 checked by ch:threeway:L161) | - |
 | 170 | ch:threeway:L170 | calc | `1.117` | numeric: R at bin centre 0.15 | PASS |
 | 170 | ch:threeway:L170:1.206 | calc | `1.206` | numeric: C_NT at 0.15 | PASS |
 | 170 | ch:threeway:L170:1.346 | calc | `1.346` | numeric: R C_NT at 0.15 | PASS |
-| 170 |  | calc | `0.1` | not run: not yet run: draft rejected (no draft returned) | - |
-| 170 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft returned) | - |
-| 170 |  | calc | `0.150` | not run: not yet run: draft rejected (no draft returned) | - |
+| 170 |  | calc | `0.1` | not run: input: lower edge z = 0.1 of the first bin of tab:tw_bins | - |
+| 170 |  | calc | `0.2` | not run: input: upper edge z = 0.2 of the first bin of tab:tw_bins | - |
+| 170 |  | calc | `0.150` | not run: definition: bin centre 0.150 = midpoint of the bin edges 0.1 and 0.2 (R, C_NT and R x C_NT at this centre are checked by ch:threeway:L170 ff.) | - |
 | 171 | ch:threeway:L171 | calc | `1.094` | numeric: R at bin centre 0.25 | PASS |
 | 171 | ch:threeway:L171:1.209 | calc | `1.209` | numeric: C_NT at 0.25 | PASS |
 | 171 | ch:threeway:L171:1.323 | calc | `1.323` | numeric: R C_NT at 0.25 | PASS |
-| 171 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft returned) | - |
-| 171 |  | calc | `0.3` | not run: not yet run: draft rejected (no draft returned) | - |
-| 171 |  | calc | `0.250` | not run: not yet run: draft rejected (drafter skipped: Line 171: centre of bin 0.2 < z < 0.3 is the arithmetic mean (0.2 + 0.3)/) | - |
+| 171 |  | calc | `0.2` | not run: input: lower edge z = 0.2 of the second bin of tab:tw_bins | - |
+| 171 |  | calc | `0.3` | not run: input: upper edge z = 0.3 of the second bin of tab:tw_bins | - |
+| 171 |  | calc | `0.250` | not run: definition: bin centre 0.250 = midpoint of the bin edges 0.2 and 0.3 (values at this centre checked by ch:threeway:L171 ff.) | - |
 | 172 | ch:threeway:L172 | calc | `1.068` | numeric: R at bin centre 0.4 | PASS |
 | 172 | ch:threeway:L172:1.214 | calc | `1.214` | numeric: C_NT at 0.4 | PASS |
 | 172 | ch:threeway:L172:1.297 | calc | `1.297` | numeric: R C_NT at 0.4 | PASS |
-| 172 |  | calc | `0.3` | not run: not yet run: draft rejected (drafter skipped: Line 172: lower bound of bin 0.3 < z < 0.5
-# Not a calculated result; it ) | - |
-| 172 |  | calc | `0.5` | not run: not yet run: draft rejected (drafter skipped: Line 172: upper bound of bin 0.3 < z < 0.5
-# Not a calculated result; it ) | - |
-| 172 |  | calc | `0.400` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 172 |  | calc | `0.3` | not run: input: lower edge z = 0.3 of the third bin of tab:tw_bins | - |
+| 172 |  | calc | `0.5` | not run: input: upper edge z = 0.5 of the third bin of tab:tw_bins | - |
+| 172 |  | calc | `0.400` | not run: definition: bin centre 0.400 = midpoint of the bin edges 0.3 and 0.5 (values at this centre checked by ch:threeway:L172 ff.) | - |
 | 173 | ch:threeway:L173 | calc | `1.039` | numeric: R at bin centre 0.65 | PASS |
 | 173 | ch:threeway:L173:1.221 | calc | `1.221` | numeric: C_NT at 0.65 | PASS |
 | 173 | ch:threeway:L173:1.269 | calc | `1.269` | numeric: R C_NT at 0.65 | PASS |
-| 173 |  | calc | `0.5` | not run: not yet run: draft rejected (drafter skipped: Line 173: lower bound of bin 0.5 < z < 0.8
-# Not a calculated result; it ) | - |
-| 173 |  | calc | `0.8` | not run: not yet run: draft rejected (drafter skipped: Line 173: upper bound of bin 0.5 < z < 0.8
-# Not a calculated result; it ) | - |
-| 173 |  | calc | `0.650` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 173 |  | calc | `0.5` | not run: input: lower edge z = 0.5 of the fourth bin of tab:tw_bins | - |
+| 173 |  | calc | `0.8` | not run: input: upper edge z = 0.8 of the fourth bin of tab:tw_bins | - |
+| 173 |  | calc | `0.650` | not run: definition: bin centre 0.650 = midpoint of the bin edges 0.5 and 0.8 (values at this centre checked by ch:threeway:L173 ff.) | - |
 | 178 | ch:threeway:L178 | calc | `-0.183` | numeric: dR/dz at z=0.3 | PASS |
 | 178 | ch:threeway:L178:+0.027 | calc | `+0.027` | numeric: dC_NT/dz at z=0.65 | PASS |
 | 178 | ch:threeway:L178:+0.036 | calc | `+0.036` | numeric: dC_NT/dz at z=0.15 | PASS |
-| 178 |  | calc | `0.20` | not run: not yet run: draft rejected (drafter skipped: Line 178: coefficient in the illustrative form C_NT = 1 + 0.20(1+z)^0.2
-#) | - |
-| 178 |  | calc | `0.3` | not run: not yet run: draft rejected (drafter skipped: Line 178: z=0.3 is a bin centre, not a calculated value; it's selected fo) | - |
+| 178 |  | calc | `0.20` | not run: input: assumed normalisation 0.20 of the illustrative C_NT (figure caption restates the form of line 159) | - |
+| 178 |  | calc | `0.3` | not run: input: redshift z = 0.3 at which dR/dz is quoted (-0.183 checked by ch:threeway:L178) | - |
 | 182 | ch:threeway:L182 | calc | `-0.152` | numeric: straight-line slope over the four bin centres | PASS |
 | 182 | ch:threeway:L182:1.5 | calc | `1.5` | numeric: fractional error per bin for a 3 sigma slope | PASS |
-| 183 |  | calc | `0.1` | not run: not yet run: draft rejected (drafter skipped: Line 183: 0.1 is the lower bound of the redshift range 0.1<z<0.6, stated ) | - |
-| 183 |  | calc | `0.6` | not run: not yet run: draft rejected (drafter skipped: Line 183: 0.6 is the upper bound of the redshift range 0.1<z<0.6, stated ) | - |
-| 184 |  | calc | `-0.18` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 185 |  | calc | `+0.02` | not run: not yet run: draft rejected (drafter skipped: Line 185: +0.02 is the lower bound of a range for non-thermal slope, stat) | - |
-| 185 |  | calc | `+0.04` | not run: not yet run: draft rejected (drafter skipped: Line 185: +0.04 is the upper bound of a range for non-thermal slope, stat) | - |
+| 183 |  | calc | `0.1` | not run: input: lower end z = 0.1 of the redshift range of the proposed cross-matched sample | - |
+| 183 |  | calc | `0.6` | not run: input: upper end z = 0.6 of the redshift range of the proposed cross-matched sample | - |
+| 184 | ch:threeway:L184 | calc | `-0.18` | numeric: slope -0.18 at z = 0.3, restated | PASS |
+| 185 |  | calc | `+0.02` | not run: input: lower end of the non-thermal slope range of the cited simulations (Nelson2014, ShiKomatsu2014), restated from line 160 | - |
+| 185 |  | calc | `+0.04` | not run: input: upper end of the non-thermal slope range of the cited simulations (Nelson2014, ShiKomatsu2014), restated from line 160 | - |
 | 189 | ch:threeway:L189 | calc | `1.07` | numeric: R at z=0.4 ('approx') | PASS |
 | 189 | ch:threeway:L189:1.10 | calc | `1.10` | numeric: R at z=0.2 ('approx') | PASS |
 | 189 | ch:threeway:L189:1.27 | calc | `1.27` | numeric: total at the last bin | PASS |
 | 189 | ch:threeway:L189:1.35 | calc | `1.35` | numeric: total at the first bin | PASS |
-| 190 |  | calc | `1.28` | not run: not yet run: draft rejected (drafter skipped: Line 190: 1.28±0.15 is a published CCCP calibration value cited from sour) | - |
-| 190 |  | calc | `1.45` | not run: not yet run: draft rejected (drafter skipped: Line 190: 1.45±0.15 is a published WtG calibration value cited from sourc) | - |
-| 191 |  | calc | `1.05` | not run: not yet run: draft rejected (drafter skipped: LoCuSS like-for-like value M_WL/M_X=1.05±0.06 at 0.15<z<0.3 is a publishe) | - |
-| 191 |  | calc | `0.15` | not run: not yet run: draft rejected (drafter skipped: The redshift range boundary z=0.15 is a bin limit from the LoCuSS sample ) | - |
-| 191 |  | calc | `0.3` | not run: not yet run: draft rejected (drafter skipped: The redshift range boundary z=0.3 is a bin limit from the LoCuSS sample d) | - |
-| 192 |  | openprob | `0.3` | not run: not yet checked | - |
-| 201 | eq:tw_test1 | calibrated |  | not run: displayed equation, not yet checked | - |
-| 211 |  | interp | `10` | not run: not yet checked | - |
-| 211 |  | interp | `0.2` | not run: not yet checked | - |
-| 211 |  | interp | `0.4` | not run: not yet checked | - |
-| 212 |  | interp | `0.02` | not run: not yet checked | - |
-| 220 |  | interp | `-0.18` | not run: not yet checked | - |
-| 237 |  | prediction |  | not run: displayed equation, not yet checked | - |
+| 190 | ch:threeway:L190 | calc | `1.28` | numeric: CCCP Planck-prior calibration 1/(1-b) | PASS |
+| 190 | ch:threeway:L190:1.45 | calc | `1.45` | numeric: WtG Planck-prior calibration 1/(1-b) | PASS |
+| 191 | ch:threeway:L191 | calc | `1.05` | numeric: LoCuSS like-for-like M_WL/M_X = 1/beta_X | PASS |
+| 191 |  | calc | `0.15` | not run: input: redshift range 0.15<z<0.3 of the LoCuSS sample (Smith2016LoCuSS), a sample boundary | - |
+| 191 |  | calc | `0.3` | not run: input: redshift range 0.15<z<0.3 of the LoCuSS sample (Smith2016LoCuSS), a sample boundary | - |
+| 192 |  | openprob | `0.3` | not run: input: redshift z = 0.3 at which the cited reanalysis splits its sample (Smith2016LoCuSS), nothing to recompute | - |
+| 201 | eq:tw_test1 | calibrated |  | sympy: three conditions: SZ/hydro = 1, lens/hydro > 1, slope < 0 (Level 1) | PASS |
+| 211 | ch:threeway:L211 | interp | `10` | sympy: the 7-10 % range is 100(R-1) at z = 0.4 and 0.2, rounded | PASS |
+| 211 |  | interp | `0.2` | not run: input: redshift range z = 0.2-0.4 of the samples (the signal there is checked by ch:threeway:L211) | - |
+| 211 |  | interp | `0.4` | not run: input: redshift range z = 0.2-0.4 of the samples (the signal there is checked by ch:threeway:L211) | - |
+| 212 |  | interp | `0.02` | not run: input: published shape-measurement bound |m| < 0.02 for DES Y3 quoted from the cited MacCrann2022, nothing to recompute | - |
+| 220 | ch:threeway:L220 | interp | `-0.18` | numeric: Level 1 slope -0.18, restated | PASS |
+| 237 | ch:threeway:L237 | prediction |  | sympy: R = M_lens/M_hydro = 1/mu (what would test it) | PASS |
 
 ## Part 2 - ch:satellites - `docs/book/part2/p2_19_missing_satellites.tex`
 

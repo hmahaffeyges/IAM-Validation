@@ -619,6 +619,28 @@ def _b04_cl(key):
 def _b04_mu_z(z):
     return float(mu_iam(1 / (1 + z)))
 
+# helpers of the part2/p2_18_three_way_clusters checks
+# Batch b05 -- ch:threeway (docs/book/part2/p2_18_three_way_clusters.tex)
+
+def _b05_tw_R(z):
+    'Level 1 lensing-to-hydrostatic ratio R = 1/mu(z), mu from Eq. eq:tw_mu (verify_book mu_iam: beta_m = Omega_m/2, Planck 2018 background).'
+    return 1 / float(mu_iam(1 / (1 + z)))
+
+def _b05_tw_dR(z, h=1e-5):
+    return (_b05_tw_R(z + h) - _b05_tw_R(z - h)) / (2 * h)
+
+def _b05_tw_masses(mu_c=1, sig_c=1):
+    'Derive the three Level 1 mass estimators from their defining relations. mu_c, sig_c scale the couplings (for negative controls).'
+    G_, r, Mt, Mh, Ml, Msz, mu, Sig, Y0, A_, alpha, Y = sp.symbols('G r M_true M_hydro M_lens M_SZ mu Sigma Y0 A alpha Y', positive=True)
+    # Step 1: hydrostatic balance; the observer writes g = G M_hydro/r^2, the gas feels g = mu G M_true/r^2
+    M_hydro = sp.solve(sp.Eq(G_ * Mh / r**2, mu_c * mu * G_ * Mt / r**2), Mh)[0]
+    # Step 2: Y = Y0 M_true^alpha; the Y-M amplitude A is calibrated on hydrostatic masses, Y = A M_hydro^alpha; M_SZ inverts it
+    A_cal = sp.solve(sp.Eq(Y0 * Mt**alpha, A_ * M_hydro**alpha), A_)[0]
+    M_SZ = sp.simplify(sp.powsimp(sp.powdenest((Y0 * Mt**alpha / A_cal)**(1 / alpha), force=True), force=True))
+    # Step 3: lensing potential Phi+Psi = Sigma x (GR value for M_true); the observer inverts with the GR relation
+    M_lens = sp.solve(sp.Eq(2 * G_ * Ml / r, sig_c * Sig * 2 * G_ * Mt / r), Ml)[0]
+    return dict(M_hydro=M_hydro, M_SZ=M_SZ, M_lens=M_lens, Mt=Mt, mu=mu, Sig=Sig)
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -14671,6 +14693,22 @@ def check_2953():
 
 
 # ======== Part 2 | ch:threeway | docs/book/part2/p2_18_three_way_clusters.tex
+@check(label='ch:threeway:L37', chapter='ch:threeway', part=2, title='low end of the lensing excess over Planck masses, per cent',
+       file='part2/p2_18_three_way_clusters', line=37, status='observed', kind='num', printed='20', tol=0.05)
+def check_2954():
+    'Low end of "about 20-45 %" excess of lensing over Planck masses. Book line 37, printed 20. Input: CCCP + MENeaCS 1-b = 0.84 (Herbonnet et al. 2020, doi 10.1093/mnras/staa2303; tab:ld_published, p2_17 line 209); excess = 100(1/(1-b) - 1) = 19.0 %, which the sister chapter prints as 19 % (p2_17 line 213). tol 0.05 because the sentence says "about".'
+    one_minus_b_CCCP_MENeaCS = 0.84
+    value = 100 * (1 / one_minus_b_CCCP_MENeaCS - 1)
+    return locals()
+
+@check(label='ch:threeway:L37:45', chapter='ch:threeway', part=2, title='high end of the lensing excess over Planck masses, per cent',
+       file='part2/p2_18_three_way_clusters', line=37, status='observed', kind='num', printed='45', tol=0.0)
+def check_2955():
+    'High end of "about 20-45 %". Book line 37, printed 45. Input: WtG Planck prior 1-b = 0.688 (Planck 2015 XXIV Table 2, doi 10.1051/0004-6361/201525833; tab:ld_published, p2_17 line 200); excess = 100(1/(1-b) - 1).'
+    one_minus_b_WtG = 0.688
+    value = 100 * (1 / one_minus_b_WtG - 1)
+    return locals()
+
 @check(label='eq:tw_adot', chapter='ch:threeway', part=2, title='drafted check, screened (runs; negative control fails)',
        file='part2/p2_18_three_way_clusters', line=48, status='derived', kind='sym', printed='', tol=0.0)
 def check_1724():
@@ -14708,6 +14746,20 @@ def check_1726():
     value=Om/2
     return locals()
 
+@check(label='eq:tw_mu', chapter='ch:threeway', part=2, title='mu(a): 1/(1+beta_m) today, 1 at early times',
+       file='part2/p2_18_three_way_clusters', line=66, status='interp', kind='sym', printed='', tol=0.0)
+def check_2956():
+    'Eq. eq:tw_mu, mu = H_L^2/(H_L^2 + beta_m E(a) H0^2), H_L^2 = H0^2(Om a^-3 + OL), flat. Book line 66. Derives mu(a=1) = 1/(1+beta_m) (book line 70) and the limit mu -> 1 as a -> 0 (E(a) -> 0), and that beta_m = Om/2 at Om = 0.3153 reproduces verify_book mu_iam at a = 0.7.'
+    a, H0_, Om_, bm = sp.symbols('a H0 Omega_m beta_m', positive=True)
+    def mu_expr(bcoef=1):
+        HL2 = H0_**2 * (Om_ * a**-3 + 1 - Om_)
+        return HL2 / (HL2 + bcoef * bm * sp.exp(1 - 1 / a) * H0_**2)
+    m = mu_expr()
+    ok = (sp.simplify(m.subs(a, 1) - 1 / (1 + bm)) == 0 and sp.limit(m, a, 0, '+') == 1
+          and abs(float(m.subs({a: 0.7, Om_: Om, bm: sp.Rational(1, 2) * Om})) - float(mu_iam(0.7))) < 1e-12)
+    neg_ok = sp.simplify(mu_expr(sp.Rational(105, 100)).subs(a, 1) - 1 / (1 + bm)) == 0
+    return locals()
+
 @check(label='ch:threeway:L70', chapter='ch:threeway', part=2, title='same value as p1_02_iams_law:465 (mu at a=1 from beta_m)',
        file='part2/p2_18_three_way_clusters', line=70, status='calc', kind='num', printed='0.8638', tol=5.79e-05)
 def check_1727():
@@ -14729,11 +14781,59 @@ def check_1729():
     value=amp_deficit(0)
     return locals()
 
+@check(label='eq:tw_mhydro', chapter='ch:threeway', part=2, title='M_hydro = mu M_true from hydrostatic balance',
+       file='part2/p2_18_three_way_clusters', line=79, status='derived', kind='sym', printed='', tol=0.0)
+def check_2957():
+    'Eq. eq:tw_mhydro. Book line 79. Solves G M_hydro/r^2 = mu G M_true/r^2 (the gas feels mu G, the observer assumes G) for M_hydro.'
+    d = _b05_tw_masses()
+    lhs = d['M_hydro']; rhs = d['mu'] * d['Mt']
+    neg_lhs = _b05_tw_masses(mu_c=sp.Rational(105, 100))['M_hydro']
+    return locals()
+
+@check(label='eq:tw_msz', chapter='ch:threeway', part=2, title='M_SZ = mu M_true through the Y-M calibration',
+       file='part2/p2_18_three_way_clusters', line=85, status='derived', kind='sym', printed='', tol=0.0)
+def check_2958():
+    'Eq. eq:tw_msz. Book line 85. With Y = Y0 M_true^alpha, the amplitude A of Y = A M^alpha calibrated on hydrostatic masses (Eq. eq:tw_mhydro), inverting Y gives M_SZ = mu M_true for any slope alpha.'
+    d = _b05_tw_masses()
+    lhs = d['M_SZ']; rhs = d['mu'] * d['Mt']
+    neg_lhs = _b05_tw_masses(mu_c=sp.Rational(105, 100))['M_SZ']
+    return locals()
+
+@check(label='eq:tw_mlens', chapter='ch:threeway', part=2, title='M_lens = Sigma M_true = M_true',
+       file='part2/p2_18_three_way_clusters', line=91, status='derived', kind='sym', printed='', tol=0.0)
+def check_2959():
+    'Eq. eq:tw_mlens. Book line 91. Solves 2 G M_lens/r = Sigma 2 G M_true/r (lensing potential Phi+Psi scaled by Sigma, inverted with the GR relation) and sets Sigma = 1.'
+    d = _b05_tw_masses()
+    lhs = d['M_lens'].subs(d['Sig'], 1); rhs = d['Mt']
+    neg_lhs = _b05_tw_masses(sig_c=sp.Rational(105, 100))['M_lens'].subs(d['Sig'], 1)
+    return locals()
+
 @check(label='eq:tw_R', chapter='ch:threeway', part=2, title='M_lens/M_hydro = 1/mu with Sigma = 1',
        file='part2/p2_18_three_way_clusters', line=98, status='derived', kind='sym', printed='', tol=0)
 def check_1730():
     'M_lens/M_hydro = 1/mu with Sigma = 1 (Eq. eq:tw_R). Book line 98.'
     mu,M=sp.symbols('mu M',positive=True); lhs=M/(mu*M); rhs=1/mu
+    return locals()
+
+@check(label='eq:tw_szx', chapter='ch:threeway', part=2, title='M_SZ/M_hydro = mu/mu = 1',
+       file='part2/p2_18_three_way_clusters', line=103, status='none', kind='sym', printed='', tol=0.0)
+def check_2960():
+    'Eq. eq:tw_szx. Book line 103. The ratio of the derived M_SZ (Y-M calibration) to the derived M_hydro (hydrostatic balance).'
+    d = _b05_tw_masses()
+    lhs = d['M_SZ'] / d['M_hydro']; rhs = 1
+    dn = _b05_tw_masses(mu_c=sp.Rational(105, 100))
+    neg_lhs = dn['M_SZ'] / d['M_hydro']
+    return locals()
+
+@check(label='eq:tw_order', chapter='ch:threeway', part=2, title='M_lens > M_SZ = M_hydro for mu(z) < 1, 0 <= z <= 2',
+       file='part2/p2_18_three_way_clusters', line=107, status='calc', kind='sym', printed='', tol=0.0)
+def check_2961():
+    'Eq. eq:tw_order. Book line 107. With the derived estimators, M_lens - M_SZ = (1 - mu) M_true and M_SZ = M_hydro; mu(z) from Eq. eq:tw_mu (mu_iam) is below 1 on 0 <= z <= 2, so the ordering holds. Control: mu moved up by 5 % breaks it.'
+    d = _b05_tw_masses()
+    zs = np.linspace(0, 2, 81); mus = np.array([float(mu_iam(1 / (1 + z))) for z in zs])
+    gap = sp.simplify((d['M_lens'].subs(d['Sig'], 1) - d['M_SZ']) / d['Mt'])
+    ok = (sp.simplify(d['M_SZ'] - d['M_hydro']) == 0 and all(float(gap.subs(d['mu'], m)) > 0 for m in mus))
+    neg_ok = all(float(gap.subs(d['mu'], 1.05 * m)) > 0 for m in mus)
     return locals()
 
 @check(label='ch:threeway:L116', chapter='ch:threeway', part=2, title='drafted check, screened (runs; negative control fails)',
@@ -14803,6 +14903,15 @@ def check_1737():
     CNT=lambda z: 1+0.20*(1+z)**0.2
     d=lambda fn,z,hh=1e-5: (fn(z+hh)-fn(z-hh))/(2*hh)
     value=R(0.4)
+    return locals()
+
+@check(label='ch:threeway:L118', chapter='ch:threeway', part=2, title='the 7-10 % range is 100(R-1) at z = 0.4 and 0.2, rounded',
+       file='part2/p2_18_three_way_clusters', line=118, status='calc', kind='sym', printed='10', tol=0.0)
+def check_2962():
+    'The "7-10 %" excess of lensing over hydrostatic mass at z = 0.2-0.4. Book line 118, printed 10 (and 7). 100 (R - 1) with R = 1/mu (Eq. eq:tw_mu) is 10.50 at z = 0.2 and 6.82 at z = 0.4; the check asks that they round to the printed whole per cents. The upper end sits on a rounding edge (10.498), so a numeric 5 % control cannot resolve it; the control moves the excess by 5 % instead, which must break the rounding.'
+    hi = 100 * (_b05_tw_R(0.2) - 1); lo = 100 * (_b05_tw_R(0.4) - 1)
+    ok = round(hi) == 10 and round(lo) == 7
+    neg_ok = round(1.05 * hi) == 10 and round(1.05 * lo) == 7
     return locals()
 
 @check(label='ch:threeway:L122', chapter='ch:threeway', part=2, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
@@ -15159,6 +15268,22 @@ def check_1773():
     value=d(R,0.5)
     return locals()
 
+@check(label='eq:tw_bias', chapter='ch:threeway', part=2, title='1 - b_hydro = (1 - b_NT)(1 - b_IAM); biases add at first order',
+       file='part2/p2_18_three_way_clusters', line=152, status='derived', kind='sym', printed='', tol=0.0)
+def check_2963():
+    'Eq. eq:tw_bias. Book line 152. Total pressure balances mu G M_true rho/r^2; the thermal part is (1 - b_NT) of it; the observer reads G M_hydro rho/r^2 from the thermal gradient. Solving gives 1 - b_hydro = M_hydro/M_true = (1 - b_NT)(1 - b_IAM) with b_IAM = 1 - mu; to first order in the biases b_hydro = b_NT + b_IAM.'
+    G_, r, rho, Mt, Mh, mu, bNT, bI, eps = sp.symbols('G r rho M_true M_hydro mu b_NT b_IAM epsilon', positive=True)
+    def one_minus_bhydro(c=1):
+        Mh_sol = sp.solve(sp.Eq(G_ * Mh * rho / r**2, (1 - bNT) * c * mu * G_ * Mt * rho / r**2), Mh)[0]
+        return sp.simplify(Mh_sol / Mt).subs(mu, 1 - bI)
+    lhs = one_minus_bhydro()
+    rhs = (1 - bNT) * (1 - bI)
+    first = sp.series((1 - lhs).subs({bNT: eps * bNT, bI: eps * bI}), eps, 0, 2).removeO()
+    if sp.simplify(first - eps * (bNT + bI)) != 0:
+        rhs = rhs * 2
+    neg_lhs = one_minus_bhydro(sp.Rational(105, 100))
+    return locals()
+
 @check(label='ch:threeway:L155', chapter='ch:threeway', part=2, title='cross term b_NT b_IAM at z=0.3',
        file='part2/p2_18_three_way_clusters', line=155, status='derived', kind='num', printed='0.014', tol=0)
 def check_1774():
@@ -15414,6 +15539,13 @@ def check_1796():
     e=abs(sl)/3*math.sqrt(((zc-zc.mean())**2).sum())/y.mean(); value=100*e
     return locals()
 
+@check(label='ch:threeway:L184', chapter='ch:threeway', part=2, title='slope -0.18 at z = 0.3, restated',
+       file='part2/p2_18_three_way_clusters', line=184, status='calc', kind='num', printed='-0.18', tol=0.0)
+def check_2964():
+    'dR/dz at z = 0.3 restated to two digits ("the slope -0.18"). Book line 184, printed -0.18. Central difference of R = 1/mu (Eq. eq:tw_mu).'
+    value = _b05_tw_dR(0.3)
+    return locals()
+
 @check(label='ch:threeway:L189', chapter='ch:threeway', part=2, title="R at z=0.4 ('approx')",
        file='part2/p2_18_three_way_clusters', line=189, status='calc', kind='num', printed='1.07', tol=0.01)
 def check_1797():
@@ -15456,6 +15588,68 @@ def check_1800():
     CNT=lambda z: 1+0.20*(1+z)**0.2
     d=lambda fn,z,hh=1e-5: (fn(z+hh)-fn(z-hh))/(2*hh)
     value=R(0.15)*CNT(0.15)
+    return locals()
+
+@check(label='ch:threeway:L190', chapter='ch:threeway', part=2, title='CCCP Planck-prior calibration 1/(1-b)',
+       file='part2/p2_18_three_way_clusters', line=190, status='calc', kind='num', printed='1.28', tol=0.0)
+def check_2965():
+    'CCCP calibration with the Planck prior, 1/(1-b). Book line 190, printed 1.28. Input: 1-b = 0.780 +- 0.092 (Planck 2015 XXIV Table 2, doi 10.1051/0004-6361/201525833; tab:ld_published, p2_17 line 201).'
+    one_minus_b_CCCP = 0.780
+    value = 1 / one_minus_b_CCCP
+    return locals()
+
+@check(label='ch:threeway:L190:1.45', chapter='ch:threeway', part=2, title='WtG Planck-prior calibration 1/(1-b)',
+       file='part2/p2_18_three_way_clusters', line=190, status='calc', kind='num', printed='1.45', tol=0.0)
+def check_2966():
+    'WtG calibration with the Planck prior, 1/(1-b). Book line 190, printed 1.45. Input: 1-b = 0.688 +- 0.072 (Planck 2015 XXIV Table 2, doi 10.1051/0004-6361/201525833; tab:ld_published, p2_17 line 200).'
+    one_minus_b_WtG = 0.688
+    value = 1 / one_minus_b_WtG
+    return locals()
+
+@check(label='ch:threeway:L191', chapter='ch:threeway', part=2, title='LoCuSS like-for-like M_WL/M_X = 1/beta_X',
+       file='part2/p2_18_three_way_clusters', line=191, status='calc', kind='num', printed='1.05', tol=0.0)
+def check_2967():
+    'LoCuSS like-for-like M_WL/M_X at 0.15 < z < 0.3. Book line 191, printed 1.05. Input: beta_X = M_X/M_WL = 0.95 +- 0.05 (Smith et al. 2016, doi 10.1093/mnrasl/slv175; tab:ld_published, p2_17 line 204).'
+    beta_X_LoCuSS = 0.95
+    value = 1 / beta_X_LoCuSS
+    return locals()
+
+@check(label='eq:tw_test1', chapter='ch:threeway', part=2, title='three conditions: SZ/hydro = 1, lens/hydro > 1, slope < 0 (Level 1)',
+       file='part2/p2_18_three_way_clusters', line=201, status='calibrated', kind='sym', printed='', tol=0.0)
+def check_2968():
+    'Eqs. eq:tw_test1-3. Book line 201. In the Level 1 form: M_SZ/M_hydro = 1 from the derived estimators; M_lens/M_hydro = 1/mu > 1 and d(1/mu)/dz < 0 on 0 <= z <= 2 with mu from Eq. eq:tw_mu. Control: an SZ estimator 5 % off the hydrostatic one breaks condition 1.'
+    d = _b05_tw_masses()
+    zs = np.linspace(0.0, 2.0, 41)
+    c1 = sp.simplify(d['M_SZ'] / d['M_hydro'] - 1) == 0
+    c2 = all(_b05_tw_R(z) > 1 for z in zs)
+    c3 = all(_b05_tw_dR(z) < 0 for z in zs[1:])
+    ok = c1 and c2 and c3
+    neg_ok = sp.simplify(_b05_tw_masses(mu_c=sp.Rational(105, 100))['M_SZ'] / d['M_hydro'] - 1) == 0 and c2 and c3
+    return locals()
+
+@check(label='ch:threeway:L211', chapter='ch:threeway', part=2, title='the 7-10 % range is 100(R-1) at z = 0.4 and 0.2, rounded',
+       file='part2/p2_18_three_way_clusters', line=211, status='interp', kind='sym', printed='10', tol=0.0)
+def check_2969():
+    'The "~7-10 %" Level 1 signal at z = 0.2-0.4. Book line 211, printed 10 (and 7). 100 (R - 1) with R = 1/mu (Eq. eq:tw_mu) is 10.50 at z = 0.2 and 6.82 at z = 0.4; the check asks that they round to the printed whole per cents. The upper end sits on a rounding edge (10.498), so a numeric 5 % control cannot resolve it; the control moves the excess by 5 % instead, which must break the rounding.'
+    hi = 100 * (_b05_tw_R(0.2) - 1); lo = 100 * (_b05_tw_R(0.4) - 1)
+    ok = round(hi) == 10 and round(lo) == 7
+    neg_ok = round(1.05 * hi) == 10 and round(1.05 * lo) == 7
+    return locals()
+
+@check(label='ch:threeway:L220', chapter='ch:threeway', part=2, title='Level 1 slope -0.18, restated',
+       file='part2/p2_18_three_way_clusters', line=220, status='interp', kind='num', printed='-0.18', tol=0.0)
+def check_2970():
+    'Level 1 slope dR/dz at z = 0.3 restated ("opposite to the Level 1 slope of -0.18"). Book line 220, printed -0.18. Central difference of R = 1/mu.'
+    value = _b05_tw_dR(0.3)
+    return locals()
+
+@check(label='ch:threeway:L237', chapter='ch:threeway', part=2, title='R = M_lens/M_hydro = 1/mu (what would test it)',
+       file='part2/p2_18_three_way_clusters', line=237, status='prediction', kind='sym', printed='', tol=0.0)
+def check_2971():
+    'Unnumbered equation R(z) = M_lens/M_hydro = 1/mu(z). Book line 237. Ratio of the derived lensing estimator (Sigma = 1) to the derived hydrostatic estimator.'
+    d = _b05_tw_masses()
+    lhs = d['M_lens'].subs(d['Sig'], 1) / d['M_hydro']; rhs = 1 / d['mu']
+    neg_lhs = _b05_tw_masses(sig_c=sp.Rational(105, 100))['M_lens'].subs(d['Sig'], 1) / d['M_hydro']
     return locals()
 
 
@@ -26527,70 +26721,52 @@ INVENTORY = [
     (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 263, '', 'calc', '1.8', 'input: bin centre z=1.8 of the five-bin test design (the 2.7 % result is checked at ch:lensdyn:L259 and L263:2.7)'),
     (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 270, '', 'calc', '0.3', 'input: redshift z=0.3 of the f sigma8 deficit list (2.17 % checked at ch:lensdyn:L270)'),
     (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 270, '', 'calc', '0.5', 'input: redshift z=0.5 of the f sigma8 deficit list (1.35 % checked at ch:lensdyn:L270:1.35)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 37, '', 'observed', '20', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 37, '', 'observed', '45', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 38, '', 'observed', '0.15', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 38, '', 'observed', '0.3', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 66, 'eq:tw_mu', 'interp', '', 'displayed equation, not yet checked'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 79, 'eq:tw_mhydro', 'derived', '', 'not yet run: draft rejected (drafter skipped: This is a derived statement from hydrostatic equilibrium with Level 1 for)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 85, 'eq:tw_msz', 'derived', '', 'not yet run: draft rejected (drafter skipped: This is a derived statement about the SZ mass estimator inheriting the μ )'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 91, 'eq:tw_mlens', 'derived', '', 'not yet run: draft rejected (drafter skipped: This is a derived statement asserting that lensing mass recovers the true)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 103, 'eq:tw_szx', 'none', '', 'displayed equation, not yet checked'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 107, 'eq:tw_order', 'calc', '', 'not yet run: draft rejected (drafter skipped: This is a qualitative ordering statement derived from Eqs. 79, 85, 86, 92)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 117, '', 'calc', '0.4', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 118, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 1.1); drafting error on review'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 125, '', 'calc', '0.0', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 126, '', 'calc', '0.1', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 127, '', 'calc', '0.2', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 128, '', 'calc', '0.3', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 129, '', 'calc', '0.4', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 130, '', 'calc', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 131, '', 'calc', '0.7', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 132, '', 'calc', '1.0', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 133, '', 'calc', '1.5', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 134, '', 'calc', '2.0', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 145, '', 'calc', '0.3', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 145, '', 'calc', '0.5', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 152, 'eq:tw_bias', 'derived', '', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 155, '', 'derived', '0.3', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 159, '', 'calc', '0.20', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 159, '', 'calc', '0.15', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 159, '', 'calc', '0.65', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 160, '', 'openprob', '+0.02', 'not yet checked'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 160, '', 'openprob', '+0.04', 'not yet checked'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 161, '', 'calc', '0.3', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 170, '', 'calc', '0.1', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 170, '', 'calc', '0.2', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 170, '', 'calc', '0.150', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 171, '', 'calc', '0.2', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 171, '', 'calc', '0.3', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 171, '', 'calc', '0.250', 'not yet run: draft rejected (drafter skipped: Line 171: centre of bin 0.2 < z < 0.3 is the arithmetic mean (0.2 + 0.3)/)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 172, '', 'calc', '0.3', 'not yet run: draft rejected (drafter skipped: Line 172: lower bound of bin 0.3 < z < 0.5\n# Not a calculated result; it )'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 172, '', 'calc', '0.5', 'not yet run: draft rejected (drafter skipped: Line 172: upper bound of bin 0.3 < z < 0.5\n# Not a calculated result; it )'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 172, '', 'calc', '0.400', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 173, '', 'calc', '0.5', 'not yet run: draft rejected (drafter skipped: Line 173: lower bound of bin 0.5 < z < 0.8\n# Not a calculated result; it )'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 173, '', 'calc', '0.8', 'not yet run: draft rejected (drafter skipped: Line 173: upper bound of bin 0.5 < z < 0.8\n# Not a calculated result; it )'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 173, '', 'calc', '0.650', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 178, '', 'calc', '0.20', 'not yet run: draft rejected (drafter skipped: Line 178: coefficient in the illustrative form C_NT = 1 + 0.20(1+z)^0.2\n#)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 178, '', 'calc', '0.3', "not yet run: draft rejected (drafter skipped: Line 178: z=0.3 is a bin centre, not a calculated value; it's selected fo)"),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 183, '', 'calc', '0.1', 'not yet run: draft rejected (drafter skipped: Line 183: 0.1 is the lower bound of the redshift range 0.1<z<0.6, stated )'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 183, '', 'calc', '0.6', 'not yet run: draft rejected (drafter skipped: Line 183: 0.6 is the upper bound of the redshift range 0.1<z<0.6, stated )'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 184, '', 'calc', '-0.18', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 185, '', 'calc', '+0.02', 'not yet run: draft rejected (drafter skipped: Line 185: +0.02 is the lower bound of a range for non-thermal slope, stat)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 185, '', 'calc', '+0.04', 'not yet run: draft rejected (drafter skipped: Line 185: +0.04 is the upper bound of a range for non-thermal slope, stat)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 190, '', 'calc', '1.28', 'not yet run: draft rejected (drafter skipped: Line 190: 1.28±0.15 is a published CCCP calibration value cited from sour)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 190, '', 'calc', '1.45', 'not yet run: draft rejected (drafter skipped: Line 190: 1.45±0.15 is a published WtG calibration value cited from sourc)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 191, '', 'calc', '1.05', 'not yet run: draft rejected (drafter skipped: LoCuSS like-for-like value M_WL/M_X=1.05±0.06 at 0.15<z<0.3 is a publishe)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 191, '', 'calc', '0.15', 'not yet run: draft rejected (drafter skipped: The redshift range boundary z=0.15 is a bin limit from the LoCuSS sample )'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 191, '', 'calc', '0.3', 'not yet run: draft rejected (drafter skipped: The redshift range boundary z=0.3 is a bin limit from the LoCuSS sample d)'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 192, '', 'openprob', '0.3', 'not yet checked'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 201, 'eq:tw_test1', 'calibrated', '', 'displayed equation, not yet checked'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 211, '', 'interp', '10', 'not yet checked'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 211, '', 'interp', '0.2', 'not yet checked'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 211, '', 'interp', '0.4', 'not yet checked'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 212, '', 'interp', '0.02', 'not yet checked'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 220, '', 'interp', '-0.18', 'not yet checked'),
-    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 237, '', 'prediction', '', 'displayed equation, not yet checked'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 38, '', 'observed', '0.15', 'input: redshift range 0.15<z<0.3 of the LoCuSS sample (Smith2016LoCuSS, doi 10.1093/mnrasl/slv175), as in tab:ld_published; a sample boundary, nothing to recompute'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 38, '', 'observed', '0.3', 'input: redshift range 0.15<z<0.3 of the LoCuSS sample (Smith2016LoCuSS, doi 10.1093/mnrasl/slv175), as in tab:ld_published; a sample boundary, nothing to recompute'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 117, '', 'calc', '0.4', 'input: redshift range z ~ 0.2-0.4 of eROSITA cluster samples; R at 0.2 and 0.4 is checked by ch:threeway:L117:1.10 and ch:threeway:L117:1.07'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 125, '', 'calc', '0.0', "input: redshift z = 0.0 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.)"),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 126, '', 'calc', '0.1', "input: redshift z = 0.1 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.)"),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 127, '', 'calc', '0.2', "input: redshift z = 0.2 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.)"),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 128, '', 'calc', '0.3', "input: redshift z = 0.3 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.)"),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 129, '', 'calc', '0.4', "input: redshift z = 0.4 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.)"),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 130, '', 'calc', '0.5', "input: redshift z = 0.5 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.)"),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 131, '', 'calc', '0.7', "input: redshift z = 0.7 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.)"),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 132, '', 'calc', '1.0', "input: redshift z = 1.0 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.)"),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 133, '', 'calc', '1.5', "input: redshift z = 1.5 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.)"),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 134, '', 'calc', '2.0', "input: redshift z = 2.0 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.)"),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 145, '', 'calc', '0.3', 'input: redshift z = 0.3 at which dR/dz is evaluated (slope checked by ch:threeway:L145)'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 145, '', 'calc', '0.5', 'input: redshift z = 0.5 at which dR/dz is evaluated (slope checked by ch:threeway:L145:-0.12)'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 155, '', 'derived', '0.3', 'input: redshift z = 0.3 at which the cross term is evaluated (0.014 checked by ch:threeway:L155)'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 159, '', 'calc', '0.20', 'input: assumed normalisation 0.20 of the illustrative non-thermal factor C_NT = 1+0.20(1+z)^0.2 (the chapter states the form is assumed)'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 159, '', 'calc', '0.15', 'input: lowest bin centre z = 0.15 of the range over which dC_NT/dz is quoted (slope checked by ch:threeway:L159:+0.036)'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 159, '', 'calc', '0.65', 'input: highest bin centre z = 0.65 of the range over which dC_NT/dz is quoted (slope checked by ch:threeway:L159)'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 160, '', 'openprob', '+0.02', 'input: lower end of the non-thermal slope range suggested by the cited simulations (Nelson2014, ShiKomatsu2014), quoted, nothing to recompute'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 160, '', 'openprob', '+0.04', 'input: upper end of the non-thermal slope range suggested by the cited simulations (Nelson2014, ShiKomatsu2014), quoted, nothing to recompute'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 161, '', 'calc', '0.3', 'input: redshift z = 0.3 at which the slope of R x C_NT is evaluated (-0.187 checked by ch:threeway:L161)'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 170, '', 'calc', '0.1', 'input: lower edge z = 0.1 of the first bin of tab:tw_bins'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 170, '', 'calc', '0.2', 'input: upper edge z = 0.2 of the first bin of tab:tw_bins'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 170, '', 'calc', '0.150', 'definition: bin centre 0.150 = midpoint of the bin edges 0.1 and 0.2 (R, C_NT and R x C_NT at this centre are checked by ch:threeway:L170 ff.)'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 171, '', 'calc', '0.2', 'input: lower edge z = 0.2 of the second bin of tab:tw_bins'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 171, '', 'calc', '0.3', 'input: upper edge z = 0.3 of the second bin of tab:tw_bins'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 171, '', 'calc', '0.250', 'definition: bin centre 0.250 = midpoint of the bin edges 0.2 and 0.3 (values at this centre checked by ch:threeway:L171 ff.)'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 172, '', 'calc', '0.3', 'input: lower edge z = 0.3 of the third bin of tab:tw_bins'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 172, '', 'calc', '0.5', 'input: upper edge z = 0.5 of the third bin of tab:tw_bins'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 172, '', 'calc', '0.400', 'definition: bin centre 0.400 = midpoint of the bin edges 0.3 and 0.5 (values at this centre checked by ch:threeway:L172 ff.)'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 173, '', 'calc', '0.5', 'input: lower edge z = 0.5 of the fourth bin of tab:tw_bins'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 173, '', 'calc', '0.8', 'input: upper edge z = 0.8 of the fourth bin of tab:tw_bins'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 173, '', 'calc', '0.650', 'definition: bin centre 0.650 = midpoint of the bin edges 0.5 and 0.8 (values at this centre checked by ch:threeway:L173 ff.)'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 178, '', 'calc', '0.20', 'input: assumed normalisation 0.20 of the illustrative C_NT (figure caption restates the form of line 159)'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 178, '', 'calc', '0.3', 'input: redshift z = 0.3 at which dR/dz is quoted (-0.183 checked by ch:threeway:L178)'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 183, '', 'calc', '0.1', 'input: lower end z = 0.1 of the redshift range of the proposed cross-matched sample'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 183, '', 'calc', '0.6', 'input: upper end z = 0.6 of the redshift range of the proposed cross-matched sample'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 185, '', 'calc', '+0.02', 'input: lower end of the non-thermal slope range of the cited simulations (Nelson2014, ShiKomatsu2014), restated from line 160'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 185, '', 'calc', '+0.04', 'input: upper end of the non-thermal slope range of the cited simulations (Nelson2014, ShiKomatsu2014), restated from line 160'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 191, '', 'calc', '0.15', 'input: redshift range 0.15<z<0.3 of the LoCuSS sample (Smith2016LoCuSS), a sample boundary'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 191, '', 'calc', '0.3', 'input: redshift range 0.15<z<0.3 of the LoCuSS sample (Smith2016LoCuSS), a sample boundary'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 192, '', 'openprob', '0.3', 'input: redshift z = 0.3 at which the cited reanalysis splits its sample (Smith2016LoCuSS), nothing to recompute'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 211, '', 'interp', '0.2', 'input: redshift range z = 0.2-0.4 of the samples (the signal there is checked by ch:threeway:L211)'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 211, '', 'interp', '0.4', 'input: redshift range z = 0.2-0.4 of the samples (the signal there is checked by ch:threeway:L211)'),
+    (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 212, '', 'interp', '0.02', 'input: published shape-measurement bound |m| < 0.02 for DES Y3 quoted from the cited MacCrann2022, nothing to recompute'),
     (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 27, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 61, 'eq:ms_E', 'interp', '', 'displayed equation, not yet checked'),
     (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 69, 'eq:ms_mu', 'interp', '', 'displayed equation, not yet checked'),
