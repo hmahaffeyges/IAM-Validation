@@ -58055,6 +58055,23 @@
   "source": "CANON/iam_canon.json"
  },
  {
+  "label": "ch:floorbreach:L25",
+  "title": "holding energy 3.41 k_B T per site on molecules",
+  "part": 6,
+  "chapter": "ch:floorbreach",
+  "file": "part4/p4_05_floorbreach",
+  "line": 25,
+  "status": "measured",
+  "kind": "file",
+  "printed": "3.41",
+  "recomputed": "3.41",
+  "tol": 0.005000005,
+  "passed": true,
+  "note": "methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file",
+  "heavy": true,
+  "source": "Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md"
+ },
+ {
   "label": "ch:floorbreach:L42",
   "title": "bits of 1 M_sun horizon over CpG bits",
   "part": 6,
@@ -58070,6 +58087,23 @@
   "note": "",
   "heavy": false,
   "source": ""
+ },
+ {
+  "label": "ch:floorbreach:L50",
+  "title": "cell methylome at 310.15 K (figure caption)",
+  "part": 6,
+  "chapter": "ch:floorbreach",
+  "file": "part4/p4_05_floorbreach",
+  "line": 50,
+  "status": "calc",
+  "kind": "file",
+  "printed": "310.15",
+  "recomputed": "310.15",
+  "tol": 0.005000005,
+  "passed": true,
+  "note": "",
+  "heavy": false,
+  "source": "CANON/iam_canon.json"
  },
  {
   "label": "eq:Amax",
@@ -58123,6 +58157,23 @@
   "source": "CANON/iam_canon.json"
  },
  {
+  "label": "ch:floorbreach:L72:1.099",
+  "title": "P = 1.099 of IAM-A (figure caption)",
+  "part": 6,
+  "chapter": "ch:floorbreach",
+  "file": "part4/p4_05_floorbreach",
+  "line": 72,
+  "status": "calc",
+  "kind": "file",
+  "printed": "1.099",
+  "recomputed": "1.099",
+  "tol": 0.0005000005,
+  "passed": true,
+  "note": "",
+  "heavy": false,
+  "source": "CANON/iam_canon.json"
+ },
+ {
   "label": "ch:floorbreach:L73",
   "title": "1/P",
   "part": 6,
@@ -58157,6 +58208,23 @@
   "source": "CANON/iam_canon.json"
  },
  {
+  "label": "ch:floorbreach:L73:0.032",
+  "title": "eps0 = 1/(1 + e^(E_hold/k_B T))",
+  "part": 6,
+  "chapter": "ch:floorbreach",
+  "file": "part4/p4_05_floorbreach",
+  "line": 73,
+  "status": "calc",
+  "kind": "num",
+  "printed": "0.032",
+  "recomputed": "0.0319844",
+  "tol": 0.0005000005,
+  "passed": true,
+  "note": "",
+  "heavy": false,
+  "source": ""
+ },
+ {
   "label": "ch:floorbreach:L74",
   "title": "IAM-A at eps = 1/2",
   "part": 6,
@@ -58172,6 +58240,40 @@
   "note": "",
   "heavy": false,
   "source": "CANON/iam_canon.json"
+ },
+ {
+  "label": "ch:floorbreach:L80",
+  "title": "methylation maintenance share of the cell ATP, order 1e-7",
+  "part": 6,
+  "chapter": "ch:floorbreach",
+  "file": "part4/p4_05_floorbreach",
+  "line": 80,
+  "status": "conjecture",
+  "kind": "num",
+  "printed": "10^{-7}",
+  "recomputed": "2.286136e-07",
+  "tol": 2.1622776601683795e-07,
+  "passed": true,
+  "note": "",
+  "heavy": false,
+  "source": ""
+ },
+ {
+  "label": "ch:floorbreach:L96",
+  "title": "senescent IMR90 unmethylated channel, upper end",
+  "part": 6,
+  "chapter": "ch:floorbreach",
+  "file": "part4/p4_05_floorbreach",
+  "line": 96,
+  "status": "measured",
+  "kind": "file",
+  "printed": "0.695",
+  "recomputed": "0.695321",
+  "tol": 0.0005000005,
+  "passed": true,
+  "note": "python3 Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py (needs the cached GSE48580 WGBS parquets of PROC-LINES-02)",
+  "heavy": true,
+  "source": "Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv"
  },
  {
   "label": "ch:gauge:L23",

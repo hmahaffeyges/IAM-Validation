@@ -4262,13 +4262,21 @@ PASS  ch:ledgers:L126                    ch:ledgers:p4_04_ledgers:126  printed 2
 PASS  ch:ledgers:L126:310.15             ch:ledgers:p4_04_ledgers:126  printed 310.15  recomputed 310.15  tol 0.00500001  [calc] equipartition row at 310.15 K  file CANON/iam_canon.json
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:floorbreach (part4/p4_05_floorbreach.tex)
+PASS  ch:floorbreach:L25                 ch:floorbreach:p4_05_floorbreach:25  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy 3.41 k_B T per site on molecules  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
 PASS  ch:floorbreach:L42                 ch:floorbreach:p4_05_floorbreach:42  printed 5.4\times10^{69}  recomputed 5.363072e+69  tol 5.000005e+67  [calc] bits of 1 M_sun horizon over CpG bits
+PASS  ch:floorbreach:L50                 ch:floorbreach:p4_05_floorbreach:50  printed 310.15  recomputed 310.15  tol 0.00500001  [calc] cell methylome at 310.15 K (figure caption)  file CANON/iam_canon.json
 PASS  eq:Amax                            ch:floorbreach:p4_05_floorbreach:59  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] Met-A full surface 1/0.330263 (canon floor)  file CANON/iam_canon.json
 PASS  ch:floorbreach:L63                 ch:floorbreach:p4_05_floorbreach:63  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] IAM-A full surface  file CANON/iam_canon.json
 PASS  ch:floorbreach:L72                 ch:floorbreach:p4_05_floorbreach:72  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] Met-A full surface  file CANON/iam_canon.json
+PASS  ch:floorbreach:L72:1.099           ch:floorbreach:p4_05_floorbreach:72  printed 1.099  recomputed 1.099  tol 5.000005e-04  [calc] P = 1.099 of IAM-A (figure caption)  file CANON/iam_canon.json
 PASS  ch:floorbreach:L73                 ch:floorbreach:p4_05_floorbreach:73  printed 0.910  recomputed 0.909918  tol 5.000005e-04  [calc] 1/P  file CANON/iam_canon.json
 PASS  ch:floorbreach:L73:0.0362          ch:floorbreach:p4_05_floorbreach:73  printed 0.0362  recomputed 0.0361923  tol 5.000005e-05  [calc] eps at IAM-A = 1  file CANON/iam_canon.json
+PASS  ch:floorbreach:L73:0.032           ch:floorbreach:p4_05_floorbreach:73  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [calc] eps0 = 1/(1 + e^(E_hold/k_B T))
 PASS  ch:floorbreach:L74                 ch:floorbreach:p4_05_floorbreach:74  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] IAM-A at eps = 1/2  file CANON/iam_canon.json
+PASS  ch:floorbreach:L80                 ch:floorbreach:p4_05_floorbreach:80  printed 10^{-7}  recomputed 2.286136e-07  tol 2.162278e-07  [conjecture] methylation maintenance share of the cell ATP, order 1e-7
+PASS  ch:floorbreach:L96                 ch:floorbreach:p4_05_floorbreach:96  printed 0.695  recomputed 0.695321  tol 5.000005e-04  [measured] senescent IMR90 unmethylated channel, upper end  file Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv
+      heavy: python3 Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py (needs the cached GSE48580 WGBS parquets of PROC-LINES-02)
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:gauge (part4/p4_06_gauge.tex)
 PASS  ch:gauge:L23                       ch:gauge:p4_06_gauge:23  printed 0.910  recomputed 0.909918  tol 5.000005e-04  [calc] H_min for IAM-A, 1/P  file CANON/iam_canon.json
@@ -4740,4 +4748,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3826  FAIL 0  (heavy, read from committed outputs: 765)  inventoried-not-run 2512  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3832  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2506  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

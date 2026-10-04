@@ -1748,6 +1748,11 @@ def _b08_jensen(which):
     Hm = float(-(bm * np.log2(bm) + (1 - bm) * np.log2(1 - bm)))
     return int(s.sum()), bm, Hm, float(hs[s].mean())
 
+# helpers of the part4/p4_05_floorbreach checks
+_B08_IMR = 'Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv'
+DATA_FILES[_B08_IMR] = 'IMR90 per-channel Met-A readings, GSE48580 WGBS, 9 cultures (imr90_channels.py)'   # 1 kB
+_B08_PC5 = 'Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -30541,11 +30546,28 @@ def check_3825():
 
 
 # ======== Part 6 | ch:floorbreach | docs/book/part4/p4_05_floorbreach.tex
+@check(label='ch:floorbreach:L25', chapter='ch:floorbreach', part=6, title='holding energy 3.41 k_B T per site on molecules',
+       file='part4/p4_05_floorbreach', line=25, status='measured', kind='file', printed='3.41', tol=0.0, source=_B08_PC5,
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+def check_3826():
+    'Holding energy per maintained site measured on single molecules, k_B T. Book line 25, printed 3.41. Source: the copy-error row of '\
+    'the PROC-CHANNEL-01 record table (E_hold column).'
+    m = re.search(r"methylated sites \(copy error\)\s*\|[^|]*\|\s*([\d.]+)\s*±", file_text(_B08_PC5))
+    value = float(m.group(1))
+    return locals()
+
 @check(label='ch:floorbreach:L42', chapter='ch:floorbreach', part=6, title='bits of 1 M_sun horizon over CpG bits',
        file='part4/p4_05_floorbreach', line=42, status='calc', kind='num', printed='5.4\\times10^{69}', tol=0)
 def check_2516():
     'bits of 1 M_sun horizon over CpG bits. Book line 42, printed 5.4\\times10^{69}.'
     value=4*math.pi*G*Msun**2/(hbar*c)/LN2/28217448
+    return locals()
+
+@check(label='ch:floorbreach:L50', chapter='ch:floorbreach', part=6, title='cell methylome at 310.15 K (figure caption)',
+       file='part4/p4_05_floorbreach', line=50, status='calc', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
+def check_3827():
+    'Figure fig:p4_surfaces caption: the cell methylome at 310.15 K. Book line 50, printed 310.15. Source: CANON T_cell (37 C).'
+    value = load_json('CANON/iam_canon.json')['constants']['T_cell']['value']
     return locals()
 
 @check(label='eq:Amax', chapter='ch:floorbreach', part=6, title='Met-A full surface 1/0.330263 (canon floor)',
@@ -30578,6 +30600,14 @@ def check_2519():
     value=1/F0
     return locals()
 
+@check(label='ch:floorbreach:L72:1.099', chapter='ch:floorbreach', part=6, title='P = 1.099 of IAM-A (figure caption)',
+       file='part4/p4_05_floorbreach', line=72, status='calc', kind='file', printed='1.099', tol=0.0, source='CANON/iam_canon.json')
+def check_3828():
+    'Calibration P = H(eps_healthy)/H(eps0) of IAM-A for neutrophils in Figure fig:p4_fullsurface (b). Book line 72, printed 1.099. Source: '\
+    'CANON P_neutrophil_IAM_A (mean over three granulocyte donors, frozen in iama_positions_v1.json).'
+    value = load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
+    return locals()
+
 @check(label='ch:floorbreach:L73', chapter='ch:floorbreach', part=6, title='1/P',
        file='part4/p4_05_floorbreach', line=73, status='calc', kind='file', printed='0.910', tol=0, source='CANON/iam_canon.json')
 def check_2520():
@@ -30598,6 +30628,14 @@ def check_2521():
     value=brentq(lambda e: Hb(e)-P_*Hb(eps0), 1e-4, 0.5)
     return locals()
 
+@check(label='ch:floorbreach:L73:0.032', chapter='ch:floorbreach', part=6, title='eps0 = 1/(1 + e^(E_hold/k_B T))',
+       file='part4/p4_05_floorbreach', line=73, status='calc', kind='num', printed='0.032', tol=0.0)
+def check_3829():
+    'Copy-error floor eps0 = 1/(1 + exp(E_hold/k_B T)) in Figure fig:p4_fullsurface (b). Book line 73, printed 0.032. Input: E_hold = '\
+    '3.41 k_B T (CANON E_hold_meth, PROC-CHANNEL-01).'
+    value = 1 / (1 + math.exp(E_hold))
+    return locals()
+
 @check(label='ch:floorbreach:L74', chapter='ch:floorbreach', part=6, title='IAM-A at eps = 1/2',
        file='part4/p4_05_floorbreach', line=74, status='calc', kind='file', printed='4.45', tol=0, source='CANON/iam_canon.json')
 def check_2522():
@@ -30606,6 +30644,24 @@ def check_2522():
     P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     F0=load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
     value=1/(P_*Hb(eps0))
+    return locals()
+
+@check(label='ch:floorbreach:L80', chapter='ch:floorbreach', part=6, title='methylation maintenance share of the cell ATP, order 1e-7',
+       file='part4/p4_05_floorbreach', line=80, status='conjecture', kind='num', printed='10^{-7}', tol=0.0)
+def check_3830():
+    'Methylation maintenance uses of order 1e-7 of the cell ATP (Chapter ch:landauer): 70 % of 28,217,448 CpGs written at one ATP each '\
+    'per copy, against an ATP turnover of order 1e9 per second over 24 h (Milo2015). Book line 80, printed 10^{-7} (order of magnitude).'
+    value = 0.70 * 28217448 / (1e9 * 24 * 3600)
+    return locals()
+
+@check(label='ch:floorbreach:L96', chapter='ch:floorbreach', part=6, title='senescent IMR90 unmethylated channel, upper end',
+       file='part4/p4_05_floorbreach', line=96, status='measured', kind='file', printed='0.695', tol=0.0, source=_B08_IMR,
+       heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py (needs the cached GSE48580 WGBS parquets of PROC-LINES-02)')
+def check_3831():
+    'Senescent IMR90 cultures on the unmethylated channel, upper end of the range 0.685-0.695 (Chapter ch:gauge). Book line 96, printed '\
+    '0.695. Source: largest A_unmeth of the Senescent rows of imr90_channels.csv.'
+    vals = [float(r['A_unmeth']) for r in load_csv_rows(_B08_IMR) if r['state'] == 'Senescent']
+    value = max(vals)
     return locals()
 
 
@@ -34875,12 +34931,6 @@ INVENTORY = [
     (6, 'ch:surface', 'part4/p4_03_surface', 57, 'eq:meanH', 'none', '', 'definition: mean of the per-site entropies, the Met-A statistic'),
     (6, 'ch:surface', 'part4/p4_03_surface', 115, '', 'calc', '0.03', "input: illustrative loss rate u = 0.03 of the two-state model (book's choice); beta_ss and H are checked at ch:surface:L115"),
     (6, 'ch:surface', 'part4/p4_03_surface', 115, '', 'calc', '0.08', "input: illustrative gain rate d = 0.08 of the two-state model (book's choice); beta_ss and H are checked at ch:surface:L115"),
-    (6, 'ch:floorbreach', 'part4/p4_05_floorbreach', 25, '', 'measured', '3.41', 'measured, source not named'),
-    (6, 'ch:floorbreach', 'part4/p4_05_floorbreach', 50, '', 'calc', '310.15', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:floorbreach', 'part4/p4_05_floorbreach', 72, '', 'calc', '1.099', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:floorbreach', 'part4/p4_05_floorbreach', 73, '', 'calc', '0.032', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:floorbreach', 'part4/p4_05_floorbreach', 80, '', 'conjecture', '10', 'not yet checked'),
-    (6, 'ch:floorbreach', 'part4/p4_05_floorbreach', 96, '', 'measured', '0.695', 'measured, source not named'),
     (6, 'ch:gauge', 'part4/p4_06_gauge', 7, 'eq:A', 'none', '', 'displayed equation, not yet checked'),
     (6, 'ch:gauge', 'part4/p4_06_gauge', 22, '', 'calc', '0.95', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:gauge', 'part4/p4_06_gauge', 22, '', 'calc', '1.05', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),

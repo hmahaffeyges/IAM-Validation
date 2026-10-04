@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3826 PASS, 0 FAIL, 2512 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3832 PASS, 0 FAIL, 2506 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4497,19 +4497,19 @@ Totals: 3826 PASS, 0 FAIL, 2512 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 25 |  | measured | `3.41` | not run: measured, source not named | - |
+| 25 | ch:floorbreach:L25 | measured | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy 3.41 k_B T per site on molecules | PASS |
 | 42 | ch:floorbreach:L42 | calc | `5.4\times10^{69}` | numeric: bits of 1 M_sun horizon over CpG bits | PASS |
-| 50 |  | calc | `310.15` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 50 | ch:floorbreach:L50 | calc | `310.15` | file `CANON/iam_canon.json`: cell methylome at 310.15 K (figure caption) | PASS |
 | 59 | eq:Amax | calc | `3.03` | file `CANON/iam_canon.json`: Met-A full surface 1/0.330263 (canon floor) | PASS |
 | 63 | ch:floorbreach:L63 | calc | `4.45` | file `CANON/iam_canon.json`: IAM-A full surface | PASS |
 | 72 | ch:floorbreach:L72 | calc | `3.03` | file `CANON/iam_canon.json`: Met-A full surface | PASS |
-| 72 |  | calc | `1.099` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 72 | ch:floorbreach:L72:1.099 | calc | `1.099` | file `CANON/iam_canon.json`: P = 1.099 of IAM-A (figure caption) | PASS |
 | 73 | ch:floorbreach:L73 | calc | `0.910` | file `CANON/iam_canon.json`: 1/P | PASS |
 | 73 | ch:floorbreach:L73:0.0362 | calc | `0.0362` | file `CANON/iam_canon.json`: eps at IAM-A = 1 | PASS |
-| 73 |  | calc | `0.032` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 73 | ch:floorbreach:L73:0.032 | calc | `0.032` | numeric: eps0 = 1/(1 + e^(E_hold/k_B T)) | PASS |
 | 74 | ch:floorbreach:L74 | calc | `4.45` | file `CANON/iam_canon.json`: IAM-A at eps = 1/2 | PASS |
-| 80 |  | conjecture | `10` | not run: not yet checked | - |
-| 96 |  | measured | `0.695` | not run: measured, source not named | - |
+| 80 | ch:floorbreach:L80 | conjecture | `10^{-7}` | numeric: methylation maintenance share of the cell ATP, order 1e-7 | PASS |
+| 96 | ch:floorbreach:L96 | measured | `0.695` | heavy file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: senescent IMR90 unmethylated channel, upper end | PASS |
 
 ## Part 6 - ch:gauge - `docs/book/part4/p4_06_gauge.tex`
 
