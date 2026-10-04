@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4629 PASS, 0 FAIL, 1712 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4636 PASS, 0 FAIL, 1705 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5830,15 +5830,15 @@ Totals: 4629 PASS, 0 FAIL, 1712 inventoried and not run. Each run item carries t
 |---:|---|---|---|---|---|
 | 16 | ch:conclusion:L16 | derived | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
 | 17 | ch:conclusion:L17 | derived | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
-| 17 |  | derived | `4.25` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 17 | ch:conclusion:L17:4.25 | derived | `4.25` | numeric: f sigma8 deficit today, per cent | PASS |
 | 18 | ch:conclusion:L18 | derived | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
 | 23 | ch:conclusion:L23 | observed | `0.66666446` | numeric: same value as p2_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
-| 23 |  | observed | `0.43` | not run: measured, source not named | - |
-| 25 |  | calc | `576` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 25 |  | calc | `593` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 33 |  | prediction | `-0.136` | not run: not yet checked | - |
-| 34 |  | prediction | `4.25` | not run: not yet checked | - |
-| 36 |  | prediction | `72.26` | not run: not yet checked | - |
+| 23 | ch:conclusion:L23:0.43 | observed | `0.43` | numeric: Koide Q from 2/3, sigma | PASS |
+| 25 | ch:conclusion:L25 | calc | `576` | numeric: switching energy over k_B T_j ln 2, 20.6e9 transistors | PASS |
+| 25 | ch:conclusion:L25:593 | calc | `593` | numeric: switching energy over k_B T_j ln 2, 20.0e9 transistors | PASS |
+| 33 | ch:conclusion:L33 | prediction | `-0.136` | numeric: mu0 = mu(a=1) - 1 | PASS |
+| 34 | ch:conclusion:L34 | prediction | `4.25` | numeric: growth deficit today, per cent | PASS |
+| 36 | ch:conclusion:L36 | prediction | `72.26` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 from the Level 2 chain | PASS |
 
 ## Part 8 - app:constants - `docs/book/appendices/app_A2_frozen_values.tex`
 

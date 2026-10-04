@@ -5537,8 +5537,16 @@ PASS  ch:statusall:L110:7.5              ch:statusall:p5_11_status_all:110  prin
 PASS  ch:conclusion:L16                  ch:conclusion:p5_10_conclusion:16  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [derived] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
 PASS  ch:conclusion:L17                  ch:conclusion:p5_10_conclusion:17  printed 67.16  recomputed 67.1611  tol 0.00500343  [derived] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:conclusion:L17:4.25             ch:conclusion:p5_10_conclusion:17  printed 4.25  recomputed 4.25055  tol 0.00500001  [derived] f sigma8 deficit today, per cent
 PASS  ch:conclusion:L18                  ch:conclusion:p5_10_conclusion:18  printed 72.26  recomputed 72.2602  tol 0.00505821  [derived] same value as p1_02_iams_law:696 (H0 matter-sector formula)
 PASS  ch:conclusion:L23                  ch:conclusion:p5_10_conclusion:23  printed 0.66666446  recomputed 0.666664  tol 5.000005e-09  [observed] same value as p2_15a_lepton_koide:33 (Koide Q, PDG 2024 masses)
+PASS  ch:conclusion:L23:0.43             ch:conclusion:p5_10_conclusion:23  printed 0.43  recomputed 0.433629  tol 0.00500001  [observed] Koide Q from 2/3, sigma
+PASS  ch:conclusion:L25                  ch:conclusion:p5_10_conclusion:25  printed 576  recomputed 576.021  tol 0.5  [calc] switching energy over k_B T_j ln 2, 20.6e9 transistors
+PASS  ch:conclusion:L25:593              ch:conclusion:p5_10_conclusion:25  printed 593  recomputed 593.301  tol 0.5  [calc] switching energy over k_B T_j ln 2, 20.0e9 transistors
+PASS  ch:conclusion:L33                  ch:conclusion:p5_10_conclusion:33  printed -0.136  recomputed -0.136181  tol 5.000005e-04  [prediction] mu0 = mu(a=1) - 1
+PASS  ch:conclusion:L34                  ch:conclusion:p5_10_conclusion:34  printed 4.25  recomputed 4.25055  tol 0.00500001  [prediction] growth deficit today, per cent
+PASS  ch:conclusion:L36                  ch:conclusion:p5_10_conclusion:36  printed 72.26  recomputed 72.2614  tol 0.00500001  [prediction] matter-sector H0 from the Level 2 chain  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
 == Part 8: Appendices | app:constants (appendices/app_A2_frozen_values.tex)
 PASS  app:constants:L6                   app:constants:app_A2_frozen_values:6  printed 1.380649\times10^{-23}  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
@@ -5805,4 +5813,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 4629  FAIL 0  (heavy, read from committed outputs: 995)  inventoried-not-run 1712  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4636  FAIL 0  (heavy, read from committed outputs: 996)  inventoried-not-run 1705  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

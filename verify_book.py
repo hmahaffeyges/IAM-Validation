@@ -2525,6 +2525,16 @@ def _b15_koide_sigma():
 
 # ---------------------------------------------------------------- line 23
 
+# helpers of the part5/p5_10_conclusion checks
+_B15C_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
+                     'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+                     '(no extraction script is committed)')
+
+def _b15c_esw_ratio(N_trans):
+    'E_sw/(k_B T_j ln 2), E_sw = TDP/(N_trans f): desktop processor of ch:cmos, default TDP 170 W, base clock 4.3 GHz, junction 75 C.'
+    TDP, f, Tj = 170.0, 4.3e9, 273.15 + 75
+    return TDP / (N_trans * f) / (kB * Tj * LN2)
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -39669,6 +39679,13 @@ def check_2682():
     value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
+@check(label='ch:conclusion:L17:4.25', chapter='ch:conclusion', part=7, title='f sigma8 deficit today, per cent',
+       file='part5/p5_10_conclusion', line=17, status='derived', kind='num', printed='4.25', tol=0.0)
+def check_4629():
+    'f sigma8 of IAM below LambdaCDM today, same early amplitude, from the linear growth equation with mu = H^2/(H^2 + beta_m E(a) H0^2) (Omega_m 0.3153). Book line 17, printed 4.25.'
+    value = 100 * (1 - f_of('iam', 0.0) * D_of('iam', 0.0) / (f_of('lcdm', 0.0) * D_of('lcdm', 0.0)))
+    return locals()
+
 @check(label='ch:conclusion:L18', chapter='ch:conclusion', part=7, title='same value as p1_02_iams_law:696 (H0 matter-sector formula)',
        file='part5/p5_10_conclusion', line=18, status='derived', kind='num', printed='72.26', tol=7e-05)
 def check_2683():
@@ -39690,6 +39707,52 @@ def check_2684():
         from scipy.optimize import fsolve
         x,d=fsolve(f,[17.7,0.2222],xtol=1e-14); return x,d,(x*(1+math.sqrt(2)*math.cos(d)))**2
     value=Qk(me_,mmu_,mtau24)
+    return locals()
+
+@check(label='ch:conclusion:L23:0.43', chapter='ch:conclusion', part=7, title='Koide Q from 2/3, sigma',
+       file='part5/p5_10_conclusion', line=23, status='observed', kind='num', printed='0.43', tol=0.0)
+def check_4630():
+    '(2/3 - Q)/sigma(Q) with Q of the PDG 2024 charged-lepton masses (m_e 0.51099895, m_mu 105.6583755, m_tau 1776.93 +- 0.09 MeV) and sigma(Q) propagated from sigma(m_tau). Book line 23, printed 0.43.'
+    me_, mmu_, mt, st = 0.51099895000, 105.6583755, 1776.93, 0.09
+    Qk = lambda t: (me_ + mmu_ + t) / (math.sqrt(me_) + math.sqrt(mmu_) + math.sqrt(t)) ** 2
+    sQ = abs(Qk(mt + 1e-3) - Qk(mt - 1e-3)) / 2e-3 * st
+    value = (2 / 3 - Qk(mt)) / sQ
+    return locals()
+
+@check(label='ch:conclusion:L25', chapter='ch:conclusion', part=7, title='switching energy over k_B T_j ln 2, 20.6e9 transistors',
+       file='part5/p5_10_conclusion', line=25, status='calc', kind='num', printed='576', tol=0.0)
+def check_4631():
+    'E_sw/(k_B T_j ln 2) at the upper transistor count 20.6e9 (ch:cmos inputs: TDP 170 W, 4.3 GHz, T_j 75 C). Book line 25, printed 576.'
+    value = _b15c_esw_ratio(20.6e9)
+    return locals()
+
+@check(label='ch:conclusion:L25:593', chapter='ch:conclusion', part=7, title='switching energy over k_B T_j ln 2, 20.0e9 transistors',
+       file='part5/p5_10_conclusion', line=25, status='calc', kind='num', printed='593', tol=0.0)
+def check_4632():
+    'E_sw/(k_B T_j ln 2) at the lower transistor count 20.0e9. Book line 25, printed 593.'
+    value = _b15c_esw_ratio(20.0e9)
+    return locals()
+
+@check(label='ch:conclusion:L33', chapter='ch:conclusion', part=7, title='mu0 = mu(a=1) - 1',
+       file='part5/p5_10_conclusion', line=33, status='prediction', kind='num', printed='-0.136', tol=0.0)
+def check_4633():
+    'mu(1) - 1 with mu(a) = H^2/(H^2 + beta_m E(a) H0^2), evaluated at a = 1 from the function mu_iam (E(1) = 1, H(1) = H0). Book line 33, printed -0.136.'
+    value = float(mu_iam(1.0)) - 1
+    return locals()
+
+@check(label='ch:conclusion:L34', chapter='ch:conclusion', part=7, title='growth deficit today, per cent',
+       file='part5/p5_10_conclusion', line=34, status='prediction', kind='num', printed='4.25', tol=0.0)
+def check_4634():
+    'The f sigma8 deficit today, same early amplitude (helper fs8_deficit at z = 0). Book line 34, printed 4.25.'
+    value = fs8_deficit(0.0)
+    return locals()
+
+@check(label='ch:conclusion:L36', chapter='ch:conclusion', part=7, title='matter-sector H0 from the Level 2 chain',
+       file='part5/p5_10_conclusion', line=36, status='prediction', kind='file', printed='72.26', tol=0.0,
+       source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', heavy=True, rerun=_B15C_CHAIN_RERUN)
+def check_4635():
+    'H0 (run A, Level 2 chain) times sqrt(1 + beta_m). Book line 36, printed 72.26.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0') * math.sqrt(1 + beta_m)
     return locals()
 
 
@@ -42774,13 +42837,6 @@ INVENTORY = [
     (7, 'ch:statusall', 'part5/p5_11_status_all', 98, '', 'calc', '10', 'input: temperature 10 C at which the floor is evaluated; checked in ch:statusall:L98'),
     (7, 'ch:statusall', 'part5/p5_11_status_all', 98, '', 'calc', '38.5', 'input: temperature 38.5 C at which the floor is evaluated; checked in ch:statusall:L98:1.012'),
     (7, 'ch:statusall', 'part5/p5_11_status_all', 110, '', 'prediction', '10', 'input: temperature 10 mK of the gravitational-decoherence prediction; tau values checked in ch:statusall:L110:509 and L110:7.5'),
-    (7, 'ch:conclusion', 'part5/p5_10_conclusion', 17, '', 'derived', '4.25', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:conclusion', 'part5/p5_10_conclusion', 23, '', 'observed', '0.43', 'measured, source not named'),
-    (7, 'ch:conclusion', 'part5/p5_10_conclusion', 25, '', 'calc', '576', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:conclusion', 'part5/p5_10_conclusion', 25, '', 'calc', '593', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:conclusion', 'part5/p5_10_conclusion', 33, '', 'prediction', '-0.136', 'not yet checked'),
-    (7, 'ch:conclusion', 'part5/p5_10_conclusion', 34, '', 'prediction', '4.25', 'not yet checked'),
-    (7, 'ch:conclusion', 'part5/p5_10_conclusion', 36, '', 'prediction', '72.26', 'not yet checked'),
     (8, 'app:constants', 'appendices/app_A2_frozen_values', 7, '', 'observed', '6.02214076\\times10^{23}', 'measured, not found in the files the chapter names'),
     (8, 'app:constants', 'appendices/app_A2_frozen_values', 10, '', 'observed', '37', 'measured, too few printed digits to match against the named files'),
     (8, 'app:constants', 'appendices/app_A2_frozen_values', 11, '', 'observed', '54', 'measured, too few printed digits to match against the named files'),
