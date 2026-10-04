@@ -77,7 +77,7 @@ ax.legend(loc="lower right")
 ax.set_xlabel("temperature of the radiating surface (K)")
 ax.set_ylabel(r"photons above $2\Delta/h$ (s$^{-1}$ m$^{-2}$)")
 ax.set_title(r"Pair-breaking photons from a surface at temperature $T$")
-S.save(fig, "part3", "fig_p3_pairbreaking")
+S.save(fig, "part5", "fig_p3_pairbreaking")
 
 # ---------------- Figure 2: coherence-optimum model ----------------
 fig, ax = plt.subplots(figsize=(S.TEXTW * 0.62, 2.6))
@@ -94,7 +94,7 @@ ax.legend(loc="upper center")
 ax.set_xlabel(r"$T_1/T_{1,\rm free}$")
 ax.set_ylabel("two-qubit error / its minimum")
 ax.set_title(r"Optimum of $a/T_1+b/(T_{1,\rm free}-T_1)$ at $r/(1+r)$, $r=\sqrt{a/b}$")
-S.save(fig, "part3", "fig_p3_coherence_optimum")
+S.save(fig, "part5", "fig_p3_coherence_optimum")
 
 # ---------------- Figure 3: switching-energy floors and Dennard scaling ----------------
 fig, (a1, a2) = plt.subplots(1, 2, figsize=(S.TEXTW, 2.5))
@@ -123,5 +123,5 @@ a2.set_title(f"{100*(1-kap**-3):.1f} % per node vs {100*(1-kap**-1):.1f} %")
 a2.legend(loc="lower left")
 S.panel_letter(a2, "b")
 fig.tight_layout()
-S.save(fig, "part3", "fig_p3_switch_floors")
+S.save(fig, "part5", "fig_p3_switch_floors")
 

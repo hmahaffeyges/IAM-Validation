@@ -15,5 +15,5 @@ for t, lab, dx, dy in ((10, "salmonid 10 °C", 2.0, -0.05), (37, "human 37 °C",
     ax.annotate(f"{lab}: {y:.3f}×", (t, y), xytext=(t+dx, y+dy), fontsize=6.5, arrowprops=dict(arrowstyle="-", lw=0.4, color="#555555"))
 ax.set_ylim(0.68, 1.08)
 ax.set_xlabel("body temperature (°C)"); ax.set_ylabel("floor relative to 37 °C"); ax.legend(frameon=False, fontsize=7, loc="upper left")
-fig.tight_layout(); fig.savefig("figures/part4/fig_eps0_T.pdf"); fig.savefig("figures/part4/fig_eps0_T.png", dpi=200)
+fig.tight_layout(); fig.savefig("figures/part6/fig_eps0_T.pdf"); fig.savefig("figures/part6/fig_eps0_T.png", dpi=200)
 print(round(eps(283.15), 4), round(H(eps(283.15))/H(eps(T0)), 3), round(H(eps(311.65))/H(eps(T0)), 3))

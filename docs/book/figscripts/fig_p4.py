@@ -1,5 +1,5 @@
 """Part 4 figures and tables added for TODO 9.2 (the cell). Run from any directory:
-    python docs/book/figscripts/fig_p4.py            # all figures -> docs/book/figures/part4/fig_p4_*.pdf/.png
+    python docs/book/figscripts/fig_p4.py            # all figures -> docs/book/figures/part6/fig_p4_*.pdf/.png
     python docs/book/figscripts/fig_p4.py --tables   # prints the computed table rows used in the Part 4 insertions
 Every number drawn or printed is read here from the frozen chain v3 files (Biological_Physics/MethylPhys/chain/Runtime Matrices/),
 from the record data (doors/data/, doors/PROC_*/, chain_tests/), from the record markdown tables (parsed, not typed), from
@@ -18,7 +18,7 @@ S.apply()
 MP = S.REPO / "Biological_Physics" / "MethylPhys"
 RM = MP / "chain" / "Runtime Matrices"
 DD = MP / "doors" / "data"
-P4 = S.BOOK / "part4"
+P4 = S.BOOK / "part6"
 NORMAL = (0.95, 1.05)
 NCOL = S.ALT                     # colour of the Normal band (design tolerance)
 
@@ -118,7 +118,7 @@ def fig_jensen():
     a2.set_xticks(x, labs); a2.set_ylim(0, 1.45); a2.set_ylabel("bits"); a2.legend(loc="upper left", fontsize=6.5)
     a2.set_title("Averaging β first gives about one bit")
     S.panel_letter(a2, "b", dx=-0.16)
-    S.save(fig, "part4", "fig_p4_03_jensen")
+    S.save(fig, "part6", "fig_p4_03_jensen")
     return dict(n=[int(s.sum()) for s in sets], mean_beta=[float(b[s].mean()) for s in sets], Hbar=mh, Hofmean=hm)
 
 
@@ -138,7 +138,7 @@ def fig_ledger():
     ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlim(1e5, 1e100); ax.set_ylim(1e-16, 1e60)
     ax.set_xlabel("capacity of the surface $N$ (bits)"); ax.set_ylabel(r"cost of holding it, $N k_BT\ln2$ (J)")
     ax.legend(loc="upper left", fontsize=6.5); ax.set_title("The ledger entry of each surface at its own temperature")
-    S.save(fig, "part4", "fig_p4_04_ledger")
+    S.save(fig, "part6", "fig_p4_04_ledger")
     th1, s1 = bh(MSUN)
     return dict(ecell=ecell, TS1=th1 * s1, mc2half=MSUN * C.c**2 / 2, smarr_ratio=float(th1 * s1 / (MSUN * C.c**2)),
                 K_H=C.physical_constants["Rydberg constant times hc in eV"][0], V_H=-2 * C.physical_constants["Rydberg constant times hc in eV"][0],
@@ -167,7 +167,7 @@ def fig_fullsurface():
     a2.set_xticks([0.01, 0.03, 0.1, 0.3, 0.5], ["0.01", "0.03", "0.1", "0.3", "0.5"]); a2.xaxis.set_minor_formatter(plt.NullFormatter())
     a2.set_xlabel(r"copy error $\varepsilon$ on the methylated channel"); a2.set_ylabel("IAM-A")
     a2.set_title("Molecules: IAM-A from the floor to 4.45"); S.panel_letter(a2, "b")
-    S.save(fig, "part4", "fig_p4_05_fullsurface")
+    S.save(fig, "part6", "fig_p4_05_fullsurface")
     return dict(Amax_meta=Amax, Amax_iama=Amax2, floor=1 / P_NEU, eps_healthy=eh, Hmean=float(h.mean()))
 
 
@@ -186,7 +186,7 @@ def fig_surfaces():
     ax.set_xlabel(r"$\log_{10}$ of the value"); ax.set_xlim(-40, 85)
     ax.plot([], [], "o", color=S.GR, label="horizon of one solar mass"); ax.plot([], [], "o", color=S.DATA, label="cell methylome at 310.15 K")
     ax.legend(loc="upper center", fontsize=6.5, ncol=2); ax.set_title("One equation, parameters 10 to 70 orders apart")
-    S.save(fig, "part4", "fig_p4_05_surfaces")
+    S.save(fig, "part6", "fig_p4_05_surfaces")
     return {r[0]: (r[1], r[2]) for r in rows}
 
 
@@ -206,7 +206,7 @@ def fig_imr90_plane():
     ax.set_xlabel("methylated channel (reading against proliferating)"); ax.set_ylabel("unmethylated channel")
     ax.set_xlim(0.88, 1.15); ax.set_ylim(0.55, 1.08); ax.legend(loc="center", bbox_to_anchor=(0.5, 0.56), fontsize=6)
     ax.set_title("Two channels, read apart")
-    S.save(fig, "part4", "fig_p4_06_imr90_channels")
+    S.save(fig, "part6", "fig_p4_06_imr90_channels")
     return {st: dict(meth=(g.A_meth.min(), g.A_meth.max()), unmeth=(g.A_unmeth.min(), g.A_unmeth.max()), both=(g.A_both.min(), g.A_both.max())) for st, g in d.groupby("state")}
 
 
@@ -228,7 +228,7 @@ def fig_dnmt_channels():
     cb = fig.colorbar(sc, ax=ax, pad=0.02); cb.set_label(r"$\log_{10}$ dose (nM)", fontsize=7); cb.ax.tick_params(labelsize=6)
     ax.set_xlabel("methylated channel"); ax.set_ylabel("unmethylated channel"); ax.set_ylim(0.85, 1.35)
     ax.legend(loc="upper right", fontsize=6); ax.set_title("A block of copying moves the methylated channel")
-    S.save(fig, "part4", "fig_p4_22_dnmt_channels")
+    S.save(fig, "part6", "fig_p4_22_dnmt_channels")
     med_m = float(np.median(d.loc[(d.cmpd == "GSK032") & (d.dose_nM >= 80), "A_meth"] - 1)); med_u = float(np.median(d.loc[(d.cmpd == "GSK032") & (d.dose_nM >= 80), "A_unmeth"] - 1))
     return dict(cmpds=sorted(d.cmpd.unique()), med_m=med_m, med_u=med_u)
 
@@ -245,7 +245,7 @@ def fig_heldout():
     ax.plot(x, acc.loc[loo.ref, "A"], "_", color="k", ms=9, mew=1.2, label="in the floor (reads 1 by construction)")
     ax.set_xticks(x, [g.replace("GSM", "GSM\n") for g in loo.ref], fontsize=6); ax.set_ylim(0.93, 1.07); ax.set_ylabel("Met-A")
     ax.legend(loc="upper left", fontsize=6); ax.set_title("Only the held-out readings are evidence")
-    S.save(fig, "part4", "fig_p4_07_heldout")
+    S.save(fig, "part6", "fig_p4_07_heldout")
     ni = pd.read_csv(DD / "noise_index.csv")
     fig, ax = plt.subplots(figsize=(0.55 * S.TEXTW, 2.5))
     normal_band(ax)
@@ -260,7 +260,7 @@ def fig_heldout():
             out[k] += (pd.Series(g.N).corr(g.A_own, method="spearman"),)
     ax.set_xlabel("noise index $N$ (bits, 48,528 invariant sites)"); ax.set_ylabel("Met-A, no tare")
     ax.legend(loc="upper left", fontsize=6); ax.set_title("The untared reading follows the array's noise")
-    S.save(fig, "part4", "fig_p4_07_noise")
+    S.save(fig, "part6", "fig_p4_07_noise")
     return dict(loo=loo, acc=acc, ni=ni, noise=out)
 
 
@@ -276,7 +276,7 @@ def fig_iama():
     ax.vlines(x, g.A_own_odd, g.A_own_even, color=S.IAM, lw=2.5, alpha=0.35)
     ax.set_xticks(x, g.gsm, fontsize=6.5); ax.set_ylabel("IAM-A"); ax.set_ylim(0.85, 1.42); ax.set_xlim(-0.5, 2.5)
     ax.legend(loc="upper left", fontsize=6); ax.set_title("Three granulocyte donors on single molecules")
-    S.save(fig, "part4", "fig_p4_08_donors")
+    S.save(fig, "part6", "fig_p4_08_donors")
     e = np.logspace(np.log10(0.015), np.log10(0.08), 300); iam = H(e) / (P_NEU * H(EPS0))
     fig, ax = plt.subplots(figsize=(0.6 * S.TEXTW, 2.4))
     normal_band(ax); ax.plot(e, iam, color=S.IAM)
@@ -285,7 +285,7 @@ def fig_iama():
     ax.plot(g.eps_damaged, H(g.eps_damaged) / (P_NEU * H(EPS0)), "^", color=S.DATA, ms=4, label="same molecules with 2 % added")
     ax.set_xscale("log"); ax.set_xlabel(r"copy error $\varepsilon$"); ax.set_ylabel(r"$H(\varepsilon)/(P\,H(\varepsilon_0))$")
     ax.legend(loc="upper left", fontsize=6); ax.set_title("IAM-A is steep near the floor")
-    S.save(fig, "part4", "fig_p4_08_curve")
+    S.save(fig, "part6", "fig_p4_08_curve")
     return dict(g=g)
 
 
@@ -312,7 +312,7 @@ def fig_cscore():
         ax.text(0.01, 0.88, f"{lab}: mean $z$ = {z.mean():.2f}, C = {c/base:.1f}", transform=ax.transAxes, fontsize=7, color=col)
     axs[1].set_xlabel("identity site, genome order (6,000 sites; 50-site block means drawn as steps)")
     axs[0].set_title("Same mean departure, different maps (simulated, fixed seed)")
-    S.save(fig, "part4", "fig_p4_09_construction")
+    S.save(fig, "part6", "fig_p4_09_construction")
     acc = pd.read_csv(MP / "chain_tests" / "chain_acceptance.csv")
     grp = {"healthy purified neutrophil (in floor)": "isolated reference neutrophils", "known mixture, neu>=50%": "DNA mixtures",
            "AML second remission blood (other lab)": "remission bloods, another laboratory"}
@@ -328,7 +328,7 @@ def fig_cscore():
     ax.set_ylabel("Met-A C-score"); ax.set_ylim(0.5, 1.7)
     ax.text(3.45, 1.6, f"far end: {blk}/{base} = {blk/base:.0f}", fontsize=6.5, ha="right")
     ax.set_title("C-score as printed: no band is set")
-    S.save(fig, "part4", "fig_p4_09_readings")
+    S.save(fig, "part6", "fig_p4_09_readings")
     out["far_end"] = blk / base; out["base"] = base; out["blocks"] = n // blk
     return out
 
@@ -357,7 +357,7 @@ def fig_fish():
     a2.set_title(f"charr: ρ = {rho_c:.2f}"); S.panel_letter(a2, "b", dx=-0.3)
     a3.plot(ri.conv_fail * 100, ri.E_kT, "s", color=S.ALT2, ms=2.5); a3.set_xlabel("conversion failure (%)")
     a3.set_title(f"salmon: ρ = {rho_r:.2f}"); S.panel_letter(a3, "c", dx=-0.3)
-    S.save(fig, "part4", "fig_p4_10_fish")
+    S.save(fig, "part6", "fig_p4_10_fish")
     return dict(med=med, efix=efix, rho_c=rho_c, rho_r=rho_r)
 
 
@@ -384,7 +384,7 @@ def fig_map79():
         ax.text(v + 0.4, yi, str(v), va="center", fontsize=6.5)
     ax.set_yticks(y, st.index, fontsize=6.5); ax.set_xlabel(f"rows of the map (total {len(rows)})"); ax.set_xlim(0, max(st.values) + 4)
     ax.set_title("The 79-row map scored against chain v3")
-    S.save(fig, "part4", "fig_p4_11_map79")
+    S.save(fig, "part6", "fig_p4_11_map79")
     return dict(n=len(rows), counts=st.to_dict())
 
 
@@ -404,7 +404,7 @@ def fig_tare():
     ax.text(0.5, 1.135, "DNA mixtures,\nreference laboratory", ha="center", fontsize=6.5, color=S.IAM, va="top")
     ax.text(2.5, 1.135, "remission bloods,\nanother laboratory", ha="center", fontsize=6.5, color=S.DATA, va="top")
     ax.set_ylabel("whole-blood Met-A"); ax.set_title("Same-batch tare, acceptance run 3")
-    S.save(fig, "part4", "fig_p4_12_tare")
+    S.save(fig, "part6", "fig_p4_12_tare")
     return out
 
 
@@ -427,7 +427,7 @@ def fig_noisefit():
     ax.set_xlabel(f"expected $A$ = {b[0]:.2f} + {b[1]:.3f} $f_{{\\rm neu}}$ + {b[2]:.2f} $N$"); ax.set_ylabel("untared Met-A")
     ax.text(0.04, 0.92, f"{len(neg)} healthy adults, $R^2$ = {r2:.2f}", transform=ax.transAxes, fontsize=6.5)
     ax.set_xlim(lo, hi); ax.set_ylim(lo, hi); ax.set_title("What the whole-blood reading reads")
-    S.save(fig, "part4", "fig_p4_12_noisefit")
+    S.save(fig, "part6", "fig_p4_12_noisefit")
     return dict(b=b, r2=r2, n=len(neg))
 
 
@@ -451,7 +451,7 @@ def fig_lowfrac():
     ax.axvline(0.20, color="k", lw=0.8, ls=":"); ax.text(0.21, 0.004, "read line 0.20", fontsize=6.5)
     ax.set_xlabel("neutrophil fraction of the specimen"); ax.set_ylabel("rise in Met-A"); ax.set_xlim(0, 1); ax.set_ylim(0, 0.1)
     ax.legend(loc="upper left", fontsize=6); ax.set_title("The signal falls with the fraction; the noise does not")
-    S.save(fig, "part4", "fig_p4_13_lowfrac")
+    S.save(fig, "part6", "fig_p4_13_lowfrac")
     return rows
 
 
@@ -467,7 +467,7 @@ def fig_markers():
     ax.set_xlabel(f"composition marker ({mu.shape[1]} sites, grouped by the cell each separates)")
     cb = fig.colorbar(im, ax=ax, pad=0.01); cb.set_label(r"$\beta$", fontsize=7); cb.ax.tick_params(labelsize=6)
     ax.set_title("Stage A templates: eight purified blood groups at the 963 markers")
-    S.save(fig, "part4", "fig_p4_13_markers")
+    S.save(fig, "part6", "fig_p4_13_markers")
     return dict(groups=groups, n=mu.shape[1], per_group={groups[i]: int(cnt[i]) for i in range(len(groups))})
 
 
@@ -492,7 +492,7 @@ def fig_profiles():
         a2.text(v[2] + 0.01, yi, f"{v[2]:.3f}", va="center", fontsize=6)
     a2.set_yticks(y, list(out.keys()), fontsize=6.5); a2.set_xlim(0.9, 1.5)
     a2.set_xlabel("mean $H$ over the neutrophil mean $H$"); a2.set_title("... not in entropy"); S.panel_letter(a2, "b", dx=-0.3)
-    S.save(fig, "part4", "fig_p4_14_profiles")
+    S.save(fig, "part6", "fig_p4_14_profiles")
     return out
 
 
@@ -512,7 +512,7 @@ def fig_window():
     a2.plot(b, sd, ",", color=S.IAM, alpha=0.6)
     a2.set_xlabel(r"healthy neutrophil mean $\beta$"); a2.set_ylabel("healthy spread of $H$ (shrunk SD, bits)")
     a2.set_title("Spread of $H$ across the six arrays"); S.panel_letter(a2, "b", dx=-0.22)
-    S.save(fig, "part4", "fig_p4_15_window")
+    S.save(fig, "part6", "fig_p4_15_window")
     win = ((b >= 0.05) & (b <= 0.25)) | ((b >= 0.75) & (b <= 0.95))
     return dict(n=len(b), in_window=int(win.sum()), meth=int((b > 0.5).sum()), sd_med=float(np.median(sd)), sd_rng=(float(sd.min()), float(sd.max())))
 
@@ -531,7 +531,7 @@ def fig_shared():
         ax.set_xlabel(r"healthy neutrophil $\beta$"); ax.set_title(f"{nm}: {100*frac:.1f} % of sites within 0.05")
         S.panel_letter(ax, l, dx=-0.18)
     axs[0].set_ylabel(r"healthy $\beta$ of the other cell")
-    S.save(fig, "part4", "fig_p4_15_shared")
+    S.save(fig, "part6", "fig_p4_15_shared")
     return out
 
 
@@ -546,7 +546,7 @@ def fig_noiseterm():
         ax.set_ylabel(lab, fontsize=7)
     axs[1].set_xlabel("identity site, genome order (6,000 sites; 50-site block means as steps)")
     axs[0].set_title("The sky's reference and noise term come from six purified arrays")
-    S.save(fig, "part4", "fig_p4_16_noiseterm")
+    S.save(fig, "part6", "fig_p4_16_noiseterm")
     return dict(n=n, blk=blk, nb=nb, sd_med=float(np.median(sd)), sd_lo=float(sd.min()), sd_hi=float(sd.max()), hm_med=float(np.median(hm)),
                 hm_mean=float(hm.mean()), base=r["healthy_clustering_median"])
 
@@ -565,7 +565,7 @@ def fig_repeats():
         out[k] = (len(g), float(g.A_own.mean()), float(g.A_own.std(ddof=1)))
     ax.set_xlabel("time of day (zeitgeber hour)"); ax.set_ylabel("Met-A, no tare"); ax.set_ylim(0.8, 1.35)
     ax.legend(loc="lower right", fontsize=6); ax.set_title("Repeat arrays of two people, a second laboratory")
-    S.save(fig, "part4", "fig_p4_17_repeats")
+    S.save(fig, "part6", "fig_p4_17_repeats")
     d3 = pd.read_csv(DD / "chain_v3_dev3_readings.csv"); t3 = d3[(d3.test == "T3")]
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(S.TEXTW, 2.3), gridspec_kw=dict(wspace=0.35))
     subj = sorted(t3.group.unique())
@@ -580,7 +580,7 @@ def fig_repeats():
     a1.set_title("Technical replicates (GSE250556)"); S.panel_letter(a1, "a")
     normal_band(a2); a2.set_xticks(range(4), [s.replace("subject", "person ") for s in subj], fontsize=6.5); a2.set_ylim(0.93, 1.07)
     a2.set_ylabel(r"tared $A_{\rm rel}$"); a2.set_title("Read at the 0.20 line, noise-corrected tare"); S.panel_letter(a2, "b", dx=-0.17)
-    S.save(fig, "part4", "fig_p4_17_replicates")
+    S.save(fig, "part6", "fig_p4_17_replicates")
     t3r = t3[t3.A_rel_tared.notna()]
     w = t3r.groupby("group").A_rel_tared.transform(lambda s: s - s.mean())
     out["T3_all"] = (len(t3), len(t3r), float(t3r.A_rel_tared.std(ddof=1)), float(np.sqrt((w**2).sum() / (len(t3r) - t3r.group.nunique()))),
@@ -607,7 +607,7 @@ def fig_nulls():
         ax.text(1.075, yi, f"n = {len(v)}", va="center", fontsize=6)
     ax.set_yticks(y, [r[0] for r in rows], fontsize=6.5); ax.set_xlim(0.94, 1.09); ax.set_xlabel("Met-A")
     ax.set_title("Null tests: nothing should move, and nothing does")
-    S.save(fig, "part4", "fig_p4_18_nulls")
+    S.save(fig, "part6", "fig_p4_18_nulls")
     sc = pd.read_csv(DD / "selfconsist.csv"); sc = sc[sc.f_true >= 0.5]
     fig, ax = plt.subplots(figsize=(0.5 * S.TEXTW, 2.4))
     a = sc.A_nnls_damaged - sc.A_nnls; b = sc.A_fit_damaged - sc.A_fit
@@ -617,7 +617,7 @@ def fig_nulls():
     ax.set_xticks(x, [f"{f:.2f}" for f in sc.f_true], fontsize=6.5); ax.set_xlabel("true neutrophil fraction of the mixture")
     ax.set_ylabel("rise in Met-A from a planted 2 % loss"); ax.legend(loc="upper left", fontsize=6); ax.set_ylim(0, 0.085)
     ax.set_title("Re-fitting the fraction absorbs part of the loss")
-    S.save(fig, "part4", "fig_p4_18_planted")
+    S.save(fig, "part6", "fig_p4_18_planted")
     return dict(nulls=out, planted=(len(sc), float(a.min()), float(a.max()), float(b.min()), float(b.max()), float((sc.f_fit_damaged - sc.f_fit).median())))
 
 
@@ -632,7 +632,7 @@ def fig_detlimit():
     a2.plot(d.f_neu, d.det_limit_y, "o", color=S.DATA, ms=2)
     a2.set_xlabel("neutrophil fraction"); a2.set_ylabel("detection limit (% loss)"); a2.set_xlim(0, 1); a2.set_ylim(0, 6)
     a2.set_title("Stage T: smallest loss each reading could show"); S.panel_letter(a2, "b", dx=-0.13)
-    S.save(fig, "part4", "fig_p4_19_detlimit")
+    S.save(fig, "part6", "fig_p4_19_detlimit")
     return dict(n_shift=int(d3.shift1.notna().sum()), n_det=len(d), det_med=float(d.det_limit_y.median()), det_lo=float(d.det_limit_y.min()), det_hi=float(d.det_limit_y.max()),
                 sh_lo=float(d3.shift1.min()), sh_hi=float(d3.shift1.max()))
 
@@ -659,7 +659,7 @@ def fig_report():
     ax.set_yticks([]); ax.set_xlim(0.95, 1.085); ax.set_ylim(-1, len(rows))
     ax.set_xlabel("reading on the gauge (Normal shaded)"); ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.17), ncol=3, fontsize=6.5)
     ax.set_title("What 22 report pages printed, acceptance run 3")
-    S.save(fig, "part4", "fig_p4_20_gauge")
+    S.save(fig, "part6", "fig_p4_20_gauge")
     out["n"] = len(rows)
     # the words the chain printed on the 690 report pages of DEV-CHAIN-V3-RUN3 (690 processed of 692)
     d3 = pd.read_csv(DD / "chain_v3_dev3_readings.csv"); d3 = d3[d3.status == "ok"]
@@ -677,7 +677,7 @@ def fig_report():
         ax.text(v + 6, yi, str(v), va="center", fontsize=6)
     ax.set_yticks(yy, cnt.index, fontsize=6.5); ax.set_xlim(0, cnt.max() * 1.15)
     ax.set_xlabel(f"report pages ({len(d3)} specimens)"); ax.set_title("The only words a page may print")
-    S.save(fig, "part4", "fig_p4_20_states")
+    S.save(fig, "part6", "fig_p4_20_states")
     out["states"] = cnt.to_dict(); out["n3"] = len(d3)
     return out
 
@@ -698,7 +698,7 @@ def fig_dnmt_arrays():
     a1.set_ylabel("Met-A against the line's own vehicle"); a1.legend(loc="upper left", fontsize=6); a1.set_title("A known block of copying reads"); S.panel_letter(a1, "a", dx=-0.16)
     a2.axhline(0.5, color="k", lw=0.8, ls=":"); a2.text(0.35, 0.52, "entropy ceiling, β = 1/2", fontsize=6.5)
     a2.set_ylabel(r"median $\beta$, methylated identity sites"); a2.set_ylim(0.3, 1.0); a2.set_title("Past β = 1/2 the reading turns back"); S.panel_letter(a2, "b")
-    S.save(fig, "part4", "fig_p4_21_dnmt_arrays")
+    S.save(fig, "part6", "fig_p4_21_dnmt_arrays")
     hi = act[act.dose_nM >= 80]; lo = act[(act.dose_nM > 0) & (act.dose_nM <= 16)]
     return dict(n=len(d), veh=(d[d.cmpd == "DMSO"].A.min(), d[d.cmpd == "DMSO"].A.max()), hi=(hi.A.min(), hi.A.max()), lo=(lo.A.min(), lo.A.max()), lines=lines)
 
@@ -717,7 +717,7 @@ def fig_dnmt_molecules():
     a2.plot(np.arange(len(pr)), pr.A, "o", color=S.DATA, ms=4.5)
     a2.set_xticks(np.arange(len(pr)), [f"{g} {r}" for g, r in zip(pr.genotype, pr.rep)], fontsize=5.5, rotation=90)
     a2.set_ylabel("IAM-A against own vehicle"); a2.set_ylim(0.9, 2.1); a2.set_title("8 of 8 above Normal"); S.panel_letter(a2, "b", dx=-0.16)
-    S.save(fig, "part4", "fig_p4_21_dnmt_molecules")
+    S.save(fig, "part6", "fig_p4_21_dnmt_molecules")
     return dict(veh=(rd[rd.kind == "DMSO"].eps_corr.min(), rd[rd.kind == "DMSO"].eps_corr.max()), trt=(rd[rd.kind == "DNMT1i"].eps_corr.min(), rd[rd.kind == "DNMT1i"].eps_corr.max()),
                 A=(pr.A.min(), pr.A.max()), conv=float(pr.conv_diff.max()))
 
@@ -737,7 +737,7 @@ def fig_fraction_free():
     a2.set_title(f"Over its own expectation (ρ {rho:.2f})"); a2.set_ylim(0.88, 1.15)
     for a, l in ((a1, "a"), (a2, "b")):
         a.set_xlabel("neutrophil fraction"); S.panel_letter(a, l, dx=-0.16)
-    S.save(fig, "part4", "fig_p4_22_fraction")
+    S.save(fig, "part6", "fig_p4_22_fraction")
     return dict(n=len(t4), rho_raw=rho_raw, rho=rho)
 
 
@@ -755,7 +755,7 @@ def fig_tumour():
     ax.set_xlim(*lim); ax.set_ylim(*lim); ax.set_aspect("equal")
     ax.set_xlabel(r"normal tissue, copy error $\varepsilon$"); ax.set_ylabel(r"tumour, same person, $\varepsilon$")
     ax.legend(loc="center right", bbox_to_anchor=(1.0, 0.33), fontsize=5.8); ax.set_title("Above the diagonal: more copy error")
-    S.save(fig, "part4", "fig_p4_23_tumour")
+    S.save(fig, "part6", "fig_p4_23_tumour")
     return tp
 
 
@@ -773,13 +773,13 @@ def fig_plasma():
     ax.plot([1], [0], "x", color=S.DATA, ms=5); ax.annotate("threshold at 1 %: 0/20", (1, 0), xytext=(6, 4), textcoords="offset points", fontsize=6, color=S.DATA)
     ax.set_xscale("log"); ax.set_xlim(0.07, 15); ax.set_ylim(-1, 21.5); ax.set_xlabel("cancer DNA in the constructed mixture (%)")
     ax.set_ylabel("mixtures detected (of 20)"); ax.legend(loc="center left", fontsize=6); ax.set_title("Constructed mixtures, 0.5-1.5 M molecules")
-    S.save(fig, "part4", "fig_p4_23_plasma")
+    S.save(fig, "part6", "fig_p4_23_plasma")
     return dict(hits=hits, thr10=thr10)
 
 
 # ============================== p4_24 =================================
 def status_counts():
-    txt = open(P4 / "p4_24_status.tex", encoding="utf-8").read()
+    txt = open(P4 / "p6_24_status.tex", encoding="utf-8").read()
     body = txt.split(r"\endhead", 1)[1]
     rows = [r for r in body.split(r"\\") if "&" in r and "multicolumn" not in r]
     cnt = {}
@@ -807,7 +807,7 @@ def fig_status():
         ax.text(cnt[k] + 0.15, yi, str(cnt[k]), va="center", fontsize=6)
     ax.set_yticks(y, [k.replace("other: ", "") for k in keys], fontsize=6.2); ax.set_xlabel(f"labels in Table tab:status ({n} rows)")
     ax.set_xlim(0, max(cnt.values()) + 2); ax.set_title("What carries which label")
-    S.save(fig, "part4", "fig_p4_24_labels")
+    S.save(fig, "part6", "fig_p4_24_labels")
     return n, cnt
 
 
@@ -828,7 +828,7 @@ def fig_summary():
     ax.set_xscale("log"); ax.set_xlim(0.6, 2.2); ax.set_xticks([0.6, 0.7, 0.8, 0.9, 1.0, 1.25, 1.5, 2.0], ["0.6", "0.7", "0.8", "0.9", "1", "1.25", "1.5", "2"])
     ax.minorticks_off(); ax.set_yticks(y, [r[0] for r in rows], fontsize=6.3); ax.set_xlabel("reading on the one gauge (log scale; healthy = 1)")
     ax.set_title("Measured readings of Part 4 on one gauge (each against its own healthy reference)")
-    S.save(fig, "part4", "fig_p4_24_summary")
+    S.save(fig, "part6", "fig_p4_24_summary")
     return out
 
 
@@ -876,7 +876,7 @@ def tables():
     T["p4_07_refarrays"] = "\n".join(rr)
     # p4_09: C-score
     c = fig_cscore()
-    T["p4_09_cscore"] = "\n".join([
+    T["p6_09_cscore"] = "\n".join([
         f"healthy reference arrays, each against the other five & {c['healthy arrays, each against the other five'][0]} & {c['healthy arrays, each against the other five'][1]:.2f}--{c['healthy arrays, each against the other five'][2]:.2f} & \\calibrated \\\\",
         f"isolated reference neutrophils, acceptance run 3 & {c['isolated reference neutrophils'][0]} & {c['isolated reference neutrophils'][1]:.2f}--{c['isolated reference neutrophils'][2]:.2f} & \\measured \\\\",
         f"DNA mixtures, acceptance run 3 & {c['DNA mixtures'][0]} & {c['DNA mixtures'][1]:.2f}--{c['DNA mixtures'][2]:.2f} & \\measured \\\\",

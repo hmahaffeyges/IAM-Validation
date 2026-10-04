@@ -1,7 +1,7 @@
 """On the shoulders of giants: who found each piece, and when.
 
 Every year on the figure is read from the bibliography files (docs/book/iam.bib);
-nothing is typed in. Rows are the threads of the chapter p0_giants.tex. Output: figures/part0/fig_giants_timeline.{pdf,png}.
+nothing is typed in. Rows are the threads of the chapter p0_giants.tex. Output: figures/front/fig_giants_timeline.{pdf,png}.
 Run: python docs/book/figscripts/fig_p0_giants_timeline.py
 """
 import re
@@ -81,4 +81,4 @@ def main():
 
 if __name__ == "__main__":
     fig = main()
-    bs.save(fig, "part0", "fig_giants_timeline")
+    bs.save(fig, "front", "fig_giants_timeline")

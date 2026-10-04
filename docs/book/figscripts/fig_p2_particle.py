@@ -1,4 +1,4 @@
-"""Figures for Part 2 chapters p2_15a_lepton_koide.tex, p2_15b_electron_mass.tex and p2_22b_higgs_record.tex.
+"""Figures for Part 2 chapters p4_15a_lepton_koide.tex, p4_15b_electron_mass.tex and p4_22b_higgs_record.tex.
 
 fig_koide_flavour : (a) the square-root mass vector (sqrt m_e, sqrt m_mu, sqrt m_tau) in flavour space with the (1,1,1) direction and the
                     circle of all vectors at 45 deg to it (Q = 2/3) at the measured scale x; (b) the same circle in the plane sqrt m_e + sqrt m_mu
@@ -84,7 +84,7 @@ ax.text(-2.15, -2.65, r"radius $\sqrt{3}\,x$: the 45° circle" + "\n" + r"(dashe
 ax.set_aspect("equal"); ax.set_xlim(-2.2, 2.2); ax.set_ylim(-2.75, 1.5)
 ax.set_xlabel(r"$(\sqrt{m}-x)\cdot\hat e_1/x$"); ax.set_ylabel(r"$(\sqrt{m}-x)\cdot\hat e_2/x$")
 S.panel_letter(ax, "b", dx=-0.16)
-S.save(fig, "part2", "fig_koide_flavour")
+S.save(fig, "part4", "fig_koide_flavour")
 
 # ---------------------------------------------------------------- fig_koide_orbit
 fig, axs = plt.subplots(1, 2, figsize=(S.TEXTW, 2.6), gridspec_kw=dict(width_ratios=[1, 1.5], wspace=0.35))
@@ -120,7 +120,7 @@ ax.set_xlim(0, 2*np.pi); ax.set_ylim(-0.6, 2.9)
 ax.set_xlabel(r"phase on the charge orbit $\phi$"); ax.set_ylabel(r"$\sqrt{m(\phi)}/x=1+\sqrt{2}\cos\phi$")
 ax.text(4.3, 2.55, f"filled: δ = {d:.4f} rad\nopen: δ = 0", fontsize=6, color=S.GR)
 S.panel_letter(ax, "b")
-S.save(fig, "part2", "fig_koide_orbit")
+S.save(fig, "part4", "fig_koide_orbit")
 
 # ---------------------------------------------------------------- fig_koide_sweep
 fig = plt.figure(figsize=(S.TEXTW, 3.5))
@@ -162,7 +162,7 @@ ax.set_xlabel(r"offset $\delta$ (rad), scale fixed at $x^2=$" + f"{x**2:.2f} MeV
 ax.text(-0.13, 2.5e-3, "all three roots > 0", fontsize=6, color=S.IAM, ha="center", bbox=dict(fc="white", ec="none", pad=0.5))
 ax.text(0.40, 3e-2, "dotted: the root is negative;\nits square is still positive", fontsize=6, color=S.GR)
 S.panel_letter(ax, "b", dx=-0.06)
-S.save(fig, "part2", "fig_koide_sweep")
+S.save(fig, "part4", "fig_koide_sweep")
 
 # ---------------------------------------------------------------- fig_electron_fp
 hbar, c, G, al, mE = C.hbar, C.c, C.G, C.alpha, C.m_e
@@ -209,7 +209,7 @@ ax.set_yscale("log"); ax.set_ylim(0.08, 15)
 ax.set_xticks(ps); ax.set_xticklabels(["3/2", "2", "5/2", "3", "7/2"])
 ax.set_xlabel(r"exponent $p$ in $f=\alpha^{p}$"); ax.set_ylabel(r"$m/m_e$")
 S.panel_letter(ax, "c", dx=-0.3)
-S.save(fig, "part2", "fig_electron_fp")
+S.save(fig, "part4", "fig_electron_fp")
 
 # ---------------------------------------------------------------- fig_higgs_proper
 GeV = 1e9*C.e
@@ -244,4 +244,4 @@ for Tm, nm, (ox, oy) in marks:
 ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlim(1e-4, 1e13); ax.set_ylim(0.3, 1e17)
 ax.set_xlabel("photon temperature (eV)"); ax.set_ylabel(r"$-\ln E(a)=1/a-1=z$")
 S.panel_letter(ax, "b", dx=-0.16)
-S.save(fig, "part2", "fig_higgs_proper")
+S.save(fig, "part4", "fig_higgs_proper")

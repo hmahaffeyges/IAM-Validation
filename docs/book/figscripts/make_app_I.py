@@ -22,7 +22,7 @@ from _texify import esc, path, check  # noqa: E402
 
 OUT = BOOK / "appendices" / "app_I_provenance.tex"
 SKIP = {"appendices/app_B_errata_physics", "appendices/app_B2_errata_cells"}      # leave the book
-EXTRA = ["part5/p5_11_status_all", "appendices/app_G_predictions_register"]        # new, not yet in main.tex
+EXTRA = ["part7/p7_11_status_all", "appendices/app_G_predictions_register"]        # new, not yet in main.tex
 NOTSOURCE = re.compile(r"ERRATA|LEDGER|NOTE|PLAN\.md|MANIFEST|GLOSSARY|read_ledgers|/sop/|^sop/|manual/|docs/papers|RETIRED|TODO", re.I)
 
 
@@ -70,7 +70,7 @@ def resolve(name):
 
 # ---------------- figures ----------------
 DATA = re.compile(r"[\"']([^\"'\n]*?\.(?:json|csv|txt|npz|npy|dat|tsv|parquet|pkl|h5|hdf5|fits))[\"']")
-SAVE = re.compile(r"(?:S\.save|save)\(fig,\s*\"(part\d)\",\s*\"([^\"]+)\"\)|savefig\([\"'][^\"']*?([A-Za-z0-9_]+)\.(?:pdf|png)[\"']")
+SAVE = re.compile(r"(?:S\.save|save)\(fig,\s*\"((?:part\d|front))\",\s*\"([^\"]+)\"\)|savefig\([\"'][^\"']*?([A-Za-z0-9_]+)\.(?:pdf|png)[\"']")
 
 
 def blocks(text):

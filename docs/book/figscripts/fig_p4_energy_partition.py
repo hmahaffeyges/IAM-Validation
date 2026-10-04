@@ -1,4 +1,4 @@
-"""part4/fig_energy_partition (Chapter 'Two ledgers and the virial balance', Figure fig:partition).
+"""part6/fig_energy_partition (Chapter 'Two ledgers and the virial balance', Figure fig:partition).
 
 (a) Virial theorem for an inverse-square force: 2K + U = 0, so U = -2K and E = K + U = -K. (b) Slow contraction of a self-gravitating
 body: of the released |dU|, half goes into heat (dK = -dU/2) and half is radiated (-dE = -dU/2). (c) Smarr relation for a Schwarzschild
@@ -22,4 +22,4 @@ axs[2].bar(["$Mc^2$", "$T_HS$"], [1.0, 0.5], color=[S.GR, S.IAM], width=0.6)
 axs[2].set_ylim(0, 1.15); axs[2].set_ylabel("units of $Mc^2$"); axs[2].set_title("Horizon: $Mc^2=2T_HS$")
 for a, l in zip(axs, "abc"):
     S.panel_letter(a, l, dx=-0.32, dy=1.10)
-S.save(fig, "part4", "fig_energy_partition")
+S.save(fig, "part6", "fig_energy_partition")

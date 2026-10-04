@@ -1,4 +1,4 @@
-"""part4/fig_scale_ladder (Chapter 'From the horizon to the nucleus', Figure fig:scaleladder).
+"""part6/fig_scale_ladder (Chapter 'From the horizon to the nucleus', Figure fig:scaleladder).
 
 Three encoding surfaces by temperature and capacity in bits. Cosmic horizon: Gibbons-Hawking temperature and area/(4 l_P^2 ln2) at the
 Hubble radius c/H0, H0 = 67.16 km/s/Mpc (photon sector, Level 2 chain). Solar-mass black hole: Hawking temperature and Bekenstein-Hawking
@@ -36,4 +36,4 @@ for lab, t, n, col in PTS:
 ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlim(1e-31, 1e4); ax.set_ylim(1e3, 1e130)
 ax.set_xlabel("surface temperature (K)"); ax.set_ylabel("bits the surface holds")
 ax.set_title("Same accounting, very different surfaces")
-S.save(fig, "part4", "fig_scale_ladder")
+S.save(fig, "part6", "fig_scale_ladder")

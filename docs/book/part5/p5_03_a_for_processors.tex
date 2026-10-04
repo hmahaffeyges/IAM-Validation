@@ -1,0 +1,97 @@
+\chapter{The gate error and its floor: quantum processors}\label{ch:ascoreqc}
+
+\section{Two device gauges}\label{sec:devicegauges}
+
+IAM's Law prices every irreversible record at $\kB T\ln2$ per bit at the surface where it is written (Chapter~\ref{ch:iams_law}). Applied to devices,
+the law gives two gauges, used in this and the following chapters of Part~\ref{part:3}.
+\begin{itemize}
+\item \textbf{The qubit gauge} reads a processor's two-qubit gate error as information lost per gate, $\varepsilon=-\ln(1-p_{2Q})$
+(Eq.~\eqref{eq:Agate}), against its \emph{thermal floor}: IAM's Law at the temperature the qubit's record actually sees, which for one gate
+is $p_{\rm th}=p_{\rm eq}\,t_g/T_1$ with $p_{\rm eq}=1/(1+e^{hf/\kB T})$ (Section~\ref{sec:qubitfloor}). The device as built reads $A=1$; its
+floor sits below it at $p_{\rm th}/\varepsilon$, and more error lies to the right.
+\item \textbf{The chip gauge} reads a processor's switching energy per transition, $E_{\mathrm{sw}}$, against the Landauer floor
+$\kB T_j\ln2$ at the junction temperature $T_j$. The chip as built reads $A=1$; the Landauer floor sits below it at $\kB T_j\ln2/E_{\mathrm{sw}}$
+(Chapter~\ref{ch:cmos}).
+\end{itemize}
+Both gauges read one object against two things that belong to it: its own as-built state and the floor physics sets for it. Chapter~\ref{ch:onegauge}
+(Part~\ref{part:5}) sets them beside the cell gauges of Part~\ref{part:4}.
+
+\section{From gate error to information cost}
+
+A two-qubit gate with error probability $p$ preserves the intended state with probability
+$1-p$. The information lost per gate, in nats, is
+\begin{equation}
+ \varepsilon=-\ln(1-p)=p+\tfrac12p^2+\dots
+ \label{eq:Agate}
+\end{equation}
+For every platform of current interest $p<10^{-2}$, so $\varepsilon$ equals $p$ to within
+0.503\,\% (the value at $p=10^{-2}$) \calc. The gate error in nats, $\varepsilon$, is therefore a re-expression of the published error. Its value lies in the
+\emph{decomposition} and in the \emph{floor} it is compared with, not in the transformation itself.
+
+\section{The published values}
+
+Table~\ref{tab:platforms} lists published two-qubit errors from the device makers' own reports. They are \observed\ as cited. Two cautions apply to
+the whole table. First, published two-qubit errors mix isolated and simultaneous benchmarks,
+randomized and cross-entropy benchmarking, and median and mean over the device, and different benchmarks of one processor can give
+materially different pictures~\cite{Proctor2022}; differences at the 20\% level are not meaningful without harmonized definitions. Second, the
+``operating temperature'' of an ion or atom platform is its motional temperature, not a cryostat stage.
+
+\begin{table}[htbp]\centering\small
+\caption{Two-qubit error $p_{2Q}$ and gate error in nats $\varepsilon$, from the makers' publications.}\label{tab:platforms}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.25\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}@{}}\toprule
+platform & gate, statistic & $p_{2Q}$ & $\varepsilon$ & source \\\midrule
+trapped-ion prototype (Oxford Ionics) & ion, electronic; estimated error & $8.4\times10^{-5}$ & $8.40\times10^{-5}$ & \cite{Hughes2025} \\
+Quantinuum Helios (98 qubits) & ion, laser (Ba$^+$); average over zones & $7.9\times10^{-4}$ & $7.90\times10^{-4}$ & \cite{Ransford2025} \\
+Quantinuum H2 (56 qubits) & ion, laser (Yb$^+$); average & $1.57\times10^{-3}$ & $1.57\times10^{-3}$ & \cite{DeCross2025} \\
+IonQ Forte (30 qubits) & ion, laser (Yb$^+$); median, direct RB & $4.64\times10^{-3}$ & $4.65\times10^{-3}$ & \cite{Chen2024Forte} \\\bottomrule
+\end{tabularx}
+\end{table}
+\noindent For Willow, the error-correction paper~\cite{GoogleWillow2025} shows the CZ error of the 105-qubit processor only as a distribution
+(its Fig.~1b), so no single value for that chip enters the table. The paper's error budget for its 72-qubit companion processor lists a CZ
+Pauli error of $2.8\times10^{-3}$, excluding CZ crosstalk ($5.5\times10^{-4}$) and leakage ($2.0\times10^{-4}$) (Supplementary Table~S4 of
+Ref.~\cite{GoogleWillow2025}) \observed. A Pauli error is a different statistic from the average errors in the table, so it is not entered
+there.
+
+\noindent Other platform types have primary published two-qubit values of their own: a fluxonium CZ gate at a mean fidelity of
+$99.922\pm0.009$\,\%~\cite{Ding2023}, neutral-atom entangling gates at 99.5\,\% on up to 60 atoms in parallel~\cite{Evered2023}, an NV
+electron--nuclear gate at $99.93(5)$\,\%~\cite{Bartling2025} and silicon spin qubits at 99.5\,\%~\cite{Xue2022,Noiri2022} \observed. They are read
+on their own gauges in Chapter~\ref{ch:qplatforms}, each with the statistic its paper states.
+
+The ion gates in Table~\ref{tab:platforms} act through the ions' shared motion. The electronic gate applies a
+spin-dependent force to the motional modes and works without ground-state cooling~\cite{Hughes2025}. The motional
+modes are heated by electric-field noise from the trap electrodes, which grows steeply as the ion approaches the
+surface~\cite{Brownnutt2015}; that heating, together with control noise, limits the error of both gate classes \observed.
+
+\section{The floor}\label{sec:qubitfloor}
+
+The left-hand mark of the qubit gauge is the thermal floor of IAM's Law at the temperature the record itself sees. A record held in a gap
+$E=hf$ against a bath at temperature $T$ settles at an occupation $p_{\rm eq}=1/(1+e^{hf/\kB T})$ of the wrong level, and one gate of
+duration $t_g$ is kicked out of the right level with probability $p_{\rm th}=p_{\rm eq}\,t_g/T_1$ \derived\ (detailed balance;
+Eqs.~\eqref{eq:qp_peq} and~\eqref{eq:qp_pth}, Chapter~\ref{ch:qplatforms}). On the gauge the device as built reads $A=1$ and its floor sits
+below it at $p_{\rm th}/\varepsilon$. Every input is measured on the device itself: the gap, the temperature the qubit sees, the gate time and
+$T_1$; nothing is assigned or fitted.
+
+For a transmon at 5~GHz whose own effective temperature is 35~mK~\cite{Jin2015}, with the mean $T_1=68~\mu$s of the 105-qubit processor of
+Ref.~\cite{GoogleWillow2025} and an illustrative 40~ns gate, $p_{\rm th}=6.2\times10^{-7}$ \calc: a two-qubit error near $10^{-3}$ reads its
+floor at $6\times10^{-4}$ on its own gauge. For a trapped ion the record is a hyperfine level pair that no bath thermalises, so the floor of the
+held record lies far to the left of any gate error; the gate runs through the ions' shared motion, whose thermal channel is the motional heating
+described above, and the floor of that channel is set apparatus by apparatus by the heating rate and the gate time
+(Chapter~\ref{ch:qplatforms}) \interp. Present gate errors therefore sit orders of magnitude above the floor that temperature alone sets. That
+distance is the room the field is working in, and the decomposition of Chapter~\ref{ch:walls} says which loss channel takes it \interp.
+
+\section{The threshold picture}
+Figure~\ref{fig:qubit_gauge} places the transmon reading of Section~\ref{sec:qubitfloor} on its own gauge: the device as built at 1, its thermal floor to the left, the threshold to the right. Any device with a published two-qubit error can be placed on its own gauge the same way.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part5/fig_qubit_gauge.pdf}
+\caption{(a) The qubit gauge, each device against itself. Top: a transmon at 5~GHz and its own 35~mK~\cite{Jin2015}, $T_1=68~\mu$s~\cite{GoogleWillow2025}, an illustrative 40~ns gate and two-qubit error $10^{-3}$; its thermal floor $p_{\rm eq}t_g/T_1=6.2\times10^{-7}$ sits at $6.2\times10^{-4}$ (diamond) \calc. The device as built reads $A=1$ (circle); the surface-code threshold sits to the right at $10^{-2}/\varepsilon=10$ (bar) \calc. (b) $(\varepsilon-p)/p$ from Eq.~\eqref{eq:Agate}: at most 0.503\,\% for $p\le10^{-2}$; circle, the worked example. \derived}\label{fig:qubit_gauge}
+\end{figure}
+
+Surface-code error correction needs physical error below about $10^{-2}$, and useful
+fault-tolerant overhead needs about $10^{-3}$ or better~\cite{Fowler2012,GoogleWillow2025}.
+The qubit gauge places each device on one axis with three marks: its thermal floor, the device as built and the error-correction threshold,
+with the fault-tolerance target between the last two. The transmon
+reading has its floor at $6\times10^{-4}$ and the threshold at 10 \calc. The gauge keeps the physical content, the gate error relative to the
+floor temperature sets and to the threshold, and nothing else.
+
+Every platform now sits on one axis, read against its own floor. A device physicist can take a platform's dominant loss mechanism, work out
+how close it comes to the floor, and see exactly how much room is left to win \interp.

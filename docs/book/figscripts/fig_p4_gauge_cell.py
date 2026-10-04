@@ -1,4 +1,4 @@
-"""part4/fig_gauge_cell (Chapter 'One gauge for a cell', Figure fig:gauge).
+"""part6/fig_gauge_cell (Chapter 'One gauge for a cell', Figure fig:gauge).
 
 One gauge, four readings, for neutrophils. Each row: the healthy reference 1 in the middle; the left half runs linearly from the floor to 1,
 the right half on a log scale from 1 to the far end. Values:
@@ -74,4 +74,4 @@ r = rng("healthy", "C_6000"); bar(xf, y, r, S.IAM, f"healthy {r[0]:.2f}\u2013{r[
 r = rng("local5pct", "C_6000"); bar(xf, y, r, S.DATA, f"5 % blur in 10 regions\n{r[0]:.1f}\u2013{r[1]:.1f}", 8)
 y = 0.0; ax.text(-0.23, y, "IAM-A C-score", fontsize=7.5, fontweight="bold", va="center")
 ax.add_patch(Rectangle((0, y - h / 2), 1, h, fc="#f2f2f2", ec="#999999", lw=0.6, hatch="////")); ax.text(0.5, y, "not built", ha="center", va="center", fontsize=6.5, color=S.GR)
-S.save(fig, "part4", "fig_gauge_cell")
+S.save(fig, "part6", "fig_gauge_cell")

@@ -1,6 +1,6 @@
 """Checks for Part 5, Chapter 'Exploratory: propulsion and the conservation laws' (part5/p5_02b_propulsion.tex).
 Every number and algebraic step printed in the chapter is recomputed here, and every number of the source text
-(the same text carried in part5/p5_02_exploratory.tex) is re-checked in section 1.
+(the same text carried in part7/p7_02_exploratory.tex) is re-checked in section 1.
 Run: python docs/verification/scripts/verify_propulsion.py
 Sections follow the chapter: source numbers, momentum of a closed craft, field-momentum thrust, negative mass,
 active and passive mass, hover by weight reduction, universality, tides of a steep focus, energy of a displaced region."""

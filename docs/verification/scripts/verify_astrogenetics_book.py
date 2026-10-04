@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recompute every number printed in docs/book/part4/p4_00b_astrogenetics.tex
+"""Recompute every number printed in docs/book/part6/p6_00b_astrogenetics.tex
 and in its insertion blocks (MANIFEST). Run from the repository root:
     python3 docs/verification/scripts/verify_astrogenetics_book.py
 Records read (repository paths):
@@ -20,9 +20,9 @@ def check(name, got, want, tol):
 
 H = lambda x: -x*math.log2(x) - (1-x)*math.log2(1-x)
 
-# --- gauge points (book: p4_05_floorbreach, p4_06_gauge, p3_08_one_gauge) ---
-Href = 0.330263          # metA_floors_v1_3.json floor, bits (p4_14_atlas l.20)
-P = 1.099                # neutrophil position (p4_24_status)
+# --- gauge points (book: p6_05_floorbreach, p6_06_gauge, p7_08_one_gauge) ---
+Href = 0.330263          # metA_floors_v1_3.json floor, bits (p6_14_atlas l.20)
+P = 1.099                # neutrophil position (p6_24_status)
 Ehold = 3.41             # k_BT, measured holding energy (p4_06 l.129)
 M = 54000/(8.314*310.15) # Delta G_ATP / R T_body (p3_08 l.138-139)
 eps0 = 1/(1+math.exp(Ehold))
@@ -68,7 +68,7 @@ for st, col, lo, hi in [("Senescent","A_unmeth",0.685,0.695),("Senescent","A_met
     a, b = rng(st, col)
     check(f"IMR90 {st} {col} low", a, lo, 0.0005); check(f"IMR90 {st} {col} high", b, hi, 0.0005)
 
-# --- compact stars on their own gauge (p2_01_blackholes table; masses from its sources) ---
+# --- compact stars on their own gauge (p3_01_blackholes table; masses from its sources) ---
 check("Sun's future white dwarf 0.54/0.6", 0.54/0.6, 0.90, 0.005)
 check("Chandrasekhar 1.44/0.6", 1.44/0.6, 2.40, 0.005)
 check("TOV 2.3/1.4", 2.3/1.4, 1.64, 0.005)

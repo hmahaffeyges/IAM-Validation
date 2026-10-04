@@ -1,0 +1,102 @@
+\chapter{Law and Order: one accounting at five places}\label{ch:synthesis}
+
+\section*{The two halves of the title}
+The law is the first half. Every irreversible transition from quantum superposition to a classical record pays at least $\kB T\ln2$ per
+bit at the nearest surface on which the record is written, at that surface's temperature (Chapter~\ref{ch:iams_law}). Decoherence makes the
+record~\cite{Zurek2003}; Landauer and Bennett price it~\cite{Landauer1961,Bennett1982}; B\'erut and colleagues measured the price~\cite{Berut2012};
+Bekenstein, Hawking and Jacobson give the surface its capacity, its temperature and its role in gravity~\cite{Bekenstein1973,Hawking1975,Jacobson1995}.
+The single identification the book adds is that the records belong in the entropy of the surface on which they are written. \conjecture
+
+Order is the second half. A record, once written, does not stay written for free. Thermal noise at the surface's temperature randomises it,
+and a system that is to remain what it is must spend energy to hold its records against that noise. A qubit holds its state against the
+quasiparticles and two-level defects of its own junction; a transistor holds a logic level against $\kB T$ at the gate; a cell holds its
+methylation pattern against copying errors at body temperature; a bound system holds its configuration in the balance the virial theorem
+states. Each of these is a fidelity held against thermal noise, and each can be read against its floor. \derived{} (that each surface has a
+floor at $\kB T\ln2$ per bit; for chips and qubits the floor follows from the temperature the record sees, for the cell its height is
+measured, as the last section of this chapter states) Our further reading,
+that the written surface is what the next moment is built from, so that without it nothing would follow, is an interpretation: it is how the
+book's results are understood, not one of them. \interp
+
+\section{The five places on one table}
+Table~\ref{tab:synthesis} sets the places of this book side by side. The cost per bit is the same expression at every row; what differs is the
+surface, its temperature, how many bits it holds, and what holding them costs the system.
+
+\begin{table}[htbp]\centering\small
+\caption{One accounting at five places. ``Floor'' is the lowest error or cost the physics allows at that surface; ``as built'' is the system's
+own healthy or as-built state, which reads 1 on the gauge; ``full'' is the far end, where the surface holds all it can.}\label{tab:synthesis}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.17\textwidth}@{}}\toprule
+place & what is written & floor & full surface & status \\\midrule
+cosmic horizon ($2.65\times10^{-30}$\,K, $H_0=67.16$) & classical records of decohering matter & --- & $Nk_BT_{GH}\ln2=M_Hc^2$ & coupling $\beta_m=\Omega_m/2$ \derived{} from the partition; $\mu_0=-0.136$ \calc \\
+black hole ($6.2\times10^{-8}$\,K at $1M_\odot$) & everything that fell in & --- & Bekenstein bound; $Nk_BT_H\ln2=\tfrac12Mc^2$ & \derived{} (Smarr) \\
+qubit (its own temperature, 35\,mK for a transmon on a 15\,mK stage) & the qubit state & thermal floor $p_{\rm eq}t_g/T_1$, $p_{\rm eq}=1/(1+e^{hf/\kB T})$ & a fully decohered state & floor \derived \\
+transistor (300--350\,K) & a logic level per switch & $\kB T_j\ln2$ per irreversible bit & --- & floor \derived; 9950X at $576$--$593\times$ \calc \\
+cell (310\,K) & the methylation identity pattern & $\varepsilon_0=0.032$; IAM-A floor $0.910$ (neutrophils) & every identity site at $\beta=\tfrac12$: Met-A 3.03, IAM-A 4.45 & form \derived, height \measured \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Three things are common to every row and are established. The cost per bit is $\kB T\ln2$ at the surface's own temperature. Each surface has a
+capacity, and the far end of its gauge is fixed exactly by that capacity: the Bekenstein bound for a horizon, one bit per site for a cell. And
+each has a floor below its working state, set by thermal physics at that surface. What is not common, and the book does not claim, is a single
+numerical saturation condition shared by all five (Chapter~\ref{ch:floorbreach}). \derived
+
+Table~\ref{tab:synth_slots} gives the same places slot by slot: what the irreversible event is, where it is written, at what temperature, at what
+rate, with what coefficient, and what is observed.
+\begin{table}[htbp]\centering\scriptsize
+\caption{The same construction at five places. Each column fills the same six slots.}\label{tab:synth_slots}
+{\footnotesize\setlength{\tabcolsep}{3pt}\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.11\textwidth}*{5}{>{\raggedright\arraybackslash}X}@{}}\toprule
+slot & gravity & cosmology & qubit (Al) & transistor & cell\\\midrule
+irreversible event & quantum-to-classical decoherence & halo collapse and structure formation & a two-level-fluctuator flip in the junction oxide & a logic switch & maintenance methylation of a hemimethylated CpG by DNMT1\\
+encoding surface & local causal (Rindler) horizon & cosmic apparent horizon & the Al condensate & the junction & chromatin accessible to DNMT1\\
+temperature & $\hbar\kappa/2\pi k_B$ & $\hbar H/2\pi k_B$ & $\Delta_{\rm Al}/k_B=2.112$\,K & $T_j\approx348$\,K & $T_{\rm body}=310.15$\,K\\
+event rate & per decoherence event & per epoch, through $E(a)=e^{1-1/a}$ & $1/\tau_{\rm TLS}$ & switching frequency $f$ & an open problem\\
+coefficient & $\eta=1/(4\ell_P^2)$, $\tfrac14=2\pi/8\pi$ \derived & $\beta_m=\Omega_m/2=0.15765$ \derived & $x_{\rm qp}\tau_{\rm TLS}n_{cp}V\,/$\newline$(N\tau_{\rm qp})=2$ \prediction & $k_BT_j\ln2$ per bit \derived & $\varepsilon_0=0.032$ from $E_{\rm hold}=3.41\,k_BT$ \measured\\
+observable & $S=k_BA/4\ell_P^2$; $G$ recovered & $\mu_0=-0.136$ \calc; $\sigma_8=0.7998$ \measured & $x_{\rm qp}$ & switching energy against $k_BT_j\ln2$ \calc & Met-A, IAM-A; 1 for a healthy cell \calibrated\\\bottomrule
+\end{tabularx}}
+\end{table}
+The construction is shared; no numerical constant is transferred between columns. A parameter fixed in cosmology does not predict a number in
+biology. What is under test is that the same accounting applies at each place, not that the universe and the cell share a constant. \interp
+
+\section{The one half that recurs}
+Figure~\ref{fig:one_half} computes the half at three of these places.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part7/fig_one_half.pdf}
+\caption{The half at three places, computed. (a) Charging a capacitor from a fixed supply through any resistance: the energy dissipated is half the energy drawn, 0.500000 for $R$ from $10^{-2}$ to $10^{2}\,\Omega$. (b) The bits on a Schwarzschild horizon priced at its own temperature, $Nk_BT_H\ln2=\tfrac12Mc^2$ at every mass~\cite{Smarr1973}. (c) The time-averaged kinetic over potential energy of a Kepler orbit, $\tfrac12$ at every eccentricity. \derived\ That the three halves are one quantity is a \conjecture.}\label{fig:one_half}
+\end{figure}
+The virial theorem gives $2K+U=0$ for any system bound by a $1/r$ potential: half the binding energy is kinetic, half is released. It holds
+for every atom and molecule, for stars and galaxies and for clusters of galaxies (Table~\ref{tab:virial_domains}). \observed{} At a horizon the
+same half appears as the Smarr relation: the bits on a Schwarzschild horizon, priced at its own temperature, total $\tfrac12Mc^2$. \derived{} In
+cosmology it fixes the size of the informational term, $\beta_m=\Omega_m/2$, and with it $\mu_0=-0.136$ with no free parameter
+(Chapter~\ref{ch:virial}). \derived{} In a transistor the energy drawn from the supply to charge a gate splits in half between the capacitor and the
+resistance, whatever the resistance. \derived{} That the CMOS half and the virial half are one quantity is a conjecture. \conjecture
+
+\section{What has been measured, place by place}
+\paragraph{Cosmology.} With the coupling fixed by the law and no free parameter, IAM reproduces Planck 2018 as well as $\Lambda$CDM ($\Delta\chi^2=+0.54$) and only
+$\sigma_8$ moves, as the late-time term predicts ($0.8087\to0.7998$). The predicted growth deficit, 4.25\,\% in $f\sigma_8$ today and 0.41\,\% at $z=1$, with lensing unchanged, is
+below what present surveys resolve. The survey forecast and the decisive test, the turn-on of the ramp, are in Section~\ref{sec:sp_euclid}. \measured, \calc, \prediction
+
+\paragraph{Black holes.} The bits of a horizon at its own temperature total $\tfrac12Mc^2$ for every mass, and a black hole saturates the
+Bekenstein bound. Both are standard results~\cite{Bekenstein1973,Hawking1975}. \derived{} The book reads them as the law at its limit. \interp
+
+\paragraph{Quantum processors and chips.} Gate errors and switching energies sit above floors that temperature alone sets. A 5~GHz transmon
+at its own 35~mK, with $T_1=68~\mu$s and a 40~ns gate, has a per-gate thermal floor of $6.2\times10^{-7}$, three orders of magnitude below a
+two-qubit error near $10^{-3}$; the Ryzen 9 9950X switches at 576--593 times $\kB T_j\ln2$
+(Chapters~\ref{ch:ascoreqc},~\ref{ch:qplatforms},~\ref{ch:cmos}). \derived, \calc{} That room, read channel by channel on one device, is what the
+device gauges offer a laboratory and a fab.
+
+\paragraph{Cells.} The instrument reads neutrophils on EPIC arrays against their own healthy reference, measured on six purified arrays; held out,
+those arrays read with an SD of 0.020 around 1 (Chapter~\ref{ch:meta}). \calibrated
+\measured{} These show that the readings respond to a known change in maintenance fidelity. They are not commissioning results and not disease
+readings; where breach and the cancer region lie on this gauge is the next measurement (Chapter~\ref{ch:gauge}).
+
+\section{The open problems}\label{sec:synth:notshown}
+The next step for the cell is to derive its floor from the law alone; today its height comes from a measured holding energy, $E_{\rm hold}=3.41\,\kB T$. The processors' floors
+follow from $\kB T$ at the temperature each record sees; how close each loss channel comes to its floor is still to be measured device by
+device. The cosmic coupling is derived from the partition, but the entropy identification it rests on is a
+conjecture tested by its consequences. The electron-mass formula carries a factor found numerically; the $3/16$ of the baryon relation and the
+$2/\pi$ of the cosmological-constant estimate are taken as given here; their derivation is an open problem. A derivation of the cell's floor from the law alone, before the data are consulted, would
+turn the ladder of places from a shared accounting into a numerical unification. It is the first item of the open problems
+(Chapter~\ref{ch:open}). Chapter~\ref{ch:onegauge} has set the device and cell readings side by side on one gauge, and the next chapter
+(Chapter~\ref{ch:reach}) says what each instrument could give.
+
+A shared accounting across five places is already a strong result; a derivation of one floor from the law alone would make it a numerical unification. That is the first open problem, and the most rewarding one to take up.

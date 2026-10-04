@@ -1,5 +1,5 @@
 """Part 2, Chapters 'The cosmological constant' (p2_12_lambda.tex), 'The baryon density' (p2_13_baryon.tex), 'Records at the quantum scale'
-(p2_14_quantum_records.tex) and 'The particle scale' (p2_15_particle_masses.tex).
+(p4_14_quantum_records.tex) and 'The particle scale' (p2_15_particle_masses.tex).
 fig_cc_relation: (Omega_b/Omega_m) / ((3/16) sqrt(Omega_L)) on each chain (Cosmological_Physics/mgcamb_validation/chains, 30 % burn-in, weighted; as
 verify_cc_and_baryon.py) and on the Planck 2018 values the chapter quotes (Ob 0.0493, Om 0.3153, OL 0.6846).
 fig_eta: eta = 273.9e-10 Omega_b h^2 on the same chains, and the two inversions of the cosmological-constant expressions at Omega_m h^2 = 0.1430.
@@ -76,7 +76,7 @@ ax.set_xlim(0, 9); ax.set_ylim(0.8, 6.3)
 ax.set_xlabel("redshift $z$"); ax.set_ylabel("bottom-up exponent $n_{\\rm eff}$")
 ax.legend(loc="upper left", fontsize=7)
 ax.set_title("The bottom-up exponent passes 7/2 at $z\\approx3$–4")
-S.save(fig, "part2", "fig_neff_bottomup")
+S.save(fig, "part4", "fig_neff_bottomup")
 
 # ---------------- tau vs mass -----------------
 hb, kB = C.hbar, C.k; rho = 2200.
@@ -98,7 +98,7 @@ ax.set_xticks([1e-14, 1e-12, 1e-10, 1e-8]); ax.set_yticks([1e-12, 1e-6, 1, 1e6, 
 ax.set_xlabel("mass of a silica sphere (kg)"); ax.set_ylabel("coherence time (s)")
 ax.legend(loc="upper right", fontsize=7)
 ax.set_title("Eight orders apart at the picogram scale")
-S.save(fig, "part2", "fig_tau_mass")
+S.save(fig, "part4", "fig_tau_mass")
 
 # ---------------- Koide -----------------
 me, mmu, mt = 0.51099895, 105.6583755, 1776.86; sq = np.sqrt([me, mmu, mt]); x = sq.sum() / 3

@@ -1,4 +1,4 @@
-"""part2/star_gauge (Chapter 'Black-hole horizons', Figure fig:stargauge).
+"""part3/star_gauge (Chapter 'Black-hole horizons', Figure fig:stargauge).
 
 Compact stars on the same gauge: A = mass / the typical remnant of the same kind as built (white dwarfs 0.6 Msun, the measured DA mean
 0.593 Msun, Kepler et al. 2007; neutron stars 1.4 Msun). Surface full at the Chandrasekhar mass 1.44 Msun (A = 2.40) and the TOV limit taken
@@ -49,4 +49,4 @@ for ax, R_ in zip(axs, ROWS):
         ax.plot([A, A], [-0.45, lev + 0.05], color=S.IAM, lw=0.4)
         ax.text(A + {"right": -0.004, "left": 0.004, "center": 0}[ha] * span, lev, f"{n}" + (f", {note}" if note else "") + f"\n{m} M$_\\odot$, A = {A:.2f}", ha=ha, va="top", fontsize=5.8, color=S.IAM)
 fig.text(0.5, 0.0, "A = mass / the typical remnant of the same kind (each row its own scale)", ha="center", fontsize=6.5)
-S.save(fig, "part2", "star_gauge")
+S.save(fig, "part3", "star_gauge")

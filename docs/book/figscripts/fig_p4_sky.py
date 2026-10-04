@@ -19,7 +19,7 @@ import numpy as np
 HERE = pathlib.Path(__file__).resolve().parent
 BOOK, REPO = HERE.parent, HERE.parent.parent.parent
 SKYDIR = REPO / "Biological_Physics" / "MethylPhys" / "reference_floors_v1" / "sky"
-OUT = BOOK / "figures" / "part4"
+OUT = BOOK / "figures" / "part6"
 CMBMAP = HERE / "_data" / "cmb_planck2018_nside256.npz"
 NAMES = ("fig_sky_cmb_vs_neutrophil", "fig_sky_genome_on_sphere", "fig_sky_what_it_sees", "fig_sky_cscore_unrolled", "fig_sky_cd")
 

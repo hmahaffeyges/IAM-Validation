@@ -1,0 +1,110 @@
+\chapter{The chain of custody}\label{ch:chain}
+
+\section{What the chain is}
+
+The Cellular Performance Gauge is a chain of stages that takes a specimen's raw array files and returns a reading on the one gauge of
+Chapter~\ref{ch:gauge}. Chain v3 is a development build, not commissioned and not a diagnostic test. Its scope is one cell type, neutrophils,
+on EPIC v1 arrays; other cell types are added one at a time after each passes its tests. The
+procedure is the SOP and the operations manual.
+Where a document and the code differ, the code is what runs. This chapter walks through the stages (Figure~\ref{fig:chain}).
+
+Table~\ref{tab:p4_gates} lists the line each stage applies; the values and the files they are read from are in the SOP.
+
+\begin{table}[htbp]\centering\small
+\caption{The lines chain v3 applies, stage by stage. Values are read from frozen files and listed in the SOP; platform, Stage~M and Stage~T
+rules as stated in this chapter. \calibrated}\label{tab:p4_gates}
+\begin{tabular}{@{}lp{0.5\textwidth}p{0.3\textwidth}@{}}\toprule
+stage & line & source \\\midrule
+Stage 0 & call rate: proceed; flagged; quarantine & SOP \\
+Stage 0 & bisulfite conversion: printed, not gated & SOP \\
+platform & EPIC v1 only & SOP \\
+Stage A & enough of the composition markers measured & SOP \\
+Stage M & neutrophil fraction above the read line; enough of the identity sites measured & SOP \\
+Stage MC & blocks of 50 sites; enough blocks; baseline 1.1104 & SOP \\
+Stage T & median tare against same-run references & SOP \\
+Stage Q & one named read-level pipeline; $P=1.099$; enough opportunities & SOP \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part6/fig_chain_v3_flow.pdf}
+\caption{Chain v3, from intake to report. Stage~A runs on whole blood only. Stage~Q reads sequencing input. Drawn from the stage rules in the code.}
+\label{fig:chain}
+\end{figure}
+
+\section{Stage 0: intake}
+
+The IDAT pair is opened and the array's own numbers are read: manifest, integrity hash, control probes, per-probe detection, call rate and sex check.
+Below the lower call-rate line the specimen is quarantined and no reading is written; between the lines it proceeds with a flag. A sex mismatch, a failed
+integrity check or a deferred detection or call-rate check also quarantines (Chapter~\ref{ch:instrument}). A cleartext identifier is hashed before the
+engine sees it. Input that arrives as $\beta$ values without the raw files can be read, but no intake runs on it: the v3 bundle carries no intake record,
+and the report prints intake as not run.
+
+\section{Stage 1: calibration}
+
+Noob background and dye-bias correction and probe-type normalisation, per array, produce $\beta$ at every probe. Probes indistinguishable from background are
+removed before any later stage sees a $\beta$. Stage~1 returns, beside $\beta$, the array's detection numbers and control intensities.
+
+\section{Platform check}
+
+The chain reads EPIC v1 only. A specimen whose array type, probe names or probe count say 450K or EPIC v2 is refused with one sentence, because no frozen
+neutrophil floor exists for that platform.
+
+\section{Stage A: composition (whole blood)}
+
+Eight blood groups are solved by non-negative least squares on markers, none of them a neutrophil identity site (Chapter~\ref{ch:separation}). Too few
+measured markers: no composition and no reading. Isolated neutrophils skip this stage.
+
+\section{Stage M: Met-A}
+
+\begin{itemize}
+\item \textbf{Isolated neutrophils:} the mean $H(\beta)$ over the identity sites divided by the floor, 0.330263 bits (Eq.~\eqref{eq:meta}).
+\item \textbf{Whole blood:} read when the neutrophil fraction is above the read line; the mean $H(\beta)$ over the sites divided by the mean $H(e)$ of the specimen's
+      own healthy expectation (Eq.~\eqref{eq:metawb}). Below the line the fraction is printed and $A$ is withheld.
+\end{itemize}
+Either way enough of the sites must be measured. Stage~M also records the noise index $N$, the shift a 1~\% loss of the neutrophil pattern would cause in
+this specimen, and the methylated sites' mean $\beta$ with a flag when it is below one half, past the entropy ceiling.
+
+\section{Stage MC: the Met-A C-score}
+
+The residual map over the identity sites, in genome order, is reduced to the C-score: the variance of 50-site block means, times 50, over the variance of the sites,
+divided by the healthy baseline 1.1104 (Chapter~\ref{ch:cscore}). It is printed with every reading, with no band. The IAM-A C-score is defined and not yet built. \openprob
+
+\section{Stage T: the tare}
+
+The reading is divided by the median of healthy references of the same specimen type run the same way, on the same slide, else in the same batch.
+The result is $A_{\rm rel}$, and the gauge state is printed from $A_{\rm rel}$ only: \emph{Normal} (0.95--1.05), \emph{above Normal} or \emph{below Normal}. Every
+tared reading carries its detection limit: twice the references' spread over the shift per 1~\% loss, the smallest loss of the neutrophil pattern this specimen
+could have shown.
+
+The noise index $N$, the mean $H(\beta)$ over the sites that every purified blood group holds fixed, is measured on every array and gates the gauge
+state: outside the range of the purified reference arrays the state is withheld.
+There is no fitted correction for $N$. \calibrated{} A slide tare from fully methylated and fully unmethylated control DNA run on every slide is the planned tare.
+\openprob{} (until a laboratory runs it)
+
+Without references, whole blood is printed as \emph{untared}, with no state and no gauge position. Isolated neutrophils without references keep their own-floor
+state inside the untared label (\emph{untared (own-floor state: \dots)}) and are drawn on the gauge against their own floor, labelled untared.
+
+The operating procedure is in the operations manual.
+
+% COMMISSIONING-RETURN fig:p4_detlimit: figure taken out 2026-10-03 (plotted development values from the removed fitted tare). Put back, redrawn from the commissioned chain; see development/COMMISSIONING_RETURNS.md.
+
+
+\section{Stage Q: IAM-A}
+
+Single-molecule input, a read-level file of the one pipeline for which a neutrophil position is frozen, is read as IAM-A,
+Eq.~\eqref{eq:iama}, with enough opportunities and a reading on each half of the molecules as a repeat check. A table from
+any other pipeline is refused until a position has been measured on healthy cells with that pipeline.
+
+\section{What the chain withholds}
+
+Every bundle lists what the build does not print: any line beyond Normal, because breach and the cancer region are not yet measured on this scale, and every
+cell type other than neutrophils.
+Composition-based detection of cells outside the eight groups, the whole-array sky, serial mode and the out-of-span map are not part of chain v3. \openprob
+
+\section{The record of a run}
+
+Each run writes one HTML page, a JSON bundle with every stage's output and the versions of the floor and reference files, and one row appended to an evidence
+ledger (Chapter~\ref{ch:report}). Each run takes its number from the ledger. The v3 bundle does not yet record the chain's commit or a checksum of each
+frozen file it read, and the v3 procedure and operations manual are written by hand, not generated from the code. \openprob

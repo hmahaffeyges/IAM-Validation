@@ -1,7 +1,7 @@
 """Part VI, chapter 'Tools from the sky': the two tables of docs/book/part4/16a_skytools_*.tex.
 
 Run from any directory:  python docs/book/figscripts/make_skytools_tables.py
-Writes docs/book/part4/16a_skytools_skystats.tex and docs/book/part4/16a_skytools_map79.tex.
+Writes docs/book/part6/16a_skytools_skystats.tex and docs/book/part6/16a_skytools_map79.tex.
 
 skystats: Met-A and C-score ranges over the six held-out neutrophil arrays, read from the chain's sky run
   Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv (script sky_neut6.py in the same folder).
@@ -17,7 +17,7 @@ HERE = Path(__file__).resolve().parent
 BOOK, REPO = HERE.parent, HERE.parent.parent.parent
 MP = REPO / "Biological_Physics" / "MethylPhys"
 SKY = MP / "reference_floors_v1" / "sky"
-OUT_STATS, OUT_MAP = BOOK / "part4" / "16a_skytools_skystats.tex", BOOK / "part4" / "16a_skytools_map79.tex"
+OUT_STATS, OUT_MAP = BOOK / "part6" / "16a_skytools_skystats.tex", BOOK / "part6" / "16a_skytools_map79.tex"
 
 # ---------------------------------------------------------------- the sky run: six neutrophil arrays
 stats = list(csv.DictReader(open(SKY / "sky_neut6_stats.csv")))

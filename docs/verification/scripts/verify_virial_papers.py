@@ -5,7 +5,7 @@ Effective Nonlinear Exponent; The Virial Partition Across Wide Range of Physical
 Gravitational Decoherence, the Virial Partition and the Emergence of Classical Structure; Gravitational Decoherence from Dual-Sector
 Thermodynamics (quantum level).
 Chapters: part1/p1_03_virial_law.tex, part1/p1_04_virial_identity.tex, part2/p2_02_virial.tex, part2/p2_02b_virial_tests.tex,
-part5/p5_05_gravdec.tex, part5/p5_05b_virial_partners.tex, part5/p5_05c_virial_decoherence.tex.
+part4/p4_05_gravdec.tex, part7/p7_05b_virial_partners.tex, part7/p7_05c_virial_decoherence.tex.
 CODATA 2018 via scipy.constants. Planck 2018: Omega_m = 0.3153, H0 = 67.36; Level 2 chains from Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv.
 Run from the repository root:  python docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
 """

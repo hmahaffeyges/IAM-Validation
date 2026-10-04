@@ -2,7 +2,7 @@
 
     python docs/book/figscripts/fig_p4_landauer_metrology.py
 
-Outputs (docs/book/figures/part4/): fig_cell_budget, fig_division_floor, fig_p4_02_operating,
+Outputs (docs/book/figures/part6/): fig_cell_budget, fig_division_floor, fig_p4_02_operating,
 fig_p4_15b_transfer, fig_p4_15b_lowsignal (.pdf + .png).
 Data read from docs/book/figscripts/cell_data/ (copied there from the retired kit/results/; PROC_TARE_01_per_array.parquet,
 FINDING_GSE125105_controls.csv). Constants recomputed as in Biological_Physics/Landauer_Metrology/verify_landauer_metrology.py.
@@ -36,7 +36,7 @@ ax.set_yticks(range(3), labels)
 ax.set_xlim(0, 34)
 ax.set_xlabel(r"energy per event ($k_BT$ at 310.15 K)")
 fig.tight_layout()
-bs.save(fig, "part4", "fig_cell_budget")
+bs.save(fig, "part6", "fig_cell_budget")
 
 # 2. Landauer floor for one rewrite of the pattern vs number of sites counted
 fig, ax = plt.subplots(figsize=(0.62 * bs.TEXTW, 2.3))
@@ -53,7 +53,7 @@ ax.set_ylabel("ATP equivalents (54 kJ/mol)")
 ax.set_ylim(1e3, 2e8)
 ax.legend(loc="upper left", frameon=False)
 fig.tight_layout()
-bs.save(fig, "part4", "fig_division_floor")
+bs.save(fig, "part6", "fig_division_floor")
 
 # 3. The operating ratio for three substrates
 fig, ax = plt.subplots(figsize=(0.62 * bs.TEXTW, 1.9))
@@ -72,7 +72,7 @@ ax.set_yticks(range(3), [r[0] for r in rows])
 ax.set_ylim(-0.6, 2.6)
 ax.set_xlabel(r"$\mathcal{M}=E_{\rm drive}/k_BT$")
 fig.tight_layout()
-bs.save(fig, "part4", "fig_p4_02_operating")
+bs.save(fig, "part6", "fig_p4_02_operating")
 
 # 4. Three laboratories on one scale
 d = pd.read_parquet(KIT / "PROC_TARE_01_per_array.parquet")
@@ -91,7 +91,7 @@ ax.set_xlim(-0.5, 2.7)
 ax.set_ylabel("immune $A$, mapped (identity sites, 450K)")
 ax.text(2.65, 1.045, "Normal 0.95–1.05", ha="right", va="top", fontsize=6, color=bs.ALT)
 fig.tight_layout()
-bs.save(fig, "part4", "fig_p4_15b_transfer")
+bs.save(fig, "part6", "fig_p4_15b_transfer")
 
 # 5. The low-signal laboratory: control-probe intensities and probes at background
 c = pd.read_csv(KIT / "FINDING_GSE125105_controls.csv").groupby("lab").median(numeric_only=True)
@@ -113,4 +113,4 @@ a2.set_xticks(range(4), [n for _, n in order], rotation=30, ha="right")
 a2.set_ylabel("probes at background (%)")
 bs.panel_letter(a2, "b", dx=-0.3)
 fig.tight_layout()
-bs.save(fig, "part4", "fig_p4_15b_lowsignal")
+bs.save(fig, "part6", "fig_p4_15b_lowsignal")

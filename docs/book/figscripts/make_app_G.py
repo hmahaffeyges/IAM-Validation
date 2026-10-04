@@ -6,7 +6,7 @@ Writes docs/book/appendices/app_G_predictions_register.tex. Nothing in the table
   * statement, test and date, and falsifier come from the JSON, after the edits in app_G_overrides.json
     (each edit must match its field exactly once, or the script stops);
   * values that an override changes are recomputed here and checked (decoherence time, E_G shift);
-  * the chapter number (C1, Q2, ...) is read from the bracketed register IDs in part5/p5_07_predictions.tex;
+  * the chapter number (C1, Q2, ...) is read from the bracketed register IDs in part7/p7_07_predictions.tex;
   * the count table counts every verdict by domain.
 A final lint stops the script if a draft, method name, hold note or correction phrase survives in the rendered text.
 """
@@ -22,7 +22,7 @@ from _texify import texify, check  # noqa: E402
 
 TRIAGE = REPO / "CANON" / "predictions_triage_2026-10-02.json"
 OVER = HERE / "app_G_overrides.json"
-CHAP = BOOK / "part5" / "p5_07_predictions.tex"
+CHAP = BOOK / "part7" / "p7_07_predictions.tex"
 OUT = BOOK / "appendices" / "app_G_predictions_register.tex"
 
 DOMAINS = [("COS", "Cosmology and gravitation"), ("PAR", "Particle physics and fundamental limits"),

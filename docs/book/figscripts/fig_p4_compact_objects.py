@@ -1,4 +1,4 @@
-"""part4/fig_compact_objects (Chapter 'Translation', Figure fig:compact).
+"""part6/fig_compact_objects (Chapter 'Translation', Figure fig:compact).
 
 Load ratio = core mass / saturation mass: 1.44 Msun for white dwarfs (Chandrasekhar 1931) and ~2.3 Msun for neutron stars (the book's
 TOV value; Rezzolla et al. 2018 give M_TOV <~ 2.16 +0.17/-0.15). Masses as tabulated in Chapter ch:blackholes: the Sun's future white dwarf
@@ -27,4 +27,4 @@ ax.text(1.02, 2.5, "saturation mass\n(Chandrasekhar / TOV)", fontsize=6, color=S
 ax.set_yticks(range(len(OBJ))); ax.set_yticklabels([o[0] for o in OBJ], fontsize=6.5)
 ax.set_xlim(0, 1.45); ax.set_ylim(-0.6, len(OBJ) - 0.4); ax.set_xlabel("core mass / saturation mass")
 ax.set_title("Compact objects on their own load ratio")
-S.save(fig, "part4", "fig_compact_objects")
+S.save(fig, "part6", "fig_compact_objects")

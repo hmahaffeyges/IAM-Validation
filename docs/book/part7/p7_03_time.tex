@@ -1,0 +1,150 @@
+% Part 5. Carries "The Two Faces of Time: Coordinate Time, Proper Time, and Accumulated Decoherence" (Mar 2026, rev. Oct 2026; PDF 249 lines, read in
+% full 2026-10-03) and the arrow-of-time passages of "Quantum Darwinism at Cosmological Scales"; the dark-matter section carries
+% "The Boundary Between Potential and Actual" and are kept intact. Corrections: PAPER_ERRATA.md TF1-TF3, BP1. Numbers:
+% docs/verification/scripts/verify_records_measurement_time.py (section C). Figure: figscripts/fig_records_measurement_time.py (fig_time_two_faces).
+\chapter{Duration, the arrow of time, and the boundary between potential and actual}\label{ch:time}
+
+\section{Two faces}\label{sec:time_faces}
+Time enters physics in more than one role, and it is two-faced. The first face was identified by Barbour and Bertotti in 1982 within the Machian
+relational framework: coordinate time is redundant, a label on a dimension, not a river carrying anything forward~\cite{BarbourBertotti1982}. That result
+has shaped how foundational questions about time are posed. The second face concerns irreversibility. Is every temporal quantity equally redundant? One
+is not: the accumulated count of irreversible records on a worldline has a physical carrier and a direction, and the relational framework accommodates
+it naturally. \interp
+
+\section{Three kinds of time}\label{sec:time_three}
+Three quantities are often treated as one. The differences between them are not merely terminological.
+
+\paragraph{Coordinate time: the map.} Coordinate time, $t$ or the scale factor $a$, is a label on the spacetime manifold. It assigns a number to each
+event. It does not require anything to happen: not worldlines, not mass, not irreversible processes. The manifold exists with its coordinate structure
+whether or not any event within it is irreversible. Barbour's insight~\cite{BarbourBertotti1982,Barbour1994} is that this coordinate has no privileged
+status: it is redundant as a fundamental concept, and the relational framework builds dynamics from configurations alone, without an external temporal
+parameter. Coordinate time is the map, not the territory. \derived{} (relational mechanics)
+
+\paragraph{Proper time: path length on the map.} Proper time is the geometric length of a worldline,
+\begin{equation}
+\tau=\frac1c\int\sqrt{-g_{\mu\nu}\,dx^\mu dx^\nu}.\label{eq:time_tau}
+\end{equation}
+It is still geometric, a property of the manifold measured along a particular path. A clock measures it: it tells how far one has travelled on the map.
+Proper time is reversible in principle. Under time-reversal-symmetric laws a worldline run forward and backward in coordinate time accumulates $\tau$ in
+both directions; proper time distinguishes clocks from one another but does not, by itself, distinguish past from future. For null geodesics,
+$d\tau=0$ identically. Photons appear on the manifold but accumulate no proper time. This is not an approximation; it is the definition of a null
+geodesic. \derived
+
+\paragraph{Accumulated record: the territory.} The third quantity is neither coordinate time nor proper time. It is not geometric; it is
+thermodynamic. It counts the irreversible quantum-to-classical transitions on a worldline, each a record written at the nearest encoding surface at a
+Landauer cost of at least $\kB T\ln2$ per bit~\cite{Landauer1961}; for the records of collapsing matter the largest such surface is the cosmic horizon
+(Chapter~\ref{ch:quantumrecords}). It requires
+\begin{enumerate}
+\item massive particles on timelike worldlines ($d\tau>0$), and
+\item irreversible quantum-to-classical transitions (gravitational decoherence).
+\end{enumerate}
+Massive particles exist from electroweak symmetry breaking ($T\approx160$\,GeV, $t\approx9\times10^{-12}$\,s; Chapter~\ref{ch:electroweak}), when the $W$, the
+$Z$ and the charged fermions acquire mass. The irreversibility itself does not depend on CP violation: decoherence and entropy production are
+irreversible for any interaction. The accumulated record is negligible for most of cosmic history, $E(z{=}10)=4.5\times10^{-5}$, and grows as structure
+forms. \calc{} Figure~\ref{fig:time_two_faces} sets the three side by side: the same worldline admits a geometric and a thermodynamic description.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{figures/part7/fig_time_two_faces.pdf}
+\caption{The two faces of time. (a) Coordinate time: a label on the manifold, with no direction and no accumulation (the redundant label of Barbour and
+Bertotti). (b) Proper time: the geometric length of a worldline, reversible in principle; a null geodesic has $d\tau=0$. (c) The accumulated record,
+$E(a)=\exp(1-1/a)$: thermodynamic, irreversible and carried only by matter on timelike worldlines (light: 0); $E(1)=1$ today and $E\to e$. The matter and
+photon sectors separate by construction. \derived}\label{fig:time_two_faces}
+\end{figure}
+
+Photons therefore accumulate neither proper time nor record. Massive particles accumulate both, but only the record is irreversible. The arrow of time is
+then not a statistical statement about low-entropy initial conditions~\cite{Penrose1989,Carroll2010}. It is the direction in which records are written,
+and every entry costs at least $\kB T\ln2$ per bit at the surface where it is written. \conjecture
+
+\section{The second face: the accumulated record}\label{sec:time_record}
+Within IAM the accumulated record of the matter sector is measured by the activation function (Eq.~\ref{part2:eq:Ea}),
+\begin{equation}
+E(a)=\exp\!\left(1-\frac1a\right),\label{eq:time_Ea}
+\end{equation}
+with $a$ the scale factor normalised to unity today. Its properties follow from its physical reading:
+\begin{itemize}
+\item $E(a)\to0$ as $a\to0$: negligible in the early universe;
+\item $E(1)=1$: normalised to today;
+\item $E(a)\to e$ as $a\to\infty$: a finite asymptote, approached but never reached;
+\item $dE/da=a^{-2}\exp(1-1/a)>0$ for all $a$: monotonic, one direction only.
+\end{itemize}
+\derived{} (sympy, \texttt{verify\_records\_measurement\_time.py} C1). The monotonic increase is not imposed. It follows from the irreversibility of each record: a bit written cannot be unwritten,
+and the record only accumulates. This is the arrow of time --- not statistical, not dependent on initial conditions, but thermodynamically required.
+\interp{} The universe has been paying the thermodynamic price of its own classicality, one record at a time; the arrow of time is the accumulated
+receipt. In the language of quantum Darwinism (Chapter~\ref{ch:quantumrecords}) each selection of a pointer state of collapsed matter is one such
+entry, and the record has a beginning, the appearance of massive particles, and an asymptotic end. \interp
+
+\paragraph{Light records nothing in flight.} Photons travel null geodesics, $d\tau=0$ by construction. No proper time accumulates, and no gravitational
+record is written; such a record needs nonzero proper time on a timelike worldline. Therefore
+\begin{equation}
+E(a)\big|_{\rm photon}\equiv0 .\label{eq:time_Ephoton}
+\end{equation}
+\derived{} This is the physical basis of the sector split. Photons interact with the geometry --- they are bent by gravity and redshifted by
+expansion --- but they add nothing to $E(a)$. The change that $E(a)$ makes to gravitational dynamics applies to the matter sector alone.
+
+\paragraph{The Machian framework already allows it.} The relational framework insists that physics be built from observable relations between things.
+Coordinate time fails this test: it is not directly observable. Proper time passes: clocks measure it. The accumulated record passes as well, and it is
+the temporal quantity that distinguishes past from future through a physical mechanism rather than a statistical assumption. Mach's criterion --- that
+time is an abstraction reached through the changes of things --- selects physical change over coordinate time. Not all changes are equal: reversible
+changes leave $E(a)$ unchanged; only irreversible records, each paying its Landauer cost, advance it. \interp
+
+\section{What the sector split implies}\label{sec:time_split}
+The distinction between the geometric and the thermodynamic quantity has an observable consequence that bears on a persistent tension. The CMB
+measurement of $H_0$ uses photons emitted at last scattering and travelling null geodesics for 13.8\,Gyr. The whole measurement is geometric: no proper
+time accumulated and no record written along the way. It reads the geometry: $H_0^{(\rm photon)}=67.16$\,km\,s$^{-1}$\,Mpc$^{-1}$, from the Level~2 chains on the Planck 2018 data
+(Planck's own base-$\Lambda$CDM value is $67.36\pm0.54$~\cite{Planck2018VI}), is what the manifold says about its own expansion rate. \measured{} The local distance ladder uses Cepheids, Type~Ia supernovae and the tip of the red
+giant branch --- massive objects on timelike worldlines that have accumulated records for billions of years. It reads the matter sector:
+$H_0^{(\rm matter)}=72.26$\,km\,s$^{-1}$\,Mpc$^{-1}$ is what the matter sector says about its own expansion rate, against the
+SH0ES $73.04\pm1.04$~\cite{Riess2022} (Chapter~\ref{ch:sectortension}). \calc{} (Level~2 chain value; $67.16\sqrt{1+\beta_m}=72.26$)
+
+On this reading the two are not necessarily two measurements of one quantity. They may be measurements of two quantities, one geometric and one
+thermodynamic, that a purely geometric treatment does not distinguish. The Hubble tension is consistent with the sector split, and both values are
+predicted with the coupling held fixed by the virial partition,
+\begin{equation}
+\beta_m=\frac{\Omega_m}{2}=0.15765\label{eq:time_betam}
+\end{equation}
+(Chapter~\ref{ch:virial}). \derived{} (given IAM's Law and the virial partition) The split itself is a prediction tested by the chains, not a
+closed-form derivation of either number. \prediction
+
+\section{The relational framework and shape dynamics}\label{sec:time_shape}
+Shape dynamics~\cite{Barbour2012,BarbourKoslowskiMercati2014} replaces the refoliation invariance of four-dimensional spacetime with three-dimensional
+conformal invariance. The universe is described by the evolution of its shape, the relational configuration of matter, without reference to absolute
+scale or absolute time. IAM is compatible with this framework at every level. It does not modify the background geometry and does not alter the
+Friedmann equations. It operates at the level of perturbations, through one term in the matter perturbation equation,
+\begin{equation}
+\ddot\delta_m+2H\dot\delta_m-\frac32\,\Omega_mH_0^2a^{-3}\,\mu(a)\,\delta_m=0,\qquad
+\mu(a)=\frac{H^2_{\Lambda\rm CDM}(a)}{H^2_{\Lambda\rm CDM}(a)+\beta_mE(a)H_0^2}<1,\label{eq:time_growth}
+\end{equation}
+in which $\mu$ multiplies the source term (the form of the Level~1 chains, Eq.~\ref{part2:eq:mu}). \derived{} The Level~2 chains put the same term into
+the expansion rate felt by matter perturbations, $H_m^2=H^2+\beta_mE(a)H_0^2$, so that it enters as additional Hubble friction with the Poisson equation
+unmodified (Chapter~\ref{ch:level2}); each growth number in the book states which form it uses. In both forms the geometric arena --- shape space, the
+relational configuration --- is untouched. The accumulated record is what happens on the worldlines within that arena; it does not modify the arena.
+Shape dynamics asks what the universe's configuration is; IAM asks how much irreversible information the matter sector has produced in reaching it. The
+two questions are complementary. \interp
+
+\section{Before and after the electroweak transition}\label{sec:time_ew}
+Before electroweak symmetry breaking ($t\approx9\times10^{-12}$~s; Chapter~\ref{ch:electroweak}) every Standard Model particle is
+massless. There are no timelike worldlines carrying rest mass, no gravitational decoherence
+of massive bodies, and $E(a)\equiv0$. After the transition the matter sector exists and the
+photon remains massless under exact $U(1)_{\mathrm{em}}$, so the two sectors of
+Chapter~\ref{ch:dual} separate permanently. \interp
+
+\begin{remark}
+The activation function of Eq.~\eqref{part2:eq:Ea} is normalised to $E(1)=1$ and is exponentially
+small, not zero, at $a_{\mathrm{EW}}\sim10^{-15}$: $E=\exp(1-10^{15})$. ``$E\equiv0$ before
+the transition'' is therefore a physical statement about the sector content, not a property
+of the formula, which has no feature at $a_{\mathrm{EW}}$. \calc
+\end{remark}
+
+\paragraph{An open question.} Electroweak symmetry breaking selects one point of the degenerate Higgs vacuum manifold. Whether that selection was itself
+the first gravitational-scale record, with its own Landauer cost at the transition temperature, is not settled (Chapter~\ref{ch:higgsrecord}). \openprob
+
+\section{Dark matter as the geometric half}
+
+IAM identifies dark matter with the accumulated geometric half of past
+virialization events: already actual, and not writing new information. This identification
+is what justifies the baryon fraction $\Omega_b/\Omega_m$ in Chapter~\ref{ch:lambda}.
+\conjecture\ It is a large claim, and it has to face every phenomenological success of
+particle dark matter at once: the CMB peak heights, the Bullet Cluster offset~\cite{Clowe2006}, and
+structure formation before recombination. It is recorded here as the framework's position.
+
+The arrow of time becomes a ledger of records, and a ledger can be checked. A relativist or a quantum theorist can take this reading to any system where records are written and follow the count.

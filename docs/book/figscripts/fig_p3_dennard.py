@@ -1,4 +1,4 @@
-"""part3/fig_dennard (Chapter 'Landauer at the transistor gate: CMOS and the Dennard wall', Figure fig:dennard).
+"""part5/fig_dennard (Chapter 'Landauer at the transistor gate: CMOS and the Dennard wall', Figure fig:dennard).
 
 Relative power density P/A = C V^2 f / A over node steps kappa = sqrt(2)^k (Dennard et al. 1974, IEEE JSSC 9, 256):
 constant-field scaling (C ~ 1/kappa, V ~ 1/kappa, f ~ kappa, A ~ 1/kappa^2) keeps it at 1; with the voltage held fixed it grows as kappa^2.
@@ -21,4 +21,4 @@ ax.plot(k, pd_fv, "o-", color=S.DATA, ms=4, label=r"voltage held fixed: $\propto
 ax.set_xscale("log", base=2); ax.set_yscale("log", base=2)
 ax.set_xlabel(r"linear scaling factor $\kappa$"); ax.set_ylabel("power density (relative)")
 ax.legend(loc="upper left"); ax.set_title("Power density once voltage stops scaling")
-S.save(fig, "part3", "fig_dennard")
+S.save(fig, "part5", "fig_dennard")
