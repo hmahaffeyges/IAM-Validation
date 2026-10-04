@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
 """run_sample.py - one command: IDAT pair (or a beta table, or single-molecule reads) to a MethylPhys report.
 
-Chain v3 (development build, neutrophils, EPIC v1) - the only engine: Stage 0 intake -> Stage 1 IDAT calibration -> conductor_v3
+Chain v3 (DEVELOPMENT - not commissioned; neutrophils, EPIC v1) - the only engine: Stage 0 intake -> Stage 1 IDAT calibration -> conductor_v3
 (platform check, Stage A composition, Stage M Met-A, Stage MC C-score, Stage T same-run tare) -> report_v3, plus Stage Q IAM-A
 when single-molecule input is given.
 
-    # an Illumina EPIC v1 IDAT pair (needs methylprep for Stage 1); --sex and --age are required by Stage 0
-    python3 run_sample.py --grn S_Grn.idat.gz --red S_Red.idat.gz --specimen "whole blood" --sex F --age 52 --id S001 --out S001.html
+    # an Illumina EPIC v1 IDAT pair (needs methylprep for Stage 1); --sex and --age are optional (recorded when given)
+    python3 run_sample.py --grn S_Grn.idat.gz --red S_Red.idat.gz --specimen "whole blood" --id S001 --out S001.html
+
+    # specimens: whole blood, isolated / sorted / purified neutrophils. Any other specimen is refused at intake with a report.
+    # identifiers: the bundle and the ledger carry the sha256 hash of --id (and of --patient-id); the printed report keeps the typed id.
+    # development flags (DEVELOPMENT - not commissioned; written under bundle["development"], never part of the reading):
+    #   --dev-selftare-ii --dev-direction --dev-trace --dev-foreign --dev-brightness --dev-nilc --dev-atlas-e --dev-percell-b --dev-sky
+    #   (--dev-nilc/--dev-atlas-e/--dev-percell-b/--dev-sky need --atlas-v2 <IAMAtlas_v2.parquet>; --dev-sky needs healpy)
+    #   --dev-epic-v2 (an EPIC v2 IDAT pair through SeSAMe; needs --sesame-rscript <Rscript of an env with sesame>)
 
     # pass 2 of a batch: the same, with the same-run healthy references from pass 1
     python3 run_sample.py ... --slide-ref-table refs.csv        # column A (optional id): same-run healthy references; >= 3 rows -> median tare
@@ -132,10 +139,67 @@ def _versions(chain_dir):
     return out
 
 
+def _hash_id(x):
+    """sha256 (first 32 hex) of a typed identifier; an identifier that is already a hash (>= 16 alphanumerics) is kept (SOP 12)."""
+    import hashlib as _h
+    x = str(x); y = x.replace("_", "").replace("-", "")
+    return x if (len(y) >= 16 and y.isalnum() and all(c in "0123456789abcdef" for c in y.lower())) else _h.sha256(x.encode()).hexdigest()[:32]
+
+
+def _redact(obj, typed, hid):
+    """Every whole-token occurrence of the typed id in strings of obj replaced by its hash (decision B: no typed id in bundle or ledger)."""
+    import re as _re
+    if not typed or typed == hid: return obj
+    rx = _re.compile(r"(?<![A-Za-z0-9])" + _re.escape(str(typed)) + r"(?![A-Za-z0-9])")
+    def f(v):
+        if isinstance(v, str): return rx.sub(hid, v)
+        if isinstance(v, dict): return {f(k) if isinstance(k, str) else k: f(x) for k, x in v.items()}
+        if isinstance(v, (list, tuple)): return [f(x) for x in v]
+        return v
+    return f(obj)
+
+
+def _dev_run(a, o, beta, intake):
+    """Development flags (doors/DEV_FLAGS_01.md): each writes bundle['development'][stage], labelled DEVELOPMENT - not commissioned.
+    None of them changes the reading, the gauge or the tare."""
+    flags = [k for k in ("selftare_ii", "direction", "trace", "foreign", "brightness", "nilc", "atlas_e", "percell_b", "sky") if getattr(a, "dev_" + k, False)]
+    if a.dev_epic_v2: flags.append("epic_v2")
+    if not flags: return
+    import pandas as _pd, dev_stages as DV, traceback as _tb
+    dev = o.setdefault("development", {"label": DV.DEV_LABEL, "flags": flags})
+    if "epic_v2" in flags:
+        if not (a.grn and a.red): dev["epic_v2"] = {"label": DV.DEV_LABEL, "status": "NOT_RUN", "reason": "needs an IDAT pair"}
+        elif not a.sesame_rscript: dev["epic_v2"] = {"label": DV.DEV_LABEL, "status": "NOT_RUN", "reason": "--sesame-rscript not given"}
+        else:
+            try:
+                import conductor_v3 as C3
+                bv, meta = DV.epicv2_calibrate(a.grn, a.red, a.sesame_rscript)
+                rd = C3.run_neutrophil(bv, specimen=a.specimen, ref_A=None, array_type=None)
+                dev["epic_v2"] = {"label": DV.DEV_LABEL, "status": "OK", "calibrator": meta, "reading_cross_version": {k: rd.get(k) for k in ("composition", "met_a", "tare")},
+                                  "note": "EPIC v2 betas (SeSAMe) read against the EPIC v1 floor and profiles at the shared sites; no EPIC v2 neutrophil floor exists; no gauge"}
+                if beta is None: beta = bv
+            except Exception as e:
+                dev["epic_v2"] = {"label": DV.DEV_LABEL, "status": "ERROR", "reason": f"{type(e).__name__}: {str(e)[:300]}"}
+    if beta is None:
+        for k in flags:
+            dev.setdefault(k, {"label": DV.DEV_LABEL, "status": "NOT_RUN", "reason": "no beta vector on this specimen"})
+        return
+    b = _pd.Series(beta, dtype="float64") if not isinstance(beta, _pd.Series) else beta
+    b.index = b.index.astype(str); comp = o.get("composition") or {}; fr = comp.get("fractions"); sp = a.specimen
+    calls = {"selftare_ii": lambda: DV.selftare_ii(b, sp), "direction": lambda: DV.direction_record(b, sp, comp),
+             "trace": lambda: DV.trace_cell(b), "foreign": lambda: DV.foreign_cell(b), "brightness": lambda: DV.brightness(b, sp, comp),
+             "nilc": lambda: DV.nilc_e(b, a.atlas_v2), "atlas_e": lambda: DV.atlas_e(b, a.atlas_v2), "percell_b": lambda: DV.percell_b(b, fr, a.atlas_v2),
+             "sky": lambda: DV.sky(b, fr, a.atlas_v2)}
+    for k in flags:
+        if k == "epic_v2": continue
+        try: dev[k] = calls[k]()
+        except Exception as e: dev[k] = {"label": DV.DEV_LABEL, "status": "ERROR", "reason": f"{type(e).__name__}: {str(e)[:300]}", "tb": _tb.format_exc()[-600:]}
+
+
 def main():
     ap=argparse.ArgumentParser(description="IDAT pair or beta table -> MethylPhys report")
     ap.add_argument("--grn"); ap.add_argument("--red"); ap.add_argument("--betas")
-    ap.add_argument("--age", type=float, help="declared age in years; without it the age term cannot be removed. Float because cohorts publish decimal ages (GEO carries 72.0 and 54.5 as readily as 72)")
+    ap.add_argument("--age", type=float, help="declared age in years (optional; recorded when given, read by no v3 stage). Float: records carry 72.0 and 54.5 as readily as 72")
     ap.add_argument("--specimen", default="whole blood")
     ap.add_argument("--out", default="methylphys_report.html"); ap.add_argument("--id", default=None)
     ap.add_argument("--bundle", help="also write the full bundle as JSON - every stage's output, for a test harness or an integration that needs more than the report")
@@ -144,7 +208,7 @@ def main():
     ap.add_argument("--covariates", help="a JSON object of covariates, merged with any --covariate flags")
     ap.add_argument("--no-bundle", action="store_true", help="do not write the machine-readable bundle beside the report (it is written by default: a run that leaves only HTML cannot be pooled later)")
     ap.add_argument("--ledger", default=None, help="append one flat row per run to this JSONL evidence ledger; defaults to evidence_ledger.jsonl beside the report")
-    ap.add_argument("--sex", default=None, help="declared sex (F/M); Stage 0.8 compares it with the array")
+    ap.add_argument("--sex", default=None, help="declared sex (F/M), optional; when given Stage 0.8 compares it with the array, otherwise the array's sex is recorded")
     ap.add_argument("--patient-id", default=None, help="already-hashed identifier; a cleartext one is hashed here")
     ap.add_argument("--array-type", default=None, choices=("HM450K", "EPIC_v1", "EPIC_v2"), help="declared array type; omit to take it from the IDAT header (Stage 0.1). v3 reads EPIC_v1 only")
     ap.add_argument("--intake-log", default=None, help="append intake and integrity records here")
@@ -161,6 +225,14 @@ def main():
     ap.add_argument("--prior-betas", default=None, help="stage 12b (difference map, DEV-TOOLKIT-ADDED-01): the Stage 1 beta vector of an earlier draw of the same person (as written by --save-betas); needs --prior-bundle")
     ap.add_argument("--prior-bundle", default=None, help="stage 12b: the bundle of that earlier draw; the difference is refused unless both draws carry the same identifier hash, array type and pipeline")
     ap.add_argument("--save-betas", default=None, help="also write this specimen's Stage 1 beta vector (after the detection mask) to this path as a two-column file cpg_id,beta (.parquet or .csv); recorded in the bundle")
+    for f, h in (("selftare-ii", "DEV-SELFTARE-02 self-tare on type II fixed sites"), ("direction", "DEV-DIRECTION-02 signed move at the identity sites"),
+                 ("trace", "DEV-TOOLKIT-ADDED-02 3b trace cell (isolated neutrophils)"), ("foreign", "DEV-TOOLKIT-ADDED-02 3c foreign cell (whole blood)"),
+                 ("brightness", "DEV-TOOLKIT-ADDED-02 11b interval on Met-A"), ("nilc", "stage 4 NILC-e (needs --atlas-v2)"), ("atlas-e", "stage 3 atlas_e (needs --atlas-v2)"),
+                 ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
+                 ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
+        ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
+    ap.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"), help="atlas v2 parquet for the atlas-based development flags (not stored in the repository)")
+    ap.add_argument("--sesame-rscript", default=os.environ.get("METHYLPHYS_SESAME_RSCRIPT"), help="Rscript of an environment with Bioconductor sesame (--dev-epic-v2)")
     a=ap.parse_args()
     seq = bool(a.pat or a.site_table)
     if not (a.betas or (a.grn and a.red) or seq): ap.error("give --betas, both --grn and --red, or --pat / --site-table")
@@ -168,8 +240,19 @@ def main():
     if a.site_table and not a.seq_pipeline: ap.error("--site-table needs --seq-pipeline: the pipeline that produced the table")
     if a.slide_ref_A and a.slide_ref_table: ap.error("give --slide-ref-A or --slide-ref-table, not both")
 
-    intake = None; bead_ok = None; platform_stop = None
-    if a.grn and a.red and not a.no_intake:
+    intake = None; bead_ok = None; platform_stop = None; specimen_stop = None
+    try:
+        import stage_0_intake as _S0spec
+    except ImportError:
+        sys.path.insert(0, os.path.join(BIO, "MethylPhys/chain")); import stage_0_intake as _S0spec
+    if not seq or a.betas or (a.grn and a.red):
+        specimen_stop = _S0spec.specimen_refusal(a.specimen)   # author decision L (2026-10-04): refused at intake, before anything is read
+        if specimen_stop:
+            print("  SPECIMEN_REFUSED - " + specimen_stop, flush=True)
+            intake = {"status": "SPECIMEN_REFUSED", "stage0_verdict": "REFUSED_SPECIMEN", "substrate": a.specimen,
+                      "flags": [f"SPECIMEN_REFUSED:{_S0spec.normalise_specimen(a.specimen) or 'not stated'}"], "declared_sex": a.sex,
+                      "declared_chronological_age": float(a.age) if a.age is not None else None}
+    if a.grn and a.red and not a.no_intake and not specimen_stop:
         # Stage 0 runs BEFORE calibration, and a quarantine stops the run: the gauge never sees a specimen
         # the chain of custody rejected. SOP sections 11-19.
         import hashlib, re as _re
@@ -290,7 +373,9 @@ def main():
             intake = rec
 
     stage1_meta=None
-    if a.betas:
+    if specimen_stop:
+        beta = None; sid = a.id or os.path.basename(a.grn or a.betas or "specimen").split("_")[0].split(".")[0]
+    elif a.betas:
         import pandas as pd
         d=pd.read_csv(a.betas, index_col=0).iloc[:,0].dropna(); beta=d.to_dict()
         sid=a.id or os.path.basename(a.betas).split(".")[0]
@@ -358,7 +443,7 @@ def main():
     else:
         beta = None; sid = a.id or os.path.basename(a.pat or a.site_table).split(".")[0]
 
-    if intake is not None and not platform_stop:
+    if intake is not None and not platform_stop and not specimen_stop:
         import stage_0_intake as S0
         ref = None
         try:
@@ -388,7 +473,10 @@ def main():
         refs = [{k: (None if _pd.isna(r.get(k)) else r.get(k)) for k in ("A", "f_neu", "N", "id", "gsm") if k in rt.columns} for r in rt.to_dict("records")]
     it = intake or {}
     array_type = it.get("array_type_detected") or it.get("array_type") or a.array_type   # header first, then declared
-    if platform_stop:
+    if specimen_stop:
+        o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "neutrophils only", "array_type": array_type, "refusal": specimen_stop,
+             "refusal_code": "SPECIMEN_REFUSED"}
+    elif platform_stop:
         o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "neutrophils only", "platform": "EPIC_v2" if "EPIC v2" in platform_stop else None,
              "array_type": array_type, "refusal": platform_stop}
     elif beta is not None:
@@ -425,6 +513,7 @@ def main():
             _d, summ = SMd.delta_sky(bn, bp.astype("float64"))
             o["difference_map"] = {"stage": "12b", "status": "OK", "same_person": why.replace("patient", "person identifier"), "prior_run_id": pb.get("run_id"), **summ,
                                    "note": "per-address beta difference on the addresses both draws measured; no expectation, no sigma; the difference drawn as a sky is not built"}
+    _dev_run(a, o, beta, intake)
     if a.save_betas and beta is not None:   # operator option: the calibrated vector this reading was made from, for re-reading without re-calibrating
         _bs = _pd.Series(beta, dtype="float32").rename("beta"); _bs.index.name = "cpg_id"
         os.makedirs(os.path.dirname(os.path.abspath(a.save_betas)), exist_ok=True)
@@ -438,15 +527,18 @@ def main():
     led = a.ledger or os.path.join(os.path.dirname(os.path.abspath(a.out)) or ".", "evidence_ledger.jsonl")
     o["run_id"] = _assign_run_id(led)
     o["versions"] = _versions(ENG)   # every frozen input and chain module, with a short hash, so runs months apart are poolable
-    r = R3.build(o, a.out, sid)
+    typed = sid; hid = _hash_id(sid)
+    r = R3.build(o, a.out, typed)    # the printed report keeps the operator's typed id (author decision B, 2026-10-04)
+    o = _redact(o, typed, hid); o["sample_id"] = hid; o["sample_id_hashed"] = True   # bundle and ledger carry the hash only
     m = o.get("met_a") or {}; t = o.get("tare") or {}; q_ = o.get("iam_a") or {}
     print(f"\n{sid}: neutrophil Met-A {m.get('A')} ({m.get('state', m.get('reason', o.get('refusal')))}) | C {(o.get('met_a_cscore') or {}).get('C')} | "
           f"tare {t.get('A_rel')}" + (f" | IAM-A {q_.get('A')} ({q_.get('state', q_.get('refusal'))})" if q_ else ""))
     if not a.no_bundle:
         bundle_path = a.bundle or (os.path.splitext(a.out)[0] + "_bundle.json")
         _json.dump(o, open(bundle_path, "w"), default=str)
-        row = {"run_id": o["run_id"], "engine": "v3", "sample_id": sid, "utc": _dt.datetime.utcnow().isoformat(timespec="seconds"),
-               "report": os.path.abspath(a.out), "bundle": os.path.abspath(bundle_path), "specimen": a.specimen,
+        row = {"run_id": o["run_id"], "engine": "v3", "sample_id": hid, "utc": _dt.datetime.utcnow().isoformat(timespec="seconds"),
+               "report": _redact(os.path.abspath(a.out), typed, hid), "bundle": _redact(os.path.abspath(bundle_path), typed, hid), "specimen": a.specimen,
+               "label": "DEVELOPMENT - not commissioned", "refusal_code": o.get("refusal_code"),
                "platform": o.get("platform"), "array_type": o.get("array_type"), "refusal": o.get("refusal"),
                "floors_version": o.get("floors_version"), "reference_version": o.get("reference_version"),
                "stage0_verdict": it.get("stage0_verdict"), "call_rate_status": it.get("call_rate_status"),
@@ -456,6 +548,7 @@ def main():
                "n_refs": t.get("n_refs"), "tare_method": t.get("method"), "noise_index": m.get("noise_index"),
                "detection_limit_pct_loss": t.get("detection_limit_pct_loss"),
                "iam_a": q_.get("A"), "iam_a_pipeline": q_.get("pipeline"), "covariates": cov}
+        row = _redact(row, typed, hid)
         with open(led, "a", encoding="utf-8") as fh: fh.write(_json.dumps(row, default=str) + "\n")
         print(f"report: {r['out']} | bundle: {bundle_path} | evidence ledger: {led} (one row appended)")
     else:

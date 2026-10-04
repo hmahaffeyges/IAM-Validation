@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Report for conductor v3 (development build, neutrophils only). One self-contained HTML page from the v3 bundle.
+"""Report for conductor v3 (DEVELOPMENT - not commissioned; neutrophils only). One self-contained HTML page from the v3 bundle.
 The gauge marker is the tared reading (tare.A_rel) whenever Stage T produced one, for whole blood and isolated neutrophils alike.
 Untared isolated neutrophils: the own-floor A, labelled untared. Untared whole blood: no gauge position (the number is printed).
 
@@ -66,7 +66,7 @@ def red_flags(o):
     c, q = o.get("met_a_cscore") or {}, o.get("iam_a") or {}
     F = []
     add = lambda lv, code, txt: F.append({"level": lv, "code": code, "text": txt})
-    if o.get("refusal"): add("STOP", "PLATFORM_REFUSED", o["refusal"])
+    if o.get("refusal"): add("STOP", o.get("refusal_code") or "PLATFORM_REFUSED", o["refusal"])
     if q.get("refusal"): add("STOP", "IAM_A_REFUSED", q["refusal"])
     if m.get("reason"): add("WITHHELD", "A_WITHHELD", m["reason"])
     if str(m.get("state", "")).startswith("withheld"): add("WITHHELD", "NOISE_GATE", m["state"])
@@ -81,6 +81,8 @@ def red_flags(o):
     if m.get("noise_gate") == "above the reference arrays' range" and t.get("A_rel") is not None:
         add("NOTE", "NOISE_ABOVE_RANGE_TARED", f"noise index {m.get('noise_index')} above N_max {m.get('noise_gate_N_max')}; reading is tared, so the gate does not withhold")
     if c.get("C") is not None: add("NOTE", "CSCORE_BAND_NOT_SET", "C-score printed for development; healthy band not set")
+    if (q.get("cscore") or {}).get("C") is not None: add("NOTE", "IAMA_CSCORE_DEVELOPMENT", "IAM-A C-score printed for development (independent errors = 1, derived); band not set")
+    if o.get("development"): add("NOTE", "DEVELOPMENT_FLAGS", "development stages ran behind flags: " + ", ".join(o["development"].get("flags", [])) + "; they are not part of the reading")
     add("NOTE", "DEVELOPMENT_BUILD", str(o.get("build", "development build")) + "; not a diagnostic test")
     return F
 
@@ -134,13 +136,15 @@ def safeguards(o, prose):
 def troubleshooting(o):
     m, t, it = o.get("met_a") or {}, o.get("tare") or {}, o.get("intake") or {}
     T = []
-    if o.get("refusal"): T.append(("platform refused", "v3 reads EPIC v1 arrays only; a 450K or EPIC v2 array needs its own frozen floor first"))
+    if o.get("refusal_code") == "SPECIMEN_REFUSED": T.append(("specimen refused", "intake reads whole blood and isolated / sorted / purified neutrophils; this specimen needs its own reference before it can be read"))
+    elif o.get("refusal"): T.append(("platform refused", "v3 reads EPIC v1 arrays only; a 450K or EPIC v2 array needs its own frozen floor first"))
     if "fraction" in str(m.get("reason", "")): T.append(("A withheld for fraction", "the neutrophil fraction is below the read line (0.20); the fraction is printed; no action changes this on this specimen"))
     if "sites measured" in str(m.get("reason", "")) or "markers measured" in str(m.get("reason", "")):
         T.append(("too few sites or markers measured", "check Stage 1 detection: probes at background are removed before the reading; re-hybridise if the array is low-signal"))
     if m.get("A") is not None and t.get("A_rel") is None:
         T.append(("untared", "run >= 3 healthy references of the same specimen type on the same slide (else the same batch) and pass their untared A with --slide-ref-A or --slide-ref-table"))
-    if str(m.get("state", "")).startswith("withheld"): T.append(("noise gate", "the array's noise index is above the reference arrays' range; tare it against same-run references to get a gauge state"))
+    if str(m.get("state", "")).startswith("withheld: only"): T.append(("noise sites not measured", "fewer than 90 % of the noise sites were measured, so the array's own noise is unknown and no state is shown; re-hybridise or check the array's signal"))
+    elif str(m.get("state", "")).startswith("withheld"): T.append(("noise gate", "the array's noise index is above the reference arrays' range; tare it against same-run references to get a gauge state"))
     if m.get("past_entropy_ceiling"): T.append(("entropy ceiling", "the methylated sites have fallen past beta 0.5; read the mean beta, not A"))
     if it.get("stage0_verdict") == "PROCEED_WITH_PENALTY": T.append(("intake penalty", f"borderline {it.get('stage0_borderline')}: the reading is printed with this flag"))
     if o.get("intake_skipped"): T.append(("intake not run", "the specimen was read without Stage 0 (beta table or --no-intake); intake hashes and QC are absent"))
@@ -192,12 +196,20 @@ def build(o, out, sid):
          f"<h2 id='sec-cscore'>Stage 6 Met-A C-score</h2><p>C = <b>{c.get('C')}</b> (healthy = 1; healthy held-out range {c.get('healthy_range')}); {e(str(c.get('status', c.get('reason',''))))}</p>",
          (f"<h2 id='sec-iam-a'>Stage 7 IAM-A - {e(str(q.get('cell')))}</h2>{_gauge(q.get('A'), label=('IAM-A ' + str(q.get('A'))) if q.get('A') is not None else '')}"
           f"<p>IAM-A = <b>{q.get('A')}</b> ({e(str(q.get('state', q.get('refusal',''))))}); pipeline {e(str(q.get('pipeline')))}; copy error eps {q.get('eps')}; position P {q.get('P')}; "
-          f"eps0 {q.get('eps0')}; halves {e(str(q.get('halves')))}; opportunities {q.get('opportunities')}; E = {q.get('E_kT')} kT</p>" if q else ""),
+          f"eps0 {q.get('eps0')}; halves {e(str(q.get('halves')))}; opportunities {q.get('opportunities')}; E = {q.get('E_kT')} kT</p>"
+          + (f"<p id='sec-iam-a-cscore'>IAM-A C-score (DEVELOPMENT - not commissioned): C = <b>{(q.get('cscore') or {}).get('C')}</b> over {(q.get('cscore') or {}).get('n_blocks')} blocks of "
+             f"{(q.get('cscore') or {}).get('block_sites')} sites (independent copy errors give 1 within {(q.get('cscore') or {}).get('se_null')}; derived, not from other readings); "
+             f"halves A {((q.get('cscore') or {}).get('halves') or {}).get('A', {}).get('C')}, B {((q.get('cscore') or {}).get('halves') or {}).get('B', {}).get('C')}; band not set</p>" if q.get("cscore") else "") if q else ""),
          (f"<h2 id='sec-difference-map'>Stage 12b difference map (two draws of one person)</h2><p>{e(str(o['difference_map'].get('status')))}: "
           + (f"{o['difference_map'].get('n_addresses')} addresses both draws measured; median delta beta {o['difference_map'].get('median_dbeta')}; mean |delta beta| {o['difference_map'].get('mean_abs_dbeta')}; "
              f"q99 |delta beta| {o['difference_map'].get('q99_abs_dbeta')}; prior run {e(str(o['difference_map'].get('prior_run_id')))}. {e(o['difference_map'].get('note', ''))}"
              if o["difference_map"].get("status") == "OK" else e(str(o["difference_map"].get("reason")))) + "</p>" if o.get("difference_map") else ""),
-         "<h2 id='sec-withheld'>Withheld</h2><ul>" + "".join(f"<li>{e(w)}</li>" for w in o.get("withheld", [])) + "</ul>"]
+         "<h2 id='sec-withheld'>Withheld</h2><ul>" + "".join(f"<li>{e(w)}</li>" for w in o.get("withheld", [])) + "</ul>",
+         (("<h2 id='sec-development'>Development stages (behind flags) - DEVELOPMENT - not commissioned</h2><p>These ran because a development flag was given. "
+           "None of them is part of the reading above, the gauge or the tare.</p>"
+           + _table([(k, (v or {}).get("status"), json.dumps({x: y for x, y in (v or {}).items() if x not in ("label", "status", "tb")}, default=str)[:400])
+                     for k, v in o["development"].items() if isinstance(v, dict)], ("stage", "status", "record (truncated; full record in the bundle)")))
+          if o.get("development") else "")]
     F = red_flags(o); o["red_flags"] = F
     P.append("<h2 id='sec-red-flags'>Red flags</h2>" + _table([(f["level"], f["code"], f["text"]) for f in sorted(F, key=lambda f: ["STOP", "WITHHELD", "CAUTION", "NOTE"].index(f["level"]))], ("level", "code", "what")))
     TS = troubleshooting(o)
