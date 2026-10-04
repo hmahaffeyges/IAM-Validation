@@ -3,7 +3,7 @@
 Items a check raised that would change a result, a prediction, a locked value, an equation of IAM or the framing of a
 claim. The book was left unchanged for each; the decision is the author's. Every FAIL of `verify_book.py` is listed here.
 
-Items: 18
+Items: 20
 
 ## 1. `docs/book/part2/p2_02_virial.tex:L86-87`
 
@@ -130,4 +130,18 @@ Items: 18
 - **Proposed:** compute both distances from the same IAM S_8: with the unrounded Level 2 chain value (0.8215 +- 0.0111) they are 0.33sigma and 2.24sigma (2.2); with the rounded 0.822 +- 0.011 they are 0.36sigma (0.4) and 2.27sigma (2.3)
 - **Why it matters:** the two printed distances come from two different roundings of the same input (0.3 matches part2/p2_02b_virial_tests 0.33 from the unrounded chain; 2.3 matches verify_sector_tension_output.txt item 11, which uses 0.822)
 - **Recommendation:** either print 0.3sigma and 2.2sigma (unrounded chain S_8, as p2_02b) or 0.4sigma and 2.3sigma (rounded 0.822, as the sector-tension script); both checks pass as written, each against its own input
+
+## 19. `docs/book/appendices/app_C3_derivations.tex:L291, L297-L298`
+
+- **Now:** Line 291 states Omega_Lambda = 0.6847; the +0.79 % (L297) and the exponent 0.521 (L298) are reproduced only with Omega_Lambda = 1 - Omega_m - Omega_r = 0.6846 (as ch:lambda Eq. lam_corr_num uses); with 0.6847 they come out +0.78 % and 0.5205.
+- **Proposed:** Either name Omega_Lambda = 0.6846 (radiation included) for the two numbers on L297-L298, or keep as is; the checks app:derivations:L297:+0.79 and L298:0.521 use 0.6846 and pass.
+- **Why it matters:** The appendix gives one Omega_Lambda (0.6847) two lines earlier; a reader recomputing with it gets 0.78 and 0.520.
+- **Recommendation:** Optional wording: add 'Omega_Lambda = 0.6846' after '+0.79 %' or leave; no number change needed.
+
+## 20. `docs/book/appendices/app_C3_derivations.tex:L302`
+
+- **Now:** eta = 273.9e-10 Omega_b h^2 is used without a source; recomputing with m_p and T_CMB = 2.7255 K gives 273.4 (helium-weighted mean baryon mass gives about 273.7).
+- **Proposed:** Cite the source of the 273.9 coefficient (big-bang nucleosynthesis review) at L302.
+- **Why it matters:** The coefficient sets the 5.03e-10 and 6.08e-10 values; a 0.2 % convention difference does not change their printed figures.
+- **Recommendation:** Add a citation; no number change.
 

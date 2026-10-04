@@ -2588,6 +2588,97 @@ def _b15e_ncpg():
 
 # ---------------------------------------------------------------- line 56: w_info
 
+# helpers of the appendices/app_C3_derivations checks
+# Batch b16: Appendix C3 (app:derivations), docs/book/appendices/app_C3_derivations.tex
+
+_B16_CACHE = {}
+
+def _b16_bg_rad():
+    """Full LambdaCDM growth with radiation (Omega_m 0.315, Omega_r 9.1e-5, the values the appendix states at line 163; flat), integrated
+    in ln a from a = 1e-5 to a = 2 (same construction as docs/verification/scripts/verify_theory_derivations.py section 6).
+    Returns a, D (normalised at a = 1), f = dlnD/dlna, H/H0."""
+    if 'bg' not in _B16_CACHE:
+        Om_, Or_ = 0.315, 9.1e-5
+        OL_ = 1 - Om_ - Or_
+        E2 = lambda x: Om_ / x**3 + Or_ / x**4 + OL_
+        def rhs(l, y):
+            x = np.exp(l); e2 = E2(x); dl = 0.5 * (-3 * Om_ / x**3 - 4 * Or_ / x**4) / e2
+            return [y[1], -(2 + dl) * y[1] + 1.5 * (Om_ / x**3 / e2) * y[0]]
+        lg = np.linspace(np.log(1e-5), np.log(2.0), 40001)
+        s = solve_ivp(rhs, [lg[0], lg[-1]], [1.0, 0.0], t_eval=lg, rtol=1e-10, atol=1e-13)
+        ag = np.exp(lg); Dg = s.y[0]; fg = s.y[1] / s.y[0]; i1 = np.argmin(abs(ag - 1)); Dg = Dg / Dg[i1]
+        _B16_CACHE['bg'] = (ag, Dg, fg, np.sqrt(E2(ag)))
+    return _B16_CACHE['bg']
+
+def _b16_slope(n, lo, hi):
+    """Power of dS_info/dln a = rho_m D^n f/(T_H A_H) ~ a^-3 D^n f H (T_H ~ H, A_H ~ H^-2), least-squares in log-log over lo <= a <= hi."""
+    ag, Dg, fg, Hg = _b16_bg_rad()
+    dS = ag**-3 * Dg**n * fg * Hg
+    m = (ag >= lo) & (ag <= hi)
+    return float(np.polyfit(np.log(ag[m]), np.log(dS[m]), 1)[0])
+
+def _b16_shape(lo, hi, n=3.5):
+    """Largest residual of S(a) - S(1) against a least-squares k(1 - 1/a) + const over lo <= a <= hi, per cent of the range of S there."""
+    ag, Dg, fg, Hg = _b16_bg_rad()
+    dSda = ag**-3 * Dg**n * fg * Hg / ag
+    S = np.concatenate([[0.0], np.cumsum(0.5 * (dSda[1:] + dSda[:-1]) * np.diff(ag))])
+    S = S - S[np.argmin(abs(ag - 1))]
+    m = (ag >= lo) & (ag <= hi)
+    A = np.vstack([1 - 1 / ag[m], np.ones(m.sum())]).T
+    co = np.linalg.lstsq(A, S[m], rcond=None)[0]
+    r = S[m] - A @ co
+    return float(100 * np.max(abs(r)) / (S[m].max() - S[m].min()))
+
+def _b16_growth_form(form):
+    """Delta D/D today (per cent) of a growth form against LambdaCDM, same early amplitude (D = D' = a at a = 1e-3); Planck 2018 background
+    without radiation (Omega_m 0.3153), beta_m = Omega_m/2, E(a) = exp(1 - 1/a). Forms (i)-(iii) of the appendix, Eqs. at book line 253-255."""
+    key = 'form_' + form
+    if key not in _B16_CACHE:
+        def r(l, y):
+            x = np.exp(l); h2 = Om * x**-3 + OL; dlnH = -1.5 * Om * x**-3 / h2; Oma = Om * x**-3 / h2
+            hm2 = h2 + beta_m * E_act(x)
+            if form == 'i':
+                return [y[1], -(2 + dlnH) * y[1] + 1.5 * Oma * (h2 / hm2) * y[0]]
+            if form == 'ii':
+                return [y[1], -(dlnH + 2 * np.sqrt(hm2 / h2)) * y[1] + 1.5 * Oma * y[0]]
+            if form == 'iii':
+                dlnHm = 0.5 * (-3 * Om * x**-3 + beta_m * E_act(x) / x) / hm2
+                return [y[1], -(2 + dlnHm) * y[1] + 1.5 * Om * x**-3 / hm2 * y[0]]
+            return [y[1], -(2 + dlnH) * y[1] + 1.5 * Oma * y[0]]
+        ai = 1e-3
+        Dx = solve_ivp(r, (np.log(ai), 0), [ai, ai], rtol=1e-10, atol=1e-14).y[0][-1]
+        if 'form_lcdm' not in _B16_CACHE:
+            def rl(l, y):
+                x = np.exp(l); h2 = Om * x**-3 + OL
+                return [y[1], -(2 - 1.5 * Om * x**-3 / h2) * y[1] + 1.5 * Om * x**-3 / h2 * y[0]]
+            _B16_CACHE['form_lcdm'] = solve_ivp(rl, (np.log(ai), 0), [ai, ai], rtol=1e-10, atol=1e-14).y[0][-1]
+        _B16_CACHE[key] = 100 * (Dx / _B16_CACHE['form_lcdm'] - 1)
+    return _B16_CACHE[key]
+
+def _b16_koide():
+    """Koide scale x and offset delta from the measured charged-lepton masses (m_e CODATA 2018, m_mu and m_tau PDG 2022, verify_book globals)."""
+    x = (math.sqrt(m_e_MeV) + math.sqrt(m_mu_MeV) + math.sqrt(m_tau_MeV)) / 3
+    d = math.acos((math.sqrt(m_tau_MeV) / x - 1) / math.sqrt(2))
+    mk = [(x * (1 + math.sqrt(2) * math.cos(2 * math.pi * k / 3 + d)))**2 for k in range(3)]
+    return x, d, mk
+
+def _b16_m_over_me(H0):
+    """Electron fixed point with the (2 pi)^(-1/10) prefactor: m = (2 pi)^(-1/10) B^(2/5), B = hbar H0 ln2 m_P^(3/2)/(alpha^(5/2) c^2); m/m_e - 1."""
+    B = hbar * Hsi(H0) * LN2 * mP**1.5 / (alpha_em**2.5 * c**2)
+    return (2 * math.pi)**-0.1 * B**0.4 / m_e - 1
+
+def _b16_tau_iam(m, rho=2200.0, T=0.01):
+    """tau_IAM = hbar k_B^2 T^2 ln2/E_G^3 with E_G = G m^2/R and R = (3 m/(4 pi rho))^(1/3) (book line 336-338)."""
+    R = (3 * m / (4 * math.pi * rho))**(1 / 3)
+    EG = G * m**2 / R
+    return hbar * kB**2 * T**2 * LN2 / EG**3
+
+def _b16_mu_mg_gap():
+    """Per cent gap of the MGCAMB form mu = 1 + mu0 Omega_DE(a)/Omega_Lambda (mu0 = -0.13495, the runs' value) against the exact
+    mu = H^2/(H^2 + beta_m E H0^2), on 0 <= z <= 3 (step 1e-4). Returns z grid and gap."""
+    zz = np.linspace(0, 3, 30001); aa = 1 / (1 + zz)
+    return zz, 100 * (mu_mgcamb(aa) / mu_iam(aa) - 1)
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -40696,6 +40787,20 @@ def check_2736():
     value=(math.sqrt(3*math.pi)/2*omega3)*(hbar*c/G)**1.5/(2*m_u)**2/Msun
     return locals()
 
+@check(label='app:derivations:L51:2.01824', chapter='app:derivations', part=8, title='omega_3^0 of the n = 3 Lane-Emden equation',
+       file='appendices/app_C3_derivations', line=51, status='calc', kind='num', printed='2.01824', tol=0.0)
+def check_4693():
+    'The Lane-Emden constant omega_3^0 = -xi_1^2 theta(xi_1)prime for index n = 3, from integrating theta2prime + (2/xi) theta1prime = -theta^3 (theta(0) = 1) to its first zero xi_1. Book line 51, printed 2.01824. Inputs: none (Chandrasekhar 1931, the equation itself).'
+    def le(xi, y):
+        return [y[1], -y[0]**3 - 2 * y[1] / xi]
+    x0 = 1e-6
+    zero = lambda xi, y: y[0]
+    zero.terminal = True
+    s = solve_ivp(le, (x0, 10), [1 - x0**2 / 6, -x0 / 3], events=zero, rtol=1e-12, atol=1e-14)
+    xi1 = s.t_events[0][0]; dth = s.y_events[0][0][1]
+    value = -xi1**2 * dth
+    return locals()
+
 @check(label='app:derivations:L56', chapter='app:derivations', part=8, title='drafted check, screened (runs; negative control fails)',
        file='appendices/app_C3_derivations', line=56, status='derived', kind='sym', printed='', tol=0.0)
 def check_2737():
@@ -40787,6 +40892,20 @@ def check_2745():
 def check_2746():
     'half the entropy gone at 0.646 tau. Book line 77, printed 0.646.'
     value=1-2**-1.5
+    return locals()
+
+@check(label='app:derivations:L77:5120', chapter='app:derivations', part=8, title='evaporation time coefficient 5120 pi',
+       file='appendices/app_C3_derivations', line=77, status='derived', kind='num', printed='5120', tol=0.0)
+def check_4694():
+    'Coefficient of the evaporation time: P = sigma_SB A T_BH^4 with A = 16 pi G^2 M^2/c^4 and T_BH = hbar c^3/(8 pi G k_B M); dM/dt = -P/c^2 makes d(M^3)/dt constant, and tau = M0^3/|d(M^3)/dt| is returned in units of pi G^2 M0^3/(hbar c^4). Book line 77, printed 5120. Inputs: the formulas of book lines 55-76.'
+    M, M0, Gs, hb, cs, k = sp.symbols('M M_0 G hbar c k_B', positive=True)
+    sig = sp.pi**2 * k**4 / (60 * hb**3 * cs**2)
+    A = 16 * sp.pi * Gs**2 * M**2 / cs**4
+    T = hb * cs**3 / (8 * sp.pi * Gs * k * M)
+    P = sp.simplify(sig * A * T**4)
+    dM3dt = sp.simplify(3 * M**2 * (-P / cs**2))
+    tau = M0**3 / (-dM3dt)
+    value = float(sp.simplify(tau * hb * cs**4 / (sp.pi * Gs**2 * M0**3)))
     return locals()
 
 @check(label='app:derivations:L78', chapter='app:derivations', part=8, title='T_BH, 1 M_sun',
@@ -40919,11 +41038,88 @@ def check_2760():
     hb,eta,G_=sp.symbols('hbar eta G',positive=True); ok=sp.simplify(2*sp.pi/(hb*eta)-8*sp.pi*G_.subs(G_,1/(4*hb*eta)))==0
     return locals()
 
+@check(label='der:F2', chapter='app:derivations', part=8, title='Hdot = -4 pi G (rho+P) from -dE = T_H dS_geo on the apparent horizon',
+       file='appendices/app_C3_derivations', line=118, status='derived', kind='sym', printed='', tol=0.0)
+def check_4695():
+    'Eq. der:F2: with S_geo = pi/(G H^2), T_H = H/(2 pi) and the flux -dE = 4 pi r_A^3 (rho+P) H dt, r_A = 1/H, the first law -dE = T_H dS_geo solved for Hdot gives -4 pi G (rho+P). Book line 118. Inputs: steps 1-3 of the Cai-Kim section (hbar = c = k_B = 1).'
+    H, Gs, rho, P = sp.symbols('H G rho P', positive=True)
+    Hd = sp.symbols('Hdot')
+    S = sp.pi / (Gs * H**2)
+    T = H / (2 * sp.pi)
+    rA = 1 / H
+    TdS = T * sp.diff(S, H) * Hd
+    def solve_with(coef):
+        flux = coef * sp.pi * rA**3 * (rho + P) * H
+        return sp.solve(sp.Eq(flux, TdS), Hd)[0]
+    lhs = solve_with(4)
+    rhs = -4 * sp.pi * Gs * (rho + P)
+    neg_lhs = solve_with(sp.Rational(21, 5))
+    return locals()
+
+@check(label='der:F2info', chapter='app:derivations', part=8, title='Hdot with the record term T_H Sdot_info added to the first law',
+       file='appendices/app_C3_derivations', line=129, status='derived', kind='sym', printed='', tol=0.0)
+def check_4696():
+    'Eq. der:F2info: -dE = T_H d(S_geo + S_info) with S_geo = pi/(G H^2), T_H = H/(2 pi), solved for Hdot, gives -4 pi G (rho+P) + (G/2 pi) H^3 Sdot_info; reading the extra term as -4 pi G (rho_x + P_x) gives rho_x + P_x = -H^3 Sdot_info/(8 pi^2). Book line 129. Inputs: Cai-Kim steps (hbar = c = k_B = 1).'
+    H, Gs, rho, P, Sd = sp.symbols('H G rho P Sdot', positive=True)
+    Hd, X = sp.symbols('Hdot X')
+    S = sp.pi / (Gs * H**2)
+    T = H / (2 * sp.pi)
+    def solve_with(coef):
+        lhs_ = 4 * sp.pi * (rho + P) / H**2
+        return sp.solve(sp.Eq(lhs_, T * sp.diff(S, H) * Hd + coef * T * Sd), Hd)[0]
+    Hdot = solve_with(1)
+    rx = sp.solve(sp.Eq(-4 * sp.pi * Gs * X, Hdot - (-4 * sp.pi * Gs * (rho + P))), X)[0]
+    ok = sp.simplify(Hdot - (-4 * sp.pi * Gs * (rho + P) + Gs / (2 * sp.pi) * H**3 * Sd)) == 0 and sp.simplify(rx + H**3 * Sd / (8 * sp.pi**2)) == 0
+    neg_ok = sp.simplify(solve_with(sp.Rational(21, 20)) - (-4 * sp.pi * Gs * (rho + P) + Gs / (2 * sp.pi) * H**3 * Sd)) == 0
+    return locals()
+
+@check(label='der:Sneed', chapter='app:derivations', part=8, title='Sdot_info needed for the record term, and dS_info/dln a = beta_m S_geo today',
+       file='appendices/app_C3_derivations', line=139, status='calc', kind='sym', printed='', tol=0.0)
+def check_4697():
+    'Eq. der:Sneed: setting the effective component of Eq. der:F2info, rho_x + P_x = -H^3 Sdot/(8 pi^2), equal to rho_info (1 + w_info) with w_info = -1 - 1/(3a) and solving for Sdot gives 8 pi^2 rho_info/(3 a H^3); at a = 1, with rho_info = (3 H0^2/8 pi G) beta_m E(1) and H = H0, Sdot/H = beta_m pi/(G H0^2) = beta_m S_geo(a=1). Book line 139.'
+    H, H0s, Gs, rho, a, b, Sd = sp.symbols('H H_0 G rho a beta Sdot', positive=True)
+    def need(coef):
+        w = -1 - coef / (3 * a)
+        return sp.solve(sp.Eq(-H**3 * Sd / (8 * sp.pi**2), rho * (1 + w)), Sd)[0]
+    Sdot = need(1)
+    rho_info1 = 3 * H0s**2 / (8 * sp.pi * Gs) * b * sp.exp(1 - 1 / a)
+    dSdlna1 = sp.simplify((Sdot / H).subs(rho, rho_info1).subs({H: H0s}).subs(a, 1))
+    Sgeo1 = sp.pi / (Gs * H0s**2)
+    ok = sp.simplify(Sdot - 8 * sp.pi**2 * rho / (3 * a * H**3)) == 0 and sp.simplify(dSdlna1 - b * Sgeo1) == 0
+    neg_ok = sp.simplify(need(sp.Rational(21, 20)) - 8 * sp.pi**2 * rho / (3 * a * H**3)) == 0
+    return locals()
+
 @check(label='app:derivations:L142', chapter='app:derivations', part=8, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
        file='appendices/app_C3_derivations', line=142, status='calc', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2761():
     'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 142, printed 0.15765.'
     value = Om/2
+    return locals()
+
+@check(label='app:derivations:L142:5.2\\times10^{121}', chapter='app:derivations', part=8, title='bits per e-fold today, beta_m S_geo/(k_B ln2) at H0 = 67.36',
+       file='appendices/app_C3_derivations', line=142, status='calc', kind='num', printed='5.2\\times10^{121}', tol=0.0)
+def check_4698():
+    'dS_info/dln a today = beta_m S_geo(a=1) in bits: beta_m (4 pi l_H^2)/(4 l_P^2 ln2), l_H = c/H0. Book line 142, printed 5.2e121. Inputs: beta_m (CANON), H0 = 67.36 (Planck 2018, as stated), CODATA 2018 constants.'
+    lH = c / Hsi(67.36)
+    S_geo_bits = 4 * math.pi * lH**2 / (4 * lP**2 * LN2)
+    value = beta_m * S_geo_bits
+    return locals()
+
+@check(label='app:derivations:L154', chapter='app:derivations', part=8, title='dS/dln a ~ a^(n-9/2), dS/da ~ a^(n-11/2), S ~ a^(n-9/2)/(n-9/2) in matter domination',
+       file='appendices/app_C3_derivations', line=154, status='calc', kind='sym', printed='', tol=0.0)
+def check_4699():
+    'The matter-era power laws: rho_m ~ a^-3, D ~ a, f = 1, T_H ~ a^(-3/2), A_H ~ a^3 put into rho_m D^n f/(T_H A_H); the logarithmic slope is n - 9/2, of dS/da it is n - 11/2, and the integral of a^(n-11/2) is a^(n-9/2)/(n-9/2). Book line 154.'
+    a, n = sp.symbols('a n', positive=True)
+    def slopes(tpow):
+        dS = a**-3 * a**n * 1 / (a**tpow * a**3)
+        p1 = sp.simplify(a * sp.diff(sp.log(dS), a))
+        p2 = sp.simplify(a * sp.diff(sp.log(dS / a), a))
+        return p1, p2
+    p1, p2 = slopes(sp.Rational(-3, 2))
+    Sint = sp.integrate(a**(n - sp.Rational(11, 2)), a, conds='none')
+    ok = (sp.simplify(p1 - (n - sp.Rational(9, 2))) == 0 and sp.simplify(p2 - (n - sp.Rational(11, 2))) == 0
+          and sp.simplify(Sint - a**(n - sp.Rational(9, 2)) / (n - sp.Rational(9, 2))) == 0)
+    neg_ok = sp.simplify(slopes(sp.Rational(-63, 40))[0] - (n - sp.Rational(9, 2))) == 0
     return locals()
 
 @check(label='app:derivations:L163', chapter='app:derivations', part=8, title='slope of dS/dln a, full LambdaCDM growth (committed output; same value as ch:quantumrecords:L183)',
@@ -40948,6 +41144,72 @@ def check_2763():
 def check_2764():
     'slope of dS/dln a, full LambdaCDM growth (committed output; same value as ch:quantumrecords:L183). Book line 163, printed -1.02.'
     value=float(re.search(r'n = 3.5: power of dS/dln a, matter era \(0.01-0.1\) (-?[\d.]+)', file_text('docs/verification/scripts/verify_theory_derivations_output.txt')).group(1))
+    return locals()
+
+@check(label='app:derivations:L164', chapter='app:derivations', part=8, title='power of dS/dln a, n = 4, 0.01 <= a <= 0.1, full LambdaCDM',
+       file='appendices/app_C3_derivations', line=164, status='calc', kind='num', printed='-0.53', tol=0.0)
+def check_4700():
+    'Log-log slope of rho_m D^n f/(T_H A_H) for n = 4 over 0.01 <= a <= 0.1, LambdaCDM growth with radiation. Book line 164, printed -0.53. Inputs: Omega_m 0.315, Omega_r 9.1e-5 (as stated on line 163).'
+    value = _b16_slope(4.0, 0.01, 0.1)
+    return locals()
+
+@check(label='app:derivations:L164:-2.42', chapter='app:derivations', part=8, title='power of dS/dln a, n = 2.5, 0.25 <= a <= 1',
+       file='appendices/app_C3_derivations', line=164, status='calc', kind='num', printed='-2.42', tol=0.0)
+def check_4701():
+    'Log-log slope of rho_m D^n f/(T_H A_H) for n = 2.5 over 0.25 <= a <= 1. Book line 164, printed -2.42. Inputs: Omega_m 0.315, Omega_r 9.1e-5.'
+    value = _b16_slope(2.5, 0.25, 1.0)
+    return locals()
+
+@check(label='app:derivations:L164:-1.99', chapter='app:derivations', part=8, title='power of dS/dln a, n = 3, 0.25 <= a <= 1',
+       file='appendices/app_C3_derivations', line=164, status='calc', kind='num', printed='-1.99', tol=0.0)
+def check_4702():
+    'Log-log slope of rho_m D^n f/(T_H A_H) for n = 3 over 0.25 <= a <= 1. Book line 164, printed -1.99. Inputs: Omega_m 0.315, Omega_r 9.1e-5.'
+    value = _b16_slope(3.0, 0.25, 1.0)
+    return locals()
+
+@check(label='app:derivations:L164:-1.57', chapter='app:derivations', part=8, title='power of dS/dln a, n = 3.5, 0.25 <= a <= 1',
+       file='appendices/app_C3_derivations', line=164, status='calc', kind='num', printed='-1.57', tol=0.0)
+def check_4703():
+    'Log-log slope of rho_m D^n f/(T_H A_H) for n = 3.5 over 0.25 <= a <= 1. Book line 164, printed -1.57. Inputs: Omega_m 0.315, Omega_r 9.1e-5.'
+    value = _b16_slope(3.5, 0.25, 1.0)
+    return locals()
+
+@check(label='app:derivations:L164:-1.14', chapter='app:derivations', part=8, title='power of dS/dln a, n = 4, 0.25 <= a <= 1',
+       file='appendices/app_C3_derivations', line=164, status='calc', kind='num', printed='-1.14', tol=0.0)
+def check_4704():
+    'Log-log slope of rho_m D^n f/(T_H A_H) for n = 4 over 0.25 <= a <= 1. Book line 164, printed -1.14. Inputs: Omega_m 0.315, Omega_r 9.1e-5.'
+    value = _b16_slope(4.0, 0.25, 1.0)
+    return locals()
+
+@check(label='app:derivations:L165', chapter='app:derivations', part=8, title='n = 7/2 shape residual against k(1-1/a)+const, 0.01 <= a <= 0.1 (per cent of range)',
+       file='appendices/app_C3_derivations', line=165, status='calc', kind='num', printed='0.7', tol=0.0)
+def check_4705():
+    'Accumulated S(a) - S(1) for n = 7/2 (trapezoid integral of dS/da) fitted by least squares with k(1 - 1/a) + const over 0.01 <= a <= 0.1; largest residual as a per cent of the range of S there. Book line 165, printed 0.7. Inputs: Omega_m 0.315, Omega_r 9.1e-5.'
+    value = _b16_shape(0.01, 0.1)
+    return locals()
+
+@check(label='app:derivations:L165:3.8', chapter='app:derivations', part=8, title='n = 7/2 shape residual, 0.15 <= a <= 1 (per cent of range)',
+       file='appendices/app_C3_derivations', line=165, status='calc', kind='num', printed='3.8', tol=0.0)
+def check_4706():
+    'As app:derivations:L165 over 0.15 <= a <= 1. Book line 165, printed 3.8. Inputs: Omega_m 0.315, Omega_r 9.1e-5.'
+    value = _b16_shape(0.15, 1.0)
+    return locals()
+
+@check(label='app:derivations:L166', chapter='app:derivations', part=8, title='n = 7/2 shape residual, 0.15 <= a <= 2 (per cent of range)',
+       file='appendices/app_C3_derivations', line=166, status='calc', kind='num', printed='6.3', tol=0.0)
+def check_4707():
+    'As app:derivations:L165 over 0.15 <= a <= 2. Book line 166, printed 6.3. Inputs: Omega_m 0.315, Omega_r 9.1e-5.'
+    value = _b16_shape(0.15, 2.0)
+    return locals()
+
+@check(label='app:derivations:L173', chapter='app:derivations', part=8, title='bottom-up n_eff at z = 9, middle of the three mass functions',
+       file='appendices/app_C3_derivations', line=173, status='openprob', kind='file', printed='5.5', tol=0.015,
+       source='docs/verification/scripts/verify_bottom_up_exponent_output.txt', heavy=True, rerun=_B00_NEFF_RERUN)
+def check_4708():
+    'n_eff at z = 9 from the committed bottom-up output (Press-Schechter, Sheth-Tormen, Tinker); the sentence says "about 5.5", so the middle of the model range is compared with tol 1.5 % (same treatment as ch:iams_law:L590). Book line 173, printed 5.5.'
+    t = _b00_neff_table()
+    v = [t[k]['nz'][9] for k in ('press74', 'sheth99', 'tinker08')]
+    value = 0.5 * (min(v) + max(v))
     return locals()
 
 @check(label='app:derivations:L181', chapter='app:derivations', part=8, title='drafted check, screened (runs; negative control fails)',
@@ -41074,11 +41336,72 @@ def check_2780():
     value=coef[0]
     return locals()
 
+@check(label='app:derivations:L194:+0.017', chapter='app:derivations', part=8, title='least-squares CPL slope w_a over 0.5 <= a <= 1 (Omega_m 0.315)',
+       file='appendices/app_C3_derivations', line=194, status='calc', kind='num', printed='+0.017', tol=0.0)
+def check_4709():
+    'w_eff(a) = [-Omega_L + beta E w_info]/[Omega_L + beta E] with beta = Omega_m/2, w_info = -1 - 1/(3a), fitted by least squares with w0 + wa (1 - a) on 501 points in 0.5 <= a <= 1; the slope wa. Book line 194, printed +0.017. Inputs: Omega_m 0.315 (as stated).'
+    Omc = 0.315; OLc = 1 - Omc; bmc = Omc / 2
+    xa = np.linspace(0.5, 1, 501)
+    w = (-OLc + bmc * E_act(xa) * (-1 - 1 / (3 * xa))) / (OLc + bmc * E_act(xa))
+    value = float(np.polyfit(1 - xa, w, 1)[0])
+    return locals()
+
+@check(label='app:derivations:L199', chapter='app:derivations', part=8, title='minisuperspace Lagrangian: the lapse drops out of the constraint and delta N gives the Friedmann equation',
+       file='appendices/app_C3_derivations', line=199, status='derived', kind='sym', printed='', tol=0.0)
+def check_4710():
+    'The constraint term N a^3 lambda (phi_dot - H/a) with phi_dot = phi prime/N and H = a prime/(N a) equals lambda a^3 (phi prime - a prime/a^2) (no N); varying L in N and setting N = 1 gives H^2 = (8 pi G/3)(rho_m + rho_Lambda + rho_0 beta_m e^phi). Book line 199.'
+    t = sp.symbols('t')
+    Gs, rm0, rL, r0, b = sp.symbols('G rho_m0 rho_Lambda rho_0 beta', positive=True)
+    N, a, ph, lm = (sp.Function(s)(t) for s in ('N', 'a', 'phi', 'lambda'))
+    ap, php = sp.diff(a, t), sp.diff(ph, t)
+    constraint_cov = N * a**3 * lm * (php / N - ap / (N * a**2))
+    constraint_book = lm * a**3 * (php - ap / a**2)
+    def friedmann(coef):
+        L = -coef / (8 * sp.pi * Gs) * a * ap**2 / N - N * a**3 * (rm0 / a**3 + rL + r0 * b * sp.exp(ph)) + constraint_book
+        dLdN = sp.diff(L, N).subs(N, 1)
+        Hs = sp.symbols('H2')
+        return sp.solve(sp.Eq(dLdN.subs(ap, sp.sqrt(Hs) * a), 0), Hs)[0]
+    rhs_F = 8 * sp.pi * Gs / 3 * (rm0 / a**3 + rL + r0 * b * sp.exp(ph))
+    ok = sp.simplify(constraint_cov - constraint_book) == 0 and sp.simplify(friedmann(3) - rhs_F) == 0
+    neg_ok = sp.simplify(friedmann(sp.Rational(63, 20)) - rhs_F) == 0
+    return locals()
+
+@check(label='app:derivations:L243', chapter='app:derivations', part=8, title='mu(a) = H^2/(H^2 + beta_m E H0^2), mu(1) = 1/(1+beta_m), mu0 = -beta_m/(1+beta_m)',
+       file='appendices/app_C3_derivations', line=243, status='interp', kind='sym', printed='', tol=0.0)
+def check_4711():
+    'The ratio of Omega_m^(m) = 8 pi G rho_m/(3 H_m^2) with H_m^2 = H^2 + beta_m E H0^2 to Omega_m(a) = 8 pi G rho_m/(3 H^2) is H^2/(H^2 + beta_m E H0^2); at a = 1 (H = H0, E(1) = 1) it is 1/(1+beta_m), and mu(1) - 1 = -beta_m/(1+beta_m). Book line 243.'
+    H, H0s, Gs, rho, b, a = sp.symbols('H H_0 G rho beta a', positive=True)
+    E = sp.exp(1 - 1 / a)
+    def mus(coef):
+        Hm2 = H**2 + coef * b * E * H0s**2
+        mu = sp.simplify((8 * sp.pi * Gs * rho / (3 * Hm2)) / (8 * sp.pi * Gs * rho / (3 * H**2)))
+        mu1 = sp.simplify(mu.subs(a, 1).subs(H, H0s))
+        return mu, mu1, sp.simplify(mu1 - 1)
+    mu, mu1, mu0s = mus(1)
+    ok = (sp.simplify(mu - H**2 / (H**2 + b * E * H0s**2)) == 0 and sp.simplify(mu1 - 1 / (1 + b)) == 0
+          and sp.simplify(mu0s + b / (1 + b)) == 0)
+    neg_ok = sp.simplify(mus(sp.Rational(21, 20))[2] + b / (1 + b)) == 0
+    return locals()
+
 @check(label='app:derivations:L246', chapter='app:derivations', part=8, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
        file='appendices/app_C3_derivations', line=246, status='interp', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2781():
     'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 246, printed 0.15765.'
     value = Om/2
+    return locals()
+
+@check(label='app:derivations:L246:0.8638', chapter='app:derivations', part=8, title='mu(1) = 1/(1+beta_m)',
+       file='appendices/app_C3_derivations', line=246, status='interp', kind='num', printed='0.8638', tol=0.0)
+def check_4712():
+    'mu(1) = H0^2/(H0^2 + beta_m E(1) H0^2) evaluated from mu_iam at a = 1. Book line 246, printed 0.8638. Inputs: beta_m (CANON), Omega_m 0.3153.'
+    value = float(mu_iam(1.0))
+    return locals()
+
+@check(label='app:derivations:L246:13.62', chapter='app:derivations', part=8, title='1 - mu(1) in per cent',
+       file='appendices/app_C3_derivations', line=246, status='interp', kind='num', printed='13.62', tol=0.0)
+def check_4713():
+    '1 - mu(1) = beta_m/(1+beta_m), per cent. Book line 246, printed 13.62. Inputs: beta_m (CANON).'
+    value = 100 * (1 - float(mu_iam(1.0)))
     return locals()
 
 @check(label='app:derivations:L247', chapter='app:derivations', part=8, title='same value as p1_02_iams_law:465 (mu0 at beta_m=0.15765, precise)',
@@ -41224,6 +41547,58 @@ def check_2795():
     pass; OL=1-Om; pass; z=2.0; a=1/(1+z); E=math.exp(-z); Eh2=Om*a**-3+OL; mu=Eh2/(Eh2+beta_m*E); value=mu**-0.5
     return locals()
 
+@check(label='app:derivations:L248:0.998', chapter='app:derivations', part=8, title='mu at z = 2',
+       file='appendices/app_C3_derivations', line=248, status='calc', kind='num', printed='0.998', tol=0.0)
+def check_4714():
+    'mu(a) = H^2/(H^2 + beta_m E H0^2) at z = 2 (a = 1/3), Planck 2018 background. Book line 248, printed 0.998 (an earlier draft evaluated a different redshift). Inputs: beta_m (CANON), Omega_m 0.3153.'
+    value = float(mu_iam(1 / 3))
+    return locals()
+
+@check(label='app:derivations:L252', chapter='app:derivations', part=8, title='growth forms (i)-(iii) in ln a from the time-domain equations',
+       file='appendices/app_C3_derivations', line=252, status='calc', kind='sym', printed='', tol=0.0)
+def check_4715():
+    'With d/dt = H d/dln a, delta_ddot + 2 H delta_dot - mu 4 pi G rho_m delta (form i), delta_ddot + 2 H_m delta_dot - 4 pi G rho_m delta (form ii, the LambdaCDM clock) and the same equation with the clock H_m (form iii), each divided by the clock rate squared, give the three ln a forms printed at lines 253-255; 4 pi G rho_m = (3/2) Omega_m a^-3 H0^2 = (3/2) Omega_m(a) H^2. Book line 252.'
+    N = sp.symbols('N')
+    Om_a, mu, Om0, H0s = sp.symbols('Omega_ma mu Omega_m H_0', positive=True)
+    D = sp.Function('D')(N); H = sp.Function('H')(N); Hm = sp.Function('H_m')(N)
+    Dp, Dpp = sp.diff(D, N), sp.diff(D, N, 2)
+    def eqs(k):
+        ddtH = lambda f: H * sp.diff(f, N)
+        ddtHm = lambda f: Hm * sp.diff(f, N)
+        e1 = sp.expand((ddtH(ddtH(D)) + k * H * ddtH(D) - mu * sp.Rational(3, 2) * Om_a * H**2 * D) / H**2)
+        e2 = sp.expand((ddtH(ddtH(D)) + k * Hm * ddtH(D) - sp.Rational(3, 2) * Om_a * H**2 * D) / H**2)
+        e3 = sp.expand((ddtHm(ddtHm(D)) + k * Hm * ddtHm(D) - sp.Rational(3, 2) * Om0 * sp.exp(-3 * N) * H0s**2 * D) / Hm**2)
+        return e1, e2, e3
+    b1 = Dpp + (2 + sp.diff(H, N) / H) * Dp - sp.Rational(3, 2) * Om_a * mu * D
+    b2 = Dpp + (sp.diff(H, N) / H + 2 * Hm / H) * Dp - sp.Rational(3, 2) * Om_a * D
+    b3 = Dpp + (2 + sp.diff(Hm, N) / Hm) * Dp - sp.Rational(3, 2) * Om0 * sp.exp(-3 * N) * H0s**2 / Hm**2 * D
+    e1, e2, e3 = eqs(2)
+    ok = all(sp.simplify(x - y) == 0 for x, y in ((e1, b1), (e2, b2), (e3, b3)))
+    n1, n2, n3 = eqs(sp.Rational(21, 10))
+    neg_ok = all(sp.simplify(x - y) == 0 for x, y in ((n1, b1), (n2, b2), (n3, b3)))
+    return locals()
+
+@check(label='app:derivations:L258', chapter='app:derivations', part=8, title='Delta D/D today, form (i) G_eff = mu G',
+       file='appendices/app_C3_derivations', line=258, status='calc', kind='num', printed='-0.78', tol=0.0)
+def check_4716():
+    'Growth form (i) against LambdaCDM, same early amplitude (D = D prime = a at a = 1e-3), per cent today. Book line 258, printed -0.78. Inputs: Planck 2018 Omega_m 0.3153, beta_m (CANON).'
+    value = _b16_growth_form('i')
+    return locals()
+
+@check(label='app:derivations:L258:-0.67', chapter='app:derivations', part=8, title='Delta D/D today, form (ii) friction 2 H_m',
+       file='appendices/app_C3_derivations', line=258, status='calc', kind='num', printed='-0.67', tol=0.0)
+def check_4717():
+    'Growth form (ii), D2prime + (dlnH/dlna + 2 H_m/H) D prime - 1.5 Omega_m(a) D = 0, against LambdaCDM, same early amplitude, per cent today. Book line 258, printed -0.67. Inputs: Omega_m 0.3153, beta_m (CANON).'
+    value = _b16_growth_form('ii')
+    return locals()
+
+@check(label='app:derivations:L258:-1.87', chapter='app:derivations', part=8, title='Delta D/D today, form (iii) whole equation on H_m',
+       file='appendices/app_C3_derivations', line=258, status='calc', kind='num', printed='-1.87', tol=0.0)
+def check_4718():
+    'Growth form (iii), D2prime + (2 + dlnH_m/dlna) D prime - 1.5 Omega_m a^-3 H0^2/H_m^2 D = 0, against LambdaCDM, same early amplitude, per cent today. Book line 258, printed -1.87. Inputs: Omega_m 0.3153, beta_m (CANON).'
+    value = _b16_growth_form('iii')
+    return locals()
+
 @check(label='app:derivations:L261', chapter='app:derivations', part=8, title='drafted check, screened (runs; negative control fails)',
        file='appendices/app_C3_derivations', line=261, status='calc', kind='num', printed='4.25', tol=0.0)
 def check_2796():
@@ -41235,6 +41610,20 @@ def check_2796():
     value = deficit_z0
     return locals()
 
+@check(label='app:derivations:L261:2.17', chapter='app:derivations', part=8, title='f sigma8 deficit at z = 0.3, form (i)',
+       file='appendices/app_C3_derivations', line=261, status='calc', kind='num', printed='2.17', tol=0.0)
+def check_4719():
+    'Per cent by which f sigma8 of IAM (form i) is below LambdaCDM at z = 0.3, same early amplitude. Book line 261, printed 2.17. Inputs: Planck 2018 background.'
+    value = fs8_deficit(0.3)
+    return locals()
+
+@check(label='app:derivations:L261:1.35', chapter='app:derivations', part=8, title='f sigma8 deficit at z = 0.5, form (i)',
+       file='appendices/app_C3_derivations', line=261, status='calc', kind='num', printed='1.35', tol=0.0)
+def check_4720():
+    'Per cent by which f sigma8 of IAM (form i) is below LambdaCDM at z = 0.5, same early amplitude. Book line 261, printed 1.35. Inputs: Planck 2018 background.'
+    value = fs8_deficit(0.5)
+    return locals()
+
 @check(label='app:derivations:L262', chapter='app:derivations', part=8, title='drafted check, screened (runs; negative control fails)',
        file='appendices/app_C3_derivations', line=262, status='calc', kind='num', printed='+3.63', tol=0.0)
 def check_2797():
@@ -41242,11 +41631,76 @@ def check_2797():
     value = 100 * (f_of("lcdm", 0.0) / f_of("iam", 0.0) - 1)
     return locals()
 
+@check(label='app:derivations:L262:0.41', chapter='app:derivations', part=8, title='f sigma8 deficit at z = 1, form (i)',
+       file='appendices/app_C3_derivations', line=262, status='calc', kind='num', printed='0.41', tol=0.0)
+def check_4721():
+    'Per cent by which f sigma8 of IAM (form i) is below LambdaCDM at z = 1, same early amplitude. Book line 262, printed 0.41. Inputs: Planck 2018 background.'
+    value = fs8_deficit(1.0)
+    return locals()
+
+@check(label='app:derivations:L262:+1.86', chapter='app:derivations', part=8, title='E_G change f_LCDM/f_IAM - 1 at z = 0.295',
+       file='appendices/app_C3_derivations', line=262, status='calc', kind='num', printed='+1.86', tol=0.0)
+def check_4722():
+    'With Sigma = 1, E_G ~ Omega_m/f changes by f_LCDM/f_IAM - 1 (per cent) at z = 0.295. Book line 262, printed +1.86. Inputs: Planck 2018 background, beta_m (CANON).'
+    value = 100 * (f_of('lcdm', 0.295) / f_of('iam', 0.295) - 1)
+    return locals()
+
+@check(label='app:derivations:L263:+1.84', chapter='app:derivations', part=8, title='E_G change at z = 0.3',
+       file='appendices/app_C3_derivations', line=263, status='calc', kind='num', printed='+1.84', tol=0.0)
+def check_4723():
+    'f_LCDM/f_IAM - 1 (per cent) at z = 0.3. Book line 263, printed +1.84. Inputs: Planck 2018 background, beta_m (CANON).'
+    value = 100 * (f_of('lcdm', 0.3) / f_of('iam', 0.3) - 1)
+    return locals()
+
+@check(label='app:derivations:L263:+1.14', chapter='app:derivations', part=8, title='E_G change at z = 0.5',
+       file='appendices/app_C3_derivations', line=263, status='calc', kind='num', printed='+1.14', tol=0.0)
+def check_4724():
+    'f_LCDM/f_IAM - 1 (per cent) at z = 0.5. Book line 263, printed +1.14. Inputs: Planck 2018 background, beta_m (CANON).'
+    value = 100 * (f_of('lcdm', 0.5) / f_of('iam', 0.5) - 1)
+    return locals()
+
+@check(label='app:derivations:L263:0.299', chapter='app:derivations', part=8, title='Omega_m mu(z) inferred by a growth-only fit at z = 0.5',
+       file='appendices/app_C3_derivations', line=263, status='calc', kind='num', printed='0.299', tol=0.0)
+def check_4725():
+    'Omega_m times mu(z = 0.5), the product a growth-only LambdaCDM reading infers. Book line 263, printed 0.299. Inputs: Omega_m 0.3153 (Planck 2018), beta_m (CANON).'
+    value = Om * float(mu_iam(1 / 1.5))
+    return locals()
+
 @check(label='app:derivations:L266', chapter='app:derivations', part=8, title='same value as p1_02_iams_law:465 (mu at a=1 from beta_m)',
        file='appendices/app_C3_derivations', line=266, status='calc', kind='num', printed='0.8638', tol=5.79e-05)
 def check_2798():
     'same value as p1_02_iams_law:465 (mu at a=1 from beta_m). Book line 266, printed 0.8638.'
     value = 1/(1+beta_m)
+    return locals()
+
+@check(label='app:derivations:L266:0.8650', chapter='app:derivations', part=8, title='MGCAMB-form mu today with the runs mu0',
+       file='appendices/app_C3_derivations', line=266, status='calc', kind='num', printed='0.8650', tol=0.0)
+def check_4726():
+    'mu = 1 + mu0 Omega_DE(a)/Omega_Lambda at a = 1 with mu0 = -0.13495 (the Level 1 runs). Book line 266, printed 0.8650. Inputs: MU0_MGCAMB, Planck 2018 Omega_m.'
+    value = float(mu_mgcamb(1.0))
+    return locals()
+
+@check(label='app:derivations:L266:-2.76', chapter='app:derivations', part=8, title='largest gap MGCAMB form vs exact mu, 0 <= z <= 3',
+       file='appendices/app_C3_derivations', line=266, status='calc', kind='num', printed='-2.76', tol=0.0)
+def check_4727():
+    'Largest per cent gap mu_MGCAMB/mu_exact - 1 over 0 <= z <= 3, mu0 = -0.13495. Book line 266, printed -2.76. Inputs: MU0_MGCAMB, Omega_m 0.3153, beta_m (CANON).'
+    zz, gap = _b16_mu_mg_gap()
+    value = float(gap[np.argmax(abs(gap))])
+    return locals()
+
+@check(label='app:derivations:L266:0.65', chapter='app:derivations', part=8, title='redshift of the largest MGCAMB gap',
+       file='appendices/app_C3_derivations', line=266, status='calc', kind='num', printed='0.65', tol=0.0)
+def check_4728():
+    'Redshift at which |mu_MGCAMB/mu_exact - 1| is largest on 0 <= z <= 3. Book line 266, printed 0.65. Inputs: MU0_MGCAMB, Omega_m 0.3153, beta_m (CANON).'
+    zz, gap = _b16_mu_mg_gap()
+    value = float(zz[np.argmax(abs(gap))])
+    return locals()
+
+@check(label='app:derivations:L266:-2.48', chapter='app:derivations', part=8, title='MGCAMB gap at z = 1',
+       file='appendices/app_C3_derivations', line=266, status='calc', kind='num', printed='-2.48', tol=0.0)
+def check_4729():
+    'Per cent gap mu_MGCAMB/mu_exact - 1 at z = 1. Book line 266, printed -2.48. Inputs: MU0_MGCAMB, Omega_m 0.3153, beta_m (CANON).'
+    value = float(100 * (mu_mgcamb(0.5) / mu_iam(0.5) - 1))
     return locals()
 
 @check(label='app:derivations:L267', chapter='app:derivations', part=8, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
@@ -41263,11 +41717,40 @@ def check_2800():
     value = -beta_m/(1+beta_m)
     return locals()
 
+@check(label='app:derivations:L267:0.1560', chapter='app:derivations', part=8, title='beta with -beta/(1+beta) = mu0 of the runs',
+       file='appendices/app_C3_derivations', line=267, status='calc', kind='num', printed='0.1560', tol=0.0)
+def check_4730():
+    'Solve -beta/(1+beta) = mu0 for beta, mu0 = -0.13495. Book line 267, printed 0.1560. Inputs: MU0_MGCAMB.'
+    value = brentq(lambda b: -b / (1 + b) - MU0_MGCAMB, 0.0, 1.0)
+    return locals()
+
 @check(label='app:derivations:L274', chapter='app:derivations', part=8, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
        file='appendices/app_C3_derivations', line=274, status='prediction', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2801():
     'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 274, printed 0.15765.'
     value = Om/2
+    return locals()
+
+@check(label='app:derivations:L274:0.15750', chapter='app:derivations', part=8, title='beta_m = Omega_m/2 at Omega_m = 0.315',
+       file='appendices/app_C3_derivations', line=274, status='prediction', kind='num', printed='0.15750', tol=0.0)
+def check_4731():
+    'beta_m from rho_info(1) = rho_m(1)/2 with rho_info(1) = beta_m E(1) rho_crit: beta_m = Omega_m/(2 E(1)) at Omega_m = 0.315. Book line 274, printed 0.15750. Inputs: Omega_m 0.315 (Planck 2018, rounded, as stated).'
+    value = 0.315 / (2 * float(E_act(1.0)))
+    return locals()
+
+@check(label='app:derivations:L275', chapter='app:derivations', part=8, title='eta_vir = 1/(2 f_coll) at f_coll = 0.62',
+       file='appendices/app_C3_derivations', line=275, status='calc', kind='num', printed='0.81', tol=0.0)
+def check_4732():
+    'eta_vir from beta_m = Omega_m f_coll eta_vir with beta_m = Omega_m/2: eta_vir = 1/(2 f_coll). Book line 275, printed 0.81. Inputs: f_coll = 0.62 (as stated).'
+    f_coll = 0.62
+    value = (Om / 2) / (Om * f_coll)
+    return locals()
+
+@check(label='app:derivations:L275:0.195', chapter='app:derivations', part=8, title='Omega_m f_coll',
+       file='appendices/app_C3_derivations', line=275, status='calc', kind='num', printed='0.195', tol=0.0)
+def check_4733():
+    'Omega_m f_coll with Omega_m = 0.3153 and f_coll = 0.62. Book line 275, printed 0.195. Inputs: Omega_m (Planck 2018), f_coll 0.62 (as stated).'
+    value = Om * 0.62
     return locals()
 
 @check(label='app:derivations:L277', chapter='app:derivations', part=8, title='same value as p1_02_iams_law:516 (H_m/H at z=0)',
@@ -41300,6 +41783,20 @@ def check_2805():
     beta_m_val = 0.1575
     H0_m = H0_input * math.sqrt(1 + beta_m_val)
     value = H0_m
+    return locals()
+
+@check(label='app:derivations:L278:72.48', chapter='app:derivations', part=8, title='H0_m = H0 sqrt(1+beta_m) from 67.36',
+       file='appendices/app_C3_derivations', line=278, status='calc', kind='num', printed='72.48', tol=0.0)
+def check_4734():
+    'H0^(m) = H0 sqrt(1 + beta_m) with H0 = 67.36 (Planck 2018). Book line 278, printed 72.48. Inputs: beta_m (CANON).'
+    value = 67.36 * math.sqrt(1 + beta_m)
+    return locals()
+
+@check(label='app:derivations:L278:-0.75', chapter='app:derivations', part=8, title='H0_m 72.26 against SH0ES 73.04 +- 1.04, in sigma',
+       file='appendices/app_C3_derivations', line=278, status='calc', kind='num', printed='-0.75', tol=0.0)
+def check_4735():
+    '(H0_m - 73.04)/1.04 with H0_m = 67.16 sqrt(1 + beta_m) (locked photon-sector H0). Book line 278, printed -0.75. Inputs: SH0ES 73.04 +- 1.04 (as stated), H0_photon (locked), beta_m (CANON).'
+    value = (H0_photon * math.sqrt(1 + beta_m) - 73.04) / 1.04
     return locals()
 
 @check(label='app:derivations:L279', chapter='app:derivations', part=8, title='same value as p2_03_theory:889 (Level2 posterior mean H0)',
@@ -41347,6 +41844,15 @@ def check_2809():
     H_a = H0_lv2 * np.sqrt(H2_lcdm_a)
     H_m_a = H0_lv2 * np.sqrt(H2_lcdm_a + beta_m_lv2 * E_act(a))
     value = H_m_a
+    return locals()
+
+@check(label='app:derivations:L279:-0.37', chapter='app:derivations', part=8, title='Level 2 chain H0 against Planck 67.36 +- 0.54, in sigma',
+       file='appendices/app_C3_derivations', line=279, status='calc', kind='file', printed='-0.37', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_4736():
+    '(H0_chain - 67.36)/0.54 with the Level 2 posterior mean H0 read from the committed chain extraction. Book line 279, printed -0.37. Inputs: Planck 2018 67.36 +- 0.54 (as stated).'
+    H0_chain = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = (H0_chain - 67.36) / 0.54
     return locals()
 
 @check(label='app:derivations:L280', chapter='app:derivations', part=8, title='drafted check, screened (runs; negative control fails)',
@@ -41437,6 +41943,69 @@ def check_2816():
     value = Om/2
     return locals()
 
+@check(label='app:derivations:L282:399', chapter='app:derivations', part=8, title='R(a) = Omega_m a^-3/(beta_m E) at z = 2',
+       file='appendices/app_C3_derivations', line=282, status='calc', kind='num', printed='399', tol=0.0)
+def check_4737():
+    'Ratio of matter to record density at z = 2. Book line 282, printed 399. Inputs: Omega_m 0.3153, beta_m (CANON).'
+    a = 1 / 3
+    value = float(Om * a**-3 / (beta_m * E_act(a)))
+    return locals()
+
+@check(label='app:derivations:L282:19.8', chapter='app:derivations', part=8, title='R(a) at z = 0.7',
+       file='appendices/app_C3_derivations', line=282, status='calc', kind='num', printed='19.8', tol=0.0)
+def check_4738():
+    'Ratio of matter to record density at z = 0.7. Book line 282, printed 19.8. Inputs: Omega_m 0.3153, beta_m (CANON).'
+    a = 1 / 1.7
+    value = float(Om * a**-3 / (beta_m * E_act(a)))
+    return locals()
+
+@check(label='app:derivations:L282:5.9', chapter='app:derivations', part=8, title='R(a) at z = 0.3',
+       file='appendices/app_C3_derivations', line=282, status='calc', kind='num', printed='5.9', tol=0.0)
+def check_4739():
+    'Ratio of matter to record density at z = 0.3. Book line 282, printed 5.9. Inputs: Omega_m 0.3153, beta_m (CANON).'
+    a = 1 / 1.3
+    value = float(Om * a**-3 / (beta_m * E_act(a)))
+    return locals()
+
+@check(label='app:derivations:L282:2.0', chapter='app:derivations', part=8, title='R(a) at z = 0',
+       file='appendices/app_C3_derivations', line=282, status='calc', kind='num', printed='2.0', tol=0.0)
+def check_4740():
+    'Ratio of matter to record density today, Omega_m/(beta_m E(1)). Book line 282, printed 2.0. Inputs: Omega_m 0.3153, beta_m (CANON).'
+    value = float(Om / (beta_m * E_act(1.0)))
+    return locals()
+
+@check(label='app:derivations:L283', chapter='app:derivations', part=8, title='record share of Omega_L + beta_m E at z = 0 (per cent)',
+       file='appendices/app_C3_derivations', line=283, status='calc', kind='num', printed='18.7', tol=0.0)
+def check_4741():
+    'beta_m E/(Omega_L + beta_m E) at z = 0, per cent. Book line 283, printed 18.7. Inputs: Omega_m 0.3153 (Omega_L = 1 - Omega_m), beta_m (CANON).'
+    E = float(E_act(1.0))
+    value = 100 * beta_m * E / (OL + beta_m * E)
+    return locals()
+
+@check(label='app:derivations:L283:14.6', chapter='app:derivations', part=8, title='record share at z = 0.3 (per cent)',
+       file='appendices/app_C3_derivations', line=283, status='calc', kind='num', printed='14.6', tol=0.0)
+def check_4742():
+    'beta_m E/(Omega_L + beta_m E) at z = 0.3, per cent. Book line 283, printed 14.6. Inputs: Omega_m 0.3153, beta_m (CANON).'
+    E = float(E_act(1 / 1.3))
+    value = 100 * beta_m * E / (OL + beta_m * E)
+    return locals()
+
+@check(label='app:derivations:L283:10.3', chapter='app:derivations', part=8, title='record share at z = 0.7 (per cent)',
+       file='appendices/app_C3_derivations', line=283, status='calc', kind='num', printed='10.3', tol=0.0)
+def check_4743():
+    'beta_m E/(Omega_L + beta_m E) at z = 0.7, per cent. Book line 283, printed 10.3. Inputs: Omega_m 0.3153, beta_m (CANON).'
+    E = float(E_act(1 / 1.7))
+    value = 100 * beta_m * E / (OL + beta_m * E)
+    return locals()
+
+@check(label='app:derivations:L283:4.9', chapter='app:derivations', part=8, title='record share at z = 1.5 (per cent)',
+       file='appendices/app_C3_derivations', line=283, status='calc', kind='num', printed='4.9', tol=0.0)
+def check_4744():
+    'beta_m E/(Omega_L + beta_m E) at z = 1.5, per cent. Book line 283, printed 4.9. Inputs: Omega_m 0.3153, beta_m (CANON).'
+    E = float(E_act(1 / 2.5))
+    value = 100 * beta_m * E / (OL + beta_m * E)
+    return locals()
+
 @check(label='app:derivations:L284', chapter='app:derivations', part=8, title='drafted check, screened (runs; negative control fails)',
        file='appendices/app_C3_derivations', line=284, status='calc', kind='num', printed='0.295', tol=0.0)
 def check_2817():
@@ -41447,6 +42016,30 @@ def check_2817():
     a_lcdm = (OL / Om)**(-1/3)
     z_lcdm = (OL / Om)**(1/3) - 1
     value = z_lcdm
+    return locals()
+
+@check(label='app:derivations:L284:0.361', chapter='app:derivations', part=8, title='redshift where matter equals vacuum plus record',
+       file='appendices/app_C3_derivations', line=284, status='calc', kind='num', printed='0.361', tol=0.0)
+def check_4745():
+    'Root of Omega_m (1+z)^3 = Omega_L + beta_m E(a). Book line 284, printed 0.361. Inputs: Omega_m 0.3153, beta_m (CANON).'
+    value = brentq(lambda z: Om * (1 + z)**3 - OL - beta_m * float(E_act(1 / (1 + z))), 0.0, 2.0)
+    return locals()
+
+@check(label='app:derivations:L288', chapter='app:derivations', part=8, title='rho_Lambda/rho_vac = (3 Omega_L/8 pi) hbar G H0^2/c^5 = (3 Omega_L/8 pi)(l_P/l_H)^2',
+       file='appendices/app_C3_derivations', line=288, status='derived', kind='sym', printed='', tol=0.0)
+def check_4746():
+    'With E_P = sqrt(hbar c^5/G), rho_vac = E_P^4/(hbar c)^3 reduces to c^7/(hbar G^2); rho_Lambda = Omega_L (3 H0^2/8 pi G) c^2; their ratio is (3 Omega_L/8 pi) hbar G H0^2/c^5, and with l_P^2 = hbar G/c^3, l_H = c/H0 it is (3 Omega_L/8 pi)(l_P/l_H)^2. Book line 288.'
+    hb, Gs, cs, H0s, OLs = sp.symbols('hbar G c H_0 Omega_Lambda', positive=True)
+    EP = sp.sqrt(hb * cs**5 / Gs)
+    rho_vac = sp.simplify(EP**4 / (hb * cs)**3)
+    def ratio(coef):
+        rho_L = OLs * coef * H0s**2 / (8 * sp.pi * Gs) * cs**2
+        return sp.simplify(rho_L / rho_vac)
+    lP2 = hb * Gs / cs**3; lH = cs / H0s
+    r = ratio(3)
+    ok = (sp.simplify(rho_vac - cs**7 / (hb * Gs**2)) == 0 and sp.simplify(r - 3 * OLs / (8 * sp.pi) * hb * Gs * H0s**2 / cs**5) == 0
+          and sp.simplify(r - 3 * OLs / (8 * sp.pi) * lP2 / lH**2) == 0)
+    neg_ok = sp.simplify(ratio(sp.Rational(63, 20)) - 3 * OLs / (8 * sp.pi) * lP2 / lH**2) == 0
     return locals()
 
 @check(label='app:derivations:L291', chapter='app:derivations', part=8, title='drafted check, screened (runs; negative control fails)',
@@ -41536,6 +42129,17 @@ def check_2826():
     H=Hsi(67.4); lH=c/H; value=(2/math.pi)*(lP/lH)**2*math.sqrt(0.6847)*(0.0493/Om)
     return locals()
 
+@check(label='app:derivations:L297:+0.79', chapter='app:derivations', part=8, title='expression with sqrt(Omega_L) over the identity, per cent',
+       file='appendices/app_C3_derivations', line=297, status='calc', kind='num', printed='+0.79', tol=0.0)
+def check_4747():
+    '(2/pi)(l_P/l_H)^2 sqrt(Omega_L) Omega_b/Omega_m divided by the identity (3 Omega_L/8 pi)(l_P/l_H)^2, minus 1, per cent. Omega_L = 1 - Omega_m - Omega_r = 0.6846, the value with which ch:lambda (Eq. lam_corr_num, checks eq:lam_corr_num and ch:lambda:L207) computes the same +0.79 %; with Omega_L = 0.6847 (line 291) the result is +0.78. Book line 297, printed +0.79. Inputs: Planck 2018 Omega_b 0.0493, Omega_m 0.3153, Omega_r 9.15e-5 (as in ch:lambda), H0 67.4.'
+    OLv = 1 - Om - 9.15e-5
+    lH = c / Hsi(67.4)
+    expr = (2 / math.pi) * (lP / lH)**2 * math.sqrt(OLv) * Ob / Om
+    ident = 3 * OLv / (8 * math.pi) * (lP / lH)**2
+    value = 100 * (expr / ident - 1)
+    return locals()
+
 @check(label='app:derivations:L298', chapter='app:derivations', part=8, title='same value as p2_12_lambda:172 (baryon fraction of matter)',
        file='appendices/app_C3_derivations', line=298, status='calc', kind='num', printed='0.1564', tol=0.0003)
 def check_2827():
@@ -41549,6 +42153,22 @@ def check_2828():
     'same value as p2_12_lambda:259 ((3/16) sqrt(Omega_L)). Book line 298, printed 0.1551.'
     OLb=0.6846  # book input line 42
     value=3/16*math.sqrt(OLb)
+    return locals()
+
+@check(label='app:derivations:L298:0.521', chapter='app:derivations', part=8, title='power of Omega_L that closes the first form exactly',
+       file='appendices/app_C3_derivations', line=298, status='calc', kind='num', printed='0.521', tol=0.0)
+def check_4748():
+    'p with (2/pi)(l_P/l_H)^2 Omega_L^p Omega_b/Omega_m = (3 Omega_L/8 pi)(l_P/l_H)^2, solved by root finding; Omega_L = 1 - Omega_m - Omega_r = 0.6846 as in ch:lambda:L208 (with 0.6847 the root is 0.5205). Book line 298, printed 0.521. Inputs: Planck 2018 Omega_b 0.0493, Omega_m 0.3153, Omega_r 9.15e-5.'
+    OLv = 1 - Om - 9.15e-5
+    value = brentq(lambda p: (2 / math.pi) * OLv**p * Ob / Om - 3 * OLv / (8 * math.pi), 0.0, 2.0)
+    return locals()
+
+@check(label='app:derivations:L302:0.1430', chapter='app:derivations', part=8, title='Omega_m h^2 = Omega_c h^2 + Omega_b h^2 + Omega_nu h^2 (Planck 2018)',
+       file='appendices/app_C3_derivations', line=302, status='calc', kind='num', printed='0.1430', tol=0.0)
+def check_4749():
+    'Omega_m h^2 as the sum of the Planck 2018 base parameters (TT,TE,EE+lowE+lensing, Aghanim et al. 2020 Table 2, bib key Planck2018VI): Omega_c h^2 = 0.1200, Omega_b h^2 = 0.02237, and the minimal neutrino mass sum 0.06 eV giving Omega_nu h^2 = 0.06/93.14. (Omega_m times h^2 from the rounded 0.3153 and 0.6736 gives 0.1431.) Book line 302, printed 0.1430.'
+    Ocdm_h2, Ob_h2, mnu = 0.1200, 0.02237, 0.06
+    value = Ocdm_h2 + Ob_h2 + mnu / 93.14
     return locals()
 
 @check(label='app:derivations:L303', chapter='app:derivations', part=8, title='drafted check, screened (runs; negative control fails)',
@@ -41582,6 +42202,22 @@ def check_2830():
     value = eta_value
     return locals()
 
+@check(label='app:derivations:L308', chapter='app:derivations', part=8, title='m c^2 = E_bit N/f solved: m = (2 pi)^(-2/5) B^(2/5)',
+       file='appendices/app_C3_derivations', line=308, status='derived', kind='sym', printed='', tol=0.0)
+def check_4750():
+    'Solve m c^2 = E_bit N/f with E_bit = hbar H0 ln2/(2 pi), N = (m_P/m)^(3/2), f = alpha^(5/2) for m; the root is (2 pi)^(-2/5) B^(2/5) with B = hbar H0 ln2 m_P^(3/2)/(alpha^(5/2) c^2). Book line 308.'
+    m, hb, H0s, mPs, al, cs = sp.symbols('m hbar H_0 m_P alpha c', positive=True)
+    def root(coef):
+        Ebit = coef * hb * H0s * sp.log(2) / (2 * sp.pi)
+        sols = sp.solve(sp.Eq(m * cs**2, Ebit * (mPs / m)**sp.Rational(3, 2) / al**sp.Rational(5, 2)), m)
+        return [r for r in sols if r.is_positive][0]
+    B = hb * H0s * sp.log(2) * mPs**sp.Rational(3, 2) / (al**sp.Rational(5, 2) * cs**2)
+    rhs = (2 * sp.pi)**sp.Rational(-2, 5) * B**sp.Rational(2, 5)
+    same = lambda u, v: sp.simplify(sp.expand_power_base(u**5, force=True) - sp.expand_power_base(v**5, force=True)) == 0   # both positive
+    ok = same(root(1), rhs)
+    neg_ok = same(root(sp.Rational(21, 20)), rhs)
+    return locals()
+
 @check(label='app:derivations:L311', chapter='app:derivations', part=8, title='same value as p2_15b_electron_mass:80 (B/m_e at H0 = 67.4)',
        file='appendices/app_C3_derivations', line=311, status='derived', kind='num', printed='1.2018', tol=0)
 def check_2831():
@@ -41605,6 +42241,54 @@ def check_2833():
     value = (2 * np.pi)**(3 / 10)
     return locals()
 
+@check(label='app:derivations:L312:+6.6\\times10^{-6}', chapter='app:derivations', part=8, title='m/m_e - 1 with (2 pi)^(-1/10) at H0 = 67.4',
+       file='appendices/app_C3_derivations', line=312, status='calc', kind='num', printed='+6.6\\times10^{-6}', tol=0.0)
+def check_4751():
+    'm/m_e - 1 for m = (2 pi)^(-1/10) B^(2/5), H0 = 67.4. Book line 312, printed +6.6e-6. Inputs: CODATA 2018 hbar, G, alpha, m_e; H0 67.4 (as stated).'
+    value = _b16_m_over_me(67.4)
+    return locals()
+
+@check(label='app:derivations:L313:-2.31\\times10^{-4}', chapter='app:derivations', part=8, title='m/m_e - 1 at H0 = 67.36',
+       file='appendices/app_C3_derivations', line=313, status='calc', kind='num', printed='-2.31\\times10^{-4}', tol=0.0)
+def check_4752():
+    'm/m_e - 1 for m = (2 pi)^(-1/10) B^(2/5), H0 = 67.36. Book line 313, printed -2.31e-4. Inputs: CODATA 2018 constants.'
+    value = _b16_m_over_me(67.36)
+    return locals()
+
+@check(label='app:derivations:L313:+3.24\\times10^{-2}', chapter='app:derivations', part=8, title='m/m_e - 1 at H0 = 73.0',
+       file='appendices/app_C3_derivations', line=313, status='calc', kind='num', printed='+3.24\\times10^{-2}', tol=0.0)
+def check_4753():
+    'm/m_e - 1 for m = (2 pi)^(-1/10) B^(2/5), H0 = 73.0. Book line 313, printed +3.24e-2. Inputs: CODATA 2018 constants.'
+    value = _b16_m_over_me(73.0)
+    return locals()
+
+@check(label='app:derivations:L313:+3.27\\times10^{-2}', chapter='app:derivations', part=8, title='m/m_e - 1 at H0 = 73.04',
+       file='appendices/app_C3_derivations', line=313, status='calc', kind='num', printed='+3.27\\times10^{-2}', tol=0.0)
+def check_4754():
+    'm/m_e - 1 for m = (2 pi)^(-1/10) B^(2/5), H0 = 73.04. Book line 313, printed +3.27e-2. Inputs: CODATA 2018 constants.'
+    value = _b16_m_over_me(73.04)
+    return locals()
+
+@check(label='app:derivations:L314:0.32', chapter='app:derivations', part=8, title='sigma(H0) = 0.54 as a per cent in m (m ~ H0^(2/5))',
+       file='appendices/app_C3_derivations', line=314, status='calc', kind='num', printed='0.32', tol=0.0)
+def check_4755():
+    'Per cent change of m for a 0.54 shift of H0 at 67.4, from the fixed-point formula itself (finite difference of _b16_m_over_me). Book line 314, printed 0.32. Inputs: sigma(H0) = 0.54 (Planck 2018, as stated).'
+    value = 100 * (_b16_m_over_me(67.4 + 0.54) - _b16_m_over_me(67.4 - 0.54)) / 2 / (1 + _b16_m_over_me(67.4))
+    return locals()
+
+@check(label='app:derivations:L318', chapter='app:derivations', part=8, title='Koide Q = (1/3)(1 + y^2/2x^2) = 2/3 at y = sqrt2 x',
+       file='appendices/app_C3_derivations', line=318, status='derived', kind='sym', printed='', tol=0.0)
+def check_4756():
+    'With sqrt(m_k) = x + y cos(2 pi k/3 + delta), the sums of cos and cos^2 over k are 0 and 3/2 for every delta, Q = sum m/(sum sqrt m)^2 = (1/3)(1 + y^2/(2 x^2)), and Q = 2/3 at y = sqrt(2) x. Book line 318.'
+    x, y, d = sp.symbols('x y delta', positive=True)
+    s = [x + y * sp.cos(2 * sp.pi * k / 3 + d) for k in range(3)]
+    sc = sp.simplify(sp.expand_trig(sum(sp.cos(2 * sp.pi * k / 3 + d) for k in range(3))))
+    sc2 = sp.simplify(sp.expand_trig(sum(sp.cos(2 * sp.pi * k / 3 + d)**2 for k in range(3))))
+    Q = sp.simplify(sp.expand_trig(sp.expand(sum(si**2 for si in s) / sum(s)**2)))
+    ok = sc == 0 and sc2 == sp.Rational(3, 2) and sp.simplify(Q - (1 + y**2 / (2 * x**2)) / 3) == 0 and sp.simplify(Q.subs(y, sp.sqrt(2) * x) - sp.Rational(2, 3)) == 0
+    neg_ok = sp.simplify(Q.subs(y, sp.Rational(21, 20) * sp.sqrt(2) * x) - sp.Rational(2, 3)) == 0
+    return locals()
+
 @check(label='app:derivations:L321', chapter='app:derivations', part=8, title='same value as p2_15a_lepton_koide:35 (Koide Q with the 2022 m_tau)',
        file='appendices/app_C3_derivations', line=321, status='conjecture', kind='num', printed='0.66666051', tol=0)
 def check_2834():
@@ -41621,6 +42305,66 @@ def check_2834():
     value=Qk(me_,mmu_,mtau22)
     return locals()
 
+@check(label='app:derivations:L321:313.84', chapter='app:derivations', part=8, title='Koide scale x^2 from the measured masses, MeV',
+       file='appendices/app_C3_derivations', line=321, status='conjecture', kind='num', printed='313.84', tol=0.0)
+def check_4757():
+    'x = (sqrt m_e + sqrt m_mu + sqrt m_tau)/3, x^2 in MeV. Book line 321, printed 313.84. Inputs: m_e (CODATA 2018), m_mu and m_tau (PDG 2022, bib key PDG2022).'
+    x, d, mk = _b16_koide()
+    value = x**2
+    return locals()
+
+@check(label='app:derivations:L322:0.22227', chapter='app:derivations', part=8, title='Koide offset delta, rad',
+       file='appendices/app_C3_derivations', line=322, status='calc', kind='num', printed='0.22227', tol=0.0)
+def check_4758():
+    'delta = arccos[(sqrt(m_tau)/x - 1)/sqrt 2]. Book line 322, printed 0.22227. Inputs: lepton masses as in app:derivations:L321:313.84.'
+    x, d, mk = _b16_koide()
+    value = d
+    return locals()
+
+@check(label='app:derivations:L322:0.510', chapter='app:derivations', part=8, title='m_e returned by x and delta, MeV',
+       file='appendices/app_C3_derivations', line=322, status='calc', kind='num', printed='0.510', tol=0.0)
+def check_4759():
+    'The k = 1 mass x^2 (1 + sqrt2 cos(2 pi/3 + delta))^2. Book line 322, printed 0.510. Inputs: lepton masses as in app:derivations:L321:313.84.'
+    x, d, mk = _b16_koide()
+    value = mk[1]
+    return locals()
+
+@check(label='app:derivations:L322:105.68', chapter='app:derivations', part=8, title='m_mu returned by x and delta, MeV',
+       file='appendices/app_C3_derivations', line=322, status='calc', kind='num', printed='105.68', tol=0.0)
+def check_4760():
+    'The k = 2 mass x^2 (1 + sqrt2 cos(4 pi/3 + delta))^2. Book line 322, printed 105.68. Inputs: lepton masses as in app:derivations:L321:313.84.'
+    x, d, mk = _b16_koide()
+    value = mk[2]
+    return locals()
+
+@check(label='app:derivations:L323', chapter='app:derivations', part=8, title='the two lighter masses at delta = 0, MeV',
+       file='appendices/app_C3_derivations', line=323, status='calc', kind='num', printed='26.9', tol=0.0)
+def check_4761():
+    'With delta = 0 the k = 1, 2 masses are x^2 (1 + sqrt2 cos(2 pi/3))^2 = x^2 (1 - sqrt2/2)^2. Book line 323, printed 26.9. Inputs: x from the measured masses.'
+    x, d, mk = _b16_koide()
+    value = (x * (1 + math.sqrt(2) * math.cos(2 * math.pi / 3)))**2
+    return locals()
+
+def _b16_allowed_fraction(n, npts=200000):
+    """Fraction of offsets theta in [0, 2 pi) for which all n equally spaced phases theta + 2 pi k/n have 1 + sqrt2 cos(phase) > 0."""
+    th = np.linspace(0, 2 * math.pi, npts, endpoint=False)
+    ph = th[:, None] + 2 * math.pi * np.arange(n) / n
+    return float(np.mean(np.all(1 + math.sqrt(2) * np.cos(ph) > 0, axis=1)))
+
+@check(label='app:derivations:L327:0.50', chapter='app:derivations', part=8, title='allowed fraction of offsets, n = 2',
+       file='appendices/app_C3_derivations', line=327, status='derived', kind='num', printed='0.50', tol=0.0)
+def check_4762():
+    'Fraction of the circle of offsets for which both of n = 2 equally spaced phases keep 1 + sqrt2 cos(phi) > 0 (numerical scan). Book line 327, printed 0.50.'
+    value = _b16_allowed_fraction(2)
+    return locals()
+
+@check(label='app:derivations:L327:0.25', chapter='app:derivations', part=8, title='allowed fraction of offsets, n = 3',
+       file='appendices/app_C3_derivations', line=327, status='derived', kind='num', printed='0.25', tol=0.0)
+def check_4763():
+    'Fraction of the circle of offsets for which all of n = 3 equally spaced phases keep 1 + sqrt2 cos(phi) > 0 (numerical scan). Book line 327, printed 0.25.'
+    value = _b16_allowed_fraction(3)
+    return locals()
+
 @check(label='app:derivations:L330', chapter='app:derivations', part=8, title='same value as p2_22_electroweak:90 (Omega_dm/2)',
        file='appendices/app_C3_derivations', line=330, status='calc', kind='num', printed='0.1330', tol=0)
 def check_2835():
@@ -41633,6 +42377,28 @@ def check_2835():
 def check_2836():
     'same value as p2_22_electroweak:90 (beta_m = Omega_b/2 + Omega_dm/2 (Planck 2018 Omega_b 0.0493)). Book line 330, printed 0.1577.'
     value=Ob/2+(Om-Ob)/2
+    return locals()
+
+@check(label='app:derivations:L330:0.0247', chapter='app:derivations', part=8, title='Omega_b/2',
+       file='appendices/app_C3_derivations', line=330, status='calc', kind='num', printed='0.0247', tol=0.0)
+def check_4764():
+    'Baryon part of beta_m, Omega_b/2. Book line 330, printed 0.0247 (0.02465 rounded half up). Inputs: Planck 2018 Omega_b 0.0493.'
+    value = Ob / 2
+    return locals()
+
+@check(label='app:derivations:L330:15.6', chapter='app:derivations', part=8, title='baryon share of beta_m, per cent',
+       file='appendices/app_C3_derivations', line=330, status='calc', kind='num', printed='15.6', tol=0.0)
+def check_4765():
+    '(Omega_b/2)/(Omega_b/2 + Omega_dm/2), per cent. Book line 330, printed 15.6. Inputs: Planck 2018 Omega_b 0.0493, Omega_m 0.3153.'
+    value = 100 * (Ob / 2) / (Ob / 2 + (Om - Ob) / 2)
+    return locals()
+
+@check(label='app:derivations:L333', chapter='app:derivations', part=8, title='hbar R/(G M^2) for 1e12 M_sun within 200 kpc, s',
+       file='appendices/app_C3_derivations', line=333, status='calc', kind='num', printed='2.5\\times10^{-87}', tol=0.0)
+def check_4766():
+    'Collapse time hbar/E_G = hbar R/(G M^2) for M = 1e12 M_sun, R = 200 kpc. Book line 333, printed 2.5e-87. Inputs: CODATA 2018 hbar, G; IAU M_sun and parsec.'
+    M = 1e12 * Msun; R = 200 * 1e3 * pc
+    value = hbar * R / (G * M**2)
     return locals()
 
 @check(label='app:derivations:L338', chapter='app:derivations', part=8, title='same value as p2_20_wz_far_future:23 (w_info at z=1)',
@@ -41653,6 +42419,19 @@ def check_2838():
     R = (3 * m / (4 * np.pi * rho_silica)) ** (1/3)
     value = R * 1e6  # convert to micrometers
     return locals()
+
+@check(label='app:derivations:L338:-5.000', chapter='app:derivations', part=8, title='d ln tau_IAM/d ln m at fixed density',
+       file='appendices/app_C3_derivations', line=338, status='calc', kind='num', printed='-5.000', tol=0.0)
+def check_4767():
+    'Logarithmic slope of tau_IAM = hbar k_B^2 T^2 ln2/E_G^3 with E_G = G m^2/R, R = (3m/4 pi rho)^(1/3), by central difference in ln m around 1e-12 kg. Book line 338, printed -5.000. Inputs: silica 2200 kg/m^3, 10 mK (as stated).'
+    m0, h_ = 1e-12, 1e-3
+    value = (math.log(_b16_tau_iam(m0 * math.exp(h_))) - math.log(_b16_tau_iam(m0 * math.exp(-h_)))) / (2 * h_)
+    return locals()
+
+def _b16_R_for(tau_target, m=1e-12, T=0.01):
+    """Radius at which tau_IAM = tau_target for mass m: E_G = (hbar k_B^2 T^2 ln2/tau)^(1/3), R = G m^2/E_G."""
+    EG = (hbar * kB**2 * T**2 * LN2 / tau_target)**(1 / 3)
+    return G * m**2 / EG
 
 @check(label='app:derivations:L339', chapter='app:derivations', part=8, title='drafted check, screened (runs; negative control fails)',
        file='appendices/app_C3_derivations', line=339, status='calc', kind='num', printed='1.40\\times10^{-29}', tol=0.0)
@@ -41743,6 +42522,21 @@ def check_2844():
     value = m_equal
     return locals()
 
+@check(label='app:derivations:L340:49', chapter='app:derivations', part=8, title='R needed for tau_IAM = 560 microseconds at 1e-12 kg, nm',
+       file='appendices/app_C3_derivations', line=340, status='calc', kind='num', printed='49', tol=0.0)
+def check_4768():
+    'R with tau_IAM = 560 microseconds at m = 1e-12 kg and 10 mK. Book line 340, printed 49 (nm). Inputs: the 560 microseconds of the sentence.'
+    value = _b16_R_for(560e-6) * 1e9
+    return locals()
+
+@check(label='app:derivations:L340:2.0\\times10^9', chapter='app:derivations', part=8, title='density for that radius, kg/m^3',
+       file='appendices/app_C3_derivations', line=340, status='calc', kind='num', printed='2.0\\times10^9', tol=0.0)
+def check_4769():
+    'm/(4/3 pi R^3) for the radius of app:derivations:L340:49. Book line 340, printed 2.0e9. Inputs: m = 1e-12 kg, 560 microseconds.'
+    R = _b16_R_for(560e-6)
+    value = 1e-12 / (4 / 3 * math.pi * R**3)
+    return locals()
+
 @check(label='app:derivations:L341', chapter='app:derivations', part=8, title='drafted check, screened (runs; negative control fails)',
        file='appendices/app_C3_derivations', line=341, status='calc', kind='num', printed='7.1\\times10^{-9}', tol=0.0)
 def check_2845():
@@ -41764,6 +42558,13 @@ def check_2846():
     T = 300  # K
     tau_IAM = hbar * kB**2 * T**2 * LN2 / E_G**3
     value = tau_IAM
+    return locals()
+
+@check(label='app:derivations:L341:0.150', chapter='app:derivations', part=8, title='R = G m^2/E_G for 4 kg and E_G = 7.1e-9 J, m',
+       file='appendices/app_C3_derivations', line=341, status='calc', kind='num', printed='0.150', tol=0.0)
+def check_4770():
+    'R = G m^2/E_G for m = 4 kg, E_G = 7.1e-9 J. Book line 341, printed 0.150. Inputs: CODATA 2018 G; m and E_G as stated.'
+    value = G * 4.0**2 / 7.1e-9
     return locals()
 
 @check(label='app:derivations:L343', chapter='app:derivations', part=8, title='drafted check, screened (runs; negative control fails)',
@@ -41828,6 +42629,35 @@ def check_2852():
     # This is sqrt(2) - 1 computed to 3 decimal places
     c_test = np.sqrt(2) - 1
     value = round(c_test, 3)
+    return locals()
+
+@check(label='app:derivations:L355', chapter='app:derivations', part=8, title='bits per e-fold today restated in the open list',
+       file='appendices/app_C3_derivations', line=355, status='openprob', kind='num', printed='5.2\\times10^{121}', tol=0.0)
+def check_4771():
+    'Recomputes app:derivations:L142:5.2e121: beta_m S_geo(a=1)/(k_B ln2) at H0 = 67.36. Book line 355, printed 5.2e121. Inputs: beta_m (CANON), H0 67.36 (Planck 2018).'
+    lH = c / Hsi(67.36)
+    value = beta_m * 4 * math.pi * lH**2 / (4 * lP**2 * LN2)
+    return locals()
+
+@check(label='app:derivations:L363', chapter='app:derivations', part=8, title='Delta D/D today, form (i), restated',
+       file='appendices/app_C3_derivations', line=363, status='openprob', kind='num', printed='-0.78', tol=0.0)
+def check_4772():
+    'Recomputes app:derivations:L258 (form i). Book line 363, printed -0.78.'
+    value = _b16_growth_form('i')
+    return locals()
+
+@check(label='app:derivations:L363:-0.67', chapter='app:derivations', part=8, title='Delta D/D today, form (ii), restated',
+       file='appendices/app_C3_derivations', line=363, status='openprob', kind='num', printed='-0.67', tol=0.0)
+def check_4773():
+    'Recomputes app:derivations:L258:-0.67 (form ii). Book line 363, printed -0.67.'
+    value = _b16_growth_form('ii')
+    return locals()
+
+@check(label='app:derivations:L363:-1.87', chapter='app:derivations', part=8, title='Delta D/D today, form (iii), restated',
+       file='appendices/app_C3_derivations', line=363, status='openprob', kind='num', printed='-1.87', tol=0.0)
+def check_4774():
+    'Recomputes app:derivations:L258:-1.87 (form iii). Book line 363, printed -1.87.'
+    value = _b16_growth_form('iii')
     return locals()
 
 
@@ -43380,155 +44210,73 @@ INVENTORY = [
     (8, 'app:formulas', 'appendices/app_E_formulas', 599, '', 'calc', '348', 'input: junction temperature T_j = 348 K (75 C) at which the floor is evaluated'),
     (8, 'app:formulas', 'appendices/app_E_formulas', 602, '', 'derived', '600', 'input: chip reading R = 600 times its floor (round value of the 576-593 checked in ch:conclusion:L25 and ch:statusall:L85); n_floor at R = 600 is checked in app:formulas:L602'),
     (8, 'app:formulas', 'appendices/app_E_formulas', 618, '', 'calc', '0.10', 'input: maintenance error rate 10 % (upper end of the 2-10 % of Genereux et al. 2005)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 51, '', 'calc', '2.01824', 'not yet run: draft rejected (drafter skipped: ω₃⁰ is a zero of the Lane-Emden equation of index 3, from Chandrasekhar 1)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 65, '', 'derived', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 65, '', 'derived', '0.9', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 65, '', 'derived', '0.998', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 71, '', 'calc', '67.36', 'not yet run: draft rejected (drafter skipped: H_0 = 67.36 km/s/Mpc is a stated input (Planck 2018), not a derived resul)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 71, '', 'calc', '67.4', 'not yet run: draft rejected (drafter skipped: H_0 = 67.4 km/s/Mpc is a stated input for comparison, not a derived resul)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 77, '', 'derived', '5120', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 79, '', 'calc', '4.3\\times10^6', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 82, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 18.2968); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 118, 'der:F2', 'none', '', 'displayed equation, not yet checked'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 129, 'der:F2info', 'derived', '', 'not yet run: draft rejected (drafter skipped: Line 129: Eq. (der:F2info) is a derived algebraic result from the first l)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 139, 'der:Sneed', 'calc', '', 'not yet run: draft rejected (drafter skipped: Line 139: Eq. (der:Sneed) is a derived algebraic consequence of setting r)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 142, '', 'calc', '67.36', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 142, '', 'calc', '5.2\\times10^{121}', 'not yet run: draft does not reproduce the printed value (recomputed 2.246516e+45); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 145, '', 'openprob', '5\\times10^{121}', 'not yet checked'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 154, '', 'calc', '', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 163, '', 'calc', '0.315', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 163, '', 'calc', '9.1\\times10^{-5}', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 163, '', 'calc', '0.01', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 164, '', 'calc', '-0.53', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 164, '', 'calc', '2.5', 'not yet run: draft rejected (drafter skipped: This is a stated input, not a calculation skip)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 164, '', 'calc', '3.5', 'not yet run: draft rejected (drafter skipped: This is a stated input, not a calculation skip)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 164, '', 'calc', '0.25', 'not yet run: draft rejected (drafter skipped: This is a stated boundary of an integration interval, not a calculation s)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 164, '', 'calc', '-2.42', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 164, '', 'calc', '-1.99', 'not yet run: draft rejected (uses imports or file access)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 164, '', 'calc', '-1.57', 'not yet run: draft rejected (uses imports or file access)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 164, '', 'calc', '-1.14', 'not yet run: draft rejected (uses imports or file access)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 165, '', 'calc', '0.7', 'not yet run: draft rejected (uses imports or file access)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 165, '', 'calc', '0.01', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 165, '', 'calc', '3.8', 'not yet run: draft rejected (uses imports or file access)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 166, '', 'calc', '0.15', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 166, '', 'calc', '6.3', 'not yet run: draft rejected (uses imports or file access)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 173, '', 'openprob', '5.5', 'not yet checked'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 193, '', 'derived', '0.300', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 193, '', 'derived', '0.315', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 193, '', 'derived', '0.3153', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 193, '', 'derived', '0.320', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 194, '', 'calc', '0.5', 'not yet run: draft rejected (drafter skipped: Line 194 states "least-squares CPL fit over 0.5≤a≤1"; 0.5 is the range bo)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 194, '', 'calc', '0.315', 'not yet run: draft rejected (drafter skipped: Line 194 states "least-squares CPL fit over 0.5≤a≤1 (Ω_m=0.315)"; 0.315 i)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 194, '', 'calc', '+0.017', 'not yet run: draft rejected (drafter skipped: Line 194: w_a=+0.017 is the output of a least-squares CPL fit procedure o)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 199, '', 'none', '', 'displayed equation, not yet checked'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 243, '', 'interp', '', 'displayed equation, not yet checked'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 246, '', 'interp', '0.8638', 'not yet checked'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 246, '', 'interp', '13.62', 'not yet checked'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 247, '', 'calc', '0.1575', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 247, '', 'calc', '0.2', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 247, '', 'calc', '0.3', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 247, '', 'calc', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 247, '', 'calc', '0.7', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 248, '', 'calc', '0.998', 'not yet run: draft does not reproduce the printed value (recomputed 0.999624); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 252, '', 'calc', '', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 258, '', 'calc', '-0.78', 'not yet run: draft does not reproduce the printed value (recomputed 4.25055); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 258, '', 'calc', '-0.67', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 258, '', 'calc', '-1.87', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 261, '', 'calc', '2.17', 'not yet run: draft does not reproduce the printed value (recomputed 1.40224); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 261, '', 'calc', '1.35', 'not yet run: draft does not reproduce the printed value (recomputed 0.576414); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 262, '', 'calc', '0.41', 'not yet run: draft does not reproduce the printed value (recomputed -0.37104); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 262, '', 'calc', '0.3', 'not yet run: draft does not reproduce the printed value (recomputed 1.86066); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 262, '', 'calc', '0.5', 'not yet run: draft does not reproduce the printed value (recomputed 1.83898); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 262, '', 'calc', '+1.86', 'not yet run: draft does not reproduce the printed value (recomputed 1.14449); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 263, '', 'calc', '0.295', 'not yet run: draft does not reproduce the printed value (recomputed 0.298954); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 263, '', 'calc', '+1.84', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 263, '', 'calc', '0.3', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 263, '', 'calc', '+1.14', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 263, '', 'calc', '0.5', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 263, '', 'calc', '0.299', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 266, '', 'calc', '-0.13495', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 266, '', 'calc', '0.8650', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 266, '', 'calc', '-2.76', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 266, '', 'calc', '0.65', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 266, '', 'calc', '-2.48', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 267, '', 'calc', '-0.13495', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 267, '', 'calc', '0.1560', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 267, '', 'calc', '0.0012', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 274, '', 'prediction', '0.3153', 'not yet checked'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 274, '', 'prediction', '0.15750', 'not yet checked'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 274, '', 'prediction', '0.315', 'not yet checked'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 274, '', 'prediction', '0.62', 'not yet checked'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 275, '', 'calc', '0.81', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 275, '', 'calc', '0.195', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 278, '', 'calc', '72.48', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 278, '', 'calc', '67.36', 'not yet run: draft rejected (drafter skipped: Planck 2018 value cited from text; not computed from stated premises)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 278, '', 'calc', '67.4', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 278, '', 'calc', '0.1575', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 278, '', 'calc', '73.04', "not yet run: draft rejected (drafter skipped: SH0ES measurement cited from literature; not computed from book's premise)"),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 278, '', 'calc', '-0.75', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 279, '', 'calc', '-0.37', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 279, '', 'calc', '0.5', 'not yet run: draft rejected (drafter skipped: z=0.5 is a label identifying which redshift row; not a computed quantity)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 282, '', 'calc', '0.3153', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 282, '', 'calc', '399', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 282, '', 'calc', '19.8', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 282, '', 'calc', '5.9', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 282, '', 'calc', '2.0', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 282, '', 'calc', '0.7', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 282, '', 'calc', '0.3', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 283, '', 'calc', '18.7', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 283, '', 'calc', '14.6', 'not yet run: draft does not reproduce the printed value (recomputed 58.188); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 283, '', 'calc', '10.3', 'not yet run: draft does not reproduce the printed value (recomputed 34.1569); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 283, '', 'calc', '4.9', 'not yet run: draft does not reproduce the printed value (recomputed 12.8291); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 283, '', 'calc', '0.3', 'not yet run: draft does not reproduce the printed value (recomputed 84.235); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 283, '', 'calc', '0.7', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 283, '', 'calc', '1.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 284, '', 'calc', '0.361', 'not yet run: draft does not reproduce the printed value (recomputed -0.26516); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 288, '', 'derived', '', 'not yet run: draft rejected (does not run: ValueError lhs/rhs/rhs_wrong missing)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 291, '', 'derived', '67.4', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 297, '', 'calc', '+0.79', 'not yet run: draft does not reproduce the printed value (recomputed -17.2464); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 298, '', 'calc', '0.521', 'not yet run: draft does not reproduce the printed value (recomputed 0.519733); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 302, '', 'calc', '273.9\\times10^{-10}', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 302, '', 'calc', '0.1430', 'not yet run: draft does not reproduce the printed value (recomputed 0.143063); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 308, '', 'derived', '', 'not yet run: draft rejected (uses imports or file access)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 311, '', 'derived', '67.4', 'not yet run: draft rejected (drafter skipped: Line 311: "Numerically B^{2/5} = 1.2018 m_e at H₀ = 67.4"\n# This is a num)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 312, '', 'calc', '+6.6\\times10^{-6}', 'not yet run: draft does not reproduce the printed value (recomputed -1.000000e+06); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 313, '', 'calc', '67.4', 'not yet run: draft rejected (drafter skipped: Line 313 lists H0 values for reference only; this is a label, not a deriv)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 313, '', 'calc', '-2.31\\times10^{-4}', 'not yet run: draft does not reproduce the printed value (recomputed -1.000000e+06); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 313, '', 'calc', '67.36', 'not yet run: draft rejected (drafter skipped: Line 313 lists H0 values for reference only; this is a label, not a deriv)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 313, '', 'calc', '+3.24\\times10^{-2}', 'not yet run: draft does not reproduce the printed value (recomputed -100); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 313, '', 'calc', '73.0', 'not yet run: draft rejected (drafter skipped: Line 313 lists H0 values for reference only; this is a label, not a deriv)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 313, '', 'calc', '+3.27\\times10^{-2}', 'not yet run: draft does not reproduce the printed value (recomputed -100); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 313, '', 'calc', '73.04', 'not yet run: draft rejected (drafter skipped: Line 313 lists H0 values for reference only; this is a label, not a deriv)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 314, '', 'calc', '0.54', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 314, '', 'calc', '0.32', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 318, '', 'derived', '', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 321, '', 'conjecture', '313.84', 'not yet checked'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 322, '', 'calc', '0.22227', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 322, '', 'calc', '0.510', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 322, '', 'calc', '105.68', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 323, '', 'calc', '26.9', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 327, '', 'derived', '0.50', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 327, '', 'derived', '0.25', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 330, '', 'calc', '0.0247', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 330, '', 'calc', '15.6', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 333, '', 'calc', '2.5\\times10^{-87}', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 333, '', 'calc', '10', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 333, '', 'calc', '200', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 338, '', 'calc', '-5.000', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 338, '', 'calc', '2200', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 338, '', 'calc', '10', 'not yet run: draft rejected (drafter skipped: Silica density given (2200 kg/m³); mass of 10^-12 kg is stated as the val)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 340, '', 'calc', '560', 'not yet run: draft does not reproduce the printed value (recomputed 60392.9); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 340, '', 'calc', '49', 'not yet run: draft does not reproduce the printed value (recomputed 28795.6); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 340, '', 'calc', '2.0\\times10^9', 'not yet run: draft does not reproduce the printed value (recomputed 2.385956e+07); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 341, '', 'calc', '0.150', 'not yet run: draft does not reproduce the printed value (recomputed 0.075719); drafting error on review'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 346, '', 'derived', '00', 'not yet run: draft rejected (drafter skipped: Line 346: printed "00" is a ket label in the dephased Bell state, not a c)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 346, '', 'derived', '11', 'not yet run: draft rejected (drafter skipped: Line 346: printed "11" is a ket label in the dephased Bell state, not a c)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 349, '', 'derived', '0.7', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 349, '', 'derived', '0.2', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 355, '', 'openprob', '5.2\\times10^{121}', 'not yet checked'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 363, '', 'openprob', '-0.78', 'not yet checked'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 363, '', 'openprob', '-0.67', 'not yet checked'),
-    (8, 'app:derivations', 'appendices/app_C3_derivations', 363, '', 'openprob', '-1.87', 'not yet checked'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 65, '', 'derived', '0.5', 'input: Kerr spin chi = 0.5 at which TS/M is evaluated (TS/M checked at app:derivations:L65:0.433)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 65, '', 'derived', '0.9', 'input: Kerr spin chi = 0.9 at which TS/M is evaluated (checked at app:derivations:L65:0.218)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 65, '', 'derived', '0.998', 'input: Kerr spin chi = 0.998 at which TS/M is evaluated (checked at app:derivations:L65:0.032)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 71, '', 'calc', '67.36', 'input: H0 = 67.36 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 71, '', 'calc', '67.4', 'input: H0 = 67.4 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 79, '', 'calc', '4.3\\times10^6', 'input: black-hole mass 4.3e6 M_sun at which T and the bit count are evaluated (results checked at app:derivations:L79:1.43\\times10^{-14} and L79:2.80\\times10^{90})'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 82, '', 'calc', '10', 'input: the printed 10 is the base of the redshift z = 10^6 at which M_eq is evaluated (M_eq checked at app:derivations:L82)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 142, '', 'calc', '67.36', 'input: H0 = 67.36 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 145, '', 'openprob', '5\\times10^{121}', 'restates app:derivations:L142:5.2\\times10^{121} (5.16e121) rounded to one figure; a 5 % control cannot fail at one figure'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 163, '', 'calc', '0.315', 'input: Omega_m = 0.315 used for the growth numerics (Planck 2018, rounded)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 163, '', 'calc', '9.1\\times10^{-5}', 'input: Omega_r = 9.1e-5 used for the growth numerics (Planck 2018 radiation density)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 163, '', 'calc', '0.01', 'input: lower end a = 0.01 of the fitting interval'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 164, '', 'calc', '2.5', 'input: exponent n = 2.5 at which the slope is quoted (slope checked at app:derivations:L163 and L164:-2.42)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 164, '', 'calc', '3.5', 'input: exponent n = 3.5 at which the slope is quoted (slope checked at app:derivations:L163:-1.02 and L164:-1.57)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 164, '', 'calc', '0.25', 'input: lower end a = 0.25 of the late fitting interval'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 165, '', 'calc', '0.01', 'input: lower end a = 0.01 of the shape-fit interval'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 166, '', 'calc', '0.15', 'input: lower end a = 0.15 of the shape-fit interval'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 193, '', 'derived', '0.300', 'input: Omega_m = 0.300 at which w0 and w_a are evaluated (checked at app:derivations:L193)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 193, '', 'derived', '0.315', 'input: Omega_m = 0.315 at which w0 and w_a are evaluated (checked at app:derivations:L193:-1.0623)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 193, '', 'derived', '0.3153', 'input: Omega_m = 0.3153 (Planck 2018) at which w0 and w_a are evaluated (checked at app:derivations:L193:-1.0624)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 193, '', 'derived', '0.320', 'input: Omega_m = 0.320 at which w0 and w_a are evaluated (checked at app:derivations:L193:-1.0635)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 194, '', 'calc', '0.5', 'input: lower end a = 0.5 of the CPL fitting interval'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 194, '', 'calc', '0.315', 'input: Omega_m = 0.315 for the CPL fit (fit checked at app:derivations:L194 and L194:+0.017)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 247, '', 'calc', '0.1575', 'input: beta_m = 0.1575 (= 0.315/2) at which mu0 is evaluated (mu0 checked at app:derivations:L247:-0.13607)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 247, '', 'calc', '0.2', 'input: redshift z = 0.2 at which mu and H_m/H are evaluated (checked at app:derivations:L247:0.905)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 247, '', 'calc', '0.3', 'input: redshift z = 0.3 at which mu and H_m/H are evaluated (checked at app:derivations:L247:0.922)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 247, '', 'calc', '0.5', 'input: redshift z = 0.5 at which mu and H_m/H are evaluated (checked at app:derivations:L247:0.948)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 247, '', 'calc', '0.7', 'input: redshift z = 0.7 at which mu and H_m/H are evaluated (checked at app:derivations:L247:0.966)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 262, '', 'calc', '0.3', 'input: redshift z = 0.3 at which the f sigma8 deficit is quoted (checked at app:derivations:L261:2.17)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 262, '', 'calc', '0.5', 'input: redshift z = 0.5 at which the f sigma8 deficit is quoted (checked at app:derivations:L261:1.35)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 263, '', 'calc', '0.295', 'input: redshift z = 0.295 at which the E_G change is quoted (the LambdaCDM matter-Lambda equality, checked at app:derivations:L284)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 263, '', 'calc', '0.3', 'input: redshift z = 0.3 at which the E_G change is quoted (checked at app:derivations:L263:+1.84)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 263, '', 'calc', '0.5', 'input: redshift z = 0.5 at which the E_G change and Omega_m mu are quoted (checked at app:derivations:L263:+1.14, L263:0.299)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 266, '', 'calc', '-0.13495', 'input: mu0 = -0.13495, the MGCAMB amplitude of the Level 1 runs (MU0_MGCAMB in verify_book, ch:dual)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 267, '', 'calc', '-0.13495', 'input: mu0 = -0.13495 of the Level 1 runs restated (MU0_MGCAMB); beta from it checked at app:derivations:L267:0.1560'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 267, '', 'calc', '0.0012', 'difference of two checked values (MU0_MGCAMB and app:derivations:L267:-0.13618), printed to two figures: recomputed 0.00123, but a 5 % negative control cannot fail at two figures (1.05 x 0.0012 = 0.00126 rounds the same)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 274, '', 'prediction', '0.3153', 'input: Omega_m = 0.3153 (Planck 2018) from which beta_m is computed (checked at app:derivations:L274)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 274, '', 'prediction', '0.315', 'input: Omega_m = 0.315 from which beta_m = 0.15750 is computed (checked at app:derivations:L274:0.15750)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 274, '', 'prediction', '0.62', 'input: f_coll = 0.62, the collapsed fraction the decomposition uses (stated input; its source discussion is in ch:theory)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 278, '', 'calc', '67.36', 'input: H0 = 67.36 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 278, '', 'calc', '67.4', 'input: H0 = 67.4 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 278, '', 'calc', '0.1575', 'input: beta_m = 0.1575 (= 0.315/2) used with H0 = 67.4 (result checked at app:derivations:L278)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 278, '', 'calc', '73.04', 'input: SH0ES H0 = 73.04 +- 1.04 (Riess et al. 2022), the comparison value (sigma distance checked at app:derivations:L278:-0.75)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 279, '', 'calc', '0.5', 'input: redshift z = 0.5 at which H and H_m are evaluated (checked at app:derivations:L279:88.89, L279:91.29)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 282, '', 'calc', '0.3153', 'input: Omega_m = 0.3153 (Planck 2018) for the record history (ratios checked at app:derivations:L282:399 ...)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 282, '', 'calc', '0.7', 'input: redshift z = 0.7 at which R is evaluated (checked at app:derivations:L282:19.8)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 282, '', 'calc', '0.3', 'input: redshift z = 0.3 at which R is evaluated (checked at app:derivations:L282:5.9)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 283, '', 'calc', '0.3', 'input: redshift z = 0.3 at which the record share is evaluated (checked at app:derivations:L283:14.6)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 283, '', 'calc', '0.7', 'input: redshift z = 0.7 at which the record share is evaluated (checked at app:derivations:L283:10.3)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 283, '', 'calc', '1.5', 'input: redshift z = 1.5 at which the record share is evaluated (checked at app:derivations:L283:4.9)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 291, '', 'derived', '67.4', 'input: H0 = 67.4 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 302, '', 'calc', '273.9\\times10^{-10}', 'input: the standard conversion eta = 273.9e-10 Omega_b h^2 (big-bang nucleosynthesis literature); its value depends on the mean mass per baryon and T_CMB conventions (m_p and T_CMB = 2.7255 K give 273.4), so it is a stated input, not a result of the chapter; eta values computed from it are checked at app:derivations:L303'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 311, '', 'derived', '67.4', 'input: H0 = 67.4 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 313, '', 'calc', '67.4', 'input: H0 = 67.4 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 313, '', 'calc', '67.36', 'input: H0 = 67.36 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 313, '', 'calc', '73.0', 'input: H0 = 73.0 km/s/Mpc, a local-distance-ladder value at which m/m_e is evaluated (checked at app:derivations:L313:+3.24\\times10^{-2})'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 313, '', 'calc', '73.04', 'input: SH0ES H0 = 73.04 (Riess et al. 2022) at which m/m_e is evaluated (checked at app:derivations:L313:+3.27\\times10^{-2})'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 314, '', 'calc', '0.54', 'input: sigma(H0) = 0.54, the Planck 2018 uncertainty (propagated at app:derivations:L314:0.32)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 333, '', 'calc', '10', 'input: the printed 10 is the base of the halo mass 10^12 M_sun (collapse time checked at app:derivations:L333)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 333, '', 'calc', '200', 'input: halo radius 200 kpc (collapse time checked at app:derivations:L333)'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 338, '', 'calc', '2200', 'input: silica density 2200 kg/m^3'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 338, '', 'calc', '10', 'input: the printed 10 is the base of the mass 10^-12 kg'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 340, '', 'calc', '560', 'input: the 560 microseconds coherence time the sentence posits; R and density it requires are checked at app:derivations:L340:49 and L340:2.0\\times10^9'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 346, '', 'derived', '00', 'not a number: ket label |00> of the Bell state'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 346, '', 'derived', '11', 'not a number: ket label |11> of the Bell state'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 349, '', 'derived', '0.7', 'input: dephasing value c = 0.7 at which the Bell bound is checked numerically'),
+    (8, 'app:derivations', 'appendices/app_C3_derivations', 349, '', 'derived', '0.2', 'input: dephasing value c = 0.2 at which the Bell bound is checked numerically'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 18, '', 'observed', '0.067', 'measured, too few printed digits to match against the named files'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 18, '', 'observed', '0.15', 'measured, too few printed digits to match against the named files'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 24, '', 'observed', '0.0039', 'measured, too few printed digits to match against the named files'),

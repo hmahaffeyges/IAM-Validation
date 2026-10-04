@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4693 PASS, 0 FAIL, 1648 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4775 PASS, 0 FAIL, 1566 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5985,67 +5985,67 @@ Totals: 4693 PASS, 0 FAIL, 1648 inventoried and not run. Each run item carries t
 | 49 | app:derivations:L49:-27.211 | calc | `-27.211` | numeric: <V> hydrogen, eV | PASS |
 | 50 | app:derivations:L50 | calc | `23.6` | numeric: Kelvin-Helmholtz |U|/2L, n=3 polytrope, Myr | PASS |
 | 51 | app:derivations:L51 | calc | `1.456` | numeric: same value as p1_02_iams_law:840 (Chandrasekhar mass, mu_e=2, m_u) | PASS |
-| 51 |  | calc | `2.01824` | not run: not yet run: draft rejected (drafter skipped: ω₃⁰ is a zero of the Lane-Emden equation of index 3, from Chandrasekhar 1) | - |
+| 51 | app:derivations:L51:2.01824 | calc | `2.01824` | numeric: omega_3^0 of the n = 3 Lane-Emden equation | PASS |
 | 56 | app:derivations:L56 | derived |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
 | 65 | app:derivations:L65 | derived | `0.500` | numeric: Kerr T S/Mc^2 at chi=0.0 | PASS |
 | 65 | app:derivations:L65:0.433 | derived | `0.433` | numeric: Kerr T S/Mc^2 at chi=0.5 | PASS |
 | 65 | app:derivations:L65:0.218 | derived | `0.218` | numeric: Kerr T S/Mc^2 at chi=0.9 | PASS |
 | 65 | app:derivations:L65:0.032 | derived | `0.032` | numeric: Kerr T S/Mc^2 at chi=0.998 | PASS |
-| 65 |  | derived | `0.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 65 |  | derived | `0.9` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 65 |  | derived | `0.998` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 65 |  | derived | `0.5` | not run: input: Kerr spin chi = 0.5 at which TS/M is evaluated (TS/M checked at app:derivations:L65:0.433) | - |
+| 65 |  | derived | `0.9` | not run: input: Kerr spin chi = 0.9 at which TS/M is evaluated (checked at app:derivations:L65:0.218) | - |
+| 65 |  | derived | `0.998` | not run: input: Kerr spin chi = 0.998 at which TS/M is evaluated (checked at app:derivations:L65:0.032) | - |
 | 68 | app:derivations:L68 | derived |  | sympy: T_H S = c^5/(2GH) = M_H c^2 with M_H the critical-density mass of the Hubble sphere | PASS |
 | 71 | app:derivations:L71 | calc | `2.654\times10^{-30}` | numeric: T_H at H0 = 67.36 | PASS |
 | 71 | app:derivations:L71:3.272\times10^{122} | calc | `3.272\times10^{122}` | numeric: horizon bits at H0 = 67.36 | PASS |
 | 71 | app:derivations:L71:2.655\times10^{-30} | calc | `2.655\times10^{-30}` | numeric: same value as p2_12_lambda:87 (Gibbons-Hawking horizon temperature) | PASS |
-| 71 |  | calc | `67.36` | not run: not yet run: draft rejected (drafter skipped: H_0 = 67.36 km/s/Mpc is a stated input (Planck 2018), not a derived resul) | - |
-| 71 |  | calc | `67.4` | not run: not yet run: draft rejected (drafter skipped: H_0 = 67.4 km/s/Mpc is a stated input for comparison, not a derived resul) | - |
+| 71 |  | calc | `67.36` | not run: input: H0 = 67.36 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated | - |
+| 71 |  | calc | `67.4` | not run: input: H0 = 67.4 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated | - |
 | 77 | app:derivations:L77 | derived | `0.646` | numeric: half the entropy gone at 0.646 tau | PASS |
-| 77 |  | derived | `5120` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 77 | app:derivations:L77:5120 | derived | `5120` | numeric: evaporation time coefficient 5120 pi | PASS |
 | 78 | app:derivations:L78 | derived | `6.170\times10^{-8}` | numeric: T_BH, 1 M_sun | PASS |
 | 78 | app:derivations:L78:1.513\times10^{77} | derived | `1.513\times10^{77}` | numeric: bits, 1 M_sun | PASS |
 | 79 | app:derivations:L79 | calc | `152.5` | numeric: same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass) | PASS |
 | 79 | app:derivations:L79:2.10\times10^{67} | calc | `2.10\times10^{67}` | numeric: tau_evap, 1 M_sun | PASS |
 | 79 | app:derivations:L79:1.43\times10^{-14} | calc | `1.43\times10^{-14}` | numeric: T_BH, 4.3e6 M_sun | PASS |
 | 79 | app:derivations:L79:2.80\times10^{90} | calc | `2.80\times10^{90}` | numeric: bits, 4.3e6 M_sun | PASS |
-| 79 |  | calc | `4.3\times10^6` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 79 |  | calc | `4.3\times10^6` | not run: input: black-hole mass 4.3e6 M_sun at which T and the bit count are evaluated (results checked at app:derivations:L79:1.43\times10^{-14} and L79:2.80\times10^{90}) | - |
 | 81 | app:derivations:L81 | calc | `2.32\times10^{22}` | numeric: M_eq today (H0 67.36; tol = half a unit plus the rounding of the 4-figure H0) | PASS |
 | 81 | app:derivations:L81:1.30\times10^{22} | calc | `1.30\times10^{22}` | numeric: M_eq at z=1 | PASS |
 | 82 | app:derivations:L82 | calc | `2.4\times10^{12}` | numeric: M_eq at z=1e6 (Planck 2018, radiation 9.1e-5) | PASS |
 | 82 | app:derivations:L82:4.50\times10^{22} | calc | `4.50\times10^{22}` | numeric: M_CMB, kg | PASS |
-| 82 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 18.2968); drafting error on review | - |
+| 82 |  | calc | `10` | not run: input: the printed 10 is the base of the redshift z = 10^6 at which M_eq is evaluated (M_eq checked at app:derivations:L82) | - |
 | 83 | app:derivations:L83 | calc | `4.42\times10^7` | numeric: T_CMB / T_BH(1 M_sun) | PASS |
 | 83 | app:derivations:L83:17.6 | calc | `17.6` | numeric: ln of the ratio | PASS |
 | 87 | app:derivations:L87 | derived | `2.77` | numeric: 4 ln2 | PASS |
 | 102 | app:derivations:L102 | derived |  | sympy: 2 pi/(hbar eta) = 8 pi G with G = 1/(4 hbar eta) (c = 1) | PASS |
-| 118 | der:F2 | none |  | not run: displayed equation, not yet checked | - |
-| 129 | der:F2info | derived |  | not run: not yet run: draft rejected (drafter skipped: Line 129: Eq. (der:F2info) is a derived algebraic result from the first l) | - |
-| 139 | der:Sneed | calc |  | not run: not yet run: draft rejected (drafter skipped: Line 139: Eq. (der:Sneed) is a derived algebraic consequence of setting r) | - |
+| 118 | der:F2 | derived |  | sympy: Hdot = -4 pi G (rho+P) from -dE = T_H dS_geo on the apparent horizon | PASS |
+| 129 | der:F2info | derived |  | sympy: Hdot with the record term T_H Sdot_info added to the first law | PASS |
+| 139 | der:Sneed | calc |  | sympy: Sdot_info needed for the record term, and dS_info/dln a = beta_m S_geo today | PASS |
 | 142 | app:derivations:L142 | calc | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 142 |  | calc | `67.36` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 142 |  | calc | `5.2\times10^{121}` | not run: not yet run: draft does not reproduce the printed value (recomputed 2.246516e+45); drafting error on review | - |
-| 145 |  | openprob | `5\times10^{121}` | not run: not yet checked | - |
-| 154 |  | calc |  | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 142 | app:derivations:L142:5.2\times10^{121} | calc | `5.2\times10^{121}` | numeric: bits per e-fold today, beta_m S_geo/(k_B ln2) at H0 = 67.36 | PASS |
+| 142 |  | calc | `67.36` | not run: input: H0 = 67.36 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated | - |
+| 145 |  | openprob | `5\times10^{121}` | not run: restates app:derivations:L142:5.2\times10^{121} (5.16e121) rounded to one figure; a 5 % control cannot fail at one figure | - |
+| 154 | app:derivations:L154 | calc |  | sympy: dS/dln a ~ a^(n-9/2), dS/da ~ a^(n-11/2), S ~ a^(n-9/2)/(n-9/2) in matter domination | PASS |
 | 163 | app:derivations:L163 | calc | `-2.02` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: slope of dS/dln a, full LambdaCDM growth (committed output; same value as ch:quantumrecords:L183) | PASS |
 | 163 | app:derivations:L163:-1.52 | calc | `-1.52` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: slope of dS/dln a, full LambdaCDM growth (committed output; same value as ch:quantumrecords:L183) | PASS |
 | 163 | app:derivations:L163:-1.02 | calc | `-1.02` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: slope of dS/dln a, full LambdaCDM growth (committed output; same value as ch:quantumrecords:L183) | PASS |
-| 163 |  | calc | `0.315` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 163 |  | calc | `9.1\times10^{-5}` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 163 |  | calc | `0.01` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 164 |  | calc | `-0.53` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 164 |  | calc | `2.5` | not run: not yet run: draft rejected (drafter skipped: This is a stated input, not a calculation skip) | - |
-| 164 |  | calc | `3.5` | not run: not yet run: draft rejected (drafter skipped: This is a stated input, not a calculation skip) | - |
-| 164 |  | calc | `0.25` | not run: not yet run: draft rejected (drafter skipped: This is a stated boundary of an integration interval, not a calculation s) | - |
-| 164 |  | calc | `-2.42` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 164 |  | calc | `-1.99` | not run: not yet run: draft rejected (uses imports or file access) | - |
-| 164 |  | calc | `-1.57` | not run: not yet run: draft rejected (uses imports or file access) | - |
-| 164 |  | calc | `-1.14` | not run: not yet run: draft rejected (uses imports or file access) | - |
-| 165 |  | calc | `0.7` | not run: not yet run: draft rejected (uses imports or file access) | - |
-| 165 |  | calc | `0.01` | not run: not yet run: draft rejected (no draft returned) | - |
-| 165 |  | calc | `3.8` | not run: not yet run: draft rejected (uses imports or file access) | - |
-| 166 |  | calc | `0.15` | not run: not yet run: draft rejected (no draft returned) | - |
-| 166 |  | calc | `6.3` | not run: not yet run: draft rejected (uses imports or file access) | - |
-| 173 |  | openprob | `5.5` | not run: not yet checked | - |
+| 163 |  | calc | `0.315` | not run: input: Omega_m = 0.315 used for the growth numerics (Planck 2018, rounded) | - |
+| 163 |  | calc | `9.1\times10^{-5}` | not run: input: Omega_r = 9.1e-5 used for the growth numerics (Planck 2018 radiation density) | - |
+| 163 |  | calc | `0.01` | not run: input: lower end a = 0.01 of the fitting interval | - |
+| 164 | app:derivations:L164 | calc | `-0.53` | numeric: power of dS/dln a, n = 4, 0.01 <= a <= 0.1, full LambdaCDM | PASS |
+| 164 | app:derivations:L164:-2.42 | calc | `-2.42` | numeric: power of dS/dln a, n = 2.5, 0.25 <= a <= 1 | PASS |
+| 164 | app:derivations:L164:-1.99 | calc | `-1.99` | numeric: power of dS/dln a, n = 3, 0.25 <= a <= 1 | PASS |
+| 164 | app:derivations:L164:-1.57 | calc | `-1.57` | numeric: power of dS/dln a, n = 3.5, 0.25 <= a <= 1 | PASS |
+| 164 | app:derivations:L164:-1.14 | calc | `-1.14` | numeric: power of dS/dln a, n = 4, 0.25 <= a <= 1 | PASS |
+| 164 |  | calc | `2.5` | not run: input: exponent n = 2.5 at which the slope is quoted (slope checked at app:derivations:L163 and L164:-2.42) | - |
+| 164 |  | calc | `3.5` | not run: input: exponent n = 3.5 at which the slope is quoted (slope checked at app:derivations:L163:-1.02 and L164:-1.57) | - |
+| 164 |  | calc | `0.25` | not run: input: lower end a = 0.25 of the late fitting interval | - |
+| 165 | app:derivations:L165 | calc | `0.7` | numeric: n = 7/2 shape residual against k(1-1/a)+const, 0.01 <= a <= 0.1 (per cent of range) | PASS |
+| 165 | app:derivations:L165:3.8 | calc | `3.8` | numeric: n = 7/2 shape residual, 0.15 <= a <= 1 (per cent of range) | PASS |
+| 165 |  | calc | `0.01` | not run: input: lower end a = 0.01 of the shape-fit interval | - |
+| 166 | app:derivations:L166 | calc | `6.3` | numeric: n = 7/2 shape residual, 0.15 <= a <= 2 (per cent of range) | PASS |
+| 166 |  | calc | `0.15` | not run: input: lower end a = 0.15 of the shape-fit interval | - |
+| 173 | app:derivations:L173 | openprob | `5.5` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: bottom-up n_eff at z = 9, middle of the three mass functions | PASS |
 | 181 | app:derivations:L181 | calc | `2.30` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 181 | app:derivations:L181:0.69 | calc | `0.69` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 181 | app:derivations:L181:0.11 | calc | `0.11` | numeric: drafted check, screened (runs; negative control fails) | PASS |
@@ -6061,19 +6061,19 @@ Totals: 4693 PASS, 0 FAIL, 1648 inventoried and not run. Each run item carries t
 | 193 | app:derivations:L193:-0.0116 | derived | `-0.0116` | numeric: w_a at Omega_m=0.315 | PASS |
 | 193 | app:derivations:L193:-0.0117 | derived | `-0.0117` | numeric: w_a at Omega_m=0.3153 | PASS |
 | 193 | app:derivations:L193:-0.0121 | derived | `-0.0121` | numeric: w_a at Omega_m=0.32 | PASS |
-| 193 |  | derived | `0.300` | not run: not yet run: draft rejected (no draft returned) | - |
-| 193 |  | derived | `0.315` | not run: not yet run: draft rejected (no draft returned) | - |
-| 193 |  | derived | `0.3153` | not run: not yet run: draft rejected (no draft returned) | - |
-| 193 |  | derived | `0.320` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 193 |  | derived | `0.300` | not run: input: Omega_m = 0.300 at which w0 and w_a are evaluated (checked at app:derivations:L193) | - |
+| 193 |  | derived | `0.315` | not run: input: Omega_m = 0.315 at which w0 and w_a are evaluated (checked at app:derivations:L193:-1.0623) | - |
+| 193 |  | derived | `0.3153` | not run: input: Omega_m = 0.3153 (Planck 2018) at which w0 and w_a are evaluated (checked at app:derivations:L193:-1.0624) | - |
+| 193 |  | derived | `0.320` | not run: input: Omega_m = 0.320 at which w0 and w_a are evaluated (checked at app:derivations:L193:-1.0635) | - |
 | 194 | app:derivations:L194 | calc | `-1.065` | numeric: same value as p2_03_theory:514 (least-squares CPL fit intercept w0) | PASS |
-| 194 |  | calc | `0.5` | not run: not yet run: draft rejected (drafter skipped: Line 194 states "least-squares CPL fit over 0.5≤a≤1"; 0.5 is the range bo) | - |
-| 194 |  | calc | `0.315` | not run: not yet run: draft rejected (drafter skipped: Line 194 states "least-squares CPL fit over 0.5≤a≤1 (Ω_m=0.315)"; 0.315 i) | - |
-| 194 |  | calc | `+0.017` | not run: not yet run: draft rejected (drafter skipped: Line 194: w_a=+0.017 is the output of a least-squares CPL fit procedure o) | - |
-| 199 |  | none |  | not run: displayed equation, not yet checked | - |
-| 243 |  | interp |  | not run: displayed equation, not yet checked | - |
+| 194 | app:derivations:L194:+0.017 | calc | `+0.017` | numeric: least-squares CPL slope w_a over 0.5 <= a <= 1 (Omega_m 0.315) | PASS |
+| 194 |  | calc | `0.5` | not run: input: lower end a = 0.5 of the CPL fitting interval | - |
+| 194 |  | calc | `0.315` | not run: input: Omega_m = 0.315 for the CPL fit (fit checked at app:derivations:L194 and L194:+0.017) | - |
+| 199 | app:derivations:L199 | derived |  | sympy: minisuperspace Lagrangian: the lapse drops out of the constraint and delta N gives the Friedmann equation | PASS |
+| 243 | app:derivations:L243 | interp |  | sympy: mu(a) = H^2/(H^2 + beta_m E H0^2), mu(1) = 1/(1+beta_m), mu0 = -beta_m/(1+beta_m) | PASS |
 | 246 | app:derivations:L246 | interp | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 246 |  | interp | `0.8638` | not run: not yet checked | - |
-| 246 |  | interp | `13.62` | not run: not yet checked | - |
+| 246 | app:derivations:L246:0.8638 | interp | `0.8638` | numeric: mu(1) = 1/(1+beta_m) | PASS |
+| 246 | app:derivations:L246:13.62 | interp | `13.62` | numeric: 1 - mu(1) in per cent | PASS |
 | 247 | app:derivations:L247 | calc | `-0.13618` | numeric: same value as p1_02_iams_law:465 (mu0 at beta_m=0.15765, precise) | PASS |
 | 247 | app:derivations:L247:-0.13607 | calc | `-0.13607` | numeric: mu0 for beta_m = 0.1575 | PASS |
 | 247 | app:derivations:L247:0.905 | calc | `0.905` | numeric: mu at z=0.2 | PASS |
@@ -6081,11 +6081,11 @@ Totals: 4693 PASS, 0 FAIL, 1648 inventoried and not run. Each run item carries t
 | 247 | app:derivations:L247:0.948 | calc | `0.948` | numeric: mu at z=0.5 | PASS |
 | 247 | app:derivations:L247:0.966 | calc | `0.966` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 247 | app:derivations:L247:0.982 | calc | `0.982` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 247 |  | calc | `0.1575` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 247 |  | calc | `0.2` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 247 |  | calc | `0.3` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 247 |  | calc | `0.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 247 |  | calc | `0.7` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 247 |  | calc | `0.1575` | not run: input: beta_m = 0.1575 (= 0.315/2) at which mu0 is evaluated (mu0 checked at app:derivations:L247:-0.13607) | - |
+| 247 |  | calc | `0.2` | not run: input: redshift z = 0.2 at which mu and H_m/H are evaluated (checked at app:derivations:L247:0.905) | - |
+| 247 |  | calc | `0.3` | not run: input: redshift z = 0.3 at which mu and H_m/H are evaluated (checked at app:derivations:L247:0.922) | - |
+| 247 |  | calc | `0.5` | not run: input: redshift z = 0.5 at which mu and H_m/H are evaluated (checked at app:derivations:L247:0.948) | - |
+| 247 |  | calc | `0.7` | not run: input: redshift z = 0.7 at which mu and H_m/H are evaluated (checked at app:derivations:L247:0.966) | - |
 | 248 | app:derivations:L248 | calc | `1.000` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 248 | app:derivations:L248:1.051 | calc | `1.051` | numeric: same value as p2_06_dual_sector_perturbation:119 (Hm/H at z=0.2) | PASS |
 | 248 | app:derivations:L248:1.042 | calc | `1.042` | numeric: drafted check, screened (runs; negative control fails) | PASS |
@@ -6093,59 +6093,59 @@ Totals: 4693 PASS, 0 FAIL, 1648 inventoried and not run. Each run item carries t
 | 248 | app:derivations:L248:1.017 | calc | `1.017` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 248 | app:derivations:L248:1.009 | calc | `1.009` | numeric: same value as p2_06_dual_sector_perturbation:121 (Hm/H at z=1) | PASS |
 | 248 | app:derivations:L248:1.001 | calc | `1.001` | numeric: same value as p2_06_dual_sector_perturbation:122 (Hm/H at z=2) | PASS |
-| 248 |  | calc | `0.998` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.999624); drafting error on review | - |
-| 252 |  | calc |  | not run: not yet run: draft rejected (no draft returned) | - |
-| 258 |  | calc | `-0.78` | not run: not yet run: draft does not reproduce the printed value (recomputed 4.25055); drafting error on review | - |
-| 258 |  | calc | `-0.67` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 258 |  | calc | `-1.87` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 248 | app:derivations:L248:0.998 | calc | `0.998` | numeric: mu at z = 2 | PASS |
+| 252 | app:derivations:L252 | calc |  | sympy: growth forms (i)-(iii) in ln a from the time-domain equations | PASS |
+| 258 | app:derivations:L258 | calc | `-0.78` | numeric: Delta D/D today, form (i) G_eff = mu G | PASS |
+| 258 | app:derivations:L258:-0.67 | calc | `-0.67` | numeric: Delta D/D today, form (ii) friction 2 H_m | PASS |
+| 258 | app:derivations:L258:-1.87 | calc | `-1.87` | numeric: Delta D/D today, form (iii) whole equation on H_m | PASS |
 | 261 | app:derivations:L261 | calc | `4.25` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 261 |  | calc | `2.17` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.40224); drafting error on review | - |
-| 261 |  | calc | `1.35` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.576414); drafting error on review | - |
+| 261 | app:derivations:L261:2.17 | calc | `2.17` | numeric: f sigma8 deficit at z = 0.3, form (i) | PASS |
+| 261 | app:derivations:L261:1.35 | calc | `1.35` | numeric: f sigma8 deficit at z = 0.5, form (i) | PASS |
 | 262 | app:derivations:L262 | calc | `+3.63` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 262 |  | calc | `0.41` | not run: not yet run: draft does not reproduce the printed value (recomputed -0.37104); drafting error on review | - |
-| 262 |  | calc | `0.3` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.86066); drafting error on review | - |
-| 262 |  | calc | `0.5` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.83898); drafting error on review | - |
-| 262 |  | calc | `+1.86` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.14449); drafting error on review | - |
-| 263 |  | calc | `0.295` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.298954); drafting error on review | - |
-| 263 |  | calc | `+1.84` | not run: not yet run: draft rejected (no draft returned) | - |
-| 263 |  | calc | `0.3` | not run: not yet run: draft rejected (no draft returned) | - |
-| 263 |  | calc | `+1.14` | not run: not yet run: draft rejected (no draft returned) | - |
-| 263 |  | calc | `0.5` | not run: not yet run: draft rejected (no draft returned) | - |
-| 263 |  | calc | `0.299` | not run: not yet run: draft rejected (no draft returned) | - |
+| 262 | app:derivations:L262:0.41 | calc | `0.41` | numeric: f sigma8 deficit at z = 1, form (i) | PASS |
+| 262 | app:derivations:L262:+1.86 | calc | `+1.86` | numeric: E_G change f_LCDM/f_IAM - 1 at z = 0.295 | PASS |
+| 262 |  | calc | `0.3` | not run: input: redshift z = 0.3 at which the f sigma8 deficit is quoted (checked at app:derivations:L261:2.17) | - |
+| 262 |  | calc | `0.5` | not run: input: redshift z = 0.5 at which the f sigma8 deficit is quoted (checked at app:derivations:L261:1.35) | - |
+| 263 | app:derivations:L263:+1.84 | calc | `+1.84` | numeric: E_G change at z = 0.3 | PASS |
+| 263 | app:derivations:L263:+1.14 | calc | `+1.14` | numeric: E_G change at z = 0.5 | PASS |
+| 263 | app:derivations:L263:0.299 | calc | `0.299` | numeric: Omega_m mu(z) inferred by a growth-only fit at z = 0.5 | PASS |
+| 263 |  | calc | `0.295` | not run: input: redshift z = 0.295 at which the E_G change is quoted (the LambdaCDM matter-Lambda equality, checked at app:derivations:L284) | - |
+| 263 |  | calc | `0.3` | not run: input: redshift z = 0.3 at which the E_G change is quoted (checked at app:derivations:L263:+1.84) | - |
+| 263 |  | calc | `0.5` | not run: input: redshift z = 0.5 at which the E_G change and Omega_m mu are quoted (checked at app:derivations:L263:+1.14, L263:0.299) | - |
 | 266 | app:derivations:L266 | calc | `0.8638` | numeric: same value as p1_02_iams_law:465 (mu at a=1 from beta_m) | PASS |
-| 266 |  | calc | `-0.13495` | not run: not yet run: draft rejected (no draft returned) | - |
-| 266 |  | calc | `0.8650` | not run: not yet run: draft rejected (no draft returned) | - |
-| 266 |  | calc | `-2.76` | not run: not yet run: draft rejected (no draft returned) | - |
-| 266 |  | calc | `0.65` | not run: not yet run: draft rejected (no draft returned) | - |
-| 266 |  | calc | `-2.48` | not run: not yet run: draft rejected (no draft returned) | - |
+| 266 | app:derivations:L266:0.8650 | calc | `0.8650` | numeric: MGCAMB-form mu today with the runs mu0 | PASS |
+| 266 | app:derivations:L266:-2.76 | calc | `-2.76` | numeric: largest gap MGCAMB form vs exact mu, 0 <= z <= 3 | PASS |
+| 266 | app:derivations:L266:0.65 | calc | `0.65` | numeric: redshift of the largest MGCAMB gap | PASS |
+| 266 | app:derivations:L266:-2.48 | calc | `-2.48` | numeric: MGCAMB gap at z = 1 | PASS |
+| 266 |  | calc | `-0.13495` | not run: input: mu0 = -0.13495, the MGCAMB amplitude of the Level 1 runs (MU0_MGCAMB in verify_book, ch:dual) | - |
 | 267 | app:derivations:L267 | calc | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
 | 267 | app:derivations:L267:-0.13618 | calc | `-0.13618` | numeric: same value as p1_02_iams_law:465 (mu0 at beta_m=0.15765, precise) | PASS |
-| 267 |  | calc | `-0.13495` | not run: not yet run: draft rejected (no draft returned) | - |
-| 267 |  | calc | `0.1560` | not run: not yet run: draft rejected (no draft returned) | - |
-| 267 |  | calc | `0.0012` | not run: not yet run: draft rejected (no draft returned) | - |
+| 267 | app:derivations:L267:0.1560 | calc | `0.1560` | numeric: beta with -beta/(1+beta) = mu0 of the runs | PASS |
+| 267 |  | calc | `-0.13495` | not run: input: mu0 = -0.13495 of the Level 1 runs restated (MU0_MGCAMB); beta from it checked at app:derivations:L267:0.1560 | - |
+| 267 |  | calc | `0.0012` | not run: difference of two checked values (MU0_MGCAMB and app:derivations:L267:-0.13618), printed to two figures: recomputed 0.00123, but a 5 % negative control cannot fail at two figures (1.05 x 0.0012 = 0.00126 rounds the same) | - |
 | 274 | app:derivations:L274 | prediction | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 274 |  | prediction | `0.3153` | not run: not yet checked | - |
-| 274 |  | prediction | `0.15750` | not run: not yet checked | - |
-| 274 |  | prediction | `0.315` | not run: not yet checked | - |
-| 274 |  | prediction | `0.62` | not run: not yet checked | - |
-| 275 |  | calc | `0.81` | not run: not yet run: draft rejected (no draft returned) | - |
-| 275 |  | calc | `0.195` | not run: not yet run: draft rejected (no draft returned) | - |
+| 274 | app:derivations:L274:0.15750 | prediction | `0.15750` | numeric: beta_m = Omega_m/2 at Omega_m = 0.315 | PASS |
+| 274 |  | prediction | `0.3153` | not run: input: Omega_m = 0.3153 (Planck 2018) from which beta_m is computed (checked at app:derivations:L274) | - |
+| 274 |  | prediction | `0.315` | not run: input: Omega_m = 0.315 from which beta_m = 0.15750 is computed (checked at app:derivations:L274:0.15750) | - |
+| 274 |  | prediction | `0.62` | not run: input: f_coll = 0.62, the collapsed fraction the decomposition uses (stated input; its source discussion is in ch:theory) | - |
+| 275 | app:derivations:L275 | calc | `0.81` | numeric: eta_vir = 1/(2 f_coll) at f_coll = 0.62 | PASS |
+| 275 | app:derivations:L275:0.195 | calc | `0.195` | numeric: Omega_m f_coll | PASS |
 | 277 | app:derivations:L277 | calc | `1.0759` | numeric: same value as p1_02_iams_law:516 (H_m/H at z=0) | PASS |
 | 277 | app:derivations:L277:72.26 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
 | 277 | app:derivations:L277:67.161 | calc | `67.161` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_03_theory:889 (Level2 posterior mean H0) | PASS |
 | 278 | app:derivations:L278 | calc | `72.51` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 278 |  | calc | `72.48` | not run: not yet run: draft rejected (no draft returned) | - |
-| 278 |  | calc | `67.36` | not run: not yet run: draft rejected (drafter skipped: Planck 2018 value cited from text; not computed from stated premises) | - |
-| 278 |  | calc | `67.4` | not run: not yet run: draft rejected (no draft returned) | - |
-| 278 |  | calc | `0.1575` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 278 |  | calc | `73.04` | not run: not yet run: draft rejected (drafter skipped: SH0ES measurement cited from literature; not computed from book's premise) | - |
-| 278 |  | calc | `-0.75` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 278 | app:derivations:L278:72.48 | calc | `72.48` | numeric: H0_m = H0 sqrt(1+beta_m) from 67.36 | PASS |
+| 278 | app:derivations:L278:-0.75 | calc | `-0.75` | numeric: H0_m 72.26 against SH0ES 73.04 +- 1.04, in sigma | PASS |
+| 278 |  | calc | `67.36` | not run: input: H0 = 67.36 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated | - |
+| 278 |  | calc | `67.4` | not run: input: H0 = 67.4 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated | - |
+| 278 |  | calc | `0.1575` | not run: input: beta_m = 0.1575 (= 0.315/2) used with H0 = 67.4 (result checked at app:derivations:L278) | - |
+| 278 |  | calc | `73.04` | not run: input: SH0ES H0 = 73.04 +- 1.04 (Riess et al. 2022), the comparison value (sigma distance checked at app:derivations:L278:-0.75) | - |
 | 279 | app:derivations:L279 | calc | `67.161` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_03_theory:889 (Level2 posterior mean H0) | PASS |
 | 279 | app:derivations:L279:0.3166 | calc | `0.3166` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p1_03_virial_law:144 (Level2 Planck posterior Omega_m mean) | PASS |
 | 279 | app:derivations:L279:88.89 | calc | `88.89` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 279 | app:derivations:L279:91.29 | calc | `91.29` | numeric: drafted check, screened (runs; negative control fails) (tolerance: the posterior Omega_m is printed to 4 figures) | PASS |
-| 279 |  | calc | `-0.37` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 279 |  | calc | `0.5` | not run: not yet run: draft rejected (drafter skipped: z=0.5 is a label identifying which redshift row; not a computed quantity) | - |
+| 279 | app:derivations:L279:-0.37 | calc | `-0.37` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chain H0 against Planck 67.36 +- 0.54, in sigma | PASS |
+| 279 |  | calc | `0.5` | not run: input: redshift z = 0.5 at which H and H_m are evaluated (checked at app:derivations:L279:88.89, L279:91.29) | - |
 | 280 | app:derivations:L280 | calc | `120.44` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 280 | app:derivations:L280:121.53 | calc | `121.53` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 280 | app:derivations:L280:204.06 | calc | `204.06` | numeric: drafted check, screened (runs; negative control fails) | PASS |
@@ -6153,104 +6153,103 @@ Totals: 4693 PASS, 0 FAIL, 1648 inventoried and not run. Each run item carries t
 | 280 | app:derivations:L280:307.37 | calc | `307.37` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 280 | app:derivations:L280:307.43 | calc | `307.43` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 282 | app:derivations:L282 | calc | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 282 |  | calc | `0.3153` | not run: not yet run: draft rejected (no draft returned) | - |
-| 282 |  | calc | `399` | not run: not yet run: draft rejected (no draft returned) | - |
-| 282 |  | calc | `19.8` | not run: not yet run: draft rejected (no draft returned) | - |
-| 282 |  | calc | `5.9` | not run: not yet run: draft rejected (no draft returned) | - |
-| 282 |  | calc | `2.0` | not run: not yet run: draft rejected (no draft returned) | - |
-| 282 |  | calc | `0.7` | not run: not yet run: draft rejected (no draft returned) | - |
-| 282 |  | calc | `0.3` | not run: not yet run: draft rejected (no draft returned) | - |
-| 283 |  | calc | `18.7` | not run: not yet run: draft rejected (no draft returned) | - |
-| 283 |  | calc | `14.6` | not run: not yet run: draft does not reproduce the printed value (recomputed 58.188); drafting error on review | - |
-| 283 |  | calc | `10.3` | not run: not yet run: draft does not reproduce the printed value (recomputed 34.1569); drafting error on review | - |
-| 283 |  | calc | `4.9` | not run: not yet run: draft does not reproduce the printed value (recomputed 12.8291); drafting error on review | - |
-| 283 |  | calc | `0.3` | not run: not yet run: draft does not reproduce the printed value (recomputed 84.235); drafting error on review | - |
-| 283 |  | calc | `0.7` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 283 |  | calc | `1.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 282 | app:derivations:L282:399 | calc | `399` | numeric: R(a) = Omega_m a^-3/(beta_m E) at z = 2 | PASS |
+| 282 | app:derivations:L282:19.8 | calc | `19.8` | numeric: R(a) at z = 0.7 | PASS |
+| 282 | app:derivations:L282:5.9 | calc | `5.9` | numeric: R(a) at z = 0.3 | PASS |
+| 282 | app:derivations:L282:2.0 | calc | `2.0` | numeric: R(a) at z = 0 | PASS |
+| 282 |  | calc | `0.3153` | not run: input: Omega_m = 0.3153 (Planck 2018) for the record history (ratios checked at app:derivations:L282:399 ...) | - |
+| 282 |  | calc | `0.7` | not run: input: redshift z = 0.7 at which R is evaluated (checked at app:derivations:L282:19.8) | - |
+| 282 |  | calc | `0.3` | not run: input: redshift z = 0.3 at which R is evaluated (checked at app:derivations:L282:5.9) | - |
+| 283 | app:derivations:L283 | calc | `18.7` | numeric: record share of Omega_L + beta_m E at z = 0 (per cent) | PASS |
+| 283 | app:derivations:L283:14.6 | calc | `14.6` | numeric: record share at z = 0.3 (per cent) | PASS |
+| 283 | app:derivations:L283:10.3 | calc | `10.3` | numeric: record share at z = 0.7 (per cent) | PASS |
+| 283 | app:derivations:L283:4.9 | calc | `4.9` | numeric: record share at z = 1.5 (per cent) | PASS |
+| 283 |  | calc | `0.3` | not run: input: redshift z = 0.3 at which the record share is evaluated (checked at app:derivations:L283:14.6) | - |
+| 283 |  | calc | `0.7` | not run: input: redshift z = 0.7 at which the record share is evaluated (checked at app:derivations:L283:10.3) | - |
+| 283 |  | calc | `1.5` | not run: input: redshift z = 1.5 at which the record share is evaluated (checked at app:derivations:L283:4.9) | - |
 | 284 | app:derivations:L284 | calc | `0.295` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 284 |  | calc | `0.361` | not run: not yet run: draft does not reproduce the printed value (recomputed -0.26516); drafting error on review | - |
-| 288 |  | derived |  | not run: not yet run: draft rejected (does not run: ValueError lhs/rhs/rhs_wrong missing) | - |
+| 284 | app:derivations:L284:0.361 | calc | `0.361` | numeric: redshift where matter equals vacuum plus record | PASS |
+| 288 | app:derivations:L288 | derived |  | sympy: rho_Lambda/rho_vac = (3 Omega_L/8 pi) hbar G H0^2/c^5 = (3 Omega_L/8 pi)(l_P/l_H)^2 | PASS |
 | 291 | app:derivations:L291 | derived | `0.6847` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 291 | app:derivations:L291:4.633\times10^{113} | derived | `4.633\times10^{113}` | numeric: same value as p2_12_lambda:35 (Planck-cutoff vacuum energy density) | PASS |
 | 291 | app:derivations:L291:5.251\times10^{-10} | derived | `5.251\times10^{-10}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 291 |  | derived | `67.4` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 291 |  | derived | `67.4` | not run: input: H0 = 67.4 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated | - |
 | 292 | app:derivations:L292 | calc | `1.1334\times10^{-123}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 296 | app:derivations:L296 | derived | `0.0493` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 296 | app:derivations:L296:0.3153 | derived | `0.3153` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 297 | app:derivations:L297 | calc | `1.380\times10^{-123}` | numeric: same value as p1_02_iams_law:734 (baseline Lambda/rho_vac with Ob,Om) | PASS |
 | 297 | app:derivations:L297:1.218 | calc | `1.218` | numeric: same value as p2_12_lambda:184 (ratio of prediction to observation) | PASS |
 | 297 | app:derivations:L297:1.142\times10^{-123} | calc | `1.142\times10^{-123}` | numeric: same value as p1_02_iams_law:739 (corrected Lambda/rho_vac with sqrt(OmegaL)) | PASS |
-| 297 |  | calc | `+0.79` | not run: not yet run: draft does not reproduce the printed value (recomputed -17.2464); drafting error on review | - |
+| 297 | app:derivations:L297:+0.79 | calc | `+0.79` | numeric: expression with sqrt(Omega_L) over the identity, per cent | PASS |
 | 298 | app:derivations:L298 | calc | `0.1564` | numeric: same value as p2_12_lambda:172 (baryon fraction of matter) | PASS |
 | 298 | app:derivations:L298:0.1551 | calc | `0.1551` | numeric: same value as p2_12_lambda:259 ((3/16) sqrt(Omega_L)) | PASS |
-| 298 |  | calc | `0.521` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.519733); drafting error on review | - |
-| 302 |  | calc | `273.9\times10^{-10}` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 302 |  | calc | `0.1430` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.143063); drafting error on review | - |
+| 298 | app:derivations:L298:0.521 | calc | `0.521` | numeric: power of Omega_L that closes the first form exactly | PASS |
+| 302 | app:derivations:L302:0.1430 | calc | `0.1430` | numeric: Omega_m h^2 = Omega_c h^2 + Omega_b h^2 + Omega_nu h^2 (Planck 2018) | PASS |
+| 302 |  | calc | `273.9\times10^{-10}` | not run: input: the standard conversion eta = 273.9e-10 Omega_b h^2 (big-bang nucleosynthesis literature); its value depends on the mean mass per baryon and T_CMB conventions (m_p and T_CMB = 2.7255 K give 273.4), so it is a stated input, not a result of the chapter; eta values computed from it are checked at app:derivations:L303 | - |
 | 303 | app:derivations:L303 | calc | `5.03\times10^{-10}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 303 | app:derivations:L303:6.08\times10^{-10} | calc | `6.08\times10^{-10}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 308 |  | derived |  | not run: not yet run: draft rejected (uses imports or file access) | - |
+| 308 | app:derivations:L308 | derived |  | sympy: m c^2 = E_bit N/f solved: m = (2 pi)^(-2/5) B^(2/5) | PASS |
 | 311 | app:derivations:L311 | derived | `1.2018` | numeric: same value as p2_15b_electron_mass:80 (B/m_e at H0 = 67.4) | PASS |
 | 311 | app:derivations:L311:0.832112 | derived | `0.832112` | numeric: same value as p2_15b_electron_mass:90 ((2 pi)^(-1/10)) | PASS |
-| 311 |  | derived | `67.4` | not run: not yet run: draft rejected (drafter skipped: Line 311: "Numerically B^{2/5} = 1.2018 m_e at H₀ = 67.4"
-# This is a num) | - |
+| 311 |  | derived | `67.4` | not run: input: H0 = 67.4 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated | - |
 | 312 | app:derivations:L312 | calc | `1.7356` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 312 |  | calc | `+6.6\times10^{-6}` | not run: not yet run: draft does not reproduce the printed value (recomputed -1.000000e+06); drafting error on review | - |
-| 313 |  | calc | `67.4` | not run: not yet run: draft rejected (drafter skipped: Line 313 lists H0 values for reference only; this is a label, not a deriv) | - |
-| 313 |  | calc | `-2.31\times10^{-4}` | not run: not yet run: draft does not reproduce the printed value (recomputed -1.000000e+06); drafting error on review | - |
-| 313 |  | calc | `67.36` | not run: not yet run: draft rejected (drafter skipped: Line 313 lists H0 values for reference only; this is a label, not a deriv) | - |
-| 313 |  | calc | `+3.24\times10^{-2}` | not run: not yet run: draft does not reproduce the printed value (recomputed -100); drafting error on review | - |
-| 313 |  | calc | `73.0` | not run: not yet run: draft rejected (drafter skipped: Line 313 lists H0 values for reference only; this is a label, not a deriv) | - |
-| 313 |  | calc | `+3.27\times10^{-2}` | not run: not yet run: draft does not reproduce the printed value (recomputed -100); drafting error on review | - |
-| 313 |  | calc | `73.04` | not run: not yet run: draft rejected (drafter skipped: Line 313 lists H0 values for reference only; this is a label, not a deriv) | - |
-| 314 |  | calc | `0.54` | not run: not yet run: draft rejected (no draft returned) | - |
-| 314 |  | calc | `0.32` | not run: not yet run: draft rejected (no draft returned) | - |
-| 318 |  | derived |  | not run: not yet run: draft rejected (no draft returned) | - |
+| 312 | app:derivations:L312:+6.6\times10^{-6} | calc | `+6.6\times10^{-6}` | numeric: m/m_e - 1 with (2 pi)^(-1/10) at H0 = 67.4 | PASS |
+| 313 | app:derivations:L313:-2.31\times10^{-4} | calc | `-2.31\times10^{-4}` | numeric: m/m_e - 1 at H0 = 67.36 | PASS |
+| 313 | app:derivations:L313:+3.24\times10^{-2} | calc | `+3.24\times10^{-2}` | numeric: m/m_e - 1 at H0 = 73.0 | PASS |
+| 313 | app:derivations:L313:+3.27\times10^{-2} | calc | `+3.27\times10^{-2}` | numeric: m/m_e - 1 at H0 = 73.04 | PASS |
+| 313 |  | calc | `67.4` | not run: input: H0 = 67.4 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated | - |
+| 313 |  | calc | `67.36` | not run: input: H0 = 67.36 km/s/Mpc, Planck 2018 (Aghanim et al. 2020, bib key Planck2018VI), the value at which the numbers on this line are evaluated | - |
+| 313 |  | calc | `73.0` | not run: input: H0 = 73.0 km/s/Mpc, a local-distance-ladder value at which m/m_e is evaluated (checked at app:derivations:L313:+3.24\times10^{-2}) | - |
+| 313 |  | calc | `73.04` | not run: input: SH0ES H0 = 73.04 (Riess et al. 2022) at which m/m_e is evaluated (checked at app:derivations:L313:+3.27\times10^{-2}) | - |
+| 314 | app:derivations:L314:0.32 | calc | `0.32` | numeric: sigma(H0) = 0.54 as a per cent in m (m ~ H0^(2/5)) | PASS |
+| 314 |  | calc | `0.54` | not run: input: sigma(H0) = 0.54, the Planck 2018 uncertainty (propagated at app:derivations:L314:0.32) | - |
+| 318 | app:derivations:L318 | derived |  | sympy: Koide Q = (1/3)(1 + y^2/2x^2) = 2/3 at y = sqrt2 x | PASS |
 | 321 | app:derivations:L321 | conjecture | `0.66666051` | numeric: same value as p2_15a_lepton_koide:35 (Koide Q with the 2022 m_tau) | PASS |
-| 321 |  | conjecture | `313.84` | not run: not yet checked | - |
-| 322 |  | calc | `0.22227` | not run: not yet run: draft rejected (no draft returned) | - |
-| 322 |  | calc | `0.510` | not run: not yet run: draft rejected (no draft returned) | - |
-| 322 |  | calc | `105.68` | not run: not yet run: draft rejected (no draft returned) | - |
-| 323 |  | calc | `26.9` | not run: not yet run: draft rejected (no draft returned) | - |
-| 327 |  | derived | `0.50` | not run: not yet run: draft rejected (no draft returned) | - |
-| 327 |  | derived | `0.25` | not run: not yet run: draft rejected (no draft returned) | - |
+| 321 | app:derivations:L321:313.84 | conjecture | `313.84` | numeric: Koide scale x^2 from the measured masses, MeV | PASS |
+| 322 | app:derivations:L322:0.22227 | calc | `0.22227` | numeric: Koide offset delta, rad | PASS |
+| 322 | app:derivations:L322:0.510 | calc | `0.510` | numeric: m_e returned by x and delta, MeV | PASS |
+| 322 | app:derivations:L322:105.68 | calc | `105.68` | numeric: m_mu returned by x and delta, MeV | PASS |
+| 323 | app:derivations:L323 | calc | `26.9` | numeric: the two lighter masses at delta = 0, MeV | PASS |
+| 327 | app:derivations:L327:0.50 | derived | `0.50` | numeric: allowed fraction of offsets, n = 2 | PASS |
+| 327 | app:derivations:L327:0.25 | derived | `0.25` | numeric: allowed fraction of offsets, n = 3 | PASS |
 | 330 | app:derivations:L330 | calc | `0.1330` | numeric: same value as p2_22_electroweak:90 (Omega_dm/2) | PASS |
 | 330 | app:derivations:L330:0.1577 | calc | `0.1577` | numeric: same value as p2_22_electroweak:90 (beta_m = Omega_b/2 + Omega_dm/2 (Planck 2018 Omega_b 0.0493)) | PASS |
-| 330 |  | calc | `0.0247` | not run: not yet run: draft rejected (no draft returned) | - |
-| 330 |  | calc | `15.6` | not run: not yet run: draft rejected (no draft returned) | - |
-| 333 |  | calc | `2.5\times10^{-87}` | not run: not yet run: draft rejected (no draft returned) | - |
-| 333 |  | calc | `10` | not run: not yet run: draft rejected (no draft returned) | - |
-| 333 |  | calc | `200` | not run: not yet run: draft rejected (no draft returned) | - |
+| 330 | app:derivations:L330:0.0247 | calc | `0.0247` | numeric: Omega_b/2 | PASS |
+| 330 | app:derivations:L330:15.6 | calc | `15.6` | numeric: baryon share of beta_m, per cent | PASS |
+| 333 | app:derivations:L333 | calc | `2.5\times10^{-87}` | numeric: hbar R/(G M^2) for 1e12 M_sun within 200 kpc, s | PASS |
+| 333 |  | calc | `10` | not run: input: the printed 10 is the base of the halo mass 10^12 M_sun (collapse time checked at app:derivations:L333) | - |
+| 333 |  | calc | `200` | not run: input: halo radius 200 kpc (collapse time checked at app:derivations:L333) | - |
 | 338 | app:derivations:L338 | calc | `-1.667` | numeric: same value as p2_20_wz_far_future:23 (w_info at z=1) | PASS |
 | 338 | app:derivations:L338:4.77 | calc | `4.77` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 338 |  | calc | `-5.000` | not run: not yet run: draft rejected (no draft returned) | - |
-| 338 |  | calc | `2200` | not run: not yet run: draft rejected (no draft returned) | - |
-| 338 |  | calc | `10` | not run: not yet run: draft rejected (drafter skipped: Silica density given (2200 kg/m³); mass of 10^-12 kg is stated as the val) | - |
+| 338 | app:derivations:L338:-5.000 | calc | `-5.000` | numeric: d ln tau_IAM/d ln m at fixed density | PASS |
+| 338 |  | calc | `2200` | not run: input: silica density 2200 kg/m^3 | - |
+| 338 |  | calc | `10` | not run: input: the printed 10 is the base of the mass 10^-12 kg | - |
 | 339 | app:derivations:L339 | calc | `1.40\times10^{-29}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 339 | app:derivations:L339:509 | calc | `509` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 339 | app:derivations:L339:4.0 | calc | `4.0` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 339 | app:derivations:L339:16.0 | calc | `16.0` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 339 | app:derivations:L339:7.54 | calc | `7.54` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 340 | app:derivations:L340 | calc | `2.2\times10^{-10}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 340 |  | calc | `560` | not run: not yet run: draft does not reproduce the printed value (recomputed 60392.9); drafting error on review | - |
-| 340 |  | calc | `49` | not run: not yet run: draft does not reproduce the printed value (recomputed 28795.6); drafting error on review | - |
-| 340 |  | calc | `2.0\times10^9` | not run: not yet run: draft does not reproduce the printed value (recomputed 2.385956e+07); drafting error on review | - |
+| 340 | app:derivations:L340:49 | calc | `49` | numeric: R needed for tau_IAM = 560 microseconds at 1e-12 kg, nm | PASS |
+| 340 | app:derivations:L340:2.0\times10^9 | calc | `2.0\times10^9` | numeric: density for that radius, kg/m^3 | PASS |
+| 340 |  | calc | `560` | not run: input: the 560 microseconds coherence time the sentence posits; R and density it requires are checked at app:derivations:L340:49 and L340:2.0\times10^9 | - |
 | 341 | app:derivations:L341 | calc | `7.1\times10^{-9}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 341 | app:derivations:L341:3.50\times10^{-51} | calc | `3.50\times10^{-51}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 341 |  | calc | `0.150` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.075719); drafting error on review | - |
+| 341 | app:derivations:L341:0.150 | calc | `0.150` | numeric: R = G m^2/E_G for 4 kg and E_G = 7.1e-9 J, m | PASS |
 | 343 | app:derivations:L343 | derived | `0.0179` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 343 | app:derivations:L343:0.632 | derived | `0.632` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 346 |  | derived | `00` | not run: not yet run: draft rejected (drafter skipped: Line 346: printed "00" is a ket label in the dephased Bell state, not a c) | - |
-| 346 |  | derived | `11` | not run: not yet run: draft rejected (drafter skipped: Line 346: printed "11" is a ket label in the dephased Bell state, not a c) | - |
+| 346 |  | derived | `00` | not run: not a number: ket label |00> of the Bell state | - |
+| 346 |  | derived | `11` | not run: not a number: ket label |11> of the Bell state | - |
 | 348 | app:derivations:L348 | derived | `0.414` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 348 | app:derivations:L348:0.586 | derived | `0.586` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 349 | app:derivations:L349 | derived | `1.87` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 349 | app:derivations:L349:0.414 | derived | `0.414` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 349 |  | derived | `0.7` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 349 |  | derived | `0.2` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 355 |  | openprob | `5.2\times10^{121}` | not run: not yet checked | - |
-| 363 |  | openprob | `-0.78` | not run: not yet checked | - |
-| 363 |  | openprob | `-0.67` | not run: not yet checked | - |
-| 363 |  | openprob | `-1.87` | not run: not yet checked | - |
+| 349 |  | derived | `0.7` | not run: input: dephasing value c = 0.7 at which the Bell bound is checked numerically | - |
+| 349 |  | derived | `0.2` | not run: input: dephasing value c = 0.2 at which the Bell bound is checked numerically | - |
+| 355 | app:derivations:L355 | openprob | `5.2\times10^{121}` | numeric: bits per e-fold today restated in the open list | PASS |
+| 363 | app:derivations:L363 | openprob | `-0.78` | numeric: Delta D/D today, form (i), restated | PASS |
+| 363 | app:derivations:L363:-0.67 | openprob | `-0.67` | numeric: Delta D/D today, form (ii), restated | PASS |
+| 363 | app:derivations:L363:-1.87 | openprob | `-1.87` | numeric: Delta D/D today, form (iii), restated | PASS |
 
 ## Part 8 - app:glossary - `docs/book/appendices/app_F_glossary.tex`
 
