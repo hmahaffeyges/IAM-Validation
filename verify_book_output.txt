@@ -4489,6 +4489,18 @@ PASS  ch:instrument:L120:0.85            ch:instrument:p4_12_instrument:120  pri
 PASS  ch:instrument:L126:-0.14           ch:instrument:p4_12_instrument:126  printed -0.14  recomputed -0.14  tol 0.00500001  [measured] SNP tare scale does not predict the reading  file Biological_Physics/MethylPhys/doors/PROC_TARE_01_OUTCOME.md
 PASS  ch:instrument:L126:-0.07           ch:instrument:p4_12_instrument:126  printed -0.07  recomputed -0.07  tol 0.00500001  [measured] SNP tare offset does not predict the reading  file Biological_Physics/MethylPhys/doors/PROC_TARE_01_OUTCOME.md
 
+== Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:separation (part4/p4_13_separation.tex)
+PASS  ch:separation:L48                  ch:separation:p4_13_separation:48  printed 0.035  recomputed 0.0352162  tol 5.000005e-04  [measured] neutrophil fraction against flow counts, median error  file Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv
+PASS  ch:separation:L50                  ch:separation:p4_13_separation:50  printed 0.034  recomputed 0.0335204  tol 5.000005e-04  [measured] known DNA mixtures, median fraction error  file Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv
+PASS  ch:separation:L76:0.040            ch:separation:p4_13_separation:76  printed 0.040  recomputed 0.0401037  tol 5.000005e-04  [measured] shift for a 2 % loss, fraction 0.50-0.60  file Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv
+PASS  ch:separation:L76:0.050            ch:separation:p4_13_separation:76  printed 0.050  recomputed 0.049832  tol 5.000005e-04  [measured] shift for a 2 % loss, fraction 0.60-0.70  file Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv
+PASS  ch:separation:L76:0.064            ch:separation:p4_13_separation:76  printed 0.064  recomputed 0.063818  tol 5.000005e-04  [measured] shift for a 2 % loss, fraction 0.70-1.00  file Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv
+PASS  ch:separation:L76:0.024            ch:separation:p4_13_separation:76  printed 0.024  recomputed 0.0240906  tol 5.000005e-04  [measured] healthy spread, fraction 0.40-0.50  file Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv
+PASS  ch:separation:L76:0.022            ch:separation:p4_13_separation:76  printed 0.022  recomputed 0.0221177  tol 5.000005e-04  [measured] healthy spread, fraction 0.50-0.60  file Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv
+PASS  ch:separation:L76:0.020            ch:separation:p4_13_separation:76  printed 0.020  recomputed 0.0198911  tol 5.000005e-04  [measured] healthy spread, fraction 0.70-1.00  file Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv
+PASS  ch:separation:L88                  ch:separation:p4_13_separation:88  printed +0.12  recomputed 0.115876  tol 0.00500001  [measured] tared Met-A rises with neutrophil fraction  file Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv
+PASS  ch:separation:L91                  ch:separation:p4_13_separation:91  printed -0.02  recomputed -0.0181809  tol 0.00500001  [fitted] fraction dependence after the development fit  file Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv
+
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:salmonid (part4/p4_22b_salmonid.tex)
 PASS  ch:salmonid:L54                    ch:salmonid:p4_22b_salmonid:54  printed 0.0354  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
 PASS  ch:salmonid:L54:3.31               ch:salmonid:p4_22b_salmonid:54  printed 3.31  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
@@ -4925,4 +4937,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 4003  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2335  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4013  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2325  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

@@ -1936,6 +1936,34 @@ def _b10_accept(group_test):
     return [float(r['A']) for r in load_csv_rows('Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv') if group_test(r['group']) and r['A']]
 
 _B10_I = dict(chapter='ch:instrument', part=6, file='part4/p4_12_instrument', kind='file')
+DATA_FILES['Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv'] = 'chain v3 readings of tests T1, T3, T4 (FACS-counted bloods, replicates, 574 whole bloods)'   # 330 kB
+
+# helpers of the part4/p4_13_separation checks
+_B10_LF = 'Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv'
+_B10_BINS = [(0.40, 0.50), (0.50, 0.60), (0.60, 0.70), (0.70, 1.0001)]
+
+def _b10_lowfrac_shift(k):
+    """Median rise of Met-A from the simulated 2 % loss (A_dmg - A_raw) over the arrays whose neutrophil fraction is in bin k."""
+    lo, hi = _B10_BINS[k]
+    s = [float(r['A_dmg']) - float(r['A_raw']) for r in load_csv_rows(_B10_LF)
+         if r['f_neu'] and r['A_raw'] and r['A_dmg'] and lo <= float(r['f_neu']) < hi]
+    return float(np.median(s))
+
+def _b10_lowfrac_sd(k):
+    """Healthy spread in bin k: each of the 101 NEGATIVE adults divided by the expectation a + b f + c N fitted on the other 100,
+    standard deviation (n-1) of the ratios in the bin."""
+    rows = [r for r in load_csv_rows(_B10_LF) if r['group'] == 'NEGATIVE' and r['A_raw'] and r['N'] and r['f_neu']]
+    f = np.array([float(r['f_neu']) for r in rows]); N = np.array([float(r['N']) for r in rows]); A = np.array([float(r['A_raw']) for r in rows])
+    X = np.c_[np.ones(len(A)), f, N]
+    ratio = np.empty(len(A))
+    for i in range(len(A)):
+        m = np.arange(len(A)) != i
+        ratio[i] = A[i] / (X[i] @ np.linalg.lstsq(X[m], A[m], rcond=None)[0])
+    lo, hi = _B10_BINS[k]
+    sel = (f >= lo) & (f < hi)
+    return float(np.std(ratio[sel], ddof=1)), int(sel.sum())
+
+_B10_S = dict(chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -32459,6 +32487,113 @@ def check_4002():
     return locals()
 
 
+# ======== Part 6 | ch:separation | docs/book/part4/p4_13_separation.tex
+@check(label='ch:separation:L48', title='neutrophil fraction against flow counts, median error', line=48, status='measured', printed='0.035', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv', chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
+def check_4003():
+    'On six healthy whole bloods with flow-cytometry counts the neutrophil fraction agreed with the counts to a median 0.035. Recomputed as '\
+    'the median |f_neu (Stage A) - neutrophil proportion (flow)| over the six T1 arrays (GSE112618). Book line 48, printed 0.035. '\
+    'Input: neut_test_T1T3T4_readings.csv.'
+    rows = [r for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv') if r['test'] == 'T1']
+    d = [abs(float(r['f_neu']) - float(r['neutrophils proportion'])) for r in rows]
+    n = len(d)
+    value = float(np.median(d))
+    return locals()
+
+@check(label='ch:separation:L50', title='known DNA mixtures, median fraction error', line=50, status='measured', printed='0.034', tol=0.0,
+       source=_B10_LF, chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
+def check_4004():
+    'On the known DNA mixtures the median neutrophil fraction error was 0.034. Recomputed as the median |f_neu - f_true| over the 12 '\
+    'known-mixture rows. Book line 50, printed 0.034. Input: lowfrac_readings.csv.'
+    d = [abs(float(r['f_neu']) - float(r['f_true'])) for r in load_csv_rows(_B10_LF) if r['f_true']]
+    n = len(d)
+    value = float(np.median(d))
+    return locals()
+
+@check(label='ch:separation:L76:0.040', title='shift for a 2 % loss, fraction 0.50-0.60', line=76, status='measured', printed='0.040', tol=0.0,
+       source=_B10_LF, chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
+def check_4005():
+    'Figure fig:p4_lowfrac caption (and table): median rise of whole-blood Met-A from a simulated 2 % loss of the neutrophil pattern, '\
+    'fraction bin 0.50-0.60, over the 656 arrays. Book line 76, printed 0.040. Input: lowfrac_readings.csv (A_dmg - A_raw).'
+    value = _b10_lowfrac_shift(1)
+    return locals()
+
+@check(label='ch:separation:L76:0.050', title='shift for a 2 % loss, fraction 0.60-0.70', line=76, status='measured', printed='0.050', tol=0.0,
+       source=_B10_LF, chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
+def check_4006():
+    'Median rise of Met-A from the simulated 2 % loss, fraction bin 0.60-0.70. Book line 76, printed 0.050. Input: lowfrac_readings.csv.'
+    value = _b10_lowfrac_shift(2)
+    return locals()
+
+@check(label='ch:separation:L76:0.064', title='shift for a 2 % loss, fraction 0.70-1.00', line=76, status='measured', printed='0.064', tol=0.0,
+       source=_B10_LF, chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
+def check_4007():
+    'Median rise of Met-A from the simulated 2 % loss, fraction bin 0.70-1.00. Book line 76, printed 0.064. Input: lowfrac_readings.csv.'
+    value = _b10_lowfrac_shift(3)
+    return locals()
+
+@check(label='ch:separation:L76:0.024', title='healthy spread, fraction 0.40-0.50', line=76, status='measured', printed='0.024', tol=0.0,
+       source=_B10_LF, chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
+def check_4008():
+    'Healthy spread (SD) in fraction bin 0.40-0.50: each NEGATIVE adult read against the (fraction, N) expectation fitted on the others. '\
+    'Book line 76, printed 0.024 (first of SD 0.024, 0.022, 0.024, 0.020). Input: lowfrac_readings.csv.'
+    value, n = _b10_lowfrac_sd(0)
+    return locals()
+
+@check(label='ch:separation:L76:0.022', title='healthy spread, fraction 0.50-0.60', line=76, status='measured', printed='0.022', tol=0.0,
+       source=_B10_LF, chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
+def check_4009():
+    'Healthy spread (SD) in fraction bin 0.50-0.60, leave-one-out expectation as above. Book line 76, printed 0.022. Input: lowfrac_readings.csv.'
+    value, n = _b10_lowfrac_sd(1)
+    return locals()
+
+@check(label='ch:separation:L76:0.020', title='healthy spread, fraction 0.70-1.00', line=76, status='measured', printed='0.020', tol=0.0,
+       source=_B10_LF, chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
+def check_4010():
+    'Healthy spread (SD) in fraction bin 0.70-1.00, leave-one-out expectation as above. Book line 76, printed 0.020. Input: lowfrac_readings.csv.'
+    value, n = _b10_lowfrac_sd(3)
+    return locals()
+
+@check(label='ch:separation:L88', title='tared Met-A rises with neutrophil fraction', line=88, status='measured', printed='+0.12', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv', chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
+def check_4011():
+    'In a second laboratory, tared whole-blood Met-A rose with neutrophil fraction by about +0.12 per unit fraction, after the '\
+    'composition-matched expectation and a median tare. Recomputed as the pooled within-group least-squares slope of tared A_rel on f_neu '\
+    'over the 495 tared T4 whole bloods (NEGATIVE, MILD, SEVERE each centred on its own mean). Book line 88, printed +0.12. '\
+    'Input: neut_test_T1T3T4_readings.csv.'
+    rows = [r for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
+            if r['test'] == 'T4' and r['A_rel_tared'] and r['f_neu']]
+    f = np.array([float(r['f_neu']) for r in rows]); t = np.array([float(r['A_rel_tared']) for r in rows]); g = np.array([r['group'] for r in rows])
+    for G in set(g):
+        m = g == G
+        f[m] -= f[m].mean(); t[m] -= t[m].mean()
+    n = len(rows)
+    value = float((f @ t) / (f @ f))
+    return locals()
+
+@check(label='ch:separation:L91', title='fraction dependence after the development fit', line=91, status='fitted', printed='-0.02', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv', chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
+def check_4012():
+    'In a development fit with f_neu and N, made after looking at the data, the dependence on fraction fell to rho = -0.02. Recomputed: '\
+    'each of the 495 whole bloods (GSE179325, neutrophils >= 50 %) divided by the expectation a + b f_neu + c N fitted on the 76 NEGATIVE '\
+    'arrays (leave-one-out for the NEGATIVE arrays themselves); Spearman rho of that ratio against f_neu. Book line 91, printed -0.02. '\
+    'Input: chain_v3_dev3_readings.csv.'
+    from scipy.stats import spearmanr
+    rows = [r for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv')
+            if r['gse'] == 'GSE179325' and r['group'] in ('NEGATIVE', 'MILD', 'SEVERE') and r['A'] and r['N'] and r['f_neu']
+            and float(r['f_neu']) >= 0.5]
+    f = np.array([float(r['f_neu']) for r in rows]); N = np.array([float(r['N']) for r in rows]); A = np.array([float(r['A']) for r in rows])
+    X = np.c_[np.ones(len(A)), f, N]
+    neg = [i for i, r in enumerate(rows) if r['group'] == 'NEGATIVE']
+    ratio = A / (X @ np.linalg.lstsq(X[neg], A[neg], rcond=None)[0])
+    for i in neg:
+        m = [j for j in neg if j != i]
+        ratio[i] = A[i] / (X[i] @ np.linalg.lstsq(X[m], A[m], rcond=None)[0])
+    n = len(rows)
+    value = float(spearmanr(f, ratio)[0])
+    return locals()
+
+
 # ======== Part 6 | ch:salmonid | docs/book/part4/p4_22b_salmonid.tex
 @check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='0.0354', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
@@ -36480,22 +36615,12 @@ INVENTORY = [
     (6, 'ch:instrument', 'part4/p4_12_instrument', 56, '', 'measured', '0.95', "definition: identity-site window 0.75-0.95 restated from the site rule (ch:identity L20, calibrated); the site set's upper extreme is checked at ch:identity:L20:0.95"),
     (6, 'ch:instrument', 'part4/p4_12_instrument', 56, '', 'measured', '0.05', "definition: identity-site window 0.05-0.25 restated from the site rule (ch:identity L20, calibrated); the site set's lower extreme is checked at ch:identity:L20:0.05"),
     (6, 'ch:instrument', 'part4/p4_12_instrument', 56, '', 'measured', '0.25', 'definition: identity-site window 0.05-0.25 restated from the site rule (ch:identity L20, calibrated)'),
-    (6, 'ch:separation', 'part4/p4_13_separation', 6, 'eq:mix', 'none', '', 'displayed equation, not yet checked'),
+    (6, 'ch:separation', 'part4/p4_13_separation', 6, 'eq:mix', 'none', '', 'definition: linear mixing model of a specimen, beta_i = sum_g f_g mu_{g,i} + eps_i with f_g >= 0 and sum f_g = 1 (the equation Stage A solves; Houseman2012, Salas2022)'),
     (6, 'ch:separation', 'part4/p4_13_separation', 45, '', 'measured', '0.05', 'measured, source not named'),
-    (6, 'ch:separation', 'part4/p4_13_separation', 48, '', 'measured', '0.035', 'measured, source not named'),
-    (6, 'ch:separation', 'part4/p4_13_separation', 49, '', 'measured', '0.05', 'measured, source not named'),
-    (6, 'ch:separation', 'part4/p4_13_separation', 50, '', 'measured', '0.034', 'measured, source not named'),
-    (6, 'ch:separation', 'part4/p4_13_separation', 68, '', 'openprob', '0.40', 'not yet checked'),
-    (6, 'ch:separation', 'part4/p4_13_separation', 76, '', 'measured', '0.040', 'measured, source not named'),
-    (6, 'ch:separation', 'part4/p4_13_separation', 76, '', 'measured', '0.050', 'measured, source not named'),
-    (6, 'ch:separation', 'part4/p4_13_separation', 76, '', 'measured', '0.064', 'measured, source not named'),
-    (6, 'ch:separation', 'part4/p4_13_separation', 76, '', 'measured', '0.024', 'measured, source not named'),
-    (6, 'ch:separation', 'part4/p4_13_separation', 76, '', 'measured', '0.022', 'measured, source not named'),
-    (6, 'ch:separation', 'part4/p4_13_separation', 76, '', 'measured', '0.020', 'measured, source not named'),
-    (6, 'ch:separation', 'part4/p4_13_separation', 88, '', 'measured', '+0.12', 'measured, source not named'),
-    (6, 'ch:separation', 'part4/p4_13_separation', 91, '', 'fitted', '-0.02', 'measured, source not named'),
-    (6, 'ch:separation', 'part4/p4_13_separation', 99, '', 'measured', '1.05', 'measured, source not named'),
-    (6, 'ch:separation', 'part4/p4_13_separation', 100, '', 'measured', '1.05', 'measured, source not named'),
+    (6, 'ch:separation', 'part4/p4_13_separation', 49, '', 'measured', '0.05', 'definition: pre-registered bar of test T1b (fraction within 0.05 of the flow counts), not a measurement'),
+    (6, 'ch:separation', 'part4/p4_13_separation', 68, '', 'openprob', '0.40', 'input: the read line 0.40 restated from the table (line 56); the count of five healthy arrays below it is not the printed value'),
+    (6, 'ch:separation', 'part4/p4_13_separation', 99, '', 'measured', '1.05', 'definition: upper edge of the Normal band (0.95-1.05) restated, the line the tared reading is compared with'),
+    (6, 'ch:separation', 'part4/p4_13_separation', 100, '', 'measured', '1.05', 'definition: upper edge of the Normal band (0.95-1.05) restated'),
     (6, 'ch:atlas', 'part4/p4_14_atlas', 34, '', 'measured', '0.983', 'measured, source not named'),
     (6, 'ch:atlas', 'part4/p4_14_atlas', 34, '', 'measured', '1.045', 'measured, source not named'),
     (6, 'ch:atlas', 'part4/p4_14_atlas', 34, '', 'measured', '0.020', 'measured, source not named'),

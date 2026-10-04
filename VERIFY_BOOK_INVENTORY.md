@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4003 PASS, 0 FAIL, 2335 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4013 PASS, 0 FAIL, 2325 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4770,22 +4770,22 @@ Totals: 4003 PASS, 0 FAIL, 2335 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 6 | eq:mix | none |  | not run: displayed equation, not yet checked | - |
+| 6 | eq:mix | none |  | not run: definition: linear mixing model of a specimen, beta_i = sum_g f_g mu_{g,i} + eps_i with f_g >= 0 and sum f_g = 1 (the equation Stage A solves; Houseman2012, Salas2022) | - |
 | 45 |  | measured | `0.05` | not run: measured, source not named | - |
-| 48 |  | measured | `0.035` | not run: measured, source not named | - |
-| 49 |  | measured | `0.05` | not run: measured, source not named | - |
-| 50 |  | measured | `0.034` | not run: measured, source not named | - |
-| 68 |  | openprob | `0.40` | not run: not yet checked | - |
-| 76 |  | measured | `0.040` | not run: measured, source not named | - |
-| 76 |  | measured | `0.050` | not run: measured, source not named | - |
-| 76 |  | measured | `0.064` | not run: measured, source not named | - |
-| 76 |  | measured | `0.024` | not run: measured, source not named | - |
-| 76 |  | measured | `0.022` | not run: measured, source not named | - |
-| 76 |  | measured | `0.020` | not run: measured, source not named | - |
-| 88 |  | measured | `+0.12` | not run: measured, source not named | - |
-| 91 |  | fitted | `-0.02` | not run: measured, source not named | - |
-| 99 |  | measured | `1.05` | not run: measured, source not named | - |
-| 100 |  | measured | `1.05` | not run: measured, source not named | - |
+| 48 | ch:separation:L48 | measured | `0.035` | file `Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv`: neutrophil fraction against flow counts, median error | PASS |
+| 49 |  | measured | `0.05` | not run: definition: pre-registered bar of test T1b (fraction within 0.05 of the flow counts), not a measurement | - |
+| 50 | ch:separation:L50 | measured | `0.034` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: known DNA mixtures, median fraction error | PASS |
+| 68 |  | openprob | `0.40` | not run: input: the read line 0.40 restated from the table (line 56); the count of five healthy arrays below it is not the printed value | - |
+| 76 | ch:separation:L76:0.040 | measured | `0.040` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: shift for a 2 % loss, fraction 0.50-0.60 | PASS |
+| 76 | ch:separation:L76:0.050 | measured | `0.050` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: shift for a 2 % loss, fraction 0.60-0.70 | PASS |
+| 76 | ch:separation:L76:0.064 | measured | `0.064` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: shift for a 2 % loss, fraction 0.70-1.00 | PASS |
+| 76 | ch:separation:L76:0.024 | measured | `0.024` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: healthy spread, fraction 0.40-0.50 | PASS |
+| 76 | ch:separation:L76:0.022 | measured | `0.022` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: healthy spread, fraction 0.50-0.60 | PASS |
+| 76 | ch:separation:L76:0.020 | measured | `0.020` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: healthy spread, fraction 0.70-1.00 | PASS |
+| 88 | ch:separation:L88 | measured | `+0.12` | file `Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv`: tared Met-A rises with neutrophil fraction | PASS |
+| 91 | ch:separation:L91 | fitted | `-0.02` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: fraction dependence after the development fit | PASS |
+| 99 |  | measured | `1.05` | not run: definition: upper edge of the Normal band (0.95-1.05) restated, the line the tared reading is compared with | - |
+| 100 |  | measured | `1.05` | not run: definition: upper edge of the Normal band (0.95-1.05) restated | - |
 
 ## Part 6 - ch:atlas - `docs/book/part4/p4_14_atlas.tex`
 

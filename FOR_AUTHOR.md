@@ -3,7 +3,7 @@
 Items a check raised that would change a result, a prediction, a locked value, an equation of IAM or the framing of a
 claim. The book was left unchanged for each; the decision is the author's. Every FAIL of `verify_book.py` is listed here.
 
-Items: 11
+Items: 13
 
 ## 1. `docs/book/part2/p2_02_virial.tex:L86-87`
 
@@ -81,4 +81,18 @@ Items: 11
 - **Proposed:** either state that the range is of the 33 arrays read in test T2, or give the range of all 48 arrays re-read in the diagnostic (0.86--1.29)
 - **Why it matters:** PROC_NEUT_TEST_01_T2_OUTCOME.md gives 0.86-1.26 for the 33 arrays of the scored test; the committed diagnostic re-read of all 48 arrays (doors/data/t2_diag.csv, also noise_index.csv) reaches 1.286 (GSM7885063). The check reads 1.26 from the T2 record and passes; a reader rebuilding the range from the committed per-array file gets 1.29.
 - **Recommendation:** low priority; name the 33 arrays or widen to 1.29
+
+## 12. `docs/book/part4/p4_13_separation.tex:L44-46`
+
+- **Now:** a solver built on references from several platforms under-read EPIC neutrophils by about 0.05 and split T cells into subtypes that have no purified EPIC profile, and the expectation built from its fractions was wrong
+- **Proposed:** re-read against DEV_ATLAS_EPIC_01 (2026-10-03): on FACS-counted EPIC bloods the atlas solver does not under-read neutrophils (bias -0.007 to -0.013; NNLS8 -0.030), and on the six blood-like DNA mixtures every method reads low, the chain's own NNLS8 included (-0.053; atlas -0.043 to -0.047)
+- **Why it matters:** The sentence frames the 0.05 under-read as a property of the multi-platform solver; the committed later record (doors/DEV_ATLAS_EPIC_01.md, results/metrics_by_set.csv) finds it is a property of the mixtures shared by every method. Changing it changes the framing of a finding, so it is not edited here.
+- **Recommendation:** author to decide whether to keep the sentence as the history of the choice, or add the later measurement
+
+## 13. `docs/book/part4/p4_13_separation.tex:L61 and L76`
+
+- **Now:** shift for a 2 % loss in the 0.40-0.50 bin: 0.033
+- **Proposed:** 0.032 if the bin is [0.40, 0.50) over the 656 arrays of doors/data/lowfrac_readings.csv
+- **Why it matters:** The other three bins reproduce from lowfrac_readings.csv (0.0401, 0.0498, 0.0638); the first bin gives a median of 0.0321 with the same rule. Not in this batch's rows, so not checked or changed here; the binning of the original run may differ.
+- **Recommendation:** check the bin edges used by DEV-LOWFRAC-01 before changing anything
 
