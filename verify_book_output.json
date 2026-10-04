@@ -35258,6 +35258,23 @@
   "source": ""
  },
  {
+  "label": "ch:saturation:L44:0.032",
+  "title": "copy-error floor 1/(1+exp(E_hold/k_BT)) at E_hold = 3.41 k_BT",
+  "part": 3,
+  "chapter": "ch:saturation",
+  "file": "part3/p3_07_saturation",
+  "line": 44,
+  "status": "derived",
+  "kind": "num",
+  "printed": "0.032",
+  "recomputed": "0.0319844",
+  "tol": 0.0005000005,
+  "passed": true,
+  "note": "",
+  "heavy": false,
+  "source": ""
+ },
+ {
   "label": "ch:saturation:L66",
   "title": "P_neutrophil from the canon record",
   "part": 3,

@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3060 PASS, 0 FAIL, 3274 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3061 PASS, 0 FAIL, 3273 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -3402,15 +3402,15 @@ Totals: 3060 PASS, 0 FAIL, 3274 inventoried and not run. Each run item carries t
 | 44 | ch:saturation:L44:3.41 | derived | `3.41` | file `CANON/iam_canon.json`: E_hold from the canon record | PASS |
 | 44 | ch:saturation:L44:59.5 | derived | `59.5` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 44 | ch:saturation:L44:69.1 | derived | `69.1` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 44 |  | derived | `0.032` | not run: not yet run: draft does not reproduce the printed value (recomputed (121 - 4*exp(341/100))/(125*(1 + exp(341/100)))); drafting error on review | - |
+| 44 | ch:saturation:L44:0.032 | derived | `0.032` | numeric: copy-error floor 1/(1+exp(E_hold/k_BT)) at E_hold = 3.41 k_BT | PASS |
 | 66 | ch:saturation:L66 | measured | `1.099` | file `CANON/iam_canon.json`: P_neutrophil from the canon record | PASS |
 | 66 | ch:saturation:L66:0.032 | measured | `0.032` | numeric: eps0 = 1/(1+e^E_hold), E_hold = 3.41 kT (canon, measured) | PASS |
 | 66 | ch:saturation:L66:3.41 | measured | `3.41` | file `CANON/iam_canon.json`: E_hold from the canon record | PASS |
 | 66 | ch:saturation:L66:0.910 | derived | `0.910` | file `CANON/iam_canon.json`: 1/P | PASS |
 | 66 | ch:saturation:L66:0.0362 | derived | `0.0362` | file `CANON/iam_canon.json`: eps where IAM-A = H(eps)/(P H(eps0)) = 1 | PASS |
 | 66 | ch:saturation:L66:4.45 | derived | `4.45` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 66 |  | derived | `0.95` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 66 |  | derived | `1.05` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 66 |  | derived | `0.95` | not run: definition: lower edge 0.95 of the shaded Normal band of the gauge (a chosen band, nothing to recompute) | - |
+| 66 |  | derived | `1.05` | not run: definition: upper edge 1.05 of the shaded Normal band of the gauge (a chosen band, nothing to recompute) | - |
 | 71 | ch:saturation:L71 | measured | `3.41` | file `CANON/iam_canon.json`: E_hold from the canon record | PASS |
 
 ## Part 4 - ch:quantumrecords - `docs/book/part2/p2_14_quantum_records.tex`

@@ -17813,6 +17813,13 @@ def check_1940():
     value = swing_mV
     return locals()
 
+@check(label='ch:saturation:L44:0.032', chapter='ch:saturation', part=3, title='copy-error floor 1/(1+exp(E_hold/k_BT)) at E_hold = 3.41 k_BT',
+       file='part3/p3_07_saturation', line=44, status='derived', kind='num', printed='0.032', tol=0.0)
+def check_3060():
+    'Copy-error floor eps0 = 1/(1 + exp(E_hold/k_B T)) (figure caption, panel d). Book line 44, printed 0.032. Input: E_hold = 3.41 k_B T, measured '         '(CANON E_hold_meth, PROC-CHANNEL-01).'
+    value = 1 / (1 + math.exp(E_hold))
+    return locals()
+
 @check(label='ch:saturation:L66', chapter='ch:saturation', part=3, title='P_neutrophil from the canon record',
        file='part3/p3_07_saturation', line=66, status='measured', kind='file', printed='1.099', tol=0, source='CANON/iam_canon.json')
 def check_1941():
@@ -27726,9 +27733,8 @@ INVENTORY = [
     (3, 'ch:blackholes', 'part2/p2_01_blackholes', 336, '', 'calc', '1.44', 'input: Chandrasekhar mass 1.44 M_sun as conventionally quoted (Chandrasekhar1931), restated from line 316; the constants-only 1.456 is checked by ch:blackholes:L316'),
     (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 79, 'eq:bk_decoherence', 'none', '', 'definition: the system-environment entangling evolution of a decoherence event (schematic, no coefficient); its consequence, the diagonal reduced density matrix, is checked at eq:bk_diagonal'),
     (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 109, 'eq:bk_SpropA', 'none', '', 'definition: the area-law proportionality S propto A, carried as interpretation (no coefficient); the coefficient is checked at eq:bk_SetaA and eq:bk_structure'),
-    (3, 'ch:saturation', 'part3/p3_07_saturation', 44, '', 'derived', '0.032', 'not yet run: draft does not reproduce the printed value (recomputed (121 - 4*exp(341/100))/(125*(1 + exp(341/100)))); drafting error on review'),
-    (3, 'ch:saturation', 'part3/p3_07_saturation', 66, '', 'derived', '0.95', 'not yet run: draft rejected (printed value typed into the code)'),
-    (3, 'ch:saturation', 'part3/p3_07_saturation', 66, '', 'derived', '1.05', 'not yet run: draft rejected (printed value typed into the code)'),
+    (3, 'ch:saturation', 'part3/p3_07_saturation', 66, '', 'derived', '0.95', 'definition: lower edge 0.95 of the shaded Normal band of the gauge (a chosen band, nothing to recompute)'),
+    (3, 'ch:saturation', 'part3/p3_07_saturation', 66, '', 'derived', '1.05', 'definition: upper edge 1.05 of the shaded Normal band of the gauge (a chosen band, nothing to recompute)'),
     (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 33, 'eq:qr_SE', 'derived', '', 'not yet run: draft rejected (drafter skipped: The equation |\\Psi\\rangle_{S\\mathcal E}=\\sum_i c_i\\,|s_i\\rangle_S\\otimes|)'),
     (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 40, 'eq:qr_tauD', 'derived', '', 'not yet run: draft rejected (drafter skipped: The equation tau_D ~ tau_R (lambda_th / Delta x)^2, lambda_th = hbar / sq)'),
     (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 71, '', 'calc', '2.5\\times10^{-87}', 'not yet run: draft does not reproduce the printed value (recomputed 1.096050e-88); drafting error on review'),

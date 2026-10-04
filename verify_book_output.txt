@@ -2676,6 +2676,7 @@ PASS  ch:saturation:L44:1.1\times10^{-7} ch:saturation:p3_07_saturation:44  prin
 PASS  ch:saturation:L44:3.41             ch:saturation:p3_07_saturation:44  printed 3.41  recomputed 3.41  tol 0.00500001  [derived] E_hold from the canon record  file CANON/iam_canon.json
 PASS  ch:saturation:L44:59.5             ch:saturation:p3_07_saturation:44  printed 59.5  recomputed 59.5264  tol 0.05  [derived] drafted check, screened (runs; negative control fails)
 PASS  ch:saturation:L44:69.1             ch:saturation:p3_07_saturation:44  printed 69.1  recomputed 69.0507  tol 0.05  [derived] drafted check, screened (runs; negative control fails)
+PASS  ch:saturation:L44:0.032            ch:saturation:p3_07_saturation:44  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [derived] copy-error floor 1/(1+exp(E_hold/k_BT)) at E_hold = 3.41 k_BT
 PASS  ch:saturation:L66                  ch:saturation:p3_07_saturation:66  printed 1.099  recomputed 1.099  tol 5.000005e-04  [measured] P_neutrophil from the canon record  file CANON/iam_canon.json
 PASS  ch:saturation:L66:0.032            ch:saturation:p3_07_saturation:66  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [measured] eps0 = 1/(1+e^E_hold), E_hold = 3.41 kT (canon, measured)
 PASS  ch:saturation:L66:3.41             ch:saturation:p3_07_saturation:66  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] E_hold from the canon record  file CANON/iam_canon.json
@@ -3832,4 +3833,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3060  FAIL 0  (heavy, read from committed outputs: 623)  inventoried-not-run 3274  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3061  FAIL 0  (heavy, read from committed outputs: 623)  inventoried-not-run 3273  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
