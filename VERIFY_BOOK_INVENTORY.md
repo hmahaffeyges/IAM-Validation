@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3491 PASS, 0 FAIL, 2846 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3513 PASS, 0 FAIL, 2827 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -2129,7 +2129,7 @@ Totals: 3491 PASS, 0 FAIL, 2846 inventoried and not run. Each run item carries t
 | 40 | eq:lam_rhoL | observed | `5.250\times10^{-10}` | numeric: observed dark-energy density | PASS |
 | 42 | ch:lambda:L42 | observed | `67.4` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 42 | ch:lambda:L42:0.6846 | observed | `0.6846` | numeric: Omega_Lambda from 1-Om-Omega_r | PASS |
-| 42 |  | measured | `0.6847\pm0.0073` | not run: measured, not found in the files the chapter names | - |
+| 42 | ch:lambda:L42:0.6847 | observed | `0.6847\pm0.0073` | numeric: Planck 2018 Omega_Lambda as printed by Planck | PASS |
 | 44 | eq:lam_ratio | calc | `1.133\times10^{-123}` | numeric: ratio of densities | PASS |
 | 44 | eq:lam_ratio:-122.95 | calc | `-122.95` | numeric: log10 of density ratio | PASS |
 | 87 | ch:lambda:L87 | calc | `2.655\times10^{-30}` | numeric: Gibbons-Hawking horizon temperature | PASS |
@@ -2152,7 +2152,7 @@ Totals: 3491 PASS, 0 FAIL, 2846 inventoried and not run. Each run item carries t
 | 176 | eq:lam_result | calc | `1.380\times10^{-123}` | numeric: IAM predicted density ratio | PASS |
 | 180 | eq:lam_obs | calc | `1.133\times10^{-123}` | numeric: observed density ratio | PASS |
 | 184 | eq:lam_factor | calc | `1.218` | numeric: ratio of prediction to observation | PASS |
-| 194 | eq:lam_TH | derived |  | not run: not yet run: draft rejected (does not run: ValueError no value) | - |
+| 194 | eq:lam_TH | derived |  | not run: definition: Gibbons-Hawking temperature of the Hubble rate, T_H = hbar H0/(2 pi k_B) (cited GibbonsHawking1977); the derived relation T_dS = T_H sqrt(Omega_L) follows on line 196 | - |
 | 196 | eq:lam_TdS | derived |  | sympy: T_dS = hbar H_dS/(2 pi k_B) with H_dS = c sqrt(Lambda/3) equals T_H sqrt(Omega_L), Omega_L = Lambda c^2/(3 H0^2) | PASS |
 | 198 | eq:lam_Eeff | derived |  | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
 | 201 | eq:corr | derived | `1.142\times10^{-123}` | numeric: eq:base times T_dS/T_H, with T_dS from H_dS = c sqrt(Lambda/3) and Lambda = 3 Omega_L H0^2/c^2, evaluated with the book's Planck 2018 inputs (value printed at line 205) | PASS |
@@ -2170,14 +2170,14 @@ Totals: 3491 PASS, 0 FAIL, 2846 inventoried and not run. Each run item carries t
 | 223 | ch:lambda:L223 | measured | `1.616\times10^{-35}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 224 | ch:lambda:L224 | calc | `1.372\times10^{26}` | numeric: same value as p2_12_lambda:166 (Hubble length today) | PASS |
 | 225 | ch:lambda:L225 | calc | `1.387\times10^{-122}` | numeric: same value as p2_12_lambda:171 (square of Planck/Hubble length ratio) | PASS |
-| 226 |  | openprob | `0.6366` | not run: not yet checked | - |
+| 226 | ch:lambda:L226 | openprob | `0.6366` | numeric: coefficient 2/pi | PASS |
 | 227 | ch:lambda:L227 | measured | `0.1564` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 228 | ch:lambda:L228 | calc | `1.380\times10^{-123}` | numeric: same value as p1_02_iams_law:734 (baseline Lambda/rho_vac with Ob,Om) | PASS |
 | 229 | ch:lambda:L229 | calc | `1.133\times10^{-123}` | numeric: same value as p1_02_iams_law:729 (Lambda/rho_vac identity at H0=67.4) | PASS |
 | 230 | ch:lambda:L230 | calc | `1.218` | numeric: same value as p2_12_lambda:184 (ratio of prediction to observation) | PASS |
 | 231 | ch:lambda:L231 | fitted | `0.8274` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 231 | ch:lambda:L231:1.142\times10^{-123} | fitted | `1.142\times10^{-123}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 231 |  | fitted | `+0.79` | not run: measured, too few printed digits to match against the named files | - |
+| 231 | ch:lambda:L231:+0.79 | fitted | `+0.79` | numeric: Eq. corr above the observed ratio, per cent | PASS |
 | 237 | eq:ident | derived |  | sympy: rho_L/rho_vac = (3 Omega_L/8pi)(l_P/l_H)^2 | PASS |
 | 239 | ch:lambda:L239 | derived | `1.133\times10^{-123}` | numeric: same value as p1_02_iams_law:729 (Lambda/rho_vac identity at H0=67.4) | PASS |
 | 242 | eq:lam_smarr | derived |  | sympy: T_GH S = c^5/(2GH) for any H | PASS |
@@ -2194,33 +2194,35 @@ Totals: 3491 PASS, 0 FAIL, 2846 inventoried and not run. Each run item carries t
 | 260 | ch:lambda:L260 | measured | `1.0046` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output) | PASS |
 | 260 | ch:lambda:L260:1.0056 | measured | `1.0056` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 260 | ch:lambda:L260:1.0106 | measured | `1.0106` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 260 |  | measured | `0.7` | not run: measured, too few printed digits to match against the named files | - |
+| 260 | ch:lambda:L260:0.7 | measured | `0.7` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: 18th chain: ratio of the two sides from 1, in sigma | PASS |
 | 270 | ch:lambda:L270 | calc | `0.0817` | numeric: 3 Omega_L/8 pi | PASS |
-| 270 |  | calc | `0.7` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 270 |  | calc | `0.7` | not run: restates ch:lambda:L392:3 and ch:lambda:L392 (3 of 414 forms = 0.72 %); printed to one digit, so the 5 % shifted value (0.735) lies inside its own rounding and no check can carry a failing negative control | - |
 | 275 | ch:lambda:L275 | calc | `2.2\times10^{68}` | numeric: (E_P/M)^4, M = 100 GeV | PASS |
 | 276 | ch:lambda:L276 | calc | `1.4\times10^{79}` | numeric: (E_P/M)^4, M = 200 MeV | PASS |
 | 276 | ch:lambda:L276:2.5\times10^{-55} | calc | `2.5\times10^{-55}` | numeric: rho_L/rho_vac(100 GeV) | PASS |
 | 277 | ch:lambda:L277 | calc | `1.6\times10^{-44}` | numeric: rho_L/rho_vac(200 MeV) | PASS |
-| 307 | eq:lam_aeff | none |  | not run: displayed equation, not yet checked | - |
+| 307 | eq:lam_aeff | none |  | sympy: half the horizon sphere: A_eff = 2 pi l_H^2 | PASS |
 | 309 | eq:lam_nbits | derived |  | sympy: N_eff = A_eff/(4 l_P^2), A_eff = 2 pi l_H^2 | PASS |
 | 311 | eq:lam_fbit | derived |  | sympy: f_bit = 2 (l_P/l_H)^2 | PASS |
-| 318 |  | openprob | `0.8274` | not run: not yet checked | - |
-| 326 |  | openprob | `1.2` | not run: not yet checked | - |
-| 340 |  | openprob | `1.2` | not run: not yet checked | - |
+| 318 | ch:lambda:L318 | openprob | `0.8274` | numeric: temperature factor sqrt(Omega_L) | PASS |
+| 326 | ch:lambda:L326 | openprob | `1.2` | numeric: Eq. base against the observed ratio (factor of 1.2) | PASS |
+| 340 | ch:lambda:L340 | openprob | `1.2` | numeric: factor left after Ob/Om and 2/pi (1.2) | PASS |
+| 340 | ch:lambda:L340:12 | openprob | `12` | numeric: (l_P/l_H)^2 alone over the observed ratio (factor of 12) | PASS |
 | 349 | ch:lambda:L349 | calc | `12.24` | numeric: same value as p2_12_lambda:214 (geometric term alone vs observed) | PASS |
 | 349 | ch:lambda:L349:1.913 | calc | `1.913` | numeric: same value as p2_12_lambda:214 (after baryon fraction applied) | PASS |
 | 349 | ch:lambda:L349:1.218 | calc | `1.218` | numeric: same value as p2_12_lambda:184 (ratio of prediction to observation) | PASS |
-| 353 |  | openprob | `1.2` | not run: not yet checked | - |
-| 354 |  | openprob | `1.2` | not run: not yet checked | - |
+| 353 | ch:lambda:L353 | openprob | `1.2` | numeric: remaining factor of 1.2 (heading) | PASS |
+| 354 | ch:lambda:L354 | openprob | `1.2` | numeric: remaining factor of 1.2 (objection) | PASS |
 | 358 | ch:lambda:L358 | derived | `0.8274` | numeric: same value as p2_12_lambda:205 (square root of Omega_Lambda) | PASS |
 | 359 | ch:lambda:L359 | derived | `1.142\times10^{-123}` | numeric: same value as p1_02_iams_law:739 (corrected Lambda/rho_vac with sqrt(OmegaL)) | PASS |
 | 359 | ch:lambda:L359:1.133\times10^{-123} | derived | `1.133\times10^{-123}` | numeric: same value as p1_02_iams_law:729 (Lambda/rho_vac identity at H0=67.4) | PASS |
 | 362 | ch:lambda:L362 | calc | `0.521` | numeric: exponent p of Omega_L that closes the expression | PASS |
 | 363 | ch:lambda:L363 | calc | `+0.79` | numeric: p = 1/2 against the measured ratio, per cent | PASS |
-| 363 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed -121.861); drafting error on review | - |
-| 366 |  | openprob | `1.22` | not run: not yet checked | - |
-| 367 |  | openprob | `0.79` | not run: not yet checked | - |
-| 373 |  | observed | `1.1` | not run: measured, too few printed digits to match against the named files | - |
+| 363 | ch:lambda:L363:10^{-123} | calc | `10^{-123}` | numeric: the 10^-123 carried by the identity | PASS |
+| 366 | ch:lambda:L366 | openprob | `1.22` | numeric: Eq. base within a factor of 1.22 | PASS |
+| 367 | ch:lambda:L367 | openprob | `0.79` | numeric: Eq. corr within 0.79 % | PASS |
+| 373 | ch:lambda:L373 | observed | `1.1` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: relation holds to 1.1 % at most on every chain | PASS |
+| 373 | ch:lambda:L373:0.5 | observed | `0.5` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: relation holds to 0.5 % at least on every chain | PASS |
 | 382 | ch:lambda:L382 | calc | `4.633\times10^{113}` | numeric: same value as p2_12_lambda:35 (Planck-cutoff vacuum energy density) | PASS |
 | 383 | ch:lambda:L383 | observed | `5.250\times10^{-10}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 384 | ch:lambda:L384 | derived | `1.133\times10^{-123}` | numeric: same value as p1_02_iams_law:729 (Lambda/rho_vac identity at H0=67.4) | PASS |
@@ -2228,19 +2230,19 @@ Totals: 3491 PASS, 0 FAIL, 2846 inventoried and not run. Each run item carries t
 | 385 | ch:lambda:L385:3.268\times10^{122} | calc | `3.268\times10^{122}` | numeric: same value as p2_12_lambda:94 (max horizon info, bits) | PASS |
 | 386 | ch:lambda:L386 | calc | `1.380\times10^{-123}` | numeric: same value as p1_02_iams_law:734 (baseline Lambda/rho_vac with Ob,Om) | PASS |
 | 387 | ch:lambda:L387 | fitted | `1.142\times10^{-123}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 387 |  | fitted | `+0.79` | not run: measured, too few printed digits to match against the named files | - |
+| 387 | ch:lambda:L387:+0.79 | fitted | `+0.79` | numeric: Table lambda_numbers: Eq. corr offset, per cent | PASS |
 | 388 | ch:lambda:L388 | calc | `0.521` | numeric: exponent p of Omega_L that closes the expression | PASS |
 | 389 | ch:lambda:L389 | observed | `0.1564` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 389 | ch:lambda:L389:0.1551 | observed | `0.1551` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 390 | ch:lambda:L390 | measured | `1.0046` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output) | PASS |
-| 390 |  | calc | `18` | not run: not yet run: draft rejected (drafter skipped: Measured quantity from Planck 18th chain (CMB only);
-# requires chain MCM) | - |
+| 390 |  | calc | `18` | not run: label: '18th chain' is the ordinal name of the chain (iam_baryon_test), not a number to recompute | - |
 | 391 | ch:lambda:L391 | measured | `1.0056` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 391 | ch:lambda:L391:1.0106 | measured | `1.0106` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 392 |  | calc | `414` | not run: not yet run: draft rejected (drafter skipped: Count of O(1) forms within 1% of 3Ω_Λ/8π from a search over 414 candidate) | - |
-| 393 |  | calc | `0.523` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 393 |  | calc | `3.1\times10^{30}` | not run: not yet run: draft rejected (drafter skipped: Line 393: "History integral as written, coefficient against the required ) | - |
-| 394 |  | calc | `3.15\times10^{-8}` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 392 | ch:lambda:L392 | calc | `414` | numeric: number of O(1) forms | PASS |
+| 392 | ch:lambda:L392:3 | calc | `3` | numeric: O(1) forms within 1 % of 3 Omega_L/8 pi | PASS |
+| 393 | ch:lambda:L393 | calc | `0.523` | numeric: required coefficient K = (3 OL/8 pi)/(Ob/Om) | PASS |
+| 393 | ch:lambda:L393:3.1\times10^{30} | calc | `3.1\times10^{30}` | numeric: history integral as written, as coefficient K | PASS |
+| 394 | ch:lambda:L394 | calc | `3.15\times10^{-8}` | numeric: accumulated virial heat of baryons over rho_L c^2 | PASS |
 
 ## Part 2 - ch:lambda_history - `docs/book/part2/p2_12b_lambda_history.tex`
 

@@ -1294,6 +1294,95 @@ def _b02_wz_sig():
 
 _B02_WZ_RERUN = 'python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt'
 
+# helpers of the part2/p2_12_lambda checks
+_b02_lam_C = {}
+_b02_lam_RERUN = 'python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)'
+
+def _b02_lam_cc():
+    """The cosmological-constant numbers with the chapter's inputs (Planck 2018 VI, doi:10.1051/0004-6361/201833910: H0 67.4, Ob 0.0493,
+    Om 0.3153, Omega_L = 1 - Om - Omega_r) and CODATA constants; as verify_lambda_baryon_book.py section B."""
+    if 'cc' not in _b02_lam_C:
+        Ogh2 = (math.pi**2 / 15) * (kB * T_CMB)**4 / (hbar * c)**3 / (3 * Hsi(100.0)**2 * c**2 / (8 * math.pi * G))   # photons, T_CMB 2.7255 K
+        Orad = Ogh2 / h_pl**2 * (1 + 0.2271 * 3.046)                                                                   # + 3.046 massless neutrinos
+        Ob_, Om_ = 0.0493, 0.3153
+        OL_ = 1 - Om_ - Orad
+        H0s = Hsi(67.4); lH = c / H0s
+        rvac = (math.sqrt(hbar * c**5 / G))**4 / (hbar * c)**3
+        rL = OL_ * 3 * H0s**2 / (8 * math.pi * G) * c**2
+        g = (lP / lH)**2; fb = Ob_ / Om_
+        obs = rL / rvac; base = 2 / math.pi * g * fb; corr = base * math.sqrt(OL_)
+        _b02_lam_C['cc'] = dict(Orad=Orad, Ob=Ob_, Om=Om_, OL=OL_, lH=lH, g=g, fb=fb, obs=obs, base=base, corr=corr)
+    return _b02_lam_C['cc']
+
+def _b02_lam_K(a1):
+    """History integral of Eq. lh_integral from a1 to 1, written as the coefficient K in K (l_P/l_H)^2 Ob/Om: integrand
+    (Ob/Otot)(a) (H/H0)/a^2 da on a 200001-point grid in ln a (verify_lambda_baryon_book.py section C)."""
+    d = _b02_lam_cc(); Om_, Ob_, Or_, OL_ = d['Om'], d['Ob'], d['Orad'], d['OL']
+    la = np.linspace(np.log(a1), 0, 200001); a = np.exp(la)
+    Hn = np.sqrt(Om_ / a**3 + Or_ / a**4 + OL_)
+    fbt = (Ob_ / a**3) / (Om_ / a**3 + Or_ / a**4 + OL_)
+    return integrate.trapezoid(fbt * Hn / a**2 * a, la) / d['fb']
+
+def _b02_lam_forms():
+    """Look-elsewhere family of Section lam_rel: q pi^k (Ob/Om)^i OL^j, q the distinct ratios p/r of 1..6, k in {-1,0,1}, i in {0,1},
+    j in {0, 1/2, 1}; returns (number of forms, number within 1 % of 3 OL/8pi = obs/(l_P/l_H)^2)."""
+    from fractions import Fraction
+    d = _b02_lam_cc(); target = d['obs'] / d['g']
+    qs = sorted({Fraction(p, r) for p in range(1, 7) for r in range(1, 7)})
+    n = hit = 0
+    for q in qs:
+        for k in (-1, 0, 1):
+            for i in (0, 1):
+                for j in (0, 0.5, 1):
+                    n += 1
+                    if abs(float(q) * math.pi**k * d['fb']**i * d['OL']**j / target - 1) < 0.01:
+                        hit += 1
+    return n, hit
+
+def _b02_lam_virial():
+    """Heat radiated by baryonic virialisation, summed to today (verify_cc_and_baryon.py section 6): Eisenstein-Hu no-wiggle P(k) with
+    sigma8 0.811, Sheth-Tormen mass function above 1e8 Msun, virial K = (3/10) G M / r_vir (r_vir at 200 rho_crit). Planck 2018 h 0.6736,
+    Om 0.3153, Ob 0.0493, n_s 0.9649. Returns (collapsed fraction, mean K per collapsed mass J/kg, Q/rho_L c^2, T_GH/T_gas)."""
+    if 'vir' not in _b02_lam_C:
+        h = h_pl; Om0 = 0.3153; Ob0 = 0.0493; ns = ns_pl; s8 = 0.811
+        Mpc_ = 3.0857e22
+        rhom = Om0 * 3 * (100 * h * 1e3 / Mpc_)**2 / (8 * math.pi * G)
+        def T_EH(kh):
+            k_ = kh * h; om = Om0 * h * h; fb = Ob0 / Om0
+            s = 44.5 * np.log(9.83 / om) / np.sqrt(1 + 10 * (Ob0 * h * h)**0.75)
+            al = 1 - 0.328 * np.log(431 * om) * fb + 0.38 * np.log(22.3 * om) * fb**2
+            gam = Om0 * h * (al + (1 - al) / (1 + (0.43 * k_ * s)**4))
+            q = kh * (T_CMB / 2.7)**2 / gam; L = np.log(2 * np.e + 1.8 * q)
+            return L / (L + (14.2 + 731 / (1 + 62.5 * q)) * q * q)
+        kk = np.logspace(-4, 3, 4000); Pk = kk**ns * T_EH(kk)**2
+        def sig(R):
+            x = kk * R; W = 3 * (np.sin(x) - x * np.cos(x)) / x**3
+            return np.sqrt(integrate.trapezoid(Pk * W * W * kk**2, kk) / (2 * np.pi**2))
+        A = s8 / sig(8.0)
+        lnM = np.linspace(np.log(1e8), np.log(1e16), 300); M = np.exp(lnM) * 1.98847e30
+        R = (3 * M / (4 * np.pi * rhom))**(1 / 3) / (Mpc_ / h)
+        sg = np.array([A * sig(r) for r in R]); dls = np.gradient(np.log(sg), lnM)
+        nu = 1.686 / sg; aST, p, Aq = 0.707, 0.3, 0.3222
+        f = Aq * np.sqrt(2 * aST / np.pi) * nu * (1 + (aST * nu * nu)**-p) * np.exp(-aST * nu * nu / 2)
+        dfdlnM = f * np.abs(dls)
+        Hz = 100 * h * 1e3 / Mpc_
+        rvir = (3 * M / (4 * np.pi * 200 * 3 * Hz**2 / (8 * np.pi * G)))**(1 / 3)
+        K = 0.3 * G * M / rvir
+        fc = integrate.trapezoid(dfdlnM, lnM); eK = integrate.trapezoid(dfdlnM * K, lnM)
+        rhob = Ob0 * 3 * Hz**2 / (8 * np.pi * G); rhoL = (1 - Om0) * 3 * Hz**2 / (8 * np.pi * G) * c**2
+        Tv = (0.59 * m_p) * (eK / fc) / (1.5 * kB); TGH = hbar * Hz / (2 * np.pi * kB)
+        _b02_lam_C['vir'] = (fc, eK / fc, rhob * eK / rhoL, TGH / Tv)
+    return _b02_lam_C['vir']
+
+def _b02_lam_chains():
+    """E1 rows of verify_lambda_baryon_book_output.txt: {chain: dict(eta, Om, ratio, ratio_sd)} (30 % burn-in, weighted)."""
+    out = {}
+    for ln in file_text('docs/verification/scripts/verify_lambda_baryon_book_output.txt').splitlines():
+        m = re.match(r"E1 (\S+)\s+rows .*?eta ([\d.]+) \+/- [\d.]+; .*?Om ([\d.]+) \+/- [\d.]+; .*?ratio ([\d.]+) \+/- ([\d.]+)", ln)
+        if m:
+            out[m.group(1)] = dict(eta=float(m.group(2)), Om=float(m.group(3)), ratio=float(m.group(4)), ratio_sd=float(m.group(5)))
+    return out
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -14220,6 +14309,13 @@ def check_1308():
     Omega_r=9.15e-5; value=1-Om-Omega_r
     return locals()
 
+@check(label='ch:lambda:L42:0.6847', chapter='ch:lambda', part=2, title='Planck 2018 Omega_Lambda as printed by Planck',
+       file='part2/p2_12_lambda', line=42, status='observed', kind='num', printed='0.6847\\pm0.0073', tol=0.0)
+def check_3491():
+    'Planck prints Omega_Lambda = 0.6847 +- 0.0073 (Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing, doi:10.1051/0004-6361/201833910), which is 1 - Omega_m in the flat fit with Omega_m = 0.3153. Book line 42.'
+    value = 1 - Om
+    return locals()
+
 @check(label='eq:lam_ratio', chapter='ch:lambda', part=2, title='ratio of densities',
        file='part2/p2_12_lambda', line=44, status='calc', kind='num', printed='1.133\\times10^{-123}', tol=0.0004)
 def check_1309():
@@ -14470,6 +14566,13 @@ def check_1342():
     H0_SI=Hsi(67.4); lH=c/H0_SI; value=(lP/lH)**2
     return locals()
 
+@check(label='ch:lambda:L226', chapter='ch:lambda', part=2, title='coefficient 2/pi',
+       file='part2/p2_12_lambda', line=226, status='openprob', kind='num', printed='0.6366', tol=0.0)
+def check_3492():
+    'Table lam_calc: the coefficient 2/pi of Eq. base. Book line 226, printed 0.6366.'
+    value = 2 / math.pi
+    return locals()
+
 @check(label='ch:lambda:L227', chapter='ch:lambda', part=2, title='measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names',
        file='part2/p2_12_lambda', line=227, status='measured', kind='file', printed='0.1564', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt')
@@ -14513,6 +14616,14 @@ def check_1347():
 def check_1348():
     'measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names. Book line 231, printed 1.142\\times10^{-123}.'
     ok = file_has('docs/verification/scripts/verify_lambda_baryon_book_output.txt', '1.142\\times10^{-123}')
+    return locals()
+
+@check(label='ch:lambda:L231:+0.79', chapter='ch:lambda', part=2, title='Eq. corr above the observed ratio, per cent',
+       file='part2/p2_12_lambda', line=231, status='fitted', kind='num', printed='+0.79', tol=0.0)
+def check_3493():
+    'Table lam_calc: (2/pi)(l_P/l_H)^2 sqrt(Omega_L) Ob/Om against rho_L/rho_vac, in per cent. Book line 231, printed +0.79. Inputs: Planck 2018 (H0 67.4, Ob 0.0493, Om 0.3153, Omega_L = 1 - Om - Omega_r), CODATA.'
+    d = _b02_lam_cc()
+    value = 100 * (d['corr'] / d['obs'] - 1)
     return locals()
 
 @check(label='eq:ident', chapter='ch:lambda', part=2, title='rho_L/rho_vac = (3 Omega_L/8pi)(l_P/l_H)^2',
@@ -14636,6 +14747,15 @@ def check_1364():
     ok = file_has('docs/verification/scripts/verify_lambda_baryon_book_output.txt', '1.0106')
     return locals()
 
+@check(label='ch:lambda:L260:0.7', chapter='ch:lambda', part=2, title='18th chain: ratio of the two sides from 1, in sigma',
+       file='part2/p2_12_lambda', line=260, status='measured', kind='file', printed='0.7', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
+       heavy=True, rerun=_b02_lam_RERUN)
+def check_3494():
+    'Ratio (Ob/Om)/((3/16) sqrt(OL)) on the CMB-only 18th chain, 1.0046 +- 0.0068, distance from 1 in its own error (book line 260, printed 0.7): (ratio - 1)/sd from the iam_baryon_test E1 row of verify_lambda_baryon_book_output.txt.'
+    r = _b02_lam_chains()['iam_baryon_test']
+    value = (r['ratio'] - 1) / r['ratio_sd']
+    return locals()
+
 @check(label='ch:lambda:L270', chapter='ch:lambda', part=2, title='3 Omega_L/8 pi',
        file='part2/p2_12_lambda', line=270, status='calc', kind='num', printed='0.0817', tol=0)
 def check_1365():
@@ -14682,6 +14802,16 @@ def check_1369():
     value=3*OLb/(8*math.pi)*(lP/lH)**2*(EP/0.2)**4
     return locals()
 
+@check(label='eq:lam_aeff', chapter='ch:lambda', part=2, title='half the horizon sphere: A_eff = 2 pi l_H^2',
+       file='part2/p2_12_lambda', line=307, status='none', kind='sym', printed='', tol=0.0)
+def check_3495():
+    'Eq. lam_aeff: half of the horizon sphere of radius l_H, integrated over the hemisphere theta in [0, pi/2], equals (1/2) 4 pi l_H^2 = 2 pi l_H^2. Book line 307.'
+    th, ph, lh = sp.symbols('theta phi l_H', positive=True)
+    lhs = sp.integrate(sp.integrate(lh**2 * sp.sin(th), (ph, 0, 2 * sp.pi)), (th, 0, sp.pi / 2))
+    rhs = 2 * sp.pi * lh**2
+    neg_lhs = sp.Rational(105, 100) * lhs
+    return locals()
+
 @check(label='eq:lam_nbits', chapter='ch:lambda', part=2, title='N_eff = A_eff/(4 l_P^2), A_eff = 2 pi l_H^2',
        file='part2/p2_12_lambda', line=309, status='derived', kind='sym', printed='', tol=0)
 def check_1370():
@@ -14694,6 +14824,37 @@ def check_1370():
 def check_1371():
     'f_bit = 2 (l_P/l_H)^2 (Eq. eq:lam_fbit). Book line 311.'
     lH,lp=sp.symbols('l_H l_P',positive=True); lhs=lp**2/(2*sp.pi*lH**2/(4*sp.pi)); rhs=2*(lp/lH)**2
+    return locals()
+
+@check(label='ch:lambda:L318', chapter='ch:lambda', part=2, title='temperature factor sqrt(Omega_L)',
+       file='part2/p2_12_lambda', line=318, status='openprob', kind='num', printed='0.8274', tol=0.0)
+def check_3496():
+    'T_dS/T_H = sqrt(Omega_L) with Omega_L = 1 - Om - Omega_r (Om 0.3153, Omega_r from T_CMB and N_eff 3.046 at h 0.6736). Book line 318, printed 0.8274.'
+    value = math.sqrt(_b02_lam_cc()['OL'])
+    return locals()
+
+@check(label='ch:lambda:L326', chapter='ch:lambda', part=2, title='Eq. base against the observed ratio (factor of 1.2)',
+       file='part2/p2_12_lambda', line=326, status='openprob', kind='num', printed='1.2', tol=0.0)
+def check_3497():
+    'Objection 1: the agreement within a factor of 1.2, (2/pi)(l_P/l_H)^2 Ob/Om over rho_L/rho_vac. Book line 326, printed 1.2.'
+    d = _b02_lam_cc()
+    value = d['base'] / d['obs']
+    return locals()
+
+@check(label='ch:lambda:L340', chapter='ch:lambda', part=2, title='factor left after Ob/Om and 2/pi (1.2)',
+       file='part2/p2_12_lambda', line=340, status='openprob', kind='num', printed='1.2', tol=0.0)
+def check_3498():
+    'Objection 2: "from a factor of 12 to a factor of 1.2", the expression with Ob/Om and 2/pi over the observed ratio. Book line 340, printed 1.2.'
+    d = _b02_lam_cc()
+    value = 2 / math.pi * d['g'] * d['fb'] / d['obs']
+    return locals()
+
+@check(label='ch:lambda:L340:12', chapter='ch:lambda', part=2, title='(l_P/l_H)^2 alone over the observed ratio (factor of 12)',
+       file='part2/p2_12_lambda', line=340, status='openprob', kind='num', printed='12', tol=0.0)
+def check_3499():
+    'Objection 2: "from a factor of 12", (l_P/l_H)^2 alone over rho_L/rho_vac. Book line 340, printed 12 (12.24).'
+    d = _b02_lam_cc()
+    value = d['g'] / d['obs']
     return locals()
 
 @check(label='ch:lambda:L349', chapter='ch:lambda', part=2, title='same value as p2_12_lambda:214 (geometric term alone vs observed)',
@@ -14715,6 +14876,22 @@ def check_1373():
 def check_1374():
     'same value as p2_12_lambda:184 (ratio of prediction to observation). Book line 349, printed 1.218.'
     H0_SI=Hsi(67.4); lH=c/H0_SI; iam=(2/math.pi)*(lP/lH)**2*(Ob/Om); Omega_r=9.15e-5; OL_val=1-Om-Omega_r; rho_c=3*H0_SI**2/(8*math.pi*G); rho_Lambda=OL_val*rho_c*c**2; rho_vac=c**7/(hbar*G**2); obs=rho_Lambda/rho_vac; value=iam/obs
+    return locals()
+
+@check(label='ch:lambda:L353', chapter='ch:lambda', part=2, title='remaining factor of 1.2 (heading)',
+       file='part2/p2_12_lambda', line=353, status='openprob', kind='num', printed='1.2', tol=0.0)
+def check_3500():
+    'Objection 3 heading, "the remaining factor of 1.2": Eq. base over the observed ratio. Book line 353, printed 1.2.'
+    d = _b02_lam_cc()
+    value = d['base'] / d['obs']
+    return locals()
+
+@check(label='ch:lambda:L354', chapter='ch:lambda', part=2, title='remaining factor of 1.2 (objection)',
+       file='part2/p2_12_lambda', line=354, status='openprob', kind='num', printed='1.2', tol=0.0)
+def check_3501():
+    'Objection 3, "a factor of 1.2 means the calculation is not exact": Eq. base over the observed ratio. Book line 354, printed 1.2.'
+    d = _b02_lam_cc()
+    value = d['base'] / d['obs']
     return locals()
 
 @check(label='ch:lambda:L358', chapter='ch:lambda', part=2, title='same value as p2_12_lambda:205 (square root of Omega_Lambda)',
@@ -14752,6 +14929,46 @@ def check_1379():
     'p = 1/2 against the measured ratio, per cent. Book line 363, printed +0.79.'
     OLb=0.6846  # book input line 42
     value=100*((16/3)*(Ob/Om)/math.sqrt(OLb)-1)
+    return locals()
+
+@check(label='ch:lambda:L363:10^{-123}', chapter='ch:lambda', part=2, title='the 10^-123 carried by the identity',
+       file='part2/p2_12_lambda', line=363, status='calc', kind='num', printed='10^{-123}', tol=0.0)
+def check_3502():
+    'Order of magnitude carried by the identity Eq. ident, (3 Omega_L/8 pi)(l_P/l_H)^2 (book line 363, "the 10^{-123} is the identity"; the inventory row read the printed value as 10). A bare power of ten is judged within half a decade.'
+    d = _b02_lam_cc()
+    value = 3 * d['OL'] / (8 * math.pi) * d['g']
+    return locals()
+
+@check(label='ch:lambda:L366', chapter='ch:lambda', part=2, title='Eq. base within a factor of 1.22',
+       file='part2/p2_12_lambda', line=366, status='openprob', kind='num', printed='1.22', tol=0.0)
+def check_3503():
+    'Eq. base over the observed rho_L/rho_vac (book line 366, printed 1.22).'
+    d = _b02_lam_cc()
+    value = d['base'] / d['obs']
+    return locals()
+
+@check(label='ch:lambda:L367', chapter='ch:lambda', part=2, title='Eq. corr within 0.79 %',
+       file='part2/p2_12_lambda', line=367, status='openprob', kind='num', printed='0.79', tol=0.0)
+def check_3504():
+    'Eq. corr above the observed rho_L/rho_vac, in per cent (book line 367, printed 0.79).'
+    d = _b02_lam_cc()
+    value = 100 * (d['corr'] / d['obs'] - 1)
+    return locals()
+
+@check(label='ch:lambda:L373', chapter='ch:lambda', part=2, title='relation holds to 1.1 % at most on every chain',
+       file='part2/p2_12_lambda', line=373, status='observed', kind='file', printed='1.1', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
+       heavy=True, rerun=_b02_lam_RERUN)
+def check_3505():
+    'Upper end of "0.5--1.1 % on every chain" (book line 373): largest (ratio - 1) in per cent over the five chains of the E1 rows of verify_lambda_baryon_book_output.txt.'
+    value = max(100 * (r['ratio'] - 1) for r in _b02_lam_chains().values())
+    return locals()
+
+@check(label='ch:lambda:L373:0.5', chapter='ch:lambda', part=2, title='relation holds to 0.5 % at least on every chain',
+       file='part2/p2_12_lambda', line=373, status='observed', kind='file', printed='0.5', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
+       heavy=True, rerun=_b02_lam_RERUN)
+def check_3506():
+    'Lower end of "0.5--1.1 % on every chain" (book line 373): smallest (ratio - 1) in per cent over the five chains of the E1 rows.'
+    value = min(100 * (r['ratio'] - 1) for r in _b02_lam_chains().values())
     return locals()
 
 @check(label='ch:lambda:L382', chapter='ch:lambda', part=2, title='same value as p2_12_lambda:35 (Planck-cutoff vacuum energy density)',
@@ -14805,6 +15022,14 @@ def check_1386():
     ok = file_has('docs/verification/scripts/verify_lambda_baryon_book_output.txt', '1.142\\times10^{-123}')
     return locals()
 
+@check(label='ch:lambda:L387:+0.79', chapter='ch:lambda', part=2, title='Table lambda_numbers: Eq. corr offset, per cent',
+       file='part2/p2_12_lambda', line=387, status='fitted', kind='num', printed='+0.79', tol=0.0)
+def check_3507():
+    'Table lambda_numbers, x sqrt(Omega_L) row, +0.79 % (book line 387).'
+    d = _b02_lam_cc()
+    value = 100 * (d['corr'] / d['obs'] - 1)
+    return locals()
+
 @check(label='ch:lambda:L388', chapter='ch:lambda', part=2, title='exponent p of Omega_L that closes the expression',
        file='part2/p2_12_lambda', line=388, status='calc', kind='num', printed='0.521', tol=0)
 def check_1387():
@@ -14851,6 +15076,42 @@ def check_1391():
 def check_1392():
     'measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names. Book line 391, printed 1.0106.'
     ok = file_has('docs/verification/scripts/verify_lambda_baryon_book_output.txt', '1.0106')
+    return locals()
+
+@check(label='ch:lambda:L392', chapter='ch:lambda', part=2, title='number of O(1) forms',
+       file='part2/p2_12_lambda', line=392, status='calc', kind='num', printed='414', tol=0.0)
+def check_3508():
+    'Table lambda_numbers: the family q pi^k (Ob/Om)^i OL^j with q the distinct ratios of 1..6 (23), k in {-1,0,1}, i in {0,1}, j in {0,1/2,1} has 414 forms. Book line 392.'
+    value = _b02_lam_forms()[0]
+    return locals()
+
+@check(label='ch:lambda:L392:3', chapter='ch:lambda', part=2, title='O(1) forms within 1 % of 3 Omega_L/8 pi',
+       file='part2/p2_12_lambda', line=392, status='calc', kind='num', printed='3', tol=0.0)
+def check_3509():
+    'Table lambda_numbers: forms within 1 % of the measured 3 Omega_L/8 pi = 0.0817. Book line 392, printed 3 (of 414).'
+    value = _b02_lam_forms()[1]
+    return locals()
+
+@check(label='ch:lambda:L393', chapter='ch:lambda', part=2, title='required coefficient K = (3 OL/8 pi)/(Ob/Om)',
+       file='part2/p2_12_lambda', line=393, status='calc', kind='num', printed='0.523', tol=0.0)
+def check_3510():
+    'Required coefficient K in K (l_P/l_H)^2 Ob/Om = rho_L/rho_vac (book line 393, printed 0.523), from the observed ratio and the Planck 2018 inputs.'
+    d = _b02_lam_cc()
+    value = d['obs'] / (d['g'] * d['fb'])
+    return locals()
+
+@check(label='ch:lambda:L393:3.1\\times10^{30}', chapter='ch:lambda', part=2, title='history integral as written, as coefficient K',
+       file='part2/p2_12_lambda', line=393, status='calc', kind='num', printed='3.1\\times10^{30}', tol=0.0)
+def check_3511():
+    'History integral Eq. lh_integral from a_EW = 2.3e-15 (as printed) to 1, written as K (book line 393, printed 3.1e30). Planck 2018 densities, Omega_r from T_CMB and N_eff 3.046.'
+    value = _b02_lam_K(2.3e-15)
+    return locals()
+
+@check(label='ch:lambda:L394', chapter='ch:lambda', part=2, title='accumulated virial heat of baryons over rho_L c^2',
+       file='part2/p2_12_lambda', line=394, status='calc', kind='num', printed='3.15\\times10^{-8}', tol=0.0)
+def check_3512():
+    'Heat radiated by baryonic virialisation, summed to today, over rho_L c^2 (book line 394, printed 3.15e-8): Eisenstein-Hu P(k), sigma8 0.811, Sheth-Tormen above 1e8 Msun, K = (3/10) G M/r_vir (port of verify_cc_and_baryon.py section 6).'
+    value = _b02_lam_virial()[2]
     return locals()
 
 
@@ -31078,33 +31339,14 @@ INVENTORY = [
     (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 181, '', 'none', '67.16', 'table: H(a=1)=H0, trivial restatement'),
     (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 228, '', 'calc', '0.3153', 'input: Omega_m = 0.3153 (Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing) restated as the Level 2 background'),
     (2, 'ch:wzfuture', 'part2/p2_20_wz_far_future', 228, '', 'prediction', '-1', 'definition: light-ruler EoS fixed value'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 42, '', 'measured', '0.6847\\pm0.0073', 'measured, not found in the files the chapter names'),
     (2, 'ch:lambda', 'part2/p2_12_lambda', 146, 'eq:lam_fgeo', 'derived', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
     (2, 'ch:lambda', 'part2/p2_12_lambda', 152, 'eq:lam_fb', 'conjecture', '', 'assumed baryon writing fraction'),
     (2, 'ch:lambda', 'part2/p2_12_lambda', 157, 'eq:base', 'openprob', '', 'formula, coefficient 2/pi unresolved'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 194, 'eq:lam_TH', 'derived', '', 'not yet run: draft rejected (does not run: ValueError no value)'),
+    (2, 'ch:lambda', 'part2/p2_12_lambda', 194, 'eq:lam_TH', 'derived', '', 'definition: Gibbons-Hawking temperature of the Hubble rate, T_H = hbar H0/(2 pi k_B) (cited GibbonsHawking1977); the derived relation T_dS = T_H sqrt(Omega_L) follows on line 196'),
     (2, 'ch:lambda', 'part2/p2_12_lambda', 198, 'eq:lam_Eeff', 'derived', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
     (2, 'ch:lambda', 'part2/p2_12_lambda', 208, '', 'none', '1/2', 'trivial restatement, sqrt exponent'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 226, '', 'openprob', '0.6366', 'not yet checked'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 231, '', 'fitted', '+0.79', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 260, '', 'measured', '0.7', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 270, '', 'calc', '0.7', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 307, 'eq:lam_aeff', 'none', '', 'displayed equation, not yet checked'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 318, '', 'openprob', '0.8274', 'not yet checked'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 326, '', 'openprob', '1.2', 'not yet checked'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 340, '', 'openprob', '1.2', 'not yet checked'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 353, '', 'openprob', '1.2', 'not yet checked'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 354, '', 'openprob', '1.2', 'not yet checked'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 363, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed -121.861); drafting error on review'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 366, '', 'openprob', '1.22', 'not yet checked'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 367, '', 'openprob', '0.79', 'not yet checked'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 373, '', 'observed', '1.1', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 387, '', 'fitted', '+0.79', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 390, '', 'calc', '18', 'not yet run: draft rejected (drafter skipped: Measured quantity from Planck 18th chain (CMB only);\n# requires chain MCM)'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 392, '', 'calc', '414', 'not yet run: draft rejected (drafter skipped: Count of O(1) forms within 1% of 3Ω_Λ/8π from a search over 414 candidate)'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 393, '', 'calc', '0.523', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 393, '', 'calc', '3.1\\times10^{30}', 'not yet run: draft rejected (drafter skipped: Line 393: "History integral as written, coefficient against the required )'),
-    (2, 'ch:lambda', 'part2/p2_12_lambda', 394, '', 'calc', '3.15\\times10^{-8}', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
+    (2, 'ch:lambda', 'part2/p2_12_lambda', 270, '', 'calc', '0.7', 'restates ch:lambda:L392:3 and ch:lambda:L392 (3 of 414 forms = 0.72 %); printed to one digit, so the 5 % shifted value (0.735) lies inside its own rounding and no check can carry a failing negative control'),
+    (2, 'ch:lambda', 'part2/p2_12_lambda', 390, '', 'calc', '18', "label: '18th chain' is the ordinal name of the chain (iam_baryon_test), not a number to recompute"),
     (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 26, 'eq:lh_eps', 'derived', '', 'not yet run: draft does not reproduce the printed value (recomputed -d_ln_rho_d_ln_a/3 + epsilon); drafting error on review'),
     (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 34, '', 'observed', '2.8', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 34, '', 'observed', '4.2', 'measured, too few printed digits to match against the named files'),

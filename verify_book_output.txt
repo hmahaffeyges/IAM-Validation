@@ -2154,6 +2154,7 @@ PASS  eq:lam_rhoL                        ch:lambda:p2_12_lambda:40  printed 5.25
 PASS  ch:lambda:L42                      ch:lambda:p2_12_lambda:42  printed 67.4  recomputed found in file  [observed] measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
 PASS  ch:lambda:L42:0.6846               ch:lambda:p2_12_lambda:42  printed 0.6846  recomputed 0.684608  tol 5.000005e-05  [observed] Omega_Lambda from 1-Om-Omega_r
+PASS  ch:lambda:L42:0.6847               ch:lambda:p2_12_lambda:42  printed 0.6847\pm0.0073  recomputed 0.6847  tol 5.000005e-05  [observed] Planck 2018 Omega_Lambda as printed by Planck
 PASS  eq:lam_ratio                       ch:lambda:p2_12_lambda:44  printed 1.133\times10^{-123}  recomputed 1.133237e-123  tol 5.000005e-127  [calc] ratio of densities
 PASS  eq:lam_ratio:-122.95               ch:lambda:p2_12_lambda:44  printed -122.95  recomputed -122.946  tol 0.00500001  [calc] log10 of density ratio
 PASS  ch:lambda:L87                      ch:lambda:p2_12_lambda:87  printed 2.655\times10^{-30}  recomputed 2.655354e-30  tol 5.310005e-34  [calc] Gibbons-Hawking horizon temperature
@@ -2192,6 +2193,7 @@ PASS  ch:lambda:L223                     ch:lambda:p2_12_lambda:223  printed 1.6
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
 PASS  ch:lambda:L224                     ch:lambda:p2_12_lambda:224  printed 1.372\times10^{26}  recomputed 1.372497e+26  tol 5.488005e+22  [calc] same value as p2_12_lambda:166 (Hubble length today)
 PASS  ch:lambda:L225                     ch:lambda:p2_12_lambda:225  printed 1.387\times10^{-122}  recomputed 1.386746e-122  tol 5.548006e-126  [calc] same value as p2_12_lambda:171 (square of Planck/Hubble length ratio)
+PASS  ch:lambda:L226                     ch:lambda:p2_12_lambda:226  printed 0.6366  recomputed 0.63662  tol 5.000005e-05  [openprob] coefficient 2/pi
 PASS  ch:lambda:L227                     ch:lambda:p2_12_lambda:227  printed 0.1564  recomputed found in file  [measured] measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
 PASS  ch:lambda:L228                     ch:lambda:p2_12_lambda:228  printed 1.380\times10^{-123}  recomputed 1.380385e-123  tol 5.000005e-127  [calc] same value as p1_02_iams_law:734 (baseline Lambda/rho_vac with Ob,Om)
@@ -2201,6 +2203,7 @@ PASS  ch:lambda:L231                     ch:lambda:p2_12_lambda:231  printed 0.8
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
 PASS  ch:lambda:L231:1.142\times10^{-123} ch:lambda:p2_12_lambda:231  printed 1.142\times10^{-123}  recomputed found in file  [fitted] measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
+PASS  ch:lambda:L231:+0.79               ch:lambda:p2_12_lambda:231  printed +0.79  recomputed 0.786127  tol 0.00500001  [fitted] Eq. corr above the observed ratio, per cent
 PASS  eq:ident                           ch:lambda:p2_12_lambda:237  printed (algebra)  recomputed lhs-rhs=0  [derived] rho_L/rho_vac = (3 Omega_L/8pi)(l_P/l_H)^2
 PASS  ch:lambda:L239                     ch:lambda:p2_12_lambda:239  printed 1.133\times10^{-123}  recomputed 1.133388e-123  tol 5.000005e-127  [derived] same value as p1_02_iams_law:729 (Lambda/rho_vac identity at H0=67.4)
 PASS  eq:lam_smarr                       ch:lambda:p2_12_lambda:242  printed (algebra)  recomputed lhs-rhs=0  [derived] T_GH S = c^5/(2GH) for any H
@@ -2223,21 +2226,37 @@ PASS  ch:lambda:L260:1.0056              ch:lambda:p2_12_lambda:260  printed 1.0
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
 PASS  ch:lambda:L260:1.0106              ch:lambda:p2_12_lambda:260  printed 1.0106  recomputed found in file  [measured] measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
+PASS  ch:lambda:L260:0.7                 ch:lambda:p2_12_lambda:260  printed 0.7  recomputed 0.676471  tol 0.05  [measured] 18th chain: ratio of the two sides from 1, in sigma  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
+      heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)
 PASS  ch:lambda:L270                     ch:lambda:p2_12_lambda:270  printed 0.0817  recomputed 0.0817181  tol 5.000005e-05  [calc] 3 Omega_L/8 pi
 PASS  ch:lambda:L275                     ch:lambda:p2_12_lambda:275  printed 2.2\times10^{68}  recomputed 2.221806e+68  tol 5.000005e+66  [calc] (E_P/M)^4, M = 100 GeV
 PASS  ch:lambda:L276                     ch:lambda:p2_12_lambda:276  printed 1.4\times10^{79}  recomputed 1.388629e+79  tol 5.000005e+77  [calc] (E_P/M)^4, M = 200 MeV
 PASS  ch:lambda:L276:2.5\times10^{-55}   ch:lambda:p2_12_lambda:276  printed 2.5\times10^{-55}  recomputed 2.517802e-55  tol 5.000005e-57  [calc] rho_L/rho_vac(100 GeV)
 PASS  ch:lambda:L277                     ch:lambda:p2_12_lambda:277  printed 1.6\times10^{-44}  recomputed 1.573626e-44  tol 5.000005e-46  [calc] rho_L/rho_vac(200 MeV)
+PASS  eq:lam_aeff                        ch:lambda:p2_12_lambda:307  printed (algebra)  recomputed lhs-rhs=0  [none] half the horizon sphere: A_eff = 2 pi l_H^2
 PASS  eq:lam_nbits                       ch:lambda:p2_12_lambda:309  printed (algebra)  recomputed lhs-rhs=0  [derived] N_eff = A_eff/(4 l_P^2), A_eff = 2 pi l_H^2
 PASS  eq:lam_fbit                        ch:lambda:p2_12_lambda:311  printed (algebra)  recomputed lhs-rhs=0  [derived] f_bit = 2 (l_P/l_H)^2
+PASS  ch:lambda:L318                     ch:lambda:p2_12_lambda:318  printed 0.8274  recomputed 0.82741  tol 5.000005e-05  [openprob] temperature factor sqrt(Omega_L)
+PASS  ch:lambda:L326                     ch:lambda:p2_12_lambda:326  printed 1.2  recomputed 1.21809  tol 0.05  [openprob] Eq. base against the observed ratio (factor of 1.2)
+PASS  ch:lambda:L340                     ch:lambda:p2_12_lambda:340  printed 1.2  recomputed 1.21809  tol 0.05  [openprob] factor left after Ob/Om and 2/pi (1.2)
+PASS  ch:lambda:L340:12                  ch:lambda:p2_12_lambda:340  printed 12  recomputed 12.2371  tol 0.5  [openprob] (l_P/l_H)^2 alone over the observed ratio (factor of 12)
 PASS  ch:lambda:L349                     ch:lambda:p2_12_lambda:349  printed 12.24  recomputed 12.237  tol 0.00500001  [calc] same value as p2_12_lambda:214 (geometric term alone vs observed)
 PASS  ch:lambda:L349:1.913               ch:lambda:p2_12_lambda:349  printed 1.913  recomputed 1.91337  tol 5.739006e-04  [calc] same value as p2_12_lambda:214 (after baryon fraction applied)
 PASS  ch:lambda:L349:1.218               ch:lambda:p2_12_lambda:349  printed 1.218  recomputed 1.21809  tol 5.000005e-04  [calc] same value as p2_12_lambda:184 (ratio of prediction to observation)
+PASS  ch:lambda:L353                     ch:lambda:p2_12_lambda:353  printed 1.2  recomputed 1.21809  tol 0.05  [openprob] remaining factor of 1.2 (heading)
+PASS  ch:lambda:L354                     ch:lambda:p2_12_lambda:354  printed 1.2  recomputed 1.21809  tol 0.05  [openprob] remaining factor of 1.2 (objection)
 PASS  ch:lambda:L358                     ch:lambda:p2_12_lambda:358  printed 0.8274  recomputed 0.827411  tol 5.000005e-05  [derived] same value as p2_12_lambda:205 (square root of Omega_Lambda)
 PASS  ch:lambda:L359                     ch:lambda:p2_12_lambda:359  printed 1.142\times10^{-123}  recomputed 1.142221e-123  tol 5.024805e-127  [derived] same value as p1_02_iams_law:739 (corrected Lambda/rho_vac with sqrt(OmegaL))
 PASS  ch:lambda:L359:1.133\times10^{-123} ch:lambda:p2_12_lambda:359  printed 1.133\times10^{-123}  recomputed 1.133388e-123  tol 5.000005e-127  [derived] same value as p1_02_iams_law:729 (Lambda/rho_vac identity at H0=67.4)
 PASS  ch:lambda:L362                     ch:lambda:p2_12_lambda:362  printed 0.521  recomputed 0.52068  tol 5.000005e-04  [calc] exponent p of Omega_L that closes the expression
 PASS  ch:lambda:L363                     ch:lambda:p2_12_lambda:363  printed +0.79  recomputed 0.786701  tol 0.00500001  [calc] p = 1/2 against the measured ratio, per cent
+PASS  ch:lambda:L363:10^{-123}           ch:lambda:p2_12_lambda:363  printed 10^{-123}  recomputed 1.133236e-123  tol 2.162278e-123  [calc] the 10^-123 carried by the identity
+PASS  ch:lambda:L366                     ch:lambda:p2_12_lambda:366  printed 1.22  recomputed 1.21809  tol 0.00500001  [openprob] Eq. base within a factor of 1.22
+PASS  ch:lambda:L367                     ch:lambda:p2_12_lambda:367  printed 0.79  recomputed 0.786127  tol 0.00500001  [openprob] Eq. corr within 0.79 %
+PASS  ch:lambda:L373                     ch:lambda:p2_12_lambda:373  printed 1.1  recomputed 1.06  tol 0.05  [observed] relation holds to 1.1 % at most on every chain  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
+      heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)
+PASS  ch:lambda:L373:0.5                 ch:lambda:p2_12_lambda:373  printed 0.5  recomputed 0.46  tol 0.05  [observed] relation holds to 0.5 % at least on every chain  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
+      heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)
 PASS  ch:lambda:L382                     ch:lambda:p2_12_lambda:382  printed 4.633\times10^{113}  recomputed 4.632947e+113  tol 5.000005e+109  [calc] same value as p2_12_lambda:35 (Planck-cutoff vacuum energy density)
 PASS  ch:lambda:L383                     ch:lambda:p2_12_lambda:383  printed 5.250\times10^{-10}  recomputed found in file  [observed] measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
@@ -2247,6 +2266,7 @@ PASS  ch:lambda:L385:3.268\times10^{122} ch:lambda:p2_12_lambda:385  printed 3.2
 PASS  ch:lambda:L386                     ch:lambda:p2_12_lambda:386  printed 1.380\times10^{-123}  recomputed 1.380385e-123  tol 5.000005e-127  [calc] same value as p1_02_iams_law:734 (baseline Lambda/rho_vac with Ob,Om)
 PASS  ch:lambda:L387                     ch:lambda:p2_12_lambda:387  printed 1.142\times10^{-123}  recomputed found in file  [fitted] measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
+PASS  ch:lambda:L387:+0.79               ch:lambda:p2_12_lambda:387  printed +0.79  recomputed 0.786127  tol 0.00500001  [fitted] Table lambda_numbers: Eq. corr offset, per cent
 PASS  ch:lambda:L388                     ch:lambda:p2_12_lambda:388  printed 0.521  recomputed 0.52068  tol 5.000005e-04  [calc] exponent p of Omega_L that closes the expression
 PASS  ch:lambda:L389                     ch:lambda:p2_12_lambda:389  printed 0.1564  recomputed found in file  [observed] measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
@@ -2258,6 +2278,11 @@ PASS  ch:lambda:L391                     ch:lambda:p2_12_lambda:391  printed 1.0
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
 PASS  ch:lambda:L391:1.0106              ch:lambda:p2_12_lambda:391  printed 1.0106  recomputed found in file  [measured] measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
+PASS  ch:lambda:L392                     ch:lambda:p2_12_lambda:392  printed 414  recomputed 414  tol 0.5  [calc] number of O(1) forms
+PASS  ch:lambda:L392:3                   ch:lambda:p2_12_lambda:392  printed 3  recomputed 3  tol 0.5  [calc] O(1) forms within 1 % of 3 Omega_L/8 pi
+PASS  ch:lambda:L393                     ch:lambda:p2_12_lambda:393  printed 0.523  recomputed 0.522637  tol 5.000005e-04  [calc] required coefficient K = (3 OL/8 pi)/(Ob/Om)
+PASS  ch:lambda:L393:3.1\times10^{30}    ch:lambda:p2_12_lambda:393  printed 3.1\times10^{30}  recomputed 3.103579e+30  tol 5.000005e+28  [calc] history integral as written, as coefficient K
+PASS  ch:lambda:L394                     ch:lambda:p2_12_lambda:394  printed 3.15\times10^{-8}  recomputed 3.149942e-08  tol 5.000005e-11  [calc] accumulated virial heat of baryons over rho_L c^2
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:lambda_history (part2/p2_12b_lambda_history.tex)
 PASS  eq:lh_dE                           ch:lambda_history:p2_12b_lambda_history:21  printed (algebra)  recomputed True  [derived] dE/da = E/a^2, 1 at a = 1
@@ -4341,4 +4366,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3491  FAIL 0  (heavy, read from committed outputs: 701)  inventoried-not-run 2846  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3513  FAIL 0  (heavy, read from committed outputs: 704)  inventoried-not-run 2827  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
