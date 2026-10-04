@@ -6728,7 +6728,7 @@ Totals: 4984 PASS, 0 FAIL, 1358 inventoried and not run. Each run item carries t
 | 53 |  | openprob | `172` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 54 |  | openprob | `179` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 55 | app:register:L55:1.094 | openprob | `1.094` | numeric: COS-217: 1/mu at z = 0.25 | PASS |
-| 55 | app:register:L55:2.0 | openprob | `2.0` | numeric: COS-217: IAM below the WtG value, in sigma | PASS |
+| 55 | app:register:L55:2.4 | openprob | `2.4` | numeric: COS-217: IAM below the WtG value, in sigma | PASS |
 | 55 |  | openprob | `217` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 55 |  | openprob | `0.25` | not run: input: median redshift z ~ 0.25 of the Weighing the Giants sample | - |
 | 55 |  | openprob | `1.31` | not run: measured, source not named: observed lensing-to-hydrostatic ratio 1.31 attributed to Weighing the Giants (von der Linden et al. 2014); the value is carried only by the register files and is marked untraced (PAPER_ERRATA.md LD4) | - |
@@ -6753,7 +6753,7 @@ Totals: 4984 PASS, 0 FAIL, 1358 inventoried and not run. Each run item carries t
 | 60 |  | openprob | `20` | not run: measured, source not named: number of galaxy clusters (~20) behind the virial 1/2 partition entry; the register names no data | - |
 | 60 |  | openprob | `20 \%` | not run: measured, source not named: stated accuracy (~20 %) of the virial partition for galaxy clusters; the register names no data | - |
 | 61 | app:register:L61:1.085 | openprob | `1.085` | numeric: COS-272: 1/mu at z = 0.3 | PASS |
-| 61 | app:register:L61:1.0 | openprob | `1.0` | numeric: COS-272: IAM below the CCCP value, in sigma | PASS |
+| 61 | app:register:L61:1.3 | openprob | `1.3` | numeric: COS-272: IAM below the CCCP value, in sigma | PASS |
 | 61 |  | openprob | `272` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 61 |  | openprob | `50` | not run: input: CCCP sample size, 50 clusters (Hoekstra2015) | - |
 | 61 |  | openprob | `0.15` | not run: input: lower end of the CCCP redshift range 0.15 < z < 0.55 (Hoekstra2015) | - |

@@ -84218,7 +84218,7 @@
   "source": ""
  },
  {
-  "label": "app:register:L55:2.0",
+  "label": "app:register:L55:2.4",
   "title": "COS-217: IAM below the WtG value, in sigma",
   "part": 8,
   "chapter": "app:register",
@@ -84226,8 +84226,8 @@
   "line": 55,
   "status": "openprob",
   "kind": "num",
-  "printed": "2.0",
-  "recomputed": "1.95994",
+  "printed": "2.4",
+  "recomputed": "2.37062",
   "tol": 0.05000005,
   "passed": true,
   "note": "",
@@ -84320,7 +84320,7 @@
   "source": ""
  },
  {
-  "label": "app:register:L61:1.0",
+  "label": "app:register:L61:1.3",
   "title": "COS-272: IAM below the CCCP value, in sigma",
   "part": 8,
   "chapter": "app:register",
@@ -84328,8 +84328,8 @@
   "line": 61,
   "status": "openprob",
   "kind": "num",
-  "printed": "1.0",
-  "recomputed": "0.960089",
+  "printed": "1.3",
+  "recomputed": "1.3014",
   "tol": 0.05000005,
   "passed": true,
   "note": "",

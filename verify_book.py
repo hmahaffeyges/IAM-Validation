@@ -44918,11 +44918,11 @@ def check_5010():
     value = 1 / float(mu_iam(1 / 1.25))
     return locals()
 
-@check(label='app:register:L55:2.0', chapter='app:register', part=8, title='COS-217: IAM below the WtG value, in sigma',
-       file='appendices/app_G_predictions_register', line=55, status='openprob', kind='num', printed='2.0', tol=0.0)
+@check(label='app:register:L55:2.4', chapter='app:register', part=8, title='COS-217: IAM below the WtG value, in sigma',
+       file='appendices/app_G_predictions_register', line=55, status='openprob', kind='num', printed='2.4', tol=0.0)
 def check_5011():
-    'COS-217: (1.31 - 1/mu(0.25))/0.11. Book line 55, printed 2.0 (about). Inputs: the register value 1.31 +/- 0.11 attributed to Weighing the Giants (source to trace, listed in SOURCES_NEEDED), beta_m (CANON).'
-    value = (1.31 - 1 / float(mu_iam(1 / 1.25))) / 0.11
+    'COS-217: (1.45 - 1/mu(0.25))/0.15. Book line 55, printed 2.4 (about). Inputs: WtG with the Planck prior, 1-b = 0.688 +- 0.072, ratio 1.45 +- 0.15 (Planck 2015 XXIV Table 2, doi 10.1051/0004-6361/201525833), as ch:lensdyn Table; beta_m (CANON).'
+    value = (1.45 - 1 / float(mu_iam(1 / 1.25))) / 0.15
     return locals()
 
 @check(label='app:register:L57:61.45', chapter='app:register', part=8, title='COS-240: Level 2b H0',
@@ -44972,11 +44972,11 @@ def check_5016():
     value = 1 / float(mu_iam(1 / 1.3))
     return locals()
 
-@check(label='app:register:L61:1.0', chapter='app:register', part=8, title='COS-272: IAM below the CCCP value, in sigma',
-       file='appendices/app_G_predictions_register', line=61, status='openprob', kind='num', printed='1.0', tol=0.0)
+@check(label='app:register:L61:1.3', chapter='app:register', part=8, title='COS-272: IAM below the CCCP value, in sigma',
+       file='appendices/app_G_predictions_register', line=61, status='openprob', kind='num', printed='1.3', tol=0.0)
 def check_5017():
-    'COS-272: (1.20 - 1/mu(0.3))/0.12. Book line 61, printed 1.0 (about). Inputs: the register value 1.20 +/- 0.12 attributed to CCCP (source to trace, listed in SOURCES_NEEDED), beta_m (CANON).'
-    value = (1.20 - 1 / float(mu_iam(1 / 1.3))) / 0.12
+    'COS-272: (1.28 - 1/mu(0.3))/0.15. Book line 61, printed 1.3 (about). Inputs: CCCP with the Planck prior, 1-b = 0.780 +- 0.092, ratio 1.28 +- 0.15 (Planck 2015 XXIV Table 2, doi 10.1051/0004-6361/201525833), as ch:lensdyn Table; beta_m (CANON).'
+    value = (1.28 - 1 / float(mu_iam(1 / 1.3))) / 0.15
     return locals()
 
 @check(label='app:register:L64:0.11', chapter='app:register', part=8, title='COS-309: DESI full-shape mu0 (recorded value)',
