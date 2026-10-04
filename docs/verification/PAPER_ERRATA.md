@@ -27,7 +27,7 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | T13 | | §11.4, Fig. 1b, §15.2, §15.6 | f(R) Σ > 1; unique; DGP scale-dependent | f(R) Σ = 1; sDGP µ<1, Σ=1 (ghost); DGP scale-independent (quasi-static) | confirmed | `theory/THEORY_CHECK.md` #10 |
 | T14 | | §12.6 | 75.5 cited to Abbott 2017 / Nicolaou 2023, "0.5σ" | 2024 afterglow analysis; other analyses 68–70; consistent with both rates | confirmed | `theory/THEORY_CHECK.md` #11 |
 | T15 | | §12.7 | DESI DR1 σ(µ0) = 0.22 (0.6σ) | DESI FS µ0 = 0.11 (+0.45/−0.54) | confirmed | `theory/THEORY_CHECK.md` #12 |
-| T16 | | §12.1 | Δχ² +1.43/+1.34; µ0 = 0.033 ± 0.125 (1.3σ) | final chains: 0.039 ± 0.125 (1.4σ); Δχ² from final extraction | confirmed | `theory/THEORY_CHECK.md` #13 |
+| T16 | | §12.1 | Δχ² +1.43/+1.34; µ0 = 0.033 ± 0.125 (1.3σ) | final chains: posterior mean 0.039 ± 0.125; the book leads with the median +0.064 and the 5 % quantile −0.204 (the posterior reaches the prior edge at +0.2); Δχ² from final extraction | confirmed | `theory/THEORY_CHECK.md` #13 |
 | T17 | | Eq. 75, §6.6 | ∫ R/(T_H A_H) da′; coefficients within 5–10 % | per dt (dt = da/aH); within 5 % for D^(7/2) | confirmed | `theory/THEORY_CHECK.md` #14 |
 | T18 | | §5.3, §10.5, §11.5, Fig. 1, §11.2 | PS n ≈ 2.5–4; 1-loop −2.5 %; MGCAMB 1–2.5 %; H_IAM > H_ΛCDM | not derived / not reproduced / 2.8 % max / matter-sector rate | confirmed | `theory/THEORY_CHECK.md` #15 |
 | T19 | IAM_Theory_Paper | Eq. 22–23 | −dE = 4π r̃_A²(ρ+P)H dt | 4π r̃_A³(ρ+P)H dt (Cai & Kim 2005); r̃_A² gives Ḣ = −4πG(ρ+P)H | verify_theory_derivations.py §5 |
