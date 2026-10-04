@@ -3799,44 +3799,44 @@ PASS  ch:electronmass:L188:67.399        ch:electronmass:p2_15b_electron_mass:18
 PASS  ch:electronmass:L189               ch:electronmass:p2_15b_electron_mass:189  printed +2.8  recomputed 2.82485  tol 0.05  [calc] matter-sector H0
 
 == Part 5: The Quantum Order of Informational Actualization: Qubits and Semiconductors | ch:scprimer (part3/p3_01_sc_primer.tex)
-PASS  ch:scprimer:L15                    ch:scprimer:p3_01_sc_primer:15  printed 16.0  recomputed 15.9975  tol 0.05  [calc] hf/k_B T, 5 GHz, 15 mK
-PASS  ch:scprimer:L15:8.2\times10^{-3}   ch:scprimer:p3_01_sc_primer:15  printed 8.2\times10^{-3}  recomputed 0.00823598  tol 5.000005e-05  [calc] e^(-hf/kT) at 50 mK
-PASS  ch:scprimer:L16                    ch:scprimer:p3_01_sc_primer:16  printed 1.20  recomputed 1.19729  tol 0.00500001  [calc] Delta_Al/(1.764 k_B), K
-PASS  ch:scprimer:L16:182                ch:scprimer:p3_01_sc_primer:16  printed 182  recomputed 182.399  tol 0.5  [calc] BCS gap of aluminium, ueV
-PASS  ch:scprimer:L17                    ch:scprimer:p3_01_sc_primer:17  printed 1.44\times10^{-25}  recomputed 1.435489e-25  tol 5.000005e-28  [calc] k_B T ln2 at 15 mK, J
-PASS  ch:scprimer:L17:5\times10^{-5}     ch:scprimer:p3_01_sc_primer:17  printed 5\times10^{-5}  recomputed 5.000000e-05  tol 5.000005e-06  [calc] temperature ratio
-PASS  ch:scprimer:L23                    ch:scprimer:p3_01_sc_primer:23  printed 6.86  recomputed 6.85606  tol 0.00500001  [calc] M = hf/kT, 5 GHz, 35 mK
-PASS  ch:scprimer:L23:1.1\times10^{-3}   ch:scprimer:p3_01_sc_primer:23  printed 1.1\times10^{-3}  recomputed 0.00105305  tol 5.000005e-05  [calc] equilibrium occupation e^-M at 35 mK
-PASS  ch:scprimer:L36                    ch:scprimer:p3_01_sc_primer:36  printed (algebra)  recomputed True  [calc] thermal x_qp vanishes as T -> 0 and rises with T
-PASS  ch:scprimer:L40                    ch:scprimer:p3_01_sc_primer:40  printed 141  recomputed 140.801  tol 0.5  [calc] Delta/k_B T, Al, 15 mK
-PASS  ch:scprimer:L74                    ch:scprimer:p3_01_sc_primer:74  printed 88  recomputed 88.0148  tol 0.5  [calc] nu > 2 Delta/h, GHz
-PASS  ch:scprimer:L76                    ch:scprimer:p3_01_sc_primer:76  printed 8\times10^{16}  recomputed 8.164912e+16  tol 5.000005e+15  [calc] black-body photons above 2 Delta_Al, 4 K, per s per m^2
-PASS  ch:scprimer:L76:2\times10^{20}     ch:scprimer:p3_01_sc_primer:76  printed 2\times10^{20}  recomputed 1.897834e+20  tol 5.000005e+19  [calc] the same at 50 K
-PASS  ch:scprimer:L76:10^{-108}          ch:scprimer:p3_01_sc_primer:76  printed 10^{-108}  recomputed 8.571129e-109  tol 2.162278e-108  [calc] the same at 15 mK (order)
-PASS  ch:scprimer:L77:2.7255             ch:scprimer:p3_01_sc_primer:77  printed 2.7255  recomputed 2.7255  tol 5.000005e-05  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:scprimer:L78                    ch:scprimer:p3_01_sc_primer:78  printed 2\times10^{16}  recomputed 2.185007e+16  tol 5.000005e+15  [calc] the same for the CMB
-PASS  ch:scprimer:L84                    ch:scprimer:p3_01_sc_primer:84  printed 2.7\times10^{8}  recomputed 2.747253e+08  tol 5.000005e+06  [calc] pairs broken at most by a 100 keV deposit
-PASS  ch:scprimer:L96                    ch:scprimer:p3_01_sc_primer:96  printed 61.7  recomputed 61.7007  tol 0.05  [calc] T_H of 1 M_sun, nK
-PASS  ch:scprimer:L96:4.4\times10^{7}    ch:scprimer:p3_01_sc_primer:96  printed 4.4\times10^{7}  recomputed 4.417289e+07  tol 5.000005e+05  [calc] T_CMB / T_H(1 M_sun)
-PASS  ch:scprimer:L96:182                ch:scprimer:p3_01_sc_primer:96  printed 182  recomputed 181.7  tol 0.5  [calc] T_CMB / 15 mK
-PASS  ch:scprimer:L97                    ch:scprimer:p3_01_sc_primer:97  printed 4.5\times10^{22}  recomputed 4.501562e+22  tol 5.000005e+20  [calc] mass in balance with the CMB, kg
-PASS  ch:scprimer:L99                    ch:scprimer:p3_01_sc_primer:99  printed 3.13\times10^{-6}  recomputed 3.128935e-06  tol 5.000005e-09  [calc] CMB energy flux, W/m^2
-PASS  ch:scprimer:L100                   ch:scprimer:p3_01_sc_primer:100  printed 2.81\times10^{-6}  recomputed 2.808695e-06  tol 5.000005e-09  [calc] CMB energy flux above 2 Delta_Al
-PASS  ch:scprimer:L100:2.19\times10^{16} ch:scprimer:p3_01_sc_primer:100  printed 2.19\times10^{16}  recomputed 2.185007e+16  tol 5.000005e+13  [calc] CMB photons above 2 Delta_Al
-PASS  ch:scprimer:L101                   ch:scprimer:p3_01_sc_primer:101  printed 2.2  recomputed 2.20414  tol 0.05  [calc] broken pairs per photon at most
-PASS  ch:scprimer:L101:9.31              ch:scprimer:p3_01_sc_primer:101  printed 9.31  recomputed 9.3104  tol 0.00500001  [calc] mean photon energy above threshold, in k_B K
-PASS  ch:scprimer:L111                   ch:scprimer:p3_01_sc_primer:111  printed 2.11  recomputed 2.11202  tol 0.00500001  [calc] Delta_Al/k_B, K
-PASS  ch:scprimer:L118                   ch:scprimer:p3_01_sc_primer:118  printed 1.764  recomputed 1.76388  tol 5.000005e-04  [calc] BCS ratio Delta/(k_B T_c) = pi e^(-gamma_E)
-PASS  ch:scprimer:L125                   ch:scprimer:p3_01_sc_primer:125  printed 182  recomputed 182.412  tol 0.5  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:scprimer:L126                   ch:scprimer:p3_01_sc_primer:126  printed 0.24  recomputed 0.238346  tol 0.00500001  [calc] T1 from Catelani, x_qp = 1e-7, ms
-PASS  ch:scprimer:L126:2.4e-8            ch:scprimer:p3_01_sc_primer:126  printed 2.4\times10^{-8}  recomputed 2.383456e-08  tol 5.000005e-10  [calc] x_qp for T1 = 1 ms from Catelani, Al, 5 GHz
-PASS  ch:scprimer:L127                   ch:scprimer:p3_01_sc_primer:127  printed 0.32  recomputed 0.31831  tol 0.00500001  [calc] T1 from Gamma = x_qp omega_q, ms
-PASS  ch:scprimer:L128                   ch:scprimer:p3_01_sc_primer:128  printed 0.5  recomputed 0.5  tol 0.05  [calc] best transmon T1, ms, from the cited title  file docs/book/iam.bib
-PASS  ch:scprimer:L137                   ch:scprimer:p3_01_sc_primer:137  printed 1.31  recomputed 1.30882  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:scprimer:L160                   ch:scprimer:p3_01_sc_primer:160  printed 3.6\times10^{-12}  recomputed 3.616549e-12  tol 5.000005e-14  [calc] hbar/Delta_Al, s
-PASS  ch:scprimer:L160:1.055e-34         ch:scprimer:p3_01_sc_primer:160  printed 1.055\times10^{-34}  recomputed 1.054572e-34  tol 5.000005e-38  [calc] hbar = h/2pi, J s
-PASS  ch:scprimer:L162                   ch:scprimer:p3_01_sc_primer:162  printed 4\times10^{-6}  recomputed 3.616549e-06  tol 5.000005e-07  [calc] tau_phi/tau_TLS at 1 us
-PASS  ch:scprimer:L162:4\times10^{-8}    ch:scprimer:p3_01_sc_primer:162  printed 4\times10^{-8}  recomputed 3.616549e-08  tol 5.000005e-09  [calc] tau_phi/tau_TLS at 100 us
+PASS  ch:scprimer:L15                    ch:scprimer:p3_01_sc_primer:24  printed 16.0  recomputed 15.9975  tol 0.05  [calc] hf/k_B T, 5 GHz, 15 mK
+PASS  ch:scprimer:L15:8.2\times10^{-3}   ch:scprimer:p3_01_sc_primer:24  printed 8.2\times10^{-3}  recomputed 0.00823598  tol 5.000005e-05  [calc] e^(-hf/kT) at 50 mK
+PASS  ch:scprimer:L16                    ch:scprimer:p3_01_sc_primer:25  printed 1.20  recomputed 1.19729  tol 0.00500001  [calc] Delta_Al/(1.764 k_B), K
+PASS  ch:scprimer:L16:182                ch:scprimer:p3_01_sc_primer:25  printed 182  recomputed 182.399  tol 0.5  [calc] BCS gap of aluminium, ueV
+PASS  ch:scprimer:L17                    ch:scprimer:p3_01_sc_primer:26  printed 1.44\times10^{-25}  recomputed 1.435489e-25  tol 5.000005e-28  [calc] k_B T ln2 at 15 mK, J
+PASS  ch:scprimer:L17:5\times10^{-5}     ch:scprimer:p3_01_sc_primer:26  printed 5\times10^{-5}  recomputed 5.000000e-05  tol 5.000005e-06  [calc] temperature ratio
+PASS  ch:scprimer:L23                    ch:scprimer:p3_01_sc_primer:32  printed 6.86  recomputed 6.85606  tol 0.00500001  [calc] M = hf/kT, 5 GHz, 35 mK
+PASS  ch:scprimer:L23:1.1\times10^{-3}   ch:scprimer:p3_01_sc_primer:32  printed 1.1\times10^{-3}  recomputed 0.00105305  tol 5.000005e-05  [calc] equilibrium occupation e^-M at 35 mK
+PASS  ch:scprimer:L36                    ch:scprimer:p3_01_sc_primer:45  printed (algebra)  recomputed True  [calc] thermal x_qp vanishes as T -> 0 and rises with T
+PASS  ch:scprimer:L40                    ch:scprimer:p3_01_sc_primer:49  printed 141  recomputed 140.801  tol 0.5  [calc] Delta/k_B T, Al, 15 mK
+PASS  ch:scprimer:L74                    ch:scprimer:p3_01_sc_primer:83  printed 88  recomputed 88.0148  tol 0.5  [calc] nu > 2 Delta/h, GHz
+PASS  ch:scprimer:L76                    ch:scprimer:p3_01_sc_primer:85  printed 8\times10^{16}  recomputed 8.164912e+16  tol 5.000005e+15  [calc] black-body photons above 2 Delta_Al, 4 K, per s per m^2
+PASS  ch:scprimer:L76:2\times10^{20}     ch:scprimer:p3_01_sc_primer:85  printed 2\times10^{20}  recomputed 1.897834e+20  tol 5.000005e+19  [calc] the same at 50 K
+PASS  ch:scprimer:L76:10^{-108}          ch:scprimer:p3_01_sc_primer:85  printed 10^{-108}  recomputed 8.571129e-109  tol 2.162278e-108  [calc] the same at 15 mK (order)
+PASS  ch:scprimer:L77:2.7255             ch:scprimer:p3_01_sc_primer:86  printed 2.7255  recomputed 2.7255  tol 5.000005e-05  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:scprimer:L78                    ch:scprimer:p3_01_sc_primer:87  printed 2\times10^{16}  recomputed 2.185007e+16  tol 5.000005e+15  [calc] the same for the CMB
+PASS  ch:scprimer:L84                    ch:scprimer:p3_01_sc_primer:93  printed 2.7\times10^{8}  recomputed 2.747253e+08  tol 5.000005e+06  [calc] pairs broken at most by a 100 keV deposit
+PASS  ch:scprimer:L96                    ch:scprimer:p3_01_sc_primer:105  printed 61.7  recomputed 61.7007  tol 0.05  [calc] T_H of 1 M_sun, nK
+PASS  ch:scprimer:L96:4.4\times10^{7}    ch:scprimer:p3_01_sc_primer:105  printed 4.4\times10^{7}  recomputed 4.417289e+07  tol 5.000005e+05  [calc] T_CMB / T_H(1 M_sun)
+PASS  ch:scprimer:L96:182                ch:scprimer:p3_01_sc_primer:105  printed 182  recomputed 181.7  tol 0.5  [calc] T_CMB / 15 mK
+PASS  ch:scprimer:L97                    ch:scprimer:p3_01_sc_primer:106  printed 4.5\times10^{22}  recomputed 4.501562e+22  tol 5.000005e+20  [calc] mass in balance with the CMB, kg
+PASS  ch:scprimer:L99                    ch:scprimer:p3_01_sc_primer:108  printed 3.13\times10^{-6}  recomputed 3.128935e-06  tol 5.000005e-09  [calc] CMB energy flux, W/m^2
+PASS  ch:scprimer:L100                   ch:scprimer:p3_01_sc_primer:109  printed 2.81\times10^{-6}  recomputed 2.808695e-06  tol 5.000005e-09  [calc] CMB energy flux above 2 Delta_Al
+PASS  ch:scprimer:L100:2.19\times10^{16} ch:scprimer:p3_01_sc_primer:109  printed 2.19\times10^{16}  recomputed 2.185007e+16  tol 5.000005e+13  [calc] CMB photons above 2 Delta_Al
+PASS  ch:scprimer:L101                   ch:scprimer:p3_01_sc_primer:110  printed 2.2  recomputed 2.20414  tol 0.05  [calc] broken pairs per photon at most
+PASS  ch:scprimer:L101:9.31              ch:scprimer:p3_01_sc_primer:110  printed 9.31  recomputed 9.3104  tol 0.00500001  [calc] mean photon energy above threshold, in k_B K
+PASS  ch:scprimer:L111                   ch:scprimer:p3_01_sc_primer:120  printed 2.11  recomputed 2.11202  tol 0.00500001  [calc] Delta_Al/k_B, K
+PASS  ch:scprimer:L118                   ch:scprimer:p3_01_sc_primer:127  printed 1.764  recomputed 1.76388  tol 5.000005e-04  [calc] BCS ratio Delta/(k_B T_c) = pi e^(-gamma_E)
+PASS  ch:scprimer:L125                   ch:scprimer:p3_01_sc_primer:134  printed 182  recomputed 182.412  tol 0.5  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:scprimer:L126                   ch:scprimer:p3_01_sc_primer:135  printed 0.24  recomputed 0.238346  tol 0.00500001  [calc] T1 from Catelani, x_qp = 1e-7, ms
+PASS  ch:scprimer:L126:2.4e-8            ch:scprimer:p3_01_sc_primer:135  printed 2.4\times10^{-8}  recomputed 2.383456e-08  tol 5.000005e-10  [calc] x_qp for T1 = 1 ms from Catelani, Al, 5 GHz
+PASS  ch:scprimer:L127                   ch:scprimer:p3_01_sc_primer:136  printed 0.32  recomputed 0.31831  tol 0.00500001  [calc] T1 from Gamma = x_qp omega_q, ms
+PASS  ch:scprimer:L128                   ch:scprimer:p3_01_sc_primer:137  printed 0.5  recomputed 0.5  tol 0.05  [calc] best transmon T1, ms, from the cited title  file docs/book/iam.bib
+PASS  ch:scprimer:L137                   ch:scprimer:p3_01_sc_primer:146  printed 1.31  recomputed 1.30882  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:scprimer:L160                   ch:scprimer:p3_01_sc_primer:169  printed 3.6\times10^{-12}  recomputed 3.616549e-12  tol 5.000005e-14  [calc] hbar/Delta_Al, s
+PASS  ch:scprimer:L160:1.055e-34         ch:scprimer:p3_01_sc_primer:169  printed 1.055\times10^{-34}  recomputed 1.054572e-34  tol 5.000005e-38  [calc] hbar = h/2pi, J s
+PASS  ch:scprimer:L162                   ch:scprimer:p3_01_sc_primer:171  printed 4\times10^{-6}  recomputed 3.616549e-06  tol 5.000005e-07  [calc] tau_phi/tau_TLS at 1 us
+PASS  ch:scprimer:L162:4\times10^{-8}    ch:scprimer:p3_01_sc_primer:171  printed 4\times10^{-8}  recomputed 3.616549e-08  tol 5.000005e-09  [calc] tau_phi/tau_TLS at 100 us
 
 == Part 5: The Quantum Order of Informational Actualization: Qubits and Semiconductors | ch:xqp (part3/p3_02_xqp.tex)
 PASS  ch:xqp:L14                         ch:xqp:p3_02_xqp:14  printed 1.5\times10^{-62}  recomputed 1.497882e-62  tol 5.000005e-64  [observed] equilibrium x_qp in Al at 15 mK

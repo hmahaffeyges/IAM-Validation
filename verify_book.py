@@ -28439,93 +28439,93 @@ def check_2254():
 
 # ======== Part 5 | ch:scprimer | docs/book/part3/p3_01_sc_primer.tex
 @check(label='ch:scprimer:L15', chapter='ch:scprimer', part=5, title='hf/k_B T, 5 GHz, 15 mK',
-       file='part3/p3_01_sc_primer', line=15, status='calc', kind='num', printed='16.0', tol=0)
+       file='part3/p3_01_sc_primer', line=24, status='calc', kind='num', printed='16.0', tol=0)
 def check_2255():
-    'hf/k_B T, 5 GHz, 15 mK. Book line 15, printed 16.0.'
+    'hf/k_B T, 5 GHz, 15 mK. Book line 24, printed 16.0.'
     Mq=lambda f,T: h*f/(kB*T)
     value=Mq(5e9,0.015)
     return locals()
 
 @check(label='ch:scprimer:L15:8.2\\times10^{-3}', chapter='ch:scprimer', part=5, title='e^(-hf/kT) at 50 mK',
-       file='part3/p3_01_sc_primer', line=15, status='calc', kind='num', printed='8.2\\times10^{-3}', tol=0)
+       file='part3/p3_01_sc_primer', line=24, status='calc', kind='num', printed='8.2\\times10^{-3}', tol=0)
 def check_2257():
-    'e^(-hf/kT) at 50 mK. Book line 15, printed 8.2\\times10^{-3}.'
+    'e^(-hf/kT) at 50 mK. Book line 24, printed 8.2\\times10^{-3}.'
     Mq=lambda f,T: h*f/(kB*T)
     value=math.exp(-Mq(5e9,0.050))
     return locals()
 
 @check(label='ch:scprimer:L16', chapter='ch:scprimer', part=5, title='Delta_Al/(1.764 k_B), K',
-       file='part3/p3_01_sc_primer', line=16, status='calc', kind='num', printed='1.20', tol=0)
+       file='part3/p3_01_sc_primer', line=25, status='calc', kind='num', printed='1.20', tol=0)
 def check_2258():
-    'Delta_Al/(1.764 k_B), K. Book line 16, printed 1.20.'
+    'Delta_Al/(1.764 k_B), K. Book line 25, printed 1.20.'
     value=182e-6*eV/(1.764*kB)
     return locals()
 
 @check(label='ch:scprimer:L16:182', chapter='ch:scprimer', part=5, title='BCS gap of aluminium, ueV',
-       file='part3/p3_01_sc_primer', line=16, status='calc', kind='num', printed='182', tol=0.0)
+       file='part3/p3_01_sc_primer', line=25, status='calc', kind='num', printed='182', tol=0.0)
 def check_3731():
-    'Delta_Al = (pi e^-gamma_E) k_B T_c with the weak-coupling BCS ratio computed from Euler gamma, in ueV. Book line 16, printed 182 ueV. Input: T_c(Al) = 1.2 K (book, lines 16 and 118).'
+    'Delta_Al = (pi e^-gamma_E) k_B T_c with the weak-coupling BCS ratio computed from Euler gamma, in ueV. Book line 25, printed 182 ueV. Input: T_c(Al) = 1.2 K (book, lines 16 and 118).'
     bcs = math.pi * math.exp(-float(sp.EulerGamma))
     value = bcs * kB * 1.2 / e_ch * 1e6
     return locals()
 
 @check(label='ch:scprimer:L17', chapter='ch:scprimer', part=5, title='k_B T ln2 at 15 mK, J',
-       file='part3/p3_01_sc_primer', line=17, status='calc', kind='num', printed='1.44\\times10^{-25}', tol=0)
+       file='part3/p3_01_sc_primer', line=26, status='calc', kind='num', printed='1.44\\times10^{-25}', tol=0)
 def check_2259():
-    'k_B T ln2 at 15 mK, J. Book line 17, printed 1.44\\times10^{-25}.'
+    'k_B T ln2 at 15 mK, J. Book line 26, printed 1.44\\times10^{-25}.'
     value=kB*0.015*LN2
     return locals()
 
 @check(label='ch:scprimer:L17:5\\times10^{-5}', chapter='ch:scprimer', part=5, title='temperature ratio',
-       file='part3/p3_01_sc_primer', line=17, status='calc', kind='num', printed='5\\times10^{-5}', tol=0)
+       file='part3/p3_01_sc_primer', line=26, status='calc', kind='num', printed='5\\times10^{-5}', tol=0)
 def check_2260():
-    'temperature ratio. Book line 17, printed 5\\times10^{-5}.'
+    'temperature ratio. Book line 26, printed 5\\times10^{-5}.'
     value=0.015/300
     return locals()
 
 @check(label='ch:scprimer:L23', chapter='ch:scprimer', part=5, title='M = hf/kT, 5 GHz, 35 mK',
-       file='part3/p3_01_sc_primer', line=23, status='calc', kind='num', printed='6.86', tol=0)
+       file='part3/p3_01_sc_primer', line=32, status='calc', kind='num', printed='6.86', tol=0)
 def check_2261():
-    'M = hf/kT, 5 GHz, 35 mK. Book line 23, printed 6.86.'
+    'M = hf/kT, 5 GHz, 35 mK. Book line 32, printed 6.86.'
     Mq=lambda f,T: h*f/(kB*T)
     value=Mq(5e9,0.035)
     return locals()
 
 @check(label='ch:scprimer:L23:1.1\\times10^{-3}', chapter='ch:scprimer', part=5, title='equilibrium occupation e^-M at 35 mK',
-       file='part3/p3_01_sc_primer', line=23, status='calc', kind='num', printed='1.1\\times10^{-3}', tol=0)
+       file='part3/p3_01_sc_primer', line=32, status='calc', kind='num', printed='1.1\\times10^{-3}', tol=0)
 def check_2262():
-    'equilibrium occupation e^-M at 35 mK. Book line 23, printed 1.1\\times10^{-3}.'
+    'equilibrium occupation e^-M at 35 mK. Book line 32, printed 1.1\\times10^{-3}.'
     Mq=lambda f,T: h*f/(kB*T)
     value=math.exp(-Mq(5e9,0.035))
     return locals()
 
 @check(label='ch:scprimer:L36', chapter='ch:scprimer', part=5, title='thermal x_qp vanishes as T -> 0 and rises with T',
-       file='part3/p3_01_sc_primer', line=36, status='calc', kind='sym', printed='', tol=0)
+       file='part3/p3_01_sc_primer', line=45, status='calc', kind='sym', printed='', tol=0)
 def check_2264():
-    'thermal x_qp vanishes as T -> 0 and rises with T. Book line 36.'
+    'thermal x_qp vanishes as T -> 0 and rises with T. Book line 45.'
     T,D,kB_=sp.symbols('T Delta k_B',positive=True); x=sp.sqrt(2*sp.pi*kB_*T/D)*sp.exp(-D/(kB_*T)); lim0=sp.limit(x.subs({D:1,kB_:1}),T,0); slope=sp.diff(sp.log(x),T).subs({D:1,kB_:1,T:sp.Rational(1,10)})
     ok=lim0==0 and slope>0
     neg_ok=lim0==0 and slope<=0     # control: the reversed inequality (x_qp falling with T) must not hold
     return locals()
 
 @check(label='ch:scprimer:L40', chapter='ch:scprimer', part=5, title='Delta/k_B T, Al, 15 mK',
-       file='part3/p3_01_sc_primer', line=40, status='calc', kind='num', printed='141', tol=0)
+       file='part3/p3_01_sc_primer', line=49, status='calc', kind='num', printed='141', tol=0)
 def check_2265():
-    'Delta/k_B T, Al, 15 mK. Book line 40, printed 141.'
+    'Delta/k_B T, Al, 15 mK. Book line 49, printed 141.'
     value=182e-6*eV/(kB*0.015)
     return locals()
 
 @check(label='ch:scprimer:L74', chapter='ch:scprimer', part=5, title='nu > 2 Delta/h, GHz',
-       file='part3/p3_01_sc_primer', line=74, status='calc', kind='num', printed='88', tol=0)
+       file='part3/p3_01_sc_primer', line=83, status='calc', kind='num', printed='88', tol=0)
 def check_2266():
-    'nu > 2 Delta/h, GHz. Book line 74, printed 88.'
+    'nu > 2 Delta/h, GHz. Book line 83, printed 88.'
     value=2*182e-6*eV/h/1e9
     return locals()
 
 @check(label='ch:scprimer:L76', chapter='ch:scprimer', part=5, title='black-body photons above 2 Delta_Al, 4 K, per s per m^2',
-       file='part3/p3_01_sc_primer', line=76, status='calc', kind='num', printed='8\\times10^{16}', tol=0)
+       file='part3/p3_01_sc_primer', line=85, status='calc', kind='num', printed='8\\times10^{16}', tol=0)
 def check_2267():
-    'black-body photons above 2 Delta_Al, 4 K, per s per m^2. Book line 76, printed 8\\times10^{16}.'
+    'black-body photons above 2 Delta_Al, 4 K, per s per m^2. Book line 85, printed 8\\times10^{16}.'
     def flux(T, E0=2*182e-6*eV):
         x0=E0/(kB*T)
         if x0>700: return 2*math.pi*(kB*T/(h*c))**2*(kB*T/h)*x0**2*math.exp(-x0)
@@ -28535,9 +28535,9 @@ def check_2267():
     return locals()
 
 @check(label='ch:scprimer:L76:2\\times10^{20}', chapter='ch:scprimer', part=5, title='the same at 50 K',
-       file='part3/p3_01_sc_primer', line=76, status='calc', kind='num', printed='2\\times10^{20}', tol=0)
+       file='part3/p3_01_sc_primer', line=85, status='calc', kind='num', printed='2\\times10^{20}', tol=0)
 def check_2268():
-    'the same at 50 K. Book line 76, printed 2\\times10^{20}.'
+    'the same at 50 K. Book line 85, printed 2\\times10^{20}.'
     def flux(T, E0=2*182e-6*eV):
         x0=E0/(kB*T)
         if x0>700: return 2*math.pi*(kB*T/(h*c))**2*(kB*T/h)*x0**2*math.exp(-x0)
@@ -28547,9 +28547,9 @@ def check_2268():
     return locals()
 
 @check(label='ch:scprimer:L76:10^{-108}', chapter='ch:scprimer', part=5, title='the same at 15 mK (order)',
-       file='part3/p3_01_sc_primer', line=76, status='calc', kind='num', printed='10^{-108}', tol=0)
+       file='part3/p3_01_sc_primer', line=85, status='calc', kind='num', printed='10^{-108}', tol=0)
 def check_2269():
-    'the same at 15 mK (order). Book line 76, printed 10^{-108}.'
+    'the same at 15 mK (order). Book line 85, printed 10^{-108}.'
     def flux(T, E0=2*182e-6*eV):
         x0=E0/(kB*T)
         if x0>700: return 2*math.pi*(kB*T/(h*c))**2*(kB*T/h)*x0**2*math.exp(-x0)
@@ -28559,17 +28559,17 @@ def check_2269():
     return locals()
 
 @check(label='ch:scprimer:L77:2.7255', chapter='ch:scprimer', part=5, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_sc_primer', line=77, status='calc', kind='num', printed='2.7255', tol=0.0)
+       file='part3/p3_01_sc_primer', line=86, status='calc', kind='num', printed='2.7255', tol=0.0)
 def check_2271():
-    'drafted check, screened (runs; negative control fails). Book line 77, printed 2.7255.'
+    'drafted check, screened (runs; negative control fails). Book line 86, printed 2.7255.'
     # Line 77 and 78: T_CMB value (canon namespace)
     value = T_CMB
     return locals()
 
 @check(label='ch:scprimer:L78', chapter='ch:scprimer', part=5, title='the same for the CMB',
-       file='part3/p3_01_sc_primer', line=78, status='calc', kind='num', printed='2\\times10^{16}', tol=0)
+       file='part3/p3_01_sc_primer', line=87, status='calc', kind='num', printed='2\\times10^{16}', tol=0)
 def check_2272():
-    'the same for the CMB. Book line 78, printed 2\\times10^{16}.'
+    'the same for the CMB. Book line 87, printed 2\\times10^{16}.'
     def flux(T, E0=2*182e-6*eV):
         x0=E0/(kB*T)
         if x0>700: return 2*math.pi*(kB*T/(h*c))**2*(kB*T/h)*x0**2*math.exp(-x0)
@@ -28579,52 +28579,52 @@ def check_2272():
     return locals()
 
 @check(label='ch:scprimer:L84', chapter='ch:scprimer', part=5, title='pairs broken at most by a 100 keV deposit',
-       file='part3/p3_01_sc_primer', line=84, status='calc', kind='num', printed='2.7\\times10^{8}', tol=0.0)
+       file='part3/p3_01_sc_primer', line=93, status='calc', kind='num', printed='2.7\\times10^{8}', tol=0.0)
 def check_3732():
-    'Upper bound on Cooper pairs broken by a 100 keV deposit, 1e5 eV/(2 Delta_Al). Book line 84, printed 2.7e8. Inputs: deposit 100 keV and Delta_Al = 182 ueV (book).'
+    'Upper bound on Cooper pairs broken by a 100 keV deposit, 1e5 eV/(2 Delta_Al). Book line 93, printed 2.7e8. Inputs: deposit 100 keV and Delta_Al = 182 ueV (book).'
     deposit_eV = 100e3; Delta_eV = 182e-6
     value = deposit_eV / (2 * Delta_eV)
     return locals()
 
 @check(label='ch:scprimer:L96', chapter='ch:scprimer', part=5, title='T_H of 1 M_sun, nK',
-       file='part3/p3_01_sc_primer', line=96, status='calc', kind='num', printed='61.7', tol=0)
+       file='part3/p3_01_sc_primer', line=105, status='calc', kind='num', printed='61.7', tol=0)
 def check_2273():
-    'T_H of 1 M_sun, nK. Book line 96, printed 61.7.'
+    'T_H of 1 M_sun, nK. Book line 105, printed 61.7.'
     value=hbar*c**3/(8*math.pi*G*Msun*kB)*1e9
     return locals()
 
 @check(label='ch:scprimer:L96:4.4\\times10^{7}', chapter='ch:scprimer', part=5, title='T_CMB / T_H(1 M_sun)',
-       file='part3/p3_01_sc_primer', line=96, status='calc', kind='num', printed='4.4\\times10^{7}', tol=0)
+       file='part3/p3_01_sc_primer', line=105, status='calc', kind='num', printed='4.4\\times10^{7}', tol=0)
 def check_2274():
-    'T_CMB / T_H(1 M_sun). Book line 96, printed 4.4\\times10^{7}.'
+    'T_CMB / T_H(1 M_sun). Book line 105, printed 4.4\\times10^{7}.'
     value=T_CMB/(hbar*c**3/(8*math.pi*G*Msun*kB))
     return locals()
 
 @check(label='ch:scprimer:L96:182', chapter='ch:scprimer', part=5, title='T_CMB / 15 mK',
-       file='part3/p3_01_sc_primer', line=96, status='calc', kind='num', printed='182', tol=0)
+       file='part3/p3_01_sc_primer', line=105, status='calc', kind='num', printed='182', tol=0)
 def check_2275():
-    'T_CMB / 15 mK. Book line 96, printed 182.'
+    'T_CMB / 15 mK. Book line 105, printed 182.'
     value=T_CMB/0.015
     return locals()
 
 @check(label='ch:scprimer:L97', chapter='ch:scprimer', part=5, title='mass in balance with the CMB, kg',
-       file='part3/p3_01_sc_primer', line=97, status='calc', kind='num', printed='4.5\\times10^{22}', tol=0)
+       file='part3/p3_01_sc_primer', line=106, status='calc', kind='num', printed='4.5\\times10^{22}', tol=0)
 def check_2276():
-    'mass in balance with the CMB, kg. Book line 97, printed 4.5\\times10^{22}.'
+    'mass in balance with the CMB, kg. Book line 106, printed 4.5\\times10^{22}.'
     value=hbar*c**3/(8*math.pi*G*kB*T_CMB)
     return locals()
 
 @check(label='ch:scprimer:L99', chapter='ch:scprimer', part=5, title='CMB energy flux, W/m^2',
-       file='part3/p3_01_sc_primer', line=99, status='calc', kind='num', printed='3.13\\times10^{-6}', tol=0)
+       file='part3/p3_01_sc_primer', line=108, status='calc', kind='num', printed='3.13\\times10^{-6}', tol=0)
 def check_2277():
-    'CMB energy flux, W/m^2. Book line 99, printed 3.13\\times10^{-6}.'
+    'CMB energy flux, W/m^2. Book line 108, printed 3.13\\times10^{-6}.'
     value=5.670374419e-8*T_CMB**4  # Stefan-Boltzmann constant (CODATA 2018)
     return locals()
 
 @check(label='ch:scprimer:L100', chapter='ch:scprimer', part=5, title='CMB energy flux above 2 Delta_Al',
-       file='part3/p3_01_sc_primer', line=100, status='calc', kind='num', printed='2.81\\times10^{-6}', tol=0)
+       file='part3/p3_01_sc_primer', line=109, status='calc', kind='num', printed='2.81\\times10^{-6}', tol=0)
 def check_2278():
-    'CMB energy flux above 2 Delta_Al. Book line 100, printed 2.81\\times10^{-6}.'
+    'CMB energy flux above 2 Delta_Al. Book line 109, printed 2.81\\times10^{-6}.'
     def flux(T, E0=2*182e-6*eV):
         x0=E0/(kB*T)
         if x0>700: return 2*math.pi*(kB*T/(h*c))**2*(kB*T/h)*x0**2*math.exp(-x0)
@@ -28634,9 +28634,9 @@ def check_2278():
     return locals()
 
 @check(label='ch:scprimer:L100:2.19\\times10^{16}', chapter='ch:scprimer', part=5, title='CMB photons above 2 Delta_Al',
-       file='part3/p3_01_sc_primer', line=100, status='calc', kind='num', printed='2.19\\times10^{16}', tol=0)
+       file='part3/p3_01_sc_primer', line=109, status='calc', kind='num', printed='2.19\\times10^{16}', tol=0)
 def check_2279():
-    'CMB photons above 2 Delta_Al. Book line 100, printed 2.19\\times10^{16}.'
+    'CMB photons above 2 Delta_Al. Book line 109, printed 2.19\\times10^{16}.'
     def flux(T, E0=2*182e-6*eV):
         x0=E0/(kB*T)
         if x0>700: return 2*math.pi*(kB*T/(h*c))**2*(kB*T/h)*x0**2*math.exp(-x0)
@@ -28646,9 +28646,9 @@ def check_2279():
     return locals()
 
 @check(label='ch:scprimer:L101', chapter='ch:scprimer', part=5, title='broken pairs per photon at most',
-       file='part3/p3_01_sc_primer', line=101, status='calc', kind='num', printed='2.2', tol=0)
+       file='part3/p3_01_sc_primer', line=110, status='calc', kind='num', printed='2.2', tol=0)
 def check_2280():
-    'broken pairs per photon at most. Book line 101, printed 2.2.'
+    'broken pairs per photon at most. Book line 110, printed 2.2.'
     def flux(T, E0=2*182e-6*eV):
         x0=E0/(kB*T)
         if x0>700: return 2*math.pi*(kB*T/(h*c))**2*(kB*T/h)*x0**2*math.exp(-x0)
@@ -28658,9 +28658,9 @@ def check_2280():
     return locals()
 
 @check(label='ch:scprimer:L101:9.31', chapter='ch:scprimer', part=5, title='mean photon energy above threshold, in k_B K',
-       file='part3/p3_01_sc_primer', line=101, status='calc', kind='num', printed='9.31', tol=0)
+       file='part3/p3_01_sc_primer', line=110, status='calc', kind='num', printed='9.31', tol=0)
 def check_2281():
-    'mean photon energy above threshold, in k_B K. Book line 101, printed 9.31.'
+    'mean photon energy above threshold, in k_B K. Book line 110, printed 9.31.'
     def flux(T, E0=2*182e-6*eV):
         x0=E0/(kB*T)
         if x0>700: return 2*math.pi*(kB*T/(h*c))**2*(kB*T/h)*x0**2*math.exp(-x0)
@@ -28670,23 +28670,23 @@ def check_2281():
     return locals()
 
 @check(label='ch:scprimer:L111', chapter='ch:scprimer', part=5, title='Delta_Al/k_B, K',
-       file='part3/p3_01_sc_primer', line=111, status='calc', kind='num', printed='2.11', tol=0)
+       file='part3/p3_01_sc_primer', line=120, status='calc', kind='num', printed='2.11', tol=0)
 def check_2282():
-    'Delta_Al/k_B, K. Book line 111, printed 2.11.'
+    'Delta_Al/k_B, K. Book line 120, printed 2.11.'
     value=182e-6*eV/kB
     return locals()
 
 @check(label='ch:scprimer:L118', chapter='ch:scprimer', part=5, title='BCS ratio Delta/(k_B T_c) = pi e^(-gamma_E)',
-       file='part3/p3_01_sc_primer', line=118, status='calc', kind='num', printed='1.764', tol=0.0)
+       file='part3/p3_01_sc_primer', line=127, status='calc', kind='num', printed='1.764', tol=0.0)
 def check_3733():
-    'Weak-coupling BCS ratio Delta(0)/(k_B T_c) = pi exp(-gamma_E), gamma_E the Euler constant (BCS theory). Book line 118, printed 1.764.'
+    'Weak-coupling BCS ratio Delta(0)/(k_B T_c) = pi exp(-gamma_E), gamma_E the Euler constant (BCS theory). Book line 127, printed 1.764.'
     value = float(sp.pi * sp.exp(-sp.EulerGamma))
     return locals()
 
 @check(label='ch:scprimer:L125', chapter='ch:scprimer', part=5, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_sc_primer', line=125, status='calc', kind='num', printed='182', tol=0.0)
+       file='part3/p3_01_sc_primer', line=134, status='calc', kind='num', printed='182', tol=0.0)
 def check_2283():
-    'drafted check, screened (runs; negative control fails). Book line 125, printed 182.'
+    'drafted check, screened (runs; negative control fails). Book line 134, printed 182.'
     # Delta_Al = 182 µeV, line 125; BCS relation Delta = 1.764 kB Tc
     Tc_Al = 1.2  # K
     Delta_Al_BCS = 1.764 * kB * Tc_Al  # J
@@ -28696,33 +28696,33 @@ def check_2283():
     return locals()
 
 @check(label='ch:scprimer:L126', chapter='ch:scprimer', part=5, title='T1 from Catelani, x_qp = 1e-7, ms',
-       file='part3/p3_01_sc_primer', line=126, status='calc', kind='num', printed='0.24', tol=0)
+       file='part3/p3_01_sc_primer', line=135, status='calc', kind='num', printed='0.24', tol=0)
 def check_2284():
-    'T1 from Catelani, x_qp = 1e-7, ms. Book line 126, printed 0.24.'
+    'T1 from Catelani, x_qp = 1e-7, ms. Book line 135, printed 0.24.'
     def T1qp(x, f=5e9, D=182e-6*eV): w=2*math.pi*f; return 1/(x*w/math.pi*math.sqrt(2*D/(hbar*w)))
     value=T1qp(1e-7)*1e3
     return locals()
 
 @check(label='ch:scprimer:L126:2.4e-8', chapter='ch:scprimer', part=5, title='x_qp for T1 = 1 ms from Catelani, Al, 5 GHz',
-       file='part3/p3_01_sc_primer', line=126, status='calc', kind='num', printed='2.4\\times10^{-8}', tol=0.0)
+       file='part3/p3_01_sc_primer', line=135, status='calc', kind='num', printed='2.4\\times10^{-8}', tol=0.0)
 def check_3734():
-    'Largest x_qp allowing T1 = 1 ms by Eq. eq:catelani, Gamma = x_qp (omega/pi) sqrt(2 Delta/(hbar omega)), solved for x_qp. Book line 126, printed 2.4e-8. Inputs: Delta_Al = 182 ueV, omega/2pi = 5 GHz (book).'
+    'Largest x_qp allowing T1 = 1 ms by Eq. eq:catelani, Gamma = x_qp (omega/pi) sqrt(2 Delta/(hbar omega)), solved for x_qp. Book line 135, printed 2.4e-8. Inputs: Delta_Al = 182 ueV, omega/2pi = 5 GHz (book).'
     w = 2 * math.pi * 5e9; Delta = 182e-6 * e_ch
     rate_per_xqp = (w / math.pi) * math.sqrt(2 * Delta / (hbar * w))
     value = 1 / (1e-3 * rate_per_xqp)
     return locals()
 
 @check(label='ch:scprimer:L127', chapter='ch:scprimer', part=5, title='T1 from Gamma = x_qp omega_q, ms',
-       file='part3/p3_01_sc_primer', line=127, status='calc', kind='num', printed='0.32', tol=0)
+       file='part3/p3_01_sc_primer', line=136, status='calc', kind='num', printed='0.32', tol=0)
 def check_2285():
-    'T1 from Gamma = x_qp omega_q, ms. Book line 127, printed 0.32.'
+    'T1 from Gamma = x_qp omega_q, ms. Book line 136, printed 0.32.'
     value=1/(1e-7*2*math.pi*5e9)*1e3
     return locals()
 
 @check(label='ch:scprimer:L128', chapter='ch:scprimer', part=5, title='best transmon T1, ms, from the cited title',
-       file='part3/p3_01_sc_primer', line=128, status='calc', kind='file', printed='0.5', tol=0.0, source='docs/book/iam.bib')
+       file='part3/p3_01_sc_primer', line=137, status='calc', kind='file', printed='0.5', tol=0.0, source='docs/book/iam.bib')
 def check_3735():
-    'Upper end of T1 ~ 0.3-0.5 ms: the lifetime stated in the title of the cited measurement Wang2022Ta, "transmon qubit with a lifetime approaching 0.5 milliseconds" (npj Quantum Inf., doi:10.1038/s41534-021-00510-2), read from docs/book/iam.bib. Book line 128, printed 0.5.'
+    'Upper end of T1 ~ 0.3-0.5 ms: the lifetime stated in the title of the cited measurement Wang2022Ta, "transmon qubit with a lifetime approaching 0.5 milliseconds" (npj Quantum Inf., doi:10.1038/s41534-021-00510-2), read from docs/book/iam.bib. Book line 137, printed 0.5.'
     bib = file_text('docs/book/iam.bib')
     entry = bib[bib.index('{Wang2022Ta,'):]
     title = re.search(r'title\s*=\s*\{(.*?)\},', entry).group(1)
@@ -28730,9 +28730,9 @@ def check_3735():
     return locals()
 
 @check(label='ch:scprimer:L137', chapter='ch:scprimer', part=5, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_sc_primer', line=137, status='calc', kind='num', printed='1.31', tol=0.0)
+       file='part3/p3_01_sc_primer', line=146, status='calc', kind='num', printed='1.31', tol=0.0)
 def check_2286():
-    'drafted check, screened (runs; negative control fails). Book line 137, printed 1.31.'
+    'drafted check, screened (runs; negative control fails). Book line 146, printed 1.31.'
     # T2 / T1 ratio, line 137
     # Line 135 states mean T1 = 68 µs, mean T2,CPMG = 89 µs
     T1_mean = 68e-6  # s
@@ -28742,30 +28742,30 @@ def check_2286():
     return locals()
 
 @check(label='ch:scprimer:L160', chapter='ch:scprimer', part=5, title='hbar/Delta_Al, s',
-       file='part3/p3_01_sc_primer', line=160, status='calc', kind='num', printed='3.6\\times10^{-12}', tol=0)
+       file='part3/p3_01_sc_primer', line=169, status='calc', kind='num', printed='3.6\\times10^{-12}', tol=0)
 def check_2287():
-    'hbar/Delta_Al, s. Book line 160, printed 3.6\\times10^{-12}.'
+    'hbar/Delta_Al, s. Book line 169, printed 3.6\\times10^{-12}.'
     value=hbar/(182e-6*eV)
     return locals()
 
 @check(label='ch:scprimer:L160:1.055e-34', chapter='ch:scprimer', part=5, title='hbar = h/2pi, J s',
-       file='part3/p3_01_sc_primer', line=160, status='calc', kind='num', printed='1.055\\times10^{-34}', tol=0.0)
+       file='part3/p3_01_sc_primer', line=169, status='calc', kind='num', printed='1.055\\times10^{-34}', tol=0.0)
 def check_3736():
-    'hbar used in the checkbox, from the exact SI Planck constant h = 6.62607015e-34 J s divided by 2 pi. Book line 160, printed 1.055e-34 J s.'
+    'hbar used in the checkbox, from the exact SI Planck constant h = 6.62607015e-34 J s divided by 2 pi. Book line 169, printed 1.055e-34 J s.'
     value = h / (2 * math.pi)
     return locals()
 
 @check(label='ch:scprimer:L162', chapter='ch:scprimer', part=5, title='tau_phi/tau_TLS at 1 us',
-       file='part3/p3_01_sc_primer', line=162, status='calc', kind='num', printed='4\\times10^{-6}', tol=0)
+       file='part3/p3_01_sc_primer', line=171, status='calc', kind='num', printed='4\\times10^{-6}', tol=0)
 def check_2288():
-    'tau_phi/tau_TLS at 1 us. Book line 162, printed 4\\times10^{-6}.'
+    'tau_phi/tau_TLS at 1 us. Book line 171, printed 4\\times10^{-6}.'
     value=hbar/(182e-6*eV)/1e-6
     return locals()
 
 @check(label='ch:scprimer:L162:4\\times10^{-8}', chapter='ch:scprimer', part=5, title='tau_phi/tau_TLS at 100 us',
-       file='part3/p3_01_sc_primer', line=162, status='calc', kind='num', printed='4\\times10^{-8}', tol=0)
+       file='part3/p3_01_sc_primer', line=171, status='calc', kind='num', printed='4\\times10^{-8}', tol=0)
 def check_2289():
-    'tau_phi/tau_TLS at 100 us. Book line 162, printed 4\\times10^{-8}.'
+    'tau_phi/tau_TLS at 100 us. Book line 171, printed 4\\times10^{-8}.'
     value=hbar/(182e-6*eV)/1e-4
     return locals()
 
@@ -45803,23 +45803,23 @@ INVENTORY = [
     (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 137, '', 'openprob', '72.26', 'locked value H0 = 72.26 (matter sector) restated'),
     (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 153, '', 'calc', '67.4', 'input: H0 = 67.4 restated'),
     (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 159, '', 'observed', '10', 'measured, source not named'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 22, '', 'observed', '0.1', 'measured, source not named'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 42, '', 'observed', '10', 'measured, source not named'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 44, '', 'observed', '10', 'measured, source not named'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 47, 'eq:catelani', 'none', '', 'definition: the published quasiparticle relaxation rate of Catelani2011 quoted as the model; used numerically by ch:scprimer:L126 and ch:scprimer:L126:2.4e-8'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 67, '', 'observed', '592', 'measured, source not named'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 67, '', 'observed', '41', 'measured, source not named'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 67, '', 'observed', '17.1', 'measured, source not named'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 69, '', 'observed', '10', 'measured, source not named'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 74, '', 'calc', '182', 'input: Delta_Al = 182 ueV restated (recomputed from BCS by ch:scprimer:L16:182)'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 76, '', 'calc', '10', "restates ch:scprimer:L76:10^{-108} (the '10' is the base of a printed power; every number on this line is checked by ch:scprimer:L76, ch:scprimer:L76:2\\times10^{20}, ch:scprimer:L76:10^{-108})"),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 94, '', 'calc', '2.7255', 'input: T_CMB = 2.7255 K (Fixsen 2009) restated; also read by ch:scprimer:L77:2.7255'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 118, '', 'calc', '1.2', 'input: T_c(Al) = 1.2 K (material constant), restated from line 16; Delta_Al/(1.764 k_B) = 1.20 K is checked by ch:scprimer:L16'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 118, '', 'calc', '4.47', 'input: T_c(Ta) = 4.47 K, material constant used for the figure, nothing to recompute'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 118, '', 'calc', '9.25', 'input: T_c(Nb) = 9.25 K, material constant used for the figure, nothing to recompute'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 134, '', 'observed', '10', 'input: surface-code threshold of about 1e-2 quoted from Fowler2012 (doi:10.1103/physreva.86.032324), an order of magnitude, nothing to recompute'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 135, '', 'observed', '68', 'measured, source not named'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 135, '', 'observed', '89', 'measured, source not named'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 31, '', 'observed', '0.1', 'measured, source not named'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 51, '', 'observed', '10', 'measured, source not named'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 53, '', 'observed', '10', 'measured, source not named'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 56, 'eq:catelani', 'none', '', 'definition: the published quasiparticle relaxation rate of Catelani2011 quoted as the model; used numerically by ch:scprimer:L126 and ch:scprimer:L126:2.4e-8'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 76, '', 'observed', '592', 'measured, source not named'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 76, '', 'observed', '41', 'measured, source not named'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 76, '', 'observed', '17.1', 'measured, source not named'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 78, '', 'observed', '10', 'measured, source not named'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 83, '', 'calc', '182', 'input: Delta_Al = 182 ueV restated (recomputed from BCS by ch:scprimer:L16:182)'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 85, '', 'calc', '10', "restates ch:scprimer:L76:10^{-108} (the '10' is the base of a printed power; every number on this line is checked by ch:scprimer:L76, ch:scprimer:L76:2\\times10^{20}, ch:scprimer:L76:10^{-108})"),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 103, '', 'calc', '2.7255', 'input: T_CMB = 2.7255 K (Fixsen 2009) restated; also read by ch:scprimer:L77:2.7255'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 127, '', 'calc', '1.2', 'input: T_c(Al) = 1.2 K (material constant), restated from line 16; Delta_Al/(1.764 k_B) = 1.20 K is checked by ch:scprimer:L16'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 127, '', 'calc', '4.47', 'input: T_c(Ta) = 4.47 K, material constant used for the figure, nothing to recompute'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 127, '', 'calc', '9.25', 'input: T_c(Nb) = 9.25 K, material constant used for the figure, nothing to recompute'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 143, '', 'observed', '10', 'input: surface-code threshold of about 1e-2 quoted from Fowler2012 (doi:10.1103/physreva.86.032324), an order of magnitude, nothing to recompute'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 144, '', 'observed', '68', 'measured, source not named'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 144, '', 'observed', '89', 'measured, source not named'),
     (5, 'ch:xqp', 'part3/p3_02_xqp', 14, '', 'calc', '182', 'input: Delta_Al = 182 ueV restated (recomputed from BCS by ch:scprimer:L16:182)'),
     (5, 'ch:xqp', 'part3/p3_02_xqp', 14, '', 'observed', '10', 'measured, source not named'),
     (5, 'ch:xqp', 'part3/p3_02_xqp', 17, '', 'observed', '', 'measured, source not named'),
@@ -46488,9 +46488,9 @@ INVENTORY = [
     (4, 'ch:measurement', 'part5/p5_04_measurement', 88, '', 'calc', '1.3\\times10^{-34}', 'printed value 1.3e-34 J has two significant digits: a 5 % change cannot be told from rounding (recomputed G m^2/R = 1.335e-34; 1.05 x 1.3e-34 = 1.365e-34 is within the 2.5 % control tolerance). No more precise value is printed'),
     (4, 'ch:measurement', 'part5/p5_04_measurement', 89, '', 'calc', '1.3\\times10^{-29}', 'printed value 1.3e-29 J has two significant digits: a 5 % change cannot be told from rounding (recomputed G m^2/R = 1.335e-29; 1.05 x 1.3e-29 = 1.365e-29 is within the 2.5 % control tolerance). No more precise value is printed'),
     (4, 'ch:measurement', 'part5/p5_04_measurement', 90, '', 'calc', '1.3\\times10^{-19}', 'printed value 1.3e-19 J has two significant digits: a 5 % change cannot be told from rounding (recomputed G m^2/R = 1.335e-19; 1.05 x 1.3e-19 = 1.365e-19 is within the 2.5 % control tolerance). No more precise value is printed'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 15, '', 'calc', '1.1\\times10^{-7}', 'printed value 1.1e-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed exp(-hf/kT) = 1.128e-7; 1.05 x 1.1e-7 = 1.155e-7 is within the 2.5 % control tolerance). The precise exponent is checked at ch:scprimer:L15 (hf/kT = 16.0)'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 23, '', 'calc', '1.1\\times10^{-7}', 'printed value 1.1e-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed 1.128e-7; 1.05 x 1.1e-7 = 1.155e-7 is within the 2.5 % control tolerance). The precise exponent is checked at ch:scprimer:L15 (hf/kT = 16.0)'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 77, '', 'calc', '4\\times10^{22}', 'printed value 4e22 s^-1 m^-2 has one significant digit: a 5 % change cannot be told from rounding (recomputed 4.105e22; 1.05 x 4e22 = 4.2e22). No more precise value is printed'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 24, '', 'calc', '1.1\\times10^{-7}', 'printed value 1.1e-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed exp(-hf/kT) = 1.128e-7; 1.05 x 1.1e-7 = 1.155e-7 is within the 2.5 % control tolerance). The precise exponent is checked at ch:scprimer:L15 (hf/kT = 16.0)'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 32, '', 'calc', '1.1\\times10^{-7}', 'printed value 1.1e-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed 1.128e-7; 1.05 x 1.1e-7 = 1.155e-7 is within the 2.5 % control tolerance). The precise exponent is checked at ch:scprimer:L15 (hf/kT = 16.0)'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 86, '', 'calc', '4\\times10^{22}', 'printed value 4e22 s^-1 m^-2 has one significant digit: a 5 % change cannot be told from rounding (recomputed 4.105e22; 1.05 x 4e22 = 4.2e22). No more precise value is printed'),
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 93, '', 'calc', '6\\times10^{-4}', 'printed value 6e-4 has one significant digit: a 5 % change cannot be told from rounding (recomputed 6.188e-4; 1.05 x 6e-4 = 6.3e-4). Its input p_eq at 35 mK is checked to three digits at ch:qplatforms:L52 (1.05e-3)'),
     (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 54, '', 'calc', '6\\times10^{-4}', 'printed value 6e-4 (the book says near 6e-4) has one significant digit: a 5 % change cannot be told from rounding (recomputed 6.188e-4; 1.05 x 6e-4 = 6.3e-4). Its input p_eq at 35 mK is checked to three digits at ch:qplatforms:L52 (1.05e-3)'),
     (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 55, '', 'calc', '1.1\\times10^{-7}', 'printed value 1.1x10^-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed 1.128e-7); the precise value is checked at ch:qplatforms:L55 (M = 16.0)'),

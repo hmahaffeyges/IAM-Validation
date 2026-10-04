@@ -3938,64 +3938,64 @@ Totals: 4983 PASS, 1 FAIL, 1358 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 15 | ch:scprimer:L15 | calc | `16.0` | numeric: hf/k_B T, 5 GHz, 15 mK | PASS |
-| 15 | ch:scprimer:L15:8.2\times10^{-3} | calc | `8.2\times10^{-3}` | numeric: e^(-hf/kT) at 50 mK | PASS |
-| 15 |  | calc | `1.1\times10^{-7}` | not run: printed value 1.1e-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed exp(-hf/kT) = 1.128e-7; 1.05 x 1.1e-7 = 1.155e-7 is within the 2.5 % control tolerance). The precise exponent is checked at ch:scprimer:L15 (hf/kT = 16.0) | - |
-| 16 | ch:scprimer:L16 | calc | `1.20` | numeric: Delta_Al/(1.764 k_B), K | PASS |
-| 16 | ch:scprimer:L16:182 | calc | `182` | numeric: BCS gap of aluminium, ueV | PASS |
-| 17 | ch:scprimer:L17 | calc | `1.44\times10^{-25}` | numeric: k_B T ln2 at 15 mK, J | PASS |
-| 17 | ch:scprimer:L17:5\times10^{-5} | calc | `5\times10^{-5}` | numeric: temperature ratio | PASS |
-| 22 |  | observed | `0.1` | not run: measured, source not named | - |
-| 23 | ch:scprimer:L23 | calc | `6.86` | numeric: M = hf/kT, 5 GHz, 35 mK | PASS |
-| 23 | ch:scprimer:L23:1.1\times10^{-3} | calc | `1.1\times10^{-3}` | numeric: equilibrium occupation e^-M at 35 mK | PASS |
-| 23 |  | calc | `1.1\times10^{-7}` | not run: printed value 1.1e-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed 1.128e-7; 1.05 x 1.1e-7 = 1.155e-7 is within the 2.5 % control tolerance). The precise exponent is checked at ch:scprimer:L15 (hf/kT = 16.0) | - |
-| 36 | ch:scprimer:L36 | calc |  | sympy: thermal x_qp vanishes as T -> 0 and rises with T | PASS |
-| 40 | ch:scprimer:L40 | calc | `141` | numeric: Delta/k_B T, Al, 15 mK | PASS |
-| 42 |  | observed | `10` | not run: measured, source not named | - |
-| 44 |  | observed | `10` | not run: measured, source not named | - |
-| 47 | eq:catelani | none |  | not run: definition: the published quasiparticle relaxation rate of Catelani2011 quoted as the model; used numerically by ch:scprimer:L126 and ch:scprimer:L126:2.4e-8 | - |
-| 67 |  | observed | `592` | not run: measured, source not named | - |
-| 67 |  | observed | `41` | not run: measured, source not named | - |
-| 67 |  | observed | `17.1` | not run: measured, source not named | - |
-| 69 |  | observed | `10` | not run: measured, source not named | - |
-| 74 | ch:scprimer:L74 | calc | `88` | numeric: nu > 2 Delta/h, GHz | PASS |
-| 74 |  | calc | `182` | not run: input: Delta_Al = 182 ueV restated (recomputed from BCS by ch:scprimer:L16:182) | - |
-| 76 | ch:scprimer:L76 | calc | `8\times10^{16}` | numeric: black-body photons above 2 Delta_Al, 4 K, per s per m^2 | PASS |
-| 76 | ch:scprimer:L76:2\times10^{20} | calc | `2\times10^{20}` | numeric: the same at 50 K | PASS |
-| 76 | ch:scprimer:L76:10^{-108} | calc | `10^{-108}` | numeric: the same at 15 mK (order) | PASS |
-| 76 |  | calc | `10` | not run: restates ch:scprimer:L76:10^{-108} (the '10' is the base of a printed power; every number on this line is checked by ch:scprimer:L76, ch:scprimer:L76:2\times10^{20}, ch:scprimer:L76:10^{-108}) | - |
-| 77 | ch:scprimer:L77:2.7255 | calc | `2.7255` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 77 |  | calc | `4\times10^{22}` | not run: printed value 4e22 s^-1 m^-2 has one significant digit: a 5 % change cannot be told from rounding (recomputed 4.105e22; 1.05 x 4e22 = 4.2e22). No more precise value is printed | - |
-| 78 | ch:scprimer:L78 | calc | `2\times10^{16}` | numeric: the same for the CMB | PASS |
-| 84 | ch:scprimer:L84 | calc | `2.7\times10^{8}` | numeric: pairs broken at most by a 100 keV deposit | PASS |
-| 94 |  | calc | `2.7255` | not run: input: T_CMB = 2.7255 K (Fixsen 2009) restated; also read by ch:scprimer:L77:2.7255 | - |
-| 96 | ch:scprimer:L96 | calc | `61.7` | numeric: T_H of 1 M_sun, nK | PASS |
-| 96 | ch:scprimer:L96:4.4\times10^{7} | calc | `4.4\times10^{7}` | numeric: T_CMB / T_H(1 M_sun) | PASS |
-| 96 | ch:scprimer:L96:182 | calc | `182` | numeric: T_CMB / 15 mK | PASS |
-| 97 | ch:scprimer:L97 | calc | `4.5\times10^{22}` | numeric: mass in balance with the CMB, kg | PASS |
-| 99 | ch:scprimer:L99 | calc | `3.13\times10^{-6}` | numeric: CMB energy flux, W/m^2 | PASS |
-| 100 | ch:scprimer:L100 | calc | `2.81\times10^{-6}` | numeric: CMB energy flux above 2 Delta_Al | PASS |
-| 100 | ch:scprimer:L100:2.19\times10^{16} | calc | `2.19\times10^{16}` | numeric: CMB photons above 2 Delta_Al | PASS |
-| 101 | ch:scprimer:L101 | calc | `2.2` | numeric: broken pairs per photon at most | PASS |
-| 101 | ch:scprimer:L101:9.31 | calc | `9.31` | numeric: mean photon energy above threshold, in k_B K | PASS |
-| 111 | ch:scprimer:L111 | calc | `2.11` | numeric: Delta_Al/k_B, K | PASS |
-| 118 | ch:scprimer:L118 | calc | `1.764` | numeric: BCS ratio Delta/(k_B T_c) = pi e^(-gamma_E) | PASS |
-| 118 |  | calc | `1.2` | not run: input: T_c(Al) = 1.2 K (material constant), restated from line 16; Delta_Al/(1.764 k_B) = 1.20 K is checked by ch:scprimer:L16 | - |
-| 118 |  | calc | `4.47` | not run: input: T_c(Ta) = 4.47 K, material constant used for the figure, nothing to recompute | - |
-| 118 |  | calc | `9.25` | not run: input: T_c(Nb) = 9.25 K, material constant used for the figure, nothing to recompute | - |
-| 125 | ch:scprimer:L125 | calc | `182` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 126 | ch:scprimer:L126 | calc | `0.24` | numeric: T1 from Catelani, x_qp = 1e-7, ms | PASS |
-| 126 | ch:scprimer:L126:2.4e-8 | calc | `2.4\times10^{-8}` | numeric: x_qp for T1 = 1 ms from Catelani, Al, 5 GHz | PASS |
-| 127 | ch:scprimer:L127 | calc | `0.32` | numeric: T1 from Gamma = x_qp omega_q, ms | PASS |
-| 128 | ch:scprimer:L128 | calc | `0.5` | file `docs/book/iam.bib`: best transmon T1, ms, from the cited title | PASS |
-| 134 |  | observed | `10` | not run: input: surface-code threshold of about 1e-2 quoted from Fowler2012 (doi:10.1103/physreva.86.032324), an order of magnitude, nothing to recompute | - |
-| 135 |  | observed | `68` | not run: measured, source not named | - |
-| 135 |  | observed | `89` | not run: measured, source not named | - |
-| 137 | ch:scprimer:L137 | calc | `1.31` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 160 | ch:scprimer:L160 | calc | `3.6\times10^{-12}` | numeric: hbar/Delta_Al, s | PASS |
-| 160 | ch:scprimer:L160:1.055e-34 | calc | `1.055\times10^{-34}` | numeric: hbar = h/2pi, J s | PASS |
-| 162 | ch:scprimer:L162 | calc | `4\times10^{-6}` | numeric: tau_phi/tau_TLS at 1 us | PASS |
-| 162 | ch:scprimer:L162:4\times10^{-8} | calc | `4\times10^{-8}` | numeric: tau_phi/tau_TLS at 100 us | PASS |
+| 24 | ch:scprimer:L15 | calc | `16.0` | numeric: hf/k_B T, 5 GHz, 15 mK | PASS |
+| 24 | ch:scprimer:L15:8.2\times10^{-3} | calc | `8.2\times10^{-3}` | numeric: e^(-hf/kT) at 50 mK | PASS |
+| 24 |  | calc | `1.1\times10^{-7}` | not run: printed value 1.1e-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed exp(-hf/kT) = 1.128e-7; 1.05 x 1.1e-7 = 1.155e-7 is within the 2.5 % control tolerance). The precise exponent is checked at ch:scprimer:L15 (hf/kT = 16.0) | - |
+| 25 | ch:scprimer:L16 | calc | `1.20` | numeric: Delta_Al/(1.764 k_B), K | PASS |
+| 25 | ch:scprimer:L16:182 | calc | `182` | numeric: BCS gap of aluminium, ueV | PASS |
+| 26 | ch:scprimer:L17 | calc | `1.44\times10^{-25}` | numeric: k_B T ln2 at 15 mK, J | PASS |
+| 26 | ch:scprimer:L17:5\times10^{-5} | calc | `5\times10^{-5}` | numeric: temperature ratio | PASS |
+| 31 |  | observed | `0.1` | not run: measured, source not named | - |
+| 32 | ch:scprimer:L23 | calc | `6.86` | numeric: M = hf/kT, 5 GHz, 35 mK | PASS |
+| 32 | ch:scprimer:L23:1.1\times10^{-3} | calc | `1.1\times10^{-3}` | numeric: equilibrium occupation e^-M at 35 mK | PASS |
+| 32 |  | calc | `1.1\times10^{-7}` | not run: printed value 1.1e-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed 1.128e-7; 1.05 x 1.1e-7 = 1.155e-7 is within the 2.5 % control tolerance). The precise exponent is checked at ch:scprimer:L15 (hf/kT = 16.0) | - |
+| 45 | ch:scprimer:L36 | calc |  | sympy: thermal x_qp vanishes as T -> 0 and rises with T | PASS |
+| 49 | ch:scprimer:L40 | calc | `141` | numeric: Delta/k_B T, Al, 15 mK | PASS |
+| 51 |  | observed | `10` | not run: measured, source not named | - |
+| 53 |  | observed | `10` | not run: measured, source not named | - |
+| 56 | eq:catelani | none |  | not run: definition: the published quasiparticle relaxation rate of Catelani2011 quoted as the model; used numerically by ch:scprimer:L126 and ch:scprimer:L126:2.4e-8 | - |
+| 76 |  | observed | `592` | not run: measured, source not named | - |
+| 76 |  | observed | `41` | not run: measured, source not named | - |
+| 76 |  | observed | `17.1` | not run: measured, source not named | - |
+| 78 |  | observed | `10` | not run: measured, source not named | - |
+| 83 | ch:scprimer:L74 | calc | `88` | numeric: nu > 2 Delta/h, GHz | PASS |
+| 83 |  | calc | `182` | not run: input: Delta_Al = 182 ueV restated (recomputed from BCS by ch:scprimer:L16:182) | - |
+| 85 | ch:scprimer:L76 | calc | `8\times10^{16}` | numeric: black-body photons above 2 Delta_Al, 4 K, per s per m^2 | PASS |
+| 85 | ch:scprimer:L76:2\times10^{20} | calc | `2\times10^{20}` | numeric: the same at 50 K | PASS |
+| 85 | ch:scprimer:L76:10^{-108} | calc | `10^{-108}` | numeric: the same at 15 mK (order) | PASS |
+| 85 |  | calc | `10` | not run: restates ch:scprimer:L76:10^{-108} (the '10' is the base of a printed power; every number on this line is checked by ch:scprimer:L76, ch:scprimer:L76:2\times10^{20}, ch:scprimer:L76:10^{-108}) | - |
+| 86 | ch:scprimer:L77:2.7255 | calc | `2.7255` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 86 |  | calc | `4\times10^{22}` | not run: printed value 4e22 s^-1 m^-2 has one significant digit: a 5 % change cannot be told from rounding (recomputed 4.105e22; 1.05 x 4e22 = 4.2e22). No more precise value is printed | - |
+| 87 | ch:scprimer:L78 | calc | `2\times10^{16}` | numeric: the same for the CMB | PASS |
+| 93 | ch:scprimer:L84 | calc | `2.7\times10^{8}` | numeric: pairs broken at most by a 100 keV deposit | PASS |
+| 103 |  | calc | `2.7255` | not run: input: T_CMB = 2.7255 K (Fixsen 2009) restated; also read by ch:scprimer:L77:2.7255 | - |
+| 105 | ch:scprimer:L96 | calc | `61.7` | numeric: T_H of 1 M_sun, nK | PASS |
+| 105 | ch:scprimer:L96:4.4\times10^{7} | calc | `4.4\times10^{7}` | numeric: T_CMB / T_H(1 M_sun) | PASS |
+| 105 | ch:scprimer:L96:182 | calc | `182` | numeric: T_CMB / 15 mK | PASS |
+| 106 | ch:scprimer:L97 | calc | `4.5\times10^{22}` | numeric: mass in balance with the CMB, kg | PASS |
+| 108 | ch:scprimer:L99 | calc | `3.13\times10^{-6}` | numeric: CMB energy flux, W/m^2 | PASS |
+| 109 | ch:scprimer:L100 | calc | `2.81\times10^{-6}` | numeric: CMB energy flux above 2 Delta_Al | PASS |
+| 109 | ch:scprimer:L100:2.19\times10^{16} | calc | `2.19\times10^{16}` | numeric: CMB photons above 2 Delta_Al | PASS |
+| 110 | ch:scprimer:L101 | calc | `2.2` | numeric: broken pairs per photon at most | PASS |
+| 110 | ch:scprimer:L101:9.31 | calc | `9.31` | numeric: mean photon energy above threshold, in k_B K | PASS |
+| 120 | ch:scprimer:L111 | calc | `2.11` | numeric: Delta_Al/k_B, K | PASS |
+| 127 | ch:scprimer:L118 | calc | `1.764` | numeric: BCS ratio Delta/(k_B T_c) = pi e^(-gamma_E) | PASS |
+| 127 |  | calc | `1.2` | not run: input: T_c(Al) = 1.2 K (material constant), restated from line 16; Delta_Al/(1.764 k_B) = 1.20 K is checked by ch:scprimer:L16 | - |
+| 127 |  | calc | `4.47` | not run: input: T_c(Ta) = 4.47 K, material constant used for the figure, nothing to recompute | - |
+| 127 |  | calc | `9.25` | not run: input: T_c(Nb) = 9.25 K, material constant used for the figure, nothing to recompute | - |
+| 134 | ch:scprimer:L125 | calc | `182` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 135 | ch:scprimer:L126 | calc | `0.24` | numeric: T1 from Catelani, x_qp = 1e-7, ms | PASS |
+| 135 | ch:scprimer:L126:2.4e-8 | calc | `2.4\times10^{-8}` | numeric: x_qp for T1 = 1 ms from Catelani, Al, 5 GHz | PASS |
+| 136 | ch:scprimer:L127 | calc | `0.32` | numeric: T1 from Gamma = x_qp omega_q, ms | PASS |
+| 137 | ch:scprimer:L128 | calc | `0.5` | file `docs/book/iam.bib`: best transmon T1, ms, from the cited title | PASS |
+| 143 |  | observed | `10` | not run: input: surface-code threshold of about 1e-2 quoted from Fowler2012 (doi:10.1103/physreva.86.032324), an order of magnitude, nothing to recompute | - |
+| 144 |  | observed | `68` | not run: measured, source not named | - |
+| 144 |  | observed | `89` | not run: measured, source not named | - |
+| 146 | ch:scprimer:L137 | calc | `1.31` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 169 | ch:scprimer:L160 | calc | `3.6\times10^{-12}` | numeric: hbar/Delta_Al, s | PASS |
+| 169 | ch:scprimer:L160:1.055e-34 | calc | `1.055\times10^{-34}` | numeric: hbar = h/2pi, J s | PASS |
+| 171 | ch:scprimer:L162 | calc | `4\times10^{-6}` | numeric: tau_phi/tau_TLS at 1 us | PASS |
+| 171 | ch:scprimer:L162:4\times10^{-8} | calc | `4\times10^{-8}` | numeric: tau_phi/tau_TLS at 100 us | PASS |
 
 ## Part 5 - ch:xqp - `docs/book/part3/p3_02_xqp.tex`
 
