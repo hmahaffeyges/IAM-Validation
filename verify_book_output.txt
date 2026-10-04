@@ -5267,13 +5267,91 @@ PASS  ch:predictions:L174                ch:predictions:p5_07_predictions:174  p
 PASS  ch:predictions:L191                ch:predictions:p5_07_predictions:191  printed 0.24  recomputed 0.238346  tol 0.00500001  [openprob] quasiparticle-limited T1 of a 5 GHz Al transmon at x_qp = 1e-7, ms
 
 == Part 7: Thirty-Seven Orders of Magnitude and the Web that is IAM | ch:exploratory (part5/p5_02_exploratory.tex)
+PASS  ch:exploratory:L20                 ch:exploratory:p5_02_exploratory:20  printed 2.65\times10^{-30}  recomputed 2.645898e-30  tol 5.000005e-33  [calc] horizon temperature T_H = hbar H/(2 pi k_B) at H0_photon
 PASS  ch:exploratory:L21                 ch:exploratory:p5_02_exploratory:21  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:exploratory:L21:2.53\times10^{-53} ch:exploratory:p5_02_exploratory:21  printed 2.53\times10^{-53}  recomputed 2.532106e-53  tol 5.000005e-56  [calc] Landauer cost k_B T_H ln 2 per bit at H0_photon
+PASS  ch:exploratory:L21:2.85\times10^{-30} ch:exploratory:p5_02_exploratory:21  printed 2.85\times10^{-30}  recomputed 2.846823e-30  tol 5.000005e-33  [calc] horizon temperature T_H = hbar H/(2 pi k_B) at H0_matter
 PASS  ch:exploratory:L22                 ch:exploratory:p5_02_exploratory:22  printed 72.26  recomputed 72.2602  tol 0.00505821  [calc] same value as p1_02_iams_law:696 (H0 matter-sector formula)
+PASS  ch:exploratory:L22:2.72\times10^{-53} ch:exploratory:p5_02_exploratory:22  printed 2.72\times10^{-53}  recomputed 2.724389e-53  tol 5.000005e-56  [calc] Landauer cost k_B T_H ln 2 per bit at H0_matter
 PASS  ch:exploratory:L27                 ch:exploratory:p5_02_exploratory:27  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [prediction] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
+PASS  ch:exploratory:L28                 ch:exploratory:p5_02_exploratory:28  printed (algebra)  recomputed True  [prediction] E(1)=1, E->e, rate dE/dlna = E/a peaks at a=1
+PASS  ch:exploratory:L33                 ch:exploratory:p5_02_exploratory:33  printed 72.26  recomputed 72.2602  tol 0.00500001  [derived] H_eff,m at a=1 gives the matter-sector H0
+PASS  ch:exploratory:L44                 ch:exploratory:p5_02_exploratory:44  printed (algebra)  recomputed True  [derived] g = -grad Phi recovers Newtonian gravity
+PASS  ch:exploratory:L55                 ch:exploratory:p5_02_exploratory:55  printed (algebra)  recomputed True  [none] equation of motion from the weak-field Lagrangian
+PASS  ch:exploratory:L61                 ch:exploratory:p5_02_exploratory:61  printed (algebra)  recomputed True  [derived] felt force vanishes on the free-fall trajectory
+PASS  ch:exploratory:L67                 ch:exploratory:p5_02_exploratory:67  printed (algebra)  recomputed lhs-rhs=0  [derived] tidal residual g(r)-g(r+L) = 2GML/r^3 = L |Phi_rr|
+PASS  ch:exploratory:L72                 ch:exploratory:p5_02_exploratory:72  printed 3.1\times10^{-6}  recomputed 3.143578e-06  tol 5.000005e-08  [derived] tidal residual 2GML/R^3 across 10 m at the Earth surface, in g
+PASS  ch:exploratory:L73                 ch:exploratory:p5_02_exploratory:73  printed 3.1\times10^{-5}  recomputed 3.143578e-05  tol 5.000005e-07  [calc] tidal residual 2GML/R^3 across 100 m at the Earth surface, in g
+PASS  ch:exploratory:L83                 ch:exploratory:p5_02_exploratory:83  printed (algebra)  recomputed True  [derived] hover: grad Phi_IAM = g_amb solves zero net field
+PASS  ch:exploratory:L95                 ch:exploratory:p5_02_exploratory:95  printed (algebra)  recomputed lhs-rhs=0  [derived] plumb hang angle tan(theta) = a_h/g_v
+PASS  ch:exploratory:L99                 ch:exploratory:p5_02_exploratory:99  printed 5.7  recomputed 5.71059  tol 0.05  [derived] hang angle at a_h = 0.1 g, degrees
+PASS  ch:exploratory:L108                ch:exploratory:p5_02_exploratory:108  printed (algebra)  recomputed lhs-rhs=0  [derived] gravity-gradient torque on a dumbbell
+PASS  ch:exploratory:L118                ch:exploratory:p5_02_exploratory:118  printed (algebra)  recomputed lhs-rhs=0  [none] Hubble law from proper distance D = a chi
+PASS  eq:ge_DH                           ch:exploratory:p5_02_exploratory:123  printed 1.46\times10^{10}  recomputed 1.455915e+10  tol 5.000005e+07  [calc] Hubble radius c/H0 at 67.16, light-years
+PASS  eq:ge_DH:1.35\times10^{10}         ch:exploratory:p5_02_exploratory:123  printed 1.35\times10^{10}  recomputed 1.353158e+10  tol 5.000005e+07  [calc] Hubble radius c/H0 at 72.26, light-years
 PASS  ch:exploratory:L136                ch:exploratory:p5_02_exploratory:136  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:exploratory:L136:72.26          ch:exploratory:p5_02_exploratory:136  printed 72.26  recomputed 72.2602  tol 0.00505821  [calc] same value as p1_02_iams_law:696 (H0 matter-sector formula)
+PASS  ch:exploratory:L137                ch:exploratory:p5_02_exploratory:137  printed 1.46  recomputed 1.45591  tol 0.00500001  [calc] Hubble radius at 67.16 in 1e10 ly (figure caption)
+PASS  ch:exploratory:L137:1.35\times10^{10} ch:exploratory:p5_02_exploratory:137  printed 1.35\times10^{10}  recomputed 1.353158e+10  tol 5.000005e+07  [calc] Hubble radius at 72.26 in ly (figure caption)
+PASS  ch:exploratory:L137:3\times10^{-8} ch:exploratory:p5_02_exploratory:137  printed 3\times10^{-8}  recomputed 3.046694e-08  tol 5.000005e-09  [calc] Pleiades distance as a fraction of the Hubble radius
+PASS  ch:exploratory:L153                ch:exploratory:p5_02_exploratory:153  printed (algebra)  recomputed lhs-rhs=0  [derived] centre worldline of the displaced region: ds^2 = -c^2 dt^2
+PASS  ch:exploratory:L161                ch:exploratory:p5_02_exploratory:161  printed (algebra)  recomputed lhs-rhs=0  [derived] clock difference set by the potential difference over c^2
+PASS  ch:exploratory:L176                ch:exploratory:p5_02_exploratory:176  printed (algebra)  recomputed lhs-rhs=0  [derived] Eulerian energy density of the displaced region
+PASS  ch:exploratory:L188                ch:exploratory:p5_02_exploratory:188  printed 2.3\times10^4  recomputed 23145  tol 500  [calc] rate xi for a seven-day one-way transit to the Pleiades
+PASS  eq:ge_xi                           ch:exploratory:p5_02_exploratory:202  printed 2.3\times10^4  recomputed 23125  tol 500  [calc] xi = 444 yr / 0.0192 yr
+PASS  ch:exploratory:L208                ch:exploratory:p5_02_exploratory:208  printed 3\times10^{-8}  recomputed 3.046694e-08  tol 5.000005e-09  [calc] Pleiades distance as a fraction of the Hubble radius
+PASS  ch:exploratory:L214                ch:exploratory:p5_02_exploratory:214  printed 2.3\times10^4  recomputed 23145  tol 500  [calc] transit figure: xi for seven days
+PASS  ch:exploratory:L215                ch:exploratory:p5_02_exploratory:215  printed 3.1\times10^{-6}  recomputed 3.143578e-06  tol 5.000005e-08  [derived] transit figure: tidal residual across 10 m, in g
+PASS  ch:exploratory:L215:3.1\times10^{-5} ch:exploratory:p5_02_exploratory:215  printed 3.1\times10^{-5}  recomputed 3.143578e-05  tol 5.000005e-07  [derived] transit figure: tidal residual across 100 m, in g
+PASS  ch:exploratory:L262                ch:exploratory:p5_02_exploratory:262  printed -1.5  recomputed -1.5  tol 0.05  [observed] MICROSCOPE eta(Ti,Pt) central value
+PASS  ch:exploratory:L262:2.7\times10^{-15} ch:exploratory:p5_02_exploratory:262  printed 2.7\times10^{-15}  recomputed 2.745906e-15  tol 5.000005e-17  [observed] MICROSCOPE combined uncertainty, stat and syst in quadrature
+PASS  ch:exploratory:L298                ch:exploratory:p5_02_exploratory:298  printed 1.00  recomputed 1  tol 0.00500001  [derived] three coplanar sources: mirror/target ratio
+PASS  ch:exploratory:L299                ch:exploratory:p5_02_exploratory:299  printed 0.44  recomputed 0.440564  tol 0.00500001  [derived] four non-coplanar sources: mirror/target ratio
+PASS  ch:exploratory:L337                ch:exploratory:p5_02_exploratory:337  printed 3.1\times10^{-6}  recomputed 3.143578e-06  tol 5.000005e-08  [derived] status table: tidal residual across 10 m, in g
+PASS  ch:exploratory:L337:3.1\times10^{-5} ch:exploratory:p5_02_exploratory:337  printed 3.1\times10^{-5}  recomputed 3.143578e-05  tol 5.000005e-07  [derived] status table: tidal residual across 100 m, in g
+PASS  ch:exploratory:L341                ch:exploratory:p5_02_exploratory:341  printed 1.46  recomputed 1.45591  tol 0.00500001  [derived] status table: Hubble radius at 67.16 in 1e10 ly
+PASS  ch:exploratory:L341:1.35\times10^{10} ch:exploratory:p5_02_exploratory:341  printed 1.35\times10^{10}  recomputed 1.353158e+10  tol 5.000005e+07  [derived] status table: Hubble radius at 72.26 in ly
+PASS  ch:exploratory:L373                ch:exploratory:p5_02_exploratory:373  printed (algebra)  recomputed True  [none] mutual static forces cancel for an even kernel
+PASS  ch:exploratory:L395                ch:exploratory:p5_02_exploratory:395  printed (algebra)  recomputed lhs-rhs=0  [derived] radiated power for a given thrust, P = m a c
+PASS  ch:exploratory:L399                ch:exploratory:p5_02_exploratory:399  printed 3.34\times10^{-9}  recomputed 3.335641e-09  tol 5.000005e-12  [derived] thrust per watt 1/c
+PASS  ch:exploratory:L399:2.94\times10^{12} ch:exploratory:p5_02_exploratory:399  printed 2.94\times10^{12}  recomputed 2.939960e+12  tol 5.000005e+09  [derived] power to hold one tonne at 1 g
+PASS  ch:exploratory:L400                ch:exploratory:p5_02_exploratory:400  printed 2.94\times10^{14}  recomputed 2.939960e+14  tol 5.000005e+11  [calc] power for a 100 g departure of one tonne
+PASS  ch:exploratory:L417                ch:exploratory:p5_02_exploratory:417  printed (algebra)  recomputed lhs-rhs=0  [derived] felt load m eta a and the bound on eta
+PASS  ch:exploratory:L421                ch:exploratory:p5_02_exploratory:421  printed 1000  recomputed 1000  tol 0.5  [calc] a 1000 g departure felt below 0.1 g needs the same eta
+PASS  ch:exploratory:L431                ch:exploratory:p5_02_exploratory:431  printed (algebra)  recomputed lhs-rhs=0  [derived] tide of a monopole focus 2GML/r^3 = 2aL/r
+PASS  ch:exploratory:L435                ch:exploratory:p5_02_exploratory:435  printed 20  recomputed 20  tol 0.5  [derived] tide 2aL/r at 100 g, 10 m, focus at 100 m
+PASS  ch:exploratory:L436                ch:exploratory:p5_02_exploratory:436  printed 5.9\times10^{23}  recomputed 5.877261e+23  tol 5.000005e+21  [calc] strength of a 100 g focus at 200 km
+PASS  ch:exploratory:L445                ch:exploratory:p5_02_exploratory:445  printed 2.3\times10^4  recomputed 23145  tol 500  [derived] Pleiades rate xi for seven days
+PASS  ch:exploratory:L450                ch:exploratory:p5_02_exploratory:450  printed (algebra)  recomputed lhs-rhs=0  [derived] total negative energy -(v^2/12) int r^2 f^2 dr
+PASS  ch:exploratory:L455                ch:exploratory:p5_02_exploratory:455  printed (algebra)  recomputed lhs-rhs=0  [derived] linear wall: int r^2 f^2 dr = R^2/Delta + Delta/12
+PASS  ch:exploratory:L461                ch:exploratory:p5_02_exploratory:461  printed 6.9\times10^{62}  recomputed 6.942958e+62  tol 5.000005e+60  [calc] negative energy, 100 m bubble at c, wall 100 L_P
+PASS  ch:exploratory:L462                ch:exploratory:p5_02_exploratory:462  printed 3\times10^{20}  recomputed 3.471479e+20  tol 5.000005e+19  [calc] negative energy of a 100 m bubble in galaxies of 2e42 kg
+PASS  ch:exploratory:L462:2.3\times10^4  ch:exploratory:p5_02_exploratory:462  printed 2.3\times10^4  recomputed 23145  tol 500  [calc] Pleiades rate xi (bubble speed)
+PASS  ch:exploratory:L463                ch:exploratory:p5_02_exploratory:463  printed 1.6\times10^{67}  recomputed 1.596880e+67  tol 5.000005e+65  [calc] negative energy at the Pleiades rate
+PASS  ch:exploratory:L463:0.56           ch:exploratory:p5_02_exploratory:463  printed 0.56  recomputed 0.564338  tol 0.00500001  [calc] negative energy with a 1 m wall, solar masses
+PASS  ch:exploratory:L474                ch:exploratory:p5_02_exploratory:474  printed (algebra)  recomputed lhs-rhs=0  [derived] pair self-force from unequal active/passive mass ratios
+PASS  ch:exploratory:L479                ch:exploratory:p5_02_exploratory:479  printed 4\times10^{-12}  recomputed 4.000000e-12  tol 5.000005e-13  [observed] lunar ranging: m_a/m_p equal for Al and Fe (1986)
+PASS  ch:exploratory:L480                ch:exploratory:p5_02_exploratory:480  printed 3.9\times10^{-14}  recomputed 3.900000e-14  tol 5.000005e-16  [observed] lunar laser ranging: m_a/m_p equal for Al and Fe (2023)
+PASS  ch:exploratory:L486                ch:exploratory:p5_02_exploratory:486  printed (algebra)  recomputed lhs-rhs=0  [derived] hover by weight reduction: delta = 1 + m_pay/m_d
+PASS  ch:exploratory:L496                ch:exploratory:p5_02_exploratory:496  printed 2.94\times10^{12}  recomputed 2.939960e+12  tol 5.000005e+09  [derived] summary: power per tonne at 1 g
+PASS  ch:exploratory:L498                ch:exploratory:p5_02_exploratory:498  printed 20  recomputed 20  tol 0.5  [derived] summary: tide 20 g at 100 m from a 100 g focus
+PASS  ch:exploratory:L498:6.9\times10^{62} ch:exploratory:p5_02_exploratory:498  printed 6.9\times10^{62}  recomputed 6.942958e+62  tol 5.000005e+60  [derived] summary: negative energy, 100 m bubble at c
+PASS  ch:exploratory:L499                ch:exploratory:p5_02_exploratory:499  printed 1.6\times10^{67}  recomputed 1.596880e+67  tol 5.000005e+65  [derived] summary: negative energy at the Pleiades rate
+PASS  ch:exploratory:L502                ch:exploratory:p5_02_exploratory:502  printed 3.9\times10^{-14}  recomputed 3.900000e-14  tol 5.000005e-16  [conjecture] summary: lunar laser ranging Al/Fe ratio (2023)
+PASS  ch:exploratory:L515                ch:exploratory:p5_02_exploratory:515  printed 2.94\times10^{12}  recomputed 2.939960e+12  tol 5.000005e+09  [derived] status table: power per tonne at 1 g
+PASS  ch:exploratory:L515:2.94\times10^{14} ch:exploratory:p5_02_exploratory:515  printed 2.94\times10^{14}  recomputed 2.939960e+14  tol 5.000005e+11  [derived] status table: power per tonne at 100 g
+PASS  ch:exploratory:L518                ch:exploratory:p5_02_exploratory:518  printed 100  recomputed 100  tol 0.5  [derived] status table: 100 g felt below 0.01 g needs eta = 1e-4
+PASS  ch:exploratory:L520                ch:exploratory:p5_02_exploratory:520  printed 20  recomputed 20  tol 0.5  [derived] status table: tide 20 g
+PASS  ch:exploratory:L520:5.9\times10^{23} ch:exploratory:p5_02_exploratory:520  printed 5.9\times10^{23}  recomputed 5.877261e+23  tol 5.000005e+21  [derived] status table: focus strength for a 0.01 g tide
+PASS  ch:exploratory:L520:200            ch:exploratory:p5_02_exploratory:520  printed 200  recomputed 200  tol 0.5  [derived] status table: focus distance for a 0.01 g tide, km
+PASS  ch:exploratory:L522                ch:exploratory:p5_02_exploratory:522  printed 4\times10^{-12}  recomputed 4.000000e-12  tol 5.000005e-13  [observed] status table: Al/Fe ratio (1986)
+PASS  ch:exploratory:L522:3.9\times10^{-14} ch:exploratory:p5_02_exploratory:522  printed 3.9\times10^{-14}  recomputed 3.900000e-14  tol 5.000005e-16  [observed] status table: Al/Fe ratio (2023)
+PASS  ch:exploratory:L527                ch:exploratory:p5_02_exploratory:527  printed 6.9\times10^{62}  recomputed 6.942958e+62  tol 5.000005e+60  [calc] status table: negative energy, 100 m bubble at c
+PASS  ch:exploratory:L527:1.6\times10^{67} ch:exploratory:p5_02_exploratory:527  printed 1.6\times10^{67}  recomputed 1.596880e+67  tol 5.000005e+65  [calc] status table: negative energy at 2.3e4 c
+PASS  ch:exploratory:L527:2.3\times10^4  ch:exploratory:p5_02_exploratory:527  printed 2.3\times10^4  recomputed 23145  tol 500  [calc] status table: Pleiades rate xi
+PASS  ch:exploratory:L527:0.56           ch:exploratory:p5_02_exploratory:527  printed 0.56  recomputed 0.564338  tol 0.00500001  [calc] status table: 1 m wall in solar masses
 
 == Part 7: Thirty-Seven Orders of Magnitude and the Web that is IAM | ch:statusall (part5/p5_11_status_all.tex)
 PASS  ch:statusall:L12                   ch:statusall:p5_11_status_all:12  printed -0.28  recomputed -0.279372  tol 0.00500001  [calc] photon-sector H0 vs Planck 67.36 +- 0.54, errors in quadrature
@@ -5600,4 +5678,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 4474  FAIL 0  (heavy, read from committed outputs: 945)  inventoried-not-run 1865  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4552  FAIL 0  (heavy, read from committed outputs: 945)  inventoried-not-run 1788  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

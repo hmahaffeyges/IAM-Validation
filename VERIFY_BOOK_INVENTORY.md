@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4474 PASS, 0 FAIL, 1865 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4552 PASS, 0 FAIL, 1788 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5521,150 +5521,151 @@ Totals: 4474 PASS, 0 FAIL, 1865 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 16 | eq:ge_landauer | none |  | not run: displayed equation, not yet checked | - |
-| 20 |  | calc | `2.65\times10^{-30}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 16 | eq:ge_landauer | none |  | not run: definition: Landauer cost k_B T ln 2 per bit at the Gibbons-Hawking horizon temperature T_H = hbar H/(2 pi k_B) (published results, cited); its values are checked at ch:exploratory:L20 to L22 | - |
+| 20 | ch:exploratory:L20 | calc | `2.65\times10^{-30}` | numeric: horizon temperature T_H = hbar H/(2 pi k_B) at H0_photon | PASS |
 | 21 | ch:exploratory:L21 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
-| 21 |  | calc | `2.53\times10^{-53}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 21 |  | calc | `2.85\times10^{-30}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 21 | ch:exploratory:L21:2.53\times10^{-53} | calc | `2.53\times10^{-53}` | numeric: Landauer cost k_B T_H ln 2 per bit at H0_photon | PASS |
+| 21 | ch:exploratory:L21:2.85\times10^{-30} | calc | `2.85\times10^{-30}` | numeric: horizon temperature T_H = hbar H/(2 pi k_B) at H0_matter | PASS |
 | 22 | ch:exploratory:L22 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
-| 22 |  | calc | `2.72\times10^{-53}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 22 | ch:exploratory:L22:2.72\times10^{-53} | calc | `2.72\times10^{-53}` | numeric: Landauer cost k_B T_H ln 2 per bit at H0_matter | PASS |
 | 27 | ch:exploratory:L27 | prediction | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 28 | eq:ge_Ea | prediction |  | not run: displayed equation, not yet checked | - |
-| 33 | eq:ge_Hm | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 44 | eq:ge_g | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 55 | eq:ge_eom | none |  | not run: displayed equation, not yet checked | - |
-| 61 | eq:ge_felt | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 67 | eq:ge_tidal | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 72 |  | derived | `3.1\times10^{-6}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 73 |  | calc | `3.1\times10^{-5}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 76 |  | derived | `90` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 83 | eq:ge_hover | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 95 | eq:ge_plumb | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 99 |  | derived | `5.7` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 99 |  | derived | `0.1` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 108 | eq:ge_ggtorque | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 118 | eq:ge_vrec | none |  | not run: displayed equation, not yet checked | - |
-| 123 | eq:ge_DH | calc |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 127 |  | calc | `70` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 28 | ch:exploratory:L28 | prediction |  | sympy: E(1)=1, E->e, rate dE/dlna = E/a peaks at a=1 | PASS |
+| 33 | ch:exploratory:L33 | derived | `72.26` | numeric: H_eff,m at a=1 gives the matter-sector H0 | PASS |
+| 44 | ch:exploratory:L44 | derived |  | sympy: g = -grad Phi recovers Newtonian gravity | PASS |
+| 55 | ch:exploratory:L55 | none |  | sympy: equation of motion from the weak-field Lagrangian | PASS |
+| 61 | ch:exploratory:L61 | derived |  | sympy: felt force vanishes on the free-fall trajectory | PASS |
+| 67 | ch:exploratory:L67 | derived |  | sympy: tidal residual g(r)-g(r+L) = 2GML/r^3 = L |Phi_rr| | PASS |
+| 72 | ch:exploratory:L72 | derived | `3.1\times10^{-6}` | numeric: tidal residual 2GML/R^3 across 10 m at the Earth surface, in g | PASS |
+| 73 | ch:exploratory:L73 | calc | `3.1\times10^{-5}` | numeric: tidal residual 2GML/R^3 across 100 m at the Earth surface, in g | PASS |
+| 76 |  | derived | `90` | not run: input: illustrative turn angle of the example (90 degrees), nothing to recompute | - |
+| 83 | ch:exploratory:L83 | derived |  | sympy: hover: grad Phi_IAM = g_amb solves zero net field | PASS |
+| 95 | ch:exploratory:L95 | derived |  | sympy: plumb hang angle tan(theta) = a_h/g_v | PASS |
+| 99 | ch:exploratory:L99 | derived | `5.7` | numeric: hang angle at a_h = 0.1 g, degrees | PASS |
+| 99 |  | derived | `0.1` | not run: input: horizontal acceleration 0.1 g of the plumb example | - |
+| 108 | ch:exploratory:L108 | derived |  | sympy: gravity-gradient torque on a dumbbell | PASS |
+| 118 | ch:exploratory:L118 | none |  | sympy: Hubble law from proper distance D = a chi | PASS |
+| 123 | eq:ge_DH | calc | `1.46\times10^{10}` | numeric: Hubble radius c/H0 at 67.16, light-years | PASS |
+| 123 | eq:ge_DH:1.35\times10^{10} | calc | `1.35\times10^{10}` | numeric: Hubble radius c/H0 at 72.26, light-years | PASS |
+| 127 |  | calc | `70` | not run: input: round value H0 = 70 km/s/Mpc used for illustration | - |
 | 136 | ch:exploratory:L136 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 136 | ch:exploratory:L136:72.26 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
-| 137 |  | calc | `1.46` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 137 |  | calc | `1.35\times10^{10}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 137 |  | calc | `3\times10^{-8}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 145 | eq:ge_alc | none |  | not run: displayed equation, not yet checked | - |
-| 153 | eq:ge_tau | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 161 | eq:ge_dtau | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 176 | eq:ge_rho | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 187 |  | calc | `0.99` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 188 |  | calc | `2.3\times10^4` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 196 | eq:ge_tone | none |  | not run: displayed equation, not yet checked | - |
-| 202 | eq:ge_xi | calc |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 208 |  | calc | `3\times10^{-8}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 214 |  | calc | `2.3\times10^4` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 215 |  | derived | `3.1\times10^{-6}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 215 |  | derived | `3.1\times10^{-5}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 230 | eq:ge_kernel | conjecture |  | not run: displayed equation, not yet checked | - |
-| 262 |  | observed | `-1.5` | not run: measured, source not named | - |
-| 262 |  | observed | `2.7\times10^{-15}` | not run: measured, source not named | - |
-| 266 |  | prediction | `10` | not run: not yet checked | - |
-| 273 | eq:ge_drive | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 298 |  | derived | `1.00` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 299 |  | derived | `0.44` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 331 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 332 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 333 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 334 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 335 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 336 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 337 |  | derived | `3.1\times10^{-6}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 337 |  | derived | `3.1\times10^{-5}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 337 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 338 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 339 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 340 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 341 |  | derived | `1.46` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 341 |  | derived | `1.35\times10^{10}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 341 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 342 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 343 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 344 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 345 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 346 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 347 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 348 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 349 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 350 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 351 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 352 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 373 | eq:pr_noforce | none |  | not run: displayed equation, not yet checked | - |
-| 395 | eq:pr_thrust | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 399 |  | derived | `3.34\times10^{-9}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 399 |  | derived | `2.94\times10^{12}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 399 |  | derived | `100` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 400 |  | calc | `2.94\times10^{14}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 415 |  | observed | `10` | not run: measured, source not named | - |
-| 417 | eq:pr_eta | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 421 |  | calc | `100` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 421 |  | calc | `0.01` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 421 |  | calc | `1000` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 421 |  | calc | `0.1` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 431 | eq:pr_focus | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 435 |  | derived | `100` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 435 |  | derived | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 435 |  | derived | `20` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 436 |  | calc | `0.01` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 436 |  | calc | `100` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 436 |  | calc | `5.9\times10^{23}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 445 |  | derived | `2.3\times10^4` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 450 | eq:pr_Etot | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 455 | eq:pr_Ewall | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 461 |  | calc | `6.9\times10^{62}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 461 |  | calc | `6.2\times10^{62}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 462 |  | calc | `3\times10^{20}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 462 |  | calc | `2\times10^{42}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 462 |  | calc | `2.3\times10^4` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 463 |  | calc | `1.6\times10^{67}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 463 |  | calc | `0.56` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 474 | eq:pr_selfforce | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 479 |  | observed | `4\times10^{-12}` | not run: measured, source not named | - |
-| 480 |  | observed | `3.9\times10^{-14}` | not run: measured, source not named | - |
-| 486 | eq:pr_hover | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 496 |  | derived | `2.94\times10^{12}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 498 |  | derived | `20` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 498 |  | derived | `100` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 498 |  | derived | `6.9\times10^{62}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 499 |  | derived | `1.6\times10^{67}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 502 |  | conjecture | `3.9\times10^{-14}` | not run: not yet checked | - |
-| 512 |  | derived | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 513 |  | derived | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 514 |  | derived | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 515 |  | derived | `2.94\times10^{12}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 515 |  | derived | `2.94\times10^{14}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 515 |  | derived | `100` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 515 |  | derived | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 516 |  | derived | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 517 |  | derived | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 518 |  | derived | `100` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 518 |  | derived | `0.01` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 518 |  | derived | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 519 |  | derived | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 520 |  | derived | `20` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 520 |  | derived | `5.9\times10^{23}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 520 |  | derived | `0.01` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 520 |  | derived | `200` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 520 |  | derived | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 521 |  | derived | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 522 |  | observed | `4\times10^{-12}` | not run: measured, source not named | - |
-| 522 |  | observed | `3.9\times10^{-14}` | not run: measured, source not named | - |
-| 522 |  | derived | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 523 |  | derived | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 524 |  | derived | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 525 |  | derived | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 526 |  | derived | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 527 |  | calc | `6.9\times10^{62}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 527 |  | calc | `1.6\times10^{67}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 527 |  | calc | `2.3\times10^4` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 527 |  | calc | `0.56` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 137 | ch:exploratory:L137 | calc | `1.46` | numeric: Hubble radius at 67.16 in 1e10 ly (figure caption) | PASS |
+| 137 | ch:exploratory:L137:1.35\times10^{10} | calc | `1.35\times10^{10}` | numeric: Hubble radius at 72.26 in ly (figure caption) | PASS |
+| 137 | ch:exploratory:L137:3\times10^{-8} | calc | `3\times10^{-8}` | numeric: Pleiades distance as a fraction of the Hubble radius | PASS |
+| 145 | eq:ge_alc | none |  | not run: definition: Alcubierre metric (published, Alcubierre1994); its centre-line consequence is checked at eq:ge_tau and its energy density at eq:ge_rho | - |
+| 153 | ch:exploratory:L153 | derived |  | sympy: centre worldline of the displaced region: ds^2 = -c^2 dt^2 | PASS |
+| 161 | ch:exploratory:L161 | derived |  | sympy: clock difference set by the potential difference over c^2 | PASS |
+| 176 | ch:exploratory:L176 | derived |  | sympy: Eulerian energy density of the displaced region | PASS |
+| 187 |  | calc | `0.99` | not run: input: through-space speed 0.99 c chosen for the figure example | - |
+| 188 | ch:exploratory:L188 | calc | `2.3\times10^4` | numeric: rate xi for a seven-day one-way transit to the Pleiades | PASS |
+| 196 | eq:ge_tone | none |  | not run: definition: one-way time D/v_eff with v_eff = xi c; 1 ly = c x 1 Julian year, so 444 ly/(xi c) = 444/xi yr | - |
+| 202 | eq:ge_xi | calc | `2.3\times10^4` | numeric: xi = 444 yr / 0.0192 yr | PASS |
+| 208 | ch:exploratory:L208 | calc | `3\times10^{-8}` | numeric: Pleiades distance as a fraction of the Hubble radius | PASS |
+| 214 | ch:exploratory:L214 | calc | `2.3\times10^4` | numeric: transit figure: xi for seven days | PASS |
+| 215 | ch:exploratory:L215 | derived | `3.1\times10^{-6}` | numeric: transit figure: tidal residual across 10 m, in g | PASS |
+| 215 | ch:exploratory:L215:3.1\times10^{-5} | derived | `3.1\times10^{-5}` | numeric: transit figure: tidal residual across 100 m, in g | PASS |
+| 230 | eq:ge_kernel | conjecture |  | not run: conjecture: form of the response kernel of Conjecture C1, nothing to recompute | - |
+| 262 | ch:exploratory:L262 | observed | `-1.5` | numeric: MICROSCOPE eta(Ti,Pt) central value | PASS |
+| 262 | ch:exploratory:L262:2.7\times10^{-15} | observed | `2.7\times10^{-15}` | numeric: MICROSCOPE combined uncertainty, stat and syst in quadrature | PASS |
+| 266 |  | prediction | `10` | not run: prediction, nothing to recompute (target sensitivity 10^-15 of a weighing; the MICROSCOPE level is checked at ch:exploratory:L262) | - |
+| 273 | eq:ge_drive | derived |  | not run: definition: superposition of phased sources through the unknown kernel G (conditional form); the steering numbers are checked at ch:exploratory:L298 and L299 | - |
+| 298 | ch:exploratory:L298 | derived | `1.00` | numeric: three coplanar sources: mirror/target ratio | PASS |
+| 299 | ch:exploratory:L299 | derived | `0.44` | numeric: four non-coplanar sources: mirror/target ratio | PASS |
+| 331 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 332 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 333 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 334 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 335 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 336 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 337 | ch:exploratory:L337 | derived | `3.1\times10^{-6}` | numeric: status table: tidal residual across 10 m, in g | PASS |
+| 337 | ch:exploratory:L337:3.1\times10^{-5} | derived | `3.1\times10^{-5}` | numeric: status table: tidal residual across 100 m, in g | PASS |
+| 337 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 338 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 339 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 340 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 341 | ch:exploratory:L341 | derived | `1.46` | numeric: status table: Hubble radius at 67.16 in 1e10 ly | PASS |
+| 341 | ch:exploratory:L341:1.35\times10^{10} | derived | `1.35\times10^{10}` | numeric: status table: Hubble radius at 72.26 in ly | PASS |
+| 341 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 342 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 343 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 344 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 345 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 346 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 347 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 348 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 349 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 350 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 351 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 352 |  | calc | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 373 | ch:exploratory:L373 | none |  | sympy: mutual static forces cancel for an even kernel | PASS |
+| 395 | ch:exploratory:L395 | derived |  | sympy: radiated power for a given thrust, P = m a c | PASS |
+| 399 | ch:exploratory:L399 | derived | `3.34\times10^{-9}` | numeric: thrust per watt 1/c | PASS |
+| 399 | ch:exploratory:L399:2.94\times10^{12} | derived | `2.94\times10^{12}` | numeric: power to hold one tonne at 1 g | PASS |
+| 399 |  | derived | `100` | not run: input: departure acceleration 100 g of the example | - |
+| 400 | ch:exploratory:L400 | calc | `2.94\times10^{14}` | numeric: power for a 100 g departure of one tonne | PASS |
+| 415 |  | observed | `10` | not run: order-of-magnitude restatement (about 10^-15) of the MICROSCOPE result checked at ch:exploratory:L262 and ch:exploratory:L262:2.7\times10^{-15} | - |
+| 417 | ch:exploratory:L417 | derived |  | sympy: felt load m eta a and the bound on eta | PASS |
+| 421 | ch:exploratory:L421 | calc | `1000` | numeric: a 1000 g departure felt below 0.1 g needs the same eta | PASS |
+| 421 |  | calc | `100` | not run: input: departure acceleration 100 g of the example | - |
+| 421 |  | calc | `0.01` | not run: input: allowed felt load 0.01 g of the example | - |
+| 421 |  | calc | `0.1` | not run: input: allowed felt load 0.1 g of the second example | - |
+| 431 | ch:exploratory:L431 | derived |  | sympy: tide of a monopole focus 2GML/r^3 = 2aL/r | PASS |
+| 435 | ch:exploratory:L435 | derived | `20` | numeric: tide 2aL/r at 100 g, 10 m, focus at 100 m | PASS |
+| 435 |  | derived | `100` | not run: input: focus acceleration 100 g (and the focus distance 100 m) of the example | - |
+| 435 |  | derived | `10` | not run: input: craft length 10 m of the example | - |
+| 436 | ch:exploratory:L436 | calc | `5.9\times10^{23}` | numeric: strength of a 100 g focus at 200 km | PASS |
+| 436 |  | calc | `0.01` | not run: input: tide limit 0.01 g of the example | - |
+| 436 |  | calc | `100` | not run: input: focus pull 100 g of the example | - |
+| 445 | ch:exploratory:L445 | derived | `2.3\times10^4` | numeric: Pleiades rate xi for seven days | PASS |
+| 450 | ch:exploratory:L450 | derived |  | sympy: total negative energy -(v^2/12) int r^2 f^2 dr | PASS |
+| 455 | ch:exploratory:L455 | derived |  | sympy: linear wall: int r^2 f^2 dr = R^2/Delta + Delta/12 | PASS |
+| 461 | ch:exploratory:L461 | calc | `6.9\times10^{62}` | numeric: negative energy, 100 m bubble at c, wall 100 L_P | PASS |
+| 461 |  | calc | `6.2\times10^{62}` | not run: input: published value of Pfenning and Ford, |E| = 6.2e62 v_s kg (PfenningFord1997, doi 10.1088/0264-9381/14/7/011), quoted for comparison with the recomputed 6.9e62 (ch:exploratory:L461) | - |
+| 462 | ch:exploratory:L462 | calc | `3\times10^{20}` | numeric: negative energy of a 100 m bubble in galaxies of 2e42 kg | PASS |
+| 462 | ch:exploratory:L462:2.3\times10^4 | calc | `2.3\times10^4` | numeric: Pleiades rate xi (bubble speed) | PASS |
+| 462 |  | calc | `2\times10^{42}` | not run: input: galaxy mass 2e42 kg used for the comparison (PfenningFord1997) | - |
+| 463 | ch:exploratory:L463 | calc | `1.6\times10^{67}` | numeric: negative energy at the Pleiades rate | PASS |
+| 463 | ch:exploratory:L463:0.56 | calc | `0.56` | numeric: negative energy with a 1 m wall, solar masses | PASS |
+| 474 | ch:exploratory:L474 | derived |  | sympy: pair self-force from unequal active/passive mass ratios | PASS |
+| 479 | ch:exploratory:L479 | observed | `4\times10^{-12}` | numeric: lunar ranging: m_a/m_p equal for Al and Fe (1986) | PASS |
+| 480 | ch:exploratory:L480 | observed | `3.9\times10^{-14}` | numeric: lunar laser ranging: m_a/m_p equal for Al and Fe (2023) | PASS |
+| 486 | ch:exploratory:L486 | derived |  | sympy: hover by weight reduction: delta = 1 + m_pay/m_d | PASS |
+| 496 | ch:exploratory:L496 | derived | `2.94\times10^{12}` | numeric: summary: power per tonne at 1 g | PASS |
+| 498 | ch:exploratory:L498 | derived | `20` | numeric: summary: tide 20 g at 100 m from a 100 g focus | PASS |
+| 498 | ch:exploratory:L498:6.9\times10^{62} | derived | `6.9\times10^{62}` | numeric: summary: negative energy, 100 m bubble at c | PASS |
+| 498 |  | derived | `100` | not run: input: focus acceleration 100 g (focus distance 100 m) of the example | - |
+| 499 | ch:exploratory:L499 | derived | `1.6\times10^{67}` | numeric: summary: negative energy at the Pleiades rate | PASS |
+| 502 | ch:exploratory:L502 | conjecture | `3.9\times10^{-14}` | numeric: summary: lunar laser ranging Al/Fe ratio (2023) | PASS |
+| 512 |  | derived | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 513 |  | derived | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 514 |  | derived | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 515 | ch:exploratory:L515 | derived | `2.94\times10^{12}` | numeric: status table: power per tonne at 1 g | PASS |
+| 515 | ch:exploratory:L515:2.94\times10^{14} | derived | `2.94\times10^{14}` | numeric: status table: power per tonne at 100 g | PASS |
+| 515 |  | derived | `100` | not run: input: departure acceleration 100 g of the example | - |
+| 515 |  | derived | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 516 |  | derived | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 517 |  | derived | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 518 | ch:exploratory:L518 | derived | `100` | numeric: status table: 100 g felt below 0.01 g needs eta = 1e-4 | PASS |
+| 518 |  | derived | `0.01` | not run: input: allowed felt load 0.01 g of the example | - |
+| 518 |  | derived | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 519 |  | derived | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 520 | ch:exploratory:L520 | derived | `20` | numeric: status table: tide 20 g | PASS |
+| 520 | ch:exploratory:L520:5.9\times10^{23} | derived | `5.9\times10^{23}` | numeric: status table: focus strength for a 0.01 g tide | PASS |
+| 520 | ch:exploratory:L520:200 | derived | `200` | numeric: status table: focus distance for a 0.01 g tide, km | PASS |
+| 520 |  | derived | `0.01` | not run: input: tide limit 0.01 g of the example | - |
+| 520 |  | derived | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 521 |  | derived | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 522 | ch:exploratory:L522 | observed | `4\times10^{-12}` | numeric: status table: Al/Fe ratio (1986) | PASS |
+| 522 | ch:exploratory:L522:3.9\times10^{-14} | observed | `3.9\times10^{-14}` | numeric: status table: Al/Fe ratio (2023) | PASS |
+| 522 |  | derived | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 523 |  | derived | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 524 |  | derived | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 525 |  | derived | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 526 |  | derived | `0.2` | not run: table formatting: the 0.2 is the width of a \cmidrule[0.2pt] rule in the status table, not a book number | - |
+| 527 | ch:exploratory:L527 | calc | `6.9\times10^{62}` | numeric: status table: negative energy, 100 m bubble at c | PASS |
+| 527 | ch:exploratory:L527:1.6\times10^{67} | calc | `1.6\times10^{67}` | numeric: status table: negative energy at 2.3e4 c | PASS |
+| 527 | ch:exploratory:L527:2.3\times10^4 | calc | `2.3\times10^4` | numeric: status table: Pleiades rate xi | PASS |
+| 527 | ch:exploratory:L527:0.56 | calc | `0.56` | numeric: status table: 1 m wall in solar masses | PASS |
 
 ## Part 7 - ch:statusall - `docs/book/part5/p5_11_status_all.tex`
 

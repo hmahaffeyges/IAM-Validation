@@ -2459,6 +2459,9 @@ def _b13_wrong_level(f, T):
     """Occupation of the wrong level of a two-level record, 1/(1 + e^{hf/k_B T}) (ch:onegauge line 72)."""
     return 1 / (1 + math.exp(h * f / (kB * T)))
 
+# helpers of the part5/p5_02_exploratory checks
+# b14 drafts: ch:exploratory (docs/book/part5/p5_02_exploratory.tex)
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -37683,12 +37686,38 @@ def check_4473():
 
 
 # ======== Part 7 | ch:exploratory | docs/book/part5/p5_02_exploratory.tex
+@check(label='ch:exploratory:L20', chapter='ch:exploratory', part=7, title='horizon temperature T_H = hbar H/(2 pi k_B) at H0_photon', file='part5/p5_02_exploratory', line=20,
+       status='calc', kind='num', printed='2.65\\times10^{-30}', tol=0.0)
+def check_4474():
+    'Gibbons-Hawking temperature T_H = hbar H0/(2 pi k_B), Eq. ge_landauer, at the locked H0_photon. Inputs: hbar (SI 2019), k_B (CANON), Mpc (IAU). Book line 20, printed 2.65\\times10^{-30}.'
+    H = Hsi(H0_photon)
+    T_H = hbar * H / (2 * math.pi * kB)
+    value = T_H
+    return locals()
+
 @check(label='ch:exploratory:L21', chapter='ch:exploratory', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
        file='part5/p5_02_exploratory', line=21, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2628():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 21, printed 67.16.'
     value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    return locals()
+
+@check(label='ch:exploratory:L21:2.53\\times10^{-53}', chapter='ch:exploratory', part=7, title='Landauer cost k_B T_H ln 2 per bit at H0_photon', file='part5/p5_02_exploratory', line=21,
+       status='calc', kind='num', printed='2.53\\times10^{-53}', tol=0.0)
+def check_4475():
+    'Landauer cost per bit k_B T_H ln 2 at the horizon temperature, Eq. ge_landauer, at the locked H0_photon. Inputs: hbar (SI 2019), k_B (CANON), Mpc (IAU). Book line 21, printed 2.53\\times10^{-53}.'
+    T_H = hbar * Hsi(H0_photon) / (2 * math.pi * kB)
+    value = kB * T_H * LN2
+    return locals()
+
+@check(label='ch:exploratory:L21:2.85\\times10^{-30}', chapter='ch:exploratory', part=7, title='horizon temperature T_H = hbar H/(2 pi k_B) at H0_matter', file='part5/p5_02_exploratory', line=21,
+       status='calc', kind='num', printed='2.85\\times10^{-30}', tol=0.0)
+def check_4476():
+    'Gibbons-Hawking temperature T_H = hbar H0/(2 pi k_B), Eq. ge_landauer, at the locked H0_matter. Inputs: hbar (SI 2019), k_B (CANON), Mpc (IAU). Book line 21, printed 2.85\\times10^{-30}.'
+    H = Hsi(H0_matter)
+    T_H = hbar * H / (2 * math.pi * kB)
+    value = T_H
     return locals()
 
 @check(label='ch:exploratory:L22', chapter='ch:exploratory', part=7, title='same value as p1_02_iams_law:696 (H0 matter-sector formula)',
@@ -37698,11 +37727,195 @@ def check_2629():
     value=H0_photon*math.sqrt(1+beta_m)
     return locals()
 
+@check(label='ch:exploratory:L22:2.72\\times10^{-53}', chapter='ch:exploratory', part=7, title='Landauer cost k_B T_H ln 2 per bit at H0_matter', file='part5/p5_02_exploratory', line=22,
+       status='calc', kind='num', printed='2.72\\times10^{-53}', tol=0.0)
+def check_4477():
+    'Landauer cost per bit k_B T_H ln 2 at the horizon temperature, Eq. ge_landauer, at the locked H0_matter. Inputs: hbar (SI 2019), k_B (CANON), Mpc (IAU). Book line 22, printed 2.72\\times10^{-53}.'
+    T_H = hbar * Hsi(H0_matter) / (2 * math.pi * kB)
+    value = kB * T_H * LN2
+    return locals()
+
 @check(label='ch:exploratory:L27', chapter='ch:exploratory', part=7, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
        file='part5/p5_02_exploratory', line=27, status='prediction', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2630():
     'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 27, printed 0.15765.'
     value = Om/2
+    return locals()
+
+@check(label='ch:exploratory:L28', chapter='ch:exploratory', part=7, title='E(1)=1, E->e, rate dE/dlna = E/a peaks at a=1', file='part5/p5_02_exploratory', line=28,
+       status='prediction', kind='sym', printed='', tol=0.0)
+def check_4478():
+    'Eq. ge_Ea: E(a) = exp(1 - 1/a) gives E(1) = 1 and E -> e (limit), its rate a dE/da equals E/a (differentiation), and that rate is stationary only at a = 1 (solve). Control: exponent coefficient moved by 5 %, the rate peak moves off a = 1. Book line 28.'
+    a = sp.Symbol('a', positive=True)
+    def props(k):
+        E = sp.exp(k * (1 - 1 / a))
+        rate = sp.simplify(a * sp.diff(E, a))
+        peak = sp.solve(sp.diff(rate, a), a)
+        return bool(E.subs(a, 1) == 1 and sp.limit(E, a, sp.oo) == sp.E and sp.simplify(rate - E / a) == 0 and peak == [1])
+    ok = props(sp.Integer(1))
+    neg_ok = props(sp.Rational(105, 100))
+    return locals()
+
+@check(label='ch:exploratory:L33', chapter='ch:exploratory', part=7, title='H_eff,m at a=1 gives the matter-sector H0', file='part5/p5_02_exploratory', line=33,
+       status='derived', kind='num', printed='72.26', tol=0.0)
+def check_4479():
+    'Eq. ge_Hm evaluated today: H_eff,m(1)^2 = H0^2 (Omega_m + Omega_L + beta_m E(1)), with the locked photon-sector H0 = 67.16 and beta_m from CANON, gives the matter-sector H0 the chapter prints at line 22 (72.26). Inputs: Omega_m Planck 2018 (as in CANON beta_m). Book line 33, printed 72.26.'
+    value = H0_photon * math.sqrt(float(H2_lcdm(1.0)) + beta_m * float(E_act(1.0)))
+    return locals()
+
+@check(label='ch:exploratory:L44', chapter='ch:exploratory', part=7, title='g = -grad Phi recovers Newtonian gravity', file='part5/p5_02_exploratory', line=44,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4480():
+    'Eq. ge_g in the weak field: with Phi = -GM/r, g = -grad Phi (differentiated) is the Newtonian -GM x/r^3. Control: coefficient of Phi moved by 5 %. Book line 44.'
+    x, y, z, Gs, M = sp.symbols('x y z G M', positive=True)
+    r = sp.sqrt(x**2 + y**2 + z**2)
+    def g_of(k):
+        Phi = -k * Gs * M / r
+        return sp.Matrix([-sp.diff(Phi, v) for v in (x, y, z)])
+    newton = sp.Matrix([-Gs * M * v / r**3 for v in (x, y, z)])
+    ok = sp.simplify(g_of(1) - newton) == sp.zeros(3, 1)
+    neg_ok = sp.simplify(g_of(sp.Rational(105, 100)) - newton) == sp.zeros(3, 1)
+    return locals()
+
+@check(label='ch:exploratory:L55', chapter='ch:exploratory', part=7, title='equation of motion from the weak-field Lagrangian', file='part5/p5_02_exploratory', line=55,
+       status='none', kind='sym', printed='', tol=0.0)
+def check_4481():
+    'Eq. ge_eom: the Euler-Lagrange equation of the weak-field geodesic Lagrangian L = |xdot|^2/2 - Phi(x) is xddot = -grad Phi. Control: kinetic coefficient moved by 5 %. Book line 55.'
+    t = sp.Symbol('t'); X = [sp.Function(n)(t) for n in ('x', 'y', 'z')]
+    Phi = sp.Function('Phi')(*X)
+    def eom(k):
+        Lag = k * sum(sp.diff(q, t)**2 for q in X) / 2 - Phi
+        return [sp.solve(sp.diff(sp.diff(Lag, sp.diff(q, t)), t) - sp.diff(Lag, q), sp.diff(q, t, 2))[0] for q in X]
+    lhs = sp.Matrix(eom(1)); rhs = sp.Matrix([-sp.diff(Phi, q) for q in X])
+    neg_lhs = sp.Matrix(eom(sp.Rational(105, 100)))
+    ok = sp.simplify(lhs - rhs) == sp.zeros(*lhs.shape)
+    neg_ok = sp.simplify(neg_lhs - rhs) == sp.zeros(*lhs.shape)
+    return locals()
+
+@check(label='ch:exploratory:L61', chapter='ch:exploratory', part=7, title='felt force vanishes on the free-fall trajectory', file='part5/p5_02_exploratory', line=61,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4482():
+    'Eq. ge_felt: substituting the equation of motion xddot = -grad Phi (Eq. ge_eom) into f_felt = m (xddot + grad Phi) gives zero for any Phi. Control: gradient coefficient in the motion moved by 5 %. Book line 61.'
+    x, y, z, m = sp.symbols('x y z m', real=True)
+    Phi = sp.Function('Phi')(x, y, z)
+    grad = sp.Matrix([sp.diff(Phi, v) for v in (x, y, z)])
+    xdd = -grad
+    lhs = m * (xdd + grad); rhs = sp.zeros(3, 1)
+    neg_lhs = m * (sp.Rational(105, 100) * xdd + grad)
+    ok = sp.simplify(lhs - rhs) == sp.zeros(*lhs.shape)
+    neg_ok = sp.simplify(neg_lhs - rhs) == sp.zeros(*lhs.shape)
+    return locals()
+
+@check(label='ch:exploratory:L67', chapter='ch:exploratory', part=7, title='tidal residual g(r)-g(r+L) = 2GML/r^3 = L |Phi_rr|', file='part5/p5_02_exploratory', line=67,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4483():
+    'Eq. ge_tidal and line 71: to first order in L, g(r) - g(r+L) for Phi = -GM/r (series expansion) equals L |d^2Phi/dr^2| = 2GML/r^3. Control: coefficient 2 moved by 5 %. Book line 67.'
+    Gs, M, r, L = sp.symbols('G M r L', positive=True)
+    Phi = -Gs * M / r
+    g = lambda R: Gs * M / R**2
+    lhs = sp.series(g(r) - g(r + L), L, 0, 2).removeO()
+    rhs = L * sp.Abs(sp.diff(Phi, r, 2))
+    neg_lhs = sp.Rational(105, 100) * lhs
+    return locals()
+
+@check(label='ch:exploratory:L72', chapter='ch:exploratory', part=7, title='tidal residual 2GML/R^3 across 10 m at the Earth surface, in g', file='part5/p5_02_exploratory', line=72,
+       status='derived', kind='num', printed='3.1\\times10^{-6}', tol=0.0)
+def check_4484():
+    'Tidal residual 2 GM L / R^3 at the Earth surface across L = 10 m, in units of standard gravity (line 71 formula). Inputs: Earth GM (IERS 2010), mean radius 6371 km (IUGG), g = 9.80665 (CGPM). Book line 72, printed 3.1\\times10^{-6}.'
+    GM_E = 3.986004418e14   # m^3 s^-2, Earth GM (IERS Conventions 2010 / WGS 84)
+    R_E = 6.371e6           # m, Earth mean radius (IUGG)
+    g0 = 9.80665            # m s^-2, standard gravity (CGPM 1901)
+    L = 10.0
+    value = 2 * GM_E * L / R_E**3 / g0
+    return locals()
+
+@check(label='ch:exploratory:L73', chapter='ch:exploratory', part=7, title='tidal residual 2GML/R^3 across 100 m at the Earth surface, in g', file='part5/p5_02_exploratory', line=73,
+       status='calc', kind='num', printed='3.1\\times10^{-5}', tol=0.0)
+def check_4485():
+    'Tidal residual 2 GM L / R^3 at the Earth surface across L = 100 m, in units of standard gravity (line 71 formula). Inputs: Earth GM (IERS 2010), mean radius 6371 km (IUGG), g = 9.80665 (CGPM). Book line 73, printed 3.1\\times10^{-5}.'
+    GM_E = 3.986004418e14   # m^3 s^-2, Earth GM (IERS Conventions 2010 / WGS 84)
+    R_E = 6.371e6           # m, Earth mean radius (IUGG)
+    g0 = 9.80665            # m s^-2, standard gravity (CGPM 1901)
+    L = 100.0
+    value = 2 * GM_E * L / R_E**3 / g0
+    return locals()
+
+@check(label='ch:exploratory:L83', chapter='ch:exploratory', part=7, title='hover: grad Phi_IAM = g_amb solves zero net field', file='part5/p5_02_exploratory', line=83,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4486():
+    'Eq. ge_hover: solving -grad(Phi_amb + Phi_IAM) = 0 for grad Phi_IAM gives -grad Phi_amb = g_amb. Control: the solved gradient scaled by 1.05. Book line 83.'
+    x, y, z = sp.symbols('x y z', real=True)
+    Pa = sp.Function('Phi_amb')(x, y, z); Pi = sp.Function('Phi_IAM')(x, y, z)
+    gi = [sp.Symbol('gI_' + n) for n in 'xyz']
+    net = [-(sp.diff(Pa, v) + gi[k]) for k, v in enumerate((x, y, z))]
+    sol = sp.solve(net, gi, dict=True)[0]
+    g_amb = [-sp.diff(Pa, v) for v in (x, y, z)]
+    lhs = sp.Matrix([sol[s] for s in gi]); rhs = sp.Matrix(g_amb)
+    neg_lhs = sp.Rational(105, 100) * lhs
+    ok = sp.simplify(lhs - rhs) == sp.zeros(*lhs.shape)
+    neg_ok = sp.simplify(neg_lhs - rhs) == sp.zeros(*lhs.shape)
+    return locals()
+
+@check(label='ch:exploratory:L95', chapter='ch:exploratory', part=7, title='plumb hang angle tan(theta) = a_h/g_v', file='part5/p5_02_exploratory', line=95,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4487():
+    'Eq. ge_plumb: a suspended mass in equilibrium with string tension T, horizontal field a_h and vertical field g_v (T sin theta = m a_h, T cos theta = m g_v, solved for tan theta) hangs at theta = arctan(a_h/g_v). Control: horizontal component moved by 5 %. Book line 95.'
+    T, m, ah, gv, th = sp.symbols('T m a_h g_v theta', positive=True)
+    Tc, tt = sp.symbols('T_c t')    # T_c = T cos(theta), t = tan(theta), so T sin(theta) = T_c t
+    def angle(k):
+        s = sp.solve([Tc * tt - k * m * ah, Tc - m * gv], [Tc, tt], dict=True)[0]
+        return s[tt]
+    lhs = sp.atan(angle(1)); rhs = sp.atan(ah / gv)
+    neg_lhs = sp.atan(angle(sp.Rational(105, 100)))
+    return locals()
+
+@check(label='ch:exploratory:L99', chapter='ch:exploratory', part=7, title='hang angle at a_h = 0.1 g, degrees', file='part5/p5_02_exploratory', line=99,
+       status='derived', kind='num', printed='5.7', tol=0.0)
+def check_4488():
+    'Hang angle arctan(a_h/g_v) of Eq. ge_plumb at a_h = 0.1 g (the input of line 99), in degrees. Book line 99, printed 5.7.'
+    a_h_over_g = 0.1   # input of the example, line 99
+    value = math.degrees(math.atan(a_h_over_g))
+    return locals()
+
+@check(label='ch:exploratory:L108', chapter='ch:exploratory', part=7, title='gravity-gradient torque on a dumbbell', file='part5/p5_02_exploratory', line=108,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4489():
+    'Eq. ge_ggtorque: the torque about the centre of mass of two masses m at +-ell/2, axis at angle theta to the line to a point mass M at distance r, summed from the exact Newtonian forces and expanded to second order in ell, equals -(3GM/(2r^3)) (I_perp - I_par) sin 2theta with I_perp - I_par = m ell^2/2. Control: coefficient 3 moved by 5 %. Book line 108.'
+    Gs, M, r, l, m = sp.symbols('G M r ell m', positive=True); th = sp.Symbol('theta', real=True)
+    def force(px, py):
+        R = sp.sqrt(px**2 + py**2)
+        return -Gs * M * m * sp.Matrix([px, py]) / R**3
+    d1 = sp.Matrix([l / 2 * sp.cos(th), l / 2 * sp.sin(th)]); d2 = -d1
+    F1 = force(r + d1[0], d1[1]); F2 = force(r + d2[0], d2[1])
+    tau = d1[0] * F1[1] - d1[1] * F1[0] + d2[0] * F2[1] - d2[1] * F2[0]
+    lhs = sp.simplify(sp.series(tau, l, 0, 3).removeO())
+    dI = m * l**2 / 2
+    rhs = -3 * Gs * M / (2 * r**3) * dI * sp.sin(2 * th)
+    neg_lhs = sp.Rational(105, 100) * lhs
+    return locals()
+
+@check(label='ch:exploratory:L118', chapter='ch:exploratory', part=7, title='Hubble law from proper distance D = a chi', file='part5/p5_02_exploratory', line=118,
+       status='none', kind='sym', printed='', tol=0.0)
+def check_4490():
+    'Eq. ge_vrec: for a comoving object at proper distance D = a(t) chi, the rate dD/dt (differentiated) equals H D with H = adot/a. Control: H scaled by 1.05. Book line 118.'
+    t, chi = sp.symbols('t chi', positive=True); a = sp.Function('a')(t)
+    D = a * chi; H = sp.diff(a, t) / a
+    lhs = sp.diff(D, t); rhs = H * D
+    neg_lhs = sp.Rational(105, 100) * lhs
+    return locals()
+
+@check(label='eq:ge_DH', chapter='ch:exploratory', part=7, title='Hubble radius c/H0 at 67.16, light-years', file='part5/p5_02_exploratory', line=123,
+       status='calc', kind='num', printed='1.46\\times10^{10}', tol=0.0)
+def check_4491():
+    'Eq. ge_DH: D_H = c/H0 at the locked photon-sector H0 = 67.16, in light-years. Inputs: c (SI), Mpc and ly (IAU). Book line 123, printed 1.46\\times10^{10}.'
+    value = c / Hsi(H0_photon) / ly
+    return locals()
+
+@check(label='eq:ge_DH:1.35\\times10^{10}', chapter='ch:exploratory', part=7, title='Hubble radius c/H0 at 72.26, light-years', file='part5/p5_02_exploratory', line=123,
+       status='calc', kind='num', printed='1.35\\times10^{10}', tol=0.0)
+def check_4492():
+    'Eq. ge_DH: D_H = c/H0 at the locked matter-sector H0 = 72.26, in light-years. Inputs: c (SI), Mpc and ly (IAU). Book line 123, printed 1.35\\times10^{10}.'
+    value = c / Hsi(H0_matter) / ly
     return locals()
 
 @check(label='ch:exploratory:L136', chapter='ch:exploratory', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
@@ -37718,6 +37931,602 @@ def check_2631():
 def check_2632():
     'same value as p1_02_iams_law:696 (H0 matter-sector formula). Book line 136, printed 72.26.'
     value=H0_photon*math.sqrt(1+beta_m)
+    return locals()
+
+@check(label='ch:exploratory:L137', chapter='ch:exploratory', part=7, title='Hubble radius at 67.16 in 1e10 ly (figure caption)', file='part5/p5_02_exploratory', line=137,
+       status='calc', kind='num', printed='1.46', tol=0.0)
+def check_4493():
+    'Figure recession caption: D_H = c/H0 at H0 = 67.16, in units of 1e10 light-years. Inputs: c (SI), Mpc and ly (IAU). Book line 137, printed 1.46.'
+    value = c / Hsi(H0_photon) / ly / 1e10
+    return locals()
+
+@check(label='ch:exploratory:L137:1.35\\times10^{10}', chapter='ch:exploratory', part=7, title='Hubble radius at 72.26 in ly (figure caption)', file='part5/p5_02_exploratory', line=137,
+       status='calc', kind='num', printed='1.35\\times10^{10}', tol=0.0)
+def check_4494():
+    'Figure recession caption: D_H = c/H0 at H0 = 72.26, in light-years. Inputs: c (SI), Mpc and ly (IAU). Book line 137, printed 1.35\\times10^{10}.'
+    value = c / Hsi(H0_matter) / ly
+    return locals()
+
+@check(label='ch:exploratory:L137:3\\times10^{-8}', chapter='ch:exploratory', part=7, title='Pleiades distance as a fraction of the Hubble radius', file='part5/p5_02_exploratory', line=137,
+       status='calc', kind='num', printed='3\\times10^{-8}', tol=0.0)
+def check_4495():
+    'Figure recession caption: the Pleiades distance (136 pc) divided by D_H = c/H0 at H0 = 67.16. Inputs: 136 pc (Melis2014, doi 10.1126/science.1256101), c, Mpc, ly. Book line 137, printed 3\\times10^{-8}.'
+    D_ly = 136 * pc / ly     # Pleiades distance 136 pc, VLBI parallax (Melis2014, doi 10.1126/science.1256101)
+    value = D_ly / (c / Hsi(H0_photon) / ly)
+    return locals()
+
+@check(label='ch:exploratory:L153', chapter='ch:exploratory', part=7, title='centre worldline of the displaced region: ds^2 = -c^2 dt^2', file='part5/p5_02_exploratory', line=153,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4496():
+    'Eq. ge_tau: substituting dx = v_s dt, f = 1, dy = dz = 0 into the metric of Eq. ge_alc gives ds^2 = -c^2 dt^2, so d tau = dt. Control: shift moved by 5 %. Book line 153.'
+    cs, vs, dt = sp.symbols('c v_s dt', positive=True); dx, dy, dz, f = sp.symbols('dx dy dz f')
+    ds2 = -cs**2 * dt**2 + (dx - vs * f * dt)**2 + dy**2 + dz**2
+    on = {dx: vs * dt, f: 1, dy: 0, dz: 0}
+    lhs = sp.expand(ds2.subs(on)); rhs = -cs**2 * dt**2
+    neg_lhs = sp.expand((-cs**2 * dt**2 + (dx - sp.Rational(105, 100) * vs * f * dt)**2).subs(on))
+    return locals()
+
+@check(label='ch:exploratory:L161', chapter='ch:exploratory', part=7, title='clock difference set by the potential difference over c^2', file='part5/p5_02_exploratory', line=161,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4497():
+    'Eq. ge_dtau: integrating d tau = (1 + Phi/c^2) dt over a coordinate interval Delta t for a clock at Phi_E and one at Phi_s, the fractional difference of elapsed proper times is (Phi_E - Phi_s)/c^2. Control: 1/c^2 coefficient moved by 5 %. Book line 161.'
+    cs, Dt, t = sp.symbols('c Delta_t t', positive=True); PE, PS = sp.symbols('Phi_E Phi_s', real=True)
+    tau = lambda P, k=1: sp.integrate(1 + k * P / cs**2, (t, 0, Dt))
+    lhs = sp.simplify((tau(PE) - tau(PS)) / Dt); rhs = (PE - PS) / cs**2
+    neg_lhs = sp.simplify((tau(PE, sp.Rational(105, 100)) - tau(PS, sp.Rational(105, 100))) / Dt)
+    return locals()
+
+@check(label='ch:exploratory:L176', chapter='ch:exploratory', part=7, title='Eulerian energy density of the displaced region', file='part5/p5_02_exploratory', line=176,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4498():
+    'Eq. ge_rho: lapse 1, shift (-v_s f, 0, 0), flat 3-metric; K_ij = (d_i beta_j + d_j beta_i)/2, rho = (K^2 - K_ij K^ij)/(16 pi) (Hamiltonian constraint, G = c = 1), computed for the test wall f = 1/(1 + r_s^2), equals -(1/8pi) v_s^2 (y^2+z^2)/(4 r_s^2) (df/dr_s)^2. Control: 1/8pi moved by 5 %. Book line 176.'
+    X, Y, Z, T = sp.symbols('X Y Z T', real=True); vs, rr = sp.symbols('v_s r_s', positive=True)
+    fr = 1 / (1 + rr**2)                       # test shape function
+    rs = sp.sqrt((X - vs * T)**2 + Y**2 + Z**2)
+    F = fr.subs(rr, rs)
+    beta = [-vs * F, 0, 0]; co = (X, Y, Z)
+    K = sp.Matrix(3, 3, lambda i, j: sp.Rational(1, 2) * (sp.diff(beta[i], co[j]) + sp.diff(beta[j], co[i])))
+    lhs = (K.trace()**2 - sum(K[i, j]**2 for i in range(3) for j in range(3))) / (16 * sp.pi)
+    fp = sp.diff(fr, rr).subs(rr, rs)
+    rhs = -(1 / (8 * sp.pi)) * vs**2 * (Y**2 + Z**2) / (4 * rs**2) * fp**2
+    neg_lhs = lhs; neg_rhs = sp.Rational(105, 100) * rhs
+    return locals()
+
+@check(label='ch:exploratory:L188', chapter='ch:exploratory', part=7, title='rate xi for a seven-day one-way transit to the Pleiades', file='part5/p5_02_exploratory', line=188,
+       status='calc', kind='num', printed='2.3\\times10^4', tol=0.0)
+def check_4499():
+    'xi = D/(c t) for D = 136 pc and t = 7 days (Eq. ge_tone solved for xi). Inputs: 136 pc (Melis2014, doi 10.1126/science.1256101), ly, Julian year. Book line 188, printed 2.3\\times10^4.'
+    D_ly = 136 * pc / ly     # Pleiades distance 136 pc, VLBI parallax (Melis2014, doi 10.1126/science.1256101)
+    t7 = 7 * 86400 / yr     # seven days in Julian years
+    value = D_ly / t7
+    return locals()
+
+@check(label='eq:ge_xi', chapter='ch:exploratory', part=7, title='xi = 444 yr / 0.0192 yr', file='part5/p5_02_exploratory', line=202,
+       status='calc', kind='num', printed='2.3\\times10^4', tol=0.0)
+def check_4500():
+    'Eq. ge_xi: xi = 444 yr / t with t = 7 days in years (0.0192 yr as the text rounds it); 444 ly is 136 pc in light-years. Inputs: 136 pc (Melis2014), ly, Julian year. Book line 202, printed 2.3\\times10^4.'
+    D_ly = 136 * pc / ly     # Pleiades distance 136 pc, VLBI parallax (Melis2014, doi 10.1126/science.1256101)
+    t_yr = round(7 * 86400 / yr, 4)   # 7 days = 0.0192 yr as the text rounds it
+    value = round(D_ly) / t_yr
+    return locals()
+
+@check(label='ch:exploratory:L208', chapter='ch:exploratory', part=7, title='Pleiades distance as a fraction of the Hubble radius', file='part5/p5_02_exploratory', line=208,
+       status='calc', kind='num', printed='3\\times10^{-8}', tol=0.0)
+def check_4501():
+    'Line 208: 444 ly (136 pc) divided by the Hubble radius c/H0 of Eq. ge_DH at H0 = 67.16. Inputs: 136 pc (Melis2014), c, Mpc, ly. Book line 208, printed 3\\times10^{-8}.'
+    D_ly = 136 * pc / ly     # Pleiades distance 136 pc, VLBI parallax (Melis2014, doi 10.1126/science.1256101)
+    value = D_ly / (c / Hsi(H0_photon) / ly)
+    return locals()
+
+@check(label='ch:exploratory:L214', chapter='ch:exploratory', part=7, title='transit figure: xi for seven days', file='part5/p5_02_exploratory', line=214,
+       status='calc', kind='num', printed='2.3\\times10^4', tol=0.0)
+def check_4502():
+    'Figure transit caption (a): xi = D/(c t) at t = 7 days for 136 pc. Inputs: 136 pc (Melis2014), ly, Julian year. Book line 214, printed 2.3\\times10^4.'
+    D_ly = 136 * pc / ly     # Pleiades distance 136 pc, VLBI parallax (Melis2014, doi 10.1126/science.1256101)
+    t7 = 7 * 86400 / yr     # seven days in Julian years
+    value = D_ly / t7
+    return locals()
+
+@check(label='ch:exploratory:L215', chapter='ch:exploratory', part=7, title='transit figure: tidal residual across 10 m, in g', file='part5/p5_02_exploratory', line=215,
+       status='derived', kind='num', printed='3.1\\times10^{-6}', tol=0.0)
+def check_4503():
+    'Figure transit caption (b): 2 GM L / R^3 at the Earth surface across L = 10 m, in g. Inputs: Earth GM (IERS 2010), mean radius 6371 km (IUGG), g = 9.80665 (CGPM). Book line 215, printed 3.1\\times10^{-6}.'
+    GM_E = 3.986004418e14   # m^3 s^-2, Earth GM (IERS Conventions 2010 / WGS 84)
+    R_E = 6.371e6           # m, Earth mean radius (IUGG)
+    g0 = 9.80665            # m s^-2, standard gravity (CGPM 1901)
+    value = 2 * GM_E * 10.0 / R_E**3 / g0
+    return locals()
+
+@check(label='ch:exploratory:L215:3.1\\times10^{-5}', chapter='ch:exploratory', part=7, title='transit figure: tidal residual across 100 m, in g', file='part5/p5_02_exploratory', line=215,
+       status='derived', kind='num', printed='3.1\\times10^{-5}', tol=0.0)
+def check_4504():
+    'Figure transit caption (b): 2 GM L / R^3 at the Earth surface across L = 100 m, in g. Inputs: Earth GM (IERS 2010), mean radius 6371 km (IUGG), g = 9.80665 (CGPM). Book line 215, printed 3.1\\times10^{-5}.'
+    GM_E = 3.986004418e14   # m^3 s^-2, Earth GM (IERS Conventions 2010 / WGS 84)
+    R_E = 6.371e6           # m, Earth mean radius (IUGG)
+    g0 = 9.80665            # m s^-2, standard gravity (CGPM 1901)
+    value = 2 * GM_E * 100.0 / R_E**3 / g0
+    return locals()
+
+@check(label='ch:exploratory:L262', chapter='ch:exploratory', part=7, title='MICROSCOPE eta(Ti,Pt) central value', file='part5/p5_02_exploratory', line=262,
+       status='observed', kind='num', printed='-1.5', tol=0.0)
+def check_4505():
+    'Published MICROSCOPE final result, Touboul et al. 2022, PRL 129, 121102, doi 10.1103/PhysRevLett.129.121102: eta(Ti,Pt) = [-1.5 +- 2.3 (stat) +- 1.5 (syst)] x 1e-15. The check reads the central value in units of 1e-15. Book line 262, printed -1.5.'
+    eta_central, s_stat, s_syst = -1.5, 2.3, 1.5   # x 1e-15, Touboul2022 (doi 10.1103/PhysRevLett.129.121102)
+    value = eta_central
+    return locals()
+
+@check(label='ch:exploratory:L262:2.7\\times10^{-15}', chapter='ch:exploratory', part=7, title='MICROSCOPE combined uncertainty, stat and syst in quadrature', file='part5/p5_02_exploratory', line=262,
+       status='observed', kind='num', printed='2.7\\times10^{-15}', tol=0.0)
+def check_4506():
+    'Line 262 consistent with zero at 2.7e-15: the statistical and systematic errors of the MICROSCOPE final result (Touboul2022, doi 10.1103/PhysRevLett.129.121102: 2.3 stat, 1.5 syst, x 1e-15) added in quadrature. Book line 262, printed 2.7\\times10^{-15}.'
+    s_stat, s_syst = 2.3e-15, 1.5e-15   # Touboul2022 (doi 10.1103/PhysRevLett.129.121102)
+    value = math.hypot(s_stat, s_syst)
+    return locals()
+
+@check(label='ch:exploratory:L298', chapter='ch:exploratory', part=7, title='three coplanar sources: mirror/target ratio', file='part5/p5_02_exploratory', line=298,
+       status='derived', kind='num', printed='1.00', tol=0.0)
+def check_4507():
+    'Figure steering (a): cycle-averaged |Phi_drive|^2 of Eq. ge_drive at the mirror point over its value at the target, three sources in z = 0 phased on the target, illustrative kernel exp(ikr)/r; same geometry as docs/book/figscripts/fig_p5_exploratory.py. Book line 298, printed 1.00.'
+    k = 2 * math.pi        # illustrative kernel G = exp(ikr)/r, wavelength 1 (figure steering)
+    tgt = np.array([0.4, 0.0, 1.2]); mir = tgt * np.array([1, 1, -1])
+    S3 = np.array([[3., 0, 0], [-1.5, 2.6, 0], [-1.5, -2.6, 0]]); S4 = np.vstack([S3, [0, 0, 3.5]])
+    def I(p, src):
+        tot = 0j
+        for s in src:
+            R0 = np.linalg.norm(tgt - s); R = np.linalg.norm(p - s)
+            tot += R0 * np.exp(1j * k * (R - R0)) / R      # amplitude and phase set to focus on the target
+        return abs(tot)**2
+    value = I(mir, S3) / I(tgt, S3)
+    return locals()
+
+@check(label='ch:exploratory:L299', chapter='ch:exploratory', part=7, title='four non-coplanar sources: mirror/target ratio', file='part5/p5_02_exploratory', line=299,
+       status='derived', kind='num', printed='0.44', tol=0.0)
+def check_4508():
+    'Figure steering (b): as (a) with a fourth source at z = 3.5 breaking the mirror symmetry; ratio of |Phi_drive|^2 at the mirror point to the target; same geometry as docs/book/figscripts/fig_p5_exploratory.py. Book line 299, printed 0.44.'
+    k = 2 * math.pi        # illustrative kernel G = exp(ikr)/r, wavelength 1 (figure steering)
+    tgt = np.array([0.4, 0.0, 1.2]); mir = tgt * np.array([1, 1, -1])
+    S3 = np.array([[3., 0, 0], [-1.5, 2.6, 0], [-1.5, -2.6, 0]]); S4 = np.vstack([S3, [0, 0, 3.5]])
+    def I(p, src):
+        tot = 0j
+        for s in src:
+            R0 = np.linalg.norm(tgt - s); R = np.linalg.norm(p - s)
+            tot += R0 * np.exp(1j * k * (R - R0)) / R      # amplitude and phase set to focus on the target
+        return abs(tot)**2
+    value = I(mir, S4) / I(tgt, S4)
+    return locals()
+
+@check(label='ch:exploratory:L337', chapter='ch:exploratory', part=7, title='status table: tidal residual across 10 m, in g', file='part5/p5_02_exploratory', line=337,
+       status='derived', kind='num', printed='3.1\\times10^{-6}', tol=0.0)
+def check_4509():
+    'Status table: 2 GM L / R^3 at the Earth surface across L = 10 m, in g. Inputs: Earth GM (IERS 2010), mean radius 6371 km (IUGG), g = 9.80665 (CGPM). Book line 337, printed 3.1\\times10^{-6}.'
+    GM_E = 3.986004418e14   # m^3 s^-2, Earth GM (IERS Conventions 2010 / WGS 84)
+    R_E = 6.371e6           # m, Earth mean radius (IUGG)
+    g0 = 9.80665            # m s^-2, standard gravity (CGPM 1901)
+    value = 2 * GM_E * 10.0 / R_E**3 / g0
+    return locals()
+
+@check(label='ch:exploratory:L337:3.1\\times10^{-5}', chapter='ch:exploratory', part=7, title='status table: tidal residual across 100 m, in g', file='part5/p5_02_exploratory', line=337,
+       status='derived', kind='num', printed='3.1\\times10^{-5}', tol=0.0)
+def check_4510():
+    'Status table: 2 GM L / R^3 at the Earth surface across L = 100 m, in g. Inputs: Earth GM (IERS 2010), mean radius 6371 km (IUGG), g = 9.80665 (CGPM). Book line 337, printed 3.1\\times10^{-5}.'
+    GM_E = 3.986004418e14   # m^3 s^-2, Earth GM (IERS Conventions 2010 / WGS 84)
+    R_E = 6.371e6           # m, Earth mean radius (IUGG)
+    g0 = 9.80665            # m s^-2, standard gravity (CGPM 1901)
+    value = 2 * GM_E * 100.0 / R_E**3 / g0
+    return locals()
+
+@check(label='ch:exploratory:L341', chapter='ch:exploratory', part=7, title='status table: Hubble radius at 67.16 in 1e10 ly', file='part5/p5_02_exploratory', line=341,
+       status='derived', kind='num', printed='1.46', tol=0.0)
+def check_4511():
+    'Status table: D_H = c/H0 at 67.16 in units of 1e10 ly. Inputs: c, Mpc, ly. Book line 341, printed 1.46.'
+    value = c / Hsi(H0_photon) / ly / 1e10
+    return locals()
+
+@check(label='ch:exploratory:L341:1.35\\times10^{10}', chapter='ch:exploratory', part=7, title='status table: Hubble radius at 72.26 in ly', file='part5/p5_02_exploratory', line=341,
+       status='derived', kind='num', printed='1.35\\times10^{10}', tol=0.0)
+def check_4512():
+    'Status table: D_H = c/H0 at 72.26 in light-years. Inputs: c, Mpc, ly. Book line 341, printed 1.35\\times10^{10}.'
+    value = c / Hsi(H0_matter) / ly
+    return locals()
+
+@check(label='ch:exploratory:L373', chapter='ch:exploratory', part=7, title='mutual static forces cancel for an even kernel', file='part5/p5_02_exploratory', line=373,
+       status='none', kind='sym', printed='', tol=0.0)
+def check_4513():
+    'Eq. pr_noforce: for a kernel G(u) = H(u) + H(-u) (the general even kernel), grad G(u) + grad G(-u) = 0 for every pair (chain rule), so the bracket and the total force vanish. Control: the odd part switched on by moving one coefficient by 5 %. Book line 373.'
+    ux, uy, uz = sp.symbols('u_x u_y u_z', real=True); u = (ux, uy, uz)
+    H = sp.Function('H')
+    def bracket(k):
+        Gk = lambda v: H(*v) + k * H(*[-w for w in v])
+        gp = [sp.diff(Gk(u), w) for w in u]
+        gm = [sp.diff(Gk(u), w).subs({ux: -ux, uy: -uy, uz: -uz}, simultaneous=True) for w in u]
+        return sp.Matrix([gp[i] + gm[i] for i in range(3)])
+    lhs = bracket(1); rhs = sp.zeros(3, 1)
+    neg_lhs = bracket(sp.Rational(105, 100))
+    ok = sp.simplify(lhs - rhs) == sp.zeros(*lhs.shape)
+    neg_ok = sp.simplify(neg_lhs - rhs) == sp.zeros(*lhs.shape)
+    return locals()
+
+@check(label='ch:exploratory:L395', chapter='ch:exploratory', part=7, title='radiated power for a given thrust, P = m a c', file='part5/p5_02_exploratory', line=395,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4514():
+    'Eq. pr_thrust: with thrust at most P/c (momentum flux at most energy flux over c), holding a mass m at acceleration a (F = m a, solved for P) needs P >= m a c. Control: 1/c coefficient moved by 5 %. Book line 395.'
+    m, a, P, cs = sp.symbols('m a P c', positive=True)
+    Pmin = lambda k: sp.solve(sp.Eq(m * a, k * P / cs), P)[0]
+    lhs = Pmin(1); rhs = m * a * cs
+    neg_lhs = Pmin(sp.Rational(105, 100))
+    return locals()
+
+@check(label='ch:exploratory:L399', chapter='ch:exploratory', part=7, title='thrust per watt 1/c', file='part5/p5_02_exploratory', line=399,
+       status='derived', kind='num', printed='3.34\\times10^{-9}', tol=0.0)
+def check_4515():
+    'Line 399: the thrust bound of Eq. pr_thrust per watt, 1/c in N/W. Input: c (SI). Book line 399, printed 3.34\\times10^{-9}.'
+    value = 1.0 / c
+    return locals()
+
+@check(label='ch:exploratory:L399:2.94\\times10^{12}', chapter='ch:exploratory', part=7, title='power to hold one tonne at 1 g', file='part5/p5_02_exploratory', line=399,
+       status='derived', kind='num', printed='2.94\\times10^{12}', tol=0.0)
+def check_4516():
+    'Eq. pr_thrust: P = m a c for one tonne at 1 g. Inputs: c (SI), g = 9.80665 (CGPM). Book line 399, printed 2.94\\times10^{12}.'
+    m_craft = 1000.0   # one tonne
+    g0 = 9.80665       # standard gravity (CGPM 1901)
+    value = m_craft * 1 * g0 * c   # P = m a c, Eq. pr_thrust
+    return locals()
+
+@check(label='ch:exploratory:L400', chapter='ch:exploratory', part=7, title='power for a 100 g departure of one tonne', file='part5/p5_02_exploratory', line=400,
+       status='calc', kind='num', printed='2.94\\times10^{14}', tol=0.0)
+def check_4517():
+    'Eq. pr_thrust: P = m a c for one tonne at 100 g. Inputs: c (SI), g = 9.80665 (CGPM). Book line 400, printed 2.94\\times10^{14}.'
+    m_craft = 1000.0   # one tonne
+    g0 = 9.80665       # standard gravity (CGPM 1901)
+    value = m_craft * 100 * g0 * c   # P = m a c, Eq. pr_thrust
+    return locals()
+
+@check(label='ch:exploratory:L417', chapter='ch:exploratory', part=7, title='felt load m eta a and the bound on eta', file='part5/p5_02_exploratory', line=417,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4518():
+    'Eq. pr_eta: the felt force is m eta a; requiring it to equal the allowed load m eps g and solving for eta gives eta = eps g / a. Control: g coefficient moved by 5 %. Book line 417.'
+    m, eta, a, eps, g = sp.symbols('m eta a varepsilon g', positive=True)
+    bound = lambda k: sp.solve(sp.Eq(m * eta * a, k * m * eps * g), eta)[0]
+    lhs = bound(1); rhs = eps * g / a
+    neg_lhs = bound(sp.Rational(105, 100))
+    return locals()
+
+@check(label='ch:exploratory:L421', chapter='ch:exploratory', part=7, title='a 1000 g departure felt below 0.1 g needs the same eta', file='part5/p5_02_exploratory', line=421,
+       status='calc', kind='num', printed='1000', tol=0.0)
+def check_4519():
+    'Line 421: the acceleration at which a felt load of 0.1 g gives the same bound |eta| = eps g / a as 100 g felt below 0.01 g (Eq. pr_eta solved for a). Book line 421, printed 1000.'
+    eta_100 = 0.01 / 100      # Eq. pr_eta at a = 100 g, eps = 0.01
+    value = 0.1 / eta_100      # a/g at eps = 0.1 with the same eta
+    return locals()
+
+@check(label='ch:exploratory:L431', chapter='ch:exploratory', part=7, title='tide of a monopole focus 2GML/r^3 = 2aL/r', file='part5/p5_02_exploratory', line=431,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4520():
+    'Eq. pr_focus: g(r) - g(r+L) for a monopole GM/r^2, to first order in L (series), equals 2GML/r^3 and, with a = GM/r^2 substituted (GM eliminated), 2aL/r. Control: coefficient 2 moved by 5 %. Book line 431.'
+    Gs, M, r, L, a = sp.symbols('G M r L a', positive=True)
+    d = sp.series(Gs * M / r**2 - Gs * M / (r + L)**2, L, 0, 2).removeO()
+    lhs = d.subs(M, a * r**2 / Gs); rhs = 2 * a * L / r
+    neg_lhs = sp.Rational(105, 100) * lhs
+    return locals()
+
+@check(label='ch:exploratory:L435', chapter='ch:exploratory', part=7, title='tide 2aL/r at 100 g, 10 m, focus at 100 m', file='part5/p5_02_exploratory', line=435,
+       status='derived', kind='num', printed='20', tol=0.0)
+def check_4521():
+    'Eq. pr_focus: 2 a L / r in g for a = 100 g, L = 10 m, r = 100 m. Book line 435, printed 20.'
+    a = 100 * 9.80665     # standard gravity (CGPM 1901)
+    L, r = 10.0, 100.0
+    value = 2 * a * L / r / 9.80665   # Eq. pr_focus, in g
+    return locals()
+
+@check(label='ch:exploratory:L436', chapter='ch:exploratory', part=7, title='strength of a 100 g focus at 200 km', file='part5/p5_02_exploratory', line=436,
+       status='calc', kind='num', printed='5.9\\times10^{23}', tol=0.0)
+def check_4522():
+    'Line 436: monopole strength M = a r^2/G with a = 100 g at the minimum distance r from Eq. pr_focus for a 0.01 g tide over 10 m. Input: G (CODATA 2018). Book line 436, printed 5.9\\times10^{23}.'
+    g0 = 9.80665                      # standard gravity (CGPM 1901)
+    a, L, tide = 100 * g0, 10.0, 0.01 * g0
+    r_min = 2 * a * L / tide          # Eq. pr_focus solved for r
+    M_focus = a * r_min**2 / G       # a = GM/r^2, G CODATA 2018
+    value = M_focus
+    return locals()
+
+@check(label='ch:exploratory:L445', chapter='ch:exploratory', part=7, title='Pleiades rate xi for seven days', file='part5/p5_02_exploratory', line=445,
+       status='derived', kind='num', printed='2.3\\times10^4', tol=0.0)
+def check_4523():
+    'Line 445: xi = D/(c t) for 136 pc in 7 days (Eq. ge_xi). Inputs: 136 pc (Melis2014), ly, Julian year. Book line 445, printed 2.3\\times10^4.'
+    D_ly = 136 * pc / ly     # Pleiades distance 136 pc, VLBI parallax (Melis2014, doi 10.1126/science.1256101)
+    t7 = 7 * 86400 / yr     # seven days in Julian years
+    value = D_ly / t7
+    return locals()
+
+@check(label='ch:exploratory:L450', chapter='ch:exploratory', part=7, title='total negative energy -(v^2/12) int r^2 f^2 dr', file='part5/p5_02_exploratory', line=450,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4524():
+    'Eq. pr_Etot: integrating Eq. ge_rho over angles, int (y^2+z^2)/r^2 dOmega = int sin^2 theta dOmega (computed: 8 pi/3), gives E = -(1/8pi)(v_s^2/4)(8pi/3) int r^2 f^2 dr = -(v_s^2/12) int r^2 f^2 dr. Control: the 1/8pi coefficient moved by 5 %. Book line 450.'
+    th, ph = sp.symbols('theta phi', real=True); vs = sp.Symbol('v_s', positive=True)
+    ang = sp.integrate(sp.integrate(sp.sin(th)**2 * sp.sin(th), (th, 0, sp.pi)), (ph, 0, 2 * sp.pi))
+    coef = lambda k: -(k / (8 * sp.pi)) * vs**2 / 4 * ang
+    lhs = coef(1); rhs = -vs**2 / 12
+    neg_lhs = coef(sp.Rational(105, 100))
+    return locals()
+
+@check(label='ch:exploratory:L455', chapter='ch:exploratory', part=7, title='linear wall: int r^2 f^2 dr = R^2/Delta + Delta/12', file='part5/p5_02_exploratory', line=455,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4525():
+    'Eq. pr_Ewall: f falling linearly from 1 to 0 across a wall of thickness Delta centred on R (f = -1/Delta there), the integral of Eq. pr_Etot (integrated) gives -(v_s^2/12)(R^2/Delta + Delta/12). Control: coefficient 1/12 of the Delta term moved by 5 %. Book line 455.'
+    r, R, D, vs = sp.symbols('r R Delta v_s', positive=True)
+    I = sp.integrate(r**2 * (-1 / D)**2, (r, R - D / 2, R + D / 2))
+    lhs = sp.expand(-vs**2 / 12 * I); rhs = sp.expand(-vs**2 / 12 * (R**2 / D + D / 12))
+    neg_lhs = sp.expand(-vs**2 / 12 * (R**2 / D + sp.Rational(105, 100) * D / 12))
+    return locals()
+
+@check(label='ch:exploratory:L461', chapter='ch:exploratory', part=7, title='negative energy, 100 m bubble at c, wall 100 L_P', file='part5/p5_02_exploratory', line=461,
+       status='calc', kind='num', printed='6.9\\times10^{62}', tol=0.0)
+def check_4526():
+    'Eq. pr_Ewall for R = 100 m, v_s = c, Delta = 100 v_s L_P, converted to kg by c^2/G. Inputs: L_P from hbar, G, c (CODATA 2018 / SI). Book line 461, printed 6.9\\times10^{62}.'
+    def E_wall_kg(vs, R, Delta):
+        'Eq. pr_Ewall in units G = c = 1 (a length), converted to kg by c^2/G.'
+        return abs(-(vs**2 / 12) * (R**2 / Delta + Delta / 12)) * c**2 / G
+    R = 100.0                       # m, bubble radius
+    vs = 1.0                        # v_s = c
+    Delta = 1e2 * vs * lP           # quantum-inequality wall bound (PfenningFord1997, doi 10.1088/0264-9381/14/7/011)
+    value = E_wall_kg(vs, R, Delta)
+    return locals()
+
+@check(label='ch:exploratory:L462', chapter='ch:exploratory', part=7, title='negative energy of a 100 m bubble in galaxies of 2e42 kg', file='part5/p5_02_exploratory', line=462,
+       status='calc', kind='num', printed='3\\times10^{20}', tol=0.0)
+def check_4527():
+    'Line 462: |E| of Eq. pr_Ewall (R = 100 m, v_s = c, Delta = 100 v_s L_P) divided by a galaxy mass of 2e42 kg (input of the sentence, PfenningFord1997). The published 6.2e62 kg of Pfenning and Ford (doi 10.1088/0264-9381/14/7/011) gives 3.1e20, the same printed figure. Book line 462, printed 3\\times10^{20}.'
+    def E_wall_kg(vs, R, Delta):
+        'Eq. pr_Ewall in units G = c = 1 (a length), converted to kg by c^2/G.'
+        return abs(-(vs**2 / 12) * (R**2 / Delta + Delta / 12)) * c**2 / G
+    R = 100.0                       # m, bubble radius
+    vs = 1.0                        # v_s = c
+    Delta = 1e2 * vs * lP           # quantum-inequality wall bound (PfenningFord1997, doi 10.1088/0264-9381/14/7/011)
+    M_gal = 2e42         # kg, galaxy mass used in the sentence
+    value = E_wall_kg(vs, R, Delta) / M_gal
+    return locals()
+
+@check(label='ch:exploratory:L462:2.3\\times10^4', chapter='ch:exploratory', part=7, title='Pleiades rate xi (bubble speed)', file='part5/p5_02_exploratory', line=462,
+       status='calc', kind='num', printed='2.3\\times10^4', tol=0.0)
+def check_4528():
+    'Line 462: the Pleiades rate v_s = xi c, xi = D/(c t) for 136 pc in 7 days. Inputs: 136 pc (Melis2014), ly, Julian year. Book line 462, printed 2.3\\times10^4.'
+    D_ly = 136 * pc / ly     # Pleiades distance 136 pc, VLBI parallax (Melis2014, doi 10.1126/science.1256101)
+    t7 = 7 * 86400 / yr     # seven days in Julian years
+    value = D_ly / t7
+    return locals()
+
+@check(label='ch:exploratory:L463', chapter='ch:exploratory', part=7, title='negative energy at the Pleiades rate', file='part5/p5_02_exploratory', line=463,
+       status='calc', kind='num', printed='1.6\\times10^{67}', tol=0.0)
+def check_4529():
+    'Eq. pr_Ewall for R = 100 m, v_s = 2.3e4 c, Delta = 100 v_s L_P (the wall bound at face value), in kg. Inputs: hbar, G, c. Book line 463, printed 1.6\\times10^{67}.'
+    def E_wall_kg(vs, R, Delta):
+        'Eq. pr_Ewall in units G = c = 1 (a length), converted to kg by c^2/G.'
+        return abs(-(vs**2 / 12) * (R**2 / Delta + Delta / 12)) * c**2 / G
+    R = 100.0
+    vs = 2.3e4                      # v_s = 2.3e4 c, the Pleiades rate as printed
+    Delta = 1e2 * vs * lP           # wall bound at face value (PfenningFord1997)
+    value = E_wall_kg(vs, R, Delta)
+    return locals()
+
+@check(label='ch:exploratory:L463:0.56', chapter='ch:exploratory', part=7, title='negative energy with a 1 m wall, solar masses', file='part5/p5_02_exploratory', line=463,
+       status='calc', kind='num', printed='0.56', tol=0.0)
+def check_4530():
+    'Eq. pr_Ewall for R = 100 m, v_s = c, Delta = 1 m, in solar masses. Inputs: G, c, M_sun (IAU 2015 nominal). Book line 463, printed 0.56.'
+    def E_wall_kg(vs, R, Delta):
+        'Eq. pr_Ewall in units G = c = 1 (a length), converted to kg by c^2/G.'
+        return abs(-(vs**2 / 12) * (R**2 / Delta + Delta / 12)) * c**2 / G
+    R, vs, Delta = 100.0, 1.0, 1.0   # 100 m bubble at c with a 1 m wall
+    value = E_wall_kg(vs, R, Delta) / Msun
+    return locals()
+
+@check(label='ch:exploratory:L474', chapter='ch:exploratory', part=7, title='pair self-force from unequal active/passive mass ratios', file='part5/p5_02_exploratory', line=474,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4531():
+    'Eq. pr_selfforce: the force on body 1 from body 2 is G m_p1 m_a2/r^2 toward 2, on body 2 from body 1 is G m_p2 m_a1/r^2 toward 1; their sum (summed along the line) equals the book form G m_p1 m_p2/r^2 (m_a2/m_p2 - m_a1/m_p1). Control: one force scaled by 1.05. Book line 474.'
+    Gs, r, ma1, mp1, ma2, mp2 = sp.symbols('G r m_a1 m_p1 m_a2 m_p2', positive=True)
+    F1 = Gs * mp1 * ma2 / r**2      # on body 1, toward body 2 (+x)
+    F2 = -Gs * mp2 * ma1 / r**2     # on body 2, toward body 1 (-x)
+    lhs = F1 + F2
+    rhs = Gs * mp1 * mp2 / r**2 * (ma2 / mp2 - ma1 / mp1)
+    neg_lhs = sp.Rational(105, 100) * F1 + F2
+    return locals()
+
+@check(label='ch:exploratory:L479', chapter='ch:exploratory', part=7, title='lunar ranging: m_a/m_p equal for Al and Fe (1986)', file='part5/p5_02_exploratory', line=479,
+       status='observed', kind='num', printed='4\\times10^{-12}', tol=0.0)
+def check_4532():
+    'Published limit on the difference of active to passive mass ratios of aluminium and iron from lunar ranging: Bartlett and Van Buren 1986, doi 10.1103/PhysRevLett.57.21. Book line 479, printed 4\\times10^{-12}.'
+    ratio_AlFe = 4e-12   # Bartlett and Van Buren 1986, PRL 57, 21, doi 10.1103/PhysRevLett.57.21
+    value = ratio_AlFe
+    return locals()
+
+@check(label='ch:exploratory:L480', chapter='ch:exploratory', part=7, title='lunar laser ranging: m_a/m_p equal for Al and Fe (2023)', file='part5/p5_02_exploratory', line=480,
+       status='observed', kind='num', printed='3.9\\times10^{-14}', tol=0.0)
+def check_4533():
+    'Published limit on the difference of active to passive mass ratios of aluminium and iron from lunar laser ranging: Singh et al. 2023, doi 10.1103/PhysRevLett.131.021401. Book line 480, printed 3.9\\times10^{-14}.'
+    ratio_AlFe = 3.9e-14   # Singh et al. 2023, PRL 131, 021401, doi 10.1103/PhysRevLett.131.021401
+    value = ratio_AlFe
+    return locals()
+
+@check(label='ch:exploratory:L486', chapter='ch:exploratory', part=7, title='hover by weight reduction: delta = 1 + m_pay/m_d', file='part5/p5_02_exploratory', line=486,
+       status='derived', kind='sym', printed='', tol=0.0)
+def check_4534():
+    'Eq. pr_hover: solving (1 - delta) m_d + m_pay = 0 for delta gives 1 + m_pay/m_d (and delta = 2 for m_pay = m_d). Control: payload weight moved by 5 %. Book line 486.'
+    d, md, mp = sp.symbols('delta m_d m_pay', positive=True)
+    sol = lambda k: sp.solve(sp.Eq((1 - d) * md + k * mp, 0), d)[0]
+    lhs = sol(1); rhs = 1 + mp / md
+    neg_lhs = sol(sp.Rational(105, 100))
+    return locals()
+
+@check(label='ch:exploratory:L496', chapter='ch:exploratory', part=7, title='summary: power per tonne at 1 g', file='part5/p5_02_exploratory', line=496,
+       status='derived', kind='num', printed='2.94\\times10^{12}', tol=0.0)
+def check_4535():
+    'Summary line 496: P = m a c for one tonne at 1 g (Eq. pr_thrust). Inputs: c, g = 9.80665. Book line 496, printed 2.94\\times10^{12}.'
+    m_craft = 1000.0   # one tonne
+    g0 = 9.80665       # standard gravity (CGPM 1901)
+    value = m_craft * 1 * g0 * c   # P = m a c, Eq. pr_thrust
+    return locals()
+
+@check(label='ch:exploratory:L498', chapter='ch:exploratory', part=7, title='summary: tide 20 g at 100 m from a 100 g focus', file='part5/p5_02_exploratory', line=498,
+       status='derived', kind='num', printed='20', tol=0.0)
+def check_4536():
+    'Summary line 498: 2 a L / r in g for a = 100 g, L = 10 m, r = 100 m (Eq. pr_focus). Book line 498, printed 20.'
+    a = 100 * 9.80665     # standard gravity (CGPM 1901)
+    L, r = 10.0, 100.0
+    value = 2 * a * L / r / 9.80665   # Eq. pr_focus, in g
+    return locals()
+
+@check(label='ch:exploratory:L498:6.9\\times10^{62}', chapter='ch:exploratory', part=7, title='summary: negative energy, 100 m bubble at c', file='part5/p5_02_exploratory', line=498,
+       status='derived', kind='num', printed='6.9\\times10^{62}', tol=0.0)
+def check_4537():
+    'Summary line 498: Eq. pr_Ewall for R = 100 m, v_s = c, Delta = 100 v_s L_P, in kg. Book line 498, printed 6.9\\times10^{62}.'
+    def E_wall_kg(vs, R, Delta):
+        'Eq. pr_Ewall in units G = c = 1 (a length), converted to kg by c^2/G.'
+        return abs(-(vs**2 / 12) * (R**2 / Delta + Delta / 12)) * c**2 / G
+    R = 100.0                       # m, bubble radius
+    vs = 1.0                        # v_s = c
+    Delta = 1e2 * vs * lP           # quantum-inequality wall bound (PfenningFord1997, doi 10.1088/0264-9381/14/7/011)
+    value = E_wall_kg(vs, R, Delta)
+    return locals()
+
+@check(label='ch:exploratory:L499', chapter='ch:exploratory', part=7, title='summary: negative energy at the Pleiades rate', file='part5/p5_02_exploratory', line=499,
+       status='derived', kind='num', printed='1.6\\times10^{67}', tol=0.0)
+def check_4538():
+    'Summary line 499: Eq. pr_Ewall for R = 100 m, v_s = 2.3e4 c, Delta = 100 v_s L_P, in kg. Book line 499, printed 1.6\\times10^{67}.'
+    def E_wall_kg(vs, R, Delta):
+        'Eq. pr_Ewall in units G = c = 1 (a length), converted to kg by c^2/G.'
+        return abs(-(vs**2 / 12) * (R**2 / Delta + Delta / 12)) * c**2 / G
+    R = 100.0
+    vs = 2.3e4                      # v_s = 2.3e4 c, the Pleiades rate as printed
+    Delta = 1e2 * vs * lP           # wall bound at face value (PfenningFord1997)
+    value = E_wall_kg(vs, R, Delta)
+    return locals()
+
+@check(label='ch:exploratory:L502', chapter='ch:exploratory', part=7, title='summary: lunar laser ranging Al/Fe ratio (2023)', file='part5/p5_02_exploratory', line=502,
+       status='conjecture', kind='num', printed='3.9\\times10^{-14}', tol=0.0)
+def check_4539():
+    'Summary line 502 restates the published limit: Singh et al. 2023, doi 10.1103/PhysRevLett.131.021401. Book line 502, printed 3.9\\times10^{-14}.'
+    ratio_AlFe = 3.9e-14   # Singh et al. 2023, PRL 131, 021401, doi 10.1103/PhysRevLett.131.021401
+    value = ratio_AlFe
+    return locals()
+
+@check(label='ch:exploratory:L515', chapter='ch:exploratory', part=7, title='status table: power per tonne at 1 g', file='part5/p5_02_exploratory', line=515,
+       status='derived', kind='num', printed='2.94\\times10^{12}', tol=0.0)
+def check_4540():
+    'Status table: P = m a c for one tonne at 1 g. Inputs: c, g = 9.80665. Book line 515, printed 2.94\\times10^{12}.'
+    m_craft = 1000.0   # one tonne
+    g0 = 9.80665       # standard gravity (CGPM 1901)
+    value = m_craft * 1 * g0 * c   # P = m a c, Eq. pr_thrust
+    return locals()
+
+@check(label='ch:exploratory:L515:2.94\\times10^{14}', chapter='ch:exploratory', part=7, title='status table: power per tonne at 100 g', file='part5/p5_02_exploratory', line=515,
+       status='derived', kind='num', printed='2.94\\times10^{14}', tol=0.0)
+def check_4541():
+    'Status table: P = m a c for one tonne at 100 g. Inputs: c, g = 9.80665. Book line 515, printed 2.94\\times10^{14}.'
+    m_craft = 1000.0   # one tonne
+    g0 = 9.80665       # standard gravity (CGPM 1901)
+    value = m_craft * 100 * g0 * c   # P = m a c, Eq. pr_thrust
+    return locals()
+
+@check(label='ch:exploratory:L518', chapter='ch:exploratory', part=7, title='status table: 100 g felt below 0.01 g needs eta = 1e-4', file='part5/p5_02_exploratory', line=518,
+       status='derived', kind='num', printed='100', tol=0.0)
+def check_4542():
+    'Status table line 518: the acceleration 100 g at which the bound eta = eps g/a with eps = 0.01 equals 1e-4 (Eq. pr_eta solved for a). Book line 518, printed 100.'
+    eta_bound = 1e-4     # bound stated in the table row
+    eps = 0.01
+    value = eps / eta_bound   # a in units of g
+    return locals()
+
+@check(label='ch:exploratory:L520', chapter='ch:exploratory', part=7, title='status table: tide 20 g', file='part5/p5_02_exploratory', line=520,
+       status='derived', kind='num', printed='20', tol=0.0)
+def check_4543():
+    'Status table: 2 a L / r in g for a = 100 g, L = 10 m, r = 100 m (Eq. pr_focus). Book line 520, printed 20.'
+    a = 100 * 9.80665     # standard gravity (CGPM 1901)
+    L, r = 10.0, 100.0
+    value = 2 * a * L / r / 9.80665   # Eq. pr_focus, in g
+    return locals()
+
+@check(label='ch:exploratory:L520:5.9\\times10^{23}', chapter='ch:exploratory', part=7, title='status table: focus strength for a 0.01 g tide', file='part5/p5_02_exploratory', line=520,
+       status='derived', kind='num', printed='5.9\\times10^{23}', tol=0.0)
+def check_4544():
+    'Status table: M = a r^2/G at a = 100 g and r from Eq. pr_focus for a 0.01 g tide over 10 m. Input: G (CODATA 2018). Book line 520, printed 5.9\\times10^{23}.'
+    g0 = 9.80665                      # standard gravity (CGPM 1901)
+    a, L, tide = 100 * g0, 10.0, 0.01 * g0
+    r_min = 2 * a * L / tide          # Eq. pr_focus solved for r
+    M_focus = a * r_min**2 / G       # a = GM/r^2, G CODATA 2018
+    value = M_focus
+    return locals()
+
+@check(label='ch:exploratory:L520:200', chapter='ch:exploratory', part=7, title='status table: focus distance for a 0.01 g tide, km', file='part5/p5_02_exploratory', line=520,
+       status='derived', kind='num', printed='200', tol=0.0)
+def check_4545():
+    'Status table: Eq. pr_focus solved for r with a = 100 g, L = 10 m, tide 0.01 g, in km. Book line 520, printed 200.'
+    g0 = 9.80665                      # standard gravity (CGPM 1901)
+    a, L, tide = 100 * g0, 10.0, 0.01 * g0
+    r_min = 2 * a * L / tide          # Eq. pr_focus solved for r
+    M_focus = a * r_min**2 / G       # a = GM/r^2, G CODATA 2018
+    value = r_min / 1e3
+    return locals()
+
+@check(label='ch:exploratory:L522', chapter='ch:exploratory', part=7, title='status table: Al/Fe ratio (1986)', file='part5/p5_02_exploratory', line=522,
+       status='observed', kind='num', printed='4\\times10^{-12}', tol=0.0)
+def check_4546():
+    'Status table restates Bartlett and Van Buren 1986, doi 10.1103/PhysRevLett.57.21. Book line 522, printed 4\\times10^{-12}.'
+    ratio_AlFe = 4e-12   # Bartlett and Van Buren 1986, PRL 57, 21, doi 10.1103/PhysRevLett.57.21
+    value = ratio_AlFe
+    return locals()
+
+@check(label='ch:exploratory:L522:3.9\\times10^{-14}', chapter='ch:exploratory', part=7, title='status table: Al/Fe ratio (2023)', file='part5/p5_02_exploratory', line=522,
+       status='observed', kind='num', printed='3.9\\times10^{-14}', tol=0.0)
+def check_4547():
+    'Status table restates Singh et al. 2023, doi 10.1103/PhysRevLett.131.021401. Book line 522, printed 3.9\\times10^{-14}.'
+    ratio_AlFe = 3.9e-14   # Singh et al. 2023, PRL 131, 021401, doi 10.1103/PhysRevLett.131.021401
+    value = ratio_AlFe
+    return locals()
+
+@check(label='ch:exploratory:L527', chapter='ch:exploratory', part=7, title='status table: negative energy, 100 m bubble at c', file='part5/p5_02_exploratory', line=527,
+       status='calc', kind='num', printed='6.9\\times10^{62}', tol=0.0)
+def check_4548():
+    'Status table: Eq. pr_Ewall, R = 100 m, v_s = c, Delta = 100 v_s L_P, in kg. Book line 527, printed 6.9\\times10^{62}.'
+    def E_wall_kg(vs, R, Delta):
+        'Eq. pr_Ewall in units G = c = 1 (a length), converted to kg by c^2/G.'
+        return abs(-(vs**2 / 12) * (R**2 / Delta + Delta / 12)) * c**2 / G
+    R = 100.0                       # m, bubble radius
+    vs = 1.0                        # v_s = c
+    Delta = 1e2 * vs * lP           # quantum-inequality wall bound (PfenningFord1997, doi 10.1088/0264-9381/14/7/011)
+    value = E_wall_kg(vs, R, Delta)
+    return locals()
+
+@check(label='ch:exploratory:L527:1.6\\times10^{67}', chapter='ch:exploratory', part=7, title='status table: negative energy at 2.3e4 c', file='part5/p5_02_exploratory', line=527,
+       status='calc', kind='num', printed='1.6\\times10^{67}', tol=0.0)
+def check_4549():
+    'Status table: Eq. pr_Ewall, R = 100 m, v_s = 2.3e4 c, Delta = 100 v_s L_P, in kg. Book line 527, printed 1.6\\times10^{67}.'
+    def E_wall_kg(vs, R, Delta):
+        'Eq. pr_Ewall in units G = c = 1 (a length), converted to kg by c^2/G.'
+        return abs(-(vs**2 / 12) * (R**2 / Delta + Delta / 12)) * c**2 / G
+    R = 100.0
+    vs = 2.3e4                      # v_s = 2.3e4 c, the Pleiades rate as printed
+    Delta = 1e2 * vs * lP           # wall bound at face value (PfenningFord1997)
+    value = E_wall_kg(vs, R, Delta)
+    return locals()
+
+@check(label='ch:exploratory:L527:2.3\\times10^4', chapter='ch:exploratory', part=7, title='status table: Pleiades rate xi', file='part5/p5_02_exploratory', line=527,
+       status='calc', kind='num', printed='2.3\\times10^4', tol=0.0)
+def check_4550():
+    'Status table: xi = D/(c t) for 136 pc in 7 days. Inputs: 136 pc (Melis2014), ly, Julian year. Book line 527, printed 2.3\\times10^4.'
+    D_ly = 136 * pc / ly     # Pleiades distance 136 pc, VLBI parallax (Melis2014, doi 10.1126/science.1256101)
+    t7 = 7 * 86400 / yr     # seven days in Julian years
+    value = D_ly / t7
+    return locals()
+
+@check(label='ch:exploratory:L527:0.56', chapter='ch:exploratory', part=7, title='status table: 1 m wall in solar masses', file='part5/p5_02_exploratory', line=527,
+       status='calc', kind='num', printed='0.56', tol=0.0)
+def check_4551():
+    'Status table: Eq. pr_Ewall, R = 100 m, v_s = c, Delta = 1 m, in solar masses. Book line 527, printed 0.56.'
+    def E_wall_kg(vs, R, Delta):
+        'Eq. pr_Ewall in units G = c = 1 (a length), converted to kg by c^2/G.'
+        return abs(-(vs**2 / 12) * (R**2 / Delta + Delta / 12)) * c**2 / G
+    R, vs, Delta = 100.0, 1.0, 1.0   # 100 m bubble at c with a 1 m wall
+    value = E_wall_kg(vs, R, Delta) / Msun
     return locals()
 
 
@@ -41153,145 +41962,68 @@ INVENTORY = [
     (7, 'ch:reach', 'part3/p3_09_reach', 104, '', 'calc', '20', 'input: transistor count (20.0-20.6)x10^9 from die-level reports (\\cite{AMD9950X}); E_sw from it is checked as ch:onegauge:L22'),
     (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'calc', '0.3', 'input: the redshift z = 0.3 at which the E_G change is read (checked as ch:predictions:L24:1.8)'),
     (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'calc', '0.5', 'input: the redshift z = 0.5 at which the E_G change is read (checked as ch:predictions:L24:1.1)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 16, 'eq:ge_landauer', 'none', '', 'displayed equation, not yet checked'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 20, '', 'calc', '2.65\\times10^{-30}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 21, '', 'calc', '2.53\\times10^{-53}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 21, '', 'calc', '2.85\\times10^{-30}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 22, '', 'calc', '2.72\\times10^{-53}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 28, 'eq:ge_Ea', 'prediction', '', 'displayed equation, not yet checked'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 33, 'eq:ge_Hm', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 44, 'eq:ge_g', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 55, 'eq:ge_eom', 'none', '', 'displayed equation, not yet checked'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 61, 'eq:ge_felt', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 67, 'eq:ge_tidal', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 72, '', 'derived', '3.1\\times10^{-6}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 73, '', 'calc', '3.1\\times10^{-5}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 76, '', 'derived', '90', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 83, 'eq:ge_hover', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 95, 'eq:ge_plumb', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 99, '', 'derived', '5.7', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 99, '', 'derived', '0.1', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 108, 'eq:ge_ggtorque', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 118, 'eq:ge_vrec', 'none', '', 'displayed equation, not yet checked'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 123, 'eq:ge_DH', 'calc', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 127, '', 'calc', '70', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 137, '', 'calc', '1.46', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 137, '', 'calc', '1.35\\times10^{10}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 137, '', 'calc', '3\\times10^{-8}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 145, 'eq:ge_alc', 'none', '', 'displayed equation, not yet checked'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 153, 'eq:ge_tau', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 161, 'eq:ge_dtau', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 176, 'eq:ge_rho', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 187, '', 'calc', '0.99', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 188, '', 'calc', '2.3\\times10^4', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 196, 'eq:ge_tone', 'none', '', 'displayed equation, not yet checked'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 202, 'eq:ge_xi', 'calc', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 208, '', 'calc', '3\\times10^{-8}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 214, '', 'calc', '2.3\\times10^4', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 215, '', 'derived', '3.1\\times10^{-6}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 215, '', 'derived', '3.1\\times10^{-5}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 230, 'eq:ge_kernel', 'conjecture', '', 'displayed equation, not yet checked'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 262, '', 'observed', '-1.5', 'measured, source not named'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 262, '', 'observed', '2.7\\times10^{-15}', 'measured, source not named'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 266, '', 'prediction', '10', 'not yet checked'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 273, 'eq:ge_drive', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 298, '', 'derived', '1.00', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 299, '', 'derived', '0.44', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 331, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 332, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 333, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 334, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 335, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 336, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 337, '', 'derived', '3.1\\times10^{-6}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 337, '', 'derived', '3.1\\times10^{-5}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 337, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 338, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 339, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 340, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 341, '', 'derived', '1.46', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 341, '', 'derived', '1.35\\times10^{10}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 341, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 342, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 343, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 344, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 345, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 346, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 347, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 348, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 349, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 350, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 351, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 352, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 373, 'eq:pr_noforce', 'none', '', 'displayed equation, not yet checked'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 395, 'eq:pr_thrust', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 399, '', 'derived', '3.34\\times10^{-9}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 399, '', 'derived', '2.94\\times10^{12}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 399, '', 'derived', '100', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 400, '', 'calc', '2.94\\times10^{14}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 415, '', 'observed', '10', 'measured, source not named'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 417, 'eq:pr_eta', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 421, '', 'calc', '100', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 421, '', 'calc', '0.01', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 421, '', 'calc', '1000', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 421, '', 'calc', '0.1', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 431, 'eq:pr_focus', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 435, '', 'derived', '100', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 435, '', 'derived', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 435, '', 'derived', '20', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 436, '', 'calc', '0.01', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 436, '', 'calc', '100', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 436, '', 'calc', '5.9\\times10^{23}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 445, '', 'derived', '2.3\\times10^4', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 450, 'eq:pr_Etot', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 455, 'eq:pr_Ewall', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 461, '', 'calc', '6.9\\times10^{62}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 461, '', 'calc', '6.2\\times10^{62}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 462, '', 'calc', '3\\times10^{20}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 462, '', 'calc', '2\\times10^{42}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 462, '', 'calc', '2.3\\times10^4', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 463, '', 'calc', '1.6\\times10^{67}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 463, '', 'calc', '0.56', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 474, 'eq:pr_selfforce', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 479, '', 'observed', '4\\times10^{-12}', 'measured, source not named'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 480, '', 'observed', '3.9\\times10^{-14}', 'measured, source not named'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 486, 'eq:pr_hover', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 496, '', 'derived', '2.94\\times10^{12}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 498, '', 'derived', '20', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 498, '', 'derived', '100', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 498, '', 'derived', '6.9\\times10^{62}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 499, '', 'derived', '1.6\\times10^{67}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 502, '', 'conjecture', '3.9\\times10^{-14}', 'not yet checked'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 512, '', 'derived', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 513, '', 'derived', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 514, '', 'derived', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 515, '', 'derived', '2.94\\times10^{12}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 515, '', 'derived', '2.94\\times10^{14}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 515, '', 'derived', '100', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 515, '', 'derived', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 516, '', 'derived', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 517, '', 'derived', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 518, '', 'derived', '100', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 518, '', 'derived', '0.01', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 518, '', 'derived', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 519, '', 'derived', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 520, '', 'derived', '20', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 520, '', 'derived', '5.9\\times10^{23}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 520, '', 'derived', '0.01', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 520, '', 'derived', '200', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 520, '', 'derived', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 521, '', 'derived', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 522, '', 'observed', '4\\times10^{-12}', 'measured, source not named'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 522, '', 'observed', '3.9\\times10^{-14}', 'measured, source not named'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 522, '', 'derived', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 523, '', 'derived', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 524, '', 'derived', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 525, '', 'derived', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 526, '', 'derived', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 527, '', 'calc', '6.9\\times10^{62}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 527, '', 'calc', '1.6\\times10^{67}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 527, '', 'calc', '2.3\\times10^4', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 527, '', 'calc', '0.56', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 16, 'eq:ge_landauer', 'none', '', 'definition: Landauer cost k_B T ln 2 per bit at the Gibbons-Hawking horizon temperature T_H = hbar H/(2 pi k_B) (published results, cited); its values are checked at ch:exploratory:L20 to L22'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 76, '', 'derived', '90', 'input: illustrative turn angle of the example (90 degrees), nothing to recompute'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 99, '', 'derived', '0.1', 'input: horizontal acceleration 0.1 g of the plumb example'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 127, '', 'calc', '70', 'input: round value H0 = 70 km/s/Mpc used for illustration'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 145, 'eq:ge_alc', 'none', '', 'definition: Alcubierre metric (published, Alcubierre1994); its centre-line consequence is checked at eq:ge_tau and its energy density at eq:ge_rho'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 187, '', 'calc', '0.99', 'input: through-space speed 0.99 c chosen for the figure example'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 196, 'eq:ge_tone', 'none', '', 'definition: one-way time D/v_eff with v_eff = xi c; 1 ly = c x 1 Julian year, so 444 ly/(xi c) = 444/xi yr'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 230, 'eq:ge_kernel', 'conjecture', '', 'conjecture: form of the response kernel of Conjecture C1, nothing to recompute'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 266, '', 'prediction', '10', 'prediction, nothing to recompute (target sensitivity 10^-15 of a weighing; the MICROSCOPE level is checked at ch:exploratory:L262)'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 273, 'eq:ge_drive', 'derived', '', 'definition: superposition of phased sources through the unknown kernel G (conditional form); the steering numbers are checked at ch:exploratory:L298 and L299'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 331, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 332, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 333, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 334, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 335, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 336, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 337, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 338, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 339, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 340, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 341, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 342, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 343, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 344, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 345, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 346, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 347, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 348, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 349, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 350, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 351, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 352, '', 'calc', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 399, '', 'derived', '100', 'input: departure acceleration 100 g of the example'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 415, '', 'observed', '10', 'order-of-magnitude restatement (about 10^-15) of the MICROSCOPE result checked at ch:exploratory:L262 and ch:exploratory:L262:2.7\\times10^{-15}'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 421, '', 'calc', '100', 'input: departure acceleration 100 g of the example'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 421, '', 'calc', '0.01', 'input: allowed felt load 0.01 g of the example'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 421, '', 'calc', '0.1', 'input: allowed felt load 0.1 g of the second example'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 435, '', 'derived', '100', 'input: focus acceleration 100 g (and the focus distance 100 m) of the example'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 435, '', 'derived', '10', 'input: craft length 10 m of the example'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 436, '', 'calc', '0.01', 'input: tide limit 0.01 g of the example'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 436, '', 'calc', '100', 'input: focus pull 100 g of the example'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 461, '', 'calc', '6.2\\times10^{62}', 'input: published value of Pfenning and Ford, |E| = 6.2e62 v_s kg (PfenningFord1997, doi 10.1088/0264-9381/14/7/011), quoted for comparison with the recomputed 6.9e62 (ch:exploratory:L461)'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 462, '', 'calc', '2\\times10^{42}', 'input: galaxy mass 2e42 kg used for the comparison (PfenningFord1997)'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 498, '', 'derived', '100', 'input: focus acceleration 100 g (focus distance 100 m) of the example'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 512, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 513, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 514, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 515, '', 'derived', '100', 'input: departure acceleration 100 g of the example'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 515, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 516, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 517, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 518, '', 'derived', '0.01', 'input: allowed felt load 0.01 g of the example'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 518, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 519, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 520, '', 'derived', '0.01', 'input: tide limit 0.01 g of the example'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 520, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 521, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 522, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 523, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 524, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 525, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
+    (7, 'ch:exploratory', 'part5/p5_02_exploratory', 526, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
     (7, 'ch:statusall', 'part5/p5_11_status_all', 12, '', 'calc', '0.54', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (7, 'ch:statusall', 'part5/p5_11_status_all', 12, '', 'calc', '1.04', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (7, 'ch:statusall', 'part5/p5_11_status_all', 23, '', 'calc', '2.82\\times10^{7}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
