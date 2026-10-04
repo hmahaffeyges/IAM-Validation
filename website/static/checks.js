@@ -15,9 +15,21 @@
 
   function plain(t) {
     return String(t || "").replace(/\\times\s*10\^\{?([-+]?\d+)\}?/g, " × 10^$1").replace(/\\%/g, "%").replace(/\$/g, "")
-      .replace(/\\,|\\!|~/g, "").replace(/\{,\}/g, ",").replace(/\\(lesssim|leq|le)\b/g, "≤").replace(/\\(gtrsim|geq|ge)\b/g, "≥");
+      .replace(/\\,|\\!|~/g, "").replace(/\{,\}/g, ",").replace(/\\(lesssim|leq|le)(?![A-Za-z])/g, "≤").replace(/\\(gtrsim|geq|ge)(?![A-Za-z])/g, "≥");
   }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  // "source data" (the check's source= file in the repository) and "check code" (its @check in docs/book/verify_book.py)
+  function codeLinks(c) {
+    var span = el("span", "iam-links");
+    function add(text, href, title) {
+      if (!href) return;
+      if (span.childNodes.length) span.appendChild(document.createTextNode(" \u00b7 "));
+      var a = el("a", null, text); a.href = href; a.target = "_blank"; a.rel = "noopener"; a.title = title; span.appendChild(a);
+    }
+    add("source data", c.source_url, "The file this check reads, on GitHub");
+    add("check code", c.code_url, "This check in docs/book/verify_book.py, on GitHub");
+    return span;
+  }
   var box, bar, msg;
   function progress(frac, text) {
     if (!box) {
@@ -142,7 +154,7 @@
     return {
       label: lab, part: c.part, partName: partName(c.part), chapter: c.chapter || "", what: c.title || "",
       book: plain(r.printed) || "(algebra)", recomputed: r.recomputed == null ? "" : String(r.recomputed), tol: fmtTol(r.tol),
-      result: r.passed ? "PASS" : "FAIL", source: source,
+      result: r.passed ? "PASS" : "FAIL", source: source, sourceUrl: c.source_url || "", codeUrl: c.code_url || "",
       href: c.page ? root + "book/" + c.page + "?check=" + encodeURIComponent(lab) + "#" + encodeURIComponent(c.anchor || "") : ""
     };
   }
@@ -180,7 +192,7 @@
     scroller.setAttribute("role", "region"); scroller.setAttribute("aria-label", "Results table, scrollable");
     var tbl = el("table", "iam-results-table");
     var thead = el("thead"), hr = el("tr");
-    ["Label", "Part", "Chapter", "What it computes", "Book value", "Recomputed", "Tolerance", "Result", "Source"].forEach(function (h) {
+    ["Label", "Part", "Chapter", "What it computes", "Book value", "Recomputed", "Tolerance", "Result", "Source", "Links"].forEach(function (h) {
       var th = el("th", null, h); th.scope = "col"; hr.appendChild(th);
     });
     thead.appendChild(hr); tbl.appendChild(thead);
@@ -205,6 +217,7 @@
         tr.appendChild(el("td", "num", x.tol));
         var rc = el("td"); rc.appendChild(el("span", x.result === "PASS" ? "pass" : "fail", x.result)); tr.appendChild(rc);
         tr.appendChild(el("td", "src", SOURCE[x.source]));
+        var lt = el("td", "links"); lt.appendChild(codeLinks({ source_url: x.sourceUrl, code_url: x.codeUrl })); tr.appendChild(lt);
         frag.appendChild(tr);
       });
       tbody.textContent = ""; tbody.appendChild(frag);
@@ -213,10 +226,11 @@
     fPart.addEventListener("change", draw); fRes.addEventListener("change", draw);
     dl.addEventListener("click", function () {
       function q(v) { v = String(v == null ? "" : v); return /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
-      var lines = [["label", "part", "chapter", "what_it_computes", "book_value", "recomputed", "tolerance", "result", "source", "link"].join(",")];
+      var lines = [["label", "part", "chapter", "what_it_computes", "book_value", "recomputed", "tolerance", "result", "source", "link",
+                    "source_data", "check_code"].join(",")];
       rows.forEach(function (x) {
         lines.push([x.label, x.partName, x.chapter, x.what, x.book, x.recomputed, x.tol, x.result, SOURCE[x.source],
-                    x.href ? new URL(x.href, location.href).href : ""].map(q).join(","));
+                    x.href ? new URL(x.href, location.href).href : "", x.sourceUrl, x.codeUrl].map(q).join(","));
       });
       var blob = new Blob(["\ufeff" + lines.join("\r\n") + "\r\n"], { type: "text/csv;charset=utf-8" });
       var a = document.createElement("a"); a.href = URL.createObjectURL(blob);
@@ -248,6 +262,7 @@
         var v = plainValue(c);
         if (v) what.appendChild(el("span", "iam-book", " \u00b7 book: " + v));
         if (c.heavy) what.appendChild(el("span", "iam-book", " \u00b7 reads a chain or pipeline output"));
+        var lk = codeLinks(c); if (lk.childNodes.length) { what.appendChild(document.createTextNode(" ")); what.appendChild(lk); }
         row.appendChild(what);
         var run = el("button", "iam-run", "Run"); run.type = "button"; run.dataset.label = lab;
         run.setAttribute("aria-label", "Run check " + lab);
