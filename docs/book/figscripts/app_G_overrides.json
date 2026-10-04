@@ -178,7 +178,7 @@
   "statement": [
    [
     "The growth suppression lowers the linear growth factor D today by 0.78 % (not 7.4 %), which reduces satellite subhalo counts independently of baryons by an amount still to be recomputed.",
-    "The growth suppression lowers the linear growth factor D today by 0.78 %; the Press-Schechter count of satellite-mass haloes (1e7 to 1e9 solar masses) changes by +0.68 to +0.73 %, a sub-per-cent change (calculated in the satellites chapter)."
+    "The growth suppression lowers the linear growth factor D today by 0.78 %; the Press-Schechter count of satellite-mass halos (1e7 to 1e9 solar masses) changes by +0.68 to +0.73 %, a sub-per-cent change (calculated in the satellites chapter)."
    ]
   ],
   "falsified_if": [
@@ -470,6 +470,10 @@
    [
     "0.8087 (LCDM, Run A) to 0.7998 (IAM, Run C)",
     "0.8087 (LCDM, Run C) to 0.7998 (IAM, Run A)"
+   ],
+   [
+    "about 1 sigma below LCDM's 0.832",
+    "about 1 sigma below the Planck 2018 LCDM value 0.832"
    ]
   ]
  },
@@ -488,7 +492,13 @@
    "COS-259",
    "COS-318"
   ],
-  "color": "precision"
+  "color": "precision",
+  "statement": [
+   [
+    "against LCDM 0.832 (~1 sigma)",
+    "against the Planck 2018 LCDM value 0.832 (~1 sigma)"
+   ]
+  ]
  },
  "COS-036": {
   "exclude": "same prediction as COS-324"
