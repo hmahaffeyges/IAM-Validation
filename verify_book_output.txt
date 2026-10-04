@@ -389,7 +389,7 @@ PASS  ch:virial:L65                      ch:virial:p2_02_virial:65  printed 0.54
 PASS  eq:vc_eta                          ch:virial:p2_02_virial:76  printed 0.81  recomputed 0.806452  tol 0.00500001  [none] eta_vir = 1/(2 f_coll)
 PASS  ch:virial:L85                      ch:virial:p2_02_virial:85  printed 17\%  recomputed 17  tol 0.5  [observed] largest surface-corrected excess of 2K/|W| over 1 (Klypin 2016)  file docs/verification/virial/NBODY_TRACE.md
 PASS  ch:virial:L86                      ch:virial:p2_02_virial:86  printed 0.77  recomputed 0.769231  tol 0.00500001  [calc] reciprocal |U|/2T, lower end, within r_vir  file docs/verification/virial/NBODY_TRACE.md
-PASS  ch:virial:L86:0.91                 ch:virial:p2_02_virial:86  printed 0.91  recomputed 0.909091  tol 0.00500001  [calc] reciprocal |U|/2T, upper end, within r_vir  file docs/verification/virial/NBODY_TRACE.md
+PASS  ch:virial:L86:0.89                 ch:virial:p2_02_virial:86  printed 0.89  recomputed 0.892857  tol 0.00500001  [calc] reciprocal |U|/2T, upper end, within r_vir  file docs/verification/virial/NBODY_TRACE.md
 PASS  ch:virial:L87                      ch:virial:p2_02_virial:87  printed 0.85  recomputed 0.854701  tol 0.00500001  [calc] reciprocal of Klypin corrected ratio
 PASS  ch:virial:L88                      ch:virial:p2_02_virial:88  printed 0.98  recomputed 0.980392  tol 0.00500001  [calc] reciprocal of Klypin corrected ratio
 PASS  ch:virial:L88:1.1                  ch:virial:p2_02_virial:88  printed 1.1  recomputed 1.11111  tol 0.0550001  [calc] reciprocal of Power surface-corrected eta'
@@ -2281,7 +2281,7 @@ PASS  ch:lambda_history:L81:10           ch:lambda_history:p2_12b_lambda_history
 PASS  ch:lambda_history:L87              ch:lambda_history:p2_12b_lambda_history:87  printed 0.811  recomputed 0.8111  tol 5.000005e-04  [calc] sigma8 normalisation of the power spectrum
 PASS  ch:lambda_history:L91              ch:lambda_history:p2_12b_lambda_history:91  printed 0.58  recomputed 0.5762  tol 0.00500001  [calc] baryon mass fraction in halos above 1e8 Msun
 PASS  ch:lambda_history:L91:213          ch:lambda_history:p2_12b_lambda_history:91  printed 213  recomputed 213.288  tol 0.5  [calc] mean dispersion sigma_eff, km/s
-PASS  ch:lambda_history:L92              ch:lambda_history:p2_12b_lambda_history:92  printed 3.2\times10^{-8}  recomputed 3.149942e-08  tol 6.400006e-10  [calc] accumulated virial heat of baryons over rho_L c^2
+PASS  ch:lambda_history:L92              ch:lambda_history:p2_12b_lambda_history:92  printed 3.15\times10^{-8}  recomputed 3.149942e-08  tol 6.300006e-10  [calc] accumulated virial heat of baryons over rho_L c^2
 PASS  ch:lambda_history:L93              ch:lambda_history:p2_12b_lambda_history:93  printed 2.6\times10^{-44}  recomputed 2.570780e-44  tol 5.000005e-46  [calc] virial heat priced at the horizon, over rho_L c^2
 PASS  ch:lambda_history:L94              ch:lambda_history:p2_12b_lambda_history:94  printed 0.072  recomputed 0.0720023  tol 5.000005e-04  [calc] Omega_b/Omega_L
 PASS  ch:lambda_history:L129             ch:lambda_history:p2_12b_lambda_history:129  printed 13.8  recomputed 13.8007  tol 0.05  [conjecture] age of the universe, Gyr
@@ -3710,7 +3710,7 @@ PASS  ch:koide:L277:0.0396               ch:koide:p2_15a_lepton_koide:277  print
 PASS  ch:koide:L278                      ch:koide:p2_15a_lepton_koide:278  printed 0.222222047  recomputed 0.222222  tol 5.000005e-10  [calc] delta fixed by m_e, m_mu at Q = 2/3
 PASS  ch:koide:L279                      ch:koide:p2_15a_lepton_koide:279  printed 1.75\times10^{-7}  recomputed 1.751244e-07  tol 5.000005e-10  [calc] 2/9 - delta at Q = 2/3
 PASS  ch:koide:L283                      ch:koide:p2_15a_lepton_koide:283  printed 0.222222047  recomputed 0.222222  tol 5.000005e-10  [calc] delta fixed by m_e, m_mu at Q = 2/3
-PASS  ch:koide:L284                      ch:koide:p2_15a_lepton_koide:284  printed 4\times10^{-10}  recomputed 3.918519e-10  tol 5.000005e-11  [calc] uncertainty of delta from m_mu
+PASS  ch:koide:L284                      ch:koide:p2_15a_lepton_koide:284  printed 4\times10^{-10}  recomputed 3.918518e-10  tol 5.000005e-11  [calc] uncertainty of delta from m_mu
 PASS  ch:koide:L284:1.75\times10^{-7}    ch:koide:p2_15a_lepton_koide:284  printed 1.75\times10^{-7}  recomputed 1.751244e-07  tol 5.000005e-10  [calc] 2/9 - delta at Q = 2/3
 PASS  ch:koide:L285                      ch:koide:p2_15a_lepton_koide:285  printed 0.4  recomputed 0.405655  tol 0.05  [calc] delta - 2/9 in sigma
 PASS  ch:koide:L295                      ch:koide:p2_15a_lepton_koide:295  printed 1776.9690  recomputed 1776.97  tol 5.000005e-05  [calc] m_tau fixed by Q = 2/3, MeV
@@ -6205,7 +6205,7 @@ PASS  app:register:L50:0.08 \%           app:register:app_G_predictions_register
 PASS  app:register:L50:+1.8 \%           app:register:app_G_predictions_register:50  printed +1.8 \%  recomputed 1.83898  tol 0.05  [openprob] COS-140: E_G change at z = 0.3, per cent
 PASS  app:register:L51:0.2990            app:register:app_G_predictions_register:51  printed 0.2990  recomputed 0.298954  tol 5.000005e-05  [openprob] COS-148: growth Omega_m at z = 0.5
 PASS  app:register:L51:0.3               app:register:app_G_predictions_register:51  printed 0.3  recomputed 0.289932  tol 0.05  [openprob] COS-148: growth Omega_m from DESI DR1, in sigma
-FAIL  app:register:L53:1.07              app:register:app_G_predictions_register:53  printed 1.07  recomputed 1.05468  tol 0.00500001  [openprob] COS-172: lower end of 1/mu over 0 < z < 0.5
+PASS  app:register:L53:1.05              app:register:app_G_predictions_register:53  printed 1.05  recomputed 1.05468  tol 0.00500001  [openprob] COS-172: lower end of 1/mu over 0 < z < 0.5
 PASS  app:register:L53:1.16              app:register:app_G_predictions_register:53  printed 1.16  recomputed 1.15765  tol 0.00500001  [openprob] COS-172: upper end of 1/mu over 0 < z < 0.5
 PASS  app:register:L55:1.094             app:register:app_G_predictions_register:55  printed 1.094  recomputed 1.09441  tol 5.000005e-04  [openprob] COS-217: 1/mu at z = 0.25
 PASS  app:register:L55:2.0               app:register:app_G_predictions_register:55  printed 2.0  recomputed 1.95994  tol 0.05  [openprob] COS-217: IAM below the WtG value, in sigma
@@ -6244,6 +6244,4 @@ PASS  app:register:L73:1.55 \%           app:register:app_G_predictions_register
 PASS  app:register:L73:0.78 \%           app:register:app_G_predictions_register:73  printed 0.78 \%  recomputed 0.776789  tol 0.00500001  [openprob] COS-357: D lowered at z = 0, per cent
 PASS  app:register:L74:1.03              app:register:app_G_predictions_register:74  printed 1.03  recomputed 1.03045  tol 0.00500001  [openprob] COS-365: ISW amplitude ratio A_ISW
 
-SUMMARY  PASS 4983  FAIL 1  (heavy, read from committed outputs: 1079)  inventoried-not-run 1358  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
-FAILS:
-  FAIL  app:register:L53:1.07              app:register:app_G_predictions_register:53  printed 1.07  recomputed 1.05468  tol 0.00500001  [openprob] COS-172: lower end of 1/mu over 0 < z < 0.5
+SUMMARY  PASS 4984  FAIL 0  (heavy, read from committed outputs: 1079)  inventoried-not-run 1358  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

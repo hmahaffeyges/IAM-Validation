@@ -650,7 +650,19 @@
   ]
  },
  "COS-172": {
-  "color": "pending"
+  "color": "pending",
+  "statement": [
+   [
+    "IAM R = 1.07-1.16",
+    "IAM R = 1.05-1.16"
+   ]
+  ],
+  "value": [
+   [
+    "R = 1.07-1.16",
+    "R = 1.05-1.16"
+   ]
+  ]
  },
  "COS-217": {
   "color": "pending",

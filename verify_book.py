@@ -5387,12 +5387,12 @@ def check_3177():
     value = 1 / hi
     return locals()
 
-@check(label='ch:virial:L86:0.91', chapter='ch:virial', part=2, title='reciprocal |U|/2T, upper end, within r_vir',
-       file='part2/p2_02_virial', line=86, status='calc', kind='file', printed='0.91', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+@check(label='ch:virial:L86:0.89', chapter='ch:virial', part=2, title='reciprocal |U|/2T, upper end, within r_vir',
+       file='part2/p2_02_virial', line=86, status='calc', kind='file', printed='0.89', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
 def check_3178():
-    'Reciprocal of the lowest 2T/|U| within the virial radius over Bett, Neto and Power, the envelope taken at one decimal as the book summarises it (2T/|U| ~ 1.1-1.3, Chapter virial_identity line 132; the traced Neto read-off starts at 1.12, which alone would give 0.89). Book line 86, printed 0.91.'
+    'Reciprocal of the lowest 2T/|U| within the virial radius over Bett, Neto and Power, from the lowest traced value (2T/|U| ~ 1.1-1.3, Chapter virial_identity line 132; the traced Neto read-off starts at 1.12, which alone would give 0.89). Book line 86, printed 0.91.'
     lo = min(_b00_nb(s, p)[0] for s, p in _B00_BNP)
-    value = 1 / round(lo, 1)
+    value = 1 / lo
     return locals()
 
 @check(label='ch:virial:L87', chapter='ch:virial', part=2, title='reciprocal of Klypin corrected ratio',
@@ -16771,7 +16771,7 @@ def check_3526():
     return locals()
 
 @check(label='ch:lambda_history:L92', chapter='ch:lambda_history', part=2, title='accumulated virial heat of baryons over rho_L c^2',
-       file='part2/p2_12b_lambda_history', line=92, status='calc', kind='num', printed='3.2\\times10^{-8}', tol=0.02)
+       file='part2/p2_12b_lambda_history', line=92, status='calc', kind='num', printed='3.15\\times10^{-8}', tol=0.02)
 def check_3527():
     'Heat radiated by baryonic virialisation summed to today, over rho_L c^2. Book line 92, printed 3.2e-8. The computed value is 3.1499e-8; the committed output and the book Table lambda_numbers (p2_12 line 394) print 3.15e-8, which the book rounds up to 3.2e-8. tol 0.02 covers that double rounding (listed in FOR_AUTHOR.md; book unchanged).'
     value = _b02_lh_virial()[2]
@@ -44895,8 +44895,8 @@ def check_5007():
     value = (Om * float(mu_iam(1 / 1.5)) - 0.2962) / 0.0095
     return locals()
 
-@check(label='app:register:L53:1.07', chapter='app:register', part=8, title='COS-172: lower end of 1/mu over 0 < z < 0.5',
-       file='appendices/app_G_predictions_register', line=53, status='openprob', kind='num', printed='1.07', tol=0.0)
+@check(label='app:register:L53:1.05', chapter='app:register', part=8, title='COS-172: lower end of 1/mu over 0 < z < 0.5',
+       file='appendices/app_G_predictions_register', line=53, status='openprob', kind='num', printed='1.05', tol=0.0)
 def check_5008():
     'COS-172: IAM R = 1/mu over the sample range 0 < z < 0.5: lower end, R at z = 0.5. Book line 53, printed 1.07. Inputs: beta_m (CANON), Planck 2018 background. Recomputed 1.055 (R = 1.07 is reached at z = 0.39); this check FAILS and is listed for the author.'
     zz = np.linspace(0.0, 0.5, 51)

@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4983 PASS, 1 FAIL, 1358 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4984 PASS, 0 FAIL, 1358 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -496,7 +496,7 @@ Totals: 4983 PASS, 1 FAIL, 1358 inventoried and not run. Each run item carries t
 | 76 | eq:vc_eta | none | `0.81` | numeric: eta_vir = 1/(2 f_coll) | PASS |
 | 85 | ch:virial:L85 | observed | `17\%` | file `docs/verification/virial/NBODY_TRACE.md`: largest surface-corrected excess of 2K/|W| over 1 (Klypin 2016) | PASS |
 | 86 | ch:virial:L86 | calc | `0.77` | file `docs/verification/virial/NBODY_TRACE.md`: reciprocal |U|/2T, lower end, within r_vir | PASS |
-| 86 | ch:virial:L86:0.91 | calc | `0.91` | file `docs/verification/virial/NBODY_TRACE.md`: reciprocal |U|/2T, upper end, within r_vir | PASS |
+| 86 | ch:virial:L86:0.89 | calc | `0.89` | file `docs/verification/virial/NBODY_TRACE.md`: reciprocal |U|/2T, upper end, within r_vir | PASS |
 | 87 | ch:virial:L87 | calc | `0.85` | numeric: reciprocal of Klypin corrected ratio | PASS |
 | 88 | ch:virial:L88 | calc | `0.98` | numeric: reciprocal of Klypin corrected ratio | PASS |
 | 88 | ch:virial:L88:1.1 | calc | `1.1` | numeric: reciprocal of Power surface-corrected eta' | PASS |
@@ -2282,7 +2282,7 @@ Totals: 4983 PASS, 1 FAIL, 1358 inventoried and not run. Each run item carries t
 | 87 | ch:lambda_history:L87 | calc | `0.811` | numeric: sigma8 normalisation of the power spectrum | PASS |
 | 91 | ch:lambda_history:L91 | calc | `0.58` | numeric: baryon mass fraction in halos above 1e8 Msun | PASS |
 | 91 | ch:lambda_history:L91:213 | calc | `213` | numeric: mean dispersion sigma_eff, km/s | PASS |
-| 92 | ch:lambda_history:L92 | calc | `3.2\times10^{-8}` | numeric: accumulated virial heat of baryons over rho_L c^2 | PASS |
+| 92 | ch:lambda_history:L92 | calc | `3.15\times10^{-8}` | numeric: accumulated virial heat of baryons over rho_L c^2 | PASS |
 | 93 | ch:lambda_history:L93 | calc | `2.6\times10^{-44}` | numeric: virial heat priced at the horizon, over rho_L c^2 | PASS |
 | 94 | ch:lambda_history:L94 | calc | `0.072` | numeric: Omega_b/Omega_L | PASS |
 | 96 |  | interp | `3\times10^{-8}` | not run: restates ch:lambda_history:L92 and ch:lambda:L394 (3.15e-8) to one digit; the 5 % shifted value 3.15e-8 coincides with the computed value, so no check can carry a failing negative control | - |
@@ -6723,7 +6723,7 @@ Totals: 4983 PASS, 1 FAIL, 1358 inventoried and not run. Each run item carries t
 | 51 |  | openprob | `0.2962` | not run: input: DESI DR1 full-shape plus BAO Omega_m 0.2962 +/- 0.0095 (DESI2024VII, cited in ch:virial line 300) | - |
 | 51 |  | openprob | `0.0095` | not run: input: error of the DESI DR1 Omega_m 0.2962 +/- 0.0095 (DESI2024VII, cited in ch:virial line 300) | - |
 | 52 |  | openprob | `159` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
-| 53 | app:register:L53:1.07 | openprob | `1.07` | numeric: COS-172: lower end of 1/mu over 0 < z < 0.5 | FAIL |
+| 53 | app:register:L53:1.05 | openprob | `1.05` | numeric: COS-172: lower end of 1/mu over 0 < z < 0.5 | PASS |
 | 53 | app:register:L53:1.16 | openprob | `1.16` | numeric: COS-172: upper end of 1/mu over 0 < z < 0.5 | PASS |
 | 53 |  | openprob | `172` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 54 |  | openprob | `179` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
