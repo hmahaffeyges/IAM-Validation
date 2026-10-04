@@ -54,10 +54,11 @@ def chapter_parts():
 
 def head_html(root, theme_default, title, extra=""):
     return f"""<!DOCTYPE html>
-<html lang="en" data-root="{root}" data-default-theme="{theme_default}">
+<html lang="en" data-root="{root}">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title>
+<link rel="stylesheet" href="{root}static/themes.css">
 <link rel="stylesheet" href="{root}static/site.css">
 <script src="{root}static/site.js"></script>
 <script defer src="{root}static/checks.js"></script>
@@ -70,7 +71,10 @@ def topbar(root, parts):
     links = " ".join(f'<a href="{root}part-{p["n"]}/">{p["roman"]}</a>' for p in parts)
     return (f'<a class="skip" href="#content">Skip to the text</a><header class="iam-top"><a class="home" href="{root}">{TITLE}</a>'
             f'<nav aria-label="Parts">{links}<a href="{root}book/">Contents</a><a href="{root}pdf/IAMs_Law_and_Order.pdf">PDF</a></nav>'
-            f'<button class="iam-toggle" id="iam-toggle" type="button" aria-label="Switch light or dark">Dark</button></header>')
+            f'<div class="iam-themes" role="group" aria-label="Reading theme">'
+            f'<button type="button" data-theme="paper" aria-pressed="false">Paper</button>'
+            f'<button type="button" data-theme="dark" aria-pressed="false">Dark</button>'
+            f'<button type="button" data-theme="sepia" aria-pressed="false">Sepia</button></div></header>')
 
 
 def front_page(site, parts):
@@ -144,9 +148,8 @@ def decorate_chapter(path, root, part, parts_by_n, index, results, discuss_cat):
     soup = BeautifulSoup(path.read_text(), "html.parser")
     htmltag = soup.find("html")
     htmltag["data-root"] = root
-    htmltag["data-default-theme"] = "light"
     head = soup.find("head")
-    for tag in (f'<link rel="stylesheet" href="{root}static/site.css">', f'<script src="{root}static/site.js"></script>',
+    for tag in (f'<link rel="stylesheet" href="{root}static/themes.css">', f'<link rel="stylesheet" href="{root}static/site.css">', f'<script src="{root}static/site.js"></script>',
                 f'<script defer src="{root}static/checks.js"></script>', f'<script async src="{HYPOTHESIS}"></script>',
                 f'<script async src="{MATHJAX}"></script>', '<meta name="viewport" content="width=device-width, initial-scale=1">'):
         head.append(BeautifulSoup(tag, "html.parser"))

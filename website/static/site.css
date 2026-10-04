@@ -1,27 +1,6 @@
 /* Site styles for the web edition of the book. Body text stays high contrast; art never sits behind text or equations. */
-:root {
-  --bg: #ffffff; --fg: #15171c; --muted: #555b66; --rule: #d9dce1; --panel: #f5f6f8; --link: #1f5fa8;
-  --accent: #1f5fa8; --code-bg: #f1f2f4;
-  --chip-der: #1F5FA8; --chip-cal: #2E8B57; --chip-fit: #B8860B; --chip-con: #8E44AD; --chip-pre: #C0392B; --chip-obs: #555555;
-  --st-g: #C8E6C9; --st-b: #BBDEFB; --st-a: #FFE0B2; --st-r: #FFCDD2; --st-fg: #15171c;
-  --max: 46rem;
-}
-html[data-theme="dark"] {
-  --bg: #0f1116; --fg: #e8eaee; --muted: #a5abb6; --rule: #2a2f39; --panel: #171a21; --link: #8ab8ff; --code-bg: #1b1f27;
-  --chip-der: #6ea5ec; --chip-cal: #5cc28a; --chip-fit: #e0b84a; --chip-con: #c08ae0; --chip-pre: #ef7a6c; --chip-obs: #b0b0b0;
-  --st-g: #2f5a33; --st-b: #27476b; --st-a: #6b4a1e; --st-r: #6b2a2f; --st-fg: #f2f2f2;
-}
-body.part-1, body.part-2 { --accent: #c0503a; }
-body.part-3 { --accent: #d9822b; }
-body.part-4, body.part-5 { --accent: #2b8fb0; }
-body.part-6 { --accent: #3a6fd0; }
-body.part-7 { --accent: #8a5cc4; }
-html[data-theme="dark"] body.part-1, html[data-theme="dark"] body.part-2 { --accent: #ef8a6f; }
-html[data-theme="dark"] body.part-3 { --accent: #f3a85a; }
-html[data-theme="dark"] body.part-4, html[data-theme="dark"] body.part-5 { --accent: #5cc4e0; }
-html[data-theme="dark"] body.part-6 { --accent: #7aa2f0; }
-html[data-theme="dark"] body.part-7 { --accent: #b79af0; }
-
+/* Colours live in themes.css (Paper, Dark, Sepia; written and contrast-checked by website/build/themes.py). */
+:root { --max: 46rem; }
 * { box-sizing: border-box; }
 html { font-size: 106%; }
 body { margin: 0; background: var(--bg); color: var(--fg); font-family: "Latin Modern Roman", "Computer Modern Serif", Georgia, "Times New Roman", serif;
@@ -35,13 +14,16 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outlin
 .iam-top a { text-decoration: none; color: var(--fg); }
 .iam-top .home { font-weight: 700; }
 .iam-top nav { display: flex; flex-wrap: wrap; gap: .25rem .8rem; }
-.iam-toggle { border: 1px solid var(--rule); background: var(--bg); color: var(--fg); border-radius: 999px; padding: .25rem .7rem; cursor: pointer; font: inherit; }
+.iam-themes { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; overflow: hidden; }
+.iam-themes button { border: 0; background: var(--bg); color: var(--fg); padding: .25rem .65rem; cursor: pointer; font: inherit; font-size: .82rem; }
+.iam-themes button + button { border-left: 1px solid var(--rule); }
+.iam-themes button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); font-weight: 600; }
 .skip { position: absolute; left: -999px; } .skip:focus { left: 1rem; top: .5rem; background: var(--bg); padding: .3rem .6rem; z-index: 50; }
 
 /* banners: art only above the text, never behind it */
 .iam-banner { width: 100%; aspect-ratio: 4 / 1; max-height: 340px; background: #05070d center / cover no-repeat; position: relative; }
 .iam-banner .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 1rem 1.5rem; color: #fff;
-  background: linear-gradient(transparent, rgba(0,0,0,.75)); font-family: system-ui, sans-serif; }
+  background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.8)); text-shadow: 0 1px 2px #000; font-family: system-ui, sans-serif; }
 .iam-banner .cap h1 { margin: 0; font-size: clamp(1.2rem, 3vw, 2rem); line-height: 1.2; }
 .iam-banner .cap p { margin: .2rem 0 0; opacity: .9; }
 
@@ -52,7 +34,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outlin
 .ltx_equation, .ltx_equationgroup { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
 .ltx_tabular { font-size: .92rem; } .ltx_table, .ltx_tabular { overflow-x: auto; display: block; max-width: 100%; }
 .ltx_figure img, .ltx_graphics { max-width: 100%; height: auto; background: #fff; border-radius: 3px; }
-html[data-theme="dark"] .ltx_figure img { filter: none; }
 .ltx_caption { font-size: .92rem; color: var(--muted); }
 .ltx_bibliography { font-size: .92rem; }
 .ltx_page_navbar, .ltx_TOC { font-family: system-ui, sans-serif; font-size: .9rem; }
@@ -80,7 +61,7 @@ code, .ltx_verbatim { background: var(--code-bg); border-radius: 3px; padding: 0
 /* run-this-check buttons and results */
 .iam-run { font-family: system-ui, sans-serif; font-size: .7rem; border: 1px solid var(--accent); color: var(--accent); background: transparent;
   border-radius: 999px; padding: .05rem .5rem; margin: 0 .2rem; cursor: pointer; vertical-align: .1em; }
-.iam-run:hover { background: var(--accent); color: var(--bg); }
+.iam-run:hover { background: var(--accent); color: var(--on-accent); }
 .iam-result { display: block; font-family: ui-monospace, Menlo, monospace; font-size: .78rem; background: var(--code-bg); border-radius: 4px; padding: .4rem .6rem; margin: .3rem 0; white-space: pre-wrap; }
 .iam-result .pass { color: var(--chip-cal); font-weight: 700; } .iam-result .fail { color: var(--chip-pre); font-weight: 700; }
 .iam-progress { position: fixed; right: 1rem; bottom: 1rem; z-index: 30; max-width: 22rem; background: var(--panel); border: 1px solid var(--rule);
@@ -95,7 +76,7 @@ code, .ltx_verbatim { background: var(--code-bg); border-radius: 3px; padding: 0
 .iam-tile .art { aspect-ratio: 16 / 9; background: #05070d center / cover no-repeat; }
 .iam-tile .t { padding: .7rem .9rem; } .iam-tile .t b { display: block; color: var(--accent); font-size: .8rem; letter-spacing: .05em; }
 .iam-btn { display: inline-block; font-family: system-ui, sans-serif; border-radius: 6px; padding: .5rem 1rem; margin: .3rem .5rem .3rem 0; background: var(--accent);
-  color: #fff; text-decoration: none; border: 0; cursor: pointer; font-size: .95rem; }
+  color: var(--on-accent); text-decoration: none; border: 0; cursor: pointer; font-size: .95rem; }
 .iam-btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
 .iam-cite { background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: .8rem 1rem; font-family: ui-monospace, Menlo, monospace; font-size: .82rem; white-space: pre-wrap; }
 .iam-chlist li { margin: .25rem 0; }
@@ -112,3 +93,17 @@ details.iam-toc ol, details.iam-toc ul { padding-left: 1.1rem; }
 .ltx_page_navbar { display: none; } details.iam-toc .ltx_page_navbar { display: block; }
 .ltx_page_header { font-family: system-ui, sans-serif; font-size: .85rem; max-width: var(--max); margin: 0 auto; padding: .4rem 1rem; }
 .ltx_page_logo { display: none; }
+
+/* math takes the theme's text colour (MathML and the MathJax fallback) */
+math, math *, mjx-container, mjx-container * { color: inherit; }
+.ltx_Math, .ltx_equation, .ltx_eqn_cell { color: inherit; }
+
+/* figures are never recoloured: in Dark and Sepia they sit on a light rounded panel */
+html[data-theme="dark"] .ltx_figure img, html[data-theme="sepia"] .ltx_figure img,
+html[data-theme="dark"] .ltx_graphics, html[data-theme="sepia"] .ltx_graphics {
+  background: var(--figpanel); border-radius: 10px; padding: .6rem; box-sizing: border-box; filter: none; }
+
+/* LaTeXML's footnote pop-ups and marks use fixed colours; give them the theme's */
+.ltx_note_content { background: var(--panel); color: var(--fg); border-color: var(--rule); box-shadow: 0 4px 14px rgba(0,0,0,.25); }
+.ltx_note_mark { color: var(--link); }
+.ltx_ref { color: var(--link); }

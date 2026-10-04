@@ -1,0 +1,86 @@
+/* Reading themes, written by website/build/themes.py (WCAG AA checked; see website/build/CONTRAST.md). */
+:root, html[data-theme="paper"] {
+  --bg: #FAF7F0;
+  --fg: #2B2B2B;
+  --panel: #F1ECE1;
+  --code-bg: #ECE6D9;
+  --muted: #5A5751;
+  --link: #1F4F8F;
+  --rule: #D8D0C0;
+  --figpanel: #FFFFFF;
+  --chip-der: #1F5FA8;
+  --chip-cal: #2B7149;
+  --chip-fit: #8A6508;
+  --chip-con: #7B3A9A;
+  --chip-pre: #B0352A;
+  --chip-obs: #555555;
+  --st-g: #C8E6C9;
+  --st-b: #BBDEFB;
+  --st-a: #FFE0B2;
+  --st-r: #FFCDD2;
+  --st-fg: #2B2B2B;
+  --on-accent: #FFFFFF;
+  --accent: #2F5FB8;
+}
+:root, html[data-theme="paper"] body.part-1, :root, html[data-theme="paper"] body.part-2 { --accent: #B5452F; }
+:root, html[data-theme="paper"] body.part-3 { --accent: #A3530F; }
+:root, html[data-theme="paper"] body.part-4, :root, html[data-theme="paper"] body.part-5 { --accent: #1C7391; }
+:root, html[data-theme="paper"] body.part-6 { --accent: #2F5FB8; }
+:root, html[data-theme="paper"] body.part-7 { --accent: #774BAF; }
+html[data-theme="dark"] {
+  --bg: #1E1F22;
+  --fg: #E6E3DC;
+  --panel: #26282C;
+  --code-bg: #2C2E33;
+  --muted: #B5B1A8;
+  --link: #8DB8F2;
+  --rule: #3C3E44;
+  --figpanel: #F4F1EA;
+  --chip-der: #7FB0F0;
+  --chip-cal: #6CC995;
+  --chip-fit: #E3BF55;
+  --chip-con: #C99AE6;
+  --chip-pre: #F08A7C;
+  --chip-obs: #BDBDBD;
+  --st-g: #2F5A33;
+  --st-b: #27476B;
+  --st-a: #6B4A1E;
+  --st-r: #6B2A2F;
+  --st-fg: #F2F2F2;
+  --on-accent: #1E1F22;
+  --accent: #7AA2F0;
+}
+html[data-theme="dark"] body.part-1, html[data-theme="dark"] body.part-2 { --accent: #EF8A6F; }
+html[data-theme="dark"] body.part-3 { --accent: #F3A85A; }
+html[data-theme="dark"] body.part-4, html[data-theme="dark"] body.part-5 { --accent: #5CC4E0; }
+html[data-theme="dark"] body.part-6 { --accent: #7AA2F0; }
+html[data-theme="dark"] body.part-7 { --accent: #B79AF0; }
+html[data-theme="sepia"] {
+  --bg: #F4ECD8;
+  --fg: #3B2F24;
+  --panel: #EADFC5;
+  --code-bg: #E4D7B9;
+  --muted: #5C4C38;
+  --link: #2A4E80;
+  --rule: #D2C29E;
+  --figpanel: #FFFDF7;
+  --chip-der: #1F5FA8;
+  --chip-cal: #296945;
+  --chip-fit: #7E5C06;
+  --chip-con: #7B3A9A;
+  --chip-pre: #A8322A;
+  --chip-obs: #555555;
+  --st-g: #C8E6C9;
+  --st-b: #BBDEFB;
+  --st-a: #FFE0B2;
+  --st-r: #FFCDD2;
+  --st-fg: #3B2F24;
+  --on-accent: #FFFFFF;
+  --accent: #2C58AB;
+}
+html[data-theme="sepia"] body.part-1, html[data-theme="sepia"] body.part-2 { --accent: #A8402B; }
+html[data-theme="sepia"] body.part-3 { --accent: #985010; }
+html[data-theme="sepia"] body.part-4, html[data-theme="sepia"] body.part-5 { --accent: #1A6A86; }
+html[data-theme="sepia"] body.part-6 { --accent: #2C58AB; }
+html[data-theme="sepia"] body.part-7 { --accent: #6E45A3; }
+html[data-theme="dark"] { color-scheme: dark; } html[data-theme="paper"], html[data-theme="sepia"] { color-scheme: light; }

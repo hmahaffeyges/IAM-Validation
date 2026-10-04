@@ -24,6 +24,9 @@ latexmlpost --dest="$B/html/index.html" --format=html5 --splitat=chapter --split
 # 3. banner art (scripts committed under website/art/)
 python3 "$REPO/website/art/make_banners.py" > /dev/null
 
+# 3b. reading themes (Paper, Dark, Sepia): writes website/static/themes.css; fails the build if a text colour misses WCAG AA
+python3 "$REPO/website/build/themes.py"
+
 # 4. site: front page, Part pages, chapter chrome, check buttons, verify_book.py + data for the browser
 python3 "$REPO/website/build/build_site.py" "$B" "$SITE"
 
