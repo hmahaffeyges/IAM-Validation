@@ -32826,7 +32826,7 @@ def check_3965():
 
 
 @check(label='ch:temperature:L111', chapter='ch:temperature', part=6, title='M for a dog at 38.5 C',
-       file='part4/p4_10_temperature', line=111, status='prediction', kind='num', printed='20.84', tol=0.0)
+       file='part4/p4_10_temperature', line=87, status='prediction', kind='num', printed='20.84', tol=0.0)
 def check_3969():
     'The Mahaffey number for a dog, M = dG_ATP/(R T) at a body temperature of 38.5 C with dG_ATP held fixed. Book line 111, printed 20.84. Inputs: dG_ATP, R (CANON); 38.5 C (book).'
     T_dog = 38.5 + 273.15
@@ -33132,71 +33132,13 @@ def check_4002():
 
 
 # ======== Part 6 | ch:separation | docs/book/part4/p4_13_separation.tex
-@check(label='ch:separation:L48', title='neutrophil fraction against flow counts, median error', line=48, status='measured', printed='0.035', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv', chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
-def check_4003():
-    'On six healthy whole bloods with flow-cytometry counts the neutrophil fraction agreed with the counts to a median 0.035. Recomputed as '\
-    'the median |f_neu (Stage A) - neutrophil proportion (flow)| over the six T1 arrays (GSE112618). Book line 48, printed 0.035. '\
-    'Input: neut_test_T1T3T4_readings.csv.'
-    rows = [r for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv') if r['test'] == 'T1']
-    d = [abs(float(r['f_neu']) - float(r['neutrophils proportion'])) for r in rows]
-    n = len(d)
-    value = float(np.median(d))
-    return locals()
 
-@check(label='ch:separation:L50', title='known DNA mixtures, median fraction error', line=50, status='measured', printed='0.034', tol=0.0,
-       source=_B10_LF, chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
-def check_4004():
-    'On the known DNA mixtures the median neutrophil fraction error was 0.034. Recomputed as the median |f_neu - f_true| over the 12 '\
-    'known-mixture rows. Book line 50, printed 0.034. Input: lowfrac_readings.csv.'
-    d = [abs(float(r['f_neu']) - float(r['f_true'])) for r in load_csv_rows(_B10_LF) if r['f_true']]
-    n = len(d)
-    value = float(np.median(d))
-    return locals()
 
-@check(label='ch:separation:L76:0.040', title='shift for a 2 % loss, fraction 0.50-0.60', line=76, status='measured', printed='0.040', tol=0.0,
-       source=_B10_LF, chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
-def check_4005():
-    'Figure fig:p4_lowfrac caption (and table): median rise of whole-blood Met-A from a simulated 2 % loss of the neutrophil pattern, '\
-    'fraction bin 0.50-0.60, over the 656 arrays. Book line 76, printed 0.040. Input: lowfrac_readings.csv (A_dmg - A_raw).'
-    value = _b10_lowfrac_shift(1)
-    return locals()
 
-@check(label='ch:separation:L76:0.050', title='shift for a 2 % loss, fraction 0.60-0.70', line=76, status='measured', printed='0.050', tol=0.0,
-       source=_B10_LF, chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
-def check_4006():
-    'Median rise of Met-A from the simulated 2 % loss, fraction bin 0.60-0.70. Book line 76, printed 0.050. Input: lowfrac_readings.csv.'
-    value = _b10_lowfrac_shift(2)
-    return locals()
 
-@check(label='ch:separation:L76:0.064', title='shift for a 2 % loss, fraction 0.70-1.00', line=76, status='measured', printed='0.064', tol=0.0,
-       source=_B10_LF, chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
-def check_4007():
-    'Median rise of Met-A from the simulated 2 % loss, fraction bin 0.70-1.00. Book line 76, printed 0.064. Input: lowfrac_readings.csv.'
-    value = _b10_lowfrac_shift(3)
-    return locals()
 
-@check(label='ch:separation:L76:0.024', title='healthy spread, fraction 0.40-0.50', line=76, status='measured', printed='0.024', tol=0.0,
-       source=_B10_LF, chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
-def check_4008():
-    'Healthy spread (SD) in fraction bin 0.40-0.50: each NEGATIVE adult read against the (fraction, N) expectation fitted on the others. '\
-    'Book line 76, printed 0.024 (first of SD 0.024, 0.022, 0.024, 0.020). Input: lowfrac_readings.csv.'
-    value, n = _b10_lowfrac_sd(0)
-    return locals()
 
-@check(label='ch:separation:L76:0.022', title='healthy spread, fraction 0.50-0.60', line=76, status='measured', printed='0.022', tol=0.0,
-       source=_B10_LF, chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
-def check_4009():
-    'Healthy spread (SD) in fraction bin 0.50-0.60, leave-one-out expectation as above. Book line 76, printed 0.022. Input: lowfrac_readings.csv.'
-    value, n = _b10_lowfrac_sd(1)
-    return locals()
 
-@check(label='ch:separation:L76:0.020', title='healthy spread, fraction 0.70-1.00', line=76, status='measured', printed='0.020', tol=0.0,
-       source=_B10_LF, chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
-def check_4010():
-    'Healthy spread (SD) in fraction bin 0.70-1.00, leave-one-out expectation as above. Book line 76, printed 0.020. Input: lowfrac_readings.csv.'
-    value, n = _b10_lowfrac_sd(3)
-    return locals()
 
 @check(label='ch:separation:L88', title='tared Met-A rises with neutrophil fraction', line=88, status='measured', printed='+0.12', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv', chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
@@ -33786,30 +33728,8 @@ def check_4079():
 
 _B10_CEIL = 'Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md'
 
-@check(label='ch:skytools:L142', title='smoothed healthy whole-array sky, spread', line=142, status='measured', printed='0.171', tol=0.0,
-       kind='file', source=_B10_CEIL, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
-def check_4080():
-    'Smoothing a healthy whole-array sky over the 32 nearest pixels left a spread of 0.171. Read from the committed outcome record '\
-    '(finding 3). Book line 142, printed 0.171.'
-    value = _b10_nums(_B10_CEIL, 'smoothed spread of **', 2)[0]
-    return locals()
 
-@check(label='ch:skytools:L143:0.131', title='same sky shuffled, spread', line=143, status='measured', printed='0.131', tol=0.0,
-       kind='file', source=_B10_CEIL, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
-def check_4081():
-    'The same values shuffled across the sphere give 0.131 +- 0.001. Read from the committed outcome record (finding 3). Book line 143, '\
-    'printed 0.131.'
-    value = _b10_nums(_B10_CEIL, 'smoothed spread of **', 2)[1]
-    return locals()
 
-@check(label='ch:skytools:L143:1.31', title='smoothed over shuffled spread', line=143, status='measured', printed='1.31', tol=0.0,
-       kind='file', source=_B10_CEIL, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
-def check_4082():
-    'A factor of 1.31: recomputed as the smoothed spread over the shuffled spread, both read from the committed outcome record. '\
-    'Book line 143, printed 1.31.'
-    s, s0 = _b10_nums(_B10_CEIL, 'smoothed spread of **', 2)
-    value = s / s0
-    return locals()
 
 @check(label='ch:skytools:L165', title='age-ladder slope per year', line=165, status='calc', printed='0.00047', tol=0.0,
        kind='file', source='Biological_Physics/MethylPhys/doors/PROC_AGE_01_OUTCOME.md', chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
@@ -33975,7 +33895,7 @@ def check_4097():
 
 
 @check(label='ch:serial:L71', chapter='ch:serial', part=6, title='E-MTAB-7309 Stage 1: median call rate',
-       file='part4/p4_17_serial', line=71, status='measured', kind='file', printed='0.894', tol=0.0,
+       file='part4/p4_17_serial', line=35, status='measured', kind='file', printed='0.894', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PLAN.md')
 def check_4110():
     'Median call rate of the 1,056 E-MTAB-7309 arrays calibrated by Stage 1, read from the Stage 1 record in PLAN.md (2026-09-27 entry: "Call rate median ..."); the same record gives 738 of 1,056 below the 0.93 intake line. Book line 71, printed 0.894. Inputs: PLAN.md (no per-array call-rate file is committed).'
@@ -42874,7 +42794,7 @@ def check_4947():
     return locals()
 
 @check(label='app:glossary:L735', chapter='app:glossary', part=8, title='electron Yukawa y_e = sqrt2 m_e/v',
-       file='appendices/app_F_glossary', line=735, status='observed', kind='num', printed='2.9\\times10^{-6}', tol=0.0)
+       file='appendices/app_F_glossary', line=725, status='observed', kind='num', printed='2.9\\times10^{-6}', tol=0.0)
 def check_4948():
     'Electron Yukawa coupling y_e = sqrt2 m_e/v with v = (sqrt2 G_F)^(-1/2). Book line 735, printed 2.9e-6. Inputs: G_F = 1.1663788e-5 GeV^-2 (PDG), m_e CODATA 2018.'
     G_F = 1.1663788e-5
@@ -42883,7 +42803,7 @@ def check_4948():
     return locals()
 
 @check(label='app:glossary:L735:0.991', chapter='app:glossary', part=8, title='top Yukawa y_t = sqrt2 m_t/v',
-       file='appendices/app_F_glossary', line=735, status='observed', kind='num', printed='0.991', tol=0.0)
+       file='appendices/app_F_glossary', line=725, status='observed', kind='num', printed='0.991', tol=0.0)
 def check_4949():
     'Top Yukawa coupling y_t = sqrt2 m_t/v with v = (sqrt2 G_F)^(-1/2). Book line 735, printed 0.991. Inputs: G_F = 1.1663788e-5 GeV^-2 (PDG), m_t = 172.57 GeV (PDG 2024), as in Chapter ch:higgsrecord.'
     G_F, m_t = 1.1663788e-5, 172.57

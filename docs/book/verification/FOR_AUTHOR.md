@@ -2,25 +2,13 @@
 
 Items a check raised that would change a result, the framing of a claim, or that need a source or a script before they can be checked. The book is unchanged for each open item.
 
-Open items: 2 (both are development measurements still in the book; author to decide). Resolved 2026-10-04: 25.
-
-## 13. `docs/book/part4/p4_13_separation.tex:L61 and L76`
-
-- **Now:** shift for a 2 % loss in the 0.40-0.50 bin: 0.033
-- **Proposed:** 0.032 if the bin is [0.40, 0.50) over the 656 arrays of doors/data/lowfrac_readings.csv
-- **Why it matters:** The other three bins reproduce from lowfrac_readings.csv (0.0401, 0.0498, 0.0638); the first bin gives a median of 0.0321 with the same rule. Not in this batch's rows, so not checked or changed here; the binning of the original run may differ.
-- **Recommendation:** check the bin edges used by DEV-LOWFRAC-01 before changing anything
-
-## 14. `docs/book/part4/p4_16a_skytools.tex:L142-143`
-
-- **Now:** smoothing over the 32 nearest pixels left a spread of 0.171, against 0.131 +- 0.001 for the same values shuffled across the sphere: a factor of 1.31, at 57 sigma
-- **Proposed:** no change to the numbers (they match doors/PROC_CEIL_01_OUTCOME.md, finding 3); consider whether the measurement is now verified
-- **Why it matters:** doors/REPORT_LINE_AUDIT_2026-09-26.md line 98 lists this line as 'UNVERIFIED | 2026-09-22 measurement, open item'; the only committed record is the outcome text, no data file or script output. The checks read the numbers from that text.
-- **Recommendation:** low priority: either commit the measurement's output or mark the sentence's source
+Open items: 0.
 
 
 ## Resolved 2026-10-04
 
+- 13. `docs/book/part4/p4_13_separation.tex:L61 and L76` - removed from the book as a development measurement (author 2026-10-04)
+- 14. `docs/book/part4/p4_16a_skytools.tex:L142-143` - removed from the book as a development measurement (author 2026-10-04)
 - 3. `docs/book/part2/p2_02b_virial_tests.tex:L31` - DESI per-bin errors printed as 9-23 % (BGS widest), from the committed DESI 2024 V table in verify_shapefit_chi2.py
 - 4. `docs/book/part2/p2_05_dual_sector_note.tex:L154 (and p2_07_late_time_growth.tex:L107)` - Limber estimate committed (docs/verification/scripts/verify_limber_lensing.py + output): 0.04-0.24 % for 30 <= L <= 1000, most at low L; p2_05 and p2_07 corrected, four checks added; the 0.08 % in p2_09/p2_16 is the scale-free estimate already checked
 - 15. `docs/book/part4/p4_21_firstreadings.tex:L59-L60 (and Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md)` - chapter retired (development readings moved to development/, author 2026-10-04)

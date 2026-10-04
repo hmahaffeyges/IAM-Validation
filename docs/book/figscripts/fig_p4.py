@@ -833,7 +833,7 @@ def fig_summary():
 
 
 ALL = [fig_jensen, fig_ledger, fig_fullsurface, fig_surfaces, fig_imr90_plane, fig_heldout, fig_iama, fig_cscore, fig_map79, fig_tare, fig_noisefit,
-       fig_lowfrac, fig_markers, fig_profiles, fig_window, fig_shared, fig_noiseterm, fig_nulls, fig_detlimit, fig_report, 
+       fig_markers, fig_profiles, fig_window, fig_shared, fig_noiseterm, fig_nulls, fig_detlimit, fig_report, 
        fig_fraction_free, fig_tumour, fig_status, fig_summary]
 
 def tex_sci(x, d=2, dollars=True):

@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4780 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4769 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4709,8 +4709,8 @@ Totals: 4780 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 36 | ch:temperature:L36 | calc | `8.1` | numeric: 7-fold selectivity at 15 C | PASS |
 | 36 | ch:temperature:L36:6.8 | calc | `6.8` | numeric: at 42 C | PASS |
 | 76 | ch:temperature:L76 | measured | `3.41` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: human cells at 37 C (dashed line) | PASS |
+| 87 | ch:temperature:L111 | prediction | `20.84` | numeric: M for a dog at 38.5 C | PASS |
 | 98 |  | observed | `0.96` | not run: measured, source not named | - |
-| 111 | ch:temperature:L111 | prediction | `20.84` | numeric: M for a dog at 38.5 C | PASS |
 | 113 |  | prediction | `1.00` | not run: prediction, nothing to recompute (held-out canine cells should read 1.00 on a canine reference) | - |
 
 ## Part 6 - ch:translation - `docs/book/part4/p4_11_translation.tex`
@@ -4767,16 +4767,8 @@ Totals: 4780 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 |---:|---|---|---|---|---|
 | 6 | eq:mix | none |  | not run: definition: linear mixing model of a specimen, beta_i = sum_g f_g mu_{g,i} + eps_i with f_g >= 0 and sum f_g = 1 (the equation Stage A solves; Houseman2012, Salas2022) | - |
 | 45 |  | measured | `0.05` | not run: measured, source not named | - |
-| 48 | ch:separation:L48 | measured | `0.035` | file `Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv`: neutrophil fraction against flow counts, median error | PASS |
 | 49 |  | measured | `0.05` | not run: definition: pre-registered bar of test T1b (fraction within 0.05 of the flow counts), not a measurement | - |
-| 50 | ch:separation:L50 | measured | `0.034` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: known DNA mixtures, median fraction error | PASS |
 | 68 |  | openprob | `0.40` | not run: input: the read line 0.40 restated from the table (line 56); the count of five healthy arrays below it is not the printed value | - |
-| 76 | ch:separation:L76:0.040 | measured | `0.040` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: shift for a 2 % loss, fraction 0.50-0.60 | PASS |
-| 76 | ch:separation:L76:0.050 | measured | `0.050` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: shift for a 2 % loss, fraction 0.60-0.70 | PASS |
-| 76 | ch:separation:L76:0.064 | measured | `0.064` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: shift for a 2 % loss, fraction 0.70-1.00 | PASS |
-| 76 | ch:separation:L76:0.024 | measured | `0.024` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: healthy spread, fraction 0.40-0.50 | PASS |
-| 76 | ch:separation:L76:0.022 | measured | `0.022` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: healthy spread, fraction 0.50-0.60 | PASS |
-| 76 | ch:separation:L76:0.020 | measured | `0.020` | file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: healthy spread, fraction 0.70-1.00 | PASS |
 | 88 | ch:separation:L88 | measured | `+0.12` | file `Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv`: tared Met-A rises with neutrophil fraction | PASS |
 | 91 | ch:separation:L91 | fitted | `-0.02` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: fraction dependence after the development fit | PASS |
 | 99 |  | measured | `1.05` | not run: definition: upper edge of the Normal band (0.95-1.05) restated, the line the tared reading is compared with | - |
@@ -4889,9 +4881,6 @@ Totals: 4780 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 138 | ch:skytools:L138 | measured | `0.02` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: healthy residual uncorrelated beyond 1 kb | PASS |
 | 139 | ch:skytools:L139:0.08 | measured | `0.08` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: regional-damage plateau, upper end | PASS |
 | 139 |  | measured | `0.05` | not run: printed value 0.05 has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0517); the upper end is checked at ch:skytools:L139:0.08 | - |
-| 142 | ch:skytools:L142 | measured | `0.171` | file `Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md`: smoothed healthy whole-array sky, spread | PASS |
-| 143 | ch:skytools:L143:0.131 | measured | `0.131` | file `Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md`: same sky shuffled, spread | PASS |
-| 143 | ch:skytools:L143:1.31 | measured | `1.31` | file `Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md`: smoothed over shuffled spread | PASS |
 | 165 | ch:skytools:L165 | calc | `0.00047` | file `Biological_Physics/MethylPhys/doors/PROC_AGE_01_OUTCOME.md`: age-ladder slope per year | PASS |
 
 ## Part 6 - ch:sky - `docs/book/part4/p4_16_sky.tex`
@@ -4926,7 +4915,7 @@ Totals: 4780 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 31 | ch:serial:L31 | measured | `0.045` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, donor 1 (GSE247195), untared isolated neutrophils | PASS |
-| 71 | ch:serial:L71 | measured | `0.894` | file `Biological_Physics/MethylPhys/doors/PLAN.md`: E-MTAB-7309 Stage 1: median call rate | PASS |
+| 35 | ch:serial:L71 | measured | `0.894` | file `Biological_Physics/MethylPhys/doors/PLAN.md`: E-MTAB-7309 Stage 1: median call rate | PASS |
 
 ## Part 6 - ch:discipline - `docs/book/part4/p4_18_discipline.tex`
 
@@ -6365,6 +6354,8 @@ Totals: 4780 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 714 | app:glossary:L714:1.17 | observed | `1.17` | file `docs/verification/virial/NBODY_TRACE.md`: surface-pressure corrected 2K/|W|, upper end | PASS |
 | 719 | app:glossary:L719 | observed | `2.5\times10^{-18}` | numeric: weak-interaction range hbar/(M_W c), m | PASS |
 | 725 | app:glossary:L725 | observed | `0.593` | numeric: mean DA white dwarf mass (Kepler et al. 2007) | PASS |
+| 725 | app:glossary:L735 | observed | `2.9\times10^{-6}` | numeric: electron Yukawa y_e = sqrt2 m_e/v | PASS |
+| 725 | app:glossary:L735:0.991 | observed | `0.991` | numeric: top Yukawa y_t = sqrt2 m_t/v | PASS |
 | 728 | app:glossary:L728 | measured | `0.045` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, untared, 54 y repeat arrays | PASS |
 | 728 | app:glossary:L728:0.044 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, untared, 30 y repeat arrays | PASS |
 | 729 | app:glossary:L729 | observed | `1.05` | file: LoCuSS M_WL/M_X = 1/beta_X | PASS |
@@ -6372,8 +6363,6 @@ Totals: 4780 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 729 | app:glossary:L729:1.28 | observed | `1.28` | heavy numeric `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: CCCP Planck-prior 1/(1-b) | PASS |
 | 729 |  | observed | `0.15` | not run: input: redshift bound z=0.15 of the published cluster sample split (Smith2016LoCuSS), a sample definition | - |
 | 729 |  | observed | `0.3` | not run: input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition | - |
-| 735 | app:glossary:L735 | observed | `2.9\times10^{-6}` | numeric: electron Yukawa y_e = sqrt2 m_e/v | PASS |
-| 735 | app:glossary:L735:0.991 | observed | `0.991` | numeric: top Yukawa y_t = sqrt2 m_t/v | PASS |
 
 ## Part 8 - app:register - `docs/book/appendices/app_G_predictions_register.tex`
 
