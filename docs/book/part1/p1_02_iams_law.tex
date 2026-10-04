@@ -353,12 +353,13 @@ The rate of irreversible information production from gravitational structure for
 \dot I\propto\rho_m(a)\,D(a)^n\,f(a)\,H(a), \label{eq:rate}
 \end{equation}
 where $\rho_m\propto a^{-3}$ is the matter density, $D(a)$ the linear growth factor, $f=d\ln D/d\ln a$ the growth rate, and $n$ the exponent fixed in
-Section~\ref{sec:law_exponent} \conjecture. The effective rate of informational entropy increase on the horizon is
+Section~\ref{sec:law_exponent} \conjecture. The rate of informational entropy increase on the horizon is taken to scale as
 \begin{equation}
-\frac{dS_{\rm info}}{dt}=\frac{\dot I}{T_HA_H}, \label{eq:Sdot}
+\frac{dS_{\rm info}}{dt}\propto\frac{\dot I}{T_HA_H}, \label{eq:Sdot}
 \end{equation}
-where $1/T_H=2\pi k_B/(\hbar H)$ reflects the Landauer encoding cost per bit at the horizon temperature, and $1/A_H$ converts total information to surface
-density, consistent with the holographic bound~\cite{tHooft1993,Susskind1995,Bousso2002}.
+\conjecture\ (assumed accounting). The factor $1/T_H=2\pi k_B/(\hbar H)$ prices each record at the Landauer cost per bit at the horizon temperature, and
+the factor $1/A_H$ is the assumption that records are stored per unit horizon area, as the holographic bound counts them~\cite{tHooft1993,Susskind1995,Bousso2002}.
+$S_{\rm info}$ is still the total record entropy; only its rate is weighted this way, and only the scaling with $a$ is used below.
 
 \subsection{The activation function}\label{sec:law_activation}
 
@@ -567,7 +568,7 @@ For $S_{\rm info}(a)\propto-1/a+{\rm const}$, the form required by $E(a)=\exp(1-
 \begin{equation}
 n-\frac92=-1\quad\Longrightarrow\quad n=\frac72 . \label{eq:law_n}
 \end{equation}
-\calc\ given the rate law. The same condition in the form ``the record surface density $D/A_H$ falls as $a^{-2}$'': the remaining factor
+\derived{} (given the form and the rate law). The same condition in the form ``the record surface density $D/A_H$ falls as $a^{-2}$'': the remaining factor
 $\rho_mD^{n-1}f/(T_Ha)\propto a^{\,n-7/2}$ is constant only for $n=7/2$; the two statements are one. Integrating Eqs.~\eqref{eq:rate}--\eqref{eq:Sdot} with the
 full $\Lambda$CDM growth factor gives $dS_{\rm info}/d\ln a\propto a^{-1.02}$ for $n=7/2$ over $0.01\le a\le0.1$ (and $a^{-2.02}$, $a^{-1.52}$, $a^{-0.53}$ for
 $n=5/2$, $3$, $4$); the $\Lambda$ era steepens it, to $a^{-1.57}$ over $0.25\le a\le1$ for $n=7/2$ (Fig.~\ref{fig:law_derivations}a) \calc. The scaling fixes the
@@ -750,7 +751,7 @@ nucleosynthesis relation. It converged with $R-1=0.009273$ after 22,400 accepted
 \begin{equation}
 \Omega_bh^2=0.02232\pm0.00014,\qquad \eta=(6.113\pm0.037)\times10^{-10}. \label{eq:law_eta_chain}
 \end{equation}
-\fitted\ The four Level~1 $\Lambda$CDM chains return the same $\eta$, $6.117$--$6.137\times10^{-10}$: the informational term is off at recombination ($E\to0$), so the chain
+\measured\ The four Level~1 $\Lambda$CDM chains return the same $\eta$, $6.117$--$6.137\times10^{-10}$: the informational term is off at recombination ($E\to0$), so the chain
 checks that the term leaves the early universe intact; it does not test IAM (Chapter~\ref{ch:baryon}).
 
 \textbf{The connection.} The cosmological constant problem and the baryon asymmetry problem are, within IAM, not two independent problems. They are two
@@ -849,10 +850,11 @@ one of the conditions~\cite{Sakharov1967} for the baryon asymmetry of approximat
 constitutes all observable matter. Third, and most directly: a force whose function is to drive irreversible transitions between stable bound states cannot
 simultaneously satisfy an equilibrium condition within them. \conjecture
 
-The weak force is, on this reading, not one of four equals in the IAM framework. It is the precondition for IAM's Law to operate. Without CP violation and
-parity violation there is no preferred direction for decoherence, no arrow of time at the particle-physics level, no activation function $E(a)$, and no IAM
-sector split. The other three forces maintain equilibrium in the stable structures that decoherence produces. The weak force produces the irreversibility
-that makes decoherence possible in the first place. Three forces maintain stable equilibrium structures; one force drives irreversible transitions between
+The weak force is, on this reading, not one of four equals in the IAM framework. What the electroweak transition gives IAM's Law is massive
+particles: the $W$, the $Z$ and the charged fermions acquire mass, and with it the timelike worldlines on which records are written. The arrow of time does
+not need CP violation: entropy production, decoherence and Landauer's bound hold for every interaction, and CP violation enters through the baryon
+asymmetry (Chapters~\ref{ch:electroweak} and~\ref{ch:time}). The other three forces maintain equilibrium in the stable structures that decoherence
+produces. Three forces maintain stable equilibrium structures; one force drives irreversible transitions between
 them. IAM's Law governs the boundary between a quantum superposition and a classical record; the weak force is the crossing. That three of the four
 forces hold equilibrium structures, and the one exception is the force whose function requires it not to, is structurally consistent with IAM's Law
 identifying that boundary as a thermodynamically costly one. Whether this consistency constitutes independent evidence for the law or merely a post-hoc

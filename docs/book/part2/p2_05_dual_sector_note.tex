@@ -108,8 +108,8 @@ methodology, and a distinct observable. The first three are consistent with $\be
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.2\linewidth}l}\toprule
 Evidence & Dataset / method & Result & What it means & Label\\\midrule
 CMB enforces the photon-sector bound & Planck acoustic scale $\theta_s$; photon coupling in the background of light paths &
-$\beta_\gamma<0.0039$ ($95\,\%$); sector ratio $\beta_\gamma/\beta_m<0.025$ (Figure~\ref{fig:beta_gamma}) & the CMB itself measures that photons couple at least
-$40\times$ more weakly than matter; not assumed---measured & \calc\\
+$\beta_\gamma<0.0052$ ($95\,\%$); sector ratio $\beta_\gamma/\beta_m<0.033$ (Figure~\ref{fig:beta_gamma}) & the CMB itself measures that photons couple at least
+$30\times$ more weakly than matter; not assumed---measured & \calc\\
 The fixed $\beta_m$ is consistent with Planck & Planck 2018 posterior, Level~2 MCMC with $\beta_m$ fixed & $\Omega_m/2=0.1583\pm0.0032$ in the posterior,
 $0.2\sigma$ from $0.15765$ & the virial value is consistent with the data without any parameter tuning; a consistency, since $\beta_m$ is fixed in every
 chain & \measured\\
@@ -132,7 +132,7 @@ applies at equal parameter count \calc.
 \item Falsification boundary: applying the modification to the background Friedmann equation yields $H_0=61.45\pm0.42$ and $61.52\pm0.43$
 km\,s$^{-1}$\,Mpc$^{-1}$, $10.9\sigma$ below Planck in units of Planck's error ($8.6\sigma$ with the chain error added in quadrature), establishing that IAM
 operates at the perturbation level only \measured.
-\item Photon coupling: fitted to the acoustic scale, $\beta_\gamma<0.0039$ ($95\,\%$), so $\beta_\gamma/\beta_m<0.025$ \calc.
+\item Photon coupling: tested on the acoustic scale, $\beta_\gamma<0.0052$ ($95\,\%$), so $\beta_\gamma/\beta_m<0.033$ \calc.
 \item Supernovae: their distances follow $\Lambda$CDM geometry; the $\beta$ term applied to them is excluded ($\Delta\chi^2=+23.6$;
 Chapter~\ref{ch:dsvalidation}) \observed.
 \end{itemize}
@@ -142,12 +142,12 @@ a mock analysis, the fit moved to the opposite quadrant ($w_0=-1.19$, $w_a=+0.38
 (Chapter~\ref{ch:dsvalidation}) \openprob.
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_beta_gamma.pdf}
-\caption[The photon coupling tested on the CMB acoustic scale]{The photon coupling tested on the CMB acoustic scale. (a) $\Delta\chi^2$ of $\theta_s$ against a photon coupling $\beta_\gamma\ge0$ in $H_\gamma^2=H_0^2[\Omega_ma^{-3}+\Omega_ra^{-4}+\Omega_\Lambda+\beta_\gamma E(a)]$, sound horizon fixed at 144.43\,Mpc, $\theta_s=0.0104110\pm0.0000031$~\cite{Planck2018VI}, with $H_0=67.4$, $\Omega_m=0.315$ and $\Omega_r=9.24\times10^{-5}$; $\Delta\chi^2$ is taken against the $\beta_\gamma=0$ point, which in this simplified set-up lies $2.1\sigma$ above the observed $\theta_s$ (script \texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}verify\_beta\_gamma.py}): $\beta_\gamma<0.0039$ at 95\,\%, so $\beta_\gamma/\beta_m<0.025$. (b) The full matter coupling $\beta_m=\Omega_m/2$ applied to photon paths moves $\theta_s$ by $+0.90\,\%$, $30\sigma$ at Planck precision (band: $\pm2\sigma$). Method of \texttt{docs/verification/scripts/\allowbreak{}verify\_beta\_gamma.py}. \calc}\label{fig:beta_gamma}
+\caption[The photon coupling tested on the CMB acoustic scale]{The photon coupling tested on the CMB acoustic scale. (a) $\Delta\chi^2$ of $\theta_s$ against a photon coupling $\beta_\gamma\ge0$ in $H_\gamma^2=H_0^2[\Omega_ma^{-3}+\Omega_ra^{-4}+\Omega_\Lambda+\beta_\gamma E(a)]$, with every input from one Planck fit, Planck 2018 TT,TE,EE+lowE+lensing~\cite{Planck2018VI}: $H_0=67.36$, $\Omega_m=0.3153$, sound horizon $r_*=144.43$\,Mpc held fixed, $\theta_*=0.0104110\pm0.0000031$, $z_*=1089.92$, and $\Omega_r=9.22\times10^{-5}$ from the CMB temperature; $\Delta\chi^2$ is taken against the $\beta_\gamma=0$ point, which in this simplified set-up lies $1.4\sigma$ above the observed $\theta_s$ (script \texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}verify\_beta\_gamma.py}): $\beta_\gamma<0.0052$ at 95\,\%, so $\beta_\gamma/\beta_m<0.033$. (b) The full matter coupling $\beta_m=\Omega_m/2$ applied to photon paths moves $\theta_s$ by $+0.90\,\%$, $30\sigma$ at Planck precision (band: $\pm2\sigma$). Method of \texttt{docs/verification/scripts/\allowbreak{}verify\_beta\_gamma.py}. \calc}\label{fig:beta_gamma}
 \end{figure}
 
 \section{The figures}\label{sec:dsn_figures}
 Figure~\ref{fig:dsnote_probes} shows the dual-sector predictions across the observables. The photon sector is untouched: the CMB TT power spectrum is
-the same in IAM as in $\Lambda$CDM, as the law requires, because the photon coupling is bounded at $\beta_\gamma<0.0039$ (Figure~\ref{fig:beta_gamma}) \calc.
+the same in IAM as in $\Lambda$CDM, as the law requires, because the photon coupling is bounded at $\beta_\gamma<0.0052$ (Figure~\ref{fig:beta_gamma}) \calc.
 Panel~(b) shows $\mu(a)<1$ across all redshifts, approaching unity at high $z$ as $E(a)\to0$; $1-\mu$ is $3.8\times10^{-4}$ at $z=3$ and
 $1.5\times10^{-5}$ at $z=5$, so GR is recovered there \calc. The panels together show both predictions simultaneously: standard photon propagation and
 suppressed matter growth, from the same single physical identification. CMB lensing follows the slightly lower matter perturbations: at fixed primordial
@@ -194,7 +194,7 @@ framework's assumptions:
 $\Sigma\neq1$ in the Euclid weak lensing / galaxy clustering tomography would challenge the photon exemption and require understanding what physical
 process could produce a modification in the null sector. \prediction
 \item \textbf{$\beta_\gamma>0$ detected by CMB-S4}~\cite{Abazajian2016}. CMB-S4 will measure the CMB power spectrum with enough precision to tighten the
-present bound $\beta_\gamma<0.0039$. A detection of $\beta_\gamma>0$ would indicate photon-sector coupling beyond what the decoherence mechanism predicts.
+present bound $\beta_\gamma<0.0052$. A detection of $\beta_\gamma>0$ would indicate photon-sector coupling beyond what the decoherence mechanism predicts.
 Forecasting the CMB-S4 sensitivity to $\beta_\gamma$ from the present bound is the next step \openprob.
 \item \textbf{$\beta_m/\Omega_m\neq1/2$ independently confirmed.} The virial theorem predicts this ratio is constant regardless of the value of $\Omega_m$.
 If independent measurements revise $\Omega_m$ significantly and the growth data still require a coupling different from the new $\Omega_m/2$, the virial
@@ -210,7 +210,7 @@ with these observations would be scientifically informative regardless of its di
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.17\linewidth}l}\toprule
 Statement & Value & Would count against it & Test & Label\\\midrule
 Light is not coupled (lensing) & $\Sigma=1$ at every $z$ & $\Sigma\neq1$ detected & Euclid tomography & \prediction\\
-Light is not coupled (acoustic scale) & $\beta_\gamma=0$; now $\beta_\gamma<0.0039$ (95\,\%) & $\beta_\gamma>0$ detected & CMB-S4 & \calc\\
+Light is not coupled (acoustic scale) & $\beta_\gamma=0$; now $\beta_\gamma<0.0052$ (95\,\%) & $\beta_\gamma>0$ detected & CMB-S4 & \calc\\
 Virial amplitude & $\beta_m/\Omega_m=1/2$ & $\Omega_m$ revised while growth still needs the old $\beta_m$ & DESI Year~5, Euclid & \prediction\\
 Growth coupling today & $\mu_0=-0.136$ & $\mu_0$ consistent with 0 and excluding $-0.136$ & Euclid, DESI (Section~\ref{sec:sp_euclid}) & \prediction\\
 Redshift dependence only & $\mu(a)$, $\Sigma(a)$ & scale-dependent $\mu$ or $\Sigma$ & Euclid, DESI & \prediction\\\bottomrule
@@ -233,7 +233,7 @@ follows from the causal structure of spacetime itself.
 $\Lambda$CDM applies the null geodesic description uniformly to a universe that contains matter. IAM follows $E=mc^2$ to its thermodynamic conclusion.
 The empirical record---seventeen converged MCMC chains consistent with Planck at $\Delta\chi^2=+0.54$, 1590 Pantheon+ supernovae (full covariance) whose distances follow
 $\Lambda$CDM geometry as the split requires, the Planck posterior consistent with the fixed $\beta_m=\Omega_m/2$ at $0.2\sigma$, and the CMB bounding the
-photon coupling at $\beta_\gamma<0.0039$---is consistent with the dual-sector description. The physical argument explains why the split is expected; the
+photon coupling at $\beta_\gamma<0.0052$---is consistent with the dual-sector description. The physical argument explains why the split is expected; the
 numbers decide whether it holds, and Euclid, DESI Year~5 and CMB-S4 will test it further.
 
 The split is stated sharply enough to be tested from both sides. A cosmologist with the public chains can rerun the bound on $\beta_\gamma$ today and set $\mu_0$ against the next survey release when it arrives.

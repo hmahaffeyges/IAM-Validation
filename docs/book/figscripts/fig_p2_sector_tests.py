@@ -2,8 +2,8 @@
 'Type Ia supernovae in the dual-sector picture' (p2_10_dual_sector_validation.tex).
 
 fig_beta_gamma: the photon coupling tested on the CMB acoustic scale. Same model and numbers as
-  docs/verification/scripts/verify_beta_gamma.py: H_photon = 67.4 sqrt(Om a^-3 + Or a^-4 + OL + beta_g e^(1-1/a)),
-  r_s = 144.43 Mpc fixed, theta_s = 0.0104110 +/- 0.0000031 (Planck 2018). (a) Delta chi^2 profile in beta_g >= 0;
+  docs/verification/scripts/verify_beta_gamma.py: H_photon = H0 sqrt(Om a^-3 + Or a^-4 + OL + beta_g e^(1-1/a)),
+  every input from Planck 2018 TT,TE,EE+lowE+lensing: H0 = 67.36, Om = 0.3153, r_* = 144.43 Mpc fixed, theta_* = 0.0104110 +/- 0.0000031. (a) Delta chi^2 profile in beta_g >= 0;
   (b) the shift of theta_s, in units of the Planck error, up to the full matter coupling beta_m = Om/2.
 fig_sn_h0_flat: Pantheon+SH0ES (Brout et al. 2022). (a) Hubble-flow residuals (z_HD > 0.01, 1590 SNe) against LambdaCDM at
   Om = 0.315 with the offset M fitted by generalised least squares on the full STAT+SYS covariance, binned in log z (inverse-variance
@@ -22,11 +22,13 @@ import matplotlib.pyplot as plt
 S.apply()
 
 # ---------------- fig_beta_gamma -----------------
-c, H0, Om, Or = 299792.458, 67.4, 0.315, 9.24e-5; OL = 1 - Om - Or; obs, err, rs = 0.0104110, 3.1e-6, 144.43
+# one Planck fit for every input: Planck 2018 TT,TE,EE+lowE+lensing (H0, Omega_m, r_*, theta_*, z_*), as verify_beta_gamma.py
+c, H0, Om, zs = 299792.458, 67.36, 0.3153, 1089.92
+Or = 2.4728e-5 * (1 + 0.2271 * 3.046) / (H0 / 100)**2; OL = 1 - Om - Or; obs, err, rs = 0.0104110, 3.1e-6, 144.43
 bm = 0.3153 / 2
 Hg = lambda a, b: H0 * np.sqrt(Om * a**-3 + Or * a**-4 + OL + b * np.exp(1 - 1 / a))
 def theta(b):
-    return rs / (quad(lambda z: 1 / Hg(1 / (1 + z), b), 0, 1090, limit=500, epsabs=0, epsrel=1e-12)[0] * c)
+    return rs / (quad(lambda z: 1 / Hg(1 / (1 + z), b), 0, zs, limit=500, epsabs=0, epsrel=1e-12)[0] * c)
 t0 = theta(0.0); c0 = ((t0 - obs) / err)**2
 dchi = lambda b: ((theta(b) - obs) / err)**2 - c0
 lim = {lev: brentq(lambda b: dchi(b) - lev, 1e-6, 0.05) for lev in (1, 4, 9)}

@@ -4,12 +4,12 @@ for the two early cellular papers (cell thermodynamics; vertebrate lifespan).
 
 Section K: numbers proposed for the book (KEEP items).  Section T / V: numbers used in
 REVIEW.md to show why an item is out of date (paper value vs recomputed value).
-Species data are read from the original figure script (make_figures.py, kept verbatim in
-the figscript fig_p4_species_lifespan.py) -- no value is re-typed here except the paper's
-printed numbers, which are quoted for comparison.
+The species figure is out of the book (2026-10-04), and with it the figure script that held the species
+lists; the checks that read those lists (K4, K6, V1-V8) are removed. No value is re-typed here except the
+paper's printed numbers, which are quoted for comparison.
 Run from docs/book:  python ../verification/scripts/verify_cell_papers.py
 """
-import math, sys, os, importlib.util
+import math, sys
 import numpy as np
 from scipy import stats
 
@@ -24,13 +24,6 @@ def chk(tag, val, ref, tol, note=""):
     print(f"{tag:6s} {'PASS' if good else 'FAIL'}  value={val:.6g}  expected={ref:.6g}  {note}")
 def show(tag, txt):  # a recomputed number reported against a printed one (no pass/fail)
     print(f"{tag:6s} INFO  {txt}")
-
-# ---------- species data: imported from the figscript (the original lists) ----------
-here = os.path.dirname(os.path.abspath(__file__))
-fs = os.path.join(here, "..", "..", "book", "figscripts", "fig_p4_species_lifespan.py")
-spec = importlib.util.spec_from_file_location("species", fs); sp = importlib.util.module_from_spec(spec)
-os.environ["SPECIES_NO_PLOT"] = "1"; spec.loader.exec_module(sp)
-MAM, VERT, ORDER_DATA, HMIN_OLD = sp.MAMMALS, sp.VERTEBRATES, sp.ORDER_DATA, sp.H_MIN_OLD
 
 print("=== K: numbers proposed for the book ===")
 # K1 floor of the copy error at other temperatures, fixed holding energy (book eq:eps0T)
@@ -52,19 +45,9 @@ for S37 in (7, 21, 80):
 chk("K3a", 7**(T0/288.15), 8.1, 0.05, "S(15C) for S37=7")
 chk("K3b", 80**(T0/288.15), 111.7, 0.5, "S(15C) for S37=80")
 chk("K3c", 80**(T0/315.15), 74.8, 0.3, "S(42C) for S37=80")
-# K4 counts in the species figure
-chk("K4a", len(MAM), 34, 0, "species in Fig. 1 (paper text says 40 and 43)")
-chk("K4b", len(set(m[1] for m in MAM)), 12, 0, "orders in Fig. 1 (paper says 14)")
-chk("K4c", len(VERT), 29, 0, "species in Fig. 2 (text says 31)")
-hb = [H(m[2]) for m in MAM]
-show("K4d", f"H(mean beta) across the 34 mammals: {min(hb):.3f}-{max(hb):.3f} bits")
 # K5 literature counts carried (as printed by the sources; checked against abstracts)
 show("K5", "Lowe 2018: six mammalian species; Crofts 2024: 42 species; Lu 2023: 11,754 arrays, 59 tissues, 185 species, r>0.96;"
            " Haghani 2023: 15,456 profiles, 348 species; Waterston 2002: ~80% of mouse genes have one human orthologue")
-# K6 lifespans in the figure (as tabulated in the script)
-d = {m[0]: m for m in MAM}
-chk("K6a", d["Bowhead whale"][3], 211, 0, "bowhead lifespan (yr)"); chk("K6b", d["House mouse"][3], 4, 0, "mouse lifespan (yr)")
-
 print("\n=== T: cell thermodynamics paper, printed vs recomputed ===")
 ebit = kB*T0*math.log(2)
 chk("T1", ebit, 2.968e-21, 1e-24, "kT ln2 at 310.15 K (paper 2.97e-21; book p4_02)")
@@ -92,35 +75,9 @@ show("T12", f"DCIS high grade H(0.660)={H(0.660):.4f} (printed 0.929)")
 a = np.linspace(0.05, 2, 200001); pace = np.exp(1-1/a)/a**2
 chk("T13", a[np.argmax(pace)], 0.5, 1e-4, "peak of dE/da (paper: t_max/2)")
 
-print("\n=== V: vertebrate lifespan paper, printed vs recomputed (from the original script data) ===")
-A = lambda b: H(b)/HMIN_OLD
-ls = np.array([m[3] for m in MAM]); Av = np.array([A(m[2]) for m in MAM])
-rp, pp = stats.pearsonr(np.log(ls), Av); rs, ps = stats.spearmanr(ls, Av)
-show("V1", f"Pearson r={rp:.4f} p={pp:.2g} n=34 (text r=-0.9018 p=1.6e-16 n=40; abstract n=43; caption -0.919, 1.6e-14, 34)")
-show("V1", f"Spearman rho={rs:.4f} p={ps:.2g} (text -0.9149, 9.5e-18)")
-for cut in (20, 35):
-    L = Av[ls >= cut]; S = Av[ls < cut]; t, p = stats.ttest_ind(L, S)
-    sp_ = math.sqrt(((len(L)-1)*L.var(ddof=1)+(len(S)-1)*S.var(ddof=1))/(len(L)+len(S)-2))
-    show("V2", f"split {cut} yr: long n={len(L)} mean {L.mean():.3f}, short n={len(S)} mean {S.mean():.3f}, t={t:.2f}, p={p:.2g}, d={(S.mean()-L.mean())/sp_:.2f};"
-              f" long with A>=1.05: {[m[0] for m in MAM if m[3]>=cut and A(m[2])>=1.05]}; short with A<1.05: {[m[0] for m in MAM if m[3]<cut and A(m[2])<1.05]}")
+print("\n=== V: vertebrate lifespan paper, printed values that need no species list ===")
 show("V2", "printed: 20-yr split 17 vs 11, t=-21.4, d=1.99 (hard-coded in script); caption 35-yr split 14 vs 20, t=-6.2, d=1.50; figure says 'All 23/23 A<1.05'")
 chk("V2c", (1.131-1.006)/math.sqrt((16*0.015**2+10*0.014**2)/26), 8.55, 0.01, "Cohen's d from the paper's own means/SDs, pooled with n=17,11 (paper 1.99; book errata app_B2 8.55)")
-order_tab = {"Cetacea": .997, "Proboscidea": .987, "Primates": 1.007, "Artiodactyla": 1.015, "Chiroptera": 1.041, "Carnivora": 1.053,
-             "Lagomorpha": 1.114, "Rodentia": 1.125, "Insectivora": 1.157}
-for o, v in order_tab.items():
-    fromM = np.mean([A(m[2]) for m in MAM if m[1] == o]); nM = sum(m[1] == o for m in MAM)
-    fromO = np.mean(ORDER_DATA[o][0]); nO = len(ORDER_DATA[o][0])
-    show("V3", f"{o:12s} table {v:.3f} | MAMMALS list n={nM} mean {fromM:.3f} | ORDER_DATA n={nO} mean {fromO:.3f}")
-nmr = [m for m in MAM if m[0] == "Naked mole rat"][0]
-chk("V4", H(nmr[2])/(HMIN_OLD*((nmr[4]+273.15)/T0)**2), 1.160, 1e-3, "naked mole rat with alpha=2 at 32 C (paper: 'approaches 1.13'; correction RAISES A)")
-chk("V5", A(0.601)-A(0.744), 0.1785, 1e-3, "shrew minus bowhead (paper 0.178)")
-show("V5", f"lifespan ratio bowhead/shrew = {211/2.5:.1f} with shrew 2.5 yr (Fig.1 list); 105.5 only with shrew 2 yr (Fig.2 list); paper '105-fold'")
-Tv = np.array([v[3] for v in VERT]); Ar = np.array([A(v[2]) for v in VERT])
-r1, p1 = stats.pearsonr(Tv, Ar); show("V6", f"raw A vs body T: r={r1:.3f} p={p1:.2g} n={len(VERT)} (text +0.80, 7.5e-8, n=31; caption +0.835, 1.8e-8, n=29)")
-Ac = lambda al: np.array([H(v[2])/(HMIN_OLD*((v[3]+273.15)/T0)**al) for v in VERT])
-red = 1-np.var(Ac(2.0))/np.var(Ar); show("V7", f"variance reduction at alpha=2: {100*red:.1f}% (text 41%, caption 46%)")
-als = np.linspace(0, 6, 6001); vv = [np.var(Ac(x)) for x in als]
-show("V8", f"alpha minimising cross-class variance on the script's 29 species: {als[int(np.argmin(vv))]:.2f} (paper: 2.0); reduction there {100*(1-min(vv)/np.var(Ar)):.1f}%")
 for Ea in (40e3, 60e3, 80e3): show("V9", f"Ea={Ea/1e3:.0f} kJ/mol = {Ea/(R*T0):.1f} kT0 (paper: 4.8/7.2/9.6)")
 show("V9", f"paper's alpha formula with 60 kJ/mol: {60e3/(R*T0)*0.25:.1f} (paper 1.8 used 7.2 kT0)")
 print("\nALL CHECKS PASS" if ok_all else "\nSOME CHECKS FAIL"); sys.exit(0 if ok_all else 1)

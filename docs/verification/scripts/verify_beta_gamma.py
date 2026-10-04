@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
 """beta_gamma bound and the photon-sector theta_s shift (DUAL_SECTOR_VALIDATION_CHECK.md items 8a-8c). numpy, scipy.
-Same model and data as tests/mcmc_final_iam.py and docs/RETIRED_2026-10/top_level/development/archive/tests_27-29/test_29_beta_gamma_constraint.py:
-H_photon = 67.4 sqrt(Om a^-3 + Or a^-4 + OL + beta_g e^(1-1/a)), r_s = 144.43 Mpc fixed, theta_s = 0.0104110 +/- 0.0000031."""
+Same model as tests/mcmc_final_iam.py:
+H_photon = H0 sqrt(Om a^-3 + Or a^-4 + OL + beta_g e^(1-1/a)), r_* fixed, theta_* compared with Planck's.
+Every input is taken from ONE Planck fit: Planck 2018 VI (arXiv:1807.06209) Table 2, base LCDM, TT,TE,EE+lowE+lensing:
+H0 = 67.36, Omega_m = 0.3153, r_* = 144.43 Mpc, 100 theta_* = 1.04110 +/- 0.00031, z_* = 1089.92.
+Omega_r from T_CMB = 2.7255 K and N_eff = 3.046 at h = 0.6736 (massless neutrinos; simplified)."""
 import numpy as np
 from scipy.integrate import quad
 from scipy.optimize import brentq
-c, H0, Om, Or = 299792.458, 67.4, 0.315, 9.24e-5; OL = 1-Om-Or; obs, err, rs = 0.0104110, 3.1e-6, 144.43
+c, H0, Om, zs = 299792.458, 67.36, 0.3153, 1089.92          # Planck 2018 TT,TE,EE+lowE+lensing
+Or = 2.4728e-5*(1+0.2271*3.046)/(H0/100)**2; OL = 1-Om-Or; obs, err, rs = 0.0104110, 3.1e-6, 144.43
 H = lambda a, b: H0*np.sqrt(Om*a**-3 + Or*a**-4 + OL + b*np.exp(1-1/a))
 def theta(b):   # adaptive quadrature: a 20,000-point grid shifts the 95 % bound by 4 %
-    return rs/(quad(lambda z: 1/H(1/(1+z), b), 0, 1090, limit=500, epsabs=0, epsrel=1e-12)[0]*c)
+    return rs/(quad(lambda z: 1/H(1/(1+z), b), 0, zs, limit=500, epsabs=0, epsrel=1e-12)[0]*c)
 # 1. the emcee script's integral as written: both arrays reversed -> negative distance
-z = np.linspace(0, 1090, 1000); I = 1/H(1/(1+z), 0.0)
+z = np.linspace(0, zs, 1000); I = 1/H(1/(1+z), 0.0)
 bug = rs/(np.trapezoid(I[::-1], z[::-1])*c)
 print(f"1. mcmc_final_iam.py theta_s(beta_g=0) as written = {bug:.8f}  ({(bug-obs)/err:+.0f} sigma) -> the 1.4e-6 bound is an artefact")
 # 2. corrected: profile Delta chi2 over beta_g >= 0

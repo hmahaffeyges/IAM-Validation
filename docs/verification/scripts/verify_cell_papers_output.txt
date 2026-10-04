@@ -19,18 +19,12 @@ K3     INFO  S37=80: S(15 C)=111.8  S(42 C)=74.6
 K3a    PASS  value=8.12121  expected=8.1  S(15C) for S37=7
 K3b    PASS  value=111.786  expected=111.7  S(15C) for S37=80
 K3c    PASS  value=74.6271  expected=74.8  S(42C) for S37=80
-K4a    PASS  value=34  expected=34  species in Fig. 1 (paper text says 40 and 43)
-K4b    PASS  value=12  expected=12  orders in Fig. 1 (paper says 14)
-K4c    PASS  value=29  expected=29  species in Fig. 2 (text says 31)
-K4d    INFO  H(mean beta) across the 34 mammals: 0.821-0.970 bits
 K5     INFO  Lowe 2018: six mammalian species; Crofts 2024: 42 species; Lu 2023: 11,754 arrays, 59 tissues, 185 species, r>0.96; Haghani 2023: 15,456 profiles, 348 species; Waterston 2002: ~80% of mouse genes have one human orthologue
-K6a    PASS  value=211  expected=211  bowhead lifespan (yr)
-K6b    PASS  value=4  expected=4  mouse lifespan (yr)
 
 === T: cell thermodynamics paper, printed vs recomputed ===
 T1     PASS  value=2.96811e-21  expected=2.968e-21  kT ln2 at 310.15 K (paper 2.97e-21; book p4_02)
 T2     PASS  value=5.8175e-14  expected=5.82e-14  paper floor with N=19.6e6
-T3     PASS  value=8.37526e-14  expected=8.37e-14  book floor with hg19 N=28,217,448
+T3     PASS  value=8.37526e-14  expected=8.38e-14  book floor with hg19 N=28,217,448
 T4     PASS  value=8.96691e-20  expected=8.97e-20  ATP per molecule (paper ~9e-20)
 T5     INFO  paper floor in ATP = 6.49e+05 (paper 'about 1e6'); book 9.34e+05
 T6     PASS  value=20.9405  expected=20.94  ATP drive / RT (book: M)
@@ -47,28 +41,9 @@ T11    INFO  neutrophil beta 0.760 gives H=0.7950, below the printed immune floo
 T12    INFO  DCIS high grade H(0.660)=0.9248 (printed 0.929)
 T13    PASS  value=0.500001  expected=0.5  peak of dE/da (paper: t_max/2)
 
-=== V: vertebrate lifespan paper, printed vs recomputed (from the original script data) ===
-V1     INFO  Pearson r=-0.9194 p=1.6e-14 n=34 (text r=-0.9018 p=1.6e-16 n=40; abstract n=43; caption -0.919, 1.6e-14, 34)
-V1     INFO  Spearman rho=-0.9242 p=6.4e-15 (text -0.9149, 9.5e-18)
-V2     INFO  split 20 yr: long n=23 mean 1.022, short n=11 mean 1.121, t=-8.16, p=2.5e-09, d=2.99; long with A>=1.05: ['Naked mole rat', 'Beaver', 'Domestic dog']; short with A<1.05: []
-V2     INFO  split 35 yr: long n=14 mean 1.004, short n=20 mean 1.089, t=-6.24, p=5.5e-07, d=2.17; long with A>=1.05: []; short with A<1.05: ['Domestic cat', 'Vervet monkey', 'Little brown bat', 'Horseshoe bat', 'Domestic cow', 'Sheep']
+=== V: vertebrate lifespan paper, printed values that need no species list ===
 V2     INFO  printed: 20-yr split 17 vs 11, t=-21.4, d=1.99 (hard-coded in script); caption 35-yr split 14 vs 20, t=-6.2, d=1.50; figure says 'All 23/23 A<1.05'
 V2c    PASS  value=8.5479  expected=8.55  Cohen's d from the paper's own means/SDs, pooled with n=17,11 (paper 1.99; book errata app_B2 8.55)
-V3     INFO  Cetacea      table 0.997 | MAMMALS list n=3 mean 0.992 | ORDER_DATA n=5 mean 0.993
-V3     INFO  Proboscidea  table 0.987 | MAMMALS list n=1 mean 0.987 | ORDER_DATA n=1 mean 0.987
-V3     INFO  Primates     table 1.007 | MAMMALS list n=6 mean 1.007 | ORDER_DATA n=6 mean 1.007
-V3     INFO  Artiodactyla table 1.015 | MAMMALS list n=3 mean 1.011 | ORDER_DATA n=4 mean 1.015
-V3     INFO  Chiroptera   table 1.041 | MAMMALS list n=3 mean 1.038 | ORDER_DATA n=4 mean 1.041
-V3     INFO  Carnivora    table 1.053 | MAMMALS list n=6 mean 1.046 | ORDER_DATA n=9 mean 1.053
-V3     INFO  Lagomorpha   table 1.114 | MAMMALS list n=2 mean 1.114 | ORDER_DATA n=2 mean 1.114
-V3     INFO  Rodentia     table 1.125 | MAMMALS list n=6 mean 1.125 | ORDER_DATA n=6 mean 1.125
-V3     INFO  Insectivora  table 1.157 | MAMMALS list n=1 mean 1.157 | ORDER_DATA n=1 mean 1.157
-V4     PASS  value=1.15983  expected=1.16  naked mole rat with alpha=2 at 32 C (paper: 'approaches 1.13'; correction RAISES A)
-V5     PASS  value=0.178465  expected=0.1785  shrew minus bowhead (paper 0.178)
-V5     INFO  lifespan ratio bowhead/shrew = 84.4 with shrew 2.5 yr (Fig.1 list); 105.5 only with shrew 2 yr (Fig.2 list); paper '105-fold'
-V6     INFO  raw A vs body T: r=0.835 p=1.8e-08 n=29 (text +0.80, 7.5e-8, n=31; caption +0.835, 1.8e-8, n=29)
-V7     INFO  variance reduction at alpha=2: 46.1% (text 41%, caption 46%)
-V8     INFO  alpha minimising cross-class variance on the script's 29 species: 3.95 (paper: 2.0); reduction there 63.1%
 V9     INFO  Ea=40 kJ/mol = 15.5 kT0 (paper: 4.8/7.2/9.6)
 V9     INFO  Ea=60 kJ/mol = 23.3 kT0 (paper: 4.8/7.2/9.6)
 V9     INFO  Ea=80 kJ/mol = 31.0 kT0 (paper: 4.8/7.2/9.6)

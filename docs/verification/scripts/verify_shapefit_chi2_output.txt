@@ -1,0 +1,10 @@
+sigma8: LCDM 0.8111 (Planck 2018), IAM 0.7975 (same early amplitude, MGCAMB form mu0 = -0.13495)
+DESI DR1, ShapeFit+BAO ratios x fiducial f sigma_s8 (diagonal):
+   BGS   z 0.295: f sigma8 0.397 +- 0.090   LCDM 0.473  IAM 0.454
+   LRG1  z 0.510: f sigma8 0.549 +- 0.062   LCDM 0.474  IAM 0.460
+   LRG2  z 0.706: f sigma8 0.479 +- 0.047   LCDM 0.462  IAM 0.451
+   LRG3  z 0.919: f sigma8 0.438 +- 0.040   LCDM 0.440  IAM 0.433
+   ELG2  z 1.317: f sigma8 0.373 +- 0.034   LCDM 0.395  IAM 0.391
+   QSO   z 1.491: f sigma8 0.435 +- 0.045   LCDM 0.375  IAM 0.372
+   chi2 (6 bins): LCDM 4.52  IAM 5.14   [book had 4.51, 5.24]
+SDSS DR16 (6 points, diagonal): chi2 LCDM 6.20  IAM 6.96   [book had 6.19, 6.95]

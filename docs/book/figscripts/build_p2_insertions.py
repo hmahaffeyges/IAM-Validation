@@ -21,9 +21,11 @@ def fig(name, width, short, caption, label):
 def pct(x, d=2): return f"{x:+.{d}f}"   # used inside math only
 
 # ---------------------------------------------------------------- p2_05
-c, H0, Om, Or = 299792.458, 67.4, 0.315, 9.24e-5; OL = 1 - Om - Or; obs, err, rs = 0.0104110, 3.1e-6, 144.43
+# one Planck fit for every input: Planck 2018 TT,TE,EE+lowE+lensing (H0, Omega_m, r_*, theta_*, z_*), as verify_beta_gamma.py
+c, H0, Om, zs = 299792.458, 67.36, 0.3153, 1089.92
+Or = 2.4728e-5 * (1 + 0.2271 * 3.046) / (H0 / 100)**2; OL = 1 - Om - Or; obs, err, rs = 0.0104110, 3.1e-6, 144.43
 Hg = lambda a, b: H0 * np.sqrt(Om * a**-3 + Or * a**-4 + OL + b * np.exp(1 - 1 / a))
-theta = lambda b: rs / (quad(lambda z: 1 / Hg(1 / (1 + z), b), 0, 1090, limit=500, epsabs=0, epsrel=1e-12)[0] * c)
+theta = lambda b: rs / (quad(lambda z: 1 / Hg(1 / (1 + z), b), 0, zs, limit=500, epsabs=0, epsrel=1e-12)[0] * c)
 t0 = theta(0.0); c0 = ((t0 - obs) / err)**2
 bg95 = brentq(lambda b: ((theta(b) - obs) / err)**2 - c0 - 4, 1e-6, 0.05)
 bm = 0.3153 / 2; sm = (theta(bm) - t0) / err; pm = 100 * (theta(bm) / t0 - 1)
@@ -31,7 +33,7 @@ mu0 = K.mu(1.0) - 1
 add("p2_05_dual_sector_note.tex", "on real data with two rulers (Chapter~\\ref{ch:sectortension}).",
     fig("fig_beta_gamma", "\\textwidth", "The photon coupling tested on the CMB acoustic scale",
         f"The photon coupling tested on the CMB acoustic scale. (a) $\\Delta\\chi^2$ of $\\theta_s$ against a photon coupling $\\beta_\\gamma\\ge0$ "
-        f"in $H_\\gamma^2=H_0^2[\\Omega_ma^{{-3}}+\\Omega_ra^{{-4}}+\\Omega_\\Lambda+\\beta_\\gamma E(a)]$, sound horizon fixed at 144.43\\,Mpc, "
+        f"in $H_\\gamma^2=H_0^2[\\Omega_ma^{{-3}}+\\Omega_ra^{{-4}}+\\Omega_\\Lambda+\\beta_\\gamma E(a)]$, sound horizon $r_*=144.43$\\,Mpc fixed, $H_0=67.36$, $\\Omega_m=0.3153$ (Planck 2018 TT,TE,EE+lowE+lensing), "
         f"$\\theta_s=0.0104110\\pm0.0000031$~\\cite{{Planck2018VI}}: $\\beta_\\gamma<{bg95:.4f}$ at 95\\,\\%, so $\\beta_\\gamma/\\beta_m<{bg95/bm:.3f}$. "
         f"(b) The full matter coupling $\\beta_m=\\Omega_m/2$ applied to photon paths moves $\\theta_s$ by ${pm:+.2f}\\,\\%$, ${sm:.0f}\\sigma$ at Planck precision "
         f"(band: $\\pm2\\sigma$). Method of \\texttt{{docs/verification/scripts/\\allowbreak{{}}verify\\_beta\\_gamma.py}}. \\calc", "fig:beta_gamma"))

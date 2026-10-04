@@ -1,0 +1,54 @@
+% DRAFT for the opening chapter of Part VI (ch:bridge). Not \input anywhere; for the author's review (item 22b, 2026-10-04).
+% Ready to \input{DRAFT_two_readings} inside a chapter. Uses the book's macros (\kB, status labels) and existing labels only;
+% the one new label is sec:two_readings.
+\section{Two readings of one record}\label{sec:two_readings}
+
+A cell holds its identity as a methylation pattern. The pattern is a record, and the cell copies it at every division. The record can be
+read at two scales: on single molecules, and across the many cells of a specimen. The instrument reads it both ways.
+
+\paragraph{IAM-A: copy errors on single molecules.} Take one molecule from a long read. Where the molecule is methylated along its length,
+an unmethylated call standing alone between methylated neighbours is a copy error: the copy did not carry the mark across. Count the errors
+and the places where one could have happened,
+\begin{equation*}
+\varepsilon=\frac{\text{errors}}{\text{opportunities}} .
+\end{equation*}
+\measured{} The floor is $\varepsilon_0=0.032$, set by the energy that holds a mark at 310\,K (Eq.~\eqref{eq:eps0}). \derived{} The reading is
+\begin{equation*}
+\text{IAM-A}=\frac{H(\varepsilon)}{P_{\rm cell}\,H(\varepsilon_0)}
+\end{equation*}
+(Eq.~\eqref{eq:iama}), where $H$ is the binary entropy and $P_{\rm cell}$ is the healthy position of that cell type on one read-level
+pipeline. \calibrated{} This is the cell's error per gate, read against a thermal floor.
+
+\paragraph{Met-A: the pattern across the ensemble.} An array does not see molecules. It sees $\beta$, the fraction of copies methylated at
+each site, over all the cells in the specimen. Met-A is the Shannon entropy of $\beta$ at the cell's identity sites, over the healthy floor of
+that cell type on the same platform (Eq.~\eqref{eq:meta}). The floor comes from purified healthy cells. \calibrated{} This is the cell's state
+fidelity, read across the ensemble.
+
+\paragraph{One record, two scales.} The two readings are of one record. Copy errors are what blur the pattern: an error moves the $\beta$ of
+its site toward one half, where $H(\beta)$ is largest. \derived{} So IAM-A reads the cause on single molecules and Met-A reads its result
+across the specimen. Each A score carries one C-score beside it, computed from the same sites, which says where along the genome the
+departures sit (Chapter~\ref{ch:cscore}). \calc
+
+\paragraph{The efficiency side.} The Mahaffey number is the drive over the thermal quantum, $\mathcal M=\Delta G_{\rm ATP}/\kB T$. For one
+ATP at 310\,K it is about 21 ($\mathcal M=20.94$). \calc{} It is the efficiency side of the same cell, and it sets $\varepsilon_0$ through
+the holding energy (Eq.~\eqref{eq:eps0}). \derived
+
+\begin{table}[htbp]\centering\small
+\caption[Two readings of one record, beside the qubit and the chip]{Each surface read against its own floor. The qubit and the chip are in
+Chapters~\ref{ch:ascoreqc} and~\ref{ch:cmos}; IAM-A and Met-A in Chapters~\ref{ch:iama} and~\ref{ch:meta}.}\label{tab:two_readings}
+\begin{tabular}{@{}llll@{}}\toprule
+surface & what is read & floor & status of the floor\\\midrule
+qubit & error per gate & thermal floor at the qubit's own temperature & \derived\\
+chip & energy per switch & $\kB T_j\ln2$ & \derived\\
+IAM-A & copy errors per opportunity, single molecules & $H(\varepsilon_0)$, $\varepsilon_0=0.032$ at 310\,K; healthy position $P_{\rm cell}$ & \derived; \calibrated\\
+Met-A & entropy of $\beta$ at identity sites, the ensemble & healthy floor of the cell type, same platform & \calibrated\\\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Two kinds of method.} Most methods that read methylation for disease are classifiers: machine-learning models trained on large
+groups of people with and without disease. Ageing clocks are regressions trained on large groups of people of known age. Both ask which group a
+specimen looks like. The readings here ask a different question: how far is this cell from its own healthy record, measured against a physical
+floor? One compares a specimen with other people; the other measures one cell. They are different methods, and nothing here says which detects
+disease better. Detection is not tested. \openprob
+
+Both readings are open to anyone with a long-read run or an array. Take a healthy cell, read it both ways, and try to break it.

@@ -298,12 +298,13 @@ $n$ characterises the nonlinearity of structure formation. For linear perturbati
 value is derived in Section~\ref{sec:th:exponent}. \conjecture\ (form of the rate)
 
 \subsection{Thermodynamic encoding rate}
-The effective rate of informational entropy increase on the horizon is:
-\begin{equation}\frac{dS_{\rm info}}{dt}=\frac{\dot I}{T_H}\cdot\frac{1}{A_H}.\label{eq:dSdt}\end{equation}
+The rate of informational entropy increase on the horizon is taken to scale as
+\begin{equation}\frac{dS_{\rm info}}{dt}\propto\frac{\dot I}{T_H}\cdot\frac{1}{A_H}.\label{eq:dSdt}\end{equation}
 The factor $1/T_H=2\pi/H$ reflects Landauer's principle: lower horizon temperature means more efficient encoding (more bits per unit energy). The factor
-$1/A_H$ converts total information to surface density, because the holographic bound constrains information per unit area, not total information.
+$1/A_H$ is the assumption that records are stored per unit horizon area, as the holographic bound counts them. $S_{\rm info}$ is still the total
+record entropy; only the scaling of its rate with $a$ is used.
 
-This equation is the central physical claim: the rate of change of informational entropy on the horizon equals the information production rate,
+This proportionality is the central physical claim: the rate of change of informational entropy on the horizon scales as the information production rate,
 divided by the encoding cost per bit (temperature), per unit encoding area (horizon area). \conjecture
 
 \subsection{The virial coupling}
@@ -347,7 +348,7 @@ For the activation function to take the form $\exp(C-1/a)$, we require:
 \begin{equation}S_{\rm info}(a)\propto-\frac1a+{\rm const}.\label{eq:th:target}\end{equation}
 This requires the integral in Eq.~\eqref{eq:Sn} to yield $a^{-1}$:
 \begin{equation}n-\frac92=-1\quad\Longrightarrow\quad n=\frac72 .\label{eq:th:n}\end{equation}
-\derived\ The analytically predicted nonlinear exponent is $n=7/2$. It lies between linear ($n=1$) and fully nonlinear ($n\gtrsim4$) structure
+\derived{} (given the form) The analytically predicted nonlinear exponent is $n=7/2$. It lies between linear ($n=1$) and fully nonlinear ($n\gtrsim4$) structure
 formation --- the regime where the majority of information production occurs in the real universe. This value is derived under the matter-domination
 approximation. Integrating Eqs.~\eqref{eq:Idot}--\eqref{eq:dSdt} with the full $\Lambda$CDM growth factor gives $dS_{\rm info}/d\ln a\propto a^{-1.02}$ in the
 matter era for $n=7/2$ (Fig.~\ref{fig:exponent}) \calc; in the $\Lambda$ era the same $n$ gives a steeper fall ($a^{-1.57}$ over $0.25\le a\le1$), so the full
@@ -486,7 +487,7 @@ k^2\Psi=-4\pi G\,\mu(a)\,a^2\bar\rho_m\delta_m,\label{eq:th:mudef}\\
 k^2(\Phi+\Psi)=-8\pi G\,\Sigma(a)\,a^2\bar\rho_m\delta_m.\label{eq:th:sigmadef}
 \end{gather}
 The proposition maps onto this framework.
-\emph{Matter sector ($\mu$).} The informational entropy modifies the coupling governing density perturbations:
+\emph{Matter sector ($\mu$).} The informational entropy modifies the coupling in the Poisson equation for $\Psi$, the potential that matter falls in:
 \begin{equation}\mu(a)=\frac{H^2_{\Lambda\rm CDM}(a)}{H^2_{\Lambda\rm CDM}(a)+\beta_mE(a)H_0^2}.\label{eq:th:mu}\end{equation}
 At $a=1$, where $H_{\Lambda\rm CDM}=H_0$ and $E=1$:
 \begin{equation}\mu_0\equiv\mu(z{=}0)-1=\frac{-\beta_m}{1+\beta_m}=-0.136 .\label{eq:th:mu0}\end{equation}
@@ -780,15 +781,15 @@ with $\sigma_8$ shifting from $0.809$ to $0.800$ and $H_0({\rm matter})=72.26$\,
 
 \subsection{Derived $\mu(a)$ and $\Sigma(a)$}
 Since the IAM perturbation equations are standard GR (no modifications to the Poisson equation, no anisotropic stress), the $\mu$--$\Sigma$ values when
-mapped relative to the $\Lambda$CDM background are:
+mapped relative to the $\Lambda$CDM background, with $\mu$ acting on $\Psi$ as in Eq.~\eqref{eq:th:mudef}, are:
 \begin{equation}\mu(a)=\frac{E^2_{\Lambda\rm CDM}(a)}{E^2_{\rm IAM}(a)}<1,\qquad\Sigma(a)=1,\label{eq:th:mu2}\end{equation}
 with $E^2_{\Lambda\rm CDM}=H^2_{\Lambda\rm CDM}/H_0^2$ and $E^2_{\rm IAM}=E^2_{\Lambda\rm CDM}+\beta_mE(a)$, the same as Eq.~\eqref{eq:th:mu}. \derived\ The effective $\mu<1$
 arises because the enhanced Hubble friction lowers the effective matter density parameter seen by perturbations, $4\pi G\rho_m/H^2_{\rm IAM}$, below its
 $\Lambda$CDM value, so matter clusters less effectively. Numerically: $\mu(z{=}0)=0.864$, $\mu(z{=}0.5)=0.948$, $\mu(z{=}1)=0.982$, with $\mu\to1$ at
 high redshift as $E(a)\to0$ ($\mu(z{=}3)=0.9996$) \calc.
 
-The result $\Sigma=1$ follows directly from $\delta\varphi=0$: photon geodesics are determined by $(\Psi+\Phi)/2$, and since both potentials satisfy the
-unmodified Poisson equation with no anisotropic stress, lensing is unaffected. The photon exemption at the perturbation level is a consequence of the
+The result $\Sigma=1$ follows directly from $\delta\varphi=0$: photon geodesics are determined by $(\Phi+\Psi)/2$, whose source is
+unmodified; $\mu$ acts on $\Psi$ alone, and lensing is unaffected. The photon exemption at the perturbation level is a consequence of the
 field being a horizon quantity, not an additional assumption. \derived
 
 \subsection{Distinction from other modified gravity theories}
@@ -1063,7 +1064,7 @@ viable models, the combination $\mu<1$, $\Sigma=1$ is the IAM signature.
 fitting a dual-sector expansion history with a single-sector model. The true effective equation of state is always $\le-1$.
 \item \emph{CMB-S4: $\beta_\gamma<10^{-4}$.} The photon exemption requires $\beta_\gamma\ll\beta_m$. CMB-S4~\cite{Abazajian2016} will measure the CMB power spectrum with
 sufficient precision to constrain any additional energy injection at the $10^{-5}$ level. If $\beta_\gamma$ is detected above $10^{-4}$, the photon
-exemption is violated and IAM is falsified. The acoustic scale already gives $\beta_\gamma<0.0039$ (95\,\%), below $2.5\,\%$ of $\beta_m$
+exemption is violated and IAM is falsified. The acoustic scale already gives $\beta_\gamma<0.0052$ (95\,\%), below $3.3\,\%$ of $\beta_m$
 (Chapter~\ref{ch:dsvalidation}).
 \item \emph{$\beta_m/\Omega_m=1/2$ is constant.} The virial prediction should hold for any value of $\Omega_m$: if independent measurements revise $\Omega_m$,
 the predicted $\mu(z)$ shifts accordingly, with no parameter to absorb the change.

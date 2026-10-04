@@ -51,6 +51,7 @@ _TOK = [
     (r"\b([A-Za-z])\^\((-?\d+(?:/\d+)?)\)", lambda m: rf"{m.group(1)}^{{{m.group(2)}}}"),
     (r"\b([A-Za-z])\^(-?\d+(?:/\d+)?)", lambda m: rf"{m.group(1)}^{{{m.group(2)}}}"),
     (r"\beps_floor\b", r"\varepsilon_{\rm floor}"), (r"\beps\b", r"\varepsilon"), (r"\beta\b", r"\eta"),
+    (r"\b2sqrt\(1\+c\^2\)", r"2\sqrt{1+c^2}"), (r"\bS_max\b", r"S_{\max}"),
     (r"\bomega0\b", r"\omega_0"), (r"\b2sqrt2\b", r"2\sqrt2"), (r"\bsqrt2\b", r"\sqrt2"), (r"\b2pi\b", r"2\pi"),
     (r"\|S\|", r"|S|"), (r"\bQ_?L\b", r"Q_L"),
     (r"\bM_lens/M_dyn\b", r"M_{\rm lens}/M_{\rm dyn}"), (r"\br_core\b", r"r_{\rm core}"), (r"\bM_BH\b", r"M_{\rm BH}"),

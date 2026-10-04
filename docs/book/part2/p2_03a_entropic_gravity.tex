@@ -157,7 +157,7 @@ domain.
 $E(a)$ is derived by integrating the decoherence rate over cosmic history, weighted by the Gibbons--Hawking encoding temperature $T_H=H/2\pi$ and the
 horizon area $A_H=4\pi/H^2$ (Section~\ref{sec:th:activation}). In the matter era the record written per e-fold scales as
 $dS_{\rm info}/d\ln a\propto\rho_mD^nf/(T_HA_H)\propto a^{-3}a^n/(a^{-3/2}a^3)=a^{n-9/2}$; the decoherence integral requires $S_{\rm info}\propto-1/a$, which
-fixes $n-9/2=-1$, $n=7/2$ (Section~\ref{sec:th:exponent}). \derived\ The first law for the informational piece, $-dE_{\rm info}=T_H\,dS_{\rm info}$, then
+fixes $n-9/2=-1$, $n=7/2$ (Section~\ref{sec:th:exponent}). \derived{} (given the form) The first law for the informational piece, $-dE_{\rm info}=T_H\,dS_{\rm info}$, then
 gives $\dot\rho_{\rm info}=\rho_{\rm info}H/a$ and $\rho_{\rm info}\propto\exp(C-1/a)$ (Eqs.~\eqref{eq:th:rhodot}--\eqref{eq:th:rhoint}). The result is
 \begin{equation}E(a)=\exp\Big(1-\frac1a\Big).\label{eq:eg_Ea}\end{equation}
 \derived
@@ -261,8 +261,9 @@ with $\Sigma=1$ is the signature IAM predicts among viable models in the $\mu$--
 $\Sigma=1$~\cite{PogosianSilvestri2016}; the normal branch of DGP gives $\mu>1$; the self-accelerating branch of DGP shares $\mu<1$, $\Sigma=1$ but carries a
 ghost~\cite{Koyama2007} and is in tension with CMB, supernova and $H_0$ data~\cite{Fang2008}; general Horndeski theories give $\Sigma\neq1$. The forecast is in Section~\ref{sec:sp_euclid}. \prediction
 \item \textbf{The growth-rate trajectory.} The IAM $f\sigma_8(z)$ trajectory, suppressed by the matter-sector friction, is consistent with the DESI DR1
-full-shape growth data without requiring $w<-1$: on the six bins $\chi^2$ is $5.24$ for IAM (MGCAMB form) against $4.51$ for $\Lambda$CDM
-(Section~\ref{sec:vt_record}). \calc\ The interpretation proposed here is that the apparent phantom crossing at $z\approx0.35$--$0.5$ is a growth--geometry tension, not a
+full-shape growth data without requiring $w<-1$: on the six bins the diagonal $\chi^2$ is $3.84$ for IAM against $3.81$ for $\Lambda$CDM, and on the
+seven legacy points $6.61$ and $6.53$ (Chapter~\ref{ch:sectortension}); with the MGCAMB form and the DESI ShapeFit+BAO ratios it is $5.14$ against $4.52$
+(Section~\ref{sec:vt_record}; script \texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}verify\_shapefit\_chi2.py}). \calc\ The interpretation proposed here is that the apparent phantom crossing at $z\approx0.35$--$0.5$ is a growth--geometry tension, not a
 dark-energy signature. \conjecture\ The DESI DR2 preference for an evolving equation of state comes from distances alone (Section~\ref{sec:vt_phantom}), so the
 test of that interpretation is the two-ruler comparison of Chapter~\ref{ch:sectortension}, together with a direct confrontation of the later DESI growth
 measurements with the predicted trajectory. \openprob
@@ -306,8 +307,8 @@ Decoherence eligibility (timelike worldlines only) & \conjecture\\\lightrowrule
 $\Sigma=1$, $\mu<1$ given eligibility & \derived\\\lightrowrule
 $2\langle T\rangle+\langle V\rangle=0$; the $\tfrac12$ partition & \derived\\\lightrowrule
 Kinetic channel as the decoherence channel & \conjecture\\\lightrowrule
-$\beta_m=\Omega_m/2=0.15765$ & \derived\ \calc\\\lightrowrule
-$E(a)=\exp(1-1/a)$, $n=7/2$ & \derived\\\lightrowrule
+$\beta_m=\Omega_m/2=0.15765$ & \derived\\\lightrowrule
+$E(a)=\exp(1-1/a)$, $n=7/2$ & \derived{} (given the form)\\\lightrowrule
 Peak of the writing rate: per e-fold today, per unit time at $z=1.26$ & \calc\\\lightrowrule
 Barrow and Tsallis constraints after DESI DR2 & \observed\\\lightrowrule
 No AIC penalty; $\Delta{\rm AIC}=\Delta\chi^2_{\min}$ & \calc\\\lightrowrule

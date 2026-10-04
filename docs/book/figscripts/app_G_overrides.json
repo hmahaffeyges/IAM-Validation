@@ -220,15 +220,6 @@
   "reason": "correction wording",
   "color": "precision"
  },
- "PAR-008": {
-  "statement": [
-   [
-    ", and 'confirmed' is withdrawn until a specific data set is named.",
-    "."
-   ]
-  ],
-  "reason": "correction wording"
- },
  "PAR-009": {
   "statement": [
    [
@@ -534,7 +525,13 @@
    "COS-005",
    "COS-241"
   ],
-  "color": "passed"
+  "color": "passed",
+  "statement": [
+   [
+    "10.9 sigma from LCDM's 67.36 +/- 0.54:",
+    "10.9 sigma from LCDM's 67.36 +/- 0.54 on Planck's error alone, about 9 sigma (8.6 sigma with both errors):"
+   ]
+  ]
  },
  "COS-107": {
   "exclude": "same prediction as COS-075"

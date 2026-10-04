@@ -171,15 +171,15 @@ S_{\rm total}=S_{\rm geo}+S_{\rm info},\label{eq:qr_Stot}
 where $S_{\rm geo}=A_H/4G$ (units $\hbar=c=k_B=1$) reproduces general relativity through the Jacobson mechanism~\cite{Jacobson1995} and $S_{\rm info}$
 accumulates the classical information written by irreversible bulk processes, encoded at the horizon through the Cai--Kim first law~\cite{CaiKim2005}.
 \interp{} Requiring the accumulated $S_{\rm info}$ to give an activation function of the form $\exp(1-1/a)$ constrains the writing rate.
-Write the energy production rate as $\dot I\propto\rho_mD^nfH$ and the horizon accumulation as $dS_{\rm info}/dt=\dot I/(T_HA_H)$. In matter domination
+Write the energy production rate as $\dot I\propto\rho_mD^nfH$ and the horizon accumulation as $dS_{\rm info}/dt\propto\dot I/(T_HA_H)$. In matter domination
 $H\propto a^{-3/2}$, $A_H=4\pi/H^2\propto a^3$, $T_H=H/2\pi\propto a^{-3/2}$, $D\propto a$, $f\simeq1$, $\rho_m\propto a^{-3}$ and $dt=da/(aH)$. Then
 \begin{equation}
-\frac{dS_{\rm info}}{da}=\frac{\dot I}{T_HA_H}\,\frac{1}{aH}\propto\frac{a^{-3}\,a^n\,a^{-3/2}}{a^{-3/2}\,a^{3}}\cdot\frac{1}{a\,a^{-3/2}}=a^{\,n-11/2},
+\frac{dS_{\rm info}}{da}\propto\frac{\dot I}{T_HA_H}\,\frac{1}{aH}\propto\frac{a^{-3}\,a^n\,a^{-3/2}}{a^{-3/2}\,a^{3}}\cdot\frac{1}{a\,a^{-3/2}}=a^{\,n-11/2},
 \qquad S_{\rm info}(a)\propto\frac{a^{\,n-9/2}}{n-9/2}.\label{eq:qr_Sinfo}
 \end{equation}
 The form $\exp(1-1/a)$ requires $S_{\rm info}\propto-1/a$ plus a constant, so $n-\tfrac92=-1$:
 \begin{equation}n=\tfrac72\qquad\text{(top-down).}\label{eq:qr_n72}\end{equation}
-\derived{} (sympy, A6: with $n=7/2$ the integral is $-1/a$). Integrated with the full $\Lambda$CDM growth factor rather than the matter-era scalings,
+\derived{} (given the form; sympy, \texttt{verify\_records\_measurement\_time.py} A6: with $n=7/2$ the integral is $-1/a$). Integrated with the full $\Lambda$CDM growth factor rather than the matter-era scalings,
 $n=5/2$ gives $p=-2.00$, $n=3$ gives $-1.50$ and $n=7/2$ gives $-1.00$ over $a=0.01$--$0.1$, against the $-1$ the form needs; at $a=0.25$--$1$ the same
 three give $-2.42$, $-1.99$ and $-1.57$, so the $\Lambda$ era asks for a larger exponent (Figure~\ref{fig:qd_exponent}a). \calc{} The information
 production rate in matter domination is therefore
@@ -274,7 +274,7 @@ identity of a Schwarzschild horizon is
 E=T_{\rm BH}S_{\rm BH}=\tfrac12Mc^2 ,\label{eq:qr_smarr}
 \end{equation}
 the same whether $S$ is counted in nats with $k_BT$ per nat or in bits with $k_BT\ln2$ per bit: the Smarr relation $Mc^2=2T_{\rm BH}S_{\rm BH}$~\cite{Smarr1973}
-(Chapter~\ref{ch:blackholes}). \derived{} (sympy, A9: $T_{\rm BH}S_{\rm BH}/Mc^2=1/2$ for every $M$). The black hole carries the virial half.
+(Chapter~\ref{ch:blackholes}). \derived{} (sympy, \texttt{verify\_records\_measurement\_time.py} A9: $T_{\rm BH}S_{\rm BH}/Mc^2=1/2$ for every $M$). The black hole carries the virial half.
 
 \section{Observable consequences}\label{sec:qr_obs}
 
@@ -367,7 +367,7 @@ The next move belongs to the laboratory. A quantum-device physicist holding a ma
 \section{Status}
 Stands: Zurek's account of how records form and become objective, unchanged \derived; IAM's Law gives those records their cost and their last surface
 \interp; decoherence of collapsed structure is instantaneous ($2.5\times10^{-87}$\,s for a Milky Way halo), so collapse sets the writing rate \calc; the
-virial half fixes $\beta_m=\Omega_m/2$ \derived; the top-down exponent is $n=7/2$ \derived; priced by the law, measured halo statistics give a bottom-up
+virial half fixes $\beta_m=\Omega_m/2$ \derived; the top-down exponent is $n=7/2$ \derived{} (given the form); priced by the law, measured halo statistics give a bottom-up
 exponent that passes through $7/2$ at $z\approx3$--$4$ and averages near 4 \calc; light writes nothing in flight, $\Sigma=1$ \derived; the black hole
 carries the virial half, $T_{\rm BH}S_{\rm BH}=\tfrac12Mc^2$ \derived; quantum mechanics, and with it every Bell test, is unchanged. Predicted:
 $\mu_0=-0.136$, $\sigma_8=0.800$, $H_0^{(\rm matter)}=72.26$ and $H_0^{(\rm photon)}=67.16$ with $\beta_m$ fixed; $\tau_{\rm IAM}\propto T^2m^{-5}$ for

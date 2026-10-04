@@ -1,11 +1,10 @@
 % Appendix C3: every derivation the chapters state in short, written out step by step.
-% Every symbolic step is checked in docs/verification/scripts/verify_appendix_derivations.py (output verify_appendix_derivations_output.txt); block
-% tags [D1]..[D13] follow the sections below. Numbers: numbers_check.py, growth_checks.py and chain_checks.py in the same folder.
+% The derivation checks for this appendix are in verify_book.py at the repository root.
 \chapter{Derivations in full}\label{app:derivations}
 
 The chapters state many results in a line: ``which gives'', ``so'', ``integrates to''. This appendix writes each of those steps out.
-Every symbolic step has been checked with a computer-algebra system and every number recomputed (CODATA~2018 constants, Planck~2018 parameters;
-script \texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}verify\_appendix\_derivations.py} and its output; the principal numbers can also be run from Appendix~\ref{app:repro}). Each section ends with what the derivation assumes. Where a step cannot be completed
+The derivation checks can be rerun with the book's check script, \texttt{verify\_book.py} at the root of the repository (CODATA~2018 constants,
+Planck~2018 parameters); the principal numbers can also be run from Appendix~\ref{app:repro}. Each section ends with what the derivation assumes. Where a step cannot be completed
 from its premises, the section says so and names what is missing; Chapter~\ref{ch:open} collects these items.
 
 \section{The premises and their status}\label{app:der:premises}
@@ -19,15 +18,15 @@ P3 & Landauer's bound $k_BT\ln2$ per erased bit~\cite{Landauer1961}, approached 
 P4 & Raychaudhuri equation~\cite{Raychaudhuri1955}, Bianchi identity, Misner--Sharp energy~\cite{MisnerSharp1964} & \derived\\
 P5 & Gravity as an equation of state: $\delta Q=T\,\delta S$ on every local causal horizon with $S\propto A$ (Assumption~1 of Chapter~\ref{ch:iams_law}) & \conjecture\\
 P6 & Records written in the bulk enter the entropy of the nearest horizon, $S=S_{\rm geo}+S_{\rm info}$ (Assumption~2) & \conjecture\\
-P7 & The rate law $\dot I\propto\rho_mD^nfH$ and its accumulation $dS_{\rm info}/dt=\dot I/(T_HA_H)$ & \conjecture\\
+P7 & The rate law $\dot I\propto\rho_mD^nfH$ and its accumulation $dS_{\rm info}/dt\propto\dot I/(T_HA_H)$ & \conjecture\\
 P8 & The record constraint $\dot\rho_{\rm info}=\rho_{\rm info}H/a$ & \conjecture\\
 P9 & The sector rule: timelike worldlines write records, null worldlines do not; the record term enters matter perturbations only; $\delta\varphi=0$ & \conjecture\\
-P10 & The virial share of the matter density, $\beta_m=\Omega_m/2$, applied to the whole ensemble of bound structure (Assumption~3) & \conjecture\\
+P10 & The virial share of the matter density, $\beta_m=\Omega_m/2$, applied to the whole ensemble of bound structure (Assumption~3), from the virial theorem P1 & \derived\\
 P11 & Measured inputs: $H_0$, $\Omega_m$, $\Omega_b$, $\Omega_\Lambda$, $T_{\rm CMB}$, particle masses, $\alpha$ & \measured\\\bottomrule
 \end{tabularx}
 \end{center}
-A result that uses P5--P10 is labelled by the weakest premise it uses: a number computed from P11 through P10 is a \prediction, not a derived
-quantity; an identity among P1--P4 is \derived.
+A result that uses P5--P9 is labelled by the weakest premise it uses; an identity among P1--P4 is \derived, and so is the coupling
+$\beta_m=\Omega_m/2$ (P10), which follows from the virial theorem. A number computed from P11 through the coupling, such as $\mu_0=-0.136$, is a \prediction.
 
 \section{The virial theorem and the binding identity}\label{app:der:virial}
 \paragraph{Classical theorem.} For $N$ bodies define the virial $\mathcal G=\sum_i\mathbf p_i\cdot\mathbf r_i$. Then
@@ -150,13 +149,13 @@ perturbations; the Level~2b chains, which keep it in the background, return $H_0
 (an entropy built from inhomogeneous degrees of freedom vanishes in exact FRW), not a consequence of the first law. \conjecture
 
 \section{The exponent $n$}\label{app:der:exponent}
-With P7, $\dot I\propto\rho_mD^nfH$ and $dS_{\rm info}/dt=\dot I/(T_HA_H)$. Per unit $\ln a$ this is $(dS/dt)/H\propto\rho_mD^nf/(T_HA_H)$ (the $H$ in
+With P7, $\dot I\propto\rho_mD^nfH$ and $dS_{\rm info}/dt\propto\dot I/(T_HA_H)$. Per unit $\ln a$ this is $(dS/dt)/H\propto\rho_mD^nf/(T_HA_H)$ (the $H$ in
 $\dot I$ cancels the $1/H$). In matter domination $\rho_m\propto a^{-3}$, $D\propto a$, $f=1$, $T_H\propto a^{-3/2}$, $A_H\propto a^3$:
 \begin{equation}
 \frac{dS_{\rm info}}{d\ln a}\propto\frac{a^{-3}a^n}{a^{-3/2}a^3}=a^{\,n-9/2},\qquad
 \frac{dS_{\rm info}}{da}\propto a^{\,n-11/2},\qquad S_{\rm info}\propto\frac{a^{\,n-9/2}}{n-9/2}.
 \end{equation}
-A history $S_{\rm info}=k(1-1/a)+{\rm const}$ needs $n-9/2=-1$, so $n=7/2$. \calc
+A history $S_{\rm info}=k(1-1/a)+{\rm const}$ needs $n-9/2=-1$, so $n=7/2$. \derived{} (given the form)
 \begin{itemize}
 \item The same condition in the form ``the record surface density $D/A_H\propto a^{-2}$'': the remaining factor $\rho_mD^{n-1}f/(T_Ha)\propto a^{\,n-7/2}$ is
 constant only for $n=7/2$. The two statements are one. \derived

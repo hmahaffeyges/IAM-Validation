@@ -122,7 +122,7 @@ lensing \emph{amplitude} still follows the matter density, which grows more slow
 
 \paragraph{Coupling and activation function.} At virialisation the gravitational energy of a collapsed structure divides equally between the kinetic
 energy of the virialised particles (the geometric channel) and the information of the collapsed state (the informational channel); this one-to-one
-partition, an instance of IAM's Law (Chapter~\ref{ch:virial}), gives $\beta_m=\Omega_m/2=0.3153/2=0.15765$. \interp\ The activation function comes from
+partition, an instance of IAM's Law (Chapter~\ref{ch:virial}), gives $\beta_m=\Omega_m/2=0.3153/2=0.15765$. \derived\ The activation function comes from
 the Gibbons--Hawking temperature of the de Sitter horizon, which sets the thermal cost of a Landauer erasure, combined with the cumulative decoherence
 over cosmic history (Chapter~\ref{ch:theory}). It has $E(a\to0)\to0$ and $E(1)=1$, so the change vanishes in the early universe and is largest today.
 
@@ -149,16 +149,16 @@ today & 0 & 0.864 & 13.6\,\% & 4.25\,\% & 0.78\,\% & $+3.6\,\%$\\\bottomrule
 \end{figure}
 
 \paragraph{Validation status.} The term has been run against the full Planck 2018 CamSpec TT, TE, EE likelihood in eighteen converged MCMC chains
-($R-1\le0.010$; Chapters~\ref{ch:dual}, \ref{ch:latetime} and \ref{ch:level2}). \fitted
+($R-1\le0.010$; Chapters~\ref{ch:dual}, \ref{ch:latetime} and \ref{ch:level2}). \measured
 \begin{itemize}
 \item \emph{Level 1} (MGCAMB v1.5.2~\cite{Wang2023MGCAMB} with Cobaya~\cite{Torrado2021}): twelve chains over four data combinations (Planck; Planck +
 RSD; Planck + BAO; Planck + Pantheon+). With the coupling fixed, $\Delta\chi^2$ against $\Lambda$CDM lies between $+0.56$ and $+1.73$; every combination is
-reproduced with a likelihood ratio $e^{-\Delta\chi^2/2}\ge0.42$ against $\Lambda$CDM and no added parameter. The $\sigma_8$ shift, $-0.013$, is the same in every combination. \fitted
+reproduced with a likelihood ratio $e^{-\Delta\chi^2/2}\ge0.42$ against $\Lambda$CDM and no added parameter. The $\sigma_8$ shift, $-0.013$, is the same in every combination. \measured
 \item \emph{Level 2} (the mechanism written directly into the CAMB v1.5.8 Fortran~\cite{Lewis2000CAMB}, the matter rate \texttt{adotoa\_matter} beside
 the photon rate \texttt{adotoa}, with Cobaya). Run A (the term, Planck) against Run C ($\Lambda$CDM, Planck): $\Delta\chi^2=+0.54$ at the best points,
 $\sigma_8=0.7998\pm0.0058$ against $0.8087\pm0.0059$. The $\sigma_8$ change is growth physics, not a rebalancing of the other parameters:
 $\ln10^{10}A_s$ moves by $+0.09\sigma$ and $\Omega_m$ by $+0.05\sigma$, both under the $0.3\sigma$ that a rebalancing would show
-(Fig.~\ref{fig:param_shifts}). \fitted
+(Fig.~\ref{fig:param_shifts}). \measured
 \item $\beta_m=0.15765$ is fixed before any chain runs. The Level~2 posterior $\Omega_m=0.3166\pm0.0065$ gives $\Omega_m/2=0.1583\pm0.0032$, $0.2\sigma$
 from the fixed value: a consistency check, not a recovery of $\beta_m$. \calc
 \end{itemize}
@@ -173,7 +173,7 @@ $\mu(z{=}0)$ & $0.864$ & Eq.~\eqref{eq:st_mu} at $a=1$ \calc\\\cmidrule(lr){1-3}
 $\mu_0=\mu(z{=}0)-1$ & $-0.136$ & Eq.~\eqref{eq:s8_mu0} \derived\\\cmidrule(lr){1-3}
 $\Sigma(a)$ & $1$ (exact) & null worldlines unmodified\\\cmidrule(lr){1-3}
 $H_0^{\rm matter}$ & $72.26\,{\rm km\,s^{-1}\,Mpc^{-1}}$ & $67.16\sqrt{1+\beta_m}$ \calc\\\midrule
-\multicolumn{3}{l}{\emph{Level 2 (Planck 2018 CamSpec TT, TE, EE)} \fitted}\\
+\multicolumn{3}{l}{\emph{Level 2 (Planck 2018 CamSpec TT, TE, EE)} \measured}\\
 $\sigma_8$ (term, Run A) & $0.7998\pm0.0058$ & $-1.51\sigma$ from Run C\\\cmidrule(lr){1-3}
 $\sigma_8$ ($\Lambda$CDM, Run C) & $0.8087\pm0.0059$ & baseline\\\cmidrule(lr){1-3}
 $H_0$ (Run A, photon sector) & $67.16\pm0.47$ & $0.37\sigma$ from Planck $67.36\pm0.54$\\\cmidrule(lr){1-3}
@@ -248,7 +248,7 @@ BGS + PV & 0.07 & 0.450 & 0.055 & 0.426 & 0.443 & $+0.44$ & $+0.12$\\\bottomrule
 \end{tabular}\end{table}
 The newest point, from the DESI DR1 peculiar-velocity survey~\cite{Qin2026}, measures $f\sigma_8=0.450\pm0.055$ at $z_{\rm eff}=0.07$ \observed; it
 shares its volume with 6dFGS and is listed beside it, not added to the $\chi^2$ below. \calc\ Across the six DESI bins the pulls run from $-0.88$ to $+1.40$ for the informational term and from $-1.01$ to $+1.36$ for $\Lambda$CDM; the
-diagonal $\chi^2$ is $3.84$ and $3.81$ (six points), and on the seven legacy points $6.61$ and $6.53$. These data are not yet precise enough to separate the two. With the MGCAMB form of the coupling (Chapter~\ref{ch:latetime}) and the DESI growth values taken from the ShapeFit ratios of DESI's own table of results, the same comparison gives $\chi^2=4.51$ ($\Lambda$CDM) and $5.24$ on the six DESI bins and $6.19$ and $6.95$ on SDSS DR16~\cite{Alam2021}. \calc The
+diagonal $\chi^2$ is $3.84$ and $3.81$ (six points), and on the seven legacy points $6.61$ and $6.53$. These data are not yet precise enough to separate the two. With the MGCAMB form of the coupling (Chapter~\ref{ch:latetime}), both models grown from the same early amplitude with Planck's $\sigma_8=0.8111$, and the DESI growth values taken from the ShapeFit+BAO ratios of DESI's own table of results~\cite{DESI2024V}, the same comparison gives $\chi^2=4.52$ ($\Lambda$CDM) and $5.14$ on the six DESI bins and $6.20$ and $6.96$ on SDSS DR16~\cite{Alam2021} (script \texttt{docs/\allowbreak{}verification/\allowbreak{}scripts/\allowbreak{}verify\_shapefit\_chi2.py}). \calc The
 statistical errors, 10--25\,\% per DESI bin (Table~\ref{tab:st_fsig8}), do not resolve the differences between the two predictions in the DESI bins below $z=0.5$, $2.5\,\%$ (BGS) and $1.7\,\%$ (LRG1).
 
 The physical point is the \emph{redshift dependence}. The term predicts a curved deficit, largest at low redshift and falling monotonically, set by
@@ -268,7 +268,7 @@ $S_8=0.814^{+0.011}_{-0.012}$, $\sigma_8=0.802^{+0.022}_{-0.018}$~\cite{Stolzner
 \item Planck CMB lensing: $\sigma_8\Omega_m^{0.25}=0.589\pm0.020$~\cite{Planck2018VIII}.
 \end{itemize}
 
-\paragraph{The prediction.} The term lowers the amplitude of the matter power spectrum relative to $\Lambda$CDM. The Level~2 posteriors give \fitted
+\paragraph{The prediction.} The term lowers the amplitude of the matter power spectrum relative to $\Lambda$CDM. The Level~2 posteriors give \measured
 \begin{equation}
 \sigma_8^{\rm IAM}=0.7998\pm0.0058\quad\text{against}\quad\sigma_8^{\Lambda\rm CDM}=0.8087\pm0.0059,
 \label{eq:st_sigma8}\end{equation}
@@ -286,7 +286,7 @@ term's $0.7998\pm0.0058$. On $S_8$ the lensing surveys now disagree with each ot
 $0.5\sigma$ below the term's $0.822$; KiDS-1000, DES Y3 and HSC Y3 lie $2.4$--$2.5$, $2.3$ and $1.4\sigma$ below it. The term sits between the Planck
 $\Lambda$CDM value ($0.830$) and the lower surveys: the shift is in their direction and does not close the gap to them. \calc
 \begin{table}[htbp]\centering\small
-\caption{$S_8$ and $\sigma_8$ against the Level~2 values (term: Run~A; $\Lambda$CDM: Run~C) \fitted. Offset from the term's value in units of $\sqrt{\sigma^2_{\rm survey}+\sigma^2_{\rm IAM}}$, with the survey error on the side facing $0.822$, computed with the rounded chain value $0.822\pm0.011$ (the unrounded values move some offsets by $0.1\sigma$) \calc. Survey values \observed.}\label{tab:st_s8}
+\caption{$S_8$ and $\sigma_8$ against the Level~2 values (term: Run~A; $\Lambda$CDM: Run~C) \measured. Offset from the term's value in units of $\sqrt{\sigma^2_{\rm survey}+\sigma^2_{\rm IAM}}$, with the survey error on the side facing $0.822$, computed with the rounded chain value $0.822\pm0.011$ (the unrounded values move some offsets by $0.1\sigma$) \calc. Survey values \observed.}\label{tab:st_s8}
 \begin{tabular}{lccc}\toprule
 Source & value & error & offset\\\midrule
 \multicolumn{4}{l}{\emph{Chains}}\\
@@ -305,7 +305,7 @@ informational term (Level 2) & $\sigma_8=0.7998$ & $\pm0.0058$ & --\\\bottomrule
 \end{tabular}\end{table}
 
 A larger shift would need either a larger $|\mu_0|$, which would raise $\Delta\chi^2$ against Planck, or a photon coupling $\beta_\gamma$, which the
-CMB acoustic scale bounds to $\beta_\gamma<0.0039$, $\beta_\gamma/\beta_m<0.025$ at $95\,\%$ (Chapter~\ref{ch:dsnote}) \measured. Neither has a free
+CMB acoustic scale bounds to $\beta_\gamma<0.0052$, $\beta_\gamma/\beta_m<0.033$ at $95\,\%$ (Chapter~\ref{ch:dsnote}) \measured. Neither has a free
 parameter available. \interp
 
 What separates the term from dynamical dark energy is that its $\sigma_8$ shift is produced with $\Sigma=1$. A model that lowers $S_8$ by changing the

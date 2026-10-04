@@ -36,7 +36,7 @@ is derived from the virial partition of gravitational energy (Chapter~\ref{ch:vi
 Full Boltzmann validation via 15 converged Planck MCMC chains (Level~1 MGCAMB + Level~2 modified CAMB Fortran) gives $\Delta\chi^2=+0.54$ relative to
 $\Lambda$CDM, with $\sigma_8$ suppressed from 0.809 to 0.800 and a dual-sector Hubble split: $H_0(\mathrm{photon})=67.16$ km\,s$^{-1}$\,Mpc$^{-1}$
 ($0.37\sigma$ from Planck), $H_0(\mathrm{matter})=72.26$ km\,s$^{-1}$\,Mpc$^{-1}$ ($0.75\sigma$ from SH0ES) \measured. CMB acoustic scale constraints
-force $\beta_\gamma<0.0039$ ($95\,\%$)---establishing a sector ratio $\beta_\gamma/\beta_m<0.025$ where photons couple at least $40\times$ more weakly
+force $\beta_\gamma<0.0052$ ($95\,\%$)---establishing a sector ratio $\beta_\gamma/\beta_m<0.033$ where photons couple at least $30\times$ more weakly
 than matter (Chapter~\ref{ch:dsnote}, Figure~\ref{fig:beta_gamma}) \calc.
 
 This dual-sector framework faces an obvious and critical question: \emph{Is sector separation an ad-hoc theoretical assumption, or does independent
@@ -68,7 +68,7 @@ where $E(a)=\exp(1-1/a)$ is the activation function that vanishes at early times
 (Appendix~\ref{app:der:activation}; sympy check of $E(1)=1$, of the inflection at $a=1/2$ and of the maximum of $dE/d\ln a$ at $a=1$ in
 \texttt{verify\_dual\_sector\_chapters.py}, Section~0). The coupling parameter $\beta$ is sector-specific:
 \begin{align}
-\text{photon sector (CMB, photon propagation):}\quad &\beta_\gamma<0.0039\quad(95\,\%,\ \text{acoustic-scale fit}), \label{eq:dsv_bg}\\
+\text{photon sector (CMB, photon propagation):}\quad &\beta_\gamma<0.0052\quad(95\,\%,\ \text{acoustic scale}), \label{eq:dsv_bg}\\
 \text{matter sector (local $H_0$, structure growth):}\quad &\beta_m=\Omega_m/2=0.15765\quad(\text{zero free parameters}). \label{eq:dsv_bm}
 \end{align}
 The first is \calc\ (\texttt{verify\_beta\_gamma.py}); the second is \prediction, with $\Omega_m=0.3153$ from Planck~\cite{Planck2018VI}.
@@ -437,10 +437,10 @@ here.
 \section{Discussion}\label{sec:dsv_discussion}
 \subsection{How the sector split arose}
 \calc\ The dual-sector framework emerged from analysis of the CMB acoustic scale: a uniform $\beta=0.18$ applied to photon paths, with the sound horizon
-($r_s=144.43$ Mpc) and all other parameters fixed, moves the acoustic angle $\theta_s$ by $+1.02\,\%$ from its $\Lambda$CDM value ($34\sigma$ at Planck's
-precision) and by $+1.08\,\%$ from the observed value ($36\sigma$); with $\beta_m=0.15765$ the shift is $+0.90\,\%$, $30\sigma$ (\texttt{verify\_beta\_gamma.py}).
+($r_*=144.43$ Mpc) and all other parameters fixed at one Planck fit (Planck 2018 TT,TE,EE+lowE+lensing: $H_0=67.36$, $\Omega_m=0.3153$), moves the acoustic angle $\theta_s$ by $+1.02\,\%$ from its $\Lambda$CDM value ($34\sigma$ at Planck's
+precision) and by $+1.06\,\%$ from the observed value ($36\sigma$); with $\beta_m=0.15765$ the shift is $+0.90\,\%$, $30\sigma$ (\texttt{verify\_beta\_gamma.py}).
 These are shifts at fixed parameters: with every parameter free the CMB can absorb a background change only by moving $H_0$ to $\approx61.5$ (Level~2b
-chains), which the distance ladder and BAO exclude. This forced sector-specific analysis, revealing $\beta_\gamma/\beta_m<0.025$---a ratio obtained from
+chains), which the distance ladder and BAO exclude. This forced sector-specific analysis, revealing $\beta_\gamma/\beta_m<0.033$---a ratio obtained from
 data, not imposed theoretically.
 
 The present SNe analysis tests the matter side of the split from a different direction: without assuming sector separation, it asks what the supernovae
@@ -453,7 +453,7 @@ The IAM framework gives consistent results across observables (Table~\ref{tab:ds
 acoustic-scale fit (Chapter~\ref{ch:dsnote}) and the chains (Chapter~\ref{ch:dual}).}\label{tab:dsv_observables}
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.2\linewidth}>{\raggedright\arraybackslash}X l}\toprule
 Observable & Sector & Result & Label\\\midrule
-CMB $\theta_s$ & photon & $\beta_\gamma<0.0039$ ($95\,\%$) & \calc\\
+CMB $\theta_s$ & photon & $\beta_\gamma<0.0052$ ($95\,\%$) & \calc\\
 Planck $H_0$ & photon & $67.16\pm0.47$ (Level 2 chain); Planck 2018 $67.36\pm0.54$ & \measured\\
 SDSS/BOSS/eBOSS $f\sigma_8$ & matter (growth) & $\beta_m=0.15765$ fixed; $\sigma_8\ 0.809\to0.800$ & \measured\\
 BAO angles & photon paths & unchanged (Chapter~\ref{ch:latetime}) & \measured\\
@@ -467,7 +467,7 @@ All measurements self-consistently partition into a photon sector ($\beta_\gamma
 ($\beta_m=0.157$ for growth, $H_0=72.26$ km\,s$^{-1}$\,Mpc$^{-1}$ for normalization, $\beta\approx0$ for distances) \interp.
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_dsv_schematic.pdf}
-\caption[The dual-sector expansion framework]{Dual-sector expansion framework. Photon sector: $\beta_\gamma<0.0039$, no decoherence (no proper time, no
+\caption[The dual-sector expansion framework]{Dual-sector expansion framework. Photon sector: $\beta_\gamma<0.0052$, no decoherence (no proper time, no
 records), $H_0=67.16$. Matter sector: records written by decoherence, $\beta_m=0.15765$ fixed for growth, $H_0^{\rm matter}=72.26$. Type Ia SNe:
 $\Lambda$CDM distances, $\beta_m$ on the distances excluded, normalization from the Cepheid calibration. Mechanism: the Landauer cost of the records on the
 horizon (Chapters~\ref{ch:theory} and \ref{ch:dsnote}). Script \texttt{figscripts/\allowbreak{}fig\_p2\_dual\_sector.py}.}\label{fig:dsv_schematic}
@@ -486,7 +486,7 @@ passing through a distance built from light is the open problem of Chapter~\ref{
 This dual-sector interpretation makes specific, falsifiable predictions:
 \begin{enumerate}
 \item \emph{CMB-S4}~\cite{Abazajian2016}: improved CMB acoustic-scale precision tightens the bound on any photon-sector coupling below the present
-$\beta_\gamma<0.0039$, testing the photon exemption; a CMB-S4 forecast from that bound is the next step \prediction.
+$\beta_\gamma<0.0052$, testing the photon exemption; a CMB-S4 forecast from that bound is the next step \prediction.
 \item \emph{Euclid/LSST}~\cite{Euclid2025,Ivezic2019}: weak lensing measurements should yield $S_8=\sigma_8\sqrt{\Omega_m/0.3}=0.7998\times\sqrt{0.3166/0.3}=0.822$,
 consistent with IAM's predicted growth suppression ($\sigma_8=0.800$), with $\Sigma=1$ \prediction.
 \item \emph{DESI Year~5}: extended $f\sigma_8(z)$ measurements, with projected aggregate precision $0.74\,\%$ ($k_{\max}=0.1\,h$\,Mpc$^{-1}$) to $0.38\,\%$
@@ -501,7 +501,7 @@ $70.0^{+12.0}_{-8.0}$~\cite{Abbott2017Siren} to $75.5^{+5.3}_{-5.4}$~\cite{Palme
 
 \subsection{Connection to modified gravity parametrization}\label{sec:dsv_musigma}
 The dual-sector phenomenology admits a precise mapping onto the standard $\mu$--$\Sigma$ modified gravity parametrization widely used in observational
-cosmology~\cite{Amendola2018}. In this framework, the Poisson equation governing matter perturbations is modified by $\mu(a)$, while photon deflection
+cosmology~\cite{Amendola2018}. In this framework, $\mu(a)$ acts on $\Psi$, the potential that matter falls in, in the Poisson equation, while photon deflection
 (weak lensing, CMB) is governed by $\Sigma(a)$:
 \begin{equation}
 k^2\Psi=-4\pi G\,\mu(a)\,\rho_m\delta_m a^2,\qquad k^2(\Phi+\Psi)=-8\pi G\,\Sigma(a)\,\rho_m\delta_m a^2. \label{eq:dsv_poisson}
@@ -514,7 +514,7 @@ where $E(a)=\exp(1-1/a)$ is the activation function \derived\ (Chapter~\ref{ch:d
 constant for matter is lower by $1-\mu(0)=-\mu_0=\beta_m/(1+\beta_m)=13.6\,\%$, which is not the change in growth; growth integrates $\mu$ over time, and
 $f\sigma_8$ is lower by $4.25\,\%$ at $z=0$ (Chapter~\ref{ch:latetime}) \calc. At $z=1$, $\mu=0.982$; and $\mu\to1$ for $z\gtrsim3$ ($1-\mu<4\times10^{-4}$),
 recovering $\Lambda$CDM \calc. The condition $\Sigma=1$ ensures that photon geodesics, CMB lensing, and the acoustic scale $\theta_s$ are
-unmodified---precisely the photon-sector constraint $\beta_\gamma<0.0039$.
+unmodified---precisely the photon-sector constraint $\beta_\gamma<0.0052$.
 
 This mapping has three important consequences. First, IAM predictions have been validated through full Boltzmann solvers: 12 Level~1 chains via MGCAMB
 and 3 Level~2 chains via modified CAMB Fortran, all consistent with the full Planck 2018 likelihood ($\Delta\chi^2=+0.54$ best-fit at Level~2;
