@@ -149,7 +149,7 @@ $(\Omega_m,\beta)$ on a grid. \derived{}
 
 \paragraph{Full covariance.} The diagonal errors of Eq.~\eqref{eq:dsv_chi2} omit the correlated systematics. The geometry results of
 Section~\ref{sec:dsv_geometry} therefore also use the full statistical-plus-systematic covariance $C$ of the release, the Hubble-flow selection of the
-collaboration ($z_{\rm HD}>0.01$, 1590 supernovae, peculiar-velocity-corrected redshifts with the heliocentric redshift in the $(1+z)$ factor), and
+collaboration ($z_{\rm HD}>0.01$, 1590 light curves, peculiar-velocity-corrected redshifts with the heliocentric redshift in the $(1+z)$ factor), and
 $\chi^2=\Delta^{\rm T}C^{-1}\Delta$ with $\Delta=m^{\rm corr}-m^{\rm model}$.
 
 \subsection{The $H_0$--$M$ degeneracy}\label{sec:dsv_degeneracy}
@@ -173,7 +173,7 @@ only $\Omega_m$ and $\beta$, through the shape of $I(z)$.
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_dsv_three_tests.pdf}
 \caption[The three supernova tests: one valley, flat in $H_0$]{Three-panel comparison of Test A (Planck prior), Test B (SH0ES prior) and Test C (no
-prior), redrawn from the Pantheon+ release (1588 SNe, $0.01<z_{\rm CMB}<2.26$, diagonal errors). (a) Minimum $\chi^2$ against $\beta$ with $M$ minimised
+prior), redrawn from the Pantheon+ release (1588 light curves, $0.01<z_{\rm CMB}<2.26$, diagonal errors). (a) Minimum $\chi^2$ against $\beta$ with $M$ minimised
 analytically and $\Omega_m$ free in $[0.20,0.40]$: the same curve for Tests A, B and C, lowest ($721.12$) at the boundary $\beta=-0.30$ with
 $\Omega_m=0.205$; for $\beta>0.05$, $\Omega_m$ sits at its upper edge $0.40$. Dashed: $\Omega_m$ fixed at $0.315$. Grey line: $\beta_m$. (b) Parameter
 space ($\beta$ against $H_0$) with $68\,\%$ and $95\,\%$ regions for two parameters ($\Delta\chi^2=2.30$, $6.18$): horizontal bands, $\beta<0.03$ and
@@ -268,12 +268,12 @@ measurement the dual-sector picture assigns to the matter sector \observed. What
 geometric consistency ($\beta_{\rm distance}\approx0$; Section~\ref{sec:dsv_geometry}).
 \begin{figure}[htbp]\centering
 \includegraphics[width=\textwidth]{figures/part2/fig_sn_h0_flat.pdf}
-\caption[Pantheon+: the Hubble-flow shape and the flat $H_0$ direction]{Pantheon+SH0ES~\cite{Brout2022,Scolnic2022}. (a) Hubble-flow residuals ($z_{\rm HD}>0.01$, 1590 supernovae) from $\Lambda$CDM at $\Omega_m=0.315$, the offset $M$ fitted with the full statistical and systematic covariance; points are inverse-variance means of the diagonal errors in bins of $\log z$. Solid: $\beta_m=0.15765$ put into the distances ($\Delta\chi^2=+23.6$); dash-dotted: the best $\beta=-0.035$; each curve carries its own fitted offset. (b) Minimum $\chi^2$ at fixed $H_0$ with $M$, $\Omega_m$ and $\beta$ free (diagonal errors, $0.01<z_{\rm CMB}<2.26$, 1588 supernovae): flat at 721.12, with $M-5\log_{10}H_0=-28.935$ at every $H_0$. The magnitudes alone do not choose between 67.4 and 73.04. Method of \texttt{docs/verification/scripts/\allowbreak{}verify\_dual\_sector\_validation.py}. \observed\ \calc}\label{fig:sn_h0_flat}
+\caption[Pantheon+: the Hubble-flow shape and the flat $H_0$ direction]{Pantheon+SH0ES~\cite{Brout2022,Scolnic2022}. (a) Hubble-flow residuals ($z_{\rm HD}>0.01$, 1590 light curves) from $\Lambda$CDM at $\Omega_m=0.315$, the offset $M$ fitted with the full statistical and systematic covariance; points are inverse-variance means of the diagonal errors in bins of $\log z$. Solid: $\beta_m=0.15765$ put into the distances ($\Delta\chi^2=+23.6$); dash-dotted: the best $\beta=-0.035$; each curve carries its own fitted offset. (b) Minimum $\chi^2$ at fixed $H_0$ with $M$, $\Omega_m$ and $\beta$ free (diagonal errors, $0.01<z_{\rm CMB}<2.26$, 1588 supernovae): flat at 721.12, with $M-5\log_{10}H_0=-28.935$ at every $H_0$. The magnitudes alone do not choose between 67.4 and 73.04. Method of \texttt{docs/verification/scripts/\allowbreak{}verify\_dual\_sector\_validation.py}. \observed\ \calc}\label{fig:sn_h0_flat}
 \end{figure}
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.78\textwidth]{figures/part2/fig_dsv_hubble.pdf}
 \caption[The Pantheon+ Hubble diagram]{Pantheon+ Hubble diagram (top) and residuals (bottom), redrawn from the release~\cite{Brout2022,Scolnic2022}. Data
-points show 1588 Type Ia supernovae ($0.01<z_{\rm CMB}<2.26$) with diagonal errors. Line: $\Lambda$CDM at $\Omega_m=0.315$ with the offset
+points show 1588 Type Ia supernova light curves ($0.01<z_{\rm CMB}<2.26$) with diagonal errors. Line: $\Lambda$CDM at $\Omega_m=0.315$ with the offset
 $M-5\log_{10}H_0$ fitted; with $M$ fitted the curve is the same for Planck $H_0=67.4$ and SH0ES $H_0=73.04$. Squares: inverse-variance means in twelve
 logarithmic redshift bins. Residuals scatter around zero, confirming geometric consistency. Script \texttt{figscripts/\allowbreak{}fig\_p2\_dual\_sector.py}.
 \observed}\label{fig:dsv_hubble}
@@ -301,7 +301,7 @@ carry the matter-sector \emph{normalization} through their calibration while mai
 follow $H$ with the $\beta$ term (next paragraph).
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part2/fig_sn_beta.pdf}
-\caption{Pantheon+SH0ES, 1590 Hubble-flow supernovae ($z_{\rm HD}>0.01$), full statistical and systematic covariance, $M$ marginalised, $\Omega_m=0.315$: $\Delta\chi^2$ against $\Lambda$CDM when $\beta E(a)$ is put into the distances. Best $\beta=-0.035$ (68\,\%: $-0.068$ to $0.000$, shaded); the full coupling $\beta_m=0.15765$ on the distances costs $\Delta\chi^2=+23.6$. Method of \texttt{docs/verification/scripts/\allowbreak{}verify\_dual\_sector\_validation.py}. \observed}\label{fig:sn_beta}
+\caption{Pantheon+SH0ES, 1590 Hubble-flow light curves ($z_{\rm HD}>0.01$), full statistical and systematic covariance, $M$ marginalised, $\Omega_m=0.315$: $\Delta\chi^2$ against $\Lambda$CDM when $\beta E(a)$ is put into the distances. Best $\beta=-0.035$ (68\,\%: $-0.068$ to $0.000$, shaded); the full coupling $\beta_m=0.15765$ on the distances costs $\Delta\chi^2=+23.6$. Method of \texttt{docs/verification/scripts/\allowbreak{}verify\_dual\_sector\_validation.py}. \observed}\label{fig:sn_beta}
 \end{figure}
 \observed\ With the full covariance and $M$ marginalised, the shape of the Hubble diagram at Planck's $\Omega_m=0.315$ gives $\beta=-0.035$ ($68\,\%$:
 $-0.068$ to $0.000$). Supernova distances follow $\Lambda$CDM geometry: Prediction~2 holds. As a check of the reproduction, $\Lambda$CDM with $\Omega_m$
@@ -366,8 +366,8 @@ remaining shape inside a narrow redshift range is weakly constrained, and the va
 the whole lever arm in redshift, is the one that tests the geometry.
 \begin{table}[htbp]\centering\small
 \caption[Redshift bins]{Redshift bin analysis, $\Omega_m=0.315$, best $\beta$ with $68\,\%$ intervals ($\Delta\chi^2=1$). Two selections of the same
-release: the diagonal-error columns use the 1588 SNe with $0.01<z_{\rm CMB}<2.26$ (bins in $z_{\rm CMB}$); the full-covariance columns use the
-collaboration's Hubble-flow selection, 1590 SNe with $z_{\rm HD}>0.01$ (bins in $z_{\rm HD}$), which moves two objects into the lowest bin
+release: the diagonal-error columns use the 1588 light curves with $0.01<z_{\rm CMB}<2.26$ (bins in $z_{\rm CMB}$); the full-covariance columns use the
+collaboration's Hubble-flow selection, 1590 light curves with $z_{\rm HD}>0.01$ (bins in $z_{\rm HD}$), which moves two objects into the lowest bin
 (1096 against 1094). The highest bin ends at the largest redshift of the sample, $z=2.26$. (i) Each bin with its own
 offset; (ii) one common offset, full covariance, each bin on its own covariance block. With a common offset the low and mid bins give $\beta$ consistent with zero; the high bin gives
 $+0.070\pm0.048$ ($1.5\sigma$), with 75 SNe, and $+0.023$ ($0.6\sigma$) when the cross-bin covariance is kept. The own-offset intervals of the high bin reach $+1.39$ and $+1.32$. The $H_0$ of a bin is not determined
