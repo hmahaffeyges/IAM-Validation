@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4460 PASS, 0 FAIL, 1879 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4474 PASS, 0 FAIL, 1865 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5500,22 +5500,22 @@ Totals: 4460 PASS, 0 FAIL, 1879 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 24 |  | derived | `-0.136` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 24 |  | measured | `0.039` | not run: measured, too few printed digits to match against the named files | - |
-| 24 |  | measured | `0.11` | not run: measured, too few printed digits to match against the named files | - |
-| 24 |  | measured | `0.54` | not run: measured, too few printed digits to match against the named files | - |
-| 24 |  | calc | `0.3` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 24 |  | calc | `1.8` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 24 |  | calc | `1.1` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 24 |  | calc | `0.5` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 24 |  | calc | `0.78` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 86 |  | openprob | `70.0` | not run: not yet checked | - |
-| 86 |  | openprob | `8.0` | not run: not yet checked | - |
-| 87 |  | openprob | `72.26` | not run: not yet checked | - |
-| 154 |  | observed | `5\times10^{-6}` | not run: measured, too few printed digits to match against the named files | - |
-| 154 |  | observed | `2.0` | not run: measured, too few printed digits to match against the named files | - |
-| 174 |  | none |  | not run: displayed equation, not yet checked | - |
-| 191 |  | openprob | `0.24` | not run: not yet checked | - |
+| 24 | ch:predictions:L24 | derived | `-0.136` | numeric: mu0 = mu(a=1) - 1 (fig:cosmo_tests panel a) | PASS |
+| 24 | ch:predictions:L24:0.039 | measured | `0.039` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: free mu0, Planck + RSD chain posterior mean | PASS |
+| 24 | ch:predictions:L24:0.11 | measured | `0.11` | file `docs/verification/theory/IAM_LAW_CHECK.md`: DESI 2024 full-shape mu0 (recorded value) | PASS |
+| 24 | ch:predictions:L24:0.54 | measured | `0.54` | file `docs/verification/theory/IAM_LAW_CHECK.md`: DESI 2024 full-shape mu0 lower error (recorded value) | PASS |
+| 24 | ch:predictions:L24:1.8 | calc | `1.8` | numeric: E_G above LCDM at z = 0.3 (C8) | PASS |
+| 24 | ch:predictions:L24:1.1 | calc | `1.1` | numeric: E_G above LCDM at z = 0.5 (C8) | PASS |
+| 24 | ch:predictions:L24:0.78 | calc | `0.78` | numeric: growth factor D below LCDM today (C4) | PASS |
+| 24 |  | calc | `0.3` | not run: input: the redshift z = 0.3 at which the E_G change is read (checked as ch:predictions:L24:1.8) | - |
+| 24 |  | calc | `0.5` | not run: input: the redshift z = 0.5 at which the E_G change is read (checked as ch:predictions:L24:1.1) | - |
+| 86 | ch:predictions:L86 | observed | `70.0` | numeric: GW170817 standard-siren H0 (published) | PASS |
+| 86 | ch:predictions:L86:8.0 | observed | `8.0` | numeric: GW170817 siren H0 lower error (published) | PASS |
+| 87 | ch:predictions:L87 | openprob | `72.26` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 = H0_photon sqrt(1 + beta_m) | PASS |
+| 154 | ch:predictions:L154 | observed | `5\times10^{-6}` | numeric: bound on drift of m_p/m_e from H2 quasar absorbers (published) | PASS |
+| 154 | ch:predictions:L154:2.0 | observed | `2.0` | numeric: lowest absorber redshift of the m_p/m_e bound (published) | PASS |
+| 174 | ch:predictions:L174 | derived |  | sympy: internal-source quasiparticle density, steady state | PASS |
+| 191 | ch:predictions:L191 | openprob | `0.24` | numeric: quasiparticle-limited T1 of a 5 GHz Al transmon at x_qp = 1e-7, ms | PASS |
 
 ## Part 7 - ch:exploratory - `docs/book/part5/p5_02_exploratory.tex`
 

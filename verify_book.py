@@ -37570,6 +37570,118 @@ def check_4459():
     return locals()
 
 
+# ======== Part 7 | ch:predictions | docs/book/part5/p5_07_predictions.tex
+@check(label='ch:predictions:L24', chapter='ch:predictions', part=7, title='mu0 = mu(a=1) - 1 (fig:cosmo_tests panel a)',
+       file='part5/p5_07_predictions', line=24, status='derived', kind='num', printed='-0.136', tol=0.0)
+def check_4460():
+    'mu0 = mu(1) - 1, mu = H^2/(H^2 + beta_m E H0^2), beta_m = Omega_m/2 (mu_iam; locked value -0.136). Book line 24, printed -0.136.'
+    value = float(mu_iam(1.0)) - 1
+    return locals()
+
+@check(label='ch:predictions:L24:0.039', chapter='ch:predictions', part=7, title='free mu0, Planck + RSD chain posterior mean',
+       file='part5/p5_07_predictions', line=24, status='measured', kind='file', printed='0.039', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_4461():
+    'Posterior mean of mu0 (flat prior [-0.5, 0.2]) in the planck_rsd_mu0_float chain, CHAIN_EXTRACTION_FINAL.csv (as tab:lt_free, Planck + RSD (E)). Book line 24, printed 0.039 (+- 0.125).'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'planck_rsd_mu0_float', 'mu0')
+    return locals()
+
+@check(label='ch:predictions:L24:0.11', chapter='ch:predictions', part=7, title='DESI 2024 full-shape mu0 (recorded value)',
+       file='part5/p5_07_predictions', line=24, status='measured', kind='file', printed='0.11', tol=0.0, source='docs/verification/theory/IAM_LAW_CHECK.md')
+def check_4462():
+    'DESI 2024 VII full-shape + BAO + BBN mu0 as recorded in IAM_LAW_CHECK.md (DESI2024VII). Book line 24, printed 0.11.'
+    value = _b00_desi_mu0()[0]
+    return locals()
+
+@check(label='ch:predictions:L24:0.54', chapter='ch:predictions', part=7, title='DESI 2024 full-shape mu0 lower error (recorded value)',
+       file='part5/p5_07_predictions', line=24, status='measured', kind='file', printed='0.54', tol=0.0, source='docs/verification/theory/IAM_LAW_CHECK.md')
+def check_4463():
+    'Lower error of the DESI 2024 VII full-shape mu0, as recorded in IAM_LAW_CHECK.md. Book line 24, printed 0.54.'
+    value = _b00_desi_mu0()[2]
+    return locals()
+
+@check(label='ch:predictions:L24:1.8', chapter='ch:predictions', part=7, title='E_G above LCDM at z = 0.3 (C8)',
+       file='part5/p5_07_predictions', line=24, status='calc', kind='num', printed='1.8', tol=0.0)
+def check_4464():
+    'E_G change f_LCDM/f_IAM - 1 at z = 0.3 from the linear growth equation with mu on the source term and the same early amplitude (f_of), Sigma = 1, per cent. Book line 24, printed 1.8 %.'
+    value = 100 * (f_of('lcdm', 0.3) / f_of('iam', 0.3) - 1)
+    return locals()
+
+@check(label='ch:predictions:L24:1.1', chapter='ch:predictions', part=7, title='E_G above LCDM at z = 0.5 (C8)',
+       file='part5/p5_07_predictions', line=24, status='calc', kind='num', printed='1.1', tol=0.0)
+def check_4465():
+    'E_G change f_LCDM/f_IAM - 1 at z = 0.5, same growth equation, per cent. Book line 24, printed 1.1 %.'
+    value = 100 * (f_of('lcdm', 0.5) / f_of('iam', 0.5) - 1)
+    return locals()
+
+@check(label='ch:predictions:L24:0.78', chapter='ch:predictions', part=7, title='growth factor D below LCDM today (C4)',
+       file='part5/p5_07_predictions', line=24, status='calc', kind='num', printed='0.78', tol=0.0)
+def check_4466():
+    '1 - D_IAM(0)/D_LCDM(0) with the same early amplitude, mu on the source term (amp_deficit), per cent. Book line 24, printed 0.78 %.'
+    value = amp_deficit(0.0)
+    return locals()
+
+@check(label='ch:predictions:L86', chapter='ch:predictions', part=7, title='GW170817 standard-siren H0 (published)',
+       file='part5/p5_07_predictions', line=86, status='observed', kind='num', printed='70.0', tol=0.0)
+def check_4467():
+    'Standard-siren H0 from GW170817, km/s/Mpc. Book line 86, printed 70.0 (+12.0 -8.0). Input: LIGO Scientific and Virgo Collaborations 2017, Nature 551, 85 (doi 10.1038/nature24471): 70.0 +12.0 -8.0.'
+    H0_siren, up, lo = 70.0, 12.0, 8.0      # Abbott et al. 2017
+    value = H0_siren
+    return locals()
+
+@check(label='ch:predictions:L86:8.0', chapter='ch:predictions', part=7, title='GW170817 siren H0 lower error (published)',
+       file='part5/p5_07_predictions', line=86, status='observed', kind='num', printed='8.0', tol=0.0)
+def check_4468():
+    'Lower 68 % error of the GW170817 siren H0. Book line 86, printed 8.0. Input: doi 10.1038/nature24471, 70.0 +12.0 -8.0.'
+    H0_siren, up, lo = 70.0, 12.0, 8.0      # Abbott et al. 2017
+    value = lo
+    return locals()
+
+@check(label='ch:predictions:L87', chapter='ch:predictions', part=7, title='matter-sector H0 = H0_photon sqrt(1 + beta_m)',
+       file='part5/p5_07_predictions', line=87, status='openprob', kind='file', printed='72.26', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_4469():
+    'H0_matter = H0_photon sqrt(1 + beta_m) (C12), H0_photon the iam_level2_runA posterior mean, beta_m from CANON. Book line 84-87, printed 72.26.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0') * math.sqrt(1 + beta_m)
+    return locals()
+
+@check(label='ch:predictions:L154', chapter='ch:predictions', part=7, title='bound on drift of m_p/m_e from H2 quasar absorbers (published)',
+       file='part5/p5_07_predictions', line=154, status='observed', kind='num', printed='5\\times10^{-6}', tol=0.0)
+def check_4470():
+    '3 sigma bound |Delta mu/mu| from H2 absorbers at z = 2.0-4.2. Book line 154, printed < 5e-6. Input: Ubachs et al. 2016, Rev. Mod. Phys. 88, 021003 (doi 10.1103/RevModPhys.88.021003): |Delta mu/mu| < 5e-6 (3 sigma), z = 2.0-4.2.'
+    bound, z_lo, z_hi = 5e-6, 2.0, 4.2      # Ubachs et al. 2016
+    value = bound
+    return locals()
+
+@check(label='ch:predictions:L154:2.0', chapter='ch:predictions', part=7, title='lowest absorber redshift of the m_p/m_e bound (published)',
+       file='part5/p5_07_predictions', line=154, status='observed', kind='num', printed='2.0', tol=0.0)
+def check_4471():
+    'Lower end of the absorber redshift range of the bound. Book line 154, printed 2.0. Input: Ubachs et al. 2016 (doi 10.1103/RevModPhys.88.021003), z = 2.0-4.2.'
+    bound, z_lo, z_hi = 5e-6, 2.0, 4.2      # Ubachs et al. 2016
+    value = z_lo
+    return locals()
+
+@check(label='ch:predictions:L174', chapter='ch:predictions', part=7, title='internal-source quasiparticle density, steady state',
+       file='part5/p5_07_predictions', line=174, status='derived', kind='sym', printed='', tol=0.0)
+def check_4472():
+    'x_qp = 2 N tau_qp/(tau_TLS n_cp V): N active sites each breaking one pair (2 quasiparticles) per tau_TLS on an island of volume V, quasiparticles lost at 1/tau_qp; dn/dt = 2N/(tau_TLS V) - n/tau_qp = 0 solved for n, and x_qp = n/n_cp (eq:xqp, ch:xqp). Book line 174.'
+    N, tq, tT, ncp, V, n = sp.symbols('N tau_qp tau_TLS n_cp V n', positive=True)
+    n_ss = sp.solve(sp.Eq(2 * N / (tT * V) - n / tq, 0), n)[0]
+    lhs = n_ss / ncp
+    rhs = 2 * N * tq / (tT * ncp * V)
+    neg_lhs = sp.solve(sp.Eq(sp.Rational(21, 10) * N / (tT * V) - n / tq, 0), n)[0] / ncp
+    return locals()
+
+@check(label='ch:predictions:L191', chapter='ch:predictions', part=7, title='quasiparticle-limited T1 of a 5 GHz Al transmon at x_qp = 1e-7, ms',
+       file='part5/p5_07_predictions', line=191, status='openprob', kind='num', printed='0.24', tol=0.0)
+def check_4473():
+    'T1 = 1/Gamma, Gamma = x_qp (omega/pi) sqrt(2 Delta/(hbar omega)) (ch:xqp line 148), omega = 2 pi 5 GHz, Delta_Al = 182 micro-eV, x_qp = 1e-7, in ms. Book line 188/191, printed 0.24 ms.'
+    x_qp, f_q, Delta = 1e-7, 5e9, 182e-6 * eV
+    w = 2 * math.pi * f_q
+    value = 1e3 / (x_qp * w / math.pi * math.sqrt(2 * Delta / (hbar * w)))
+    return locals()
+
+
 # ======== Part 7 | ch:exploratory | docs/book/part5/p5_02_exploratory.tex
 @check(label='ch:exploratory:L21', chapter='ch:exploratory', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
        file='part5/p5_02_exploratory', line=21, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
@@ -41039,22 +41151,8 @@ INVENTORY = [
     (7, 'ch:reach', 'part3/p3_09_reach', 94, '', 'calc', '10', 'input: the excess quasiparticle fraction 10^-7, a stated condition of the example (the base 10 of 10^-7), nothing to recompute'),
     (7, 'ch:reach', 'part3/p3_09_reach', 104, '', 'calc', '170', 'input: TDP 170 W of the 9950X, manufacturer specification (\\cite{AMD9950X}); E_sw from it is checked as ch:onegauge:L22'),
     (7, 'ch:reach', 'part3/p3_09_reach', 104, '', 'calc', '20', 'input: transistor count (20.0-20.6)x10^9 from die-level reports (\\cite{AMD9950X}); E_sw from it is checked as ch:onegauge:L22'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'derived', '-0.136', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'measured', '0.039', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'measured', '0.11', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'measured', '0.54', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'calc', '0.3', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'calc', '1.8', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'calc', '1.1', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'calc', '0.5', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'calc', '0.78', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 86, '', 'openprob', '70.0', 'not yet checked'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 86, '', 'openprob', '8.0', 'not yet checked'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 87, '', 'openprob', '72.26', 'not yet checked'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 154, '', 'observed', '5\\times10^{-6}', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 154, '', 'observed', '2.0', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 174, '', 'none', '', 'displayed equation, not yet checked'),
-    (7, 'ch:predictions', 'part5/p5_07_predictions', 191, '', 'openprob', '0.24', 'not yet checked'),
+    (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'calc', '0.3', 'input: the redshift z = 0.3 at which the E_G change is read (checked as ch:predictions:L24:1.8)'),
+    (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'calc', '0.5', 'input: the redshift z = 0.5 at which the E_G change is read (checked as ch:predictions:L24:1.1)'),
     (7, 'ch:exploratory', 'part5/p5_02_exploratory', 16, 'eq:ge_landauer', 'none', '', 'displayed equation, not yet checked'),
     (7, 'ch:exploratory', 'part5/p5_02_exploratory', 20, '', 'calc', '2.65\\times10^{-30}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (7, 'ch:exploratory', 'part5/p5_02_exploratory', 21, '', 'calc', '2.53\\times10^{-53}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
