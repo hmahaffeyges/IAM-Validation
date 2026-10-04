@@ -1,6 +1,6 @@
 # IAM's Law and Order
 
-**The Actualization of Reality** — *The Cost of Recording It, and the Price to Maintain It.*
+**The Actualization of Reality** — *The Cost of Recording It, and the Price of Maintaining It.*
 
 > IAM, the Informational Actualization Model. Not a new theory: a new perspective. Jacobson's exact formulas, taken one step further. General Relativity, with a new piece of information: information.
 

@@ -45,69 +45,6 @@
 "text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
 },
 {
-"file": "docs/book/read_ledgers/MANIFEST_astrogenetics.md",
-"line": 129,
-"pattern": "class H_min",
-"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-"severity": "warn",
-"status": "LIVE",
-"text": "| 137-145 | carried part4/p4_00b_astrogenetics.tex:97-104 | class H_min, eight architectural classes, five-tier vocabulary, \"fuel gauge\" EXCLUDED (retired; repo"
-},
-{
-"file": "docs/book/read_ledgers/REVIEW_cell_papers.md",
-"line": 40,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "| V-18 | 467\u2013489 | Aging implications, interventions, \"Lu 2023 A-score deviations correlate with mortality\" | OUT OF DATE (misattribution) | Lu 2023 reports *ag"
-},
-{
-"file": "docs/book/read_ledgers/REVIEW_cell_papers.md",
-"line": 40,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "| V-18 | 467\u2013489 | Aging implications, interventions, \"Lu 2023 A-score deviations correlate with mortality\" | OUT OF DATE (misattribution) | Lu 2023 reports *ag"
-},
-{
-"file": "docs/book/read_ledgers/MANIFEST_landauer_metrology.md",
-"line": 54,
-"pattern": "class H_min",
-"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-"severity": "warn",
-"status": "LIVE",
-"text": "| 18-21 | Abstract: per-cell-class H_min, A = H(beta-bar)/H_min, one number per cell type | part4/p4_15b_fixedorigin.tex:58 | CARRIED-CORRECTED | FB4, TR9 (clas"
-},
-{
-"file": "docs/book/read_ledgers/MANIFEST_landauer_metrology.md",
-"line": 80,
-"pattern": "class H_min",
-"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-"severity": "warn",
-"status": "LIVE",
-"text": "| 161-166 | M and H_min different quantities; modest arithmetical claim | part4/p4_02_landauer.tex:109 | CARRIED-CORRECTED | FB4 (per-class H_min -> per-cell-ty"
-},
-{
-"file": "docs/book/read_ledgers/MANIFEST_landauer_metrology.md",
-"line": 153,
-"pattern": "class H_min",
-"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-"severity": "warn",
-"status": "LIVE",
-"text": "3. **FB4 / TR9**: class H_min and tiers retired. The class calibration (8 classes, MCMC, bootstrap) is not carried; the tier list (ELEVATED, Warburg 1.07,"
-},
-{
-"file": "docs/book/read_ledgers/MANIFEST_landauer_metrology.md",
-"line": 168,
-"pattern": "class H_min",
-"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-"severity": "warn",
-"status": "LIVE",
-"text": "| 84\u2013108 | eight architecture classes, class H_min definition, April MCMC calibration, immune 0.795\u21920.8389 history, bootstrap cross-check, Zenodo deposit | FB4,"
-},
-{
 "file": "docs/book/part4/p4_01_bridge.tex",
 "line": 109,
 "pattern": "\\bA[- ]score",
@@ -160,42 +97,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "reads $1/P=0.910$ on the gauge (Chapter~\\ref{ch:iama}). On arrays, this is an open problem. \\openprob{} The A-score reads where the cell sits:"
-},
-{
-"file": "Biological_Physics/MethylPhys/sop/audit/OM_MIGRATION_CHECK_2026-10-01.md",
-"line": 45,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "- s4 Five-substrate framework \u2014 formulas and transformations; Combined A-score formula; Body temperature scaling & vertebrate lifespan; Clinical horizon; Clinic"
-},
-{
-"file": "Biological_Physics/MethylPhys/sop/audit/SOP_AUDIT_2026-10-01.md",
-"line": 52,
-"pattern": "program reading",
-"use": "Met-A",
-"severity": "warn",
-"status": "LIVE",
-"text": "| B5 | L | `iam_canon.json:172` vs `iam_canon.json` `retired.\"program reading\"` | Met-A definition begins \"Program reading of ONE cell type\" | the same canon re"
-},
-{
-"file": "Biological_Physics/MethylPhys/sop/audit/SOP_AUDIT_2026-10-01.md",
-"line": 52,
-"pattern": "program reading",
-"use": "Met-A",
-"severity": "warn",
-"status": "LIVE",
-"text": "| B5 | L | `iam_canon.json:172` vs `iam_canon.json` `retired.\"program reading\"` | Met-A definition begins \"Program reading of ONE cell type\" | the same canon re"
-},
-{
-"file": "Biological_Physics/MethylPhys/sop/audit/SOP_AUDIT_2026-10-01.md",
-"line": 52,
-"pattern": "program reading",
-"use": "Met-A",
-"severity": "warn",
-"status": "LIVE",
-"text": "| B5 | L | `iam_canon.json:172` vs `iam_canon.json` `retired.\"program reading\"` | Met-A definition begins \"Program reading of ONE cell type\" | the same canon re"
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/toolkit_surface_brightness.py",
@@ -511,24 +412,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "substrates inflate cross-tile A-scores from substrate-distribution mismatch alone. The same reasoning"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/REPORT_LINE_AUDIT_2026-09-26.md",
-"line": 153,
-"pattern": "class H_min",
-"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-"severity": "warn",
-"status": "LIVE",
-"text": "| 61-63 | row 7 Tiers \"goes in: A'', reportable, class H_min\" | **FIXED** | a present cell's A and its class H_min |"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/REPORT_LINE_AUDIT_2026-09-26.md",
-"line": 153,
-"pattern": "class H_min",
-"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-"severity": "warn",
-"status": "LIVE",
-"text": "| 61-63 | row 7 Tiers \"goes in: A'', reportable, class H_min\" | **FIXED** | a present cell's A and its class H_min |"
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/COMPLETION_SPRINT_scored.md",
