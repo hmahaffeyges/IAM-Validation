@@ -1,0 +1,8 @@
+# -*- mode: Perl -*-
+# truncate for the web edition: used only in the PDF running heads; on the web the text is shown in full.
+package LaTeXML::Package::Pool;
+use strict;
+use warnings;
+use LaTeXML::Package;
+DefMacro('\truncate[]{}{}', '#3');
+1;

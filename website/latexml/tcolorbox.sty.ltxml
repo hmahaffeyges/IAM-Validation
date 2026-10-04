@@ -1,0 +1,15 @@
+# -*- mode: Perl -*-
+# Minimal tcolorbox for the web edition: the book uses tcolorbox only for its status labels (\statusbox via \tcbox) and three titled
+# boxes (checkbox, keybox, rulebox), all defined in iam.ltxml. This stub avoids loading the full expl3-based binding, which is slow.
+package LaTeXML::Package::Pool;
+use strict;
+use warnings;
+use LaTeXML::Package;
+RequirePackage('xcolor');
+DefMacro('\tcbset{}', '');
+DefMacro('\tcbuselibrary{}', '');
+DefConstructor('\tcbox[]{}', "<ltx:text class='iam-tcbox'>#2</ltx:text>");
+DefMacro('\newtcolorbox[]{}[][]{}', '');
+DefMacro('\newtcbox[]{}[][]{}', '');
+DefEnvironment('{tcolorbox}[]', "<ltx:inline-block class='iam-box'>#body</ltx:inline-block>");
+1;

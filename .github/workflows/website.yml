@@ -1,0 +1,54 @@
+name: website
+
+# Builds the web edition and the PDFs from docs/book/ and publishes them to GitHub Pages.
+# Pushes to main that touch the book (or the site's own build files) build and deploy; pull requests build only and attach the
+# site as an artifact for preview.
+on:
+  push:
+    branches: [main]
+    paths: ["docs/book/**", "website/**", "CANON/**", ".github/workflows/website.yml"]
+  pull_request:
+    paths: ["docs/book/**", "website/**", "CANON/**", ".github/workflows/website.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: website-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install LaTeXML, TeX Live and tools
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends latexml texlive-latex-base texlive-latex-recommended \
+            texlive-latex-extra texlive-fonts-recommended texlive-science latexmk poppler-utils imagemagick
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Python packages
+        run: pip install numpy scipy sympy beautifulsoup4 matplotlib pillow
+      - name: Build site and PDFs
+        run: bash website/build/build.sh
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: website/_site
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

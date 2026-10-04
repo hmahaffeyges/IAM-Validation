@@ -1,0 +1,10 @@
+# -*- mode: Perl -*-
+# fvextra for the web edition: the book uses fancyvrb's Verbatim with fvextra's breaklines/breakanywhere options.
+package LaTeXML::Package::Pool;
+use strict;
+use warnings;
+use LaTeXML::Package;
+RequirePackage('fancyvrb');
+# fvextra's line-breaking options are accepted and have no effect on the web (the browser wraps the code block).
+RawTeX('\\makeatletter\\define@key{FV}{breaklines}[true]{}\\define@key{FV}{breakanywhere}[true]{}\\makeatother');
+1;

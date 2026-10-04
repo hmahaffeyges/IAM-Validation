@@ -1,0 +1,9 @@
+# -*- mode: Perl -*-
+# siunitx for the web edition: the book loads siunitx and calls \sisetup in the preamble but uses none of its commands, so only
+# \sisetup is needed. This avoids loading expl3, which is slow in LaTeXML.
+package LaTeXML::Package::Pool;
+use strict;
+use warnings;
+use LaTeXML::Package;
+DefMacro('\sisetup{}', '');
+1;
