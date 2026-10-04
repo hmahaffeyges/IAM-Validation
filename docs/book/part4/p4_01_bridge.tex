@@ -280,3 +280,13 @@ reached its own capacity, and separates the structural statement from the numeri
 Chapters~\ref{ch:gauge} to~\ref{ch:temperature} build the gauge and its two readings, Chapters~\ref{ch:translation}
 to~\ref{ch:chain} build the instrument that makes them, and the remaining chapters report the first readings and what is
 established.
+
+\paragraph{Where the working details live.} This Part gives the physics and the method of the instrument, and enough of each stage
+for a physicist to check that it reads what it claims to read. The chain itself is a working instrument: its stages, lines and reference
+files are improved as data come in from testing and as stages from the toolkit (the sky tools among them) are commissioned. The exact
+procedure is kept in the repository, versioned, in the standard operating procedure (the SOP,
+\href{https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md}{\texttt{sop/MethylPhys\_CPG\_SOP\_v3.md}}) and the operations
+manual (\href{https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md}{\texttt{manual/OM\_v3\_neutrophil\_chain.md}}).
+Every reading names the chain version and procedure it ran on, so any number can be checked against the exact version that produced it.
+The book's own derivations are checked by \href{https://github.com/hmahaffeyges/IAM-Validation/blob/main/verify_book.py}{\texttt{verify\_book.py}} (Appendix~\ref{app:provenance}
+lists the script behind every figure and table).

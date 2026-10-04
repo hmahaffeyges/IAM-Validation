@@ -2,6 +2,12 @@
  "engine": "v3",
  "live_path": [
   {
+   "step": "specimen_refusal",
+   "where": "stage_0_intake.py",
+   "implements": "None when intake accepts the specimen (ACCEPTED_SPECIMENS); otherwise the plain refusal text naming the specimen (decision L)",
+   "status": "runs first; a refused specimen gets a report and nothing is read"
+  },
+  {
    "step": "step_0_1_idat_arrival",
    "where": "stage_0_intake.py",
    "implements": "SOP section 0.1_idat_arrival",
@@ -122,6 +128,12 @@
    "note": "runs when run_sample.py is given --pat or --site-table"
   },
   {
+   "step": "stage_q_iam_a.cscore",
+   "where": "stage_q_iam_a.py",
+   "implements": "IAM-A C-score for the pooled table (opp = opp_A + opp_B) and for each half. Returns {C, n_blocks, se_null, halves: {...}}",
+   "note": "runs when run_sample.py is given --pat or --site-table"
+  },
+  {
    "step": "serial_mode.check_same_person",
    "where": "serial_mode.py",
    "implements": "Refuse unless patient hash, array type and pipeline match. Returns (ok, reason)",
@@ -169,19 +181,19 @@
   {
    "stage": "3b",
    "name": "Trace-cell detection",
-   "where": "chain/stage_2c_trace_detection.py",
+   "where": "chain/dev_stages.py",
    "status": "toolkit: not yet wired into chain v3"
   },
   {
    "stage": "3c",
    "name": "Foreign-cell detection",
-   "where": "chain/toolkit_foreign_detection.py",
+   "where": "chain/dev_stages.py",
    "status": "toolkit: not yet wired into chain v3"
   },
   {
    "stage": "4",
    "name": "NILC component separation",
-   "where": "chain/nilc_celltype_deconvolver.py",
+   "where": "chain/dev_stages.py",
    "status": "toolkit: not yet wired into chain v3"
   },
   {
@@ -193,19 +205,19 @@
   {
    "stage": "10",
    "name": "Directional decomposition",
-   "where": "chain/Runtime Matrices/Directional Panel/bidirectional_decomposition.py",
+   "where": "chain/dev_stages.py",
    "status": "toolkit: not yet wired into chain v3"
   },
   {
    "stage": "11",
    "name": "Sky map",
-   "where": "chain/stage_4_6_patient_cmb.py",
+   "where": "chain/dev_stages.py",
    "status": "toolkit: not yet wired into chain v3"
   },
   {
    "stage": "11b",
    "name": "Surface brightness",
-   "where": "chain/toolkit_surface_brightness.py",
+   "where": "chain/dev_stages.py",
    "status": "toolkit: not yet wired into chain v3"
   },
   {
@@ -219,11 +231,102 @@
    "name": "Difference map",
    "where": "chain/serial_mode.py",
    "status": "wired into chain v3 (optional input; see chain/TOOLKIT.md)"
+  },
+  {
+   "stage": "5",
+   "name": "Met-A per cell (B cells)",
+   "where": "chain/dev_stages.py",
+   "status": "toolkit: not yet wired into chain v3"
+  },
+  {
+   "stage": "8",
+   "name": "Self-tare on type II fixed sites",
+   "where": "chain/dev_stages.py",
+   "status": "toolkit: not yet wired into chain v3"
+  },
+  {
+   "stage": "1",
+   "name": "EPIC v2 calibration",
+   "where": "chain/dev_stages.py",
+   "status": "toolkit: not yet wired into chain v3"
+  }
+ ],
+ "development_flags": [
+  {
+   "flag": "--dev-selftare-ii",
+   "step": "dev_stages.selftare_ii",
+   "where": "dev_stages.py",
+   "implements": "Met-A re-read after the type II self-tare: each design mapped onto the reference arrays' scale by this array's own fixed-site anchors (DEV-SELFTARE-02)",
+   "status": "DEVELOPMENT - not commissioned: runs only with the flag; written under bundle['development']; not part of the reading"
+  },
+  {
+   "flag": "--dev-direction",
+   "step": "dev_stages.direction_record",
+   "where": "dev_stages.py",
+   "implements": "Signed move toward or away from 0.5 at the neutrophil identity sites against the cell's own reference, tared on same-run references (DEV-DIRECTION-02)",
+   "status": "DEVELOPMENT - not commissioned: runs only with the flag; written under bundle['development']; not part of the reading"
+  },
+  {
+   "flag": "--dev-trace",
+   "step": "dev_stages.trace_cell",
+   "where": "dev_stages.py",
+   "implements": "3b: another blood group in an isolated-neutrophil specimen, called above 3 x this array's own standard error (DEV-TOOLKIT-ADDED-02)",
+   "status": "DEVELOPMENT - not commissioned: runs only with the flag; written under bundle['development']; not part of the reading"
+  },
+  {
+   "flag": "--dev-foreign",
+   "step": "dev_stages.foreign_cell",
+   "where": "dev_stages.py",
+   "implements": "3c: a non-blood template in whole blood by NNLS with the blood groups, called above 3 x this array's own standard error (DEV-TOOLKIT-ADDED-02)",
+   "status": "DEVELOPMENT - not commissioned: runs only with the flag; written under bundle['development']; not part of the reading"
+  },
+  {
+   "flag": "--dev-brightness",
+   "step": "dev_stages.brightness",
+   "where": "dev_stages.py",
+   "implements": "11b: 95 % interval on Met-A from the v3 per-site uncertainty (this array's own fixed-site noise), by Monte Carlo (DEV-TOOLKIT-ADDED-02)",
+   "status": "DEVELOPMENT - not commissioned: runs only with the flag; written under bundle['development']; not part of the reading"
+  },
+  {
+   "flag": "--dev-nilc",
+   "step": "dev_stages.nilc_e",
+   "where": "dev_stages.py",
+   "implements": "Stage 4 NILC-e composition on the atlas_e templates (DEV-NILC-01 method), 8-group sums and the noise per fraction",
+   "status": "DEVELOPMENT - not commissioned: runs only with the flag; written under bundle['development']; not part of the reading"
+  },
+  {
+   "flag": "--dev-atlas-e",
+   "step": "dev_stages.atlas_e",
+   "where": "dev_stages.py",
+   "implements": "Stage 3 atlas_e composition (12 array-measured circulating atlas v2 cells, DEV-ATLAS-EPIC-02 method), 8-group sums",
+   "status": "DEVELOPMENT - not commissioned: runs only with the flag; written under bundle['development']; not part of the reading"
+  },
+  {
+   "flag": "--dev-percell-b",
+   "step": "dev_stages.percell_b",
+   "where": "dev_stages.py",
+   "implements": "Stage 5 B-cell Met-A against the composition-matched expectation on the development B-cell floor (DEV-PERCELL-01 method)",
+   "status": "DEVELOPMENT - not commissioned: runs only with the flag; written under bundle['development']; not part of the reading"
+  },
+  {
+   "flag": "--dev-sky",
+   "step": "dev_stages.sky",
+   "where": "dev_stages.py",
+   "implements": "Residual sky with the within-chromosome block-shuffle null and the look-elsewhere statistic by simulation (DEV-SKY-02)",
+   "status": "DEVELOPMENT - not commissioned: runs only with the flag; written under bundle['development']; not part of the reading"
+  },
+  {
+   "flag": "--dev-epic-v2",
+   "step": "dev_stages.epicv2_calibrate",
+   "where": "dev_stages.py",
+   "implements": "EPIC v2 IDAT pair -> beta Series on EPIC v1 probe names (replicate v2 probes of one CpG averaged). SeSAMe openSesame(prep), pOOBAH-masked",
+   "status": "DEVELOPMENT - not commissioned: runs only with the flag; written under bundle['development']; not part of the reading"
   }
  ],
  "counts": {
-  "live": 24,
+  "live": 26,
   "not_wired": 3,
-  "toolkit_rows": 10
+  "toolkit_rows": 13,
+  "development_flags": 10
  }
 }

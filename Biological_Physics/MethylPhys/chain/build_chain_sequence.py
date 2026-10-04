@@ -71,8 +71,17 @@ def derive():
             not_wired.append({"step": f, "where": f, "implements": _module_doc(os.path.join(HERE, f)),
                               "status": "module present; neither run_sample.py nor conductor_v3.py calls it (toolkit, chain/TOOLKIT.md)"})
     tk = _toolkit()
-    return {"engine": "v3", "live_path": live, "not_in_live_path": not_wired, "toolkit": tk,
-            "counts": {"live": len(live), "not_wired": len(not_wired), "toolkit_rows": len(tk)}}
+    dev = []
+    if "_dev_run" in rs and os.path.exists(os.path.join(HERE, "dev_stages.py")):   # development flags (2026-10-04, doors/DEV_FLAGS_01.md)
+        dt = ast.parse(open(os.path.join(HERE, "dev_stages.py"), encoding="utf-8").read()); dd = {n.name: n for n in dt.body if isinstance(n, ast.FunctionDef)}
+        for flag, fn in (("--dev-selftare-ii", "selftare_ii"), ("--dev-direction", "direction_record"), ("--dev-trace", "trace_cell"), ("--dev-foreign", "foreign_cell"),
+                         ("--dev-brightness", "brightness"), ("--dev-nilc", "nilc_e"), ("--dev-atlas-e", "atlas_e"), ("--dev-percell-b", "percell_b"),
+                         ("--dev-sky", "sky"), ("--dev-epic-v2", "epicv2_calibrate")):
+            if fn in dd and flag in rs:
+                dev.append({"flag": flag, "step": f"dev_stages.{fn}", "where": "dev_stages.py", "implements": _doc(dd[fn]),
+                            "status": "DEVELOPMENT - not commissioned: runs only with the flag; written under bundle['development']; not part of the reading"})
+    return {"engine": "v3", "live_path": live, "not_in_live_path": not_wired, "toolkit": tk, "development_flags": dev,
+            "counts": {"live": len(live), "not_wired": len(not_wired), "toolkit_rows": len(tk), "development_flags": len(dev)}}
 
 
 # the noise index and the noise gate are steps of the live path although their functions are not named stage_* (added 2026-10-03)
@@ -85,7 +94,12 @@ def derive_v3(rs, intake, stage1):
     conductor_v3.run_neutrophil in line order, Stage Q when run_sample.py calls stage_q_iam_a, then report_v3."""
     src = open(os.path.join(HERE, "conductor_v3.py"), encoding="utf-8").read(); t = ast.parse(src)
     defs = {n.name: n for n in t.body if isinstance(n, ast.FunctionDef)}
-    path = [dict(x, status="runs in the live path, before calibration") for x in intake] + list(stage1)
+    path = []
+    if "specimen_refusal" in rs:   # author decision L (2026-10-04): the specimen rule runs first, before any intake step reads the IDATs
+        s0 = ast.parse(open(os.path.join(HERE, "stage_0_intake.py"), encoding="utf-8").read()); d0 = {n.name: n for n in s0.body if isinstance(n, ast.FunctionDef)}
+        path.append({"step": "specimen_refusal", "where": "stage_0_intake.py", "implements": _doc(d0["specimen_refusal"]),
+                     "status": "runs first; a refused specimen gets a report and nothing is read"})
+    path += [dict(x, status="runs in the live path, before calibration") for x in intake] + list(stage1)
     if "platform_refusal" in defs:
         path.append({"step": "platform_refusal", "where": "conductor_v3.py", "implements": _doc(defs["platform_refusal"])})
     order, seen = [], set()
@@ -99,7 +113,7 @@ def derive_v3(rs, intake, stage1):
     if "stage_q_iam_a" in rs:
         qs = open(os.path.join(HERE, "stage_q_iam_a.py"), encoding="utf-8").read(); qt = ast.parse(qs)
         qd = {n.name: n for n in qt.body if isinstance(n, ast.FunctionDef)}
-        for n in ("pat_site_table", "read"):
+        for n in ("pat_site_table", "read", "cscore"):
             if n in qd:
                 path.append({"step": f"stage_q_iam_a.{n}", "where": "stage_q_iam_a.py", "implements": _doc(qd[n]),
                              "note": "runs when run_sample.py is given --pat or --site-table"})
@@ -130,6 +144,11 @@ def write(d):
         L += ["| module | what it implements | status |", "|---|---|---|"]
         for s in d["not_in_live_path"]:
             L.append(f"| `{s['step']}` | {s['implements']} | {s['status']} |")
+    if d.get("development_flags"):
+        L += ["", "## Behind development flags (DEVELOPMENT - not commissioned; never part of a reading)", "",
+              "| flag | step | implemented in | what it does |", "|---|---|---|---|"]
+        for s in d["development_flags"]:
+            L.append(f"| `{s['flag']}` | `{s['step']}` | `{s['where']}` | {s['implements']} |")
     L += ["", "## The toolkit (chain/TOOLKIT.md) - built; each stage wired only after its check passed", "",
           "| stage (SOP 2b) | name | module | status |", "|---|---|---|---|"]
     for t in d["toolkit"]:

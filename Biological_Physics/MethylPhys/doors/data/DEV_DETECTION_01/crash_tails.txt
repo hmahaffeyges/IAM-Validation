@@ -1,0 +1,14 @@
+===== detection GSE255057 GSM8063162
+py", line 81, in _detect_array_type
+    d = IdatDataset(str(grn_path), Channel.GREEN)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/files/idat.py", line 166, in __init__
+    self.probe_means = self.read(idat_file)
+                       ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/files/idat.py", line 254, in read
+    self.n_beads = npread(idat_file, '<u1', self.n_snps_read) # was <u1
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/env/lib/python3.11/site-packages/methylprep/utils/parsing.py", line 178, in npread
+    raise EOFError('End of file reached before number of results parsed')
+EOFError: End of file reached before number of results parsed
+

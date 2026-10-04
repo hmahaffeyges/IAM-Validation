@@ -10,7 +10,12 @@ on; the caller must name the pipeline that produced the table (no default) and a
 Extractor for the pipeline P was measured on (loyfer_pat_v1): pat_site_table(), the per-site form of chain_tests/iama_floor.py's .pat
 counting - wgbstools .pat lines (chrom, first CpG index, pattern of C/T/., molecule count); '.' calls dropped before neighbours are
 taken; halves A/B = odd/even molecule ordinal over the file, as in iama_floor.py's repeat check. P was measured on the first
-60,000,000 bytes of each granulocyte .pat.gz (LOYFER_PAT_V1_HEAD_BYTES)."""
+60,000,000 bytes of each granulocyte .pat.gz (LOYFER_PAT_V1_HEAD_BYTES).
+
+IAM-A C-score (DEVELOPMENT - not commissioned; doors/DEV_IAMA_CSCORE_01.md, 2026-10-04): one C per A. Sites in genomic order (chromosome, CpG
+index) are cut into blocks of CSCORE_BLOCK_SITES; per block o_b opportunities and k_b isolated errors; with the reading's own eps,
+C = sum (k_b - eps o_b)^2 / sum eps (1 - eps) o_b. Independent errors at one rate give C = 1 within sqrt(2 / n_blocks) (derived, not taken
+from other readings); C > 1 = errors cluster in genomic order. Fewer than CSCORE_MIN_BLOCKS blocks: no C."""
 import os, json, gzip, zlib, collections, numpy as np, pandas as pd
 import stage_m_met_a as SM
 HERE = os.path.dirname(os.path.abspath(__file__)); POS = os.path.join(HERE, "Runtime Matrices", "IAM_A_Positions", "iama_positions_v1.json")
@@ -18,6 +23,8 @@ MIN_OPPORTUNITIES = 100_000      # total, both halves
 MIN_HALF_OPPORTUNITIES = 50_000  # a half-reading is printed only above this
 PAT_PIPELINE = "loyfer_pat_v1"
 LOYFER_PAT_V1_HEAD_BYTES = 60_000_000
+CSCORE_BLOCK_SITES = 1000
+CSCORE_MIN_BLOCKS = 10
 _P = None
 def positions():
     global _P
@@ -26,20 +33,35 @@ def positions():
 
 def _H(e): return float(-(e * np.log2(e) + (1 - e) * np.log2(1 - e)))
 
-def _pat_lines(path, max_bytes=None):
-    """Lines of a .pat or .pat.gz file; a gzip file may be multi-member and may be cut at max_bytes (the tail member is dropped)."""
-    with open(path, "rb") as f: data = f.read(max_bytes) if max_bytes else f.read()
-    if data[:2] != b"\x1f\x8b":
-        out = data
-    else:
-        out = b""
-        while data:
-            d = zlib.decompressobj(16 + zlib.MAX_WBITS)
-            try: out += d.decompress(data)
-            except zlib.error: break
-            data = d.unused_data
-    for l in out.split(b"\n")[:-1]:   # the last piece may be cut (as iama_floor.py)
-        if l: yield l
+def _pat_lines(path, max_bytes=None, chunk=1 << 24):
+    """Lines of a .pat or .pat.gz file; a gzip file may be multi-member (bgzip) and may be cut at max_bytes. Streamed (2026-10-04,
+    DEV-IAMA-REAL-01: the earlier whole-file read joined every bgzip member into one buffer, which does not finish on a whole file).
+    Same lines as before: every byte that decompresses is read, a member cut at max_bytes gives what it holds, the last piece is dropped."""
+    left = max_bytes if max_bytes else None
+    with open(path, "rb") as f:
+        head = f.read(2); f.seek(0)
+        gz = head == b"\x1f\x8b"; d = zlib.decompressobj(16 + zlib.MAX_WBITS) if gz else None; carry = b""; dead = False
+        while True:
+            n = chunk if left is None else min(chunk, left)
+            data = f.read(n) if n > 0 else b""
+            if left is not None: left -= len(data)
+            if not data: break
+            if gz:
+                out = b""
+                while data and not dead:
+                    try: out += d.decompress(data)
+                    except zlib.error: dead = True; break
+                    if d.eof:
+                        data = d.unused_data; d = zlib.decompressobj(16 + zlib.MAX_WBITS)
+                    else: data = b""
+                if dead and not out: break
+            else: out = data
+            buf = carry + out; parts = buf.split(b"\n"); carry = parts.pop()
+            for l in parts:
+                if l: yield l
+            if dead: break
+    # the last piece (carry) may be cut, as before: dropped
+
 
 def pat_site_table(path, max_bytes=None):
     """Per-site table (pos, opp_A, err_A, opp_B, err_B) from one .pat(.gz) file, pipeline loyfer_pat_v1. pos = 'chrom:CpG index'.
@@ -64,6 +86,32 @@ def pat_site_table(path, max_bytes=None):
     T.attrs.update(pipeline=PAT_PIPELINE, source=os.path.basename(path), max_bytes=max_bytes, n_lines=n_lines, n_qualifying_lines=n_qual, n_molecules=k)
     return T
 
+def _genomic_order(T):
+    """Rows of a site table in genomic order: pos 'chrom:index' sorted by chromosome then index; plain integer pos sorted numerically."""
+    p = T["pos"].astype(str)
+    if p.str.contains(":").all():
+        ch = p.str.rsplit(":", n=1).str[0].str.replace("chr", "", regex=False); ix = p.str.rsplit(":", n=1).str[1].astype("int64")
+        ck = ch.map(lambda c: int(c) if c.isdigit() else {"X": 23, "Y": 24, "M": 25}.get(c, 99))
+        return T.assign(_ck=ck.values, _ix=ix.values).sort_values(["_ck", "_ix"], kind="mergesort")
+    return T.assign(_ix=pd.to_numeric(T["pos"], errors="coerce")).sort_values("_ix", kind="mergesort")
+
+
+def cscore(site_table, eps=None, halves=("A", "B")):
+    """IAM-A C-score for the pooled table (opp = opp_A + opp_B) and for each half. Returns {C, n_blocks, se_null, halves: {...}}."""
+    T = _genomic_order(site_table); out = {"block_sites": CSCORE_BLOCK_SITES, "definition": "sum (k_b - eps o_b)^2 / sum eps (1 - eps) o_b over blocks of consecutive sites in genomic order; independent errors -> 1"}
+    def one(o, k):
+        nb = len(o) // CSCORE_BLOCK_SITES
+        if nb < CSCORE_MIN_BLOCKS: return {"C": None, "n_blocks": int(nb), "reason": f"fewer than {CSCORE_MIN_BLOCKS} blocks of {CSCORE_BLOCK_SITES} sites"}
+        ob = o[:nb * CSCORE_BLOCK_SITES].reshape(nb, -1).sum(1); kb = k[:nb * CSCORE_BLOCK_SITES].reshape(nb, -1).sum(1)
+        e = float(kb.sum() / ob.sum()) if ob.sum() > 0 else None
+        if not e or not 0 < e < 1: return {"C": None, "n_blocks": int(nb), "reason": "no errors or no opportunities"}
+        C = float(((kb - e * ob) ** 2).sum() / (e * (1 - e) * ob).sum())
+        return {"C": round(C, 4), "n_blocks": int(nb), "se_null": round(float(np.sqrt(2.0 / nb)), 4), "eps": round(e, 6)}
+    oA, kA = T["opp_A"].to_numpy(float), T["err_A"].to_numpy(float); oB, kB = T["opp_B"].to_numpy(float), T["err_B"].to_numpy(float)
+    out.update(one(oA + oB, kA + kB)); out["halves"] = {"A": one(oA, kA), "B": one(oB, kB)}
+    return out
+
+
 def read(site_table, cell, pipeline, mask=None):
     """site_table: per-site table (see module doc). cell: e.g. 'neutrophils'. pipeline: the read-level pipeline that produced the table
     (required). mask: positions to drop. Returns the IAM-A record; A is None with a refusal when the reading is not permitted."""
@@ -80,7 +128,8 @@ def read(site_table, cell, pipeline, mask=None):
     if not 0 < eps < 1: rec["refusal"] = f"copy error {eps} outside (0, 1): no reading"; return rec
     A = _H(eps) / (c["P"] * _H(EPS0))
     halves = {h: round(_H(e[h] / o[h]) / (c["P"] * _H(EPS0)), 4) for h in "AB" if o[h] > MIN_HALF_OPPORTUNITIES and 0 < e[h] < o[h]}
-    rec.update(eps=round(eps, 6), A=round(A, 4), P=c["P"], E_kT=round(float(np.log((1 - eps) / eps)), 4), halves=halves,
+    rec.update(eps=round(eps, 6), errors=int(e["A"] + e["B"]), A=round(A, 4), P=c["P"], E_kT=round(float(np.log((1 - eps) / eps)), 4), halves=halves,
                state="Normal" if SM.NORMAL[0] <= A <= SM.NORMAL[1] else ("above Normal" if A > SM.NORMAL[1] else "below Normal"),
                opportunities=int(o["A"] + o["B"]), n_sites=int(len(D)))
+    rec["cscore"] = {"label": "DEVELOPMENT - not commissioned", **cscore(D)}   # one C per A (DEV-IAMA-CSCORE-01); band not set
     return rec

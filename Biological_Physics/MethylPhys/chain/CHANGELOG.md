@@ -1,5 +1,20 @@
 # Chain changelog
 
+## 2026-10-04 - chain v3 development round 2 (DEVELOPMENT - not commissioned)
+
+Each check below was written in a dated `doors/DEV_*.md` note before the data were read; results are under the line in the same note and in
+`doors/CHAIN_COMMISSIONING.md` (round 2 table). No frozen input changed. No locked result changed.
+- `stage_0_intake.py`: sex and age optional (`NOT_DECLARED`); `ACCEPTED_SPECIMENS` (blood only) and `specimen_refusal()` - other specimens stop with `SPECIMEN_REFUSED`.
+- `conductor_v3.py`: build label `DEVELOPMENT - not commissioned (chain v3, neutrophils only)`; gauge state withheld with the reason when noise-site coverage is below 90 %; `refusal_code` carried to the report.
+- `MethylPhys_Interface/run_sample.py`: specimen refusal; identifiers hashed in bundle and ledger (`_hash_id`), typed id kept on the report; development flags (`--dev-selftare-ii`, `--dev-direction`, `--dev-trace`, `--dev-foreign`, `--dev-brightness`, `--dev-nilc`, `--dev-atlas-e`, `--dev-percell-b`, `--dev-sky`, `--dev-epic-v2`; inputs `--atlas-v2`, `--sesame-rscript`), each labelled DEVELOPMENT on the report.
+- `stage_q_iam_a.py`: streamed reading of whole `.pat` files; IAM-A C-score (blocks of 1,000 sites); error count in the output.
+- `MethylPhys_Interface/report_v3.py`: refusal codes; C-score line; development section; development stage statuses RAN / NOT_RUN / ERROR.
+- New: `dev_stages.py` (self-tare on type II fixed sites, physics-only direction, block-shuffle sky null, stages 3b/3c/11b on own noise), `dev_comp_methods.py`, `dev_epicv2_sesame.R` (EPIC v2 development read, behind `--atlas-v2`; EPIC v2 stays refused by default), `Runtime Matrices/Development/` (development inputs, not frozen).
+- `release_check_v3.py`: E1 is a whole-blood array with no sex or age; new E6-E10 (specimen refusal, hashed ids, noise-coverage withhold, C-score line, development flags labelled).
+- `build_chain_sequence.py`, `chain_sequence.json`, `doors/CHAIN_SEQUENCE.md`, `TOOLKIT.md`, SOP v3, operator chapter updated to match.
+
+---
+
 ## 2026-10-03 - chain v2 retired; chain v3 is the only engine
 
 The class-floor engine (v2) is retired from the public repository and archived privately (one archive, paths preserved, sha256

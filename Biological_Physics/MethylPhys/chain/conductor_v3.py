@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cellular Performance Gauge — conductor v3 (development build; NOT commissioned). Scope: neutrophils, EPIC v1 arrays.
+"""Cellular Performance Gauge — conductor v3. DEVELOPMENT - not commissioned. Scope: neutrophils, EPIC v1 arrays.
 
 Runs after Stage 0 (intake) and Stage 1 (IDAT calibration), both driven by MethylPhys_Interface/run_sample.py:
   platform  EPIC v1 only: refused when Stage 0 reports another array type, when probe names carry the EPIC v2 design suffix,
@@ -12,7 +12,9 @@ Runs after Stage 0 (intake) and Stage 1 (IDAT calibration), both driven by Methy
   Stage T   same-run tare against >= 3 healthy references run the same way (same slide, else same batch), whole blood and isolated
             alike: A_rel = A / median(reference A); nothing is fitted. Without references the reading is reported as untared.
   Noise     Stage M records the array's noise index N (noise_sites_EPIC_v1.json). If N > N_max (noise_gate_EPIC_v1.json, the top of
-            the reference arrays' range) the gauge state is withheld unless the reading is tared (DEV-NOISE-01 rule).
+            the reference arrays' range) the gauge state is withheld unless the reading is tared (DEV-NOISE-01 rule). If fewer than 90 % of
+            the noise sites are measured, N cannot be formed and the gauge state is withheld with the reason (author decision A, 2026-10-04).
+  Specimen  whole blood and isolated / sorted / purified neutrophils only (stage_0_intake.specimen_refusal, author decision L, 2026-10-04).
 Frozen inputs (Runtime Matrices/Met_A_Floors): metA_floors_v1_3.json, metA_floors_v1_3_loo.csv, neutrophil_reference_v1_1.json,
 blood_composition_EPIC_v1.json, noise_sites_EPIC_v1.json, noise_gate_EPIC_v1.json. neutrophil_reference_v1_1.json keys profiles_mean_beta and profile_map are record only (not read).
 IAM-A (sequencing) is Stage Q, stage_q_iam_a.py, called by run_sample.py with --pat or --site-table.
@@ -27,7 +29,7 @@ import json, os
 import numpy as np, pandas as pd
 import stage_m_met_a as SM
 HERE = os.path.dirname(os.path.abspath(__file__)); RM = os.path.join(HERE, "Runtime Matrices", "Met_A_Floors")
-BUILD = "development v3 (not commissioned) - neutrophils only"
+BUILD = "DEVELOPMENT - not commissioned (chain v3, neutrophils only)"
 MIN_READ_FRACTION = 0.20      # below this the 1 % shift is under 0.01 and too few sites carry the cell (DEV-LOWFRAC-01: 5 healthy arrays under 0.40)
 MIN_MARKER_FRACTION = 0.9     # Stage A needs >= 90 % of blood_composition_EPIC_v1.json "markers" measured (867 of 963)
 MIN_REFS = 3                  # Stage T needs >= 3 same-run reference arrays (median tare)
@@ -205,9 +207,13 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
     beta = beta.copy(); beta.index = beta.index.astype(str)
     out = {"build": BUILD, "specimen": specimen, "platform": SM.platform_of(beta), "array_type": array_type, "scope": "neutrophils only",
            "floors_version": SM._floors()["version"], "reference_version": ref()["version"]}
+    import stage_0_intake as S0
+    r = S0.specimen_refusal(specimen)
+    if r: out["refusal"] = r; out["refusal_code"] = "SPECIMEN_REFUSED"; return out
     r = platform_refusal(beta, array_type)
-    if r: out["refusal"] = r; return out
-    if specimen.lower() in ISOLATED:
+    if r: out["refusal"] = r; out["refusal_code"] = "PLATFORM_REFUSED"; return out
+    if S0.normalise_specimen(specimen) == "constructed dna mixture": out["note"] = "constructed DNA mixture of blood cells (test material): read as whole blood"
+    if S0.ACCEPTED_SPECIMENS.get(S0.normalise_specimen(specimen)) == "isolated neutrophils":
         m, z = stage_m_isolated(beta); out["composition"] = {"stage": "A", "note": "isolated neutrophils: composition not solved"}
     else:
         a = stage_a_composition(beta); out["composition"] = a
@@ -217,7 +223,15 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
     if t.get("A_rel") is not None: m["state"] = "tared: read A_rel (Stage T)"
     g = noise_gate(); N = m.get("noise_index"); m["noise_gate_N_max"] = g["N_max"]
     m["noise_gate"] = ("not measured" if N is None else ("pass" if N <= g["N_max"] else "above the reference arrays' range"))
-    if N is not None and N > g["N_max"] and t.get("A_rel") is None and m.get("A") is not None:   # no A -> its own reason stands (2026-10-03)
+    if N is None and m.get("A") is not None:   # author decision A (2026-10-04): below 90 % noise-site coverage the noise is unknown -> no state
+        need = int(np.ceil(MIN_NOISE_FRACTION * m["noise_sites_total"]))
+        m["noise_gate"] = "not measured: noise-site coverage below 90 %"
+        m["state"] = (f"withheld: only {m['noise_sites_measured']:,} of the {m['noise_sites_total']:,} noise sites were measured on this array "
+                      f"(at least {need:,}, 90 %, are needed). The noise index N is this array's own noise, read at sites every blood cell holds fixed; "
+                      f"without it the gauge cannot tell a change in the cell from noise on the array, so no gauge state is shown, tared or not. "
+                      f"A is printed as a number only. Probes are lost when Stage 1 finds them at background: re-hybridise the specimen or check the "
+                      f"array's signal (Stage 1 detection line).")
+    elif N is not None and N > g["N_max"] and t.get("A_rel") is None and m.get("A") is not None:   # no A -> its own reason stands (2026-10-03)
         m["state"] = f"withheld: noise index {N} > {g['N_max']} and no same-run tare; A printed as a number only"
     out["met_a"] = m; out["met_a_cscore"] = stage_mc_cscore(z); out["tare"] = t
     out["withheld"] = ["tier lines beyond Normal (not yet measured on this scale)", "other cell types (outside commissioning scope)"]

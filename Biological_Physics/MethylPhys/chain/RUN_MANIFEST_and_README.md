@@ -31,7 +31,7 @@ sha256 of each: [`FROZEN_INPUTS_v3.json`](FROZEN_INPUTS_v3.json), checked by [`r
 ```
 cd chain/MethylPhys_Interface
 python3 run_sample.py --grn S_Grn.idat.gz --red S_Red.idat.gz --specimen "whole blood" --array-type EPIC_v1 \
-  --sex F --age 52 --id S001 --out S001.html
+  --sex F --age 52 --id S001 --out S001.html                       # --sex, --age optional (NOT_DECLARED when not given)
 python3 run_sample.py ... --slide-ref-A 0.951,0.957,0.962        # whole blood: tare against >= 3 same-run healthy references
 python3 run_sample.py --betas S.csv --id S001 --out S001.html      # a beta table from this chain's Stage 1 (Stage 0 does not run)
 python3 run_sample.py --pat S.pat.gz --id S001 --out S001.html     # Stage Q (IAM-A) from a wgbstools .pat file

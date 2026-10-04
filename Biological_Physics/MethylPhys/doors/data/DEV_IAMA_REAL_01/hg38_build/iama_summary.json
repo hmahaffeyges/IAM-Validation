@@ -1,0 +1,158 @@
+{
+ "files": [
+  {
+   "gsm": "GSM5652313",
+   "bytes": 330577165
+  },
+  {
+   "gsm": "GSM5652314",
+   "bytes": 408368990
+  },
+  {
+   "gsm": "GSM5652315",
+   "bytes": 393328169
+  }
+ ],
+ "rows": [
+  {
+   "gsm": "GSM5652313",
+   "part": "head60MB",
+   "exit": 0,
+   "A": 1.0766,
+   "state": "above Normal",
+   "eps": 0.039881,
+   "opportunities": 22150236,
+   "errors": 883374,
+   "halves": "{\"A\": 1.0767, \"B\": 1.0764}",
+   "n_sites": 1980913,
+   "refusal": null,
+   "C": 1202.3079,
+   "C_blocks": 1980,
+   "C_se_null": 0.0318,
+   "C_A": 599.9772,
+   "C_B": 602.741,
+   "n_molecules": 73634702
+  },
+  {
+   "gsm": "GSM5652314",
+   "part": "head60MB",
+   "exit": 0,
+   "A": 1.1037,
+   "state": "above Normal",
+   "eps": 0.041214,
+   "opportunities": 27286738,
+   "errors": 1124596,
+   "halves": "{\"A\": 1.1039, \"B\": 1.1034}",
+   "n_sites": 1669203,
+   "refusal": null,
+   "C": 1624.9481,
+   "C_blocks": 1669,
+   "C_se_null": 0.0346,
+   "C_A": 814.2851,
+   "C_B": 811.0171,
+   "n_molecules": 91865368
+  },
+  {
+   "gsm": "GSM5652315",
+   "part": "head60MB",
+   "exit": 0,
+   "A": 1.0751,
+   "state": "above Normal",
+   "eps": 0.03981,
+   "opportunities": 28063278,
+   "errors": 1117199,
+   "halves": "{\"A\": 1.0749, \"B\": 1.0753}",
+   "n_sites": 1763840,
+   "refusal": null,
+   "C": 1862.3222,
+   "C_blocks": 1763,
+   "C_se_null": 0.0337,
+   "C_A": 925.4668,
+   "C_B": 937.2631,
+   "n_molecules": 85749057
+  },
+  {
+   "gsm": "GSM5652313",
+   "part": "whole",
+   "exit": 0,
+   "A": 1.0772,
+   "state": "above Normal",
+   "eps": 0.039911,
+   "opportunities": 121851378,
+   "errors": 4863210,
+   "halves": "{\"A\": 1.0772, \"B\": 1.0772}",
+   "n_sites": 11405197,
+   "refusal": null,
+   "C": 1898.4771,
+   "C_blocks": 11405,
+   "C_se_null": 0.0132,
+   "C_A": 948.3694,
+   "C_B": 950.5742,
+   "n_molecules": 391140087
+  },
+  {
+   "gsm": "GSM5652314",
+   "part": "whole",
+   "exit": 0,
+   "A": 1.0979,
+   "state": "above Normal",
+   "eps": 0.040927,
+   "opportunities": 182827142,
+   "errors": 7482566,
+   "halves": "{\"A\": 1.0977, \"B\": 1.098}",
+   "n_sites": 11958236,
+   "refusal": null,
+   "C": 1746.3945,
+   "C_blocks": 11958,
+   "C_se_null": 0.0129,
+   "C_A": 872.2477,
+   "C_B": 874.5259,
+   "n_molecules": 594998678
+  },
+  {
+   "gsm": "GSM5652315",
+   "part": "whole",
+   "exit": 0,
+   "A": 1.072,
+   "state": "above Normal",
+   "eps": 0.039658,
+   "opportunities": 182767703,
+   "errors": 7248202,
+   "halves": "{\"A\": 1.0722, \"B\": 1.0719}",
+   "n_sites": 12059479,
+   "refusal": null,
+   "C": 1985.1976,
+   "C_blocks": 12059,
+   "C_se_null": 0.0129,
+   "C_A": 992.0209,
+   "C_B": 993.5669,
+   "n_molecules": 539522782
+  }
+ ],
+ "head_reproduces": [
+  {
+   "gsm": "GSM5652313",
+   "errors": 883374,
+   "iso": 585119,
+   "opp_chain": 22150236,
+   "opp_record": 16453474,
+   "equal": false
+  },
+  {
+   "gsm": "GSM5652314",
+   "errors": 1124596,
+   "iso": 737728,
+   "opp_chain": 27286738,
+   "opp_record": 19730776,
+   "equal": false
+  },
+  {
+   "gsm": "GSM5652315",
+   "errors": 1117199,
+   "iso": 725421,
+   "opp_chain": 28063278,
+   "opp_record": 20428312,
+   "equal": false
+  }
+ ]
+}

@@ -13,8 +13,9 @@ Checks
   S2  static: no tracked file name or text file in the repository carries the old private name of the deconvolver
   S3  chain_sequence.json matches the code (build_chain_sequence.py --check)
   S4  every toolkit module imports (chain/TOOLKIT.md); build-time scripts are byte-compiled
-  E1  v3 end to end from a bundled EPIC v1 IDAT pair (TEST_DATA/idats/GSM8772491, colon tissue): Stage 0 PROCEED, Stage 1 runs,
-      the platform check refuses the incomplete vector (fewer than 700,000 detected probes), report and bundle written
+  E1  v3 end to end from a bundled EPIC v1 IDAT pair (TEST_DATA/idats/GSM8772491, a colon array declared as whole blood for this check),
+      with no age and no sex given (optional since 2026-10-04): Stage 0 PROCEED, sex check NOT_DECLARED, Stage 1 runs, the platform check
+      refuses the incomplete vector (fewer than 700,000 detected probes), report and bundle written
   E2  v3 end to end from a bundled 450K IDAT pair (GSM2333901): Stage 0 and Stage 1 run, Stage 0.7b quarantines the array (too few
       of the EPIC neutrophil sites), the run exits 2 and writes nothing
   E3  a constructed whole-blood specimen through run_sample.py --betas: the bundled EPIC array calibrated without the detection mask,
@@ -25,6 +26,16 @@ Checks
       IAM-A = 1 (Normal); the same table under another pipeline is refused; the .pat extractor reads a constructed .pat file
   E5  stage 12b (wired 2026-10-03): two constructed draws of one person through run_sample.py --prior-betas give the per-address difference;
       a draw with another identifier hash is refused
+  E6  specimen rule (author decision L, 2026-10-04): the bundled IDAT pair as "tissue" and the constructed beta table as "PBMC" and "cell line"
+      are refused at intake with a report naming the specimen and no reading; Stage 1 does not run on the refused IDAT pair
+  E7  identifiers hashed (decision B): after E3, neither the bundle nor the ledger carries the typed id CONSTRUCTED_NEU60; the report title does
+  E8  noise-site coverage (decision A): the E3 specimen with 10,000 noise sites removed (below 90 %) gets A as a number, no gauge state, no
+      gauge drawn, and the plain explanation in the report
+  E9  IAM-A C-score (decision C, DEVELOPMENT): constructed independent copy errors give C within 1 +/- 4 sqrt(2/blocks); errors clustered in one
+      block of ten give C above that; the E4 report carries the C-score line
+  E10 development flags (decision N): the E3 specimen with every development flag gives the same reading (A, state, A_rel, C) as without
+      flags; every development block is labelled DEVELOPMENT - not commissioned (OK, or NOT_RUN with its reason where the atlas is not
+      present); the report has the development section
   M1  the operations manual builds (manual/build_manual_v3.py)
 """
 import ast, gzip, hashlib, json, os, re, subprocess, sys, tempfile, time
@@ -44,7 +55,7 @@ R = []
 
 def rec(cid, ok, detail):
     R.append({"check": cid, "result": "PASS" if ok else "FAIL", "detail": detail})
-    print(f"  {'PASS' if ok else 'FAIL'}  {cid:<3} {detail}", flush=True)
+    print(f"  {'PASS' if ok else 'FAIL'}  {cid:<4} {detail}", flush=True)
     return ok
 
 
@@ -157,12 +168,12 @@ def _bundle(out_html):
 def E1(tmp):
     g, r_ = (os.path.join(IDAT, "GSM8772491_%s.idat.gz" % c) for c in ("Grn", "Red"))
     out = os.path.join(tmp, "E1.html")
-    code, log = run([PY, RS, "--grn", g, "--red", r_, "--specimen", "tissue", "--sex", "F", "--age", "60", "--id", "GSM8772491",
+    code, log = run([PY, RS, "--grn", g, "--red", r_, "--specimen", "whole blood", "--id", "GSM8772491",
                      "--array-type", "EPIC_v1", "--out", out, "--ledger", os.path.join(tmp, "ledger.jsonl")])
     b = _bundle(out) or {}; it = b.get("intake") or {}
-    ok = (code == 0 and os.path.exists(out) and it.get("stage0_verdict") in ("PROCEED", "PROCEED_WITH_PENALTY")
+    ok = (code == 0 and os.path.exists(out) and it.get("stage0_verdict") in ("PROCEED", "PROCEED_WITH_PENALTY") and it.get("sex_check") == "NOT_DECLARED"
           and (b.get("stage1") or {}).get("n_cpgs") and "EPIC v1 arrays only" in str(b.get("refusal")) and b.get("array_type") == "EPIC_v1")
-    rec("E1", ok, f"exit {code}; Stage 0 {it.get('stage0_verdict')}; Stage 1 {(b.get('stage1') or {}).get('n_cpgs')} CpGs; "
+    rec("E1", ok, f"exit {code}; Stage 0 {it.get('stage0_verdict')} (sex check {it.get('sex_check')}); Stage 1 {(b.get('stage1') or {}).get('n_cpgs')} CpGs; "
         f"refusal: {str(b.get('refusal'))[:90]}" + ("" if ok else " | log tail: " + " / ".join(log.strip().splitlines()[-3:])[:300]))
 
 
@@ -260,6 +271,69 @@ def E5(tmp):
         + ("" if ok else " | " + " / ".join(log2.strip().splitlines()[-3:])[:300]))
 
 
+def E6(tmp):
+    g, r_ = (os.path.join(IDAT, "GSM8772491_%s.idat.gz" % c) for c in ("Grn", "Red"))
+    res = []
+    o1 = os.path.join(tmp, "E6_tissue.html")
+    k1, log1 = run([PY, RS, "--grn", g, "--red", r_, "--specimen", "tissue", "--id", "E6_TISSUE", "--out", o1, "--ledger", os.path.join(tmp, "ledger.jsonl")])
+    b1 = _bundle(o1) or {}; res.append(("tissue IDAT", k1 == 0 and b1.get("refusal_code") == "SPECIMEN_REFUSED" and "'tissue'" in str(b1.get("refusal")) and not b1.get("met_a")
+                                         and "Stage 1: calibrating" not in log1 and "not run" in open(o1).read()))
+    csv = os.path.join(tmp, "E3_constructed.csv")
+    for sp in ("PBMC", "cell line"):
+        o = os.path.join(tmp, f"E6_{sp.replace(' ', '_')}.html")
+        k, _ = run([PY, RS, "--betas", csv, "--specimen", sp, "--id", "E6_" + sp.replace(" ", "_"), "--out", o, "--ledger", os.path.join(tmp, "ledger.jsonl")])
+        b = _bundle(o) or {}; res.append((sp, k == 0 and b.get("refusal_code") == "SPECIMEN_REFUSED" and not b.get("met_a") and "SPECIMEN_REFUSED" in open(o).read()))
+    rec("E6", all(x[1] for x in res), "; ".join(f"{n}: {'refused with a report' if ok else 'NOT refused as specified'}" for n, ok in res))
+
+
+def E7(tmp):
+    out = os.path.join(tmp, "E3.html"); bp = os.path.splitext(out)[0] + "_bundle.json"; led = os.path.join(tmp, "ledger.jsonl")
+    bt = open(bp).read() if os.path.exists(bp) else ""; lt = open(led).read() if os.path.exists(led) else ""; ht = open(out).read() if os.path.exists(out) else ""
+    ok = bool(bt) and "CONSTRUCTED_NEU60" not in bt and "CONSTRUCTED_NEU60" not in lt and "Cellular Performance Gauge - CONSTRUCTED_NEU60" in ht
+    rec("E7", ok, f"typed id in bundle: {'CONSTRUCTED_NEU60' in bt}; in ledger: {'CONSTRUCTED_NEU60' in lt}; in report title: {'Cellular Performance Gauge - CONSTRUCTED_NEU60' in ht}; "
+        f"bundle sample_id {json.loads(bt).get('sample_id') if bt else None}")
+
+
+def E8(tmp):
+    import pandas as pd
+    b = pd.read_csv(os.path.join(tmp, "E3_constructed.csv"), index_col=0).iloc[:, 0]
+    ns = json.load(open(os.path.join(HERE, "Runtime Matrices", "Met_A_Floors", "noise_sites_EPIC_v1.json")))["sites"]
+    b = b.drop([x for x in ns[:10000] if x in b.index]); csv = os.path.join(tmp, "E8.csv"); b.rename("beta").to_frame().to_csv(csv, index_label="cpg_id")
+    out = os.path.join(tmp, "E8.html")
+    code, _ = run([PY, RS, "--betas", csv, "--specimen", "whole blood", "--id", "E8", "--slide-ref-A", "1.0,1.0,1.0", "--out", out, "--ledger", os.path.join(tmp, "ledger.jsonl")])
+    m = (_bundle(out) or {}).get("met_a") or {}; h = open(out).read() if os.path.exists(out) else ""; sec = h.split("id='sec-met-a'")[-1].split("<h2")[0]
+    ok = code == 0 and m.get("A") is not None and str(m.get("state", "")).startswith("withheld: only") and "<svg" not in sec and "noise sites were measured on this array" in h
+    rec("E8", ok, f"A {m.get('A')}; noise sites {m.get('noise_sites_measured')} of {m.get('noise_sites_total')}; state withheld: {str(m.get('state', '')).startswith('withheld')}; gauge drawn: {'<svg' in sec}")
+
+
+def E9(tmp):
+    import numpy as np, pandas as pd
+    sys.path[:0] = [HERE]; import stage_q_iam_a as Q
+    rng = np.random.default_rng(9); n, opp, eps = 50000, 20, 0.035
+    k = rng.binomial(opp, eps, size=(2, n)); T = pd.DataFrame({"pos": [f"chr1:{i}" for i in range(n)], "opp_A": opp, "err_A": k[0], "opp_B": opp, "err_B": k[1]})
+    a = Q.cscore(T); lim = 4 * np.sqrt(2 / a["n_blocks"])
+    rate = np.full(n, eps); blk = (np.arange(n) // Q.CSCORE_BLOCK_SITES) % 10 == 0; rate[blk] = 3 * eps
+    k2 = rng.binomial(opp, np.vstack([rate, rate])); T2 = T.assign(err_A=k2[0], err_B=k2[1]); b = Q.cscore(T2)
+    e4 = open(os.path.join(tmp, "E4.html")).read() if os.path.exists(os.path.join(tmp, "E4.html")) else ""
+    ok = abs(a["C"] - 1) <= lim and b["C"] > 1 + lim and "sec-iam-a-cscore" in e4
+    rec("E9", ok, f"independent C {a['C']} ({a['n_blocks']} blocks, limit 1 +/- {lim:.3f}); clustered C {b['C']}; E4 report carries the C-score line: {'sec-iam-a-cscore' in e4}")
+
+
+def E10(tmp):
+    csv = os.path.join(tmp, "E3_constructed.csv"); L = ["--specimen", "whole blood", "--slide-ref-A", "1.0,1.0,1.0", "--ledger", os.path.join(tmp, "ledger.jsonl")]
+    o0, o1 = os.path.join(tmp, "E10_off.html"), os.path.join(tmp, "E10_on.html")
+    run([PY, RS, "--betas", csv, "--id", "E10", "--out", o0] + L)
+    fl = ["--dev-selftare-ii", "--dev-direction", "--dev-trace", "--dev-foreign", "--dev-brightness", "--dev-nilc", "--dev-atlas-e", "--dev-percell-b", "--dev-sky"]
+    code, log = run([PY, RS, "--betas", csv, "--id", "E10", "--out", o1] + L + fl)
+    a, b = _bundle(o0) or {}, _bundle(o1) or {}
+    key = lambda o: ((o.get("met_a") or {}).get("A"), (o.get("met_a") or {}).get("state"), (o.get("tare") or {}).get("A_rel"), (o.get("met_a_cscore") or {}).get("C"))
+    dev = b.get("development") or {}; blocks = {k: v for k, v in dev.items() if isinstance(v, dict)}
+    ok = (code == 0 and key(a) == key(b) and len(blocks) == len(fl) and all(v.get("label") == "DEVELOPMENT - not commissioned" for v in blocks.values())
+          and "sec-development" in open(o1).read() and all(v.get("status") in ("OK", "NOT_RUN") for v in blocks.values()))
+    rec("E10", ok, f"reading identical: {key(a) == key(b)}; blocks: " + ", ".join(f"{k} {v.get('status')}" for k, v in blocks.items())
+        + ("" if ok else " | " + " / ".join(log.strip().splitlines()[-3:])[:300]))
+
+
 def M1(tmp):
     out = os.path.join(tmp, "manual.pdf")
     code, log = run([PY, os.path.join(MP, "manual", "build_manual_v3.py"), out], cwd=os.path.join(MP, "manual"))
@@ -272,7 +346,7 @@ def main():
     files = tracked()
     tmp = tempfile.mkdtemp(prefix="rc_v3_")
     for name, fn, args in (("F1", F1, ()), ("S1", S1, (files,)), ("S2", S2, (files,)), ("S3", S3, ()), ("S4", S4, ()),
-                           ("E1", E1, (tmp,)), ("E2", E2, (tmp,)), ("E3", E3, (tmp,)), ("E4", E4, (tmp,)), ("E5", E5, (tmp,)), ("M1", M1, (tmp,))):
+                           ("E1", E1, (tmp,)), ("E2", E2, (tmp,)), ("E3", E3, (tmp,)), ("E4", E4, (tmp,)), ("E5", E5, (tmp,)), ("E6", E6, (tmp,)), ("E7", E7, (tmp,)), ("E8", E8, (tmp,)), ("E9", E9, (tmp,)), ("E10", E10, (tmp,)), ("M1", M1, (tmp,))):
         try: fn(*args)
         except Exception as e: rec(name, False, f"could not run: {type(e).__name__}: {str(e)[:200]}")
     n_fail = sum(r["result"] != "PASS" for r in R)

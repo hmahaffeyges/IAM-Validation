@@ -1,6 +1,32 @@
-# Chain v3 commissioning — stage by stage (development, 2026-10-03)
+# Chain v3 commissioning — stage by stage (development)
 
-The class-era (v2) commissioning table that stood here is kept in the private archive with the retired v2 chain.
+**DEVELOPMENT - not commissioned.** Development mode (author ruling O): no sealed pre-registrations; each check was written in a dated `doors/DEV_*.md`
+note before the data were read and the outcome is under the line in the same note.
+
+## Round 2 (2026-10-04)
+
+| stage / item | check (note) | result | wired |
+|---|---|---|---|
+| 0 Intake: age and sex optional (F), blood specimens only (L), ids hashed (B), EPIC v2 refused (M) | DEV-INTAKE-02 | 1,569/1,569 end to end, 0 crashes; 955 refused naming the specimen, 613 blood specimens read; 0 stops on age or sex; typed id in 0 of 1,837 bundles and ledgers, in 1,837/1,837 report titles | **yes** |
+| 9 Noise gate: withhold below 90 % noise-site coverage, with the reason (A) | DEV-INTAKE-02 check 4; release check E8 | no real array below 90 % (lowest 48,127 of 48,528); constructed array withheld with the explanation | **yes** |
+| 5 Met-A, purified healthy neutrophils, enlarged set | DEV-INTAKE-02 check 6 | tared A_rel: floor 6/6; other laboratories 56/68 Normal (round 1: 42/49) | running (unchanged) |
+| 1 Detection: poobah against the Gaussian negative-control test (E) | DEV-DETECTION-01 | 4,996 arrays, 55 strata: poobah better in 31, Gaussian in 0, neither in 24 | poobah stays (no change) |
+| 8 Self-tare on type II fixed sites, then median tare (G) | DEV-SELFTARE-02 | replicate within-person SD 0.0164, 62/63 Normal; other laboratories 49/49; floor 6/6 - every bar met | flag `--dev-selftare-ii`; author decision to make it the tare |
+| 3 / 4 Composition against another laboratory's mixtures (H) | DEV-COMPOSITION-TRUTH-02 | no adult EPIC mixture set found; GSE77797 (450K): atlas_e within 0.02 except granulocytes 0.041; NILC-e granulocytes 0.061 | flags `--dev-atlas-e`, `--dev-nilc` |
+| 10 Directional decomposition, physics only (I) | DEV-DIRECTION-02 | treated arrays 12/12 toward disorder; replicates 56/63 no direction (bar 95 %); vehicle 4/6 no direction | flag `--dev-direction` |
+| 11 / 12 Sky map against the block-shuffle null; sky statistics (J) | DEV-SKY-02 | median power ratio band 1 1.84, bands 2-6 1.03-1.15 (bar 0.9-1.1); look-elsewhere rate 91 % (bar 8.4 %) | flag `--dev-sky` |
+| 3b / 3c / 11b on the array's own noise (K) | DEV-TOOLKIT-ADDED-02 | 3b: 82.5 % called at 5 % (bar 95 %), 0/360 unspiked; 3c: 100 % called at f = 0 (bar <= 5 %); 11b: 3.8 % of repeat pairs inside the interval (bar 95 %) | flags `--dev-trace`, `--dev-foreign`, `--dev-brightness` |
+| 7 IAM-A C-score (C) | DEV-IAMA-CSCORE-01 | constructed independent sites C 0.823 (limit +-0.80); clustered 447.5; real whole files 604-1,047 | **yes** (printed; band not set) |
+| 7 IAM-A on real single-molecule files | DEV-IAMA-REAL-01 | 3/3 end to end; 60 MB heads reproduce the floor file exactly; whole files 1.0394, 1.0632, 1.0344 (2/3 Normal) | running |
+| 5 New cell: monocytes, B cells (D) | DEV-NEWCELL-01 | monocytes 11/13, SD 0.032; B cells 16/22, SD 0.037 - neither meets the new-cell rule | no (B behind `--dev-percell-b`) |
+| EPIC v2 through SeSAMe (M) | DEV-EPIC-V2-01 | 72/72 v2 calibrated; identity sites median 5,391 of 6,000 (< 5,400); v2 minus v1 at shared sites mean -0.034, SD 0.054; no v2 floor, no v2 replicates | flag `--dev-epic-v2`; EPIC v2 stays refused |
+| Development flags (N) | DEV-FLAGS-01 | 63/63 readings identical with every flag on; every flag labelled; development section on every report | **yes** |
+
+Release check: `kit/release_check.py` on a fresh git copy on the box (public clone at `185f609` plus the four round-2 commits applied as patches, box commit `edc6ae6`, `doors/` included): **17 of 17 checks PASS** (F1, F1b, S1-S4, E1-E10, M1; 258 s); `kit/results/release_check.json`. E10 ran with the atlas v2 parquet; the sky block was NOT_RUN there (healpy not in that environment).
+
+## Round 1 (2026-10-03)
+
+The class-era (v2) commissioning table that stood here before round 1 is kept in the private archive with the retired v2 chain.
 
 Order: SOP v3 section 2b (base chain first, then the toolkit in the commissioning order). Each check was written in a dated `doors/` note before
 the data were read; the outcome is under the line in the same note. A stage is wired into `run_sample.py` / `conductor_v3.py` / `report_v3.py`

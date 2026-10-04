@@ -34,6 +34,7 @@ blood_composition_EPIC_v1.json, noise_sites_EPIC_v1.json, noise_gate_EPIC_v1.jso
 ```
 python3 chain/MethylPhys_Interface/run_sample.py --grn S_Grn.idat.gz --red S_Red.idat.gz --specimen "whole blood" \
   --array-type EPIC_v1 --sex F --age 52 --id S001 --out reports/S001.html
+# --sex and --age are optional (recorded when given; NOT_DECLARED otherwise). Specimens: whole blood or isolated neutrophils.
 # pass 2 of a batch, with the same-run healthy references from pass 1:
 python3 chain/MethylPhys_Interface/run_sample.py ... --slide-ref-table refs.csv
 ```

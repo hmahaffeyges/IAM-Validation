@@ -52,9 +52,41 @@ REQUIRED_MANIFEST_FIELDS = (
     "patient_id",
     "intake_date",
     "substrate",
-    "declared_sex",
-    "declared_chronological_age",
 )
+# Optional (author decision F, 2026-10-04, DEV-INTAKE-02): recorded when given, never required. No v3 stage reads age; sex is checked
+# against the array only when it is declared.
+OPTIONAL_MANIFEST_FIELDS = ("declared_sex", "declared_chronological_age")
+
+# Specimens intake accepts (author decision L, 2026-10-04, DEV-INTAKE-02): the specimens chain v3 has a reference for. Every other
+# specimen is refused at intake with a report and no reading, until it has its own reference.
+ACCEPTED_SPECIMENS = {
+    "whole blood": "whole blood", "blood": "whole blood", "peripheral blood": "whole blood", "venous blood": "whole blood",
+    "isolated neutrophils": "isolated neutrophils", "sorted neutrophils": "isolated neutrophils",
+    "purified neutrophils": "isolated neutrophils", "neutrophils": "isolated neutrophils",
+    "constructed dna mixture": "constructed DNA mixture",   # test material: DNA of purified blood cells mixed in known amounts; read as whole blood
+}
+REFUSED_SPECIMEN_REASONS = (
+    (("pbmc", "mononuclear"), "PBMC (peripheral blood mononuclear cells) has no reference in chain v3: the neutrophil reading needs whole blood or isolated neutrophils"),
+    (("sorted", "purified", "isolated", "gmdsc", "mdsc", "cd4", "cd8", "t cells", "b cells", "nk cells", "monocytes", "basophils", "eosinophils"),
+     "a sorted cell fraction other than neutrophils has no reference in chain v3 yet; each cell type is added only after the three new-cell tests (SOP section 2b)"),
+    (("bone marrow", "marrow"), "bone marrow has no reference in chain v3"),
+    (("cell line", "cultured", "culture"), "a cell line has no reference in chain v3"),
+    (("unspecified", "unknown", "not given", ""), "the specimen is not stated: intake reads only a stated specimen it has a reference for"),
+)
+
+
+def normalise_specimen(specimen):
+    return " ".join(str(specimen or "").strip().lower().replace("_", " ").split())
+
+
+def specimen_refusal(specimen):
+    """None when intake accepts the specimen (ACCEPTED_SPECIMENS); otherwise the plain refusal text naming the specimen (decision L)."""
+    s = normalise_specimen(specimen)
+    if s in ACCEPTED_SPECIMENS: return None
+    why = next((r for keys, r in REFUSED_SPECIMEN_REASONS if any(k and k in s for k in keys) or (s == "" and "" in keys)), None)
+    why = why or f"'{specimen}' is not a blood specimen chain v3 has a reference for (tissue, placenta and other specimens each need their own reference)"
+    return (f"specimen '{specimen}' refused at intake: {why}. Accepted: whole blood, isolated / sorted / purified neutrophils. "
+            f"Nothing is read; this specimen can be read once it has its own reference.")
 
 VALID_ARRAY_TYPES = ("HM450K", "EPIC_v1", "EPIC_v2")
 
@@ -384,7 +416,7 @@ def step_0_2_manifest_creation(step_0_1_result: dict,
         _write_manifest(manifest_dir, record)
         return record
     core = ("sample_run_id", "sentrix_id", "array_type", "substrate", "patient_id",
-            "declared_sex", "declared_chronological_age", "intake_timestamp")
+            "intake_timestamp")   # declared sex and age are optional (decision F, 2026-10-04): recorded when given
     missing = [k for k in core if record.get(k) in (None, "")]
     if missing:
         flags.append("MANIFEST_INVALID:" + ",".join(missing))
@@ -764,7 +796,9 @@ def predict_sex(log2_x_median, log2_y_median, cutoff=SEX_GETSEX_CUTOFF) -> str:
 def validate_sex(log2_x_median, log2_y_median, declared_sex) -> dict:
     pred = predict_sex(log2_x_median, log2_y_median)
     declared = (declared_sex or "").strip().upper()[:1]
-    match = declared in ("F", "M") and pred == declared
+    if declared not in ("F", "M"):   # sex not declared (optional since 2026-10-04, decision F): the array's sex is recorded, nothing is compared
+        return {"predicted_sex": pred, "sex_check": "NOT_DECLARED", "advance": True}
+    match = pred == declared
     return {"predicted_sex": pred, "sex_check": "PASS" if match else "MISMATCH", "advance": match}
 
 
