@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3536 PASS, 0 FAIL, 2804 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3543 PASS, 0 FAIL, 2797 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -2304,34 +2304,32 @@ Totals: 3536 PASS, 0 FAIL, 2804 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 29 | eq:bar_eta | none |  | not run: displayed equation, not yet checked | - |
+| 29 | eq:bar_eta | none | `6.1\times10^{-10}` | numeric: baryon-to-photon ratio, about 6.1e-10 | PASS |
 | 31 | ch:baryon:L31 | observed | `6.180` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 31 | ch:baryon:L31:6.108 | observed | `6.108` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 32 | ch:baryon:L32 | observed | `6.127` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 32 | ch:baryon:L32:0.02237 | observed | `0.02237` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 33 | ch:baryon:L33 | observed | `273.9\times10^{-10}` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
-| 33 |  | observed | `10` | not run: measured, too few printed digits to match against the named files | - |
-| 83 |  | calc | `3.1\times10^{30}` | not run: not yet run: draft rejected (drafter skipped: Line 83, printed 3.1×10^30: the integral computation requires
-# the expli) | - |
-| 83 |  | calc | `0.523` | not run: not yet run: draft rejected (drafter skipped: Line 83, printed 0.523: described as "required" but no derivation
-# or co) | - |
-| 91 |  | conjecture | `13.8` | not run: not yet checked | - |
+| 33 |  | observed | `10` | not run: input: the unit 10^{-10} of Steigman's conversion eta = 273.9e-10 Omega_b h^2 (doi:10.1088/1475-7516/2006/10/016); the printed 10 is the base of that power, nothing to recompute | - |
+| 83 | ch:baryon:L83 | calc | `3.1\times10^{30}` | numeric: history integral as written, as coefficient K | PASS |
+| 83 | ch:baryon:L83:0.523 | calc | `0.523` | numeric: required coefficient K | PASS |
+| 91 | ch:baryon:L91 | conjecture | `13.8` | numeric: age of the universe, Gyr | PASS |
 | 97 | ch:baryon:L97 | observed | `0.1564` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names | PASS |
 | 105 | ch:baryon:L105 | calc | `9.5\times10^{-13}` | numeric: a at T = 150 MeV, entropy conservation ('approx') | PASS |
-| 105 |  | calc | `17.25` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 105 | ch:baryon:L105:17.25 | calc | `17.25` | numeric: g_*s at T = 150 MeV | PASS |
 | 106 | ch:baryon:L106 | calc | `0.6` | numeric: baryons per 1e9 photons at eta = 6.1e-10 | PASS |
-| 106 |  | calc | `10` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 108 | eq:bar_nb | derived |  | not run: not yet run: draft does not reproduce the printed value (recomputed -eta*n_gamma + n_b); drafting error on review | - |
-| 129 | eq:bar_loop | none |  | not run: displayed equation, not yet checked | - |
+| 106 |  | calc | `10` | not run: input: the printed 10 is the base of '10^9 photons', a unit of the sentence; the 0.6 baryons per 1e9 photons is checked at ch:baryon:L106 | - |
+| 108 | eq:bar_nb | derived |  | not run: definition: n_b = eta n_gamma is Eq. bar_eta rearranged (the book labels it 'derived (definition)') | - |
+| 129 | eq:bar_loop | none |  | not run: definition: Eq. bar_loop is a schematic causal chain (eta -> n_b -> W_info -> Lambda_acc -> {rho_dm, rho_de} -> H -> eta), no equation to verify | - |
 | 150 | ch:baryon:L150 | calc | `1.93\times10^4` | numeric: Hubble rate at T = 150 MeV, g* = 17.25, s^-1 | PASS |
-| 150 |  | calc | `150` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 150 |  | calc | `150` | not run: input: QCD transition temperature T = 150 MeV used as the epoch; the quantities computed at it are checked at ch:baryon:L105, L150, L151 | - |
 | 151 | ch:baryon:L151 | calc | `5.0\times10^{-13}` | numeric: Hubble length, pc | PASS |
 | 151 | ch:baryon:L151:2.9\times10^{78} | calc | `2.9\times10^{78}` | numeric: A_H/(4 l_P^2), nats | PASS |
 | 151 | ch:baryon:L151:4.2\times10^{78} | calc | `4.2\times10^{78}` | numeric: bits | PASS |
 | 151 | ch:baryon:L151:15.5 | calc | `15.5` | numeric: Hubble length, km | PASS |
-| 164 |  | calc | `273.9\times10^{-10}` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 164 |  | calc | `273.9\times10^{-10}` | not run: input: Steigman's conversion eta = 273.9e-10 Omega_b h^2 (JCAP 10 (2006) 016, doi:10.1088/1475-7516/2006/10/016), quoted | - |
 | 165 | ch:baryon:L165 | calc | `0.1431` | numeric: Omega_m h^2 = 0.3153 x 0.6736^2 | PASS |
-| 165 |  | calc | `0.3153` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 165 |  | calc | `0.3153` | not run: input: Omega_m = 0.3153 (Planck 2018 VI Table 2) restated; Omega_m h^2 = 0.1431 is checked at ch:baryon:L165 | - |
 | 166 | ch:baryon:L166 | calc | `0.01837` | numeric: Omega_b h^2 from Omega_b/Omega_m = 3 Omega_L/16 | PASS |
 | 166 | ch:baryon:L166:5.03\times10^{-10} | calc | `5.03\times10^{-10}` | numeric: eta from it | PASS |
 | 167 | ch:baryon:L167 | calc | `0.02220` | numeric: Omega_b h^2 from (3/16) sqrt(Omega_L) | PASS |
@@ -2340,8 +2338,8 @@ Totals: 3536 PASS, 0 FAIL, 2804 inventoried and not run. Each run item carries t
 | 168 | ch:baryon:L168:0.9 | calc | `0.9` | numeric: below 6.137 | PASS |
 | 168 | ch:baryon:L168:6.113 | calc | `6.113` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_13b_baryon_chain:117 (eta = 2.739e-8 Omega_b h^2 from the 18th chain) | PASS |
 | 168 | ch:baryon:L168:0.8 | calc | `0.8` | numeric: below Planck 6.127 | PASS |
-| 168 |  | calc | `6.137` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 169 |  | calc | `6.127` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 168 | ch:baryon:L168:6.137 | calc | `6.137` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: largest eta of the CMB chains | PASS |
+| 169 | ch:baryon:L169 | calc | `6.127` | numeric: Planck's eta x 1e10 | PASS |
 | 192 | ch:baryon:L192 | measured | `0.009273` | file `docs/verification/cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md`: measured: printed value found in CC_AND_BARYON_CHECK.md, a file the chapter names | PASS |
 
 ## Part 2 - ch:baryon_chain - `docs/book/part2/p2_13b_baryon_chain.tex`

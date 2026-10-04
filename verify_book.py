@@ -1464,6 +1464,51 @@ def _b02_lh_chains():
             out[m.group(1)] = dict(eta=float(m.group(2)), Om=float(m.group(3)), ratio=float(m.group(4)), ratio_sd=float(m.group(5)))
     return out
 
+# helpers of the part2/p2_13_baryon checks
+_b02_bar_C = {}
+_b02_bar_RERUN = 'python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)'
+
+def _b02_bar_cc():
+    """The cosmological-constant numbers with the chapter's inputs (Planck 2018 VI, doi:10.1051/0004-6361/201833910: H0 67.4, Ob 0.0493,
+    Om 0.3153, Omega_L = 1 - Om - Omega_r) and CODATA constants; as verify_lambda_baryon_book.py section B."""
+    if 'cc' not in _b02_bar_C:
+        Ogh2 = (math.pi**2 / 15) * (kB * T_CMB)**4 / (hbar * c)**3 / (3 * Hsi(100.0)**2 * c**2 / (8 * math.pi * G))   # photons, T_CMB 2.7255 K
+        Orad = Ogh2 / h_pl**2 * (1 + 0.2271 * 3.046)                                                                   # + 3.046 massless neutrinos
+        Ob_, Om_ = 0.0493, 0.3153
+        OL_ = 1 - Om_ - Orad
+        H0s = Hsi(67.4); lH = c / H0s
+        rvac = (math.sqrt(hbar * c**5 / G))**4 / (hbar * c)**3
+        rL = OL_ * 3 * H0s**2 / (8 * math.pi * G) * c**2
+        g = (lP / lH)**2; fb = Ob_ / Om_
+        obs = rL / rvac; base = 2 / math.pi * g * fb; corr = base * math.sqrt(OL_)
+        _b02_bar_C['cc'] = dict(Orad=Orad, Ob=Ob_, Om=Om_, OL=OL_, lH=lH, g=g, fb=fb, obs=obs, base=base, corr=corr)
+    return _b02_bar_C['cc']
+
+def _b02_bar_K(a1):
+    """History integral of Eq. lh_integral from a1 to 1, written as the coefficient K in K (l_P/l_H)^2 Ob/Om: integrand
+    (Ob/Otot)(a) (H/H0)/a^2 da on a 200001-point grid in ln a (verify_lambda_baryon_book.py section C)."""
+    d = _b02_bar_cc(); Om_, Ob_, Or_, OL_ = d['Om'], d['Ob'], d['Orad'], d['OL']
+    la = np.linspace(np.log(a1), 0, 200001); a = np.exp(la)
+    Hn = np.sqrt(Om_ / a**3 + Or_ / a**4 + OL_)
+    fbt = (Ob_ / a**3) / (Om_ / a**3 + Or_ / a**4 + OL_)
+    return integrate.trapezoid(fbt * Hn / a**2 * a, la) / d['fb']
+
+def _b02_bar_age(H0v=67.36, Omm=0.3153):
+    """Age of the universe in Gyr, t0 = int_0^1 da / (a H(a)), flat LambdaCDM, Planck 2018 (H0 67.36, Om 0.3153)."""
+    return quad(lambda a: 1.0 / (a * Hsi(H0v) * math.sqrt(Omm / a**3 + 1 - Omm)), 1e-8, 1, limit=200)[0] / Gyr
+
+def _b02_bar_chains():
+    """E1 rows of verify_lambda_baryon_book_output.txt: {chain: dict(eta, Om, ratio, ratio_sd)} (30 % burn-in, weighted)."""
+    out = {}
+    for ln in file_text('docs/verification/scripts/verify_lambda_baryon_book_output.txt').splitlines():
+        m = re.match(r"E1 (\S+)\s+rows .*?eta ([\d.]+) \+/- [\d.]+; .*?Om ([\d.]+) \+/- [\d.]+; .*?ratio ([\d.]+) \+/- ([\d.]+)", ln)
+        if m:
+            out[m.group(1)] = dict(eta=float(m.group(2)), Om=float(m.group(3)), ratio=float(m.group(4)), ratio_sd=float(m.group(5)))
+    return out
+
+_B02_STEIGMAN = 273.9e-10     # eta = 273.9e-10 Omega_b h^2, Steigman, JCAP 10 (2006) 016, doi:10.1088/1475-7516/2006/10/016 (the book's conversion)
+_B02_OBH2_PLANCK = 0.02237    # Omega_b h^2, Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing, doi:10.1051/0004-6361/201833910
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -15554,6 +15599,13 @@ def check_3535():
 
 
 # ======== Part 2 | ch:baryon | docs/book/part2/p2_13_baryon.tex
+@check(label='eq:bar_eta', chapter='ch:baryon', part=2, title='baryon-to-photon ratio, about 6.1e-10',
+       file='part2/p2_13_baryon', line=29, status='none', kind='num', printed='6.1\\times10^{-10}', tol=0.0)
+def check_3536():
+    'Eq. bar_eta, eta = (n_b - n_bbar)/n_gamma ~ 6.1e-10: eta = 273.9e-10 Omega_b h^2 (Steigman 2006) at the Planck 2018 Omega_b h^2 = 0.02237. Book line 29.'
+    value = _B02_STEIGMAN * _B02_OBH2_PLANCK
+    return locals()
+
 @check(label='ch:baryon:L31', chapter='ch:baryon', part=2, title='measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names',
        file='part2/p2_13_baryon', line=31, status='observed', kind='file', printed='6.180', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt')
@@ -15594,6 +15646,28 @@ def check_1417():
     ok = file_has('docs/verification/scripts/verify_lambda_baryon_book_output.txt', '273.9\\times10^{-10}')
     return locals()
 
+@check(label='ch:baryon:L83', chapter='ch:baryon', part=2, title='history integral as written, as coefficient K',
+       file='part2/p2_13_baryon', line=83, status='calc', kind='num', printed='3.1\\times10^{30}', tol=0.0)
+def check_3537():
+    'The history integral Eq. lh_integral from the printed a_EW = 2.3e-15, written as K in K (l_P/l_H)^2 Ob/Om (Planck 2018 densities, Omega_r from T_CMB, N_eff 3.046). Book line 83, printed 3.1e30.'
+    value = _b02_bar_K(2.3e-15)
+    return locals()
+
+@check(label='ch:baryon:L83:0.523', chapter='ch:baryon', part=2, title='required coefficient K',
+       file='part2/p2_13_baryon', line=83, status='calc', kind='num', printed='0.523', tol=0.0)
+def check_3538():
+    'The coefficient K required by the observed rho_L/rho_vac, (rho_L/rho_vac)/((l_P/l_H)^2 Ob/Om). Book line 83, printed 0.523.'
+    d = _b02_bar_cc()
+    value = d['obs'] / (d['g'] * d['fb'])
+    return locals()
+
+@check(label='ch:baryon:L91', chapter='ch:baryon', part=2, title='age of the universe, Gyr',
+       file='part2/p2_13_baryon', line=91, status='conjecture', kind='num', printed='13.8', tol=0.0)
+def check_3539():
+    'Age of the universe, int da/(a H) in flat LambdaCDM with Planck 2018 H0 67.36, Om 0.3153. Book line 91, printed 13.8 billion years.'
+    value = _b02_bar_age()
+    return locals()
+
 @check(label='ch:baryon:L97', chapter='ch:baryon', part=2, title='measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names',
        file='part2/p2_13_baryon', line=97, status='observed', kind='file', printed='0.1564', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt')
@@ -15609,6 +15683,15 @@ def check_1419():
     gs=17.25; gs0=3.938
     kT0=kB*T_CMB/e_ch/1e9
     value=(gs0/gs)**(1/3)*kT0/0.150
+    return locals()
+
+@check(label='ch:baryon:L105:17.25', chapter='ch:baryon', part=2, title='g_*s at T = 150 MeV',
+       file='part2/p2_13_baryon', line=105, status='calc', kind='num', printed='17.25', tol=0.0)
+def check_3540():
+    'Relativistic degrees of freedom just below the QCD transition: photons 2, pions 3 (bosons); electrons, muons 2 x 2 each and three neutrinos x 2 (fermions, weight 7/8). Book line 105, printed 17.25.'
+    bosons = 2 + 3
+    fermions = 2 * 2 + 2 * 2 + 3 * 2
+    value = bosons + 7 / 8 * fermions
     return locals()
 
 @check(label='ch:baryon:L106', chapter='ch:baryon', part=2, title='baryons per 1e9 photons at eta = 6.1e-10',
@@ -15744,6 +15827,21 @@ def check_1434():
     Omh2=Om*h_pl**2  # Planck 2018
     eta_c=273.9e-10  # eta = 273.9e-10 Omega_b h^2 (Steigman 2006)
     value=100*(1-eta_c*Omh2*3/16*math.sqrt(OL)/6.127e-10)
+    return locals()
+
+@check(label='ch:baryon:L168:6.137', chapter='ch:baryon', part=2, title='largest eta of the CMB chains',
+       file='part2/p2_13_baryon', line=168, status='calc', kind='file', printed='6.137', tol=0.0, source='docs/verification/scripts/verify_lambda_baryon_book_output.txt',
+       heavy=True, rerun=_b02_bar_RERUN)
+def check_3541():
+    'Upper end of the CMB values 6.113--6.137 of Chapter baryon_chain: largest eta x 1e10 over the five chains of the E1 rows of verify_lambda_baryon_book_output.txt (30 % burn-in, weighted, eta = 273.9e-10 Omega_b h^2). Book line 168.'
+    value = max(r['eta'] for r in _b02_bar_chains().values())
+    return locals()
+
+@check(label='ch:baryon:L169', chapter='ch:baryon', part=2, title="Planck's eta x 1e10",
+       file='part2/p2_13_baryon', line=169, status='calc', kind='num', printed='6.127', tol=0.0)
+def check_3542():
+    'eta x 1e10 from the Planck 2018 Omega_b h^2 = 0.02237 with Steigman 2006 conversion. Book line 169, printed 6.127.'
+    value = _B02_STEIGMAN * _B02_OBH2_PLANCK * 1e10
     return locals()
 
 @check(label='ch:baryon:L192', chapter='ch:baryon', part=2, title='measured: printed value found in CC_AND_BARYON_CHECK.md, a file the chapter names',
@@ -31615,20 +31713,13 @@ INVENTORY = [
     (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 72, '', 'calc', '2.3\\times10^{-15}', 'input restated: the printed a_EW = 2.3e-15 in the figure caption'),
     (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 86, '', 'calc', '10', 'input: halo mass cut 10^8 Msun of the Sheth-Tormen sum (the printed 10 is its base)'),
     (2, 'ch:lambda_history', 'part2/p2_12b_lambda_history', 96, '', 'interp', '3\\times10^{-8}', 'restates ch:lambda_history:L92 and ch:lambda:L394 (3.15e-8) to one digit; the 5 % shifted value 3.15e-8 coincides with the computed value, so no check can carry a failing negative control'),
-    (2, 'ch:baryon', 'part2/p2_13_baryon', 29, 'eq:bar_eta', 'none', '', 'displayed equation, not yet checked'),
-    (2, 'ch:baryon', 'part2/p2_13_baryon', 33, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:baryon', 'part2/p2_13_baryon', 83, '', 'calc', '3.1\\times10^{30}', 'not yet run: draft rejected (drafter skipped: Line 83, printed 3.1×10^30: the integral computation requires\n# the expli)'),
-    (2, 'ch:baryon', 'part2/p2_13_baryon', 83, '', 'calc', '0.523', 'not yet run: draft rejected (drafter skipped: Line 83, printed 0.523: described as "required" but no derivation\n# or co)'),
-    (2, 'ch:baryon', 'part2/p2_13_baryon', 91, '', 'conjecture', '13.8', 'not yet checked'),
-    (2, 'ch:baryon', 'part2/p2_13_baryon', 105, '', 'calc', '17.25', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:baryon', 'part2/p2_13_baryon', 106, '', 'calc', '10', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:baryon', 'part2/p2_13_baryon', 108, 'eq:bar_nb', 'derived', '', 'not yet run: draft does not reproduce the printed value (recomputed -eta*n_gamma + n_b); drafting error on review'),
-    (2, 'ch:baryon', 'part2/p2_13_baryon', 129, 'eq:bar_loop', 'none', '', 'displayed equation, not yet checked'),
-    (2, 'ch:baryon', 'part2/p2_13_baryon', 150, '', 'calc', '150', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:baryon', 'part2/p2_13_baryon', 164, '', 'calc', '273.9\\times10^{-10}', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:baryon', 'part2/p2_13_baryon', 165, '', 'calc', '0.3153', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:baryon', 'part2/p2_13_baryon', 168, '', 'calc', '6.137', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:baryon', 'part2/p2_13_baryon', 169, '', 'calc', '6.127', 'not yet run: draft rejected (printed value typed into the code)'),
+    (2, 'ch:baryon', 'part2/p2_13_baryon', 33, '', 'observed', '10', "input: the unit 10^{-10} of Steigman's conversion eta = 273.9e-10 Omega_b h^2 (doi:10.1088/1475-7516/2006/10/016); the printed 10 is the base of that power, nothing to recompute"),
+    (2, 'ch:baryon', 'part2/p2_13_baryon', 106, '', 'calc', '10', "input: the printed 10 is the base of '10^9 photons', a unit of the sentence; the 0.6 baryons per 1e9 photons is checked at ch:baryon:L106"),
+    (2, 'ch:baryon', 'part2/p2_13_baryon', 108, 'eq:bar_nb', 'derived', '', "definition: n_b = eta n_gamma is Eq. bar_eta rearranged (the book labels it 'derived (definition)')"),
+    (2, 'ch:baryon', 'part2/p2_13_baryon', 129, 'eq:bar_loop', 'none', '', 'definition: Eq. bar_loop is a schematic causal chain (eta -> n_b -> W_info -> Lambda_acc -> {rho_dm, rho_de} -> H -> eta), no equation to verify'),
+    (2, 'ch:baryon', 'part2/p2_13_baryon', 150, '', 'calc', '150', 'input: QCD transition temperature T = 150 MeV used as the epoch; the quantities computed at it are checked at ch:baryon:L105, L150, L151'),
+    (2, 'ch:baryon', 'part2/p2_13_baryon', 164, '', 'calc', '273.9\\times10^{-10}', "input: Steigman's conversion eta = 273.9e-10 Omega_b h^2 (JCAP 10 (2006) 016, doi:10.1088/1475-7516/2006/10/016), quoted"),
+    (2, 'ch:baryon', 'part2/p2_13_baryon', 165, '', 'calc', '0.3153', 'input: Omega_m = 0.3153 (Planck 2018 VI Table 2) restated; Omega_m h^2 = 0.1431 is checked at ch:baryon:L165'),
     (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 21, 'eq:bc_eta', 'observed', '', 'displayed equation, not yet checked'),
     (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 33, 'eq:bc_law', 'derived', '', 'not yet run: draft rejected (does not run: ValueError no value)'),
     (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 45, 'eq:bc_cc', 'openprob', '', 'displayed equation, not yet checked'),

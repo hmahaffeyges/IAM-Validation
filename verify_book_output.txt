@@ -2333,6 +2333,7 @@ PASS  ch:lambda_history:L160             ch:lambda_history:p2_12b_lambda_history
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:baryon (part2/p2_13_baryon.tex)
+PASS  eq:bar_eta                         ch:baryon:p2_13_baryon:29  printed 6.1\times10^{-10}  recomputed 6.127143e-10  tol 5.000005e-12  [none] baryon-to-photon ratio, about 6.1e-10
 PASS  ch:baryon:L31                      ch:baryon:p2_13_baryon:31  printed 6.180  recomputed found in file  [observed] measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
 PASS  ch:baryon:L31:6.108                ch:baryon:p2_13_baryon:31  printed 6.108  recomputed found in file  [observed] measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
@@ -2343,9 +2344,13 @@ PASS  ch:baryon:L32:0.02237              ch:baryon:p2_13_baryon:32  printed 0.02
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
 PASS  ch:baryon:L33                      ch:baryon:p2_13_baryon:33  printed 273.9\times10^{-10}  recomputed found in file  [observed] measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
+PASS  ch:baryon:L83                      ch:baryon:p2_13_baryon:83  printed 3.1\times10^{30}  recomputed 3.103579e+30  tol 5.000005e+28  [calc] history integral as written, as coefficient K
+PASS  ch:baryon:L83:0.523                ch:baryon:p2_13_baryon:83  printed 0.523  recomputed 0.522637  tol 5.000005e-04  [calc] required coefficient K
+PASS  ch:baryon:L91                      ch:baryon:p2_13_baryon:91  printed 13.8  recomputed 13.8007  tol 0.05  [conjecture] age of the universe, Gyr
 PASS  ch:baryon:L97                      ch:baryon:p2_13_baryon:97  printed 0.1564  recomputed found in file  [observed] measured: printed value found in verify_lambda_baryon_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
       heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt
 PASS  ch:baryon:L105                     ch:baryon:p2_13_baryon:105  printed 9.5\times10^{-13}  recomputed 9.569517e-13  tol 9.500010e-15  [calc] a at T = 150 MeV, entropy conservation ('approx')
+PASS  ch:baryon:L105:17.25               ch:baryon:p2_13_baryon:105  printed 17.25  recomputed 17.25  tol 0.00500001  [calc] g_*s at T = 150 MeV
 PASS  ch:baryon:L106                     ch:baryon:p2_13_baryon:106  printed 0.6  recomputed 0.61  tol 0.05  [calc] baryons per 1e9 photons at eta = 6.1e-10
 PASS  ch:baryon:L150                     ch:baryon:p2_13_baryon:150  printed 1.93\times10^4  recomputed 19303.8  tol 50  [calc] Hubble rate at T = 150 MeV, g* = 17.25, s^-1
 PASS  ch:baryon:L151                     ch:baryon:p2_13_baryon:151  printed 5.0\times10^{-13}  recomputed 5.033004e-13  tol 5.000005e-15  [calc] Hubble length, pc
@@ -2362,6 +2367,9 @@ PASS  ch:baryon:L168:0.9                 ch:baryon:p2_13_baryon:168  printed 0.9
 PASS  ch:baryon:L168:6.113               ch:baryon:p2_13_baryon:168  printed 6.113  recomputed 6.11343  tol 5.000005e-04  [calc] same value as p2_13b_baryon_chain:117 (eta = 2.739e-8 Omega_b h^2 from the 18th chain)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:baryon:L168:0.8                 ch:baryon:p2_13_baryon:168  printed 0.8  recomputed 0.774404  tol 0.05  [calc] below Planck 6.127
+PASS  ch:baryon:L168:6.137               ch:baryon:p2_13_baryon:168  printed 6.137  recomputed 6.137  tol 5.000005e-04  [calc] largest eta of the CMB chains  file docs/verification/scripts/verify_lambda_baryon_book_output.txt
+      heavy: python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt (chains: mgcamb_validation/chains/*.1.txt, 30 % burn-in, weighted)
+PASS  ch:baryon:L169                     ch:baryon:p2_13_baryon:169  printed 6.127  recomputed 6.12714  tol 5.000005e-04  [calc] Planck's eta x 1e10
 PASS  ch:baryon:L192                     ch:baryon:p2_13_baryon:192  printed 0.009273  recomputed found in file  [measured] measured: printed value found in CC_AND_BARYON_CHECK.md, a file the chapter names  file docs/verification/cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:baryon_chain (part2/p2_13b_baryon_chain.tex)
@@ -4392,4 +4400,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3536  FAIL 0  (heavy, read from committed outputs: 707)  inventoried-not-run 2804  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3543  FAIL 0  (heavy, read from committed outputs: 708)  inventoried-not-run 2797  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
