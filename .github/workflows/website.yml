@@ -30,7 +30,18 @@ jobs:
         run: |
           sudo apt-get update -q
           sudo apt-get install -y -q --no-install-recommends latexml texlive-latex-base texlive-latex-recommended \
-            texlive-latex-extra texlive-fonts-recommended texlive-science latexmk poppler-utils imagemagick
+            texlive-latex-extra texlive-fonts-recommended texlive-science poppler-utils imagemagick epubcheck
+      - name: Install tectonic (the engine the book is compiled with; builds the PDFs)
+        run: |
+          curl -fsSL -o /tmp/tectonic.tgz \
+            "https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic%400.15.0/tectonic-0.15.0-x86_64-unknown-linux-musl.tar.gz"
+          sudo tar -xzf /tmp/tectonic.tgz -C /usr/local/bin tectonic
+          tectonic --version
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/Tectonic
+          key: tectonic-${{ hashFiles('docs/book/preamble.tex', 'docs/book/main.tex') }}
+          restore-keys: tectonic-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -38,6 +49,13 @@ jobs:
         run: pip install numpy scipy sympy beautifulsoup4 matplotlib pillow
       - name: Build site and PDFs
         run: bash website/build/build.sh
+      - name: Check the PDFs and the EPUB are in the site
+        run: |
+          for f in pdf/IAMs_Law_and_Order.pdf pdf/part-1.pdf pdf/part-2.pdf pdf/part-3.pdf pdf/part-4.pdf pdf/part-5.pdf pdf/part-6.pdf \
+                   pdf/part-7.pdf epub/IAMs_Law_and_Order.epub; do
+            test -s "website/_site/$f" || { echo "::error::website/_site/$f is missing"; exit 1; }
+          done
+          ls -la website/_site/pdf website/_site/epub
       - uses: actions/upload-pages-artifact@v3
         with:
           path: website/_site

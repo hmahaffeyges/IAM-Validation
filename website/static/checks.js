@@ -97,24 +97,134 @@
     return res[0];
   }
 
-  async function runMany(labels, target, title) {
+  // With table = true (the front page's "Run every check" and each Part page's button) every check gets a row in a results list;
+  // otherwise (a chapter's "Run all checks on this page") only the failures are printed under the totals.
+  async function runMany(labels, target, title, table) {
     var m = await getMeta();
     await ensurePython();
-    var pass = 0, fail = 0, heavy = 0, i = 0;
+    var pass = 0, fail = 0, heavy = 0, i = 0, rows = [];
     var summary = el("span", "iam-result"); target.appendChild(summary);
     for (const lab of labels) {
       i += 1;
-      var c = m.checks[lab];
-      if (c && c.heavy) { heavy += 1; if (c.committed && c.committed.passed) pass += 1; else fail += 1; continue; }
+      var c = m.checks[lab] || {};
+      if (c.heavy) {
+        heavy += 1; var k = c.committed || {};
+        if (k.passed) pass += 1; else fail += 1;
+        rows.push(row(lab, c, k, "committed"));
+        continue;
+      }
       progress(i / labels.length, title + ": " + i + " of " + labels.length);
       await new Promise(function (r) { setTimeout(r, 0); });
       try {
         var r = JSON.parse(py.runPython("json.dumps([dataclasses.asdict(r) for r in verify_book.run(label=" + JSON.stringify(lab) + ")], default=str)"))[0];
-        if (r.passed) pass += 1; else { fail += 1; render(target, r); }
-      } catch (e) { fail += 1; target.appendChild(el("span", "iam-result", "ERROR " + lab + ": " + e)); }
-      summary.textContent = title + ": " + pass + " PASS, " + fail + " FAIL of " + i + " (" + heavy + " heavy, committed results shown)";
+        if (r.passed) pass += 1; else { fail += 1; if (!table) render(target, r); }
+        rows.push(row(lab, c, r, "browser"));
+      } catch (e) {
+        fail += 1;
+        if (!table) target.appendChild(el("span", "iam-result", "ERROR " + lab + ": " + e));
+        rows.push(row(lab, c, { passed: false, printed: (c.committed || {}).printed, recomputed: "ERROR: " + e }, "browser"));
+      }
+      summary.textContent = title + ": " + pass + " PASS, " + fail + " FAIL of " + i + " (" + heavy + " read from committed chain output)";
     }
+    summary.textContent = title + ": " + pass + " PASS, " + fail + " FAIL of " + i + " (" + heavy + " read from committed chain output)";
     done(title + ": " + pass + " PASS, " + fail + " FAIL.");
+    if (table) resultsTable(target, rows);
+  }
+
+  // ---- the results list: one row per check, filters by Part and by result, CSV download ----
+  var ROMAN = ["Front matter", "I", "II", "III", "IV", "V", "VI", "VII", "Appendices"];
+  function partName(n) { return ROMAN[n] != null ? ROMAN[n] : String(n); }
+  function fmtTol(t) {
+    if (t == null || t === "" || t === 0 || t === "0") return "half the last printed digit / exact";
+    var x = Number(t); return isNaN(x) ? String(t) : String(Number(x.toPrecision(3)));
+  }
+  function row(lab, c, r, source) {
+    return {
+      label: lab, part: c.part, partName: partName(c.part), chapter: c.chapter || "", what: c.title || "",
+      book: plain(r.printed) || "(algebra)", recomputed: r.recomputed == null ? "" : String(r.recomputed), tol: fmtTol(r.tol),
+      result: r.passed ? "PASS" : "FAIL", source: source,
+      href: c.page ? root + "book/" + c.page + "?check=" + encodeURIComponent(lab) + "#" + encodeURIComponent(c.anchor || "") : ""
+    };
+  }
+  var SOURCE = { browser: "computed in your browser", committed: "read from committed chain output" };
+  function resultsTable(target, rows) {
+    var old = target.parentNode.querySelector(":scope > .iam-results"); if (old) old.remove();
+    var wrap = el("section", "iam-results"); wrap.setAttribute("aria-label", "Results of every check");
+    wrap.appendChild(el("h2", null, "Results"));
+    var nb = rows.filter(function (x) { return x.source === "browser"; }).length;
+    var p1 = el("p", "iam-results-note");
+    p1.appendChild(el("b", null, "Computed in your browser (" + nb + "):"));
+    p1.appendChild(document.createTextNode(" verify_book.py recomputed the value just now, in this page, and compared it with the number printed in the book."));
+    var p2 = el("p", "iam-results-note");
+    p2.appendChild(el("b", null, "Read from committed chain output (" + (rows.length - nb) + "):"));
+    p2.appendChild(document.createTextNode(" the MCMC chains take days to run, and the CAMB runs, the methylation chain and the other pipelines these checks read " +
+      "cannot run in a browser either, so these checks confirm that the book matches the committed chain files and outputs."));
+    wrap.appendChild(p1); wrap.appendChild(p2);
+
+    var bar = el("div", "iam-results-bar");
+    function select(labelText, opts) {
+      var lab = el("label"); lab.appendChild(document.createTextNode(labelText + " "));
+      var s = document.createElement("select");
+      opts.forEach(function (o) { var op = el("option", null, o[1]); op.value = o[0]; s.appendChild(op); });
+      lab.appendChild(s); bar.appendChild(lab); return s;
+    }
+    var parts = []; rows.forEach(function (x) { if (parts.indexOf(x.part) < 0) parts.push(x.part); });
+    parts.sort(function (a, b) { return a - b; });
+    var fPart = select("Part", [["", "All"]].concat(parts.map(function (n) { return [String(n), partName(n)]; })));
+    var fRes = select("Result", [["", "All"], ["PASS", "PASS"], ["FAIL", "FAIL"]]);
+    var count = el("span", "iam-results-count"); bar.appendChild(count);
+    var dl = el("button", "iam-btn secondary", "Download results (CSV)"); dl.type = "button"; bar.appendChild(dl);
+    wrap.appendChild(bar);
+
+    var scroller = el("div", "iam-results-scroll"); scroller.tabIndex = 0;
+    scroller.setAttribute("role", "region"); scroller.setAttribute("aria-label", "Results table, scrollable");
+    var tbl = el("table", "iam-results-table");
+    var thead = el("thead"), hr = el("tr");
+    ["Label", "Part", "Chapter", "What it computes", "Book value", "Recomputed", "Tolerance", "Result", "Source"].forEach(function (h) {
+      var th = el("th", null, h); th.scope = "col"; hr.appendChild(th);
+    });
+    thead.appendChild(hr); tbl.appendChild(thead);
+    var tbody = el("tbody"); tbl.appendChild(tbody);
+    scroller.appendChild(tbl); wrap.appendChild(scroller);
+
+    function draw() {
+      var fp = fPart.value, fr = fRes.value, frag = document.createDocumentFragment(), n = 0;
+      rows.forEach(function (x) {
+        if (fp !== "" && String(x.part) !== fp) return;
+        if (fr !== "" && x.result !== fr) return;
+        n += 1;
+        var tr = el("tr");
+        var td = el("td", "lab");
+        if (x.href) { var a = el("a", null, x.label); a.href = x.href; a.title = "Show this check in the book"; td.appendChild(a); } else td.textContent = x.label;
+        tr.appendChild(td);
+        tr.appendChild(el("td", null, x.partName));
+        tr.appendChild(el("td", "chap", x.chapter));
+        tr.appendChild(el("td", "what", x.what));
+        tr.appendChild(el("td", "num", x.book));
+        tr.appendChild(el("td", "num", x.recomputed));
+        tr.appendChild(el("td", "num", x.tol));
+        var rc = el("td"); rc.appendChild(el("span", x.result === "PASS" ? "pass" : "fail", x.result)); tr.appendChild(rc);
+        tr.appendChild(el("td", "src", SOURCE[x.source]));
+        frag.appendChild(tr);
+      });
+      tbody.textContent = ""; tbody.appendChild(frag);
+      count.textContent = "Showing " + n + " of " + rows.length;
+    }
+    fPart.addEventListener("change", draw); fRes.addEventListener("change", draw);
+    dl.addEventListener("click", function () {
+      function q(v) { v = String(v == null ? "" : v); return /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
+      var lines = [["label", "part", "chapter", "what_it_computes", "book_value", "recomputed", "tolerance", "result", "source", "link"].join(",")];
+      rows.forEach(function (x) {
+        lines.push([x.label, x.partName, x.chapter, x.what, x.book, x.recomputed, x.tol, x.result, SOURCE[x.source],
+                    x.href ? new URL(x.href, location.href).href : ""].map(q).join(","));
+      });
+      var blob = new Blob(["\ufeff" + lines.join("\r\n") + "\r\n"], { type: "text/csv;charset=utf-8" });
+      var a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+      a.download = "iam_verify_book_results_" + new Date().toISOString().slice(0, 10) + ".csv";
+      document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    });
+    draw();
+    target.parentNode.insertBefore(wrap, target.nextSibling);
   }
 
   // One marker per paragraph or display ("\u2713 3 checks"): it opens a panel listing those checks, each with its own Run button.
@@ -155,6 +265,25 @@
     panel.hidden = false; btn.setAttribute("aria-expanded", "true");
   }
 
+  // A results-list link (?check=<label>#<paragraph>) opens that paragraph's panel and marks the check's row.
+  function openFromLink() {
+    var lab = null;
+    try { lab = new URLSearchParams(location.search).get("check"); } catch (e) {}
+    if (!lab) return;
+    var marks = document.querySelectorAll(".iam-mark");
+    for (var i = 0; i < marks.length; i++) {
+      if (labelsOf(marks[i]).indexOf(lab) >= 0) {
+        var mk = marks[i];
+        togglePanel(mk).then(function () {
+          var r = mk._panel && mk._panel.querySelector('.iam-run[data-label="' + lab.replace(/"/g, '\\"') + '"]');
+          if (r) { r.parentNode.classList.add("iam-row-target"); r.parentNode.scrollIntoView({ block: "center" }); }
+        });
+        return;
+      }
+    }
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", openFromLink); else openFromLink();
+
   document.addEventListener("click", function (ev) {
     var mk = ev.target.closest(".iam-mark");
     if (mk) { ev.preventDefault(); togglePanel(mk); return; }
@@ -187,7 +316,8 @@
     })();
     else if (b.dataset.part != null) p = getMeta().then(function (m) {
       var labs = Object.keys(m.checks).filter(function (k) { return b.dataset.part === "all" || String(m.checks[k].part) === b.dataset.part; });
-      return runMany(labs, holder, b.dataset.part === "all" ? "Every check" : "Part checks");
+      var prev = holder.querySelector(".iam-result"); if (prev) prev.remove();
+      return runMany(labs, holder, b.dataset.part === "all" ? "Every check" : "Part checks", true);
     });
     p.catch(function (e) { holder.appendChild(el("span", "iam-result", "Could not run: " + e)); }).finally(function () { b.disabled = false; });
   });
