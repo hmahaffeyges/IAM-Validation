@@ -158,7 +158,6 @@ the method and commissioned results. Their full text, as it stood in the book, i
 | 2026-10-03 | [FINDING_DETECTION_PANEL_HELDOUT.md](../Biological_Physics/MethylPhys/doors/FINDING_DETECTION_PANEL_HELDOUT.md) | FINDING — the foreign-cell detection panel, held out on 732 healthy blood arrays (2026-09-27) |
 | 2026-10-03 | [FINDING_GSE125105_LOW_SIGNAL.md](../Biological_Physics/MethylPhys/doors/FINDING_GSE125105_LOW_SIGNAL.md) | Finding 2026-09-27 — GSE125105 (Munich) arrays are low-signal, and the intake gate that should refuse them never fires |
 | 2026-10-03 | [FRACTION_AND_A.md](../Biological_Physics/MethylPhys/doors/FRACTION_AND_A.md) | Fraction and A — what mixing does to the per-cell A, measured on constructed specimens, 2026-09-26 |
-| 2026-10-03 | [HANDOFF.md](../Biological_Physics/MethylPhys/doors/HANDOFF.md) | HANDOFF — the physics of methylation, for whoever picks this up |
 | 2026-10-03 | [LABZERO02_OUTCOME.md](../Biological_Physics/MethylPhys/doors/LABZERO02_OUTCOME.md) | OUTCOME — LAB-ZERO-02: the fourth lab decides the lab-zero route |
 | 2026-10-03 | [PERCELL_STANDARD_REZERO_2026-09-27.md](../Biological_Physics/MethylPhys/doors/PERCELL_STANDARD_REZERO_2026-09-27.md) | The per-cell standard re-zeroed to 1.000 (PLAN item 4, first step) — 2026-09-27 |
 | 2026-10-03 | [PER_CELL_SCORING.md](../Biological_Physics/MethylPhys/doors/PER_CELL_SCORING.md) | The per-cell reading already exists — what is missing is a healthy band |
@@ -201,9 +200,7 @@ the method and commissioned results. Their full text, as it stood in the book, i
 | 2026-10-03 | [PROC_TISSUE_01_PREREG.md](../Biological_Physics/MethylPhys/doors/PROC_TISSUE_01_PREREG.md) | PROC-TISSUE-01 — does the gauge place healthy, adjacent-normal and tumour colon in order, without being shown the order? |
 | 2026-10-03 | [PROC_UNMIX_01_OUTCOME.md](../Biological_Physics/MethylPhys/doors/PROC_UNMIX_01_OUTCOME.md) | PROC-UNMIX-01 — outcome: NOT ADOPTED. The dilution-line inversion is exact arithmetic the composition solver cannot feed |
 | 2026-10-03 | [README.md](../Biological_Physics/MethylPhys/doors/README.md) | doors/ — the record of how the chain was built, and what is next |
-| 2026-10-03 | [README_LOG_2026-09-20_to_21_RECORD.md](../Biological_Physics/MethylPhys/doors/README_LOG_2026-09-20_to_21_RECORD.md) | Record: the dated notes that were appended to three READMEs, 20-21 September 2026 |
 | 2026-10-03 | [REFERENCE_AUDIT.md](../Biological_Physics/MethylPhys/doors/REFERENCE_AUDIT.md) | The per-cell A is computed on the wrong surface — measured 2026-09-26 |
-| 2026-10-03 | [REPORT_LINE_AUDIT_2026-09-26.md](../Biological_Physics/MethylPhys/doors/REPORT_LINE_AUDIT_2026-09-26.md) | Report interface — line-by-line accuracy audit, 2026-09-26 |
 | 2026-10-03 | [REPORT_TAB_REFERENCE.md](../Biological_Physics/MethylPhys/doors/REPORT_TAB_REFERENCE.md) | The report, tab by tab - the operating reference |
 | 2026-10-03 | [REPO_INVENTORY.md](../Biological_Physics/MethylPhys/doors/REPO_INVENTORY.md) | What is in this repository - measured |
 | 2026-10-03 | [REVIEWER_MANIFEST.md](../Biological_Physics/MethylPhys/doors/REVIEWER_MANIFEST.md) | What a reviewer can download, and what we have not published |
