@@ -130,7 +130,7 @@ and
 H(z;\beta)=H_0\sqrt{\Omega_m(1+z)^3+\Omega_\Lambda+\beta E\!\left(\frac{1}{1+z}\right)}. \label{eq:dsv_Hz}
 \end{equation}
 The Planck 2018 baseline cosmology is adopted: $\Omega_m=0.315$, $\Omega_\Lambda=0.685$~\cite{Planck2018VI}. Eq.~\eqref{eq:dsv_Hz} puts the matter-sector
-rate of Eq.~\eqref{eq:dsv_Hm} into the distances; $\beta=0$ is $\Lambda$CDM.
+rate of Eq.~\eqref{eq:dsv_Hm} into the distances; $\beta=0$ is $\Lambda$CDM. \derived{}
 
 \subsection{Chi-squared analysis}
 For each test configuration, the quantity minimised is
@@ -145,7 +145,7 @@ where $\chi^2_{\rm prior}$ implements external constraints:
 Free parameters are: $\Omega_m\in[0.20,0.40]$, $H_0\in[60,75]$ km\,s$^{-1}$\,Mpc$^{-1}$, $\beta\in[-0.30,+0.30]$, $M\in[-20.0,-18.0]$ mag.
 Minimization employs the Nelder--Mead simplex algorithm with 5000 maximum iterations and SciPy's default step sizing (the listing of Section~\ref{sec:dsv_code}). A simplex does not guarantee a global
 minimum, and because of the exact degeneracy derived below every minimum in this chapter is checked by minimising $M$ analytically and scanning
-$(\Omega_m,\beta)$ on a grid.
+$(\Omega_m,\beta)$ on a grid. \derived{}
 
 \paragraph{Full covariance.} The diagonal errors of Eq.~\eqref{eq:dsv_chi2} omit the correlated systematics. The geometry results of
 Section~\ref{sec:dsv_geometry} therefore also use the full statistical-plus-systematic covariance $C$ of the release, the Hubble-flow selection of the
