@@ -7,7 +7,7 @@
 **One law of physics from the qubit to the genome to the cosmic horizon.**
 
 <p align="center">
-  <a href="https://hmahaffeyges.github.io/IAM-Validation/book/"><img src="https://img.shields.io/badge/Read_the_book-online-2b5cad?style=for-the-badge" alt="Read the book online"></a>
+  <a href="https://hmahaffeyges.github.io/IAM-Validation/"><img src="https://img.shields.io/badge/Read_the_book-online-2b5cad?style=for-the-badge" alt="Read the book online"></a>
   <a href="https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs_Law_and_Order.pdf"><img src="https://img.shields.io/badge/Download-the_PDF-2b5cad?style=for-the-badge" alt="Download the PDF"></a>
   <a href="https://hmahaffeyges.github.io/IAM-Validation/"><img src="https://img.shields.io/badge/Run_every_check-in_your_browser-2e7d32?style=for-the-badge" alt="Run every check in your browser"></a>
 </p>
