@@ -35,8 +35,8 @@ def bandpowers(cl, bands=BANDS):
 def apodised_mask(good, apod_deg=APOD_DEG, taper=APOD_TAPER):
     """Weight in [0, 1] per pixel: 0 outside the footprint `good` (bool HEALPix RING array), rising to 1 at an angular distance
     apod_deg inside it. theta is the distance from a footprint pixel centre to the centre of the nearest masked pixel that touches
-    the footprint; x = sqrt((1 - cos theta) / (1 - cos apod_deg)) (= theta / apod_deg at small angles). Tapers (Grain et al. 2009,
-    as used by NaMaster):  "C1"  w = x - sin(2 pi x) / (2 pi);  "C2"  w = (1 - cos(pi x)) / 2;  w = 1 for x >= 1.
+    the footprint; x = sqrt((1 - cos theta) / (1 - cos apod_deg)) (= theta / apod_deg at small angles). Tapers (Grain et al. 2009):
+    "C1"  w = x - sin(2 pi x) / (2 pi);  "C2"  w = (1 - cos(pi x)) / 2;  w = 1 for x >= 1.
     A footprint with no masked pixel returns all ones."""
     import healpy as hp
     from scipy.spatial import cKDTree
