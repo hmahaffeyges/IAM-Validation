@@ -10,7 +10,9 @@ Themes (one per Part):
   lattice  Parts IV and V  - a square lattice of coupled nodes (a qubit / chip grid) with a standing wave across it.
   genome   Part VI         - the book's own genome sky: panel b of docs/book/figures/part4/fig_sky_cmb_vs_neutrophil.pdf (one
                              healthy neutrophil's pixel residual, the genome laid on the sphere).
-  web      Part VII        - the four skies joined, blended left to right.
+  web      Part VII        - the four skies joined, blended left to right (Part VII's banner; also Part I's front-page card).
+  chip     Part V          - a processor die from above: standard-cell rows, metal routing, memory macros.
+  mosaic   Part VII's card - the four skies as a 2 x 2 mosaic, so that no two front-page cards are alike.
 Each banner is 2400 x 600 px; each opening art is 1200 x 1200 px.
 """
 import pathlib, subprocess, tempfile
@@ -160,6 +162,51 @@ def web(name, size=(W, H)):
     Image.fromarray(out.clip(0, 255).astype(np.uint8)).save(OUT / name, quality=82, optimize=True)
 
 
+def chip(name, size=(W, H), seed=11):
+    """A processor die seen from above: rows of standard cells of varied width, metal routing on two layers, a few hard macros."""
+    w, h = size
+    rng = np.random.default_rng(seed)
+    fig = plt.figure(figsize=(w / 100, h / 100), facecolor="#0b1414")
+    ax = fig.add_axes([0, 0, 1, 1]); ax.set_axis_off(); ax.set_facecolor("#0b1414")
+    X, Y = w / h, 1.0
+    rows = 22
+    for r in range(rows):
+        y = 0.04 + r * (0.92 / rows)
+        x = 0.03
+        while x < X - 0.03:
+            cw = rng.choice([0.012, 0.018, 0.026, 0.04])
+            shade = rng.uniform(0.25, 0.65)
+            ax.add_patch(plt.Rectangle((x, y), cw * 0.92, 0.92 / rows * 0.78, color=(0.12, 0.35 + 0.3 * shade, 0.33 + 0.2 * shade), lw=0))
+            x += cw
+    for _ in range(140):                       # metal-2 horizontal and metal-3 vertical routes
+        if rng.random() < 0.5:
+            y = rng.uniform(0.03, 0.97); x0 = rng.uniform(0, X * 0.8)
+            ax.plot([x0, x0 + rng.uniform(0.1, 0.8)], [y, y], color="#d9a441", lw=0.8, alpha=0.55)
+        else:
+            x = rng.uniform(0.02, X - 0.02); y0 = rng.uniform(0, 0.7)
+            ax.plot([x, x], [y0, y0 + rng.uniform(0.1, 0.4)], color="#e8c27a", lw=0.7, alpha=0.45)
+    for _ in range(4):                         # hard macros (memories)
+        mx, my = rng.uniform(0.2, X - 0.6), rng.uniform(0.15, 0.55)
+        ax.add_patch(plt.Rectangle((mx, my), 0.45, 0.3, facecolor="#163236", edgecolor="#d9a441", lw=1.2))
+        for k in range(1, 12):
+            ax.plot([mx + 0.02, mx + 0.43], [my + k * 0.025, my + k * 0.025], color="#2f6a68", lw=0.6)
+    ax.set_xlim(0, X); ax.set_ylim(0, Y)
+    save(fig, name)
+
+
+def mosaic(name, size=(1200, 1200)):
+    """The four skies as a 2 x 2 mosaic (CMB, black hole, lattice, genome), for Part VII's card."""
+    w, h = size
+    tiles = ["cmb_opening.jpg", "bh_opening.jpg", "lattice_opening.jpg", "genome_opening.jpg"]
+    out = Image.new("RGB", (w, h), (5, 7, 13))
+    gap = 8
+    tw, th = (w - gap) // 2, (h - gap) // 2
+    for k, t in enumerate(tiles):
+        im = Image.open(OUT / t).convert("RGB").resize((tw, th))
+        out.paste(im, ((k % 2) * (tw + gap), (k // 2) * (th + gap)))
+    out.save(OUT / name, quality=82, optimize=True)
+
+
 def square(src_name, name):
     im = Image.open(OUT / src_name).convert("RGB")
     w, h = im.size
@@ -173,6 +220,8 @@ if __name__ == "__main__":
     lattice("lattice_banner.jpg")
     genome("genome_banner.jpg")
     web("web_banner.jpg")
-    for b in ("cmb", "cmb2", "bh", "lattice", "genome", "web"):
+    chip("chip_banner.jpg")
+    for b in ("cmb", "cmb2", "bh", "lattice", "genome", "web", "chip"):
         square(f"{b}_banner.jpg", f"{b}_opening.jpg")
+    mosaic("mosaic_opening.jpg")
     print("\n".join(sorted(p.name for p in OUT.iterdir())))

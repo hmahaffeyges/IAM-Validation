@@ -107,3 +107,26 @@ html[data-theme="dark"] .ltx_graphics, html[data-theme="sepia"] .ltx_graphics {
 .ltx_note_content { background: var(--panel); color: var(--fg); border-color: var(--rule); box-shadow: 0 4px 14px rgba(0,0,0,.25); }
 .ltx_note_mark { color: var(--link); }
 .ltx_ref { color: var(--link); }
+
+/* check markers: one per paragraph or display, at its end; the panel lists that block's checks */
+.iam-mark { font-family: system-ui, sans-serif; font-size: .72rem; font-weight: 600; text-indent: 0; border: 1px solid var(--accent);
+  color: var(--accent); background: transparent; border-radius: 999px; padding: 0 .5rem; margin-left: .25rem; cursor: pointer;
+  vertical-align: .1em; white-space: nowrap; line-height: 1.5; }
+.iam-mark:hover, .iam-mark[aria-expanded="true"] { background: var(--accent); color: var(--on-accent); }
+.iam-checks-after { text-align: right; margin: -.3rem 0 .6rem; text-indent: 0; }
+.iam-panel { font-family: system-ui, sans-serif; font-size: .85rem; text-indent: 0; background: var(--panel); border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent); border-radius: 6px; padding: .4rem .7rem; margin: .4rem 0 1rem; }
+.iam-panel[hidden] { display: none; }
+.iam-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .6rem; padding: .3rem 0; border-top: 1px solid var(--rule); }
+.iam-row:first-child { border-top: 0; }
+.iam-row .iam-what { flex: 1 1 18rem; color: var(--fg); }
+.iam-row .iam-book { color: var(--muted); }
+.iam-row .iam-result { flex: 1 1 100%; }
+.iam-row .iam-run { margin: 0; }
+.iam-foot { justify-content: flex-end; }
+.iam-pagechecks { margin: .2rem 0 1.2rem; font-family: system-ui, sans-serif; }
+.iam-pagechecks .iam-result { margin-top: .4rem; }
+
+.iam-claim { font-size: 1.1rem; line-height: 1.5; max-width: 40rem; }
+.iam-local { font-size: .9rem; color: var(--muted); }
+.iam-local code { color: var(--fg); }

@@ -91,6 +91,9 @@ def front_page(site, parts):
 <div class="cap"><h1>{TITLE}</h1><p>{SUBTITLE} &mdash; {SUBSUB}</p></div></div>
 <main class="iam-main iam-front" id="content">
 <p><b>{AUTHOR}</b></p>
+<p class="iam-claim">One law of physics from the qubit to the genome to the cosmic horizon. Every derivation in the book is checked in one command \u2014 try to break it.</p>
+<div class="iam-runall-front"><p><button class="iam-run iam-btn" type="button" data-part="all">Run every check</button></p>
+<p class="iam-local">Or on your own machine: <code>python3 docs/book/verify_book.py</code></p></div>
 <p>IAM, the Informational Actualization Model</p>
 <p><a class="iam-btn" href="pdf/IAMs_Law_and_Order.pdf">Download the PDF</a><a class="iam-btn secondary" href="book/">Read online</a></p>
 <h2>The seven Parts</h2>
@@ -98,10 +101,6 @@ def front_page(site, parts):
 <h2>Cite this book</h2>
 <div class="iam-cite">{html.escape(cite)}</div>
 <div class="iam-cite">{html.escape(bib)}</div>
-<h2>Check the book</h2>
-<p>Every derivation and number the book checks is one function of <a href="{REPO_URL}/blob/main/docs/book/verify_book.py">verify_book.py</a>.
-They run here, in this browser. Checks that need the Planck chains, CAMB or the methylation chain show their committed result and the command that reruns them.</p>
-<p><button class="iam-run iam-btn" type="button" data-part="all">Run every check</button></p>
 </main></body></html>"""
     (site / "index.html").write_text(head_html("", "dark", TITLE) + body)
 
@@ -171,17 +170,15 @@ def decorate_chapter(path, root, part, parts_by_n, index, results, discuss_cat):
         p = parts_by_n[part]
         main.insert(0, BeautifulSoup(f'<div class="iam-banner" style="background-image:url({root}art/{p["banner"]})" role="img" '
                                      f'aria-label="Part {p["roman"]} banner"></div>', "html.parser"))
-    n_buttons = 0
-    for span in soup.select(".iam-checkmark"):
-        ids = [int(x) for x in span.get_text().split()]
-        frag = []
-        for i in ids:
-            it = index[i]
-            lab = html.escape(it["label"], quote=True)
-            what = html.escape(f'{it["title"]} (book: {it["printed"] or "algebra"})', quote=True)
-            frag.append(f'<button class="iam-run" type="button" data-label="{lab}" title="{what}">Run this check</button>')
-            n_buttons += 1
-        span.replace_with(BeautifulSoup(" ".join(frag), "html.parser"))
+    n_buttons = place_check_markers(soup, index)
+    if n_buttons:
+        top = soup.find(class_="ltx_title_chapter") or soup.find(class_="ltx_title_appendix") or soup.find(class_="ltx_title")
+        bar = BeautifulSoup(f'<div class="iam-pagechecks"><button class="iam-btn secondary iam-runpage" type="button">'
+                            f'Run all checks on this page ({n_buttons})</button></div>', "html.parser")
+        if top:
+            top.insert_after(bar)
+        else:
+            main.insert(0, bar)
     title = soup.find("title").get_text() if soup.find("title") else ""
     q = re.sub(r"\s+", " ", title)[:90]
     content = soup.find(class_="ltx_page_content") or main
@@ -196,6 +193,86 @@ def decorate_chapter(path, root, part, parts_by_n, index, results, discuss_cat):
             img["alt"] = re.sub(r"\s+", " ", cap.get_text()).strip()[:400] if cap else "Figure"
     path.write_text(str(soup))
     return n_buttons
+
+
+BLOCKS = ("ltx_equation", "ltx_equationgroup", "ltx_figure", "ltx_table", "ltx_float", "ltx_itemize", "ltx_enumerate",
+          "ltx_tabular", "ltx_listing", "ltx_verbatim", "iam-box")
+
+
+def _cls(el):
+    return el.get("class", []) if hasattr(el, "get") else []
+
+
+def _prev_block(el):
+    """The block element just before el (skipping whitespace), climbing out of an ltx_para when el is its first child."""
+    while el is not None:
+        sib = el.previous_sibling
+        while sib is not None and not getattr(sib, "name", None) and not str(sib).strip():
+            sib = sib.previous_sibling
+        if sib is not None:
+            return sib
+        el = el.parent
+        if el is None or "ltx_para" not in _cls(el):
+            return None
+    return None
+
+
+def _text_before(span, p):
+    """True if the paragraph p has any visible content before span (text, math, other elements than check markers)."""
+    for el in span.previous_elements:
+        if el is p:
+            return False
+        if getattr(el, "name", None) is None:
+            if str(el).strip():
+                return True
+        elif "iam-checkmark" not in _cls(el) and el.name in ("math", "img"):
+            return True
+    return False
+
+
+def place_check_markers(soup, index):
+    """Replace the build markers (\\iamcheck) with one marker per paragraph or display: "\u2713 N checks" at the end of the
+    paragraph, or just under the equation, figure or table the checks belong to. A marker that LaTeXML put at the very start of a
+    paragraph, with nothing before it, belongs to the display or float right above that paragraph (the source marker was placed
+    after its \\end{...}). Clicking a marker opens a panel listing its checks, each with its own Run button (checks.js)."""
+    groups, order = {}, []
+    for span in soup.select(".iam-checkmark"):
+        ids = [int(x) for x in span.get_text().split()]
+        p = span.find_parent(class_="ltx_p") or span.find_parent("p")
+        block, kind = None, "inline"
+        if p is not None and not _text_before(span, p):
+            prev = _prev_block(p)
+            if prev is not None and any(c in _cls(prev) for c in BLOCKS):
+                block, kind = prev, "after"
+        if block is None and p is not None:
+            block, kind = p, "inline"
+        if block is None:
+            block = span.find_parent(class_=lambda c: c and ("ltx_title" in c or "ltx_item" in c)) or span.parent
+            kind = "after" if block is not None and "ltx_title" in " ".join(_cls(block)) else "inline"
+        key = id(block)
+        if key not in groups:
+            groups[key] = (block, kind, [])
+            order.append(key)
+        groups[key][2].extend(ids)
+        span.decompose()
+    n = 0
+    for key in order:
+        block, kind, ids = groups[key]
+        labels = []
+        for i in ids:
+            if index[i]["label"] not in labels:
+                labels.append(index[i]["label"])
+        n += len(labels)
+        word = "check" if len(labels) == 1 else "checks"
+        data = html.escape(json.dumps(labels), quote=True)
+        btn = (f'<button class="iam-mark" type="button" aria-expanded="false" data-labels="{data}" '
+               f'title="Show the {len(labels)} {word} of this {"paragraph" if kind == "inline" else "display"}">'
+               f'\u2713 {len(labels)} {word}</button>')
+        if kind == "inline":
+            block.append(BeautifulSoup(" " + btn, "html.parser"))
+        else:
+            block.insert_after(BeautifulSoup(f'<div class="iam-checks-after">{btn}</div>', "html.parser"))
+    return n
 
 
 def _letters(t, n=40):

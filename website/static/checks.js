@@ -117,14 +117,74 @@
     done(title + ": " + pass + " PASS, " + fail + " FAIL.");
   }
 
+  // One marker per paragraph or display ("\u2713 3 checks"): it opens a panel listing those checks, each with its own Run button.
+  function labelsOf(btn) { try { return JSON.parse(btn.getAttribute("data-labels")) || []; } catch (e) { return []; } }
+  function plainValue(c) { return c && c.committed ? plain(c.committed.printed) : ""; }
+  async function togglePanel(btn) {
+    var open = btn.getAttribute("aria-expanded") === "true";
+    var anchor = btn.closest(".ltx_p, .iam-checks-after") || btn.parentNode;
+    var panel = btn._panel;
+    if (open) { if (panel) panel.hidden = true; btn.setAttribute("aria-expanded", "false"); return; }
+    if (!panel) {
+      var m = await getMeta();
+      panel = el("div", "iam-panel"); panel.setAttribute("role", "region");
+      panel.setAttribute("aria-label", btn.textContent.replace("\u2713", "").trim());
+      var labs = labelsOf(btn);
+      labs.forEach(function (lab) {
+        var c = m.checks[lab] || {};
+        var row = el("div", "iam-row");
+        var what = el("span", "iam-what");
+        what.appendChild(el("span", "iam-title", c.title || lab));
+        var v = plainValue(c);
+        if (v) what.appendChild(el("span", "iam-book", " \u00b7 book: " + v));
+        if (c.heavy) what.appendChild(el("span", "iam-book", " \u00b7 reads a chain or pipeline output"));
+        row.appendChild(what);
+        var run = el("button", "iam-run", "Run"); run.type = "button"; run.dataset.label = lab;
+        run.setAttribute("aria-label", "Run check " + lab);
+        row.appendChild(run);
+        panel.appendChild(row);
+      });
+      if (labs.length > 1) {
+        var all = el("button", "iam-run iam-runall", "Run all " + labs.length); all.type = "button";
+        all.dataset.labels = JSON.stringify(labs);
+        var foot = el("div", "iam-row iam-foot"); foot.appendChild(all); panel.appendChild(foot);
+      }
+      anchor.parentNode.insertBefore(panel, anchor.nextSibling);
+      btn._panel = panel;
+    }
+    panel.hidden = false; btn.setAttribute("aria-expanded", "true");
+  }
+
   document.addEventListener("click", function (ev) {
+    var mk = ev.target.closest(".iam-mark");
+    if (mk) { ev.preventDefault(); togglePanel(mk); return; }
+    var pg = ev.target.closest(".iam-runpage");
+    if (pg) {
+      ev.preventDefault(); pg.disabled = true;
+      var labs = [];
+      document.querySelectorAll(".iam-mark").forEach(function (b) { labelsOf(b).forEach(function (l) { if (labs.indexOf(l) < 0) labs.push(l); }); });
+      runMany(labs, pg.parentNode, "This page").catch(function (e) { pg.parentNode.appendChild(el("span", "iam-result", "Could not run: " + e)); })
+        .finally(function () { pg.disabled = false; });
+      return;
+    }
     var b = ev.target.closest(".iam-run");
     if (!b) return;
     ev.preventDefault();
     b.disabled = true;
     var holder = b.parentNode;
     var p;
-    if (b.dataset.label) p = runOne(b.dataset.label, holder);
+    if (b.dataset.label) {
+      var prev = holder.querySelector(".iam-result"); if (prev && holder.classList.contains("iam-row")) prev.remove();
+      p = runOne(b.dataset.label, holder);
+    }
+    else if (b.dataset.labels) p = (async function () {        // a panel's "Run all": each row shows its own result
+      var rows = b.closest(".iam-panel").querySelectorAll(".iam-row .iam-run[data-label]");
+      for (var i = 0; i < rows.length; i++) {
+        var row = rows[i].parentNode, old = row.querySelector(".iam-result"); if (old) old.remove();
+        await runOne(rows[i].dataset.label, row);
+        await new Promise(function (r) { setTimeout(r, 0); });
+      }
+    })();
     else if (b.dataset.part != null) p = getMeta().then(function (m) {
       var labs = Object.keys(m.checks).filter(function (k) { return b.dataset.part === "all" || String(m.checks[k].part) === b.dataset.part; });
       return runMany(labs, holder, b.dataset.part === "all" ? "Every check" : "Part checks");
