@@ -735,6 +735,17 @@ def _b00_hold_energy():
         if ln.startswith('| methylated sites (copy error)'):
             return float(re.match(r'\s*([\d.]+)', ln.split('|')[3]).group(1))
     raise KeyError('copy-channel row not found')
+DATA_FILES['Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv'] = 'Met-A held-out (leave-one-out) readings of the 6 purified healthy EPIC neutrophil reference arrays'
+
+# helpers of the part1/p1_01_encoding_surfaces checks
+def _b00_hold_energy():
+    """E_hold (kT) of the copy channel, from the table row 'methylated sites (copy error)' of PROC_CHANNEL_01_OUTCOME.md."""
+    for ln in file_text('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md').splitlines():
+        if ln.startswith('| methylated sites (copy error)'):
+            return float(re.match(r'\s*([\d.]+)', ln.split('|')[3]).group(1))
+    raise KeyError('copy-channel row not found')
+
+_B00_HOLD_RERUN = 'methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file'
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -1053,6 +1064,21 @@ def check_0025():
     E_J=2.87e-21; value=E_J/eV*1000
     return locals()
 
+@check(label='ch:surfaces:L81', chapter='ch:surfaces', part=1, title='Clausius relation on Rindler horizons gives the coupling 8 pi G',
+       file='part1/p1_01_encoding_surfaces', line=81, status='derived', kind='sym', printed='', tol=0.0)
+def check_3136():
+    'delta Q = T dS on a local Rindler horizon: heat flux kappa lambda T_kk, Unruh T = hbar kappa/2pi, area change from Raychaudhuri dS = eta lambda R_kk. Solving for R_kk gives R_kk = (2pi/(hbar eta)) T_kk (kappa cancels), the Einstein equation with coupling 2pi/(hbar eta); with the Bekenstein-Hawking eta = 1/(4 hbar G) (c = k_B = 1) the coupling is 8 pi G. Book line 81 (Jacobson 1995). Units c = 1.'
+    kap, lam, Tkk, Rkk, eta, hb, G_ = sp.symbols('kappa lambda T_kk R_kk eta hbar G', positive=True)
+    dQ = kap * lam * Tkk
+    T_unruh = hb * kap / (2 * sp.pi)
+    dS = eta * lam * Rkk
+    Rsol = sp.solve(sp.Eq(dQ, T_unruh * dS), Rkk)[0]
+    coupling = sp.simplify(Rsol / Tkk)
+    lhs = coupling.subs(eta, 1 / (4 * hb * G_))
+    rhs = 8 * sp.pi * G_
+    neg_lhs = coupling.subs(eta, sp.Rational(105, 100) / (4 * hb * G_))
+    return locals()
+
 @check(label='ch:surfaces:L99', chapter='ch:surfaces', part=1, title='coupling beta_m defined as Omega_m/2',
        file='part1/p1_01_encoding_surfaces', line=99, status='derived', kind='sym', printed='', tol=0.0)
 def check_0026():
@@ -1105,6 +1131,32 @@ def check_0032():
     pass; value=1/(1+math.exp(E_hold))
     return locals()
 
+@check(label='ch:surfaces:L124:3.41', chapter='ch:surfaces', part=1, title='holding energy from the PROC-CHANNEL-01 record',
+       file='part1/p1_01_encoding_surfaces', line=124, status='measured', kind='file', printed='3.41', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
+def check_3137():
+    'Holding energy per maintained site, copy channel, 56 healthy cell types (table row of PROC_CHANNEL_01_OUTCOME.md). Book line 124, printed 3.41.'
+    value = _b00_hold_energy()
+    return locals()
+
+@check(label='ch:surfaces:L127', chapter='ch:surfaces', part=1, title='Met-A at the full surface: 1/Met_A_floor (canon)',
+       file='part1/p1_01_encoding_surfaces', line=127, status='calc', kind='file', printed='3.03', tol=0.0, source='CANON/iam_canon.json')
+def check_3138():
+    'Met-A when every identity site sits at a coin flip, H(1/2) = 1 bit, over the neutrophil floor 0.330263 bits (canon Met_A_floor_EPIC_neutrophil). Book line 127, printed 3.03.'
+    Hb = lambda e: -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
+    F0 = load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
+    value = Hb(0.5) / F0
+    return locals()
+
+@check(label='ch:surfaces:L127:4.45', chapter='ch:surfaces', part=1, title='IAM-A at the full surface: H(1/2)/(P H(eps0))',
+       file='part1/p1_01_encoding_surfaces', line=127, status='calc', kind='file', printed='4.45', tol=0.0, source='CANON/iam_canon.json')
+def check_3139():
+    'IAM-A when the copy error reaches one half: H(1/2)/(P H(eps0)), P = 1.099 for neutrophils (canon P_neutrophil_IAM_A), eps0 = 1/(1+e^E_hold) from the canon. Book line 127, printed 4.45.'
+    Hb = lambda e: -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
+    P_ = load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
+    value = Hb(0.5) / (P_ * Hb(eps0))
+    return locals()
+
 @check(label='ch:surfaces:L142', chapter='ch:surfaces', part=1, title='repeat, horizon temperature one solar mass',
        file='part1/p1_01_encoding_surfaces', line=142, status='calc', kind='num', printed='6.17\\times10^{-8}', tol=0.00081)
 def check_0033():
@@ -1131,6 +1183,24 @@ def check_0035():
 def check_0036():
     'repeat, cost per CpG site. Book line 144, printed 2.97\\times10^{-21}.'
     value=kB*T_cell*LN2
+    return locals()
+
+@check(label='ch:surfaces:L145', chapter='ch:surfaces', part=1, title='table: Met-A at the full surface (canon floor)',
+       file='part1/p1_01_encoding_surfaces', line=145, status='calc', kind='file', printed='3.03', tol=0.0, source='CANON/iam_canon.json')
+def check_3140():
+    'Table tab:identity, capacity row: Met-A at a coin flip = H(1/2)/0.330263 (canon Met_A_floor_EPIC_neutrophil). Book line 145, printed 3.03.'
+    Hb = lambda e: -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
+    F0 = load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
+    value = Hb(0.5) / F0
+    return locals()
+
+@check(label='ch:surfaces:L145:4.45', chapter='ch:surfaces', part=1, title='table: IAM-A at the full surface',
+       file='part1/p1_01_encoding_surfaces', line=145, status='calc', kind='file', printed='4.45', tol=0.0, source='CANON/iam_canon.json')
+def check_3141():
+    'Table tab:identity, capacity row: IAM-A at eps = 1/2, H(1/2)/(P H(eps0)) with P from the canon. Book line 145, printed 4.45.'
+    Hb = lambda e: -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
+    P_ = load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
+    value = Hb(0.5) / (P_ * Hb(eps0))
     return locals()
 
 @check(label='ch:surfaces:L161', chapter='ch:surfaces', part=1, title='orders of magnitude, Bohr to Hubble radius',
@@ -1332,6 +1402,18 @@ def check_0064():
     value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
     return locals()
 
+@check(label='ch:surfaces:L195', chapter='ch:surfaces', part=1, title='held-out spread of the neutrophil reference readings (SD)',
+       file='part1/p1_01_encoding_surfaces', line=195, status='measured', kind='file', printed='0.020', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv', heavy=True,
+       rerun='Met-A chain Stage 1 leave-one-out on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes metA_floors_v1_3_loo.csv')
+def check_3142():
+    'Sample standard deviation of the held-out readings A_loo of the six purified healthy neutrophil arrays, sites re-chosen on the other five (column A_loo). Book line 195, printed 0.020. The canon source note of Met_A_floor_EPIC_neutrophil gives the same SD 0.020.'
+    rows = load_csv_rows('Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
+    A = np.array([float(r['A_loo']) for r in rows if r['cell'] == 'neutrophils'])
+    n_arrays = len(A)
+    value = float(np.std(A, ddof=1))
+    return locals()
+
 @check(label='ch:surfaces:L202', chapter='ch:surfaces', part=1, title='thermal floor fraction from holding energy',
        file='part1/p1_01_encoding_surfaces', line=202, status='derived', kind='num', printed='0.032', tol=0.016)
 def check_0065():
@@ -1340,12 +1422,30 @@ def check_0065():
     value = 1/(1+math.exp(E_hold))
     return locals()
 
+@check(label='ch:surfaces:L202:3.41', chapter='ch:surfaces', part=1, title='holding energy from the PROC-CHANNEL-01 record',
+       file='part1/p1_01_encoding_surfaces', line=202, status='measured', kind='file', printed='3.41', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
+def check_3143():
+    'Holding energy per maintained site, copy channel (table row of PROC_CHANNEL_01_OUTCOME.md). Book line 202, printed 3.41.'
+    value = _b00_hold_energy()
+    return locals()
+
 @check(label='ch:surfaces:L209', chapter='ch:surfaces', part=1, title='ratio of cell temp to solar-mass Hawking temp',
        file='part1/p1_01_encoding_surfaces', line=209, status='calc', kind='num', printed='5.0\\times10^{9}', tol=0.01)
 def check_0066():
     'ratio of cell temp to solar-mass Hawking temp. Book line 209, printed 5.0\\times10^{9}.'
     T_H = hbar*c**3/(8*math.pi*G*Msun*kB)
     value = T_cell/T_H
+    return locals()
+
+@check(label='ch:surfaces:L210', chapter='ch:surfaces', part=1, title='bit-count ratio, solar-mass horizon to the genome CpGs',
+       file='part1/p1_01_encoding_surfaces', line=210, status='calc', kind='num', printed='5.4\\times10^{69}', tol=0.0)
+def check_3144():
+    'N_BH/N_CpG: horizon bits A/(4 ln2 l_P^2) of one solar mass (A = 4 pi r_s^2, r_s = 2GM/c^2) over the 28,217,448 CpG sites of the genome (input, book line 115). Book line 210, printed 5.4e69. Inputs: CODATA G, hbar, c; IAU solar mass.'
+    r_s = 2 * G * Msun / c**2
+    N_BH = 4 * math.pi * r_s**2 / (4 * LN2 * lP**2)
+    N_CpG = 28217448
+    value = N_BH / N_CpG
     return locals()
 
 @check(label='ch:surfaces:L220', chapter='ch:surfaces', part=1, title='Al superconducting gap expressed as temperature',
@@ -1360,6 +1460,14 @@ def check_0067():
 def check_0068():
     'Landauer bit-cost energy at body temperature. Book line 223, printed 2.968\\times10^{-21}.'
     value = kB*T_cell*LN2
+    return locals()
+
+@check(label='ch:surfaces:L223:3.41', chapter='ch:surfaces', part=1, title='holding energy from the PROC-CHANNEL-01 record',
+       file='part1/p1_01_encoding_surfaces', line=223, status='measured', kind='file', printed='3.41', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
+def check_3145():
+    'Holding energy per maintained site, copy channel (table row of PROC_CHANNEL_01_OUTCOME.md). Book line 223, printed 3.41.'
+    value = _b00_hold_energy()
     return locals()
 
 
@@ -27364,21 +27472,11 @@ INVENTORY = [
     (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 49, '', 'none', '', 'definition of Bekenstein-Hawking entropy'),
     (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 59, '', 'none', '', 'definition of Hawking temperature'),
     (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 70, '', 'none', '', 'definition of Landauer bit energy'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 81, '', 'derived', '', "not yet run: draft rejected (does not run: SympifyError Sympify of expression 'could not parse ')"),
     (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 92, '', 'conjecture', '', 'definition of total entropy functional, new term'),
     (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 108, '', 'conjecture', '', 'floor-breach inequality, definitional condition'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 124, '', 'measured', '3.41', 'measured, not found in the files the chapter names'),
     (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 125, '', 'none', '0.910', 'neutrophil gauge reading, restated from other chapter'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 127, '', 'calc', '3.03', "not yet run: draft rejected (drafter skipped: A-score at full surface (Met-A) requires the cell's methylation model par)"),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 127, '', 'calc', '4.45', "not yet run: draft rejected (drafter skipped: A-score at full surface (IAM-A) requires the cell's methylation model par)"),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 145, '', 'calc', '3.03', "not yet run: draft rejected (drafter skipped: A-score at full surface (Met-A) requires the cell's methylation model par)"),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 145, '', 'calc', '4.45', "not yet run: draft rejected (drafter skipped: A-score at full surface (IAM-A) requires the cell's methylation model par)"),
     (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 146, '', 'none', '0.910', 'repeat, neutrophil gauge reading'),
     (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 194, '', 'prediction', '-0.136', 'predicted growth-deficit parameter, locked result'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 195, '', 'measured', '0.020', 'measured, too few printed digits to match against the named files'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 202, '', 'measured', '3.41', 'measured, not found in the files the chapter names'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 210, '', 'calc', '5.4\\times10^{69}', 'not yet run: draft does not reproduce the printed value (recomputed 8.317985e+51); drafting error on review'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 223, '', 'measured', '3.41', 'measured, not found in the files the chapter names'),
     (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 238, '', 'prediction', '-0.136', 'locked IAM growth-rate parameter, used as input'),
     (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 238, '', 'prediction', '0', 'Sigma_0 fixed to zero by IAM construction'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 72, 'eq:law', 'none', '', "definition: IAM's Law cost per bit"),

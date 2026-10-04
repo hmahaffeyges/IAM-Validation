@@ -52,6 +52,7 @@ PASS  ch:surfaces:L62                    ch:surfaces:p1_01_encoding_surfaces:62 
 PASS  ch:surfaces:L72                    ch:surfaces:p1_01_encoding_surfaces:72  printed 2.87\times10^{-21}  recomputed found in file  [observed] measured: printed value found in verify_encoding_ladder_output.txt, a file the chapter names  file docs/verification/scripts/verify_encoding_ladder_output.txt
       heavy: python3 docs/verification/scripts/verify_encoding_ladder.py > docs/verification/scripts/verify_encoding_ladder_output.txt
 PASS  ch:surfaces:L72:17.9               ch:surfaces:p1_01_encoding_surfaces:72  printed 17.9  recomputed 17.9131  tol 0.0501201  [observed] J-to-meV conversion of measured bit energy
+PASS  ch:surfaces:L81                    ch:surfaces:p1_01_encoding_surfaces:81  printed (algebra)  recomputed lhs-rhs=0  [derived] Clausius relation on Rindler horizons gives the coupling 8 pi G
 PASS  ch:surfaces:L99                    ch:surfaces:p1_01_encoding_surfaces:99  printed (algebra)  recomputed lhs-rhs=0  [derived] coupling beta_m defined as Omega_m/2
 PASS  ch:surfaces:L103                   ch:surfaces:p1_01_encoding_surfaces:103  printed +0.54  recomputed 0.541  tol 0.00500041  [measured] Level 2 chi2_min IAM (runA) minus LCDM (runC)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
@@ -60,10 +61,16 @@ PASS  ch:surfaces:L117                   ch:surfaces:p1_01_encoding_surfaces:117
 PASS  ch:surfaces:L117:9.3\times10^{5}   ch:surfaces:p1_01_encoding_surfaces:117  printed 9.3\times10^{5}  recomputed 9.334408e+05  tol 27900  [calc] floor energy expressed as ATP hydrolyses
 PASS  ch:surfaces:L120                   ch:surfaces:p1_01_encoding_surfaces:120  printed 8.38\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-17  [calc] N_CpG k_B T ln2 with N = 28,217,448 (printed 2.82e7)
 PASS  ch:surfaces:L124                   ch:surfaces:p1_01_encoding_surfaces:124  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [derived] thermal copy-error from holding energy
+PASS  ch:surfaces:L124:3.41              ch:surfaces:p1_01_encoding_surfaces:124  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy from the PROC-CHANNEL-01 record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:surfaces:L127                   ch:surfaces:p1_01_encoding_surfaces:127  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] Met-A at the full surface: 1/Met_A_floor (canon)  file CANON/iam_canon.json
+PASS  ch:surfaces:L127:4.45              ch:surfaces:p1_01_encoding_surfaces:127  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] IAM-A at the full surface: H(1/2)/(P H(eps0))  file CANON/iam_canon.json
 PASS  ch:surfaces:L142                   ch:surfaces:p1_01_encoding_surfaces:142  printed 6.17\times10^{-8}  recomputed 6.170074e-08  tol 5.000005e-11  [calc] repeat, horizon temperature one solar mass
 PASS  ch:surfaces:L143                   ch:surfaces:p1_01_encoding_surfaces:143  printed 1.51\times10^{77}  recomputed 1.513322e+77  tol 5.000005e+74  [calc] repeat, bits held by solar-mass horizon
 PASS  ch:surfaces:L144                   ch:surfaces:p1_01_encoding_surfaces:144  printed 5.9\times10^{-31}  recomputed 5.904717e-31  tol 5.000005e-33  [calc] Landauer cost per bit at horizon temperature
 PASS  ch:surfaces:L144:2.97\times10^{-21} ch:surfaces:p1_01_encoding_surfaces:144  printed 2.97\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-24  [calc] repeat, cost per CpG site
+PASS  ch:surfaces:L145                   ch:surfaces:p1_01_encoding_surfaces:145  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] table: Met-A at the full surface (canon floor)  file CANON/iam_canon.json
+PASS  ch:surfaces:L145:4.45              ch:surfaces:p1_01_encoding_surfaces:145  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] table: IAM-A at the full surface  file CANON/iam_canon.json
 PASS  ch:surfaces:L161                   ch:surfaces:p1_01_encoding_surfaces:161  printed 36.4  recomputed 36.4142  tol 0.05  [calc] orders of magnitude, Bohr to Hubble radius
 PASS  ch:surfaces:L161:1.2\times10^{32}  ch:surfaces:p1_01_encoding_surfaces:161  printed 1.2\times10^{32}  recomputed 1.168711e+32  tol 5.004005e+30  [calc] cost-per-bit ratio, cell to cosmic horizon
 PASS  ch:surfaces:L165                   ch:surfaces:p1_01_encoding_surfaces:165  printed 2.65\times10^{-30}  recomputed 2.645898e-30  tol 5.008505e-33  [calc] Gibbons-Hawking temp, photon-sector H0
@@ -94,10 +101,17 @@ PASS  ch:surfaces:L185                   ch:surfaces:p1_01_encoding_surfaces:185
 PASS  ch:surfaces:L185:182               ch:surfaces:p1_01_encoding_surfaces:185  printed 182  recomputed 181.7  tol 0.500501  [calc] ratio, CMB temperature to qubit stage
 PASS  ch:surfaces:L193                   ch:surfaces:p1_01_encoding_surfaces:193  printed +0.54  recomputed 0.541  tol 0.00500041  [measured] Level 2 chi2_min IAM (runA) minus LCDM (runC)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:surfaces:L195                   ch:surfaces:p1_01_encoding_surfaces:195  printed 0.020  recomputed 0.0197562  tol 5.000005e-04  [measured] held-out spread of the neutrophil reference readings (SD)  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv
+      heavy: Met-A chain Stage 1 leave-one-out on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes metA_floors_v1_3_loo.csv
 PASS  ch:surfaces:L202                   ch:surfaces:p1_01_encoding_surfaces:202  printed 0.032  recomputed 0.0319844  tol 5.120005e-04  [derived] thermal floor fraction from holding energy
+PASS  ch:surfaces:L202:3.41              ch:surfaces:p1_01_encoding_surfaces:202  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy from the PROC-CHANNEL-01 record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
 PASS  ch:surfaces:L209                   ch:surfaces:p1_01_encoding_surfaces:209  printed 5.0\times10^{9}  recomputed 5.026682e+09  tol 5.000005e+07  [calc] ratio of cell temp to solar-mass Hawking temp
+PASS  ch:surfaces:L210                   ch:surfaces:p1_01_encoding_surfaces:210  printed 5.4\times10^{69}  recomputed 5.363072e+69  tol 5.000005e+67  [calc] bit-count ratio, solar-mass horizon to the genome CpGs
 PASS  ch:surfaces:L220                   ch:surfaces:p1_01_encoding_surfaces:220  printed 2.112  recomputed 2.11202  tol 5.068805e-04  [calc] Al superconducting gap expressed as temperature
 PASS  ch:surfaces:L223                   ch:surfaces:p1_01_encoding_surfaces:223  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.045605e-25  [calc] Landauer bit-cost energy at body temperature
+PASS  ch:surfaces:L223:3.41              ch:surfaces:p1_01_encoding_surfaces:223  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy from the PROC-CHANNEL-01 record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
 
 == Part 1: Introduction to IAM's Law and the Virial Theorem | ch:iams_law (part1/p1_02_iams_law.tex)
 PASS  ch:iams_law:L135                   ch:iams_law:p1_02_iams_law:135  printed 0.0179  recomputed 0.0179192  tol 5.012005e-05  [derived] Landauer cost per bit at 300K in eV
@@ -3918,4 +3932,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3136  FAIL 0  (heavy, read from committed outputs: 633)  inventoried-not-run 3198  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3146  FAIL 0  (heavy, read from committed outputs: 637)  inventoried-not-run 3188  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3136 PASS, 0 FAIL, 3198 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3146 PASS, 0 FAIL, 3188 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -91,7 +91,7 @@ Totals: 3136 PASS, 0 FAIL, 3198 inventoried and not run. Each run item carries t
 | 70 |  | none |  | not run: definition of Landauer bit energy | - |
 | 72 | ch:surfaces:L72 | observed | `2.87\times10^{-21}` | heavy file `docs/verification/scripts/verify_encoding_ladder_output.txt`: measured: printed value found in verify_encoding_ladder_output.txt, a file the chapter names | PASS |
 | 72 | ch:surfaces:L72:17.9 | observed | `17.9` | numeric: J-to-meV conversion of measured bit energy | PASS |
-| 81 |  | derived |  | not run: not yet run: draft rejected (does not run: SympifyError Sympify of expression 'could not parse ') | - |
+| 81 | ch:surfaces:L81 | derived |  | sympy: Clausius relation on Rindler horizons gives the coupling 8 pi G | PASS |
 | 92 |  | conjecture |  | not run: definition of total entropy functional, new term | - |
 | 99 | ch:surfaces:L99 | derived |  | sympy: coupling beta_m defined as Omega_m/2 | PASS |
 | 103 | ch:surfaces:L103 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (runA) minus LCDM (runC) | PASS |
@@ -101,16 +101,16 @@ Totals: 3136 PASS, 0 FAIL, 3198 inventoried and not run. Each run item carries t
 | 117 | ch:surfaces:L117:9.3\times10^{5} | calc | `9.3\times10^{5}` | numeric: floor energy expressed as ATP hydrolyses | PASS |
 | 120 | ch:surfaces:L120 | calc | `8.38\times10^{-14}` | numeric: N_CpG k_B T ln2 with N = 28,217,448 (printed 2.82e7) | PASS |
 | 124 | ch:surfaces:L124 | derived | `0.032` | numeric: thermal copy-error from holding energy | PASS |
-| 124 |  | measured | `3.41` | not run: measured, not found in the files the chapter names | - |
+| 124 | ch:surfaces:L124:3.41 | measured | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy from the PROC-CHANNEL-01 record | PASS |
 | 125 |  | none | `0.910` | not run: neutrophil gauge reading, restated from other chapter | - |
-| 127 |  | calc | `3.03` | not run: not yet run: draft rejected (drafter skipped: A-score at full surface (Met-A) requires the cell's methylation model par) | - |
-| 127 |  | calc | `4.45` | not run: not yet run: draft rejected (drafter skipped: A-score at full surface (IAM-A) requires the cell's methylation model par) | - |
+| 127 | ch:surfaces:L127 | calc | `3.03` | file `CANON/iam_canon.json`: Met-A at the full surface: 1/Met_A_floor (canon) | PASS |
+| 127 | ch:surfaces:L127:4.45 | calc | `4.45` | file `CANON/iam_canon.json`: IAM-A at the full surface: H(1/2)/(P H(eps0)) | PASS |
 | 142 | ch:surfaces:L142 | calc | `6.17\times10^{-8}` | numeric: repeat, horizon temperature one solar mass | PASS |
 | 143 | ch:surfaces:L143 | calc | `1.51\times10^{77}` | numeric: repeat, bits held by solar-mass horizon | PASS |
 | 144 | ch:surfaces:L144 | calc | `5.9\times10^{-31}` | numeric: Landauer cost per bit at horizon temperature | PASS |
 | 144 | ch:surfaces:L144:2.97\times10^{-21} | calc | `2.97\times10^{-21}` | numeric: repeat, cost per CpG site | PASS |
-| 145 |  | calc | `3.03` | not run: not yet run: draft rejected (drafter skipped: A-score at full surface (Met-A) requires the cell's methylation model par) | - |
-| 145 |  | calc | `4.45` | not run: not yet run: draft rejected (drafter skipped: A-score at full surface (IAM-A) requires the cell's methylation model par) | - |
+| 145 | ch:surfaces:L145 | calc | `3.03` | file `CANON/iam_canon.json`: table: Met-A at the full surface (canon floor) | PASS |
+| 145 | ch:surfaces:L145:4.45 | calc | `4.45` | file `CANON/iam_canon.json`: table: IAM-A at the full surface | PASS |
 | 146 |  | none | `0.910` | not run: repeat, neutrophil gauge reading | - |
 | 161 | ch:surfaces:L161 | calc | `36.4` | numeric: orders of magnitude, Bohr to Hubble radius | PASS |
 | 161 | ch:surfaces:L161:1.2\times10^{32} | calc | `1.2\times10^{32}` | numeric: cost-per-bit ratio, cell to cosmic horizon | PASS |
@@ -141,14 +141,14 @@ Totals: 3136 PASS, 0 FAIL, 3198 inventoried and not run. Each run item carries t
 | 185 | ch:surfaces:L185:182 | calc | `182` | numeric: ratio, CMB temperature to qubit stage | PASS |
 | 193 | ch:surfaces:L193 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (runA) minus LCDM (runC) | PASS |
 | 194 |  | prediction | `-0.136` | not run: predicted growth-deficit parameter, locked result | - |
-| 195 |  | measured | `0.020` | not run: measured, too few printed digits to match against the named files | - |
+| 195 | ch:surfaces:L195 | measured | `0.020` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out spread of the neutrophil reference readings (SD) | PASS |
 | 202 | ch:surfaces:L202 | derived | `0.032` | numeric: thermal floor fraction from holding energy | PASS |
-| 202 |  | measured | `3.41` | not run: measured, not found in the files the chapter names | - |
+| 202 | ch:surfaces:L202:3.41 | measured | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy from the PROC-CHANNEL-01 record | PASS |
 | 209 | ch:surfaces:L209 | calc | `5.0\times10^{9}` | numeric: ratio of cell temp to solar-mass Hawking temp | PASS |
-| 210 |  | calc | `5.4\times10^{69}` | not run: not yet run: draft does not reproduce the printed value (recomputed 8.317985e+51); drafting error on review | - |
+| 210 | ch:surfaces:L210 | calc | `5.4\times10^{69}` | numeric: bit-count ratio, solar-mass horizon to the genome CpGs | PASS |
 | 220 | ch:surfaces:L220 | calc | `2.112` | numeric: Al superconducting gap expressed as temperature | PASS |
 | 223 | ch:surfaces:L223 | calc | `2.968\times10^{-21}` | numeric: Landauer bit-cost energy at body temperature | PASS |
-| 223 |  | measured | `3.41` | not run: measured, not found in the files the chapter names | - |
+| 223 | ch:surfaces:L223:3.41 | measured | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy from the PROC-CHANNEL-01 record | PASS |
 | 238 |  | prediction | `-0.136` | not run: locked IAM growth-rate parameter, used as input | - |
 | 238 |  | prediction | `0` | not run: Sigma_0 fixed to zero by IAM construction | - |
 
