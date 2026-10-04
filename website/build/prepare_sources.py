@@ -131,7 +131,13 @@ def text_point(line):
             depth -= 1
         i += 1
     if not in_math:
-        return len(body.rstrip())
+        end = len(body.rstrip())
+        k = 0
+        while k < end and body[end - 1 - k] == "\\":
+            k += 1
+        if k % 2 == 1:                      # the line ends in a control space "\\": the marker goes before it
+            end -= 1
+        return end
     return None
 
 
@@ -202,6 +208,11 @@ def main(build):
         for n, ids in sorted(marks.items()):
             line = lines[n]
             col = None if n not in close_of or close_of.get(n) != n else None
+            if re.search(r"\\end\{(Verbatim|verbatim|lstlisting)\}", line):   # verbatim swallows the rest of its closing line
+                if n + 1 < len(lines):
+                    lines[n + 1] = "\\iamcheck{" + " ".join(map(str, ids)) + "}" + lines[n + 1]
+                    placed += len(ids)
+                    continue
             if prot[n] and n in close_of:          # the line that closes a protected environment: after the \end{...}
                 ends = [m.end() for m in END.finditer(line[:comment_pos(line)])] + \
                        [m.end() for m in re.finditer(r"(?<!\\)\\\]|\$\$", line[:comment_pos(line)])]

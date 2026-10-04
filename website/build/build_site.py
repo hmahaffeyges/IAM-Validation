@@ -195,6 +195,54 @@ def decorate_chapter(path, root, part, parts_by_n, index, results, discuss_cat):
     return n_buttons
 
 
+def _letters(t, n=40):
+    return re.sub(r"[^a-z]", "", t.lower())[:n]
+
+
+def fix_longtable_refs(site):
+    """LaTeXML numbers a longtable's caption but does not register a \\label placed in its caption row, so references to it stay
+    unresolved ("LABEL:tab:..."). Match each such label to its numbered caption by the caption's opening words and link it."""
+    targets = {}
+    for tex in (REPO / "docs/book").rglob("*.tex"):
+        t = tex.read_text(errors="replace")
+        for m in re.finditer(r"\\caption\{((?:[^{}]|\{[^{}]*\})*)\}\s*\\label\{(tab:[^}]+)\}", t):
+            cap = re.sub(r"\\[a-zA-Z]+\*?|[{}$~]", " ", m.group(1))
+            targets[m.group(2)] = _letters(cap)
+    where = {}
+    pages = sorted((site / "book").glob("*.html"))
+    for page in pages:
+        soup = BeautifulSoup(page.read_text(), "html.parser")
+        for cap in soup.select(".ltx_caption"):
+            tag = cap.find(class_="ltx_tag_table")
+            if not tag:
+                continue
+            num = re.sub(r"[^0-9.]", "", tag.get_text()).strip(".")
+            body = _letters(cap.get_text().replace(tag.get_text(), "", 1))
+            holder = cap.find_parent(id=True)
+            for lab, key in targets.items():
+                if key and body.startswith(key[:30]) and lab not in where:
+                    where[lab] = (page.name, holder["id"] if holder else "", num)
+    n = 0
+    for page in pages:
+        txt = page.read_text()
+        if "ltx_missing_label" not in txt:
+            continue
+        soup = BeautifulSoup(txt, "html.parser")
+        changed = False
+        for sp in soup.select("span.ltx_missing_label"):
+            lab = sp.get_text().replace("LABEL:", "")
+            if lab in where:
+                pg, anchor, num = where[lab]
+                a = soup.new_tag("a", attrs={"class": "ltx_ref", "href": (pg if pg != page.name else "") + "#" + anchor})
+                a.string = num
+                sp.replace_with(a)
+                n += 1
+                changed = True
+        if changed:
+            page.write_text(str(soup))
+    return n
+
+
 def main(build, site):
     build, site = pathlib.Path(build), pathlib.Path(site)
     pj = json.load(open(WEB / "build/parts.json"))["parts"]
@@ -235,12 +283,13 @@ def main(build, site):
         if f and 1 <= part <= 7:
             t = BeautifulSoup(page.read_text(), "html.parser").find("title")
             pages.setdefault(part, []).append((order.index(f), dict(href=page.name, title=html.escape(t.get_text().split("‣")[0].strip() if t else stem))))
+    fixed = fix_longtable_refs(site)
     for p in pj:
         part_page(site, p, pj, [c for _, c in sorted(pages.get(p["n"], []))])
     front_page(site, pj)
     (site / ".nojekyll").write_text("")
     print(f"site: {site}; chapter pages: {len(list((site / 'book').glob('*.html')))}; check buttons: {total}; "
-          f"checks: {len(vb.CHECKS)}; data files: {len(vb.DATA_FILES)}")
+          f"checks: {len(vb.CHECKS)}; data files: {len(vb.DATA_FILES)}; long-table references linked: {fixed}")
 
 
 if __name__ == "__main__":
