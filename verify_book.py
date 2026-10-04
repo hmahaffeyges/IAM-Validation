@@ -2376,6 +2376,12 @@ def _b12_wbn(which):
         m = re.search(r'neutrophil floor alone\) the same healthy mixtures read ([\d.]+)[–-]([\d.]+)', t)
     return float(m.group(1)), float(m.group(2))
 
+# helpers of the part5/p5_01_interpretation checks
+def _b13_meq_msun(z, H0=H0_photon, Om_=0.3153, Or_=9.1e-5):
+    """M_eq(z) = c^3/(4 G H(z)) in solar masses, H(z) = H0 sqrt(Om (1+z)^3 + Or (1+z)^4 + 1 - Om - Or) (fig:meq caption inputs)."""
+    Hz = Hsi(H0) * math.sqrt(Om_ * (1 + z)**3 + Or_ * (1 + z)**4 + 1 - Om_ - Or_)
+    return c**3 / (4 * G * Hz) / Msun
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -36280,12 +36286,90 @@ def check_2584():
     value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
+@check(label='ch:theoryinterp:L30:2.3\\times10^{22}', chapter='ch:theoryinterp', part=7, title='M_eq = c^3/4GH0 today, solar masses',
+       file='part5/p5_01_interpretation', line=30, status='calc', kind='num', printed='2.3\\times10^{22}', tol=0.0)
+def check_4357():
+    'M_eq(z=0) = c^3/(4 G H0) in solar masses, H0 = 67.16 (photon sector, locked). Book line 30 (fig:meq caption), printed 2.3e22. Inputs: CODATA G, c; IAU solar mass.'
+    value = _b13_meq_msun(0.0)
+    return locals()
+
+@check(label='ch:theoryinterp:L30:1.3\\times10^{22}', chapter='ch:theoryinterp', part=7, title='M_eq = c^3/4GH(z) at z = 1',
+       file='part5/p5_01_interpretation', line=30, status='calc', kind='num', printed='1.3\\times10^{22}', tol=0.0)
+def check_4358():
+    'M_eq(z=1) = c^3/(4 G H(z=1)) in solar masses, H(z) from H0 = 67.16, Omega_m = 0.3153, Omega_r = 9.1e-5 (the caption inputs). Book line 30, printed 1.3e22.'
+    value = _b13_meq_msun(1.0)
+    return locals()
+
+@check(label='ch:theoryinterp:L30:2.4\\times10^{12}', chapter='ch:theoryinterp', part=7, title='M_eq = c^3/4GH(z) at z = 10^6',
+       file='part5/p5_01_interpretation', line=30, status='calc', kind='num', printed='2.4\\times10^{12}', tol=0.0)
+def check_4359():
+    'M_eq(z=1e6) in solar masses: radiation dominated, H = H0 sqrt(Omega_r (1+z)^4 + ...), caption inputs H0 = 67.16, Omega_m = 0.3153, Omega_r = 9.1e-5. Book line 30, printed 2.4e12.'
+    value = _b13_meq_msun(1e6)
+    return locals()
+
+@check(label='ch:theoryinterp:L36', chapter='ch:theoryinterp', part=7, title='S_BH/A at the Schwarzschild radius = 1/4 l_P^2',
+       file='part5/p5_01_interpretation', line=36, status='none', kind='sym', printed='', tol=0.0)
+def check_4360():
+    'Holographic saturation (Eq. at line 36, with line 37): S_info = S_BH = 4 pi G M^2/(hbar c) divided by the area 4 pi R_s^2 of the sphere at R_s = 2GM/c^2 equals c^3/(4 hbar G) = 1/(4 l_P^2), l_P^2 = hbar G/c^3. Book line 36.'
+    G_, M, hb, c_ = sp.symbols('G M hbar c', positive=True)
+    Rs = 2 * G_ * M / c_**2
+    S = 4 * sp.pi * G_ * M**2 / (hb * c_)
+    lhs = sp.simplify(S / (4 * sp.pi * Rs**2))
+    lP2 = hb * G_ / c_**3
+    rhs = 1 / (4 * lP2)
+    neg_lhs = sp.simplify(sp.Rational(105, 100) * S / (4 * sp.pi * Rs**2))
+    return locals()
+
+@check(label='ch:theoryinterp:L40', chapter='ch:theoryinterp', part=7, title='T_BH = T_GH solved for M gives M_eq = c^3/4GH',
+       file='part5/p5_01_interpretation', line=40, status='none', kind='sym', printed='', tol=0.0)
+def check_4361():
+    'Two thermal surfaces: T_BH = hbar c^3/(8 pi G M k_B) set equal to T_GH = hbar H/(2 pi k_B) and solved for M gives M_eq = c^3/(4 G H). Book line 40.'
+    G_, M, hb, c_, H, k = sp.symbols('G M hbar c H k_B', positive=True)
+    TBH = hb * c_**3 / (8 * sp.pi * G_ * M * k)
+    TGH = hb * H / (2 * sp.pi * k)
+    lhs = sp.solve(sp.Eq(TBH, TGH), M)[0]
+    rhs = c_**3 / (4 * G_ * H)
+    neg_lhs = sp.solve(sp.Eq(TBH, sp.Rational(105, 100) * TGH), M)[0]
+    return locals()
+
+@check(label='ch:theoryinterp:L41', chapter='ch:theoryinterp', part=7, title='TON 618 black-hole mass, log M/Msun (published)',
+       file='part5/p5_01_interpretation', line=41, status='observed', kind='num', printed='10.82', tol=0.0)
+def check_4362():
+    'log10 of the TON 618 black-hole mass from its H-beta line width. Book line 41, printed 10.82. Input: Shemmer et al. 2004, ApJ 614, 547 (doi 10.1086/423607): log M_BH/M_sun = 10.82 (6.6e10 M_sun).'
+    logM_TON618 = 10.82        # Shemmer et al. 2004
+    value = logM_TON618
+    return locals()
+
+@check(label='ch:theoryinterp:L41:7\\times10^{10}', chapter='ch:theoryinterp', part=7, title='TON 618 mass about 7e10 Msun from log M = 10.82',
+       file='part5/p5_01_interpretation', line=41, status='calc', kind='num', printed='7\\times10^{10}', tol=0.0)
+def check_4363():
+    'M_BH = 10^(log M) in solar masses for TON 618, from the published log M_BH/M_sun of Shemmer et al. 2004 (doi 10.1086/423607). Book line 41, printed about 7e10.'
+    logM_TON618 = 10.82        # Shemmer et al. 2004
+    value = 10 ** logM_TON618
+    return locals()
+
 @check(label='ch:theoryinterp:L54', chapter='ch:theoryinterp', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
        file='part5/p5_01_interpretation', line=54, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2585():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 54, printed 67.16.'
     value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    return locals()
+
+@check(label='ch:theoryinterp:L54:2.65\\times10^{-30}', chapter='ch:theoryinterp', part=7, title='cosmic-horizon temperature T_GH = hbar H0/2 pi k_B',
+       file='part5/p5_01_interpretation', line=54, status='calc', kind='num', printed='2.65\\times10^{-30}', tol=0.0)
+def check_4364():
+    'Gibbons-Hawking temperature of the cosmic horizon today, T_GH = hbar H0/(2 pi k_B) with H0 = 67.16 (photon sector, locked), in K. Book line 54, printed 2.65e-30. Inputs: SI hbar, k_B.'
+    value = hbar * Hsi(H0_photon) / (2 * math.pi * kB)
+    return locals()
+
+@check(label='ch:theoryinterp:L54:2.3\\times10^{22}', chapter='ch:theoryinterp', part=7, title='M_eq where T_BH = T_GH today, solar masses',
+       file='part5/p5_01_interpretation', line=54, status='calc', kind='num', printed='2.3\\times10^{22}', tol=0.0)
+def check_4365():
+    'M_eq from T_BH(M) = T_GH: brentq root of hbar c^3/(8 pi G M k_B) - hbar H0/(2 pi k_B), H0 = 67.16, in solar masses. Book line 54, printed 2.3e22.'
+    TGH = hbar * Hsi(H0_photon) / (2 * math.pi * kB)
+    f = lambda lm: math.log(hbar * c**3 / (8 * math.pi * G * 10**lm * Msun * kB)) - math.log(TGH)
+    value = 10 ** brentq(f, 10, 30)
     return locals()
 
 
@@ -40108,18 +40192,9 @@ INVENTORY = [
     (6, 'ch:status', 'part4/p4_24_status', 34, '', 'calc', '87.7', "measured: recorded only in the _provenance.tests field of Biological_Physics/MethylPhys/atlas/v2/postbuild/runtime/iamatlas_v2_identity_loci_v1_1.json ('array->array 87.7% of held-out readings in NORMAL, 28/29 cell medians'), a 15 MB file above the DATA_FILES size limit; restates Chapter ch:atlas L181"),
     (6, 'ch:status', 'part4/p4_24_status', 34, '', 'calc', '73.1', "measured: recorded only in the _provenance.tests field of Biological_Physics/MethylPhys/atlas/v2/postbuild/runtime/iamatlas_v2_identity_loci_v1_1.json ('Loyfer->array with this correction 73.1%, 14/17 cell medians'), a 15 MB file above the DATA_FILES size limit; restates Chapter ch:atlas L182"),
     (6, 'ch:status', 'part4/p4_24_status', 44, '', 'calc', '100', 'input: the 100 nM dose of the single-molecule DNMT1 inhibitor libraries (Part B design)'),
-    (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '0.3153', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '9.1\\times10^{-5}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '2.3\\times10^{22}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '1.3\\times10^{22}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '2.4\\times10^{12}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 36, '', 'none', '', 'displayed equation, not yet checked'),
-    (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 40, '', 'none', '', 'displayed equation, not yet checked'),
-    (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 41, '', 'calc', '10.82', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 41, '', 'calc', '7\\times10^{10}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 54, '', 'calc', '2.65\\times10^{-30}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 54, '', 'calc', '2.3\\times10^{22}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
+    (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '0.3153', "input: Omega_m = 0.3153, Planck 2018 (Aghanim et al. 2020, doi 10.1051/0004-6361/201833910), the figure's input"),
+    (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '9.1\\times10^{-5}', "input: Omega_r = 9.1e-5, the figure's stated radiation density input (docs/book/figscripts/fig_p5_extra.py line 22); used by ch:theoryinterp:L30:1.3\\times10^{22} and L30:2.4\\times10^{12}"),
+    (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '10', 'input: the base of a power of ten (z = 10^6, a redshift chosen for the figure; ~7x10^10), not a computed number; the 7x10^10 is checked as ch:theoryinterp:L41:7\\times10^{10}'),
     (7, 'ch:time', 'part5/p5_03_time', 24, 'eq:time_tau', 'none', '', 'displayed equation, not yet checked'),
     (7, 'ch:time', 'part5/p5_03_time', 43, '', 'calc', '4.5\\times10^{-5}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (7, 'ch:time', 'part5/p5_03_time', 60, 'eq:time_Ea', 'none', '', 'displayed equation, not yet checked'),

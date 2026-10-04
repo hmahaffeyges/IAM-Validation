@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4357 PASS, 0 FAIL, 1981 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4366 PASS, 0 FAIL, 1972 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5288,19 +5288,19 @@ Totals: 4357 PASS, 0 FAIL, 1981 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 30 | ch:theoryinterp:L30 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
-| 30 |  | calc | `0.3153` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 30 |  | calc | `9.1\times10^{-5}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 30 |  | calc | `2.3\times10^{22}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 30 |  | calc | `1.3\times10^{22}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 30 |  | calc | `2.4\times10^{12}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 30 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 36 |  | none |  | not run: displayed equation, not yet checked | - |
-| 40 |  | none |  | not run: displayed equation, not yet checked | - |
-| 41 |  | calc | `10.82` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 41 |  | calc | `7\times10^{10}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 30 | ch:theoryinterp:L30:2.3\times10^{22} | calc | `2.3\times10^{22}` | numeric: M_eq = c^3/4GH0 today, solar masses | PASS |
+| 30 | ch:theoryinterp:L30:1.3\times10^{22} | calc | `1.3\times10^{22}` | numeric: M_eq = c^3/4GH(z) at z = 1 | PASS |
+| 30 | ch:theoryinterp:L30:2.4\times10^{12} | calc | `2.4\times10^{12}` | numeric: M_eq = c^3/4GH(z) at z = 10^6 | PASS |
+| 30 |  | calc | `0.3153` | not run: input: Omega_m = 0.3153, Planck 2018 (Aghanim et al. 2020, doi 10.1051/0004-6361/201833910), the figure's input | - |
+| 30 |  | calc | `9.1\times10^{-5}` | not run: input: Omega_r = 9.1e-5, the figure's stated radiation density input (docs/book/figscripts/fig_p5_extra.py line 22); used by ch:theoryinterp:L30:1.3\times10^{22} and L30:2.4\times10^{12} | - |
+| 30 |  | calc | `10` | not run: input: the base of a power of ten (z = 10^6, a redshift chosen for the figure; ~7x10^10), not a computed number; the 7x10^10 is checked as ch:theoryinterp:L41:7\times10^{10} | - |
+| 36 | ch:theoryinterp:L36 | none |  | sympy: S_BH/A at the Schwarzschild radius = 1/4 l_P^2 | PASS |
+| 40 | ch:theoryinterp:L40 | none |  | sympy: T_BH = T_GH solved for M gives M_eq = c^3/4GH | PASS |
+| 41 | ch:theoryinterp:L41 | observed | `10.82` | numeric: TON 618 black-hole mass, log M/Msun (published) | PASS |
+| 41 | ch:theoryinterp:L41:7\times10^{10} | calc | `7\times10^{10}` | numeric: TON 618 mass about 7e10 Msun from log M = 10.82 | PASS |
 | 54 | ch:theoryinterp:L54 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
-| 54 |  | calc | `2.65\times10^{-30}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 54 |  | calc | `2.3\times10^{22}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 54 | ch:theoryinterp:L54:2.65\times10^{-30} | calc | `2.65\times10^{-30}` | numeric: cosmic-horizon temperature T_GH = hbar H0/2 pi k_B | PASS |
+| 54 | ch:theoryinterp:L54:2.3\times10^{22} | calc | `2.3\times10^{22}` | numeric: M_eq where T_BH = T_GH today, solar masses | PASS |
 
 ## Part 7 - ch:time - `docs/book/part5/p5_03_time.tex`
 

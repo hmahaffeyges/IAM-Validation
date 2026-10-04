@@ -5069,8 +5069,17 @@ PASS  ch:status:L47                      ch:status:p4_24_status:47  printed 3.31
 == Part 7: Thirty-Seven Orders of Magnitude and the Web that is IAM | ch:theoryinterp (part5/p5_01_interpretation.tex)
 PASS  ch:theoryinterp:L30                ch:theoryinterp:p5_01_interpretation:30  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:theoryinterp:L30:2.3\times10^{22} ch:theoryinterp:p5_01_interpretation:30  printed 2.3\times10^{22}  recomputed 2.331939e+22  tol 5.000005e+20  [calc] M_eq = c^3/4GH0 today, solar masses
+PASS  ch:theoryinterp:L30:1.3\times10^{22} ch:theoryinterp:p5_01_interpretation:30  printed 1.3\times10^{22}  recomputed 1.301873e+22  tol 5.000005e+20  [calc] M_eq = c^3/4GH(z) at z = 1
+PASS  ch:theoryinterp:L30:2.4\times10^{12} ch:theoryinterp:p5_01_interpretation:30  printed 2.4\times10^{12}  recomputed 2.440308e+12  tol 5.000005e+10  [calc] M_eq = c^3/4GH(z) at z = 10^6
+PASS  ch:theoryinterp:L36                ch:theoryinterp:p5_01_interpretation:36  printed (algebra)  recomputed lhs-rhs=0  [none] S_BH/A at the Schwarzschild radius = 1/4 l_P^2
+PASS  ch:theoryinterp:L40                ch:theoryinterp:p5_01_interpretation:40  printed (algebra)  recomputed lhs-rhs=0  [none] T_BH = T_GH solved for M gives M_eq = c^3/4GH
+PASS  ch:theoryinterp:L41                ch:theoryinterp:p5_01_interpretation:41  printed 10.82  recomputed 10.82  tol 0.00500001  [observed] TON 618 black-hole mass, log M/Msun (published)
+PASS  ch:theoryinterp:L41:7\times10^{10} ch:theoryinterp:p5_01_interpretation:41  printed 7\times10^{10}  recomputed 6.606934e+10  tol 5.000005e+09  [calc] TON 618 mass about 7e10 Msun from log M = 10.82
 PASS  ch:theoryinterp:L54                ch:theoryinterp:p5_01_interpretation:54  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:theoryinterp:L54:2.65\times10^{-30} ch:theoryinterp:p5_01_interpretation:54  printed 2.65\times10^{-30}  recomputed 2.645898e-30  tol 5.000005e-33  [calc] cosmic-horizon temperature T_GH = hbar H0/2 pi k_B
+PASS  ch:theoryinterp:L54:2.3\times10^{22} ch:theoryinterp:p5_01_interpretation:54  printed 2.3\times10^{22}  recomputed 2.331939e+22  tol 5.000005e+20  [calc] M_eq where T_BH = T_GH today, solar masses
 
 == Part 7: Thirty-Seven Orders of Magnitude and the Web that is IAM | ch:time (part5/p5_03_time.tex)
 PASS  ch:time:L92                        ch:time:p5_03_time:92  printed 13.8  recomputed found in file  [measured] measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names  file docs/verification/scripts/verify_records_measurement_time_output.txt
@@ -5465,4 +5474,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 4357  FAIL 0  (heavy, read from committed outputs: 929)  inventoried-not-run 1981  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4366  FAIL 0  (heavy, read from committed outputs: 929)  inventoried-not-run 1972  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
