@@ -1,0 +1,12 @@
+L =    30: C_L^phiphi lower by 0.243 %
+L =    50: C_L^phiphi lower by 0.174 %
+L =   100: C_L^phiphi lower by 0.111 %
+L =   200: C_L^phiphi lower by 0.075 %
+L =   400: C_L^phiphi lower by 0.052 %
+L =   700: C_L^phiphi lower by 0.040 %
+L =  1000: C_L^phiphi lower by 0.035 %
+30 <= L <= 1000: 0.035 - 0.243 %
+   full precision: 0.035233 - 0.243063 %
+sigma8 ratio D_IAM(1)/D_LCDM(1) = 0.99224
+Planck lensing range 8 <= L <= 400, (2L+1)-weighted: 0.071 %
+Planck lensing range 8 <= L <= 400, unweighted mean: 0.101 %

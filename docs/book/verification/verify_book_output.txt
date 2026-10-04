@@ -1752,6 +1752,20 @@ PASS  ch:sectortension:L280              ch:sectortension:p2_09_sector_tension:2
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:sectortension:L281              ch:sectortension:p2_09_sector_tension:281  printed 0.600  recomputed 0.599893  tol 5.000005e-04  [calc] term sigma8 Om^0.25  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+
+== Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:dsnote (part2/p2_05_dual_sector_note.tex)
+PASS  ch:dsnote:L154:0.04                ch:dsnote:p2_05_dual_sector_note:154  printed 0.04  recomputed 0.035  tol 0.00500001  [calc] Limber: lensing power lowered, low end over 30 <= L <= 1000 (per cent)  file docs/verification/scripts/verify_limber_lensing_output.txt
+      heavy: python3 docs/verification/scripts/verify_limber_lensing.py
+PASS  ch:dsnote:L154:0.24                ch:dsnote:p2_05_dual_sector_note:154  printed 0.24  recomputed 0.243  tol 0.00500001  [calc] Limber: lensing power lowered, high end over 30 <= L <= 1000 (per cent)  file docs/verification/scripts/verify_limber_lensing_output.txt
+      heavy: python3 docs/verification/scripts/verify_limber_lensing.py
+
+== Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:latetime (part2/p2_07_late_time_growth.tex)
+PASS  ch:latetime:L107:0.04              ch:latetime:p2_07_late_time_growth:107  printed 0.04  recomputed 0.035  tol 0.00500001  [calc] Limber: lensing power change, low end over 30 <= L <= 1000 (per cent)  file docs/verification/scripts/verify_limber_lensing_output.txt
+      heavy: python3 docs/verification/scripts/verify_limber_lensing.py
+PASS  ch:latetime:L107:0.24              ch:latetime:p2_07_late_time_growth:107  printed 0.24  recomputed 0.243  tol 0.00500001  [calc] Limber: lensing power change, high end over 30 <= L <= 1000 (per cent)  file docs/verification/scripts/verify_limber_lensing_output.txt
+      heavy: python3 docs/verification/scripts/verify_limber_lensing.py
+
+== Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:sectortension (part2/p2_09_sector_tension.tex)
 PASS  ch:sectortension:L281:0.08\%       ch:sectortension:p2_09_sector_tension:281  printed 0.08\%  recomputed 0.0806114  tol 0.00500001  [calc] CMB lensing power lowered, Limber estimate
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:dsvalidation (part2/p2_10_dual_sector_validation.tex)
@@ -5934,4 +5948,4 @@ PASS  app:register:L73:1.55 \%           app:register:app_G_predictions_register
 PASS  app:register:L73:0.78 \%           app:register:app_G_predictions_register:73  printed 0.78 \%  recomputed 0.776789  tol 0.00500001  [openprob] COS-357: D lowered at z = 0, per cent
 PASS  app:register:L74:1.03              app:register:app_G_predictions_register:74  printed 1.03  recomputed 1.03045  tol 0.00500001  [openprob] COS-365: ISW amplitude ratio A_ISW
 
-SUMMARY  PASS 4776  FAIL 0  (heavy, read from committed outputs: 981)  inventoried-not-run 1349  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4780  FAIL 0  (heavy, read from committed outputs: 985)  inventoried-not-run 1347  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

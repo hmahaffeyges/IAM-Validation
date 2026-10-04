@@ -200,7 +200,7 @@ Status: **confirmed** = recomputed or traced to the source, evidence in the link
 | C14 | CC §5.1 | | static patch subtends 2π sr | bounded by the full horizon (4π sr); paper's own A_eff gives 2(l_P/l_H)² | confirmed | `cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` #11 |
 | C15 | CC §5.3 | | holographic round trip 2/π × π/2; Koide | not a holographic result; remove | confirmed | `cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` #12 |
 | C16 | CC abstract, §3.3, §6.3, §10 | | √Ω_Λ "not fitted", "0.07 %", exponent 0.502 | introduced to close 1.22; +0.79 %; 0.521 | confirmed | `cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` #13 |
-| C17 | CC §6.3 | | "vanishingly small" chance of 10⁻¹²³ by accident | 10⁻¹²³ is the critical-density identity; 2 of 540 O(1) forms within 1 % | confirmed | `cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` #15 |
+| C17 | CC §6.3 | | "vanishingly small" chance of 10⁻¹²³ by accident | 10⁻¹²³ is the critical-density identity; 3 of 414 O(1) forms within 1 % (book ch:lambda, sec:lam_rel) | confirmed | `cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` #15 |
 | C18 | CC abstract, §7, §10 | | accumulating Λ ⇒ w > −1 | growing ρ_de ⇒ w < −1; DESI comparison open | confirmed | `cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` #16 |
 | C19 | CC §2.1; MA §2 | | β_m "confirmed at 0.2σ"; ratio "asymptotes to 2" | fixed in every chain; 2 by definition at a = 1 | confirmed | `cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` #18 |
 | C20 | MA §7 | | l_H 10⁻³ pc; 10⁴⁰ bits; a_QCD 1.6e-12 | 5 × 10⁻¹³ pc (15 km); 2.9 × 10⁷⁸; ~1.0 × 10⁻¹² | confirmed | `cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` #19 |

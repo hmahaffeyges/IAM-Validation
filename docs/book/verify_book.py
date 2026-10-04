@@ -13367,6 +13367,43 @@ def check_1050():
     s8=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8');om=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam');value=s8*om**0.25
     return locals()
 
+def _limber_out():
+    t = open(REPO / "docs/verification/scripts/verify_limber_lensing_output.txt", encoding="utf-8").read()
+    m = re.search(r"30 <= L <= 1000: ([0-9.]+) - ([0-9.]+) %", t)
+    return float(m.group(1)), float(m.group(2))
+
+@check(label='ch:dsnote:L154:0.04', chapter='ch:dsnote', part=2, title='Limber: lensing power lowered, low end over 30 <= L <= 1000 (per cent)',
+       file='part2/p2_05_dual_sector_note', line=154, status='calc', kind='file', printed='0.04', tol=0.0, source='docs/verification/scripts/verify_limber_lensing_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_limber_lensing.py')
+def check_limber_dsnote_lo():
+    'Limber C_L^phiphi with Sigma = 1, exact mu(a), Eisenstein-Hu linear power, same early amplitude; low end of 1 - C_L(IAM)/C_L(LCDM) over 30 <= L <= 1000 (at L = 1000).'
+    value = _limber_out()[0]
+    return locals()
+
+@check(label='ch:dsnote:L154:0.24', chapter='ch:dsnote', part=2, title='Limber: lensing power lowered, high end over 30 <= L <= 1000 (per cent)',
+       file='part2/p2_05_dual_sector_note', line=154, status='calc', kind='file', printed='0.24', tol=0.0, source='docs/verification/scripts/verify_limber_lensing_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_limber_lensing.py')
+def check_limber_dsnote_hi():
+    'As above; high end (at L = 30).'
+    value = _limber_out()[1]
+    return locals()
+
+@check(label='ch:latetime:L107:0.04', chapter='ch:latetime', part=2, title='Limber: lensing power change, low end over 30 <= L <= 1000 (per cent)',
+       file='part2/p2_07_late_time_growth', line=107, status='calc', kind='file', printed='0.04', tol=0.0, source='docs/verification/scripts/verify_limber_lensing_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_limber_lensing.py')
+def check_limber_lt_lo():
+    'Same Limber estimate as ch:dsnote:L154; low end.'
+    value = _limber_out()[0]
+    return locals()
+
+@check(label='ch:latetime:L107:0.24', chapter='ch:latetime', part=2, title='Limber: lensing power change, high end over 30 <= L <= 1000 (per cent)',
+       file='part2/p2_07_late_time_growth', line=107, status='calc', kind='file', printed='0.24', tol=0.0, source='docs/verification/scripts/verify_limber_lensing_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_limber_lensing.py')
+def check_limber_lt_hi():
+    'Same Limber estimate; high end.'
+    value = _limber_out()[1]
+    return locals()
+
 @check(label='ch:sectortension:L281:0.08\\%', chapter='ch:sectortension', part=2, title='CMB lensing power lowered, Limber estimate',
        file='part2/p2_09_sector_tension', line=281, status='calc', kind='num', printed='0.08\\%', tol=0.0)
 def check_3436():
@@ -43887,8 +43924,6 @@ INVENTORY = [
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 145, '', 'none', '67.4', 'text changed at HEAD; input: background H0 for toy model'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 145, '', 'none', '0.315', 'text changed at HEAD; input: Omega_m for toy model'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 145, '', 'none', '9.24\\times10^{-5}', 'text changed at HEAD; input: Omega_r for toy model'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 154, '', 'calc', '0.05', 'calc, method not committed: the L-dependent Limber estimate of the CMB lensing power (0.05 % at the low end of 30 <= L <= 1000) has no committed script or output (verify_obs_chapters.py and verify_sector_tension.py only give the L-averaged ratio 0.9992); an Eisenstein-Hu Limber integral written here gives 0.03-0.24 %, so the printed range is not reproduced without the original method'),
-    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 154, '', 'calc', '0.3', 'calc, method not committed: upper end 0.3 % of the same Limber estimate (see row 483); no committed script or output'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 170, '', 'none', '61.5', 'H0 background restated approx'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 171, '', 'none', '0.832', 'Planck 2018 published S8 (external)'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 171, '', 'none', '0.013', 'uncertainty on Planck S8'),

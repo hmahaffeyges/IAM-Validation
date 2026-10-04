@@ -1,4 +1,8 @@
-# IAM's Law and Order — master TODO (one book, five parts)
+# IAM's Law and Order — master TODO
+
+> **Status 2026-10-04.** The book now has seven parts. Items below were written against the five-part draft; a ticked box was
+> checked against the current files. Open book work before release: author's page-by-page sign-off, release tag and DOI, website
+> pull request. Rows 0b, 4.4, 11.x and 17.x are repo, chain and errata-record work, not book text. Cell figures marked `COMMISSIONING-RETURN` and the tare method sentences return after commissioning.
 
 One list for the whole book. Checked item by item against the repository at HEAD `5f5997b` (2026-10-03).
 One book: Part 0 front matter, Parts 1–5, appendices, one bibliography (`iam.bib`), one figure folder, one `main.tex`.
@@ -18,10 +22,10 @@ The author's decisions are collected in Section 19, one line each; items elsewhe
 - [~] 0.3 Compiles: 0 errors, 0 undefined references and citations (95867f3, 1808034; 791 pages at the lead's last compile). Static check at 5f5997b:
       96 included files, 1,315 labels none duplicated, 874 `\ref` targets all resolve (with `tables/` inputs), 469 cite keys all in `iam.bib`,
       every `\includegraphics` file present, braces and environments balanced. Remains: the Overleaf zip of the folder, compiled as uploaded.
-- [ ] 0.4 Three tracked files are not input by `main.tex`: `appendices/app_B_errata_physics.tex`, `appendices/app_B2_errata_cells.tex` (errata out of the
+- [x] 0.4 Three tracked files are not input by `main.tex`: `appendices/app_B_errata_physics.tex`, `appendices/app_B2_errata_cells.tex` (errata out of the
       build, c39b251) and `part3/p3_05_walls.tex` (Part 3 uses `p3_05_coherence_optimum`, main.tex:55). They still carry retired content
       (σ_crit at app_B:32, :49; the quantum-processor report rows at app_B:24–27; "five substrates" at app_B2:19). Move them to `RETIRED_drafts_2026-10/` with `git mv`.
-- [ ] 0.5 `read_ledgers/eg_MANIFEST.md` and `read_ledgers/eg_MANIFEST_entropic_gravity.md` are byte-identical (`cmp`): keep one.
+- [x] 0.5 `read_ledgers/eg_MANIFEST.md` and `read_ledgers/eg_MANIFEST_entropic_gravity.md` are byte-identical (`cmp`): keep one.
 
 ## 0b. Runs that feed Part 4
 - [x] DNMT Part B scored: IAM-A 1.65–1.97, Q1 8/8, Q2 8/8 (`doors/PROC_DNMT_01_PARTB_OUTCOME.md`, e3b7097).
@@ -66,7 +70,7 @@ The author's decisions are collected in Section 19, one line each; items elsewhe
 - DONE 2026-10-04: DESI/SDSS ShapeFit chi2 now scripted (docs/verification/scripts/verify_shapefit_chi2.py: 4.52/5.14, 6.20/6.96); the book prints the scripted values.
 - [ ] 4.4 Level 2 open runs: Run D rerun with the IAM growth inside CAMB (errata P7, P12; `cg_MANIFEST.md` exclusion 1) and a Level 2b background chain
       with Eq. 13 coded as written (erratum P17; `cg_MANIFEST.md` finding 1).
-- [ ] 4.5 Free-µ0 value: PAPER_ERRATA T16 gives 0.039 ± 0.125; p2_04's table gives medians +0.059/+0.064 at the prior edge. Reconcile and print one
+- [x] 4.5 Free-µ0 value: PAPER_ERRATA T16 gives 0.039 ± 0.125; p2_04's table gives medians +0.059/+0.064 at the prior edge. Reconcile and print one
       (`MANIFEST_p2_03_theory.md` §7).
 - [ ] 4.6 Theory §13 is carried in full in p2_03 (`sec:th:interp`) and in shorter form in part5/p5_01_interpretation.tex: reconcile (`MANIFEST_p2_03_theory.md` §7).
 - [ ] 4.7 Virial left-undone list (`MANIFEST_virial.md` l.332–339): sector census of the 26 probes by the worldline rule; lensing time-delay H0 73.3 ± 1.8
@@ -82,7 +86,7 @@ The author's decisions are collected in Section 19, one line each; items elsewhe
 - [~] 5.3 Encoding-surface notes ("bones", 3,116 lines) read in full by the Part 3 proofreader (2026-10-02 session notes); Part 3 merged with the proofread (c39b251).
       Remains: a read ledger for the notes in `read_ledgers/`.
 - [x] 5.4 Platform demo pages: product material, removed from the repo and not carried (bc1559e).
-- [ ] 5.5 One-gauge figure `figures/part3/one_gauge.pdf` (p3_08_one_gauge.tex:46) has no script (`appendices/app_I_provenance.tex:188`) and plots
+- [x] 5.5 One-gauge figure `figures/part3/one_gauge.pdf` (p3_08_one_gauge.tex:46) has no script (`appendices/app_I_provenance.tex:188`) and plots
       Ryzen 7 1800X (2017) and Athlon 64 (2003) points whose inputs are not sourced in the chapter. Rebuild it from a script with sourced inputs.
 
 ## 6. Part 4 — Cellular Physics: Thermodynamics of the Methylome
@@ -175,7 +179,7 @@ The author's decisions are collected in Section 19, one line each; items elsewhe
 ## 13. Application chapters (after Section 12)
 - [ ] 13.1 Qubit and chip chapters (Part 3) against the quantum-processor report and the semiconductor report Issue 002 read again in full; cell chapters (Part 4) against the cell issues, web.py, the reproduction paper and the
       Hubble-to-cell documents. Part 4 ch. 12–23 already rewritten on chain v3 as coded (2b775ba).
-- [ ] 13.2 Rule: everything a referee needs to confirm the physics and the readings; floor values, specific application methods and product names stay out.
+- [x] 13.2 Rule: everything a referee needs to confirm the physics and the readings; floor values, specific application methods and product names stay out.
 
 ## 14. Author's cellular items file
 - [~] 14.1 Read in full (412 lines); verdicts `docs/book/CELL_ITEMS_VERDICTS.md` (94f8231). Applied: Astro-Genetics opening (p4_01_bridge.tex:3), cell as microchip and
@@ -194,19 +198,19 @@ The author's decisions are collected in Section 19, one line each; items elsewhe
       DESI Year 5: no σ(µ0) forecast value is printed now (p2_05:207, 215, 238 name the survey only). Still unsourced: island of stability (p5_02:244), Bulbul 2024 M_SZ/M_hydro 0.99 ± 0.04 (not printed), Planck SZ S8 ≈ 0.78,
       LSST ~200,000 clusters (`st_MANIFEST_clusters_satellites.md` l.90).
 - [x] 15.4 Two S8/DESI papers with a private correspondent among the authors left uncited on purpose (naming rule).
-- [ ] 15.5 DOI fields missing in iam.bib: Riess2022 10.3847/2041-8213/ac5c5b, Heymans2021 10.1051/0004-6361/202039063, Kurter2022 10.1038/s41534-022-00542-2
+- [x] 15.5 DOI fields missing in iam.bib: Riess2022 10.3847/2041-8213/ac5c5b, Heymans2021 10.1051/0004-6361/202039063, Kurter2022 10.1038/s41534-022-00542-2
       (all three CrossRef-checked 2026-10-03); DESY3, HSCY3, Abazajian2016, DESI2016, Einstein1915 still without a DOI field.
-- [ ] 15.6 Duplicate bib key Reyes2010 (iam.bib:3349, :3686): keep one.
+- [x] 15.6 Duplicate bib key Reyes2010 (iam.bib:3349, :3686): keep one.
 
 ## 16. Cross-file fixes from the read-ledger MANIFESTs (not yet applied at 5f5997b)
-- [ ] 16.1 `appendices/app_E_formulas.tex:16` lists ch:sectortension as having no displayed equation; it now has st_entropy, st_hm, st_mu, st_ode, st_sigma8, st_S8 (`ts_MANIFEST_sector_s8.md` l.37).
-- [ ] 16.2 Look-elsewhere count: the book's own count is 3 of 414 within 1 % (ch:lambda); erratum C17 (PAPER_ERRATA.md:202) still says 2 of 540 (`bl_MANIFEST.md` l.58;
+- [x] 16.1 `appendices/app_E_formulas.tex:16` lists ch:sectortension as having no displayed equation; it now has st_entropy, st_hm, st_mu, st_ode, st_sigma8, st_S8 (`ts_MANIFEST_sector_s8.md` l.37).
+- [x] 16.2 Look-elsewhere count: the book's own count is 3 of 414 within 1 % (ch:lambda); erratum C17 (PAPER_ERRATA.md:202) still says 2 of 540 (`bl_MANIFEST.md` l.58;
       `app_C3_derivations.tex` no longer does).
 - [ ] 16.3 `docs/verification/cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md` l.69 says the record's η 6.1155 uses the full chain; the cause is the factor 2.74 vs 2.739 (`bl_MANIFEST.md` l.55).
 - [ ] 16.4 `docs/verification/particle/HIGGS_DURATION_CHECK.md` does not exist; write it from errata HD1–HD13 (`MANIFEST_particle.md` l.542–543).
 - [x] 16.5 Wording from the old particle chapter (`MANIFEST_particle.md` l.555–556): "at most three" at p5_07:145, p5_09:30, app_G:134 matches p2_15a:216;
       "6.6 ppm" only in app_B:18, which is out of the build (item 0.4).
-- [ ] 16.6 Unreferenced figure files: `figures/part2/fig_two_rulers_future.{pdf,png}`, `fig_w0wa.{pdf,png}` (no `\includegraphics` of either at 5f5997b;
+- [x] 16.6 Unreferenced figure files: `figures/part2/fig_two_rulers_future.{pdf,png}`, `fig_w0wa.{pdf,png}` (no `\includegraphics` of either at 5f5997b;
       `wz_MANIFEST_darkenergy_surveys.md` l.237–238; `ts_MANIFEST_sector_s8.md` l.37): move to the retired folder. (`fig_sat_census` already removed, c8a60ec.)
 - [x] 16.7 Applied already (checked at 5f5997b): app_I rows for fig:eta, fig:baryon_posterior, tab:baryon_chains → ch:baryon_chain (app_I l.78, 79, 294); x_qp figure rows (l.105–109);
       exploratory rows fig:twin_exploratory, fig:steering, fig:transit, fig:recession (l.197–200); eq:ms_mmin entry and fig:sat_census row removed (no hits);
@@ -237,7 +241,7 @@ Rows proposed in the x_qp, theory, particle and exploratory MANIFESTs are in (XQ
 - [ ] 17.11 Rows still pending a trace or test inside PAPER_ERRATA: P11, P14, S5, V15, N2–N4, C10.
 
 ## 18. Layout overruns
-- [ ] 18.1 No compile log is in the repository or the artifact store at 5f5997b, so the overfull-box list is not given here: take it from the next compile
+- [x] 18.1 No compile log is in the repository or the artifact store at 5f5997b, so the overfull-box list is not given here: take it from the next compile
       (`grep -n 'Overfull .hbox' main.log`, boxes over 10 pt, by file and line). Earlier fixes: running heads capped (45c40a4), wide tables wrapped (ddb1cc4, 8bdffd4),
       lone-float pages (41f7646, 95867f3).
 

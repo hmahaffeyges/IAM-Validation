@@ -251,4 +251,4 @@ python plot_mgcamb_validation.py
 
 ## Reference
 
-See the [IAM–CAMB Technical Note: Planck Level-1 Validation](../docs/IAM_CAMB_Technical_Note.pdf) for full documentation.
+See the [IAM–CAMB Technical Note: Planck Level-1 Validation](../../docs/book/) for full documentation.

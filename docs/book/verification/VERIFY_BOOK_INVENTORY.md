@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4776 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4780 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -1130,6 +1130,13 @@ Totals: 4776 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 263 |  | prediction | `-0.136` | not run: restated canon mu0 prediction value | - |
 | 263 |  | prediction | `1` | not run: Sigma=1, unmodified lensing slip, model statement | - |
 
+## Part 2 - ch:latetime - `docs/book/part2/p2_07_late_time_growth.tex`
+
+| line | label | status | printed | checked how | result |
+|---:|---|---|---|---|---|
+| 107 | ch:latetime:L107:0.04 | calc | `0.04` | heavy file `docs/verification/scripts/verify_limber_lensing_output.txt`: Limber: lensing power change, low end over 30 <= L <= 1000 (per cent) | PASS |
+| 107 | ch:latetime:L107:0.24 | calc | `0.24` | heavy file `docs/verification/scripts/verify_limber_lensing_output.txt`: Limber: lensing power change, high end over 30 <= L <= 1000 (per cent) | PASS |
+
 ## Part 2 - ch:level2 - `docs/book/part2/p2_06_dual_sector_perturbation.tex`
 
 | line | label | status | printed | checked how | result |
@@ -1384,8 +1391,8 @@ Totals: 4776 PASS, 0 FAIL, 1349 inventoried and not run. Each run item carries t
 | 150 | ch:dsnote:L150 | calc | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: photon coupling bound restated | PASS |
 | 151 | ch:dsnote:L151 | calc | `3.8\times10^{-4}` | numeric: 1-mu at z=3 | PASS |
 | 152 |  | calc | `1.5\times10^{-5}` | not run: printed value 1.5e-5 has two significant digits: a 5 % change (0.075e-5) is within rounding plus the control tolerance of the recomputed 1.544e-5 (1 - mu at z = 5), so it cannot be told from rounding; the z = 3 value is bounded at ch:dsvalidation:L515 | - |
-| 154 |  | calc | `0.05` | not run: calc, method not committed: the L-dependent Limber estimate of the CMB lensing power (0.05 % at the low end of 30 <= L <= 1000) has no committed script or output (verify_obs_chapters.py and verify_sector_tension.py only give the L-averaged ratio 0.9992); an Eisenstein-Hu Limber integral written here gives 0.03-0.24 %, so the printed range is not reproduced without the original method | - |
-| 154 |  | calc | `0.3` | not run: calc, method not committed: upper end 0.3 % of the same Limber estimate (see row 483); no committed script or output | - |
+| 154 | ch:dsnote:L154:0.04 | calc | `0.04` | heavy file `docs/verification/scripts/verify_limber_lensing_output.txt`: Limber: lensing power lowered, low end over 30 <= L <= 1000 (per cent) | PASS |
+| 154 | ch:dsnote:L154:0.24 | calc | `0.24` | heavy file `docs/verification/scripts/verify_limber_lensing_output.txt`: Limber: lensing power lowered, high end over 30 <= L <= 1000 (per cent) | PASS |
 | 158 | ch:dsnote:L158 | derived | `0.15765` | numeric: beta_m restated in figure caption | PASS |
 | 158 | ch:dsnote:L158:67.16 | measured | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 chain H0 restated | PASS |
 | 159 | ch:dsnote:L159 | measured | `67.16` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
