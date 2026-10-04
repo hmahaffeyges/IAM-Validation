@@ -4452,6 +4452,10 @@ PASS  ch:temperature:L77                 ch:temperature:p4_10_temperature:77  pr
 PASS  ch:temperature:L77:-0.38           ch:temperature:p4_10_temperature:77  printed -0.38  recomputed -0.375275  tol 0.00500001  [measured] Atlantic salmon: holding energy against conversion failure, Spearman rho  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
 PASS  ch:temperature:L111                ch:temperature:p4_10_temperature:111  printed 20.84  recomputed 20.8397  tol 0.00500001  [prediction] M for a dog at 38.5 C
 
+== Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:translation (part4/p4_11_translation.tex)
+PASS  ch:translation:L110                ch:translation:p4_11_translation:110  printed 2.3  recomputed 2.33  tol 0.05  [calc] neutron-star saturation mass at the upper edge of the TOV bound
+PASS  ch:translation:L111:0.2            ch:translation:p4_11_translation:111  printed 0.2  recomputed 0.17  tol 0.05  [calc] TOV mass not fixed to better than about 0.2 M_sun
+
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:salmonid (part4/p4_22b_salmonid.tex)
 PASS  ch:salmonid:L54                    ch:salmonid:p4_22b_salmonid:54  printed 0.0354  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
 PASS  ch:salmonid:L54:3.31               ch:salmonid:p4_22b_salmonid:54  printed 3.31  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
@@ -4888,4 +4892,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3970  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2368  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3972  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2366  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

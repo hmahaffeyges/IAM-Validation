@@ -32112,6 +32112,28 @@ def check_3969():
     return locals()
 
 
+# ======== Part 6 | ch:translation | docs/book/part4/p4_11_translation.tex
+@check(label='ch:translation:L110', chapter='ch:translation', part=6, title='neutron-star saturation mass at the upper edge of the TOV bound',
+       file='part4/p4_11_translation', line=110, status='calc', kind='num', printed='2.3', tol=0.0)
+def check_3970():
+    'Figure fig:compact caption: the neutron-star saturation mass of about 2.3 M_sun sits at the upper edge of the '\
+    'gravitational-wave bound M_TOV <~ 2.16 (+0.17, -0.15) M_sun. Recomputed as central value plus upper error. Book line 110, printed 2.3. '\
+    'Inputs: M_TOV = 2.16 +0.17 -0.15 M_sun (Rezzolla, Most and Weih 2018, doi 10.3847/2041-8213/aaa401).'
+    M_tov, up = 2.16, 0.17
+    value = M_tov + up
+    return locals()
+
+@check(label='ch:translation:L111:0.2', chapter='ch:translation', part=6, title='TOV mass not fixed to better than about 0.2 M_sun',
+       file='part4/p4_11_translation', line=111, status='calc', kind='num', printed='0.2', tol=0.0)
+def check_3971():
+    'Figure fig:compact caption: the TOV limit is not fixed to better than about 0.2 M_sun. Recomputed as the larger one-sided error of '\
+    'the bound, rounded to the one printed digit. Book line 111, printed 0.2. Inputs: M_TOV = 2.16 +0.17 -0.15 M_sun (Rezzolla, Most and '\
+    'Weih 2018, doi 10.3847/2041-8213/aaa401).'
+    up, down = 0.17, 0.15
+    value = max(up, down)
+    return locals()
+
+
 # ======== Part 6 | ch:salmonid | docs/book/part4/p4_22b_salmonid.tex
 @check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='0.0354', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
@@ -36127,10 +36149,8 @@ INVENTORY = [
     (6, 'ch:temperature', 'part4/p4_10_temperature', 17, '', 'calc', '38.5', 'input: dog body temperature 38.5 C (the floor at 38.5 C is checked by ch:temperature:L17:1.012)'),
     (6, 'ch:temperature', 'part4/p4_10_temperature', 98, '', 'observed', '0.96', 'measured, source not named'),
     (6, 'ch:temperature', 'part4/p4_10_temperature', 113, '', 'prediction', '1.00', 'prediction, nothing to recompute (held-out canine cells should read 1.00 on a canine reference)'),
-    (6, 'ch:translation', 'part4/p4_11_translation', 33, '', 'derived', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:translation', 'part4/p4_11_translation', 110, '', 'calc', '2.3', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:translation', 'part4/p4_11_translation', 111, '', 'calc', '0.15', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:translation', 'part4/p4_11_translation', 111, '', 'calc', '0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
+    (6, 'ch:translation', 'part4/p4_11_translation', 33, '', 'derived', '10', "input restated: a plasma draw carries of order 10^4 genome equivalents, the upper end of the 10^3-10^4 copies of ch:sky L72-73 (about 10^3 genome equivalents per millilitre, Sender2024); the printed '10' is the base of 10^4, nothing to recompute here"),
+    (6, 'ch:translation', 'part4/p4_11_translation', 111, '', 'calc', '0.15', 'input: lower error -0.15 M_sun of the TOV bound 2.16 (+0.17, -0.15) M_sun (Rezzolla2018, doi 10.3847/2041-8213/aaa401)'),
     (6, 'ch:instrument', 'part4/p4_12_instrument', 31, '', 'measured', '0.985', 'measured, not found in the files the chapter names'),
     (6, 'ch:instrument', 'part4/p4_12_instrument', 31, '', 'measured', '0.979', 'measured, not found in the files the chapter names'),
     (6, 'ch:instrument', 'part4/p4_12_instrument', 31, '', 'measured', '0.975', 'measured, not found in the files the chapter names'),

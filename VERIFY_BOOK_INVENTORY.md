@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3970 PASS, 0 FAIL, 2368 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3972 PASS, 0 FAIL, 2366 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4721,10 +4721,10 @@ Totals: 3970 PASS, 0 FAIL, 2368 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 33 |  | derived | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 110 |  | calc | `2.3` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 111 |  | calc | `0.15` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 111 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 33 |  | derived | `10` | not run: input restated: a plasma draw carries of order 10^4 genome equivalents, the upper end of the 10^3-10^4 copies of ch:sky L72-73 (about 10^3 genome equivalents per millilitre, Sender2024); the printed '10' is the base of 10^4, nothing to recompute here | - |
+| 110 | ch:translation:L110 | calc | `2.3` | numeric: neutron-star saturation mass at the upper edge of the TOV bound | PASS |
+| 111 | ch:translation:L111:0.2 | calc | `0.2` | numeric: TOV mass not fixed to better than about 0.2 M_sun | PASS |
+| 111 |  | calc | `0.15` | not run: input: lower error -0.15 M_sun of the TOV bound 2.16 (+0.17, -0.15) M_sun (Rezzolla2018, doi 10.3847/2041-8213/aaa401) | - |
 
 ## Part 6 - ch:instrument - `docs/book/part4/p4_12_instrument.tex`
 
