@@ -2087,6 +2087,35 @@ def _b11_s5_row():
     k, n = re.search(r'\|\s*(\d+)/(\d+)\s*\|\s*PASS', row).groups()
     return bar, int(k), int(n)
 
+# helpers of the part4/p4_18_discipline checks
+def _b11_t4_rows():
+    'T4 (infection study GSE179325) rows of the PROC-NEUT-TEST-01 battery that the chain read (status ok).'
+    return [r for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
+            if r['test'] == 'T4' and r['status'] == 'ok']
+
+
+def _b11_t4_severity_fit():
+    'OLS of tared A_rel on severity (SEVERE, MILD indicators; NEGATIVE baseline) and neutrophil fraction, all tared T4 readings: (coef, p).'
+    from scipy import stats
+    rows = [r for r in _b11_t4_rows() if r['A_rel_tared'] not in ('', 'nan')]
+    y = np.array([float(r['A_rel_tared']) for r in rows])
+    X = np.column_stack([np.ones(len(y)), [r['group'] == 'SEVERE' for r in rows], [float(r['f_neu']) for r in rows],
+                         [r['group'] == 'MILD' for r in rows]]).astype(float)
+    b = np.linalg.lstsq(X, y, rcond=None)[0]
+    e = y - X @ b; dof = len(y) - X.shape[1]
+    se = np.sqrt(np.diag(e @ e / dof * np.linalg.inv(X.T @ X)))
+    p = 2 * stats.t.sf(np.abs(b / se), dof)
+    return b, p, len(y)
+
+
+def _b11_planted():
+    'The six known mixtures with >= 50 % neutrophils: (rows, rise from markers fraction, rise with fraction re-fitted, tared healthy, tared damaged).'
+    rows = [r for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/selfconsist.csv') if float(r['f_true']) >= 0.5]
+    A = np.array([float(r['A_nnls']) for r in rows]); D = np.array([float(r['A_nnls_damaged']) for r in rows])
+    Af = np.array([float(r['A_fit']) for r in rows]); Df = np.array([float(r['A_fit_damaged']) for r in rows])
+    ref = np.array([np.median(np.delete(A, i)) for i in range(len(A))])   # median tare against the other healthy mixtures
+    return rows, D - A, Df - Af, A / ref, D / ref
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -33576,6 +33605,96 @@ def check_4110():
     return locals()
 
 
+# ======== Part 6 | ch:discipline | docs/book/part4/p4_18_discipline.tex
+@check(label='ch:discipline:L24', chapter='ch:discipline', part=6, title='severe vs healthy above Normal: one-sided Fisher p',
+       file='part4/p4_18_discipline', line=24, status='measured', kind='file', printed='0.015', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
+def check_4111():
+    'Pre-registered T4a: SEVERE above Normal more often than NEGATIVE. Counts of tared readings "above Normal" per group from the battery file, one-sided Fisher exact test. Book line 24, printed p = 0.015. Inputs: neut_test_T1T3T4_readings.csv (tared_state); the outcome record gives 32/110 vs 11/76.'
+    from scipy import stats
+    rows = [r for r in _b11_t4_rows() if r['tared_state']]
+    sev = [r for r in rows if r['group'] == 'SEVERE']; neg = [r for r in rows if r['group'] == 'NEGATIVE']
+    a = sum(r['tared_state'] == 'above Normal' for r in sev); c = sum(r['tared_state'] == 'above Normal' for r in neg)
+    value = float(stats.fisher_exact([[a, len(sev) - a], [c, len(neg) - c]], alternative='greater')[1])
+    return locals()
+
+@check(label='ch:discipline:L24:0.79', chapter='ch:discipline', part=6, title='median neutrophil fraction, severe infection',
+       file='part4/p4_18_discipline', line=24, status='measured', kind='file', printed='0.79', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
+def check_4112():
+    'Median Stage A neutrophil fraction of the SEVERE specimens of T4 (113 read). Book line 24, printed 0.79. Inputs: neut_test_T1T3T4_readings.csv (f_neu).'
+    value = float(np.median([float(r['f_neu']) for r in _b11_t4_rows() if r['group'] == 'SEVERE' and r['f_neu']]))
+    return locals()
+
+@check(label='ch:discipline:L24:0.65', chapter='ch:discipline', part=6, title='median neutrophil fraction, healthy (NEGATIVE)',
+       file='part4/p4_18_discipline', line=24, status='measured', kind='file', printed='0.65', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
+def check_4113():
+    'Median Stage A neutrophil fraction of the NEGATIVE (healthy) specimens of T4 (99 read). Book line 24, printed 0.65. Inputs: neut_test_T1T3T4_readings.csv (f_neu).'
+    value = float(np.median([float(r['f_neu']) for r in _b11_t4_rows() if r['group'] == 'NEGATIVE' and r['f_neu']]))
+    return locals()
+
+@check(label='ch:discipline:L25', chapter='ch:discipline', part=6, title='severity term with fraction in the model',
+       file='part4/p4_18_discipline', line=25, status='measured', kind='file', printed='+0.0075', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
+def check_4114():
+    'Severity term of the least-squares model tared A_rel = a + b_severe [SEVERE] + b_mild [MILD] + c f_neu over the 495 tared T4 readings. Book line 25, printed +0.0075. Inputs: neut_test_T1T3T4_readings.csv. (The fraction slope of the same fit is the record\'s "+0.12 A per unit fraction".)'
+    b, p, n = _b11_t4_severity_fit()
+    value = float(b[1])
+    return locals()
+
+@check(label='ch:discipline:L25:0.42', chapter='ch:discipline', part=6, title='p of the severity term with fraction in the model',
+       file='part4/p4_18_discipline', line=25, status='measured', kind='file', printed='0.42', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
+def check_4115():
+    'Two-sided t-test p of the severity term in the same least-squares model (tared A_rel on severity and neutrophil fraction, 495 tared T4 readings). Book line 25, printed p = 0.42. Inputs: neut_test_T1T3T4_readings.csv.'
+    b, p, n = _b11_t4_severity_fit()
+    value = float(p[1])
+    return locals()
+
+@check(label='ch:discipline:L57', chapter='ch:discipline', part=6, title='planted 2 % loss: shift of the tared reading',
+       file='part4/p4_18_discipline', line=57, status='measured', kind='file', printed='+0.061', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/selfconsist.csv')
+def check_4116():
+    'Median shift of the tared reading from a planted 2 % loss of the neutrophil pattern on the six mixtures with >= 50 % neutrophils; each mixture tared (median) against the other five, healthy and damaged readings divided by the same reference. The same tare reproduces the record\'s healthy 0.992-1.021 and damaged 1.052-1.090. Book line 57, printed +0.061. Inputs: selfconsist.csv (A_nnls, A_nnls_damaged).'
+    rows, a, b, h, d = _b11_planted()
+    above = int((d > 1.05).sum())
+    value = float(np.median(d - h))
+    return locals()
+
+@check(label='ch:discipline:L68', chapter='ch:discipline', part=6, title='planted loss, fraction from markers: smallest rise',
+       file='part4/p4_18_discipline', line=68, status='measured', kind='file', printed='0.053', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/selfconsist.csv')
+def check_4117():
+    'Figure fig:p4_planted: smallest rise in untared Met-A from the planted 2 % loss, fraction from the composition markers, six mixtures >= 50 % neutrophils. Book line 68, printed 0.053. Inputs: selfconsist.csv.'
+    value = float(_b11_planted()[1].min())
+    return locals()
+
+@check(label='ch:discipline:L68:0.067', chapter='ch:discipline', part=6, title='planted loss, fraction from markers: largest rise',
+       file='part4/p4_18_discipline', line=68, status='measured', kind='file', printed='0.067', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/selfconsist.csv')
+def check_4118():
+    'Figure fig:p4_planted: largest rise in untared Met-A from the planted 2 % loss, fraction from the composition markers. Book line 68, printed 0.067. Inputs: selfconsist.csv.'
+    value = float(_b11_planted()[1].max())
+    return locals()
+
+@check(label='ch:discipline:L68:0.044', chapter='ch:discipline', part=6, title='planted loss, fraction re-fitted: smallest rise',
+       file='part4/p4_18_discipline', line=68, status='measured', kind='file', printed='0.044', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/selfconsist.csv')
+def check_4119():
+    'Figure fig:p4_planted: smallest rise with the fraction re-fitted on the neutrophil sites. Book line 68, printed 0.044. Inputs: selfconsist.csv (A_fit, A_fit_damaged).'
+    value = float(_b11_planted()[2].min())
+    return locals()
+
+@check(label='ch:discipline:L68:0.056', chapter='ch:discipline', part=6, title='planted loss, fraction re-fitted: largest rise',
+       file='part4/p4_18_discipline', line=68, status='measured', kind='file', printed='0.056', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/selfconsist.csv')
+def check_4120():
+    'Figure fig:p4_planted: largest rise with the fraction re-fitted on the neutrophil sites. Book line 68, printed 0.056. Inputs: selfconsist.csv (A_fit, A_fit_damaged).'
+    value = float(_b11_planted()[2].max())
+    return locals()
+
+
 # ======== Part 6 | ch:salmonid | docs/book/part4/p4_22b_salmonid.tex
 @check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='0.0354', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
@@ -37638,17 +37757,7 @@ INVENTORY = [
     (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '10', "input: vertical lines of the figure at 10^3 and 10^4 copies (the plasma-draw range of line 73); the printed '10' is the base of the power"),
     (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '0.01', 'input: illustrative array measurement noise 0.01 (figure reference line)'),
     (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '0.02', 'input: illustrative array measurement noise 0.02 (figure reference line)'),
-    (6, 'ch:discipline', 'part4/p4_18_discipline', 24, '', 'measured', '0.015', 'measured, source not named'),
-    (6, 'ch:discipline', 'part4/p4_18_discipline', 24, '', 'measured', '0.79', 'measured, source not named'),
-    (6, 'ch:discipline', 'part4/p4_18_discipline', 24, '', 'measured', '0.65', 'measured, source not named'),
-    (6, 'ch:discipline', 'part4/p4_18_discipline', 25, '', 'measured', '+0.0075', 'measured, source not named'),
-    (6, 'ch:discipline', 'part4/p4_18_discipline', 25, '', 'measured', '0.42', 'measured, source not named'),
-    (6, 'ch:discipline', 'part4/p4_18_discipline', 57, '', 'measured', '+0.061', 'measured, source not named'),
-    (6, 'ch:discipline', 'part4/p4_18_discipline', 58, '', 'measured', '1.05', 'measured, source not named'),
-    (6, 'ch:discipline', 'part4/p4_18_discipline', 68, '', 'measured', '0.053', 'measured, source not named'),
-    (6, 'ch:discipline', 'part4/p4_18_discipline', 68, '', 'measured', '0.067', 'measured, source not named'),
-    (6, 'ch:discipline', 'part4/p4_18_discipline', 68, '', 'measured', '0.044', 'measured, source not named'),
-    (6, 'ch:discipline', 'part4/p4_18_discipline', 68, '', 'measured', '0.056', 'measured, source not named'),
+    (6, 'ch:discipline', 'part4/p4_18_discipline', 58, '', 'measured', '1.05', 'definition: 1.05 is the upper edge of the Normal band (0.95-1.05), the line the planted readings are counted against; the reading itself is checked in ch:discipline:L57'),
     (6, 'ch:chain', 'part4/p4_19_chain', 23, '', 'calibrated', '50', 'measured, too few printed digits to match against the named files'),
     (6, 'ch:chain', 'part4/p4_19_chain', 23, '', 'calibrated', '1.1104', 'measured, not found in the files the chapter names'),
     (6, 'ch:chain', 'part4/p4_19_chain', 25, '', 'calibrated', '1.099', 'measured, not found in the files the chapter names'),

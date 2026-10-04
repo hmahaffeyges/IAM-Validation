@@ -4609,6 +4609,18 @@ PASS  ch:serial:L60                      ch:serial:p4_17_serial:60  printed 10  
 PASS  ch:serial:L60:0.05                 ch:serial:p4_17_serial:60  printed 0.05  recomputed 0.05  tol 0.00500001  [measured] table: remission pairs, agreement bar  file Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md
 PASS  ch:serial:L71                      ch:serial:p4_17_serial:71  printed 0.894  recomputed 0.894  tol 5.000005e-04  [measured] E-MTAB-7309 Stage 1: median call rate  file Biological_Physics/MethylPhys/doors/PLAN.md
 
+== Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:discipline (part4/p4_18_discipline.tex)
+PASS  ch:discipline:L24                  ch:discipline:p4_18_discipline:24  printed 0.015  recomputed 0.0146176  tol 5.000005e-04  [measured] severe vs healthy above Normal: one-sided Fisher p  file Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv
+PASS  ch:discipline:L24:0.79             ch:discipline:p4_18_discipline:24  printed 0.79  recomputed 0.792124  tol 0.00500001  [measured] median neutrophil fraction, severe infection  file Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv
+PASS  ch:discipline:L24:0.65             ch:discipline:p4_18_discipline:24  printed 0.65  recomputed 0.651576  tol 0.00500001  [measured] median neutrophil fraction, healthy (NEGATIVE)  file Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv
+PASS  ch:discipline:L25                  ch:discipline:p4_18_discipline:25  printed +0.0075  recomputed 0.00747556  tol 5.000005e-05  [measured] severity term with fraction in the model  file Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv
+PASS  ch:discipline:L25:0.42             ch:discipline:p4_18_discipline:25  printed 0.42  recomputed 0.415798  tol 0.00500001  [measured] p of the severity term with fraction in the model  file Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv
+PASS  ch:discipline:L57                  ch:discipline:p4_18_discipline:57  printed +0.061  recomputed 0.0609813  tol 5.000005e-04  [measured] planted 2 % loss: shift of the tared reading  file Biological_Physics/MethylPhys/doors/data/selfconsist.csv
+PASS  ch:discipline:L68                  ch:discipline:p4_18_discipline:68  printed 0.053  recomputed 0.0530241  tol 5.000005e-04  [measured] planted loss, fraction from markers: smallest rise  file Biological_Physics/MethylPhys/doors/data/selfconsist.csv
+PASS  ch:discipline:L68:0.067            ch:discipline:p4_18_discipline:68  printed 0.067  recomputed 0.0674417  tol 5.000005e-04  [measured] planted loss, fraction from markers: largest rise  file Biological_Physics/MethylPhys/doors/data/selfconsist.csv
+PASS  ch:discipline:L68:0.044            ch:discipline:p4_18_discipline:68  printed 0.044  recomputed 0.0444338  tol 5.000005e-04  [measured] planted loss, fraction re-fitted: smallest rise  file Biological_Physics/MethylPhys/doors/data/selfconsist.csv
+PASS  ch:discipline:L68:0.056            ch:discipline:p4_18_discipline:68  printed 0.056  recomputed 0.0558553  tol 5.000005e-04  [measured] planted loss, fraction re-fitted: largest rise  file Biological_Physics/MethylPhys/doors/data/selfconsist.csv
+
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:salmonid (part4/p4_22b_salmonid.tex)
 PASS  ch:salmonid:L54                    ch:salmonid:p4_22b_salmonid:54  printed 0.0354  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
 PASS  ch:salmonid:L54:3.31               ch:salmonid:p4_22b_salmonid:54  printed 3.31  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
@@ -5045,4 +5057,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 4111  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2227  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4121  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2217  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

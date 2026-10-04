@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4111 PASS, 0 FAIL, 2227 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4121 PASS, 0 FAIL, 2217 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4949,17 +4949,17 @@ Totals: 4111 PASS, 0 FAIL, 2227 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 24 |  | measured | `0.015` | not run: measured, source not named | - |
-| 24 |  | measured | `0.79` | not run: measured, source not named | - |
-| 24 |  | measured | `0.65` | not run: measured, source not named | - |
-| 25 |  | measured | `+0.0075` | not run: measured, source not named | - |
-| 25 |  | measured | `0.42` | not run: measured, source not named | - |
-| 57 |  | measured | `+0.061` | not run: measured, source not named | - |
-| 58 |  | measured | `1.05` | not run: measured, source not named | - |
-| 68 |  | measured | `0.053` | not run: measured, source not named | - |
-| 68 |  | measured | `0.067` | not run: measured, source not named | - |
-| 68 |  | measured | `0.044` | not run: measured, source not named | - |
-| 68 |  | measured | `0.056` | not run: measured, source not named | - |
+| 24 | ch:discipline:L24 | measured | `0.015` | file `Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv`: severe vs healthy above Normal: one-sided Fisher p | PASS |
+| 24 | ch:discipline:L24:0.79 | measured | `0.79` | file `Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv`: median neutrophil fraction, severe infection | PASS |
+| 24 | ch:discipline:L24:0.65 | measured | `0.65` | file `Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv`: median neutrophil fraction, healthy (NEGATIVE) | PASS |
+| 25 | ch:discipline:L25 | measured | `+0.0075` | file `Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv`: severity term with fraction in the model | PASS |
+| 25 | ch:discipline:L25:0.42 | measured | `0.42` | file `Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv`: p of the severity term with fraction in the model | PASS |
+| 57 | ch:discipline:L57 | measured | `+0.061` | file `Biological_Physics/MethylPhys/doors/data/selfconsist.csv`: planted 2 % loss: shift of the tared reading | PASS |
+| 58 |  | measured | `1.05` | not run: definition: 1.05 is the upper edge of the Normal band (0.95-1.05), the line the planted readings are counted against; the reading itself is checked in ch:discipline:L57 | - |
+| 68 | ch:discipline:L68 | measured | `0.053` | file `Biological_Physics/MethylPhys/doors/data/selfconsist.csv`: planted loss, fraction from markers: smallest rise | PASS |
+| 68 | ch:discipline:L68:0.067 | measured | `0.067` | file `Biological_Physics/MethylPhys/doors/data/selfconsist.csv`: planted loss, fraction from markers: largest rise | PASS |
+| 68 | ch:discipline:L68:0.044 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/selfconsist.csv`: planted loss, fraction re-fitted: smallest rise | PASS |
+| 68 | ch:discipline:L68:0.056 | measured | `0.056` | file `Biological_Physics/MethylPhys/doors/data/selfconsist.csv`: planted loss, fraction re-fitted: largest rise | PASS |
 
 ## Part 6 - ch:chain - `docs/book/part4/p4_19_chain.tex`
 
