@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3005 PASS, 0 FAIL, 3329 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3038 PASS, 0 FAIL, 3296 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -3204,13 +3204,13 @@ Totals: 3005 PASS, 0 FAIL, 3329 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 38 | ch:blackholes:L38 | none |  | sympy: S_BH from A = 16 pi G^2 M^2/c^4 | PASS |
-| 42 | eq:bh_Tuniv | none |  | not run: displayed equation, not yet checked | - |
-| 61 | eq:bh_gamma_def | none |  | not run: displayed equation, not yet checked | - |
+| 42 | eq:bh_Tuniv | none |  | sympy: T = hbar kappa/(2 pi k_B c) with kappa of Schwarzschild gives T_BH | PASS |
+| 61 | eq:bh_gamma_def | none |  | not run: definition: thermally limited encoding rate Gamma = P/(k_B T_BH ln2); its evaluation is checked by eq:bh_gamma | - |
 | 65 | eq:bh_gamma | derived |  | sympy: Gamma = P/(k_B T ln2) = c^3/(1920 G M ln2) | PASS |
 | 69 | ch:blackholes:L69 | derived | `152.5` | numeric: Gamma for 1 M_sun (CODATA 2018) | PASS |
-| 73 |  | calc | `5120` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 76 |  | calc | `1.98847\times10^{30}` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 76 |  | calc | `3.15576\times10^7` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 73 | ch:blackholes:L73 | calc | `5120` | numeric: 5120 in tau_evap from integrating dM/dt | PASS |
+| 76 |  | calc | `1.98847\times10^{30}` | not run: input: solar mass M_sun = 1.98847e30 kg as stated in the table caption (verify_book Msun); see for_author note on CODATA 2018 | - |
+| 76 |  | calc | `3.15576\times10^7` | not run: definition: Julian year 3.15576e7 s (365.25 d x 86400 s), the unit of the table (verify_book yr) | - |
 | 79 | ch:blackholes:L79 | calc | `6.17\times10^{-8}` | numeric: T_BH (K) for 1 M_sun (CODATA 2018) | PASS |
 | 79 | ch:blackholes:L79:1.525\times10^{2} | calc | `1.525\times10^{2}` | numeric: Gamma (bits/s) for 1 M_sun (CODATA 2018) | PASS |
 | 79 | ch:blackholes:L79:1.049\times10^{77} | calc | `1.049\times10^{77}` | numeric: S_BH (nats) for 1 M_sun (CODATA 2018) | PASS |
@@ -3221,20 +3221,20 @@ Totals: 3005 PASS, 0 FAIL, 3329 inventoried and not run. Each run item carries t
 | 80 | ch:blackholes:L80:1.049\times10^{79} | calc | `1.049\times10^{79}` | numeric: S_BH (nats) for 10 M_sun (CODATA 2018) | PASS |
 | 80 | ch:blackholes:L80:1.51\times10^{79} | calc | `1.51\times10^{79}` | numeric: S_BH (bits) for 10 M_sun (CODATA 2018) | PASS |
 | 80 | ch:blackholes:L80:2.10\times10^{70} | calc | `2.10\times10^{70}` | numeric: tau_evap (yr) for 10 M_sun (CODATA 2018) | PASS |
-| 80 |  | calc | `10` | not run: not yet run: draft rejected (drafter skipped: This is a table entry label, not a computed quantity skip) | - |
+| 80 |  | calc | `10` | not run: input: table mass 10 M_sun (row label) | - |
 | 81 | ch:blackholes:L81 | calc | `6.17\times10^{-14}` | numeric: T_BH (K) for 1e+06 M_sun (CODATA 2018) | PASS |
 | 81 | ch:blackholes:L81:1.525\times10^{-4} | calc | `1.525\times10^{-4}` | numeric: Gamma (bits/s) for 1e+06 M_sun (CODATA 2018) | PASS |
 | 81 | ch:blackholes:L81:1.049\times10^{89} | calc | `1.049\times10^{89}` | numeric: S_BH (nats) for 1e+06 M_sun (CODATA 2018) | PASS |
 | 81 | ch:blackholes:L81:1.51\times10^{89} | calc | `1.51\times10^{89}` | numeric: S_BH (bits) for 1e+06 M_sun (CODATA 2018) | PASS |
 | 81 | ch:blackholes:L81:2.10\times10^{85} | calc | `2.10\times10^{85}` | numeric: tau_evap (yr) for 1e+06 M_sun (CODATA 2018) | PASS |
-| 81 |  | calc | `10` | not run: not yet run: draft rejected (drafter skipped: This is a table entry label, not a computed quantity skip) | - |
+| 81 |  | calc | `10` | not run: input: table mass 10^6 M_sun (row label) | - |
 | 82 | ch:blackholes:L82 | calc | `6.17\times10^{-17}` | numeric: T_BH (K) for 1e+09 M_sun (CODATA 2018) | PASS |
 | 82 | ch:blackholes:L82:1.525\times10^{-7} | calc | `1.525\times10^{-7}` | numeric: Gamma (bits/s) for 1e+09 M_sun (CODATA 2018) | PASS |
 | 82 | ch:blackholes:L82:1.049\times10^{95} | calc | `1.049\times10^{95}` | numeric: S_BH (nats) for 1e+09 M_sun (CODATA 2018) | PASS |
 | 82 | ch:blackholes:L82:1.51\times10^{95} | calc | `1.51\times10^{95}` | numeric: S_BH (bits) for 1e+09 M_sun (CODATA 2018) | PASS |
 | 82 | ch:blackholes:L82:2.10\times10^{94} | calc | `2.10\times10^{94}` | numeric: tau_evap (yr) for 1e+09 M_sun (CODATA 2018) | PASS |
-| 82 |  | calc | `10` | not run: not yet run: draft rejected (drafter skipped: This is a table entry label, not a computed quantity skip) | - |
-| 96 |  | none |  | not run: displayed equation, not yet checked | - |
+| 82 |  | calc | `10` | not run: input: table mass 10^9 M_sun (row label) | - |
+| 96 | ch:blackholes:L96 | none |  | sympy: sigma_SB = pi^2 k_B^4/(60 hbar^3 c^2) from the Planck spectrum | PASS |
 | 100 | eq:bh_PSB | none |  | sympy: Stefan-Boltzmann power of the horizon = Hawking power | PASS |
 | 106 | ch:blackholes:L106 | derived |  | sympy: P_SB/P_Hawking = 1 | PASS |
 | 122 | eq:bh_transfer_rate | none |  | sympy: transfer rate = Gamma | PASS |
@@ -3243,97 +3243,94 @@ Totals: 3005 PASS, 0 FAIL, 3329 inventoried and not run. Each run item carries t
 | 136 | ch:blackholes:L136:0.433 | calc | `0.433` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 136 | ch:blackholes:L136:0.218 | calc | `0.218` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 136 | ch:blackholes:L136:0.032 | calc | `0.032` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 136 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.550163e+14); drafting error on review | - |
-| 136 |  | calc | `67.4` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 136 |  | calc | `0.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 136 |  | calc | `0.9` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.433013); drafting error on review | - |
-| 136 |  | calc | `0.998` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 136 | ch:blackholes:L136:67.4 | calc | `67.4` | numeric: H0 = 67.4 for the cosmic horizon (Planck 2018) | PASS |
+| 136 |  | calc | `10` | not run: input: plotted ranges (1 to 10^11 M_sun; H0 up to 10^4 km/s/Mpc) in the fig:smarr caption | - |
+| 136 |  | calc | `0.5` | not run: input: Kerr spin chi = 0.5 at which 0.433 is evaluated (0.433 checked by ch:blackholes:L136:0.433) | - |
+| 136 |  | calc | `0.9` | not run: input: Kerr spin chi = 0.9 at which 0.218 is evaluated (0.218 checked by ch:blackholes:L136:0.218) | - |
+| 136 |  | calc | `0.998` | not run: input: Kerr spin chi = 0.998 at which 0.032 is evaluated (0.032 checked by ch:blackholes:L136:0.032) | - |
 | 139 | eq:bh_smarr | none |  | sympy: Smarr: N k_B T ln2 = T S = Mc^2/2 | PASS |
 | 142 | ch:blackholes:L142 | derived | `0.5000000000` | numeric: same value as p5_11_status_all:27 (Smarr share at 6.5e9 M_sun) | PASS |
-| 142 |  | derived | `4.3\times10^6` | not run: not yet run: draft rejected (drafter skipped: Gillessen 2009 citation: mass of Sgr A* at Galactic centre.
-# The book ci) | - |
-| 143 |  | derived | `6.5\times10^9` | not run: not yet run: draft rejected (drafter skipped: EHT 2019 citation: mass of the black hole in M87.
-# The book cites this o) | - |
+| 142 | ch:blackholes:L142:4.3\times10^6 | derived | `4.3\times10^6` | numeric: Sgr A* mass (Gillessen 2009) | PASS |
+| 143 | ch:blackholes:L143 | derived | `6.5\times10^9` | numeric: M87* mass (EHT 2019) | PASS |
 | 148 | ch:blackholes:L148 | derived |  | sympy: Kerr T S/(Mc^2) = sqrt(1-chi^2)/2 and its three values (G=c=hbar=k_B=1) | PASS |
-| 155 | eq:bh_dMdt | none |  | not run: displayed equation, not yet checked | - |
+| 155 | eq:bh_dMdt | none |  | sympy: dM/dt = -sigma A T^4/c^2 = -hbar c^4/(15360 pi G^2 M^2) | PASS |
 | 159 | eq:bh_Mt | none |  | sympy: M(t)^3 solves dM/dt = -hbar c^4/(15360 pi G^2 M^2) | PASS |
-| 163 | eq:bh_Str | none |  | not run: displayed equation, not yet checked | - |
+| 163 | eq:bh_Str | none |  | sympy: Int Gamma(M(t)) dt = (S_BH,0 - S_BH(t))/(k_B ln2) | PASS |
 | 168 | eq:bh_Str_closed | none |  | sympy: S_tr = S_BH,0 - S_BH(t) with S proportional to M^2 | PASS |
 | 172 | ch:blackholes:L172 | none |  | sympy: half the entropy transferred at t = (1-2^-3/2) tau = 0.646 tau | PASS |
-| 176 |  | derived | `1.51\times10^{77}` | not run: not yet run: draft does not reproduce the printed value (recomputed 6.053288e+77); drafting error on review | - |
+| 176 | ch:blackholes:L176 | derived | `1.51\times10^{77}` | numeric: S_BH,0 in bits for one solar mass | PASS |
 | 177 | ch:blackholes:L177 | derived | `152.5` | numeric: same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass) | PASS |
-| 182 |  | derived | `0.646` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 192 |  | derived | `0.646` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 194 |  | derived | `53.81` | not run: not yet run: draft rejected (no draft returned) | - |
-| 194 |  | derived | `64.6` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 182 | ch:blackholes:L182 | derived | `0.646` | numeric: S_tr and S_BH cross at t = 0.646 tau (fig caption) | PASS |
+| 192 | ch:blackholes:L192 | derived | `0.646` | numeric: min(S_tr, S_BH) turns over at 0.646 tau | PASS |
+| 194 | ch:blackholes:L194:64.6 | derived | `64.6` | numeric: black-body crossing at 64.6 % of tau | PASS |
+| 194 |  | derived | `53.81` | not run: input: published value cited (Page 2013, doi 10.1088/1475-7516/2013/09/028: maximum of the fine-grained radiation entropy at 53.81 % of the evaporation time for photon and graviton emission), nothing to recompute in the book | - |
 | 201 | ch:blackholes:L201 | calc | `2.6\times10^{-30}` | numeric: T_GH = hbar H0/(2 pi k_B) at the photon-sector H0 = 67.16 the caption states | PASS |
 | 201 | ch:blackholes:L201:4.5\times10^{22} | calc | `4.5\times10^{22}` | numeric: mass with T_BH = T_CMB, kg | PASS |
 | 201 | ch:blackholes:L201:2.3\times10^{22} | calc | `2.3\times10^{22}` | numeric: M_eq = c^3/(4 G H0), H0=67.4 | PASS |
 | 201 | ch:blackholes:L201:2.1\times10^{67} | calc | `2.1\times10^{67}` | numeric: evaporation time, 1 M_sun | PASS |
-| 201 |  | calc | `67.4` | not run: not yet run: draft rejected (no draft returned) | - |
-| 201 |  | calc | `6.6\times10^{10}` | not run: not yet run: draft rejected (no draft returned) | - |
-| 201 |  | calc | `5120` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 201 | ch:blackholes:L201:5120 | calc | `5120` | numeric: 5120 in tau_evap (fig caption) | PASS |
+| 201 |  | calc | `67.4` | not run: not printed at this line in the current text: the fig:bh_temperature caption gives H0 = 67.16 (checked by ch:blackholes:L201); the Planck 2018 input 67.4 is at line 209 (ch:blackholes:L209:67.4) | - |
+| 201 |  | calc | `6.6\times10^{10}` | not run: input: TON 618 mass 6.6e10 M_sun, an observed value from the cited Shemmer2004 (doi 10.1086/423607), nothing to recompute | - |
 | 206 | eq:bh_TGH | calc |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
 | 209 | ch:blackholes:L209 | calc | `2.66\times10^{-30}` | numeric: T_GH, H0 = 67.4 | PASS |
 | 209 | ch:blackholes:L209:2.65\times10^{-30} | calc | `2.65\times10^{-30}` | numeric: T_GH, H0 = 67.16 | PASS |
 | 209 | ch:blackholes:L209:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
-| 209 |  | calc | `67.4` | not run: not yet run: draft rejected (drafter skipped: Line 209 cites "Planck 2018" for H_0=67.4 km/s/Mpc as a published input; ) | - |
+| 209 | ch:blackholes:L209:67.4 | calc | `67.4` | numeric: H0 = 67.4 (Planck 2018) | PASS |
 | 213 | eq:bh_Pnet | derived |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
 | 221 | eq:bh_Meq | derived |  | sympy: M_eq from T_BH = T_GH | PASS |
 | 224 | ch:blackholes:L224 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 224 | ch:blackholes:L224:2.33\times10^{22} | calc | `2.33\times10^{22}` | numeric: M_eq at H0 = 67.16 | PASS |
-| 228 |  | calc | `6.6\times10^{10}` | not run: not yet run: draft rejected (drafter skipped: Line 228 states TON 618's mass as an observational value from a cited sou) | - |
-| 228 |  | calc | `10` | not run: not yet run: draft rejected (drafter skipped: Line 228 references z=10^10 as a chosen cosmological epoch; 
-# not a quan) | - |
+| 228 |  | calc | `6.6\times10^{10}` | not run: input: TON 618 mass 6.6e10 M_sun, an observed value from the cited Shemmer2004 (doi 10.1086/423607), nothing to recompute | - |
+| 228 |  | calc | `10` | not run: input: epoch z = 10^10 of the table row | - |
 | 231 | ch:blackholes:L231 | calc | `2.18\times10^{-18}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 231 | ch:blackholes:L231:2.66\times10^{-30} | calc | `2.66\times10^{-30}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 231 | ch:blackholes:L231:2.32\times10^{22} | calc | `2.32\times10^{22}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 232 | ch:blackholes:L232 | calc | `3.91\times10^{-18}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 232 | ch:blackholes:L232:1.30\times10^{22} | calc | `1.30\times10^{22}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 232 |  | calc | `4.75\times10^{-30}` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.412388e-56); drafting error on review | - |
+| 232 | ch:blackholes:L232:4.75\times10^{-30} | calc | `4.75\times10^{-30}` | numeric: T_GH at z = 1 | PASS |
 | 233 | ch:blackholes:L233 | calc | `4.41\times10^{-14}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 233 | ch:blackholes:L233:1.15\times10^{18} | calc | `1.15\times10^{18}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 233 |  | calc | `10` | not run: not yet run: draft rejected (drafter skipped: Line 233 prints "z=10^3" which is an exponent notation label, not a calcu) | - |
-| 233 |  | calc | `5.37\times10^{-26}` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.593838e-52); drafting error on review | - |
+| 233 | ch:blackholes:L233:5.37\times10^{-26} | calc | `5.37\times10^{-26}` | numeric: T_GH at z = 10^3 | PASS |
+| 233 |  | calc | `10` | not run: input: epoch z = 10^3 of the table row | - |
 | 234 | ch:blackholes:L234 | calc | `2.10\times10^{-8}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 234 | ch:blackholes:L234:2.42\times10^{12} | calc | `2.42\times10^{12}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 234 |  | calc | `10` | not run: not yet run: draft rejected (drafter skipped: Line 234 prints "z=10^6" which is an exponent notation label, not a calcu) | - |
-| 234 |  | calc | `2.55\times10^{-20}` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.603021e-19); drafting error on review | - |
+| 234 | ch:blackholes:L234:2.55\times10^{-20} | calc | `2.55\times10^{-20}` | numeric: T_GH at z = 10^6 | PASS |
+| 234 |  | calc | `10` | not run: input: epoch z = 10^6 of the table row | - |
 | 235 | ch:blackholes:L235 | calc | `2.10\times10^{0}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 235 | ch:blackholes:L235:2.42\times10^{4} | calc | `2.42\times10^{4}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 235 |  | calc | `10` | not run: not yet run: draft rejected (drafter skipped: ITEM 326: exponent "10" in z=10^10; this is not a numerical result to ver) | - |
-| 235 |  | calc | `2.55\times10^{-12}` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.600281e-11); drafting error on review | - |
-| 239 |  | calc | `3.4\times10^{-90}` | not run: not yet run: draft does not reproduce the printed value (recomputed 5.346228e-87); drafting error on review | - |
+| 235 | ch:blackholes:L235:2.55\times10^{-12} | calc | `2.55\times10^{-12}` | numeric: T_GH at z = 10^10 | PASS |
+| 235 |  | calc | `10` | not run: input: epoch z = 10^10 of the table row | - |
+| 239 | ch:blackholes:L239 | calc | `3.4\times10^{-90}` | numeric: (T_GH/T_BH)^4 for one solar mass today | PASS |
 | 246 | ch:blackholes:L246 | none |  | sympy: M_CMB = 4.5e22 kg = 0.6 lunar masses | PASS |
 | 248 | ch:blackholes:L248 | calc | `4.4\times10^{7}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 249 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 17.5997); drafting error on review | - |
-| 262 | eq:bh_saturation | conjecture |  | not run: displayed equation, not yet checked | - |
+| 249 | ch:blackholes:L249 | calc | `10^{67}` | numeric: evaporation times of 10^67 yr and longer | PASS |
+| 262 | eq:bh_saturation | conjecture |  | not run: conjecture: saturation criterion for black-hole formation, nothing to recompute (its equivalence to the hoop conjecture is checked by eq:bh_hoop) | - |
 | 271 | eq:bh_hoop | none |  | sympy: S/(k_B A) at the hoop radius = k_B/(4 l_P^2) | PASS |
 | 295 | eq:bh_seed | derived |  | sympy: M from S = 4 pi G M^2/(hbar c), in units of m_Pl | PASS |
-| 305 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 77); drafting error on review | - |
-| 305 |  | calc | `0.98` | not run: not yet run: draft does not reproduce the printed value (recomputed 8.448507e+60); drafting error on review | - |
-| 306 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 83); drafting error on review | - |
-| 306 |  | calc | `9.8\times10^{2}` | not run: not yet run: draft does not reproduce the printed value (recomputed 8.448507e+66); drafting error on review | - |
-| 307 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 89); drafting error on review | - |
-| 307 |  | calc | `9.8\times10^{5}` | not run: not yet run: draft does not reproduce the printed value (recomputed 8.448507e+72); drafting error on review | - |
-| 308 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 95); drafting error on review | - |
-| 308 |  | calc | `9.8\times10^{8}` | not run: not yet run: draft does not reproduce the printed value (recomputed 8.448507e+78); drafting error on review | - |
+| 305 | ch:blackholes:L305 | calc | `0.98` | numeric: seed mass for S = 1e77 nats | PASS |
+| 305 |  | calc | `10` | not run: input: S_collapse = 10^77 nats (table row label) | - |
+| 306 | ch:blackholes:L306 | calc | `9.8\times10^{2}` | numeric: seed mass for S = 1e83 nats | PASS |
+| 306 |  | calc | `10` | not run: input: S_collapse = 10^83 nats (table row label) | - |
+| 307 | ch:blackholes:L307 | calc | `9.8\times10^{5}` | numeric: seed mass for S = 1e89 nats | PASS |
+| 307 |  | calc | `10` | not run: input: S_collapse = 10^89 nats (table row label) | - |
+| 308 | ch:blackholes:L308 | calc | `9.8\times10^{8}` | numeric: seed mass for S = 1e95 nats | PASS |
+| 308 |  | calc | `10` | not run: input: S_collapse = 10^95 nats (table row label) | - |
 | 316 | ch:blackholes:L316 | observed | `1.456` | heavy file `docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt`: measured: printed value found in verify_virial_atoms_to_horizon_output.txt, a file the chapter names | PASS |
-| 316 |  | observed | `1.44` | not run: measured, not found in the files the chapter names | - |
-| 318 |  | observed | `2.25` | not run: measured, not found in the files the chapter names | - |
-| 318 |  | observed | `0.07` | not run: measured, too few printed digits to match against the named files | - |
-| 319 |  | observed | `0.6` | not run: measured, too few printed digits to match against the named files | - |
-| 319 |  | observed | `0.593` | not run: measured, not found in the files the chapter names | - |
-| 319 |  | observed | `1.4` | not run: measured, too few printed digits to match against the named files | - |
-| 333 |  | observed | `2.25` | not run: measured, not found in the files the chapter names | - |
-| 333 |  | observed | `0.07` | not run: measured, too few printed digits to match against the named files | - |
-| 335 |  | calc | `0.6` | not run: not yet run: draft rejected (drafter skipped: White dwarf typical mass: stated as given in the table (line 327), not de) | - |
-| 335 |  | calc | `1.4` | not run: not yet run: draft rejected (drafter skipped: Neutron star typical mass: stated as given in the table (line 327), not d) | - |
-| 336 |  | calc | `1.44` | not run: not yet run: draft rejected (drafter skipped: Chandrasekhar mass 1.44 M_sun: requires detailed stellar structure equati) | - |
-| 336 |  | calc | `2.40` | not run: not yet run: draft rejected (drafter skipped: A value (dimensionless ratio) at Chandrasekhar mass: requires knowing wha) | - |
+| 316 |  | observed | `1.44` | not run: input: Chandrasekhar mass 1.44 M_sun as conventionally quoted (Chandrasekhar1931, doi 10.1086/143324); the constants-only value 1.456 for mu_e = 2 printed beside it is checked by ch:blackholes:L316 | - |
+| 318 | ch:blackholes:L318 | observed | `2.25` | numeric: TOV maximum mass (Fan et al. 2024) | PASS |
+| 318 | ch:blackholes:L318:0.07 | observed | `0.07` | numeric: TOV maximum mass, lower error (Fan et al. 2024) | PASS |
+| 319 | ch:blackholes:L319 | observed | `0.6` | numeric: typical white dwarf 0.6 M_sun from the DA mean 0.593 | PASS |
+| 319 | ch:blackholes:L319:0.593 | observed | `0.593` | numeric: mean DA white dwarf mass (Kepler et al. 2007) | PASS |
+| 319 |  | observed | `1.4` | not run: measured, source not named | - |
+| 333 | ch:blackholes:L333 | observed | `2.25` | numeric: TOV maximum mass (Fan et al. 2024), restated | PASS |
+| 333 | ch:blackholes:L333:0.07 | observed | `0.07` | numeric: TOV maximum mass, lower error, restated | PASS |
+| 335 | ch:blackholes:L335 | calc | `0.6` | numeric: typical white dwarf 0.6 M_sun (fig caption) | PASS |
+| 335 |  | calc | `1.4` | not run: measured, source not named | - |
+| 336 | ch:blackholes:L336:2.40 | calc | `2.40` | numeric: A at the Chandrasekhar mass = 1.44/0.6 | PASS |
+| 336 |  | calc | `1.44` | not run: input: Chandrasekhar mass 1.44 M_sun as conventionally quoted (Chandrasekhar1931), restated from line 316; the constants-only 1.456 is checked by ch:blackholes:L316 | - |
 | 358 | ch:blackholes:L358 | derived | `2.1\times10^{77}` | numeric: Mahaffey number M c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun | PASS |
 | 358 | ch:blackholes:L358:3.0\times10^{77} | derived | `3.0\times10^{77}` | numeric: the same in Landauer units | PASS |
-| 369 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 2.263832e-08); drafting error on review | - |
+| 369 | ch:blackholes:L369 | calc | `10^{22}` | numeric: M_eq > 10^22 M_sun at z = 0 | PASS |
 | 372 | ch:blackholes:L372 | prediction | `1.158` | numeric: 1/mu(z=0) = 1 + beta_m | PASS |
 | 393 | ch:blackholes:L393 | none |  | sympy: eta = c^3/(4 hbar G) | PASS |
 

@@ -685,6 +685,32 @@ def _b05_sat_stolzner():
     m = re.search(r'vs\s+([0-9.]+)\s+\(\+([0-9.]+)/-([0-9.]+)\)', file_text(_B05_SATOUT))
     return float(m.group(1)), float(m.group(2)), float(m.group(3))
 
+# helpers of the part2/p2_01_blackholes checks
+# Batch b05 -- ch:blackholes (docs/book/part2/p2_01_blackholes.tex)
+
+def _b05_bh_syms():
+    return sp.symbols('hbar c G k_B M H a', positive=True)
+
+def _b05_sigma_sb(hb, c_, kB_):
+    'Stefan-Boltzmann constant derived from the Planck spectrum: exitance = (2 pi h/c^2)(k_B T/h)^4 Int x^3/(e^x-1), the integral as sum_n 6/n^4.'
+    x = sp.symbols('x', positive=True); n = sp.symbols('n', integer=True, positive=True)
+    planck_int = sp.summation(sp.integrate(x**3 * sp.exp(-n * x), (x, 0, sp.oo)), (n, 1, sp.oo))
+    h_ = 2 * sp.pi * hb
+    return sp.simplify(2 * sp.pi * h_ / c_**2 * (kB_ / h_)**4 * planck_int)
+
+def _b05_H_tab(z):
+    'H(z) in 1/s from the caption of tab:bh_meq: H0 = 67.4 km/s/Mpc, Omega_m = 0.315, Omega_r = 9.2e-5, flat (Planck 2018 VI).'
+    H0t, Omt, Ort = 67.4, 0.315, 9.2e-5
+    return Hsi(H0t * math.sqrt(Omt * (1 + z)**3 + (1 - Omt - Ort) + Ort * (1 + z)**4))
+
+def _b05_seed_Msun(S):
+    'Eq. eq:bh_seed: M = m_Pl sqrt(S)/(2 sqrt(pi)), in solar masses.'
+    return mP * math.sqrt(S) / (2 * math.sqrt(math.pi)) / Msun
+
+def _b05_half_transfer():
+    'Fraction t/tau at which the entropy carried off, 1-(1-x)^(2/3), equals the entropy left on the horizon, (1-x)^(2/3).'
+    return brentq(lambda x: (1 - (1 - x)**(2 / 3)) - (1 - x)**(2 / 3), 1e-9, 1 - 1e-12, xtol=1e-14)
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -16285,6 +16311,23 @@ def check_1841():
     hb,c_,G_,kB_,eta,kap,M,H,lp,rho,T_,A=sp.symbols('hbar c G k_B eta kappa M H l_P rho T A',positive=True); Ah=16*sp.pi*G_**2*M**2/c_**4; lhs=kB_*c_**3*Ah/(4*G_*hb); rhs=4*sp.pi*G_*kB_*M**2/(hb*c_)
     return locals()
 
+@check(label='eq:bh_Tuniv', chapter='ch:blackholes', part=3, title='T = hbar kappa/(2 pi k_B c) with kappa of Schwarzschild gives T_BH',
+       file='part2/p2_01_blackholes', line=42, status='none', kind='sym', printed='', tol=0.0)
+def check_3005():
+    'Eq. eq:bh_Tuniv, T = hbar kappa/(2 pi k_B c). Book line 42. Derives kappa = (c^2/2) f\'(r_s) for f = 1 - r_s/r, r_s = 2GM/c^2, substitutes, and lands on T_BH = hbar c^3/(8 pi G M k_B) (book line 39); the de Sitter case kappa = cH must give hbar H/(2 pi k_B) (table, line 50).'
+    hb, c_, G_, kB_, M, H, a = _b05_bh_syms()
+    r = sp.symbols('r', positive=True)
+    rs = 2 * G_ * M / c_**2
+    kappa_bh = sp.simplify(c_**2 / 2 * sp.diff(1 - rs / r, r).subs(r, rs))
+    Tuniv = lambda kap, two_pi=2 * sp.pi: hb * kap / (two_pi * kB_ * c_)
+    lhs = Tuniv(kappa_bh)
+    rhs = hb * c_**3 / (8 * sp.pi * G_ * M * kB_)
+    ok_dS = sp.simplify(Tuniv(c_ * H) - hb * H / (2 * sp.pi * kB_)) == 0
+    if not ok_dS:
+        rhs = rhs * 2
+    neg_lhs = Tuniv(kappa_bh, two_pi=2 * sp.pi * sp.Rational(105, 100))
+    return locals()
+
 @check(label='eq:bh_gamma', chapter='ch:blackholes', part=3, title='Gamma = P/(k_B T ln2) = c^3/(1920 G M ln2)',
        file='part2/p2_01_blackholes', line=65, status='derived', kind='sym', printed='', tol=0)
 def check_1842():
@@ -16297,6 +16340,17 @@ def check_1842():
 def check_1843():
     'Gamma for 1 M_sun (CODATA 2018). Book line 69, printed 152.5.'
     value=c**3/(1920*G*Msun*LN2)
+    return locals()
+
+@check(label='ch:blackholes:L73', chapter='ch:blackholes', part=3, title='5120 in tau_evap from integrating dM/dt',
+       file='part2/p2_01_blackholes', line=73, status='calc', kind='num', printed='5120', tol=0.0)
+def check_3006():
+    'Coefficient 5120 of tau = 5120 pi G^2 M^3/(hbar c^4). Book line 73, printed 5120. Integrates Eq. eq:bh_dMdt, M^2 dM = -hbar c^4/(15360 pi G^2) dt, from M0 to 0 and reads the coefficient of pi G^2 M0^3/(hbar c^4).'
+    hb, c_, G_, kB_, M, H, a = _b05_bh_syms()
+    M0, tau = sp.symbols('M0 tau', positive=True)
+    k = hb * c_**4 / (15360 * sp.pi * G_**2)
+    tau_sol = sp.solve(sp.Eq(sp.integrate(M**2, (M, 0, M0)), k * tau), tau)[0]
+    value = float(sp.simplify(tau_sol / (sp.pi * G_**2 * M0**3 / (hb * c_**4))))
     return locals()
 
 @check(label='ch:blackholes:L79', chapter='ch:blackholes', part=3, title='T_BH (K) for 1 M_sun (CODATA 2018)',
@@ -16519,6 +16573,16 @@ def check_1863():
     value=tau_yr(1000000000.0)
     return locals()
 
+@check(label='ch:blackholes:L96', chapter='ch:blackholes', part=3, title='sigma_SB = pi^2 k_B^4/(60 hbar^3 c^2) from the Planck spectrum',
+       file='part2/p2_01_blackholes', line=96, status='none', kind='sym', printed='', tol=0.0)
+def check_3007():
+    'P_SB = sigma_SB A T^4 (book line 96) with sigma_SB = pi^2 k_B^4/(60 hbar^3 c^2) (line 99): the exitance of a black body is derived from the Planck spectrum, (2 pi h/c^2)(k_B T/h)^4 Gamma(4) zeta(4), the integral summed as sum_n 6/n^4 = pi^4/15.'
+    hb, c_, G_, kB_, M, H, a = _b05_bh_syms()
+    lhs = _b05_sigma_sb(hb, c_, kB_)
+    rhs = sp.pi**2 * kB_**4 / (60 * hb**3 * c_**2)
+    neg_lhs = lhs * sp.Rational(105, 100)
+    return locals()
+
 @check(label='eq:bh_PSB', chapter='ch:blackholes', part=3, title='Stefan-Boltzmann power of the horizon = Hawking power',
        file='part2/p2_01_blackholes', line=100, status='none', kind='sym', printed='', tol=0)
 def check_1864():
@@ -16585,6 +16649,13 @@ def check_1871():
     value = np.sqrt(1 - chi**2) / 2
     return locals()
 
+@check(label='ch:blackholes:L136:67.4', chapter='ch:blackholes', part=3, title='H0 = 67.4 for the cosmic horizon (Planck 2018)',
+       file='part2/p2_01_blackholes', line=136, status='calc', kind='num', printed='67.4', tol=0.0)
+def check_3008():
+    'H0 = 67.4 km/s/Mpc in the caption of fig:smarr. Book line 136, printed 67.4. Input: Planck 2018 VI (Aghanim et al. 2020, doi 10.1051/0004-6361/201833910) TT,TE,EE+lowE+lensing h = 0.6736 (verify_book h_pl), rounded.'
+    value = 100 * h_pl
+    return locals()
+
 @check(label='eq:bh_smarr', chapter='ch:blackholes', part=3, title='Smarr: N k_B T ln2 = T S = Mc^2/2',
        file='part2/p2_01_blackholes', line=139, status='none', kind='sym', printed='', tol=0)
 def check_1872():
@@ -16603,6 +16674,24 @@ def check_1873():
     value=T_BH(6.5e9)*S_nats(6.5e9)*kB/(6.5e9*Msun*c**2)
     return locals()
 
+@check(label='ch:blackholes:L142:4.3\\times10^6', chapter='ch:blackholes', part=3, title='Sgr A* mass (Gillessen 2009)',
+       file='part2/p2_01_blackholes', line=142, status='derived', kind='num', printed='4.3\\times10^6', tol=0.0)
+def check_3009():
+    'Mass of the black hole at the centre of the Galaxy. Book line 142, printed 4.3e6 M_sun. Published: Gillessen et al. 2009, ApJ 692, 1075 (doi 10.1088/0004-637X/692/2/1075), M = 4.31e6 M_sun. The Smarr share 1/2 at this mass is recomputed alongside.'
+    M_SgrA = 4.31e6                    # M_sun, Gillessen et al. 2009
+    share = hbar * c**3 / (8 * math.pi * G * M_SgrA * Msun * kB) * 4 * math.pi * G * (M_SgrA * Msun)**2 / (hbar * c) * kB / (M_SgrA * Msun * c**2)
+    value = M_SgrA if abs(share - 0.5) < 1e-12 else 0.0
+    return locals()
+
+@check(label='ch:blackholes:L143', chapter='ch:blackholes', part=3, title='M87* mass (EHT 2019)',
+       file='part2/p2_01_blackholes', line=143, status='derived', kind='num', printed='6.5\\times10^9', tol=0.0)
+def check_3010():
+    'Mass of the black hole in M87. Book line 143, printed 6.5e9 M_sun. Published: Event Horizon Telescope Collaboration 2019, ApJL 875, L1 (doi 10.3847/2041-8213/ab0ec7), M = (6.5 +- 0.7)e9 M_sun. The Smarr share 1/2 at this mass is recomputed alongside.'
+    M_M87 = 6.5e9                      # M_sun, EHT 2019 paper I
+    share = hbar * c**3 / (8 * math.pi * G * M_M87 * Msun * kB) * 4 * math.pi * G * (M_M87 * Msun)**2 / (hbar * c) * kB / (M_M87 * Msun * c**2)
+    value = M_M87 if abs(share - 0.5) < 1e-12 else 0.0
+    return locals()
+
 @check(label='ch:blackholes:L148', chapter='ch:blackholes', part=3, title='Kerr T S/(Mc^2) = sqrt(1-chi^2)/2 and its three values (G=c=hbar=k_B=1)',
        file='part2/p2_01_blackholes', line=148, status='derived', kind='sym', printed='', tol=0)
 def check_1874():
@@ -16610,11 +16699,38 @@ def check_1874():
     chi,Mx=sp.symbols('chi M',positive=True); r=sp.sqrt(1-chi**2); T=r/(4*sp.pi*Mx*(1+r)); Sx=2*sp.pi*Mx**2*(1+r); ok=sp.simplify(T*Sx/Mx-r/2)==0 and all(abs(float(r.subs(chi,x)/2)-v)<5e-4 for x,v in ((0.5,0.433),(0.9,0.218),(0.998,0.032)))
     return locals()
 
+@check(label='eq:bh_dMdt', chapter='ch:blackholes', part=3, title='dM/dt = -sigma A T^4/c^2 = -hbar c^4/(15360 pi G^2 M^2)',
+       file='part2/p2_01_blackholes', line=155, status='none', kind='sym', printed='', tol=0.0)
+def check_3011():
+    'Eq. eq:bh_dMdt. Book line 155. The black-body luminosity sigma_SB A T_BH^4 (sigma derived from the Planck spectrum, A = 16 pi G^2 M^2/c^4, T_BH = hbar c^3/(8 pi G M k_B)) divided by -c^2 lands on -hbar c^4/(15360 pi G^2 M^2).'
+    hb, c_, G_, kB_, M, H, a = _b05_bh_syms()
+    sig = _b05_sigma_sb(hb, c_, kB_)
+    A_ = 16 * sp.pi * G_**2 * M**2 / c_**4
+    TB = hb * c_**3 / (8 * sp.pi * G_ * M * kB_)
+    lhs = sp.simplify(-sig * A_ * TB**4 / c_**2)
+    rhs = -hb * c_**4 / (15360 * sp.pi * G_**2 * M**2)
+    neg_lhs = -sig * A_ * TB**4 / c_**2 * sp.Rational(105, 100)
+    return locals()
+
 @check(label='eq:bh_Mt', chapter='ch:blackholes', part=3, title='M(t)^3 solves dM/dt = -hbar c^4/(15360 pi G^2 M^2)',
        file='part2/p2_01_blackholes', line=159, status='none', kind='sym', printed='', tol=0)
 def check_1875():
     'M(t)^3 solves dM/dt = -hbar c^4/(15360 pi G^2 M^2) (Eq. eq:bh_Mt). Book line 159.'
     hb,c_,G_,kB_,eta,kap,M,H,lp,rho,T_,A=sp.symbols('hbar c G k_B eta kappa M H l_P rho T A',positive=True); t,M0=sp.symbols('t M0',positive=True); Mt=(M0**3-hb*c_**4*t/(5120*sp.pi*G_**2))**sp.Rational(1,3); ok=sp.simplify(sp.diff(Mt,t)+hb*c_**4/(15360*sp.pi*G_**2*Mt**2))==0
+    return locals()
+
+@check(label='eq:bh_Str', chapter='ch:blackholes', part=3, title='Int Gamma(M(t)) dt = (S_BH,0 - S_BH(t))/(k_B ln2)',
+       file='part2/p2_01_blackholes', line=163, status='none', kind='sym', printed='', tol=0.0)
+def check_3012():
+    'Eq. eq:bh_Str, S_tr(t) = Int_0^t c^3/(1920 G M(t\') ln2) dt\'. Book line 163. Integrates with M(t)^3 = M0^3 - hbar c^4 t/(5120 pi G^2) (Eq. eq:bh_Mt) and lands on the drop of the horizon entropy in bits, 4 pi G (M0^2 - M(t)^2)/(hbar c ln2) (Eq. eq:bh_Str_closed).'
+    hb, c_, G_, kB_, M, H, a = _b05_bh_syms()
+    t, tp, M0 = sp.symbols('t tp M0', positive=True)
+    k = hb * c_**4 / (5120 * sp.pi * G_**2)
+    Mt = lambda s: (M0**3 - k * s)**sp.Rational(1, 3)
+    Gam = lambda m, coef=1920: c_**3 / (coef * G_ * m * sp.log(2))
+    lhs = sp.integrate(Gam(Mt(tp)), (tp, 0, t))
+    rhs = 4 * sp.pi * G_ * (M0**2 - Mt(t)**2) / (hb * c_ * sp.log(2))
+    neg_lhs = sp.integrate(Gam(Mt(tp), coef=1920 * sp.Rational(105, 100)), (tp, 0, t))
     return locals()
 
 @check(label='eq:bh_Str_closed', chapter='ch:blackholes', part=3, title='S_tr = S_BH,0 - S_BH(t) with S proportional to M^2',
@@ -16631,11 +16747,40 @@ def check_1877():
     x=sp.symbols('x',positive=True); s=sp.solve(sp.Eq(1-(1-x)**sp.Rational(2,3),sp.Rational(1,2)),x); ok=any(sp.simplify(si-(1-2**sp.Rational(-3,2)))==0 for si in s) and abs(float(1-2**-1.5)-0.646)<5e-4
     return locals()
 
+@check(label='ch:blackholes:L176', chapter='ch:blackholes', part=3, title='S_BH,0 in bits for one solar mass',
+       file='part2/p2_01_blackholes', line=176, status='derived', kind='num', printed='1.51\\times10^{77}', tol=0.0)
+def check_3013():
+    'S_BH,0 = 4 pi G M^2/(hbar c ln2) bits for 1 M_sun. Book line 176, printed 1.51e77. Inputs: CODATA 2018 G, hbar, c; M_sun = 1.98847e30 kg (verify_book Msun).'
+    value = 4 * math.pi * G * Msun**2 / (hbar * c) / LN2
+    return locals()
+
 @check(label='ch:blackholes:L177', chapter='ch:blackholes', part=3, title='same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass)',
        file='part2/p2_01_blackholes', line=177, status='derived', kind='num', printed='152.5', tol=0.00033)
 def check_1878():
     'same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass). Book line 177, printed 152.5.'
     value=c**3/(1920*G*Msun*LN2)
+    return locals()
+
+@check(label='ch:blackholes:L182', chapter='ch:blackholes', part=3, title='S_tr and S_BH cross at t = 0.646 tau (fig caption)',
+       file='part2/p2_01_blackholes', line=182, status='derived', kind='num', printed='0.646', tol=0.0)
+def check_3014():
+    'Crossing of the entropy carried off, 1-(1-t/tau)^(2/3), and the entropy left, (1-t/tau)^(2/3) (Eq. eq:bh_Str_closed). Book line 182, printed 0.646. Root found numerically.'
+    value = _b05_half_transfer()
+    return locals()
+
+@check(label='ch:blackholes:L192', chapter='ch:blackholes', part=3, title='min(S_tr, S_BH) turns over at 0.646 tau',
+       file='part2/p2_01_blackholes', line=192, status='derived', kind='num', printed='0.646', tol=0.0)
+def check_3015():
+    'The envelope min[S_tr(t), S_BH(t)] turns over at 0.646 tau. Book line 192, printed 0.646. The maximum of the envelope found numerically on Eq. eq:bh_Str_closed.'
+    env = lambda x: -min(1 - (1 - x)**(2 / 3), (1 - x)**(2 / 3))
+    value = float(minimize_scalar(env, bounds=(0.0, 1.0), method='bounded', options={'xatol': 1e-10}).x)
+    return locals()
+
+@check(label='ch:blackholes:L194:64.6', chapter='ch:blackholes', part=3, title='black-body crossing at 64.6 % of tau',
+       file='part2/p2_01_blackholes', line=194, status='derived', kind='num', printed='64.6', tol=0.0)
+def check_3016():
+    'Black-body crossing time in per cent of the evaporation time. Book line 194, printed 64.6 %. 100 x the root of 1-(1-x)^(2/3) = (1-x)^(2/3).'
+    value = 100 * _b05_half_transfer()
     return locals()
 
 @check(label='ch:blackholes:L201', chapter='ch:blackholes', part=3, title='T_GH = hbar H0/(2 pi k_B) at the photon-sector H0 = 67.16 the caption states',
@@ -16670,6 +16815,15 @@ def check_1882():
     value=tau_yr(1)
     return locals()
 
+@check(label='ch:blackholes:L201:5120', chapter='ch:blackholes', part=3, title='5120 in tau_evap (fig caption)',
+       file='part2/p2_01_blackholes', line=201, status='calc', kind='num', printed='5120', tol=0.0)
+def check_3017():
+    'Coefficient 5120 of tau_evap in the caption of fig:bh_temperature. Book line 201, printed 5120. Time for dM/dt = -hbar c^4/(15360 pi G^2 M^2) to take M0 to zero, numerically in units hbar = c = G = M0 = 1, divided by pi.'
+    sol = solve_ivp(lambda t, y: [-1 / (15360 * math.pi * max(y[0], 1e-9)**2)], (0, 20000 * math.pi), [1.0],
+                    events=lambda t, y: y[0]**3 - 1e-9, rtol=1e-11, atol=1e-13)
+    value = sol.t_events[0][0] / math.pi
+    return locals()
+
 @check(label='eq:bh_TGH', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
        file='part2/p2_01_blackholes', line=206, status='calc', kind='sym', printed='', tol=0.0)
 def check_1883():
@@ -16700,6 +16854,13 @@ def check_1885():
 def check_1886():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 209, printed 67.16.'
     value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    return locals()
+
+@check(label='ch:blackholes:L209:67.4', chapter='ch:blackholes', part=3, title='H0 = 67.4 (Planck 2018)',
+       file='part2/p2_01_blackholes', line=209, status='calc', kind='num', printed='67.4', tol=0.0)
+def check_3018():
+    'H0 = 67.4 km/s/Mpc, Planck 2018. Book line 209, printed 67.4. Input: Planck 2018 VI (doi 10.1051/0004-6361/201833910) TT,TE,EE+lowE+lensing h = 0.6736 (verify_book h_pl), rounded.'
+    value = 100 * h_pl
     return locals()
 
 @check(label='eq:bh_Pnet', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
@@ -16796,6 +16957,13 @@ def check_1895():
     value = M_eq_Msun
     return locals()
 
+@check(label='ch:blackholes:L232:4.75\\times10^{-30}', chapter='ch:blackholes', part=3, title='T_GH at z = 1',
+       file='part2/p2_01_blackholes', line=232, status='calc', kind='num', printed='4.75\\times10^{-30}', tol=0.0)
+def check_3019():
+    'T_GH = hbar H(z)/(2 pi k_B) at z = 1, H(z) with the parameters of the tab:bh_meq caption. Book line 232, printed 4.75e-30 K.'
+    value = hbar * _b05_H_tab(1) / (2 * math.pi * kB)
+    return locals()
+
 @check(label='ch:blackholes:L233', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
        file='part2/p2_01_blackholes', line=233, status='calc', kind='num', printed='4.41\\times10^{-14}', tol=0.0)
 def check_1896():
@@ -16826,6 +16994,13 @@ def check_1897():
     M_eq = c**3 / (4 * G * H_z_si)
     M_eq_Msun = M_eq / Msun
     value = M_eq_Msun
+    return locals()
+
+@check(label='ch:blackholes:L233:5.37\\times10^{-26}', chapter='ch:blackholes', part=3, title='T_GH at z = 10^3',
+       file='part2/p2_01_blackholes', line=233, status='calc', kind='num', printed='5.37\\times10^{-26}', tol=0.0)
+def check_3020():
+    'T_GH = hbar H(z)/(2 pi k_B) at z = 1e3, H(z) with the parameters of the tab:bh_meq caption. Book line 233, printed 5.37e-26 K.'
+    value = hbar * _b05_H_tab(1e3) / (2 * math.pi * kB)
     return locals()
 
 @check(label='ch:blackholes:L234', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
@@ -16861,6 +17036,13 @@ def check_1899():
     value = M_eq / Msun
     return locals()
 
+@check(label='ch:blackholes:L234:2.55\\times10^{-20}', chapter='ch:blackholes', part=3, title='T_GH at z = 10^6',
+       file='part2/p2_01_blackholes', line=234, status='calc', kind='num', printed='2.55\\times10^{-20}', tol=0.0)
+def check_3021():
+    'T_GH = hbar H(z)/(2 pi k_B) at z = 1e6, H(z) with the parameters of the tab:bh_meq caption. Book line 234, printed 2.55e-20 K.'
+    value = hbar * _b05_H_tab(1e6) / (2 * math.pi * kB)
+    return locals()
+
 @check(label='ch:blackholes:L235', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
        file='part2/p2_01_blackholes', line=235, status='calc', kind='num', printed='2.10\\times10^{0}', tol=0.0)
 def check_1900():
@@ -16894,6 +17076,22 @@ def check_1901():
     value = M_eq / Msun
     return locals()
 
+@check(label='ch:blackholes:L235:2.55\\times10^{-12}', chapter='ch:blackholes', part=3, title='T_GH at z = 10^10',
+       file='part2/p2_01_blackholes', line=235, status='calc', kind='num', printed='2.55\\times10^{-12}', tol=0.0)
+def check_3022():
+    'T_GH = hbar H(z)/(2 pi k_B) at z = 1e10, H(z) with the parameters of the tab:bh_meq caption. Book line 235, printed 2.55e-12 K.'
+    value = hbar * _b05_H_tab(1e10) / (2 * math.pi * kB)
+    return locals()
+
+@check(label='ch:blackholes:L239', chapter='ch:blackholes', part=3, title='(T_GH/T_BH)^4 for one solar mass today',
+       file='part2/p2_01_blackholes', line=239, status='calc', kind='num', printed='3.4\\times10^{-90}', tol=0.0)
+def check_3023():
+    'Cosmic-horizon bath correction (T_GH/T_BH)^4 for 1 M_sun at H0 = 67.4 (Planck 2018, as in Eq. eq:bh_TGH and line 209). Book line 239, printed 3.4e-90.'
+    T_GH = hbar * Hsi(100 * h_pl) / (2 * math.pi * kB)
+    T_BH = hbar * c**3 / (8 * math.pi * G * Msun * kB)
+    value = (T_GH / T_BH)**4
+    return locals()
+
 @check(label='ch:blackholes:L246', chapter='ch:blackholes', part=3, title='M_CMB = 4.5e22 kg = 0.6 lunar masses',
        file='part2/p2_01_blackholes', line=246, status='none', kind='sym', printed='', tol=0)
 def check_1902():
@@ -16918,6 +17116,13 @@ def check_1903():
     value = ratio
     return locals()
 
+@check(label='ch:blackholes:L249', chapter='ch:blackholes', part=3, title='evaporation times of 10^67 yr and longer',
+       file='part2/p2_01_blackholes', line=249, status='calc', kind='num', printed='10^{67}', tol=0.0)
+def check_3024():
+    'Order of magnitude of the evaporation time of the lightest (solar-mass) black hole, tau = 5120 pi G^2 M^3/(hbar c^4) in years. Book line 249, printed 10^{67} (bare power of ten: within half a decade).'
+    value = 5120 * math.pi * G**2 * Msun**3 / (hbar * c**4) / yr
+    return locals()
+
 @check(label='eq:bh_hoop', chapter='ch:blackholes', part=3, title='S/(k_B A) at the hoop radius = k_B/(4 l_P^2)',
        file='part2/p2_01_blackholes', line=271, status='none', kind='sym', printed='', tol=0)
 def check_1904():
@@ -16932,12 +17137,105 @@ def check_1905():
     hb,c_,G_,kB_,eta,kap,M,H,lp,rho,T_,A=sp.symbols('hbar c G k_B eta kappa M H l_P rho T A',positive=True); Sx=sp.symbols('S',positive=True); m=sp.solve(sp.Eq(Sx,4*sp.pi*G_*M**2/(hb*c_)),M)[0]; lhs=m; rhs=sp.sqrt(hb*c_/G_)/(2*sp.sqrt(sp.pi))*sp.sqrt(Sx)
     return locals()
 
+@check(label='ch:blackholes:L305', chapter='ch:blackholes', part=3, title='seed mass for S = 1e77 nats',
+       file='part2/p2_01_blackholes', line=305, status='calc', kind='num', printed='0.98', tol=0.0)
+def check_3025():
+    'M_BH = m_Pl sqrt(S)/(2 sqrt(pi)) (Eq. eq:bh_seed) for S_collapse = 1e77 nats, in M_sun. Book line 305, printed 0.98.'
+    value = _b05_seed_Msun(1e77)
+    return locals()
+
+@check(label='ch:blackholes:L306', chapter='ch:blackholes', part=3, title='seed mass for S = 1e83 nats',
+       file='part2/p2_01_blackholes', line=306, status='calc', kind='num', printed='9.8\\times10^{2}', tol=0.0)
+def check_3026():
+    'M_BH = m_Pl sqrt(S)/(2 sqrt(pi)) (Eq. eq:bh_seed) for S_collapse = 1e83 nats, in M_sun. Book line 306, printed 9.8e2.'
+    value = _b05_seed_Msun(1e83)
+    return locals()
+
+@check(label='ch:blackholes:L307', chapter='ch:blackholes', part=3, title='seed mass for S = 1e89 nats',
+       file='part2/p2_01_blackholes', line=307, status='calc', kind='num', printed='9.8\\times10^{5}', tol=0.0)
+def check_3027():
+    'M_BH = m_Pl sqrt(S)/(2 sqrt(pi)) (Eq. eq:bh_seed) for S_collapse = 1e89 nats, in M_sun. Book line 307, printed 9.8e5.'
+    value = _b05_seed_Msun(1e89)
+    return locals()
+
+@check(label='ch:blackholes:L308', chapter='ch:blackholes', part=3, title='seed mass for S = 1e95 nats',
+       file='part2/p2_01_blackholes', line=308, status='calc', kind='num', printed='9.8\\times10^{8}', tol=0.0)
+def check_3028():
+    'M_BH = m_Pl sqrt(S)/(2 sqrt(pi)) (Eq. eq:bh_seed) for S_collapse = 1e95 nats, in M_sun. Book line 308, printed 9.8e8.'
+    value = _b05_seed_Msun(1e95)
+    return locals()
+
 @check(label='ch:blackholes:L316', chapter='ch:blackholes', part=3, title='measured: printed value found in verify_virial_atoms_to_horizon_output.txt, a file the chapter names',
        file='part2/p2_01_blackholes', line=316, status='observed', kind='file', printed='1.456', tol=0.0, source='docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_virial_atoms_to_horizon.py > docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt')
 def check_1906():
     'measured: printed value found in verify_virial_atoms_to_horizon_output.txt, a file the chapter names. Book line 316, printed 1.456.'
     ok = file_has('docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt', '1.456')
+    return locals()
+
+@check(label='ch:blackholes:L318', chapter='ch:blackholes', part=3, title='TOV maximum mass (Fan et al. 2024)',
+       file='part2/p2_01_blackholes', line=318, status='observed', kind='num', printed='2.25', tol=0.0)
+def check_3029():
+    'Multimessenger inference of the TOV maximum mass. Book line 318, printed 2.25 M_sun. Published: Fan et al. 2024, Phys. Rev. D 109, 043052 (doi 10.1103/PhysRevD.109.043052), M_TOV = 2.25 +0.08 -0.07 M_sun (title of the paper).'
+    M_TOV_Fan2024 = 2.25
+    value = M_TOV_Fan2024
+    return locals()
+
+@check(label='ch:blackholes:L318:0.07', chapter='ch:blackholes', part=3, title='TOV maximum mass, lower error (Fan et al. 2024)',
+       file='part2/p2_01_blackholes', line=318, status='observed', kind='num', printed='0.07', tol=0.0)
+def check_3030():
+    'Lower error of M_TOV. Book line 318, printed 0.07 M_sun. Published: Fan et al. 2024 (doi 10.1103/PhysRevD.109.043052), M_TOV = 2.25 +0.08 -0.07 M_sun (title of the paper).'
+    err_lo_Fan2024 = 0.07
+    value = err_lo_Fan2024
+    return locals()
+
+@check(label='ch:blackholes:L319', chapter='ch:blackholes', part=3, title='typical white dwarf 0.6 M_sun from the DA mean 0.593',
+       file='part2/p2_01_blackholes', line=319, status='observed', kind='num', printed='0.6', tol=0.0)
+def check_3031():
+    'Typical white dwarf mass as built, 0.6 M_sun, the rounded measured mean of DA white dwarfs. Book line 319, printed 0.6. Published: Kepler et al. 2007, MNRAS 375, 1315 (doi 10.1111/j.1365-2966.2006.11388.x), mean DA mass 0.593 M_sun.'
+    M_DA_Kepler2007 = 0.593
+    value = M_DA_Kepler2007
+    return locals()
+
+@check(label='ch:blackholes:L319:0.593', chapter='ch:blackholes', part=3, title='mean DA white dwarf mass (Kepler et al. 2007)',
+       file='part2/p2_01_blackholes', line=319, status='observed', kind='num', printed='0.593', tol=0.0)
+def check_3032():
+    'Measured mean mass of DA white dwarfs. Book line 319, printed 0.593 M_sun. Published: Kepler et al. 2007, MNRAS 375, 1315 (doi 10.1111/j.1365-2966.2006.11388.x), <M_DA> = 0.593 +- 0.016 M_sun; also the value in docs/book/figscripts/fig_p2_star_gauge.py.'
+    M_DA_Kepler2007 = 0.593
+    value = M_DA_Kepler2007
+    return locals()
+
+@check(label='ch:blackholes:L333', chapter='ch:blackholes', part=3, title='TOV maximum mass (Fan et al. 2024), restated',
+       file='part2/p2_01_blackholes', line=333, status='observed', kind='num', printed='2.25', tol=0.0)
+def check_3033():
+    'M_TOV restated. Book line 333, printed 2.25 M_sun. Published: Fan et al. 2024 (doi 10.1103/PhysRevD.109.043052), M_TOV = 2.25 +0.08 -0.07 M_sun.'
+    M_TOV_Fan2024 = 2.25
+    value = M_TOV_Fan2024
+    return locals()
+
+@check(label='ch:blackholes:L333:0.07', chapter='ch:blackholes', part=3, title='TOV maximum mass, lower error, restated',
+       file='part2/p2_01_blackholes', line=333, status='observed', kind='num', printed='0.07', tol=0.0)
+def check_3034():
+    'Lower error of M_TOV restated. Book line 333, printed 0.07. Published: Fan et al. 2024 (doi 10.1103/PhysRevD.109.043052), M_TOV = 2.25 +0.08 -0.07 M_sun.'
+    err_lo_Fan2024 = 0.07
+    value = err_lo_Fan2024
+    return locals()
+
+@check(label='ch:blackholes:L335', chapter='ch:blackholes', part=3, title='typical white dwarf 0.6 M_sun (fig caption)',
+       file='part2/p2_01_blackholes', line=335, status='calc', kind='num', printed='0.6', tol=0.0)
+def check_3035():
+    'Typical white dwarf 0.6 M_sun in the caption of fig:stargauge. Book line 335, printed 0.6. Rounded measured DA mean, Kepler et al. 2007 (doi 10.1111/j.1365-2966.2006.11388.x), 0.593 M_sun.'
+    M_DA_Kepler2007 = 0.593
+    value = M_DA_Kepler2007
+    return locals()
+
+@check(label='ch:blackholes:L336:2.40', chapter='ch:blackholes', part=3, title='A at the Chandrasekhar mass = 1.44/0.6',
+       file='part2/p2_01_blackholes', line=336, status='calc', kind='num', printed='2.40', tol=0.0)
+def check_3036():
+    'Gauge value A = M/M_typical at the Chandrasekhar mass. Book line 336, printed 2.40. Inputs: M_Ch = 1.44 M_sun as quoted (Chandrasekhar 1931, doi 10.1086/143324); M_typical = the Kepler et al. 2007 DA mean 0.593 rounded to one decimal, as the chapter does.'
+    M_Ch = 1.44
+    M_typ = round(0.593, 1)
+    value = M_Ch / M_typ
     return locals()
 
 @check(label='ch:blackholes:L358', chapter='ch:blackholes', part=3, title='Mahaffey number M c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun',
@@ -16952,6 +17250,14 @@ def check_1907():
 def check_1908():
     'the same in Landauer units. Book line 358, printed 3.0\\times10^{77}.'
     value=8*math.pi*(Msun/mP)**2/LN2
+    return locals()
+
+@check(label='ch:blackholes:L369', chapter='ch:blackholes', part=3, title='M_eq > 10^22 M_sun at z = 0',
+       file='part2/p2_01_blackholes', line=369, status='calc', kind='num', printed='10^{22}', tol=0.0)
+def check_3037():
+    'M_eq = c^3/(4 G H0) at z = 0 is above 10^22 M_sun (tab:bh_tests, book line 369, printed M_eq > 10^{22}). H0 = 67.4 (Planck 2018, h_pl). value is M_eq if it exceeds 1e22 (else 0), judged as an order of magnitude.'
+    M_eq = c**3 / (4 * G * Hsi(100 * h_pl)) / Msun
+    value = M_eq if M_eq > 1e22 else 0.0
     return locals()
 
 @check(label='ch:blackholes:L372', chapter='ch:blackholes', part=3, title='1/mu(z=0) = 1 + beta_m',
@@ -27103,66 +27409,33 @@ INVENTORY = [
     (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 157, '', 'prediction', '0.90', 'prediction, nothing to recompute: tension threshold mu(z=0) > 0.90 at 2 sigma for a future measurement'),
     (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 161, '', 'prediction', '0.3', 'input: redshift z = 0.3 at which the f sigma8 deficit is quoted (checked by ch:satellites:L160:2.17)'),
     (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 161, '', 'prediction', '0.5', 'input: redshift z = 0.5 at which the f sigma8 deficit is quoted (checked by ch:satellites:L160:1.35)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 42, 'eq:bh_Tuniv', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 61, 'eq:bh_gamma_def', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 73, '', 'calc', '5120', 'not yet run: draft rejected (printed value typed into the code)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 76, '', 'calc', '1.98847\\times10^{30}', 'not yet run: draft rejected (printed value typed into the code)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 76, '', 'calc', '3.15576\\times10^7', 'not yet run: draft rejected (printed value typed into the code)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 80, '', 'calc', '10', 'not yet run: draft rejected (drafter skipped: This is a table entry label, not a computed quantity skip)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 81, '', 'calc', '10', 'not yet run: draft rejected (drafter skipped: This is a table entry label, not a computed quantity skip)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 82, '', 'calc', '10', 'not yet run: draft rejected (drafter skipped: This is a table entry label, not a computed quantity skip)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 96, '', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 136, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 1.550163e+14); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 136, '', 'calc', '67.4', 'not yet run: draft rejected (printed value typed into the code)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 136, '', 'calc', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 136, '', 'calc', '0.9', 'not yet run: draft does not reproduce the printed value (recomputed 0.433013); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 136, '', 'calc', '0.998', 'not yet run: draft rejected (printed value typed into the code)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 142, '', 'derived', '4.3\\times10^6', 'not yet run: draft rejected (drafter skipped: Gillessen 2009 citation: mass of Sgr A* at Galactic centre.\n# The book ci)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 143, '', 'derived', '6.5\\times10^9', 'not yet run: draft rejected (drafter skipped: EHT 2019 citation: mass of the black hole in M87.\n# The book cites this o)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 155, 'eq:bh_dMdt', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 163, 'eq:bh_Str', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 176, '', 'derived', '1.51\\times10^{77}', 'not yet run: draft does not reproduce the printed value (recomputed 6.053288e+77); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 182, '', 'derived', '0.646', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 192, '', 'derived', '0.646', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 194, '', 'derived', '53.81', 'not yet run: draft rejected (no draft returned)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 194, '', 'derived', '64.6', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 201, '', 'calc', '67.4', 'not yet run: draft rejected (no draft returned)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 201, '', 'calc', '6.6\\times10^{10}', 'not yet run: draft rejected (no draft returned)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 201, '', 'calc', '5120', 'not yet run: draft rejected (printed value typed into the code)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 209, '', 'calc', '67.4', 'not yet run: draft rejected (drafter skipped: Line 209 cites "Planck 2018" for H_0=67.4 km/s/Mpc as a published input; )'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 228, '', 'calc', '6.6\\times10^{10}', "not yet run: draft rejected (drafter skipped: Line 228 states TON 618's mass as an observational value from a cited sou)"),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 228, '', 'calc', '10', 'not yet run: draft rejected (drafter skipped: Line 228 references z=10^10 as a chosen cosmological epoch; \n# not a quan)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 232, '', 'calc', '4.75\\times10^{-30}', 'not yet run: draft does not reproduce the printed value (recomputed 1.412388e-56); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 233, '', 'calc', '10', 'not yet run: draft rejected (drafter skipped: Line 233 prints "z=10^3" which is an exponent notation label, not a calcu)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 233, '', 'calc', '5.37\\times10^{-26}', 'not yet run: draft does not reproduce the printed value (recomputed 1.593838e-52); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 234, '', 'calc', '10', 'not yet run: draft rejected (drafter skipped: Line 234 prints "z=10^6" which is an exponent notation label, not a calcu)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 234, '', 'calc', '2.55\\times10^{-20}', 'not yet run: draft does not reproduce the printed value (recomputed 1.603021e-19); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 235, '', 'calc', '10', 'not yet run: draft rejected (drafter skipped: ITEM 326: exponent "10" in z=10^10; this is not a numerical result to ver)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 235, '', 'calc', '2.55\\times10^{-12}', 'not yet run: draft does not reproduce the printed value (recomputed 1.600281e-11); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 239, '', 'calc', '3.4\\times10^{-90}', 'not yet run: draft does not reproduce the printed value (recomputed 5.346228e-87); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 249, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 17.5997); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 262, 'eq:bh_saturation', 'conjecture', '', 'displayed equation, not yet checked'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 305, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 77); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 305, '', 'calc', '0.98', 'not yet run: draft does not reproduce the printed value (recomputed 8.448507e+60); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 306, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 83); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 306, '', 'calc', '9.8\\times10^{2}', 'not yet run: draft does not reproduce the printed value (recomputed 8.448507e+66); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 307, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 89); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 307, '', 'calc', '9.8\\times10^{5}', 'not yet run: draft does not reproduce the printed value (recomputed 8.448507e+72); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 308, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 95); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 308, '', 'calc', '9.8\\times10^{8}', 'not yet run: draft does not reproduce the printed value (recomputed 8.448507e+78); drafting error on review'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 316, '', 'observed', '1.44', 'measured, not found in the files the chapter names'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 318, '', 'observed', '2.25', 'measured, not found in the files the chapter names'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 318, '', 'observed', '0.07', 'measured, too few printed digits to match against the named files'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 319, '', 'observed', '0.6', 'measured, too few printed digits to match against the named files'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 319, '', 'observed', '0.593', 'measured, not found in the files the chapter names'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 319, '', 'observed', '1.4', 'measured, too few printed digits to match against the named files'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 333, '', 'observed', '2.25', 'measured, not found in the files the chapter names'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 333, '', 'observed', '0.07', 'measured, too few printed digits to match against the named files'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 335, '', 'calc', '0.6', 'not yet run: draft rejected (drafter skipped: White dwarf typical mass: stated as given in the table (line 327), not de)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 335, '', 'calc', '1.4', 'not yet run: draft rejected (drafter skipped: Neutron star typical mass: stated as given in the table (line 327), not d)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 336, '', 'calc', '1.44', 'not yet run: draft rejected (drafter skipped: Chandrasekhar mass 1.44 M_sun: requires detailed stellar structure equati)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 336, '', 'calc', '2.40', 'not yet run: draft rejected (drafter skipped: A value (dimensionless ratio) at Chandrasekhar mass: requires knowing wha)'),
-    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 369, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 2.263832e-08); drafting error on review'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 61, 'eq:bh_gamma_def', 'none', '', 'definition: thermally limited encoding rate Gamma = P/(k_B T_BH ln2); its evaluation is checked by eq:bh_gamma'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 76, '', 'calc', '1.98847\\times10^{30}', 'input: solar mass M_sun = 1.98847e30 kg as stated in the table caption (verify_book Msun); see for_author note on CODATA 2018'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 76, '', 'calc', '3.15576\\times10^7', 'definition: Julian year 3.15576e7 s (365.25 d x 86400 s), the unit of the table (verify_book yr)'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 80, '', 'calc', '10', 'input: table mass 10 M_sun (row label)'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 81, '', 'calc', '10', 'input: table mass 10^6 M_sun (row label)'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 82, '', 'calc', '10', 'input: table mass 10^9 M_sun (row label)'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 136, '', 'calc', '10', 'input: plotted ranges (1 to 10^11 M_sun; H0 up to 10^4 km/s/Mpc) in the fig:smarr caption'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 136, '', 'calc', '0.5', 'input: Kerr spin chi = 0.5 at which 0.433 is evaluated (0.433 checked by ch:blackholes:L136:0.433)'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 136, '', 'calc', '0.9', 'input: Kerr spin chi = 0.9 at which 0.218 is evaluated (0.218 checked by ch:blackholes:L136:0.218)'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 136, '', 'calc', '0.998', 'input: Kerr spin chi = 0.998 at which 0.032 is evaluated (0.032 checked by ch:blackholes:L136:0.032)'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 194, '', 'derived', '53.81', 'input: published value cited (Page 2013, doi 10.1088/1475-7516/2013/09/028: maximum of the fine-grained radiation entropy at 53.81 % of the evaporation time for photon and graviton emission), nothing to recompute in the book'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 201, '', 'calc', '67.4', 'not printed at this line in the current text: the fig:bh_temperature caption gives H0 = 67.16 (checked by ch:blackholes:L201); the Planck 2018 input 67.4 is at line 209 (ch:blackholes:L209:67.4)'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 201, '', 'calc', '6.6\\times10^{10}', 'input: TON 618 mass 6.6e10 M_sun, an observed value from the cited Shemmer2004 (doi 10.1086/423607), nothing to recompute'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 228, '', 'calc', '6.6\\times10^{10}', 'input: TON 618 mass 6.6e10 M_sun, an observed value from the cited Shemmer2004 (doi 10.1086/423607), nothing to recompute'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 228, '', 'calc', '10', 'input: epoch z = 10^10 of the table row'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 233, '', 'calc', '10', 'input: epoch z = 10^3 of the table row'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 234, '', 'calc', '10', 'input: epoch z = 10^6 of the table row'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 235, '', 'calc', '10', 'input: epoch z = 10^10 of the table row'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 262, 'eq:bh_saturation', 'conjecture', '', 'conjecture: saturation criterion for black-hole formation, nothing to recompute (its equivalence to the hoop conjecture is checked by eq:bh_hoop)'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 305, '', 'calc', '10', 'input: S_collapse = 10^77 nats (table row label)'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 306, '', 'calc', '10', 'input: S_collapse = 10^83 nats (table row label)'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 307, '', 'calc', '10', 'input: S_collapse = 10^89 nats (table row label)'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 308, '', 'calc', '10', 'input: S_collapse = 10^95 nats (table row label)'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 316, '', 'observed', '1.44', 'input: Chandrasekhar mass 1.44 M_sun as conventionally quoted (Chandrasekhar1931, doi 10.1086/143324); the constants-only value 1.456 for mu_e = 2 printed beside it is checked by ch:blackholes:L316'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 319, '', 'observed', '1.4', 'measured, source not named'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 335, '', 'calc', '1.4', 'measured, source not named'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 336, '', 'calc', '1.44', 'input: Chandrasekhar mass 1.44 M_sun as conventionally quoted (Chandrasekhar1931), restated from line 316; the constants-only 1.456 is checked by ch:blackholes:L316'),
     (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 46, 'eq:bk_unruh', 'none', '', 'displayed equation, not yet checked'),
     (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 51, 'eq:bk_SetaA', 'none', '', 'displayed equation, not yet checked'),
     (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 79, 'eq:bk_decoherence', 'none', '', 'displayed equation, not yet checked'),

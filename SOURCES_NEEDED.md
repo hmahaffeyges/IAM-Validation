@@ -4,10 +4,12 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 3
+Entries: 5
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:34` | `0.1` | Lower end of the hydrostatic-bias estimates 'b from about 0.1 to about 0.4 depending on the method', cited to Nagai2007ICM, Rasia2012, Biffi2016. No repository file holds the values. |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:34` | `0.4` | Upper end of the same range (Nagai2007ICM, Rasia2012, Biffi2016). No repository file holds it. |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:37` | `0.15` | Simulation range b about 0.1-0.15 (Lau2009, Nelson2014); also restated at line 186. No repository file holds it; the committed cluster script does not list it. |
+| ch:blackholes | `docs/book/part2/p2_01_blackholes.tex:319` | `1.4` | typical neutron-star mass 1.4 M_sun used as the gauge reference (A = 1); no citation in the chapter; searched the repo (only docs/book/figscripts/fig_p2_star_gauge.py restates 1.4 without a source) |
+| ch:blackholes | `docs/book/part2/p2_01_blackholes.tex:335` | `1.4` | same typical neutron-star mass 1.4 M_sun in the fig:stargauge caption; no citation; same search as line 319 |

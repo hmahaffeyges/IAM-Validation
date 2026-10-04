@@ -2513,8 +2513,10 @@ PASS  ch:satellites:L188                 ch:satellites:p2_19_missing_satellites:
 
 == Part 3: Black Holes and Horizons | ch:blackholes (part2/p2_01_blackholes.tex)
 PASS  ch:blackholes:L38                  ch:blackholes:p2_01_blackholes:38  printed (algebra)  recomputed lhs-rhs=0  [none] S_BH from A = 16 pi G^2 M^2/c^4
+PASS  eq:bh_Tuniv                        ch:blackholes:p2_01_blackholes:42  printed (algebra)  recomputed lhs-rhs=0  [none] T = hbar kappa/(2 pi k_B c) with kappa of Schwarzschild gives T_BH
 PASS  eq:bh_gamma                        ch:blackholes:p2_01_blackholes:65  printed (algebra)  recomputed lhs-rhs=0  [derived] Gamma = P/(k_B T ln2) = c^3/(1920 G M ln2)
 PASS  ch:blackholes:L69                  ch:blackholes:p2_01_blackholes:69  printed 152.5  recomputed 152.549  tol 0.05  [derived] Gamma for 1 M_sun (CODATA 2018)
+PASS  ch:blackholes:L73                  ch:blackholes:p2_01_blackholes:73  printed 5120  recomputed 5120  tol 0.5  [calc] 5120 in tau_evap from integrating dM/dt
 PASS  ch:blackholes:L79                  ch:blackholes:p2_01_blackholes:79  printed 6.17\times10^{-8}  recomputed 6.170074e-08  tol 5.000005e-11  [calc] T_BH (K) for 1 M_sun (CODATA 2018)
 PASS  ch:blackholes:L79:1.525\times10^{2} ch:blackholes:p2_01_blackholes:79  printed 1.525\times10^{2}  recomputed 152.549  tol 0.05  [calc] Gamma (bits/s) for 1 M_sun (CODATA 2018)
 PASS  ch:blackholes:L79:1.049\times10^{77} ch:blackholes:p2_01_blackholes:79  printed 1.049\times10^{77}  recomputed 1.048955e+77  tol 5.000005e+73  [calc] S_BH (nats) for 1 M_sun (CODATA 2018)
@@ -2535,6 +2537,7 @@ PASS  ch:blackholes:L82:1.525\times10^{-7} ch:blackholes:p2_01_blackholes:82  pr
 PASS  ch:blackholes:L82:1.049\times10^{95} ch:blackholes:p2_01_blackholes:82  printed 1.049\times10^{95}  recomputed 1.048955e+95  tol 5.000005e+91  [calc] S_BH (nats) for 1e+09 M_sun (CODATA 2018)
 PASS  ch:blackholes:L82:1.51\times10^{95} ch:blackholes:p2_01_blackholes:82  printed 1.51\times10^{95}  recomputed 1.513322e+95  tol 5.000005e+92  [calc] S_BH (bits) for 1e+09 M_sun (CODATA 2018)
 PASS  ch:blackholes:L82:2.10\times10^{94} ch:blackholes:p2_01_blackholes:82  printed 2.10\times10^{94}  recomputed 2.095682e+94  tol 5.000005e+91  [calc] tau_evap (yr) for 1e+09 M_sun (CODATA 2018)
+PASS  ch:blackholes:L96                  ch:blackholes:p2_01_blackholes:96  printed (algebra)  recomputed lhs-rhs=0  [none] sigma_SB = pi^2 k_B^4/(60 hbar^3 c^2) from the Planck spectrum
 PASS  eq:bh_PSB                          ch:blackholes:p2_01_blackholes:100  printed (algebra)  recomputed lhs-rhs=0  [none] Stefan-Boltzmann power of the horizon = Hawking power
 PASS  ch:blackholes:L106                 ch:blackholes:p2_01_blackholes:106  printed (algebra)  recomputed lhs-rhs=0  [derived] P_SB/P_Hawking = 1
 PASS  eq:bh_transfer_rate                ch:blackholes:p2_01_blackholes:122  printed (algebra)  recomputed lhs-rhs=0  [none] transfer rate = Gamma
@@ -2543,22 +2546,33 @@ PASS  ch:blackholes:L136                 ch:blackholes:p2_01_blackholes:136  pri
 PASS  ch:blackholes:L136:0.433           ch:blackholes:p2_01_blackholes:136  printed 0.433  recomputed 0.433013  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:blackholes:L136:0.218           ch:blackholes:p2_01_blackholes:136  printed 0.218  recomputed 0.217945  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:blackholes:L136:0.032           ch:blackholes:p2_01_blackholes:136  printed 0.032  recomputed 0.031607  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L136:67.4            ch:blackholes:p2_01_blackholes:136  printed 67.4  recomputed 67.36  tol 0.05  [calc] H0 = 67.4 for the cosmic horizon (Planck 2018)
 PASS  eq:bh_smarr                        ch:blackholes:p2_01_blackholes:139  printed (algebra)  recomputed lhs-rhs=0  [none] Smarr: N k_B T ln2 = T S = Mc^2/2
 PASS  ch:blackholes:L142                 ch:blackholes:p2_01_blackholes:142  printed 0.5000000000  recomputed 0.5  tol 5.000005e-11  [derived] same value as p5_11_status_all:27 (Smarr share at 6.5e9 M_sun)
+PASS  ch:blackholes:L142:4.3\times10^6   ch:blackholes:p2_01_blackholes:142  printed 4.3\times10^6  recomputed 4.310000e+06  tol 50000  [derived] Sgr A* mass (Gillessen 2009)
+PASS  ch:blackholes:L143                 ch:blackholes:p2_01_blackholes:143  printed 6.5\times10^9  recomputed 6.500000e+09  tol 5.000005e+07  [derived] M87* mass (EHT 2019)
 PASS  ch:blackholes:L148                 ch:blackholes:p2_01_blackholes:148  printed (algebra)  recomputed True  [derived] Kerr T S/(Mc^2) = sqrt(1-chi^2)/2 and its three values (G=c=hbar=k_B=1)
+PASS  eq:bh_dMdt                         ch:blackholes:p2_01_blackholes:155  printed (algebra)  recomputed lhs-rhs=0  [none] dM/dt = -sigma A T^4/c^2 = -hbar c^4/(15360 pi G^2 M^2)
 PASS  eq:bh_Mt                           ch:blackholes:p2_01_blackholes:159  printed (algebra)  recomputed True  [none] M(t)^3 solves dM/dt = -hbar c^4/(15360 pi G^2 M^2)
+PASS  eq:bh_Str                          ch:blackholes:p2_01_blackholes:163  printed (algebra)  recomputed lhs-rhs=0  [none] Int Gamma(M(t)) dt = (S_BH,0 - S_BH(t))/(k_B ln2)
 PASS  eq:bh_Str_closed                   ch:blackholes:p2_01_blackholes:168  printed (algebra)  recomputed lhs-rhs=0  [none] S_tr = S_BH,0 - S_BH(t) with S proportional to M^2
 PASS  ch:blackholes:L172                 ch:blackholes:p2_01_blackholes:172  printed (algebra)  recomputed True  [none] half the entropy transferred at t = (1-2^-3/2) tau = 0.646 tau
+PASS  ch:blackholes:L176                 ch:blackholes:p2_01_blackholes:176  printed 1.51\times10^{77}  recomputed 1.513322e+77  tol 5.000005e+74  [derived] S_BH,0 in bits for one solar mass
 PASS  ch:blackholes:L177                 ch:blackholes:p2_01_blackholes:177  printed 152.5  recomputed 152.549  tol 0.0503251  [derived] same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass)
+PASS  ch:blackholes:L182                 ch:blackholes:p2_01_blackholes:182  printed 0.646  recomputed 0.646447  tol 5.000005e-04  [derived] S_tr and S_BH cross at t = 0.646 tau (fig caption)
+PASS  ch:blackholes:L192                 ch:blackholes:p2_01_blackholes:192  printed 0.646  recomputed 0.646447  tol 5.000005e-04  [derived] min(S_tr, S_BH) turns over at 0.646 tau
+PASS  ch:blackholes:L194:64.6            ch:blackholes:p2_01_blackholes:194  printed 64.6  recomputed 64.6447  tol 0.05  [derived] black-body crossing at 64.6 % of tau
 PASS  ch:blackholes:L201                 ch:blackholes:p2_01_blackholes:201  printed 2.6\times10^{-30}  recomputed 2.645898e-30  tol 5.000005e-32  [calc] T_GH = hbar H0/(2 pi k_B) at the photon-sector H0 = 67.16 the caption states
 PASS  ch:blackholes:L201:4.5\times10^{22} ch:blackholes:p2_01_blackholes:201  printed 4.5\times10^{22}  recomputed 4.501562e+22  tol 5.000005e+20  [calc] mass with T_BH = T_CMB, kg
 PASS  ch:blackholes:L201:2.3\times10^{22} ch:blackholes:p2_01_blackholes:201  printed 2.3\times10^{22}  recomputed 2.323635e+22  tol 5.000005e+20  [calc] M_eq = c^3/(4 G H0), H0=67.4
 PASS  ch:blackholes:L201:2.1\times10^{67} ch:blackholes:p2_01_blackholes:201  printed 2.1\times10^{67}  recomputed 2.095682e+67  tol 5.000005e+65  [calc] evaporation time, 1 M_sun
+PASS  ch:blackholes:L201:5120            ch:blackholes:p2_01_blackholes:201  printed 5120  recomputed 5120  tol 0.5  [calc] 5120 in tau_evap (fig caption)
 PASS  eq:bh_TGH                          ch:blackholes:p2_01_blackholes:206  printed (algebra)  recomputed lhs-rhs=0  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:blackholes:L209                 ch:blackholes:p2_01_blackholes:209  printed 2.66\times10^{-30}  recomputed 2.655354e-30  tol 5.000005e-33  [calc] T_GH, H0 = 67.4
 PASS  ch:blackholes:L209:2.65\times10^{-30} ch:blackholes:p2_01_blackholes:209  printed 2.65\times10^{-30}  recomputed 2.645898e-30  tol 5.000005e-33  [calc] T_GH, H0 = 67.16
 PASS  ch:blackholes:L209:67.16           ch:blackholes:p2_01_blackholes:209  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:blackholes:L209:67.4            ch:blackholes:p2_01_blackholes:209  printed 67.4  recomputed 67.36  tol 0.05  [calc] H0 = 67.4 (Planck 2018)
 PASS  eq:bh_Pnet                         ch:blackholes:p2_01_blackholes:213  printed (algebra)  recomputed lhs-rhs=0  [derived] drafted check, screened (runs; negative control fails)
 PASS  eq:bh_Meq                          ch:blackholes:p2_01_blackholes:221  printed (algebra)  recomputed lhs-rhs=0  [derived] M_eq from T_BH = T_GH
 PASS  ch:blackholes:L224                 ch:blackholes:p2_01_blackholes:224  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
@@ -2569,20 +2583,39 @@ PASS  ch:blackholes:L231:2.66\times10^{-30} ch:blackholes:p2_01_blackholes:231  
 PASS  ch:blackholes:L231:2.32\times10^{22} ch:blackholes:p2_01_blackholes:231  printed 2.32\times10^{22}  recomputed 2.323635e+22  tol 5.000005e+19  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:blackholes:L232                 ch:blackholes:p2_01_blackholes:232  printed 3.91\times10^{-18}  recomputed 3.911261e-18  tol 5.000005e-21  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:blackholes:L232:1.30\times10^{22} ch:blackholes:p2_01_blackholes:232  printed 1.30\times10^{22}  recomputed 1.297659e+22  tol 5.000005e+19  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L232:4.75\times10^{-30} ch:blackholes:p2_01_blackholes:232  printed 4.75\times10^{-30}  recomputed 4.754774e-30  tol 5.000005e-33  [calc] T_GH at z = 1
 PASS  ch:blackholes:L233                 ch:blackholes:p2_01_blackholes:233  printed 4.41\times10^{-14}  recomputed 4.413740e-14  tol 5.000005e-17  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:blackholes:L233:1.15\times10^{18} ch:blackholes:p2_01_blackholes:233  printed 1.15\times10^{18}  recomputed 1.149928e+18  tol 5.000005e+15  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L233:5.37\times10^{-26} ch:blackholes:p2_01_blackholes:233  printed 5.37\times10^{-26}  recomputed 5.365618e-26  tol 5.000005e-29  [calc] T_GH at z = 10^3
 PASS  ch:blackholes:L234                 ch:blackholes:p2_01_blackholes:234  printed 2.10\times10^{-8}  recomputed 2.098681e-08  tol 5.000005e-11  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:blackholes:L234:2.42\times10^{12} ch:blackholes:p2_01_blackholes:234  printed 2.42\times10^{12}  recomputed 2.418416e+12  tol 5.000005e+09  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L234:2.55\times10^{-20} ch:blackholes:p2_01_blackholes:234  printed 2.55\times10^{-20}  recomputed 2.551287e-20  tol 5.000005e-23  [calc] T_GH at z = 10^6
 PASS  ch:blackholes:L235                 ch:blackholes:p2_01_blackholes:235  printed 2.10\times10^{0}  recomputed 2.09509  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:blackholes:L235:2.42\times10^{4} ch:blackholes:p2_01_blackholes:235  printed 2.42\times10^{4}  recomputed 24225.6  tol 50  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L235:2.55\times10^{-12} ch:blackholes:p2_01_blackholes:235  printed 2.55\times10^{-12}  recomputed 2.546926e-12  tol 5.000005e-15  [calc] T_GH at z = 10^10
+PASS  ch:blackholes:L239                 ch:blackholes:p2_01_blackholes:239  printed 3.4\times10^{-90}  recomputed 3.422132e-90  tol 5.000005e-92  [calc] (T_GH/T_BH)^4 for one solar mass today
 PASS  ch:blackholes:L246                 ch:blackholes:p2_01_blackholes:246  printed (algebra)  recomputed True  [none] M_CMB = 4.5e22 kg = 0.6 lunar masses
 PASS  ch:blackholes:L248                 ch:blackholes:p2_01_blackholes:248  printed 4.4\times10^{7}  recomputed 4.418822e+07  tol 5.000005e+05  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L249                 ch:blackholes:p2_01_blackholes:249  printed 10^{67}  recomputed 2.095682e+67  tol 2.162278e+67  [calc] evaporation times of 10^67 yr and longer
 PASS  eq:bh_hoop                         ch:blackholes:p2_01_blackholes:271  printed (algebra)  recomputed lhs-rhs=0  [none] S/(k_B A) at the hoop radius = k_B/(4 l_P^2)
 PASS  eq:bh_seed                         ch:blackholes:p2_01_blackholes:295  printed (algebra)  recomputed lhs-rhs=0  [derived] M from S = 4 pi G M^2/(hbar c), in units of m_Pl
+PASS  ch:blackholes:L305                 ch:blackholes:p2_01_blackholes:305  printed 0.98  recomputed 0.976386  tol 0.00500001  [calc] seed mass for S = 1e77 nats
+PASS  ch:blackholes:L306                 ch:blackholes:p2_01_blackholes:306  printed 9.8\times10^{2}  recomputed 976.386  tol 5  [calc] seed mass for S = 1e83 nats
+PASS  ch:blackholes:L307                 ch:blackholes:p2_01_blackholes:307  printed 9.8\times10^{5}  recomputed 9.763861e+05  tol 5000  [calc] seed mass for S = 1e89 nats
+PASS  ch:blackholes:L308                 ch:blackholes:p2_01_blackholes:308  printed 9.8\times10^{8}  recomputed 9.763861e+08  tol 5.000005e+06  [calc] seed mass for S = 1e95 nats
 PASS  ch:blackholes:L316                 ch:blackholes:p2_01_blackholes:316  printed 1.456  recomputed found in file  [observed] measured: printed value found in verify_virial_atoms_to_horizon_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_atoms_to_horizon.py > docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt
+PASS  ch:blackholes:L318                 ch:blackholes:p2_01_blackholes:318  printed 2.25  recomputed 2.25  tol 0.00500001  [observed] TOV maximum mass (Fan et al. 2024)
+PASS  ch:blackholes:L318:0.07            ch:blackholes:p2_01_blackholes:318  printed 0.07  recomputed 0.07  tol 0.00500001  [observed] TOV maximum mass, lower error (Fan et al. 2024)
+PASS  ch:blackholes:L319                 ch:blackholes:p2_01_blackholes:319  printed 0.6  recomputed 0.593  tol 0.05  [observed] typical white dwarf 0.6 M_sun from the DA mean 0.593
+PASS  ch:blackholes:L319:0.593           ch:blackholes:p2_01_blackholes:319  printed 0.593  recomputed 0.593  tol 5.000005e-04  [observed] mean DA white dwarf mass (Kepler et al. 2007)
+PASS  ch:blackholes:L333                 ch:blackholes:p2_01_blackholes:333  printed 2.25  recomputed 2.25  tol 0.00500001  [observed] TOV maximum mass (Fan et al. 2024), restated
+PASS  ch:blackholes:L333:0.07            ch:blackholes:p2_01_blackholes:333  printed 0.07  recomputed 0.07  tol 0.00500001  [observed] TOV maximum mass, lower error, restated
+PASS  ch:blackholes:L335                 ch:blackholes:p2_01_blackholes:335  printed 0.6  recomputed 0.593  tol 0.05  [calc] typical white dwarf 0.6 M_sun (fig caption)
+PASS  ch:blackholes:L336:2.40            ch:blackholes:p2_01_blackholes:336  printed 2.40  recomputed 2.4  tol 0.00500001  [calc] A at the Chandrasekhar mass = 1.44/0.6
 PASS  ch:blackholes:L358                 ch:blackholes:p2_01_blackholes:358  printed 2.1\times10^{77}  recomputed 2.097910e+77  tol 5.000005e+75  [derived] Mahaffey number M c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun
 PASS  ch:blackholes:L358:3.0\times10^{77} ch:blackholes:p2_01_blackholes:358  printed 3.0\times10^{77}  recomputed 3.026644e+77  tol 5.000005e+75  [derived] the same in Landauer units
+PASS  ch:blackholes:L369                 ch:blackholes:p2_01_blackholes:369  printed 10^{22}  recomputed 2.325015e+22  tol 2.162278e+22  [calc] M_eq > 10^22 M_sun at z = 0
 PASS  ch:blackholes:L372                 ch:blackholes:p2_01_blackholes:372  printed 1.158  recomputed 1.15765  tol 5.000005e-04  [prediction] 1/mu(z=0) = 1 + beta_m
 PASS  ch:blackholes:L393                 ch:blackholes:p2_01_blackholes:393  printed (algebra)  recomputed lhs-rhs=0  [none] eta = c^3/(4 hbar G)
 
@@ -3777,4 +3810,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3005  FAIL 0  (heavy, read from committed outputs: 623)  inventoried-not-run 3329  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3038  FAIL 0  (heavy, read from committed outputs: 623)  inventoried-not-run 3296  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
