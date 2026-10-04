@@ -200,7 +200,7 @@ table(TAB / "tab_gravdec.tex",
 
 # ===================== p5_06: exponent fit; CHSH table =====================
 p203 = (BOOK / "part2" / "p2_03_theory.tex").read_text()
-fits = {float(eval(n)): (float(a), float(b)) for n, a, b in re.findall(r"\$D\^\{?([\d./]+)\}?\\Omega_mf/T_H\$ & ([\d.]+) & ([\d.]+)", p203)}
+fits = {float(eval(n)): (float(a), float(b)) for n, a, b in re.findall(r"\$D\^\{?([\d./]+)\}?(?:\\,)?\\Omega_m(?:\(a\))?(?:\\,)?f(?:/T_H)?\$ & ([\d.]+) & ([\d.]+)", p203)}
 fits = {(2.5 if n == 5 / 2 else n): v for n, v in fits.items()}
 print("parsed fits", fits)
 assert 2.5 in fits and 3.5 in fits
@@ -243,7 +243,7 @@ fig, (a1, a2) = plt.subplots(1, 2, figsize=(S.TEXTW, 2.6))
 x = np.linspace(-0.5, 0.4, 600)
 # Present free-mu0 constraints only; the survey forecast with the IAM mu(z) is fig_p2_euclid_forecast.py (p2_16, Section sec:sp_euclid).
 a1.axvline(mu0, color=S.IAM, lw=1.4, label=f"IAM $\\mu_0$ = {mu0:.3f}")
-for i, (v, lo, hi, lab) in enumerate(((0.039, 0.125, 0.125, "Planck + RSD"), (0.11, 0.54, 0.45, "DESI full shape"))):   # p5_07, measured
+for i, (v, lo, hi, lab) in enumerate(((0.064, 0.151, 0.099, "Planck + RSD"), (0.11, 0.54, 0.45, "DESI full shape"))):   # p5_07, measured: Planck + RSD median and central 68 % (chain planck_rsd_mu0_float: -0.087 to +0.163); DESI 68 %
     y = 0.45 + 0.4 * i; a1.errorbar(v, y, xerr=[[lo], [hi]], fmt="o", ms=3, color=S.DATA, elinewidth=0.8, capsize=2)
     a1.text(v, y + 0.05, lab + " (measured)", fontsize=6, va="bottom", ha="center", color=S.DATA)
 a1.axvline(0, color=S.GR, lw=0.8)

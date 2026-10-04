@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4769 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4771 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5274,7 +5274,9 @@ Totals: 4769 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 24 | ch:predictions:L24 | derived | `-0.136` | numeric: mu0 = mu(a=1) - 1 (fig:cosmo_tests panel a) | PASS |
-| 24 | ch:predictions:L24:0.039 | measured | `0.039` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: free mu0, Planck + RSD chain posterior mean | PASS |
+| 24 | ch:predictions:L24:+0.064 | measured | `+0.064` | heavy file `Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.1.txt`: free mu0, Planck + RSD chain posterior median | PASS |
+| 24 | ch:predictions:L24:-0.087 | measured | `-0.087` | heavy file `Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.1.txt`: free mu0, Planck + RSD, lower end of central 68 % | PASS |
+| 24 | ch:predictions:L24:+0.163 | measured | `+0.163` | heavy file `Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.1.txt`: free mu0, Planck + RSD, upper end of central 68 % | PASS |
 | 24 | ch:predictions:L24:0.11 | measured | `0.11` | file `docs/verification/theory/IAM_LAW_CHECK.md`: DESI 2024 full-shape mu0 (recorded value) | PASS |
 | 24 | ch:predictions:L24:0.54 | measured | `0.54` | file `docs/verification/theory/IAM_LAW_CHECK.md`: DESI 2024 full-shape mu0 lower error (recorded value) | PASS |
 | 24 | ch:predictions:L24:1.8 | calc | `1.8` | numeric: E_G above LCDM at z = 0.3 (C8) | PASS |

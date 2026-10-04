@@ -36205,12 +36205,36 @@ def check_4460():
     value = float(mu_iam(1.0)) - 1
     return locals()
 
-@check(label='ch:predictions:L24:0.039', chapter='ch:predictions', part=7, title='free mu0, Planck + RSD chain posterior mean',
-       file='part5/p5_07_predictions', line=24, status='measured', kind='file', printed='0.039', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+def _mu0rsd_q(p):
+    f = REPO / "Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.1.txt"
+    h = open(f).readline().split()[1:]
+    d = np.loadtxt(f); d = d[int(0.3 * len(d)):]
+    w, m = d[:, h.index("weight")], d[:, h.index("mu0")]
+    o = np.argsort(m); c = np.cumsum(w[o]) / w.sum()
+    return float(m[o][np.searchsorted(c, p)])
+
+@check(label='ch:predictions:L24:+0.064', chapter='ch:predictions', part=7, title='free mu0, Planck + RSD chain posterior median',
+       file='part5/p5_07_predictions', line=24, status='measured', kind='file', printed='+0.064', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.1.txt',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
-def check_4461():
-    'Posterior mean of mu0 (flat prior [-0.5, 0.2]) in the planck_rsd_mu0_float chain, CHAIN_EXTRACTION_FINAL.csv (as tab:lt_free, Planck + RSD (E)). Book line 24, printed 0.039 (+- 0.125).'
-    value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'planck_rsd_mu0_float', 'mu0')
+def check_mu0rsd_05():
+    'Weighted quantile 0.5 of mu0 in the planck_rsd_mu0_float chain (first 30 % removed as burn-in), as tab:lt_free. Book line 24.'
+    value = _mu0rsd_q(0.5)
+    return locals()
+
+@check(label='ch:predictions:L24:-0.087', chapter='ch:predictions', part=7, title='free mu0, Planck + RSD, lower end of central 68 %',
+       file='part5/p5_07_predictions', line=24, status='measured', kind='file', printed='-0.087', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.1.txt',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_mu0rsd_016():
+    'Weighted quantile 0.16 of mu0 in the planck_rsd_mu0_float chain (first 30 % removed as burn-in), as tab:lt_free. Book line 24.'
+    value = _mu0rsd_q(0.16)
+    return locals()
+
+@check(label='ch:predictions:L24:+0.163', chapter='ch:predictions', part=7, title='free mu0, Planck + RSD, upper end of central 68 %',
+       file='part5/p5_07_predictions', line=24, status='measured', kind='file', printed='+0.163', tol=0.0, source='Cosmological_Physics/mgcamb_validation/chains/planck_rsd_mu0_float.1.txt',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_mu0rsd_084():
+    'Weighted quantile 0.84 of mu0 in the planck_rsd_mu0_float chain (first 30 % removed as burn-in), as tab:lt_free. Book line 24.'
+    value = _mu0rsd_q(0.84)
     return locals()
 
 @check(label='ch:predictions:L24:0.11', chapter='ch:predictions', part=7, title='DESI 2024 full-shape mu0 (recorded value)',
