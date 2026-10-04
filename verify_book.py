@@ -2214,6 +2214,89 @@ def _b11fr_predx():
 
 # ---------------------------------------------------------------- L22, L24: acceptance-run cautions
 
+# helpers of the part4/p4_22b_salmonid checks
+# b12 draft: ch:salmonid (docs/book/part4/p4_22b_salmonid.tex). Per-fish tables are committed outputs of the methylation chain;
+# every statistic below is recomputed from them (Spearman, ICC, Mann-Whitney, Kruskal-Wallis, least squares) as the committed scorers do.
+from scipy import stats as _b12_stats
+_B12_SAL = 'Biological_Physics/MethylPhys/doors/data/salmon_readings.csv'
+_B12_SALJ = 'Biological_Physics/Salmonid/PROC_SALMON_01/salmon_score.json'
+_B12_RUNS = 'Biological_Physics/MethylPhys/doors/data/methow_run_map.csv'
+_B12_CHR = 'Biological_Physics/MethylPhys/doors/data/charr_readings.csv'
+_B12_RIM = 'Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv'
+_B12_COHO = 'Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv'
+_B12_ENC = 'Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md'
+DATA_FILES[_B12_SALJ] = 'PROC-SALMON-01 scores (score_salmon.py): P0-P4, including the P4 difference-map maxima and thresholds'   # 1 kB
+DATA_FILES[_B12_RUNS] = 'Methow steelhead sequencing runs: specimen, tissue, lane (PRJNA325786)'   # 8 kB
+DATA_FILES[_B12_ENC] = 'PROC-ENCODE-01 outcome: copy error of 39 ENCODE WGBS samples'   # 5 kB
+_B12_RR_SAL = 'python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain: Bismark --pbat alignment and extract.py)'
+_B12_RR_CHR = 'python3 Biological_Physics/MethylPhys/doors/data/score_charr.py (needs the per-fish site tables of the methylation chain: WGBS alignment and extract_pe.py)'
+_B12_RR_RIM = 'python3 Biological_Physics/MethylPhys/doors/data/score_rimouski.py (needs the per-fish site tables of the methylation chain: WGBS alignment and extract_pe.py)'
+_B12_RR_COHO = 'python3 Biological_Physics/Salmonid/DEV_COHO_CC_01/score_coho_cc.py <site-table folder> leluyer_runs.csv (needs the per-fish site tables of the methylation chain)'
+
+def _b12_rows(path, **eq):
+    return [r for r in load_csv_rows(path) if all(r[k] == v for k, v in eq.items())]
+def _b12_col(rows, key):
+    return np.array([float(r[key]) for r in rows])
+def _b12_icc_halves(a, b):
+    """ICC of the two halves as in score_salmon.py / score_charr.py / score_rimouski.py (one-way, k = 2)."""
+    n = len(a); gm = np.r_[a, b].mean()
+    msb = 2 * ((((a + b) / 2) - gm)**2).sum() / (n - 1); msw = (((a - b)**2) / 2).sum() / n
+    return (msb - msw) / (msb + msw)
+def _b12_ols(y, cols):
+    """Least squares y ~ 1 + cols: (estimates, 95 % lower, 95 % upper, two-sided p), as statsmodels OLS reports them."""
+    X = np.column_stack([np.ones(len(y))] + list(cols)); n, p = X.shape
+    beta = np.linalg.lstsq(X, y, rcond=None)[0]; res = y - X @ beta; s2 = res @ res / (n - p)
+    se = np.sqrt(np.diag(s2 * np.linalg.inv(X.T @ X))); q = _b12_stats.t.ppf(0.975, n - p)
+    return beta, beta - q * se, beta + q * se, 2 * _b12_stats.t.sf(np.abs(beta / se), n - p)
+def _b12_sal_spear(tissue, key):
+    g = _b12_rows(_B12_SAL, tissue=tissue)
+    return _b12_stats.spearmanr(_b12_col(g, 'eps_corr'), _b12_col(g, key))
+def _b12_sal_mwu(tissue):
+    g = _b12_rows(_B12_SAL, tissue=tissue)
+    h = _b12_col([r for r in g if r['origin'] == 'Hat'], 'eps_corr'); nn = _b12_col([r for r in g if r['origin'] == 'Nat'], 'eps_corr')
+    return h, nn, _b12_stats.mannwhitneyu(h, nn, alternative='two-sided').pvalue
+def _b12_sal_lane_medians():
+    """Median sperm eps_corr per group of specimens sequenced on the same set of lanes (methow_run_map.csv)."""
+    lanes = {}
+    for m in load_csv_rows(_B12_RUNS):
+        if m['tissue'] == 'Sp':
+            lanes.setdefault(m['fish'], set()).add(m['lane'])
+    grp = {}
+    for r in _b12_rows(_B12_SAL, tissue='Sp'):
+        grp.setdefault(tuple(sorted(lanes[r['fish']])), []).append(float(r['eps_corr']))
+    return sorted(float(np.median(v)) for v in grp.values())
+def _b12_E(eps):
+    return math.log((1 - eps) / eps)
+def _b12_chr_ok():
+    return [r for r in load_csv_rows(_B12_CHR) if int(r['pairs']) > 1000]   # drops GSM7094128, the failed download (297 read pairs)
+def _b12_chr_ols():
+    R = load_csv_rows(_B12_CHR); y = _b12_col(R, 'eps_corr')
+    warm = np.array([r['temp'] == 'warm' for r in R], float); sel = np.array([r['line'] == 'selected' for r in R], float)
+    y18 = np.array([r['year'] == '2018' for r in R], float)
+    return y, warm, _b12_ols(y, [warm, sel, y18])
+def _b12_chr_ratio():
+    y, warm, (b, lo, hi, p) = _b12_chr_ols(); base = y[warm == 0].mean()
+    return (base + b[1]) / base, (base + lo[1]) / base, (base + hi[1]) / base, p[1]
+def _b12_rim_F0():
+    F0 = _b12_rows(_B12_RIM, generation='F0'); y = _b12_col(F0, 'eps_corr')
+    st = np.array([r['origin'] == 'stocked' for r in F0], float); male = np.array([r['sex'] == 'male' for r in F0], float)
+    return _b12_ols(y, [st, male])
+def _b12_rim_F1():
+    F1 = _b12_rows(_B12_RIM, generation='F1'); y = _b12_col(F1, 'eps_corr')
+    fa = np.array([r['father'] == 'stocked' for r in F1], float); mo = np.array([r['mother'] == 'stocked' for r in F1], float)
+    return _b12_ols(y, [fa, mo])
+def _b12_rim_spear(key):
+    R = load_csv_rows(_B12_RIM)
+    return _b12_stats.spearmanr(_b12_col(R, 'eps_corr'), _b12_col(R, key)).correlation
+def _b12_coho_icc():
+    """ICC(1) of the two halves on common sites, as icc1() in score_coho_cc.py."""
+    R = load_csv_rows(_B12_COHO); X = np.c_[_b12_col(R, 'eps_cc_common_A'), _b12_col(R, 'eps_cc_common_B')]; n, k = X.shape; gm = X.mean()
+    msb = k * ((X.mean(1) - gm)**2).sum() / (n - 1); msw = ((X - X.mean(1, keepdims=True))**2).sum() / (n * (k - 1))
+    return (msb - msw) / (msb + (k - 1) * msw)
+def _b12_coho_lanes(key):
+    R = load_csv_rows(_B12_COHO); lanes = sorted({r['lane'] for r in R})
+    return [(_b12_col([r for r in R if r['lane'] == L], key), _b12_col([r for r in R if r['lane'] == L], 'conv_fail')) for L in lanes]
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -34340,6 +34423,57 @@ def check_4181():
 
 
 # ======== Part 6 | ch:salmonid | docs/book/part4/p4_22b_salmonid.tex
+@check(label='ch:salmonid:L52', chapter='ch:salmonid', part=6, title='Methow ICC of the two halves',
+       file='part4/p4_22b_salmonid', line=52, status='measured', kind='file', printed='0.998', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4182():
+    'Methow steelhead, P0: ICC of the two halves (alternate reads) of all 40 specimens, recomputed from the per-specimen eps_corr_A/eps_corr_B of salmon_readings.csv with the formula of score_salmon.py (salmon_score.json prints 0.9983). Book line 52, printed 0.998.'
+    R = load_csv_rows(_B12_SAL)
+    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
+    return locals()
+
+@check(label='ch:salmonid:L52:0.0025', chapter='ch:salmonid', part=6, title='Methow between-fish SD, red cells',
+       file='part4/p4_22b_salmonid', line=52, status='measured', kind='file', printed='0.0025', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4183():
+    'Methow steelhead, P0: between-fish standard deviation of eps_corr in red cells (sample SD, 20 fish), salmon_readings.csv. Book line 52, printed 0.0025.'
+    value = float(np.std(_b12_col(_b12_rows(_B12_SAL, tissue='RBC'), 'eps_corr'), ddof=1))
+    return locals()
+
+@check(label='ch:salmonid:L53', chapter='ch:salmonid', part=6, title='Methow between-fish SD, sperm',
+       file='part4/p4_22b_salmonid', line=53, status='measured', kind='file', printed='0.0029', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4184():
+    'Methow steelhead, P0: between-fish standard deviation of eps_corr in sperm (sample SD, 20 fish), salmon_readings.csv. Book line 53, printed 0.0029.'
+    value = float(np.std(_b12_col(_b12_rows(_B12_SAL, tissue='Sp'), 'eps_corr'), ddof=1))
+    return locals()
+
+@check(label='ch:salmonid:L53:0.0025', chapter='ch:salmonid', part=6, title='Methow P1 between-fish SD, red cells',
+       file='part4/p4_22b_salmonid', line=53, status='measured', kind='file', printed='0.0025', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4185():
+    'Methow steelhead, P1: between-fish standard deviation of red-cell eps_corr (the P0 number restated), recomputed from salmon_readings.csv. Book line 53, printed 0.0025.'
+    value = float(np.std(_b12_col(_b12_rows(_B12_SAL, tissue='RBC'), 'eps_corr'), ddof=1))
+    return locals()
+
+@check(label='ch:salmonid:L53:0.0005', chapter='ch:salmonid', part=6, title='Methow within-fish half-split SD, red cells',
+       file='part4/p4_22b_salmonid', line=53, status='measured', kind='file', printed='0.0005', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4186():
+    'Methow steelhead, P1: within-fish half-split SD in red cells, sqrt(mean((A-B)^2/2)) as in score_salmon.py, salmon_readings.csv. Book line 53, printed 0.0005.'
+    g = _b12_rows(_B12_SAL, tissue='RBC')
+    value = float(np.sqrt((((_b12_col(g, 'eps_corr_A') - _b12_col(g, 'eps_corr_B'))**2) / 2).mean()))
+    return locals()
+
+@check(label='ch:salmonid:L53:0.0002', chapter='ch:salmonid', part=6, title='Methow within-fish half-split SD, sperm',
+       file='part4/p4_22b_salmonid', line=53, status='measured', kind='file', printed='0.0002', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4187():
+    'Methow steelhead, P1: within-fish half-split SD in sperm, sqrt(mean((A-B)^2/2)) as in score_salmon.py, salmon_readings.csv. Book line 53, printed 0.0002.'
+    g = _b12_rows(_B12_SAL, tissue='Sp')
+    value = float(np.sqrt((((_b12_col(g, 'eps_corr_A') - _b12_col(g, 'eps_corr_B'))**2) / 2).mean()))
+    return locals()
+
 @check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='0.0354', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
 def check_2549():
@@ -34375,6 +34509,59 @@ def check_2553():
     ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '0.0165')
     return locals()
 
+@check(label='ch:salmonid:L55:0.31', chapter='ch:salmonid', part=6, title='Methow P3 red cells, Mann-Whitney p',
+       file='part4/p4_22b_salmonid', line=55, status='measured', kind='file', printed='0.31', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4188():
+    'Methow steelhead, P3: hatchery against natural red-cell eps_corr, two-sided Mann-Whitney p, salmon_readings.csv. Book line 55, printed 0.31.'
+    h, nn, p = _b12_sal_mwu('RBC')
+    value = float(p)
+    return locals()
+
+@check(label='ch:salmonid:L55:0.0184', chapter='ch:salmonid', part=6, title='Methow P3 sperm, natural median',
+       file='part4/p4_22b_salmonid', line=55, status='measured', kind='file', printed='0.0184', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4189():
+    'Methow steelhead, P3: median sperm eps_corr of the ten natural-origin fish, salmon_readings.csv. Book line 55, printed 0.0184.'
+    h, nn, p = _b12_sal_mwu('Sp')
+    value = float(np.median(nn))
+    return locals()
+
+@check(label='ch:salmonid:L55:0.34', chapter='ch:salmonid', part=6, title='Methow P3 sperm, Mann-Whitney p',
+       file='part4/p4_22b_salmonid', line=55, status='measured', kind='file', printed='0.34', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4190():
+    'Methow steelhead, P3: hatchery against natural sperm eps_corr, two-sided Mann-Whitney p, salmon_readings.csv. Book line 55, printed 0.34.'
+    h, nn, p = _b12_sal_mwu('Sp')
+    value = float(p)
+    return locals()
+
+@check(label='ch:salmonid:L56', chapter='ch:salmonid', part=6, title='Methow P4 largest |z|, red cells',
+       file='part4/p4_22b_salmonid', line=56, status='measured', kind='file', printed='6.0', tol=0.0, source=_B12_SALJ,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4191():
+    'Methow steelhead, P4: largest |z| of the hatchery-natural per-CpG map on 82,006 red-cell sites. Source: salmon_score.json P4.RBC.max_absz (the per-site maps are not committed). Book line 56, printed 6.0.'
+    value = load_json(_B12_SALJ)['P4']['RBC']['max_absz']
+    return locals()
+
+@check(label='ch:salmonid:L56:5.9', chapter='ch:salmonid', part=6, title='Methow P4 largest |z|, sperm',
+       file='part4/p4_22b_salmonid', line=56, status='measured', kind='file', printed='5.9', tol=0.0, source=_B12_SALJ,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4192():
+    'Methow steelhead, P4: largest |z| on 83,245 sperm sites. Source: salmon_score.json P4.Sp.max_absz. Book line 56, printed 5.9.'
+    value = load_json(_B12_SALJ)['P4']['Sp']['max_absz']
+    return locals()
+
+@check(label='ch:salmonid:L56:16.0', chapter='ch:salmonid', part=6, title='Methow P4 threshold, red cells',
+       file='part4/p4_22b_salmonid', line=56, status='measured', kind='file', printed='16.0', tol=0.0, source=_B12_SALJ,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4193():
+    'Methow steelhead, P4: 95th percentile of the largest |z| over the 126 five-against-five splits of the natural fish, red cells. Source: salmon_score.json P4.RBC.threshold_absz. Book line 56, printed 16.0.'
+    d = load_json(_B12_SALJ)['P4']['RBC']
+    n_splits = d['n_splits']   # 126
+    value = d['threshold_absz']
+    return locals()
+
 @check(label='ch:salmonid:L57', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=57, status='measured', kind='file', printed='23.0', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
 def check_2554():
@@ -34382,11 +34569,161 @@ def check_2554():
     ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '23.0')
     return locals()
 
+@check(label='ch:salmonid:L63', chapter='ch:salmonid', part=6, title='Methow red cells: rho with conversion failure',
+       file='part4/p4_22b_salmonid', line=63, status='measured', kind='file', printed='-0.58', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4194():
+    'Methow steelhead red cells: Spearman rho of eps_corr against conversion failure, 20 fish, salmon_readings.csv. Book line 63, printed -0.58.'
+    value = _b12_sal_spear('RBC', 'conv_fail').correlation
+    return locals()
+
+@check(label='ch:salmonid:L63:0.007', chapter='ch:salmonid', part=6, title='Methow red cells: p of rho with conversion failure',
+       file='part4/p4_22b_salmonid', line=63, status='measured', kind='file', printed='0.007', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4195():
+    'Methow steelhead red cells: p-value of the Spearman rho of eps_corr against conversion failure, salmon_readings.csv. Book line 63, printed 0.007.'
+    value = float(_b12_sal_spear('RBC', 'conv_fail').pvalue)
+    return locals()
+
+@check(label='ch:salmonid:L64', chapter='ch:salmonid', part=6, title='Methow red cells: rho with masked sites',
+       file='part4/p4_22b_salmonid', line=64, status='measured', kind='file', printed='-0.69', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4196():
+    'Methow steelhead red cells: Spearman rho of eps_corr against the number of masked sites, salmon_readings.csv. Book line 64, printed -0.69.'
+    value = _b12_sal_spear('RBC', 'masked').correlation
+    return locals()
+
+@check(label='ch:salmonid:L64:0.001', chapter='ch:salmonid', part=6, title='Methow red cells: p of rho with masked sites',
+       file='part4/p4_22b_salmonid', line=64, status='measured', kind='file', printed='0.001', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4197():
+    'Methow steelhead red cells: p-value of the Spearman rho of eps_corr against masked sites, salmon_readings.csv. Book line 64, printed 0.001.'
+    value = float(_b12_sal_spear('RBC', 'masked').pvalue)
+    return locals()
+
+@check(label='ch:salmonid:L64:-0.54', chapter='ch:salmonid', part=6, title='Methow sperm: rho with conversion failure',
+       file='part4/p4_22b_salmonid', line=64, status='measured', kind='file', printed='-0.54', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4198():
+    'Methow steelhead sperm: Spearman rho of eps_corr against conversion failure, salmon_readings.csv. Book line 64, printed -0.54.'
+    value = _b12_sal_spear('Sp', 'conv_fail').correlation
+    return locals()
+
+@check(label='ch:salmonid:L65', chapter='ch:salmonid', part=6, title='Methow sperm: p of rho with conversion failure',
+       file='part4/p4_22b_salmonid', line=65, status='measured', kind='file', printed='0.014', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4199():
+    'Methow steelhead sperm: p-value of the Spearman rho of eps_corr against conversion failure, salmon_readings.csv. Book line 65, printed 0.014.'
+    value = float(_b12_sal_spear('Sp', 'conv_fail').pvalue)
+    return locals()
+
+@check(label='ch:salmonid:L65:-0.47', chapter='ch:salmonid', part=6, title='Methow sperm: rho with depth',
+       file='part4/p4_22b_salmonid', line=65, status='measured', kind='file', printed='-0.47', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4200():
+    'Methow steelhead sperm: Spearman rho of eps_corr against depth (qualifying molecules), salmon_readings.csv. Book line 65, printed -0.47.'
+    value = _b12_sal_spear('Sp', 'qualifying').correlation
+    return locals()
+
+@check(label='ch:salmonid:L65:0.04', chapter='ch:salmonid', part=6, title='Methow sperm: p of rho with depth',
+       file='part4/p4_22b_salmonid', line=65, status='measured', kind='file', printed='0.04', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4201():
+    'Methow steelhead sperm: p-value of the Spearman rho of eps_corr against depth (qualifying molecules), salmon_readings.csv. Book line 65, printed 0.04.'
+    value = float(_b12_sal_spear('Sp', 'qualifying').pvalue)
+    return locals()
+
+@check(label='ch:salmonid:L65:0.016', chapter='ch:salmonid', part=6, title='Methow sperm lanes: lowest median of the other lanes',
+       file='part4/p4_22b_salmonid', line=65, status='measured', kind='file', printed='0.016', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4202():
+    'Methow steelhead sperm: specimens grouped by the lanes they were sequenced on (methow_run_map.csv); the high lane reads 0.0224, the others 0.016-0.019. Value: the lowest group median of eps_corr. Book line 65, printed 0.016.'
+    med = _b12_sal_lane_medians()
+    high = med[-1]   # the one higher lane, 0.0224
+    value = med[0]
+    return locals()
+
+@check(label='ch:salmonid:L65:0.019', chapter='ch:salmonid', part=6, title='Methow sperm lanes: highest median of the other lanes',
+       file='part4/p4_22b_salmonid', line=65, status='measured', kind='file', printed='0.019', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4203():
+    'Methow steelhead sperm: specimens grouped by lanes (methow_run_map.csv). Value: the highest group median of eps_corr after the one higher lane. Book line 65, printed 0.019.'
+    med = _b12_sal_lane_medians()
+    value = med[-2]
+    return locals()
+
+@check(label='ch:salmonid:L66', chapter='ch:salmonid', part=6, title='Methow: red cell against sperm of one fish, rho',
+       file='part4/p4_22b_salmonid', line=66, status='measured', kind='file', printed='0.06', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4204():
+    'Methow steelhead: Spearman rho between the red-cell and sperm eps_corr of the same 20 fish, salmon_readings.csv. Book line 66, printed 0.06.'
+    A = {r['fish']: float(r['eps_corr']) for r in _b12_rows(_B12_SAL, tissue='RBC')}
+    S = {r['fish']: float(r['eps_corr']) for r in _b12_rows(_B12_SAL, tissue='Sp')}
+    f = sorted(A)
+    value = _b12_stats.spearmanr([A[x] for x in f], [S[x] for x in f]).correlation
+    return locals()
+
+@check(label='ch:salmonid:L66:0.81', chapter='ch:salmonid', part=6, title='Methow: red cell against sperm of one fish, p',
+       file='part4/p4_22b_salmonid', line=66, status='measured', kind='file', printed='0.81', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4205():
+    'Methow steelhead: p-value of the Spearman rho between red-cell and sperm eps_corr of the same fish, salmon_readings.csv. Book line 66, printed 0.81.'
+    A = {r['fish']: float(r['eps_corr']) for r in _b12_rows(_B12_SAL, tissue='RBC')}
+    S = {r['fish']: float(r['eps_corr']) for r in _b12_rows(_B12_SAL, tissue='Sp')}
+    f = sorted(A)
+    value = float(_b12_stats.spearmanr([A[x] for x in f], [S[x] for x in f]).pvalue)
+    return locals()
+
 @check(label='ch:salmonid:L67', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=67, status='measured', kind='file', printed='3.31', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
 def check_2555():
     'measured: printed value found in salmon_readings.csv, a file the chapter names. Book line 67, printed 3.31.'
     ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '3.31')
+    return locals()
+
+@check(label='ch:salmonid:L67:4.02', chapter='ch:salmonid', part=6, title='Methow sperm holding energy',
+       file='part4/p4_22b_salmonid', line=67, status='measured', kind='file', printed='4.02', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4206():
+    'Methow steelhead sperm: holding energy E = ln[(1-eps)/eps] k_B T at the median sperm eps_corr of salmon_readings.csv (outcome: median 0.0177, E = 4.02). Book line 67, printed 4.02.'
+    value = _b12_E(float(np.median(_b12_col(_b12_rows(_B12_SAL, tissue='Sp'), 'eps_corr'))))
+    return locals()
+
+@check(label='ch:salmonid:L87', chapter='ch:salmonid', part=6, title='brook charr ICC, 36 fish',
+       file='part4/p4_22b_salmonid', line=87, status='measured', kind='file', printed='0.924', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4207():
+    'Brook charr, P0: ICC of the two halves on the 36 fish with both halves (failed download and the three one-half fish left out), formula of score_charr.py, from charr_readings.csv. Book line 87, printed 0.924.'
+    R = [r for r in _b12_chr_ok() if r['eps_corr_A'] and r['eps_corr_B']]
+    n_both = len(R)   # 36
+    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
+    return locals()
+
+@check(label='ch:salmonid:L87:-0.01', chapter='ch:salmonid', part=6, title='brook charr P1: rho with conversion failure',
+       file='part4/p4_22b_salmonid', line=87, status='measured', kind='file', printed='-0.01', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4208():
+    'Brook charr, P1: Spearman rho of eps_corr against conversion failure, all 40 fish, charr_readings.csv. Book line 87, printed -0.01.'
+    R = load_csv_rows(_B12_CHR)
+    value = _b12_stats.spearmanr(_b12_col(R, 'eps_corr'), _b12_col(R, 'conv_fail')).correlation
+    return locals()
+
+@check(label='ch:salmonid:L87:+0.45', chapter='ch:salmonid', part=6, title='brook charr P1: rho with duplicate fraction',
+       file='part4/p4_22b_salmonid', line=87, status='measured', kind='file', printed='+0.45', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4209():
+    'Brook charr, P1: Spearman rho of eps_corr against duplicate fraction, all 40 fish, charr_readings.csv. Book line 87, printed +0.45.'
+    R = load_csv_rows(_B12_CHR)
+    value = _b12_stats.spearmanr(_b12_col(R, 'eps_corr'), _b12_col(R, 'dup_frac')).correlation
+    return locals()
+
+@check(label='ch:salmonid:L87:+0.57', chapter='ch:salmonid', part=6, title='brook charr: rho with duplicates, failed fish left out',
+       file='part4/p4_22b_salmonid', line=87, status='measured', kind='file', printed='+0.57', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4210():
+    'Brook charr: Spearman rho of eps_corr against duplicate fraction on the 39 fish without the failed download, charr_readings.csv. Book line 87, printed +0.57.'
+    R = _b12_chr_ok()
+    value = _b12_stats.spearmanr(_b12_col(R, 'eps_corr'), _b12_col(R, 'dup_frac')).correlation
     return locals()
 
 @check(label='ch:salmonid:L88', chapter='ch:salmonid', part=6, title='measured: printed value found in charr_readings.csv, a file the chapter names',
@@ -34403,6 +34740,47 @@ def check_2557():
     ok = file_has('Biological_Physics/MethylPhys/doors/data/charr_readings.csv', '0.0216')
     return locals()
 
+@check(label='ch:salmonid:L88:+0.29', chapter='ch:salmonid', part=6, title='brook charr P1: rho with masked fraction',
+       file='part4/p4_22b_salmonid', line=88, status='measured', kind='file', printed='+0.29', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4211():
+    'Brook charr, P1: Spearman rho of eps_corr against masked fraction, all 40 fish, charr_readings.csv. Book line 88, printed +0.29.'
+    R = load_csv_rows(_B12_CHR)
+    value = _b12_stats.spearmanr(_b12_col(R, 'eps_corr'), _b12_col(R, 'masked_frac')).correlation
+    return locals()
+
+@check(label='ch:salmonid:L89', chapter='ch:salmonid', part=6, title='brook charr P3: warm/ambient ratio',
+       file='part4/p4_22b_salmonid', line=89, status='measured', kind='file', printed='0.92', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4212():
+    'Brook charr, P3: least squares eps_corr ~ temperature + line + year (40 fish, charr_readings.csv); ratio (ambient mean + warm term)/ambient mean, as score_charr.py. Book line 89, printed 0.92.'
+    value = _b12_chr_ratio()[0]
+    return locals()
+
+@check(label='ch:salmonid:L89:0.79', chapter='ch:salmonid', part=6, title='brook charr P3: ratio, lower 95 % bound',
+       file='part4/p4_22b_salmonid', line=89, status='measured', kind='file', printed='0.79', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4213():
+    'Brook charr, P3: lower end of the 95 % interval of the warm/ambient ratio (t interval of the warm term over the ambient mean), charr_readings.csv. Book line 89, printed 0.79.'
+    value = _b12_chr_ratio()[1]
+    return locals()
+
+@check(label='ch:salmonid:L89:1.05', chapter='ch:salmonid', part=6, title='brook charr P3: ratio, upper 95 % bound',
+       file='part4/p4_22b_salmonid', line=89, status='measured', kind='file', printed='1.05', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4214():
+    'Brook charr, P3: upper end of the 95 % interval of the warm/ambient ratio, charr_readings.csv. Book line 89, printed 1.05.'
+    value = _b12_chr_ratio()[2]
+    return locals()
+
+@check(label='ch:salmonid:L89:0.24', chapter='ch:salmonid', part=6, title='brook charr P3: p of the temperature term',
+       file='part4/p4_22b_salmonid', line=89, status='measured', kind='file', printed='0.24', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4215():
+    'Brook charr, P3: two-sided p of the temperature term of the least-squares model, charr_readings.csv. Book line 89, printed 0.24.'
+    value = float(_b12_chr_ratio()[3])
+    return locals()
+
 @check(label='ch:salmonid:L90', chapter='ch:salmonid', part=6, title='measured: printed value found in charr_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=90, status='measured', kind='file', printed='3.74', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/charr_readings.csv')
 def check_2558():
@@ -34417,11 +34795,133 @@ def check_2559():
     ok = file_has('Biological_Physics/MethylPhys/doors/data/charr_readings.csv', '3.88')
     return locals()
 
+@check(label='ch:salmonid:L90:-0.0015', chapter='ch:salmonid', part=6, title='brook charr P4: line term',
+       file='part4/p4_22b_salmonid', line=90, status='measured', kind='file', printed='-0.0015', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4216():
+    'Brook charr, P4: selected-line term of eps_corr ~ temperature + line + year, charr_readings.csv. Book line 90, printed -0.0015.'
+    y, warm, (b, lo, hi, p) = _b12_chr_ols()
+    value = b[2]
+    return locals()
+
+@check(label='ch:salmonid:L90:-0.0045', chapter='ch:salmonid', part=6, title='brook charr P4: line term, lower 95 % bound',
+       file='part4/p4_22b_salmonid', line=90, status='measured', kind='file', printed='-0.0045', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4217():
+    'Brook charr, P4: lower end of the 95 % interval of the line term, charr_readings.csv. Book line 90, printed -0.0045.'
+    y, warm, (b, lo, hi, p) = _b12_chr_ols()
+    value = lo[2]
+    return locals()
+
+@check(label='ch:salmonid:L90:+0.0015', chapter='ch:salmonid', part=6, title='brook charr P4: line term, upper 95 % bound',
+       file='part4/p4_22b_salmonid', line=90, status='measured', kind='file', printed='+0.0015', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4218():
+    'Brook charr, P4: upper end of the 95 % interval of the line term, charr_readings.csv. Book line 90, printed +0.0015.'
+    y, warm, (b, lo, hi, p) = _b12_chr_ols()
+    value = hi[2]
+    return locals()
+
+@check(label='ch:salmonid:L90:0.31', chapter='ch:salmonid', part=6, title='brook charr P4: p of the line term',
+       file='part4/p4_22b_salmonid', line=90, status='measured', kind='file', printed='0.31', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4219():
+    'Brook charr, P4: two-sided p of the line term, charr_readings.csv. Book line 90, printed 0.31.'
+    y, warm, (b, lo, hi, p) = _b12_chr_ols()
+    value = float(p[2])
+    return locals()
+
+@check(label='ch:salmonid:L91', chapter='ch:salmonid', part=6, title='brook charr between-fish SD of eps',
+       file='part4/p4_22b_salmonid', line=91, status='measured', kind='file', printed='0.0007', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4220():
+    'Brook charr: between-fish standard deviation of eps_corr on the 39 fish without the failed download (the fish that span 3.74-3.88 k_B T), charr_readings.csv. Book line 91, printed 0.0007.'
+    value = float(np.std(_b12_col(_b12_chr_ok(), 'eps_corr'), ddof=1))
+    return locals()
+
+@check(label='ch:salmonid:L107', chapter='ch:salmonid', part=6, title='Rimouski ICC of the two halves',
+       file='part4/p4_22b_salmonid', line=107, status='measured', kind='file', printed='0.996', tol=0.0, source=_B12_RIM,
+       heavy=True, rerun=_B12_RR_RIM)
+def check_4221():
+    'Rimouski Atlantic salmon, P0: ICC of the two halves of all 64 fish, formula of score_rimouski.py, from rimouski_readings.csv (rimouski_score.json prints 0.9963). Book line 107, printed 0.996.'
+    R = load_csv_rows(_B12_RIM)
+    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
+    return locals()
+
+@check(label='ch:salmonid:L107:+0.38', chapter='ch:salmonid', part=6, title='Rimouski P1: rho with conversion failure',
+       file='part4/p4_22b_salmonid', line=107, status='measured', kind='file', printed='+0.38', tol=0.0, source=_B12_RIM,
+       heavy=True, rerun=_B12_RR_RIM)
+def check_4222():
+    'Rimouski, P1: Spearman rho of eps_corr against conversion failure, 64 fish, rimouski_readings.csv. Book line 107, printed +0.38.'
+    value = _b12_rim_spear('conv_fail')
+    return locals()
+
+@check(label='ch:salmonid:L107:-0.20', chapter='ch:salmonid', part=6, title='Rimouski P1: rho with duplicates',
+       file='part4/p4_22b_salmonid', line=107, status='measured', kind='file', printed='-0.20', tol=0.0, source=_B12_RIM,
+       heavy=True, rerun=_B12_RR_RIM)
+def check_4223():
+    'Rimouski, P1: Spearman rho of eps_corr against duplicate fraction, rimouski_readings.csv. Book line 107, printed -0.20.'
+    value = _b12_rim_spear('dup_frac')
+    return locals()
+
 @check(label='ch:salmonid:L108', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=108, status='measured', kind='file', printed='3.47', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
 def check_2560():
     'measured: printed value found in rimouski_readings.csv, a file the chapter names. Book line 108, printed 3.47.'
     ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '3.47')
+    return locals()
+
+@check(label='ch:salmonid:L108:-0.15', chapter='ch:salmonid', part=6, title='Rimouski P1: rho with masked fraction',
+       file='part4/p4_22b_salmonid', line=108, status='measured', kind='file', printed='-0.15', tol=0.0, source=_B12_RIM,
+       heavy=True, rerun=_B12_RR_RIM)
+def check_4224():
+    'Rimouski, P1: Spearman rho of eps_corr against masked fraction, rimouski_readings.csv. Book line 108, printed -0.15.'
+    value = _b12_rim_spear('masked_frac')
+    return locals()
+
+@check(label='ch:salmonid:L108:+0.0021', chapter='ch:salmonid', part=6, title='Rimouski P3: stocked minus wild',
+       file='part4/p4_22b_salmonid', line=108, status='measured', kind='file', printed='+0.0021', tol=0.0, source=_B12_RIM,
+       heavy=True, rerun=_B12_RR_RIM)
+def check_4225():
+    'Rimouski, P3: origin term (stocked minus wild) of eps_corr ~ origin + sex on the 32 F0 fish, least squares, rimouski_readings.csv. Book line 108, printed +0.0021.'
+    b, lo, hi, p = _b12_rim_F0()
+    value = b[1]
+    return locals()
+
+@check(label='ch:salmonid:L108:0.0031', chapter='ch:salmonid', part=6, title='Rimouski P3: upper 95 % bound',
+       file='part4/p4_22b_salmonid', line=108, status='measured', kind='file', printed='0.0031', tol=0.0, source=_B12_RIM,
+       heavy=True, rerun=_B12_RR_RIM)
+def check_4226():
+    'Rimouski, P3: upper end of the 95 % interval of the origin term, rimouski_readings.csv. Book line 108, printed 0.0031.'
+    b, lo, hi, p = _b12_rim_F0()
+    value = hi[1]
+    return locals()
+
+@check(label='ch:salmonid:L109', chapter='ch:salmonid', part=6, title='Rimouski P3: p of the origin term',
+       file='part4/p4_22b_salmonid', line=109, status='measured', kind='file', printed='0.0003', tol=0.0, source=_B12_RIM,
+       heavy=True, rerun=_B12_RR_RIM)
+def check_4227():
+    'Rimouski, P3: two-sided p of the origin term, rimouski_readings.csv. Book line 109, printed 0.0003.'
+    b, lo, hi, p = _b12_rim_F0()
+    value = float(p[1])
+    return locals()
+
+@check(label='ch:salmonid:L109:0.71', chapter='ch:salmonid', part=6, title='Rimouski P4: p of the father term',
+       file='part4/p4_22b_salmonid', line=109, status='measured', kind='file', printed='0.71', tol=0.0, source=_B12_RIM,
+       heavy=True, rerun=_B12_RR_RIM)
+def check_4228():
+    'Rimouski, P4: two-sided p of the father\'s-origin term, rimouski_readings.csv. Book line 109, printed 0.71.'
+    b, lo, hi, p = _b12_rim_F1()
+    value = float(p[1])
+    return locals()
+
+@check(label='ch:salmonid:L109:0.27', chapter='ch:salmonid', part=6, title='Rimouski P4: p of the mother term',
+       file='part4/p4_22b_salmonid', line=109, status='measured', kind='file', printed='0.27', tol=0.0, source=_B12_RIM,
+       heavy=True, rerun=_B12_RR_RIM)
+def check_4229():
+    'Rimouski, P4: two-sided p of the mother\'s-origin term, rimouski_readings.csv. Book line 109, printed 0.27.'
+    b, lo, hi, p = _b12_rim_F1()
+    value = float(p[2])
     return locals()
 
 @check(label='ch:salmonid:L110', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
@@ -34452,6 +34952,82 @@ def check_2564():
     ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '3.56')
     return locals()
 
+@check(label='ch:salmonid:L126', chapter='ch:salmonid', part=6, title='coho D1: ICC',
+       file='part4/p4_22b_salmonid', line=126, status='measured', kind='file', printed='0.826', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4230():
+    'Coho smolts, D1: ICC(1) of the two halves of eps_cc on common sites, recomputed from coho_cc_fish.csv as in score_coho_cc.py (coho_cc_summary.json prints 0.8259). Book line 126, printed 0.826.'
+    value = _b12_coho_icc()
+    return locals()
+
+@check(label='ch:salmonid:L126:-0.384', chapter='ch:salmonid', part=6, title='coho D2: rho with conversion failure',
+       file='part4/p4_22b_salmonid', line=126, status='measured', kind='file', printed='-0.384', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4231():
+    'Coho smolts, D2: Spearman rho of the filtered copy error on common sites (eps_cc_common) against conversion failure, 39 fish, coho_cc_fish.csv. Book line 126, printed -0.384.'
+    R = load_csv_rows(_B12_COHO)
+    value = _b12_stats.spearmanr(_b12_col(R, 'eps_cc_common'), _b12_col(R, 'conv_fail')).correlation
+    return locals()
+
+@check(label='ch:salmonid:L127', chapter='ch:salmonid', part=6, title='coho D2: rho with depth',
+       file='part4/p4_22b_salmonid', line=127, status='measured', kind='file', printed='-0.224', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4232():
+    'Coho smolts, D2: Spearman rho of eps_cc_common against depth (qualifying molecules), coho_cc_fish.csv. Book line 127, printed -0.224.'
+    R = load_csv_rows(_B12_COHO)
+    value = _b12_stats.spearmanr(_b12_col(R, 'eps_cc_common'), _b12_col(R, 'qualifying')).correlation
+    return locals()
+
+@check(label='ch:salmonid:L127:92.8', chapter='ch:salmonid', part=6, title='coho: share of qualifying molecules kept by the filter',
+       file='part4/p4_22b_salmonid', line=127, status='measured', kind='file', printed='92.8', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4233():
+    'Coho smolts: per-read conversion filter, per cent of qualifying molecules kept, mean over the 39 fish of qualifying_cc/qualifying, coho_cc_fish.csv. (The pooled ratio is 92.73 %; the book\'s 92.8 is the per-fish average, 92.75 %.) Book line 127, printed 92.8.'
+    R = load_csv_rows(_B12_COHO)
+    value = 100 * float(np.mean(_b12_col(R, 'qualifying_cc') / _b12_col(R, 'qualifying')))
+    return locals()
+
+@check(label='ch:salmonid:L128', chapter='ch:salmonid', part=6, title='coho: rho with conversion failure before the filter',
+       file='part4/p4_22b_salmonid', line=128, status='measured', kind='file', printed='-0.384', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4234():
+    'Coho smolts: Spearman rho of the unfiltered copy error on common sites (eps_all_common) against conversion failure, coho_cc_fish.csv; the filtered value is checked at line 126. Book line 128, printed -0.384.'
+    R = load_csv_rows(_B12_COHO)
+    value = _b12_stats.spearmanr(_b12_col(R, 'eps_all_common'), _b12_col(R, 'conv_fail')).correlation
+    return locals()
+
+@check(label='ch:salmonid:L131', chapter='ch:salmonid', part=6, title='coho: lowest within-lane rho',
+       file='part4/p4_22b_salmonid', line=131, status='measured', kind='file', printed='-1.0', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4235():
+    'Coho smolts: Spearman rho of eps_cc_common against conversion failure within each of the eight sequencing lanes (coho_cc_fish.csv); value: the lowest. Book line 131, printed -1.0.'
+    value = min(_b12_stats.spearmanr(e, c).correlation for e, c in _b12_coho_lanes('eps_cc_common'))
+    return locals()
+
+@check(label='ch:salmonid:L131:+0.6', chapter='ch:salmonid', part=6, title='coho: highest within-lane rho',
+       file='part4/p4_22b_salmonid', line=131, status='measured', kind='file', printed='+0.6', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4236():
+    'Coho smolts: within-lane Spearman rho of eps_cc_common against conversion failure (eight lanes); value: the highest. Book line 131, printed +0.6.'
+    value = max(_b12_stats.spearmanr(e, c).correlation for e, c in _b12_coho_lanes('eps_cc_common'))
+    return locals()
+
+@check(label='ch:salmonid:L131:0.36', chapter='ch:salmonid', part=6, title='coho: copy error between lanes, p',
+       file='part4/p4_22b_salmonid', line=131, status='measured', kind='file', printed='0.36', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4237():
+    'Coho smolts: does eps_cc_common differ between the eight lanes? Kruskal-Wallis p, coho_cc_fish.csv. Book line 131, printed 0.36.'
+    value = float(_b12_stats.kruskal(*[e for e, c in _b12_coho_lanes('eps_cc_common')]).pvalue)
+    return locals()
+
+@check(label='ch:salmonid:L131:0.33', chapter='ch:salmonid', part=6, title='coho: conversion failure between lanes, p',
+       file='part4/p4_22b_salmonid', line=131, status='measured', kind='file', printed='0.33', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4238():
+    'Coho smolts: does conversion failure differ between the eight lanes? Kruskal-Wallis p, coho_cc_fish.csv. Book line 131, printed 0.33.'
+    value = float(_b12_stats.kruskal(*[c for e, c in _b12_coho_lanes('eps_cc_common')]).pvalue)
+    return locals()
+
 @check(label='ch:salmonid:L132', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=132, status='measured', kind='file', printed='0.0337', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
 def check_2565():
@@ -34471,6 +35047,23 @@ def check_2566():
 def check_2567():
     'measured: printed value found in coho_cc_fish.csv, a file the chapter names. Book line 132, printed 0.0356.'
     ok = file_has('Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv', '0.0356')
+    return locals()
+
+@check(label='ch:salmonid:L132:0.00089', chapter='ch:salmonid', part=6, title='coho between-fish SD',
+       file='part4/p4_22b_salmonid', line=132, status='measured', kind='file', printed='0.00089', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4239():
+    'Coho smolts: between-fish standard deviation of eps_cc_common (sample SD, 39 fish), coho_cc_fish.csv. Book line 132, printed 0.00089.'
+    value = float(np.std(_b12_col(load_csv_rows(_B12_COHO), 'eps_cc_common'), ddof=1))
+    return locals()
+
+@check(label='ch:salmonid:L133', chapter='ch:salmonid', part=6, title='coho half-split noise',
+       file='part4/p4_22b_salmonid', line=133, status='measured', kind='file', printed='0.00039', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4240():
+    'Coho smolts: within-fish half-split noise sqrt(mean((A-B)^2/2)) of eps_cc_common, coho_cc_fish.csv. Book line 133, printed 0.00039.'
+    R = load_csv_rows(_B12_COHO)
+    value = float(np.sqrt((((_b12_col(R, 'eps_cc_common_A') - _b12_col(R, 'eps_cc_common_B'))**2) / 2).mean()))
     return locals()
 
 @check(label='ch:salmonid:L136', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
@@ -34501,11 +35094,79 @@ def check_2571():
     ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '3.31')
     return locals()
 
+@check(label='ch:salmonid:L150:20', chapter='ch:salmonid', part=6, title='Table: Methow males',
+       file='part4/p4_22b_salmonid', line=150, status='measured', kind='file', printed='20', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4241():
+    'Table tab:fishsets: number of Methow steelhead males, distinct fish in salmon_readings.csv. Book line 150, printed 20.'
+    value = len({r['fish'] for r in load_csv_rows(_B12_SAL)})
+    return locals()
+
+@check(label='ch:salmonid:L150:0.998', chapter='ch:salmonid', part=6, title='Table: Methow ICC',
+       file='part4/p4_22b_salmonid', line=150, status='measured', kind='file', printed='0.998', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4242():
+    'Methow steelhead, P0: ICC of the two halves (alternate reads) of all 40 specimens, recomputed from the per-specimen eps_corr_A/eps_corr_B of salmon_readings.csv with the formula of score_salmon.py (salmon_score.json prints 0.9983). Book line 150, printed 0.998.'
+    R = load_csv_rows(_B12_SAL)
+    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
+    return locals()
+
+@check(label='ch:salmonid:L150:-0.58', chapter='ch:salmonid', part=6, title='Table: Methow red cells, rho with conversion',
+       file='part4/p4_22b_salmonid', line=150, status='measured', kind='file', printed='-0.58', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4243():
+    'Table tab:fishsets: Methow red cells, Spearman rho of eps_corr against conversion failure, salmon_readings.csv. Book line 150, printed -0.58.'
+    value = _b12_sal_spear('RBC', 'conv_fail').correlation
+    return locals()
+
+@check(label='ch:salmonid:L151', chapter='ch:salmonid', part=6, title='Table: Methow sperm, rho with conversion',
+       file='part4/p4_22b_salmonid', line=151, status='measured', kind='file', printed='-0.54', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4244():
+    'Table tab:fishsets: Methow sperm, Spearman rho of eps_corr against conversion failure, salmon_readings.csv. Book line 151, printed -0.54.'
+    value = _b12_sal_spear('Sp', 'conv_fail').correlation
+    return locals()
+
+@check(label='ch:salmonid:L151:4.02', chapter='ch:salmonid', part=6, title='Table: Methow sperm E',
+       file='part4/p4_22b_salmonid', line=151, status='measured', kind='file', printed='4.02', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4245():
+    'Methow steelhead sperm: holding energy E = ln[(1-eps)/eps] k_B T at the median sperm eps_corr of salmon_readings.csv (outcome: median 0.0177, E = 4.02). Book line 151, printed 4.02.'
+    value = _b12_E(float(np.median(_b12_col(_b12_rows(_B12_SAL, tissue='Sp'), 'eps_corr'))))
+    return locals()
+
 @check(label='ch:salmonid:L152', chapter='ch:salmonid', part=6, title='measured: printed value found in charr_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=152, status='measured', kind='file', printed='3.81', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/charr_readings.csv')
 def check_2572():
     'measured: printed value found in charr_readings.csv, a file the chapter names. Book line 152, printed 3.81.'
     ok = file_has('Biological_Physics/MethylPhys/doors/data/charr_readings.csv', '3.81')
+    return locals()
+
+@check(label='ch:salmonid:L152:40', chapter='ch:salmonid', part=6, title='Table: brook charr males',
+       file='part4/p4_22b_salmonid', line=152, status='measured', kind='file', printed='40', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4246():
+    'Table tab:fishsets: number of brook charr males, rows of charr_readings.csv. Book line 152, printed 40.'
+    value = len(load_csv_rows(_B12_CHR))
+    return locals()
+
+@check(label='ch:salmonid:L152:0.924', chapter='ch:salmonid', part=6, title='Table: brook charr ICC',
+       file='part4/p4_22b_salmonid', line=152, status='measured', kind='file', printed='0.924', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4247():
+    'Brook charr, P0: ICC of the two halves on the 36 fish with both halves (failed download and the three one-half fish left out), formula of score_charr.py, from charr_readings.csv. Book line 152, printed 0.924.'
+    R = [r for r in _b12_chr_ok() if r['eps_corr_A'] and r['eps_corr_B']]
+    n_both = len(R)   # 36
+    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
+    return locals()
+
+@check(label='ch:salmonid:L152:+0.45', chapter='ch:salmonid', part=6, title='Table: brook charr, rho with duplicates',
+       file='part4/p4_22b_salmonid', line=152, status='measured', kind='file', printed='+0.45', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4248():
+    'Table tab:fishsets: brook charr, Spearman rho of eps_corr against duplicate fraction, all 40 fish, charr_readings.csv. Book line 152, printed +0.45.'
+    R = load_csv_rows(_B12_CHR)
+    value = _b12_stats.spearmanr(_b12_col(R, 'eps_corr'), _b12_col(R, 'dup_frac')).correlation
     return locals()
 
 @check(label='ch:salmonid:L153', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
@@ -34515,11 +35176,62 @@ def check_2573():
     ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '3.47')
     return locals()
 
+@check(label='ch:salmonid:L153:32', chapter='ch:salmonid', part=6, title='Table: Rimouski F0 fish',
+       file='part4/p4_22b_salmonid', line=153, status='measured', kind='file', printed='32', tol=0.0, source=_B12_RIM,
+       heavy=True, rerun=_B12_RR_RIM)
+def check_4249():
+    'Table tab:fishsets: number of Rimouski F0 fish (32 F0 + 32 F1), rows with generation F0 in rimouski_readings.csv. Book line 153, printed 32.'
+    n_F1 = len(_b12_rows(_B12_RIM, generation='F1'))
+    value = len(_b12_rows(_B12_RIM, generation='F0'))
+    return locals()
+
+@check(label='ch:salmonid:L153:0.996', chapter='ch:salmonid', part=6, title='Table: Rimouski ICC',
+       file='part4/p4_22b_salmonid', line=153, status='measured', kind='file', printed='0.996', tol=0.0, source=_B12_RIM,
+       heavy=True, rerun=_B12_RR_RIM)
+def check_4250():
+    'Rimouski Atlantic salmon, P0: ICC of the two halves of all 64 fish, formula of score_rimouski.py, from rimouski_readings.csv (rimouski_score.json prints 0.9963). Book line 153, printed 0.996.'
+    R = load_csv_rows(_B12_RIM)
+    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
+    return locals()
+
+@check(label='ch:salmonid:L153:+0.38', chapter='ch:salmonid', part=6, title='Table: Rimouski, rho with conversion',
+       file='part4/p4_22b_salmonid', line=153, status='measured', kind='file', printed='+0.38', tol=0.0, source=_B12_RIM,
+       heavy=True, rerun=_B12_RR_RIM)
+def check_4251():
+    'Table tab:fishsets: Rimouski, Spearman rho of eps_corr against conversion failure, rimouski_readings.csv. Book line 153, printed +0.38.'
+    value = _b12_rim_spear('conv_fail')
+    return locals()
+
 @check(label='ch:salmonid:L154', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=154, status='measured', kind='file', printed='3.30', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
 def check_2574():
     'measured: printed value found in salmon_readings.csv, a file the chapter names. Book line 154, printed 3.30.'
     ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '3.30')
+    return locals()
+
+@check(label='ch:salmonid:L154:39', chapter='ch:salmonid', part=6, title='Table: coho smolts',
+       file='part4/p4_22b_salmonid', line=154, status='measured', kind='file', printed='39', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4252():
+    'Table tab:fishsets: number of coho smolts, rows of coho_cc_fish.csv. Book line 154, printed 39.'
+    value = len(load_csv_rows(_B12_COHO))
+    return locals()
+
+@check(label='ch:salmonid:L154:0.826', chapter='ch:salmonid', part=6, title='Table: coho ICC',
+       file='part4/p4_22b_salmonid', line=154, status='measured', kind='file', printed='0.826', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4253():
+    'Coho smolts, D1: ICC(1) of the two halves of eps_cc on common sites, recomputed from coho_cc_fish.csv as in score_coho_cc.py (coho_cc_summary.json prints 0.8259). Book line 154, printed 0.826.'
+    value = _b12_coho_icc()
+    return locals()
+
+@check(label='ch:salmonid:L154:-0.38', chapter='ch:salmonid', part=6, title='Table: coho, rho with conversion',
+       file='part4/p4_22b_salmonid', line=154, status='measured', kind='file', printed='-0.38', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4254():
+    'Table tab:fishsets: coho, Spearman rho of eps_cc_common against conversion failure (two digits here), coho_cc_fish.csv. Book line 154, printed -0.38.'
+    R = load_csv_rows(_B12_COHO)
+    value = _b12_stats.spearmanr(_b12_col(R, 'eps_cc_common'), _b12_col(R, 'conv_fail')).correlation
     return locals()
 
 @check(label='ch:salmonid:L163', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
@@ -34548,6 +35260,23 @@ def check_2577():
 def check_2578():
     'measured: printed value found in charr_readings.csv, a file the chapter names. Book line 164, printed 3.85.'
     ok = file_has('Biological_Physics/MethylPhys/doors/data/charr_readings.csv', '3.85')
+    return locals()
+
+@check(label='ch:salmonid:L169', chapter='ch:salmonid', part=6, title='lowest ICC of the four sets (coho)',
+       file='part4/p4_22b_salmonid', line=169, status='measured', kind='file', printed='0.83', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4255():
+    'The instrument repeats: the lowest half-split ICC of the four sets is the coho D1 ICC, recomputed from coho_cc_fish.csv. Book line 169, printed 0.83.'
+    value = _b12_coho_icc()
+    return locals()
+
+@check(label='ch:salmonid:L170', chapter='ch:salmonid', part=6, title='highest ICC of the four sets (Methow)',
+       file='part4/p4_22b_salmonid', line=170, status='measured', kind='file', printed='0.998', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4256():
+    'The instrument repeats: the highest half-split ICC of the four sets is the Methow P0 ICC, recomputed from salmon_readings.csv. Book line 170, printed 0.998.'
+    R = load_csv_rows(_B12_SAL)
+    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
     return locals()
 
 @check(label='ch:salmonid:L179', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
@@ -34583,6 +35312,76 @@ def check_2582():
 def check_2583():
     'measured: printed value found in charr_readings.csv, a file the chapter names. Book line 180, printed 3.81.'
     ok = file_has('Biological_Physics/MethylPhys/doors/data/charr_readings.csv', '3.81')
+    return locals()
+
+@check(label='ch:salmonid:L180:4.02', chapter='ch:salmonid', part=6, title='Methow sperm holding energy (holding-energy paragraph)',
+       file='part4/p4_22b_salmonid', line=180, status='measured', kind='file', printed='4.02', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4257():
+    'Methow steelhead sperm: holding energy E = ln[(1-eps)/eps] k_B T at the median sperm eps_corr of salmon_readings.csv (outcome: median 0.0177, E = 4.02). Book line 180, printed 4.02.'
+    value = _b12_E(float(np.median(_b12_col(_b12_rows(_B12_SAL, tissue='Sp'), 'eps_corr'))))
+    return locals()
+
+@check(label='ch:salmonid:L184', chapter='ch:salmonid', part=6, title='ENCODE immune cells, lower E',
+       file='part4/p4_22b_salmonid', line=184, status='openprob', kind='file', printed='3.76', tol=0.0, source=_B12_ENC,
+       heavy=True, rerun='methylation chain on 43 ENCODE WGBS alignments (PROC-ENCODE-01); the record is the outcome file')
+def check_4258():
+    'ENCODE human blood cells (B, monocyte, NK, T; one donor each) on the same statistic: E = ln[(1-eps)/eps] at the highest instrument-corrected immune copy error of PROC-ENCODE-01 (immune range 0.0193-0.0227, read from the outcome table). Book line 184, printed 3.76.'
+    m = re.search(r'immune \(instrument-corrected\) ([\d.]+)\D+([\d.]+)', file_text(_B12_ENC))
+    value = _b12_E(float(m.group(2)))
+    return locals()
+
+@check(label='ch:salmonid:L184:3.93', chapter='ch:salmonid', part=6, title='ENCODE immune cells, upper E',
+       file='part4/p4_22b_salmonid', line=184, status='openprob', kind='file', printed='3.93', tol=0.0, source=_B12_ENC,
+       heavy=True, rerun='methylation chain on 43 ENCODE WGBS alignments (PROC-ENCODE-01); the record is the outcome file')
+def check_4259():
+    'ENCODE human blood cells on the same statistic: E = ln[(1-eps)/eps] at the lowest instrument-corrected immune copy error of PROC-ENCODE-01 (0.0193, B cell). Book line 184, printed 3.93.'
+    m = re.search(r'immune \(instrument-corrected\) ([\d.]+)\D+([\d.]+)', file_text(_B12_ENC))
+    value = _b12_E(float(m.group(1)))
+    return locals()
+
+@check(label='ch:salmonid:L207', chapter='ch:salmonid', part=6, title='Methow red-cell holding energy (next-set requirement)',
+       file='part4/p4_22b_salmonid', line=207, status='calc', kind='file', printed='3.31', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4260():
+    'Requirement 4 starts from the Methow red-cell holding energy: E = ln[(1-eps)/eps] at the median red-cell eps_corr of salmon_readings.csv. Book line 207, printed 3.31.'
+    value = _b12_E(float(np.median(_b12_col(_b12_rows(_B12_SAL, tissue='RBC'), 'eps_corr'))))
+    return locals()
+
+@check(label='ch:salmonid:L209', chapter='ch:salmonid', part=6, title='brook charr ratio interval, upper end (restated)',
+       file='part4/p4_22b_salmonid', line=209, status='calc', kind='file', printed='1.05', tol=0.0, source=_B12_CHR,
+       heavy=True, rerun=_B12_RR_CHR)
+def check_4261():
+    'Requirement 4 restates the brook charr warm/ambient interval 0.79-1.05: upper end recomputed by least squares from charr_readings.csv. Book line 209, printed 1.05.'
+    value = _b12_chr_ratio()[2]
+    return locals()
+
+@check(label='ch:salmonid:L216', chapter='ch:salmonid', part=6, title='keybox: lowest ICC (coho)',
+       file='part4/p4_22b_salmonid', line=216, status='measured', kind='file', printed='0.83', tol=0.0, source=_B12_COHO,
+       heavy=True, rerun=_B12_RR_COHO)
+def check_4262():
+    'Coho smolts, D1: ICC(1) of the two halves of eps_cc on common sites, recomputed from coho_cc_fish.csv as in score_coho_cc.py (coho_cc_summary.json prints 0.8259). Book line 216, printed 0.83.'
+    value = _b12_coho_icc()
+    return locals()
+
+@check(label='ch:salmonid:L216:0.998', chapter='ch:salmonid', part=6, title='keybox: highest ICC (Methow)',
+       file='part4/p4_22b_salmonid', line=216, status='measured', kind='file', printed='0.998', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4263():
+    'Methow steelhead, P0: ICC of the two halves (alternate reads) of all 40 specimens, recomputed from the per-specimen eps_corr_A/eps_corr_B of salmon_readings.csv with the formula of score_salmon.py (salmon_score.json prints 0.9983). Book line 216, printed 0.998.'
+    R = load_csv_rows(_B12_SAL)
+    value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
+    return locals()
+
+@check(label='ch:salmonid:L218', chapter='ch:salmonid', part=6, title='keybox: about 3.3 k_B T in red cells and coho',
+       file='part4/p4_22b_salmonid', line=218, status='measured', kind='file', printed='3.3', tol=0.0, source=_B12_SAL,
+       heavy=True, rerun=_B12_RR_SAL)
+def check_4264():
+    'Keybox: holding energy about 3.3 k_B T in steelhead red cells and coho smolts. Value: mean of the Methow red-cell E at the median eps_corr (salmon_readings.csv) and the coho median E (coho_cc_fish.csv); both read 3.3 at the printed digit. Book line 218, printed 3.3.'
+    E_rbc = _b12_E(float(np.median(_b12_col(_b12_rows(_B12_SAL, tissue='RBC'), 'eps_corr'))))
+    E_coho = float(np.median(_b12_col(load_csv_rows(_B12_COHO), 'E_kT')))
+    both = round(E_rbc, 1) == round(E_coho, 1)
+    value = (E_rbc + E_coho) / 2
     return locals()
 
 
@@ -38406,94 +39205,11 @@ INVENTORY = [
     (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 74, '', 'measured', '0.5', 'definition: 0.5 nM is the plotting position of the vehicle arrays on the log dose axis (figure convention, not a measurement)'),
     (6, 'ch:leukocyte', 'part4/p4_22_leukocyte', 16, '', 'conjecture', '0.95', "definition: 0.95 is the lower edge of the Normal band (0.95-1.05) that defines 'Below Normal'"),
     (6, 'ch:leukocyte', 'part4/p4_22_leukocyte', 19, '', 'conjecture', '1.05', "definition: 1.05 is the upper edge of the Normal band (0.95-1.05) that defines 'Above Normal'"),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 52, '', 'measured', '0.998', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 52, '', 'measured', '0.00011', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 52, '', 'measured', '0.0025', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 53, '', 'measured', '0.0029', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 53, '', 'measured', '0.0025', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 53, '', 'measured', '0.0005', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 53, '', 'measured', '0.0002', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 55, '', 'measured', '0.31', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 55, '', 'measured', '0.0184', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 55, '', 'measured', '0.34', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 56, '', 'measured', '6.0', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 56, '', 'measured', '5.9', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 56, '', 'measured', '16.0', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 63, '', 'measured', '-0.58', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 63, '', 'measured', '0.007', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 64, '', 'measured', '-0.69', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 64, '', 'measured', '0.001', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 64, '', 'measured', '-0.54', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 65, '', 'measured', '0.014', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 65, '', 'measured', '-0.47', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 65, '', 'measured', '0.04', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 65, '', 'measured', '0.016', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 65, '', 'measured', '0.019', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 66, '', 'measured', '0.06', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 66, '', 'measured', '0.81', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 67, '', 'measured', '4.02', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 87, '', 'measured', '0.924', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 87, '', 'measured', '-0.01', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 87, '', 'measured', '+0.45', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 87, '', 'measured', '+0.57', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 88, '', 'measured', '+0.29', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 89, '', 'measured', '0.92', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 89, '', 'measured', '0.79', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 89, '', 'measured', '1.05', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 89, '', 'measured', '0.24', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 90, '', 'measured', '-0.0015', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 90, '', 'measured', '-0.0045', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 90, '', 'measured', '+0.0015', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 90, '', 'measured', '0.31', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 91, '', 'measured', '0.0007', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 107, '', 'measured', '0.996', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 107, '', 'measured', '+0.38', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 107, '', 'measured', '-0.20', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 108, '', 'measured', '-0.15', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 108, '', 'measured', '+0.0021', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 108, '', 'measured', '0.0010', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 108, '', 'measured', '0.0031', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 109, '', 'measured', '0.0003', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 109, '', 'measured', '+0.0001', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 109, '', 'measured', '0.71', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 109, '', 'measured', '+0.0003', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 109, '', 'measured', '0.27', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 126, '', 'measured', '0.826', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 126, '', 'measured', '-0.384', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 127, '', 'measured', '-0.224', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 127, '', 'measured', '92.8', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 128, '', 'measured', '+0.00008', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 128, '', 'measured', '-0.384', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 131, '', 'measured', '-1.0', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 131, '', 'measured', '+0.6', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 131, '', 'measured', '0.36', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 131, '', 'measured', '0.33', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 132, '', 'measured', '0.00089', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 133, '', 'measured', '0.00039', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 150, '', 'measured', '20', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 150, '', 'measured', '0.998', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 150, '', 'measured', '-0.58', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 151, '', 'measured', '-0.54', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 151, '', 'measured', '4.02', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 152, '', 'measured', '40', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 152, '', 'measured', '0.924', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 152, '', 'measured', '+0.45', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 153, '', 'measured', '32', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 153, '', 'measured', '0.996', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 153, '', 'measured', '+0.38', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 154, '', 'measured', '39', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 154, '', 'measured', '0.826', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 154, '', 'measured', '-0.38', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 169, '', 'measured', '0.83', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 170, '', 'measured', '0.998', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 180, '', 'measured', '4.02', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 184, '', 'openprob', '3.76', 'not yet checked'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 184, '', 'openprob', '3.93', 'not yet checked'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 207, '', 'calc', '3.31', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 209, '', 'calc', '1.05', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 216, '', 'measured', '0.83', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 216, '', 'measured', '0.998', 'measured, not found in the files the chapter names'),
-    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 218, '', 'measured', '3.3', 'measured, too few printed digits to match against the named files'),
+    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 52, '', 'measured', '0.00011', 'measured: median half difference 0.000114 recomputed from salmon_readings.csv (eps_corr_A, eps_corr_B; salmon_score.json P0.median_abs_halfdiff) rounds to the printed 0.00011, but at two printed digits the 5 % shifted value (0.0001155) lies within half its last digit of 0.000114, so no check can carry a failing negative control'),
+    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 108, '', 'measured', '0.0010', 'measured: lower 95 % bound of the Rimouski P3 origin term, 0.001032 by least squares from rimouski_readings.csv (rimouski_score.json P3.ci[0]), rounds to the printed 0.0010; the 5 % shifted value (0.00105) lies within half its last digit of 0.001032, so no check can carry a failing negative control (the term itself and its upper bound are checked: ch:salmonid:L108:+0.0021, ch:salmonid:L108:0.0031)'),
+    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 109, '', 'measured', '+0.0001', "measured: Rimouski P4 father's-origin term 0.000107 by least squares from rimouski_readings.csv (rimouski_score.json P4) rounds to the printed +0.0001; a one-digit value cannot carry the 5 % negative control (0.000105 lies within half its last digit of 0.000107); its p (0.71) is checked by ch:salmonid:L109:0.71"),
+    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 109, '', 'measured', '+0.0003', "measured: Rimouski P4 mother's-origin term 0.000322 by least squares from rimouski_readings.csv (rimouski_score.json P4) rounds to the printed +0.0003; a one-digit value cannot carry the 5 % negative control (0.000315 lies within half its last digit of 0.000322); its p (0.27) is checked by ch:salmonid:L109:0.27"),
+    (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 128, '', 'measured', '+0.00008', 'measured: mean shift eps_cc_common - eps_all_common = 0.0000824 over the 39 coho fish (coho_cc_fish.csv) rounds to the printed +0.00008; a one-digit value cannot carry the 5 % negative control (0.000084 lies within half its last digit of 0.0000824)'),
     (6, 'part4:ch:reach', 'part4/p4_23_reach', 30, '', 'prediction', '1.00', 'not yet checked'),
     (6, 'part4:ch:reach', 'part4/p4_23_reach', 40, '', 'measured', '1.148', 'measured, source not named'),
     (6, 'part4:ch:reach', 'part4/p4_23_reach', 41, '', 'measured', '0.005', 'measured, source not named'),

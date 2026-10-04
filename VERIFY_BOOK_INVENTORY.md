@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4182 PASS, 0 FAIL, 2156 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4265 PASS, 0 FAIL, 2073 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5045,129 +5045,129 @@ Totals: 4182 PASS, 0 FAIL, 2156 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 52 |  | measured | `0.998` | not run: measured, not found in the files the chapter names | - |
-| 52 |  | measured | `0.00011` | not run: measured, too few printed digits to match against the named files | - |
-| 52 |  | measured | `0.0025` | not run: measured, too few printed digits to match against the named files | - |
-| 53 |  | measured | `0.0029` | not run: measured, too few printed digits to match against the named files | - |
-| 53 |  | measured | `0.0025` | not run: measured, too few printed digits to match against the named files | - |
-| 53 |  | measured | `0.0005` | not run: measured, too few printed digits to match against the named files | - |
-| 53 |  | measured | `0.0002` | not run: measured, too few printed digits to match against the named files | - |
+| 52 | ch:salmonid:L52 | measured | `0.998` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow ICC of the two halves | PASS |
+| 52 | ch:salmonid:L52:0.0025 | measured | `0.0025` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow between-fish SD, red cells | PASS |
+| 52 |  | measured | `0.00011` | not run: measured: median half difference 0.000114 recomputed from salmon_readings.csv (eps_corr_A, eps_corr_B; salmon_score.json P0.median_abs_halfdiff) rounds to the printed 0.00011, but at two printed digits the 5 % shifted value (0.0001155) lies within half its last digit of 0.000114, so no check can carry a failing negative control | - |
+| 53 | ch:salmonid:L53 | measured | `0.0029` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow between-fish SD, sperm | PASS |
+| 53 | ch:salmonid:L53:0.0025 | measured | `0.0025` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow P1 between-fish SD, red cells | PASS |
+| 53 | ch:salmonid:L53:0.0005 | measured | `0.0005` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow within-fish half-split SD, red cells | PASS |
+| 53 | ch:salmonid:L53:0.0002 | measured | `0.0002` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow within-fish half-split SD, sperm | PASS |
 | 54 | ch:salmonid:L54 | measured | `0.0354` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
 | 54 | ch:salmonid:L54:3.31 | measured | `3.31` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
 | 55 | ch:salmonid:L55 | measured | `0.0356` | file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: measured: printed value found in coho_cc_fish.csv, a file the chapter names | PASS |
 | 55 | ch:salmonid:L55:0.0352 | measured | `0.0352` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
 | 55 | ch:salmonid:L55:0.0165 | measured | `0.0165` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 55 |  | measured | `0.31` | not run: measured, too few printed digits to match against the named files | - |
-| 55 |  | measured | `0.0184` | not run: measured, not found in the files the chapter names | - |
-| 55 |  | measured | `0.34` | not run: measured, too few printed digits to match against the named files | - |
-| 56 |  | measured | `6.0` | not run: measured, too few printed digits to match against the named files | - |
-| 56 |  | measured | `5.9` | not run: measured, too few printed digits to match against the named files | - |
-| 56 |  | measured | `16.0` | not run: measured, not found in the files the chapter names | - |
+| 55 | ch:salmonid:L55:0.31 | measured | `0.31` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow P3 red cells, Mann-Whitney p | PASS |
+| 55 | ch:salmonid:L55:0.0184 | measured | `0.0184` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow P3 sperm, natural median | PASS |
+| 55 | ch:salmonid:L55:0.34 | measured | `0.34` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow P3 sperm, Mann-Whitney p | PASS |
+| 56 | ch:salmonid:L56 | measured | `6.0` | heavy file `Biological_Physics/Salmonid/PROC_SALMON_01/salmon_score.json`: Methow P4 largest |z|, red cells | PASS |
+| 56 | ch:salmonid:L56:5.9 | measured | `5.9` | heavy file `Biological_Physics/Salmonid/PROC_SALMON_01/salmon_score.json`: Methow P4 largest |z|, sperm | PASS |
+| 56 | ch:salmonid:L56:16.0 | measured | `16.0` | heavy file `Biological_Physics/Salmonid/PROC_SALMON_01/salmon_score.json`: Methow P4 threshold, red cells | PASS |
 | 57 | ch:salmonid:L57 | measured | `23.0` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 63 |  | measured | `-0.58` | not run: measured, too few printed digits to match against the named files | - |
-| 63 |  | measured | `0.007` | not run: measured, too few printed digits to match against the named files | - |
-| 64 |  | measured | `-0.69` | not run: measured, too few printed digits to match against the named files | - |
-| 64 |  | measured | `0.001` | not run: measured, too few printed digits to match against the named files | - |
-| 64 |  | measured | `-0.54` | not run: measured, too few printed digits to match against the named files | - |
-| 65 |  | measured | `0.014` | not run: measured, too few printed digits to match against the named files | - |
-| 65 |  | measured | `-0.47` | not run: measured, too few printed digits to match against the named files | - |
-| 65 |  | measured | `0.04` | not run: measured, too few printed digits to match against the named files | - |
-| 65 |  | measured | `0.016` | not run: measured, too few printed digits to match against the named files | - |
-| 65 |  | measured | `0.019` | not run: measured, too few printed digits to match against the named files | - |
-| 66 |  | measured | `0.06` | not run: measured, too few printed digits to match against the named files | - |
-| 66 |  | measured | `0.81` | not run: measured, too few printed digits to match against the named files | - |
+| 63 | ch:salmonid:L63 | measured | `-0.58` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow red cells: rho with conversion failure | PASS |
+| 63 | ch:salmonid:L63:0.007 | measured | `0.007` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow red cells: p of rho with conversion failure | PASS |
+| 64 | ch:salmonid:L64 | measured | `-0.69` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow red cells: rho with masked sites | PASS |
+| 64 | ch:salmonid:L64:0.001 | measured | `0.001` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow red cells: p of rho with masked sites | PASS |
+| 64 | ch:salmonid:L64:-0.54 | measured | `-0.54` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm: rho with conversion failure | PASS |
+| 65 | ch:salmonid:L65 | measured | `0.014` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm: p of rho with conversion failure | PASS |
+| 65 | ch:salmonid:L65:-0.47 | measured | `-0.47` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm: rho with depth | PASS |
+| 65 | ch:salmonid:L65:0.04 | measured | `0.04` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm: p of rho with depth | PASS |
+| 65 | ch:salmonid:L65:0.016 | measured | `0.016` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm lanes: lowest median of the other lanes | PASS |
+| 65 | ch:salmonid:L65:0.019 | measured | `0.019` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm lanes: highest median of the other lanes | PASS |
+| 66 | ch:salmonid:L66 | measured | `0.06` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow: red cell against sperm of one fish, rho | PASS |
+| 66 | ch:salmonid:L66:0.81 | measured | `0.81` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow: red cell against sperm of one fish, p | PASS |
 | 67 | ch:salmonid:L67 | measured | `3.31` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 67 |  | measured | `4.02` | not run: measured, not found in the files the chapter names | - |
-| 87 |  | measured | `0.924` | not run: measured, not found in the files the chapter names | - |
-| 87 |  | measured | `-0.01` | not run: measured, too few printed digits to match against the named files | - |
-| 87 |  | measured | `+0.45` | not run: measured, too few printed digits to match against the named files | - |
-| 87 |  | measured | `+0.57` | not run: measured, too few printed digits to match against the named files | - |
+| 67 | ch:salmonid:L67:4.02 | measured | `4.02` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm holding energy | PASS |
+| 87 | ch:salmonid:L87 | measured | `0.924` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr ICC, 36 fish | PASS |
+| 87 | ch:salmonid:L87:-0.01 | measured | `-0.01` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P1: rho with conversion failure | PASS |
+| 87 | ch:salmonid:L87:+0.45 | measured | `+0.45` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P1: rho with duplicate fraction | PASS |
+| 87 | ch:salmonid:L87:+0.57 | measured | `+0.57` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr: rho with duplicates, failed fish left out | PASS |
 | 88 | ch:salmonid:L88 | measured | `3.82` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
 | 88 | ch:salmonid:L88:0.0216 | measured | `0.0216` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
-| 88 |  | measured | `+0.29` | not run: measured, too few printed digits to match against the named files | - |
-| 89 |  | measured | `0.92` | not run: measured, too few printed digits to match against the named files | - |
-| 89 |  | measured | `0.79` | not run: measured, too few printed digits to match against the named files | - |
-| 89 |  | measured | `1.05` | not run: measured, not found in the files the chapter names | - |
-| 89 |  | measured | `0.24` | not run: measured, too few printed digits to match against the named files | - |
+| 88 | ch:salmonid:L88:+0.29 | measured | `+0.29` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P1: rho with masked fraction | PASS |
+| 89 | ch:salmonid:L89 | measured | `0.92` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P3: warm/ambient ratio | PASS |
+| 89 | ch:salmonid:L89:0.79 | measured | `0.79` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P3: ratio, lower 95 % bound | PASS |
+| 89 | ch:salmonid:L89:1.05 | measured | `1.05` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P3: ratio, upper 95 % bound | PASS |
+| 89 | ch:salmonid:L89:0.24 | measured | `0.24` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P3: p of the temperature term | PASS |
 | 90 | ch:salmonid:L90 | measured | `3.74` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
 | 90 | ch:salmonid:L90:3.88 | measured | `3.88` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
-| 90 |  | measured | `-0.0015` | not run: measured, too few printed digits to match against the named files | - |
-| 90 |  | measured | `-0.0045` | not run: measured, too few printed digits to match against the named files | - |
-| 90 |  | measured | `+0.0015` | not run: measured, too few printed digits to match against the named files | - |
-| 90 |  | measured | `0.31` | not run: measured, too few printed digits to match against the named files | - |
-| 91 |  | measured | `0.0007` | not run: measured, too few printed digits to match against the named files | - |
-| 107 |  | measured | `0.996` | not run: measured, not found in the files the chapter names | - |
-| 107 |  | measured | `+0.38` | not run: measured, too few printed digits to match against the named files | - |
-| 107 |  | measured | `-0.20` | not run: measured, too few printed digits to match against the named files | - |
+| 90 | ch:salmonid:L90:-0.0015 | measured | `-0.0015` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P4: line term | PASS |
+| 90 | ch:salmonid:L90:-0.0045 | measured | `-0.0045` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P4: line term, lower 95 % bound | PASS |
+| 90 | ch:salmonid:L90:+0.0015 | measured | `+0.0015` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P4: line term, upper 95 % bound | PASS |
+| 90 | ch:salmonid:L90:0.31 | measured | `0.31` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P4: p of the line term | PASS |
+| 91 | ch:salmonid:L91 | measured | `0.0007` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr between-fish SD of eps | PASS |
+| 107 | ch:salmonid:L107 | measured | `0.996` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski ICC of the two halves | PASS |
+| 107 | ch:salmonid:L107:+0.38 | measured | `+0.38` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P1: rho with conversion failure | PASS |
+| 107 | ch:salmonid:L107:-0.20 | measured | `-0.20` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P1: rho with duplicates | PASS |
 | 108 | ch:salmonid:L108 | measured | `3.47` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
-| 108 |  | measured | `-0.15` | not run: measured, too few printed digits to match against the named files | - |
-| 108 |  | measured | `+0.0021` | not run: measured, too few printed digits to match against the named files | - |
-| 108 |  | measured | `0.0010` | not run: measured, too few printed digits to match against the named files | - |
-| 108 |  | measured | `0.0031` | not run: measured, too few printed digits to match against the named files | - |
-| 109 |  | measured | `0.0003` | not run: measured, too few printed digits to match against the named files | - |
-| 109 |  | measured | `+0.0001` | not run: measured, too few printed digits to match against the named files | - |
-| 109 |  | measured | `0.71` | not run: measured, too few printed digits to match against the named files | - |
-| 109 |  | measured | `+0.0003` | not run: measured, too few printed digits to match against the named files | - |
-| 109 |  | measured | `0.27` | not run: measured, too few printed digits to match against the named files | - |
+| 108 | ch:salmonid:L108:-0.15 | measured | `-0.15` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P1: rho with masked fraction | PASS |
+| 108 | ch:salmonid:L108:+0.0021 | measured | `+0.0021` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P3: stocked minus wild | PASS |
+| 108 | ch:salmonid:L108:0.0031 | measured | `0.0031` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P3: upper 95 % bound | PASS |
+| 108 |  | measured | `0.0010` | not run: measured: lower 95 % bound of the Rimouski P3 origin term, 0.001032 by least squares from rimouski_readings.csv (rimouski_score.json P3.ci[0]), rounds to the printed 0.0010; the 5 % shifted value (0.00105) lies within half its last digit of 0.001032, so no check can carry a failing negative control (the term itself and its upper bound are checked: ch:salmonid:L108:+0.0021, ch:salmonid:L108:0.0031) | - |
+| 109 | ch:salmonid:L109 | measured | `0.0003` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P3: p of the origin term | PASS |
+| 109 | ch:salmonid:L109:0.71 | measured | `0.71` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P4: p of the father term | PASS |
+| 109 | ch:salmonid:L109:0.27 | measured | `0.27` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P4: p of the mother term | PASS |
+| 109 |  | measured | `+0.0001` | not run: measured: Rimouski P4 father's-origin term 0.000107 by least squares from rimouski_readings.csv (rimouski_score.json P4) rounds to the printed +0.0001; a one-digit value cannot carry the 5 % negative control (0.000105 lies within half its last digit of 0.000107); its p (0.71) is checked by ch:salmonid:L109:0.71 | - |
+| 109 |  | measured | `+0.0003` | not run: measured: Rimouski P4 mother's-origin term 0.000322 by least squares from rimouski_readings.csv (rimouski_score.json P4) rounds to the printed +0.0003; a one-digit value cannot carry the 5 % negative control (0.000315 lies within half its last digit of 0.000322); its p (0.27) is checked by ch:salmonid:L109:0.27 | - |
 | 110 | ch:salmonid:L110 | measured | `0.0303` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 110 | ch:salmonid:L110:3.47 | measured | `3.47` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 110 | ch:salmonid:L110:0.0278 | measured | `0.0278` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 110 | ch:salmonid:L110:3.56 | measured | `3.56` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
-| 126 |  | measured | `0.826` | not run: measured, not found in the files the chapter names | - |
-| 126 |  | measured | `-0.384` | not run: measured, not found in the files the chapter names | - |
-| 127 |  | measured | `-0.224` | not run: measured, not found in the files the chapter names | - |
-| 127 |  | measured | `92.8` | not run: measured, not found in the files the chapter names | - |
-| 128 |  | measured | `+0.00008` | not run: measured, too few printed digits to match against the named files | - |
-| 128 |  | measured | `-0.384` | not run: measured, not found in the files the chapter names | - |
-| 131 |  | measured | `-1.0` | not run: measured, too few printed digits to match against the named files | - |
-| 131 |  | measured | `+0.6` | not run: measured, too few printed digits to match against the named files | - |
-| 131 |  | measured | `0.36` | not run: measured, too few printed digits to match against the named files | - |
-| 131 |  | measured | `0.33` | not run: measured, too few printed digits to match against the named files | - |
+| 126 | ch:salmonid:L126 | measured | `0.826` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho D1: ICC | PASS |
+| 126 | ch:salmonid:L126:-0.384 | measured | `-0.384` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho D2: rho with conversion failure | PASS |
+| 127 | ch:salmonid:L127 | measured | `-0.224` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho D2: rho with depth | PASS |
+| 127 | ch:salmonid:L127:92.8 | measured | `92.8` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: share of qualifying molecules kept by the filter | PASS |
+| 128 | ch:salmonid:L128 | measured | `-0.384` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: rho with conversion failure before the filter | PASS |
+| 128 |  | measured | `+0.00008` | not run: measured: mean shift eps_cc_common - eps_all_common = 0.0000824 over the 39 coho fish (coho_cc_fish.csv) rounds to the printed +0.00008; a one-digit value cannot carry the 5 % negative control (0.000084 lies within half its last digit of 0.0000824) | - |
+| 131 | ch:salmonid:L131 | measured | `-1.0` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: lowest within-lane rho | PASS |
+| 131 | ch:salmonid:L131:+0.6 | measured | `+0.6` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: highest within-lane rho | PASS |
+| 131 | ch:salmonid:L131:0.36 | measured | `0.36` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: copy error between lanes, p | PASS |
+| 131 | ch:salmonid:L131:0.33 | measured | `0.33` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: conversion failure between lanes, p | PASS |
 | 132 | ch:salmonid:L132 | measured | `0.0337` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 132 | ch:salmonid:L132:0.0373 | measured | `0.0373` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
 | 132 | ch:salmonid:L132:0.0356 | measured | `0.0356` | file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: measured: printed value found in coho_cc_fish.csv, a file the chapter names | PASS |
-| 132 |  | measured | `0.00089` | not run: measured, too few printed digits to match against the named files | - |
-| 133 |  | measured | `0.00039` | not run: measured, too few printed digits to match against the named files | - |
+| 132 | ch:salmonid:L132:0.00089 | measured | `0.00089` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho between-fish SD | PASS |
+| 133 | ch:salmonid:L133 | measured | `0.00039` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho half-split noise | PASS |
 | 136 | ch:salmonid:L136 | measured | `3.25` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
 | 136 | ch:salmonid:L136:3.36 | measured | `3.36` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 136 | ch:salmonid:L136:3.30 | measured | `3.30` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
 | 150 | ch:salmonid:L150 | measured | `3.31` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 150 |  | measured | `20` | not run: measured, too few printed digits to match against the named files | - |
-| 150 |  | measured | `0.998` | not run: measured, not found in the files the chapter names | - |
-| 150 |  | measured | `-0.58` | not run: measured, too few printed digits to match against the named files | - |
-| 151 |  | measured | `-0.54` | not run: measured, too few printed digits to match against the named files | - |
-| 151 |  | measured | `4.02` | not run: measured, not found in the files the chapter names | - |
+| 150 | ch:salmonid:L150:20 | measured | `20` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Table: Methow males | PASS |
+| 150 | ch:salmonid:L150:0.998 | measured | `0.998` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Table: Methow ICC | PASS |
+| 150 | ch:salmonid:L150:-0.58 | measured | `-0.58` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Table: Methow red cells, rho with conversion | PASS |
+| 151 | ch:salmonid:L151 | measured | `-0.54` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Table: Methow sperm, rho with conversion | PASS |
+| 151 | ch:salmonid:L151:4.02 | measured | `4.02` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Table: Methow sperm E | PASS |
 | 152 | ch:salmonid:L152 | measured | `3.81` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
-| 152 |  | measured | `40` | not run: measured, too few printed digits to match against the named files | - |
-| 152 |  | measured | `0.924` | not run: measured, not found in the files the chapter names | - |
-| 152 |  | measured | `+0.45` | not run: measured, too few printed digits to match against the named files | - |
+| 152 | ch:salmonid:L152:40 | measured | `40` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: Table: brook charr males | PASS |
+| 152 | ch:salmonid:L152:0.924 | measured | `0.924` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: Table: brook charr ICC | PASS |
+| 152 | ch:salmonid:L152:+0.45 | measured | `+0.45` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: Table: brook charr, rho with duplicates | PASS |
 | 153 | ch:salmonid:L153 | measured | `3.47` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
-| 153 |  | measured | `32` | not run: measured, too few printed digits to match against the named files | - |
-| 153 |  | measured | `0.996` | not run: measured, not found in the files the chapter names | - |
-| 153 |  | measured | `+0.38` | not run: measured, too few printed digits to match against the named files | - |
+| 153 | ch:salmonid:L153:32 | measured | `32` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Table: Rimouski F0 fish | PASS |
+| 153 | ch:salmonid:L153:0.996 | measured | `0.996` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Table: Rimouski ICC | PASS |
+| 153 | ch:salmonid:L153:+0.38 | measured | `+0.38` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Table: Rimouski, rho with conversion | PASS |
 | 154 | ch:salmonid:L154 | measured | `3.30` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 154 |  | measured | `39` | not run: measured, too few printed digits to match against the named files | - |
-| 154 |  | measured | `0.826` | not run: measured, not found in the files the chapter names | - |
-| 154 |  | measured | `-0.38` | not run: measured, too few printed digits to match against the named files | - |
+| 154 | ch:salmonid:L154:39 | measured | `39` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: Table: coho smolts | PASS |
+| 154 | ch:salmonid:L154:0.826 | measured | `0.826` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: Table: coho ICC | PASS |
+| 154 | ch:salmonid:L154:-0.38 | measured | `-0.38` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: Table: coho, rho with conversion | PASS |
 | 163 | ch:salmonid:L163 | measured | `3.29` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 163 | ch:salmonid:L163:3.51 | measured | `3.51` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 164 | ch:salmonid:L164 | measured | `3.60` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 164 | ch:salmonid:L164:3.85 | measured | `3.85` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
-| 169 |  | measured | `0.83` | not run: measured, too few printed digits to match against the named files | - |
-| 170 |  | measured | `0.998` | not run: measured, not found in the files the chapter names | - |
+| 169 | ch:salmonid:L169 | measured | `0.83` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: lowest ICC of the four sets (coho) | PASS |
+| 170 | ch:salmonid:L170 | measured | `0.998` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: highest ICC of the four sets (Methow) | PASS |
 | 179 | ch:salmonid:L179 | measured | `3.29` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 179 | ch:salmonid:L179:3.51 | measured | `3.51` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 179 | ch:salmonid:L179:3.60 | measured | `3.60` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 179 | ch:salmonid:L179:3.85 | measured | `3.85` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
 | 180 | ch:salmonid:L180 | measured | `3.81` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
-| 180 |  | measured | `4.02` | not run: measured, not found in the files the chapter names | - |
-| 184 |  | openprob | `3.76` | not run: not yet checked | - |
-| 184 |  | openprob | `3.93` | not run: not yet checked | - |
-| 207 |  | calc | `3.31` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 209 |  | calc | `1.05` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 216 |  | measured | `0.83` | not run: measured, too few printed digits to match against the named files | - |
-| 216 |  | measured | `0.998` | not run: measured, not found in the files the chapter names | - |
-| 218 |  | measured | `3.3` | not run: measured, too few printed digits to match against the named files | - |
+| 180 | ch:salmonid:L180:4.02 | measured | `4.02` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm holding energy (holding-energy paragraph) | PASS |
+| 184 | ch:salmonid:L184 | openprob | `3.76` | heavy file `Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md`: ENCODE immune cells, lower E | PASS |
+| 184 | ch:salmonid:L184:3.93 | openprob | `3.93` | heavy file `Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md`: ENCODE immune cells, upper E | PASS |
+| 207 | ch:salmonid:L207 | calc | `3.31` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow red-cell holding energy (next-set requirement) | PASS |
+| 209 | ch:salmonid:L209 | calc | `1.05` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr ratio interval, upper end (restated) | PASS |
+| 216 | ch:salmonid:L216 | measured | `0.83` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: keybox: lowest ICC (coho) | PASS |
+| 216 | ch:salmonid:L216:0.998 | measured | `0.998` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: keybox: highest ICC (Methow) | PASS |
+| 218 | ch:salmonid:L218 | measured | `3.3` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: keybox: about 3.3 k_B T in red cells and coho | PASS |
 
 ## Part 6 - part4:ch:reach - `docs/book/part4/p4_23_reach.tex`
 
