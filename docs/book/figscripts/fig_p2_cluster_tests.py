@@ -62,7 +62,7 @@ for F, col, ls, lab in ((R, S.IAM, "-", "gravitational part $R=1/\\mu$"), (C, S.
                         (P, S.ALT2, "-", "product $R\\times C_{\\rm NT}$")):
     a1.plot(z2, F(z2), color=col, lw=1.5, ls=ls, label=lab); a1.plot(zc, F(zc), "o", color=col, ms=3.5)
 a1.set_xlim(0, 1.0); a1.set_ylim(1.0, 1.50)
-a1.set_xlabel("cluster redshift $z$"); a1.set_ylabel("ratio to the true mass")
+a1.set_xlabel("cluster redshift $z$"); a1.set_ylabel("factor in $M_{\\rm lens}/M_{\\rm hydro}$")
 a1.legend(loc="upper right")
 a1.set_title("Two effects, Level 1 form")
 S.panel_letter(a1, "a", dx=-0.14)
