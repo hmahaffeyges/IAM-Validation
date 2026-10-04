@@ -3845,6 +3845,7 @@ PASS  ch:scprimer:L15                    ch:scprimer:p3_01_sc_primer:15  printed
 PASS  ch:scprimer:L15:1.1\times10^{-7}   ch:scprimer:p3_01_sc_primer:15  printed 1.1\times10^{-7}  recomputed 1.128195e-07  tol 5.000005e-09  [calc] e^(-hf/kT) at 15 mK
 PASS  ch:scprimer:L15:8.2\times10^{-3}   ch:scprimer:p3_01_sc_primer:15  printed 8.2\times10^{-3}  recomputed 0.00823598  tol 5.000005e-05  [calc] e^(-hf/kT) at 50 mK
 PASS  ch:scprimer:L16                    ch:scprimer:p3_01_sc_primer:16  printed 1.20  recomputed 1.19729  tol 0.00500001  [calc] Delta_Al/(1.764 k_B), K
+PASS  ch:scprimer:L16:182                ch:scprimer:p3_01_sc_primer:16  printed 182  recomputed 182.399  tol 0.5  [calc] BCS gap of aluminium, ueV
 PASS  ch:scprimer:L17                    ch:scprimer:p3_01_sc_primer:17  printed 1.44\times10^{-25}  recomputed 1.435489e-25  tol 5.000005e-28  [calc] k_B T ln2 at 15 mK, J
 PASS  ch:scprimer:L17:5\times10^{-5}     ch:scprimer:p3_01_sc_primer:17  printed 5\times10^{-5}  recomputed 5.000000e-05  tol 5.000005e-06  [calc] temperature ratio
 PASS  ch:scprimer:L23                    ch:scprimer:p3_01_sc_primer:23  printed 6.86  recomputed 6.85606  tol 0.00500001  [calc] M = hf/kT, 5 GHz, 35 mK
@@ -3859,6 +3860,7 @@ PASS  ch:scprimer:L76:10^{-108}          ch:scprimer:p3_01_sc_primer:76  printed
 PASS  ch:scprimer:L77                    ch:scprimer:p3_01_sc_primer:77  printed 4\times10^{22}  recomputed 4.105076e+22  tol 5.000005e+21  [calc] the same at 300 K
 PASS  ch:scprimer:L77:2.7255             ch:scprimer:p3_01_sc_primer:77  printed 2.7255  recomputed 2.7255  tol 5.000005e-05  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:scprimer:L78                    ch:scprimer:p3_01_sc_primer:78  printed 2\times10^{16}  recomputed 2.185007e+16  tol 5.000005e+15  [calc] the same for the CMB
+PASS  ch:scprimer:L84                    ch:scprimer:p3_01_sc_primer:84  printed 2.7\times10^{8}  recomputed 2.747253e+08  tol 5.000005e+06  [calc] pairs broken at most by a 100 keV deposit
 PASS  ch:scprimer:L96                    ch:scprimer:p3_01_sc_primer:96  printed 61.7  recomputed 61.7007  tol 0.05  [calc] T_H of 1 M_sun, nK
 PASS  ch:scprimer:L96:4.4\times10^{7}    ch:scprimer:p3_01_sc_primer:96  printed 4.4\times10^{7}  recomputed 4.417289e+07  tol 5.000005e+05  [calc] T_CMB / T_H(1 M_sun)
 PASS  ch:scprimer:L96:182                ch:scprimer:p3_01_sc_primer:96  printed 182  recomputed 181.7  tol 0.5  [calc] T_CMB / 15 mK
@@ -3869,11 +3871,15 @@ PASS  ch:scprimer:L100:2.19\times10^{16} ch:scprimer:p3_01_sc_primer:100  printe
 PASS  ch:scprimer:L101                   ch:scprimer:p3_01_sc_primer:101  printed 2.2  recomputed 2.20414  tol 0.05  [calc] broken pairs per photon at most
 PASS  ch:scprimer:L101:9.31              ch:scprimer:p3_01_sc_primer:101  printed 9.31  recomputed 9.3104  tol 0.00500001  [calc] mean photon energy above threshold, in k_B K
 PASS  ch:scprimer:L111                   ch:scprimer:p3_01_sc_primer:111  printed 2.11  recomputed 2.11202  tol 0.00500001  [calc] Delta_Al/k_B, K
+PASS  ch:scprimer:L118                   ch:scprimer:p3_01_sc_primer:118  printed 1.764  recomputed 1.76388  tol 5.000005e-04  [calc] BCS ratio Delta/(k_B T_c) = pi e^(-gamma_E)
 PASS  ch:scprimer:L125                   ch:scprimer:p3_01_sc_primer:125  printed 182  recomputed 182.412  tol 0.5  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:scprimer:L126                   ch:scprimer:p3_01_sc_primer:126  printed 0.24  recomputed 0.238346  tol 0.00500001  [calc] T1 from Catelani, x_qp = 1e-7, ms
+PASS  ch:scprimer:L126:2.4e-8            ch:scprimer:p3_01_sc_primer:126  printed 2.4\times10^{-8}  recomputed 2.383456e-08  tol 5.000005e-10  [calc] x_qp for T1 = 1 ms from Catelani, Al, 5 GHz
 PASS  ch:scprimer:L127                   ch:scprimer:p3_01_sc_primer:127  printed 0.32  recomputed 0.31831  tol 0.00500001  [calc] T1 from Gamma = x_qp omega_q, ms
+PASS  ch:scprimer:L128                   ch:scprimer:p3_01_sc_primer:128  printed 0.5  recomputed 0.5  tol 0.05  [calc] best transmon T1, ms, from the cited title  file docs/book/iam.bib
 PASS  ch:scprimer:L137                   ch:scprimer:p3_01_sc_primer:137  printed 1.31  recomputed 1.30882  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:scprimer:L160                   ch:scprimer:p3_01_sc_primer:160  printed 3.6\times10^{-12}  recomputed 3.616549e-12  tol 5.000005e-14  [calc] hbar/Delta_Al, s
+PASS  ch:scprimer:L160:1.055e-34         ch:scprimer:p3_01_sc_primer:160  printed 1.055\times10^{-34}  recomputed 1.054572e-34  tol 5.000005e-38  [calc] hbar = h/2pi, J s
 PASS  ch:scprimer:L162                   ch:scprimer:p3_01_sc_primer:162  printed 4\times10^{-6}  recomputed 3.616549e-06  tol 5.000005e-07  [calc] tau_phi/tau_TLS at 1 us
 PASS  ch:scprimer:L162:4\times10^{-8}    ch:scprimer:p3_01_sc_primer:162  printed 4\times10^{-8}  recomputed 3.616549e-08  tol 5.000005e-09  [calc] tau_phi/tau_TLS at 100 us
 
@@ -4627,4 +4633,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3731  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2607  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3737  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2601  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

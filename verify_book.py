@@ -1678,6 +1678,7 @@ def _b07_em_B(H0):
 def _b07_em_fp(H0):
     # fixed point with the identified factor, units of m_e (Eq. eq:em:result)
     return (2 * math.pi)**-0.1 * _b07_em_B(H0) / m_e
+DATA_FILES['docs/book/iam.bib'] = "the book's bibliography (titles of cited measurements)"
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -27422,6 +27423,14 @@ def check_2258():
     value=182e-6*eV/(1.764*kB)
     return locals()
 
+@check(label='ch:scprimer:L16:182', chapter='ch:scprimer', part=5, title='BCS gap of aluminium, ueV',
+       file='part3/p3_01_sc_primer', line=16, status='calc', kind='num', printed='182', tol=0.0)
+def check_3731():
+    'Delta_Al = (pi e^-gamma_E) k_B T_c with the weak-coupling BCS ratio computed from Euler gamma, in ueV. Book line 16, printed 182 ueV. Input: T_c(Al) = 1.2 K (book, lines 16 and 118).'
+    bcs = math.pi * math.exp(-float(sp.EulerGamma))
+    value = bcs * kB * 1.2 / e_ch * 1e6
+    return locals()
+
 @check(label='ch:scprimer:L17', chapter='ch:scprimer', part=5, title='k_B T ln2 at 15 mK, J',
        file='part3/p3_01_sc_primer', line=17, status='calc', kind='num', printed='1.44\\times10^{-25}', tol=0)
 def check_2259():
@@ -27549,6 +27558,14 @@ def check_2272():
     value=flux(T_CMB)
     return locals()
 
+@check(label='ch:scprimer:L84', chapter='ch:scprimer', part=5, title='pairs broken at most by a 100 keV deposit',
+       file='part3/p3_01_sc_primer', line=84, status='calc', kind='num', printed='2.7\\times10^{8}', tol=0.0)
+def check_3732():
+    'Upper bound on Cooper pairs broken by a 100 keV deposit, 1e5 eV/(2 Delta_Al). Book line 84, printed 2.7e8. Inputs: deposit 100 keV and Delta_Al = 182 ueV (book).'
+    deposit_eV = 100e3; Delta_eV = 182e-6
+    value = deposit_eV / (2 * Delta_eV)
+    return locals()
+
 @check(label='ch:scprimer:L96', chapter='ch:scprimer', part=5, title='T_H of 1 M_sun, nK',
        file='part3/p3_01_sc_primer', line=96, status='calc', kind='num', printed='61.7', tol=0)
 def check_2273():
@@ -27639,6 +27656,13 @@ def check_2282():
     value=182e-6*eV/kB
     return locals()
 
+@check(label='ch:scprimer:L118', chapter='ch:scprimer', part=5, title='BCS ratio Delta/(k_B T_c) = pi e^(-gamma_E)',
+       file='part3/p3_01_sc_primer', line=118, status='calc', kind='num', printed='1.764', tol=0.0)
+def check_3733():
+    'Weak-coupling BCS ratio Delta(0)/(k_B T_c) = pi exp(-gamma_E), gamma_E the Euler constant (BCS theory). Book line 118, printed 1.764.'
+    value = float(sp.pi * sp.exp(-sp.EulerGamma))
+    return locals()
+
 @check(label='ch:scprimer:L125', chapter='ch:scprimer', part=5, title='drafted check, screened (runs; negative control fails)',
        file='part3/p3_01_sc_primer', line=125, status='calc', kind='num', printed='182', tol=0.0)
 def check_2283():
@@ -27659,11 +27683,30 @@ def check_2284():
     value=T1qp(1e-7)*1e3
     return locals()
 
+@check(label='ch:scprimer:L126:2.4e-8', chapter='ch:scprimer', part=5, title='x_qp for T1 = 1 ms from Catelani, Al, 5 GHz',
+       file='part3/p3_01_sc_primer', line=126, status='calc', kind='num', printed='2.4\\times10^{-8}', tol=0.0)
+def check_3734():
+    'Largest x_qp allowing T1 = 1 ms by Eq. eq:catelani, Gamma = x_qp (omega/pi) sqrt(2 Delta/(hbar omega)), solved for x_qp. Book line 126, printed 2.4e-8. Inputs: Delta_Al = 182 ueV, omega/2pi = 5 GHz (book).'
+    w = 2 * math.pi * 5e9; Delta = 182e-6 * e_ch
+    rate_per_xqp = (w / math.pi) * math.sqrt(2 * Delta / (hbar * w))
+    value = 1 / (1e-3 * rate_per_xqp)
+    return locals()
+
 @check(label='ch:scprimer:L127', chapter='ch:scprimer', part=5, title='T1 from Gamma = x_qp omega_q, ms',
        file='part3/p3_01_sc_primer', line=127, status='calc', kind='num', printed='0.32', tol=0)
 def check_2285():
     'T1 from Gamma = x_qp omega_q, ms. Book line 127, printed 0.32.'
     value=1/(1e-7*2*math.pi*5e9)*1e3
+    return locals()
+
+@check(label='ch:scprimer:L128', chapter='ch:scprimer', part=5, title='best transmon T1, ms, from the cited title',
+       file='part3/p3_01_sc_primer', line=128, status='calc', kind='file', printed='0.5', tol=0.0, source='docs/book/iam.bib')
+def check_3735():
+    'Upper end of T1 ~ 0.3-0.5 ms: the lifetime stated in the title of the cited measurement Wang2022Ta, "transmon qubit with a lifetime approaching 0.5 milliseconds" (npj Quantum Inf., doi:10.1038/s41534-021-00510-2), read from docs/book/iam.bib. Book line 128, printed 0.5.'
+    bib = file_text('docs/book/iam.bib')
+    entry = bib[bib.index('{Wang2022Ta,'):]
+    title = re.search(r'title\s*=\s*\{(.*?)\},', entry).group(1)
+    value = float(re.search(r'approaching\s+([\d.]+)\s+milliseconds', title).group(1))
     return locals()
 
 @check(label='ch:scprimer:L137', chapter='ch:scprimer', part=5, title='drafted check, screened (runs; negative control fails)',
@@ -27683,6 +27726,13 @@ def check_2286():
 def check_2287():
     'hbar/Delta_Al, s. Book line 160, printed 3.6\\times10^{-12}.'
     value=hbar/(182e-6*eV)
+    return locals()
+
+@check(label='ch:scprimer:L160:1.055e-34', chapter='ch:scprimer', part=5, title='hbar = h/2pi, J s',
+       file='part3/p3_01_sc_primer', line=160, status='calc', kind='num', printed='1.055\\times10^{-34}', tol=0.0)
+def check_3736():
+    'hbar used in the checkbox, from the exact SI Planck constant h = 6.62607015e-34 J s divided by 2 pi. Book line 160, printed 1.055e-34 J s.'
+    value = h / (2 * math.pi)
     return locals()
 
 @check(label='ch:scprimer:L162', chapter='ch:scprimer', part=5, title='tau_phi/tau_TLS at 1 us',
@@ -33766,29 +33816,23 @@ INVENTORY = [
     (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 137, '', 'openprob', '72.26', 'locked value H0 = 72.26 (matter sector) restated'),
     (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 153, '', 'calc', '67.4', 'input: H0 = 67.4 restated'),
     (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 159, '', 'observed', '10', 'measured, source not named'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 16, '', 'calc', '182', 'not yet run: draft does not reproduce the printed value (recomputed 2.922558e-17); drafting error on review'),
     (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 22, '', 'observed', '0.1', 'measured, source not named'),
     (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 42, '', 'observed', '10', 'measured, source not named'),
     (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 44, '', 'observed', '10', 'measured, source not named'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 47, 'eq:catelani', 'none', '', 'displayed equation, not yet checked'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 47, 'eq:catelani', 'none', '', 'definition: the published quasiparticle relaxation rate of Catelani2011 quoted as the model; used numerically by ch:scprimer:L126 and ch:scprimer:L126:2.4e-8'),
     (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 67, '', 'observed', '592', 'measured, source not named'),
     (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 67, '', 'observed', '41', 'measured, source not named'),
     (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 67, '', 'observed', '17.1', 'measured, source not named'),
     (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 69, '', 'observed', '10', 'measured, source not named'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 74, '', 'calc', '182', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 76, '', 'calc', '10', 'not yet run: draft rejected (does not run: NameError)'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 84, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 2.74725); drafting error on review'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 94, '', 'calc', '2.7255', 'not yet run: draft does not reproduce the printed value (recomputed 127.738); drafting error on review'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 118, '', 'calc', '1.764', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 118, '', 'calc', '1.2', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 118, '', 'calc', '4.47', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 118, '', 'calc', '9.25', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 126, '', 'calc', '10', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 128, '', 'calc', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 134, '', 'observed', '10', 'measured, source not named'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 74, '', 'calc', '182', 'input: Delta_Al = 182 ueV restated (recomputed from BCS by ch:scprimer:L16:182)'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 76, '', 'calc', '10', "restates ch:scprimer:L76:10^{-108} (the '10' is the base of a printed power; every number on this line is checked by ch:scprimer:L76, ch:scprimer:L76:2\\times10^{20}, ch:scprimer:L76:10^{-108})"),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 94, '', 'calc', '2.7255', 'input: T_CMB = 2.7255 K (Fixsen 2009) restated; also read by ch:scprimer:L77:2.7255'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 118, '', 'calc', '1.2', 'input: T_c(Al) = 1.2 K (material constant), restated from line 16; Delta_Al/(1.764 k_B) = 1.20 K is checked by ch:scprimer:L16'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 118, '', 'calc', '4.47', 'input: T_c(Ta) = 4.47 K, material constant used for the figure, nothing to recompute'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 118, '', 'calc', '9.25', 'input: T_c(Nb) = 9.25 K, material constant used for the figure, nothing to recompute'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 134, '', 'observed', '10', 'input: surface-code threshold of about 1e-2 quoted from Fowler2012 (doi:10.1103/physreva.86.032324), an order of magnitude, nothing to recompute'),
     (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 135, '', 'observed', '68', 'measured, source not named'),
     (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 135, '', 'observed', '89', 'measured, source not named'),
-    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 160, '', 'calc', '1.055\\times10^{-34', 'not yet run: draft rejected (printed value typed into the code)'),
     (5, 'ch:xqp', 'part3/p3_02_xqp', 14, '', 'calc', '182', 'not yet run: draft rejected (printed value typed into the code)'),
     (5, 'ch:xqp', 'part3/p3_02_xqp', 14, '', 'observed', '1.5\\times10^{-62}', 'measured, too few printed digits to match against the named files'),
     (5, 'ch:xqp', 'part3/p3_02_xqp', 14, '', 'observed', '141', 'measured, not found in the files the chapter names'),

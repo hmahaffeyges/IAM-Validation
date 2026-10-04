@@ -52071,6 +52071,23 @@
   "source": ""
  },
  {
+  "label": "ch:scprimer:L16:182",
+  "title": "BCS gap of aluminium, ueV",
+  "part": 5,
+  "chapter": "ch:scprimer",
+  "file": "part3/p3_01_sc_primer",
+  "line": 16,
+  "status": "calc",
+  "kind": "num",
+  "printed": "182",
+  "recomputed": "182.399",
+  "tol": 0.5000005,
+  "passed": true,
+  "note": "",
+  "heavy": false,
+  "source": ""
+ },
+ {
   "label": "ch:scprimer:L17",
   "title": "k_B T ln2 at 15 mK, J",
   "part": 5,
@@ -52309,6 +52326,23 @@
   "source": ""
  },
  {
+  "label": "ch:scprimer:L84",
+  "title": "pairs broken at most by a 100 keV deposit",
+  "part": 5,
+  "chapter": "ch:scprimer",
+  "file": "part3/p3_01_sc_primer",
+  "line": 84,
+  "status": "calc",
+  "kind": "num",
+  "printed": "2.7\\times10^{8}",
+  "recomputed": "2.747253e+08",
+  "tol": 5000005.0,
+  "passed": true,
+  "note": "",
+  "heavy": false,
+  "source": ""
+ },
+ {
   "label": "ch:scprimer:L96",
   "title": "T_H of 1 M_sun, nK",
   "part": 5,
@@ -52479,6 +52513,23 @@
   "source": ""
  },
  {
+  "label": "ch:scprimer:L118",
+  "title": "BCS ratio Delta/(k_B T_c) = pi e^(-gamma_E)",
+  "part": 5,
+  "chapter": "ch:scprimer",
+  "file": "part3/p3_01_sc_primer",
+  "line": 118,
+  "status": "calc",
+  "kind": "num",
+  "printed": "1.764",
+  "recomputed": "1.76388",
+  "tol": 0.0005000005,
+  "passed": true,
+  "note": "",
+  "heavy": false,
+  "source": ""
+ },
+ {
   "label": "ch:scprimer:L125",
   "title": "drafted check, screened (runs; negative control fails)",
   "part": 5,
@@ -52513,6 +52564,23 @@
   "source": ""
  },
  {
+  "label": "ch:scprimer:L126:2.4e-8",
+  "title": "x_qp for T1 = 1 ms from Catelani, Al, 5 GHz",
+  "part": 5,
+  "chapter": "ch:scprimer",
+  "file": "part3/p3_01_sc_primer",
+  "line": 126,
+  "status": "calc",
+  "kind": "num",
+  "printed": "2.4\\times10^{-8}",
+  "recomputed": "2.383456e-08",
+  "tol": 5.000005e-10,
+  "passed": true,
+  "note": "",
+  "heavy": false,
+  "source": ""
+ },
+ {
   "label": "ch:scprimer:L127",
   "title": "T1 from Gamma = x_qp omega_q, ms",
   "part": 5,
@@ -52528,6 +52596,23 @@
   "note": "",
   "heavy": false,
   "source": ""
+ },
+ {
+  "label": "ch:scprimer:L128",
+  "title": "best transmon T1, ms, from the cited title",
+  "part": 5,
+  "chapter": "ch:scprimer",
+  "file": "part3/p3_01_sc_primer",
+  "line": 128,
+  "status": "calc",
+  "kind": "file",
+  "printed": "0.5",
+  "recomputed": "0.5",
+  "tol": 0.05000005,
+  "passed": true,
+  "note": "",
+  "heavy": false,
+  "source": "docs/book/iam.bib"
  },
  {
   "label": "ch:scprimer:L137",
@@ -52558,6 +52643,23 @@
   "printed": "3.6\\times10^{-12}",
   "recomputed": "3.616549e-12",
   "tol": 5.000005e-14,
+  "passed": true,
+  "note": "",
+  "heavy": false,
+  "source": ""
+ },
+ {
+  "label": "ch:scprimer:L160:1.055e-34",
+  "title": "hbar = h/2pi, J s",
+  "part": 5,
+  "chapter": "ch:scprimer",
+  "file": "part3/p3_01_sc_primer",
+  "line": 160,
+  "status": "calc",
+  "kind": "num",
+  "printed": "1.055\\times10^{-34}",
+  "recomputed": "1.054572e-34",
+  "tol": 5.000004999999999e-38,
   "passed": true,
   "note": "",
   "heavy": false,

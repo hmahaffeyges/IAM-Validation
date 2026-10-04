@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 38
+Entries: 47
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -46,3 +46,12 @@ Entries: 38
 | ch:quantumrecords | `docs/book/part2/p2_14_quantum_records.tex:203` | `0.09` | largest shift of n_eff at z = 2 from the halo definition; same sensitivity run as 0.02, output not committed. Searched as above. |
 | ch:measurement | `docs/book/part5/p5_04_measurement.tex:224` | `10` | 'about 10^{11} galaxies' summed over with 13.8 Gyr; an order-of-magnitude galaxy count in the observable universe given without a citation (the same count appears in ch:gravdec line 247). No file in the repository holds it; a published estimate would need a reference in iam.bib. |
 | ch:electronmass | `docs/book/part2/p2_15b_electron_mass.tex:159` | `10` | the bound 'below 10^{-6} at z<1 (ammonia and methanol)' on the drift of m_p/m_e, cited to Ubachs2016 (doi:10.1103/RevModPhys.88.021003). The exact published radio bound (methanol/ammonia, z<1) could not be confirmed with certainty from memory and no repository file holds it (grep for Ubachs finds only docs/book/BOOK_TODO.md); the specific value and paper should be named |
+| ch:scprimer | `docs/book/part3/p3_01_sc_primer.tex:22` | `0.1` | saturated excited-state occupation 0.1 % (effective temperature 35 mK) of a 3D transmon, cited to Jin2015 (doi:10.1103/PhysRevLett.114.240501); the published value could not be confirmed with certainty and no repository file holds it |
+| ch:scprimer | `docs/book/part3/p3_01_sc_primer.tex:42` | `10` | typical measured x_qp ~ 1e-8 to 1e-6, cited to Riste2013 (doi:10.1038/ncomms2936) and Serniak2018 (doi:10.1103/physrevlett.121.157701); the per-paper values are not in the repository and could not be confirmed with certainty |
+| ch:scprimer | `docs/book/part3/p3_01_sc_primer.tex:44` | `10` | x_qp ~ 1e-6 to 1e-5 in less-protected devices, cited to Martinis2009 and deVisser2011; values not in the repository and not confirmed |
+| ch:scprimer | `docs/book/part3/p3_01_sc_primer.tex:67` | `592` | cosmic-ray correlated errors once every 592 (+48 -41) s, cited to Harrington2025 (doi:10.1038/s41467-025-61385-x); no repository file holds it, value not confirmed |
+| ch:scprimer | `docs/book/part3/p3_01_sc_primer.tex:67` | `41` | lower error bar -41 s of the 592 s interval, Harrington2025 (doi:10.1038/s41467-025-61385-x); not confirmed |
+| ch:scprimer | `docs/book/part3/p3_01_sc_primer.tex:67` | `17.1` | 17.1 +- 1.3 % of correlated events from cosmic rays, Harrington2025 (doi:10.1038/s41467-025-61385-x); not confirmed |
+| ch:scprimer | `docs/book/part3/p3_01_sc_primer.tex:69` | `10` | the 1e-10 error floor reported for the processor of GoogleWillow2025 (doi:10.1038/s41586-024-08449-y), as read by Pinckney2026; not confirmed and not in the repository |
+| ch:scprimer | `docs/book/part3/p3_01_sc_primer.tex:135` | `68` | mean T1 = 68 us of the 105-qubit processor, GoogleWillow2025 (doi:10.1038/s41586-024-08449-y); no repository file holds it (the ratio 89/68 is checked by ch:scprimer:L137 from the book's own numbers) |
+| ch:scprimer | `docs/book/part3/p3_01_sc_primer.tex:135` | `89` | mean T2,CPMG = 89 us of the same processor, GoogleWillow2025 (doi:10.1038/s41586-024-08449-y); not in the repository |
