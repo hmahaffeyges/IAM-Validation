@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4771 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4352,7 +4352,6 @@ Totals: 4771 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 63 | ch:astrogenetics:L63 | calc | `3.03` | file `CANON/iam_canon.json`: Met-A at a coin flip: 1/0.330263 (canon floor) | PASS |
 | 63 | ch:astrogenetics:L63:4.45 | calc | `4.45` | file `CANON/iam_canon.json`: IAM-A at a coin flip: 1/(P H(eps0)) | PASS |
 | 63 | ch:astrogenetics:L63:0.2043 | calc | `0.2043` | numeric: H(eps0), bits | PASS |
-| 73 | ch:astrogenetics:L73 | measured | `1.148` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 88 | ch:astrogenetics:L88 | derived | `0.910` | file `CANON/iam_canon.json`: 1/P | PASS |
 | 88 | ch:astrogenetics:L88:310 | derived | `310` | file `CANON/iam_canon.json`: the floor is set at 310 K (cell temperature) | PASS |
 | 89 | ch:astrogenetics:L89 | calibrated | `0.330263` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
@@ -4372,7 +4371,6 @@ Totals: 4771 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 286 | ch:astrogenetics:L286 | fitted | `1.133\times10^{-123}` | numeric: measured rho_L/rho_vac | PASS |
 | 286 | ch:astrogenetics:L286:0.79 | fitted | `0.79` | numeric: expression above the measured ratio, per cent | PASS |
 | 288 | ch:astrogenetics:L288 | observed | `0.5` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Ob/Om = (3/16) sqrt(OL) holds to 0.5 % on the CMB-only chain | PASS |
-| 298 | ch:astrogenetics:L298 | measured | `1.148` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 
 ## Part 6 - ch:landauer - `docs/book/part4/p4_02_landauer.tex`
 
@@ -4616,13 +4614,7 @@ Totals: 4771 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 95 | ch:meta:L95 | measured | `0.243` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: noise index of second-laboratory arrays, highest | PASS |
 | 95 | ch:meta:L95:0.79 | measured | `0.79` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: Spearman rho of Met-A with N, second laboratory (30 y donor) | PASS |
 | 95 | ch:meta:L95:0.83 | measured | `0.83` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: Spearman rho of Met-A with N, second laboratory (54 y donor) | PASS |
-| 111 | ch:meta:L111 | measured | `0.968` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: vehicle arrays, lowest | PASS |
-| 111 | ch:meta:L111:1.048 | measured | `1.048` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: vehicle arrays, highest | PASS |
 | 111 | ch:meta:L111:1.002 | measured | `1.002` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: inactive analogue, lowest | PASS |
-| 111 | ch:meta:L111:1.032 | measured | `1.032` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: inactive analogue, highest | PASS |
-| 111 | ch:meta:L111:1.16 | measured | `1.16` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: active drug at >= 80 nM, lowest | PASS |
-| 111 | ch:meta:L111:1.87 | measured | `1.87` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: active drug at >= 80 nM, highest | PASS |
-| 112 | ch:meta:L112 | measured | `2.85` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: methylated channel, highest | PASS |
 | 112 |  | measured | `2.8` | not run: measured, source not named | - |
 
 ## Part 6 - ch:iama - `docs/book/part4/p4_08_iama.tex`
@@ -4955,7 +4947,6 @@ Totals: 4771 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 30 |  | prediction | `1.00` | not run: prediction, nothing to recompute: each lineage of a blood-cancer specimen read against its own healthy floor, against 1.00 (the healthy reference value of Met-A) | - |
-| 40 | part4:ch:reach:L40 | measured | `1.148` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: early-onset colorectal pairs: median ratio | PASS |
 | 41 | part4:ch:reach:L41 | measured | `0.005` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_PREREG.md`: instrument bar on the conversion-failure difference | PASS |
 | 41 | part4:ch:reach:L41:1.183 | measured | `1.183` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: colorectal pairs under the bar: median ratio | PASS |
 | 51 | part4:ch:reach:L51 | measured | `0.005` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_PREREG.md`: instrument bar (figure caption) | PASS |
@@ -5051,10 +5042,6 @@ Totals: 4771 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 34 |  | calc | `87.7` | not run: measured: recorded only in the _provenance.tests field of Biological_Physics/MethylPhys/atlas/v2/postbuild/runtime/iamatlas_v2_identity_loci_v1_1.json ('array->array 87.7% of held-out readings in NORMAL, 28/29 cell medians'), a 15 MB file above the DATA_FILES size limit; restates Chapter ch:atlas L181 | - |
 | 34 |  | calc | `73.1` | not run: measured: recorded only in the _provenance.tests field of Biological_Physics/MethylPhys/atlas/v2/postbuild/runtime/iamatlas_v2_identity_loci_v1_1.json ('Loyfer->array with this correction 73.1%, 14/17 cell medians'), a 15 MB file above the DATA_FILES size limit; restates Chapter ch:atlas L182 | - |
 | 44 |  | calc | `100` | not run: input: the 100 nM dose of the single-molecule DNMT1 inhibitor libraries (Part B design) | - |
-| 45 | ch:status:L45 | calc | `1.062` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures against neutrophils alone, lowest | PASS |
-| 45 | ch:status:L45:1.118 | calc | `1.118` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures against neutrophils alone, highest | PASS |
-| 45 | ch:status:L45:0.982 | calc | `0.982` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures against own composition, lowest | PASS |
-| 45 | ch:status:L45:1.016 | calc | `1.016` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures against own composition, highest | PASS |
 
 ## Part 7 - ch:theoryinterp - `docs/book/part5/p5_01_interpretation.tex`
 
@@ -5215,8 +5202,6 @@ Totals: 4771 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 64 | ch:synthesis:L64 | derived | `0.500000` | numeric: capacitor charging: dissipated over drawn energy, any R | PASS |
 | 64 |  | derived | `10` | not run: input: the resistance range 10^-2 to 10^2 ohm over which the capacitor ratio is computed (checked as ch:synthesis:L64) | - |
 | 69 | ch:synthesis:L69 | derived | `-0.136` | numeric: mu0 from beta_m = Omega_m/2 | PASS |
-| 77 | ch:synthesis:L77 | measured | `1.05` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names | PASS |
-| 77 | ch:synthesis:L77:0.95 | measured | `0.95` | file `CANON/iam_canon.json`: Normal band lower edge (CANON) | PASS |
 | 77 |  | measured | `1.8` | not run: measured, source not named | - |
 | 79 | ch:synthesis:L79 | fitted | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2, IAM minus LCDM | PASS |
 | 80 | ch:synthesis:L80 | fitted | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM Level 2 chain (Run C) | PASS |
@@ -5226,38 +5211,11 @@ Totals: 4771 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 87 |  | derived | `68` | not run: input: T_1 = 68 microseconds, a published device value (\cite{GoogleWillow2025} in ch:onegauge); used by ch:synthesis:L87 | - |
 | 88 |  | derived | `10` | not run: input: the base 10 of a two-qubit error near 10^-3, an illustrative device value stated in the sentence; nothing to recompute | - |
 | 93 | ch:synthesis:L93 | calibrated | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out SD of the six reference arrays | PASS |
-| 94 | ch:synthesis:L94 | measured | `0.982` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures, untared, lowest | PASS |
-| 94 | ch:synthesis:L94:1.016 | measured | `1.016` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures, untared, highest | PASS |
-| 94 | ch:synthesis:L94:1.049 | measured | `1.049` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: 2 % pattern loss, untared, lowest | PASS |
-| 94 | ch:synthesis:L94:1.079 | measured | `1.079` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: 2 % pattern loss, untared, highest | PASS |
-| 95 | ch:synthesis:L95 | measured | `1.090` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |
-| 95 | ch:synthesis:L95:1.052 | measured | `1.052` | file `Biological_Physics/MethylPhys/doors/data/selfconsist.csv`: 2 % pattern loss, tared, lowest of six mixtures | PASS |
-| 98 | ch:synthesis:L98 | measured | `1.05` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names | PASS |
-| 98 | ch:synthesis:L98:1.16 | measured | `1.16` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names | PASS |
-| 98 | ch:synthesis:L98:1.87 | measured | `1.87` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names | PASS |
-| 98 | ch:synthesis:L98:0.97 | measured | `0.97` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT series vehicle arrays, lowest | PASS |
-| 100 | ch:synthesis:L100 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv`: DNMT1 block on single molecules: lowest IAM-A of the 8 treated libraries | PASS |
-| 100 | ch:synthesis:L100:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names | PASS |
-| 102 | ch:synthesis:L102 | measured | `1.148` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |
 
 ## Part 7 - ch:reach - `docs/book/part3/p3_09_reach.tex`
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 33 | ch:reach:L33 | measured | `1.148` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |
-| 33 | ch:reach:L33:1.65 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv`: DNMT1 block on single molecules: lowest IAM-A (figure caption) | PASS |
-| 33 | ch:reach:L33:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names | PASS |
-| 40 | ch:reach:L40 | measured | `1.07` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |
-| 40 | ch:reach:L40:1.33 | measured | `1.33` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |
-| 40 | ch:reach:L40:1.148 | measured | `1.148` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |
-| 40 | ch:reach:L40:1.090 | measured | `1.090` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |
-| 52 | ch:reach:L52 | measured | `1.16` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT1 inhibitor >= 80 nM: Met-A lowest | PASS |
-| 52 | ch:reach:L52:1.87 | measured | `1.87` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT1 inhibitor >= 80 nM: Met-A highest | PASS |
-| 52 | ch:reach:L52:0.968 | measured | `0.968` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT series vehicle arrays: Met-A lowest | PASS |
-| 52 | ch:reach:L52:1.048 | measured | `1.048` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT series vehicle arrays: Met-A highest | PASS |
-| 53 | ch:reach:L53 | measured | `3.2` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT series: lowest dose of the active drug, nM | PASS |
-| 55 | ch:reach:L55 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv`: DNMT1 block on single molecules: lowest IAM-A | PASS |
-| 55 | ch:reach:L55:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names | PASS |
 | 68 | ch:reach:L68 | calc | `1.012` | numeric: same value as p4_10_temperature:17 (floor at 38.5 C) | PASS |
 | 68 | ch:reach:L68:0.78 | calc | `0.78` | numeric: copy-error floor at 10 C relative to 37 C, fixed holding energy | PASS |
 | 68 |  | calc | `38.5` | not run: input: a dog's body temperature 38.5 C, the temperature at which the floor ratio 1.012 is evaluated (checked as ch:reach:L68) | - |
@@ -5583,12 +5541,6 @@ Totals: 4771 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 98 |  | calc | `10` | not run: input: temperature 10 C at which the floor is evaluated; checked in ch:statusall:L98 | - |
 | 98 |  | calc | `38.5` | not run: input: temperature 38.5 C at which the floor is evaluated; checked in ch:statusall:L98:1.012 | - |
 | 99 | ch:statusall:L99 | measured | `92.7` | heavy file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: atlas v2 held-out interval coverage, per cent | PASS |
-| 100 | ch:statusall:L100 | measured | `0.982` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures, untared, lowest | PASS |
-| 100 | ch:statusall:L100:1.016 | measured | `1.016` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures, untared, highest | PASS |
-| 100 | ch:statusall:L100:1.049 | measured | `1.049` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: 2 % neutrophil-pattern loss, untared, lowest | PASS |
-| 100 | ch:statusall:L100:1.079 | measured | `1.079` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: 2 % neutrophil-pattern loss, untared, highest | PASS |
-| 100 | ch:statusall:L100:1.052 | measured | `1.052` | heavy file `Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md`: 2 % loss, tared, lowest | PASS |
-| 100 | ch:statusall:L100:1.090 | measured | `1.090` | heavy file `Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md`: 2 % loss, tared, highest | PASS |
 | 106 | ch:statusall:L106 | calc | `2.3\times10^{22}` | numeric: M_eq today | PASS |
 | 108 | ch:statusall:L108 | conjecture | `0.0179` | numeric: Q_L = k_B T ln 2 at room temperature, eV | PASS |
 | 110 | ch:statusall:L110:509 | prediction | `509` | numeric: tau_IAM of a 1e-12 kg silica sphere at 10 mK, s | PASS |
@@ -6063,8 +6015,6 @@ Totals: 4771 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 90 | app:glossary:L90:0.295 | observed | `0.295` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI BGS effective redshift | PASS |
 | 103 |  | observed | `50` | not run: definition: block size of the C-score, 50 consecutive identity sites | - |
 | 109 | app:glossary:L109:5.5 | observed | `5.5` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: bottom-up exponent at z = 9 | PASS |
-| 112 | app:glossary:L112:3.81 | observed | `3.81` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr sperm holding energy | PASS |
-| 112 | app:glossary:L112:3.47 | observed | `3.47` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Atlantic salmon fin holding energy (F0) | PASS |
 | 116 |  | observed | `30` | not run: definition: 30 % burn-in, the setting of the book extractions | - |
 | 124 | app:glossary:L124:0.97 | observed | `0.97` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d) of beta at 10-18 bp | PASS |
 | 124 | app:glossary:L124:10 | observed | `10` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d): lower edge of the first distance bin | PASS |
@@ -6104,9 +6054,6 @@ Totals: 4771 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 223 | app:glossary:L223:4.4 | observed | `4.4` | numeric: DNMT1 selectivity 80-fold in k_B T | PASS |
 | 223 |  | observed | `-80` | not run: input: 80-fold average selectivity across flanking sequences (Adam2023, ch:landauer line 194); its k_B T ln 80 is checked at app:glossary:L223:4.4 | - |
 | 224 | app:glossary:L224:1.16 | observed | `1.16` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT1 inhibitor arrays: lowest Met-A at >= 80 nM | PASS |
-| 224 | app:glossary:L224:1.87 | observed | `1.87` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT1 inhibitor arrays: highest Met-A at >= 80 nM | PASS |
-| 224 | app:glossary:L224:1.65 | observed | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: DNMT1 inhibitor EM-seq: lowest IAM-A | PASS |
-| 224 | app:glossary:L224:1.97 | observed | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: DNMT1 inhibitor EM-seq: highest IAM-A | PASS |
 | 230 | app:glossary:L230 | observed | `3.41` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 230 | app:glossary:L230:-3.77 | observed | `-3.77` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 230 | app:glossary:L230:0.163 | observed | `0.163` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
@@ -6159,8 +6106,6 @@ Totals: 4771 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 323 | app:glossary:L323:0.30 | observed | `0.30` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: GSE250556: lowest neutrophil fraction | PASS |
 | 323 | app:glossary:L323:0.56 | observed | `0.56` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: GSE250556: highest neutrophil fraction | PASS |
 | 324 | app:glossary:L324 | measured | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 324 | app:glossary:L324:1.65 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: GSE329728: lowest IAM-A of the treated libraries | PASS |
-| 324 | app:glossary:L324:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: GSE329728: highest IAM-A of the treated libraries | PASS |
 | 325 |  | observed | `-70` | not run: measured, source not named | - |
 | 325 |  | observed | `75` | not run: measured, source not named | - |
 | 327 | app:glossary:L327:67.16 | observed | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 (Level 2 chain) | PASS |
@@ -6198,8 +6143,6 @@ Totals: 4771 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 368 |  | observed | `000` | not run: definition: at least 100,000 opportunities per IAM-A reading (chain setting); thousands group | - |
 | 368 |  | observed | `0.95` | not run: definition: lower edge of the Normal band 0.95-1.05 (canon Normal_band) | - |
 | 370 | app:glossary:L370:0.80 | observed | `0.80` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: ICC of cell-type copy-error differences across donors | PASS |
-| 370 | app:glossary:L370:0.92 | observed | `0.92` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: ICC of repeat halves, lowest fish set | PASS |
-| 370 | app:glossary:L370:0.998 | observed | `0.998` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: ICC of repeat halves, highest fish set | PASS |
 | 372 |  | observed | `0.75` | not run: definition: identity-site window 0.75-0.95 (canon Met_A_site_rule) | - |
 | 372 |  | observed | `-0.95` | not run: definition: identity-site window 0.75-0.95 (canon Met_A_site_rule) | - |
 | 372 |  | observed | `0.05` | not run: definition: identity-site window 0.05-0.25 (canon Met_A_site_rule) | - |

@@ -12,7 +12,6 @@ p3_03 fig_qubit_gauge  : the qubit gauge, each device against itself: thermal fl
                          threshold at 1e-2/eps; ion devices with a primary published error; eps vs p.
 p3_06 tab_chip_scales  : the scales at a CMOS gate and the Landauer floor at 40, 75 and 105 C.
 p3_07 fig_four_floors  : the four floors in their own variables; fig_cell_gauge: IAM-A = H(eps)/(P H(eps0)).
-p3_09 fig_reach_cell   : reference vs changed copy error.
 Run: python docs/book/figscripts/fig_p3_extra.py
 """
 import sys, pathlib, re, json, importlib.util
@@ -179,21 +178,4 @@ ax.set_xlim(0, 0.52); ax.set_ylim(0, 4.9)
 ax.set_title("The cell gauge: floor left, healthy at 1, full surface right")
 fig.tight_layout(); S.save(fig, "part3", "fig_cell_gauge")
 
-# ============ p3_09 figure 2: reference against changed copy error, per pair ============
-md = (REPO / "Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md").read_text()
-tum = [tuple(float(v) for v in m.groups()) for m in re.finditer(r"\| CRC\d \| ([\d.]+) \| ([\d.]+) \| ([\d.]+) \|", md)]
-assert len(tum) == 6, tum
-dn = pd.read_csv(REPO / "Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv")
-fig, ax = plt.subplots(figsize=(0.62 * S.TEXTW, 2.9))
-xx = np.array([0.015, 0.06]); ax.plot(xx, xx, color=S.GR, lw=0.8); ax.plot(xx, 1.05 * xx, color=S.GR, lw=0.6, ls=":")
-ax.text(0.0395, 0.0365, "equal", fontsize=6, color=S.GR, rotation=33)
-ax.plot([t[0] for t in tum], [t[1] for t in tum], "o", color=S.DATA, ms=4.5,
-        label=f"colorectal tumour vs adjacent normal (6 patients, median ratio {np.median([t[2] for t in tum]):.3f})")
-ax.plot(dn.eps_dmso, dn.eps_treated, "^", color=S.IAM, ms=4.5,
-        label=f"DNMT1 block vs vehicle (8 libraries, ratio of entropies {dn.A.min():.2f}–{dn.A.max():.2f})")
-print(f"tumour median ratio {np.median([t[2] for t in tum]):.3f}; DNMT-B A {dn.A.min():.3f}-{dn.A.max():.3f}")
-ax.set_xlim(0.015, 0.06); ax.set_ylim(0.015, 0.06)
-ax.set_xlabel(r"copy error $\varepsilon$, reference (normal tissue; vehicle)")
-ax.set_ylabel(r"copy error $\varepsilon$, changed state")
-ax.legend(loc="upper left", fontsize=5.8); ax.set_title("Every pair reads above its own reference")
-fig.tight_layout(); S.save(fig, "part3", "fig_reach_cell")
+# p3_09 fig_reach_cell retired 2026-10-04 (development readings; author ruling)

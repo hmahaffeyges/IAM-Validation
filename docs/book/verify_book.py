@@ -30522,13 +30522,6 @@ def check_2435():
     value=Hb(eps0)
     return locals()
 
-@check(label='ch:astrogenetics:L73', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names',
-       file='part4/p4_00b_astrogenetics', line=73, status='measured', kind='file', printed='1.148', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_book_output.txt',
-       heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')
-def check_2436():
-    'measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names. Book line 73, printed 1.148.'
-    ok = file_has('docs/verification/scripts/verify_astrogenetics_book_output.txt', '1.148')
-    return locals()
 
 @check(label='ch:astrogenetics:L88', chapter='ch:astrogenetics', part=6, title='1/P',
        file='part4/p4_00b_astrogenetics', line=88, status='derived', kind='file', printed='0.910', tol=0, source='CANON/iam_canon.json')
@@ -30706,13 +30699,6 @@ def check_3797():
 
 
 
-@check(label='ch:astrogenetics:L298', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names',
-       file='part4/p4_00b_astrogenetics', line=298, status='measured', kind='file', printed='1.148', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_book_output.txt',
-       heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')
-def check_2450():
-    'measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names. Book line 298, printed 1.148.'
-    ok = file_has('docs/verification/scripts/verify_astrogenetics_book_output.txt', '1.148')
-    return locals()
 
 
 # ======== Part 6 | ch:landauer | docs/book/part4/p4_02_landauer.tex
@@ -32205,19 +32191,7 @@ def check_3870():
     value = _b09_noise_rho('GSE247195')
     return locals()
 
-@check(label='ch:meta:L111', chapter='ch:meta', part=6, title='DNMT-inhibitor series: vehicle arrays, lowest',
-       file='part4/p4_07_meta', line=111, status='measured', kind='file', printed='0.968', tol=0.0, source=_B09_DN)
-def check_3871():
-    'Vehicle (DMSO) arrays of the DNMT-inhibitor series, three cell lines: lowest Met-A. Book line 111, printed 0.968. Inputs: A of the DMSO rows of dnmt_arrays_readings.csv.'
-    value = min(_b09_dnmt(lambda r: r['cmpd'] == 'DMSO'))
-    return locals()
 
-@check(label='ch:meta:L111:1.048', chapter='ch:meta', part=6, title='DNMT-inhibitor series: vehicle arrays, highest',
-       file='part4/p4_07_meta', line=111, status='measured', kind='file', printed='1.048', tol=0.0, source=_B09_DN)
-def check_3872():
-    'Vehicle (DMSO) arrays: highest Met-A. Book line 111, printed 1.048. Inputs: dnmt_arrays_readings.csv.'
-    value = max(_b09_dnmt(lambda r: r['cmpd'] == 'DMSO'))
-    return locals()
 
 @check(label='ch:meta:L111:1.002', chapter='ch:meta', part=6, title='DNMT-inhibitor series: inactive analogue, lowest',
        file='part4/p4_07_meta', line=111, status='measured', kind='file', printed='1.002', tol=0.0, source=_B09_DN)
@@ -32226,33 +32200,9 @@ def check_3873():
     value = min(_b09_dnmt(lambda r: r['cmpd'] == 'GSK477'))
     return locals()
 
-@check(label='ch:meta:L111:1.032', chapter='ch:meta', part=6, title='DNMT-inhibitor series: inactive analogue, highest',
-       file='part4/p4_07_meta', line=111, status='measured', kind='file', printed='1.032', tol=0.0, source=_B09_DN)
-def check_3874():
-    'Inactive analogue (GSK477): highest Met-A. Book line 111, printed 1.032. Inputs: dnmt_arrays_readings.csv.'
-    value = max(_b09_dnmt(lambda r: r['cmpd'] == 'GSK477'))
-    return locals()
 
-@check(label='ch:meta:L111:1.16', chapter='ch:meta', part=6, title='DNMT-inhibitor series: active drug at >= 80 nM, lowest',
-       file='part4/p4_07_meta', line=111, status='measured', kind='file', printed='1.16', tol=0.0, source=_B09_DN)
-def check_3875():
-    'Active inhibitor (GSK032, GSK862) at >= 80 nM: lowest Met-A. Book line 111, printed 1.16. Inputs: dnmt_arrays_readings.csv.'
-    value = min(_b09_dnmt(lambda r: r['cmpd'] in ('GSK032', 'GSK862') and float(r['dose_nM']) >= 80))
-    return locals()
 
-@check(label='ch:meta:L111:1.87', chapter='ch:meta', part=6, title='DNMT-inhibitor series: active drug at >= 80 nM, highest',
-       file='part4/p4_07_meta', line=111, status='measured', kind='file', printed='1.87', tol=0.0, source=_B09_DN)
-def check_3876():
-    'Active inhibitor at >= 80 nM: highest Met-A. Book line 111, printed 1.87. Inputs: dnmt_arrays_readings.csv.'
-    value = max(_b09_dnmt(lambda r: r['cmpd'] in ('GSK032', 'GSK862') and float(r['dose_nM']) >= 80))
-    return locals()
 
-@check(label='ch:meta:L112', chapter='ch:meta', part=6, title='DNMT-inhibitor series: methylated channel, highest',
-       file='part4/p4_07_meta', line=112, status='measured', kind='file', printed='2.85', tol=0.0, source=_B09_DN)
-def check_3877():
-    'Met-A on the methylated channel alone under the active inhibitor: highest reading. Book line 112, printed 2.85. Inputs: A_meth of dnmt_arrays_readings.csv.'
-    value = max(_b09_dnmt(lambda r: r['cmpd'] in ('GSK032', 'GSK862'), 'A_meth'))
-    return locals()
 
 
 # ======== Part 6 | ch:iama | docs/book/part4/p4_08_iama.tex
@@ -34239,15 +34189,6 @@ def check_4181():
 
 
 # ======== Part 6 | part4:ch:reach | docs/book/part4/p4_23_reach.tex
-@check(label='part4:ch:reach:L40', chapter='part4:ch:reach', part=6, title='early-onset colorectal pairs: median ratio',
-       file='part4/p4_23_reach', line=40, status='measured', kind='file', printed='1.148', tol=0.0, source=_B12_TUM,
-       heavy=True, rerun=_B12_RR_TUM)
-def check_4265():
-    'Six early-onset colorectal tumour-normal pairs (CRC7 has a normal sample only): median of eps_corr tumour/normal, from the per-sample readings of PROC-TUMOUR-01 (tumour_readings.csv). Book line 40, printed 1.148.'
-    ratios = _b12_crc_ratios()
-    n_pairs = len(ratios)   # 6
-    value = float(np.median(ratios))
-    return locals()
 
 @check(label='part4:ch:reach:L41', chapter='part4:ch:reach', part=6, title='instrument bar on the conversion-failure difference',
        file='part4/p4_23_reach', line=41, status='measured', kind='file', printed='0.005', tol=0.0, source=_B12_TUMPRE)
@@ -34947,37 +34888,9 @@ def check_4345():
 
 
 
-@check(label='ch:status:L45', chapter='ch:status', part=6, title='healthy DNA mixtures against neutrophils alone, lowest',
-       file='part4/p4_24_status', line=45, status='calc', kind='file', printed='1.062', tol=0.0, source=_B12_WBN,
-       heavy=True, rerun='chain v3 on the 24 Salas DNA-mixture arrays (PROC-WB-NEUT-01); the record is the outcome file')
-def check_4352():
-    'Six healthy DNA mixtures (neutrophils 63-75 %) read against the neutrophil floor alone: lower end, from the PROC-WB-NEUT-01 outcome (per-mixture readings not committed). Book line 45, printed 1.062.'
-    value = _b12_wbn('floor')[0]
-    return locals()
 
-@check(label='ch:status:L45:1.118', chapter='ch:status', part=6, title='healthy DNA mixtures against neutrophils alone, highest',
-       file='part4/p4_24_status', line=45, status='calc', kind='file', printed='1.118', tol=0.0, source=_B12_WBN,
-       heavy=True, rerun='chain v3 on the 24 Salas DNA-mixture arrays (PROC-WB-NEUT-01); the record is the outcome file')
-def check_4353():
-    'Six healthy DNA mixtures against the neutrophil floor alone: upper end, PROC-WB-NEUT-01 outcome. (The inventory row read the range 1.062--1.118 as -1.118; the printed number is 1.118.) Book line 45, printed 1.118.'
-    value = _b12_wbn('floor')[1]
-    return locals()
 
-@check(label='ch:status:L45:0.982', chapter='ch:status', part=6, title='healthy DNA mixtures against own composition, lowest',
-       file='part4/p4_24_status', line=45, status='calc', kind='file', printed='0.982', tol=0.0, source=_B12_WBN,
-       heavy=True, rerun='chain v3 on the 24 Salas DNA-mixture arrays (PROC-WB-NEUT-01); the record is the outcome file')
-def check_4354():
-    'Six healthy DNA mixtures read against the expectation for their own known composition (bar W1): lower end, PROC-WB-NEUT-01 outcome. Book line 45, printed 0.982.'
-    value = _b12_wbn('own')[0]
-    return locals()
 
-@check(label='ch:status:L45:1.016', chapter='ch:status', part=6, title='healthy DNA mixtures against own composition, highest',
-       file='part4/p4_24_status', line=45, status='calc', kind='file', printed='1.016', tol=0.0, source=_B12_WBN,
-       heavy=True, rerun='chain v3 on the 24 Salas DNA-mixture arrays (PROC-WB-NEUT-01); the record is the outcome file')
-def check_4355():
-    'Six healthy DNA mixtures against their own composition: upper end, PROC-WB-NEUT-01 outcome. (The inventory row read the range 0.982--1.016 as -1.016; the printed number is 1.016.) Book line 45, printed 1.016.'
-    value = _b12_wbn('own')[1]
-    return locals()
 
 
 
@@ -35864,19 +35777,7 @@ def check_4439():
     value = 1 / (1 + Om / 2) - 1
     return locals()
 
-@check(label='ch:synthesis:L77', chapter='ch:synthesis', part=7, title='measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names',
-       file='part5/p5_08_synthesis', line=77, status='measured', kind='file', printed='1.05', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md')
-def check_2608():
-    'measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names. Book line 77, printed 1.05.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md', '1.05')
-    return locals()
 
-@check(label='ch:synthesis:L77:0.95', chapter='ch:synthesis', part=7, title='Normal band lower edge (CANON)',
-       file='part5/p5_08_synthesis', line=77, status='measured', kind='file', printed='0.95', tol=0.0, source='CANON/iam_canon.json')
-def check_4440():
-    'Lower edge of the Normal band of A, CANON Normal_band. Book line 77, printed 0.95.'
-    value = _cv('Normal_band')[0]
-    return locals()
 
 @check(label='ch:synthesis:L79', chapter='ch:synthesis', part=7, title='Level 2 Delta chi2, IAM minus LCDM',
        file='part5/p5_08_synthesis', line=79, status='fitted', kind='file', printed='+0.54', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
@@ -35926,196 +35827,34 @@ def check_4446():
     value = float(np.std(A, ddof=1))
     return locals()
 
-@check(label='ch:synthesis:L94', chapter='ch:synthesis', part=7, title='healthy DNA mixtures, untared, lowest',
-       file='part5/p5_08_synthesis', line=94, status='measured', kind='file', printed='0.982', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md')
-def check_4447():
-    'Lower end of Met-A of the 6 healthy Salas mixtures (63-75 % neutrophils) against their known composition, row W1 of PROC_WB_NEUT_01_OUTCOME.md. Book line 94, printed 0.982.'
-    value = _b13_wbneut_range('W1')[0]
-    return locals()
 
-@check(label='ch:synthesis:L94:1.016', chapter='ch:synthesis', part=7, title='healthy DNA mixtures, untared, highest',
-       file='part5/p5_08_synthesis', line=94, status='measured', kind='file', printed='1.016', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md')
-def check_4448():
-    'Upper end, row W1 of PROC_WB_NEUT_01_OUTCOME.md. Book line 94, printed 1.016.'
-    value = _b13_wbneut_range('W1')[1]
-    return locals()
 
-@check(label='ch:synthesis:L94:1.049', chapter='ch:synthesis', part=7, title='2 % pattern loss, untared, lowest',
-       file='part5/p5_08_synthesis', line=94, status='measured', kind='file', printed='1.049', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md')
-def check_4449():
-    'Lower end of Met-A after a simulated 2 % neutrophil pattern loss, row W3 of PROC_WB_NEUT_01_OUTCOME.md. Book line 94, printed 1.049.'
-    value = _b13_wbneut_range('W3')[0]
-    return locals()
 
-@check(label='ch:synthesis:L94:1.079', chapter='ch:synthesis', part=7, title='2 % pattern loss, untared, highest',
-       file='part5/p5_08_synthesis', line=94, status='measured', kind='file', printed='1.079', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md')
-def check_4450():
-    'Upper end, row W3 of PROC_WB_NEUT_01_OUTCOME.md. Book line 94, printed 1.079.'
-    value = _b13_wbneut_range('W3')[1]
-    return locals()
 
-@check(label='ch:synthesis:L95', chapter='ch:synthesis', part=7, title='measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names',
-       file='part5/p5_08_synthesis', line=95, status='measured', kind='file', printed='1.090', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md')
-def check_2609():
-    'measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names. Book line 95, printed 1.090.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md', '1.090')
-    return locals()
 
-@check(label='ch:synthesis:L95:1.052', chapter='ch:synthesis', part=7, title='2 % pattern loss, tared, lowest of six mixtures',
-       file='part5/p5_08_synthesis', line=95, status='measured', kind='file', printed='1.052', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/selfconsist.csv')
-def check_4451():
-    'Lowest tared Met-A of the six constructed mixtures (f_true >= 0.5) with a simulated 2 % pattern loss: A_nnls_damaged over the median of the other five healthy A_nnls (selfconsist.csv), as Chapter ch:gauge. Book line 95, printed 1.052.'
-    value = float(_b13_tared_damaged().min())
-    return locals()
 
-@check(label='ch:synthesis:L98', chapter='ch:synthesis', part=7, title='measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names',
-       file='part5/p5_08_synthesis', line=98, status='measured', kind='file', printed='1.05', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md')
-def check_2610():
-    'measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names. Book line 98, printed 1.05.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md', '1.05')
-    return locals()
 
-@check(label='ch:synthesis:L98:1.16', chapter='ch:synthesis', part=7, title='measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names',
-       file='part5/p5_08_synthesis', line=98, status='measured', kind='file', printed='1.16', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md')
-def check_2611():
-    'measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names. Book line 98, printed 1.16.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md', '1.16')
-    return locals()
 
-@check(label='ch:synthesis:L98:1.87', chapter='ch:synthesis', part=7, title='measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names',
-       file='part5/p5_08_synthesis', line=98, status='measured', kind='file', printed='1.87', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md')
-def check_2612():
-    'measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names. Book line 98, printed 1.87.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md', '1.87')
-    return locals()
 
-@check(label='ch:synthesis:L98:0.97', chapter='ch:synthesis', part=7, title='DNMT series vehicle arrays, lowest',
-       file='part5/p5_08_synthesis', line=98, status='measured', kind='file', printed='0.97', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4452():
-    'Lowest Met-A of the vehicle (DMSO) arrays of the three leukaemia lines (GSE135205), dnmt_arrays_readings.csv. Book line 98, printed 0.97.'
-    value = min(float(r['A']) for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv') if r['cmpd'] == 'DMSO')
-    return locals()
 
-@check(label='ch:synthesis:L100', chapter='ch:synthesis', part=7, title='DNMT1 block on single molecules: lowest IAM-A of the 8 treated libraries',
-       file='part5/p5_08_synthesis', line=100, status='measured', kind='file', printed='1.65', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv')
-def check_2613():
-    'IAM-A read 1.65-1.97 in all eight treated libraries: smallest A over dnmt_b_pairs.csv, the per-pair table behind PROC_DNMT_01_PARTB_OUTCOME.md. Book line 100, printed 1.65.'
-    value = min(float(r['A']) for r in load_csv_rows(_F03_DNMT))
-    return locals()
 
-@check(label='ch:synthesis:L100:1.97', chapter='ch:synthesis', part=7, title='measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names',
-       file='part5/p5_08_synthesis', line=100, status='measured', kind='file', printed='1.97', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md')
-def check_2614():
-    'measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names. Book line 100, printed 1.97.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md', '1.97')
-    return locals()
 
-@check(label='ch:synthesis:L102', chapter='ch:synthesis', part=7, title='measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names',
-       file='part5/p5_08_synthesis', line=102, status='measured', kind='file', printed='1.148', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md')
-def check_2615():
-    'measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names. Book line 102, printed 1.148.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md', '1.148')
-    return locals()
 
 
 # ======== Part 7 | ch:reach | docs/book/part3/p3_09_reach.tex
-@check(label='ch:reach:L33', chapter='ch:reach', part=7, title='measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names',
-       file='part3/p3_09_reach', line=33, status='measured', kind='file', printed='1.148', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md')
-def check_2616():
-    'measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names. Book line 33, printed 1.148.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md', '1.148')
-    return locals()
 
-@check(label='ch:reach:L33:1.65', chapter='ch:reach', part=7, title='DNMT1 block on single molecules: lowest IAM-A (figure caption)',
-       file='part3/p3_09_reach', line=33, status='measured', kind='file', printed='1.65', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv')
-def check_2617():
-    'Triangles: IAM-A 1.65-1.97: smallest A over dnmt_b_pairs.csv (PROC_DNMT_01_PARTB_OUTCOME.md). Book line 33, printed 1.65.'
-    value = min(float(r['A']) for r in load_csv_rows(_F03_DNMT))
-    return locals()
 
-@check(label='ch:reach:L33:1.97', chapter='ch:reach', part=7, title='measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names',
-       file='part3/p3_09_reach', line=33, status='measured', kind='file', printed='1.97', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md')
-def check_2618():
-    'measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names. Book line 33, printed 1.97.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md', '1.97')
-    return locals()
 
-@check(label='ch:reach:L40', chapter='ch:reach', part=7, title='measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names',
-       file='part3/p3_09_reach', line=40, status='measured', kind='file', printed='1.07', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md')
-def check_2619():
-    'measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names. Book line 40, printed 1.07.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md', '1.07')
-    return locals()
 
-@check(label='ch:reach:L40:1.33', chapter='ch:reach', part=7, title='measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names',
-       file='part3/p3_09_reach', line=40, status='measured', kind='file', printed='1.33', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md')
-def check_2620():
-    'measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names. Book line 40, printed 1.33.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md', '1.33')
-    return locals()
 
-@check(label='ch:reach:L40:1.148', chapter='ch:reach', part=7, title='measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names',
-       file='part3/p3_09_reach', line=40, status='measured', kind='file', printed='1.148', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md')
-def check_2621():
-    'measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names. Book line 40, printed 1.148.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md', '1.148')
-    return locals()
 
-@check(label='ch:reach:L40:1.090', chapter='ch:reach', part=7, title='measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names',
-       file='part3/p3_09_reach', line=40, status='measured', kind='file', printed='1.090', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md')
-def check_2622():
-    'measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names. Book line 40, printed 1.090.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md', '1.090')
-    return locals()
 
-@check(label='ch:reach:L52', chapter='ch:reach', part=7, title='DNMT1 inhibitor >= 80 nM: Met-A lowest',
-       file='part3/p3_09_reach', line=52, status='measured', kind='file', printed='1.16', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4453():
-    'Lowest Met-A (column A) of the GSK3685032 arrays at >= 80 nM, all days, three leukaemia lines (GSE135205), each against its own vehicle arrays; dnmt_arrays_readings.csv (PROC-DNMT-01 Part A). Book line 52, printed 1.16.'
-    value = min(_b13_dnmt(_b13_active80))
-    return locals()
 
-@check(label='ch:reach:L52:1.87', chapter='ch:reach', part=7, title='DNMT1 inhibitor >= 80 nM: Met-A highest',
-       file='part3/p3_09_reach', line=52, status='measured', kind='file', printed='1.87', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4454():
-    'Highest Met-A of the GSK3685032 arrays at >= 80 nM, dnmt_arrays_readings.csv. Book line 52, printed 1.87.'
-    value = max(_b13_dnmt(_b13_active80))
-    return locals()
 
-@check(label='ch:reach:L52:0.968', chapter='ch:reach', part=7, title='DNMT series vehicle arrays: Met-A lowest',
-       file='part3/p3_09_reach', line=52, status='measured', kind='file', printed='0.968', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4455():
-    'Lowest Met-A of the vehicle (DMSO) arrays, read leave-one-out against each line\'s own vehicle arrays; dnmt_arrays_readings.csv. Book line 52, printed 0.968.'
-    value = min(_b13_dnmt(lambda r: r['cmpd'] == 'DMSO'))
-    return locals()
 
-@check(label='ch:reach:L52:1.048', chapter='ch:reach', part=7, title='DNMT series vehicle arrays: Met-A highest',
-       file='part3/p3_09_reach', line=52, status='measured', kind='file', printed='1.048', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4456():
-    'Highest Met-A of the vehicle (DMSO) arrays; dnmt_arrays_readings.csv. Book line 52, printed 1.048.'
-    value = max(_b13_dnmt(lambda r: r['cmpd'] == 'DMSO'))
-    return locals()
 
-@check(label='ch:reach:L53', chapter='ch:reach', part=7, title='DNMT series: lowest dose of the active drug, nM',
-       file='part3/p3_09_reach', line=53, status='measured', kind='file', printed='3.2', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
-def check_4457():
-    'Lowest nonzero GSK3685032 dose in the series (dose_nM column of dnmt_arrays_readings.csv), the low end of the 3.2-16 nM range where the reading does not move. Book line 53, printed 3.2 (nM).'
-    value = min(_b13_dnmt(lambda r: r['cmpd'] == 'GSK032' and float(r['dose_nM']) > 0, 'dose_nM'))
-    return locals()
 
-@check(label='ch:reach:L55', chapter='ch:reach', part=7, title='DNMT1 block on single molecules: lowest IAM-A',
-       file='part3/p3_09_reach', line=55, status='measured', kind='file', printed='1.65', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv')
-def check_2623():
-    'Reads IAM-A 1.65-1.97 in all 8 treated libraries: smallest A over dnmt_b_pairs.csv (PROC_DNMT_01_PARTB_OUTCOME.md). Book line 55, printed 1.65.'
-    value = min(float(r['A']) for r in load_csv_rows(_F03_DNMT))
-    return locals()
 
-@check(label='ch:reach:L55:1.97', chapter='ch:reach', part=7, title='measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names',
-       file='part3/p3_09_reach', line=55, status='measured', kind='file', printed='1.97', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md')
-def check_2624():
-    'measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names. Book line 55, printed 1.97.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md', '1.97')
-    return locals()
 
 @check(label='ch:reach:L68', chapter='ch:reach', part=7, title='same value as p4_10_temperature:17 (floor at 38.5 C)',
        file='part3/p3_09_reach', line=68, status='calc', kind='num', printed='1.012', tol=0)
@@ -38100,53 +37839,11 @@ def _b15_tared():
     m = re.search(r'6/6 \(([\d.]+)–([\d.]+); shift', file_text('Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md'))
     return float(m.group(1)), float(m.group(2))
 
-@check(label='ch:statusall:L100', chapter='ch:statusall', part=7, title='healthy DNA mixtures, untared, lowest',
-       file='part5/p5_11_status_all', line=100, status='measured', kind='file', printed='0.982', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md', heavy=True, rerun=_B15_METH_RERUN)
-def check_4616():
-    'Lowest Met-A of the six healthy mixtures (known fractions), bar W1 of PROC-WB-NEUT-01. Book line 100, printed 0.982.'
-    value = _b15_wbneut('W1 healthy')[0]
-    return locals()
 
-@check(label='ch:statusall:L100:1.016', chapter='ch:statusall', part=7, title='healthy DNA mixtures, untared, highest',
-       file='part5/p5_11_status_all', line=100, status='measured', kind='file', printed='1.016', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md', heavy=True, rerun=_B15_METH_RERUN)
-def check_4617():
-    'Highest Met-A of the six healthy mixtures, bar W1 of PROC-WB-NEUT-01. Book line 100, printed 0.982--1.016 (upper end 1.016).'
-    value = _b15_wbneut('W1 healthy')[1]
-    return locals()
 
-@check(label='ch:statusall:L100:1.049', chapter='ch:statusall', part=7, title='2 % neutrophil-pattern loss, untared, lowest',
-       file='part5/p5_11_status_all', line=100, status='measured', kind='file', printed='1.049', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md', heavy=True, rerun=_B15_METH_RERUN)
-def check_4618():
-    'Lowest Met-A of the six mixtures with a simulated 2 % loss, bar W3 of PROC-WB-NEUT-01. Book line 100, printed 1.049.'
-    value = _b15_wbneut('W3 2 %')[0]
-    return locals()
 
-@check(label='ch:statusall:L100:1.079', chapter='ch:statusall', part=7, title='2 % neutrophil-pattern loss, untared, highest',
-       file='part5/p5_11_status_all', line=100, status='measured', kind='file', printed='1.079', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md', heavy=True, rerun=_B15_METH_RERUN)
-def check_4619():
-    'Highest Met-A of the six mixtures with a simulated 2 % loss, bar W3 of PROC-WB-NEUT-01. Book line 100, printed 1.049--1.079 (upper end 1.079).'
-    value = _b15_wbneut('W3 2 %')[1]
-    return locals()
 
-@check(label='ch:statusall:L100:1.052', chapter='ch:statusall', part=7, title='2 % loss, tared, lowest',
-       file='part5/p5_11_status_all', line=100, status='measured', kind='file', printed='1.052', tol=0.0,
-       source='Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md', heavy=True, rerun=_B15_METH_RERUN)
-def check_4620():
-    'Lowest tared Met-A of the six constructed whole-blood mixtures with 2 % neutrophil-pattern loss (A_rel tared row). Book line 100, printed 1.052.'
-    value = _b15_tared()[0]
-    return locals()
 
-@check(label='ch:statusall:L100:1.090', chapter='ch:statusall', part=7, title='2 % loss, tared, highest',
-       file='part5/p5_11_status_all', line=100, status='measured', kind='file', printed='1.090', tol=0.0,
-       source='Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md', heavy=True, rerun=_B15_METH_RERUN)
-def check_4621():
-    'Highest tared Met-A of the six constructed mixtures with 2 % loss. Book line 100, printed 1.052--1.090 (upper end 1.090).'
-    value = _b15_tared()[1]
-    return locals()
 
 def _b15_dnmt_A():
     return [float(r['A']) for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
@@ -41299,17 +40996,7 @@ def check_4793():
     value = 0.5 * (min(v) + max(v))
     return locals()
 
-@check(label='app:glossary:L112:3.81', title='brook charr sperm holding energy', line=112, status='observed', kind='file', printed='3.81', tol=0.0, source=_B17_CHR, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
-def check_4794():
-    'Brook charr sperm (WGBS), 39 fish with a complete run: median holding energy in k_B T. Book line 112, printed 3.81.'
-    value = float(np.median([float(r['E_kT']) for r in load_csv_rows(_B17_CHR) if float(r['pairs']) >= 1000]))
-    return locals()
 
-@check(label='app:glossary:L112:3.47', title='Atlantic salmon fin holding energy (F0)', line=112, status='observed', kind='file', printed='3.47', tol=0.0, source=_B17_RIM, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
-def check_4795():
-    'Rimouski Atlantic salmon fin (WGBS), generation F0: median holding energy in k_B T. Book line 112, printed 3.47.'
-    value = float(np.median([float(r['E_kT']) for r in load_csv_rows(_B17_RIM) if r['generation'] == 'F0']))
-    return locals()
 
 @check(label='app:glossary:L124:0.97', title='C(d) of beta at 10-18 bp', line=124, status='observed', kind='file', printed='0.97', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4796():
@@ -41477,25 +41164,8 @@ def check_4818():
     value = float(_b17_metA_hi().min())
     return locals()
 
-@check(label='app:glossary:L224:1.87', title='DNMT1 inhibitor arrays: highest Met-A at >= 80 nM', line=224, status='observed', kind='file', printed='1.87', tol=0.0, source=_B17_DNA, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
-def check_4819():
-    'Met-A of the arrays treated with the active DNMT1 inhibitor at 80 nM or more: highest. Book line 224, printed 1.87.'
-    value = float(_b17_metA_hi().max())
-    return locals()
 
-@check(label='app:glossary:L224:1.65', title='DNMT1 inhibitor EM-seq: lowest IAM-A', line=224, status='observed', kind='file', printed='1.65', tol=0.0, source=_B17_DNB, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
-def check_4820():
-    'IAM-A of the eight treated EM-seq libraries against their own genotype vehicle libraries, recomputed from the copy errors: lowest. Book line 224, printed 1.65.'
-    A = _b17_iama_dnmt()
-    n_treated = len(A)
-    value = float(A.min())
-    return locals()
 
-@check(label='app:glossary:L224:1.97', title='DNMT1 inhibitor EM-seq: highest IAM-A', line=224, status='observed', kind='file', printed='1.97', tol=0.0, source=_B17_DNB, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
-def check_4821():
-    'IAM-A of the eight treated EM-seq libraries against their own genotype vehicle libraries: highest. Book line 224, printed 1.97.'
-    value = float(_b17_iama_dnmt().max())
-    return locals()
 
 @check(label='app:glossary:L230', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
        file='appendices/app_F_glossary', line=230, status='observed', kind='file', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
@@ -41773,17 +41443,7 @@ def check_2879():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '100')
     return locals()
 
-@check(label='app:glossary:L324:1.65', title='GSE329728: lowest IAM-A of the treated libraries', line=324, status='measured', kind='file', printed='1.65', tol=0.0, source=_B17_DNB, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
-def check_4850():
-    'IAM-A of the 8 treated EM-seq libraries (GSE329728) against the same genotype untreated libraries, recomputed: lowest. Book line 324, printed 1.65.'
-    value = float(_b17_iama_dnmt().min())
-    return locals()
 
-@check(label='app:glossary:L324:1.97', title='GSE329728: highest IAM-A of the treated libraries', line=324, status='measured', kind='file', printed='1.97', tol=0.0, source=_B17_DNB, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
-def check_4851():
-    'IAM-A of the 8 treated EM-seq libraries against the same genotype untreated libraries: highest. Book line 324, printed 1.97.'
-    value = float(_b17_iama_dnmt().max())
-    return locals()
 
 @check(label='app:glossary:L327:67.16', title='photon-sector H0 (Level 2 chain)', line=327, status='observed', kind='file', printed='67.16', tol=0.0,
        source=_B17_CHAINS, heavy=True, rerun=_B17_CHAINS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
@@ -41965,19 +41625,7 @@ def check_4867():
     value = float(re.search(r'intraclass\s+correlation\s+(\d+\.\d+)', file_text(_B17_PC)).group(1))
     return locals()
 
-@check(label='app:glossary:L370:0.92', title='ICC of repeat halves, lowest fish set', line=370, status='observed', kind='file', printed='0.92', tol=0.0, source=_B17_CHR, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
-def check_4868():
-    'ICC of the two halves in the fish sets (Methow steelhead, brook charr, Rimouski salmon), recomputed per fish with the formula of the scorers: lowest (brook charr). Book line 370, printed 0.92.'
-    icc = _b17_fish_icc()
-    value = min(icc.values())
-    return locals()
 
-@check(label='app:glossary:L370:0.998', title='ICC of repeat halves, highest fish set', line=370, status='observed', kind='file', printed='0.998', tol=0.0, source=_B17_SAL, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
-def check_4869():
-    'ICC of the two halves in the fish sets: highest (Methow steelhead). Book line 370, printed 0.998.'
-    icc = _b17_fish_icc()
-    value = max(icc.values())
-    return locals()
 
 @check(label='app:glossary:L400:0.815', title='KiDS-Legacy S8', line=400, status='observed', kind='file', printed='0.815', tol=0.0,
        source='docs/verification/scripts/verify_virial_papers_output.txt', heavy=True, rerun=_B00_VPAPERS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')

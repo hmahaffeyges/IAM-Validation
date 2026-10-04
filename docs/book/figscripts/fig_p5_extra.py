@@ -288,38 +288,8 @@ for i, a in enumerate(ax):
     a.axhline(0.5, color=S.LIGHT, lw=0.8, ls="--", zorder=0); S.panel_letter(a, "abc"[i], dx=-0.28)
 fig.tight_layout(w_pad=0.8); S.save(fig, "part5", "fig_one_half")
 
-# ===================== p5_08: cell readings against their own reference =====================
-mdA = (REPO / "Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md").read_text()
-rng = lambda pat: tuple(float(v) for v in re.search(pat, mdA).groups())
-partA = [("vehicle arrays (12)", rng(r"Vehicle arrays: ([\d.]+)–([\d.]+)")),
-         ("inactive analogue, 10 µM (6)", rng(r"10 µM: ([\d.]+)–([\d.]+)")),
-         ("active drug, 3.2–16 nM", rng(r"At 3\.2–16 nM: ([\d.]+)–([\d.]+)")),
-         ("active drug, ≥ 80 nM", rng(r"≥ 80 nM: ([\d.]+)–([\d.]+)")),
-         ("second active compound, 1 µM", rng(r"GSK3484862, 1 µM: ([\d.]+)–([\d.]+)"))]
-# the record and its CSV differ for two ranges; the CSV (every array) is used
-dA = pd.read_csv(REPO / "Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv")
-_hi = dA[(dA.cmpd == "GSK032") & (dA.dose_nM >= 80)].A; _862 = dA[dA.cmpd == "GSK862"].A
-partA[3] = (partA[3][0], (round(_hi.min(), 2), round(_hi.max(), 2))); partA[4] = (partA[4][0], (round(_862.min(), 2), round(_862.max(), 2)))
-dn = pd.read_csv(REPO / "Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv")
-mdT = (REPO / "Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md").read_text()
-tum = [float(m_.group(1)) for m_ in re.finditer(r"\| CRC\d \| [\d.]+ \| [\d.]+ \| ([\d.]+) \|", mdT)]
-assert len(tum) == 6
-fig, ax = plt.subplots(figsize=(S.TEXTW, 2.6))
-labs = []
-for i, (lab, (lo, hi)) in enumerate(partA):
-    y = -i; ax.plot([lo, hi], [y, y], color=S.IAM, lw=3.5, solid_capstyle="butt"); labs.append((y, "Met-A, arrays: " + lab))
-yB = -len(partA)
-ax.plot(dn.A, np.full(len(dn), yB) + np.linspace(-0.12, 0.12, len(dn)), "^", color=S.ALT, ms=4); labs.append((yB, "IAM-A, molecules: DNMT1 block (8 libraries)"))
-yT = yB - 1
-ax.plot(tum, np.full(len(tum), yT) + np.linspace(-0.12, 0.12, len(tum)), "o", color=S.DATA, ms=4); labs.append((yT, "copy-error ratio: tumour / own normal (6)"))
-ax.axvspan(*NB, color=S.ALT, alpha=0.12, lw=0); ax.axvline(1, color=S.GR, lw=0.8)
-ax.set_yticks([l[0] for l in labs]); ax.set_yticklabels([l[1] for l in labs], fontsize=6)
-ax.set_xlabel("reading against its own reference (1 = unchanged; shaded: Normal, 0.95–1.05)")
-ax.set_xlim(0.9, 2.05); ax.set_title("Three known changes read in the right direction")
-for lab, (lo, hi) in partA:
-    print(f"Part A {lab}: {lo}-{hi}")
-print(f"Part B {dn.A.min():.3f}-{dn.A.max():.3f}; tumour ratios {tum}")
-fig.tight_layout(); S.save(fig, "part5", "fig_cell_readings")
+# p5_08 cell-readings figure retired 2026-10-04 (development readings; author ruling)
+
 
 # ===================== book-wide parsing: status labels, open problems, p5_09 items =====================
 main = (BOOK / "main.tex").read_text()
