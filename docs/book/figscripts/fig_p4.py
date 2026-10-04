@@ -5,7 +5,7 @@ Every number drawn or printed is read here from the frozen chain v3 files (Biolo
 from the record data (doors/data/, doors/PROC_*/, chain_tests/), from the record markdown tables (parsed, not typed), from
 book tables (parsed), or computed from CODATA constants (scipy.constants). Nothing is typed by hand except the 2.8e7 CpG
 capacity of one haploid genome quoted in Chapter ch:surface and the names of the stages.
-No class floors, tiers, provisional breach lines or cohort bands are drawn. Normal (0.95-1.05) is the design tolerance.
+No class floors, tiers, provisional breach lines or group bands are drawn. Normal (0.95-1.05) is the design tolerance.
 """
 import sys, json, re, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
@@ -833,7 +833,7 @@ def fig_summary():
 
 
 ALL = [fig_jensen, fig_ledger, fig_fullsurface, fig_surfaces, fig_imr90_plane, fig_heldout, fig_iama, fig_cscore, fig_map79, fig_tare, fig_noisefit,
-       fig_lowfrac, fig_markers, fig_profiles, fig_window, fig_shared, fig_noiseterm, fig_nulls, fig_detlimit, fig_report, 
+       fig_markers, fig_profiles, fig_window, fig_shared, fig_noiseterm, fig_nulls, fig_detlimit, fig_report, 
        fig_fraction_free, fig_tumour, fig_status, fig_summary]
 
 def tex_sci(x, d=2, dollars=True):

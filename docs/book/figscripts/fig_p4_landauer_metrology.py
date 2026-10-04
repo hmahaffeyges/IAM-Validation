@@ -5,7 +5,7 @@
 Outputs (docs/book/figures/part4/): fig_cell_budget, fig_division_floor, fig_p4_02_operating,
 fig_p4_15b_transfer, fig_p4_15b_lowsignal (.pdf + .png).
 Data read from docs/book/figscripts/cell_data/ (copied there from the retired kit/results/; PROC_TARE_01_per_array.parquet,
-FINDING_GSE125105_controls.csv). Constants recomputed as in docs/verification/scripts/verify_landauer_metrology.py.
+FINDING_GSE125105_controls.csv). Constants recomputed as in Biological_Physics/Landauer_Metrology/verify_landauer_metrology.py.
 """
 import math
 import numpy as np

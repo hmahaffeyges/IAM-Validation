@@ -1,7 +1,7 @@
 # Atlas v2 — decisions
 
 Every decision that shaped atlas v2, with who made it, when, and the author's words where he gave them. The full exchange is in
-[COMMUNICATION.md](COMMUNICATION.md). A decision here is changed only by a new dated entry, never by editing an old one.
+COMMUNICATION.md. A decision here is changed only by a new dated entry, never by editing an old one.
 
 | # | date | decision | author's words / basis |
 |---|---|---|---|

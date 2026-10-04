@@ -40,7 +40,7 @@
 
 ## How To Replicate
 
-**See [`test_25_photon_exempt_original.py`](test_25_photon_exempt_original.py)!**  
+**See `test_25_photon_exempt_original.py`!**  
 This script does:
 - Growth with original IAM (β = 0.179, τ = 0.134)
 - CMB observables with pure ΛCDM $H(z)$

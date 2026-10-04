@@ -70,7 +70,7 @@ ax.set_title("The two channels err in opposite directions")
 S.save(fig, "part3", "fig_imr90_channels")
 
 # ---------------- holding energy against Hopfield -----------------
-sel = [("purified enzyme, 7–21×", 7, 21), ("several reports, 30–50×", 30, 50), ("across flanking sequences, 80×", 80, 80)]
+sel = [("purified enzyme, 7–21×", 7, 21), ("Goyal et al. 2006, 30–40×", 30, 40), ("across flanking sequences, 80×", 80, 80)]
 fig, ax = plt.subplots(figsize=(0.62 * S.TEXTW, 1.9))
 for i, (lab, lo, hi) in enumerate(sel[::-1]):
     a, b = np.log(lo), np.log(hi); print(f"{lab}: {a:.2f}-{b:.2f} kT")
@@ -79,7 +79,7 @@ for i, (lab, lo, hi) in enumerate(sel[::-1]):
     else:
         ax.plot(a, i, "s", color=S.DATA, ms=5)
 ax.axvline(3.41, color=S.IAM, lw=1.2); ax.axvline(3.77, color=S.IAM, lw=1.0, ls="--")
-ax.text(3.41, 2.55, "3.41", fontsize=7, color=S.IAM, ha="right", va="bottom"); ax.text(3.77, 2.55, "3.77", fontsize=7, color=S.IAM, ha="left", va="bottom")
+ax.text(3.41 - 0.05, 2.55, "3.41", fontsize=7, color=S.IAM, ha="right", va="bottom"); ax.text(3.77 + 0.05, 2.55, "3.77", fontsize=7, color=S.IAM, ha="left", va="bottom")
 ax.set_yticks(range(3)); ax.set_yticklabels([s[0] for s in sel[::-1]], fontsize=7)
 ax.set_xlim(1.5, 5.0); ax.set_ylim(-0.5, 2.95)
 ax.set_xlabel("energy gap $k_BT\\ln$(selectivity) or measured $E_{\\rm hold}$ ($k_BT$)")

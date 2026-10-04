@@ -119,7 +119,7 @@ The per-class, per-substrate H_min values are not published in this repository.
 
 The preceding 33 validations established the framework at the tissue level: per-class H_min, per-cancer A-score elevation, pre-cancer tier structure, cross-species invariance, aging trajectory. The next 10 validations test the broader clinical thesis that emerged from a conversation about organ transplantation and rapid recurrence: *architectural drift precedes tumor crystallization, is distributed across multiple tissue classes rather than confined to the eventual primary site, and is peripherally detectable before clinical diagnosis.*
 
-**Overall: 35 of 39 pre-specified predictions confirmed (89.7%).** The one complete failure (VAL-038) confirms a prediction the framework already made in the negative form (VAL-002): bulk plasma requires deconvolution and does not track tissue-architectural ΔA directly. All scripts and JSON results archived in [`validation_runs/`](VAL_PreAtlas/).
+**Overall: 35 of 39 pre-specified predictions confirmed (89.7%).** The one complete failure (VAL-038) confirms a prediction the framework already made in the negative form (VAL-002): bulk plasma requires deconvolution and does not track tissue-architectural ΔA directly. All scripts and JSON results archived in `validation_runs/`.
 
 | Study | Description | Result | Source |
 |-------|-------------|--------|--------|
@@ -138,7 +138,7 @@ The preceding 33 validations established the framework at the tissue level: per-
 
 ### Retroactive tissue and ccfDNA cohort validations — VAL-058 through VAL-069 (April 2026)
 
-A second sprint of validations testing per-cancer architectural disruption signals across published TCGA matched tumor/normal tissue cohorts and a published HCC ccfDNA plasma cohort. Each test runs the architectural A-score (`H(β)/H_min(class)`) on each cancer's class-appropriate H_min floor and computes paired Cohen's d between matched tumor and adjacent-normal tissue. All scripts and results JSON archived in [`validation_runs/`](VAL_PreAtlas/).
+A second sprint of validations testing per-cancer architectural disruption signals across published TCGA matched tumor/normal tissue cohorts and a published HCC ccfDNA plasma cohort. Each test runs the architectural A-score (`H(β)/H_min(class)`) on each cancer's class-appropriate H_min floor and computes paired Cohen's d between matched tumor and adjacent-normal tissue. All scripts and results JSON archived in `validation_runs/`.
 
 | Study | Description | Result | Source |
 |-------|-------------|--------|--------|

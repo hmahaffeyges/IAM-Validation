@@ -48,30 +48,8 @@ The solver runs on the same platform, through the same calibration, and on the s
 
 A neutrophil that is a small share of the DNA moves the whole-blood reading less. The chain does not use a fixed share as a gate. It reads
 neutrophils when they are above a read line and enough of the identity sites are measured; below the line the fraction is printed and $A$ is withheld. Above the line every tared reading carries its own detection
-limit (Chapter~\ref{ch:instrument}). The line follows from what was measured on 656 arrays, 644 whole bloods and 12 known DNA mixtures; the table holds the 96 healthy adults read at 0.40 or more:
-
-\begin{center}\small
-\begin{tabular}{@{}lrrrrr@{}}\toprule
-neutrophil fraction & healthy $n$ & healthy SD & healthy in Normal & shift for a 2~\% loss & shift/SD \\\midrule
-0.40--0.50 & 18 & 0.024 & 18/18 & 0.033 & 1.4 \\
-0.50--0.60 & 16 & 0.022 & 15/16 & 0.040 & 1.8 \\
-0.60--0.70 & 22 & 0.024 & 21/22 & 0.050 & 2.1 \\
-0.70--1.00 & 40 & 0.020 & 40/40 & 0.064 & 3.2 \\\bottomrule
-\end{tabular}
-\end{center}
-\measured{} The healthy spread does not grow as the fraction falls; the signal does. A cell at 40~\% of the specimen moves the reading half as far as
-one at 80~\%. A fixed share is therefore the wrong gate, and the per-specimen detection limit is the right statement. Below 0.40 there were five healthy
-arrays only, so the line itself rests on few specimens. \openprob
-
-Figure~\ref{fig:p4_lowfrac} shows the same measurement array by array.
-
-\begin{figure}[htbp]\centering
-\includegraphics[width=0.62\textwidth]{figures/part4/fig_p4_13_lowfrac.pdf}
-\caption{The rise in whole-blood Met-A from a simulated 2~\% loss of the neutrophil pattern, against the neutrophil fraction, on 656 arrays (grey).
-Per fraction bin: median rise (0.033, 0.040, 0.050, 0.064) and twice the healthy spread (SD 0.024, 0.022, 0.024, 0.020, from 96 healthy adults each read against
-the others). \measured}
-\label{fig:p4_lowfrac}
-\end{figure}
+limit (Chapter~\ref{ch:instrument}). A cell that is a smaller share of the specimen moves the reading less, while the healthy spread does not
+grow, so the per-specimen detection limit, not a fixed share, is the right statement. \derived
 
 \paragraph{Why an absent cell is not read.} A cell that is not in the specimen still has identity sites, and the array still reports
 a $\beta$ at each of them. Those values belong to the cells that are present. Where the present cells hold a site differently from

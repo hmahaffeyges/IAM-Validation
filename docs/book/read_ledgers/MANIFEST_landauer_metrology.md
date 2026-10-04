@@ -15,7 +15,7 @@ Clone: `12d8fb1` (HEAD at the time of cloning). Nothing pushed or committed.
 | `docs/book/figures/part4/fig_p4_02_operating.pdf/.png` | new (Table 1 of the paper) | — |
 | `docs/book/figures/part4/fig_p4_15b_transfer.pdf/.png` | new (Table 3 of the paper, per array) | — |
 | `docs/book/figures/part4/fig_p4_15b_lowsignal.pdf/.png` | new (low-signal laboratory) | — |
-| `docs/verification/scripts/verify_landauer_metrology.py` + `_output.txt` | new; ALL CHECKS PASS | — |
+| `Biological_Physics/Landauer_Metrology/verify_landauer_metrology.py` + `_output.txt` | new; ALL CHECKS PASS | — |
 | `docs/book/bib_landauer_metrology.bib` | CrossRef record of the 10 DOIs checked; no new entries needed (all keys already in iam.bib) | — |
 
 Placement in `main.tex` (Part 4):

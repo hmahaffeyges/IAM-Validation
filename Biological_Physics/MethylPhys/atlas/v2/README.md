@@ -3,7 +3,7 @@
 Atlas v2 is a per-cell reference: for each of **74 cells** at each array CpG, the cell's mean methylation on **our own Stage 1 array
 scale**, its posterior SD and 95 % interval, its spread between the separate purified samples of that cell (the per-address noise), the number of samples behind it, 20 posterior draws, and the
 per-locus prior. **No class enters the fit** — a cell's class only names the floor its A is divided by. Why each choice was made:
-[DECISIONS.md](DECISIONS.md). What went wrong on the way: [LESSONS.md](LESSONS.md). The conversation: [COMMUNICATION.md](COMMUNICATION.md).
+[DECISIONS.md](DECISIONS.md). What went wrong on the way: [LESSONS.md](LESSONS.md). The conversation: COMMUNICATION.md.
 
 ## Contents
 | folder | what |

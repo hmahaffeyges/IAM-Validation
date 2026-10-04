@@ -1752,6 +1752,20 @@ PASS  ch:sectortension:L280              ch:sectortension:p2_09_sector_tension:2
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:sectortension:L281              ch:sectortension:p2_09_sector_tension:281  printed 0.600  recomputed 0.599893  tol 5.000005e-04  [calc] term sigma8 Om^0.25  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+
+== Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:dsnote (part2/p2_05_dual_sector_note.tex)
+PASS  ch:dsnote:L154:0.04                ch:dsnote:p2_05_dual_sector_note:154  printed 0.04  recomputed 0.035  tol 0.00500001  [calc] Limber: lensing power lowered, low end over 30 <= L <= 1000 (per cent)  file docs/verification/scripts/verify_limber_lensing_output.txt
+      heavy: python3 docs/verification/scripts/verify_limber_lensing.py
+PASS  ch:dsnote:L154:0.24                ch:dsnote:p2_05_dual_sector_note:154  printed 0.24  recomputed 0.243  tol 0.00500001  [calc] Limber: lensing power lowered, high end over 30 <= L <= 1000 (per cent)  file docs/verification/scripts/verify_limber_lensing_output.txt
+      heavy: python3 docs/verification/scripts/verify_limber_lensing.py
+
+== Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:latetime (part2/p2_07_late_time_growth.tex)
+PASS  ch:latetime:L107:0.04              ch:latetime:p2_07_late_time_growth:107  printed 0.04  recomputed 0.035  tol 0.00500001  [calc] Limber: lensing power change, low end over 30 <= L <= 1000 (per cent)  file docs/verification/scripts/verify_limber_lensing_output.txt
+      heavy: python3 docs/verification/scripts/verify_limber_lensing.py
+PASS  ch:latetime:L107:0.24              ch:latetime:p2_07_late_time_growth:107  printed 0.24  recomputed 0.243  tol 0.00500001  [calc] Limber: lensing power change, high end over 30 <= L <= 1000 (per cent)  file docs/verification/scripts/verify_limber_lensing_output.txt
+      heavy: python3 docs/verification/scripts/verify_limber_lensing.py
+
+== Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:sectortension (part2/p2_09_sector_tension.tex)
 PASS  ch:sectortension:L281:0.08\%       ch:sectortension:p2_09_sector_tension:281  printed 0.08\%  recomputed 0.0806114  tol 0.00500001  [calc] CMB lensing power lowered, Limber estimate
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:dsvalidation (part2/p2_10_dual_sector_validation.tex)
@@ -4385,7 +4399,7 @@ PASS  ch:temperature:L32                 ch:temperature:p4_10_temperature:32  pr
 PASS  ch:temperature:L36                 ch:temperature:p4_10_temperature:36  printed 8.1  recomputed 8.12121  tol 0.05  [calc] 7-fold selectivity at 15 C
 PASS  ch:temperature:L36:6.8             ch:temperature:p4_10_temperature:36  printed 6.8  recomputed 6.78719  tol 0.05  [calc] at 42 C
 PASS  ch:temperature:L76                 ch:temperature:p4_10_temperature:76  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] human cells at 37 C (dashed line)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-PASS  ch:temperature:L111                ch:temperature:p4_10_temperature:111  printed 20.84  recomputed 20.8397  tol 0.00500001  [prediction] M for a dog at 38.5 C
+PASS  ch:temperature:L111                ch:temperature:p4_10_temperature:87  printed 20.84  recomputed 20.8397  tol 0.00500001  [prediction] M for a dog at 38.5 C
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:translation (part4/p4_11_translation.tex)
 PASS  ch:translation:L110                ch:translation:p4_11_translation:110  printed 2.3  recomputed 2.33  tol 0.05  [calc] neutron-star saturation mass at the upper edge of the TOV bound
@@ -4424,14 +4438,6 @@ PASS  ch:instrument:L126:-0.14           ch:instrument:p4_12_instrument:126  pri
 PASS  ch:instrument:L126:-0.07           ch:instrument:p4_12_instrument:126  printed -0.07  recomputed -0.07  tol 0.00500001  [measured] SNP tare offset does not predict the reading  file Biological_Physics/MethylPhys/doors/PROC_TARE_01_OUTCOME.md
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:separation (part4/p4_13_separation.tex)
-PASS  ch:separation:L48                  ch:separation:p4_13_separation:48  printed 0.035  recomputed 0.0352162  tol 5.000005e-04  [measured] neutrophil fraction against flow counts, median error  file Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv
-PASS  ch:separation:L50                  ch:separation:p4_13_separation:50  printed 0.034  recomputed 0.0335204  tol 5.000005e-04  [measured] known DNA mixtures, median fraction error  file Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv
-PASS  ch:separation:L76:0.040            ch:separation:p4_13_separation:76  printed 0.040  recomputed 0.0401037  tol 5.000005e-04  [measured] shift for a 2 % loss, fraction 0.50-0.60  file Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv
-PASS  ch:separation:L76:0.050            ch:separation:p4_13_separation:76  printed 0.050  recomputed 0.049832  tol 5.000005e-04  [measured] shift for a 2 % loss, fraction 0.60-0.70  file Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv
-PASS  ch:separation:L76:0.064            ch:separation:p4_13_separation:76  printed 0.064  recomputed 0.063818  tol 5.000005e-04  [measured] shift for a 2 % loss, fraction 0.70-1.00  file Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv
-PASS  ch:separation:L76:0.024            ch:separation:p4_13_separation:76  printed 0.024  recomputed 0.0240906  tol 5.000005e-04  [measured] healthy spread, fraction 0.40-0.50  file Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv
-PASS  ch:separation:L76:0.022            ch:separation:p4_13_separation:76  printed 0.022  recomputed 0.0221177  tol 5.000005e-04  [measured] healthy spread, fraction 0.50-0.60  file Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv
-PASS  ch:separation:L76:0.020            ch:separation:p4_13_separation:76  printed 0.020  recomputed 0.0198911  tol 5.000005e-04  [measured] healthy spread, fraction 0.70-1.00  file Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv
 PASS  ch:separation:L88                  ch:separation:p4_13_separation:88  printed +0.12  recomputed 0.115876  tol 0.00500001  [measured] tared Met-A rises with neutrophil fraction  file Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv
 PASS  ch:separation:L91                  ch:separation:p4_13_separation:91  printed -0.02  recomputed -0.0181809  tol 0.00500001  [fitted] fraction dependence after the development fit  file Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv
 
@@ -4504,9 +4510,6 @@ PASS  ch:skytools:L125:1.8               ch:skytools:p4_16a_skytools:125  printe
 PASS  ch:skytools:L126                   ch:skytools:p4_16a_skytools:126  printed 0.327  recomputed 0.327028  tol 5.000005e-04  [measured] C(d) at 1 kb, highest of the six arrays  file Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv
 PASS  ch:skytools:L138                   ch:skytools:p4_16a_skytools:138  printed 0.02  recomputed 0.0192116  tol 0.00500001  [measured] healthy residual uncorrelated beyond 1 kb  file Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv
 PASS  ch:skytools:L139:0.08              ch:skytools:p4_16a_skytools:139  printed 0.08  recomputed 0.0791096  tol 0.00500001  [measured] regional-damage plateau, upper end  file Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv
-PASS  ch:skytools:L142                   ch:skytools:p4_16a_skytools:142  printed 0.171  recomputed 0.171  tol 5.000005e-04  [measured] smoothed healthy whole-array sky, spread  file Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md
-PASS  ch:skytools:L143:0.131             ch:skytools:p4_16a_skytools:143  printed 0.131  recomputed 0.131  tol 5.000005e-04  [measured] same sky shuffled, spread  file Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md
-PASS  ch:skytools:L143:1.31              ch:skytools:p4_16a_skytools:143  printed 1.31  recomputed 1.30534  tol 0.00500001  [measured] smoothed over shuffled spread  file Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md
 PASS  ch:skytools:L165                   ch:skytools:p4_16a_skytools:165  printed 0.00047  recomputed 4.700000e-04  tol 5.000005e-06  [calc] age-ladder slope per year  file Biological_Physics/MethylPhys/doors/PROC_AGE_01_OUTCOME.md
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:sky (part4/p4_16_sky.tex)
@@ -4526,8 +4529,7 @@ PASS  eq:outspan                         ch:sky:p4_16_sky:90  printed (algebra) 
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:serial (part4/p4_17_serial.tex)
 PASS  ch:serial:L31                      ch:serial:p4_17_serial:31  printed 0.045  recomputed 0.0453166  tol 5.000005e-04  [measured] within-person SD, donor 1 (GSE247195), untared isolated neutrophils  file Biological_Physics/MethylPhys/doors/data/t2_diag.csv
-PASS  ch:serial:L60                      ch:serial:p4_17_serial:60  printed 10  recomputed 10  tol 0.5  [measured] table: remission pairs, number of pairs  file Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md
-PASS  ch:serial:L71                      ch:serial:p4_17_serial:71  printed 0.894  recomputed 0.894  tol 5.000005e-04  [measured] E-MTAB-7309 Stage 1: median call rate  file Biological_Physics/MethylPhys/doors/PLAN.md
+PASS  ch:serial:L71                      ch:serial:p4_17_serial:35  printed 0.894  recomputed 0.894  tol 5.000005e-04  [measured] E-MTAB-7309 Stage 1: median call rate  file Biological_Physics/MethylPhys/doors/PLAN.md
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:discipline (part4/p4_18_discipline.tex)
 PASS  ch:discipline:L24                  ch:discipline:p4_18_discipline:24  printed 0.015  recomputed 0.0146176  tol 5.000005e-04  [measured] severe vs healthy above Normal: one-sided Fisher p  file Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv
@@ -5802,8 +5804,8 @@ PASS  app:glossary:L729:1.45             app:glossary:app_F_glossary:729  printe
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  app:glossary:L729:1.28             app:glossary:app_F_glossary:729  printed 1.28  recomputed 1.28205  tol 0.00500001  [observed] CCCP Planck-prior 1/(1-b)  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
-PASS  app:glossary:L735                  app:glossary:app_F_glossary:735  printed 2.9\times10^{-6}  recomputed 2.935028e-06  tol 5.000005e-08  [observed] electron Yukawa y_e = sqrt2 m_e/v
-PASS  app:glossary:L735:0.991            app:glossary:app_F_glossary:735  printed 0.991  recomputed 0.991192  tol 5.000005e-04  [observed] top Yukawa y_t = sqrt2 m_t/v
+PASS  app:glossary:L735                  app:glossary:app_F_glossary:725  printed 2.9\times10^{-6}  recomputed 2.935028e-06  tol 5.000005e-08  [observed] electron Yukawa y_e = sqrt2 m_e/v
+PASS  app:glossary:L735:0.991            app:glossary:app_F_glossary:725  printed 0.991  recomputed 0.991192  tol 5.000005e-04  [observed] top Yukawa y_t = sqrt2 m_t/v
 
 == Part 8: Appendices | app:register (appendices/app_G_predictions_register.tex)
 PASS  app:register:L19                   app:register:app_G_predictions_register:19  printed 126  recomputed 126  tol 0.5  [observed] register, cosmology and gravitation: merged entries  file CANON/predictions_triage_2026-10-02.json
@@ -5935,4 +5937,4 @@ PASS  app:register:L73:1.55 \%           app:register:app_G_predictions_register
 PASS  app:register:L73:0.78 \%           app:register:app_G_predictions_register:73  printed 0.78 \%  recomputed 0.776789  tol 0.00500001  [openprob] COS-357: D lowered at z = 0, per cent
 PASS  app:register:L74:1.03              app:register:app_G_predictions_register:74  printed 1.03  recomputed 1.03045  tol 0.00500001  [openprob] COS-365: ISW amplitude ratio A_ISW
 
-SUMMARY  PASS 4777  FAIL 0  (heavy, read from committed outputs: 981)  inventoried-not-run 1349  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4769  FAIL 0  (heavy, read from committed outputs: 985)  inventoried-not-run 1347  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
