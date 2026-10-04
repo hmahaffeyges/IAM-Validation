@@ -1,0 +1,114 @@
+/* Site styles for the web edition of the book. Body text stays high contrast; art never sits behind text or equations. */
+:root {
+  --bg: #ffffff; --fg: #15171c; --muted: #555b66; --rule: #d9dce1; --panel: #f5f6f8; --link: #1f5fa8;
+  --accent: #1f5fa8; --code-bg: #f1f2f4;
+  --chip-der: #1F5FA8; --chip-cal: #2E8B57; --chip-fit: #B8860B; --chip-con: #8E44AD; --chip-pre: #C0392B; --chip-obs: #555555;
+  --st-g: #C8E6C9; --st-b: #BBDEFB; --st-a: #FFE0B2; --st-r: #FFCDD2; --st-fg: #15171c;
+  --max: 46rem;
+}
+html[data-theme="dark"] {
+  --bg: #0f1116; --fg: #e8eaee; --muted: #a5abb6; --rule: #2a2f39; --panel: #171a21; --link: #8ab8ff; --code-bg: #1b1f27;
+  --chip-der: #6ea5ec; --chip-cal: #5cc28a; --chip-fit: #e0b84a; --chip-con: #c08ae0; --chip-pre: #ef7a6c; --chip-obs: #b0b0b0;
+  --st-g: #2f5a33; --st-b: #27476b; --st-a: #6b4a1e; --st-r: #6b2a2f; --st-fg: #f2f2f2;
+}
+body.part-1, body.part-2 { --accent: #c0503a; }
+body.part-3 { --accent: #d9822b; }
+body.part-4, body.part-5 { --accent: #2b8fb0; }
+body.part-6 { --accent: #3a6fd0; }
+body.part-7 { --accent: #8a5cc4; }
+html[data-theme="dark"] body.part-1, html[data-theme="dark"] body.part-2 { --accent: #ef8a6f; }
+html[data-theme="dark"] body.part-3 { --accent: #f3a85a; }
+html[data-theme="dark"] body.part-4, html[data-theme="dark"] body.part-5 { --accent: #5cc4e0; }
+html[data-theme="dark"] body.part-6 { --accent: #7aa2f0; }
+html[data-theme="dark"] body.part-7 { --accent: #b79af0; }
+
+* { box-sizing: border-box; }
+html { font-size: 106%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: "Latin Modern Roman", "Computer Modern Serif", Georgia, "Times New Roman", serif;
+  line-height: 1.6; text-rendering: optimizeLegibility; }
+a { color: var(--link); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* top bar */
+.iam-top { position: sticky; top: 0; z-index: 20; display: flex; gap: 1rem; align-items: center; justify-content: space-between;
+  padding: .5rem 1rem; background: var(--panel); border-bottom: 3px solid var(--accent); font-family: system-ui, sans-serif; font-size: .9rem; }
+.iam-top a { text-decoration: none; color: var(--fg); }
+.iam-top .home { font-weight: 700; }
+.iam-top nav { display: flex; flex-wrap: wrap; gap: .25rem .8rem; }
+.iam-toggle { border: 1px solid var(--rule); background: var(--bg); color: var(--fg); border-radius: 999px; padding: .25rem .7rem; cursor: pointer; font: inherit; }
+.skip { position: absolute; left: -999px; } .skip:focus { left: 1rem; top: .5rem; background: var(--bg); padding: .3rem .6rem; z-index: 50; }
+
+/* banners: art only above the text, never behind it */
+.iam-banner { width: 100%; aspect-ratio: 4 / 1; max-height: 340px; background: #05070d center / cover no-repeat; position: relative; }
+.iam-banner .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 1rem 1.5rem; color: #fff;
+  background: linear-gradient(transparent, rgba(0,0,0,.75)); font-family: system-ui, sans-serif; }
+.iam-banner .cap h1 { margin: 0; font-size: clamp(1.2rem, 3vw, 2rem); line-height: 1.2; }
+.iam-banner .cap p { margin: .2rem 0 0; opacity: .9; }
+
+/* chapter body (LaTeXML) */
+.ltx_page_main, main.iam-main { max-width: var(--max); margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+.ltx_page_content { max-width: var(--max); margin: 0 auto; }
+.ltx_title_chapter, .ltx_title_part, .ltx_title_appendix { color: var(--fg); border-bottom: 2px solid var(--accent); padding-bottom: .3rem; }
+.ltx_equation, .ltx_equationgroup { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.ltx_tabular { font-size: .92rem; } .ltx_table, .ltx_tabular { overflow-x: auto; display: block; max-width: 100%; }
+.ltx_figure img, .ltx_graphics { max-width: 100%; height: auto; background: #fff; border-radius: 3px; }
+html[data-theme="dark"] .ltx_figure img { filter: none; }
+.ltx_caption { font-size: .92rem; color: var(--muted); }
+.ltx_bibliography { font-size: .92rem; }
+.ltx_page_navbar, .ltx_TOC { font-family: system-ui, sans-serif; font-size: .9rem; }
+.ltx_page_footer { font-family: system-ui, sans-serif; font-size: .85rem; color: var(--muted); max-width: var(--max); margin: 0 auto; padding: 1rem; }
+.ltx_ERROR, .ltx_missing { color: var(--chip-pre); }
+code, .ltx_verbatim { background: var(--code-bg); border-radius: 3px; padding: 0 .2em; }
+
+/* status chips: the coloured boxes of the PDF, same words */
+.iam-chip, .iam-st, .iam-run, .iam-result, .iam-box { text-indent: 0; }
+.iam-chip { display: inline-block; font-family: system-ui, sans-serif; font-size: .66rem; font-weight: 700; letter-spacing: .02em; line-height: 1.35;
+  padding: 0 .35em; margin: 0 .1em; border: 1px solid currentColor; border-radius: 3px; vertical-align: .12em; white-space: nowrap; }
+.iam-chip-derived, .iam-chip-calc { color: var(--chip-der); }
+.iam-chip-calibrated { color: var(--chip-cal); }
+.iam-chip-fitted { color: var(--chip-fit); }
+.iam-chip-conjecture, .iam-chip-analogy, .iam-chip-interp { color: var(--chip-con); }
+.iam-chip-prediction, .iam-chip-openprob, .iam-chip-preview { color: var(--chip-pre); }
+.iam-chip-observed, .iam-chip-measured, .iam-chip-record { color: var(--chip-obs); }
+.iam-st { display: inline-block; font-family: system-ui, sans-serif; font-size: .7rem; padding: 0 .35em; border-radius: 3px; color: var(--st-fg); }
+.iam-st-passed { background: var(--st-g); } .iam-st-precision { background: var(--st-b); } .iam-st-pending { background: var(--st-a); } .iam-st-tension { background: var(--st-r); }
+
+/* boxes of the book (Independent check, key box, rule of the instrument) */
+.iam-box { display: block; border: 1px solid var(--rule); border-left: 4px solid var(--accent); background: var(--panel); border-radius: 4px; padding: .6rem .9rem; margin: 1rem 0; }
+.iam-box-title { display: block; font-family: system-ui, sans-serif; font-weight: 700; font-size: .85rem; margin-bottom: .3rem; }
+
+/* run-this-check buttons and results */
+.iam-run { font-family: system-ui, sans-serif; font-size: .7rem; border: 1px solid var(--accent); color: var(--accent); background: transparent;
+  border-radius: 999px; padding: .05rem .5rem; margin: 0 .2rem; cursor: pointer; vertical-align: .1em; }
+.iam-run:hover { background: var(--accent); color: var(--bg); }
+.iam-result { display: block; font-family: ui-monospace, Menlo, monospace; font-size: .78rem; background: var(--code-bg); border-radius: 4px; padding: .4rem .6rem; margin: .3rem 0; white-space: pre-wrap; }
+.iam-result .pass { color: var(--chip-cal); font-weight: 700; } .iam-result .fail { color: var(--chip-pre); font-weight: 700; }
+.iam-progress { position: fixed; right: 1rem; bottom: 1rem; z-index: 30; max-width: 22rem; background: var(--panel); border: 1px solid var(--rule);
+  border-radius: 6px; padding: .6rem .8rem; font-family: system-ui, sans-serif; font-size: .85rem; box-shadow: 0 4px 18px rgba(0,0,0,.2); }
+.iam-progress[hidden] { display: none; }
+.iam-progress progress { width: 100%; }
+
+/* front page and Part pages */
+.iam-front { font-family: system-ui, sans-serif; }
+.iam-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.iam-tile { display: block; border-radius: 8px; overflow: hidden; text-decoration: none; color: var(--fg); background: var(--panel); border: 1px solid var(--rule); }
+.iam-tile .art { aspect-ratio: 16 / 9; background: #05070d center / cover no-repeat; }
+.iam-tile .t { padding: .7rem .9rem; } .iam-tile .t b { display: block; color: var(--accent); font-size: .8rem; letter-spacing: .05em; }
+.iam-btn { display: inline-block; font-family: system-ui, sans-serif; border-radius: 6px; padding: .5rem 1rem; margin: .3rem .5rem .3rem 0; background: var(--accent);
+  color: #fff; text-decoration: none; border: 0; cursor: pointer; font-size: .95rem; }
+.iam-btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+.iam-cite { background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: .8rem 1rem; font-family: ui-monospace, Menlo, monospace; font-size: .82rem; white-space: pre-wrap; }
+.iam-chlist li { margin: .25rem 0; }
+.iam-discuss { font-family: system-ui, sans-serif; font-size: .9rem; margin: 2rem 0 0; padding-top: 1rem; border-top: 1px solid var(--rule); }
+
+@media (max-width: 40rem) { .iam-top nav { display: none; } html { font-size: 100%; } }
+@media print { .iam-top, .iam-run, .iam-progress, .iam-banner { display: none; } }
+
+/* LaTeXML's table of contents: a collapsible panel above the chapter (a sidebar on wide screens) */
+details.iam-toc { font-family: system-ui, sans-serif; font-size: .88rem; max-width: var(--max); margin: 1rem auto 0; padding: 0 1rem; }
+details.iam-toc > summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+details.iam-toc .ltx_page_navbar { position: static; width: auto; float: none; }
+details.iam-toc ol, details.iam-toc ul { padding-left: 1.1rem; }
+.ltx_page_navbar { display: none; } details.iam-toc .ltx_page_navbar { display: block; }
+.ltx_page_header { font-family: system-ui, sans-serif; font-size: .85rem; max-width: var(--max); margin: 0 auto; padding: .4rem 1rem; }
+.ltx_page_logo { display: none; }

@@ -1,0 +1,8 @@
+# -*- mode: Perl -*-
+# fvextra for the web edition: the book uses only what fancyvrb provides.
+package LaTeXML::Package::Pool;
+use strict;
+use warnings;
+use LaTeXML::Package;
+RequirePackage('fancyvrb');
+1;

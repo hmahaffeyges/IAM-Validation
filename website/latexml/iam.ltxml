@@ -1,0 +1,43 @@
+# -*- mode: Perl -*-
+# LaTeXML bindings for the web edition of "IAM's Law and Order" (loaded with --preload=iam.ltxml).
+# The book's macros (docs/book/preamble.tex) are unchanged; these definitions are locked so that the preamble's \newcommand
+# versions (tcolorbox boxes, \colorbox labels) do not replace them in the HTML. The words are the book's own.
+package LaTeXML::Package::Pool;
+use strict;
+use warnings;
+use LaTeXML::Package;
+
+# ---- status labels: coloured boxes in the PDF, small coloured chips on the web (same words)
+my %chips = (derived => 'DERIVED', calc => 'CALCULATED', calibrated => 'CALIBRATED', fitted => 'FITTED',
+  conjecture => 'CONJECTURE', prediction => 'PREDICTION', observed => 'OBSERVED', openprob => 'OPEN PROBLEM',
+  measured => 'MEASURED', analogy => 'ANALOGY', record => 'RECORD', preview => 'PREVIEW', interp => 'INTERPRETATION');
+foreach my $cs (sort keys %chips) {
+  DefConstructor("\\$cs", "<ltx:text class='iam-chip iam-chip-$cs'>$chips{$cs}</ltx:text>", locked => 1); }
+DefConstructor('\statusbox{}{}', "<ltx:text class='iam-chip'>#2</ltx:text>", locked => 1);
+
+# ---- prediction-register labels (green passed, blue not yet precise enough, amber pending, red in tension)
+my %st = (Spassed => ['passed', 'passed'], Sprecision => ['precision', 'not yet precise enough'],
+  Spending => ['pending', 'pending'], Stension => ['tension', 'in tension']);
+foreach my $cs (sort keys %st) {
+  DefConstructor("\\$cs", "<ltx:text class='iam-st iam-st-$st{$cs}[0]'>$st{$cs}[1]</ltx:text>", locked => 1); }
+DefConstructor('\stlab{}{}', "<ltx:text class='iam-st'>#2</ltx:text>", locked => 1);
+
+# ---- the book's framed boxes: rendered as titled panels
+DefMacro('\newtcolorbox[]{}[][]{}', '', locked => 1);
+DefEnvironment('{checkbox}[]',
+  "<ltx:inline-block class='iam-box iam-checkbox'><ltx:text class='iam-box-title'>Independent check</ltx:text>#body</ltx:inline-block>",
+  locked => 1);
+DefEnvironment('{keybox}[]', "<ltx:inline-block class='iam-box iam-keybox'>#body</ltx:inline-block>", locked => 1);
+DefEnvironment('{rulebox}[]',
+  "<ltx:inline-block class='iam-box iam-rulebox'><ltx:text class='iam-box-title'>Rule of the instrument</ltx:text>#body</ltx:inline-block>",
+  locked => 1);
+
+# ---- running heads and print-only layout: no web meaning
+DefMacro('\truncate[]{}{}', '#3', locked => 1);
+DefMacro('\rowrule', '', locked => 1);
+DefMacro('\iamrowrule', '', locked => 1);
+
+# ---- marker for the "Run this check" buttons (inserted only in the build copy of the sources, never in docs/book)
+DefConstructor('\iamcheck{}', "<ltx:text class='iam-checkmark'>#1</ltx:text>", locked => 1);
+
+1;
