@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 95
+Entries: 99
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -103,3 +103,7 @@ Entries: 95
 | ch:separation | `docs/book/part4/p4_13_separation.tex:45` | `0.05` | A solver built on references from several platforms under-read EPIC neutrophils by about 0.05 (the reason atlas v2 was set aside as the Stage A solver on 2026-10-01). Searched Biological_Physics/MethylPhys (doors/*.md, doors/data, chain_tests, atlas/v2): the 2026-10-01 measurement itself is not committed; DEV_ATLAS_EPIC_01.md quotes it only as 'said to under-read EPIC neutrophils by ~0.05'. The later run doors/data/DEV_ATLAS_EPIC_01/results/metrics_by_set.csv gives atlas neutrophil bias -0.043 to -0.047 on the six blood-like DNA mixtures (MIX18_blood) and -0.007 to -0.013 on FACS-counted bloods. |
 | ch:atlas | `docs/book/part4/p4_14_atlas.tex:144` | `0.015` | Estimated effect on A of the ASSUMED (zero) array offset of the GSE63409 progenitor source, 'at most about 0.015'. atlas/v2/DECISIONS.md (D8) says the flag carries 'the estimated effect on A' but gives no number; searched atlas/v2 (records, postbuild, DECISIONS, LESSONS, README) and doors/ATLAS_V2_SPEC.md: the only 0.015 values are unrelated (A5 bar, smoke-fit numbers). |
 | ch:skytools | `docs/book/part4/p4_16a_skytools.tex:23` | `3.3` | Excess of 3.3 K above the components of the Echo receiver in 1961 (Ohm1961, doi 10.1002/j.1538-7305.1961.tb01638.x). Commonly recounted as a measured system temperature of about 22.2 K against an expected 18.9 K; not confirmed here against the paper, so not checked. Nothing in the repository carries it. |
+| ch:onegauge | `docs/book/part3/p3_08_one_gauge.tex:154` | `21` | Upper end of the DNMT1 preference for hemimethylated over unmethylated CpG, 7-21x, purified recombinant enzyme (\cite{Pradhan1999}, doi 10.1074/jbc.274.46.33002). No repository file holds it (docs/book/figscripts/fig_p3.py types 7 and 21); the paper's table/sentence giving 7-21x needs to be confirmed. |
+| ch:onegauge | `docs/book/part3/p3_08_one_gauge.tex:154` | `30` | Lower end of 'about 30-40x on short substrates' (\cite{Goyal2006}, doi 10.1093/nar/gkl002). Not in any repository file; fig_p3.py types 30-50 for this entry, not 30-40. The value in the paper needs to be confirmed. |
+| ch:onegauge | `docs/book/part3/p3_08_one_gauge.tex:154` | `40` | Upper end of 'about 30-40x' (\cite{Goyal2006}). fig_p3.py plots 50, the text and caption say 40; the paper value needs to be confirmed. |
+| ch:onegauge | `docs/book/part3/p3_08_one_gauge.tex:154` | `80` | Average preference 80x across flanking sequences (\cite{Adam2023}, doi 10.1093/nar/gkad465). Not in any repository file except as a typed figure input; the paper's value needs to be confirmed. |

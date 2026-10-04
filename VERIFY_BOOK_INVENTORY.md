@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4405 PASS, 0 FAIL, 1934 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4424 PASS, 0 FAIL, 1915 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5376,43 +5376,43 @@ Totals: 4405 PASS, 0 FAIL, 1934 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 21 |  | calc | `20` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 21 |  | calc | `4.3` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 21 |  | calc | `75` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 21 |  | calc | `20` | not run: input: transistor count (20.0-20.6)x10^9 of the 9950X from die-level reports (\cite{AMD9950X}); E_sw and M from it are checked as ch:onegauge:L22 and L22:411 | - |
+| 21 |  | calc | `4.3` | not run: input: clock 4.3 GHz of the 9950X, manufacturer specification (\cite{AMD9950X}); used by ch:onegauge:L22 | - |
+| 21 |  | calc | `75` | not run: input: junction temperature T_j = 75 C, stated operating point of the chip; used by ch:onegauge:L22 and L22:0.0017 | - |
 | 22 | ch:onegauge:L22 | calc | `399` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 22 | ch:onegauge:L22:411 | calc | `411` | numeric: drafted check, screened (runs; negative control fails) (tolerance: E_sw is printed to 3 figures) | PASS |
 | 22 | ch:onegauge:L22:0.0017 | calc | `0.0017` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 41 |  | calc | `10` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 41 | ch:onegauge:L41 | calc | `10` | numeric: transmon worked example: error-correction threshold at A = 10 | PASS |
 | 42 | ch:onegauge:L42 | calc | `0.2043` | numeric: same value as p4_00b_astrogenetics:63 (H(eps0), bits) | PASS |
-| 42 |  | calc | `3.03` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 42 |  | calc | `4.45` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 42 |  | calc | `0.032` | not run: not yet run: draft rejected (drafter skipped: Line 42 states ε₀ = 0.032 as a given constant (defined in namespace as ep) | - |
-| 63 |  | openprob | `3.41` | not run: not yet checked | - |
-| 64 |  | openprob | `0.032` | not run: not yet checked | - |
-| 66 |  | openprob | `1.9` | not run: not yet checked | - |
-| 66 |  | openprob | `4.4` | not run: not yet checked | - |
-| 67 |  | openprob | `20.94` | not run: not yet checked | - |
+| 42 | ch:onegauge:L42:3.03 | calc | `3.03` | numeric: full surface on Met-A: 1/(healthy reference) | PASS |
+| 42 | ch:onegauge:L42:4.45 | calc | `4.45` | numeric: full surface on IAM-A: 1/(P H(eps0)), neutrophils | PASS |
+| 42 | ch:onegauge:L42:0.032 | calc | `0.032` | numeric: eps0 = 1/(1 + exp(phi M)) | PASS |
+| 63 | ch:onegauge:L63 | openprob | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy E_hold from the PROC-CHANNEL-01 record | PASS |
+| 64 | ch:onegauge:L64 | openprob | `0.032` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: eps0 from the measured holding energy | PASS |
+| 66 | ch:onegauge:L66 | openprob | `1.9` | numeric: Hopfield energy gap ln 7 (low end) | PASS |
+| 66 | ch:onegauge:L66:4.4 | openprob | `4.4` | numeric: Hopfield energy gap ln 80 (high end) | PASS |
+| 67 | ch:onegauge:L67 | openprob | `20.94` | numeric: Mahaffey number M = dG_ATP/(R T_cell) | PASS |
 | 79 | ch:onegauge:L79 | derived |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
-| 83 |  | none |  | not run: displayed equation, not yet checked | - |
-| 94 |  | none |  | not run: displayed equation, not yet checked | - |
+| 83 |  | none |  | not run: definition: Met-A = <H(beta)> at identity sites over <H(beta)> of the healthy reference | - |
+| 94 | ch:onegauge:L94 | derived | `0.032` | numeric: IAM-A floor eps0 = 1/(1 + e^{phi M}) | PASS |
 | 110 | ch:onegauge:L110 | measured | `1.05` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
-| 110 |  | measured | `0.695` | not run: measured, not found in the files the chapter names | - |
-| 110 |  | measured | `1.120` | not run: measured, not found in the files the chapter names | - |
-| 110 |  | measured | `0.664` | not run: measured, not found in the files the chapter names | - |
-| 110 |  | measured | `0.975` | not run: measured, not found in the files the chapter names | - |
-| 110 |  | measured | `0.95` | not run: measured, too few printed digits to match against the named files | - |
+| 110 | ch:onegauge:L110:0.695 | measured | `0.695` | heavy file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 senescent, unmethylated channel, upper end | PASS |
+| 110 | ch:onegauge:L110:1.120 | measured | `1.120` | heavy file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 SV40, methylated channel, upper end | PASS |
+| 110 | ch:onegauge:L110:0.664 | measured | `0.664` | heavy file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 SV40, unmethylated channel, upper end | PASS |
+| 110 | ch:onegauge:L110:0.975 | measured | `0.975` | heavy file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 SV40, both channels, upper end | PASS |
+| 110 | ch:onegauge:L110:0.95 | measured | `0.95` | file `CANON/iam_canon.json`: Normal band lower edge (CANON) | PASS |
 | 143 | ch:onegauge:L143 | measured | `3.41` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 143 | ch:onegauge:L143:3.77 | measured | `3.77` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
-| 143 |  | observed | `1.9` | not run: measured, too few printed digits to match against the named files | - |
-| 143 |  | observed | `4.4` | not run: measured, too few printed digits to match against the named files | - |
-| 154 |  | observed | `21` | not run: measured, too few printed digits to match against the named files | - |
-| 154 |  | observed | `30` | not run: measured, too few printed digits to match against the named files | - |
-| 154 |  | observed | `40` | not run: measured, too few printed digits to match against the named files | - |
-| 154 |  | observed | `80` | not run: measured, too few printed digits to match against the named files | - |
+| 143 | ch:onegauge:L143:1.9 | observed | `1.9` | numeric: Hopfield gap ln 7 (figure caption) | PASS |
+| 143 | ch:onegauge:L143:4.4 | observed | `4.4` | numeric: Hopfield gap ln 80 (figure caption) | PASS |
+| 154 |  | observed | `21` | not run: measured, source not named | - |
+| 154 |  | observed | `30` | not run: measured, source not named | - |
+| 154 |  | observed | `40` | not run: measured, source not named | - |
+| 154 |  | observed | `80` | not run: measured, source not named | - |
 | 156 | ch:onegauge:L156 | observed | `3.41` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 156 | ch:onegauge:L156:3.77 | observed | `3.77` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
-| 156 |  | observed | `1.9` | not run: measured, too few printed digits to match against the named files | - |
-| 156 |  | observed | `4.4` | not run: measured, too few printed digits to match against the named files | - |
+| 156 | ch:onegauge:L156:1.9 | observed | `1.9` | numeric: Delta E = ln 7 (Hopfield) | PASS |
+| 156 | ch:onegauge:L156:4.4 | observed | `4.4` | numeric: Delta E = ln 80 (Hopfield) | PASS |
 
 ## Part 7 - ch:synthesis - `docs/book/part5/p5_08_synthesis.tex`
 

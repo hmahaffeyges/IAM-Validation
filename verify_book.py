@@ -2407,6 +2407,15 @@ def _b13_age_gyr():
     Hf = lambda a: Hsi(100 * h_pl) * math.sqrt(Om * a**-3 + Or * a**-4 + (1 - Om - Or))
     return quad(lambda a: 1 / (a * Hf(a)), 1e-12, 1, limit=200)[0] / Gyr
 
+# helpers of the part3/p3_08_one_gauge checks
+def _b13_imr90(state, col, which):
+    """min or max of one column of imr90_channels.csv over the cultures of one state."""
+    v = [float(r[col]) for r in load_csv_rows('Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv') if r['state'] == state]
+    return max(v) if which == 'max' else min(v)
+
+def _b13_Hbits(x):
+    return -(x * math.log2(x) + (1 - x) * math.log2(1 - x))
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -36829,12 +36838,81 @@ def check_2597():
     value = A_floor
     return locals()
 
+@check(label='ch:onegauge:L41', chapter='ch:onegauge', part=7, title='transmon worked example: error-correction threshold at A = 10',
+       file='part3/p3_08_one_gauge', line=41, status='calc', kind='num', printed='10', tol=0.0)
+def check_4405():
+    'On the qubit gauge A = reading/(the device as built): the error-correction threshold p ~ 1 % (line 40) over the worked transmon two-qubit error 10^-3 (fig:onegauge caption, line 58), both read through eps = -ln(1-p) as the qubit gauge defines (table, line 37). Book line 41, printed A = 10.'
+    p_threshold, p_device = 0.01, 1e-3       # book lines 40 and 58
+    value = math.log(1 - p_threshold) / math.log(1 - p_device)
+    return locals()
+
 @check(label='ch:onegauge:L42', chapter='ch:onegauge', part=7, title='same value as p4_00b_astrogenetics:63 (H(eps0), bits)',
        file='part3/p3_08_one_gauge', line=42, status='calc', kind='num', printed='0.2043', tol=0)
 def check_2598():
     'same value as p4_00b_astrogenetics:63 (H(eps0), bits). Book line 42, printed 0.2043.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     value=Hb(eps0)
+    return locals()
+
+@check(label='ch:onegauge:L42:3.03', chapter='ch:onegauge', part=7, title='full surface on Met-A: 1/(healthy reference)',
+       file='part3/p3_08_one_gauge', line=42, status='calc', kind='num', printed='3.03', tol=0.0)
+def check_4406():
+    'Full surface on Met-A for neutrophils: H(beta) = 1 bit at every identity site over the healthy reference 0.330263 bits (CANON Met_A_floor_EPIC_neutrophil, frozen from 6 purified healthy EPIC arrays). Book line 42, printed 3.03.'
+    value = 1.0 / _cv('Met_A_floor_EPIC_neutrophil')
+    return locals()
+
+@check(label='ch:onegauge:L42:4.45', chapter='ch:onegauge', part=7, title='full surface on IAM-A: 1/(P H(eps0)), neutrophils',
+       file='part3/p3_08_one_gauge', line=42, status='calc', kind='num', printed='4.45', tol=0.0)
+def check_4407():
+    'Full surface on IAM-A for neutrophils: 1/(P_cell H(eps0)), P_cell = 1.099 (CANON P_neutrophil_IAM_A), H the binary entropy in bits at eps0 (CANON eps0_meth). Book line 42, printed 4.45.'
+    value = 1.0 / (_cv('P_neutrophil_IAM_A') * _b13_Hbits(eps0))
+    return locals()
+
+@check(label='ch:onegauge:L42:0.032', chapter='ch:onegauge', part=7, title='eps0 = 1/(1 + exp(phi M))',
+       file='part3/p3_08_one_gauge', line=42, status='calc', kind='num', printed='0.032', tol=0.0)
+def check_4408():
+    'eps0 = 1/(1 + exp(phi M)) with phi = E_hold/M (CANON phi) and M = dG_ATP/(R T_cell) recomputed from CANON dG_ATP, R, T_cell. Book line 42, printed 0.032.'
+    M = dG_ATP / (R_gas * T_cell)
+    value = 1 / (1 + math.exp(phi_hold * M))
+    return locals()
+
+@check(label='ch:onegauge:L63', chapter='ch:onegauge', part=7, title='holding energy E_hold from the PROC-CHANNEL-01 record',
+       file='part3/p3_08_one_gauge', line=63, status='openprob', kind='file', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+def check_4409():
+    'E_hold = ln((1-eps)/eps) kT of the copy channel, read from the table row "methylated sites (copy error)" of PROC_CHANNEL_01_OUTCOME.md. Book line 63, printed 3.41.'
+    value = _b00_hold_energy()
+    return locals()
+
+@check(label='ch:onegauge:L64', chapter='ch:onegauge', part=7, title='eps0 from the measured holding energy',
+       file='part3/p3_08_one_gauge', line=64, status='openprob', kind='file', printed='0.032', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+def check_4410():
+    'eps0 = 1/(1 + exp(E_hold/kT)) with E_hold read from PROC_CHANNEL_01_OUTCOME.md (copy channel). Book line 64, printed 0.032.'
+    value = 1 / (1 + math.exp(_b00_hold_energy()))
+    return locals()
+
+@check(label='ch:onegauge:L66', chapter='ch:onegauge', part=7, title='Hopfield energy gap ln 7 (low end)',
+       file='part3/p3_08_one_gauge', line=66, status='openprob', kind='num', printed='1.9', tol=0.0)
+def check_4411():
+    'Delta E/kT = ln(selectivity) at the lowest published DNMT1 preference for hemimethylated CpG, 7x (input as the book states it, line 154, Pradhan et al. 1999, doi 10.1074/jbc.274.46.33002). Book line 66, printed 1.9.'
+    sel_low = 7.0
+    value = math.log(sel_low)
+    return locals()
+
+@check(label='ch:onegauge:L66:4.4', chapter='ch:onegauge', part=7, title='Hopfield energy gap ln 80 (high end)',
+       file='part3/p3_08_one_gauge', line=66, status='openprob', kind='num', printed='4.4', tol=0.0)
+def check_4412():
+    'Delta E/kT = ln(selectivity) at the highest published preference, 80x (input as the book states it, line 155, Adam et al. 2023, doi 10.1093/nar/gkad465). Book line 66, printed 4.4.'
+    sel_high = 80.0
+    value = math.log(sel_high)
+    return locals()
+
+@check(label='ch:onegauge:L67', chapter='ch:onegauge', part=7, title='Mahaffey number M = dG_ATP/(R T_cell)',
+       file='part3/p3_08_one_gauge', line=67, status='openprob', kind='num', printed='20.94', tol=0.0)
+def check_4413():
+    'M = dG_ATP/(R T_cell) with dG_ATP = 54 kJ/mol, R and T_cell = 310.15 K (CANON). Book line 67, printed 20.94.'
+    value = dG_ATP / (R_gas * T_cell)
     return locals()
 
 @check(label='ch:onegauge:L79', chapter='ch:onegauge', part=7, title='drafted check, screened (runs; negative control fails)',
@@ -36853,11 +36931,58 @@ def check_2599():
     lhs = H_x
     return locals()
 
+@check(label='ch:onegauge:L94', chapter='ch:onegauge', part=7, title='IAM-A floor eps0 = 1/(1 + e^{phi M})',
+       file='part3/p3_08_one_gauge', line=94, status='derived', kind='num', printed='0.032', tol=0.0)
+def check_4414():
+    'Eq. at line 94: eps0 = 1/(1 + e^{phi M}) with phi = 0.1628 (CANON phi) and M recomputed as dG_ATP/(R T_cell) (CANON inputs). Book line 94, printed 0.032.'
+    M = dG_ATP / (R_gas * T_cell)
+    value = 1 / (1 + math.exp(phi_hold * M))
+    return locals()
+
 @check(label='ch:onegauge:L110', chapter='ch:onegauge', part=7, title='measured: printed value found in iam_canon.json, a file the chapter names',
        file='part3/p3_08_one_gauge', line=110, status='measured', kind='file', printed='1.05', tol=0.0, source='CANON/iam_canon.json')
 def check_2600():
     'measured: printed value found in iam_canon.json, a file the chapter names. Book line 110, printed 1.05.'
     ok = file_has('CANON/iam_canon.json', '1.05')
+    return locals()
+
+@check(label='ch:onegauge:L110:0.695', chapter='ch:onegauge', part=7, title='IMR90 senescent, unmethylated channel, upper end',
+       file='part3/p3_08_one_gauge', line=110, status='measured', kind='file', printed='0.695', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv',
+       heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py (needs the GSE48580 WGBS files)')
+def check_4415():
+    'Largest A_unmeth over the three senescent IMR90 cultures (GSE48580), imr90_channels.csv. Book line 110, printed 0.695 (range 0.685-0.695).'
+    value = _b13_imr90('Senescent', 'A_unmeth', 'max')
+    return locals()
+
+@check(label='ch:onegauge:L110:1.120', chapter='ch:onegauge', part=7, title='IMR90 SV40, methylated channel, upper end',
+       file='part3/p3_08_one_gauge', line=110, status='measured', kind='file', printed='1.120', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv',
+       heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py (needs the GSE48580 WGBS files)')
+def check_4416():
+    'Largest A_meth over the three SV40-immortalised IMR90 cultures, imr90_channels.csv. Book line 110, printed 1.120 (range 1.077-1.120).'
+    value = _b13_imr90('SV40', 'A_meth', 'max')
+    return locals()
+
+@check(label='ch:onegauge:L110:0.664', chapter='ch:onegauge', part=7, title='IMR90 SV40, unmethylated channel, upper end',
+       file='part3/p3_08_one_gauge', line=110, status='measured', kind='file', printed='0.664', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv',
+       heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py (needs the GSE48580 WGBS files)')
+def check_4417():
+    'Largest A_unmeth over the three SV40-immortalised IMR90 cultures, imr90_channels.csv. Book line 110, printed 0.664 (range 0.587-0.664).'
+    value = _b13_imr90('SV40', 'A_unmeth', 'max')
+    return locals()
+
+@check(label='ch:onegauge:L110:0.975', chapter='ch:onegauge', part=7, title='IMR90 SV40, both channels, upper end',
+       file='part3/p3_08_one_gauge', line=110, status='measured', kind='file', printed='0.975', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv',
+       heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py (needs the GSE48580 WGBS files)')
+def check_4418():
+    'Largest A_both over the three SV40-immortalised IMR90 cultures, imr90_channels.csv. Book line 110, printed 0.975 (range 0.965-0.975).'
+    value = _b13_imr90('SV40', 'A_both', 'max')
+    return locals()
+
+@check(label='ch:onegauge:L110:0.95', chapter='ch:onegauge', part=7, title='Normal band lower edge (CANON)',
+       file='part3/p3_08_one_gauge', line=110, status='measured', kind='file', printed='0.95', tol=0.0, source='CANON/iam_canon.json')
+def check_4419():
+    'Lower edge of the Normal band of A, CANON Normal_band (healthy is A = 1 within 5 %). Book line 110, printed 0.95.'
+    value = _cv('Normal_band')[0]
     return locals()
 
 @check(label='ch:onegauge:L143', chapter='ch:onegauge', part=7, title='measured: printed value found in iam_canon.json, a file the chapter names',
@@ -36874,6 +36999,22 @@ def check_2602():
     ok = file_has('CANON/iam_canon.json', '3.77')
     return locals()
 
+@check(label='ch:onegauge:L143:1.9', chapter='ch:onegauge', part=7, title='Hopfield gap ln 7 (figure caption)',
+       file='part3/p3_08_one_gauge', line=143, status='observed', kind='num', printed='1.9', tol=0.0)
+def check_4420():
+    'k_B T ln(selectivity) at the low end of the published preferences, 7x (Pradhan et al. 1999, doi 10.1074/jbc.274.46.33002, as the book states it), in kT. Book line 143, printed 1.9.'
+    sel_low = 7.0
+    value = math.log(sel_low)
+    return locals()
+
+@check(label='ch:onegauge:L143:4.4', chapter='ch:onegauge', part=7, title='Hopfield gap ln 80 (figure caption)',
+       file='part3/p3_08_one_gauge', line=143, status='observed', kind='num', printed='4.4', tol=0.0)
+def check_4421():
+    'k_B T ln(selectivity) at the high end, 80x (Adam et al. 2023, doi 10.1093/nar/gkad465, as the book states it), in kT. Book line 143, printed 4.4.'
+    sel_high = 80.0
+    value = math.log(sel_high)
+    return locals()
+
 @check(label='ch:onegauge:L156', chapter='ch:onegauge', part=7, title='measured: printed value found in iam_canon.json, a file the chapter names',
        file='part3/p3_08_one_gauge', line=156, status='observed', kind='file', printed='3.41', tol=0.0, source='CANON/iam_canon.json')
 def check_2603():
@@ -36886,6 +37027,22 @@ def check_2603():
 def check_2604():
     'measured: printed value found in iam_canon.json, a file the chapter names. Book line 156, printed 3.77.'
     ok = file_has('CANON/iam_canon.json', '3.77')
+    return locals()
+
+@check(label='ch:onegauge:L156:1.9', chapter='ch:onegauge', part=7, title='Delta E = ln 7 (Hopfield)',
+       file='part3/p3_08_one_gauge', line=156, status='observed', kind='num', printed='1.9', tol=0.0)
+def check_4422():
+    'Hopfield 1974 (Delta E = kT ln selectivity) at 7x (Pradhan et al. 1999, as the book states it, line 154), in kT. Book line 156, printed 1.9.'
+    sel_low = 7.0
+    value = math.log(sel_low)
+    return locals()
+
+@check(label='ch:onegauge:L156:4.4', chapter='ch:onegauge', part=7, title='Delta E = ln 80 (Hopfield)',
+       file='part3/p3_08_one_gauge', line=156, status='observed', kind='num', printed='4.4', tol=0.0)
+def check_4423():
+    'Hopfield 1974 at 80x (Adam et al. 2023, as the book states it, line 155), in kT. Book line 156, printed 4.4.'
+    sel_high = 80.0
+    value = math.log(sel_high)
     return locals()
 
 
@@ -40546,33 +40703,14 @@ INVENTORY = [
     (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '1.5', 'input: the redshift z = 1.5 at which panels (c) and (f) are read (checked as ch:virial_partners:L87:4.9 and L87:0.6)'),
     (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '0.3', 'input: z = 0.3, lower edge of the transition zone and an evaluation redshift of panel (f) (checked as ch:virial_partners:L87:7.3)'),
     (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 90, '', 'calc', '0.7', 'definition: the transition zone z = 0.3-0.7 (its edge 0.7), a range named for the figure, nothing to recompute'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 21, '', 'calc', '20', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 21, '', 'calc', '4.3', 'not yet run: draft rejected (printed value typed into the code)'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 21, '', 'calc', '75', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 41, '', 'calc', '10', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 42, '', 'calc', '3.03', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 42, '', 'calc', '4.45', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 42, '', 'calc', '0.032', 'not yet run: draft rejected (drafter skipped: Line 42 states ε₀ = 0.032 as a given constant (defined in namespace as ep)'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 63, '', 'openprob', '3.41', 'not yet checked'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 64, '', 'openprob', '0.032', 'not yet checked'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 66, '', 'openprob', '1.9', 'not yet checked'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 66, '', 'openprob', '4.4', 'not yet checked'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 67, '', 'openprob', '20.94', 'not yet checked'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 83, '', 'none', '', 'displayed equation, not yet checked'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 94, '', 'none', '', 'displayed equation, not yet checked'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 110, '', 'measured', '0.695', 'measured, not found in the files the chapter names'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 110, '', 'measured', '1.120', 'measured, not found in the files the chapter names'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 110, '', 'measured', '0.664', 'measured, not found in the files the chapter names'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 110, '', 'measured', '0.975', 'measured, not found in the files the chapter names'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 110, '', 'measured', '0.95', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 143, '', 'observed', '1.9', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 143, '', 'observed', '4.4', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 154, '', 'observed', '21', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 154, '', 'observed', '30', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 154, '', 'observed', '40', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 154, '', 'observed', '80', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 156, '', 'observed', '1.9', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 156, '', 'observed', '4.4', 'measured, too few printed digits to match against the named files'),
+    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 21, '', 'calc', '20', 'input: transistor count (20.0-20.6)x10^9 of the 9950X from die-level reports (\\cite{AMD9950X}); E_sw and M from it are checked as ch:onegauge:L22 and L22:411'),
+    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 21, '', 'calc', '4.3', 'input: clock 4.3 GHz of the 9950X, manufacturer specification (\\cite{AMD9950X}); used by ch:onegauge:L22'),
+    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 21, '', 'calc', '75', 'input: junction temperature T_j = 75 C, stated operating point of the chip; used by ch:onegauge:L22 and L22:0.0017'),
+    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 83, '', 'none', '', 'definition: Met-A = <H(beta)> at identity sites over <H(beta)> of the healthy reference'),
+    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 154, '', 'observed', '21', 'measured, source not named'),
+    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 154, '', 'observed', '30', 'measured, source not named'),
+    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 154, '', 'observed', '40', 'measured, source not named'),
+    (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 154, '', 'observed', '80', 'measured, source not named'),
     (7, 'ch:synthesis', 'part5/p5_08_synthesis', 29, '', 'derived', '2.65\\times10^{-30}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (7, 'ch:synthesis', 'part5/p5_08_synthesis', 29, '', 'calc', '-0.136', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (7, 'ch:synthesis', 'part5/p5_08_synthesis', 30, '', 'derived', '6.2\\times10^{-8}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),

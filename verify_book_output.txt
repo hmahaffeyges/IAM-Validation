@@ -5146,13 +5146,38 @@ PASS  ch:virial_decoherence:L176         ch:virial_decoherence:p5_05c_virial_dec
 PASS  ch:onegauge:L22                    ch:onegauge:p3_08_one_gauge:22  printed 399  recomputed 399.44  tol 0.5  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:onegauge:L22:411                ch:onegauge:p3_08_one_gauge:22  printed 411  recomputed 411.922  tol 1.0275  [calc] drafted check, screened (runs; negative control fails) (tolerance: E_sw is printed to 3 figures)
 PASS  ch:onegauge:L22:0.0017             ch:onegauge:p3_08_one_gauge:22  printed 0.0017  recomputed 0.0017086  tol 5.000005e-05  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:onegauge:L41                    ch:onegauge:p3_08_one_gauge:41  printed 10  recomputed 10.0453  tol 0.5  [calc] transmon worked example: error-correction threshold at A = 10
 PASS  ch:onegauge:L42                    ch:onegauge:p3_08_one_gauge:42  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [calc] same value as p4_00b_astrogenetics:63 (H(eps0), bits)
+PASS  ch:onegauge:L42:3.03               ch:onegauge:p3_08_one_gauge:42  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] full surface on Met-A: 1/(healthy reference)
+PASS  ch:onegauge:L42:4.45               ch:onegauge:p3_08_one_gauge:42  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] full surface on IAM-A: 1/(P H(eps0)), neutrophils
+PASS  ch:onegauge:L42:0.032              ch:onegauge:p3_08_one_gauge:42  printed 0.032  recomputed 0.0320117  tol 5.000005e-04  [calc] eps0 = 1/(1 + exp(phi M))
+PASS  ch:onegauge:L63                    ch:onegauge:p3_08_one_gauge:63  printed 3.41  recomputed 3.41  tol 0.00500001  [openprob] holding energy E_hold from the PROC-CHANNEL-01 record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:onegauge:L64                    ch:onegauge:p3_08_one_gauge:64  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [openprob] eps0 from the measured holding energy  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  ch:onegauge:L66                    ch:onegauge:p3_08_one_gauge:66  printed 1.9  recomputed 1.94591  tol 0.05  [openprob] Hopfield energy gap ln 7 (low end)
+PASS  ch:onegauge:L66:4.4                ch:onegauge:p3_08_one_gauge:66  printed 4.4  recomputed 4.38203  tol 0.05  [openprob] Hopfield energy gap ln 80 (high end)
+PASS  ch:onegauge:L67                    ch:onegauge:p3_08_one_gauge:67  printed 20.94  recomputed 20.9405  tol 0.00500001  [openprob] Mahaffey number M = dG_ATP/(R T_cell)
 PASS  ch:onegauge:L79                    ch:onegauge:p3_08_one_gauge:79  printed (algebra)  recomputed lhs-rhs=0  [derived] drafted check, screened (runs; negative control fails)
+PASS  ch:onegauge:L94                    ch:onegauge:p3_08_one_gauge:94  printed 0.032  recomputed 0.0320117  tol 5.000005e-04  [derived] IAM-A floor eps0 = 1/(1 + e^{phi M})
 PASS  ch:onegauge:L110                   ch:onegauge:p3_08_one_gauge:110  printed 1.05  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  ch:onegauge:L110:0.695             ch:onegauge:p3_08_one_gauge:110  printed 0.695  recomputed 0.695321  tol 5.000005e-04  [measured] IMR90 senescent, unmethylated channel, upper end  file Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv
+      heavy: python3 Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py (needs the GSE48580 WGBS files)
+PASS  ch:onegauge:L110:1.120             ch:onegauge:p3_08_one_gauge:110  printed 1.120  recomputed 1.12041  tol 5.000005e-04  [measured] IMR90 SV40, methylated channel, upper end  file Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv
+      heavy: python3 Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py (needs the GSE48580 WGBS files)
+PASS  ch:onegauge:L110:0.664             ch:onegauge:p3_08_one_gauge:110  printed 0.664  recomputed 0.663859  tol 5.000005e-04  [measured] IMR90 SV40, unmethylated channel, upper end  file Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv
+      heavy: python3 Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py (needs the GSE48580 WGBS files)
+PASS  ch:onegauge:L110:0.975             ch:onegauge:p3_08_one_gauge:110  printed 0.975  recomputed 0.974939  tol 5.000005e-04  [measured] IMR90 SV40, both channels, upper end  file Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv
+      heavy: python3 Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py (needs the GSE48580 WGBS files)
+PASS  ch:onegauge:L110:0.95              ch:onegauge:p3_08_one_gauge:110  printed 0.95  recomputed 0.95  tol 0.00500001  [measured] Normal band lower edge (CANON)  file CANON/iam_canon.json
 PASS  ch:onegauge:L143                   ch:onegauge:p3_08_one_gauge:143  printed 3.41  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  ch:onegauge:L143:3.77              ch:onegauge:p3_08_one_gauge:143  printed 3.77  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  ch:onegauge:L143:1.9               ch:onegauge:p3_08_one_gauge:143  printed 1.9  recomputed 1.94591  tol 0.05  [observed] Hopfield gap ln 7 (figure caption)
+PASS  ch:onegauge:L143:4.4               ch:onegauge:p3_08_one_gauge:143  printed 4.4  recomputed 4.38203  tol 0.05  [observed] Hopfield gap ln 80 (figure caption)
 PASS  ch:onegauge:L156                   ch:onegauge:p3_08_one_gauge:156  printed 3.41  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  ch:onegauge:L156:3.77              ch:onegauge:p3_08_one_gauge:156  printed 3.77  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  ch:onegauge:L156:1.9               ch:onegauge:p3_08_one_gauge:156  printed 1.9  recomputed 1.94591  tol 0.05  [observed] Delta E = ln 7 (Hopfield)
+PASS  ch:onegauge:L156:4.4               ch:onegauge:p3_08_one_gauge:156  printed 4.4  recomputed 4.38203  tol 0.05  [observed] Delta E = ln 80 (Hopfield)
 
 == Part 7: Thirty-Seven Orders of Magnitude and the Web that is IAM | ch:synthesis (part5/p5_08_synthesis.tex)
 PASS  ch:synthesis:L29                   ch:synthesis:p5_08_synthesis:29  printed 67.16  recomputed 67.1611  tol 0.00500343  [derived] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
@@ -5516,4 +5541,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 4405  FAIL 0  (heavy, read from committed outputs: 932)  inventoried-not-run 1934  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4424  FAIL 0  (heavy, read from committed outputs: 938)  inventoried-not-run 1915  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

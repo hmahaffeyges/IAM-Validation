@@ -3,7 +3,7 @@
 Items a check raised that would change a result, a prediction, a locked value, an equation of IAM or the framing of a
 claim. The book was left unchanged for each; the decision is the author's. Every FAIL of `verify_book.py` is listed here.
 
-Items: 16
+Items: 17
 
 ## 1. `docs/book/part2/p2_02_virial.tex:L86-87`
 
@@ -116,4 +116,11 @@ Items: 16
 - **Proposed:** keep 0.38 (it is 0.26/0.69 from lines 25-26, as verify_virial_papers.py prints), or print 0.39 if the ratio is meant from Planck 2018 directly
 - **Why it matters:** From Planck 2018 (Omega_c h^2 = 0.1200, h = 0.6736, Omega_Lambda = 0.6847) Omega_c/Omega_Lambda = 0.386, which rounds to 0.39; the printed 0.38 is the ratio of the book's rounded 26 % and 69 %.
 - **Recommendation:** No change needed for the check (it uses the book's 26 % and 69 %); the author may decide whether the sentence means the rounded or the full Planck ratio.
+
+## 17. `docs/book/figscripts/fig_p3.py (fig_holding_energy) vs docs/book/part3/p3_08_one_gauge.tex:L143 and L154`
+
+- **Now:** text and caption: DNMT1 preference 'about 30--40x' (Goyal 2006); the figure script plots this entry as 'several reports, 30-50x' (ln 50 = 3.9 kT)
+- **Proposed:** use one range in both, as the cited paper gives it
+- **Why it matters:** the plotted bar and the printed range differ (3.4-3.9 kT plotted vs 3.4-3.7 kT from the text); the overall range 1.9-4.4 kT is unaffected
+- **Recommendation:** confirm the Goyal 2006 value and align the figure label and bar with the text (or the text with the figure).
 
