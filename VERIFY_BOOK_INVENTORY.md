@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4265 PASS, 0 FAIL, 2073 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4326 PASS, 0 FAIL, 2012 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5173,71 +5173,71 @@ Totals: 4265 PASS, 0 FAIL, 2073 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 30 |  | prediction | `1.00` | not run: not yet checked | - |
-| 40 |  | measured | `1.148` | not run: measured, source not named | - |
-| 41 |  | measured | `0.005` | not run: measured, source not named | - |
-| 41 |  | measured | `1.183` | not run: measured, source not named | - |
-| 51 |  | measured | `0.005` | not run: measured, source not named | - |
-| 59 |  | measured | `0.03514` | not run: measured, source not named | - |
-| 59 |  | measured | `0.04668` | not run: measured, source not named | - |
-| 59 |  | measured | `1.328` | not run: measured, source not named | - |
-| 59 |  | measured | `0.0027` | not run: measured, source not named | - |
-| 60 |  | measured | `0.03550` | not run: measured, source not named | - |
-| 60 |  | measured | `0.04269` | not run: measured, source not named | - |
-| 60 |  | measured | `1.203` | not run: measured, source not named | - |
-| 60 |  | measured | `0.0009` | not run: measured, source not named | - |
-| 61 |  | measured | `0.03268` | not run: measured, source not named | - |
-| 61 |  | measured | `0.03865` | not run: measured, source not named | - |
-| 61 |  | measured | `1.183` | not run: measured, source not named | - |
-| 61 |  | measured | `0.0032` | not run: measured, source not named | - |
-| 62 |  | measured | `0.03275` | not run: measured, source not named | - |
-| 62 |  | measured | `0.03646` | not run: measured, source not named | - |
-| 62 |  | measured | `1.113` | not run: measured, source not named | - |
-| 62 |  | measured | `0.0001` | not run: measured, source not named | - |
-| 63 |  | measured | `0.03715` | not run: measured, source not named | - |
-| 63 |  | measured | `0.03963` | not run: measured, source not named | - |
-| 63 |  | measured | `1.067` | not run: measured, source not named | - |
-| 63 |  | measured | `0.0051` | not run: measured, source not named | - |
-| 64 |  | measured | `0.03866` | not run: measured, source not named | - |
-| 64 |  | measured | `0.04216` | not run: measured, source not named | - |
-| 64 |  | measured | `1.090` | not run: measured, source not named | - |
-| 64 |  | measured | `0.0001` | not run: measured, source not named | - |
-| 65 |  | measured | `0.03692` | not run: measured, source not named | - |
-| 65 |  | measured | `0.04079` | not run: measured, source not named | - |
-| 65 |  | measured | `1.105` | not run: measured, source not named | - |
-| 65 |  | measured | `0.0010` | not run: measured, source not named | - |
-| 66 |  | measured | `0.03888` | not run: measured, source not named | - |
-| 66 |  | measured | `0.04160` | not run: measured, source not named | - |
-| 66 |  | measured | `1.070` | not run: measured, source not named | - |
-| 66 |  | measured | `0.0004` | not run: measured, source not named | - |
-| 67 |  | measured | `0.03557` | not run: measured, source not named | - |
-| 67 |  | measured | `0.03668` | not run: measured, source not named | - |
-| 67 |  | measured | `1.031` | not run: measured, source not named | - |
-| 67 |  | measured | `0.0008` | not run: measured, source not named | - |
-| 68 |  | measured | `0.03915` | not run: measured, source not named | - |
-| 68 |  | measured | `0.03334` | not run: measured, source not named | - |
-| 68 |  | measured | `0.851` | not run: measured, source not named | - |
-| 68 |  | measured | `0.0005` | not run: measured, source not named | - |
-| 69 |  | measured | `0.03893` | not run: measured, source not named | - |
-| 69 |  | measured | `0.04678` | not run: measured, source not named | - |
-| 69 |  | measured | `1.202` | not run: measured, source not named | - |
-| 69 |  | measured | `0.0004` | not run: measured, source not named | - |
-| 70 |  | measured | `0.04064` | not run: measured, source not named | - |
-| 70 |  | measured | `0.04567` | not run: measured, source not named | - |
-| 70 |  | measured | `1.124` | not run: measured, source not named | - |
-| 70 |  | measured | `0.0004` | not run: measured, source not named | - |
-| 71 |  | measured | `0.03623` | not run: measured, source not named | - |
-| 71 |  | measured | `0.03899` | not run: measured, source not named | - |
-| 71 |  | measured | `1.076` | not run: measured, source not named | - |
-| 71 |  | measured | `0.0005` | not run: measured, source not named | - |
-| 72 |  | measured | `0.03917` | not run: measured, source not named | - |
-| 72 |  | measured | `0.04107` | not run: measured, source not named | - |
-| 72 |  | measured | `1.049` | not run: measured, source not named | - |
-| 72 |  | measured | `0.0005` | not run: measured, source not named | - |
-| 79 |  | measured | `10` | not run: measured, source not named | - |
-| 82 |  | measured | `0.5` | not run: measured, source not named | - |
-| 82 |  | measured | `1.5` | not run: measured, source not named | - |
-| 109 |  | prediction | `1.00` | not run: not yet checked | - |
+| 30 |  | prediction | `1.00` | not run: prediction, nothing to recompute: each lineage of a blood-cancer specimen read against its own healthy floor, against 1.00 (the healthy reference value of Met-A) | - |
+| 40 | part4:ch:reach:L40 | measured | `1.148` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: early-onset colorectal pairs: median ratio | PASS |
+| 41 | part4:ch:reach:L41 | measured | `0.005` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_PREREG.md`: instrument bar on the conversion-failure difference | PASS |
+| 41 | part4:ch:reach:L41:1.183 | measured | `1.183` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: colorectal pairs under the bar: median ratio | PASS |
+| 51 | part4:ch:reach:L51 | measured | `0.005` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_PREREG.md`: instrument bar (figure caption) | PASS |
+| 59 | part4:ch:reach:L59 | measured | `0.03514` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC1 WGBS: eps normal | PASS |
+| 59 | part4:ch:reach:L59:0.04668 | measured | `0.04668` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC1 WGBS: eps tumour | PASS |
+| 59 | part4:ch:reach:L59:1.328 | measured | `1.328` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC1 WGBS: ratio | PASS |
+| 59 | part4:ch:reach:L59:0.0027 | measured | `0.0027` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC1 WGBS: conversion difference | PASS |
+| 60 | part4:ch:reach:L60 | measured | `0.03550` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC2 WGBS: eps normal | PASS |
+| 60 | part4:ch:reach:L60:0.04269 | measured | `0.04269` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC2 WGBS: eps tumour | PASS |
+| 60 | part4:ch:reach:L60:1.203 | measured | `1.203` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC2 WGBS: ratio | PASS |
+| 60 | part4:ch:reach:L60:0.0009 | measured | `0.0009` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC2 WGBS: conversion difference | PASS |
+| 61 | part4:ch:reach:L61 | measured | `0.03268` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC3 WGBS: eps normal | PASS |
+| 61 | part4:ch:reach:L61:0.03865 | measured | `0.03865` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC3 WGBS: eps tumour | PASS |
+| 61 | part4:ch:reach:L61:1.183 | measured | `1.183` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC3 WGBS: ratio | PASS |
+| 61 | part4:ch:reach:L61:0.0032 | measured | `0.0032` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC3 WGBS: conversion difference | PASS |
+| 62 | part4:ch:reach:L62 | measured | `0.03275` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC4 WGBS: eps normal | PASS |
+| 62 | part4:ch:reach:L62:0.03646 | measured | `0.03646` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC4 WGBS: eps tumour | PASS |
+| 62 | part4:ch:reach:L62:1.113 | measured | `1.113` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC4 WGBS: ratio | PASS |
+| 62 | part4:ch:reach:L62:0.0001 | measured | `0.0001` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC4 WGBS: conversion difference | PASS |
+| 63 | part4:ch:reach:L63 | measured | `0.03715` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC5 WGBS: eps normal | PASS |
+| 63 | part4:ch:reach:L63:0.03963 | measured | `0.03963` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC5 WGBS: eps tumour | PASS |
+| 63 | part4:ch:reach:L63:1.067 | measured | `1.067` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC5 WGBS: ratio | PASS |
+| 63 | part4:ch:reach:L63:0.0051 | measured | `0.0051` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC5 WGBS: conversion difference | PASS |
+| 64 | part4:ch:reach:L64 | measured | `0.03866` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC6 WGBS: eps normal | PASS |
+| 64 | part4:ch:reach:L64:0.04216 | measured | `0.04216` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC6 WGBS: eps tumour | PASS |
+| 64 | part4:ch:reach:L64:1.090 | measured | `1.090` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC6 WGBS: ratio | PASS |
+| 64 | part4:ch:reach:L64:0.0001 | measured | `0.0001` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour CRC6 WGBS: conversion difference | PASS |
+| 65 | part4:ch:reach:L65 | measured | `0.03692` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC1 WGBS: eps normal | PASS |
+| 65 | part4:ch:reach:L65:0.04079 | measured | `0.04079` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC1 WGBS: eps tumour | PASS |
+| 65 | part4:ch:reach:L65:1.105 | measured | `1.105` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC1 WGBS: ratio | PASS |
+| 65 | part4:ch:reach:L65:0.0010 | measured | `0.0010` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC1 WGBS: conversion difference | PASS |
+| 66 | part4:ch:reach:L66 | measured | `0.03888` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC1 oxWGBS: eps normal | PASS |
+| 66 | part4:ch:reach:L66:0.04160 | measured | `0.04160` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC1 oxWGBS: eps tumour | PASS |
+| 66 | part4:ch:reach:L66:1.070 | measured | `1.070` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC1 oxWGBS: ratio | PASS |
+| 66 |  | measured | `0.0004` | not run: measured: OSCC1 oxWGBS conversion-failure difference |0.004662 - 0.005079| = 0.000417 from tumour_readings.csv (PROC-TUMOUR-01) rounds to the printed 0.0004; a one-digit value cannot carry the 5 % negative control (0.00042 lies within half its last digit of 0.000417) | - |
+| 67 | part4:ch:reach:L67 | measured | `0.03557` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC2 WGBS: eps normal | PASS |
+| 67 | part4:ch:reach:L67:0.03668 | measured | `0.03668` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC2 WGBS: eps tumour | PASS |
+| 67 | part4:ch:reach:L67:1.031 | measured | `1.031` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC2 WGBS: ratio | PASS |
+| 67 | part4:ch:reach:L67:0.0008 | measured | `0.0008` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC2 WGBS: conversion difference | PASS |
+| 68 | part4:ch:reach:L68 | measured | `0.03915` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC2 oxWGBS: eps normal | PASS |
+| 68 | part4:ch:reach:L68:0.03334 | measured | `0.03334` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC2 oxWGBS: eps tumour | PASS |
+| 68 | part4:ch:reach:L68:0.851 | measured | `0.851` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC2 oxWGBS: ratio | PASS |
+| 68 | part4:ch:reach:L68:0.0005 | measured | `0.0005` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC2 oxWGBS: conversion difference | PASS |
+| 69 | part4:ch:reach:L69 | measured | `0.03893` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC3 WGBS: eps normal | PASS |
+| 69 | part4:ch:reach:L69:0.04678 | measured | `0.04678` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC3 WGBS: eps tumour | PASS |
+| 69 | part4:ch:reach:L69:1.202 | measured | `1.202` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC3 WGBS: ratio | PASS |
+| 69 | part4:ch:reach:L69:0.0004 | measured | `0.0004` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC3 WGBS: conversion difference | PASS |
+| 70 | part4:ch:reach:L70 | measured | `0.04064` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC3 oxWGBS: eps normal | PASS |
+| 70 | part4:ch:reach:L70:0.04567 | measured | `0.04567` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC3 oxWGBS: eps tumour | PASS |
+| 70 | part4:ch:reach:L70:1.124 | measured | `1.124` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC3 oxWGBS: ratio | PASS |
+| 70 | part4:ch:reach:L70:0.0004 | measured | `0.0004` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC3 oxWGBS: conversion difference | PASS |
+| 71 | part4:ch:reach:L71 | measured | `0.03623` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC4 WGBS: eps normal | PASS |
+| 71 | part4:ch:reach:L71:0.03899 | measured | `0.03899` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC4 WGBS: eps tumour | PASS |
+| 71 | part4:ch:reach:L71:1.076 | measured | `1.076` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC4 WGBS: ratio | PASS |
+| 71 | part4:ch:reach:L71:0.0005 | measured | `0.0005` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC4 WGBS: conversion difference | PASS |
+| 72 | part4:ch:reach:L72 | measured | `0.03917` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC4 oxWGBS: eps normal | PASS |
+| 72 | part4:ch:reach:L72:0.04107 | measured | `0.04107` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC4 oxWGBS: eps tumour | PASS |
+| 72 | part4:ch:reach:L72:1.049 | measured | `1.049` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC4 oxWGBS: ratio | PASS |
+| 72 | part4:ch:reach:L72:0.0005 | measured | `0.0005` | heavy file `Biological_Physics/MethylPhys/doors/data/tumour_readings.csv`: Table tab:p4_tumour OSCC4 oxWGBS: conversion difference | PASS |
+| 79 |  | measured | `10` | not run: restates Chapter ch:sky (p4_16_sky.tex L72-73): about 10^3 genome equivalents per millilitre of plasma (Sender2024), so a draw yields of order 10^3-10^4 copies of a site; an order of magnitude carried over, nothing to recompute here | - |
+| 82 | part4:ch:reach:L82 | measured | `0.5` | heavy file `Biological_Physics/MethylPhys/doors/PROC_MOLECULE_01_OUTCOME.md`: constructed mixtures: fewest molecules | PASS |
+| 82 | part4:ch:reach:L82:1.5 | measured | `1.5` | heavy file `Biological_Physics/MethylPhys/doors/PROC_MOLECULE_01_OUTCOME.md`: constructed mixtures: most molecules | PASS |
+| 109 |  | prediction | `1.00` | not run: prediction, nothing to recompute: sorted healthy canine cells held out of a canine reference read 1.00 within tolerance | - |
 
 ## Part 6 - ch:status - `docs/book/part4/p4_24_status.tex`
 

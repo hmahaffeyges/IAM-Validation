@@ -2297,6 +2297,37 @@ def _b12_coho_lanes(key):
     R = load_csv_rows(_B12_COHO); lanes = sorted({r['lane'] for r in R})
     return [(_b12_col([r for r in R if r['lane'] == L], key), _b12_col([r for r in R if r['lane'] == L], 'conv_fail')) for L in lanes]
 
+# helpers of the part4/p4_23_reach checks
+# b12 draft: part4:ch:reach (docs/book/part4/p4_23_reach.tex). Tumour-normal pairs recomputed from the per-sample readings of PROC-TUMOUR-01.
+_B12_TUM = 'Biological_Physics/MethylPhys/doors/data/tumour_readings.csv'
+_B12_TUMPRE = 'Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_PREREG.md'
+_B12_MOL = 'Biological_Physics/MethylPhys/doors/PROC_MOLECULE_01_OUTCOME.md'
+DATA_FILES[_B12_TUM] = 'PROC-TUMOUR-01 per-sample copy error (score_tumour.py): tumour and normal tissue, WGBS and oxWGBS'   # 5 kB
+DATA_FILES[_B12_TUMPRE] = 'PROC-TUMOUR-01 pre-registration: bars P1-P3'   # 2 kB
+DATA_FILES[_B12_MOL] = 'PROC-MOLECULE-01 outcome: constructed cancer-in-healthy DNA mixtures read on single molecules'   # 2 kB
+_B12_RR_TUM = 'python3 Biological_Physics/MethylPhys/doors/data/score_tumour.py (needs the per-sample site tables of the methylation chain: Bismark alignment, GRCh38)'
+_B12_RR_MOL = 'methylation chain on 12 ENCODE WGBS files mixed in silico (PROC-MOLECULE-01); the record is the outcome file'
+
+def _b12_tum_pair(patient, assay):
+    """(eps_corr normal, eps_corr tumour, tumour/normal ratio, |conversion-failure difference|) of one pair, from tumour_readings.csv."""
+    R = {r['tissue']: r for r in load_csv_rows(_B12_TUM) if r['patient'] == patient and r['assay'] == assay}
+    en, et = float(R['normal']['eps_corr']), float(R['tumour']['eps_corr'])
+    return en, et, et / en, abs(float(R['tumour']['conv_fail']) - float(R['normal']['conv_fail']))
+def _b12_tum_bar():
+    m = re.search(r'conversion failure differs by < ([\d.]+) between tumour and normal', file_text(_B12_TUMPRE))
+    return float(m.group(1))
+def _b12_crc_ratios(clean_only=False):
+    out = []
+    for k in range(1, 11):
+        try:
+            en, et, r, cd = _b12_tum_pair(f'CRC{k}', 'WGBS')
+        except KeyError:
+            continue              # CRC7: normal only
+        if clean_only and cd >= _b12_tum_bar():
+            continue
+        out.append(r)
+    return out
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -35385,6 +35416,555 @@ def check_4264():
     return locals()
 
 
+# ======== Part 6 | part4:ch:reach | docs/book/part4/p4_23_reach.tex
+@check(label='part4:ch:reach:L40', chapter='part4:ch:reach', part=6, title='early-onset colorectal pairs: median ratio',
+       file='part4/p4_23_reach', line=40, status='measured', kind='file', printed='1.148', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4265():
+    'Six early-onset colorectal tumour-normal pairs (CRC7 has a normal sample only): median of eps_corr tumour/normal, from the per-sample readings of PROC-TUMOUR-01 (tumour_readings.csv). Book line 40, printed 1.148.'
+    ratios = _b12_crc_ratios()
+    n_pairs = len(ratios)   # 6
+    value = float(np.median(ratios))
+    return locals()
+
+@check(label='part4:ch:reach:L41', chapter='part4:ch:reach', part=6, title='instrument bar on the conversion-failure difference',
+       file='part4/p4_23_reach', line=41, status='measured', kind='file', printed='0.005', tol=0.0, source=_B12_TUMPRE)
+def check_4266():
+    'The instrument bar of PROC-TUMOUR-01 (P3): conversion failure may differ by less than 0.005 between tumour and normal; read from the pre-registration. Only CRC5 (0.0051) is over it. Book line 41, printed 0.005.'
+    bar = _b12_tum_bar()
+    over = [k for k in (1, 2, 3, 4, 5, 6) if _b12_tum_pair(f'CRC{k}', 'WGBS')[3] >= bar]   # ['CRC5']
+    value = bar
+    return locals()
+
+@check(label='part4:ch:reach:L41:1.183', chapter='part4:ch:reach', part=6, title='colorectal pairs under the bar: median ratio',
+       file='part4/p4_23_reach', line=41, status='measured', kind='file', printed='1.183', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4267():
+    'Median tumour/normal ratio of eps_corr on the five colorectal pairs whose conversion-failure difference is under the bar (CRC5 left out), tumour_readings.csv. Book line 41, printed 1.183.'
+    value = float(np.median(_b12_crc_ratios(clean_only=True)))
+    return locals()
+
+@check(label='part4:ch:reach:L51', chapter='part4:ch:reach', part=6, title='instrument bar (figure caption)',
+       file='part4/p4_23_reach', line=51, status='measured', kind='file', printed='0.005', tol=0.0, source=_B12_TUMPRE)
+def check_4268():
+    'Figure fig:p4_tumour caption: the 0.005 bar on the conversion-failure difference, read from the PROC-TUMOUR-01 pre-registration (P3). Book line 51, printed 0.005.'
+    value = _b12_tum_bar()
+    return locals()
+
+@check(label='part4:ch:reach:L59', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC1 WGBS: eps normal',
+       file='part4/p4_23_reach', line=59, status='measured', kind='file', printed='0.03514', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4269():
+    'Table tab:p4_tumour, CRC1 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 59, printed 0.03514.'
+    en, et, ratio, cd = _b12_tum_pair('CRC1', 'WGBS')
+    value = en
+    return locals()
+
+@check(label='part4:ch:reach:L59:0.04668', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC1 WGBS: eps tumour',
+       file='part4/p4_23_reach', line=59, status='measured', kind='file', printed='0.04668', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4270():
+    'Table tab:p4_tumour, CRC1 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 59, printed 0.04668.'
+    en, et, ratio, cd = _b12_tum_pair('CRC1', 'WGBS')
+    value = et
+    return locals()
+
+@check(label='part4:ch:reach:L59:1.328', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC1 WGBS: ratio',
+       file='part4/p4_23_reach', line=59, status='measured', kind='file', printed='1.328', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4271():
+    'Table tab:p4_tumour, CRC1 WGBS: tumour/normal ratio of eps_corr, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 59, printed 1.328.'
+    en, et, ratio, cd = _b12_tum_pair('CRC1', 'WGBS')
+    value = ratio
+    return locals()
+
+@check(label='part4:ch:reach:L59:0.0027', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC1 WGBS: conversion difference',
+       file='part4/p4_23_reach', line=59, status='measured', kind='file', printed='0.0027', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4272():
+    'Table tab:p4_tumour, CRC1 WGBS: |conversion failure tumour - normal|, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 59, printed 0.0027.'
+    en, et, ratio, cd = _b12_tum_pair('CRC1', 'WGBS')
+    value = cd
+    return locals()
+
+@check(label='part4:ch:reach:L60', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC2 WGBS: eps normal',
+       file='part4/p4_23_reach', line=60, status='measured', kind='file', printed='0.03550', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4273():
+    'Table tab:p4_tumour, CRC2 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 60, printed 0.03550.'
+    en, et, ratio, cd = _b12_tum_pair('CRC2', 'WGBS')
+    value = en
+    return locals()
+
+@check(label='part4:ch:reach:L60:0.04269', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC2 WGBS: eps tumour',
+       file='part4/p4_23_reach', line=60, status='measured', kind='file', printed='0.04269', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4274():
+    'Table tab:p4_tumour, CRC2 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 60, printed 0.04269.'
+    en, et, ratio, cd = _b12_tum_pair('CRC2', 'WGBS')
+    value = et
+    return locals()
+
+@check(label='part4:ch:reach:L60:1.203', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC2 WGBS: ratio',
+       file='part4/p4_23_reach', line=60, status='measured', kind='file', printed='1.203', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4275():
+    'Table tab:p4_tumour, CRC2 WGBS: tumour/normal ratio of eps_corr, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 60, printed 1.203.'
+    en, et, ratio, cd = _b12_tum_pair('CRC2', 'WGBS')
+    value = ratio
+    return locals()
+
+@check(label='part4:ch:reach:L60:0.0009', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC2 WGBS: conversion difference',
+       file='part4/p4_23_reach', line=60, status='measured', kind='file', printed='0.0009', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4276():
+    'Table tab:p4_tumour, CRC2 WGBS: |conversion failure tumour - normal|, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 60, printed 0.0009.'
+    en, et, ratio, cd = _b12_tum_pair('CRC2', 'WGBS')
+    value = cd
+    return locals()
+
+@check(label='part4:ch:reach:L61', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC3 WGBS: eps normal',
+       file='part4/p4_23_reach', line=61, status='measured', kind='file', printed='0.03268', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4277():
+    'Table tab:p4_tumour, CRC3 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 61, printed 0.03268.'
+    en, et, ratio, cd = _b12_tum_pair('CRC3', 'WGBS')
+    value = en
+    return locals()
+
+@check(label='part4:ch:reach:L61:0.03865', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC3 WGBS: eps tumour',
+       file='part4/p4_23_reach', line=61, status='measured', kind='file', printed='0.03865', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4278():
+    'Table tab:p4_tumour, CRC3 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 61, printed 0.03865.'
+    en, et, ratio, cd = _b12_tum_pair('CRC3', 'WGBS')
+    value = et
+    return locals()
+
+@check(label='part4:ch:reach:L61:1.183', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC3 WGBS: ratio',
+       file='part4/p4_23_reach', line=61, status='measured', kind='file', printed='1.183', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4279():
+    'Table tab:p4_tumour, CRC3 WGBS: tumour/normal ratio of eps_corr, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 61, printed 1.183.'
+    en, et, ratio, cd = _b12_tum_pair('CRC3', 'WGBS')
+    value = ratio
+    return locals()
+
+@check(label='part4:ch:reach:L61:0.0032', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC3 WGBS: conversion difference',
+       file='part4/p4_23_reach', line=61, status='measured', kind='file', printed='0.0032', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4280():
+    'Table tab:p4_tumour, CRC3 WGBS: |conversion failure tumour - normal|, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 61, printed 0.0032.'
+    en, et, ratio, cd = _b12_tum_pair('CRC3', 'WGBS')
+    value = cd
+    return locals()
+
+@check(label='part4:ch:reach:L62', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC4 WGBS: eps normal',
+       file='part4/p4_23_reach', line=62, status='measured', kind='file', printed='0.03275', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4281():
+    'Table tab:p4_tumour, CRC4 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 62, printed 0.03275.'
+    en, et, ratio, cd = _b12_tum_pair('CRC4', 'WGBS')
+    value = en
+    return locals()
+
+@check(label='part4:ch:reach:L62:0.03646', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC4 WGBS: eps tumour',
+       file='part4/p4_23_reach', line=62, status='measured', kind='file', printed='0.03646', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4282():
+    'Table tab:p4_tumour, CRC4 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 62, printed 0.03646.'
+    en, et, ratio, cd = _b12_tum_pair('CRC4', 'WGBS')
+    value = et
+    return locals()
+
+@check(label='part4:ch:reach:L62:1.113', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC4 WGBS: ratio',
+       file='part4/p4_23_reach', line=62, status='measured', kind='file', printed='1.113', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4283():
+    'Table tab:p4_tumour, CRC4 WGBS: tumour/normal ratio of eps_corr, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 62, printed 1.113.'
+    en, et, ratio, cd = _b12_tum_pair('CRC4', 'WGBS')
+    value = ratio
+    return locals()
+
+@check(label='part4:ch:reach:L62:0.0001', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC4 WGBS: conversion difference',
+       file='part4/p4_23_reach', line=62, status='measured', kind='file', printed='0.0001', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4284():
+    'Table tab:p4_tumour, CRC4 WGBS: |conversion failure tumour - normal|, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 62, printed 0.0001.'
+    en, et, ratio, cd = _b12_tum_pair('CRC4', 'WGBS')
+    value = cd
+    return locals()
+
+@check(label='part4:ch:reach:L63', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC5 WGBS: eps normal',
+       file='part4/p4_23_reach', line=63, status='measured', kind='file', printed='0.03715', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4285():
+    'Table tab:p4_tumour, CRC5 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 63, printed 0.03715.'
+    en, et, ratio, cd = _b12_tum_pair('CRC5', 'WGBS')
+    value = en
+    return locals()
+
+@check(label='part4:ch:reach:L63:0.03963', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC5 WGBS: eps tumour',
+       file='part4/p4_23_reach', line=63, status='measured', kind='file', printed='0.03963', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4286():
+    'Table tab:p4_tumour, CRC5 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 63, printed 0.03963.'
+    en, et, ratio, cd = _b12_tum_pair('CRC5', 'WGBS')
+    value = et
+    return locals()
+
+@check(label='part4:ch:reach:L63:1.067', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC5 WGBS: ratio',
+       file='part4/p4_23_reach', line=63, status='measured', kind='file', printed='1.067', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4287():
+    'Table tab:p4_tumour, CRC5 WGBS: tumour/normal ratio of eps_corr, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 63, printed 1.067.'
+    en, et, ratio, cd = _b12_tum_pair('CRC5', 'WGBS')
+    value = ratio
+    return locals()
+
+@check(label='part4:ch:reach:L63:0.0051', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC5 WGBS: conversion difference',
+       file='part4/p4_23_reach', line=63, status='measured', kind='file', printed='0.0051', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4288():
+    'Table tab:p4_tumour, CRC5 WGBS: |conversion failure tumour - normal|, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 63, printed 0.0051.'
+    en, et, ratio, cd = _b12_tum_pair('CRC5', 'WGBS')
+    value = cd
+    return locals()
+
+@check(label='part4:ch:reach:L64', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC6 WGBS: eps normal',
+       file='part4/p4_23_reach', line=64, status='measured', kind='file', printed='0.03866', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4289():
+    'Table tab:p4_tumour, CRC6 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 64, printed 0.03866.'
+    en, et, ratio, cd = _b12_tum_pair('CRC6', 'WGBS')
+    value = en
+    return locals()
+
+@check(label='part4:ch:reach:L64:0.04216', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC6 WGBS: eps tumour',
+       file='part4/p4_23_reach', line=64, status='measured', kind='file', printed='0.04216', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4290():
+    'Table tab:p4_tumour, CRC6 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 64, printed 0.04216.'
+    en, et, ratio, cd = _b12_tum_pair('CRC6', 'WGBS')
+    value = et
+    return locals()
+
+@check(label='part4:ch:reach:L64:1.090', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC6 WGBS: ratio',
+       file='part4/p4_23_reach', line=64, status='measured', kind='file', printed='1.090', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4291():
+    'Table tab:p4_tumour, CRC6 WGBS: tumour/normal ratio of eps_corr, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 64, printed 1.090.'
+    en, et, ratio, cd = _b12_tum_pair('CRC6', 'WGBS')
+    value = ratio
+    return locals()
+
+@check(label='part4:ch:reach:L64:0.0001', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour CRC6 WGBS: conversion difference',
+       file='part4/p4_23_reach', line=64, status='measured', kind='file', printed='0.0001', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4292():
+    'Table tab:p4_tumour, CRC6 WGBS: |conversion failure tumour - normal|, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 64, printed 0.0001.'
+    en, et, ratio, cd = _b12_tum_pair('CRC6', 'WGBS')
+    value = cd
+    return locals()
+
+@check(label='part4:ch:reach:L65', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC1 WGBS: eps normal',
+       file='part4/p4_23_reach', line=65, status='measured', kind='file', printed='0.03692', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4293():
+    'Table tab:p4_tumour, OSCC1 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 65, printed 0.03692.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC1', 'WGBS')
+    value = en
+    return locals()
+
+@check(label='part4:ch:reach:L65:0.04079', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC1 WGBS: eps tumour',
+       file='part4/p4_23_reach', line=65, status='measured', kind='file', printed='0.04079', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4294():
+    'Table tab:p4_tumour, OSCC1 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 65, printed 0.04079.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC1', 'WGBS')
+    value = et
+    return locals()
+
+@check(label='part4:ch:reach:L65:1.105', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC1 WGBS: ratio',
+       file='part4/p4_23_reach', line=65, status='measured', kind='file', printed='1.105', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4295():
+    'Table tab:p4_tumour, OSCC1 WGBS: tumour/normal ratio of eps_corr, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 65, printed 1.105.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC1', 'WGBS')
+    value = ratio
+    return locals()
+
+@check(label='part4:ch:reach:L65:0.0010', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC1 WGBS: conversion difference',
+       file='part4/p4_23_reach', line=65, status='measured', kind='file', printed='0.0010', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4296():
+    'Table tab:p4_tumour, OSCC1 WGBS: |conversion failure tumour - normal|, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 65, printed 0.0010.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC1', 'WGBS')
+    value = cd
+    return locals()
+
+@check(label='part4:ch:reach:L66', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC1 oxWGBS: eps normal',
+       file='part4/p4_23_reach', line=66, status='measured', kind='file', printed='0.03888', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4297():
+    'Table tab:p4_tumour, OSCC1 oxWGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 66, printed 0.03888.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC1', 'oxWGBS')
+    value = en
+    return locals()
+
+@check(label='part4:ch:reach:L66:0.04160', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC1 oxWGBS: eps tumour',
+       file='part4/p4_23_reach', line=66, status='measured', kind='file', printed='0.04160', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4298():
+    'Table tab:p4_tumour, OSCC1 oxWGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 66, printed 0.04160.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC1', 'oxWGBS')
+    value = et
+    return locals()
+
+@check(label='part4:ch:reach:L66:1.070', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC1 oxWGBS: ratio',
+       file='part4/p4_23_reach', line=66, status='measured', kind='file', printed='1.070', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4299():
+    'Table tab:p4_tumour, OSCC1 oxWGBS: tumour/normal ratio of eps_corr, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 66, printed 1.070.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC1', 'oxWGBS')
+    value = ratio
+    return locals()
+
+@check(label='part4:ch:reach:L67', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC2 WGBS: eps normal',
+       file='part4/p4_23_reach', line=67, status='measured', kind='file', printed='0.03557', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4300():
+    'Table tab:p4_tumour, OSCC2 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 67, printed 0.03557.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC2', 'WGBS')
+    value = en
+    return locals()
+
+@check(label='part4:ch:reach:L67:0.03668', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC2 WGBS: eps tumour',
+       file='part4/p4_23_reach', line=67, status='measured', kind='file', printed='0.03668', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4301():
+    'Table tab:p4_tumour, OSCC2 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 67, printed 0.03668.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC2', 'WGBS')
+    value = et
+    return locals()
+
+@check(label='part4:ch:reach:L67:1.031', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC2 WGBS: ratio',
+       file='part4/p4_23_reach', line=67, status='measured', kind='file', printed='1.031', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4302():
+    'Table tab:p4_tumour, OSCC2 WGBS: tumour/normal ratio of eps_corr, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 67, printed 1.031.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC2', 'WGBS')
+    value = ratio
+    return locals()
+
+@check(label='part4:ch:reach:L67:0.0008', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC2 WGBS: conversion difference',
+       file='part4/p4_23_reach', line=67, status='measured', kind='file', printed='0.0008', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4303():
+    'Table tab:p4_tumour, OSCC2 WGBS: |conversion failure tumour - normal|, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 67, printed 0.0008.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC2', 'WGBS')
+    value = cd
+    return locals()
+
+@check(label='part4:ch:reach:L68', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC2 oxWGBS: eps normal',
+       file='part4/p4_23_reach', line=68, status='measured', kind='file', printed='0.03915', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4304():
+    'Table tab:p4_tumour, OSCC2 oxWGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 68, printed 0.03915.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC2', 'oxWGBS')
+    value = en
+    return locals()
+
+@check(label='part4:ch:reach:L68:0.03334', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC2 oxWGBS: eps tumour',
+       file='part4/p4_23_reach', line=68, status='measured', kind='file', printed='0.03334', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4305():
+    'Table tab:p4_tumour, OSCC2 oxWGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 68, printed 0.03334.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC2', 'oxWGBS')
+    value = et
+    return locals()
+
+@check(label='part4:ch:reach:L68:0.851', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC2 oxWGBS: ratio',
+       file='part4/p4_23_reach', line=68, status='measured', kind='file', printed='0.851', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4306():
+    'Table tab:p4_tumour, OSCC2 oxWGBS: tumour/normal ratio of eps_corr, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 68, printed 0.851.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC2', 'oxWGBS')
+    value = ratio
+    return locals()
+
+@check(label='part4:ch:reach:L68:0.0005', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC2 oxWGBS: conversion difference',
+       file='part4/p4_23_reach', line=68, status='measured', kind='file', printed='0.0005', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4307():
+    'Table tab:p4_tumour, OSCC2 oxWGBS: |conversion failure tumour - normal|, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 68, printed 0.0005.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC2', 'oxWGBS')
+    value = cd
+    return locals()
+
+@check(label='part4:ch:reach:L69', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC3 WGBS: eps normal',
+       file='part4/p4_23_reach', line=69, status='measured', kind='file', printed='0.03893', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4308():
+    'Table tab:p4_tumour, OSCC3 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 69, printed 0.03893.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC3', 'WGBS')
+    value = en
+    return locals()
+
+@check(label='part4:ch:reach:L69:0.04678', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC3 WGBS: eps tumour',
+       file='part4/p4_23_reach', line=69, status='measured', kind='file', printed='0.04678', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4309():
+    'Table tab:p4_tumour, OSCC3 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 69, printed 0.04678.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC3', 'WGBS')
+    value = et
+    return locals()
+
+@check(label='part4:ch:reach:L69:1.202', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC3 WGBS: ratio',
+       file='part4/p4_23_reach', line=69, status='measured', kind='file', printed='1.202', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4310():
+    'Table tab:p4_tumour, OSCC3 WGBS: tumour/normal ratio of eps_corr, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 69, printed 1.202.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC3', 'WGBS')
+    value = ratio
+    return locals()
+
+@check(label='part4:ch:reach:L69:0.0004', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC3 WGBS: conversion difference',
+       file='part4/p4_23_reach', line=69, status='measured', kind='file', printed='0.0004', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4311():
+    'Table tab:p4_tumour, OSCC3 WGBS: |conversion failure tumour - normal|, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 69, printed 0.0004.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC3', 'WGBS')
+    value = cd
+    return locals()
+
+@check(label='part4:ch:reach:L70', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC3 oxWGBS: eps normal',
+       file='part4/p4_23_reach', line=70, status='measured', kind='file', printed='0.04064', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4312():
+    'Table tab:p4_tumour, OSCC3 oxWGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 70, printed 0.04064.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC3', 'oxWGBS')
+    value = en
+    return locals()
+
+@check(label='part4:ch:reach:L70:0.04567', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC3 oxWGBS: eps tumour',
+       file='part4/p4_23_reach', line=70, status='measured', kind='file', printed='0.04567', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4313():
+    'Table tab:p4_tumour, OSCC3 oxWGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 70, printed 0.04567.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC3', 'oxWGBS')
+    value = et
+    return locals()
+
+@check(label='part4:ch:reach:L70:1.124', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC3 oxWGBS: ratio',
+       file='part4/p4_23_reach', line=70, status='measured', kind='file', printed='1.124', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4314():
+    'Table tab:p4_tumour, OSCC3 oxWGBS: tumour/normal ratio of eps_corr, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 70, printed 1.124.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC3', 'oxWGBS')
+    value = ratio
+    return locals()
+
+@check(label='part4:ch:reach:L70:0.0004', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC3 oxWGBS: conversion difference',
+       file='part4/p4_23_reach', line=70, status='measured', kind='file', printed='0.0004', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4315():
+    'Table tab:p4_tumour, OSCC3 oxWGBS: |conversion failure tumour - normal|, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 70, printed 0.0004.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC3', 'oxWGBS')
+    value = cd
+    return locals()
+
+@check(label='part4:ch:reach:L71', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC4 WGBS: eps normal',
+       file='part4/p4_23_reach', line=71, status='measured', kind='file', printed='0.03623', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4316():
+    'Table tab:p4_tumour, OSCC4 WGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 71, printed 0.03623.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC4', 'WGBS')
+    value = en
+    return locals()
+
+@check(label='part4:ch:reach:L71:0.03899', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC4 WGBS: eps tumour',
+       file='part4/p4_23_reach', line=71, status='measured', kind='file', printed='0.03899', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4317():
+    'Table tab:p4_tumour, OSCC4 WGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 71, printed 0.03899.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC4', 'WGBS')
+    value = et
+    return locals()
+
+@check(label='part4:ch:reach:L71:1.076', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC4 WGBS: ratio',
+       file='part4/p4_23_reach', line=71, status='measured', kind='file', printed='1.076', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4318():
+    'Table tab:p4_tumour, OSCC4 WGBS: tumour/normal ratio of eps_corr, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 71, printed 1.076.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC4', 'WGBS')
+    value = ratio
+    return locals()
+
+@check(label='part4:ch:reach:L71:0.0005', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC4 WGBS: conversion difference',
+       file='part4/p4_23_reach', line=71, status='measured', kind='file', printed='0.0005', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4319():
+    'Table tab:p4_tumour, OSCC4 WGBS: |conversion failure tumour - normal|, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 71, printed 0.0005.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC4', 'WGBS')
+    value = cd
+    return locals()
+
+@check(label='part4:ch:reach:L72', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC4 oxWGBS: eps normal',
+       file='part4/p4_23_reach', line=72, status='measured', kind='file', printed='0.03917', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4320():
+    'Table tab:p4_tumour, OSCC4 oxWGBS: copy error eps_corr of the normal tissue, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 72, printed 0.03917.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC4', 'oxWGBS')
+    value = en
+    return locals()
+
+@check(label='part4:ch:reach:L72:0.04107', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC4 oxWGBS: eps tumour',
+       file='part4/p4_23_reach', line=72, status='measured', kind='file', printed='0.04107', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4321():
+    'Table tab:p4_tumour, OSCC4 oxWGBS: copy error eps_corr of the tumour, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 72, printed 0.04107.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC4', 'oxWGBS')
+    value = et
+    return locals()
+
+@check(label='part4:ch:reach:L72:1.049', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC4 oxWGBS: ratio',
+       file='part4/p4_23_reach', line=72, status='measured', kind='file', printed='1.049', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4322():
+    'Table tab:p4_tumour, OSCC4 oxWGBS: tumour/normal ratio of eps_corr, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 72, printed 1.049.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC4', 'oxWGBS')
+    value = ratio
+    return locals()
+
+@check(label='part4:ch:reach:L72:0.0005', chapter='part4:ch:reach', part=6, title='Table tab:p4_tumour OSCC4 oxWGBS: conversion difference',
+       file='part4/p4_23_reach', line=72, status='measured', kind='file', printed='0.0005', tol=0.0, source=_B12_TUM,
+       heavy=True, rerun=_B12_RR_TUM)
+def check_4323():
+    'Table tab:p4_tumour, OSCC4 oxWGBS: |conversion failure tumour - normal|, from the per-sample rows of tumour_readings.csv (PROC-TUMOUR-01). Book line 72, printed 0.0005.'
+    en, et, ratio, cd = _b12_tum_pair('OSCC4', 'oxWGBS')
+    value = cd
+    return locals()
+
+@check(label='part4:ch:reach:L82', chapter='part4:ch:reach', part=6, title='constructed mixtures: fewest molecules',
+       file='part4/p4_23_reach', line=82, status='measured', kind='file', printed='0.5', tol=0.0, source=_B12_MOL,
+       heavy=True, rerun=_B12_RR_MOL)
+def check_4324():
+    'Constructed cancer-in-healthy DNA mixtures (PROC-MOLECULE-01, exploratory total isolated-error count): the mixtures carried 0.5-1.5 million qualifying molecules; lower end read from the outcome record. Book line 82, printed 0.5.'
+    m = re.search(r'with ([\d.]+)[\u2013-]([\d.]+) M molecules', file_text(_B12_MOL))
+    value = float(m.group(1))
+    return locals()
+
+@check(label='part4:ch:reach:L82:1.5', chapter='part4:ch:reach', part=6, title='constructed mixtures: most molecules',
+       file='part4/p4_23_reach', line=82, status='measured', kind='file', printed='1.5', tol=0.0, source=_B12_MOL,
+       heavy=True, rerun=_B12_RR_MOL)
+def check_4325():
+    'Constructed mixtures of PROC-MOLECULE-01: upper end of 0.5-1.5 million qualifying molecules, read from the outcome record. Book line 82, printed 1.5.'
+    m = re.search(r'with ([\d.]+)[\u2013-]([\d.]+) M molecules', file_text(_B12_MOL))
+    value = float(m.group(2))
+    return locals()
+
+
 # ======== Part 7 | ch:theoryinterp | docs/book/part5/p5_01_interpretation.tex
 @check(label='ch:theoryinterp:L30', chapter='ch:theoryinterp', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
        file='part5/p5_01_interpretation', line=30, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
@@ -39210,71 +39790,10 @@ INVENTORY = [
     (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 109, '', 'measured', '+0.0001', "measured: Rimouski P4 father's-origin term 0.000107 by least squares from rimouski_readings.csv (rimouski_score.json P4) rounds to the printed +0.0001; a one-digit value cannot carry the 5 % negative control (0.000105 lies within half its last digit of 0.000107); its p (0.71) is checked by ch:salmonid:L109:0.71"),
     (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 109, '', 'measured', '+0.0003', "measured: Rimouski P4 mother's-origin term 0.000322 by least squares from rimouski_readings.csv (rimouski_score.json P4) rounds to the printed +0.0003; a one-digit value cannot carry the 5 % negative control (0.000315 lies within half its last digit of 0.000322); its p (0.27) is checked by ch:salmonid:L109:0.27"),
     (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 128, '', 'measured', '+0.00008', 'measured: mean shift eps_cc_common - eps_all_common = 0.0000824 over the 39 coho fish (coho_cc_fish.csv) rounds to the printed +0.00008; a one-digit value cannot carry the 5 % negative control (0.000084 lies within half its last digit of 0.0000824)'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 30, '', 'prediction', '1.00', 'not yet checked'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 40, '', 'measured', '1.148', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 41, '', 'measured', '0.005', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 41, '', 'measured', '1.183', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 51, '', 'measured', '0.005', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 59, '', 'measured', '0.03514', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 59, '', 'measured', '0.04668', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 59, '', 'measured', '1.328', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 59, '', 'measured', '0.0027', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 60, '', 'measured', '0.03550', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 60, '', 'measured', '0.04269', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 60, '', 'measured', '1.203', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 60, '', 'measured', '0.0009', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 61, '', 'measured', '0.03268', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 61, '', 'measured', '0.03865', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 61, '', 'measured', '1.183', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 61, '', 'measured', '0.0032', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 62, '', 'measured', '0.03275', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 62, '', 'measured', '0.03646', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 62, '', 'measured', '1.113', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 62, '', 'measured', '0.0001', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 63, '', 'measured', '0.03715', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 63, '', 'measured', '0.03963', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 63, '', 'measured', '1.067', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 63, '', 'measured', '0.0051', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 64, '', 'measured', '0.03866', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 64, '', 'measured', '0.04216', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 64, '', 'measured', '1.090', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 64, '', 'measured', '0.0001', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 65, '', 'measured', '0.03692', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 65, '', 'measured', '0.04079', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 65, '', 'measured', '1.105', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 65, '', 'measured', '0.0010', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 66, '', 'measured', '0.03888', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 66, '', 'measured', '0.04160', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 66, '', 'measured', '1.070', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 66, '', 'measured', '0.0004', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 67, '', 'measured', '0.03557', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 67, '', 'measured', '0.03668', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 67, '', 'measured', '1.031', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 67, '', 'measured', '0.0008', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 68, '', 'measured', '0.03915', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 68, '', 'measured', '0.03334', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 68, '', 'measured', '0.851', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 68, '', 'measured', '0.0005', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 69, '', 'measured', '0.03893', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 69, '', 'measured', '0.04678', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 69, '', 'measured', '1.202', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 69, '', 'measured', '0.0004', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 70, '', 'measured', '0.04064', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 70, '', 'measured', '0.04567', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 70, '', 'measured', '1.124', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 70, '', 'measured', '0.0004', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 71, '', 'measured', '0.03623', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 71, '', 'measured', '0.03899', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 71, '', 'measured', '1.076', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 71, '', 'measured', '0.0005', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 72, '', 'measured', '0.03917', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 72, '', 'measured', '0.04107', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 72, '', 'measured', '1.049', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 72, '', 'measured', '0.0005', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 79, '', 'measured', '10', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 82, '', 'measured', '0.5', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 82, '', 'measured', '1.5', 'measured, source not named'),
-    (6, 'part4:ch:reach', 'part4/p4_23_reach', 109, '', 'prediction', '1.00', 'not yet checked'),
+    (6, 'part4:ch:reach', 'part4/p4_23_reach', 30, '', 'prediction', '1.00', 'prediction, nothing to recompute: each lineage of a blood-cancer specimen read against its own healthy floor, against 1.00 (the healthy reference value of Met-A)'),
+    (6, 'part4:ch:reach', 'part4/p4_23_reach', 66, '', 'measured', '0.0004', 'measured: OSCC1 oxWGBS conversion-failure difference |0.004662 - 0.005079| = 0.000417 from tumour_readings.csv (PROC-TUMOUR-01) rounds to the printed 0.0004; a one-digit value cannot carry the 5 % negative control (0.00042 lies within half its last digit of 0.000417)'),
+    (6, 'part4:ch:reach', 'part4/p4_23_reach', 79, '', 'measured', '10', 'restates Chapter ch:sky (p4_16_sky.tex L72-73): about 10^3 genome equivalents per millilitre of plasma (Sender2024), so a draw yields of order 10^3-10^4 copies of a site; an order of magnitude carried over, nothing to recompute here'),
+    (6, 'part4:ch:reach', 'part4/p4_23_reach', 109, '', 'prediction', '1.00', 'prediction, nothing to recompute: sorted healthy canine cells held out of a canine reference read 1.00 within tolerance'),
     (6, 'ch:status', 'part4/p4_24_status', 9, '', 'calc', '2.97\\times10^{-21}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:status', 'part4/p4_24_status', 9, '', 'calc', '37', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:status', 'part4/p4_24_status', 10, '', 'calc', '20.94', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
