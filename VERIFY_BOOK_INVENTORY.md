@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4552 PASS, 0 FAIL, 1788 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4629 PASS, 0 FAIL, 1712 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5674,74 +5674,75 @@ Totals: 4552 PASS, 0 FAIL, 1788 inventoried and not run. Each run item carries t
 | 12 | ch:statusall:L12 | calc | `-0.28` | numeric: photon-sector H0 vs Planck 67.36 +- 0.54, errors in quadrature | PASS |
 | 12 | ch:statusall:L12:-0.68 | calc | `-0.68` | numeric: matter-sector H0 vs SH0ES 73.04 +- 1.04 | PASS |
 | 12 | ch:statusall:L12:8.6 | calc | `8.6` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2b H0 vs Planck | PASS |
-| 12 |  | calc | `0.54` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 12 |  | calc | `1.04` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 12 |  | calc | `0.54` | not run: input: Planck 2018 H0 error 0.54 km/s/Mpc (Aghanim et al. 2020, doi:10.1051/0004-6361/201833910), the reference error a distance in sigma divides by; used in ch:statusall:L45:-0.37 | - |
+| 12 |  | calc | `1.04` | not run: input: SH0ES H0 error 1.04 km/s/Mpc (Riess et al. 2022, doi:10.3847/2041-8213/ac5c5b), the reference error a distance in sigma divides by; used in ch:statusall:L46:-0.75 | - |
 | 21 | ch:statusall:L21 | calc | `1.2\times10^{32}` | numeric: cost per bit cell / cosmic horizon | PASS |
-| 23 |  | calc | `2.82\times10^{7}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 23 |  | calc | `1.6\times10^{59}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 23 |  | calc | `52` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 23 | ch:statusall:L23 | calc | `2.82\times10^{7}` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpG sites of the hg19 index | PASS |
+| 23 | ch:statusall:L23:1.6\times10^{59} | calc | `1.6\times10^{59}` | numeric: holographic capacity of a nucleus-sized area, bits | PASS |
+| 23 | ch:statusall:L23:52 | calc | `52` | numeric: orders of magnitude between CpG sites and the capacity | PASS |
 | 24 | ch:statusall:L24 | derived | `-1.33` | numeric: w_info today | PASS |
 | 25 | ch:statusall:L25 | calc | `2.1\times10^{77}` | numeric: Mc^2/k_B T_BH, 1 M_sun | PASS |
-| 26 |  | derived | `13` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 26 | ch:statusall:L26 | derived | `13.606` | numeric: hydrogen kinetic energy (Rydberg), eV | PASS |
 | 27 | ch:statusall:L27 | calc | `0.5000000000` | numeric: Smarr share at 6.5e9 M_sun | PASS |
-| 27 |  | calc | `6.5\times10^9` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 28 |  | observed | `1.1` | not run: measured, source not named | - |
-| 28 |  | observed | `1.3` | not run: measured, source not named | - |
-| 28 |  | calc | `-1.17` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 27 |  | calc | `6.5\times10^9` | not run: input: upper end of the black-hole mass range of the row (6.5e9 solar masses); the Smarr share at that mass is checked in ch:statusall:L27 | - |
+| 28 |  | observed | `1.1` | not run: observed: published approximate range 2T/|U| = 1.1-1.3 of simulated halos, cited in ch:virial_law (Bett2007, Neto2007, Power2012); no committed file holds it, nothing to recompute | - |
+| 28 |  | observed | `1.3` | not run: observed: published approximate range 2T/|U| = 1.1-1.3 of simulated halos, cited in ch:virial_law (Bett2007, Neto2007, Power2012); no committed file holds it, nothing to recompute | - |
+| 28 |  | calc | `-1.17` | not run: observed: published approximate range 1.02-1.17 with the surface-pressure term, cited in ch:virial_law (Klypin2016); no committed file holds it, nothing to recompute | - |
 | 32 | ch:statusall:L32 | prediction | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 33 |  | calc | `0.155` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 33 |  | calc | `-0.28` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 33 | ch:statusall:L33 | calc | `0.155` | numeric: free coupling = local rate restated | PASS |
+| 33 | ch:statusall:L33:-0.28 | calc | `-0.28` | numeric: f sigma8 alone: lower 68 % end of beta | PASS |
+| 33 | ch:statusall:L33:0.47 | calc | `0.47` | numeric: f sigma8 alone: upper 68 % end of beta | PASS |
 | 35 | ch:statusall:L35 | derived | `-1.062` | numeric: same value as p2_03_theory:514 (tangent w0 value) | PASS |
-| 35 |  | derived | `-0.012` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 35 |  | derived | `-0.012` | not run: restates ch:theory:L515:-0.012 (w_a = -Omega_m^2/3(2-Omega_m)^2 = -0.0116; a fresh check cannot carry a working negative control at two printed digits, the value sits 0.00025 from the 5 % shifted number) | - |
 | 37 | ch:statusall:L37 | calc | `-0.136` | numeric: mu0 | PASS |
 | 37 | ch:statusall:L37:13.62 | calc | `13.62` | numeric: same value as p1_02_iams_law:466 (percent change of coupling today) | PASS |
-| 38 |  | measured | `+0.54` | not run: measured, source not named | - |
-| 39 |  | measured | `+0.96` | not run: measured, source not named | - |
-| 39 |  | measured | `+0.56` | not run: measured, source not named | - |
-| 39 |  | measured | `+1.73` | not run: measured, source not named | - |
-| 39 |  | measured | `+1.58` | not run: measured, source not named | - |
-| 40 |  | measured | `0.8087` | not run: measured, source not named | - |
-| 40 |  | measured | `-1.1` | not run: measured, source not named | - |
-| 40 |  | measured | `-1.51` | not run: measured, source not named | - |
-| 41 |  | measured | `0.830` | not run: measured, source not named | - |
-| 41 |  | measured | `-0.78` | not run: measured, source not named | - |
-| 42 |  | measured | `0.1` | not run: measured, source not named | - |
-| 43 |  | measured | `-1.6` | not run: measured, source not named | - |
-| 44 |  | calc | `+0.030` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 44 |  | calc | `+0.064` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 44 |  | calc | `+0.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 44 |  | calc | `90` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 45 |  | measured | `67.16` | not run: measured, source not named | - |
-| 45 |  | measured | `-0.37` | not run: measured, source not named | - |
+| 38 | ch:statusall:L38 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2, IAM minus LambdaCDM | PASS |
+| 39 | ch:statusall:L39 | measured | `+0.96` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level 1 Delta chi2, Planck | PASS |
+| 39 | ch:statusall:L39:+0.56 | measured | `+0.56` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level 1 Delta chi2, Planck + RSD | PASS |
+| 39 | ch:statusall:L39:+1.73 | measured | `+1.73` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level 1 Delta chi2, Planck + BAO | PASS |
+| 39 | ch:statusall:L39:+1.58 | measured | `+1.58` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Level 1 Delta chi2, Planck + Pantheon+ | PASS |
+| 40 | ch:statusall:L40 | measured | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8, Level 2 LambdaCDM (run C) | PASS |
+| 40 | ch:statusall:L40:-1.1 | measured | `-1.1` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 change run C to run A, per cent | PASS |
+| 40 | ch:statusall:L40:-1.51 | measured | `-1.51` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 shift in run C sigma | PASS |
+| 41 | ch:statusall:L41 | measured | `0.830` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8, Level 2 LambdaCDM (run C) | PASS |
+| 41 | ch:statusall:L41:-0.78 | measured | `-0.78` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 shift in run C sigma | PASS |
+| 42 | ch:statusall:L42 | measured | `0.1` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: largest shift of the other Level 2 parameters, sigma | PASS |
+| 43 | ch:statusall:L43 | measured | `-1.6` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: sigma8 change, Level 1, each data combination, per cent | PASS |
+| 44 | ch:statusall:L44 | calc | `+0.030` | heavy file `docs/verification/chains/LATE_TIME_GROWTH_CHECK.md`: free mu0: smallest posterior median | PASS |
+| 44 | ch:statusall:L44:+0.064 | calc | `+0.064` | heavy file `docs/verification/chains/LATE_TIME_GROWTH_CHECK.md`: free mu0: largest posterior median | PASS |
+| 44 | ch:statusall:L44:+0.2 | calc | `+0.2` | file `mgcamb_validation/chains/planck_rsd_mu0_float.input.yaml`: free mu0: upper prior edge | PASS |
+| 44 |  | calc | `90` | not run: definition: the central 90 % credible interval used to report the free-mu0 posteriors | - |
+| 45 | ch:statusall:L45 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level 2 chain | PASS |
+| 45 | ch:statusall:L45:-0.37 | measured | `-0.37` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 from Planck, Planck error alone | PASS |
 | 46 | ch:statusall:L46 | derived | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
-| 46 |  | derived | `-0.75` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 47 |  | measured | `61.45` | not run: measured, source not named | - |
-| 47 |  | measured | `10.9` | not run: measured, source not named | - |
-| 48 |  | measured | `-0.035` | not run: measured, source not named | - |
-| 48 |  | measured | `-0.068` | not run: measured, source not named | - |
-| 48 |  | measured | `0.000` | not run: measured, source not named | - |
-| 48 |  | calc | `1590` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 49 |  | calc | `+23.6` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 50 |  | calc | `0.585` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 50 |  | calc | `0.633` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 50 |  | calc | `0.024` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 50 |  | calc | `0.554` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 46 | ch:statusall:L46:-0.75 | derived | `-0.75` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 from SH0ES, SH0ES error alone | PASS |
+| 47 | ch:statusall:L47 | measured | `61.45` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 with the term in the background (Level 2b) | PASS |
+| 47 | ch:statusall:L47:10.9 | measured | `10.9` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2b H0 below Planck, Planck error alone | PASS |
+| 48 | ch:statusall:L48 | measured | `-0.035` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: best beta on supernova distances | PASS |
+| 48 | ch:statusall:L48:-0.068 | measured | `-0.068` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: lower 68 % end of beta on supernova distances | PASS |
+| 48 | ch:statusall:L48:0.000 | measured | `0.000` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: upper 68 % end of beta on supernova distances | PASS |
+| 48 | ch:statusall:L48:1590 | calc | `1590` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: supernovae in the Hubble-flow sample | PASS |
+| 49 | ch:statusall:L49 | calc | `+23.6` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Delta chi2 of beta_m on supernova distances | PASS |
+| 50 | ch:statusall:L50 | calc | `0.585` | numeric: effective growth index today, IAM | PASS |
+| 50 | ch:statusall:L50:0.554 | calc | `0.554` | numeric: effective growth index today, LambdaCDM | PASS |
+| 50 | ch:statusall:L50:0.633 | calc | `0.633` | heavy file `docs/verification/scripts/verify_s8_trend_output.txt`: measured growth index (Nguyen, Huterer, Wen 2023) | PASS |
+| 50 | ch:statusall:L50:0.024 | calc | `0.024` | heavy file `docs/verification/scripts/verify_s8_trend_output.txt`: lower error of the measured growth index | PASS |
 | 51 | ch:statusall:L51 | calc | `4.25` | numeric: f sigma8 deficit z=0 | PASS |
 | 51 | ch:statusall:L51:2.17 | calc | `2.17` | numeric: z=0.3 | PASS |
 | 51 | ch:statusall:L51:1.35 | calc | `1.35` | numeric: z=0.5 | PASS |
 | 51 | ch:statusall:L51:0.41 | calc | `0.41` | numeric: z=1 | PASS |
-| 52 |  | calc | `+1.8` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 52 |  | calc | `0.3` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 52 |  | calc | `+3.6` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 53 |  | calc | `0.08` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 55 |  | prediction | `0.3` | not run: not yet checked | - |
-| 57 |  | observed | `0.1` | not run: measured, source not named | - |
-| 57 |  | observed | `0.815` | not run: measured, source not named | - |
-| 57 |  | observed | `0.3` | not run: measured, source not named | - |
-| 57 |  | observed | `2.3` | not run: measured, source not named | - |
-| 57 |  | calc | `0.776` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 58 |  | calc | `7.6` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 58 |  | calc | `-10.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 52 | ch:statusall:L52 | calc | `+1.8` | numeric: E_G change at z = 0.3, per cent | PASS |
+| 52 | ch:statusall:L52:+3.6 | calc | `+3.6` | numeric: E_G change today, per cent | PASS |
+| 52 |  | calc | `0.3` | not run: input: the redshift z = 0.3 at which the E_G change is quoted | - |
+| 53 | ch:statusall:L53 | calc | `0.08` | numeric: CMB lensing power lower, per cent | PASS |
+| 55 |  | prediction | `0.3` | not run: prediction, nothing to recompute: the redshift range 0.3 < z < 1 of the growth-ramp turn-on that the survey test targets | - |
+| 57 | ch:statusall:L57 | observed | `0.1` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 sigma8 against the 2025 joint lensing value, sigma | PASS |
+| 57 | ch:statusall:L57:0.815 | observed | `0.815` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: KiDS-Legacy S8 | PASS |
+| 57 | ch:statusall:L57:0.3 | observed | `0.3` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 S8 against KiDS-Legacy, sigma | PASS |
+| 57 | ch:statusall:L57:0.776 | calc | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DES Y3 3x2pt S8 | PASS |
+| 57 | ch:statusall:L57:2.3 | observed | `2.3` | numeric: Level 2 S8 against DES Y3 3x2pt, sigma | PASS |
+| 58 | ch:statusall:L58 | calc | `7.6` | numeric: w0 distance of the CPL image from DESI, Union3 | PASS |
+| 58 | ch:statusall:L58:10.2 | calc | `10.2` | numeric: w0 distance of the CPL image from DESI, DES Y5 | PASS |
 | 59 | ch:statusall:L59 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 59 | ch:statusall:L59:55.57 | calc | `55.57` | numeric: same value as p2_11_dark_energy:146 (precise H_infinity, Level 2 chains) | PASS |
 | 59 | ch:statusall:L59:70.86 | calc | `70.86` | numeric: same value as p2_11_dark_energy:173 (H_m asymptote, matter-sector) | PASS |
@@ -5751,77 +5752,77 @@ Totals: 4552 PASS, 0 FAIL, 1788 inventoried and not run. Each run item carries t
 | 61 | ch:statusall:L61:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 61 | ch:statusall:L61:3.37 | calc | `3.37` | numeric: peak writing rate, per cent per Gyr, H0 67.16 | PASS |
 | 61 | ch:statusall:L61:2.53 | calc | `2.53` | numeric: writing rate now, per cent per Gyr | PASS |
-| 62 |  | observed | `0.79` | not run: measured, source not named | - |
+| 62 | ch:statusall:L62 | observed | `0.79` | numeric: baryon relation (3/16) sqrt(Omega_L), per cent off | PASS |
 | 68 | ch:statusall:L68 | calc | `2.1\times10^{67}` | numeric: evaporation time 1 M_sun | PASS |
 | 71 | ch:statusall:L71 | observed | `0.66666446` | numeric: same value as p2_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
-| 71 |  | observed | `0.43` | not run: measured, source not named | - |
+| 71 | ch:statusall:L71:0.43 | observed | `0.43` | numeric: Koide Q from 2/3, sigma | PASS |
 | 72 | ch:statusall:L72 | derived | `0.2222` | numeric: same value as p2_15a_lepton_koide:206 (measured offset delta) | PASS |
 | 73 | ch:statusall:L73 | calc | `-0.02` | numeric: electron fixed point at H0 = 67.36, per cent | PASS |
-| 73 |  | calc | `67.36` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 76 |  | derived | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 76 |  | calc | `60` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 76 |  | calc | `600` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 76 |  | calc | `000` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 77 |  | observed | `10` | not run: measured, source not named | - |
-| 78 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 73 |  | calc | `67.36` | not run: input: Planck 2018 H0 = 67.36 (Aghanim et al. 2020), the rate at which the electron-mass relation is evaluated; the -0.02 % is checked in ch:statusall:L73 | - |
+| 76 | ch:statusall:L76:60 | calc | `60` | numeric: active fluctuators for x_qp = 1e-7, 1e3 um^3 island | PASS |
+| 76 | ch:statusall:L76:600 | calc | `600` | numeric: active fluctuators, 1e4 um^3 island | PASS |
+| 76 | ch:statusall:L76:6000 | calc | `6000` | numeric: active fluctuators, 1e5 um^3 island | PASS |
+| 76 |  | derived | `10` | not run: input: base of the island volumes 10^3-10^5 cubic micrometres; the fluctuator counts are checked in ch:statusall:L76:60/600/6000 | - |
+| 77 |  | observed | `10` | not run: observed: measured quasiparticle background band 10^-8 to 10^-6 cited in ch:xqp; the inventoried 10 is the base of the power of ten, no committed file holds the band | - |
+| 78 |  | calc | `10` | not run: input: x_qp = 10^-7, the quasiparticle fraction at which T_1 is evaluated (the inventoried 10 is the base of the power of ten) | - |
 | 79 | ch:statusall:L79 | calc | `6.2\times10^{-4}` | numeric: transmon floor on its gauge | PASS |
-| 79 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 79 | ch:statusall:L79:10 | calc | `10` | numeric: surface-code threshold on the qubit gauge | PASS |
 | 81 | ch:statusall:L81 | calc | `6.2\times10^{-7}` | numeric: per-gate thermal floor | PASS |
 | 81 | ch:statusall:L81:6\times10^{-4} | calc | `6\times10^{-4}` | numeric: floor on the gauge of a 1e-3 gate | PASS |
-| 81 |  | calc | `68` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 81 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 81 |  | calc | `35` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 81 |  | calc | `40` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 81 |  | calc | `68` | not run: input: T_1 = 68 microseconds (GoogleWillow2025, as cited in ch:ascoreqc); the floor is checked in ch:statusall:L81 | - |
+| 81 |  | calc | `10` | not run: input: illustrative two-qubit gate error 10^-3 (the inventoried 10 is the base of the power of ten) | - |
+| 81 |  | calc | `35` | not run: input: device temperature 35 mK (Jin2015, as cited in ch:ascoreqc) | - |
+| 81 |  | calc | `40` | not run: input: illustrative 40 ns gate time | - |
 | 82 | ch:statusall:L82 | calc | `6.85` | numeric: slope at 35 mK | PASS |
 | 82 | ch:statusall:L82:16.0 | calc | `16.0` | numeric: slope at 15 mK | PASS |
-| 82 |  | calc | `35` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 82 |  | calc | `15` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 82 |  | calc | `35` | not run: input: temperature 35 mK at which the slope is evaluated; the slope is checked in ch:statusall:L82 | - |
+| 82 |  | calc | `15` | not run: input: temperature 15 mK at which the slope is evaluated; the slope is checked in ch:statusall:L82:16.0 | - |
 | 85 | ch:statusall:L85 | calc | `576` | numeric: E_sw/(k_B T_j ln2) | PASS |
 | 85 | ch:statusall:L85:593 | calc | `593` | numeric: E_sw/(k_B T_j ln2) | PASS |
-| 85 |  | calc | `9950` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 85 |  | calc | `9950` | not run: input: processor model designation (a name, not a quantity); the switching energy is checked in ch:statusall:L85 and L85:593 | - |
 | 86 | ch:statusall:L86 | calc | `3.33\times10^{-21}` | numeric: Landauer floor at 75 C | PASS |
 | 86 | ch:statusall:L86:8.6 | calc | `8.6` | numeric: 105 C vs 75 C | PASS |
-| 86 |  | calc | `75` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 86 |  | calc | `105` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 88 |  | calc | `1.9` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 88 |  | calc | `-4.4` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 88 |  | calc | `3.41` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 86 |  | calc | `75` | not run: input: junction temperature 75 C; the Landauer floor is checked in ch:statusall:L86 | - |
+| 86 |  | calc | `105` | not run: input: junction temperature 105 C; the 8.6 % is checked in ch:statusall:L86:8.6 | - |
+| 88 | ch:statusall:L88:1.9 | calc | `1.9` | numeric: Hopfield gap, lowest published DNMT1 preference | PASS |
+| 88 | ch:statusall:L88:4.4 | calc | `4.4` | numeric: Hopfield gap, highest published DNMT1 preference | PASS |
+| 88 | ch:statusall:L88:3.41 | calc | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: measured holding energy, k_B T | PASS |
 | 90 | ch:statusall:L90 | calc | `2.968\times10^{-21}` | numeric: same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature) | PASS |
-| 90 |  | calc | `37` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 90 |  | calc | `37` | not run: input: body temperature 37 C (T_cell = 310.15 K, canon); the Landauer cost is checked in ch:statusall:L90 | - |
 | 91 | ch:statusall:L91 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C) | PASS |
 | 91 | ch:statusall:L91:30.2 | calc | `30.2` | numeric: M/ln2 | PASS |
-| 92 |  | measured | `3.41` | not run: measured, source not named | - |
-| 92 |  | measured | `0.032` | not run: measured, source not named | - |
-| 92 |  | measured | `0.163` | not run: measured, source not named | - |
-| 93 |  | measured | `1.099` | not run: measured, source not named | - |
-| 93 |  | calc | `1.084` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 94 |  | calibrated | `0.330263` | not run: measured, source not named | - |
-| 94 |  | calibrated | `000` | not run: measured, source not named | - |
-| 95 |  | measured | `0.020` | not run: measured, source not named | - |
+| 92 | ch:statusall:L92 | measured | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy of a methylated site | PASS |
+| 92 | ch:statusall:L92:0.032 | measured | `0.032` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: copy-error floor eps0 | PASS |
+| 92 | ch:statusall:L92:0.163 | measured | `0.163` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: phi = E_hold / M | PASS |
+| 93 | ch:statusall:L93 | measured | `1.099` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json`: neutrophil position P on IAM-A | PASS |
+| 93 | ch:statusall:L93:1.084 | calc | `1.084` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json`: lowest donor P | PASS |
+| 94 | ch:statusall:L94 | calibrated | `0.330263` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: Met-A neutrophil reference floor, bits | PASS |
+| 94 | ch:statusall:L94:6000 | calibrated | `6000` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: identity sites of the neutrophil reference | PASS |
+| 95 | ch:statusall:L95 | measured | `0.020` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out SD of the six reference arrays | PASS |
 | 96 | ch:statusall:L96 | calc | `0.910` | file `CANON/iam_canon.json`: 1/P | PASS |
 | 96 | ch:statusall:L96:3.03 | calc | `3.03` | file `CANON/iam_canon.json`: Met-A full | PASS |
 | 96 | ch:statusall:L96:4.45 | calc | `4.45` | file `CANON/iam_canon.json`: IAM-A full | PASS |
 | 98 | ch:statusall:L98 | calc | `0.78` | numeric: floor at 10 C | PASS |
 | 98 | ch:statusall:L98:1.012 | calc | `1.012` | numeric: same value as p4_10_temperature:17 (floor at 38.5 C) | PASS |
 | 98 | ch:statusall:L98:1.012' | calc | `1.012` | numeric: floor at 38.5 C | PASS |
-| 98 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 98 |  | calc | `38.5` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 99 |  | measured | `92.7` | not run: measured, source not named | - |
-| 100 |  | measured | `0.982` | not run: measured, source not named | - |
-| 100 |  | measured | `-1.016` | not run: measured, source not named | - |
-| 100 |  | measured | `1.049` | not run: measured, source not named | - |
-| 100 |  | measured | `-1.079` | not run: measured, source not named | - |
-| 100 |  | measured | `1.052` | not run: measured, source not named | - |
-| 100 |  | measured | `-1.090` | not run: measured, source not named | - |
-| 102 |  | calc | `1.16` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 102 |  | calc | `-1.87` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 102 |  | calc | `1.65` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 102 |  | calc | `-1.97` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 98 |  | calc | `10` | not run: input: temperature 10 C at which the floor is evaluated; checked in ch:statusall:L98 | - |
+| 98 |  | calc | `38.5` | not run: input: temperature 38.5 C at which the floor is evaluated; checked in ch:statusall:L98:1.012 | - |
+| 99 | ch:statusall:L99 | measured | `92.7` | heavy file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: atlas v2 held-out interval coverage, per cent | PASS |
+| 100 | ch:statusall:L100 | measured | `0.982` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures, untared, lowest | PASS |
+| 100 | ch:statusall:L100:1.016 | measured | `1.016` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures, untared, highest | PASS |
+| 100 | ch:statusall:L100:1.049 | measured | `1.049` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: 2 % neutrophil-pattern loss, untared, lowest | PASS |
+| 100 | ch:statusall:L100:1.079 | measured | `1.079` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: 2 % neutrophil-pattern loss, untared, highest | PASS |
+| 100 | ch:statusall:L100:1.052 | measured | `1.052` | heavy file `Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md`: 2 % loss, tared, lowest | PASS |
+| 100 | ch:statusall:L100:1.090 | measured | `1.090` | heavy file `Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md`: 2 % loss, tared, highest | PASS |
+| 102 | ch:statusall:L102 | calc | `1.16` | heavy file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: Met-A under DNMT1 block, lowest (>= 80 nM) | PASS |
+| 102 | ch:statusall:L102:1.87 | calc | `1.87` | heavy file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: Met-A under DNMT1 block, highest (>= 80 nM) | PASS |
+| 102 | ch:statusall:L102:1.65 | calc | `1.65` | heavy file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: IAM-A on single molecules under DNMT1 block, lowest | PASS |
+| 102 | ch:statusall:L102:1.97 | calc | `1.97` | heavy file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: IAM-A on single molecules under DNMT1 block, highest | PASS |
 | 106 | ch:statusall:L106 | calc | `2.3\times10^{22}` | numeric: M_eq today | PASS |
-| 108 |  | conjecture | `0.0179` | not run: not yet checked | - |
-| 110 |  | prediction | `10` | not run: not yet checked | - |
-| 110 |  | prediction | `509` | not run: not yet checked | - |
-| 110 |  | prediction | `7.5` | not run: not yet checked | - |
+| 108 | ch:statusall:L108 | conjecture | `0.0179` | numeric: Q_L = k_B T ln 2 at room temperature, eV | PASS |
+| 110 | ch:statusall:L110:509 | prediction | `509` | numeric: tau_IAM of a 1e-12 kg silica sphere at 10 mK, s | PASS |
+| 110 | ch:statusall:L110:7.5 | prediction | `7.5` | numeric: tau_DP of the same sphere, microseconds | PASS |
+| 110 |  | prediction | `10` | not run: input: temperature 10 mK of the gravitational-decoherence prediction; tau values checked in ch:statusall:L110:509 and L110:7.5 | - |
 
 ## Part 7 - ch:conclusion - `docs/book/part5/p5_10_conclusion.tex`
 

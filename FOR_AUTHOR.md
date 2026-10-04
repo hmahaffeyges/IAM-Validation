@@ -3,7 +3,7 @@
 Items a check raised that would change a result, a prediction, a locked value, an equation of IAM or the framing of a
 claim. The book was left unchanged for each; the decision is the author's. Every FAIL of `verify_book.py` is listed here.
 
-Items: 17
+Items: 18
 
 ## 1. `docs/book/part2/p2_02_virial.tex:L86-87`
 
@@ -123,4 +123,11 @@ Items: 17
 - **Proposed:** use one range in both, as the cited paper gives it
 - **Why it matters:** the plotted bar and the printed range differ (3.4-3.9 kT plotted vs 3.4-3.7 kT from the text); the overall range 1.9-4.4 kT is unaffected
 - **Recommendation:** confirm the Goyal 2006 value and align the figure label and bar with the text (or the text with the figure).
+
+## 18. `docs/book/part5/p5_11_status_all.tex:L57`
+
+- **Now:** KiDS-Legacy S_8=0.815, 0.3sigma; DES Y3 3x2pt 0.776, 2.3sigma
+- **Proposed:** compute both distances from the same IAM S_8: with the unrounded Level 2 chain value (0.8215 +- 0.0111) they are 0.33sigma and 2.24sigma (2.2); with the rounded 0.822 +- 0.011 they are 0.36sigma (0.4) and 2.27sigma (2.3)
+- **Why it matters:** the two printed distances come from two different roundings of the same input (0.3 matches part2/p2_02b_virial_tests 0.33 from the unrounded chain; 2.3 matches verify_sector_tension_output.txt item 11, which uses 0.822)
+- **Recommendation:** either print 0.3sigma and 2.2sigma (unrounded chain S_8, as p2_02b) or 0.4sigma and 2.3sigma (rounded 0.822, as the sector-tension script); both checks pass as written, each against its own input
 

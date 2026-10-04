@@ -2461,6 +2461,69 @@ def _b13_wrong_level(f, T):
 
 # helpers of the part5/p5_02_exploratory checks
 # b14 drafts: ch:exploratory (docs/book/part5/p5_02_exploratory.tex)
+DATA_FILES['Biological_Physics/MethylPhys/atlas/v2/README.md'] = 'atlas v2 build notes (hg19 CpG index: 28,217,448 sites)'   # 6 kB
+DATA_FILES['Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md'] = 'tared Met-A on constructed whole-blood mixtures, development record'   # 2 kB
+DATA_FILES['mgcamb_validation/chains/planck_rsd_mu0_float.input.yaml'] = 'Cobaya input of the Level 1 Planck + RSD chain with mu0 free (prior range)'   # 3 kB
+
+# helpers of the part5/p5_11_status_all checks
+_B15_CHAINS = 'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
+_B15_PAIRS = 'mgcamb_validation/CHAIN_PAIRS_FINAL.csv'
+_B15_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
+                    'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+                    '(no extraction script is committed)')
+_B15_ST_RERUN = 'python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt'
+_B15_S8T_RERUN = 'python3 docs/verification/scripts/verify_s8_trend.py > docs/verification/scripts/verify_s8_trend_output.txt'
+_B15_METH_RERUN = 'methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the record named in source is the committed output'
+
+def _b15_cv(row, col):
+    return csv_val(_B15_CHAINS, row, col)
+
+def _b15_grow_beta(beta):
+    'Linear growth on the LambdaCDM background (Omega_m 0.3153) with mu = H^2/(H^2 + beta E(a) H0^2), from a = 1e-3 with D = a (ch:dual, Eq. dual_free_H0m model).'
+    mu = lambda a: H2_lcdm(a) / (H2_lcdm(a) + beta * E_act(a))
+    def r(l, y):
+        a = np.exp(l)
+        dlnH = -1.5 * Om * a**-3 / H2_lcdm(a)
+        return [y[1], -(2 + dlnH) * y[1] + 1.5 * (Om * a**-3 / H2_lcdm(a)) * mu(a) * y[0]]
+    return solve_ivp(r, (np.log(1e-3), 0), [1e-3, 1e-3], dense_output=True, rtol=1e-9, atol=1e-13)
+
+_B15_FS8_PTS = [(0.067, 0.423, 0.055), (0.150, 0.530, 0.160), (0.380, 0.497, 0.045), (0.510, 0.459, 0.038), (0.700, 0.473, 0.041),
+                (0.850, 0.315, 0.095), (1.480, 0.462, 0.045)]   # f sigma8 points of ch:dual Table (6dFGS, SDSS MGS, BOSS DR12 x2, eBOSS LRG, ELG, QSO)
+_B15_FS8_CACHE = {}
+def _b15_fs8_beta_range():
+    'The 68 % range (Delta chi2 = 1 about the minimum) of beta from the seven f sigma8 points alone, sigma8 0.811 for LambdaCDM, same early amplitude.'
+    if 'r' not in _B15_FS8_CACHE:
+        D0 = _b15_grow_beta(0.0).sol(0.0)[0]
+        def chi2(b):
+            g = _b15_grow_beta(b); s = 0.0
+            for z, o, e in _B15_FS8_PTS:
+                y = g.sol(np.log(1 / (1 + z)))
+                s += ((o - y[1] * 0.811 / D0) / e) ** 2
+            return s
+        m = minimize_scalar(chi2, bounds=(-0.6, 1.0), method='bounded', options={'xatol': 1e-6})
+        lo = brentq(lambda b: chi2(b) - m.fun - 1, -1.5, m.x, xtol=1e-6)
+        hi = brentq(lambda b: chi2(b) - m.fun - 1, m.x, 1.5, xtol=1e-6)
+        _B15_FS8_CACHE['r'] = (lo, hi)
+    return _B15_FS8_CACHE['r']
+
+def _b15_ltg_medians():
+    'The four free-mu0 posterior medians of LATE_TIME_GROWTH_CHECK.md item 9 (Planck, + RSD, + BAO, + Pantheon+).'
+    m = re.search(r'median\s+([+\-−]?[\d.]+)\s*/\s*([+\-−]?[\d.]+)\s*/\s*([+\-−]?[\d.]+)\s*/\s*([+\-−]?[\d.]+)', file_text(_B03_LTG))
+    return [float(x.replace('−', '-')) for x in m.groups()]
+
+def _b15_st_line(pattern):
+    m = re.search(pattern, file_text('docs/verification/scripts/verify_sector_tension_output.txt'))
+    return float(m.group(1))
+
+def _b15_koide_sigma():
+    'Koide Q of the PDG 2024 charged-lepton masses and its error from sigma(m_tau) (electron and muon errors negligible).'
+    me_, mmu_ = 0.51099895000, 105.6583755   # CODATA 2018 / PDG 2024, MeV
+    mt, st = 1776.93, 0.09                    # PDG 2024 tau mass, MeV
+    Qk = lambda t: (me_ + mmu_ + t) / (math.sqrt(me_) + math.sqrt(mmu_) + math.sqrt(t)) ** 2
+    dQ = (Qk(mt + 1e-3) - Qk(mt - 1e-3)) / 2e-3
+    return Qk(mt), abs(dQ) * st
+
+# ---------------------------------------------------------------- line 23
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -38560,6 +38623,36 @@ def check_2636():
     value=T_cell/(hbar*Hsi(H0_photon)/(2*math.pi*kB))
     return locals()
 
+@check(label='ch:statusall:L23', chapter='ch:statusall', part=7, title='CpG sites of the hg19 index',
+       file='part5/p5_11_status_all', line=23, status='calc', kind='file', printed='2.82\\times10^{7}', tol=0.0,
+       source='Biological_Physics/MethylPhys/atlas/v2/README.md')
+def check_4552():
+    'Number of CpG sites of the human genome, read as the size of the wgbstools hg19 CpG index in the atlas v2 build notes (28,217,448). Book line 23, printed 2.82e7.'
+    m = re.search(r'hg19 CpG index \(([\d,]+) sites\)', file_text('Biological_Physics/MethylPhys/atlas/v2/README.md'))
+    value = float(m.group(1).replace(',', ''))
+    return locals()
+
+@check(label='ch:statusall:L23:1.6\\times10^{59}', chapter='ch:statusall', part=7, title='holographic capacity of a nucleus-sized area, bits',
+       file='part5/p5_11_status_all', line=23, status='calc', kind='num', printed='1.6\\times10^{59}', tol=0.0)
+def check_4553():
+    'Bekenstein-Hawking capacity N = A/(4 l_P^2 ln 2) of the surface of a representative 6 micrometre nucleus (radius 3e-6 m, as ch:surfaces Fig. landauer_price). Book line 23, printed 1.6e59.'
+    r = 3e-6
+    A = 4 * math.pi * r**2
+    value = A / (4 * lP**2 * LN2)
+    return locals()
+
+@check(label='ch:statusall:L23:52', chapter='ch:statusall', part=7, title='orders of magnitude between CpG sites and the capacity',
+       file='part5/p5_11_status_all', line=23, status='calc', kind='num', printed='52', tol=0.0)
+def check_4554():
+    'log10 of the holographic capacity of the 6 micrometre nucleus surface over the CpG count read from the hg19 index (28,217,448). Book line 23, printed 52.'
+    m = re.search(r'hg19 CpG index \(([\d,]+) sites\)', file_text('Biological_Physics/MethylPhys/atlas/v2/README.md'))
+    N_CpG = float(m.group(1).replace(',', ''))
+    cap = 4 * math.pi * (3e-6)**2 / (4 * lP**2 * LN2)
+    value = math.log10(cap / N_CpG)
+    return locals()
+
+# ---------------------------------------------------------------- line 26
+
 @check(label='ch:statusall:L24', chapter='ch:statusall', part=7, title='w_info today',
        file='part5/p5_11_status_all', line=24, status='derived', kind='num', printed='-1.33', tol=0)
 def check_2637():
@@ -38573,6 +38666,15 @@ def check_2638():
     'Mc^2/k_B T_BH, 1 M_sun. Book line 25, printed 2.1\\times10^{77}.'
     value=8*math.pi*(Msun/mP)**2
     return locals()
+
+@check(label='ch:statusall:L26', chapter='ch:statusall', part=7, title='hydrogen kinetic energy (Rydberg), eV',
+       file='part5/p5_11_status_all', line=26, status='derived', kind='num', printed='13.606', tol=0.0)
+def check_4555():
+    'Ground-state kinetic energy of hydrogen <K> = m_e c^2 alpha^2 / 2 (infinite nuclear mass), in eV; |<V>| = 2<K> (27.211). Book line 26, printed 13.606. Inputs: CODATA 2018 m_e, alpha.'
+    value = m_e * c**2 * alpha_em**2 / 2 / eV
+    return locals()
+
+# ---------------------------------------------------------------- line 33
 
 @check(label='ch:statusall:L27', chapter='ch:statusall', part=7, title='Smarr share at 6.5e9 M_sun',
        file='part5/p5_11_status_all', line=27, status='calc', kind='num', printed='0.5000000000', tol=0)
@@ -38591,6 +38693,34 @@ def check_2640():
     'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 32, printed 0.15765.'
     value = Om/2
     return locals()
+
+@check(label='ch:statusall:L33', chapter='ch:statusall', part=7, title='free coupling = local rate restated',
+       file='part5/p5_11_status_all', line=33, status='calc', kind='num', printed='0.155', tol=0.0)
+def check_4556():
+    'beta = (H_loc/67.4)^2 - 1 with H_loc the inverse-variance mean of SH0ES 73.04 +- 1.04 (Riess2022) and TRGB 70.39 +- 1.94 (Freedman2025), Planck 67.4 fixed (ch:dual). Book line 33, printed 0.155.'
+    vals = [(73.04, 1.04), (70.39, 1.94)]
+    w = [1 / s**2 for _, s in vals]
+    H_loc = sum(v * wi for (v, _), wi in zip(vals, w)) / sum(w)
+    value = (H_loc / 67.4) ** 2 - 1
+    return locals()
+
+@check(label='ch:statusall:L33:-0.28', chapter='ch:statusall', part=7, title='f sigma8 alone: lower 68 % end of beta',
+       file='part5/p5_11_status_all', line=33, status='calc', kind='num', printed='-0.28', tol=0.0)
+def check_4557():
+    'Lower end of the 68 % range of beta from the seven f sigma8 points of ch:dual alone: chi2 of f sigma8 = f D sigma8/D_LCDM(0), sigma8 0.811, mu = H^2/(H^2+beta E H0^2), Delta chi2 = 1. Book line 33, printed -0.28.'
+    lo, hi = _b15_fs8_beta_range()
+    value = lo
+    return locals()
+
+@check(label='ch:statusall:L33:0.47', chapter='ch:statusall', part=7, title='f sigma8 alone: upper 68 % end of beta',
+       file='part5/p5_11_status_all', line=33, status='calc', kind='num', printed='0.47', tol=0.0)
+def check_4558():
+    'Upper end of the same 68 % range (Delta chi2 = 1) of beta from the seven f sigma8 points alone. Book line 33, printed 0.47.'
+    lo, hi = _b15_fs8_beta_range()
+    value = hi
+    return locals()
+
+# ---------------------------------------------------------------- lines 38-43: chain results
 
 @check(label='ch:statusall:L35', chapter='ch:statusall', part=7, title='same value as p2_03_theory:514 (tangent w0 value)',
        file='part5/p5_11_status_all', line=35, status='derived', kind='num', printed='-1.062', tol=0.00047)
@@ -38613,12 +38743,244 @@ def check_2643():
     value = (1-1/(1+beta_m))*100
     return locals()
 
+@check(label='ch:statusall:L38', chapter='ch:statusall', part=7, title='Level 2 Delta chi2, IAM minus LambdaCDM',
+       file='part5/p5_11_status_all', line=38, status='measured', kind='file', printed='+0.54', tol=0.0, source=_B15_CHAINS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4559():
+    'chi2_min of the Level 2 IAM chain (run A) minus that of the LambdaCDM chain (run C). Book line 38, printed +0.54.'
+    value = _b15_cv('iam_level2_runA', 'chi2_min') - _b15_cv('iam_level2_runC_lcdm', 'chi2_min')
+    return locals()
+
+@check(label='ch:statusall:L39', chapter='ch:statusall', part=7, title='Level 1 Delta chi2, Planck',
+       file='part5/p5_11_status_all', line=39, status='measured', kind='file', printed='+0.96', tol=0.0, source=_B15_PAIRS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4560():
+    'Level 1 Delta chi2 (mu0 fixed minus LambdaCDM), Planck only, row Planck of CHAIN_PAIRS_FINAL.csv. Book line 39, printed +0.96.'
+    value = csv_val(_B15_PAIRS, 'Planck', 'dchi2')
+    return locals()
+
+@check(label='ch:statusall:L39:+0.56', chapter='ch:statusall', part=7, title='Level 1 Delta chi2, Planck + RSD',
+       file='part5/p5_11_status_all', line=39, status='measured', kind='file', printed='+0.56', tol=0.0, source=_B15_PAIRS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4561():
+    'Level 1 Delta chi2, Planck + RSD, from the chi2_min of the fixed-mu0 and LambdaCDM chains. Book line 39, printed +0.56.'
+    value = _b15_cv('planck_rsd_iam_fixed', 'chi2_min') - _b15_cv('planck_rsd_lcdm_baseline', 'chi2_min')
+    return locals()
+
+@check(label='ch:statusall:L39:+1.73', chapter='ch:statusall', part=7, title='Level 1 Delta chi2, Planck + BAO',
+       file='part5/p5_11_status_all', line=39, status='measured', kind='file', printed='+1.73', tol=0.0, source=_B15_PAIRS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4562():
+    'Level 1 Delta chi2, Planck + BAO, from the chi2_min of the fixed-mu0 and LambdaCDM chains. Book line 39, printed +1.73.'
+    value = _b15_cv('planck_bao_iam_fixed', 'chi2_min') - _b15_cv('planck_bao_lcdm_baseline', 'chi2_min')
+    return locals()
+
+@check(label='ch:statusall:L39:+1.58', chapter='ch:statusall', part=7, title='Level 1 Delta chi2, Planck + Pantheon+',
+       file='part5/p5_11_status_all', line=39, status='measured', kind='file', printed='+1.58', tol=0.0, source=_B15_PAIRS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4563():
+    'Level 1 Delta chi2, Planck + Pantheon+, from the chi2_min of the fixed-mu0 and LambdaCDM chains. Book line 39, printed +1.58.'
+    value = _b15_cv('planck_pantheon_iam_fixed', 'chi2_min') - _b15_cv('planck_pantheon_lcdm_baseline', 'chi2_min')
+    return locals()
+
+@check(label='ch:statusall:L40', chapter='ch:statusall', part=7, title='sigma8, Level 2 LambdaCDM (run C)',
+       file='part5/p5_11_status_all', line=40, status='measured', kind='file', printed='0.8087', tol=0.0, source=_B15_CHAINS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4564():
+    'sigma8 posterior mean of the Level 2 LambdaCDM chain, run C. Book line 40, printed 0.8087.'
+    value = _b15_cv('iam_level2_runC_lcdm', 'sigma8')
+    return locals()
+
+@check(label='ch:statusall:L40:-1.1', chapter='ch:statusall', part=7, title='sigma8 change run C to run A, per cent',
+       file='part5/p5_11_status_all', line=40, status='measured', kind='file', printed='-1.1', tol=0.0, source=_B15_CHAINS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4565():
+    'Per-cent change of sigma8 from the Level 2 LambdaCDM chain (run C) to the IAM chain (run A). Book line 40, printed -1.1.'
+    value = 100 * (_b15_cv('iam_level2_runA', 'sigma8') / _b15_cv('iam_level2_runC_lcdm', 'sigma8') - 1)
+    return locals()
+
+@check(label='ch:statusall:L40:-1.51', chapter='ch:statusall', part=7, title='sigma8 shift in run C sigma',
+       file='part5/p5_11_status_all', line=40, status='measured', kind='file', printed='-1.51', tol=0.0, source=_B15_CHAINS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4566():
+    'sigma8 shift run A minus run C over the run C posterior sd. Book line 40, printed -1.51.'
+    value = (_b15_cv('iam_level2_runA', 'sigma8') - _b15_cv('iam_level2_runC_lcdm', 'sigma8')) / _b15_cv('iam_level2_runC_lcdm', 'sigma8_sd')
+    return locals()
+
+@check(label='ch:statusall:L41', chapter='ch:statusall', part=7, title='S8, Level 2 LambdaCDM (run C)',
+       file='part5/p5_11_status_all', line=41, status='measured', kind='file', printed='0.830', tol=0.0, source=_B15_CHAINS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4567():
+    'S8 posterior mean of the Level 2 LambdaCDM chain, run C. Book line 41, printed 0.830.'
+    value = _b15_cv('iam_level2_runC_lcdm', 'S8')
+    return locals()
+
+@check(label='ch:statusall:L41:-0.78', chapter='ch:statusall', part=7, title='S8 shift in run C sigma',
+       file='part5/p5_11_status_all', line=41, status='measured', kind='file', printed='-0.78', tol=0.0, source=_B15_CHAINS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4568():
+    'S8 shift run A minus run C over the run C posterior sd. Book line 41, printed -0.78.'
+    value = (_b15_cv('iam_level2_runA', 'S8') - _b15_cv('iam_level2_runC_lcdm', 'S8')) / _b15_cv('iam_level2_runC_lcdm', 'S8_sd')
+    return locals()
+
+@check(label='ch:statusall:L42', chapter='ch:statusall', part=7, title='largest shift of the other Level 2 parameters, sigma',
+       file='part5/p5_11_status_all', line=42, status='measured', kind='file', printed='0.1', tol=0.0, source=_B15_CHAINS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4569():
+    'Largest |run A - run C| / sd(run C) over H0, ombh2 and Omega_m in the Level 2 chains; the book says under 0.1 sigma, so the value must lie below 0.1 and round to 0.1 at one digit. Book line 42, printed 0.1.'
+    shifts = [abs(_b15_cv('iam_level2_runA', k) - _b15_cv('iam_level2_runC_lcdm', k)) / _b15_cv('iam_level2_runC_lcdm', k + '_sd')
+              for k in ('H0', 'ombh2', 'omegam')]
+    value = max(shifts) if max(shifts) < 0.1 else float('nan')
+    return locals()
+
+@check(label='ch:statusall:L43', chapter='ch:statusall', part=7, title='sigma8 change, Level 1, each data combination, per cent',
+       file='part5/p5_11_status_all', line=43, status='measured', kind='file', printed='-1.6', tol=0.0, source=_B15_PAIRS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4570():
+    'ds8/s8_lcdm in per cent for the four Level 1 data combinations of CHAIN_PAIRS_FINAL.csv; the value is the one farthest from the mean (all four must round to the printed value). Book line 43, printed -1.6.'
+    d = [100 * float(r['ds8']) / float(r['s8_lcdm']) for r in load_csv_rows(_B15_PAIRS)]
+    value = max(d, key=lambda x: abs(x - np.mean(d)))
+    return locals()
+
+# ---------------------------------------------------------------- line 44: mu0 free
+
+@check(label='ch:statusall:L44', chapter='ch:statusall', part=7, title='free mu0: smallest posterior median',
+       file='part5/p5_11_status_all', line=44, status='calc', kind='file', printed='+0.030', tol=0.0, source=_B03_LTG, heavy=True,
+       rerun=_B15_CHAIN_RERUN + '; medians with 30 % burn-in as in LATE_TIME_GROWTH_CHECK.md item 9')
+def check_4571():
+    'Smallest of the four free-mu0 posterior medians (Planck, + RSD, + BAO, + Pantheon+) recorded in LATE_TIME_GROWTH_CHECK.md item 9. Book line 44, printed +0.030.'
+    value = min(_b15_ltg_medians())
+    return locals()
+
+@check(label='ch:statusall:L44:+0.064', chapter='ch:statusall', part=7, title='free mu0: largest posterior median',
+       file='part5/p5_11_status_all', line=44, status='calc', kind='file', printed='+0.064', tol=0.0, source=_B03_LTG, heavy=True,
+       rerun=_B15_CHAIN_RERUN + '; medians with 30 % burn-in as in LATE_TIME_GROWTH_CHECK.md item 9')
+def check_4572():
+    'Largest of the four free-mu0 posterior medians recorded in LATE_TIME_GROWTH_CHECK.md item 9. Book line 44, printed +0.064.'
+    value = max(_b15_ltg_medians())
+    return locals()
+
+@check(label='ch:statusall:L44:+0.2', chapter='ch:statusall', part=7, title='free mu0: upper prior edge',
+       file='part5/p5_11_status_all', line=44, status='calc', kind='file', printed='+0.2', tol=0.0, source='mgcamb_validation/chains/planck_rsd_mu0_float.input.yaml')
+def check_4573():
+    'Upper edge of the flat mu0 prior in the Cobaya input of the free-amplitude chain (params: mu0: prior: max). Book line 44, printed +0.2.'
+    m = re.search(r'\n  mu0:\s*\n\s+prior:\s*\n\s+min:\s*([-\d.]+)\s*\n\s+max:\s*([-\d.]+)', file_text('mgcamb_validation/chains/planck_rsd_mu0_float.input.yaml'))
+    value = float(m.group(2))
+    return locals()
+
+# ---------------------------------------------------------------- lines 45-47: the two Hubble constants, Level 2b
+
+@check(label='ch:statusall:L45', chapter='ch:statusall', part=7, title='photon-sector H0, Level 2 chain',
+       file='part5/p5_11_status_all', line=45, status='measured', kind='file', printed='67.16', tol=0.0, source=_B15_CHAINS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4574():
+    'H0 posterior mean of the Level 2 IAM chain, run A. Book line 45, printed 67.16.'
+    value = _b15_cv('iam_level2_runA', 'H0')
+    return locals()
+
+@check(label='ch:statusall:L45:-0.37', chapter='ch:statusall', part=7, title='photon-sector H0 from Planck, Planck error alone',
+       file='part5/p5_11_status_all', line=45, status='measured', kind='file', printed='-0.37', tol=0.0, source=_B15_CHAINS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4575():
+    '(H0 run A - 67.36)/0.54, the reference error alone (line 11). Input: Planck 2018 H0 = 67.36 +- 0.54 (Aghanim et al. 2020, doi:10.1051/0004-6361/201833910). Book line 45, printed -0.37.'
+    value = (_b15_cv('iam_level2_runA', 'H0') - 67.36) / 0.54
+    return locals()
+
 @check(label='ch:statusall:L46', chapter='ch:statusall', part=7, title='same value as p1_02_iams_law:696 (H0 matter-sector formula)',
        file='part5/p5_11_status_all', line=46, status='derived', kind='num', printed='72.26', tol=7e-05)
 def check_2644():
     'same value as p1_02_iams_law:696 (H0 matter-sector formula). Book line 46, printed 72.26.'
     value=H0_photon*math.sqrt(1+beta_m)
     return locals()
+
+@check(label='ch:statusall:L46:-0.75', chapter='ch:statusall', part=7, title='matter-sector H0 from SH0ES, SH0ES error alone',
+       file='part5/p5_11_status_all', line=46, status='derived', kind='file', printed='-0.75', tol=0.0, source=_B15_CHAINS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4576():
+    '(H0 run A sqrt(1+beta_m) - 73.04)/1.04. Input: SH0ES 73.04 +- 1.04 (Riess et al. 2022, doi:10.3847/2041-8213/ac5c5b). Book line 46, printed -0.75.'
+    value = (_b15_cv('iam_level2_runA', 'H0') * math.sqrt(1 + beta_m) - 73.04) / 1.04
+    return locals()
+
+@check(label='ch:statusall:L47', chapter='ch:statusall', part=7, title='H0 with the term in the background (Level 2b)',
+       file='part5/p5_11_status_all', line=47, status='measured', kind='file', printed='61.45', tol=0.0, source=_B15_CHAINS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4577():
+    'H0 posterior mean of the Level 2b chain (run A), the term placed in the background Friedmann equation. Book line 47, printed 61.45.'
+    value = _b15_cv('iam_l2b_runA', 'H0')
+    return locals()
+
+@check(label='ch:statusall:L47:10.9', chapter='ch:statusall', part=7, title='Level 2b H0 below Planck, Planck error alone',
+       file='part5/p5_11_status_all', line=47, status='measured', kind='file', printed='10.9', tol=0.0, source=_B15_CHAINS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4578():
+    '(67.36 - H0 Level 2b run A)/0.54, Planck 2018 error alone as stated at line 11. Book line 47, printed 10.9.'
+    value = (67.36 - _b15_cv('iam_l2b_runA', 'H0')) / 0.54
+    return locals()
+
+# ---------------------------------------------------------------- lines 48-49: supernovae
+
+@check(label='ch:statusall:L48', chapter='ch:statusall', part=7, title='best beta on supernova distances',
+       file='part5/p5_11_status_all', line=48, status='measured', kind='file', printed='-0.035', tol=0.0,
+       source='docs/verification/scripts/verify_dual_sector_chapters_data.json', heavy=True, rerun=_B02_DSV_RERUN)
+def check_4579():
+    'Minimum of the committed full-covariance Pantheon+SH0ES profile Delta chi2(beta), 1590 SNe, Omega_m 0.315. Book line 48, printed -0.035.'
+    bs, dc = _b02_full_profile()
+    value = bs[int(np.argmin(dc))]
+    return locals()
+
+@check(label='ch:statusall:L48:-0.068', chapter='ch:statusall', part=7, title='lower 68 % end of beta on supernova distances',
+       file='part5/p5_11_status_all', line=48, status='measured', kind='file', printed='-0.068', tol=0.0,
+       source='docs/verification/scripts/verify_dual_sector_chapters_data.json', heavy=True, rerun=_B02_DSV_RERUN)
+def check_4580():
+    'Where the committed profile crosses min + 1 below the minimum, linear interpolation between grid points. Book line 48, printed -0.068.'
+    bs, dc = _b02_full_profile()
+    i = int(np.argmin(dc)); d1 = dc - dc[i]
+    value = float(np.interp(1.0, d1[:i + 1][::-1], bs[:i + 1][::-1]))
+    return locals()
+
+@check(label='ch:statusall:L48:0.000', chapter='ch:statusall', part=7, title='upper 68 % end of beta on supernova distances',
+       file='part5/p5_11_status_all', line=48, status='measured', kind='file', printed='0.000', tol=0.0,
+       source='docs/verification/scripts/verify_dual_sector_chapters_data.json', heavy=True, rerun=_B02_DSV_RERUN)
+def check_4581():
+    'Largest beta of the committed full-covariance profile with Delta chi2 <= min + 1. Book line 48, printed 0.000.'
+    bs, dc = _b02_full_profile()
+    value = bs[dc <= dc.min() + 1].max()
+    return locals()
+
+@check(label='ch:statusall:L48:1590', chapter='ch:statusall', part=7, title='supernovae in the Hubble-flow sample',
+       file='part5/p5_11_status_all', line=48, status='calc', kind='file', printed='1590', tol=0.0,
+       source='docs/verification/scripts/verify_dual_sector_chapters_output.txt', heavy=True, rerun=_B02_DSV_RERUN)
+def check_4582():
+    'Number of Pantheon+SH0ES supernovae with z_HD > 0.01 used with the full covariance (section 3 of the committed output). Book line 48, printed 1590.'
+    value = _b02_out(r"zHD > 0\.01: (\d+) SNe")
+    return locals()
+
+@check(label='ch:statusall:L49', chapter='ch:statusall', part=7, title='Delta chi2 of beta_m on supernova distances',
+       file='part5/p5_11_status_all', line=49, status='calc', kind='file', printed='+23.6', tol=0.0,
+       source='docs/verification/scripts/verify_dual_sector_chapters_output.txt', heavy=True, rerun=_B02_DSV_RERUN)
+def check_4583():
+    'chi2 with beta_m = 0.15765 put into the distances minus the LambdaCDM chi2, Omega_m 0.315, full covariance (section 3 of the committed output). Book line 49, printed +23.6.'
+    value = _b02_out(r"in the distances ([\d.]+);") - _b02_out(r"Om 0\.315: LCDM chi2 ([\d.]+);")
+    return locals()
+
+# ---------------------------------------------------------------- line 50: growth index
+
+@check(label='ch:statusall:L50', chapter='ch:statusall', part=7, title='effective growth index today, IAM',
+       file='part5/p5_11_status_all', line=50, status='calc', kind='num', printed='0.585', tol=0.0)
+def check_4584():
+    'gamma = ln f / ln Omega_m(a=1) from the linear growth equation with the exact mu (same early amplitude, Omega_m 0.3153). Book line 50, printed 0.585.'
+    value = math.log(f_of('iam', 0.0)) / math.log(Om)
+    return locals()
+
+@check(label='ch:statusall:L50:0.554', chapter='ch:statusall', part=7, title='effective growth index today, LambdaCDM',
+       file='part5/p5_11_status_all', line=50, status='calc', kind='num', printed='0.554', tol=0.0)
+def check_4585():
+    'gamma = ln f / ln Omega_m(a=1) for LambdaCDM, Omega_m 0.3153. Book line 50, printed 0.554.'
+    value = math.log(f_of('lcdm', 0.0)) / math.log(Om)
+    return locals()
+
+@check(label='ch:statusall:L50:0.633', chapter='ch:statusall', part=7, title='measured growth index (Nguyen, Huterer, Wen 2023)',
+       file='part5/p5_11_status_all', line=50, status='calc', kind='file', printed='0.633', tol=0.0,
+       source='docs/verification/scripts/verify_s8_trend_output.txt', heavy=True, rerun=_B15_S8T_RERUN)
+def check_4586():
+    'Measured gamma = 0.633 +0.025 -0.024 (Nguyen, Huterer and Wen 2023, doi:10.1103/PhysRevLett.131.111001), as recorded in the committed s8-trend output at z 0. Book line 50, printed 0.633.'
+    m = re.search(r'z 0: LCDM [\d.]+\s+IAM [\d.]+\s+\(Nguyen et al\. 2023: ([\d.]+) \+([\d.]+) -([\d.]+)\)', file_text('docs/verification/scripts/verify_s8_trend_output.txt'))
+    value = float(m.group(1))
+    return locals()
+
+@check(label='ch:statusall:L50:0.024', chapter='ch:statusall', part=7, title='lower error of the measured growth index',
+       file='part5/p5_11_status_all', line=50, status='calc', kind='file', printed='0.024', tol=0.0,
+       source='docs/verification/scripts/verify_s8_trend_output.txt', heavy=True, rerun=_B15_S8T_RERUN)
+def check_4587():
+    'Lower error of gamma = 0.633 +0.025 -0.024 (Nguyen, Huterer and Wen 2023, doi:10.1103/PhysRevLett.131.111001), from the committed s8-trend output. Book line 50, printed 0.024.'
+    m = re.search(r'z 0: LCDM [\d.]+\s+IAM [\d.]+\s+\(Nguyen et al\. 2023: ([\d.]+) \+([\d.]+) -([\d.]+)\)', file_text('docs/verification/scripts/verify_s8_trend_output.txt'))
+    value = float(m.group(3))
+    return locals()
+
+# ---------------------------------------------------------------- lines 52-53: E_G and CMB lensing
 
 @check(label='ch:statusall:L51', chapter='ch:statusall', part=7, title='f sigma8 deficit z=0',
        file='part5/p5_11_status_all', line=51, status='calc', kind='num', printed='4.25', tol=0)
@@ -38647,6 +39009,89 @@ def check_2648():
     'z=1. Book line 51, printed 0.41.'
     value=fs8_deficit(1.0)
     return locals()
+
+@check(label='ch:statusall:L52', chapter='ch:statusall', part=7, title='E_G change at z = 0.3, per cent',
+       file='part5/p5_11_status_all', line=52, status='calc', kind='num', printed='+1.8', tol=0.0)
+def check_4588():
+    'E_G = Omega_m0 Sigma / f with Sigma = 1: IAM over LambdaCDM is f_LCDM/f_IAM at z = 0.3 (same early amplitude). Book line 52, printed +1.8.'
+    value = 100 * (f_of('lcdm', 0.3) / f_of('iam', 0.3) - 1)
+    return locals()
+
+@check(label='ch:statusall:L52:+3.6', chapter='ch:statusall', part=7, title='E_G change today, per cent',
+       file='part5/p5_11_status_all', line=52, status='calc', kind='num', printed='+3.6', tol=0.0)
+def check_4589():
+    'E_G ratio IAM over LambdaCDM, f_LCDM/f_IAM at z = 0. Book line 52, printed +3.6.'
+    value = 100 * (f_of('lcdm', 0.0) / f_of('iam', 0.0) - 1)
+    return locals()
+
+@check(label='ch:statusall:L53', chapter='ch:statusall', part=7, title='CMB lensing power lower, per cent',
+       file='part5/p5_11_status_all', line=53, status='calc', kind='num', printed='0.08', tol=0.0)
+def check_4590():
+    'Limber estimate of C_L^phiphi with Sigma = 1, power ~ D^2, same early amplitude, Planck 2018 background: per cent below LambdaCDM (helper _b03_limber). Book line 53, printed 0.08.'
+    value = _b03_limber()
+    return locals()
+
+# ---------------------------------------------------------------- line 57: lensing surveys
+
+@check(label='ch:statusall:L57', chapter='ch:statusall', part=7, title='Level 2 sigma8 against the 2025 joint lensing value, sigma',
+       file='part5/p5_11_status_all', line=57, status='observed', kind='file', printed='0.1', tol=0.0, source=_B15_CHAINS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4591():
+    '(0.802 - sigma8 run A)/sqrt(0.018^2 + sd^2): joint KiDS-Legacy + DES Y3 + DESI value sigma8 = 0.802 +0.022 -0.018 (Stolzner2025, as quoted in ch:sectortension; lower error, facing the chain value). Book line 57, printed 0.1.'
+    s8, sd = _b15_cv('iam_level2_runA', 'sigma8'), _b15_cv('iam_level2_runA', 'sigma8_sd')
+    value = (0.802 - s8) / math.hypot(0.018, sd)
+    return locals()
+
+@check(label='ch:statusall:L57:0.815', chapter='ch:statusall', part=7, title='KiDS-Legacy S8',
+       file='part5/p5_11_status_all', line=57, status='observed', kind='file', printed='0.815', tol=0.0,
+       source='docs/verification/scripts/verify_sector_tension_output.txt', heavy=True, rerun=_B15_ST_RERUN)
+def check_4592():
+    'KiDS-Legacy cosmic shear S8 = 0.815 +0.016 -0.021 (Wright2025), as recorded in item 11 of the committed sector-tension output. Book line 57, printed 0.815.'
+    value = _b15_st_line(r'KiDS-Legacy shear \(Wright 2025\): ([\d.]+) ->')
+    return locals()
+
+@check(label='ch:statusall:L57:0.3', chapter='ch:statusall', part=7, title='Level 2 S8 against KiDS-Legacy, sigma',
+       file='part5/p5_11_status_all', line=57, status='observed', kind='file', printed='0.3', tol=0.0, source=_B15_CHAINS, heavy=True, rerun=_B15_CHAIN_RERUN)
+def check_4593():
+    '(S8 run A - 0.815)/sqrt(sd^2 + 0.016^2), KiDS-Legacy 0.815 +0.016 -0.021 (Wright2025), its upper error facing the chain value, chain and survey errors in quadrature (part2/p2_02b_virial_tests prints 0.33). Book line 57, printed 0.3.'
+    S8, sd = _b15_cv('iam_level2_runA', 'S8'), _b15_cv('iam_level2_runA', 'S8_sd')
+    value = (S8 - 0.815) / math.hypot(sd, 0.016)
+    return locals()
+
+@check(label='ch:statusall:L57:0.776', chapter='ch:statusall', part=7, title='DES Y3 3x2pt S8',
+       file='part5/p5_11_status_all', line=57, status='calc', kind='file', printed='0.776', tol=0.0,
+       source='docs/verification/scripts/verify_sector_tension_output.txt', heavy=True, rerun=_B15_ST_RERUN)
+def check_4594():
+    'DES Y3 3x2pt S8 = 0.776 +- 0.017 (DESY3), as recorded in item 11 of the committed sector-tension output. Book line 57, printed 0.776.'
+    value = _b15_st_line(r'DES Y3 3x2pt: ([\d.]+) ->')
+    return locals()
+
+@check(label='ch:statusall:L57:2.3', chapter='ch:statusall', part=7, title='Level 2 S8 against DES Y3 3x2pt, sigma',
+       file='part5/p5_11_status_all', line=57, status='observed', kind='num', printed='2.3', tol=0.0)
+def check_4595():
+    '(0.822 - 0.776)/sqrt(0.011^2 + 0.017^2): the Level 2 IAM S8 as printed in ch:dual (0.822 +- 0.011) against DES Y3 3x2pt 0.776 +- 0.017 (DESY3), errors in quadrature, as item 11 of verify_sector_tension_output.txt (-2.27). With the unrounded chain S8 0.8215 the distance is 2.24. Book line 57, printed 2.3.'
+    S8_iam, sd_iam = 0.822, 0.011
+    value = (S8_iam - 0.776) / math.hypot(sd_iam, 0.017)
+    return locals()
+
+# ---------------------------------------------------------------- line 58: CPL image against DESI DR2
+
+@check(label='ch:statusall:L58', chapter='ch:statusall', part=7, title='w0 distance of the CPL image from DESI, Union3',
+       file='part5/p5_11_status_all', line=58, status='calc', kind='num', printed='7.6', tol=0.0)
+def check_4596():
+    '|w0_DESI - w0_image| / sigma, w0_image = w_info(a=1) = -1 - 1/3, DESI DR2 + CMB + Union3 w0 = -0.667 +- 0.088 (ch:wzfuture Eq. wz_desi2, DESI2025). Book line 58, printed 7.6.'
+    w0_img = -1 - 1 / (3 * 1.0)
+    value = abs(-0.667 - w0_img) / 0.088
+    return locals()
+
+@check(label='ch:statusall:L58:10.2', chapter='ch:statusall', part=7, title='w0 distance of the CPL image from DESI, DES Y5',
+       file='part5/p5_11_status_all', line=58, status='calc', kind='num', printed='10.2', tol=0.0)
+def check_4597():
+    '|w0_DESI - w0_image| / sigma with DESI DR2 + CMB + DES Y5 w0 = -0.752 +- 0.057 (ch:wzfuture Eq. wz_desi3). Book line 58, printed 7.6--10.2 (upper end 10.2).'
+    w0_img = -1 - 1 / (3 * 1.0)
+    value = abs(-0.752 - w0_img) / 0.057
+    return locals()
+
+# ---------------------------------------------------------------- line 62: baryon relation
 
 @check(label='ch:statusall:L59', chapter='ch:statusall', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
        file='part5/p5_11_status_all', line=59, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
@@ -38717,6 +39162,16 @@ def check_2657():
     value=Hsi(H0_photon)*Gyr/math.e*100
     return locals()
 
+@check(label='ch:statusall:L62', chapter='ch:statusall', part=7, title='baryon relation (3/16) sqrt(Omega_L), per cent off',
+       file='part5/p5_11_status_all', line=62, status='observed', kind='num', printed='0.79', tol=0.0)
+def check_4598():
+    '(Omega_b/Omega_m) / ((3/16) sqrt(Omega_L)) - 1 in per cent, Planck 2018 Omega_b 0.0493, Omega_m 0.3153, Omega_L = 1 - Omega_m - Omega_r with Omega_r 9.15e-5 (as ch:lambda). Book line 62, printed 0.79.'
+    OLv = 1 - Om - 9.15e-5
+    value = 100 * ((Ob / Om) / (3 / 16 * math.sqrt(OLv)) - 1)
+    return locals()
+
+# ---------------------------------------------------------------- line 71: Koide
+
 @check(label='ch:statusall:L68', chapter='ch:statusall', part=7, title='evaporation time 1 M_sun',
        file='part5/p5_11_status_all', line=68, status='calc', kind='num', printed='2.1\\times10^{67}', tol=0)
 def check_2658():
@@ -38744,6 +39199,16 @@ def check_2659():
     value=Qk(me_,mmu_,mtau24)
     return locals()
 
+@check(label='ch:statusall:L71:0.43', chapter='ch:statusall', part=7, title='Koide Q from 2/3, sigma',
+       file='part5/p5_11_status_all', line=71, status='observed', kind='num', printed='0.43', tol=0.0)
+def check_4599():
+    '(2/3 - Q)/sigma(Q), Q of the PDG 2024 masses, sigma(Q) propagated from sigma(m_tau) = 0.09 MeV. Book line 71, printed 0.43.'
+    Q, sQ = _b15_koide_sigma()
+    value = (2 / 3 - Q) / sQ
+    return locals()
+
+# ---------------------------------------------------------------- lines 76-79: quasiparticles and the qubit gauge
+
 @check(label='ch:statusall:L72', chapter='ch:statusall', part=7, title='same value as p2_15a_lepton_koide:206 (measured offset delta)',
        file='part5/p5_11_status_all', line=72, status='derived', kind='num', printed='0.2222', tol=0)
 def check_2660():
@@ -38768,12 +39233,46 @@ def check_2661():
     value=100*((2*math.pi)**-0.1*EM_(67.36)/m_e-1)
     return locals()
 
+@check(label='ch:statusall:L76:60', chapter='ch:statusall', part=7, title='active fluctuators for x_qp = 1e-7, 1e3 um^3 island',
+       file='part5/p5_11_status_all', line=76, status='calc', kind='num', printed='60', tol=0.0)
+def check_4600():
+    'N = x_qp tau_TLS n_cp V / (2 tau_qp) from Eq. xqp, x_qp 1e-7, tau_TLS 30 us, tau_qp 100 us, n_cp 4e6 um^-3, V 1e3 um^3 (ch:xqp Fig. xqp_sites). Book line 76, printed 60.'
+    N = lambda V: 1e-7 * 30e-6 * 4e6 * V / (2 * 100e-6)
+    value = N(1e3)
+    return locals()
+
+@check(label='ch:statusall:L76:600', chapter='ch:statusall', part=7, title='active fluctuators, 1e4 um^3 island',
+       file='part5/p5_11_status_all', line=76, status='calc', kind='num', printed='600', tol=0.0)
+def check_4601():
+    'N from Eq. xqp at V = 1e4 um^3, other inputs as above. Book line 76, printed 600.'
+    N = lambda V: 1e-7 * 30e-6 * 4e6 * V / (2 * 100e-6)
+    value = N(1e4)
+    return locals()
+
+@check(label='ch:statusall:L76:6000', chapter='ch:statusall', part=7, title='active fluctuators, 1e5 um^3 island',
+       file='part5/p5_11_status_all', line=76, status='calc', kind='num', printed='6000', tol=0.0)
+def check_4602():
+    'N from Eq. xqp at V = 1e5 um^3, other inputs as above. Book line 76, printed 6,000.'
+    N = lambda V: 1e-7 * 30e-6 * 4e6 * V / (2 * 100e-6)
+    value = N(1e5)
+    return locals()
+
 @check(label='ch:statusall:L79', chapter='ch:statusall', part=7, title='transmon floor on its gauge',
        file='part5/p5_11_status_all', line=79, status='calc', kind='num', printed='6.2\\times10^{-4}', tol=0)
 def check_2662():
     'transmon floor on its gauge. Book line 79, printed 6.2\\times10^{-4}.'
     peq=1/(1+math.exp(h*5e9/(kB*0.035))); value=peq*40e-9/68e-6/1e-3
     return locals()
+
+@check(label='ch:statusall:L79:10', chapter='ch:statusall', part=7, title='surface-code threshold on the qubit gauge',
+       file='part5/p5_11_status_all', line=79, status='calc', kind='num', printed='10', tol=0.0)
+def check_4603():
+    'Threshold mark 1e-2/epsilon, epsilon = -ln(1 - p) the gate error in nats of the as-built p = 1e-3 (ch:ascoreqc Fig. qubit_gauge). Book line 79, printed 10.'
+    eps = -math.log(1 - 1e-3)
+    value = 1e-2 / eps
+    return locals()
+
+# ---------------------------------------------------------------- line 88: DNMT1 discrimination
 
 @check(label='ch:statusall:L81', chapter='ch:statusall', part=7, title='per-gate thermal floor',
        file='part5/p5_11_status_all', line=81, status='calc', kind='num', printed='6.2\\times10^{-7}', tol=0)
@@ -38835,6 +39334,30 @@ def check_2670():
     value=100*(378.15/348.15-1)
     return locals()
 
+@check(label='ch:statusall:L88:1.9', chapter='ch:statusall', part=7, title='Hopfield gap, lowest published DNMT1 preference',
+       file='part5/p5_11_status_all', line=88, status='calc', kind='num', printed='1.9', tol=0.0)
+def check_4604():
+    'Hopfield energy gap ln(selectivity) in k_B T for the lowest published DNMT1 preference for hemimethylated CpG, 7x (Pradhan1999, as quoted in ch:onegauge). Book line 88, printed 1.9.'
+    value = math.log(7)
+    return locals()
+
+@check(label='ch:statusall:L88:4.4', chapter='ch:statusall', part=7, title='Hopfield gap, highest published DNMT1 preference',
+       file='part5/p5_11_status_all', line=88, status='calc', kind='num', printed='4.4', tol=0.0)
+def check_4605():
+    'ln(selectivity) for the highest published preference, 80x (Adam2023, as quoted in ch:onegauge). Book line 88, printed 1.9--4.4 (upper end 4.4).'
+    value = math.log(80)
+    return locals()
+
+@check(label='ch:statusall:L88:3.41', chapter='ch:statusall', part=7, title='measured holding energy, k_B T',
+       file='part5/p5_11_status_all', line=88, status='calc', kind='file', printed='3.41', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
+def check_4606():
+    'E_hold of the copy channel, row methylated sites (copy error) of the PROC-CHANNEL-01 record. Book line 88, printed 3.41.'
+    value = _b00_hold_energy()
+    return locals()
+
+# ---------------------------------------------------------------- lines 92-95: the cell gauge
+
 @check(label='ch:statusall:L90', chapter='ch:statusall', part=7, title='same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature)',
        file='part5/p5_11_status_all', line=90, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0.00017)
 def check_2671():
@@ -38855,6 +39378,73 @@ def check_2673():
     'M/ln2. Book line 91, printed 30.2.'
     value=dG_ATP/(R_gas*T_cell)/LN2
     return locals()
+
+@check(label='ch:statusall:L92', chapter='ch:statusall', part=7, title='holding energy of a methylated site',
+       file='part5/p5_11_status_all', line=92, status='measured', kind='file', printed='3.41', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
+def check_4607():
+    'E_hold of the copy channel, row methylated sites (copy error) of the PROC-CHANNEL-01 record. Book line 92, printed 3.41.'
+    value = _b00_hold_energy()
+    return locals()
+
+@check(label='ch:statusall:L92:0.032', chapter='ch:statusall', part=7, title='copy-error floor eps0',
+       file='part5/p5_11_status_all', line=92, status='measured', kind='file', printed='0.032', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
+def check_4608():
+    'eps0 = 1/(1 + exp(E_hold)) with E_hold read from the PROC-CHANNEL-01 record. Book line 92, printed 0.032.'
+    value = 1 / (1 + math.exp(_b00_hold_energy()))
+    return locals()
+
+@check(label='ch:statusall:L92:0.163', chapter='ch:statusall', part=7, title='phi = E_hold / M',
+       file='part5/p5_11_status_all', line=92, status='measured', kind='file', printed='0.163', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
+def check_4609():
+    'phi = E_hold / M_cell, E_hold from the PROC-CHANNEL-01 record and M = dG_ATP/(R T_cell) from the canon inputs. Book line 92, printed 0.163.'
+    value = _b00_hold_energy() / (dG_ATP / (R_gas * T_cell))
+    return locals()
+
+_B15_IAMA = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json'
+_B15_METAF = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json'
+
+@check(label='ch:statusall:L93', chapter='ch:statusall', part=7, title='neutrophil position P on IAM-A',
+       file='part5/p5_11_status_all', line=93, status='measured', kind='file', printed='1.099', tol=0.0, source=_B15_IAMA, heavy=True, rerun=_B15_METH_RERUN)
+def check_4610():
+    'P of neutrophils in the frozen IAM-A positions (3 Loyfer granulocyte donors). Book line 93, printed 1.099.'
+    value = load_json(_B15_IAMA)['cells']['neutrophils']['P']
+    return locals()
+
+@check(label='ch:statusall:L93:1.084', chapter='ch:statusall', part=7, title='lowest donor P',
+       file='part5/p5_11_status_all', line=93, status='calc', kind='file', printed='1.084', tol=0.0, source=_B15_IAMA, heavy=True, rerun=_B15_METH_RERUN)
+def check_4611():
+    'Lower end of the donor range P_range of neutrophils in the frozen IAM-A positions. Book line 93, printed 1.084.'
+    value = load_json(_B15_IAMA)['cells']['neutrophils']['P_range'][0]
+    return locals()
+
+@check(label='ch:statusall:L94', chapter='ch:statusall', part=7, title='Met-A neutrophil reference floor, bits',
+       file='part5/p5_11_status_all', line=94, status='calibrated', kind='file', printed='0.330263', tol=0.0, source=_B15_METAF, heavy=True, rerun=_B15_METH_RERUN)
+def check_4612():
+    'Floor of EPIC neutrophils in the frozen Met-A floors v1.3 (mean over 6 purified arrays). Book line 94, printed 0.330263.'
+    value = load_json(_B15_METAF)['platforms']['EPIC']['neutrophils']['floor']
+    return locals()
+
+@check(label='ch:statusall:L94:6000', chapter='ch:statusall', part=7, title='identity sites of the neutrophil reference',
+       file='part5/p5_11_status_all', line=94, status='calibrated', kind='file', printed='6000', tol=0.0, source=_B15_METAF, heavy=True, rerun=_B15_METH_RERUN)
+def check_4613():
+    'n_sites of the EPIC neutrophil floor in the frozen Met-A floors v1.3, checked against the length of its site list. Book line 94, printed 6,000.'
+    d = load_json(_B15_METAF)['platforms']['EPIC']['neutrophils']
+    value = d['n_sites'] if d['n_sites'] == len(d['sites']) else float('nan')
+    return locals()
+
+@check(label='ch:statusall:L95', chapter='ch:statusall', part=7, title='held-out SD of the six reference arrays',
+       file='part5/p5_11_status_all', line=95, status='measured', kind='file', printed='0.020', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv', heavy=True, rerun=_B15_METH_RERUN)
+def check_4614():
+    'Sample SD of the leave-one-out readings A_loo of the six purified neutrophil arrays. Book line 95, printed 0.020.'
+    rows = load_csv_rows('Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
+    value = float(np.std([float(r['A_loo']) for r in rows if r['cell'] == 'neutrophils'], ddof=1))
+    return locals()
+
+# ---------------------------------------------------------------- lines 99-102: readings
 
 @check(label='ch:statusall:L96', chapter='ch:statusall', part=7, title='1/P',
        file='part5/p5_11_status_all', line=96, status='calc', kind='file', printed='0.910', tol=0, source='CANON/iam_canon.json')
@@ -38922,11 +39512,144 @@ def check_2679():
     value=fl(38.5)
     return locals()
 
+@check(label='ch:statusall:L99', chapter='ch:statusall', part=7, title='atlas v2 held-out interval coverage, per cent',
+       file='part5/p5_11_status_all', line=99, status='measured', kind='file', printed='92.7', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md', heavy=True, rerun=_B15_METH_RERUN)
+def check_4615():
+    'Coverage of the 90 % interval on the held-out observations, bar B1 of PROC-V5-HELDOUT (342,716 observations). Book line 99, printed 92.7.'
+    m = re.search(r'90 % interval covers \*\*([\d.]+) %\*\*', file_text('Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md'))
+    value = float(m.group(1))
+    return locals()
+
+def _b15_wbneut(bar):
+    m = re.search(r'\| %s[^|]*\|[^|]*\(A ([\d.]+)–([\d.]+)' % re.escape(bar), file_text('Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md'))
+    return float(m.group(1)), float(m.group(2))
+
+def _b15_tared():
+    m = re.search(r'6/6 \(([\d.]+)–([\d.]+); shift', file_text('Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md'))
+    return float(m.group(1)), float(m.group(2))
+
+@check(label='ch:statusall:L100', chapter='ch:statusall', part=7, title='healthy DNA mixtures, untared, lowest',
+       file='part5/p5_11_status_all', line=100, status='measured', kind='file', printed='0.982', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md', heavy=True, rerun=_B15_METH_RERUN)
+def check_4616():
+    'Lowest Met-A of the six healthy mixtures (known fractions), bar W1 of PROC-WB-NEUT-01. Book line 100, printed 0.982.'
+    value = _b15_wbneut('W1 healthy')[0]
+    return locals()
+
+@check(label='ch:statusall:L100:1.016', chapter='ch:statusall', part=7, title='healthy DNA mixtures, untared, highest',
+       file='part5/p5_11_status_all', line=100, status='measured', kind='file', printed='1.016', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md', heavy=True, rerun=_B15_METH_RERUN)
+def check_4617():
+    'Highest Met-A of the six healthy mixtures, bar W1 of PROC-WB-NEUT-01. Book line 100, printed 0.982--1.016 (upper end 1.016).'
+    value = _b15_wbneut('W1 healthy')[1]
+    return locals()
+
+@check(label='ch:statusall:L100:1.049', chapter='ch:statusall', part=7, title='2 % neutrophil-pattern loss, untared, lowest',
+       file='part5/p5_11_status_all', line=100, status='measured', kind='file', printed='1.049', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md', heavy=True, rerun=_B15_METH_RERUN)
+def check_4618():
+    'Lowest Met-A of the six mixtures with a simulated 2 % loss, bar W3 of PROC-WB-NEUT-01. Book line 100, printed 1.049.'
+    value = _b15_wbneut('W3 2 %')[0]
+    return locals()
+
+@check(label='ch:statusall:L100:1.079', chapter='ch:statusall', part=7, title='2 % neutrophil-pattern loss, untared, highest',
+       file='part5/p5_11_status_all', line=100, status='measured', kind='file', printed='1.079', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md', heavy=True, rerun=_B15_METH_RERUN)
+def check_4619():
+    'Highest Met-A of the six mixtures with a simulated 2 % loss, bar W3 of PROC-WB-NEUT-01. Book line 100, printed 1.049--1.079 (upper end 1.079).'
+    value = _b15_wbneut('W3 2 %')[1]
+    return locals()
+
+@check(label='ch:statusall:L100:1.052', chapter='ch:statusall', part=7, title='2 % loss, tared, lowest',
+       file='part5/p5_11_status_all', line=100, status='measured', kind='file', printed='1.052', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md', heavy=True, rerun=_B15_METH_RERUN)
+def check_4620():
+    'Lowest tared Met-A of the six constructed whole-blood mixtures with 2 % neutrophil-pattern loss (A_rel tared row). Book line 100, printed 1.052.'
+    value = _b15_tared()[0]
+    return locals()
+
+@check(label='ch:statusall:L100:1.090', chapter='ch:statusall', part=7, title='2 % loss, tared, highest',
+       file='part5/p5_11_status_all', line=100, status='measured', kind='file', printed='1.090', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain_tests/WHOLE_BLOOD_COMPOSITION_DEV.md', heavy=True, rerun=_B15_METH_RERUN)
+def check_4621():
+    'Highest tared Met-A of the six constructed mixtures with 2 % loss. Book line 100, printed 1.052--1.090 (upper end 1.090).'
+    value = _b15_tared()[1]
+    return locals()
+
+def _b15_dnmt_A():
+    return [float(r['A']) for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+            if r['cmpd'] == 'GSK032' and float(r['dose_nM']) >= 80]
+
+@check(label='ch:statusall:L102', chapter='ch:statusall', part=7, title='Met-A under DNMT1 block, lowest (>= 80 nM)',
+       file='part5/p5_11_status_all', line=102, status='calc', kind='file', printed='1.16', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv', heavy=True, rerun=_B15_METH_RERUN)
+def check_4622():
+    'Lowest Met-A of all GSK3685032 arrays at >= 80 nM (dose series and time series), GSE135205. Book line 102, printed 1.16.'
+    value = min(_b15_dnmt_A())
+    return locals()
+
+@check(label='ch:statusall:L102:1.87', chapter='ch:statusall', part=7, title='Met-A under DNMT1 block, highest (>= 80 nM)',
+       file='part5/p5_11_status_all', line=102, status='calc', kind='file', printed='1.87', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv', heavy=True, rerun=_B15_METH_RERUN)
+def check_4623():
+    'Highest Met-A of all GSK3685032 arrays at >= 80 nM. Book line 102, printed 1.16--1.87 (upper end 1.87).'
+    value = max(_b15_dnmt_A())
+    return locals()
+
+def _b15_dnmt_b():
+    m = re.search(r'8/8, A = ([\d.]+)–([\d.]+)', file_text('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md'))
+    return float(m.group(1)), float(m.group(2))
+
+@check(label='ch:statusall:L102:1.65', chapter='ch:statusall', part=7, title='IAM-A on single molecules under DNMT1 block, lowest',
+       file='part5/p5_11_status_all', line=102, status='calc', kind='file', printed='1.65', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md', heavy=True, rerun=_B15_METH_RERUN)
+def check_4624():
+    'Lowest IAM-A of the 8 treated libraries, bar Q1 of PROC-DNMT-01 Part B (GSE329728). Book line 102, printed 1.65.'
+    value = _b15_dnmt_b()[0]
+    return locals()
+
+@check(label='ch:statusall:L102:1.97', chapter='ch:statusall', part=7, title='IAM-A on single molecules under DNMT1 block, highest',
+       file='part5/p5_11_status_all', line=102, status='calc', kind='file', printed='1.97', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md', heavy=True, rerun=_B15_METH_RERUN)
+def check_4625():
+    'Highest IAM-A of the 8 treated libraries, bar Q1 of PROC-DNMT-01 Part B. Book line 102, printed 1.65--1.97 (upper end 1.97).'
+    value = _b15_dnmt_b()[1]
+    return locals()
+
+# ---------------------------------------------------------------- lines 108-110
+
 @check(label='ch:statusall:L106', chapter='ch:statusall', part=7, title='M_eq today',
        file='part5/p5_11_status_all', line=106, status='calc', kind='num', printed='2.3\\times10^{22}', tol=0)
 def check_2680():
     'M_eq today. Book line 106, printed 2.3\\times10^{22}.'
     value=c**3/(4*G*Hsi(67.4))/Msun
+    return locals()
+
+@check(label='ch:statusall:L108', chapter='ch:statusall', part=7, title='Q_L = k_B T ln 2 at room temperature, eV',
+       file='part5/p5_11_status_all', line=108, status='conjecture', kind='num', printed='0.0179', tol=0.0)
+def check_4626():
+    'Q_L = k_B T_D ln 2 at room temperature, T = 300 K (as ch:measurement), in eV. Book line 108, printed 0.0179.'
+    value = kB * 300 * LN2 / eV
+    return locals()
+
+@check(label='ch:statusall:L110:509', chapter='ch:statusall', part=7, title='tau_IAM of a 1e-12 kg silica sphere at 10 mK, s',
+       file='part5/p5_11_status_all', line=110, status='prediction', kind='num', printed='509', tol=0.0)
+def check_4627():
+    'tau_IAM = hbar (k_B T)^2 ln 2 / E_G^3, E_G = G m^2 / R, m 1e-12 kg, silica density 2200 kg/m^3, T 10 mK (ch:gravdec, ch:quantumrecords). Book line 110, printed 509.'
+    m, rho, T = 1e-12, 2200.0, 0.010
+    R = (3 * m / (4 * math.pi * rho)) ** (1 / 3)
+    EG = G * m**2 / R
+    value = hbar * (kB * T)**2 * LN2 / EG**3
+    return locals()
+
+@check(label='ch:statusall:L110:7.5', chapter='ch:statusall', part=7, title='tau_DP of the same sphere, microseconds',
+       file='part5/p5_11_status_all', line=110, status='prediction', kind='num', printed='7.5', tol=0.0)
+def check_4628():
+    'tau_DP = hbar / E_G for the same 1e-12 kg silica sphere, in microseconds. Book line 110, printed 7.5.'
+    m, rho = 1e-12, 2200.0
+    R = (3 * m / (4 * math.pi * rho)) ** (1 / 3)
+    value = hbar / (G * m**2 / R) * 1e6
     return locals()
 
 
@@ -42024,109 +42747,33 @@ INVENTORY = [
     (7, 'ch:exploratory', 'part5/p5_02_exploratory', 524, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
     (7, 'ch:exploratory', 'part5/p5_02_exploratory', 525, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
     (7, 'ch:exploratory', 'part5/p5_02_exploratory', 526, '', 'derived', '0.2', 'table formatting: the 0.2 is the width of a \\cmidrule[0.2pt] rule in the status table, not a book number'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 12, '', 'calc', '0.54', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 12, '', 'calc', '1.04', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 23, '', 'calc', '2.82\\times10^{7}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 23, '', 'calc', '1.6\\times10^{59}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 23, '', 'calc', '52', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 26, '', 'derived', '13', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 27, '', 'calc', '6.5\\times10^9', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 28, '', 'observed', '1.1', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 28, '', 'observed', '1.3', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 28, '', 'calc', '-1.17', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 33, '', 'calc', '0.155', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 33, '', 'calc', '-0.28', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 35, '', 'derived', '-0.012', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 38, '', 'measured', '+0.54', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 39, '', 'measured', '+0.96', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 39, '', 'measured', '+0.56', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 39, '', 'measured', '+1.73', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 39, '', 'measured', '+1.58', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 40, '', 'measured', '0.8087', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 40, '', 'measured', '-1.1', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 40, '', 'measured', '-1.51', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 41, '', 'measured', '0.830', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 41, '', 'measured', '-0.78', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 42, '', 'measured', '0.1', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 43, '', 'measured', '-1.6', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 44, '', 'calc', '+0.030', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 44, '', 'calc', '+0.064', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 44, '', 'calc', '+0.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 44, '', 'calc', '90', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 45, '', 'measured', '67.16', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 45, '', 'measured', '-0.37', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 46, '', 'derived', '-0.75', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 47, '', 'measured', '61.45', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 47, '', 'measured', '10.9', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 48, '', 'measured', '-0.035', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 48, '', 'measured', '-0.068', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 48, '', 'measured', '0.000', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 48, '', 'calc', '1590', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 49, '', 'calc', '+23.6', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 50, '', 'calc', '0.585', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 50, '', 'calc', '0.633', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 50, '', 'calc', '0.024', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 50, '', 'calc', '0.554', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 52, '', 'calc', '+1.8', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 52, '', 'calc', '0.3', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 52, '', 'calc', '+3.6', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 53, '', 'calc', '0.08', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 55, '', 'prediction', '0.3', 'not yet checked'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 57, '', 'observed', '0.1', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 57, '', 'observed', '0.815', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 57, '', 'observed', '0.3', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 57, '', 'observed', '2.3', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 57, '', 'calc', '0.776', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 58, '', 'calc', '7.6', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 58, '', 'calc', '-10.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 62, '', 'observed', '0.79', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 71, '', 'observed', '0.43', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 73, '', 'calc', '67.36', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 76, '', 'derived', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 76, '', 'calc', '60', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 76, '', 'calc', '600', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 76, '', 'calc', '000', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 77, '', 'observed', '10', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 78, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 79, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 81, '', 'calc', '68', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 81, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 81, '', 'calc', '35', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 81, '', 'calc', '40', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 82, '', 'calc', '35', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 82, '', 'calc', '15', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 85, '', 'calc', '9950', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 86, '', 'calc', '75', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 86, '', 'calc', '105', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 88, '', 'calc', '1.9', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 88, '', 'calc', '-4.4', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 88, '', 'calc', '3.41', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 90, '', 'calc', '37', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 92, '', 'measured', '3.41', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 92, '', 'measured', '0.032', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 92, '', 'measured', '0.163', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 93, '', 'measured', '1.099', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 93, '', 'calc', '1.084', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 94, '', 'calibrated', '0.330263', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 94, '', 'calibrated', '000', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 95, '', 'measured', '0.020', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 98, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 98, '', 'calc', '38.5', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 99, '', 'measured', '92.7', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 100, '', 'measured', '0.982', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 100, '', 'measured', '-1.016', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 100, '', 'measured', '1.049', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 100, '', 'measured', '-1.079', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 100, '', 'measured', '1.052', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 100, '', 'measured', '-1.090', 'measured, source not named'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 102, '', 'calc', '1.16', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 102, '', 'calc', '-1.87', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 102, '', 'calc', '1.65', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 102, '', 'calc', '-1.97', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 108, '', 'conjecture', '0.0179', 'not yet checked'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 110, '', 'prediction', '10', 'not yet checked'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 110, '', 'prediction', '509', 'not yet checked'),
-    (7, 'ch:statusall', 'part5/p5_11_status_all', 110, '', 'prediction', '7.5', 'not yet checked'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 12, '', 'calc', '0.54', 'input: Planck 2018 H0 error 0.54 km/s/Mpc (Aghanim et al. 2020, doi:10.1051/0004-6361/201833910), the reference error a distance in sigma divides by; used in ch:statusall:L45:-0.37'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 12, '', 'calc', '1.04', 'input: SH0ES H0 error 1.04 km/s/Mpc (Riess et al. 2022, doi:10.3847/2041-8213/ac5c5b), the reference error a distance in sigma divides by; used in ch:statusall:L46:-0.75'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 27, '', 'calc', '6.5\\times10^9', 'input: upper end of the black-hole mass range of the row (6.5e9 solar masses); the Smarr share at that mass is checked in ch:statusall:L27'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 28, '', 'observed', '1.1', 'observed: published approximate range 2T/|U| = 1.1-1.3 of simulated halos, cited in ch:virial_law (Bett2007, Neto2007, Power2012); no committed file holds it, nothing to recompute'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 28, '', 'observed', '1.3', 'observed: published approximate range 2T/|U| = 1.1-1.3 of simulated halos, cited in ch:virial_law (Bett2007, Neto2007, Power2012); no committed file holds it, nothing to recompute'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 28, '', 'calc', '-1.17', 'observed: published approximate range 1.02-1.17 with the surface-pressure term, cited in ch:virial_law (Klypin2016); no committed file holds it, nothing to recompute'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 35, '', 'derived', '-0.012', 'restates ch:theory:L515:-0.012 (w_a = -Omega_m^2/3(2-Omega_m)^2 = -0.0116; a fresh check cannot carry a working negative control at two printed digits, the value sits 0.00025 from the 5 % shifted number)'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 44, '', 'calc', '90', 'definition: the central 90 % credible interval used to report the free-mu0 posteriors'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 52, '', 'calc', '0.3', 'input: the redshift z = 0.3 at which the E_G change is quoted'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 55, '', 'prediction', '0.3', 'prediction, nothing to recompute: the redshift range 0.3 < z < 1 of the growth-ramp turn-on that the survey test targets'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 73, '', 'calc', '67.36', 'input: Planck 2018 H0 = 67.36 (Aghanim et al. 2020), the rate at which the electron-mass relation is evaluated; the -0.02 % is checked in ch:statusall:L73'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 76, '', 'derived', '10', 'input: base of the island volumes 10^3-10^5 cubic micrometres; the fluctuator counts are checked in ch:statusall:L76:60/600/6000'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 77, '', 'observed', '10', 'observed: measured quasiparticle background band 10^-8 to 10^-6 cited in ch:xqp; the inventoried 10 is the base of the power of ten, no committed file holds the band'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 78, '', 'calc', '10', 'input: x_qp = 10^-7, the quasiparticle fraction at which T_1 is evaluated (the inventoried 10 is the base of the power of ten)'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 81, '', 'calc', '68', 'input: T_1 = 68 microseconds (GoogleWillow2025, as cited in ch:ascoreqc); the floor is checked in ch:statusall:L81'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 81, '', 'calc', '10', 'input: illustrative two-qubit gate error 10^-3 (the inventoried 10 is the base of the power of ten)'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 81, '', 'calc', '35', 'input: device temperature 35 mK (Jin2015, as cited in ch:ascoreqc)'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 81, '', 'calc', '40', 'input: illustrative 40 ns gate time'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 82, '', 'calc', '35', 'input: temperature 35 mK at which the slope is evaluated; the slope is checked in ch:statusall:L82'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 82, '', 'calc', '15', 'input: temperature 15 mK at which the slope is evaluated; the slope is checked in ch:statusall:L82:16.0'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 85, '', 'calc', '9950', 'input: processor model designation (a name, not a quantity); the switching energy is checked in ch:statusall:L85 and L85:593'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 86, '', 'calc', '75', 'input: junction temperature 75 C; the Landauer floor is checked in ch:statusall:L86'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 86, '', 'calc', '105', 'input: junction temperature 105 C; the 8.6 % is checked in ch:statusall:L86:8.6'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 90, '', 'calc', '37', 'input: body temperature 37 C (T_cell = 310.15 K, canon); the Landauer cost is checked in ch:statusall:L90'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 98, '', 'calc', '10', 'input: temperature 10 C at which the floor is evaluated; checked in ch:statusall:L98'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 98, '', 'calc', '38.5', 'input: temperature 38.5 C at which the floor is evaluated; checked in ch:statusall:L98:1.012'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 110, '', 'prediction', '10', 'input: temperature 10 mK of the gravitational-decoherence prediction; tau values checked in ch:statusall:L110:509 and L110:7.5'),
     (7, 'ch:conclusion', 'part5/p5_10_conclusion', 17, '', 'derived', '4.25', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (7, 'ch:conclusion', 'part5/p5_10_conclusion', 23, '', 'observed', '0.43', 'measured, source not named'),
     (7, 'ch:conclusion', 'part5/p5_10_conclusion', 25, '', 'calc', '576', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
