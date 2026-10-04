@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4125 PASS, 0 FAIL, 2213 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4181 PASS, 0 FAIL, 2157 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4974,64 +4974,64 @@ Totals: 4125 PASS, 0 FAIL, 2213 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 22 |  | openprob | `0.983` | not run: not yet checked | - |
-| 22 |  | openprob | `1.045` | not run: not yet checked | - |
-| 24 |  | openprob | `0.06` | not run: not yet checked | - |
-| 24 |  | openprob | `0.47` | not run: not yet checked | - |
-| 32 |  | measured | `0.93` | not run: measured, source not named | - |
-| 32 |  | measured | `0.98` | not run: measured, source not named | - |
-| 34 |  | measured | `1.22` | not run: measured, source not named | - |
-| 37 |  | measured | `0.85` | not run: measured, source not named | - |
-| 47 |  | fitted | `0.81` | not run: measured, source not named | - |
-| 57 |  | measured | `0.968` | not run: measured, source not named | - |
-| 57 |  | measured | `1.048` | not run: measured, source not named | - |
-| 57 |  | measured | `1.002` | not run: measured, source not named | - |
-| 57 |  | measured | `1.032` | not run: measured, source not named | - |
-| 57 |  | measured | `3.2` | not run: measured, source not named | - |
-| 57 |  | measured | `1.001` | not run: measured, source not named | - |
-| 57 |  | measured | `1.028` | not run: measured, source not named | - |
-| 57 |  | measured | `1.16` | not run: measured, source not named | - |
-| 57 |  | measured | `1.87` | not run: measured, source not named | - |
-| 58 |  | measured | `+1.56` | not run: measured, source not named | - |
-| 58 |  | measured | `+0.017` | not run: measured, source not named | - |
-| 58 |  | measured | `1.60` | not run: measured, source not named | - |
-| 58 |  | measured | `1.85` | not run: measured, source not named | - |
-| 59 |  | measured | `0.57` | not run: measured, source not named | - |
-| 59 |  | measured | `0.89` | not run: measured, source not named | - |
-| 59 |  | measured | `0.36` | not run: measured, source not named | - |
-| 59 |  | measured | `0.60` | not run: measured, source not named | - |
-| 60 |  | measured | `2.66` | not run: measured, source not named | - |
-| 60 |  | measured | `2.85` | not run: measured, source not named | - |
-| 60 |  | measured | `2.8` | not run: measured, source not named | - |
-| 63 |  | measured | `0.0209` | not run: measured, source not named | - |
-| 63 |  | measured | `0.0217` | not run: measured, source not named | - |
-| 63 |  | measured | `0.0405` | not run: measured, source not named | - |
-| 63 |  | measured | `0.0511` | not run: measured, source not named | - |
-| 63 |  | measured | `1.65` | not run: measured, source not named | - |
-| 63 |  | measured | `1.97` | not run: measured, source not named | - |
-| 63 |  | measured | `1.05` | not run: measured, source not named | - |
-| 64 |  | measured | `0.0007` | not run: measured, source not named | - |
-| 74 |  | measured | `0.5` | not run: measured, source not named | - |
-| 74 |  | measured | `0.968` | not run: measured, source not named | - |
-| 74 |  | measured | `1.048` | not run: measured, source not named | - |
-| 74 |  | measured | `3.2` | not run: measured, source not named | - |
-| 74 |  | measured | `1.001` | not run: measured, source not named | - |
-| 74 |  | measured | `1.028` | not run: measured, source not named | - |
-| 74 |  | measured | `1.16` | not run: measured, source not named | - |
-| 74 |  | measured | `1.87` | not run: measured, source not named | - |
-| 81 |  | measured | `0.0209` | not run: measured, source not named | - |
-| 81 |  | measured | `0.0217` | not run: measured, source not named | - |
-| 81 |  | measured | `0.0405` | not run: measured, source not named | - |
-| 81 |  | measured | `0.0511` | not run: measured, source not named | - |
-| 81 |  | measured | `1.65` | not run: measured, source not named | - |
-| 81 |  | measured | `1.97` | not run: measured, source not named | - |
-| 82 |  | measured | `0.0007` | not run: measured, source not named | - |
-| 89 |  | measured | `0.05` | not run: measured, source not named | - |
-| 97 |  | measured | `67.9` | not run: measured, source not named | - |
-| 97 |  | measured | `0.961` | not run: measured, source not named | - |
-| 97 |  | measured | `1.007` | not run: measured, source not named | - |
-| 98 |  | measured | `0.008` | not run: measured, source not named | - |
-| 98 |  | measured | `92.9` | not run: measured, source not named | - |
+| 22 | ch:firstreadings:L22 | openprob | `0.983` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out reading of the reference arrays: lowest | PASS |
+| 22 | ch:firstreadings:L22:1.045 | openprob | `1.045` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out reading of the reference arrays: highest | PASS |
+| 24 | ch:firstreadings:L24 | openprob | `0.06` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: withheld remission bloods: lowest neutrophil fraction | PASS |
+| 24 | ch:firstreadings:L24:0.47 | openprob | `0.47` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: withheld remission bloods: highest neutrophil fraction | PASS |
+| 32 | ch:firstreadings:L32 | measured | `0.93` | file `Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_PREREG.md`: T1c predicted band: lower edge | PASS |
+| 32 | ch:firstreadings:L32:0.98 | measured | `0.98` | file `Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_PREREG.md`: T1c predicted band: upper edge | PASS |
+| 34 | ch:firstreadings:L34 | measured | `1.22` | file `Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv`: untared A of the infection study, typical value | PASS |
+| 37 | ch:firstreadings:L37 | measured | `0.85` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: healthy expectation from fraction and noise index: R^2 | PASS |
+| 47 | ch:firstreadings:L47 | fitted | `0.81` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: above Normal, severe against healthy, after the fitted expectation: p | PASS |
+| 57 | ch:firstreadings:L57 | measured | `0.968` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: vehicle arrays: lowest Met-A | PASS |
+| 57 | ch:firstreadings:L57:1.048 | measured | `1.048` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: vehicle arrays: highest Met-A | PASS |
+| 57 | ch:firstreadings:L57:1.002 | measured | `1.002` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: inactive analogue 10 uM: lowest Met-A | PASS |
+| 57 | ch:firstreadings:L57:1.032 | measured | `1.032` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: inactive analogue 10 uM: highest Met-A | PASS |
+| 57 | ch:firstreadings:L57:3.2 | measured | `3.2` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: lowest active-drug dose in the series | PASS |
+| 57 | ch:firstreadings:L57:1.001 | measured | `1.001` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: active drug 3.2-16 nM: lowest Met-A | PASS |
+| 57 | ch:firstreadings:L57:1.028 | measured | `1.028` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: active drug 3.2-16 nM: highest Met-A | PASS |
+| 57 | ch:firstreadings:L57:1.16 | measured | `1.16` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: active drug >= 80 nM: lowest Met-A | PASS |
+| 57 | ch:firstreadings:L57:1.87 | measured | `1.87` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: active drug >= 80 nM: highest Met-A | PASS |
+| 58 | ch:firstreadings:L58 | measured | `+1.56` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: methylated channel: median rise, active compounds | PASS |
+| 58 | ch:firstreadings:L58:0.017 | measured | `+0.017` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: unmethylated channel: median rise, active compounds | PASS |
+| 58 | ch:firstreadings:L58:1.60 | measured | `1.60` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: second active compound: lowest Met-A | PASS |
+| 58 | ch:firstreadings:L58:1.85 | measured | `1.85` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: second active compound: highest Met-A | PASS |
+| 59 | ch:firstreadings:L59 | measured | `0.57` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: methylated-site median beta at 80 nM: lowest | PASS |
+| 59 | ch:firstreadings:L59:0.89 | measured | `0.89` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: methylated-site median beta at 80 nM: highest | PASS |
+| 59 | ch:firstreadings:L59:0.36 | measured | `0.36` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: methylated-site beta by 400 nM: lowest (record) | PASS |
+| 59 | ch:firstreadings:L59:0.60 | measured | `0.60` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: methylated-site beta by 400 nM: highest (record) | PASS |
+| 60 | ch:firstreadings:L60 | measured | `2.66` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: methylated channel at the ceiling: lowest observed (record) | PASS |
+| 60 | ch:firstreadings:L60:2.85 | measured | `2.85` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: methylated channel at the ceiling: highest observed | PASS |
+| 60 | ch:firstreadings:L60:2.8 | measured | `2.8` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: ceiling of the methylated channel, 1/H(floor) (record) | PASS |
+| 63 | ch:firstreadings:L63 | measured | `0.0209` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: EM-seq vehicle copy error: lowest | PASS |
+| 63 | ch:firstreadings:L63:0.0217 | measured | `0.0217` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: EM-seq vehicle copy error: highest | PASS |
+| 63 | ch:firstreadings:L63:0.0405 | measured | `0.0405` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: EM-seq treated copy error: lowest | PASS |
+| 63 | ch:firstreadings:L63:0.0511 | measured | `0.0511` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: EM-seq treated copy error: highest | PASS |
+| 63 | ch:firstreadings:L63:1.65 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: IAM-A against own vehicle: lowest | PASS |
+| 63 | ch:firstreadings:L63:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: IAM-A against own vehicle: highest | PASS |
+| 63 |  | measured | `1.05` | not run: definition: 1.05 is the upper edge of the Normal band (bar Q1 of PROC-DNMT-01 Part B: IAM-A > 1.05); the readings are checked in ch:firstreadings:L63:1.65 and L63:1.97 | - |
+| 64 | ch:firstreadings:L64 | measured | `0.0007` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: largest conversion-failure difference, treated vs vehicle | PASS |
+| 74 | ch:firstreadings:L74:0.968 | measured | `0.968` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: vehicle lowest Met-A | PASS |
+| 74 | ch:firstreadings:L74:1.048 | measured | `1.048` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: vehicle highest Met-A | PASS |
+| 74 | ch:firstreadings:L74:3.2 | measured | `3.2` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: lowest active-drug dose | PASS |
+| 74 | ch:firstreadings:L74:1.001 | measured | `1.001` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: 3.2-16 nM lowest Met-A | PASS |
+| 74 | ch:firstreadings:L74:1.028 | measured | `1.028` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: 3.2-16 nM highest Met-A | PASS |
+| 74 | ch:firstreadings:L74:1.16 | measured | `1.16` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: >= 80 nM lowest Met-A | PASS |
+| 74 | ch:firstreadings:L74:1.87 | measured | `1.87` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: >= 80 nM highest Met-A | PASS |
+| 74 |  | measured | `0.5` | not run: definition: 0.5 nM is the plotting position of the vehicle arrays on the log dose axis (figure convention, not a measurement) | - |
+| 81 | ch:firstreadings:L81:0.0209 | measured | `0.0209` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: vehicle copy error lowest | PASS |
+| 81 | ch:firstreadings:L81:0.0217 | measured | `0.0217` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: vehicle copy error highest | PASS |
+| 81 | ch:firstreadings:L81:0.0405 | measured | `0.0405` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: treated copy error lowest | PASS |
+| 81 | ch:firstreadings:L81:0.0511 | measured | `0.0511` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: treated copy error highest | PASS |
+| 81 | ch:firstreadings:L81:1.65 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: IAM-A lowest | PASS |
+| 81 | ch:firstreadings:L81:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: IAM-A highest | PASS |
+| 82 | ch:firstreadings:L82 | measured | `0.0007` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: largest conversion-failure difference | PASS |
+| 89 | ch:firstreadings:L89 | measured | `0.05` | file `Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md`: remission draws agree within the S5 bar | PASS |
+| 97 | ch:firstreadings:L97 | measured | `67.9` | file `Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md`: 450K held-out controls read Normal (per cent) | PASS |
+| 97 | ch:firstreadings:L97:0.961 | measured | `0.961` | file `Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md`: 450K controls: women median reading (record) | PASS |
+| 97 | ch:firstreadings:L97:1.007 | measured | `1.007` | file `Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md`: 450K controls: men median reading (record) | PASS |
+| 98 | ch:firstreadings:L98 | measured | `0.008` | file `Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md`: purified 450K neutrophils: sex difference | PASS |
+| 98 | ch:firstreadings:L98:92.9 | measured | `92.9` | file `Biological_Physics/MethylPhys/doors/PROC_PREDX_SLIDE_01_OUTCOME.md`: same-slide tare: controls in Normal (per cent) | PASS |
 
 ## Part 6 - ch:leukocyte - `docs/book/part4/p4_22_leukocyte.tex`
 

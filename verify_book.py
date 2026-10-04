@@ -2119,6 +2119,100 @@ def _b11_planted():
 # helpers of the part4/p4_19_chain checks
 def _b11_neutref():
     return load_json('Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json')
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_PREREG.md'] = 'PROC-NEUT-TEST-01 pre-registration (bars T1-T4)'
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv'] = 'PROC-DNMT-01 Part B: EM-seq libraries, copy error eps (sequencing error removed) and conversion failure'   # 3 kB
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md'] = 'PROC-PREDX-NEUT-01 outcome: 450K development floor, EPIC-Italy held-out controls, sex split, follow-up on purified neutrophils'   # 3 kB
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_PREDX_SLIDE_01_OUTCOME.md'] = 'PROC-PREDX-SLIDE-01 outcome: same-slide tare on GSE51057'   # 2 kB
+
+# helpers of the part4/p4_21_firstreadings checks
+def _b11fr_loo():
+    return [float(r['A_loo']) for r in load_csv_rows('Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')]
+
+
+def _b11fr_withheld_remission():
+    'Neutrophil fractions of the remission bloods whose A the acceptance run withheld (earlier read line).'
+    return [float(r['f_neu']) for r in load_csv_rows('Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv')
+            if r['group'].startswith('AML') and r['A'] in ('', 'nan')]
+
+
+def _b11fr_t1c():
+    'The T1c band of the PROC-NEUT-TEST-01 pre-registration: (low, high).'
+    line = [l for l in file_text('Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_PREREG.md').splitlines() if l.startswith('- T1c')][0]
+    lo, hi = re.search(r'([0-9]\.[0-9]+)\s*[–-]\s*([0-9]\.[0-9]+)', line).groups()
+    return float(lo), float(hi)
+
+
+def _b11fr_covid495():
+    'The 495 T4 arrays read in development run 3 (A present, fraction >= 0.5) and the least-squares healthy expectation A = a + b f_neu + c N fitted on the 76 NEGATIVE arrays (as figscripts fig_p4.covid495).'
+    rows = [r for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv')
+            if r['test'] == 'T4' and r['A'] not in ('', 'nan') and float(r['f_neu']) >= 0.5]
+    X = lambda rr: np.column_stack([np.ones(len(rr)), [float(r['f_neu']) for r in rr], [float(r['N']) for r in rr]])
+    neg = [r for r in rows if r['group'] == 'NEGATIVE']
+    y = np.array([float(r['A']) for r in neg])
+    b = np.linalg.lstsq(X(neg), y, rcond=None)[0]
+    return rows, neg, X, y, b
+
+
+def _b11fr_dnmt(sel):
+    return [r for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv') if sel(r)]
+
+
+def _b11fr_A(sel, key='A'):
+    return np.array([float(r[key]) for r in _b11fr_dnmt(sel)])
+
+
+_B11_VEH = lambda r: r['cmpd'] == 'DMSO'
+_B11_ANA = lambda r: r['cmpd'] == 'GSK477'
+_B11_LO = lambda r: r['cmpd'] == 'GSK032' and 0 < float(r['dose_nM']) <= 16
+_B11_HI = lambda r: r['cmpd'] == 'GSK032' and float(r['dose_nM']) >= 80
+_B11_SECOND = lambda r: r['cmpd'] == 'GSK862'
+_B11_ACTIVE = lambda r: r['cmpd'] in ('GSK032', 'GSK862')
+
+
+def _b11fr_partA_text():
+    return file_text('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md')
+
+
+def _b11fr_ceiling_record():
+    'From the Part A record: (beta low, beta high at 400 nM), ceiling 1/H(floor), (observed low, observed high).'
+    t = _b11fr_partA_text()
+    b = re.search(r'by 400 nM to ([0-9]+\.[0-9]+)[–-]([0-9]+\.[0-9]+)', t).groups()
+    c = re.search(r'1/H\(floor\) ≈ ([0-9.]+) \(observed ([0-9.]+)[–-]([0-9.]+)\)', t).groups()
+    return float(b[0]), float(b[1]), float(c[0]), float(c[1]), float(c[2])
+
+
+def _b11fr_molecules():
+    'EM-seq libraries of PROC-DNMT-01 Part B, and IAM-A of each treated library against the mean eps of its genotype\'s vehicle libraries, with the conversion-failure difference (score_dnmt_b.py).'
+    rows = load_csv_rows('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
+    def H(x):
+        return float(-(x * np.log2(x) + (1 - x) * np.log2(1 - x)))
+    veh = [float(r['eps_corr']) for r in rows if r['kind'] == 'DMSO']
+    trt = [float(r['eps_corr']) for r in rows if r['kind'] != 'DMSO']
+    A, conv = [], []
+    for g in sorted(set(r['genotype'] for r in rows)):
+        ref = [r for r in rows if r['genotype'] == g and r['kind'] == 'DMSO']
+        e0 = np.mean([float(r['eps_corr']) for r in ref]); c0 = np.mean([float(r['conv_fail']) for r in ref])
+        for r in rows:
+            if r['genotype'] == g and r['kind'] != 'DMSO':
+                A.append(H(float(r['eps_corr'])) / H(e0)); conv.append(abs(float(r['conv_fail']) - c0))
+    return np.array(veh), np.array(trt), np.array(A), np.array(conv)
+
+
+def _b11fr_s5_bar():
+    row = [l for l in file_text('Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md').splitlines() if l.startswith('| S5')][0]
+    k, n = re.search(r'\|\s*(\d+)/(\d+)\s*\|\s*PASS', row).groups()
+    return float(re.search(r'≤\s*([0-9.]+)', row).group(1)), int(k), int(n)
+
+
+def _b11fr_predx():
+    t = file_text('Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md')
+    k, n = re.search(r'P1[^|]*\|\s*(\d+)/(\d+)', t).groups()
+    w, m = re.search(r'women read ([0-9.]+) and men ([0-9.]+)', t).groups()
+    pw, pm = re.search(r'Purified neutrophils: women ([0-9.]+), men ([0-9.]+)', t).groups()
+    return int(k), int(n), float(w), float(m), float(pw), float(pm)
+
+
+# ---------------------------------------------------------------- L22, L24: acceptance-run cautions
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -33739,6 +33833,501 @@ def check_4124():
     return locals()
 
 
+# ======== Part 6 | ch:firstreadings | docs/book/part4/p4_21_firstreadings.tex
+@check(label='ch:firstreadings:L22', chapter='ch:firstreadings', part=6, title='held-out reading of the reference arrays: lowest',
+       file='part4/p4_21_firstreadings', line=22, status='openprob', kind='file', printed='0.983', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
+def check_4125():
+    'Held-out (leave-one-out, sites re-chosen) Met-A of the six EPIC neutrophil reference arrays: lowest. Book line 22, printed 0.983. Inputs: metA_floors_v1_3_loo.csv (A_loo).'
+    value = min(_b11fr_loo())
+    return locals()
+
+@check(label='ch:firstreadings:L22:1.045', chapter='ch:firstreadings', part=6, title='held-out reading of the reference arrays: highest',
+       file='part4/p4_21_firstreadings', line=22, status='openprob', kind='file', printed='1.045', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
+def check_4126():
+    'Held-out (leave-one-out) Met-A of the six EPIC neutrophil reference arrays: highest. Book line 22, printed 1.045. Inputs: metA_floors_v1_3_loo.csv (A_loo).'
+    value = max(_b11fr_loo())
+    return locals()
+
+@check(label='ch:firstreadings:L24', chapter='ch:firstreadings', part=6, title='withheld remission bloods: lowest neutrophil fraction',
+       file='part4/p4_21_firstreadings', line=24, status='openprob', kind='file', printed='0.06', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv')
+def check_4127():
+    'Acceptance run: the five remission bloods whose A was withheld at the earlier read line; lowest neutrophil fraction. Book line 24, printed 0.06. Inputs: chain_acceptance.csv (f_neu where A is empty).'
+    f = _b11fr_withheld_remission()
+    n_withheld = len(f)
+    value = min(f)
+    return locals()
+
+@check(label='ch:firstreadings:L24:0.47', chapter='ch:firstreadings', part=6, title='withheld remission bloods: highest neutrophil fraction',
+       file='part4/p4_21_firstreadings', line=24, status='openprob', kind='file', printed='0.47', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv')
+def check_4128():
+    'Acceptance run: the five withheld remission bloods; highest neutrophil fraction. Book line 24, printed 0.47. Inputs: chain_acceptance.csv.'
+    value = max(_b11fr_withheld_remission())
+    return locals()
+
+
+# ---------------------------------------------------------------- L32-L47: the second laboratory
+
+@check(label='ch:firstreadings:L32', chapter='ch:firstreadings', part=6, title='T1c predicted band: lower edge',
+       file='part4/p4_21_firstreadings', line=32, status='measured', kind='file', printed='0.93', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_PREREG.md')
+def check_4129():
+    'The predicted band of untared A (bar T1c), read from the pre-registration: lower edge. Book line 32, printed 0.93. Inputs: PROC_NEUT_TEST_01_PREREG.md, line T1c.'
+    value = _b11fr_t1c()[0]
+    return locals()
+
+@check(label='ch:firstreadings:L32:0.98', chapter='ch:firstreadings', part=6, title='T1c predicted band: upper edge',
+       file='part4/p4_21_firstreadings', line=32, status='measured', kind='file', printed='0.98', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_PREREG.md')
+def check_4130():
+    'The predicted band of untared A (bar T1c), read from the pre-registration: upper edge. Book line 32, printed 0.98. Inputs: PROC_NEUT_TEST_01_PREREG.md, line T1c.'
+    value = _b11fr_t1c()[1]
+    return locals()
+
+@check(label='ch:firstreadings:L34', chapter='ch:firstreadings', part=6, title='untared A of the infection study, typical value',
+       file='part4/p4_21_firstreadings', line=34, status='measured', kind='file', printed='1.22', tol=0.01,
+       source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
+def check_4131():
+    'Untared A of the infection-study whole bloods in the battery (570 read; A on 495): median. Book line 34, printed "around 1.22"; tol 0.01 because the sentence says "around" (median 1.229, mean 1.226 in this file; the outcome record says "around 1.22"). Inputs: neut_test_T1T3T4_readings.csv (A, test T4).'
+    a = [float(r['A']) for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
+         if r['test'] == 'T4' and r['status'] == 'ok' and r['A'] not in ('', 'nan')]
+    value = float(np.median(a))
+    return locals()
+
+@check(label='ch:firstreadings:L37', chapter='ch:firstreadings', part=6, title='healthy expectation from fraction and noise index: R^2',
+       file='part4/p4_21_firstreadings', line=37, status='measured', kind='file', printed='0.85', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv')
+def check_4132():
+    'R^2 of the least-squares fit A = a + b f_neu + c N on the 76 healthy (NEGATIVE) infection-study arrays with fraction >= 0.5, development run 3. Book line 37, printed 0.85. Inputs: chain_v3_dev3_readings.csv (A, f_neu, N).'
+    rows, neg, X, y, b = _b11fr_covid495()
+    pred = X(neg) @ b
+    n_healthy, n_all = len(neg), len(rows)
+    value = float(1 - np.var(y - pred) / np.var(y))
+    return locals()
+
+@check(label='ch:firstreadings:L47', chapter='ch:firstreadings', part=6, title='above Normal, severe against healthy, after the fitted expectation: p',
+       file='part4/p4_21_firstreadings', line=47, status='fitted', kind='file', printed='0.81', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv')
+def check_4133():
+    'Each of the 495 arrays divided by the expectation for its own fraction and noise index (healthy arrays: leave-one-out fit); arrays above 1.05 counted per group, severe against healthy, one-sided Fisher exact test. Book line 47, printed p = 0.81. Inputs: chain_v3_dev3_readings.csv.'
+    from scipy import stats
+    rows, neg, X, y, b = _b11fr_covid495()
+    r_all = np.array([float(r['A']) for r in rows]) / (X(rows) @ b)
+    Xn = X(neg); loo = {}
+    for i in range(len(y)):
+        m = np.ones(len(y), bool); m[i] = False
+        bb = np.linalg.lstsq(Xn[m], y[m], rcond=None)[0]
+        loo[neg[i]['gsm']] = y[i] / (Xn[i] @ bb)
+    r_all = np.array([loo.get(r['gsm'], v) for r, v in zip(rows, r_all)])
+    grp = np.array([r['group'] for r in rows])
+    s, h = r_all[grp == 'SEVERE'], r_all[grp == 'NEGATIVE']
+    a, c = int((s > 1.05).sum()), int((h > 1.05).sum())
+    value = float(stats.fisher_exact([[a, len(s) - a], [c, len(h) - c]], alternative='greater')[1])
+    return locals()
+
+
+# ---------------------------------------------------------------- L57-L60: DNMT1 inhibitor on arrays
+def _b11fr_rng_check(sel, which, key='A'):
+    v = _b11fr_A(sel, key)
+    return float(v.min() if which == 'min' else v.max())
+
+@check(label='ch:firstreadings:L57', chapter='ch:firstreadings', part=6, title='vehicle arrays: lowest Met-A',
+       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='0.968', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4134():
+    'Vehicle (DMSO) arrays, each line against its own vehicle arrays: lowest Met-A (12 arrays). Book line 57, printed 0.968. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_VEH, 'min')
+    return locals()
+
+@check(label='ch:firstreadings:L57:1.048', chapter='ch:firstreadings', part=6, title='vehicle arrays: highest Met-A',
+       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='1.048', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4135():
+    'Vehicle (DMSO) arrays: highest Met-A. Book line 57, printed 1.048. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_VEH, 'max')
+    return locals()
+
+@check(label='ch:firstreadings:L57:1.002', chapter='ch:firstreadings', part=6, title='inactive analogue 10 uM: lowest Met-A',
+       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='1.002', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4136():
+    'Inactive analogue (GSK477, 10 uM, 6 arrays): lowest Met-A. Book line 57, printed 1.002. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_ANA, 'min')
+    return locals()
+
+@check(label='ch:firstreadings:L57:1.032', chapter='ch:firstreadings', part=6, title='inactive analogue 10 uM: highest Met-A',
+       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='1.032', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4137():
+    'Inactive analogue (GSK477, 10 uM): highest Met-A. Book line 57, printed 1.032. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_ANA, 'max')
+    return locals()
+
+@check(label='ch:firstreadings:L57:3.2', chapter='ch:firstreadings', part=6, title='lowest active-drug dose in the series',
+       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='3.2', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4138():
+    'Lowest non-zero dose (nM) of the active drug GSK032 among the arrays read. Book line 57, printed 3.2 nM. Inputs: dnmt_arrays_readings.csv (dose_nM).'
+    value = min(float(r['dose_nM']) for r in _b11fr_dnmt(lambda r: r['cmpd'] == 'GSK032' and float(r['dose_nM']) > 0))
+    return locals()
+
+@check(label='ch:firstreadings:L57:1.001', chapter='ch:firstreadings', part=6, title='active drug 3.2-16 nM: lowest Met-A',
+       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='1.001', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4139():
+    'Active drug GSK032 at 3.2-16 nM (6 arrays): lowest Met-A. Book line 57, printed 1.001. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_LO, 'min')
+    return locals()
+
+@check(label='ch:firstreadings:L57:1.028', chapter='ch:firstreadings', part=6, title='active drug 3.2-16 nM: highest Met-A',
+       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='1.028', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4140():
+    'Active drug GSK032 at 3.2-16 nM: highest Met-A. Book line 57, printed 1.028. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_LO, 'max')
+    return locals()
+
+@check(label='ch:firstreadings:L57:1.16', chapter='ch:firstreadings', part=6, title='active drug >= 80 nM: lowest Met-A',
+       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='1.16', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4141():
+    'Active drug GSK032 at >= 80 nM, time series included (21 arrays): lowest Met-A. Book line 57, printed 1.16. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_HI, 'min')
+    return locals()
+
+@check(label='ch:firstreadings:L57:1.87', chapter='ch:firstreadings', part=6, title='active drug >= 80 nM: highest Met-A',
+       file='part4/p4_21_firstreadings', line=57, status='measured', kind='file', printed='1.87', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4142():
+    'Active drug GSK032 at >= 80 nM: highest Met-A. Book line 57, printed 1.87. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_HI, 'max')
+    return locals()
+
+@check(label='ch:firstreadings:L58', chapter='ch:firstreadings', part=6, title='methylated channel: median rise, active compounds',
+       file='part4/p4_21_firstreadings', line=58, status='measured', kind='file', printed='+1.56', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4143():
+    'Median A_meth - 1 over the arrays of both active compounds (GSK032 at every dose, GSK862; 33 arrays). Book line 58, printed +1.56. Inputs: dnmt_arrays_readings.csv (A_meth).'
+    value = float(np.median(_b11fr_A(_B11_ACTIVE, 'A_meth') - 1))
+    return locals()
+
+@check(label='ch:firstreadings:L58:0.017', chapter='ch:firstreadings', part=6, title='unmethylated channel: median rise, active compounds',
+       file='part4/p4_21_firstreadings', line=58, status='measured', kind='file', printed='+0.017', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4144():
+    'Median A_unmeth - 1 over the same 33 active-compound arrays. Book line 58, printed +0.017. Inputs: dnmt_arrays_readings.csv (A_unmeth).'
+    value = float(np.median(_b11fr_A(_B11_ACTIVE, 'A_unmeth') - 1))
+    return locals()
+
+@check(label='ch:firstreadings:L58:1.60', chapter='ch:firstreadings', part=6, title='second active compound: lowest Met-A',
+       file='part4/p4_21_firstreadings', line=58, status='measured', kind='file', printed='1.60', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4145():
+    'Second active compound GSK862 (1 uM, days 2 and 4, 6 arrays): lowest Met-A. Book line 58, printed 1.60. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_SECOND, 'min')
+    return locals()
+
+@check(label='ch:firstreadings:L58:1.85', chapter='ch:firstreadings', part=6, title='second active compound: highest Met-A',
+       file='part4/p4_21_firstreadings', line=58, status='measured', kind='file', printed='1.85', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4146():
+    'Second active compound GSK862: highest Met-A. Book line 58, printed 1.85. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_SECOND, 'max')
+    return locals()
+
+@check(label='ch:firstreadings:L59', chapter='ch:firstreadings', part=6, title='methylated-site median beta at 80 nM: lowest',
+       file='part4/p4_21_firstreadings', line=59, status='measured', kind='file', printed='0.57', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4147():
+    'Median beta of the methylated identity sites, active drug at 80 nM (three lines): lowest. Book line 59, printed 0.57. Inputs: dnmt_arrays_readings.csv (beta_meth_median).'
+    value = float(_b11fr_A(lambda r: r['cmpd'] == 'GSK032' and float(r['dose_nM']) == 80, 'beta_meth_median').min())
+    return locals()
+
+@check(label='ch:firstreadings:L59:0.89', chapter='ch:firstreadings', part=6, title='methylated-site median beta at 80 nM: highest',
+       file='part4/p4_21_firstreadings', line=59, status='measured', kind='file', printed='0.89', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4148():
+    'Median beta of the methylated identity sites, active drug at 80 nM: highest. Book line 59, printed 0.89. Inputs: dnmt_arrays_readings.csv (beta_meth_median).'
+    value = float(_b11fr_A(lambda r: r['cmpd'] == 'GSK032' and float(r['dose_nM']) == 80, 'beta_meth_median').max())
+    return locals()
+
+@check(label='ch:firstreadings:L59:0.36', chapter='ch:firstreadings', part=6, title='methylated-site beta by 400 nM: lowest (record)',
+       file='part4/p4_21_firstreadings', line=59, status='measured', kind='file', printed='0.36', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md')
+def check_4149():
+    'Methylated-site beta "by 400 nM", lower end, read from the PROC-DNMT-01 Part A record (the per-array file does not single out the array set; see for_author). Book line 59, printed 0.36. Inputs: PROC_DNMT_01_PARTA_OUTCOME.md.'
+    value = _b11fr_ceiling_record()[0]
+    return locals()
+
+@check(label='ch:firstreadings:L59:0.60', chapter='ch:firstreadings', part=6, title='methylated-site beta by 400 nM: highest (record)',
+       file='part4/p4_21_firstreadings', line=59, status='measured', kind='file', printed='0.60', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md')
+def check_4150():
+    'Methylated-site beta "by 400 nM", upper end, read from the PROC-DNMT-01 Part A record. Book line 59, printed 0.60. Inputs: PROC_DNMT_01_PARTA_OUTCOME.md.'
+    value = _b11fr_ceiling_record()[1]
+    return locals()
+
+@check(label='ch:firstreadings:L60', chapter='ch:firstreadings', part=6, title='methylated channel at the ceiling: lowest observed (record)',
+       file='part4/p4_21_firstreadings', line=60, status='measured', kind='file', printed='2.66', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md')
+def check_4151():
+    'Methylated channel reading at the ceiling, observed range, lower end, read from the PROC-DNMT-01 Part A record. Book line 60, printed 2.66. Inputs: PROC_DNMT_01_PARTA_OUTCOME.md.'
+    value = _b11fr_ceiling_record()[3]
+    return locals()
+
+@check(label='ch:firstreadings:L60:2.85', chapter='ch:firstreadings', part=6, title='methylated channel at the ceiling: highest observed',
+       file='part4/p4_21_firstreadings', line=60, status='measured', kind='file', printed='2.85', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4152():
+    'Highest methylated-channel reading A_meth of any active-compound array (the top of the observed ceiling range). Book line 60, printed 2.85. Inputs: dnmt_arrays_readings.csv (A_meth); the Part A record gives the same range end.'
+    value = float(_b11fr_A(_B11_ACTIVE, 'A_meth').max())
+    return locals()
+
+@check(label='ch:firstreadings:L60:2.8', chapter='ch:firstreadings', part=6, title='ceiling of the methylated channel, 1/H(floor) (record)',
+       file='part4/p4_21_firstreadings', line=60, status='measured', kind='file', printed='2.8', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md')
+def check_4153():
+    'Ceiling of the methylated channel, 1/H(floor) "about 2.8", read from the PROC-DNMT-01 Part A record (the per-site floor of these lines is not committed, so it cannot be recomputed here). Book line 60, printed 2.8. Inputs: PROC_DNMT_01_PARTA_OUTCOME.md.'
+    value = _b11fr_ceiling_record()[2]
+    return locals()
+
+
+# ---------------------------------------------------------------- L63-L64: single molecules
+
+@check(label='ch:firstreadings:L63', chapter='ch:firstreadings', part=6, title='EM-seq vehicle copy error: lowest',
+       file='part4/p4_21_firstreadings', line=63, status='measured', kind='file', printed='0.0209', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
+def check_4154():
+    'Copy error eps (sequencing error removed) of the eight vehicle EM-seq libraries: lowest. Book line 63, printed 0.0209. Inputs: dnmt_b_readings.csv (eps_corr).'
+    value = float(_b11fr_molecules()[0].min())
+    return locals()
+
+@check(label='ch:firstreadings:L63:0.0217', chapter='ch:firstreadings', part=6, title='EM-seq vehicle copy error: highest',
+       file='part4/p4_21_firstreadings', line=63, status='measured', kind='file', printed='0.0217', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
+def check_4155():
+    'Copy error of the vehicle libraries: highest. Book line 63, printed 0.0217. Inputs: dnmt_b_readings.csv (eps_corr).'
+    value = float(_b11fr_molecules()[0].max())
+    return locals()
+
+@check(label='ch:firstreadings:L63:0.0405', chapter='ch:firstreadings', part=6, title='EM-seq treated copy error: lowest',
+       file='part4/p4_21_firstreadings', line=63, status='measured', kind='file', printed='0.0405', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
+def check_4156():
+    'Copy error of the eight treated libraries (100 nM, 7 days): lowest. Book line 63, printed 0.0405. Inputs: dnmt_b_readings.csv (eps_corr).'
+    value = float(_b11fr_molecules()[1].min())
+    return locals()
+
+@check(label='ch:firstreadings:L63:0.0511', chapter='ch:firstreadings', part=6, title='EM-seq treated copy error: highest',
+       file='part4/p4_21_firstreadings', line=63, status='measured', kind='file', printed='0.0511', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
+def check_4157():
+    'Copy error of the treated libraries: highest. Book line 63, printed 0.0511. Inputs: dnmt_b_readings.csv (eps_corr).'
+    value = float(_b11fr_molecules()[1].max())
+    return locals()
+
+@check(label='ch:firstreadings:L63:1.65', chapter='ch:firstreadings', part=6, title='IAM-A against own vehicle: lowest',
+       file='part4/p4_21_firstreadings', line=63, status='measured', kind='file', printed='1.65', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
+def check_4158():
+    'IAM-A = H(eps treated)/H(mean eps of the same genotype\'s vehicle libraries), binary entropy in bits, recomputed for the eight treated libraries: lowest. Book line 63, printed 1.65. Inputs: dnmt_b_readings.csv.'
+    value = float(_b11fr_molecules()[2].min())
+    return locals()
+
+@check(label='ch:firstreadings:L63:1.97', chapter='ch:firstreadings', part=6, title='IAM-A against own vehicle: highest',
+       file='part4/p4_21_firstreadings', line=63, status='measured', kind='file', printed='1.97', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
+def check_4159():
+    'IAM-A of the treated libraries against their own genotype\'s vehicle, recomputed: highest. Book line 63, printed 1.97. Inputs: dnmt_b_readings.csv.'
+    value = float(_b11fr_molecules()[2].max())
+    return locals()
+
+@check(label='ch:firstreadings:L64', chapter='ch:firstreadings', part=6, title='largest conversion-failure difference, treated vs vehicle',
+       file='part4/p4_21_firstreadings', line=64, status='measured', kind='file', printed='0.0007', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
+def check_4160():
+    'Largest |conversion failure of a treated library - mean conversion failure of its genotype\'s vehicle libraries|, recomputed. Book line 64, printed 0.0007. Inputs: dnmt_b_readings.csv (conv_fail).'
+    value = float(_b11fr_molecules()[3].max())
+    return locals()
+
+
+# ---------------------------------------------------------------- L74: caption of fig:p4_dnmt_arrays (same values as L57)
+
+@check(label='ch:firstreadings:L74:0.968', chapter='ch:firstreadings', part=6, title='caption: vehicle lowest Met-A',
+       file='part4/p4_21_firstreadings', line=74, status='measured', kind='file', printed='0.968', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4161():
+    'Figure fig:p4_dnmt_arrays caption: vehicle arrays, lowest Met-A. Book line 74, printed 0.968. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_VEH, 'min')
+    return locals()
+
+@check(label='ch:firstreadings:L74:1.048', chapter='ch:firstreadings', part=6, title='caption: vehicle highest Met-A',
+       file='part4/p4_21_firstreadings', line=74, status='measured', kind='file', printed='1.048', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4162():
+    'Figure fig:p4_dnmt_arrays caption: vehicle arrays, highest Met-A. Book line 74, printed 1.048. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_VEH, 'max')
+    return locals()
+
+@check(label='ch:firstreadings:L74:3.2', chapter='ch:firstreadings', part=6, title='caption: lowest active-drug dose',
+       file='part4/p4_21_firstreadings', line=74, status='measured', kind='file', printed='3.2', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4163():
+    'Figure fig:p4_dnmt_arrays caption: lowest non-zero active-drug dose (nM). Book line 74, printed 3.2. Inputs: dnmt_arrays_readings.csv.'
+    value = min(float(r['dose_nM']) for r in _b11fr_dnmt(lambda r: r['cmpd'] == 'GSK032' and float(r['dose_nM']) > 0))
+    return locals()
+
+@check(label='ch:firstreadings:L74:1.001', chapter='ch:firstreadings', part=6, title='caption: 3.2-16 nM lowest Met-A',
+       file='part4/p4_21_firstreadings', line=74, status='measured', kind='file', printed='1.001', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4164():
+    'Figure fig:p4_dnmt_arrays caption: active drug 3.2-16 nM, lowest Met-A. Book line 74, printed 1.001. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_LO, 'min')
+    return locals()
+
+@check(label='ch:firstreadings:L74:1.028', chapter='ch:firstreadings', part=6, title='caption: 3.2-16 nM highest Met-A',
+       file='part4/p4_21_firstreadings', line=74, status='measured', kind='file', printed='1.028', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4165():
+    'Figure fig:p4_dnmt_arrays caption: active drug 3.2-16 nM, highest Met-A. Book line 74, printed 1.028. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_LO, 'max')
+    return locals()
+
+@check(label='ch:firstreadings:L74:1.16', chapter='ch:firstreadings', part=6, title='caption: >= 80 nM lowest Met-A',
+       file='part4/p4_21_firstreadings', line=74, status='measured', kind='file', printed='1.16', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4166():
+    'Figure fig:p4_dnmt_arrays caption: active drug >= 80 nM, lowest Met-A. Book line 74, printed 1.16. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_HI, 'min')
+    return locals()
+
+@check(label='ch:firstreadings:L74:1.87', chapter='ch:firstreadings', part=6, title='caption: >= 80 nM highest Met-A',
+       file='part4/p4_21_firstreadings', line=74, status='measured', kind='file', printed='1.87', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4167():
+    'Figure fig:p4_dnmt_arrays caption: active drug >= 80 nM, highest Met-A. Book line 74, printed 1.87. Inputs: dnmt_arrays_readings.csv.'
+    value = _b11fr_rng_check(_B11_HI, 'max')
+    return locals()
+
+
+# ---------------------------------------------------------------- L81-L82: caption of fig:p4_dnmt_molecules (same values as L63-L64)
+
+@check(label='ch:firstreadings:L81:0.0209', chapter='ch:firstreadings', part=6, title='caption: vehicle copy error lowest',
+       file='part4/p4_21_firstreadings', line=81, status='measured', kind='file', printed='0.0209', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
+def check_4168():
+    'Figure fig:p4_dnmt_molecules caption: vehicle copy error, lowest. Book line 81, printed 0.0209. Inputs: dnmt_b_readings.csv.'
+    value = float(_b11fr_molecules()[0].min())
+    return locals()
+
+@check(label='ch:firstreadings:L81:0.0217', chapter='ch:firstreadings', part=6, title='caption: vehicle copy error highest',
+       file='part4/p4_21_firstreadings', line=81, status='measured', kind='file', printed='0.0217', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
+def check_4169():
+    'Figure fig:p4_dnmt_molecules caption: vehicle copy error, highest. Book line 81, printed 0.0217. Inputs: dnmt_b_readings.csv.'
+    value = float(_b11fr_molecules()[0].max())
+    return locals()
+
+@check(label='ch:firstreadings:L81:0.0405', chapter='ch:firstreadings', part=6, title='caption: treated copy error lowest',
+       file='part4/p4_21_firstreadings', line=81, status='measured', kind='file', printed='0.0405', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
+def check_4170():
+    'Figure fig:p4_dnmt_molecules caption: treated copy error, lowest. Book line 81, printed 0.0405. Inputs: dnmt_b_readings.csv.'
+    value = float(_b11fr_molecules()[1].min())
+    return locals()
+
+@check(label='ch:firstreadings:L81:0.0511', chapter='ch:firstreadings', part=6, title='caption: treated copy error highest',
+       file='part4/p4_21_firstreadings', line=81, status='measured', kind='file', printed='0.0511', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
+def check_4171():
+    'Figure fig:p4_dnmt_molecules caption: treated copy error, highest. Book line 81, printed 0.0511. Inputs: dnmt_b_readings.csv.'
+    value = float(_b11fr_molecules()[1].max())
+    return locals()
+
+@check(label='ch:firstreadings:L81:1.65', chapter='ch:firstreadings', part=6, title='caption: IAM-A lowest',
+       file='part4/p4_21_firstreadings', line=81, status='measured', kind='file', printed='1.65', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
+def check_4172():
+    'Figure fig:p4_dnmt_molecules caption: IAM-A against own vehicle, lowest, recomputed. Book line 81, printed 1.65. Inputs: dnmt_b_readings.csv.'
+    value = float(_b11fr_molecules()[2].min())
+    return locals()
+
+@check(label='ch:firstreadings:L81:1.97', chapter='ch:firstreadings', part=6, title='caption: IAM-A highest',
+       file='part4/p4_21_firstreadings', line=81, status='measured', kind='file', printed='1.97', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
+def check_4173():
+    'Figure fig:p4_dnmt_molecules caption: IAM-A against own vehicle, highest, recomputed. Book line 81, printed 1.97. Inputs: dnmt_b_readings.csv.'
+    value = float(_b11fr_molecules()[2].max())
+    return locals()
+
+@check(label='ch:firstreadings:L82', chapter='ch:firstreadings', part=6, title='caption: largest conversion-failure difference',
+       file='part4/p4_21_firstreadings', line=82, status='measured', kind='file', printed='0.0007', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
+def check_4174():
+    'Figure fig:p4_dnmt_molecules caption: largest conversion-failure difference, recomputed. Book line 82, printed 0.0007. Inputs: dnmt_b_readings.csv.'
+    value = float(_b11fr_molecules()[3].max())
+    return locals()
+
+
+# ---------------------------------------------------------------- L89, L97-L98
+
+@check(label='ch:firstreadings:L89', chapter='ch:firstreadings', part=6, title='remission draws agree within the S5 bar',
+       file='part4/p4_21_firstreadings', line=89, status='measured', kind='file', printed='0.05', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md')
+def check_4175():
+    'Agreement of the same person\'s two remission draws, bar S5 of PROC-AML-SERIAL-01, met by every pair (k = n = 10). Book line 89, printed 0.05. Inputs: PROC_AML_SERIAL_01_OUTCOME.md, row S5.'
+    bar, k, n = _b11fr_s5_bar()
+    value = bar if k == n else float('nan')
+    return locals()
+
+@check(label='ch:firstreadings:L97', chapter='ch:firstreadings', part=6, title='450K held-out controls read Normal (per cent)',
+       file='part4/p4_21_firstreadings', line=97, status='measured', kind='file', printed='67.9', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md')
+def check_4176():
+    'Per cent of held-out controls in Normal, computed from the counts of bar P1 (k/n) in the PROC-PREDX-NEUT-01 outcome. Book line 97, printed 67.9. Inputs: PROC_PREDX_NEUT_01_OUTCOME.md.'
+    k, n, w, m, pw, pm = _b11fr_predx()
+    value = 100.0 * k / n
+    return locals()
+
+@check(label='ch:firstreadings:L97:0.961', chapter='ch:firstreadings', part=6, title='450K controls: women median reading (record)',
+       file='part4/p4_21_firstreadings', line=97, status='measured', kind='file', printed='0.961', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md')
+def check_4177():
+    'Reading of the female controls, read from the PROC-PREDX-NEUT-01 outcome ("women read ... and men ..."); no per-array file is committed. Book line 97, printed 0.961. Inputs: PROC_PREDX_NEUT_01_OUTCOME.md.'
+    value = _b11fr_predx()[2]
+    return locals()
+
+@check(label='ch:firstreadings:L97:1.007', chapter='ch:firstreadings', part=6, title='450K controls: men median reading (record)',
+       file='part4/p4_21_firstreadings', line=97, status='measured', kind='file', printed='1.007', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md')
+def check_4178():
+    'Reading of the male controls, read from the PROC-PREDX-NEUT-01 outcome; no per-array file is committed. Book line 97, printed 1.007. Inputs: PROC_PREDX_NEUT_01_OUTCOME.md.'
+    value = _b11fr_predx()[3]
+    return locals()
+
+@check(label='ch:firstreadings:L98', chapter='ch:firstreadings', part=6, title='purified 450K neutrophils: sex difference',
+       file='part4/p4_21_firstreadings', line=98, status='measured', kind='file', printed='0.008', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md')
+def check_4179():
+    'Sex difference of the purified neutrophils of the 450K floor, men minus women, computed from the two readings in the PROC-PREDX-NEUT-01 follow-up. Book line 98, printed 0.008. Inputs: PROC_PREDX_NEUT_01_OUTCOME.md.'
+    k, n, w, m, pw, pm = _b11fr_predx()
+    value = pm - pw
+    return locals()
+
+@check(label='ch:firstreadings:L98:92.9', chapter='ch:firstreadings', part=6, title='same-slide tare: controls in Normal (per cent)',
+       file='part4/p4_21_firstreadings', line=98, status='measured', kind='file', printed='92.9', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_PREDX_SLIDE_01_OUTCOME.md')
+def check_4180():
+    'Per cent of the 170 controls in Normal after the same-slide tare, computed from the counts of bar S1 (k/n) of the PROC-PREDX-SLIDE-01 outcome. Book line 98, printed 92.9. Inputs: PROC_PREDX_SLIDE_01_OUTCOME.md.'
+    t = file_text('Biological_Physics/MethylPhys/doors/PROC_PREDX_SLIDE_01_OUTCOME.md')
+    k, n = re.search(r'S1 controls[^|]*\|\s*(\d+)/(\d+)', t).groups()
+    value = 100.0 * int(k) / int(n)
+    return locals()
+
+
 # ======== Part 6 | ch:salmonid | docs/book/part4/p4_22b_salmonid.tex
 @check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='0.0354', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
@@ -37802,64 +38391,8 @@ INVENTORY = [
     (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '0.01', 'input: illustrative array measurement noise 0.01 (figure reference line)'),
     (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '0.02', 'input: illustrative array measurement noise 0.02 (figure reference line)'),
     (6, 'ch:discipline', 'part4/p4_18_discipline', 58, '', 'measured', '1.05', 'definition: 1.05 is the upper edge of the Normal band (0.95-1.05), the line the planted readings are counted against; the reading itself is checked in ch:discipline:L57'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 22, '', 'openprob', '0.983', 'not yet checked'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 22, '', 'openprob', '1.045', 'not yet checked'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 24, '', 'openprob', '0.06', 'not yet checked'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 24, '', 'openprob', '0.47', 'not yet checked'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 32, '', 'measured', '0.93', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 32, '', 'measured', '0.98', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 34, '', 'measured', '1.22', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 37, '', 'measured', '0.85', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 47, '', 'fitted', '0.81', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 57, '', 'measured', '0.968', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 57, '', 'measured', '1.048', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 57, '', 'measured', '1.002', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 57, '', 'measured', '1.032', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 57, '', 'measured', '3.2', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 57, '', 'measured', '1.001', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 57, '', 'measured', '1.028', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 57, '', 'measured', '1.16', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 57, '', 'measured', '1.87', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 58, '', 'measured', '+1.56', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 58, '', 'measured', '+0.017', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 58, '', 'measured', '1.60', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 58, '', 'measured', '1.85', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 59, '', 'measured', '0.57', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 59, '', 'measured', '0.89', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 59, '', 'measured', '0.36', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 59, '', 'measured', '0.60', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 60, '', 'measured', '2.66', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 60, '', 'measured', '2.85', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 60, '', 'measured', '2.8', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 63, '', 'measured', '0.0209', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 63, '', 'measured', '0.0217', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 63, '', 'measured', '0.0405', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 63, '', 'measured', '0.0511', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 63, '', 'measured', '1.65', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 63, '', 'measured', '1.97', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 63, '', 'measured', '1.05', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 64, '', 'measured', '0.0007', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 74, '', 'measured', '0.5', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 74, '', 'measured', '0.968', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 74, '', 'measured', '1.048', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 74, '', 'measured', '3.2', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 74, '', 'measured', '1.001', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 74, '', 'measured', '1.028', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 74, '', 'measured', '1.16', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 74, '', 'measured', '1.87', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 81, '', 'measured', '0.0209', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 81, '', 'measured', '0.0217', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 81, '', 'measured', '0.0405', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 81, '', 'measured', '0.0511', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 81, '', 'measured', '1.65', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 81, '', 'measured', '1.97', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 82, '', 'measured', '0.0007', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 89, '', 'measured', '0.05', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 97, '', 'measured', '67.9', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 97, '', 'measured', '0.961', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 97, '', 'measured', '1.007', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 98, '', 'measured', '0.008', 'measured, source not named'),
-    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 98, '', 'measured', '92.9', 'measured, source not named'),
+    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 63, '', 'measured', '1.05', 'definition: 1.05 is the upper edge of the Normal band (bar Q1 of PROC-DNMT-01 Part B: IAM-A > 1.05); the readings are checked in ch:firstreadings:L63:1.65 and L63:1.97'),
+    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 74, '', 'measured', '0.5', 'definition: 0.5 nM is the plotting position of the vehicle arrays on the log dose axis (figure convention, not a measurement)'),
     (6, 'ch:leukocyte', 'part4/p4_22_leukocyte', 16, '', 'conjecture', '0.95', 'not yet checked'),
     (6, 'ch:leukocyte', 'part4/p4_22_leukocyte', 19, '', 'conjecture', '1.05', 'not yet checked'),
     (6, 'ch:leukocyte', 'part4/p4_22_leukocyte', 45, '', 'observed', '0.23', 'measured, too few printed digits to match against the named files'),

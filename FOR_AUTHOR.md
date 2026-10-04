@@ -3,7 +3,7 @@
 Items a check raised that would change a result, a prediction, a locked value, an equation of IAM or the framing of a
 claim. The book was left unchanged for each; the decision is the author's. Every FAIL of `verify_book.py` is listed here.
 
-Items: 14
+Items: 15
 
 ## 1. `docs/book/part2/p2_02_virial.tex:L86-87`
 
@@ -102,4 +102,11 @@ Items: 14
 - **Proposed:** no change to the numbers (they match doors/PROC_CEIL_01_OUTCOME.md, finding 3); consider whether the measurement is now verified
 - **Why it matters:** doors/REPORT_LINE_AUDIT_2026-09-26.md line 98 lists this line as 'UNVERIFIED | 2026-09-22 measurement, open item'; the only committed record is the outcome text, no data file or script output. The checks read the numbers from that text.
 - **Recommendation:** low priority: either commit the measurement's output or mark the sentence's source
+
+## 15. `docs/book/part4/p4_21_firstreadings.tex:L59-L60 (and Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md)`
+
+- **Now:** by 400 nM to 0.36--0.60 ... observed 2.66--2.85, against a ceiling of about 2.8
+- **Proposed:** no change to the book; state in the Part A record which arrays the two ranges cover (and how the ceiling 1/H(floor) = 2.8 was computed, or commit the per-site floor of the three lines)
+- **Why it matters:** In data/dnmt_arrays_readings.csv the active-drug arrays at >= 400 nM span methylated-site beta 0.34-0.91, not 0.36-0.60. The printed ranges match the 15 active-compound arrays (both compounds) with beta between 0.365 and 0.604 (A_meth 2.657-2.845), which leaves out NOMO-1 at 2,000 nM (beta 0.34, A_meth 2.61). The checks therefore read 0.36, 0.60, 2.66 and 2.8 from the record text, not from the per-array file; 2.85 is checked from the file.
+- **Recommendation:** Add the array selection (e.g. 'arrays with methylated-site beta 0.36-0.60') to the Part A record, so the four numbers can be recomputed from the committed file.
 
