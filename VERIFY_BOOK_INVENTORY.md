@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3809 PASS, 0 FAIL, 2529 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3822 PASS, 0 FAIL, 2516 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4447,29 +4447,29 @@ Totals: 3809 PASS, 0 FAIL, 2529 inventoried and not run. Each run item carries t
 |---:|---|---|---|---|---|
 | 13 | eq:H | derived |  | sympy: binary entropy: 1 bit at 1/2, symmetric | PASS |
 | 50 | eq:jensen | derived |  | sympy: H(mean beta) >= mean H(beta) (concavity), 200 random sets | PASS |
-| 55 |  | derived | `0.9` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 55 |  | derived | `0.1` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 57 | eq:meanH | none |  | not run: displayed equation, not yet checked | - |
-| 66 |  | calc | `0.330` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 55 |  | derived | `0.9` | not run: input: illustrative site at beta = 0.9 in the Jensen example (book's choice) | - |
+| 55 |  | derived | `0.1` | not run: input: illustrative site at beta = 0.1 in the Jensen example (book's choice) | - |
+| 57 | eq:meanH | none |  | not run: definition: mean of the per-site entropies, the Met-A statistic | - |
+| 66 | ch:surface:L66 | calc | `0.330` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: mean of the per-site entropies, all 6,000 neutrophil identity sites (bits) | PASS |
 | 67 | ch:surface:L67 | calc | `1.000` | numeric: entropy of the mean beta over both channels (beta-bar 0.502, table line 83) | PASS |
-| 68 |  | calc | `0.325` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 81 |  | calc | `000` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 81 |  | calc | `0.941` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 81 |  | calc | `0.325` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 81 |  | calc | `0.323` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 82 |  | calc | `000` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 82 |  | calc | `0.063` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 82 |  | calc | `0.340` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 82 |  | calc | `0.337` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 68 | ch:surface:L68 | calc | `0.325` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: entropy of the mean beta on the methylated channel (bits) | PASS |
+| 81 | ch:surface:L81 | calc | `3000` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: number of methylated-channel identity sites | PASS |
+| 81 | ch:surface:L81:0.941 | calc | `0.941` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: mean beta, methylated channel | PASS |
+| 81 | ch:surface:L81:0.325 | calc | `0.325` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: H(mean beta), methylated channel (bits) | PASS |
+| 81 | ch:surface:L81:0.323 | calc | `0.323` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: mean of per-site H, methylated channel (bits) | PASS |
+| 82 | ch:surface:L82 | calc | `3000` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: number of unmethylated-channel identity sites | PASS |
+| 82 | ch:surface:L82:0.063 | calc | `0.063` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: mean beta, unmethylated channel | PASS |
+| 82 | ch:surface:L82:0.340 | calc | `0.340` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: H(mean beta), unmethylated channel (bits) | PASS |
+| 82 | ch:surface:L82:0.337 | calc | `0.337` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: mean of per-site H, unmethylated channel (bits) | PASS |
 | 83 | ch:surface:L83 | calc | `1.000` | numeric: H(beta-bar = 0.502) | PASS |
-| 83 |  | calc | `000` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 83 |  | calc | `0.502` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 83 |  | calc | `0.330` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 83 | ch:surface:L83:6000 | calc | `6000` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: number of identity sites, both channels | PASS |
+| 83 | ch:surface:L83:0.502 | calc | `0.502` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: mean beta over both channels | PASS |
+| 83 | ch:surface:L83:0.330 | calc | `0.330` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: mean of per-site H over both channels (bits) | PASS |
 | 111 | eq:steady | derived |  | sympy: steady state of gain d(1-beta) and loss u beta | PASS |
 | 115 | ch:surface:L115 | calc | `0.727` | numeric: beta_ss at u = 0.03, d = 0.08 | PASS |
 | 115 | ch:surface:L115:0.845 | calc | `0.845` | numeric: H(beta_ss), bits | PASS |
-| 115 |  | calc | `0.03` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 115 |  | calc | `0.08` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 115 |  | calc | `0.03` | not run: input: illustrative loss rate u = 0.03 of the two-state model (book's choice); beta_ss and H are checked at ch:surface:L115 | - |
+| 115 |  | calc | `0.08` | not run: input: illustrative gain rate d = 0.08 of the two-state model (book's choice); beta_ss and H are checked at ch:surface:L115 | - |
 | 125 | ch:surface:L125 | calc | `2.8\times10^7` | numeric: CpG sites, one bit each | PASS |
 
 ## Part 6 - ch:ledgers - `docs/book/part4/p4_04_ledgers.tex`

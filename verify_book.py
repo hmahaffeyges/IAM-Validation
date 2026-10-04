@@ -1732,6 +1732,22 @@ _B08_PC = 'Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'
 _B08_PC_RERUN = ('methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not '
                  'committed, the record is this file')
 
+# helpers of the part4/p4_03_surface checks
+_B08_NREF = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json'
+DATA_FILES[_B08_NREF] = 'chain v3 frozen neutrophil reference: 6,000 identity sites, per-site mean beta per cell type and neutrophil mean H'   # 0.9 MB
+_B08_NREF_RERUN = ('Met-A chain v3 reference build on the six purified healthy EPIC neutrophil arrays; the frozen file is hash-checked by '
+                   'Biological_Physics/MethylPhys/chain/release_check_v3.py')
+
+def _b08_jensen(which):
+    """(n, mean beta, H(mean beta), mean of per-site H) on the neutrophil identity sites: which = 'meth' (healthy mean beta > 1/2),
+    'unmeth' or 'both'; as docs/book/figscripts/fig_p4.py fig_jensen (channel assigned by the healthy mean beta)."""
+    r = load_json(_B08_NREF)
+    b = np.array(r['profiles_mean_beta']['neutrophils'], float); hs = np.array(r['neutrophil_H_mean'], float)
+    s = {'meth': b > 0.5, 'unmeth': b <= 0.5, 'both': np.ones(len(b), bool)}[which]
+    bm = float(b[s].mean())
+    Hm = float(-(bm * np.log2(bm) + (1 - bm) * np.log2(1 - bm)))
+    return int(s.sum()), bm, Hm, float(hs[s].mean())
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -30225,6 +30241,16 @@ def check_2497():
     rng=np.random.default_rng(0); Hn=lambda x: -(x*np.log2(x)+(1-x)*np.log2(1-x)); ok=all(Hn(b.mean())>=Hn(b).mean()-1e-12 for b in rng.uniform(0.01,0.99,(200,7)))
     return locals()
 
+@check(label='ch:surface:L66', chapter='ch:surface', part=6, title='mean of the per-site entropies, all 6,000 neutrophil identity sites (bits)',
+       file='part4/p4_03_surface', line=66, status='calc', kind='file', printed='0.330', tol=0.0, source=_B08_NREF,
+       heavy=True, rerun=_B08_NREF_RERUN)
+def check_3809():
+    'Jensen comparison on the neutrophil identity sites: mean of the per-site entropies, all 6,000 neutrophil identity sites (bits). Book line 66, printed 0.330. Computed in _b08_jensen from the '\
+    'frozen neutrophil reference (per-site mean beta of the six reference arrays; per-site H averaged over them).'
+    n, bmean, H_of_mean, mean_of_H = _b08_jensen('both')
+    value = mean_of_H
+    return locals()
+
 @check(label='ch:surface:L67', chapter='ch:surface', part=6, title='entropy of the mean beta over both channels (beta-bar 0.502, table line 83)',
        file='part4/p4_03_surface', line=67, status='calc', kind='num', printed='1.000', tol=0)
 def check_2498():
@@ -30233,12 +30259,132 @@ def check_2498():
     value=Hb(0.502)
     return locals()
 
+@check(label='ch:surface:L68', chapter='ch:surface', part=6, title='entropy of the mean beta on the methylated channel (bits)',
+       file='part4/p4_03_surface', line=68, status='calc', kind='file', printed='0.325', tol=0.0, source=_B08_NREF,
+       heavy=True, rerun=_B08_NREF_RERUN)
+def check_3810():
+    'Jensen comparison on the neutrophil identity sites: entropy of the mean beta on the methylated channel (bits). Book line 68, printed 0.325. Computed in _b08_jensen from the '\
+    'frozen neutrophil reference (per-site mean beta of the six reference arrays; per-site H averaged over them).'
+    n, bmean, H_of_mean, mean_of_H = _b08_jensen('meth')
+    value = H_of_mean
+    return locals()
+
+@check(label='ch:surface:L81', chapter='ch:surface', part=6, title='number of methylated-channel identity sites',
+       file='part4/p4_03_surface', line=81, status='calc', kind='file', printed='3000', tol=0.0, source=_B08_NREF,
+       heavy=True, rerun=_B08_NREF_RERUN)
+def check_3811():
+    'Jensen comparison on the neutrophil identity sites (Table tab:p4_jensen): number of methylated-channel identity sites. Book line 81, printed 3000. Computed in _b08_jensen from the '\
+    'frozen neutrophil reference (per-site mean beta of the six reference arrays; per-site H averaged over them).'
+    n, bmean, H_of_mean, mean_of_H = _b08_jensen('meth')
+    value = n
+    return locals()
+
+@check(label='ch:surface:L81:0.941', chapter='ch:surface', part=6, title='mean beta, methylated channel',
+       file='part4/p4_03_surface', line=81, status='calc', kind='file', printed='0.941', tol=0.0, source=_B08_NREF,
+       heavy=True, rerun=_B08_NREF_RERUN)
+def check_3812():
+    'Jensen comparison on the neutrophil identity sites (Table tab:p4_jensen): mean beta, methylated channel. Book line 81, printed 0.941. Computed in _b08_jensen from the '\
+    'frozen neutrophil reference (per-site mean beta of the six reference arrays; per-site H averaged over them).'
+    n, bmean, H_of_mean, mean_of_H = _b08_jensen('meth')
+    value = bmean
+    return locals()
+
+@check(label='ch:surface:L81:0.325', chapter='ch:surface', part=6, title='H(mean beta), methylated channel (bits)',
+       file='part4/p4_03_surface', line=81, status='calc', kind='file', printed='0.325', tol=0.0, source=_B08_NREF,
+       heavy=True, rerun=_B08_NREF_RERUN)
+def check_3813():
+    'Jensen comparison on the neutrophil identity sites (Table tab:p4_jensen): H(mean beta), methylated channel (bits). Book line 81, printed 0.325. Computed in _b08_jensen from the '\
+    'frozen neutrophil reference (per-site mean beta of the six reference arrays; per-site H averaged over them).'
+    n, bmean, H_of_mean, mean_of_H = _b08_jensen('meth')
+    value = H_of_mean
+    return locals()
+
+@check(label='ch:surface:L81:0.323', chapter='ch:surface', part=6, title='mean of per-site H, methylated channel (bits)',
+       file='part4/p4_03_surface', line=81, status='calc', kind='file', printed='0.323', tol=0.0, source=_B08_NREF,
+       heavy=True, rerun=_B08_NREF_RERUN)
+def check_3814():
+    'Jensen comparison on the neutrophil identity sites (Table tab:p4_jensen): mean of per-site H, methylated channel (bits). Book line 81, printed 0.323. Computed in _b08_jensen from the '\
+    'frozen neutrophil reference (per-site mean beta of the six reference arrays; per-site H averaged over them).'
+    n, bmean, H_of_mean, mean_of_H = _b08_jensen('meth')
+    value = mean_of_H
+    return locals()
+
+@check(label='ch:surface:L82', chapter='ch:surface', part=6, title='number of unmethylated-channel identity sites',
+       file='part4/p4_03_surface', line=82, status='calc', kind='file', printed='3000', tol=0.0, source=_B08_NREF,
+       heavy=True, rerun=_B08_NREF_RERUN)
+def check_3815():
+    'Jensen comparison on the neutrophil identity sites (Table tab:p4_jensen): number of unmethylated-channel identity sites. Book line 82, printed 3000. Computed in _b08_jensen from the '\
+    'frozen neutrophil reference (per-site mean beta of the six reference arrays; per-site H averaged over them).'
+    n, bmean, H_of_mean, mean_of_H = _b08_jensen('unmeth')
+    value = n
+    return locals()
+
+@check(label='ch:surface:L82:0.063', chapter='ch:surface', part=6, title='mean beta, unmethylated channel',
+       file='part4/p4_03_surface', line=82, status='calc', kind='file', printed='0.063', tol=0.0, source=_B08_NREF,
+       heavy=True, rerun=_B08_NREF_RERUN)
+def check_3816():
+    'Jensen comparison on the neutrophil identity sites (Table tab:p4_jensen): mean beta, unmethylated channel. Book line 82, printed 0.063. Computed in _b08_jensen from the '\
+    'frozen neutrophil reference (per-site mean beta of the six reference arrays; per-site H averaged over them).'
+    n, bmean, H_of_mean, mean_of_H = _b08_jensen('unmeth')
+    value = bmean
+    return locals()
+
+@check(label='ch:surface:L82:0.340', chapter='ch:surface', part=6, title='H(mean beta), unmethylated channel (bits)',
+       file='part4/p4_03_surface', line=82, status='calc', kind='file', printed='0.340', tol=0.0, source=_B08_NREF,
+       heavy=True, rerun=_B08_NREF_RERUN)
+def check_3817():
+    'Jensen comparison on the neutrophil identity sites (Table tab:p4_jensen): H(mean beta), unmethylated channel (bits). Book line 82, printed 0.340. Computed in _b08_jensen from the '\
+    'frozen neutrophil reference (per-site mean beta of the six reference arrays; per-site H averaged over them).'
+    n, bmean, H_of_mean, mean_of_H = _b08_jensen('unmeth')
+    value = H_of_mean
+    return locals()
+
+@check(label='ch:surface:L82:0.337', chapter='ch:surface', part=6, title='mean of per-site H, unmethylated channel (bits)',
+       file='part4/p4_03_surface', line=82, status='calc', kind='file', printed='0.337', tol=0.0, source=_B08_NREF,
+       heavy=True, rerun=_B08_NREF_RERUN)
+def check_3818():
+    'Jensen comparison on the neutrophil identity sites (Table tab:p4_jensen): mean of per-site H, unmethylated channel (bits). Book line 82, printed 0.337. Computed in _b08_jensen from the '\
+    'frozen neutrophil reference (per-site mean beta of the six reference arrays; per-site H averaged over them).'
+    n, bmean, H_of_mean, mean_of_H = _b08_jensen('unmeth')
+    value = mean_of_H
+    return locals()
+
 @check(label='ch:surface:L83', chapter='ch:surface', part=6, title='H(beta-bar = 0.502)',
        file='part4/p4_03_surface', line=83, status='calc', kind='num', printed='1.000', tol=0)
 def check_2499():
     'H(beta-bar = 0.502). Book line 83, printed 1.000.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     value=Hb(0.502)
+    return locals()
+
+@check(label='ch:surface:L83:6000', chapter='ch:surface', part=6, title='number of identity sites, both channels',
+       file='part4/p4_03_surface', line=83, status='calc', kind='file', printed='6000', tol=0.0, source=_B08_NREF,
+       heavy=True, rerun=_B08_NREF_RERUN)
+def check_3819():
+    'Jensen comparison on the neutrophil identity sites (Table tab:p4_jensen): number of identity sites, both channels. Book line 83, printed 6000. Computed in _b08_jensen from the '\
+    'frozen neutrophil reference (per-site mean beta of the six reference arrays; per-site H averaged over them).'
+    n, bmean, H_of_mean, mean_of_H = _b08_jensen('both')
+    value = n
+    return locals()
+
+@check(label='ch:surface:L83:0.502', chapter='ch:surface', part=6, title='mean beta over both channels',
+       file='part4/p4_03_surface', line=83, status='calc', kind='file', printed='0.502', tol=0.0, source=_B08_NREF,
+       heavy=True, rerun=_B08_NREF_RERUN)
+def check_3820():
+    'Jensen comparison on the neutrophil identity sites (Table tab:p4_jensen): mean beta over both channels. Book line 83, printed 0.502. Computed in _b08_jensen from the '\
+    'frozen neutrophil reference (per-site mean beta of the six reference arrays; per-site H averaged over them).'
+    n, bmean, H_of_mean, mean_of_H = _b08_jensen('both')
+    value = bmean
+    return locals()
+
+@check(label='ch:surface:L83:0.330', chapter='ch:surface', part=6, title='mean of per-site H over both channels (bits)',
+       file='part4/p4_03_surface', line=83, status='calc', kind='file', printed='0.330', tol=0.0, source=_B08_NREF,
+       heavy=True, rerun=_B08_NREF_RERUN)
+def check_3821():
+    'Jensen comparison on the neutrophil identity sites (Table tab:p4_jensen): mean of per-site H over both channels (bits). Book line 83, printed 0.330. Computed in _b08_jensen from the '\
+    'frozen neutrophil reference (per-site mean beta of the six reference arrays; per-site H averaged over them).'
+    n, bmean, H_of_mean, mean_of_H = _b08_jensen('both')
+    value = mean_of_H
     return locals()
 
 @check(label='eq:steady', chapter='ch:surface', part=6, title='steady state of gain d(1-beta) and loss u beta',
@@ -34687,24 +34833,11 @@ INVENTORY = [
     (6, 'ch:landauer', 'part4/p4_02_landauer', 205, 'eq:sanchezH', 'none', '', 'definition: per-site Shannon entropy of methylation status (Sanchez2016)'),
     (6, 'ch:landauer', 'part4/p4_02_landauer', 263, '', 'calc', '9950', 'not a number: part of the processor name (AMD 9950X)'),
     (6, 'ch:landauer', 'part4/p4_02_landauer', 269, '', 'calc', '450', 'not a number: array platform name (450K)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 55, '', 'derived', '0.9', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 55, '', 'derived', '0.1', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 57, 'eq:meanH', 'none', '', 'displayed equation, not yet checked'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 66, '', 'calc', '0.330', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 68, '', 'calc', '0.325', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 81, '', 'calc', '000', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 81, '', 'calc', '0.941', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 81, '', 'calc', '0.325', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 81, '', 'calc', '0.323', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 82, '', 'calc', '000', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 82, '', 'calc', '0.063', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 82, '', 'calc', '0.340', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 82, '', 'calc', '0.337', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 83, '', 'calc', '000', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 83, '', 'calc', '0.502', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 83, '', 'calc', '0.330', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 115, '', 'calc', '0.03', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:surface', 'part4/p4_03_surface', 115, '', 'calc', '0.08', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
+    (6, 'ch:surface', 'part4/p4_03_surface', 55, '', 'derived', '0.9', "input: illustrative site at beta = 0.9 in the Jensen example (book's choice)"),
+    (6, 'ch:surface', 'part4/p4_03_surface', 55, '', 'derived', '0.1', "input: illustrative site at beta = 0.1 in the Jensen example (book's choice)"),
+    (6, 'ch:surface', 'part4/p4_03_surface', 57, 'eq:meanH', 'none', '', 'definition: mean of the per-site entropies, the Met-A statistic'),
+    (6, 'ch:surface', 'part4/p4_03_surface', 115, '', 'calc', '0.03', "input: illustrative loss rate u = 0.03 of the two-state model (book's choice); beta_ss and H are checked at ch:surface:L115"),
+    (6, 'ch:surface', 'part4/p4_03_surface', 115, '', 'calc', '0.08', "input: illustrative gain rate d = 0.08 of the two-state model (book's choice); beta_ss and H are checked at ch:surface:L115"),
     (6, 'ch:ledgers', 'part4/p4_04_ledgers', 14, 'eq:virial', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:ledgers', 'part4/p4_04_ledgers', 91, '', 'openprob', '10', 'not yet checked'),
     (6, 'ch:ledgers', 'part4/p4_04_ledgers', 114, '', 'calc', '310.15', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
