@@ -3,7 +3,7 @@
 Items a check raised that would change a result, a prediction, a locked value, an equation of IAM or the framing of a
 claim. The book was left unchanged for each; the decision is the author's. Every FAIL of `verify_book.py` is listed here.
 
-Items: 20
+Items: 23
 
 ## 1. `docs/book/part2/p2_02_virial.tex:L86-87`
 
@@ -144,4 +144,25 @@ Items: 20
 - **Proposed:** Cite the source of the 273.9 coefficient (big-bang nucleosynthesis review) at L302.
 - **Why it matters:** The coefficient sets the 5.03e-10 and 6.08e-10 values; a 0.2 % convention difference does not change their printed figures.
 - **Recommendation:** Add a citation; no number change.
+
+## 21. `docs/book/appendices/app_F_glossary.tex:L68`
+
+- **Now:** 55.78 and 71.12 with the Planck 2018 base values H_0=67.4, Omega_m=0.315
+- **Proposed:** no change needed if beta_m stays the fixed 0.15765; if beta_m is meant to follow Omega_m = 0.315 (0.1575, as line 89 says), the matter rate is 71.11
+- **Why it matters:** 71.12 needs beta_m = 0.15765 (67.4 sqrt(0.685 + 0.15765 e) = 71.123); with beta_m = 0.315/2 = 0.1575 it is 71.110, which prints 71.11. Line 89 says 0.1575 is written where Omega_m = 0.315 is used.
+- **Recommendation:** Keep 71.12 (beta_m is fixed in every chain and never sampled) or state beside it that beta_m stays 0.15765; the check app:glossary:L68:71.12 uses the fixed beta_m and passes.
+
+## 22. `docs/book/appendices/app_F_glossary.tex:438`
+
+- **Now:** per-site efficiencies of about 0.95--0.98 per division
+- **Proposed:** state the same range as line 328 and ch:landauer line 172 (0.90--0.98, Genereux2005), or cite the source of 0.95--0.98
+- **Why it matters:** the glossary gives two different ranges for the same quantity (line 328: 0.90--0.98 with a citation; line 438: about 0.95--0.98 without one), and no repository file holds either
+- **Recommendation:** author to choose the range and add the citation; both ends are in SOURCES_NEEDED
+
+## 23. `docs/book/appendices/app_F_glossary.tex:446`
+
+- **Now:** need 1-b=0.58+-0.04 against about 0.80 from simulations
+- **Proposed:** keep the number; consider naming it as the baseline of the 2013 Planck SZ analysis, as ch:lensdyn line 184 does
+- **Why it matters:** ch:lensdyn line 184 calls 1-b = 0.8 the baseline of the 2013 analysis and gives the simulation range as b of about 0.1--0.15 (1-b of about 0.85--0.90); the glossary attributes 0.80 to simulations
+- **Recommendation:** wording check only; the check app:glossary:L446:0.80 passes against b = 0.2 (Planck 2015 XXIV)
 

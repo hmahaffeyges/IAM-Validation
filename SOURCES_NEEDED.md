@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 100
+Entries: 120
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -108,3 +108,23 @@ Entries: 100
 | ch:onegauge | `docs/book/part3/p3_08_one_gauge.tex:154` | `40` | Upper end of 'about 30-40x' (\cite{Goyal2006}). fig_p3.py plots 50, the text and caption say 40; the paper value needs to be confirmed. |
 | ch:onegauge | `docs/book/part3/p3_08_one_gauge.tex:154` | `80` | Average preference 80x across flanking sequences (\cite{Adam2023}, doi 10.1093/nar/gkad465). Not in any repository file except as a typed figure input; the paper's value needs to be confirmed. |
 | ch:synthesis | `docs/book/part5/p5_08_synthesis.tex:77` | `1.8` | fig:cell_readings caption: 'near 1.8, Met-A is at its entropy ceiling'. The readings are in Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv (overall A of the active-drug arrays runs 1.16-1.87; arrays past half-loss, beta_meth_median < 0.5, average 1.73), and PROC_DNMT_01_PARTA_OUTCOME.md gives the ceiling only for the methylated channel (1/H(floor) ~ 2.8, observed 2.66-2.85). No file states the combined-reading ceiling of about 1.8 or how it is defined; the author needs to name the statistic (or the computation of the combined ceiling). |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:183` | `70` | about 70 % of CpGs methylated in a typical somatic cell; no citation at the glossary or at ch:landauer lines 150/156, and no committed file holds the share |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:260` | `865` | EPIC v1 array, about 865,000 CpGs; no citation and no committed probe manifest count (PROC_BRAIN_01_OUTCOME.md only restates "~865,000"); the Illumina manifest or Pidsley et al. 2016 would be the source |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:312` | `68` | mean T1 = 68 us of the 105-qubit processor, GoogleWillow2025 (doi 10.1038/s41586-024-08449-y); not in the repository (same entry as ch:scprimer line 135) |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:325` | `-70` | GW170817 standard-siren H0 analyses "68--70": upper end 70 (Abbott et al. 2017 gives 70.0 +12.0 -8.0, not cited here); the glossary gives no citation and no committed file holds the values (see ch:theory L891, Hotokezaka2019 68.9) |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:325` | `75` | GW170817 afterglow H0 75.5 (Palmese2024 gives 75.46 +5.34 -5.39 per ch:theory L891); no committed file holds it |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:328` | `0.90` | per-division maintenance efficiencies 0.90-0.98 at FMR1 promoter CpGs, hairpin bisulfite, Genereux2005; not in any repository file and not confirmed here (same as ch:landauer line 173) |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:328` | `-0.98` | upper end 0.98 of the same Genereux2005 range; not confirmed |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:407` | `2.7` | slowed doubling time of computations per joule, about 2.7 years (Koomey2016 = Koomey and Naffziger 2015, IEEE Spectrum); not in any repository file and not confirmed here (same as ch:cmos line 31) |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:438` | `0.95` | lower end 0.95 of per-site maintenance-methylation efficiencies per division (DNMT1 with UHRF1); no citation on the glossary line (Ch. ch:synthesis named); no repository file holds it; searched Biological_Physics/, docs/verification/, the book .tex; note that line 328 and ch:landauer line 172 give 0.90-0.98 (Genereux2005) |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:438` | `-0.98` | upper end 0.98 of the same range (printed range 0.95--0.98, scanned as -0.98); same search; Genereux2005 is the likely source but not confirmed here |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:479` | `10` | Rydberg-atom motional temperature about 10 uK; no citation on the line; not in any repository file (Ch. ch:qplatforms keeps its platform temperatures as table operating points) |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:514` | `39` | lower end 39 nm of the DNA persistence length recovered from methylome data by Sanchez and Mackenzie (cited in ch:landauer line 217 and ch:giants line 184, no number in a repository file); value not confirmed here |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:514` | `-67` | upper end 67 nm of the same range (printed 39--67, scanned as -67); not confirmed here |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:556` | `98` | 98 qubits of the trapped-ion processor, Ransford2025 (also in ch:ascoreqc Table tab:platforms); not in any repository file and not confirmed here (kept the same way in the ch:qplatforms batch) |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:556` | `7.9\times10^{-4}` | two-qubit error 7.9e-4 averaged over zones, Ransford2025 (Table tab:platforms of ch:ascoreqc); not in any repository file and not confirmed here; app:glossary:L556:12.7 uses it as an input |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:562` | `10` | measured quasiparticle density floor of about 1e-7 in the best Al devices (the 10 is the base of 10^-7); ch:xqp cites a band 1e-8 to 1e-6 (Serniak2018 and others) without a repository file |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:662` | `89` | mean T2,CPMG = 89 us of the 105-qubit aluminium processor, GoogleWillow2025 (doi 10.1038/s41586-024-08449-y); not in the repository (same entry kept for ch:walls line 59) |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:662` | `105` | 105 qubits of the same processor, GoogleWillow2025; not in the repository |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:663` | `0.3` | tantalum transmon T1 lower end 0.3 ms of published devices; no citation on the glossary line (Chs. ch:scprimer, ch:xqp, ch:walls named); not in any repository file |
+| app:glossary | `docs/book/appendices/app_F_glossary.tex:663` | `-0.5` | upper end 0.5 ms of the same range (printed 0.3--0.5, scanned as -0.5); not in any repository file |

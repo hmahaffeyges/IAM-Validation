@@ -2679,6 +2679,117 @@ def _b16_mu_mg_gap():
     zz = np.linspace(0, 3, 30001); aa = 1 / (1 + zz)
     return zz, 100 * (mu_mgcamb(aa) / mu_iam(aa) - 1)
 
+# helpers of the appendices/app_F_glossary checks
+# b17 draft: app:glossary (docs/book/appendices/app_F_glossary.tex), book lines 18-413. The glossary restates numbers of the chapters;
+# each check below recomputes the number from the chapter's own equation and IAM's constants, or reads it at its row/key in the committed
+# file the chapter itself uses.
+
+_B17_K = dict(chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+_B17_ST = 'docs/verification/scripts/verify_sector_tension_output.txt'
+_B17_CHAINS = 'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
+_B17_CHAINS_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
+                     'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+                     '(no extraction script is committed)')
+_B17_BG_RERUN = 'python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt'
+_B17_S8_RERUN = 'python3 docs/verification/scripts/verify_s8_trend.py > docs/verification/scripts/verify_s8_trend_output.txt'
+_B17_DSV_RERUN = ('python3 docs/verification/scripts/verify_dual_sector_chapters.py > docs/verification/scripts/verify_dual_sector_chapters_output.txt '
+                  '(downloads the public Pantheon+ release; writes verify_dual_sector_chapters_data.json)')
+_B17_PC = 'Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'
+_B17_CD = 'Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv'
+_B17_CHR = 'Biological_Physics/MethylPhys/doors/data/charr_readings.csv'
+_B17_RIM = 'Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv'
+_B17_SAL = 'Biological_Physics/MethylPhys/doors/data/salmon_readings.csv'
+_B17_DNA = 'Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv'
+_B17_DNB = 'Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv'
+_B17_GATE = 'Biological_Physics/MethylPhys/atlas/v2/postbuild/records/atlas_v2_gate.json'
+_B17_ATLAS_README = 'Biological_Physics/MethylPhys/atlas/v2/README.md'
+
+
+def _b17_Hb(e):
+    return -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
+def _b17_st(pattern):
+    """Groups of the first match of pattern in the committed output of verify_sector_tension.py, as floats."""
+    return tuple(float(g) for g in re.search(pattern, file_text(_B17_ST)).groups())
+def _b17_bg95():
+    """The 95 % upper bound on beta_gamma from the committed output of verify_beta_gamma.py."""
+    return float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))
+def _b17_cd(d_lo):
+    """C(d) of beta in the distance bin starting at d_lo bp, six reference neutrophil arrays: list of (d_lo, d_hi, C)."""
+    return [(int(r['d_lo']), int(r['d_hi']), float(r['C'])) for r in load_csv_rows(_B17_CD) if r['quantity'] == 'beta' and int(r['d_lo']) == d_lo]
+def _b17_pc_row():
+    """The methylated-sites (copy error) row of the PROC-CHANNEL-01 record: copy-error range low, high."""
+    ln = [l for l in file_text(_B17_PC).splitlines() if l.strip().startswith('| methylated sites (copy error)')][0]
+    return [float(x) for x in re.findall(r'\d+\.\d+', ln)]
+def _b17_icc_halves(a, b):
+    """ICC of the two halves (one-way, k = 2), the formula of score_salmon.py / score_charr.py / score_rimouski.py."""
+    n = len(a); gm = np.r_[a, b].mean()
+    msb = 2 * ((((a + b) / 2) - gm)**2).sum() / (n - 1); msw = (((a - b)**2) / 2).sum() / n
+    return (msb - msw) / (msb + msw)
+def _b17_fish_icc():
+    """ICC of the two halves for the three fish sets: Methow steelhead (all 40 specimens), brook charr (36 fish with both halves, the
+    failed download of 297 read pairs left out), Rimouski Atlantic salmon (all 64 fish)."""
+    out = {}
+    R = load_csv_rows(_B17_SAL)
+    out['methow'] = _b17_icc_halves(np.array([float(r['eps_corr_A']) for r in R]), np.array([float(r['eps_corr_B']) for r in R]))
+    R = [r for r in load_csv_rows(_B17_CHR) if int(r['pairs']) > 1000 and r['eps_corr_A'] and r['eps_corr_B']]
+    out['charr'] = _b17_icc_halves(np.array([float(r['eps_corr_A']) for r in R]), np.array([float(r['eps_corr_B']) for r in R]))
+    R = load_csv_rows(_B17_RIM)
+    out['rimouski'] = _b17_icc_halves(np.array([float(r['eps_corr_A']) for r in R]), np.array([float(r['eps_corr_B']) for r in R]))
+    return out
+def _b17_metA_hi():
+    """Met-A of the arrays treated with the active DNMT1 inhibitor (GSK032) at 80 nM or more, each against its own line vehicle arrays."""
+    return np.array([float(r['A']) for r in load_csv_rows(_B17_DNA) if r['cmpd'] == 'GSK032' and float(r['dose_nM']) >= 80])
+def _b17_iama_dnmt():
+    """IAM-A of each treated EM-seq library: H(eps treated)/H(mean eps of the same genotype vehicle libraries), binary entropy in bits."""
+    rows = load_csv_rows(_B17_DNB); A = []
+    for g in sorted(set(r['genotype'] for r in rows)):
+        e0 = np.mean([float(r['eps_corr']) for r in rows if r['genotype'] == g and r['kind'] == 'DMSO'])
+        A += [_b17_Hb(float(r['eps_corr'])) / _b17_Hb(e0) for r in rows if r['genotype'] == g and r['kind'] != 'DMSO']
+    return np.array(A)
+def _b17_hg19():
+    """Number of CpGs in the wgbstools hg19 CpG index, from step 01 of the atlas v2 build record."""
+    return int(re.search(r'hg19 CpG index \(([\d,]+) sites\)', file_text(_B17_ATLAS_README)).group(1).replace(',', ''))
+def _b17_koide():
+    me_, mmu_, mtau, stau = 0.51099895000, 105.6583755, 1776.93, 0.09   # CODATA 2018 m_e; PDG 2024 m_mu, m_tau +- 0.09 MeV
+    Q = lambda mt: (me_ + mmu_ + mt) / (math.sqrt(me_) + math.sqrt(mmu_) + math.sqrt(mt))**2
+    return me_, mmu_, mtau, stau, Q
+
+
+# ---------------------------------------------------------------- L18-L28
+DATA_FILES['docs/verification/observations/MISSING_SATELLITES_CHECK.md'] = 'missing-satellites check: Local Volume Database Milky Way dwarf catalogue, sigma_crit test'   # 5 kB
+
+# helpers of the appendices/app_F_glossary checks
+_B18_CH = 'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
+_B18_SOP = 'Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md'
+_B18_PC = 'Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'
+_B18_PC_RERUN = ('methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not '
+                 'committed, the record is this file')
+_B18_DSV = 'docs/verification/scripts/verify_dual_sector_chapters_output.txt'
+_B18_DSV_RERUN = ('python3 docs/verification/scripts/verify_dual_sector_chapters.py > docs/verification/scripts/verify_dual_sector_chapters_output.txt '
+                  '(downloads the public Pantheon+ release)')
+_B18_CL = 'docs/verification/scripts/verify_cluster_mass_satellites_output.txt'
+_B18_CL_RERUN = 'python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt'
+_B18_NOISE = 'Biological_Physics/MethylPhys/doors/data/noise_index.csv'
+_B18_T2 = 'Biological_Physics/MethylPhys/doors/data/t2_diag.csv'
+
+def _b18_chain(row, col):
+    return csv_val(_B18_CH, row, col)
+
+def _b18_cl(key):
+    m = re.search(re.escape(key) + r' = ([\d.]+) \+/- ([\d.]+)', file_text(_B18_CL))
+    return float(m.group(1)), float(m.group(2))
+
+def _b18_rho(gse):
+    'Spearman rank correlation of the noise index N with Met-A (A_own) over the arrays of one second-laboratory series that carry both.'
+    from scipy.stats import spearmanr
+    rows = [r for r in load_csv_rows(_B18_NOISE) if r['set'] == gse and r['N'] and r['A_own']]
+    return float(spearmanr([float(r['N']) for r in rows], [float(r['A_own']) for r in rows])[0]), len(rows)
+
+def _b18_sd(gse):
+    'Sample SD (ddof 1) of the untared Met-A (A_own) of the repeat arrays of one person (one series) in the T2 diagnostic.'
+    a = np.array([float(r['A_own']) for r in load_csv_rows(_B18_T2) if r['group'] == gse and r['A_own']])
+    return float(np.std(a, ddof=1)), len(a)
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -42662,6 +42773,78 @@ def check_4774():
 
 
 # ======== Part 8 | app:glossary | docs/book/appendices/app_F_glossary.tex
+@check(label='app:glossary:L18:0.067', title='6dFGS f sigma8 redshift', line=18, status='observed', kind='file', printed='0.067', tol=0.0,
+       source=_B17_ST, heavy=True, rerun=_B00_STENSION_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4775():
+    'Redshift of the 6dFGS f sigma8 point (Beutler et al. 2012), read at the 6dFGS row of the legacy f sigma8 table in the committed output of verify_sector_tension.py (section 9). Book line 18, printed 0.067.'
+    value = _b17_st(r'6dFGS\s+z ([\d.]+):')[0]
+    return locals()
+
+@check(label='app:glossary:L18:0.15', title='SDSS MGS f sigma8 redshift', line=18, status='observed', kind='file', printed='0.15', tol=0.0,
+       source=_B17_ST, heavy=True, rerun=_B00_STENSION_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4776():
+    'Redshift of the SDSS main galaxy sample f sigma8 point (Howlett et al. 2015), read at the MGS row of the legacy f sigma8 table in the committed output of verify_sector_tension.py. Book line 18, printed 0.15.'
+    value = _b17_st(r'MGS\s+z ([\d.]+):')[0]
+    return locals()
+
+@check(label='app:glossary:L24:0.0052', title='beta_gamma 95 % bound from the acoustic scale', line=24, status='observed', kind='file', printed='0.0052', tol=0.0,
+       source='docs/verification/scripts/verify_beta_gamma_output.txt', heavy=True, rerun=_B17_BG_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4777():
+    'The CMB acoustic scale bounds the photon coupling at beta_gamma < 0.0052 (95 %, Delta chi2 = 4), read from the committed output of verify_beta_gamma.py. Book line 24, printed 0.0052 (the inventory row recorded the older 0.0039; the book now prints 0.0052).'
+    value = _b17_bg95()
+    return locals()
+
+@check(label='app:glossary:L28:0.02', title='ACT + WMAP + SDSS + SN mu0 (Andrade et al. 2024)', line=28, status='observed', kind='file', printed='0.02', tol=0.0,
+       source='docs/verification/chains/LATE_TIME_GROWTH_CHECK.md', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4778():
+    'mu0 = 0.02 +- 0.19 from ACT + WMAP + SDSS + supernovae (Andrade et al. 2024, MNRAS 529, 831, doi 10.1093/mnras/stae402), read from the literature line of the late-time growth check file. Book line 28, printed 0.02.'
+    m = re.search(r'Andrade et al\. \S+ − 1 = (\d\.\d+) ± (\d\.\d+)', file_text('docs/verification/chains/LATE_TIME_GROWTH_CHECK.md'))
+    value = float(m.group(1)); err = float(m.group(2))
+    return locals()
+
+# ---------------------------------------------------------------- L46-L74
+
+@check(label='app:glossary:L46:3.03', title='Met-A at the full surface, neutrophils', line=46, status='observed', kind='file', printed='3.03', tol=0.0,
+       source='CANON/iam_canon.json', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4779():
+    'A_max on Met-A: every identity site at a coin flip, H(1/2) = 1 bit, over the healthy neutrophil floor (canon Met_A_floor_EPIC_neutrophil). Book line 46, printed 3.03.'
+    F0 = CANON['Met_A_floor_EPIC_neutrophil']['value']
+    value = _b17_Hb(0.5) / F0
+    return locals()
+
+@check(label='app:glossary:L46:4.45', title='IAM-A at the full surface, neutrophils', line=46, status='observed', kind='file', printed='4.45', tol=0.0,
+       source='CANON/iam_canon.json', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4780():
+    'A_max on IAM-A: H(1/2)/(P H(eps0)), P = canon P_neutrophil_IAM_A, eps0 = 1/(1 + e^E_hold) with the canon holding energy. Book line 46, printed 4.45.'
+    P_ = CANON['P_neutrophil_IAM_A']['value']
+    e0 = 1 / (1 + math.exp(E_hold))
+    value = _b17_Hb(0.5) / (P_ * _b17_Hb(e0))
+    return locals()
+
+@check(label='app:glossary:L48:576', title='9950X switching energy over k_B T_j ln 2, upper transistor count', line=48, status='observed', kind='num', printed='576', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4781():
+    'Chip gauge reading E_sw/(k_B T_j ln 2), E_sw = TDP/(N f), at the larger die-level transistor count. Book line 48, printed 576. Inputs (Chapter ch:cmos): TDP 170 W and base clock 4.3 GHz (maker specification), N = 20.6e9 (die-level report), T_j = 75 C = 348.15 K.'
+    TDP, f_clk, N_hi, Tj = 170.0, 4.3e9, 20.6e9, 348.15
+    value = TDP / (N_hi * f_clk) / (kB * Tj * LN2)
+    return locals()
+
+@check(label='app:glossary:L48:593', title='9950X switching energy over k_B T_j ln 2, lower transistor count', line=48, status='observed', kind='num', printed='593', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4782():
+    'Upper end of the 576-593 range: E_sw/(k_B T_j ln 2) at the smaller die-level count. Book line 48, printed 593. Inputs (Chapter ch:cmos): TDP 170 W, 4.3 GHz, N = 20.0e9, T_j = 348.15 K.'
+    TDP, f_clk, N_lo, Tj = 170.0, 4.3e9, 20.0e9, 348.15
+    value = TDP / (N_lo * f_clk) / (kB * Tj * LN2)
+    return locals()
+
+@check(label='app:glossary:L50:10', title='AML diagnosis blood: patients read', line=50, status='observed', kind='file', printed='10', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4783():
+    'Diagnosis blood stayed in Normal in 6 of 10 patients: the number of patients of bar S2 (Dx blood outside Normal, 4/10) of the PROC-AML-SERIAL-01 outcome; inside Normal = 10 - 4 = 6. Book line 50, printed 10.'
+    row = [l for l in file_text('Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md').splitlines() if l.startswith('| S2')][0]
+    k_out, n = (int(x) for x in re.search(r'\|\s*(\d+)/(\d+)\s*\|\s*(?:PASS|FAIL)', row).groups())
+    in_normal = n - k_out
+    value = n if in_normal == 6 else float('nan')
+    return locals()
+
 @check(label='app:glossary:L58', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
        file='appendices/app_F_glossary', line=58, status='observed', kind='file', printed='1.099', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2853():
@@ -42724,11 +42907,68 @@ def check_2860():
     value = Om
     return locals()
 
+@check(label='app:glossary:L68:71.12', title='matter-sector late rate, Planck 2018 base values', line=68, status='observed', kind='num', printed='71.12', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4784():
+    'H_0 sqrt(Omega_Lambda + beta_m e) with the Planck 2018 base values H_0 = 67.4, Omega_m = 0.315 (Aghanim et al. 2020 abstract, doi 10.1051/0004-6361/201833910) and the fixed coupling beta_m (canon). Book line 68, printed 71.12.'
+    H0p, Omp = 67.4, 0.315
+    value = H0p * math.sqrt(1 - Omp + beta_m * math.e)
+    return locals()
+
+@check(label='app:glossary:L70:74', title='atlas v2: cell types', line=70, status='observed', kind='file', printed='74', tol=0.0, source=_B17_GATE, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4785():
+    'Atlas v2 holds 74 cells: number of cell types in the measured-fraction table of the whole-atlas gate record. Book line 70, printed 74.'
+    value = len(load_json(_B17_GATE)['V3_measured_fraction_by_cell'])
+    return locals()
+
+@check(label='app:glossary:L70:814', title='atlas v2: CpGs fitted, thousands', line=70, status='observed', kind='file', printed='814', tol=0.0, source=_B17_GATE, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4786():
+    'About 814,000 CpGs: measured (cell, locus) pairs of the convergence gate V4 divided by the sum over the 74 cells of the fraction of loci each cell has measured, in thousands. Book line 70, printed 814 (thousand).'
+    g = load_json(_B17_GATE)
+    value = g['V4']['measured_pairs'] / sum(g['V3_measured_fraction_by_cell'].values()) / 1000
+    return locals()
+
 @check(label='app:glossary:L72', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
        file='appendices/app_F_glossary', line=72, status='observed', kind='file', printed='20.94', tol=0.0, source='CANON/GLOSSARY.md')
 def check_2861():
     'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 72, printed 20.94.'
     ok = file_has('CANON/GLOSSARY.md', '20.94')
+    return locals()
+
+@check(label='app:glossary:L72:54', title='ATP free energy of hydrolysis, kJ/mol', line=72, status='observed', kind='file', printed='54', tol=0.0, source='CANON/iam_canon.json', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4787():
+    'Cytosolic free energy of ATP hydrolysis in kJ/mol, read from the canon (dG_ATP in J/mol); its Mahaffey number dG_ATP/(R T_cell) is also formed. Book line 72, printed 54.'
+    M_check = dG_ATP / (R_gas * T_cell)
+    value = dG_ATP / 1000
+    return locals()
+
+@check(label='app:glossary:L74:61.5', title='Level 2b H0 (term in the background)', line=74, status='observed', kind='file', printed='61.5', tol=0.0,
+       source=_B17_CHAINS, heavy=True, rerun=_B17_CHAINS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4788():
+    'H0 of the Level 2b chains (record term placed in the background): mean of runs A and D of the chain extraction. Book line 74, printed 61.5.'
+    value = 0.5 * (csv_val(_B17_CHAINS, 'iam_l2b_runA', 'H0') + csv_val(_B17_CHAINS, 'iam_l2b_runD', 'H0'))
+    return locals()
+
+@check(label='app:glossary:L74:10.9', title='Level 2b H0 from Planck, in Planck errors', line=74, status='observed', kind='file', printed='10.9', tol=0.0,
+       source=_B17_CHAINS, heavy=True, rerun=_B17_CHAINS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4789():
+    'Distance of the Level 2b run A H0 from Planck 2018 67.36 +- 0.54 (doi 10.1051/0004-6361/201833910) in units of the Planck error. Book line 74, printed 10.9.'
+    value = (67.36 - csv_val(_B17_CHAINS, 'iam_l2b_runA', 'H0')) / 0.54
+    return locals()
+
+# ---------------------------------------------------------------- L88-L156
+
+@check(label='app:glossary:L88:0.0052', title='beta_gamma 95 % bound', line=88, status='observed', kind='file', printed='0.0052', tol=0.0,
+       source='docs/verification/scripts/verify_beta_gamma_output.txt', heavy=True, rerun=_B17_BG_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4790():
+    'beta_gamma < 0.0052 (95 %), read from the committed output of verify_beta_gamma.py. Book line 88, printed 0.0052 (the inventory row recorded the older 0.0039).'
+    value = _b17_bg95()
+    return locals()
+
+@check(label='app:glossary:L88:3.3', title='beta_gamma bound over beta_m, per cent', line=88, status='observed', kind='file', printed='3.3', tol=0.0,
+       source='docs/verification/scripts/verify_beta_gamma_output.txt', heavy=True, rerun=_B17_BG_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4791():
+    'Under 3.3 % of beta_m: the 95 % bound on beta_gamma (committed output) over beta_m = Omega_m/2 (canon), in per cent. Book line 88, printed 3.3 (the inventory row recorded the older 2.5).'
+    value = 100 * _b17_bg95() / beta_m
     return locals()
 
 @check(label='app:glossary:L89', chapter='app:glossary', part=8, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
@@ -42759,6 +42999,152 @@ def check_2865():
     ok = file_has('CANON/GLOSSARY.md', '0.315')
     return locals()
 
+@check(label='app:glossary:L90:0.295', title='DESI BGS effective redshift', line=90, status='observed', kind='file', printed='0.295', tol=0.0,
+       source=_B17_ST, heavy=True, rerun=_B00_STENSION_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4792():
+    'Effective redshift of the DESI DR1 Bright Galaxy Survey bin, read at the BGS row of the DESI f sigma_s8 table (section 9) of the committed output of verify_sector_tension.py. Book line 90, printed 0.295.'
+    value = _b17_st(r'BGS\s+z ([\d.]+): f sigma_s8')[0]
+    return locals()
+
+@check(label='app:glossary:L109:5.5', title='bottom-up exponent at z = 9', line=109, status='observed', kind='file', printed='5.5', tol=0.015,
+       source='docs/verification/scripts/verify_bottom_up_exponent_output.txt', heavy=True, rerun=_B00_NEFF_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4793():
+    'Bottom-up structure exponent at z = 9: middle of the Press-Schechter, Sheth-Tormen and Tinker values of n_eff in the committed output of verify_bottom_up_exponent.py. The sentence says "about 5.5": tol 1.5 %, as at ch:iams_law:L590. Book line 109, printed 5.5.'
+    t = _b00_neff_table()
+    v = [t[k]['nz'][9] for k in ('press74', 'sheth99', 'tinker08')]
+    value = 0.5 * (min(v) + max(v))
+    return locals()
+
+@check(label='app:glossary:L112:3.81', title='brook charr sperm holding energy', line=112, status='observed', kind='file', printed='3.81', tol=0.0, source=_B17_CHR, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4794():
+    'Brook charr sperm (WGBS), 39 fish with a complete run: median holding energy in k_B T. Book line 112, printed 3.81.'
+    value = float(np.median([float(r['E_kT']) for r in load_csv_rows(_B17_CHR) if float(r['pairs']) >= 1000]))
+    return locals()
+
+@check(label='app:glossary:L112:3.47', title='Atlantic salmon fin holding energy (F0)', line=112, status='observed', kind='file', printed='3.47', tol=0.0, source=_B17_RIM, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4795():
+    'Rimouski Atlantic salmon fin (WGBS), generation F0: median holding energy in k_B T. Book line 112, printed 3.47.'
+    value = float(np.median([float(r['E_kT']) for r in load_csv_rows(_B17_RIM) if r['generation'] == 'F0']))
+    return locals()
+
+@check(label='app:glossary:L124:0.97', title='C(d) of beta at 10-18 bp', line=124, status='observed', kind='file', printed='0.97', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4796():
+    'Genome-distance correlation of beta at 10-18 bp: median over the six healthy neutrophil arrays of C(d) in the first distance bin. Book line 124, printed 0.97.'
+    value = float(np.median([cc for _, _, cc in _b17_cd(10)]))
+    return locals()
+
+@check(label='app:glossary:L124:10', title='C(d): lower edge of the first distance bin', line=124, status='observed', kind='file', printed='10', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4797():
+    'The 10-18 bp bin: lower edge (bp) of the shortest distance bin of the committed C(d) table. Book line 124, printed 10.'
+    value = min(int(r['d_lo']) for r in load_csv_rows(_B17_CD) if r['quantity'] == 'beta')
+    return locals()
+
+@check(label='app:glossary:L124:18', title='C(d): upper edge of the first distance bin', line=124, status='observed', kind='file', printed='18', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4798():
+    'The 10-18 bp bin: upper edge (bp) of the bin that starts at 10 bp (logarithmic bins, quarter decades). Book line 124, printed 18.'
+    value = _b17_cd(10)[0][1]
+    return locals()
+
+@check(label='app:glossary:L124:0.32', title='C(d) of beta at 1-1.8 kb', line=124, status='observed', kind='file', printed='0.32', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4799():
+    'C(d) of beta at 1-1.8 kb: median over the six arrays in the 1,000-1,778 bp bin. Book line 124, printed 0.32.'
+    value = float(np.median([cc for _, _, cc in _b17_cd(1000)]))
+    return locals()
+
+@check(label='app:glossary:L124:1.8', title='C(d): upper edge of the 1 kb bin, kb', line=124, status='observed', kind='file', printed='1.8', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4800():
+    'The 1-1.8 kb bin: upper edge of the bin that starts at 1,000 bp, in kb. Book line 124, printed 1.8.'
+    value = _b17_cd(1000)[0][1] / 1000
+    return locals()
+
+@check(label='app:glossary:L124:0.05', title='C(d) of beta at 3-6 kb', line=124, status='observed', kind='file', printed='0.05', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4801():
+    'C(d) of beta at 3-6 kb: median over the six arrays in the 3,162-5,623 bp bin. Book line 124, printed 0.05.'
+    value = float(np.median([cc for _, _, cc in _b17_cd(3162)]))
+    return locals()
+
+@check(label='app:glossary:L133:1.456', title='Chandrasekhar mass for mu_e = 2 from the constants', line=133, status='observed', kind='num', printed='1.456', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4802():
+    'M_Ch = omega_3 sqrt(3 pi)/2 (hbar c/G)^(3/2)/(mu_e m_u)^2 for mu_e = 2, in solar masses; omega_3 = 2.01824 (Lane-Emden n = 3), m_u CODATA 2018. Book line 133, printed 1.456.'
+    m_u, omega3, mu_e = 1.66053906660e-27, 2.01824, 2
+    value = omega3 * math.sqrt(3 * math.pi) / 2 * (hbar * c / G)**1.5 / (mu_e * m_u)**2 / Msun
+    return locals()
+
+@check(label='app:glossary:L138:+0.54', title='Delta chi2 IAM minus LambdaCDM, Level 2', line=138, status='observed', kind='file', printed='+0.54', tol=0.01,
+       source=_B17_CHAINS, heavy=True, rerun=_B17_CHAINS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4803():
+    'IAM minus LambdaCDM from the lowest chi2 in each Level 2 chain (run A against run C), from the chain extraction; tol 1 % as at ch:level2:L19 (difference of two chain minima). Book line 138, printed +0.54.'
+    value = csv_val(_B17_CHAINS, 'iam_level2_runA', 'chi2_min') - csv_val(_B17_CHAINS, 'iam_level2_runC_lcdm', 'chi2_min')
+    return locals()
+
+@check(label='app:glossary:L144:2.7255', title='CMB temperature today (Fixsen 2009)', line=144, status='observed', kind='num', printed='2.7255', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4804():
+    'Present CMB temperature in K. Input: Fixsen 2009, ApJ 707, 916 (doi 10.1088/0004-637X/707/2/916): 2.72548 +- 0.00057 K. Book line 144, printed 2.7255.'
+    T0, T0_err = 2.72548, 0.00057
+    value = T0
+    return locals()
+
+@check(label='app:glossary:L149:1.2', title='coefficient of variation of P across three donors, per cent', line=149, status='observed', kind='file', printed='1.2', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4805():
+    'Standard deviation (n - 1) over mean of the three donor positions P (P_position column of the IAM-A floor comparison, Loyfer granulocytes), in per cent. Book line 149, printed 1.2.'
+    P_ = np.array([float(r['P_position']) for r in load_csv_rows('Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv')])
+    value = float(100 * P_.std(ddof=1) / P_.mean())
+    return locals()
+
+@check(label='app:glossary:L153:1.68', title='best 2D transmon T1 (Bland et al. 2025)', line=153, status='observed', kind='num', printed='1.68', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4806():
+    'Longest T1 reported for two-dimensional transmons, in ms. Input: Bland et al. 2025, Nature, Millisecond lifetimes and coherence times in 2D transmon qubits (doi 10.1038/s41586-025-09687-4): T1 up to 1.68 ms. Book line 153, printed 1.68.'
+    T1_ms = 1.68
+    value = T1_ms
+    return locals()
+
+# ---------------------------------------------------------------- L171-L198
+
+@check(label='app:glossary:L171:0.024', title='healthy copy error, lowest of 56 cell types', line=171, status='observed', kind='file', printed='0.024', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4807():
+    'Copy error of the 56 healthy cell types (Loyfer 2023), lower end, from the methylated-sites row of the PROC-CHANNEL-01 record. Book line 171, printed 0.024.'
+    value = _b17_pc_row()[0]
+    return locals()
+
+@check(label='app:glossary:L171:0.042', title='healthy copy error, highest of 56 cell types', line=171, status='observed', kind='file', printed='0.042', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4808():
+    'Copy error of the 56 healthy cell types, upper end, from the methylated-sites row of the PROC-CHANNEL-01 record. Book line 171, printed 0.042.'
+    value = _b17_pc_row()[1]
+    return locals()
+
+@check(label='app:glossary:L178:0.7', title='Omega_b/Omega_m against (3/16) sqrt(Omega_Lambda), in sigma', line=178, status='observed', kind='file', printed='0.7', tol=0.0,
+       source='docs/verification/scripts/verify_lambda_baryon_book_output.txt', heavy=True, rerun=_b02_lam_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4809():
+    'Ratio (Omega_b/Omega_m)/((3/16) sqrt(Omega_Lambda)) on the CMB-only chain, distance from 1 in its own error, from the iam_baryon_test row of the committed output of verify_lambda_baryon_book.py (as ch:lambda:L260:0.7). Book line 178, printed 0.7.'
+    r = _b02_lam_chains()['iam_baryon_test']
+    value = (r['ratio'] - 1) / r['ratio_sd']
+    return locals()
+
+@check(label='app:glossary:L183:2.8e7', title='CpGs per haploid human genome', line=183, status='observed', kind='file', printed='2.8\\times10^7', tol=0.0, source=_B17_ATLAS_README, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4810():
+    'About 2.8 x 10^7 CpGs in a haploid genome: the number of sites of the hg19 CpG index (step 01 of the atlas v2 build record). Book line 183, printed 2.8 x 10^7.'
+    value = _b17_hg19()
+    return locals()
+
+@check(label='app:glossary:L185:+0.2', title='upper prior edge of mu0', line=185, status='observed', kind='file', printed='+0.2', tol=0.0,
+       source='mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4811():
+    'The mu0 prior edge at +0.2: prior max of mu0 in the Cobaya settings of the free-mu0 Planck chain. Book line 185, printed +0.2.'
+    t = file_text('mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml')
+    blk = re.search(r'\n  mu0:\n((?:    .*\n)+)', t).group(1)
+    value = float(re.search(r'\bmax: (\S+)', blk).group(1))
+    return locals()
+
+@check(label='app:glossary:L188:2.2e-10', title='crossover mass, tau_IAM = tau_DP at 10 mK', line=188, status='calc', kind='num', printed='2.2\\times10^{-10}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4812():
+    'Mass at which tau_IAM = hbar (k_B T)^2 ln2/E_G^3 equals the Diosi-Penrose time hbar/E_G at T = 10 mK, E_G = G m^2/R for a silica sphere (density 2200 kg/m^3, Chapter ch:entanglement). Solved by root finding in ln m, in kg. Book line 188, printed 2.2 x 10^-10.'
+    rho_s, T = 2200.0, 0.010
+    EG = lambda m: G * m**2 / (3 * m / (4 * math.pi * rho_s))**(1 / 3)
+    gap = lambda lm: math.log((hbar * (kB * T)**2 * LN2 / EG(math.exp(lm))**3) / (hbar / EG(math.exp(lm))))
+    value = math.exp(brentq(gap, math.log(1e-14), math.log(1e-6)))
+    return locals()
+
 @check(label='app:glossary:L189', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
        file='appendices/app_F_glossary', line=189, status='observed', kind='file', printed='1.1104', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2866():
@@ -42766,11 +43152,71 @@ def check_2866():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.1104')
     return locals()
 
+@check(label='app:glossary:L193:84.4', title='dark-matter share of beta_m, per cent', line=193, status='observed', kind='num', printed='84.4', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4813():
+    'Share of beta_m = Omega_m/2 carried by dark matter, (Omega_m - Omega_b)/Omega_m, Planck 2018 (Aghanim et al. 2020: Omega_m 0.3153, Omega_b 0.0493), in per cent. Book line 193, printed 84.4.'
+    value = 100 * (Om - Ob) / Om
+    return locals()
+
+@check(label='app:glossary:L198:55.57', title='photon-sector de Sitter rate H_infinity', line=198, status='observed', kind='file', printed='55.57', tol=0.0,
+       source=_B17_CHAINS, heavy=True, rerun=_B17_CHAINS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4814():
+    'H_infinity = H_0 sqrt(Omega_Lambda) for the photon sector, with H_0 from the Level 2 run A chain extraction and Omega_Lambda = 1 - Omega_m (Planck 2018). Book line 198, printed 55.57.'
+    value = csv_val(_B17_CHAINS, 'iam_level2_runA', 'H0') * math.sqrt(1 - Om)
+    return locals()
+
+# ---------------------------------------------------------------- L211-L262
+
 @check(label='app:glossary:L201', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
        file='appendices/app_F_glossary', line=201, status='observed', kind='file', printed='963', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2867():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 201, printed 963.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '963')
+    return locals()
+
+@check(label='app:glossary:L211:0.776', title='DES Y3 S8', line=211, status='observed', kind='file', printed='0.776', tol=0.0,
+       source=_B17_ST, heavy=True, rerun=_B00_STENSION_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4815():
+    'DES Y3 3x2pt S8 = 0.776 +- 0.017 (Abbott et al. 2022, doi 10.1103/PhysRevD.105.023520), read at the DES Y3 row of the weak-lensing list (section 11) of the committed output of verify_sector_tension.py. Book line 211, printed 0.776.'
+    value = _b17_st(r'DES Y3 3x2pt: ([\d.]+) ->')[0]
+    return locals()
+
+@check(label='app:glossary:L223:1.9', title='DNMT1 selectivity 7-fold in k_B T', line=223, status='observed', kind='num', printed='1.9', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4816():
+    'Hopfield discrimination k_B T ln(selectivity) at the low end, 7-fold (purified human DNMT1, Pradhan1999, Chapter ch:landauer), in k_B T. Book line 223, printed 1.9.'
+    value = math.log(7)
+    return locals()
+
+@check(label='app:glossary:L223:4.4', title='DNMT1 selectivity 80-fold in k_B T', line=223, status='observed', kind='num', printed='4.4', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4817():
+    'Hopfield discrimination k_B T ln(selectivity) at the high end, 80-fold on average across flanking sequences (Adam2023, Chapter ch:landauer), in k_B T. Book line 223, printed 4.4.'
+    value = math.log(80)
+    return locals()
+
+@check(label='app:glossary:L224:1.16', title='DNMT1 inhibitor arrays: lowest Met-A at >= 80 nM', line=224, status='observed', kind='file', printed='1.16', tol=0.0, source=_B17_DNA, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4818():
+    'Met-A of the arrays treated with the active DNMT1 inhibitor at 80 nM or more, each against its line vehicle arrays: lowest. Book line 224, printed 1.16.'
+    value = float(_b17_metA_hi().min())
+    return locals()
+
+@check(label='app:glossary:L224:1.87', title='DNMT1 inhibitor arrays: highest Met-A at >= 80 nM', line=224, status='observed', kind='file', printed='1.87', tol=0.0, source=_B17_DNA, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4819():
+    'Met-A of the arrays treated with the active DNMT1 inhibitor at 80 nM or more: highest. Book line 224, printed 1.87.'
+    value = float(_b17_metA_hi().max())
+    return locals()
+
+@check(label='app:glossary:L224:1.65', title='DNMT1 inhibitor EM-seq: lowest IAM-A', line=224, status='observed', kind='file', printed='1.65', tol=0.0, source=_B17_DNB, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4820():
+    'IAM-A of the eight treated EM-seq libraries against their own genotype vehicle libraries, recomputed from the copy errors: lowest. Book line 224, printed 1.65.'
+    A = _b17_iama_dnmt()
+    n_treated = len(A)
+    value = float(A.min())
+    return locals()
+
+@check(label='app:glossary:L224:1.97', title='DNMT1 inhibitor EM-seq: highest IAM-A', line=224, status='observed', kind='file', printed='1.97', tol=0.0, source=_B17_DNB, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4821():
+    'IAM-A of the eight treated EM-seq libraries against their own genotype vehicle libraries: highest. Book line 224, printed 1.97.'
+    value = float(_b17_iama_dnmt().max())
     return locals()
 
 @check(label='app:glossary:L230', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
@@ -42794,12 +43240,65 @@ def check_2870():
     ok = file_has('CANON/GLOSSARY.md', '0.163')
     return locals()
 
+@check(label='app:glossary:L230:4.9', title='holding energy in Landauer units', line=230, status='observed', kind='num', printed='4.9', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4822():
+    'E_hold = 3.41 k_B T (canon, measured) in Landauer units, E_hold/ln 2. Book line 230, printed 4.9.'
+    value = E_hold / LN2
+    return locals()
+
+@check(label='app:glossary:L238:+1.8', title='E_G above GR at z = 0.3, per cent', line=238, status='observed', kind='num', printed='+1.8', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4823():
+    'E_G = Omega_m0 Sigma/f with Sigma = 1: ratio to GR is f_LCDM/f_IAM at z = 0.3 (linear growth, same early amplitude), minus 1, in per cent. Book line 238, printed +1.8.'
+    value = 100 * (f_of('lcdm', 0.3) / f_of('iam', 0.3) - 1)
+    return locals()
+
+@check(label='app:glossary:L238:+3.6', title='E_G above GR today, per cent', line=238, status='observed', kind='num', printed='+3.6', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4824():
+    'E_G ratio to GR today, f_LCDM/f_IAM at z = 0 minus 1, in per cent. Book line 238, printed +3.6.'
+    value = 100 * (f_of('lcdm', 0.0) / f_of('iam', 0.0) - 1)
+    return locals()
+
+@check(label='app:glossary:L243:0.3', title='m_e uncertainty set by H0, per cent', line=243, status='observed', kind='num', printed='0.3', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4825():
+    'The fixed-point m_e scales as H_0^(2/5) (Chapter ch:electronmass), so the Planck 2018 H_0 error (67.4 +- 0.54) gives 0.4 sigma(H_0)/H_0, in per cent. Book line 243, printed 0.3.'
+    value = 100 * 0.4 * 0.54 / 67.4
+    return locals()
+
+@check(label='app:glossary:L243:0.576', title='electron fixed point without the (2 pi)^(3/10) prefactor, in m_e', line=243, status='observed', kind='num', printed='0.576', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4826():
+    'Fixed point m c^2 = record cost at the horizon temperature without the prefactor: (2 pi)^(-2/5) [hbar H_0 ln2 m_P^(3/2)/(alpha^(5/2) c^2)]^(2/5), over m_e, H_0 = 67.4 (as ch:electronmass:L115). Book line 243, printed 0.576.'
+    Bk = (hbar * Hsi(67.4) * LN2 * mP**1.5 / (alpha_em**2.5 * c**2))**0.4
+    value = (2 * math.pi)**-0.4 * Bk / m_e
+    return locals()
+
+@check(label='app:glossary:L245:159.5', title='electroweak crossover temperature (lattice)', line=245, status='observed', kind='num', printed='159.5', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4827():
+    'Electroweak crossover temperature in GeV. Input: D Onofrio and Rummukainen 2016, Phys. Rev. D 93, 025003 (doi 10.1103/physrevd.93.025003): T_c = 159.5 +- 1.5 GeV. Book line 245, printed 159.5.'
+    Tc, Tc_err = 159.5, 1.5
+    value = Tc
+    return locals()
+
+@check(label='app:glossary:L245:9.2e-12', title='time of the electroweak crossover, s', line=245, status='observed', kind='num', printed='9.2\\times10^{-12}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4828():
+    'Radiation-era time t = 0.301 g_*^(-1/2) m_P/T^2 at T_c = 159.5 GeV (D Onofrio 2016), g_* = 106.75 (standard model), m_P = 1.220890e19 GeV and hbar = 6.582119569e-25 GeV s (CODATA 2018). Book line 245, printed 9.2 x 10^-12.'
+    mP_GeV, hbar_GeVs, Tc = 1.220890e19, 6.582119569e-25, 159.5
+    gstar = (2 + 3 * 3 + 8 * 2 + 1) + 7 / 8 * (6 * 3 * 2 * 2 + 3 * 2 * 2 + 3 * 2)
+    value = 0.301 * gstar**-0.5 * mP_GeV / Tc**2 * hbar_GeVs
+    return locals()
+
 @check(label='app:glossary:L246', chapter='app:glossary', part=8, title='same value as p2_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV)',
        file='appendices/app_F_glossary', line=246, status='observed', kind='num', printed='246.22', tol=0)
 def check_2871():
     'same value as p2_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV). Book line 246, printed 246.22.'
     G_F=1.1663788e-5  # GeV^-2, PDG 2024
     value=(math.sqrt(2)*G_F)**-0.5
+    return locals()
+
+@check(label='app:glossary:L246:159.5', title='electroweak crossover temperature (lattice), restated', line=246, status='observed', kind='num', printed='159.5', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4829():
+    'Crossover centred at T_c = 159.5 GeV. Input: D Onofrio and Rummukainen 2016 (doi 10.1103/physrevd.93.025003): 159.5 +- 1.5 GeV. Book line 246, printed 159.5.'
+    Tc, Tc_err = 159.5, 1.5
+    value = Tc
     return locals()
 
 @check(label='app:glossary:L251', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
@@ -42814,6 +43313,15 @@ def check_2872():
 def check_2873():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 251, printed 738.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '738')
+    return locals()
+
+@check(label='app:glossary:L251:1056', title='E-MTAB-7309 arrays calibrated', line=251, status='observed', kind='file', printed='1{,}056', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PLAN.md', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4830():
+    'Number of E-MTAB-7309 arrays calibrated by Stage 1, from the Stage 1 record in PLAN.md (2026-09-27: 1,056 of 1,072 arrays calibrated; 738 of 1,056 below the 0.93 intake line). Book line 251, printed 1,056.'
+    m = re.search(r'([\d,]+) of ([\d,]+) arrays calibrated.*?(\d+) of ([\d,]+) below the 0\.93 intake line', file_text('Biological_Physics/MethylPhys/doors/PLAN.md'))
+    n_below = int(m.group(3))
+    value = int(m.group(1).replace(',', ''))
     return locals()
 
 @check(label='app:glossary:L254', chapter='app:glossary', part=8, title='same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass)',
@@ -42837,11 +43345,109 @@ def check_2876():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '3.41')
     return locals()
 
+@check(label='app:glossary:L262:0.032', title='copy-error floor eps0', line=262, status='observed', kind='num', printed='0.032', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4831():
+    'eps0 = 1/(1 + e^(phi M)) with phi M = E_hold = 3.41 k_B T; phi and M from the canon. Book line 262, printed 0.032.'
+    value = 1 / (1 + math.exp(phi_hold * M_cell))
+    return locals()
+
+# ---------------------------------------------------------------- L274-L320
+
 @check(label='app:glossary:L263', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
        file='appendices/app_F_glossary', line=263, status='observed', kind='file', printed='-1.062', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2877():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 263, printed -1.062.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '-1.062')
+    return locals()
+
+@check(label='app:glossary:L274:5120', title='5120 in the evaporation time', line=274, status='observed', kind='num', printed='5120', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4832():
+    'Coefficient of tau = 5120 pi G^2 M0^3/(hbar c^4): black-body power P = sigma_SB A T_BH^4 with A = 16 pi G^2 M^2/c^4, T_BH = hbar c^3/(8 pi G k_B M), sigma_SB = pi^2 k_B^4/(60 hbar^3 c^2); integrate c^2 dM/dt = -P from M0 to 0 and read the coefficient of pi G^2 M0^3/(hbar c^4). Book line 274, printed 5120.'
+    hb, c_, G_, kB_, M = sp.symbols('hbar c G k_B M', positive=True)
+    M0, t = sp.symbols('M0 t', positive=True)
+    sig = sp.pi**2 * kB_**4 / (60 * hb**3 * c_**2)
+    P = sig * 16 * sp.pi * G_**2 * M**2 / c_**4 * (hb * c_**3 / (8 * sp.pi * G_ * kB_ * M))**4
+    tau = sp.integrate(c_**2 / P, (M, 0, M0))
+    value = float(sp.simplify(tau / (sp.pi * G_**2 * M0**3 / (hb * c_**4))))
+    return locals()
+
+@check(label='app:glossary:L274:2.1e67', title='evaporation time of one solar mass, years', line=274, status='observed', kind='num', printed='2.1\\times10^{67}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4833():
+    'tau = 5120 pi G^2 M^3/(hbar c^4) for M = 1 solar mass (IAU nominal), in Julian years. Book line 274, printed 2.1 x 10^67.'
+    value = 5120 * math.pi * G**2 * Msun**3 / (hbar * c**4) / yr
+    return locals()
+
+@check(label='app:glossary:L287:45', title='Koide angle to the democratic direction', line=287, status='observed', kind='num', printed='45', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4834():
+    'cos^2 theta = 1/(3Q) between s = (sqrt m_e, sqrt m_mu, sqrt m_tau) and (1,1,1), at Q = 2/3, in degrees; the identity cos^2 theta = (sum sqrt m)^2/(3 sum m) is evaluated on a vector with Q = 2/3 built from the Koide parametrisation (x, delta = 0.2222). Book line 287, printed 45.'
+    x, d = 1.0, 0.2222
+    s = np.array([x * (1 + math.sqrt(2) * math.cos(d + 2 * math.pi * k / 3)) for k in range(3)])
+    Q = (s**2).sum() / s.sum()**2
+    cos2 = s.sum()**2 / (3 * (s**2).sum())
+    value = math.degrees(math.acos(math.sqrt(cos2))) if abs(cos2 - 1 / (3 * Q)) < 1e-12 else float('nan')
+    return locals()
+
+@check(label='app:glossary:L295:4.25', title='f sigma8 deficit today, per cent', line=295, status='observed', kind='num', printed='4.25', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4835():
+    'f sigma8 of IAM below LambdaCDM at z = 0, same early amplitude (growth equation with mu(a) and beta_m canon). Book line 295, printed 4.25.'
+    value = fs8_deficit(0.0)
+    return locals()
+
+@check(label='app:glossary:L295:1.35', title='f sigma8 deficit at z = 0.5, per cent', line=295, status='observed', kind='num', printed='1.35', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4836():
+    'f sigma8 deficit of IAM at z = 0.5. Book line 295, printed 1.35.'
+    value = fs8_deficit(0.5)
+    return locals()
+
+@check(label='app:glossary:L295:0.04', title='f sigma8 deficit at z = 2, per cent', line=295, status='observed', kind='num', printed='0.04', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4837():
+    'f sigma8 deficit of IAM at z = 2. Book line 295, printed 0.04.'
+    value = fs8_deficit(2.0)
+    return locals()
+
+@check(label='app:glossary:L311:2.65e-30', title='Gibbons-Hawking temperature today', line=311, status='observed', kind='num', printed='2.65\\times10^{-30}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4838():
+    'T_GH = hbar H/(2 pi k_B) at H_0 = 67.16 km/s/Mpc (photon sector, locked), in K. Book line 311, printed 2.65 x 10^-30.'
+    value = hbar * Hsi(H0_photon) / (2 * math.pi * kB)
+    return locals()
+
+@check(label='app:glossary:L312:105', title='qubits of the Willow processor', line=312, status='observed', kind='num', printed='105', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4839():
+    'Number of qubits of the processor of the below-threshold surface-code experiment. Input: Google Quantum AI and Collaborators 2025, Nature 638, 920 (doi 10.1038/s41586-024-08449-y): a 105-qubit processor. Book line 312, printed 105.'
+    n_qubits = 105
+    value = n_qubits
+    return locals()
+
+@check(label='app:glossary:L316:1.315', title='gravitational slip today', line=316, status='observed', kind='num', printed='1.315', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4840():
+    'Phi/Psi = (2 - mu)/mu with mu(a = 1) = H^2/(H^2 + beta_m E(1) H0^2) = 1/(1 + beta_m). Book line 316, printed 1.315.'
+    mu1 = float(mu_iam(1.0))
+    value = (2 - mu1) / mu1
+    return locals()
+
+@check(label='app:glossary:L318:0.78', title='growth factor deficit today, per cent', line=318, status='observed', kind='num', printed='0.78', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4841():
+    'D of IAM below LambdaCDM at z = 0, same early amplitude. Book line 318, printed 0.78.'
+    value = amp_deficit(0.0)
+    return locals()
+
+@check(label='app:glossary:L319:0.55', title='growth index of general relativity (LambdaCDM)', line=319, status='observed', kind='num', printed='0.55', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4842():
+    'gamma = ln f/ln Omega_m(a = 1) today for LambdaCDM (mu = 1), linear growth, Omega_m 0.3153. Book line 319, printed 0.55.'
+    value = math.log(f_of('lcdm', 0.0)) / math.log(Om)
+    return locals()
+
+@check(label='app:glossary:L319:0.585', title='growth index under IAM today', line=319, status='observed', kind='num', printed='0.585', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4843():
+    'gamma = ln f/ln Omega_m(a = 1) today with the informational term (exact mu, same early amplitude). Book line 319, printed 0.585.'
+    value = math.log(f_of('iam', 0.0)) / math.log(Om)
+    return locals()
+
+@check(label='app:glossary:L319:0.633', title='measured growth index (Nguyen et al. 2023)', line=319, status='observed', kind='file', printed='0.633', tol=0.0,
+       source='docs/verification/scripts/verify_s8_trend_output.txt', heavy=True, rerun=_B17_S8_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4844():
+    'Growth index measured by one compilation, gamma = 0.633 +0.025 -0.024 (Nguyen, Huterer and Wen 2023), read at the z 0 row of section 3 of the committed output of verify_s8_trend.py. Book line 319, printed 0.633.'
+    value = float(re.search(r'z 0: LCDM [\d.]+\s+IAM [\d.]+\s+\(Nguyen et al\. 2023: ([\d.]+)', file_text('docs/verification/scripts/verify_s8_trend_output.txt')).group(1))
     return locals()
 
 @check(label='app:glossary:L320', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
@@ -42851,11 +43457,99 @@ def check_2878():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '100')
     return locals()
 
+@check(label='app:glossary:L320:106.75', title='g_*s of the standard model', line=320, status='observed', kind='num', printed='106.75', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4845():
+    'Relativistic degrees of freedom of the full standard model: bosons (photon 2, W and Z 9, gluons 16, Higgs 1) + 7/8 x fermions (quarks 6 x 3 x 2 x 2, charged leptons 3 x 2 x 2, neutrinos 3 x 2). Book line 320, printed 106.75.'
+    bosons = 2 + 3 * 3 + 8 * 2 + 1
+    fermions = 6 * 3 * 2 * 2 + 3 * 2 * 2 + 3 * 2
+    value = bosons + 7 / 8 * fermions
+    return locals()
+
+@check(label='app:glossary:L320:7.8e-16', title='scale factor at 100 GeV', line=320, status='observed', kind='num', printed='7.8\\times10^{-16}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4846():
+    'Entropy conservation g_*s a^3 T^3 = const: a = (g_*s0/g_*s)^(1/3) k_B T_CMB/T at T = 100 GeV, g_*s0 = 3.938 (today), g_*s = 106.75 (counted as at L320), T_CMB = 2.7255 K. Book line 320, printed 7.8 x 10^-16.'
+    gs = (2 + 3 * 3 + 8 * 2 + 1) + 7 / 8 * (6 * 3 * 2 * 2 + 3 * 2 * 2 + 3 * 2)
+    gs0 = 3.938
+    kT0_GeV = kB * T_CMB / e_ch / 1e9
+    value = (gs0 / gs)**(1 / 3) * kT0_GeV / 100.0
+    return locals()
+
+# ---------------------------------------------------------------- L323-L344
+def _b17_t3_rows():
+    return [r for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv') if r['test'] == 'T3']
+
+@check(label='app:glossary:L323:64', title='GSE250556 arrays', line=323, status='observed', kind='file', printed='64', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4847():
+    'Number of GSE250556 whole-blood technical replicate arrays (test T3) in chain v3 development run 3. Book line 323, printed 64.'
+    rows = _b17_t3_rows()
+    value = len({r['gsm'] for r in rows if r['gse'] == 'GSE250556'})
+    return locals()
+
+@check(label='app:glossary:L323:0.30', title='GSE250556: lowest neutrophil fraction', line=323, status='observed', kind='file', printed='0.30', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4848():
+    'Lowest neutrophil fraction (Stage A) of the GSE250556 replicates (test T3), column f_neu. Book line 323, printed 0.30.'
+    value = min(float(r['f_neu']) for r in _b17_t3_rows() if r['f_neu'] not in ('', 'nan'))
+    return locals()
+
+@check(label='app:glossary:L323:0.56', title='GSE250556: highest neutrophil fraction', line=323, status='observed', kind='file', printed='0.56', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4849():
+    'Highest neutrophil fraction (Stage A) of the GSE250556 replicates (test T3). Book line 323, printed 0.56.'
+    value = max(float(r['f_neu']) for r in _b17_t3_rows() if r['f_neu'] not in ('', 'nan'))
+    return locals()
+
 @check(label='app:glossary:L324', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
        file='appendices/app_F_glossary', line=324, status='measured', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2879():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 324, printed 100.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '100')
+    return locals()
+
+@check(label='app:glossary:L324:1.65', title='GSE329728: lowest IAM-A of the treated libraries', line=324, status='measured', kind='file', printed='1.65', tol=0.0, source=_B17_DNB, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4850():
+    'IAM-A of the 8 treated EM-seq libraries (GSE329728) against the same genotype untreated libraries, recomputed: lowest. Book line 324, printed 1.65.'
+    value = float(_b17_iama_dnmt().min())
+    return locals()
+
+@check(label='app:glossary:L324:1.97', title='GSE329728: highest IAM-A of the treated libraries', line=324, status='measured', kind='file', printed='1.97', tol=0.0, source=_B17_DNB, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4851():
+    'IAM-A of the 8 treated EM-seq libraries against the same genotype untreated libraries: highest. Book line 324, printed 1.97.'
+    value = float(_b17_iama_dnmt().max())
+    return locals()
+
+@check(label='app:glossary:L327:67.16', title='photon-sector H0 (Level 2 chain)', line=327, status='observed', kind='file', printed='67.16', tol=0.0,
+       source=_B17_CHAINS, heavy=True, rerun=_B17_CHAINS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4852():
+    'Photon-sector H0 of the Level 2 run A chain, from the chain extraction. Book line 327, printed 67.16.'
+    value = csv_val(_B17_CHAINS, 'iam_level2_runA', 'H0')
+    return locals()
+
+@check(label='app:glossary:L327:72.26', title='matter-sector H0 = 67.16 sqrt(1 + beta_m)', line=327, status='observed', kind='file', printed='72.26', tol=0.0,
+       source=_B17_CHAINS, heavy=True, rerun=_B17_CHAINS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4853():
+    'Matter-sector rate H0 sqrt(1 + beta_m), H0 of the Level 2 run A chain and beta_m = Omega_m/2 (canon). Book line 327, printed 72.26.'
+    value = csv_val(_B17_CHAINS, 'iam_level2_runA', 'H0') * math.sqrt(1 + beta_m)
+    return locals()
+
+@check(label='app:glossary:L327:67.36', title='Planck 2018 H0', line=327, status='observed', kind='num', printed='67.36', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4854():
+    'Planck 2018 VI (TT,TE,EE+lowE+lensing) Table 2, H0 = 67.36 +- 0.54 (doi 10.1051/0004-6361/201833910); h_pl is that value / 100. Book line 327, printed 67.36.'
+    value = 100 * h_pl
+    return locals()
+
+@check(label='app:glossary:L327:73.04', title='SH0ES H0', line=327, status='observed', kind='num', printed='73.04', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4855():
+    'SH0ES Cepheid-supernova H0 = 73.04 +- 1.04 km/s/Mpc. Input: Riess et al. 2022, ApJL 934, L7 (doi 10.3847/2041-8213/ac5c5b). Book line 327, printed 73.04.'
+    H0_sh, H0_sh_err = 73.04, 1.04
+    value = H0_sh
+    return locals()
+
+@check(label='app:glossary:L334:6.17e-8', title='Hawking temperature of one solar mass', line=334, status='observed', kind='num', printed='6.17\\times10^{-8}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4856():
+    'T_BH = hbar c^3/(8 pi G k_B M) at M = 1 solar mass (IAU nominal), in K. Book line 334, printed 6.17 x 10^-8.'
+    value = hbar * c**3 / (8 * math.pi * G * kB * Msun)
     return locals()
 
 @check(label='app:glossary:L336', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
@@ -42886,6 +43580,18 @@ def check_2883():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '-1.045')
     return locals()
 
+@check(label='app:glossary:L341:28217448', title='CpGs of the hg19 index', line=341, status='observed', kind='file', printed='28{,}217{,}448', tol=0.0, source=_B17_ATLAS_README, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4857():
+    'N = 28,217,448 CpGs: number of sites of the wgbstools hg19 CpG index, step 01 of the atlas v2 build record. Book line 341, printed 28,217,448.'
+    value = _b17_hg19()
+    return locals()
+
+@check(label='app:glossary:L342:2.8e7', title='CpGs per haploid genome (hg19 count)', line=342, status='observed', kind='file', printed='2.8\\times10^7', tol=0.0, source=_B17_ATLAS_README, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4858():
+    'About 2.8 x 10^7 CpGs per haploid genome: the hg19 CpG index count of the atlas v2 build record, rounded. Book line 342, printed 2.8 x 10^7.'
+    value = _b17_hg19()
+    return locals()
+
 @check(label='app:glossary:L344', chapter='app:glossary', part=8, title='same value as p2_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV)',
        file='appendices/app_F_glossary', line=344, status='observed', kind='num', printed='246.22', tol=0)
 def check_2884():
@@ -42893,6 +43599,23 @@ def check_2884():
     G_F=1.1663788e-5  # GeV^-2, PDG 2024
     value=(math.sqrt(2)*G_F)**-0.5
     return locals()
+
+@check(label='app:glossary:L344:125.20', title='Higgs boson mass (PDG 2024)', line=344, status='observed', kind='num', printed='125.20', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4859():
+    'Higgs boson mass in GeV. Input: Particle Data Group 2024 (Navas et al., Phys. Rev. D 110, 030001, doi 10.1103/PhysRevD.110.030001): m_H = 125.20 +- 0.11 GeV. Book line 344, printed 125.20.'
+    mH, mH_err = 125.20, 0.11
+    value = mH
+    return locals()
+
+@check(label='app:glossary:L344:0.129', title='Higgs self-coupling m_H^2/(2 v^2)', line=344, status='observed', kind='num', printed='0.129', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4860():
+    'lambda = m_H^2/(2 v^2), v = (sqrt2 G_F)^(-1/2); G_F = 1.1663788e-5 GeV^-2 and m_H = 125.20 GeV (PDG 2024). Book line 344, printed 0.129.'
+    G_F, mH = 1.1663788e-5, 125.20
+    v = (math.sqrt(2) * G_F)**-0.5
+    value = mH**2 / (2 * v**2)
+    return locals()
+
+# ---------------------------------------------------------------- L354-L413
 
 @check(label='app:glossary:L348', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
        file='appendices/app_F_glossary', line=348, status='observed', kind='file', printed='0.2043', tol=0.0, source='CANON/GLOSSARY.md')
@@ -42906,6 +43629,41 @@ def check_2885():
 def check_2886():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 348, printed 0.910.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '0.910')
+    return locals()
+
+@check(label='app:glossary:L354:2.9e78', title='horizon capacity at T = 150 MeV, nats', line=354, status='calc', kind='num', printed='2.9\\times10^{78}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4861():
+    'N_H = A_H/(4 l_P^2) = pi (c/H)^2/l_P^2 at T = 150 MeV in the radiation era, H = 1.66 sqrt(g_*) T^2/m_P with g_* = 17.25 at the QCD scale (Chapter ch:baryon), m_P = 1.220890e19 GeV, hbar = 6.582119569e-25 GeV s (CODATA 2018). Book line 354, printed 2.9 x 10^78.'
+    hbar_GeVs, mP_GeV, gs, T_GeV = 6.582119569e-25, 1.220890e19, 17.25, 0.150
+    H = 1.66 * math.sqrt(gs) * T_GeV**2 / mP_GeV / hbar_GeVs
+    value = math.pi * (c / H)**2 / lP**2
+    return locals()
+
+@check(label='app:glossary:L355:123', title='orders of magnitude of the cosmological-constant problem', line=355, status='observed', kind='num', printed='123', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4862():
+    'log10 of rho_vac/rho_Lambda = (8 pi/(3 Omega_Lambda)) (l_H/l_P)^2, the horizon identity inverted, l_H = c/H_0 at the photon-sector H_0 67.16, Omega_Lambda = 1 - Omega_m (Planck 2018). Book line 355, printed 123.'
+    value = math.log10(8 * math.pi / (3 * (1 - Om)) * (c / Hsi(H0_photon) / lP)**2)
+    return locals()
+
+@check(label='app:glossary:L359:0.776', title='HSC Y3 S8', line=359, status='observed', kind='file', printed='0.776', tol=0.0,
+       source=_B17_ST, heavy=True, rerun=_B00_STENSION_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4863():
+    'HSC Y3 cosmic-shear S8 (Dalal et al. 2023, C_ell), read at the HSC Y3 row of the weak-lensing list (section 11) of the committed output of verify_sector_tension.py. Book line 359, printed 0.776.'
+    value = _b17_st(r'HSC Y3 C_ell \(Dalal 2023\): ([\d.]+) ->')[0]
+    return locals()
+
+@check(label='app:glossary:L360:1588', title='Pantheon+ supernovae in the Hubble flow', line=360, status='observed', kind='file', printed='1588', tol=0.0,
+       source='docs/verification/scripts/verify_dual_sector_chapters_data.json', heavy=True, rerun=_B17_DSV_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4864():
+    'Number of Pantheon+ supernovae with 0.01 < z_CMB in the Hubble-flow table committed by verify_dual_sector_chapters.py. Book line 360, printed 1588.'
+    z = np.array(load_json('docs/verification/scripts/verify_dual_sector_chapters_data.json')['hd_z'])
+    value = int((z > 0.01).sum())
+    return locals()
+
+@check(label='app:glossary:L361:1.4e26', title='Hubble radius c/H0, m', line=361, status='observed', kind='num', printed='1.4\\times10^{26}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4865():
+    'c/H_0 at the photon-sector H_0 = 67.16 km/s/Mpc, in m. Book line 361, printed 1.4 x 10^26.'
+    value = c / Hsi(H0_photon)
     return locals()
 
 @check(label='app:glossary:L368', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
@@ -42929,6 +43687,79 @@ def check_2889():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '-1.05')
     return locals()
 
+@check(label='app:glossary:L368:0.032', title='copy-error floor eps0 (IAM-A entry)', line=368, status='observed', kind='num', printed='0.032', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4866():
+    'eps0 = 1/(1 + e^(phi M)) with phi and M from the canon (phi M = E_hold). Book line 368, printed 0.032.'
+    value = 1 / (1 + math.exp(phi_hold * M_cell))
+    return locals()
+
+@check(label='app:glossary:L370:0.80', title='ICC of cell-type copy-error differences across donors', line=370, status='observed', kind='file', printed='0.80', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4867():
+    'Intraclass correlation of the common-site copy error across donors (53 cell types with at least two samples), from section 7 of the PROC-CHANNEL-01 record. Book line 370, printed 0.80.'
+    value = float(re.search(r'intraclass\s+correlation\s+(\d+\.\d+)', file_text(_B17_PC)).group(1))
+    return locals()
+
+@check(label='app:glossary:L370:0.92', title='ICC of repeat halves, lowest fish set', line=370, status='observed', kind='file', printed='0.92', tol=0.0, source=_B17_CHR, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4868():
+    'ICC of the two halves in the fish sets (Methow steelhead, brook charr, Rimouski salmon), recomputed per fish with the formula of the scorers: lowest (brook charr). Book line 370, printed 0.92.'
+    icc = _b17_fish_icc()
+    value = min(icc.values())
+    return locals()
+
+@check(label='app:glossary:L370:0.998', title='ICC of repeat halves, highest fish set', line=370, status='observed', kind='file', printed='0.998', tol=0.0, source=_B17_SAL, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4869():
+    'ICC of the two halves in the fish sets: highest (Methow steelhead). Book line 370, printed 0.998.'
+    icc = _b17_fish_icc()
+    value = max(icc.values())
+    return locals()
+
+@check(label='app:glossary:L400:0.815', title='KiDS-Legacy S8', line=400, status='observed', kind='file', printed='0.815', tol=0.0,
+       source='docs/verification/scripts/verify_virial_papers_output.txt', heavy=True, rerun=_B00_VPAPERS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4870():
+    'KiDS-Legacy cosmic-shear S8 (Wright et al. 2025), read from the KiDS-Legacy line of the committed output of verify_virial_papers.py. Book line 400, printed 0.815.'
+    S8, up, lo = _b00_vp_line(r'vs KiDS-Legacy ([\d.]+) \(\+([\d.]+) -([\d.]+)\)')
+    value = S8
+    return locals()
+
+@check(label='app:glossary:L400:0.021', title='KiDS-Legacy S8, lower error', line=400, status='observed', kind='file', printed='0.021', tol=0.0,
+       source='docs/verification/scripts/verify_virial_papers_output.txt', heavy=True, rerun=_B00_VPAPERS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4871():
+    'Lower error of the KiDS-Legacy S8, from the same line of the committed output of verify_virial_papers.py. Book line 400, printed 0.021.'
+    S8, up, lo = _b00_vp_line(r'vs KiDS-Legacy ([\d.]+) \(\+([\d.]+) -([\d.]+)\)')
+    value = lo
+    return locals()
+
+@check(label='app:glossary:L406:2.2e-6', title='Koide: 2/3 - Q, PDG 2024', line=406, status='observed', kind='num', printed='2.2\\times10^{-6}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4872():
+    'Distance of Q = (m_e + m_mu + m_tau)/(sqrt m_e + sqrt m_mu + sqrt m_tau)^2 from 2/3, charged-lepton pole masses (CODATA 2018 m_e; PDG 2024 m_mu 105.6583755, m_tau 1776.93 +- 0.09 MeV). Book line 406, printed 2.2 x 10^-6.'
+    me_, mmu_, mtau, stau, Q = _b17_koide()
+    value = 2 / 3 - Q(mtau)
+    return locals()
+
+@check(label='app:glossary:L406:0.43', title='Koide: (2/3 - Q) in units of sigma(Q)', line=406, status='observed', kind='num', printed='0.43', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4873():
+    '(2/3 - Q)/sigma(Q), sigma(Q) from sigma(m_tau) = 0.09 MeV (PDG 2024) by the numerical derivative dQ/dm_tau. Book line 406, printed 0.43.'
+    me_, mmu_, mtau, stau, Q = _b17_koide()
+    dQ = (Q(mtau + 1e-4) - Q(mtau - 1e-4)) / 2e-4
+    value = (2 / 3 - Q(mtau)) / abs(dQ * stau)
+    return locals()
+
+@check(label='app:glossary:L406:0.2222', title='Koide offset delta', line=406, status='observed', kind='num', printed='0.2222', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4874():
+    'Offset delta of sqrt m_i = x (1 + sqrt2 cos(delta + 2 pi k/3)) for the measured masses: x = mean of the square roots, r = sqrt(2(3Q - 1)), delta = arccos((sqrt(m_tau)/x - 1)/r). Book line 406, printed 0.2222.'
+    me_, mmu_, mtau, stau, Q = _b17_koide()
+    s = [math.sqrt(mtau), math.sqrt(me_), math.sqrt(mmu_)]
+    x = sum(s) / 3; r = math.sqrt(2 * (3 * Q(mtau) - 1))
+    value = math.acos((s[0] / x - 1) / r)
+    return locals()
+
+@check(label='app:glossary:L407:1.57', title='Koomey doubling time, years', line=407, status='observed', kind='num', printed='1.57', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4875():
+    'Historical doubling time of computations per joule, in years. Input: Koomey, Berard, Sanchez and Wong 2011, IEEE Ann. Hist. Comput. 33, 46 (doi 10.1109/mahc.2010.28): doubling every 1.57 years. Book line 407, printed 1.57.'
+    t_double = 1.57
+    value = t_double
+    return locals()
+
 @check(label='app:glossary:L411', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
        file='appendices/app_F_glossary', line=411, status='observed', kind='file', printed='2.968\\times10^{-21}', tol=0.0, source='CANON/GLOSSARY.md')
 def check_2890():
@@ -42948,6 +43779,12 @@ def check_2891():
 def check_2892():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 411, printed 348.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '348')
+    return locals()
+
+@check(label='app:glossary:L411:3.33e-21', title='Landauer floor at 348 K', line=411, status='observed', kind='num', printed='3.33\\times10^{-21}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4876():
+    'k_B T ln 2 at T = 348 K (75 C junction), in J. Book line 411, printed 3.33 x 10^-21.'
+    value = kB * 348.0 * LN2
     return locals()
 
 @check(label='app:glossary:L413', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
@@ -42971,6 +43808,61 @@ def check_2895():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '3.41')
     return locals()
 
+@check(label='app:glossary:L413:4.9', title='holding energy in Landauer units', line=413, status='observed', kind='num', printed='4.9', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+def check_4877():
+    'E_hold = 3.41 k_B T (canon) is E_hold/ln 2 Landauer units. Book line 413, printed 4.9.'
+    value = E_hold / LN2
+    return locals()
+
+@check(label='app:glossary:L420', chapter='app:glossary', part=8, title='H0 of the Level 2b background chain A',
+       file='appendices/app_F_glossary', line=420, status='observed', kind='file', printed='61.45', tol=0.0, source=_B18_CH,
+       heavy=True, rerun=_B04_CHAINS_RERUN)
+def check_4878():
+    'H0 posterior mean of the Level 2b chain A (the matter-sector term in the background expansion). Book line 420, printed 61.45. Source: row iam_l2b_runA, column H0, of the committed chain extraction.'
+    value = _b18_chain('iam_l2b_runA', 'H0')
+    return locals()
+
+@check(label='app:glossary:L420:61.52', chapter='app:glossary', part=8, title='H0 of the Level 2b background chain D',
+       file='appendices/app_F_glossary', line=420, status='observed', kind='file', printed='61.52', tol=0.0, source=_B18_CH,
+       heavy=True, rerun=_B04_CHAINS_RERUN)
+def check_4879():
+    'H0 posterior mean of the Level 2b chain D. Book line 420, printed 61.52. Source: row iam_l2b_runD, column H0, of the committed chain extraction.'
+    value = _b18_chain('iam_l2b_runD', 'H0')
+    return locals()
+
+@check(label='app:glossary:L422', chapter='app:glossary', part=8, title='likelihood ratio of the Level 2 Planck chain',
+       file='appendices/app_F_glossary', line=422, status='observed', kind='num', printed='0.76', tol=0.0, source=_B18_CH,
+       heavy=True, rerun=_B04_CHAINS_RERUN)
+def check_4880():
+    'Likelihood ratio exp(-Delta chi2/2) of the Level 2 IAM chain (run A) against the LambdaCDM chain (run C), equal parameter counts. Book line 422, printed 0.76. Inputs: chi2_min of rows iam_level2_runA and iam_level2_runC_lcdm of the committed chain extraction.'
+    dchi2 = _b18_chain('iam_level2_runA', 'chi2_min') - _b18_chain('iam_level2_runC_lcdm', 'chi2_min')
+    value = math.exp(-dchi2 / 2)
+    return locals()
+
+@check(label='app:glossary:L426', chapter='app:glossary', part=8, title='Milky Way satellites in the Local Volume Database',
+       file='appendices/app_F_glossary', line=426, status='observed', kind='file', printed='68', tol=0.0,
+       source='docs/verification/observations/MISSING_SATELLITES_CHECK.md')
+def check_4881():
+    'Number of known Milky Way satellites in the Local Volume Database dwarf catalogue (Pace2025LVDB, doi 10.33232/001c.144859), as the committed missing-satellites check records it (dwarf_mw.csv). Book line 426, printed 68.'
+    value = int(re.search(r'(\d+) Milky Way satellites', file_text('docs/verification/observations/MISSING_SATELLITES_CHECK.md')).group(1))
+    return locals()
+
+@check(label='app:glossary:L429', chapter='app:glossary', part=8, title='separation of the spins in the 2015 loophole-free Bell test, km',
+       file='appendices/app_F_glossary', line=429, status='observed', kind='num', printed='1.3', tol=0.0)
+def check_4882():
+    'NV electron spins 1.3 km apart in the 2015 loophole-free Bell test. Book line 429, printed 1.3. Published: the two labs are 1,280 m apart (Hensen et al., Nature 526, 682 (2015), doi 10.1038/nature15759, bib Hensen2015).'
+    sep_m = 1280.0
+    value = sep_m / 1000
+    return locals()
+
+@check(label='app:glossary:L430', chapter='app:glossary', part=8, title='cell types of the Loyfer atlas read for the holding energy',
+       file='appendices/app_F_glossary', line=430, status='observed', kind='file', printed='56', tol=0.0, source=_B18_PC,
+       heavy=True, rerun=_B18_PC_RERUN)
+def check_4883():
+    'Number of healthy cell types of the Loyfer 2023 read-level data in which the holding energy was read (GSE186458). Book line 430, printed 56. Source: the header of the PROC-CHANNEL-01 record (cell types, samples).'
+    value = int(re.search(r'(\d+) cell types, (\d+) samples', file_text(_B18_PC)).group(1))
+    return locals()
+
 @check(label='app:glossary:L434', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
        file='appendices/app_F_glossary', line=434, status='observed', kind='file', printed='1.05', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2896():
@@ -42985,11 +43877,41 @@ def check_2897():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.02')
     return locals()
 
+@check(label='app:glossary:L434:1.16', chapter='app:glossary', part=8, title='M_lens/M_dyn = 1/mu today, Level 1 form',
+       file='appendices/app_F_glossary', line=434, status='observed', kind='num', printed='1.16', tol=0.0)
+def check_4884():
+    'Lensing-to-dynamical mass ratio in the Level 1 form, 1/mu(a=1) with mu = H^2/(H^2 + beta_m E(a) H0^2). Book line 434, printed 1.16. Inputs: beta_m (CANON), Omega_m 0.3153 (Planck 2018).'
+    value = 1 / float(mu_iam(1.0))
+    return locals()
+
 @check(label='app:glossary:L436', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
        file='appendices/app_F_glossary', line=436, status='observed', kind='file', printed='20.94', tol=0.0, source='CANON/GLOSSARY.md')
 def check_2898():
     'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 436, printed 20.94.'
     ok = file_has('CANON/GLOSSARY.md', '20.94')
+    return locals()
+
+@check(label='app:glossary:L446', chapter='app:glossary', part=8, title='1-b needed by Planck SZ counts with the primary-CMB cosmology',
+       file='appendices/app_F_glossary', line=446, status='observed', kind='file', printed='0.58', tol=0.0, source=_B18_CL,
+       heavy=True, rerun=_B18_CL_RERUN)
+def check_4885():
+    '1-b = 0.58 +- 0.04 needed to reconcile the Planck SZ counts with the primary CMB, Planck 2015 XXIV (doi 10.1051/0004-6361/201525833), read at its row of the committed cluster output. Book line 446, printed 0.58.'
+    value = _b18_cl('needed by counts + CMB 1-b')[0]
+    return locals()
+
+@check(label='app:glossary:L446:0.80', chapter='app:glossary', part=8, title='baseline 1-b of about 0.80',
+       file='appendices/app_F_glossary', line=446, status='observed', kind='num', printed='0.80', tol=0.0)
+def check_4886():
+    'Baseline mass bias b = 0.2 of the Planck 2013 SZ cluster-count analysis (set from simulations), i.e. 1-b = 0.80, as restated by Planck 2015 XXIV (doi 10.1051/0004-6361/201525833); the same value as ch:lensdyn line 184. Book line 446, printed 0.80 ("about").'
+    b_2013 = 0.2
+    value = 1 - b_2013
+    return locals()
+
+@check(label='app:glossary:L451', chapter='app:glossary', part=8, title='maturity E(1)/e today, per cent',
+       file='appendices/app_F_glossary', line=451, status='observed', kind='num', printed='36.8', tol=0.0)
+def check_4887():
+    'Maturity E(a)/e at a = 1 with E(a) = exp(1 - 1/a), in per cent. Book line 451, printed 36.8.'
+    value = 100 * float(E_act(1.0)) / float(E_act(1e12))
     return locals()
 
 @check(label='app:glossary:L457', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
@@ -43006,6 +43928,60 @@ def check_2900():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '-1.05')
     return locals()
 
+@check(label='app:glossary:L457:0.95', chapter='app:glossary', part=8, title='lower edge of the Normal band (CANON)',
+       file='appendices/app_F_glossary', line=457, status='observed', kind='file', printed='0.95', tol=0.0, source='CANON/iam_canon.json')
+def check_4888():
+    'Lower edge of the Normal band of a Met-A reading, CANON Normal_band. Book line 457, printed 0.95.'
+    value = float(CANON['Normal_band']['value'][0])
+    return locals()
+
+@check(label='app:glossary:L463', chapter='app:glossary', part=8, title='Micius entanglement distribution distance, km',
+       file='appendices/app_F_glossary', line=463, status='observed', kind='num', printed='1{,}200', tol=0.0)
+def check_4889():
+    'Distance over which the Micius satellite distributed entangled photon pairs. Book line 463, printed 1,200 km. Published: Yin et al., Science 356, 1140 (2017), doi 10.1126/science.aan3211, bib Yin2017, "Satellite-based entanglement distribution over 1200 kilometers".'
+    d_km_Yin2017 = 1200.0
+    value = d_km_Yin2017
+    return locals()
+
+@check(label='app:glossary:L464', chapter='app:glossary', part=8, title='MICROSCOPE Eotvos parameter Ti-Pt, central value',
+       file='appendices/app_F_glossary', line=464, status='observed', kind='num', printed='-1.5', tol=0.0)
+def check_4890():
+    'Eotvos parameter of the titanium-platinum pair, final MICROSCOPE result, in units of 1e-15. Book line 464, printed -1.5. Published: Touboul et al., PRL 129, 121102 (2022), doi 10.1103/PhysRevLett.129.121102, eta = [-1.5 +- 2.3 (stat) +- 1.5 (syst)] x 1e-15.'
+    eta_Touboul2022 = -1.5e-15
+    value = eta_Touboul2022 / 1e-15
+    return locals()
+
+@check(label='app:glossary:L464:2.7e-15', chapter='app:glossary', part=8, title='MICROSCOPE total uncertainty, stat and syst in quadrature',
+       file='appendices/app_F_glossary', line=464, status='observed', kind='num', printed='2.7\\times10^{-15}', tol=0.0)
+def check_4891():
+    'Level at which the MICROSCOPE Eotvos parameter is consistent with zero: the statistical and systematic errors added in quadrature. Book line 464, printed 2.7e-15. Inputs: stat 2.3e-15, syst 1.5e-15 (Touboul et al., PRL 129, 121102 (2022), doi 10.1103/PhysRevLett.129.121102).'
+    stat, syst = 2.3e-15, 1.5e-15
+    value = math.sqrt(stat**2 + syst**2)
+    return locals()
+
+@check(label='app:glossary:L474', chapter='app:glossary', part=8, title='mu0 = -beta_m/(1+beta_m)',
+       file='appendices/app_F_glossary', line=474, status='observed', kind='num', printed='-0.136', tol=0.0)
+def check_4892():
+    'mu0 = mu(z=0) - 1 = -beta_m/(1+beta_m) from mu = H^2/(H^2 + beta_m E H0^2) at a = 1 (E(1) = 1, H = H0). Book line 474, printed -0.136. Input: beta_m (CANON).'
+    value = float(mu_iam(1.0)) - 1
+    return locals()
+
+@check(label='app:glossary:L474:-0.13495', chapter='app:glossary', part=8, title='mu0 fixed in the MGCAMB runs',
+       file='appendices/app_F_glossary', line=474, status='observed', kind='file', printed='-0.13495', tol=0.0,
+       source='mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml')
+def check_4893():
+    'Value of mu0 fixed in the Level 1 MGCAMB IAM chain, read from the committed chain input. Book line 474, printed -0.13495.'
+    t = file_text('mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml')
+    value = float(re.search(r'\n  mu0:\s*\n\s*value:\s*([-\d.]+)', t).group(1))
+    return locals()
+
+@check(label='app:glossary:L474:4.25', chapter='app:glossary', part=8, title='f sigma8 deficit today, per cent',
+       file='appendices/app_F_glossary', line=474, status='observed', kind='num', printed='4.25', tol=0.0)
+def check_4894():
+    'f sigma8 deficit of IAM below LambdaCDM today, same early amplitude, from the growth equation with mu(a). Book line 474, printed 4.25 %. Inputs: beta_m (CANON), Omega_m 0.3153 (Planck 2018).'
+    value = fs8_deficit(0.0)
+    return locals()
+
 @check(label='app:glossary:L484', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
        file='appendices/app_F_glossary', line=484, status='observed', kind='file', printed='528', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2901():
@@ -43018,6 +43994,20 @@ def check_2901():
 def check_2902():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 484, printed -0.149.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '-0.149')
+    return locals()
+
+@check(label='app:glossary:L484:48528', chapter='app:glossary', part=8, title='EPIC noise sites of the noise index',
+       file='appendices/app_F_glossary', line=484, status='observed', kind='file', printed='48{,}528', tol=0.0, source=_B18_SOP)
+def check_4895():
+    'Number of EPIC sites over which the noise index N is the mean H(beta), read from the stage table of the chain SOP. Book line 484, printed 48,528.'
+    value = int(re.search(r'over the ([\d,]+) noise sites', file_text(_B18_SOP)).group(1).replace(',', ''))
+    return locals()
+
+@check(label='app:glossary:L486:0.95', chapter='app:glossary', part=8, title='Normal band lower edge (CANON)',
+       file='appendices/app_F_glossary', line=486, status='observed', kind='file', printed='0.95', tol=0.0, source='CANON/iam_canon.json')
+def check_4896():
+    'Lower edge of the healthy band 0.95 <= A <= 1.05, CANON Normal_band. Book line 486, printed 0.95.'
+    value = float(CANON['Normal_band']['value'][0])
     return locals()
 
 @check(label='app:glossary:L498', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
@@ -43034,11 +44024,134 @@ def check_2904():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '100')
     return locals()
 
+@check(label='app:glossary:L508:1701', chapter='app:glossary', part=8, title='Pantheon+ light curves',
+       file='appendices/app_F_glossary', line=508, status='observed', kind='file', printed='1701', tol=0.0, source=_B18_DSV,
+       heavy=True, rerun=_B18_DSV_RERUN)
+def check_4897():
+    'Number of type Ia supernova light curves in the public Pantheon+ release, as counted by the committed dual-sector run. Book line 508, printed 1701.'
+    value = _b02_out(r'Pantheon\+ release: (\d+) light curves, z_HD ([\d.]+) to ([\d.]+)', 1)
+    return locals()
+
+@check(label='app:glossary:L508:0.001', chapter='app:glossary', part=8, title='Pantheon+ lowest redshift',
+       file='appendices/app_F_glossary', line=508, status='observed', kind='file', printed='0.001', tol=0.0, source=_B18_DSV,
+       heavy=True, rerun=_B18_DSV_RERUN)
+def check_4898():
+    'Lowest Hubble-diagram redshift z_HD of the Pantheon+ release, as read by the committed dual-sector run (0.00122). Book line 508, printed 0.001 (lower bound of 0.001 < z < 2.26).'
+    value = _b02_out(r'Pantheon\+ release: (\d+) light curves, z_HD ([\d.]+) to ([\d.]+)', 2)
+    return locals()
+
+@check(label='app:glossary:L508:2.26', chapter='app:glossary', part=8, title='Pantheon+ highest redshift',
+       file='appendices/app_F_glossary', line=508, status='observed', kind='file', printed='2.26', tol=0.0, source=_B18_DSV,
+       heavy=True, rerun=_B18_DSV_RERUN)
+def check_4899():
+    'Highest Hubble-diagram redshift z_HD of the Pantheon+ release, as read by the committed dual-sector run. Book line 508, printed 2.26.'
+    value = _b02_out(r'Pantheon\+ release: (\d+) light curves, z_HD ([\d.]+) to ([\d.]+)', 3)
+    return locals()
+
+@check(label='app:glossary:L520', chapter='app:glossary', part=8, title='M = hc/(lambda k_B T) of a 1550 nm photon at 300 K',
+       file='appendices/app_F_glossary', line=520, status='observed', kind='num', printed='30.9', tol=0.0)
+def check_4900():
+    'Mahaffey number of a photonic qubit, M = h f/(k_B T) with f = c/lambda, lambda = 1550 nm, T = 300 K (the book inputs). Book line 520, printed 30.9.'
+    lam, T = 1550e-9, 300.0
+    value = h * c / (lam * kB * T)
+    return locals()
+
+@check(label='app:glossary:L521', chapter='app:glossary', part=8, title='pipeline offset in beta on immune identity sites',
+       file='appendices/app_F_glossary', line=521, status='observed', kind='file', printed='0.075', tol=0.01,
+       source='Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md')
+def check_4901():
+    'Offset in beta between raw-IDAT noob processing and the processed reference methylomes on immune identity sites, at the reference identity mean: (a - 1) beta_ref + b, with the affine map beta_stage1 = a beta_atlas + b and beta_ref = 0.737 (Atlas immune mean on the same loci), both from PHASE1_OUTCOME.md. Book line 521, printed "about 0.075": tol 1 % because the record gives 0.0756 and the sentence states the offset approximately.'
+    t = file_text('Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md')
+    m = re.search(r'=\s*([\d.]+)\s*·\s*β_atlas\s*\+\s*([\d.]+)', t)
+    a, b = float(m.group(1)), float(m.group(2))
+    beta_ref = float(re.search(r'Atlas immune_mean on the same loci \|\s*([\d.]+)', t).group(1))
+    value = (a - 1) * beta_ref + b
+    return locals()
+
+@check(label='app:glossary:L525', chapter='app:glossary', part=8, title='Planck energy sqrt(hbar c^5/G), J',
+       file='appendices/app_F_glossary', line=525, status='observed', kind='num', printed='1.956\\times10^9', tol=0.0)
+def check_4902():
+    'Planck energy E_P = sqrt(hbar c^5/G). Book line 525, printed 1.956e9 J. Inputs: hbar, c exact (SI 2019), G CODATA 2018.'
+    value = math.sqrt(hbar * c**5 / G)
+    return locals()
+
+@check(label='app:glossary:L526', chapter='app:glossary', part=8, title='Planck length sqrt(hbar G/c^3), m',
+       file='appendices/app_F_glossary', line=526, status='observed', kind='num', printed='1.616\\times10^{-35}', tol=0.0)
+def check_4903():
+    'Planck length l_P = sqrt(hbar G/c^3). Book line 526, printed 1.616e-35 m. Inputs: hbar, c exact (SI 2019), G CODATA 2018.'
+    value = math.sqrt(hbar * G / c**3)
+    return locals()
+
+@check(label='app:glossary:L526:2.176e-8', chapter='app:glossary', part=8, title='Planck mass sqrt(hbar c/G), kg',
+       file='appendices/app_F_glossary', line=526, status='observed', kind='num', printed='2.176\\times10^{-8}', tol=0.0)
+def check_4904():
+    'Planck mass m_P = sqrt(hbar c/G). Book line 526, printed 2.176e-8 kg. Inputs: hbar, c exact (SI 2019), G CODATA 2018.'
+    value = math.sqrt(hbar * c / G)
+    return locals()
+
+@check(label='app:glossary:L528', chapter='app:glossary', part=8, title='Planck time sqrt(hbar G/c^5), s',
+       file='appendices/app_F_glossary', line=528, status='observed', kind='num', printed='5.4\\times10^{-44}', tol=0.0)
+def check_4905():
+    'Planck time t_P = sqrt(hbar G/c^5). Book line 528, printed 5.4e-44 s. Inputs: hbar, c exact (SI 2019), G CODATA 2018.'
+    value = math.sqrt(hbar * G / c**5)
+    return locals()
+
 @check(label='app:glossary:L530', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
        file='appendices/app_F_glossary', line=530, status='observed', kind='file', printed='450', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2905():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 530, printed 450.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '450')
+    return locals()
+
+@check(label='app:glossary:L534', chapter='app:glossary', part=8, title='index-3 polytrope binding energy of the Sun, J',
+       file='appendices/app_F_glossary', line=534, status='observed', kind='num', printed='-5.69\\times10^{41}', tol=0.0)
+def check_4906():
+    'U = -(3/2) G M^2/R for an index-3 polytrope (U = -3/(5-n) G M^2/R at n = 3) of the Sun. Book line 534, printed -5.69e41 J. Inputs: M_sun 1.98847e30 kg, R_sun 6.957e8 m (IAU 2015 nominal), G CODATA 2018.'
+    n, R_sun = 3, 6.957e8
+    value = -3 / (5 - n) * G * Msun**2 / R_sun
+    return locals()
+
+@check(label='app:glossary:L534:23.6', chapter='app:glossary', part=8, title='Kelvin-Helmholtz time of the Sun, Myr',
+       file='appendices/app_F_glossary', line=534, status='observed', kind='num', printed='23.6', tol=0.0)
+def check_4907():
+    'Kelvin-Helmholtz time |U|/(2 L) with U of the index-3 polytrope (half the released energy is radiated, virial theorem). Book line 534, printed 23.6 Myr. Inputs: R_sun 6.957e8 m, L_sun 3.828e26 W (IAU 2015 nominal), M_sun, G CODATA 2018, Julian year.'
+    R_sun, L_sun = 6.957e8, 3.828e26
+    U = -1.5 * G * Msun**2 / R_sun
+    value = abs(U) / (2 * L_sun) / yr / 1e6
+    return locals()
+
+@check(label='app:glossary:L539', chapter='app:glossary', part=8, title='atlas v2 held-out 90 % interval coverage, per cent',
+       file='appendices/app_F_glossary', line=539, status='observed', kind='file', printed='92.7', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md')
+def check_4908():
+    'Fraction of held-out observations inside the 90 % predictive interval of atlas v2 (test V5, bar B1), read from the PROC-V5-HELDOUT record (92.68 %). Book line 539, printed 92.7.'
+    value = float(re.search(r'covers \*\*([\d.]+) %', file_text('Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md')).group(1))
+    return locals()
+
+@check(label='app:glossary:L542', chapter='app:glossary', part=8, title='lower bound of the flat prior on free mu0',
+       file='appendices/app_F_glossary', line=542, status='observed', kind='file', printed='-0.5', tol=0.0,
+       source='mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml')
+def check_4909():
+    'Lower bound of the flat prior on mu0 in the free-mu0 Level 1 chain, read from the committed chain input. Book line 542, printed -0.5.'
+    m = re.search(r'\n  mu0:\s*\n\s*prior:\s*\n\s*min:\s*([-\d.]+)\s*\n\s*max:\s*([-\d.]+)', file_text('mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml'))
+    value = float(m.group(1))
+    return locals()
+
+@check(label='app:glossary:L542:+0.2', chapter='app:glossary', part=8, title='upper bound of the flat prior on free mu0',
+       file='appendices/app_F_glossary', line=542, status='observed', kind='file', printed='+0.2', tol=0.0,
+       source='mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml')
+def check_4910():
+    'Upper bound of the flat prior on mu0 in the free-mu0 Level 1 chain, read from the committed chain input. Book line 542, printed +0.2.'
+    m = re.search(r'\n  mu0:\s*\n\s*prior:\s*\n\s*min:\s*([-\d.]+)\s*\n\s*max:\s*([-\d.]+)', file_text('mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml'))
+    value = float(m.group(2))
+    return locals()
+
+@check(label='app:glossary:L544:56', chapter='app:glossary', part=8, title='cell types of PROC-CHANNEL-01',
+       file='appendices/app_F_glossary', line=544, status='observed', kind='file', printed='56', tol=0.0, source=_B18_PC,
+       heavy=True, rerun=_B18_PC_RERUN)
+def check_4911():
+    'Number of cell types across which PROC-CHANNEL-01 read the holding energy, from the header of its record. Book line 544, printed 56.'
+    value = int(re.search(r'(\d+) cell types, (\d+) samples', file_text(_B18_PC)).group(1))
     return locals()
 
 @check(label='app:glossary:L553', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
@@ -43048,11 +44161,53 @@ def check_2906():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '150')
     return locals()
 
+@check(label='app:glossary:L553:1e-5', chapter='app:glossary', part=8, title='age of the radiation era at QCD confinement, s',
+       file='appendices/app_F_glossary', line=553, status='observed', kind='num', printed='10^{-5}', tol=0.0)
+def check_4912():
+    'Time at which the radiation-dominated universe reaches T = 150 MeV: t = 1/(2H), H^2 = (8 pi G/3) rho/c^2, rho = (pi^2/30) g_* (k T)^4/(hbar c)^3. Book line 553, printed "some 10^-5 s" (an order of magnitude: half a decade). Inputs: T = 150 MeV (book, same line); g_* counted just below the transition: photons 2, e+- and mu+- 7/8 x 4 each, three neutrino species 7/8 x 6, three pions 3.'
+    g_star = 2 + 7 / 8 * (4 + 4 + 6) + 3
+    kT = 150e6 * eV
+    rho = math.pi**2 / 30 * g_star * kT**4 / (hbar * c)**3
+    H = math.sqrt(8 * math.pi * G / 3 * rho / c**2)
+    value = 1 / (2 * H)
+    return locals()
+
+@check(label='app:glossary:L556:12.7', chapter='app:glossary', part=8, title='surface-code threshold on the Helios gauge',
+       file='appendices/app_F_glossary', line=556, status='observed', kind='num', printed='12.7', tol=0.0)
+def check_4913():
+    'Surface-code threshold on the gauge of the 98-qubit trapped-ion processor: A = 1e-2/epsilon with epsilon = -ln(1 - p_2Q), the gate error in nats (Eq. eq:Agate; the threshold mark 1e-2/epsilon of Chapter ch:ascoreqc). Book line 556, printed 12.7. Inputs: p_2Q = 7.9e-4 (Ransford2025, as the book states on this line and in Table tab:platforms), threshold 1e-2 (Fowler2012, doi 10.1103/PhysRevA.86.032324).'
+    p2Q, p_thr = 7.9e-4, 1e-2
+    eps = -math.log(1 - p2Q)
+    value = p_thr / eps
+    return locals()
+
 @check(label='app:glossary:L567', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
        file='appendices/app_F_glossary', line=567, status='observed', kind='file', printed='1.01', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2907():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 567, printed 1.01.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.01')
+    return locals()
+
+@check(label='app:glossary:L583:0.79', chapter='app:glossary', part=8, title='rho of Met-A and noise index, second laboratory, 30 y',
+       file='appendices/app_F_glossary', line=583, status='observed', kind='file', printed='0.79', tol=0.0, source=_B18_NOISE)
+def check_4914():
+    'Spearman correlation of the noise index N with Met-A over the arrays of the 30-year-old man (series GSE247193, 21 arrays with both values), recomputed from the DEV-NOISE-01 table. Book line 583, printed 0.79 (lower end of 0.79-0.83).'
+    value, n_arrays = _b18_rho('GSE247193')
+    return locals()
+
+@check(label='app:glossary:L583:0.83', chapter='app:glossary', part=8, title='rho of Met-A and noise index, second laboratory, 54 y',
+       file='appendices/app_F_glossary', line=583, status='observed', kind='file', printed='0.83', tol=0.0, source=_B18_NOISE)
+def check_4915():
+    'Spearman correlation of the noise index N with Met-A over the arrays of the 54-year-old man (series GSE247195, 24 arrays), recomputed from the DEV-NOISE-01 table. Book line 583, printed 0.83 (upper end of 0.79-0.83).'
+    value, n_arrays = _b18_rho('GSE247195')
+    return locals()
+
+@check(label='app:glossary:L587', chapter='app:glossary', part=8, title='departure of running-mass Koide Q from 2/3',
+       file='appendices/app_F_glossary', line=587, status='observed', kind='num', printed='1.2\\times10^{-3}', tol=0.0)
+def check_4916():
+    'Q of the one-loop QED MSbar running lepton masses at mu = m_tau minus 2/3. Book line 587, printed 1.2e-3. Inputs: pole masses (CODATA 2018, PDG 2024 m_tau), alpha = 1/137.036, as in Chapter ch:koide.'
+    value = _b07_Q_run(_B07_MTAU24) - sp.Rational(2, 3)
+    value = float(value)
     return locals()
 
 @check(label='app:glossary:L588', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
@@ -43062,11 +44217,51 @@ def check_2908():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '0.830')
     return locals()
 
+@check(label='app:glossary:L588:67.16', chapter='app:glossary', part=8, title='H0 of Level 2 run A',
+       file='appendices/app_F_glossary', line=588, status='measured', kind='file', printed='67.16', tol=0.0, source=_B18_CH,
+       heavy=True, rerun=_B04_CHAINS_RERUN)
+def check_4917():
+    'H0 posterior mean of the Level 2 chain A (IAM on Planck). Book line 588, printed 67.16. Source: row iam_level2_runA, column H0.'
+    value = _b18_chain('iam_level2_runA', 'H0')
+    return locals()
+
+@check(label='app:glossary:L588:0.7998', chapter='app:glossary', part=8, title='sigma8 of Level 2 run A',
+       file='appendices/app_F_glossary', line=588, status='measured', kind='file', printed='0.7998', tol=0.0, source=_B18_CH,
+       heavy=True, rerun=_B04_CHAINS_RERUN)
+def check_4918():
+    'sigma8 posterior mean of the Level 2 chain A. Book line 588, printed 0.7998. Source: row iam_level2_runA, column sigma8.'
+    value = _b18_chain('iam_level2_runA', 'sigma8')
+    return locals()
+
+@check(label='app:glossary:L588:0.822', chapter='app:glossary', part=8, title='S8 of Level 2 run A',
+       file='appendices/app_F_glossary', line=588, status='measured', kind='file', printed='0.822', tol=0.0, source=_B18_CH,
+       heavy=True, rerun=_B04_CHAINS_RERUN)
+def check_4919():
+    'S8 posterior mean of the Level 2 chain A. Book line 588, printed 0.822. Source: row iam_level2_runA, column S8.'
+    value = _b18_chain('iam_level2_runA', 'S8')
+    return locals()
+
+@check(label='app:glossary:L588:0.821', chapter='app:glossary', part=8, title='S8 of Level 2 run D',
+       file='appendices/app_F_glossary', line=588, status='measured', kind='file', printed='0.821', tol=0.0, source=_B18_CH,
+       heavy=True, rerun=_B04_CHAINS_RERUN)
+def check_4920():
+    'S8 posterior mean of the Level 2 chain D (IAM on Planck with growth data). Book line 588, printed 0.821. Source: row iam_level2_runD, column S8.'
+    value = _b18_chain('iam_level2_runD', 'S8')
+    return locals()
+
 @check(label='app:glossary:L593', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
        file='appendices/app_F_glossary', line=593, status='observed', kind='file', printed='0.830', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2909():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 593, printed 0.830.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '0.830')
+    return locals()
+
+@check(label='app:glossary:L593:0.822', chapter='app:glossary', part=8, title='S8 of the Level 2 IAM chain',
+       file='appendices/app_F_glossary', line=593, status='observed', kind='file', printed='0.822', tol=0.0, source=_B18_CH,
+       heavy=True, rerun=_B04_CHAINS_RERUN)
+def check_4921():
+    'S8 = sigma8 sqrt(Omega_m/0.3) recomputed from the sigma8 and omegam posterior means of the Level 2 IAM chain (run A); the extraction lists S8 = 0.8215 directly. Book line 593, printed 0.822.'
+    value = _b18_chain('iam_level2_runA', 'sigma8') * math.sqrt(_b18_chain('iam_level2_runA', 'omegam') / 0.3)
     return locals()
 
 @check(label='app:glossary:L599', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
@@ -43076,11 +44271,89 @@ def check_2910():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '738')
     return locals()
 
+@check(label='app:glossary:L599:1056', chapter='app:glossary', part=8, title='SATSA raw arrays',
+       file='appendices/app_F_glossary', line=599, status='observed', kind='file', printed='1{,}056', tol=0.0, source=_B18_SOP)
+def check_4922():
+    'Number of SATSA (E-MTAB-7309) raw arrays, from the record table of the chain SOP (738 of 1,056 below 0.93). Book line 599, printed 1,056.'
+    m = re.search(r'E-MTAB-7309: (\d+) of ([\d,]+) below', file_text(_B18_SOP))
+    value = int(m.group(2).replace(',', ''))
+    return locals()
+
 @check(label='app:glossary:L607', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
        file='appendices/app_F_glossary', line=607, status='observed', kind='file', printed='1.00', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2911():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 607, printed 1.00.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.00')
+    return locals()
+
+@check(label='app:glossary:L607:0.020', chapter='app:glossary', part=8, title='SD of the held-out reference readings, sites re-chosen',
+       file='appendices/app_F_glossary', line=607, status='observed', kind='file', printed='0.020', tol=0.0,
+       source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
+def check_4923():
+    'Sample SD of the held-out readings A_loo of the six purified healthy neutrophil arrays, sites re-chosen on the other five. Book line 607, printed 0.020.'
+    rows = load_csv_rows('Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
+    A = np.array([float(r['A_loo']) for r in rows if r['cell'] == 'neutrophils'])
+    n_arrays = len(A)
+    value = float(np.std(A, ddof=1))
+    return locals()
+
+@check(label='app:glossary:L614', chapter='app:glossary', part=8, title='SH0ES H0',
+       file='appendices/app_F_glossary', line=614, status='observed', kind='num', printed='73.04', tol=0.0)
+def check_4924():
+    'SH0ES Cepheid-calibrated distance-ladder H0. Book line 614, printed 73.04. Published: Riess et al. 2022, ApJL 934, L7, doi 10.3847/2041-8213/ac5c5b, H0 = 73.04 +- 1.04 km/s/Mpc.'
+    H0_Riess2022 = 73.04
+    value = H0_Riess2022
+    return locals()
+
+@check(label='app:glossary:L619', chapter='app:glossary', part=8, title='Cornell sigma = 0.18 GeV^2 in GeV/fm',
+       file='appendices/app_F_glossary', line=619, status='observed', kind='num', printed='0.91', tol=0.0)
+def check_4925():
+    'String tension sigma = 0.18 GeV^2 converted to GeV/fm by dividing by hbar c. Book line 619, printed 0.91. Inputs: 0.18 GeV^2 (book, same line); hbar c from SI 2019 exact constants.'
+    hbarc_GeV_fm = hbar * c / (1e9 * eV) * 1e15
+    value = 0.18 / hbarc_GeV_fm
+    return locals()
+
+@check(label='app:glossary:L620', chapter='app:glossary', part=8, title='sigma8 of the Level 2 LambdaCDM chain',
+       file='appendices/app_F_glossary', line=620, status='observed', kind='file', printed='0.809', tol=0.0, source=_B18_CH,
+       heavy=True, rerun=_B04_CHAINS_RERUN)
+def check_4926():
+    'sigma8 posterior mean of the Level 2 LambdaCDM chain (run C). Book line 620, printed 0.809.'
+    value = _b18_chain('iam_level2_runC_lcdm', 'sigma8')
+    return locals()
+
+@check(label='app:glossary:L620:0.800', chapter='app:glossary', part=8, title='sigma8 of the Level 2 IAM chain',
+       file='appendices/app_F_glossary', line=620, status='observed', kind='file', printed='0.800', tol=0.0, source=_B18_CH,
+       heavy=True, rerun=_B04_CHAINS_RERUN)
+def check_4927():
+    'sigma8 posterior mean of the Level 2 IAM chain (run A). Book line 620, printed 0.800.'
+    value = _b18_chain('iam_level2_runA', 'sigma8')
+    return locals()
+
+@check(label='app:glossary:L620:0.813', chapter='app:glossary', part=8, title='sigma8 of the Level 1 LambdaCDM baseline (Planck + RSD)',
+       file='appendices/app_F_glossary', line=620, status='observed', kind='file', printed='0.813', tol=0.0, source=_B18_CH,
+       heavy=True, rerun=_B04_CHAINS_RERUN)
+def check_4928():
+    'sigma8 posterior mean of the Level 1 LambdaCDM baseline on Planck + RSD (row planck_rsd_lcdm_baseline), the 0.8133 that Chapter ch:latetime quotes as 0.813. Book line 620, printed "about 0.813".'
+    value = _b18_chain('planck_rsd_lcdm_baseline', 'sigma8')
+    return locals()
+
+@check(label='app:glossary:L622:509', chapter='app:glossary', part=8, title='tau_IAM of a 1e-12 kg silica sphere at 10 mK, s',
+       file='appendices/app_F_glossary', line=622, status='calc', kind='num', printed='509', tol=0.0)
+def check_4929():
+    'IAM decoherence time tau = hbar (k_B T)^2 ln2 / E_G^3 with E_G = G m^2/R of a uniform sphere. Book line 622, printed 509 s. Inputs: m = 1e-12 kg, T = 10 mK, density 2200 kg/m^3 (book, same line).'
+    m, T, rho_s = 1e-12, 0.010, 2200.0
+    R = (3 * m / (4 * math.pi * rho_s))**(1 / 3)
+    E_G = G * m**2 / R
+    value = hbar * (kB * T)**2 * LN2 / E_G**3
+    return locals()
+
+@check(label='app:glossary:L622:7.5', chapter='app:glossary', part=8, title='tau_DP = hbar/E_G of a 1e-12 kg silica sphere, us',
+       file='appendices/app_F_glossary', line=622, status='calc', kind='num', printed='7.5', tol=0.0)
+def check_4930():
+    'Diosi-Penrose time hbar/E_G with E_G = G m^2/R of a uniform sphere, in microseconds. Book line 622, printed 7.5 us. Inputs: m = 1e-12 kg, density 2200 kg/m^3 (book, same line).'
+    m, rho_s = 1e-12, 2200.0
+    R = (3 * m / (4 * math.pi * rho_s))**(1 / 3)
+    value = hbar / (G * m**2 / R) * 1e6
     return locals()
 
 @check(label='app:glossary:L624', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
@@ -43111,6 +44384,23 @@ def check_2915():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '100')
     return locals()
 
+@check(label='app:glossary:L650', chapter='app:glossary', part=8, title='(k_B T/q) ln 10 at 300 K, mV/decade',
+       file='appendices/app_F_glossary', line=650, status='observed', kind='num', printed='60', tol=0.0)
+def check_4931():
+    'Subthreshold-swing bound (k_B T/q) ln 10 at T = 300 K, in mV per decade. Book line 650, printed 60. Inputs: k_B, e exact (SI 2019).'
+    value = kB * 300 / e_ch * math.log(10) * 1e3
+    return locals()
+
+@check(label='app:glossary:L653', chapter='app:glossary', part=8, title='Delta chi2 of the matter-sector rate on SN distances',
+       file='appendices/app_F_glossary', line=653, status='observed', kind='file', printed='+23.6', tol=0.0, source=_B18_DSV,
+       heavy=True, rerun=_B18_DSV_RERUN)
+def check_4932():
+    'Delta chi2 of beta_m = 0.15765 put into the supernova distances (full covariance, Om 0.315): chi2 with beta_m minus the LambdaCDM chi2, both read from section 3 of the committed dual-sector output. Book line 653, printed +23.6.'
+    c0 = _b02_out(r'Om 0\.315: LCDM chi2 ([\d.]+);')
+    c1 = _b02_out(r'in the distances ([\d.]+);')
+    value = c1 - c0
+    return locals()
+
 @check(label='app:glossary:L661', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
        file='appendices/app_F_glossary', line=661, status='observed', kind='file', printed='310.15', tol=0.0, source='CANON/GLOSSARY.md')
 def check_2916():
@@ -43118,11 +44408,63 @@ def check_2916():
     ok = file_has('CANON/GLOSSARY.md', '310.15')
     return locals()
 
+@check(label='app:glossary:L668', chapter='app:glossary', part=8, title='whole-blood technical-replicate arrays (GSE250556)',
+       file='appendices/app_F_glossary', line=668, status='observed', kind='file', printed='64', tol=0.0, source=_B18_SOP)
+def check_4933():
+    'Number of arrays of the whole-blood technical-replicate set GSE250556, from the record table of the chain SOP. Book line 668, printed 64.'
+    value = int(re.search(r'GSE250556, (\d+) arrays', file_text(_B18_SOP)).group(1))
+    return locals()
+
+@check(label='app:glossary:L671', chapter='app:glossary', part=8, title='thermal de Broglie wavelength of 1 g at 300 K, m',
+       file='appendices/app_F_glossary', line=671, status='observed', kind='num', printed='3.7\\times10^{-23}', tol=0.0)
+def check_4934():
+    'lambda_th = hbar/sqrt(2 M k_B T) for M = 1 g, T = 300 K (book inputs, same line). Book line 671, printed 3.7e-23 m.'
+    M, T = 1e-3, 300.0
+    value = hbar / math.sqrt(2 * M * kB * T)
+    return locals()
+
 @check(label='app:glossary:L675', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
        file='appendices/app_F_glossary', line=675, status='observed', kind='file', printed='1.26', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2917():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 675, printed 1.26.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.26')
+    return locals()
+
+@check(label='app:glossary:L675:8.9', chapter='app:glossary', part=8, title='lookback time to the peak of the per-time clock, Gyr',
+       file='appendices/app_F_glossary', line=675, status='observed', kind='num', printed='8.9', tol=0.0)
+def check_4935():
+    'Lookback time to the peak of the per-unit-time writing rate H(a) E(a)/a, LambdaCDM background with H0 = 67.16 (photon sector). Book line 675, printed 8.9 Gyr. Inputs: Omega_m 0.3153 (Planck 2018), H0 locked.'
+    res = minimize_scalar(lambda a: -(math.sqrt(Om / a**3 + OL) * float(E_act(a)) / a), bounds=(0.01, 5), method='bounded')
+    a_peak = res.x
+    H0s = Hsi(H0_photon)
+    t_sec = quad(lambda a: 1 / (a * H0s * math.sqrt(Om / a**3 + OL)), a_peak, 1)[0]
+    value = t_sec / Gyr
+    return locals()
+
+@check(label='app:glossary:L681', chapter='app:glossary', part=8, title='top-quark lifetime hbar/Gamma_t, s',
+       file='appendices/app_F_glossary', line=681, status='observed', kind='num', printed='4.6\\times10^{-25}', tol=0.0)
+def check_4936():
+    'Top-quark lifetime hbar/Gamma_t. Book line 681, printed 4.6e-25 s. Inputs: Gamma_t = 1.42 GeV (PDG 2022, doi 10.1093/ptep/ptac097, as Chapter ch:entanglement states); hbar and e exact (SI 2019).'
+    Gamma_t_GeV = 1.42
+    value = hbar / (Gamma_t_GeV * 1e9 * e_ch)
+    return locals()
+
+@check(label='app:glossary:L707', chapter='app:glossary', part=8, title='Planck-cutoff vacuum energy density E_P^4/(hbar c)^3, J/m^3',
+       file='appendices/app_F_glossary', line=707, status='observed', kind='num', printed='4.63\\times10^{113}', tol=0.0)
+def check_4937():
+    'rho_vac ~ E_P^4/(hbar c)^3 with E_P = sqrt(hbar c^5/G). Book line 707, printed 4.63e113 J/m^3. Inputs: hbar, c exact, G CODATA 2018.'
+    E_P = math.sqrt(hbar * c**5 / G)
+    value = E_P**4 / (hbar * c)**3
+    return locals()
+
+@check(label='app:glossary:L707:1e123', chapter='app:glossary', part=8, title='rho_vac over the measured dark-energy density',
+       file='appendices/app_F_glossary', line=707, status='observed', kind='num', printed='10^{123}', tol=0.0)
+def check_4938():
+    'Ratio of the Planck-cutoff vacuum density to the measured dark-energy density Omega_L 3 H0^2 c^2/(8 pi G). Book line 707, printed 10^123 (order of magnitude: half a decade). Inputs: Planck 2018 h = 0.6736, Omega_L = 1 - 0.3153 (Aghanim et al. 2020); hbar, c, G.'
+    E_P = math.sqrt(hbar * c**5 / G)
+    rho_vac = E_P**4 / (hbar * c)**3
+    rho_de = OL * 3 * Hsi(100 * h_pl)**2 * c**2 / (8 * math.pi * G)
+    value = rho_vac / rho_de
     return locals()
 
 @check(label='app:glossary:L708', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
@@ -43139,11 +44481,101 @@ def check_2919():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.02')
     return locals()
 
+@check(label='app:glossary:L714:1.1', chapter='app:glossary', part=8, title='lowest 2T/|U| of simulated halos within the virial radius',
+       file='appendices/app_F_glossary', line=714, status='observed', kind='file', printed='1.1', tol=0.0,
+       source='docs/verification/virial/NBODY_TRACE.md')
+def check_4939():
+    'Lower end of 2T/|U| within the virial radius over Bett 2007, Neto 2007 and Power 2012, as traced in NBODY_TRACE.md. Book line 714, printed 1.1 (of 1.1-1.3).'
+    lo = [_b00_nb(src, pat)[0] for src, pat in _B00_BNP]
+    value = min(lo)
+    return locals()
+
+@check(label='app:glossary:L714:1.3', chapter='app:glossary', part=8, title='highest 2T/|U| of simulated halos within the virial radius',
+       file='appendices/app_F_glossary', line=714, status='observed', kind='file', printed='1.3', tol=0.0,
+       source='docs/verification/virial/NBODY_TRACE.md')
+def check_4940():
+    'Upper end of 2T/|U| within the virial radius over Bett 2007, Neto 2007 and Power 2012, as traced in NBODY_TRACE.md. Book line 714, printed 1.3 (of 1.1-1.3).'
+    hi = [_b00_nb(src, pat)[1] for src, pat in _B00_BNP]
+    value = max(hi)
+    return locals()
+
+@check(label='app:glossary:L714:1.17', chapter='app:glossary', part=8, title='surface-pressure corrected 2K/|W|, upper end',
+       file='appendices/app_F_glossary', line=714, status='observed', kind='file', printed='1.17', tol=0.0,
+       source='docs/verification/virial/NBODY_TRACE.md')
+def check_4941():
+    'Upper end of the surface-pressure corrected virial ratio 2K/|W| of Klypin et al. 2016, as traced in NBODY_TRACE.md. Book line 714, printed 1.17 (of 1.02-1.17).'
+    value = _b00_nb('Klypin', _B00_KLYPIN)[1]
+    return locals()
+
+@check(label='app:glossary:L719', chapter='app:glossary', part=8, title='weak-interaction range hbar/(M_W c), m',
+       file='appendices/app_F_glossary', line=719, status='observed', kind='num', printed='2.5\\times10^{-18}', tol=0.0)
+def check_4942():
+    'Range of the weak interaction hbar/(M_W c) = hbar c/(M_W c^2). Book line 719, printed 2.5e-18 m. Inputs: M_W = 80.4 GeV (book, same line); hbar, c, e exact (SI 2019).'
+    MW_J = 80.4e9 * eV
+    value = hbar * c / MW_J
+    return locals()
+
+@check(label='app:glossary:L725', chapter='app:glossary', part=8, title='mean DA white dwarf mass (Kepler et al. 2007)',
+       file='appendices/app_F_glossary', line=725, status='observed', kind='num', printed='0.593', tol=0.0)
+def check_4943():
+    'Measured mean mass of SDSS DA white dwarfs. Book line 725, printed 0.593 M_sun. Published: Kepler et al. 2007, MNRAS 375, 1315 (doi 10.1111/j.1365-2966.2006.11388.x, bib Kepler2007), <M_DA> = 0.593 +- 0.016 M_sun.'
+    M_DA_Kepler2007 = 0.593
+    value = M_DA_Kepler2007
+    return locals()
+
+@check(label='app:glossary:L728', chapter='app:glossary', part=8, title='within-person SD, untared, 54 y repeat arrays',
+       file='appendices/app_F_glossary', line=728, status='measured', kind='file', printed='0.045', tol=0.0, source=_B18_T2)
+def check_4944():
+    'Sample SD of the untared Met-A (A_own) of the 24 isolated-neutrophil repeat arrays of one person (series GSE247195) in the T2 repeat diagnostic. Book line 728, printed 0.045.'
+    value, n_arrays = _b18_sd('GSE247195')
+    return locals()
+
+@check(label='app:glossary:L728:0.044', chapter='app:glossary', part=8, title='within-person SD, untared, 30 y repeat arrays',
+       file='appendices/app_F_glossary', line=728, status='measured', kind='file', printed='0.044', tol=0.0, source=_B18_T2)
+def check_4945():
+    'Sample SD of the untared Met-A (A_own) of the isolated-neutrophil repeat arrays of the other person (series GSE247193, 21 arrays read) in the T2 repeat diagnostic. Book line 728, printed 0.044.'
+    value, n_arrays = _b18_sd('GSE247193')
+    return locals()
+
 @check(label='app:glossary:L729', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
        file='appendices/app_F_glossary', line=729, status='observed', kind='file', printed='1.05', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2920():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 729, printed 1.05.'
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.05')
+    return locals()
+
+@check(label='app:glossary:L729:1.45', chapter='app:glossary', part=8, title='WtG Planck-prior 1/(1-b)',
+       file='appendices/app_F_glossary', line=729, status='observed', kind='num', printed='1.45', tol=0.0, source=_B18_CL,
+       heavy=True, rerun=_B18_CL_RERUN)
+def check_4946():
+    'M_WL/M_Planck = 1/(1-b) of the WtG calibration, from 1-b = 0.688 +- 0.072 (Planck 2015 XXIV Table 2, doi 10.1051/0004-6361/201525833) as listed in the committed cluster output. Book line 729, printed 1.45.'
+    value = 1 / _b18_cl('WtG 1-b')[0]
+    return locals()
+
+@check(label='app:glossary:L729:1.28', chapter='app:glossary', part=8, title='CCCP Planck-prior 1/(1-b)',
+       file='appendices/app_F_glossary', line=729, status='observed', kind='num', printed='1.28', tol=0.0, source=_B18_CL,
+       heavy=True, rerun=_B18_CL_RERUN)
+def check_4947():
+    'M_WL/M_Planck = 1/(1-b) of the CCCP calibration, from 1-b = 0.78 +- 0.092 (Planck 2015 XXIV Table 2) as listed in the committed cluster output. Book line 729, printed 1.28.'
+    value = 1 / _b18_cl('CCCP 1-b')[0]
+    return locals()
+
+@check(label='app:glossary:L735', chapter='app:glossary', part=8, title='electron Yukawa y_e = sqrt2 m_e/v',
+       file='appendices/app_F_glossary', line=735, status='observed', kind='num', printed='2.9\\times10^{-6}', tol=0.0)
+def check_4948():
+    'Electron Yukawa coupling y_e = sqrt2 m_e/v with v = (sqrt2 G_F)^(-1/2). Book line 735, printed 2.9e-6. Inputs: G_F = 1.1663788e-5 GeV^-2 (PDG), m_e CODATA 2018.'
+    G_F = 1.1663788e-5
+    v = (math.sqrt(2) * G_F)**-0.5
+    value = math.sqrt(2) * m_e_MeV / 1e3 / v
+    return locals()
+
+@check(label='app:glossary:L735:0.991', chapter='app:glossary', part=8, title='top Yukawa y_t = sqrt2 m_t/v',
+       file='appendices/app_F_glossary', line=735, status='observed', kind='num', printed='0.991', tol=0.0)
+def check_4949():
+    'Top Yukawa coupling y_t = sqrt2 m_t/v with v = (sqrt2 G_F)^(-1/2). Book line 735, printed 0.991. Inputs: G_F = 1.1663788e-5 GeV^-2 (PDG), m_t = 172.57 GeV (PDG 2024), as in Chapter ch:higgsrecord.'
+    G_F, m_t = 1.1663788e-5, 172.57
+    v = (math.sqrt(2) * G_F)**-0.5
+    value = math.sqrt(2) * m_t / v
     return locals()
 
 
@@ -44277,277 +45709,102 @@ INVENTORY = [
     (8, 'app:derivations', 'appendices/app_C3_derivations', 346, '', 'derived', '11', 'not a number: ket label |11> of the Bell state'),
     (8, 'app:derivations', 'appendices/app_C3_derivations', 349, '', 'derived', '0.7', 'input: dephasing value c = 0.7 at which the Bell bound is checked numerically'),
     (8, 'app:derivations', 'appendices/app_C3_derivations', 349, '', 'derived', '0.2', 'input: dephasing value c = 0.2 at which the Bell bound is checked numerically'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 18, '', 'observed', '0.067', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 18, '', 'observed', '0.15', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 24, '', 'observed', '0.0039', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 26, '', 'observed', '0.05', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 28, '', 'observed', '0.02', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 46, '', 'observed', '3.03', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 46, '', 'observed', '4.45', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 48, '', 'observed', '9950', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 48, '', 'observed', '576', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 48, '', 'observed', '-593', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 48, '', 'observed', '20', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 50, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 68, '', 'observed', '71.12', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 70, '', 'observed', '74', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 70, '', 'observed', '814', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 70, '', 'observed', '000', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 72, '', 'observed', '54', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 74, '', 'observed', '61.5', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 74, '', 'observed', '10.9', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 88, '', 'observed', '0.0039', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 88, '', 'observed', '2.5', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 90, '', 'observed', '0.295', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 103, '', 'observed', '50', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 109, '', 'observed', '5.5', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 112, '', 'observed', '3.81', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 112, '', 'observed', '3.47', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 116, '', 'observed', '30', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 124, '', 'observed', '0.97', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 124, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 124, '', 'observed', '-18', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 124, '', 'observed', '0.32', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 124, '', 'observed', '-1.8', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 124, '', 'observed', '0.05', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 126, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 133, '', 'observed', '1.44', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 133, '', 'observed', '1.456', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 138, '', 'observed', '+0.54', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 144, '', 'observed', '2.7255', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 149, '', 'observed', '1.2', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 153, '', 'observed', '1.68', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 156, '', 'observed', '0.62', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 156, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 171, '', 'observed', '0.024', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 171, '', 'observed', '-0.042', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 178, '', 'observed', '0.7', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 180, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 183, '', 'observed', '2.8\\times10^7', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 183, '', 'observed', '70', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 185, '', 'observed', '+0.2', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 185, '', 'observed', '90', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 187, '', 'observed', '20', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 188, '', 'calc', '2.2\\times10^{-10}', 'not yet run: draft does not reproduce the printed value (recomputed 1069.78); drafting error on review'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 188, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 189, '', 'observed', '50', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 193, '', 'observed', '84.4', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 198, '', 'observed', '55.57', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 211, '', 'observed', '0.776', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 214, '', 'observed', '0.93', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 214, '', 'observed', '-0.98', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 223, '', 'observed', '-80', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 223, '', 'observed', '1.9', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 223, '', 'observed', '4.4', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 224, '', 'observed', '1.16', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 224, '', 'observed', '-1.87', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 224, '', 'observed', '1.65', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 224, '', 'observed', '-1.97', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 230, '', 'observed', '4.9', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 238, '', 'observed', '+1.8', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 238, '', 'observed', '0.3', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 238, '', 'observed', '+3.6', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 243, '', 'observed', '0.3', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 243, '', 'observed', '0.576', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 245, '', 'observed', '159.5', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 245, '', 'observed', '9.2\\times10^{-12}', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 246, '', 'observed', '159.5', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 247, '', 'conjecture', '1.05', 'not yet checked'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 247, '', 'conjecture', '0.95', 'not yet checked'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 251, '', 'observed', '056', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 260, '', 'observed', '865', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 260, '', 'observed', '000', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 262, '', 'observed', '0.032', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 270, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 274, '', 'observed', '5120', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 274, '', 'observed', '2.1\\times10^{67}', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 280, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 286, '', 'observed', '0.93', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 286, '', 'observed', '0.98', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 287, '', 'observed', '45', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 295, '', 'observed', '4.25', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 295, '', 'observed', '1.35', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 295, '', 'observed', '0.5', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 295, '', 'observed', '0.04', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 304, '', 'observed', '0.01', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 311, '', 'observed', '2.65\\times10^{-30}', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 312, '', 'observed', '105', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 312, '', 'observed', '68', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 316, '', 'observed', '1.315', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 318, '', 'observed', '0.78', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 319, '', 'observed', '0.55', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 319, '', 'observed', '0.585', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 319, '', 'observed', '0.633', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 320, '', 'observed', '106.75', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 320, '', 'observed', '7.8\\times10^{-16}', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 323, '', 'observed', '64', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 323, '', 'observed', '0.30', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 323, '', 'observed', '-0.56', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 324, '', 'measured', '1.65', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 324, '', 'measured', '-1.97', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 325, '', 'observed', '-70', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 325, '', 'observed', '75', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 327, '', 'observed', '67.16', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 327, '', 'observed', '72.26', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 327, '', 'observed', '67.36', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 327, '', 'observed', '73.04', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 328, '', 'observed', '0.90', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 328, '', 'observed', '-0.98', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 334, '', 'observed', '6.17\\times10^{-8}', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 335, '', 'observed', '12', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 341, '', 'observed', '28', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 341, '', 'observed', '217', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 341, '', 'observed', '448', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 342, '', 'observed', '2.8\\times10^7', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 342, '', 'observed', '217', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 344, '', 'observed', '125.20', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 344, '', 'observed', '0.129', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 354, '', 'calc', '150', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 354, '', 'calc', '2.9\\times10^{78}', 'not yet run: draft does not reproduce the printed value (recomputed 6.914077e+83); drafting error on review'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 355, '', 'observed', '123', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 359, '', 'observed', '0.776', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 360, '', 'observed', '1588', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 361, '', 'observed', '1.4\\times10^{26}', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 368, '', 'observed', '0.032', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 368, '', 'observed', '000', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 368, '', 'observed', '0.95', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 370, '', 'observed', '0.80', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 370, '', 'observed', '0.92', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 370, '', 'observed', '-0.998', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 372, '', 'observed', '0.75', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 372, '', 'observed', '-0.95', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 372, '', 'observed', '0.05', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 372, '', 'observed', '-0.25', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 372, '', 'observed', '000', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 372, '', 'observed', '90', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 379, '', 'observed', '0.93', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 395, '', 'observed', '75', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 400, '', 'observed', '1000', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 400, '', 'observed', '0.815', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 400, '', 'observed', '0.021', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 406, '', 'observed', '2.2\\times10^{-6}', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 406, '', 'observed', '0.43', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 406, '', 'observed', '0.2222', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 407, '', 'observed', '1.57', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 407, '', 'observed', '2.7', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 411, '', 'observed', '3.33\\times10^{-21}', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 413, '', 'observed', '4.9', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 420, '', 'observed', '61.45', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 420, '', 'observed', '61.52', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 422, '', 'observed', '0.76', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 426, '', 'observed', '68', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 429, '', 'observed', '1.3', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 430, '', 'observed', '56', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 434, '', 'calc', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 434, '', 'observed', '1.16', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 435, '', 'calc', '6.5\\times10^9', 'not yet run: draft rejected (drafter skipped: M87 central black hole mass cited as "6.5×10^9 M_☉" (line 435)\n# This is )'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 438, '', 'observed', '0.95', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 438, '', 'observed', '-0.98', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 445, '', 'observed', '30', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 446, '', 'observed', '0.58', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 446, '', 'observed', '0.80', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 451, '', 'observed', '36.8', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 457, '', 'observed', '20', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 457, '', 'observed', '0.95', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 463, '', 'observed', '200', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 464, '', 'observed', '-1.5', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 464, '', 'observed', '2.7\\times10^{-15}', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 474, '', 'observed', '-0.136', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 474, '', 'observed', '-0.13495', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 474, '', 'observed', '4.25', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 479, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 480, '', 'observed', '1.4', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 484, '', 'observed', '48', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 486, '', 'observed', '0.95', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 501, '', 'observed', '80', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 501, '', 'observed', '000', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 507, '', 'observed', '364', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 508, '', 'observed', '1701', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 508, '', 'observed', '0.001', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 508, '', 'observed', '2.26', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 514, '', 'observed', '39', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 514, '', 'observed', '-67', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 520, '', 'observed', '1550', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 520, '', 'observed', '30.9', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 521, '', 'observed', '0.075', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 525, '', 'observed', '1.956\\times10^9', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 526, '', 'observed', '1.616\\times10^{-35}', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 526, '', 'observed', '2.176\\times10^{-8}', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 528, '', 'observed', '5.4\\times10^{-44}', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 534, '', 'observed', '-5.69\\times10^{41}', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 534, '', 'observed', '23.6', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 536, '', 'observed', '20', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 539, '', 'observed', '92.7', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 539, '', 'observed', '90', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 542, '', 'observed', '-0.5', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 542, '', 'observed', '+0.2', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 544, '', 'observed', '01', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 544, '', 'observed', '56', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 553, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 555, '', 'observed', '80', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 556, '', 'observed', '98', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 556, '', 'observed', '7.9\\times10^{-4}', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 556, '', 'observed', '12.7', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 560, '', 'observed', '0.93', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 562, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 570, '', 'observed', '0.20', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 583, '', 'observed', '0.79', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 583, '', 'observed', '-0.83', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 587, '', 'observed', '1.2\\times10^{-3}', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 588, '', 'measured', '67.16', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 588, '', 'measured', '0.7998', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 588, '', 'measured', '0.822', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 588, '', 'measured', '0.821', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 593, '', 'observed', '0.822', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 599, '', 'observed', '056', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 599, '', 'observed', '0.93', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 607, '', 'observed', '0.020', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 613, '', 'observed', '4.3\\times10^6', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 614, '', 'observed', '73.04', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 619, '', 'observed', '0.91', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 620, '', 'observed', '0.809', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 620, '', 'observed', '0.800', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 620, '', 'observed', '0.813', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 622, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 1.000000e-12); drafting error on review'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 622, '', 'calc', '509', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 622, '', 'calc', '7.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 622, '', 'observed', '2200', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 623, '', 'observed', '000', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 638, '', 'observed', '000', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 638, '', 'observed', '90', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 640, '', 'observed', '000', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 648, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 650, '', 'observed', '60', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 650, '', 'observed', '300', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 653, '', 'observed', '+23.6', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 655, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 662, '', 'observed', '89', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 662, '', 'observed', '105', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 663, '', 'observed', '0.3', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 663, '', 'observed', '-0.5', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 668, '', 'observed', '64', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 668, '', 'observed', '0.20', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 671, '', 'observed', '3.7\\times10^{-23}', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 671, '', 'observed', '300', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 675, '', 'observed', '8.9', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 681, '', 'observed', '4.6\\times10^{-25}', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 682, '', 'observed', '2.3', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 693, '', 'observed', '0.20', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 707, '', 'observed', '4.63\\times10^{113}', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 707, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 714, '', 'observed', '1.1', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 714, '', 'observed', '-1.3', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 714, '', 'observed', '-1.17', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 719, '', 'observed', '2.5\\times10^{-18}', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 725, '', 'observed', '0.593', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 728, '', 'measured', '0.045', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 728, '', 'measured', '0.044', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 729, '', 'observed', '1.45', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 729, '', 'observed', '1.28', 'measured, not found in the files the chapter names'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 729, '', 'observed', '0.15', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 729, '', 'observed', '0.3', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 735, '', 'observed', '2.9\\times10^{-6}', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:glossary', 'appendices/app_F_glossary', 735, '', 'observed', '0.991', 'measured, not found in the files the chapter names'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 26, '', 'observed', '0.05', 'definition: identity-site rule, across-array SD at most 0.05 (canon Met_A_site_rule)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 48, '', 'observed', '9950', 'not a number: part of the processor name (Ryzen 9 9950X)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 48, '', 'observed', '20', 'input: transistor count (20.0-20.6) x 10^9 from die-level reports (no maker figure); the readings it gives are checked at app:glossary:L48:576 and L48:593'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 70, '', 'observed', '000', 'not a separate number: thousands group of "814,000", checked at app:glossary:L70:814'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 103, '', 'observed', '50', 'definition: block size of the C-score, 50 consecutive identity sites'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 116, '', 'observed', '30', 'definition: 30 % burn-in, the setting of the book extractions'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 126, '', 'observed', '10', 'input: about 10^4 genome equivalents in a millilitre-scale draw, an order of magnitude (used in ch:sky L73-74)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 133, '', 'observed', '1.44', 'input: Chandrasekhar mass 1.44 M_sun as conventionally quoted (Chandrasekhar1931); the constants-only 1.456 beside it is checked at app:glossary:L133:1.456'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 156, '', 'observed', '0.62', 'input: f_coll = 0.62 restated from Eq. vc_eta (ch:virial line 75); the mass it implies is checked at ch:virial:L126:8.2'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 156, '', 'observed', '10', 'input: halo mass threshold 10^6 M_sun of the collapsed fraction (ch:virial), an order of magnitude'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 180, '', 'observed', '10', 'not a separate number: base of 10^{123}; the 123 orders are checked at app:glossary:L355:123'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 183, '', 'observed', '70', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 185, '', 'observed', '90', 'definition: central 90 % credible interval whose lower end (5 % quantile) is quoted'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 187, '', 'observed', '20', 'definition: a level of comparison ("rankings at the 20 % level"), not a computed number'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 188, '', 'observed', '10', 'input: temperature 10 mK at which the crossover mass is evaluated (used in app:glossary:L188:2.2e-10)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 189, '', 'observed', '50', 'definition: block size of the C-score, 50 consecutive sites'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 214, '', 'observed', '0.93', 'definition: Stage 0 call-rate quarantine threshold 0.93 (chain setting)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 214, '', 'observed', '-0.98', 'definition: upper edge 0.98 of the Stage 0 call-rate flag band (chain setting)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 223, '', 'observed', '-80', 'input: 80-fold average selectivity across flanking sequences (Adam2023, ch:landauer line 194); its k_B T ln 80 is checked at app:glossary:L223:4.4'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 238, '', 'observed', '0.3', 'input: redshift z = 0.3 at which E_G is evaluated (used in app:glossary:L238:+1.8)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 247, '', 'conjecture', '1.05', 'definition: upper edge of the Normal band 0.95-1.05 (canon Normal_band)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 247, '', 'conjecture', '0.95', 'definition: lower edge of the Normal band 0.95-1.05 (canon Normal_band)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 260, '', 'observed', '865', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 260, '', 'observed', '000', 'not a separate number: thousands group of "865,000" (the EPIC CpG count, listed in sources_needed)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 270, '', 'observed', '10', 'input: surface-code threshold about 10^{-2}, an order of magnitude quoted in ch:ascoreqc'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 280, '', 'observed', '10', 'input: fault-tolerance target about 10^{-3}, an order of magnitude quoted in ch:ascoreqc (Fowler2012, GoogleWillow2025)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 286, '', 'observed', '0.93', 'definition: lower edge of the call-rate flag band 0.93-0.98 (chain setting)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 286, '', 'observed', '0.98', 'definition: upper edge of the call-rate flag band 0.93-0.98 (chain setting)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 295, '', 'observed', '0.5', 'input: redshift z = 0.5 at which the deficit is evaluated (used in app:glossary:L295:1.35)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 304, '', 'observed', '0.01', 'definition: convergence criterion R - 1 < 0.01 of the chains'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 312, '', 'observed', '68', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 325, '', 'observed', '-70', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 325, '', 'observed', '75', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 328, '', 'observed', '0.90', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 328, '', 'observed', '-0.98', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 335, '', 'observed', '12', 'definition: HEALPix divides the sphere into 12 N_side^2 pixels (Gorski2005)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 341, '', 'observed', '217', 'not a separate number: thousands group of "28,217,448", checked at app:glossary:L341:28217448'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 341, '', 'observed', '448', 'not a separate number: last group of "28,217,448", checked at app:glossary:L341:28217448'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 342, '', 'observed', '217', 'not a separate number: thousands group of "28,217,448", checked at app:glossary:L341:28217448'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 354, '', 'calc', '150', 'input: temperature T = 150 MeV (QCD scale) at which the horizon capacity is evaluated (used in app:glossary:L354:2.9e78)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 368, '', 'observed', '000', 'definition: at least 100,000 opportunities per IAM-A reading (chain setting); thousands group'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 368, '', 'observed', '0.95', 'definition: lower edge of the Normal band 0.95-1.05 (canon Normal_band)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 372, '', 'observed', '0.75', 'definition: identity-site window 0.75-0.95 (canon Met_A_site_rule)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 372, '', 'observed', '-0.95', 'definition: identity-site window 0.75-0.95 (canon Met_A_site_rule)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 372, '', 'observed', '0.05', 'definition: identity-site window 0.05-0.25 (canon Met_A_site_rule)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 372, '', 'observed', '-0.25', 'definition: identity-site window 0.05-0.25 (canon Met_A_site_rule)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 372, '', 'observed', '000', 'definition: at most 3,000 sites per channel (canon Met_A_site_rule); thousands group'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 372, '', 'observed', '90', 'definition: at least 90 % of identity sites measured in a reading (chain setting)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 379, '', 'observed', '0.93', 'definition: intake call-rate threshold 0.93 (chain setting)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 395, '', 'observed', '75', 'input: nominal junction temperature 75 C of published TDP figures (348.15 K, used in app:glossary:L48:576)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 400, '', 'observed', '1000', 'not a number: part of the survey name KiDS-1000'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 407, '', 'observed', '2.7', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 434, '', 'calc', '0.5', 'input: redshift z = 0.5 at which 1/mu is quoted (the value 1.05 there is checked at app:glossary:L434)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 435, '', 'calc', '6.5\\times10^9', 'input: M87* black-hole mass 6.5e9 M_sun, Event Horizon Telescope 2019 (doi 10.3847/2041-8213/ab0ec7); the Smarr share at this mass is checked at ch:blackholes:L143'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 438, '', 'observed', '0.95', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 438, '', 'observed', '-0.98', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 445, '', 'observed', '30', 'definition: masking threshold of the copy-error statistic (more than 30 % of qualifying molecules in error), a chain rule'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 457, '', 'observed', '20', 'definition: smallest neutrophil fraction (20 %) at which whole-blood Met-A is read, a chain rule'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 479, '', 'observed', '10', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 480, '', 'observed', '1.4', 'input: canonical neutron-star mass 1.4 M_sun, nothing to recompute'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 501, '', 'observed', '80', 'definition: qualifying-molecule rule, at least 80 % of calls methylated (chain rule)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 501, '', 'observed', '000', 'definition: at least 100,000 opportunities for an IAM-A reading (chain rule; the 000 is the tail of 100,000)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 507, '', 'observed', '364', 'restates ch:xqp:L67 (2 Delta_Al with Delta_Al = 182 ueV, recomputed from BCS at ch:scprimer:L16:182)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 514, '', 'observed', '39', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 514, '', 'observed', '-67', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 520, '', 'observed', '1550', 'input: photon wavelength 1550 nm; used in app:glossary:L520'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 536, '', 'observed', '20', 'definition: atlas v2 stores 20 posterior draws per value (a design choice), nothing to recompute'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 539, '', 'observed', '90', 'definition: nominal 90 % coverage of the predictive interval (the interval level itself)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 544, '', 'observed', '01', 'not a number: part of the identifier PROC-CHANNEL-01'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 555, '', 'observed', '80', 'definition: qualifying-molecule rule, at least 80 % of calls methylated (chain rule)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 556, '', 'observed', '98', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 556, '', 'observed', '7.9\\times10^{-4}', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 560, '', 'observed', '0.93', 'definition: intake call-rate line 0.93 (quarantine rule of the chain)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 562, '', 'observed', '10', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 570, '', 'observed', '0.20', 'definition: read line 0.20, the smallest neutrophil fraction chain v3 reads (chain rule)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 599, '', 'observed', '0.93', 'definition: intake call-rate line 0.93 restated (quarantine rule); the count 1,056 is checked at app:glossary:L599:1056'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 613, '', 'observed', '4.3\\times10^6', 'input: Sgr A* mass 4.3e6 M_sun (Gillessen 2009), as taken in Chapter ch:iams_law; nothing to recompute'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 622, '', 'calc', '10', 'input: test mass 1e-12 kg of the worked example (the 10 is the base of a printed power); tau values checked at app:glossary:L622:509 and L622:7.5'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 622, '', 'observed', '2200', 'input: fused-silica density 2200 kg/m^3 (published material constant), used in app:glossary:L622:509'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 623, '', 'observed', '000', 'definition: 6,000 neutrophil identity sites of chain v3 (design of the site set; the 000 is the tail of 6,000)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 638, '', 'observed', '000', 'definition: 6,000 identity sites of Stage M restated (the 000 is the tail of 6,000)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 638, '', 'observed', '90', 'definition: Stage M needs at least 90 % of identity sites measured (chain rule)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 640, '', 'observed', '000', 'definition: at least 100,000 opportunities for Stage Q (chain rule; the 000 is the tail of 100,000)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 648, '', 'observed', '10', 'input: approximate frequency band 1e-4 to 1e-2 Hz of an electroweak-transition gravitational-wave peak from the literature (the 10 is the base of a printed power), nothing to recompute'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 650, '', 'observed', '300', 'input: temperature 300 K at which the swing bound is evaluated; used in app:glossary:L650'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 655, '', 'observed', '10', 'input: surface-code threshold of about 1e-2 per operation (Fowler2012, doi 10.1103/PhysRevA.86.032324); the 10 is the base of a printed power'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 662, '', 'observed', '89', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 662, '', 'observed', '105', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 663, '', 'observed', '0.3', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 663, '', 'observed', '-0.5', 'measured, source not named'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 668, '', 'observed', '0.20', 'definition: read line 0.20 restated (chain rule)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 671, '', 'observed', '300', 'input: temperature 300 K of the worked example; used in app:glossary:L671'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 682, '', 'observed', '2.3', 'input: TOV limit of about 2.3 M_sun (published approximate value), nothing to recompute'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 693, '', 'observed', '0.20', 'definition: twin-test separation of 0.20 in beta (atlas entry rule)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 729, '', 'observed', '0.15', 'input: redshift bound z=0.15 of the published cluster sample split (Smith2016LoCuSS), a sample definition'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 729, '', 'observed', '0.3', 'input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition'),
     (8, 'app:register', 'appendices/app_G_predictions_register', 19, '', 'observed', '45', 'measured, too few printed digits to match against the named files'),
     (8, 'app:register', 'appendices/app_G_predictions_register', 19, '', 'observed', '40', 'measured, too few printed digits to match against the named files'),
     (8, 'app:register', 'appendices/app_G_predictions_register', 20, '', 'observed', '25', 'measured, too few printed digits to match against the named files'),
