@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4424 PASS, 0 FAIL, 1915 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4453 PASS, 0 FAIL, 1886 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5419,50 +5419,50 @@ Totals: 4424 PASS, 0 FAIL, 1915 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 29 | ch:synthesis:L29 | derived | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
-| 29 |  | derived | `2.65\times10^{-30}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 29 |  | calc | `-0.136` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 30 |  | derived | `6.2\times10^{-8}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 31 |  | derived | `35` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 31 |  | derived | `15` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 32 |  | calc | `576` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 32 |  | calc | `593` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 32 |  | derived | `-350` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 32 |  | derived | `9950` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 33 |  | derived | `0.032` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 33 |  | derived | `0.910` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 33 |  | derived | `3.03` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 33 |  | derived | `4.45` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 29 | ch:synthesis:L29:2.65\times10^{-30} | derived | `2.65\times10^{-30}` | numeric: cosmic-horizon temperature T_GH, H0 = 67.16 | PASS |
+| 29 | ch:synthesis:L29:-0.136 | calc | `-0.136` | numeric: mu0 = mu(a=1) - 1 | PASS |
+| 30 | ch:synthesis:L30 | derived | `6.2\times10^{-8}` | numeric: Hawking temperature of a solar-mass black hole | PASS |
+| 31 |  | derived | `35` | not run: input: the transmon's own temperature 35 mK, a published measurement (\cite{Jin2015} in ch:onegauge); used by ch:synthesis:L87 | - |
+| 31 |  | derived | `15` | not run: input: the 15 mK refrigerator stage, an operating condition stated with the 35 mK reading; nothing to recompute | - |
+| 32 | ch:synthesis:L32 | calc | `576` | numeric: 9950X switching energy over the Landauer floor, lower end | PASS |
+| 32 | ch:synthesis:L32:593 | calc | `593` | numeric: 9950X switching energy over the Landauer floor, upper end | PASS |
+| 32 |  | derived | `-350` | not run: input: the junction temperature range 300-350 K of a transistor (the scan read '300--350' as -350), an operating range, nothing to recompute | - |
+| 32 |  | derived | `9950` | not run: definition: '9950' is part of the processor's model name (Ryzen 9 9950X), not a quantity | - |
+| 33 | ch:synthesis:L33 | derived | `0.032` | numeric: cell floor eps0 = 1/(1 + exp(phi M)) | PASS |
+| 33 | ch:synthesis:L33:0.910 | derived | `0.910` | numeric: IAM-A floor of neutrophils, 1/P_cell | PASS |
+| 33 | ch:synthesis:L33:3.03 | derived | `3.03` | numeric: full surface on Met-A, 1/(healthy reference) | PASS |
+| 33 | ch:synthesis:L33:4.45 | derived | `4.45` | numeric: full surface on IAM-A, 1/(P H(eps0)) | PASS |
 | 51 | ch:synthesis:L51 | derived | `2.112` | numeric: same value as p1_01_encoding_surfaces:220 (Al superconducting gap expressed as temperature) | PASS |
-| 51 |  | derived | `310.15` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 51 | ch:synthesis:L51:310.15 | derived | `310.15` | numeric: body temperature 37 C in kelvin | PASS |
 | 53 | ch:synthesis:L53 | derived | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 53 |  | measured | `0.032` | not run: measured, too few printed digits to match against the named files | - |
-| 53 |  | measured | `3.41` | not run: measured, not found in the files the chapter names | - |
-| 54 |  | calc | `-0.136` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 54 |  | measured | `0.7998` | not run: measured, not found in the files the chapter names | - |
-| 64 |  | derived | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 64 |  | derived | `0.500000` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 69 |  | derived | `-0.136` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 53 | ch:synthesis:L53:0.032 | measured | `0.032` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: eps0 from the measured holding energy | PASS |
+| 53 | ch:synthesis:L53:3.41 | measured | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy E_hold, PROC-CHANNEL-01 | PASS |
+| 54 | ch:synthesis:L54 | calc | `-0.136` | numeric: mu0 = mu(a=1) - 1 (slot table) | PASS |
+| 54 | ch:synthesis:L54:0.7998 | measured | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM Level 2 chain | PASS |
+| 64 | ch:synthesis:L64 | derived | `0.500000` | numeric: capacitor charging: dissipated over drawn energy, any R | PASS |
+| 64 |  | derived | `10` | not run: input: the resistance range 10^-2 to 10^2 ohm over which the capacitor ratio is computed (checked as ch:synthesis:L64) | - |
+| 69 | ch:synthesis:L69 | derived | `-0.136` | numeric: mu0 from beta_m = Omega_m/2 | PASS |
 | 77 | ch:synthesis:L77 | measured | `1.05` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names | PASS |
-| 77 |  | measured | `0.95` | not run: measured, too few printed digits to match against the named files | - |
-| 77 |  | measured | `1.8` | not run: measured, too few printed digits to match against the named files | - |
-| 79 |  | fitted | `+0.54` | not run: measured, too few printed digits to match against the named files | - |
-| 80 |  | fitted | `0.8087` | not run: measured, not found in the files the chapter names | - |
-| 80 |  | fitted | `4.25` | not run: measured, not found in the files the chapter names | - |
-| 80 |  | fitted | `0.41` | not run: measured, too few printed digits to match against the named files | - |
-| 87 |  | derived | `68` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 87 |  | derived | `6.2\times10^{-7}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 88 |  | derived | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 93 |  | calibrated | `0.020` | not run: measured, too few printed digits to match against the named files | - |
-| 94 |  | measured | `0.982` | not run: measured, not found in the files the chapter names | - |
-| 94 |  | measured | `1.016` | not run: measured, not found in the files the chapter names | - |
-| 94 |  | measured | `1.049` | not run: measured, not found in the files the chapter names | - |
-| 94 |  | measured | `1.079` | not run: measured, not found in the files the chapter names | - |
+| 77 | ch:synthesis:L77:0.95 | measured | `0.95` | file `CANON/iam_canon.json`: Normal band lower edge (CANON) | PASS |
+| 77 |  | measured | `1.8` | not run: measured, source not named | - |
+| 79 | ch:synthesis:L79 | fitted | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2, IAM minus LCDM | PASS |
+| 80 | ch:synthesis:L80 | fitted | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM Level 2 chain (Run C) | PASS |
+| 80 | ch:synthesis:L80:4.25 | fitted | `4.25` | numeric: f sigma8 deficit at z = 0 | PASS |
+| 80 | ch:synthesis:L80:0.41 | fitted | `0.41` | numeric: f sigma8 deficit at z = 1 | PASS |
+| 87 | ch:synthesis:L87 | derived | `6.2\times10^{-7}` | numeric: transmon per-gate thermal floor p_eq t_g/T1 | PASS |
+| 87 |  | derived | `68` | not run: input: T_1 = 68 microseconds, a published device value (\cite{GoogleWillow2025} in ch:onegauge); used by ch:synthesis:L87 | - |
+| 88 |  | derived | `10` | not run: input: the base 10 of a two-qubit error near 10^-3, an illustrative device value stated in the sentence; nothing to recompute | - |
+| 93 | ch:synthesis:L93 | calibrated | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out SD of the six reference arrays | PASS |
+| 94 | ch:synthesis:L94 | measured | `0.982` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures, untared, lowest | PASS |
+| 94 | ch:synthesis:L94:1.016 | measured | `1.016` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures, untared, highest | PASS |
+| 94 | ch:synthesis:L94:1.049 | measured | `1.049` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: 2 % pattern loss, untared, lowest | PASS |
+| 94 | ch:synthesis:L94:1.079 | measured | `1.079` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: 2 % pattern loss, untared, highest | PASS |
 | 95 | ch:synthesis:L95 | measured | `1.090` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |
-| 95 |  | measured | `1.052` | not run: measured, not found in the files the chapter names | - |
+| 95 | ch:synthesis:L95:1.052 | measured | `1.052` | file `Biological_Physics/MethylPhys/doors/data/selfconsist.csv`: 2 % pattern loss, tared, lowest of six mixtures | PASS |
 | 98 | ch:synthesis:L98 | measured | `1.05` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names | PASS |
 | 98 | ch:synthesis:L98:1.16 | measured | `1.16` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names | PASS |
 | 98 | ch:synthesis:L98:1.87 | measured | `1.87` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names | PASS |
-| 98 |  | measured | `0.97` | not run: measured, too few printed digits to match against the named files | - |
+| 98 | ch:synthesis:L98:0.97 | measured | `0.97` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT series vehicle arrays, lowest | PASS |
 | 100 | ch:synthesis:L100 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names | PASS |
 | 100 | ch:synthesis:L100:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names | PASS |
 | 102 | ch:synthesis:L102 | measured | `1.148` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |

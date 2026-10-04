@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 99
+Entries: 100
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -107,3 +107,4 @@ Entries: 99
 | ch:onegauge | `docs/book/part3/p3_08_one_gauge.tex:154` | `30` | Lower end of 'about 30-40x on short substrates' (\cite{Goyal2006}, doi 10.1093/nar/gkl002). Not in any repository file; fig_p3.py types 30-50 for this entry, not 30-40. The value in the paper needs to be confirmed. |
 | ch:onegauge | `docs/book/part3/p3_08_one_gauge.tex:154` | `40` | Upper end of 'about 30-40x' (\cite{Goyal2006}). fig_p3.py plots 50, the text and caption say 40; the paper value needs to be confirmed. |
 | ch:onegauge | `docs/book/part3/p3_08_one_gauge.tex:154` | `80` | Average preference 80x across flanking sequences (\cite{Adam2023}, doi 10.1093/nar/gkad465). Not in any repository file except as a typed figure input; the paper's value needs to be confirmed. |
+| ch:synthesis | `docs/book/part5/p5_08_synthesis.tex:77` | `1.8` | fig:cell_readings caption: 'near 1.8, Met-A is at its entropy ceiling'. The readings are in Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv (overall A of the active-drug arrays runs 1.16-1.87; arrays past half-loss, beta_meth_median < 0.5, average 1.73), and PROC_DNMT_01_PARTA_OUTCOME.md gives the ceiling only for the methylated channel (1/H(floor) ~ 2.8, observed 2.66-2.85). No file states the combined-reading ceiling of about 1.8 or how it is defined; the author needs to name the statistic (or the computation of the combined ceiling). |

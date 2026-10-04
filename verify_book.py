@@ -2416,6 +2416,30 @@ def _b13_imr90(state, col, which):
 def _b13_Hbits(x):
     return -(x * math.log2(x) + (1 - x) * math.log2(1 - x))
 
+# helpers of the part5/p5_08_synthesis checks
+def _b13_wbneut_range(row_prefix):
+    """(low, high) of the 'A lo-hi' range printed in the table row of PROC_WB_NEUT_01_OUTCOME.md that starts with row_prefix (W1, W3)."""
+    for ln in file_text('Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md').splitlines():
+        if ln.startswith('| ' + row_prefix):
+            m = re.search(r'A ([\d.]+)\s*[–-]\s*([\d.]+)', ln)
+            return float(m.group(1)), float(m.group(2))
+    raise KeyError(row_prefix)
+
+def _b13_tared_damaged():
+    """Salas DNA mixtures with >= 50 % neutrophils (n = 6): Met-A after a simulated 2 % pattern loss, each tared by the median of the other five healthy readings (selfconsist.csv)."""
+    rows = [r for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/selfconsist.csv') if float(r['f_true']) >= 0.5]
+    a = np.array([float(r['A_nnls']) for r in rows]); ad = np.array([float(r['A_nnls_damaged']) for r in rows])
+    ref = np.array([np.median(np.delete(a, i)) for i in range(len(a))])
+    return ad / ref
+
+def _b13_Hb2(x):
+    return -(x * math.log2(x) + (1 - x) * math.log2(1 - x))
+
+def _b13_chip_ratio(N):
+    """E_sw/(k_B T_j ln2) for the 9950X: E_sw = TDP/(N f), TDP 170 W, f 4.3 GHz, T_j = 75 C (book line 104 of ch:reach and ch:onegauge line 21)."""
+    TDP, f_clk, Tj = 170.0, 4.3e9, 75 + 273.15
+    return TDP / (N * f_clk) / (kB * Tj * LN2)
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -37055,11 +37079,82 @@ def check_2605():
     value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
+@check(label='ch:synthesis:L29:2.65\\times10^{-30}', chapter='ch:synthesis', part=7, title='cosmic-horizon temperature T_GH, H0 = 67.16',
+       file='part5/p5_08_synthesis', line=29, status='derived', kind='num', printed='2.65\\times10^{-30}', tol=0.0)
+def check_4424():
+    'T_GH = hbar H0/(2 pi k_B) with H0 = 67.16 (photon sector, locked), in K. Book line 29, printed 2.65e-30.'
+    value = hbar * Hsi(H0_photon) / (2 * math.pi * kB)
+    return locals()
+
+@check(label='ch:synthesis:L29:-0.136', chapter='ch:synthesis', part=7, title='mu0 = mu(a=1) - 1',
+       file='part5/p5_08_synthesis', line=29, status='calc', kind='num', printed='-0.136', tol=0.0)
+def check_4425():
+    'mu0 = mu(1) - 1 with beta_m = Omega_m/2 (mu_iam; locked value -0.136). Book line 29, printed -0.136.'
+    value = float(mu_iam(1.0)) - 1
+    return locals()
+
+@check(label='ch:synthesis:L30', chapter='ch:synthesis', part=7, title='Hawking temperature of a solar-mass black hole',
+       file='part5/p5_08_synthesis', line=30, status='derived', kind='num', printed='6.2\\times10^{-8}', tol=0.0)
+def check_4426():
+    'T_H = hbar c^3/(8 pi G M k_B) at M = 1 M_sun, in K. Book line 30, printed 6.2e-8. Inputs: CODATA G, hbar, k_B; IAU solar mass.'
+    value = hbar * c**3 / (8 * math.pi * G * Msun * kB)
+    return locals()
+
+@check(label='ch:synthesis:L32', chapter='ch:synthesis', part=7, title='9950X switching energy over the Landauer floor, lower end',
+       file='part5/p5_08_synthesis', line=32, status='calc', kind='num', printed='576', tol=0.0)
+def check_4427():
+    'E_sw/(k_B T_j ln2), E_sw = TDP/(N f) with the larger transistor count 20.6e9 (TDP 170 W, 4.3 GHz, T_j 75 C: the inputs the book states, \\cite{AMD9950X}). Book line 32, printed 576.'
+    value = _b13_chip_ratio(20.6e9)
+    return locals()
+
+@check(label='ch:synthesis:L32:593', chapter='ch:synthesis', part=7, title='9950X switching energy over the Landauer floor, upper end',
+       file='part5/p5_08_synthesis', line=32, status='calc', kind='num', printed='593', tol=0.0)
+def check_4428():
+    'E_sw/(k_B T_j ln2) with the smaller transistor count 20.0e9 (same inputs). Book line 32, printed 593.'
+    value = _b13_chip_ratio(20.0e9)
+    return locals()
+
+@check(label='ch:synthesis:L33', chapter='ch:synthesis', part=7, title='cell floor eps0 = 1/(1 + exp(phi M))',
+       file='part5/p5_08_synthesis', line=33, status='derived', kind='num', printed='0.032', tol=0.0)
+def check_4429():
+    'eps0 = 1/(1 + exp(phi M)), phi from CANON, M = dG_ATP/(R T_cell) recomputed from CANON inputs. Book line 33, printed 0.032.'
+    value = 1 / (1 + math.exp(phi_hold * dG_ATP / (R_gas * T_cell)))
+    return locals()
+
+@check(label='ch:synthesis:L33:0.910', chapter='ch:synthesis', part=7, title='IAM-A floor of neutrophils, 1/P_cell',
+       file='part5/p5_08_synthesis', line=33, status='derived', kind='num', printed='0.910', tol=0.0)
+def check_4430():
+    'IAM-A at the physics floor (eps = eps0) is 1/P_cell, P_cell = 1.099 the neutrophils\' frozen position (CANON P_neutrophil_IAM_A). Book line 33, printed 0.910.'
+    value = 1.0 / _cv('P_neutrophil_IAM_A')
+    return locals()
+
+@check(label='ch:synthesis:L33:3.03', chapter='ch:synthesis', part=7, title='full surface on Met-A, 1/(healthy reference)',
+       file='part5/p5_08_synthesis', line=33, status='derived', kind='num', printed='3.03', tol=0.0)
+def check_4431():
+    'Every identity site at beta = 1/2 (H = 1 bit) over the neutrophil healthy reference 0.330263 bits (CANON Met_A_floor_EPIC_neutrophil). Book line 33, printed 3.03.'
+    value = _b13_Hb2(0.5) / _cv('Met_A_floor_EPIC_neutrophil')
+    return locals()
+
+@check(label='ch:synthesis:L33:4.45', chapter='ch:synthesis', part=7, title='full surface on IAM-A, 1/(P H(eps0))',
+       file='part5/p5_08_synthesis', line=33, status='derived', kind='num', printed='4.45', tol=0.0)
+def check_4432():
+    'H(1/2) = 1 bit over P_cell H(eps0), P_cell = 1.099 and eps0 from CANON. Book line 33, printed 4.45.'
+    value = _b13_Hb2(0.5) / (_cv('P_neutrophil_IAM_A') * _b13_Hb2(eps0))
+    return locals()
+
 @check(label='ch:synthesis:L51', chapter='ch:synthesis', part=7, title='same value as p1_01_encoding_surfaces:220 (Al superconducting gap expressed as temperature)',
        file='part5/p5_08_synthesis', line=51, status='derived', kind='num', printed='2.112', tol=0.00024)
 def check_2606():
     'same value as p1_01_encoding_surfaces:220 (Al superconducting gap expressed as temperature). Book line 51, printed 2.112.'
     value = (182e-6*eV)/kB
+    return locals()
+
+@check(label='ch:synthesis:L51:310.15', chapter='ch:synthesis', part=7, title='body temperature 37 C in kelvin',
+       file='part5/p5_08_synthesis', line=51, status='derived', kind='num', printed='310.15', tol=0.0)
+def check_4433():
+    'T_body = 37 C + 273.15 K; equals CANON T_cell. Book line 51, printed 310.15.'
+    T_body = 37.0 + 273.15
+    value = T_body if abs(T_body - T_cell) < 1e-9 else float('nan')
     return locals()
 
 @check(label='ch:synthesis:L53', chapter='ch:synthesis', part=7, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
@@ -37069,6 +37164,60 @@ def check_2607():
     value = Om/2
     return locals()
 
+@check(label='ch:synthesis:L53:0.032', chapter='ch:synthesis', part=7, title='eps0 from the measured holding energy',
+       file='part5/p5_08_synthesis', line=53, status='measured', kind='file', printed='0.032', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+def check_4434():
+    'eps0 = 1/(1 + exp(E_hold/kT)) with E_hold read from the copy-channel row of PROC_CHANNEL_01_OUTCOME.md. Book line 53, printed 0.032.'
+    value = 1 / (1 + math.exp(_b00_hold_energy()))
+    return locals()
+
+@check(label='ch:synthesis:L53:3.41', chapter='ch:synthesis', part=7, title='holding energy E_hold, PROC-CHANNEL-01',
+       file='part5/p5_08_synthesis', line=53, status='measured', kind='file', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+def check_4435():
+    'E_hold = ln((1-eps)/eps) kT of the copy channel, from PROC_CHANNEL_01_OUTCOME.md. Book line 53, printed 3.41.'
+    value = _b00_hold_energy()
+    return locals()
+
+@check(label='ch:synthesis:L54', chapter='ch:synthesis', part=7, title='mu0 = mu(a=1) - 1 (slot table)',
+       file='part5/p5_08_synthesis', line=54, status='calc', kind='num', printed='-0.136', tol=0.0)
+def check_4436():
+    'mu0 = mu(1) - 1 (mu_iam; locked value -0.136). Book line 54, printed -0.136.'
+    value = float(mu_iam(1.0)) - 1
+    return locals()
+
+@check(label='ch:synthesis:L54:0.7998', chapter='ch:synthesis', part=7, title='sigma8 IAM Level 2 chain',
+       file='part5/p5_08_synthesis', line=54, status='measured', kind='file', printed='0.7998', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_4437():
+    'sigma8 posterior mean of iam_level2_runA. Book line 54, printed 0.7998.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    return locals()
+
+@check(label='ch:synthesis:L64', chapter='ch:synthesis', part=7, title='capacitor charging: dissipated over drawn energy, any R',
+       file='part5/p5_08_synthesis', line=64, status='derived', kind='num', printed='0.500000', tol=0.0)
+def check_4438():
+    'Charging C from a fixed supply V through R: i(t) = (V/R) e^{-t/RC}; dissipated int i^2 R dt over drawn int V i dt, integrated numerically for R = 1e-2 ... 1e2 ohm (C = 1 nF, V = 1 V); value = the largest departure from the first ratio added to it (all must agree to 1e-7). Book line 64, printed 0.500000.'
+    C_, V_ = 1e-9, 1.0
+    ratios = []
+    for R in np.logspace(-2, 2, 5):
+        tau = R * C_
+        i = lambda t: V_ / R * math.exp(-t / tau)
+        diss = quad(lambda t: i(t)**2 * R, 0, 60 * tau, epsabs=0, epsrel=1e-12)[0]
+        drawn = quad(lambda t: V_ * i(t), 0, 60 * tau, epsabs=0, epsrel=1e-12)[0]
+        ratios.append(diss / drawn)
+    spread = max(ratios) - min(ratios)
+    value = ratios[0] + spread
+    return locals()
+
+@check(label='ch:synthesis:L69', chapter='ch:synthesis', part=7, title='mu0 from beta_m = Omega_m/2',
+       file='part5/p5_08_synthesis', line=69, status='derived', kind='num', printed='-0.136', tol=0.0)
+def check_4439():
+    'mu0 = mu(1) - 1 with beta_m = Omega_m/2, Omega_m = 0.3153 (Planck 2018), written out: H^2 = 1 at a = 1, so mu(1) = 1/(1 + Omega_m/2). Book line 69, printed -0.136.'
+    value = 1 / (1 + Om / 2) - 1
+    return locals()
+
 @check(label='ch:synthesis:L77', chapter='ch:synthesis', part=7, title='measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names',
        file='part5/p5_08_synthesis', line=77, status='measured', kind='file', printed='1.05', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md')
 def check_2608():
@@ -37076,11 +37225,101 @@ def check_2608():
     ok = file_has('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md', '1.05')
     return locals()
 
+@check(label='ch:synthesis:L77:0.95', chapter='ch:synthesis', part=7, title='Normal band lower edge (CANON)',
+       file='part5/p5_08_synthesis', line=77, status='measured', kind='file', printed='0.95', tol=0.0, source='CANON/iam_canon.json')
+def check_4440():
+    'Lower edge of the Normal band of A, CANON Normal_band. Book line 77, printed 0.95.'
+    value = _cv('Normal_band')[0]
+    return locals()
+
+@check(label='ch:synthesis:L79', chapter='ch:synthesis', part=7, title='Level 2 Delta chi2, IAM minus LCDM',
+       file='part5/p5_08_synthesis', line=79, status='fitted', kind='file', printed='+0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_4441():
+    'chi2_min(iam_level2_runA) - chi2_min(iam_level2_runC_lcdm). Book line 79, printed +0.54.'
+    value = (csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min')
+             - csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min'))
+    return locals()
+
+@check(label='ch:synthesis:L80', chapter='ch:synthesis', part=7, title='sigma8 LCDM Level 2 chain (Run C)',
+       file='part5/p5_08_synthesis', line=80, status='fitted', kind='file', printed='0.8087', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_4442():
+    'sigma8 posterior mean of iam_level2_runC_lcdm. Book line 80, printed 0.8087.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'sigma8')
+    return locals()
+
+@check(label='ch:synthesis:L80:4.25', chapter='ch:synthesis', part=7, title='f sigma8 deficit at z = 0',
+       file='part5/p5_08_synthesis', line=80, status='fitted', kind='num', printed='4.25', tol=0.0)
+def check_4443():
+    'f sigma8 of IAM below LambdaCDM at z = 0, same early amplitude (fs8_deficit), per cent. Book line 80, printed 4.25 %.'
+    value = fs8_deficit(0.0, which='iam')
+    return locals()
+
+@check(label='ch:synthesis:L80:0.41', chapter='ch:synthesis', part=7, title='f sigma8 deficit at z = 1',
+       file='part5/p5_08_synthesis', line=80, status='fitted', kind='num', printed='0.41', tol=0.0)
+def check_4444():
+    'f sigma8 deficit at z = 1, same growth equation, per cent. Book line 80, printed 0.41 %.'
+    value = fs8_deficit(1.0, which='iam')
+    return locals()
+
+@check(label='ch:synthesis:L87', chapter='ch:synthesis', part=7, title='transmon per-gate thermal floor p_eq t_g/T1',
+       file='part5/p5_08_synthesis', line=87, status='derived', kind='num', printed='6.2\\times10^{-7}', tol=0.0)
+def check_4445():
+    'p_eq t_g/T1 with p_eq = 1/(1 + e^{hf/k_B T}) (line 31 of this chapter), f = 5 GHz, own temperature 35 mK, T1 = 68 microseconds, t_g = 40 ns (inputs the book states). Book line 87, printed 6.2e-7.'
+    f_q, T_own, T1, t_g = 5e9, 35e-3, 68e-6, 40e-9
+    p_eq = 1 / (1 + math.exp(h * f_q / (kB * T_own)))
+    value = p_eq * t_g / T1
+    return locals()
+
+@check(label='ch:synthesis:L93', chapter='ch:synthesis', part=7, title='held-out SD of the six reference arrays',
+       file='part5/p5_08_synthesis', line=93, status='calibrated', kind='file', printed='0.020', tol=0.0, source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
+def check_4446():
+    'Sample SD (ddof 1) of the leave-one-out Met-A of the 6 purified healthy EPIC neutrophil arrays (A_loo, metA_floors_v1_3_loo.csv). Book line 93, printed 0.020.'
+    A = [float(r['A_loo']) for r in load_csv_rows('Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv') if r['cell'] == 'neutrophils']
+    value = float(np.std(A, ddof=1))
+    return locals()
+
+@check(label='ch:synthesis:L94', chapter='ch:synthesis', part=7, title='healthy DNA mixtures, untared, lowest',
+       file='part5/p5_08_synthesis', line=94, status='measured', kind='file', printed='0.982', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md')
+def check_4447():
+    'Lower end of Met-A of the 6 healthy Salas mixtures (63-75 % neutrophils) against their known composition, row W1 of PROC_WB_NEUT_01_OUTCOME.md. Book line 94, printed 0.982.'
+    value = _b13_wbneut_range('W1')[0]
+    return locals()
+
+@check(label='ch:synthesis:L94:1.016', chapter='ch:synthesis', part=7, title='healthy DNA mixtures, untared, highest',
+       file='part5/p5_08_synthesis', line=94, status='measured', kind='file', printed='1.016', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md')
+def check_4448():
+    'Upper end, row W1 of PROC_WB_NEUT_01_OUTCOME.md. Book line 94, printed 1.016.'
+    value = _b13_wbneut_range('W1')[1]
+    return locals()
+
+@check(label='ch:synthesis:L94:1.049', chapter='ch:synthesis', part=7, title='2 % pattern loss, untared, lowest',
+       file='part5/p5_08_synthesis', line=94, status='measured', kind='file', printed='1.049', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md')
+def check_4449():
+    'Lower end of Met-A after a simulated 2 % neutrophil pattern loss, row W3 of PROC_WB_NEUT_01_OUTCOME.md. Book line 94, printed 1.049.'
+    value = _b13_wbneut_range('W3')[0]
+    return locals()
+
+@check(label='ch:synthesis:L94:1.079', chapter='ch:synthesis', part=7, title='2 % pattern loss, untared, highest',
+       file='part5/p5_08_synthesis', line=94, status='measured', kind='file', printed='1.079', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md')
+def check_4450():
+    'Upper end, row W3 of PROC_WB_NEUT_01_OUTCOME.md. Book line 94, printed 1.079.'
+    value = _b13_wbneut_range('W3')[1]
+    return locals()
+
 @check(label='ch:synthesis:L95', chapter='ch:synthesis', part=7, title='measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names',
        file='part5/p5_08_synthesis', line=95, status='measured', kind='file', printed='1.090', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md')
 def check_2609():
     'measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names. Book line 95, printed 1.090.'
     ok = file_has('Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md', '1.090')
+    return locals()
+
+@check(label='ch:synthesis:L95:1.052', chapter='ch:synthesis', part=7, title='2 % pattern loss, tared, lowest of six mixtures',
+       file='part5/p5_08_synthesis', line=95, status='measured', kind='file', printed='1.052', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/selfconsist.csv')
+def check_4451():
+    'Lowest tared Met-A of the six constructed mixtures (f_true >= 0.5) with a simulated 2 % pattern loss: A_nnls_damaged over the median of the other five healthy A_nnls (selfconsist.csv), as Chapter ch:gauge. Book line 95, printed 1.052.'
+    value = float(_b13_tared_damaged().min())
     return locals()
 
 @check(label='ch:synthesis:L98', chapter='ch:synthesis', part=7, title='measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names',
@@ -37102,6 +37341,13 @@ def check_2611():
 def check_2612():
     'measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names. Book line 98, printed 1.87.'
     ok = file_has('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md', '1.87')
+    return locals()
+
+@check(label='ch:synthesis:L98:0.97', chapter='ch:synthesis', part=7, title='DNMT series vehicle arrays, lowest',
+       file='part5/p5_08_synthesis', line=98, status='measured', kind='file', printed='0.97', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4452():
+    'Lowest Met-A of the vehicle (DMSO) arrays of the three leukaemia lines (GSE135205), dnmt_arrays_readings.csv. Book line 98, printed 0.97.'
+    value = min(float(r['A']) for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv') if r['cmpd'] == 'DMSO')
     return locals()
 
 @check(label='ch:synthesis:L100', chapter='ch:synthesis', part=7, title='measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names',
@@ -40711,43 +40957,14 @@ INVENTORY = [
     (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 154, '', 'observed', '30', 'measured, source not named'),
     (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 154, '', 'observed', '40', 'measured, source not named'),
     (7, 'ch:onegauge', 'part3/p3_08_one_gauge', 154, '', 'observed', '80', 'measured, source not named'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 29, '', 'derived', '2.65\\times10^{-30}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 29, '', 'calc', '-0.136', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 30, '', 'derived', '6.2\\times10^{-8}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 31, '', 'derived', '35', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 31, '', 'derived', '15', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 32, '', 'calc', '576', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 32, '', 'calc', '593', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 32, '', 'derived', '-350', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 32, '', 'derived', '9950', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 33, '', 'derived', '0.032', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 33, '', 'derived', '0.910', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 33, '', 'derived', '3.03', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 33, '', 'derived', '4.45', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 51, '', 'derived', '310.15', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 53, '', 'measured', '0.032', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 53, '', 'measured', '3.41', 'measured, not found in the files the chapter names'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 54, '', 'calc', '-0.136', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 54, '', 'measured', '0.7998', 'measured, not found in the files the chapter names'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 64, '', 'derived', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 64, '', 'derived', '0.500000', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 69, '', 'derived', '-0.136', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 77, '', 'measured', '0.95', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 77, '', 'measured', '1.8', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 79, '', 'fitted', '+0.54', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 80, '', 'fitted', '0.8087', 'measured, not found in the files the chapter names'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 80, '', 'fitted', '4.25', 'measured, not found in the files the chapter names'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 80, '', 'fitted', '0.41', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 87, '', 'derived', '68', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 87, '', 'derived', '6.2\\times10^{-7}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 88, '', 'derived', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 93, '', 'calibrated', '0.020', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 94, '', 'measured', '0.982', 'measured, not found in the files the chapter names'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 94, '', 'measured', '1.016', 'measured, not found in the files the chapter names'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 94, '', 'measured', '1.049', 'measured, not found in the files the chapter names'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 94, '', 'measured', '1.079', 'measured, not found in the files the chapter names'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 95, '', 'measured', '1.052', 'measured, not found in the files the chapter names'),
-    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 98, '', 'measured', '0.97', 'measured, too few printed digits to match against the named files'),
+    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 31, '', 'derived', '35', "input: the transmon's own temperature 35 mK, a published measurement (\\cite{Jin2015} in ch:onegauge); used by ch:synthesis:L87"),
+    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 31, '', 'derived', '15', 'input: the 15 mK refrigerator stage, an operating condition stated with the 35 mK reading; nothing to recompute'),
+    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 32, '', 'derived', '-350', "input: the junction temperature range 300-350 K of a transistor (the scan read '300--350' as -350), an operating range, nothing to recompute"),
+    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 32, '', 'derived', '9950', "definition: '9950' is part of the processor's model name (Ryzen 9 9950X), not a quantity"),
+    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 64, '', 'derived', '10', 'input: the resistance range 10^-2 to 10^2 ohm over which the capacitor ratio is computed (checked as ch:synthesis:L64)'),
+    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 77, '', 'measured', '1.8', 'measured, source not named'),
+    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 87, '', 'derived', '68', 'input: T_1 = 68 microseconds, a published device value (\\cite{GoogleWillow2025} in ch:onegauge); used by ch:synthesis:L87'),
+    (7, 'ch:synthesis', 'part5/p5_08_synthesis', 88, '', 'derived', '10', 'input: the base 10 of a two-qubit error near 10^-3, an illustrative device value stated in the sentence; nothing to recompute'),
     (7, 'ch:reach', 'part3/p3_09_reach', 52, '', 'measured', '1.16', 'measured, not found in the files the chapter names'),
     (7, 'ch:reach', 'part3/p3_09_reach', 52, '', 'measured', '1.87', 'measured, not found in the files the chapter names'),
     (7, 'ch:reach', 'part3/p3_09_reach', 52, '', 'measured', '0.968', 'measured, not found in the files the chapter names'),
