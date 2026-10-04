@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3849 PASS, 0 FAIL, 2489 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3914 PASS, 0 FAIL, 2424 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4549,76 +4549,76 @@ Totals: 3849 PASS, 0 FAIL, 2489 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 8 | eq:meta | calibrated |  | not run: displayed equation, not yet checked | - |
-| 23 |  | measured | `0.75` | not run: measured, source not named | - |
-| 23 |  | measured | `0.95` | not run: measured, source not named | - |
-| 23 |  | measured | `0.05` | not run: measured, source not named | - |
-| 23 |  | measured | `0.25` | not run: measured, source not named | - |
-| 25 |  | measured | `0.330263` | not run: measured, source not named | - |
-| 27 |  | measured | `0.983` | not run: measured, source not named | - |
-| 27 |  | measured | `1.045` | not run: measured, source not named | - |
-| 27 |  | measured | `0.020` | not run: measured, source not named | - |
-| 28 |  | measured | `0.993` | not run: measured, source not named | - |
-| 28 |  | measured | `1.008` | not run: measured, source not named | - |
-| 41 |  | measured | `0.020` | not run: measured, source not named | - |
-| 50 |  | measured | `201868500150` | not run: measured, source not named | - |
-| 50 |  | measured | `1.0032` | not run: measured, source not named | - |
-| 50 |  | measured | `1.011` | not run: measured, source not named | - |
-| 50 |  | measured | `1.004` | not run: measured, source not named | - |
-| 50 |  | measured | `0.1418` | not run: measured, source not named | - |
-| 50 |  | measured | `0.83` | not run: measured, source not named | - |
-| 51 |  | measured | `201868590243` | not run: measured, source not named | - |
-| 51 |  | measured | `0.9945` | not run: measured, source not named | - |
-| 51 |  | measured | `1.010` | not run: measured, source not named | - |
-| 51 |  | measured | `0.993` | not run: measured, source not named | - |
-| 51 |  | measured | `0.1223` | not run: measured, source not named | - |
-| 51 |  | measured | `0.95` | not run: measured, source not named | - |
-| 52 |  | measured | `201870610056` | not run: measured, source not named | - |
-| 52 |  | measured | `0.9989` | not run: measured, source not named | - |
-| 52 |  | measured | `1.012` | not run: measured, source not named | - |
-| 52 |  | measured | `0.999` | not run: measured, source not named | - |
-| 52 |  | measured | `0.1244` | not run: measured, source not named | - |
-| 52 |  | measured | `1.21` | not run: measured, source not named | - |
-| 53 |  | measured | `201868500150` | not run: measured, source not named | - |
-| 53 |  | measured | `0.9942` | not run: measured, source not named | - |
-| 53 |  | measured | `0.983` | not run: measured, source not named | - |
-| 53 |  | measured | `0.993` | not run: measured, source not named | - |
-| 53 |  | measured | `0.1286` | not run: measured, source not named | - |
-| 53 |  | measured | `1.05` | not run: measured, source not named | - |
-| 54 |  | measured | `201870610111` | not run: measured, source not named | - |
-| 54 |  | measured | `1.0028` | not run: measured, source not named | - |
-| 54 |  | measured | `1.016` | not run: measured, source not named | - |
-| 54 |  | measured | `1.003` | not run: measured, source not named | - |
-| 54 |  | measured | `0.1284` | not run: measured, source not named | - |
-| 54 |  | measured | `0.69` | not run: measured, source not named | - |
-| 55 |  | measured | `201868590206` | not run: measured, source not named | - |
-| 55 |  | measured | `1.0064` | not run: measured, source not named | - |
-| 55 |  | measured | `1.045` | not run: measured, source not named | - |
-| 55 |  | measured | `1.008` | not run: measured, source not named | - |
-| 55 |  | measured | `0.1489` | not run: measured, source not named | - |
-| 55 |  | measured | `1.08` | not run: measured, source not named | - |
-| 70 |  | measured | `0.932` | not run: measured, source not named | - |
-| 70 |  | measured | `0.916` | not run: measured, source not named | - |
-| 70 |  | measured | `0.904` | not run: measured, source not named | - |
-| 79 | eq:metawb | none |  | not run: displayed equation, not yet checked | - |
-| 86 |  | measured | `0.982` | not run: measured, source not named | - |
-| 86 |  | measured | `1.016` | not run: measured, source not named | - |
-| 86 |  | measured | `1.062` | not run: measured, source not named | - |
-| 86 |  | measured | `1.118` | not run: measured, source not named | - |
-| 91 |  | measured | `0.86` | not run: measured, source not named | - |
-| 91 |  | measured | `1.26` | not run: measured, source not named | - |
-| 94 |  | measured | `0.122` | not run: measured, source not named | - |
-| 94 |  | measured | `0.149` | not run: measured, source not named | - |
-| 95 |  | measured | `0.243` | not run: measured, source not named | - |
-| 95 |  | measured | `0.79` | not run: measured, source not named | - |
-| 95 |  | measured | `0.83` | not run: measured, source not named | - |
-| 111 |  | measured | `0.968` | not run: measured, source not named | - |
-| 111 |  | measured | `1.048` | not run: measured, source not named | - |
-| 111 |  | measured | `1.002` | not run: measured, source not named | - |
-| 111 |  | measured | `1.032` | not run: measured, source not named | - |
-| 111 |  | measured | `1.16` | not run: measured, source not named | - |
-| 111 |  | measured | `1.87` | not run: measured, source not named | - |
-| 112 |  | measured | `2.85` | not run: measured, source not named | - |
+| 8 | eq:meta | calibrated | `0.330263` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: H_ref of EPIC neutrophils: mean of the six arrays' mean H on the identity sites | PASS |
+| 23 |  | measured | `0.75` | not run: definition: identity-site selection band, methylated channel beta 0.75-0.95 (a rule of the chain) | - |
+| 23 |  | measured | `0.95` | not run: definition: identity-site selection band, methylated channel beta 0.75-0.95 (a rule of the chain) | - |
+| 23 |  | measured | `0.05` | not run: definition: identity-site selection band, unmethylated channel beta 0.05-0.25 (a rule of the chain) | - |
+| 23 |  | measured | `0.25` | not run: definition: identity-site selection band, unmethylated channel beta 0.05-0.25 (a rule of the chain) | - |
+| 25 | ch:meta:L25 | measured | `0.330263` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: the frozen Met-A floor of EPIC neutrophils | PASS |
+| 27 | ch:meta:L27 | measured | `0.983` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out Met-A of the six reference arrays, lowest | PASS |
+| 27 | ch:meta:L27:1.045 | measured | `1.045` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out Met-A of the six reference arrays, highest | PASS |
+| 27 | ch:meta:L27:0.020 | measured | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out Met-A of the six reference arrays, SD | PASS |
+| 28 | ch:meta:L28 | measured | `0.993` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out Met-A on the frozen sites, lowest | PASS |
+| 28 | ch:meta:L28:1.008 | measured | `1.008` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out Met-A on the frozen sites, highest | PASS |
+| 41 | ch:meta:L41 | measured | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: SD of the held-out readings (figure caption) | PASS |
+| 50 | ch:meta:L50 | measured | `201868500150` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: Sentrix chip of reference array GSM2998021 | PASS |
+| 50 | ch:meta:L50:1.0032 | measured | `1.0032` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: GSM2998021 read in the floor (acceptance run) | PASS |
+| 50 | ch:meta:L50:1.011 | measured | `1.011` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: GSM2998021 held out, sites re-chosen | PASS |
+| 50 | ch:meta:L50:1.004 | measured | `1.004` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: GSM2998021 held out, frozen sites | PASS |
+| 50 | ch:meta:L50:0.1418 | measured | `0.1418` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: noise index N of GSM2998021 | PASS |
+| 50 | ch:meta:L50:0.83 | measured | `0.83` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: C-score of GSM2998021 (acceptance run) | PASS |
+| 51 | ch:meta:L51 | measured | `201868590243` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: Sentrix chip of reference array GSM2998057 | PASS |
+| 51 | ch:meta:L51:0.9945 | measured | `0.9945` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: GSM2998057 read in the floor (acceptance run) | PASS |
+| 51 | ch:meta:L51:1.010 | measured | `1.010` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: GSM2998057 held out, sites re-chosen | PASS |
+| 51 | ch:meta:L51:0.993 | measured | `0.993` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: GSM2998057 held out, frozen sites | PASS |
+| 51 | ch:meta:L51:0.1223 | measured | `0.1223` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: noise index N of GSM2998057 | PASS |
+| 51 | ch:meta:L51:0.95 | measured | `0.95` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: C-score of GSM2998057 (acceptance run) | PASS |
+| 52 | ch:meta:L52 | measured | `201870610056` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: Sentrix chip of reference array GSM2998116 | PASS |
+| 52 | ch:meta:L52:0.9989 | measured | `0.9989` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: GSM2998116 read in the floor (acceptance run) | PASS |
+| 52 | ch:meta:L52:1.012 | measured | `1.012` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: GSM2998116 held out, sites re-chosen | PASS |
+| 52 | ch:meta:L52:0.999 | measured | `0.999` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: GSM2998116 held out, frozen sites | PASS |
+| 52 | ch:meta:L52:0.1244 | measured | `0.1244` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: noise index N of GSM2998116 | PASS |
+| 52 | ch:meta:L52:1.21 | measured | `1.21` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: C-score of GSM2998116 (acceptance run) | PASS |
+| 53 | ch:meta:L53 | measured | `201868500150` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: Sentrix chip of reference array GSM2998023 | PASS |
+| 53 | ch:meta:L53:0.9942 | measured | `0.9942` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: GSM2998023 read in the floor (acceptance run) | PASS |
+| 53 | ch:meta:L53:0.983 | measured | `0.983` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: GSM2998023 held out, sites re-chosen | PASS |
+| 53 | ch:meta:L53:0.993 | measured | `0.993` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: GSM2998023 held out, frozen sites | PASS |
+| 53 | ch:meta:L53:0.1286 | measured | `0.1286` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: noise index N of GSM2998023 | PASS |
+| 53 | ch:meta:L53:1.05 | measured | `1.05` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: C-score of GSM2998023 (acceptance run) | PASS |
+| 54 | ch:meta:L54 | measured | `201870610111` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: Sentrix chip of reference array GSM2998143 | PASS |
+| 54 | ch:meta:L54:1.0028 | measured | `1.0028` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: GSM2998143 read in the floor (acceptance run) | PASS |
+| 54 | ch:meta:L54:1.016 | measured | `1.016` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: GSM2998143 held out, sites re-chosen | PASS |
+| 54 | ch:meta:L54:1.003 | measured | `1.003` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: GSM2998143 held out, frozen sites | PASS |
+| 54 | ch:meta:L54:0.1284 | measured | `0.1284` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: noise index N of GSM2998143 | PASS |
+| 54 | ch:meta:L54:0.69 | measured | `0.69` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: C-score of GSM2998143 (acceptance run) | PASS |
+| 55 | ch:meta:L55 | measured | `201868590206` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: Sentrix chip of reference array GSM2998030 | PASS |
+| 55 | ch:meta:L55:1.0064 | measured | `1.0064` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: GSM2998030 read in the floor (acceptance run) | PASS |
+| 55 | ch:meta:L55:1.045 | measured | `1.045` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: GSM2998030 held out, sites re-chosen | PASS |
+| 55 | ch:meta:L55:1.008 | measured | `1.008` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: GSM2998030 held out, frozen sites | PASS |
+| 55 | ch:meta:L55:0.1489 | measured | `0.1489` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: noise index N of GSM2998030 | PASS |
+| 55 | ch:meta:L55:1.08 | measured | `1.08` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: C-score of GSM2998030 (acceptance run) | PASS |
+| 70 | ch:meta:L70 | measured | `0.932` | file `Biological_Physics/MethylPhys/doors/DIAG_450K_01_OUTCOME.md`: 450K purified neutrophils on EPIC references, median A | PASS |
+| 70 | ch:meta:L70:0.916 | measured | `0.916` | file `Biological_Physics/MethylPhys/doors/DIAG_450K_01_OUTCOME.md`: 450K purified monocytes on EPIC references, median A | PASS |
+| 70 | ch:meta:L70:0.904 | measured | `0.904` | file `Biological_Physics/MethylPhys/doors/DIAG_450K_01_OUTCOME.md`: 450K purified NK cells on EPIC references, median A | PASS |
+| 79 | eq:metawb | none |  | not run: definition: whole-blood Met-A with the specimen's own expectation e_i = sum_g f_g mu_g,i | - |
+| 86 | ch:meta:L86 | measured | `0.982` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: known-fraction expectation on six DNA mixtures, lowest | PASS |
+| 86 | ch:meta:L86:1.016 | measured | `1.016` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: known-fraction expectation on six DNA mixtures, highest | PASS |
+| 86 | ch:meta:L86:1.062 | measured | `1.062` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: same mixtures on the neutrophil reference alone, lowest | PASS |
+| 86 | ch:meta:L86:1.118 | measured | `1.118` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: same mixtures on the neutrophil reference alone, highest | PASS |
+| 91 | ch:meta:L91 | measured | `0.86` | file `Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_T2_OUTCOME.md`: second-laboratory isolated neutrophils on the reference, lowest | PASS |
+| 91 | ch:meta:L91:1.26 | measured | `1.26` | file `Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_T2_OUTCOME.md`: second-laboratory isolated neutrophils on the reference, highest | PASS |
+| 94 | ch:meta:L94 | measured | `0.122` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: noise index of the reference arrays, lowest | PASS |
+| 94 | ch:meta:L94:0.149 | measured | `0.149` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: noise index of the reference arrays, highest | PASS |
+| 95 | ch:meta:L95 | measured | `0.243` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: noise index of second-laboratory arrays, highest | PASS |
+| 95 | ch:meta:L95:0.79 | measured | `0.79` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: Spearman rho of Met-A with N, second laboratory (30 y donor) | PASS |
+| 95 | ch:meta:L95:0.83 | measured | `0.83` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: Spearman rho of Met-A with N, second laboratory (54 y donor) | PASS |
+| 111 | ch:meta:L111 | measured | `0.968` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: vehicle arrays, lowest | PASS |
+| 111 | ch:meta:L111:1.048 | measured | `1.048` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: vehicle arrays, highest | PASS |
+| 111 | ch:meta:L111:1.002 | measured | `1.002` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: inactive analogue, lowest | PASS |
+| 111 | ch:meta:L111:1.032 | measured | `1.032` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: inactive analogue, highest | PASS |
+| 111 | ch:meta:L111:1.16 | measured | `1.16` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: active drug at >= 80 nM, lowest | PASS |
+| 111 | ch:meta:L111:1.87 | measured | `1.87` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: active drug at >= 80 nM, highest | PASS |
+| 112 | ch:meta:L112 | measured | `2.85` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT-inhibitor series: methylated channel, highest | PASS |
 | 112 |  | measured | `2.8` | not run: measured, source not named | - |
 
 ## Part 6 - ch:iama - `docs/book/part4/p4_08_iama.tex`

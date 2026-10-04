@@ -1789,6 +1789,50 @@ def _b09_iama_own():
     ref = [(iso.sum() - iso[i]) / (opp.sum() - opp[i]) for i in range(len(rows))]
     return (np.array([_b09_Hb(eps[i]) / _b09_Hb(ref[i]) for i in range(len(rows))]),
             np.array([_b09_Hb(ed[i]) / _b09_Hb(ref[i]) for i in range(len(rows))]))
+DATA_FILES['Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json'] = 'chain v3 frozen Met-A floor (EPIC neutrophils), reference arrays and held-out precision'
+DATA_FILES['Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv'] = 'chain v3 acceptance run: reference arrays, DNA mixtures, remission bloods (A, C, fractions)'
+DATA_FILES['Biological_Physics/MethylPhys/doors/data/noise_index.csv'] = 'DEV-NOISE-01: noise index N and Met-A of 60 EPIC arrays (reference and second laboratory)'
+DATA_FILES['Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv'] = 'DNMT-inhibitor EPIC series, 51 arrays: Met-A overall and by channel'
+DATA_FILES['Biological_Physics/MethylPhys/doors/DIAG_450K_01_OUTCOME.md'] = 'DIAG-450K-01 outcome record: 450K purified cells read on EPIC references'
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md'] = 'PROC-WB-NEUT-01 outcome record: known-fraction expectation on the Salas DNA mixtures'
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_T2_OUTCOME.md'] = 'PROC-NEUT-TEST-01 T2 outcome record: second-laboratory isolated neutrophils'
+
+# helpers of the part4/p4_07_meta checks
+_B09_NR = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json'
+_B09_MF = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json'
+_B09_LOO = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv'
+_B09_CA = 'Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv'
+_B09_NI = 'Biological_Physics/MethylPhys/doors/data/noise_index.csv'
+_B09_DN = 'Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv'
+_B09_D450 = 'Biological_Physics/MethylPhys/doors/DIAG_450K_01_OUTCOME.md'
+_B09_WB = 'Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md'
+_B09_T2 = 'Biological_Physics/MethylPhys/doors/PROC_NEUT_TEST_01_T2_OUTCOME.md'
+
+def _b09_row(path, gsm, col, key='gsm'):
+    """A number from a committed CSV at the row whose key column equals gsm (first such row)."""
+    for r in load_csv_rows(path):
+        if r[key] == gsm:
+            return float(r[col])
+    raise KeyError(f"{path}: no row {gsm}")
+def _b09_md_line(path, start):
+    """The first line of a committed record that starts with the given text (a table row)."""
+    for ln in file_text(path).splitlines():
+        if ln.strip().startswith(start):
+            return ln
+    raise KeyError(f"{path}: no line starting {start!r}")
+def _b09_nums(s):
+    return [float(x) for x in re.findall(r"\d+\.\d+", s)]
+def _b09_loo(col):
+    return np.array([float(r[col]) for r in load_csv_rows(_B09_LOO)])
+def _b09_noise(prefix):
+    return [float(r['N']) for r in load_csv_rows(_B09_NI) if r['set'].startswith(prefix)]
+def _b09_noise_rho(gse):
+    from scipy.stats import spearmanr
+    x = [(float(r['N']), float(r['A_own'])) for r in load_csv_rows(_B09_NI) if r['set'] == gse and r['A_own'] not in ('', None)]
+    x = np.array(x)
+    return float(spearmanr(x[:, 0], x[:, 1])[0])
+def _b09_dnmt(sel, col='A'):
+    return [float(r[col]) for r in load_csv_rows(_B09_DN) if sel(r)]
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -30902,6 +30946,471 @@ def check_3848():
     return locals()
 
 
+# ======== Part 6 | ch:meta | docs/book/part4/p4_07_meta.tex
+@check(label='eq:meta', chapter='ch:meta', part=6, title='H_ref of EPIC neutrophils: mean of the six arrays\' mean H on the identity sites',
+       file='part4/p4_07_meta', line=8, status='calibrated', kind='file', printed='0.330263', tol=0.0, source=_B09_NR)
+def check_3849():
+    'Eq. meta: the reference H_ref, recomputed as the mean over the 6,000 identity sites of the per-site mean H(beta) of the six purified neutrophil arrays (= mean over arrays of the mean H). Book line 8, printed 0.330263 bits. Inputs: neutrophil_H_mean of the frozen neutrophil_reference_v1_1.json.'
+    Hm = np.array(load_json(_B09_NR)['neutrophil_H_mean'])
+    n_sites = len(Hm)
+    value = float(Hm.mean())
+    return locals()
+
+@check(label='ch:meta:L25', chapter='ch:meta', part=6, title='the frozen Met-A floor of EPIC neutrophils',
+       file='part4/p4_07_meta', line=25, status='measured', kind='file', printed='0.330263', tol=0.0, source=_B09_MF)
+def check_3850():
+    'The value of the neutrophil reference as frozen in the chain\'s floor file (0.33026279581...). Book line 25, printed 0.330263 bits. Inputs: platforms/EPIC/neutrophils/floor of metA_floors_v1_3.json.'
+    value = load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['floor']
+    return locals()
+
+@check(label='ch:meta:L27', chapter='ch:meta', part=6, title='held-out Met-A of the six reference arrays, lowest',
+       file='part4/p4_07_meta', line=27, status='measured', kind='file', printed='0.983', tol=0.0, source=_B09_LOO)
+def check_3851():
+    'Each reference array read against a reference rebuilt from the other five, sites re-chosen on those five: lowest. Book line 27, printed 0.983. Inputs: A_loo of metA_floors_v1_3_loo.csv.'
+    value = float(_b09_loo('A_loo').min())
+    return locals()
+
+@check(label='ch:meta:L27:1.045', chapter='ch:meta', part=6, title='held-out Met-A of the six reference arrays, highest',
+       file='part4/p4_07_meta', line=27, status='measured', kind='file', printed='1.045', tol=0.0, source=_B09_LOO)
+def check_3852():
+    'Held-out Met-A of the six reference arrays, highest. Book line 27, printed 1.045. Inputs: A_loo of metA_floors_v1_3_loo.csv.'
+    value = float(_b09_loo('A_loo').max())
+    return locals()
+
+@check(label='ch:meta:L27:0.020', chapter='ch:meta', part=6, title='held-out Met-A of the six reference arrays, SD',
+       file='part4/p4_07_meta', line=27, status='measured', kind='file', printed='0.020', tol=0.0, source=_B09_LOO)
+def check_3853():
+    'Standard deviation (n - 1) of the six held-out readings (the floor file stores 0.019756). Book line 27, printed 0.020. Inputs: A_loo of metA_floors_v1_3_loo.csv.'
+    value = float(_b09_loo('A_loo').std(ddof=1))
+    return locals()
+
+@check(label='ch:meta:L28', chapter='ch:meta', part=6, title='held-out Met-A on the frozen sites, lowest',
+       file='part4/p4_07_meta', line=28, status='measured', kind='file', printed='0.993', tol=0.0, source=_B09_LOO)
+def check_3854():
+    'Each reference array on the frozen sites, floor from the other five: lowest. Book line 28, printed 0.993. Inputs: A_loo_frozen_sites of metA_floors_v1_3_loo.csv.'
+    value = float(_b09_loo('A_loo_frozen_sites').min())
+    return locals()
+
+@check(label='ch:meta:L28:1.008', chapter='ch:meta', part=6, title='held-out Met-A on the frozen sites, highest',
+       file='part4/p4_07_meta', line=28, status='measured', kind='file', printed='1.008', tol=0.0, source=_B09_LOO)
+def check_3855():
+    'Reference arrays on the frozen sites, floor from the other five: highest. Book line 28, printed 1.008. Inputs: A_loo_frozen_sites of metA_floors_v1_3_loo.csv.'
+    value = float(_b09_loo('A_loo_frozen_sites').max())
+    return locals()
+
+@check(label='ch:meta:L41', chapter='ch:meta', part=6, title='SD of the held-out readings (figure caption)',
+       file='part4/p4_07_meta', line=41, status='measured', kind='file', printed='0.020', tol=0.0, source=_B09_MF)
+def check_3856():
+    'SD of the six held-out readings with sites re-chosen, as stored in the floor file (precision_heldout.sd). Book line 41, printed 0.020. Inputs: metA_floors_v1_3.json.'
+    value = load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['precision_heldout']['sd']
+    return locals()
+
+@check(label='ch:meta:L50', chapter='ch:meta', part=6, title='Sentrix chip of reference array GSM2998021',
+       file='part4/p4_07_meta', line=50, status='measured', kind='file', printed='201868500150', tol=0.0, source=_B09_MF)
+def check_3878():
+    'Sentrix chip number of reference array GSM2998021, as frozen in the floor file (refs entry <gsm>_<chip>_<position>). Inputs: metA_floors_v1_3.json platforms/EPIC/neutrophils/refs. Book line 50, printed 201868500150.'
+    ref = [s for s in load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['refs'] if s.startswith('GSM2998021_')][0]
+    value = int(ref.split('_')[1])
+    return locals()
+
+@check(label='ch:meta:L50:1.0032', chapter='ch:meta', part=6, title='GSM2998021 read in the floor (acceptance run)',
+       file='part4/p4_07_meta', line=50, status='measured', kind='file', printed='1.0032', tol=0.0, source=_B09_CA)
+def check_3879():
+    'Met-A of reference array GSM2998021 read in the floor, as printed by the chain v3 acceptance run. Inputs: column A of chain_acceptance.csv, row GSM2998021. Book line 50, printed 1.0032.'
+    value = _b09_row(_B09_CA, 'GSM2998021', 'A')
+    return locals()
+
+@check(label='ch:meta:L50:1.011', chapter='ch:meta', part=6, title='GSM2998021 held out, sites re-chosen',
+       file='part4/p4_07_meta', line=50, status='measured', kind='file', printed='1.011', tol=0.0, source=_B09_LOO)
+def check_3880():
+    'Met-A of reference array GSM2998021 against a reference rebuilt from the other five, identity sites re-chosen on those five. Inputs: column A_loo of metA_floors_v1_3_loo.csv, row GSM2998021. Book line 50, printed 1.011.'
+    value = _b09_row(_B09_LOO, 'GSM2998021', 'A_loo', key='ref')
+    return locals()
+
+@check(label='ch:meta:L50:1.004', chapter='ch:meta', part=6, title='GSM2998021 held out, frozen sites',
+       file='part4/p4_07_meta', line=50, status='measured', kind='file', printed='1.004', tol=0.0, source=_B09_LOO)
+def check_3881():
+    'Met-A of reference array GSM2998021 on the frozen sites, floor from the other five. Inputs: column A_loo_frozen_sites of metA_floors_v1_3_loo.csv, row GSM2998021. Book line 50, printed 1.004.'
+    value = _b09_row(_B09_LOO, 'GSM2998021', 'A_loo_frozen_sites', key='ref')
+    return locals()
+
+@check(label='ch:meta:L50:0.1418', chapter='ch:meta', part=6, title='noise index N of GSM2998021',
+       file='part4/p4_07_meta', line=50, status='measured', kind='file', printed='0.1418', tol=0.0, source=_B09_NI)
+def check_3882():
+    'Noise index N (mean H at the EPIC sites every purified blood group holds fixed) of reference array GSM2998021, GSE110554 deposit. Inputs: column N of noise_index.csv, row GSM2998021. Book line 50, printed 0.1418.'
+    value = _b09_row(_B09_NI, 'GSM2998021', 'N')
+    return locals()
+
+@check(label='ch:meta:L50:0.83', chapter='ch:meta', part=6, title='C-score of GSM2998021 (acceptance run)',
+       file='part4/p4_07_meta', line=50, status='measured', kind='file', printed='0.83', tol=0.0, source=_B09_CA)
+def check_3883():
+    'Met-A C-score of reference array GSM2998021 as printed by the chain v3 acceptance run. Inputs: column C of chain_acceptance.csv, row GSM2998021. Book line 50, printed 0.83.'
+    value = _b09_row(_B09_CA, 'GSM2998021', 'C')
+    return locals()
+
+@check(label='ch:meta:L51', chapter='ch:meta', part=6, title='Sentrix chip of reference array GSM2998057',
+       file='part4/p4_07_meta', line=51, status='measured', kind='file', printed='201868590243', tol=0.0, source=_B09_MF)
+def check_3884():
+    'Sentrix chip number of reference array GSM2998057, as frozen in the floor file (refs entry <gsm>_<chip>_<position>). Inputs: metA_floors_v1_3.json platforms/EPIC/neutrophils/refs. Book line 51, printed 201868590243.'
+    ref = [s for s in load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['refs'] if s.startswith('GSM2998057_')][0]
+    value = int(ref.split('_')[1])
+    return locals()
+
+@check(label='ch:meta:L51:0.9945', chapter='ch:meta', part=6, title='GSM2998057 read in the floor (acceptance run)',
+       file='part4/p4_07_meta', line=51, status='measured', kind='file', printed='0.9945', tol=0.0, source=_B09_CA)
+def check_3885():
+    'Met-A of reference array GSM2998057 read in the floor, as printed by the chain v3 acceptance run. Inputs: column A of chain_acceptance.csv, row GSM2998057. Book line 51, printed 0.9945.'
+    value = _b09_row(_B09_CA, 'GSM2998057', 'A')
+    return locals()
+
+@check(label='ch:meta:L51:1.010', chapter='ch:meta', part=6, title='GSM2998057 held out, sites re-chosen',
+       file='part4/p4_07_meta', line=51, status='measured', kind='file', printed='1.010', tol=0.0, source=_B09_LOO)
+def check_3886():
+    'Met-A of reference array GSM2998057 against a reference rebuilt from the other five, identity sites re-chosen on those five. Inputs: column A_loo of metA_floors_v1_3_loo.csv, row GSM2998057. Book line 51, printed 1.010.'
+    value = _b09_row(_B09_LOO, 'GSM2998057', 'A_loo', key='ref')
+    return locals()
+
+@check(label='ch:meta:L51:0.993', chapter='ch:meta', part=6, title='GSM2998057 held out, frozen sites',
+       file='part4/p4_07_meta', line=51, status='measured', kind='file', printed='0.993', tol=0.0, source=_B09_LOO)
+def check_3887():
+    'Met-A of reference array GSM2998057 on the frozen sites, floor from the other five. Inputs: column A_loo_frozen_sites of metA_floors_v1_3_loo.csv, row GSM2998057. Book line 51, printed 0.993.'
+    value = _b09_row(_B09_LOO, 'GSM2998057', 'A_loo_frozen_sites', key='ref')
+    return locals()
+
+@check(label='ch:meta:L51:0.1223', chapter='ch:meta', part=6, title='noise index N of GSM2998057',
+       file='part4/p4_07_meta', line=51, status='measured', kind='file', printed='0.1223', tol=0.0, source=_B09_NI)
+def check_3888():
+    'Noise index N (mean H at the EPIC sites every purified blood group holds fixed) of reference array GSM2998057, GSE110554 deposit. Inputs: column N of noise_index.csv, row GSM2998057. Book line 51, printed 0.1223.'
+    value = _b09_row(_B09_NI, 'GSM2998057', 'N')
+    return locals()
+
+@check(label='ch:meta:L51:0.95', chapter='ch:meta', part=6, title='C-score of GSM2998057 (acceptance run)',
+       file='part4/p4_07_meta', line=51, status='measured', kind='file', printed='0.95', tol=0.0, source=_B09_CA)
+def check_3889():
+    'Met-A C-score of reference array GSM2998057 as printed by the chain v3 acceptance run. Inputs: column C of chain_acceptance.csv, row GSM2998057. Book line 51, printed 0.95.'
+    value = _b09_row(_B09_CA, 'GSM2998057', 'C')
+    return locals()
+
+@check(label='ch:meta:L52', chapter='ch:meta', part=6, title='Sentrix chip of reference array GSM2998116',
+       file='part4/p4_07_meta', line=52, status='measured', kind='file', printed='201870610056', tol=0.0, source=_B09_MF)
+def check_3890():
+    'Sentrix chip number of reference array GSM2998116, as frozen in the floor file (refs entry <gsm>_<chip>_<position>). Inputs: metA_floors_v1_3.json platforms/EPIC/neutrophils/refs. Book line 52, printed 201870610056.'
+    ref = [s for s in load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['refs'] if s.startswith('GSM2998116_')][0]
+    value = int(ref.split('_')[1])
+    return locals()
+
+@check(label='ch:meta:L52:0.9989', chapter='ch:meta', part=6, title='GSM2998116 read in the floor (acceptance run)',
+       file='part4/p4_07_meta', line=52, status='measured', kind='file', printed='0.9989', tol=0.0, source=_B09_CA)
+def check_3891():
+    'Met-A of reference array GSM2998116 read in the floor, as printed by the chain v3 acceptance run. Inputs: column A of chain_acceptance.csv, row GSM2998116. Book line 52, printed 0.9989.'
+    value = _b09_row(_B09_CA, 'GSM2998116', 'A')
+    return locals()
+
+@check(label='ch:meta:L52:1.012', chapter='ch:meta', part=6, title='GSM2998116 held out, sites re-chosen',
+       file='part4/p4_07_meta', line=52, status='measured', kind='file', printed='1.012', tol=0.0, source=_B09_LOO)
+def check_3892():
+    'Met-A of reference array GSM2998116 against a reference rebuilt from the other five, identity sites re-chosen on those five. Inputs: column A_loo of metA_floors_v1_3_loo.csv, row GSM2998116. Book line 52, printed 1.012.'
+    value = _b09_row(_B09_LOO, 'GSM2998116', 'A_loo', key='ref')
+    return locals()
+
+@check(label='ch:meta:L52:0.999', chapter='ch:meta', part=6, title='GSM2998116 held out, frozen sites',
+       file='part4/p4_07_meta', line=52, status='measured', kind='file', printed='0.999', tol=0.0, source=_B09_LOO)
+def check_3893():
+    'Met-A of reference array GSM2998116 on the frozen sites, floor from the other five. Inputs: column A_loo_frozen_sites of metA_floors_v1_3_loo.csv, row GSM2998116. Book line 52, printed 0.999.'
+    value = _b09_row(_B09_LOO, 'GSM2998116', 'A_loo_frozen_sites', key='ref')
+    return locals()
+
+@check(label='ch:meta:L52:0.1244', chapter='ch:meta', part=6, title='noise index N of GSM2998116',
+       file='part4/p4_07_meta', line=52, status='measured', kind='file', printed='0.1244', tol=0.0, source=_B09_NI)
+def check_3894():
+    'Noise index N (mean H at the EPIC sites every purified blood group holds fixed) of reference array GSM2998116, GSE110554 deposit. Inputs: column N of noise_index.csv, row GSM2998116. Book line 52, printed 0.1244.'
+    value = _b09_row(_B09_NI, 'GSM2998116', 'N')
+    return locals()
+
+@check(label='ch:meta:L52:1.21', chapter='ch:meta', part=6, title='C-score of GSM2998116 (acceptance run)',
+       file='part4/p4_07_meta', line=52, status='measured', kind='file', printed='1.21', tol=0.0, source=_B09_CA)
+def check_3895():
+    'Met-A C-score of reference array GSM2998116 as printed by the chain v3 acceptance run. Inputs: column C of chain_acceptance.csv, row GSM2998116. Book line 52, printed 1.21.'
+    value = _b09_row(_B09_CA, 'GSM2998116', 'C')
+    return locals()
+
+@check(label='ch:meta:L53', chapter='ch:meta', part=6, title='Sentrix chip of reference array GSM2998023',
+       file='part4/p4_07_meta', line=53, status='measured', kind='file', printed='201868500150', tol=0.0, source=_B09_MF)
+def check_3896():
+    'Sentrix chip number of reference array GSM2998023, as frozen in the floor file (refs entry <gsm>_<chip>_<position>). Inputs: metA_floors_v1_3.json platforms/EPIC/neutrophils/refs. Book line 53, printed 201868500150.'
+    ref = [s for s in load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['refs'] if s.startswith('GSM2998023_')][0]
+    value = int(ref.split('_')[1])
+    return locals()
+
+@check(label='ch:meta:L53:0.9942', chapter='ch:meta', part=6, title='GSM2998023 read in the floor (acceptance run)',
+       file='part4/p4_07_meta', line=53, status='measured', kind='file', printed='0.9942', tol=0.0, source=_B09_CA)
+def check_3897():
+    'Met-A of reference array GSM2998023 read in the floor, as printed by the chain v3 acceptance run. Inputs: column A of chain_acceptance.csv, row GSM2998023. Book line 53, printed 0.9942.'
+    value = _b09_row(_B09_CA, 'GSM2998023', 'A')
+    return locals()
+
+@check(label='ch:meta:L53:0.983', chapter='ch:meta', part=6, title='GSM2998023 held out, sites re-chosen',
+       file='part4/p4_07_meta', line=53, status='measured', kind='file', printed='0.983', tol=0.0, source=_B09_LOO)
+def check_3898():
+    'Met-A of reference array GSM2998023 against a reference rebuilt from the other five, identity sites re-chosen on those five. Inputs: column A_loo of metA_floors_v1_3_loo.csv, row GSM2998023. Book line 53, printed 0.983.'
+    value = _b09_row(_B09_LOO, 'GSM2998023', 'A_loo', key='ref')
+    return locals()
+
+@check(label='ch:meta:L53:0.993', chapter='ch:meta', part=6, title='GSM2998023 held out, frozen sites',
+       file='part4/p4_07_meta', line=53, status='measured', kind='file', printed='0.993', tol=0.0, source=_B09_LOO)
+def check_3899():
+    'Met-A of reference array GSM2998023 on the frozen sites, floor from the other five. Inputs: column A_loo_frozen_sites of metA_floors_v1_3_loo.csv, row GSM2998023. Book line 53, printed 0.993.'
+    value = _b09_row(_B09_LOO, 'GSM2998023', 'A_loo_frozen_sites', key='ref')
+    return locals()
+
+@check(label='ch:meta:L53:0.1286', chapter='ch:meta', part=6, title='noise index N of GSM2998023',
+       file='part4/p4_07_meta', line=53, status='measured', kind='file', printed='0.1286', tol=0.0, source=_B09_NI)
+def check_3900():
+    'Noise index N (mean H at the EPIC sites every purified blood group holds fixed) of reference array GSM2998023, GSE110554 deposit. Inputs: column N of noise_index.csv, row GSM2998023. Book line 53, printed 0.1286.'
+    value = _b09_row(_B09_NI, 'GSM2998023', 'N')
+    return locals()
+
+@check(label='ch:meta:L53:1.05', chapter='ch:meta', part=6, title='C-score of GSM2998023 (acceptance run)',
+       file='part4/p4_07_meta', line=53, status='measured', kind='file', printed='1.05', tol=0.0, source=_B09_CA)
+def check_3901():
+    'Met-A C-score of reference array GSM2998023 as printed by the chain v3 acceptance run. Inputs: column C of chain_acceptance.csv, row GSM2998023. Book line 53, printed 1.05.'
+    value = _b09_row(_B09_CA, 'GSM2998023', 'C')
+    return locals()
+
+@check(label='ch:meta:L54', chapter='ch:meta', part=6, title='Sentrix chip of reference array GSM2998143',
+       file='part4/p4_07_meta', line=54, status='measured', kind='file', printed='201870610111', tol=0.0, source=_B09_MF)
+def check_3902():
+    'Sentrix chip number of reference array GSM2998143, as frozen in the floor file (refs entry <gsm>_<chip>_<position>). Inputs: metA_floors_v1_3.json platforms/EPIC/neutrophils/refs. Book line 54, printed 201870610111.'
+    ref = [s for s in load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['refs'] if s.startswith('GSM2998143_')][0]
+    value = int(ref.split('_')[1])
+    return locals()
+
+@check(label='ch:meta:L54:1.0028', chapter='ch:meta', part=6, title='GSM2998143 read in the floor (acceptance run)',
+       file='part4/p4_07_meta', line=54, status='measured', kind='file', printed='1.0028', tol=0.0, source=_B09_CA)
+def check_3903():
+    'Met-A of reference array GSM2998143 read in the floor, as printed by the chain v3 acceptance run. Inputs: column A of chain_acceptance.csv, row GSM2998143. Book line 54, printed 1.0028.'
+    value = _b09_row(_B09_CA, 'GSM2998143', 'A')
+    return locals()
+
+@check(label='ch:meta:L54:1.016', chapter='ch:meta', part=6, title='GSM2998143 held out, sites re-chosen',
+       file='part4/p4_07_meta', line=54, status='measured', kind='file', printed='1.016', tol=0.0, source=_B09_LOO)
+def check_3904():
+    'Met-A of reference array GSM2998143 against a reference rebuilt from the other five, identity sites re-chosen on those five. Inputs: column A_loo of metA_floors_v1_3_loo.csv, row GSM2998143. Book line 54, printed 1.016.'
+    value = _b09_row(_B09_LOO, 'GSM2998143', 'A_loo', key='ref')
+    return locals()
+
+@check(label='ch:meta:L54:1.003', chapter='ch:meta', part=6, title='GSM2998143 held out, frozen sites',
+       file='part4/p4_07_meta', line=54, status='measured', kind='file', printed='1.003', tol=0.0, source=_B09_LOO)
+def check_3905():
+    'Met-A of reference array GSM2998143 on the frozen sites, floor from the other five. Inputs: column A_loo_frozen_sites of metA_floors_v1_3_loo.csv, row GSM2998143. Book line 54, printed 1.003.'
+    value = _b09_row(_B09_LOO, 'GSM2998143', 'A_loo_frozen_sites', key='ref')
+    return locals()
+
+@check(label='ch:meta:L54:0.1284', chapter='ch:meta', part=6, title='noise index N of GSM2998143',
+       file='part4/p4_07_meta', line=54, status='measured', kind='file', printed='0.1284', tol=0.0, source=_B09_NI)
+def check_3906():
+    'Noise index N (mean H at the EPIC sites every purified blood group holds fixed) of reference array GSM2998143, GSE110554 deposit. Inputs: column N of noise_index.csv, row GSM2998143. Book line 54, printed 0.1284.'
+    value = _b09_row(_B09_NI, 'GSM2998143', 'N')
+    return locals()
+
+@check(label='ch:meta:L54:0.69', chapter='ch:meta', part=6, title='C-score of GSM2998143 (acceptance run)',
+       file='part4/p4_07_meta', line=54, status='measured', kind='file', printed='0.69', tol=0.0, source=_B09_CA)
+def check_3907():
+    'Met-A C-score of reference array GSM2998143 as printed by the chain v3 acceptance run. Inputs: column C of chain_acceptance.csv, row GSM2998143. Book line 54, printed 0.69.'
+    value = _b09_row(_B09_CA, 'GSM2998143', 'C')
+    return locals()
+
+@check(label='ch:meta:L55', chapter='ch:meta', part=6, title='Sentrix chip of reference array GSM2998030',
+       file='part4/p4_07_meta', line=55, status='measured', kind='file', printed='201868590206', tol=0.0, source=_B09_MF)
+def check_3908():
+    'Sentrix chip number of reference array GSM2998030, as frozen in the floor file (refs entry <gsm>_<chip>_<position>). Inputs: metA_floors_v1_3.json platforms/EPIC/neutrophils/refs. Book line 55, printed 201868590206.'
+    ref = [s for s in load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['refs'] if s.startswith('GSM2998030_')][0]
+    value = int(ref.split('_')[1])
+    return locals()
+
+@check(label='ch:meta:L55:1.0064', chapter='ch:meta', part=6, title='GSM2998030 read in the floor (acceptance run)',
+       file='part4/p4_07_meta', line=55, status='measured', kind='file', printed='1.0064', tol=0.0, source=_B09_CA)
+def check_3909():
+    'Met-A of reference array GSM2998030 read in the floor, as printed by the chain v3 acceptance run. Inputs: column A of chain_acceptance.csv, row GSM2998030. Book line 55, printed 1.0064.'
+    value = _b09_row(_B09_CA, 'GSM2998030', 'A')
+    return locals()
+
+@check(label='ch:meta:L55:1.045', chapter='ch:meta', part=6, title='GSM2998030 held out, sites re-chosen',
+       file='part4/p4_07_meta', line=55, status='measured', kind='file', printed='1.045', tol=0.0, source=_B09_LOO)
+def check_3910():
+    'Met-A of reference array GSM2998030 against a reference rebuilt from the other five, identity sites re-chosen on those five. Inputs: column A_loo of metA_floors_v1_3_loo.csv, row GSM2998030. Book line 55, printed 1.045.'
+    value = _b09_row(_B09_LOO, 'GSM2998030', 'A_loo', key='ref')
+    return locals()
+
+@check(label='ch:meta:L55:1.008', chapter='ch:meta', part=6, title='GSM2998030 held out, frozen sites',
+       file='part4/p4_07_meta', line=55, status='measured', kind='file', printed='1.008', tol=0.0, source=_B09_LOO)
+def check_3911():
+    'Met-A of reference array GSM2998030 on the frozen sites, floor from the other five. Inputs: column A_loo_frozen_sites of metA_floors_v1_3_loo.csv, row GSM2998030. Book line 55, printed 1.008.'
+    value = _b09_row(_B09_LOO, 'GSM2998030', 'A_loo_frozen_sites', key='ref')
+    return locals()
+
+@check(label='ch:meta:L55:0.1489', chapter='ch:meta', part=6, title='noise index N of GSM2998030',
+       file='part4/p4_07_meta', line=55, status='measured', kind='file', printed='0.1489', tol=0.0, source=_B09_NI)
+def check_3912():
+    'Noise index N (mean H at the EPIC sites every purified blood group holds fixed) of reference array GSM2998030, GSE110554 deposit. Inputs: column N of noise_index.csv, row GSM2998030. Book line 55, printed 0.1489.'
+    value = _b09_row(_B09_NI, 'GSM2998030', 'N')
+    return locals()
+
+@check(label='ch:meta:L55:1.08', chapter='ch:meta', part=6, title='C-score of GSM2998030 (acceptance run)',
+       file='part4/p4_07_meta', line=55, status='measured', kind='file', printed='1.08', tol=0.0, source=_B09_CA)
+def check_3913():
+    'Met-A C-score of reference array GSM2998030 as printed by the chain v3 acceptance run. Inputs: column C of chain_acceptance.csv, row GSM2998030. Book line 55, printed 1.08.'
+    value = _b09_row(_B09_CA, 'GSM2998030', 'C')
+    return locals()
+
+@check(label='ch:meta:L70', chapter='ch:meta', part=6, title='450K purified neutrophils on EPIC references, median A',
+       file='part4/p4_07_meta', line=70, status='measured', kind='file', printed='0.932', tol=0.0, source=_B09_D450)
+def check_3857():
+    'Purified 450K neutrophils (GSE88824, 8 donors) read on the EPIC references: median A, from the outcome record\'s table row. Book line 70, printed 0.932. Inputs: DIAG_450K_01_OUTCOME.md, row "neutrophils".'
+    value = _b09_nums(_b09_md_line(_B09_D450, '| neutrophils |'))[0]
+    return locals()
+
+@check(label='ch:meta:L70:0.916', chapter='ch:meta', part=6, title='450K purified monocytes on EPIC references, median A',
+       file='part4/p4_07_meta', line=70, status='measured', kind='file', printed='0.916', tol=0.0, source=_B09_D450)
+def check_3858():
+    'Purified 450K monocytes on the EPIC references: median A. Book line 70, printed 0.916. Inputs: DIAG_450K_01_OUTCOME.md, row "monocytes".'
+    value = _b09_nums(_b09_md_line(_B09_D450, '| monocytes |'))[0]
+    return locals()
+
+@check(label='ch:meta:L70:0.904', chapter='ch:meta', part=6, title='450K purified NK cells on EPIC references, median A',
+       file='part4/p4_07_meta', line=70, status='measured', kind='file', printed='0.904', tol=0.0, source=_B09_D450)
+def check_3859():
+    'Purified 450K NK cells on the EPIC references: median A. Book line 70, printed 0.904. Inputs: DIAG_450K_01_OUTCOME.md, row "NK cells".'
+    value = _b09_nums(_b09_md_line(_B09_D450, '| NK cells |'))[0]
+    return locals()
+
+@check(label='ch:meta:L86', chapter='ch:meta', part=6, title='known-fraction expectation on six DNA mixtures, lowest',
+       file='part4/p4_07_meta', line=86, status='measured', kind='file', printed='0.982', tol=0.0, source=_B09_WB)
+def check_3860():
+    'Whole-blood Met-A with the expectation built from the true fractions, six Salas mixtures with >= 50 % neutrophils: lower end, from the W1 row of the outcome record. Book line 86, printed 0.982. Inputs: PROC_WB_NEUT_01_OUTCOME.md.'
+    value = _b09_nums(_b09_md_line(_B09_WB, '| W1'))[0]
+    return locals()
+
+@check(label='ch:meta:L86:1.016', chapter='ch:meta', part=6, title='known-fraction expectation on six DNA mixtures, highest',
+       file='part4/p4_07_meta', line=86, status='measured', kind='file', printed='1.016', tol=0.0, source=_B09_WB)
+def check_3861():
+    'Whole-blood Met-A with the true-fraction expectation: upper end, W1 row. Book line 86, printed 1.016. Inputs: PROC_WB_NEUT_01_OUTCOME.md.'
+    value = _b09_nums(_b09_md_line(_B09_WB, '| W1'))[1]
+    return locals()
+
+@check(label='ch:meta:L86:1.062', chapter='ch:meta', part=6, title='same mixtures on the neutrophil reference alone, lowest',
+       file='part4/p4_07_meta', line=86, status='measured', kind='file', printed='1.062', tol=0.0, source=_B09_WB)
+def check_3862():
+    'The same healthy mixtures read on the neutrophil floor alone (no expectation): lower end, from the record\'s sentence "Without the expectation ... read a-b". Book line 86, printed 1.062. Inputs: PROC_WB_NEUT_01_OUTCOME.md.'
+    value = _b09_nums(_b09_md_line(_B09_WB, 'Without the expectation'))[0]
+    return locals()
+
+@check(label='ch:meta:L86:1.118', chapter='ch:meta', part=6, title='same mixtures on the neutrophil reference alone, highest',
+       file='part4/p4_07_meta', line=86, status='measured', kind='file', printed='1.118', tol=0.0, source=_B09_WB)
+def check_3863():
+    'The same healthy mixtures on the neutrophil floor alone: upper end. Book line 86, printed 1.118. Inputs: PROC_WB_NEUT_01_OUTCOME.md.'
+    value = _b09_nums(_b09_md_line(_B09_WB, 'Without the expectation'))[1]
+    return locals()
+
+@check(label='ch:meta:L91', chapter='ch:meta', part=6, title='second-laboratory isolated neutrophils on the reference, lowest',
+       file='part4/p4_07_meta', line=91, status='measured', kind='file', printed='0.86', tol=0.0, source=_B09_T2)
+def check_3864():
+    'Second-laboratory isolated neutrophils (GSE247193, GSE247195; the 33 arrays of the pre-registered T2 run) read against the reference: lower end, from the T2a row of the outcome record. Book line 91, printed 0.86. Inputs: PROC_NEUT_TEST_01_T2_OUTCOME.md.'
+    value = _b09_nums(_b09_md_line(_B09_T2, '| T2a'))[0]
+    return locals()
+
+@check(label='ch:meta:L91:1.26', chapter='ch:meta', part=6, title='second-laboratory isolated neutrophils on the reference, highest',
+       file='part4/p4_07_meta', line=91, status='measured', kind='file', printed='1.26', tol=0.0, source=_B09_T2)
+def check_3865():
+    'Second-laboratory isolated neutrophils read against the reference: upper end on the 33 arrays of the T2 run (the later diagnostic of all 48 arrays, t2_diag.csv, reaches 1.286). Book line 91, printed 1.26. Inputs: PROC_NEUT_TEST_01_T2_OUTCOME.md, T2a row.'
+    value = _b09_nums(_b09_md_line(_B09_T2, '| T2a'))[-1]
+    return locals()
+
+@check(label='ch:meta:L94', chapter='ch:meta', part=6, title='noise index of the reference arrays, lowest',
+       file='part4/p4_07_meta', line=94, status='measured', kind='file', printed='0.122', tol=0.0, source=_B09_NI)
+def check_3866():
+    'Noise index N of the reference (Salas floor) arrays: lowest. Book line 94, printed 0.122. Inputs: N of the "Salas floor neutrophils" rows of noise_index.csv.'
+    value = min(_b09_noise('Salas'))
+    return locals()
+
+@check(label='ch:meta:L94:0.149', chapter='ch:meta', part=6, title='noise index of the reference arrays, highest',
+       file='part4/p4_07_meta', line=94, status='measured', kind='file', printed='0.149', tol=0.0, source=_B09_NI)
+def check_3867():
+    'Noise index N of the reference arrays: highest. Book line 94, printed 0.149. Inputs: noise_index.csv.'
+    value = max(_b09_noise('Salas'))
+    return locals()
+
+@check(label='ch:meta:L95', chapter='ch:meta', part=6, title='noise index of second-laboratory arrays, highest',
+       file='part4/p4_07_meta', line=95, status='measured', kind='file', printed='0.243', tol=0.0, source=_B09_NI)
+def check_3868():
+    'Noise index N of the second-laboratory arrays (GSE247193, GSE247195): highest. Book line 95, printed 0.243. Inputs: noise_index.csv.'
+    value = max(_b09_noise('GSE'))
+    return locals()
+
+@check(label='ch:meta:L95:0.79', chapter='ch:meta', part=6, title='Spearman rho of Met-A with N, second laboratory (30 y donor)',
+       file='part4/p4_07_meta', line=95, status='measured', kind='file', printed='0.79', tol=0.0, source=_B09_NI)
+def check_3869():
+    'Spearman correlation of Met-A with the noise index within the GSE247193 arrays (30-year-old donor, arrays with a reading). Book line 95, printed 0.79. Inputs: N, A_own of noise_index.csv.'
+    value = _b09_noise_rho('GSE247193')
+    return locals()
+
+@check(label='ch:meta:L95:0.83', chapter='ch:meta', part=6, title='Spearman rho of Met-A with N, second laboratory (54 y donor)',
+       file='part4/p4_07_meta', line=95, status='measured', kind='file', printed='0.83', tol=0.0, source=_B09_NI)
+def check_3870():
+    'Spearman correlation of Met-A with the noise index within the GSE247195 arrays (54-year-old donor). Book line 95, printed 0.83. Inputs: N, A_own of noise_index.csv.'
+    value = _b09_noise_rho('GSE247195')
+    return locals()
+
+@check(label='ch:meta:L111', chapter='ch:meta', part=6, title='DNMT-inhibitor series: vehicle arrays, lowest',
+       file='part4/p4_07_meta', line=111, status='measured', kind='file', printed='0.968', tol=0.0, source=_B09_DN)
+def check_3871():
+    'Vehicle (DMSO) arrays of the DNMT-inhibitor series, three cell lines: lowest Met-A. Book line 111, printed 0.968. Inputs: A of the DMSO rows of dnmt_arrays_readings.csv.'
+    value = min(_b09_dnmt(lambda r: r['cmpd'] == 'DMSO'))
+    return locals()
+
+@check(label='ch:meta:L111:1.048', chapter='ch:meta', part=6, title='DNMT-inhibitor series: vehicle arrays, highest',
+       file='part4/p4_07_meta', line=111, status='measured', kind='file', printed='1.048', tol=0.0, source=_B09_DN)
+def check_3872():
+    'Vehicle (DMSO) arrays: highest Met-A. Book line 111, printed 1.048. Inputs: dnmt_arrays_readings.csv.'
+    value = max(_b09_dnmt(lambda r: r['cmpd'] == 'DMSO'))
+    return locals()
+
+@check(label='ch:meta:L111:1.002', chapter='ch:meta', part=6, title='DNMT-inhibitor series: inactive analogue, lowest',
+       file='part4/p4_07_meta', line=111, status='measured', kind='file', printed='1.002', tol=0.0, source=_B09_DN)
+def check_3873():
+    'Inactive analogue (GSK477, the compound that does not move Met-A at 10 uM): lowest Met-A. Book line 111, printed 1.002. Inputs: dnmt_arrays_readings.csv.'
+    value = min(_b09_dnmt(lambda r: r['cmpd'] == 'GSK477'))
+    return locals()
+
+@check(label='ch:meta:L111:1.032', chapter='ch:meta', part=6, title='DNMT-inhibitor series: inactive analogue, highest',
+       file='part4/p4_07_meta', line=111, status='measured', kind='file', printed='1.032', tol=0.0, source=_B09_DN)
+def check_3874():
+    'Inactive analogue (GSK477): highest Met-A. Book line 111, printed 1.032. Inputs: dnmt_arrays_readings.csv.'
+    value = max(_b09_dnmt(lambda r: r['cmpd'] == 'GSK477'))
+    return locals()
+
+@check(label='ch:meta:L111:1.16', chapter='ch:meta', part=6, title='DNMT-inhibitor series: active drug at >= 80 nM, lowest',
+       file='part4/p4_07_meta', line=111, status='measured', kind='file', printed='1.16', tol=0.0, source=_B09_DN)
+def check_3875():
+    'Active inhibitor (GSK032, GSK862) at >= 80 nM: lowest Met-A. Book line 111, printed 1.16. Inputs: dnmt_arrays_readings.csv.'
+    value = min(_b09_dnmt(lambda r: r['cmpd'] in ('GSK032', 'GSK862') and float(r['dose_nM']) >= 80))
+    return locals()
+
+@check(label='ch:meta:L111:1.87', chapter='ch:meta', part=6, title='DNMT-inhibitor series: active drug at >= 80 nM, highest',
+       file='part4/p4_07_meta', line=111, status='measured', kind='file', printed='1.87', tol=0.0, source=_B09_DN)
+def check_3876():
+    'Active inhibitor at >= 80 nM: highest Met-A. Book line 111, printed 1.87. Inputs: dnmt_arrays_readings.csv.'
+    value = max(_b09_dnmt(lambda r: r['cmpd'] in ('GSK032', 'GSK862') and float(r['dose_nM']) >= 80))
+    return locals()
+
+@check(label='ch:meta:L112', chapter='ch:meta', part=6, title='DNMT-inhibitor series: methylated channel, highest',
+       file='part4/p4_07_meta', line=112, status='measured', kind='file', printed='2.85', tol=0.0, source=_B09_DN)
+def check_3877():
+    'Met-A on the methylated channel alone under the active inhibitor: highest reading. Book line 112, printed 2.85. Inputs: A_meth of dnmt_arrays_readings.csv.'
+    value = max(_b09_dnmt(lambda r: r['cmpd'] in ('GSK032', 'GSK862'), 'A_meth'))
+    return locals()
+
+
 # ======== Part 6 | ch:iama | docs/book/part4/p4_08_iama.tex
 @check(label='eq:eps0', chapter='ch:iama', part=6, title='eps0 = 1/(1+e^(phi M)) inverts E_hold = ln((1-eps)/eps) = phi M',
        file='part4/p4_08_iama', line=27, status='derived', kind='sym', printed='', tol=0)
@@ -35104,76 +35613,11 @@ INVENTORY = [
     (6, 'ch:gauge', 'part4/p4_06_gauge', 22, '', 'calc', '1.05', 'definition: Normal band 0.95-1.05, a design tolerance A = 1 +- 5 % (stated at line 35)'),
     (6, 'ch:gauge', 'part4/p4_06_gauge', 35, '', 'derived', '0.95', 'definition: Normal band, design tolerance, healthy is A = 1 +- 5 %'),
     (6, 'ch:gauge', 'part4/p4_06_gauge', 35, '', 'derived', '1.05', 'definition: Normal band, design tolerance, healthy is A = 1 +- 5 %'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 8, 'eq:meta', 'calibrated', '', 'displayed equation, not yet checked'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 23, '', 'measured', '0.75', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 23, '', 'measured', '0.95', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 23, '', 'measured', '0.05', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 23, '', 'measured', '0.25', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 25, '', 'measured', '0.330263', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 27, '', 'measured', '0.983', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 27, '', 'measured', '1.045', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 27, '', 'measured', '0.020', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 28, '', 'measured', '0.993', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 28, '', 'measured', '1.008', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 41, '', 'measured', '0.020', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 50, '', 'measured', '201868500150', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 50, '', 'measured', '1.0032', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 50, '', 'measured', '1.011', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 50, '', 'measured', '1.004', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 50, '', 'measured', '0.1418', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 50, '', 'measured', '0.83', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 51, '', 'measured', '201868590243', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 51, '', 'measured', '0.9945', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 51, '', 'measured', '1.010', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 51, '', 'measured', '0.993', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 51, '', 'measured', '0.1223', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 51, '', 'measured', '0.95', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 52, '', 'measured', '201870610056', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 52, '', 'measured', '0.9989', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 52, '', 'measured', '1.012', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 52, '', 'measured', '0.999', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 52, '', 'measured', '0.1244', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 52, '', 'measured', '1.21', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 53, '', 'measured', '201868500150', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 53, '', 'measured', '0.9942', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 53, '', 'measured', '0.983', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 53, '', 'measured', '0.993', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 53, '', 'measured', '0.1286', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 53, '', 'measured', '1.05', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 54, '', 'measured', '201870610111', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 54, '', 'measured', '1.0028', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 54, '', 'measured', '1.016', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 54, '', 'measured', '1.003', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 54, '', 'measured', '0.1284', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 54, '', 'measured', '0.69', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 55, '', 'measured', '201868590206', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 55, '', 'measured', '1.0064', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 55, '', 'measured', '1.045', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 55, '', 'measured', '1.008', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 55, '', 'measured', '0.1489', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 55, '', 'measured', '1.08', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 70, '', 'measured', '0.932', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 70, '', 'measured', '0.916', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 70, '', 'measured', '0.904', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 79, 'eq:metawb', 'none', '', 'displayed equation, not yet checked'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 86, '', 'measured', '0.982', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 86, '', 'measured', '1.016', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 86, '', 'measured', '1.062', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 86, '', 'measured', '1.118', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 91, '', 'measured', '0.86', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 91, '', 'measured', '1.26', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 94, '', 'measured', '0.122', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 94, '', 'measured', '0.149', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 95, '', 'measured', '0.243', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 95, '', 'measured', '0.79', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 95, '', 'measured', '0.83', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 111, '', 'measured', '0.968', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 111, '', 'measured', '1.048', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 111, '', 'measured', '1.002', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 111, '', 'measured', '1.032', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 111, '', 'measured', '1.16', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 111, '', 'measured', '1.87', 'measured, source not named'),
-    (6, 'ch:meta', 'part4/p4_07_meta', 112, '', 'measured', '2.85', 'measured, source not named'),
+    (6, 'ch:meta', 'part4/p4_07_meta', 23, '', 'measured', '0.75', 'definition: identity-site selection band, methylated channel beta 0.75-0.95 (a rule of the chain)'),
+    (6, 'ch:meta', 'part4/p4_07_meta', 23, '', 'measured', '0.95', 'definition: identity-site selection band, methylated channel beta 0.75-0.95 (a rule of the chain)'),
+    (6, 'ch:meta', 'part4/p4_07_meta', 23, '', 'measured', '0.05', 'definition: identity-site selection band, unmethylated channel beta 0.05-0.25 (a rule of the chain)'),
+    (6, 'ch:meta', 'part4/p4_07_meta', 23, '', 'measured', '0.25', 'definition: identity-site selection band, unmethylated channel beta 0.05-0.25 (a rule of the chain)'),
+    (6, 'ch:meta', 'part4/p4_07_meta', 79, 'eq:metawb', 'none', '', "definition: whole-blood Met-A with the specimen's own expectation e_i = sum_g f_g mu_g,i"),
     (6, 'ch:meta', 'part4/p4_07_meta', 112, '', 'measured', '2.8', 'measured, source not named'),
     (6, 'ch:iama', 'part4/p4_08_iama', 14, 'eq:eps', 'none', '', 'displayed equation, not yet checked'),
     (6, 'ch:iama', 'part4/p4_08_iama', 32, '', 'measured', '0.032', 'measured, source not named'),

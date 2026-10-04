@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 90
+Entries: 91
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -98,3 +98,4 @@ Entries: 90
 | ch:cmos | `docs/book/part3/p3_06_cmos.tex:31` | `2.7` | slowed doubling time of computations per joule, about 2.7 years, cited to Koomey2016 (with Koomey2011); not held in any repository file and not confirmed here from the article |
 | ch:landauer | `docs/book/part4/p4_02_landauer.tex:173` | `0.90` | lower end of the site-specific per-division maintenance efficiencies 0.90-0.98 at CpG sites of the human FMR1 promoter, hairpin-bisulfite, cited to Genereux2005; not held in any repository file and not confirmed here from the paper |
 | ch:landauer | `docs/book/part4/p4_02_landauer.tex:173` | `0.98` | upper end of the same 0.90-0.98 range, Genereux2005; not held in any repository file and not confirmed here |
+| ch:meta | `docs/book/part4/p4_07_meta.tex:112` | `2.8` | Ceiling of Met-A on the methylated channel, 'about 2.8' (one bit per site over the methylated-channel floor H of each cell line in the DNMT-inhibitor series). PROC_DNMT_01_PARTA_OUTCOME.md states 1/H(floor) ~ 2.8 without the per-line floor H; dnmt_arrays_readings.csv holds the readings (max 2.845) but not the methylated-channel floor H of MV4-11, THP-1, NOMO-1. Searched doors/, doors/data/, chain/Runtime Matrices/. |
