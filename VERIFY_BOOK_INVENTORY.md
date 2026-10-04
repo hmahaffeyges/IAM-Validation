@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3314 PASS, 0 FAIL, 3020 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -727,7 +727,7 @@ Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries t
 | 162 | eq:th:einstein | derived |  | sympy: Einstein eq coefficient G=c^3/(4 hbar eta) | PASS |
 | 183 |  | none | `2\pi/8\pi` | not run: trivial ratio simplifies to 1/4 | - |
 | 190 | eq:th:period | derived |  | sympy: period fixed by removing conical deficit | PASS |
-| 203 | eq:th:structural | derived |  | not run: not yet run: draft rejected (does not run: ValueError no value) | - |
+| 203 | eq:th:structural | derived |  | sympy: Clausius coefficient matched to Einstein coefficient | PASS |
 | 206 | eq:th:eta | derived |  | sympy: solve structural eq for entropy density eta | PASS |
 | 208 | ch:theory:L208 | calc | `9.570\times10^{68}` | numeric: numeric entropy density eta in m^-2 | PASS |
 | 213 | eq:th:dAmin | derived |  | sympy: minimum horizon area per decoherence event | PASS |
@@ -748,7 +748,7 @@ Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries t
 | 294 | eq:Idot | conjecture |  | not run: conjectured functional form of info rate | - |
 | 302 | eq:dSdt | conjecture |  | not run: text changed at HEAD; central claim: encoding rate, conjectured | - |
 | 313 | eq:th:virial | none |  | not run: definition: virial theorem | - |
-| 317 | eq:th:beta | derived |  | not run: not yet run: draft does not reproduce the printed value (recomputed beta_m - 0.15765); drafting error on review | - |
+| 317 | eq:th:beta | derived |  | sympy: beta_m = Omega_m/2 from the virial partition and E(1) = 1 | PASS |
 | 318 | ch:theory:L318 | calc | `0.15765` | numeric: beta_m numeric from Omega_m | PASS |
 | 325 | eq:th:Hmd | none |  | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
 | 326 | ch:theory:L326 | none |  | sympy: horizon area scaling via H(a) | PASS |
@@ -764,7 +764,7 @@ Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries t
 | 345 | ch:theory:L345:-0.53 | calc | `-0.53` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: fitted slope n=4, matter era | PASS |
 | 348 | eq:th:target | none |  | not run: statement of required target form | - |
 | 350 | eq:th:n | derived |  | sympy: solve exponent condition for n | PASS |
-| 351 |  | derived | `7/2` | not run: not yet run: draft does not reproduce the printed value (recomputed n - 8); drafting error on review | - |
+| 351 | ch:theory:L351 | derived | `7/2` | numeric: n = 7/2 from matter-era power counting | PASS |
 | 353 | ch:theory:L353 | calc | `-1.02` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: full LCDM slope, matter era, n=7/2 | PASS |
 | 354 | ch:theory:L354 | calc | `-1.57` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: full LCDM slope, Lambda era, n=7/2 | PASS |
 | 360 | eq:th:S72 | none |  | sympy: substitute n=7/2 into entropy formula | PASS |
@@ -781,8 +781,8 @@ Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries t
 | 393 | ch:theory:L393:0.368 | calc | `0.368` | numeric: E at z=1 | PASS |
 | 393 | ch:theory:L393:1 | calc | `1` | numeric: E at z=0 | PASS |
 | 393 | ch:theory:L393:2.718 | calc | `2.718` | numeric: E limit as a to infinity | PASS |
-| 399 |  | calc | `0.93` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 399 |  | calc | `1.02` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 399 | ch:theory:L399 | calc | `0.93` | numeric: D^{7/2} record fit: constant alpha | PASS |
+| 399 | ch:theory:L399:1.02 | calc | `1.02` | numeric: D^{7/2} record fit: coefficient beta of 1/a | PASS |
 | 400 | ch:theory:L400 | calc | `2\%` | numeric: pct deviation of fitted 1/a coeff from analytic 1 | PASS |
 | 400 | ch:theory:L400:7\% | calc | `7\%` | numeric: pct deviation of fitted constant from analytic 1 | PASS |
 | 405 | eq:th:firstlaw2 | none |  | not run: definition of modified first law | - |
@@ -800,14 +800,14 @@ Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries t
 | 493 | ch:theory:L493 | derived | `-0.136` | numeric: mu0 numeric value | PASS |
 | 494 | ch:theory:L494 | calc | `0.8638` | numeric: mu(0) precise value | PASS |
 | 494 | ch:theory:L494:-0.1362 | calc | `-0.1362` | numeric: mu0 precise value | PASS |
-| 495 | eq:th:Sigma | derived |  | not run: not yet run: draft rejected (no draft returned) | - |
+| 495 | eq:th:Sigma | derived |  | sympy: Sigma = 1 from the unmodified photon source | PASS |
 | 503 | ch:theory:L503 | calc | `0.864` | numeric: mu at z=0 | PASS |
 | 503 | ch:theory:L503:0.948 | calc | `0.948` | numeric: mu at z=0.5 | PASS |
 | 503 | ch:theory:L503:0.982 | calc | `0.982` | numeric: mu at z=1 | PASS |
 | 503 | ch:theory:L503:2.8\% | calc | `2.8\%` | numeric: max deviation of MGCAMB mu approx from exact | PASS |
 | 503 | ch:theory:L503:0.65 | calc | `0.65` | numeric: redshift location of max mu deviation | PASS |
 | 504 | ch:theory:L504 | derived | `-0.136` | numeric: mu0 repeat, IAM point in mu0-Sigma0 plane | PASS |
-| 504 |  | derived | `0` | not run: not yet run: draft rejected (no draft returned) | - |
+| 504 | ch:theory:L504:0 | derived | `0` | numeric: Sigma_0 = Sigma(z=0) - 1 of the IAM point | PASS |
 | 506 | ch:theory:L506 | calc | `2.718` | numeric: E saturation value, repeat | PASS |
 | 507 |  | none | `0.3153` | not run: input Omega_m restated | - |
 | 515 | ch:theory:L515 | calc | `-1.062` | numeric: tangent w0 value | PASS |
@@ -825,7 +825,7 @@ Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries t
 | 558 | eq:th:rhodot2 | none |  | sympy: rho_info time evolution equation | PASS |
 | 560 | eq:th:winfo | derived |  | sympy: solve continuity equation for w_info | PASS |
 | 562 | ch:theory:L562 | derived | `-4/3` | numeric: w_info at present epoch | PASS |
-| 562 |  | derived | `-1` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 562 | ch:theory:L562:-1 | derived | `-1` | numeric: w_info -> -1 as a -> infinity | PASS |
 | 574 | eq:th:weff | none |  | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
 | 577 | ch:theory:L577 | none |  | sympy: simplify w_eff(1) formula | PASS |
 | 577 | ch:theory:L577:-1.062 | none | `-1.062` | numeric: w_eff at a=1 | PASS |
@@ -840,9 +840,8 @@ Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries t
 | 605 | eq:th:rhoinfo1 | conjecture |  | not run: conjecture: equal share of grav. energy | - |
 | 607 | eq:th:betam | derived |  | sympy: beta_m=Om/2 from rho_info identification | PASS |
 | 608 | ch:theory:L608 | calc | `0.15765` | numeric: numeric beta_m prediction from Om | PASS |
-| 615 | eq:th:fcoll | calc | `0.64` | not run: not yet run: draft rejected (drafter skipped: Sheth–Tormen halo mass function integration requires numerical evaluation) | - |
-| 615 | eq:th:fcoll | calc | `0.71` | not run: not yet run: draft rejected (drafter skipped: Tinker et al. halo mass function integration, same constraint:
-# the book) | - |
+| 615 | eq:th:fcoll | calc | `0.64` | numeric: collapsed fraction above 1e6 Msun, Sheth-Tormen | PASS |
+| 615 | eq:th:fcoll:0.71 | calc | `0.71` | numeric: collapsed fraction above 1e6 Msun, Tinker 2008 | PASS |
 | 617 | ch:theory:L617 | calc | `0.20` | numeric: naive beta_m=Om*f_coll lower bound | PASS |
 | 617 | ch:theory:L617:0.22 | calc | `0.22` | numeric: naive beta_m=Om*f_coll upper bound | PASS |
 | 617 | ch:theory:L617:27 | calc | `27` | numeric: percent naive beta_m above Om/2, low | PASS |
@@ -850,10 +849,10 @@ Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries t
 | 621 | eq:th:betadecomp | none |  | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
 | 622 | ch:theory:L622 | calc | `0.7` | numeric: virial efficiency lower bound | PASS |
 | 622 | ch:theory:L622:0.8 | calc | `0.8` | numeric: virial efficiency upper bound | PASS |
-| 627 |  | observed | `1.35` | not run: measured, not found in the files the chapter names | - |
+| 627 | ch:theory:L627 | observed | `1.35` | file `docs/verification/theory/THEORY_CHECK.md`: Neto 2007 relaxed-halo cut 2T/|U| (source check record) | PASS |
 | 628 | ch:theory:L628 | observed | `1.15` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: measured: printed value found in verify_theory_derivations_output.txt, a file the chapter names | PASS |
-| 628 |  | observed | `1.25` | not run: measured, not found in the files the chapter names | - |
-| 642 |  | calc | `1.02` | not run: not yet run: draft rejected (drafter skipped: The calculation of D^{7/2} from full-background integration (Section 4.8 ) | - |
+| 628 | ch:theory:L628:1.25 | observed | `1.25` | file `docs/verification/virial/NBODY_TRACE.md`: Power 2012 virial ratio fit at 1e15 Msun/h | PASS |
+| 642 | ch:theory:L642 | calc | `1.02` | numeric: 1/a coefficient for D^{7/2} (parameter count) | PASS |
 | 663 |  | none | `0.315` | not run: input Om for numerical verification | - |
 | 663 |  | none | `9.1\times10^{-5}` | not run: input Omega_r for numerical verification | - |
 | 663 |  | none | `67.4` | not run: input H0 for numerical verification | - |
@@ -861,50 +860,42 @@ Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries t
 | 671 | ch:theory:L671 | none |  | sympy: divergence threshold exponent n=9/2 | PASS |
 | 676 |  | none | `1` | not run: target alpha value restated, trivial | - |
 | 680 |  | none | `1` | not run: target alpha restated in caption, trivial | - |
-| 683 |  | calc | `0.86` | not run: not yet run: draft rejected (drafter skipped: Line 683: "points spaced uniformly in a weight the late times more and gi) | - |
-| 683 |  | calc | `0.94` | not run: not yet run: draft rejected (drafter skipped: Line 683: same as ITEM 410; the 0.94 is the β coefficient from alternativ) | - |
-| 686 |  | calc | `0.85` | not run: not yet run: draft rejected (drafter skipped: Line 686: α = 0.85 for D^2 Ω_m(a) f (no horizon factor); fitted coefficie) | - |
-| 686 |  | calc | `0.96` | not run: not yet run: draft rejected (drafter skipped: Line 686: β = 0.96 for the same model; same limitation as ITEM 412.) | - |
-| 686 |  | calc | `0.993` | not run: not yet run: draft rejected (drafter skipped: Line 686: Pearson correlation r = 0.993; goodness-of-fit metric computed ) | - |
-| 687 |  | calc | `0.53` | not run: not yet run: draft rejected (drafter skipped: Line 687: α = 0.53 for D^2 Ω_m(a) f with horizon factor 1/(T_H A_H); fitt) | - |
-| 687 |  | calc | `0.59` | not run: not yet run: draft rejected (drafter skipped: Line 687: β = 0.59 for the same model; same limitation as ITEM 415.) | - |
-| 687 |  | calc | `0.995` | not run: not yet run: draft rejected (drafter skipped: Line 687: Pearson correlation r = 0.995; goodness-of-fit metric after fit) | - |
-| 688 |  | calc | `0.66` | not run: not yet run: draft rejected (drafter skipped: Fit coefficients α, β require the full dataset and fitting procedure (unw) | - |
-| 688 |  | calc | `0.74` | not run: not yet run: draft rejected (drafter skipped: Fit coefficient β for D^{5/2}Ω_m(a)f requires the full dataset and fittin) | - |
-| 688 |  | calc | `0.995` | not run: not yet run: draft rejected (drafter skipped: Pearson correlation r over 0.15≤a≤2.0 for the D^{5/2}Ω_m(a)f model requir) | - |
-| 689 |  | calc | `0.79` | not run: not yet run: draft rejected (drafter skipped: Fit coefficient α for D^{3}Ω_m(a)f requires the full dataset and fitting ) | - |
-| 689 |  | calc | `0.88` | not run: not yet run: draft rejected (drafter skipped: Fit coefficient β for D^{3}Ω_m(a)f requires the full dataset and fitting ) | - |
-| 689 |  | calc | `0.994` | not run: not yet run: draft rejected (drafter skipped: Pearson correlation r over 0.15≤a≤2.0 for the D^{3}Ω_m(a)f model requires) | - |
-| 690 |  | calc | `0.93` | not run: not yet run: draft rejected (drafter skipped: Fit coefficient α for D^{7/2}Ω_m(a)f requires the full dataset and fittin) | - |
-| 690 |  | calc | `1.02` | not run: not yet run: draft rejected (drafter skipped: Fit coefficient β for D^{7/2}Ω_m(a)f requires the full dataset and fittin) | - |
-| 690 |  | calc | `0.994` | not run: not yet run: draft rejected (drafter skipped: Correlation coefficient r=0.994 requires the actual data points and fitte) | - |
-| 691 |  | calc | `1.06` | not run: not yet run: draft rejected (drafter skipped: Coefficient α=1.06 for D^4 Ω_m(a) f model requires the data being fit and) | - |
-| 691 |  | calc | `1.16` | not run: not yet run: draft rejected (drafter skipped: Coefficient β=1.16 for D^4 Ω_m(a) f model requires the data being fit and) | - |
-| 691 |  | calc | `0.994` | not run: not yet run: draft rejected (drafter skipped: Correlation coefficient r=0.994 requires the actual data points and fitte) | - |
-| 692 |  | calc | `1.06` | not run: not yet run: draft rejected (drafter skipped: Coefficient α=1.06 for Press–Schechter σ_*=1.0 requires the data being fi) | - |
-| 692 |  | calc | `1.24` | not run: not yet run: draft rejected (drafter skipped: Coefficient β=1.24 for Press–Schechter σ_*=1.0 requires the data being fi) | - |
-| 692 |  | calc | `0.983` | not run: not yet run: draft rejected (drafter skipped: Correlation coefficient r=0.983 requires the actual data points and fitte) | - |
-| 693 |  | calc | `0.86` | not run: not yet run: draft rejected (drafter skipped: Coefficient α=0.86 for Press–Schechter σ_*=1.2 requires the data being fi) | - |
-| 693 |  | calc | `1.02` | not run: not yet run: draft rejected (drafter skipped: Line 693, Sheth–Tormen σ*=1.2, β coefficient (0.89 vs. printed 1.02)
-# Ca) | - |
-| 693 |  | calc | `0.982` | not run: not yet run: draft rejected (drafter skipped: Line 693, Sheth–Tormen σ*=1.2, r coefficient (printed 0.982)
-# Cannot ver) | - |
-| 694 |  | calc | `0.90` | not run: not yet run: draft rejected (drafter skipped: Line 694, Sheth–Tormen σ*=1.0, α coefficient (printed 0.90)
-# Cannot veri) | - |
-| 694 |  | calc | `1.07` | not run: not yet run: draft rejected (drafter skipped: Line 694, Sheth–Tormen σ*=1.0, β coefficient (printed 1.07)
-# Cannot veri) | - |
-| 694 |  | calc | `0.983` | not run: not yet run: draft rejected (drafter skipped: Line 694, Sheth–Tormen σ*=1.0, r coefficient (printed 0.983)
-# Cannot ver) | - |
-| 695 |  | calc | `0.75` | not run: not yet run: draft rejected (drafter skipped: Line 695, Sheth–Tormen σ*=1.2, α coefficient (printed 0.75)
-# Cannot veri) | - |
-| 695 |  | calc | `0.89` | not run: not yet run: draft rejected (drafter skipped: Line 695, Sheth–Tormen σ*=1.2, β coefficient (printed 0.89)
-# Cannot veri) | - |
-| 695 |  | calc | `0.982` | not run: not yet run: draft rejected (drafter skipped: Line 695, Sheth–Tormen σ*=1.2, r coefficient (printed 0.982)
-# Cannot ver) | - |
+| 683 | ch:theory:L683 | calc | `0.86` | numeric: D^{7/2} fit, points uniform in a: alpha | PASS |
+| 683 | ch:theory:L683:0.94 | calc | `0.94` | numeric: D^{7/2} fit, points uniform in a: beta | PASS |
+| 686 | ch:theory:L686 | calc | `0.85` | numeric: record table, D^2 Omega_m(a) f, no horizon factor: alpha | PASS |
+| 686 | ch:theory:L686:0.96 | calc | `0.96` | numeric: record table, D^2 Omega_m(a) f, no horizon factor: beta | PASS |
+| 686 | ch:theory:L686:0.993 | calc | `0.993` | numeric: record table, D^2 Omega_m(a) f, no horizon factor: r | PASS |
+| 687 | ch:theory:L687 | calc | `0.53` | numeric: record table, D^2 Omega_m(a) f: alpha | PASS |
+| 687 | ch:theory:L687:0.59 | calc | `0.59` | numeric: record table, D^2 Omega_m(a) f: beta | PASS |
+| 687 | ch:theory:L687:0.995 | calc | `0.995` | numeric: record table, D^2 Omega_m(a) f: r | PASS |
+| 688 | ch:theory:L688 | calc | `0.66` | numeric: record table, D^{5/2} Omega_m(a) f: alpha | PASS |
+| 688 | ch:theory:L688:0.74 | calc | `0.74` | numeric: record table, D^{5/2} Omega_m(a) f: beta | PASS |
+| 688 | ch:theory:L688:0.995 | calc | `0.995` | numeric: record table, D^{5/2} Omega_m(a) f: r | PASS |
+| 689 | ch:theory:L689 | calc | `0.79` | numeric: record table, D^3 Omega_m(a) f: alpha | PASS |
+| 689 | ch:theory:L689:0.88 | calc | `0.88` | numeric: record table, D^3 Omega_m(a) f: beta | PASS |
+| 689 | ch:theory:L689:0.994 | calc | `0.994` | numeric: record table, D^3 Omega_m(a) f: r | PASS |
+| 690 | ch:theory:L690 | calc | `0.93` | numeric: record table, D^{7/2} Omega_m(a) f: alpha | PASS |
+| 690 | ch:theory:L690:1.02 | calc | `1.02` | numeric: record table, D^{7/2} Omega_m(a) f: beta | PASS |
+| 690 | ch:theory:L690:0.994 | calc | `0.994` | numeric: record table, D^{7/2} Omega_m(a) f: r | PASS |
+| 691 | ch:theory:L691 | calc | `1.06` | numeric: record table, D^4 Omega_m(a) f: alpha | PASS |
+| 691 | ch:theory:L691:1.16 | calc | `1.16` | numeric: record table, D^4 Omega_m(a) f: beta | PASS |
+| 691 | ch:theory:L691:0.994 | calc | `0.994` | numeric: record table, D^4 Omega_m(a) f: r | PASS |
+| 692 | ch:theory:L692 | calc | `1.06` | numeric: record table, Press-Schechter sigma_* 1.0: alpha | PASS |
+| 692 | ch:theory:L692:1.24 | calc | `1.24` | numeric: record table, Press-Schechter sigma_* 1.0: beta | PASS |
+| 692 | ch:theory:L692:0.983 | calc | `0.983` | numeric: record table, Press-Schechter sigma_* 1.0: r | PASS |
+| 693 | ch:theory:L693 | calc | `0.86` | numeric: record table, Press-Schechter sigma_* 1.2: alpha | PASS |
+| 693 | ch:theory:L693:1.02 | calc | `1.02` | numeric: record table, Press-Schechter sigma_* 1.2: beta | PASS |
+| 693 | ch:theory:L693:0.982 | calc | `0.982` | numeric: record table, Press-Schechter sigma_* 1.2: r | PASS |
+| 694 | ch:theory:L694 | calc | `0.90` | numeric: record table, Sheth-Tormen sigma_* 1.0: alpha | PASS |
+| 694 | ch:theory:L694:1.07 | calc | `1.07` | numeric: record table, Sheth-Tormen sigma_* 1.0: beta | PASS |
+| 694 | ch:theory:L694:0.983 | calc | `0.983` | numeric: record table, Sheth-Tormen sigma_* 1.0: r | PASS |
+| 695 | ch:theory:L695 | calc | `0.75` | numeric: record table, Sheth-Tormen sigma_* 1.2: alpha | PASS |
+| 695 | ch:theory:L695:0.89 | calc | `0.89` | numeric: record table, Sheth-Tormen sigma_* 1.2: beta | PASS |
+| 695 | ch:theory:L695:0.982 | calc | `0.982` | numeric: record table, Sheth-Tormen sigma_* 1.2: r | PASS |
 | 696 |  | none | `1.00` | not run: target alpha, by construction | - |
 | 696 |  | none | `1.000` | not run: trivial self-correlation of target function | - |
-| 706 |  | calc | `0.93` | not run: not yet run: draft rejected (uses imports or file access) | - |
-| 706 |  | calc | `1.02` | not run: not yet run: draft rejected (uses imports or file access) | - |
+| 706 | ch:theory:L706 | calc | `0.93` | numeric: best power law D^{7/2}: alpha | PASS |
+| 706 | ch:theory:L706:1.02 | calc | `1.02` | numeric: best power law D^{7/2}: beta | PASS |
 | 707 | ch:theory:L707 | calc | `2` | numeric: percent deviation of beta from target | PASS |
 | 707 | ch:theory:L707:7 | calc | `7` | numeric: percent deviation of alpha from target | PASS |
 | 715 | ch:theory:L715 | calc | `3.8` | numeric: n where fitted alpha crosses 1 | PASS |
@@ -913,21 +904,21 @@ Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries t
 | 725 |  | none | `0.3222` | not run: published ST constant A (input) | - |
 | 725 |  | none | `0.707` | not run: published ST constant q (input) | - |
 | 725 |  | none | `0.3` | not run: published ST constant p (input) | - |
-| 727 |  | calc | `1.07` | not run: not yet run: draft rejected (drafter skipped: The integral (Eq. th:Iint) and its relationship to beta are not stated in) | - |
-| 727 |  | calc | `0.89` | not run: not yet run: draft rejected (drafter skipped: Same as ITEM 444: integral definition and beta extraction formula not pro) | - |
-| 728 |  | calc | `1.02` | not run: not yet run: draft rejected (drafter skipped: Same as ITEM 444: integral definition and beta extraction formula not pro) | - |
-| 752 | eq:th:dphi | derived |  | not run: not yet run: draft rejected (drafter skipped: Line 752: δφ = 0 is a constraint definition derived from the Cai–Kim firs) | - |
-| 764 | eq:th:poisson | derived |  | not run: not yet run: draft rejected (drafter skipped: Line 764: k²Ψ = −4πGa²ρ_m δ_m is the Poisson equation in conformal Newton) | - |
-| 766 | eq:th:noaniso | derived |  | not run: not yet run: draft rejected (drafter skipped: Line 766: Ψ = Φ is the anisotropic-stress relation. This is a structural ) | - |
-| 768 | eq:th:growth | derived |  | not run: not yet run: draft rejected (drafter skipped: Line 768: ̈δ_m + 2H_IAM δ̇_m − 4πGρ_m δ_m = 0 is the growth equation for ) | - |
-| 772 |  | calc | `0.67` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.776789); drafting error on review | - |
-| 772 |  | calc | `0.78` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.67846); drafting error on review | - |
+| 727 | ch:theory:L727 | calc | `1.07` | numeric: Sheth-Tormen sigma_* 1.0: beta (text) | PASS |
+| 727 | ch:theory:L727:0.89 | calc | `0.89` | numeric: Sheth-Tormen sigma_* 1.2: beta (text) | PASS |
+| 728 | ch:theory:L728 | calc | `1.02` | numeric: Press-Schechter sigma_* 1.2: beta (text) | PASS |
+| 752 | eq:th:dphi | derived |  | sympy: delta phi = 0 from the perturbed constraint | PASS |
+| 764 | eq:th:poisson | derived |  | sympy: Fourier form of the comoving Poisson equation | PASS |
+| 766 | eq:th:noaniso | derived |  | sympy: Psi = Phi from the traceless ij equation with no anisotropic stress | PASS |
+| 768 | eq:th:growth | derived |  | sympy: growth equation from continuity, Euler and Poisson | PASS |
+| 772 | ch:theory:L772 | calc | `0.67` | numeric: growth deficit today, friction form (Eq. th:growth) | PASS |
+| 772 | ch:theory:L772:0.78 | calc | `0.78` | numeric: growth deficit today, G_eff = mu G | PASS |
 | 778 | ch:theory:L778 | measured | `61.5` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2b background-modified H0 from chains | PASS |
 | 779 | ch:theory:L779 | measured | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 chi^2 diff, IAM vs LCDM | PASS |
 | 780 | ch:theory:L780 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: LCDM sigma8 from Level2 chain | PASS |
 | 780 | ch:theory:L780:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: IAM sigma8 from Level2 chain | PASS |
 | 780 | ch:theory:L780:72.26 | measured | `72.26` | heavy file `docs/verification/scripts/verify_theory_derivations_output.txt`: measured: printed value found in verify_theory_derivations_output.txt, a file the chapter names | PASS |
-| 780 |  | measured | `0.75` | not run: measured, too few printed digits to match against the named files | - |
+| 780 | ch:theory:L780:0.75 | measured | `0.75` | numeric: matter-sector H0 against SH0ES, sigma | PASS |
 | 785 | eq:th:mu2 | derived |  | sympy: mu<1 since E_IAM^2>E_LCDM^2 | PASS |
 | 788 | ch:theory:L788 | calc | `0.864` | numeric: mu(z=0) from E^2 ratio | PASS |
 | 788 | ch:theory:L788:0.948 | calc | `0.948` | numeric: mu(z=0.5) from E^2 ratio | PASS |
@@ -935,29 +926,29 @@ Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries t
 | 789 | ch:theory:L789 | calc | `0.9996` | numeric: mu(z=3) from E^2 ratio | PASS |
 | 812 | eq:th:D2 | derived |  | sympy: second-order growth eqn + Friedmann matter-density identity | PASS |
 | 814 | ch:theory:L814 | derived | `-3/7` | sympy: EdS trial-solution coefficient for D2 initial condition | PASS |
-| 815 |  | calc | `0.989` | not run: not yet run: draft rejected (does not run: NameError) | - |
-| 815 |  | calc | `0.995` | not run: not yet run: draft rejected (does not run: NameError) | - |
-| 815 |  | calc | `0.997` | not run: not yet run: draft rejected (does not run: NameError) | - |
-| 815 |  | calc | `0.999` | not run: not yet run: draft rejected (does not run: NameError) | - |
+| 815 | ch:theory:L815 | calc | `0.989` | numeric: D2 ratio IAM/LCDM at z = 0 | PASS |
+| 815 | ch:theory:L815:0.995 | calc | `0.995` | numeric: D2 ratio IAM/LCDM at z = 0.3 | PASS |
+| 815 | ch:theory:L815:0.997 | calc | `0.997` | numeric: D2 ratio IAM/LCDM at z = 0.5 | PASS |
+| 815 | ch:theory:L815:0.999 | calc | `0.999` | numeric: D2 ratio IAM/LCDM at z = 1 | PASS |
 | 818 | eq:th:F2 | none |  | not run: definition, cited second-order kernel (Bernardeau2002) | - |
 | 819 | ch:theory:L819 | derived | `0` | sympy: F2(k,-k) vanishes by momentum conservation | PASS |
 | 820 | ch:theory:L820 | derived | `2` | sympy: F2(k,k) value from kernel definition | PASS |
 | 823 | ch:theory:L823 | calc | `0.998` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 823 |  | calc | `0.974` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.969); drafting error on review | - |
-| 823 |  | calc | `0.989` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.985); drafting error on review | - |
-| 823 |  | calc | `0.993` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.991); drafting error on review | - |
+| 823 | ch:theory:L823:0.974 | calc | `0.974` | numeric: bispectrum amplitude ratio (D^4), z = 0, same early amplitude | PASS |
+| 823 | ch:theory:L823:0.989 | calc | `0.989` | numeric: bispectrum amplitude ratio (D^4), z = 0.3, same early amplitude | PASS |
+| 823 | ch:theory:L823:0.993 | calc | `0.993` | numeric: bispectrum amplitude ratio (D^4), z = 0.5, same early amplitude | PASS |
 | 824 | ch:theory:L824 | calc | `1.015` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 824 |  | calc | `1.020` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.00884); drafting error on review | - |
-| 824 |  | calc | `1.025` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.00242); drafting error on review | - |
+| 824 | ch:theory:L824:1.020 | calc | `1.020` | numeric: bispectrum ratio, same amplitude today, z = 0.5 | PASS |
+| 824 | ch:theory:L824:1.025 | calc | `1.025` | numeric: bispectrum ratio, same amplitude today, z = 1 | PASS |
 | 825 |  | none | `1.2%` | not run: sigma8 reduction in CAMB, restated from Chapter level2 | - |
-| 834 |  | calc | `0.251` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 834 | ch:theory:L834 | calc | `0.251` | numeric: nonlinear scale k_nl, LambdaCDM, z = 0 | PASS |
+| 834 | ch:theory:L834:0.255 | calc | `0.255` | numeric: nonlinear scale k_nl, IAM, z = 0 | PASS |
 | 834 |  | none | `0.811` | not run: input sigma8 value restated (Planck) | - |
-| 834 |  | calc | `0.255` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 835 |  | calc | `+1.2%` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 835 |  | calc | `+0.6%` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.31624); drafting error on review | - |
-| 835 |  | calc | `+0.1%` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.10756); drafting error on review | - |
-| 836 |  | calc | `0.759` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 836 |  | calc | `0.760` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 835 | ch:theory:L835 | calc | `+1.2%` | numeric: k_nl shift IAM vs LambdaCDM, z = 0 | PASS |
+| 835 | ch:theory:L835:+0.6% | calc | `+0.6%` | numeric: k_nl shift IAM vs LambdaCDM, z = 0.3 | PASS |
+| 835 | ch:theory:L835:+0.1% | calc | `+0.1%` | numeric: k_nl shift IAM vs LambdaCDM, z = 1 | PASS |
+| 836 | ch:theory:L836 | calc | `0.759` | numeric: nonlinear scale k_nl, LambdaCDM, z = 1 | PASS |
+| 836 | ch:theory:L836:0.760 | calc | `0.760` | numeric: nonlinear scale k_nl, IAM, z = 1 | PASS |
 | 845 |  | none | `-0.136` | not run: mu0 prediction, restated canon value | - |
 | 849 | ch:theory:L849 | measured | `+0.96` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Delta chi2 Planck-only chain pair | PASS |
 | 849 | ch:theory:L849:+0.56 | measured | `+0.56` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: Delta chi2 Planck+RSD chain pair | PASS |
@@ -970,11 +961,11 @@ Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries t
 | 855 | ch:theory:L855:0.809 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM sigma8 | PASS |
 | 855 | ch:theory:L855:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 IAM sigma8 | PASS |
 | 856 | ch:theory:L856 | measured | `-1.1%` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 sigma8 percent shift | PASS |
-| 861 |  | calc | `0.13%` | not run: not yet run: draft rejected (no draft returned) | - |
+| 861 |  | calc | `0.13%` | not run: measured, source not named: the TT residual (< 0.13 % at l > 30, Level 1 posterior means) needs CAMB spectra; no committed spectra or output holds it (CANON/predictions_triage_2026-10-02.json: 'a CMB TT number not in the record') | - |
 | 867 | ch:theory:L867 | derived |  | sympy: continuity-equation identity for w_info(a) | PASS |
-| 873 | eq:th:conservation | derived |  | not run: not yet run: draft rejected (no draft returned) | - |
-| 879 |  | observed | `w0>-1` | not run: measured, too few printed digits to match against the named files | - |
-| 879 |  | observed | `wa<0` | not run: measured, too few printed digits to match against the named files | - |
+| 873 | eq:th:conservation | derived |  | sympy: total continuity: matter, Lambda and info each conserved | PASS |
+| 879 | ch:theory:L879 | observed | `>-1` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR2 fits favour w0 > -1 (least w0 of the four fits) | PASS |
+| 879 | ch:theory:L879:wa<0 | observed | `<0` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR2 fits favour wa < 0 (largest wa of the four fits) | PASS |
 | 882 | eq:th:weff2 | none |  | not run: definition of effective dark-energy equation of state | - |
 | 883 | ch:theory:L883 | calc | `-1.062` | numeric: w_eff at z=0 from weighted-average formula | PASS |
 | 883 | ch:theory:L883:-1.061 | calc | `-1.061` | numeric: w_eff at z=0.5 | PASS |
@@ -985,8 +976,8 @@ Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries t
 | 890 | ch:theory:L890 | calc | `67.161` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 posterior mean H0 | PASS |
 | 890 | ch:theory:L890:0.467 | calc | `0.467` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 posterior H0 std dev | PASS |
 | 890 | ch:theory:L890:70.0 | observed | `70.0` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
-| 891 |  | observed | `68.9` | not run: measured, not found in the files the chapter names | - |
-| 891 |  | observed | `75.46` | not run: measured, not found in the files the chapter names | - |
+| 891 |  | observed | `68.9` | not run: measured, source not named: published H0 of Hotokezaka et al. 2019 (doi 10.1038/s41550-019-0820-1); no repository file records it and the value could not be confirmed offline | - |
+| 891 |  | observed | `75.46` | not run: measured, source not named: published H0 of Palmese et al. 2024 (doi 10.1103/PhysRevD.109.063508); no repository file records it and the value could not be confirmed offline | - |
 | 941 | eq:th:hoop | conjecture |  | not run: conjectured holographic black-hole formation criterion | - |
 | 944 | eq:th:hoopcheck | derived |  | sympy: entropy ratio reduces to inverse Planck-length-squared | PASS |
 | 951 | eq:th:Meq | derived |  | sympy: equilibrium mass from setting T_BH=T_GH | PASS |
@@ -1005,17 +996,17 @@ Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries t
 | 1060 | ch:theory:L1060 | prediction | `0.864` | numeric: IAM mu prediction at z=0 | PASS |
 | 1060 | ch:theory:L1060:0.948 | prediction | `0.948` | numeric: IAM mu prediction at z=0.5 | PASS |
 | 1060 |  | prediction | `1` | not run: Sigma=1 part of headline prediction, trivial | - |
-| 1063 |  | measured | `0.35--0.5` | not run: measured, too few printed digits to match against the named files | - |
+| 1063 | ch:theory:L1063 | measured | `0.35--0.5` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: phantom-crossing redshift, lowest of the DESI DR2 fits | PASS |
 | 1065 |  | prediction | `10^{-4}` | not run: falsification threshold on beta_gamma | - |
 | 1066 |  | prediction | `10^{-5}` | not run: CMB-S4 energy-injection sensitivity target | - |
 | 1066 |  | prediction | `10^{-4}` | not run: repeat of beta_gamma falsification threshold | - |
 | 1067 | ch:theory:L1067 | calc | `3.3\%` | numeric: beta_gamma 95 % bound (committed output) over beta_m, per cent | PASS |
-| 1067 |  | measured | `0.0039` | not run: measured, too few printed digits to match against the named files | - |
+| 1067 | ch:theory:L1067:0.0052 | measured | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma 95 % bound (committed output) | PASS |
 | 1069 |  | prediction | `1/2` | not run: restated beta_m/Om=1/2 constancy prediction | - |
 | 1078 |  | prediction | `-0.136` | not run: headline IAM mu0 prediction, locked canon value | - |
 | 1078 |  | prediction | `1` | not run: Sigma=1 part of headline prediction, trivial | - |
-| 1084 |  | derived | `7/2` | not run: not yet run: draft rejected (drafter skipped: Exponent n=7/2 is stated as derived from information-surface analysis on ) | - |
-| 1085 |  | calc | `2\%` | not run: not yet run: draft rejected (drafter skipped: The claim is that D^{7/2} integrated over Lambda-CDM history returns the ) | - |
+| 1084 | ch:theory:L1084 | derived | `7/2` | numeric: n = 7/2 restated in the summary (power counting) | PASS |
+| 1085 | ch:theory:L1085 | calc | `2\%` | numeric: D^{7/2}: 1/a coefficient within 2 % | PASS |
 
 ## Part 2 - ch:entropicgravity - `docs/book/part2/p2_03a_entropic_gravity.tex`
 

@@ -965,6 +965,131 @@ def _b00_dr2_zcross():
     return out
 
 # ---------------- table tab:vt_status
+DATA_FILES['docs/verification/theory/THEORY_CHECK.md'] = 'theory chapter source check: published values read from the papers (Neto 2007, Power 2012)'   # 7 kB
+
+# helpers of the part2/p2_03_theory checks
+# ---------------------------------------------------------------- batch b01 helpers (ports of docs/verification/scripts/verify_theory_derivations.py)
+_B01 = {}
+def _b01_record():
+    """Section 12 of verify_theory_derivations.py: full LambdaCDM background of the chapter's numerics (Omega_m 0.315, Omega_r 9.1e-5, book
+    Sec. numerics), linear growth D(a) normalised today on a grid uniform in ln a from 1e-5 to 2, f = dlnD/dlna, Omega_m(a), H(a)/H0."""
+    if 'rec' not in _B01:
+        Om_, Or_ = 0.315, 9.1e-5
+        OL_ = 1 - Om_ - Or_
+        E2 = lambda x: Om_ / x**3 + Or_ / x**4 + OL_
+        def rhs(l, y):
+            x = np.exp(l); e2 = E2(x)
+            dlnH = 0.5 * (-3 * Om_ / x**3 - 4 * Or_ / x**4) / e2
+            return [y[1], -(2 + dlnH) * y[1] + 1.5 * (Om_ / x**3 / e2) * y[0]]
+        lg = np.linspace(np.log(1e-5), np.log(2.0), 40001)
+        s = solve_ivp(rhs, [lg[0], lg[-1]], [1.0, 0.0], t_eval=lg, rtol=1e-10, atol=1e-13)
+        ag = np.exp(lg); i1 = np.argmin(abs(ag - 1))
+        Dg = s.y[0] / s.y[0][i1]; fg = s.y[1] / s.y[0]
+        _B01['rec'] = dict(a=ag, D=Dg, f=fg, Oma=Om_ / ag**3 / E2(ag), H=np.sqrt(E2(ag)))
+    return _B01['rec']
+def _b01_fit(I, uniform_a=False):
+    """Fit I(a)/I(1) to exp(alpha - beta/a) over 0.15 <= a <= 2 (unweighted least squares). Points uniform in ln a (the table) or uniform in a."""
+    from scipy.optimize import curve_fit
+    r = _b01_record(); ag = r['a']
+    y = I / np.interp(1.0, ag, I)
+    if uniform_a:
+        xa = np.linspace(0.15, 2.0, 20001); ya = np.interp(xa, ag, y)
+    else:
+        m = (ag >= 0.15) & (ag <= 2.0); xa, ya = ag[m], y[m]
+    fn = lambda x, al, be: np.exp(al - be / x)
+    pp, _ = curve_fit(fn, xa, ya, p0=[1, 1], maxfev=20000)
+    return pp[0], pp[1], float(np.corrcoef(ya, fn(xa, *pp))[0, 1])
+def _b01_powerlaw(n, horizon=True):
+    """Accumulated record I(a) = int R/(T_H A_H) dt with R = Omega_m(a) f D^n; 1/(T_H A_H) = H/2 and dt = da/(aH) give int R da/a
+    (horizon=False: int R dt = int R da/(aH), the first table row). Book Eq. th:Iint."""
+    from scipy.integrate import cumulative_trapezoid
+    r = _b01_record()
+    w = 1.0 / r['a'] if horizon else 1.0 / (r['a'] * r['H'])
+    return cumulative_trapezoid(r['D']**n * r['Oma'] * r['f'] * w, r['a'], initial=0)
+def _b01_collapse(kind, sstar):
+    """Accumulated record for a collapsed fraction F(nu), nu = delta_c/(sigma_* D): R = Omega_m(a) dF/dln a, with the horizon factor.
+    Press-Schechter F = erfc(nu/sqrt 2); Sheth-Tormen F = int_nu^inf f_ST dnu'/nu', A 0.3222, q 0.707, p 0.3 (book Eq. th:fST)."""
+    from scipy.integrate import cumulative_trapezoid
+    from scipy.special import erfc
+    r = _b01_record(); ag = r['a']; nu = 1.686 / (sstar * r['D'])
+    if kind == 'PS':
+        F = erfc(nu / np.sqrt(2))
+    else:
+        A_, q_, p_ = 0.3222, 0.707, 0.3
+        fST = lambda v: A_ * np.sqrt(2 * q_ / np.pi) * (1 + (q_ * v**2)**(-p_)) * v * np.exp(-q_ * v**2 / 2)
+        Fgrid = np.logspace(-4, 2.5, 8000)
+        tab = np.concatenate([cumulative_trapezoid((fST(Fgrid) / Fgrid)[::-1], Fgrid[::-1])[::-1] * -1, [0.0]])
+        F = np.interp(nu, Fgrid, tab)
+    R = r['Oma'] * np.gradient(F, np.log(ag))
+    return cumulative_trapezoid(R / ag, ag, initial=0)
+def _b01_eh():
+    """Eisenstein-Hu no-wiggle linear power, Planck 2018 inputs as the chapter states them (h 0.674, Omega_b h^2 0.0224, sigma_8 0.811, n_s 0.965,
+    Omega_m 0.315, T_CMB 2.7255 K); returns (P(k) normalised to sigma_8, sigma(R) function), k in h/Mpc, R in Mpc/h."""
+    if 'eh' not in _B01:
+        h_, obh2, ns_, s8_, Om_ = 0.674, 0.0224, 0.965, 0.811, 0.315
+        omh2 = Om_ * h_**2; fb = obh2 / omh2; th = T_CMB / 2.7
+        s_ = 44.5 * np.log(9.83 / omh2) / np.sqrt(1 + 10 * obh2**0.75)
+        aG = 1 - 0.328 * np.log(431 * omh2) * fb + 0.38 * np.log(22.3 * omh2) * fb**2
+        def T_EH(kh):
+            kk = kh * h_
+            Geff = omh2 * (aG + (1 - aG) / (1 + (0.43 * kk * s_)**4))
+            q = kk * th**2 / Geff
+            L0 = np.log(2 * np.e + 1.8 * q); C0 = 14.2 + 731 / (1 + 62.5 * q)
+            return L0 / (L0 + C0 * q**2)
+        W = lambda x: 3 * (np.sin(x) - x * np.cos(x)) / x**3
+        kg = np.logspace(-5, 4, 40000); Pun = kg**ns_ * T_EH(kg)**2
+        trap = getattr(np, 'trapezoid', None) or np.trapz
+        sig_un = lambda R: np.sqrt(trap(kg**3 * Pun * W(kg * R)**2 / (2 * np.pi**2), np.log(kg)))
+        norm = s8_ / sig_un(8.0)
+        _B01['eh'] = (lambda k: norm**2 * k**ns_ * T_EH(k)**2, lambda R: norm * sig_un(R), trap)
+    return _B01['eh']
+def _b01_fcoll(which):
+    """Collapsed fraction in halos above 1e6 Msun at z = 0 (Sheth-Tormen 1999 or Tinker 2008 Delta = 200m), Eisenstein-Hu sigma(M)."""
+    Pk, sig, trap = _b01_eh()
+    rhom = 0.315 * 2.775e11                       # h^2 Msun / Mpc^3 (critical density 2.775e11 h^2 Msun/Mpc^3)
+    R_of_M = lambda Mh: (3 * Mh / (4 * np.pi * rhom))**(1 / 3)
+    Mg = np.logspace(np.log10(1e6 * 0.674), 16.5, 300)
+    sg = np.array([sig(R_of_M(m)) for m in Mg])
+    if which == 'ST':
+        A_, q_, p_ = 0.3222, 0.707, 0.3
+        fST = lambda nu: A_ * np.sqrt(2 * q_ / np.pi) * (1 + (q_ * nu**2)**(-p_)) * nu * np.exp(-q_ * nu**2 / 2)
+        return quad(lambda nu: fST(nu) / nu, 1.686 / sg[0], 60)[0]
+    fT = lambda s: 0.186 * ((s / 2.57)**-1.47 + 1) * np.exp(-1.19 / s**2)   # Tinker et al. 2008, Delta = 200m, z = 0
+    return float(trap(fT(sg), np.log(1 / sg)))
+def _b01_grow2():
+    """Linear D1 and second-order D2 (book Eq. th:D2, D2 -> -(3/7) D1^2 early) from a = 1e-3 with the same early amplitude: LambdaCDM, IAM with the
+    matter-sector friction 2 H_IAM (Eq. th:growth, background clock unchanged) and IAM as G_eff = mu G on the LambdaCDM background.
+    Omega_m 0.3153, beta_m from canon. Port of verify_theory_derivations.py section 13."""
+    if 'g2' not in _B01:
+        OLm = 1 - Om
+        H2f = lambda x: Om * x**-3 + OLm
+        def mk(mode):
+            def r(l, y):
+                x = np.exp(l); dlnH = -1.5 * Om * x**-3 / H2f(x); Oma = Om * x**-3 / H2f(x)
+                Hm = np.sqrt(H2f(x) + beta_m * E_act(x)) / np.sqrt(H2f(x))
+                fr = 2 * Hm if mode == 'L2' else 2.0
+                m_ = 1 / Hm**2 if mode == 'L1' else 1.0
+                return [y[1], -(dlnH + fr) * y[1] + 1.5 * Oma * m_ * y[0], y[3], -(dlnH + fr) * y[3] + 1.5 * Oma * m_ * (y[2] - y[0]**2)]
+            ai = 1e-3
+            return solve_ivp(r, (np.log(ai), 0), [ai, ai, -3 / 7 * ai**2, -6 / 7 * ai**2], dense_output=True, rtol=1e-10, atol=1e-16)
+        _B01['g2'] = {m: mk(m) for m in ('LCDM', 'L1', 'L2')}
+    S = _B01['g2']
+    return (lambda m, z: float(S[m].sol(np.log(1 / (1 + z)))[0])), (lambda m, z: float(S[m].sol(np.log(1 / (1 + z)))[2]))
+def _b01_knl(model, z):
+    """Nonlinear scale k_nl(z) where Delta^2 = k^3 P(k) D^2/(2 pi^2) = 1, Eisenstein-Hu power with sigma_8 0.811 for LambdaCDM today; IAM (friction form)
+    with the same early amplitude, so its D(z) is divided by LambdaCDM's D(0)."""
+    Pk, sig, trap = _b01_eh(); D1, D2 = _b01_grow2()
+    g = D1(model, z) / D1('LCDM', 0.0)
+    return brentq(lambda k: k**3 * Pk(k) * g**2 / (2 * np.pi**2) - 1, 0.01, 10)
+def _b01_n_exponent():
+    """n from power counting: dS/dln a ~ rho_m D^n f/(T_H A_H) with the matter-era scalings, per da one more 1/a, integrated; S ~ a^-1 fixes n."""
+    a, n = sp.symbols('a n', positive=True)
+    perlna = sp.powsimp(a**-3 * a**n * 1 / (a**sp.Rational(-3, 2) * a**3), force=True)
+    p = sp.expand(sp.log(perlna).expand(force=True) / sp.log(a))     # exponent of a per ln a
+    S_exp = (p - 1) + 1                                               # per da (one more 1/a), then integrated (+1)
+    return sp.solve(sp.Eq(S_exp, -1), n)[0]
+
+# ---------------------------------------------------------------- checks
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -4828,6 +4953,18 @@ def check_0385():
     kappa,tau=sp.symbols('kappa tau',positive=True); lhs=(kappa*tau+2*sp.pi)/kappa; rhs=tau+2*sp.pi/kappa
     return locals()
 
+@check(label='eq:th:structural', chapter='ch:theory', part=2, title='Clausius coefficient matched to Einstein coefficient',
+       file='part2/p2_03_theory', line=203, status='derived', kind='sym', printed='', tol=0.0)
+def check_3234():
+    'Structural equation hbar eta/(2 pi) = c^3/(8 pi G): Clausius gives T_ab = c (hbar eta/2pi)(R_ab + f g_ab) (one c from the heat flux, kappa in 1/s); inserted in G_ab + Lambda g_ab = (8 pi G/c^4) T_ab the R_ab coefficient must be 1; solved for X = hbar eta/(2 pi). Book line 203.'
+    X, c_, G_, Rab, gab, f_ = sp.symbols('X c G R_ab g_ab f', positive=True)
+    Tab = c_ * X * (Rab + f_ * gab)
+    coefR = sp.expand(8 * sp.pi * G_ / c_**4 * Tab).coeff(Rab)
+    lhs = sp.solve(sp.Eq(coefR, 1), X)[0]
+    rhs = c_**3 / (8 * sp.pi * G_)
+    neg_lhs = sp.solve(sp.Eq(sp.expand(8 * sp.pi * sp.Rational(105, 100) * G_ / c_**4 * Tab).coeff(Rab), 1), X)[0]
+    return locals()
+
 @check(label='eq:th:eta', chapter='ch:theory', part=2, title='solve structural eq for entropy density eta',
        file='part2/p2_03_theory', line=206, status='derived', kind='sym', printed='', tol=0.0)
 def check_0386():
@@ -4926,6 +5063,19 @@ def check_0399():
     value=Om/2
     return locals()
 
+@check(label='eq:th:beta', chapter='ch:theory', part=2, title='beta_m = Omega_m/2 from the virial partition and E(1) = 1',
+       file='part2/p2_03_theory', line=317, status='derived', kind='sym', printed='', tol=0.0)
+def check_3235():
+    'beta_m = Omega_m/2: virial 2K + U = 0 solved for K gives the kinetic share K/|U| = 1/2; rho_info(1) = (1/2) Omega_m rho_crit (Eq. th:rhoinfo1) set equal to beta_m E(1) rho_crit with E(a) = exp(1 - 1/a) at a = 1, solved for beta_m. Book line 317.'
+    K, U, Omg, rc, b, a = sp.symbols('K U Omega_m rho_c beta a')
+    Ksol = sp.solve(sp.Eq(2 * K + U, 0), K)[0]
+    share = sp.simplify(Ksol / (-U))
+    Ea = sp.exp(1 - 1 / a)
+    lhs = sp.solve(sp.Eq(b * Ea.subs(a, 1) * rc, share * Omg * rc), b)[0]
+    rhs = Omg / 2
+    neg_lhs = sp.solve(sp.Eq(b * Ea.subs(a, 1) * rc, sp.simplify(sp.solve(sp.Eq(sp.Rational(21, 10) * K + U, 0), K)[0] / (-U)) * Omg * rc), b)[0]
+    return locals()
+
 @check(label='ch:theory:L318', chapter='ch:theory', part=2, title='beta_m numeric from Omega_m',
        file='part2/p2_03_theory', line=318, status='calc', kind='num', printed='0.15765', tol=3.17e-05)
 def check_0400():
@@ -5005,6 +5155,13 @@ def check_0409():
 def check_0410():
     'solve exponent condition for n (Eq. eq:th:n). Book line 350.'
     n=sp.symbols('n'); lhs=sp.solve(sp.Eq(n-sp.Rational(9,2),-1),n)[0]; rhs=sp.Rational(7,2)
+    return locals()
+
+@check(label='ch:theory:L351', chapter='ch:theory', part=2, title='n = 7/2 from matter-era power counting',
+       file='part2/p2_03_theory', line=351, status='derived', kind='num', printed='7/2', tol=0.0)
+def check_3236():
+    'The nonlinear exponent n: power counting of rho_m D^n f/(T_H A_H) in matter domination (rho_m ~ a^-3, D ~ a, T_H ~ a^-3/2, A_H ~ a^3), per da, integrated, set to a^-1, solved for n. Book line 351, printed 7/2.'
+    value = float(_b01_n_exponent())
     return locals()
 
 @check(label='ch:theory:L353', chapter='ch:theory', part=2, title='full LCDM slope, matter era, n=7/2',
@@ -5107,6 +5264,20 @@ def check_0424():
     value=math.exp(1)
     return locals()
 
+@check(label='ch:theory:L399', chapter='ch:theory', part=2, title='D^{7/2} record fit: constant alpha',
+       file='part2/p2_03_theory', line=399, status='calc', kind='num', printed='0.93', tol=0.0)
+def check_3237():
+    'Constant alpha of the fit exp(alpha - beta/a) to the accumulated record of R = Omega_m(a) f D^{7/2} with the horizon factor (Eq. th:Iint), full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5), 0.15 <= a <= 2, points uniform in ln a. Book line 399, printed 0.93.'
+    value = _b01_fit(_b01_powerlaw(3.5))[0]
+    return locals()
+
+@check(label='ch:theory:L399:1.02', chapter='ch:theory', part=2, title='D^{7/2} record fit: coefficient beta of 1/a',
+       file='part2/p2_03_theory', line=399, status='calc', kind='num', printed='1.02', tol=0.0)
+def check_3238():
+    'Coefficient beta of 1/a in the fit exp(alpha - beta/a) to the D^{7/2} accumulated record (as ch:theory:L399). Book line 399, printed 1.02.'
+    value = _b01_fit(_b01_powerlaw(3.5))[1]
+    return locals()
+
 @check(label='ch:theory:L400', chapter='ch:theory', part=2, title='pct deviation of fitted 1/a coeff from analytic 1',
        file='part2/p2_03_theory', line=400, status='calc', kind='num', printed='2\\%', tol=0.25)
 def check_0425():
@@ -5179,6 +5350,19 @@ def check_0434():
     value=-beta_m/(1+beta_m)
     return locals()
 
+@check(label='eq:th:Sigma', chapter='ch:theory', part=2, title='Sigma = 1 from the unmodified photon source',
+       file='part2/p2_03_theory', line=495, status='derived', kind='sym', printed='', tol=0.0)
+def check_3239():
+    'Sigma(a) = 1: with S_info = 0 on null worldlines the photon potentials obey the GR Poisson equation k^2 Psi = -4 pi G a^2 rho delta with Phi = Psi; inserted in the definition k^2(Phi + Psi) = -8 pi G Sigma a^2 rho delta (Eq. th:sigmadef) and solved for Sigma. Book line 495.'
+    k, G_, a, rho, dl, Sg = sp.symbols('k G a rho delta Sigma', positive=True)
+    Psi = -4 * sp.pi * G_ * a**2 * rho * dl / k**2
+    Phi = Psi
+    lhs = sp.solve(sp.Eq(k**2 * (Phi + Psi), -8 * sp.pi * G_ * Sg * a**2 * rho * dl), Sg)[0]
+    rhs = 1
+    Psi_n = -4 * sp.Rational(105, 100) * sp.pi * G_ * a**2 * rho * dl / k**2
+    neg_lhs = sp.solve(sp.Eq(k**2 * (Psi_n + Psi_n), -8 * sp.pi * G_ * Sg * a**2 * rho * dl), Sg)[0]
+    return locals()
+
 @check(label='ch:theory:L503', chapter='ch:theory', part=2, title='mu at z=0',
        file='part2/p2_03_theory', line=503, status='calc', kind='num', printed='0.864', tol=0.000579)
 def check_0435():
@@ -5225,6 +5409,16 @@ def check_0439():
 def check_0440():
     'mu0 repeat, IAM point in mu0-Sigma0 plane. Book line 504, printed -0.136.'
     value=-beta_m/(1+beta_m)
+    return locals()
+
+@check(label='ch:theory:L504:0', chapter='ch:theory', part=2, title='Sigma_0 = Sigma(z=0) - 1 of the IAM point',
+       file='part2/p2_03_theory', line=504, status='derived', kind='num', printed='0', tol=0.0)
+def check_3240():
+    'Sigma_0 = Sigma(z=0) - 1 of the IAM point (-0.136, 0): Sigma solved from its definition with the unmodified photon source (as eq:th:Sigma). Book line 504, printed 0.'
+    k, G_, a, rho, dl, Sg = sp.symbols('k G a rho delta Sigma', positive=True)
+    Psi = -4 * sp.pi * G_ * a**2 * rho * dl / k**2
+    Sig = sp.solve(sp.Eq(k**2 * (Psi + Psi), -8 * sp.pi * G_ * Sg * a**2 * rho * dl), Sg)[0]
+    value = float(Sig - 1)
     return locals()
 
 @check(label='ch:theory:L506', chapter='ch:theory', part=2, title='E saturation value, repeat',
@@ -5314,6 +5508,15 @@ def check_0451():
     a=1; value=-1-1/(3*a)
     return locals()
 
+@check(label='ch:theory:L562:-1', chapter='ch:theory', part=2, title='w_info -> -1 as a -> infinity',
+       file='part2/p2_03_theory', line=562, status='derived', kind='num', printed='-1', tol=0.0)
+def check_3241():
+    'Large-a limit of w_info: continuity -3H(1 + w) = H/a solved for w, then the limit a -> infinity. Book line 561-562, printed -1.'
+    a = sp.symbols('a', positive=True); w = sp.symbols('w', real=True)
+    wsol = sp.solve(sp.Eq(-3 * (1 + w), 1 / a), w)[0]
+    value = float(sp.limit(wsol, a, sp.oo))
+    return locals()
+
 @check(label='ch:theory:L577', chapter='ch:theory', part=2, title='simplify w_eff(1) formula',
        file='part2/p2_03_theory', line=577, status='none', kind='sym', printed='', tol=0.0)
 def check_0452():
@@ -5401,6 +5604,20 @@ def check_0462():
     value = Om/2
     return locals()
 
+@check(label='eq:th:fcoll', chapter='ch:theory', part=2, title='collapsed fraction above 1e6 Msun, Sheth-Tormen',
+       file='part2/p2_03_theory', line=615, status='calc', kind='num', printed='0.64', tol=0.0)
+def check_3242():
+    'Collapsed fraction of matter in halos above 1e6 Msun at z = 0, Sheth-Tormen 1999 multiplicity (A 0.3222, q 0.707, p 0.3), Eisenstein-Hu 1998 no-wiggle transfer, Planck 2018 inputs the chapter states (h 0.674, Omega_b h^2 0.0224, sigma_8 0.811, n_s 0.965, Omega_m 0.315). Book line 615, printed 0.64.'
+    value = _b01_fcoll('ST')
+    return locals()
+
+@check(label='eq:th:fcoll:0.71', chapter='ch:theory', part=2, title='collapsed fraction above 1e6 Msun, Tinker 2008',
+       file='part2/p2_03_theory', line=615, status='calc', kind='num', printed='0.71', tol=0.0)
+def check_3243():
+    'Collapsed fraction above 1e6 Msun at z = 0 with the Tinker et al. 2008 Delta = 200m multiplicity (A 0.186, a 1.47, b 2.57, c 1.19), integrated over ln(1/sigma), same Eisenstein-Hu sigma(M) as eq:th:fcoll. Book line 615, printed 0.71.'
+    value = _b01_fcoll('Tinker')
+    return locals()
+
 @check(label='ch:theory:L617', chapter='ch:theory', part=2, title='naive beta_m=Om*f_coll lower bound',
        file='part2/p2_03_theory', line=617, status='calc', kind='num', printed='0.20', tol=0.025)
 def check_0463():
@@ -5443,6 +5660,13 @@ def check_0468():
     value = 1/(2*0.64)
     return locals()
 
+@check(label='ch:theory:L627', chapter='ch:theory', part=2, title='Neto 2007 relaxed-halo cut 2T/|U| (source check record)',
+       file='part2/p2_03_theory', line=627, status='observed', kind='file', printed='1.35', tol=0.0, source='docs/verification/theory/THEORY_CHECK.md')
+def check_3244():
+    'Relaxed-halo selection 2T/|U| < 1.35 of Neto et al. 2007 (doi 10.1111/j.1365-2966.2007.12381.x), as read from the paper and recorded in docs/verification/theory/THEORY_CHECK.md item 3. Book line 627, printed 1.35.'
+    value = float(re.search(r'relaxed cut < ([\d.]+)', file_text('docs/verification/theory/THEORY_CHECK.md')).group(1))
+    return locals()
+
 @check(label='ch:theory:L628', chapter='ch:theory', part=2, title='measured: printed value found in verify_theory_derivations_output.txt, a file the chapter names',
        file='part2/p2_03_theory', line=628, status='observed', kind='file', printed='1.15', tol=0.0, source='docs/verification/scripts/verify_theory_derivations_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt')
@@ -5451,11 +5675,265 @@ def check_0469():
     ok = file_has('docs/verification/scripts/verify_theory_derivations_output.txt', '1.15')
     return locals()
 
+@check(label='ch:theory:L628:1.25', chapter='ch:theory', part=2, title='Power 2012 virial ratio fit at 1e15 Msun/h',
+       file='part2/p2_03_theory', line=628, status='observed', kind='file', printed='1.25', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3245():
+    'Halo virial ratio eta = 2T/|W| at 1e15 Msun/h from the Power, Knebe and Knollmann 2012 fit <log10 eta> = A + B log10 M12 (doi 10.1111/j.1365-2966.2011.19820.x, Eqs. 17-18), coefficients as recorded in docs/verification/virial/NBODY_TRACE.md, evaluated at M12 = 1e3. Book line 628, printed 1.25.'
+    m = re.search(r'⟨log10 η⟩ = ([\d.]+) \+ ([\d.]+) log10 M12', file_text('docs/verification/virial/NBODY_TRACE.md'))
+    A_, B_ = float(m.group(1)), float(m.group(2))
+    value = 10 ** (A_ + B_ * 3)
+    return locals()
+
+@check(label='ch:theory:L642', chapter='ch:theory', part=2, title='1/a coefficient for D^{7/2} (parameter count)',
+       file='part2/p2_03_theory', line=642, status='calc', kind='num', printed='1.02', tol=0.0)
+def check_3246():
+    'The 1/a coefficient that the full-background integration returns for D^{7/2} (parameter-count list): beta of the fit exp(alpha - beta/a) to the accumulated record, Eq. th:Iint. Book line 642, printed 1.02.'
+    value = _b01_fit(_b01_powerlaw(3.5))[1]
+    return locals()
+
 @check(label='ch:theory:L671', chapter='ch:theory', part=2, title='divergence threshold exponent n=9/2',
        file='part2/p2_03_theory', line=671, status='none', kind='sym', printed='', tol=0.0)
 def check_0470():
     'divergence threshold exponent n=9/2. Book line 671.'
     n=sp.symbols('n'); p=n-sp.Rational(11,2); crossing=sp.solve(sp.Eq(p,-1),n)[0]; ok=(crossing==sp.Rational(9,2))
+    return locals()
+
+@check(label='ch:theory:L683', chapter='ch:theory', part=2, title='D^{7/2} fit, points uniform in a: alpha',
+       file='part2/p2_03_theory', line=683, status='calc', kind='num', printed='0.86', tol=0.0)
+def check_3247():
+    'alpha of the fit exp(alpha - beta/a) to the D^{7/2} accumulated record with the points spaced uniformly in a (20001 points, 0.15 <= a <= 2) instead of in ln a. Book line 683, printed 0.86.'
+    value = _b01_fit(_b01_powerlaw(3.5), uniform_a=True)[0]
+    return locals()
+
+@check(label='ch:theory:L683:0.94', chapter='ch:theory', part=2, title='D^{7/2} fit, points uniform in a: beta',
+       file='part2/p2_03_theory', line=683, status='calc', kind='num', printed='0.94', tol=0.0)
+def check_3248():
+    'beta of the fit exp(alpha - beta/a) to the D^{7/2} accumulated record with the points spaced uniformly in a. Book line 683, printed 0.94.'
+    value = _b01_fit(_b01_powerlaw(3.5), uniform_a=True)[1]
+    return locals()
+
+@check(label='ch:theory:L686', chapter='ch:theory', part=2, title='record table, D^2 Omega_m(a) f, no horizon factor: alpha',
+       file='part2/p2_03_theory', line=686, status='calc', kind='num', printed='0.85', tol=0.0)
+def check_3249():
+    'Table tab:th:record, D^2 Omega_m(a) f, no horizon factor: the constant alpha of the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^2 accumulated per unit time without the horizon factor 1/(T_H A_H); full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 686, printed 0.85.'
+    value = _b01_fit(_b01_powerlaw(2, horizon=False))[0]
+    return locals()
+
+@check(label='ch:theory:L686:0.96', chapter='ch:theory', part=2, title='record table, D^2 Omega_m(a) f, no horizon factor: beta',
+       file='part2/p2_03_theory', line=686, status='calc', kind='num', printed='0.96', tol=0.0)
+def check_3250():
+    'Table tab:th:record, D^2 Omega_m(a) f, no horizon factor: the coefficient beta of 1/a in the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^2 accumulated per unit time without the horizon factor 1/(T_H A_H); full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 686, printed 0.96.'
+    value = _b01_fit(_b01_powerlaw(2, horizon=False))[1]
+    return locals()
+
+@check(label='ch:theory:L686:0.993', chapter='ch:theory', part=2, title='record table, D^2 Omega_m(a) f, no horizon factor: r',
+       file='part2/p2_03_theory', line=686, status='calc', kind='num', printed='0.993', tol=0.0)
+def check_3251():
+    'Table tab:th:record, D^2 Omega_m(a) f, no horizon factor: the Pearson correlation r between I(a)/I(1) and the fitted exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^2 accumulated per unit time without the horizon factor 1/(T_H A_H); full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 686, printed 0.993.'
+    value = _b01_fit(_b01_powerlaw(2, horizon=False))[2]
+    return locals()
+
+@check(label='ch:theory:L687', chapter='ch:theory', part=2, title='record table, D^2 Omega_m(a) f: alpha',
+       file='part2/p2_03_theory', line=687, status='calc', kind='num', printed='0.53', tol=0.0)
+def check_3252():
+    'Table tab:th:record, D^2 Omega_m(a) f: the constant alpha of the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^2 with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 687, printed 0.53.'
+    value = _b01_fit(_b01_powerlaw(2))[0]
+    return locals()
+
+@check(label='ch:theory:L687:0.59', chapter='ch:theory', part=2, title='record table, D^2 Omega_m(a) f: beta',
+       file='part2/p2_03_theory', line=687, status='calc', kind='num', printed='0.59', tol=0.0)
+def check_3253():
+    'Table tab:th:record, D^2 Omega_m(a) f: the coefficient beta of 1/a in the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^2 with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 687, printed 0.59.'
+    value = _b01_fit(_b01_powerlaw(2))[1]
+    return locals()
+
+@check(label='ch:theory:L687:0.995', chapter='ch:theory', part=2, title='record table, D^2 Omega_m(a) f: r',
+       file='part2/p2_03_theory', line=687, status='calc', kind='num', printed='0.995', tol=0.0)
+def check_3254():
+    'Table tab:th:record, D^2 Omega_m(a) f: the Pearson correlation r between I(a)/I(1) and the fitted exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^2 with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 687, printed 0.995.'
+    value = _b01_fit(_b01_powerlaw(2))[2]
+    return locals()
+
+@check(label='ch:theory:L688', chapter='ch:theory', part=2, title='record table, D^{5/2} Omega_m(a) f: alpha',
+       file='part2/p2_03_theory', line=688, status='calc', kind='num', printed='0.66', tol=0.0)
+def check_3255():
+    'Table tab:th:record, D^{5/2} Omega_m(a) f: the constant alpha of the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^{5/2} with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 688, printed 0.66.'
+    value = _b01_fit(_b01_powerlaw(2.5))[0]
+    return locals()
+
+@check(label='ch:theory:L688:0.74', chapter='ch:theory', part=2, title='record table, D^{5/2} Omega_m(a) f: beta',
+       file='part2/p2_03_theory', line=688, status='calc', kind='num', printed='0.74', tol=0.0)
+def check_3256():
+    'Table tab:th:record, D^{5/2} Omega_m(a) f: the coefficient beta of 1/a in the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^{5/2} with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 688, printed 0.74.'
+    value = _b01_fit(_b01_powerlaw(2.5))[1]
+    return locals()
+
+@check(label='ch:theory:L688:0.995', chapter='ch:theory', part=2, title='record table, D^{5/2} Omega_m(a) f: r',
+       file='part2/p2_03_theory', line=688, status='calc', kind='num', printed='0.995', tol=0.0)
+def check_3257():
+    'Table tab:th:record, D^{5/2} Omega_m(a) f: the Pearson correlation r between I(a)/I(1) and the fitted exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^{5/2} with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 688, printed 0.995.'
+    value = _b01_fit(_b01_powerlaw(2.5))[2]
+    return locals()
+
+@check(label='ch:theory:L689', chapter='ch:theory', part=2, title='record table, D^3 Omega_m(a) f: alpha',
+       file='part2/p2_03_theory', line=689, status='calc', kind='num', printed='0.79', tol=0.0)
+def check_3258():
+    'Table tab:th:record, D^3 Omega_m(a) f: the constant alpha of the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^3 with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 689, printed 0.79.'
+    value = _b01_fit(_b01_powerlaw(3))[0]
+    return locals()
+
+@check(label='ch:theory:L689:0.88', chapter='ch:theory', part=2, title='record table, D^3 Omega_m(a) f: beta',
+       file='part2/p2_03_theory', line=689, status='calc', kind='num', printed='0.88', tol=0.0)
+def check_3259():
+    'Table tab:th:record, D^3 Omega_m(a) f: the coefficient beta of 1/a in the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^3 with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 689, printed 0.88.'
+    value = _b01_fit(_b01_powerlaw(3))[1]
+    return locals()
+
+@check(label='ch:theory:L689:0.994', chapter='ch:theory', part=2, title='record table, D^3 Omega_m(a) f: r',
+       file='part2/p2_03_theory', line=689, status='calc', kind='num', printed='0.994', tol=0.0)
+def check_3260():
+    'Table tab:th:record, D^3 Omega_m(a) f: the Pearson correlation r between I(a)/I(1) and the fitted exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^3 with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 689, printed 0.994.'
+    value = _b01_fit(_b01_powerlaw(3))[2]
+    return locals()
+
+@check(label='ch:theory:L690', chapter='ch:theory', part=2, title='record table, D^{7/2} Omega_m(a) f: alpha',
+       file='part2/p2_03_theory', line=690, status='calc', kind='num', printed='0.93', tol=0.0)
+def check_3261():
+    'Table tab:th:record, D^{7/2} Omega_m(a) f: the constant alpha of the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^{7/2} with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 690, printed 0.93.'
+    value = _b01_fit(_b01_powerlaw(3.5))[0]
+    return locals()
+
+@check(label='ch:theory:L690:1.02', chapter='ch:theory', part=2, title='record table, D^{7/2} Omega_m(a) f: beta',
+       file='part2/p2_03_theory', line=690, status='calc', kind='num', printed='1.02', tol=0.0)
+def check_3262():
+    'Table tab:th:record, D^{7/2} Omega_m(a) f: the coefficient beta of 1/a in the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^{7/2} with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 690, printed 1.02.'
+    value = _b01_fit(_b01_powerlaw(3.5))[1]
+    return locals()
+
+@check(label='ch:theory:L690:0.994', chapter='ch:theory', part=2, title='record table, D^{7/2} Omega_m(a) f: r',
+       file='part2/p2_03_theory', line=690, status='calc', kind='num', printed='0.994', tol=0.0)
+def check_3263():
+    'Table tab:th:record, D^{7/2} Omega_m(a) f: the Pearson correlation r between I(a)/I(1) and the fitted exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^{7/2} with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 690, printed 0.994.'
+    value = _b01_fit(_b01_powerlaw(3.5))[2]
+    return locals()
+
+@check(label='ch:theory:L691', chapter='ch:theory', part=2, title='record table, D^4 Omega_m(a) f: alpha',
+       file='part2/p2_03_theory', line=691, status='calc', kind='num', printed='1.06', tol=0.0)
+def check_3264():
+    'Table tab:th:record, D^4 Omega_m(a) f: the constant alpha of the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^4 with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 691, printed 1.06.'
+    value = _b01_fit(_b01_powerlaw(4))[0]
+    return locals()
+
+@check(label='ch:theory:L691:1.16', chapter='ch:theory', part=2, title='record table, D^4 Omega_m(a) f: beta',
+       file='part2/p2_03_theory', line=691, status='calc', kind='num', printed='1.16', tol=0.0)
+def check_3265():
+    'Table tab:th:record, D^4 Omega_m(a) f: the coefficient beta of 1/a in the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^4 with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 691, printed 1.16.'
+    value = _b01_fit(_b01_powerlaw(4))[1]
+    return locals()
+
+@check(label='ch:theory:L691:0.994', chapter='ch:theory', part=2, title='record table, D^4 Omega_m(a) f: r',
+       file='part2/p2_03_theory', line=691, status='calc', kind='num', printed='0.994', tol=0.0)
+def check_3266():
+    'Table tab:th:record, D^4 Omega_m(a) f: the Pearson correlation r between I(a)/I(1) and the fitted exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) f D^4 with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 691, printed 0.994.'
+    value = _b01_fit(_b01_powerlaw(4))[2]
+    return locals()
+
+@check(label='ch:theory:L692', chapter='ch:theory', part=2, title='record table, Press-Schechter sigma_* 1.0: alpha',
+       file='part2/p2_03_theory', line=692, status='calc', kind='num', printed='1.06', tol=0.0)
+def check_3267():
+    'Table tab:th:record, Press-Schechter sigma_* 1.0: the constant alpha of the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) dF/dln a, Press-Schechter F = erfc(nu/sqrt 2), nu = 1.686/(sigma_* D), sigma_* = 1.0, with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 692, printed 1.06.'
+    value = _b01_fit(_b01_collapse('PS', 1.0))[0]
+    return locals()
+
+@check(label='ch:theory:L692:1.24', chapter='ch:theory', part=2, title='record table, Press-Schechter sigma_* 1.0: beta',
+       file='part2/p2_03_theory', line=692, status='calc', kind='num', printed='1.24', tol=0.0)
+def check_3268():
+    'Table tab:th:record, Press-Schechter sigma_* 1.0: the coefficient beta of 1/a in the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) dF/dln a, Press-Schechter F = erfc(nu/sqrt 2), nu = 1.686/(sigma_* D), sigma_* = 1.0, with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 692, printed 1.24.'
+    value = _b01_fit(_b01_collapse('PS', 1.0))[1]
+    return locals()
+
+@check(label='ch:theory:L692:0.983', chapter='ch:theory', part=2, title='record table, Press-Schechter sigma_* 1.0: r',
+       file='part2/p2_03_theory', line=692, status='calc', kind='num', printed='0.983', tol=0.0)
+def check_3269():
+    'Table tab:th:record, Press-Schechter sigma_* 1.0: the Pearson correlation r between I(a)/I(1) and the fitted exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) dF/dln a, Press-Schechter F = erfc(nu/sqrt 2), nu = 1.686/(sigma_* D), sigma_* = 1.0, with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 692, printed 0.983.'
+    value = _b01_fit(_b01_collapse('PS', 1.0))[2]
+    return locals()
+
+@check(label='ch:theory:L693', chapter='ch:theory', part=2, title='record table, Press-Schechter sigma_* 1.2: alpha',
+       file='part2/p2_03_theory', line=693, status='calc', kind='num', printed='0.86', tol=0.0)
+def check_3270():
+    'Table tab:th:record, Press-Schechter sigma_* 1.2: the constant alpha of the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) dF/dln a, Press-Schechter, sigma_* = 1.2, with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 693, printed 0.86.'
+    value = _b01_fit(_b01_collapse('PS', 1.2))[0]
+    return locals()
+
+@check(label='ch:theory:L693:1.02', chapter='ch:theory', part=2, title='record table, Press-Schechter sigma_* 1.2: beta',
+       file='part2/p2_03_theory', line=693, status='calc', kind='num', printed='1.02', tol=0.0)
+def check_3271():
+    'Table tab:th:record, Press-Schechter sigma_* 1.2: the coefficient beta of 1/a in the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) dF/dln a, Press-Schechter, sigma_* = 1.2, with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 693, printed 1.02.'
+    value = _b01_fit(_b01_collapse('PS', 1.2))[1]
+    return locals()
+
+@check(label='ch:theory:L693:0.982', chapter='ch:theory', part=2, title='record table, Press-Schechter sigma_* 1.2: r',
+       file='part2/p2_03_theory', line=693, status='calc', kind='num', printed='0.982', tol=0.0)
+def check_3272():
+    'Table tab:th:record, Press-Schechter sigma_* 1.2: the Pearson correlation r between I(a)/I(1) and the fitted exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) dF/dln a, Press-Schechter, sigma_* = 1.2, with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 693, printed 0.982.'
+    value = _b01_fit(_b01_collapse('PS', 1.2))[2]
+    return locals()
+
+@check(label='ch:theory:L694', chapter='ch:theory', part=2, title='record table, Sheth-Tormen sigma_* 1.0: alpha',
+       file='part2/p2_03_theory', line=694, status='calc', kind='num', printed='0.90', tol=0.0)
+def check_3273():
+    'Table tab:th:record, Sheth-Tormen sigma_* 1.0: the constant alpha of the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) dF/dln a, Sheth-Tormen collapsed fraction (A 0.3222, q 0.707, p 0.3), sigma_* = 1.0, with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 694, printed 0.90.'
+    value = _b01_fit(_b01_collapse('ST', 1.0))[0]
+    return locals()
+
+@check(label='ch:theory:L694:1.07', chapter='ch:theory', part=2, title='record table, Sheth-Tormen sigma_* 1.0: beta',
+       file='part2/p2_03_theory', line=694, status='calc', kind='num', printed='1.07', tol=0.0)
+def check_3274():
+    'Table tab:th:record, Sheth-Tormen sigma_* 1.0: the coefficient beta of 1/a in the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) dF/dln a, Sheth-Tormen collapsed fraction (A 0.3222, q 0.707, p 0.3), sigma_* = 1.0, with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 694, printed 1.07.'
+    value = _b01_fit(_b01_collapse('ST', 1.0))[1]
+    return locals()
+
+@check(label='ch:theory:L694:0.983', chapter='ch:theory', part=2, title='record table, Sheth-Tormen sigma_* 1.0: r',
+       file='part2/p2_03_theory', line=694, status='calc', kind='num', printed='0.983', tol=0.0)
+def check_3275():
+    'Table tab:th:record, Sheth-Tormen sigma_* 1.0: the Pearson correlation r between I(a)/I(1) and the fitted exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) dF/dln a, Sheth-Tormen collapsed fraction (A 0.3222, q 0.707, p 0.3), sigma_* = 1.0, with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 694, printed 0.983.'
+    value = _b01_fit(_b01_collapse('ST', 1.0))[2]
+    return locals()
+
+@check(label='ch:theory:L695', chapter='ch:theory', part=2, title='record table, Sheth-Tormen sigma_* 1.2: alpha',
+       file='part2/p2_03_theory', line=695, status='calc', kind='num', printed='0.75', tol=0.0)
+def check_3276():
+    'Table tab:th:record, Sheth-Tormen sigma_* 1.2: the constant alpha of the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) dF/dln a, Sheth-Tormen collapsed fraction, sigma_* = 1.2, with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 695, printed 0.75.'
+    value = _b01_fit(_b01_collapse('ST', 1.2))[0]
+    return locals()
+
+@check(label='ch:theory:L695:0.89', chapter='ch:theory', part=2, title='record table, Sheth-Tormen sigma_* 1.2: beta',
+       file='part2/p2_03_theory', line=695, status='calc', kind='num', printed='0.89', tol=0.0)
+def check_3277():
+    'Table tab:th:record, Sheth-Tormen sigma_* 1.2: the coefficient beta of 1/a in the fit exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) dF/dln a, Sheth-Tormen collapsed fraction, sigma_* = 1.2, with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 695, printed 0.89.'
+    value = _b01_fit(_b01_collapse('ST', 1.2))[1]
+    return locals()
+
+@check(label='ch:theory:L695:0.982', chapter='ch:theory', part=2, title='record table, Sheth-Tormen sigma_* 1.2: r',
+       file='part2/p2_03_theory', line=695, status='calc', kind='num', printed='0.982', tol=0.0)
+def check_3278():
+    'Table tab:th:record, Sheth-Tormen sigma_* 1.2: the Pearson correlation r between I(a)/I(1) and the fitted exp(alpha - beta/a), 0.15 <= a <= 2, points uniform in ln a; accumulated record of Eq. th:Iint with R = Omega_m(a) dF/dln a, Sheth-Tormen collapsed fraction, sigma_* = 1.2, with the horizon factor; full LambdaCDM background (Omega_m 0.315, Omega_r 9.1e-5). Book line 695, printed 0.982.'
+    value = _b01_fit(_b01_collapse('ST', 1.2))[2]
+    return locals()
+
+@check(label='ch:theory:L706', chapter='ch:theory', part=2, title='best power law D^{7/2}: alpha',
+       file='part2/p2_03_theory', line=706, status='calc', kind='num', printed='0.93', tol=0.0)
+def check_3279():
+    'Best agreement among the power laws, D^{7/2} with the Gibbons-Hawking factor: alpha of exp(alpha - beta/a), recomputed from the accumulated record (Eq. th:Iint). Book line 706, printed 0.93.'
+    value = _b01_fit(_b01_powerlaw(3.5))[0]
+    return locals()
+
+@check(label='ch:theory:L706:1.02', chapter='ch:theory', part=2, title='best power law D^{7/2}: beta',
+       file='part2/p2_03_theory', line=706, status='calc', kind='num', printed='1.02', tol=0.0)
+def check_3280():
+    'D^{7/2} with the Gibbons-Hawking factor: beta of exp(alpha - beta/a). Book line 706, printed 1.02.'
+    value = _b01_fit(_b01_powerlaw(3.5))[1]
     return locals()
 
 @check(label='ch:theory:L707', chapter='ch:theory', part=2, title='percent deviation of beta from target',
@@ -5484,6 +5962,92 @@ def check_0473():
 def check_0474():
     'n where fitted beta crosses 1. Book line 716, printed 3.4.'
     value = 3 + (1-0.88)/(1.02-0.88)*0.5
+    return locals()
+
+@check(label='ch:theory:L727', chapter='ch:theory', part=2, title='Sheth-Tormen sigma_* 1.0: beta (text)',
+       file='part2/p2_03_theory', line=727, status='calc', kind='num', printed='1.07', tol=0.0)
+def check_3281():
+    'Sheth-Tormen collapse rate with the horizon factor, sigma_* = 1.0: beta of exp(alpha - beta/a). Book line 727, printed 1.07.'
+    value = _b01_fit(_b01_collapse('ST', 1.0))[1]
+    return locals()
+
+@check(label='ch:theory:L727:0.89', chapter='ch:theory', part=2, title='Sheth-Tormen sigma_* 1.2: beta (text)',
+       file='part2/p2_03_theory', line=727, status='calc', kind='num', printed='0.89', tol=0.0)
+def check_3282():
+    'Sheth-Tormen collapse rate with the horizon factor, sigma_* = 1.2: beta of exp(alpha - beta/a). Book line 727, printed 0.89.'
+    value = _b01_fit(_b01_collapse('ST', 1.2))[1]
+    return locals()
+
+@check(label='ch:theory:L728', chapter='ch:theory', part=2, title='Press-Schechter sigma_* 1.2: beta (text)',
+       file='part2/p2_03_theory', line=728, status='calc', kind='num', printed='1.02', tol=0.0)
+def check_3283():
+    'Press-Schechter collapse rate with the horizon factor, sigma_* = 1.2: beta of exp(alpha - beta/a). Book line 728, printed 1.02.'
+    value = _b01_fit(_b01_collapse('PS', 1.2))[1]
+    return locals()
+
+@check(label='eq:th:dphi', chapter='ch:theory', part=2, title='delta phi = 0 from the perturbed constraint',
+       file='part2/p2_03_theory', line=752, status='derived', kind='sym', printed='', tol=0.0)
+def check_3284():
+    'delta phi = 0: the constraint phi_dot = H/a with H(t), a(t) background functions has no first-order variation with a local density perturbation (d(H/a)/d delta_rho = 0), so delta phi_dot = 0; solved with delta phi(0) = 0. Book line 752.'
+    t, drho = sp.symbols('t delta_rho')
+    H_, a_, dphi = sp.Function('H')(t), sp.Function('a')(t), sp.Function('dphi')
+    src = sp.diff(H_ / a_, drho)
+    lhs = sp.dsolve(sp.Eq(dphi(t).diff(t), src), dphi(t), ics={dphi(0): 0}).rhs
+    rhs = 0
+    neg_lhs = sp.dsolve(sp.Eq(dphi(t).diff(t), src), dphi(t), ics={dphi(0): sp.Rational(1, 20)}).rhs
+    return locals()
+
+@check(label='eq:th:poisson', chapter='ch:theory', part=2, title='Fourier form of the comoving Poisson equation',
+       file='part2/p2_03_theory', line=764, status='derived', kind='sym', printed='', tol=0.0)
+def check_3285():
+    'k^2 Psi = -4 pi G a^2 rho_m delta_m: the comoving Poisson equation nabla^2 Psi = 4 pi G a^2 rho_m delta_m for one Fourier mode exp(i k x), the Laplacian taken by differentiation, solved for the mode amplitude. Book line 764.'
+    x, k, G_, a, rho, dk = sp.symbols('x k G a rho delta_k', positive=True); Pk = sp.symbols('Psi_k')
+    mode = sp.exp(sp.I * k * x)
+    sol = sp.solve(sp.Eq(sp.diff(Pk * mode, x, 2), 4 * sp.pi * G_ * a**2 * rho * dk * mode), Pk)[0]
+    lhs = k**2 * sol
+    rhs = -4 * sp.pi * G_ * a**2 * rho * dk
+    neg_lhs = k**2 * sp.solve(sp.Eq(sp.diff(Pk * mode, x, 2), sp.Rational(21, 5) * sp.pi * G_ * a**2 * rho * dk * mode), Pk)[0]
+    return locals()
+
+@check(label='eq:th:noaniso', chapter='ch:theory', part=2, title='Psi = Phi from the traceless ij equation with no anisotropic stress',
+       file='part2/p2_03_theory', line=766, status='derived', kind='sym', printed='', tol=0.0)
+def check_3286():
+    'Psi = Phi: the traceless ij Einstein equation k^2(Phi - Psi) = 12 pi G a^2 (rho + P) sigma solved for Phi, with the anisotropic stress sigma of the informational sector zero because delta phi = 0. Book line 766.'
+    k, G_, a, rho, P, sg, Phi, Psi = sp.symbols('k G a rho P sigma Phi Psi')
+    Phisol = sp.solve(sp.Eq(k**2 * (Phi - Psi), 12 * sp.pi * G_ * a**2 * (rho + P) * sg), Phi)[0]
+    lhs = Phisol.subs(sg, 0)
+    rhs = Psi
+    neg_lhs = sp.solve(sp.Eq(k**2 * (Phi - sp.Rational(21, 20) * Psi), 12 * sp.pi * G_ * a**2 * (rho + P) * sg), Phi)[0].subs(sg, 0)
+    return locals()
+
+@check(label='eq:th:growth', chapter='ch:theory', part=2, title='growth equation from continuity, Euler and Poisson',
+       file='part2/p2_03_theory', line=768, status='derived', kind='sym', printed='', tol=0.0)
+def check_3287():
+    'delta_ddot + 2 H_IAM delta_dot - 4 pi G rho_m delta = 0: continuity delta_dot = -theta, Euler theta_dot + 2 H_IAM theta = k^2 Psi/a^2 (friction from the matter-sector rate), Poisson k^2 Psi = -4 pi G a^2 rho delta; delta_ddot = -theta_dot substituted. Book line 768.'
+    H, G_, rho, a, k, dl, dld = sp.symbols('H_IAM G rho a k delta deltadot')
+    theta = -dld
+    Psi = -4 * sp.pi * G_ * a**2 * rho * dl / k**2
+    theta_dot = -2 * H * theta + k**2 * Psi / a**2
+    dldd = -theta_dot
+    lhs = dldd + 2 * H * dld - 4 * sp.pi * G_ * rho * dl
+    rhs = 0
+    neg_lhs = -(-sp.Rational(21, 10) * H * theta + k**2 * Psi / a**2) + 2 * H * dld - 4 * sp.pi * G_ * rho * dl
+    return locals()
+
+@check(label='ch:theory:L772', chapter='ch:theory', part=2, title='growth deficit today, friction form (Eq. th:growth)',
+       file='part2/p2_03_theory', line=772, status='calc', kind='num', printed='0.67', tol=0.0)
+def check_3288():
+    'Per cent by which D today is lower in IAM than LambdaCDM, same early amplitude (a = 1e-3), matter-sector friction 2 H_IAM with H_IAM^2 = H^2 + beta_m E(a) H0^2, background clock unchanged; Omega_m 0.3153, beta_m canon. Book line 772, printed 0.67.'
+    D1, D2 = _b01_grow2()
+    value = 100 * (1 - D1('L2', 0) / D1('LCDM', 0))
+    return locals()
+
+@check(label='ch:theory:L772:0.78', chapter='ch:theory', part=2, title='growth deficit today, G_eff = mu G',
+       file='part2/p2_03_theory', line=772, status='calc', kind='num', printed='0.78', tol=0.0)
+def check_3289():
+    'Per cent by which D today is lower with G_eff = mu G, mu = H^2/(H^2 + beta_m E H0^2), on the LambdaCDM background, same early amplitude. Book line 772, printed 0.78.'
+    D1, D2 = _b01_grow2()
+    value = 100 * (1 - D1('L1', 0) / D1('LCDM', 0))
     return locals()
 
 @check(label='ch:theory:L778', chapter='ch:theory', part=2, title='Level2b background-modified H0 from chains',
@@ -5524,6 +6088,13 @@ def check_0478():
 def check_0479():
     'measured: printed value found in verify_theory_derivations_output.txt, a file the chapter names. Book line 780, printed 72.26.'
     ok = file_has('docs/verification/scripts/verify_theory_derivations_output.txt', '72.26')
+    return locals()
+
+@check(label='ch:theory:L780:0.75', chapter='ch:theory', part=2, title='matter-sector H0 against SH0ES, sigma',
+       file='part2/p2_03_theory', line=780, status='measured', kind='num', printed='0.75', tol=0.0)
+def check_3290():
+    'Distance of the matter-sector H0 = 72.26 (locked) from SH0ES 73.04 +- 1.04 (Riess et al. 2022, doi 10.3847/2041-8213/ac5c5b), in units of the SH0ES error, as the chapter of the chains computes it. Book line 780, printed 0.75.'
+    value = abs(H0_matter - 73.04) / 1.04
     return locals()
 
 @check(label='eq:th:mu2', chapter='ch:theory', part=2, title='mu<1 since E_IAM^2>E_LCDM^2',
@@ -5585,6 +6156,38 @@ def check_0486():
     rhs=sp.Rational(-3,7)
     return locals()
 
+@check(label='ch:theory:L815', chapter='ch:theory', part=2, title='D2 ratio IAM/LCDM at z = 0',
+       file='part2/p2_03_theory', line=815, status='calc', kind='num', printed='0.989', tol=0.0)
+def check_3291():
+    'Second-order growth ratio D2_IAM/D2_LCDM at z = 0, Eq. th:D2 solved with the friction 2 H_IAM and the same early amplitude (D2 -> -(3/7) D1^2). Book line 815, printed 0.989.'
+    D1, D2 = _b01_grow2()
+    value = D2('L2', 0.0) / D2('LCDM', 0.0)
+    return locals()
+
+@check(label='ch:theory:L815:0.995', chapter='ch:theory', part=2, title='D2 ratio IAM/LCDM at z = 0.3',
+       file='part2/p2_03_theory', line=815, status='calc', kind='num', printed='0.995', tol=0.0)
+def check_3292():
+    'D2_IAM/D2_LCDM at z = 0.3, as ch:theory:L815. Book line 815, printed 0.995.'
+    D1, D2 = _b01_grow2()
+    value = D2('L2', 0.3) / D2('LCDM', 0.3)
+    return locals()
+
+@check(label='ch:theory:L815:0.997', chapter='ch:theory', part=2, title='D2 ratio IAM/LCDM at z = 0.5',
+       file='part2/p2_03_theory', line=815, status='calc', kind='num', printed='0.997', tol=0.0)
+def check_3293():
+    'D2_IAM/D2_LCDM at z = 0.5, as ch:theory:L815. Book line 815, printed 0.997.'
+    D1, D2 = _b01_grow2()
+    value = D2('L2', 0.5) / D2('LCDM', 0.5)
+    return locals()
+
+@check(label='ch:theory:L815:0.999', chapter='ch:theory', part=2, title='D2 ratio IAM/LCDM at z = 1',
+       file='part2/p2_03_theory', line=815, status='calc', kind='num', printed='0.999', tol=0.0)
+def check_3294():
+    'D2_IAM/D2_LCDM at z = 1, as ch:theory:L815. Book line 815, printed 0.999.'
+    D1, D2 = _b01_grow2()
+    value = D2('L2', 1.0) / D2('LCDM', 1.0)
+    return locals()
+
 @check(label='ch:theory:L819', chapter='ch:theory', part=2, title='F2(k,-k) vanishes by momentum conservation',
        file='part2/p2_03_theory', line=819, status='derived', kind='sym', printed='0', tol=0.0)
 def check_0487():
@@ -5615,6 +6218,30 @@ def check_0489():
     value = round(ratio_460, 3)
     return locals()
 
+@check(label='ch:theory:L823:0.974', chapter='ch:theory', part=2, title='bispectrum amplitude ratio (D^4), z = 0, same early amplitude',
+       file='part2/p2_03_theory', line=823, status='calc', kind='num', printed='0.974', tol=0.0)
+def check_3295():
+    'Bispectrum amplitude ratio IAM/LCDM at fixed shape, (D_IAM/D_LCDM)^4 at z = 0 with the same early amplitude, friction form. Book line 823, printed 0.974.'
+    D1, D2 = _b01_grow2()
+    value = (D1('L2', 0.0) / D1('LCDM', 0.0))**4
+    return locals()
+
+@check(label='ch:theory:L823:0.989', chapter='ch:theory', part=2, title='bispectrum amplitude ratio (D^4), z = 0.3, same early amplitude',
+       file='part2/p2_03_theory', line=823, status='calc', kind='num', printed='0.989', tol=0.0)
+def check_3296():
+    '(D_IAM/D_LCDM)^4 at z = 0.3, same early amplitude. Book line 823, printed 0.989.'
+    D1, D2 = _b01_grow2()
+    value = (D1('L2', 0.3) / D1('LCDM', 0.3))**4
+    return locals()
+
+@check(label='ch:theory:L823:0.993', chapter='ch:theory', part=2, title='bispectrum amplitude ratio (D^4), z = 0.5, same early amplitude',
+       file='part2/p2_03_theory', line=823, status='calc', kind='num', printed='0.993', tol=0.0)
+def check_3297():
+    '(D_IAM/D_LCDM)^4 at z = 0.5, same early amplitude. Book line 823, printed 0.993.'
+    D1, D2 = _b01_grow2()
+    value = (D1('L2', 0.5) / D1('LCDM', 0.5))**4
+    return locals()
+
 @check(label='ch:theory:L824', chapter='ch:theory', part=2, title='drafted check, screened (runs; negative control fails)',
        file='part2/p2_03_theory', line=824, status='calc', kind='num', printed='1.015', tol=0.0)
 def check_0490():
@@ -5622,6 +6249,71 @@ def check_0490():
     z = 0.3
     ratio_same_early = (D_of("lcdm", z) / D_of("iam", z))**4
     value = ratio_same_early
+    return locals()
+
+@check(label='ch:theory:L824:1.020', chapter='ch:theory', part=2, title='bispectrum ratio, same amplitude today, z = 0.5',
+       file='part2/p2_03_theory', line=824, status='calc', kind='num', printed='1.020', tol=0.0)
+def check_3298():
+    'Bispectrum amplitude ratio with both models normalised to the same amplitude today: [D_IAM(z)/D_IAM(0)]^4/[D_LCDM(z)/D_LCDM(0)]^4 at z = 0.5. Book line 824, printed 1.020.'
+    D1, D2 = _b01_grow2()
+    value = (D1('L2', 0.5) / D1('L2', 0.0))**4 / (D1('LCDM', 0.5) / D1('LCDM', 0.0))**4
+    return locals()
+
+@check(label='ch:theory:L824:1.025', chapter='ch:theory', part=2, title='bispectrum ratio, same amplitude today, z = 1',
+       file='part2/p2_03_theory', line=824, status='calc', kind='num', printed='1.025', tol=0.0)
+def check_3299():
+    'Same-amplitude-today bispectrum ratio at z = 1, as ch:theory:L824:1.020. Book line 824, printed 1.025.'
+    D1, D2 = _b01_grow2()
+    value = (D1('L2', 1.0) / D1('L2', 0.0))**4 / (D1('LCDM', 1.0) / D1('LCDM', 0.0))**4
+    return locals()
+
+@check(label='ch:theory:L834', chapter='ch:theory', part=2, title='nonlinear scale k_nl, LambdaCDM, z = 0',
+       file='part2/p2_03_theory', line=834, status='calc', kind='num', printed='0.251', tol=0.0)
+def check_3300():
+    'k_nl at z = 0 for LambdaCDM where k^3 P(k)/(2 pi^2) = 1, Eisenstein-Hu linear power, sigma_8 0.811 (h/Mpc). Book line 834, printed 0.251.'
+    value = _b01_knl('LCDM', 0.0)
+    return locals()
+
+@check(label='ch:theory:L834:0.255', chapter='ch:theory', part=2, title='nonlinear scale k_nl, IAM, z = 0',
+       file='part2/p2_03_theory', line=834, status='calc', kind='num', printed='0.255', tol=0.0)
+def check_3301():
+    'k_nl at z = 0 for IAM with the same early amplitude (friction form). Book line 834, printed 0.255.'
+    value = _b01_knl('L2', 0.0)
+    return locals()
+
+@check(label='ch:theory:L835', chapter='ch:theory', part=2, title='k_nl shift IAM vs LambdaCDM, z = 0',
+       file='part2/p2_03_theory', line=835, status='calc', kind='num', printed='+1.2%', tol=0.0)
+def check_3302():
+    'Per cent shift of k_nl, IAM over LambdaCDM, z = 0. Book line 835, printed +1.2%.'
+    value = 100 * (_b01_knl('L2', 0.0) / _b01_knl('LCDM', 0.0) - 1)
+    return locals()
+
+@check(label='ch:theory:L835:+0.6%', chapter='ch:theory', part=2, title='k_nl shift IAM vs LambdaCDM, z = 0.3',
+       file='part2/p2_03_theory', line=835, status='calc', kind='num', printed='+0.6%', tol=0.0)
+def check_3303():
+    'Per cent shift of k_nl, IAM over LambdaCDM, z = 0.3. Book line 835, printed +0.6%.'
+    value = 100 * (_b01_knl('L2', 0.3) / _b01_knl('LCDM', 0.3) - 1)
+    return locals()
+
+@check(label='ch:theory:L835:+0.1%', chapter='ch:theory', part=2, title='k_nl shift IAM vs LambdaCDM, z = 1',
+       file='part2/p2_03_theory', line=835, status='calc', kind='num', printed='+0.1%', tol=0.0)
+def check_3304():
+    'Per cent shift of k_nl, IAM over LambdaCDM, z = 1. Book line 835, printed +0.1%.'
+    value = 100 * (_b01_knl('L2', 1.0) / _b01_knl('LCDM', 1.0) - 1)
+    return locals()
+
+@check(label='ch:theory:L836', chapter='ch:theory', part=2, title='nonlinear scale k_nl, LambdaCDM, z = 1',
+       file='part2/p2_03_theory', line=836, status='calc', kind='num', printed='0.759', tol=0.0)
+def check_3305():
+    'k_nl at z = 1 for LambdaCDM (h/Mpc). Book line 836, printed 0.759.'
+    value = _b01_knl('LCDM', 1.0)
+    return locals()
+
+@check(label='ch:theory:L836:0.760', chapter='ch:theory', part=2, title='nonlinear scale k_nl, IAM, z = 1',
+       file='part2/p2_03_theory', line=836, status='calc', kind='num', printed='0.760', tol=0.0)
+def check_3306():
+    'k_nl at z = 1 for IAM, same early amplitude (h/Mpc). Book line 836, printed 0.760.'
+    value = _b01_knl('L2', 1.0)
     return locals()
 
 @check(label='ch:theory:L849', chapter='ch:theory', part=2, title='Delta chi2 Planck-only chain pair',
@@ -5726,6 +6418,35 @@ def check_0502():
     w_info=-1-1/(3*a)
     lhs=-3*H*(1+w_info)
     rhs=H/a
+    return locals()
+
+@check(label='eq:th:conservation', chapter='ch:theory', part=2, title='total continuity: matter, Lambda and info each conserved',
+       file='part2/p2_03_theory', line=873, status='derived', kind='sym', printed='', tol=0.0)
+def check_3307():
+    'nabla_mu T^{mu nu}_total = 0 in FRW (nu = 0): rho_dot + 3H(1+w) rho with d/dt = aH d/da, for matter (rho ~ a^-3, w = 0), Lambda (constant, w = -1) and the record term (rho ~ E(a) = exp(1 - 1/a), w_info = -1 - 1/(3a)); the sum of the three residuals. Book line 873.'
+    a, H, C1, C2, C3 = sp.symbols('a H C1 C2 C3', positive=True)
+    res = lambda rho, w: a * H * sp.diff(rho, a) + 3 * H * (1 + w) * rho
+    lhs = sp.simplify(res(C1 * a**-3, 0) + res(C2, -1) + res(C3 * sp.exp(1 - 1 / a), -1 - 1 / (3 * a)))
+    rhs = 0
+    neg_lhs = sp.simplify(res(C1 * a**-3, 0) + res(C2, -1) + res(C3 * sp.exp(1 - 1 / a), -1 - sp.Rational(21, 20) / (3 * a)))
+    return locals()
+
+@check(label='ch:theory:L879', chapter='ch:theory', part=2, title='DESI DR2 fits favour w0 > -1 (least w0 of the four fits)',
+       file='part2/p2_03_theory', line=879, status='observed', kind='file', printed='>-1', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
+def check_3308():
+    'w0 > -1 in DESI DR2 w0waCDM (DESI 2025, doi 10.1103/tr6y-kpc6): the smallest w0 of the four published fits (DESI+CMB, +Pantheon+, +Union3, +DES Y5) as committed in verify_sector_tension_output.txt section 1 is still above -1. Book line 879, printed w0>-1.'
+    fits = re.findall(r'w0 (-?[\d.]+) wa (-?[\d.]+)', file_text('docs/verification/scripts/verify_sector_tension_output.txt'))[:4]
+    value = min(float(w0) for w0, wa in fits)
+    return locals()
+
+@check(label='ch:theory:L879:wa<0', chapter='ch:theory', part=2, title='DESI DR2 fits favour wa < 0 (largest wa of the four fits)',
+       file='part2/p2_03_theory', line=879, status='observed', kind='file', printed='<0', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
+def check_3309():
+    'wa < 0 in DESI DR2 w0waCDM (DESI 2025, doi 10.1103/tr6y-kpc6): the largest wa of the four published fits as committed in verify_sector_tension_output.txt is below 0. Book line 879, printed wa<0.'
+    fits = re.findall(r'w0 (-?[\d.]+) wa (-?[\d.]+)', file_text('docs/verification/scripts/verify_sector_tension_output.txt'))[:4]
+    value = max(float(wa) for w0, wa in fits)
     return locals()
 
 @check(label='ch:theory:L883', chapter='ch:theory', part=2, title='w_eff at z=0 from weighted-average formula',
@@ -5934,12 +6655,44 @@ def check_0523():
     z=0.5; a=1/(1+z); Eact=math.exp(1-1/a); E2l=Om/a**3+(1-Om); E2i=E2l+beta_m*Eact; value=E2l/E2i
     return locals()
 
+@check(label='ch:theory:L1063', chapter='ch:theory', part=2, title='phantom-crossing redshift, lowest of the DESI DR2 fits',
+       file='part2/p2_03_theory', line=1063, status='measured', kind='file', printed='0.35--0.5', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
+def check_3310():
+    'Lower end of the phantom-crossing range z ~ 0.35-0.5: w0 + wa(1 - a) = -1 solved for a = 1 + (1+w0)/wa for each of the four DESI DR2 fits (DESI 2025, doi 10.1103/tr6y-kpc6) read from verify_sector_tension_output.txt; z = 1/a - 1, smallest of the four (the largest is 0.50, checked by ch:sectortension:L60:0.50). Book line 1063, printed 0.35--0.5.'
+    fits = re.findall(r'w0 (-?[\d.]+) wa (-?[\d.]+)', file_text('docs/verification/scripts/verify_sector_tension_output.txt'))[:4]
+    zc = [1 / (1 + (1 + float(w0)) / float(wa)) - 1 for w0, wa in fits]
+    value = min(zc)
+    return locals()
+
 @check(label='ch:theory:L1067', chapter='ch:theory', part=2, title='beta_gamma 95 % bound (committed output) over beta_m, per cent',
        file='part2/p2_03_theory', line=1067, status='calc', kind='num', printed='3.3\\%', tol=0)
 def check_0524():
     'beta_gamma 95 % bound (committed output) over beta_m, per cent. Book line 1067, printed 3.3\\%.'
     bg=float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))  # 95 % bound, committed output
     value=100*bg/beta_m
+    return locals()
+
+@check(label='ch:theory:L1067:0.0052', chapter='ch:theory', part=2, title='beta_gamma 95 % bound (committed output)',
+       file='part2/p2_03_theory', line=1067, status='measured', kind='file', printed='0.0052', tol=0.0, source='docs/verification/scripts/verify_beta_gamma_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt')
+def check_3311():
+    'Acoustic-scale bound on the photon coupling, beta_gamma < 0.0052 (95 %, Delta chi2 = 4), read from the committed output of verify_beta_gamma.py. Book line 1067 (the inventory row carried the earlier 0.0039; the book now prints 0.0052).'
+    value = float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))
+    return locals()
+
+@check(label='ch:theory:L1084', chapter='ch:theory', part=2, title='n = 7/2 restated in the summary (power counting)',
+       file='part2/p2_03_theory', line=1084, status='derived', kind='num', printed='7/2', tol=0.0)
+def check_3312():
+    'n = 7/2 in the summary: recomputed by the matter-era power counting of rho_m D^n f/(T_H A_H) (as ch:theory:L351). Book line 1084-1085, printed 7/2.'
+    value = float(_b01_n_exponent())
+    return locals()
+
+@check(label='ch:theory:L1085', chapter='ch:theory', part=2, title='D^{7/2}: 1/a coefficient within 2 %',
+       file='part2/p2_03_theory', line=1085, status='calc', kind='num', printed='2\\%', tol=0.0)
+def check_3313():
+    'Per cent distance of the D^{7/2} fitted 1/a coefficient from 1, full LambdaCDM history (Eq. th:Iint). Book line 1085, printed 2%.'
+    value = 100 * abs(_b01_fit(_b01_powerlaw(3.5))[1] - 1)
     return locals()
 
 
@@ -28566,23 +29319,18 @@ INVENTORY = [
     (2, 'ch:theory', 'part2/p2_03_theory', 151, 'eq:th:raych', 'none', '', 'states Raychaudhuri equation (cited definition)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 154, 'eq:th:dA', 'derived', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
     (2, 'ch:theory', 'part2/p2_03_theory', 183, '', 'none', '2\\pi/8\\pi', 'trivial ratio simplifies to 1/4'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 203, 'eq:th:structural', 'derived', '', 'not yet run: draft rejected (does not run: ValueError no value)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 221, 'eq:th:rA', 'none', '', 'definition: apparent horizon radius'),
     (2, 'ch:theory', 'part2/p2_03_theory', 224, 'eq:th:TH', 'none', '', 'definition: apparent horizon temperature'),
     (2, 'ch:theory', 'part2/p2_03_theory', 283, 'eq:th:Stotal', 'conjecture', '', 'definition: conjectured entropy decomposition'),
     (2, 'ch:theory', 'part2/p2_03_theory', 294, 'eq:Idot', 'conjecture', '', 'conjectured functional form of info rate'),
     (2, 'ch:theory', 'part2/p2_03_theory', 302, 'eq:dSdt', 'conjecture', '', 'text changed at HEAD; central claim: encoding rate, conjectured'),
     (2, 'ch:theory', 'part2/p2_03_theory', 313, 'eq:th:virial', 'none', '', 'definition: virial theorem'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 317, 'eq:th:beta', 'derived', '', 'not yet run: draft does not reproduce the printed value (recomputed beta_m - 0.15765); drafting error on review'),
     (2, 'ch:theory', 'part2/p2_03_theory', 325, 'eq:th:Hmd', 'none', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
     (2, 'ch:theory', 'part2/p2_03_theory', 327, '', 'none', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
     (2, 'ch:theory', 'part2/p2_03_theory', 328, 'eq:th:Dmd', 'none', '', 'standard matter-domination growth result'),
     (2, 'ch:theory', 'part2/p2_03_theory', 348, 'eq:th:target', 'none', '', 'statement of required target form'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 351, '', 'derived', '7/2', 'not yet run: draft does not reproduce the printed value (recomputed n - 8); drafting error on review'),
     (2, 'ch:theory', 'part2/p2_03_theory', 363, 'eq:th:dEinfo', 'none', '', 'definition: informational term in first law'),
     (2, 'ch:theory', 'part2/p2_03_theory', 366, 'eq:th:rhodot', 'conjecture', '', 'conjectured identification of growth rate'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 399, '', 'calc', '0.93', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 399, '', 'calc', '1.02', 'not yet run: draft rejected (printed value typed into the code)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 405, 'eq:th:firstlaw2', 'none', '', 'definition of modified first law'),
     (2, 'ch:theory', 'part2/p2_03_theory', 430, 'eq:th:firstlaw3', 'none', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
     (2, 'ch:theory', 'part2/p2_03_theory', 432, 'eq:HIAM', 'none', '', 'result of entropy first law, physics derivation not pure algebra'),
@@ -28590,123 +29338,48 @@ INVENTORY = [
     (2, 'ch:theory', 'part2/p2_03_theory', 486, 'eq:th:mudef', 'none', '', 'definition of mu via modified Poisson equation'),
     (2, 'ch:theory', 'part2/p2_03_theory', 487, 'eq:th:sigmadef', 'none', '', 'definition of Sigma via lensing equation'),
     (2, 'ch:theory', 'part2/p2_03_theory', 491, 'eq:th:mu', 'none', '', 'mapping definition of mu(a)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 495, 'eq:th:Sigma', 'derived', '', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 504, '', 'derived', '0', 'not yet run: draft rejected (no draft returned)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 507, '', 'none', '0.3153', 'input Omega_m restated'),
     (2, 'ch:theory', 'part2/p2_03_theory', 515, '', 'none', '0.315', 'input Omega_m restated (rounded), fig caption'),
     (2, 'ch:theory', 'part2/p2_03_theory', 520, 'eq:th:phi', 'none', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
     (2, 'ch:theory', 'part2/p2_03_theory', 529, 'eq:th:Stot', 'none', '', 'definition of total gravitational action'),
     (2, 'ch:theory', 'part2/p2_03_theory', 531, 'eq:th:action', 'conjecture', '', 'postulated informational action term'),
     (2, 'ch:theory', 'part2/p2_03_theory', 551, 'eq:th:Hvar', 'derived', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 562, '', 'derived', '-1', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 574, 'eq:th:weff', 'none', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
     (2, 'ch:theory', 'part2/p2_03_theory', 600, 'eq:th:virialavg', 'none', '', 'standard virial theorem, cited physics'),
     (2, 'ch:theory', 'part2/p2_03_theory', 605, 'eq:th:rhoinfo1', 'conjecture', '', 'conjecture: equal share of grav. energy'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 615, 'eq:th:fcoll', 'calc', '0.64', 'not yet run: draft rejected (drafter skipped: Sheth–Tormen halo mass function integration requires numerical evaluation)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 615, 'eq:th:fcoll', 'calc', '0.71', 'not yet run: draft rejected (drafter skipped: Tinker et al. halo mass function integration, same constraint:\n# the book)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 621, 'eq:th:betadecomp', 'none', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 627, '', 'observed', '1.35', 'measured, not found in the files the chapter names'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 628, '', 'observed', '1.25', 'measured, not found in the files the chapter names'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 642, '', 'calc', '1.02', 'not yet run: draft rejected (drafter skipped: The calculation of D^{7/2} from full-background integration (Section 4.8 )'),
     (2, 'ch:theory', 'part2/p2_03_theory', 663, '', 'none', '0.315', 'input Om for numerical verification'),
     (2, 'ch:theory', 'part2/p2_03_theory', 663, '', 'none', '9.1\\times10^{-5}', 'input Omega_r for numerical verification'),
     (2, 'ch:theory', 'part2/p2_03_theory', 663, '', 'none', '67.4', 'input H0 for numerical verification'),
     (2, 'ch:theory', 'part2/p2_03_theory', 669, 'eq:th:Iint', 'none', '', 'definition of cumulative decoherence integral'),
     (2, 'ch:theory', 'part2/p2_03_theory', 676, '', 'none', '1', 'target alpha value restated, trivial'),
     (2, 'ch:theory', 'part2/p2_03_theory', 680, '', 'none', '1', 'target alpha restated in caption, trivial'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 683, '', 'calc', '0.86', 'not yet run: draft rejected (drafter skipped: Line 683: "points spaced uniformly in a weight the late times more and gi)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 683, '', 'calc', '0.94', 'not yet run: draft rejected (drafter skipped: Line 683: same as ITEM 410; the 0.94 is the β coefficient from alternativ)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 686, '', 'calc', '0.85', 'not yet run: draft rejected (drafter skipped: Line 686: α = 0.85 for D^2 Ω_m(a) f (no horizon factor); fitted coefficie)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 686, '', 'calc', '0.96', 'not yet run: draft rejected (drafter skipped: Line 686: β = 0.96 for the same model; same limitation as ITEM 412.)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 686, '', 'calc', '0.993', 'not yet run: draft rejected (drafter skipped: Line 686: Pearson correlation r = 0.993; goodness-of-fit metric computed )'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 687, '', 'calc', '0.53', 'not yet run: draft rejected (drafter skipped: Line 687: α = 0.53 for D^2 Ω_m(a) f with horizon factor 1/(T_H A_H); fitt)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 687, '', 'calc', '0.59', 'not yet run: draft rejected (drafter skipped: Line 687: β = 0.59 for the same model; same limitation as ITEM 415.)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 687, '', 'calc', '0.995', 'not yet run: draft rejected (drafter skipped: Line 687: Pearson correlation r = 0.995; goodness-of-fit metric after fit)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 688, '', 'calc', '0.66', 'not yet run: draft rejected (drafter skipped: Fit coefficients α, β require the full dataset and fitting procedure (unw)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 688, '', 'calc', '0.74', 'not yet run: draft rejected (drafter skipped: Fit coefficient β for D^{5/2}Ω_m(a)f requires the full dataset and fittin)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 688, '', 'calc', '0.995', 'not yet run: draft rejected (drafter skipped: Pearson correlation r over 0.15≤a≤2.0 for the D^{5/2}Ω_m(a)f model requir)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 689, '', 'calc', '0.79', 'not yet run: draft rejected (drafter skipped: Fit coefficient α for D^{3}Ω_m(a)f requires the full dataset and fitting )'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 689, '', 'calc', '0.88', 'not yet run: draft rejected (drafter skipped: Fit coefficient β for D^{3}Ω_m(a)f requires the full dataset and fitting )'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 689, '', 'calc', '0.994', 'not yet run: draft rejected (drafter skipped: Pearson correlation r over 0.15≤a≤2.0 for the D^{3}Ω_m(a)f model requires)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 690, '', 'calc', '0.93', 'not yet run: draft rejected (drafter skipped: Fit coefficient α for D^{7/2}Ω_m(a)f requires the full dataset and fittin)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 690, '', 'calc', '1.02', 'not yet run: draft rejected (drafter skipped: Fit coefficient β for D^{7/2}Ω_m(a)f requires the full dataset and fittin)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 690, '', 'calc', '0.994', 'not yet run: draft rejected (drafter skipped: Correlation coefficient r=0.994 requires the actual data points and fitte)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 691, '', 'calc', '1.06', 'not yet run: draft rejected (drafter skipped: Coefficient α=1.06 for D^4 Ω_m(a) f model requires the data being fit and)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 691, '', 'calc', '1.16', 'not yet run: draft rejected (drafter skipped: Coefficient β=1.16 for D^4 Ω_m(a) f model requires the data being fit and)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 691, '', 'calc', '0.994', 'not yet run: draft rejected (drafter skipped: Correlation coefficient r=0.994 requires the actual data points and fitte)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 692, '', 'calc', '1.06', 'not yet run: draft rejected (drafter skipped: Coefficient α=1.06 for Press–Schechter σ_*=1.0 requires the data being fi)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 692, '', 'calc', '1.24', 'not yet run: draft rejected (drafter skipped: Coefficient β=1.24 for Press–Schechter σ_*=1.0 requires the data being fi)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 692, '', 'calc', '0.983', 'not yet run: draft rejected (drafter skipped: Correlation coefficient r=0.983 requires the actual data points and fitte)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 693, '', 'calc', '0.86', 'not yet run: draft rejected (drafter skipped: Coefficient α=0.86 for Press–Schechter σ_*=1.2 requires the data being fi)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 693, '', 'calc', '1.02', 'not yet run: draft rejected (drafter skipped: Line 693, Sheth–Tormen σ*=1.2, β coefficient (0.89 vs. printed 1.02)\n# Ca)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 693, '', 'calc', '0.982', 'not yet run: draft rejected (drafter skipped: Line 693, Sheth–Tormen σ*=1.2, r coefficient (printed 0.982)\n# Cannot ver)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 694, '', 'calc', '0.90', 'not yet run: draft rejected (drafter skipped: Line 694, Sheth–Tormen σ*=1.0, α coefficient (printed 0.90)\n# Cannot veri)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 694, '', 'calc', '1.07', 'not yet run: draft rejected (drafter skipped: Line 694, Sheth–Tormen σ*=1.0, β coefficient (printed 1.07)\n# Cannot veri)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 694, '', 'calc', '0.983', 'not yet run: draft rejected (drafter skipped: Line 694, Sheth–Tormen σ*=1.0, r coefficient (printed 0.983)\n# Cannot ver)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 695, '', 'calc', '0.75', 'not yet run: draft rejected (drafter skipped: Line 695, Sheth–Tormen σ*=1.2, α coefficient (printed 0.75)\n# Cannot veri)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 695, '', 'calc', '0.89', 'not yet run: draft rejected (drafter skipped: Line 695, Sheth–Tormen σ*=1.2, β coefficient (printed 0.89)\n# Cannot veri)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 695, '', 'calc', '0.982', 'not yet run: draft rejected (drafter skipped: Line 695, Sheth–Tormen σ*=1.2, r coefficient (printed 0.982)\n# Cannot ver)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 696, '', 'none', '1.00', 'target alpha, by construction'),
     (2, 'ch:theory', 'part2/p2_03_theory', 696, '', 'none', '1.000', 'trivial self-correlation of target function'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 706, '', 'calc', '0.93', 'not yet run: draft rejected (uses imports or file access)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 706, '', 'calc', '1.02', 'not yet run: draft rejected (uses imports or file access)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 724, 'eq:th:fST', 'none', '', 'definition of Sheth-Tormen multiplicity function'),
     (2, 'ch:theory', 'part2/p2_03_theory', 725, '', 'none', '0.3222', 'published ST constant A (input)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 725, '', 'none', '0.707', 'published ST constant q (input)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 725, '', 'none', '0.3', 'published ST constant p (input)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 727, '', 'calc', '1.07', 'not yet run: draft rejected (drafter skipped: The integral (Eq. th:Iint) and its relationship to beta are not stated in)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 727, '', 'calc', '0.89', 'not yet run: draft rejected (drafter skipped: Same as ITEM 444: integral definition and beta extraction formula not pro)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 728, '', 'calc', '1.02', 'not yet run: draft rejected (drafter skipped: Same as ITEM 444: integral definition and beta extraction formula not pro)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 752, 'eq:th:dphi', 'derived', '', 'not yet run: draft rejected (drafter skipped: Line 752: δφ = 0 is a constraint definition derived from the Cai–Kim firs)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 764, 'eq:th:poisson', 'derived', '', 'not yet run: draft rejected (drafter skipped: Line 764: k²Ψ = −4πGa²ρ_m δ_m is the Poisson equation in conformal Newton)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 766, 'eq:th:noaniso', 'derived', '', 'not yet run: draft rejected (drafter skipped: Line 766: Ψ = Φ is the anisotropic-stress relation. This is a structural )'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 768, 'eq:th:growth', 'derived', '', 'not yet run: draft rejected (drafter skipped: Line 768: ̈δ_m + 2H_IAM δ̇_m − 4πGρ_m δ_m = 0 is the growth equation for )'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 772, '', 'calc', '0.67', 'not yet run: draft does not reproduce the printed value (recomputed 0.776789); drafting error on review'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 772, '', 'calc', '0.78', 'not yet run: draft does not reproduce the printed value (recomputed 1.67846); drafting error on review'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 780, '', 'measured', '0.75', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 815, '', 'calc', '0.989', 'not yet run: draft rejected (does not run: NameError)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 815, '', 'calc', '0.995', 'not yet run: draft rejected (does not run: NameError)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 815, '', 'calc', '0.997', 'not yet run: draft rejected (does not run: NameError)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 815, '', 'calc', '0.999', 'not yet run: draft rejected (does not run: NameError)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 818, 'eq:th:F2', 'none', '', 'definition, cited second-order kernel (Bernardeau2002)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 823, '', 'calc', '0.974', 'not yet run: draft does not reproduce the printed value (recomputed 0.969); drafting error on review'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 823, '', 'calc', '0.989', 'not yet run: draft does not reproduce the printed value (recomputed 0.985); drafting error on review'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 823, '', 'calc', '0.993', 'not yet run: draft does not reproduce the printed value (recomputed 0.991); drafting error on review'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 824, '', 'calc', '1.020', 'not yet run: draft does not reproduce the printed value (recomputed 1.00884); drafting error on review'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 824, '', 'calc', '1.025', 'not yet run: draft does not reproduce the printed value (recomputed 1.00242); drafting error on review'),
     (2, 'ch:theory', 'part2/p2_03_theory', 825, '', 'none', '1.2%', 'sigma8 reduction in CAMB, restated from Chapter level2'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 834, '', 'calc', '0.251', 'not yet run: draft rejected (printed value typed into the code)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 834, '', 'none', '0.811', 'input sigma8 value restated (Planck)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 834, '', 'calc', '0.255', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 835, '', 'calc', '+1.2%', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 835, '', 'calc', '+0.6%', 'not yet run: draft does not reproduce the printed value (recomputed 1.31624); drafting error on review'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 835, '', 'calc', '+0.1%', 'not yet run: draft does not reproduce the printed value (recomputed 1.10756); drafting error on review'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 836, '', 'calc', '0.759', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 836, '', 'calc', '0.760', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 845, '', 'none', '-0.136', 'mu0 prediction, restated canon value'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 861, '', 'calc', '0.13%', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 873, 'eq:th:conservation', 'derived', '', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 879, '', 'observed', 'w0>-1', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 879, '', 'observed', 'wa<0', 'measured, too few printed digits to match against the named files'),
+    (2, 'ch:theory', 'part2/p2_03_theory', 861, '', 'calc', '0.13%', "measured, source not named: the TT residual (< 0.13 % at l > 30, Level 1 posterior means) needs CAMB spectra; no committed spectra or output holds it (CANON/predictions_triage_2026-10-02.json: 'a CMB TT number not in the record')"),
     (2, 'ch:theory', 'part2/p2_03_theory', 882, 'eq:th:weff2', 'none', '', 'definition of effective dark-energy equation of state'),
     (2, 'ch:theory', 'part2/p2_03_theory', 889, '', 'none', '67.16', 'input, photon-sector H0 restated (canon)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 889, '', 'none', '1.15765', 'trivial arithmetic 1+beta_m'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 891, '', 'observed', '68.9', 'measured, not found in the files the chapter names'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 891, '', 'observed', '75.46', 'measured, not found in the files the chapter names'),
+    (2, 'ch:theory', 'part2/p2_03_theory', 891, '', 'observed', '68.9', 'measured, source not named: published H0 of Hotokezaka et al. 2019 (doi 10.1038/s41550-019-0820-1); no repository file records it and the value could not be confirmed offline'),
+    (2, 'ch:theory', 'part2/p2_03_theory', 891, '', 'observed', '75.46', 'measured, source not named: published H0 of Palmese et al. 2024 (doi 10.1103/PhysRevD.109.063508); no repository file records it and the value could not be confirmed offline'),
     (2, 'ch:theory', 'part2/p2_03_theory', 941, 'eq:th:hoop', 'conjecture', '', 'conjectured holographic black-hole formation criterion'),
     (2, 'ch:theory', 'part2/p2_03_theory', 952, '', 'none', '67.4', 'input, present-epoch H0 (rounded Planck value)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 953, '', 'none', '7e10', 'cited largest known black hole mass (Shemmer 2004)'),
     (2, 'ch:theory', 'part2/p2_03_theory', 1060, '', 'prediction', '1', 'Sigma=1 part of headline prediction, trivial'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 1063, '', 'measured', '0.35--0.5', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:theory', 'part2/p2_03_theory', 1065, '', 'prediction', '10^{-4}', 'falsification threshold on beta_gamma'),
     (2, 'ch:theory', 'part2/p2_03_theory', 1066, '', 'prediction', '10^{-5}', 'CMB-S4 energy-injection sensitivity target'),
     (2, 'ch:theory', 'part2/p2_03_theory', 1066, '', 'prediction', '10^{-4}', 'repeat of beta_gamma falsification threshold'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 1067, '', 'measured', '0.0039', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:theory', 'part2/p2_03_theory', 1069, '', 'prediction', '1/2', 'restated beta_m/Om=1/2 constancy prediction'),
     (2, 'ch:theory', 'part2/p2_03_theory', 1078, '', 'prediction', '-0.136', 'headline IAM mu0 prediction, locked canon value'),
     (2, 'ch:theory', 'part2/p2_03_theory', 1078, '', 'prediction', '1', 'Sigma=1 part of headline prediction, trivial'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 1084, '', 'derived', '7/2', 'not yet run: draft rejected (drafter skipped: Exponent n=7/2 is stated as derived from information-surface analysis on )'),
-    (2, 'ch:theory', 'part2/p2_03_theory', 1085, '', 'calc', '2\\%', 'not yet run: draft rejected (drafter skipped: The claim is that D^{7/2} integrated over Lambda-CDM history returns the )'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 34, 'eq:eg_firstlaw', 'none', '', 'definition: Clausius-form first law postulate'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 57, 'eq:eg_barrow', 'none', '', 'definition: Barrow fractal entropy'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 60, 'eq:eg_tsallis', 'none', '', 'definition: Tsallis non-extensive entropy'),

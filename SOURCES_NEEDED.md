@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 13
+Entries: 16
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -13,6 +13,9 @@ Entries: 13
 | ch:iams_law | `docs/book/part1/p1_02_iams_law.tex:714` | `4.6` | Lower error of the same Hotokezaka et al. 2019 siren H0; same search and same open point as the upper error. |
 | ch:virial_tests | `docs/book/part2/p2_02b_virial_tests.tex:31` | `8` | Lower end of 'errors 8--13 % per bin' on the six DESI DR1 f sigma8 bins (cite DESI2024V). The committed DESI DR1 numbers do not give 8-13 %: the ShapeFit+BAO ratio errors of verify_shapefit_chi2.py (symmetrised, relative to the fiducial) are 19, 13, 10.1, 9.2, 8.7, 12 % (BGS..QSO), and relative to the measured value 22.6, 11.2, 9.7, 9.2, 9.2, 10.3 %; verify_sector_tension.py's values give 9.8-25 %. Searched docs/verification/scripts (shapefit, sector_tension outputs), camb_validation/likelihood_rsd.py. The source of 8-13 % (perhaps the direct full-modelling f sigma8 of DESI 2024 V) needs to be named and recorded. |
 | ch:virial_tests | `docs/book/part2/p2_02b_virial_tests.tex:31` | `13` | Upper end of the same 'errors 8--13 % per bin'; same search. Every committed version of the BGS bin (z = 0.295) has a larger error (19-25 %). |
+| ch:theory | `docs/book/part2/p2_03_theory.tex:861` | `0.13%` | CMB TT difference IAM vs LambdaCDM below 0.13 % at l > 30 from the Level 1 posterior means: needs the CAMB/MGCAMB TT spectra; searched results/, mgcamb_validation/, camb_validation/, docs/verification/ for a committed spectrum or output; only CANON registers repeat the claim |
+| ch:theory | `docs/book/part2/p2_03_theory.tex:891` | `68.9` | GW170817 H0 = 68.9 +4.7 -4.6 cited to Hotokezaka2019 (doi 10.1038/s41550-019-0820-1); no repository file records the published value (grep of md/txt/json/csv) |
+| ch:theory | `docs/book/part2/p2_03_theory.tex:891` | `75.46` | GW170817 afterglow H0 = 75.46 +5.34 -5.39 cited to Palmese2024 (doi 10.1103/PhysRevD.109.063508); no repository file records the published value |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:34` | `0.1` | Lower end of the hydrostatic-bias estimates 'b from about 0.1 to about 0.4 depending on the method', cited to Nagai2007ICM, Rasia2012, Biffi2016. No repository file holds the values. |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:34` | `0.4` | Upper end of the same range (Nagai2007ICM, Rasia2012, Biffi2016). No repository file holds it. |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:37` | `0.15` | Simulation range b about 0.1-0.15 (Lau2009, Nelson2014); also restated at line 186. No repository file holds it; the committed cluster script does not list it. |
