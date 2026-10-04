@@ -66,7 +66,7 @@ for ax in (a1, a2):
 a1.plot(mm, T_bh(MM), color=S.IAM, lw=1.5)
 a1.axhline(T_cmb, color=S.DATA, lw=0.9, ls="--"); a1.axhline(T_gh, color=S.ALT, lw=0.9, ls="--")
 a1.text(1e23, T_cmb * 4, "CMB, 2.7255 K", fontsize=7, color=S.DATA, ha="right")
-a1.text(1e-19, T_gh * 6, "cosmic horizon, $2.7\\times10^{-30}$ K", fontsize=7, color=S.ALT)
+a1.text(1e-19, T_gh * 6, f"cosmic horizon, ${T_gh/10**np.floor(np.log10(T_gh)):.1f}\\times10^{{{int(np.floor(np.log10(T_gh)))}}}$ K", fontsize=7, color=S.ALT)
 a1.plot(M_cmb / Msun, T_cmb, "o", color=S.DATA, ms=4); a1.plot(M_eq / Msun, T_gh, "o", color=S.ALT, ms=4)
 a1.annotate("balance with the CMB:\n$4.5\\times10^{22}$ kg", (M_cmb / Msun, T_cmb), xytext=(5, -5), textcoords="offset points", fontsize=7, va="top")
 a1.annotate("$M_{\\rm eq}=2.3\\times10^{22}$ M$_\\odot$", (M_eq / Msun, T_gh), xytext=(-8, 26), textcoords="offset points", fontsize=7, ha="right", arrowprops=dict(arrowstyle="-", lw=0.5, color=S.GR))
