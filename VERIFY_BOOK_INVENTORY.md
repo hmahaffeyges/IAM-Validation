@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3782 PASS, 0 FAIL, 2556 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3785 PASS, 0 FAIL, 2553 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4290,23 +4290,23 @@ Totals: 3782 PASS, 0 FAIL, 2556 inventoried and not run. Each run item carries t
 | 21 | ch:chipgen:L21 | calc | `0.0017` | numeric: floor on the gauge at 75 C (both counts) | PASS |
 | 21 | ch:chipgen:L21:0.0018 | calc | `0.0018` | numeric: floor at 105 C, lower count | PASS |
 | 21 | ch:chipgen:L21:0.0019 | calc | `0.0019` | numeric: floor at 105 C, upper count | PASS |
-| 27 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 9.231061e+08); drafting error on review | - |
+| 27 |  | calc | `10` | not run: input: error probability p = 10^-15 of the reliability-floor curve in the caption (book's choice; Chapter ch:cmos) | - |
 | 28 | ch:chipgen:L28 | calc | `1.92` | numeric: E_sw | PASS |
 | 28 | ch:chipgen:L28:1.98\times10^{-18} | calc | `1.98\times10^{-18}` | numeric: E_sw | PASS |
 | 48 | ch:chipgen:L48 | calc | `40.7` | numeric: 1 - (1 - 0.707) 253/125 | PASS |
-| 48 |  | calc | `70.7` | not run: not yet run: draft rejected (no draft returned) | - |
+| 48 |  | calc | `70.7` | not run: input: the step of an unnamed generation pair read on mixed power definitions; chip inputs not stated in the book (restates ch:cmos line 108; the 40.7 % derived from it is checked at ch:chipgen:L48) | - |
 | 49 | ch:chipgen:L49 | calc | `7.6` | numeric: 1 - 1.83/1.98 | PASS |
-| 49 |  | calc | `1.83` | not run: not yet run: draft rejected (no draft returned) | - |
-| 49 |  | calc | `1.98` | not run: not yet run: draft rejected (no draft returned) | - |
+| 49 |  | calc | `1.83` | not run: input: quoted clock 1.83 GHz (book's worked case); used in ch:chipgen:L49 | - |
+| 49 |  | calc | `1.98` | not run: input: quoted clock 1.98 GHz (book's worked case); used in ch:chipgen:L49 | - |
 | 54 | ch:chipgen:L54 | derived | `64.6` | numeric: constant-field node step | PASS |
 | 54 | ch:chipgen:L54:29.3 | derived | `29.3` | numeric: fixed-voltage node step | PASS |
-| 55 |  | interp | `64.6` | not run: not yet checked | - |
-| 56 |  | interp | `29.3` | not run: not yet checked | - |
-| 57 |  | interp | `64.6` | not run: not yet checked | - |
+| 55 | ch:chipgen:L55 | interp | `64.6` | numeric: constant-field step per halving of area, 1 - kappa^-3 | PASS |
+| 56 | ch:chipgen:L56 | interp | `29.3` | numeric: fixed-voltage step per halving of area, 1 - kappa^-1 | PASS |
+| 57 | ch:chipgen:L57 | interp | `64.6` | numeric: constant-field step 64.6 % (upper reference) | PASS |
 | 68 | eq:cg_nfloor | derived |  | sympy: generations to the floor: (1-s)^n = 1/R | PASS |
 | 72 | ch:chipgen:L72 | calc | `6.2` | numeric: R = 600, constant-field rate | PASS |
 | 72 | ch:chipgen:L72:18.5 | calc | `18.5` | numeric: R = 600, fixed-voltage rate | PASS |
-| 72 |  | calc | `600` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 72 |  | calc | `600` | not run: input: illustrative R = 600, a round figure for the 576-593 floors of ch:cmos:L12:576; used in ch:chipgen:L72 | - |
 
 ## Part 6 - ch:bridge - `docs/book/part4/p4_01_bridge.tex`
 

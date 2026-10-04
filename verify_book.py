@@ -29252,6 +29252,34 @@ def check_2411():
     value=100*(1-2**-0.5)
     return locals()
 
+@check(label='ch:chipgen:L55', chapter='ch:chipgen', part=5, title='constant-field step per halving of area, 1 - kappa^-3',
+       file='part3/p3_11_chip_generations', line=55, status='interp', kind='num', printed='64.6', tol=0.0)
+def check_3782():
+    'Constant-field reference step: a node step with kappa = sqrt2 (area per transistor halved) lowers C V^2 by 1 - kappa^-3, in per '\
+    'cent. Book line 55, printed 64.6. Input: Dennard scaling rules (C and V each fall as 1/kappa).'
+    kappa = math.sqrt(2)
+    C, V = 1 / kappa, 1 / kappa
+    value = 100 * (1 - C * V**2)
+    return locals()
+
+@check(label='ch:chipgen:L56', chapter='ch:chipgen', part=5, title='fixed-voltage step per halving of area, 1 - kappa^-1',
+       file='part3/p3_11_chip_generations', line=56, status='interp', kind='num', printed='29.3', tol=0.0)
+def check_3783():
+    'Fixed-voltage reference step: with V held, C V^2 falls only as C = 1/kappa, kappa = sqrt2, in per cent. Book line 56, printed 29.3.'
+    kappa = math.sqrt(2)
+    C, V = 1 / kappa, 1.0
+    value = 100 * (1 - C * V**2)
+    return locals()
+
+@check(label='ch:chipgen:L57', chapter='ch:chipgen', part=5, title='constant-field step 64.6 % (upper reference)',
+       file='part3/p3_11_chip_generations', line=57, status='interp', kind='num', printed='64.6', tol=0.0)
+def check_3784():
+    'The constant-field line against which a step "above 64.6 %" is read: the area halves (kappa^2 = 2), so C V^2 = kappa^-3 = 2^-3/2. '\
+    'Book line 57, printed 64.6.'
+    area_ratio = 0.5
+    value = 100 * (1 - area_ratio ** 1.5)
+    return locals()
+
 @check(label='eq:cg_nfloor', chapter='ch:chipgen', part=5, title='generations to the floor: (1-s)^n = 1/R',
        file='part3/p3_11_chip_generations', line=68, status='derived', kind='sym', printed='', tol=0)
 def check_2412():
@@ -34372,14 +34400,11 @@ INVENTORY = [
     (5, 'ch:cmos', 'part3/p3_06_cmos', 102, '', 'calc', '1.83', "input: quoted clock 1.83 GHz of one die (book's worked case); used in ch:cmos:L102"),
     (5, 'ch:cmos', 'part3/p3_06_cmos', 102, '', 'calc', '1.98', "input: quoted clock 1.98 GHz of one die (book's worked case); used in ch:cmos:L102"),
     (5, 'ch:cmos', 'part3/p3_06_cmos', 108, '', 'calc', '70.7', "input: the step of an unnamed generation pair read on mixed power definitions; the chips' power, count and clock are not stated in the book, so nothing to recompute (the 40.7 % derived from it is checked at ch:cmos:L108)"),
-    (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 27, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 9.231061e+08); drafting error on review'),
-    (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 48, '', 'calc', '70.7', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 49, '', 'calc', '1.83', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 49, '', 'calc', '1.98', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 55, '', 'interp', '64.6', 'not yet checked'),
-    (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 56, '', 'interp', '29.3', 'not yet checked'),
-    (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 57, '', 'interp', '64.6', 'not yet checked'),
-    (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 72, '', 'calc', '600', 'not yet run: draft rejected (printed value typed into the code)'),
+    (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 27, '', 'calc', '10', "input: error probability p = 10^-15 of the reliability-floor curve in the caption (book's choice; Chapter ch:cmos)"),
+    (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 48, '', 'calc', '70.7', 'input: the step of an unnamed generation pair read on mixed power definitions; chip inputs not stated in the book (restates ch:cmos line 108; the 40.7 % derived from it is checked at ch:chipgen:L48)'),
+    (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 49, '', 'calc', '1.83', "input: quoted clock 1.83 GHz (book's worked case); used in ch:chipgen:L49"),
+    (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 49, '', 'calc', '1.98', "input: quoted clock 1.98 GHz (book's worked case); used in ch:chipgen:L49"),
+    (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 72, '', 'calc', '600', 'input: illustrative R = 600, a round figure for the 576-593 floors of ch:cmos:L12:576; used in ch:chipgen:L72'),
     (6, 'ch:bridge', 'part4/p4_01_bridge', 52, 'eq:landauer', 'observed', '', 'displayed equation, not yet checked'),
     (6, 'ch:bridge', 'part4/p4_01_bridge', 60, '', 'observed', '310.15', 'measured, source not named'),
     (6, 'ch:bridge', 'part4/p4_01_bridge', 66, '', 'calc', '67.4', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),

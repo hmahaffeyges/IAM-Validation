@@ -4063,6 +4063,9 @@ PASS  ch:chipgen:L48                     ch:chipgen:p3_11_chip_generations:48  p
 PASS  ch:chipgen:L49                     ch:chipgen:p3_11_chip_generations:49  printed 7.6  recomputed 7.57576  tol 0.05  [calc] 1 - 1.83/1.98
 PASS  ch:chipgen:L54                     ch:chipgen:p3_11_chip_generations:54  printed 64.6  recomputed 64.6447  tol 0.05  [derived] constant-field node step
 PASS  ch:chipgen:L54:29.3                ch:chipgen:p3_11_chip_generations:54  printed 29.3  recomputed 29.2893  tol 0.05  [derived] fixed-voltage node step
+PASS  ch:chipgen:L55                     ch:chipgen:p3_11_chip_generations:55  printed 64.6  recomputed 64.6447  tol 0.05  [interp] constant-field step per halving of area, 1 - kappa^-3
+PASS  ch:chipgen:L56                     ch:chipgen:p3_11_chip_generations:56  printed 29.3  recomputed 29.2893  tol 0.05  [interp] fixed-voltage step per halving of area, 1 - kappa^-1
+PASS  ch:chipgen:L57                     ch:chipgen:p3_11_chip_generations:57  printed 64.6  recomputed 64.6447  tol 0.05  [interp] constant-field step 64.6 % (upper reference)
 PASS  eq:cg_nfloor                       ch:chipgen:p3_11_chip_generations:68  printed (algebra)  recomputed lhs-rhs=0  [derived] generations to the floor: (1-s)^n = 1/R
 PASS  ch:chipgen:L72                     ch:chipgen:p3_11_chip_generations:72  printed 6.2  recomputed 6.15255  tol 0.05  [calc] R = 600, constant-field rate
 PASS  ch:chipgen:L72:18.5                ch:chipgen:p3_11_chip_generations:72  printed 18.5  recomputed 18.4576  tol 0.05  [calc] R = 600, fixed-voltage rate
@@ -4678,4 +4681,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3782  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2556  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3785  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2553  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
