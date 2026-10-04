@@ -207,3 +207,22 @@ the method and commissioned results. Their full text, as it stood in the book, i
 | 2026-10-03 | [RUNBOOK.md](../Biological_Physics/MethylPhys/doors/RUNBOOK.md) | CPG runbook |
 | 2026-10-03 | [SUBSTRATE_STRATEGY.md](../Biological_Physics/MethylPhys/doors/SUBSTRATE_STRATEGY.md) | Which substrate can this instrument read? — the plan, decided by the physics rather than by preference |
 | 2026-10-03 | [TWO_FIT_FINDING.md](../Biological_Physics/MethylPhys/doors/TWO_FIT_FINDING.md) | The chain runs TWO deconvolutions, and the reported one is the pooled-first fit |
+
+### 2026-10-04 · DEV-PAIRED-01: purified neutrophils from a new lab (GSE128733), first read
+**Why:** GSE128733 (arrays) and GSE128731 (deep WGBS) measured the same samples, purified neutrophils, CD4 T cells and whole blood,
+on both platforms. It is the first public set found where Met-A and IAM-A can be read on the same neutrophil specimens.
+**Data:** the two purified-neutrophil EPIC arrays (GSM3684010 Sample6, GSM3684011 Sample7; slide 200357150019), read through chain v3
+locally (`run_neutrophil`, specimen isolated neutrophils) with Stage 1 calibration and self-tare II (`dev_stages.selftare_ii`).
+The four whole-blood samples are on 450K, which the chain refuses at intake (PLATFORM_REFUSED), as designed.
+
+| Array | probes | A untared | A self-tared (II) | noise index N | C-score |
+|---|---|---|---|---|---|
+| Sample6 | 831,420 | 1.1663 | **1.0437** | 0.169 | 1.40 |
+| Sample7 | 835,054 | 1.1695 | **1.0426** | 0.182 | 1.77 |
+
+**Reading:** another lab's untared arrays sit 17 % above the floor, as earlier cross-lab arrays did. Self-tare II, using only each array's own
+fixed sites, brings both to 1.04, inside Normal (0.95–1.05), and the two agree to 0.001. The same-run median tare cannot run: the slide
+holds two neutrophil arrays and Stage T needs at least three. Both noise indices sit above the reference arrays' range (0.149), so the
+gauge state is withheld as the chain is built to do, and the C-score (not tared) reads above the healthy range seen so far (0.70–1.23),
+most likely the same array noise. Targets for commissioning: C-score after tare; noise index on more arrays from this platform year.
+**Next:** IAM-A on the same two specimens from GSE128731 (8 WGBS runs, 414 GB, three library kits, two sequencers): Box Run 2.
