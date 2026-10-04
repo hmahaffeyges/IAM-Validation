@@ -8558,11 +8558,11 @@ def check_0532():
     ok = file_has('docs/verification/scripts/verify_entropic_gravity_output.txt', '1.64')
     return locals()
 
-@check(label='ch:entropicgravity:L107', chapter='ch:entropicgravity', part=2, title='growth-factor deficit, Level-1 MGCAMB form',
+@check(label='ch:entropicgravity:L107', chapter='ch:entropicgravity', part=2, title='growth-factor deficit, G_eff = mu G with the exact mu(a)',
        file='part2/p2_03a_entropic_gravity', line=107, status='calc', kind='file', printed='0.78', tol=0.00641, source='docs/verification/scripts/verify_entropic_gravity_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_entropic_gravity.py > docs/verification/scripts/verify_entropic_gravity_output.txt')
 def check_0533():
-    'growth-factor deficit, Level-1 MGCAMB form: minus dD/D at z = 0 of the row "L1_muG" of the committed output. Book line 107, printed 0.78 (per cent below).'
+    'growth-factor deficit, G_eff = mu G with the exact mu(a) (not the MGCAMB form of the Level 1 chains): minus dD/D at z = 0 of the row "L1_muG" of the committed output. Book line 107, printed 0.78 (per cent below).'
     value = -_f00_read('docs/verification/scripts/verify_entropic_gravity_output.txt', r"L1_muG\s*: dD/D at z = 0, 0\.5, 1, 2: ([-\d.]+) %")
     return locals()
 
