@@ -3,6 +3,12 @@
 // link are shown instead.
 (function () {
   var PYODIDE = "https://cdn.jsdelivr.net/pyodide/v0.26.4/full/";
+  // For a local preview without internet access to the CDN, a same-site copy of Pyodide can be named: ?pyodide=/pyodide/
+  // (only a path on this site is accepted).
+  try {
+    var q = new URLSearchParams(location.search).get("pyodide");
+    if (q && /^\/[A-Za-z0-9_\-\/.]*\/$/.test(q) && q.indexOf("//") < 0) PYODIDE = q;
+  } catch (e) {}
   var CODESPACES = "https://codespaces.new/hmahaffeyges/IAM-Validation";
   var root = document.documentElement.getAttribute("data-root") || "./";
   var meta = null, py = null, loading = null;
