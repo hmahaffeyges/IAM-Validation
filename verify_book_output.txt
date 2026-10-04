@@ -4244,18 +4244,22 @@ PASS  ch:surface:L115:0.845              ch:surface:p4_03_surface:115  printed 0
 PASS  ch:surface:L125                    ch:surface:p4_03_surface:125  printed 2.8\times10^7  recomputed 2.821745e+07  tol 5.000005e+05  [calc] CpG sites, one bit each
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:ledgers (part4/p4_04_ledgers.tex)
+PASS  eq:virial                          ch:ledgers:p4_04_ledgers:14  printed (algebra)  recomputed lhs-rhs=0  [derived] virial theorem 2<K> = k<U> for U homogeneous of degree k
 PASS  eq:smarr                           ch:ledgers:p4_04_ledgers:44  printed (algebra)  recomputed True  [calc] Mc^2 = 2 T_H S
 PASS  ch:ledgers:L49                     ch:ledgers:p4_04_ledgers:49  printed 8.94\times10^{46}  recomputed 8.935739e+46  tol 5.000005e+43  [calc] T_H S = Mc^2/2 for 1 M_sun, J
 PASS  ch:ledgers:L54                     ch:ledgers:p4_04_ledgers:54  printed 13.6  recomputed 13.6057  tol 0.05  [derived] <K> hydrogen, eV
 PASS  ch:ledgers:L55                     ch:ledgers:p4_04_ledgers:55  printed -27.2  recomputed -27.2114  tol 0.05  [derived] <V> hydrogen, eV
+PASS  ch:ledgers:L91                     ch:ledgers:p4_04_ledgers:91  printed 10^{-7}  recomputed 2.286136e-07  tol 2.162278e-07  [openprob] methylation maintenance share of the cell budget, order 1e-7
 PASS  ch:ledgers:L104                    ch:ledgers:p4_04_ledgers:104  printed 8.4\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-16  [calc] cell entry N k_B T ln2, J
 PASS  ch:ledgers:L109                    ch:ledgers:p4_04_ledgers:109  printed 8.4\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-16  [calc] cell entry N k_B T ln2, J
 PASS  ch:ledgers:L114                    ch:ledgers:p4_04_ledgers:114  printed 8.94\times10^{46}  recomputed 8.935739e+46  tol 5.000005e+43  [calc] T_H S = Mc^2/2 for 1 M_sun, J
 PASS  ch:ledgers:L114:2.8\times10^7      ch:ledgers:p4_04_ledgers:114  printed 2.8\times10^7  recomputed 2.821745e+07  tol 5.000005e+05  [calc] CpG bits
+PASS  ch:ledgers:L114:310.15             ch:ledgers:p4_04_ledgers:114  printed 310.15  recomputed 310.15  tol 0.00500001  [calc] cell at 310.15 K (figure caption)  file CANON/iam_canon.json
 PASS  ch:ledgers:L122                    ch:ledgers:p4_04_ledgers:122  printed 13.61  recomputed 13.6057  tol 0.00500001  [derived] <K> hydrogen, eV
 PASS  ch:ledgers:L122:-27.21             ch:ledgers:p4_04_ledgers:122  printed -27.21  recomputed -27.2114  tol 0.00500001  [derived] <V> hydrogen, eV
 PASS  ch:ledgers:L125                    ch:ledgers:p4_04_ledgers:125  printed 8.94\times10^{46}  recomputed 8.935739e+46  tol 5.000005e+43  [calc] T_H S = Mc^2/2 for 1 M_sun, J
 PASS  ch:ledgers:L126                    ch:ledgers:p4_04_ledgers:126  printed 2.14\times10^{-21}  recomputed 2.141041e-21  tol 5.000005e-24  [derived] k_B T/2 at 310.15 K
+PASS  ch:ledgers:L126:310.15             ch:ledgers:p4_04_ledgers:126  printed 310.15  recomputed 310.15  tol 0.00500001  [calc] equipartition row at 310.15 K  file CANON/iam_canon.json
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:floorbreach (part4/p4_05_floorbreach.tex)
 PASS  ch:floorbreach:L42                 ch:floorbreach:p4_05_floorbreach:42  printed 5.4\times10^{69}  recomputed 5.363072e+69  tol 5.000005e+67  [calc] bits of 1 M_sun horizon over CpG bits
@@ -4736,4 +4740,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3822  FAIL 0  (heavy, read from committed outputs: 765)  inventoried-not-run 2516  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3826  FAIL 0  (heavy, read from committed outputs: 765)  inventoried-not-run 2512  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

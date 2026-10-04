@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3822 PASS, 0 FAIL, 2516 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3826 PASS, 0 FAIL, 2512 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4476,22 +4476,22 @@ Totals: 3822 PASS, 0 FAIL, 2516 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 14 | eq:virial | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 14 | eq:virial | derived |  | sympy: virial theorem 2<K> = k<U> for U homogeneous of degree k | PASS |
 | 44 | eq:smarr | calc |  | sympy: Mc^2 = 2 T_H S | PASS |
 | 49 | ch:ledgers:L49 | calc | `8.94\times10^{46}` | numeric: T_H S = Mc^2/2 for 1 M_sun, J | PASS |
 | 54 | ch:ledgers:L54 | derived | `13.6` | numeric: <K> hydrogen, eV | PASS |
 | 55 | ch:ledgers:L55 | derived | `-27.2` | numeric: <V> hydrogen, eV | PASS |
-| 91 |  | openprob | `10` | not run: not yet checked | - |
+| 91 | ch:ledgers:L91 | openprob | `10^{-7}` | numeric: methylation maintenance share of the cell budget, order 1e-7 | PASS |
 | 104 | ch:ledgers:L104 | calc | `8.4\times10^{-14}` | numeric: cell entry N k_B T ln2, J | PASS |
 | 109 | ch:ledgers:L109 | calc | `8.4\times10^{-14}` | numeric: cell entry N k_B T ln2, J | PASS |
 | 114 | ch:ledgers:L114 | calc | `8.94\times10^{46}` | numeric: T_H S = Mc^2/2 for 1 M_sun, J | PASS |
 | 114 | ch:ledgers:L114:2.8\times10^7 | calc | `2.8\times10^7` | numeric: CpG bits | PASS |
-| 114 |  | calc | `310.15` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 114 | ch:ledgers:L114:310.15 | calc | `310.15` | file `CANON/iam_canon.json`: cell at 310.15 K (figure caption) | PASS |
 | 122 | ch:ledgers:L122 | derived | `13.61` | numeric: <K> hydrogen, eV | PASS |
 | 122 | ch:ledgers:L122:-27.21 | derived | `-27.21` | numeric: <V> hydrogen, eV | PASS |
 | 125 | ch:ledgers:L125 | calc | `8.94\times10^{46}` | numeric: T_H S = Mc^2/2 for 1 M_sun, J | PASS |
 | 126 | ch:ledgers:L126 | derived | `2.14\times10^{-21}` | numeric: k_B T/2 at 310.15 K | PASS |
-| 126 |  | calc | `310.15` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 126 | ch:ledgers:L126:310.15 | calc | `310.15` | file `CANON/iam_canon.json`: equipartition row at 310.15 K | PASS |
 
 ## Part 6 - ch:floorbreach - `docs/book/part4/p4_05_floorbreach.tex`
 

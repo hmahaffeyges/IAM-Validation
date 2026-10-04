@@ -30418,6 +30418,20 @@ def check_2503():
 
 
 # ======== Part 6 | ch:ledgers | docs/book/part4/p4_04_ledgers.tex
+@check(label='eq:virial', chapter='ch:ledgers', part=6, title='virial theorem 2<K> = k<U> for U homogeneous of degree k',
+       file='part4/p4_04_ledgers', line=14, status='derived', kind='sym', printed='', tol=0.0)
+def check_3822():
+    'Virial theorem 2<K> = k<U> (Eq. eq:virial). Book line 14. Derived: for a bound steady state the time average of d(p.r)/dt '\
+    'vanishes, so 2<K> = <r . grad U>; for U = a |r|^k (homogeneous of degree k) the sum x dU/dx + y dU/dy + z dU/dz is computed and '\
+    'lands on k U (Euler).'
+    x, y, z, a, k = sp.symbols('x y z a k', positive=True)
+    U = a * (x**2 + y**2 + z**2)**(k / 2)
+    two_K = x * sp.diff(U, x) + y * sp.diff(U, y) + z * sp.diff(U, z)     # 2<K> = <r . grad U>
+    lhs = sp.simplify(two_K)
+    rhs = k * U
+    neg_lhs = sp.simplify(x * sp.diff(U, x) + y * sp.diff(U, y) + sp.Rational(105, 100) * z * sp.diff(U, z))
+    return locals()
+
 @check(label='eq:smarr', chapter='ch:ledgers', part=6, title='Mc^2 = 2 T_H S',
        file='part4/p4_04_ledgers', line=44, status='calc', kind='sym', printed='', tol=0)
 def check_2504():
@@ -30444,6 +30458,15 @@ def check_2506():
 def check_2507():
     '<V> hydrogen, eV. Book line 55, printed -27.2.'
     value=-alpha_em**2*m_e_MeV*1e6
+    return locals()
+
+@check(label='ch:ledgers:L91', chapter='ch:ledgers', part=6, title='methylation maintenance share of the cell budget, order 1e-7',
+       file='part4/p4_04_ledgers', line=91, status='openprob', kind='num', printed='10^{-7}', tol=0.0)
+def check_3823():
+    'Methylation maintenance as a share of the cell energy budget (Chapter ch:landauer): one copy writes 70 % of the 28,217,448 CpGs '\
+    'at one ATP each, against an ATP turnover of order 1e9 per second over 24 h. Book line 91, printed 10^{-7} (order of magnitude). '\
+    'Inputs: Chapter ch:landauer (Milo2015 for the turnover).'
+    value = 0.70 * 28217448 / (1e9 * 24 * 3600)
     return locals()
 
 @check(label='ch:ledgers:L104', chapter='ch:ledgers', part=6, title='cell entry N k_B T ln2, J',
@@ -30474,6 +30497,13 @@ def check_2511():
     value=28217448
     return locals()
 
+@check(label='ch:ledgers:L114:310.15', chapter='ch:ledgers', part=6, title='cell at 310.15 K (figure caption)',
+       file='part4/p4_04_ledgers', line=114, status='calc', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
+def check_3824():
+    'Figure fig:p4_ledger caption: the cell entry is taken at 310.15 K. Book line 114, printed 310.15. Source: CANON T_cell (37 C).'
+    value = load_json('CANON/iam_canon.json')['constants']['T_cell']['value']
+    return locals()
+
 @check(label='ch:ledgers:L122', chapter='ch:ledgers', part=6, title='<K> hydrogen, eV',
        file='part4/p4_04_ledgers', line=122, status='derived', kind='num', printed='13.61', tol=0)
 def check_2512():
@@ -30500,6 +30530,13 @@ def check_2514():
 def check_2515():
     'k_B T/2 at 310.15 K. Book line 126, printed 2.14\\times10^{-21}.'
     value=0.5*kB*T_cell
+    return locals()
+
+@check(label='ch:ledgers:L126:310.15', chapter='ch:ledgers', part=6, title='equipartition row at 310.15 K',
+       file='part4/p4_04_ledgers', line=126, status='calc', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
+def check_3825():
+    'Table tab:p4_halves, equipartition row: 310.15 K. Book line 126, printed 310.15. Source: CANON T_cell (37 C).'
+    value = load_json('CANON/iam_canon.json')['constants']['T_cell']['value']
     return locals()
 
 
@@ -34838,10 +34875,6 @@ INVENTORY = [
     (6, 'ch:surface', 'part4/p4_03_surface', 57, 'eq:meanH', 'none', '', 'definition: mean of the per-site entropies, the Met-A statistic'),
     (6, 'ch:surface', 'part4/p4_03_surface', 115, '', 'calc', '0.03', "input: illustrative loss rate u = 0.03 of the two-state model (book's choice); beta_ss and H are checked at ch:surface:L115"),
     (6, 'ch:surface', 'part4/p4_03_surface', 115, '', 'calc', '0.08', "input: illustrative gain rate d = 0.08 of the two-state model (book's choice); beta_ss and H are checked at ch:surface:L115"),
-    (6, 'ch:ledgers', 'part4/p4_04_ledgers', 14, 'eq:virial', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:ledgers', 'part4/p4_04_ledgers', 91, '', 'openprob', '10', 'not yet checked'),
-    (6, 'ch:ledgers', 'part4/p4_04_ledgers', 114, '', 'calc', '310.15', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:ledgers', 'part4/p4_04_ledgers', 126, '', 'calc', '310.15', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:floorbreach', 'part4/p4_05_floorbreach', 25, '', 'measured', '3.41', 'measured, source not named'),
     (6, 'ch:floorbreach', 'part4/p4_05_floorbreach', 50, '', 'calc', '310.15', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:floorbreach', 'part4/p4_05_floorbreach', 72, '', 'calc', '1.099', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
