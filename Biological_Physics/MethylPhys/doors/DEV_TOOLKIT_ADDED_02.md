@@ -16,8 +16,8 @@ laboratory's purified cell (GSE122244 monocyte, B and T arrays) added at f = 0, 
 called on >= 95 % of constructed specimens; of the calls at 5 %, >= 95 % name the spiked cell. The f = 0 call rate is recorded (the true contamination
 of the unspiked arrays is not known).
 
-**3c foreign cell (non-blood material in whole blood).** Template: placenta (mean of the placenta arrays of one series in the bucket); spike material:
-placenta arrays of another series. Sites: the 963 markers plus up to 500 sites where the template differs from every blood group by >= 0.25. Fit:
+**3c foreign cell (non-blood material in whole blood).** The bucket holds one placenta series (GSE271697, 93 arrays). Template: the mean of the first
+half of its arrays (GSM order); spike material: the other half (never in the template). Sites: the 963 markers plus up to 500 sites where the template differs from every blood group by >= 0.25. Fit:
 non-negative least squares on [8 blood groups, template], weights 1/s_i^2; the template's standard error from this array's own fit residual scatter.
 Called when f > 3 SE. Specimens: GSE250556 replicates (no foreign material) with placenta added at f = 0, 1, 2, 5, 10 %. Bars: at f = 0 <= 5 % called;
 at 5 % >= 95 % called.
