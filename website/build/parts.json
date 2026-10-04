@@ -5,8 +5,8 @@
    "n": 1,
    "roman": "I",
    "label": "part:1",
-   "theme": "cmb",
-   "banner": "cmb_banner.jpg",
+   "theme": "web",
+   "banner": "web_banner.jpg",
    "opening": "web_opening.jpg",
    "summary": "Part I states IAM's Law: every irreversible step from a quantum superposition to a classical record costs at least k_B T ln 2 per bit, paid at the temperature of the nearest encoding surface, and the record is written on that surface. Its opening chapter follows one condition, floor breach, from a black hole to a cell, and its last chapters set out the virial partition: a stable 1/r system holds half its binding energy as motion, and that half is the irreversible cost of binding.",
    "referee": "Check the six-step derivation of the opening chapter, which says that only Step 5 is a new identification, and the virial-half argument that the later Parts build on."
@@ -65,8 +65,8 @@
    "n": 7,
    "roman": "VII",
    "label": "part:5",
-   "theme": "web",
-   "banner": "web_banner.jpg",
+   "theme": "mosaic",
+   "banner": "mosaic_banner.jpg",
    "opening": "mosaic_opening.jpg",
    "summary": "Part VII joins the scales. It sets out the nine-step chain from gravitational collapse to decoherence, the Landauer cost, holographic encoding and the feedback on expansion, and marks which steps are established physics and which are the framework's conjecture. It then reads time, the virial partners, one gauge across the scales, the predictions, the open problems and the status of every claim.",
    "referee": "Check the line the book draws between established physics (steps 1-5) and its conjecture (steps 6-9), and the predictions and their status table."
