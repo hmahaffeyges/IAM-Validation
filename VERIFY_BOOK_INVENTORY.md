@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4013 PASS, 0 FAIL, 2325 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4043 PASS, 0 FAIL, 2295 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4791,44 +4791,44 @@ Totals: 4013 PASS, 0 FAIL, 2325 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 34 |  | measured | `0.983` | not run: measured, source not named | - |
-| 34 |  | measured | `1.045` | not run: measured, source not named | - |
-| 34 |  | measured | `0.020` | not run: measured, source not named | - |
-| 42 |  | measured | `0.904` | not run: measured, source not named | - |
-| 42 |  | measured | `0.932` | not run: measured, source not named | - |
-| 62 |  | calc | `0.05` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 62 |  | measured | `0.25` | not run: measured, source not named | - |
-| 62 |  | measured | `0.75` | not run: measured, source not named | - |
-| 62 |  | measured | `0.95` | not run: measured, source not named | - |
-| 64 |  | measured | `1.062` | not run: measured, source not named | - |
-| 64 |  | measured | `1.118` | not run: measured, source not named | - |
-| 64 |  | measured | `0.982` | not run: measured, source not named | - |
-| 64 |  | measured | `1.016` | not run: measured, source not named | - |
-| 73 |  | calc | `0.05` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 101 |  | none |  | not run: displayed equation, not yet checked | - |
-| 140 |  | measured | `1.03` | not run: measured, source not named | - |
-| 140 |  | measured | `1.09` | not run: measured, source not named | - |
-| 140 |  | measured | `-0.04` | not run: measured, source not named | - |
-| 140 |  | measured | `-0.07` | not run: measured, source not named | - |
+| 34 | ch:atlas:L34:0.983 | measured | `0.983` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out neutrophil reference, lowest A | PASS |
+| 34 | ch:atlas:L34:1.045 | measured | `1.045` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out neutrophil reference, highest A | PASS |
+| 34 | ch:atlas:L34:0.020 | measured | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out neutrophil reference, SD | PASS |
+| 42 | ch:atlas:L42:0.904 | measured | `0.904` | file `Biological_Physics/MethylPhys/doors/DIAG_450K_01_OUTCOME.md`: 450K purified cells on another platform's reference, lowest median | PASS |
+| 42 | ch:atlas:L42:0.932 | measured | `0.932` | file `Biological_Physics/MethylPhys/doors/DIAG_450K_01_OUTCOME.md`: 450K purified cells on another platform's reference, highest median | PASS |
+| 62 |  | calc | `0.05` | not run: definition: identity-site window edge 0.05 (0.05-0.25 and 0.75-0.95) restated from the site rule (ch:identity L20); nothing computed at this line | - |
+| 62 |  | measured | `0.25` | not run: definition: identity-site window edge 0.25 restated from the site rule (ch:identity L20) | - |
+| 62 |  | measured | `0.75` | not run: definition: identity-site window edge 0.75 restated from the site rule (ch:identity L20) | - |
+| 62 |  | measured | `0.95` | not run: definition: identity-site window edge 0.95 restated from the site rule (ch:identity L20) | - |
+| 64 | ch:atlas:L64:1.062 | measured | `1.062` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: six DNA mixtures against the neutrophil floor alone, lowest | PASS |
+| 64 | ch:atlas:L64:1.118 | measured | `1.118` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: six DNA mixtures against the neutrophil floor alone, highest | PASS |
+| 64 | ch:atlas:L64:0.982 | measured | `0.982` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: six DNA mixtures against the expectation from their own composition, lowest | PASS |
+| 64 | ch:atlas:L64:1.016 | measured | `1.016` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: six DNA mixtures against the expectation from their own composition, highest | PASS |
+| 73 |  | calc | `0.05` | not run: definition: the 0.05 threshold in |Delta beta| of the table column 'sites within 0.05' (dotted line of the figure); the shares themselves are checked at ch:identity:L57 and L66 | - |
+| 101 |  | none |  | not run: definition: the hierarchical model of atlas v2 (likelihood and prior of beta_obs, mu_ic = m_i + e_ic); a model statement, nothing to derive | - |
+| 140 | ch:atlas:L140:1.03 | measured | `1.03` | file `Biological_Physics/MethylPhys/atlas/v2/records/03b_crossplatform_check.csv`: array-sequencing transfer, lowest slope | PASS |
+| 140 | ch:atlas:L140:1.09 | measured | `1.09` | file `Biological_Physics/MethylPhys/atlas/v2/records/03b_crossplatform_check.csv`: array-sequencing transfer, highest slope | PASS |
+| 140 | ch:atlas:L140:-0.04 | measured | `-0.04` | file `Biological_Physics/MethylPhys/atlas/v2/records/03b_crossplatform_check.csv`: array-sequencing transfer, intercept nearest zero | PASS |
+| 140 | ch:atlas:L140:-0.07 | measured | `-0.07` | file `Biological_Physics/MethylPhys/atlas/v2/records/03b_crossplatform_check.csv`: array-sequencing transfer, most negative intercept | PASS |
 | 144 |  | measured | `0.015` | not run: measured, source not named | - |
-| 148 |  | measured | `4.35` | not run: measured, source not named | - |
-| 150 |  | measured | `1.005` | not run: measured, source not named | - |
-| 150 |  | measured | `0.83` | not run: measured, source not named | - |
-| 153 |  | measured | `0.19` | not run: measured, source not named | - |
-| 163 |  | measured | `92.3` | not run: measured, source not named | - |
-| 163 |  | measured | `93.1` | not run: measured, source not named | - |
-| 167 |  | measured | `92.7` | not run: measured, source not named | - |
-| 169 |  | measured | `96.9` | not run: measured, source not named | - |
-| 169 |  | measured | `97.2` | not run: measured, source not named | - |
-| 169 |  | measured | `0.051` | not run: measured, source not named | - |
-| 173 |  | derived | `36` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 177 |  | derived | `0.020` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 181 |  | measured | `87.7` | not run: measured, source not named | - |
-| 182 |  | measured | `73.1` | not run: measured, source not named | - |
-| 223 |  | measured | `1.062` | not run: measured, source not named | - |
-| 223 |  | measured | `1.118` | not run: measured, source not named | - |
-| 223 |  | measured | `0.982` | not run: measured, source not named | - |
-| 223 |  | measured | `1.016` | not run: measured, source not named | - |
+| 148 | ch:atlas:L148 | measured | `4.35` | file `Biological_Physics/MethylPhys/atlas/v2/records/11c_stageA_report_NOT_CONVERGED.json`: joint fit did not converge: largest R-hat | PASS |
+| 150 | ch:atlas:L150:1.005 | measured | `1.005` | file `Biological_Physics/MethylPhys/atlas/v2/records/14_stageB_timing_block.log`: test block converged: R-hat 99th percentile | PASS |
+| 150 | ch:atlas:L150:0.83 | measured | `0.83` | file `Biological_Physics/MethylPhys/atlas/v2/records/14_stageB_timing_block.log`: test block: seconds per locus | PASS |
+| 153 | ch:atlas:L153 | measured | `0.19` | file `Biological_Physics/MethylPhys/atlas/v2/postbuild/records/atlas_v2_gate.json`: values flagged for per-block convergence | PASS |
+| 163 | ch:atlas:L163:92.3 | measured | `92.3` | file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: held-out coverage, lowest block | PASS |
+| 163 | ch:atlas:L163:93.1 | measured | `93.1` | file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: held-out coverage, highest block | PASS |
+| 167 | ch:atlas:L167 | measured | `92.7` | file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: held-out coverage overall | PASS |
+| 169 | ch:atlas:L169:96.9 | measured | `96.9` | file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: held-out coverage, highest cells, lower end | PASS |
+| 169 | ch:atlas:L169:97.2 | measured | `97.2` | file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: held-out coverage, highest cells, upper end | PASS |
+| 169 | ch:atlas:L169:0.051 | measured | `0.051` | file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: held-out mean absolute prediction error | PASS |
+| 173 |  | derived | `36` | not run: input: illustrative number of independent samples n = 36 (the derived factor six is sqrt(36) applied to it) | - |
+| 177 | ch:atlas:L177 | derived | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: precision of the neutrophil reference restated | PASS |
+| 181 | ch:atlas:L181 | measured | `87.7` | file `Biological_Physics/MethylPhys/atlas/v2/postbuild/README.md`: atlas v2 identity sites, array to array in Normal | PASS |
+| 182 | ch:atlas:L182 | measured | `73.1` | file `Biological_Physics/MethylPhys/atlas/v2/postbuild/README.md`: atlas v2 identity sites, sequencing to array in Normal | PASS |
+| 223 | ch:atlas:L223:1.062 | measured | `1.062` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: six DNA mixtures against the neutrophil floor alone, lowest | PASS |
+| 223 | ch:atlas:L223:1.118 | measured | `1.118` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: six DNA mixtures against the neutrophil floor alone, highest | PASS |
+| 223 | ch:atlas:L223:0.982 | measured | `0.982` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: six DNA mixtures against the expectation from their own composition, lowest | PASS |
+| 223 | ch:atlas:L223:1.016 | measured | `1.016` | file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: six DNA mixtures against the expectation from their own composition, highest | PASS |
 
 ## Part 6 - ch:identity - `docs/book/part4/p4_15_identity.tex`
 

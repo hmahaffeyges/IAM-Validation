@@ -1964,6 +1964,32 @@ def _b10_lowfrac_sd(k):
     return float(np.std(ratio[sel], ddof=1)), int(sel.sum())
 
 _B10_S = dict(chapter='ch:separation', part=6, file='part4/p4_13_separation', kind='file')
+DATA_FILES['Biological_Physics/MethylPhys/atlas/v2/records/03b_crossplatform_check.csv'] = 'atlas v2 cross-platform check: array against sequencing, ten cell types'   # 1 kB
+DATA_FILES['Biological_Physics/MethylPhys/atlas/v2/records/11c_stageA_report_NOT_CONVERGED.json'] = 'atlas v2 first joint fit (not converged): R-hat and ESS summary'   # 7 kB
+DATA_FILES['Biological_Physics/MethylPhys/atlas/v2/records/14_stageB_timing_block.log'] = 'atlas v2 test block with fixed source terms: R-hat, ESS, time per locus'   # 0.2 kB
+DATA_FILES['Biological_Physics/MethylPhys/atlas/v2/postbuild/records/atlas_v2_gate.json'] = 'atlas v2 whole-atlas gate (distinctness, no filled values, convergence flags)'   # 5 kB
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md'] = 'atlas v2 held-out coverage outcome (V5)'   # 1 kB
+DATA_FILES['Biological_Physics/MethylPhys/atlas/v2/postbuild/README.md'] = 'atlas v2 post-build record: identity loci held-out transfer'   # 3 kB
+
+# helpers of the part4/p4_14_atlas checks
+_B10_NUMRE = re.compile(r"(?<![\d.,])−?\d{1,3}(?:,\d{3})+(?:\.\d+)?|(?<![\d.,])−?\d+(?:\.\d+)?")
+def _b10_nums(path, anchor, n):
+    """The first n numbers after the first occurrence of anchor in a committed text file (thousands commas and the minus sign read)."""
+    t = file_text(path)
+    i = t.index(anchor) + len(anchor)
+    out = []
+    for m in _B10_NUMRE.finditer(t, i):
+        out.append(float(m.group().replace('−', '-').replace(',', '')))
+        if len(out) == n:
+            return out
+    raise ValueError(f'{path}: fewer than {n} numbers after {anchor!r}')
+
+_B10_LOO = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv'
+def _b10_loo():
+    """Held-out A of each of the six physical reference arrays, identity sites re-chosen on the other five."""
+    return np.array([float(r['A_loo']) for r in load_csv_rows(_B10_LOO)])
+
+_B10_A = dict(chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -32594,6 +32620,272 @@ def check_4012():
     return locals()
 
 
+# ======== Part 6 | ch:atlas | docs/book/part4/p4_14_atlas.tex
+@check(label='ch:atlas:L34:0.983', title='held-out neutrophil reference, lowest A', line=34, status='measured', printed='0.983', tol=0.0,
+       source=_B10_LOO, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4013():
+    'Each of the six physical reference arrays read against the other five, sites re-chosen on those five, gives A = 0.983-1.045; '\
+    'lower end = min of the frozen leave-one-out record. Book line 34, printed 0.983. Input: metA_floors_v1_3_loo.csv (column A_loo).'
+    a = _b10_loo()
+    n = len(a)
+    value = a.min()
+    return locals()
+
+@check(label='ch:atlas:L34:1.045', title='held-out neutrophil reference, highest A', line=34, status='measured', printed='1.045', tol=0.0,
+       source=_B10_LOO, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4014():
+    'Upper end of A = 0.983-1.045 of the six held-out reference arrays. Book line 34, printed 1.045. Input: metA_floors_v1_3_loo.csv.'
+    value = _b10_loo().max()
+    return locals()
+
+@check(label='ch:atlas:L34:0.020', title='held-out neutrophil reference, SD', line=34, status='measured', printed='0.020', tol=0.0,
+       source=_B10_LOO, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4015():
+    'Standard deviation (n-1) of the six held-out readings A_loo. Book line 34, printed 0.020. Input: metA_floors_v1_3_loo.csv.'
+    value = float(np.std(_b10_loo(), ddof=1))
+    return locals()
+
+def _b10_450k():
+    rows = re.findall(r"^\| (neutrophils|monocytes|NK cells) \| ([\d.]+) \|", file_text('Biological_Physics/MethylPhys/doors/DIAG_450K_01_OUTCOME.md'), re.M)
+    return [float(v) for _, v in rows]
+
+@check(label='ch:atlas:L42:0.904', title='450K purified cells on another platform\'s reference, lowest median', line=42, status='measured',
+       printed='0.904', tol=0.0, source='Biological_Physics/MethylPhys/doors/DIAG_450K_01_OUTCOME.md', chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4016():
+    'Purified neutrophils, monocytes and NK cells on 450K arrays read median 0.904-0.932 against references built on another platform; '\
+    'lower end = smallest of the three per-cell medians in the committed diagnosis record (table D1). Book line 42, printed 0.904.'
+    v = _b10_450k()
+    n = len(v)
+    value = min(v)
+    return locals()
+
+@check(label='ch:atlas:L42:0.932', title='450K purified cells on another platform\'s reference, highest median', line=42, status='measured',
+       printed='0.932', tol=0.0, source='Biological_Physics/MethylPhys/doors/DIAG_450K_01_OUTCOME.md', chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4017():
+    'Upper end of 0.904-0.932: largest of the neutrophil, monocyte and NK-cell medians of table D1 of the 450K diagnosis record. '\
+    'Book line 42, printed 0.932.'
+    value = max(_b10_450k())
+    return locals()
+
+_B10_WB = 'Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md'
+def _b10_wb_floor(k):
+    return _b10_nums(_B10_WB, '(neutrophil floor alone) the same healthy mixtures read ', 2)[k]
+def _b10_wb_expect(k):
+    return _b10_nums(_B10_WB, 'all in Normal | 6/6 (A ', 2)[k]
+
+@check(label='ch:atlas:L64:1.062', title='six DNA mixtures against the neutrophil floor alone, lowest', line=64, status='measured', printed='1.062', tol=0.0,
+       source=_B10_WB, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4018():
+    'Six healthy DNA mixtures (neutrophils 63-75 %) read against the neutrophil floor alone, lowest. Book line 64, printed 1.062. Read from the committed '\
+    'whole-blood neutrophil outcome record (bar W1 for the expectation; the floor-alone reading in the text below it).'
+    value = _b10_wb_floor(0)
+    return locals()
+
+@check(label='ch:atlas:L64:1.118', title='six DNA mixtures against the neutrophil floor alone, highest', line=64, status='measured', printed='1.118', tol=0.0,
+       source=_B10_WB, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4019():
+    'Six healthy DNA mixtures (neutrophils 63-75 %) read against the neutrophil floor alone, highest. Book line 64, printed 1.118. Read from the committed '\
+    'whole-blood neutrophil outcome record (bar W1 for the expectation; the floor-alone reading in the text below it).'
+    value = _b10_wb_floor(1)
+    return locals()
+
+@check(label='ch:atlas:L64:0.982', title='six DNA mixtures against the expectation from their own composition, lowest', line=64, status='measured', printed='0.982', tol=0.0,
+       source=_B10_WB, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4020():
+    'Six healthy DNA mixtures (neutrophils 63-75 %) read against the expectation from their own composition, lowest. Book line 64, printed 0.982. Read from the committed '\
+    'whole-blood neutrophil outcome record (bar W1 for the expectation; the floor-alone reading in the text below it).'
+    value = _b10_wb_expect(0)
+    return locals()
+
+@check(label='ch:atlas:L64:1.016', title='six DNA mixtures against the expectation from their own composition, highest', line=64, status='measured', printed='1.016', tol=0.0,
+       source=_B10_WB, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4021():
+    'Six healthy DNA mixtures (neutrophils 63-75 %) read against the expectation from their own composition, highest. Book line 64, printed 1.016. Read from the committed '\
+    'whole-blood neutrophil outcome record (bar W1 for the expectation; the floor-alone reading in the text below it).'
+    value = _b10_wb_expect(1)
+    return locals()
+
+
+_B10_XP = 'Biological_Physics/MethylPhys/atlas/v2/records/03b_crossplatform_check.csv'
+def _b10_xp(col):
+    return [float(r[col]) for r in load_csv_rows(_B10_XP)]
+
+@check(label='ch:atlas:L140:1.03', title='array-sequencing transfer, lowest slope', line=140, status='measured', printed='1.03', tol=0.0,
+       source=_B10_XP, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4022():
+    'A first cross-platform measurement on ten cell types measured both ways gave slopes of 1.03-1.09; lower end = smallest slope of the '\
+    'committed cross-platform record. Book line 140, printed 1.03. Input: 03b_crossplatform_check.csv (column slope).'
+    s = _b10_xp('slope')
+    n = len(s)
+    value = min(s)
+    return locals()
+
+@check(label='ch:atlas:L140:1.09', title='array-sequencing transfer, highest slope', line=140, status='measured', printed='1.09', tol=0.0,
+       source=_B10_XP, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4023():
+    'Upper end of the slopes 1.03-1.09 over the ten cell types. Book line 140, printed 1.09. Input: 03b_crossplatform_check.csv.'
+    value = max(_b10_xp('slope'))
+    return locals()
+
+@check(label='ch:atlas:L140:-0.04', title='array-sequencing transfer, intercept nearest zero', line=140, status='measured', printed='-0.04', tol=0.0,
+       source=_B10_XP, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4024():
+    'Intercepts of -0.04 to -0.07 for every cell type; the end nearest zero = largest intercept. Book line 140, printed -0.04. '\
+    'Input: 03b_crossplatform_check.csv (column intercept).'
+    value = max(_b10_xp('intercept'))
+    return locals()
+
+@check(label='ch:atlas:L140:-0.07', title='array-sequencing transfer, most negative intercept', line=140, status='measured', printed='-0.07', tol=0.0,
+       source=_B10_XP, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4025():
+    'Intercepts of -0.04 to -0.07; the most negative intercept over the ten cell types. Book line 140, printed -0.07. '\
+    'Input: 03b_crossplatform_check.csv.'
+    value = min(_b10_xp('intercept'))
+    return locals()
+
+@check(label='ch:atlas:L148', title='joint fit did not converge: largest R-hat', line=148, status='measured', printed='4.35', tol=0.0,
+       source='Biological_Physics/MethylPhys/atlas/v2/records/11c_stageA_report_NOT_CONVERGED.json', chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4026():
+    'A first attempt to fit the source terms jointly with every cell mean did not converge (R-hat up to 4.35). Read from the committed '\
+    'report of that fit, key mu_rhat_max. Book line 148, printed 4.35.'
+    value = load_json('Biological_Physics/MethylPhys/atlas/v2/records/11c_stageA_report_NOT_CONVERGED.json')['mu_rhat_max']
+    return locals()
+
+_B10_TB = 'Biological_Physics/MethylPhys/atlas/v2/records/14_stageB_timing_block.log'
+
+@check(label='ch:atlas:L150:1.005', title='test block converged: R-hat 99th percentile', line=150, status='measured', printed='1.005', tol=0.0,
+       source=_B10_TB, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4027():
+    'With the source terms fixed, a test block of about 1,000 loci converged, R-hat 99th percentile 1.005. Read from the committed '\
+    'test-block record, key rhat_p99. Book line 150, printed 1.005.'
+    rec = json.loads(file_text(_B10_TB).strip().splitlines()[-1])
+    value = rec['rhat_p99']
+    return locals()
+
+@check(label='ch:atlas:L150:0.83', title='test block: seconds per locus', line=150, status='measured', printed='0.83', tol=0.0,
+       source=_B10_TB, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4028():
+    'Test block run time per locus, 0.83 s. Recomputed as wall time over loci of the committed test-block record (964 s, 1,163 loci). '\
+    'Book line 150, printed 0.83.'
+    rec = json.loads(file_text(_B10_TB).strip().splitlines()[-1])
+    value = rec['wall_s'] / rec['loci']
+    return locals()
+
+@check(label='ch:atlas:L153', title='values flagged for per-block convergence', line=153, status='measured', printed='0.19', tol=0.0,
+       source='Biological_Physics/MethylPhys/atlas/v2/postbuild/records/atlas_v2_gate.json', chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4029():
+    'Whole-atlas gate: 0.19 % of values were flagged for per-block convergence (R-hat >= 1.01). Recomputed as 100 x flagged/measured '\
+    'pairs of the committed gate record (V4). Book line 153, printed 0.19 %.'
+    v4 = load_json('Biological_Physics/MethylPhys/atlas/v2/postbuild/records/atlas_v2_gate.json')['V4']
+    value = 100 * v4['rhat_ge_1_01'] / v4['measured_pairs']
+    return locals()
+
+_B10_V5 = 'Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md'
+
+@check(label='ch:atlas:L163:92.3', title='held-out coverage, lowest block', line=163, status='measured', printed='92.3', tol=0.0,
+       source=_B10_V5, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4030():
+    'Figure fig:v5 caption: every block 92.3-93.1 % coverage of held-out observations by the 90 % interval; lower end, rounded from the '\
+    'committed V5 outcome (bar B3, 92.31 %). Book line 163, printed 92.3.'
+    value = _b10_nums(_B10_V5, 'B3 PASS:** every block ', 2)[0]
+    return locals()
+
+@check(label='ch:atlas:L163:93.1', title='held-out coverage, highest block', line=163, status='measured', printed='93.1', tol=0.0,
+       source=_B10_V5, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4031():
+    'Upper end of the per-block coverage 92.3-93.1 %, rounded from the committed V5 outcome (93.12 %). Book line 163, printed 93.1.'
+    value = _b10_nums(_B10_V5, 'B3 PASS:** every block ', 2)[1]
+    return locals()
+
+@check(label='ch:atlas:L167', title='held-out coverage overall', line=167, status='measured', printed='92.7', tol=0.0,
+       source=_B10_V5, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4032():
+    'The atlas covers 92.7 % of held-out observations against a nominal 90 %; rounded from the committed V5 outcome (bar B1, 92.68 % of '\
+    '342,716). Book line 167, printed 92.7.'
+    value = _b10_nums(_B10_V5, 'covers **', 1)[0]
+    return locals()
+
+@check(label='ch:atlas:L169:96.9', title='held-out coverage, highest cells, lower end', line=169, status='measured', printed='96.9', tol=0.0,
+       source=_B10_V5, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4033():
+    'Highest-coverage cells (three bone-marrow progenitors and kidney glomerular epithelium) at 96.9-97.2 %; lower end, from the V5 outcome. '\
+    'Book line 169, printed 96.9.'
+    value = _b10_nums(_B10_V5, 'kidney glomerular epithelium, ', 2)[0]
+    return locals()
+
+@check(label='ch:atlas:L169:97.2', title='held-out coverage, highest cells, upper end', line=169, status='measured', printed='97.2', tol=0.0,
+       source=_B10_V5, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4034():
+    'Upper end of 96.9-97.2 % for the highest-coverage cells, from the V5 outcome. Book line 169, printed 97.2.'
+    value = _b10_nums(_B10_V5, 'kidney glomerular epithelium, ', 2)[1]
+    return locals()
+
+@check(label='ch:atlas:L169:0.051', title='held-out mean absolute prediction error', line=169, status='measured', printed='0.051', tol=0.0,
+       source=_B10_V5, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4035():
+    'Mean absolute prediction error of the held-out observations, 0.051, from the V5 outcome. Book line 169, printed 0.051.'
+    value = _b10_nums(_B10_V5, 'mean absolute prediction error ', 1)[0]
+    return locals()
+
+@check(label='ch:atlas:L177', title='precision of the neutrophil reference restated', line=177, status='derived', printed='0.020', tol=0.0,
+       source=_B10_LOO, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4036():
+    'The precision of the reference itself, for neutrophils on EPIC the held-out SD 0.020; recomputed (n-1) from the six held-out '\
+    'readings of the frozen leave-one-out record. Book line 177, printed 0.020. Input: metA_floors_v1_3_loo.csv.'
+    value = float(np.std(_b10_loo(), ddof=1))
+    return locals()
+
+_B10_PB = 'Biological_Physics/MethylPhys/atlas/v2/postbuild/README.md'
+
+@check(label='ch:atlas:L181', title='atlas v2 identity sites, array to array in Normal', line=181, status='measured', printed='87.7', tol=0.0,
+       source=_B10_PB, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4037():
+    'Identity sites of the cell types after neutrophils, read on held-out samples: array to array 87.7 % in Normal. Read from the committed '\
+    'atlas v2 post-build record (V12 row). Book line 181, printed 87.7.'
+    value = _b10_nums(_B10_PB, 'array→array ', 1)[0]
+    return locals()
+
+@check(label='ch:atlas:L182', title='atlas v2 identity sites, sequencing to array in Normal', line=182, status='measured', printed='73.1', tol=0.0,
+       source=_B10_PB, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4038():
+    'Sequencing to array, after a per-locus correction, 73.1 % of held-out readings in Normal. Read from the atlas v2 post-build record. '\
+    'Book line 182, printed 73.1.'
+    value = _b10_nums(_B10_PB, 'sequencing→array ', 1)[0]
+    return locals()
+
+@check(label='ch:atlas:L223:1.062', title='six DNA mixtures against the neutrophil floor alone, lowest', line=223, status='measured', printed='1.062', tol=0.0,
+       source=_B10_WB, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4039():
+    'Six healthy DNA mixtures (neutrophils 63-75 %) read against the neutrophil floor alone, lowest. Book line 223, printed 1.062. Read from the committed '\
+    'whole-blood neutrophil outcome record (bar W1 for the expectation; the floor-alone reading in the text below it).'
+    value = _b10_wb_floor(0)
+    return locals()
+
+@check(label='ch:atlas:L223:1.118', title='six DNA mixtures against the neutrophil floor alone, highest', line=223, status='measured', printed='1.118', tol=0.0,
+       source=_B10_WB, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4040():
+    'Six healthy DNA mixtures (neutrophils 63-75 %) read against the neutrophil floor alone, highest. Book line 223, printed 1.118. Read from the committed '\
+    'whole-blood neutrophil outcome record (bar W1 for the expectation; the floor-alone reading in the text below it).'
+    value = _b10_wb_floor(1)
+    return locals()
+
+@check(label='ch:atlas:L223:0.982', title='six DNA mixtures against the expectation from their own composition, lowest', line=223, status='measured', printed='0.982', tol=0.0,
+       source=_B10_WB, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4041():
+    'Six healthy DNA mixtures (neutrophils 63-75 %) read against the expectation from their own composition, lowest. Book line 223, printed 0.982. Read from the committed '\
+    'whole-blood neutrophil outcome record (bar W1 for the expectation; the floor-alone reading in the text below it).'
+    value = _b10_wb_expect(0)
+    return locals()
+
+@check(label='ch:atlas:L223:1.016', title='six DNA mixtures against the expectation from their own composition, highest', line=223, status='measured', printed='1.016', tol=0.0,
+       source=_B10_WB, chapter='ch:atlas', part=6, file='part4/p4_14_atlas', kind='file')
+def check_4042():
+    'Six healthy DNA mixtures (neutrophils 63-75 %) read against the expectation from their own composition, highest. Book line 223, printed 1.016. Read from the committed '\
+    'whole-blood neutrophil outcome record (bar W1 for the expectation; the floor-alone reading in the text below it).'
+    value = _b10_wb_expect(1)
+    return locals()
+
+
 # ======== Part 6 | ch:salmonid | docs/book/part4/p4_22b_salmonid.tex
 @check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='0.0354', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
@@ -36621,44 +36913,14 @@ INVENTORY = [
     (6, 'ch:separation', 'part4/p4_13_separation', 68, '', 'openprob', '0.40', 'input: the read line 0.40 restated from the table (line 56); the count of five healthy arrays below it is not the printed value'),
     (6, 'ch:separation', 'part4/p4_13_separation', 99, '', 'measured', '1.05', 'definition: upper edge of the Normal band (0.95-1.05) restated, the line the tared reading is compared with'),
     (6, 'ch:separation', 'part4/p4_13_separation', 100, '', 'measured', '1.05', 'definition: upper edge of the Normal band (0.95-1.05) restated'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 34, '', 'measured', '0.983', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 34, '', 'measured', '1.045', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 34, '', 'measured', '0.020', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 42, '', 'measured', '0.904', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 42, '', 'measured', '0.932', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 62, '', 'calc', '0.05', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 62, '', 'measured', '0.25', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 62, '', 'measured', '0.75', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 62, '', 'measured', '0.95', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 64, '', 'measured', '1.062', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 64, '', 'measured', '1.118', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 64, '', 'measured', '0.982', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 64, '', 'measured', '1.016', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 73, '', 'calc', '0.05', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 101, '', 'none', '', 'displayed equation, not yet checked'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 140, '', 'measured', '1.03', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 140, '', 'measured', '1.09', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 140, '', 'measured', '-0.04', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 140, '', 'measured', '-0.07', 'measured, source not named'),
+    (6, 'ch:atlas', 'part4/p4_14_atlas', 62, '', 'calc', '0.05', 'definition: identity-site window edge 0.05 (0.05-0.25 and 0.75-0.95) restated from the site rule (ch:identity L20); nothing computed at this line'),
+    (6, 'ch:atlas', 'part4/p4_14_atlas', 62, '', 'measured', '0.25', 'definition: identity-site window edge 0.25 restated from the site rule (ch:identity L20)'),
+    (6, 'ch:atlas', 'part4/p4_14_atlas', 62, '', 'measured', '0.75', 'definition: identity-site window edge 0.75 restated from the site rule (ch:identity L20)'),
+    (6, 'ch:atlas', 'part4/p4_14_atlas', 62, '', 'measured', '0.95', 'definition: identity-site window edge 0.95 restated from the site rule (ch:identity L20)'),
+    (6, 'ch:atlas', 'part4/p4_14_atlas', 73, '', 'calc', '0.05', "definition: the 0.05 threshold in |Delta beta| of the table column 'sites within 0.05' (dotted line of the figure); the shares themselves are checked at ch:identity:L57 and L66"),
+    (6, 'ch:atlas', 'part4/p4_14_atlas', 101, '', 'none', '', 'definition: the hierarchical model of atlas v2 (likelihood and prior of beta_obs, mu_ic = m_i + e_ic); a model statement, nothing to derive'),
     (6, 'ch:atlas', 'part4/p4_14_atlas', 144, '', 'measured', '0.015', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 148, '', 'measured', '4.35', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 150, '', 'measured', '1.005', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 150, '', 'measured', '0.83', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 153, '', 'measured', '0.19', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 163, '', 'measured', '92.3', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 163, '', 'measured', '93.1', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 167, '', 'measured', '92.7', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 169, '', 'measured', '96.9', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 169, '', 'measured', '97.2', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 169, '', 'measured', '0.051', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 173, '', 'derived', '36', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 177, '', 'derived', '0.020', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 181, '', 'measured', '87.7', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 182, '', 'measured', '73.1', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 223, '', 'measured', '1.062', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 223, '', 'measured', '1.118', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 223, '', 'measured', '0.982', 'measured, source not named'),
-    (6, 'ch:atlas', 'part4/p4_14_atlas', 223, '', 'measured', '1.016', 'measured, source not named'),
+    (6, 'ch:atlas', 'part4/p4_14_atlas', 173, '', 'derived', '36', 'input: illustrative number of independent samples n = 36 (the derived factor six is sqrt(36) applied to it)'),
     (6, 'ch:identity', 'part4/p4_15_identity', 19, '', 'calibrated', '0.05', 'measured, source not named'),
     (6, 'ch:identity', 'part4/p4_15_identity', 20, '', 'calibrated', '0.75', 'measured, source not named'),
     (6, 'ch:identity', 'part4/p4_15_identity', 20, '', 'calibrated', '0.95', 'measured, source not named'),

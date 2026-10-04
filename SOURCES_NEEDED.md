@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 93
+Entries: 94
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -101,3 +101,4 @@ Entries: 93
 | ch:meta | `docs/book/part4/p4_07_meta.tex:112` | `2.8` | Ceiling of Met-A on the methylated channel, 'about 2.8' (one bit per site over the methylated-channel floor H of each cell line in the DNMT-inhibitor series). PROC_DNMT_01_PARTA_OUTCOME.md states 1/H(floor) ~ 2.8 without the per-line floor H; dnmt_arrays_readings.csv holds the readings (max 2.845) but not the methylated-channel floor H of MV4-11, THP-1, NOMO-1. Searched doors/, doors/data/, chain/Runtime Matrices/. |
 | ch:temperature | `docs/book/part4/p4_10_temperature.tex:98` | `0.96` | Correlation r > 0.96 of the universal pan-mammalian clocks (11,754 arrays, 185 species), cited as Lu2023 (iam.bib). A published figure; the exact value and the statistic (r of estimated vs actual age, which clock, which validation) could not be confirmed here and no repository file holds it. Searched Biological_Physics/, docs/verification/, iam.bib. |
 | ch:separation | `docs/book/part4/p4_13_separation.tex:45` | `0.05` | A solver built on references from several platforms under-read EPIC neutrophils by about 0.05 (the reason atlas v2 was set aside as the Stage A solver on 2026-10-01). Searched Biological_Physics/MethylPhys (doors/*.md, doors/data, chain_tests, atlas/v2): the 2026-10-01 measurement itself is not committed; DEV_ATLAS_EPIC_01.md quotes it only as 'said to under-read EPIC neutrophils by ~0.05'. The later run doors/data/DEV_ATLAS_EPIC_01/results/metrics_by_set.csv gives atlas neutrophil bias -0.043 to -0.047 on the six blood-like DNA mixtures (MIX18_blood) and -0.007 to -0.013 on FACS-counted bloods. |
+| ch:atlas | `docs/book/part4/p4_14_atlas.tex:144` | `0.015` | Estimated effect on A of the ASSUMED (zero) array offset of the GSE63409 progenitor source, 'at most about 0.015'. atlas/v2/DECISIONS.md (D8) says the flag carries 'the estimated effect on A' but gives no number; searched atlas/v2 (records, postbuild, DECISIONS, LESSONS, README) and doors/ATLAS_V2_SPEC.md: the only 0.015 values are unrelated (A5 bar, smoke-fit numbers). |
