@@ -53159,6 +53159,23 @@
   "source": ""
  },
  {
+  "label": "ch:ascoreqc:L86:10",
+  "title": "threshold mark on the gauge, 1e-2/eps",
+  "part": 5,
+  "chapter": "ch:ascoreqc",
+  "file": "part3/p3_03_a_for_processors",
+  "line": 86,
+  "status": "calc",
+  "kind": "num",
+  "printed": "10",
+  "recomputed": "9.995",
+  "tol": 0.5000005,
+  "passed": true,
+  "note": "",
+  "heavy": false,
+  "source": ""
+ },
+ {
   "label": "ch:ascoreqc:L93",
   "title": "floor on the gauge",
   "part": 5,

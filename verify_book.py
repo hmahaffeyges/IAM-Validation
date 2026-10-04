@@ -27975,6 +27975,14 @@ def check_2306():
     p=1e-2; value=100*(-math.log(1-p)-p)/p
     return locals()
 
+@check(label='ch:ascoreqc:L86:10', chapter='ch:ascoreqc', part=5, title='threshold mark on the gauge, 1e-2/eps',
+       file='part3/p3_03_a_for_processors', line=86, status='calc', kind='num', printed='10', tol=0.0)
+def check_3747():
+    'The surface-code threshold on the gauge of a 1e-3 two-qubit error: 1e-2/eps with eps = -ln(1 - 1e-3) (Eq. eq:Agate). Book line 86, printed 10. Inputs: threshold about 1e-2 (Fowler2012), p = 1e-3 (book).'
+    eps = -math.log(1 - 1e-3)
+    value = 1e-2 / eps
+    return locals()
+
 @check(label='ch:ascoreqc:L93', chapter='ch:ascoreqc', part=5, title='floor on the gauge',
        file='part3/p3_03_a_for_processors', line=93, status='calc', kind='num', printed='6\\times10^{-4}', tol=0)
 def check_2307():
@@ -33950,8 +33958,8 @@ INVENTORY = [
     (5, 'ch:xqp', 'part3/p3_02_xqp', 124, '', 'observed', '0.1', 'measured, source not named'),
     (5, 'ch:xqp', 'part3/p3_02_xqp', 148, '', 'calc', '182', 'input: Delta_Al = 182 ueV restated (recomputed from BCS by ch:scprimer:L16:182)'),
     (5, 'ch:xqp', 'part3/p3_02_xqp', 148, '', 'calc', '10', "input: x_qp = 1e-7 and 1e-6, the densities at which the T1 cap is evaluated (the '10' is the base of a printed power); the caps are checked by ch:xqp:L148 and ch:xqp:L148:0.02"),
-    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 27, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 0.503359); drafting error on review'),
-    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 28, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 0.503359); drafting error on review'),
+    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 27, '', 'calc', '10', "input: p < 1e-2 for current platforms (the '10' is the base of 10^-2); the 0.503 % at p = 1e-2 is checked by ch:ascoreqc:L28"),
+    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 28, '', 'calc', '10', "input: p = 1e-2 at which the 0.503 % is evaluated (the '10' is the base of 10^-2); checked by ch:ascoreqc:L28"),
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 51, '', 'observed', '2.8\\times10^{-3}', 'measured, source not named'),
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 51, '', 'observed', '5.5\\times10^{-4}', 'measured, source not named'),
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 51, '', 'observed', '2.0\\times10^{-4}', 'measured, source not named'),
@@ -33959,13 +33967,12 @@ INVENTORY = [
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 56, '', 'observed', '99.5', 'measured, source not named'),
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 57, '', 'observed', '99.93', 'measured, source not named'),
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 57, '', 'observed', '99.5', 'measured, source not named'),
-    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 74, '', 'calc', '68', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 75, '', 'calc', '10', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 76, '', 'interp', '6\\times10^{-4}', 'not yet checked'),
-    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 86, '', 'calc', '68', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 86, '', 'calc', '10', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 89, '', 'calc', '10', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 90, '', 'calc', '10', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
+    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 74, '', 'calc', '68', 'measured, source not named'),
+    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 75, '', 'calc', '10', "input: a two-qubit error near 1e-3 (illustrative, the '10' is the base of 10^-3), nothing to recompute"),
+    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 76, '', 'interp', '6\\times10^{-4}', 'restates ch:ascoreqc:L86:6.2\\times10^{-4} rounded to one digit (6e-4); a one-digit value cannot pass the 5 % negative control (6.3e-4 lies within half its last digit of 6.18e-4)'),
+    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 86, '', 'calc', '68', 'measured, source not named'),
+    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 89, '', 'calc', '10', 'input: surface-code threshold about 1e-2 quoted from Fowler2012 (doi:10.1103/physreva.86.032324), an order of magnitude'),
+    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 90, '', 'calc', '10', 'input: fault-tolerance target about 1e-3 quoted from Fowler2012 and GoogleWillow2025, an order of magnitude'),
     (5, 'ch:thermaln', 'part3/p3_04_thermal_n', 27, '', 'calc', '19.6', 'not yet run: draft rejected (printed value typed into the code)'),
     (5, 'ch:thermaln', 'part3/p3_04_thermal_n', 36, '', 'calc', '17.5', 'not yet run: draft rejected (printed value typed into the code)'),
     (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 7, 'eq:pdecomp', 'derived', '', 'not yet run: draft rejected (drafter skipped: The item references line 7, which displays the equation p_2Q = p_coh + p_)'),

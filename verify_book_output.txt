@@ -3913,6 +3913,7 @@ PASS  ch:ascoreqc:L75                    ch:ascoreqc:p3_03_a_for_processors:75  
 PASS  ch:ascoreqc:L86                    ch:ascoreqc:p3_03_a_for_processors:86  printed 6.2\times10^{-7}  recomputed 6.187914e-07  tol 5.000005e-09  [calc] thermal floor p_eq t_g/T1: 5 GHz, 35 mK, 40 ns, T1 = 68 us (book inputs)
 PASS  ch:ascoreqc:L86:6.2\times10^{-4}   ch:ascoreqc:p3_03_a_for_processors:86  printed 6.2\times10^{-4}  recomputed 6.187914e-04  tol 5.000005e-06  [calc] floor on the gauge of a 1e-3 two-qubit error
 PASS  ch:ascoreqc:L86:0.503              ch:ascoreqc:p3_03_a_for_processors:86  printed 0.503  recomputed 0.503359  tol 5.000005e-04  [derived] (eps - p)/p at p = 1e-2, per cent
+PASS  ch:ascoreqc:L86:10                 ch:ascoreqc:p3_03_a_for_processors:86  printed 10  recomputed 9.995  tol 0.5  [calc] threshold mark on the gauge, 1e-2/eps
 PASS  ch:ascoreqc:L93                    ch:ascoreqc:p3_03_a_for_processors:93  printed 6\times10^{-4}  recomputed 6.187914e-04  tol 5.000005e-05  [calc] floor on the gauge
 
 == Part 5: The Quantum Order of Informational Actualization: Qubits and Semiconductors | ch:thermaln (part3/p3_04_thermal_n.tex)
@@ -4643,4 +4644,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3747  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2591  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3748  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2590  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

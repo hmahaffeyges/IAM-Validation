@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 53
+Entries: 62
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -61,3 +61,12 @@ Entries: 53
 | ch:xqp | `docs/book/part3/p3_02_xqp.tex:122` | `0.25` | TLS energy relaxation times 0.25 us to 5.4 ms for 56 TLS, cited to ChenTLS2024; not in the repository and not confirmed |
 | ch:xqp | `docs/book/part3/p3_02_xqp.tex:122` | `5.4` | upper end 5.4 ms of the same range, ChenTLS2024; not confirmed |
 | ch:xqp | `docs/book/part3/p3_02_xqp.tex:124` | `0.1` | 1/f frequency noise of the TLS bath near 0.1 Hz in a superconducting resonator, cited to Burnett2014; not confirmed |
+| ch:ascoreqc | `docs/book/part3/p3_03_a_for_processors.tex:51` | `2.8\times10^{-3}` | CZ Pauli error 2.8e-3 of the 72-qubit companion processor, Supplementary Table S4 of GoogleWillow2025 (doi:10.1038/s41586-024-08449-y); the supplement is not in the repository and the value could not be confirmed |
+| ch:ascoreqc | `docs/book/part3/p3_03_a_for_processors.tex:51` | `5.5\times10^{-4}` | CZ crosstalk 5.5e-4, same Supplementary Table S4 of GoogleWillow2025; not confirmed |
+| ch:ascoreqc | `docs/book/part3/p3_03_a_for_processors.tex:51` | `2.0\times10^{-4}` | leakage 2.0e-4, same Supplementary Table S4 of GoogleWillow2025; not confirmed |
+| ch:ascoreqc | `docs/book/part3/p3_03_a_for_processors.tex:56` | `99.922` | fluxonium CZ mean fidelity 99.922 +- 0.009 %, cited to Ding2023 (doi:10.1103/PhysRevX.13.031035); not in the repository and not confirmed |
+| ch:ascoreqc | `docs/book/part3/p3_03_a_for_processors.tex:56` | `99.5` | neutral-atom parallel entangling gates at 99.5 % on up to 60 atoms, cited to Evered2023 (doi:10.1038/s41586-023-06481-y); the bib title does not state the number; not confirmed |
+| ch:ascoreqc | `docs/book/part3/p3_03_a_for_processors.tex:57` | `99.93` | NV electron-nuclear gate 99.93(5) %, cited to Bartling2025 (doi:10.1103/PhysRevApplied.23.034052); not confirmed |
+| ch:ascoreqc | `docs/book/part3/p3_03_a_for_processors.tex:57` | `99.5` | silicon spin two-qubit gates at 99.5 %, cited to Xue2022 (doi:10.1038/s41586-021-04273-w) and Noiri2022 (doi:10.1038/s41586-021-04182-y); not confirmed |
+| ch:ascoreqc | `docs/book/part3/p3_03_a_for_processors.tex:74` | `68` | mean T1 = 68 us of the 105-qubit processor, GoogleWillow2025 (doi:10.1038/s41586-024-08449-y); same value as ch:scprimer line 135; not in the repository |
+| ch:ascoreqc | `docs/book/part3/p3_03_a_for_processors.tex:86` | `68` | the same T1 = 68 us restated in the figure caption, GoogleWillow2025 |

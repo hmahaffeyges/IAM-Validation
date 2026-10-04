@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3747 PASS, 0 FAIL, 2591 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3748 PASS, 0 FAIL, 2590 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4048,9 +4048,9 @@ Totals: 3747 PASS, 0 FAIL, 2591 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 23 | eq:Agate | calc |  | sympy: -ln(1-p) = p + p^2/2 + ... | PASS |
-| 27 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.503359); drafting error on review | - |
+| 27 |  | calc | `10` | not run: input: p < 1e-2 for current platforms (the '10' is the base of 10^-2); the 0.503 % at p = 1e-2 is checked by ch:ascoreqc:L28 | - |
 | 28 | ch:ascoreqc:L28 | calc | `0.503` | numeric: (eps - p)/p at p = 1e-2, per cent | PASS |
-| 28 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.503359); drafting error on review | - |
+| 28 |  | calc | `10` | not run: input: p = 1e-2 at which the 0.503 % is evaluated (the '10' is the base of 10^-2); checked by ch:ascoreqc:L28 | - |
 | 51 |  | observed | `2.8\times10^{-3}` | not run: measured, source not named | - |
 | 51 |  | observed | `5.5\times10^{-4}` | not run: measured, source not named | - |
 | 51 |  | observed | `2.0\times10^{-4}` | not run: measured, source not named | - |
@@ -4058,17 +4058,17 @@ Totals: 3747 PASS, 0 FAIL, 2591 inventoried and not run. Each run item carries t
 | 56 |  | observed | `99.5` | not run: measured, source not named | - |
 | 57 |  | observed | `99.93` | not run: measured, source not named | - |
 | 57 |  | observed | `99.5` | not run: measured, source not named | - |
-| 74 |  | calc | `68` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 74 |  | calc | `68` | not run: measured, source not named | - |
 | 75 | ch:ascoreqc:L75 | calc | `6.2\times10^{-7}` | numeric: thermal floor p_eq t_g/T1: 5 GHz, 35 mK, 40 ns, T1 = 68 us (book inputs) | PASS |
-| 75 |  | calc | `10` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 76 |  | interp | `6\times10^{-4}` | not run: not yet checked | - |
+| 75 |  | calc | `10` | not run: input: a two-qubit error near 1e-3 (illustrative, the '10' is the base of 10^-3), nothing to recompute | - |
+| 76 |  | interp | `6\times10^{-4}` | not run: restates ch:ascoreqc:L86:6.2\times10^{-4} rounded to one digit (6e-4); a one-digit value cannot pass the 5 % negative control (6.3e-4 lies within half its last digit of 6.18e-4) | - |
 | 86 | ch:ascoreqc:L86 | calc | `6.2\times10^{-7}` | numeric: thermal floor p_eq t_g/T1: 5 GHz, 35 mK, 40 ns, T1 = 68 us (book inputs) | PASS |
 | 86 | ch:ascoreqc:L86:6.2\times10^{-4} | calc | `6.2\times10^{-4}` | numeric: floor on the gauge of a 1e-3 two-qubit error | PASS |
 | 86 | ch:ascoreqc:L86:0.503 | derived | `0.503` | numeric: (eps - p)/p at p = 1e-2, per cent | PASS |
-| 86 |  | calc | `68` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 86 |  | calc | `10` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 89 |  | calc | `10` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 90 |  | calc | `10` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 86 | ch:ascoreqc:L86:10 | calc | `10` | numeric: threshold mark on the gauge, 1e-2/eps | PASS |
+| 86 |  | calc | `68` | not run: measured, source not named | - |
+| 89 |  | calc | `10` | not run: input: surface-code threshold about 1e-2 quoted from Fowler2012 (doi:10.1103/physreva.86.032324), an order of magnitude | - |
+| 90 |  | calc | `10` | not run: input: fault-tolerance target about 1e-3 quoted from Fowler2012 and GoogleWillow2025, an order of magnitude | - |
 | 93 | ch:ascoreqc:L93 | calc | `6\times10^{-4}` | numeric: floor on the gauge | PASS |
 
 ## Part 5 - ch:thermaln - `docs/book/part3/p3_04_thermal_n.tex`
