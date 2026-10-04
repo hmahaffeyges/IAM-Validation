@@ -4593,6 +4593,22 @@ PASS  ch:sky:L73                         ch:sky:p4_16_sky:73  printed 5\times10^
 PASS  ch:sky:L74                         ch:sky:p4_16_sky:74  printed 0.0046  recomputed 0.00458258  tol 5.000005e-05  [calc] copy-number floor at 10^4 copies, beta = 0.7
 PASS  eq:outspan                         ch:sky:p4_16_sky:90  printed (algebra)  recomputed True  [derived] out-of-span residual is blind to composition error
 
+== Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:serial (part4/p4_17_serial.tex)
+PASS  ch:serial:L31                      ch:serial:p4_17_serial:31  printed 0.045  recomputed 0.0453166  tol 5.000005e-04  [measured] within-person SD, donor 1 (GSE247195), untared isolated neutrophils  file Biological_Physics/MethylPhys/doors/data/t2_diag.csv
+PASS  ch:serial:L31:0.044                ch:serial:p4_17_serial:31  printed 0.044  recomputed 0.0443318  tol 5.000005e-04  [measured] within-person SD, donor 2 (GSE247193), untared isolated neutrophils  file Biological_Physics/MethylPhys/doors/data/t2_diag.csv
+PASS  ch:serial:L34                      ch:serial:p4_17_serial:34  printed 0.30  recomputed 0.301995  tol 0.00500001  [measured] GSE250556 replicates: lowest neutrophil fraction  file Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv
+PASS  ch:serial:L34:0.56                 ch:serial:p4_17_serial:34  printed 0.56  recomputed 0.55799  tol 0.00500001  [measured] GSE250556 replicates: highest neutrophil fraction  file Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv
+PASS  ch:serial:L37                      ch:serial:p4_17_serial:37  printed 0.05  recomputed 0.05  tol 0.00500001  [measured] remission pairs: agreement bar of S5  file Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md
+PASS  ch:serial:L47                      ch:serial:p4_17_serial:47  printed 0.045  recomputed 0.0453166  tol 5.000005e-04  [measured] figure caption: within-person SD, donor 1  file Biological_Physics/MethylPhys/doors/data/t2_diag.csv
+PASS  ch:serial:L47:0.044                ch:serial:p4_17_serial:47  printed 0.044  recomputed 0.0443318  tol 5.000005e-04  [measured] figure caption: within-person SD, donor 2  file Biological_Physics/MethylPhys/doors/data/t2_diag.csv
+PASS  ch:serial:L57                      ch:serial:p4_17_serial:57  printed 24  recomputed 24  tol 0.5  [measured] table: arrays read, donor 1  file Biological_Physics/MethylPhys/doors/data/t2_diag.csv
+PASS  ch:serial:L57:0.045                ch:serial:p4_17_serial:57  printed 0.045  recomputed 0.0453166  tol 5.000005e-04  [measured] table: within-person SD, donor 1  file Biological_Physics/MethylPhys/doors/data/t2_diag.csv
+PASS  ch:serial:L58                      ch:serial:p4_17_serial:58  printed 21  recomputed 21  tol 0.5  [measured] table: arrays read, donor 2  file Biological_Physics/MethylPhys/doors/data/t2_diag.csv
+PASS  ch:serial:L58:0.044                ch:serial:p4_17_serial:58  printed 0.044  recomputed 0.0443318  tol 5.000005e-04  [measured] table: within-person SD, donor 2  file Biological_Physics/MethylPhys/doors/data/t2_diag.csv
+PASS  ch:serial:L60                      ch:serial:p4_17_serial:60  printed 10  recomputed 10  tol 0.5  [measured] table: remission pairs, number of pairs  file Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md
+PASS  ch:serial:L60:0.05                 ch:serial:p4_17_serial:60  printed 0.05  recomputed 0.05  tol 0.00500001  [measured] table: remission pairs, agreement bar  file Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md
+PASS  ch:serial:L71                      ch:serial:p4_17_serial:71  printed 0.894  recomputed 0.894  tol 5.000005e-04  [measured] E-MTAB-7309 Stage 1: median call rate  file Biological_Physics/MethylPhys/doors/PLAN.md
+
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:salmonid (part4/p4_22b_salmonid.tex)
 PASS  ch:salmonid:L54                    ch:salmonid:p4_22b_salmonid:54  printed 0.0354  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
 PASS  ch:salmonid:L54:3.31               ch:salmonid:p4_22b_salmonid:54  printed 3.31  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
@@ -5029,4 +5045,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 4097  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2241  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4111  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2227  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

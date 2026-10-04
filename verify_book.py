@@ -2063,6 +2063,29 @@ def _b10_acc_C(isolated):
     return out
 
 _B10_Y = dict(chapter='ch:sky', part=6, file='part4/p4_16_sky')
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md'] = 'PROC-AML-SERIAL-01 outcome: bars S1-S5 (S5: same-person remission pairs)'   # 3 kB
+DATA_FILES['Biological_Physics/MethylPhys/doors/PLAN.md'] = 'order-of-work log, with the Stage 1 calibration record of E-MTAB-7309'
+
+# helpers of the part4/p4_17_serial checks
+def _b11_t2_A(group):
+    'Untared Met-A (A_own) of the arrays of one donor that gave a reading, from the T2 diagnostic.'
+    return [float(r['A_own']) for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
+            if r['group'] == group and r['A_own'] not in ('', 'nan')]
+
+
+def _b11_t3_fneu():
+    'Neutrophil fractions of the GSE250556 whole-blood technical replicates (test T3) in chain v3 development run 3.'
+    return [float(r['f_neu']) for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv')
+            if r['test'] == 'T3' and r['f_neu'] not in ('', 'nan')]
+
+
+def _b11_s5_row():
+    'The S5 row (same-person remission pairs) of the PROC-AML-SERIAL-01 outcome table: (bar, passed, total).'
+    txt = file_text('Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md')
+    row = [l for l in txt.splitlines() if l.startswith('| S5')][0]
+    bar = float(re.search(r'≤\s*([0-9.]+)', row).group(1))
+    k, n = re.search(r'\|\s*(\d+)/(\d+)\s*\|\s*PASS', row).groups()
+    return bar, int(k), int(n)
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -33431,6 +33454,128 @@ def check_4096():
     return locals()
 
 
+# ======== Part 6 | ch:serial | docs/book/part4/p4_17_serial.tex
+@check(label='ch:serial:L31', chapter='ch:serial', part=6, title='within-person SD, donor 1 (GSE247195), untared isolated neutrophils',
+       file='part4/p4_17_serial', line=31, status='measured', kind='file', printed='0.045', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
+def check_4097():
+    'Within-person SD of untared Met-A, donor 1 (GSE247195, 24 arrays read), computed from the T2 diagnostic (A_own column). Book line 31, printed 0.045. Inputs: t2_diag.csv (figure script fig_p4.fig_repeats uses the same rows: donor 1 = GSE247195).'
+    a = np.array(_b11_t2_A('GSE247195'))
+    value = float(np.std(a, ddof=1))
+    return locals()
+
+@check(label='ch:serial:L31:0.044', chapter='ch:serial', part=6, title='within-person SD, donor 2 (GSE247193), untared isolated neutrophils',
+       file='part4/p4_17_serial', line=31, status='measured', kind='file', printed='0.044', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
+def check_4098():
+    'Within-person SD of untared Met-A, donor 2 (GSE247193, 21 arrays read), computed from the T2 diagnostic. Book line 31, printed 0.044. Inputs: t2_diag.csv.'
+    a = np.array(_b11_t2_A('GSE247193'))
+    value = float(np.std(a, ddof=1))
+    return locals()
+
+@check(label='ch:serial:L34', chapter='ch:serial', part=6, title='GSE250556 replicates: lowest neutrophil fraction',
+       file='part4/p4_17_serial', line=34, status='measured', kind='file', printed='0.30', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv')
+def check_4099():
+    'Lowest neutrophil fraction (Stage A) of the whole-blood technical replicates GSE250556 (test T3, 63 arrays with a fraction). Book line 34, printed 0.30. Inputs: chain_v3_dev3_readings.csv, column f_neu.'
+    value = min(_b11_t3_fneu())
+    return locals()
+
+@check(label='ch:serial:L34:0.56', chapter='ch:serial', part=6, title='GSE250556 replicates: highest neutrophil fraction',
+       file='part4/p4_17_serial', line=34, status='measured', kind='file', printed='0.56', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv')
+def check_4100():
+    'Highest neutrophil fraction (Stage A) of the whole-blood technical replicates GSE250556 (test T3). Book line 34, printed 0.56. Inputs: chain_v3_dev3_readings.csv, column f_neu.'
+    value = max(_b11_t3_fneu())
+    return locals()
+
+@check(label='ch:serial:L37', chapter='ch:serial', part=6, title='remission pairs: agreement bar of S5',
+       file='part4/p4_17_serial', line=37, status='measured', kind='file', printed='0.05', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md')
+def check_4101():
+    'The agreement within which the same person\'s two remission draws read (|A(Rm1) - A(Rm2)|), read from bar S5 of the PROC-AML-SERIAL-01 outcome table. Book line 37, printed 0.05. Inputs: PROC_AML_SERIAL_01_OUTCOME.md, row S5.'
+    bar, k, n = _b11_s5_row()
+    value = bar
+    return locals()
+
+@check(label='ch:serial:L47', chapter='ch:serial', part=6, title='figure caption: within-person SD, donor 1',
+       file='part4/p4_17_serial', line=47, status='measured', kind='file', printed='0.045', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
+def check_4102():
+    'Figure fig:p4_repeats caption: within-person SD 0.045 (24 arrays), donor 1 (GSE247195), recomputed from the T2 diagnostic. Book line 47, printed 0.045. Inputs: t2_diag.csv.'
+    value = float(np.std(np.array(_b11_t2_A('GSE247195')), ddof=1))
+    return locals()
+
+@check(label='ch:serial:L47:0.044', chapter='ch:serial', part=6, title='figure caption: within-person SD, donor 2',
+       file='part4/p4_17_serial', line=47, status='measured', kind='file', printed='0.044', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
+def check_4103():
+    'Figure fig:p4_repeats caption: within-person SD 0.044 (21 arrays), donor 2 (GSE247193), recomputed from the T2 diagnostic. Book line 47, printed 0.044. Inputs: t2_diag.csv.'
+    value = float(np.std(np.array(_b11_t2_A('GSE247193')), ddof=1))
+    return locals()
+
+@check(label='ch:serial:L57', chapter='ch:serial', part=6, title='table: arrays read, donor 1',
+       file='part4/p4_17_serial', line=57, status='measured', kind='file', printed='24', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
+def check_4104():
+    'Table tab:p4_changefloor: number of donor-1 arrays (GSE247195) that gave an untared reading in the T2 diagnostic. Book line 57, printed 24. Inputs: t2_diag.csv.'
+    value = len(_b11_t2_A('GSE247195'))
+    return locals()
+
+@check(label='ch:serial:L57:0.045', chapter='ch:serial', part=6, title='table: within-person SD, donor 1',
+       file='part4/p4_17_serial', line=57, status='measured', kind='file', printed='0.045', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
+def check_4105():
+    'Table tab:p4_changefloor: SD of untared Met-A, donor 1 (GSE247195). Book line 57, printed 0.045. Inputs: t2_diag.csv.'
+    value = float(np.std(np.array(_b11_t2_A('GSE247195')), ddof=1))
+    return locals()
+
+@check(label='ch:serial:L58', chapter='ch:serial', part=6, title='table: arrays read, donor 2',
+       file='part4/p4_17_serial', line=58, status='measured', kind='file', printed='21', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
+def check_4106():
+    'Table tab:p4_changefloor: number of donor-2 arrays (GSE247193) that gave an untared reading (24 run, 3 gave none). Book line 58, printed 21. Inputs: t2_diag.csv.'
+    value = len(_b11_t2_A('GSE247193'))
+    return locals()
+
+@check(label='ch:serial:L58:0.044', chapter='ch:serial', part=6, title='table: within-person SD, donor 2',
+       file='part4/p4_17_serial', line=58, status='measured', kind='file', printed='0.044', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/data/t2_diag.csv')
+def check_4107():
+    'Table tab:p4_changefloor: SD of untared Met-A, donor 2 (GSE247193). Book line 58, printed 0.044. Inputs: t2_diag.csv.'
+    value = float(np.std(np.array(_b11_t2_A('GSE247193')), ddof=1))
+    return locals()
+
+@check(label='ch:serial:L60', chapter='ch:serial', part=6, title='table: remission pairs, number of pairs',
+       file='part4/p4_17_serial', line=60, status='measured', kind='file', printed='10', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md')
+def check_4108():
+    'Table tab:p4_changefloor: number of same-person remission pairs scored under bar S5, read from the S5 row of the PROC-AML-SERIAL-01 outcome (k/n, n). Book line 60, printed 10. Inputs: PROC_AML_SERIAL_01_OUTCOME.md, row S5.'
+    bar, k, n = _b11_s5_row()
+    value = n
+    return locals()
+
+@check(label='ch:serial:L60:0.05', chapter='ch:serial', part=6, title='table: remission pairs, agreement bar',
+       file='part4/p4_17_serial', line=60, status='measured', kind='file', printed='0.05', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md')
+def check_4109():
+    'Table tab:p4_changefloor: "10 of 10 within 0.05"; the 0.05 is bar S5 of the PROC-AML-SERIAL-01 outcome, and every pair met it (k = n). Book line 60, printed 0.05. Inputs: PROC_AML_SERIAL_01_OUTCOME.md, row S5.'
+    bar, k, n = _b11_s5_row()
+    value = bar if k == n else float('nan')
+    return locals()
+
+@check(label='ch:serial:L71', chapter='ch:serial', part=6, title='E-MTAB-7309 Stage 1: median call rate',
+       file='part4/p4_17_serial', line=71, status='measured', kind='file', printed='0.894', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PLAN.md')
+def check_4110():
+    'Median call rate of the 1,056 E-MTAB-7309 arrays calibrated by Stage 1, read from the Stage 1 record in PLAN.md (2026-09-27 entry: "Call rate median ..."); the same record gives 738 of 1,056 below the 0.93 intake line. Book line 71, printed 0.894. Inputs: PLAN.md (no per-array call-rate file is committed).'
+    txt = file_text('Biological_Physics/MethylPhys/doors/PLAN.md')
+    m = re.search(r'1,056 of 1,072 arrays calibrated.*?Call rate median ([0-9.]+); (\d+) of ([0-9,]+) below', txt)
+    n_below, n_cal = int(m.group(2)), int(m.group(3).replace(',', ''))
+    value = float(m.group(1))
+    return locals()
+
+
 # ======== Part 6 | ch:salmonid | docs/book/part4/p4_22b_salmonid.tex
 @check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='0.0354', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
@@ -37493,20 +37638,6 @@ INVENTORY = [
     (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '10', "input: vertical lines of the figure at 10^3 and 10^4 copies (the plasma-draw range of line 73); the printed '10' is the base of the power"),
     (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '0.01', 'input: illustrative array measurement noise 0.01 (figure reference line)'),
     (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '0.02', 'input: illustrative array measurement noise 0.02 (figure reference line)'),
-    (6, 'ch:serial', 'part4/p4_17_serial', 31, '', 'measured', '0.045', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:serial', 'part4/p4_17_serial', 31, '', 'measured', '0.044', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:serial', 'part4/p4_17_serial', 34, '', 'measured', '0.30', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:serial', 'part4/p4_17_serial', 34, '', 'measured', '0.56', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:serial', 'part4/p4_17_serial', 37, '', 'measured', '0.05', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:serial', 'part4/p4_17_serial', 47, '', 'measured', '0.045', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:serial', 'part4/p4_17_serial', 47, '', 'measured', '0.044', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:serial', 'part4/p4_17_serial', 57, '', 'measured', '24', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:serial', 'part4/p4_17_serial', 57, '', 'measured', '0.045', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:serial', 'part4/p4_17_serial', 58, '', 'measured', '21', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:serial', 'part4/p4_17_serial', 58, '', 'measured', '0.044', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:serial', 'part4/p4_17_serial', 60, '', 'measured', '10', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:serial', 'part4/p4_17_serial', 60, '', 'measured', '0.05', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:serial', 'part4/p4_17_serial', 71, '', 'measured', '0.894', 'measured, not found in the files the chapter names'),
     (6, 'ch:discipline', 'part4/p4_18_discipline', 24, '', 'measured', '0.015', 'measured, source not named'),
     (6, 'ch:discipline', 'part4/p4_18_discipline', 24, '', 'measured', '0.79', 'measured, source not named'),
     (6, 'ch:discipline', 'part4/p4_18_discipline', 24, '', 'measured', '0.65', 'measured, source not named'),

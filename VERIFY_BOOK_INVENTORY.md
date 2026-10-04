@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4097 PASS, 0 FAIL, 2241 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4111 PASS, 0 FAIL, 2227 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4930,20 +4930,20 @@ Totals: 4097 PASS, 0 FAIL, 2241 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 31 |  | measured | `0.045` | not run: measured, too few printed digits to match against the named files | - |
-| 31 |  | measured | `0.044` | not run: measured, too few printed digits to match against the named files | - |
-| 34 |  | measured | `0.30` | not run: measured, too few printed digits to match against the named files | - |
-| 34 |  | measured | `0.56` | not run: measured, too few printed digits to match against the named files | - |
-| 37 |  | measured | `0.05` | not run: measured, too few printed digits to match against the named files | - |
-| 47 |  | measured | `0.045` | not run: measured, too few printed digits to match against the named files | - |
-| 47 |  | measured | `0.044` | not run: measured, too few printed digits to match against the named files | - |
-| 57 |  | measured | `24` | not run: measured, too few printed digits to match against the named files | - |
-| 57 |  | measured | `0.045` | not run: measured, too few printed digits to match against the named files | - |
-| 58 |  | measured | `21` | not run: measured, too few printed digits to match against the named files | - |
-| 58 |  | measured | `0.044` | not run: measured, too few printed digits to match against the named files | - |
-| 60 |  | measured | `10` | not run: measured, too few printed digits to match against the named files | - |
-| 60 |  | measured | `0.05` | not run: measured, too few printed digits to match against the named files | - |
-| 71 |  | measured | `0.894` | not run: measured, not found in the files the chapter names | - |
+| 31 | ch:serial:L31 | measured | `0.045` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, donor 1 (GSE247195), untared isolated neutrophils | PASS |
+| 31 | ch:serial:L31:0.044 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, donor 2 (GSE247193), untared isolated neutrophils | PASS |
+| 34 | ch:serial:L34 | measured | `0.30` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: GSE250556 replicates: lowest neutrophil fraction | PASS |
+| 34 | ch:serial:L34:0.56 | measured | `0.56` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: GSE250556 replicates: highest neutrophil fraction | PASS |
+| 37 | ch:serial:L37 | measured | `0.05` | file `Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md`: remission pairs: agreement bar of S5 | PASS |
+| 47 | ch:serial:L47 | measured | `0.045` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: figure caption: within-person SD, donor 1 | PASS |
+| 47 | ch:serial:L47:0.044 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: figure caption: within-person SD, donor 2 | PASS |
+| 57 | ch:serial:L57 | measured | `24` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: table: arrays read, donor 1 | PASS |
+| 57 | ch:serial:L57:0.045 | measured | `0.045` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: table: within-person SD, donor 1 | PASS |
+| 58 | ch:serial:L58 | measured | `21` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: table: arrays read, donor 2 | PASS |
+| 58 | ch:serial:L58:0.044 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: table: within-person SD, donor 2 | PASS |
+| 60 | ch:serial:L60 | measured | `10` | file `Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md`: table: remission pairs, number of pairs | PASS |
+| 60 | ch:serial:L60:0.05 | measured | `0.05` | file `Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md`: table: remission pairs, agreement bar | PASS |
+| 71 | ch:serial:L71 | measured | `0.894` | file `Biological_Physics/MethylPhys/doors/PLAN.md`: E-MTAB-7309 Stage 1: median call rate | PASS |
 
 ## Part 6 - ch:discipline - `docs/book/part4/p4_18_discipline.tex`
 
