@@ -2782,14 +2782,18 @@ PASS  ch:measurement:L28                 ch:measurement:p5_04_measurement:28  pr
 PASS  ch:measurement:L28:72.26           ch:measurement:p5_04_measurement:28  printed 72.26  recomputed found in file  [measured] measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names  file docs/verification/scripts/verify_records_measurement_time_output.txt
       heavy: python3 docs/verification/scripts/verify_records_measurement_time.py > docs/verification/scripts/verify_records_measurement_time_output.txt
 PASS  ch:measurement:L42                 ch:measurement:p5_04_measurement:42  printed 16.7  recomputed 16.6782  tol 0.05  [calc] flight time over 5 m, ns
+PASS  eq:mp_QL                           ch:measurement:p5_04_measurement:49  printed (algebra)  recomputed lhs-rhs=0  [calc] Landauer threshold: T times the entropy of one equiprobable bit is k_B T ln 2
 PASS  ch:measurement:L52                 ch:measurement:p5_04_measurement:52  printed 0.0179  recomputed 0.0179192  tol 5.000005e-05  [calc] Q_L = k_B T ln2 at 300 K, eV
+PASS  eq:mp_tauIAM                       ch:measurement:p5_04_measurement:70  printed (algebra)  recomputed True  [conjecture] tau_IAM = hbar (k_B T)^2 ln2/E_G^3 diverges as E_G -> 0 (photon) and is in seconds
 PASS  ch:measurement:L77                 ch:measurement:p5_04_measurement:77  printed 1.9\times10^3  recomputed 1909.86  tol 50  [derived] density of a 1e-12 kg sphere of R = 5 um
 PASS  ch:measurement:L85                 ch:measurement:p5_04_measurement:85  printed 5.5\times10^{-61}  recomputed 5.526988e-61  tol 5.000005e-63  [calc] E_G = G m^2/R, m=9.1e-31 kg, R=1e-10 m (table inputs)
 PASS  ch:measurement:L85:1.9\times10^{26} ch:measurement:p5_04_measurement:85  printed 1.9\times10^{26}  recomputed 1.908041e+26  tol 5.000005e+24  [calc] tau_PD = hbar/E_G, m=9.1e-31 kg
 PASS  ch:measurement:L85:7.4\times10^{105} ch:measurement:p5_04_measurement:85  printed 7.4\times10^{105}  recomputed 7.427543e+105  tol 5.000005e+103  [calc] tau_IAM at 300 K, m=9.1e-31 kg
+PASS  ch:measurement:L85:9.1\times10^{-31} ch:measurement:p5_04_measurement:85  printed 9.1\times10^{-31}  recomputed 9.109384e-31  tol 5.000005e-33  [calc] electron mass, kg (CODATA 2018)
 PASS  ch:measurement:L86                 ch:measurement:p5_04_measurement:86  printed 1.9\times10^{-49}  recomputed 1.922198e-49  tol 5.000005e-51  [calc] E_G = G m^2/R, m=1.2e-24 kg, R=5e-10 m (table inputs)
 PASS  ch:measurement:L86:5.5\times10^{14} ch:measurement:p5_04_measurement:86  printed 5.5\times10^{14}  recomputed 5.486280e+14  tol 5.000005e+12  [calc] tau_PD = hbar/E_G, m=1.2e-24 kg
 PASS  ch:measurement:L86:1.8\times10^{71} ch:measurement:p5_04_measurement:86  printed 1.8\times10^{71}  recomputed 1.765697e+71  tol 5.000005e+69  [calc] tau_IAM at 300 K, m=1.2e-24 kg
+PASS  ch:measurement:L86:1.2\times10^{-24} ch:measurement:p5_04_measurement:86  printed 1.2\times10^{-24}  recomputed 1.195588e-24  tol 5.000005e-26  [calc] C60 mass, 60 x 12 u, kg
 PASS  ch:measurement:L87                 ch:measurement:p5_04_measurement:87  printed 1.3\times10^{-39}  recomputed 1.334860e-39  tol 5.000005e-41  [calc] E_G = G m^2/R, m=1e-18 kg, R=5e-08 m (table inputs)
 PASS  ch:measurement:L87:7.9\times10^{4} ch:measurement:p5_04_measurement:87  printed 7.9\times10^{4}  recomputed 79002.4  tol 500  [calc] tau_PD = hbar/E_G, m=1e-18 kg
 PASS  ch:measurement:L87:5.3\times10^{41} ch:measurement:p5_04_measurement:87  printed 5.3\times10^{41}  recomputed 5.272342e+41  tol 5.000005e+39  [calc] tau_IAM at 300 K, m=1e-18 kg
@@ -2810,12 +2814,22 @@ PASS  ch:measurement:L92:9.7\times10^{-29} ch:measurement:p5_04_measurement:92  
 PASS  ch:measurement:L92:9.7\times10^{-58} ch:measurement:p5_04_measurement:92  printed 9.7\times10^{-58}  recomputed 9.679859e-58  tol 5.000005e-60  [calc] tau_IAM at 300 K, m=70 kg
 PASS  ch:measurement:L100                ch:measurement:p5_04_measurement:100  printed 2.2\times10^{-10}  recomputed 2.232297e-10  tol 5.000005e-12  [calc] crossing mass at 10 mK, silica
 PASS  ch:measurement:L117                ch:measurement:p5_04_measurement:117  printed 16.7  recomputed 16.6782  tol 0.05  [calc] flight time over 5 m, ns
+PASS  ch:measurement:L133                ch:measurement:p5_04_measurement:133  printed 1.3  recomputed 1.28  tol 0.05  [observed] separation of the NV-centre electron spins entangled through emitted photons, km
 PASS  eq:F                               ch:measurement:p5_04_measurement:139  printed (algebra)  recomputed lhs-rhs=0  [calc] F = 1 - e^-1 exp(1 - Q_L/Q) = 1 - exp(-Q_L/Q)
 PASS  ch:measurement:L145                ch:measurement:p5_04_measurement:145  printed <0.01  recomputed 0.00995017  tol 0.00500001  [calc] F at Q/Q_L = 100
 PASS  ch:measurement:L145:0.632          ch:measurement:p5_04_measurement:145  printed 0.632  recomputed 0.632121  tol 5.000005e-04  [calc] F at Q = Q_L
+PASS  ch:measurement:L150                ch:measurement:p5_04_measurement:150  printed 0.0179  recomputed 0.0179192  tol 5.000005e-05  [conjecture] Q_L = k_B T ln 2 at 300 K, eV (caption)
+PASS  ch:measurement:L150:<0.01          ch:measurement:p5_04_measurement:150  printed <0.01  recomputed 0.00714207  tol 0.00500001  [conjecture] F = 1 - exp(-Q_L/Q) for a retinal rod (140) and a CCD pixel (167): below 0.01
+PASS  ch:measurement:L150:0.632          ch:measurement:p5_04_measurement:150  printed 0.632  recomputed 0.632121  tol 5.000005e-04  [conjecture] F at Q = Q_L (caption)
+PASS  ch:measurement:L164                ch:measurement:p5_04_measurement:164  printed 0.632  recomputed 0.632121  tol 5.000005e-04  [prediction] F at Q = Q_L (checkbox)
 PASS  ch:measurement:L169                ch:measurement:p5_04_measurement:169  printed 0.000  recomputed 5.973062e-06  tol 5.000005e-04  [calc] F, Q = 0.1 eV, 10 mK
 PASS  ch:measurement:L169:0.0024         ch:measurement:p5_04_measurement:169  printed 0.0024  recomputed 0.00238638  tol 5.000005e-05  [calc] F, Q = 0.1 eV, 4 K
 PASS  ch:measurement:L169:0.164          ch:measurement:p5_04_measurement:169  printed 0.164  recomputed 0.164055  tol 5.000005e-04  [calc] F, Q = 0.1 eV, 300 K
+PASS  ch:measurement:L175                ch:measurement:p5_04_measurement:175  printed 6.0\times10^{-7}  recomputed 5.973080e-07  tol 5.000005e-09  [conjecture] Q_L = k_B T ln 2 at 10 mK, eV
+PASS  ch:measurement:L175:0.0179         ch:measurement:p5_04_measurement:175  printed 0.0179  recomputed 0.0179192  tol 5.000005e-05  [conjecture] Q_L = k_B T ln 2 at 300 K, eV (caption, panel a)
+PASS  ch:measurement:L175:0.000          ch:measurement:p5_04_measurement:175  printed 0.000  recomputed 5.973062e-06  tol 5.000005e-04  [conjecture] F at Q = 0.1 eV, 10 mK
+PASS  ch:measurement:L175:0.002          ch:measurement:p5_04_measurement:175  printed 0.002  recomputed 0.00238638  tol 5.000005e-04  [conjecture] F at Q = 0.1 eV, 4 K
+PASS  ch:measurement:L175:0.164          ch:measurement:p5_04_measurement:175  printed 0.164  recomputed 0.164055  tol 5.000005e-04  [conjecture] F at Q = 0.1 eV, 300 K
 PASS  ch:measurement:L180                ch:measurement:p5_04_measurement:180  printed 1.6\times10^7  recomputed 1.551250e+07  tol 5.000005e+05  [calc] Planck time over tau_IAM(cat)
 PASS  ch:measurement:L181                ch:measurement:p5_04_measurement:181  printed 5.4\times10^{-44}  recomputed 5.391246e-44  tol 5.000005e-46  [calc] Planck time
 PASS  eq:mp_smax                         ch:measurement:p5_04_measurement:195  printed (algebra)  recomputed True  [derived] Horodecki: dephased Bell state, S_max = 2 sqrt(1+c^2)
@@ -2823,10 +2837,12 @@ PASS  ch:measurement:L199                ch:measurement:p5_04_measurement:199  p
 PASS  ch:measurement:L199:0.293          ch:measurement:p5_04_measurement:199  printed 0.293  recomputed 0.292893  tol 5.000005e-04  [calc] 2 sqrt2 (1-D) = 2: D = 1 - 1/sqrt2
 PASS  ch:measurement:L201                ch:measurement:p5_04_measurement:201  printed 2.42  recomputed found in file  [observed] measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names  file docs/verification/scripts/verify_records_measurement_time_output.txt
       heavy: python3 docs/verification/scripts/verify_records_measurement_time.py > docs/verification/scripts/verify_records_measurement_time_output.txt
+PASS  ch:measurement:L201:1.3            ch:measurement:p5_04_measurement:201  printed 1.3  recomputed 1.28  tol 0.05  [observed] separation of the electron spins in the loophole-free Bell test, km
 PASS  ch:measurement:L209                ch:measurement:p5_04_measurement:209  printed 2\times10^3  recomputed 2000  tol 500  [calc] 1,000 photons of 2 eV
 PASS  ch:measurement:L209:1.1\times10^5  ch:measurement:p5_04_measurement:209  printed 1.1\times10^5  recomputed 1.116119e+05  tol 5000  [calc] 2e3 eV over Q_L at 300 K
 PASS  ch:measurement:L210                ch:measurement:p5_04_measurement:210  printed 111612  recomputed 1.116119e+05  tol 0.5  [calc] bits written: 2e3 eV / (k_B T ln2) at 300 K
 PASS  ch:measurement:L210:33599          ch:measurement:p5_04_measurement:210  printed 33599  recomputed 33598.5  tol 0.5  [calc] log10 of 2^111612
+PASS  ch:measurement:L224                ch:measurement:p5_04_measurement:224  printed 13.8  recomputed 13.7952  tol 0.05  [interp] age of the universe, flat LCDM with Planck 2018 parameters, Gyr
 PASS  ch:measurement:L256                ch:measurement:p5_04_measurement:256  printed 0.0179  recomputed found in file  [observed] measured: printed value found in verify_measurement_problem_output.txt, a file the chapter names  file docs/verification/scripts/verify_measurement_problem_output.txt
       heavy: python3 docs/verification/scripts/verify_measurement_problem.py > docs/verification/scripts/verify_measurement_problem_output.txt
 
@@ -3863,4 +3879,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3085  FAIL 0  (heavy, read from committed outputs: 629)  inventoried-not-run 3249  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3101  FAIL 0  (heavy, read from committed outputs: 629)  inventoried-not-run 3233  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

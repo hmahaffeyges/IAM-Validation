@@ -18564,11 +18564,34 @@ def check_1998():
     value=5/c*1e9
     return locals()
 
+@check(label='eq:mp_QL', chapter='ch:measurement', part=4, title='Landauer threshold: T times the entropy of one equiprobable bit is k_B T ln 2',
+       file='part5/p5_04_measurement', line=49, status='calc', kind='sym', printed='', tol=0)
+def check_3085():
+    'Eq. eq:mp_QL, Q_L = k_B T_D ln 2. Derived: the Gibbs entropy -k_B sum p ln p of a record with two equally likely states is computed and multiplied by T_D '         '(the heat Landauer\'s principle requires to erase it); it equals k_B T_D ln 2. Control: unequal weights (0.525) give less. Book line 49.'
+    kB_, T_ = sp.symbols('k_B T_D', positive=True)
+    def Q(p):
+        return T_ * (-kB_ * (p * sp.log(p) + (1 - p) * sp.log(1 - p)))
+    lhs = sp.simplify(Q(sp.Rational(1, 2)))
+    rhs = kB_ * T_ * sp.log(2)
+    neg_lhs = Q(sp.Rational(1, 2) * sp.Rational(105, 100))
+    return locals()
+
 @check(label='ch:measurement:L52', chapter='ch:measurement', part=4, title='Q_L = k_B T ln2 at 300 K, eV',
        file='part5/p5_04_measurement', line=52, status='calc', kind='num', printed='0.0179', tol=0)
 def check_1999():
     'Q_L = k_B T ln2 at 300 K, eV. Book line 52, printed 0.0179.'
     value=kB*300*LN2/eV
+    return locals()
+
+@check(label='eq:mp_tauIAM', chapter='ch:measurement', part=4, title='tau_IAM = hbar (k_B T)^2 ln2/E_G^3 diverges as E_G -> 0 (photon) and is in seconds',
+       file='part5/p5_04_measurement', line=70, status='conjecture', kind='sym', printed='', tol=0)
+def check_3086():
+    'Eq. eq:mp_tauIAM and the statement at book line 73: from the rate integral of ch:gravdec (bit rate E_G^2/(hbar k_B T ln2) over capacity k_B T/E_G, integrated '         'in time) the time constant is rebuilt; its limit E_G -> 0+ is computed and is infinite (a photon, E_G = 0, writes no gravitational record), and its '         'coefficient tau E_G^3/(hbar (k_B T)^2) is ln 2. Control: coefficient moved by 5 %.'
+    hb, kB_, T_, EG, t = sp.symbols('hbar k_B T E_G t', positive=True)
+    rate = (EG**2 / (hb * kB_ * T_ * sp.log(2))) / (kB_ * T_ / EG)
+    tau = 1 / sp.diff(sp.integrate(rate, (t, 0, t)), t)
+    ok = sp.limit(tau, EG, 0, '+') == sp.oo and sp.simplify(tau * EG**3 / (hb * (kB_ * T_)**2) - sp.log(2)) == 0
+    neg_ok = sp.limit(tau, EG, 0, '+') == sp.oo and sp.simplify(tau * EG**3 / (hb * (kB_ * T_)**2) - sp.Rational(105, 100) * sp.log(2)) == 0
     return locals()
 
 @check(label='ch:measurement:L77', chapter='ch:measurement', part=4, title='density of a 1e-12 kg sphere of R = 5 um',
@@ -18608,6 +18631,13 @@ def check_2003():
     value=tIAM(9.1e-31,1e-10)
     return locals()
 
+@check(label='ch:measurement:L85:9.1\\times10^{-31}', chapter='ch:measurement', part=4, title='electron mass, kg (CODATA 2018)',
+       file='part5/p5_04_measurement', line=85, status='calc', kind='num', printed='9.1\\times10^{-31}', tol=0.0)
+def check_3087():
+    'Mass of the electron row of the table. Book line 85, printed 9.1e-31 kg. Input: m_e = 9.1093837015e-31 kg (CODATA 2018).'
+    value = m_e
+    return locals()
+
 @check(label='ch:measurement:L86', chapter='ch:measurement', part=4, title='E_G = G m^2/R, m=1.2e-24 kg, R=5e-10 m (table inputs)',
        file='part5/p5_04_measurement', line=86, status='calc', kind='num', printed='1.9\\times10^{-49}', tol=0)
 def check_2004():
@@ -18636,6 +18666,14 @@ def check_2006():
     def tPD(m,R): return hbar/EG(m,R)
     def tIAM(m,R,T=300): return hbar*(kB*T)**2*LN2/EG(m,R)**3
     value=tIAM(1.2e-24,5e-10)
+    return locals()
+
+@check(label='ch:measurement:L86:1.2\\times10^{-24}', chapter='ch:measurement', part=4, title='C60 mass, 60 x 12 u, kg',
+       file='part5/p5_04_measurement', line=86, status='calc', kind='num', printed='1.2\\times10^{-24}', tol=0.0)
+def check_3088():
+    'Mass of a C60 molecule: 60 carbon-12 atoms of 12 u each. Book line 86, printed 1.2e-24 kg. Input: u = 1.66053906660e-27 kg (CODATA 2018).'
+    u = 1.66053906660e-27
+    value = 60 * 12 * u
     return locals()
 
 @check(label='ch:measurement:L87', chapter='ch:measurement', part=4, title='E_G = G m^2/R, m=1e-18 kg, R=5e-08 m (table inputs)',
@@ -18834,6 +18872,14 @@ def check_2026():
     value=5/c*1e9
     return locals()
 
+@check(label='ch:measurement:L133', chapter='ch:measurement', part=4, title='separation of the NV-centre electron spins entangled through emitted photons, km',
+       file='part5/p5_04_measurement', line=133, status='observed', kind='num', printed='1.3', tol=0.0)
+def check_3089():
+    'Electron spins 1.3 km apart. Book line 133, printed 1.3 km. Published: the two labs are 1,280 m apart (Hensen et al., Nature 526, 682 (2015), '         'doi:10.1038/nature15759, bib Hensen2015).'
+    sep_m = 1280.0
+    value = sep_m / 1000
+    return locals()
+
 @check(label='eq:F', chapter='ch:measurement', part=4, title='F = 1 - e^-1 exp(1 - Q_L/Q) = 1 - exp(-Q_L/Q)',
        file='part5/p5_04_measurement', line=139, status='calc', kind='sym', printed='', tol=0)
 def check_2027():
@@ -18853,6 +18899,39 @@ def check_2028():
 def check_2029():
     'F at Q = Q_L. Book line 145, printed 0.632.'
     value=1-math.exp(-1)
+    return locals()
+
+@check(label='ch:measurement:L150', chapter='ch:measurement', part=4, title='Q_L = k_B T ln 2 at 300 K, eV (caption)',
+       file='part5/p5_04_measurement', line=150, status='conjecture', kind='num', printed='0.0179', tol=0.0)
+def check_3090():
+    'Landauer threshold at 300 K in eV. Book line 150 (caption), printed 0.0179. Inputs: k_B and e exact (SI 2019).'
+    value = kB * 300 * LN2 / eV
+    return locals()
+
+@check(label='ch:measurement:L150:<0.01', chapter='ch:measurement', part=4, title='F = 1 - exp(-Q_L/Q) for a retinal rod (140) and a CCD pixel (167): below 0.01',
+       file='part5/p5_04_measurement', line=150, status='conjecture', kind='num', printed='<0.01', tol=0.0)
+def check_3091():
+    'Erasure fidelity F = 1 - exp(-Q_L/Q) at Q/Q_L = 140 (retinal rod) and 167 (CCD pixel), both ratios recomputed from Q = 2.5 eV and 3 eV over '         'Q_L = k_B 300 K ln2; the larger of the two F must lie below 0.01. Book line 150, printed "F<0.01".'
+    QL = kB * 300 * LN2 / eV
+    F = lambda r: 1 - math.exp(-1 / r)
+    value = max(F(2.5 / QL), F(3.0 / QL))
+    return locals()
+
+@check(label='ch:measurement:L150:0.632', chapter='ch:measurement', part=4, title='F at Q = Q_L (caption)',
+       file='part5/p5_04_measurement', line=150, status='conjecture', kind='num', printed='0.632', tol=0.0)
+def check_3092():
+    'Erasure fidelity of Eq. eq:F, F = 1 - (1/e) exp(1 - Q_L/Q), evaluated at Q = Q_L (300 K). Book line 150, printed 0.632.'
+    QL = kB * 300 * LN2
+    Q = QL
+    value = 1 - math.exp(1 - QL / Q) / math.e
+    return locals()
+
+@check(label='ch:measurement:L164', chapter='ch:measurement', part=4, title='F at Q = Q_L (checkbox)',
+       file='part5/p5_04_measurement', line=164, status='prediction', kind='num', printed='0.632', tol=0.0)
+def check_3093():
+    'The IAM curve F = 1 - exp(-Q_L/Q) at the crossover Q = Q_L (any temperature; 4 K used). Book line 164, printed 0.632.'
+    QL = kB * 4 * LN2
+    value = 1 - math.exp(-QL / QL)
     return locals()
 
 @check(label='ch:measurement:L169', chapter='ch:measurement', part=4, title='F, Q = 0.1 eV, 10 mK',
@@ -18877,6 +18956,41 @@ def check_2032():
     'F, Q = 0.1 eV, 300 K. Book line 169, printed 0.164.'
     F=lambda Q,T: 1-math.exp(-kB*T*LN2/eV/Q)
     value=F(0.1,300.0)
+    return locals()
+
+@check(label='ch:measurement:L175', chapter='ch:measurement', part=4, title='Q_L = k_B T ln 2 at 10 mK, eV',
+       file='part5/p5_04_measurement', line=175, status='conjecture', kind='num', printed='6.0\\times10^{-7}', tol=0.0)
+def check_3094():
+    'Landauer threshold at 10 mK in eV. Book line 175, printed 6.0e-7 eV.'
+    value = kB * 0.010 * LN2 / eV
+    return locals()
+
+@check(label='ch:measurement:L175:0.0179', chapter='ch:measurement', part=4, title='Q_L = k_B T ln 2 at 300 K, eV (caption, panel a)',
+       file='part5/p5_04_measurement', line=175, status='conjecture', kind='num', printed='0.0179', tol=0.0)
+def check_3095():
+    'Landauer threshold at 300 K in eV. Book line 175, printed 0.0179.'
+    value = kB * 300 * LN2 / eV
+    return locals()
+
+@check(label='ch:measurement:L175:0.000', chapter='ch:measurement', part=4, title='F at Q = 0.1 eV, 10 mK',
+       file='part5/p5_04_measurement', line=175, status='conjecture', kind='num', printed='0.000', tol=0.0)
+def check_3096():
+    'F = 1 - exp(-Q_L/Q) at Q = 0.1 eV and T_D = 10 mK. Book line 175, printed 0.000.'
+    value = 1 - math.exp(-(kB * 0.010 * LN2 / eV) / 0.1)
+    return locals()
+
+@check(label='ch:measurement:L175:0.002', chapter='ch:measurement', part=4, title='F at Q = 0.1 eV, 4 K',
+       file='part5/p5_04_measurement', line=175, status='conjecture', kind='num', printed='0.002', tol=0.0)
+def check_3097():
+    'F = 1 - exp(-Q_L/Q) at Q = 0.1 eV and T_D = 4 K. Book line 175, printed 0.002.'
+    value = 1 - math.exp(-(kB * 4 * LN2 / eV) / 0.1)
+    return locals()
+
+@check(label='ch:measurement:L175:0.164', chapter='ch:measurement', part=4, title='F at Q = 0.1 eV, 300 K',
+       file='part5/p5_04_measurement', line=175, status='conjecture', kind='num', printed='0.164', tol=0.0)
+def check_3098():
+    'F = 1 - exp(-Q_L/Q) at Q = 0.1 eV and T_D = 300 K. Book line 175, printed 0.164.'
+    value = 1 - math.exp(-(kB * 300 * LN2 / eV) / 0.1)
     return locals()
 
 @check(label='ch:measurement:L180', chapter='ch:measurement', part=4, title='Planck time over tau_IAM(cat)',
@@ -18925,6 +19039,14 @@ def check_2038():
     ok = file_has('docs/verification/scripts/verify_records_measurement_time_output.txt', '2.42')
     return locals()
 
+@check(label='ch:measurement:L201:1.3', chapter='ch:measurement', part=4, title='separation of the electron spins in the loophole-free Bell test, km',
+       file='part5/p5_04_measurement', line=201, status='observed', kind='num', printed='1.3', tol=0.0)
+def check_3099():
+    'Electron spins 1.3 km apart. Book line 201, printed 1.3 km. Published: 1,280 m (Hensen et al., Nature 526, 682 (2015), doi:10.1038/nature15759, bib Hensen2015).'
+    sep_m = 1280.0
+    value = sep_m / 1000
+    return locals()
+
 @check(label='ch:measurement:L209', chapter='ch:measurement', part=4, title='1,000 photons of 2 eV',
        file='part5/p5_04_measurement', line=209, status='calc', kind='num', printed='2\\times10^3', tol=0)
 def check_2039():
@@ -18951,6 +19073,15 @@ def check_2041():
 def check_2042():
     'log10 of 2^111612. Book line 210, printed 33599.'
     value=2000/(kB*300*LN2/eV)*math.log10(2)
+    return locals()
+
+@check(label='ch:measurement:L224', chapter='ch:measurement', part=4, title='age of the universe, flat LCDM with Planck 2018 parameters, Gyr',
+       file='part5/p5_04_measurement', line=224, status='interp', kind='num', printed='13.8', tol=0.0)
+def check_3100():
+    'Cosmic time t0 = int_0^1 da/(a H(a)) for flat LambdaCDM with radiation. Book line 224, printed 13.8 Gyr. Inputs: Planck 2018 VI Table 2 '         '(Aghanim et al. 2020, doi:10.1051/0004-6361/201833910) H0 = 67.36, Omega_m = 0.3153; Omega_r from T_CMB = 2.7255 K and N_eff = 3.046.'
+    Or = 2.4728e-5 * (1 + 0.2271 * 3.046) / h_pl**2
+    Hf = lambda a: Hsi(100 * h_pl) * math.sqrt(Om * a**-3 + Or * a**-4 + (1 - Om - Or))
+    value = quad(lambda a: 1 / (a * Hf(a)), 1e-12, 1, limit=200)[0] / Gyr
     return locals()
 
 @check(label='ch:measurement:L256', chapter='ch:measurement', part=4, title='measured: printed value found in verify_measurement_problem_output.txt, a file the chapter names',
@@ -28018,45 +28149,29 @@ INVENTORY = [
     (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 89, '', 'calc', '2200', 'input: silica density 2200 kg/m^3 (figure caption)'),
     (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 89, '', 'calc', '10', "input: 10 mK bath temperature of the caption's points (and 10^-15 kg mass); the times at that temperature are checked in ch:quantumrecords"),
     (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 119, '', 'prediction', '10', 'prediction, nothing to recompute: mass 10^-12 kg near which the two times separate (the crossover is checked at ch:entanglement:L89)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 49, 'eq:mp_QL', 'calc', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 70, 'eq:mp_tauIAM', 'conjecture', '', 'displayed equation, not yet checked'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 76, '', 'derived', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 84, '', 'calc', '300', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 85, '', 'calc', '9.1\\times10^{-31}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 85, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 86, '', 'calc', '1.2\\times10^{-24}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 86, '', 'calc', '5\\times10^{-10}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 87, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 87, '', 'calc', '5\\times10^{-8}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 88, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 88, '', 'calc', '5\\times10^{-7}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 89, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 89, '', 'calc', '5\\times10^{-6}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 90, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 90, '', 'calc', '5\\times10^{-4}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 91, '', 'calc', '4.0', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 91, '', 'calc', '0.15', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 92, '', 'calc', '70', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 92, '', 'calc', '0.30', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 99, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 133, '', 'observed', '1.3', 'measured, too few printed digits to match against the named files'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 144, '', 'conjecture', '0.04', 'not yet checked'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 145, '', 'calc', '100', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 150, '', 'conjecture', '0.0179', 'not yet checked'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 150, '', 'conjecture', '0.04', 'not yet checked'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 150, '', 'conjecture', '0.01', 'not yet checked'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 150, '', 'conjecture', '0.632', 'not yet checked'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 164, '', 'prediction', '0.632', 'not yet checked'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 169, '', 'calc', '0.1', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 175, '', 'conjecture', '6.0\\times10^{-7}', 'not yet checked'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 175, '', 'conjecture', '0.1', 'not yet checked'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 175, '', 'conjecture', '0.0179', 'not yet checked'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 175, '', 'conjecture', '0.000', 'not yet checked'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 175, '', 'conjecture', '0.002', 'not yet checked'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 175, '', 'conjecture', '0.164', 'not yet checked'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 201, '', 'observed', '1.3', 'measured, too few printed digits to match against the named files'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 224, '', 'interp', '10', 'not yet checked'),
-    (4, 'ch:measurement', 'part5/p5_04_measurement', 224, '', 'interp', '13.8', 'not yet checked'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 76, '', 'derived', '10', 'input: 10^-12 kg mass of the dust grain (its density is checked at ch:measurement:L77)'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 84, '', 'calc', '300', "input: T = 300 K at which the table's tau_IAM is evaluated"),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 85, '', 'calc', '10', 'input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L85'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 86, '', 'calc', '5\\times10^{-10}', 'input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L86'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 87, '', 'calc', '10', 'input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L87'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 87, '', 'calc', '5\\times10^{-8}', 'input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L87'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 88, '', 'calc', '10', 'input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L88'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 88, '', 'calc', '5\\times10^{-7}', 'input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L88'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 89, '', 'calc', '10', 'input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L89'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 89, '', 'calc', '5\\times10^{-6}', 'input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L89'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 90, '', 'calc', '10', 'input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L90'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 90, '', 'calc', '5\\times10^{-4}', 'input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L90'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 91, '', 'calc', '4.0', 'input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L91'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 91, '', 'calc', '0.15', 'input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L91'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 92, '', 'calc', '70', 'input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L92'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 92, '', 'calc', '0.30', 'input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L92'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 99, '', 'calc', '10', 'definition: the mesoscopic range 10^-15 to 10^-10 kg shaded in the figure'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 144, '', 'conjecture', '0.04', 'input: threshold Q/Q_L < 0.04 chosen to define reversible markers (1/0.04 = 25 is the exponent in e^-25)'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 145, '', 'calc', '100', 'input: threshold Q/Q_L > 100 chosen to define irreversible markers; F there is checked at ch:measurement:L145'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 150, '', 'conjecture', '0.04', 'input: threshold Q/Q_L < 0.04 for reversible markers (caption)'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 169, '', 'calc', '0.1', 'input: Q = 0.1 eV dissipated in the which-path interaction of the temperature test'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 175, '', 'conjecture', '0.1', 'input: Q = 0.1 eV of panel b'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 224, '', 'interp', '10', 'measured, source not named: about 10^11 galaxies, an order-of-magnitude count stated without a citation'),
     (4, 'ch:gravdec', 'part5/p5_05_gravdec', 33, '', 'measured', '+0.54', 'measured, too few printed digits to match against the named files'),
     (4, 'ch:gravdec', 'part5/p5_05_gravdec', 39, '', 'measured', '0.0068', 'measured, too few printed digits to match against the named files'),
     (4, 'ch:gravdec', 'part5/p5_05_gravdec', 53, 'eq:gd_dp', 'none', '', 'displayed equation, not yet checked'),

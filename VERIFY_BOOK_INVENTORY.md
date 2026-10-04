@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3085 PASS, 0 FAIL, 3249 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3101 PASS, 0 FAIL, 3233 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -3528,89 +3528,89 @@ Totals: 3085 PASS, 0 FAIL, 3249 inventoried and not run. Each run item carries t
 | 28 | ch:measurement:L28 | measured | `0.800` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
 | 28 | ch:measurement:L28:72.26 | measured | `72.26` | heavy file `docs/verification/scripts/verify_records_measurement_time_output.txt`: measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names | PASS |
 | 42 | ch:measurement:L42 | calc | `16.7` | numeric: flight time over 5 m, ns | PASS |
-| 49 | eq:mp_QL | calc |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 49 | eq:mp_QL | calc |  | sympy: Landauer threshold: T times the entropy of one equiprobable bit is k_B T ln 2 | PASS |
 | 52 | ch:measurement:L52 | calc | `0.0179` | numeric: Q_L = k_B T ln2 at 300 K, eV | PASS |
-| 70 | eq:mp_tauIAM | conjecture |  | not run: displayed equation, not yet checked | - |
-| 76 |  | derived | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 70 | eq:mp_tauIAM | conjecture |  | sympy: tau_IAM = hbar (k_B T)^2 ln2/E_G^3 diverges as E_G -> 0 (photon) and is in seconds | PASS |
+| 76 |  | derived | `10` | not run: input: 10^-12 kg mass of the dust grain (its density is checked at ch:measurement:L77) | - |
 | 77 | ch:measurement:L77 | derived | `1.9\times10^3` | numeric: density of a 1e-12 kg sphere of R = 5 um | PASS |
-| 84 |  | calc | `300` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 84 |  | calc | `300` | not run: input: T = 300 K at which the table's tau_IAM is evaluated | - |
 | 85 | ch:measurement:L85 | calc | `5.5\times10^{-61}` | numeric: E_G = G m^2/R, m=9.1e-31 kg, R=1e-10 m (table inputs) | PASS |
 | 85 | ch:measurement:L85:1.9\times10^{26} | calc | `1.9\times10^{26}` | numeric: tau_PD = hbar/E_G, m=9.1e-31 kg | PASS |
 | 85 | ch:measurement:L85:7.4\times10^{105} | calc | `7.4\times10^{105}` | numeric: tau_IAM at 300 K, m=9.1e-31 kg | PASS |
-| 85 |  | calc | `9.1\times10^{-31}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 85 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 85 | ch:measurement:L85:9.1\times10^{-31} | calc | `9.1\times10^{-31}` | numeric: electron mass, kg (CODATA 2018) | PASS |
+| 85 |  | calc | `10` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L85 | - |
 | 86 | ch:measurement:L86 | calc | `1.9\times10^{-49}` | numeric: E_G = G m^2/R, m=1.2e-24 kg, R=5e-10 m (table inputs) | PASS |
 | 86 | ch:measurement:L86:5.5\times10^{14} | calc | `5.5\times10^{14}` | numeric: tau_PD = hbar/E_G, m=1.2e-24 kg | PASS |
 | 86 | ch:measurement:L86:1.8\times10^{71} | calc | `1.8\times10^{71}` | numeric: tau_IAM at 300 K, m=1.2e-24 kg | PASS |
-| 86 |  | calc | `1.2\times10^{-24}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 86 |  | calc | `5\times10^{-10}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 86 | ch:measurement:L86:1.2\times10^{-24} | calc | `1.2\times10^{-24}` | numeric: C60 mass, 60 x 12 u, kg | PASS |
+| 86 |  | calc | `5\times10^{-10}` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L86 | - |
 | 87 | ch:measurement:L87 | calc | `1.3\times10^{-39}` | numeric: E_G = G m^2/R, m=1e-18 kg, R=5e-08 m (table inputs) | PASS |
 | 87 | ch:measurement:L87:7.9\times10^{4} | calc | `7.9\times10^{4}` | numeric: tau_PD = hbar/E_G, m=1e-18 kg | PASS |
 | 87 | ch:measurement:L87:5.3\times10^{41} | calc | `5.3\times10^{41}` | numeric: tau_IAM at 300 K, m=1e-18 kg | PASS |
-| 87 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 87 |  | calc | `5\times10^{-8}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 87 |  | calc | `10` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L87 | - |
+| 87 |  | calc | `5\times10^{-8}` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L87 | - |
 | 88 | ch:measurement:L88 | calc | `1.3\times10^{-34}` | numeric: E_G = G m^2/R, m=1e-15 kg, R=5e-07 m (table inputs) | PASS |
 | 88 | ch:measurement:L88:0.79 | calc | `0.79` | numeric: tau_PD = hbar/E_G, m=1e-15 kg | PASS |
 | 88 | ch:measurement:L88:5.3\times10^{26} | calc | `5.3\times10^{26}` | numeric: tau_IAM at 300 K, m=1e-15 kg | PASS |
-| 88 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 88 |  | calc | `5\times10^{-7}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 88 |  | calc | `10` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L88 | - |
+| 88 |  | calc | `5\times10^{-7}` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L88 | - |
 | 89 | ch:measurement:L89 | calc | `1.3\times10^{-29}` | numeric: E_G = G m^2/R, m=1e-12 kg, R=5e-06 m (table inputs) | PASS |
 | 89 | ch:measurement:L89:7.9\times10^{-6} | calc | `7.9\times10^{-6}` | numeric: tau_PD = hbar/E_G, m=1e-12 kg | PASS |
 | 89 | ch:measurement:L89:5.3\times10^{11} | calc | `5.3\times10^{11}` | numeric: tau_IAM at 300 K, m=1e-12 kg | PASS |
-| 89 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 89 |  | calc | `5\times10^{-6}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 89 |  | calc | `10` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L89 | - |
+| 89 |  | calc | `5\times10^{-6}` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L89 | - |
 | 90 | ch:measurement:L90 | calc | `1.3\times10^{-19}` | numeric: E_G = G m^2/R, m=1e-06 kg, R=0.0005 m (table inputs) | PASS |
 | 90 | ch:measurement:L90:7.9\times10^{-16} | calc | `7.9\times10^{-16}` | numeric: tau_PD = hbar/E_G, m=1e-06 kg | PASS |
 | 90 | ch:measurement:L90:5.3\times10^{-19} | calc | `5.3\times10^{-19}` | numeric: tau_IAM at 300 K, m=1e-06 kg | PASS |
-| 90 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 90 |  | calc | `5\times10^{-4}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 90 |  | calc | `10` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L90 | - |
+| 90 |  | calc | `5\times10^{-4}` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L90 | - |
 | 91 | ch:measurement:L91 | calc | `7.1\times10^{-9}` | numeric: E_G = G m^2/R, m=4 kg, R=0.15 m (table inputs) | PASS |
 | 91 | ch:measurement:L91:1.5\times10^{-26} | calc | `1.5\times10^{-26}` | numeric: tau_PD = hbar/E_G, m=4 kg | PASS |
 | 91 | ch:measurement:L91:3.5\times10^{-51} | calc | `3.5\times10^{-51}` | numeric: tau_IAM at 300 K, m=4 kg | PASS |
-| 91 |  | calc | `4.0` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 91 |  | calc | `0.15` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 91 |  | calc | `4.0` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L91 | - |
+| 91 |  | calc | `0.15` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L91 | - |
 | 92 | ch:measurement:L92 | calc | `1.1\times10^{-6}` | numeric: E_G = G m^2/R, m=70 kg, R=0.3 m (table inputs) | PASS |
 | 92 | ch:measurement:L92:9.7\times10^{-29} | calc | `9.7\times10^{-29}` | numeric: tau_PD = hbar/E_G, m=70 kg | PASS |
 | 92 | ch:measurement:L92:9.7\times10^{-58} | calc | `9.7\times10^{-58}` | numeric: tau_IAM at 300 K, m=70 kg | PASS |
-| 92 |  | calc | `70` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 92 |  | calc | `0.30` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 99 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 92 |  | calc | `70` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L92 | - |
+| 92 |  | calc | `0.30` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L92 | - |
+| 99 |  | calc | `10` | not run: definition: the mesoscopic range 10^-15 to 10^-10 kg shaded in the figure | - |
 | 100 | ch:measurement:L100 | calc | `2.2\times10^{-10}` | numeric: crossing mass at 10 mK, silica | PASS |
 | 117 | ch:measurement:L117 | calc | `16.7` | numeric: flight time over 5 m, ns | PASS |
-| 133 |  | observed | `1.3` | not run: measured, too few printed digits to match against the named files | - |
+| 133 | ch:measurement:L133 | observed | `1.3` | numeric: separation of the NV-centre electron spins entangled through emitted photons, km | PASS |
 | 139 | eq:F | calc |  | sympy: F = 1 - e^-1 exp(1 - Q_L/Q) = 1 - exp(-Q_L/Q) | PASS |
-| 144 |  | conjecture | `0.04` | not run: not yet checked | - |
+| 144 |  | conjecture | `0.04` | not run: input: threshold Q/Q_L < 0.04 chosen to define reversible markers (1/0.04 = 25 is the exponent in e^-25) | - |
 | 145 | ch:measurement:L145 | calc | `<0.01` | numeric: F at Q/Q_L = 100 | PASS |
 | 145 | ch:measurement:L145:0.632 | calc | `0.632` | numeric: F at Q = Q_L | PASS |
-| 145 |  | calc | `100` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 150 |  | conjecture | `0.0179` | not run: not yet checked | - |
-| 150 |  | conjecture | `0.04` | not run: not yet checked | - |
-| 150 |  | conjecture | `0.01` | not run: not yet checked | - |
-| 150 |  | conjecture | `0.632` | not run: not yet checked | - |
-| 164 |  | prediction | `0.632` | not run: not yet checked | - |
+| 145 |  | calc | `100` | not run: input: threshold Q/Q_L > 100 chosen to define irreversible markers; F there is checked at ch:measurement:L145 | - |
+| 150 | ch:measurement:L150 | conjecture | `0.0179` | numeric: Q_L = k_B T ln 2 at 300 K, eV (caption) | PASS |
+| 150 | ch:measurement:L150:<0.01 | conjecture | `<0.01` | numeric: F = 1 - exp(-Q_L/Q) for a retinal rod (140) and a CCD pixel (167): below 0.01 | PASS |
+| 150 | ch:measurement:L150:0.632 | conjecture | `0.632` | numeric: F at Q = Q_L (caption) | PASS |
+| 150 |  | conjecture | `0.04` | not run: input: threshold Q/Q_L < 0.04 for reversible markers (caption) | - |
+| 164 | ch:measurement:L164 | prediction | `0.632` | numeric: F at Q = Q_L (checkbox) | PASS |
 | 169 | ch:measurement:L169 | calc | `0.000` | numeric: F, Q = 0.1 eV, 10 mK | PASS |
 | 169 | ch:measurement:L169:0.0024 | calc | `0.0024` | numeric: F, Q = 0.1 eV, 4 K | PASS |
 | 169 | ch:measurement:L169:0.164 | calc | `0.164` | numeric: F, Q = 0.1 eV, 300 K | PASS |
-| 169 |  | calc | `0.1` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 175 |  | conjecture | `6.0\times10^{-7}` | not run: not yet checked | - |
-| 175 |  | conjecture | `0.1` | not run: not yet checked | - |
-| 175 |  | conjecture | `0.0179` | not run: not yet checked | - |
-| 175 |  | conjecture | `0.000` | not run: not yet checked | - |
-| 175 |  | conjecture | `0.002` | not run: not yet checked | - |
-| 175 |  | conjecture | `0.164` | not run: not yet checked | - |
+| 169 |  | calc | `0.1` | not run: input: Q = 0.1 eV dissipated in the which-path interaction of the temperature test | - |
+| 175 | ch:measurement:L175 | conjecture | `6.0\times10^{-7}` | numeric: Q_L = k_B T ln 2 at 10 mK, eV | PASS |
+| 175 | ch:measurement:L175:0.0179 | conjecture | `0.0179` | numeric: Q_L = k_B T ln 2 at 300 K, eV (caption, panel a) | PASS |
+| 175 | ch:measurement:L175:0.000 | conjecture | `0.000` | numeric: F at Q = 0.1 eV, 10 mK | PASS |
+| 175 | ch:measurement:L175:0.002 | conjecture | `0.002` | numeric: F at Q = 0.1 eV, 4 K | PASS |
+| 175 | ch:measurement:L175:0.164 | conjecture | `0.164` | numeric: F at Q = 0.1 eV, 300 K | PASS |
+| 175 |  | conjecture | `0.1` | not run: input: Q = 0.1 eV of panel b | - |
 | 180 | ch:measurement:L180 | calc | `1.6\times10^7` | numeric: Planck time over tau_IAM(cat) | PASS |
 | 181 | ch:measurement:L181 | calc | `5.4\times10^{-44}` | numeric: Planck time | PASS |
 | 195 | eq:mp_smax | derived |  | sympy: Horodecki: dephased Bell state, S_max = 2 sqrt(1+c^2) | PASS |
 | 199 | ch:measurement:L199 | calc | `0.586` | numeric: sqrt2 (1+c) = 2 at c = 1-D: D = 2 - sqrt2 | PASS |
 | 199 | ch:measurement:L199:0.293 | calc | `0.293` | numeric: 2 sqrt2 (1-D) = 2: D = 1 - 1/sqrt2 | PASS |
 | 201 | ch:measurement:L201 | observed | `2.42` | heavy file `docs/verification/scripts/verify_records_measurement_time_output.txt`: measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names | PASS |
-| 201 |  | observed | `1.3` | not run: measured, too few printed digits to match against the named files | - |
+| 201 | ch:measurement:L201:1.3 | observed | `1.3` | numeric: separation of the electron spins in the loophole-free Bell test, km | PASS |
 | 209 | ch:measurement:L209 | calc | `2\times10^3` | numeric: 1,000 photons of 2 eV | PASS |
 | 209 | ch:measurement:L209:1.1\times10^5 | calc | `1.1\times10^5` | numeric: 2e3 eV over Q_L at 300 K | PASS |
 | 210 | ch:measurement:L210 | calc | `111612` | numeric: bits written: 2e3 eV / (k_B T ln2) at 300 K | PASS |
 | 210 | ch:measurement:L210:33599 | calc | `33599` | numeric: log10 of 2^111612 | PASS |
-| 224 |  | interp | `10` | not run: not yet checked | - |
-| 224 |  | interp | `13.8` | not run: not yet checked | - |
+| 224 | ch:measurement:L224 | interp | `13.8` | numeric: age of the universe, flat LCDM with Planck 2018 parameters, Gyr | PASS |
+| 224 |  | interp | `10` | not run: measured, source not named: about 10^11 galaxies, an order-of-magnitude count stated without a citation | - |
 | 256 | ch:measurement:L256 | observed | `0.0179` | heavy file `docs/verification/scripts/verify_measurement_problem_output.txt`: measured: printed value found in verify_measurement_problem_output.txt, a file the chapter names | PASS |
 
 ## Part 4 - ch:gravdec - `docs/book/part5/p5_05_gravdec.tex`
