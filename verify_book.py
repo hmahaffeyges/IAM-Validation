@@ -1134,6 +1134,31 @@ def _b01ds_fs8(model, z):
             _B01DS_G4[k] = grow4(*v)
     fD = lambda k: float(_B01DS_G4[k].sol(np.log(1 / (1 + z)))[1])
     return 100 * (fD(model) / fD('A') - 1)
+DATA_FILES['docs/book/read_ledgers/ts_MANIFEST_sector_s8.md'] = 'read ledger of the S8-trend and sector-tension chapters: values checked against the source papers'   # 21 kB
+DATA_FILES['docs/verification/scripts/verify_s8_trend.py'] = 'verify_s8_trend.py (its header records the published Omega_m prior of the trend analysis)'   # 6 kB
+
+# helpers of the part2/p2_08_s8_trend checks
+S8_PLANCK_B01 = 0.832      # Planck 2018 VI S8 (doi 10.1051/0004-6361/201833910), as the chapter uses it
+# Table tab:st_fsig8 (p2_09_sector_tension): the thirteen f sigma8 points, effective redshift and published error (DESI 2024 V App. A, SDSS DR16, 6dFGS)
+_B01ST_Z = np.array([0.067, 0.15, 0.295, 0.38, 0.51, 0.51, 0.70, 0.706, 0.85, 0.919, 1.317, 1.48, 1.491])
+_B01ST_ERR = np.array([0.055, 0.16, 0.094, 0.047, 0.039, 0.064, 0.043, 0.053, 0.095, 0.047, 0.037, 0.045, 0.044])
+def _b01st_trend(zmin):
+    """The trend analysis run on the informational term's own growth: each point given the term's f sigma8 (ratio to LambdaCDM, same early amplitude,
+    exact mu, Omega_m 0.3153), a LambdaCDM template fitted for sigma8 at fixed Omega_m (inverse-variance weights (t/err)^2), points below z_min removed.
+    Returns (inferred S8, statistical sigma(S8)). Method of docs/verification/scripts/verify_s8_trend.py section 8."""
+    k = _B01ST_Z >= zmin
+    zk, ek = _B01ST_Z[k], _B01ST_ERR[k]
+    tL = np.array([f_of('lcdm', z) * D_of('lcdm', z) for z in zk])
+    r = np.array([f_of('iam', z) * D_of('iam', z) for z in zk]) / tL
+    w = (tL / ek)**2
+    S = S8_PLANCK_B01 * (w * r).sum() / w.sum()
+    t1 = tL / D_of('lcdm', 0.0)
+    return S, math.sqrt(Om / 0.3) / math.sqrt(((t1 / ek)**2).sum())
+def _b01st_ledger(pat):
+    return float(re.search(pat, file_text('docs/book/read_ledgers/ts_MANIFEST_sector_s8.md')).group(1))
+def _b01st_gamma(which):
+    'Effective growth index today, gamma = ln f / ln Omega_m(a=1), f from the linear growth equation (same early amplitude), Omega_m 0.3153.'
+    return math.log(f_of(which, 0.0)) / math.log(Om)
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -9658,6 +9683,28 @@ def check_0847():
     value=0.78/7.5
     return locals()
 
+@check(label='ch:s8trend:L25', chapter='ch:s8trend', part=2, title='Omega_m prior of the trend analysis (Planck + BAO)',
+       file='part2/p2_08_s8_trend', line=25, status='measured', kind='file', printed='0.3111+/-0.0056', tol=0.0, source='docs/verification/scripts/verify_s8_trend.py')
+def check_3367():
+    'Omega_m = 0.3111 +- 0.0056, the Planck + BAO prior of the trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), as recorded from the paper in the header of verify_s8_trend.py; the error is also read and must be 0.0056. Book line 25.'
+    m = re.search(r'Planck\+BAO prior \(([\d.]+) \+- ([\d.]+)\)', file_text('docs/verification/scripts/verify_s8_trend.py'))
+    value = float(m.group(1)) if abs(float(m.group(2)) - 0.0056) < 1e-12 else float('nan')
+    return locals()
+
+@check(label='ch:s8trend:L27:1.6', chapter='ch:s8trend', part=2, title='trend significance, 20-point sample (read ledger)',
+       file='part2/p2_08_s8_trend', line=27, status='observed', kind='file', printed='1.6', tol=0.0, source='docs/book/read_ledgers/ts_MANIFEST_sector_s8.md')
+def check_3368():
+    'Shift of the inferred S8 with the 20 points of the main sample taken as independent, 1.6 sigma (MNRAS 528, L20, 2024), as read from the source and recorded in the read ledger (S8 carriage table, section 1). Book line 27.'
+    value = _b01st_ledger(r'20 points, ([\d.]+)σ')
+    return locals()
+
+@check(label='ch:s8trend:L28', chapter='ch:s8trend', part=2, title='trend significance, 66-point sample (read ledger)',
+       file='part2/p2_08_s8_trend', line=28, status='observed', kind='file', printed='2.8', tol=0.0, source='docs/book/read_ledgers/ts_MANIFEST_sector_s8.md')
+def check_3369():
+    'Shift in the larger 66-point sample, 2.8 sigma (MNRAS 528, L20, 2024), as recorded in the read ledger. Book line 28.'
+    value = _b01st_ledger(r'66 points ([\d.]+)σ')
+    return locals()
+
 @check(label='ch:s8trend:L35', chapter='ch:s8trend', part=2, title='measured: printed value found in verify_s8_trend_output.txt, a file the chapter names',
        file='part2/p2_08_s8_trend', line=35, status='observed', kind='file', printed='0.832', tol=0.0, source='docs/verification/scripts/verify_s8_trend_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_s8_trend.py > docs/verification/scripts/verify_s8_trend_output.txt')
@@ -9672,6 +9719,20 @@ def check_0848():
 def check_0849():
     'measured: printed value found in verify_s8_trend_output.txt, a file the chapter names. Book line 40, printed 0.633(+0.025/-0.024).'
     ok = file_has('docs/verification/scripts/verify_s8_trend_output.txt', '0.633(+0.025/-0.024)')
+    return locals()
+
+@check(label='ch:s8trend:L40:3.7', chapter='ch:s8trend', part=2, title='gamma = 0.55 excluded at 3.7 sigma (Nguyen 2023, read ledger)',
+       file='part2/p2_08_s8_trend', line=40, status='observed', kind='file', printed='3.7', tol=0.0, source='docs/book/read_ledgers/ts_MANIFEST_sector_s8.md')
+def check_3370():
+    'Significance with which the growth-index fit (Nguyen, Huterer and Wen 2023, PRL 131, 111001) excludes gamma = 0.55, as read from the abstract and recorded in the read ledger (section 7 growth index row). Book line 40.'
+    value = _b01st_ledger(r'γ 0\.633, ([\d.]+)σ, [\d.]+σ')
+    return locals()
+
+@check(label='ch:s8trend:L41:4.2', chapter='ch:s8trend', part=2, title='f sigma8 + Planck only: 4.2 sigma (Nguyen 2023, read ledger)',
+       file='part2/p2_08_s8_trend', line=41, status='observed', kind='file', printed='4.2', tol=0.0, source='docs/book/read_ledgers/ts_MANIFEST_sector_s8.md')
+def check_3371():
+    'Significance of the f sigma8 + Planck-only growth-index fit (Nguyen, Huterer and Wen 2023), as recorded in the read ledger. Book line 41.'
+    value = _b01st_ledger(r'γ 0\.633, [\d.]+σ, ([\d.]+)σ')
     return locals()
 
 @check(label='eq:s8_beta', chapter='ch:s8trend', part=2, title='coupling constant from Om/2',
@@ -9792,6 +9853,20 @@ def check_0863():
 def check_0864():
     'measured: printed value found in verify_s8_trend_output.txt, a file the chapter names. Book line 85, printed 0.633(+0.025/-0.024).'
     ok = file_has('docs/verification/scripts/verify_s8_trend_output.txt', '0.633(+0.025/-0.024)')
+    return locals()
+
+@check(label='ch:s8trend:L85:0.585', chapter='ch:s8trend', part=2, title='effective growth index today, IAM',
+       file='part2/p2_08_s8_trend', line=85, status='calc', kind='num', printed='0.585', tol=0.0)
+def check_3372():
+    'gamma = ln f / ln Omega_m(a) at z = 0 for the informational term (exact mu, same early amplitude, Omega_m 0.3153). Book line 85, printed 0.585.'
+    value = _b01st_gamma('iam')
+    return locals()
+
+@check(label='ch:s8trend:L85:0.554', chapter='ch:s8trend', part=2, title='effective growth index today, LambdaCDM',
+       file='part2/p2_08_s8_trend', line=85, status='calc', kind='num', printed='0.554', tol=0.0)
+def check_3373():
+    'gamma = ln f / ln Omega_m(a) at z = 0 for LambdaCDM, Omega_m 0.3153. Book line 85, printed 0.554.'
+    value = _b01st_gamma('lcdm')
     return locals()
 
 @check(label='ch:s8trend:L95', chapter='ch:s8trend', part=2, title="(1-mu(1)) over the lensing deficit at z=0 ('about')",
@@ -10032,6 +10107,90 @@ def check_0898():
     value=(1-0.8286/0.832)*100
     return locals()
 
+@check(label='ch:s8trend:L111', chapter='ch:s8trend', part=2, title='trend analysis on the term: inferred S8, z_min 0.0',
+       file='part2/p2_08_s8_trend', line=111, status='calc', kind='num', printed='0.8231', tol=0.0)
+def check_3374():
+    'Inferred S8 when the LambdaCDM template is fitted to the term-generated f sigma8 at the thirteen points of Table tab:st_fsig8 with z >= 0.0 (Omega_m fixed 0.3153, S8 Planck 0.832). Book line 111, printed 0.8231.'
+    value = _b01st_trend(0.0)[0]
+    return locals()
+
+@check(label='ch:s8trend:L111:0.8249', chapter='ch:s8trend', part=2, title='trend analysis on the term: inferred S8, z_min 0.2',
+       file='part2/p2_08_s8_trend', line=111, status='calc', kind='num', printed='0.8249', tol=0.0)
+def check_3375():
+    'Inferred S8 when the LambdaCDM template is fitted to the term-generated f sigma8 at the thirteen points of Table tab:st_fsig8 with z >= 0.2 (Omega_m fixed 0.3153, S8 Planck 0.832). Book line 111, printed 0.8249.'
+    value = _b01st_trend(0.2)[0]
+    return locals()
+
+@check(label='ch:s8trend:L111:0.8263', chapter='ch:s8trend', part=2, title='trend analysis on the term: inferred S8, z_min 0.4',
+       file='part2/p2_08_s8_trend', line=111, status='calc', kind='num', printed='0.8263', tol=0.0)
+def check_3376():
+    'Inferred S8 when the LambdaCDM template is fitted to the term-generated f sigma8 at the thirteen points of Table tab:st_fsig8 with z >= 0.4 (Omega_m fixed 0.3153, S8 Planck 0.832). Book line 111, printed 0.8263.'
+    value = _b01st_trend(0.4)[0]
+    return locals()
+
+@check(label='ch:s8trend:L111:0.8282', chapter='ch:s8trend', part=2, title='trend analysis on the term: inferred S8, z_min 0.6',
+       file='part2/p2_08_s8_trend', line=111, status='calc', kind='num', printed='0.8282', tol=0.0)
+def check_3377():
+    'Inferred S8 when the LambdaCDM template is fitted to the term-generated f sigma8 at the thirteen points of Table tab:st_fsig8 with z >= 0.6 (Omega_m fixed 0.3153, S8 Planck 0.832). Book line 111, printed 0.8282.'
+    value = _b01st_trend(0.6)[0]
+    return locals()
+
+@check(label='ch:s8trend:L111:0.8298', chapter='ch:s8trend', part=2, title='trend analysis on the term: inferred S8, z_min 0.8',
+       file='part2/p2_08_s8_trend', line=111, status='calc', kind='num', printed='0.8298', tol=0.0)
+def check_3378():
+    'Inferred S8 when the LambdaCDM template is fitted to the term-generated f sigma8 at the thirteen points of Table tab:st_fsig8 with z >= 0.8 (Omega_m fixed 0.3153, S8 Planck 0.832). Book line 111, printed 0.8298.'
+    value = _b01st_trend(0.8)[0]
+    return locals()
+
+@check(label='ch:s8trend:L111:0.8306', chapter='ch:s8trend', part=2, title='trend analysis on the term: inferred S8, z_min 1.0',
+       file='part2/p2_08_s8_trend', line=111, status='calc', kind='num', printed='0.8306', tol=0.0)
+def check_3379():
+    'Inferred S8 when the LambdaCDM template is fitted to the term-generated f sigma8 at the thirteen points of Table tab:st_fsig8 with z >= 1.0 (Omega_m fixed 0.3153, S8 Planck 0.832). Book line 111, printed 0.8306.'
+    value = _b01st_trend(1.0)[0]
+    return locals()
+
+@check(label='ch:s8trend:L112', chapter='ch:s8trend', part=2, title='trend analysis on the term: statistical sigma(S8), z_min 0.0',
+       file='part2/p2_08_s8_trend', line=112, status='calc', kind='num', printed='0.027', tol=0.0)
+def check_3380():
+    'Statistical error of the inferred S8 from the published errors of the points with z >= 0.0: sqrt(Omega_m/0.3)/sqrt(sum (t/err)^2), t the LambdaCDM f sigma8 per unit sigma8. Book line 112, printed 0.027.'
+    value = _b01st_trend(0.0)[1]
+    return locals()
+
+@check(label='ch:s8trend:L112:0.028', chapter='ch:s8trend', part=2, title='trend analysis on the term: statistical sigma(S8), z_min 0.2',
+       file='part2/p2_08_s8_trend', line=112, status='calc', kind='num', printed='0.028', tol=0.0)
+def check_3381():
+    'Statistical error of the inferred S8 from the published errors of the points with z >= 0.2: sqrt(Omega_m/0.3)/sqrt(sum (t/err)^2), t the LambdaCDM f sigma8 per unit sigma8. Book line 112, printed 0.028.'
+    value = _b01st_trend(0.2)[1]
+    return locals()
+
+@check(label='ch:s8trend:L112:0.030', chapter='ch:s8trend', part=2, title='trend analysis on the term: statistical sigma(S8), z_min 0.4',
+       file='part2/p2_08_s8_trend', line=112, status='calc', kind='num', printed='0.030', tol=0.0)
+def check_3382():
+    'Statistical error of the inferred S8 from the published errors of the points with z >= 0.4: sqrt(Omega_m/0.3)/sqrt(sum (t/err)^2), t the LambdaCDM f sigma8 per unit sigma8. Book line 112, printed 0.030.'
+    value = _b01st_trend(0.4)[1]
+    return locals()
+
+@check(label='ch:s8trend:L112:0.035', chapter='ch:s8trend', part=2, title='trend analysis on the term: statistical sigma(S8), z_min 0.6',
+       file='part2/p2_08_s8_trend', line=112, status='calc', kind='num', printed='0.035', tol=0.0)
+def check_3383():
+    'Statistical error of the inferred S8 from the published errors of the points with z >= 0.6: sqrt(Omega_m/0.3)/sqrt(sum (t/err)^2), t the LambdaCDM f sigma8 per unit sigma8. Book line 112, printed 0.035.'
+    value = _b01st_trend(0.6)[1]
+    return locals()
+
+@check(label='ch:s8trend:L112:0.043', chapter='ch:s8trend', part=2, title='trend analysis on the term: statistical sigma(S8), z_min 0.8',
+       file='part2/p2_08_s8_trend', line=112, status='calc', kind='num', printed='0.043', tol=0.0)
+def check_3384():
+    'Statistical error of the inferred S8 from the published errors of the points with z >= 0.8: sqrt(Omega_m/0.3)/sqrt(sum (t/err)^2), t the LambdaCDM f sigma8 per unit sigma8. Book line 112, printed 0.043.'
+    value = _b01st_trend(0.8)[1]
+    return locals()
+
+@check(label='ch:s8trend:L112:0.052', chapter='ch:s8trend', part=2, title='trend analysis on the term: statistical sigma(S8), z_min 1.0',
+       file='part2/p2_08_s8_trend', line=112, status='calc', kind='num', printed='0.052', tol=0.0)
+def check_3385():
+    'Statistical error of the inferred S8 from the published errors of the points with z >= 1.0: sqrt(Omega_m/0.3)/sqrt(sum (t/err)^2), t the LambdaCDM f sigma8 per unit sigma8. Book line 112, printed 0.052.'
+    value = _b01st_trend(1.0)[1]
+    return locals()
+
 @check(label='ch:s8trend:L114', chapter='ch:s8trend', part=2, title='inferred S8 deviation at zmin=0',
        file='part2/p2_08_s8_trend', line=114, status='calc', kind='num', printed='1.1', tol=0.0455)
 def check_0899():
@@ -10075,6 +10234,16 @@ def check_0904():
     'IAM chain sigma8, Planck-only. Book line 122, printed 0.8015.'
     value=csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv','Planck','s8_iam')
     return locals()
+
+@check(label='ch:s8trend:L122:1.68', chapter='ch:s8trend', part=2, title='amplitude deficit today, MGCAMB chain form',
+       file='part2/p2_08_s8_trend', line=122, status='calc', kind='num', printed='1.68', tol=0.0)
+def check_3386():
+    'Per cent amplitude deficit D_IAM/D_LCDM - 1 today with the Level 1 chain form mu = 1 + mu0 Omega_DE(a)/Omega_DE0, mu0 = -0.13495, same early amplitude. Book line 122, printed 1.68.'
+    value = amp_deficit(0.0, 'mgcamb')
+    return locals()
+
+def _b01st_fs8(z):
+    return fs8_deficit(z, 'iam')
 
 @check(label='ch:s8trend:L123', chapter='ch:s8trend', part=2, title='sigma8 shift percent, Planck chains',
        file='part2/p2_08_s8_trend', line=123, status='calc', kind='num', printed='1.6', tol=0.0313, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
@@ -10152,6 +10321,41 @@ def check_0914():
     a=1/1.5; mu=(Om*a**-3+OL)/(Om*a**-3+OL+beta_m*E_act(a)); value=1/mu
     return locals()
 
+@check(label='ch:s8trend:L194', chapter='ch:s8trend', part=2, title='f sigma8 deficit at z = 0.15',
+       file='part2/p2_08_s8_trend', line=194, status='calc', kind='num', printed='3.1\\%', tol=0.0)
+def check_3387():
+    'Per cent f sigma8 deficit of the term against LambdaCDM (same early amplitude, exact mu) at z = 0.15. Book line 194, printed 3.1%.'
+    value = _b01st_fs8(0.15)
+    return locals()
+
+@check(label='ch:s8trend:L194:1.9%', chapter='ch:s8trend', part=2, title='f sigma8 deficit at z = 0.35',
+       file='part2/p2_08_s8_trend', line=194, status='calc', kind='num', printed='1.9\\%', tol=0.0)
+def check_3388():
+    'Per cent f sigma8 deficit at z = 0.35. Book line 194, printed 1.9%.'
+    value = _b01st_fs8(0.35)
+    return locals()
+
+@check(label='ch:s8trend:L194:0.9%', chapter='ch:s8trend', part=2, title='f sigma8 deficit at z = 0.65',
+       file='part2/p2_08_s8_trend', line=194, status='calc', kind='num', printed='0.9\\%', tol=0.0)
+def check_3389():
+    'Per cent f sigma8 deficit at z = 0.65. Book line 194, printed 0.9%.'
+    value = _b01st_fs8(0.65)
+    return locals()
+
+@check(label='ch:s8trend:L194:0.4%', chapter='ch:s8trend', part=2, title='f sigma8 deficit at z = 1.05',
+       file='part2/p2_08_s8_trend', line=194, status='calc', kind='num', printed='0.4\\%', tol=0.0)
+def check_3390():
+    'Per cent f sigma8 deficit at z = 1.05. Book line 194, printed 0.4%.'
+    value = _b01st_fs8(1.05)
+    return locals()
+
+@check(label='ch:s8trend:L195', chapter='ch:s8trend', part=2, title='f sigma8 deficit at z = 1.55',
+       file='part2/p2_08_s8_trend', line=195, status='calc', kind='num', printed='0.1\\%', tol=0.0)
+def check_3391():
+    'Per cent f sigma8 deficit at z = 1.55. Book line 195, printed 0.1%.'
+    value = _b01st_fs8(1.55)
+    return locals()
+
 @check(label='ch:s8trend:L196', chapter='ch:s8trend', part=2, title='drafted check, screened (runs; negative control fails)',
        file='part2/p2_08_s8_trend', line=196, status='calc', kind='num', printed='5.0\\sigma', tol=0.0)
 def check_0915():
@@ -10162,6 +10366,36 @@ def check_0915():
     iam_vals = np.array([f_of("iam", z) * D_of("iam", z) for z in z_vals])
     chi2 = np.sum((deficits / 1.0)**2)
     value = np.sqrt(chi2)
+    return locals()
+
+@check(label='ch:s8trend:L203', chapter='ch:s8trend', part=2, title='amplitude deficit today (status)',
+       file='part2/p2_08_s8_trend', line=203, status='calc', kind='num', printed='0.8\\%', tol=0.0)
+def check_3392():
+    'Per cent amplitude deficit today, 1 - D_IAM/D_LCDM, same early amplitude, exact mu. Book line 203, printed 0.8%.'
+    value = amp_deficit(0.0, 'iam')
+    return locals()
+
+@check(label='ch:s8trend:L203:4.25%', chapter='ch:s8trend', part=2, title='growth-rate deficit today (status)',
+       file='part2/p2_08_s8_trend', line=203, status='calc', kind='num', printed='4.25\\%', tol=0.0)
+def check_3393():
+    'Per cent f sigma8 deficit today, same early amplitude, exact mu. Book line 203, printed 4.25%.'
+    value = _b01st_fs8(0.0)
+    return locals()
+
+@check(label='ch:s8trend:L204', chapter='ch:s8trend', part=2, title='growth index moved toward the measured value, per cent of the way',
+       file='part2/p2_08_s8_trend', line=204, status='calc', kind='num', printed='40\\%', tol=0.02)
+def check_3394():
+    'How far the term moves the effective growth index today from LambdaCDM toward the measured gamma = 0.633 (Nguyen, Huterer and Wen 2023): 100 (gamma_IAM - gamma_LCDM)/(0.633 - gamma_LCDM). Book line 204, printed 40%. The recomputed share is 39.2 %; the book gives it as the round figure 40 %, so tol 0.02 (0.8 points) is used instead of half the last digit.'
+    gI, gL = _b01st_gamma('iam'), _b01st_gamma('lcdm')
+    value = 100 * (gI - gL) / (0.633 - gL)
+    return locals()
+
+@check(label='ch:s8trend:L204:0.3', chapter='ch:s8trend', part=2, title='rise of inferred S8 with z_min in statistical sigma',
+       file='part2/p2_08_s8_trend', line=204, status='calc', kind='num', printed='0.3\\sigma', tol=0.0)
+def check_3395():
+    'Rise of the inferred S8 from z_min = 0 to z_min = 1.0 in the trend analysis on the term, in units of the statistical sigma(S8) at z_min = 0. Book line 204, printed 0.3 sigma.'
+    S0, s0 = _b01st_trend(0.0); S1, s1 = _b01st_trend(1.0)
+    value = (S1 - S0) / s0
     return locals()
 
 @check(label='ch:s8trend:L206', chapter='ch:s8trend', part=2, title='Delta chi2 IAM vs LCDM, Level2 chains',
@@ -29907,52 +30141,23 @@ INVENTORY = [
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 213, '', 'calc', '0', 'prediction, nothing to recompute: beta_gamma = 0 is the photon exemption itself (eq:dsn_iff, checked there); the measured side of the row is the bound 0.0052 (ch:dsnote:L213:0.0052)'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 214, '', 'prediction', '1/2', 'table: definition beta_m=Om/2, restated'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 215, '', 'prediction', '-0.136', 'table Value column: canon mu0 prediction restated'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 15, '', 'observed', '3', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 15, '', 'observed', '1', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 25, '', 'measured', '0.3111+/-0.0056', 'measured, not found in the files the chapter names'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 26, '', 'observed', '3', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 26, '', 'observed', '1', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 27, '', 'observed', '1.6', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 28, '', 'observed', '2.8', 'measured, too few printed digits to match against the named files'),
+    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 15, '', 'observed', '3', "measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), '~3 sigma below Planck at low redshift'; the source does not tabulate it and no repository file records it"),
+    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 15, '', 'observed', '1', "measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), 'within 1 sigma at high redshift'; the source does not tabulate it and no repository file records it"),
+    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 26, '', 'observed', '3', "measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), '~3 sigma tension at lower redshifts'; the source does not tabulate it and no repository file records it"),
+    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 26, '', 'observed', '1', "measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), 'consistent within 1 sigma at high redshifts'; the source does not tabulate it and no repository file records it"),
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 40, '', 'none', '0.55', 'GR growth-index prediction, input'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 40, '', 'observed', '3.7', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 41, '', 'observed', '0.639(+0.024/-0.025)', 'measured, not found in the files the chapter names'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 41, '', 'observed', '4.2', 'measured, too few printed digits to match against the named files'),
+    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 41, '', 'observed', '0.639(+0.024/-0.025)', 'measured, source not named: gamma = 0.639 +0.024 -0.025 (f sigma8 + Planck only) of Nguyen, Huterer and Wen 2023 (PRL 131, 111001); the read ledger records 0.633, 3.7 sigma and 4.2 sigma from the abstract but not 0.639, and no other repository file has it'),
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 48, 'eq:s8_mu', 'none', '', 'definition of modified coupling μ(a)'),
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 52, 'eq:s8_Ea', 'none', '', 'definition of activation function E(a)'),
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 56, '', 'none', '0.3153', 'input, Planck Om'),
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 73, '', 'none', '-0.135', 'input, MGCAMB Level-1 chain amplitude'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 85, '', 'calc', '0.585', 'not yet run: draft does not reproduce the printed value (recomputed -0.169641); drafting error on review'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 85, '', 'calc', '0.554', 'not yet run: draft does not reproduce the printed value (recomputed -0.175795); drafting error on review'),
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 90, '', 'none', '0.832', 'input, Planck S8 value'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 101, '', 'measured', '6--9', 'measured, too few printed digits to match against the named files'),
+    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 101, '', 'measured', '6--9', 'range bracket of published survey values, not one rounded number: KiDS-1000 shear 0.759 (8.8 % below 0.832) and DES Y3 3x2pt 0.776 (6.7 % below), both inside 6-9 % (values in verify_sector_tension_output.txt section 11); see for_author'),
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 106, '', 'none', '0.3153', 'input, Om fixed for fit'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 111, '', 'calc', '0.8231', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 111, '', 'calc', '0.8249', 'not yet run: draft rejected (does not run: NameError)'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 111, '', 'calc', '0.8263', 'not yet run: draft rejected (does not run: NameError)'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 111, '', 'calc', '0.8282', 'not yet run: draft rejected (does not run: NameError)'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 111, '', 'calc', '0.8298', 'not yet run: draft rejected (does not run: NameError)'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 111, '', 'calc', '0.8306', 'not yet run: draft rejected (does not run: NameError)'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 112, '', 'calc', '0.027', 'not yet run: draft rejected (drafter skipped: Statistical error sigma(S_8) is the confidence interval from chi-squared\n)'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 112, '', 'calc', '0.028', 'not yet run: draft rejected (drafter skipped: Same as ITEM 527: statistical error requires covariance matrix and chi-sq)'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 112, '', 'calc', '0.030', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 112, '', 'calc', '0.035', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 112, '', 'calc', '0.043', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 112, '', 'calc', '0.052', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 115, '', 'observed', '3', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 122, '', 'calc', '1.68', 'not yet run: draft rejected (no draft returned)'),
+    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 115, '', 'observed', '3', "measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), '~3 sigma low-redshift offset of the measured trend'; the source does not tabulate it and no repository file records it"),
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 190, '', 'prediction', '-0.136', 'predicted coupling mu0, canon locked input'),
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 190, '', 'prediction', '0', 'predicted slip parameter Sigma_0, definition'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 194, '', 'calc', '3.1\\%', 'not yet run: draft does not reproduce the printed value (recomputed 306.111); drafting error on review'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 194, '', 'calc', '1.9\\%', 'not yet run: draft does not reproduce the printed value (recomputed 192.773); drafting error on review'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 194, '', 'calc', '0.9\\%', 'not yet run: draft does not reproduce the printed value (recomputed 94.0681); drafting error on review'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 194, '', 'calc', '0.4\\%', 'not yet run: draft does not reproduce the printed value (recomputed 36.3457); drafting error on review'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 195, '', 'calc', '0.1\\%', 'not yet run: draft does not reproduce the printed value (recomputed 11.701); drafting error on review'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 203, '', 'calc', '0.8\\%', 'not yet run: draft does not reproduce the printed value (recomputed 77.6789); drafting error on review'),
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 203, '', 'calc', 'a tenth', 'ratio to low-z deficit, imprecise restatement'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 203, '', 'calc', '4.25\\%', 'not yet run: draft does not reproduce the printed value (recomputed 425.055); drafting error on review'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 204, '', 'calc', '40\\%', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 204, '', 'calc', '0.3\\sigma', 'not yet run: draft rejected (printed value typed into the code)'),
     (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 41, '', 'observed', '67.4', 'measured, not found in the files the chapter names'),
     (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 42, '', 'observed', '73.04', 'measured, not found in the files the chapter names'),
     (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 43, '', 'observed', '70.39', 'measured, not found in the files the chapter names'),

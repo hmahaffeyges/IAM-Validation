@@ -3,7 +3,7 @@
 Items a check raised that would change a result, a prediction, a locked value, an equation of IAM or the framing of a
 claim. The book was left unchanged for each; the decision is the author's. Every FAIL of `verify_book.py` is listed here.
 
-Items: 5
+Items: 7
 
 ## 1. `docs/book/part2/p2_02_virial.tex:L86-87`
 
@@ -33,7 +33,21 @@ Items: 5
 - **Why it matters:** the range cannot be rerun from the repository; an Eisenstein-Hu linear-power Limber integral with the IAM growth (G_eff = mu G, same early amplitude) gives 0.24 % at L = 30 falling to 0.03 % at L = 1000, i.e. the opposite L ordering and a lower floor
 - **Recommendation:** add the Limber calculation to verify_obs_chapters.py with its output, then check it in verify_book.py
 
-## 5. `docs/book/part2/p2_01_blackholes.tex:L76`
+## 5. `docs/book/part2/p2_08_s8_trend.tex:L101`
+
+- **Now:** the low-redshift weak-lensing surveys sit 6--9 % below Planck
+- **Proposed:** 7--9 %
+- **Why it matters:** the cited surveys give 6.7 % (DES Y3 0.776) and 8.8 % (KiDS-1000 shear 0.759) below S8 = 0.832; 6.7 rounds to 7
+- **Recommendation:** optional: print 7--9 %, or keep 6--9 % as a loose bracket
+
+## 6. `docs/book/part2/p2_08_s8_trend.tex:L204`
+
+- **Now:** the growth index moves 40 % of the way to the measured value
+- **Proposed:** 39 %
+- **Why it matters:** (0.5852 - 0.5543)/(0.633 - 0.5543) = 39.2 %; the check accepts 40 % as a round figure (tol 0.02)
+- **Recommendation:** optional: print 'about 40 %' or '39 %'
+
+## 7. `docs/book/part2/p2_01_blackholes.tex:L76`
 
 - **Now:** caption says 'CODATA 2018; M_sun = 1.98847e30 kg'
 - **Proposed:** either keep 1.98847e30 and drop the implication that it follows from CODATA 2018, or use GM_sun(IAU 2015 nominal) / G(CODATA 2018) = 1.98841e30 kg

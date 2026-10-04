@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 18
+Entries: 24
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -18,6 +18,12 @@ Entries: 18
 | ch:theory | `docs/book/part2/p2_03_theory.tex:891` | `75.46` | GW170817 afterglow H0 = 75.46 +5.34 -5.39 cited to Palmese2024 (doi 10.1103/PhysRevD.109.063508); no repository file records the published value |
 | ch:dsnote | `docs/book/part2/p2_05_dual_sector_note.tex:154` | `0.05` | Limber estimate of the CMB lensing power change at fixed primordial amplitude, 0.05--0.3 % for 30 <= L <= 1000 (also in p2_07_late_time_growth.tex line 107); no committed script prints the L dependence; searched docs/verification/scripts, tests/, mgcamb_validation/forecasts for Limber code |
 | ch:dsnote | `docs/book/part2/p2_05_dual_sector_note.tex:154` | `0.3` | upper end of the same Limber range; same search |
+| ch:s8trend | `docs/book/part2/p2_08_s8_trend.tex:15` | `3` | 'roughly 3 sigma below the Planck LambdaCDM expectation at low redshift' from the trend analysis MNRAS 528, L20 (arXiv 2303.06928); no bib entry, not in any repository file (searched read ledgers, PAPER_ERRATA.md, verification outputs) |
+| ch:s8trend | `docs/book/part2/p2_08_s8_trend.tex:15` | `1` | 'agreement within 1 sigma at high redshift', same source, same search |
+| ch:s8trend | `docs/book/part2/p2_08_s8_trend.tex:26` | `3` | '~3 sigma tension with the Planck value at lower redshifts', same source |
+| ch:s8trend | `docs/book/part2/p2_08_s8_trend.tex:27` | `1` | 'consistent within 1 sigma at high redshifts', same source |
+| ch:s8trend | `docs/book/part2/p2_08_s8_trend.tex:41` | `0.639(+0.024/-0.025)` | growth index from f sigma8 and Planck alone, Nguyen, Huterer and Wen 2023 (bib Nguyen2023); ts_MANIFEST_sector_s8.md records 0.633, 3.7 and 4.2 sigma but not 0.639 |
+| ch:s8trend | `docs/book/part2/p2_08_s8_trend.tex:115` | `3` | '~3 sigma low-redshift offset of the measured trend' (MNRAS 528, L20), same as line 15 |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:34` | `0.1` | Lower end of the hydrostatic-bias estimates 'b from about 0.1 to about 0.4 depending on the method', cited to Nagai2007ICM, Rasia2012, Biffi2016. No repository file holds the values. |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:34` | `0.4` | Upper end of the same range (Nagai2007ICM, Rasia2012, Biffi2016). No repository file holds it. |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:37` | `0.15` | Simulation range b about 0.1-0.15 (Lau2009, Nelson2014); also restated at line 186. No repository file holds it; the committed cluster script does not list it. |

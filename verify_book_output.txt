@@ -1436,10 +1436,15 @@ PASS  ch:dsnote:L236                     ch:dsnote:p2_05_dual_sector_note:236  p
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:s8trend (part2/p2_08_s8_trend.tex)
 PASS  ch:s8trend:L20                     ch:s8trend:p2_08_s8_trend:20  printed a tenth  recomputed 0.104  tol 0.05  [calc] effect amplitude vs low-z weak-lensing deficit
+PASS  ch:s8trend:L25                     ch:s8trend:p2_08_s8_trend:25  printed 0.3111+/-0.0056  recomputed 0.3111  tol 1.000001e-09  [measured] Omega_m prior of the trend analysis (Planck + BAO)  file docs/verification/scripts/verify_s8_trend.py
+PASS  ch:s8trend:L27:1.6                 ch:s8trend:p2_08_s8_trend:27  printed 1.6  recomputed 1.6  tol 0.05  [observed] trend significance, 20-point sample (read ledger)  file docs/book/read_ledgers/ts_MANIFEST_sector_s8.md
+PASS  ch:s8trend:L28                     ch:s8trend:p2_08_s8_trend:28  printed 2.8  recomputed 2.8  tol 0.05  [observed] trend significance, 66-point sample (read ledger)  file docs/book/read_ledgers/ts_MANIFEST_sector_s8.md
 PASS  ch:s8trend:L35                     ch:s8trend:p2_08_s8_trend:35  printed 0.832  recomputed found in file  [observed] measured: printed value found in verify_s8_trend_output.txt, a file the chapter names  file docs/verification/scripts/verify_s8_trend_output.txt
       heavy: python3 docs/verification/scripts/verify_s8_trend.py > docs/verification/scripts/verify_s8_trend_output.txt
 PASS  ch:s8trend:L40                     ch:s8trend:p2_08_s8_trend:40  printed 0.633(+0.025/-0.024)  recomputed found in file  [observed] measured: printed value found in verify_s8_trend_output.txt, a file the chapter names  file docs/verification/scripts/verify_s8_trend_output.txt
       heavy: python3 docs/verification/scripts/verify_s8_trend.py > docs/verification/scripts/verify_s8_trend_output.txt
+PASS  ch:s8trend:L40:3.7                 ch:s8trend:p2_08_s8_trend:40  printed 3.7  recomputed 3.7  tol 0.05  [observed] gamma = 0.55 excluded at 3.7 sigma (Nguyen 2023, read ledger)  file docs/book/read_ledgers/ts_MANIFEST_sector_s8.md
+PASS  ch:s8trend:L41:4.2                 ch:s8trend:p2_08_s8_trend:41  printed 4.2  recomputed 4.2  tol 0.05  [observed] f sigma8 + Planck only: 4.2 sigma (Nguyen 2023, read ledger)  file docs/book/read_ledgers/ts_MANIFEST_sector_s8.md
 PASS  eq:s8_beta                         ch:s8trend:p2_08_s8_trend:56  printed 0.15765  recomputed 0.15765  tol 5.000005e-06  [derived] coupling constant from Om/2
 PASS  ch:s8trend:L63                     ch:s8trend:p2_08_s8_trend:63  printed (algebra)  recomputed True  [derived] E(a) at a=1 equals 1
 PASS  ch:s8trend:L64                     ch:s8trend:p2_08_s8_trend:64  printed (algebra)  recomputed True  [derived] flat universe Om+OL=1
@@ -1456,6 +1461,8 @@ PASS  ch:s8trend:L85:0.78                ch:s8trend:p2_08_s8_trend:85  printed 0
 PASS  ch:s8trend:L85:1.68                ch:s8trend:p2_08_s8_trend:85  printed 1.68  recomputed 1.67846  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:s8trend:L85:0.633(+0.025/-0.024) ch:s8trend:p2_08_s8_trend:85  printed 0.633(+0.025/-0.024)  recomputed found in file  [observed] measured: printed value found in verify_s8_trend_output.txt, a file the chapter names  file docs/verification/scripts/verify_s8_trend_output.txt
       heavy: python3 docs/verification/scripts/verify_s8_trend.py > docs/verification/scripts/verify_s8_trend_output.txt
+PASS  ch:s8trend:L85:0.585               ch:s8trend:p2_08_s8_trend:85  printed 0.585  recomputed 0.585203  tol 5.000005e-04  [calc] effective growth index today, IAM
+PASS  ch:s8trend:L85:0.554               ch:s8trend:p2_08_s8_trend:85  printed 0.554  recomputed 0.554328  tol 5.000005e-04  [calc] effective growth index today, LambdaCDM
 PASS  ch:s8trend:L95                     ch:s8trend:p2_08_s8_trend:95  printed seventeenfold  recomputed 17.5313  tol 0.850001  [calc] (1-mu(1)) over the lensing deficit at z=0 ('about')
 PASS  ch:s8trend:L98                     ch:s8trend:p2_08_s8_trend:98  printed 0.864  recomputed 0.863819  tol 5.011205e-04  [calc] mu at z=0
 PASS  ch:s8trend:L98:0.8255              ch:s8trend:p2_08_s8_trend:98  printed 0.8255  recomputed 0.825537  tol 5.000005e-05  [calc] lensing S8 = S8_Planck D_IAM/D_LCDM, z=0
@@ -1490,6 +1497,18 @@ PASS  ch:s8trend:L102                    ch:s8trend:p2_08_s8_trend:102  printed 
 PASS  ch:s8trend:L102:2.17               ch:s8trend:p2_08_s8_trend:102  printed 2.17  recomputed 2.16814  tol 0.00500001  [calc] f sigma8 deficit z=0.3
 PASS  ch:s8trend:L102:1.35               ch:s8trend:p2_08_s8_trend:102  printed 1.35  recomputed 1.34615  tol 0.00500001  [calc] fσ8 deficit at z=0.5
 PASS  ch:s8trend:L102:0.41               ch:s8trend:p2_08_s8_trend:102  printed 0.41  recomputed 0.408654  tol 0.00500201  [calc] fσ8 deficit at z=1
+PASS  ch:s8trend:L111                    ch:s8trend:p2_08_s8_trend:111  printed 0.8231  recomputed 0.823106  tol 5.000005e-05  [calc] trend analysis on the term: inferred S8, z_min 0.0
+PASS  ch:s8trend:L111:0.8249             ch:s8trend:p2_08_s8_trend:111  printed 0.8249  recomputed 0.824851  tol 5.000005e-05  [calc] trend analysis on the term: inferred S8, z_min 0.2
+PASS  ch:s8trend:L111:0.8263             ch:s8trend:p2_08_s8_trend:111  printed 0.8263  recomputed 0.826272  tol 5.000005e-05  [calc] trend analysis on the term: inferred S8, z_min 0.4
+PASS  ch:s8trend:L111:0.8282             ch:s8trend:p2_08_s8_trend:111  printed 0.8282  recomputed 0.828172  tol 5.000005e-05  [calc] trend analysis on the term: inferred S8, z_min 0.6
+PASS  ch:s8trend:L111:0.8298             ch:s8trend:p2_08_s8_trend:111  printed 0.8298  recomputed 0.829776  tol 5.000005e-05  [calc] trend analysis on the term: inferred S8, z_min 0.8
+PASS  ch:s8trend:L111:0.8306             ch:s8trend:p2_08_s8_trend:111  printed 0.8306  recomputed 0.83065  tol 5.000005e-05  [calc] trend analysis on the term: inferred S8, z_min 1.0
+PASS  ch:s8trend:L112                    ch:s8trend:p2_08_s8_trend:112  printed 0.027  recomputed 0.0268033  tol 5.000005e-04  [calc] trend analysis on the term: statistical sigma(S8), z_min 0.0
+PASS  ch:s8trend:L112:0.028              ch:s8trend:p2_08_s8_trend:112  printed 0.028  recomputed 0.0278874  tol 5.000005e-04  [calc] trend analysis on the term: statistical sigma(S8), z_min 0.2
+PASS  ch:s8trend:L112:0.030              ch:s8trend:p2_08_s8_trend:112  printed 0.030  recomputed 0.0301425  tol 5.000005e-04  [calc] trend analysis on the term: statistical sigma(S8), z_min 0.4
+PASS  ch:s8trend:L112:0.035              ch:s8trend:p2_08_s8_trend:112  printed 0.035  recomputed 0.0351963  tol 5.000005e-04  [calc] trend analysis on the term: statistical sigma(S8), z_min 0.6
+PASS  ch:s8trend:L112:0.043              ch:s8trend:p2_08_s8_trend:112  printed 0.043  recomputed 0.043419  tol 5.000005e-04  [calc] trend analysis on the term: statistical sigma(S8), z_min 0.8
+PASS  ch:s8trend:L112:0.052              ch:s8trend:p2_08_s8_trend:112  printed 0.052  recomputed 0.0518988  tol 5.000005e-04  [calc] trend analysis on the term: statistical sigma(S8), z_min 1.0
 PASS  ch:s8trend:L114                    ch:s8trend:p2_08_s8_trend:114  printed 1.1  recomputed 1.06971  tol 0.0500501  [calc] inferred S8 deviation at zmin=0
 PASS  ch:s8trend:L114:0.2                ch:s8trend:p2_08_s8_trend:114  printed 0.2  recomputed 0.168269  tol 0.05  [calc] inferred S8 deviation at zmin=1.0
 PASS  ch:s8trend:L115                    ch:s8trend:p2_08_s8_trend:115  printed 0.3  recomputed 0.277778  tol 0.0501001  [calc] rise in units of statistical sigma
@@ -1498,6 +1517,7 @@ PASS  ch:s8trend:L122                    ch:s8trend:p2_08_s8_trend:122  printed 
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:s8trend:L122:0.8015             ch:s8trend:p2_08_s8_trend:122  printed 0.8015  recomputed 0.801533  tol 5.000005e-05  [record] IAM chain sigma8, Planck-only  file mgcamb_validation/CHAIN_PAIRS_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:s8trend:L122:1.68               ch:s8trend:p2_08_s8_trend:122  printed 1.68  recomputed 1.67846  tol 0.00500001  [calc] amplitude deficit today, MGCAMB chain form
 PASS  ch:s8trend:L123                    ch:s8trend:p2_08_s8_trend:123  printed 1.6  recomputed 1.57197  tol 0.0500801  [calc] sigma8 shift percent, Planck chains  file mgcamb_validation/CHAIN_PAIRS_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:s8trend:L123:half               ch:s8trend:p2_08_s8_trend:123  printed half  recomputed 0.464286  tol 0.5  [calc] exact-form fraction of MGCAMB deficit
@@ -1514,7 +1534,16 @@ PASS  ch:s8trend:L134                    ch:s8trend:p2_08_s8_trend:134  printed 
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:s8trend:L143                    ch:s8trend:p2_08_s8_trend:143  printed 1.16  recomputed 1.15765  tol 0.00500001  [calc] M_lens/M_dyn today
 PASS  ch:s8trend:L143:1.05               ch:s8trend:p2_08_s8_trend:143  printed 1.05  recomputed 1.05468  tol 0.00504001  [calc] M_lens/M_dyn at z=0.5
+PASS  ch:s8trend:L194                    ch:s8trend:p2_08_s8_trend:194  printed 3.1\%  recomputed 3.06111  tol 0.05  [calc] f sigma8 deficit at z = 0.15
+PASS  ch:s8trend:L194:1.9%               ch:s8trend:p2_08_s8_trend:194  printed 1.9\%  recomputed 1.92773  tol 0.05  [calc] f sigma8 deficit at z = 0.35
+PASS  ch:s8trend:L194:0.9%               ch:s8trend:p2_08_s8_trend:194  printed 0.9\%  recomputed 0.940681  tol 0.05  [calc] f sigma8 deficit at z = 0.65
+PASS  ch:s8trend:L194:0.4%               ch:s8trend:p2_08_s8_trend:194  printed 0.4\%  recomputed 0.363457  tol 0.05  [calc] f sigma8 deficit at z = 1.05
+PASS  ch:s8trend:L195                    ch:s8trend:p2_08_s8_trend:195  printed 0.1\%  recomputed 0.11701  tol 0.05  [calc] f sigma8 deficit at z = 1.55
 PASS  ch:s8trend:L196                    ch:s8trend:p2_08_s8_trend:196  printed 5.0\sigma  recomputed 5.00804  tol 0.05  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:s8trend:L203                    ch:s8trend:p2_08_s8_trend:203  printed 0.8\%  recomputed 0.776789  tol 0.05  [calc] amplitude deficit today (status)
+PASS  ch:s8trend:L203:4.25%              ch:s8trend:p2_08_s8_trend:203  printed 4.25\%  recomputed 4.25055  tol 0.00500001  [calc] growth-rate deficit today (status)
+PASS  ch:s8trend:L204                    ch:s8trend:p2_08_s8_trend:204  printed 40\%  recomputed 39.2455  tol 0.800001  [calc] growth index moved toward the measured value, per cent of the way
+PASS  ch:s8trend:L204:0.3                ch:s8trend:p2_08_s8_trend:204  printed 0.3\sigma  recomputed 0.28147  tol 0.05  [calc] rise of inferred S8 with z_min in statistical sigma
 PASS  ch:s8trend:L206                    ch:s8trend:p2_08_s8_trend:206  printed +0.54  recomputed 0.541  tol 0.00500041  [calc] Delta chi2 IAM vs LCDM, Level2 chains  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
@@ -4193,4 +4222,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3367  FAIL 0  (heavy, read from committed outputs: 677)  inventoried-not-run 2967  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3396  FAIL 0  (heavy, read from committed outputs: 677)  inventoried-not-run 2938  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

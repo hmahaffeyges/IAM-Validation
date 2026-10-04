@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3367 PASS, 0 FAIL, 2967 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3396 PASS, 0 FAIL, 2938 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -1454,20 +1454,20 @@ Totals: 3367 PASS, 0 FAIL, 2967 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 15 |  | observed | `3` | not run: measured, too few printed digits to match against the named files | - |
-| 15 |  | observed | `1` | not run: measured, too few printed digits to match against the named files | - |
+| 15 |  | observed | `3` | not run: measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), '~3 sigma below Planck at low redshift'; the source does not tabulate it and no repository file records it | - |
+| 15 |  | observed | `1` | not run: measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), 'within 1 sigma at high redshift'; the source does not tabulate it and no repository file records it | - |
 | 20 | ch:s8trend:L20 | calc | `a tenth` | numeric: effect amplitude vs low-z weak-lensing deficit | PASS |
-| 25 |  | measured | `0.3111+/-0.0056` | not run: measured, not found in the files the chapter names | - |
-| 26 |  | observed | `3` | not run: measured, too few printed digits to match against the named files | - |
-| 26 |  | observed | `1` | not run: measured, too few printed digits to match against the named files | - |
-| 27 |  | observed | `1.6` | not run: measured, too few printed digits to match against the named files | - |
-| 28 |  | observed | `2.8` | not run: measured, too few printed digits to match against the named files | - |
+| 25 | ch:s8trend:L25 | measured | `0.3111+/-0.0056` | file `docs/verification/scripts/verify_s8_trend.py`: Omega_m prior of the trend analysis (Planck + BAO) | PASS |
+| 26 |  | observed | `3` | not run: measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), '~3 sigma tension at lower redshifts'; the source does not tabulate it and no repository file records it | - |
+| 26 |  | observed | `1` | not run: measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), 'consistent within 1 sigma at high redshifts'; the source does not tabulate it and no repository file records it | - |
+| 27 | ch:s8trend:L27:1.6 | observed | `1.6` | file `docs/book/read_ledgers/ts_MANIFEST_sector_s8.md`: trend significance, 20-point sample (read ledger) | PASS |
+| 28 | ch:s8trend:L28 | observed | `2.8` | file `docs/book/read_ledgers/ts_MANIFEST_sector_s8.md`: trend significance, 66-point sample (read ledger) | PASS |
 | 35 | ch:s8trend:L35 | observed | `0.832` | heavy file `docs/verification/scripts/verify_s8_trend_output.txt`: measured: printed value found in verify_s8_trend_output.txt, a file the chapter names | PASS |
 | 40 | ch:s8trend:L40 | observed | `0.633(+0.025/-0.024)` | heavy file `docs/verification/scripts/verify_s8_trend_output.txt`: measured: printed value found in verify_s8_trend_output.txt, a file the chapter names | PASS |
+| 40 | ch:s8trend:L40:3.7 | observed | `3.7` | file `docs/book/read_ledgers/ts_MANIFEST_sector_s8.md`: gamma = 0.55 excluded at 3.7 sigma (Nguyen 2023, read ledger) | PASS |
 | 40 |  | none | `0.55` | not run: GR growth-index prediction, input | - |
-| 40 |  | observed | `3.7` | not run: measured, too few printed digits to match against the named files | - |
-| 41 |  | observed | `0.639(+0.024/-0.025)` | not run: measured, not found in the files the chapter names | - |
-| 41 |  | observed | `4.2` | not run: measured, too few printed digits to match against the named files | - |
+| 41 | ch:s8trend:L41:4.2 | observed | `4.2` | file `docs/book/read_ledgers/ts_MANIFEST_sector_s8.md`: f sigma8 + Planck only: 4.2 sigma (Nguyen 2023, read ledger) | PASS |
+| 41 |  | observed | `0.639(+0.024/-0.025)` | not run: measured, source not named: gamma = 0.639 +0.024 -0.025 (f sigma8 + Planck only) of Nguyen, Huterer and Wen 2023 (PRL 131, 111001); the read ledger records 0.633, 3.7 sigma and 4.2 sigma from the abstract but not 0.639, and no other repository file has it | - |
 | 48 | eq:s8_mu | none |  | not run: definition of modified coupling μ(a) | - |
 | 52 | eq:s8_Ea | none |  | not run: definition of activation function E(a) | - |
 | 56 | eq:s8_beta | derived | `0.15765` | numeric: coupling constant from Om/2 | PASS |
@@ -1487,8 +1487,8 @@ Totals: 3367 PASS, 0 FAIL, 2967 inventoried and not run. Each run item carries t
 | 85 | ch:s8trend:L85:0.78 | calc | `0.78` | numeric: lensing deficit today from S8 ratio | PASS |
 | 85 | ch:s8trend:L85:1.68 | calc | `1.68` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 85 | ch:s8trend:L85:0.633(+0.025/-0.024) | observed | `0.633(+0.025/-0.024)` | heavy file `docs/verification/scripts/verify_s8_trend_output.txt`: measured: printed value found in verify_s8_trend_output.txt, a file the chapter names | PASS |
-| 85 |  | calc | `0.585` | not run: not yet run: draft does not reproduce the printed value (recomputed -0.169641); drafting error on review | - |
-| 85 |  | calc | `0.554` | not run: not yet run: draft does not reproduce the printed value (recomputed -0.175795); drafting error on review | - |
+| 85 | ch:s8trend:L85:0.585 | calc | `0.585` | numeric: effective growth index today, IAM | PASS |
+| 85 | ch:s8trend:L85:0.554 | calc | `0.554` | numeric: effective growth index today, LambdaCDM | PASS |
 | 90 |  | none | `0.832` | not run: input, Planck S8 value | - |
 | 95 | ch:s8trend:L95 | calc | `seventeenfold` | numeric: (1-mu(1)) over the lensing deficit at z=0 ('about') | PASS |
 | 98 | ch:s8trend:L98 | calc | `0.864` | numeric: mu at z=0 | PASS |
@@ -1520,33 +1520,32 @@ Totals: 3367 PASS, 0 FAIL, 2967 inventoried and not run. Each run item carries t
 | 99 | ch:s8trend:L99:1.000 | calc | `1.000` | numeric: f_IAM/f_LCDM, z=2.0 | PASS |
 | 99 | ch:s8trend:L99:0.8316 | calc | `0.8316` | numeric: growth-rate S8 = S8_Planck (f sigma8 ratio), z=2.0 | PASS |
 | 101 | ch:s8trend:L101 | calc | `0.8` | numeric: rounded lensing deficit today | PASS |
-| 101 |  | measured | `6--9` | not run: measured, too few printed digits to match against the named files | - |
+| 101 |  | measured | `6--9` | not run: range bracket of published survey values, not one rounded number: KiDS-1000 shear 0.759 (8.8 % below 0.832) and DES Y3 3x2pt 0.776 (6.7 % below), both inside 6-9 % (values in verify_sector_tension_output.txt section 11); see for_author | - |
 | 102 | ch:s8trend:L102 | calc | `4.25` | numeric: fσ8 deficit today | PASS |
 | 102 | ch:s8trend:L102:2.17 | calc | `2.17` | numeric: f sigma8 deficit z=0.3 | PASS |
 | 102 | ch:s8trend:L102:1.35 | calc | `1.35` | numeric: fσ8 deficit at z=0.5 | PASS |
 | 102 | ch:s8trend:L102:0.41 | calc | `0.41` | numeric: fσ8 deficit at z=1 | PASS |
 | 106 |  | none | `0.3153` | not run: input, Om fixed for fit | - |
-| 111 |  | calc | `0.8231` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 111 |  | calc | `0.8249` | not run: not yet run: draft rejected (does not run: NameError) | - |
-| 111 |  | calc | `0.8263` | not run: not yet run: draft rejected (does not run: NameError) | - |
-| 111 |  | calc | `0.8282` | not run: not yet run: draft rejected (does not run: NameError) | - |
-| 111 |  | calc | `0.8298` | not run: not yet run: draft rejected (does not run: NameError) | - |
-| 111 |  | calc | `0.8306` | not run: not yet run: draft rejected (does not run: NameError) | - |
-| 112 |  | calc | `0.027` | not run: not yet run: draft rejected (drafter skipped: Statistical error sigma(S_8) is the confidence interval from chi-squared
-) | - |
-| 112 |  | calc | `0.028` | not run: not yet run: draft rejected (drafter skipped: Same as ITEM 527: statistical error requires covariance matrix and chi-sq) | - |
-| 112 |  | calc | `0.030` | not run: not yet run: draft rejected (no draft returned) | - |
-| 112 |  | calc | `0.035` | not run: not yet run: draft rejected (no draft returned) | - |
-| 112 |  | calc | `0.043` | not run: not yet run: draft rejected (no draft returned) | - |
-| 112 |  | calc | `0.052` | not run: not yet run: draft rejected (no draft returned) | - |
+| 111 | ch:s8trend:L111 | calc | `0.8231` | numeric: trend analysis on the term: inferred S8, z_min 0.0 | PASS |
+| 111 | ch:s8trend:L111:0.8249 | calc | `0.8249` | numeric: trend analysis on the term: inferred S8, z_min 0.2 | PASS |
+| 111 | ch:s8trend:L111:0.8263 | calc | `0.8263` | numeric: trend analysis on the term: inferred S8, z_min 0.4 | PASS |
+| 111 | ch:s8trend:L111:0.8282 | calc | `0.8282` | numeric: trend analysis on the term: inferred S8, z_min 0.6 | PASS |
+| 111 | ch:s8trend:L111:0.8298 | calc | `0.8298` | numeric: trend analysis on the term: inferred S8, z_min 0.8 | PASS |
+| 111 | ch:s8trend:L111:0.8306 | calc | `0.8306` | numeric: trend analysis on the term: inferred S8, z_min 1.0 | PASS |
+| 112 | ch:s8trend:L112 | calc | `0.027` | numeric: trend analysis on the term: statistical sigma(S8), z_min 0.0 | PASS |
+| 112 | ch:s8trend:L112:0.028 | calc | `0.028` | numeric: trend analysis on the term: statistical sigma(S8), z_min 0.2 | PASS |
+| 112 | ch:s8trend:L112:0.030 | calc | `0.030` | numeric: trend analysis on the term: statistical sigma(S8), z_min 0.4 | PASS |
+| 112 | ch:s8trend:L112:0.035 | calc | `0.035` | numeric: trend analysis on the term: statistical sigma(S8), z_min 0.6 | PASS |
+| 112 | ch:s8trend:L112:0.043 | calc | `0.043` | numeric: trend analysis on the term: statistical sigma(S8), z_min 0.8 | PASS |
+| 112 | ch:s8trend:L112:0.052 | calc | `0.052` | numeric: trend analysis on the term: statistical sigma(S8), z_min 1.0 | PASS |
 | 114 | ch:s8trend:L114 | calc | `1.1` | numeric: inferred S8 deviation at zmin=0 | PASS |
 | 114 | ch:s8trend:L114:0.2 | calc | `0.2` | numeric: inferred S8 deviation at zmin=1.0 | PASS |
 | 115 | ch:s8trend:L115 | calc | `0.3` | numeric: rise in units of statistical sigma | PASS |
-| 115 |  | observed | `3` | not run: measured, too few printed digits to match against the named files | - |
+| 115 |  | observed | `3` | not run: measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), '~3 sigma low-redshift offset of the measured trend'; the source does not tabulate it and no repository file records it | - |
 | 118 | ch:s8trend:L118 | calc | `2.30` | numeric: repeat threshold where E(a)<0.1 | PASS |
 | 122 | ch:s8trend:L122 | record | `0.8143` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: LCDM chain sigma8, Planck-only | PASS |
 | 122 | ch:s8trend:L122:0.8015 | record | `0.8015` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: IAM chain sigma8, Planck-only | PASS |
-| 122 |  | calc | `1.68` | not run: not yet run: draft rejected (no draft returned) | - |
+| 122 | ch:s8trend:L122:1.68 | calc | `1.68` | numeric: amplitude deficit today, MGCAMB chain form | PASS |
 | 123 | ch:s8trend:L123 | calc | `1.6` | heavy numeric `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: sigma8 shift percent, Planck chains | PASS |
 | 123 | ch:s8trend:L123:half | calc | `half` | numeric: exact-form fraction of MGCAMB deficit | PASS |
 | 128 | ch:s8trend:L128 | calc | `61.5` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from background-coupled Level2b chains | PASS |
@@ -1559,17 +1558,17 @@ Totals: 3367 PASS, 0 FAIL, 2967 inventoried and not run. Each run item carries t
 | 143 | ch:s8trend:L143:1.05 | calc | `1.05` | numeric: M_lens/M_dyn at z=0.5 | PASS |
 | 190 |  | prediction | `-0.136` | not run: predicted coupling mu0, canon locked input | - |
 | 190 |  | prediction | `0` | not run: predicted slip parameter Sigma_0, definition | - |
-| 194 |  | calc | `3.1\%` | not run: not yet run: draft does not reproduce the printed value (recomputed 306.111); drafting error on review | - |
-| 194 |  | calc | `1.9\%` | not run: not yet run: draft does not reproduce the printed value (recomputed 192.773); drafting error on review | - |
-| 194 |  | calc | `0.9\%` | not run: not yet run: draft does not reproduce the printed value (recomputed 94.0681); drafting error on review | - |
-| 194 |  | calc | `0.4\%` | not run: not yet run: draft does not reproduce the printed value (recomputed 36.3457); drafting error on review | - |
-| 195 |  | calc | `0.1\%` | not run: not yet run: draft does not reproduce the printed value (recomputed 11.701); drafting error on review | - |
+| 194 | ch:s8trend:L194 | calc | `3.1\%` | numeric: f sigma8 deficit at z = 0.15 | PASS |
+| 194 | ch:s8trend:L194:1.9% | calc | `1.9\%` | numeric: f sigma8 deficit at z = 0.35 | PASS |
+| 194 | ch:s8trend:L194:0.9% | calc | `0.9\%` | numeric: f sigma8 deficit at z = 0.65 | PASS |
+| 194 | ch:s8trend:L194:0.4% | calc | `0.4\%` | numeric: f sigma8 deficit at z = 1.05 | PASS |
+| 195 | ch:s8trend:L195 | calc | `0.1\%` | numeric: f sigma8 deficit at z = 1.55 | PASS |
 | 196 | ch:s8trend:L196 | calc | `5.0\sigma` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 203 |  | calc | `0.8\%` | not run: not yet run: draft does not reproduce the printed value (recomputed 77.6789); drafting error on review | - |
+| 203 | ch:s8trend:L203 | calc | `0.8\%` | numeric: amplitude deficit today (status) | PASS |
+| 203 | ch:s8trend:L203:4.25% | calc | `4.25\%` | numeric: growth-rate deficit today (status) | PASS |
 | 203 |  | calc | `a tenth` | not run: ratio to low-z deficit, imprecise restatement | - |
-| 203 |  | calc | `4.25\%` | not run: not yet run: draft does not reproduce the printed value (recomputed 425.055); drafting error on review | - |
-| 204 |  | calc | `40\%` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 204 |  | calc | `0.3\sigma` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 204 | ch:s8trend:L204 | calc | `40\%` | numeric: growth index moved toward the measured value, per cent of the way | PASS |
+| 204 | ch:s8trend:L204:0.3 | calc | `0.3\sigma` | numeric: rise of inferred S8 with z_min in statistical sigma | PASS |
 | 206 | ch:s8trend:L206 | calc | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2 IAM vs LCDM, Level2 chains | PASS |
 
 ## Part 2 - ch:sectortension - `docs/book/part2/p2_09_sector_tension.tex`
