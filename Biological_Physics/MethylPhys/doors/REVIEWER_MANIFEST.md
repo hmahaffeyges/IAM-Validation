@@ -91,7 +91,7 @@ Every path below was resolved by looking the name up in the tree, not typed - wh
 
 ## The record, including what failed
 
-- [`DETAILED_VALIDATION_RECORD.md`](../../Record/DETAILED_VALIDATION_RECORD.md) — the long-form record
+- `DETAILED_VALIDATION_RECORD.md` — the long-form record
 - VAL_INDEX.csv (archived privately) — every validation row and its status
 - chain_inventory_v1.json (archived privately) — every chain file with its role
 - ROW9_WORKING_NOTE.md (archived privately) — the working note: what was tried, what failed, what was withdrawn

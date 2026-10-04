@@ -8,4 +8,3 @@
 | [`data_queue/`](data_queue/) | lists of public data sets queued for reading |
 | RETIRED_2026-10/ (archived privately) | earlier README pages, kept unchanged (index (archived privately)) |
 
-`FUTURE_TODO.md` holds the author's running list of future work; the open items with their plan are in the book, Part 5.

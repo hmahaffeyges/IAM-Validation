@@ -37,7 +37,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 
 | component | canonical location | in kit as | status |
 |---|---|---|---|
-| foundation-cohort anchors v1 (GSE51032 n=460, GSE51057 n=188, 115 cells) | REPO `Biological_Physics/Record/VAL_PostAtlas/foundation_cohort/` | `anchors_v1/` | SUPERSEDED by v2 (RULING M1b); keep |
+| foundation-cohort anchors v1 (GSE51032 n=460, GSE51057 n=188, 115 cells) | private archive | `anchors_v1/` | SUPERSEDED by v2 (RULING M1b); keep |
 | anchors v2 (chrX-removed markers) | **KIT** `anchors_v2/` → **must be committed to REPO** beside v1 | `anchors_v2/` + RESEAL_REPORT.json (archived privately) | new 2026-09-19 |
 | Mahalanobis HC hull v0_5 (n=2,523; d≥13.62 / 18.43) | REPO `MethylPhys/chain/Runtime Matrices/` (`mahalanobis_healthy_reference_*`) | not in kit | specified in Issue 003 §5A.7; **PROC-HULL-01 not yet written** |
 | disease-signature matrix v1.13 (81 rows) | REPO `MethylPhys/chain/Disease Matrix/` | not in kit | Stage 8; not exercised in Issue 003 |
@@ -63,7 +63,7 @@ Kit path prefixes below are relative to the kit root. Repo paths are relative to
 | SOP v2.0.0 (current) | **YOUR FOLDER** → **must be committed**; repo holds v1.3 under `VAULT/clinical (RETIRED 2026-09-25 -> RETIRED_2026-09/v1_conductor_2026-09/; its one live function is chain/disease_matching.py)_runtime/` | no | repo is stale; §105 to be amended per RULING A3 |
 | LESSONS_LEARNED.md, CPG_Lessons_Learned_2026-06-29.md, CHANGELOG.md, README_FOR_FUTURE_AI.md | REPO `MethylPhys/chain/` and `MethylPhys/Record/chain_readme_archive/` | no | canonical |
 | Recipe, `_mphys_constants_private.py`, patents, correspondence | **YOUR FOLDER** (vault IP) | no | never in repo or kit; `_mphys_constants_private.py` still names the constant `n_bio` (retired name; the value 20.94 is the Mahaffey number) |
-| MPHYS_CELLREAD_Reproduction_Paper_v3, IAM_for_physicists, Hubble2Methyl, Cellular Margin, Astro-Genetics | REPO `docs/papers/` or `Biological_Physics/papers/` (check each) | no | verify each is committed |
+| MPHYS_CELLREAD_Reproduction_Paper_v3, IAM_for_physicists, Hubble2Methyl, Cellular Margin, Astro-Genetics | private archive | no | verify each is committed |
 
 ## E. Large inputs (your folder, never git)
 

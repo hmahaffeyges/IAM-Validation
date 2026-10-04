@@ -1,6 +1,6 @@
 # Verification: independent recomputation of the IAM physics papers
 
-This folder holds the record of checking the theory, cosmology and physics papers in `docs/papers/`. For each paper, the record gives:
+This folder holds the record of checking the theory, cosmology and physics papers behind the book (the book in `docs/book/` is the canonical text). For each paper, the record gives:
 - every quantitative claim, recomputed from the paper's own equations and stated inputs (Planck 2018 unless noted);
 - every cited literature value, traced to its source and page;
 - the result: **reproduced**, **corrected** (with the evidence), or **open** (with what is needed).

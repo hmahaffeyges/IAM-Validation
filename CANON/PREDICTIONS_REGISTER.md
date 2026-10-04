@@ -1,6 +1,6 @@
 # Predictions and falsifications register
 
-Built 2026-10-01 from 49 papers in `docs/papers/` and the methylation report Issue 002 (1,102 stated predictions, merged by text similarity
+Built 2026-10-01 from the author's 49 source papers and the methylation report (1,102 stated predictions, merged by text similarity
 into 662 entries). Methylation and salmonid development tests are not listed: no prediction is declared for a chain until it is commissioned (author, 2026-10-01). **Status is as stated by each source** unless the entry is from the test
 programme. Merging was automatic: an entry can still hold two related predictions (e.g. matter- and photon-sector H0), and near-duplicates can remain.
 This is the working register for the book's predictions section; each entry is to be checked against its source before it is printed.

@@ -21,7 +21,7 @@ claim nobody made, and a test that is filed as a run loses its bars.
 
 | prefix | what it is | where it lives |
 |---|---|---|
-| `VAL-###` | the pre-atlas validation record | [`Record/`](../../Record/) - historical and frozen; nothing new joins it |
+| `VAL-###` | the pre-atlas validation record | `Record/` - historical and frozen; nothing new joins it |
 | `PROC-XXX-##` | a **test** of the instrument: a question, bars fixed in a pre-registration *before* any data is read, and a sealed outcome that scores each bar | [`doors/`](.) - PROC_&lt;name&gt;_PREREG.md then PROC_&lt;name&gt;_OUTCOME.md, evidence in [`kit/results/`](../kit/results/), one row in [`CHAIN_COMMISSIONING.md`](CHAIN_COMMISSIONING.md) |
 | `RUN-YYYYMMDD-NN` | one **execution** of the chain on one specimen | the run's own ledger row; exemplars committed to example_runs/ (archived privately) and collected in RUN_INDEX.csv (archived privately) |
 
@@ -199,7 +199,7 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 | step | do | where | check |
 |---|---|---|---|
 | 1 | **Seal the record.** OUTCOME.md with the sealed PREREG it answers, sha256 at the foot. Post-seal changes are labelled ADDENDUM/CORRECTION, never edits. | `Record/VAL_PostAtlas/<ID>/` | file exists, checksum line present |
-| 2 | **Kill what it overturns.** List the phrases the finding makes false ("retires"). Grep MethylPhys/manual/build_operations_manual.py (archived privately), MethylPhys/manual/om_data.py (archived privately), `SOP/*.md`, `MethylPhys/kit/*.md`, [`HANDOFF.md`](HANDOFF.md). Fix, or mark WITHDRAWN with the ID. | everywhere | none of the retired phrases render in the PDF (record-of-correction sentences excepted — they must contain the word WITHDRAWN/CORRECTED/SUPERSEDED) |
+| 2 | **Kill what it overturns.** List the phrases the finding makes false ("retires"). Grep MethylPhys/manual/build_operations_manual.py (archived privately), MethylPhys/manual/om_data.py (archived privately), `SOP/*.md`, `MethylPhys/kit/*.md`, `HANDOFF.md`. Fix, or mark WITHDRAWN with the ID. | everywhere | none of the retired phrases render in the PDF (record-of-correction sentences excepted — they must contain the word WITHDRAWN/CORRECTED/SUPERSEDED) |
 | 3 | **Register it.** One row in each register it touches: RECON (a constant/rule changed), FALSIFICATION (a claim withdrawn), §1.6 COSMO_EVIDENCE (a CMB tool found it), CHAIN_COMMISSIONING.md (the stage's status), switching_order.py (the stage's lessons/procedures), FUTURE_GOALS (opened or closed). | om_data.py (archived privately), [`CHAIN_COMMISSIONING.md`](CHAIN_COMMISSIONING.md), switching_order.py (archived privately) | the ID appears in each register the finding touches |
 | 4 | **Close it in code** if it is a lesson. A label, a guard, a refusal to report (`scale=UNMAPPED → reportable=False` is the model). A lesson that lives only in prose is re-learned. | `MethylPhys/chain/` | the guard has a test in the kit |
 | 5 | **Teach it.** ONE canonical paragraph, identical text, in every door a reader opens first: root/Engine/Testing/Atlas READMEs, SOP (new §), RUNBOOK (new § or pre-flight), CPG_Lessons_Learned, README_FOR_FUTURE_AI, and the module docstring it bites. | the door list | the ID appears in every door |
