@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3755 PASS, 0 FAIL, 2583 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3780 PASS, 0 FAIL, 2558 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4113,36 +4113,36 @@ Totals: 3755 PASS, 0 FAIL, 2583 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 22 |  | calc | `10` | not run: not yet run: draft rejected (no draft returned) | - |
-| 25 |  | observed | `0.2` | not run: measured, too few printed digits to match against the named files | - |
-| 32 | eq:qp_peq | none |  | not run: displayed equation, not yet checked | - |
-| 37 | eq:qp_pth | derived |  | not run: not yet run: draft rejected (no draft returned) | - |
+| 22 |  | calc | `10` | not run: input: surface-code threshold of about 10^-2 per operation (Fowler2012, doi 10.1103/physreva.86.032324) | - |
+| 25 |  | observed | `0.2` | not run: measured, source not named | - |
+| 32 | eq:qp_peq | none |  | sympy: p_eq = 1/(1+e^M) from detailed balance | PASS |
+| 37 | eq:qp_pth | derived |  | sympy: p_th(t) = Gamma_up t = p_eq t/T1 | PASS |
 | 51 | ch:qplatforms:L51 | calc | `6.86` | numeric: M transmon 35 mK | PASS |
 | 52 | ch:qplatforms:L52 | calc | `1.05\times10^{-3}` | numeric: p_eq 35 mK | PASS |
-| 52 |  | calc | `68` | not run: not yet run: draft rejected (no draft returned) | - |
+| 52 |  | calc | `68` | not run: input: mean T1 = 68 us of the 105-qubit processor (GoogleWillow2025), restated; checked at ch:qplatforms:L110 | - |
 | 53 | ch:qplatforms:L53 | calc | `6.2\times10^{-7}` | numeric: p_th(t_g) | PASS |
-| 53 |  | calc | `40` | not run: not yet run: draft rejected (no draft returned) | - |
-| 53 |  | calc | `10` | not run: not yet run: draft rejected (no draft returned) | - |
+| 53 |  | calc | `40` | not run: input: illustrative gate time t_g = 40 ns (book's choice) | - |
+| 53 |  | calc | `10` | not run: input: illustrative two-qubit error near 10^-3 (book's round figure) | - |
 | 54 | ch:qplatforms:L54 | calc | `6\times10^{-4}` | numeric: floor on its own gauge | PASS |
 | 55 | ch:qplatforms:L55 | calc | `16.0` | numeric: M at 15 mK | PASS |
 | 55 | ch:qplatforms:L55:1.1\times10^{-7} | calc | `1.1\times10^{-7}` | numeric: p_eq at 15 mK | PASS |
 | 69 | ch:qplatforms:L69 | calc | `6.86` | numeric: M transmon | PASS |
 | 69 | ch:qplatforms:L69:1.1\times10^{-3} | calc | `1.1\times10^{-3}` | numeric: p_eq transmon | PASS |
 | 69 | ch:qplatforms:L69:1.1\times10^{-7} | calc | `1.1\times10^{-7}` | numeric: p_eq at 15 mK | PASS |
-| 69 |  | calc | `35` | not run: not yet run: draft rejected (no draft returned) | - |
-| 69 |  | calc | `15` | not run: not yet run: draft rejected (no draft returned) | - |
+| 69 |  | calc | `35` | not run: input: transmon effective temperature 35 mK (Jin2015), table operating point | - |
+| 69 |  | calc | `15` | not run: input: mixing-chamber temperature 15 mK, table operating point | - |
 | 70 | ch:qplatforms:L70 | calc | `0.48` | numeric: M fluxonium 0.2 GHz 20 mK | PASS |
 | 70 | ch:qplatforms:L70:2.4 | calc | `2.4` | numeric: M fluxonium 1 GHz | PASS |
 | 70 | ch:qplatforms:L70:0.38 | calc | `0.38` | numeric: p_eq fluxonium 0.2 GHz | PASS |
 | 70 | ch:qplatforms:L70:0.083 | calc | `0.083` | numeric: p_eq fluxonium 1 GHz | PASS |
-| 70 |  | calc | `0.2` | not run: not yet run: draft rejected (no draft returned) | - |
-| 70 |  | calc | `20` | not run: not yet run: draft rejected (no draft returned) | - |
+| 70 |  | calc | `0.2` | not run: input: fluxonium gap, lower end 0.2 GHz of the stated range | - |
+| 70 |  | calc | `20` | not run: input: fluxonium bath temperature 20 mK, table operating point | - |
 | 71 | ch:qplatforms:L71 | calc | `5\times10^{-4}` | numeric: M, 43Ca+ hyperfine at 300 K | PASS |
 | 71 | ch:qplatforms:L71:2\times10^{-3} | calc | `2\times10^{-3}` | numeric: M, 171Yb+ at 300 K | PASS |
-| 71 |  | calc | `3.2` | not run: not yet run: draft rejected (no draft returned) | - |
-| 71 |  | calc | `8.0` | not run: not yet run: draft rejected (no draft returned) | - |
-| 71 |  | calc | `12.6` | not run: not yet run: draft rejected (no draft returned) | - |
-| 71 |  | calc | `300` | not run: not yet run: draft rejected (no draft returned) | - |
+| 71 |  | calc | `3.2` | not run: input: hyperfine splitting of 43Ca+, 3.2 GHz (published atomic constant, rounded); used in ch:qplatforms:L71 | - |
+| 71 |  | calc | `8.0` | not run: input: hyperfine splitting of 137Ba+, 8.0 GHz (published atomic constant, rounded) | - |
+| 71 |  | calc | `12.6` | not run: input: hyperfine splitting of 171Yb+, 12.6 GHz (published atomic constant, rounded); used in ch:qplatforms:L71:2\times10^{-3} | - |
+| 71 |  | calc | `300` | not run: input: room temperature 300 K, table operating point | - |
 | 72 | ch:qplatforms:L72 | calc | `0.47` | numeric: Doppler limit Yb+, mK | PASS |
 | 72 | ch:qplatforms:L72:0.10 | calc | `0.10` | numeric: M axial 1 MHz at Doppler | PASS |
 | 72 | ch:qplatforms:L72:0.20 | calc | `0.20` | numeric: M axial 2 MHz | PASS |
@@ -4154,94 +4154,94 @@ Totals: 3755 PASS, 0 FAIL, 2583 inventoried and not run. Each run item carries t
 | 73 | ch:qplatforms:L73:62 | calc | `62` | numeric: n-bar 100 GHz 300 K | PASS |
 | 73 | ch:qplatforms:L73:0.12 | calc | `0.12` | numeric: M Rydberg 10 GHz at 4 K | PASS |
 | 73 | ch:qplatforms:L73:1.2 | calc | `1.2` | numeric: M 100 GHz at 4 K | PASS |
-| 73 |  | calc | `10` | not run: not yet run: draft rejected (no draft returned) | - |
-| 73 |  | calc | `-100` | not run: not yet run: draft rejected (no draft returned) | - |
-| 73 |  | calc | `300` | not run: not yet run: draft rejected (no draft returned) | - |
+| 73 |  | calc | `10` | not run: input: Rydberg transition range, lower end 10 GHz; used in ch:qplatforms:L73 | - |
+| 73 |  | calc | `-100` | not run: input: Rydberg transition range, upper end 100 GHz (the scan read '10--100' as -100); used in ch:qplatforms:L73:0.016 | - |
+| 73 |  | calc | `300` | not run: input: radiation-field temperature 300 K, table operating point | - |
 | 74 | ch:qplatforms:L74 | calc | `4.6\times10^{-4}` | numeric: M NV at 300 K | PASS |
 | 74 | ch:qplatforms:L74:0.034 | calc | `0.034` | numeric: M NV at 4 K | PASS |
-| 74 |  | calc | `2.87` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 74 |  | calc | `300` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 74 |  | calc | `10` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 74 | ch:qplatforms:L74:10^{-3} | calc | `10^{-3}` | numeric: NV sublevels equal to 1e-3 at 300 K | PASS |
+| 74 |  | calc | `2.87` | not run: input: NV zero-field splitting D = 2.87 GHz (published constant); used in ch:qplatforms:L74 | - |
+| 74 |  | calc | `300` | not run: input: lattice temperature 300 K, table operating point | - |
 | 75 | ch:qplatforms:L75 | calc | `7.2` | numeric: M spin 15 GHz 0.1 K | PASS |
 | 75 | ch:qplatforms:L75:0.11 | calc | `0.11` | numeric: M spin 3.5 GHz 1.5 K | PASS |
 | 75 | ch:qplatforms:L75:7.5\times10^{-4} | calc | `7.5\times10^{-4}` | numeric: p_eq 15 GHz 0.1 K | PASS |
 | 75 | ch:qplatforms:L75:0.47 | calc | `0.47` | numeric: p_eq 3.5 GHz 1.5 K | PASS |
-| 75 |  | calc | `3.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 75 |  | calc | `-15` | not run: not yet run: draft rejected (drafter skipped: Line 75 reads: "3.5–15 GHz"; there is no negative value. Likely a transcr) | - |
-| 75 |  | calc | `0.1` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 75 |  | calc | `1.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 75 |  | calc | `3.5` | not run: input: silicon Zeeman gap, lower end 3.5 GHz of the stated range; used in ch:qplatforms:L75:0.11 | - |
+| 75 |  | calc | `-15` | not run: input: silicon Zeeman gap, upper end 15 GHz (the scan read '3.5--15' as -15); used in ch:qplatforms:L75 | - |
+| 75 |  | calc | `0.1` | not run: input: silicon electron temperature 0.1 K, table operating point | - |
+| 75 |  | calc | `1.5` | not run: input: hot-operation temperature 1.5 K (Yang2020hot); checked as a published value at ch:qplatforms:L260 | - |
 | 76 | ch:qplatforms:L76 | calc | `30.9` | numeric: M photon 1550 nm 300 K | PASS |
 | 76 | ch:qplatforms:L76:3.7\times10^{-14} | calc | `3.7\times10^{-14}` | numeric: thermal occupation | PASS |
-| 76 |  | calc | `1550` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 76 |  | calc | `300` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 82 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 9.569930e-29); drafting error on review | - |
+| 76 |  | calc | `1550` | not run: input: photon wavelength 1550 nm; used in ch:qplatforms:L76 | - |
+| 76 |  | calc | `300` | not run: input: waveguide temperature 300 K, table operating point | - |
+| 82 | ch:qplatforms:L82 | calc | `10^{-28}` | numeric: k_B T ln2 for atoms at 10 uK | PASS |
 | 83 | ch:qplatforms:L83 | calc | `3\times10^{-21}` | numeric: k_B T ln2 at 300 K | PASS |
-| 93 |  | interp | `30.9` | not run: not yet checked | - |
-| 102 |  | observed | `0.1` | not run: measured, too few printed digits to match against the named files | - |
-| 110 |  | observed | `68` | not run: measured, too few printed digits to match against the named files | - |
-| 110 |  | observed | `89` | not run: measured, too few printed digits to match against the named files | - |
-| 116 |  | observed | `0.3` | not run: measured, too few printed digits to match against the named files | - |
-| 116 |  | observed | `0.5` | not run: measured, too few printed digits to match against the named files | - |
-| 132 |  | observed | `1.0` | not run: measured, too few printed digits to match against the named files | - |
-| 132 |  | observed | `1.4` | not run: measured, too few printed digits to match against the named files | - |
-| 148 |  | observed | `1.48` | not run: measured, not found in the files the chapter names | - |
-| 148 |  | observed | `0.9999` | not run: measured, not found in the files the chapter names | - |
-| 149 |  | observed | `99.922` | not run: measured, not found in the files the chapter names | - |
-| 149 |  | observed | `7.8\times10^{-4}` | not run: measured, too few printed digits to match against the named files | - |
+| 93 | ch:qplatforms:L93 | interp | `30.9` | numeric: M photon 1550 nm at 300 K (lesson three) | PASS |
+| 102 | ch:qplatforms:L102 | observed | `0.1` | numeric: residual excited-state occupation, 3D transmon (Jin 2015) | PASS |
+| 110 | ch:qplatforms:L110 | observed | `68` | numeric: mean T1 of the 105-qubit processor | PASS |
+| 110 | ch:qplatforms:L110:89 | observed | `89` | numeric: mean T2,CPMG of the 105-qubit processor | PASS |
+| 116 | ch:qplatforms:L116 | observed | `0.3` | numeric: tantalum transmon T1 above 0.3 ms (Place 2021) | PASS |
+| 116 | ch:qplatforms:L116:0.5 | observed | `0.5` | numeric: tantalum transmon T1 approaching 0.5 ms (Wang 2022) | PASS |
+| 132 |  | observed | `1.0` | not run: measured, source not named | - |
+| 132 |  | observed | `1.4` | not run: measured, source not named | - |
+| 148 | ch:qplatforms:L148 | observed | `1.48` | numeric: fluxonium Ramsey T2* (Somoroff 2023) | PASS |
+| 148 | ch:qplatforms:L148:0.9999 | observed | `0.9999` | numeric: fluxonium single-qubit gate fidelity (Somoroff 2023) | PASS |
+| 149 | ch:qplatforms:L149 | observed | `99.922` | numeric: fluxonium CZ fidelity via transmon coupler (Ding 2023) | PASS |
+| 149 | ch:qplatforms:L149:7.8\times10^{-4} | observed | `7.8\times10^{-4}` | numeric: eps = -ln(1-p) at 99.922 % | PASS |
 | 150 | ch:qplatforms:L150 | calc | `12.8` | numeric: threshold 1e-2 over eps 7.8e-4 | PASS |
 | 152 | ch:qplatforms:L152 | calc | `2.4` | numeric: M fluxonium 1 GHz 20 mK | PASS |
 | 152 | ch:qplatforms:L152:8 | calc | `8` | numeric: p_eq fluxonium 1 GHz, per cent | PASS |
 | 153 | ch:qplatforms:L153 | calc | `0.48` | numeric: M fluxonium 0.2 GHz | PASS |
 | 153 | ch:qplatforms:L153:38 | calc | `38` | numeric: p_eq 0.2 GHz, per cent | PASS |
-| 153 |  | calc | `0.2` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 162 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 9.30172); drafting error on review | - |
+| 153 |  | calc | `0.2` | not run: input: fluxonium gap 0.2 GHz (lower end of the range of line 70); used in ch:qplatforms:L153 | - |
+| 162 | ch:qplatforms:L162 | calc | `10^{-3}` | numeric: ion hyperfine M of order 1e-3 at 300 K | PASS |
 | 164 | ch:qplatforms:L164 | calc | `0.47` | numeric: Doppler limit | PASS |
 | 165 | ch:qplatforms:L165 | calc | `9.3` | numeric: n-bar at the Doppler limit, 1 MHz | PASS |
-| 176 |  | observed | `29` | not run: measured, too few printed digits to match against the named files | - |
-| 177 |  | observed | `3.0` | not run: measured, too few printed digits to match against the named files | - |
-| 178 |  | observed | `7.9` | not run: measured, too few printed digits to match against the named files | - |
-| 179 |  | observed | `1.57\times10^{-3}` | not run: measured, not found in the files the chapter names | - |
-| 179 |  | observed | `4.64\times10^{-3}` | not run: measured, not found in the files the chapter names | - |
-| 181 |  | observed | `12000` | not run: measured, not found in the files the chapter names | - |
-| 181 |  | observed | `4200` | not run: measured, not found in the files the chapter names | - |
-| 193 |  | observed | `3.3` | not run: measured, too few printed digits to match against the named files | - |
-| 194 |  | observed | `10` | not run: measured, too few printed digits to match against the named files | - |
-| 204 |  | observed | `8.4` | not run: measured, too few printed digits to match against the named files | - |
-| 205 |  | observed | `9.4` | not run: measured, too few printed digits to match against the named files | - |
+| 176 |  | observed | `29` | not run: measured, source not named | - |
+| 177 |  | observed | `3.0` | not run: measured, source not named | - |
+| 178 |  | observed | `7.9` | not run: measured, source not named | - |
+| 179 |  | observed | `1.57\times10^{-3}` | not run: measured, source not named | - |
+| 179 |  | observed | `4.64\times10^{-3}` | not run: measured, source not named | - |
+| 181 |  | observed | `12000` | not run: measured, source not named | - |
+| 181 |  | observed | `4200` | not run: measured, source not named | - |
+| 193 |  | observed | `3.3` | not run: measured, source not named | - |
+| 194 |  | observed | `10` | not run: measured, source not named | - |
+| 204 |  | observed | `8.4` | not run: measured, source not named | - |
+| 205 |  | observed | `9.4` | not run: measured, source not named | - |
 | 214 | ch:qplatforms:L214 | calc | `620` | numeric: n-bar 10 GHz at 300 K (two significant figures) | PASS |
 | 216 | ch:qplatforms:L216 | calc | `7.8` | numeric: n-bar 10 GHz at 4 K | PASS |
 | 216 | ch:qplatforms:L216:0.43 | calc | `0.43` | numeric: n-bar 100 GHz at 4 K | PASS |
 | 222 | eq:qp_rydberg | derived |  | sympy: Omega* = (a/2b)^(1/3) minimises a/Omega + b Omega^2 | PASS |
-| 227 |  | observed | `99.5` | not run: measured, not found in the files the chapter names | - |
+| 227 | ch:qplatforms:L227 | observed | `99.5` | numeric: neutral-atom parallel CZ fidelity (Evered 2023) | PASS |
 | 228 | ch:qplatforms:L228 | calc | `2.0` | numeric: threshold over eps | PASS |
-| 228 |  | observed | `5.0\times10^{-3}` | not run: measured, too few printed digits to match against the named files | - |
-| 240 |  | calc | `2.87` | not run: not yet run: draft rejected (drafter skipped: NV centre zero-field splitting D = 2.87 GHz is a measured spectroscopic c) | - |
+| 228 | ch:qplatforms:L228:5.0\times10^{-3} | observed | `5.0\times10^{-3}` | numeric: eps = -ln(1-p) at 99.5 % (neutral atoms) | PASS |
+| 240 |  | calc | `2.87` | not run: input: NV zero-field splitting D = 2.87 GHz (published constant), restated from Table tab:qp_which; used in ch:qplatforms:L241 | - |
 | 241 | ch:qplatforms:L241 | calc | `4.6\times10^{-4}` | numeric: M NV 300 K | PASS |
-| 244 |  | observed | `73` | not run: measured, too few printed digits to match against the named files | - |
+| 244 |  | observed | `73` | not run: measured, source not named | - |
 | 249 | ch:qplatforms:L249 | calc | `14.3` | numeric: threshold over eps | PASS |
-| 249 |  | observed | `99.93` | not run: measured, not found in the files the chapter names | - |
-| 249 |  | observed | `7.0\times10^{-4}` | not run: measured, too few printed digits to match against the named files | - |
-| 259 |  | observed | `0.1` | not run: measured, too few printed digits to match against the named files | - |
-| 260 |  | observed | `1.5` | not run: measured, too few printed digits to match against the named files | - |
-| 260 |  | observed | `3.5` | not run: measured, too few printed digits to match against the named files | - |
+| 249 | ch:qplatforms:L249:7.0\times10^{-4} | observed | `7.0\times10^{-4}` | numeric: eps = -ln(1-p) at 99.93 % (NV gate) | PASS |
+| 249 |  | observed | `99.93` | not run: measured, source not named | - |
+| 259 |  | observed | `0.1` | not run: measured, source not named | - |
+| 260 | ch:qplatforms:L260 | observed | `1.5` | numeric: hot silicon unit cell at 1.5 K (Yang 2020) | PASS |
+| 260 |  | observed | `3.5` | not run: measured, source not named | - |
 | 262 | ch:qplatforms:L262 | calc | `0.11` | numeric: M at 3.5 GHz 1.5 K | PASS |
 | 262 | ch:qplatforms:L262:0.47 | calc | `0.47` | numeric: p_eq at 3.5 GHz 1.5 K | PASS |
-| 262 |  | calc | `3.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 262 |  | calc | `1.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 267 |  | observed | `99.5` | not run: measured, not found in the files the chapter names | - |
+| 262 |  | calc | `3.5` | not run: input: 3.5 GHz control frequency of the hot unit cell (Yang2020hot), restated; used in ch:qplatforms:L262 | - |
+| 262 |  | calc | `1.5` | not run: input: 1.5 K hot-operation temperature, restated; checked at ch:qplatforms:L260 | - |
+| 267 | ch:qplatforms:L267 | observed | `99.5` | numeric: silicon two-qubit fidelity 99.5 % (Xue 2022, Noiri 2022) | PASS |
 | 268 | ch:qplatforms:L268 | calc | `5.0\times10^{-3}` | numeric: eps = -ln(1 - p) at 99.5 % fidelity | PASS |
-| 268 |  | observed | `5.0\times10^{-3}` | not run: measured, too few printed digits to match against the named files | - |
-| 268 |  | calc | `99.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 268 | ch:qplatforms:L268:5.0\times10^{-3} | observed | `5.0\times10^{-3}` | numeric: eps = -ln(1-p) at 99.5 % (silicon) | PASS |
+| 268 |  | calc | `99.5` | not run: restates ch:qplatforms:L267 (published silicon two-qubit fidelity 99.5 %) | - |
 | 269 | ch:qplatforms:L269 | calc | `2.0` | numeric: threshold over eps at 99.5 % | PASS |
 | 277 | ch:qplatforms:L277 | calc | `30.9` | numeric: M optical photon | PASS |
 | 277 | ch:qplatforms:L277:3.7\times10^{-14} | calc | `3.7\times10^{-14}` | numeric: thermal occupation | PASS |
-| 281 |  | interp | `99.98` | not run: not yet checked | - |
-| 282 |  | observed | `99.50` | not run: measured, not found in the files the chapter names | - |
-| 282 |  | observed | `99.22` | not run: measured, not found in the files the chapter names | - |
-| 283 |  | observed | `99.72` | not run: measured, not found in the files the chapter names | - |
-| 296 |  | observed | `14.5` | not run: measured, not found in the files the chapter names | - |
-| 296 |  | observed | `12.4` | not run: measured, not found in the files the chapter names | - |
-| 297 |  | observed | `0.5` | not run: measured, too few printed digits to match against the named files | - |
+| 281 | ch:qplatforms:L281 | observed | `99.98` | numeric: photonic SPAM fidelity (PsiQuantum 2025) | PASS |
+| 282 | ch:qplatforms:L282 | observed | `99.50` | numeric: photonic HOM visibility (PsiQuantum 2025) | PASS |
+| 282 | ch:qplatforms:L282:99.22 | observed | `99.22` | numeric: photonic two-qubit fusion fidelity (PsiQuantum 2025) | PASS |
+| 283 | ch:qplatforms:L283 | observed | `99.72` | numeric: photonic chip-to-chip interconnect fidelity (PsiQuantum 2025) | PASS |
+| 296 |  | observed | `14.5` | not run: measured, source not named | - |
+| 296 |  | observed | `12.4` | not run: measured, source not named | - |
+| 297 |  | observed | `0.5` | not run: measured, source not named | - |
 
 ## Part 5 - ch:cmos - `docs/book/part3/p3_06_cmos.tex`
 

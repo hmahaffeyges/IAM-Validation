@@ -3944,6 +3944,8 @@ PASS  ch:walls:L101:10^{-3}              ch:walls:p3_05_coherence_optimum:101  p
 PASS  ch:walls:L106                      ch:walls:p3_05_coherence_optimum:106  printed 1.15  recomputed 1.15051  tol 0.00500001  [calc] ln200/ln100
 
 == Part 5: The Quantum Order of Informational Actualization: Qubits and Semiconductors | ch:qplatforms (part3/p3_10_qubit_platforms.tex)
+PASS  eq:qp_peq                          ch:qplatforms:p3_10_qubit_platforms:32  printed (algebra)  recomputed lhs-rhs=0  [none] p_eq = 1/(1+e^M) from detailed balance
+PASS  eq:qp_pth                          ch:qplatforms:p3_10_qubit_platforms:37  printed (algebra)  recomputed lhs-rhs=0  [derived] p_th(t) = Gamma_up t = p_eq t/T1
 PASS  ch:qplatforms:L51                  ch:qplatforms:p3_10_qubit_platforms:51  printed 6.86  recomputed 6.85606  tol 0.00500001  [calc] M transmon 35 mK
 PASS  ch:qplatforms:L52                  ch:qplatforms:p3_10_qubit_platforms:52  printed 1.05\times10^{-3}  recomputed 0.00105195  tol 5.000005e-06  [calc] p_eq 35 mK
 PASS  ch:qplatforms:L53                  ch:qplatforms:p3_10_qubit_platforms:53  printed 6.2\times10^{-7}  recomputed 6.187914e-07  tol 5.000005e-09  [calc] p_th(t_g)
@@ -3972,33 +3974,56 @@ PASS  ch:qplatforms:L73:0.12             ch:qplatforms:p3_10_qubit_platforms:73 
 PASS  ch:qplatforms:L73:1.2              ch:qplatforms:p3_10_qubit_platforms:73  printed 1.2  recomputed 1.19981  tol 0.05  [calc] M 100 GHz at 4 K
 PASS  ch:qplatforms:L74                  ch:qplatforms:p3_10_qubit_platforms:74  printed 4.6\times10^{-4}  recomputed 4.591276e-04  tol 5.000005e-06  [calc] M NV at 300 K
 PASS  ch:qplatforms:L74:0.034            ch:qplatforms:p3_10_qubit_platforms:74  printed 0.034  recomputed 0.0344346  tol 5.000005e-04  [calc] M NV at 4 K
+PASS  ch:qplatforms:L74:10^{-3}          ch:qplatforms:p3_10_qubit_platforms:74  printed 10^{-3}  recomputed 4.590222e-04  tol 0.00216228  [calc] NV sublevels equal to 1e-3 at 300 K
 PASS  ch:qplatforms:L75                  ch:qplatforms:p3_10_qubit_platforms:75  printed 7.2  recomputed 7.19886  tol 0.05  [calc] M spin 15 GHz 0.1 K
 PASS  ch:qplatforms:L75:0.11             ch:qplatforms:p3_10_qubit_platforms:75  printed 0.11  recomputed 0.111982  tol 0.00500001  [calc] M spin 3.5 GHz 1.5 K
 PASS  ch:qplatforms:L75:7.5\times10^{-4} ch:qplatforms:p3_10_qubit_platforms:75  printed 7.5\times10^{-4}  recomputed 7.468757e-04  tol 5.000005e-06  [calc] p_eq 15 GHz 0.1 K
 PASS  ch:qplatforms:L75:0.47             ch:qplatforms:p3_10_qubit_platforms:75  printed 0.47  recomputed 0.472034  tol 0.00500001  [calc] p_eq 3.5 GHz 1.5 K
 PASS  ch:qplatforms:L76                  ch:qplatforms:p3_10_qubit_platforms:76  printed 30.9  recomputed 30.9414  tol 0.05  [calc] M photon 1550 nm 300 K
 PASS  ch:qplatforms:L76:3.7\times10^{-14} ch:qplatforms:p3_10_qubit_platforms:76  printed 3.7\times10^{-14}  recomputed 3.650095e-14  tol 5.000005e-16  [calc] thermal occupation
+PASS  ch:qplatforms:L82                  ch:qplatforms:p3_10_qubit_platforms:82  printed 10^{-28}  recomputed 9.569930e-29  tol 2.162278e-28  [calc] k_B T ln2 for atoms at 10 uK
 PASS  ch:qplatforms:L83                  ch:qplatforms:p3_10_qubit_platforms:83  printed 3\times10^{-21}  recomputed 2.870979e-21  tol 5.000005e-22  [calc] k_B T ln2 at 300 K
+PASS  ch:qplatforms:L93                  ch:qplatforms:p3_10_qubit_platforms:93  printed 30.9  recomputed 30.9414  tol 0.05  [interp] M photon 1550 nm at 300 K (lesson three)
+PASS  ch:qplatforms:L102                 ch:qplatforms:p3_10_qubit_platforms:102  printed 0.1  recomputed 0.1  tol 0.05  [observed] residual excited-state occupation, 3D transmon (Jin 2015)
+PASS  ch:qplatforms:L110                 ch:qplatforms:p3_10_qubit_platforms:110  printed 68  recomputed 68  tol 0.5  [observed] mean T1 of the 105-qubit processor
+PASS  ch:qplatforms:L110:89              ch:qplatforms:p3_10_qubit_platforms:110  printed 89  recomputed 89  tol 0.5  [observed] mean T2,CPMG of the 105-qubit processor
+PASS  ch:qplatforms:L116                 ch:qplatforms:p3_10_qubit_platforms:116  printed 0.3  recomputed 0.3  tol 0.05  [observed] tantalum transmon T1 above 0.3 ms (Place 2021)
+PASS  ch:qplatforms:L116:0.5             ch:qplatforms:p3_10_qubit_platforms:116  printed 0.5  recomputed 0.5  tol 0.05  [observed] tantalum transmon T1 approaching 0.5 ms (Wang 2022)
+PASS  ch:qplatforms:L148                 ch:qplatforms:p3_10_qubit_platforms:148  printed 1.48  recomputed 1.48  tol 0.00500001  [observed] fluxonium Ramsey T2* (Somoroff 2023)
+PASS  ch:qplatforms:L148:0.9999          ch:qplatforms:p3_10_qubit_platforms:148  printed 0.9999  recomputed 0.9999  tol 5.000005e-05  [observed] fluxonium single-qubit gate fidelity (Somoroff 2023)
+PASS  ch:qplatforms:L149                 ch:qplatforms:p3_10_qubit_platforms:149  printed 99.922  recomputed 99.922  tol 5.000005e-04  [observed] fluxonium CZ fidelity via transmon coupler (Ding 2023)
+PASS  ch:qplatforms:L149:7.8\times10^{-4} ch:qplatforms:p3_10_qubit_platforms:149  printed 7.8\times10^{-4}  recomputed 7.803044e-04  tol 5.000005e-06  [observed] eps = -ln(1-p) at 99.922 %
 PASS  ch:qplatforms:L150                 ch:qplatforms:p3_10_qubit_platforms:150  printed 12.8  recomputed 12.8205  tol 0.05  [calc] threshold 1e-2 over eps 7.8e-4
 PASS  ch:qplatforms:L152                 ch:qplatforms:p3_10_qubit_platforms:152  printed 2.4  recomputed 2.39962  tol 0.05  [calc] M fluxonium 1 GHz 20 mK
 PASS  ch:qplatforms:L152:8               ch:qplatforms:p3_10_qubit_platforms:152  printed 8  recomputed 8.32016  tol 0.5  [calc] p_eq fluxonium 1 GHz, per cent
 PASS  ch:qplatforms:L153                 ch:qplatforms:p3_10_qubit_platforms:153  printed 0.48  recomputed 0.479924  tol 0.00500001  [calc] M fluxonium 0.2 GHz
 PASS  ch:qplatforms:L153:38              ch:qplatforms:p3_10_qubit_platforms:153  printed 38  recomputed 38.227  tol 0.5  [calc] p_eq 0.2 GHz, per cent
+PASS  ch:qplatforms:L162                 ch:qplatforms:p3_10_qubit_platforms:162  printed 10^{-3}  recomputed 0.00109712  tol 0.00216228  [calc] ion hyperfine M of order 1e-3 at 300 K
 PASS  ch:qplatforms:L164                 ch:qplatforms:p3_10_qubit_platforms:164  printed 0.47  recomputed 0.470326  tol 0.00500001  [calc] Doppler limit
 PASS  ch:qplatforms:L165                 ch:qplatforms:p3_10_qubit_platforms:165  printed 9.3  recomputed 9.30172  tol 0.05  [calc] n-bar at the Doppler limit, 1 MHz
 PASS  ch:qplatforms:L214                 ch:qplatforms:p3_10_qubit_platforms:214  printed 620  recomputed 624.599  tol 6.20001  [calc] n-bar 10 GHz at 300 K (two significant figures)
 PASS  ch:qplatforms:L216                 ch:qplatforms:p3_10_qubit_platforms:216  printed 7.8  recomputed 7.84464  tol 0.05  [calc] n-bar 10 GHz at 4 K
 PASS  ch:qplatforms:L216:0.43            ch:qplatforms:p3_10_qubit_platforms:216  printed 0.43  recomputed 0.431129  tol 0.00500001  [calc] n-bar 100 GHz at 4 K
 PASS  eq:qp_rydberg                      ch:qplatforms:p3_10_qubit_platforms:222  printed (algebra)  recomputed True  [derived] Omega* = (a/2b)^(1/3) minimises a/Omega + b Omega^2
+PASS  ch:qplatforms:L227                 ch:qplatforms:p3_10_qubit_platforms:227  printed 99.5  recomputed 99.5  tol 0.05  [observed] neutral-atom parallel CZ fidelity (Evered 2023)
 PASS  ch:qplatforms:L228                 ch:qplatforms:p3_10_qubit_platforms:228  printed 2.0  recomputed 2  tol 0.05  [calc] threshold over eps
+PASS  ch:qplatforms:L228:5.0\times10^{-3} ch:qplatforms:p3_10_qubit_platforms:228  printed 5.0\times10^{-3}  recomputed 0.00501254  tol 5.000005e-05  [observed] eps = -ln(1-p) at 99.5 % (neutral atoms)
 PASS  ch:qplatforms:L241                 ch:qplatforms:p3_10_qubit_platforms:241  printed 4.6\times10^{-4}  recomputed 4.591276e-04  tol 5.000005e-06  [calc] M NV 300 K
 PASS  ch:qplatforms:L249                 ch:qplatforms:p3_10_qubit_platforms:249  printed 14.3  recomputed 14.2857  tol 0.05  [calc] threshold over eps
+PASS  ch:qplatforms:L249:7.0\times10^{-4} ch:qplatforms:p3_10_qubit_platforms:249  printed 7.0\times10^{-4}  recomputed 7.002451e-04  tol 5.000005e-06  [observed] eps = -ln(1-p) at 99.93 % (NV gate)
+PASS  ch:qplatforms:L260                 ch:qplatforms:p3_10_qubit_platforms:260  printed 1.5  recomputed 1.5  tol 0.05  [observed] hot silicon unit cell at 1.5 K (Yang 2020)
 PASS  ch:qplatforms:L262                 ch:qplatforms:p3_10_qubit_platforms:262  printed 0.11  recomputed 0.111982  tol 0.00500001  [calc] M at 3.5 GHz 1.5 K
 PASS  ch:qplatforms:L262:0.47            ch:qplatforms:p3_10_qubit_platforms:262  printed 0.47  recomputed 0.472034  tol 0.00500001  [calc] p_eq at 3.5 GHz 1.5 K
+PASS  ch:qplatforms:L267                 ch:qplatforms:p3_10_qubit_platforms:267  printed 99.5  recomputed 99.5  tol 0.05  [observed] silicon two-qubit fidelity 99.5 % (Xue 2022, Noiri 2022)
 PASS  ch:qplatforms:L268                 ch:qplatforms:p3_10_qubit_platforms:268  printed 5.0\times10^{-3}  recomputed 0.00501254  tol 5.000005e-05  [calc] eps = -ln(1 - p) at 99.5 % fidelity
+PASS  ch:qplatforms:L268:5.0\times10^{-3} ch:qplatforms:p3_10_qubit_platforms:268  printed 5.0\times10^{-3}  recomputed 0.00501254  tol 5.000005e-05  [observed] eps = -ln(1-p) at 99.5 % (silicon)
 PASS  ch:qplatforms:L269                 ch:qplatforms:p3_10_qubit_platforms:269  printed 2.0  recomputed 1.995  tol 0.05  [calc] threshold over eps at 99.5 %
 PASS  ch:qplatforms:L277                 ch:qplatforms:p3_10_qubit_platforms:277  printed 30.9  recomputed 30.9414  tol 0.05  [calc] M optical photon
 PASS  ch:qplatforms:L277:3.7\times10^{-14} ch:qplatforms:p3_10_qubit_platforms:277  printed 3.7\times10^{-14}  recomputed 3.650095e-14  tol 5.000005e-16  [calc] thermal occupation
+PASS  ch:qplatforms:L281                 ch:qplatforms:p3_10_qubit_platforms:281  printed 99.98  recomputed 99.98  tol 0.00500001  [observed] photonic SPAM fidelity (PsiQuantum 2025)
+PASS  ch:qplatforms:L282                 ch:qplatforms:p3_10_qubit_platforms:282  printed 99.50  recomputed 99.5  tol 0.00500001  [observed] photonic HOM visibility (PsiQuantum 2025)
+PASS  ch:qplatforms:L282:99.22           ch:qplatforms:p3_10_qubit_platforms:282  printed 99.22  recomputed 99.22  tol 0.00500001  [observed] photonic two-qubit fusion fidelity (PsiQuantum 2025)
+PASS  ch:qplatforms:L283                 ch:qplatforms:p3_10_qubit_platforms:283  printed 99.72  recomputed 99.72  tol 0.00500001  [observed] photonic chip-to-chip interconnect fidelity (PsiQuantum 2025)
 
 == Part 5: The Quantum Order of Informational Actualization: Qubits and Semiconductors | ch:cmos (part3/p3_06_cmos.tex)
 PASS  ch:cmos:L7                         ch:cmos:p3_06_cmos:7  printed (algebra)  recomputed True  [none] k_B T_j ln2 at 75 C = 3.33e-21 J = 0.021 eV
@@ -4651,4 +4676,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3755  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2583  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3780  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2558  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

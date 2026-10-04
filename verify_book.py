@@ -1696,6 +1696,13 @@ def _b07_bib_title(key):
     entry = bib[bib.index('{' + key + ','):]
     return re.search(r'title\s*=\s*\{(.*?)\},', entry).group(1)
 
+# helpers of the part3/p3_10_qubit_platforms checks
+def _b08_M(f, T):                     # Mahaffey number of a record with gap h f at bath temperature T (Eq. eq:qp_peq)
+    return h * f / (kB * T)
+
+def _b08_eps(F_percent):              # gate error in nats, eps = -ln(1 - p), p = 1 - F (Eq. eq:Agate)
+    return -math.log(F_percent / 100)
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -28186,6 +28193,36 @@ def check_2323():
 
 
 # ======== Part 5 | ch:qplatforms | docs/book/part3/p3_10_qubit_platforms.tex
+@check(label='eq:qp_peq', chapter='ch:qplatforms', part=5, title='p_eq = 1/(1+e^M) from detailed balance',
+       file='part3/p3_10_qubit_platforms', line=32, status='none', kind='sym', printed='', tol=0.0)
+def check_3755():
+    'Equilibrium occupation of the wrong level, p_eq = 1/(1+e^M), M = E/k_B T (Eq. eq:qp_peq). Book line 32. Derived: solve the rate '\
+    'balance Gamma_up p_ground = Gamma_down p_up with p_ground + p_up = 1 and Gamma_up/Gamma_down = e^(-M) for p_up.'
+    M, Gd, p = sp.symbols('M Gamma_down p', positive=True)
+    Gu = Gd * sp.exp(-M)                                  # detailed balance
+    sol = sp.solve(sp.Eq(Gu * (1 - p), Gd * p), p)[0]     # stationary rate equation
+    lhs = sol
+    rhs = 1 / (1 + sp.exp(M))
+    Gu_neg = Gd * sp.exp(-sp.Rational(105, 100) * M)      # control: Boltzmann exponent moved by 5 %
+    neg_lhs = sp.solve(sp.Eq(Gu_neg * (1 - p), Gd * p), p)[0]
+    return locals()
+
+@check(label='eq:qp_pth', chapter='ch:qplatforms', part=5, title='p_th(t) = Gamma_up t = p_eq t/T1',
+       file='part3/p3_10_qubit_platforms', line=37, status='derived', kind='sym', printed='', tol=0.0)
+def check_3756():
+    'Thermal kick probability for t << T1: p_th(t) = Gamma_up t = p_eq t/T1 (Eq. eq:qp_pth). Book line 37. Derived: with '\
+    'Gamma_up + Gamma_down = 1/T1 and Gamma_up/Gamma_down = e^(-M), solve for Gamma_up, integrate dp/dt = Gamma_up (1 - p) from p(0) = 0 '\
+    'and take the leading order in t.'
+    M, T1, t = sp.symbols('M T_1 t', positive=True)
+    Gu, Gd = sp.symbols('Gamma_up Gamma_down', positive=True)
+    s = sp.solve([sp.Eq(Gu + Gd, 1 / T1), sp.Eq(Gu, Gd * sp.exp(-M))], [Gu, Gd], dict=True)[0]
+    pt = sp.Function('p')
+    ode = sp.dsolve(sp.Eq(pt(t).diff(t), s[Gu] * (1 - pt(t))), pt(t), ics={pt(0): 0}).rhs
+    lhs = sp.series(ode, t, 0, 2).removeO()
+    rhs = (1 / (1 + sp.exp(M))) * t / T1
+    neg_lhs = lhs * sp.Rational(105, 100)
+    return locals()
+
 @check(label='ch:qplatforms:L51', chapter='ch:qplatforms', part=5, title='M transmon 35 mK',
        file='part3/p3_10_qubit_platforms', line=51, status='calc', kind='num', printed='6.86', tol=0)
 def check_2324():
@@ -28466,6 +28503,16 @@ def check_2351():
     value=Mf(2.87e9,4)
     return locals()
 
+@check(label='ch:qplatforms:L74:10^{-3}', chapter='ch:qplatforms', part=5, title='NV sublevels equal to 1e-3 at 300 K',
+       file='part3/p3_10_qubit_platforms', line=74, status='calc', kind='num', printed='10^{-3}', tol=0.0)
+def check_3757():
+    'Table tab:qp_which, NV row: the three sublevels are equally occupied to about one part in 10^-3. Recomputed as the fractional '\
+    'Boltzmann difference 1 - exp(-M) between the m_s = 0 and m_s = +-1 sublevels, M = h D/k_B T. Book line 74, printed 10^{-3} (order of '\
+    'magnitude). Inputs: D = 2.87 GHz, T = 300 K (book, same row).'
+    M = _b08_M(2.87e9, 300.0)
+    value = -math.expm1(-M)
+    return locals()
+
 @check(label='ch:qplatforms:L75', chapter='ch:qplatforms', part=5, title='M spin 15 GHz 0.1 K',
        file='part3/p3_10_qubit_platforms', line=75, status='calc', kind='num', printed='7.2', tol=0)
 def check_2352():
@@ -28526,6 +28573,14 @@ def check_2357():
     value=nb(h*c/(1550e-9*kB*300))
     return locals()
 
+@check(label='ch:qplatforms:L82', chapter='ch:qplatforms', part=5, title='k_B T ln2 for atoms at 10 uK',
+       file='part3/p3_10_qubit_platforms', line=82, status='calc', kind='num', printed='10^{-28}', tol=0.0)
+def check_3758():
+    'Figure fig:qp_floors caption: the Landauer cost k_B T ln 2 per bit is of order 10^-28 J for atoms moving at 10 uK. Book line 82, '\
+    'printed 10^{-28} J (order of magnitude). Input: T = 10 uK (book).'
+    value = kB * 10e-6 * LN2
+    return locals()
+
 @check(label='ch:qplatforms:L83', chapter='ch:qplatforms', part=5, title='k_B T ln2 at 300 K',
        file='part3/p3_10_qubit_platforms', line=83, status='calc', kind='num', printed='3\\times10^{-21}', tol=0)
 def check_2358():
@@ -28534,6 +28589,95 @@ def check_2358():
     peq=lambda M: 1/(1+math.exp(M))
     nb=lambda M: 1/math.expm1(M)
     value=kB*300*LN2
+    return locals()
+
+@check(label='ch:qplatforms:L93', chapter='ch:qplatforms', part=5, title='M photon 1550 nm at 300 K (lesson three)',
+       file='part3/p3_10_qubit_platforms', line=93, status='interp', kind='num', printed='30.9', tol=0.0)
+def check_3759():
+    'M = h c/(lambda k_B T) of a 1550 nm photon at room temperature, restated in the third lesson. Book line 93, printed 30.9. '\
+    'Inputs: lambda = 1550 nm, T = 300 K (Table tab:qp_which).'
+    f = c / 1550e-9
+    value = _b08_M(f, 300.0)
+    return locals()
+
+@check(label='ch:qplatforms:L102', chapter='ch:qplatforms', part=5, title='residual excited-state occupation, 3D transmon (Jin 2015)',
+       file='part3/p3_10_qubit_platforms', line=102, status='observed', kind='num', printed='0.1', tol=0.0)
+def check_3760():
+    'Residual excited-state occupation of the 3D transmon whose effective temperature saturated at 35 mK, in per cent. Book line 102, '\
+    'printed 0.1. Input: Jin et al. 2015, Phys. Rev. Lett. 114, 240501 (doi 10.1103/PhysRevLett.114.240501): residual excited-state occupation 0.1 %.'
+    P_res = 0.1e-2                     # Jin2015, residual excited-state occupation
+    value = 100 * P_res
+    return locals()
+
+@check(label='ch:qplatforms:L110', chapter='ch:qplatforms', part=5, title='mean T1 of the 105-qubit processor',
+       file='part3/p3_10_qubit_platforms', line=110, status='observed', kind='num', printed='68', tol=0.0)
+def check_3761():
+    'Mean T1 of the 105-qubit processor, in us. Book line 110, printed 68. Input: Google Quantum AI 2025, Nature, "Quantum error '\
+    'correction below the surface code threshold" (doi 10.1038/s41586-024-08449-y): mean T1 = 68 us.'
+    T1_us = 68.0                       # GoogleWillow2025
+    value = T1_us
+    return locals()
+
+@check(label='ch:qplatforms:L110:89', chapter='ch:qplatforms', part=5, title='mean T2,CPMG of the 105-qubit processor',
+       file='part3/p3_10_qubit_platforms', line=110, status='observed', kind='num', printed='89', tol=0.0)
+def check_3762():
+    'Mean T2,CPMG of the 105-qubit processor, in us. Book line 110, printed 89. Input: Google Quantum AI 2025, Nature '\
+    '(doi 10.1038/s41586-024-08449-y): mean T2,CPMG = 89 us.'
+    T2_us = 89.0                       # GoogleWillow2025
+    value = T2_us
+    return locals()
+
+@check(label='ch:qplatforms:L116', chapter='ch:qplatforms', part=5, title='tantalum transmon T1 above 0.3 ms (Place 2021)',
+       file='part3/p3_10_qubit_platforms', line=116, status='observed', kind='num', printed='0.3', tol=0.0)
+def check_3763():
+    'Lower end of the tantalum-transmon T1 range, in ms. Book line 116, printed 0.3. Input: Place et al. 2021, Nat. Commun. '\
+    '(doi 10.1038/s41467-021-22030-5), "coherence times exceeding 0.3 milliseconds" (title).'
+    T1_ms = 0.3                        # Place2021
+    value = T1_ms
+    return locals()
+
+@check(label='ch:qplatforms:L116:0.5', chapter='ch:qplatforms', part=5, title='tantalum transmon T1 approaching 0.5 ms (Wang 2022)',
+       file='part3/p3_10_qubit_platforms', line=116, status='observed', kind='num', printed='0.5', tol=0.0)
+def check_3764():
+    'Upper end of the tantalum-transmon T1 range, in ms. Book line 116, printed 0.5. Input: Wang et al. 2022, npj Quantum Inf. '\
+    '(doi 10.1038/s41534-021-00510-2), "transmon qubit with a lifetime approaching 0.5 milliseconds" (title).'
+    T1_ms = 0.5                        # Wang2022Ta
+    value = T1_ms
+    return locals()
+
+@check(label='ch:qplatforms:L148', chapter='ch:qplatforms', part=5, title='fluxonium Ramsey T2* (Somoroff 2023)',
+       file='part3/p3_10_qubit_platforms', line=148, status='observed', kind='num', printed='1.48', tol=0.0)
+def check_3765():
+    'Fluxonium Ramsey coherence time T2*, in ms. Book line 148, printed 1.48 +- 0.13. Input: Somoroff et al. 2023, Phys. Rev. Lett. 130, '\
+    '267001 (doi 10.1103/PhysRevLett.130.267001): T2* = 1.48 +- 0.13 ms.'
+    T2s_ms = 1.48                      # Somoroff2023
+    value = T2s_ms
+    return locals()
+
+@check(label='ch:qplatforms:L148:0.9999', chapter='ch:qplatforms', part=5, title='fluxonium single-qubit gate fidelity (Somoroff 2023)',
+       file='part3/p3_10_qubit_platforms', line=148, status='observed', kind='num', printed='0.9999', tol=0.0)
+def check_3766():
+    'Single-qubit gate fidelity of the millisecond fluxonium, lower bound. Book line 148, printed 0.9999. Input: Somoroff et al. 2023 '\
+    '(doi 10.1103/PhysRevLett.130.267001): single-qubit gate fidelity greater than 0.9999.'
+    F1 = 0.9999                        # Somoroff2023
+    value = F1
+    return locals()
+
+@check(label='ch:qplatforms:L149', chapter='ch:qplatforms', part=5, title='fluxonium CZ fidelity via transmon coupler (Ding 2023)',
+       file='part3/p3_10_qubit_platforms', line=149, status='observed', kind='num', printed='99.922', tol=0.0)
+def check_3767():
+    'Mean CZ fidelity of a fluxonium pair coupled through a transmon, in per cent. Book line 149, printed 99.922 +- 0.009. Input: Ding '\
+    'et al. 2023, Phys. Rev. X 13, 031035 (doi 10.1103/PhysRevX.13.031035): CZ fidelity 99.922 +- 0.009 %.'
+    F_CZ = 99.922                      # Ding2023
+    value = F_CZ
+    return locals()
+
+@check(label='ch:qplatforms:L149:7.8\\times10^{-4}', chapter='ch:qplatforms', part=5, title='eps = -ln(1-p) at 99.922 %',
+       file='part3/p3_10_qubit_platforms', line=149, status='observed', kind='num', printed='7.8\\times10^{-4}', tol=0.0)
+def check_3768():
+    'Gate error in nats of the fluxonium CZ, eps = -ln(F) with F = 99.922 % (Ding2023, doi 10.1103/PhysRevX.13.031035). Book line 149, '\
+    'printed 7.8e-4.'
+    value = _b08_eps(99.922)
     return locals()
 
 @check(label='ch:qplatforms:L150', chapter='ch:qplatforms', part=5, title='threshold 1e-2 over eps 7.8e-4',
@@ -28584,6 +28728,16 @@ def check_2363():
     peq=lambda M: 1/(1+math.exp(M))
     nb=lambda M: 1/math.expm1(M)
     value=100*peq(Mf(0.2e9,0.020))
+    return locals()
+
+@check(label='ch:qplatforms:L162', chapter='ch:qplatforms', part=5, title='ion hyperfine M of order 1e-3 at 300 K',
+       file='part3/p3_10_qubit_platforms', line=162, status='calc', kind='num', printed='10^{-3}', tol=0.0)
+def check_3769():
+    'At 300 K the M of an ion hyperfine qubit is of order 10^-3: geometric mean of M = h f/k_B T over the three splittings of Table '\
+    'tab:qp_which. Book line 162, printed 10^{-3} (order of magnitude). Inputs: 3.2 GHz (43Ca+), 8.0 GHz (137Ba+), 12.6 GHz (171Yb+), '\
+    'T = 300 K (book, Table tab:qp_which).'
+    Ms = [_b08_M(f, 300.0) for f in (3.2e9, 8.0e9, 12.6e9)]
+    value = float(np.exp(np.mean(np.log(Ms))))
     return locals()
 
 @check(label='ch:qplatforms:L164', chapter='ch:qplatforms', part=5, title='Doppler limit',
@@ -28643,6 +28797,15 @@ def check_2369():
     W,a,b=sp.symbols('Omega a b',positive=True); sol=sp.solve(sp.diff(a/W+b*W**2,W),W); ok=any(sp.simplify(s-(a/(2*b))**sp.Rational(1,3))==0 for s in sol)
     return locals()
 
+@check(label='ch:qplatforms:L227', chapter='ch:qplatforms', part=5, title='neutral-atom parallel CZ fidelity (Evered 2023)',
+       file='part3/p3_10_qubit_platforms', line=227, status='observed', kind='num', printed='99.5', tol=0.0)
+def check_3770():
+    'Two-qubit entangling gate fidelity on up to 60 atoms in parallel, in per cent. Book line 227, printed 99.5. Input: Evered et al. '\
+    '2023, Nature (doi 10.1038/s41586-023-06481-y): two-qubit gate fidelity 99.5 %.'
+    F2 = 99.5                          # Evered2023
+    value = F2
+    return locals()
+
 @check(label='ch:qplatforms:L228', chapter='ch:qplatforms', part=5, title='threshold over eps',
        file='part3/p3_10_qubit_platforms', line=228, status='calc', kind='num', printed='2.0', tol=0)
 def check_2370():
@@ -28651,6 +28814,13 @@ def check_2370():
     peq=lambda M: 1/(1+math.exp(M))
     nb=lambda M: 1/math.expm1(M)
     value=1e-2/5.0e-3
+    return locals()
+
+@check(label='ch:qplatforms:L228:5.0\\times10^{-3}', chapter='ch:qplatforms', part=5, title='eps = -ln(1-p) at 99.5 % (neutral atoms)',
+       file='part3/p3_10_qubit_platforms', line=228, status='observed', kind='num', printed='5.0\\times10^{-3}', tol=0.0)
+def check_3771():
+    'Gate error in nats at the neutral-atom fidelity 99.5 % (Evered2023, doi 10.1038/s41586-023-06481-y). Book line 228, printed 5.0e-3.'
+    value = _b08_eps(99.5)
     return locals()
 
 @check(label='ch:qplatforms:L241', chapter='ch:qplatforms', part=5, title='M NV 300 K',
@@ -28673,6 +28843,23 @@ def check_2372():
     value=1e-2/7.0e-4
     return locals()
 
+@check(label='ch:qplatforms:L249:7.0\\times10^{-4}', chapter='ch:qplatforms', part=5, title='eps = -ln(1-p) at 99.93 % (NV gate)',
+       file='part3/p3_10_qubit_platforms', line=249, status='observed', kind='num', printed='7.0\\times10^{-4}', tol=0.0)
+def check_3772():
+    'Gate error in nats of the NV electron-nuclear two-qubit gate, eps = -ln(F). Book line 249, printed 7.0e-4. Input: F = 99.93 % as '\
+    'printed on the same line (Bartling2025, doi 10.1103/PhysRevApplied.23.034052).'
+    value = _b08_eps(99.93)
+    return locals()
+
+@check(label='ch:qplatforms:L260', chapter='ch:qplatforms', part=5, title='hot silicon unit cell at 1.5 K (Yang 2020)',
+       file='part3/p3_10_qubit_platforms', line=260, status='observed', kind='num', printed='1.5', tol=0.0)
+def check_3773():
+    'Operating temperature of the hot two-qubit silicon unit cell, in K. Book line 260, printed 1.5. Input: Yang et al. 2020, Nature, '\
+    '"Operation of a silicon quantum processor unit cell above one kelvin" (doi 10.1038/s41586-020-2171-6): operation at 1.5 K.'
+    T_op = 1.5                         # Yang2020hot
+    value = T_op
+    return locals()
+
 @check(label='ch:qplatforms:L262', chapter='ch:qplatforms', part=5, title='M at 3.5 GHz 1.5 K',
        file='part3/p3_10_qubit_platforms', line=262, status='calc', kind='num', printed='0.11', tol=0)
 def check_2373():
@@ -28693,11 +28880,28 @@ def check_2374():
     value=peq(Mf(3.5e9,1.5))
     return locals()
 
+@check(label='ch:qplatforms:L267', chapter='ch:qplatforms', part=5, title='silicon two-qubit fidelity 99.5 % (Xue 2022, Noiri 2022)',
+       file='part3/p3_10_qubit_platforms', line=267, status='observed', kind='num', printed='99.5', tol=0.0)
+def check_3774():
+    'Silicon spin two-qubit gate fidelity, in per cent. Book line 267, printed 99.5. Inputs: Xue et al. 2022, Nature '\
+    '(doi 10.1038/s41586-021-04273-w): all gate fidelities above 99.5 %; Noiri et al. 2022, Nature (doi 10.1038/s41586-021-04182-y): '\
+    'two-qubit gate fidelity 99.5 %.'
+    F_noiri = 99.5                     # Noiri2022 two-qubit gate fidelity (Xue2022: above 99.5 %)
+    value = F_noiri
+    return locals()
+
 @check(label='ch:qplatforms:L268', chapter='ch:qplatforms', part=5, title='eps = -ln(1 - p) at 99.5 % fidelity',
        file='part3/p3_10_qubit_platforms', line=268, status='calc', kind='num', printed='5.0\\times10^{-3}', tol=0)
 def check_2375():
     'eps = -ln(1 - p) at 99.5 % fidelity. Book line 268, printed 5.0\\times10^{-3}.'
     value=-math.log(0.995)
+    return locals()
+
+@check(label='ch:qplatforms:L268:5.0\\times10^{-3}', chapter='ch:qplatforms', part=5, title='eps = -ln(1-p) at 99.5 % (silicon)',
+       file='part3/p3_10_qubit_platforms', line=268, status='observed', kind='num', printed='5.0\\times10^{-3}', tol=0.0)
+def check_3775():
+    'Gate error in nats at the silicon two-qubit fidelity 99.5 % (Noiri2022, doi 10.1038/s41586-021-04182-y). Book line 268, printed 5.0e-3.'
+    value = _b08_eps(99.5)
     return locals()
 
 @check(label='ch:qplatforms:L269', chapter='ch:qplatforms', part=5, title='threshold over eps at 99.5 %',
@@ -28728,6 +28932,42 @@ def check_2378():
     peq=lambda M: 1/(1+math.exp(M))
     nb=lambda M: 1/math.expm1(M)
     value=nb(h*c/(1550e-9*kB*300))
+    return locals()
+
+@check(label='ch:qplatforms:L281', chapter='ch:qplatforms', part=5, title='photonic SPAM fidelity (PsiQuantum 2025)',
+       file='part3/p3_10_qubit_platforms', line=281, status='observed', kind='num', printed='99.98', tol=0.0)
+def check_3776():
+    'Dual-rail state preparation and measurement fidelity, in per cent. Book line 281, printed 99.98 +- 0.01. Input: Nature 2025, '\
+    '"A manufacturable platform for photonic quantum computing" (doi 10.1038/s41586-025-08820-7): SPAM fidelity 99.98 +- 0.01 %.'
+    F_spam = 99.98                     # PsiQuantum2025
+    value = F_spam
+    return locals()
+
+@check(label='ch:qplatforms:L282', chapter='ch:qplatforms', part=5, title='photonic HOM visibility (PsiQuantum 2025)',
+       file='part3/p3_10_qubit_platforms', line=282, status='observed', kind='num', printed='99.50', tol=0.0)
+def check_3777():
+    'Hong-Ou-Mandel visibility between independent sources, in per cent. Book line 282, printed 99.50 +- 0.25. Input: Nature 2025 '\
+    '(doi 10.1038/s41586-025-08820-7): HOM visibility 99.50 +- 0.25 %.'
+    V_hom = 99.50                      # PsiQuantum2025
+    value = V_hom
+    return locals()
+
+@check(label='ch:qplatforms:L282:99.22', chapter='ch:qplatforms', part=5, title='photonic two-qubit fusion fidelity (PsiQuantum 2025)',
+       file='part3/p3_10_qubit_platforms', line=282, status='observed', kind='num', printed='99.22', tol=0.0)
+def check_3778():
+    'Two-qubit fusion fidelity, in per cent. Book line 282, printed 99.22 +- 0.12. Input: Nature 2025 (doi 10.1038/s41586-025-08820-7): '\
+    'fusion fidelity 99.22 +- 0.12 %.'
+    F_fus = 99.22                      # PsiQuantum2025
+    value = F_fus
+    return locals()
+
+@check(label='ch:qplatforms:L283', chapter='ch:qplatforms', part=5, title='photonic chip-to-chip interconnect fidelity (PsiQuantum 2025)',
+       file='part3/p3_10_qubit_platforms', line=283, status='observed', kind='num', printed='99.72', tol=0.0)
+def check_3779():
+    'Chip-to-chip interconnect fidelity, in per cent. Book line 283, printed 99.72 +- 0.04. Input: Nature 2025 '\
+    '(doi 10.1038/s41586-025-08820-7): chip-to-chip interconnect fidelity 99.72 +- 0.04 %.'
+    F_c2c = 99.72                      # PsiQuantum2025
+    value = F_c2c
     return locals()
 
 
@@ -34054,80 +34294,55 @@ INVENTORY = [
     (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 85, '', 'calc', '0.07', 'input: Lamb-Dicke parameter eta = 0.07 (illustrative); the prefactor eta^2 (pi/2)^2 is checked by ch:walls:L85'),
     (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 91, '', 'observed', '29', 'measured, source not named'),
     (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 92, '', 'observed', '3.0', 'measured, source not named'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 22, '', 'calc', '10', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 25, '', 'observed', '0.2', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 32, 'eq:qp_peq', 'none', '', 'displayed equation, not yet checked'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 37, 'eq:qp_pth', 'derived', '', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 52, '', 'calc', '68', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 53, '', 'calc', '40', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 53, '', 'calc', '10', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 69, '', 'calc', '35', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 69, '', 'calc', '15', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 70, '', 'calc', '0.2', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 70, '', 'calc', '20', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 71, '', 'calc', '3.2', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 71, '', 'calc', '8.0', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 71, '', 'calc', '12.6', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 71, '', 'calc', '300', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 73, '', 'calc', '10', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 73, '', 'calc', '-100', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 73, '', 'calc', '300', 'not yet run: draft rejected (no draft returned)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 74, '', 'calc', '2.87', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 74, '', 'calc', '300', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 74, '', 'calc', '10', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 75, '', 'calc', '3.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 75, '', 'calc', '-15', 'not yet run: draft rejected (drafter skipped: Line 75 reads: "3.5–15 GHz"; there is no negative value. Likely a transcr)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 75, '', 'calc', '0.1', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 75, '', 'calc', '1.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 76, '', 'calc', '1550', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 76, '', 'calc', '300', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 82, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 9.569930e-29); drafting error on review'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 93, '', 'interp', '30.9', 'not yet checked'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 102, '', 'observed', '0.1', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 110, '', 'observed', '68', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 110, '', 'observed', '89', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 116, '', 'observed', '0.3', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 116, '', 'observed', '0.5', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 132, '', 'observed', '1.0', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 132, '', 'observed', '1.4', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 148, '', 'observed', '1.48', 'measured, not found in the files the chapter names'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 148, '', 'observed', '0.9999', 'measured, not found in the files the chapter names'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 149, '', 'observed', '99.922', 'measured, not found in the files the chapter names'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 149, '', 'observed', '7.8\\times10^{-4}', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 153, '', 'calc', '0.2', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 162, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 9.30172); drafting error on review'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 176, '', 'observed', '29', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 177, '', 'observed', '3.0', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 178, '', 'observed', '7.9', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 179, '', 'observed', '1.57\\times10^{-3}', 'measured, not found in the files the chapter names'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 179, '', 'observed', '4.64\\times10^{-3}', 'measured, not found in the files the chapter names'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 181, '', 'observed', '12000', 'measured, not found in the files the chapter names'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 181, '', 'observed', '4200', 'measured, not found in the files the chapter names'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 193, '', 'observed', '3.3', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 194, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 204, '', 'observed', '8.4', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 205, '', 'observed', '9.4', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 227, '', 'observed', '99.5', 'measured, not found in the files the chapter names'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 228, '', 'observed', '5.0\\times10^{-3}', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 240, '', 'calc', '2.87', 'not yet run: draft rejected (drafter skipped: NV centre zero-field splitting D = 2.87 GHz is a measured spectroscopic c)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 244, '', 'observed', '73', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 249, '', 'observed', '99.93', 'measured, not found in the files the chapter names'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 249, '', 'observed', '7.0\\times10^{-4}', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 259, '', 'observed', '0.1', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 260, '', 'observed', '1.5', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 260, '', 'observed', '3.5', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 262, '', 'calc', '3.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 262, '', 'calc', '1.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 267, '', 'observed', '99.5', 'measured, not found in the files the chapter names'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 268, '', 'observed', '5.0\\times10^{-3}', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 268, '', 'calc', '99.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 281, '', 'interp', '99.98', 'not yet checked'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 282, '', 'observed', '99.50', 'measured, not found in the files the chapter names'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 282, '', 'observed', '99.22', 'measured, not found in the files the chapter names'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 283, '', 'observed', '99.72', 'measured, not found in the files the chapter names'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 296, '', 'observed', '14.5', 'measured, not found in the files the chapter names'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 296, '', 'observed', '12.4', 'measured, not found in the files the chapter names'),
-    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 297, '', 'observed', '0.5', 'measured, too few printed digits to match against the named files'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 22, '', 'calc', '10', 'input: surface-code threshold of about 10^-2 per operation (Fowler2012, doi 10.1103/physreva.86.032324)'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 25, '', 'observed', '0.2', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 52, '', 'calc', '68', 'input: mean T1 = 68 us of the 105-qubit processor (GoogleWillow2025), restated; checked at ch:qplatforms:L110'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 53, '', 'calc', '40', "input: illustrative gate time t_g = 40 ns (book's choice)"),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 53, '', 'calc', '10', "input: illustrative two-qubit error near 10^-3 (book's round figure)"),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 69, '', 'calc', '35', 'input: transmon effective temperature 35 mK (Jin2015), table operating point'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 69, '', 'calc', '15', 'input: mixing-chamber temperature 15 mK, table operating point'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 70, '', 'calc', '0.2', 'input: fluxonium gap, lower end 0.2 GHz of the stated range'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 70, '', 'calc', '20', 'input: fluxonium bath temperature 20 mK, table operating point'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 71, '', 'calc', '3.2', 'input: hyperfine splitting of 43Ca+, 3.2 GHz (published atomic constant, rounded); used in ch:qplatforms:L71'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 71, '', 'calc', '8.0', 'input: hyperfine splitting of 137Ba+, 8.0 GHz (published atomic constant, rounded)'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 71, '', 'calc', '12.6', 'input: hyperfine splitting of 171Yb+, 12.6 GHz (published atomic constant, rounded); used in ch:qplatforms:L71:2\\times10^{-3}'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 71, '', 'calc', '300', 'input: room temperature 300 K, table operating point'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 73, '', 'calc', '10', 'input: Rydberg transition range, lower end 10 GHz; used in ch:qplatforms:L73'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 73, '', 'calc', '-100', "input: Rydberg transition range, upper end 100 GHz (the scan read '10--100' as -100); used in ch:qplatforms:L73:0.016"),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 73, '', 'calc', '300', 'input: radiation-field temperature 300 K, table operating point'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 74, '', 'calc', '2.87', 'input: NV zero-field splitting D = 2.87 GHz (published constant); used in ch:qplatforms:L74'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 74, '', 'calc', '300', 'input: lattice temperature 300 K, table operating point'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 75, '', 'calc', '3.5', 'input: silicon Zeeman gap, lower end 3.5 GHz of the stated range; used in ch:qplatforms:L75:0.11'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 75, '', 'calc', '-15', "input: silicon Zeeman gap, upper end 15 GHz (the scan read '3.5--15' as -15); used in ch:qplatforms:L75"),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 75, '', 'calc', '0.1', 'input: silicon electron temperature 0.1 K, table operating point'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 75, '', 'calc', '1.5', 'input: hot-operation temperature 1.5 K (Yang2020hot); checked as a published value at ch:qplatforms:L260'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 76, '', 'calc', '1550', 'input: photon wavelength 1550 nm; used in ch:qplatforms:L76'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 76, '', 'calc', '300', 'input: waveguide temperature 300 K, table operating point'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 132, '', 'observed', '1.0', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 132, '', 'observed', '1.4', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 153, '', 'calc', '0.2', 'input: fluxonium gap 0.2 GHz (lower end of the range of line 70); used in ch:qplatforms:L153'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 176, '', 'observed', '29', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 177, '', 'observed', '3.0', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 178, '', 'observed', '7.9', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 179, '', 'observed', '1.57\\times10^{-3}', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 179, '', 'observed', '4.64\\times10^{-3}', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 181, '', 'observed', '12000', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 181, '', 'observed', '4200', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 193, '', 'observed', '3.3', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 194, '', 'observed', '10', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 204, '', 'observed', '8.4', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 205, '', 'observed', '9.4', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 240, '', 'calc', '2.87', 'input: NV zero-field splitting D = 2.87 GHz (published constant), restated from Table tab:qp_which; used in ch:qplatforms:L241'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 244, '', 'observed', '73', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 249, '', 'observed', '99.93', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 259, '', 'observed', '0.1', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 260, '', 'observed', '3.5', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 262, '', 'calc', '3.5', 'input: 3.5 GHz control frequency of the hot unit cell (Yang2020hot), restated; used in ch:qplatforms:L262'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 262, '', 'calc', '1.5', 'input: 1.5 K hot-operation temperature, restated; checked at ch:qplatforms:L260'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 268, '', 'calc', '99.5', 'restates ch:qplatforms:L267 (published silicon two-qubit fidelity 99.5 %)'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 296, '', 'observed', '14.5', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 296, '', 'observed', '12.4', 'measured, source not named'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 297, '', 'observed', '0.5', 'measured, source not named'),
     (5, 'ch:cmos', 'part3/p3_06_cmos', 11, '', 'calc', '4.3', 'not yet run: draft rejected (printed value typed into the code)'),
     (5, 'ch:cmos', 'part3/p3_06_cmos', 14, '', 'openprob', '0.0017', 'not yet checked'),
     (5, 'ch:cmos', 'part3/p3_06_cmos', 17, '', 'openprob', '20.0\\times10^9', 'not yet checked'),

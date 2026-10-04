@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 66
+Entries: 87
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -74,3 +74,24 @@ Entries: 66
 | ch:walls | `docs/book/part3/p3_05_coherence_optimum.tex:59` | `89` | mean T2,CPMG = 89 us of the same processor, GoogleWillow2025; not in the repository |
 | ch:walls | `docs/book/part3/p3_05_coherence_optimum.tex:91` | `29` | background heating 29 +- 4 quanta/s, centre-of-mass mode of a Ba+-Yb+ crystal, cited to Burton2023; not in the repository and not confirmed |
 | ch:walls | `docs/book/part3/p3_05_coherence_optimum.tex:92` | `3.0` | stretch-mode heating 3.0 +- 0.5 quanta/s, Burton2023; not confirmed |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:25` | `0.2` | storage threshold 0.2 % of the triangular colour code under circuit-level depolarising noise, cited to Chamberland2020NJP (doi 10.1088/1367-2630/ab68fd); value not held in any repository file (searched Biological_Physics/, CANON/, docs/verification/, results/, data/) and not confirmed here from the paper |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:132` | `1.0` | lower end of the 1.0-1.4 ms energy-relaxation times of on-chip quantum memories, cited to Ganjam2024 (doi 10.1038/s41467-024-47857-6); not in any repository file and not confirmed here from the paper |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:132` | `1.4` | upper end of the 1.0-1.4 ms range, Ganjam2024 (doi 10.1038/s41467-024-47857-6); not in any repository file and not confirmed here |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:176` | `29` | background heating rate 29+-4 quanta/s, centre-of-mass mode, Ba-Yb crystal in an X-junction trap, Burton2023 (doi 10.1103/PhysRevLett.130.173202); not in any repository file and not confirmed here from the paper |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:177` | `3.0` | background heating rate 3.0+-0.5 quanta/s, stretch mode, Burton2023 (doi 10.1103/PhysRevLett.130.173202); not in any repository file and not confirmed here from the paper |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:178` | `7.9` | two-qubit error 7.9(2)e-4 of the 137Ba+ processor averaged over all zones, Ransford2025 (doi 10.1038/s41586-026-10676-4); not in any repository file and not confirmed here |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:179` | `1.57\times10^{-3}` | two-qubit error 1.57e-3 of the 171Yb+ H2 processor, DeCross2025 (doi 10.1103/PhysRevX.15.021052); not in any repository file and not confirmed here |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:179` | `4.64\times10^{-3}` | median two-qubit error 4.64e-3 by direct randomized benchmarking, Chen2024Forte (doi 10.22331/q-2024-11-07-1516); not in any repository file and not confirmed here |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:181` | `12000` | T1 = 12000+-2200 s of a 171Yb+ hyperfine qubit by process tomography, WangYb2021 (doi 10.1038/s41467-020-20330-w); not in any repository file and not confirmed here |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:181` | `4200` | T2 = 4200+-580 s of the same qubit, WangYb2021 (doi 10.1038/s41467-020-20330-w); not in any repository file and not confirmed here |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:193` | `3.3` | 3.3 % coherence lost per sympathetic-cooling cycle of a 43Ca+ memory qubit, Home2009 (doi 10.1103/PhysRevA.79.050305); not in any repository file and not confirmed here |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:194` | `10` | natural limit of order 10^-4 per cooling cycle, Home2009 (doi 10.1103/PhysRevA.79.050305); not in any repository file and not confirmed here |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:204` | `8.4` | smooth-gate two-qubit error 8.4(7)e-5 without ground-state cooling, Hughes2025 (doi 10.48550/arXiv.2510.17286); not in any repository file and not confirmed here |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:205` | `9.4` | mean phonon occupation 9.4(3) up to which the smooth-gate error stays below 5e-4, Hughes2025 (doi 10.48550/arXiv.2510.17286); not in any repository file and not confirmed here |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:244` | `73` | Orbach-type activation energy 73(4) meV for NV longitudinal relaxation, Jarmola2012 (doi 10.1103/PhysRevLett.108.197601); not in any repository file and not confirmed here |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:249` | `99.93` | NV electron-nuclear two-qubit gate fidelity 99.93(5) % by gate-set tomography, Bartling2025 (doi 10.1103/PhysRevApplied.23.034052); not in any repository file and not confirmed here (eps = 7.0e-4 derived from it is checked at ch:qplatforms:L249:7.0\times10^{-4}) |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:259` | `0.1` | electron and lattice temperature near 0.1 K for silicon spin qubits in a dilution refrigerator; no citation in the sentence, no repository file holds it |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:260` | `3.5` | control frequency 3.5 GHz of the hot silicon unit cell, Yang2020hot (doi 10.1038/s41586-020-2171-6); not in any repository file and not confirmed here |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:296` | `14.5` | parity-switching time 14.5+-0.3 us of the X loop in a tetron device, Tetron2026 (doi 10.1103/cx4w-lxx1); not in any repository file and not confirmed here |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:296` | `12.4` | parity-switching time 12.4+-0.4 ms of the Z loop, Tetron2026 (doi 10.1103/cx4w-lxx1); not in any repository file and not confirmed here |
+| ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:297` | `0.5` | assignment error 0.5 % of the Z-loop measurement, Tetron2026 (doi 10.1103/cx4w-lxx1); not in any repository file and not confirmed here |
