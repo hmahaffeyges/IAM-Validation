@@ -2549,6 +2549,44 @@ _B15N_RM = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/'
 _B15N_METH_RERUN = 'methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output'
 def _b15n_Hb(e):
     return -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
+DATA_FILES['mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml'] = 'Cobaya input of the Level 1 Planck chain with mu0 fixed (MGCAMB amplitude)'   # 4 kB
+
+# helpers of the appendices/app_E_formulas checks
+_B15E_RM = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/'
+_B15E_METH_RERUN = 'methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output'
+
+def _b15e_winfo(a):
+    'w = -1 - (1/3) d ln rho / d ln a for rho_info proportional to E(a) = exp(1 - 1/a), the log-derivative taken numerically.'
+    d = 1e-6
+    return -1 - (math.log(float(E_act(a * math.exp(d)))) - math.log(float(E_act(a * math.exp(-d))))) / (2 * d) / 3
+
+def _b15e_lambda():
+    'Pieces of ch:lambda: (l_P/l_H)^2 at H0 67.4, Omega_L = 1 - Omega_m - Omega_r (Omega_r 9.15e-5), and the measured rho_L/rho_vac with rho_vac = c^7/(hbar G^2).'
+    H = Hsi(67.4); lH = c / H
+    OLv = 1 - Om - 9.15e-5
+    rho_c = 3 * H**2 / (8 * math.pi * G)
+    obs = OLv * rho_c * c**2 / (c**7 / (hbar * G**2))
+    base = 2 / math.pi * (lP / lH)**2 * (Ob / Om)
+    return base, OLv, obs
+
+def _b15e_kerr_TS(chi, M=Msun):
+    'T_BH S_BH / (M c^2) of a Kerr hole from its horizon: r_+ = (GM/c^2)(1 + sqrt(1-chi^2)), A = 4 pi (r_+^2 + a^2), a = chi GM/c^2, S = k_B A c^3/(4 G hbar), kappa = c^2 (r_+ - r_-)/(2 (r_+^2 + a^2)), T = hbar kappa/(2 pi c k_B).'
+    rg = G * M / c**2; a = chi * rg
+    rp = rg * (1 + math.sqrt(1 - chi**2)); rm = rg * (1 - math.sqrt(1 - chi**2))
+    A = 4 * math.pi * (rp**2 + a**2)
+    S = kB * A * c**3 / (4 * G * hbar)
+    kappa = c**2 * (rp - rm) / (2 * (rp**2 + a**2))
+    T = hbar * kappa / (2 * math.pi * c * kB)
+    return T * S / (M * c**2)
+
+def _b15e_Hb(e):
+    return -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
+
+def _b15e_ncpg():
+    m = re.search(r'hg19 CpG index \(([\d,]+) sites\)', file_text('Biological_Physics/MethylPhys/atlas/v2/README.md'))
+    return float(m.group(1).replace(',', ''))
+
+# ---------------------------------------------------------------- line 56: w_info
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -40111,12 +40149,44 @@ def check_4655():
 
 
 # ======== Part 8 | app:formulas | docs/book/appendices/app_E_formulas.tex
+@check(label='app:formulas:L56:-1.67', chapter='app:formulas', part=8, title='w_info at a = 0.5',
+       file='appendices/app_E_formulas', line=56, status='derived', kind='num', printed='-1.67', tol=0.0)
+def check_4656():
+    'Equation of state of a component with rho proportional to E(a) = exp(1 - 1/a), from the continuity equation w = -1 - (1/3) dln rho/dln a, at a = 0.5. Book line 56, printed -1.67.'
+    value = _b15e_winfo(0.5)
+    return locals()
+
+@check(label='app:formulas:L56:-1.33', chapter='app:formulas', part=8, title='w_info at a = 1',
+       file='appendices/app_E_formulas', line=56, status='derived', kind='num', printed='-1.33', tol=0.0)
+def check_4657():
+    'Same, at a = 1. Book line 56, printed -1.33.'
+    value = _b15e_winfo(1.0)
+    return locals()
+
+@check(label='app:formulas:L56:-1.17', chapter='app:formulas', part=8, title='w_info at a = 2',
+       file='appendices/app_E_formulas', line=56, status='derived', kind='num', printed='-1.17', tol=0.0)
+def check_4658():
+    'Same, at a = 2. Book line 56, printed -1.17.'
+    value = _b15e_winfo(2.0)
+    return locals()
+
 @check(label='app:formulas:L58', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
        file='appendices/app_E_formulas', line=58, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2710():
     'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 58, printed 0.15765.'
     value = Om/2
     return locals()
+
+@check(label='app:formulas:L58:0.3153', chapter='app:formulas', part=8, title='Omega_m behind beta_m (canon)',
+       file='appendices/app_E_formulas', line=58, status='derived', kind='file', printed='0.3153', tol=0.0, source='CANON/iam_canon.json')
+def check_4659():
+    'Omega_m from which beta_m is derived, read from the derivation of beta_m in the canon (Planck 2018 TT,TE,EE+lowE+lensing, Aghanim et al. 2020 Table 2), checked against 2 beta_m. Book line 58, printed 0.3153.'
+    m = re.search(r'Omega_m = ([\d.]+)', CANON['beta_m']['derivation'])
+    Om_c = float(m.group(1))
+    value = Om_c if abs(Om_c - 2 * _cv('beta_m')) < 1e-9 else float('nan')
+    return locals()
+
+# ---------------------------------------------------------------- lines 126, 139: Jacobson and the apparent horizon
 
 @check(label='app:formulas:L100', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
        file='appendices/app_E_formulas', line=100, status='derived', kind='num', printed='0.3153', tol=0.0)
@@ -40146,6 +40216,35 @@ def check_2714():
     'same value as p1_02_iams_law:696 (H0 matter-sector formula). Book line 108, printed 72.26.'
     value=H0_photon*math.sqrt(1+beta_m)
     return locals()
+
+@check(label='app:formulas:L126', chapter='app:formulas', part=8, title='area change of a local Rindler horizon from Raychaudhuri',
+       file='appendices/app_E_formulas', line=126, status='derived', kind='sym', printed='', tol=0.0)
+def check_4660():
+    'delta A = -int lambda R_ab k^a k^b dlambda dA: the Raychaudhuri equation dtheta/dlambda = -theta^2/2 - R_kk (shear zero at the point) with theta(0) = 0 is solved exactly (dsolve); its series to first order in lambda is the integrand theta = -lambda R_kk of delta A = int theta dlambda dA. Book line 126.'
+    lam, Rkk = sp.symbols('lambda R_kk', positive=True)
+    th = sp.Function('theta')
+    sol = sp.dsolve(sp.Eq(th(lam).diff(lam), -th(lam)**2 / 2 - Rkk), th(lam), ics={th(0): 0}).rhs
+    lhs = sp.series(sol, lam, 0, 2).removeO()
+    rhs = -lam * Rkk
+    sol_n = sp.dsolve(sp.Eq(th(lam).diff(lam), -th(lam)**2 / 2 - sp.Rational(105, 100) * Rkk), th(lam), ics={th(0): 0}).rhs
+    neg_lhs = sp.series(sol_n, lam, 0, 2).removeO()
+    return locals()
+
+@check(label='app:formulas:L139', chapter='app:formulas', part=8, title='energy flux across the apparent horizon',
+       file='appendices/app_E_formulas', line=139, status='derived', kind='sym', printed='', tol=0.0)
+def check_4661():
+    '-dE = A_H (rho+P) H r_A dt = 4 pi r_A^3 (rho+P) H dt = 4 pi (rho+P)/H^2 dt: substitute A_H = 4 pi r_A^2 and then r_A = 1/H (Eq. th:rA). Book line 139.'
+    H, rho, P, r, dt = sp.symbols('H rho P r_A dt', positive=True)
+    A_H = 4 * sp.pi * r**2
+    step1 = A_H * (rho + P) * H * r * dt
+    mid = 4 * sp.pi * r**3 * (rho + P) * H * dt
+    lhs = step1.subs(r, 1 / H)
+    rhs = 4 * sp.pi * (rho + P) / H**2 * dt
+    ok = sp.simplify(step1 - mid) == 0 and sp.simplify(lhs - rhs) == 0
+    neg_ok = sp.simplify((sp.Rational(105, 100) * A_H * (rho + P) * H * r * dt).subs(r, 1 / H) - rhs) == 0
+    return locals()
+
+# ---------------------------------------------------------------- lines 240, 248
 
 @check(label='app:formulas:L177', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
        file='appendices/app_E_formulas', line=177, status='derived', kind='num', printed='0.136', tol=0.0)
@@ -40190,6 +40289,15 @@ def check_2719():
     value = Om/2
     return locals()
 
+@check(label='app:formulas:L240', chapter='app:formulas', part=8, title='MGCAMB amplitude mu0 set in the runs',
+       file='appendices/app_E_formulas', line=240, status='calc', kind='file', printed='-0.13495', tol=0.0,
+       source='mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml')
+def check_4662():
+    'mu0 value of the fixed-amplitude Level 1 chain input (params: mu0: value). Book line 240, printed -0.13495.'
+    m = re.search(r'\n  mu0:\s*\n\s+value:\s*([-\d.]+)', file_text('mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml'))
+    value = float(m.group(1))
+    return locals()
+
 @check(label='app:formulas:L243', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
        file='appendices/app_E_formulas', line=243, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2720():
@@ -40197,12 +40305,63 @@ def check_2720():
     value = Om/2
     return locals()
 
+@check(label='app:formulas:L248', chapter='app:formulas', part=8, title='mu today',
+       file='appendices/app_E_formulas', line=248, status='derived', kind='num', printed='0.864', tol=0.0)
+def check_4663():
+    'mu(a = 1) of mu(a) = H^2/(H^2 + beta_m E(a) H0^2) (function mu_iam). Book line 248, printed 0.864.'
+    value = float(mu_iam(1.0))
+    return locals()
+
+# ---------------------------------------------------------------- lines 330-349: the cosmological constant
+
 @check(label='app:formulas:L250', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:516 (H_m/H at z=0)',
        file='appendices/app_E_formulas', line=250, status='derived', kind='num', printed='1.0759', tol=4.65e-05)
 def check_2721():
     'same value as p1_02_iams_law:516 (H_m/H at z=0). Book line 250, printed 1.0759.'
     a=1.0; Elcdm2=Om*a**-3+OL; mu=1/(1+beta_m*E_act(a)/Elcdm2); value=1/math.sqrt(mu)
     return locals()
+
+@check(label='app:formulas:L330', chapter='app:formulas', part=8, title='measured rho_Lambda / rho_vac',
+       file='appendices/app_E_formulas', line=330, status='calc', kind='num', printed='1.133\\times10^{-123}', tol=0.0)
+def check_4664():
+    'rho_Lambda/rho_vac = Omega_L rho_c c^2 / (c^7/(hbar G^2)), H0 67.4, Omega_L = 1 - 0.3153 - 9.15e-5 (ch:lambda inputs). Book line 330, printed 1.133e-123.'
+    base, OLv, obs = _b15e_lambda()
+    value = obs
+    return locals()
+
+@check(label='app:formulas:L335', chapter='app:formulas', part=8, title='base expression over the measured ratio',
+       file='appendices/app_E_formulas', line=335, status='fitted', kind='num', printed='1.218', tol=0.0)
+def check_4665():
+    '(2/pi)(l_P/l_H)^2 (Omega_b/Omega_m) divided by the measured rho_Lambda/rho_vac (Planck 2018 Omega_b 0.0493, Omega_m 0.3153, H0 67.4). Book line 335, printed 1.218.'
+    base, OLv, obs = _b15e_lambda()
+    value = base / obs
+    return locals()
+
+@check(label='app:formulas:L342', chapter='app:formulas', part=8, title='base expression',
+       file='appendices/app_E_formulas', line=342, status='fitted', kind='num', printed='1.380\\times10^{-123}', tol=0.0)
+def check_4666():
+    '(2/pi)(l_P/l_H)^2 (Omega_b/Omega_m), l_H = c/H0 at 67.4. Book line 342, printed 1.380e-123.'
+    base, OLv, obs = _b15e_lambda()
+    value = base
+    return locals()
+
+@check(label='app:formulas:L348', chapter='app:formulas', part=8, title='corrected expression above the measured value, per cent',
+       file='appendices/app_E_formulas', line=348, status='fitted', kind='num', printed='0.79', tol=0.0)
+def check_4667():
+    '(2/pi)(l_P/l_H)^2 sqrt(Omega_L)(Omega_b/Omega_m) over the measured ratio, minus 1, in per cent. Book line 348, printed 0.79.'
+    base, OLv, obs = _b15e_lambda()
+    value = 100 * (base * math.sqrt(OLv) / obs - 1)
+    return locals()
+
+@check(label='app:formulas:L349', chapter='app:formulas', part=8, title='corrected expression',
+       file='appendices/app_E_formulas', line=349, status='fitted', kind='num', printed='1.142\\times10^{-123}', tol=0.0)
+def check_4668():
+    'Base expression times sqrt(Omega_L). Book line 349, printed 1.142e-123.'
+    base, OLv, obs = _b15e_lambda()
+    value = base * math.sqrt(OLv)
+    return locals()
+
+# ---------------------------------------------------------------- line 447: Kerr
 
 @check(label='app:formulas:L387', chapter='app:formulas', part=8, title='same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output)',
        file='appendices/app_E_formulas', line=387, status='measured', kind='file', printed='1.0046', tol=0, source='docs/verification/scripts/verify_cc_and_baryon_output.txt',
@@ -40227,6 +40386,57 @@ def check_2724():
     value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
+@check(label='app:formulas:L447', chapter='app:formulas', part=8, title='Kerr T S / M c^2 at chi = 0.5',
+       file='appendices/app_E_formulas', line=447, status='derived', kind='num', printed='0.433', tol=0.0)
+def check_4669():
+    'T_BH S_BH/(M c^2) built from the Kerr horizon radius, area and surface gravity of a one-solar-mass hole at spin chi = 0.5. Book line 447, printed 0.433.'
+    value = _b15e_kerr_TS(0.5)
+    return locals()
+
+@check(label='app:formulas:L447:0.218', chapter='app:formulas', part=8, title='Kerr T S / M c^2 at chi = 0.9',
+       file='appendices/app_E_formulas', line=447, status='derived', kind='num', printed='0.218', tol=0.0)
+def check_4670():
+    'Same at chi = 0.9. Book line 447, printed 0.218.'
+    value = _b15e_kerr_TS(0.9)
+    return locals()
+
+@check(label='app:formulas:L447:0.032', chapter='app:formulas', part=8, title='Kerr T S / M c^2 at chi = 0.998',
+       file='appendices/app_E_formulas', line=447, status='derived', kind='num', printed='0.032', tol=0.0)
+def check_4671():
+    'Same at chi = 0.998. Book line 447, printed 0.032.'
+    value = _b15e_kerr_TS(0.998)
+    return locals()
+
+# ---------------------------------------------------------------- lines 456-457: two horizons
+
+@check(label='app:formulas:L456', chapter='app:formulas', part=8, title='M_eq = c^3/(4GH) at H0 67.4, solar masses',
+       file='appendices/app_E_formulas', line=456, status='derived', kind='num', printed='2.32\\times10^{22}', tol=0.0)
+def check_4672():
+    'Mass at which hbar c^3/(8 pi G M k_B) equals hbar H/(2 pi k_B), solved numerically (brentq on the temperature difference), H0 = 67.4 (Planck 2018). Book line 456, printed 2.32e22.'
+    TH = hbar * Hsi(67.4) / (2 * math.pi * kB)
+    lm = brentq(lambda x: math.log(hbar * c**3 / (8 * math.pi * G * math.exp(x) * Msun * kB) / TH), math.log(1e10), math.log(1e30))
+    value = math.exp(lm)
+    return locals()
+
+@check(label='app:formulas:L457', chapter='app:formulas', part=8, title='black hole in balance with the CMB, kg',
+       file='appendices/app_E_formulas', line=457, status='derived', kind='num', printed='4.5\\times10^{22}', tol=0.0)
+def check_4673():
+    'M_CMB = hbar c^3/(8 pi G k_B T_CMB), T_CMB 2.7255 K (Fixsen 2009). Book line 457, printed 4.5e22 kg.'
+    value = hbar * c**3 / (8 * math.pi * G * kB * T_CMB)
+    return locals()
+
+# ---------------------------------------------------------------- line 540: string tension
+
+@check(label='app:formulas:L540', chapter='app:formulas', part=8, title='string tension in GeV/fm',
+       file='appendices/app_E_formulas', line=540, status='calc', kind='num', printed='0.91', tol=0.0)
+def check_4674():
+    'sigma = 0.18 GeV^2 converted to GeV/fm by dividing by hbar c (in GeV fm, from SI hbar, c, e). Book line 540, printed 0.91.'
+    hbarc_GeV_fm = hbar * c / (e_ch * 1e9) / 1e-15
+    value = 0.18 / hbarc_GeV_fm
+    return locals()
+
+# ---------------------------------------------------------------- lines 589-602: devices
+
 @check(label='app:formulas:L543', chapter='app:formulas', part=8, title='same value as p2_15a_lepton_koide:35 (Koide Q with the 2022 m_tau)',
        file='appendices/app_E_formulas', line=543, status='observed', kind='num', printed='0.66666051', tol=0)
 def check_2725():
@@ -40241,6 +40451,15 @@ def check_2725():
         from scipy.optimize import fsolve
         x,d=fsolve(f,[17.7,0.2222],xtol=1e-14); return x,d,(x*(1+math.sqrt(2)*math.cos(d)))**2
     value=Qk(me_,mmu_,mtau22)
+    return locals()
+
+@check(label='app:formulas:L589', chapter='app:formulas', part=8, title='slope of the held-record floor at 15 mK, 5 GHz',
+       file='appendices/app_E_formulas', line=589, status='derived', kind='num', printed='16.0', tol=0.0)
+def check_4675():
+    'd ln p_eq / d ln T of p_eq = 1/(1+exp(hf/k_B T)), taken numerically at f = 5 GHz, T = 15 mK (equals M(1 - p_eq)). Book line 589, printed 16.0.'
+    peq = lambda T: 1 / (1 + math.exp(h * 5e9 / (kB * T)))
+    T0, d = 0.015, 1e-6
+    value = (math.log(peq(T0 * math.exp(d))) - math.log(peq(T0 * math.exp(-d)))) / (2 * d)
     return locals()
 
 @check(label='app:formulas:L596', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
@@ -40269,6 +40488,13 @@ def check_2727():
     value = ebit_eV
     return locals()
 
+@check(label='app:formulas:L599:3.33\\times10^{-21}', chapter='app:formulas', part=8, title='Landauer floor at the junction temperature',
+       file='appendices/app_E_formulas', line=599, status='calc', kind='num', printed='3.33\\times10^{-21}', tol=0.0)
+def check_4676():
+    'k_B T_j ln 2 at T_j = 75 C = 348.15 K. Book line 599, printed 3.33e-21 J.'
+    value = kB * (273.15 + 75) * LN2
+    return locals()
+
 @check(label='app:formulas:L602', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
        file='appendices/app_E_formulas', line=602, status='derived', kind='num', printed='6.2', tol=0.0)
 def check_2728():
@@ -40289,6 +40515,31 @@ def check_2729():
     value = n_floor
     return locals()
 
+@check(label='app:formulas:L602:0.646', chapter='app:formulas', part=8, title='constant-field step per halving of area',
+       file='appendices/app_E_formulas', line=602, status='derived', kind='num', printed='0.646', tol=0.0)
+def check_4677():
+    'Fractional fall of C V^2 per node under constant-field scaling, 1 - kappa^-3 with kappa = sqrt 2 (area per transistor halved; ch:cmos). Book line 602, printed 0.646.'
+    kap = math.sqrt(2)
+    value = 1 - kap**-3
+    return locals()
+
+# ---------------------------------------------------------------- lines 610-619: the cell
+
+@check(label='app:formulas:L610', chapter='app:formulas', part=8, title='body temperature, K (canon)',
+       file='appendices/app_E_formulas', line=610, status='calc', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
+def check_4678():
+    'T_cell of the canon, checked against 37 C + 273.15 as its source note states. Book line 610, printed 310.15.'
+    Tc = _cv('T_cell')
+    value = Tc if abs(Tc - (37 + 273.15)) < 1e-9 else float('nan')
+    return locals()
+
+@check(label='app:formulas:L610:2.968', chapter='app:formulas', part=8, title='Landauer cost of one bit at body temperature',
+       file='appendices/app_E_formulas', line=610, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0.0)
+def check_4679():
+    'k_B T_cell ln 2, T_cell = 310.15 K (canon). Book line 610, printed 2.968e-21 J.'
+    value = kB * T_cell * LN2
+    return locals()
+
 @check(label='app:formulas:L611', chapter='app:formulas', part=8, title='same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)',
        file='appendices/app_E_formulas', line=611, status='calc', kind='num', printed='20.94', tol=0.000239)
 def check_2730():
@@ -40301,6 +40552,108 @@ def check_2730():
 def check_2731():
     'same value as p4_02_landauer:48 (M/ln2). Book line 613, printed 30.21.'
     value=dG_ATP/(N_A*kB*T_cell*LN2)
+    return locals()
+
+@check(label='app:formulas:L616', chapter='app:formulas', part=8, title='CpG sites of the hg19 index',
+       file='appendices/app_E_formulas', line=616, status='calc', kind='file', printed='2.822\\times10^{7}', tol=0.0,
+       source='Biological_Physics/MethylPhys/atlas/v2/README.md')
+def check_4680():
+    'Size of the wgbstools hg19 CpG index in the atlas v2 build notes (28,217,448). Book line 616, printed 2.822e7.'
+    value = _b15e_ncpg()
+    return locals()
+
+@check(label='app:formulas:L617', chapter='app:formulas', part=8, title='Landauer floor of one copy of the methylome',
+       file='appendices/app_E_formulas', line=617, status='calc', kind='file', printed='8.38\\times10^{-14}', tol=0.0,
+       source='Biological_Physics/MethylPhys/atlas/v2/README.md')
+def check_4681():
+    'N k_B T_cell ln 2 with N the hg19 CpG count read from the atlas v2 build notes. Book line 617, printed 8.38e-14 J.'
+    value = _b15e_ncpg() * kB * T_cell * LN2
+    return locals()
+
+@check(label='app:formulas:L618:2.3', chapter='app:formulas', part=8, title='discrimination energy at 10 % maintenance error',
+       file='appendices/app_E_formulas', line=618, status='calc', kind='num', printed='2.3', tol=0.0)
+def check_4682():
+    'Delta Delta G / k_B T = ln(1/p) at the upper maintenance error p = 0.10 (Genereux et al. 2005, as cited in ch:landauer). Book line 618, printed 2.3.'
+    value = math.log(1 / 0.10)
+    return locals()
+
+@check(label='app:formulas:L618:3.9', chapter='app:formulas', part=8, title='discrimination energy at 2 % maintenance error',
+       file='appendices/app_E_formulas', line=618, status='calc', kind='num', printed='3.9', tol=0.0)
+def check_4683():
+    'ln(1/p) at the lower maintenance error p = 0.02 (Genereux et al. 2005). Book line 618, printed 2.3--3.9 (upper end 3.9).'
+    value = math.log(1 / 0.02)
+    return locals()
+
+@check(label='app:formulas:L619', chapter='app:formulas', part=8, title='phi = E_hold / M',
+       file='appendices/app_E_formulas', line=619, status='measured', kind='file', printed='0.163', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
+def check_4684():
+    'E_hold of the copy channel (PROC-CHANNEL-01 record) over M = dG_ATP/(R T_cell). Book line 619, printed 0.163.'
+    value = _b00_hold_energy() / (dG_ATP / (R_gas * T_cell))
+    return locals()
+
+# ---------------------------------------------------------------- lines 631-682: the gauges
+
+@check(label='app:formulas:L631', chapter='app:formulas', part=8, title='full surface on Met-A',
+       file='appendices/app_E_formulas', line=631, status='calc', kind='file', printed='3.03', tol=0.0,
+       source=_B15E_RM + 'Met_A_Floors/metA_floors_v1_3.json', heavy=True, rerun=_B15E_METH_RERUN)
+def check_4685():
+    'One bit per identity site, H(1/2), over the frozen EPIC neutrophil floor of metA_floors_v1_3.json. Book line 631, printed 3.03.'
+    value = _b15e_Hb(0.5) / load_json(_B15E_RM + 'Met_A_Floors/metA_floors_v1_3.json')['platforms']['EPIC']['neutrophils']['floor']
+    return locals()
+
+@check(label='app:formulas:L637', chapter='app:formulas', part=8, title='frozen EPIC neutrophil reference, bits',
+       file='appendices/app_E_formulas', line=637, status='calibrated', kind='file', printed='0.330263', tol=0.0,
+       source=_B15E_RM + 'Met_A_Floors/metA_floors_v1_3.json', heavy=True, rerun=_B15E_METH_RERUN)
+def check_4686():
+    'Floor of EPIC neutrophils in the frozen Met-A floors v1.3. Book line 637, printed 0.330263.'
+    value = load_json(_B15E_RM + 'Met_A_Floors/metA_floors_v1_3.json')['platforms']['EPIC']['neutrophils']['floor']
+    return locals()
+
+@check(label='app:formulas:L642', chapter='app:formulas', part=8, title='copy-error floor eps0',
+       file='appendices/app_E_formulas', line=642, status='measured', kind='file', printed='0.032', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
+def check_4687():
+    'eps0 = 1/(1 + exp(E_hold)), E_hold read from the PROC-CHANNEL-01 record. Book line 642, printed 0.032.'
+    value = 1 / (1 + math.exp(_b00_hold_energy()))
+    return locals()
+
+@check(label='app:formulas:L642:0.2043', chapter='app:formulas', part=8, title='H_min = H(eps0), bits',
+       file='appendices/app_E_formulas', line=642, status='measured', kind='file', printed='0.2043', tol=0.0, source='CANON/iam_canon.json')
+def check_4688():
+    'Binary entropy of the canon eps0 (0.032). Book line 642, printed 0.2043.'
+    value = _b15e_Hb(_cv('eps0_meth'))
+    return locals()
+
+@check(label='app:formulas:L643', chapter='app:formulas', part=8, title='neutrophil position P',
+       file='appendices/app_E_formulas', line=643, status='measured', kind='file', printed='1.099', tol=0.0,
+       source=_B15E_RM + 'IAM_A_Positions/iama_positions_v1.json', heavy=True, rerun=_B15E_METH_RERUN)
+def check_4689():
+    'P of neutrophils in the frozen IAM-A positions (3 donors), checked to lie inside its donor range. Book line 643, printed 1.099.'
+    d = load_json(_B15E_RM + 'IAM_A_Positions/iama_positions_v1.json')['cells']['neutrophils']
+    value = d['P'] if d['P_range'][0] <= d['P'] <= d['P_range'][1] else float('nan')
+    return locals()
+
+@check(label='app:formulas:L647', chapter='app:formulas', part=8, title='C-score healthy baseline',
+       file='appendices/app_E_formulas', line=647, status='calibrated', kind='file', printed='1.1104', tol=0.0,
+       source=_B15E_RM + 'Met_A_Floors/neutrophil_reference_v1_1.json', heavy=True, rerun=_B15E_METH_RERUN)
+def check_4690():
+    'Median of the six held-out clustering values healthy_clustering_LOO of neutrophil_reference_v1_1.json. Book line 647, printed 1.1104.'
+    value = float(np.median(load_json(_B15E_RM + 'Met_A_Floors/neutrophil_reference_v1_1.json')['healthy_clustering_LOO']))
+    return locals()
+
+@check(label='app:formulas:L664', chapter='app:formulas', part=8, title='M_eq at H0 = 67.16, solar masses',
+       file='appendices/app_E_formulas', line=664, status='calc', kind='num', printed='2.3\\times10^{22}', tol=0.0)
+def check_4691():
+    'M_eq = c^3/(4 G H) at the photon-sector H0 = 67.16 (locked), in solar masses. Book line 664, printed 2.3e22.'
+    value = c**3 / (4 * G * Hsi(H0_photon)) / Msun
+    return locals()
+
+@check(label='app:formulas:L682', chapter='app:formulas', part=8, title='eps0 from phi and M',
+       file='appendices/app_E_formulas', line=682, status='derived', kind='file', printed='0.032', tol=0.0, source='CANON/iam_canon.json')
+def check_4692():
+    'eps0 = 1/(1 + exp(phi M)) with phi = 0.1628 and M = dG_ATP/(R T_cell) from the canon inputs. Book line 682, printed 0.032.'
+    value = 1 / (1 + math.exp(_cv('phi') * dG_ATP / (R_gas * T_cell)))
     return locals()
 
 
@@ -43014,56 +43367,19 @@ INVENTORY = [
     (8, 'app:constants', 'appendices/app_A2_frozen_values', 11, '', 'observed', '-65', 'observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:constants:L11'),
     (8, 'app:notation', 'appendices/app_N_notation', 104, '', 'observed', '50', 'observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:notation:L104'),
     (8, 'app:notation', 'appendices/app_N_notation', 104, '', 'observed', '-65', 'observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:notation:L104'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 6, '', 'none', '', 'displayed equation, not yet checked'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 56, '', 'derived', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 56, '', 'derived', '1.67', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 56, '', 'derived', '1.33', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 56, '', 'derived', '1.17', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 58, '', 'derived', '0.3153', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 126, '', 'derived', '0.3153', 'not yet run: draft rejected (drafter skipped: Line 126: δA = -∫_H λ R_ab k^a k^b dλ dA is a differential form in GR, no)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 139, '', 'derived', '0.1575', 'not yet run: draft rejected (drafter skipped: Line 139: -dE = A_H(ρ+P)H·r̃_A·dt = ... = 4π(ρ+P)/H² dt is a differential)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 240, '', 'calc', '-0.13495', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 248, '', 'derived', '0.864', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 330, '', 'calc', '1.133', 'not yet run: draft does not reproduce the printed value (recomputed 1.133092e-123); drafting error on review'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 335, '', 'fitted', '1.218', 'measured, not found in the files the chapter names'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 335, '', 'openprob', '0.7', 'text changed at HEAD; not yet checked'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 342, '', 'fitted', '1.380', 'measured, not found in the files the chapter names'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 348, '', 'fitted', '0.79', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 349, '', 'fitted', '1.142', 'measured, not found in the files the chapter names'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 372, '', 'measured', '0.02232', 'measured, not found in the files the chapter names'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 447, '', 'derived', '0.433', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 447, '', 'derived', '0.5', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 447, '', 'derived', '0.218', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 447, '', 'derived', '0.9', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 447, '', 'derived', '0.032', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 447, '', 'derived', '0.998', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 456, '', 'derived', '2.32', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 456, '', 'derived', '67.4', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 457, '', 'derived', '4.5', 'not yet run: draft does not reproduce the printed value (recomputed 4.501562e+19); drafting error on review'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 540, '', 'calc', '0.91', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 589, '', 'derived', '16.0', 'not yet run: draft does not reproduce the printed value (recomputed 3.30093); drafting error on review'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 596, '', 'derived', '68', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 596, '', 'derived', '40', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 599, '', 'calc', '348', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 599, '', 'calc', '3.33', 'not yet run: draft does not reproduce the printed value (recomputed 3.330336e-21); drafting error on review'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 602, '', 'derived', '0.646', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 602, '', 'derived', '600', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 610, '', 'calc', '310.15', 'not yet run: draft rejected (printed value typed into the code)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 610, '', 'calc', '2.968', 'not yet run: draft does not reproduce the printed value (recomputed 0.002968); drafting error on review'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 616, '', 'calc', '2.822', 'not yet run: draft does not reproduce the printed value (recomputed 0.0838); drafting error on review'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 617, '', 'calc', '8.38', 'not yet run: draft does not reproduce the printed value (recomputed 0.0838); drafting error on review'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 618, '', 'calc', '0.10', 'not yet run: draft rejected (no draft returned)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 618, '', 'calc', '2.3', 'not yet run: draft does not reproduce the printed value (recomputed 5.64386); drafting error on review'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 618, '', 'calc', '3.9', 'not yet run: draft does not reproduce the printed value (recomputed 3.32193); drafting error on review'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 619, '', 'measured', '0.163', 'measured, not found in the files the chapter names'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 631, '', 'calc', '3.03', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 637, '', 'calibrated', '0.330263', 'measured, not found in the files the chapter names'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 642, '', 'measured', '0.032', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 642, '', 'measured', '0.2043', 'measured, not found in the files the chapter names'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 643, '', 'measured', '1.099', 'measured, not found in the files the chapter names'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 647, '', 'calibrated', '1.1104', 'measured, not found in the files the chapter names'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 664, '', 'calc', '67.4', 'not yet run: draft does not reproduce the printed value (recomputed 2.331939e+22); drafting error on review'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 682, '', 'derived', '0.032', 'not yet run: draft does not reproduce the printed value (recomputed 8.051440e-10); drafting error on review'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 6, '', 'none', '', 'definition: line 6 is the body of the \\iamfsentry macro (the equation* wrapper of every formula-sheet entry), not an equation of the book'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 56, '', 'derived', '0.5', 'input: the scale factor a = 0.5 at which w_info is evaluated'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 335, '', 'openprob', '0.7', 'no 0.7 is printed at line 335 in the current text (text changed at HEAD; the entry is the base cosmological-constant expression, whose 1.218 is checked in app:formulas:L335); nothing to check'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 372, '', 'measured', '0.02232', 'definition: line 372 is n_b = eta n_gamma (labelled a definition); it prints no 0.02232 (the scan line drifted; Omega_b h^2 = 0.02232 appears at lines 79 and 385, outside this batch)'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 447, '', 'derived', '0.5', 'input: spin chi = 0.5 at which the Kerr fraction is evaluated'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 447, '', 'derived', '0.9', 'input: spin chi = 0.9'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 447, '', 'derived', '0.998', 'input: spin chi = 0.998'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 456, '', 'derived', '67.4', 'input: Planck 2018 H0 = 67.4 km/s/Mpc (rounded 67.36, Aghanim et al. 2020) at which M_eq is evaluated'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 596, '', 'derived', '68', 'input: T_1 = 68 microseconds of the worked transmon example (GoogleWillow2025, as cited in ch:qplatforms)'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 596, '', 'derived', '40', 'input: gate duration t = 40 ns of the worked example'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 599, '', 'calc', '348', 'input: junction temperature T_j = 348 K (75 C) at which the floor is evaluated'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 602, '', 'derived', '600', 'input: chip reading R = 600 times its floor (round value of the 576-593 checked in ch:conclusion:L25 and ch:statusall:L85); n_floor at R = 600 is checked in app:formulas:L602'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 618, '', 'calc', '0.10', 'input: maintenance error rate 10 % (upper end of the 2-10 % of Genereux et al. 2005)'),
     (8, 'app:derivations', 'appendices/app_C3_derivations', 51, '', 'calc', '2.01824', 'not yet run: draft rejected (drafter skipped: ω₃⁰ is a zero of the Lane-Emden equation of index 3, from Chandrasekhar 1)'),
     (8, 'app:derivations', 'appendices/app_C3_derivations', 65, '', 'derived', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
     (8, 'app:derivations', 'appendices/app_C3_derivations', 65, '', 'derived', '0.9', 'not yet run: draft rejected (printed value typed into the code)'),

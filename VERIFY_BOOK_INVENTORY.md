@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4656 PASS, 0 FAIL, 1685 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4693 PASS, 0 FAIL, 1648 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5903,78 +5903,78 @@ Totals: 4656 PASS, 0 FAIL, 1685 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 6 |  | none |  | not run: displayed equation, not yet checked | - |
-| 56 |  | derived | `0.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 56 |  | derived | `1.67` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 56 |  | derived | `1.33` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 56 |  | derived | `1.17` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 6 |  | none |  | not run: definition: line 6 is the body of the \iamfsentry macro (the equation* wrapper of every formula-sheet entry), not an equation of the book | - |
+| 56 | app:formulas:L56:-1.67 | derived | `-1.67` | numeric: w_info at a = 0.5 | PASS |
+| 56 | app:formulas:L56:-1.33 | derived | `-1.33` | numeric: w_info at a = 1 | PASS |
+| 56 | app:formulas:L56:-1.17 | derived | `-1.17` | numeric: w_info at a = 2 | PASS |
+| 56 |  | derived | `0.5` | not run: input: the scale factor a = 0.5 at which w_info is evaluated | - |
 | 58 | app:formulas:L58 | derived | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 58 |  | derived | `0.3153` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 58 | app:formulas:L58:0.3153 | derived | `0.3153` | file `CANON/iam_canon.json`: Omega_m behind beta_m (canon) | PASS |
 | 100 | app:formulas:L100 | derived | `0.3153` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 100 | app:formulas:L100:0.15765 | derived | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
 | 108 | app:formulas:L108 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 108 | app:formulas:L108:72.26 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
-| 126 |  | derived | `0.3153` | not run: not yet run: draft rejected (drafter skipped: Line 126: δA = -∫_H λ R_ab k^a k^b dλ dA is a differential form in GR, no) | - |
-| 139 |  | derived | `0.1575` | not run: not yet run: draft rejected (drafter skipped: Line 139: -dE = A_H(ρ+P)H·r̃_A·dt = ... = 4π(ρ+P)/H² dt is a differential) | - |
+| 126 | app:formulas:L126 | derived |  | sympy: area change of a local Rindler horizon from Raychaudhuri | PASS |
+| 139 | app:formulas:L139 | derived |  | sympy: energy flux across the apparent horizon | PASS |
 | 177 | app:formulas:L177 | derived | `0.136` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 189 | app:formulas:L189 | derived | `1.062` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 189 | app:formulas:L189:1.062 | calc | `1.062` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 190 | app:formulas:L190 | calc | `0.012` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 226 | app:formulas:L226 | derived | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 240 |  | calc | `-0.13495` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 240 | app:formulas:L240 | calc | `-0.13495` | file `mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml`: MGCAMB amplitude mu0 set in the runs | PASS |
 | 243 | app:formulas:L243 | derived | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 248 |  | derived | `0.864` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 248 | app:formulas:L248 | derived | `0.864` | numeric: mu today | PASS |
 | 250 | app:formulas:L250 | derived | `1.0759` | numeric: same value as p1_02_iams_law:516 (H_m/H at z=0) | PASS |
-| 330 |  | calc | `1.133` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.133092e-123); drafting error on review | - |
-| 335 |  | fitted | `1.218` | not run: measured, not found in the files the chapter names | - |
-| 335 |  | openprob | `0.7` | not run: text changed at HEAD; not yet checked | - |
-| 342 |  | fitted | `1.380` | not run: measured, not found in the files the chapter names | - |
-| 348 |  | fitted | `0.79` | not run: measured, too few printed digits to match against the named files | - |
-| 349 |  | fitted | `1.142` | not run: measured, not found in the files the chapter names | - |
-| 372 |  | measured | `0.02232` | not run: measured, not found in the files the chapter names | - |
+| 330 | app:formulas:L330 | calc | `1.133\times10^{-123}` | numeric: measured rho_Lambda / rho_vac | PASS |
+| 335 | app:formulas:L335 | fitted | `1.218` | numeric: base expression over the measured ratio | PASS |
+| 335 |  | openprob | `0.7` | not run: no 0.7 is printed at line 335 in the current text (text changed at HEAD; the entry is the base cosmological-constant expression, whose 1.218 is checked in app:formulas:L335); nothing to check | - |
+| 342 | app:formulas:L342 | fitted | `1.380\times10^{-123}` | numeric: base expression | PASS |
+| 348 | app:formulas:L348 | fitted | `0.79` | numeric: corrected expression above the measured value, per cent | PASS |
+| 349 | app:formulas:L349 | fitted | `1.142\times10^{-123}` | numeric: corrected expression | PASS |
+| 372 |  | measured | `0.02232` | not run: definition: line 372 is n_b = eta n_gamma (labelled a definition); it prints no 0.02232 (the scan line drifted; Omega_b h^2 = 0.02232 appears at lines 79 and 385, outside this batch) | - |
 | 387 | app:formulas:L387 | measured | `1.0046` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output) | PASS |
 | 396 | app:formulas:L396 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
 | 396 | app:formulas:L396:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
-| 447 |  | derived | `0.433` | not run: not yet run: draft rejected (no draft returned) | - |
-| 447 |  | derived | `0.5` | not run: not yet run: draft rejected (no draft returned) | - |
-| 447 |  | derived | `0.218` | not run: not yet run: draft rejected (no draft returned) | - |
-| 447 |  | derived | `0.9` | not run: not yet run: draft rejected (no draft returned) | - |
-| 447 |  | derived | `0.032` | not run: not yet run: draft rejected (no draft returned) | - |
-| 447 |  | derived | `0.998` | not run: not yet run: draft rejected (no draft returned) | - |
-| 456 |  | derived | `2.32` | not run: not yet run: draft rejected (no draft returned) | - |
-| 456 |  | derived | `67.4` | not run: not yet run: draft rejected (no draft returned) | - |
-| 457 |  | derived | `4.5` | not run: not yet run: draft does not reproduce the printed value (recomputed 4.501562e+19); drafting error on review | - |
-| 540 |  | calc | `0.91` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 447 | app:formulas:L447 | derived | `0.433` | numeric: Kerr T S / M c^2 at chi = 0.5 | PASS |
+| 447 | app:formulas:L447:0.218 | derived | `0.218` | numeric: Kerr T S / M c^2 at chi = 0.9 | PASS |
+| 447 | app:formulas:L447:0.032 | derived | `0.032` | numeric: Kerr T S / M c^2 at chi = 0.998 | PASS |
+| 447 |  | derived | `0.5` | not run: input: spin chi = 0.5 at which the Kerr fraction is evaluated | - |
+| 447 |  | derived | `0.9` | not run: input: spin chi = 0.9 | - |
+| 447 |  | derived | `0.998` | not run: input: spin chi = 0.998 | - |
+| 456 | app:formulas:L456 | derived | `2.32\times10^{22}` | numeric: M_eq = c^3/(4GH) at H0 67.4, solar masses | PASS |
+| 456 |  | derived | `67.4` | not run: input: Planck 2018 H0 = 67.4 km/s/Mpc (rounded 67.36, Aghanim et al. 2020) at which M_eq is evaluated | - |
+| 457 | app:formulas:L457 | derived | `4.5\times10^{22}` | numeric: black hole in balance with the CMB, kg | PASS |
+| 540 | app:formulas:L540 | calc | `0.91` | numeric: string tension in GeV/fm | PASS |
 | 543 | app:formulas:L543 | observed | `0.66666051` | numeric: same value as p2_15a_lepton_koide:35 (Koide Q with the 2022 m_tau) | PASS |
-| 589 |  | derived | `16.0` | not run: not yet run: draft does not reproduce the printed value (recomputed 3.30093); drafting error on review | - |
+| 589 | app:formulas:L589 | derived | `16.0` | numeric: slope of the held-record floor at 15 mK, 5 GHz | PASS |
 | 596 | app:formulas:L596 | derived | `6.2\times10^{-7}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 596 |  | derived | `68` | not run: not yet run: draft rejected (no draft returned) | - |
-| 596 |  | derived | `40` | not run: not yet run: draft rejected (no draft returned) | - |
+| 596 |  | derived | `68` | not run: input: T_1 = 68 microseconds of the worked transmon example (GoogleWillow2025, as cited in ch:qplatforms) | - |
+| 596 |  | derived | `40` | not run: input: gate duration t = 40 ns of the worked example | - |
 | 599 | app:formulas:L599 | calc | `0.021` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 599 |  | calc | `348` | not run: not yet run: draft rejected (no draft returned) | - |
-| 599 |  | calc | `3.33` | not run: not yet run: draft does not reproduce the printed value (recomputed 3.330336e-21); drafting error on review | - |
+| 599 | app:formulas:L599:3.33\times10^{-21} | calc | `3.33\times10^{-21}` | numeric: Landauer floor at the junction temperature | PASS |
+| 599 |  | calc | `348` | not run: input: junction temperature T_j = 348 K (75 C) at which the floor is evaluated | - |
 | 602 | app:formulas:L602 | derived | `6.2` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 602 | app:formulas:L602:18.5 | derived | `18.5` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 602 |  | derived | `0.646` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 602 |  | derived | `600` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 610 |  | calc | `310.15` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 610 |  | calc | `2.968` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.002968); drafting error on review | - |
+| 602 | app:formulas:L602:0.646 | derived | `0.646` | numeric: constant-field step per halving of area | PASS |
+| 602 |  | derived | `600` | not run: input: chip reading R = 600 times its floor (round value of the 576-593 checked in ch:conclusion:L25 and ch:statusall:L85); n_floor at R = 600 is checked in app:formulas:L602 | - |
+| 610 | app:formulas:L610 | calc | `310.15` | file `CANON/iam_canon.json`: body temperature, K (canon) | PASS |
+| 610 | app:formulas:L610:2.968 | calc | `2.968\times10^{-21}` | numeric: Landauer cost of one bit at body temperature | PASS |
 | 611 | app:formulas:L611 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C) | PASS |
 | 613 | app:formulas:L613 | calc | `30.21` | numeric: same value as p4_02_landauer:48 (M/ln2) | PASS |
-| 616 |  | calc | `2.822` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.0838); drafting error on review | - |
-| 617 |  | calc | `8.38` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.0838); drafting error on review | - |
-| 618 |  | calc | `0.10` | not run: not yet run: draft rejected (no draft returned) | - |
-| 618 |  | calc | `2.3` | not run: not yet run: draft does not reproduce the printed value (recomputed 5.64386); drafting error on review | - |
-| 618 |  | calc | `3.9` | not run: not yet run: draft does not reproduce the printed value (recomputed 3.32193); drafting error on review | - |
-| 619 |  | measured | `0.163` | not run: measured, not found in the files the chapter names | - |
-| 631 |  | calc | `3.03` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 637 |  | calibrated | `0.330263` | not run: measured, not found in the files the chapter names | - |
-| 642 |  | measured | `0.032` | not run: measured, too few printed digits to match against the named files | - |
-| 642 |  | measured | `0.2043` | not run: measured, not found in the files the chapter names | - |
-| 643 |  | measured | `1.099` | not run: measured, not found in the files the chapter names | - |
-| 647 |  | calibrated | `1.1104` | not run: measured, not found in the files the chapter names | - |
-| 664 |  | calc | `67.4` | not run: not yet run: draft does not reproduce the printed value (recomputed 2.331939e+22); drafting error on review | - |
-| 682 |  | derived | `0.032` | not run: not yet run: draft does not reproduce the printed value (recomputed 8.051440e-10); drafting error on review | - |
+| 616 | app:formulas:L616 | calc | `2.822\times10^{7}` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpG sites of the hg19 index | PASS |
+| 617 | app:formulas:L617 | calc | `8.38\times10^{-14}` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: Landauer floor of one copy of the methylome | PASS |
+| 618 | app:formulas:L618:2.3 | calc | `2.3` | numeric: discrimination energy at 10 % maintenance error | PASS |
+| 618 | app:formulas:L618:3.9 | calc | `3.9` | numeric: discrimination energy at 2 % maintenance error | PASS |
+| 618 |  | calc | `0.10` | not run: input: maintenance error rate 10 % (upper end of the 2-10 % of Genereux et al. 2005) | - |
+| 619 | app:formulas:L619 | measured | `0.163` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: phi = E_hold / M | PASS |
+| 631 | app:formulas:L631 | calc | `3.03` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: full surface on Met-A | PASS |
+| 637 | app:formulas:L637 | calibrated | `0.330263` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: frozen EPIC neutrophil reference, bits | PASS |
+| 642 | app:formulas:L642 | measured | `0.032` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: copy-error floor eps0 | PASS |
+| 642 | app:formulas:L642:0.2043 | measured | `0.2043` | file `CANON/iam_canon.json`: H_min = H(eps0), bits | PASS |
+| 643 | app:formulas:L643 | measured | `1.099` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json`: neutrophil position P | PASS |
+| 647 | app:formulas:L647 | calibrated | `1.1104` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C-score healthy baseline | PASS |
+| 664 | app:formulas:L664 | calc | `2.3\times10^{22}` | numeric: M_eq at H0 = 67.16, solar masses | PASS |
+| 682 | app:formulas:L682 | derived | `0.032` | file `CANON/iam_canon.json`: eps0 from phi and M | PASS |
 
 ## Part 8 - app:derivations - `docs/book/appendices/app_C3_derivations.tex`
 
