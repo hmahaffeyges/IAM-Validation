@@ -327,7 +327,7 @@ p509 = txt["part7/p7_09_open"]
 groups = {}
 for sec, body in re.findall(r"\\section\{([^}]*)\}\s*\{\\small\\begin\{longtable\}(.*?)\\end\{longtable\}", p509, re.S):
     items = []
-    for row in re.split(r"\\\\\s*\n", body.split("\\endhead", 1)[1]):
+    for row in re.split(r"\\\\(?:\\cmidrule\[[^]]*\]\{[^}]*\})?\s*\n", body.split("\\endhead", 1)[1]):  # a row ends in \\ or \\\cmidrule[..]{..}
         mm = re.search(r"\\textbf\{([A-Z]\d+)\.", row)
         if not mm:
             continue
