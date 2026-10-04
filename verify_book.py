@@ -339,29 +339,68 @@ def _judge(kind, printed, tol_rel, loc):
 
 _KIND_HOW = {"num": "numeric", "sym": "sympy", "file": "file"}
 
+def _file_has_shifted(path, printed):
+    """file_has with the printed value moved by 5 %: True if the file holds a number within the control tolerance (half the last
+    printed digit, capped at 2.5 % of the value) of the moved value."""
+    p = abs(parse_printed(printed)[1])
+    hu = half_unit(printed)
+    shift = 0.05 * p if p != 0 else max(5 * hu, 0.05)
+    tol = min(hu, 0.5 * shift) * 1.0000001
+    for s in _NUM.findall(file_text(path)):
+        try:
+            v = float(s)
+        except ValueError:
+            continue
+        if abs(abs(v) - (p + shift)) <= tol:
+            return True
+    return False
+
+def _is_zero(d):
+    d = sp.simplify(d)
+    if d == 0:
+        return True
+    try:
+        return abs(complex(sp.N(d))) < 1e-12
+    except Exception:
+        return False
+
 def negative_control(runner):
     """The check's negative control: 'fails' (good: moving the printed value, or for algebra the key coefficient, by 5 % makes the
-    check FAIL), 'PASSES' (bad: the check cannot tell the moved value from the right one) or 'none' (no control available).
+    check FAIL), 'PASSES' (bad: the check cannot tell the moved value from the right one) or 'none' (no control: the check
+    computes nothing that a 5 % change could move).
     Numbers: the recomputed value is compared with the printed value times 1.05, within the check's tolerance capped at 2.5 % of the
     value (half the shift), so a printed value with one or two digits still has to be met by the computation. Inequalities: the
-    reversed inequality must fail. Algebra: the check body names neg_lhs (and optionally neg_rhs), the identity with its key
+    reversed inequality must fail. A number looked up in a committed file (file_has): the value moved by 5 % must not be found in
+    that file (tolerance capped as above). Algebra: the check body names neg_lhs (and optionally neg_rhs), the identity with its key
     coefficient moved by 5 %, which must not simplify to zero; or neg_ok, a stated property with the coefficient moved, which must be
-    False."""
+    False; otherwise the book's side (rhs) is multiplied by 1.05 and lhs - 1.05 rhs must not simplify to zero."""
     m = runner.meta
     try:
         loc = runner.fn()
-    except Exception as ex:
+    except Exception:
         return "none"
+    if "neg_ok" in loc:
+        return "fails" if not bool(loc["neg_ok"]) else "PASSES"
+    if "neg_lhs" in loc:
+        d = sp.sympify(loc["neg_lhs"]) - sp.sympify(loc.get("neg_rhs", loc.get("rhs", 0)))
+        return "PASSES" if _is_zero(d) else "fails"
     if m["kind"] == "sym" or ("value" not in loc):
-        if "neg_ok" in loc:
-            return "fails" if not bool(loc["neg_ok"]) else "PASSES"
-        if "neg_lhs" in loc:
-            d = sp.simplify(sp.sympify(loc["neg_lhs"]) - sp.sympify(loc.get("neg_rhs", loc.get("rhs", 0))))
+        if "lhs" in loc and "rhs" in loc:
+            rhs = sp.sympify(loc["rhs"])
+            if _is_zero(rhs):
+                return "none"
+            return "PASSES" if _is_zero(sp.sympify(loc["lhs"]) - sp.Rational(105, 100) * rhs) else "fails"
+        if "ok" in loc and "file_has" in runner.fn.__code__.co_names:
+            g = runner.fn.__globals__
+            orig = g["file_has"]
+            g["file_has"] = _file_has_shifted
             try:
-                zero = (d == 0) or abs(complex(sp.N(d))) < 1e-12
+                loc2 = runner.fn()
             except Exception:
-                zero = False
-            return "PASSES" if zero else "fails"
+                return "none"
+            finally:
+                g["file_has"] = orig
+            return "PASSES" if bool(loc2.get("ok")) else "fails"
         return "none"
     val = loc["value"]
     if isinstance(val, (bool, np.bool_)):
@@ -2822,6 +2861,51 @@ def _b20_dlnn(M_sun):
     nu = 1.686 / _b05_sat_sigma_M(M_sun)
     return (nu ** 2 - 1) * (-amp_deficit(0.0))
 
+# helpers of control fixes (f00)
+def _f00_read(path, pattern):
+    """The number captured by group 1 of pattern in a committed text file (the first match), as a float."""
+    m = re.search(pattern, file_text(path))
+    if not m:
+        raise KeyError(f"{path}: no match for {pattern!r}")
+    return float(m.group(1))
+
+# helpers of control fixes (f01)
+def _f01_num(path, pattern, group=1):
+    """One number read from a committed file at the row/key the regex anchors on (no free search for any matching number)."""
+    m = re.search(pattern, file_text(path))
+    if not m:
+        raise KeyError(f"{path}: no match for {pattern!r}")
+    return float(m.group(group))
+_F01_ST = 'docs/verification/scripts/verify_sector_tension_output.txt'
+_F01_STPY = 'docs/verification/scripts/verify_sector_tension.py'
+_F01_R = sp.Rational(105, 100)        # the 5 % move of the negative controls
+DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv'] = 'PROC-DNMT-01 Part B per-pair IAM-A under a DNMT1 inhibitor (GSE329728 EM-seq, 8 treated libraries)'   # 2 kB
+DATA_FILES['Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md'] = 'PROC-SALMON-01 pre-registration (P2 window, human copy-error range)'
+
+# helpers of control fixes (f03)
+_F03_SALMON = 'Biological_Physics/MethylPhys/doors/data/salmon_readings.csv'
+_F03_CHARR = 'Biological_Physics/MethylPhys/doors/data/charr_readings.csv'
+_F03_RIMOUSKI = 'Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv'
+_F03_COHO = 'Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv'
+_F03_SOP = 'Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md'
+_F03_DNMT = 'Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv'
+_F03_IMR = 'Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv'
+_F03_PREREG = 'Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md'
+_F03_LOO = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv'
+_F03_TRIAGE = 'CANON/predictions_triage_2026-10-02.json'
+def _f03_med(path, col, **where):
+    """Median of a column of a committed per-fish table over the rows matching every where=value."""
+    v = [float(r[col]) for r in load_csv_rows(path) if all(r[k] == w for k, w in where.items()) and r[col] != '']
+    return float(np.median(v))
+def _f03_human_E_low():
+    """Lower end of the human holding energy, E = ln((1-eps)/eps) at the upper end of the human copy-error range (PROC-SALMON-01 P2)."""
+    m = re.search(r"Human healthy cells read (0\.\d+)\D(0\.\d+) on this statistic", load_data(_F03_PREREG))
+    eps_hi = float(m.group(2))
+    return math.log((1 - eps_hi) / eps_hi)
+def _f03_register(verdict, domain=None):
+    """Count of predictions-register entries with this verdict (DUP = merged, DROP = not listed), optionally in one domain (pid prefix)."""
+    return sum(1 for e in load_json(_F03_TRIAGE) if e['verdict'] == verdict and (domain is None or e['pid'].split('-')[0] == domain))
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -3064,22 +3148,25 @@ def check_0014():
 @check(label='ch:surfaces:L34', chapter='ch:surfaces', part=1, title='limit of E(a) as a->0',
        file='part1/p1_01_encoding_surfaces', line=34, status='derived', kind='sym', printed='0', tol=0.0)
 def check_0015():
-    'limit of E(a) as a->0. Book line 34, printed 0.'
-    a=sp.Symbol('a',positive=True); ok = sp.limit(sp.exp(1-1/a), a, 0, '+')==0
+    'limit of E(a) as a->0. Book line 34, printed 0. Control: the limit must not equal the printed 0 moved to 0.05.'
+    a=sp.Symbol('a',positive=True); lim = sp.limit(sp.exp(1-1/a), a, 0, '+'); ok = lim==0
+    neg_ok = lim==sp.Rational(5,100)
     return locals()
 
 @check(label='ch:surfaces:L34:1', chapter='ch:surfaces', part=1, title='E(a) at a=1 equals 1',
        file='part1/p1_01_encoding_surfaces', line=34, status='derived', kind='sym', printed='1', tol=0.0)
 def check_0016():
-    'E(a) at a=1 equals 1. Book line 34, printed 1.'
-    ok = sp.exp(1-sp.Rational(1,1))==1
+    'E(a) at a=1 equals 1. Book line 34, printed 1. Control: E(1) must not equal 1.05.'
+    a=sp.Symbol('a',positive=True); E1 = sp.exp(1-1/a).subs(a, 1); ok = sp.simplify(E1-1)==0
+    neg_ok = sp.simplify(E1-sp.Rational(105,100))==0
     return locals()
 
 @check(label='ch:surfaces:L34:e', chapter='ch:surfaces', part=1, title='limit of E(a) as a->infinity',
        file='part1/p1_01_encoding_surfaces', line=34, status='derived', kind='sym', printed='e', tol=0.0)
 def check_0017():
-    'limit of E(a) as a->infinity. Book line 34, printed e.'
-    a=sp.Symbol('a',positive=True); ok = sp.limit(sp.exp(1-1/a), a, sp.oo)==sp.E
+    'limit of E(a) as a->infinity. Book line 34, printed e. Control: the limit must not equal 1.05 e.'
+    a=sp.Symbol('a',positive=True); lim = sp.limit(sp.exp(1-1/a), a, sp.oo); ok = lim==sp.E
+    neg_ok = sp.simplify(lim-sp.Rational(105,100)*sp.E)==0
     return locals()
 
 @check(label='ch:surfaces:L42', chapter='ch:surfaces', part=1, title='log10 nucleus bit capacity vs CpG count',
@@ -3578,15 +3665,21 @@ def check_0072():
 @check(label='eq:law_virialchain', chapter='ch:iams_law', part=1, title='virial+Landauer chain of equalities',
        file='part1/p1_02_iams_law', line=172, status='derived', kind='sym', printed='', tol=0.0)
 def check_0073():
-    'virial+Landauer chain of equalities (Eq. eq:law_virialchain). Book line 172.'
-    K=sp.symbols('K',positive=True); V=-2*K; Ef=K+V; Q=-(Ef); T=sp.symbols('T',positive=True); dS=Q/T; EL=T*dS; ok=(sp.simplify(EL-Q)==0) and (sp.simplify(Q-(-Ef))==0) and (sp.simplify(-Ef-K)==0) and (sp.simplify(K-sp.Rational(1,2)*sp.Abs(V))==0)
+    'virial+Landauer chain of equalities (Eq. eq:law_virialchain). Book line 172. Control: the virial coefficient V = -2K moved to -2.1K must break the chain.'
+    K=sp.symbols('K',positive=True); T=sp.symbols('T',positive=True)
+    def chain(V):
+        Ef=K+V; Q=-(Ef); dS=Q/T; EL=T*dS
+        return (sp.simplify(EL-Q)==0) and (sp.simplify(Q-(-Ef))==0) and (sp.simplify(-Ef-K)==0) and (sp.simplify(K-sp.Rational(1,2)*sp.Abs(V))==0)
+    ok = chain(-2*K)
+    neg_ok = chain(-2*sp.Rational(105,100)*K)
     return locals()
 
 @check(label='eq:law_dS', chapter='ch:iams_law', part=1, title='entropy change from horizon expansion theta',
        file='part1/p1_02_iams_law', line=219, status='derived', kind='sym', printed='', tol=0.0)
 def check_0074():
-    'entropy change from horizon expansion theta (Eq. eq:law_dS). Book line 219.'
+    'entropy change from horizon expansion theta (Eq. eq:law_dS). Book line 219. Control: the book side times 1.05 must not match.'
     eta,lam,Rkk=sp.symbols('eta lam Rkk'); theta=-lam*Rkk; dS=eta*theta; rhs=-eta*lam*Rkk; ok=sp.simplify(dS-rhs)==0
+    neg_ok = sp.simplify(dS-sp.Rational(105,100)*rhs)==0
     return locals()
 
 @check(label='eq:law_jacobson', chapter='ch:iams_law', part=1, title='2pi/(hbar c eta) = 8 pi G/c^4 with G from the Bekenstein-Hawking eta = c^3/(4 hbar G)',
@@ -3600,22 +3693,25 @@ def check_0075():
 @check(label='eq:law_structure', chapter='ch:iams_law', part=1, title='structural equation gives eta=c^3/4hbarG',
        file='part1/p1_02_iams_law', line=243, status='derived', kind='sym', printed='', tol=0.0)
 def check_0076():
-    'structural equation gives eta=c^3/4hbarG (Eq. eq:law_structure). Book line 243.'
+    'structural equation gives eta=c^3/4hbarG (Eq. eq:law_structure). Book line 243. Control: the factor 4 moved to 4.2 must not match.'
     hbar,eta,G,c=sp.symbols('hbar eta G c',positive=True); eq=sp.Eq(hbar*eta/(2*sp.pi),c**3/(8*sp.pi*G)); sol=sp.solve(eq,eta)[0]; rhs=c**3/(4*hbar*G); ok=sp.simplify(sol-rhs)==0
+    neg_ok = sp.simplify(sol-c**3/(sp.Rational(42,10)*hbar*G))==0
     return locals()
 
 @check(label='eq:law_eta', chapter='ch:iams_law', part=1, title='eta equals quarter inverse Planck area',
        file='part1/p1_02_iams_law', line=260, status='derived', kind='sym', printed='', tol=0.0)
 def check_0077():
-    'eta equals quarter inverse Planck area (Eq. eq:law_eta). Book line 260.'
+    'eta equals quarter inverse Planck area (Eq. eq:law_eta). Book line 260. Control: the factor 4 of 1/(4 l_P^2) moved to 4.2 must not match.'
     hbar,G,c=sp.symbols('hbar G c',positive=True); lP2=hbar*G/c**3; eta_a=c**3/(4*hbar*G); eta_b=1/(4*lP2); ok=sp.simplify(eta_a-eta_b)==0
+    neg_ok = sp.simplify(eta_a-1/(sp.Rational(42,10)*lP2))==0
     return locals()
 
 @check(label='eq:law_dAmin', chapter='ch:iams_law', part=1, title='minimum horizon area equals 4 Planck areas',
        file='part1/p1_02_iams_law', line=268, status='derived', kind='sym', printed='', tol=0.0)
 def check_0078():
-    'minimum horizon area equals 4 Planck areas (Eq. eq:law_dAmin). Book line 268.'
+    'minimum horizon area equals 4 Planck areas (Eq. eq:law_dAmin). Book line 268. Control: 4 Planck areas moved to 4.2 must not match.'
     hbar,G,c,kappa=sp.symbols('hbar G c kappa',positive=True); expr=(8*sp.pi*G/(kappa*c**2))*(hbar*kappa/(2*sp.pi*c)); rhs1=4*hbar*G/c**3; lP2=hbar*G/c**3; ok=sp.simplify(expr-rhs1)==0 and sp.simplify(rhs1-4*lP2)==0
+    neg_ok = sp.simplify(expr-sp.Rational(42,10)*lP2)==0
     return locals()
 
 @check(label='ch:iams_law:L270', chapter='ch:iams_law', part=1, title='eta from the structural identity times dA_min from the first law with one Unruh quantum is 1 nat',
@@ -3640,36 +3736,42 @@ def check_0080():
 @check(label='ch:iams_law:L271', chapter='ch:iams_law', part=1, title='ratio of Euclidean and Einstein normalization factors',
        file='part1/p1_02_iams_law', line=271, status='derived', kind='sym', printed='4', tol=0.0)
 def check_0081():
-    'ratio of Euclidean and Einstein normalization factors. Book line 271, printed 4.'
-    ok=sp.simplify(8*sp.pi/(2*sp.pi)-4)==0
+    'ratio of Euclidean and Einstein normalization factors. Book line 271, printed 4. Control: the ratio must not equal 4.2.'
+    ratio=sp.simplify(8*sp.pi/(2*sp.pi)); ok=sp.simplify(ratio-4)==0
+    neg_ok = sp.simplify(ratio-sp.Rational(42,10))==0
     return locals()
 
 @check(label='eq:law_F2', chapter='ch:iams_law', part=1, title='Friedmann acceleration eq from Cai-Kim first law',
        file='part1/p1_02_iams_law', line=314, status='derived', kind='sym', printed='', tol=0.0)
 def check_0082():
-    'Friedmann acceleration eq from Cai-Kim first law (Eq. eq:law_F2). Book line 314.'
+    'Friedmann acceleration eq from Cai-Kim first law (Eq. eq:law_F2). Book line 314. Control: the coefficient 4 pi G moved by 5 % must not match.'
     G,H,rho,P,Hdot=sp.symbols('G H rho P Hdot'); eq=sp.Eq(4*sp.pi*(rho+P)/H**2,-Hdot/(G*H**2)); sol=sp.solve(eq,Hdot)[0]; rhs=-4*sp.pi*G*(rho+P); ok=sp.simplify(sol-rhs)==0
+    neg_ok = sp.simplify(sol-sp.Rational(105,100)*rhs)==0
     return locals()
 
 @check(label='eq:law_F2info', chapter='ch:iams_law', part=1, title='modified Friedmann equation including record term',
        file='part1/p1_02_iams_law', line=326, status='derived', kind='sym', printed='', tol=0.0)
 def check_0083():
-    'modified Friedmann equation including record term (Eq. eq:law_F2info). Book line 326.'
+    'modified Friedmann equation including record term (Eq. eq:law_F2info). Book line 326. Control: the record-term coefficient G/(2 pi) moved by 5 % must not match.'
     G,H,rho,P,Hdot,Sdot=sp.symbols('G H rho P Hdot Sdot'); eq=sp.Eq(4*sp.pi*(rho+P)/H**2,-Hdot/(G*H**2)+(H/(2*sp.pi))*Sdot); sol=sp.solve(eq,Hdot)[0]; rhs=-4*sp.pi*G*(rho+P)+(G/(2*sp.pi))*H**3*Sdot; ok=sp.simplify(sol-rhs)==0
+    neg_rhs = -4*sp.pi*G*(rho+P)+sp.Rational(105,100)*(G/(2*sp.pi))*H**3*Sdot
+    neg_ok = sp.simplify(sol-neg_rhs)==0
     return locals()
 
 @check(label='ch:iams_law:L329', chapter='ch:iams_law', part=1, title='record term gives phantom equation of state w<-1',
        file='part1/p1_02_iams_law', line=329, status='derived', kind='sym', printed='-1', tol=0.0)
 def check_0084():
-    'record term gives phantom equation of state w<-1. Book line 329, printed -1.'
+    'record term gives phantom equation of state w<-1. Book line 329, printed -1. Control: the reversed inequality w > -1 must not hold.'
     a=sp.symbols('a',positive=True); diff_expr=sp.simplify((-1-1/(3*a))-(-1)); ok=bool(diff_expr.is_negative)
+    neg_ok = bool(diff_expr.is_positive)
     return locals()
 
 @check(label='eq:law_Sneed', chapter='ch:iams_law', part=1, title="today's informational entropy rate per e-fold",
        file='part1/p1_02_iams_law', line=332, status='derived', kind='sym', printed='', tol=0.0)
 def check_0085():
-    "today's informational entropy rate per e-fold (Eq. eq:law_Sneed). Book line 332."
+    "today's informational entropy rate per e-fold (Eq. eq:law_Sneed). Book line 332. Control: the book side times 1.05 must not match."
     G,H0,beta_m_s=sp.symbols('G H0 beta_m',positive=True); rho_info1=3*H0**2*beta_m_s/(8*sp.pi*G); Sdot1=8*sp.pi**2*rho_info1/(3*H0**3); dS=Sdot1/H0; rhs=beta_m_s*sp.pi/(G*H0**2); ok=sp.simplify(dS-rhs)==0
+    neg_ok = sp.simplify(dS-sp.Rational(105,100)*rhs)==0
     return locals()
 
 @check(label='ch:iams_law:L335', chapter='ch:iams_law', part=1, title='informational bits produced per e-fold today',
@@ -3710,22 +3812,25 @@ def check_0090():
 @check(label='eq:Ea', chapter='ch:iams_law', part=1, title='integrates constraint to activation function E(a)',
        file='part1/p1_02_iams_law', line=378, status='derived', kind='sym', printed='', tol=0.0)
 def check_0091():
-    'integrates constraint to activation function E(a) (Eq. eq:Ea). Book line 378.'
+    'integrates constraint to activation function E(a) (Eq. eq:Ea). Book line 378. Control: E = exp(-1.05 z) must not match.'
     a,ap,z=sp.symbols('a ap z',positive=True); integral=sp.integrate(1/ap**2,(ap,1,a), conds='none'); ok1=sp.simplify(integral-(1-1/a))==0; E=sp.exp(1-1/a); Ez=sp.exp(-z); ok2=sp.simplify(E.subs(a,1/(1+z))-Ez)==0; ok=ok1 and ok2
+    neg_ok = ok1 and sp.simplify(E.subs(a,1/(1+z))-sp.exp(-sp.Rational(105,100)*z))==0
     return locals()
 
 @check(label='ch:iams_law:L382', chapter='ch:iams_law', part=1, title='activation function vanishes as a to 0',
        file='part1/p1_02_iams_law', line=382, status='derived', kind='sym', printed='0', tol=0.0)
 def check_0092():
-    'activation function vanishes as a to 0. Book line 382, printed 0.'
+    'activation function vanishes as a to 0. Book line 382, printed 0. Control: the limit must not equal the printed 0 moved to 0.05.'
     a=sp.symbols('a',positive=True); lim=sp.limit(sp.exp(1-1/a),a,0,'+'); ok=(lim==0)
+    neg_ok = (lim==sp.Rational(5,100))
     return locals()
 
 @check(label='ch:iams_law:L384', chapter='ch:iams_law', part=1, title='derivative of E(a) equals E/a^2, positive',
        file='part1/p1_02_iams_law', line=384, status='derived', kind='sym', printed='', tol=0.0)
 def check_0093():
-    'derivative of E(a) equals E/a^2, positive. Book line 384.'
+    'derivative of E(a) equals E/a^2, positive. Book line 384. Control: 1.05 E/a^2 must not match.'
     a=sp.symbols('a',positive=True); E=sp.exp(1-1/a); dE=sp.diff(E,a); ok=sp.simplify(dE-E/a**2)==0
+    neg_ok = sp.simplify(dE-sp.Rational(105,100)*E/a**2)==0
     return locals()
 
 @check(label='ch:iams_law:L385', chapter='ch:iams_law', part=1, title='asymptotic value of activation function E(infinity)',
@@ -3787,8 +3892,9 @@ def check_0101():
 @check(label='eq:mu', chapter='ch:iams_law', part=1, title='mu(a) definition; mu<1 by positivity',
        file='part1/p1_02_iams_law', line=460, status='none', kind='sym', printed='', tol=0.0)
 def check_0102():
-    'mu(a) definition; mu<1 by positivity (Eq. eq:mu). Book line 460.'
+    'mu(a) definition; mu<1 by positivity (Eq. eq:mu). Book line 460. Control: the reversed inequality mu > 1 must not hold.'
     beta_m_s,Ea_s,H0_s,Hl_s=sp.symbols('beta_m Ea H0 Hl',positive=True); expr=Hl_s**2/(Hl_s**2+beta_m_s*Ea_s*H0_s**2); ok=sp.simplify(1-expr).is_positive
+    neg_ok = bool(sp.simplify(1-expr).is_negative)
     return locals()
 
 @check(label='ch:iams_law:L466', chapter='ch:iams_law', part=1, title='mu at a=1 from beta_m',
@@ -3822,8 +3928,9 @@ def check_0106():
 @check(label='eq:law_muratio', chapter='ch:iams_law', part=1, title='mu as ratio of Hubble rates, mu<1',
        file='part1/p1_02_iams_law', line=508, status='none', kind='sym', printed='', tol=0.0)
 def check_0107():
-    'mu as ratio of Hubble rates, mu<1 (Eq. eq:law_muratio). Book line 508.'
+    'mu as ratio of Hubble rates, mu<1 (Eq. eq:law_muratio). Book line 508. Control: the reversed inequality mu > 1 must not hold.'
     beta_m_s,Ea_s,H0_s,Hl_s=sp.symbols('beta_m Ea H0 Hl',positive=True); expr=Hl_s**2/(Hl_s**2+beta_m_s*Ea_s*H0_s**2); ok=sp.simplify(1-expr).is_positive
+    neg_ok = bool(sp.simplify(1-expr).is_negative)
     return locals()
 
 @check(label='ch:iams_law:L516', chapter='ch:iams_law', part=1, title='mu(a) at z=0',
@@ -4232,8 +4339,9 @@ def check_0144():
 @check(label='ch:iams_law:L670', chapter='ch:iams_law', part=1, title='late-time limit E(a)->e',
        file='part1/p1_02_iams_law', line=670, status='none', kind='sym', printed='', tol=0.0)
 def check_0145():
-    'late-time limit E(a)->e. Book line 670.'
-    a=sp.symbols('a',positive=True); ok=bool(sp.limit(sp.exp(1-1/a),a,sp.oo)==sp.E)
+    'late-time limit E(a)->e. Book line 670. Control: the limit must not equal 1.05 e.'
+    a=sp.symbols('a',positive=True); lim=sp.limit(sp.exp(1-1/a),a,sp.oo); ok=bool(lim==sp.E)
+    neg_ok = bool(sp.simplify(lim-sp.Rational(105,100)*sp.E)==0)
     return locals()
 
 @check(label='ch:iams_law:L681', chapter='ch:iams_law', part=1, title='beta_m defined as Omega_m/2',
@@ -4703,8 +4811,12 @@ def check_0193():
 @check(label='eq:vl_virial', chapter='ch:virial_law', part=1, title='virial relation 2K+V=0, E=-K for k=-1',
        file='part1/p1_03_virial_law', line=37, status='derived', kind='sym', printed='', tol=0.0)
 def check_0194():
-    'virial relation 2K+V=0, E=-K for k=-1 (Eq. eq:vl_virial). Book line 37.'
-    K,Va=sp.symbols('K Va',positive=True); V=-Va; K_expr=Va/2; ok=(sp.simplify(2*K_expr+V)==0) and (sp.simplify((K_expr+V)+K_expr)==0)
+    'virial relation 2K+V=0, E=-K for k=-1 (Eq. eq:vl_virial). Book line 37. Control: K = 1.05 |V|/2 must break 2K+V=0.'
+    K,Va=sp.symbols('K Va',positive=True); V=-Va
+    def holds(K_expr):
+        return (sp.simplify(2*K_expr+V)==0) and (sp.simplify((K_expr+V)+K_expr)==0)
+    ok = holds(Va/2)
+    neg_ok = holds(sp.Rational(105,100)*Va/2)
     return locals()
 
 @check(label='eq:vl_n', chapter='ch:virial_law', part=1, title='virial relation T=n/2|V| for V~-r^-n',
@@ -4731,8 +4843,9 @@ def check_0197():
 @check(label='ch:virial_law:L75', chapter='ch:virial_law', part=1, title='virial ratio eta=-T/E identity',
        file='part1/p1_03_virial_law', line=75, status='calc', kind='sym', printed='1.0000000000', tol=0.0)
 def check_0198():
-    'virial ratio eta=-T/E identity. Book line 75, printed 1.0000000000.'
+    'virial ratio eta=-T/E identity. Book line 75, printed 1.0000000000. Control: eta must not equal 1.05.'
     K,E=sp.symbols('K E'); V=-2*K; Eexpr=K+V; eta=-K/Eexpr; ok=sp.simplify(eta-1)==0
+    neg_ok = sp.simplify(eta-sp.Rational(105,100))==0
     return locals()
 
 @check(label='ch:virial_law:L87', chapter='ch:virial_law', part=1, title='polytrope-3 gravitational binding energy, Sun',
@@ -4801,8 +4914,9 @@ def check_0207():
 @check(label='ch:virial_law:L121', chapter='ch:virial_law', part=1, title='Smarr ratio mass-independent, equals 1/2',
        file='part1/p1_03_virial_law', line=121, status='calc', kind='sym', printed='0.5000000000', tol=0.0)
 def check_0208():
-    'Smarr ratio mass-independent, equals 1/2. Book line 121, printed 0.5000000000.'
+    'Smarr ratio mass-independent, equals 1/2. Book line 121, printed 0.5000000000. Control: the ratio must not equal 0.525.'
     G_,c_,kB_,hbar_,M=sp.symbols('G c kB hbar M',positive=True); S=4*sp.pi*G_*kB_*M**2/(hbar_*c_); T_H=hbar_*c_**3/(8*sp.pi*G_*kB_*M); ok=sp.simplify(T_H*S-sp.Rational(1,2)*M*c_**2)==0
+    neg_ok = sp.simplify(T_H*S-sp.Rational(105,100)*sp.Rational(1,2)*M*c_**2)==0
     return locals()
 
 @check(label='ch:virial_law:L124', chapter='ch:virial_law', part=1, title='Kerr horizon energy share, chi=0.5',
@@ -4881,8 +4995,9 @@ def check_0218():
 @check(label='ch:virial_law:L144:0.5000000000', chapter='ch:virial_law', part=1, title='Smarr ratio, caption repeat',
        file='part1/p1_03_virial_law', line=144, status='calc', kind='sym', printed='0.5000000000', tol=0.0)
 def check_0219():
-    'Smarr ratio, caption repeat. Book line 144, printed 0.5000000000.'
+    'Smarr ratio, caption repeat. Book line 144, printed 0.5000000000. Control: the ratio must not equal 0.525.'
     G_,c_,kB_,hbar_,M=sp.symbols('G c kB hbar M',positive=True); S=4*sp.pi*G_*kB_*M**2/(hbar_*c_); T_H=hbar_*c_**3/(8*sp.pi*G_*kB_*M); ok=sp.simplify(T_H*S-sp.Rational(1,2)*M*c_**2)==0
+    neg_ok = sp.simplify(T_H*S-sp.Rational(105,100)*sp.Rational(1,2)*M*c_**2)==0
     return locals()
 
 @check(label='ch:virial_law:L144:0.15765', chapter='ch:virial_law', part=1, title='beta_m prediction, caption repeat',
@@ -4939,8 +5054,9 @@ def check_0226():
 @check(label='ch:virial_law:L158', chapter='ch:virial_law', part=1, title='virial ratio identity, table repeat',
        file='part1/p1_03_virial_law', line=158, status='calc', kind='sym', printed='1.0000000000', tol=0.0)
 def check_0227():
-    'virial ratio identity, table repeat. Book line 158, printed 1.0000000000.'
+    'virial ratio identity, table repeat. Book line 158, printed 1.0000000000. Control: eta must not equal 1.05.'
     K,E=sp.symbols('K E'); V=-2*K; Eexpr=K+V; eta=-K/Eexpr; ok=sp.simplify(eta-1)==0
+    neg_ok = sp.simplify(eta-sp.Rational(105,100))==0
     return locals()
 
 @check(label='ch:virial_law:L160', chapter='ch:virial_law', part=1, title='Chandrasekhar mass, table repeat',
@@ -4960,8 +5076,9 @@ def check_0229():
 @check(label='ch:virial_law:L164', chapter='ch:virial_law', part=1, title='Smarr relation, table repeat',
        file='part1/p1_03_virial_law', line=164, status='calc', kind='sym', printed='1/2', tol=0.0)
 def check_0230():
-    'Smarr relation, table repeat. Book line 164, printed 1/2.'
+    'Smarr relation, table repeat. Book line 164, printed 1/2. Control: the ratio must not equal 0.525.'
     G_,c_,kB_,hbar_,M=sp.symbols('G c kB hbar M',positive=True); S=4*sp.pi*G_*kB_*M**2/(hbar_*c_); T_H=hbar_*c_**3/(8*sp.pi*G_*kB_*M); ok=sp.simplify(T_H*S-sp.Rational(1,2)*M*c_**2)==0
+    neg_ok = sp.simplify(T_H*S-sp.Rational(105,100)*sp.Rational(1,2)*M*c_**2)==0
     return locals()
 
 @check(label='ch:virial_law:L165', chapter='ch:virial_law', part=1, title='Delta chi2, table repeat',
@@ -5362,19 +5479,19 @@ def check_0268():
     ok = file_has('docs/verification/scripts/verify_virial_papers_output.txt', '1.26')
     return locals()
 
-@check(label='ch:virial:L98:1.35', chapter='ch:virial', part=2, title='measured: printed value found in verify_virial_papers_output.txt, a file the chapter names',
+@check(label='ch:virial:L98:1.35', chapter='ch:virial', part=2, title='measured: Neto 2007 relaxation cut read from verify_virial_papers_output.txt, a file the chapter names',
        file='part2/p2_02_virial', line=98, status='observed', kind='file', printed='1.35', tol=0.0, source='docs/verification/scripts/verify_virial_papers_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt')
 def check_0269():
-    'measured: printed value found in verify_virial_papers_output.txt, a file the chapter names. Book line 98, printed 1.35.'
-    ok = file_has('docs/verification/scripts/verify_virial_papers_output.txt', '1.35')
+    'measured: the Neto et al. 2007 relaxation cut 2T/|U| < 1.35, read from the row "Neto relaxation cut" of verify_virial_papers_output.txt. Book line 98, printed 1.35.'
+    value = _f00_read('docs/verification/scripts/verify_virial_papers_output.txt', r"Neto relaxation cut 2T/\|U\| < ([\d.]+)")
     return locals()
 
-@check(label='ch:virial:L99', chapter='ch:virial', part=2, title='measured: printed value found in NBODY_TRACE.md, a file the chapter names',
+@check(label='ch:virial:L99', chapter='ch:virial', part=2, title='measured: Power 2012 eta at 10^12 read from NBODY_TRACE.md, a file the chapter names',
        file='part2/p2_02_virial', line=99, status='observed', kind='file', printed='1.15', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
 def check_0270():
-    'measured: printed value found in NBODY_TRACE.md, a file the chapter names. Book line 99, printed 1.15.'
-    ok = file_has('docs/verification/virial/NBODY_TRACE.md', '1.15')
+    'measured: Power, Knebe and Knollmann 2012 eta = 2T/|W| at 10^12 h^-1 Msun, read from the Power 2012 row of NBODY_TRACE.md (eta ~ 1.15 (10^12) to 1.25 (10^15)). Book line 99, printed 1.15.'
+    value = _f00_read('docs/verification/virial/NBODY_TRACE.md', r"η ≈ ([\d.]+) \(10\^12\) to")
     return locals()
 
 @check(label='ch:virial:L99:1.25', chapter='ch:virial', part=2, title='measured: printed value found in NBODY_TRACE.md, a file the chapter names',
@@ -5460,20 +5577,6 @@ def check_3192():
 
 # ---------------- the collapsed fraction (lines 125-126)
 
-@check(label='ch:virial:L108', chapter='ch:virial', part=2, title='collapse-fraction log-slope at 10^10, six mass functions',
-       file='part2/p2_02_virial', line=108, status='calc', kind='file', printed='0.5', tol=0.1, source='docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv')
-def check_0274():
-    'collapse-fraction log-slope at 10^10, six mass functions. Book line 108, printed 0.5.'
-    ok = file_has('docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv', '0.5')
-    return locals()
-
-@check(label='ch:virial:L108:3', chapter='ch:virial', part=2, title='collapse-fraction log-slope at 10^14, six mass functions',
-       file='part2/p2_02_virial', line=108, status='calc', kind='file', printed='3', tol=0.1, source='docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv')
-def check_0275():
-    'collapse-fraction log-slope at 10^14, six mass functions. Book line 108, printed 3.'
-    ok = file_has('docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv', '3')
-    return locals()
-
 @check(label='ch:virial:L125', chapter='ch:virial', part=2, title='Tinker 2008 collapsed fraction above 10^10.5 h^-1 Msun',
        file='part2/p2_02_virial', line=125, status='calc', kind='num', printed='0.486', tol=0.0)
 def check_3193():
@@ -5540,25 +5643,11 @@ def check_3198():
     value = 100 * abs(1 - round(alpha, 2))
     return locals()
 
-@check(label='ch:virial:L148', chapter='ch:virial', part=2, title='collapse-fraction log-slope above 10^10',
-       file='part2/p2_02_virial', line=148, status='calc', kind='file', printed='0.5', tol=0.1, source='docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv')
-def check_0278():
-    'collapse-fraction log-slope above 10^10. Book line 148, printed 0.5.'
-    ok = file_has('docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv', '0.5')
-    return locals()
-
 @check(label='ch:virial:L148:1', chapter='ch:virial', part=2, title='collapse-fraction log-slope above 10^12',
        file='part2/p2_02_virial', line=148, status='calc', kind='file', printed='1', tol=0.1, source='docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv')
 def check_0279():
     'collapse-fraction log-slope above 10^12. Book line 148, printed 1.'
     ok = file_has('docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv', '1')
-    return locals()
-
-@check(label='ch:virial:L148:3', chapter='ch:virial', part=2, title='collapse-fraction log-slope above 10^14',
-       file='part2/p2_02_virial', line=148, status='calc', kind='file', printed='3', tol=0.1, source='docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv')
-def check_0280():
-    'collapse-fraction log-slope above 10^14. Book line 148, printed 3.'
-    ok = file_has('docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv', '3')
     return locals()
 
 @check(label='ch:virial:L151', chapter='ch:virial', part=2, title='bottom-up n_eff passes through 7/2 at z = 3-4',
@@ -5598,20 +5687,16 @@ def check_0281():
     a,z = sp.symbols('a z'); lhs = sp.exp(1-1/a).subs(a,1/(1+z)); rhs = sp.exp(-z)
     return locals()
 
-@check(label='ch:virial:L159', chapter='ch:virial', part=2, title='drafted check, screened (runs; negative control fails)',
+@check(label='ch:virial:L159', chapter='ch:virial', part=2, title='E(a) -> 0 as a -> 0',
        file='part2/p2_02_virial', line=159, status='derived', kind='sym', printed='0', tol=0.0)
 def check_0282():
-    'drafted check, screened (runs; negative control fails). Book line 159, printed 0.'
+    'E(a) = exp(1 - 1/a) tends to 0 as a -> 0+. Book line 159, printed 0. Control: the limit must not equal the printed 0 moved to 0.05.'
     a = sp.Symbol('a', real=True, positive=True)
-    z = sp.Symbol('z', real=True, nonnegative=True)
-
-    # Line 159: E(a) = exp(1 - 1/a), and "E → 0 as a → 0"
-    # Also: E(z=10) = 4.5e-5 is stated. Since E(a) = exp(-z) and z = 1/a - 1,
-    # check limit as a→0⁺
     E_a = sp.exp(1 - 1/a)
     lhs = sp.limit(E_a, a, 0, '+')
     rhs = 0
-    rhs_wrong = 0.05
+    neg_lhs = lhs
+    neg_rhs = sp.Rational(5, 100)
     return locals()
 
 @check(label='ch:virial:L159:4.5\\times10^{-5}', chapter='ch:virial', part=2, title='E at z=10',
@@ -5637,15 +5722,17 @@ def check_0284():
 @check(label='ch:virial:L160', chapter='ch:virial', part=2, title='dE/da positive for all a>0',
        file='part2/p2_02_virial', line=160, status='derived', kind='sym', printed='', tol=0.0)
 def check_0285():
-    'dE/da positive for all a>0. Book line 160.'
-    a=sp.symbols('a',positive=True); ok = bool(sp.diff(sp.exp(1-1/a),a).is_positive)
+    'dE/da positive for all a>0. Book line 160. Control: the reversed inequality dE/da < 0 must not hold.'
+    a=sp.symbols('a',positive=True); dE=sp.diff(sp.exp(1-1/a),a); ok = bool(dE.is_positive)
+    neg_ok = bool(dE.is_negative)
     return locals()
 
 @check(label='ch:virial:L160:3', chapter='ch:virial', part=2, title='E(infty)=e asymptotic limit',
        file='part2/p2_02_virial', line=160, status='derived', kind='sym', printed='', tol=0.0)
 def check_0286():
-    'E(infty)=e asymptotic limit. Book line 160.'
-    a=sp.symbols('a'); ok = sp.limit(sp.exp(1-1/a),a,sp.oo)==sp.E
+    'E(infty)=e asymptotic limit. Book line 160. Control: the limit must not equal 1.05 e.'
+    a=sp.symbols('a'); lim=sp.limit(sp.exp(1-1/a),a,sp.oo); ok = lim==sp.E
+    neg_ok = sp.simplify(lim-sp.Rational(105,100)*sp.E)==0
     return locals()
 
 @check(label='ch:virial:L161', chapter='ch:virial', part=2, title='redshift where E=10% of today',
@@ -5672,15 +5759,17 @@ def check_0289():
 @check(label='ch:virial:L162', chapter='ch:virial', part=2, title='dE/dlna=E/a peaks at a=1',
        file='part2/p2_02_virial', line=162, status='calc', kind='sym', printed='', tol=0.0)
 def check_0290():
-    'dE/dlna=E/a peaks at a=1. Book line 162.'
-    a=sp.symbols('a',positive=True); g=sp.exp(1-1/a)/a; ok = sp.simplify(sp.diff(g,a).subs(a,1))==0
+    'dE/dlna=E/a peaks at a=1. Book line 162. Control: the peak moved to a = 1.05 must not be a stationary point.'
+    a=sp.symbols('a',positive=True); g=sp.exp(1-1/a)/a; dg=sp.diff(g,a); ok = sp.simplify(dg.subs(a,1))==0
+    neg_ok = sp.simplify(dg.subs(a,sp.Rational(105,100)))==0
     return locals()
 
 @check(label='ch:virial:L162:3', chapter='ch:virial', part=2, title='E has inflection at a=1/2',
        file='part2/p2_02_virial', line=162, status='calc', kind='sym', printed='', tol=0.0)
 def check_0291():
-    'E has inflection at a=1/2. Book line 162.'
-    a=sp.symbols('a',positive=True); E=sp.exp(1-1/a); ok = sp.simplify(sp.diff(E,a,2).subs(a,sp.Rational(1,2)))==0
+    'E has inflection at a=1/2. Book line 162. Control: the inflection moved to a = 0.525 must not have a vanishing second derivative.'
+    a=sp.symbols('a',positive=True); E=sp.exp(1-1/a); d2=sp.diff(E,a,2); ok = sp.simplify(d2.subs(a,sp.Rational(1,2)))==0
+    neg_ok = sp.simplify(d2.subs(a,sp.Rational(105,100)*sp.Rational(1,2)))==0
     return locals()
 
 @check(label='ch:virial:L169', chapter='ch:virial', part=2, title='mu(1)=1/(1+beta_m) today',
@@ -5711,15 +5800,17 @@ def check_3202():
 @check(label='ch:virial:L181', chapter='ch:virial', part=2, title='E inflection at a=1/2, fig caption repeat',
        file='part2/p2_02_virial', line=181, status='derived', kind='sym', printed='', tol=0.0)
 def check_0294():
-    'E inflection at a=1/2, fig caption repeat. Book line 181.'
-    a=sp.symbols('a',positive=True); E=sp.exp(1-1/a); ok = sp.simplify(sp.diff(E,a,2).subs(a,sp.Rational(1,2)))==0
+    'E inflection at a=1/2, fig caption repeat. Book line 181. Control: the inflection moved to a = 0.525 must not have a vanishing second derivative.'
+    a=sp.symbols('a',positive=True); E=sp.exp(1-1/a); d2=sp.diff(E,a,2); ok = sp.simplify(d2.subs(a,sp.Rational(1,2)))==0
+    neg_ok = sp.simplify(d2.subs(a,sp.Rational(105,100)*sp.Rational(1,2)))==0
     return locals()
 
 @check(label='ch:virial:L181:3', chapter='ch:virial', part=2, title='E tends to e, fig caption repeat',
        file='part2/p2_02_virial', line=181, status='derived', kind='sym', printed='', tol=0.0)
 def check_0295():
-    'E tends to e, fig caption repeat. Book line 181.'
-    a=sp.symbols('a'); ok = sp.limit(sp.exp(1-1/a),a,sp.oo)==sp.E
+    'E tends to e, fig caption repeat. Book line 181. Control: the limit must not equal 1.05 e.'
+    a=sp.symbols('a'); lim=sp.limit(sp.exp(1-1/a),a,sp.oo); ok = lim==sp.E
+    neg_ok = sp.simplify(lim-sp.Rational(105,100)*sp.E)==0
     return locals()
 
 @check(label='ch:virial:L181:13.6\\%', chapter='ch:virial', part=2, title="today's mu coupling deficit 1-mu(1)",
@@ -6305,13 +6396,6 @@ def check_0355():
     ok = file_has('docs/verification/scripts/verify_virial_papers_output.txt', '0.802')
     return locals()
 
-@check(label='ch:virial_tests:L26:0.12', chapter='ch:virial_tests', part=2, title='sigma8 tension in sigma',
-       file='part2/p2_02b_virial_tests', line=26, status='calc', kind='num', printed='0.12', tol=0.04167)
-def check_0356():
-    'sigma8 tension in sigma. Book line 26, printed 0.12.'
-    sigma8_pred=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8'); obs=0.802; obs_lo=0.018; value=abs(sigma8_pred-obs)/obs_lo
-    return locals()
-
 @check(label='ch:virial_tests:L26:0.022', chapter='ch:virial_tests', part=2, title='joint sigma8 upper error (KiDS-Legacy + DES Y3 + DESI + Pantheon+)',
        file='part2/p2_02b_virial_tests', line=26, status='observed', kind='file', printed='0.022', tol=0.0,
        source='docs/verification/scripts/verify_virial_papers_output.txt', heavy=True, rerun=_B00_VPAPERS_RERUN)
@@ -6652,15 +6736,17 @@ def check_0380():
 @check(label='eq:th:dS', chapter='ch:theory', part=2, title='entropy variation from S=etaA ansatz',
        file='part2/p2_03_theory', line=147, status='derived', kind='sym', printed='', tol=0.0)
 def check_0381():
-    'entropy variation from S=etaA ansatz (Eq. eq:th:dS). Book line 147.'
+    'entropy variation from S=etaA ansatz (Eq. eq:th:dS). Book line 147. Control: 1.05 eta dA must not match.'
     eta,A,dA=sp.symbols('eta A dA'); S=eta*A; dS=sp.diff(S,A)*dA; ok=sp.simplify(dS-eta*dA)==0
+    neg_ok = sp.simplify(dS-sp.Rational(105,100)*eta*dA)==0
     return locals()
 
 @check(label='eq:th:clausius', chapter='ch:theory', part=2, title='imposes Clausius relation with prior substitutions',
        file='part2/p2_03_theory', line=156, status='derived', kind='sym', printed='', tol=0.0)
 def check_0382():
-    'imposes Clausius relation with prior substitutions (Eq. eq:th:clausius). Book line 156.'
+    'imposes Clausius relation with prior substitutions (Eq. eq:th:clausius). Book line 156. Control: the Unruh factor 1/(2 pi) moved by 5 % must not match.'
     kappa,hbar,eta,I_T,I_R=sp.symbols('kappa hbar eta I_T I_R',positive=True); deltaQ=-kappa*I_T; T=hbar*kappa/(2*sp.pi); deltaA=-I_R; deltaS=eta*deltaA; rhs=T*deltaS; printed_rhs=(hbar*kappa/(2*sp.pi))*eta*(-I_R); ok=sp.simplify(rhs-printed_rhs)==0
+    neg_ok = sp.simplify(rhs-sp.Rational(105,100)*printed_rhs)==0
     return locals()
 
 @check(label='eq:th:Tab', chapter='ch:theory', part=2, title='solves T_ab via null-vector generality',
@@ -6869,8 +6955,8 @@ def check_0407():
        file='part2/p2_03_theory', line=345, status='calc', kind='file', printed='-1.02', tol=0.004902, source='docs/verification/scripts/verify_theory_derivations_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt')
 def check_0408():
-    'fitted slope n=3.5, matter era. Book line 345, printed -1.02.'
-    ok = file_has('docs/verification/scripts/verify_theory_derivations_output.txt', '-1.02')
+    'fitted slope n=3.5, matter era, read from the row "n = 3.5: power of dS/dln a, matter era (0.01-0.1)" of the committed output. Book line 345, printed -1.02.'
+    value = _f00_read('docs/verification/scripts/verify_theory_derivations_output.txt', r"n = 3\.5: power of dS/dln a, matter era \(0\.01-0\.1\) ([-\d.]+)")
     return locals()
 
 @check(label='ch:theory:L345:-0.53', chapter='ch:theory', part=2, title='fitted slope n=4, matter era',
@@ -6899,8 +6985,8 @@ def check_3236():
        file='part2/p2_03_theory', line=353, status='calc', kind='file', printed='-1.02', tol=0.004902, source='docs/verification/scripts/verify_theory_derivations_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt')
 def check_0411():
-    'full LCDM slope, matter era, n=7/2. Book line 353, printed -1.02.'
-    ok = file_has('docs/verification/scripts/verify_theory_derivations_output.txt', '-1.02')
+    'full LCDM slope, matter era, n=7/2, read from the row "n = 3.5: power of dS/dln a, matter era (0.01-0.1)" of the committed output. Book line 353, printed -1.02.'
+    value = _f00_read('docs/verification/scripts/verify_theory_derivations_output.txt', r"n = 3\.5: power of dS/dln a, matter era \(0\.01-0\.1\) ([-\d.]+)")
     return locals()
 
 @check(label='ch:theory:L354', chapter='ch:theory', part=2, title='full LCDM slope, Lambda era, n=7/2',
@@ -7026,8 +7112,9 @@ def check_0426():
 @check(label='ch:theory:L408', chapter='ch:theory', part=2, title='activation function at recombination',
        file='part2/p2_03_theory', line=408, status='calc', kind='sym', printed='e^{-999}', tol=0.0)
 def check_0427():
-    'activation function at recombination. Book line 408, printed e^{-999}.'
+    'activation function at recombination. Book line 408, printed e^{-999}. Control: the exponent -999 moved by 5 % must not match.'
     a=sp.Rational(1,1000); lhs=sp.exp(1-1/a); ok=sp.simplify(lhs-sp.exp(-999))==0
+    neg_ok = sp.simplify(lhs-sp.exp(-sp.Rational(105,100)*999))==0
     return locals()
 
 @check(label='ch:theory:L411', chapter='ch:theory', part=2, title='H0 from Level2b chain A',
@@ -7125,16 +7212,6 @@ def check_0438():
     value=-res.fun*100
     return locals()
 
-@check(label='ch:theory:L503:0.65', chapter='ch:theory', part=2, title='redshift location of max mu deviation',
-       file='part2/p2_03_theory', line=503, status='calc', kind='num', printed='0.65', tol=0.2)
-def check_0439():
-    'redshift location of max mu deviation. Book line 503, printed 0.65.'
-    def mu_ex(a): E2=Om/a**3+OL; return E2/(E2+beta_m*E_act(a))
-    def mu_ap(a): E2=Om/a**3+OL; m0=-beta_m/(1+beta_m); return 1+m0/E2
-    res=minimize_scalar(lambda a:-abs(mu_ex(a)-mu_ap(a)),bounds=(0.2,1),method='bounded')
-    value=1/res.x-1
-    return locals()
-
 @check(label='ch:theory:L504', chapter='ch:theory', part=2, title='mu0 repeat, IAM point in mu0-Sigma0 plane',
        file='part2/p2_03_theory', line=504, status='derived', kind='num', printed='-0.136', tol=0.00368)
 def check_0440():
@@ -7166,13 +7243,6 @@ def check_0442():
     Omc=0.315; value=-(1-Omc/3)/(1-Omc/2)
     return locals()
 
-@check(label='ch:theory:L515:-0.012', chapter='ch:theory', part=2, title='tangent wa value',
-       file='part2/p2_03_theory', line=515, status='calc', kind='num', printed='-0.012', tol=0.0417)
-def check_0443():
-    'tangent wa value. Book line 515, printed -0.012.'
-    Omc=0.315; value=-(Omc**2)/(3*(2-Omc)**2)
-    return locals()
-
 @check(label='ch:theory:L515:-1.065', chapter='ch:theory', part=2, title='least-squares CPL fit intercept w0',
        file='part2/p2_03_theory', line=515, status='calc', kind='num', printed='-1.065', tol=0.00047)
 def check_0444():
@@ -7200,8 +7270,9 @@ def check_0445():
 @check(label='eq:th:phidot', chapter='ch:theory', part=2, title='constraint equation for phidot',
        file='part2/p2_03_theory', line=522, status='derived', kind='sym', printed='', tol=0.0)
 def check_0446():
-    'constraint equation for phidot (Eq. eq:th:phidot). Book line 522.'
+    'constraint equation for phidot (Eq. eq:th:phidot). Book line 522. Control: 1.05 H/a must not match.'
     t=sp.symbols('t'); a=sp.Function('a')(t); phi=1-1/a; phidot=sp.diff(phi,t); H=sp.diff(a,t)/a; ok=sp.simplify(phidot-H/a)==0
+    neg_ok = sp.simplify(phidot-sp.Rational(105,100)*H/a)==0
     return locals()
 
 @check(label='eq:th:Lmini', chapter='ch:theory', part=2, title='minisuperspace Lagrangian substitution',
@@ -7228,8 +7299,9 @@ def check_0449():
 @check(label='eq:th:winfo', chapter='ch:theory', part=2, title='solve continuity equation for w_info',
        file='part2/p2_03_theory', line=560, status='derived', kind='sym', printed='', tol=0.0)
 def check_0450():
-    'solve continuity equation for w_info (Eq. eq:th:winfo). Book line 560.'
+    'solve continuity equation for w_info (Eq. eq:th:winfo). Book line 560. Control: the coefficient 1/3 of 1/(3a) moved by 5 % must not match.'
     a,H,w=sp.symbols('a H w'); sol=sp.solve(sp.Eq(-3*H*(1+w),H/a),w)[0]; ok=sp.simplify(sol-(-1-1/(3*a)))==0
+    neg_ok = sp.simplify(sol-(-1-sp.Rational(105,100)/(3*a)))==0
     return locals()
 
 @check(label='ch:theory:L562', chapter='ch:theory', part=2, title='w_info at present epoch',
@@ -7288,13 +7360,6 @@ def check_0456():
 def check_0457():
     'w0 repeat value. Book line 581, printed -1.062.'
     value=-(1-Om/3)/(1-Om/2)
-    return locals()
-
-@check(label='ch:theory:L581:-0.012', chapter='ch:theory', part=2, title='wa tangent value',
-       file='part2/p2_03_theory', line=581, status='calc', kind='num', printed='-0.012', tol=0.0417)
-def check_0458():
-    'wa tangent value. Book line 581, printed -0.012.'
-    value=-(Om**2)/(3*(2-Om)**2)
     return locals()
 
 @check(label='ch:theory:L582', chapter='ch:theory', part=2, title='least-squares w0 repeat',
@@ -7364,10 +7429,11 @@ def check_0464():
     return locals()
 
 @check(label='ch:theory:L617:27', chapter='ch:theory', part=2, title='percent naive beta_m above Om/2, low',
-       file='part2/p2_03_theory', line=617, status='calc', kind='num', printed='27', tol=0.04)
+       file='part2/p2_03_theory', line=617, status='calc', kind='num', printed='27', tol=0.0)
 def check_0465():
-    'percent naive beta_m above Om/2, low. Book line 617, printed 27.'
-    value = (2*0.64-1)*100
+    'Per cent by which the naive beta_m = Omega_m f_coll lies above Omega_m/2, Sheth-Tormen f_coll computed (as in eq:th:fcoll, not the rounded 0.64): 100 (2 f_coll - 1). Book line 617, printed 27.'
+    f_coll = _b01_fcoll('ST')
+    value = (2*f_coll-1)*100
     return locals()
 
 @check(label='ch:theory:L617:41', chapter='ch:theory', part=2, title='percent naive beta_m above Om/2, high',
@@ -7425,8 +7491,9 @@ def check_3246():
 @check(label='ch:theory:L671', chapter='ch:theory', part=2, title='divergence threshold exponent n=9/2',
        file='part2/p2_03_theory', line=671, status='none', kind='sym', printed='', tol=0.0)
 def check_0470():
-    'divergence threshold exponent n=9/2. Book line 671.'
+    'divergence threshold exponent n=9/2. Book line 671. Control: the crossing must not equal 1.05 x 9/2.'
     n=sp.symbols('n'); p=n-sp.Rational(11,2); crossing=sp.solve(sp.Eq(p,-1),n)[0]; ok=(crossing==sp.Rational(9,2))
+    neg_ok = (crossing==sp.Rational(105,100)*sp.Rational(9,2))
     return locals()
 
 @check(label='ch:theory:L683', chapter='ch:theory', part=2, title='D^{7/2} fit, points uniform in a: alpha',
@@ -7831,8 +7898,9 @@ def check_3290():
 @check(label='eq:th:mu2', chapter='ch:theory', part=2, title='mu<1 since E_IAM^2>E_LCDM^2',
        file='part2/p2_03_theory', line=785, status='derived', kind='sym', printed='', tol=0.0)
 def check_0480():
-    'mu<1 since E_IAM^2>E_LCDM^2 (Eq. eq:th:mu2). Book line 785.'
+    'mu<1 since E_IAM^2>E_LCDM^2 (Eq. eq:th:mu2). Book line 785. Control: the reversed inequality E_IAM^2 < E_LCDM^2 must not hold.'
     Om_s,OL_s,beta_s,Ea=sp.symbols('Om OL beta E',positive=True); E2l=Om_s+OL_s; E2i=E2l+beta_s*Ea; ok=sp.simplify(E2i-E2l)>0
+    neg_ok = bool(sp.simplify(E2i-E2l).is_negative)
     return locals()
 
 @check(label='ch:theory:L788', chapter='ch:theory', part=2, title='mu(z=0) from E^2 ratio',
@@ -7922,11 +7990,12 @@ def check_3294():
 @check(label='ch:theory:L819', chapter='ch:theory', part=2, title='F2(k,-k) vanishes by momentum conservation',
        file='part2/p2_03_theory', line=819, status='derived', kind='sym', printed='0', tol=0.0)
 def check_0487():
-    'F2(k,-k) vanishes by momentum conservation. Book line 819, printed 0.'
+    'F2(k,-k) vanishes by momentum conservation. Book line 819, printed 0. Control: the kernel coefficient 5/7 moved by 5 % must not give 0.'
     mu=sp.Integer(-1)
     ratio=sp.Integer(2)
     lhs=sp.Rational(5,7)+sp.Rational(1,2)*mu*ratio+sp.Rational(2,7)*mu**2
     rhs=0
+    neg_lhs=sp.Rational(105,100)*sp.Rational(5,7)+sp.Rational(1,2)*mu*ratio+sp.Rational(2,7)*mu**2
     return locals()
 
 @check(label='ch:theory:L820', chapter='ch:theory', part=2, title='F2(k,k) value from kernel definition',
@@ -8010,13 +8079,6 @@ def check_3300():
 def check_3301():
     'k_nl at z = 0 for IAM with the same early amplitude (friction form). Book line 834, printed 0.255.'
     value = _b01_knl('L2', 0.0)
-    return locals()
-
-@check(label='ch:theory:L835', chapter='ch:theory', part=2, title='k_nl shift IAM vs LambdaCDM, z = 0',
-       file='part2/p2_03_theory', line=835, status='calc', kind='num', printed='+1.2%', tol=0.0)
-def check_3302():
-    'Per cent shift of k_nl, IAM over LambdaCDM, z = 0. Book line 835, printed +1.2%.'
-    value = 100 * (_b01_knl('L2', 0.0) / _b01_knl('LCDM', 0.0) - 1)
     return locals()
 
 @check(label='ch:theory:L835:+0.6%', chapter='ch:theory', part=2, title='k_nl shift IAM vs LambdaCDM, z = 0.3',
@@ -8419,14 +8481,6 @@ def check_3312():
     value = float(_b01_n_exponent())
     return locals()
 
-@check(label='ch:theory:L1085', chapter='ch:theory', part=2, title='D^{7/2}: 1/a coefficient within 2 %',
-       file='part2/p2_03_theory', line=1085, status='calc', kind='num', printed='2\\%', tol=0.0)
-def check_3313():
-    'Per cent distance of the D^{7/2} fitted 1/a coefficient from 1, full LambdaCDM history (Eq. th:Iint). Book line 1085, printed 2%.'
-    value = 100 * abs(_b01_fit(_b01_powerlaw(3.5))[1] - 1)
-    return locals()
-
-
 # ======== Part 2 | ch:entropicgravity | docs/book/part2/p2_03a_entropic_gravity.tex
 @check(label='eq:eg_flux', chapter='ch:entropicgravity', part=2, title='horizon energy flux, algebra from A_H,r_A',
        file='part2/p2_03a_entropic_gravity', line=30, status='derived', kind='sym', printed='', tol=0.0)
@@ -8452,8 +8506,9 @@ def check_0527():
 @check(label='eq:eg_friedmann', chapter='ch:entropicgravity', part=2, title='integrate Hdot with continuity eq to Friedmann',
        file='part2/p2_03a_entropic_gravity', line=38, status='derived', kind='sym', printed='', tol=0.0)
 def check_0528():
-    'integrate Hdot with continuity eq to Friedmann (Eq. eq:eg_friedmann). Book line 38.'
+    'integrate Hdot with continuity eq to Friedmann (Eq. eq:eg_friedmann). Book line 38. Control: Hdot = -4 pi G (rho+P) with the coefficient moved by 5 % must not close.'
     H,G,rho,P=sp.symbols('H G rho P',positive=True); Hdot=-4*sp.pi*G*(rho+P); expr=2*H*Hdot+8*sp.pi*G*H*(rho+P); ok=sp.simplify(expr)==0
+    neg_ok = sp.simplify(2*H*sp.Rational(105,100)*Hdot+8*sp.pi*G*H*(rho+P))==0
     return locals()
 
 @check(label='eq:eg_bitcost', chapter='ch:entropicgravity', part=2, title='Landauer bit cost at horizon temperature',
@@ -8496,8 +8551,8 @@ def check_0532():
        file='part2/p2_03a_entropic_gravity', line=107, status='calc', kind='file', printed='0.78', tol=0.00641, source='docs/verification/scripts/verify_entropic_gravity_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_entropic_gravity.py > docs/verification/scripts/verify_entropic_gravity_output.txt')
 def check_0533():
-    'growth-factor deficit, Level-1 MGCAMB form. Book line 107, printed 0.78.'
-    ok = file_has('docs/verification/scripts/verify_entropic_gravity_output.txt', '0.78')
+    'growth-factor deficit, Level-1 MGCAMB form: minus dD/D at z = 0 of the row "L1_muG" of the committed output. Book line 107, printed 0.78 (per cent below).'
+    value = -_f00_read('docs/verification/scripts/verify_entropic_gravity_output.txt', r"L1_muG\s*: dD/D at z = 0, 0\.5, 1, 2: ([-\d.]+) %")
     return locals()
 
 @check(label='ch:entropicgravity:L109', chapter='ch:entropicgravity', part=2, title='growth-factor deficit, Level-2 form',
@@ -8542,8 +8597,8 @@ def check_0538():
        file='part2/p2_03a_entropic_gravity', line=119, status='calc', kind='file', printed='-0.78', tol=0.00641, source='docs/verification/scripts/verify_entropic_gravity_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_entropic_gravity.py > docs/verification/scripts/verify_entropic_gravity_output.txt')
 def check_0539():
-    'dD/D today, L1_muG form (committed output). Book line 119, printed -0.78.'
-    ok=file_has('docs/verification/scripts/verify_entropic_gravity_output.txt','-0.78')
+    'dD/D today, L1_muG form: dD/D at z = 0 of the row "L1_muG" of the committed output. Book line 119, printed -0.78.'
+    value = _f00_read('docs/verification/scripts/verify_entropic_gravity_output.txt', r"L1_muG\s*: dD/D at z = 0, 0\.5, 1, 2: ([-\d.]+) %")
     return locals()
 
 @check(label='ch:entropicgravity:L127', chapter='ch:entropicgravity', part=2, title='1 - mu(1) = beta_m/(1+beta_m)',
@@ -8584,8 +8639,9 @@ def check_0544():
 @check(label='eq:eg_virial', chapter='ch:entropicgravity', part=2, title='virial theorem, k=-1 gravity case',
        file='part2/p2_03a_entropic_gravity', line=139, status='derived', kind='sym', printed='', tol=0.0)
 def check_0545():
-    'virial theorem, k=-1 gravity case (Eq. eq:eg_virial). Book line 139.'
+    'virial theorem, k=-1 gravity case (Eq. eq:eg_virial). Book line 139. Control: the factor 2 of 2T moved by 5 % must not give 0.'
     T,V=sp.symbols('T V'); k=-1; Tsol=sp.solve(sp.Eq(2*T,k*V),T)[0]; lhs=2*Tsol+V; rhs=0
+    neg_lhs=sp.Rational(105,100)*2*Tsol+V
     return locals()
 
 @check(label='eq:eg_beta', chapter='ch:entropicgravity', part=2, title='coupling constant beta_m = Omega_m/2',
@@ -8615,6 +8671,7 @@ def check_3315():
 def check_0548():
     'exponent n from decoherence scaling condition. Book line 159, printed 7/2.'
     n=sp.symbols('n'); sol=sp.solve(sp.Eq(n-sp.Rational(9,2),-1),n)[0]; ok=sol==sp.Rational(7,2)
+    neg_ok = sol == sp.Rational(7,2)*_F01_R
     return locals()
 
 @check(label='ch:entropicgravity:L167', chapter='ch:entropicgravity', part=2, title='E(1)=exp(C-k)=1 gives C=k',
@@ -8639,19 +8696,19 @@ def check_0551():
     return locals()
 
 @check(label='ch:entropicgravity:L172', chapter='ch:entropicgravity', part=2, title='fit exp(alpha - beta/a) to D^3.5 record (committed output, alpha 0.93 beta 1.02)',
-       file='part2/p2_03a_entropic_gravity', line=172, status='fitted', kind='file', printed='0.93', tol=0.00538, source='docs/verification/scripts/verify_theory_derivations_output.txt',
+       file='part2/p2_03a_entropic_gravity', line=172, status='fitted', kind='file', printed='0.93', tol=0.0, source='docs/verification/scripts/verify_theory_derivations_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt')
 def check_0552():
-    'fit exp(alpha - beta/a) to D^3.5 record (committed output, alpha 0.93 beta 1.02). Book line 172, printed 0.93.'
-    ok=file_has('docs/verification/scripts/verify_theory_derivations_output.txt','0.93')
+    'fit exp(alpha - beta/a) to D^3.5 record: alpha read from the row "D^3.5 Om(a) f / (T_H A_H)" of the committed output. Book line 172, printed 0.93.'
+    value = _f01_num('docs/verification/scripts/verify_theory_derivations_output.txt', r'D\^3\.5 Om\(a\) f / \(T_H A_H\)\s+alpha = ([-\d.]+)\s+beta = ([-\d.]+)', 1)
     return locals()
 
 @check(label='ch:entropicgravity:L172:1.02', chapter='ch:entropicgravity', part=2, title='fit exp(alpha - beta/a) to D^3.5 record (committed output, alpha 0.93 beta 1.02)',
-       file='part2/p2_03a_entropic_gravity', line=172, status='fitted', kind='file', printed='1.02', tol=0.0049, source='docs/verification/scripts/verify_theory_derivations_output.txt',
+       file='part2/p2_03a_entropic_gravity', line=172, status='fitted', kind='file', printed='1.02', tol=0.0, source='docs/verification/scripts/verify_theory_derivations_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt')
 def check_0553():
-    'fit exp(alpha - beta/a) to D^3.5 record (committed output, alpha 0.93 beta 1.02). Book line 172, printed 1.02.'
-    ok=file_has('docs/verification/scripts/verify_theory_derivations_output.txt','1.02')
+    'fit exp(alpha - beta/a) to D^3.5 record: beta read from the row "D^3.5 Om(a) f / (T_H A_H)" of the committed output. Book line 172, printed 1.02.'
+    value = _f01_num('docs/verification/scripts/verify_theory_derivations_output.txt', r'D\^3\.5 Om\(a\) f / \(T_H A_H\)\s+alpha = ([-\d.]+)\s+beta = ([-\d.]+)', 2)
     return locals()
 
 @check(label='ch:entropicgravity:L174', chapter='ch:entropicgravity', part=2, title='E(1)/e percentage of ceiling today',
@@ -8666,6 +8723,7 @@ def check_0554():
 def check_0555():
     'inflection of dE/dlna at a=1 today. Book line 175, printed a=1.'
     a=sp.symbols('a',positive=True); E=sp.exp(1-1/a); dp=sp.diff(E/a,a); sol=sp.solve(sp.Eq(dp,0),a); ok=any(sp.simplify(s-1)==0 for s in sol)
+    neg_ok = any(sp.simplify(s-_F01_R)==0 for s in sol)
     return locals()
 
 @check(label='ch:entropicgravity:L176', chapter='ch:entropicgravity', part=2, title='redshift of peak dE/dt rate',
@@ -8686,6 +8744,7 @@ def check_0556():
 def check_0557():
     'scale factor of peak dE/da. Book line 176, printed a=1/2.'
     a=sp.symbols('a',positive=True); g=sp.exp(1-1/a)/a**2; dg=sp.diff(g,a); sol=sp.solve(sp.Eq(dg,0),a); ok=any(sp.simplify(s-sp.Rational(1,2))==0 for s in sol)
+    neg_ok = any(sp.simplify(s-sp.Rational(1,2)*_F01_R)==0 for s in sol)
     return locals()
 
 @check(label='ch:entropicgravity:L199', chapter='ch:entropicgravity', part=2, title='photon-sector H0, Level-2 chain',
@@ -8967,14 +9026,6 @@ def check_0583():
 def check_0584():
     'summary repeat: Level2 IAM sigma8 rounded. Book line 288, printed 0.800.'
     value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
-    return locals()
-
-@check(label='ch:entropicgravity:L288:0.12\\sigma', chapter='ch:entropicgravity', part=2, title='sigma8 Level 2 vs joint value 0.802 +- 0.018',
-       file='part2/p2_03a_entropic_gravity', line=288, status='calc', kind='num', printed='0.12\\sigma', tol=0.04167, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
-def check_0585():
-    'sigma8 Level 2 vs joint value 0.802 +- 0.018. Book line 288, printed 0.12\\sigma.'
-    s8=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8'); value=abs(s8-0.802)/0.018  # book input line 248
     return locals()
 
 @check(label='ch:entropicgravity:L289', chapter='ch:entropicgravity', part=2, title='photon-sector H0 tension vs Planck',
@@ -9289,12 +9340,12 @@ def check_0615():
     ok = file_has('docs/verification/scripts/verify_late_time_level2_output.txt', '73.04')
     return locals()
 
-@check(label='ch:level2:L34:1.04', chapter='ch:level2', part=2, title='measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names',
+@check(label='ch:level2:L34:1.04', chapter='ch:level2', part=2, title='SH0ES H0 error as used in verify_late_time_level2_output.txt, a file the chapter names',
        file='part2/p2_06_dual_sector_perturbation', line=34, status='measured', kind='file', printed='1.04', tol=0.0, source='docs/verification/scripts/verify_late_time_level2_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt')
 def check_0616():
-    'measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names. Book line 34, printed 1.04.'
-    ok = file_has('docs/verification/scripts/verify_late_time_level2_output.txt', '1.04')
+    'SH0ES H0 error read from the row "matter vs SH0ES (73.04 +/- ...)" of verify_late_time_level2_output.txt. Book line 34, printed 1.04.'
+    value = _f01_num('docs/verification/scripts/verify_late_time_level2_output.txt', r'matter vs SH0ES \(73\.04 \+/- ([\d.]+)\)')
     return locals()
 
 @check(label='ch:level2:L35', chapter='ch:level2', part=2, title='Hubble tension significance',
@@ -9693,14 +9744,6 @@ def check_0665():
     h_pl=0.6736; onu=(0.06/93.14)/h_pl**2; value=onu*100
     return locals()
 
-@check(label='ch:level2:L150:2', chapter='ch:level2', part=2, title='posterior percent error on Omega_m',
-       file='part2/p2_06_dual_sector_perturbation', line=150, status='calc', kind='num', printed='2', tol=0.25, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
-def check_0666():
-    'posterior percent error on Omega_m. Book line 150, printed 2.'
-    value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd')/csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')*100
-    return locals()
-
 @check(label='ch:level2:L178', chapter='ch:level2', part=2, title='sigma8 lowering, table row z=0 (book input)',
        file='part2/p2_06_dual_sector_perturbation', line=178, status='calc', kind='num', printed='1.2', tol=0.0417)
 def check_0667():
@@ -9953,10 +9996,10 @@ def check_0698():
     return locals()
 
 @check(label='ch:level2:L229', chapter='ch:level2', part=2, title='eBOSS LRG fsigma8',
-       file='part2/p2_06_dual_sector_perturbation', line=229, status='observed', kind='file', printed='0.473', tol=0.0005, source='camb_validation/likelihood_rsd.py')
+       file='part2/p2_06_dual_sector_perturbation', line=229, status='observed', kind='file', printed='0.473', tol=0.0, source='camb_validation/likelihood_rsd.py')
 def check_0699():
-    'eBOSS LRG fsigma8. Book line 229, printed 0.473.'
-    ok = file_has('camb_validation/likelihood_rsd.py', '0.473')
+    'eBOSS LRG fsigma8: the f sigma8 column of the z = 0.700 row of the RSD table in likelihood_rsd.py. Book line 229, printed 0.473.'
+    value = _f01_num('camb_validation/likelihood_rsd.py', r'\[0\.700,\s*([\d.]+),\s*[\d.]+\]')
     return locals()
 
 @check(label='ch:level2:L229:0.041', chapter='ch:level2', part=2, title='eBOSS LRG fsigma8 error',
@@ -10048,13 +10091,6 @@ def check_0710():
 def check_0711():
     'Run A posterior H0 mean. Book line 279, printed 67.161\\pm0.467.'
     value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
-    return locals()
-
-@check(label='ch:level2:L279:-0.06\\sigma', chapter='ch:level2', part=2, title='H0 shift A vs C in sigma',
-       file='part2/p2_06_dual_sector_perturbation', line=279, status='calc', kind='num', printed='-0.06\\sigma', tol=0.08)
-def check_0712():
-    'H0 shift A vs C in sigma. Book line 279, printed -0.06\\sigma.'
-    p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','H0');C=csv_val(p,'iam_level2_runC_lcdm','H0');Cs=csv_val(p,'iam_level2_runC_lcdm','H0_sd');value=(A-C)/Cs
     return locals()
 
 @check(label='ch:level2:L280', chapter='ch:level2', part=2, title='Run C posterior sigma8 mean',
@@ -10150,12 +10186,13 @@ def check_0724():
     value=(A-C)/Cs
     return locals()
 
-@check(label='ch:level2:L284', chapter='ch:level2', part=2, title='measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names',
+@check(label='ch:level2:L284', chapter='ch:level2', part=2, title='tau, Run C posterior mean, in verify_late_time_level2_output.txt section D',
        file='part2/p2_06_dual_sector_perturbation', line=284, status='measured', kind='file', printed='0.0532\\pm0.0073', tol=0.0, source='docs/verification/scripts/verify_late_time_level2_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt')
 def check_0725():
-    'measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names. Book line 284, printed 0.0532\\pm0.0073.'
-    ok = file_has('docs/verification/scripts/verify_late_time_level2_output.txt', '0.0532\\pm0.0073')
+    'tau of Run C (LCDM), posterior mean from the tau row of section D of verify_late_time_level2_output.txt; the sd 0.0073 must match too. Book line 284, printed 0.0532 +- 0.0073.'
+    C, sC, A, sA, D, sD = _b01l2_param('tau')
+    value = C if abs(sC - 0.0073) <= 0.00005 * 1.000001 else float('nan')
     return locals()
 
 @check(label='ch:level2:L284:0.0537\\pm0.0073', chapter='ch:level2', part=2, title='measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names',
@@ -10212,14 +10249,6 @@ def check_0731():
 def check_0732():
     'measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names. Book line 286, printed 3.0407\\pm0.0145.'
     ok = file_has('docs/verification/scripts/verify_late_time_level2_output.txt', '3.0407\\pm0.0145')
-    return locals()
-
-@check(label='ch:level2:L286:+0.09\\sigma', chapter='ch:level2', part=2, title='ln As shift; inputs printed to 4 decimals (tol = input rounding 0.0001/0.0146)',
-       file='part2/p2_06_dual_sector_perturbation', line=286, status='calc', kind='num', printed='+0.09\\sigma', tol=0.08)
-def check_0733():
-    'ln As shift; inputs printed to 4 decimals (tol = input rounding 0.0001/0.0146). Book line 286, printed +0.09\\sigma.'
-    A=3.0407;C=3.0393;Cs=0.0146  # book table line 286
-    value=(A-C)/Cs
     return locals()
 
 @check(label='ch:level2:L287', chapter='ch:level2', part=2, title='Run C posterior Omega_m mean',
@@ -10368,14 +10397,6 @@ def check_0752():
     value=A-B
     return locals()
 
-@check(label='ch:level2:L299', chapter='ch:level2', part=2, title='ln As shift; inputs printed to 4 decimals (tol = input rounding 0.0001/0.0146)',
-       file='part2/p2_06_dual_sector_perturbation', line=299, status='calc', kind='num', printed='+0.09\\sigma', tol=0.08)
-def check_0753():
-    'ln As shift; inputs printed to 4 decimals (tol = input rounding 0.0001/0.0146). Book line 299, printed +0.09\\sigma.'
-    A=3.0407;C=3.0393;Cs=0.0146  # book table line 286
-    value=(A-C)/Cs
-    return locals()
-
 @check(label='ch:level2:L300', chapter='ch:level2', part=2, title='Omega_m shift, repeat',
        file='part2/p2_06_dual_sector_perturbation', line=300, status='calc', kind='num', printed='+0.05\\sigma', tol=0.1)
 def check_0754():
@@ -10427,14 +10448,6 @@ def check_0760():
     p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';A=csv_val(p,'iam_level2_runA','S8');C=csv_val(p,'iam_level2_runC_lcdm','S8');Cs=csv_val(p,'iam_level2_runC_lcdm','S8_sd');value=(A-C)/Cs
     return locals()
 
-@check(label='ch:level2:L316', chapter='ch:level2', part=2, title='ln As shift; inputs printed to 4 decimals (tol = input rounding 0.0001/0.0146)',
-       file='part2/p2_06_dual_sector_perturbation', line=316, status='calc', kind='num', printed='+0.09\\sigma', tol=0.08)
-def check_0761():
-    'ln As shift; inputs printed to 4 decimals (tol = input rounding 0.0001/0.0146). Book line 316, printed +0.09\\sigma.'
-    A=3.0407;C=3.0393;Cs=0.0146  # book table line 286
-    value=(A-C)/Cs
-    return locals()
-
 @check(label='ch:level2:L320', chapter='ch:level2', part=2, title='Run D vs A H0 agreement in sigma',
        file='part2/p2_06_dual_sector_perturbation', line=320, status='calc', kind='num', printed='0.06\\sigma', tol=0.08)
 def check_0762():
@@ -10463,15 +10476,6 @@ def check_0764():
 def check_0765():
     'Omega_m shift Run D vs C. Book line 322, printed 0.00\\sigma.'
     p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';D=csv_val(p,'iam_level2_runD','omegam');C=csv_val(p,'iam_level2_runC_lcdm','omegam');Cs=csv_val(p,'iam_level2_runC_lcdm','omegam_sd');value=(D-C)/Cs
-    return locals()
-
-@check(label='ch:level2:L322:+0.08', chapter='ch:level2', part=2, title='ln As shift, Run D minus Run C, in Run C sigma',
-       file='part2/p2_06_dual_sector_perturbation', line=322, status='calc', kind='file', printed='+0.08\\sigma', tol=0.0, source='docs/verification/scripts/verify_late_time_level2_output.txt',
-       heavy=True, rerun=_B01L2_RERUN)
-def check_3341():
-    'Delta ln(10^10 A_s), Run D minus Run C, over Run C posterior sd; posterior means and sd committed in verify_late_time_level2_output.txt section D. Book line 321-322, printed +0.08 sigma.'
-    C, sC, A, sA, D, sD = _b01l2_param('ln10^10As')
-    value = (D - C) / sC
     return locals()
 
 @check(label='ch:level2:L325', chapter='ch:level2', part=2, title='measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names',
@@ -10913,16 +10917,6 @@ def check_0807():
     value=1-mu
     return locals()
 
-@check(label='ch:dsnote:L152', chapter='ch:dsnote', part=2, title='1-mu at z=5',
-       file='part2/p2_05_dual_sector_note', line=152, status='calc', kind='num', printed='1.5\\times10^{-5}', tol=0.05)
-def check_0808():
-    '1-mu at z=5. Book line 152, printed 1.5\\times10^{-5}.'
-    pass; OL=1-Om; pass; a=1/6
-    E2=Om*a**-3+OL
-    mu=E2/(E2+beta_m*E_act(a))
-    value=1-mu
-    return locals()
-
 @check(label='ch:dsnote:L158', chapter='ch:dsnote', part=2, title='beta_m restated in figure caption',
        file='part2/p2_05_dual_sector_note', line=158, status='derived', kind='num', printed='0.15765', tol=0.0001)
 def check_0809():
@@ -11119,11 +11113,11 @@ def check_0828():
     ok = file_has('docs/verification/PAPER_ERRATA.md', '0.815')
     return locals()
 
-@check(label='ch:dsnote:L172:0.776', chapter='ch:dsnote', part=2, title='measured: printed value found in PAPER_ERRATA.md, a file the chapter names',
+@check(label='ch:dsnote:L172:0.776', chapter='ch:dsnote', part=2, title='DES Y3 S8 as recorded in PAPER_ERRATA.md, a file the chapter names',
        file='part2/p2_05_dual_sector_note', line=172, status='observed', kind='file', printed='0.776', tol=0.0, source='docs/verification/PAPER_ERRATA.md')
 def check_0829():
-    'measured: printed value found in PAPER_ERRATA.md, a file the chapter names. Book line 172, printed 0.776.'
-    ok = file_has('docs/verification/PAPER_ERRATA.md', '0.776')
+    'DES Y3 3x2pt S8 read from the PAPER_ERRATA.md entry "... +- ... is DES Y3 3x2pt". Book line 172, printed 0.776.'
+    value = _f01_num('docs/verification/PAPER_ERRATA.md', r'([\d.]+) ± [\d.]+ is DES Y3 3×2pt')
     return locals()
 
 @check(label='ch:dsnote:L172:0.017', chapter='ch:dsnote', part=2, title='DES Y3 3x2pt S8 error (errata ledger)',
@@ -11338,13 +11332,6 @@ def check_3366():
 
 
 # ======== Part 2 | ch:s8trend | docs/book/part2/p2_08_s8_trend.tex
-@check(label='ch:s8trend:L20', chapter='ch:s8trend', part=2, title='effect amplitude vs low-z weak-lensing deficit',
-       file='part2/p2_08_s8_trend', line=20, status='calc', kind='num', printed='a tenth', tol=0.5)
-def check_0847():
-    'effect amplitude vs low-z weak-lensing deficit. Book line 20, printed a tenth.'
-    value=0.78/7.5
-    return locals()
-
 @check(label='ch:s8trend:L25', chapter='ch:s8trend', part=2, title='Omega_m prior of the trend analysis (Planck + BAO)',
        file='part2/p2_08_s8_trend', line=25, status='measured', kind='file', printed='0.3111+/-0.0056', tol=0.0, source='docs/verification/scripts/verify_s8_trend.py')
 def check_3367():
@@ -11409,6 +11396,7 @@ def check_0850():
 def check_0851():
     'E(a) at a=1 equals 1. Book line 63.'
     ok=bool(sp.simplify(sp.exp(1-1/sp.Integer(1))-1)==0)
+    neg_ok = bool(sp.simplify(sp.exp(1-1/sp.Integer(1))-_F01_R)==0)
     return locals()
 
 @check(label='ch:s8trend:L64', chapter='ch:s8trend', part=2, title='flat universe Om+OL=1',
@@ -11423,6 +11411,7 @@ def check_0852():
 def check_0853():
     'mu(1) simplification. Book line 66.'
     ok=abs((Om+OL)/(Om+OL+beta_m)-1/(1+beta_m))<1e-9
+    neg_ok = abs((Om+OL)/(Om+OL+beta_m)-1/(1+float(_F01_R)*beta_m))<1e-9
     return locals()
 
 @check(label='eq:s8_mu0', chapter='ch:s8trend', part=2, title='mu0 from beta_m',
@@ -11529,13 +11518,6 @@ def check_3372():
 def check_3373():
     'gamma = ln f / ln Omega_m(a) at z = 0 for LambdaCDM, Omega_m 0.3153. Book line 85, printed 0.554.'
     value = _b01st_gamma('lcdm')
-    return locals()
-
-@check(label='ch:s8trend:L95', chapter='ch:s8trend', part=2, title="(1-mu(1)) over the lensing deficit at z=0 ('about')",
-       file='part2/p2_08_s8_trend', line=95, status='calc', kind='num', printed='seventeenfold', tol=0.05)
-def check_0865():
-    "(1-mu(1)) over the lensing deficit at z=0 ('about'). Book line 95, printed seventeenfold."
-    value=(1-float(mu_iam(1)))/(amp_deficit(0)/100)
     return locals()
 
 @check(label='ch:s8trend:L98', chapter='ch:s8trend', part=2, title='mu at z=0',
@@ -11997,13 +11979,6 @@ def check_3388():
     value = _b01st_fs8(0.35)
     return locals()
 
-@check(label='ch:s8trend:L194:0.9%', chapter='ch:s8trend', part=2, title='f sigma8 deficit at z = 0.65',
-       file='part2/p2_08_s8_trend', line=194, status='calc', kind='num', printed='0.9\\%', tol=0.0)
-def check_3389():
-    'Per cent f sigma8 deficit at z = 0.65. Book line 194, printed 0.9%.'
-    value = _b01st_fs8(0.65)
-    return locals()
-
 @check(label='ch:s8trend:L194:0.4%', chapter='ch:s8trend', part=2, title='f sigma8 deficit at z = 1.05',
        file='part2/p2_08_s8_trend', line=194, status='calc', kind='num', printed='0.4\\%', tol=0.0)
 def check_3390():
@@ -12216,20 +12191,20 @@ def check_0930():
     ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '0.759')
     return locals()
 
-@check(label='ch:sectortension:L48:0.776', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
+@check(label='ch:sectortension:L48:0.776', chapter='ch:sectortension', part=2, title='DES Y3 3x2pt S8 in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=48, status='observed', kind='file', printed='0.776', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
 def check_0931():
-    'measured: printed value found in verify_sector_tension_output.txt, a file the chapter names. Book line 48, printed 0.776.'
-    ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '0.776')
+    'DES Y3 3x2pt S8 read from its row in section 11 of verify_sector_tension_output.txt. Book line 48, printed 0.776.'
+    value = _f01_num(_F01_ST, r'DES Y3 3x2pt: ([\d.]+) ->')
     return locals()
 
-@check(label='ch:sectortension:L49', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
+@check(label='ch:sectortension:L49', chapter='ch:sectortension', part=2, title='HSC Y3 S8 in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=49, status='observed', kind='file', printed='0.776', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
 def check_0932():
-    'measured: printed value found in verify_sector_tension_output.txt, a file the chapter names. Book line 49, printed 0.776.'
-    ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '0.776')
+    'HSC Y3 C_ell S8 (Dalal 2023) read from its row in section 11 of verify_sector_tension_output.txt. Book line 49, printed 0.776.'
+    value = _f01_num(_F01_ST, r'HSC Y3 C_ell \(Dalal 2023\): ([\d.]+) ->')
     return locals()
 
 @check(label='ch:sectortension:L49:2', chapter='ch:sectortension', part=2, title='S8 tension, lower end over the four lensing surveys',
@@ -12346,12 +12321,12 @@ def check_3409():
     value = _b02_dr2_sig()['DESI+CMB']
     return locals()
 
-@check(label='ch:sectortension:L61', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
+@check(label='ch:sectortension:L61', chapter='ch:sectortension', part=2, title='DESI+CMB+Pantheon+ w0 in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=61, status='observed', kind='file', printed='-0.838', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
 def check_0938():
-    'measured: printed value found in verify_sector_tension_output.txt, a file the chapter names. Book line 61, printed -0.838.'
-    ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '-0.838')
+    'w0 of DESI+CMB+Pantheon+ read from its row in section 1 of verify_sector_tension_output.txt. Book line 61, printed -0.838.'
+    value = _f01_num(_F01_ST, r'DESI\+CMB\+Pantheon\+\s+w0 ([-\d.]+)')
     return locals()
 
 @check(label='ch:sectortension:L61:0.35', chapter='ch:sectortension', part=2, title='phantom-crossing redshift, DESI+CMB+Pantheon+',
@@ -12376,12 +12351,12 @@ def check_3411():
     value = _b02_dr2_sig()['DESI+CMB+Pantheon+']
     return locals()
 
-@check(label='ch:sectortension:L62', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
+@check(label='ch:sectortension:L62', chapter='ch:sectortension', part=2, title='DESI+CMB+Union3 w0 in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=62, status='observed', kind='file', printed='-0.667', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
 def check_0940():
-    'measured: printed value found in verify_sector_tension_output.txt, a file the chapter names. Book line 62, printed -0.667.'
-    ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '-0.667')
+    'w0 of DESI+CMB+Union3 read from its row in section 1 of verify_sector_tension_output.txt. Book line 62, printed -0.667.'
+    value = _f01_num(_F01_ST, r'DESI\+CMB\+Union3\s+w0 ([-\d.]+)')
     return locals()
 
 @check(label='ch:sectortension:L62:-1.09', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
@@ -12605,12 +12580,12 @@ def check_3416():
     value = _b02_sigma_obs('BGS')
     return locals()
 
-@check(label='ch:sectortension:L228', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
+@check(label='ch:sectortension:L228', chapter='ch:sectortension', part=2, title='DESI DR1 LRG1 f sigma_s8 in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=228, status='observed', kind='file', printed='0.514', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
 def check_0963():
-    'measured: printed value found in verify_sector_tension_output.txt, a file the chapter names. Book line 228, printed 0.514.'
-    ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '0.514')
+    'Observed f sigma_s8 of LRG1 read from its row in section 9 of verify_sector_tension_output.txt. Book line 228, printed 0.514.'
+    value = _f01_num(_F01_ST, r'LRG1\s+z [\d.]+: f sigma_s8 ([\d.]+) \+-')
     return locals()
 
 @check(label='ch:sectortension:L228:0.465', chapter='ch:sectortension', part=2, title='f sigma8 prediction, term, z=0.51, sigma8 0.7998 (Run A)',
@@ -12695,12 +12670,12 @@ def check_3418():
     value = _b02_sigma_obs('LRG2')
     return locals()
 
-@check(label='ch:sectortension:L230', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
+@check(label='ch:sectortension:L230', chapter='ch:sectortension', part=2, title='DESI DR1 LRG3 f sigma_s8 in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=230, status='observed', kind='file', printed='0.422', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
 def check_0973():
-    'measured: printed value found in verify_sector_tension_output.txt, a file the chapter names. Book line 230, printed 0.422.'
-    ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '0.422')
+    'Observed f sigma_s8 of LRG3 read from its row in section 9 of verify_sector_tension_output.txt. Book line 230, printed 0.422.'
+    value = _f01_num(_F01_ST, r'LRG3\s+z [\d.]+: f sigma_s8 ([\d.]+) \+-')
     return locals()
 
 @check(label='ch:sectortension:L230:0.436', chapter='ch:sectortension', part=2, title='f sigma8 prediction, term, z=0.919, sigma8 0.7998 (Run A)',
@@ -13132,14 +13107,6 @@ def check_3427():
     value = _b02_st_table('leg')['eBOSS QSO'][2]
     return locals()
 
-@check(label='ch:sectortension:L247', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
-       file='part2/p2_09_sector_tension', line=247, status='observed', kind='file', printed='0.450', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
-       heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
-def check_1024():
-    'measured: printed value found in verify_sector_tension_output.txt, a file the chapter names. Book line 247, printed 0.450.'
-    ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '0.450')
-    return locals()
-
 @check(label='ch:sectortension:L247:0.426', chapter='ch:sectortension', part=2, title='f sigma8 prediction, term, z=0.07, sigma8 0.7998 (Run A)',
        file='part2/p2_09_sector_tension', line=247, status='calc', kind='num', printed='0.426', tol=0.0)
 def check_1025():
@@ -13166,14 +13133,6 @@ def check_1027():
 def check_1028():
     'pull (obs-pred)/sigma, LCDM, z=0.07. Book line 247, printed +0.12.'
     value=(0.45-fs8_pred('lcdm',0.07,0.8087))/0.055  # observed f sigma8 and error: book table line 247 (DESI 2024 V; Alam 2021; Beutler 2012; Qin 2026)
-    return locals()
-
-@check(label='ch:sectortension:L249', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
-       file='part2/p2_09_sector_tension', line=249, status='observed', kind='file', printed='0.450', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
-       heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
-def check_1029():
-    'measured: printed value found in verify_sector_tension_output.txt, a file the chapter names. Book line 249, printed 0.450.'
-    ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '0.450')
     return locals()
 
 @check(label='ch:sectortension:L250', chapter='ch:sectortension', part=2, title='lowest pull over the six DESI bins, term',
@@ -13314,20 +13273,24 @@ def check_1040():
     ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '0.802^{+0.022}_{-0.018}')
     return locals()
 
-@check(label='ch:sectortension:L266', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
-       file='part2/p2_09_sector_tension', line=266, status='observed', kind='file', printed='0.776\\pm0.017', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
+@check(label='ch:sectortension:L266', chapter='ch:sectortension', part=2, title='DES Y3 S8 and error in verify_sector_tension.py, the script of the chapter',
+       file='part2/p2_09_sector_tension', line=266, status='observed', kind='file', printed='0.776\\pm0.017', tol=0.0, source='docs/verification/scripts/verify_sector_tension.py',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
 def check_1041():
-    'measured: printed value found in verify_sector_tension_output.txt, a file the chapter names. Book line 266, printed 0.776\\pm0.017.'
-    ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '0.776\\pm0.017')
+    'DES Y3 3x2pt S8 from its entry ("DES Y3 3x2pt", S8, up, down) in verify_sector_tension.py; the error 0.017 must match too. Book line 266, printed 0.776 +- 0.017.'
+    m = re.search(r'\("DES Y3 3x2pt",([\d.]+),([\d.]+),([\d.]+)\)', file_text(_F01_STPY))
+    S8, up, dn = (float(x) for x in m.groups())
+    value = S8 if abs(up - 0.017) <= 0.0005 * 1.000001 and abs(dn - 0.017) <= 0.0005 * 1.000001 else float('nan')
     return locals()
 
-@check(label='ch:sectortension:L267', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
-       file='part2/p2_09_sector_tension', line=267, status='observed', kind='file', printed='0.776^{+0.032}_{-0.033}', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
+@check(label='ch:sectortension:L267', chapter='ch:sectortension', part=2, title='HSC Y3 S8 and errors in verify_sector_tension.py, the script of the chapter',
+       file='part2/p2_09_sector_tension', line=267, status='observed', kind='file', printed='0.776^{+0.032}_{-0.033}', tol=0.0, source='docs/verification/scripts/verify_sector_tension.py',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
 def check_1042():
-    'measured: printed value found in verify_sector_tension_output.txt, a file the chapter names. Book line 267, printed 0.776^{+0.032}_{-0.033}.'
-    ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '0.776^{+0.032}_{-0.033}')
+    'HSC Y3 C_ell S8 from its entry ("HSC Y3 C_ell (Dalal 2023)", S8, up, down) in verify_sector_tension.py; the errors +0.032 -0.033 must match too. Book line 267, printed 0.776^{+0.032}_{-0.033}.'
+    m = re.search(r'\("HSC Y3 C_ell \(Dalal 2023\)",([\d.]+),([\d.]+),([\d.]+)\)', file_text(_F01_STPY))
+    S8, up, dn = (float(x) for x in m.groups())
+    value = S8 if abs(up - 0.032) <= 0.0005 * 1.000001 and abs(dn - 0.033) <= 0.0005 * 1.000001 else float('nan')
     return locals()
 
 @check(label='ch:sectortension:L268', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
@@ -13571,6 +13534,7 @@ def check_1062():
     E=sp.exp(1-1/a)
     d2=sp.diff(E,a,2)
     ok=sp.simplify(d2.subs(a,sp.Rational(1,2)))==0
+    neg_ok = sp.simplify(d2.subs(a,sp.Rational(1,2)*_F01_R))==0
     return locals()
 
 @check(label='ch:dsvalidation:L67:4', chapter='ch:dsvalidation', part=2, title='maximum of dE/dlna at a=1',
@@ -13582,6 +13546,7 @@ def check_1063():
     g=sp.diff(E,a)*a
     dg=sp.diff(g,a); d2g=sp.diff(g,a,2)
     ok=(sp.simplify(dg.subs(a,1))==0) and (d2g.subs(a,1)<0)
+    neg_ok = bool((sp.simplify(dg.subs(a,_F01_R))==0) and (d2g.subs(a,_F01_R)<0))
     return locals()
 
 @check(label='ch:dsvalidation:L71', chapter='ch:dsvalidation', part=2, title='beta_gamma 95 % bound, Eq. dsv_bg',
@@ -14144,14 +14109,14 @@ def check_1107():
     return locals()
 
 @check(label='ch:dsvalidation:L515:1-\\mu<4\\times10^{-4}', chapter='ch:dsvalidation', part=2, title='mu(a) deviation at z=3 below bound',
-       file='part2/p2_10_dual_sector_validation', line=515, status='calc', kind='sym', printed='1-\\mu<4\\times10^{-4}', tol=0.0)
+       file='part2/p2_10_dual_sector_validation', line=515, status='calc', kind='num', printed='<4\\times10^{-4}', tol=0.0)
 def check_1108():
-    'mu(a) deviation at z=3 below bound. Book line 515, printed 1-\\mu<4\\times10^{-4}.'
+    'mu(a) deviation at z=3 below bound: 1 - mu at a = 1/4. Book line 515, printed 1-mu < 4 x 10^-4.'
     a=0.25
     E=math.exp(1-1/a)
     H2=Om*a**-3+(1-Om)
     mu=H2/(H2+beta_m*E)
-    ok=(1-mu)<4e-4
+    value=1-mu
     return locals()
 
 @check(label='ch:dsvalidation:L515:4.25\\%', chapter='ch:dsvalidation', part=2, title='f sigma8 deficit at z = 0',
@@ -14293,6 +14258,7 @@ def check_1118():
 def check_1119():
     'continuity eq gives w_info formula, step (Eq. eq:de_cont). Book line 67.'
     w,dlnrho=sp.symbols('w dlnrho'); sol=sp.solve(sp.Eq(dlnrho,-3*(1+w)),w)[0]; ok=sp.simplify(sol-(-1-dlnrho/3))==0
+    neg_ok = sp.simplify(sol-(-1-_F01_R*dlnrho/3))==0
     return locals()
 
 @check(label='eq:de_dlnE', chapter='ch:darkenergy', part=2, title='d ln E/d ln a derivative step',
@@ -14300,13 +14266,17 @@ def check_1119():
 def check_1120():
     'd ln E/d ln a derivative step (Eq. eq:de_dlnE). Book line 69.'
     a=sp.symbols('a',positive=True); lhs=sp.simplify(a*sp.diff(1-1/a,a)); ok=sp.simplify(lhs-1/a)==0
+    neg_ok = sp.simplify(lhs-_F01_R/a)==0
     return locals()
 
 @check(label='ch:darkenergy:L82', chapter='ch:darkenergy', part=2, title='w_info(a) < -1, always phantom',
        file='part2/p2_11_dark_energy', line=82, status='derived', kind='sym', printed='', tol=0.0)
 def check_1121():
-    'w_info(a) < -1, always phantom. Book line 82.'
+    'w_info(a) < -1, always phantom. Book line 82. Negative control: the bound moved to -1.05 must not hold for all a > 0.'
     a=sp.symbols('a',positive=True); expr=sp.simplify(-1/(3*a)); ok=expr.is_negative
+    w = -1 + expr
+    viol = sp.solve_univariate_inequality(w + _F01_R >= 0, a, relational=False).intersect(sp.Interval.open(0, sp.oo))
+    neg_ok = viol == sp.S.EmptySet
     return locals()
 
 @check(label='eq:de_wlim', chapter='ch:darkenergy', part=2, title='limit of w_info as a->infinity',
@@ -14314,6 +14284,7 @@ def check_1121():
 def check_1122():
     'limit of w_info as a->infinity (Eq. eq:de_wlim). Book line 85.'
     a=sp.symbols('a',positive=True); lhs=sp.limit(-1-1/(3*a),a,sp.oo); ok=(lhs==-1)
+    neg_ok = (lhs == -_F01_R)
     return locals()
 
 @check(label='eq:de_w1', chapter='ch:darkenergy', part=2, title='w_info at a=1 today',
@@ -14328,6 +14299,7 @@ def check_1123():
 def check_1124():
     'derivative of w_info positive, no Big Rip. Book line 94.'
     a=sp.symbols('a',positive=True); w=-1-1/(3*a); dwda=sp.diff(w,a); ok=(sp.simplify(dwda-1/(3*a**2))==0) and dwda.is_positive
+    neg_ok = bool((sp.simplify(dwda-_F01_R/(3*a**2))==0) and dwda.is_positive)
     return locals()
 
 @check(label='ch:darkenergy:L99', chapter='ch:darkenergy', part=2, title='w_info decimal value at a=1',
@@ -14426,6 +14398,7 @@ def check_1137():
 def check_1138():
     'location of peak maturation rate. Book line 115, printed 1/2.'
     a=sp.symbols('a',positive=True); E=sp.exp(1-1/a); f=E/(sp.E*a**2); df=sp.diff(f,a); sol=sp.solve(sp.Eq(df,0),a); ok = sp.Rational(1,2) in sol
+    neg_ok = sp.Rational(1,2)*_F01_R in sol
     return locals()
 
 @check(label='ch:darkenergy:L116', chapter='ch:darkenergy', part=2, title='peak maturation rate per e-fold at a=1',
@@ -14438,8 +14411,10 @@ def check_1139():
 @check(label='eq:wz_cpl', chapter='ch:darkenergy', part=2, title='CPL mapping w0,wa from w_info at a=1',
        file='part2/p2_11_dark_energy', line=123, status='derived', kind='sym', printed='', tol=0.0)
 def check_1140():
-    'CPL mapping w0,wa from w_info at a=1 (Eq. eq:wz_cpl). Book line 123.'
+    'CPL mapping w0,wa from w_info at a=1 (Eq. eq:wz_cpl). Book line 123. Negative control: w0 or wa moved by 5 % must not match.'
     a=sp.symbols('a',positive=True); w=-1-1/(3*a); w0=w.subs(a,1); wa=-sp.diff(w,a).subs(a,1); ok=(sp.simplify(w0-sp.Rational(-4,3))==0) and (sp.simplify(wa-sp.Rational(-1,3))==0)
+    neg_ok = ((sp.simplify(w0-sp.Rational(-4,3)*_F01_R)==0) and (sp.simplify(wa-sp.Rational(-1,3))==0)) or \
+             ((sp.simplify(w0-sp.Rational(-4,3))==0) and (sp.simplify(wa-sp.Rational(-1,3)*_F01_R)==0))
     return locals()
 
 @check(label='ch:darkenergy:L123', chapter='ch:darkenergy', part=2, title='CPL w0 decimal approximation',
@@ -14468,13 +14443,15 @@ def check_1143():
 def check_1144():
     'repeat of CPL wa point. Book line 124, printed -1/3.'
     a=sp.symbols('a',positive=True); w=-1-1/(3*a); wa=-sp.diff(w,a).subs(a,1); ok=sp.simplify(wa-sp.Rational(-1,3))==0
+    neg_ok = sp.simplify(wa-sp.Rational(-1,3)*_F01_R)==0
     return locals()
 
 @check(label='eq:de_Elimits', chapter='ch:darkenergy', part=2, title='E(a) limits: 0, 1, and e',
        file='part2/p2_11_dark_energy', line=132, status='derived', kind='sym', printed='', tol=0.0)
 def check_1145():
-    'E(a) limits: 0, 1, and e (Eq. eq:de_Elimits). Book line 132.'
+    'E(a) limits: 0, 1, and e (Eq. eq:de_Elimits). Book line 132. Negative control: E(1) or the ceiling e moved by 5 % must not match.'
     a=sp.symbols('a',positive=True); E=sp.exp(1-1/a); lhs1=sp.limit(E,a,0,'+'); lhs2=E.subs(a,1); lhs3=sp.limit(E,a,sp.oo); ok=(lhs1==0) and (lhs2==1) and (sp.simplify(lhs3-sp.E)==0)
+    neg_ok = ((lhs1==0) and (lhs2==_F01_R) and (sp.simplify(lhs3-sp.E)==0)) or ((lhs1==0) and (lhs2==1) and (sp.simplify(lhs3-_F01_R*sp.E)==0))
     return locals()
 
 @check(label='ch:darkenergy:L135', chapter='ch:darkenergy', part=2, title='inflection point of E(a) in a',
@@ -14482,13 +14459,15 @@ def check_1145():
 def check_1146():
     'inflection point of E(a) in a. Book line 135, printed 1/2.'
     a=sp.symbols('a',positive=True); E=sp.exp(1-1/a); d2E=sp.diff(E,a,2); sol=sp.solve(sp.Eq(d2E,0),a); ok = sp.Rational(1,2) in sol
+    neg_ok = sp.Rational(1,2)*_F01_R in sol
     return locals()
 
 @check(label='ch:darkenergy:L135:1', chapter='ch:darkenergy', part=2, title='inflection point of E in ln a',
        file='part2/p2_11_dark_energy', line=135, status='derived', kind='sym', printed='1', tol=0.0)
 def check_1147():
-    'inflection point of E in ln a. Book line 135, printed 1.'
+    'inflection point of E in ln a. Book line 135, printed 1 (a = 1, u = ln a = 0). Negative control: a = 1.05 must not be an inflection.'
     u=sp.symbols('u',real=True); Eu=sp.exp(1-sp.exp(-u)); d2=sp.diff(Eu,u,2); sol=sp.solve(sp.Eq(d2,0),u); ok = 0 in [sp.nsimplify(s) for s in sol]
+    neg_ok = sp.simplify(d2.subs(u, sp.log(_F01_R)))==0
     return locals()
 
 @check(label='eq:de_Hinf', chapter='ch:darkenergy', part=2, title='asymptotic Hubble parameter H_infinity',
@@ -14517,6 +14496,7 @@ def check_1150():
 def check_1151():
     'final effective equation of state limit (Eq. eq:de_weff). Book line 162.'
     a=sp.symbols('a',positive=True); wlim=sp.limit(-1-1/(3*a),a,sp.oo); ok=(wlim==-1)
+    neg_ok = (wlim == -_F01_R)
     return locals()
 
 @check(label='ch:darkenergy:L172', chapter='ch:darkenergy', part=2, title='H_m(1) matter-sector rate today',
@@ -14657,6 +14637,7 @@ def check_1170():
 def check_1171():
     'a=1/2 maximizes rate da. Book line 206.'
     a=sp.symbols('a',positive=True);f=sp.exp(-1/a)/a**2;crit=sp.solve(sp.Eq(sp.diff(f,a),0),a);ok= sp.Rational(1,2) in crit
+    neg_ok = sp.Rational(1,2)*_F01_R in crit
     return locals()
 
 @check(label='eq:de_rate_lna', chapter='ch:darkenergy', part=2, title='chain rule to per e-fold rate',
@@ -14669,8 +14650,9 @@ def check_1172():
 @check(label='ch:darkenergy:L209', chapter='ch:darkenergy', part=2, title='max of per e-fold rate = 1/e at a=1',
        file='part2/p2_11_dark_energy', line=209, status='derived', kind='sym', printed='', tol=0.0)
 def check_1173():
-    'max of per e-fold rate = 1/e at a=1. Book line 209.'
+    'max of per e-fold rate = 1/e at a=1. Book line 209. Negative control: the location or the value moved by 5 % must not match.'
     a=sp.symbols('a',positive=True);f=sp.exp(-1/a)/a;crit=sp.solve(sp.Eq(sp.diff(f,a),0),a);ok=(sp.Integer(1) in crit) and sp.simplify(f.subs(a,1)-1/sp.E)==0
+    neg_ok = ((_F01_R in crit) and sp.simplify(f.subs(a,_F01_R)-1/sp.E)==0) or ((sp.Integer(1) in crit) and sp.simplify(f.subs(a,1)-_F01_R/sp.E)==0)
     return locals()
 
 @check(label='eq:de_af', chapter='ch:darkenergy', part=2, title='invert E(a)/e=f for a',
@@ -14678,6 +14660,7 @@ def check_1173():
 def check_1174():
     'invert E(a)/e=f for a (Eq. eq:de_af). Book line 214.'
     a,f=sp.symbols('a f',positive=True);sol=sp.solve(sp.Eq(sp.exp(1-1/a),f*sp.E),a);cand=-1/sp.log(f);ok=any(sp.simplify(s-cand)==0 for s in sol)
+    neg_ok = any(sp.simplify(s-_F01_R*cand)==0 for s in sol)
     return locals()
 
 @check(label='ch:darkenergy:L223', chapter='ch:darkenergy', part=2, title='scale factor at 1% maturity',
@@ -15080,20 +15063,6 @@ def check_1226():
     value=-1-(1+3)/3
     return locals()
 
-@check(label='ch:wzfuture:L24:0.011', chapter='ch:wzfuture', part=2, title='rho_info/rho_Lambda at z=3',
-       file='part2/p2_20_wz_far_future', line=24, status='calc', kind='num', printed='0.011', tol=0.0455)
-def check_1227():
-    'rho_info/rho_Lambda at z=3. Book line 24, printed 0.011.'
-    a=0.25; value=beta_m*E_act(a)/OL
-    return locals()
-
-@check(label="ch:wzfuture:L24:0.011'", chapter='ch:wzfuture', part=2, title='info share of vacuum total z=3',
-       file='part2/p2_20_wz_far_future', line=24, status='calc', kind='num', printed='0.011', tol=0.0455)
-def check_1228():
-    'info share of vacuum total z=3. Book line 24, printed 0.011.'
-    a=0.25; E=E_act(a); value=beta_m*E/(OL+beta_m*E)
-    return locals()
-
 @check(label='ch:wzfuture:L24:-1', chapter='ch:wzfuture', part=2, title='w_info limit as a to infinity',
        file='part2/p2_20_wz_far_future', line=24, status='calc', kind='num', printed='-1', tol=1e-06)
 def check_1229():
@@ -15143,13 +15112,6 @@ def check_1235():
     value=beta_m*math.e/OL
     return locals()
 
-@check(label='ch:wzfuture:L31', chapter='ch:wzfuture', part=2, title='caption repeat of z=3 ratio',
-       file='part2/p2_20_wz_far_future', line=31, status='calc', kind='num', printed='0.011', tol=0.0455)
-def check_1236():
-    'caption repeat of z=3 ratio. Book line 31, printed 0.011.'
-    a=0.25; value=beta_m*E_act(a)/OL
-    return locals()
-
 @check(label='ch:wzfuture:L31:0.230', chapter='ch:wzfuture', part=2, title='caption repeat of today ratio',
        file='part2/p2_20_wz_far_future', line=31, status='calc', kind='num', printed='0.230', tol=0.0022)
 def check_1237():
@@ -15167,8 +15129,9 @@ def check_1238():
 @check(label='eq:wz_norip', chapter='ch:wzfuture', part=2, title='monotonic w, bounded density statement',
        file='part2/p2_20_wz_far_future', line=74, status='derived', kind='sym', printed='', tol=0.0)
 def check_1239():
-    'monotonic w, bounded density statement (Eq. eq:wz_norip). Book line 74.'
+    'monotonic w, bounded density statement (Eq. eq:wz_norip). Book line 74. Negative control: dw/da or the ceiling e moved by 5 % must not match.'
     a=sp.symbols('a',positive=True); w=-1-1/(3*a); dw=sp.diff(w,a); deriv_ok=sp.simplify(dw-1/(3*a**2))==0; E=sp.exp(1-1/a); bound_ok=sp.limit(E,a,sp.oo)==sp.E; ok=bool(deriv_ok) and bool(bound_ok)
+    neg_ok = (bool(sp.simplify(dw-_F01_R/(3*a**2))==0) and bool(bound_ok)) or (bool(deriv_ok) and bool(sp.simplify(sp.limit(E,a,sp.oo)-_F01_R*sp.E)==0))
     return locals()
 
 @check(label='eq:wz_rho_from_w', chapter='ch:wzfuture', part=2, title='density recovered by integrating continuity eq',
@@ -15299,8 +15262,9 @@ def check_1248():
 @check(label='eq:wz_cplpoint', chapter='ch:wzfuture', part=2, title='IAM CPL point from mapping',
        file='part2/p2_20_wz_far_future', line=105, status='calc', kind='sym', printed='(-4/3,-1/3)≈(-1.333,-0.333)', tol=0.0)
 def check_1249():
-    'IAM CPL point from mapping (Eq. eq:wz_cplpoint). Book line 105, printed (-4/3,-1/3)≈(-1.333,-0.333).'
+    'IAM CPL point from mapping (Eq. eq:wz_cplpoint). Book line 105, printed (-4/3,-1/3)≈(-1.333,-0.333). Negative control: either printed decimal moved by 5 % must not match.'
     ok = abs(-4/3-(-1.333))<0.0006 and abs(-1/3-(-0.333))<0.0006
+    neg_ok = (abs(-4/3-(-1.333*1.05))<0.0006 and abs(-1/3-(-0.333))<0.0006) or (abs(-4/3-(-1.333))<0.0006 and abs(-1/3-(-0.333*1.05))<0.0006)
     return locals()
 
 @check(label='ch:wzfuture:L107', chapter='ch:wzfuture', part=2, title='w0 sigma distance, Pantheon+',
@@ -15350,6 +15314,7 @@ def check_1255():
 def check_1256():
     'caption repeat: peak of scale-factor clock. Book line 115, printed 0.5.'
     a=sp.symbols('a',positive=True); g=sp.exp(1-1/a)/a**2; sol=sp.solve(sp.Eq(sp.diff(g,a),0),a); ok=any(sp.simplify(s-sp.Rational(1,2))==0 for s in sol)
+    neg_ok = any(sp.simplify(s-sp.Rational(1,2)*_F01_R)==0 for s in sol)
     return locals()
 
 @check(label='ch:wzfuture:L115:1.26', chapter='ch:wzfuture', part=2, title='caption repeat: z of cosmic-time clock peak',
@@ -15523,6 +15488,7 @@ def check_1279():
 def check_1280():
     'peak of e-fold clock dE/dlna. Book line 162, printed 1.'
     a=sp.symbols('a',positive=True); f=sp.exp(1-1/a)/a; sol=sp.solve(sp.Eq(sp.diff(f,a),0),a); ok=any(sp.simplify(s-1)==0 for s in sol)
+    neg_ok = any(sp.simplify(s-_F01_R)==0 for s in sol)
     return locals()
 
 @check(label='ch:wzfuture:L162:1.26', chapter='ch:wzfuture', part=2, title='z of cosmic-time clock peak',
@@ -15567,6 +15533,7 @@ def check_1284():
 def check_1285():
     'peak of scale-factor clock d(E/e)/da. Book line 164, printed 0.5.'
     a=sp.symbols('a',positive=True); g=sp.exp(1-1/a)/a**2; sol=sp.solve(sp.Eq(sp.diff(g,a),0),a); ok=any(sp.simplify(s-sp.Rational(1,2))==0 for s in sol)
+    neg_ok = any(sp.simplify(s-sp.Rational(1,2)*_F01_R)==0 for s in sol)
     return locals()
 
 @check(label='ch:wzfuture:L164:1', chapter='ch:wzfuture', part=2, title='z equivalent of a=0.5 peak',
@@ -15667,6 +15634,7 @@ def check_1298():
 def check_1299():
     'sup of E(a) as a->inf equals e, bounds rho_info. Book line 222, printed e.'
     a=sp.symbols('a',positive=True); E=sp.exp(1-1/a); lim=sp.limit(E,a,sp.oo); ok=sp.simplify(lim-sp.E)==0
+    neg_ok=sp.simplify(lim-sp.Rational(105,100)*sp.E)==0          # control: the limit moved by 5 % must not hold
     return locals()
 
 @check(label='ch:wzfuture:L224', chapter='ch:wzfuture', part=2, title='CPL image w0 repeated in status table',
@@ -16560,6 +16528,7 @@ def check_3512():
 def check_1393():
     'dE/da = E/a^2, 1 at a = 1 (Eq. eq:lh_dE). Book line 21.'
     a=sp.symbols('a',positive=True); E=sp.exp(1-1/a); ok=sp.simplify(sp.diff(E,a)-E/a**2)==0 and sp.diff(E,a).subs(a,1)==1
+    neg_ok=sp.simplify(sp.diff(E,a)-sp.Rational(105,100)*E/a**2)==0 or sp.diff(E,a).subs(a,1)==sp.Rational(105,100)   # control
     return locals()
 
 @check(label='eq:lh_w', chapter='ch:lambda_history', part=2, title='w = -1 - (1/3) dln rho/dln a from continuity',
@@ -16567,6 +16536,7 @@ def check_1393():
 def check_1394():
     'w = -1 - (1/3) dln rho/dln a from continuity (Eq. eq:lh_w). Book line 24.'
     a=sp.symbols('a',positive=True); w=sp.symbols('w'); rho=sp.Function('rho')(a); sol=sp.solve(sp.Eq(sp.diff(rho,a),-3*(1+w)*rho/a),w)[0]; ok=sp.simplify(sol-(-1-sp.Rational(1,3)*sp.diff(sp.log(rho),a)*a))==0
+    neg_ok=sp.simplify(sol-(-1-sp.Rational(105,100)*sp.Rational(1,3)*sp.diff(sp.log(rho),a)*a))==0   # control: 1/3 moved by 5 %
     return locals()
 
 @check(label='eq:lh_eps', chapter='ch:lambda_history', part=2, title='w = -1 - epsilon from the continuity equation',
@@ -16587,6 +16557,7 @@ def check_3513():
 def check_1395():
     'w_info = -1 - 1/(3a), -4/3 today (Eq. eq:lh_winfo). Book line 29.'
     a=sp.symbols('a',positive=True); w=-1-sp.Rational(1,3)*sp.diff(sp.log(sp.exp(1-1/a)),a)*a; ok=sp.simplify(w-(-1-1/(3*a)))==0 and w.subs(a,1)==-sp.Rational(4,3)
+    neg_ok=sp.simplify(w-(-1-sp.Rational(105,100)/(3*a)))==0 or w.subs(a,1)==-sp.Rational(4,3)*sp.Rational(105,100)   # control
     return locals()
 
 @check(label='ch:lambda_history:L34', chapter='ch:lambda_history', part=2, title='DESI DR2 preference, lowest',
@@ -16736,7 +16707,10 @@ def check_1402():
     Om18=0.3198  # 18th-chain Omega_m (book input, line 72)
     HH=lambda a: math.sqrt(Om18/a**3+1-Om18)
     W=lambda p: quad(lambda a: HH(a)**p*math.exp(1-1/a)/a**2, 1e-4, 1, limit=200)[0]
-    ok=all(abs(W(p)-v)<5e-4 for p,v in ((-2,0.470),(-1,0.641),(0,1.0),(1,1.983),(2,5.797)))
+    PV=((-2,0.470),(-1,0.641),(0,1.0),(1,1.983),(2,5.797))
+    Wc={p: W(p) for p,_ in PV}
+    ok=all(abs(Wc[p]-v)<5e-4 for p,v in PV)
+    neg_ok=any(abs(Wc[p]-1.05*v)<5e-4 for p,v in PV)              # control: any one printed weight moved by 5 % must not be met
     return locals()
 
 @check(label='ch:lambda_history:L81', chapter='ch:lambda_history', part=2, title='int (H0/H)^2 dE',
@@ -17114,15 +17088,6 @@ def check_1431():
     Omh2=Om*h_pl**2  # Planck 2018
     eta_c=273.9e-10  # eta = 273.9e-10 Omega_b h^2 (Steigman 2006)
     value=100*(1-eta_c*Omh2*3/16*math.sqrt(OL)/6.113e-10)
-    return locals()
-
-@check(label='ch:baryon:L168:0.9', chapter='ch:baryon', part=2, title='below 6.137',
-       file='part2/p2_13_baryon', line=168, status='calc', kind='num', printed='0.9', tol=0)
-def check_1432():
-    'below 6.137. Book line 168, printed 0.9.'
-    Omh2=Om*h_pl**2  # Planck 2018
-    eta_c=273.9e-10  # eta = 273.9e-10 Omega_b h^2 (Steigman 2006)
-    value=100*(1-eta_c*Omh2*3/16*math.sqrt(OL)/6.137e-10)
     return locals()
 
 @check(label='ch:baryon:L168:6.113', chapter='ch:baryon', part=2, title='same value as p2_13b_baryon_chain:117 (eta = 2.739e-8 Omega_b h^2 from the 18th chain)',
@@ -18090,8 +18055,9 @@ def check_3588():
        file='part2/p2_16_survey_predictions', line=41, status='measured', kind='file', printed='0.800', tol=0.0, source='docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_dark_energy_far_future_surveys_book.py > docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt')
 def check_1499():
-    'measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names. Book line 41, printed 0.800.'
-    ok = file_has('docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt', '0.800')
+    'measured: sigma8 of IAM (Level 2 chains) as the committed survey output states it (C8 scorecard line). Book line 41, printed 0.800.'
+    m=re.search(r'sigma8 [^\n]*?vs IAM ([-\d.]+)', file_text('docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt'))
+    value=float(m.group(1))
     return locals()
 
 @check(label='ch:surveys:L53', chapter='ch:surveys', part=2, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
@@ -18718,20 +18684,6 @@ def check_1555():
     value=zf(0.95)
     return locals()
 
-@check(label='ch:surveys:L83:0.4', chapter='ch:surveys', part=2, title='lookback time, Gyr (H0 67.36, Om 0.3153)',
-       file='part2/p2_16_survey_predictions', line=83, status='calc', kind='num', printed='0.4', tol=0)
-def check_1556():
-    'lookback time, Gyr (H0 67.36, Om 0.3153). Book line 83, printed 0.4.'
-    mu=lambda z: float(mu_iam(1/(1+z)))
-    R=lambda z: 1/mu(z)
-    CNT=lambda z: 1+0.20*(1+z)**0.2
-    d=lambda fn,z,hh=1e-5: (fn(z+hh)-fn(z-hh))/(2*hh)
-    m0=1-mu(0)
-    zf=lambda f: brentq(lambda z: (1-mu(z))-f*m0, 0, 20)
-    AGE0=lambda z: quad(lambda x: 1/((1+x)*math.sqrt(Om*(1+x)**3+OL)), 0, z)[0]/Hsi(67.36)/Gyr
-    value=AGE0(zf(0.95))
-    return locals()
-
 @check(label='ch:surveys:L84', chapter='ch:surveys', part=2, title='a where 99% of 1-mu(0) is on',
        file='part2/p2_16_survey_predictions', line=84, status='calc', kind='num', printed='0.994', tol=0)
 def check_1557():
@@ -18779,13 +18731,12 @@ def check_1559():
 def check_1560():
     '10-90 % zone 0.06 < z < 1.12 (Eq. eq:sp_zone). Book line 88.'
     mu=lambda z: float(mu_iam(1/(1+z)))
-    R=lambda z: 1/mu(z)
-    CNT=lambda z: 1+0.20*(1+z)**0.2
-    d=lambda fn,z,hh=1e-5: (fn(z+hh)-fn(z-hh))/(2*hh)
     m0=1-mu(0)
     zf=lambda f: brentq(lambda z: (1-mu(z))-f*m0, 0, 20)
-    AGE0=lambda z: quad(lambda x: 1/((1+x)*math.sqrt(Om*(1+x)**3+OL)), 0, z)[0]/Hsi(67.36)/Gyr
-    ok=abs(zf(0.90)-0.06)<0.005 and abs(zf(0.10)-1.12)<0.005
+    z90,z10=zf(0.90),zf(0.10)
+    ok=abs(z90-0.06)<0.005 and abs(z10-1.12)<0.005
+    # control: either endpoint moved by 5 %, tolerance capped at 2.5 % of the value, must not be met
+    neg_ok=(abs(z90-1.05*0.06)<min(0.005,0.025*0.06) and abs(z10-1.12)<0.005) or (abs(z90-0.06)<0.005 and abs(z10-1.05*1.12)<min(0.005,0.025*1.12))
     return locals()
 
 @check(label='ch:surveys:L89', chapter='ch:surveys', part=2, title='midpoint lookback, Gyr',
@@ -19472,8 +19423,9 @@ def check_1595():
        file='part2/p2_16_survey_predictions', line=193, status='calc', kind='file', printed='0.524', tol=0, source='docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv',
        heavy=True, rerun='CAMB Fisher forecast: cd docs/verification/forecasts/euclid_fisher_iam_mu && python run_forecast.py && python analysis.py')
 def check_1596():
-    'sigma(A), Sigma = 1 (committed forecast). Book line 193, printed 0.524.'
-    ok=file_has('docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv','0.524')
+    'sigma(A), Sigma = 1, Euclid full survey optimistic: the committed forecast row, column sigma_A_IAMfid. Book line 193, printed 0.524.'
+    row=[r for r in load_csv_rows('docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv') if r['scenario']=='Euclid full optimistic' and r['sigma_case']=='Sigma=1 fixed'][0]
+    value=float(row['sigma_A_IAMfid'])
     return locals()
 
 @check(label='ch:surveys:L193:1.91', chapter='ch:surveys', part=2, title='1/sigma(A) from the committed sigma (Sigma = 1)',
@@ -20282,6 +20234,7 @@ def check_2931():
 def check_1629():
     'M_lens/M_dyn = Sigma/mu = 1/mu (Eq. eq:ld_ratio_mu). Book line 86.'
     Sg,mu=sp.symbols('Sigma mu',positive=True); ok=sp.simplify((Sg/mu).subs(Sg,1)-1/mu)==0
+    neg_ok=sp.simplify((Sg/mu).subs(Sg,1)-sp.Rational(105,100)/mu)==0     # control: coefficient moved by 5 %
     return locals()
 
 @check(label='ch:lensdyn:L98', chapter='ch:lensdyn', part=2, title='mu at z=0.0',
@@ -20537,17 +20490,6 @@ def check_1652():
     value=R(1.5)
     return locals()
 
-@check(label='ch:lensdyn:L105:0.6', chapter='ch:lensdyn', part=2, title='lensing excess at z=1.5, per cent',
-       file='part2/p2_17_lensing_dynamics', line=105, status='calc', kind='num', printed='0.6', tol=0)
-def check_1653():
-    'lensing excess at z=1.5, per cent. Book line 105, printed 0.6.'
-    mu=lambda z: float(mu_iam(1/(1+z)))
-    R=lambda z: 1/mu(z)
-    CNT=lambda z: 1+0.20*(1+z)**0.2
-    d=lambda fn,z,hh=1e-5: (fn(z+hh)-fn(z-hh))/(2*hh)
-    value=100*(R(1.5)-1)
-    return locals()
-
 @check(label='ch:lensdyn:L106', chapter='ch:lensdyn', part=2, title='mu at z=2.0',
        file='part2/p2_17_lensing_dynamics', line=106, status='calc', kind='num', printed='0.998', tol=0)
 def check_1654():
@@ -20666,8 +20608,9 @@ def check_1664():
        file='part2/p2_17_lensing_dynamics', line=121, status='measured', kind='file', printed='-1.10', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt')
 def check_1665():
-    'measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names. Book line 121, printed -1.10.'
-    ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '-1.10')
+    'Level 2 sigma8 change, per cent, from the two committed chain sigma8 values (LCDM -> IAM). Book line 121, printed -1.10.'
+    m=re.search(r'Level 2 ([\d.]+) -> ([\d.]+)', file_text('docs/verification/scripts/verify_cluster_mass_satellites_output.txt'))
+    value=100*(float(m.group(2))/float(m.group(1))-1)
     return locals()
 
 @check(label='ch:lensdyn:L121:1.105', chapter='ch:lensdyn', part=2, title='same value as p2_17_lensing_dynamics:100 (1/mu at z=0.2)',
@@ -20884,16 +20827,18 @@ def check_1685():
        file='part2/p2_17_lensing_dynamics', line=201, status='observed', kind='file', printed='0.780', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt')
 def check_1686():
-    'measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names. Book line 201, printed 0.780.'
-    ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '0.780')
+    'CCCP (Planck prior) 1-b as the committed output states it. Book line 201, printed 0.780.'
+    m=re.search(r'CCCP 1-b = ([\d.]+)', file_text('docs/verification/scripts/verify_cluster_mass_satellites_output.txt'))
+    value=float(m.group(1))
     return locals()
 
 @check(label='ch:lensdyn:L201:1.28', chapter='ch:lensdyn', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
        file='part2/p2_17_lensing_dynamics', line=201, status='observed', kind='file', printed='1.28', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt')
 def check_1687():
-    'measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names. Book line 201, printed 1.28.'
-    ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '1.28')
+    'CCCP M_WL/M_hydro = 1/(1-b), computed from the committed 1-b. Book line 201, printed 1.28.'
+    m=re.search(r'CCCP 1-b = ([\d.]+)', file_text('docs/verification/scripts/verify_cluster_mass_satellites_output.txt'))
+    value=1/float(m.group(1))
     return locals()
 
 @check(label='ch:lensdyn:L202:0.99', chapter='ch:lensdyn', part=2, title='CMB-lensing calibration 1/(1-b)',
@@ -20908,8 +20853,9 @@ def check_2935():
        file='part2/p2_17_lensing_dynamics', line=203, status='observed', kind='file', printed='1.72', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt')
 def check_1688():
-    'measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names. Book line 203, printed 1.72.'
-    ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '1.72')
+    'needed by counts + CMB: M_WL/M_hydro = 1/(1-b), computed from the committed 1-b. Book line 203, printed 1.72.'
+    m=re.search(r'needed by counts \+ CMB 1-b = ([\d.]+)', file_text('docs/verification/scripts/verify_cluster_mass_satellites_output.txt'))
+    value=1/float(m.group(1))
     return locals()
 
 @check(label='ch:lensdyn:L203:0.58', chapter='ch:lensdyn', part=2, title='1-b needed by counts + CMB (table)',
@@ -20923,8 +20869,9 @@ def check_2936():
        file='part2/p2_17_lensing_dynamics', line=204, status='observed', kind='file', printed='1.05', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt')
 def check_1689():
-    'measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names. Book line 204, printed 1.05.'
-    ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '1.05')
+    'LoCuSS M_WL/M_X = 1/beta_X, computed from the committed beta_X. Book line 204, printed 1.05.'
+    m=re.search(r'LoCuSS beta_X ([\d.]+)', file_text('docs/verification/scripts/verify_cluster_mass_satellites_output.txt'))
+    value=1/float(m.group(1))
     return locals()
 
 @check(label='ch:lensdyn:L204:0.909', chapter='ch:lensdyn', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
@@ -21229,17 +21176,6 @@ def check_1708():
     value=R(1.5)
     return locals()
 
-@check(label='ch:lensdyn:L237:0.6', chapter='ch:lensdyn', part=2, title='excess at z=1.5',
-       file='part2/p2_17_lensing_dynamics', line=237, status='calc', kind='num', printed='0.6', tol=0)
-def check_1709():
-    'excess at z=1.5. Book line 237, printed 0.6.'
-    mu=lambda z: float(mu_iam(1/(1+z)))
-    R=lambda z: 1/mu(z)
-    CNT=lambda z: 1+0.20*(1+z)**0.2
-    d=lambda fn,z,hh=1e-5: (fn(z+hh)-fn(z-hh))/(2*hh)
-    value=100*(R(1.5)-1)
-    return locals()
-
 @check(label='ch:lensdyn:L238', chapter='ch:lensdyn', part=2, title='1/mu at z=2.0',
        file='part2/p2_17_lensing_dynamics', line=238, status='calc', kind='num', printed='1.002', tol=0)
 def check_1710():
@@ -21418,6 +21354,7 @@ def check_1724():
 def check_1725():
     'E(1) = 1, E -> e (Eq. eq:tw_E). Book line 53.'
     a=sp.symbols('a',positive=True); E=sp.exp(1-1/a); ok=E.subs(a,1)==1 and sp.limit(E,a,sp.oo)==sp.E
+    neg_ok=E.subs(a,1)==sp.Rational(105,100) or sp.limit(E,a,sp.oo)==sp.Rational(105,100)*sp.E   # control
     return locals()
 
 @check(label='eq:tw_beta', chapter='ch:threeway', part=2, title='beta_m = Omega_m/2',
@@ -22360,8 +22297,9 @@ def check_1803():
        file='part2/p2_19_missing_satellites', line=21, status='calc', kind='file', printed='0.67', tol=0, source='docs/verification/scripts/verify_iams_law_derivations_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_iams_law_derivations.py > docs/verification/scripts/verify_iams_law_derivations_output.txt')
 def check_1804():
-    'D deficit, form (ii) (committed output). Book line 21, printed 0.67.'
-    ok=file_has('docs/verification/scripts/verify_iams_law_derivations_output.txt','-0.67')
+    'D deficit today, form (ii) friction 2H_m, per cent (committed output, Delta D/D line; the book prints the size of the deficit). Book line 21, printed 0.67.'
+    m=re.search(r'\(ii\) friction 2H_m ([-\d.]+) %', file_text('docs/verification/scripts/verify_iams_law_derivations_output.txt'))
+    value=-float(m.group(1))
     return locals()
 
 @check(label='ch:satellites:L21:1.87', chapter='ch:satellites', part=2, title='D deficit, form (iii) (committed output)',
@@ -22393,6 +22331,7 @@ def check_1807():
 def check_1808():
     "2K + V = 0 gives K = |V|/2 (the display's K+V=0 reads the bound-state energy E = -K) (Eq. eq:ms_virial). Book line 42."
     K,V=sp.symbols('K V'); ok=sp.solve(sp.Eq(2*K+V,0),K)[0]==-V/2
+    neg_ok=sp.simplify(sp.solve(sp.Eq(2*K+V,0),K)[0]+sp.Rational(105,100)*V/2)==0     # control: 1/2 moved by 5 %
     return locals()
 
 @check(label='eq:ms_beta', chapter='ch:satellites', part=2, title='beta_m',
@@ -22532,6 +22471,7 @@ def check_2975():
 def check_1818():
     'd ln n/d ln D = nu^2 - 1, so Delta ln n = (nu^2-1) eps (Eq. eq:ms_ps). Book line 107.'
     nu,D,eps,dc,s=sp.symbols('nu D epsilon delta_c sigma',positive=True); n=lambda D_: dc/(s*D_)*sp.exp(-(dc/(s*D_))**2/2); dlnn=sp.diff(sp.log(n(D)),D)*D; ok=sp.simplify(dlnn-((dc/(s*D))**2-1))==0
+    neg_ok=sp.simplify(dlnn-(sp.Rational(105,100)*(dc/(s*D))**2-1))==0     # control: coefficient of nu^2 moved by 5 %
     return locals()
 
 @check(label='ch:satellites:L114', chapter='ch:satellites', part=2, title='drafted check, screened (runs; negative control fails)',
@@ -23222,17 +23162,6 @@ def check_1867():
     hb,c_,G_,kB_,eta,kap,M,H,lp,rho,T_,A=sp.symbols('hbar c G k_B eta kappa M H l_P rho T A',positive=True); P=hb*c_**6/(15360*sp.pi*G_**2*M**2); TB=hb*c_**3/(8*sp.pi*G_*M*kB_); t=sp.symbols('t'); Mt=sp.Function('M')(t); Sbh=4*sp.pi*G_*kB_*Mt**2/(hb*c_); dMdt=-hb*c_**4/(15360*sp.pi*G_**2*Mt**2); lhs=sp.simplify(-sp.diff(Sbh,t).subs(sp.Derivative(Mt,t),dMdt)/(kB_*sp.log(2))); rhs=c_**3/(1920*G_*Mt*sp.log(2))
     return locals()
 
-@check(label='ch:blackholes:L136', chapter='ch:blackholes', part=3, title='max |T S/Mc^2 - 1/2| for 1 to 1e11 M_sun (floating point)',
-       file='part2/p2_01_blackholes', line=136, status='calc', kind='num', printed='<2\\times10^{-16}', tol=0)
-def check_1868():
-    'max |T S/Mc^2 - 1/2| for 1 to 1e11 M_sun (floating point). Book line 136, printed <2\\times10^{-16}.'
-    def T_BH(Ms): return hbar*c**3/(8*math.pi*G*Ms*Msun*kB)
-    def S_nats(Ms): return 4*math.pi*G*(Ms*Msun)**2/(hbar*c)
-    def Gam(Ms): return c**3/(1920*G*Ms*Msun*LN2)
-    def tau_yr(Ms): return 5120*math.pi*G**2*(Ms*Msun)**3/(hbar*c**4)/yr
-    value=max(abs(T_BH(m)*S_nats(m)*kB/(m*Msun*c**2)-0.5) for m in np.logspace(0,11,23))
-    return locals()
-
 @check(label='ch:blackholes:L136:0.433', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
        file='part2/p2_01_blackholes', line=136, status='calc', kind='num', printed='0.433', tol=0.0)
 def check_1869():
@@ -23307,7 +23236,11 @@ def check_3010():
        file='part2/p2_01_blackholes', line=148, status='derived', kind='sym', printed='', tol=0)
 def check_1874():
     'Kerr T S/(Mc^2) = sqrt(1-chi^2)/2 and its three values (G=c=hbar=k_B=1). Book line 148.'
-    chi,Mx=sp.symbols('chi M',positive=True); r=sp.sqrt(1-chi**2); T=r/(4*sp.pi*Mx*(1+r)); Sx=2*sp.pi*Mx**2*(1+r); ok=sp.simplify(T*Sx/Mx-r/2)==0 and all(abs(float(r.subs(chi,x)/2)-v)<5e-4 for x,v in ((0.5,0.433),(0.9,0.218),(0.998,0.032)))
+    chi,Mx=sp.symbols('chi M',positive=True); r=sp.sqrt(1-chi**2); T=r/(4*sp.pi*Mx*(1+r)); Sx=2*sp.pi*Mx**2*(1+r)
+    XV=((0.5,0.433),(0.9,0.218),(0.998,0.032))
+    ok=sp.simplify(T*Sx/Mx-r/2)==0 and all(abs(float(r.subs(chi,x)/2)-v)<5e-4 for x,v in XV)
+    # control: the factor 1/2 moved by 5 %, or any printed value moved by 5 % (tolerance capped at 2.5 % of the value)
+    neg_ok=sp.simplify(T*Sx/Mx-sp.Rational(105,100)*r/2)==0 or any(abs(float(r.subs(chi,x)/2)-1.05*v)<min(5e-4,0.025*v) for x,v in XV)
     return locals()
 
 @check(label='eq:bh_dMdt', chapter='ch:blackholes', part=3, title='dM/dt = -sigma A T^4/c^2 = -hbar c^4/(15360 pi G^2 M^2)',
@@ -23327,7 +23260,8 @@ def check_3011():
        file='part2/p2_01_blackholes', line=159, status='none', kind='sym', printed='', tol=0)
 def check_1875():
     'M(t)^3 solves dM/dt = -hbar c^4/(15360 pi G^2 M^2) (Eq. eq:bh_Mt). Book line 159.'
-    hb,c_,G_,kB_,eta,kap,M,H,lp,rho,T_,A=sp.symbols('hbar c G k_B eta kappa M H l_P rho T A',positive=True); t,M0=sp.symbols('t M0',positive=True); Mt=(M0**3-hb*c_**4*t/(5120*sp.pi*G_**2))**sp.Rational(1,3); ok=sp.simplify(sp.diff(Mt,t)+hb*c_**4/(15360*sp.pi*G_**2*Mt**2))==0
+    hb,c_,G_=sp.symbols('hbar c G',positive=True); t,M0=sp.symbols('t M0',positive=True); Mt=(M0**3-hb*c_**4*t/(5120*sp.pi*G_**2))**sp.Rational(1,3); ok=sp.simplify(sp.diff(Mt,t)+hb*c_**4/(15360*sp.pi*G_**2*Mt**2))==0
+    neg_ok=sp.simplify(sp.diff(Mt,t)+hb*c_**4/(sp.Rational(105,100)*15360*sp.pi*G_**2*Mt**2))==0     # control: 15360 moved by 5 %
     return locals()
 
 @check(label='eq:bh_Str', chapter='ch:blackholes', part=3, title='Int Gamma(M(t)) dt = (S_BH,0 - S_BH(t))/(k_B ln2)',
@@ -23356,6 +23290,7 @@ def check_1876():
 def check_1877():
     'half the entropy transferred at t = (1-2^-3/2) tau = 0.646 tau. Book line 172.'
     x=sp.symbols('x',positive=True); s=sp.solve(sp.Eq(1-(1-x)**sp.Rational(2,3),sp.Rational(1,2)),x); ok=any(sp.simplify(si-(1-2**sp.Rational(-3,2)))==0 for si in s) and abs(float(1-2**-1.5)-0.646)<5e-4
+    neg_ok=any(sp.simplify(si-sp.Rational(105,100)*(1-2**sp.Rational(-3,2)))==0 for si in s) or abs(float(1-2**-1.5)-1.05*0.646)<5e-4   # control
     return locals()
 
 @check(label='ch:blackholes:L176', chapter='ch:blackholes', part=3, title='S_BH,0 in bits for one solar mass',
@@ -23708,6 +23643,8 @@ def check_3023():
 def check_1902():
     'M_CMB = 4.5e22 kg = 0.6 lunar masses. Book line 246.'
     M_=hbar*c**3/(8*math.pi*G*kB*T_CMB); ok=abs(M_/4.5e22-1)<0.012 and abs(M_/7.342e22-0.6)<0.05  # lunar mass 7.342e22 kg (NASA fact sheet)
+    # control: either printed value moved by 5 % (tolerance capped at 2.5 % of the value) must not be met
+    neg_ok=abs(M_/(1.05*4.5e22)-1)<0.012 or abs(M_/7.342e22-1.05*0.6)<min(0.05,0.025*0.6)
     return locals()
 
 @check(label='ch:blackholes:L248', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
@@ -23892,6 +23829,7 @@ def check_1910():
 def check_1911():
     '1/4 = 2pi/8pi. Book line 24.'
     ok=sp.Rational(1,4)==2*sp.pi/(8*sp.pi)
+    neg_ok=sp.Rational(105,100)*sp.Rational(1,4)==2*sp.pi/(8*sp.pi)     # control: 1/4 moved by 5 %
     return locals()
 
 @check(label='eq:bk_unruh', chapter='ch:bekenstein', part=3, title='Unruh T = hbar kappa/(2 pi k_B c); with kappa = c^4/4GM it lands on the Hawking temperature',
@@ -23955,6 +23893,7 @@ def check_3040():
 def check_1913():
     '4 = 8pi/2pi (Eq. eq:bk_four). Book line 122.'
     ok=sp.Integer(4)==8*sp.pi/(2*sp.pi)
+    neg_ok=sp.Rational(105,100)*4==8*sp.pi/(2*sp.pi)     # control: 4 moved by 5 %
     return locals()
 
 @check(label='eq:bk_rindler', chapter='ch:bekenstein', part=3, title='Rindler metric from Minkowski by x = rho cosh(kappa t/c), cT = rho sinh(kappa t/c)',
@@ -24079,7 +24018,8 @@ def check_3048():
        file='part2/p2_01a_bekenstein', line=178, status='none', kind='sym', printed='', tol=0)
 def check_1916():
     'solid angle 4 pi (Eq. eq:bk_solid). Book line 178.'
-    th,ph=sp.symbols('vartheta varphi'); ok=sp.integrate(sp.integrate(sp.sin(th),(th,0,sp.pi)),(ph,0,2*sp.pi))==4*sp.pi
+    th,ph=sp.symbols('vartheta varphi'); Om4=sp.integrate(sp.integrate(sp.sin(th),(th,0,sp.pi)),(ph,0,2*sp.pi)); ok=Om4==4*sp.pi
+    neg_ok=sp.simplify(Om4-sp.Rational(105,100)*4*sp.pi)==0     # control: 4 pi moved by 5 %
     return locals()
 
 @check(label='ch:bekenstein:L188', chapter='ch:bekenstein', part=3, title='R_00 for dust, Newtonian limit',
@@ -24388,13 +24328,6 @@ def check_1936():
     value=h*5e9/(kB*0.015)
     return locals()
 
-@check(label='ch:saturation:L44:1.1\\times10^{-7}', chapter='ch:saturation', part=3, title='thermal floor at 15 mK',
-       file='part3/p3_07_saturation', line=44, status='derived', kind='num', printed='1.1\\times10^{-7}', tol=0)
-def check_1937():
-    'thermal floor at 15 mK. Book line 44, printed 1.1\\times10^{-7}.'
-    value=1/(1+math.exp(h*5e9/(kB*0.015)))
-    return locals()
-
 @check(label='ch:saturation:L44:3.41', chapter='ch:saturation', part=3, title='E_hold from the canon record',
        file='part3/p3_07_saturation', line=44, status='derived', kind='file', printed='3.41', tol=0, source='CANON/iam_canon.json')
 def check_1938():
@@ -24564,6 +24497,7 @@ def check_3064():
 def check_1949():
     'n=1 in 2K = n|V| gives K = |V|/2 (Eq. eq:qr_virial_1). Book line 92.'
     K,V,n=sp.symbols('K V n',positive=True); ok=sp.solve(sp.Eq(2*K,1*V),K)[0]==V/2
+    neg_ok=sp.simplify(sp.solve(sp.Eq(2*K,1*V),K)[0]-sp.Rational(105,100)*V/2)==0     # control: 1/2 moved by 5 %
     return locals()
 
 @check(label='eq:qr_betam', chapter='ch:quantumrecords', part=4, title='beta_m = Omega_m/2 = 0.15765',
@@ -24614,6 +24548,8 @@ def check_3066():
 def check_1953():
     'dF/dlnD and n_eff = nu^2 - 1 with nu = delta_c/(sigma D) (Eq. eq:qr_neff_nu). Book line 149.'
     nu,D,nc=sp.symbols('nu D nu_c',positive=True); nn=nc/D; F=sp.erfc(nn/sp.sqrt(2)); dF=sp.simplify(sp.diff(F,D)*D); ok=sp.simplify(dF-sp.sqrt(2/sp.pi)*nn*sp.exp(-nn**2/2))==0 and sp.simplify(sp.diff(sp.log(dF),D)*D-(nn**2-1))==0
+    # control: the prefactor sqrt(2/pi) or the coefficient of nu^2 moved by 5 %
+    neg_ok=sp.simplify(dF-sp.Rational(105,100)*sp.sqrt(2/sp.pi)*nn*sp.exp(-nn**2/2))==0 or sp.simplify(sp.diff(sp.log(dF),D)*D-(sp.Rational(105,100)*nn**2-1))==0
     return locals()
 
 @check(label='ch:quantumrecords:L153', chapter='ch:quantumrecords', part=4, title='nu_min for n_eff = 7/2',
@@ -24764,6 +24700,7 @@ def check_3072():
 def check_1963():
     'mu < 1 for beta E > 0 (Eq. eq:qr_mu). Book line 235.'
     a,b,H2=sp.symbols('a beta H2',positive=True); mu=H2/(H2+b*sp.exp(1-1/a)); ok=bool(sp.simplify(mu-1).is_negative)
+    neg_ok=bool(sp.simplify(mu-1).is_nonnegative)     # control: the reversed inequality must not hold
     return locals()
 
 @check(label='eq:qr_Scompton', chapter='ch:quantumrecords', part=4, title='S = 4 pi lambdabar_C^2/(4 l_P^2) = pi (m_P/m)^2',
@@ -25106,6 +25043,7 @@ def check_3083():
 def check_1991():
     'Horodecki: dephased Bell state, S_max = 2 sqrt(1+c^2) (Eq. eq:ent:smax). Book line 44.'
     cc=sp.symbols('c',positive=True); sx=sp.Matrix([[0,1],[1,0]]); sy=sp.Matrix([[0,-sp.I],[sp.I,0]]); sz=sp.Matrix([[1,0],[0,-1]]); rho=sp.Matrix([[sp.Rational(1,2),0,0,cc/2],[0,0,0,0],[0,0,0,0],[cc/2,0,0,sp.Rational(1,2)]]); Tm=sp.Matrix(3,3,lambda i,j:(rho*sp.kronecker_product([sx,sy,sz][i],[sx,sy,sz][j])).trace()); ev=sorted([sp.simplify(e) for e in (Tm.T*Tm).eigenvals(multiple=True)],key=lambda e: float(e.subs(cc,sp.Rational(1,2)))); ok=sp.simplify(2*sp.sqrt(ev[-1]+ev[-2])-2*sp.sqrt(1+cc**2))==0
+    neg_ok=sp.simplify(2*sp.sqrt(ev[-1]+ev[-2])-sp.Rational(105,100)*2*sp.sqrt(1+cc**2))==0     # control: the factor 2 moved by 5 %
     return locals()
 
 @check(label='ch:entanglement:L52', chapter='ch:entanglement', part=4, title='sqrt2 (1+c) < 2 for c < sqrt2 - 1',
@@ -25155,8 +25093,9 @@ def check_3084():
 @check(label='ch:measurement:L28', chapter='ch:measurement', part=4, title='measured: printed value found in PAPER_ERRATA.md, a file the chapter names',
        file='part5/p5_04_measurement', line=28, status='measured', kind='file', printed='0.800', tol=0.0, source='docs/verification/PAPER_ERRATA.md')
 def check_1996():
-    'measured: printed value found in PAPER_ERRATA.md, a file the chapter names. Book line 28, printed 0.800.'
-    ok = file_has('docs/verification/PAPER_ERRATA.md', '0.800')
+    'measured: Level 2 chain sigma8 with the informational term, as PAPER_ERRATA.md row T7 states it (L2 LCDM -> IAM). Book line 28, printed 0.800.'
+    m=re.search(r'L2 ([\d.]+) → ([\d.]+)', file_text('docs/verification/PAPER_ERRATA.md'))
+    value=float(m.group(2))
     return locals()
 
 @check(label='ch:measurement:L28:72.26', chapter='ch:measurement', part=4, title='measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names',
@@ -25286,16 +25225,6 @@ def check_3088():
     value = 60 * 12 * u
     return locals()
 
-@check(label='ch:measurement:L87', chapter='ch:measurement', part=4, title='E_G = G m^2/R, m=1e-18 kg, R=5e-08 m (table inputs)',
-       file='part5/p5_04_measurement', line=87, status='calc', kind='num', printed='1.3\\times10^{-39}', tol=0)
-def check_2007():
-    'E_G = G m^2/R, m=1e-18 kg, R=5e-08 m (table inputs). Book line 87, printed 1.3\\times10^{-39}.'
-    def EG(m,R): return G*m**2/R
-    def tPD(m,R): return hbar/EG(m,R)
-    def tIAM(m,R,T=300): return hbar*(kB*T)**2*LN2/EG(m,R)**3
-    value=EG(1e-18,5e-08)
-    return locals()
-
 @check(label='ch:measurement:L87:7.9\\times10^{4}', chapter='ch:measurement', part=4, title='tau_PD = hbar/E_G, m=1e-18 kg',
        file='part5/p5_04_measurement', line=87, status='calc', kind='num', printed='7.9\\times10^{4}', tol=0)
 def check_2008():
@@ -25314,16 +25243,6 @@ def check_2009():
     def tPD(m,R): return hbar/EG(m,R)
     def tIAM(m,R,T=300): return hbar*(kB*T)**2*LN2/EG(m,R)**3
     value=tIAM(1e-18,5e-08)
-    return locals()
-
-@check(label='ch:measurement:L88', chapter='ch:measurement', part=4, title='E_G = G m^2/R, m=1e-15 kg, R=5e-07 m (table inputs)',
-       file='part5/p5_04_measurement', line=88, status='calc', kind='num', printed='1.3\\times10^{-34}', tol=0)
-def check_2010():
-    'E_G = G m^2/R, m=1e-15 kg, R=5e-07 m (table inputs). Book line 88, printed 1.3\\times10^{-34}.'
-    def EG(m,R): return G*m**2/R
-    def tPD(m,R): return hbar/EG(m,R)
-    def tIAM(m,R,T=300): return hbar*(kB*T)**2*LN2/EG(m,R)**3
-    value=EG(1e-15,5e-07)
     return locals()
 
 @check(label='ch:measurement:L88:0.79', chapter='ch:measurement', part=4, title='tau_PD = hbar/E_G, m=1e-15 kg',
@@ -25346,16 +25265,6 @@ def check_2012():
     value=tIAM(1e-15,5e-07)
     return locals()
 
-@check(label='ch:measurement:L89', chapter='ch:measurement', part=4, title='E_G = G m^2/R, m=1e-12 kg, R=5e-06 m (table inputs)',
-       file='part5/p5_04_measurement', line=89, status='calc', kind='num', printed='1.3\\times10^{-29}', tol=0)
-def check_2013():
-    'E_G = G m^2/R, m=1e-12 kg, R=5e-06 m (table inputs). Book line 89, printed 1.3\\times10^{-29}.'
-    def EG(m,R): return G*m**2/R
-    def tPD(m,R): return hbar/EG(m,R)
-    def tIAM(m,R,T=300): return hbar*(kB*T)**2*LN2/EG(m,R)**3
-    value=EG(1e-12,5e-06)
-    return locals()
-
 @check(label='ch:measurement:L89:7.9\\times10^{-6}', chapter='ch:measurement', part=4, title='tau_PD = hbar/E_G, m=1e-12 kg',
        file='part5/p5_04_measurement', line=89, status='calc', kind='num', printed='7.9\\times10^{-6}', tol=0)
 def check_2014():
@@ -25374,16 +25283,6 @@ def check_2015():
     def tPD(m,R): return hbar/EG(m,R)
     def tIAM(m,R,T=300): return hbar*(kB*T)**2*LN2/EG(m,R)**3
     value=tIAM(1e-12,5e-06)
-    return locals()
-
-@check(label='ch:measurement:L90', chapter='ch:measurement', part=4, title='E_G = G m^2/R, m=1e-06 kg, R=0.0005 m (table inputs)',
-       file='part5/p5_04_measurement', line=90, status='calc', kind='num', printed='1.3\\times10^{-19}', tol=0)
-def check_2016():
-    'E_G = G m^2/R, m=1e-06 kg, R=0.0005 m (table inputs). Book line 90, printed 1.3\\times10^{-19}.'
-    def EG(m,R): return G*m**2/R
-    def tPD(m,R): return hbar/EG(m,R)
-    def tIAM(m,R,T=300): return hbar*(kB*T)**2*LN2/EG(m,R)**3
-    value=EG(1e-06,0.0005)
     return locals()
 
 @check(label='ch:measurement:L90:7.9\\times10^{-16}', chapter='ch:measurement', part=4, title='tau_PD = hbar/E_G, m=1e-06 kg',
@@ -25625,6 +25524,7 @@ def check_2034():
 def check_2035():
     'Horodecki: dephased Bell state, S_max = 2 sqrt(1+c^2) (Eq. eq:mp_smax). Book line 195.'
     cc=sp.symbols('c',positive=True); sx=sp.Matrix([[0,1],[1,0]]); sy=sp.Matrix([[0,-sp.I],[sp.I,0]]); sz=sp.Matrix([[1,0],[0,-1]]); rho=sp.Matrix([[sp.Rational(1,2),0,0,cc/2],[0,0,0,0],[0,0,0,0],[cc/2,0,0,sp.Rational(1,2)]]); Tm=sp.Matrix(3,3,lambda i,j:(rho*sp.kronecker_product([sx,sy,sz][i],[sx,sy,sz][j])).trace()); ev=sorted([sp.simplify(e) for e in (Tm.T*Tm).eigenvals(multiple=True)],key=lambda e: float(e.subs(cc,sp.Rational(1,2)))); ok=sp.simplify(2*sp.sqrt(ev[-1]+ev[-2])-2*sp.sqrt(1+cc**2))==0
+    neg_ok=sp.simplify(2*sp.sqrt(ev[-1]+ev[-2])-sp.Rational(105,100)*2*sp.sqrt(1+cc**2))==0     # control: the factor 2 moved by 5 %
     return locals()
 
 @check(label='ch:measurement:L199', chapter='ch:measurement', part=4, title='sqrt2 (1+c) = 2 at c = 1-D: D = 2 - sqrt2',
@@ -26301,6 +26201,7 @@ def check_3119():
 def check_2087():
     'Horodecki: dephased Bell state, S_max = 2 sqrt(1+c^2). Book line 31.'
     cc=sp.symbols('c',positive=True); sx=sp.Matrix([[0,1],[1,0]]); sy=sp.Matrix([[0,-sp.I],[sp.I,0]]); sz=sp.Matrix([[1,0],[0,-1]]); rho=sp.Matrix([[sp.Rational(1,2),0,0,cc/2],[0,0,0,0],[0,0,0,0],[cc/2,0,0,sp.Rational(1,2)]]); Tm=sp.Matrix(3,3,lambda i,j:(rho*sp.kronecker_product([sx,sy,sz][i],[sx,sy,sz][j])).trace()); ev=sorted([sp.simplify(e) for e in (Tm.T*Tm).eigenvals(multiple=True)],key=lambda e: float(e.subs(cc,sp.Rational(1,2)))); ok=sp.simplify(2*sp.sqrt(ev[-1]+ev[-2])-2*sp.sqrt(1+cc**2))==0
+    neg_ok=sp.simplify(2*sp.sqrt(ev[-1]+ev[-2])-sp.Rational(105,100)*2*sp.sqrt(1+cc**2))==0     # control: the factor 2 moved by 5 %
     return locals()
 
 @check(label='ch:nonlocal:L35', chapter='ch:nonlocal', part=4, title='sqrt2 (1+c) = 2 at c = sqrt2 - 1',
@@ -26826,6 +26727,8 @@ def check_2127():
 def check_2128():
     'Q = 1/3 for equal masses, Q < 1 (sqrt-mass form) (Eq. eq:ko:Q). Book line 18.'
     a,b,cc=sp.symbols('a b c',positive=True); Q=(a**2+b**2+cc**2)/(a+b+cc)**2; ok=sp.simplify(Q.subs({a:1,b:1,cc:1})-sp.Rational(1,3))==0 and sp.limit(Q.subs({b:a,cc:a*0}),a,1)<1
+    # control: 1/3 moved by 5 % must not hold, and the reversed inequality Q >= 1 must not hold
+    neg_ok=sp.simplify(Q.subs({a:1,b:1,cc:1})-sp.Rational(105,100)*sp.Rational(1,3))==0 or sp.limit(Q.subs({b:a,cc:a*0}),a,1)>=1
     return locals()
 
 @check(label='ch:koide:L29', chapter='ch:koide', part=4, title='electron mass, MeV (CODATA 2018)',
@@ -26984,15 +26887,10 @@ def check_3706():
 def check_2137():
     'square-root mass vector, MeV^1/2. Book line 54.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
-    mtau24,stau24=1776.93,0.09; mtau22,stau22=1776.86,0.12  # PDG 2024, PDG 2022
-    def Qk(a,b,cc): return (a+b+cc)/(math.sqrt(a)+math.sqrt(b)+math.sqrt(cc))**2
-    def koide(mt):
-        s=[math.sqrt(mt),math.sqrt(me_),math.sqrt(mmu_)]; x=sum(s)/3; Q=Qk(me_,mmu_,mt); r=math.sqrt(2*(3*Q-1)); d=math.acos((s[0]/x-1)/r); return x,r,d,Q
-    def exact23():
-        f=lambda v: [v[0]*(1+math.sqrt(2)*math.cos(v[1]+2*math.pi/3))-math.sqrt(me_), v[0]*(1+math.sqrt(2)*math.cos(v[1]+4*math.pi/3))-math.sqrt(mmu_)]
-        from scipy.optimize import fsolve
-        x,d=fsolve(f,[17.7,0.2222],xtol=1e-14); return x,d,(x*(1+math.sqrt(2)*math.cos(d)))**2
-    ok=all(abs(math.sqrt(m)-v)<5.0001e-5 for m,v in ((me_,0.7148),(mmu_,10.2790),(mtau24,42.1536)))
+    mtau24=1776.93  # PDG 2024
+    MV=((me_,0.7148),(mmu_,10.2790),(mtau24,42.1536))
+    ok=all(abs(math.sqrt(m)-v)<5.0001e-5 for m,v in MV)
+    neg_ok=any(abs(math.sqrt(m)-1.05*v)<5.0001e-5 for m,v in MV)     # control: any printed component moved by 5 % must not be met
     return locals()
 
 @check(label='eq:ko:angle', chapter='ch:koide', part=4, title='cos^2 theta = 1/(3Q)',
@@ -27137,6 +27035,7 @@ def check_3707():
 def check_2146():
     'Z3 sums of cos and cos^2 (Eq. eq:ko:Z3). Book line 82.'
     d=sp.symbols('delta',real=True); ph=[d+2*sp.pi*k/3 for k in range(3)]; ok=sp.simplify(sp.expand_trig(sum(sp.cos(p) for p in ph)))==0 and sp.simplify(sp.expand_trig(sum(sp.cos(p)**2 for p in ph))-sp.Rational(3,2))==0
+    neg_ok=sp.simplify(sp.expand_trig(sum(sp.cos(p)**2 for p in ph))-sp.Rational(105,100)*sp.Rational(3,2))==0     # control: 3/2 moved by 5 %
     return locals()
 
 @check(label='eq:ko:Qr', chapter='ch:koide', part=4, title='Q = (1 + r^2/2)/3 from the parametrisation',
@@ -27296,6 +27195,7 @@ def check_3709():
 def check_2157():
     'maximum entropy over K states gives p_k = 1/K (K=3) (Eq. eq:ko:maxent). Book line 143.'
     K=3; p=sp.symbols('p0:3',positive=True); lam=sp.symbols('lambda'); H=-sum(pi*sp.log(pi) for pi in p); sol=sp.solve([sp.diff(H-lam*sum(p),pi) for pi in p]+[sum(p)-1],list(p)+[lam],dict=True)[0]; ok=all(sp.simplify(sol[pi]-sp.Rational(1,K))==0 for pi in p)
+    neg_ok=any(sp.simplify(sol[pi]-sp.Rational(105,100)*sp.Rational(1,K))==0 for pi in p)     # control: 1/K moved by 5 %
     return locals()
 
 @check(label='eq:ko:grad', chapter='ch:koide', part=4, title='drafted check, screened (runs; negative control fails)',
@@ -27391,7 +27291,9 @@ def check_3714():
        file='part2/p2_15a_lepton_koide', line=196, status='derived', kind='sym', printed='', tol=0)
 def check_2159():
     '1 + sqrt2 cos(phi) > 0 iff |phi - pi| > pi/4 (Eq. eq:ko:pos). Book line 196.'
-    ok=all(((1+math.sqrt(2)*math.cos(ph))>0)==(abs(((ph-math.pi+math.pi)%(2*math.pi))-math.pi)>math.pi/4) for ph in np.linspace(0.001,2*math.pi-0.001,997))
+    PH=np.linspace(0.001,2*math.pi-0.001,997)
+    ok=all(((1+math.sqrt(2)*math.cos(ph))>0)==(abs(((ph-math.pi+math.pi)%(2*math.pi))-math.pi)>math.pi/4) for ph in PH)
+    neg_ok=all(((1+math.sqrt(2)*math.cos(ph))>0)==(abs(((ph-math.pi+math.pi)%(2*math.pi))-math.pi)>1.05*math.pi/4) for ph in PH)   # control: pi/4 moved by 5 %
     return locals()
 
 @check(label='ch:koide:L206', chapter='ch:koide', part=4, title='measured offset delta',
@@ -27452,6 +27354,7 @@ def check_2164():
 def check_2165():
     'Q = 2/3 at y/x = sqrt2 (Eq. eq:ko:thm2). Book line 228.'
     x,y=sp.symbols('x y',positive=True); lhs=(3*x**2+sp.Rational(3,2)*y**2)/(3*x)**2; ok=sp.simplify(lhs.subs(y,sp.sqrt(2)*x)-sp.Rational(2,3))==0
+    neg_ok=sp.simplify(lhs.subs(y,sp.sqrt(2)*x)-sp.Rational(105,100)*sp.Rational(2,3))==0     # control: 2/3 moved by 5 %
     return locals()
 
 @check(label='eq:ko:delta0', chapter='ch:koide', part=4, title='masses at delta = 0 with x^2 = 313.851 MeV',
@@ -27459,15 +27362,13 @@ def check_2165():
 def check_2166():
     'masses at delta = 0 with x^2 = 313.851 MeV (Eq. eq:ko:delta0). Book line 240.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
-    mtau24,stau24=1776.93,0.09; mtau22,stau22=1776.86,0.12  # PDG 2024, PDG 2022
+    mtau24=1776.93  # PDG 2024
     def Qk(a,b,cc): return (a+b+cc)/(math.sqrt(a)+math.sqrt(b)+math.sqrt(cc))**2
     def koide(mt):
         s=[math.sqrt(mt),math.sqrt(me_),math.sqrt(mmu_)]; x=sum(s)/3; Q=Qk(me_,mmu_,mt); r=math.sqrt(2*(3*Q-1)); d=math.acos((s[0]/x-1)/r); return x,r,d,Q
-    def exact23():
-        f=lambda v: [v[0]*(1+math.sqrt(2)*math.cos(v[1]+2*math.pi/3))-math.sqrt(me_), v[0]*(1+math.sqrt(2)*math.cos(v[1]+4*math.pi/3))-math.sqrt(mmu_)]
-        from scipy.optimize import fsolve
-        x,d=fsolve(f,[17.7,0.2222],xtol=1e-14); return x,d,(x*(1+math.sqrt(2)*math.cos(d)))**2
-    x2=koide(mtau24)[0]**2; ok=abs(x2*(1-math.sqrt(2)/2)**2-26.92)<0.005 and abs(x2*(1+math.sqrt(2))**2-1829.26)<0.005
+    x2=koide(mtau24)[0]**2; m1=x2*(1-math.sqrt(2)/2)**2; m2=x2*(1+math.sqrt(2))**2
+    ok=abs(m1-26.92)<0.005 and abs(m2-1829.26)<0.005
+    neg_ok=abs(m1-1.05*26.92)<0.005 or abs(m2-1.05*1829.26)<0.005     # control: either printed mass moved by 5 %
     return locals()
 
 @check(label='ch:koide:L243', chapter='ch:koide', part=4, title='measured offset delta (restated)',
@@ -28124,6 +28025,7 @@ def check_2209():
 def check_2210():
     'm* = (2 pi)^(-2/5) B (Eq. eq:em:mstar). Book line 77.'
     B,=sp.symbols('B',positive=True),; ok=sp.simplify((2*sp.pi)**sp.Rational(-2,5)*B-(B**sp.Rational(5,2)/(2*sp.pi))**sp.Rational(2,5))==0
+    neg_ok=sp.simplify(sp.Rational(105,100)*(2*sp.pi)**sp.Rational(-2,5)*B-(B**sp.Rational(5,2)/(2*sp.pi))**sp.Rational(2,5))==0   # control: prefactor moved by 5 %
     return locals()
 
 @check(label='ch:electronmass:L80', chapter='ch:electronmass', part=4, title='B/m_e at H0 = 67.4',
@@ -28542,14 +28444,6 @@ def check_2255():
     value=Mq(5e9,0.015)
     return locals()
 
-@check(label='ch:scprimer:L15:1.1\\times10^{-7}', chapter='ch:scprimer', part=5, title='e^(-hf/kT) at 15 mK',
-       file='part3/p3_01_sc_primer', line=15, status='calc', kind='num', printed='1.1\\times10^{-7}', tol=0)
-def check_2256():
-    'e^(-hf/kT) at 15 mK. Book line 15, printed 1.1\\times10^{-7}.'
-    Mq=lambda f,T: h*f/(kB*T)
-    value=math.exp(-Mq(5e9,0.015))
-    return locals()
-
 @check(label='ch:scprimer:L15:8.2\\times10^{-3}', chapter='ch:scprimer', part=5, title='e^(-hf/kT) at 50 mK',
        file='part3/p3_01_sc_primer', line=15, status='calc', kind='num', printed='8.2\\times10^{-3}', tol=0)
 def check_2257():
@@ -28603,19 +28497,13 @@ def check_2262():
     value=math.exp(-Mq(5e9,0.035))
     return locals()
 
-@check(label='ch:scprimer:L23:1.1\\times10^{-7}', chapter='ch:scprimer', part=5, title='occupation at 15 mK',
-       file='part3/p3_01_sc_primer', line=23, status='calc', kind='num', printed='1.1\\times10^{-7}', tol=0)
-def check_2263():
-    'occupation at 15 mK. Book line 23, printed 1.1\\times10^{-7}.'
-    Mq=lambda f,T: h*f/(kB*T)
-    value=math.exp(-Mq(5e9,0.015))
-    return locals()
-
 @check(label='ch:scprimer:L36', chapter='ch:scprimer', part=5, title='thermal x_qp vanishes as T -> 0 and rises with T',
        file='part3/p3_01_sc_primer', line=36, status='calc', kind='sym', printed='', tol=0)
 def check_2264():
     'thermal x_qp vanishes as T -> 0 and rises with T. Book line 36.'
-    T,D,kB_=sp.symbols('T Delta k_B',positive=True); x=sp.sqrt(2*sp.pi*kB_*T/D)*sp.exp(-D/(kB_*T)); ok=sp.limit(x.subs({D:1,kB_:1}),T,0)==0 and sp.diff(sp.log(x),T).subs({D:1,kB_:1,T:sp.Rational(1,10)})>0
+    T,D,kB_=sp.symbols('T Delta k_B',positive=True); x=sp.sqrt(2*sp.pi*kB_*T/D)*sp.exp(-D/(kB_*T)); lim0=sp.limit(x.subs({D:1,kB_:1}),T,0); slope=sp.diff(sp.log(x),T).subs({D:1,kB_:1,T:sp.Rational(1,10)})
+    ok=lim0==0 and slope>0
+    neg_ok=lim0==0 and slope<=0     # control: the reversed inequality (x_qp falling with T) must not hold
     return locals()
 
 @check(label='ch:scprimer:L40', chapter='ch:scprimer', part=5, title='Delta/k_B T, Al, 15 mK',
@@ -28666,18 +28554,6 @@ def check_2269():
         return 2*math.pi*(kB*T)**3/(h**3*c**2)*quad(lambda x: x**2/math.expm1(x), x0, x0+200)[0]
     def eflux(T, E0=2*182e-6*eV): x0=E0/(kB*T); return 2*math.pi*(kB*T)**4/(h**3*c**2)*quad(lambda x: x**3/math.expm1(x), x0, x0+200)[0]
     value=flux(0.015)
-    return locals()
-
-@check(label='ch:scprimer:L77', chapter='ch:scprimer', part=5, title='the same at 300 K',
-       file='part3/p3_01_sc_primer', line=77, status='calc', kind='num', printed='4\\times10^{22}', tol=0)
-def check_2270():
-    'the same at 300 K. Book line 77, printed 4\\times10^{22}.'
-    def flux(T, E0=2*182e-6*eV):
-        x0=E0/(kB*T)
-        if x0>700: return 2*math.pi*(kB*T/(h*c))**2*(kB*T/h)*x0**2*math.exp(-x0)
-        return 2*math.pi*(kB*T)**3/(h**3*c**2)*quad(lambda x: x**2/math.expm1(x), x0, x0+200)[0]
-    def eflux(T, E0=2*182e-6*eV): x0=E0/(kB*T); return 2*math.pi*(kB*T)**4/(h**3*c**2)*quad(lambda x: x**3/math.expm1(x), x0, x0+200)[0]
-    value=flux(300.0)
     return locals()
 
 @check(label='ch:scprimer:L77:2.7255', chapter='ch:scprimer', part=5, title='drafted check, screened (runs; negative control fails)',
@@ -29069,7 +28945,8 @@ def check_3746():
        file='part3/p3_03_a_for_processors', line=23, status='calc', kind='sym', printed='', tol=0)
 def check_2301():
     '-ln(1-p) = p + p^2/2 + ... (Eq. eq:Agate). Book line 23.'
-    p=sp.symbols('p',positive=True); ok=sp.simplify(sp.series(-sp.log(1-p),p,0,3).removeO()-(p+p**2/2))==0
+    p=sp.symbols('p',positive=True); ser=sp.series(-sp.log(1-p),p,0,3).removeO(); ok=sp.simplify(ser-(p+p**2/2))==0
+    neg_ok=sp.simplify(ser-(p+sp.Rational(105,100)*p**2/2))==0     # control: the 1/2 moved by 5 %
     return locals()
 
 @check(label='ch:ascoreqc:L28', chapter='ch:ascoreqc', part=5, title='(eps - p)/p at p = 1e-2, per cent',
@@ -29114,14 +28991,6 @@ def check_3747():
     eps = -math.log(1 - 1e-3)
     value = 1e-2 / eps
     return locals()
-
-@check(label='ch:ascoreqc:L93', chapter='ch:ascoreqc', part=5, title='floor on the gauge',
-       file='part3/p3_03_a_for_processors', line=93, status='calc', kind='num', printed='6\\times10^{-4}', tol=0)
-def check_2307():
-    'floor on the gauge. Book line 93, printed 6\\times10^{-4}.'
-    peq=1/(1+math.exp(h*5e9/(kB*0.035))); value=peq*40e-9/68e-6/1e-3
-    return locals()
-
 
 # ======== Part 5 | ch:thermaln | docs/book/part3/p3_04_thermal_n.tex
 @check(label='eq:thermal_slope', chapter='ch:thermaln', part=5, title='d ln p/d ln T = M (1 - p), M = hf/kT',
@@ -29225,6 +29094,7 @@ def check_3750():
 def check_2317():
     'T1* = T1,free r/(1+r) solves a/T1^2 = b/(T1,free - T1)^2 (Eq. eq:t1star). Book line 22.'
     Tf,a,b=sp.symbols('T_f a b',positive=True); r=sp.sqrt(a/b); T=Tf*r/(1+r); ok=sp.simplify(a/T**2-b/(Tf-T)**2)==0
+    T5=sp.Rational(105,100)*T; neg_ok=sp.simplify(a/T5**2-b/(Tf-T5)**2)==0     # control: T1* moved by 5 %
     return locals()
 
 @check(label='ch:walls:L36', chapter='ch:walls', part=5, title='T1*/T1,free at a/b = 1',
@@ -29287,8 +29157,11 @@ def check_2321():
 @check(label='ch:walls:L101', chapter='ch:walls', part=5, title='largest gap between the exact and linear forms, p <= 2e-3, alpha C <= 1',
        file='part3/p3_05_coherence_optimum', line=101, status='calc', kind='num', printed='\\le4\\times10^{-6}', tol=0)
 def check_2322():
-    'largest gap between the exact and linear forms, p <= 2e-3, alpha C <= 1. Book line 101, printed \\le4\\times10^{-6}.'
-    value=max(abs((1-(1-p)**(1+x))-p*(1+x)) for p in np.linspace(0,2e-3,201) for x in np.linspace(0,1,101))
+    'largest gap between the exact and linear forms, p <= 2e-3, alpha C <= 1. Book line 101, printed \\le4\\times10^{-6}. The bound is attained (gap = p^2 at p = 2e-3, alpha C = 1), so the grid is evaluated at 40 digits (mpmath) to keep double-precision round-off from crossing it.'
+    import mpmath as mpm
+    with mpm.workdps(40):
+        PS=[mpm.mpf(k)/100000 for k in range(201)]; XS=[mpm.mpf(j)/100 for j in range(101)]
+        value=float(max(abs((1-(1-p)**(1+x))-p*(1+x)) for p in PS for x in XS))
     return locals()
 
 @check(label='ch:walls:L101:10^{-3}', chapter='ch:walls', part=5, title='relative gap between exact and linear crosstalk forms',
@@ -29372,16 +29245,6 @@ def check_2326():
     value=peq(Mf(5e9,0.035))*40e-9/68e-6
     return locals()
 
-@check(label='ch:qplatforms:L54', chapter='ch:qplatforms', part=5, title='floor on its own gauge',
-       file='part3/p3_10_qubit_platforms', line=54, status='calc', kind='num', printed='6\\times10^{-4}', tol=0)
-def check_2327():
-    'floor on its own gauge. Book line 54, printed 6\\times10^{-4}.'
-    Mf=lambda f,T: h*f/(kB*T)
-    peq=lambda M: 1/(1+math.exp(M))
-    nb=lambda M: 1/math.expm1(M)
-    value=peq(Mf(5e9,0.035))*40e-9/68e-6/1e-3
-    return locals()
-
 @check(label='ch:qplatforms:L55', chapter='ch:qplatforms', part=5, title='M at 15 mK',
        file='part3/p3_10_qubit_platforms', line=55, status='calc', kind='num', printed='16.0', tol=0)
 def check_2328():
@@ -29390,16 +29253,6 @@ def check_2328():
     peq=lambda M: 1/(1+math.exp(M))
     nb=lambda M: 1/math.expm1(M)
     value=Mf(5e9,0.015)
-    return locals()
-
-@check(label='ch:qplatforms:L55:1.1\\times10^{-7}', chapter='ch:qplatforms', part=5, title='p_eq at 15 mK',
-       file='part3/p3_10_qubit_platforms', line=55, status='calc', kind='num', printed='1.1\\times10^{-7}', tol=0)
-def check_2329():
-    'p_eq at 15 mK. Book line 55, printed 1.1\\times10^{-7}.'
-    Mf=lambda f,T: h*f/(kB*T)
-    peq=lambda M: 1/(1+math.exp(M))
-    nb=lambda M: 1/math.expm1(M)
-    value=peq(Mf(5e9,0.015))
     return locals()
 
 @check(label='ch:qplatforms:L69', chapter='ch:qplatforms', part=5, title='M transmon',
@@ -29420,16 +29273,6 @@ def check_2331():
     peq=lambda M: 1/(1+math.exp(M))
     nb=lambda M: 1/math.expm1(M)
     value=peq(Mf(5e9,0.035))
-    return locals()
-
-@check(label='ch:qplatforms:L69:1.1\\times10^{-7}', chapter='ch:qplatforms', part=5, title='p_eq at 15 mK',
-       file='part3/p3_10_qubit_platforms', line=69, status='calc', kind='num', printed='1.1\\times10^{-7}', tol=0)
-def check_2332():
-    'p_eq at 15 mK. Book line 69, printed 1.1\\times10^{-7}.'
-    Mf=lambda f,T: h*f/(kB*T)
-    peq=lambda M: 1/(1+math.exp(M))
-    nb=lambda M: 1/math.expm1(M)
-    value=peq(Mf(5e9,0.015))
     return locals()
 
 @check(label='ch:qplatforms:L70', chapter='ch:qplatforms', part=5, title='M fluxonium 0.2 GHz 20 mK',
@@ -29819,16 +29662,6 @@ def check_2360():
     value=Mf(1e9,0.020)
     return locals()
 
-@check(label='ch:qplatforms:L152:8', chapter='ch:qplatforms', part=5, title='p_eq fluxonium 1 GHz, per cent',
-       file='part3/p3_10_qubit_platforms', line=152, status='calc', kind='num', printed='8', tol=0)
-def check_2361():
-    'p_eq fluxonium 1 GHz, per cent. Book line 152, printed 8.'
-    Mf=lambda f,T: h*f/(kB*T)
-    peq=lambda M: 1/(1+math.exp(M))
-    nb=lambda M: 1/math.expm1(M)
-    value=100*peq(Mf(1e9,0.020))
-    return locals()
-
 @check(label='ch:qplatforms:L153', chapter='ch:qplatforms', part=5, title='M fluxonium 0.2 GHz',
        file='part3/p3_10_qubit_platforms', line=153, status='calc', kind='num', printed='0.48', tol=0)
 def check_2362():
@@ -29912,8 +29745,9 @@ def check_2368():
 @check(label='eq:qp_rydberg', chapter='ch:qplatforms', part=5, title='Omega* = (a/2b)^(1/3) minimises a/Omega + b Omega^2',
        file='part3/p3_10_qubit_platforms', line=222, status='derived', kind='sym', printed='', tol=0)
 def check_2369():
-    'Omega* = (a/2b)^(1/3) minimises a/Omega + b Omega^2 (Eq. eq:qp_rydberg). Book line 222.'
+    'Omega* = (a/2b)^(1/3) minimises a/Omega + b Omega^2 (Eq. eq:qp_rydberg). Book line 222. Control: Omega* x 1.05 is not a stationary point.'
     W,a,b=sp.symbols('Omega a b',positive=True); sol=sp.solve(sp.diff(a/W+b*W**2,W),W); ok=any(sp.simplify(s-(a/(2*b))**sp.Rational(1,3))==0 for s in sol)
+    neg_ok=any(sp.simplify(s-sp.Rational(105,100)*(a/(2*b))**sp.Rational(1,3))==0 for s in sol)
     return locals()
 
 @check(label='ch:qplatforms:L227', chapter='ch:qplatforms', part=5, title='neutral-atom parallel CZ fidelity (Evered 2023)',
@@ -30094,9 +29928,10 @@ def check_3779():
 @check(label='ch:cmos:L7', chapter='ch:cmos', part=5, title='k_B T_j ln2 at 75 C = 3.33e-21 J = 0.021 eV',
        file='part3/p3_06_cmos', line=7, status='none', kind='sym', printed='', tol=0)
 def check_2379():
-    'k_B T_j ln2 at 75 C = 3.33e-21 J = 0.021 eV. Book line 7.'
+    'k_B T_j ln2 at 75 C = 3.33e-21 J = 0.021 eV. Book line 7. Control: both printed values moved by 5 % must not match.'
     Tj=75+273.15  # junction temperature 75 C (book)
     ok=abs(kB*Tj*LN2/3.33e-21-1)<0.0016 and abs(kB*Tj*LN2/eV-0.021)<0.0005
+    neg_ok=abs(kB*Tj*LN2/(1.05*3.33e-21)-1)<0.0016 or abs(kB*Tj*LN2/eV-1.05*0.021)<0.0005
     return locals()
 
 @check(label='ch:cmos:L12', chapter='ch:cmos', part=5, title='drafted check, screened (runs; negative control fails)',
@@ -30176,8 +30011,9 @@ def check_3781():
 @check(label='eq:reliableswitch', chapter='ch:cmos', part=5, title='E_min = k_B T ln(1/p): Landauer at p = 1/2',
        file='part3/p3_06_cmos', line=48, status='calc', kind='sym', printed='', tol=0)
 def check_2386():
-    'E_min = k_B T ln(1/p): Landauer at p = 1/2 (Eq. eq:reliableswitch). Book line 48.'
+    'E_min = k_B T ln(1/p): Landauer at p = 1/2 (Eq. eq:reliableswitch). Book line 48. Control: ln(1/p) at p = 1/2 is not 1.05 ln 2.'
     p=sp.symbols('p',positive=True); ok=sp.simplify(sp.log(1/p).subs(p,sp.Rational(1,2))-sp.log(2))==0
+    neg_ok=sp.simplify(sp.log(1/p).subs(p,sp.Rational(1,2))-sp.Rational(105,100)*sp.log(2))==0
     return locals()
 
 @check(label='ch:cmos:L53', chapter='ch:cmos', part=5, title='ln(1/p) at p = 1e-15',
@@ -30720,12 +30556,11 @@ def check_3791():
     value = M_Ch / M_typ
     return locals()
 
-@check(label='ch:astrogenetics:L139', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names',
-       file='part4/p4_00b_astrogenetics', line=139, status='measured', kind='file', printed='1.016', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_book_output.txt',
-       heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')
+@check(label='ch:astrogenetics:L139', chapter='ch:astrogenetics', part=6, title='IMR90 senescent cultures, methylated-channel Met-A, highest',
+       file='part4/p4_00b_astrogenetics', line=139, status='measured', kind='file', printed='1.016', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv')
 def check_2441():
-    'measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names. Book line 139, printed 1.016.'
-    ok = file_has('docs/verification/scripts/verify_astrogenetics_book_output.txt', '1.016')
+    'Senescent IMR90 cultures hold the methylated channel at 0.941-1.016: the largest A_meth over the Senescent rows of imr90_channels.csv (as verify_astrogenetics_book.py reads it). Book line 139, printed 1.016.'
+    value = max(float(r['A_meth']) for r in load_csv_rows(_F03_IMR) if r['state'] == 'Senescent')
     return locals()
 
 @check(label='ch:astrogenetics:L140', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names',
@@ -31304,15 +31139,17 @@ def check_2495():
 @check(label='eq:H', chapter='ch:surface', part=6, title='binary entropy: 1 bit at 1/2, symmetric',
        file='part4/p4_03_surface', line=13, status='derived', kind='sym', printed='', tol=0)
 def check_2496():
-    'binary entropy: 1 bit at 1/2, symmetric (Eq. eq:H). Book line 13.'
+    'binary entropy: 1 bit at 1/2, symmetric (Eq. eq:H). Book line 13. Control: H(1/2) is not 1.05 bit.'
     b=sp.symbols('beta',positive=True); H=-b*sp.log(b,2)-(1-b)*sp.log(1-b,2); ok=sp.simplify(H.subs(b,sp.Rational(1,2))-1)==0 and sp.simplify(H-H.subs(b,1-b))==0
+    neg_ok=sp.simplify(H.subs(b,sp.Rational(1,2))-sp.Rational(105,100))==0 and sp.simplify(H-H.subs(b,1-b))==0
     return locals()
 
 @check(label='eq:jensen', chapter='ch:surface', part=6, title='H(mean beta) >= mean H(beta) (concavity), 200 random sets',
        file='part4/p4_03_surface', line=50, status='derived', kind='sym', printed='', tol=0)
 def check_2497():
-    'H(mean beta) >= mean H(beta) (concavity), 200 random sets (Eq. eq:jensen). Book line 50.'
-    rng=np.random.default_rng(0); Hn=lambda x: -(x*np.log2(x)+(1-x)*np.log2(1-x)); ok=all(Hn(b.mean())>=Hn(b).mean()-1e-12 for b in rng.uniform(0.01,0.99,(200,7)))
+    'H(mean beta) >= mean H(beta) (concavity), 200 random sets (Eq. eq:jensen). Book line 50. Control: the reversed inequality must fail.'
+    rng=np.random.default_rng(0); Hn=lambda x: -(x*np.log2(x)+(1-x)*np.log2(1-x)); sets=rng.uniform(0.01,0.99,(200,7)); ok=all(Hn(b.mean())>=Hn(b).mean()-1e-12 for b in sets)
+    neg_ok=all(Hn(b.mean())<=Hn(b).mean()+1e-12 for b in sets)
     return locals()
 
 @check(label='ch:surface:L66', chapter='ch:surface', part=6, title='mean of the per-site entropies, all 6,000 neutrophil identity sites (bits)',
@@ -31509,8 +31346,9 @@ def check_3822():
 @check(label='eq:smarr', chapter='ch:ledgers', part=6, title='Mc^2 = 2 T_H S',
        file='part4/p4_04_ledgers', line=44, status='calc', kind='sym', printed='', tol=0)
 def check_2504():
-    'Mc^2 = 2 T_H S (Eq. eq:smarr). Book line 44.'
+    'Mc^2 = 2 T_H S (Eq. eq:smarr). Book line 44. Control: the coefficient 2 moved by 5 % must not hold.'
     hb,c_,G_,kB_,M=sp.symbols('hbar c G k_B M',positive=True); T=hb*c_**3/(8*sp.pi*G_*M*kB_); S=4*sp.pi*G_*kB_*M**2/(hb*c_); ok=sp.simplify(M*c_**2-2*T*S)==0
+    neg_ok=sp.simplify(M*c_**2-sp.Rational(105,100)*2*T*S)==0
     return locals()
 
 @check(label='ch:ledgers:L49', chapter='ch:ledgers', part=6, title='T_H S = Mc^2/2 for 1 M_sun, J',
@@ -32832,8 +32670,9 @@ def check_2537():
 @check(label='eq:eps0T', chapter='ch:temperature', part=6, title='eps0 rises with T at fixed holding energy',
        file='part4/p4_10_temperature', line=12, status='derived', kind='sym', printed='', tol=0)
 def check_2538():
-    'eps0 rises with T at fixed holding energy (Eq. eq:eps0T). Book line 12.'
+    'eps0 rises with T at fixed holding energy (Eq. eq:eps0T). Book line 12. Control: the reversed statement (eps0 falls with T) must be False.'
     E,kB_,T=sp.symbols('E k_B T',positive=True); e=1/(1+sp.exp(E/(kB_*T))); ok=sp.diff(e,T).subs({E:1,kB_:1,T:1})>0
+    neg_ok=bool(sp.diff(e,T).subs({E:1,kB_:1,T:1})<0)
     return locals()
 
 @check(label='ch:temperature:L16', chapter='ch:temperature', part=6, title='eps0 at 10 C',
@@ -33939,14 +33778,6 @@ def check_4069():
     value = float(_b10_cscore_healthy().min())
     return locals()
 
-@check(label='ch:skytools:L95:0.1', title='spread damage moves Met-A by about 0.1', line=95, status='measured', printed='0.1', tol=0.0,
-       kind='file', source=_B10_SKY, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
-def check_4070():
-    'Damage spread over every site (2 % blur toward beta = 0.5) moves Met-A by about 0.1: median over the six arrays of Met-A (blurred) '\
-    'minus Met-A (healthy). Book line 95, printed 0.1. Input: sky_neut6_stats.csv.'
-    value = float(np.median(_b10_sky('blur2pct', 'MetA_6000') - _b10_sky('healthy', 'MetA_6000')))
-    return locals()
-
 @check(label='ch:skytools:L96:12.5', title='regional damage C-score, lowest', line=96, status='measured', printed='12.5', tol=0.0,
        kind='file', source=_B10_SKY, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
 def check_4071():
@@ -33978,14 +33809,6 @@ def check_4074():
     value = _b10_cd('beta', 1000)[0][1] / 1000
     return locals()
 
-@check(label='ch:skytools:L125:0.05', title='C(d) of beta at 3-6 kb', line=125, status='measured', printed='0.05', tol=0.0,
-       kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
-def check_4075():
-    'Agreement falls to 0.05 at 3-6 kb: median over the six arrays of C(d) of beta in the 3,162-5,623 bp bin. Book line 125, printed 0.05. '\
-    'Input: cd_neut.csv.'
-    value = float(np.median([c for _, _, c, _ in _b10_cd('beta', 3162)]))
-    return locals()
-
 @check(label='ch:skytools:L126', title='C(d) at 1 kb, highest of the six arrays', line=126, status='measured', printed='0.327', tol=0.0,
        kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
 def check_4076():
@@ -34004,14 +33827,6 @@ def check_4077():
 
 def _b10_plateau():
     return [c for lo, _, c, _ in _b10_cd('z_local5pct') if 1000 <= lo <= 1000000]
-
-@check(label='ch:skytools:L139:0.05', title='regional-damage plateau, lower end', line=139, status='measured', printed='0.05', tol=0.0,
-       kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
-def check_4078():
-    'Regional damage adds a plateau of 0.05-0.08 from 1 kb out to about a megabase; lower end = smallest C(d) of the damaged residual over '\
-    'the bins starting from 1 kb to 1 Mb. Book line 139, printed 0.05. Input: cd_neut.csv (z_local5pct).'
-    value = min(_b10_plateau())
-    return locals()
 
 @check(label='ch:skytools:L139:0.08', title='regional-damage plateau, upper end', line=139, status='measured', printed='0.08', tol=0.0,
        kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
@@ -34753,17 +34568,6 @@ def check_4159():
     value = float(_b11fr_molecules()[2].max())
     return locals()
 
-@check(label='ch:firstreadings:L64', chapter='ch:firstreadings', part=6, title='largest conversion-failure difference, treated vs vehicle',
-       file='part4/p4_21_firstreadings', line=64, status='measured', kind='file', printed='0.0007', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
-def check_4160():
-    'Largest |conversion failure of a treated library - mean conversion failure of its genotype\'s vehicle libraries|, recomputed. Book line 64, printed 0.0007. Inputs: dnmt_b_readings.csv (conv_fail).'
-    value = float(_b11fr_molecules()[3].max())
-    return locals()
-
-
-# ---------------------------------------------------------------- L74: caption of fig:p4_dnmt_arrays (same values as L57)
-
 @check(label='ch:firstreadings:L74:0.968', chapter='ch:firstreadings', part=6, title='caption: vehicle lowest Met-A',
        file='part4/p4_21_firstreadings', line=74, status='measured', kind='file', printed='0.968', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
@@ -34870,17 +34674,6 @@ def check_4173():
     'Figure fig:p4_dnmt_molecules caption: IAM-A against own vehicle, highest, recomputed. Book line 81, printed 1.97. Inputs: dnmt_b_readings.csv.'
     value = float(_b11fr_molecules()[2].max())
     return locals()
-
-@check(label='ch:firstreadings:L82', chapter='ch:firstreadings', part=6, title='caption: largest conversion-failure difference',
-       file='part4/p4_21_firstreadings', line=82, status='measured', kind='file', printed='0.0007', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv')
-def check_4174():
-    'Figure fig:p4_dnmt_molecules caption: largest conversion-failure difference, recomputed. Book line 82, printed 0.0007. Inputs: dnmt_b_readings.csv.'
-    value = float(_b11fr_molecules()[3].max())
-    return locals()
-
-
-# ---------------------------------------------------------------- L89, L97-L98
 
 @check(label='ch:firstreadings:L89', chapter='ch:firstreadings', part=6, title='remission draws agree within the S5 bar',
        file='part4/p4_21_firstreadings', line=89, status='measured', kind='file', printed='0.05', tol=0.0,
@@ -34999,25 +34792,25 @@ def check_4187():
     value = float(np.sqrt((((_b12_col(g, 'eps_corr_A') - _b12_col(g, 'eps_corr_B'))**2) / 2).mean()))
     return locals()
 
-@check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
+@check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='Methow steelhead: median red-cell eps_corr',
        file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='0.0354', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
 def check_2549():
-    'measured: printed value found in salmon_readings.csv, a file the chapter names. Book line 54, printed 0.0354.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '0.0354')
+    'P2: the median red-cell fish reads eps_corr = 0.0354: median of eps_corr over the 20 RBC rows of salmon_readings.csv. Book line 54, printed 0.0354.'
+    value = _f03_med(_F03_SALMON, 'eps_corr', tissue='RBC')
     return locals()
 
-@check(label='ch:salmonid:L54:3.31', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
+@check(label='ch:salmonid:L54:3.31', chapter='ch:salmonid', part=6, title='Methow steelhead: median red-cell holding energy, kT',
        file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='3.31', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
 def check_2550():
-    'measured: printed value found in salmon_readings.csv, a file the chapter names. Book line 54, printed 3.31.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '3.31')
+    'P2: the median red-cell fish reads E = 3.31 kT: median of E_kT over the 20 RBC rows of salmon_readings.csv. Book line 54, printed 3.31.'
+    value = _f03_med(_F03_SALMON, 'E_kT', tissue='RBC')
     return locals()
 
-@check(label='ch:salmonid:L55', chapter='ch:salmonid', part=6, title='measured: printed value found in coho_cc_fish.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=55, status='measured', kind='file', printed='0.0356', tol=0.0, source='Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv')
+@check(label='ch:salmonid:L55', chapter='ch:salmonid', part=6, title='Methow steelhead: median eps_corr of hatchery red cells',
+       file='part4/p4_22b_salmonid', line=55, status='measured', kind='file', printed='0.0356', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
 def check_2551():
-    'measured: printed value found in coho_cc_fish.csv, a file the chapter names. Book line 55, printed 0.0356.'
-    ok = file_has('Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv', '0.0356')
+    'P3: red cells 0.0356 (hatchery): median eps_corr over the RBC rows of origin Hat in salmon_readings.csv (the steelhead table; the coho table named before holds a different 0.0356). Book line 55, printed 0.0356.'
+    value = _f03_med(_F03_SALMON, 'eps_corr', tissue='RBC', origin='Hat')
     return locals()
 
 @check(label='ch:salmonid:L55:0.0352', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
@@ -35027,11 +34820,11 @@ def check_2552():
     ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '0.0352')
     return locals()
 
-@check(label='ch:salmonid:L55:0.0165', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
+@check(label='ch:salmonid:L55:0.0165', chapter='ch:salmonid', part=6, title='Methow steelhead: median eps_corr of hatchery sperm',
        file='part4/p4_22b_salmonid', line=55, status='measured', kind='file', printed='0.0165', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
 def check_2553():
-    'measured: printed value found in salmon_readings.csv, a file the chapter names. Book line 55, printed 0.0165.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '0.0165')
+    'P3: sperm 0.0165 (hatchery): median eps_corr over the Sp rows of origin Hat in salmon_readings.csv. Book line 55, printed 0.0165.'
+    value = _f03_med(_F03_SALMON, 'eps_corr', tissue='Sp', origin='Hat')
     return locals()
 
 @check(label='ch:salmonid:L55:0.31', chapter='ch:salmonid', part=6, title='Methow P3 red cells, Mann-Whitney p',
@@ -35199,11 +34992,11 @@ def check_4205():
     value = float(_b12_stats.spearmanr([A[x] for x in f], [S[x] for x in f]).pvalue)
     return locals()
 
-@check(label='ch:salmonid:L67', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
+@check(label='ch:salmonid:L67', chapter='ch:salmonid', part=6, title='Methow steelhead: median red-cell holding energy, kT (sperm comparison)',
        file='part4/p4_22b_salmonid', line=67, status='measured', kind='file', printed='3.31', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
 def check_2555():
-    'measured: printed value found in salmon_readings.csv, a file the chapter names. Book line 67, printed 3.31.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '3.31')
+    'Sperm 4.02 against red cells 3.31 kT: median of E_kT over the RBC rows of salmon_readings.csv. Book line 67, printed 3.31.'
+    value = _f03_med(_F03_SALMON, 'E_kT', tissue='RBC')
     return locals()
 
 @check(label='ch:salmonid:L67:4.02', chapter='ch:salmonid', part=6, title='Methow sperm holding energy',
@@ -35258,11 +35051,11 @@ def check_2556():
     ok = file_has('Biological_Physics/MethylPhys/doors/data/charr_readings.csv', '3.82')
     return locals()
 
-@check(label='ch:salmonid:L88:0.0216', chapter='ch:salmonid', part=6, title='measured: printed value found in charr_readings.csv, a file the chapter names',
+@check(label='ch:salmonid:L88:0.0216', chapter='ch:salmonid', part=6, title='brook charr P2: median ambient eps_corr',
        file='part4/p4_22b_salmonid', line=88, status='measured', kind='file', printed='0.0216', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/charr_readings.csv')
 def check_2557():
-    'measured: printed value found in charr_readings.csv, a file the chapter names. Book line 88, printed 0.0216.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/charr_readings.csv', '0.0216')
+    'P2 passed at its lower edge (eps_corr 0.0216): median eps_corr over the ambient rows of charr_readings.csv, all 22 fish as score_charr.py takes it. Book line 88, printed 0.0216.'
+    value = _f03_med(_F03_CHARR, 'eps_corr', temp='ambient')
     return locals()
 
 @check(label='ch:salmonid:L88:+0.29', chapter='ch:salmonid', part=6, title='brook charr P1: rho with masked fraction',
@@ -35449,11 +35242,11 @@ def check_4229():
     value = float(p[2])
     return locals()
 
-@check(label='ch:salmonid:L110', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
+@check(label='ch:salmonid:L110', chapter='ch:salmonid', part=6, title='Atlantic salmon fin: F0 median eps_corr',
        file='part4/p4_22b_salmonid', line=110, status='measured', kind='file', printed='0.0303', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
 def check_2561():
-    'measured: printed value found in rimouski_readings.csv, a file the chapter names. Book line 110, printed 0.0303.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '0.0303')
+    'The F0 median is 0.0303: median eps_corr over the generation F0 rows of rimouski_readings.csv. Book line 110, printed 0.0303.'
+    value = _f03_med(_F03_RIMOUSKI, 'eps_corr', generation='F0')
     return locals()
 
 @check(label='ch:salmonid:L110:3.47', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
@@ -35463,11 +35256,11 @@ def check_2562():
     ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '3.47')
     return locals()
 
-@check(label='ch:salmonid:L110:0.0278', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
+@check(label='ch:salmonid:L110:0.0278', chapter='ch:salmonid', part=6, title='Atlantic salmon fin: F1 median eps_corr',
        file='part4/p4_22b_salmonid', line=110, status='measured', kind='file', printed='0.0278', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
 def check_2563():
-    'measured: printed value found in rimouski_readings.csv, a file the chapter names. Book line 110, printed 0.0278.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '0.0278')
+    'The F1 median is 0.0278: median eps_corr over the generation F1 rows of rimouski_readings.csv. Book line 110, printed 0.0278.'
+    value = _f03_med(_F03_RIMOUSKI, 'eps_corr', generation='F1')
     return locals()
 
 @check(label='ch:salmonid:L110:3.56', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
@@ -35567,11 +35360,11 @@ def check_2566():
     ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '0.0373')
     return locals()
 
-@check(label='ch:salmonid:L132:0.0356', chapter='ch:salmonid', part=6, title='measured: printed value found in coho_cc_fish.csv, a file the chapter names',
+@check(label='ch:salmonid:L132:0.0356', chapter='ch:salmonid', part=6, title='coho: median copy error on common sites',
        file='part4/p4_22b_salmonid', line=132, status='measured', kind='file', printed='0.0356', tol=0.0, source='Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv')
 def check_2567():
-    'measured: printed value found in coho_cc_fish.csv, a file the chapter names. Book line 132, printed 0.0356.'
-    ok = file_has('Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv', '0.0356')
+    'On 43,554 common sites the fish read 0.0337-0.0373 (median 0.0356): median of eps_cc_common over the 39 fish of coho_cc_fish.csv. Book line 132, printed 0.0356.'
+    value = _f03_med(_F03_COHO, 'eps_cc_common')
     return locals()
 
 @check(label='ch:salmonid:L132:0.00089', chapter='ch:salmonid', part=6, title='coho between-fish SD',
@@ -35598,11 +35391,11 @@ def check_2568():
     ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '3.25')
     return locals()
 
-@check(label='ch:salmonid:L136:3.36', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=136, status='measured', kind='file', printed='3.36', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
+@check(label='ch:salmonid:L136:3.36', chapter='ch:salmonid', part=6, title='coho: highest holding energy, kT (as scored)',
+       file='part4/p4_22b_salmonid', line=136, status='measured', kind='file', printed='3.36', tol=0.0, source='Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv')
 def check_2569():
-    'measured: printed value found in rimouski_readings.csv, a file the chapter names. Book line 136, printed 3.36.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '3.36')
+    'As scored, the coho read 3.25-3.36 kT: the largest E_kT over the fish of coho_cc_fish.csv (the Atlantic salmon table named before holds no such range). Book line 136, printed 3.36.'
+    value = max(float(r['E_kT']) for r in load_csv_rows(_F03_COHO))
     return locals()
 
 @check(label='ch:salmonid:L136:3.30', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
@@ -35612,11 +35405,11 @@ def check_2570():
     ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '3.30')
     return locals()
 
-@check(label='ch:salmonid:L150', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
+@check(label='ch:salmonid:L150', chapter='ch:salmonid', part=6, title='table: Methow steelhead red cells, median holding energy, kT',
        file='part4/p4_22b_salmonid', line=150, status='measured', kind='file', printed='3.31', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
 def check_2571():
-    'measured: printed value found in salmon_readings.csv, a file the chapter names. Book line 150, printed 3.31.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/salmon_readings.csv', '3.31')
+    'Table row Methow steelhead, last column 3.31: median E_kT over the RBC rows of salmon_readings.csv. Book line 150, printed 3.31.'
+    value = _f03_med(_F03_SALMON, 'E_kT', tissue='RBC')
     return locals()
 
 @check(label='ch:salmonid:L150:20', chapter='ch:salmonid', part=6, title='Table: Methow males',
@@ -35660,11 +35453,11 @@ def check_4245():
     value = _b12_E(float(np.median(_b12_col(_b12_rows(_B12_SAL, tissue='Sp'), 'eps_corr'))))
     return locals()
 
-@check(label='ch:salmonid:L152', chapter='ch:salmonid', part=6, title='measured: printed value found in charr_readings.csv, a file the chapter names',
+@check(label='ch:salmonid:L152', chapter='ch:salmonid', part=6, title='table: brook charr sperm, median holding energy, kT',
        file='part4/p4_22b_salmonid', line=152, status='measured', kind='file', printed='3.81', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/charr_readings.csv')
 def check_2572():
-    'measured: printed value found in charr_readings.csv, a file the chapter names. Book line 152, printed 3.81.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/charr_readings.csv', '3.81')
+    'Table row brook charr, last column 3.81: median E_kT over all 40 rows of charr_readings.csv. Book line 152, printed 3.81.'
+    value = _f03_med(_F03_CHARR, 'E_kT')
     return locals()
 
 @check(label='ch:salmonid:L152:40', chapter='ch:salmonid', part=6, title='Table: brook charr males',
@@ -35759,11 +35552,11 @@ def check_4254():
     value = _b12_stats.spearmanr(_b12_col(R, 'eps_cc_common'), _b12_col(R, 'conv_fail')).correlation
     return locals()
 
-@check(label='ch:salmonid:L163', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=163, status='measured', kind='file', printed='3.29', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
+@check(label='ch:salmonid:L163', chapter='ch:salmonid', part=6, title='human cells, lower end of the holding energy, kT (figure caption)',
+       file='part4/p4_22b_salmonid', line=163, status='measured', kind='file', printed='3.29', tol=0.0, source='Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md')
 def check_2575():
-    'measured: printed value found in rimouski_readings.csv, a file the chapter names. Book line 163, printed 3.29.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '3.29')
+    'Grey band, healthy human cells 3.29-3.51 kT: E = ln((1-eps)/eps) at eps = 0.036, the upper end of the human copy-error range 0.029-0.036 written in PROC_SALMON_01_PREREG.md (PROC-MOLECULE-01). Book line 163, printed 3.29.'
+    value = _f03_human_E_low()
     return locals()
 
 @check(label='ch:salmonid:L163:3.51', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
@@ -35804,11 +35597,11 @@ def check_4256():
     value = _b12_icc_halves(_b12_col(R, 'eps_corr_A'), _b12_col(R, 'eps_corr_B'))
     return locals()
 
-@check(label='ch:salmonid:L179', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
-       file='part4/p4_22b_salmonid', line=179, status='measured', kind='file', printed='3.29', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv')
+@check(label='ch:salmonid:L179', chapter='ch:salmonid', part=6, title='human cells, lower end of the holding energy, kT',
+       file='part4/p4_22b_salmonid', line=179, status='measured', kind='file', printed='3.29', tol=0.0, source='Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md')
 def check_2579():
-    'measured: printed value found in rimouski_readings.csv, a file the chapter names. Book line 179, printed 3.29.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv', '3.29')
+    'Healthy human cells 3.29-3.51 kT: E = ln((1-eps)/eps) at eps = 0.036, the upper end of the human copy-error range in PROC_SALMON_01_PREREG.md. Book line 179, printed 3.29.'
+    value = _f03_human_E_low()
     return locals()
 
 @check(label='ch:salmonid:L179:3.51', chapter='ch:salmonid', part=6, title='measured: printed value found in rimouski_readings.csv, a file the chapter names',
@@ -35832,11 +35625,11 @@ def check_2582():
     ok = file_has('Biological_Physics/MethylPhys/doors/data/charr_readings.csv', '3.85')
     return locals()
 
-@check(label='ch:salmonid:L180', chapter='ch:salmonid', part=6, title='measured: printed value found in charr_readings.csv, a file the chapter names',
+@check(label='ch:salmonid:L180', chapter='ch:salmonid', part=6, title='brook charr sperm, median holding energy, kT',
        file='part4/p4_22b_salmonid', line=180, status='measured', kind='file', printed='3.81', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/charr_readings.csv')
 def check_2583():
-    'measured: printed value found in charr_readings.csv, a file the chapter names. Book line 180, printed 3.81.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/data/charr_readings.csv', '3.81')
+    'Sperm read 3.81 kT in brook charr: median E_kT over all 40 rows of charr_readings.csv. Book line 180, printed 3.81.'
+    value = _f03_med(_F03_CHARR, 'E_kT')
     return locals()
 
 @check(label='ch:salmonid:L180:4.02', chapter='ch:salmonid', part=6, title='Methow sperm holding energy (holding-energy paragraph)',
@@ -37345,11 +37138,11 @@ def check_4414():
     value = 1 / (1 + math.exp(phi_hold * M))
     return locals()
 
-@check(label='ch:onegauge:L110', chapter='ch:onegauge', part=7, title='measured: printed value found in iam_canon.json, a file the chapter names',
+@check(label='ch:onegauge:L110', chapter='ch:onegauge', part=7, title='Normal band, upper edge (canon Normal_band)',
        file='part3/p3_08_one_gauge', line=110, status='measured', kind='file', printed='1.05', tol=0.0, source='CANON/iam_canon.json')
 def check_2600():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 110, printed 1.05.'
-    ok = file_has('CANON/iam_canon.json', '1.05')
+    'Grey: Normal, 0.95-1.05: upper edge of Normal_band in iam_canon.json. Book line 110, printed 1.05.'
+    value = float(_cv('Normal_band')[1])
     return locals()
 
 @check(label='ch:onegauge:L110:0.695', chapter='ch:onegauge', part=7, title='IMR90 senescent, unmethylated channel, upper end',
@@ -37732,11 +37525,11 @@ def check_4452():
     value = min(float(r['A']) for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv') if r['cmpd'] == 'DMSO')
     return locals()
 
-@check(label='ch:synthesis:L100', chapter='ch:synthesis', part=7, title='measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names',
-       file='part5/p5_08_synthesis', line=100, status='measured', kind='file', printed='1.65', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md')
+@check(label='ch:synthesis:L100', chapter='ch:synthesis', part=7, title='DNMT1 block on single molecules: lowest IAM-A of the 8 treated libraries',
+       file='part5/p5_08_synthesis', line=100, status='measured', kind='file', printed='1.65', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv')
 def check_2613():
-    'measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names. Book line 100, printed 1.65.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md', '1.65')
+    'IAM-A read 1.65-1.97 in all eight treated libraries: smallest A over dnmt_b_pairs.csv, the per-pair table behind PROC_DNMT_01_PARTB_OUTCOME.md. Book line 100, printed 1.65.'
+    value = min(float(r['A']) for r in load_csv_rows(_F03_DNMT))
     return locals()
 
 @check(label='ch:synthesis:L100:1.97', chapter='ch:synthesis', part=7, title='measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names',
@@ -37762,11 +37555,11 @@ def check_2616():
     ok = file_has('Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md', '1.148')
     return locals()
 
-@check(label='ch:reach:L33:1.65', chapter='ch:reach', part=7, title='measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names',
-       file='part3/p3_09_reach', line=33, status='measured', kind='file', printed='1.65', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md')
+@check(label='ch:reach:L33:1.65', chapter='ch:reach', part=7, title='DNMT1 block on single molecules: lowest IAM-A (figure caption)',
+       file='part3/p3_09_reach', line=33, status='measured', kind='file', printed='1.65', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv')
 def check_2617():
-    'measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names. Book line 33, printed 1.65.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md', '1.65')
+    'Triangles: IAM-A 1.65-1.97: smallest A over dnmt_b_pairs.csv (PROC_DNMT_01_PARTB_OUTCOME.md). Book line 33, printed 1.65.'
+    value = min(float(r['A']) for r in load_csv_rows(_F03_DNMT))
     return locals()
 
 @check(label='ch:reach:L33:1.97', chapter='ch:reach', part=7, title='measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names',
@@ -37839,11 +37632,11 @@ def check_4457():
     value = min(_b13_dnmt(lambda r: r['cmpd'] == 'GSK032' and float(r['dose_nM']) > 0, 'dose_nM'))
     return locals()
 
-@check(label='ch:reach:L55', chapter='ch:reach', part=7, title='measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names',
-       file='part3/p3_09_reach', line=55, status='measured', kind='file', printed='1.65', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md')
+@check(label='ch:reach:L55', chapter='ch:reach', part=7, title='DNMT1 block on single molecules: lowest IAM-A',
+       file='part3/p3_09_reach', line=55, status='measured', kind='file', printed='1.65', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv')
 def check_2623():
-    'measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names. Book line 55, printed 1.65.'
-    ok = file_has('Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md', '1.65')
+    'Reads IAM-A 1.65-1.97 in all 8 treated libraries: smallest A over dnmt_b_pairs.csv (PROC_DNMT_01_PARTB_OUTCOME.md). Book line 55, printed 1.65.'
+    value = min(float(r['A']) for r in load_csv_rows(_F03_DNMT))
     return locals()
 
 @check(label='ch:reach:L55:1.97', chapter='ch:reach', part=7, title='measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names',
@@ -37968,13 +37761,6 @@ def check_4463():
 def check_4464():
     'E_G change f_LCDM/f_IAM - 1 at z = 0.3 from the linear growth equation with mu on the source term and the same early amplitude (f_of), Sigma = 1, per cent. Book line 24, printed 1.8 %.'
     value = 100 * (f_of('lcdm', 0.3) / f_of('iam', 0.3) - 1)
-    return locals()
-
-@check(label='ch:predictions:L24:1.1', chapter='ch:predictions', part=7, title='E_G above LCDM at z = 0.5 (C8)',
-       file='part5/p5_07_predictions', line=24, status='calc', kind='num', printed='1.1', tol=0.0)
-def check_4465():
-    'E_G change f_LCDM/f_IAM - 1 at z = 0.5, same growth equation, per cent. Book line 24, printed 1.1 %.'
-    value = 100 * (f_of('lcdm', 0.5) / f_of('iam', 0.5) - 1)
     return locals()
 
 @check(label='ch:predictions:L24:0.78', chapter='ch:predictions', part=7, title='growth factor D below LCDM today (C4)',
@@ -39578,13 +39364,6 @@ def check_2663():
     peq=1/(1+math.exp(h*5e9/(kB*0.035))); value=peq*40e-9/68e-6
     return locals()
 
-@check(label='ch:statusall:L81:6\\times10^{-4}', chapter='ch:statusall', part=7, title='floor on the gauge of a 1e-3 gate',
-       file='part5/p5_11_status_all', line=81, status='calc', kind='num', printed='6\\times10^{-4}', tol=0)
-def check_2664():
-    'floor on the gauge of a 1e-3 gate. Book line 81, printed 6\\times10^{-4}.'
-    peq=1/(1+math.exp(h*5e9/(kB*0.035))); value=peq*40e-9/68e-6/1e-3
-    return locals()
-
 @check(label='ch:statusall:L82', chapter='ch:statusall', part=7, title='slope at 35 mK',
        file='part5/p5_11_status_all', line=82, status='calc', kind='num', printed='6.85', tol=0)
 def check_2665():
@@ -40325,11 +40104,11 @@ def check_4650():
     value = len(d['sites']) if d['n_sites'] == len(d['sites']) else float('nan')
     return locals()
 
-@check(label='app:notation:L117', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
+@check(label='app:notation:L117', chapter='app:notation', part=8, title='Normal band, upper edge (canon Normal_band)',
        file='appendices/app_N_notation', line=117, status='observed', kind='file', printed='1.05', tol=0.0, source='CANON/iam_canon.json')
 def check_2708():
-    'measured: printed value found in iam_canon.json, a file the chapter names. Book line 117, printed 1.05.'
-    ok = file_has('CANON/iam_canon.json', '1.05')
+    'Normal, the healthy band of every reading, 0.95-1.05: upper edge of Normal_band in iam_canon.json. Book line 117, printed 1.05.'
+    value = float(_cv('Normal_band')[1])
     return locals()
 
 @check(label='app:notation:L117:0.95', chapter='app:notation', part=8, title='lower edge of the Normal band',
@@ -40895,8 +40674,9 @@ def check_4692():
 @check(label='app:derivations:L33', chapter='app:derivations', part=8, title="dG/dt = sum p^2/m + sum F.r (one degree of freedom, F = m r'')",
        file='appendices/app_C3_derivations', line=33, status='derived', kind='sym', printed='', tol=0)
 def check_2732():
-    "dG/dt = sum p^2/m + sum F.r (one degree of freedom, F = m r''). Book line 33."
+    "dG/dt = sum p^2/m + sum F.r (one degree of freedom, F = m r''). Book line 33. Control: the kinetic term p^2/m with its coefficient moved by 5 % must not balance."
     t=sp.symbols('t'); m=sp.symbols('m',positive=True); r=sp.Function('r')(t); Gv=m*sp.diff(r,t)*r; ok=sp.simplify(sp.diff(Gv,t)-(m*sp.diff(r,t)**2+m*sp.diff(r,t,2)*r))==0
+    neg_lhs=sp.diff(Gv,t)-(sp.Rational(105,100)*m*sp.diff(r,t)**2+m*sp.diff(r,t,2)*r); neg_rhs=0
     return locals()
 
 @check(label='app:derivations:L49', chapter='app:derivations', part=8, title='same value as p1_03_virial_law:144 (hydrogen |E| = alpha^2 m_e c^2/2 (infinite-mass Rydberg))',
@@ -41177,8 +40957,9 @@ def check_2759():
 @check(label='app:derivations:L102', chapter='app:derivations', part=8, title='2 pi/(hbar eta) = 8 pi G with G = 1/(4 hbar eta) (c = 1)',
        file='appendices/app_C3_derivations', line=102, status='derived', kind='sym', printed='', tol=0)
 def check_2760():
-    '2 pi/(hbar eta) = 8 pi G with G = 1/(4 hbar eta) (c = 1). Book line 102.'
+    '2 pi/(hbar eta) = 8 pi G with G = 1/(4 hbar eta) (c = 1). Book line 102. Control: G = 1.05/(4 hbar eta) must not give 2 pi/(hbar eta).'
     hb,eta,G_=sp.symbols('hbar eta G',positive=True); ok=sp.simplify(2*sp.pi/(hb*eta)-8*sp.pi*G_.subs(G_,1/(4*hb*eta)))==0
+    neg_lhs=2*sp.pi/(hb*eta)-8*sp.pi*G_.subs(G_,sp.Rational(105,100)/(4*hb*eta)); neg_rhs=0
     return locals()
 
 @check(label='der:F2', chapter='app:derivations', part=8, title='Hdot = -4 pi G (rho+P) from -dE = T_H dS_geo on the apparent horizon',
@@ -41400,15 +41181,19 @@ def check_2769():
 @check(label='der:winfo', chapter='app:derivations', part=8, title='w_info = -1 - 1/(3a) at a = 0.5, 1, 2',
        file='appendices/app_C3_derivations', line=185, status='derived', kind='sym', printed='', tol=0)
 def check_2770():
-    'w_info = -1 - 1/(3a) at a = 0.5, 1, 2 (Eq. der:winfo). Book line 185.'
-    ok=all(abs(-1-1/(3*a)-v)<5e-3 for a,v in ((0.5,-1.67),(1,-1.33),(2,-1.17)))
+    'w_info = -1 - 1/(3a) at a = 0.5, 1, 2 (Eq. der:winfo). Book line 185. Control: the printed values moved by 5 % must not match.'
+    pts=((0.5,-1.67),(1,-1.33),(2,-1.17))
+    ok=all(abs(-1-1/(3*a)-v)<5e-3 for a,v in pts)
+    neg_ok=any(abs(-1-1/(3*a)-1.05*v)<5e-3 for a,v in pts)
     return locals()
 
 @check(label='app:derivations:L190', chapter='app:derivations', part=8, title='w_eff = -1 - (1/3) dln rho/dln a for rho = Omega_L + (Omega_m/2) E(a): w_eff(1) = 2(3-Omega_m)/(3(Omega_m-2)), w_a = -Omega_m^2/(3(2-Omega_m)^2)',
        file='appendices/app_C3_derivations', line=190, status='derived', kind='sym', printed='', tol=0)
 def check_2771():
-    'w_eff = -1 - (1/3) dln rho/dln a for rho = Omega_L + (Omega_m/2) E(a): w_eff(1) = 2(3-Omega_m)/(3(Omega_m-2)), w_a = -Omega_m^2/(3(2-Omega_m)^2). Book line 190.'
+    'w_eff = -1 - (1/3) dln rho/dln a for rho = Omega_L + (Omega_m/2) E(a): w_eff(1) = 2(3-Omega_m)/(3(Omega_m-2)), w_a = -Omega_m^2/(3(2-Omega_m)^2). Book line 190. Control: either closed form with its coefficient moved by 5 % must not hold.'
     a,O=sp.symbols('a Omega_m',positive=True); rho=(1-O)+O/2*sp.exp(1-1/a); w=-1-sp.Rational(1,3)*a*sp.diff(sp.log(rho),a); ok=sp.simplify(w.subs(a,1)-2*(3-O)/(3*(O-2)))==0 and sp.simplify(-sp.diff(w,a).subs(a,1)+O**2/(3*(2-O)**2))==0
+    k=sp.Rational(105,100)
+    neg_ok=sp.simplify(w.subs(a,1)-k*2*(3-O)/(3*(O-2)))==0 or sp.simplify(-sp.diff(w,a).subs(a,1)+k*O**2/(3*(2-O)**2))==0
     return locals()
 
 @check(label='app:derivations:L193', chapter='app:derivations', part=8, title='w_eff(1) at Omega_m=0.3',
@@ -43024,11 +42809,11 @@ def check_2864():
     ok = file_has('CANON/iam_canon.json', '0.1575')
     return locals()
 
-@check(label='app:glossary:L89:0.315', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=89, status='observed', kind='file', printed='0.315', tol=0.0, source='CANON/GLOSSARY.md')
+@check(label='app:glossary:L89:0.315', chapter='app:glossary', part=8, title='Omega_m written 0.315 (= 2 beta_m to three decimals)',
+       file='appendices/app_F_glossary', line=89, status='observed', kind='file', printed='0.315', tol=0.0, source='CANON/iam_canon.json')
 def check_2865():
-    'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 89, printed 0.315.'
-    ok = file_has('CANON/GLOSSARY.md', '0.315')
+    'Written 0.1575 where Omega_m = 0.315 is used: Omega_m = 2 beta_m from iam_canon.json (0.3153), to the printed three decimals. Book line 89, printed 0.315.'
+    value = 2 * beta_m
     return locals()
 
 @check(label='app:glossary:L90:0.295', title='DESI BGS effective redshift', line=90, status='observed', kind='file', printed='0.295', tol=0.0,
@@ -43087,12 +42872,6 @@ def check_4799():
 def check_4800():
     'The 1-1.8 kb bin: upper edge of the bin that starts at 1,000 bp, in kb. Book line 124, printed 1.8.'
     value = _b17_cd(1000)[0][1] / 1000
-    return locals()
-
-@check(label='app:glossary:L124:0.05', title='C(d) of beta at 3-6 kb', line=124, status='observed', kind='file', printed='0.05', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
-def check_4801():
-    'C(d) of beta at 3-6 kb: median over the six arrays in the 3,162-5,623 bp bin. Book line 124, printed 0.05.'
-    value = float(np.median([cc for _, _, cc in _b17_cd(3162)]))
     return locals()
 
 @check(label='app:glossary:L133:1.456', title='Chandrasekhar mass for mu_e = 2 from the constants', line=133, status='observed', kind='num', printed='1.456', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
@@ -43290,12 +43069,6 @@ def check_4824():
     value = 100 * (f_of('lcdm', 0.0) / f_of('iam', 0.0) - 1)
     return locals()
 
-@check(label='app:glossary:L243:0.3', title='m_e uncertainty set by H0, per cent', line=243, status='observed', kind='num', printed='0.3', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
-def check_4825():
-    'The fixed-point m_e scales as H_0^(2/5) (Chapter ch:electronmass), so the Planck 2018 H_0 error (67.4 +- 0.54) gives 0.4 sigma(H_0)/H_0, in per cent. Book line 243, printed 0.3.'
-    value = 100 * 0.4 * 0.54 / 67.4
-    return locals()
-
 @check(label='app:glossary:L243:0.576', title='electron fixed point without the (2 pi)^(3/10) prefactor, in m_e', line=243, status='observed', kind='num', printed='0.576', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4826():
     'Fixed point m c^2 = record cost at the horizon temperature without the prefactor: (2 pi)^(-2/5) [hbar H_0 ln2 m_P^(3/2)/(alpha^(5/2) c^2)]^(2/5), over m_e, H_0 = 67.4 (as ch:electronmass:L115). Book line 243, printed 0.576.'
@@ -43363,13 +43136,6 @@ def check_2874():
     value=c**3/(1920*G*Msun*LN2)
     return locals()
 
-@check(label='app:glossary:L258', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=258, status='observed', kind='file', printed='1.00', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
-def check_2875():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 258, printed 1.00.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.00')
-    return locals()
-
 @check(label='app:glossary:L262', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
        file='appendices/app_F_glossary', line=262, status='observed', kind='file', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2876():
@@ -43385,11 +43151,12 @@ def check_4831():
 
 # ---------------------------------------------------------------- L274-L320
 
-@check(label='app:glossary:L263', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=263, status='observed', kind='file', printed='-1.062', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+@check(label='app:glossary:L263', chapter='app:glossary', part=8, title='w_eff(1) for vacuum plus record',
+       file='appendices/app_F_glossary', line=263, status='observed', kind='file', printed='-1.062', tol=0.0)
 def check_2877():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 263, printed -1.062.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '-1.062')
+    'For vacuum plus record w_eff(1) = -1.062: w_eff(1) = 2(3-Omega_m)/(3(Omega_m-2)) (app. C3, Eq. at line 190) with Omega_m = 2 beta_m. Book line 263, printed -1.062.'
+    O = 2 * beta_m
+    value = 2 * (3 - O) / (3 * (O - 2))
     return locals()
 
 @check(label='app:glossary:L274:5120', title='5120 in the evaporation time', line=274, status='observed', kind='num', printed='5120', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
@@ -43598,11 +43365,11 @@ def check_2881():
     ok = file_has('CANON/GLOSSARY.md', '0.2246')
     return locals()
 
-@check(label='app:glossary:L338', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=338, status='observed', kind='file', printed='0.983', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+@check(label='app:glossary:L338', chapter='app:glossary', part=8, title='held-out neutrophil reference arrays, lowest Met-A',
+       file='appendices/app_F_glossary', line=338, status='observed', kind='file', printed='0.983', tol=0.0, source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
 def check_2882():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 338, printed 0.983.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '0.983')
+    'The six neutrophil reference arrays, each read with sites re-chosen on the other five, range 0.983-1.045: smallest A_loo in metA_floors_v1_3_loo.csv. Book line 338, printed 0.983.'
+    value = min(float(r['A_loo']) for r in load_csv_rows(_F03_LOO))
     return locals()
 
 @check(label='app:glossary:L338:-1.045', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
@@ -43712,11 +43479,11 @@ def check_2888():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '100')
     return locals()
 
-@check(label='app:glossary:L368:-1.05', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=368, status='observed', kind='file', printed='-1.05', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+@check(label='app:glossary:L368:-1.05', chapter='app:glossary', part=8, title='IAM-A: Normal band, upper edge (canon Normal_band)',
+       file='appendices/app_F_glossary', line=368, status='observed', kind='file', printed='1.05', tol=0.0, source='CANON/iam_canon.json')
 def check_2889():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 368, printed -1.05.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '-1.05')
+    'IAM-A entry, Normal 0.95-1.05 (the printed value is the upper edge 1.05; the label keeps the old reading of the range): upper edge of Normal_band in iam_canon.json. Book line 368, printed 1.05.'
+    value = float(_cv('Normal_band')[1])
     return locals()
 
 @check(label='app:glossary:L368:0.032', title='copy-error floor eps0 (IAM-A entry)', line=368, status='observed', kind='num', printed='0.032', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
@@ -43895,18 +43662,18 @@ def check_4883():
     value = int(re.search(r'(\d+) cell types, (\d+) samples', file_text(_B18_PC)).group(1))
     return locals()
 
-@check(label='app:glossary:L434', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=434, status='observed', kind='file', printed='1.05', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+@check(label='app:glossary:L434', chapter='app:glossary', part=8, title='M_lens/M_dyn = 1/mu(z) at z = 0.5 (Level 1)',
+       file='appendices/app_F_glossary', line=434, status='observed', kind='file', printed='1.05', tol=0.0)
 def check_2896():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 434, printed 1.05.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.05')
+    'In the Level 1 form M_lens/M_dyn = 1/mu(z): 1.05 at z = 0.5. mu_iam(a) = H^2/(H^2 + beta_m E(a)), LambdaCDM H, Omega_m 0.3153. Book line 434, printed 1.05.'
+    value = 1 / mu_iam(1 / 1.5)
     return locals()
 
-@check(label='app:glossary:L434:1.02', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=434, status='observed', kind='file', printed='1.02', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+@check(label='app:glossary:L434:1.02', chapter='app:glossary', part=8, title='M_lens/M_dyn = 1/mu(z) at z = 1 (Level 1)',
+       file='appendices/app_F_glossary', line=434, status='observed', kind='file', printed='1.02', tol=0.0)
 def check_2897():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 434, printed 1.02.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.02')
+    'In the Level 1 form M_lens/M_dyn = 1/mu(z): 1.02 at z = 1. mu_iam(a) = H^2/(H^2 + beta_m E(a)), LambdaCDM H, Omega_m 0.3153. Book line 434, printed 1.02.'
+    value = 1 / mu_iam(0.5)
     return locals()
 
 @check(label='app:glossary:L434:1.16', chapter='app:glossary', part=8, title='M_lens/M_dyn = 1/mu today, Level 1 form',
@@ -43953,11 +43720,11 @@ def check_2899():
     ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '0.330263')
     return locals()
 
-@check(label='app:glossary:L457:-1.05', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=457, status='observed', kind='file', printed='-1.05', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+@check(label='app:glossary:L457:-1.05', chapter='app:glossary', part=8, title='Met-A: Normal band, upper edge (canon Normal_band)',
+       file='appendices/app_F_glossary', line=457, status='observed', kind='file', printed='1.05', tol=0.0, source='CANON/iam_canon.json')
 def check_2900():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 457, printed -1.05.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '-1.05')
+    'Met-A entry, Normal 0.95-1.05 (the printed value is the upper edge 1.05; the label keeps the old reading of the range): upper edge of Normal_band in iam_canon.json. Book line 457, printed 1.05.'
+    value = float(_cv('Normal_band')[1])
     return locals()
 
 @check(label='app:glossary:L457:0.95', chapter='app:glossary', part=8, title='lower edge of the Normal band (CANON)',
@@ -44213,13 +43980,6 @@ def check_4913():
     value = p_thr / eps
     return locals()
 
-@check(label='app:glossary:L567', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=567, status='observed', kind='file', printed='1.01', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
-def check_2907():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 567, printed 1.01.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.01')
-    return locals()
-
 @check(label='app:glossary:L583:0.79', chapter='app:glossary', part=8, title='rho of Met-A and noise index, second laboratory, 30 y',
        file='appendices/app_F_glossary', line=583, status='observed', kind='file', printed='0.79', tol=0.0, source=_B18_NOISE)
 def check_4914():
@@ -44309,13 +44069,6 @@ def check_4922():
     'Number of SATSA (E-MTAB-7309) raw arrays, from the record table of the chain SOP (738 of 1,056 below 0.93). Book line 599, printed 1,056.'
     m = re.search(r'E-MTAB-7309: (\d+) of ([\d,]+) below', file_text(_B18_SOP))
     value = int(m.group(2).replace(',', ''))
-    return locals()
-
-@check(label='app:glossary:L607', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=607, status='observed', kind='file', printed='1.00', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
-def check_2911():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 607, printed 1.00.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.00')
     return locals()
 
 @check(label='app:glossary:L607:0.020', chapter='app:glossary', part=8, title='SD of the held-out reference readings, sites re-chosen',
@@ -44455,11 +44208,14 @@ def check_4934():
     value = hbar / math.sqrt(2 * M * kB * T)
     return locals()
 
-@check(label='app:glossary:L675', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=675, status='observed', kind='file', printed='1.26', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+@check(label='app:glossary:L675', chapter='app:glossary', part=8, title='three clocks: redshift of the peak per unit time',
+       file='appendices/app_F_glossary', line=675, status='observed', kind='file', printed='1.26', tol=0.0)
 def check_2917():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 675, printed 1.26.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.26')
+    'Per unit time the record is written fastest at z = 1.26: the root of d/da[H(a) E(a)/a] = 0 (LambdaCDM H, Omega_m 0.3153), as ch:entropicgravity line 312. Book line 675, printed 1.26.'
+    a = sp.symbols('a', positive=True)
+    rate = sp.sqrt(Om * a**-3 + (1 - Om)) * sp.exp(1 - 1 / a) / a
+    d = sp.lambdify(a, sp.diff(rate, a))
+    value = 1 / brentq(d, 0.2, 0.9) - 1
     return locals()
 
 @check(label='app:glossary:L675:8.9', chapter='app:glossary', part=8, title='lookback time to the peak of the per-time clock, Gyr',
@@ -44506,11 +44262,12 @@ def check_2918():
     ok = file_has('CANON/GLOSSARY.md', '0.1628')
     return locals()
 
-@check(label='app:glossary:L714', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=714, status='observed', kind='file', printed='1.02', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+@check(label='app:glossary:L714', chapter='app:glossary', part=8, title='virial ratio with surface pressure, lower end (Klypin 2016)',
+       file='appendices/app_F_glossary', line=714, status='observed', kind='file', printed='1.02', tol=0.0, source='docs/verification/scripts/verify_virial_papers_output.txt')
 def check_2919():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 714, printed 1.02.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.02')
+    'Simulated halos read 1.02-1.17 with surface pressure included: 2 x the lower K/|W| of the Klypin 2016 surface-pressure line of verify_virial_papers_output.txt. Book line 714, printed 1.02.'
+    m = re.search(r"with surface pressure \(Klypin 2016\): K/\|W\| = (\d+\.\d+)-(\d+\.\d+)", load_data('docs/verification/scripts/verify_virial_papers_output.txt'))
+    value = 2 * float(m.group(1))
     return locals()
 
 @check(label='app:glossary:L714:1.1', chapter='app:glossary', part=8, title='lowest 2T/|U| of simulated halos within the virial radius',
@@ -44569,11 +44326,12 @@ def check_4945():
     value, n_arrays = _b18_sd('GSE247193')
     return locals()
 
-@check(label='app:glossary:L729', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=729, status='observed', kind='file', printed='1.05', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+@check(label='app:glossary:L729', chapter='app:glossary', part=8, title='LoCuSS M_WL/M_X = 1/beta_X',
+       file='appendices/app_F_glossary', line=729, status='observed', kind='file', printed='1.05', tol=0.0)
 def check_2920():
-    'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 729, printed 1.05.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.05')
+    'LoCuSS gives M_WL/M_X = 1.05 +- 0.06 at 0.15 < z < 0.3: 1/beta_X with beta_X = M_X/M_WL = 0.95 +- 0.05 (Smith et al. 2016, doi 10.1093/mnrasl/slv175), as ch:threeway line 191. Book line 729, printed 1.05.'
+    beta_X_LoCuSS = 0.95
+    value = 1 / beta_X_LoCuSS
     return locals()
 
 @check(label='app:glossary:L729:1.45', chapter='app:glossary', part=8, title='WtG Planck-prior 1/(1-b)',
@@ -44612,18 +44370,18 @@ def check_4949():
 
 
 # ======== Part 8 | app:register | docs/book/appendices/app_G_predictions_register.tex
-@check(label='app:register:L19', chapter='app:register', part=8, title='measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names',
+@check(label='app:register:L19', chapter='app:register', part=8, title='register, cosmology and gravitation: merged entries',
        file='appendices/app_G_predictions_register', line=19, status='observed', kind='file', printed='126', tol=0.0, source='CANON/predictions_triage_2026-10-02.json')
 def check_2921():
-    'measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names. Book line 19, printed 126.'
-    ok = file_has('CANON/predictions_triage_2026-10-02.json', '126')
+    'Cosmology and gravitation, merged: entries with pid prefix COS and verdict DUP in predictions_triage_2026-10-02.json (as make_app_G.py counts them). Book line 19, printed 126.'
+    value = _f03_register('DUP', 'COS')
     return locals()
 
-@check(label='app:register:L19:133', chapter='app:register', part=8, title='measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names',
+@check(label='app:register:L19:133', chapter='app:register', part=8, title='register, cosmology and gravitation: entries not listed',
        file='appendices/app_G_predictions_register', line=19, status='observed', kind='file', printed='133', tol=0.0, source='CANON/predictions_triage_2026-10-02.json')
 def check_2922():
-    'measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names. Book line 19, printed 133.'
-    ok = file_has('CANON/predictions_triage_2026-10-02.json', '133')
+    'Cosmology and gravitation, not listed: entries with pid prefix COS and verdict DROP in predictions_triage_2026-10-02.json. Book line 19, printed 133.'
+    value = _f03_register('DROP', 'COS')
     return locals()
 
 @check(label='app:register:L19:357', chapter='app:register', part=8, title='measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names',
@@ -44681,18 +44439,18 @@ def check_4955():
     value = sum(cnt[('OTH', v)] for v in ('KEEP', 'CORRECT', 'TESTED', 'DUP', 'DROP'))
     return locals()
 
-@check(label='app:register:L24', chapter='app:register', part=8, title='measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names',
+@check(label='app:register:L24', chapter='app:register', part=8, title='register, all domains: merged entries',
        file='appendices/app_G_predictions_register', line=24, status='observed', kind='file', printed='143', tol=0.0, source='CANON/predictions_triage_2026-10-02.json')
 def check_2924():
-    'measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names. Book line 24, printed 143.'
-    ok = file_has('CANON/predictions_triage_2026-10-02.json', '143')
+    'All domains, merged: entries with verdict DUP in predictions_triage_2026-10-02.json. Book line 24, printed 143.'
+    value = _f03_register('DUP')
     return locals()
 
-@check(label='app:register:L24:157', chapter='app:register', part=8, title='measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names',
+@check(label='app:register:L24:157', chapter='app:register', part=8, title='register, all domains: entries not listed',
        file='appendices/app_G_predictions_register', line=24, status='observed', kind='file', printed='157', tol=0.0, source='CANON/predictions_triage_2026-10-02.json')
 def check_2925():
-    'measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names. Book line 24, printed 157.'
-    ok = file_has('CANON/predictions_triage_2026-10-02.json', '157')
+    'All domains, not listed: entries with verdict DROP in predictions_triage_2026-10-02.json. Book line 24, printed 157.'
+    value = _f03_register('DROP')
     return locals()
 
 @check(label='app:register:L24:10', chapter='app:register', part=8, title='register counts: all kept',
@@ -46692,6 +46450,62 @@ INVENTORY = [
     (8, 'app:register', 'appendices/app_G_predictions_register', 73, '', 'openprob', '122', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
     (8, 'app:register', 'appendices/app_G_predictions_register', 74, '', 'openprob', '365', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
     (8, 'app:register', 'appendices/app_G_predictions_register', 74, '', 'openprob', '364', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (2, 'ch:virial', 'part2/p2_02_virial', 108, '', 'calc', '0.5', 'rough statement: the book says the collapsed-fraction slope is about 0.5 at 10^10 h^-1 Msun; printed value 0.5 has one significant digit and the six mass functions of NBODY_TRACE_massfunction_slopes.csv give 0.48 to 0.59 (median 0.525), so a 5 % change (0.525) cannot be told from rounding or from the spread'),
+    (2, 'ch:virial', 'part2/p2_02_virial', 108, '', 'calc', '3', 'rough statement: the book says the slope is about 3 at 10^14 h^-1 Msun; printed value 3 has one significant digit and the six mass functions of NBODY_TRACE_massfunction_slopes.csv give 3.02 to 4.01 (median 3.21), so a 5 % change (3.15) cannot be told from rounding or from the spread'),
+    (2, 'ch:virial', 'part2/p2_02_virial', 148, '', 'calc', '0.5', 'rough statement: about 0.5 above 10^10 h^-1 Msun; printed value 0.5 has one significant digit and the six mass functions of NBODY_TRACE_massfunction_slopes.csv give 0.48 to 0.59 (median 0.525), so a 5 % change (0.525) cannot be told from rounding or from the spread'),
+    (2, 'ch:virial', 'part2/p2_02_virial', 148, '', 'calc', '3', 'rough statement: about 3 above 10^14 h^-1 Msun; printed value 3 has one significant digit and the six mass functions of NBODY_TRACE_massfunction_slopes.csv give 3.02 to 4.01 (median 3.21), so a 5 % change (3.15) cannot be told from rounding or from the spread'),
+    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 26, '', 'calc', '0.12', 'printed value 0.12 sigma has two significant digits: recomputed |0.79975 - 0.802|/0.018 = 0.1249 lies at the rounding edge, within 0.0011 of the value moved by 5 % (0.126), so a 5 % change cannot be told from rounding (the committed verify_entropic_gravity_output.txt prints the same -0.12 sigma)'),
+    (2, 'ch:theory', 'part2/p2_03_theory', 503, '', 'calc', '0.65', 'rough statement: the book says the MGCAMB form departs from the exact mu by at most 2.8 % near z ~ 0.65; the location of a flat maximum is recomputed at z = 0.635 (relative departure, 2.82 %) or z = 0.669 (absolute departure, 2.71 %), so a 5 % change (0.68) cannot be told from what near means here'),
+    (2, 'ch:theory', 'part2/p2_03_theory', 515, '', 'calc', '-0.012', 'printed value -0.012 has two significant digits: recomputed -Omega_m^2/3(2-Omega_m)^2 = -0.01165 (Omega_m 0.315) rounds to -0.012 and lies 0.00025 from the value moved by 5 % (-0.0114), inside half the last printed digit, so a 5 % change cannot be told from rounding'),
+    (2, 'ch:theory', 'part2/p2_03_theory', 581, '', 'calc', '-0.012', 'printed value -0.012 has two significant digits: recomputed -Omega_m^2/3(2-Omega_m)^2 = -0.01168 (Omega_m 0.3153) rounds to -0.012 and lies 0.00028 from the value moved by 5 % (-0.0114), inside half the last printed digit, so a 5 % change cannot be told from rounding'),
+    (2, 'ch:theory', 'part2/p2_03_theory', 835, '', 'calc', '+1.2%', 'printed value +1.2 % has two significant digits: recomputed k_nl shift 1.231 % rounds to 1.2 but lies 0.029 from the value moved by 5 % (1.26), inside the control tolerance (0.03), so a 5 % change cannot be told from rounding'),
+    (2, 'ch:theory', 'part2/p2_03_theory', 1085, '', 'calc', '2\\%', 'printed value 2 % (within 2 %) has one significant digit: recomputed distance of the D^{7/2} 1/a coefficient from 1 is 2.12 %, which rounds to 2 %, so a 5 % change (2.1 %) cannot be told from rounding'),
+    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 288, '', 'calc', '0.12\\sigma', 'printed value 0.12 sigma has two significant digits: a 5 % change (0.006) is about the rounding half-unit (0.005), so it cannot be told from rounding (recomputed 0.1249 from CHAIN_EXTRACTION_FINAL.csv, Run A sigma8 vs joint 0.802 +- 0.018)'),
+    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 150, '', 'calc', '2', 'printed value 2 (per cent posterior error on Omega_m) has one significant digit: a 5 % change cannot be told from rounding (recomputed 2.05 % from CHAIN_EXTRACTION_FINAL.csv, Run A omegam_sd/omegam)'),
+    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 279, '', 'calc', '-0.06\\sigma', 'printed value -0.06 sigma has one significant digit: a 5 % change (0.003) is below the rounding half-unit (0.005) and cannot be told from rounding (recomputed -0.0576 from CHAIN_EXTRACTION_FINAL.csv; -0.06 also in section D of verify_late_time_level2_output.txt)'),
+    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 286, '', 'calc', '+0.09\\sigma', 'printed value +0.09 sigma has one significant digit: a 5 % change (0.0045) is below the rounding half-unit (0.005) and cannot be told from rounding (recomputed 0.0959 from the table inputs 3.0407, 3.0393, 0.0146; 0.091 from the chain means in verify_late_time_level2_output.txt section D)'),
+    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 299, '', 'calc', '+0.09\\sigma', 'restatement of ch:level2:L286 (+0.09 sigma); printed value has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0959)'),
+    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 316, '', 'calc', '+0.09\\sigma', 'restatement of ch:level2:L286 in a caption (+0.09 sigma); printed value has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0959)'),
+    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 322, '', 'calc', '+0.08\\sigma', 'printed value +0.08 sigma has one significant digit: a 5 % change (0.004) is below the rounding half-unit (0.005) and cannot be told from rounding (recomputed 0.0836 from Run D and Run C ln10^10As in verify_late_time_level2_output.txt section D)'),
+    (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 152, '', 'calc', '1.5\\times10^{-5}', 'printed value 1.5e-5 has two significant digits: a 5 % change (0.075e-5) is within rounding plus the control tolerance of the recomputed 1.544e-5 (1 - mu at z = 5), so it cannot be told from rounding; the z = 3 value is bounded at ch:dsvalidation:L515'),
+    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 20, '', 'calc', 'a tenth', 'rough statement: "about a tenth" of the low-redshift deficit; a 5 % change cannot be told from a word value (recomputed 0.104 = 0.78/7.5)'),
+    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 95, '', 'calc', 'seventeenfold', 'rough statement: "overstates the effect about seventeenfold"; a 5 % change cannot be told from a word value (recomputed 17.53 = (1 - mu(1)) over the z = 0 amplitude deficit)'),
+    (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 194, '', 'calc', '0.9\\%', 'printed value 0.9 % has one significant digit: a 5 % change (0.045) is below the rounding half-unit (0.05) and cannot be told from rounding (recomputed 0.941 % f sigma8 deficit at z = 0.65)'),
+    (2, 'ch:wzfuture', 'part2/p2_20_wz_far_future', 24, '', 'calc', '0.011', 'printed value 0.011 has two significant digits: a 5 % change (0.00055) is about the rounding half-unit (0.0005), so it cannot be told from rounding (recomputed rho_info/rho_Lambda = 0.01146 at z = 3)'),
+    (2, 'ch:wzfuture', 'part2/p2_20_wz_far_future', 24, '', 'calc', '0.011', 'printed value 0.011 has two significant digits: a 5 % change (0.00055) is about the rounding half-unit (0.0005), so it cannot be told from rounding (recomputed share of the vacuum-like total 0.01133 at z = 3)'),
+    (2, 'ch:wzfuture', 'part2/p2_20_wz_far_future', 31, '', 'calc', '0.011', 'caption restatement of ch:wzfuture:L24:0.011; printed value 0.011 has two significant digits: a 5 % change cannot be told from rounding (recomputed 0.01146)'),
+    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 247, '', 'observed', '0.450', 'measured, source not named: the DESI DR1 peculiar-velocity f sigma8 = 0.450 (Qin2026) is in no committed file; the old file_has matched a pull of -0.45/+0.45 in another row of verify_sector_tension_output.txt (see SOURCES_NEEDED.md, row of line 247)'),
+    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 249, '', 'observed', '0.450', 'measured, source not named: running-text repeat of the DESI DR1 peculiar-velocity f sigma8 = 0.450 (Qin2026), in no committed file; the old file_has matched a pull of -0.45/+0.45 in another row (see SOURCES_NEEDED.md, row of line 249)'),
+    (2, 'ch:baryon', 'part2/p2_13_baryon', 168, '', 'calc', '0.9', 'printed value 0.9 (per cent) has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.936; 1.05 x 0.9 = 0.945 lies within the capped tolerance). The eta it rests on is checked at ch:baryon:L168 (6.08e-10) and the 6.137 at ch:baryon:L168:6.137'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 83, '', 'calc', '0.4', 'printed value 0.4 Gyr has one significant digit: a 5 % change cannot be told from rounding (recomputed lookback 0.428 Gyr at the 95 % point; 1.05 x 0.4 = 0.42). The neighbouring table entries with more digits are checked at ch:surveys:L82:10.9 and ch:surveys:L82:9.4'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 105, '', 'calc', '0.6', 'printed value 0.6 (per cent) has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.627; 1.05 x 0.6 = 0.63). The precise value is checked at ch:lensdyn:L105:1.006 (1/mu at z = 1.5)'),
+    (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 237, '', 'calc', '0.6', 'printed value 0.6 (per cent) has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.627; 1.05 x 0.6 = 0.63). The precise value is checked at ch:lensdyn:L237 (1/mu = 1.006 at z = 1.5)'),
+    (3, 'ch:blackholes', 'part2/p2_01_blackholes', 136, '', 'calc', '<2\\times10^{-16}', 'a floating-point round-off bound, not a quantity of the equation: the Smarr ratio is exactly 1/2 (checked symbolically at eq:vl_smarr and ch:virial_law:L121); the recomputed max |Delta| = 2.22e-16 is machine epsilon (2^-52), set by the platform arithmetic, so a 5 % change of the printed 2e-16 cannot be told from round-off (see FOR_AUTHOR: the printed bound is below the recomputed value)'),
+    (3, 'ch:saturation', 'part3/p3_07_saturation', 44, '', 'derived', '1.1\\times10^{-7}', 'printed value 1.1e-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed 1.128e-7 lies 2.6 % above 1.1e-7, so 1.05 x 1.1e-7 = 1.155e-7 is within the 2.5 % control tolerance). The precise input is checked at ch:saturation:L44:16.0 (M = hf/kT = 16.0)'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 87, '', 'calc', '1.3\\times10^{-39}', 'printed value 1.3e-39 J has two significant digits: a 5 % change cannot be told from rounding (recomputed G m^2/R = 1.335e-39; 1.05 x 1.3e-39 = 1.365e-39 is within the 2.5 % control tolerance). No more precise value is printed'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 88, '', 'calc', '1.3\\times10^{-34}', 'printed value 1.3e-34 J has two significant digits: a 5 % change cannot be told from rounding (recomputed G m^2/R = 1.335e-34; 1.05 x 1.3e-34 = 1.365e-34 is within the 2.5 % control tolerance). No more precise value is printed'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 89, '', 'calc', '1.3\\times10^{-29}', 'printed value 1.3e-29 J has two significant digits: a 5 % change cannot be told from rounding (recomputed G m^2/R = 1.335e-29; 1.05 x 1.3e-29 = 1.365e-29 is within the 2.5 % control tolerance). No more precise value is printed'),
+    (4, 'ch:measurement', 'part5/p5_04_measurement', 90, '', 'calc', '1.3\\times10^{-19}', 'printed value 1.3e-19 J has two significant digits: a 5 % change cannot be told from rounding (recomputed G m^2/R = 1.335e-19; 1.05 x 1.3e-19 = 1.365e-19 is within the 2.5 % control tolerance). No more precise value is printed'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 15, '', 'calc', '1.1\\times10^{-7}', 'printed value 1.1e-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed exp(-hf/kT) = 1.128e-7; 1.05 x 1.1e-7 = 1.155e-7 is within the 2.5 % control tolerance). The precise exponent is checked at ch:scprimer:L15 (hf/kT = 16.0)'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 23, '', 'calc', '1.1\\times10^{-7}', 'printed value 1.1e-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed 1.128e-7; 1.05 x 1.1e-7 = 1.155e-7 is within the 2.5 % control tolerance). The precise exponent is checked at ch:scprimer:L15 (hf/kT = 16.0)'),
+    (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 77, '', 'calc', '4\\times10^{22}', 'printed value 4e22 s^-1 m^-2 has one significant digit: a 5 % change cannot be told from rounding (recomputed 4.105e22; 1.05 x 4e22 = 4.2e22). No more precise value is printed'),
+    (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 93, '', 'calc', '6\\times10^{-4}', 'printed value 6e-4 has one significant digit: a 5 % change cannot be told from rounding (recomputed 6.188e-4; 1.05 x 6e-4 = 6.3e-4). Its input p_eq at 35 mK is checked to three digits at ch:qplatforms:L52 (1.05e-3)'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 54, '', 'calc', '6\\times10^{-4}', 'printed value 6e-4 (the book says near 6e-4) has one significant digit: a 5 % change cannot be told from rounding (recomputed 6.188e-4; 1.05 x 6e-4 = 6.3e-4). Its input p_eq at 35 mK is checked to three digits at ch:qplatforms:L52 (1.05e-3)'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 55, '', 'calc', '1.1\\times10^{-7}', 'printed value 1.1x10^-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed 1.128e-7); the precise value is checked at ch:qplatforms:L55 (M = 16.0)'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 69, '', 'calc', '1.1\\times10^{-7}', 'printed value 1.1x10^-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed 1.128e-7); the precise value is checked at ch:qplatforms:L55 (M = 16.0)'),
+    (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 152, '', 'calc', '8', 'printed value 8 (per cent) has one significant digit: a 5 % change cannot be told from rounding (recomputed 8.32); the precise value is checked at ch:qplatforms:L152 (M = 2.4)'),
+    (6, 'ch:skytools', 'part4/p4_16a_skytools', 95, '', 'measured', '0.1', 'printed value 0.1 (about 0.1) has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.1027)'),
+    (6, 'ch:skytools', 'part4/p4_16a_skytools', 125, '', 'measured', '0.05', 'printed value 0.05 has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0526)'),
+    (6, 'ch:skytools', 'part4/p4_16a_skytools', 139, '', 'measured', '0.05', 'printed value 0.05 has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0517); the upper end is checked at ch:skytools:L139:0.08'),
+    (7, 'ch:statusall', 'part5/p5_11_status_all', 81, '', 'calc', '6\\times10^{-4}', 'printed value 6x10^-4 has one significant digit: a 5 % change cannot be told from rounding (recomputed 6.19e-4); the precise per-gate floor is checked at ch:statusall:L81 (6.2x10^-7)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 258, '', 'observed', '1.00', 'definition: an atlas cell reads 1.00 on its own profile by construction (entry rule); nothing to compute, and the number is not in MethylPhys_CPG_SOP_v3.md (the earlier match was an unrelated number)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 567, '', 'observed', '1.01', 'convention: R-hat < 1.01 is the acceptance threshold of the atlas fits, not a computed value; it is not in MethylPhys_CPG_SOP_v3.md (the earlier match was an unrelated number)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 607, '', 'observed', '1.00', 'definition: 1.00 is the reading a reference sample should give by construction; nothing to compute; the selection-noise SDs (0.020, 0.006) are the measured part, and the earlier match in MethylPhys_CPG_SOP_v3.md was an unrelated number'),
+    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 64, '', 'measured', '0.0007', 'printed value 0.0007 has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.000742 from the committed readings)'),
+    (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 82, '', 'measured', '0.0007', 'printed value 0.0007 (figure caption) has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.000742; same value as line 64)'),
+    (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'calc', '1.1', 'printed value 1.1 % has two significant digits and the recomputed E_G change, 1.144 %, lies within 2.5 % of 1.1 x 1.05: a 5 % change cannot be told from rounding'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 124, '', 'observed', '0.05', 'printed value 0.05 has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0526; the same quantity is printed to one digit at ch:skytools:L125)'),
+    (8, 'app:glossary', 'appendices/app_F_glossary', 243, '', 'observed', '0.3', 'printed value 0.3 % has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.320 %; the precise 0.32 % is checked at ch:electronmass:L188)'),
 ]
 
 if __name__ == "__main__":

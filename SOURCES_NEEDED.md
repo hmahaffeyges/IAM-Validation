@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 127
+Entries: 129
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -25,7 +25,9 @@ Entries: 127
 | ch:s8trend | `docs/book/part2/p2_08_s8_trend.tex:41` | `0.639(+0.024/-0.025)` | growth index from f sigma8 and Planck alone, Nguyen, Huterer and Wen 2023 (bib Nguyen2023); ts_MANIFEST_sector_s8.md records 0.633, 3.7 and 4.2 sigma but not 0.639 |
 | ch:s8trend | `docs/book/part2/p2_08_s8_trend.tex:115` | `3` | '~3 sigma low-redshift offset of the measured trend' (MNRAS 528, L20), same as line 15 |
 | ch:sectortension | `docs/book/part2/p2_09_sector_tension.tex:247` | `0.055` | sigma_obs of the DESI DR1 peculiar-velocity f sigma8 = 0.450 +- 0.055 at z_eff 0.07 (BGS + PV row of Table st_fsig8, cited Qin2026, doi:10.1051/0004-6361/202558368). Not in verify_sector_tension.py (its leg table stops at eBOSS QSO) nor any committed data file; searched docs/verification, camb_validation, mgcamb_validation, figscripts for 0.450/Qin. |
+|  | `docs/book/part2/p2_09_sector_tension.tex:247` | `0.450` | DESI DR1 peculiar-velocity central value 0.450 (cited Qin2026), with its error 0.055 already listed: no committed file holds it; the earlier check had matched an unrelated +-0.45 pull in another row and was moved to not run |
 | ch:sectortension | `docs/book/part2/p2_09_sector_tension.tex:249` | `0.055` | same value in the running text: DESI DR1 peculiar-velocity survey f sigma8 = 0.450 +- 0.055 (Qin2026). No committed file holds it; the published paper value was not certain enough to type in. |
+|  | `docs/book/part2/p2_09_sector_tension.tex:249` | `0.450` | same value as line 247 (Qin2026), restated |
 | ch:surveys | `docs/book/part2/p2_16_survey_predictions.tex:141` | `20` | Current ISW measurements (cross-correlation with SDSS, 2MASS, WISE; cites Giannantonio2008, Planck2015ISW) carry 20-30 % uncertainties: lower end. No committed file records these per-cent errors; the chapter's check file (SURVEY_PREDICTIONS_CHECK.md) and the verification outputs do not give them. Needs the amplitude errors from Giannantonio et al. 2008 (doi:10.1103/PhysRevD.77.123520) and Planck 2015 XXI (doi:10.1051/0004-6361/201525831). |
 | ch:surveys | `docs/book/part2/p2_16_survey_predictions.tex:141` | `30` | Same sentence, upper end of the 20-30 % ISW uncertainties; same search, no source in the repository. |
 | ch:surveys | `docs/book/part2/p2_16_survey_predictions.tex:232` | `0.2` | Significance of IAM's growth deficit forecast for the low-redshift growth surveys (each survey 0.2-1.5 sigma; mid-2030s combination about 2.5-3 sigma; Euclid + Planck lensing + all DESI + velocity surveys 2.6 sigma, 2.8 sigma with the CMB amplitude). The chapter says 'the same Fisher pipeline, with a peculiar-velocity module'. Searched docs/verification/forecasts/euclid_fisher_iam_mu/out (results.csv, results.md, analysis_stdout.txt), the whole repository for DESI PV/4HS/WALLABY/ZTF outputs: none committed. |

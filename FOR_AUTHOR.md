@@ -3,7 +3,7 @@
 Items a check raised that would change a result, a prediction, a locked value, an equation of IAM or the framing of a
 claim. The book was left unchanged for each; the decision is the author's. Every FAIL of `verify_book.py` is listed here.
 
-Items: 25
+Items: 27
 
 ## 1. `docs/book/part2/p2_02_virial.tex:L86-87`
 
@@ -179,4 +179,18 @@ Items: 25
 - **Proposed:** Use the traced values recorded in docs/book/read_ledgers/st_MANIFEST_clusters_satellites.md (LD4): Planck 2015 XXIV Table 2 priors 1-b = 0.688 +/- 0.072 (WtG, ratio 1.45 +/- 0.15) and 0.780 +/- 0.092 (CCCP, ratio 1.28 +/- 0.15), with the sigma distances recomputed, or drop the numeric comparison
 - **Why it matters:** The ledger and docs/verification/PAPER_ERRATA.md (LD4) say 1.20 +/- 0.12 and 1.31 +/- 0.11 were replaced by traced values in the lensing-dynamics chapter, but the register rows still print the untraced numbers; the sigma distances 2.0 and 1.0 (checked here from the printed inputs) would change (about 2.4 and 1.3 sigma with the traced values).
 - **Recommendation:** Update the triage statements of COS-217 and COS-272 (or add overrides) and regenerate the appendix with make_app_G.py; the rows 1.31, 0.11, 1.20, 0.12 are listed in SOURCES_NEEDED until then.
+
+## 26. `docs/book/part2/p2_03_theory.tex:1085`
+
+- **Now:** the coefficient is returned "within 2 %"
+- **Proposed:** "within about 2 %" or "within 2.1 %"
+- **Why it matters:** The recomputed distance is 2.12 %, which rounds to 2 % but is strictly above the stated bound. Wording of a claim, no number of a result changes.
+- **Recommendation:** Optional wording change; the check of this value was moved to not run (two-digit printed value cannot carry the 5 % control).
+
+## 27. `docs/book/part2/p2_01_blackholes.tex:136 (caption of fig:smarr)`
+
+- **Now:** the ratio is 1/2 to machine precision ($|\Delta|<2\times10^{-16}$)
+- **Proposed:** ($|\Delta|\lesssim2\times10^{-16}$) or ($|\Delta|\le2.3\times10^{-16}$)
+- **Why it matters:** recomputing T S/(Mc^2) - 1/2 in double precision for 1 to 1e11 M_sun gives max |Delta| = 2.22e-16 (machine epsilon, 2^-52), which is not below 2e-16; the statement is meant as round-off and the identity itself is exact
+- **Recommendation:** optional wording fix; low priority, no result changes
 

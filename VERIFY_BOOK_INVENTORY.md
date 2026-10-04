@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4984 PASS, 1 FAIL, 1357 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -509,8 +509,8 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 97 | ch:virial:L97:1.5 | calc | `1.5` | file `docs/verification/virial/NBODY_TRACE.md`: Bett 2007 quasi-equilibrium cut, upper edge of 2T/|U| | PASS |
 | 98 | ch:virial:L98 | observed | `1.12` | file `docs/verification/virial/NBODY_TRACE.md`: measured: printed value found in NBODY_TRACE.md, a file the chapter names | PASS |
 | 98 | ch:virial:L98:1.26 | observed | `1.26` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
-| 98 | ch:virial:L98:1.35 | observed | `1.35` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
-| 99 | ch:virial:L99 | observed | `1.15` | file `docs/verification/virial/NBODY_TRACE.md`: measured: printed value found in NBODY_TRACE.md, a file the chapter names | PASS |
+| 98 | ch:virial:L98:1.35 | observed | `1.35` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: Neto 2007 relaxation cut read from verify_virial_papers_output.txt, a file the chapter names | PASS |
+| 99 | ch:virial:L99 | observed | `1.15` | file `docs/verification/virial/NBODY_TRACE.md`: measured: Power 2012 eta at 10^12 read from NBODY_TRACE.md, a file the chapter names | PASS |
 | 99 | ch:virial:L99:1.25 | observed | `1.25` | file `docs/verification/virial/NBODY_TRACE.md`: measured: printed value found in NBODY_TRACE.md, a file the chapter names | PASS |
 | 99 | ch:virial:L99:0.9 | observed | `0.9` | file `docs/verification/virial/NBODY_TRACE.md`: Power 2012: surface-corrected eta' centre | PASS |
 | 100 | ch:virial:L100 | observed | `1.02` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
@@ -522,8 +522,8 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 102 | ch:virial:L102:0.89 | observed | `0.89` | file `docs/verification/virial/NBODY_TRACE.md`: Bryan & Norman 1998: f_sigma, upper | PASS |
 | 102 | ch:virial:L102:0.75 | observed | `0.75` | file `docs/verification/virial/NBODY_TRACE.md`: Bryan & Norman 1998: f_T, lower | PASS |
 | 102 | ch:virial:L102:0.79 | observed | `0.79` | file `docs/verification/virial/NBODY_TRACE.md`: Bryan & Norman 1998: f_T, upper | PASS |
-| 108 | ch:virial:L108 | calc | `0.5` | file `docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv`: collapse-fraction log-slope at 10^10, six mass functions | PASS |
-| 108 | ch:virial:L108:3 | calc | `3` | file `docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv`: collapse-fraction log-slope at 10^14, six mass functions | PASS |
+| 108 |  | calc | `0.5` | not run: rough statement: the book says the collapsed-fraction slope is about 0.5 at 10^10 h^-1 Msun; printed value 0.5 has one significant digit and the six mass functions of NBODY_TRACE_massfunction_slopes.csv give 0.48 to 0.59 (median 0.525), so a 5 % change (0.525) cannot be told from rounding or from the spread | - |
+| 108 |  | calc | `3` | not run: rough statement: the book says the slope is about 3 at 10^14 h^-1 Msun; printed value 3 has one significant digit and the six mass functions of NBODY_TRACE_massfunction_slopes.csv give 3.02 to 4.01 (median 3.21), so a 5 % change (3.15) cannot be told from rounding or from the spread | - |
 | 125 | ch:virial:L125 | calc | `0.486` | numeric: Tinker 2008 collapsed fraction above 10^10.5 h^-1 Msun | PASS |
 | 126 | ch:virial:L126 | calc | `0.447` | numeric: Tinker 2008 collapsed fraction above 10^11 | PASS |
 | 126 | ch:virial:L126:0.348 | calc | `0.348` | numeric: Tinker 2008 collapsed fraction above 10^12 | PASS |
@@ -533,14 +533,14 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 143 | ch:virial:L143 | calc | `7/2` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 143 | ch:virial:L143:2\% | calc | `2\%` | numeric: coefficient of 1/a in the fitted record, offset from 1 | PASS |
 | 143 | ch:virial:L143:7\% | calc | `7\%` | numeric: constant of the fitted record, offset from 1 | PASS |
-| 148 | ch:virial:L148 | calc | `0.5` | file `docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv`: collapse-fraction log-slope above 10^10 | PASS |
 | 148 | ch:virial:L148:1 | calc | `1` | file `docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv`: collapse-fraction log-slope above 10^12 | PASS |
-| 148 | ch:virial:L148:3 | calc | `3` | file `docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv`: collapse-fraction log-slope above 10^14 | PASS |
+| 148 |  | calc | `0.5` | not run: rough statement: about 0.5 above 10^10 h^-1 Msun; printed value 0.5 has one significant digit and the six mass functions of NBODY_TRACE_massfunction_slopes.csv give 0.48 to 0.59 (median 0.525), so a 5 % change (0.525) cannot be told from rounding or from the spread | - |
+| 148 |  | calc | `3` | not run: rough statement: about 3 above 10^14 h^-1 Msun; printed value 3 has one significant digit and the six mass functions of NBODY_TRACE_massfunction_slopes.csv give 3.02 to 4.01 (median 3.21), so a 5 % change (3.15) cannot be told from rounding or from the spread | - |
 | 151 | ch:virial:L151 | calc | `7/2` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: bottom-up n_eff passes through 7/2 at z = 3-4 | PASS |
 | 151 | ch:virial:L151:3 | calc | `3` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: lower edge of the z window of the 7/2 crossings | PASS |
 | 151 | ch:virial:L151:4 | calc | `4` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: upper edge of the z window of the 7/2 crossings | PASS |
 | 156 | eq:vc_E | derived |  | sympy: activation function E(a)=e^{-z} identity | PASS |
-| 159 | ch:virial:L159 | derived | `0` | sympy: drafted check, screened (runs; negative control fails) | PASS |
+| 159 | ch:virial:L159 | derived | `0` | sympy: E(a) -> 0 as a -> 0 | PASS |
 | 159 | ch:virial:L159:4.5\times10^{-5} | derived | `4.5\times10^{-5}` | numeric: E at z=10 | PASS |
 | 159 | ch:virial:L159:1 | derived | `1` | sympy: drafted check, screened (runs; negative control fails) | PASS |
 | 160 | ch:virial:L160 | derived |  | sympy: dE/da positive for all a>0 | PASS |
@@ -639,9 +639,9 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 26 | ch:virial_tests:L26 | calc | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: IAM sigma8 prediction from Level2 chain | PASS |
 | 26 | ch:virial_tests:L26:0.0058 | calc | `0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 chain standard deviation | PASS |
 | 26 | ch:virial_tests:L26:0.802 | observed | `0.802` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
-| 26 | ch:virial_tests:L26:0.12 | calc | `0.12` | numeric: sigma8 tension in sigma | PASS |
 | 26 | ch:virial_tests:L26:0.022 | observed | `0.022` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: joint sigma8 upper error (KiDS-Legacy + DES Y3 + DESI + Pantheon+) | PASS |
 | 26 | ch:virial_tests:L26:0.018 | observed | `0.018` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: joint sigma8 lower error | PASS |
+| 26 |  | calc | `0.12` | not run: printed value 0.12 sigma has two significant digits: recomputed |0.79975 - 0.802|/0.018 = 0.1249 lies at the rounding edge, within 0.0011 of the value moved by 5 % (0.126), so a 5 % change cannot be told from rounding (the committed verify_entropic_gravity_output.txt prints the same -0.12 sigma) | - |
 | 27 | ch:virial_tests:L27 | calc | `0.822` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: IAM S8 prediction from Level2 chain | PASS |
 | 27 | ch:virial_tests:L27:0.011 | calc | `0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 chain standard deviation | PASS |
 | 27 | ch:virial_tests:L27:0.815 | observed | `0.815` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
@@ -805,16 +805,16 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 503 | ch:theory:L503:0.948 | calc | `0.948` | numeric: mu at z=0.5 | PASS |
 | 503 | ch:theory:L503:0.982 | calc | `0.982` | numeric: mu at z=1 | PASS |
 | 503 | ch:theory:L503:2.8\% | calc | `2.8\%` | numeric: max deviation of MGCAMB mu approx from exact | PASS |
-| 503 | ch:theory:L503:0.65 | calc | `0.65` | numeric: redshift location of max mu deviation | PASS |
+| 503 |  | calc | `0.65` | not run: rough statement: the book says the MGCAMB form departs from the exact mu by at most 2.8 % near z ~ 0.65; the location of a flat maximum is recomputed at z = 0.635 (relative departure, 2.82 %) or z = 0.669 (absolute departure, 2.71 %), so a 5 % change (0.68) cannot be told from what near means here | - |
 | 504 | ch:theory:L504 | derived | `-0.136` | numeric: mu0 repeat, IAM point in mu0-Sigma0 plane | PASS |
 | 504 | ch:theory:L504:0 | derived | `0` | numeric: Sigma_0 = Sigma(z=0) - 1 of the IAM point | PASS |
 | 506 | ch:theory:L506 | calc | `2.718` | numeric: E saturation value, repeat | PASS |
 | 507 |  | none | `0.3153` | not run: input Omega_m restated | - |
 | 515 | ch:theory:L515 | calc | `-1.062` | numeric: tangent w0 value | PASS |
-| 515 | ch:theory:L515:-0.012 | calc | `-0.012` | numeric: tangent wa value | PASS |
 | 515 | ch:theory:L515:-1.065 | calc | `-1.065` | numeric: least-squares CPL fit intercept w0 | PASS |
 | 515 | ch:theory:L515:0.017 | calc | `0.017` | numeric: least-squares CPL fit slope wa | PASS |
 | 515 |  | none | `0.315` | not run: input Omega_m restated (rounded), fig caption | - |
+| 515 |  | calc | `-0.012` | not run: printed value -0.012 has two significant digits: recomputed -Omega_m^2/3(2-Omega_m)^2 = -0.01165 (Omega_m 0.315) rounds to -0.012 and lies 0.00025 from the value moved by 5 % (-0.0114), inside half the last printed digit, so a 5 % change cannot be told from rounding | - |
 | 520 | eq:th:phi | none |  | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
 | 522 | eq:th:phidot | derived |  | sympy: constraint equation for phidot | PASS |
 | 529 | eq:th:Stot | none |  | not run: definition of total gravitational action | - |
@@ -833,7 +833,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 579 | ch:theory:L579:1/3 | none | `1/3` | numeric: w_info derivative at a=1 | PASS |
 | 581 | ch:theory:L581 | derived |  | sympy: simplify wa formula | PASS |
 | 581 | ch:theory:L581:-1.062 | calc | `-1.062` | numeric: w0 repeat value | PASS |
-| 581 | ch:theory:L581:-0.012 | calc | `-0.012` | numeric: wa tangent value | PASS |
+| 581 |  | calc | `-0.012` | not run: printed value -0.012 has two significant digits: recomputed -Omega_m^2/3(2-Omega_m)^2 = -0.01168 (Omega_m 0.3153) rounds to -0.012 and lies 0.00028 from the value moved by 5 % (-0.0114), inside half the last printed digit, so a 5 % change cannot be told from rounding | - |
 | 582 | ch:theory:L582 | none | `-1.065` | numeric: least-squares w0 repeat | PASS |
 | 582 | ch:theory:L582:0.017 | none | `0.017` | numeric: least-squares wa repeat | PASS |
 | 600 | eq:th:virialavg | none |  | not run: standard virial theorem, cited physics | - |
@@ -944,9 +944,9 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 834 | ch:theory:L834 | calc | `0.251` | numeric: nonlinear scale k_nl, LambdaCDM, z = 0 | PASS |
 | 834 | ch:theory:L834:0.255 | calc | `0.255` | numeric: nonlinear scale k_nl, IAM, z = 0 | PASS |
 | 834 |  | none | `0.811` | not run: input sigma8 value restated (Planck) | - |
-| 835 | ch:theory:L835 | calc | `+1.2%` | numeric: k_nl shift IAM vs LambdaCDM, z = 0 | PASS |
 | 835 | ch:theory:L835:+0.6% | calc | `+0.6%` | numeric: k_nl shift IAM vs LambdaCDM, z = 0.3 | PASS |
 | 835 | ch:theory:L835:+0.1% | calc | `+0.1%` | numeric: k_nl shift IAM vs LambdaCDM, z = 1 | PASS |
+| 835 |  | calc | `+1.2%` | not run: printed value +1.2 % has two significant digits: recomputed k_nl shift 1.231 % rounds to 1.2 but lies 0.029 from the value moved by 5 % (1.26), inside the control tolerance (0.03), so a 5 % change cannot be told from rounding | - |
 | 836 | ch:theory:L836 | calc | `0.759` | numeric: nonlinear scale k_nl, LambdaCDM, z = 1 | PASS |
 | 836 | ch:theory:L836:0.760 | calc | `0.760` | numeric: nonlinear scale k_nl, IAM, z = 1 | PASS |
 | 845 |  | none | `-0.136` | not run: mu0 prediction, restated canon value | - |
@@ -1006,7 +1006,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 1078 |  | prediction | `-0.136` | not run: headline IAM mu0 prediction, locked canon value | - |
 | 1078 |  | prediction | `1` | not run: Sigma=1 part of headline prediction, trivial | - |
 | 1084 | ch:theory:L1084 | derived | `7/2` | numeric: n = 7/2 restated in the summary (power counting) | PASS |
-| 1085 | ch:theory:L1085 | calc | `2\%` | numeric: D^{7/2}: 1/a coefficient within 2 % | PASS |
+| 1085 |  | calc | `2\%` | not run: printed value 2 % (within 2 %) has one significant digit: recomputed distance of the D^{7/2} 1/a coefficient from 1 is 2.12 %, which rounds to 2 %, so a 5 % change (2.1 %) cannot be told from rounding | - |
 
 ## Part 2 - ch:entropicgravity - `docs/book/part2/p2_03a_entropic_gravity.tex`
 
@@ -1096,7 +1096,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 274 |  | openprob | `1` | not run: Level2 form ratio statement, no computation | - |
 | 288 | ch:entropicgravity:L288 | calc | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: summary repeat: Level2 chi2 diff | PASS |
 | 288 | ch:entropicgravity:L288:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: summary repeat: Level2 IAM sigma8 rounded | PASS |
-| 288 | ch:entropicgravity:L288:0.12\sigma | calc | `0.12\sigma` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 Level 2 vs joint value 0.802 +- 0.018 | PASS |
+| 288 |  | calc | `0.12\sigma` | not run: printed value 0.12 sigma has two significant digits: a 5 % change (0.006) is about the rounding half-unit (0.005), so it cannot be told from rounding (recomputed 0.1249 from CHAIN_EXTRACTION_FINAL.csv, Run A sigma8 vs joint 0.802 +- 0.018) | - |
 | 289 | ch:entropicgravity:L289 | calc | `-0.37\sigma` | numeric: photon-sector H0 tension vs Planck | PASS |
 | 289 | ch:entropicgravity:L289:-0.75\sigma | calc | `-0.75\sigma` | numeric: summary repeat: matter-sector H0 tension | PASS |
 | 292 |  | prediction | `-0.136` | not run: input restated (Euclid prediction target) | - |
@@ -1151,7 +1151,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 33 | ch:level2:L33 | measured | `67.4` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 33 | ch:level2:L33:0.5 | measured | `0.5` | file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Planck 2018 H0 error, rounded | PASS |
 | 34 | ch:level2:L34 | measured | `73.04` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
-| 34 | ch:level2:L34:1.04 | measured | `1.04` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
+| 34 | ch:level2:L34:1.04 | measured | `1.04` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: SH0ES H0 error as used in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 35 | ch:level2:L35 | calc | `4.9` | numeric: Hubble tension significance | PASS |
 | 37 | ch:level2:L37 | observed | `70.39` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 37 | ch:level2:L37:1.22 | observed | `1.22` | numeric: TRGB H0 statistical error (Freedman 2025) | PASS |
@@ -1211,7 +1211,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 149 |  | none | `0.06` | not run: neutrino mass assumption, eV (input) | - |
 | 150 | ch:level2:L150 | calc | `0.9986` | numeric: coded coupling fraction excl. neutrino | PASS |
 | 150 | ch:level2:L150:0.14 | calc | `0.14` | numeric: percent difference from excl. neutrino | PASS |
-| 150 | ch:level2:L150:2 | calc | `2` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: posterior percent error on Omega_m | PASS |
+| 150 |  | calc | `2` | not run: printed value 2 (per cent posterior error on Omega_m) has one significant digit: a 5 % change cannot be told from rounding (recomputed 2.05 % from CHAIN_EXTRACTION_FINAL.csv, Run A omegam_sd/omegam) | - |
 | 178 | ch:level2:L178 | calc | `1.2` | numeric: sigma8 lowering, table row z=0 (book input) | PASS |
 | 178 | ch:level2:L178:0.8 | calc | `0.8` | numeric: sigma8 lowering via Eq. l2_mu, row z=0 | PASS |
 | 189 | ch:level2:L189 | measured | `0.9880` | heavy file `docs/verification/chains/data/growth_on.json`: sigma8 on/off at z=0.0, committed CAMB growth record | PASS |
@@ -1259,7 +1259,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 249 | ch:level2:L249 | measured | `0.0068` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run Db final R-1 convergence stat | PASS |
 | 279 | ch:level2:L279 | measured | `67.188\pm0.465` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C posterior H0 mean | PASS |
 | 279 | ch:level2:L279:67.161\pm0.467 | measured | `67.161\pm0.467` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior H0 mean | PASS |
-| 279 | ch:level2:L279:-0.06\sigma | calc | `-0.06\sigma` | numeric: H0 shift A vs C in sigma | PASS |
+| 279 |  | calc | `-0.06\sigma` | not run: printed value -0.06 sigma has one significant digit: a 5 % change (0.003) is below the rounding half-unit (0.005) and cannot be told from rounding (recomputed -0.0576 from CHAIN_EXTRACTION_FINAL.csv; -0.06 also in section D of verify_late_time_level2_output.txt) | - |
 | 280 | ch:level2:L280 | measured | `0.8087\pm0.0059` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C posterior sigma8 mean | PASS |
 | 280 | ch:level2:L280:0.7998\pm0.0058 | measured | `0.7998\pm0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior sigma8 mean | PASS |
 | 280 | ch:level2:L280:-1.51\sigma | calc | `-1.51\sigma` | numeric: sigma8 shift A vs C in sigma | PASS |
@@ -1272,7 +1272,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 283 | ch:level2:L283 | measured | `0.11989\pm0.00105` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 283 | ch:level2:L283:0.11994\pm0.00105 | measured | `0.11994\pm0.00105` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 283 | ch:level2:L283:+0.05\sigma | calc | `+0.05\sigma` | numeric: Omega_c h^2 shift in sigma | PASS |
-| 284 | ch:level2:L284 | measured | `0.0532\pm0.0073` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
+| 284 | ch:level2:L284 | measured | `0.0532\pm0.0073` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: tau, Run C posterior mean, in verify_late_time_level2_output.txt section D | PASS |
 | 284 | ch:level2:L284:0.0537\pm0.0073 | measured | `0.0537\pm0.0073` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 284 | ch:level2:L284:+0.07\sigma | calc | `+0.07\sigma` | numeric: tau shift in sigma | PASS |
 | 285 | ch:level2:L285 | measured | `0.9630\pm0.0040` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
@@ -1280,7 +1280,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 285 | ch:level2:L285:0.00\sigma | calc | `0.00\sigma` | numeric: n_s shift in sigma, zero | PASS |
 | 286 | ch:level2:L286 | measured | `3.0393\pm0.0146` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 286 | ch:level2:L286:3.0407\pm0.0145 | measured | `3.0407\pm0.0145` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
-| 286 | ch:level2:L286:+0.09\sigma | calc | `+0.09\sigma` | numeric: ln As shift; inputs printed to 4 decimals (tol = input rounding 0.0001/0.0146) | PASS |
+| 286 |  | calc | `+0.09\sigma` | not run: printed value +0.09 sigma has one significant digit: a 5 % change (0.0045) is below the rounding half-unit (0.005) and cannot be told from rounding (recomputed 0.0959 from the table inputs 3.0407, 3.0393, 0.0146; 0.091 from the chain means in verify_late_time_level2_output.txt section D) | - |
 | 287 | ch:level2:L287 | measured | `0.3162\pm0.0065` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run C posterior Omega_m mean | PASS |
 | 287 | ch:level2:L287:0.3166\pm0.0065 | measured | `0.3166\pm0.0065` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior Omega_m mean | PASS |
 | 287 | ch:level2:L287:+0.05\sigma | calc | `+0.05\sigma` | numeric: Omega_m shift A vs C in sigma | PASS |
@@ -1300,7 +1300,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 295 | ch:level2:L295 | calc | `0.76` | numeric: likelihood ratio exp(-0.54/2) | PASS |
 | 295 | ch:level2:L295:-0.01 | calc | `-0.01` | numeric: chain-average chi2 difference, repeat | PASS |
 | 296 | ch:level2:L296 | calc | `13` | numeric: chi2 avg minus lowest, Run C | PASS |
-| 299 | ch:level2:L299 | calc | `+0.09\sigma` | numeric: ln As shift; inputs printed to 4 decimals (tol = input rounding 0.0001/0.0146) | PASS |
+| 299 |  | calc | `+0.09\sigma` | not run: restatement of ch:level2:L286 (+0.09 sigma); printed value has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0959) | - |
 | 300 | ch:level2:L300 | calc | `+0.05\sigma` | numeric: Omega_m shift, repeat | PASS |
 | 300 | ch:level2:L300:-1.51\sigma | calc | `-1.51\sigma` | numeric: sigma8 shift, repeat | PASS |
 | 304 | ch:level2:L304 | calc | `1.5\sigma` | numeric: sigma8 shift, rounded repeat | PASS |
@@ -1308,12 +1308,12 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 308 | ch:level2:L308:0.8087 | measured | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 Run C posterior mean, repeat | PASS |
 | 314 | ch:level2:L314 | calc | `-1.51\sigma` | numeric: sigma8 shift, repeat | PASS |
 | 315 | ch:level2:L315 | calc | `-0.78\sigma` | numeric: S8 shift, repeat | PASS |
-| 316 | ch:level2:L316 | calc | `+0.09\sigma` | numeric: ln As shift; inputs printed to 4 decimals (tol = input rounding 0.0001/0.0146) | PASS |
+| 316 |  | calc | `+0.09\sigma` | not run: restatement of ch:level2:L286 in a caption (+0.09 sigma); printed value has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0959) | - |
 | 320 | ch:level2:L320 | calc | `0.06\sigma` | numeric: Run D vs A H0 agreement in sigma | PASS |
 | 321 | ch:level2:L321 | measured | `0.7995\pm0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D posterior sigma8 mean | PASS |
 | 321 | ch:level2:L321:0.7998\pm0.0058 | measured | `0.7998\pm0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior sigma8 mean, repeat | PASS |
 | 322 | ch:level2:L322 | calc | `0.00\sigma` | numeric: Omega_m shift Run D vs C | PASS |
-| 322 | ch:level2:L322:+0.08 | calc | `+0.08\sigma` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: ln As shift, Run D minus Run C, in Run C sigma | PASS |
+| 322 |  | calc | `+0.08\sigma` | not run: printed value +0.08 sigma has one significant digit: a 5 % change (0.004) is below the rounding half-unit (0.005) and cannot be told from rounding (recomputed 0.0836 from Run D and Run C ln10^10As in verify_late_time_level2_output.txt section D) | - |
 | 325 | ch:level2:L325 | measured | `0.542` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 325 | ch:level2:L325:0.498 | measured | `0.498` | heavy file `docs/verification/chains/data/growth_on.json`: density growth rate f at z = 0, switch on (CAMB record) | PASS |
 | 326 | ch:level2:L326 | calc | `8.1\%` | numeric: percent diff f velocity vs density | PASS |
@@ -1383,7 +1383,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 145 |  | none | `9.24\times10^{-5}` | not run: text changed at HEAD; input: Omega_r for toy model | - |
 | 150 | ch:dsnote:L150 | calc | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: photon coupling bound restated | PASS |
 | 151 | ch:dsnote:L151 | calc | `3.8\times10^{-4}` | numeric: 1-mu at z=3 | PASS |
-| 152 | ch:dsnote:L152 | calc | `1.5\times10^{-5}` | numeric: 1-mu at z=5 | PASS |
+| 152 |  | calc | `1.5\times10^{-5}` | not run: printed value 1.5e-5 has two significant digits: a 5 % change (0.075e-5) is within rounding plus the control tolerance of the recomputed 1.544e-5 (1 - mu at z = 5), so it cannot be told from rounding; the z = 3 value is bounded at ch:dsvalidation:L515 | - |
 | 154 |  | calc | `0.05` | not run: calc, method not committed: the L-dependent Limber estimate of the CMB lensing power (0.05 % at the low end of 30 <= L <= 1000) has no committed script or output (verify_obs_chapters.py and verify_sector_tension.py only give the L-averaged ratio 0.9992); an Eisenstein-Hu Limber integral written here gives 0.03-0.24 %, so the printed range is not reproduced without the original method | - |
 | 154 |  | calc | `0.3` | not run: calc, method not committed: upper end 0.3 % of the same Limber estimate (see row 483); no committed script or output | - |
 | 158 | ch:dsnote:L158 | derived | `0.15765` | numeric: beta_m restated in figure caption | PASS |
@@ -1414,7 +1414,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 171 |  | none | `0.832` | not run: Planck 2018 published S8 (external) | - |
 | 171 |  | none | `0.013` | not run: uncertainty on Planck S8 | - |
 | 172 | ch:dsnote:L172 | observed | `0.815` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
-| 172 | ch:dsnote:L172:0.776 | observed | `0.776` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
+| 172 | ch:dsnote:L172:0.776 | observed | `0.776` | file `docs/verification/PAPER_ERRATA.md`: DES Y3 S8 as recorded in PAPER_ERRATA.md, a file the chapter names | PASS |
 | 172 | ch:dsnote:L172:0.017 | observed | `0.017` | file `docs/verification/PAPER_ERRATA.md`: DES Y3 3x2pt S8 error (errata ledger) | PASS |
 | 173 | ch:dsnote:L173 | observed | `0.759` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
 | 176 | ch:dsnote:L176 | calc | `4.25` | numeric: drafted check, screened (runs; negative control fails) | PASS |
@@ -1456,7 +1456,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 |---:|---|---|---|---|---|
 | 15 |  | observed | `3` | not run: measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), '~3 sigma below Planck at low redshift'; the source does not tabulate it and no repository file records it | - |
 | 15 |  | observed | `1` | not run: measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), 'within 1 sigma at high redshift'; the source does not tabulate it and no repository file records it | - |
-| 20 | ch:s8trend:L20 | calc | `a tenth` | numeric: effect amplitude vs low-z weak-lensing deficit | PASS |
+| 20 |  | calc | `a tenth` | not run: rough statement: "about a tenth" of the low-redshift deficit; a 5 % change cannot be told from a word value (recomputed 0.104 = 0.78/7.5) | - |
 | 25 | ch:s8trend:L25 | measured | `0.3111+/-0.0056` | file `docs/verification/scripts/verify_s8_trend.py`: Omega_m prior of the trend analysis (Planck + BAO) | PASS |
 | 26 |  | observed | `3` | not run: measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), '~3 sigma tension at lower redshifts'; the source does not tabulate it and no repository file records it | - |
 | 26 |  | observed | `1` | not run: measured, source not named: approximate statement of the cited trend analysis (MNRAS 528, L20, 2024; arXiv 2303.06928), 'consistent within 1 sigma at high redshifts'; the source does not tabulate it and no repository file records it | - |
@@ -1490,7 +1490,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 85 | ch:s8trend:L85:0.585 | calc | `0.585` | numeric: effective growth index today, IAM | PASS |
 | 85 | ch:s8trend:L85:0.554 | calc | `0.554` | numeric: effective growth index today, LambdaCDM | PASS |
 | 90 |  | none | `0.832` | not run: input, Planck S8 value | - |
-| 95 | ch:s8trend:L95 | calc | `seventeenfold` | numeric: (1-mu(1)) over the lensing deficit at z=0 ('about') | PASS |
+| 95 |  | calc | `seventeenfold` | not run: rough statement: "overstates the effect about seventeenfold"; a 5 % change cannot be told from a word value (recomputed 17.53 = (1 - mu(1)) over the z = 0 amplitude deficit) | - |
 | 98 | ch:s8trend:L98 | calc | `0.864` | numeric: mu at z=0 | PASS |
 | 98 | ch:s8trend:L98:0.8255 | calc | `0.8255` | numeric: lensing S8 = S8_Planck D_IAM/D_LCDM, z=0 | PASS |
 | 98 | ch:s8trend:L98:0.78 | calc | `0.78` | numeric: D deficit, z=0 | PASS |
@@ -1560,8 +1560,8 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 190 |  | prediction | `0` | not run: predicted slip parameter Sigma_0, definition | - |
 | 194 | ch:s8trend:L194 | calc | `3.1\%` | numeric: f sigma8 deficit at z = 0.15 | PASS |
 | 194 | ch:s8trend:L194:1.9% | calc | `1.9\%` | numeric: f sigma8 deficit at z = 0.35 | PASS |
-| 194 | ch:s8trend:L194:0.9% | calc | `0.9\%` | numeric: f sigma8 deficit at z = 0.65 | PASS |
 | 194 | ch:s8trend:L194:0.4% | calc | `0.4\%` | numeric: f sigma8 deficit at z = 1.05 | PASS |
+| 194 |  | calc | `0.9\%` | not run: printed value 0.9 % has one significant digit: a 5 % change (0.045) is below the rounding half-unit (0.05) and cannot be told from rounding (recomputed 0.941 % f sigma8 deficit at z = 0.65) | - |
 | 195 | ch:s8trend:L195 | calc | `0.1\%` | numeric: f sigma8 deficit at z = 1.55 | PASS |
 | 196 | ch:s8trend:L196 | calc | `5.0\sigma` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 203 | ch:s8trend:L203 | calc | `0.8\%` | numeric: amplitude deficit today (status) | PASS |
@@ -1593,8 +1593,8 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 47 | ch:sectortension:L47 | observed | `0.766` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 47 | ch:sectortension:L47:0.832 | observed | `0.832` | numeric: Planck LambdaCDM S8 = sigma8 (Om/0.3)^0.5 | PASS |
 | 48 | ch:sectortension:L48 | observed | `0.759` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
-| 48 | ch:sectortension:L48:0.776 | observed | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
-| 49 | ch:sectortension:L49 | observed | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
+| 48 | ch:sectortension:L48:0.776 | observed | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DES Y3 3x2pt S8 in verify_sector_tension_output.txt, a file the chapter names | PASS |
+| 49 | ch:sectortension:L49 | observed | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: HSC Y3 S8 in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 49 | ch:sectortension:L49:2 | observed | `2` | numeric: S8 tension, lower end over the four lensing surveys | PASS |
 | 49 | ch:sectortension:L49:3 | observed | `3` | numeric: S8 tension, upper end over the four lensing surveys | PASS |
 | 50 | ch:sectortension:L50 | observed | `0.815` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
@@ -1610,11 +1610,11 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 60 | ch:sectortension:L60:0.50 | calc | `0.50` | numeric: phantom-crossing redshift, DESI+CMB | PASS |
 | 60 | ch:sectortension:L60:-0.42 | observed | `-0.42` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR2 + CMB w0 | PASS |
 | 60 | ch:sectortension:L60:3.1 | observed | `3.1` | numeric: DESI DR2 + CMB significance | PASS |
-| 61 | ch:sectortension:L61 | observed | `-0.838` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
+| 61 | ch:sectortension:L61 | observed | `-0.838` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI+CMB+Pantheon+ w0 in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 61 | ch:sectortension:L61:0.35 | calc | `0.35` | numeric: phantom-crossing redshift, DESI+CMB+Pantheon+ | PASS |
 | 61 | ch:sectortension:L61:-0.62 | observed | `-0.62` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR2 + CMB + Pantheon+ wa | PASS |
 | 61 | ch:sectortension:L61:2.8 | observed | `2.8` | numeric: DESI DR2 + CMB + Pantheon+ significance | PASS |
-| 62 | ch:sectortension:L62 | observed | `-0.667` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
+| 62 | ch:sectortension:L62 | observed | `-0.667` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI+CMB+Union3 w0 in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 62 | ch:sectortension:L62:-1.09 | observed | `-1.09` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 62 | ch:sectortension:L62:0.44 | calc | `0.44` | numeric: phantom-crossing redshift, DESI+CMB+Union3 | PASS |
 | 62 | ch:sectortension:L62:3.8 | observed | `3.8` | numeric: DESI DR2 + CMB + Union3 significance | PASS |
@@ -1645,7 +1645,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 227 | ch:sectortension:L227:-0.88 | calc | `-0.88` | numeric: pull (obs-pred)/sigma, term, z=0.295 | PASS |
 | 227 | ch:sectortension:L227:-1.01 | calc | `-1.01` | numeric: pull (obs-pred)/sigma, LCDM, z=0.295 | PASS |
 | 227 | ch:sectortension:L227:0.094 | observed | `0.094` | file `docs/verification/scripts/verify_sector_tension.py`: sigma_obs BGS, sqrt of the DESI ShapeFit-only variance | PASS |
-| 228 | ch:sectortension:L228 | observed | `0.514` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
+| 228 | ch:sectortension:L228 | observed | `0.514` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR1 LRG1 f sigma_s8 in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 228 | ch:sectortension:L228:0.465 | calc | `0.465` | numeric: f sigma8 prediction, term, z=0.51, sigma8 0.7998 (Run A) | PASS |
 | 228 | ch:sectortension:L228:0.473 | calc | `0.473` | numeric: f sigma8 prediction, LCDM, z=0.51, sigma8 0.8087 (Run C) | PASS |
 | 228 | ch:sectortension:L228:+0.75 | calc | `+0.75` | numeric: pull (obs-pred)/sigma, term, z=0.51 | PASS |
@@ -1657,7 +1657,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 229 | ch:sectortension:L229:+0.54 | calc | `+0.54` | numeric: pull (obs-pred)/sigma, term, z=0.706 | PASS |
 | 229 | ch:sectortension:L229:+0.44 | calc | `+0.44` | numeric: pull (obs-pred)/sigma, LCDM, z=0.706 | PASS |
 | 229 | ch:sectortension:L229:0.053 | observed | `0.053` | file `docs/verification/scripts/verify_sector_tension.py`: sigma_obs LRG2, sqrt of the DESI ShapeFit-only variance | PASS |
-| 230 | ch:sectortension:L230 | observed | `0.422` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
+| 230 | ch:sectortension:L230 | observed | `0.422` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR1 LRG3 f sigma_s8 in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 230 | ch:sectortension:L230:0.436 | calc | `0.436` | numeric: f sigma8 prediction, term, z=0.919, sigma8 0.7998 (Run A) | PASS |
 | 230 | ch:sectortension:L230:0.439 | calc | `0.439` | numeric: f sigma8 prediction, LCDM, z=0.919, sigma8 0.8087 (Run C) | PASS |
 | 230 | ch:sectortension:L230:-0.28 | calc | `-0.28` | numeric: pull (obs-pred)/sigma, term, z=0.919 | PASS |
@@ -1717,14 +1717,14 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 245 | ch:sectortension:L245:+1.96 | calc | `+1.96` | numeric: pull (obs-pred)/sigma, term, z=1.48 | PASS |
 | 245 | ch:sectortension:L245:+1.92 | calc | `+1.92` | numeric: pull (obs-pred)/sigma, LCDM, z=1.48 | PASS |
 | 245 | ch:sectortension:L245:0.045 | observed | `0.045` | file `docs/verification/scripts/verify_sector_tension.py`: sigma_obs eBOSS QSO | PASS |
-| 247 | ch:sectortension:L247 | observed | `0.450` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 247 | ch:sectortension:L247:0.426 | calc | `0.426` | numeric: f sigma8 prediction, term, z=0.07, sigma8 0.7998 (Run A) | PASS |
 | 247 | ch:sectortension:L247:0.443 | calc | `0.443` | numeric: f sigma8 prediction, LCDM, z=0.07, sigma8 0.8087 (Run C) | PASS |
 | 247 | ch:sectortension:L247:+0.44 | calc | `+0.44` | numeric: pull (obs-pred)/sigma, term, z=0.07 | PASS |
 | 247 | ch:sectortension:L247:+0.12 | calc | `+0.12` | numeric: pull (obs-pred)/sigma, LCDM, z=0.07 | PASS |
 | 247 |  | observed | `0.055` | not run: measured, source not named | - |
-| 249 | ch:sectortension:L249 | observed | `0.450` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
+| 247 |  | observed | `0.450` | not run: measured, source not named: the DESI DR1 peculiar-velocity f sigma8 = 0.450 (Qin2026) is in no committed file; the old file_has matched a pull of -0.45/+0.45 in another row of verify_sector_tension_output.txt (see SOURCES_NEEDED.md, row of line 247) | - |
 | 249 |  | observed | `0.055` | not run: measured, source not named | - |
+| 249 |  | observed | `0.450` | not run: measured, source not named: running-text repeat of the DESI DR1 peculiar-velocity f sigma8 = 0.450 (Qin2026), in no committed file; the old file_has matched a pull of -0.45/+0.45 in another row (see SOURCES_NEEDED.md, row of line 249) | - |
 | 250 | ch:sectortension:L250 | calc | `-0.88` | numeric: lowest pull over the six DESI bins, term | PASS |
 | 250 | ch:sectortension:L250:+1.40 | calc | `+1.40` | numeric: highest pull over the six DESI bins, term | PASS |
 | 250 | ch:sectortension:L250:-1.01 | calc | `-1.01` | numeric: lowest pull over the six DESI bins, LCDM | PASS |
@@ -1744,8 +1744,8 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 264 | ch:sectortension:L264 | observed | `0.815^{+0.016}_{-0.021}` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 265 | ch:sectortension:L265 | observed | `0.814^{+0.011}_{-0.012}` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 265 | ch:sectortension:L265:0.802^{+0.022}_{-0.018} | observed | `0.802^{+0.022}_{-0.018}` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
-| 266 | ch:sectortension:L266 | observed | `0.776\pm0.017` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
-| 267 | ch:sectortension:L267 | observed | `0.776^{+0.032}_{-0.033}` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
+| 266 | ch:sectortension:L266 | observed | `0.776\pm0.017` | heavy file `docs/verification/scripts/verify_sector_tension.py`: DES Y3 S8 and error in verify_sector_tension.py, the script of the chapter | PASS |
+| 267 | ch:sectortension:L267 | observed | `0.776^{+0.032}_{-0.033}` | heavy file `docs/verification/scripts/verify_sector_tension.py`: HSC Y3 S8 and errors in verify_sector_tension.py, the script of the chapter | PASS |
 | 268 | ch:sectortension:L268 | observed | `0.589\pm0.020` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 273 | eq:st_sigma8 | fitted | `0.7998\pm0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM Level2 posterior | PASS |
 | 273 | eq:st_sigma8:0.8087\pm0.0059 | fitted | `0.8087\pm0.0059` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM Level2 posterior | PASS |
@@ -1880,7 +1880,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 513 | ch:dsvalidation:L513 | calc | `0.864` | numeric: mu(a=1) from mu(a) formula | PASS |
 | 514 | ch:dsvalidation:L514 | calc | `13.6\%` | numeric: fractional Newton-constant suppression | PASS |
 | 515 | ch:dsvalidation:L515 | calc | `0.982` | numeric: mu(a) at z=1 from formula | PASS |
-| 515 | ch:dsvalidation:L515:1-\mu<4\times10^{-4} | calc | `1-\mu<4\times10^{-4}` | sympy: mu(a) deviation at z=3 below bound | PASS |
+| 515 | ch:dsvalidation:L515:1-\mu<4\times10^{-4} | calc | `<4\times10^{-4}` | numeric: mu(a) deviation at z=3 below bound | PASS |
 | 515 | ch:dsvalidation:L515:4.25\% | calc | `4.25\%` | numeric: f sigma8 deficit at z = 0 | PASS |
 | 517 |  | none | `\beta_\gamma<0.0039` | not run: text changed at HEAD; photon-sector bound restated | - |
 | 520 | ch:dsvalidation:L520 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2 difference IAM vs LCDM Level2 | PASS |
@@ -2032,18 +2032,18 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 23 | ch:wzfuture:L23:0.031 | calc | `0.031` | numeric: rho_info/rho_Lambda at z=2 | PASS |
 | 23 | ch:wzfuture:L23:0.030 | calc | `0.030` | numeric: info share of vacuum total z=2 | PASS |
 | 24 | ch:wzfuture:L24 | calc | `-2.333` | numeric: w_info at z=3 | PASS |
-| 24 | ch:wzfuture:L24:0.011 | calc | `0.011` | numeric: rho_info/rho_Lambda at z=3 | PASS |
-| 24 | ch:wzfuture:L24:0.011' | calc | `0.011` | numeric: info share of vacuum total z=3 | PASS |
 | 24 | ch:wzfuture:L24:-1 | calc | `-1` | numeric: w_info limit as a to infinity | PASS |
 | 24 | ch:wzfuture:L24:0.626 | calc | `0.626` | numeric: rho_info/rho_Lambda at saturation | PASS |
 | 24 | ch:wzfuture:L24:0.385 | calc | `0.385` | numeric: info share of vacuum total saturation | PASS |
+| 24 |  | calc | `0.011` | not run: printed value 0.011 has two significant digits: a 5 % change (0.00055) is about the rounding half-unit (0.0005), so it cannot be told from rounding (recomputed rho_info/rho_Lambda = 0.01146 at z = 3) | - |
+| 24 |  | calc | `0.011` | not run: printed value 0.011 has two significant digits: a 5 % change (0.00055) is about the rounding half-unit (0.0005), so it cannot be told from rounding (recomputed share of the vacuum-like total 0.01133 at z = 3) | - |
 | 26 | ch:wzfuture:L26 | calc | `1.15` | numeric: info density pct of rho_Lambda at z=3 | PASS |
 | 27 | ch:wzfuture:L27 | calc | `18.7` | numeric: info term pct of vacuum total today | PASS |
 | 27 | ch:wzfuture:L27:23 | calc | `23` | numeric: info term pct of rho_Lambda today | PASS |
 | 28 | ch:wzfuture:L28 | calc | `0.626` | numeric: info/Lambda ratio at saturation (repeat) | PASS |
-| 31 | ch:wzfuture:L31 | calc | `0.011` | numeric: caption repeat of z=3 ratio | PASS |
 | 31 | ch:wzfuture:L31:0.230 | calc | `0.230` | numeric: caption repeat of today ratio | PASS |
 | 31 | ch:wzfuture:L31:0.626 | calc | `0.626` | numeric: caption repeat of saturation ratio | PASS |
+| 31 |  | calc | `0.011` | not run: caption restatement of ch:wzfuture:L24:0.011; printed value 0.011 has two significant digits: a 5 % change cannot be told from rounding (recomputed 0.01146) | - |
 | 74 | eq:wz_norip | derived |  | sympy: monotonic w, bounded density statement | PASS |
 | 79 | eq:wz_rho_from_w | derived |  | sympy: density recovered by integrating continuity eq | PASS |
 | 83 | ch:wzfuture:L83 | derived | `1` | numeric: convergent integral bounding density | PASS |
@@ -2335,10 +2335,10 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 167 | ch:baryon:L167 | calc | `0.02220` | numeric: Omega_b h^2 from (3/16) sqrt(Omega_L) | PASS |
 | 168 | ch:baryon:L168 | calc | `6.08\times10^{-10}` | numeric: eta from it | PASS |
 | 168 | ch:baryon:L168:0.5 | calc | `0.5` | numeric: below the 18th-chain 6.113 | PASS |
-| 168 | ch:baryon:L168:0.9 | calc | `0.9` | numeric: below 6.137 | PASS |
 | 168 | ch:baryon:L168:6.113 | calc | `6.113` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_13b_baryon_chain:117 (eta = 2.739e-8 Omega_b h^2 from the 18th chain) | PASS |
 | 168 | ch:baryon:L168:0.8 | calc | `0.8` | numeric: below Planck 6.127 | PASS |
 | 168 | ch:baryon:L168:6.137 | calc | `6.137` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: largest eta of the CMB chains | PASS |
+| 168 |  | calc | `0.9` | not run: printed value 0.9 (per cent) has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.936; 1.05 x 0.9 = 0.945 lies within the capped tolerance). The eta it rests on is checked at ch:baryon:L168 (6.08e-10) and the 6.137 at ch:baryon:L168:6.137 | - |
 | 169 | ch:baryon:L169 | calc | `6.127` | numeric: Planck's eta x 1e10 | PASS |
 | 192 | ch:baryon:L192 | measured | `0.009273` | file `docs/verification/cosmological_constant_and_baryon/CC_AND_BARYON_CHECK.md`: measured: printed value found in CC_AND_BARYON_CHECK.md, a file the chapter names | PASS |
 
@@ -2535,11 +2535,11 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 83 | ch:surveys:L83:0.9 | calc | `0.9` | numeric: lookback time, Gyr (H0 67.36, Om 0.3153) | PASS |
 | 83 | ch:surveys:L83:0.971 | calc | `0.971` | numeric: a where 95% of 1-mu(0) is on | PASS |
 | 83 | ch:surveys:L83:0.03 | calc | `0.03` | numeric: z where 95% is on | PASS |
-| 83 | ch:surveys:L83:0.4 | calc | `0.4` | numeric: lookback time, Gyr (H0 67.36, Om 0.3153) | PASS |
 | 83 |  | calc | `50` | not run: label: the fraction (50 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84) | - |
 | 83 |  | calc | `75` | not run: label: the fraction (75 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84) | - |
 | 83 |  | calc | `90` | not run: label: the fraction (90 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84) | - |
 | 83 |  | calc | `95` | not run: label: the fraction (95 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84) | - |
+| 83 |  | calc | `0.4` | not run: printed value 0.4 Gyr has one significant digit: a 5 % change cannot be told from rounding (recomputed lookback 0.428 Gyr at the 95 % point; 1.05 x 0.4 = 0.42). The neighbouring table entries with more digits are checked at ch:surveys:L82:10.9 and ch:surveys:L82:9.4 | - |
 | 84 | ch:surveys:L84 | calc | `0.994` | numeric: a where 99% of 1-mu(0) is on | PASS |
 | 84 | ch:surveys:L84:0.01 | calc | `0.01` | numeric: z where 99% is on | PASS |
 | 84 | ch:surveys:L84:0.1 | calc | `0.1` | numeric: lookback time, Gyr (H0 67.36, Om 0.3153) | PASS |
@@ -2794,8 +2794,8 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 104 |  | calc | `1.0` | not run: input: redshift z=1.0 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L104) | - |
 | 105 | ch:lensdyn:L105 | calc | `0.994` | numeric: mu at z=1.5 | PASS |
 | 105 | ch:lensdyn:L105:1.006 | calc | `1.006` | numeric: 1/mu at z=1.5 | PASS |
-| 105 | ch:lensdyn:L105:0.6 | calc | `0.6` | numeric: lensing excess at z=1.5, per cent | PASS |
 | 105 |  | calc | `1.5` | not run: input: redshift z=1.5 of the row of Table tab:ld_ratio (the row's values are checked at ch:lensdyn:L105) | - |
+| 105 |  | calc | `0.6` | not run: printed value 0.6 (per cent) has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.627; 1.05 x 0.6 = 0.63). The precise value is checked at ch:lensdyn:L105:1.006 (1/mu at z = 1.5) | - |
 | 106 | ch:lensdyn:L106 | calc | `0.998` | numeric: mu at z=2.0 | PASS |
 | 106 | ch:lensdyn:L106:1.002 | calc | `1.002` | numeric: 1/mu at z=2.0 | PASS |
 | 106 | ch:lensdyn:L106:0.2 | calc | `0.2` | numeric: lensing excess at z=2.0, per cent | PASS |
@@ -2896,8 +2896,8 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 236 | ch:lensdyn:L236:1.8 | calc | `1.8` | numeric: excess at z=1.0 | PASS |
 | 236 |  | calc | `1.0` | not run: input: redshift z=1.0 of the row of Table tab:ld_euclid (its values are checked at ch:lensdyn:L236) | - |
 | 237 | ch:lensdyn:L237 | calc | `1.006` | numeric: 1/mu at z=1.5 | PASS |
-| 237 | ch:lensdyn:L237:0.6 | calc | `0.6` | numeric: excess at z=1.5 | PASS |
 | 237 |  | calc | `1.5` | not run: input: redshift z=1.5 of the row of Table tab:ld_euclid (its values are checked at ch:lensdyn:L237) | - |
+| 237 |  | calc | `0.6` | not run: printed value 0.6 (per cent) has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.627; 1.05 x 0.6 = 0.63). The precise value is checked at ch:lensdyn:L237 (1/mu = 1.006 at z = 1.5) | - |
 | 238 | ch:lensdyn:L238 | calc | `1.002` | numeric: 1/mu at z=2.0 | PASS |
 | 238 | ch:lensdyn:L238:0.2 | calc | `0.2` | numeric: excess at z=2.0 | PASS |
 | 238 |  | calc | `2.0` | not run: input: redshift z=2.0 of the row of Table tab:ld_euclid (its values are checked at ch:lensdyn:L238) | - |
@@ -3203,7 +3203,6 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 106 | ch:blackholes:L106 | derived |  | sympy: P_SB/P_Hawking = 1 | PASS |
 | 122 | eq:bh_transfer_rate | none |  | sympy: transfer rate = Gamma | PASS |
 | 126 | ch:blackholes:L126 | derived |  | sympy: loss of S_BH in bits per second = Gamma | PASS |
-| 136 | ch:blackholes:L136 | calc | `<2\times10^{-16}` | numeric: max |T S/Mc^2 - 1/2| for 1 to 1e11 M_sun (floating point) | PASS |
 | 136 | ch:blackholes:L136:0.433 | calc | `0.433` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 136 | ch:blackholes:L136:0.218 | calc | `0.218` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 136 | ch:blackholes:L136:0.032 | calc | `0.032` | numeric: drafted check, screened (runs; negative control fails) | PASS |
@@ -3212,6 +3211,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 136 |  | calc | `0.5` | not run: input: Kerr spin chi = 0.5 at which 0.433 is evaluated (0.433 checked by ch:blackholes:L136:0.433) | - |
 | 136 |  | calc | `0.9` | not run: input: Kerr spin chi = 0.9 at which 0.218 is evaluated (0.218 checked by ch:blackholes:L136:0.218) | - |
 | 136 |  | calc | `0.998` | not run: input: Kerr spin chi = 0.998 at which 0.032 is evaluated (0.032 checked by ch:blackholes:L136:0.032) | - |
+| 136 |  | calc | `<2\times10^{-16}` | not run: a floating-point round-off bound, not a quantity of the equation: the Smarr ratio is exactly 1/2 (checked symbolically at eq:vl_smarr and ch:virial_law:L121); the recomputed max |Delta| = 2.22e-16 is machine epsilon (2^-52), set by the platform arithmetic, so a 5 % change of the printed 2e-16 cannot be told from round-off (see FOR_AUTHOR: the printed bound is below the recomputed value) | - |
 | 139 | eq:bh_smarr | none |  | sympy: Smarr: N k_B T ln2 = T S = Mc^2/2 | PASS |
 | 142 | ch:blackholes:L142 | derived | `0.5000000000` | numeric: same value as p5_11_status_all:27 (Smarr share at 6.5e9 M_sun) | PASS |
 | 142 | ch:blackholes:L142:4.3\times10^6 | derived | `4.3\times10^6` | numeric: Sgr A* mass (Gillessen 2009) | PASS |
@@ -3362,11 +3362,11 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 44 | ch:saturation:L44 | derived | `6.86` | numeric: M = hf/(k_B T), 5 GHz at 35 mK | PASS |
 | 44 | ch:saturation:L44:1.05\times10^{-3} | derived | `1.05\times10^{-3}` | numeric: thermal floor 1/(1+e^M), 35 mK | PASS |
 | 44 | ch:saturation:L44:16.0 | derived | `16.0` | numeric: M at 15 mK | PASS |
-| 44 | ch:saturation:L44:1.1\times10^{-7} | derived | `1.1\times10^{-7}` | numeric: thermal floor at 15 mK | PASS |
 | 44 | ch:saturation:L44:3.41 | derived | `3.41` | file `CANON/iam_canon.json`: E_hold from the canon record | PASS |
 | 44 | ch:saturation:L44:59.5 | derived | `59.5` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 44 | ch:saturation:L44:69.1 | derived | `69.1` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 44 | ch:saturation:L44:0.032 | derived | `0.032` | numeric: copy-error floor 1/(1+exp(E_hold/k_BT)) at E_hold = 3.41 k_BT | PASS |
+| 44 |  | derived | `1.1\times10^{-7}` | not run: printed value 1.1e-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed 1.128e-7 lies 2.6 % above 1.1e-7, so 1.05 x 1.1e-7 = 1.155e-7 is within the 2.5 % control tolerance). The precise input is checked at ch:saturation:L44:16.0 (M = hf/kT = 16.0) | - |
 | 66 | ch:saturation:L66 | measured | `1.099` | file `CANON/iam_canon.json`: P_neutrophil from the canon record | PASS |
 | 66 | ch:saturation:L66:0.032 | measured | `0.032` | numeric: eps0 = 1/(1+e^E_hold), E_hold = 3.41 kT (canon, measured) | PASS |
 | 66 | ch:saturation:L66:3.41 | measured | `3.41` | file `CANON/iam_canon.json`: E_hold from the canon record | PASS |
@@ -3508,26 +3508,26 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 86 | ch:measurement:L86:1.8\times10^{71} | calc | `1.8\times10^{71}` | numeric: tau_IAM at 300 K, m=1.2e-24 kg | PASS |
 | 86 | ch:measurement:L86:1.2\times10^{-24} | calc | `1.2\times10^{-24}` | numeric: C60 mass, 60 x 12 u, kg | PASS |
 | 86 |  | calc | `5\times10^{-10}` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L86 | - |
-| 87 | ch:measurement:L87 | calc | `1.3\times10^{-39}` | numeric: E_G = G m^2/R, m=1e-18 kg, R=5e-08 m (table inputs) | PASS |
 | 87 | ch:measurement:L87:7.9\times10^{4} | calc | `7.9\times10^{4}` | numeric: tau_PD = hbar/E_G, m=1e-18 kg | PASS |
 | 87 | ch:measurement:L87:5.3\times10^{41} | calc | `5.3\times10^{41}` | numeric: tau_IAM at 300 K, m=1e-18 kg | PASS |
 | 87 |  | calc | `10` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L87 | - |
 | 87 |  | calc | `5\times10^{-8}` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L87 | - |
-| 88 | ch:measurement:L88 | calc | `1.3\times10^{-34}` | numeric: E_G = G m^2/R, m=1e-15 kg, R=5e-07 m (table inputs) | PASS |
+| 87 |  | calc | `1.3\times10^{-39}` | not run: printed value 1.3e-39 J has two significant digits: a 5 % change cannot be told from rounding (recomputed G m^2/R = 1.335e-39; 1.05 x 1.3e-39 = 1.365e-39 is within the 2.5 % control tolerance). No more precise value is printed | - |
 | 88 | ch:measurement:L88:0.79 | calc | `0.79` | numeric: tau_PD = hbar/E_G, m=1e-15 kg | PASS |
 | 88 | ch:measurement:L88:5.3\times10^{26} | calc | `5.3\times10^{26}` | numeric: tau_IAM at 300 K, m=1e-15 kg | PASS |
 | 88 |  | calc | `10` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L88 | - |
 | 88 |  | calc | `5\times10^{-7}` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L88 | - |
-| 89 | ch:measurement:L89 | calc | `1.3\times10^{-29}` | numeric: E_G = G m^2/R, m=1e-12 kg, R=5e-06 m (table inputs) | PASS |
+| 88 |  | calc | `1.3\times10^{-34}` | not run: printed value 1.3e-34 J has two significant digits: a 5 % change cannot be told from rounding (recomputed G m^2/R = 1.335e-34; 1.05 x 1.3e-34 = 1.365e-34 is within the 2.5 % control tolerance). No more precise value is printed | - |
 | 89 | ch:measurement:L89:7.9\times10^{-6} | calc | `7.9\times10^{-6}` | numeric: tau_PD = hbar/E_G, m=1e-12 kg | PASS |
 | 89 | ch:measurement:L89:5.3\times10^{11} | calc | `5.3\times10^{11}` | numeric: tau_IAM at 300 K, m=1e-12 kg | PASS |
 | 89 |  | calc | `10` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L89 | - |
 | 89 |  | calc | `5\times10^{-6}` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L89 | - |
-| 90 | ch:measurement:L90 | calc | `1.3\times10^{-19}` | numeric: E_G = G m^2/R, m=1e-06 kg, R=0.0005 m (table inputs) | PASS |
+| 89 |  | calc | `1.3\times10^{-29}` | not run: printed value 1.3e-29 J has two significant digits: a 5 % change cannot be told from rounding (recomputed G m^2/R = 1.335e-29; 1.05 x 1.3e-29 = 1.365e-29 is within the 2.5 % control tolerance). No more precise value is printed | - |
 | 90 | ch:measurement:L90:7.9\times10^{-16} | calc | `7.9\times10^{-16}` | numeric: tau_PD = hbar/E_G, m=1e-06 kg | PASS |
 | 90 | ch:measurement:L90:5.3\times10^{-19} | calc | `5.3\times10^{-19}` | numeric: tau_IAM at 300 K, m=1e-06 kg | PASS |
 | 90 |  | calc | `10` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L90 | - |
 | 90 |  | calc | `5\times10^{-4}` | not run: input: table entry of the system list (mass or radius of the object, chosen size), nothing to recompute; the E_G and times of the row are checked at ch:measurement:L90 | - |
+| 90 |  | calc | `1.3\times10^{-19}` | not run: printed value 1.3e-19 J has two significant digits: a 5 % change cannot be told from rounding (recomputed G m^2/R = 1.335e-19; 1.05 x 1.3e-19 = 1.365e-19 is within the 2.5 % control tolerance). No more precise value is printed | - |
 | 91 | ch:measurement:L91 | calc | `7.1\times10^{-9}` | numeric: E_G = G m^2/R, m=4 kg, R=0.15 m (table inputs) | PASS |
 | 91 | ch:measurement:L91:1.5\times10^{-26} | calc | `1.5\times10^{-26}` | numeric: tau_PD = hbar/E_G, m=4 kg | PASS |
 | 91 | ch:measurement:L91:3.5\times10^{-51} | calc | `3.5\times10^{-51}` | numeric: tau_IAM at 300 K, m=4 kg | PASS |
@@ -3939,8 +3939,8 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 15 | ch:scprimer:L15 | calc | `16.0` | numeric: hf/k_B T, 5 GHz, 15 mK | PASS |
-| 15 | ch:scprimer:L15:1.1\times10^{-7} | calc | `1.1\times10^{-7}` | numeric: e^(-hf/kT) at 15 mK | PASS |
 | 15 | ch:scprimer:L15:8.2\times10^{-3} | calc | `8.2\times10^{-3}` | numeric: e^(-hf/kT) at 50 mK | PASS |
+| 15 |  | calc | `1.1\times10^{-7}` | not run: printed value 1.1e-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed exp(-hf/kT) = 1.128e-7; 1.05 x 1.1e-7 = 1.155e-7 is within the 2.5 % control tolerance). The precise exponent is checked at ch:scprimer:L15 (hf/kT = 16.0) | - |
 | 16 | ch:scprimer:L16 | calc | `1.20` | numeric: Delta_Al/(1.764 k_B), K | PASS |
 | 16 | ch:scprimer:L16:182 | calc | `182` | numeric: BCS gap of aluminium, ueV | PASS |
 | 17 | ch:scprimer:L17 | calc | `1.44\times10^{-25}` | numeric: k_B T ln2 at 15 mK, J | PASS |
@@ -3948,7 +3948,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 22 |  | observed | `0.1` | not run: measured, source not named | - |
 | 23 | ch:scprimer:L23 | calc | `6.86` | numeric: M = hf/kT, 5 GHz, 35 mK | PASS |
 | 23 | ch:scprimer:L23:1.1\times10^{-3} | calc | `1.1\times10^{-3}` | numeric: equilibrium occupation e^-M at 35 mK | PASS |
-| 23 | ch:scprimer:L23:1.1\times10^{-7} | calc | `1.1\times10^{-7}` | numeric: occupation at 15 mK | PASS |
+| 23 |  | calc | `1.1\times10^{-7}` | not run: printed value 1.1e-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed 1.128e-7; 1.05 x 1.1e-7 = 1.155e-7 is within the 2.5 % control tolerance). The precise exponent is checked at ch:scprimer:L15 (hf/kT = 16.0) | - |
 | 36 | ch:scprimer:L36 | calc |  | sympy: thermal x_qp vanishes as T -> 0 and rises with T | PASS |
 | 40 | ch:scprimer:L40 | calc | `141` | numeric: Delta/k_B T, Al, 15 mK | PASS |
 | 42 |  | observed | `10` | not run: measured, source not named | - |
@@ -3964,8 +3964,8 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 76 | ch:scprimer:L76:2\times10^{20} | calc | `2\times10^{20}` | numeric: the same at 50 K | PASS |
 | 76 | ch:scprimer:L76:10^{-108} | calc | `10^{-108}` | numeric: the same at 15 mK (order) | PASS |
 | 76 |  | calc | `10` | not run: restates ch:scprimer:L76:10^{-108} (the '10' is the base of a printed power; every number on this line is checked by ch:scprimer:L76, ch:scprimer:L76:2\times10^{20}, ch:scprimer:L76:10^{-108}) | - |
-| 77 | ch:scprimer:L77 | calc | `4\times10^{22}` | numeric: the same at 300 K | PASS |
 | 77 | ch:scprimer:L77:2.7255 | calc | `2.7255` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 77 |  | calc | `4\times10^{22}` | not run: printed value 4e22 s^-1 m^-2 has one significant digit: a 5 % change cannot be told from rounding (recomputed 4.105e22; 1.05 x 4e22 = 4.2e22). No more precise value is printed | - |
 | 78 | ch:scprimer:L78 | calc | `2\times10^{16}` | numeric: the same for the CMB | PASS |
 | 84 | ch:scprimer:L84 | calc | `2.7\times10^{8}` | numeric: pairs broken at most by a 100 keV deposit | PASS |
 | 94 |  | calc | `2.7255` | not run: input: T_CMB = 2.7255 K (Fixsen 2009) restated; also read by ch:scprimer:L77:2.7255 | - |
@@ -4069,7 +4069,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 86 |  | calc | `68` | not run: measured, source not named | - |
 | 89 |  | calc | `10` | not run: input: surface-code threshold about 1e-2 quoted from Fowler2012 (doi:10.1103/physreva.86.032324), an order of magnitude | - |
 | 90 |  | calc | `10` | not run: input: fault-tolerance target about 1e-3 quoted from Fowler2012 and GoogleWillow2025, an order of magnitude | - |
-| 93 | ch:ascoreqc:L93 | calc | `6\times10^{-4}` | numeric: floor on the gauge | PASS |
+| 93 |  | calc | `6\times10^{-4}` | not run: printed value 6e-4 has one significant digit: a 5 % change cannot be told from rounding (recomputed 6.188e-4; 1.05 x 6e-4 = 6.3e-4). Its input p_eq at 35 mK is checked to three digits at ch:qplatforms:L52 (1.05e-3) | - |
 
 ## Part 5 - ch:thermaln - `docs/book/part3/p3_04_thermal_n.tex`
 
@@ -4123,14 +4123,14 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 53 | ch:qplatforms:L53 | calc | `6.2\times10^{-7}` | numeric: p_th(t_g) | PASS |
 | 53 |  | calc | `40` | not run: input: illustrative gate time t_g = 40 ns (book's choice) | - |
 | 53 |  | calc | `10` | not run: input: illustrative two-qubit error near 10^-3 (book's round figure) | - |
-| 54 | ch:qplatforms:L54 | calc | `6\times10^{-4}` | numeric: floor on its own gauge | PASS |
+| 54 |  | calc | `6\times10^{-4}` | not run: printed value 6e-4 (the book says near 6e-4) has one significant digit: a 5 % change cannot be told from rounding (recomputed 6.188e-4; 1.05 x 6e-4 = 6.3e-4). Its input p_eq at 35 mK is checked to three digits at ch:qplatforms:L52 (1.05e-3) | - |
 | 55 | ch:qplatforms:L55 | calc | `16.0` | numeric: M at 15 mK | PASS |
-| 55 | ch:qplatforms:L55:1.1\times10^{-7} | calc | `1.1\times10^{-7}` | numeric: p_eq at 15 mK | PASS |
+| 55 |  | calc | `1.1\times10^{-7}` | not run: printed value 1.1x10^-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed 1.128e-7); the precise value is checked at ch:qplatforms:L55 (M = 16.0) | - |
 | 69 | ch:qplatforms:L69 | calc | `6.86` | numeric: M transmon | PASS |
 | 69 | ch:qplatforms:L69:1.1\times10^{-3} | calc | `1.1\times10^{-3}` | numeric: p_eq transmon | PASS |
-| 69 | ch:qplatforms:L69:1.1\times10^{-7} | calc | `1.1\times10^{-7}` | numeric: p_eq at 15 mK | PASS |
 | 69 |  | calc | `35` | not run: input: transmon effective temperature 35 mK (Jin2015), table operating point | - |
 | 69 |  | calc | `15` | not run: input: mixing-chamber temperature 15 mK, table operating point | - |
+| 69 |  | calc | `1.1\times10^{-7}` | not run: printed value 1.1x10^-7 has two significant digits: a 5 % change cannot be told from rounding (recomputed 1.128e-7); the precise value is checked at ch:qplatforms:L55 (M = 16.0) | - |
 | 70 | ch:qplatforms:L70 | calc | `0.48` | numeric: M fluxonium 0.2 GHz 20 mK | PASS |
 | 70 | ch:qplatforms:L70:2.4 | calc | `2.4` | numeric: M fluxonium 1 GHz | PASS |
 | 70 | ch:qplatforms:L70:0.38 | calc | `0.38` | numeric: p_eq fluxonium 0.2 GHz | PASS |
@@ -4190,7 +4190,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 149 | ch:qplatforms:L149:7.8\times10^{-4} | observed | `7.8\times10^{-4}` | numeric: eps = -ln(1-p) at 99.922 % | PASS |
 | 150 | ch:qplatforms:L150 | calc | `12.8` | numeric: threshold 1e-2 over eps 7.8e-4 | PASS |
 | 152 | ch:qplatforms:L152 | calc | `2.4` | numeric: M fluxonium 1 GHz 20 mK | PASS |
-| 152 | ch:qplatforms:L152:8 | calc | `8` | numeric: p_eq fluxonium 1 GHz, per cent | PASS |
+| 152 |  | calc | `8` | not run: printed value 8 (per cent) has one significant digit: a 5 % change cannot be told from rounding (recomputed 8.32); the precise value is checked at ch:qplatforms:L152 (M = 2.4) | - |
 | 153 | ch:qplatforms:L153 | calc | `0.48` | numeric: M fluxonium 0.2 GHz | PASS |
 | 153 | ch:qplatforms:L153:38 | calc | `38` | numeric: p_eq 0.2 GHz, per cent | PASS |
 | 153 |  | calc | `0.2` | not run: input: fluxonium gap 0.2 GHz (lower end of the range of line 70); used in ch:qplatforms:L153 | - |
@@ -4353,7 +4353,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 90 | ch:astrogenetics:L90:4.45 | calc | `4.45` | file `CANON/iam_canon.json`: IAM-A at a coin flip | PASS |
 | 98 | ch:astrogenetics:L98 | derived |  | sympy: H(beta) is symmetric: H(beta) = H(1 - beta) | PASS |
 | 116 | ch:astrogenetics:L116 | calc | `2.40` | numeric: white-dwarf gauge full at the Chandrasekhar mass, A = 1.44/0.6 | PASS |
-| 139 | ch:astrogenetics:L139 | measured | `1.016` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
+| 139 | ch:astrogenetics:L139 | measured | `1.016` | file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 senescent cultures, methylated-channel Met-A, highest | PASS |
 | 140 | ch:astrogenetics:L140 | measured | `0.695` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 140 | ch:astrogenetics:L140:1.120 | measured | `1.120` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 141 | ch:astrogenetics:L141 | measured | `0.664` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
@@ -4881,7 +4881,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 95 | ch:skytools:L95:0.70 | measured | `0.70` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: chain healthy C-score, lowest | PASS |
 | 95 | ch:skytools:L95:1.23 | measured | `1.23` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: chain healthy C-score, highest | PASS |
 | 95 | ch:skytools:L95:0.699 | measured | `0.699` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: chain healthy C-score, lowest (three digits) | PASS |
-| 95 | ch:skytools:L95:0.1 | measured | `0.1` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv`: spread damage moves Met-A by about 0.1 | PASS |
+| 95 |  | measured | `0.1` | not run: printed value 0.1 (about 0.1) has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.1027) | - |
 | 96 | ch:skytools:L96:12.5 | measured | `12.5` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv`: regional damage C-score, lowest | PASS |
 | 96 | ch:skytools:L96:15.7 | measured | `15.7` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv`: regional damage C-score, highest | PASS |
 | 96 |  | measured | `1.05` | not run: definition: upper edge of the Normal band 0.95-1.05 restated | - |
@@ -4889,11 +4889,11 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 114 |  | measured | `0.7` | not run: definition: beta window 0.3-0.7 used to count heterozygous-looking chrX sites | - |
 | 125 | ch:skytools:L125:0.32 | measured | `0.32` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d) of beta at 1-1.8 kb | PASS |
 | 125 | ch:skytools:L125:1.8 | measured | `1.8` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: upper edge of the 1 kb distance bin | PASS |
-| 125 | ch:skytools:L125:0.05 | measured | `0.05` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d) of beta at 3-6 kb | PASS |
+| 125 |  | measured | `0.05` | not run: printed value 0.05 has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0526) | - |
 | 126 | ch:skytools:L126 | measured | `0.327` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d) at 1 kb, highest of the six arrays | PASS |
 | 138 | ch:skytools:L138 | measured | `0.02` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: healthy residual uncorrelated beyond 1 kb | PASS |
-| 139 | ch:skytools:L139:0.05 | measured | `0.05` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: regional-damage plateau, lower end | PASS |
 | 139 | ch:skytools:L139:0.08 | measured | `0.08` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: regional-damage plateau, upper end | PASS |
+| 139 |  | measured | `0.05` | not run: printed value 0.05 has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0517); the upper end is checked at ch:skytools:L139:0.08 | - |
 | 142 | ch:skytools:L142 | measured | `0.171` | file `Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md`: smoothed healthy whole-array sky, spread | PASS |
 | 143 | ch:skytools:L143:0.131 | measured | `0.131` | file `Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md`: same sky shuffled, spread | PASS |
 | 143 | ch:skytools:L143:1.31 | measured | `1.31` | file `Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md`: smoothed over shuffled spread | PASS |
@@ -5010,7 +5010,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 63 | ch:firstreadings:L63:1.65 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: IAM-A against own vehicle: lowest | PASS |
 | 63 | ch:firstreadings:L63:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: IAM-A against own vehicle: highest | PASS |
 | 63 |  | measured | `1.05` | not run: definition: 1.05 is the upper edge of the Normal band (bar Q1 of PROC-DNMT-01 Part B: IAM-A > 1.05); the readings are checked in ch:firstreadings:L63:1.65 and L63:1.97 | - |
-| 64 | ch:firstreadings:L64 | measured | `0.0007` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: largest conversion-failure difference, treated vs vehicle | PASS |
+| 64 |  | measured | `0.0007` | not run: printed value 0.0007 has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.000742 from the committed readings) | - |
 | 74 | ch:firstreadings:L74:0.968 | measured | `0.968` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: vehicle lowest Met-A | PASS |
 | 74 | ch:firstreadings:L74:1.048 | measured | `1.048` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: vehicle highest Met-A | PASS |
 | 74 | ch:firstreadings:L74:3.2 | measured | `3.2` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: caption: lowest active-drug dose | PASS |
@@ -5025,7 +5025,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 81 | ch:firstreadings:L81:0.0511 | measured | `0.0511` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: treated copy error highest | PASS |
 | 81 | ch:firstreadings:L81:1.65 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: IAM-A lowest | PASS |
 | 81 | ch:firstreadings:L81:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: IAM-A highest | PASS |
-| 82 | ch:firstreadings:L82 | measured | `0.0007` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv`: caption: largest conversion-failure difference | PASS |
+| 82 |  | measured | `0.0007` | not run: printed value 0.0007 (figure caption) has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.000742; same value as line 64) | - |
 | 89 | ch:firstreadings:L89 | measured | `0.05` | file `Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md`: remission draws agree within the S5 bar | PASS |
 | 97 | ch:firstreadings:L97 | measured | `67.9` | file `Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md`: 450K held-out controls read Normal (per cent) | PASS |
 | 97 | ch:firstreadings:L97:0.961 | measured | `0.961` | file `Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md`: 450K controls: women median reading (record) | PASS |
@@ -5052,11 +5052,11 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 53 | ch:salmonid:L53:0.0025 | measured | `0.0025` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow P1 between-fish SD, red cells | PASS |
 | 53 | ch:salmonid:L53:0.0005 | measured | `0.0005` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow within-fish half-split SD, red cells | PASS |
 | 53 | ch:salmonid:L53:0.0002 | measured | `0.0002` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow within-fish half-split SD, sperm | PASS |
-| 54 | ch:salmonid:L54 | measured | `0.0354` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 54 | ch:salmonid:L54:3.31 | measured | `3.31` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 55 | ch:salmonid:L55 | measured | `0.0356` | file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: measured: printed value found in coho_cc_fish.csv, a file the chapter names | PASS |
+| 54 | ch:salmonid:L54 | measured | `0.0354` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow steelhead: median red-cell eps_corr | PASS |
+| 54 | ch:salmonid:L54:3.31 | measured | `3.31` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow steelhead: median red-cell holding energy, kT | PASS |
+| 55 | ch:salmonid:L55 | measured | `0.0356` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow steelhead: median eps_corr of hatchery red cells | PASS |
 | 55 | ch:salmonid:L55:0.0352 | measured | `0.0352` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 55 | ch:salmonid:L55:0.0165 | measured | `0.0165` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
+| 55 | ch:salmonid:L55:0.0165 | measured | `0.0165` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow steelhead: median eps_corr of hatchery sperm | PASS |
 | 55 | ch:salmonid:L55:0.31 | measured | `0.31` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow P3 red cells, Mann-Whitney p | PASS |
 | 55 | ch:salmonid:L55:0.0184 | measured | `0.0184` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow P3 sperm, natural median | PASS |
 | 55 | ch:salmonid:L55:0.34 | measured | `0.34` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow P3 sperm, Mann-Whitney p | PASS |
@@ -5076,14 +5076,14 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 65 | ch:salmonid:L65:0.019 | measured | `0.019` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm lanes: highest median of the other lanes | PASS |
 | 66 | ch:salmonid:L66 | measured | `0.06` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow: red cell against sperm of one fish, rho | PASS |
 | 66 | ch:salmonid:L66:0.81 | measured | `0.81` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow: red cell against sperm of one fish, p | PASS |
-| 67 | ch:salmonid:L67 | measured | `3.31` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
+| 67 | ch:salmonid:L67 | measured | `3.31` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow steelhead: median red-cell holding energy, kT (sperm comparison) | PASS |
 | 67 | ch:salmonid:L67:4.02 | measured | `4.02` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm holding energy | PASS |
 | 87 | ch:salmonid:L87 | measured | `0.924` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr ICC, 36 fish | PASS |
 | 87 | ch:salmonid:L87:-0.01 | measured | `-0.01` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P1: rho with conversion failure | PASS |
 | 87 | ch:salmonid:L87:+0.45 | measured | `+0.45` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P1: rho with duplicate fraction | PASS |
 | 87 | ch:salmonid:L87:+0.57 | measured | `+0.57` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr: rho with duplicates, failed fish left out | PASS |
 | 88 | ch:salmonid:L88 | measured | `3.82` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
-| 88 | ch:salmonid:L88:0.0216 | measured | `0.0216` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
+| 88 | ch:salmonid:L88:0.0216 | measured | `0.0216` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P2: median ambient eps_corr | PASS |
 | 88 | ch:salmonid:L88:+0.29 | measured | `+0.29` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P1: rho with masked fraction | PASS |
 | 89 | ch:salmonid:L89 | measured | `0.92` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P3: warm/ambient ratio | PASS |
 | 89 | ch:salmonid:L89:0.79 | measured | `0.79` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr P3: ratio, lower 95 % bound | PASS |
@@ -5109,9 +5109,9 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 109 | ch:salmonid:L109:0.27 | measured | `0.27` | heavy file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Rimouski P4: p of the mother term | PASS |
 | 109 |  | measured | `+0.0001` | not run: measured: Rimouski P4 father's-origin term 0.000107 by least squares from rimouski_readings.csv (rimouski_score.json P4) rounds to the printed +0.0001; a one-digit value cannot carry the 5 % negative control (0.000105 lies within half its last digit of 0.000107); its p (0.71) is checked by ch:salmonid:L109:0.71 | - |
 | 109 |  | measured | `+0.0003` | not run: measured: Rimouski P4 mother's-origin term 0.000322 by least squares from rimouski_readings.csv (rimouski_score.json P4) rounds to the printed +0.0003; a one-digit value cannot carry the 5 % negative control (0.000315 lies within half its last digit of 0.000322); its p (0.27) is checked by ch:salmonid:L109:0.27 | - |
-| 110 | ch:salmonid:L110 | measured | `0.0303` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
+| 110 | ch:salmonid:L110 | measured | `0.0303` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Atlantic salmon fin: F0 median eps_corr | PASS |
 | 110 | ch:salmonid:L110:3.47 | measured | `3.47` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
-| 110 | ch:salmonid:L110:0.0278 | measured | `0.0278` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
+| 110 | ch:salmonid:L110:0.0278 | measured | `0.0278` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Atlantic salmon fin: F1 median eps_corr | PASS |
 | 110 | ch:salmonid:L110:3.56 | measured | `3.56` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 126 | ch:salmonid:L126 | measured | `0.826` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho D1: ICC | PASS |
 | 126 | ch:salmonid:L126:-0.384 | measured | `-0.384` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho D2: rho with conversion failure | PASS |
@@ -5125,19 +5125,19 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 131 | ch:salmonid:L131:0.33 | measured | `0.33` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: conversion failure between lanes, p | PASS |
 | 132 | ch:salmonid:L132 | measured | `0.0337` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 132 | ch:salmonid:L132:0.0373 | measured | `0.0373` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 132 | ch:salmonid:L132:0.0356 | measured | `0.0356` | file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: measured: printed value found in coho_cc_fish.csv, a file the chapter names | PASS |
+| 132 | ch:salmonid:L132:0.0356 | measured | `0.0356` | file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: median copy error on common sites | PASS |
 | 132 | ch:salmonid:L132:0.00089 | measured | `0.00089` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho between-fish SD | PASS |
 | 133 | ch:salmonid:L133 | measured | `0.00039` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho half-split noise | PASS |
 | 136 | ch:salmonid:L136 | measured | `3.25` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 136 | ch:salmonid:L136:3.36 | measured | `3.36` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
+| 136 | ch:salmonid:L136:3.36 | measured | `3.36` | file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: coho: highest holding energy, kT (as scored) | PASS |
 | 136 | ch:salmonid:L136:3.30 | measured | `3.30` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
-| 150 | ch:salmonid:L150 | measured | `3.31` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: measured: printed value found in salmon_readings.csv, a file the chapter names | PASS |
+| 150 | ch:salmonid:L150 | measured | `3.31` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: table: Methow steelhead red cells, median holding energy, kT | PASS |
 | 150 | ch:salmonid:L150:20 | measured | `20` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Table: Methow males | PASS |
 | 150 | ch:salmonid:L150:0.998 | measured | `0.998` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Table: Methow ICC | PASS |
 | 150 | ch:salmonid:L150:-0.58 | measured | `-0.58` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Table: Methow red cells, rho with conversion | PASS |
 | 151 | ch:salmonid:L151 | measured | `-0.54` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Table: Methow sperm, rho with conversion | PASS |
 | 151 | ch:salmonid:L151:4.02 | measured | `4.02` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Table: Methow sperm E | PASS |
-| 152 | ch:salmonid:L152 | measured | `3.81` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
+| 152 | ch:salmonid:L152 | measured | `3.81` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: table: brook charr sperm, median holding energy, kT | PASS |
 | 152 | ch:salmonid:L152:40 | measured | `40` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: Table: brook charr males | PASS |
 | 152 | ch:salmonid:L152:0.924 | measured | `0.924` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: Table: brook charr ICC | PASS |
 | 152 | ch:salmonid:L152:+0.45 | measured | `+0.45` | heavy file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: Table: brook charr, rho with duplicates | PASS |
@@ -5149,17 +5149,17 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 154 | ch:salmonid:L154:39 | measured | `39` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: Table: coho smolts | PASS |
 | 154 | ch:salmonid:L154:0.826 | measured | `0.826` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: Table: coho ICC | PASS |
 | 154 | ch:salmonid:L154:-0.38 | measured | `-0.38` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: Table: coho, rho with conversion | PASS |
-| 163 | ch:salmonid:L163 | measured | `3.29` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
+| 163 | ch:salmonid:L163 | measured | `3.29` | file `Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md`: human cells, lower end of the holding energy, kT (figure caption) | PASS |
 | 163 | ch:salmonid:L163:3.51 | measured | `3.51` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 164 | ch:salmonid:L164 | measured | `3.60` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 164 | ch:salmonid:L164:3.85 | measured | `3.85` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
 | 169 | ch:salmonid:L169 | measured | `0.83` | heavy file `Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv`: lowest ICC of the four sets (coho) | PASS |
 | 170 | ch:salmonid:L170 | measured | `0.998` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: highest ICC of the four sets (Methow) | PASS |
-| 179 | ch:salmonid:L179 | measured | `3.29` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
+| 179 | ch:salmonid:L179 | measured | `3.29` | file `Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md`: human cells, lower end of the holding energy, kT | PASS |
 | 179 | ch:salmonid:L179:3.51 | measured | `3.51` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 179 | ch:salmonid:L179:3.60 | measured | `3.60` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: measured: printed value found in rimouski_readings.csv, a file the chapter names | PASS |
 | 179 | ch:salmonid:L179:3.85 | measured | `3.85` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
-| 180 | ch:salmonid:L180 | measured | `3.81` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: measured: printed value found in charr_readings.csv, a file the chapter names | PASS |
+| 180 | ch:salmonid:L180 | measured | `3.81` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr sperm, median holding energy, kT | PASS |
 | 180 | ch:salmonid:L180:4.02 | measured | `4.02` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow sperm holding energy (holding-energy paragraph) | PASS |
 | 184 | ch:salmonid:L184 | openprob | `3.76` | heavy file `Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md`: ENCODE immune cells, lower E | PASS |
 | 184 | ch:salmonid:L184:3.93 | openprob | `3.93` | heavy file `Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md`: ENCODE immune cells, upper E | PASS |
@@ -5395,7 +5395,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 79 | ch:onegauge:L79 | derived |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
 | 83 |  | none |  | not run: definition: Met-A = <H(beta)> at identity sites over <H(beta)> of the healthy reference | - |
 | 94 | ch:onegauge:L94 | derived | `0.032` | numeric: IAM-A floor eps0 = 1/(1 + e^{phi M}) | PASS |
-| 110 | ch:onegauge:L110 | measured | `1.05` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
+| 110 | ch:onegauge:L110 | measured | `1.05` | file `CANON/iam_canon.json`: Normal band, upper edge (canon Normal_band) | PASS |
 | 110 | ch:onegauge:L110:0.695 | measured | `0.695` | heavy file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 senescent, unmethylated channel, upper end | PASS |
 | 110 | ch:onegauge:L110:1.120 | measured | `1.120` | heavy file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 SV40, methylated channel, upper end | PASS |
 | 110 | ch:onegauge:L110:0.664 | measured | `0.664` | heavy file `Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv`: IMR90 SV40, unmethylated channel, upper end | PASS |
@@ -5463,7 +5463,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 98 | ch:synthesis:L98:1.16 | measured | `1.16` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names | PASS |
 | 98 | ch:synthesis:L98:1.87 | measured | `1.87` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names | PASS |
 | 98 | ch:synthesis:L98:0.97 | measured | `0.97` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT series vehicle arrays, lowest | PASS |
-| 100 | ch:synthesis:L100 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names | PASS |
+| 100 | ch:synthesis:L100 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv`: DNMT1 block on single molecules: lowest IAM-A of the 8 treated libraries | PASS |
 | 100 | ch:synthesis:L100:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names | PASS |
 | 102 | ch:synthesis:L102 | measured | `1.148` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |
 
@@ -5472,7 +5472,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 33 | ch:reach:L33 | measured | `1.148` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |
-| 33 | ch:reach:L33:1.65 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names | PASS |
+| 33 | ch:reach:L33:1.65 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv`: DNMT1 block on single molecules: lowest IAM-A (figure caption) | PASS |
 | 33 | ch:reach:L33:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names | PASS |
 | 40 | ch:reach:L40 | measured | `1.07` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |
 | 40 | ch:reach:L40:1.33 | measured | `1.33` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |
@@ -5483,7 +5483,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 52 | ch:reach:L52:0.968 | measured | `0.968` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT series vehicle arrays: Met-A lowest | PASS |
 | 52 | ch:reach:L52:1.048 | measured | `1.048` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT series vehicle arrays: Met-A highest | PASS |
 | 53 | ch:reach:L53 | measured | `3.2` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT series: lowest dose of the active drug, nM | PASS |
-| 55 | ch:reach:L55 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names | PASS |
+| 55 | ch:reach:L55 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv`: DNMT1 block on single molecules: lowest IAM-A | PASS |
 | 55 | ch:reach:L55:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names | PASS |
 | 68 | ch:reach:L68 | calc | `1.012` | numeric: same value as p4_10_temperature:17 (floor at 38.5 C) | PASS |
 | 68 | ch:reach:L68:0.78 | calc | `0.78` | numeric: copy-error floor at 10 C relative to 37 C, fixed holding energy | PASS |
@@ -5505,10 +5505,10 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 24 | ch:predictions:L24:0.11 | measured | `0.11` | file `docs/verification/theory/IAM_LAW_CHECK.md`: DESI 2024 full-shape mu0 (recorded value) | PASS |
 | 24 | ch:predictions:L24:0.54 | measured | `0.54` | file `docs/verification/theory/IAM_LAW_CHECK.md`: DESI 2024 full-shape mu0 lower error (recorded value) | PASS |
 | 24 | ch:predictions:L24:1.8 | calc | `1.8` | numeric: E_G above LCDM at z = 0.3 (C8) | PASS |
-| 24 | ch:predictions:L24:1.1 | calc | `1.1` | numeric: E_G above LCDM at z = 0.5 (C8) | PASS |
 | 24 | ch:predictions:L24:0.78 | calc | `0.78` | numeric: growth factor D below LCDM today (C4) | PASS |
 | 24 |  | calc | `0.3` | not run: input: the redshift z = 0.3 at which the E_G change is read (checked as ch:predictions:L24:1.8) | - |
 | 24 |  | calc | `0.5` | not run: input: the redshift z = 0.5 at which the E_G change is read (checked as ch:predictions:L24:1.1) | - |
+| 24 |  | calc | `1.1` | not run: printed value 1.1 % has two significant digits and the recomputed E_G change, 1.144 %, lies within 2.5 % of 1.1 x 1.05: a 5 % change cannot be told from rounding | - |
 | 86 | ch:predictions:L86 | observed | `70.0` | numeric: GW170817 standard-siren H0 (published) | PASS |
 | 86 | ch:predictions:L86:8.0 | observed | `8.0` | numeric: GW170817 siren H0 lower error (published) | PASS |
 | 87 | ch:predictions:L87 | openprob | `72.26` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 = H0_photon sqrt(1 + beta_m) | PASS |
@@ -5768,11 +5768,11 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 79 | ch:statusall:L79 | calc | `6.2\times10^{-4}` | numeric: transmon floor on its gauge | PASS |
 | 79 | ch:statusall:L79:10 | calc | `10` | numeric: surface-code threshold on the qubit gauge | PASS |
 | 81 | ch:statusall:L81 | calc | `6.2\times10^{-7}` | numeric: per-gate thermal floor | PASS |
-| 81 | ch:statusall:L81:6\times10^{-4} | calc | `6\times10^{-4}` | numeric: floor on the gauge of a 1e-3 gate | PASS |
 | 81 |  | calc | `68` | not run: input: T_1 = 68 microseconds (GoogleWillow2025, as cited in ch:ascoreqc); the floor is checked in ch:statusall:L81 | - |
 | 81 |  | calc | `10` | not run: input: illustrative two-qubit gate error 10^-3 (the inventoried 10 is the base of the power of ten) | - |
 | 81 |  | calc | `35` | not run: input: device temperature 35 mK (Jin2015, as cited in ch:ascoreqc) | - |
 | 81 |  | calc | `40` | not run: input: illustrative 40 ns gate time | - |
+| 81 |  | calc | `6\times10^{-4}` | not run: printed value 6x10^-4 has one significant digit: a 5 % change cannot be told from rounding (recomputed 6.19e-4); the precise per-gate floor is checked at ch:statusall:L81 (6.2x10^-7) | - |
 | 82 | ch:statusall:L82 | calc | `6.85` | numeric: slope at 35 mK | PASS |
 | 82 | ch:statusall:L82:16.0 | calc | `16.0` | numeric: slope at 15 mK | PASS |
 | 82 |  | calc | `35` | not run: input: temperature 35 mK at which the slope is evaluated; the slope is checked in ch:statusall:L82 | - |
@@ -5891,7 +5891,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 115 | app:notation:L115 | calc | `0.910` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json`: 1/P, position of H_min on the IAM-A gauge | PASS |
 | 116 | app:notation:L116 | calibrated | `0.330263` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 116 | app:notation:L116:6000 | calibrated | `6000` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: identity sites of the Met-A neutrophil reference | PASS |
-| 117 | app:notation:L117 | observed | `1.05` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
+| 117 | app:notation:L117 | observed | `1.05` | file `CANON/iam_canon.json`: Normal band, upper edge (canon Normal_band) | PASS |
 | 117 | app:notation:L117:0.95 | observed | `0.95` | file `CANON/iam_canon.json`: lower edge of the Normal band | PASS |
 | 118 | app:notation:L118 | calc | `3.03` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: full surface on Met-A | PASS |
 | 118 | app:notation:L118:4.45 | calc | `4.45` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json`: full surface on IAM-A | PASS |
@@ -6288,7 +6288,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 89 | app:glossary:L89 | observed | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
 | 89 | app:glossary:L89:0.3153 | observed | `0.3153` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
 | 89 | app:glossary:L89:0.1575 | observed | `0.1575` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
-| 89 | app:glossary:L89:0.315 | observed | `0.315` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
+| 89 | app:glossary:L89:0.315 | observed | `0.315` | file `CANON/iam_canon.json`: Omega_m written 0.315 (= 2 beta_m to three decimals) | PASS |
 | 90 | app:glossary:L90:0.295 | observed | `0.295` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI BGS effective redshift | PASS |
 | 103 |  | observed | `50` | not run: definition: block size of the C-score, 50 consecutive identity sites | - |
 | 109 | app:glossary:L109:5.5 | observed | `5.5` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: bottom-up exponent at z = 9 | PASS |
@@ -6300,7 +6300,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 124 | app:glossary:L124:18 | observed | `18` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d): upper edge of the first distance bin | PASS |
 | 124 | app:glossary:L124:0.32 | observed | `0.32` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d) of beta at 1-1.8 kb | PASS |
 | 124 | app:glossary:L124:1.8 | observed | `1.8` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d): upper edge of the 1 kb bin, kb | PASS |
-| 124 | app:glossary:L124:0.05 | observed | `0.05` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d) of beta at 3-6 kb | PASS |
+| 124 |  | observed | `0.05` | not run: printed value 0.05 has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0526; the same quantity is printed to one digit at ch:skytools:L125) | - |
 | 126 |  | observed | `10` | not run: input: about 10^4 genome equivalents in a millilitre-scale draw, an order of magnitude (used in ch:sky L73-74) | - |
 | 133 | app:glossary:L133:1.456 | observed | `1.456` | numeric: Chandrasekhar mass for mu_e = 2 from the constants | PASS |
 | 133 |  | observed | `1.44` | not run: input: Chandrasekhar mass 1.44 M_sun as conventionally quoted (Chandrasekhar1931); the constants-only 1.456 beside it is checked at app:glossary:L133:1.456 | - |
@@ -6343,8 +6343,8 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 238 | app:glossary:L238:+1.8 | observed | `+1.8` | numeric: E_G above GR at z = 0.3, per cent | PASS |
 | 238 | app:glossary:L238:+3.6 | observed | `+3.6` | numeric: E_G above GR today, per cent | PASS |
 | 238 |  | observed | `0.3` | not run: input: redshift z = 0.3 at which E_G is evaluated (used in app:glossary:L238:+1.8) | - |
-| 243 | app:glossary:L243:0.3 | observed | `0.3` | numeric: m_e uncertainty set by H0, per cent | PASS |
 | 243 | app:glossary:L243:0.576 | observed | `0.576` | numeric: electron fixed point without the (2 pi)^(3/10) prefactor, in m_e | PASS |
+| 243 |  | observed | `0.3` | not run: printed value 0.3 % has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.320 %; the precise 0.32 % is checked at ch:electronmass:L188) | - |
 | 245 | app:glossary:L245:159.5 | observed | `159.5` | numeric: electroweak crossover temperature (lattice) | PASS |
 | 245 | app:glossary:L245:9.2e-12 | observed | `9.2\times10^{-12}` | numeric: time of the electroweak crossover, s | PASS |
 | 246 | app:glossary:L246 | observed | `246.22` | numeric: same value as p2_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV) | PASS |
@@ -6355,12 +6355,12 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 251 | app:glossary:L251:738 | observed | `738` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 251 | app:glossary:L251:1056 | observed | `1{,}056` | file `Biological_Physics/MethylPhys/doors/PLAN.md`: E-MTAB-7309 arrays calibrated | PASS |
 | 254 | app:glossary:L254 | calc | `152.5` | numeric: same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass) | PASS |
-| 258 | app:glossary:L258 | observed | `1.00` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 258 |  | observed | `1.00` | not run: definition: an atlas cell reads 1.00 on its own profile by construction (entry rule); nothing to compute, and the number is not in MethylPhys_CPG_SOP_v3.md (the earlier match was an unrelated number) | - |
 | 260 |  | observed | `865` | not run: measured, source not named | - |
 | 260 |  | observed | `000` | not run: not a separate number: thousands group of "865,000" (the EPIC CpG count, listed in sources_needed) | - |
 | 262 | app:glossary:L262 | observed | `3.41` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 262 | app:glossary:L262:0.032 | observed | `0.032` | numeric: copy-error floor eps0 | PASS |
-| 263 | app:glossary:L263 | observed | `-1.062` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 263 | app:glossary:L263 | observed | `-1.062` | file: w_eff(1) for vacuum plus record | PASS |
 | 270 |  | observed | `10` | not run: input: surface-code threshold about 10^{-2}, an order of magnitude quoted in ch:ascoreqc | - |
 | 274 | app:glossary:L274:5120 | observed | `5120` | numeric: 5120 in the evaporation time | PASS |
 | 274 | app:glossary:L274:2.1e67 | observed | `2.1\times10^{67}` | numeric: evaporation time of one solar mass, years | PASS |
@@ -6402,7 +6402,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 335 |  | observed | `12` | not run: definition: HEALPix divides the sphere into 12 N_side^2 pixels (Gorski2005) | - |
 | 336 | app:glossary:L336 | observed | `0.330263` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 336 | app:glossary:L336:0.2246 | observed | `0.2246` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
-| 338 | app:glossary:L338 | observed | `0.983` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 338 | app:glossary:L338 | observed | `0.983` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out neutrophil reference arrays, lowest Met-A | PASS |
 | 338 | app:glossary:L338:-1.045 | observed | `-1.045` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 341 | app:glossary:L341:28217448 | observed | `28{,}217{,}448` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpGs of the hg19 index | PASS |
 | 341 |  | observed | `217` | not run: not a separate number: thousands group of "28,217,448", checked at app:glossary:L341:28217448 | - |
@@ -6422,7 +6422,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 361 | app:glossary:L361:1.4e26 | observed | `1.4\times10^{26}` | numeric: Hubble radius c/H0, m | PASS |
 | 368 | app:glossary:L368 | observed | `1.099` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 368 | app:glossary:L368:100 | observed | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 368 | app:glossary:L368:-1.05 | observed | `-1.05` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 368 | app:glossary:L368:-1.05 | observed | `1.05` | file `CANON/iam_canon.json`: IAM-A: Normal band, upper edge (canon Normal_band) | PASS |
 | 368 | app:glossary:L368:0.032 | observed | `0.032` | numeric: copy-error floor eps0 (IAM-A entry) | PASS |
 | 368 |  | observed | `000` | not run: definition: at least 100,000 opportunities per IAM-A reading (chain setting); thousands group | - |
 | 368 |  | observed | `0.95` | not run: definition: lower edge of the Normal band 0.95-1.05 (canon Normal_band) | - |
@@ -6459,8 +6459,8 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 426 | app:glossary:L426 | observed | `68` | file `docs/verification/observations/MISSING_SATELLITES_CHECK.md`: Milky Way satellites in the Local Volume Database | PASS |
 | 429 | app:glossary:L429 | observed | `1.3` | numeric: separation of the spins in the 2015 loophole-free Bell test, km | PASS |
 | 430 | app:glossary:L430 | observed | `56` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: cell types of the Loyfer atlas read for the holding energy | PASS |
-| 434 | app:glossary:L434 | observed | `1.05` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 434 | app:glossary:L434:1.02 | observed | `1.02` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 434 | app:glossary:L434 | observed | `1.05` | file: M_lens/M_dyn = 1/mu(z) at z = 0.5 (Level 1) | PASS |
+| 434 | app:glossary:L434:1.02 | observed | `1.02` | file: M_lens/M_dyn = 1/mu(z) at z = 1 (Level 1) | PASS |
 | 434 | app:glossary:L434:1.16 | observed | `1.16` | numeric: M_lens/M_dyn = 1/mu today, Level 1 form | PASS |
 | 434 |  | calc | `0.5` | not run: input: redshift z = 0.5 at which 1/mu is quoted (the value 1.05 there is checked at app:glossary:L434) | - |
 | 435 |  | calc | `6.5\times10^9` | not run: input: M87* black-hole mass 6.5e9 M_sun, Event Horizon Telescope 2019 (doi 10.3847/2041-8213/ab0ec7); the Smarr share at this mass is checked at ch:blackholes:L143 | - |
@@ -6472,7 +6472,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 446 | app:glossary:L446:0.80 | observed | `0.80` | numeric: baseline 1-b of about 0.80 | PASS |
 | 451 | app:glossary:L451 | observed | `36.8` | numeric: maturity E(1)/e today, per cent | PASS |
 | 457 | app:glossary:L457 | observed | `0.330263` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 457 | app:glossary:L457:-1.05 | observed | `-1.05` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 457 | app:glossary:L457:-1.05 | observed | `1.05` | file `CANON/iam_canon.json`: Met-A: Normal band, upper edge (canon Normal_band) | PASS |
 | 457 | app:glossary:L457:0.95 | observed | `0.95` | file `CANON/iam_canon.json`: lower edge of the Normal band (CANON) | PASS |
 | 457 |  | observed | `20` | not run: definition: smallest neutrophil fraction (20 %) at which whole-blood Met-A is read, a chain rule | - |
 | 463 | app:glossary:L463 | observed | `1{,}200` | numeric: Micius entanglement distribution distance, km | PASS |
@@ -6522,7 +6522,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 556 |  | observed | `7.9\times10^{-4}` | not run: measured, source not named | - |
 | 560 |  | observed | `0.93` | not run: definition: intake call-rate line 0.93 (quarantine rule of the chain) | - |
 | 562 |  | observed | `10` | not run: measured, source not named | - |
-| 567 | app:glossary:L567 | observed | `1.01` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 567 |  | observed | `1.01` | not run: convention: R-hat < 1.01 is the acceptance threshold of the atlas fits, not a computed value; it is not in MethylPhys_CPG_SOP_v3.md (the earlier match was an unrelated number) | - |
 | 570 |  | observed | `0.20` | not run: definition: read line 0.20, the smallest neutrophil fraction chain v3 reads (chain rule) | - |
 | 583 | app:glossary:L583:0.79 | observed | `0.79` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: rho of Met-A and noise index, second laboratory, 30 y | PASS |
 | 583 | app:glossary:L583:0.83 | observed | `0.83` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: rho of Met-A and noise index, second laboratory, 54 y | PASS |
@@ -6537,8 +6537,8 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 599 | app:glossary:L599 | observed | `738` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 599 | app:glossary:L599:1056 | observed | `1{,}056` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: SATSA raw arrays | PASS |
 | 599 |  | observed | `0.93` | not run: definition: intake call-rate line 0.93 restated (quarantine rule); the count 1,056 is checked at app:glossary:L599:1056 | - |
-| 607 | app:glossary:L607 | observed | `1.00` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 607 | app:glossary:L607:0.020 | observed | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: SD of the held-out reference readings, sites re-chosen | PASS |
+| 607 |  | observed | `1.00` | not run: definition: 1.00 is the reading a reference sample should give by construction; nothing to compute; the selection-noise SDs (0.020, 0.006) are the measured part, and the earlier match in MethylPhys_CPG_SOP_v3.md was an unrelated number | - |
 | 613 |  | observed | `4.3\times10^6` | not run: input: Sgr A* mass 4.3e6 M_sun (Gillessen 2009), as taken in Chapter ch:iams_law; nothing to recompute | - |
 | 614 | app:glossary:L614 | observed | `73.04` | numeric: SH0ES H0 | PASS |
 | 619 | app:glossary:L619 | observed | `0.91` | numeric: Cornell sigma = 0.18 GeV^2 in GeV/fm | PASS |
@@ -6571,7 +6571,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 668 |  | observed | `0.20` | not run: definition: read line 0.20 restated (chain rule) | - |
 | 671 | app:glossary:L671 | observed | `3.7\times10^{-23}` | numeric: thermal de Broglie wavelength of 1 g at 300 K, m | PASS |
 | 671 |  | observed | `300` | not run: input: temperature 300 K of the worked example; used in app:glossary:L671 | - |
-| 675 | app:glossary:L675 | observed | `1.26` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 675 | app:glossary:L675 | observed | `1.26` | file: three clocks: redshift of the peak per unit time | PASS |
 | 675 | app:glossary:L675:8.9 | observed | `8.9` | numeric: lookback time to the peak of the per-time clock, Gyr | PASS |
 | 681 | app:glossary:L681 | observed | `4.6\times10^{-25}` | numeric: top-quark lifetime hbar/Gamma_t, s | PASS |
 | 682 |  | observed | `2.3` | not run: input: TOV limit of about 2.3 M_sun (published approximate value), nothing to recompute | - |
@@ -6579,7 +6579,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 707 | app:glossary:L707 | observed | `4.63\times10^{113}` | numeric: Planck-cutoff vacuum energy density E_P^4/(hbar c)^3, J/m^3 | PASS |
 | 707 | app:glossary:L707:1e123 | observed | `10^{123}` | numeric: rho_vac over the measured dark-energy density | PASS |
 | 708 | app:glossary:L708 | observed | `0.1628` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
-| 714 | app:glossary:L714 | observed | `1.02` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 714 | app:glossary:L714 | observed | `1.02` | file `docs/verification/scripts/verify_virial_papers_output.txt`: virial ratio with surface pressure, lower end (Klypin 2016) | PASS |
 | 714 | app:glossary:L714:1.1 | observed | `1.1` | file `docs/verification/virial/NBODY_TRACE.md`: lowest 2T/|U| of simulated halos within the virial radius | PASS |
 | 714 | app:glossary:L714:1.3 | observed | `1.3` | file `docs/verification/virial/NBODY_TRACE.md`: highest 2T/|U| of simulated halos within the virial radius | PASS |
 | 714 | app:glossary:L714:1.17 | observed | `1.17` | file `docs/verification/virial/NBODY_TRACE.md`: surface-pressure corrected 2K/|W|, upper end | PASS |
@@ -6587,7 +6587,7 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 725 | app:glossary:L725 | observed | `0.593` | numeric: mean DA white dwarf mass (Kepler et al. 2007) | PASS |
 | 728 | app:glossary:L728 | measured | `0.045` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, untared, 54 y repeat arrays | PASS |
 | 728 | app:glossary:L728:0.044 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, untared, 30 y repeat arrays | PASS |
-| 729 | app:glossary:L729 | observed | `1.05` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 729 | app:glossary:L729 | observed | `1.05` | file: LoCuSS M_WL/M_X = 1/beta_X | PASS |
 | 729 | app:glossary:L729:1.45 | observed | `1.45` | heavy numeric `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: WtG Planck-prior 1/(1-b) | PASS |
 | 729 | app:glossary:L729:1.28 | observed | `1.28` | heavy numeric `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: CCCP Planck-prior 1/(1-b) | PASS |
 | 729 |  | observed | `0.15` | not run: input: redshift bound z=0.15 of the published cluster sample split (Smith2016LoCuSS), a sample definition | - |
@@ -6599,8 +6599,8 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 19 | app:register:L19 | observed | `126` | file `CANON/predictions_triage_2026-10-02.json`: measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names | PASS |
-| 19 | app:register:L19:133 | observed | `133` | file `CANON/predictions_triage_2026-10-02.json`: measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names | PASS |
+| 19 | app:register:L19 | observed | `126` | file `CANON/predictions_triage_2026-10-02.json`: register, cosmology and gravitation: merged entries | PASS |
+| 19 | app:register:L19:133 | observed | `133` | file `CANON/predictions_triage_2026-10-02.json`: register, cosmology and gravitation: entries not listed | PASS |
 | 19 | app:register:L19:357 | observed | `357` | file `CANON/predictions_triage_2026-10-02.json`: measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names | PASS |
 | 19 | app:register:L19:45 | observed | `45` | file `CANON/predictions_triage_2026-10-02.json`: register counts: cosmology entries restated | PASS |
 | 19 | app:register:L19:40 | observed | `40` | file `CANON/predictions_triage_2026-10-02.json`: register counts: cosmology rows listed here | PASS |
@@ -6608,8 +6608,8 @@ Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries t
 | 21 | app:register:L21:24 | observed | `24` | file `CANON/predictions_triage_2026-10-02.json`: register counts: qubit total | PASS |
 | 23 | app:register:L23:12 | observed | `12` | file `CANON/predictions_triage_2026-10-02.json`: register counts: foundations not listed | PASS |
 | 23 | app:register:L23:15 | observed | `15` | file `CANON/predictions_triage_2026-10-02.json`: register counts: foundations total | PASS |
-| 24 | app:register:L24 | observed | `143` | file `CANON/predictions_triage_2026-10-02.json`: measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names | PASS |
-| 24 | app:register:L24:157 | observed | `157` | file `CANON/predictions_triage_2026-10-02.json`: measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names | PASS |
+| 24 | app:register:L24 | observed | `143` | file `CANON/predictions_triage_2026-10-02.json`: register, all domains: merged entries | PASS |
+| 24 | app:register:L24:157 | observed | `157` | file `CANON/predictions_triage_2026-10-02.json`: register, all domains: entries not listed | PASS |
 | 24 | app:register:L24:10 | observed | `10` | file `CANON/predictions_triage_2026-10-02.json`: register counts: all kept | PASS |
 | 24 | app:register:L24:57 | observed | `57` | file `CANON/predictions_triage_2026-10-02.json`: register counts: all restated | PASS |
 | 24 | app:register:L24:54 | observed | `54` | file `CANON/predictions_triage_2026-10-02.json`: register counts: all compared with data | PASS |

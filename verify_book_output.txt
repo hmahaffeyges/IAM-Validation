@@ -402,9 +402,9 @@ PASS  ch:virial:L97:1.5                  ch:virial:p2_02_virial:97  printed 1.5 
 PASS  ch:virial:L98                      ch:virial:p2_02_virial:98  printed 1.12  recomputed found in file  [observed] measured: printed value found in NBODY_TRACE.md, a file the chapter names  file docs/verification/virial/NBODY_TRACE.md
 PASS  ch:virial:L98:1.26                 ch:virial:p2_02_virial:98  printed 1.26  recomputed found in file  [observed] measured: printed value found in verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
-PASS  ch:virial:L98:1.35                 ch:virial:p2_02_virial:98  printed 1.35  recomputed found in file  [observed] measured: printed value found in verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
+PASS  ch:virial:L98:1.35                 ch:virial:p2_02_virial:98  printed 1.35  recomputed 1.35  tol 0.00500001  [observed] measured: Neto 2007 relaxation cut read from verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
-PASS  ch:virial:L99                      ch:virial:p2_02_virial:99  printed 1.15  recomputed found in file  [observed] measured: printed value found in NBODY_TRACE.md, a file the chapter names  file docs/verification/virial/NBODY_TRACE.md
+PASS  ch:virial:L99                      ch:virial:p2_02_virial:99  printed 1.15  recomputed 1.15  tol 0.00500001  [observed] measured: Power 2012 eta at 10^12 read from NBODY_TRACE.md, a file the chapter names  file docs/verification/virial/NBODY_TRACE.md
 PASS  ch:virial:L99:1.25                 ch:virial:p2_02_virial:99  printed 1.25  recomputed found in file  [observed] measured: printed value found in NBODY_TRACE.md, a file the chapter names  file docs/verification/virial/NBODY_TRACE.md
 PASS  ch:virial:L99:0.9                  ch:virial:p2_02_virial:99  printed 0.9  recomputed 0.9  tol 0.05  [observed] Power 2012: surface-corrected eta' centre  file docs/verification/virial/NBODY_TRACE.md
 PASS  ch:virial:L100                     ch:virial:p2_02_virial:100  printed 1.02  recomputed found in file  [observed] measured: printed value found in verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
@@ -418,8 +418,6 @@ PASS  ch:virial:L102                     ch:virial:p2_02_virial:102  printed 0.8
 PASS  ch:virial:L102:0.89                ch:virial:p2_02_virial:102  printed 0.89  recomputed 0.89  tol 0.00500001  [observed] Bryan & Norman 1998: f_sigma, upper  file docs/verification/virial/NBODY_TRACE.md
 PASS  ch:virial:L102:0.75                ch:virial:p2_02_virial:102  printed 0.75  recomputed 0.75  tol 0.00500001  [observed] Bryan & Norman 1998: f_T, lower  file docs/verification/virial/NBODY_TRACE.md
 PASS  ch:virial:L102:0.79                ch:virial:p2_02_virial:102  printed 0.79  recomputed 0.79  tol 0.00500001  [observed] Bryan & Norman 1998: f_T, upper  file docs/verification/virial/NBODY_TRACE.md
-PASS  ch:virial:L108                     ch:virial:p2_02_virial:108  printed 0.5  recomputed found in file  [calc] collapse-fraction log-slope at 10^10, six mass functions  file docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv
-PASS  ch:virial:L108:3                   ch:virial:p2_02_virial:108  printed 3  recomputed found in file  [calc] collapse-fraction log-slope at 10^14, six mass functions  file docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv
 PASS  ch:virial:L125                     ch:virial:p2_02_virial:125  printed 0.486  recomputed 0.486378  tol 5.000005e-04  [calc] Tinker 2008 collapsed fraction above 10^10.5 h^-1 Msun
 PASS  ch:virial:L126                     ch:virial:p2_02_virial:126  printed 0.447  recomputed 0.446512  tol 5.000005e-04  [calc] Tinker 2008 collapsed fraction above 10^11
 PASS  ch:virial:L126:0.348               ch:virial:p2_02_virial:126  printed 0.348  recomputed 0.348417  tol 5.000005e-04  [calc] Tinker 2008 collapsed fraction above 10^12
@@ -428,9 +426,7 @@ PASS  eq:vc_n                            ch:virial:p2_02_virial:139  printed (al
 PASS  ch:virial:L143                     ch:virial:p2_02_virial:143  printed 7/2  recomputed 3.5  tol 1.000001e-09  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:virial:L143:2\%                 ch:virial:p2_02_virial:143  printed 2\%  recomputed 2  tol 0.5  [calc] coefficient of 1/a in the fitted record, offset from 1
 PASS  ch:virial:L143:7\%                 ch:virial:p2_02_virial:143  printed 7\%  recomputed 7  tol 0.5  [calc] constant of the fitted record, offset from 1
-PASS  ch:virial:L148                     ch:virial:p2_02_virial:148  printed 0.5  recomputed found in file  [calc] collapse-fraction log-slope above 10^10  file docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv
 PASS  ch:virial:L148:1                   ch:virial:p2_02_virial:148  printed 1  recomputed found in file  [calc] collapse-fraction log-slope above 10^12  file docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv
-PASS  ch:virial:L148:3                   ch:virial:p2_02_virial:148  printed 3  recomputed found in file  [calc] collapse-fraction log-slope above 10^14  file docs/verification/virial/NBODY_TRACE_massfunction_slopes.csv
 PASS  ch:virial:L151                     ch:virial:p2_02_virial:151  printed 7/2  recomputed 3.52167  tol 0.035  [calc] bottom-up n_eff passes through 7/2 at z = 3-4  file docs/verification/scripts/verify_bottom_up_exponent_output.txt
       heavy: python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt (needs colossus)
 PASS  ch:virial:L151:3                   ch:virial:p2_02_virial:151  printed 3  recomputed 3  tol 0.5  [calc] lower edge of the z window of the 7/2 crossings  file docs/verification/scripts/verify_bottom_up_exponent_output.txt
@@ -438,7 +434,7 @@ PASS  ch:virial:L151:3                   ch:virial:p2_02_virial:151  printed 3  
 PASS  ch:virial:L151:4                   ch:virial:p2_02_virial:151  printed 4  recomputed 4  tol 0.5  [calc] upper edge of the z window of the 7/2 crossings  file docs/verification/scripts/verify_bottom_up_exponent_output.txt
       heavy: python3 docs/verification/scripts/verify_bottom_up_exponent.py > docs/verification/scripts/verify_bottom_up_exponent_output.txt (needs colossus)
 PASS  eq:vc_E                            ch:virial:p2_02_virial:156  printed (algebra)  recomputed lhs-rhs=0  [derived] activation function E(a)=e^{-z} identity
-PASS  ch:virial:L159                     ch:virial:p2_02_virial:159  printed 0  recomputed lhs-rhs=0  [derived] drafted check, screened (runs; negative control fails)
+PASS  ch:virial:L159                     ch:virial:p2_02_virial:159  printed 0  recomputed lhs-rhs=0  [derived] E(a) -> 0 as a -> 0
 PASS  ch:virial:L159:4.5\times10^{-5}    ch:virial:p2_02_virial:159  printed 4.5\times10^{-5}  recomputed 4.539993e-05  tol 5.000005e-07  [derived] E at z=10
 PASS  ch:virial:L159:1                   ch:virial:p2_02_virial:159  printed 1  recomputed lhs-rhs=0  [derived] drafted check, screened (runs; negative control fails)
 PASS  ch:virial:L160                     ch:virial:p2_02_virial:160  printed (algebra)  recomputed True  [derived] dE/da positive for all a>0
@@ -563,7 +559,6 @@ PASS  ch:virial_tests:L26:0.0058         ch:virial_tests:p2_02b_virial_tests:26 
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:virial_tests:L26:0.802          ch:virial_tests:p2_02b_virial_tests:26  printed 0.802  recomputed found in file  [observed] measured: printed value found in verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
-PASS  ch:virial_tests:L26:0.12           ch:virial_tests:p2_02b_virial_tests:26  printed 0.12  recomputed 0.124929  tol 0.00500041  [calc] sigma8 tension in sigma
 PASS  ch:virial_tests:L26:0.022          ch:virial_tests:p2_02b_virial_tests:26  printed 0.022  recomputed 0.022  tol 5.000005e-04  [observed] joint sigma8 upper error (KiDS-Legacy + DES Y3 + DESI + Pantheon+)  file docs/verification/scripts/verify_virial_papers_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
 PASS  ch:virial_tests:L26:0.018          ch:virial_tests:p2_02b_virial_tests:26  printed 0.018  recomputed 0.018  tol 5.000005e-04  [observed] joint sigma8 lower error  file docs/verification/scripts/verify_virial_papers_output.txt
@@ -658,13 +653,13 @@ PASS  ch:theory:L345                     ch:theory:p2_03_theory:345  printed -2.
       heavy: python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt
 PASS  ch:theory:L345:-1.52               ch:theory:p2_03_theory:345  printed -1.52  recomputed found in file  [calc] fitted slope n=3, matter era  file docs/verification/scripts/verify_theory_derivations_output.txt
       heavy: python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt
-PASS  ch:theory:L345:-1.02               ch:theory:p2_03_theory:345  printed -1.02  recomputed found in file  [calc] fitted slope n=3.5, matter era  file docs/verification/scripts/verify_theory_derivations_output.txt
+PASS  ch:theory:L345:-1.02               ch:theory:p2_03_theory:345  printed -1.02  recomputed -1.02  tol 0.00500005  [calc] fitted slope n=3.5, matter era  file docs/verification/scripts/verify_theory_derivations_output.txt
       heavy: python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt
 PASS  ch:theory:L345:-0.53               ch:theory:p2_03_theory:345  printed -0.53  recomputed found in file  [calc] fitted slope n=4, matter era  file docs/verification/scripts/verify_theory_derivations_output.txt
       heavy: python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt
 PASS  eq:th:n                            ch:theory:p2_03_theory:350  printed (algebra)  recomputed lhs-rhs=0  [derived] solve exponent condition for n
 PASS  ch:theory:L351                     ch:theory:p2_03_theory:351  printed 7/2  recomputed 3.5  tol 1.000001e-09  [derived] n = 7/2 from matter-era power counting
-PASS  ch:theory:L353                     ch:theory:p2_03_theory:353  printed -1.02  recomputed found in file  [calc] full LCDM slope, matter era, n=7/2  file docs/verification/scripts/verify_theory_derivations_output.txt
+PASS  ch:theory:L353                     ch:theory:p2_03_theory:353  printed -1.02  recomputed -1.02  tol 0.00500005  [calc] full LCDM slope, matter era, n=7/2  file docs/verification/scripts/verify_theory_derivations_output.txt
       heavy: python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt
 PASS  ch:theory:L354                     ch:theory:p2_03_theory:354  printed -1.57  recomputed found in file  [calc] full LCDM slope, Lambda era, n=7/2  file docs/verification/scripts/verify_theory_derivations_output.txt
       heavy: python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt
@@ -699,12 +694,10 @@ PASS  ch:theory:L503                     ch:theory:p2_03_theory:503  printed 0.8
 PASS  ch:theory:L503:0.948               ch:theory:p2_03_theory:503  printed 0.948  recomputed 0.948158  tol 5.000005e-04  [calc] mu at z=0.5
 PASS  ch:theory:L503:0.982               ch:theory:p2_03_theory:503  printed 0.982  recomputed 0.982238  tol 5.000005e-04  [calc] mu at z=1
 PASS  ch:theory:L503:2.8\%               ch:theory:p2_03_theory:503  printed 2.8\%  recomputed 2.71333  tol 0.560001  [calc] max deviation of MGCAMB mu approx from exact
-PASS  ch:theory:L503:0.65                ch:theory:p2_03_theory:503  printed 0.65  recomputed 0.6695  tol 0.13  [calc] redshift location of max mu deviation
 PASS  ch:theory:L504                     ch:theory:p2_03_theory:504  printed -0.136  recomputed -0.136181  tol 5.004805e-04  [derived] mu0 repeat, IAM point in mu0-Sigma0 plane
 PASS  ch:theory:L504:0                   ch:theory:p2_03_theory:504  printed 0  recomputed 0  tol 0.5  [derived] Sigma_0 = Sigma(z=0) - 1 of the IAM point
 PASS  ch:theory:L506                     ch:theory:p2_03_theory:506  printed 2.718  recomputed 2.71828  tol 5.001125e-04  [calc] E saturation value, repeat
 PASS  ch:theory:L515                     ch:theory:p2_03_theory:515  printed -1.062  recomputed -1.06231  tol 5.000005e-04  [calc] tangent w0 value
-PASS  ch:theory:L515:-0.012              ch:theory:p2_03_theory:515  printed -0.012  recomputed -0.0116493  tol 5.004005e-04  [calc] tangent wa value
 PASS  ch:theory:L515:-1.065              ch:theory:p2_03_theory:515  printed -1.065  recomputed -1.06532  tol 5.005505e-04  [calc] least-squares CPL fit intercept w0
 PASS  ch:theory:L515:0.017               ch:theory:p2_03_theory:515  printed 0.017  recomputed 0.0172511  tol 5.000005e-04  [calc] least-squares CPL fit slope wa
 PASS  eq:th:phidot                       ch:theory:p2_03_theory:522  printed (algebra)  recomputed True  [derived] constraint equation for phidot
@@ -720,7 +713,6 @@ PASS  ch:theory:L579                     ch:theory:p2_03_theory:579  printed -4/
 PASS  ch:theory:L579:1/3                 ch:theory:p2_03_theory:579  printed 1/3  recomputed 0.333333  tol 1.000001e-09  [none] w_info derivative at a=1
 PASS  ch:theory:L581                     ch:theory:p2_03_theory:581  printed (algebra)  recomputed True  [derived] simplify wa formula
 PASS  ch:theory:L581:-1.062              ch:theory:p2_03_theory:581  printed -1.062  recomputed -1.06238  tol 5.000005e-04  [calc] w0 repeat value
-PASS  ch:theory:L581:-0.012              ch:theory:p2_03_theory:581  printed -0.012  recomputed -0.0116757  tol 5.004005e-04  [calc] wa tangent value
 PASS  ch:theory:L582                     ch:theory:p2_03_theory:582  printed -1.065  recomputed -1.06532  tol 5.005505e-04  [none] least-squares w0 repeat
 PASS  ch:theory:L582:0.017               ch:theory:p2_03_theory:582  printed 0.017  recomputed 0.0172511  tol 5.000005e-04  [none] least-squares wa repeat
 PASS  eq:th:betam                        ch:theory:p2_03_theory:607  printed (algebra)  recomputed lhs-rhs=0  [derived] beta_m=Om/2 from rho_info identification
@@ -729,7 +721,7 @@ PASS  eq:th:fcoll                        ch:theory:p2_03_theory:615  printed 0.6
 PASS  eq:th:fcoll:0.71                   ch:theory:p2_03_theory:615  printed 0.71  recomputed 0.706408  tol 0.00500001  [calc] collapsed fraction above 1e6 Msun, Tinker 2008
 PASS  ch:theory:L617                     ch:theory:p2_03_theory:617  printed 0.20  recomputed 0.201792  tol 0.00500001  [calc] naive beta_m=Om*f_coll lower bound
 PASS  ch:theory:L617:0.22                ch:theory:p2_03_theory:617  printed 0.22  recomputed 0.223863  tol 0.00500001  [calc] naive beta_m=Om*f_coll upper bound
-PASS  ch:theory:L617:27                  ch:theory:p2_03_theory:617  printed 27  recomputed 28  tol 1.08  [calc] percent naive beta_m above Om/2, low
+PASS  ch:theory:L617:27                  ch:theory:p2_03_theory:617  printed 27  recomputed 27.2639  tol 0.5  [calc] percent naive beta_m above Om/2, low
 PASS  ch:theory:L617:41                  ch:theory:p2_03_theory:617  printed 41  recomputed 42  tol 1.64  [calc] percent naive beta_m above Om/2, high
 PASS  ch:theory:L622                     ch:theory:p2_03_theory:622  printed 0.7  recomputed 0.704225  tol 0.05  [calc] virial efficiency lower bound
 PASS  ch:theory:L622:0.8                 ch:theory:p2_03_theory:622  printed 0.8  recomputed 0.78125  tol 0.05  [calc] virial efficiency upper bound
@@ -819,7 +811,6 @@ PASS  ch:theory:L824:1.020               ch:theory:p2_03_theory:824  printed 1.0
 PASS  ch:theory:L824:1.025               ch:theory:p2_03_theory:824  printed 1.025  recomputed 1.02538  tol 5.000005e-04  [calc] bispectrum ratio, same amplitude today, z = 1
 PASS  ch:theory:L834                     ch:theory:p2_03_theory:834  printed 0.251  recomputed 0.251473  tol 5.000005e-04  [calc] nonlinear scale k_nl, LambdaCDM, z = 0
 PASS  ch:theory:L834:0.255               ch:theory:p2_03_theory:834  printed 0.255  recomputed 0.254568  tol 5.000005e-04  [calc] nonlinear scale k_nl, IAM, z = 0
-PASS  ch:theory:L835                     ch:theory:p2_03_theory:835  printed +1.2%  recomputed 1.23087  tol 0.05  [calc] k_nl shift IAM vs LambdaCDM, z = 0
 PASS  ch:theory:L835:+0.6%               ch:theory:p2_03_theory:835  printed +0.6%  recomputed 0.594144  tol 0.05  [calc] k_nl shift IAM vs LambdaCDM, z = 0.3
 PASS  ch:theory:L835:+0.1%               ch:theory:p2_03_theory:835  printed +0.1%  recomputed 0.113356  tol 0.05  [calc] k_nl shift IAM vs LambdaCDM, z = 1
 PASS  ch:theory:L836                     ch:theory:p2_03_theory:836  printed 0.759  recomputed 0.759308  tol 5.000005e-04  [calc] nonlinear scale k_nl, LambdaCDM, z = 1
@@ -885,7 +876,6 @@ PASS  ch:theory:L1067                    ch:theory:p2_03_theory:1067  printed 3.
 PASS  ch:theory:L1067:0.0052             ch:theory:p2_03_theory:1067  printed 0.0052  recomputed 0.0052  tol 5.000005e-05  [measured] beta_gamma 95 % bound (committed output)  file docs/verification/scripts/verify_beta_gamma_output.txt
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
 PASS  ch:theory:L1084                    ch:theory:p2_03_theory:1084  printed 7/2  recomputed 3.5  tol 1.000001e-09  [derived] n = 7/2 restated in the summary (power counting)
-PASS  ch:theory:L1085                    ch:theory:p2_03_theory:1085  printed 2\%  recomputed 2.11523  tol 0.5  [calc] D^{7/2}: 1/a coefficient within 2 %
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:entropicgravity (part2/p2_03a_entropic_gravity.tex)
 PASS  eq:eg_flux                         ch:entropicgravity:p2_03a_entropic_gravity:30  printed (algebra)  recomputed lhs-rhs=0  [derived] horizon energy flux, algebra from A_H,r_A
@@ -898,7 +888,7 @@ PASS  eq:eg_growth                       ch:entropicgravity:p2_03a_entropic_grav
 PASS  eq:eg_growthN                      ch:entropicgravity:p2_03a_entropic_gravity:99  printed (algebra)  recomputed True  [derived] e-fold transform of growth equation
 PASS  ch:entropicgravity:L106            ch:entropicgravity:p2_03a_entropic_gravity:106  printed 1.64  recomputed found in file  [calc] growth-factor deficit, friction form  file docs/verification/scripts/verify_entropic_gravity_output.txt
       heavy: python3 docs/verification/scripts/verify_entropic_gravity.py > docs/verification/scripts/verify_entropic_gravity_output.txt
-PASS  ch:entropicgravity:L107            ch:entropicgravity:p2_03a_entropic_gravity:107  printed 0.78  recomputed found in file  [calc] growth-factor deficit, Level-1 MGCAMB form  file docs/verification/scripts/verify_entropic_gravity_output.txt
+PASS  ch:entropicgravity:L107            ch:entropicgravity:p2_03a_entropic_gravity:107  printed 0.78  recomputed 0.78  tol 0.00500001  [calc] growth-factor deficit, Level-1 MGCAMB form  file docs/verification/scripts/verify_entropic_gravity_output.txt
       heavy: python3 docs/verification/scripts/verify_entropic_gravity.py > docs/verification/scripts/verify_entropic_gravity_output.txt
 PASS  ch:entropicgravity:L109            ch:entropicgravity:p2_03a_entropic_gravity:109  printed 0.67  recomputed found in file  [calc] growth-factor deficit, Level-2 form  file docs/verification/scripts/verify_entropic_gravity_output.txt
       heavy: python3 docs/verification/scripts/verify_entropic_gravity.py > docs/verification/scripts/verify_entropic_gravity_output.txt
@@ -908,7 +898,7 @@ PASS  ch:entropicgravity:L119            ch:entropicgravity:p2_03a_entropic_grav
       heavy: python3 docs/verification/scripts/verify_entropic_gravity.py > docs/verification/scripts/verify_entropic_gravity_output.txt
 PASS  ch:entropicgravity:L119:-0.67      ch:entropicgravity:p2_03a_entropic_gravity:119  printed -0.67  recomputed found in file  [calc] dD/D today, L2_fric form (committed output)  file docs/verification/scripts/verify_entropic_gravity_output.txt
       heavy: python3 docs/verification/scripts/verify_entropic_gravity.py > docs/verification/scripts/verify_entropic_gravity_output.txt
-PASS  ch:entropicgravity:L119:-0.78      ch:entropicgravity:p2_03a_entropic_gravity:119  printed -0.78  recomputed found in file  [calc] dD/D today, L1_muG form (committed output)  file docs/verification/scripts/verify_entropic_gravity_output.txt
+PASS  ch:entropicgravity:L119:-0.78      ch:entropicgravity:p2_03a_entropic_gravity:119  printed -0.78  recomputed -0.78  tol 0.00500001  [calc] dD/D today, L1_muG form (committed output)  file docs/verification/scripts/verify_entropic_gravity_output.txt
       heavy: python3 docs/verification/scripts/verify_entropic_gravity.py > docs/verification/scripts/verify_entropic_gravity_output.txt
 PASS  ch:entropicgravity:L127            ch:entropicgravity:p2_03a_entropic_gravity:127  printed 13.62  recomputed 13.6181  tol 0.00500001  [calc] 1 - mu(1) = beta_m/(1+beta_m)
 PASS  ch:entropicgravity:L128            ch:entropicgravity:p2_03a_entropic_gravity:128  printed 4.25  recomputed 4.25055  tol 0.00501501  [calc] f sigma8 deficit at z=0, growth ODE with mu(a)
@@ -923,9 +913,9 @@ PASS  ch:entropicgravity:L159            ch:entropicgravity:p2_03a_entropic_grav
 PASS  ch:entropicgravity:L167            ch:entropicgravity:p2_03a_entropic_gravity:167  printed C=k  recomputed lhs-rhs=0  [derived] E(1)=exp(C-k)=1 gives C=k
 PASS  ch:entropicgravity:L169            ch:entropicgravity:p2_03a_entropic_gravity:169  printed C=1  recomputed lhs-rhs=0  [derived] boundary condition E->e gives C=1
 PASS  ch:entropicgravity:L171            ch:entropicgravity:p2_03a_entropic_gravity:171  printed k=1  recomputed lhs-rhs=0  [derived] exponent matching gives k=1 independently
-PASS  ch:entropicgravity:L172            ch:entropicgravity:p2_03a_entropic_gravity:172  printed 0.93  recomputed found in file  [fitted] fit exp(alpha - beta/a) to D^3.5 record (committed output, alpha 0.93 beta 1.02)  file docs/verification/scripts/verify_theory_derivations_output.txt
+PASS  ch:entropicgravity:L172            ch:entropicgravity:p2_03a_entropic_gravity:172  printed 0.93  recomputed 0.93  tol 0.00500001  [fitted] fit exp(alpha - beta/a) to D^3.5 record (committed output, alpha 0.93 beta 1.02)  file docs/verification/scripts/verify_theory_derivations_output.txt
       heavy: python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt
-PASS  ch:entropicgravity:L172:1.02       ch:entropicgravity:p2_03a_entropic_gravity:172  printed 1.02  recomputed found in file  [fitted] fit exp(alpha - beta/a) to D^3.5 record (committed output, alpha 0.93 beta 1.02)  file docs/verification/scripts/verify_theory_derivations_output.txt
+PASS  ch:entropicgravity:L172:1.02       ch:entropicgravity:p2_03a_entropic_gravity:172  printed 1.02  recomputed 1.02  tol 0.00500001  [fitted] fit exp(alpha - beta/a) to D^3.5 record (committed output, alpha 0.93 beta 1.02)  file docs/verification/scripts/verify_theory_derivations_output.txt
       heavy: python3 docs/verification/scripts/verify_theory_derivations.py > docs/verification/scripts/verify_theory_derivations_output.txt
 PASS  ch:entropicgravity:L174            ch:entropicgravity:p2_03a_entropic_gravity:174  printed 36.8  recomputed 36.7879  tol 0.0500481  [calc] E(1)/e percentage of ceiling today
 PASS  ch:entropicgravity:L175            ch:entropicgravity:p2_03a_entropic_gravity:175  printed a=1  recomputed True  [calc] inflection of dE/dlna at a=1 today
@@ -986,8 +976,6 @@ PASS  ch:entropicgravity:L271:1.055      ch:entropicgravity:p2_03a_entropic_grav
 PASS  ch:entropicgravity:L288            ch:entropicgravity:p2_03a_entropic_gravity:288  printed 0.54  recomputed 0.541  tol 0.00500041  [calc] summary repeat: Level2 chi2 diff  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:entropicgravity:L288:0.800      ch:entropicgravity:p2_03a_entropic_gravity:288  printed 0.800  recomputed 0.799751  tol 5.000005e-04  [measured] summary repeat: Level2 IAM sigma8 rounded  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
-      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
-PASS  ch:entropicgravity:L288:0.12\sigma ch:entropicgravity:p2_03a_entropic_gravity:288  printed 0.12\sigma  recomputed 0.124929  tol 0.00500041  [calc] sigma8 Level 2 vs joint value 0.802 +- 0.018  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:entropicgravity:L289            ch:entropicgravity:p2_03a_entropic_gravity:289  printed -0.37\sigma  recomputed -0.37037  tol 0.0154179  [calc] photon-sector H0 tension vs Planck
 PASS  ch:entropicgravity:L289:-0.75\sigma ch:entropicgravity:p2_03a_entropic_gravity:289  printed -0.75\sigma  recomputed -0.75  tol 0.00500251  [calc] summary repeat: matter-sector H0 tension
@@ -1053,7 +1041,7 @@ PASS  ch:level2:L33                      ch:level2:p2_06_dual_sector_perturbatio
 PASS  ch:level2:L33:0.5                  ch:level2:p2_06_dual_sector_perturbation:33  printed 0.5  recomputed 0.54  tol 0.05  [measured] Planck 2018 H0 error, rounded  file docs/verification/scripts/verify_dual_sector_chapters_output.txt
 PASS  ch:level2:L34                      ch:level2:p2_06_dual_sector_perturbation:34  printed 73.04  recomputed found in file  [measured] measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names  file docs/verification/scripts/verify_late_time_level2_output.txt
       heavy: python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt
-PASS  ch:level2:L34:1.04                 ch:level2:p2_06_dual_sector_perturbation:34  printed 1.04  recomputed found in file  [measured] measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names  file docs/verification/scripts/verify_late_time_level2_output.txt
+PASS  ch:level2:L34:1.04                 ch:level2:p2_06_dual_sector_perturbation:34  printed 1.04  recomputed 1.04  tol 0.00500001  [measured] SH0ES H0 error as used in verify_late_time_level2_output.txt, a file the chapter names  file docs/verification/scripts/verify_late_time_level2_output.txt
       heavy: python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt
 PASS  ch:level2:L35                      ch:level2:p2_06_dual_sector_perturbation:35  printed 4.9  recomputed 4.88756  tol 0.05  [calc] Hubble tension significance
 PASS  ch:level2:L37                      ch:level2:p2_06_dual_sector_perturbation:37  printed 70.39  recomputed found in file  [observed] measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names  file docs/verification/scripts/verify_late_time_level2_output.txt
@@ -1119,8 +1107,6 @@ PASS  ch:level2:L133                     ch:level2:p2_06_dual_sector_perturbatio
 PASS  ch:level2:L149                     ch:level2:p2_06_dual_sector_perturbation:149  printed 0.0014  recomputed 0.00141975  tol 5.000005e-05  [calc] Omega_nu from neutrino mass
 PASS  ch:level2:L150                     ch:level2:p2_06_dual_sector_perturbation:150  printed 0.9986  recomputed 0.99858  tol 5.000005e-05  [calc] coded coupling fraction excl. neutrino
 PASS  ch:level2:L150:0.14                ch:level2:p2_06_dual_sector_perturbation:150  printed 0.14  recomputed 0.141975  tol 0.00500001  [calc] percent difference from excl. neutrino
-PASS  ch:level2:L150:2                   ch:level2:p2_06_dual_sector_perturbation:150  printed 2  recomputed 2.05212  tol 0.5  [calc] posterior percent error on Omega_m  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
-      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:level2:L178                     ch:level2:p2_06_dual_sector_perturbation:178  printed 1.2  recomputed 1.2  tol 0.0500401  [calc] sigma8 lowering, table row z=0 (book input)
 PASS  ch:level2:L178:0.8                 ch:level2:p2_06_dual_sector_perturbation:178  printed 0.8  recomputed 0.78  tol 0.05  [calc] sigma8 lowering via Eq. l2_mu, row z=0
 PASS  ch:level2:L189                     ch:level2:p2_06_dual_sector_perturbation:189  printed 0.9880  recomputed 0.987996  tol 0.0411996  [measured] sigma8 on/off at z=0.0, committed CAMB growth record  file docs/verification/chains/data/growth_on.json
@@ -1173,7 +1159,7 @@ PASS  ch:level2:L227                     ch:level2:p2_06_dual_sector_perturbatio
 PASS  ch:level2:L227:0.045               ch:level2:p2_06_dual_sector_perturbation:227  printed 0.045  recomputed found in file  [observed] BOSS DR12 z=0.38 fsigma8 error  file camb_validation/likelihood_rsd.py
 PASS  ch:level2:L228                     ch:level2:p2_06_dual_sector_perturbation:228  printed 0.459  recomputed found in file  [observed] BOSS DR12 z=0.51 fsigma8  file camb_validation/likelihood_rsd.py
 PASS  ch:level2:L228:0.038               ch:level2:p2_06_dual_sector_perturbation:228  printed 0.038  recomputed found in file  [observed] BOSS DR12 z=0.51 fsigma8 error  file camb_validation/likelihood_rsd.py
-PASS  ch:level2:L229                     ch:level2:p2_06_dual_sector_perturbation:229  printed 0.473  recomputed found in file  [observed] eBOSS LRG fsigma8  file camb_validation/likelihood_rsd.py
+PASS  ch:level2:L229                     ch:level2:p2_06_dual_sector_perturbation:229  printed 0.473  recomputed 0.473  tol 5.000005e-04  [observed] eBOSS LRG fsigma8  file camb_validation/likelihood_rsd.py
 PASS  ch:level2:L229:0.041               ch:level2:p2_06_dual_sector_perturbation:229  printed 0.041  recomputed found in file  [observed] eBOSS LRG fsigma8 error  file camb_validation/likelihood_rsd.py
 PASS  ch:level2:L230                     ch:level2:p2_06_dual_sector_perturbation:230  printed 0.315  recomputed found in file  [observed] eBOSS ELG fsigma8  file camb_validation/likelihood_rsd.py
 PASS  ch:level2:L230:0.095               ch:level2:p2_06_dual_sector_perturbation:230  printed 0.095  recomputed found in file  [observed] eBOSS ELG fsigma8 error  file camb_validation/likelihood_rsd.py
@@ -1193,7 +1179,6 @@ PASS  ch:level2:L279                     ch:level2:p2_06_dual_sector_perturbatio
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:level2:L279:67.161\pm0.467      ch:level2:p2_06_dual_sector_perturbation:279  printed 67.161\pm0.467  recomputed 67.1611  tol 5.037080e-04  [measured] Run A posterior H0 mean  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
-PASS  ch:level2:L279:-0.06\sigma         ch:level2:p2_06_dual_sector_perturbation:279  printed -0.06\sigma  recomputed -0.0576426  tol 0.00500001  [calc] H0 shift A vs C in sigma
 PASS  ch:level2:L280                     ch:level2:p2_06_dual_sector_perturbation:280  printed 0.8087\pm0.0059  recomputed 0.808707  tol 5.013945e-05  [measured] Run C posterior sigma8 mean  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:level2:L280:0.7998\pm0.0058     ch:level2:p2_06_dual_sector_perturbation:280  printed 0.7998\pm0.0058  recomputed 0.799751  tol 5.038745e-05  [measured] Run A posterior sigma8 mean  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
@@ -1214,7 +1199,7 @@ PASS  ch:level2:L283                     ch:level2:p2_06_dual_sector_perturbatio
 PASS  ch:level2:L283:0.11994\pm0.00105   ch:level2:p2_06_dual_sector_perturbation:283  printed 0.11994\pm0.00105  recomputed found in file  [measured] measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names  file docs/verification/scripts/verify_late_time_level2_output.txt
       heavy: python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt
 PASS  ch:level2:L283:+0.05\sigma         ch:level2:p2_06_dual_sector_perturbation:283  printed +0.05\sigma  recomputed 0.047619  tol 0.00500001  [calc] Omega_c h^2 shift in sigma
-PASS  ch:level2:L284                     ch:level2:p2_06_dual_sector_perturbation:284  printed 0.0532\pm0.0073  recomputed found in file  [measured] measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names  file docs/verification/scripts/verify_late_time_level2_output.txt
+PASS  ch:level2:L284                     ch:level2:p2_06_dual_sector_perturbation:284  printed 0.0532\pm0.0073  recomputed 0.05316  tol 5.000005e-05  [measured] tau, Run C posterior mean, in verify_late_time_level2_output.txt section D  file docs/verification/scripts/verify_late_time_level2_output.txt
       heavy: python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt
 PASS  ch:level2:L284:0.0537\pm0.0073     ch:level2:p2_06_dual_sector_perturbation:284  printed 0.0537\pm0.0073  recomputed found in file  [measured] measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names  file docs/verification/scripts/verify_late_time_level2_output.txt
       heavy: python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt
@@ -1228,7 +1213,6 @@ PASS  ch:level2:L286                     ch:level2:p2_06_dual_sector_perturbatio
       heavy: python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt
 PASS  ch:level2:L286:3.0407\pm0.0145     ch:level2:p2_06_dual_sector_perturbation:286  printed 3.0407\pm0.0145  recomputed found in file  [measured] measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names  file docs/verification/scripts/verify_late_time_level2_output.txt
       heavy: python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt
-PASS  ch:level2:L286:+0.09\sigma         ch:level2:p2_06_dual_sector_perturbation:286  printed +0.09\sigma  recomputed 0.0958904  tol 0.00720001  [calc] ln As shift; inputs printed to 4 decimals (tol = input rounding 0.0001/0.0146)
 PASS  ch:level2:L287                     ch:level2:p2_06_dual_sector_perturbation:287  printed 0.3162\pm0.0065  recomputed 0.316219  tol 5.059205e-05  [measured] Run C posterior Omega_m mean  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:level2:L287:0.3166\pm0.0065     ch:level2:p2_06_dual_sector_perturbation:287  printed 0.3166\pm0.0065  recomputed 0.316574  tol 5.065605e-05  [measured] Run A posterior Omega_m mean  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
@@ -1258,7 +1242,6 @@ PASS  ch:level2:L294:-1.51\sigma         ch:level2:p2_06_dual_sector_perturbatio
 PASS  ch:level2:L295                     ch:level2:p2_06_dual_sector_perturbation:295  printed 0.76  recomputed 0.763379  tol 0.00501601  [calc] likelihood ratio exp(-0.54/2)
 PASS  ch:level2:L295:-0.01               ch:level2:p2_06_dual_sector_perturbation:295  printed -0.01  recomputed -0.01  tol 0.00500001  [calc] chain-average chi2 difference, repeat
 PASS  ch:level2:L296                     ch:level2:p2_06_dual_sector_perturbation:296  printed 13  recomputed 13.01  tol 0.520001  [calc] chi2 avg minus lowest, Run C
-PASS  ch:level2:L299                     ch:level2:p2_06_dual_sector_perturbation:299  printed +0.09\sigma  recomputed 0.0958904  tol 0.00720001  [calc] ln As shift; inputs printed to 4 decimals (tol = input rounding 0.0001/0.0146)
 PASS  ch:level2:L300                     ch:level2:p2_06_dual_sector_perturbation:300  printed +0.05\sigma  recomputed 0.0549849  tol 0.00500001  [calc] Omega_m shift, repeat
 PASS  ch:level2:L300:-1.51\sigma         ch:level2:p2_06_dual_sector_perturbation:300  printed -1.51\sigma  recomputed -1.50896  tol 0.00500001  [calc] sigma8 shift, repeat
 PASS  ch:level2:L304                     ch:level2:p2_06_dual_sector_perturbation:304  printed 1.5\sigma  recomputed 1.50896  tol 0.05  [calc] sigma8 shift, rounded repeat
@@ -1268,15 +1251,12 @@ PASS  ch:level2:L308:0.8087              ch:level2:p2_06_dual_sector_perturbatio
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:level2:L314                     ch:level2:p2_06_dual_sector_perturbation:314  printed -1.51\sigma  recomputed -1.50896  tol 0.00500001  [calc] sigma8 shift, repeat
 PASS  ch:level2:L315                     ch:level2:p2_06_dual_sector_perturbation:315  printed -0.78\sigma  recomputed -0.775296  tol 0.00500001  [calc] S8 shift, repeat
-PASS  ch:level2:L316                     ch:level2:p2_06_dual_sector_perturbation:316  printed +0.09\sigma  recomputed 0.0958904  tol 0.00720001  [calc] ln As shift; inputs printed to 4 decimals (tol = input rounding 0.0001/0.0146)
 PASS  ch:level2:L320                     ch:level2:p2_06_dual_sector_perturbation:320  printed 0.06\sigma  recomputed 0.06033  tol 0.00500001  [calc] Run D vs A H0 agreement in sigma
 PASS  ch:level2:L321                     ch:level2:p2_06_dual_sector_perturbation:321  printed 0.7995\pm0.0058  recomputed 0.799531  tol 5.036855e-05  [measured] Run D posterior sigma8 mean  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:level2:L321:0.7998\pm0.0058     ch:level2:p2_06_dual_sector_perturbation:321  printed 0.7998\pm0.0058  recomputed 0.799751  tol 5.038745e-05  [measured] Run A posterior sigma8 mean, repeat  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:level2:L322                     ch:level2:p2_06_dual_sector_perturbation:322  printed 0.00\sigma  recomputed -0.00419758  tol 0.00500001  [calc] Omega_m shift Run D vs C
-PASS  ch:level2:L322:+0.08               ch:level2:p2_06_dual_sector_perturbation:322  printed +0.08\sigma  recomputed 0.0836189  tol 0.00500001  [calc] ln As shift, Run D minus Run C, in Run C sigma  file docs/verification/scripts/verify_late_time_level2_output.txt
-      heavy: chains: rerun with Cobaya from the committed input YAML (camb_validation/yaml_configs/*.yaml), then python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt
 PASS  ch:level2:L325                     ch:level2:p2_06_dual_sector_perturbation:325  printed 0.542  recomputed found in file  [measured] measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names  file docs/verification/scripts/verify_late_time_level2_output.txt
       heavy: python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt
 PASS  ch:level2:L325:0.498               ch:level2:p2_06_dual_sector_perturbation:325  printed 0.498  recomputed 0.49786  tol 5.000005e-04  [measured] density growth rate f at z = 0, switch on (CAMB record)  file docs/verification/chains/data/growth_on.json
@@ -1365,7 +1345,6 @@ PASS  ch:dsnote:L145:30                  ch:dsnote:p2_05_dual_sector_note:145  p
 PASS  ch:dsnote:L150                     ch:dsnote:p2_05_dual_sector_note:150  printed 0.0052  recomputed found in file  [calc] photon coupling bound restated  file docs/verification/scripts/verify_beta_gamma_output.txt
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
 PASS  ch:dsnote:L151                     ch:dsnote:p2_05_dual_sector_note:151  printed 3.8\times10^{-4}  recomputed 3.760553e-04  tol 1.900002e-05  [calc] 1-mu at z=3
-PASS  ch:dsnote:L152                     ch:dsnote:p2_05_dual_sector_note:152  printed 1.5\times10^{-5}  recomputed 1.544161e-05  tol 7.500008e-07  [calc] 1-mu at z=5
 PASS  ch:dsnote:L158                     ch:dsnote:p2_05_dual_sector_note:158  printed 0.15765  recomputed 0.15765  tol 1.576502e-05  [derived] beta_m restated in figure caption
 PASS  ch:dsnote:L158:67.16               ch:dsnote:p2_05_dual_sector_note:158  printed 67.16  recomputed 67.1611  tol 0.00671601  [measured] Level2 chain H0 restated  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
@@ -1397,7 +1376,7 @@ PASS  ch:dsnote:L171:0.822               ch:dsnote:p2_05_dual_sector_note:171  p
 PASS  ch:dsnote:L171:0.011'              ch:dsnote:p2_05_dual_sector_note:171  printed 0.011  recomputed 0.0110855  tol 5.000005e-04  [measured] uncertainty on beta_m-fixed chain S8  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:dsnote:L172                     ch:dsnote:p2_05_dual_sector_note:172  printed 0.815  recomputed found in file  [observed] measured: printed value found in PAPER_ERRATA.md, a file the chapter names  file docs/verification/PAPER_ERRATA.md
-PASS  ch:dsnote:L172:0.776               ch:dsnote:p2_05_dual_sector_note:172  printed 0.776  recomputed found in file  [observed] measured: printed value found in PAPER_ERRATA.md, a file the chapter names  file docs/verification/PAPER_ERRATA.md
+PASS  ch:dsnote:L172:0.776               ch:dsnote:p2_05_dual_sector_note:172  printed 0.776  recomputed 0.776  tol 5.000005e-04  [observed] DES Y3 S8 as recorded in PAPER_ERRATA.md, a file the chapter names  file docs/verification/PAPER_ERRATA.md
 PASS  ch:dsnote:L172:0.017               ch:dsnote:p2_05_dual_sector_note:172  printed 0.017  recomputed 0.017  tol 5.000005e-04  [observed] DES Y3 3x2pt S8 error (errata ledger)  file docs/verification/PAPER_ERRATA.md
 PASS  ch:dsnote:L173                     ch:dsnote:p2_05_dual_sector_note:173  printed 0.759  recomputed found in file  [observed] measured: printed value found in PAPER_ERRATA.md, a file the chapter names  file docs/verification/PAPER_ERRATA.md
 PASS  ch:dsnote:L176                     ch:dsnote:p2_05_dual_sector_note:176  printed 4.25  recomputed 4.25055  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
@@ -1435,7 +1414,6 @@ PASS  ch:dsnote:L236                     ch:dsnote:p2_05_dual_sector_note:236  p
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:s8trend (part2/p2_08_s8_trend.tex)
-PASS  ch:s8trend:L20                     ch:s8trend:p2_08_s8_trend:20  printed a tenth  recomputed 0.104  tol 0.05  [calc] effect amplitude vs low-z weak-lensing deficit
 PASS  ch:s8trend:L25                     ch:s8trend:p2_08_s8_trend:25  printed 0.3111+/-0.0056  recomputed 0.3111  tol 1.000001e-09  [measured] Omega_m prior of the trend analysis (Planck + BAO)  file docs/verification/scripts/verify_s8_trend.py
 PASS  ch:s8trend:L27:1.6                 ch:s8trend:p2_08_s8_trend:27  printed 1.6  recomputed 1.6  tol 0.05  [observed] trend significance, 20-point sample (read ledger)  file docs/book/read_ledgers/ts_MANIFEST_sector_s8.md
 PASS  ch:s8trend:L28                     ch:s8trend:p2_08_s8_trend:28  printed 2.8  recomputed 2.8  tol 0.05  [observed] trend significance, 66-point sample (read ledger)  file docs/book/read_ledgers/ts_MANIFEST_sector_s8.md
@@ -1463,7 +1441,6 @@ PASS  ch:s8trend:L85:0.633(+0.025/-0.024) ch:s8trend:p2_08_s8_trend:85  printed 
       heavy: python3 docs/verification/scripts/verify_s8_trend.py > docs/verification/scripts/verify_s8_trend_output.txt
 PASS  ch:s8trend:L85:0.585               ch:s8trend:p2_08_s8_trend:85  printed 0.585  recomputed 0.585203  tol 5.000005e-04  [calc] effective growth index today, IAM
 PASS  ch:s8trend:L85:0.554               ch:s8trend:p2_08_s8_trend:85  printed 0.554  recomputed 0.554328  tol 5.000005e-04  [calc] effective growth index today, LambdaCDM
-PASS  ch:s8trend:L95                     ch:s8trend:p2_08_s8_trend:95  printed seventeenfold  recomputed 17.5313  tol 0.850001  [calc] (1-mu(1)) over the lensing deficit at z=0 ('about')
 PASS  ch:s8trend:L98                     ch:s8trend:p2_08_s8_trend:98  printed 0.864  recomputed 0.863819  tol 5.011205e-04  [calc] mu at z=0
 PASS  ch:s8trend:L98:0.8255              ch:s8trend:p2_08_s8_trend:98  printed 0.8255  recomputed 0.825537  tol 5.000005e-05  [calc] lensing S8 = S8_Planck D_IAM/D_LCDM, z=0
 PASS  ch:s8trend:L98:0.78                ch:s8trend:p2_08_s8_trend:98  printed 0.78  recomputed 0.776789  tol 0.00500001  [calc] D deficit, z=0
@@ -1536,7 +1513,6 @@ PASS  ch:s8trend:L143                    ch:s8trend:p2_08_s8_trend:143  printed 
 PASS  ch:s8trend:L143:1.05               ch:s8trend:p2_08_s8_trend:143  printed 1.05  recomputed 1.05468  tol 0.00504001  [calc] M_lens/M_dyn at z=0.5
 PASS  ch:s8trend:L194                    ch:s8trend:p2_08_s8_trend:194  printed 3.1\%  recomputed 3.06111  tol 0.05  [calc] f sigma8 deficit at z = 0.15
 PASS  ch:s8trend:L194:1.9%               ch:s8trend:p2_08_s8_trend:194  printed 1.9\%  recomputed 1.92773  tol 0.05  [calc] f sigma8 deficit at z = 0.35
-PASS  ch:s8trend:L194:0.9%               ch:s8trend:p2_08_s8_trend:194  printed 0.9\%  recomputed 0.940681  tol 0.05  [calc] f sigma8 deficit at z = 0.65
 PASS  ch:s8trend:L194:0.4%               ch:s8trend:p2_08_s8_trend:194  printed 0.4\%  recomputed 0.363457  tol 0.05  [calc] f sigma8 deficit at z = 1.05
 PASS  ch:s8trend:L195                    ch:s8trend:p2_08_s8_trend:195  printed 0.1\%  recomputed 0.11701  tol 0.05  [calc] f sigma8 deficit at z = 1.55
 PASS  ch:s8trend:L196                    ch:s8trend:p2_08_s8_trend:196  printed 5.0\sigma  recomputed 5.00804  tol 0.05  [calc] drafted check, screened (runs; negative control fails)
@@ -1574,9 +1550,9 @@ PASS  ch:sectortension:L47               ch:sectortension:p2_09_sector_tension:4
 PASS  ch:sectortension:L47:0.832         ch:sectortension:p2_09_sector_tension:47  printed 0.832  recomputed 0.831526  tol 5.000005e-04  [observed] Planck LambdaCDM S8 = sigma8 (Om/0.3)^0.5
 PASS  ch:sectortension:L48               ch:sectortension:p2_09_sector_tension:48  printed 0.759  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
-PASS  ch:sectortension:L48:0.776         ch:sectortension:p2_09_sector_tension:48  printed 0.776  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:sectortension:L48:0.776         ch:sectortension:p2_09_sector_tension:48  printed 0.776  recomputed 0.776  tol 5.000005e-04  [observed] DES Y3 3x2pt S8 in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
-PASS  ch:sectortension:L49               ch:sectortension:p2_09_sector_tension:49  printed 0.776  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:sectortension:L49               ch:sectortension:p2_09_sector_tension:49  printed 0.776  recomputed 0.776  tol 5.000005e-04  [observed] HSC Y3 S8 in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L49:2             ch:sectortension:p2_09_sector_tension:49  printed 2  recomputed 1.60759  tol 0.5  [observed] S8 tension, lower end over the four lensing surveys
 PASS  ch:sectortension:L49:3             ch:sectortension:p2_09_sector_tension:49  printed 3  recomputed 2.74699  tol 0.5  [observed] S8 tension, upper end over the four lensing surveys
@@ -1598,13 +1574,13 @@ PASS  ch:sectortension:L60:0.50          ch:sectortension:p2_09_sector_tension:6
 PASS  ch:sectortension:L60:-0.42         ch:sectortension:p2_09_sector_tension:60  printed -0.42  recomputed -0.42  tol 0.00500001  [observed] DESI DR2 + CMB w0  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L60:3.1           ch:sectortension:p2_09_sector_tension:60  printed 3.1  recomputed 3.1  tol 0.05  [observed] DESI DR2 + CMB significance
-PASS  ch:sectortension:L61               ch:sectortension:p2_09_sector_tension:61  printed -0.838  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:sectortension:L61               ch:sectortension:p2_09_sector_tension:61  printed -0.838  recomputed -0.838  tol 5.000005e-04  [observed] DESI+CMB+Pantheon+ w0 in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L61:0.35          ch:sectortension:p2_09_sector_tension:61  printed 0.35  recomputed 0.353712  tol 0.00500001  [calc] phantom-crossing redshift, DESI+CMB+Pantheon+
 PASS  ch:sectortension:L61:-0.62         ch:sectortension:p2_09_sector_tension:61  printed -0.62  recomputed -0.62  tol 0.00500001  [observed] DESI DR2 + CMB + Pantheon+ wa  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L61:2.8           ch:sectortension:p2_09_sector_tension:61  printed 2.8  recomputed 2.8  tol 0.05  [observed] DESI DR2 + CMB + Pantheon+ significance
-PASS  ch:sectortension:L62               ch:sectortension:p2_09_sector_tension:62  printed -0.667  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:sectortension:L62               ch:sectortension:p2_09_sector_tension:62  printed -0.667  recomputed -0.667  tol 5.000005e-04  [observed] DESI+CMB+Union3 w0 in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L62:-1.09         ch:sectortension:p2_09_sector_tension:62  printed -1.09  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
@@ -1644,7 +1620,7 @@ PASS  ch:sectortension:L227:0.472        ch:sectortension:p2_09_sector_tension:2
 PASS  ch:sectortension:L227:-0.88        ch:sectortension:p2_09_sector_tension:227  printed -0.88  recomputed -0.882467  tol 0.00501601  [calc] pull (obs-pred)/sigma, term, z=0.295
 PASS  ch:sectortension:L227:-1.01        ch:sectortension:p2_09_sector_tension:227  printed -1.01  recomputed -1.00855  tol 0.00505001  [calc] pull (obs-pred)/sigma, LCDM, z=0.295
 PASS  ch:sectortension:L227:0.094        ch:sectortension:p2_09_sector_tension:227  printed 0.094  recomputed 0.0940802  tol 5.000005e-04  [observed] sigma_obs BGS, sqrt of the DESI ShapeFit-only variance  file docs/verification/scripts/verify_sector_tension.py
-PASS  ch:sectortension:L228              ch:sectortension:p2_09_sector_tension:228  printed 0.514  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:sectortension:L228              ch:sectortension:p2_09_sector_tension:228  printed 0.514  recomputed 0.514  tol 5.000005e-04  [observed] DESI DR1 LRG1 f sigma_s8 in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L228:0.465        ch:sectortension:p2_09_sector_tension:228  printed 0.465  recomputed 0.465183  tol 5.000005e-04  [calc] f sigma8 prediction, term, z=0.51, sigma8 0.7998 (Run A)
 PASS  ch:sectortension:L228:0.473        ch:sectortension:p2_09_sector_tension:228  printed 0.473  recomputed 0.472933  tol 5.000005e-04  [calc] f sigma8 prediction, LCDM, z=0.51, sigma8 0.8087 (Run C)
@@ -1658,7 +1634,7 @@ PASS  ch:sectortension:L229:0.460        ch:sectortension:p2_09_sector_tension:2
 PASS  ch:sectortension:L229:+0.54        ch:sectortension:p2_09_sector_tension:229  printed +0.54  recomputed 0.539549  tol 0.00502201  [calc] pull (obs-pred)/sigma, term, z=0.706
 PASS  ch:sectortension:L229:+0.44        ch:sectortension:p2_09_sector_tension:229  printed +0.44  recomputed 0.440086  tol 0.00501601  [calc] pull (obs-pred)/sigma, LCDM, z=0.706
 PASS  ch:sectortension:L229:0.053        ch:sectortension:p2_09_sector_tension:229  printed 0.053  recomputed 0.053028  tol 5.000005e-04  [observed] sigma_obs LRG2, sqrt of the DESI ShapeFit-only variance  file docs/verification/scripts/verify_sector_tension.py
-PASS  ch:sectortension:L230              ch:sectortension:p2_09_sector_tension:230  printed 0.422  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:sectortension:L230              ch:sectortension:p2_09_sector_tension:230  printed 0.422  recomputed 0.422  tol 5.000005e-04  [observed] DESI DR1 LRG3 f sigma_s8 in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L230:0.436        ch:sectortension:p2_09_sector_tension:230  printed 0.436  recomputed 0.435588  tol 5.000005e-04  [calc] f sigma8 prediction, term, z=0.919, sigma8 0.7998 (Run A)
 PASS  ch:sectortension:L230:0.439        ch:sectortension:p2_09_sector_tension:230  printed 0.439  recomputed 0.439187  tol 5.000005e-04  [calc] f sigma8 prediction, LCDM, z=0.919, sigma8 0.8087 (Run C)
@@ -1729,14 +1705,10 @@ PASS  ch:sectortension:L245:0.375        ch:sectortension:p2_09_sector_tension:2
 PASS  ch:sectortension:L245:+1.96        ch:sectortension:p2_09_sector_tension:245  printed +1.96  recomputed 1.96192  tol 0.00509601  [calc] pull (obs-pred)/sigma, term, z=1.48
 PASS  ch:sectortension:L245:+1.92        ch:sectortension:p2_09_sector_tension:245  printed +1.92  recomputed 1.92334  tol 0.00500001  [calc] pull (obs-pred)/sigma, LCDM, z=1.48
 PASS  ch:sectortension:L245:0.045        ch:sectortension:p2_09_sector_tension:245  printed 0.045  recomputed 0.045  tol 5.000005e-04  [observed] sigma_obs eBOSS QSO  file docs/verification/scripts/verify_sector_tension.py
-PASS  ch:sectortension:L247              ch:sectortension:p2_09_sector_tension:247  printed 0.450  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
-      heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L247:0.426        ch:sectortension:p2_09_sector_tension:247  printed 0.426  recomputed 0.425651  tol 5.000005e-04  [calc] f sigma8 prediction, term, z=0.07, sigma8 0.7998 (Run A)
 PASS  ch:sectortension:L247:0.443        ch:sectortension:p2_09_sector_tension:247  printed 0.443  recomputed 0.443249  tol 5.000005e-04  [calc] f sigma8 prediction, LCDM, z=0.07, sigma8 0.8087 (Run C)
 PASS  ch:sectortension:L247:+0.44        ch:sectortension:p2_09_sector_tension:247  printed +0.44  recomputed 0.442707  tol 0.00501601  [calc] pull (obs-pred)/sigma, term, z=0.07
 PASS  ch:sectortension:L247:+0.12        ch:sectortension:p2_09_sector_tension:247  printed +0.12  recomputed 0.122737  tol 0.00500401  [calc] pull (obs-pred)/sigma, LCDM, z=0.07
-PASS  ch:sectortension:L249              ch:sectortension:p2_09_sector_tension:249  printed 0.450  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
-      heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L250              ch:sectortension:p2_09_sector_tension:250  printed -0.88  recomputed -0.882467  tol 0.00500001  [calc] lowest pull over the six DESI bins, term
 PASS  ch:sectortension:L250:+1.40        ch:sectortension:p2_09_sector_tension:250  printed +1.40  recomputed 1.40132  tol 0.00500001  [calc] highest pull over the six DESI bins, term
 PASS  ch:sectortension:L250:-1.01        ch:sectortension:p2_09_sector_tension:250  printed -1.01  recomputed -1.00855  tol 0.00500001  [calc] lowest pull over the six DESI bins, LCDM
@@ -1761,9 +1733,9 @@ PASS  ch:sectortension:L265              ch:sectortension:p2_09_sector_tension:2
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L265:0.802^{+0.022}_{-0.018} ch:sectortension:p2_09_sector_tension:265  printed 0.802^{+0.022}_{-0.018}  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
-PASS  ch:sectortension:L266              ch:sectortension:p2_09_sector_tension:266  printed 0.776\pm0.017  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:sectortension:L266              ch:sectortension:p2_09_sector_tension:266  printed 0.776\pm0.017  recomputed 0.776  tol 5.000005e-04  [observed] DES Y3 S8 and error in verify_sector_tension.py, the script of the chapter  file docs/verification/scripts/verify_sector_tension.py
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
-PASS  ch:sectortension:L267              ch:sectortension:p2_09_sector_tension:267  printed 0.776^{+0.032}_{-0.033}  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:sectortension:L267              ch:sectortension:p2_09_sector_tension:267  printed 0.776^{+0.032}_{-0.033}  recomputed 0.776  tol 5.000005e-04  [observed] HSC Y3 S8 and errors in verify_sector_tension.py, the script of the chapter  file docs/verification/scripts/verify_sector_tension.py
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L268              ch:sectortension:p2_09_sector_tension:268  printed 0.589\pm0.020  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
@@ -1908,7 +1880,7 @@ PASS  eq:dsv_mu_sigma                    ch:dsvalidation:p2_10_dual_sector_valid
 PASS  ch:dsvalidation:L513               ch:dsvalidation:p2_10_dual_sector_validation:513  printed 0.864  recomputed 0.863819  tol 5.011205e-04  [calc] mu(a=1) from mu(a) formula
 PASS  ch:dsvalidation:L514               ch:dsvalidation:p2_10_dual_sector_validation:514  printed 13.6\%  recomputed 13.6181  tol 0.0503201  [calc] fractional Newton-constant suppression
 PASS  ch:dsvalidation:L515               ch:dsvalidation:p2_10_dual_sector_validation:515  printed 0.982  recomputed 0.982238  tol 5.008205e-04  [calc] mu(a) at z=1 from formula
-PASS  ch:dsvalidation:L515:1-\mu<4\times10^{-4} ch:dsvalidation:p2_10_dual_sector_validation:515  printed 1-\mu<4\times10^{-4}  recomputed True  [calc] mu(a) deviation at z=3 below bound
+PASS  ch:dsvalidation:L515:1-\mu<4\times10^{-4} ch:dsvalidation:p2_10_dual_sector_validation:515  printed <4\times10^{-4}  recomputed 3.760553e-04  tol 5.000005e-05  [calc] mu(a) deviation at z=3 below bound
 PASS  ch:dsvalidation:L515:4.25\%        ch:dsvalidation:p2_10_dual_sector_validation:515  printed 4.25\%  recomputed 4.25055  tol 0.00500001  [calc] f sigma8 deficit at z = 0
 PASS  ch:dsvalidation:L520               ch:dsvalidation:p2_10_dual_sector_validation:520  printed +0.54  recomputed 0.541  tol 0.00502201  [measured] chi2 difference IAM vs LCDM Level2  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
@@ -2053,8 +2025,6 @@ PASS  ch:wzfuture:L23:-2.000             ch:wzfuture:p2_20_wz_far_future:23  pri
 PASS  ch:wzfuture:L23:0.031              ch:wzfuture:p2_20_wz_far_future:23  printed 0.031  recomputed 0.0311605  tol 5.000005e-04  [calc] rho_info/rho_Lambda at z=2
 PASS  ch:wzfuture:L23:0.030              ch:wzfuture:p2_20_wz_far_future:23  printed 0.030  recomputed 0.0302189  tol 5.010005e-04  [calc] info share of vacuum total z=2
 PASS  ch:wzfuture:L24                    ch:wzfuture:p2_20_wz_far_future:24  printed -2.333  recomputed -2.33333  tol 5.000005e-04  [calc] w_info at z=3
-PASS  ch:wzfuture:L24:0.011              ch:wzfuture:p2_20_wz_far_future:24  printed 0.011  recomputed 0.0114633  tol 5.005005e-04  [calc] rho_info/rho_Lambda at z=3
-PASS  ch:wzfuture:L24:0.011'             ch:wzfuture:p2_20_wz_far_future:24  printed 0.011  recomputed 0.0113334  tol 5.005005e-04  [calc] info share of vacuum total z=3
 PASS  ch:wzfuture:L24:-1                 ch:wzfuture:p2_20_wz_far_future:24  printed -1  recomputed -1  tol 0.5  [calc] w_info limit as a to infinity
 PASS  ch:wzfuture:L24:0.626              ch:wzfuture:p2_20_wz_far_future:24  printed 0.626  recomputed 0.625876  tol 5.008005e-04  [calc] rho_info/rho_Lambda at saturation
 PASS  ch:wzfuture:L24:0.385              ch:wzfuture:p2_20_wz_far_future:24  printed 0.385  recomputed 0.384947  tol 5.005005e-04  [calc] info share of vacuum total saturation
@@ -2062,7 +2032,6 @@ PASS  ch:wzfuture:L26                    ch:wzfuture:p2_20_wz_far_future:26  pri
 PASS  ch:wzfuture:L27                    ch:wzfuture:p2_20_wz_far_future:27  printed 18.7  recomputed 18.7155  tol 0.0504901  [calc] info term pct of vacuum total today
 PASS  ch:wzfuture:L27:23                 ch:wzfuture:p2_20_wz_far_future:27  printed 23  recomputed 23.0247  tol 0.5  [calc] info term pct of rho_Lambda today
 PASS  ch:wzfuture:L28                    ch:wzfuture:p2_20_wz_far_future:28  printed 0.626  recomputed 0.625876  tol 5.008005e-04  [calc] info/Lambda ratio at saturation (repeat)
-PASS  ch:wzfuture:L31                    ch:wzfuture:p2_20_wz_far_future:31  printed 0.011  recomputed 0.0114633  tol 5.005005e-04  [calc] caption repeat of z=3 ratio
 PASS  ch:wzfuture:L31:0.230              ch:wzfuture:p2_20_wz_far_future:31  printed 0.230  recomputed 0.230247  tol 5.060005e-04  [calc] caption repeat of today ratio
 PASS  ch:wzfuture:L31:0.626              ch:wzfuture:p2_20_wz_far_future:31  printed 0.626  recomputed 0.625876  tol 5.008005e-04  [calc] caption repeat of saturation ratio
 PASS  eq:wz_norip                        ch:wzfuture:p2_20_wz_far_future:74  printed (algebra)  recomputed True  [derived] monotonic w, bounded density statement
@@ -2363,7 +2332,6 @@ PASS  ch:baryon:L166:5.03\times10^{-10}  ch:baryon:p2_13_baryon:166  printed 5.0
 PASS  ch:baryon:L167                     ch:baryon:p2_13_baryon:167  printed 0.02220  recomputed 0.0221962  tol 5.000005e-06  [calc] Omega_b h^2 from (3/16) sqrt(Omega_L)
 PASS  ch:baryon:L168                     ch:baryon:p2_13_baryon:168  printed 6.08\times10^{-10}  recomputed 6.079552e-10  tol 5.000005e-13  [calc] eta from it
 PASS  ch:baryon:L168:0.5                 ch:baryon:p2_13_baryon:168  printed 0.5  recomputed 0.547158  tol 0.05  [calc] below the 18th-chain 6.113
-PASS  ch:baryon:L168:0.9                 ch:baryon:p2_13_baryon:168  printed 0.9  recomputed 0.936088  tol 0.05  [calc] below 6.137
 PASS  ch:baryon:L168:6.113               ch:baryon:p2_13_baryon:168  printed 6.113  recomputed 6.11343  tol 5.000005e-04  [calc] same value as p2_13b_baryon_chain:117 (eta = 2.739e-8 Omega_b h^2 from the 18th chain)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:baryon:L168:0.8                 ch:baryon:p2_13_baryon:168  printed 0.8  recomputed 0.774404  tol 0.05  [calc] below Planck 6.127
@@ -2536,7 +2504,7 @@ PASS  ch:surveys:L38                     ch:surveys:p2_16_survey_predictions:38 
 PASS  ch:surveys:L38:-0.13495            ch:surveys:p2_16_survey_predictions:38  printed -0.13495  recomputed -0.13495  tol 5.000005e-06  [calc] mu0 of the MGCAMB tracking form in the Level 1 chains, from the chain settings  file mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml
 PASS  ch:surveys:L40                     ch:surveys:p2_16_survey_predictions:40  printed +0.54  recomputed 0.541  tol 0.00500001  [measured] Level 2: Delta chi2 of the IAM run against LambdaCDM (chain minima)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
-PASS  ch:surveys:L41                     ch:surveys:p2_16_survey_predictions:41  printed 0.800  recomputed found in file  [measured] measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt
+PASS  ch:surveys:L41                     ch:surveys:p2_16_survey_predictions:41  printed 0.800  recomputed 0.8  tol 5.000005e-04  [measured] measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt
       heavy: python3 docs/verification/scripts/verify_dark_energy_far_future_surveys_book.py > docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt
 PASS  ch:surveys:L53                     ch:surveys:p2_16_survey_predictions:53  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [calc] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
 PASS  ch:surveys:L56                     ch:surveys:p2_16_survey_predictions:56  printed 0.864  recomputed 0.863819  tol 5.000005e-04  [calc] mu at z=0.0
@@ -2595,7 +2563,6 @@ PASS  ch:surveys:L83:0.06                ch:surveys:p2_16_survey_predictions:83 
 PASS  ch:surveys:L83:0.9                 ch:surveys:p2_16_survey_predictions:83  printed 0.9  recomputed 0.850528  tol 0.05  [calc] lookback time, Gyr (H0 67.36, Om 0.3153)
 PASS  ch:surveys:L83:0.971               ch:surveys:p2_16_survey_predictions:83  printed 0.971  recomputed 0.970718  tol 5.000005e-04  [calc] a where 95% of 1-mu(0) is on
 PASS  ch:surveys:L83:0.03                ch:surveys:p2_16_survey_predictions:83  printed 0.03  recomputed 0.0301657  tol 0.00500001  [calc] z where 95% is on
-PASS  ch:surveys:L83:0.4                 ch:surveys:p2_16_survey_predictions:83  printed 0.4  recomputed 0.428329  tol 0.05  [calc] lookback time, Gyr (H0 67.36, Om 0.3153)
 PASS  ch:surveys:L84                     ch:surveys:p2_16_survey_predictions:84  printed 0.994  recomputed 0.99407  tol 5.000005e-04  [calc] a where 99% of 1-mu(0) is on
 PASS  ch:surveys:L84:0.01                ch:surveys:p2_16_survey_predictions:84  printed 0.01  recomputed 0.00596532  tol 0.00500001  [calc] z where 99% is on
 PASS  ch:surveys:L84:0.1                 ch:surveys:p2_16_survey_predictions:84  printed 0.1  recomputed 0.086213  tol 0.05  [calc] lookback time, Gyr (H0 67.36, Om 0.3153)
@@ -2693,7 +2660,7 @@ PASS  ch:surveys:L192:1.295              ch:surveys:p2_16_survey_predictions:192
       heavy: CAMB Fisher forecast: cd docs/verification/forecasts/euclid_fisher_iam_mu && python run_forecast.py && python analysis.py
 PASS  ch:surveys:L192:0.77               ch:surveys:p2_16_survey_predictions:192  printed 0.77  recomputed 0.772022  tol 0.00500001  [calc] 1/sigma(A) from the committed sigma (Sigma_0 free)  file docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv
       heavy: CAMB Fisher forecast: cd docs/verification/forecasts/euclid_fisher_iam_mu && python run_forecast.py && python analysis.py
-PASS  ch:surveys:L193                    ch:surveys:p2_16_survey_predictions:193  printed 0.524  recomputed found in file  [calc] sigma(A), Sigma = 1 (committed forecast)  file docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv
+PASS  ch:surveys:L193                    ch:surveys:p2_16_survey_predictions:193  printed 0.524  recomputed 0.52383  tol 5.000005e-04  [calc] sigma(A), Sigma = 1 (committed forecast)  file docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv
       heavy: CAMB Fisher forecast: cd docs/verification/forecasts/euclid_fisher_iam_mu && python run_forecast.py && python analysis.py
 PASS  ch:surveys:L193:1.91               ch:surveys:p2_16_survey_predictions:193  printed 1.91  recomputed 1.90902  tol 0.00500001  [calc] 1/sigma(A) from the committed sigma (Sigma = 1)  file docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv
       heavy: CAMB Fisher forecast: cd docs/verification/forecasts/euclid_fisher_iam_mu && python run_forecast.py && python analysis.py
@@ -2862,7 +2829,6 @@ PASS  ch:lensdyn:L104:1.018              ch:lensdyn:p2_17_lensing_dynamics:104  
 PASS  ch:lensdyn:L104:1.8                ch:lensdyn:p2_17_lensing_dynamics:104  printed 1.8  recomputed 1.80837  tol 0.05  [calc] lensing excess at z=1.0, per cent
 PASS  ch:lensdyn:L105                    ch:lensdyn:p2_17_lensing_dynamics:105  printed 0.994  recomputed 0.99377  tol 5.000005e-04  [calc] mu at z=1.5
 PASS  ch:lensdyn:L105:1.006              ch:lensdyn:p2_17_lensing_dynamics:105  printed 1.006  recomputed 1.00627  tol 5.000005e-04  [calc] 1/mu at z=1.5
-PASS  ch:lensdyn:L105:0.6                ch:lensdyn:p2_17_lensing_dynamics:105  printed 0.6  recomputed 0.62689  tol 0.05  [calc] lensing excess at z=1.5, per cent
 PASS  ch:lensdyn:L106                    ch:lensdyn:p2_17_lensing_dynamics:106  printed 0.998  recomputed 0.997686  tol 5.000005e-04  [calc] mu at z=2.0
 PASS  ch:lensdyn:L106:1.002              ch:lensdyn:p2_17_lensing_dynamics:106  printed 1.002  recomputed 1.00232  tol 5.000005e-04  [calc] 1/mu at z=2.0
 PASS  ch:lensdyn:L106:0.2                ch:lensdyn:p2_17_lensing_dynamics:106  printed 0.2  recomputed 0.231964  tol 0.05  [calc] lensing excess at z=2.0, per cent
@@ -2875,7 +2841,7 @@ PASS  ch:lensdyn:L116:-0.12              ch:lensdyn:p2_17_lensing_dynamics:116  
 PASS  ch:lensdyn:L117                    ch:lensdyn:p2_17_lensing_dynamics:117  printed -0.04  recomputed -0.0394181  tol 0.00500001  [calc] dR/dz at z=1.0
 PASS  ch:lensdyn:L121                    ch:lensdyn:p2_17_lensing_dynamics:121  printed -1.57  recomputed found in file  [measured] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
-PASS  ch:lensdyn:L121:-1.10              ch:lensdyn:p2_17_lensing_dynamics:121  printed -1.10  recomputed found in file  [measured] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L121:-1.10              ch:lensdyn:p2_17_lensing_dynamics:121  printed -1.10  recomputed -1.10053  tol 0.00500001  [measured] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L121:1.105              ch:lensdyn:p2_17_lensing_dynamics:121  printed 1.105  recomputed 1.10498  tol 5.000005e-04  [calc] same value as p2_17_lensing_dynamics:100 (1/mu at z=0.2)
 PASS  ch:lensdyn:L121:1.055              ch:lensdyn:p2_17_lensing_dynamics:121  printed 1.055  recomputed 1.05468  tol 5.000005e-04  [calc] same value as p2_17_lensing_dynamics:102 (1/mu at z=0.5)
@@ -2912,17 +2878,17 @@ PASS  ch:lensdyn:L200                    ch:lensdyn:p2_17_lensing_dynamics:200  
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L200:1.45               ch:lensdyn:p2_17_lensing_dynamics:200  printed 1.45  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
-PASS  ch:lensdyn:L201                    ch:lensdyn:p2_17_lensing_dynamics:201  printed 0.780  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L201                    ch:lensdyn:p2_17_lensing_dynamics:201  printed 0.780  recomputed 0.78  tol 5.000005e-04  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
-PASS  ch:lensdyn:L201:1.28               ch:lensdyn:p2_17_lensing_dynamics:201  printed 1.28  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L201:1.28               ch:lensdyn:p2_17_lensing_dynamics:201  printed 1.28  recomputed 1.28205  tol 0.00500001  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L202:0.99               ch:lensdyn:p2_17_lensing_dynamics:202  printed 0.99  recomputed 0.99  tol 0.00500001  [observed] CMB-lensing calibration 1/(1-b)  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
-PASS  ch:lensdyn:L203                    ch:lensdyn:p2_17_lensing_dynamics:203  printed 1.72  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L203                    ch:lensdyn:p2_17_lensing_dynamics:203  printed 1.72  recomputed 1.72414  tol 0.00500001  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L203:0.58               ch:lensdyn:p2_17_lensing_dynamics:203  printed 0.58  recomputed 0.58  tol 0.00500001  [observed] 1-b needed by counts + CMB (table)  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
-PASS  ch:lensdyn:L204                    ch:lensdyn:p2_17_lensing_dynamics:204  printed 1.05  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L204                    ch:lensdyn:p2_17_lensing_dynamics:204  printed 1.05  recomputed 1.05263  tol 0.00500001  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L204:0.909              ch:lensdyn:p2_17_lensing_dynamics:204  printed 0.909  recomputed found in file  [observed] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
@@ -2978,7 +2944,6 @@ PASS  ch:lensdyn:L235:5.5                ch:lensdyn:p2_17_lensing_dynamics:235  
 PASS  ch:lensdyn:L236                    ch:lensdyn:p2_17_lensing_dynamics:236  printed 1.018  recomputed 1.01808  tol 5.000005e-04  [calc] 1/mu at z=1.0
 PASS  ch:lensdyn:L236:1.8                ch:lensdyn:p2_17_lensing_dynamics:236  printed 1.8  recomputed 1.80837  tol 0.05  [calc] excess at z=1.0
 PASS  ch:lensdyn:L237                    ch:lensdyn:p2_17_lensing_dynamics:237  printed 1.006  recomputed 1.00627  tol 5.000005e-04  [calc] 1/mu at z=1.5
-PASS  ch:lensdyn:L237:0.6                ch:lensdyn:p2_17_lensing_dynamics:237  printed 0.6  recomputed 0.62689  tol 0.05  [calc] excess at z=1.5
 PASS  ch:lensdyn:L238                    ch:lensdyn:p2_17_lensing_dynamics:238  printed 1.002  recomputed 1.00232  tol 5.000005e-04  [calc] 1/mu at z=2.0
 PASS  ch:lensdyn:L238:0.2                ch:lensdyn:p2_17_lensing_dynamics:238  printed 0.2  recomputed 0.231964  tol 0.05  [calc] excess at z=2.0
 PASS  ch:lensdyn:L259                    ch:lensdyn:p2_17_lensing_dynamics:259  printed 2.7  recomputed 2.73127  tol 0.05  [calc] absolute error per bin (in per cent of the ratio) for chi2 = 9 against the best constant
@@ -3099,7 +3064,7 @@ PASS  ch:threeway:L237                   ch:threeway:p2_18_three_way_clusters:23
 PASS  ch:satellites:L19                  ch:satellites:p2_19_missing_satellites:19  printed 0.864  recomputed 0.863819  tol 5.000005e-04  [calc] mu today
 PASS  ch:satellites:L19:13.62            ch:satellites:p2_19_missing_satellites:19  printed 13.62  recomputed 13.6181  tol 0.00500001  [calc] same value as p1_02_iams_law:466 (percent change of coupling today)
 PASS  ch:satellites:L21                  ch:satellites:p2_19_missing_satellites:21  printed 0.78  recomputed 0.776789  tol 0.00500001  [calc] D deficit today, form (i)
-PASS  ch:satellites:L21:0.67             ch:satellites:p2_19_missing_satellites:21  printed 0.67  recomputed found in file  [calc] D deficit, form (ii) (committed output)  file docs/verification/scripts/verify_iams_law_derivations_output.txt
+PASS  ch:satellites:L21:0.67             ch:satellites:p2_19_missing_satellites:21  printed 0.67  recomputed 0.67  tol 0.00500001  [calc] D deficit, form (ii) (committed output)  file docs/verification/scripts/verify_iams_law_derivations_output.txt
       heavy: python3 docs/verification/scripts/verify_iams_law_derivations.py > docs/verification/scripts/verify_iams_law_derivations_output.txt
 PASS  ch:satellites:L21:1.87             ch:satellites:p2_19_missing_satellites:21  printed 1.87  recomputed found in file  [calc] D deficit, form (iii) (committed output)  file docs/verification/scripts/verify_iams_law_derivations_output.txt
       heavy: python3 docs/verification/scripts/verify_iams_law_derivations.py > docs/verification/scripts/verify_iams_law_derivations_output.txt
@@ -3220,7 +3185,6 @@ PASS  eq:bh_PSB                          ch:blackholes:p2_01_blackholes:100  pri
 PASS  ch:blackholes:L106                 ch:blackholes:p2_01_blackholes:106  printed (algebra)  recomputed lhs-rhs=0  [derived] P_SB/P_Hawking = 1
 PASS  eq:bh_transfer_rate                ch:blackholes:p2_01_blackholes:122  printed (algebra)  recomputed lhs-rhs=0  [none] transfer rate = Gamma
 PASS  ch:blackholes:L126                 ch:blackholes:p2_01_blackholes:126  printed (algebra)  recomputed lhs-rhs=0  [derived] loss of S_BH in bits per second = Gamma
-PASS  ch:blackholes:L136                 ch:blackholes:p2_01_blackholes:136  printed <2\times10^{-16}  recomputed 2.220446e-16  tol 5.000005e-17  [calc] max |T S/Mc^2 - 1/2| for 1 to 1e11 M_sun (floating point)
 PASS  ch:blackholes:L136:0.433           ch:blackholes:p2_01_blackholes:136  printed 0.433  recomputed 0.433013  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:blackholes:L136:0.218           ch:blackholes:p2_01_blackholes:136  printed 0.218  recomputed 0.217945  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:blackholes:L136:0.032           ch:blackholes:p2_01_blackholes:136  printed 0.032  recomputed 0.031607  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
@@ -3350,7 +3314,6 @@ PASS  ch:saturation:L37                  ch:saturation:p3_07_saturation:37  prin
 PASS  ch:saturation:L44                  ch:saturation:p3_07_saturation:44  printed 6.86  recomputed 6.85606  tol 0.00500001  [derived] M = hf/(k_B T), 5 GHz at 35 mK
 PASS  ch:saturation:L44:1.05\times10^{-3} ch:saturation:p3_07_saturation:44  printed 1.05\times10^{-3}  recomputed 0.00105195  tol 5.000005e-06  [derived] thermal floor 1/(1+e^M), 35 mK
 PASS  ch:saturation:L44:16.0             ch:saturation:p3_07_saturation:44  printed 16.0  recomputed 15.9975  tol 0.05  [derived] M at 15 mK
-PASS  ch:saturation:L44:1.1\times10^{-7} ch:saturation:p3_07_saturation:44  printed 1.1\times10^{-7}  recomputed 1.128195e-07  tol 5.000005e-09  [derived] thermal floor at 15 mK
 PASS  ch:saturation:L44:3.41             ch:saturation:p3_07_saturation:44  printed 3.41  recomputed 3.41  tol 0.00500001  [derived] E_hold from the canon record  file CANON/iam_canon.json
 PASS  ch:saturation:L44:59.5             ch:saturation:p3_07_saturation:44  printed 59.5  recomputed 59.5264  tol 0.05  [derived] drafted check, screened (runs; negative control fails)
 PASS  ch:saturation:L44:69.1             ch:saturation:p3_07_saturation:44  printed 69.1  recomputed 69.0507  tol 0.05  [derived] drafted check, screened (runs; negative control fails)
@@ -3456,7 +3419,7 @@ PASS  ch:entanglement:L94                ch:entanglement:p2_21_entanglement_reco
 PASS  ch:entanglement:L94:4.6\times10^{-25} ch:entanglement:p2_21_entanglement_records:94  printed 4.6\times10^{-25}  recomputed 4.635295e-25  tol 5.000005e-27  [observed] top-quark lifetime hbar/Gamma_t, Gamma_t = 1.42 GeV
 
 == Part 4: Particles and Quantum Records | ch:measurement (part5/p5_04_measurement.tex)
-PASS  ch:measurement:L28                 ch:measurement:p5_04_measurement:28  printed 0.800  recomputed found in file  [measured] measured: printed value found in PAPER_ERRATA.md, a file the chapter names  file docs/verification/PAPER_ERRATA.md
+PASS  ch:measurement:L28                 ch:measurement:p5_04_measurement:28  printed 0.800  recomputed 0.8  tol 5.000005e-04  [measured] measured: printed value found in PAPER_ERRATA.md, a file the chapter names  file docs/verification/PAPER_ERRATA.md
 PASS  ch:measurement:L28:72.26           ch:measurement:p5_04_measurement:28  printed 72.26  recomputed found in file  [measured] measured: printed value found in verify_records_measurement_time_output.txt, a file the chapter names  file docs/verification/scripts/verify_records_measurement_time_output.txt
       heavy: python3 docs/verification/scripts/verify_records_measurement_time.py > docs/verification/scripts/verify_records_measurement_time_output.txt
 PASS  ch:measurement:L42                 ch:measurement:p5_04_measurement:42  printed 16.7  recomputed 16.6782  tol 0.05  [calc] flight time over 5 m, ns
@@ -3472,16 +3435,12 @@ PASS  ch:measurement:L86                 ch:measurement:p5_04_measurement:86  pr
 PASS  ch:measurement:L86:5.5\times10^{14} ch:measurement:p5_04_measurement:86  printed 5.5\times10^{14}  recomputed 5.486280e+14  tol 5.000005e+12  [calc] tau_PD = hbar/E_G, m=1.2e-24 kg
 PASS  ch:measurement:L86:1.8\times10^{71} ch:measurement:p5_04_measurement:86  printed 1.8\times10^{71}  recomputed 1.765697e+71  tol 5.000005e+69  [calc] tau_IAM at 300 K, m=1.2e-24 kg
 PASS  ch:measurement:L86:1.2\times10^{-24} ch:measurement:p5_04_measurement:86  printed 1.2\times10^{-24}  recomputed 1.195588e-24  tol 5.000005e-26  [calc] C60 mass, 60 x 12 u, kg
-PASS  ch:measurement:L87                 ch:measurement:p5_04_measurement:87  printed 1.3\times10^{-39}  recomputed 1.334860e-39  tol 5.000005e-41  [calc] E_G = G m^2/R, m=1e-18 kg, R=5e-08 m (table inputs)
 PASS  ch:measurement:L87:7.9\times10^{4} ch:measurement:p5_04_measurement:87  printed 7.9\times10^{4}  recomputed 79002.4  tol 500  [calc] tau_PD = hbar/E_G, m=1e-18 kg
 PASS  ch:measurement:L87:5.3\times10^{41} ch:measurement:p5_04_measurement:87  printed 5.3\times10^{41}  recomputed 5.272342e+41  tol 5.000005e+39  [calc] tau_IAM at 300 K, m=1e-18 kg
-PASS  ch:measurement:L88                 ch:measurement:p5_04_measurement:88  printed 1.3\times10^{-34}  recomputed 1.334860e-34  tol 5.000005e-36  [calc] E_G = G m^2/R, m=1e-15 kg, R=5e-07 m (table inputs)
 PASS  ch:measurement:L88:0.79            ch:measurement:p5_04_measurement:88  printed 0.79  recomputed 0.790024  tol 0.00500001  [calc] tau_PD = hbar/E_G, m=1e-15 kg
 PASS  ch:measurement:L88:5.3\times10^{26} ch:measurement:p5_04_measurement:88  printed 5.3\times10^{26}  recomputed 5.272342e+26  tol 5.000005e+24  [calc] tau_IAM at 300 K, m=1e-15 kg
-PASS  ch:measurement:L89                 ch:measurement:p5_04_measurement:89  printed 1.3\times10^{-29}  recomputed 1.334860e-29  tol 5.000005e-31  [calc] E_G = G m^2/R, m=1e-12 kg, R=5e-06 m (table inputs)
 PASS  ch:measurement:L89:7.9\times10^{-6} ch:measurement:p5_04_measurement:89  printed 7.9\times10^{-6}  recomputed 7.900243e-06  tol 5.000005e-08  [calc] tau_PD = hbar/E_G, m=1e-12 kg
 PASS  ch:measurement:L89:5.3\times10^{11} ch:measurement:p5_04_measurement:89  printed 5.3\times10^{11}  recomputed 5.272342e+11  tol 5.000005e+09  [calc] tau_IAM at 300 K, m=1e-12 kg
-PASS  ch:measurement:L90                 ch:measurement:p5_04_measurement:90  printed 1.3\times10^{-19}  recomputed 1.334860e-19  tol 5.000005e-21  [calc] E_G = G m^2/R, m=1e-06 kg, R=0.0005 m (table inputs)
 PASS  ch:measurement:L90:7.9\times10^{-16} ch:measurement:p5_04_measurement:90  printed 7.9\times10^{-16}  recomputed 7.900243e-16  tol 5.000005e-18  [calc] tau_PD = hbar/E_G, m=1e-06 kg
 PASS  ch:measurement:L90:5.3\times10^{-19} ch:measurement:p5_04_measurement:90  printed 5.3\times10^{-19}  recomputed 5.272342e-19  tol 5.000005e-21  [calc] tau_IAM at 300 K, m=1e-06 kg
 PASS  ch:measurement:L91                 ch:measurement:p5_04_measurement:91  printed 7.1\times10^{-9}  recomputed 7.119253e-09  tol 5.000005e-11  [calc] E_G = G m^2/R, m=4 kg, R=0.15 m (table inputs)
@@ -3842,7 +3801,6 @@ PASS  ch:electronmass:L189               ch:electronmass:p2_15b_electron_mass:18
 
 == Part 5: The Quantum Order of Informational Actualization: Qubits and Semiconductors | ch:scprimer (part3/p3_01_sc_primer.tex)
 PASS  ch:scprimer:L15                    ch:scprimer:p3_01_sc_primer:15  printed 16.0  recomputed 15.9975  tol 0.05  [calc] hf/k_B T, 5 GHz, 15 mK
-PASS  ch:scprimer:L15:1.1\times10^{-7}   ch:scprimer:p3_01_sc_primer:15  printed 1.1\times10^{-7}  recomputed 1.128195e-07  tol 5.000005e-09  [calc] e^(-hf/kT) at 15 mK
 PASS  ch:scprimer:L15:8.2\times10^{-3}   ch:scprimer:p3_01_sc_primer:15  printed 8.2\times10^{-3}  recomputed 0.00823598  tol 5.000005e-05  [calc] e^(-hf/kT) at 50 mK
 PASS  ch:scprimer:L16                    ch:scprimer:p3_01_sc_primer:16  printed 1.20  recomputed 1.19729  tol 0.00500001  [calc] Delta_Al/(1.764 k_B), K
 PASS  ch:scprimer:L16:182                ch:scprimer:p3_01_sc_primer:16  printed 182  recomputed 182.399  tol 0.5  [calc] BCS gap of aluminium, ueV
@@ -3850,14 +3808,12 @@ PASS  ch:scprimer:L17                    ch:scprimer:p3_01_sc_primer:17  printed
 PASS  ch:scprimer:L17:5\times10^{-5}     ch:scprimer:p3_01_sc_primer:17  printed 5\times10^{-5}  recomputed 5.000000e-05  tol 5.000005e-06  [calc] temperature ratio
 PASS  ch:scprimer:L23                    ch:scprimer:p3_01_sc_primer:23  printed 6.86  recomputed 6.85606  tol 0.00500001  [calc] M = hf/kT, 5 GHz, 35 mK
 PASS  ch:scprimer:L23:1.1\times10^{-3}   ch:scprimer:p3_01_sc_primer:23  printed 1.1\times10^{-3}  recomputed 0.00105305  tol 5.000005e-05  [calc] equilibrium occupation e^-M at 35 mK
-PASS  ch:scprimer:L23:1.1\times10^{-7}   ch:scprimer:p3_01_sc_primer:23  printed 1.1\times10^{-7}  recomputed 1.128195e-07  tol 5.000005e-09  [calc] occupation at 15 mK
 PASS  ch:scprimer:L36                    ch:scprimer:p3_01_sc_primer:36  printed (algebra)  recomputed True  [calc] thermal x_qp vanishes as T -> 0 and rises with T
 PASS  ch:scprimer:L40                    ch:scprimer:p3_01_sc_primer:40  printed 141  recomputed 140.801  tol 0.5  [calc] Delta/k_B T, Al, 15 mK
 PASS  ch:scprimer:L74                    ch:scprimer:p3_01_sc_primer:74  printed 88  recomputed 88.0148  tol 0.5  [calc] nu > 2 Delta/h, GHz
 PASS  ch:scprimer:L76                    ch:scprimer:p3_01_sc_primer:76  printed 8\times10^{16}  recomputed 8.164912e+16  tol 5.000005e+15  [calc] black-body photons above 2 Delta_Al, 4 K, per s per m^2
 PASS  ch:scprimer:L76:2\times10^{20}     ch:scprimer:p3_01_sc_primer:76  printed 2\times10^{20}  recomputed 1.897834e+20  tol 5.000005e+19  [calc] the same at 50 K
 PASS  ch:scprimer:L76:10^{-108}          ch:scprimer:p3_01_sc_primer:76  printed 10^{-108}  recomputed 8.571129e-109  tol 2.162278e-108  [calc] the same at 15 mK (order)
-PASS  ch:scprimer:L77                    ch:scprimer:p3_01_sc_primer:77  printed 4\times10^{22}  recomputed 4.105076e+22  tol 5.000005e+21  [calc] the same at 300 K
 PASS  ch:scprimer:L77:2.7255             ch:scprimer:p3_01_sc_primer:77  printed 2.7255  recomputed 2.7255  tol 5.000005e-05  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:scprimer:L78                    ch:scprimer:p3_01_sc_primer:78  printed 2\times10^{16}  recomputed 2.185007e+16  tol 5.000005e+15  [calc] the same for the CMB
 PASS  ch:scprimer:L84                    ch:scprimer:p3_01_sc_primer:84  printed 2.7\times10^{8}  recomputed 2.747253e+08  tol 5.000005e+06  [calc] pairs broken at most by a 100 keV deposit
@@ -3914,7 +3870,6 @@ PASS  ch:ascoreqc:L86                    ch:ascoreqc:p3_03_a_for_processors:86  
 PASS  ch:ascoreqc:L86:6.2\times10^{-4}   ch:ascoreqc:p3_03_a_for_processors:86  printed 6.2\times10^{-4}  recomputed 6.187914e-04  tol 5.000005e-06  [calc] floor on the gauge of a 1e-3 two-qubit error
 PASS  ch:ascoreqc:L86:0.503              ch:ascoreqc:p3_03_a_for_processors:86  printed 0.503  recomputed 0.503359  tol 5.000005e-04  [derived] (eps - p)/p at p = 1e-2, per cent
 PASS  ch:ascoreqc:L86:10                 ch:ascoreqc:p3_03_a_for_processors:86  printed 10  recomputed 9.995  tol 0.5  [calc] threshold mark on the gauge, 1e-2/eps
-PASS  ch:ascoreqc:L93                    ch:ascoreqc:p3_03_a_for_processors:93  printed 6\times10^{-4}  recomputed 6.187914e-04  tol 5.000005e-05  [calc] floor on the gauge
 
 == Part 5: The Quantum Order of Informational Actualization: Qubits and Semiconductors | ch:thermaln (part3/p3_04_thermal_n.tex)
 PASS  eq:thermal_slope                   ch:thermaln:p3_04_thermal_n:9  printed (algebra)  recomputed lhs-rhs=0  [derived] d ln p/d ln T = M (1 - p), M = hf/kT
@@ -3949,12 +3904,9 @@ PASS  eq:qp_pth                          ch:qplatforms:p3_10_qubit_platforms:37 
 PASS  ch:qplatforms:L51                  ch:qplatforms:p3_10_qubit_platforms:51  printed 6.86  recomputed 6.85606  tol 0.00500001  [calc] M transmon 35 mK
 PASS  ch:qplatforms:L52                  ch:qplatforms:p3_10_qubit_platforms:52  printed 1.05\times10^{-3}  recomputed 0.00105195  tol 5.000005e-06  [calc] p_eq 35 mK
 PASS  ch:qplatforms:L53                  ch:qplatforms:p3_10_qubit_platforms:53  printed 6.2\times10^{-7}  recomputed 6.187914e-07  tol 5.000005e-09  [calc] p_th(t_g)
-PASS  ch:qplatforms:L54                  ch:qplatforms:p3_10_qubit_platforms:54  printed 6\times10^{-4}  recomputed 6.187914e-04  tol 5.000005e-05  [calc] floor on its own gauge
 PASS  ch:qplatforms:L55                  ch:qplatforms:p3_10_qubit_platforms:55  printed 16.0  recomputed 15.9975  tol 0.05  [calc] M at 15 mK
-PASS  ch:qplatforms:L55:1.1\times10^{-7} ch:qplatforms:p3_10_qubit_platforms:55  printed 1.1\times10^{-7}  recomputed 1.128195e-07  tol 5.000005e-09  [calc] p_eq at 15 mK
 PASS  ch:qplatforms:L69                  ch:qplatforms:p3_10_qubit_platforms:69  printed 6.86  recomputed 6.85606  tol 0.00500001  [calc] M transmon
 PASS  ch:qplatforms:L69:1.1\times10^{-3} ch:qplatforms:p3_10_qubit_platforms:69  printed 1.1\times10^{-3}  recomputed 0.00105195  tol 5.000005e-05  [calc] p_eq transmon
-PASS  ch:qplatforms:L69:1.1\times10^{-7} ch:qplatforms:p3_10_qubit_platforms:69  printed 1.1\times10^{-7}  recomputed 1.128195e-07  tol 5.000005e-09  [calc] p_eq at 15 mK
 PASS  ch:qplatforms:L70                  ch:qplatforms:p3_10_qubit_platforms:70  printed 0.48  recomputed 0.479924  tol 0.00500001  [calc] M fluxonium 0.2 GHz 20 mK
 PASS  ch:qplatforms:L70:2.4              ch:qplatforms:p3_10_qubit_platforms:70  printed 2.4  recomputed 2.39962  tol 0.05  [calc] M fluxonium 1 GHz
 PASS  ch:qplatforms:L70:0.38             ch:qplatforms:p3_10_qubit_platforms:70  printed 0.38  recomputed 0.38227  tol 0.00500001  [calc] p_eq fluxonium 0.2 GHz
@@ -3995,7 +3947,6 @@ PASS  ch:qplatforms:L149                 ch:qplatforms:p3_10_qubit_platforms:149
 PASS  ch:qplatforms:L149:7.8\times10^{-4} ch:qplatforms:p3_10_qubit_platforms:149  printed 7.8\times10^{-4}  recomputed 7.803044e-04  tol 5.000005e-06  [observed] eps = -ln(1-p) at 99.922 %
 PASS  ch:qplatforms:L150                 ch:qplatforms:p3_10_qubit_platforms:150  printed 12.8  recomputed 12.8205  tol 0.05  [calc] threshold 1e-2 over eps 7.8e-4
 PASS  ch:qplatforms:L152                 ch:qplatforms:p3_10_qubit_platforms:152  printed 2.4  recomputed 2.39962  tol 0.05  [calc] M fluxonium 1 GHz 20 mK
-PASS  ch:qplatforms:L152:8               ch:qplatforms:p3_10_qubit_platforms:152  printed 8  recomputed 8.32016  tol 0.5  [calc] p_eq fluxonium 1 GHz, per cent
 PASS  ch:qplatforms:L153                 ch:qplatforms:p3_10_qubit_platforms:153  printed 0.48  recomputed 0.479924  tol 0.00500001  [calc] M fluxonium 0.2 GHz
 PASS  ch:qplatforms:L153:38              ch:qplatforms:p3_10_qubit_platforms:153  printed 38  recomputed 38.227  tol 0.5  [calc] p_eq 0.2 GHz, per cent
 PASS  ch:qplatforms:L162                 ch:qplatforms:p3_10_qubit_platforms:162  printed 10^{-3}  recomputed 0.00109712  tol 0.00216228  [calc] ion hyperfine M of order 1e-3 at 300 K
@@ -4110,8 +4061,7 @@ PASS  ch:astrogenetics:L90               ch:astrogenetics:p4_00b_astrogenetics:9
 PASS  ch:astrogenetics:L90:4.45          ch:astrogenetics:p4_00b_astrogenetics:90  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] IAM-A at a coin flip  file CANON/iam_canon.json
 PASS  ch:astrogenetics:L98               ch:astrogenetics:p4_00b_astrogenetics:98  printed (algebra)  recomputed lhs-rhs=0  [derived] H(beta) is symmetric: H(beta) = H(1 - beta)
 PASS  ch:astrogenetics:L116              ch:astrogenetics:p4_00b_astrogenetics:116  printed 2.40  recomputed 2.4  tol 0.00500001  [calc] white-dwarf gauge full at the Chandrasekhar mass, A = 1.44/0.6
-PASS  ch:astrogenetics:L139              ch:astrogenetics:p4_00b_astrogenetics:139  printed 1.016  recomputed found in file  [measured] measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_astrogenetics_book_output.txt
-      heavy: python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt
+PASS  ch:astrogenetics:L139              ch:astrogenetics:p4_00b_astrogenetics:139  printed 1.016  recomputed 1.01558  tol 5.000005e-04  [measured] IMR90 senescent cultures, methylated-channel Met-A, highest  file Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv
 PASS  ch:astrogenetics:L140              ch:astrogenetics:p4_00b_astrogenetics:140  printed 0.695  recomputed found in file  [measured] measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_astrogenetics_book_output.txt
       heavy: python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt
 PASS  ch:astrogenetics:L140:1.120        ch:astrogenetics:p4_00b_astrogenetics:140  printed 1.120  recomputed found in file  [measured] measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_astrogenetics_book_output.txt
@@ -4563,15 +4513,12 @@ PASS  ch:skytools:L94:0.705              ch:skytools:p4_16a_skytools:94  printed
 PASS  ch:skytools:L95:0.70               ch:skytools:p4_16a_skytools:95  printed 0.70  recomputed 0.699117  tol 0.00500001  [measured] chain healthy C-score, lowest  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
 PASS  ch:skytools:L95:1.23               ch:skytools:p4_16a_skytools:95  printed 1.23  recomputed 1.22767  tol 0.00500001  [measured] chain healthy C-score, highest  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
 PASS  ch:skytools:L95:0.699              ch:skytools:p4_16a_skytools:95  printed 0.699  recomputed 0.699117  tol 5.000005e-04  [measured] chain healthy C-score, lowest (three digits)  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
-PASS  ch:skytools:L95:0.1                ch:skytools:p4_16a_skytools:95  printed 0.1  recomputed 0.102727  tol 0.05  [measured] spread damage moves Met-A by about 0.1  file Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv
 PASS  ch:skytools:L96:12.5               ch:skytools:p4_16a_skytools:96  printed 12.5  recomputed 12.5276  tol 0.05  [measured] regional damage C-score, lowest  file Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv
 PASS  ch:skytools:L96:15.7               ch:skytools:p4_16a_skytools:96  printed 15.7  recomputed 15.6958  tol 0.05  [measured] regional damage C-score, highest  file Biological_Physics/MethylPhys/reference_floors_v1/sky/sky_neut6_stats.csv
 PASS  ch:skytools:L125:0.32              ch:skytools:p4_16a_skytools:125  printed 0.32  recomputed 0.323099  tol 0.00500001  [measured] C(d) of beta at 1-1.8 kb  file Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv
 PASS  ch:skytools:L125:1.8               ch:skytools:p4_16a_skytools:125  printed 1.8  recomputed 1.778  tol 0.05  [measured] upper edge of the 1 kb distance bin  file Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv
-PASS  ch:skytools:L125:0.05              ch:skytools:p4_16a_skytools:125  printed 0.05  recomputed 0.052595  tol 0.00500001  [measured] C(d) of beta at 3-6 kb  file Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv
 PASS  ch:skytools:L126                   ch:skytools:p4_16a_skytools:126  printed 0.327  recomputed 0.327028  tol 5.000005e-04  [measured] C(d) at 1 kb, highest of the six arrays  file Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv
 PASS  ch:skytools:L138                   ch:skytools:p4_16a_skytools:138  printed 0.02  recomputed 0.0192116  tol 0.00500001  [measured] healthy residual uncorrelated beyond 1 kb  file Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv
-PASS  ch:skytools:L139:0.05              ch:skytools:p4_16a_skytools:139  printed 0.05  recomputed 0.0516963  tol 0.00500001  [measured] regional-damage plateau, lower end  file Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv
 PASS  ch:skytools:L139:0.08              ch:skytools:p4_16a_skytools:139  printed 0.08  recomputed 0.0791096  tol 0.00500001  [measured] regional-damage plateau, upper end  file Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv
 PASS  ch:skytools:L142                   ch:skytools:p4_16a_skytools:142  printed 0.171  recomputed 0.171  tol 5.000005e-04  [measured] smoothed healthy whole-array sky, spread  file Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md
 PASS  ch:skytools:L143:0.131             ch:skytools:p4_16a_skytools:143  printed 0.131  recomputed 0.131  tol 5.000005e-04  [measured] same sky shuffled, spread  file Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md
@@ -4663,7 +4610,6 @@ PASS  ch:firstreadings:L63:0.0405        ch:firstreadings:p4_21_firstreadings:63
 PASS  ch:firstreadings:L63:0.0511        ch:firstreadings:p4_21_firstreadings:63  printed 0.0511  recomputed 0.0511095  tol 5.000005e-05  [measured] EM-seq treated copy error: highest  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv
 PASS  ch:firstreadings:L63:1.65          ch:firstreadings:p4_21_firstreadings:63  printed 1.65  recomputed 1.64655  tol 0.00500001  [measured] IAM-A against own vehicle: lowest  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv
 PASS  ch:firstreadings:L63:1.97          ch:firstreadings:p4_21_firstreadings:63  printed 1.97  recomputed 1.96801  tol 0.00500001  [measured] IAM-A against own vehicle: highest  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv
-PASS  ch:firstreadings:L64               ch:firstreadings:p4_21_firstreadings:64  printed 0.0007  recomputed 7.423274e-04  tol 5.000005e-05  [measured] largest conversion-failure difference, treated vs vehicle  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv
 PASS  ch:firstreadings:L74:0.968         ch:firstreadings:p4_21_firstreadings:74  printed 0.968  recomputed 0.967602  tol 5.000005e-04  [measured] caption: vehicle lowest Met-A  file Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv
 PASS  ch:firstreadings:L74:1.048         ch:firstreadings:p4_21_firstreadings:74  printed 1.048  recomputed 1.04833  tol 5.000005e-04  [measured] caption: vehicle highest Met-A  file Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv
 PASS  ch:firstreadings:L74:3.2           ch:firstreadings:p4_21_firstreadings:74  printed 3.2  recomputed 3.2  tol 0.05  [measured] caption: lowest active-drug dose  file Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv
@@ -4677,7 +4623,6 @@ PASS  ch:firstreadings:L81:0.0405        ch:firstreadings:p4_21_firstreadings:81
 PASS  ch:firstreadings:L81:0.0511        ch:firstreadings:p4_21_firstreadings:81  printed 0.0511  recomputed 0.0511095  tol 5.000005e-05  [measured] caption: treated copy error highest  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv
 PASS  ch:firstreadings:L81:1.65          ch:firstreadings:p4_21_firstreadings:81  printed 1.65  recomputed 1.64655  tol 0.00500001  [measured] caption: IAM-A lowest  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv
 PASS  ch:firstreadings:L81:1.97          ch:firstreadings:p4_21_firstreadings:81  printed 1.97  recomputed 1.96801  tol 0.00500001  [measured] caption: IAM-A highest  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv
-PASS  ch:firstreadings:L82               ch:firstreadings:p4_21_firstreadings:82  printed 0.0007  recomputed 7.423274e-04  tol 5.000005e-05  [measured] caption: largest conversion-failure difference  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_readings.csv
 PASS  ch:firstreadings:L89               ch:firstreadings:p4_21_firstreadings:89  printed 0.05  recomputed 0.05  tol 0.00500001  [measured] remission draws agree within the S5 bar  file Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md
 PASS  ch:firstreadings:L97               ch:firstreadings:p4_21_firstreadings:97  printed 67.9  recomputed 67.8862  tol 0.05  [measured] 450K held-out controls read Normal (per cent)  file Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md
 PASS  ch:firstreadings:L97:0.961         ch:firstreadings:p4_21_firstreadings:97  printed 0.961  recomputed 0.961  tol 5.000005e-04  [measured] 450K controls: women median reading (record)  file Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md
@@ -4701,11 +4646,11 @@ PASS  ch:salmonid:L53:0.0005             ch:salmonid:p4_22b_salmonid:53  printed
       heavy: python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain: Bismark --pbat alignment and extract.py)
 PASS  ch:salmonid:L53:0.0002             ch:salmonid:p4_22b_salmonid:53  printed 0.0002  recomputed 1.804268e-04  tol 5.000005e-05  [measured] Methow within-fish half-split SD, sperm  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
       heavy: python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain: Bismark --pbat alignment and extract.py)
-PASS  ch:salmonid:L54                    ch:salmonid:p4_22b_salmonid:54  printed 0.0354  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
-PASS  ch:salmonid:L54:3.31               ch:salmonid:p4_22b_salmonid:54  printed 3.31  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
-PASS  ch:salmonid:L55                    ch:salmonid:p4_22b_salmonid:55  printed 0.0356  recomputed found in file  [measured] measured: printed value found in coho_cc_fish.csv, a file the chapter names  file Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv
+PASS  ch:salmonid:L54                    ch:salmonid:p4_22b_salmonid:54  printed 0.0354  recomputed 0.0353857  tol 5.000005e-05  [measured] Methow steelhead: median red-cell eps_corr  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
+PASS  ch:salmonid:L54:3.31               ch:salmonid:p4_22b_salmonid:54  printed 3.31  recomputed 3.30542  tol 0.00500001  [measured] Methow steelhead: median red-cell holding energy, kT  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
+PASS  ch:salmonid:L55                    ch:salmonid:p4_22b_salmonid:55  printed 0.0356  recomputed 0.0356295  tol 5.000005e-05  [measured] Methow steelhead: median eps_corr of hatchery red cells  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
 PASS  ch:salmonid:L55:0.0352             ch:salmonid:p4_22b_salmonid:55  printed 0.0352  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
-PASS  ch:salmonid:L55:0.0165             ch:salmonid:p4_22b_salmonid:55  printed 0.0165  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
+PASS  ch:salmonid:L55:0.0165             ch:salmonid:p4_22b_salmonid:55  printed 0.0165  recomputed 0.0165072  tol 5.000005e-05  [measured] Methow steelhead: median eps_corr of hatchery sperm  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
 PASS  ch:salmonid:L55:0.31               ch:salmonid:p4_22b_salmonid:55  printed 0.31  recomputed 0.307489  tol 0.00500001  [measured] Methow P3 red cells, Mann-Whitney p  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
       heavy: python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain: Bismark --pbat alignment and extract.py)
 PASS  ch:salmonid:L55:0.0184             ch:salmonid:p4_22b_salmonid:55  printed 0.0184  recomputed 0.018354  tol 5.000005e-05  [measured] Methow P3 sperm, natural median  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
@@ -4743,7 +4688,7 @@ PASS  ch:salmonid:L66                    ch:salmonid:p4_22b_salmonid:66  printed
       heavy: python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain: Bismark --pbat alignment and extract.py)
 PASS  ch:salmonid:L66:0.81               ch:salmonid:p4_22b_salmonid:66  printed 0.81  recomputed 0.805993  tol 0.00500001  [measured] Methow: red cell against sperm of one fish, p  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
       heavy: python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain: Bismark --pbat alignment and extract.py)
-PASS  ch:salmonid:L67                    ch:salmonid:p4_22b_salmonid:67  printed 3.31  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
+PASS  ch:salmonid:L67                    ch:salmonid:p4_22b_salmonid:67  printed 3.31  recomputed 3.30542  tol 0.00500001  [measured] Methow steelhead: median red-cell holding energy, kT (sperm comparison)  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
 PASS  ch:salmonid:L67:4.02               ch:salmonid:p4_22b_salmonid:67  printed 4.02  recomputed 4.01834  tol 0.00500001  [measured] Methow sperm holding energy  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
       heavy: python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain: Bismark --pbat alignment and extract.py)
 PASS  ch:salmonid:L87                    ch:salmonid:p4_22b_salmonid:87  printed 0.924  recomputed 0.923814  tol 5.000005e-04  [measured] brook charr ICC, 36 fish  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
@@ -4755,7 +4700,7 @@ PASS  ch:salmonid:L87:+0.45              ch:salmonid:p4_22b_salmonid:87  printed
 PASS  ch:salmonid:L87:+0.57              ch:salmonid:p4_22b_salmonid:87  printed +0.57  recomputed 0.565138  tol 0.00500001  [measured] brook charr: rho with duplicates, failed fish left out  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
       heavy: python3 Biological_Physics/MethylPhys/doors/data/score_charr.py (needs the per-fish site tables of the methylation chain: WGBS alignment and extract_pe.py)
 PASS  ch:salmonid:L88                    ch:salmonid:p4_22b_salmonid:88  printed 3.82  recomputed found in file  [measured] measured: printed value found in charr_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
-PASS  ch:salmonid:L88:0.0216             ch:salmonid:p4_22b_salmonid:88  printed 0.0216  recomputed found in file  [measured] measured: printed value found in charr_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
+PASS  ch:salmonid:L88:0.0216             ch:salmonid:p4_22b_salmonid:88  printed 0.0216  recomputed 0.021566  tol 5.000005e-05  [measured] brook charr P2: median ambient eps_corr  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
 PASS  ch:salmonid:L88:+0.29              ch:salmonid:p4_22b_salmonid:88  printed +0.29  recomputed 0.287242  tol 0.00500001  [measured] brook charr P1: rho with masked fraction  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
       heavy: python3 Biological_Physics/MethylPhys/doors/data/score_charr.py (needs the per-fish site tables of the methylation chain: WGBS alignment and extract_pe.py)
 PASS  ch:salmonid:L89                    ch:salmonid:p4_22b_salmonid:89  printed 0.92  recomputed 0.923866  tol 0.00500001  [measured] brook charr P3: warm/ambient ratio  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
@@ -4797,9 +4742,9 @@ PASS  ch:salmonid:L109:0.71              ch:salmonid:p4_22b_salmonid:109  printe
       heavy: python3 Biological_Physics/MethylPhys/doors/data/score_rimouski.py (needs the per-fish site tables of the methylation chain: WGBS alignment and extract_pe.py)
 PASS  ch:salmonid:L109:0.27              ch:salmonid:p4_22b_salmonid:109  printed 0.27  recomputed 0.271857  tol 0.00500001  [measured] Rimouski P4: p of the mother term  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
       heavy: python3 Biological_Physics/MethylPhys/doors/data/score_rimouski.py (needs the per-fish site tables of the methylation chain: WGBS alignment and extract_pe.py)
-PASS  ch:salmonid:L110                   ch:salmonid:p4_22b_salmonid:110  printed 0.0303  recomputed found in file  [measured] measured: printed value found in rimouski_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
+PASS  ch:salmonid:L110                   ch:salmonid:p4_22b_salmonid:110  printed 0.0303  recomputed 0.0303204  tol 5.000005e-05  [measured] Atlantic salmon fin: F0 median eps_corr  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
 PASS  ch:salmonid:L110:3.47              ch:salmonid:p4_22b_salmonid:110  printed 3.47  recomputed found in file  [measured] measured: printed value found in rimouski_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
-PASS  ch:salmonid:L110:0.0278            ch:salmonid:p4_22b_salmonid:110  printed 0.0278  recomputed found in file  [measured] measured: printed value found in rimouski_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
+PASS  ch:salmonid:L110:0.0278            ch:salmonid:p4_22b_salmonid:110  printed 0.0278  recomputed 0.0277737  tol 5.000005e-05  [measured] Atlantic salmon fin: F1 median eps_corr  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
 PASS  ch:salmonid:L110:3.56              ch:salmonid:p4_22b_salmonid:110  printed 3.56  recomputed found in file  [measured] measured: printed value found in rimouski_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
 PASS  ch:salmonid:L126                   ch:salmonid:p4_22b_salmonid:126  printed 0.826  recomputed 0.825943  tol 5.000005e-04  [measured] coho D1: ICC  file Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv
       heavy: python3 Biological_Physics/Salmonid/DEV_COHO_CC_01/score_coho_cc.py <site-table folder> leluyer_runs.csv (needs the per-fish site tables of the methylation chain)
@@ -4821,15 +4766,15 @@ PASS  ch:salmonid:L131:0.33              ch:salmonid:p4_22b_salmonid:131  printe
       heavy: python3 Biological_Physics/Salmonid/DEV_COHO_CC_01/score_coho_cc.py <site-table folder> leluyer_runs.csv (needs the per-fish site tables of the methylation chain)
 PASS  ch:salmonid:L132                   ch:salmonid:p4_22b_salmonid:132  printed 0.0337  recomputed found in file  [measured] measured: printed value found in rimouski_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
 PASS  ch:salmonid:L132:0.0373            ch:salmonid:p4_22b_salmonid:132  printed 0.0373  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
-PASS  ch:salmonid:L132:0.0356            ch:salmonid:p4_22b_salmonid:132  printed 0.0356  recomputed found in file  [measured] measured: printed value found in coho_cc_fish.csv, a file the chapter names  file Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv
+PASS  ch:salmonid:L132:0.0356            ch:salmonid:p4_22b_salmonid:132  printed 0.0356  recomputed 0.0356296  tol 5.000005e-05  [measured] coho: median copy error on common sites  file Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv
 PASS  ch:salmonid:L132:0.00089           ch:salmonid:p4_22b_salmonid:132  printed 0.00089  recomputed 8.903017e-04  tol 5.000005e-06  [measured] coho between-fish SD  file Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv
       heavy: python3 Biological_Physics/Salmonid/DEV_COHO_CC_01/score_coho_cc.py <site-table folder> leluyer_runs.csv (needs the per-fish site tables of the methylation chain)
 PASS  ch:salmonid:L133                   ch:salmonid:p4_22b_salmonid:133  printed 0.00039  recomputed 3.887363e-04  tol 5.000005e-06  [measured] coho half-split noise  file Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv
       heavy: python3 Biological_Physics/Salmonid/DEV_COHO_CC_01/score_coho_cc.py <site-table folder> leluyer_runs.csv (needs the per-fish site tables of the methylation chain)
 PASS  ch:salmonid:L136                   ch:salmonid:p4_22b_salmonid:136  printed 3.25  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
-PASS  ch:salmonid:L136:3.36              ch:salmonid:p4_22b_salmonid:136  printed 3.36  recomputed found in file  [measured] measured: printed value found in rimouski_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
+PASS  ch:salmonid:L136:3.36              ch:salmonid:p4_22b_salmonid:136  printed 3.36  recomputed 3.35552  tol 0.00500001  [measured] coho: highest holding energy, kT (as scored)  file Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv
 PASS  ch:salmonid:L136:3.30              ch:salmonid:p4_22b_salmonid:136  printed 3.30  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
-PASS  ch:salmonid:L150                   ch:salmonid:p4_22b_salmonid:150  printed 3.31  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
+PASS  ch:salmonid:L150                   ch:salmonid:p4_22b_salmonid:150  printed 3.31  recomputed 3.30542  tol 0.00500001  [measured] table: Methow steelhead red cells, median holding energy, kT  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
 PASS  ch:salmonid:L150:20                ch:salmonid:p4_22b_salmonid:150  printed 20  recomputed 20  tol 0.5  [measured] Table: Methow males  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
       heavy: python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain: Bismark --pbat alignment and extract.py)
 PASS  ch:salmonid:L150:0.998             ch:salmonid:p4_22b_salmonid:150  printed 0.998  recomputed 0.99835  tol 5.000005e-04  [measured] Table: Methow ICC  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
@@ -4840,7 +4785,7 @@ PASS  ch:salmonid:L151                   ch:salmonid:p4_22b_salmonid:151  printe
       heavy: python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain: Bismark --pbat alignment and extract.py)
 PASS  ch:salmonid:L151:4.02              ch:salmonid:p4_22b_salmonid:151  printed 4.02  recomputed 4.01834  tol 0.00500001  [measured] Table: Methow sperm E  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
       heavy: python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain: Bismark --pbat alignment and extract.py)
-PASS  ch:salmonid:L152                   ch:salmonid:p4_22b_salmonid:152  printed 3.81  recomputed found in file  [measured] measured: printed value found in charr_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
+PASS  ch:salmonid:L152                   ch:salmonid:p4_22b_salmonid:152  printed 3.81  recomputed 3.8138  tol 0.00500001  [measured] table: brook charr sperm, median holding energy, kT  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
 PASS  ch:salmonid:L152:40                ch:salmonid:p4_22b_salmonid:152  printed 40  recomputed 40  tol 0.5  [measured] Table: brook charr males  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
       heavy: python3 Biological_Physics/MethylPhys/doors/data/score_charr.py (needs the per-fish site tables of the methylation chain: WGBS alignment and extract_pe.py)
 PASS  ch:salmonid:L152:0.924             ch:salmonid:p4_22b_salmonid:152  printed 0.924  recomputed 0.923814  tol 5.000005e-04  [measured] Table: brook charr ICC  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
@@ -4861,7 +4806,7 @@ PASS  ch:salmonid:L154:0.826             ch:salmonid:p4_22b_salmonid:154  printe
       heavy: python3 Biological_Physics/Salmonid/DEV_COHO_CC_01/score_coho_cc.py <site-table folder> leluyer_runs.csv (needs the per-fish site tables of the methylation chain)
 PASS  ch:salmonid:L154:-0.38             ch:salmonid:p4_22b_salmonid:154  printed -0.38  recomputed -0.384413  tol 0.00500001  [measured] Table: coho, rho with conversion  file Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv
       heavy: python3 Biological_Physics/Salmonid/DEV_COHO_CC_01/score_coho_cc.py <site-table folder> leluyer_runs.csv (needs the per-fish site tables of the methylation chain)
-PASS  ch:salmonid:L163                   ch:salmonid:p4_22b_salmonid:163  printed 3.29  recomputed found in file  [measured] measured: printed value found in rimouski_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
+PASS  ch:salmonid:L163                   ch:salmonid:p4_22b_salmonid:163  printed 3.29  recomputed 3.28757  tol 0.00500001  [measured] human cells, lower end of the holding energy, kT (figure caption)  file Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md
 PASS  ch:salmonid:L163:3.51              ch:salmonid:p4_22b_salmonid:163  printed 3.51  recomputed found in file  [measured] measured: printed value found in rimouski_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
 PASS  ch:salmonid:L164                   ch:salmonid:p4_22b_salmonid:164  printed 3.60  recomputed found in file  [measured] measured: printed value found in rimouski_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
 PASS  ch:salmonid:L164:3.85              ch:salmonid:p4_22b_salmonid:164  printed 3.85  recomputed found in file  [measured] measured: printed value found in charr_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
@@ -4869,11 +4814,11 @@ PASS  ch:salmonid:L169                   ch:salmonid:p4_22b_salmonid:169  printe
       heavy: python3 Biological_Physics/Salmonid/DEV_COHO_CC_01/score_coho_cc.py <site-table folder> leluyer_runs.csv (needs the per-fish site tables of the methylation chain)
 PASS  ch:salmonid:L170                   ch:salmonid:p4_22b_salmonid:170  printed 0.998  recomputed 0.99835  tol 5.000005e-04  [measured] highest ICC of the four sets (Methow)  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
       heavy: python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain: Bismark --pbat alignment and extract.py)
-PASS  ch:salmonid:L179                   ch:salmonid:p4_22b_salmonid:179  printed 3.29  recomputed found in file  [measured] measured: printed value found in rimouski_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
+PASS  ch:salmonid:L179                   ch:salmonid:p4_22b_salmonid:179  printed 3.29  recomputed 3.28757  tol 0.00500001  [measured] human cells, lower end of the holding energy, kT  file Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md
 PASS  ch:salmonid:L179:3.51              ch:salmonid:p4_22b_salmonid:179  printed 3.51  recomputed found in file  [measured] measured: printed value found in rimouski_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
 PASS  ch:salmonid:L179:3.60              ch:salmonid:p4_22b_salmonid:179  printed 3.60  recomputed found in file  [measured] measured: printed value found in rimouski_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
 PASS  ch:salmonid:L179:3.85              ch:salmonid:p4_22b_salmonid:179  printed 3.85  recomputed found in file  [measured] measured: printed value found in charr_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
-PASS  ch:salmonid:L180                   ch:salmonid:p4_22b_salmonid:180  printed 3.81  recomputed found in file  [measured] measured: printed value found in charr_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
+PASS  ch:salmonid:L180                   ch:salmonid:p4_22b_salmonid:180  printed 3.81  recomputed 3.8138  tol 0.00500001  [measured] brook charr sperm, median holding energy, kT  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
 PASS  ch:salmonid:L180:4.02              ch:salmonid:p4_22b_salmonid:180  printed 4.02  recomputed 4.01834  tol 0.00500001  [measured] Methow sperm holding energy (holding-energy paragraph)  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
       heavy: python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain: Bismark --pbat alignment and extract.py)
 PASS  ch:salmonid:L184                   ch:salmonid:p4_22b_salmonid:184  printed 3.76  recomputed 3.76243  tol 0.00500001  [openprob] ENCODE immune cells, lower E  file Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md
@@ -5160,7 +5105,7 @@ PASS  ch:onegauge:L66:4.4                ch:onegauge:p3_08_one_gauge:66  printed
 PASS  ch:onegauge:L67                    ch:onegauge:p3_08_one_gauge:67  printed 20.94  recomputed 20.9405  tol 0.00500001  [openprob] Mahaffey number M = dG_ATP/(R T_cell)
 PASS  ch:onegauge:L79                    ch:onegauge:p3_08_one_gauge:79  printed (algebra)  recomputed lhs-rhs=0  [derived] drafted check, screened (runs; negative control fails)
 PASS  ch:onegauge:L94                    ch:onegauge:p3_08_one_gauge:94  printed 0.032  recomputed 0.0320117  tol 5.000005e-04  [derived] IAM-A floor eps0 = 1/(1 + e^{phi M})
-PASS  ch:onegauge:L110                   ch:onegauge:p3_08_one_gauge:110  printed 1.05  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  ch:onegauge:L110                   ch:onegauge:p3_08_one_gauge:110  printed 1.05  recomputed 1.05  tol 0.00500001  [measured] Normal band, upper edge (canon Normal_band)  file CANON/iam_canon.json
 PASS  ch:onegauge:L110:0.695             ch:onegauge:p3_08_one_gauge:110  printed 0.695  recomputed 0.695321  tol 5.000005e-04  [measured] IMR90 senescent, unmethylated channel, upper end  file Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv
       heavy: python3 Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py (needs the GSE48580 WGBS files)
 PASS  ch:onegauge:L110:1.120             ch:onegauge:p3_08_one_gauge:110  printed 1.120  recomputed 1.12041  tol 5.000005e-04  [measured] IMR90 SV40, methylated channel, upper end  file Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv
@@ -5223,13 +5168,13 @@ PASS  ch:synthesis:L98                   ch:synthesis:p5_08_synthesis:98  printe
 PASS  ch:synthesis:L98:1.16              ch:synthesis:p5_08_synthesis:98  printed 1.16  recomputed found in file  [measured] measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md
 PASS  ch:synthesis:L98:1.87              ch:synthesis:p5_08_synthesis:98  printed 1.87  recomputed found in file  [measured] measured: printed value found in PROC_DNMT_01_PARTA_OUTCOME.md, a file the chapter names  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md
 PASS  ch:synthesis:L98:0.97              ch:synthesis:p5_08_synthesis:98  printed 0.97  recomputed 0.967602  tol 0.00500001  [measured] DNMT series vehicle arrays, lowest  file Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv
-PASS  ch:synthesis:L100                  ch:synthesis:p5_08_synthesis:100  printed 1.65  recomputed found in file  [measured] measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md
+PASS  ch:synthesis:L100                  ch:synthesis:p5_08_synthesis:100  printed 1.65  recomputed 1.64655  tol 0.00500001  [measured] DNMT1 block on single molecules: lowest IAM-A of the 8 treated libraries  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv
 PASS  ch:synthesis:L100:1.97             ch:synthesis:p5_08_synthesis:100  printed 1.97  recomputed found in file  [measured] measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md
 PASS  ch:synthesis:L102                  ch:synthesis:p5_08_synthesis:102  printed 1.148  recomputed found in file  [measured] measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names  file Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
 
 == Part 7: Thirty-Seven Orders of Magnitude and the Web that is IAM | ch:reach (part3/p3_09_reach.tex)
 PASS  ch:reach:L33                       ch:reach:p3_09_reach:33  printed 1.148  recomputed found in file  [measured] measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names  file Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
-PASS  ch:reach:L33:1.65                  ch:reach:p3_09_reach:33  printed 1.65  recomputed found in file  [measured] measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md
+PASS  ch:reach:L33:1.65                  ch:reach:p3_09_reach:33  printed 1.65  recomputed 1.64655  tol 0.00500001  [measured] DNMT1 block on single molecules: lowest IAM-A (figure caption)  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv
 PASS  ch:reach:L33:1.97                  ch:reach:p3_09_reach:33  printed 1.97  recomputed found in file  [measured] measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md
 PASS  ch:reach:L40                       ch:reach:p3_09_reach:40  printed 1.07  recomputed found in file  [measured] measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names  file Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
 PASS  ch:reach:L40:1.33                  ch:reach:p3_09_reach:40  printed 1.33  recomputed found in file  [measured] measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names  file Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md
@@ -5240,7 +5185,7 @@ PASS  ch:reach:L52:1.87                  ch:reach:p3_09_reach:52  printed 1.87  
 PASS  ch:reach:L52:0.968                 ch:reach:p3_09_reach:52  printed 0.968  recomputed 0.967602  tol 5.000005e-04  [measured] DNMT series vehicle arrays: Met-A lowest  file Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv
 PASS  ch:reach:L52:1.048                 ch:reach:p3_09_reach:52  printed 1.048  recomputed 1.04833  tol 5.000005e-04  [measured] DNMT series vehicle arrays: Met-A highest  file Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv
 PASS  ch:reach:L53                       ch:reach:p3_09_reach:53  printed 3.2  recomputed 3.2  tol 0.05  [measured] DNMT series: lowest dose of the active drug, nM  file Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv
-PASS  ch:reach:L55                       ch:reach:p3_09_reach:55  printed 1.65  recomputed found in file  [measured] measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md
+PASS  ch:reach:L55                       ch:reach:p3_09_reach:55  printed 1.65  recomputed 1.64655  tol 0.00500001  [measured] DNMT1 block on single molecules: lowest IAM-A  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv
 PASS  ch:reach:L55:1.97                  ch:reach:p3_09_reach:55  printed 1.97  recomputed found in file  [measured] measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md
 PASS  ch:reach:L68                       ch:reach:p3_09_reach:68  printed 1.012  recomputed 1.0123  tol 5.000005e-04  [calc] same value as p4_10_temperature:17 (floor at 38.5 C)
 PASS  ch:reach:L68:0.78                  ch:reach:p3_09_reach:68  printed 0.78  recomputed 0.781684  tol 0.00500001  [calc] copy-error floor at 10 C relative to 37 C, fixed holding energy
@@ -5255,7 +5200,6 @@ PASS  ch:predictions:L24:0.039           ch:predictions:p5_07_predictions:24  pr
 PASS  ch:predictions:L24:0.11            ch:predictions:p5_07_predictions:24  printed 0.11  recomputed 0.11  tol 0.00500001  [measured] DESI 2024 full-shape mu0 (recorded value)  file docs/verification/theory/IAM_LAW_CHECK.md
 PASS  ch:predictions:L24:0.54            ch:predictions:p5_07_predictions:24  printed 0.54  recomputed 0.54  tol 0.00500001  [measured] DESI 2024 full-shape mu0 lower error (recorded value)  file docs/verification/theory/IAM_LAW_CHECK.md
 PASS  ch:predictions:L24:1.8             ch:predictions:p5_07_predictions:24  printed 1.8  recomputed 1.83898  tol 0.05  [calc] E_G above LCDM at z = 0.3 (C8)
-PASS  ch:predictions:L24:1.1             ch:predictions:p5_07_predictions:24  printed 1.1  recomputed 1.14449  tol 0.05  [calc] E_G above LCDM at z = 0.5 (C8)
 PASS  ch:predictions:L24:0.78            ch:predictions:p5_07_predictions:24  printed 0.78  recomputed 0.776789  tol 0.00500001  [calc] growth factor D below LCDM today (C4)
 PASS  ch:predictions:L86                 ch:predictions:p5_07_predictions:86  printed 70.0  recomputed 70  tol 0.05  [observed] GW170817 standard-siren H0 (published)
 PASS  ch:predictions:L86:8.0             ch:predictions:p5_07_predictions:86  printed 8.0  recomputed 8  tol 0.05  [observed] GW170817 siren H0 lower error (published)
@@ -5470,7 +5414,6 @@ PASS  ch:statusall:L76:6000              ch:statusall:p5_11_status_all:76  print
 PASS  ch:statusall:L79                   ch:statusall:p5_11_status_all:79  printed 6.2\times10^{-4}  recomputed 6.187914e-04  tol 5.000005e-06  [calc] transmon floor on its gauge
 PASS  ch:statusall:L79:10                ch:statusall:p5_11_status_all:79  printed 10  recomputed 9.995  tol 0.5  [calc] surface-code threshold on the qubit gauge
 PASS  ch:statusall:L81                   ch:statusall:p5_11_status_all:81  printed 6.2\times10^{-7}  recomputed 6.187914e-07  tol 5.000005e-09  [calc] per-gate thermal floor
-PASS  ch:statusall:L81:6\times10^{-4}    ch:statusall:p5_11_status_all:81  printed 6\times10^{-4}  recomputed 6.187914e-04  tol 5.000005e-05  [calc] floor on the gauge of a 1e-3 gate
 PASS  ch:statusall:L82                   ch:statusall:p5_11_status_all:82  printed 6.85  recomputed 6.84885  tol 0.00500001  [calc] slope at 35 mK
 PASS  ch:statusall:L82:16.0              ch:statusall:p5_11_status_all:82  printed 16.0  recomputed 15.9975  tol 0.05  [calc] slope at 15 mK
 PASS  ch:statusall:L85                   ch:statusall:p5_11_status_all:85  printed 576  recomputed 576.021  tol 0.5  [calc] E_sw/(k_B T_j ln2)
@@ -5596,7 +5539,7 @@ PASS  app:notation:L115                  app:notation:app_N_notation:115  printe
 PASS  app:notation:L116                  app:notation:app_N_notation:116  printed 0.330263  recomputed found in file  [calibrated] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  app:notation:L116:6000             app:notation:app_N_notation:116  printed 6000  recomputed 6000  tol 0.5  [calibrated] identity sites of the Met-A neutrophil reference  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
-PASS  app:notation:L117                  app:notation:app_N_notation:117  printed 1.05  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:notation:L117                  app:notation:app_N_notation:117  printed 1.05  recomputed 1.05  tol 0.00500001  [observed] Normal band, upper edge (canon Normal_band)  file CANON/iam_canon.json
 PASS  app:notation:L117:0.95             app:notation:app_N_notation:117  printed 0.95  recomputed 0.95  tol 0.00500001  [observed] lower edge of the Normal band  file CANON/iam_canon.json
 PASS  app:notation:L118                  app:notation:app_N_notation:118  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] full surface on Met-A  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
@@ -5929,7 +5872,7 @@ PASS  app:glossary:L88:3.3               app:glossary:app_F_glossary:88  printed
 PASS  app:glossary:L89                   app:glossary:app_F_glossary:89  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [observed] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
 PASS  app:glossary:L89:0.3153            app:glossary:app_F_glossary:89  printed 0.3153  recomputed found in file  [observed] measured: printed value found in GLOSSARY.md, a file the chapter names  file CANON/GLOSSARY.md
 PASS  app:glossary:L89:0.1575            app:glossary:app_F_glossary:89  printed 0.1575  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
-PASS  app:glossary:L89:0.315             app:glossary:app_F_glossary:89  printed 0.315  recomputed found in file  [observed] measured: printed value found in GLOSSARY.md, a file the chapter names  file CANON/GLOSSARY.md
+PASS  app:glossary:L89:0.315             app:glossary:app_F_glossary:89  printed 0.315  recomputed 0.3153  tol 5.000005e-04  [observed] Omega_m written 0.315 (= 2 beta_m to three decimals)  file CANON/iam_canon.json
 PASS  app:glossary:L90:0.295             app:glossary:app_F_glossary:90  printed 0.295  recomputed 0.295  tol 5.000005e-04  [observed] DESI BGS effective redshift  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  app:glossary:L109:5.5              app:glossary:app_F_glossary:109  printed 5.5  recomputed 5.575  tol 0.0825001  [observed] bottom-up exponent at z = 9  file docs/verification/scripts/verify_bottom_up_exponent_output.txt
@@ -5941,7 +5884,6 @@ PASS  app:glossary:L124:10               app:glossary:app_F_glossary:124  printe
 PASS  app:glossary:L124:18               app:glossary:app_F_glossary:124  printed 18  recomputed 18  tol 0.5  [observed] C(d): upper edge of the first distance bin  file Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv
 PASS  app:glossary:L124:0.32             app:glossary:app_F_glossary:124  printed 0.32  recomputed 0.323099  tol 0.00500001  [observed] C(d) of beta at 1-1.8 kb  file Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv
 PASS  app:glossary:L124:1.8              app:glossary:app_F_glossary:124  printed 1.8  recomputed 1.778  tol 0.05  [observed] C(d): upper edge of the 1 kb bin, kb  file Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv
-PASS  app:glossary:L124:0.05             app:glossary:app_F_glossary:124  printed 0.05  recomputed 0.052595  tol 0.00500001  [observed] C(d) of beta at 3-6 kb  file Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv
 PASS  app:glossary:L133:1.456            app:glossary:app_F_glossary:133  printed 1.456  recomputed 1.45626  tol 5.000005e-04  [observed] Chandrasekhar mass for mu_e = 2 from the constants
 PASS  app:glossary:L138:+0.54            app:glossary:app_F_glossary:138  printed +0.54  recomputed 0.541  tol 0.00540001  [observed] Delta chi2 IAM minus LambdaCDM, Level 2  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
@@ -5974,7 +5916,6 @@ PASS  app:glossary:L230:0.163            app:glossary:app_F_glossary:230  printe
 PASS  app:glossary:L230:4.9              app:glossary:app_F_glossary:230  printed 4.9  recomputed 4.91959  tol 0.05  [observed] holding energy in Landauer units
 PASS  app:glossary:L238:+1.8             app:glossary:app_F_glossary:238  printed +1.8  recomputed 1.83898  tol 0.05  [observed] E_G above GR at z = 0.3, per cent
 PASS  app:glossary:L238:+3.6             app:glossary:app_F_glossary:238  printed +3.6  recomputed 3.62797  tol 0.05  [observed] E_G above GR today, per cent
-PASS  app:glossary:L243:0.3              app:glossary:app_F_glossary:243  printed 0.3  recomputed 0.320475  tol 0.05  [observed] m_e uncertainty set by H0, per cent
 PASS  app:glossary:L243:0.576            app:glossary:app_F_glossary:243  printed 0.576  recomputed 0.576168  tol 5.000005e-04  [observed] electron fixed point without the (2 pi)^(3/10) prefactor, in m_e
 PASS  app:glossary:L245:159.5            app:glossary:app_F_glossary:245  printed 159.5  recomputed 159.5  tol 0.05  [observed] electroweak crossover temperature (lattice)
 PASS  app:glossary:L245:9.2e-12          app:glossary:app_F_glossary:245  printed 9.2\times10^{-12}  recomputed 9.202450e-12  tol 5.000005e-14  [observed] time of the electroweak crossover, s
@@ -5984,10 +5925,9 @@ PASS  app:glossary:L251                  app:glossary:app_F_glossary:251  printe
 PASS  app:glossary:L251:738              app:glossary:app_F_glossary:251  printed 738  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L251:1056             app:glossary:app_F_glossary:251  printed 1{,}056  recomputed 1056  tol 0.5  [observed] E-MTAB-7309 arrays calibrated  file Biological_Physics/MethylPhys/doors/PLAN.md
 PASS  app:glossary:L254                  app:glossary:app_F_glossary:254  printed 152.5  recomputed 152.549  tol 0.0503251  [calc] same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass)
-PASS  app:glossary:L258                  app:glossary:app_F_glossary:258  printed 1.00  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L262                  app:glossary:app_F_glossary:262  printed 3.41  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L262:0.032            app:glossary:app_F_glossary:262  printed 0.032  recomputed 0.0320144  tol 5.000005e-04  [observed] copy-error floor eps0
-PASS  app:glossary:L263                  app:glossary:app_F_glossary:263  printed -1.062  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
+PASS  app:glossary:L263                  app:glossary:app_F_glossary:263  printed -1.062  recomputed -1.06238  tol 5.000005e-04  [observed] w_eff(1) for vacuum plus record
 PASS  app:glossary:L274:5120             app:glossary:app_F_glossary:274  printed 5120  recomputed 5120  tol 0.5  [observed] 5120 in the evaporation time
 PASS  app:glossary:L274:2.1e67           app:glossary:app_F_glossary:274  printed 2.1\times10^{67}  recomputed 2.095682e+67  tol 5.000005e+65  [observed] evaporation time of one solar mass, years
 PASS  app:glossary:L287:45               app:glossary:app_F_glossary:287  printed 45  recomputed 45  tol 0.5  [observed] Koide angle to the democratic direction
@@ -6020,7 +5960,7 @@ PASS  app:glossary:L327:73.04            app:glossary:app_F_glossary:327  printe
 PASS  app:glossary:L334:6.17e-8          app:glossary:app_F_glossary:334  printed 6.17\times10^{-8}  recomputed 6.170074e-08  tol 5.000005e-11  [observed] Hawking temperature of one solar mass
 PASS  app:glossary:L336                  app:glossary:app_F_glossary:336  printed 0.330263  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L336:0.2246           app:glossary:app_F_glossary:336  printed 0.2246  recomputed found in file  [observed] measured: printed value found in GLOSSARY.md, a file the chapter names  file CANON/GLOSSARY.md
-PASS  app:glossary:L338                  app:glossary:app_F_glossary:338  printed 0.983  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
+PASS  app:glossary:L338                  app:glossary:app_F_glossary:338  printed 0.983  recomputed 0.982642  tol 5.000005e-04  [observed] held-out neutrophil reference arrays, lowest Met-A  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv
 PASS  app:glossary:L338:-1.045           app:glossary:app_F_glossary:338  printed -1.045  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L341:28217448         app:glossary:app_F_glossary:341  printed 28{,}217{,}448  recomputed 2.821745e+07  tol 0.5  [observed] CpGs of the hg19 index  file Biological_Physics/MethylPhys/atlas/v2/README.md
 PASS  app:glossary:L342:2.8e7            app:glossary:app_F_glossary:342  printed 2.8\times10^7  recomputed 2.821745e+07  tol 5.000005e+05  [observed] CpGs per haploid genome (hg19 count)  file Biological_Physics/MethylPhys/atlas/v2/README.md
@@ -6038,7 +5978,7 @@ PASS  app:glossary:L360:1588             app:glossary:app_F_glossary:360  printe
 PASS  app:glossary:L361:1.4e26           app:glossary:app_F_glossary:361  printed 1.4\times10^{26}  recomputed 1.377402e+26  tol 5.000005e+24  [observed] Hubble radius c/H0, m
 PASS  app:glossary:L368                  app:glossary:app_F_glossary:368  printed 1.099  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L368:100              app:glossary:app_F_glossary:368  printed 100  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
-PASS  app:glossary:L368:-1.05            app:glossary:app_F_glossary:368  printed -1.05  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
+PASS  app:glossary:L368:-1.05            app:glossary:app_F_glossary:368  printed 1.05  recomputed 1.05  tol 0.00500001  [observed] IAM-A: Normal band, upper edge (canon Normal_band)  file CANON/iam_canon.json
 PASS  app:glossary:L368:0.032            app:glossary:app_F_glossary:368  printed 0.032  recomputed 0.0320144  tol 5.000005e-04  [observed] copy-error floor eps0 (IAM-A entry)
 PASS  app:glossary:L370:0.80             app:glossary:app_F_glossary:370  printed 0.80  recomputed 0.8  tol 0.00500001  [observed] ICC of cell-type copy-error differences across donors  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
 PASS  app:glossary:L370:0.92             app:glossary:app_F_glossary:370  printed 0.92  recomputed 0.923814  tol 0.00500001  [observed] ICC of repeat halves, lowest fish set  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
@@ -6069,8 +6009,8 @@ PASS  app:glossary:L426                  app:glossary:app_F_glossary:426  printe
 PASS  app:glossary:L429                  app:glossary:app_F_glossary:429  printed 1.3  recomputed 1.28  tol 0.05  [observed] separation of the spins in the 2015 loophole-free Bell test, km
 PASS  app:glossary:L430                  app:glossary:app_F_glossary:430  printed 56  recomputed 56  tol 0.5  [observed] cell types of the Loyfer atlas read for the holding energy  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
       heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  app:glossary:L434                  app:glossary:app_F_glossary:434  printed 1.05  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
-PASS  app:glossary:L434:1.02             app:glossary:app_F_glossary:434  printed 1.02  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
+PASS  app:glossary:L434                  app:glossary:app_F_glossary:434  printed 1.05  recomputed 1.05468  tol 0.00500001  [observed] M_lens/M_dyn = 1/mu(z) at z = 0.5 (Level 1)
+PASS  app:glossary:L434:1.02             app:glossary:app_F_glossary:434  printed 1.02  recomputed 1.01808  tol 0.00500001  [observed] M_lens/M_dyn = 1/mu(z) at z = 1 (Level 1)
 PASS  app:glossary:L434:1.16             app:glossary:app_F_glossary:434  printed 1.16  recomputed 1.15765  tol 0.00500001  [observed] M_lens/M_dyn = 1/mu today, Level 1 form
 PASS  app:glossary:L436                  app:glossary:app_F_glossary:436  printed 20.94  recomputed found in file  [observed] measured: printed value found in GLOSSARY.md, a file the chapter names  file CANON/GLOSSARY.md
 PASS  app:glossary:L446                  app:glossary:app_F_glossary:446  printed 0.58  recomputed 0.58  tol 0.00500001  [observed] 1-b needed by Planck SZ counts with the primary-CMB cosmology  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
@@ -6078,7 +6018,7 @@ PASS  app:glossary:L446                  app:glossary:app_F_glossary:446  printe
 PASS  app:glossary:L446:0.80             app:glossary:app_F_glossary:446  printed 0.80  recomputed 0.8  tol 0.00500001  [observed] baseline 1-b of about 0.80
 PASS  app:glossary:L451                  app:glossary:app_F_glossary:451  printed 36.8  recomputed 36.7879  tol 0.05  [observed] maturity E(1)/e today, per cent
 PASS  app:glossary:L457                  app:glossary:app_F_glossary:457  printed 0.330263  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
-PASS  app:glossary:L457:-1.05            app:glossary:app_F_glossary:457  printed -1.05  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
+PASS  app:glossary:L457:-1.05            app:glossary:app_F_glossary:457  printed 1.05  recomputed 1.05  tol 0.00500001  [observed] Met-A: Normal band, upper edge (canon Normal_band)  file CANON/iam_canon.json
 PASS  app:glossary:L457:0.95             app:glossary:app_F_glossary:457  printed 0.95  recomputed 0.95  tol 0.00500001  [observed] lower edge of the Normal band (CANON)  file CANON/iam_canon.json
 PASS  app:glossary:L463                  app:glossary:app_F_glossary:463  printed 1{,}200  recomputed 1200  tol 0.5  [observed] Micius entanglement distribution distance, km
 PASS  app:glossary:L464                  app:glossary:app_F_glossary:464  printed -1.5  recomputed -1.5  tol 0.05  [observed] MICROSCOPE Eotvos parameter Ti-Pt, central value
@@ -6115,7 +6055,6 @@ PASS  app:glossary:L544:56               app:glossary:app_F_glossary:544  printe
 PASS  app:glossary:L553                  app:glossary:app_F_glossary:553  printed 150  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L553:1e-5             app:glossary:app_F_glossary:553  printed 10^{-5}  recomputed 2.589922e-05  tol 2.162278e-05  [observed] age of the radiation era at QCD confinement, s
 PASS  app:glossary:L556:12.7             app:glossary:app_F_glossary:556  printed 12.7  recomputed 12.6532  tol 0.05  [observed] surface-code threshold on the Helios gauge
-PASS  app:glossary:L567                  app:glossary:app_F_glossary:567  printed 1.01  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L583:0.79             app:glossary:app_F_glossary:583  printed 0.79  recomputed 0.788312  tol 0.00500001  [observed] rho of Met-A and noise index, second laboratory, 30 y  file Biological_Physics/MethylPhys/doors/data/noise_index.csv
 PASS  app:glossary:L583:0.83             app:glossary:app_F_glossary:583  printed 0.83  recomputed 0.825397  tol 0.00500001  [observed] rho of Met-A and noise index, second laboratory, 54 y  file Biological_Physics/MethylPhys/doors/data/noise_index.csv
 PASS  app:glossary:L587                  app:glossary:app_F_glossary:587  printed 1.2\times10^{-3}  recomputed 0.00115697  tol 5.000005e-05  [observed] departure of running-mass Koide Q from 2/3
@@ -6133,7 +6072,6 @@ PASS  app:glossary:L593:0.822            app:glossary:app_F_glossary:593  printe
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  app:glossary:L599                  app:glossary:app_F_glossary:599  printed 738  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L599:1056             app:glossary:app_F_glossary:599  printed 1{,}056  recomputed 1056  tol 0.5  [observed] SATSA raw arrays  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
-PASS  app:glossary:L607                  app:glossary:app_F_glossary:607  printed 1.00  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L607:0.020            app:glossary:app_F_glossary:607  printed 0.020  recomputed 0.0197562  tol 5.000005e-04  [observed] SD of the held-out reference readings, sites re-chosen  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv
 PASS  app:glossary:L614                  app:glossary:app_F_glossary:614  printed 73.04  recomputed 73.04  tol 0.00500001  [observed] SH0ES H0
 PASS  app:glossary:L619                  app:glossary:app_F_glossary:619  printed 0.91  recomputed 0.912192  tol 0.00500001  [observed] Cornell sigma = 0.18 GeV^2 in GeV/fm
@@ -6155,13 +6093,13 @@ PASS  app:glossary:L653                  app:glossary:app_F_glossary:653  printe
 PASS  app:glossary:L661                  app:glossary:app_F_glossary:661  printed 310.15  recomputed found in file  [observed] measured: printed value found in GLOSSARY.md, a file the chapter names  file CANON/GLOSSARY.md
 PASS  app:glossary:L668                  app:glossary:app_F_glossary:668  printed 64  recomputed 64  tol 0.5  [observed] whole-blood technical-replicate arrays (GSE250556)  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
 PASS  app:glossary:L671                  app:glossary:app_F_glossary:671  printed 3.7\times10^{-23}  recomputed 3.664029e-23  tol 5.000005e-25  [observed] thermal de Broglie wavelength of 1 g at 300 K, m
-PASS  app:glossary:L675                  app:glossary:app_F_glossary:675  printed 1.26  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
+PASS  app:glossary:L675                  app:glossary:app_F_glossary:675  printed 1.26  recomputed 1.26339  tol 0.00500001  [observed] three clocks: redshift of the peak per unit time
 PASS  app:glossary:L675:8.9              app:glossary:app_F_glossary:675  printed 8.9  recomputed 8.91196  tol 0.05  [observed] lookback time to the peak of the per-time clock, Gyr
 PASS  app:glossary:L681                  app:glossary:app_F_glossary:681  printed 4.6\times10^{-25}  recomputed 4.635295e-25  tol 5.000005e-27  [observed] top-quark lifetime hbar/Gamma_t, s
 PASS  app:glossary:L707                  app:glossary:app_F_glossary:707  printed 4.63\times10^{113}  recomputed 4.632947e+113  tol 5.000005e+110  [observed] Planck-cutoff vacuum energy density E_P^4/(hbar c)^3, J/m^3
 PASS  app:glossary:L707:1e123            app:glossary:app_F_glossary:707  printed 10^{123}  recomputed 8.833582e+122  tol 2.162278e+123  [observed] rho_vac over the measured dark-energy density
 PASS  app:glossary:L708                  app:glossary:app_F_glossary:708  printed 0.1628  recomputed found in file  [observed] measured: printed value found in GLOSSARY.md, a file the chapter names  file CANON/GLOSSARY.md
-PASS  app:glossary:L714                  app:glossary:app_F_glossary:714  printed 1.02  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
+PASS  app:glossary:L714                  app:glossary:app_F_glossary:714  printed 1.02  recomputed 1.02  tol 0.00500001  [observed] virial ratio with surface pressure, lower end (Klypin 2016)  file docs/verification/scripts/verify_virial_papers_output.txt
 PASS  app:glossary:L714:1.1              app:glossary:app_F_glossary:714  printed 1.1  recomputed 1.12  tol 0.05  [observed] lowest 2T/|U| of simulated halos within the virial radius  file docs/verification/virial/NBODY_TRACE.md
 PASS  app:glossary:L714:1.3              app:glossary:app_F_glossary:714  printed 1.3  recomputed 1.3  tol 0.05  [observed] highest 2T/|U| of simulated halos within the virial radius  file docs/verification/virial/NBODY_TRACE.md
 PASS  app:glossary:L714:1.17             app:glossary:app_F_glossary:714  printed 1.17  recomputed 1.17  tol 0.00500001  [observed] surface-pressure corrected 2K/|W|, upper end  file docs/verification/virial/NBODY_TRACE.md
@@ -6169,7 +6107,7 @@ PASS  app:glossary:L719                  app:glossary:app_F_glossary:719  printe
 PASS  app:glossary:L725                  app:glossary:app_F_glossary:725  printed 0.593  recomputed 0.593  tol 5.000005e-04  [observed] mean DA white dwarf mass (Kepler et al. 2007)
 PASS  app:glossary:L728                  app:glossary:app_F_glossary:728  printed 0.045  recomputed 0.0453166  tol 5.000005e-04  [measured] within-person SD, untared, 54 y repeat arrays  file Biological_Physics/MethylPhys/doors/data/t2_diag.csv
 PASS  app:glossary:L728:0.044            app:glossary:app_F_glossary:728  printed 0.044  recomputed 0.0443318  tol 5.000005e-04  [measured] within-person SD, untared, 30 y repeat arrays  file Biological_Physics/MethylPhys/doors/data/t2_diag.csv
-PASS  app:glossary:L729                  app:glossary:app_F_glossary:729  printed 1.05  recomputed found in file  [observed] measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names  file Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md
+PASS  app:glossary:L729                  app:glossary:app_F_glossary:729  printed 1.05  recomputed 1.05263  tol 0.00500001  [observed] LoCuSS M_WL/M_X = 1/beta_X
 PASS  app:glossary:L729:1.45             app:glossary:app_F_glossary:729  printed 1.45  recomputed 1.45349  tol 0.00500001  [observed] WtG Planck-prior 1/(1-b)  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  app:glossary:L729:1.28             app:glossary:app_F_glossary:729  printed 1.28  recomputed 1.28205  tol 0.00500001  [observed] CCCP Planck-prior 1/(1-b)  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
@@ -6178,8 +6116,8 @@ PASS  app:glossary:L735                  app:glossary:app_F_glossary:735  printe
 PASS  app:glossary:L735:0.991            app:glossary:app_F_glossary:735  printed 0.991  recomputed 0.991192  tol 5.000005e-04  [observed] top Yukawa y_t = sqrt2 m_t/v
 
 == Part 8: Appendices | app:register (appendices/app_G_predictions_register.tex)
-PASS  app:register:L19                   app:register:app_G_predictions_register:19  printed 126  recomputed found in file  [observed] measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names  file CANON/predictions_triage_2026-10-02.json
-PASS  app:register:L19:133               app:register:app_G_predictions_register:19  printed 133  recomputed found in file  [observed] measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names  file CANON/predictions_triage_2026-10-02.json
+PASS  app:register:L19                   app:register:app_G_predictions_register:19  printed 126  recomputed 126  tol 0.5  [observed] register, cosmology and gravitation: merged entries  file CANON/predictions_triage_2026-10-02.json
+PASS  app:register:L19:133               app:register:app_G_predictions_register:19  printed 133  recomputed 133  tol 0.5  [observed] register, cosmology and gravitation: entries not listed  file CANON/predictions_triage_2026-10-02.json
 PASS  app:register:L19:357               app:register:app_G_predictions_register:19  printed 357  recomputed found in file  [observed] measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names  file CANON/predictions_triage_2026-10-02.json
 PASS  app:register:L19:45                app:register:app_G_predictions_register:19  printed 45  recomputed 45  tol 0.5  [observed] register counts: cosmology entries restated  file CANON/predictions_triage_2026-10-02.json
 PASS  app:register:L19:40                app:register:app_G_predictions_register:19  printed 40  recomputed 40  tol 0.5  [observed] register counts: cosmology rows listed here  file CANON/predictions_triage_2026-10-02.json
@@ -6187,8 +6125,8 @@ PASS  app:register:L20:25                app:register:app_G_predictions_register
 PASS  app:register:L21:24                app:register:app_G_predictions_register:21  printed 24  recomputed 24  tol 0.5  [observed] register counts: qubit total  file CANON/predictions_triage_2026-10-02.json
 PASS  app:register:L23:12                app:register:app_G_predictions_register:23  printed 12  recomputed 12  tol 0.5  [observed] register counts: foundations not listed  file CANON/predictions_triage_2026-10-02.json
 PASS  app:register:L23:15                app:register:app_G_predictions_register:23  printed 15  recomputed 15  tol 0.5  [observed] register counts: foundations total  file CANON/predictions_triage_2026-10-02.json
-PASS  app:register:L24                   app:register:app_G_predictions_register:24  printed 143  recomputed found in file  [observed] measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names  file CANON/predictions_triage_2026-10-02.json
-PASS  app:register:L24:157               app:register:app_G_predictions_register:24  printed 157  recomputed found in file  [observed] measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names  file CANON/predictions_triage_2026-10-02.json
+PASS  app:register:L24                   app:register:app_G_predictions_register:24  printed 143  recomputed 143  tol 0.5  [observed] register, all domains: merged entries  file CANON/predictions_triage_2026-10-02.json
+PASS  app:register:L24:157               app:register:app_G_predictions_register:24  printed 157  recomputed 157  tol 0.5  [observed] register, all domains: entries not listed  file CANON/predictions_triage_2026-10-02.json
 PASS  app:register:L24:10                app:register:app_G_predictions_register:24  printed 10  recomputed 10  tol 0.5  [observed] register counts: all kept  file CANON/predictions_triage_2026-10-02.json
 PASS  app:register:L24:57                app:register:app_G_predictions_register:24  printed 57  recomputed 57  tol 0.5  [observed] register counts: all restated  file CANON/predictions_triage_2026-10-02.json
 PASS  app:register:L24:54                app:register:app_G_predictions_register:24  printed 54  recomputed 54  tol 0.5  [observed] register counts: all compared with data  file CANON/predictions_triage_2026-10-02.json
@@ -6307,6 +6245,6 @@ PASS  app:register:L73:1.55 \%           app:register:app_G_predictions_register
 PASS  app:register:L73:0.78 \%           app:register:app_G_predictions_register:73  printed 0.78 \%  recomputed 0.776789  tol 0.00500001  [openprob] COS-357: D lowered at z = 0, per cent
 PASS  app:register:L74:1.03              app:register:app_G_predictions_register:74  printed 1.03  recomputed 1.03045  tol 0.00500001  [openprob] COS-365: ISW amplitude ratio A_ISW
 
-SUMMARY  PASS 5040  FAIL 1  (heavy, read from committed outputs: 1085)  inventoried-not-run 1301  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4984  FAIL 1  (heavy, read from committed outputs: 1079)  inventoried-not-run 1357  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
 FAILS:
   FAIL  app:register:L53:1.07              app:register:app_G_predictions_register:53  printed 1.07  recomputed 1.05468  tol 0.00500001  [openprob] COS-172: lower end of 1/mu over 0 < z < 0.5
