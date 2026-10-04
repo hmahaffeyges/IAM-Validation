@@ -1099,6 +1099,15 @@ def _b01eg_luciano():
     m = re.search(r'one combination H0 = ([\d.]+) ± ([\d.]+)', file_text('docs/book/read_ledgers/eg_MANIFEST.md'))
     return float(m.group(1)), float(m.group(2))
 
+# helpers of the part2/p2_06_dual_sector_perturbation checks
+_B01L2_RERUN = ('chains: rerun with Cobaya from the committed input YAML (camb_validation/yaml_configs/*.yaml), then '
+                'python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt')
+def _b01l2_param(name):
+    """(C mean, C sd, A mean, A sd, D mean, D sd) of one Level 2 parameter, section D of verify_late_time_level2_output.txt (chains, 30 % burn-in, weighted)."""
+    t = file_text('docs/verification/scripts/verify_late_time_level2_output.txt')
+    m = re.search(r'\n\s+' + re.escape(name) + r'\s+C ([\d.]+) \+/- ([\d.]+) \| A ([\d.]+) \+/- ([\d.]+) \|.*?\| D ([\d.]+) \+/- ([\d.]+)', t)
+    return tuple(float(x) for x in m.groups())
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -7455,6 +7464,15 @@ def check_0604():
     a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min'); value=a-b
     return locals()
 
+@check(label='ch:level2:L19:-0.01', chapter='ch:level2', part=2, title='chain-average chi2, Run A minus Run C',
+       file='part2/p2_06_dual_sector_perturbation', line=19, status='calc', kind='file', printed='-0.01', tol=0.0, source='docs/verification/scripts/verify_late_time_level2_output.txt',
+       heavy=True, rerun=_B01L2_RERUN)
+def check_3331():
+    'Difference of the chain-average chi2, Run A (dual sector) minus Run C (LambdaCDM), from the two averages committed in verify_late_time_level2_output.txt section D. Book line 19, printed -0.01.'
+    m = re.search(r'chain-average chi2: C ([\d.]+), A ([\d.]+)', file_text('docs/verification/scripts/verify_late_time_level2_output.txt'))
+    value = float(m.group(2)) - float(m.group(1))
+    return locals()
+
 @check(label='ch:level2:L20', chapter='ch:level2', part=2, title='likelihood ratio from dchi2',
        file='part2/p2_06_dual_sector_perturbation', line=20, status='calc', kind='num', printed='0.76', tol=0.013, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
@@ -7525,12 +7543,28 @@ def check_0613():
     a=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runA','H0'); b=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_l2b_runD','H0'); value=(a+b)/2
     return locals()
 
+@check(label='ch:level2:L26:10.9', chapter='ch:level2', part=2, title='Level 2b H0 against Planck, in Planck sigma',
+       file='part2/p2_06_dual_sector_perturbation', line=26, status='calc', kind='file', printed='10.9', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: bash camb_validation/run_level2b_chain.sh, then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv')
+def check_3332():
+    'Distance of the Level 2b (term in the background) H0 of Run A from Planck 2018 67.36 +- 0.54 (doi 10.1051/0004-6361/201833910), in units of the Planck error; H0 from the chain extraction. Book line 26, printed 10.9.'
+    H0b = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_l2b_runA', 'H0')
+    value = (67.36 - H0b) / 0.54
+    return locals()
+
 @check(label='ch:level2:L33', chapter='ch:level2', part=2, title='measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names',
        file='part2/p2_06_dual_sector_perturbation', line=33, status='measured', kind='file', printed='67.4', tol=0.0, source='docs/verification/scripts/verify_late_time_level2_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt')
 def check_0614():
     'measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names. Book line 33, printed 67.4.'
     ok = file_has('docs/verification/scripts/verify_late_time_level2_output.txt', '67.4')
+    return locals()
+
+@check(label='ch:level2:L33:0.5', chapter='ch:level2', part=2, title='Planck 2018 H0 error, rounded',
+       file='part2/p2_06_dual_sector_perturbation', line=33, status='measured', kind='file', printed='0.5', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_output.txt')
+def check_3333():
+    'Error of the Planck 2018 H0 (67.36 +- 0.54, doi 10.1051/0004-6361/201833910) printed to one digit as 67.4 +- 0.5; read from verify_dual_sector_chapters_output.txt. Book line 33, printed 0.5.'
+    value = float(re.search(r'photon vs Planck 2018 67\.36 \+- ([\d.]+)', file_text('docs/verification/scripts/verify_dual_sector_chapters_output.txt')).group(1))
     return locals()
 
 @check(label='ch:level2:L34', chapter='ch:level2', part=2, title='measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names',
@@ -7562,6 +7596,27 @@ def check_0617():
 def check_0618():
     'measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names. Book line 37, printed 70.39.'
     ok = file_has('docs/verification/scripts/verify_late_time_level2_output.txt', '70.39')
+    return locals()
+
+@check(label='ch:level2:L37:1.22', chapter='ch:level2', part=2, title='TRGB H0 statistical error (Freedman 2025)',
+       file='part2/p2_06_dual_sector_perturbation', line=37, status='observed', kind='num', printed='1.22', tol=0.0)
+def check_3334():
+    'Statistical error of the CCHP TRGB H0 = 70.39 +- 1.22 (stat) +- 1.33 (sys) +- 0.70 (sigma_SN), Freedman et al. 2025, ApJ 985, 203, doi 10.3847/1538-4357/adce78 (published value). Book line 37, printed 1.22.'
+    value = 1.22   # Freedman et al. 2025, abstract
+    return locals()
+
+@check(label='ch:level2:L37:1.33', chapter='ch:level2', part=2, title='TRGB H0 systematic error (Freedman 2025)',
+       file='part2/p2_06_dual_sector_perturbation', line=37, status='observed', kind='num', printed='1.33', tol=0.0)
+def check_3335():
+    'Systematic error of the CCHP TRGB H0, Freedman et al. 2025, doi 10.3847/1538-4357/adce78 (published value). Book line 37, printed 1.33.'
+    value = 1.33   # Freedman et al. 2025, abstract
+    return locals()
+
+@check(label='ch:level2:L37:0.70', chapter='ch:level2', part=2, title='TRGB H0 supernova error (Freedman 2025)',
+       file='part2/p2_06_dual_sector_perturbation', line=37, status='observed', kind='num', printed='0.70', tol=0.0)
+def check_3336():
+    'Supernova term sigma_SN of the CCHP TRGB H0, Freedman et al. 2025, doi 10.3847/1538-4357/adce78 (published value); with 1.22 and 1.33 it gives the 1.94 in quadrature that verify_late_time_level2_output.txt uses. Book line 37, printed 0.70.'
+    value = 0.70   # Freedman et al. 2025, abstract
     return locals()
 
 @check(label='ch:level2:L38', chapter='ch:level2', part=2, title='quadrature sum of TRGB errors',
@@ -7616,6 +7671,21 @@ def check_0625():
     ok = file_has('docs/verification/scripts/verify_late_time_level2_output.txt', '0.766')
     return locals()
 
+@check(label='ch:level2:L43:0.776', chapter='ch:level2', part=2, title='DES Y3 3x2pt S8 (committed output)',
+       file='part2/p2_06_dual_sector_perturbation', line=43, status='observed', kind='file', printed='0.776', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
+def check_3337():
+    'DES Y3 3x2pt S8 = 0.776 +- 0.017 (DES Collaboration 2022, doi 10.1103/physrevd.105.023520), read at its row of section 11 of verify_sector_tension_output.txt. Book line 43, printed 0.776.'
+    value = float(re.search(r'DES Y3 3x2pt: ([\d.]+)', file_text('docs/verification/scripts/verify_sector_tension_output.txt')).group(1))
+    return locals()
+
+@check(label='ch:level2:L44:0.769', chapter='ch:level2', part=2, title='HSC Y3 cosmic shear S8 (Li et al. 2023)',
+       file='part2/p2_06_dual_sector_perturbation', line=44, status='observed', kind='num', printed='0.769', tol=0.0)
+def check_3338():
+    'HSC Y3 cosmic-shear two-point correlation functions S8 = 0.769 +0.031 -0.034, Li et al. 2023, Phys. Rev. D 108, 123518, doi 10.1103/physrevd.108.123518 (published value; the harmonic-space analysis of Dalal et al. gives 0.776). Book line 44, printed 0.769.'
+    value = 0.769   # Li et al. 2023, abstract
+    return locals()
+
 @check(label='ch:level2:L45', chapter='ch:level2', part=2, title='measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names',
        file='part2/p2_06_dual_sector_perturbation', line=45, status='observed', kind='file', printed='0.815', tol=0.0, source='docs/verification/scripts/verify_late_time_level2_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt')
@@ -7652,6 +7722,15 @@ def check_0629():
 def check_0630():
     'identity defining mu(a) via Omega_m(a). Book line 97.'
     G,rho,H,Hm=sp.symbols('G rho H Hm',positive=True); Om_a=8*sp.pi*G*rho/(3*H**2); lhs=4*sp.pi*G*rho/Hm**2; rhs=sp.Rational(3,2)*Om_a*(H**2/Hm**2); ok=sp.simplify(lhs-rhs)==0
+    return locals()
+
+@check(label='eq:l2_sigma', chapter='ch:level2', part=2, title='Sigma = 1: lensing equation unchanged',
+       file='part2/p2_06_dual_sector_perturbation', line=102, status='derived', kind='num', printed='1', tol=0.0)
+def check_3339():
+    'Sigma(a) = 1: the lensing equation involves photons only, so Phi + Psi keeps its GR source; Sigma solved from k^2(Phi + Psi) = -8 pi G Sigma a^2 rho delta with Phi = Psi = -4 pi G a^2 rho delta/k^2. Book line 102, printed 1.'
+    k, G_, a, rho, dl, Sg = sp.symbols('k G a rho delta Sigma', positive=True)
+    Psi = -4 * sp.pi * G_ * a**2 * rho * dl / k**2
+    value = float(sp.solve(sp.Eq(k**2 * 2 * Psi, -8 * sp.pi * G_ * Sg * a**2 * rho * dl), Sg)[0])
     return locals()
 
 @check(label='eq:l2_mu0', chapter='ch:level2', part=2, title='mu at z=0',
@@ -8093,6 +8172,14 @@ def check_0689():
 def check_0690():
     'f CAMB = fsigma8/sigma8, on and off, z=2.0. Book line 192, printed 0.960.'
     value=growth_at('on','fs8',2.0)/growth_at('on','s8',2.0); value2=growth_at('off','fs8',2.0)/growth_at('off','s8',2.0); assert abs(value-value2)<6e-4
+    return locals()
+
+@check(label='ch:level2:L196:2.8', chapter='ch:level2', part=2, title='largest gap MGCAMB mu (mu0 -0.135) vs exact mu',
+       file='part2/p2_06_dual_sector_perturbation', line=196, status='calc', kind='num', printed='2.8', tol=0.0)
+def check_3340():
+    'Largest per cent difference (mu_exact - mu_MGCAMB)/mu_exact over 0 <= z <= 3, mu_MGCAMB = 1 + mu0 Omega_DE(a)/Omega_Lambda with the chains mu0 = -0.13495, mu_exact = H^2/(H^2 + beta_m E H0^2), Omega_m 0.3153. Book line 196, printed 2.8 (per cent).'
+    zz = np.linspace(0, 3, 3001); aa = 1 / (1 + zz)
+    value = float(np.max(100 * (mu_iam(aa) - mu_mgcamb(aa)) / mu_iam(aa)))
     return locals()
 
 @check(label='ch:level2:L225', chapter='ch:level2', part=2, title='6dFGS fsigma8',
@@ -8664,12 +8751,29 @@ def check_0765():
     p='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv';D=csv_val(p,'iam_level2_runD','omegam');C=csv_val(p,'iam_level2_runC_lcdm','omegam');Cs=csv_val(p,'iam_level2_runC_lcdm','omegam_sd');value=(D-C)/Cs
     return locals()
 
+@check(label='ch:level2:L322:+0.08', chapter='ch:level2', part=2, title='ln As shift, Run D minus Run C, in Run C sigma',
+       file='part2/p2_06_dual_sector_perturbation', line=322, status='calc', kind='file', printed='+0.08\\sigma', tol=0.0, source='docs/verification/scripts/verify_late_time_level2_output.txt',
+       heavy=True, rerun=_B01L2_RERUN)
+def check_3341():
+    'Delta ln(10^10 A_s), Run D minus Run C, over Run C posterior sd; posterior means and sd committed in verify_late_time_level2_output.txt section D. Book line 321-322, printed +0.08 sigma.'
+    C, sC, A, sA, D, sD = _b01l2_param('ln10^10As')
+    value = (D - C) / sC
+    return locals()
+
 @check(label='ch:level2:L325', chapter='ch:level2', part=2, title='measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names',
        file='part2/p2_06_dual_sector_perturbation', line=325, status='measured', kind='file', printed='0.542', tol=0.0, source='docs/verification/scripts/verify_late_time_level2_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt')
 def check_0766():
     'measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names. Book line 325, printed 0.542.'
     ok = file_has('docs/verification/scripts/verify_late_time_level2_output.txt', '0.542')
+    return locals()
+
+@check(label='ch:level2:L325:0.498', chapter='ch:level2', part=2, title='density growth rate f at z = 0, switch on (CAMB record)',
+       file='part2/p2_06_dual_sector_perturbation', line=325, status='measured', kind='file', printed='0.498', tol=0.0, source='docs/verification/chains/data/growth_on.json',
+       heavy=True, rerun='python3 docs/verification/scripts/growth_out.py (CAMB 1.5.8 with the Level 2 Fortran) -> docs/verification/chains/data/growth_on.json')
+def check_3342():
+    'Growth rate of the density field f = d ln sigma8/d ln a at z = 0 with the Level 2 switch on, from the committed CAMB sigma8(z) (cubic spline in ln a). Book line 325, printed 0.498.'
+    value = f_density('on', 0.0)
     return locals()
 
 @check(label='ch:level2:L326', chapter='ch:level2', part=2, title='percent diff f velocity vs density',
@@ -8701,6 +8805,18 @@ def check_0769():
 def check_0770():
     'sigma8 after (IAM run). Book line 492, printed 0.800.'
     path='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')
+    return locals()
+
+@check(label='ch:level2:L493:0.1', chapter='ch:level2', part=2, title='largest standard-parameter shift A vs C, in sigma',
+       file='part2/p2_06_dual_sector_perturbation', line=493, status='calc', kind='file', printed='0.1', tol=0.0, source='docs/verification/scripts/verify_late_time_level2_output.txt',
+       heavy=True, rerun=_B01L2_RERUN)
+def check_3343():
+    'Largest |shift| of the standard parameters (H0, omega_b, omega_c, tau, n_s, ln 10^10 A_s, Omega_m), Run A minus Run C in Run C sd, from the committed posterior means; the book says every one is below 0.1 sigma. Book line 493, printed 0.1.'
+    shifts = []
+    for p in ('H0', 'omega_b', 'omega_c', 'tau', 'n_s', 'ln10^10As', 'Omega_m'):
+        C, sC, A, sA, D, sD = _b01l2_param(p)
+        shifts.append(abs(A - C) / sC)
+    value = max(shifts)
     return locals()
 
 @check(label='ch:level2:L495', chapter='ch:level2', part=2, title='measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names',
@@ -29543,24 +29659,11 @@ INVENTORY = [
     (2, 'ch:dual', 'part2/p2_04_dualsector_chains', 256, '', 'none', '0.15765', 'restated canon beta_m value, input'),
     (2, 'ch:dual', 'part2/p2_04_dualsector_chains', 263, '', 'prediction', '-0.136', 'restated canon mu0 prediction value'),
     (2, 'ch:dual', 'part2/p2_04_dualsector_chains', 263, '', 'prediction', '1', 'Sigma=1, unmodified lensing slip, model statement'),
-    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 19, '', 'calc', '-0.01', 'not yet run: draft rejected (drafter skipped: Chi-squared difference between chain averages requires access to the full)'),
-    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 26, '', 'calc', '10.9', 'not yet run: draft rejected (drafter skipped: The 10.9-sigma tension when the term is placed in the background Friedman)'),
-    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 33, '', 'measured', '0.5', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 37, '', 'observed', '1.22', 'measured, not found in the files the chapter names'),
-    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 37, '', 'observed', '1.33', 'measured, not found in the files the chapter names'),
-    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 37, '', 'observed', '0.70', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 43, '', 'observed', '0.776', 'measured, not found in the files the chapter names'),
-    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 44, '', 'observed', '0.769', 'measured, not found in the files the chapter names'),
     (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 75, 'eq:l2_friedmann', 'none', '', 'definition: standard Friedmann equation'),
     (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 79, 'eq:l2_Hm', 'none', '', 'definition: matter-sector expansion rate ansatz'),
     (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 101, 'eq:l2_mu', 'derived', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
-    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 102, 'eq:l2_sigma', 'derived', '1', 'not yet run: draft rejected (vacuous: lhs is a literal)'),
     (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 149, '', 'none', '0.06', 'neutrino mass assumption, eV (input)'),
     (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 196, '', 'none', '-0.135', 'MGCAMB mu0, input restated from Ch. latetime'),
-    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 196, '', 'calc', '2.8', 'not yet run: draft does not reproduce the printed value (recomputed 2.67086); drafting error on review'),
-    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 322, '', 'calc', '+0.08\\sigma', "not yet run: draft rejected (drafter skipped: Run D vs Run C Delta(ln A_s): requires the ln A_s values from both runs' )"),
-    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 325, '', 'calc', '0.498', 'not yet run: draft rejected (drafter skipped: Density-field growth rate f at z=0: requires numerical integration of the)'),
-    (2, 'ch:level2', 'part2/p2_06_dual_sector_perturbation', 493, '', 'calc', '0.1', 'not yet run: draft rejected (drafter skipped: Line 493 states "Every standard cosmological parameter shifts by less tha)'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 20, 'eq:dsn_timelike', 'none', '', 'definition: timelike geodesic normalization (GR)'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 21, 'eq:dsn_null', 'none', '', 'definition: null geodesic condition (GR)'),
     (2, 'ch:dsnote', 'part2/p2_05_dual_sector_note', 72, 'eq:dsn_firstlaw', 'none', '', 'definition: IAM modified first law (postulated)'),

@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3331 PASS, 0 FAIL, 3003 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3344 PASS, 0 FAIL, 2990 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -1137,7 +1137,7 @@ Totals: 3331 PASS, 0 FAIL, 3003 inventoried and not run. Each run item carries t
 | 14 | ch:level2:L14 | derived | `0.15765` | numeric: beta_m = Omega_m/2 | PASS |
 | 14 | ch:level2:L14:0.3153 | measured | `0.3153` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 19 | ch:level2:L19 | calc | `+0.54` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2_min diff, lowest points of two L2 chains | PASS |
-| 19 |  | calc | `-0.01` | not run: not yet run: draft rejected (drafter skipped: Chi-squared difference between chain averages requires access to the full) | - |
+| 19 | ch:level2:L19:-0.01 | calc | `-0.01` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: chain-average chi2, Run A minus Run C | PASS |
 | 20 | ch:level2:L20 | calc | `0.76` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: likelihood ratio from dchi2 | PASS |
 | 21 | ch:level2:L21 | measured | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM posterior, L2 chain | PASS |
 | 21 | ch:level2:L21:0.7998 | measured | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 dual-sector posterior, L2 chain | PASS |
@@ -1147,16 +1147,16 @@ Totals: 3331 PASS, 0 FAIL, 3003 inventoried and not run. Each run item carries t
 | 25 | ch:level2:L25 | measured | `72.26` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 25 | ch:level2:L25:0.75 | calc | `0.75` | numeric: sigma of H0_matter from SH0ES | PASS |
 | 26 | ch:level2:L26 | measured | `61.5` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from background-Friedmann exploratory chains | PASS |
-| 26 |  | calc | `10.9` | not run: not yet run: draft rejected (drafter skipped: The 10.9-sigma tension when the term is placed in the background Friedman) | - |
+| 26 | ch:level2:L26:10.9 | calc | `10.9` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2b H0 against Planck, in Planck sigma | PASS |
 | 33 | ch:level2:L33 | measured | `67.4` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
-| 33 |  | measured | `0.5` | not run: measured, too few printed digits to match against the named files | - |
+| 33 | ch:level2:L33:0.5 | measured | `0.5` | file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Planck 2018 H0 error, rounded | PASS |
 | 34 | ch:level2:L34 | measured | `73.04` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 34 | ch:level2:L34:1.04 | measured | `1.04` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 35 | ch:level2:L35 | calc | `4.9` | numeric: Hubble tension significance | PASS |
 | 37 | ch:level2:L37 | observed | `70.39` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
-| 37 |  | observed | `1.22` | not run: measured, not found in the files the chapter names | - |
-| 37 |  | observed | `1.33` | not run: measured, not found in the files the chapter names | - |
-| 37 |  | observed | `0.70` | not run: measured, too few printed digits to match against the named files | - |
+| 37 | ch:level2:L37:1.22 | observed | `1.22` | numeric: TRGB H0 statistical error (Freedman 2025) | PASS |
+| 37 | ch:level2:L37:1.33 | observed | `1.33` | numeric: TRGB H0 systematic error (Freedman 2025) | PASS |
+| 37 | ch:level2:L37:0.70 | observed | `0.70` | numeric: TRGB H0 supernova error (Freedman 2025) | PASS |
 | 38 | ch:level2:L38 | calc | `1.94` | numeric: quadrature sum of TRGB errors | PASS |
 | 38 | ch:level2:L38:0.96 | calc | `0.96` | numeric: sigma of TRGB below H0_matter | PASS |
 | 38 | ch:level2:L38:72.26 | measured | `72.26` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
@@ -1164,8 +1164,8 @@ Totals: 3331 PASS, 0 FAIL, 3003 inventoried and not run. Each run item carries t
 | 39 | ch:level2:L39:67.16 | measured | `67.16` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 42 | ch:level2:L42 | observed | `0.759` | file `docs/verification/chains/DUAL_SECTOR_PERTURBATION_CHECK.md`: measured: printed value found in DUAL_SECTOR_PERTURBATION_CHECK.md, a file the chapter names | PASS |
 | 43 | ch:level2:L43 | observed | `0.766` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
-| 43 |  | observed | `0.776` | not run: measured, not found in the files the chapter names | - |
-| 44 |  | observed | `0.769` | not run: measured, not found in the files the chapter names | - |
+| 43 | ch:level2:L43:0.776 | observed | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DES Y3 3x2pt S8 (committed output) | PASS |
+| 44 | ch:level2:L44:0.769 | observed | `0.769` | numeric: HSC Y3 cosmic shear S8 (Li et al. 2023) | PASS |
 | 45 | ch:level2:L45 | observed | `0.815` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 52 | ch:level2:L52 | calc | `+0.56` | heavy numeric `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: min dchi2 across four chain pairs | PASS |
 | 52 | ch:level2:L52:+1.73 | calc | `+1.73` | heavy numeric `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: max dchi2 across four chain pairs | PASS |
@@ -1174,7 +1174,7 @@ Totals: 3331 PASS, 0 FAIL, 3003 inventoried and not run. Each run item carries t
 | 83 | eq:l2_beta | derived | `0.15765` | numeric: beta_m equation, Omega_m/2 | PASS |
 | 97 | ch:level2:L97 | derived |  | sympy: identity defining mu(a) via Omega_m(a) | PASS |
 | 101 | eq:l2_mu | derived |  | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
-| 102 | eq:l2_sigma | derived | `1` | not run: not yet run: draft rejected (vacuous: lhs is a literal) | - |
+| 102 | eq:l2_sigma | derived | `1` | numeric: Sigma = 1: lensing equation unchanged | PASS |
 | 106 | eq:l2_mu0 | calc | `0.864` | numeric: mu at z=0 | PASS |
 | 108 | ch:level2:L108 | calc | `13.6` | numeric: percent suppression of mu at z=0 | PASS |
 | 115 | ch:level2:L115 | measured | `0.3153` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
@@ -1236,8 +1236,8 @@ Totals: 3331 PASS, 0 FAIL, 3003 inventoried and not run. Each run item carries t
 | 192 | ch:level2:L192:0.955 | measured | `0.955` | heavy file `docs/verification/chains/data/growth_on.json`: f = dln sigma8/dln a, switch on, z=2.0 | PASS |
 | 192 | ch:level2:L192:0.956 | measured | `0.956` | heavy file `docs/verification/chains/data/growth_on.json`: f = dln sigma8/dln a, switch off, z=2.0 | PASS |
 | 192 | ch:level2:L192:0.960 | measured | `0.960` | heavy file `docs/verification/chains/data/growth_on.json`: f CAMB = fsigma8/sigma8, on and off, z=2.0 | PASS |
+| 196 | ch:level2:L196:2.8 | calc | `2.8` | numeric: largest gap MGCAMB mu (mu0 -0.135) vs exact mu | PASS |
 | 196 |  | none | `-0.135` | not run: MGCAMB mu0, input restated from Ch. latetime | - |
-| 196 |  | calc | `2.8` | not run: not yet run: draft does not reproduce the printed value (recomputed 2.67086); drafting error on review | - |
 | 225 | ch:level2:L225 | observed | `0.423` | file `camb_validation/likelihood_rsd.py`: 6dFGS fsigma8 | PASS |
 | 225 | ch:level2:L225:0.055 | observed | `0.055` | file `camb_validation/likelihood_rsd.py`: 6dFGS fsigma8 error | PASS |
 | 226 | ch:level2:L226 | observed | `0.530` | file `camb_validation/likelihood_rsd.py`: SDSS MGS fsigma8 | PASS |
@@ -1313,14 +1313,14 @@ Totals: 3331 PASS, 0 FAIL, 3003 inventoried and not run. Each run item carries t
 | 321 | ch:level2:L321 | measured | `0.7995\pm0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run D posterior sigma8 mean | PASS |
 | 321 | ch:level2:L321:0.7998\pm0.0058 | measured | `0.7998\pm0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Run A posterior sigma8 mean, repeat | PASS |
 | 322 | ch:level2:L322 | calc | `0.00\sigma` | numeric: Omega_m shift Run D vs C | PASS |
-| 322 |  | calc | `+0.08\sigma` | not run: not yet run: draft rejected (drafter skipped: Run D vs Run C Delta(ln A_s): requires the ln A_s values from both runs' ) | - |
+| 322 | ch:level2:L322:+0.08 | calc | `+0.08\sigma` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: ln As shift, Run D minus Run C, in Run C sigma | PASS |
 | 325 | ch:level2:L325 | measured | `0.542` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
-| 325 |  | calc | `0.498` | not run: not yet run: draft rejected (drafter skipped: Density-field growth rate f at z=0: requires numerical integration of the) | - |
+| 325 | ch:level2:L325:0.498 | measured | `0.498` | heavy file `docs/verification/chains/data/growth_on.json`: density growth rate f at z = 0, switch on (CAMB record) | PASS |
 | 326 | ch:level2:L326 | calc | `8.1\%` | numeric: percent diff f velocity vs density | PASS |
 | 491 | ch:level2:L491 | calc | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2_min difference between IAM and LCDM runs | PASS |
 | 492 | ch:level2:L492 | record | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 before (LCDM-like run) | PASS |
 | 492 | ch:level2:L492:0.800 | record | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 after (IAM run) | PASS |
-| 493 |  | calc | `0.1` | not run: not yet run: draft rejected (drafter skipped: Line 493 states "Every standard cosmological parameter shifts by less tha) | - |
+| 493 | ch:level2:L493:0.1 | calc | `0.1` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: largest standard-parameter shift A vs C, in sigma | PASS |
 | 495 | ch:level2:L495 | record | `67.16` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
 | 495 | ch:level2:L495:0.37 | calc | `0.37` | numeric: sigma tension vs Planck 2018 H0 | PASS |
 | 496 | ch:level2:L496 | record | `72.26` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: measured: printed value found in verify_late_time_level2_output.txt, a file the chapter names | PASS |
