@@ -5550,14 +5550,29 @@ PASS  ch:conclusion:L36                  ch:conclusion:p5_10_conclusion:36  prin
 
 == Part 8: Appendices | app:constants (appendices/app_A2_frozen_values.tex)
 PASS  app:constants:L6                   app:constants:app_A2_frozen_values:6  printed 1.380649\times10^{-23}  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:constants:L7                   app:constants:app_A2_frozen_values:7  printed 6.02214076\times10^{23}  recomputed 6.022141e+23  tol 5.000005e+14  [observed] Avogadro constant as R / k_B  file CANON/iam_canon.json
 PASS  app:constants:L8                   app:constants:app_A2_frozen_values:8  printed 8.314462618  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  app:constants:L10                  app:constants:app_A2_frozen_values:10  printed 310.15  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:constants:L10:37               app:constants:app_A2_frozen_values:10  printed 37  recomputed 37  tol 0.5  [observed] body temperature in Celsius  file CANON/iam_canon.json
+PASS  app:constants:L11                  app:constants:app_A2_frozen_values:11  printed 54  recomputed 54  tol 0.5  [observed] free energy of ATP hydrolysis, kJ/mol  file CANON/iam_canon.json
 PASS  app:constants:L12                  app:constants:app_A2_frozen_values:12  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.045605e-25  [calc] same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature)
 PASS  app:constants:L13                  app:constants:app_A2_frozen_values:13  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)
+PASS  app:constants:L14                  app:constants:app_A2_frozen_values:14  printed 67.36  recomputed 67.36  tol 0.00500001  [observed] Planck 2018 H0, standard LambdaCDM fit  file docs/verification/scripts/verify_dual_sector_chapters_output.txt
+      heavy: python3 docs/verification/scripts/verify_dual_sector_chapters.py > docs/verification/scripts/verify_dual_sector_chapters_output.txt (downloads the public Pantheon+ release; writes verify_dual_sector_chapters_data.json)
+PASS  app:constants:L15                  app:constants:app_A2_frozen_values:15  printed 67.16  recomputed 67.1611  tol 0.00500001  [observed] photon-sector H0, Level 2 chain  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  app:constants:L15:72.26            app:constants:app_A2_frozen_values:15  printed 72.26  recomputed 72.2614  tol 0.00500001  [observed] matter-sector H0 from the Level 2 chain  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  app:constants:L16                  app:constants:app_A2_frozen_values:16  printed 3.41  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:constants:L16:0.032            app:constants:app_A2_frozen_values:16  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [observed] copy-error floor eps0 from E_hold  file CANON/iam_canon.json
 PASS  app:constants:L17                  app:constants:app_A2_frozen_values:17  printed 0.330263  recomputed found in file  [calibrated] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:constants:L17:6000             app:constants:app_A2_frozen_values:17  printed 6000  recomputed 6000  tol 0.5  [calibrated] identity sites of the Met-A neutrophil reference  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
+      heavy: methylation chain (Met-A Stage 1 on EPIC IDATs); the frozen file named in source is the committed output
 PASS  app:constants:L18                  app:constants:app_A2_frozen_values:18  printed 1.099  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  app:constants:L18:1.084            app:constants:app_A2_frozen_values:18  printed 1.084  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:constants:L19                  app:constants:app_A2_frozen_values:19  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [calibrated] C-score healthy clustering baseline  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
+      heavy: methylation chain (Met-A Stage 1 on EPIC IDATs); the frozen file named in source is the committed output
+PASS  app:constants:L20                  app:constants:app_A2_frozen_values:20  printed 0.93  recomputed 0.93  tol 0.00500001  [calibrated] intake quarantine call-rate line  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Intake/intake_thresholds_v1.json
 
 == Part 8: Appendices | app:notation (appendices/app_N_notation.tex)
 PASS  app:notation:L103                  app:notation:app_N_notation:103  printed 310.15  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
@@ -5813,4 +5828,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 4636  FAIL 0  (heavy, read from committed outputs: 996)  inventoried-not-run 1705  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4646  FAIL 0  (heavy, read from committed outputs: 1001)  inventoried-not-run 1695  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

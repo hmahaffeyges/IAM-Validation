@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4636 PASS, 0 FAIL, 1705 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4646 PASS, 0 FAIL, 1695 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5845,26 +5845,26 @@ Totals: 4636 PASS, 0 FAIL, 1705 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 6 | app:constants:L6 | observed | `1.380649\times10^{-23}` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
-| 7 |  | observed | `6.02214076\times10^{23}` | not run: measured, not found in the files the chapter names | - |
+| 7 | app:constants:L7 | observed | `6.02214076\times10^{23}` | file `CANON/iam_canon.json`: Avogadro constant as R / k_B | PASS |
 | 8 | app:constants:L8 | observed | `8.314462618` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 10 | app:constants:L10 | observed | `310.15` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
-| 10 |  | observed | `37` | not run: measured, too few printed digits to match against the named files | - |
-| 11 |  | observed | `54` | not run: measured, too few printed digits to match against the named files | - |
-| 11 |  | observed | `50` | not run: measured, too few printed digits to match against the named files | - |
-| 11 |  | observed | `-65` | not run: measured, too few printed digits to match against the named files | - |
+| 10 | app:constants:L10:37 | observed | `37` | file `CANON/iam_canon.json`: body temperature in Celsius | PASS |
+| 11 | app:constants:L11 | observed | `54` | file `CANON/iam_canon.json`: free energy of ATP hydrolysis, kJ/mol | PASS |
+| 11 |  | observed | `50` | not run: observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:constants:L11 | - |
+| 11 |  | observed | `-65` | not run: observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:constants:L11 | - |
 | 12 | app:constants:L12 | calc | `2.968\times10^{-21}` | numeric: same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature) | PASS |
 | 13 | app:constants:L13 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C) | PASS |
-| 14 |  | observed | `67.36` | not run: measured, not found in the files the chapter names | - |
-| 15 |  | observed | `67.16` | not run: measured, not found in the files the chapter names | - |
-| 15 |  | observed | `72.26` | not run: measured, not found in the files the chapter names | - |
+| 14 | app:constants:L14 | observed | `67.36` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Planck 2018 H0, standard LambdaCDM fit | PASS |
+| 15 | app:constants:L15 | observed | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level 2 chain | PASS |
+| 15 | app:constants:L15:72.26 | observed | `72.26` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 from the Level 2 chain | PASS |
 | 16 | app:constants:L16 | observed | `3.41` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
-| 16 |  | observed | `0.032` | not run: measured, too few printed digits to match against the named files | - |
+| 16 | app:constants:L16:0.032 | observed | `0.032` | file `CANON/iam_canon.json`: copy-error floor eps0 from E_hold | PASS |
 | 17 | app:constants:L17 | calibrated | `0.330263` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
-| 17 |  | calibrated | `000` | not run: measured, too few printed digits to match against the named files | - |
+| 17 | app:constants:L17:6000 | calibrated | `6000` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: identity sites of the Met-A neutrophil reference | PASS |
 | 18 | app:constants:L18 | measured | `1.099` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 18 | app:constants:L18:1.084 | measured | `1.084` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
-| 19 |  | calibrated | `1.1104` | not run: measured, not found in the files the chapter names | - |
-| 20 |  | calibrated | `0.93` | not run: measured, too few printed digits to match against the named files | - |
+| 19 | app:constants:L19 | calibrated | `1.1104` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C-score healthy clustering baseline | PASS |
+| 20 | app:constants:L20 | calibrated | `0.93` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Intake/intake_thresholds_v1.json`: intake quarantine call-rate line | PASS |
 
 ## Part 8 - app:notation - `docs/book/appendices/app_N_notation.tex`
 

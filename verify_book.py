@@ -2534,6 +2534,14 @@ def _b15c_esw_ratio(N_trans):
     'E_sw/(k_B T_j ln 2), E_sw = TDP/(N_trans f): desktop processor of ch:cmos, default TDP 170 W, base clock 4.3 GHz, junction 75 C.'
     TDP, f, Tj = 170.0, 4.3e9, 273.15 + 75
     return TDP / (N_trans * f) / (kB * Tj * LN2)
+DATA_FILES['Biological_Physics/MethylPhys/chain/Runtime Matrices/Intake/intake_thresholds_v1.json'] = 'intake thresholds v1 of the methylation chain (call-rate quarantine line)'   # 1.5 kB
+
+# helpers of the appendices/app_A2_frozen_values checks
+_B15A_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
+                     'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+                     '(no extraction script is committed)')
+_B15A_METH_RERUN = 'methylation chain (Met-A Stage 1 on EPIC IDATs); the frozen file named in source is the committed output'
+_B15A_RM = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/'
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -39764,6 +39772,13 @@ def check_2685():
     ok = file_has('CANON/iam_canon.json', '1.380649\\times10^{-23}')
     return locals()
 
+@check(label='app:constants:L7', chapter='app:constants', part=8, title='Avogadro constant as R / k_B',
+       file='appendices/app_A2_frozen_values', line=7, status='observed', kind='file', printed='6.02214076\\times10^{23}', tol=0.0, source='CANON/iam_canon.json')
+def check_4636():
+    'N_A = R/k_B with both exact SI 2019 values read from the canon (R is defined there as N_A k_B). Book line 7, printed 6.02214076e23.'
+    value = _cv('R') / _cv('k_B')
+    return locals()
+
 @check(label='app:constants:L8', chapter='app:constants', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
        file='appendices/app_A2_frozen_values', line=8, status='observed', kind='file', printed='8.314462618', tol=0.0, source='CANON/iam_canon.json')
 def check_2686():
@@ -39776,6 +39791,20 @@ def check_2686():
 def check_2687():
     'measured: printed value found in iam_canon.json, a file the chapter names. Book line 10, printed 310.15.'
     ok = file_has('CANON/iam_canon.json', '310.15')
+    return locals()
+
+@check(label='app:constants:L10:37', chapter='app:constants', part=8, title='body temperature in Celsius',
+       file='appendices/app_A2_frozen_values', line=10, status='observed', kind='file', printed='37', tol=0.0, source='CANON/iam_canon.json')
+def check_4637():
+    'T_cell of the canon (310.15 K) minus 273.15 K. Book line 10, printed 37 C.'
+    value = _cv('T_cell') - 273.15
+    return locals()
+
+@check(label='app:constants:L11', chapter='app:constants', part=8, title='free energy of ATP hydrolysis, kJ/mol',
+       file='appendices/app_A2_frozen_values', line=11, status='observed', kind='file', printed='54', tol=0.0, source='CANON/iam_canon.json')
+def check_4638():
+    'dG_ATP of the canon (J/mol) in kJ/mol. Book line 11, printed 54.'
+    value = _cv('dG_ATP') / 1000
     return locals()
 
 @check(label='app:constants:L12', chapter='app:constants', part=8, title='same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature)',
@@ -39792,6 +39821,30 @@ def check_2689():
     value = dG_ATP/(R_gas*T_cell)
     return locals()
 
+@check(label='app:constants:L14', chapter='app:constants', part=8, title='Planck 2018 H0, standard LambdaCDM fit',
+       file='appendices/app_A2_frozen_values', line=14, status='observed', kind='file', printed='67.36', tol=0.0,
+       source='docs/verification/scripts/verify_dual_sector_chapters_output.txt', heavy=True, rerun=_B02_DSV_RERUN)
+def check_4639():
+    'Planck 2018 H0 = 67.36 +- 0.54 (Aghanim et al. 2020, doi:10.1051/0004-6361/201833910, Table 2 TT,TE,EE+lowE+lensing), as compared in the committed dual-sector output. Book line 14, printed 67.36.'
+    value = _b02_out(r"photon vs Planck 2018 ([\d.]+) \+- ([\d.]+)")
+    return locals()
+
+@check(label='app:constants:L15', chapter='app:constants', part=8, title='photon-sector H0, Level 2 chain',
+       file='appendices/app_A2_frozen_values', line=15, status='observed', kind='file', printed='67.16', tol=0.0,
+       source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', heavy=True, rerun=_B15A_CHAIN_RERUN)
+def check_4640():
+    'H0 posterior mean of the Level 2 IAM chain, run A. Book line 15, printed 67.16.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    return locals()
+
+@check(label='app:constants:L15:72.26', chapter='app:constants', part=8, title='matter-sector H0 from the Level 2 chain',
+       file='appendices/app_A2_frozen_values', line=15, status='observed', kind='file', printed='72.26', tol=0.0,
+       source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', heavy=True, rerun=_B15A_CHAIN_RERUN)
+def check_4641():
+    'H0 (run A) times sqrt(1 + beta_m). Book line 15, printed 72.26.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0') * math.sqrt(1 + beta_m)
+    return locals()
+
 @check(label='app:constants:L16', chapter='app:constants', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
        file='appendices/app_A2_frozen_values', line=16, status='observed', kind='file', printed='3.41', tol=0.0, source='CANON/iam_canon.json')
 def check_2690():
@@ -39799,11 +39852,27 @@ def check_2690():
     ok = file_has('CANON/iam_canon.json', '3.41')
     return locals()
 
+@check(label='app:constants:L16:0.032', chapter='app:constants', part=8, title='copy-error floor eps0 from E_hold',
+       file='appendices/app_A2_frozen_values', line=16, status='observed', kind='file', printed='0.032', tol=0.0, source='CANON/iam_canon.json')
+def check_4642():
+    'eps0 = 1/(1 + exp(E_hold)) with E_hold = 3.41 kT read from the canon (Boltzmann form). Book line 16, printed 0.032.'
+    value = 1 / (1 + math.exp(_cv('E_hold_meth')))
+    return locals()
+
 @check(label='app:constants:L17', chapter='app:constants', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
        file='appendices/app_A2_frozen_values', line=17, status='calibrated', kind='file', printed='0.330263', tol=0.0, source='CANON/iam_canon.json')
 def check_2691():
     'measured: printed value found in iam_canon.json, a file the chapter names. Book line 17, printed 0.330263.'
     ok = file_has('CANON/iam_canon.json', '0.330263')
+    return locals()
+
+@check(label='app:constants:L17:6000', chapter='app:constants', part=8, title='identity sites of the Met-A neutrophil reference',
+       file='appendices/app_A2_frozen_values', line=17, status='calibrated', kind='file', printed='6000', tol=0.0,
+       source=_B15A_RM + 'Met_A_Floors/metA_floors_v1_3.json', heavy=True, rerun=_B15A_METH_RERUN)
+def check_4643():
+    'Length of the site list of the EPIC neutrophil floor in metA_floors_v1_3.json (n_sites must agree). Book line 17, printed 6,000.'
+    d = load_json(_B15A_RM + 'Met_A_Floors/metA_floors_v1_3.json')['platforms']['EPIC']['neutrophils']
+    value = len(d['sites']) if d['n_sites'] == len(d['sites']) else float('nan')
     return locals()
 
 @check(label='app:constants:L18', chapter='app:constants', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
@@ -39818,6 +39887,22 @@ def check_2692():
 def check_2693():
     'measured: printed value found in iam_canon.json, a file the chapter names. Book line 18, printed 1.084.'
     ok = file_has('CANON/iam_canon.json', '1.084')
+    return locals()
+
+@check(label='app:constants:L19', chapter='app:constants', part=8, title='C-score healthy clustering baseline',
+       file='appendices/app_A2_frozen_values', line=19, status='calibrated', kind='file', printed='1.1104', tol=0.0,
+       source=_B15A_RM + 'Met_A_Floors/neutrophil_reference_v1_1.json', heavy=True, rerun=_B15A_METH_RERUN)
+def check_4644():
+    'Median of the six held-out clustering values healthy_clustering_LOO of neutrophil_reference_v1_1.json. Book line 19, printed 1.1104.'
+    value = float(np.median(load_json(_B15A_RM + 'Met_A_Floors/neutrophil_reference_v1_1.json')['healthy_clustering_LOO']))
+    return locals()
+
+@check(label='app:constants:L20', chapter='app:constants', part=8, title='intake quarantine call-rate line',
+       file='appendices/app_A2_frozen_values', line=20, status='calibrated', kind='file', printed='0.93', tol=0.0,
+       source=_B15A_RM + 'Intake/intake_thresholds_v1.json')
+def check_4645():
+    'call_rate.quarantine_below of intake_thresholds_v1.json. Book line 20, printed 0.93.'
+    value = load_json(_B15A_RM + 'Intake/intake_thresholds_v1.json')['call_rate']['quarantine_below']
     return locals()
 
 
@@ -42837,18 +42922,8 @@ INVENTORY = [
     (7, 'ch:statusall', 'part5/p5_11_status_all', 98, '', 'calc', '10', 'input: temperature 10 C at which the floor is evaluated; checked in ch:statusall:L98'),
     (7, 'ch:statusall', 'part5/p5_11_status_all', 98, '', 'calc', '38.5', 'input: temperature 38.5 C at which the floor is evaluated; checked in ch:statusall:L98:1.012'),
     (7, 'ch:statusall', 'part5/p5_11_status_all', 110, '', 'prediction', '10', 'input: temperature 10 mK of the gravitational-decoherence prediction; tau values checked in ch:statusall:L110:509 and L110:7.5'),
-    (8, 'app:constants', 'appendices/app_A2_frozen_values', 7, '', 'observed', '6.02214076\\times10^{23}', 'measured, not found in the files the chapter names'),
-    (8, 'app:constants', 'appendices/app_A2_frozen_values', 10, '', 'observed', '37', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:constants', 'appendices/app_A2_frozen_values', 11, '', 'observed', '54', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:constants', 'appendices/app_A2_frozen_values', 11, '', 'observed', '50', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:constants', 'appendices/app_A2_frozen_values', 11, '', 'observed', '-65', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:constants', 'appendices/app_A2_frozen_values', 14, '', 'observed', '67.36', 'measured, not found in the files the chapter names'),
-    (8, 'app:constants', 'appendices/app_A2_frozen_values', 15, '', 'observed', '67.16', 'measured, not found in the files the chapter names'),
-    (8, 'app:constants', 'appendices/app_A2_frozen_values', 15, '', 'observed', '72.26', 'measured, not found in the files the chapter names'),
-    (8, 'app:constants', 'appendices/app_A2_frozen_values', 16, '', 'observed', '0.032', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:constants', 'appendices/app_A2_frozen_values', 17, '', 'calibrated', '000', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:constants', 'appendices/app_A2_frozen_values', 19, '', 'calibrated', '1.1104', 'measured, not found in the files the chapter names'),
-    (8, 'app:constants', 'appendices/app_A2_frozen_values', 20, '', 'calibrated', '0.93', 'measured, too few printed digits to match against the named files'),
+    (8, 'app:constants', 'appendices/app_A2_frozen_values', 11, '', 'observed', '50', 'observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:constants:L11'),
+    (8, 'app:constants', 'appendices/app_A2_frozen_values', 11, '', 'observed', '-65', 'observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:constants:L11'),
     (8, 'app:notation', 'appendices/app_N_notation', 103, '', 'observed', '37', 'measured, too few printed digits to match against the named files'),
     (8, 'app:notation', 'appendices/app_N_notation', 104, '', 'observed', '54', 'measured, too few printed digits to match against the named files'),
     (8, 'app:notation', 'appendices/app_N_notation', 104, '', 'observed', '50', 'measured, too few printed digits to match against the named files'),
