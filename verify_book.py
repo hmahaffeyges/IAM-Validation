@@ -2542,6 +2542,13 @@ _B15A_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (m
                      '(no extraction script is committed)')
 _B15A_METH_RERUN = 'methylation chain (Met-A Stage 1 on EPIC IDATs); the frozen file named in source is the committed output'
 _B15A_RM = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/'
+DATA_FILES['Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json'] = 'fixed noise sites of the Met-A noise index N (EPIC v1)'   # 0.7 MB
+
+# helpers of the appendices/app_N_notation checks
+_B15N_RM = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/'
+_B15N_METH_RERUN = 'methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output'
+def _b15n_Hb(e):
+    return -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -39914,6 +39921,20 @@ def check_2694():
     ok = file_has('CANON/iam_canon.json', '310.15')
     return locals()
 
+@check(label='app:notation:L103:37', chapter='app:notation', part=8, title='body temperature in Celsius',
+       file='appendices/app_N_notation', line=103, status='observed', kind='file', printed='37', tol=0.0, source='CANON/iam_canon.json')
+def check_4646():
+    'T_cell of the canon (310.15 K) minus 273.15 K. Book line 103, printed 37 C.'
+    value = _cv('T_cell') - 273.15
+    return locals()
+
+@check(label='app:notation:L104', chapter='app:notation', part=8, title='free energy of ATP hydrolysis, kJ/mol',
+       file='appendices/app_N_notation', line=104, status='observed', kind='file', printed='54', tol=0.0, source='CANON/iam_canon.json')
+def check_4647():
+    'dG_ATP of the canon (J/mol) in kJ/mol. Book line 104, printed 54.'
+    value = _cv('dG_ATP') / 1000
+    return locals()
+
 @check(label='app:notation:L105', chapter='app:notation', part=8, title='same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature)',
        file='appendices/app_N_notation', line=105, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0.00017)
 def check_2695():
@@ -39947,6 +39968,13 @@ def check_2698():
 def check_2699():
     'measured: printed value found in iam_canon.json, a file the chapter names. Book line 108, printed 3.41.'
     ok = file_has('CANON/iam_canon.json', '3.41')
+    return locals()
+
+@check(label='app:notation:L109', chapter='app:notation', part=8, title='E_hold in Landauer units',
+       file='appendices/app_N_notation', line=109, status='observed', kind='file', printed='4.9', tol=0.0, source='CANON/iam_canon.json')
+def check_4648():
+    'E_hold / ln 2 with E_hold = 3.41 kT read from the canon. Book line 109, printed 4.9.'
+    value = _cv('E_hold_meth') / LN2
     return locals()
 
 @check(label='app:notation:L110', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
@@ -40000,11 +40028,29 @@ def check_2706():
     value = 1.099 * H_floor
     return locals()
 
+@check(label='app:notation:L115', chapter='app:notation', part=8, title='1/P, position of H_min on the IAM-A gauge',
+       file='appendices/app_N_notation', line=115, status='calc', kind='file', printed='0.910', tol=0.0,
+       source=_B15N_RM + 'IAM_A_Positions/iama_positions_v1.json', heavy=True, rerun=_B15N_METH_RERUN)
+def check_4649():
+    'Position of H_min on the IAM-A gauge, 1/P, with P of neutrophils read from the frozen iama_positions_v1.json. Book line 115, printed 0.910.'
+    P = load_json(_B15N_RM + 'IAM_A_Positions/iama_positions_v1.json')['cells']['neutrophils']['P']
+    value = 1 / P
+    return locals()
+
 @check(label='app:notation:L116', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
        file='appendices/app_N_notation', line=116, status='calibrated', kind='file', printed='0.330263', tol=0.0, source='CANON/iam_canon.json')
 def check_2707():
     'measured: printed value found in iam_canon.json, a file the chapter names. Book line 116, printed 0.330263.'
     ok = file_has('CANON/iam_canon.json', '0.330263')
+    return locals()
+
+@check(label='app:notation:L116:6000', chapter='app:notation', part=8, title='identity sites of the Met-A neutrophil reference',
+       file='appendices/app_N_notation', line=116, status='calibrated', kind='file', printed='6000', tol=0.0,
+       source=_B15N_RM + 'Met_A_Floors/metA_floors_v1_3.json', heavy=True, rerun=_B15N_METH_RERUN)
+def check_4650():
+    'Length of the site list of the EPIC neutrophil floor in metA_floors_v1_3.json (n_sites must agree). Book line 116, printed 6,000.'
+    d = load_json(_B15N_RM + 'Met_A_Floors/metA_floors_v1_3.json')['platforms']['EPIC']['neutrophils']
+    value = len(d['sites']) if d['n_sites'] == len(d['sites']) else float('nan')
     return locals()
 
 @check(label='app:notation:L117', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
@@ -40014,11 +40060,53 @@ def check_2708():
     ok = file_has('CANON/iam_canon.json', '1.05')
     return locals()
 
+@check(label='app:notation:L117:0.95', chapter='app:notation', part=8, title='lower edge of the Normal band',
+       file='appendices/app_N_notation', line=117, status='observed', kind='file', printed='0.95', tol=0.0, source='CANON/iam_canon.json')
+def check_4651():
+    'Lower edge of Normal_band in the canon (A = 1 within 5 %). Book line 117, printed 0.95.'
+    value = _cv('Normal_band')[0]
+    return locals()
+
+@check(label='app:notation:L118', chapter='app:notation', part=8, title='full surface on Met-A',
+       file='appendices/app_N_notation', line=118, status='calc', kind='file', printed='3.03', tol=0.0,
+       source=_B15N_RM + 'Met_A_Floors/metA_floors_v1_3.json', heavy=True, rerun=_B15N_METH_RERUN)
+def check_4652():
+    'A_max on Met-A: every identity site at a coin flip, H = 1 bit per site, over the reference floor read from metA_floors_v1_3.json. Book line 118, printed 3.03.'
+    H_ref = load_json(_B15N_RM + 'Met_A_Floors/metA_floors_v1_3.json')['platforms']['EPIC']['neutrophils']['floor']
+    value = _b15n_Hb(0.5) / H_ref
+    return locals()
+
+@check(label='app:notation:L118:4.45', chapter='app:notation', part=8, title='full surface on IAM-A',
+       file='appendices/app_N_notation', line=118, status='calc', kind='file', printed='4.45', tol=0.0,
+       source=_B15N_RM + 'IAM_A_Positions/iama_positions_v1.json', heavy=True, rerun=_B15N_METH_RERUN)
+def check_4653():
+    'A_max on IAM-A: H(1/2) = 1 bit over P H(eps0), P and eps0 read from iama_positions_v1.json. Book line 118, printed 4.45.'
+    d = load_json(_B15N_RM + 'IAM_A_Positions/iama_positions_v1.json')
+    value = _b15n_Hb(0.5) / (d['cells']['neutrophils']['P'] * _b15n_Hb(d['eps0']))
+    return locals()
+
+@check(label='app:notation:L119', chapter='app:notation', part=8, title='C-score healthy clustering baseline',
+       file='appendices/app_N_notation', line=119, status='calibrated', kind='file', printed='1.1104', tol=0.0,
+       source=_B15N_RM + 'Met_A_Floors/neutrophil_reference_v1_1.json', heavy=True, rerun=_B15N_METH_RERUN)
+def check_4654():
+    'Median of the six held-out clustering values healthy_clustering_LOO of neutrophil_reference_v1_1.json. Book line 119, printed 1.1104.'
+    value = float(np.median(load_json(_B15N_RM + 'Met_A_Floors/neutrophil_reference_v1_1.json')['healthy_clustering_LOO']))
+    return locals()
+
 @check(label='app:notation:L120', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
        file='appendices/app_N_notation', line=120, status='observed', kind='file', printed='528', tol=0.0, source='CANON/iam_canon.json')
 def check_2709():
     'measured: printed value found in iam_canon.json, a file the chapter names. Book line 120, printed 528.'
     ok = file_has('CANON/iam_canon.json', '528')
+    return locals()
+
+@check(label='app:notation:L120:48528', chapter='app:notation', part=8, title='fixed noise sites of the noise index',
+       file='appendices/app_N_notation', line=120, status='observed', kind='file', printed='48528', tol=0.0,
+       source=_B15N_RM + 'Met_A_Floors/noise_sites_EPIC_v1.json', heavy=True, rerun=_B15N_METH_RERUN)
+def check_4655():
+    'Length of the site list of noise_sites_EPIC_v1.json (its n must agree). Book line 120, printed 48,528.'
+    d = load_json(_B15N_RM + 'Met_A_Floors/noise_sites_EPIC_v1.json')
+    value = len(d['sites']) if d['n'] == len(d['sites']) else float('nan')
     return locals()
 
 
@@ -42924,18 +43012,8 @@ INVENTORY = [
     (7, 'ch:statusall', 'part5/p5_11_status_all', 110, '', 'prediction', '10', 'input: temperature 10 mK of the gravitational-decoherence prediction; tau values checked in ch:statusall:L110:509 and L110:7.5'),
     (8, 'app:constants', 'appendices/app_A2_frozen_values', 11, '', 'observed', '50', 'observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:constants:L11'),
     (8, 'app:constants', 'appendices/app_A2_frozen_values', 11, '', 'observed', '-65', 'observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:constants:L11'),
-    (8, 'app:notation', 'appendices/app_N_notation', 103, '', 'observed', '37', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:notation', 'appendices/app_N_notation', 104, '', 'observed', '54', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:notation', 'appendices/app_N_notation', 104, '', 'observed', '50', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:notation', 'appendices/app_N_notation', 104, '', 'observed', '-65', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:notation', 'appendices/app_N_notation', 109, '', 'observed', '4.9', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:notation', 'appendices/app_N_notation', 115, '', 'calc', '0.910', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (8, 'app:notation', 'appendices/app_N_notation', 116, '', 'calibrated', '000', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:notation', 'appendices/app_N_notation', 117, '', 'observed', '0.95', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:notation', 'appendices/app_N_notation', 118, '', 'calc', '3.03', 'not yet run: draft does not reproduce the printed value (recomputed 4.4533); drafting error on review'),
-    (8, 'app:notation', 'appendices/app_N_notation', 118, '', 'calc', '4.45', 'not yet run: draft does not reproduce the printed value (recomputed 4.89417); drafting error on review'),
-    (8, 'app:notation', 'appendices/app_N_notation', 119, '', 'calibrated', '1.1104', 'measured, not found in the files the chapter names'),
-    (8, 'app:notation', 'appendices/app_N_notation', 120, '', 'observed', '48', 'measured, too few printed digits to match against the named files'),
+    (8, 'app:notation', 'appendices/app_N_notation', 104, '', 'observed', '50', 'observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:notation:L104'),
+    (8, 'app:notation', 'appendices/app_N_notation', 104, '', 'observed', '-65', 'observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:notation:L104'),
     (8, 'app:formulas', 'appendices/app_E_formulas', 6, '', 'none', '', 'displayed equation, not yet checked'),
     (8, 'app:formulas', 'appendices/app_E_formulas', 56, '', 'derived', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
     (8, 'app:formulas', 'appendices/app_E_formulas', 56, '', 'derived', '1.67', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),

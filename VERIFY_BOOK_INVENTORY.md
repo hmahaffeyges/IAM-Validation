@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4646 PASS, 0 FAIL, 1695 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4656 PASS, 0 FAIL, 1685 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5871,16 +5871,16 @@ Totals: 4646 PASS, 0 FAIL, 1695 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 103 | app:notation:L103 | observed | `310.15` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
-| 103 |  | observed | `37` | not run: measured, too few printed digits to match against the named files | - |
-| 104 |  | observed | `54` | not run: measured, too few printed digits to match against the named files | - |
-| 104 |  | observed | `50` | not run: measured, too few printed digits to match against the named files | - |
-| 104 |  | observed | `-65` | not run: measured, too few printed digits to match against the named files | - |
+| 103 | app:notation:L103:37 | observed | `37` | file `CANON/iam_canon.json`: body temperature in Celsius | PASS |
+| 104 | app:notation:L104 | observed | `54` | file `CANON/iam_canon.json`: free energy of ATP hydrolysis, kJ/mol | PASS |
+| 104 |  | observed | `50` | not run: observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:notation:L104 | - |
+| 104 |  | observed | `-65` | not run: observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:notation:L104 | - |
 | 105 | app:notation:L105 | calc | `2.968\times10^{-21}` | numeric: same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature) | PASS |
 | 105 | app:notation:L105:1.787 | calc | `1.787` | numeric: same value as p4_02_landauer:17 (per mole of bits, kJ) | PASS |
 | 106 | app:notation:L106 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C) | PASS |
 | 107 | app:notation:L107 | observed | `30.2` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 108 | app:notation:L108 | measured | `3.41` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
-| 109 |  | observed | `4.9` | not run: measured, too few printed digits to match against the named files | - |
+| 109 | app:notation:L109 | observed | `4.9` | file `CANON/iam_canon.json`: E_hold in Landauer units | PASS |
 | 110 | app:notation:L110 | measured | `0.1628` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 111 | app:notation:L111 | derived | `0.032` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 112 | app:notation:L112 | calc | `0.2043` | numeric: same value as p4_00b_astrogenetics:63 (H(eps0), bits) | PASS |
@@ -5888,16 +5888,16 @@ Totals: 4646 PASS, 0 FAIL, 1695 inventoried and not run. Each run item carries t
 | 113 | app:notation:L113:1.084 | measured | `1.084` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 113 | app:notation:L113:-1.108 | measured | `-1.108` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 114 | app:notation:L114 | calc | `0.2246` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 115 |  | calc | `0.910` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 115 | app:notation:L115 | calc | `0.910` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json`: 1/P, position of H_min on the IAM-A gauge | PASS |
 | 116 | app:notation:L116 | calibrated | `0.330263` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
-| 116 |  | calibrated | `000` | not run: measured, too few printed digits to match against the named files | - |
+| 116 | app:notation:L116:6000 | calibrated | `6000` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: identity sites of the Met-A neutrophil reference | PASS |
 | 117 | app:notation:L117 | observed | `1.05` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
-| 117 |  | observed | `0.95` | not run: measured, too few printed digits to match against the named files | - |
-| 118 |  | calc | `3.03` | not run: not yet run: draft does not reproduce the printed value (recomputed 4.4533); drafting error on review | - |
-| 118 |  | calc | `4.45` | not run: not yet run: draft does not reproduce the printed value (recomputed 4.89417); drafting error on review | - |
-| 119 |  | calibrated | `1.1104` | not run: measured, not found in the files the chapter names | - |
+| 117 | app:notation:L117:0.95 | observed | `0.95` | file `CANON/iam_canon.json`: lower edge of the Normal band | PASS |
+| 118 | app:notation:L118 | calc | `3.03` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: full surface on Met-A | PASS |
+| 118 | app:notation:L118:4.45 | calc | `4.45` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json`: full surface on IAM-A | PASS |
+| 119 | app:notation:L119 | calibrated | `1.1104` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C-score healthy clustering baseline | PASS |
 | 120 | app:notation:L120 | observed | `528` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
-| 120 |  | observed | `48` | not run: measured, too few printed digits to match against the named files | - |
+| 120 | app:notation:L120:48528 | observed | `48528` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json`: fixed noise sites of the noise index | PASS |
 
 ## Part 8 - app:formulas - `docs/book/appendices/app_E_formulas.tex`
 

@@ -5576,11 +5576,14 @@ PASS  app:constants:L20                  app:constants:app_A2_frozen_values:20  
 
 == Part 8: Appendices | app:notation (appendices/app_N_notation.tex)
 PASS  app:notation:L103                  app:notation:app_N_notation:103  printed 310.15  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:notation:L103:37               app:notation:app_N_notation:103  printed 37  recomputed 37  tol 0.5  [observed] body temperature in Celsius  file CANON/iam_canon.json
+PASS  app:notation:L104                  app:notation:app_N_notation:104  printed 54  recomputed 54  tol 0.5  [observed] free energy of ATP hydrolysis, kJ/mol  file CANON/iam_canon.json
 PASS  app:notation:L105                  app:notation:app_N_notation:105  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.045605e-25  [calc] same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature)
 PASS  app:notation:L105:1.787            app:notation:app_N_notation:105  printed 1.787  recomputed 1.78744  tol 5.000005e-04  [calc] same value as p4_02_landauer:17 (per mole of bits, kJ)
 PASS  app:notation:L106                  app:notation:app_N_notation:106  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)
 PASS  app:notation:L107                  app:notation:app_N_notation:107  printed 30.2  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  app:notation:L108                  app:notation:app_N_notation:108  printed 3.41  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:notation:L109                  app:notation:app_N_notation:109  printed 4.9  recomputed 4.91959  tol 0.05  [observed] E_hold in Landauer units  file CANON/iam_canon.json
 PASS  app:notation:L110                  app:notation:app_N_notation:110  printed 0.1628  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  app:notation:L111                  app:notation:app_N_notation:111  printed 0.032  recomputed 0.0320144  tol 5.000005e-04  [derived] drafted check, screened (runs; negative control fails)
 PASS  app:notation:L112                  app:notation:app_N_notation:112  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [calc] same value as p4_00b_astrogenetics:63 (H(eps0), bits)
@@ -5588,9 +5591,22 @@ PASS  app:notation:L113                  app:notation:app_N_notation:113  printe
 PASS  app:notation:L113:1.084            app:notation:app_N_notation:113  printed 1.084  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  app:notation:L113:-1.108           app:notation:app_N_notation:113  printed -1.108  recomputed found in file  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  app:notation:L114                  app:notation:app_N_notation:114  printed 0.2246  recomputed 0.224553  tol 5.000005e-05  [calc] drafted check, screened (runs; negative control fails)
+PASS  app:notation:L115                  app:notation:app_N_notation:115  printed 0.910  recomputed 0.909918  tol 5.000005e-04  [calc] 1/P, position of H_min on the IAM-A gauge  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+      heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
 PASS  app:notation:L116                  app:notation:app_N_notation:116  printed 0.330263  recomputed found in file  [calibrated] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:notation:L116:6000             app:notation:app_N_notation:116  printed 6000  recomputed 6000  tol 0.5  [calibrated] identity sites of the Met-A neutrophil reference  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
+      heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
 PASS  app:notation:L117                  app:notation:app_N_notation:117  printed 1.05  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:notation:L117:0.95             app:notation:app_N_notation:117  printed 0.95  recomputed 0.95  tol 0.00500001  [observed] lower edge of the Normal band  file CANON/iam_canon.json
+PASS  app:notation:L118                  app:notation:app_N_notation:118  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] full surface on Met-A  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
+      heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
+PASS  app:notation:L118:4.45             app:notation:app_N_notation:118  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] full surface on IAM-A  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+      heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
+PASS  app:notation:L119                  app:notation:app_N_notation:119  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [calibrated] C-score healthy clustering baseline  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
+      heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
 PASS  app:notation:L120                  app:notation:app_N_notation:120  printed 528  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
+PASS  app:notation:L120:48528            app:notation:app_N_notation:120  printed 48528  recomputed 48528  tol 0.5  [observed] fixed noise sites of the noise index  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json
+      heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
 
 == Part 8: Appendices | app:formulas (appendices/app_E_formulas.tex)
 PASS  app:formulas:L58                   app:formulas:app_E_formulas:58  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [derived] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
@@ -5828,4 +5844,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 4646  FAIL 0  (heavy, read from committed outputs: 1001)  inventoried-not-run 1695  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4656  FAIL 0  (heavy, read from committed outputs: 1007)  inventoried-not-run 1685  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
