@@ -1,4 +1,6 @@
-# Paper errata — corrections to apply to the papers in `docs/papers/` (and their LaTeX in `docs/papers/latex/`)
+# Paper errata — every correction to the source papers, original passage beside the correction
+
+> The source papers are no longer kept in this repository (retired 2026-10-04; the book is the current text). Each row below quotes the original passage beside its correction; the originals remain public on OSF (doi:10.17605/OSF.IO/KCZD9) and Zenodo.
 
 Every confirmed correction found while auditing the papers for the book is recorded here the moment it is found, against the paper it belongs to.
 The book chapters already carry the corrected values. **The papers themselves are updated from this list after the book is finished**, so the repository

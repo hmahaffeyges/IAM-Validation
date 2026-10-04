@@ -1,7 +1,7 @@
 [
 {
 "file": "docs/verification/PAPER_ERRATA.md",
-"line": 283,
+"line": 285,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
@@ -10,7 +10,7 @@
 },
 {
 "file": "docs/verification/PAPER_ERRATA.md",
-"line": 283,
+"line": 285,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -43,6 +43,24 @@
 "severity": "warn",
 "status": "RECORD",
 "text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
+},
+{
+"file": "docs/book/DRAFT_two_readings.txt",
+"line": 21,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "So IAM-A reads the cause on single molecules and Met-A reads its result across the specimen. Each A score carries one C-score beside it, computed from the same "
+},
+{
+"file": "docs/book/DRAFT_two_readings.tex",
+"line": 29,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "across the specimen. Each A score carries one C-score beside it, computed from the same sites, which says where along the genome the"
 },
 {
 "file": "docs/book/read_ledgers/MANIFEST_astrogenetics.md",
@@ -142,159 +160,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "reads $1/P=0.910$ on the gauge (Chapter~\\ref{ch:iama}). On arrays, this is an open problem. \\openprob{} The A-score reads where the cell sits:"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/make_figures.py",
-"line": 104,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "# FIGURE 1 \u2014 Lifespan vs A-score (mammals)"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/make_figures.py",
-"line": 247,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "# Panel A: Raw A-scores vs temperature"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/make_figures.py",
-"line": 267,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "ax1.set_ylabel('A-score (uncorrected)', fontsize=9)"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/make_figures.py",
-"line": 268,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "ax1.set_title(f'Raw A-scores vs body temperature\\nr = {r_raw:+.3f},  p = {p_raw:.1e}', fontsize=9)"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/make_figures.py",
-"line": 274,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "# Panel B: Corrected A-scores vs temperature"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/make_figures.py",
-"line": 291,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "ax2.set_ylabel(f'A-score (corrected, \u03b1 = {alpha_opt})', fontsize=9)"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/make_figures.py",
-"line": 292,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "ax2.set_title(f'Temperature-corrected A-scores\\nr = {r_cor:+.3f},  p = {p_cor:.1e}', fontsize=9)"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/make_figures.py",
-"line": 331,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "# Panel A: Mean A-score by taxonomic order (mammals only)"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/make_figures.py",
-"line": 372,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "ax3.set_xlabel('Mean A-score  \u00b1  SEM', fontsize=9)"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_for_physicists/IAM_for_physicists.tex",
-"line": 738,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\caption{\\textbf{(a)}~The A-score $A = H(\\beta)/H_{min}$ is two-to-one in $\\beta$: the binary entropy $H$ is symmetric about $0.5$, so $\\beta = 0.20$ and $\\beta"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_for_physicists/IAM_for_physicists.tex",
-"line": 738,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\caption{\\textbf{(a)}~The A-score $A = H(\\beta)/H_{min}$ is two-to-one in $\\beta$: the binary entropy $H$ is symmetric about $0.5$, so $\\beta = 0.20$ and $\\beta"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_for_physicists/IAM_for_physicists.tex",
-"line": 764,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\textbf{The A-score.} With \\texttt{H($\\beta$) = -$\\beta$ log$_{2}\\beta$ - (1-$\\beta$) log$_{2}$(1-$\\beta$)} the binary entropy of mean methylation:"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_for_physicists/IAM_for_physicists.tex",
-"line": 852,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "AIBL eosinophil A-score & d = -0.426 & d = -0.4255 \\\\"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_for_physicists/IAM_for_physicists.tex",
-"line": 993,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "Selected checks, with values as emitted: \\texttt{H\\_min\\textasciicircum{}global = H(0.782) = 0.756499}; A-score \\texttt{H(0.685)/0.856055 = 1.0500}; Landauer de"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_for_physicists/IAM_for_physicists.tex",
-"line": 1024,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\item \\textbf{Two inequivalent A-score definitions circulate in the methylation report documents.} The operative one, used in all numerical results, is \\texttt{"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_for_physicists/IAM_for_physicists.tex",
-"line": 1026,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\item The \\texttt{H\\_min} values have a \\textbf{revision history} that should be stated rather than discovered: immune/haematopoietic moved from a calibration v"
-},
-{
-"file": "Biological_Physics/MethylPhys/papers/IAM_for_physicists/IAM_for_physicists.tex",
-"line": 1059,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\item \\textbf{\\texttt{n\\_bio} presentation.} \\texttt{The\\_Cellular\\_Margin} presents \\texttt{n\\_bio = 20.94} as a per-patient reading; it is a constant (\\texttt"
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/audit/OM_MIGRATION_CHECK_2026-10-01.md",
@@ -574,15 +439,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "- Pooled A-score is near baseline (within `pooled_near_baseline_tolerance` of 1.0)"
-},
-{
-"file": "Biological_Physics/MethylPhys/chain/TEST_DATA/TEST_DATA_MANIFEST.md",
-"line": 46,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "their A-scores elevate toward the Warburg/breach lines. The chain reads and scores secretory and"
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/CPG_Null_Runner/cpg_null_runner.py",
@@ -1042,15 +898,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "It returns a number that cannot be a methylation fraction at all. The A-score built on it is therefore not a"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/CHAIN_COMMISSIONING.md",
-"line": 25,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "| E2E | the whole chain on the documented test package | **CONFIRMED 2026-09-23** (PROC-E2E-01) | Nine arrays, four cohorts, two platforms, three substrates thr"
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/PROC_CHARR_01_PREREG.md",

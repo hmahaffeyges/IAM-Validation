@@ -65,65 +65,10 @@ SOP, section 2b.
 
 ## The papers
 
-The papers are the working record. Where a paper and the corrections list disagree, the corrections list and the book are current.
-
-**The law**
-- [IAM's Law: the thermodynamic cost of classical existence - the law itself; the cosmological model is one derived implementation of it](docs/papers/IAM_Law.pdf)
-- [The thermodynamic identity governing the virial theorem - physical identification of K, with evidence across domains](docs/papers/PRL_Version_Thermodynamic_Identity_Governing_Virial_Theorem.pdf)
-- [The virial partition across a wide range of physical scales - the cross-domain validation](docs/papers/Virial_Partitian_Across_Wide_Domains.pdf)
-- [The virial partition from atoms to the horizon](docs/papers/The_Virial_Partition_from_Atoms_to_the_Horizon.pdf)
-
-**Cosmology and gravitation**
-- [Horizon thermodynamics and gravitational decoherence as the origin of mu < 1, Sigma = 1](docs/papers/IAM_Theory_Paper.pdf)
-- [Master consolidated preprint - dual-sector cosmology, zero parameters beyond LCDM](docs/papers/IAM_Master_Preprint.pdf)
-- [Technical companion - the quick overview](docs/papers/IAM_Overview_Companion.pdf)
-- [IAM-CAMB technical note: mapping, Boltzmann validation, full Planck MCMC](docs/papers/IAM_CAMB_Technical_Note.pdf)
-- [Dual-sector perturbation cosmology: the modified CAMB implementation](docs/papers/Dual_Sector_Perturbation_Cosmology_CAMB.pdf)
-- [Type Ia supernovae validate matter-sector H0 normalisation](docs/papers/Dual_Sector_Validation_Paper.pdf)
-- [Why the sector split is already in general relativity](docs/papers/IAM_Dual_Sector_Note.pdf)
-- [Constraints on late-time fsigma8 suppression: Planck 2018 and large-scale structure](docs/papers/Late_Time_Growth_Suppression_in_the_mu_Sigma_Framework__Confrontation_with_Planck_and_Large_Scale_Structure.pdf)
-- [Confrontation with DESI full-shape growth rates and joint weak lensing](docs/papers/Dark_Energy_or_Sector_Tension.pdf)
-- [The redshift-dependent S8 trend](docs/papers/The_Redshift_Dependent_S_8_Trend_in_the_Context_of_IAM.pdf)
-- [The cosmological constant as actualised vacuum energy - a zero-parameter resolution](docs/papers/The_Cosmological_Constant_as_Actualized_Vacuum_Energy.pdf)
-- [Dark energy evolution and the far future of an IAM universe](docs/papers/wz_far_future.pdf)
-- [Falsifiable predictions for Euclid, DESI and next-generation surveys](docs/papers/IAM_Survey_Predictions_Paper.pdf)
-- [Missing satellites: the virial partition closure condition and the two mechanisms](docs/papers/Missing_Satellites.pdf)
-- [Virial efficiency and the effective nonlinear exponent - published N-body confirmation](docs/papers/Virial_Efficiency_and_Effective_Nonlinear_Exponent.pdf)
-- [Lensing-dynamics mass discrepancy as a redshift-dependent signature](docs/papers/IAM_Lensing_Dynamics_Paper.pdf)
-- [Three-way mass discrepancy in galaxy clusters: eROSITA, Planck SZ, DES](docs/papers/3Way_Mass_Discrepancy_in_Galaxy_Clusters.pdf)
-- [Quantum Darwinism at cosmological scales - the cosmic horizon and the emergence of classicality](docs/papers/Quantum_Darwinism_at_Cosmological_Scales.pdf)
-- [Black hole horizons as thermodynamic encoding surfaces](docs/papers/IAM_BH_Thermodynamics.pdf)
-- [The cessation of projection: the information paradox](docs/papers/IAM_Black_Hole_Information_Paradox.pdf)
-- [The geometric origin of the Bekenstein-Hawking entropy coefficient](docs/papers/Bekenstein_coefficient.pdf)
-- [A note on entropic gravity and the thermodynamic-gravity conjecture](docs/papers/A_Note_on_Entropic_Gravity__Saridakis_.pdf)
-- [Validation scorecard - the complete test ledger](docs/papers/IAM_Official_Score_Card.pdf)
-- [Complete test validation compendium](docs/papers/IAM_Test_Validation_Compendium.pdf)
-- [Supplementary methods and reproducibility guide](docs/papers/Supplementary_Methods_Reproducibility_Guide.pdf)
-- [Dark matter and dark energy as virial partners](docs/papers/Dark_Matter_and_Dark_Energy_as_Virial_Partners.pdf)
-
-**Quantum and particle physics**
-- [Landauer-based model for the minimum quasiparticle density in Al/AlOx/Al Josephson junctions](docs/papers/IAM_Xqp_Mahaffey.pdf)
-- [Electron rest mass from holographic horizon thermodynamics - a fixed-point equation](docs/papers/Electron_Rest_Mass_from__IAM.pdf)
-- [Three charged lepton generations and the Koide ratio from horizon information equipartition](docs/papers/Koide_Mahaffey.pdf)
-- [Electroweak symmetry breaking and the matter sector](docs/papers/Electroweak_Symmetry_Breaking_and_the_Matter_Sector.pdf)
-- [Matter-antimatter asymmetry and the information-writing constraint](docs/papers/Matter_Antimatter_Asymmetry_and_the_Information_Writing_Constraint.pdf)
-- [The baryon asymmetry as a derived quantity - CMB evidence without a BBN prior](docs/papers/Baryon_Asymmetry_as_a_Derived_Quantity_CMB_Evidence_Without_BBN_Prior.pdf)
-- [The measurement problem dissolved: decoherence as irreversible sector crossing](docs/papers/IAM_Measurement_Problem_Quantum.pdf)
-- [Gravitational decoherence from dual-sector thermodynamics - predictions for optomechanical experiments](docs/papers/Gravitational_Decoherence_Quantum_Level.pdf)
-- [Gravitational decoherence, the virial partition, and the emergence of classical structure](docs/papers/Gravitational_Decoherence_and_the_Virial_Partition.pdf)
-- [Entanglement, decoherence, and the thermodynamic cost of classical records](docs/papers/Entanglement_Decoherence_and_Classical_Records.pdf)
-- [The two faces of time: coordinate time, proper time, and accumulated decoherence](docs/papers/The_Two_Faces_of_Time.pdf)
-
-**The cell**
-- Physics of methylation: Landauer metrology - retired; its content is carried in the book, Part VI (the Landauer chapter)
-
-**Exploratory, marked as such** — not part of the validation record:
-- [Gravitational engineering and interstellar transit: a first-principles exploration (exploratory)](docs/papers/IAM_Gravitational_Engineering_Exploration.pdf)
-
-**Earlier revisions, kept for provenance:**
-- [Earlier revision of the Bekenstein coefficient paper](docs/papers/iam_bekenstein_coefficient.pdf)
-- [Retired v1 manuscript](docs/Retired_V1_IAM_Manuscript.pdf)
-- [Retired technical clarifications guide](docs/Retired_IAM_Technical_Clarifications_Guide.pdf)
+The book is the one current text. The papers it was built from were written and shared along the way; they are not kept in this
+repository, because the book corrects and supersedes them. Every correction, with the original passage beside the corrected one, is in
+[`docs/verification/PAPER_ERRATA.md`](docs/verification/PAPER_ERRATA.md). The originals remain public on
+[OSF](https://doi.org/10.17605/OSF.IO/KCZD9) and [Zenodo](https://doi.org/10.5281/zenodo.18702042).
 
 ## Reproduce
 

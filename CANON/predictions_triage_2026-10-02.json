@@ -992,8 +992,8 @@
  {
   "pid": "COS-016",
   "verdict": "CORRECT",
-  "statement": "Photons should not couple: current bound beta_gamma < 0.0039 (95 %), beta_gamma/beta_m < 0.025; falsified if CMB-S4 (or any data) detects beta_gamma > 0.",
-  "value": "beta_gamma < 0.0039 (95 %); ratio < 0.025",
+  "statement": "Photons should not couple: current bound beta_gamma < 0.0052 (95 %), beta_gamma/beta_m < 0.033; falsified if CMB-S4 (or any data) detects beta_gamma > 0.",
+  "value": "beta_gamma < 0.0052 (95 %); ratio < 0.033",
   "falsified_if": "detection of beta_gamma > 0",
   "test_and_date": "CMB-S4 (forecast to recompute)",
   "errata_ids": [
@@ -1004,7 +1004,7 @@
    "X2",
    "X4"
   ],
-  "reason": "Bounds 1.4e-6 and 8.5e-6 come from a sign error in the theta_s integral; corrected to 0.0039 and 0.025 (D7, S2, X2, X4). Falsifier changes from 'above 1e-4' to 'detection of beta_gamma > 0' (S8). The CMB-S4 forecast (1e-7) must be recomputed from the corrected bound (D13); no number in the record.",
+  "reason": "Bounds 1.4e-6 and 8.5e-6 come from a sign error in the theta_s integral; corrected to 0.0039 and 0.025 (D7, S2, X2, X4). Falsifier changes from 'above 1e-4' to 'detection of beta_gamma > 0' (S8). The CMB-S4 forecast (1e-7) must be recomputed from the corrected bound (D13); no number in the record. Recomputed 2026-10-04 with H0, Omega_m and r_* from one Planck fit (Planck 2018 TT,TE,EE+lowE+lensing): beta_gamma < 0.0052 (95 %), ratio < 0.033 (verify_beta_gamma.py).",
   "needs_check": true,
   "topic": "beta_gamma"
  },
@@ -1490,8 +1490,8 @@
  {
   "pid": "COS-229",
   "verdict": "TESTED",
-  "statement": "The CMB acoustic-scale scan gives beta_gamma consistent with zero, beta_gamma < 0.0039 (95 %), beta_gamma/beta_m < 0.025: photons couple at least 40x more weakly than matter.",
-  "value": "beta_gamma < 0.0039 (95 %)",
+  "statement": "The CMB acoustic-scale scan gives beta_gamma consistent with zero, beta_gamma < 0.0052 (95 %), beta_gamma/beta_m < 0.033: photons couple at least 30x more weakly than matter.",
+  "value": "beta_gamma < 0.0052 (95 %)",
   "falsified_if": "",
   "test_and_date": "CMB acoustic scale likelihood scan (Planck)",
   "errata_ids": [
@@ -1499,7 +1499,7 @@
    "D10",
    "X2"
   ],
-  "reason": "Measured outcome (Planck acoustic scale); the row's 0.004 agrees with the corrected 0.0039 (D7); not disputed.",
+  "reason": "Measured outcome (Planck acoustic scale); the row's 0.004 agrees with the corrected 0.0039 (D7); not disputed. Recomputed 2026-10-04 with H0, Omega_m and r_* from one Planck fit (Planck 2018 TT,TE,EE+lowE+lensing): beta_gamma < 0.0052 (95 %), ratio < 0.033 (verify_beta_gamma.py).",
   "needs_check": false,
   "topic": "beta_gamma"
  },
@@ -3739,8 +3739,8 @@
  {
   "pid": "COS-017",
   "verdict": "TESTED",
-  "statement": "CMB acoustic scale bounds the photon-sector coupling: beta_gamma < 0.0039 (95 %), beta_gamma/beta_m < 0.025 (photons couple at least 40x more weakly).",
-  "value": "beta_gamma < 0.0039; ratio < 0.025",
+  "statement": "CMB acoustic scale bounds the photon-sector coupling: beta_gamma < 0.0052 (95 %), beta_gamma/beta_m < 0.033 (photons couple at least 30x more weakly).",
+  "value": "beta_gamma < 0.0052; ratio < 0.033",
   "falsified_if": "",
   "test_and_date": "CMB acoustic scale, measured",
   "errata_ids": [
@@ -3752,7 +3752,7 @@
    "SX6",
    "D10"
   ],
-  "reason": "Data: CMB theta_s (MCMC). Corrections replace the printed 1.4e-6 and 8.5e-6, which come from a sign error in the emcee theta_s integral (D7, X2, X3, X4, which names COS-017; S2, SX6, D10).",
+  "reason": "Data: CMB theta_s (MCMC). Corrections replace the printed 1.4e-6 and 8.5e-6, which come from a sign error in the emcee theta_s integral (D7, X2, X3, X4, which names COS-017; S2, SX6, D10). Recomputed 2026-10-04 with H0, Omega_m and r_* from one Planck fit (Planck 2018 TT,TE,EE+lowE+lensing): beta_gamma < 0.0052 (95 %), ratio < 0.033 (verify_beta_gamma.py).",
   "needs_check": false,
   "topic": "photon coupling"
  },
@@ -5736,8 +5736,8 @@
  {
   "pid": "PAR-003",
   "verdict": "TESTED",
-  "statement": "Measured bound on photon-sector coupling; corrected to beta_gamma < 0.0039 (95 %), beta_gamma/beta_m < 0.025.",
-  "value": "beta_gamma < 0.0039; ratio < 0.025",
+  "statement": "Measured bound on photon-sector coupling; corrected to beta_gamma < 0.0052 (95 %), beta_gamma/beta_m < 0.033.",
+  "value": "beta_gamma < 0.0052; ratio < 0.033",
   "falsified_if": "Detection of beta_gamma > 0 above forecast precision",
   "test_and_date": "Planck CMB theta_s MCMC (measured)",
   "errata_ids": [
@@ -5749,7 +5749,7 @@
    "D10",
    "SX6"
   ],
-  "reason": "Data: CMB acoustic scale theta_s MCMC (mcmc_final_iam.py). The printed 1.4e-6 and 8.5e-6 come from a sign error in the theta_s integral (D7, X2-X4, S2). Recomputed with Python: 0.0039/0.1583 = 0.0246, consistent with < 0.025. Future falsifier: detection of beta_gamma > 0 (S8).",
+  "reason": "Data: CMB acoustic scale theta_s MCMC (mcmc_final_iam.py). The printed 1.4e-6 and 8.5e-6 come from a sign error in the theta_s integral (D7, X2-X4, S2). Recomputed with Python: 0.0039/0.1583 = 0.0246, consistent with < 0.025. Future falsifier: detection of beta_gamma > 0 (S8). Recomputed 2026-10-04 with H0, Omega_m and r_* from one Planck fit (Planck 2018 TT,TE,EE+lowE+lensing): beta_gamma < 0.0052 (95 %), ratio < 0.033 (verify_beta_gamma.py).",
   "needs_check": false,
   "topic": "photon-sector coupling beta_gamma"
  },
@@ -5825,9 +5825,9 @@
  {
   "pid": "PAR-008",
   "verdict": "CORRECT",
-  "statement": "Model prediction: matter-qubit CHSH |S| = 2sqrt2(1 - D) falls below 2 when D > 1 - 1/sqrt2 = 0.293, while photon pairs keep |S| = 2sqrt2; the ramp D(t) is assumed, not derived, and 'confirmed' is withdrawn until a specific data set is named.",
-  "value": "D_crit = 0.293",
-  "falsified_if": "Matter-pair |S| remains above 2 at D > 0.293, or photon |S| degrades with transit",
+  "statement": "Model prediction: for a matter pair entangled in its pointer basis, gravitational dephasing leaves the branch weights and multiplies the coherence by c(t); the largest CHSH value is S_max = 2sqrt(1+c^2), above 2 for any c > 0 and exactly 2 at c = 0, while photon pairs keep |S| = 2sqrt2. With the settings optimal for the undecohered pair, S = sqrt2(1 + c) falls below 2 at c < 0.414 (D > 0.586); the time profile c(t) is assumed, not derived.",
+  "value": "S_max = 2sqrt(1+c^2); fixed settings cross 2 at c = 0.414 (D = 0.586)",
+  "falsified_if": "A matter pair's measured S departs from 2sqrt(1+c^2) (optimal settings) or sqrt2(1 + c) (fixed settings) at the coherence c measured by interference, or photon |S| degrades with transit",
   "test_and_date": "CHSH tests on matter qubits vs time; no date",
   "errata_ids": [
    "EN4",
@@ -5835,7 +5835,7 @@
    "MP5",
    "MP2"
   ],
-  "reason": "Recomputed with Python: 1 - 1/sqrt2 = 0.2929 (matches 0.293). 'CHSH S-parameter measurements' names no data set, so 'confirmed' is unsupported. EN4/GD3/MP5: the ramp D(t) = E(t/tau)/e is not derived (hold). MP2: matter Bell tests already span 1.3 km (Hensen 2015).",
+  "reason": "Rewritten 2026-10-04 to the pointer-basis dephasing model (Chapter ch:entanglement, Appendix app:der:quantum): correlation matrix diag(c,-c,1), Horodecki S_max = 2sqrt(1+c^2); fixed pure-state settings give sqrt2(1+c), crossing 2 at c = sqrt2-1 = 0.414. The earlier 2sqrt2(1-D) and D_crit = 0.293 are the isotropic-noise case, which pointer-basis dephasing is not. The ramp D(t) = E(t/tau)/e is not derived (EN4/GD3/MP5). MP2: matter Bell tests already span 1.3 km (Hensen 2015).",
   "needs_check": true,
   "topic": "Bell violation decay (matter vs photon)"
  },
