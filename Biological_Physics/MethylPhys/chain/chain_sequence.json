@@ -79,6 +79,11 @@
    "implements": "None when the specimen is EPIC v1; otherwise the refusal text"
   },
   {
+   "step": "stage_t_selftare_ii",
+   "where": "conductor_v3.py",
+   "implements": "Stage T step 1, self-tare II (adopted 2026-10-04, DEV-SELFTARE-02): per probe design, beta' = Lr + (beta - L)(Ur - Lr)/(U - L) from this"
+  },
+  {
    "step": "stage_m_isolated",
    "where": "conductor_v3.py",
    "implements": "Isolated / sorted neutrophils against their own floor. The own-floor state is kept as state_own_floor; the reading's state is"
@@ -253,13 +258,6 @@
  ],
  "development_flags": [
   {
-   "flag": "--dev-selftare-ii",
-   "step": "dev_stages.selftare_ii",
-   "where": "dev_stages.py",
-   "implements": "Met-A re-read after the type II self-tare: each design mapped onto the reference arrays' scale by this array's own fixed-site anchors (DEV-SELFTARE-02)",
-   "status": "DEVELOPMENT - not commissioned: runs only with the flag; written under bundle['development']; not part of the reading"
-  },
-  {
    "flag": "--dev-direction",
    "step": "dev_stages.direction_record",
    "where": "dev_stages.py",
@@ -324,9 +322,9 @@
   }
  ],
  "counts": {
-  "live": 26,
+  "live": 27,
   "not_wired": 3,
   "toolkit_rows": 13,
-  "development_flags": 10
+  "development_flags": 9
  }
 }

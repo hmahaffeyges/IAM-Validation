@@ -9,8 +9,11 @@ Runs after Stage 0 (intake) and Stage 1 (IDAT calibration), both driven by Methy
   Stage M   Met-A: isolated / sorted neutrophils -> own floor (stage_m_met_a.read); whole blood -> composition-matched healthy
             expectation, read when the neutrophil fraction is >= MIN_READ_FRACTION and >= 90 % of the 6000 sites are measured
   Stage MC  Met-A C-score: clustering of the neutrophil residual map over the healthy baseline (development: band not set)
-  Stage T   same-run tare against >= 3 healthy references run the same way (same slide, else same batch), whole blood and isolated
-            alike: A_rel = A / median(reference A); nothing is fitted. Without references the reading is reported as untared.
+  Stage T   step 1, self-tare II (adopted by the author 2026-10-04, DEV-SELFTARE-02; wired here 2026-10-04): each probe design mapped
+            onto the reference arrays' scale by this array's own low and high fixed-site anchors (dev_stages.selftare_map), before
+            Stages A, M and MC; no references; nothing is fitted. Step 2, the median tare against >= 3 healthy references run the same
+            way (same slide, else same batch), whole blood and isolated alike: A_rel = A / median(reference A); nothing is fitted.
+            Without references the reading is reported as untared (step 2 not run).
   Noise     Stage M records the array's noise index N (noise_sites_EPIC_v1.json). If N > N_max (noise_gate_EPIC_v1.json, the top of
             the reference arrays' range) the gauge state is withheld unless the reading is tared (DEV-NOISE-01 rule). If fewer than 90 % of
             the noise sites are measured, N cannot be formed and the gauge state is withheld with the reason (author decision A, 2026-10-04).
@@ -189,6 +192,16 @@ def stage_t_tare(A, ref_A, shift_1pct=None, sample_id=None):
             "detection_note": "smallest loss of the cell's pattern (percent) this specimen could show: 2 x reference spread / shift per 1 % loss",
             "state": _state(Ar)}
 
+def stage_t_selftare_ii(beta):
+    """Stage T step 1, self-tare II (adopted 2026-10-04, DEV-SELFTARE-02): per probe design, beta' = Lr + (beta - L)(Ur - Lr)/(U - L) from this
+    array's own fixed-site anchors L, U and the reference arrays' Lr, Ur (dev_stages.selftare_map; a design with anchors missing or U - L <= 0.1
+    is left unmapped). Returns (beta', record); when the runtime file is missing, (beta, record with status NOT_RUN)."""
+    import dev_stages as DV
+    b2, info = DV.selftare_map(beta)
+    if b2 is None: return beta, {"step": "1 self-tare II", "status": "NOT_RUN", **info}
+    return b2, {"step": "1 self-tare II", "status": "OK", **info,
+                "note": "Stages A, M and MC read this array's betas mapped onto the reference arrays' scale by its own fixed-site anchors; the noise index reads the unmapped betas"}
+
 def platform_refusal(beta, array_type=None):
     """None when the specimen is EPIC v1; otherwise the refusal text."""
     if array_type is not None and array_type not in ACCEPTED_ARRAY_TYPES:
@@ -201,7 +214,8 @@ def platform_refusal(beta, array_type=None):
     return None
 
 def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sample_id=None):
-    """beta: pd.Series from Stage 1 (EPIC v1). ref_A: same-run healthy references - untared A values, or records {A, f_neu, N[, id]}
+    """beta: pd.Series from Stage 1 (EPIC v1). ref_A: same-run healthy references - their Met-A before the median tare (met_a.A, which
+    carries Stage T step 1, self-tare II, since 2026-10-04), or records {A, f_neu, N[, id]}
     (Stage T; plain A values or records with A). array_type: Stage 0's array type (header, else declared), or None for a beta table. sample_id: excluded from the
     references if a record carries it. Returns the v3 bundle."""
     beta = beta.copy(); beta.index = beta.index.astype(str)
@@ -213,13 +227,15 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
     r = platform_refusal(beta, array_type)
     if r: out["refusal"] = r; out["refusal_code"] = "PLATFORM_REFUSED"; return out
     if S0.normalise_specimen(specimen) == "constructed dna mixture": out["note"] = "constructed DNA mixture of blood cells (test material): read as whole blood"
+    b_st, st1 = stage_t_selftare_ii(beta)   # Stage T step 1, self-tare II (adopted 2026-10-04): A, M and MC read the mapped betas
     if S0.ACCEPTED_SPECIMENS.get(S0.normalise_specimen(specimen)) == "isolated neutrophils":
-        m, z = stage_m_isolated(beta); out["composition"] = {"stage": "A", "note": "isolated neutrophils: composition not solved"}
+        m, z = stage_m_isolated(b_st); out["composition"] = {"stage": "A", "note": "isolated neutrophils: composition not solved"}
     else:
-        a = stage_a_composition(beta); out["composition"] = a
-        m, z = stage_m_blood(beta, a)
+        a = stage_a_composition(b_st); out["composition"] = a
+        m, z = stage_m_blood(b_st, a)
     m.update(noise_index(beta))
-    t = stage_t_tare(m.get("A"), ref_A, m.get("shift_per_1pct_loss"), sample_id=sample_id)
+    t = stage_t_tare(m.get("A"), ref_A, m.get("shift_per_1pct_loss"), sample_id=sample_id)   # Stage T step 2, the median tare
+    t["selftare_ii"] = st1
     if t.get("A_rel") is not None: m["state"] = "tared: read A_rel (Stage T)"
     g = noise_gate(); N = m.get("noise_index"); m["noise_gate_N_max"] = g["N_max"]
     m["noise_gate"] = ("not measured" if N is None else ("pass" if N <= g["N_max"] else "above the reference arrays' range"))

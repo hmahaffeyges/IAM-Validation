@@ -74,7 +74,8 @@ def derive():
     dev = []
     if "_dev_run" in rs and os.path.exists(os.path.join(HERE, "dev_stages.py")):   # development flags (2026-10-04, doors/DEV_FLAGS_01.md)
         dt = ast.parse(open(os.path.join(HERE, "dev_stages.py"), encoding="utf-8").read()); dd = {n.name: n for n in dt.body if isinstance(n, ast.FunctionDef)}
-        for flag, fn in (("--dev-selftare-ii", "selftare_ii"), ("--dev-direction", "direction_record"), ("--dev-trace", "trace_cell"), ("--dev-foreign", "foreign_cell"),
+        # --dev-selftare-ii is a no-op alias since 2026-10-04: self-tare II is Stage T step 1 (conductor_v3.stage_t_selftare_ii, live path)
+        for flag, fn in (("--dev-direction", "direction_record"), ("--dev-trace", "trace_cell"), ("--dev-foreign", "foreign_cell"),
                          ("--dev-brightness", "brightness"), ("--dev-nilc", "nilc_e"), ("--dev-atlas-e", "atlas_e"), ("--dev-percell-b", "percell_b"),
                          ("--dev-sky", "sky"), ("--dev-epic-v2", "epicv2_calibrate")):
             if fn in dd and flag in rs:

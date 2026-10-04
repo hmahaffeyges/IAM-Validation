@@ -11,7 +11,9 @@ when single-molecule input is given.
     # specimens: whole blood, isolated / sorted / purified neutrophils. Any other specimen is refused at intake with a report.
     # identifiers: the bundle and the ledger carry the sha256 hash of --id (and of --patient-id); the printed report keeps the typed id.
     # development flags (DEVELOPMENT - not commissioned; written under bundle["development"], never part of the reading):
-    #   --dev-selftare-ii --dev-direction --dev-trace --dev-foreign --dev-brightness --dev-nilc --dev-atlas-e --dev-percell-b --dev-sky
+    #   --dev-direction --dev-trace --dev-foreign --dev-brightness --dev-nilc --dev-atlas-e --dev-percell-b --dev-sky
+    #   --dev-selftare-ii is a no-op alias (2026-10-04): self-tare II is Stage T step 1 and always runs; the flag only copies its record
+    #   to bundle["development"]["selftare_ii"], so recorded commands still run
     #   (--dev-nilc/--dev-atlas-e/--dev-percell-b/--dev-sky need --atlas-v2 <IAMAtlas_v2.parquet>; --dev-sky needs healpy)
     #   --dev-epic-v2 (an EPIC v2 IDAT pair through SeSAMe; needs --sesame-rscript <Rscript of an env with sesame>)
 
@@ -186,7 +188,12 @@ def _dev_run(a, o, beta, intake):
         return
     b = _pd.Series(beta, dtype="float64") if not isinstance(beta, _pd.Series) else beta
     b.index = b.index.astype(str); comp = o.get("composition") or {}; fr = comp.get("fractions"); sp = a.specimen
-    calls = {"selftare_ii": lambda: DV.selftare_ii(b, sp), "direction": lambda: DV.direction_record(b, sp, comp),
+    st1 = (o.get("tare") or {}).get("selftare_ii") or {}
+    calls = {"selftare_ii": lambda: DV._rec("selftare_ii", status=st1.get("status", "NOT_RUN"), A_selftared=(o.get("met_a") or {}).get("A"),
+                                            **({k: v for k, v in st1.items() if k not in ("step", "status", "note")} if st1 else {"reason": "Stage T did not run on this specimen"}),
+                                            note="no-op alias: self-tare II is Stage T step 1 since 2026-10-04 and already ran (tare.selftare_ii); "
+                                                 "A_selftared repeats met_a.A; nothing is recomputed"),
+             "direction": lambda: DV.direction_record(b, sp, comp),
              "trace": lambda: DV.trace_cell(b), "foreign": lambda: DV.foreign_cell(b), "brightness": lambda: DV.brightness(b, sp, comp),
              "nilc": lambda: DV.nilc_e(b, a.atlas_v2), "atlas_e": lambda: DV.atlas_e(b, a.atlas_v2), "percell_b": lambda: DV.percell_b(b, fr, a.atlas_v2),
              "sky": lambda: DV.sky(b, fr, a.atlas_v2)}
@@ -215,8 +222,8 @@ def main():
     ap.add_argument("--manifest-dir", default=None, help="write the immutable per-sample manifest here")
     ap.add_argument("--no-intake", action="store_true", help="skip Stage 0 (recorded in the report as skipped)")
     ap.add_argument("--engine", default="v3", choices=("v3",), help="v3 is the only engine (the class-floor engine was retired 2026-10-03); the flag is kept so recorded v3 commands still run")
-    ap.add_argument("--slide-ref-A", "--ref-A", dest="slide_ref_A", default=None, help="comma-separated untared Met-A of >= 3 same-run healthy reference arrays (same slide, else same batch) - v3 Stage T median tare, whole blood and isolated neutrophils")
-    ap.add_argument("--slide-ref-table", "--ref-table", dest="slide_ref_table", default=None, help="CSV of same-run healthy references with column A (optional id): untared Met-A from pass 1. >= 3 rows -> median tare (nothing is fitted)")
+    ap.add_argument("--slide-ref-A", "--ref-A", dest="slide_ref_A", default=None, help="comma-separated Met-A before the median tare (met_a.A, self-tared since 2026-10-04) of >= 3 same-run healthy reference arrays (same slide, else same batch) - v3 Stage T median tare, whole blood and isolated neutrophils")
+    ap.add_argument("--slide-ref-table", "--ref-table", dest="slide_ref_table", default=None, help="CSV of same-run healthy references with column A (optional id): Met-A from pass 1 (met_a.A, self-tared since 2026-10-04; before the median tare). >= 3 rows -> median tare (nothing is fitted)")
     ap.add_argument("--pat", default=None, help="v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table)")
     ap.add_argument("--pat-max-bytes", type=int, default=None, help="read only the first N bytes of --pat (the neutrophil position P was measured on the first 60000000 bytes of each file)")
     ap.add_argument("--site-table", default=None, help="v3 Stage Q: a per-site CSV with columns pos,opp_A,err_A,opp_B,err_B; needs --seq-pipeline")
@@ -225,7 +232,9 @@ def main():
     ap.add_argument("--prior-betas", default=None, help="stage 12b (difference map, DEV-TOOLKIT-ADDED-01): the Stage 1 beta vector of an earlier draw of the same person (as written by --save-betas); needs --prior-bundle")
     ap.add_argument("--prior-bundle", default=None, help="stage 12b: the bundle of that earlier draw; the difference is refused unless both draws carry the same identifier hash, array type and pipeline")
     ap.add_argument("--save-betas", default=None, help="also write this specimen's Stage 1 beta vector (after the detection mask) to this path as a two-column file cpg_id,beta (.parquet or .csv); recorded in the bundle")
-    for f, h in (("selftare-ii", "DEV-SELFTARE-02 self-tare on type II fixed sites"), ("direction", "DEV-DIRECTION-02 signed move at the identity sites"),
+    ap.add_argument("--dev-selftare-ii", action="store_true", help="no-op alias, kept so recorded commands still run: self-tare II (DEV-SELFTARE-02) is Stage T step 1 since 2026-10-04 "
+                    "and always runs (bundle tare.selftare_ii); the flag only copies that record to bundle['development']['selftare_ii'] and changes nothing else")
+    for f, h in (("direction", "DEV-DIRECTION-02 signed move at the identity sites"),
                  ("trace", "DEV-TOOLKIT-ADDED-02 3b trace cell (isolated neutrophils)"), ("foreign", "DEV-TOOLKIT-ADDED-02 3c foreign cell (whole blood)"),
                  ("brightness", "DEV-TOOLKIT-ADDED-02 11b interval on Met-A"), ("nilc", "stage 4 NILC-e (needs --atlas-v2)"), ("atlas-e", "stage 3 atlas_e (needs --atlas-v2)"),
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
