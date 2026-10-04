@@ -3,7 +3,7 @@
 Items a check raised that would change a result, a prediction, a locked value, an equation of IAM or the framing of a
 claim. The book was left unchanged for each; the decision is the author's. Every FAIL of `verify_book.py` is listed here.
 
-Items: 15
+Items: 16
 
 ## 1. `docs/book/part2/p2_02_virial.tex:L86-87`
 
@@ -109,4 +109,11 @@ Items: 15
 - **Proposed:** no change to the book; state in the Part A record which arrays the two ranges cover (and how the ceiling 1/H(floor) = 2.8 was computed, or commit the per-site floor of the three lines)
 - **Why it matters:** In data/dnmt_arrays_readings.csv the active-drug arrays at >= 400 nM span methylated-site beta 0.34-0.91, not 0.36-0.60. The printed ranges match the 15 active-compound arrays (both compounds) with beta between 0.365 and 0.604 (A_meth 2.657-2.845), which leaves out NOMO-1 at 2,000 nM (beta 0.34, A_meth 2.61). The checks therefore read 0.36, 0.60, 2.66 and 2.8 from the record text, not from the per-array file; 2.85 is checked from the file.
 - **Recommendation:** Add the array selection (e.g. 'arrays with methylated-site beta 0.36-0.60') to the Part A record, so the four numbers can be recomputed from the committed file.
+
+## 16. `docs/book/part5/p5_05b_virial_partners.tex:L29`
+
+- **Now:** The ratio of dark matter to dark energy density today --- approximately 0.38
+- **Proposed:** keep 0.38 (it is 0.26/0.69 from lines 25-26, as verify_virial_papers.py prints), or print 0.39 if the ratio is meant from Planck 2018 directly
+- **Why it matters:** From Planck 2018 (Omega_c h^2 = 0.1200, h = 0.6736, Omega_Lambda = 0.6847) Omega_c/Omega_Lambda = 0.386, which rounds to 0.39; the printed 0.38 is the ratio of the book's rounded 26 % and 69 %.
+- **Recommendation:** No change needed for the check (it uses the book's 26 % and 69 %); the author may decide whether the sentence means the rounded or the full Planck ratio.
 

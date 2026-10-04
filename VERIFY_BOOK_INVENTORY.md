@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4372 PASS, 0 FAIL, 1966 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4393 PASS, 0 FAIL, 1946 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5325,33 +5325,34 @@ Totals: 4372 PASS, 0 FAIL, 1966 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 17 |  | conjecture | `2.0` | not run: not yet checked | - |
-| 29 |  | calc | `0.38` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 36 |  | observed | `10` | not run: measured, too few printed digits to match against the named files | - |
-| 37 |  | observed | `10` | not run: measured, too few printed digits to match against the named files | - |
-| 68 |  | calc | `399` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 68 |  | calc | `20` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 68 |  | calc | `0.7` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 69 |  | calc | `0.3` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 17 | ch:virial_partners:L17 | conjecture | `2.0` | numeric: virial ratio R(a=1) = Omega_m/[beta_m E(1)] | PASS |
+| 29 | ch:virial_partners:L29 | calc | `0.38` | numeric: dark matter to dark energy ratio today, 0.26/0.69 | PASS |
+| 36 | ch:virial_partners:L36 | observed | `10^{-11}` | numeric: atomic scale: the Bohr radius lies in the 10^-11 m decade | PASS |
+| 37 | ch:virial_partners:L37 | observed | `10^{26}` | numeric: cosmic horizon scale c/H0 ~ 10^26 m | PASS |
+| 68 | ch:virial_partners:L68 | calc | `399` | numeric: virial ratio R at z = 2 | PASS |
+| 68 | ch:virial_partners:L68:20 | calc | `20` | numeric: virial ratio R at z = 0.7 | PASS |
+| 68 |  | calc | `0.7` | not run: input: the redshift z = 0.7 at which R is evaluated (R(z=0.7) = 20 is checked as ch:virial_partners:L68:20) | - |
+| 69 | ch:virial_partners:L69 | calc | `6` | numeric: virial ratio R at z = 0.3 | PASS |
 | 87 | ch:virial_partners:L87 | calc | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 87 |  | calc | `0.7` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 87 |  | calc | `0.361` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 87 |  | calc | `1.5` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 87 |  | calc | `0.3` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 87 |  | calc | `0.295` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 87 |  | calc | `4.9` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 87 |  | calc | `18.7` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 87 |  | calc | `7.59` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 87 |  | calc | `7.3` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 87 |  | calc | `2.9` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 87 |  | calc | `0.6` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 90 |  | calc | `0.7` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 93 |  | calc | `18.7` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 97 | eq:vp_channels | calc |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 87 | ch:virial_partners:L87:0.361 | calc | `0.361` | numeric: matter equals vacuum plus record term at z = 0.361 | PASS |
+| 87 | ch:virial_partners:L87:0.295 | calc | `0.295` | numeric: LCDM matter-vacuum equality redshift | PASS |
+| 87 | ch:virial_partners:L87:4.9 | calc | `4.9` | numeric: record share of dark energy at z = 1.5 | PASS |
+| 87 | ch:virial_partners:L87:18.7 | calc | `18.7` | numeric: record share of dark energy today | PASS |
+| 87 | ch:virial_partners:L87:7.59 | calc | `7.59` | numeric: sector gap H_m/H - 1 = mu^-1/2 - 1 today | PASS |
+| 87 | ch:virial_partners:L87:7.3 | calc | `7.3` | numeric: kinetic-half growth over matter dilution at z = 0.3 | PASS |
+| 87 | ch:virial_partners:L87:2.9 | calc | `2.9` | numeric: kinetic-half growth over matter dilution at z = 0.7 | PASS |
+| 87 | ch:virial_partners:L87:0.6 | calc | `0.6` | numeric: kinetic-half growth over matter dilution at z = 1.5 | PASS |
+| 87 | ch:virial_partners:L87:Ea2/6 | calc |  | sympy: rate ratio closed form E(a) a^2/6 | PASS |
+| 87 |  | calc | `0.7` | not run: input: z = 0.7, upper edge of the transition zone and an evaluation redshift of panel (f) (its value 2.9 % is checked as ch:virial_partners:L87:2.9) | - |
+| 87 |  | calc | `1.5` | not run: input: the redshift z = 1.5 at which panels (c) and (f) are read (checked as ch:virial_partners:L87:4.9 and L87:0.6) | - |
+| 87 |  | calc | `0.3` | not run: input: z = 0.3, lower edge of the transition zone and an evaluation redshift of panel (f) (checked as ch:virial_partners:L87:7.3) | - |
+| 90 |  | calc | `0.7` | not run: definition: the transition zone z = 0.3-0.7 (its edge 0.7), a range named for the figure, nothing to recompute | - |
+| 93 | ch:virial_partners:L93 | calc | `18.7` | numeric: record share today beta_m/(Omega_L + beta_m) | PASS |
+| 97 | ch:virial_partners:L97 | calc | `0.078825` | numeric: three channels: geometric = beta_m/2, sum = Omega_m/2 | PASS |
 | 102 | ch:virial_partners:L102 | calc | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 143 |  | interp | `2.0` | not run: not yet checked | - |
-| 151 |  | prediction | `-0.136` | not run: not yet checked | - |
-| 155 |  | interp | `-0.136` | not run: not yet checked | - |
+| 143 | ch:virial_partners:L143 | interp | `2.0` | numeric: R(a=1) = 2.0 (repeat) | PASS |
+| 151 | ch:virial_partners:L151 | prediction | `-0.136` | numeric: mu0 = mu(a=1) - 1 from beta_m = Omega_m/2 | PASS |
+| 155 | ch:virial_partners:L155 | interp | `-0.136` | numeric: mu0 = mu(a=1) - 1 (repeat) | PASS |
 
 ## Part 7 - ch:virial_decoherence - `docs/book/part5/p5_05c_virial_decoherence.tex`
 

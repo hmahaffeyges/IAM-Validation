@@ -2382,6 +2382,24 @@ def _b13_meq_msun(z, H0=H0_photon, Om_=0.3153, Or_=9.1e-5):
     Hz = Hsi(H0) * math.sqrt(Om_ * (1 + z)**3 + Or_ * (1 + z)**4 + 1 - Om_ - Or_)
     return c**3 / (4 * G * Hz) / Msun
 
+# helpers of the part5/p5_05b_virial_partners checks
+def _b13_R(z):
+    """Cosmological virial ratio R(a) = Omega_m a^-3/[beta_m E(a)] (Eq. eq:vc_R), Planck 2018 Omega_m, CANON beta_m."""
+    a = 1 / (1 + z)
+    return Om * a**-3 / (beta_m * float(E_act(a)))
+
+def _b13_record_share(z):
+    """Record term as a fraction of the total dark energy, beta_m E/(Omega_L + beta_m E)."""
+    bE = beta_m * float(E_act(1 / (1 + z)))
+    return bE / (OL + bE)
+
+def _b13_rate_ratio(z):
+    """[d(beta_m E)/da]/|d(Omega_m a^-3)/da| by central finite differences in a (no closed form used)."""
+    a, d = 1 / (1 + z), 1e-6
+    num_ = (beta_m * float(E_act(a + d)) - beta_m * float(E_act(a - d))) / (2 * d)
+    den_ = abs((Om * (a + d)**-3 - Om * (a - d)**-3) / (2 * d))
+    return num_ / den_
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -36481,6 +36499,57 @@ def check_4371():
 
 
 # ======== Part 7 | ch:virial_partners | docs/book/part5/p5_05b_virial_partners.tex
+@check(label='ch:virial_partners:L17', chapter='ch:virial_partners', part=7, title='virial ratio R(a=1) = Omega_m/[beta_m E(1)]',
+       file='part5/p5_05b_virial_partners', line=17, status='conjecture', kind='num', printed='2.0', tol=0.0)
+def check_4372():
+    'R(a) = Omega_m a^-3/[beta_m E(a)] at a = 1, with Omega_m = 0.3153 (Planck 2018) and beta_m from CANON. Book line 17, printed 2.0.'
+    value = _b13_R(0.0)
+    return locals()
+
+@check(label='ch:virial_partners:L29', chapter='ch:virial_partners', part=7, title='dark matter to dark energy ratio today, 0.26/0.69',
+       file='part5/p5_05b_virial_partners', line=29, status='calc', kind='num', printed='0.38', tol=0.0)
+def check_4373():
+    'Omega_DM/Omega_Lambda today from the book\'s own rounded fractions at lines 25-26 (dark matter approximately 26 %, dark energy approximately 69 % of the critical density), as verify_virial_papers.py section G does. Book line 29, printed approximately 0.38.'
+    f_dm, f_de = 0.26, 0.69     # book lines 25-26
+    value = f_dm / f_de
+    return locals()
+
+@check(label='ch:virial_partners:L36', chapter='ch:virial_partners', part=7, title='atomic scale: the Bohr radius lies in the 10^-11 m decade',
+       file='part5/p5_05b_virial_partners', line=36, status='observed', kind='num', printed='10^{-11}', tol=0.0)
+def check_4374():
+    'The atomic scale 10^-11 m: the decade of the Bohr radius a0 = hbar/(m_e c alpha) = 5.29e-11 m (CODATA 2018), value = 10^floor(log10 a0). Same scale as ch:virial_law (p1_03 lines 27 and 173). Book line 36, printed 10^-11 m.'
+    a0 = hbar / (m_e * c * alpha_em)
+    value = 10.0 ** math.floor(math.log10(a0))
+    return locals()
+
+@check(label='ch:virial_partners:L37', chapter='ch:virial_partners', part=7, title='cosmic horizon scale c/H0 ~ 10^26 m',
+       file='part5/p5_05b_virial_partners', line=37, status='observed', kind='num', printed='10^{26}', tol=0.0)
+def check_4375():
+    'Hubble radius c/H0 in metres with H0 = 67.16 (photon sector, locked), an order of magnitude. Book line 37, printed 10^26 m.'
+    value = c / Hsi(H0_photon)
+    return locals()
+
+@check(label='ch:virial_partners:L68', chapter='ch:virial_partners', part=7, title='virial ratio R at z = 2',
+       file='part5/p5_05b_virial_partners', line=68, status='calc', kind='num', printed='399', tol=0.0)
+def check_4376():
+    'R(a) = Omega_m a^-3/[beta_m E(a)] at z = 2 (Table tab:vc_R). Book line 68, printed 399.'
+    value = _b13_R(2.0)
+    return locals()
+
+@check(label='ch:virial_partners:L68:20', chapter='ch:virial_partners', part=7, title='virial ratio R at z = 0.7',
+       file='part5/p5_05b_virial_partners', line=68, status='calc', kind='num', printed='20', tol=0.0)
+def check_4377():
+    'R(a) at z = 0.7. Book line 68, printed 20.'
+    value = _b13_R(0.7)
+    return locals()
+
+@check(label='ch:virial_partners:L69', chapter='ch:virial_partners', part=7, title='virial ratio R at z = 0.3',
+       file='part5/p5_05b_virial_partners', line=69, status='calc', kind='num', printed='6', tol=0.0)
+def check_4378():
+    'R(a) at z = 0.3. Book line 68-69, printed 6.'
+    value = _b13_R(0.3)
+    return locals()
+
 @check(label='ch:virial_partners:L87', chapter='ch:virial_partners', part=7, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
        file='part5/p5_05b_virial_partners', line=87, status='calc', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2592():
@@ -36488,11 +36557,116 @@ def check_2592():
     value = Om/2
     return locals()
 
+@check(label='ch:virial_partners:L87:0.361', chapter='ch:virial_partners', part=7, title='matter equals vacuum plus record term at z = 0.361',
+       file='part5/p5_05b_virial_partners', line=87, status='calc', kind='num', printed='0.361', tol=0.0)
+def check_4379():
+    'Root in z of Omega_m (1+z)^3 = Omega_Lambda + beta_m E(a) (fig:virial_partition panel b), Planck 2018 Omega_m. Book line 87, printed 0.361.'
+    value = brentq(lambda z: Om * (1 + z)**3 - OL - beta_m * float(E_act(1 / (1 + z))), 0.0, 2.0)
+    return locals()
+
+@check(label='ch:virial_partners:L87:0.295', chapter='ch:virial_partners', part=7, title='LCDM matter-vacuum equality redshift',
+       file='part5/p5_05b_virial_partners', line=87, status='calc', kind='num', printed='0.295', tol=0.0)
+def check_4380():
+    'Root in z of Omega_m (1+z)^3 = Omega_Lambda (LambdaCDM, no record term), Planck 2018 Omega_m. Book line 87, printed 0.295.'
+    value = brentq(lambda z: Om * (1 + z)**3 - OL, 0.0, 2.0)
+    return locals()
+
+@check(label='ch:virial_partners:L87:4.9', chapter='ch:virial_partners', part=7, title='record share of dark energy at z = 1.5',
+       file='part5/p5_05b_virial_partners', line=87, status='calc', kind='num', printed='4.9', tol=0.0)
+def check_4381():
+    'beta_m E/(Omega_Lambda + beta_m E) at z = 1.5, in per cent. Book line 87, printed 4.9 %.'
+    value = 100 * _b13_record_share(1.5)
+    return locals()
+
+@check(label='ch:virial_partners:L87:18.7', chapter='ch:virial_partners', part=7, title='record share of dark energy today',
+       file='part5/p5_05b_virial_partners', line=87, status='calc', kind='num', printed='18.7', tol=0.0)
+def check_4382():
+    'beta_m E/(Omega_Lambda + beta_m E) at z = 0, in per cent. Book line 87, printed 18.7 %.'
+    value = 100 * _b13_record_share(0.0)
+    return locals()
+
+@check(label='ch:virial_partners:L87:7.59', chapter='ch:virial_partners', part=7, title='sector gap H_m/H - 1 = mu^-1/2 - 1 today',
+       file='part5/p5_05b_virial_partners', line=87, status='calc', kind='num', printed='7.59', tol=0.0)
+def check_4383():
+    'H_m/H - 1 = mu(a=1)^(-1/2) - 1 with mu = H^2/(H^2 + beta_m E H0^2) (mu_iam), in per cent. Book line 87, printed 7.59 %.'
+    value = 100 * (float(mu_iam(1.0)) ** -0.5 - 1)
+    return locals()
+
+@check(label='ch:virial_partners:L87:7.3', chapter='ch:virial_partners', part=7, title='kinetic-half growth over matter dilution at z = 0.3',
+       file='part5/p5_05b_virial_partners', line=87, status='calc', kind='num', printed='7.3', tol=0.0)
+def check_4384():
+    '[d(beta_m E)/da]/|d(Omega_m a^-3)/da| at z = 0.3 by finite differences (the caption closed form E a^2/6 is not used), per cent. Book line 87, printed 7.3 %.'
+    value = 100 * _b13_rate_ratio(0.3)
+    return locals()
+
+@check(label='ch:virial_partners:L87:2.9', chapter='ch:virial_partners', part=7, title='kinetic-half growth over matter dilution at z = 0.7',
+       file='part5/p5_05b_virial_partners', line=87, status='calc', kind='num', printed='2.9', tol=0.0)
+def check_4385():
+    'Same ratio at z = 0.7, per cent. Book line 87, printed 2.9 %.'
+    value = 100 * _b13_rate_ratio(0.7)
+    return locals()
+
+@check(label='ch:virial_partners:L87:0.6', chapter='ch:virial_partners', part=7, title='kinetic-half growth over matter dilution at z = 1.5',
+       file='part5/p5_05b_virial_partners', line=87, status='calc', kind='num', printed='0.6', tol=0.0)
+def check_4386():
+    'Same ratio at z = 1.5, per cent. Book line 87, printed 0.6 %.'
+    value = 100 * _b13_rate_ratio(1.5)
+    return locals()
+
+@check(label='ch:virial_partners:L87:Ea2/6', chapter='ch:virial_partners', part=7, title='rate ratio closed form E(a) a^2/6',
+       file='part5/p5_05b_virial_partners', line=87, status='calc', kind='sym', printed='', tol=0.0)
+def check_4387():
+    'Caption closed form: [d(beta E)/da]/|d(Omega_m a^-3)/da| with beta = Omega_m/2 and E = exp(1 - 1/a), differentiated with sympy, equals E(a) a^2/6. Book line 87.'
+    a, Omg = sp.symbols('a Omega_m', positive=True)
+    E = sp.exp(1 - 1 / a)
+    lhs = sp.simplify(sp.diff(Omg / 2 * E, a) / (-sp.diff(Omg * a**-3, a)))
+    rhs = E * a**2 / 6
+    neg_lhs = sp.simplify(sp.diff(sp.Rational(105, 100) * Omg / 2 * E, a) / (-sp.diff(Omg * a**-3, a)))
+    return locals()
+
+@check(label='ch:virial_partners:L93', chapter='ch:virial_partners', part=7, title='record share today beta_m/(Omega_L + beta_m)',
+       file='part5/p5_05b_virial_partners', line=93, status='calc', kind='num', printed='18.7', tol=0.0)
+def check_4388():
+    'beta_m/(Omega_Lambda + beta_m), Omega_Lambda = 1 - 0.3153 (Planck 2018), per cent. Book line 93, printed 18.7 %.'
+    value = 100 * beta_m / (OL + beta_m)
+    return locals()
+
+@check(label='ch:virial_partners:L97', chapter='ch:virial_partners', part=7, title='three channels: geometric = beta_m/2, sum = Omega_m/2',
+       file='part5/p5_05b_virial_partners', line=97, status='calc', kind='num', printed='0.078825', tol=0.0)
+def check_4389():
+    'Eq. eq:vp_channels: beta_geometric = beta_m/2 = Omega_m/4 (Omega_m 0.3153, Planck 2018). The three channel values are read from the committed output of verify_virial_papers.py (section G, "three-channel:"); they must sum to Omega_m/2 and the geometric one must equal Omega_m/4, both within 1e-6. Book lines 97-102, printed 0.078825.'
+    ln = [l for l in file_text('docs/verification/scripts/verify_virial_papers_output.txt').splitlines() if 'three-channel:' in l][0]
+    ch_t, ch_g, ch_r = [float(x) for x in re.findall(r'\d+\.\d+', ln.split('=')[0])]
+    consistent = abs(ch_t + ch_g + ch_r - Om / 2) < 1e-6 and abs(ch_g - Om / 4) < 1e-6
+    value = Om / 4 if consistent else float('nan')
+    return locals()
+
 @check(label='ch:virial_partners:L102', chapter='ch:virial_partners', part=7, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
        file='part5/p5_05b_virial_partners', line=102, status='calc', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2593():
     'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 102, printed 0.15765.'
     value = Om/2
+    return locals()
+
+@check(label='ch:virial_partners:L143', chapter='ch:virial_partners', part=7, title='R(a=1) = 2.0 (repeat)',
+       file='part5/p5_05b_virial_partners', line=143, status='interp', kind='num', printed='2.0', tol=0.0)
+def check_4390():
+    'R(a) = Omega_m a^-3/[beta_m E(a)] at a = 1. Book line 143, printed 2.0.'
+    value = _b13_R(0.0)
+    return locals()
+
+@check(label='ch:virial_partners:L151', chapter='ch:virial_partners', part=7, title='mu0 = mu(a=1) - 1 from beta_m = Omega_m/2',
+       file='part5/p5_05b_virial_partners', line=151, status='prediction', kind='num', printed='-0.136', tol=0.0)
+def check_4391():
+    'mu0 = mu(a=1) - 1 with mu = H^2/(H^2 + beta_m E H0^2) (mu_iam; locked value -0.136). Book line 151, printed -0.136.'
+    value = float(mu_iam(1.0)) - 1
+    return locals()
+
+@check(label='ch:virial_partners:L155', chapter='ch:virial_partners', part=7, title='mu0 = mu(a=1) - 1 (repeat)',
+       file='part5/p5_05b_virial_partners', line=155, status='interp', kind='num', printed='-0.136', tol=0.0)
+def check_4392():
+    'mu0 = mu(a=1) - 1 (mu_iam; locked value -0.136). Book line 155, printed -0.136.'
+    value = float(mu_iam(1.0)) - 1
     return locals()
 
 
@@ -40257,31 +40431,11 @@ INVENTORY = [
     (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '10', 'input: the base of a power of ten (z = 10^6, a redshift chosen for the figure; ~7x10^10), not a computed number; the 7x10^10 is checked as ch:theoryinterp:L41:7\\times10^{10}'),
     (7, 'ch:time', 'part5/p5_03_time', 24, 'eq:time_tau', 'none', '', 'definition: proper time as the length of a worldline, tau = (1/c) int sqrt(-g dx dx) (Eq. eq:time_tau)'),
     (7, 'ch:time', 'part5/p5_03_time', 78, 'eq:time_Ephoton', 'derived', '', 'definition: E(a)|photon = 0 (Eq. eq:time_Ephoton), the sector split stated by construction (no record on a null worldline); nothing to recompute'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 17, '', 'conjecture', '2.0', 'not yet checked'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 29, '', 'calc', '0.38', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 36, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 37, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 68, '', 'calc', '399', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 68, '', 'calc', '20', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 68, '', 'calc', '0.7', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 69, '', 'calc', '0.3', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '0.7', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '0.361', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '1.5', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '0.3', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '0.295', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '4.9', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '18.7', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '7.59', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '7.3', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '2.9', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '0.6', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 90, '', 'calc', '0.7', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 93, '', 'calc', '18.7', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 97, 'eq:vp_channels', 'calc', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 143, '', 'interp', '2.0', 'not yet checked'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 151, '', 'prediction', '-0.136', 'not yet checked'),
-    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 155, '', 'interp', '-0.136', 'not yet checked'),
+    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 68, '', 'calc', '0.7', 'input: the redshift z = 0.7 at which R is evaluated (R(z=0.7) = 20 is checked as ch:virial_partners:L68:20)'),
+    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '0.7', 'input: z = 0.7, upper edge of the transition zone and an evaluation redshift of panel (f) (its value 2.9 % is checked as ch:virial_partners:L87:2.9)'),
+    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '1.5', 'input: the redshift z = 1.5 at which panels (c) and (f) are read (checked as ch:virial_partners:L87:4.9 and L87:0.6)'),
+    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 87, '', 'calc', '0.3', 'input: z = 0.3, lower edge of the transition zone and an evaluation redshift of panel (f) (checked as ch:virial_partners:L87:7.3)'),
+    (7, 'ch:virial_partners', 'part5/p5_05b_virial_partners', 90, '', 'calc', '0.7', 'definition: the transition zone z = 0.3-0.7 (its edge 0.7), a range named for the figure, nothing to recompute'),
     (7, 'ch:virial_decoherence', 'part5/p5_05c_virial_decoherence', 19, '', 'interp', '13.8', 'not yet checked'),
     (7, 'ch:virial_decoherence', 'part5/p5_05c_virial_decoherence', 23, '', 'interp', '+0.54', 'not yet checked'),
     (7, 'ch:virial_decoherence', 'part5/p5_05c_virial_decoherence', 73, '', 'calc', '2.65\\times10^{-30}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
