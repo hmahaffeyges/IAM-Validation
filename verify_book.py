@@ -641,6 +641,50 @@ def _b05_tw_masses(mu_c=1, sig_c=1):
     M_lens = sp.solve(sp.Eq(2 * G_ * Ml / r, sig_c * Sig * 2 * G_ * Mt / r), Ml)[0]
     return dict(M_hydro=M_hydro, M_SZ=M_SZ, M_lens=M_lens, Mt=Mt, mu=mu, Sig=Sig)
 
+# helpers of the part2/p2_19_missing_satellites checks
+# Batch b05 -- ch:satellites (docs/book/part2/p2_19_missing_satellites.tex)
+
+_B05_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
+                    'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+                    '(no extraction script is committed)')
+_B05_CHAINS = 'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
+_B05_SATOUT = 'docs/verification/scripts/verify_cluster_mass_satellites_output.txt'
+
+def _b05_sat_sigma_M(M_sun):
+    'sigma_M today (LCDM): Eisenstein-Hu no-wiggle transfer, Planck 2018 h 0.6736, Om 0.3153, Ob 0.0493, ns 0.9649, T_CMB 2.7255 K (verify_book h_pl, Om, Ob, ns_pl, T_CMB), normalised to sigma8 = 0.811 (book line 114; Planck 2018 0.8111, sigma8_pl); top-hat window; port of verify_cluster_mass_satellites.py section H.'
+    hh, ns = h_pl, ns_pl
+    Omh2 = Om * hh**2; fb = Ob / Om; th = T_CMB / 2.7
+    s_ = 44.5 * np.log(9.83 / Omh2) / np.sqrt(1 + 10 * (Ob * hh**2)**0.75)
+    aG = 1 - 0.328 * np.log(431 * Omh2) * fb + 0.38 * np.log(22.3 * Omh2) * fb**2
+    k = np.logspace(-4, 4, 20000)
+    Ge = Om * hh * (aG + (1 - aG) / (1 + (0.43 * k * hh * s_)**4)); q = k * th**2 / Ge
+    L0 = np.log(2 * np.e + 1.8 * q); C0 = 14.2 + 731 / (1 + 62.5 * q); T = L0 / (L0 + C0 * q**2)
+    W = lambda x: 3 * (np.sin(x) - x * np.cos(x)) / x**3
+    trap = getattr(np, 'trapezoid', None) or np.trapz
+    sR = lambda Rr, A: np.sqrt(trap(A * k**(3 + ns) * T**2 * W(k * Rr)**2 / (2 * np.pi**2), np.log(k)))
+    A = (round(sigma8_pl, 3) / sR(8.0, 1.0))**2
+    rho_m = 2.775e11 * Om                       # h^2 M_sun / Mpc^3 (critical density 2.775e11 h^2 M_sun/Mpc^3)
+    Rr = (3 * M_sun * hh / (4 * np.pi * rho_m))**(1 / 3)
+    return float(sR(Rr, A))
+
+def _b05_sat_D_forms():
+    'Linear growth D today relative to LCDM, same early amplitude, in the three forms of Appendix app:der:growth (port of verify_cluster_mass_satellites.py section F): (i) G_eff = mu G; (ii) Hubble friction on H_m; (iii) whole equation on H_m. H_m^2 = H^2 + beta_m E(a) H0^2.'
+    E = lambda a: np.exp(1 - 1 / a); H2 = lambda a: Om * a**-3 + OL
+    Hm2 = lambda a: H2(a) + beta_m * E(a); Oma = lambda a: Om * a**-3 / H2(a)
+    dlnH = lambda a: -1.5 * Om * a**-3 / H2(a)
+    dlnHm = lambda a: (-3 * Om * a**-3 + beta_m * E(a) / a) / (2 * Hm2(a))
+    forms = {'lcdm': lambda l, y: [y[1], -(2 + dlnH(np.exp(l))) * y[1] + 1.5 * Oma(np.exp(l)) * y[0]],
+             'i': lambda l, y: [y[1], -(2 + dlnH(np.exp(l))) * y[1] + 1.5 * Oma(np.exp(l)) * mu_iam(np.exp(l)) * y[0]],
+             'ii': lambda l, y: [y[1], -(dlnH(np.exp(l)) + 2 * np.sqrt(Hm2(np.exp(l)) / H2(np.exp(l)))) * y[1] + 1.5 * Oma(np.exp(l)) * y[0]],
+             'iii': lambda l, y: [y[1], -(2 + dlnHm(np.exp(l))) * y[1] + 1.5 * Om * np.exp(-3 * l) / Hm2(np.exp(l)) * y[0]]}
+    D0 = {k: solve_ivp(v, (np.log(1e-3), 0), [1e-3, 1e-3], rtol=1e-10, atol=1e-14).y[0, -1] for k, v in forms.items()}
+    return {k: 100 * (D0[k] / D0['lcdm'] - 1) for k in ('i', 'ii', 'iii')}
+
+def _b05_sat_stolzner():
+    'sigma8 = 0.802 +0.022 -0.018 (KiDS-Legacy + DES Y3 + DESI + Pantheon+, Stolzner2025) as transcribed in the committed output of verify_cluster_mass_satellites.py, section G.'
+    m = re.search(r'vs\s+([0-9.]+)\s+\(\+([0-9.]+)/-([0-9.]+)\)', file_text(_B05_SATOUT))
+    return float(m.group(1)), float(m.group(2)), float(m.group(3))
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -15737,6 +15781,33 @@ def check_1811():
     value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam')
     return locals()
 
+@check(label='eq:ms_E', chapter='ch:satellites', part=2, title='E(a): E(1) = 1, E -> 0 as a -> 0, dE/da > 0',
+       file='part2/p2_19_missing_satellites', line=61, status='interp', kind='sym', printed='', tol=0.0)
+def check_2972():
+    'Eq. eq:ms_E, E(a) = exp(1 - 1/a). Book line 61. Derives the stated properties (line 65): dE/da = E/a^2 > 0 for all a > 0, E -> 0 as a -> 0+, and E = 1 today.'
+    a = sp.symbols('a', positive=True)
+    def props(c0=1):
+        E = sp.exp(c0 - 1 / a)
+        dE = sp.simplify(sp.diff(E, a) - E / a**2) == 0
+        return dE and sp.limit(E, a, 0, '+') == 0 and sp.simplify(E.subs(a, 1) - 1) == 0
+    ok = props()
+    neg_ok = props(sp.Rational(105, 100))
+    return locals()
+
+@check(label='eq:ms_mu', chapter='ch:satellites', part=2, title='mu(a): 1/(1+beta_m) today, 1 at early times',
+       file='part2/p2_19_missing_satellites', line=69, status='interp', kind='sym', printed='', tol=0.0)
+def check_2973():
+    'Eq. eq:ms_mu, mu = H_L^2/(H_L^2 + beta_m E(a) H0^2), H_L^2 = H0^2(Om a^-3 + 1 - Om). Book line 69. Derives mu(a=1) = 1/(1+beta_m) (Eq. eq:ms_mu0) and mu -> 1 as a -> 0; at Om = 0.3153, beta_m = Om/2 it reproduces mu_iam at a = 1/3 (z = 2).'
+    a, H0_, Om_, bm = sp.symbols('a H0 Omega_m beta_m', positive=True)
+    def mu_expr(bcoef=1):
+        HL2 = H0_**2 * (Om_ * a**-3 + 1 - Om_)
+        return HL2 / (HL2 + bcoef * bm * sp.exp(1 - 1 / a) * H0_**2)
+    m = mu_expr()
+    ok = (sp.simplify(m.subs(a, 1) - 1 / (1 + bm)) == 0 and sp.limit(m, a, 0, '+') == 1
+          and abs(float(m.subs({a: sp.Rational(1, 3), Om_: Om, bm: sp.Rational(1, 2) * Om})) - float(mu_iam(1 / 3))) < 1e-12)
+    neg_ok = sp.simplify(mu_expr(sp.Rational(105, 100)).subs(a, 1) - 1 / (1 + bm)) == 0
+    return locals()
+
 @check(label='eq:ms_mu0', chapter='ch:satellites', part=2, title='mu(0) = 1/(1+Omega_m/2)',
        file='part2/p2_19_missing_satellites', line=74, status='interp', kind='num', printed='0.864', tol=0)
 def check_1812():
@@ -15772,11 +15843,51 @@ def check_1816():
     value=float(mu_iam(1/3))
     return locals()
 
+@check(label='eq:ms_growth', chapter='ch:satellites', part=2, title='growth equation: delta = a is the growing mode in matter domination',
+       file='part2/p2_19_missing_satellites', line=82, status='derived', kind='sym', printed='', tol=0.0)
+def check_2974():
+    'Eq. eq:ms_growth, delta_dd + 2H delta_d - (3/2) Om(a) H^2 mu delta = 0, with Om(a) H^2 = H0^2 Om a^-3. Book line 82. In matter domination (Om = 1, a = (t/t0)^(2/3), H = 2/(3t), mu = 1 at early times) the residual for delta = a must vanish; also, rewritten in N = ln a by the chain rule, the equation is the one verify_book.grow integrates: g\'\' + (2 + dlnH/dN) g\' - (3/2) Om a^-3 (H0/H)^2 mu g = 0.'
+    t, t0, H0_, mu, Om_ = sp.symbols('t t0 H0 mu Omega_m', positive=True)
+    a = (t / t0)**sp.Rational(2, 3); H = sp.diff(a, t) / a
+    H0s = H.subs(t, t0)
+    def resid(c=sp.Rational(3, 2)):
+        d = a
+        return sp.simplify(sp.diff(d, t, 2) + 2 * H * sp.diff(d, t) - c * H0s**2 * 1 * a**-3 * 1 * d)
+    lhs = resid(); rhs = 0
+    neg_lhs = resid(sp.Rational(3, 2) * sp.Rational(105, 100))
+    # chain rule: delta(t) = g(N(t)), dN/dt = H
+    N = sp.symbols('N'); g = sp.Function('g'); Hf = sp.Function('H')
+    tt = sp.symbols('tau'); Nf = sp.Function('N')(tt)
+    delta = g(Nf); Ht = Hf(Nf)
+    rules = {sp.Derivative(Nf, tt): Ht}
+    d1 = sp.diff(delta, tt).subs(rules)
+    d2 = sp.diff(d1, tt).subs(rules)
+    book = (d2 + 2 * Ht * d1 - sp.Rational(3, 2) * H0_**2 * Om_ * sp.exp(-3 * Nf) * mu * delta) / Ht**2
+    gp = sp.Derivative(g(Nf), Nf)
+    nform = (sp.Derivative(g(Nf), (Nf, 2)) + (2 + sp.Derivative(Ht, Nf) / Ht) * gp - sp.Rational(3, 2) * Om_ * sp.exp(-3 * Nf) * H0_**2 / Ht**2 * mu * g(Nf))
+    if sp.simplify(sp.expand(book - nform)) != 0:
+        rhs = 1
+    return locals()
+
 @check(label='eq:ms_dD', chapter='ch:satellites', part=2, title='Delta D/D today, form (i)',
        file='part2/p2_19_missing_satellites', line=91, status='calc', kind='num', printed='-0.78', tol=0)
 def check_1817():
     'Delta D/D today, form (i) (Eq. eq:ms_dD). Book line 91, printed -0.78.'
     value=-amp_deficit(0)
+    return locals()
+
+@check(label='eq:ms_psmf', chapter='ch:satellites', part=2, title='Press-Schechter dn/dM from F = erfc(nu/sqrt2)',
+       file='part2/p2_19_missing_satellites', line=101, status='derived', kind='sym', printed='', tol=0.0)
+def check_2975():
+    'Eq. eq:ms_psmf. Book line 101. From the Press-Schechter collapsed fraction F(>M) = erfc(nu/sqrt 2), nu = delta_c/sigma_M, dn/dM = (rho/M)|dF/dM| (sigma_M decreasing, so |dF/dM| = -dF/dM and |dln sigma/dln M| = -M sigma\'/sigma) lands on sqrt(2/pi) rho/M^2 nu |dln sigma/dln M| exp(-nu^2/2).'
+    M, rho, dc = sp.symbols('M rho delta_c', positive=True)
+    s = sp.Function('sigma')(M)
+    nu = dc / s
+    F = sp.erfc(nu / sp.sqrt(2))
+    lhs = sp.simplify(-rho / M * sp.diff(F, M))
+    dlns = -M * sp.diff(s, M) / s
+    rhs = sp.sqrt(2 / sp.pi) * rho / M**2 * nu * dlns * sp.exp(-nu**2 / 2)
+    neg_lhs = lhs * sp.Rational(105, 100)
     return locals()
 
 @check(label='eq:ms_ps', chapter='ch:satellites', part=2, title='d ln n/d ln D = nu^2 - 1, so Delta ln n = (nu^2-1) eps',
@@ -15800,6 +15911,34 @@ def check_1820():
     value=-amp_deficit(0)
     return locals()
 
+@check(label='ch:satellites:L114:7.0', chapter='ch:satellites', part=2, title='sigma_M at 1e7 M_sun (Eisenstein-Hu, sigma8 0.811)',
+       file='part2/p2_19_missing_satellites', line=114, status='calc', kind='num', printed='7.0', tol=0.0)
+def check_2976():
+    'sigma_M today for M = 1e7 M_sun, Planck 2018 linear spectrum (Eisenstein-Hu no-wiggle shape, sigma8 = 0.811). Book line 114, printed 7.0.'
+    value = _b05_sat_sigma_M(1e7)
+    return locals()
+
+@check(label='ch:satellites:L114:4.8', chapter='ch:satellites', part=2, title='sigma_M at 1e9 M_sun (Eisenstein-Hu, sigma8 0.811)',
+       file='part2/p2_19_missing_satellites', line=114, status='calc', kind='num', printed='4.8', tol=0.0)
+def check_2977():
+    'sigma_M today for M = 1e9 M_sun, Planck 2018 linear spectrum (Eisenstein-Hu no-wiggle shape, sigma8 = 0.811). Book line 114, printed 4.8.'
+    value = _b05_sat_sigma_M(1e9)
+    return locals()
+
+@check(label='ch:satellites:L114:0.24', chapter='ch:satellites', part=2, title='nu = delta_c/sigma_M at 1e7 M_sun',
+       file='part2/p2_19_missing_satellites', line=114, status='calc', kind='num', printed='0.24', tol=0.0)
+def check_2978():
+    'nu = delta_c/sigma_M, delta_c = 1.686 (book line 104), sigma_M at 1e7 M_sun from the Eisenstein-Hu spectrum. Book line 114, printed 0.24.'
+    value = 1.686 / _b05_sat_sigma_M(1e7)
+    return locals()
+
+@check(label='ch:satellites:L114:0.35', chapter='ch:satellites', part=2, title='nu = delta_c/sigma_M at 1e9 M_sun',
+       file='part2/p2_19_missing_satellites', line=114, status='calc', kind='num', printed='0.35', tol=0.0)
+def check_2979():
+    'nu = delta_c/sigma_M, delta_c = 1.686 (book line 104), sigma_M at 1e9 M_sun from the Eisenstein-Hu spectrum. Book line 114, printed 0.35.'
+    value = 1.686 / _b05_sat_sigma_M(1e9)
+    return locals()
+
 @check(label='ch:satellites:L115', chapter='ch:satellites', part=2, title='Delta ln n at nu = 0.35, per cent',
        file='part2/p2_19_missing_satellites', line=115, status='calc', kind='num', printed='+0.68', tol=0)
 def check_1821():
@@ -15812,6 +15951,14 @@ def check_1821():
 def check_1822():
     'Delta ln n at nu = 0.24, per cent. Book line 115, printed +0.73.'
     value=(0.24**2-1)*(-amp_deficit(0))
+    return locals()
+
+@check(label='ch:satellites:L115:0.78', chapter='ch:satellites', part=2, title='|Delta ln n| < |eps| = 0.78 % for nu < sqrt 2',
+       file='part2/p2_19_missing_satellites', line=115, status='calc', kind='num', printed='0.78', tol=0.0)
+def check_2980():
+    'Bound on the abundance change for nu < sqrt 2: sup over 0 < nu < sqrt 2 of |nu^2 - 1| |eps| with eps = Delta D/D today in form (i). Book line 115, printed 0.78 (per cent).'
+    nus = np.linspace(1e-6, math.sqrt(2) - 1e-9, 200001)
+    value = float(np.max(np.abs(nus**2 - 1))) * amp_deficit(0)
     return locals()
 
 @check(label='ch:satellites:L118', chapter='ch:satellites', part=2, title='ln 10',
@@ -15850,6 +15997,34 @@ def check_1827():
     value=-amp_deficit(0)
     return locals()
 
+@check(label='ch:satellites:L123:-0.67', chapter='ch:satellites', part=2, title='Delta D/D today, form (ii) friction',
+       file='part2/p2_19_missing_satellites', line=123, status='calc', kind='num', printed='-0.67', tol=0.0)
+def check_2981():
+    'Linear growth change today, form (ii) (extra Hubble friction on matter, rate H_m), same early amplitude. Book line 123, printed -0.67 %.'
+    value = _b05_sat_D_forms()['ii']
+    return locals()
+
+@check(label='ch:satellites:L123:-1.87', chapter='ch:satellites', part=2, title='Delta D/D today, form (iii) all on H_m',
+       file='part2/p2_19_missing_satellites', line=123, status='calc', kind='num', printed='-1.87', tol=0.0)
+def check_2982():
+    'Linear growth change today, form (iii) (whole growth equation on H_m), same early amplitude. Book line 123, printed -1.87 %.'
+    value = _b05_sat_D_forms()['iii']
+    return locals()
+
+@check(label='ch:satellites:L123:0.24', chapter='ch:satellites', part=2, title='nu at 1e7 M_sun (fig caption)',
+       file='part2/p2_19_missing_satellites', line=123, status='calc', kind='num', printed='0.24', tol=0.0)
+def check_2983():
+    'nu = 1.686/sigma_M at 1e7 M_sun (caption of fig:sat_mechanisms). Book line 123, printed 0.24.'
+    value = 1.686 / _b05_sat_sigma_M(1e7)
+    return locals()
+
+@check(label='ch:satellites:L123:0.35', chapter='ch:satellites', part=2, title='nu at 1e9 M_sun (fig caption)',
+       file='part2/p2_19_missing_satellites', line=123, status='calc', kind='num', printed='0.35', tol=0.0)
+def check_2984():
+    'nu = 1.686/sigma_M at 1e9 M_sun (caption of fig:sat_mechanisms). Book line 123, printed 0.35.'
+    value = 1.686 / _b05_sat_sigma_M(1e9)
+    return locals()
+
 @check(label='ch:satellites:L136', chapter='ch:satellites', part=2, title='same value as p2_05_dual_sector_note:113 (Omega_m/2 from Planck posterior (beta_m-fixed chain))',
        file='part2/p2_19_missing_satellites', line=136, status='calc', kind='file', printed='0.1583', tol=0.0003, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
@@ -15874,6 +16049,24 @@ def check_1830():
     ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '0.802')
     return locals()
 
+@check(label='ch:satellites:L137:0.018', chapter='ch:satellites', part=2, title='lower error of the joint weak-lensing sigma8',
+       file='part2/p2_19_missing_satellites', line=137, status='fitted', kind='file', printed='0.018', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt')
+def check_2985():
+    'Lower error of sigma8 = 0.802 +0.022 -0.018 (KiDS-Legacy + DES Y3 + DESI + Pantheon+, Stolzner2025). Book line 137, printed 0.018. Read from the committed output of verify_cluster_mass_satellites.py, section G.'
+    central, err_hi, err_lo = _b05_sat_stolzner()
+    value = err_lo
+    return locals()
+
+@check(label='ch:satellites:L137:0.1', chapter='ch:satellites', part=2, title='Level 2 sigma8 vs joint weak lensing, in sigma',
+       file='part2/p2_19_missing_satellites', line=137, status='fitted', kind='file', printed='0.1', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B05_CHAIN_RERUN)
+def check_2986():
+    'Distance of the Level 2 sigma8 (chain iam_level2_runA) from the joint weak-lensing 0.802 (-0.018 on that side; Stolzner2025, as transcribed in verify_cluster_mass_satellites_output.txt), errors in quadrature. Book line 137, printed 0.1 sigma.'
+    s8 = csv_val(_B05_CHAINS, 'iam_level2_runA', 'sigma8'); s8sd = csv_val(_B05_CHAINS, 'iam_level2_runA', 'sigma8_sd')
+    central, err_hi, err_lo = _b05_sat_stolzner()
+    value = (central - s8) / math.hypot(err_lo, s8sd)
+    return locals()
+
 @check(label='ch:satellites:L138', chapter='ch:satellites', part=2, title='measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names',
        file='part2/p2_19_missing_satellites', line=138, status='fitted', kind='file', printed='67.16', tol=0.0, source='docs/verification/scripts/verify_cluster_mass_satellites_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt')
@@ -15888,6 +16081,16 @@ def check_1831():
 def check_1832():
     'measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names. Book line 138, printed 67.36.'
     ok = file_has('docs/verification/scripts/verify_cluster_mass_satellites_output.txt', '67.36')
+    return locals()
+
+@check(label='ch:satellites:L138:0.37', chapter='ch:satellites', part=2, title='photon-sector H0 vs Planck 2018, in sigma',
+       file='part2/p2_19_missing_satellites', line=138, status='fitted', kind='file', printed='0.37', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B05_CHAIN_RERUN)
+def check_2987():
+    'Distance of the Level 2 photon-sector H0 (chain iam_level2_runA) from Planck 2018 67.36 +- 0.54 (Aghanim et al. 2020, doi 10.1051/0004-6361/201833910; verify_book h_pl), in units of the Planck error. Book line 138, printed 0.37 sigma.'
+    H0_chain = csv_val(_B05_CHAINS, 'iam_level2_runA', 'H0')
+    H0_planck, H0_planck_err = 100 * h_pl, 0.54
+    value = (H0_planck - H0_chain) / H0_planck_err
     return locals()
 
 @check(label='ch:satellites:L139', chapter='ch:satellites', part=2, title='same value as p1_02_iams_law:696 (H0 matter-sector formula)',
@@ -15912,6 +16115,97 @@ def check_1835():
     value=abs(67.161*math.sqrt(1+beta_m)-73.04)/1.04
     return locals()
 
+@check(label='ch:satellites:L140', chapter='ch:satellites', part=2, title='Delta chi^2 of Level 2 against the LCDM best fit',
+       file='part2/p2_19_missing_satellites', line=140, status='fitted', kind='file', printed='+0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B05_CHAIN_RERUN)
+def check_2988():
+    'Delta chi^2 = chi2_min(iam_level2_runA) - chi2_min(iam_level2_runC_lcdm), same data. Book line 140, printed +0.54.'
+    value = csv_val(_B05_CHAINS, 'iam_level2_runA', 'chi2_min') - csv_val(_B05_CHAINS, 'iam_level2_runC_lcdm', 'chi2_min')
+    return locals()
+
+@check(label='ch:satellites:L143', chapter='ch:satellites', part=2, title='sigma8 0.1 sigma from joint weak lensing, restated',
+       file='part2/p2_19_missing_satellites', line=143, status='calc', kind='file', printed='0.1', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B05_CHAIN_RERUN)
+def check_2989():
+    'The sigma8 value lies 0.1 sigma from the joint weak-lensing analysis (restates line 137). Book line 143, printed 0.1. Same computation as ch:satellites:L137:0.1.'
+    s8 = csv_val(_B05_CHAINS, 'iam_level2_runA', 'sigma8'); s8sd = csv_val(_B05_CHAINS, 'iam_level2_runA', 'sigma8_sd')
+    central, err_hi, err_lo = _b05_sat_stolzner()
+    value = (central - s8) / math.hypot(err_lo, s8sd)
+    return locals()
+
+@check(label='ch:satellites:L144', chapter='ch:satellites', part=2, title='Planck LCDM sigma8 in the same code (Level 2 LCDM chain)',
+       file='part2/p2_19_missing_satellites', line=144, status='interp', kind='file', printed='0.8087', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B05_CHAIN_RERUN)
+def check_2990():
+    'sigma8 of the LCDM chain run in the same modified CAMB (iam_level2_runC_lcdm). Book line 144, printed 0.8087.'
+    value = csv_val(_B05_CHAINS, 'iam_level2_runC_lcdm', 'sigma8')
+    return locals()
+
+@check(label='ch:satellites:L157', chapter='ch:satellites', part=2, title='mu0 = mu(z=0) - 1',
+       file='part2/p2_19_missing_satellites', line=157, status='prediction', kind='num', printed='-0.136', tol=0.0)
+def check_2991():
+    'mu0 = mu(z=0) - 1 with mu from Eq. eq:ms_mu (verify_book mu_iam at a = 1). Book line 157, printed -0.136 (locked value).'
+    value = float(mu_iam(1.0)) - 1
+    return locals()
+
+@check(label='ch:satellites:L160', chapter='ch:satellites', part=2, title='f sigma8 deficit at z = 0, form (i)',
+       file='part2/p2_19_missing_satellites', line=160, status='prediction', kind='num', printed='4.25', tol=0.0)
+def check_2992():
+    'f sigma8 of IAM below LCDM at z = 0, same early amplitude, form (i) (verify_book fs8_deficit). Book line 160, printed 4.25 %.'
+    value = fs8_deficit(0.0)
+    return locals()
+
+@check(label='ch:satellites:L160:2.17', chapter='ch:satellites', part=2, title='f sigma8 deficit at z = 0.3, form (i)',
+       file='part2/p2_19_missing_satellites', line=160, status='prediction', kind='num', printed='2.17', tol=0.0)
+def check_2993():
+    'f sigma8 of IAM below LCDM at z = 0.3, form (i). Book line 160, printed 2.17 %.'
+    value = fs8_deficit(0.3)
+    return locals()
+
+@check(label='ch:satellites:L160:1.35', chapter='ch:satellites', part=2, title='f sigma8 deficit at z = 0.5, form (i)',
+       file='part2/p2_19_missing_satellites', line=160, status='prediction', kind='num', printed='1.35', tol=0.0)
+def check_2994():
+    'f sigma8 of IAM below LCDM at z = 0.5, form (i). Book line 160, printed 1.35 %.'
+    value = fs8_deficit(0.5)
+    return locals()
+
+@check(label='ch:satellites:L160:0.41', chapter='ch:satellites', part=2, title='f sigma8 deficit at z = 1, form (i)',
+       file='part2/p2_19_missing_satellites', line=160, status='prediction', kind='num', printed='0.41', tol=0.0)
+def check_2995():
+    'f sigma8 of IAM below LCDM at z = 1, form (i). Book line 160, printed 0.41 %.'
+    value = fs8_deficit(1.0)
+    return locals()
+
+@check(label='ch:satellites:L161:0.7998', chapter='ch:satellites', part=2, title='Level 2 sigma8 (chain)',
+       file='part2/p2_19_missing_satellites', line=161, status='prediction', kind='file', printed='0.7998', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B05_CHAIN_RERUN)
+def check_2996():
+    'sigma8 at Level 2, chain iam_level2_runA. Book line 161, printed 0.7998.'
+    value = csv_val(_B05_CHAINS, 'iam_level2_runA', 'sigma8')
+    return locals()
+
+@check(label='ch:satellites:L161:0.8087', chapter='ch:satellites', part=2, title='LCDM sigma8 in the same code (chain)',
+       file='part2/p2_19_missing_satellites', line=161, status='prediction', kind='file', printed='0.8087', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B05_CHAIN_RERUN)
+def check_2997():
+    'sigma8 for LCDM in the same modified CAMB, chain iam_level2_runC_lcdm. Book line 161, printed 0.8087.'
+    value = csv_val(_B05_CHAINS, 'iam_level2_runC_lcdm', 'sigma8')
+    return locals()
+
+@check(label='ch:satellites:L165', chapter='ch:satellites', part=2, title='growth deficit in D today, form (i)',
+       file='part2/p2_19_missing_satellites', line=165, status='prediction', kind='num', printed='-0.78', tol=0.0)
+def check_2998():
+    'Delta D/D today, form (i), same early amplitude (verify_book amp_deficit). Book line 165, printed -0.78 %.'
+    value = -amp_deficit(0)
+    return locals()
+
+@check(label='ch:satellites:L165:-1.55', chapter='ch:satellites', part=2, title='linear power deficit today, form (i)',
+       file='part2/p2_19_missing_satellites', line=165, status='prediction', kind='num', printed='-1.55', tol=0.0)
+def check_2999():
+    'Linear power change today, (D_IAM/D_LCDM)^2 - 1, form (i). Book line 165, printed -1.55 %.'
+    value = 100 * ((D_of('iam', 0) / D_of('lcdm', 0))**2 - 1)
+    return locals()
+
 @check(label='ch:satellites:L183', chapter='ch:satellites', part=2, title='mu(0)',
        file='part2/p2_19_missing_satellites', line=183, status='calc', kind='num', printed='0.864', tol=0)
 def check_1836():
@@ -15933,6 +16227,20 @@ def check_1838():
     value=100*((1-amp_deficit(0)/100)**2-1)
     return locals()
 
+@check(label='ch:satellites:L184:-0.67', chapter='ch:satellites', part=2, title='growth today, form (ii) (status table)',
+       file='part2/p2_19_missing_satellites', line=184, status='calc', kind='num', printed='-0.67', tol=0.0)
+def check_3000():
+    'Linear growth change today, form (ii), in the status table. Book line 184, printed -0.67 %.'
+    value = _b05_sat_D_forms()['ii']
+    return locals()
+
+@check(label='ch:satellites:L184:-1.87', chapter='ch:satellites', part=2, title='growth today, form (iii) (status table)',
+       file='part2/p2_19_missing_satellites', line=184, status='calc', kind='num', printed='-1.87', tol=0.0)
+def check_3001():
+    'Linear growth change today, form (iii), in the status table. Book line 184, printed -1.87 %.'
+    value = _b05_sat_D_forms()['iii']
+    return locals()
+
 @check(label='ch:satellites:L186', chapter='ch:satellites', part=2, title='Delta ln n at nu=0.35',
        file='part2/p2_19_missing_satellites', line=186, status='calc', kind='num', printed='+0.68', tol=0)
 def check_1839():
@@ -15945,6 +16253,27 @@ def check_1839():
 def check_1840():
     'Delta ln n at nu=0.24. Book line 186, printed +0.73.'
     value=(0.24**2-1)*(-amp_deficit(0))
+    return locals()
+
+@check(label='ch:satellites:L186:0.24', chapter='ch:satellites', part=2, title='nu at 1e7 M_sun (status table)',
+       file='part2/p2_19_missing_satellites', line=186, status='calc', kind='num', printed='0.24', tol=0.0)
+def check_3002():
+    'nu = 1.686/sigma_M at 1e7 M_sun in the status table. Book line 186, printed 0.24.'
+    value = 1.686 / _b05_sat_sigma_M(1e7)
+    return locals()
+
+@check(label='ch:satellites:L186:0.35', chapter='ch:satellites', part=2, title='nu at 1e9 M_sun (status table)',
+       file='part2/p2_19_missing_satellites', line=186, status='calc', kind='num', printed='0.35', tol=0.0)
+def check_3003():
+    'nu = 1.686/sigma_M at 1e9 M_sun in the status table. Book line 186, printed 0.35.'
+    value = 1.686 / _b05_sat_sigma_M(1e9)
+    return locals()
+
+@check(label='ch:satellites:L188', chapter='ch:satellites', part=2, title='mu0 (status table)',
+       file='part2/p2_19_missing_satellites', line=188, status='prediction', kind='num', printed='-0.136', tol=0.0)
+def check_3004():
+    'mu0 = mu(z=0) - 1 from Eq. eq:ms_mu (mu_iam at a = 1). Book line 188, printed -0.136 (locked value).'
+    value = float(mu_iam(1.0)) - 1
     return locals()
 
 
@@ -26767,46 +27096,13 @@ INVENTORY = [
     (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 211, '', 'interp', '0.2', 'input: redshift range z = 0.2-0.4 of the samples (the signal there is checked by ch:threeway:L211)'),
     (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 211, '', 'interp', '0.4', 'input: redshift range z = 0.2-0.4 of the samples (the signal there is checked by ch:threeway:L211)'),
     (2, 'ch:threeway', 'part2/p2_18_three_way_clusters', 212, '', 'interp', '0.02', 'input: published shape-measurement bound |m| < 0.02 for DES Y3 quoted from the cited MacCrann2022, nothing to recompute'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 27, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 61, 'eq:ms_E', 'interp', '', 'displayed equation, not yet checked'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 69, 'eq:ms_mu', 'interp', '', 'displayed equation, not yet checked'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 82, 'eq:ms_growth', 'derived', '', 'not yet run: draft rejected (drafter skipped: Line 82 is a differential equation (perturbation growth with IAM coupling)'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 101, 'eq:ms_psmf', 'derived', '', 'not yet run: draft rejected (drafter skipped: Line 101 is the Press–Schechter halo mass function formula.\n# It is a sta)'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 113, '', 'calc', '10', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 114, '', 'calc', '7.0', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 114, '', 'calc', '4.8', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 114, '', 'calc', '0.24', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 114, '', 'calc', '0.35', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 115, '', 'calc', '0.78', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 123, '', 'calc', '-0.67', 'not yet run: draft rejected (drafter skipped: Book Fig. caption (line 123): three implementation forms give -0.78% (i),)'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 123, '', 'calc', '-1.87', 'not yet run: draft rejected (drafter skipped: Book Fig. caption (line 123): three implementation forms at z=0 This is t)'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 123, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 2.30259); drafting error on review'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 123, '', 'calc', '0.24', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 123, '', 'calc', '0.35', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 137, '', 'fitted', '0.018', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 137, '', 'fitted', '0.1', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 138, '', 'fitted', '0.37', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 139, '', 'calc', '73.04', 'not yet run: draft rejected (drafter skipped: Book line 139: "67.161√(1+β_m); SH0ES 73.04±1.04" The 73.04 is the SH0ES )'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 140, '', 'fitted', '+0.54', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 143, '', 'calc', '0.1', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 144, '', 'interp', '0.8087', 'not yet checked'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 157, '', 'prediction', '-0.136', 'not yet checked'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 157, '', 'prediction', '0.90', 'not yet checked'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 160, '', 'prediction', '4.25', 'not yet checked'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 160, '', 'prediction', '2.17', 'not yet checked'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 160, '', 'prediction', '1.35', 'not yet checked'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 160, '', 'prediction', '0.41', 'not yet checked'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 161, '', 'prediction', '0.3', 'not yet checked'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 161, '', 'prediction', '0.5', 'not yet checked'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 161, '', 'prediction', '0.7998', 'not yet checked'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 161, '', 'prediction', '0.8087', 'not yet checked'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 165, '', 'prediction', '-0.78', 'not yet checked'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 165, '', 'prediction', '-1.55', 'not yet checked'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 184, '', 'calc', '-0.67', 'not yet run: draft does not reproduce the printed value (recomputed 4.25055); drafting error on review'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 184, '', 'calc', '-1.87', 'not yet run: draft does not reproduce the printed value (recomputed 6.14253); drafting error on review'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 186, '', 'calc', '0.24', 'not yet run: draft does not reproduce the printed value (recomputed 1.00004); drafting error on review'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 186, '', 'calc', '0.35', 'not yet run: draft does not reproduce the printed value (recomputed 1.00005); drafting error on review'),
-    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 188, '', 'prediction', '-0.136', 'not yet checked'),
+    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 27, '', 'observed', '10', 'input: circular-velocity cut v_c > 10 km/s of the cited simulations (Klypin1999, Moore1999), a selection threshold, nothing to recompute'),
+    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 113, '', 'calc', '10', 'input: halo mass range 10^7-10^9 M_sun at which sigma_M and nu are evaluated (checked by ch:satellites:L114:7.0 ff.)'),
+    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 123, '', 'calc', '10', 'input: the tenfold (order-of-magnitude) satellite deficit the figure compares against; its logarithm ln 10 = 2.30 is checked by ch:satellites:L118'),
+    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 139, '', 'calc', '73.04', 'input: SH0ES H0 = 73.04 +- 1.04 (Riess2022, published), used as input by ch:satellites:L139:0.75; nothing to recompute'),
+    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 157, '', 'prediction', '0.90', 'prediction, nothing to recompute: tension threshold mu(z=0) > 0.90 at 2 sigma for a future measurement'),
+    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 161, '', 'prediction', '0.3', 'input: redshift z = 0.3 at which the f sigma8 deficit is quoted (checked by ch:satellites:L160:2.17)'),
+    (2, 'ch:satellites', 'part2/p2_19_missing_satellites', 161, '', 'prediction', '0.5', 'input: redshift z = 0.5 at which the f sigma8 deficit is quoted (checked by ch:satellites:L160:1.35)'),
     (3, 'ch:blackholes', 'part2/p2_01_blackholes', 42, 'eq:bh_Tuniv', 'none', '', 'displayed equation, not yet checked'),
     (3, 'ch:blackholes', 'part2/p2_01_blackholes', 61, 'eq:bh_gamma_def', 'none', '', 'displayed equation, not yet checked'),
     (3, 'ch:blackholes', 'part2/p2_01_blackholes', 73, '', 'calc', '5120', 'not yet run: draft rejected (printed value typed into the code)'),

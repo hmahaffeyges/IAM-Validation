@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 2972 PASS, 0 FAIL, 3362 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3005 PASS, 0 FAIL, 3329 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -3125,80 +3125,79 @@ Totals: 2972 PASS, 0 FAIL, 3362 inventoried and not run. Each run item carries t
 | 21 | ch:satellites:L21:1.87 | calc | `1.87` | heavy file `docs/verification/scripts/verify_iams_law_derivations_output.txt`: D deficit, form (iii) (committed output) | PASS |
 | 21 | ch:satellites:L21:1.1 | calc | `1.1` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 lower, Level 2 chains | PASS |
 | 21 | ch:satellites:L21:1.6 | calc | `1.6` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 lower, Level 1 chains | PASS |
-| 27 |  | observed | `10` | not run: measured, too few printed digits to match against the named files | - |
+| 27 |  | observed | `10` | not run: input: circular-velocity cut v_c > 10 km/s of the cited simulations (Klypin1999, Moore1999), a selection threshold, nothing to recompute | - |
 | 42 | eq:ms_virial | derived |  | sympy: 2K + V = 0 gives K = |V|/2 (the display's K+V=0 reads the bound-state energy E = -K) | PASS |
 | 51 | eq:ms_beta | prediction | `0.15765` | numeric: beta_m | PASS |
 | 55 | ch:satellites:L55 | calc | `0.1583` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_05_dual_sector_note:113 (Omega_m/2 from Planck posterior (beta_m-fixed chain)) | PASS |
 | 56 | ch:satellites:L56 | calc | `0.3166` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p1_03_virial_law:144 (Level2 Planck posterior Omega_m mean) | PASS |
-| 61 | eq:ms_E | interp |  | not run: displayed equation, not yet checked | - |
-| 69 | eq:ms_mu | interp |  | not run: displayed equation, not yet checked | - |
+| 61 | eq:ms_E | interp |  | sympy: E(a): E(1) = 1, E -> 0 as a -> 0, dE/da > 0 | PASS |
+| 69 | eq:ms_mu | interp |  | sympy: mu(a): 1/(1+beta_m) today, 1 at early times | PASS |
 | 74 | eq:ms_mu0 | interp | `0.864` | numeric: mu(0) = 1/(1+Omega_m/2) | PASS |
 | 77 | ch:satellites:L77 | calc | `13.62` | numeric: same value as p1_02_iams_law:466 (percent change of coupling today) | PASS |
 | 77 | ch:satellites:L77:-0.136 | calc | `-0.136` | numeric: mu0 | PASS |
 | 78 | ch:satellites:L78 | calc | `0.135` | numeric: E at z=2 | PASS |
 | 78 | ch:satellites:L78:0.998 | calc | `0.998` | numeric: mu at z=2 | PASS |
-| 82 | eq:ms_growth | derived |  | not run: not yet run: draft rejected (drafter skipped: Line 82 is a differential equation (perturbation growth with IAM coupling) | - |
+| 82 | eq:ms_growth | derived |  | sympy: growth equation: delta = a is the growing mode in matter domination | PASS |
 | 91 | eq:ms_dD | calc | `-0.78` | numeric: Delta D/D today, form (i) | PASS |
-| 101 | eq:ms_psmf | derived |  | not run: not yet run: draft rejected (drafter skipped: Line 101 is the Press–Schechter halo mass function formula.
-# It is a sta) | - |
+| 101 | eq:ms_psmf | derived |  | sympy: Press-Schechter dn/dM from F = erfc(nu/sqrt2) | PASS |
 | 107 | eq:ms_ps | derived |  | sympy: d ln n/d ln D = nu^2 - 1, so Delta ln n = (nu^2-1) eps | PASS |
-| 113 |  | calc | `10` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 113 |  | calc | `10` | not run: input: halo mass range 10^7-10^9 M_sun at which sigma_M and nu are evaluated (checked by ch:satellites:L114:7.0 ff.) | - |
 | 114 | ch:satellites:L114 | calc | `0.811` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 114 | ch:satellites:L114:-0.78 | calc | `-0.78` | numeric: epsilon, form (i) | PASS |
-| 114 |  | calc | `7.0` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 114 |  | calc | `4.8` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 114 |  | calc | `0.24` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 114 |  | calc | `0.35` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 114 | ch:satellites:L114:7.0 | calc | `7.0` | numeric: sigma_M at 1e7 M_sun (Eisenstein-Hu, sigma8 0.811) | PASS |
+| 114 | ch:satellites:L114:4.8 | calc | `4.8` | numeric: sigma_M at 1e9 M_sun (Eisenstein-Hu, sigma8 0.811) | PASS |
+| 114 | ch:satellites:L114:0.24 | calc | `0.24` | numeric: nu = delta_c/sigma_M at 1e7 M_sun | PASS |
+| 114 | ch:satellites:L114:0.35 | calc | `0.35` | numeric: nu = delta_c/sigma_M at 1e9 M_sun | PASS |
 | 115 | ch:satellites:L115 | calc | `+0.68` | numeric: Delta ln n at nu = 0.35, per cent | PASS |
 | 115 | ch:satellites:L115:+0.73 | calc | `+0.73` | numeric: Delta ln n at nu = 0.24, per cent | PASS |
-| 115 |  | calc | `0.78` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 115 | ch:satellites:L115:0.78 | calc | `0.78` | numeric: |Delta ln n| < |eps| = 0.78 % for nu < sqrt 2 | PASS |
 | 118 | ch:satellites:L118 | calc | `2.30` | numeric: ln 10 | PASS |
 | 123 | ch:satellites:L123 | calc | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
 | 123 | ch:satellites:L123:0.3153 | calc | `0.3153` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 123 | ch:satellites:L123:0.864 | calc | `0.864` | numeric: mu today | PASS |
 | 123 | ch:satellites:L123:-0.78 | calc | `-0.78` | numeric: form (i) | PASS |
-| 123 |  | calc | `-0.67` | not run: not yet run: draft rejected (drafter skipped: Book Fig. caption (line 123): three implementation forms give -0.78% (i),) | - |
-| 123 |  | calc | `-1.87` | not run: not yet run: draft rejected (drafter skipped: Book Fig. caption (line 123): three implementation forms at z=0 This is t) | - |
-| 123 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 2.30259); drafting error on review | - |
-| 123 |  | calc | `0.24` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 123 |  | calc | `0.35` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 123 | ch:satellites:L123:-0.67 | calc | `-0.67` | numeric: Delta D/D today, form (ii) friction | PASS |
+| 123 | ch:satellites:L123:-1.87 | calc | `-1.87` | numeric: Delta D/D today, form (iii) all on H_m | PASS |
+| 123 | ch:satellites:L123:0.24 | calc | `0.24` | numeric: nu at 1e7 M_sun (fig caption) | PASS |
+| 123 | ch:satellites:L123:0.35 | calc | `0.35` | numeric: nu at 1e9 M_sun (fig caption) | PASS |
+| 123 |  | calc | `10` | not run: input: the tenfold (order-of-magnitude) satellite deficit the figure compares against; its logarithm ln 10 = 2.30 is checked by ch:satellites:L118 | - |
 | 136 | ch:satellites:L136 | calc | `0.1583` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_05_dual_sector_note:113 (Omega_m/2 from Planck posterior (beta_m-fixed chain)) | PASS |
 | 137 | ch:satellites:L137 | fitted | `0.7998` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
 | 137 | ch:satellites:L137:0.802 | fitted | `0.802` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
-| 137 |  | fitted | `0.018` | not run: measured, too few printed digits to match against the named files | - |
-| 137 |  | fitted | `0.1` | not run: measured, too few printed digits to match against the named files | - |
+| 137 | ch:satellites:L137:0.018 | fitted | `0.018` | file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: lower error of the joint weak-lensing sigma8 | PASS |
+| 137 | ch:satellites:L137:0.1 | fitted | `0.1` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 sigma8 vs joint weak lensing, in sigma | PASS |
 | 138 | ch:satellites:L138 | fitted | `67.16` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
 | 138 | ch:satellites:L138:67.36 | fitted | `67.36` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
-| 138 |  | fitted | `0.37` | not run: measured, too few printed digits to match against the named files | - |
+| 138 | ch:satellites:L138:0.37 | fitted | `0.37` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 vs Planck 2018, in sigma | PASS |
 | 139 | ch:satellites:L139 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
 | 139 | ch:satellites:L139:67.161 | calc | `67.161` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_03_theory:889 (Level2 posterior mean H0) | PASS |
 | 139 | ch:satellites:L139:0.75 | calc | `0.75` | numeric: H0 matter vs SH0ES | PASS |
-| 139 |  | calc | `73.04` | not run: not yet run: draft rejected (drafter skipped: Book line 139: "67.161√(1+β_m); SH0ES 73.04±1.04" The 73.04 is the SH0ES ) | - |
-| 140 |  | fitted | `+0.54` | not run: measured, too few printed digits to match against the named files | - |
-| 143 |  | calc | `0.1` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 144 |  | interp | `0.8087` | not run: not yet checked | - |
-| 157 |  | prediction | `-0.136` | not run: not yet checked | - |
-| 157 |  | prediction | `0.90` | not run: not yet checked | - |
-| 160 |  | prediction | `4.25` | not run: not yet checked | - |
-| 160 |  | prediction | `2.17` | not run: not yet checked | - |
-| 160 |  | prediction | `1.35` | not run: not yet checked | - |
-| 160 |  | prediction | `0.41` | not run: not yet checked | - |
-| 161 |  | prediction | `0.3` | not run: not yet checked | - |
-| 161 |  | prediction | `0.5` | not run: not yet checked | - |
-| 161 |  | prediction | `0.7998` | not run: not yet checked | - |
-| 161 |  | prediction | `0.8087` | not run: not yet checked | - |
-| 165 |  | prediction | `-0.78` | not run: not yet checked | - |
-| 165 |  | prediction | `-1.55` | not run: not yet checked | - |
+| 139 |  | calc | `73.04` | not run: input: SH0ES H0 = 73.04 +- 1.04 (Riess2022, published), used as input by ch:satellites:L139:0.75; nothing to recompute | - |
+| 140 | ch:satellites:L140 | fitted | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi^2 of Level 2 against the LCDM best fit | PASS |
+| 143 | ch:satellites:L143 | calc | `0.1` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 0.1 sigma from joint weak lensing, restated | PASS |
+| 144 | ch:satellites:L144 | interp | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Planck LCDM sigma8 in the same code (Level 2 LCDM chain) | PASS |
+| 157 | ch:satellites:L157 | prediction | `-0.136` | numeric: mu0 = mu(z=0) - 1 | PASS |
+| 157 |  | prediction | `0.90` | not run: prediction, nothing to recompute: tension threshold mu(z=0) > 0.90 at 2 sigma for a future measurement | - |
+| 160 | ch:satellites:L160 | prediction | `4.25` | numeric: f sigma8 deficit at z = 0, form (i) | PASS |
+| 160 | ch:satellites:L160:2.17 | prediction | `2.17` | numeric: f sigma8 deficit at z = 0.3, form (i) | PASS |
+| 160 | ch:satellites:L160:1.35 | prediction | `1.35` | numeric: f sigma8 deficit at z = 0.5, form (i) | PASS |
+| 160 | ch:satellites:L160:0.41 | prediction | `0.41` | numeric: f sigma8 deficit at z = 1, form (i) | PASS |
+| 161 | ch:satellites:L161:0.7998 | prediction | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 sigma8 (chain) | PASS |
+| 161 | ch:satellites:L161:0.8087 | prediction | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: LCDM sigma8 in the same code (chain) | PASS |
+| 161 |  | prediction | `0.3` | not run: input: redshift z = 0.3 at which the f sigma8 deficit is quoted (checked by ch:satellites:L160:2.17) | - |
+| 161 |  | prediction | `0.5` | not run: input: redshift z = 0.5 at which the f sigma8 deficit is quoted (checked by ch:satellites:L160:1.35) | - |
+| 165 | ch:satellites:L165 | prediction | `-0.78` | numeric: growth deficit in D today, form (i) | PASS |
+| 165 | ch:satellites:L165:-1.55 | prediction | `-1.55` | numeric: linear power deficit today, form (i) | PASS |
 | 183 | ch:satellites:L183 | calc | `0.864` | numeric: mu(0) | PASS |
 | 184 | ch:satellites:L184 | calc | `-0.78` | numeric: growth today (i) | PASS |
 | 184 | ch:satellites:L184:-1.55 | calc | `-1.55` | numeric: linear power today (i) | PASS |
-| 184 |  | calc | `-0.67` | not run: not yet run: draft does not reproduce the printed value (recomputed 4.25055); drafting error on review | - |
-| 184 |  | calc | `-1.87` | not run: not yet run: draft does not reproduce the printed value (recomputed 6.14253); drafting error on review | - |
+| 184 | ch:satellites:L184:-0.67 | calc | `-0.67` | numeric: growth today, form (ii) (status table) | PASS |
+| 184 | ch:satellites:L184:-1.87 | calc | `-1.87` | numeric: growth today, form (iii) (status table) | PASS |
 | 186 | ch:satellites:L186 | calc | `+0.68` | numeric: Delta ln n at nu=0.35 | PASS |
 | 186 | ch:satellites:L186:+0.73 | calc | `+0.73` | numeric: Delta ln n at nu=0.24 | PASS |
-| 186 |  | calc | `0.24` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.00004); drafting error on review | - |
-| 186 |  | calc | `0.35` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.00005); drafting error on review | - |
-| 188 |  | prediction | `-0.136` | not run: not yet checked | - |
+| 186 | ch:satellites:L186:0.24 | calc | `0.24` | numeric: nu at 1e7 M_sun (status table) | PASS |
+| 186 | ch:satellites:L186:0.35 | calc | `0.35` | numeric: nu at 1e9 M_sun (status table) | PASS |
+| 188 | ch:satellites:L188 | prediction | `-0.136` | numeric: mu0 (status table) | PASS |
 
 ## Part 3 - ch:blackholes - `docs/book/part2/p2_01_blackholes.tex`
 
