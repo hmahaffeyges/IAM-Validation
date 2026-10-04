@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3785 PASS, 0 FAIL, 2553 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3789 PASS, 0 FAIL, 2549 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4313,10 +4313,10 @@ Totals: 3785 PASS, 0 FAIL, 2553 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 26 | ch:bridge:L26 | measured | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy per maintained site | PASS |
-| 52 | eq:landauer | observed |  | not run: displayed equation, not yet checked | - |
-| 60 |  | observed | `310.15` | not run: measured, source not named | - |
-| 66 |  | calc | `67.4` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 175 |  | conjecture | `310` | not run: not yet checked | - |
+| 52 | eq:landauer | observed |  | sympy: E_bit = k_B T ln 2 from erasing one bit | PASS |
+| 60 | ch:bridge:L60 | observed | `310.15` | file `CANON/iam_canon.json`: cell nucleus temperature 310.15 K | PASS |
+| 66 |  | calc | `67.4` | not run: locked value H0 = 67.16 (photon sector) restated in the caption; the 67.4 of the inventory row is no longer printed at line 66 | - |
+| 175 | ch:bridge:L175 | conjecture | `310` | file `CANON/iam_canon.json`: cell surface temperature, 310 K | PASS |
 | 222 | ch:bridge:L222 | calc | `36.1` | numeric: decades from 1e-10 m to c/H0 (H0 = 67.4, ch:bridge line 66) | PASS |
 | 235 | ch:bridge:L235 | calc | `6.2\times10^{-8}` | numeric: T_BH, 1 M_sun | PASS |
 | 235 | ch:bridge:L235:5.9\times10^{-31} | calc | `5.9\times10^{-31}` | numeric: k_B T ln2 at the horizon, J | PASS |
@@ -4326,15 +4326,15 @@ Totals: 3785 PASS, 0 FAIL, 2553 inventoried and not run. Each run item carries t
 | 236 | ch:bridge:L236:5.9\times10^{-37} | calc | `5.9\times10^{-37}` | numeric: k_B T ln2 at the horizon, J | PASS |
 | 236 | ch:bridge:L236:1.5\times10^{89} | calc | `1.5\times10^{89}` | numeric: bits on the horizon | PASS |
 | 236 | ch:bridge:L236:8.9\times10^{52} | calc | `8.9\times10^{52}` | numeric: N k_B T ln2 = Mc^2/2, J | PASS |
-| 236 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 236 |  | calc | `10` | not run: input: horizon of 10^6 solar masses (table row label, book's choice); its entries are checked at ch:bridge:L236 | - |
 | 237 | ch:bridge:L237 | calc | `2.0\times10^{-2}` | numeric: 20 mK in K | PASS |
 | 237 | ch:bridge:L237:1.9\times10^{-25} | calc | `1.9\times10^{-25}` | numeric: k_B T ln2 at 20 mK | PASS |
-| 237 |  | calc | `20` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 237 |  | calc | `20` | not run: input: qubit temperature 20 mK (table row label); its entries are checked at ch:bridge:L237 | - |
 | 238 | ch:bridge:L238 | calc | `3.1\times10^{2}` | numeric: 310.15 K | PASS |
 | 238 | ch:bridge:L238:3.0\times10^{-21} | calc | `3.0\times10^{-21}` | numeric: k_B T ln2 at 310.15 K | PASS |
 | 238 | ch:bridge:L238:2.8\times10^{7} | calc | `2.8\times10^{7}` | numeric: CpG sites (ch:landauer) | PASS |
 | 238 | ch:bridge:L238:8.4\times10^{-14} | calc | `8.4\times10^{-14}` | numeric: N k_B T ln2 | PASS |
-| 238 |  | calc | `310.15` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 238 | ch:bridge:L238:310.15 | calc | `310.15` | file `CANON/iam_canon.json`: cell nucleus row, T = 310.15 K | PASS |
 
 ## Part 6 - ch:astrogenetics - `docs/book/part4/p4_00b_astrogenetics.tex`
 

@@ -4073,6 +4073,9 @@ PASS  ch:chipgen:L72:18.5                ch:chipgen:p3_11_chip_generations:72  p
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:bridge (part4/p4_01_bridge.tex)
 PASS  ch:bridge:L26                      ch:bridge:p4_01_bridge:26  printed 3.41  recomputed found in file  [measured] holding energy per maintained site  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
       heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
+PASS  eq:landauer                        ch:bridge:p4_01_bridge:52  printed (algebra)  recomputed lhs-rhs=0  [observed] E_bit = k_B T ln 2 from erasing one bit
+PASS  ch:bridge:L60                      ch:bridge:p4_01_bridge:60  printed 310.15  recomputed 310.15  tol 0.00500001  [observed] cell nucleus temperature 310.15 K  file CANON/iam_canon.json
+PASS  ch:bridge:L175                     ch:bridge:p4_01_bridge:175  printed 310  recomputed 310.15  tol 0.5  [conjecture] cell surface temperature, 310 K  file CANON/iam_canon.json
 PASS  ch:bridge:L222                     ch:bridge:p4_01_bridge:222  printed 36.1  recomputed 36.1375  tol 0.05  [calc] decades from 1e-10 m to c/H0 (H0 = 67.4, ch:bridge line 66)
 PASS  ch:bridge:L235                     ch:bridge:p4_01_bridge:235  printed 6.2\times10^{-8}  recomputed 6.170074e-08  tol 5.000005e-10  [calc] T_BH, 1 M_sun
 PASS  ch:bridge:L235:5.9\times10^{-31}   ch:bridge:p4_01_bridge:235  printed 5.9\times10^{-31}  recomputed 5.904717e-31  tol 5.000005e-33  [calc] k_B T ln2 at the horizon, J
@@ -4088,6 +4091,7 @@ PASS  ch:bridge:L238                     ch:bridge:p4_01_bridge:238  printed 3.1
 PASS  ch:bridge:L238:3.0\times10^{-21}   ch:bridge:p4_01_bridge:238  printed 3.0\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-23  [calc] k_B T ln2 at 310.15 K
 PASS  ch:bridge:L238:2.8\times10^{7}     ch:bridge:p4_01_bridge:238  printed 2.8\times10^{7}  recomputed 2.821745e+07  tol 5.000005e+05  [calc] CpG sites (ch:landauer)
 PASS  ch:bridge:L238:8.4\times10^{-14}   ch:bridge:p4_01_bridge:238  printed 8.4\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-16  [calc] N k_B T ln2
+PASS  ch:bridge:L238:310.15              ch:bridge:p4_01_bridge:238  printed 310.15  recomputed 310.15  tol 0.00500001  [calc] cell nucleus row, T = 310.15 K  file CANON/iam_canon.json
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:astrogenetics (part4/p4_00b_astrogenetics.tex)
 PASS  ch:astrogenetics:L40               ch:astrogenetics:p4_00b_astrogenetics:40  printed 3.41  recomputed found in file  [measured] holding energy  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
@@ -4681,4 +4685,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3785  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2553  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3789  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2549  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

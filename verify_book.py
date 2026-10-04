@@ -29311,6 +29311,37 @@ def check_2415():
     ok=file_has('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md','3.41')
     return locals()
 
+@check(label='eq:landauer', chapter='ch:bridge', part=6, title='E_bit = k_B T ln 2 from erasing one bit',
+       file='part4/p4_01_bridge', line=52, status='observed', kind='sym', printed='', tol=0.0)
+def check_3785():
+    'Landauer bound E_bit = k_B T ln 2 (Eq. eq:landauer). Book line 52. Derived: erasing one bit takes the Gibbs entropy '\
+    '-k_B sum p ln p of a fair bit (p = 1/2, 1/2) to that of a set bit (p = 1); the heat released to the bath is at least T times the '\
+    'entropy drop (second law). Measured: Berut et al. 2012 (Nature 483, 187), Hong et al. 2016 (Berut2012, Hong2016 in the bibliography).'
+    kBs, T = sp.symbols('k_B T', positive=True)
+    def S_gibbs(ps):
+        return -kBs * sum(p * sp.log(p) for p in ps if p != 0)
+    dS = S_gibbs([sp.Rational(1, 2), sp.Rational(1, 2)]) - S_gibbs([sp.Integer(1)])
+    lhs = sp.simplify(T * dS)
+    rhs = kBs * T * sp.log(2)
+    neg_lhs = sp.simplify(T * (S_gibbs([sp.Rational(1, 2) * sp.Rational(105, 100), 1 - sp.Rational(1, 2) * sp.Rational(105, 100)]) - S_gibbs([sp.Integer(1)])))
+    return locals()
+
+@check(label='ch:bridge:L60', chapter='ch:bridge', part=6, title='cell nucleus temperature 310.15 K',
+       file='part4/p4_01_bridge', line=60, status='observed', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
+def check_3786():
+    'Temperature of the cell nucleus at which the Landauer cost is evaluated, 37 C. Book line 60, printed 310.15. Source: CANON '\
+    'T_cell (37 C, mammalian body temperature).'
+    value = load_json('CANON/iam_canon.json')['constants']['T_cell']['value']
+    return locals()
+
+@check(label='ch:bridge:L175', chapter='ch:bridge', part=6, title='cell surface temperature, 310 K',
+       file='part4/p4_01_bridge', line=175, status='conjecture', kind='file', printed='310', tol=0.0, source='CANON/iam_canon.json')
+def check_3787():
+    'Table tab:p4_twoledgers: the cell pays k_B T ln 2 at 310 K, the body temperature rounded to the kelvin. Book line 175, printed 310. '\
+    'Source: CANON T_cell.'
+    value = load_json('CANON/iam_canon.json')['constants']['T_cell']['value']
+    return locals()
+
 @check(label='ch:bridge:L222', chapter='ch:bridge', part=6, title='decades from 1e-10 m to c/H0 (H0 = 67.4, ch:bridge line 66)',
        file='part4/p4_01_bridge', line=222, status='calc', kind='num', printed='36.1', tol=0)
 def check_2416():
@@ -29446,6 +29477,14 @@ def check_2429():
 def check_2430():
     'N k_B T ln2. Book line 238, printed 8.4\\times10^{-14}.'
     value=28217448*kB*T_cell*LN2
+    return locals()
+
+@check(label='ch:bridge:L238:310.15', chapter='ch:bridge', part=6, title='cell nucleus row, T = 310.15 K',
+       file='part4/p4_01_bridge', line=238, status='calc', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
+def check_3788():
+    'Table tab:p4_surfaces, cell nucleus row: T = 310.15 K. Book line 238, printed 310.15. Source: CANON T_cell, the same temperature '\
+    'used for k_B T ln 2 = 3.0e-21 J in ch:bridge:L238:3.0\\times10^{-21}.'
+    value = load_json('CANON/iam_canon.json')['constants']['T_cell']['value']
     return locals()
 
 
@@ -34405,13 +34444,9 @@ INVENTORY = [
     (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 49, '', 'calc', '1.83', "input: quoted clock 1.83 GHz (book's worked case); used in ch:chipgen:L49"),
     (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 49, '', 'calc', '1.98', "input: quoted clock 1.98 GHz (book's worked case); used in ch:chipgen:L49"),
     (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 72, '', 'calc', '600', 'input: illustrative R = 600, a round figure for the 576-593 floors of ch:cmos:L12:576; used in ch:chipgen:L72'),
-    (6, 'ch:bridge', 'part4/p4_01_bridge', 52, 'eq:landauer', 'observed', '', 'displayed equation, not yet checked'),
-    (6, 'ch:bridge', 'part4/p4_01_bridge', 60, '', 'observed', '310.15', 'measured, source not named'),
-    (6, 'ch:bridge', 'part4/p4_01_bridge', 66, '', 'calc', '67.4', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:bridge', 'part4/p4_01_bridge', 175, '', 'conjecture', '310', 'not yet checked'),
-    (6, 'ch:bridge', 'part4/p4_01_bridge', 236, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:bridge', 'part4/p4_01_bridge', 237, '', 'calc', '20', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:bridge', 'part4/p4_01_bridge', 238, '', 'calc', '310.15', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
+    (6, 'ch:bridge', 'part4/p4_01_bridge', 66, '', 'calc', '67.4', 'locked value H0 = 67.16 (photon sector) restated in the caption; the 67.4 of the inventory row is no longer printed at line 66'),
+    (6, 'ch:bridge', 'part4/p4_01_bridge', 236, '', 'calc', '10', "input: horizon of 10^6 solar masses (table row label, book's choice); its entries are checked at ch:bridge:L236"),
+    (6, 'ch:bridge', 'part4/p4_01_bridge', 237, '', 'calc', '20', 'input: qubit temperature 20 mK (table row label); its entries are checked at ch:bridge:L237'),
     (6, 'ch:astrogenetics', 'part4/p4_00b_astrogenetics', 88, '', 'derived', '310', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:astrogenetics', 'part4/p4_00b_astrogenetics', 98, '', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:astrogenetics', 'part4/p4_00b_astrogenetics', 116, '', 'calc', '2.40', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
