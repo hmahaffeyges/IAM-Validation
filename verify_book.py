@@ -1090,6 +1090,14 @@ def _b01_n_exponent():
     return sp.solve(sp.Eq(S_exp, -1), n)[0]
 
 # ---------------------------------------------------------------- checks
+DATA_FILES['docs/book/read_ledgers/eg_MANIFEST.md'] = 'read ledger of the entropic-gravity chapter: published values checked against the papers'   # 16 kB
+DATA_FILES['docs/verification/scripts/verify_shapefit_chi2_output.txt'] = 'committed output of verify_shapefit_chi2.py'   # 1 kB
+
+# helpers of the part2/p2_03a_entropic_gravity checks
+def _b01eg_luciano():
+    'H0 and its error of Luciano, Paliathanasis and Saridakis 2025 (doi 10.1088/1475-7516/2025/09/013), as recorded from the published abstract in the read ledger.'
+    m = re.search(r'one combination H0 = ([\d.]+) ± ([\d.]+)', file_text('docs/book/read_ledgers/eg_MANIFEST.md'))
+    return float(m.group(1)), float(m.group(2))
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -6732,6 +6740,13 @@ def check_0529():
     kB,hbar,H=sp.symbols('kB hbar H',positive=True); T_H=hbar*H/(2*sp.pi*kB); lhs=kB*T_H*sp.log(2); rhs=hbar*H/(2*sp.pi)*sp.log(2)
     return locals()
 
+@check(label='ch:entropicgravity:L91', chapter='ch:entropicgravity', part=2, title='Barrow fit H0 in one DESI DR2 combination (Luciano 2025)',
+       file='part2/p2_03a_entropic_gravity', line=91, status='observed', kind='file', printed='72.2\\pm0.9', tol=0.0, source='docs/book/read_ledgers/eg_MANIFEST.md')
+def check_3314():
+    'H0 = 72.2 +- 0.9 in one data combination of the Barrow/Tsallis fits after DESI DR2, Luciano et al. 2025 (doi 10.1088/1475-7516/2025/09/013), read from the read ledger that records the published abstract. Book line 91.'
+    value = _b01eg_luciano()[0]
+    return locals()
+
 @check(label='eq:eg_growth', chapter='ch:entropicgravity', part=2, title='friction-form growth eq, matter-density identity',
        file='part2/p2_03a_entropic_gravity', line=96, status='none', kind='sym', printed='', tol=0.0)
 def check_0530():
@@ -6864,6 +6879,14 @@ def check_0547():
     ok = file_has('docs/verification/PAPER_ERRATA.md', '1.15')
     return locals()
 
+@check(label='ch:entropicgravity:L149:1.25', chapter='ch:entropicgravity', part=2, title='Power 2012 virial ratio fit at 1e15 Msun/h',
+       file='part2/p2_03a_entropic_gravity', line=149, status='observed', kind='file', printed='1.25', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3315():
+    'Halo virial ratio 2T/|W| at 1e15 Msun/h, Power, Knebe and Knollmann 2012 fit <log10 eta> = A + B log10 M12 (doi 10.1111/j.1365-2966.2011.19820.x), coefficients recorded in docs/verification/virial/NBODY_TRACE.md, at M12 = 1e3. Book line 149, printed 1.25.'
+    m = re.search(r'⟨log10 η⟩ = ([\d.]+) \+ ([\d.]+) log10 M12', file_text('docs/verification/virial/NBODY_TRACE.md'))
+    value = 10 ** (float(m.group(1)) + float(m.group(2)) * 3)
+    return locals()
+
 @check(label='ch:entropicgravity:L159', chapter='ch:entropicgravity', part=2, title='exponent n from decoherence scaling condition',
        file='part2/p2_03a_entropic_gravity', line=159, status='derived', kind='sym', printed='7/2', tol=0.0)
 def check_0548():
@@ -6956,6 +6979,14 @@ def check_0558():
 def check_0559():
     'photon-sector H0 uncertainty, Level-2 chain. Book line 199, printed 0.47.'
     value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0_sd')
+    return locals()
+
+@check(label='ch:entropicgravity:L199:72.2', chapter='ch:entropicgravity', part=2, title='Barrow fit H0 (table), Luciano 2025',
+       file='part2/p2_03a_entropic_gravity', line=199, status='observed', kind='file', printed='72.2\\pm0.9', tol=0.0, source='docs/book/read_ledgers/eg_MANIFEST.md')
+def check_3316():
+    'Table row H0: 72.2 +- 0.9 in one combination (Luciano et al. 2025, doi 10.1088/1475-7516/2025/09/013), as ch:entropicgravity:L91; the error is also read and must be 0.9. Book line 199.'
+    v, e = _b01eg_luciano()
+    value = v if abs(e - 0.9) < 1e-9 else float('nan')
     return locals()
 
 @check(label='ch:entropicgravity:L200', chapter='ch:entropicgravity', part=2, title='matter-sector H0 from photon H0 and beta_m',
@@ -7072,6 +7103,22 @@ def check_0574():
     value=(H0_matter-73.04)/1.04  # book input line249, SH0ES
     return locals()
 
+@check(label='ch:entropicgravity:L244', chapter='ch:entropicgravity', part=2, title='mu0 = -beta_m/(1 + beta_m)',
+       file='part2/p2_03a_entropic_gravity', line=244, status='derived', kind='num', printed='-0.136', tol=0.0)
+def check_3317():
+    'IAM value of mu0 in the predictions table: mu(z=0) - 1 with mu = H^2/(H^2 + beta_m E H0^2), at a = 1 (E = 1, H = H0), beta_m from canon. Book line 244, printed -0.136.'
+    value = mu_iam(1.0) - 1
+    return locals()
+
+@check(label='ch:entropicgravity:L246', chapter='ch:entropicgravity', part=2, title='Sigma_0 = 0 from the unmodified photon source',
+       file='part2/p2_03a_entropic_gravity', line=246, status='derived', kind='num', printed='0', tol=0.0)
+def check_3318():
+    'Sigma_0 deviation for null worldlines: Sigma solved from k^2(Phi + Psi) = -8 pi G Sigma a^2 rho delta with the GR potentials Phi = Psi = -4 pi G a^2 rho delta/k^2; Sigma_0 = Sigma - 1. Book line 246, printed 0.'
+    k, G_, a, rho, dl, Sg = sp.symbols('k G a rho delta Sigma', positive=True)
+    Psi = -4 * sp.pi * G_ * a**2 * rho * dl / k**2
+    value = float(sp.solve(sp.Eq(k**2 * 2 * Psi, -8 * sp.pi * G_ * Sg * a**2 * rho * dl), Sg)[0] - 1)
+    return locals()
+
 @check(label='ch:entropicgravity:L248', chapter='ch:entropicgravity', part=2, title='Level2 IAM chain sigma8',
        file='part2/p2_03a_entropic_gravity', line=248, status='measured', kind='file', printed='0.7998\\pm0.0058', tol=6.25e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
@@ -7086,6 +7133,13 @@ def check_0575():
 def check_0576():
     'Level2 LCDM chain sigma8. Book line 248, printed 0.8087.'
     value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
+    return locals()
+
+@check(label='ch:entropicgravity:L249', chapter='ch:entropicgravity', part=2, title='matter-sector H0 = H0_photon sqrt(1 + beta_m)',
+       file='part2/p2_03a_entropic_gravity', line=249, status='calc', kind='num', printed='72.26', tol=0.0)
+def check_3319():
+    'Matter-sector H0 in the predictions table: the photon-sector H0 67.16 (locked, Level 2 chain) times sqrt(1 + beta_m), beta_m = Omega_m/2 from canon. Book line 249, printed 72.26.'
+    value = H0_photon * math.sqrt(1 + beta_m)
     return locals()
 
 @check(label='ch:entropicgravity:L250', chapter='ch:entropicgravity', part=2, title='table repeat: Level2 chi2 diff',
@@ -7119,6 +7173,22 @@ def check_0580():
     value=Om/2
     return locals()
 
+@check(label='ch:entropicgravity:L266', chapter='ch:entropicgravity', part=2, title='DESI ShapeFit+BAO chi2, IAM (MGCAMB form)',
+       file='part2/p2_03a_entropic_gravity', line=266, status='calc', kind='file', printed='5.14', tol=0.0, source='docs/verification/scripts/verify_shapefit_chi2_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_shapefit_chi2.py > docs/verification/scripts/verify_shapefit_chi2_output.txt')
+def check_3320():
+    'Diagonal chi2 of the IAM f sigma8 (MGCAMB form) on the six DESI DR1 ShapeFit+BAO bins, committed output of verify_shapefit_chi2.py. Book line 266 (the inventory row at line 264 carried the earlier 5.24; the book now prints 5.14).'
+    value = float(re.search(r'chi2 \(6 bins\): LCDM ([\d.]+)\s+IAM ([\d.]+)', file_text('docs/verification/scripts/verify_shapefit_chi2_output.txt')).group(2))
+    return locals()
+
+@check(label='ch:entropicgravity:L266:4.52', chapter='ch:entropicgravity', part=2, title='DESI ShapeFit+BAO chi2, LambdaCDM',
+       file='part2/p2_03a_entropic_gravity', line=266, status='calc', kind='file', printed='4.52', tol=0.0, source='docs/verification/scripts/verify_shapefit_chi2_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_shapefit_chi2.py > docs/verification/scripts/verify_shapefit_chi2_output.txt')
+def check_3321():
+    'Diagonal chi2 of LambdaCDM on the six DESI DR1 ShapeFit+BAO bins, committed output of verify_shapefit_chi2.py. Book line 266 (the inventory row at line 264 carried the earlier 4.51; the book now prints 4.52).'
+    value = float(re.search(r'chi2 \(6 bins\): LCDM ([\d.]+)\s+IAM ([\d.]+)', file_text('docs/verification/scripts/verify_shapefit_chi2_output.txt')).group(1))
+    return locals()
+
 @check(label='ch:entropicgravity:L271', chapter='ch:entropicgravity', part=2, title='drafted check, screened (runs; negative control fails)',
        file='part2/p2_03a_entropic_gravity', line=271, status='calc', kind='num', printed='1.018', tol=0.0)
 def check_0581():
@@ -7137,6 +7207,27 @@ def check_0582():
     a_target = 1 / (1 + z_target)
     mu_z2 = mu_iam(a_target)
     value = 1.0 / mu_z2
+    return locals()
+
+@check(label='ch:entropicgravity:L271:1.158', chapter='ch:entropicgravity', part=2, title='M_lens/M_dyn = 1/mu today',
+       file='part2/p2_03a_entropic_gravity', line=271, status='calc', kind='num', printed='1.158', tol=0.0)
+def check_3322():
+    'Cluster lensing-to-dynamics ratio 1/mu(z) at z = 0, mu = H^2/(H^2 + beta_m E(a) H0^2), Planck 2018 Omega_m 0.3153. Book line 271, printed 1.158.'
+    value = 1 / mu_iam(1.0)
+    return locals()
+
+@check(label='ch:entropicgravity:L271:1.105', chapter='ch:entropicgravity', part=2, title='M_lens/M_dyn = 1/mu at z = 0.2',
+       file='part2/p2_03a_entropic_gravity', line=271, status='calc', kind='num', printed='1.105', tol=0.0)
+def check_3323():
+    '1/mu(z) at z = 0.2. Book line 271, printed 1.105.'
+    value = 1 / mu_iam(1 / 1.2)
+    return locals()
+
+@check(label='ch:entropicgravity:L271:1.055', chapter='ch:entropicgravity', part=2, title='M_lens/M_dyn = 1/mu at z = 0.5',
+       file='part2/p2_03a_entropic_gravity', line=271, status='calc', kind='num', printed='1.055', tol=0.0)
+def check_3324():
+    '1/mu(z) at z = 0.5. Book line 271, printed 1.055.'
+    value = 1 / mu_iam(1 / 1.5)
     return locals()
 
 @check(label='ch:entropicgravity:L288', chapter='ch:entropicgravity', part=2, title='summary repeat: Level2 chi2 diff',
@@ -7177,11 +7268,58 @@ def check_0587():
     value=(H0_matter-73.04)/1.04  # book input line249, SH0ES
     return locals()
 
+@check(label='ch:entropicgravity:L307', chapter='ch:entropicgravity', part=2, title='Sigma = 1 given eligibility (status table)',
+       file='part2/p2_03a_entropic_gravity', line=307, status='derived', kind='num', printed='1', tol=0.0)
+def check_3325():
+    'Sigma for photons that carry no record term: solved from the definition k^2(Phi + Psi) = -8 pi G Sigma a^2 rho delta with the GR potentials Phi = Psi. Book line 307, printed 1.'
+    k, G_, a, rho, dl, Sg = sp.symbols('k G a rho delta Sigma', positive=True)
+    Psi = -4 * sp.pi * G_ * a**2 * rho * dl / k**2
+    value = float(sp.solve(sp.Eq(k**2 * 2 * Psi, -8 * sp.pi * G_ * Sg * a**2 * rho * dl), Sg)[0])
+    return locals()
+
+@check(label='ch:entropicgravity:L308', chapter='ch:entropicgravity', part=2, title='virial theorem 2<T> + <V> = 0 for V ~ -1/r',
+       file='part2/p2_03a_entropic_gravity', line=308, status='derived', kind='num', printed='0', tol=0.0)
+def check_3326():
+    'Virial theorem for the gravitational potential: 2<T> = <r dV/dr> (time average of d(r.p)/dt = 0) with V = -C/r gives 2<T> + <V> = r dV/dr + V. Book line 308, printed 0.'
+    r, C = sp.symbols('r C', positive=True)
+    V = -C / r
+    value = float(sp.simplify(r * sp.diff(V, r) + V))
+    return locals()
+
+@check(label='ch:entropicgravity:L308:1/2', chapter='ch:entropicgravity', part=2, title='the 1/2 partition <T>/|<V>|',
+       file='part2/p2_03a_entropic_gravity', line=308, status='derived', kind='num', printed='1/2', tol=0.0)
+def check_3327():
+    'The 1/2 partition: 2<T> = <r dV/dr> with V = -C/r solved for <T> and divided by |<V>|. Book line 308, printed 1/2.'
+    r, C, T = sp.symbols('r C T', positive=True)
+    V = -C / r
+    Tsol = sp.solve(sp.Eq(2 * T, r * sp.diff(V, r)), T)[0]
+    value = float(sp.simplify(Tsol / (-V)))
+    return locals()
+
 @check(label='eq:eg_stotal:0.15765', chapter='ch:entropicgravity', part=2, title='table-status repeat: beta_m=Omega_m/2',
        file='part2/p2_03a_entropic_gravity', line=310, status='derived', kind='num', printed='0.15765', tol=3.17e-05)
 def check_0588():
     'table-status repeat: beta_m=Omega_m/2 (Eq. eq:eg_stotal). Book line 310, printed 0.15765.'
     value=Om/2
+    return locals()
+
+@check(label='ch:entropicgravity:L311', chapter='ch:entropicgravity', part=2, title='n = 7/2 (status table), power counting',
+       file='part2/p2_03a_entropic_gravity', line=311, status='derived', kind='num', printed='7/2', tol=0.0)
+def check_3328():
+    'n = 7/2: matter-era power counting of rho_m D^n f/(T_H A_H) (a^-3 a^n / (a^-3/2 a^3)), per da, integrated, set to a^-1, solved for n. Book line 311, printed 7/2.'
+    a, n = sp.symbols('a n', positive=True)
+    p = sp.expand(sp.log(sp.powsimp(a**-3 * a**n / (a**sp.Rational(-3, 2) * a**3), force=True)).expand(force=True) / sp.log(a))
+    value = float(sp.solve(sp.Eq(p - 1 + 1, -1), n)[0])
+    return locals()
+
+@check(label='ch:entropicgravity:L312', chapter='ch:entropicgravity', part=2, title='peak of the writing rate per unit time, redshift',
+       file='part2/p2_03a_entropic_gravity', line=312, status='calc', kind='num', printed='1.26', tol=0.0)
+def check_3329():
+    'Redshift where dE/dt = H E/a peaks (LambdaCDM H, Omega_m 0.3153): the root of d/da[H(a) E(a)/a] = 0 found by brentq on the sympy derivative. Book line 312, printed 1.26.'
+    a = sp.symbols('a', positive=True)
+    rate = sp.sqrt(Om * a**-3 + (1 - Om)) * sp.exp(1 - 1 / a) / a
+    d = sp.lambdify(a, sp.diff(rate, a))
+    value = 1 / brentq(d, 0.2, 0.9) - 1
     return locals()
 
 
@@ -29384,33 +29522,17 @@ INVENTORY = [
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 57, 'eq:eg_barrow', 'none', '', 'definition: Barrow fractal entropy'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 60, 'eq:eg_tsallis', 'none', '', 'definition: Tsallis non-extensive entropy'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 71, 'eq:eg_stotal', 'conjecture', '', 'conjecture: additional entropy source definition'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 91, '', 'observed', '72.2\\pm0.9', 'measured, not found in the files the chapter names'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 128, '', 'none', '0.7--0.8', 'restated range of 0.67/0.78 values'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 144, '', 'none', '0.3153', 'input, Planck2018VI Omega_m'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 149, '', 'measured', '1.25', 'measured, not found in the files the chapter names'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 151, '', 'prediction', '37', 'prediction: scale range, atom to horizon'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 151, '', 'prediction', '33', 'prediction: scale range subset, atom to cluster'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 162, 'eq:eg_Ea', 'derived', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 171, '', 'none', 'C=k=1', 'restatement combining two prior results'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 199, '', 'observed', '72.2\\pm0.9', 'measured, not found in the files the chapter names'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 244, '', 'derived', '-0.136', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 246, '', 'derived', '0', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 249, '', 'calc', '72.26', 'not yet run: draft rejected (no draft returned)'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 259, '', 'prediction', '-0.136', 'input restated (Euclid prediction target)'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 259, '', 'prediction', '0', 'input restated (Euclid prediction target)'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 264, '', 'calc', '5.24', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 264, '', 'calc', '4.51', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 271, '', 'calc', '1.158', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 271, '', 'calc', '1.105', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 271, '', 'calc', '1.055', 'not yet run: draft rejected (no draft returned)'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 274, '', 'openprob', '1', 'Level2 form ratio statement, no computation'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 292, '', 'prediction', '-0.136', 'input restated (Euclid prediction target)'),
     (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 292, '', 'prediction', '0', 'input restated (Euclid prediction target)'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 307, '', 'derived', '1', 'not yet run: draft rejected (vacuous: lhs is a literal)'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 308, '', 'derived', '0', 'not yet run: draft rejected (vacuous: lhs is a literal)'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 308, '', 'derived', '1/2', 'not yet run: draft rejected (vacuous: lhs is a literal)'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 311, '', 'derived', '7/2', 'not yet run: draft rejected (vacuous: lhs is a literal)'),
-    (2, 'ch:entropicgravity', 'part2/p2_03a_entropic_gravity', 312, '', 'calc', '1.26', 'not yet run: draft rejected (drafter skipped: Peak of writing rate requires full calculation of dS_info/dt and its deri)'),
     (2, 'ch:dual', 'part2/p2_04_dualsector_chains', 252, '', 'observed', '0.54', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:dual', 'part2/p2_04_dualsector_chains', 256, '', 'none', '0.15765', 'restated canon beta_m value, input'),
     (2, 'ch:dual', 'part2/p2_04_dualsector_chains', 263, '', 'prediction', '-0.136', 'restated canon mu0 prediction value'),

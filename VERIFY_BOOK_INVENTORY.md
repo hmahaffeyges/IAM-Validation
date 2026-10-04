@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3314 PASS, 0 FAIL, 3020 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3330 PASS, 0 FAIL, 3004 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -1021,7 +1021,7 @@ Totals: 3314 PASS, 0 FAIL, 3020 inventoried and not run. Each run item carries t
 | 60 | eq:eg_tsallis | none |  | not run: definition: Tsallis non-extensive entropy | - |
 | 71 | eq:eg_stotal | conjecture |  | not run: conjecture: additional entropy source definition | - |
 | 78 | eq:eg_bitcost | conjecture |  | sympy: Landauer bit cost at horizon temperature | PASS |
-| 91 |  | observed | `72.2\pm0.9` | not run: measured, not found in the files the chapter names | - |
+| 91 | ch:entropicgravity:L91 | observed | `72.2\pm0.9` | file `docs/book/read_ledgers/eg_MANIFEST.md`: Barrow fit H0 in one DESI DR2 combination (Luciano 2025) | PASS |
 | 96 | eq:eg_growth | none |  | sympy: friction-form growth eq, matter-density identity | PASS |
 | 99 | eq:eg_growthN | derived |  | sympy: e-fold transform of growth equation | PASS |
 | 106 | ch:entropicgravity:L106 | calc | `1.64` | heavy file `docs/verification/scripts/verify_entropic_gravity_output.txt`: growth-factor deficit, friction form | PASS |
@@ -1042,7 +1042,7 @@ Totals: 3314 PASS, 0 FAIL, 3020 inventoried and not run. Each run item carries t
 | 143 | eq:eg_beta | calc | `0.15765` | numeric: coupling constant beta_m = Omega_m/2 | PASS |
 | 144 |  | none | `0.3153` | not run: input, Planck2018VI Omega_m | - |
 | 149 | ch:entropicgravity:L149 | measured | `1.15` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
-| 149 |  | measured | `1.25` | not run: measured, not found in the files the chapter names | - |
+| 149 | ch:entropicgravity:L149:1.25 | observed | `1.25` | file `docs/verification/virial/NBODY_TRACE.md`: Power 2012 virial ratio fit at 1e15 Msun/h | PASS |
 | 151 |  | prediction | `37` | not run: prediction: scale range, atom to horizon | - |
 | 151 |  | prediction | `33` | not run: prediction: scale range subset, atom to cluster | - |
 | 159 | ch:entropicgravity:L159 | derived | `7/2` | sympy: exponent n from decoherence scaling condition | PASS |
@@ -1059,7 +1059,7 @@ Totals: 3314 PASS, 0 FAIL, 3020 inventoried and not run. Each run item carries t
 | 176 | ch:entropicgravity:L176:a=1/2 | calc | `a=1/2` | sympy: scale factor of peak dE/da | PASS |
 | 199 | ch:entropicgravity:L199 | measured | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level-2 chain | PASS |
 | 199 | ch:entropicgravity:L199:0.47 | measured | `0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 uncertainty, Level-2 chain | PASS |
-| 199 |  | observed | `72.2\pm0.9` | not run: measured, not found in the files the chapter names | - |
+| 199 | ch:entropicgravity:L199:72.2 | observed | `72.2\pm0.9` | file `docs/book/read_ledgers/eg_MANIFEST.md`: Barrow fit H0 (table), Luciano 2025 | PASS |
 | 200 | ch:entropicgravity:L200 | calc | `72.26` | numeric: matter-sector H0 from photon H0 and beta_m | PASS |
 | 201 | ch:entropicgravity:L201 | calc | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2 (lower end of the quoted range) | PASS |
 | 201 | ch:entropicgravity:L201:1.73 | calc | `1.73` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: maximum dchi2 across chain pairs | PASS |
@@ -1075,24 +1075,24 @@ Totals: 3314 PASS, 0 FAIL, 3020 inventoried and not run. Each run item carries t
 | 238 | ch:entropicgravity:L238:-0.31\sigma | calc | `-0.31\sigma` | numeric: Sigma0 tension vs ACT combo in sigma | PASS |
 | 238 | ch:entropicgravity:L238:-0.12\sigma | calc | `-0.12\sigma` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 tension vs KiDS/DES/DESI/Pantheon+ | PASS |
 | 238 | ch:entropicgravity:L238:-0.75\sigma | calc | `-0.75\sigma` | numeric: matter-sector H0 tension vs SH0ES | PASS |
-| 244 |  | derived | `-0.136` | not run: not yet run: draft rejected (no draft returned) | - |
-| 246 |  | derived | `0` | not run: not yet run: draft rejected (no draft returned) | - |
+| 244 | ch:entropicgravity:L244 | derived | `-0.136` | numeric: mu0 = -beta_m/(1 + beta_m) | PASS |
+| 246 | ch:entropicgravity:L246 | derived | `0` | numeric: Sigma_0 = 0 from the unmodified photon source | PASS |
 | 248 | ch:entropicgravity:L248 | measured | `0.7998\pm0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 IAM chain sigma8 | PASS |
 | 248 | ch:entropicgravity:L248:0.8087 | measured | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 LCDM chain sigma8 | PASS |
-| 249 |  | calc | `72.26` | not run: not yet run: draft rejected (no draft returned) | - |
+| 249 | ch:entropicgravity:L249 | calc | `72.26` | numeric: matter-sector H0 = H0_photon sqrt(1 + beta_m) | PASS |
 | 250 | ch:entropicgravity:L250 | measured | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: table repeat: Level2 chi2 diff | PASS |
 | 250 | ch:entropicgravity:L250:0.56 | measured | `0.56` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: table repeat: Level1 min chi2 diff | PASS |
 | 250 | ch:entropicgravity:L250:1.73 | measured | `1.73` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: table repeat: Level1 max chi2 diff | PASS |
 | 251 | eq:eg_stotal | derived | `0.15765` | numeric: beta_m defined as Omega_m/2 | PASS |
 | 259 |  | prediction | `-0.136` | not run: input restated (Euclid prediction target) | - |
 | 259 |  | prediction | `0` | not run: input restated (Euclid prediction target) | - |
-| 264 |  | calc | `5.24` | not run: not yet run: draft rejected (no draft returned) | - |
-| 264 |  | calc | `4.51` | not run: not yet run: draft rejected (no draft returned) | - |
+| 266 | ch:entropicgravity:L266 | calc | `5.14` | heavy file `docs/verification/scripts/verify_shapefit_chi2_output.txt`: DESI ShapeFit+BAO chi2, IAM (MGCAMB form) | PASS |
+| 266 | ch:entropicgravity:L266:4.52 | calc | `4.52` | heavy file `docs/verification/scripts/verify_shapefit_chi2_output.txt`: DESI ShapeFit+BAO chi2, LambdaCDM | PASS |
 | 271 | ch:entropicgravity:L271 | calc | `1.018` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 271 | ch:entropicgravity:L271:1.002 | calc | `1.002` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 271 |  | calc | `1.158` | not run: not yet run: draft rejected (no draft returned) | - |
-| 271 |  | calc | `1.105` | not run: not yet run: draft rejected (no draft returned) | - |
-| 271 |  | calc | `1.055` | not run: not yet run: draft rejected (no draft returned) | - |
+| 271 | ch:entropicgravity:L271:1.158 | calc | `1.158` | numeric: M_lens/M_dyn = 1/mu today | PASS |
+| 271 | ch:entropicgravity:L271:1.105 | calc | `1.105` | numeric: M_lens/M_dyn = 1/mu at z = 0.2 | PASS |
+| 271 | ch:entropicgravity:L271:1.055 | calc | `1.055` | numeric: M_lens/M_dyn = 1/mu at z = 0.5 | PASS |
 | 274 |  | openprob | `1` | not run: Level2 form ratio statement, no computation | - |
 | 288 | ch:entropicgravity:L288 | calc | `0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: summary repeat: Level2 chi2 diff | PASS |
 | 288 | ch:entropicgravity:L288:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: summary repeat: Level2 IAM sigma8 rounded | PASS |
@@ -1101,12 +1101,12 @@ Totals: 3314 PASS, 0 FAIL, 3020 inventoried and not run. Each run item carries t
 | 289 | ch:entropicgravity:L289:-0.75\sigma | calc | `-0.75\sigma` | numeric: summary repeat: matter-sector H0 tension | PASS |
 | 292 |  | prediction | `-0.136` | not run: input restated (Euclid prediction target) | - |
 | 292 |  | prediction | `0` | not run: input restated (Euclid prediction target) | - |
-| 307 |  | derived | `1` | not run: not yet run: draft rejected (vacuous: lhs is a literal) | - |
-| 308 |  | derived | `0` | not run: not yet run: draft rejected (vacuous: lhs is a literal) | - |
-| 308 |  | derived | `1/2` | not run: not yet run: draft rejected (vacuous: lhs is a literal) | - |
+| 307 | ch:entropicgravity:L307 | derived | `1` | numeric: Sigma = 1 given eligibility (status table) | PASS |
+| 308 | ch:entropicgravity:L308 | derived | `0` | numeric: virial theorem 2<T> + <V> = 0 for V ~ -1/r | PASS |
+| 308 | ch:entropicgravity:L308:1/2 | derived | `1/2` | numeric: the 1/2 partition <T>/|<V>| | PASS |
 | 310 | eq:eg_stotal:0.15765 | derived | `0.15765` | numeric: table-status repeat: beta_m=Omega_m/2 | PASS |
-| 311 |  | derived | `7/2` | not run: not yet run: draft rejected (vacuous: lhs is a literal) | - |
-| 312 |  | calc | `1.26` | not run: not yet run: draft rejected (drafter skipped: Peak of writing rate requires full calculation of dS_info/dt and its deri) | - |
+| 311 | ch:entropicgravity:L311 | derived | `7/2` | numeric: n = 7/2 (status table), power counting | PASS |
+| 312 | ch:entropicgravity:L312 | calc | `1.26` | numeric: peak of the writing rate per unit time, redshift | PASS |
 
 ## Part 2 - ch:dual - `docs/book/part2/p2_04_dualsector_chains.tex`
 
