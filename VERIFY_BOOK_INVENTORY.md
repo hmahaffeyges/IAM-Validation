@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3789 PASS, 0 FAIL, 2549 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3798 PASS, 0 FAIL, 2540 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4347,24 +4347,24 @@ Totals: 3789 PASS, 0 FAIL, 2549 inventoried and not run. Each run item carries t
 | 63 | ch:astrogenetics:L63:0.2043 | calc | `0.2043` | numeric: H(eps0), bits | PASS |
 | 73 | ch:astrogenetics:L73 | measured | `1.148` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 88 | ch:astrogenetics:L88 | derived | `0.910` | file `CANON/iam_canon.json`: 1/P | PASS |
-| 88 |  | derived | `310` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 88 | ch:astrogenetics:L88:310 | derived | `310` | file `CANON/iam_canon.json`: the floor is set at 310 K (cell temperature) | PASS |
 | 89 | ch:astrogenetics:L89 | calibrated | `0.330263` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 90 | ch:astrogenetics:L90 | calc | `3.03` | file `CANON/iam_canon.json`: Met-A at a coin flip | PASS |
 | 90 | ch:astrogenetics:L90:4.45 | calc | `4.45` | file `CANON/iam_canon.json`: IAM-A at a coin flip | PASS |
-| 98 |  | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 116 |  | calc | `2.40` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 98 | ch:astrogenetics:L98 | derived |  | sympy: H(beta) is symmetric: H(beta) = H(1 - beta) | PASS |
+| 116 | ch:astrogenetics:L116 | calc | `2.40` | numeric: white-dwarf gauge full at the Chandrasekhar mass, A = 1.44/0.6 | PASS |
 | 139 | ch:astrogenetics:L139 | measured | `1.016` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 140 | ch:astrogenetics:L140 | measured | `0.695` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 140 | ch:astrogenetics:L140:1.120 | measured | `1.120` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 141 | ch:astrogenetics:L141 | measured | `0.664` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 141 | ch:astrogenetics:L141:0.975 | measured | `0.975` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 280 | ch:astrogenetics:L280 | derived | `0.15765` | numeric: beta_m | PASS |
-| 283 |  | measured | `0.2` | not run: measured, too few printed digits to match against the named files | - |
-| 283 |  | measured | `0.3` | not run: measured, too few printed digits to match against the named files | - |
-| 285 |  | openprob | `1.142\times10^{-123}` | not run: not yet checked | - |
-| 286 |  | fitted | `1.133\times10^{-123}` | not run: measured, not found in the files the chapter names | - |
-| 286 |  | fitted | `0.79` | not run: measured, too few printed digits to match against the named files | - |
-| 288 |  | observed | `0.5` | not run: measured, too few printed digits to match against the named files | - |
+| 283 | ch:astrogenetics:L283 | measured | `0.2` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: 18th chain eta below Planck 2018, per cent | PASS |
+| 283 | ch:astrogenetics:L283:0.3 | measured | `0.3` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: 18th chain eta from nucleosynthesis with deuterium, sigma | PASS |
+| 285 | ch:astrogenetics:L285 | openprob | `1.142\times10^{-123}` | numeric: rho_L/rho_vac from (2/pi)(l_P/l_H)^2 (Ob/Om) sqrt(OL) | PASS |
+| 286 | ch:astrogenetics:L286 | fitted | `1.133\times10^{-123}` | numeric: measured rho_L/rho_vac | PASS |
+| 286 | ch:astrogenetics:L286:0.79 | fitted | `0.79` | numeric: expression above the measured ratio, per cent | PASS |
+| 288 | ch:astrogenetics:L288 | observed | `0.5` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Ob/Om = (3/16) sqrt(OL) holds to 0.5 % on the CMB-only chain | PASS |
 | 295 | ch:astrogenetics:L295 | measured | `1.65` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 295 | ch:astrogenetics:L295:1.97 | measured | `1.97` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |
 | 295 | ch:astrogenetics:L295:1.05 | measured | `1.05` | heavy file `docs/verification/scripts/verify_astrogenetics_book_output.txt`: measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names | PASS |

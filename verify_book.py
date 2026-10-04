@@ -1703,6 +1703,29 @@ def _b08_M(f, T):                     # Mahaffey number of a record with gap h f
 def _b08_eps(F_percent):              # gate error in nats, eps = -ln(1 - p), p = 1 - F (Eq. eq:Agate)
     return -math.log(F_percent / 100)
 
+# helpers of the part4/p4_00b_astrogenetics checks
+_B08_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
+                    'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+                    '(no extraction script is committed)')
+_B08_LB_OUT = 'docs/verification/scripts/verify_lambda_baryon_book_output.txt'
+_B08_LB_RERUN = 'python3 docs/verification/scripts/verify_lambda_baryon_book.py > docs/verification/scripts/verify_lambda_baryon_book_output.txt'
+
+def _b08_cc():
+    """rho_L/rho_vac observed and the corrected expression (2/pi)(l_P/l_H)^2 (Ob/Om) sqrt(Omega_L), with the inputs of Chapter ch:lambda:
+    Planck 2018 VI (doi 10.1051/0004-6361/201833910) H0 67.4, Ob 0.0493, Om 0.3153, Omega_L = 1 - Om - Omega_r (photons at T_CMB 2.7255 K
+    plus 3.046 massless neutrinos), CODATA constants."""
+    rho_c100 = 3 * Hsi(100.0)**2 / (8 * math.pi * G)
+    Og_h2 = (math.pi**2 / 15) * (kB * T_CMB)**4 / (hbar * c)**3 / (rho_c100 * c**2)
+    Orad = Og_h2 / h_pl**2 * (1 + 0.2271 * 3.046)
+    Ob_, Om_ = 0.0493, 0.3153
+    OL_ = 1 - Om_ - Orad
+    H0s = Hsi(67.4)
+    rho_vac = (mP * c**2)**4 / (hbar * c)**3                     # Planck energy density, J/m^3
+    rho_L = OL_ * 3 * H0s**2 / (8 * math.pi * G) * c**2           # J/m^3
+    obs = rho_L / rho_vac
+    corr = (2 / math.pi) * (lP * H0s / c)**2 * (Ob_ / Om_) * math.sqrt(OL_)
+    return obs, corr
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -29545,6 +29568,14 @@ def check_2437():
     value=1/P_
     return locals()
 
+@check(label='ch:astrogenetics:L88:310', chapter='ch:astrogenetics', part=6, title='the floor is set at 310 K (cell temperature)',
+       file='part4/p4_00b_astrogenetics', line=88, status='derived', kind='file', printed='310', tol=0.0, source='CANON/iam_canon.json')
+def check_3789():
+    'The floor H_min holds against thermal kicks at 310 K: the cell temperature T_cell = 310.15 K (37 C) to the kelvin. Book line 88, '\
+    'printed 310. Source: CANON T_cell.'
+    value = load_json('CANON/iam_canon.json')['constants']['T_cell']['value']
+    return locals()
+
 @check(label='ch:astrogenetics:L89', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names',
        file='part4/p4_00b_astrogenetics', line=89, status='calibrated', kind='file', printed='0.330263', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_book_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')
@@ -29567,6 +29598,30 @@ def check_2440():
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     P_=load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
     value=1/(P_*Hb(eps0))
+    return locals()
+
+@check(label='ch:astrogenetics:L98', chapter='ch:astrogenetics', part=6, title='H(beta) is symmetric: H(beta) = H(1 - beta)',
+       file='part4/p4_00b_astrogenetics', line=98, status='derived', kind='sym', printed='', tol=0.0)
+def check_3790():
+    'Binary Shannon entropy H(beta) = -beta log2 beta - (1-beta) log2(1-beta) (displayed equation), and the property the text draws from '\
+    'it, H(beta) = H(1 - beta), so that at an identity site the reading is the entropy of the error rate. Book line 98. Derived by '\
+    'substituting beta -> 1 - beta; it is also the Shannon entropy -sum p log2 p of the two outcomes.'
+    b = sp.symbols('beta', positive=True)
+    H = lambda x: -x * sp.log(x, 2) - (1 - x) * sp.log(1 - x, 2)
+    lhs = H(b).subs(b, 1 - b)
+    rhs = H(b)
+    neg_lhs = (-sp.Rational(105, 100) * b * sp.log(b, 2) - (1 - b) * sp.log(1 - b, 2)).subs(b, 1 - b)
+    return locals()
+
+@check(label='ch:astrogenetics:L116', chapter='ch:astrogenetics', part=6, title='white-dwarf gauge full at the Chandrasekhar mass, A = 1.44/0.6',
+       file='part4/p4_00b_astrogenetics', line=116, status='calc', kind='num', printed='2.40', tol=0.0)
+def check_3791():
+    'Star gauge: A = M/M_typical at the Chandrasekhar mass for a white dwarf. Book line 116, printed 2.40. Inputs as in Chapter '\
+    'ch:blackholes (check ch:blackholes:L336:2.40): M_Ch = 1.44 M_sun (Chandrasekhar 1931, doi 10.1086/143324), M_typical = the Kepler '\
+    'et al. 2007 DA mean 0.593 M_sun rounded to one decimal.'
+    M_Ch = 1.44
+    M_typ = round(0.593, 1)
+    value = M_Ch / M_typ
     return locals()
 
 @check(label='ch:astrogenetics:L139', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names',
@@ -29614,6 +29669,68 @@ def check_2445():
 def check_2446():
     'beta_m. Book line 280, printed 0.15765.'
     value=Om/2
+    return locals()
+
+@check(label='ch:astrogenetics:L283', chapter='ch:astrogenetics', part=6, title='18th chain eta below Planck 2018, per cent',
+       file='part4/p4_00b_astrogenetics', line=283, status='measured', kind='file', printed='0.2', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B08_CHAIN_RERUN)
+def check_3792():
+    'eta of the CMB-only 18th chain below the Planck 2018 value, in per cent; eta is proportional to Omega_b h^2 (eta = 273.9e-10 '\
+    'Omega_b h^2), so the ratio is that of Omega_b h^2. Book line 283, printed 0.2. Inputs: 18th chain (iam_baryon_test) ombh2 from '\
+    'CHAIN_EXTRACTION_FINAL.csv; Planck 2018 VI Table 2 Omega_b h^2 = 0.02237 (doi 10.1051/0004-6361/201833910).'
+    eta_chain = 273.9e-10 * csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_baryon_test', 'ombh2')
+    eta_planck = 273.9e-10 * 0.02237
+    value = 100 * (1 - eta_chain / eta_planck)
+    return locals()
+
+@check(label='ch:astrogenetics:L283:0.3', chapter='ch:astrogenetics', part=6, title='18th chain eta from nucleosynthesis with deuterium, sigma',
+       file='part4/p4_00b_astrogenetics', line=283, status='measured', kind='file', printed='0.3', tol=0.0, source=_B08_LB_OUT,
+       heavy=True, rerun=_B08_LB_RERUN)
+def check_3793():
+    'Distance of the 18th-chain eta from nucleosynthesis with deuterium, in the nucleosynthesis error. Book line 283, printed 0.3. '\
+    'Inputs: Cyburt et al. 2016 Table IV BBN+D 6.180 +- 0.195 (x1e-10), read from section F2 of the committed '\
+    'verify_lambda_baryon_book output; 18th chain ombh2 from section E1 of the same output, eta = 273.9e-10 Omega_b h^2.'
+    t = file_text(_B08_LB_OUT)
+    m = re.search(r"BBN\+D (\d\.\d+) \+/- (\d\.\d+)", t)
+    bbn, sd = float(m.group(1)), float(m.group(2))
+    ombh2 = float(re.search(r"E1 iam_baryon_test .*?ombh2 (\d\.\d+)", t).group(1))
+    value = (bbn - 273.9 * ombh2) / sd
+    return locals()
+
+@check(label='ch:astrogenetics:L285', chapter='ch:astrogenetics', part=6, title='rho_L/rho_vac from (2/pi)(l_P/l_H)^2 (Ob/Om) sqrt(OL)',
+       file='part4/p4_00b_astrogenetics', line=285, status='openprob', kind='num', printed='1.142\\times10^{-123}', tol=0.0)
+def check_3794():
+    'The cosmological-constant expression (2/pi)(l_P/l_H)^2 (Omega_b/Omega_m) sqrt(Omega_L) of Chapter ch:lambda (Eq. corr). Book line 285, '\
+    'printed 1.142e-123. Inputs in _b08_cc (Planck 2018 VI, CODATA).'
+    obs, corr = _b08_cc()
+    value = corr
+    return locals()
+
+@check(label='ch:astrogenetics:L286', chapter='ch:astrogenetics', part=6, title='measured rho_L/rho_vac',
+       file='part4/p4_00b_astrogenetics', line=286, status='fitted', kind='num', printed='1.133\\times10^{-123}', tol=0.0)
+def check_3795():
+    'The measured rho_L/rho_vac = Omega_L 3 H0^2/(8 pi G) c^2 over the Planck energy density (Eq. lam_obs of Chapter ch:lambda). Book '\
+    'line 286, printed 1.133e-123. Inputs: Planck 2018 VI (doi 10.1051/0004-6361/201833910) H0 67.4, Om 0.3153, Omega_r from T_CMB; CODATA.'
+    obs, corr = _b08_cc()
+    value = obs
+    return locals()
+
+@check(label='ch:astrogenetics:L286:0.79', chapter='ch:astrogenetics', part=6, title='expression above the measured ratio, per cent',
+       file='part4/p4_00b_astrogenetics', line=286, status='fitted', kind='num', printed='0.79', tol=0.0)
+def check_3796():
+    'Corrected expression over the measured rho_L/rho_vac, minus one, in per cent. Book line 286, printed 0.79. Inputs in _b08_cc.'
+    obs, corr = _b08_cc()
+    value = 100 * (corr / obs - 1)
+    return locals()
+
+@check(label='ch:astrogenetics:L288', chapter='ch:astrogenetics', part=6, title='Ob/Om = (3/16) sqrt(OL) holds to 0.5 % on the CMB-only chain',
+       file='part4/p4_00b_astrogenetics', line=288, status='observed', kind='file', printed='0.5', tol=0.0, source=_B08_LB_OUT,
+       heavy=True, rerun=_B08_LB_RERUN)
+def check_3797():
+    'Ratio of the two sides of Omega_b/Omega_m = (3/16) sqrt(Omega_L) on the CMB-only 18th chain, minus one, in per cent. Book line 288, '\
+    'printed 0.5. Source: section E1 (iam_baryon_test) of the committed verify_lambda_baryon_book output.'
+    m = re.search(r"E1 iam_baryon_test .*?ratio (\d\.\d+) \+/- (\d\.\d+)", file_text(_B08_LB_OUT))
+    value = 100 * (float(m.group(1)) - 1)
     return locals()
 
 @check(label='ch:astrogenetics:L295', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names',
@@ -34447,15 +34564,6 @@ INVENTORY = [
     (6, 'ch:bridge', 'part4/p4_01_bridge', 66, '', 'calc', '67.4', 'locked value H0 = 67.16 (photon sector) restated in the caption; the 67.4 of the inventory row is no longer printed at line 66'),
     (6, 'ch:bridge', 'part4/p4_01_bridge', 236, '', 'calc', '10', "input: horizon of 10^6 solar masses (table row label, book's choice); its entries are checked at ch:bridge:L236"),
     (6, 'ch:bridge', 'part4/p4_01_bridge', 237, '', 'calc', '20', 'input: qubit temperature 20 mK (table row label); its entries are checked at ch:bridge:L237'),
-    (6, 'ch:astrogenetics', 'part4/p4_00b_astrogenetics', 88, '', 'derived', '310', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:astrogenetics', 'part4/p4_00b_astrogenetics', 98, '', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:astrogenetics', 'part4/p4_00b_astrogenetics', 116, '', 'calc', '2.40', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:astrogenetics', 'part4/p4_00b_astrogenetics', 283, '', 'measured', '0.2', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:astrogenetics', 'part4/p4_00b_astrogenetics', 283, '', 'measured', '0.3', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:astrogenetics', 'part4/p4_00b_astrogenetics', 285, '', 'openprob', '1.142\\times10^{-123}', 'not yet checked'),
-    (6, 'ch:astrogenetics', 'part4/p4_00b_astrogenetics', 286, '', 'fitted', '1.133\\times10^{-123}', 'measured, not found in the files the chapter names'),
-    (6, 'ch:astrogenetics', 'part4/p4_00b_astrogenetics', 286, '', 'fitted', '0.79', 'measured, too few printed digits to match against the named files'),
-    (6, 'ch:astrogenetics', 'part4/p4_00b_astrogenetics', 288, '', 'observed', '0.5', 'measured, too few printed digits to match against the named files'),
     (6, 'ch:landauer', 'part4/p4_02_landauer', 71, '', 'calc', '3.41', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:landauer', 'part4/p4_02_landauer', 71, '', 'calc', '20.94', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:landauer', 'part4/p4_02_landauer', 88, '', 'calc', '9950', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
