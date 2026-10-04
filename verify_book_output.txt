@@ -1,7 +1,14 @@
 
 == Part 0: Front matter | ch:p0_preface (part0/p0_preface.tex)
+PASS  ch:p0_preface:L59                  ch:p0_preface:p0_preface:59  printed 67.36  recomputed 67.36  tol 0.00500001  [observed] Planck 2018 H0 (published)
+PASS  ch:p0_preface:L59:0.54             ch:p0_preface:p0_preface:59  printed 0.54  recomputed 0.54  tol 0.00500001  [observed] Planck 2018 H0 error (published)
+PASS  ch:p0_preface:L60                  ch:p0_preface:p0_preface:60  printed 73.04  recomputed 73.04  tol 0.00500001  [observed] SH0ES distance-ladder H0 (published)
+PASS  ch:p0_preface:L60:1.04             ch:p0_preface:p0_preface:60  printed 1.04  recomputed 1.04  tol 0.00500001  [observed] SH0ES H0 error (published)
+PASS  ch:p0_preface:L60:67.16            ch:p0_preface:p0_preface:60  printed 67.16  recomputed 67.1611  tol 0.00500001  [calc] photon-sector H0, Level 2 chain Run A posterior mean  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:p0_preface:L61                  ch:p0_preface:p0_preface:61  printed 0.37  recomputed 0.37037  tol 0.00500001  [calc] sigma deviation of IAM photon H0 from Planck
 PASS  ch:p0_preface:L61:0.75             ch:p0_preface:p0_preface:61  printed 0.75  recomputed 0.75  tol 0.00502501  [calc] sigma deviation of IAM matter H0 from Riess22
+PASS  ch:p0_preface:L61:72.26            ch:p0_preface:p0_preface:61  printed 72.26  recomputed 72.2614  tol 0.00500001  [calc] matter-sector H0 = chain H0 x sqrt(1+beta_m)
 PASS  ch:p0_preface:L62                  ch:p0_preface:p0_preface:62  printed 0.809  recomputed 0.808707  tol 5.000005e-04  [measured] sigma8 LCDM-sector level-2 chain result  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:p0_preface:L62:0.800            ch:p0_preface:p0_preface:62  printed 0.800  recomputed 0.799751  tol 5.000005e-04  [measured] sigma8 IAM matter-sector level-2 chain result  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
@@ -3902,4 +3909,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3122  FAIL 0  (heavy, read from committed outputs: 631)  inventoried-not-run 3212  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3128  FAIL 0  (heavy, read from committed outputs: 632)  inventoried-not-run 3206  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

@@ -717,9 +717,53 @@ _CHAIN_RERUN_B06 = ('chains: rerun with Cobaya from the committed input YAML (mg
                     'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
                     '(no extraction script is committed)')
 
+# helpers of the part0/p0_preface checks
+_B00_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
+                    'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+                    '(no extraction script is committed)')
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
+@check(label='ch:p0_preface:L59', chapter='ch:p0_preface', part=0, title='Planck 2018 H0 (published)',
+       file='part0/p0_preface', line=59, status='observed', kind='num', printed='67.36', tol=0.0)
+def check_3122():
+    'Planck 2018 H0 from the CMB, the photon-sector measurement. Book line 59, printed 67.36. Input: Planck 2018 VI (TT,TE,EE+lowE+lensing), Table 2, H0 = 67.36 +- 0.54 (doi 10.1051/0004-6361/201833910); h_pl is that value / 100.'
+    value = 100 * h_pl
+    return locals()
+
+@check(label='ch:p0_preface:L59:0.54', chapter='ch:p0_preface', part=0, title='Planck 2018 H0 error (published)',
+       file='part0/p0_preface', line=59, status='observed', kind='num', printed='0.54', tol=0.0)
+def check_3123():
+    'One-sigma error of the Planck 2018 H0. Book line 59, printed 0.54. Input: Planck 2018 VI Table 2 (TT,TE,EE+lowE+lensing), H0 = 67.36 +- 0.54 (doi 10.1051/0004-6361/201833910).'
+    H0_planck, sd_planck = 67.36, 0.54     # Planck 2018 VI Table 2
+    value = sd_planck
+    return locals()
+
+@check(label='ch:p0_preface:L60', chapter='ch:p0_preface', part=0, title='SH0ES distance-ladder H0 (published)',
+       file='part0/p0_preface', line=60, status='observed', kind='num', printed='73.04', tol=0.0)
+def check_3124():
+    'SH0ES distance-ladder H0, the matter-sector measurement. Book line 60, printed 73.04. Input: Riess et al. 2022, ApJL 934 L7, H0 = 73.04 +- 1.04 (doi 10.3847/2041-8213/ac5c5b).'
+    H0_shoes, sd_shoes = 73.04, 1.04       # Riess et al. 2022 abstract
+    value = H0_shoes
+    return locals()
+
+@check(label='ch:p0_preface:L60:1.04', chapter='ch:p0_preface', part=0, title='SH0ES H0 error (published)',
+       file='part0/p0_preface', line=60, status='observed', kind='num', printed='1.04', tol=0.0)
+def check_3125():
+    'One-sigma error of the SH0ES H0. Book line 60, printed 1.04. Input: Riess et al. 2022, ApJL 934 L7, H0 = 73.04 +- 1.04 (doi 10.3847/2041-8213/ac5c5b).'
+    H0_shoes, sd_shoes = 73.04, 1.04       # Riess et al. 2022 abstract
+    value = sd_shoes
+    return locals()
+
+@check(label='ch:p0_preface:L60:67.16', chapter='ch:p0_preface', part=0, title='photon-sector H0, Level 2 chain Run A posterior mean',
+       file='part0/p0_preface', line=60, status='calc', kind='file', printed='67.16', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B00_CHAIN_RERUN)
+def check_3126():
+    'Photon-sector H0 with the record term: posterior mean of the Level 2 IAM chain (Run A). Book line 60, printed 67.16. Source: mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv, row iam_level2_runA, column H0.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    return locals()
+
 @check(label='ch:p0_preface:L61', chapter='ch:p0_preface', part=0, title='sigma deviation of IAM photon H0 from Planck',
        file='part0/p0_preface', line=61, status='calc', kind='num', printed='0.37', tol=0.0135)
 def check_0000():
@@ -738,6 +782,14 @@ def check_0001():
     H0_riess=73.04
     sig_riess=1.04
     value=abs(H0_matter-H0_riess)/sig_riess
+    return locals()
+
+@check(label='ch:p0_preface:L61:72.26', chapter='ch:p0_preface', part=0, title='matter-sector H0 = chain H0 x sqrt(1+beta_m)',
+       file='part0/p0_preface', line=61, status='calc', kind='num', printed='72.26', tol=0.0)
+def check_3127():
+    'Matter-sector H0 from the same posterior: the Run A photon-sector H0 times sqrt(1+beta_m), beta_m = Omega_m/2 from the canon. Book line 61, printed 72.26. Inputs: H0 from mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (iam_level2_runA); beta_m from CANON.'
+    H0_ph = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = H0_ph * math.sqrt(1 + beta_m)
     return locals()
 
 @check(label='ch:p0_preface:L62', chapter='ch:p0_preface', part=0, title='sigma8 LCDM-sector level-2 chain result',
@@ -27225,12 +27277,6 @@ INVENTORY = [
     (0, 'ch:p0_preface', 'part0/p0_preface', 53, '', 'none', '72.26', 'H0_matter canon locked result, input'),
     (0, 'ch:p0_preface', 'part0/p0_preface', 54, '', 'none', '67.16', 'H0_photon canon locked result, input'),
     (0, 'ch:p0_preface', 'part0/p0_preface', 55, '', 'prediction', '-0.136', 'IAM prediction mu0, not reproducible'),
-    (0, 'ch:p0_preface', 'part0/p0_preface', 59, '', 'observed', '67.36', 'measured, source not named'),
-    (0, 'ch:p0_preface', 'part0/p0_preface', 59, '', 'observed', '0.54', 'measured, source not named'),
-    (0, 'ch:p0_preface', 'part0/p0_preface', 60, '', 'observed', '73.04', 'measured, source not named'),
-    (0, 'ch:p0_preface', 'part0/p0_preface', 60, '', 'observed', '1.04', 'measured, source not named'),
-    (0, 'ch:p0_preface', 'part0/p0_preface', 60, '', 'calc', '67.16', 'not yet run: draft rejected (no draft returned)'),
-    (0, 'ch:p0_preface', 'part0/p0_preface', 61, '', 'calc', '72.26', 'not yet run: draft rejected (no draft returned)'),
     (0, 'ch:p0_preface', 'part0/p0_preface', 65, '', 'calc', '+0.54', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
     (0, 'ch:p0_preface', 'part0/p0_preface', 65, '', 'calc', '+0.54', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
     (0, 'ch:giants', 'part0/p0_giants', 124, '', 'calc', '7.5', 'not yet run: draft does not reproduce the printed value (recomputed 14.1663); drafting error on review'),

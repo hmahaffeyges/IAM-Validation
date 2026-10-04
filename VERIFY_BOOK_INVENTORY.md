@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3122 PASS, 0 FAIL, 3212 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3128 PASS, 0 FAIL, 3206 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -30,14 +30,14 @@ Totals: 3122 PASS, 0 FAIL, 3212 inventoried and not run. Each run item carries t
 | 53 |  | none | `72.26` | not run: H0_matter canon locked result, input | - |
 | 54 |  | none | `67.16` | not run: H0_photon canon locked result, input | - |
 | 55 |  | prediction | `-0.136` | not run: IAM prediction mu0, not reproducible | - |
-| 59 |  | observed | `67.36` | not run: measured, source not named | - |
-| 59 |  | observed | `0.54` | not run: measured, source not named | - |
-| 60 |  | observed | `73.04` | not run: measured, source not named | - |
-| 60 |  | observed | `1.04` | not run: measured, source not named | - |
-| 60 |  | calc | `67.16` | not run: not yet run: draft rejected (no draft returned) | - |
+| 59 | ch:p0_preface:L59 | observed | `67.36` | numeric: Planck 2018 H0 (published) | PASS |
+| 59 | ch:p0_preface:L59:0.54 | observed | `0.54` | numeric: Planck 2018 H0 error (published) | PASS |
+| 60 | ch:p0_preface:L60 | observed | `73.04` | numeric: SH0ES distance-ladder H0 (published) | PASS |
+| 60 | ch:p0_preface:L60:1.04 | observed | `1.04` | numeric: SH0ES H0 error (published) | PASS |
+| 60 | ch:p0_preface:L60:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level 2 chain Run A posterior mean | PASS |
 | 61 | ch:p0_preface:L61 | calc | `0.37` | numeric: sigma deviation of IAM photon H0 from Planck | PASS |
 | 61 | ch:p0_preface:L61:0.75 | calc | `0.75` | numeric: sigma deviation of IAM matter H0 from Riess22 | PASS |
-| 61 |  | calc | `72.26` | not run: not yet run: draft rejected (no draft returned) | - |
+| 61 | ch:p0_preface:L61:72.26 | calc | `72.26` | numeric: matter-sector H0 = chain H0 x sqrt(1+beta_m) | PASS |
 | 62 | ch:p0_preface:L62 | measured | `0.809` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM-sector level-2 chain result | PASS |
 | 62 | ch:p0_preface:L62:0.800 | measured | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM matter-sector level-2 chain result | PASS |
 | 65 | ch:p0_preface:L65 | calc | `-0.27` | numeric: half Delta-chi2 exponent for likelihood ratio | PASS |
