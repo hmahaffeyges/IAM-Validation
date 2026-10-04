@@ -357,10 +357,13 @@ PASS  ch:virial_identity:L89             ch:virial_identity:p1_04_virial_identit
 PASS  ch:virial_identity:L89:-27.2       ch:virial_identity:p1_04_virial_identity:89  printed -27.2  recomputed -27.2114  tol 0.05  [calc] hydrogen potential energy, repeat
 PASS  ch:virial_identity:L121            ch:virial_identity:p1_04_virial_identity:121  printed 37  recomputed 37  tol 0.500019  [calc] decades 10^-11 m to 10^26 m (book inputs, ch:virial_law line 173)
 PASS  ch:virial_identity:L121:33         ch:virial_identity:p1_04_virial_identity:121  printed 33  recomputed 33  tol 0.500017  [calc] decades spanned atom to cluster, repeat
+PASS  ch:virial_identity:L129            ch:virial_identity:p1_04_virial_identity:129  printed 1.0000000000  recomputed 1  tol 5.000005e-11  [calc] virial ratio -T/E = 1 at the variational optimum (scaling argument)
 PASS  ch:virial_identity:L133            ch:virial_identity:p1_04_virial_identity:133  printed 1.02  recomputed found in file  [observed] measured: printed value found in verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
 PASS  ch:virial_identity:L133:1.17       ch:virial_identity:p1_04_virial_identity:133  printed 1.17  recomputed found in file  [observed] measured: printed value found in verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
+PASS  ch:virial_identity:L133:1.1        ch:virial_identity:p1_04_virial_identity:133  printed 1.1  recomputed 1.12  tol 0.05  [observed] lowest published 2T/|U| of simulated halos (Bett, Neto, Power)  file docs/verification/virial/NBODY_TRACE.md
+PASS  ch:virial_identity:L133:1.3        ch:virial_identity:p1_04_virial_identity:133  printed 1.3  recomputed 1.3  tol 0.05  [observed] highest published 2T/|U| of simulated halos (Bett, Neto, Power)  file docs/verification/virial/NBODY_TRACE.md
 PASS  ch:virial_identity:L139            ch:virial_identity:p1_04_virial_identity:139  printed 0.15765  recomputed 0.15765  tol 5.000005e-06  [calc] beta_m from Omega_m/2 partition
 PASS  ch:virial_identity:L140            ch:virial_identity:p1_04_virial_identity:140  printed 0.3166  recomputed 0.316574  tol 5.002285e-05  [measured] Level2 posterior Omega_m mean  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
@@ -3967,4 +3970,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3173  FAIL 0  (heavy, read from committed outputs: 645)  inventoried-not-run 3161  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3176  FAIL 0  (heavy, read from committed outputs: 645)  inventoried-not-run 3158  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

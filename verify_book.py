@@ -817,6 +817,20 @@ def _b00_desi_mu0():
 
 # ---- growth, three implementations (Eqs. at book lines 525-527)
 
+# helpers of the part1/p1_04_virial_identity checks
+def _b00_nb(source_prefix, pattern):
+    """Numbers from the 'What the source reports' cell of the Table 1 row of NBODY_TRACE.md whose source cell starts with source_prefix
+    (the published N-body virial ratios traced to their pages and figures); pattern is a regex whose groups are the numbers."""
+    for ln in file_text('docs/verification/virial/NBODY_TRACE.md').splitlines():
+        cells = [x.strip() for x in re.split(r'(?<!\\)\|', ln)]
+        if len(cells) > 4 and cells[1].startswith(source_prefix):
+            m = re.search(pattern, cells[3].replace('−', '-'))
+            if m:
+                return tuple(float(g) for g in m.groups())
+    raise KeyError(f'{source_prefix}: {pattern!r} not found in NBODY_TRACE.md')
+
+_B00_NBODY_NOTE = 'record of figure read-offs and fits; arXiv sources traced by hand (docs/verification/virial/NBODY_TRACE.md), no script'
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -3092,6 +3106,17 @@ def check_0247():
     value = math.log10(1e23) - math.log10(1e-10)
     return locals()
 
+@check(label='ch:virial_identity:L129', chapter='ch:virial_identity', part=1, title='virial ratio -T/E = 1 at the variational optimum (scaling argument)',
+       file='part1/p1_04_virial_identity', line=129, status='calc', kind='num', printed='1.0000000000', tol=0.0)
+def check_3173():
+    'Why a converged Hartree-Fock energy has -T/E = 1 exactly: under the scaling r -> r/zeta of any trial wavefunction, T -> zeta^2 T and the Coulomb V -> zeta V; the optimum dE/dzeta = 0 gives zeta* = -V/(2T) and there -T/E = 1 (T/|V| = 1/2) for every T > 0, V < 0. Evaluated symbolically and as a number. Book line 129, printed 1.0000000000. The Hartree-Fock energies of the 20 elements and 10 molecules (Clementi-Roetti 1974, Bunge 1993) are not committed, so the mean over them is not re-read; this is the analytic statement the sentence rests on.'
+    T0, V0, z = sp.symbols('T0 V0 zeta', real=True)
+    E = z**2 * T0 + z * V0
+    zs = sp.solve(sp.diff(E, z), z)[0]
+    ratio = sp.simplify(-(zs**2 * T0) / E.subs(z, zs))
+    value = float(ratio.subs({T0: 1.0, V0: -3.0}))      # an unconverged trial (2T != |V|) still lands on 1 at its optimum
+    return locals()
+
 @check(label='ch:virial_identity:L133', chapter='ch:virial_identity', part=1, title='measured: printed value found in verify_virial_papers_output.txt, a file the chapter names',
        file='part1/p1_04_virial_identity', line=133, status='observed', kind='file', printed='1.02', tol=0.0, source='docs/verification/scripts/verify_virial_papers_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt')
@@ -3106,6 +3131,24 @@ def check_0248():
 def check_0249():
     'measured: printed value found in verify_virial_papers_output.txt, a file the chapter names. Book line 133, printed 1.17.'
     ok = file_has('docs/verification/scripts/verify_virial_papers_output.txt', '1.17')
+    return locals()
+
+@check(label='ch:virial_identity:L133:1.1', chapter='ch:virial_identity', part=1, title='lowest published 2T/|U| of simulated halos (Bett, Neto, Power)',
+       file='part1/p1_04_virial_identity', line=133, status='observed', kind='file', printed='1.1', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3174():
+    'Lower end of 2T/|U| within the virial radius over Bett 2007 (Fig. 4, 1.2-1.3), Neto 2007 (Fig. 2, 1.12-1.26) and Power 2012 (fits, 1.15-1.25), as traced in NBODY_TRACE.md. Book line 133, printed 1.1.'
+    lo = [_b00_nb('Bett', r'2T/\\\|U\\\| ≈ (\d+\.\d+)–(\d+\.\d+)')[0], _b00_nb('Neto', r'i\.e\. ≈ (\d+\.\d+)–(\d+\.\d+)')[0],
+          _b00_nb('Power', r'η ≈ (\d+\.\d+) \(10\^12\) to (\d+\.\d+) \(10\^15\)')[0]]
+    value = min(lo)
+    return locals()
+
+@check(label='ch:virial_identity:L133:1.3', chapter='ch:virial_identity', part=1, title='highest published 2T/|U| of simulated halos (Bett, Neto, Power)',
+       file='part1/p1_04_virial_identity', line=133, status='observed', kind='file', printed='1.3', tol=0.0, source='docs/verification/virial/NBODY_TRACE.md')
+def check_3175():
+    'Upper end of 2T/|U| within the virial radius over Bett 2007, Neto 2007 and Power 2012, as traced in NBODY_TRACE.md. Book line 133, printed 1.3.'
+    hi = [_b00_nb('Bett', r'2T/\\\|U\\\| ≈ (\d+\.\d+)–(\d+\.\d+)')[1], _b00_nb('Neto', r'i\.e\. ≈ (\d+\.\d+)–(\d+\.\d+)')[1],
+          _b00_nb('Power', r'η ≈ (\d+\.\d+) \(10\^12\) to (\d+\.\d+) \(10\^15\)')[1]]
+    value = max(hi)
     return locals()
 
 @check(label='ch:virial_identity:L139', chapter='ch:virial_identity', part=1, title='beta_m from Omega_m/2 partition',
@@ -27868,11 +27911,8 @@ INVENTORY = [
     (1, 'ch:virial_identity', 'part1/p1_04_virial_identity', 24, 'eq:vi_virial', 'none', '', 'virial theorem statement (Clausius 1870), definition'),
     (1, 'ch:virial_identity', 'part1/p1_04_virial_identity', 61, 'eq:vi_dS', 'none', '', 'second law (Clausius inequality), premise'),
     (1, 'ch:virial_identity', 'part1/p1_04_virial_identity', 67, 'eq:vi_EL', 'derived', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
-    (1, 'ch:virial_identity', 'part1/p1_04_virial_identity', 125, '', 'fitted', '(2\\pi)^{3/10}', 'measured, too few printed digits to match against the named files'),
+    (1, 'ch:virial_identity', 'part1/p1_04_virial_identity', 125, '', 'fitted', '(2\\pi)^{3/10}', 'fitted: the factor (2pi)^{3/10} was found by numerical search (the sentence says so); nothing to recompute here, the electron mass it gives is checked in ch:electronmass'),
     (1, 'ch:virial_identity', 'part1/p1_04_virial_identity', 126, '', 'conjecture', '0.3', 'electron-mass agreement precision, cited elsewhere'),
-    (1, 'ch:virial_identity', 'part1/p1_04_virial_identity', 129, '', 'calc', '1.0000000000', 'not yet run: draft rejected (drafter skipped: The printed value 1.0000000000 is the mean virial ratio eta = -T/E across)'),
-    (1, 'ch:virial_identity', 'part1/p1_04_virial_identity', 133, '', 'observed', '1.1', 'measured, too few printed digits to match against the named files'),
-    (1, 'ch:virial_identity', 'part1/p1_04_virial_identity', 133, '', 'observed', '1.3', 'measured, too few printed digits to match against the named files'),
     (1, 'ch:virial_identity', 'part1/p1_04_virial_identity', 140, '', 'none', '-0.13495', 'locked IAM mu0 input, fixed in chains'),
     (2, 'ch:virial', 'part2/p2_02_virial', 39, 'eq:vc_firstlaw', 'none', '', 'definition: IAM horizon first law extension'),
     (2, 'ch:virial', 'part2/p2_02_virial', 70, 'eq:vc_decompose', 'none', '', 'definition: coupling decomposition Om*fcoll*etavir'),

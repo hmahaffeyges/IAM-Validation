@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3173 PASS, 0 FAIL, 3161 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3176 PASS, 0 FAIL, 3158 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -464,13 +464,13 @@ Totals: 3173 PASS, 0 FAIL, 3161 inventoried and not run. Each run item carries t
 | 89 | ch:virial_identity:L89:-27.2 | calc | `-27.2` | numeric: hydrogen potential energy, repeat | PASS |
 | 121 | ch:virial_identity:L121 | calc | `37` | numeric: decades 10^-11 m to 10^26 m (book inputs, ch:virial_law line 173) | PASS |
 | 121 | ch:virial_identity:L121:33 | calc | `33` | numeric: decades spanned atom to cluster, repeat | PASS |
-| 125 |  | fitted | `(2\pi)^{3/10}` | not run: measured, too few printed digits to match against the named files | - |
+| 125 |  | fitted | `(2\pi)^{3/10}` | not run: fitted: the factor (2pi)^{3/10} was found by numerical search (the sentence says so); nothing to recompute here, the electron mass it gives is checked in ch:electronmass | - |
 | 126 |  | conjecture | `0.3` | not run: electron-mass agreement precision, cited elsewhere | - |
-| 129 |  | calc | `1.0000000000` | not run: not yet run: draft rejected (drafter skipped: The printed value 1.0000000000 is the mean virial ratio eta = -T/E across) | - |
+| 129 | ch:virial_identity:L129 | calc | `1.0000000000` | numeric: virial ratio -T/E = 1 at the variational optimum (scaling argument) | PASS |
 | 133 | ch:virial_identity:L133 | observed | `1.02` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 133 | ch:virial_identity:L133:1.17 | observed | `1.17` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
-| 133 |  | observed | `1.1` | not run: measured, too few printed digits to match against the named files | - |
-| 133 |  | observed | `1.3` | not run: measured, too few printed digits to match against the named files | - |
+| 133 | ch:virial_identity:L133:1.1 | observed | `1.1` | file `docs/verification/virial/NBODY_TRACE.md`: lowest published 2T/|U| of simulated halos (Bett, Neto, Power) | PASS |
+| 133 | ch:virial_identity:L133:1.3 | observed | `1.3` | file `docs/verification/virial/NBODY_TRACE.md`: highest published 2T/|U| of simulated halos (Bett, Neto, Power) | PASS |
 | 139 | ch:virial_identity:L139 | calc | `0.15765` | numeric: beta_m from Omega_m/2 partition | PASS |
 | 140 | ch:virial_identity:L140 | measured | `0.3166` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 posterior Omega_m mean | PASS |
 | 140 | ch:virial_identity:L140:0.0065 | measured | `0.0065` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 posterior Omega_m std dev | PASS |
