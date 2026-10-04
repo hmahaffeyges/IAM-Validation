@@ -28029,6 +28029,22 @@ def check_2312():
     value=1/(2*math.pi*19.6e6)*1e9
     return locals()
 
+@check(label='ch:thermaln:L27:19.6', chapter='ch:thermaln', part=5, title='Yb+ 369 nm linewidth Gamma/2pi from the lifetime, MHz',
+       file='part3/p3_04_thermal_n', line=27, status='calc', kind='num', printed='19.6', tol=0.0)
+def check_3748():
+    'Natural linewidth Gamma/2pi = 1/(2 pi tau) of the Yb+ 369 nm line from the measured lifetime. Book line 27, printed 19.6 MHz. Input: tau = 8.12 ns (Olmschenk2009, as quoted in the book).'
+    tau = 8.12e-9
+    value = 1 / (2 * math.pi * tau) / 1e6
+    return locals()
+
+@check(label='ch:thermaln:L36', chapter='ch:thermaln', part=5, title='temperature at which M = hf/k_BT doubles from 35 mK, mK',
+       file='part3/p3_04_thermal_n', line=36, status='calc', kind='num', printed='17.5', tol=0.0)
+def check_3749():
+    'The temperature at which M = hf/(k_B T) at 5 GHz is twice its value at 35 mK, solved with brentq (halving T doubles M). Book line 36, printed 17.5 mK. Inputs: 5 GHz, 35 mK (book).'
+    M = lambda T: h * 5e9 / (kB * T)
+    value = 1e3 * brentq(lambda T: M(T) - 2 * M(0.035), 1e-3, 0.034, xtol=1e-12)
+    return locals()
+
 @check(label='ch:thermaln:L37', chapter='ch:thermaln', part=5, title='p_eq at 35 mK',
        file='part3/p3_04_thermal_n', line=37, status='calc', kind='num', printed='1.05\\times10^{-3}', tol=0)
 def check_2313():
@@ -33973,8 +33989,6 @@ INVENTORY = [
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 86, '', 'calc', '68', 'measured, source not named'),
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 89, '', 'calc', '10', 'input: surface-code threshold about 1e-2 quoted from Fowler2012 (doi:10.1103/physreva.86.032324), an order of magnitude'),
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 90, '', 'calc', '10', 'input: fault-tolerance target about 1e-3 quoted from Fowler2012 and GoogleWillow2025, an order of magnitude'),
-    (5, 'ch:thermaln', 'part3/p3_04_thermal_n', 27, '', 'calc', '19.6', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:thermaln', 'part3/p3_04_thermal_n', 36, '', 'calc', '17.5', 'not yet run: draft rejected (printed value typed into the code)'),
     (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 7, 'eq:pdecomp', 'derived', '', 'not yet run: draft rejected (drafter skipped: The item references line 7, which displays the equation p_2Q = p_coh + p_)'),
     (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 44, '', 'observed', '0.3', 'measured, too few printed digits to match against the named files'),
     (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 44, '', 'observed', '0.5', 'measured, too few printed digits to match against the named files'),

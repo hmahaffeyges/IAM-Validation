@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3748 PASS, 0 FAIL, 2590 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3750 PASS, 0 FAIL, 2588 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4080,8 +4080,8 @@ Totals: 3748 PASS, 0 FAIL, 2590 inventoried and not run. Each run item carries t
 | 15 | ch:thermaln:L15:16.0 | calc | `16.0` | numeric: slope at 15 mK | PASS |
 | 27 | ch:thermaln:L27 | calc | `0.47` | numeric: Doppler limit hbar Gamma/2k_B, Yb+ 369 nm, mK | PASS |
 | 27 | ch:thermaln:L27:8.12 | calc | `8.12` | numeric: tau = 1/Gamma, ns | PASS |
-| 27 |  | calc | `19.6` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 36 |  | calc | `17.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 27 | ch:thermaln:L27:19.6 | calc | `19.6` | numeric: Yb+ 369 nm linewidth Gamma/2pi from the lifetime, MHz | PASS |
+| 36 | ch:thermaln:L36 | calc | `17.5` | numeric: temperature at which M = hf/k_BT doubles from 35 mK, mK | PASS |
 | 37 | ch:thermaln:L37 | calc | `1.05\times10^{-3}` | numeric: p_eq at 35 mK | PASS |
 | 37 | ch:thermaln:L37:1.1\times10^{-6} | calc | `1.1\times10^{-6}` | numeric: p_eq at 17.5 mK | PASS |
 | 37 | ch:thermaln:L37:6.86 | calc | `6.86` | numeric: M at 35 mK | PASS |

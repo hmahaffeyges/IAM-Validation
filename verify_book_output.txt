@@ -3922,6 +3922,8 @@ PASS  ch:thermaln:L15                    ch:thermaln:p3_04_thermal_n:15  printed
 PASS  ch:thermaln:L15:16.0               ch:thermaln:p3_04_thermal_n:15  printed 16.0  recomputed 15.9975  tol 0.05  [calc] slope at 15 mK
 PASS  ch:thermaln:L27                    ch:thermaln:p3_04_thermal_n:27  printed 0.47  recomputed 0.470326  tol 0.00500001  [calc] Doppler limit hbar Gamma/2k_B, Yb+ 369 nm, mK
 PASS  ch:thermaln:L27:8.12               ch:thermaln:p3_04_thermal_n:27  printed 8.12  recomputed 8.12015  tol 0.00500001  [calc] tau = 1/Gamma, ns
+PASS  ch:thermaln:L27:19.6               ch:thermaln:p3_04_thermal_n:27  printed 19.6  recomputed 19.6004  tol 0.05  [calc] Yb+ 369 nm linewidth Gamma/2pi from the lifetime, MHz
+PASS  ch:thermaln:L36                    ch:thermaln:p3_04_thermal_n:36  printed 17.5  recomputed 17.5  tol 0.05  [calc] temperature at which M = hf/k_BT doubles from 35 mK, mK
 PASS  ch:thermaln:L37                    ch:thermaln:p3_04_thermal_n:37  printed 1.05\times10^{-3}  recomputed 0.00105195  tol 5.000005e-06  [calc] p_eq at 35 mK
 PASS  ch:thermaln:L37:1.1\times10^{-6}   ch:thermaln:p3_04_thermal_n:37  printed 1.1\times10^{-6}  recomputed 1.108920e-06  tol 5.000005e-08  [calc] p_eq at 17.5 mK
 PASS  ch:thermaln:L37:6.86               ch:thermaln:p3_04_thermal_n:37  printed 6.86  recomputed 6.85606  tol 0.00500001  [calc] M at 35 mK
@@ -4644,4 +4646,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3748  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2590  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3750  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2588  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
