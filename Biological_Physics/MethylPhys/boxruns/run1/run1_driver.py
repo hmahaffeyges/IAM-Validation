@@ -21,15 +21,25 @@ betas of DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01/betas) where they exist an
      apod_deg, taper)). The driver detects it: if the installed sky_statistics has no `mask` parameter, D is BLOCKED ("apodised mask
      (PR #18) not merged yet"); if it has it, D runs both masks on the same block shuffles. Width: --apod-deg (default 2.0).
   E  Atlas composition (atlas_e) on bloods with known composition. Runs only if GSE112618 or GSE182379 has been downloaded first;
-     JOBS.md gives no S3 location for them, so their location is passed with --job-e-prefix / --job-e-dir. Otherwise SKIPPED.
+     JOBS.md gives no S3 location for them, so their location is passed with --job-e-prefix / --job-e-dir. Without one, or when the
+     given location holds no files, E is SKIPPED with the reason in the log and in state.json (not a failure; exit code unaffected).
+
+Default locations (the author's instruction; --options override them)
+  GSE128733 (job A, 2 EPIC arrays)  s3://<bucket>/downloads/G_chain_tests/neutrophil_ref_GSE128733/   (--gse128733-prefix / --gse128733-dir)
+  atlas v2 (jobs D and E)           s3://<bucket>/atlas_v2/IAMAtlas_v2.parquet, synced to <work>/data/atlas_v2/  (--atlas-v2 /
+                                    CPG_ATLAS_V2_PARQUET). The author elided the bucket; it is assumed to be the same bucket as above.
+  S3 access                         boto3 with the default credential chain (credentials configured on the box; the instance has no
+                                    IAM role). --aws-region / --aws-profile are passed to the boto3 session only when given.
 
 How it runs
 -----------
     # plan only (no S3, no jobs, no shutdown)
     python3 run1_driver.py --work /home/ubuntu/data/boxrun1 --dry-run
-    # the run (aws CLI with the instance's credentials; stops the instance when done or on a crash)
-    python3 run1_driver.py --work /home/ubuntu/data/boxrun1 --python /home/ubuntu/env/bin/python \
-        --atlas-v2 /path/IAMAtlas_v2.parquet --gse128733-prefix <key prefix where the 2 arrays were uploaded>
+    # the run (boto3, default credential chain; GSE128733 and the atlas from their default locations; stops the instance at the end
+    # and on a crash)
+    python3 run1_driver.py --work /home/ubuntu/data/boxrun1 --python /home/ubuntu/env/bin/python
+    # job E as well, once GSE112618 / GSE182379 are in the bucket
+    python3 run1_driver.py --work /home/ubuntu/data/boxrun1 --python /home/ubuntu/env/bin/python --job-e-prefix <key prefix>
     # local test (JOBS.md "still to do" 4): 3 arrays per set, shutdown switched off, a local directory standing in for the bucket
     python3 run1_driver.py --work /tmp/r1 --s3-local-root /tmp/fake_bucket --limit-arrays 3 --no-shutdown
 
@@ -80,6 +90,15 @@ INPUTS = {
     "longitudinal":     ("downloads/G_chain_tests/longitudinal", 18, 7.6, "B"),
     "neutrophil_state": ("downloads/G_chain_tests/neutrophil_state", 8, 2.5, "B"),
 }
+# the 2 GSE128733 purified-neutrophil arrays of job A (JOBS.md: "local, to upload"); the author gave this location (2 EPIC arrays).
+# Default for job A; --gse128733-prefix / --gse128733-dir override it. Size from the JOBS.md table (4 files, 0.03 GB).
+GSE128733_PREFIX_DEFAULT = "downloads/G_chain_tests/neutrophil_ref_GSE128733"
+GSE128733_GB = 0.03
+# atlas v2 parquet (jobs D and E). The author wrote "s3://.../atlas_v2/IAMAtlas_v2.parquet" with the bucket elided; ASSUMPTION (to be
+# confirmed by the author): it is the same bucket as every other input of JOBS.md, i.e. s3://<BUCKET>/atlas_v2/IAMAtlas_v2.parquet.
+# Synced to <work>/data/atlas_v2/IAMAtlas_v2.parquet and used when neither --atlas-v2 nor CPG_ATLAS_V2_PARQUET is given.
+ATLAS_V2_KEY_DEFAULT = "atlas_v2/IAMAtlas_v2.parquet"
+ATLAS_JOBS = "DE"
 B_SETS = ["healthy_repeat", "infection", "myeloid", "autoimmune", "prediagnosis", "longitudinal", "neutrophil_state"]
 
 JOB_ORDER = ["A", "B", "C", "D", "E"]
@@ -164,38 +183,94 @@ class Log:
 
 
 # ------------------------------------------------------------------------------------------------ S3 (injectable)
-class AwsCliStore:
-    """The bucket through the aws CLI (credentials from the instance role / environment; none are stored here)."""
+def _s3_missing(e):
+    """True if a boto3/botocore error says the key is not there (ClientError 404 / NoSuchKey / NotFound)."""
+    code = str(((getattr(e, "response", None) or {}).get("Error") or {}).get("Code", ""))
+    return code in ("404", "NoSuchKey", "NotFound")
 
-    def __init__(self, bucket=BUCKET, aws="aws", region=None, run=subprocess.run):
-        self.bucket = bucket; self.aws = aws; self.region = region; self.run = run
+
+class Boto3Store:
+    """The bucket through boto3 with the DEFAULT credential chain (e.g. environment variables, or ~/.aws/credentials and ~/.aws/config
+    on the box): no keys, no role assumption and no profile are set here; --aws-profile / --aws-region are passed on only when given.
+    Sync semantics: a download skips a local file that already exists with the same size; an upload skips a key
+    that already exists with the same size and is not older than the local file."""
+
+    def __init__(self, bucket=BUCKET, region=None, profile=None, client=None):
+        self.bucket = bucket; self.region = region; self.profile = profile
+        if client is None:
+            try:
+                import boto3
+            except ImportError:
+                raise SystemExit("boto3 is not installed in the python running run1_driver.py; it is needed for S3 "
+                                 "(pip install boto3), or use --s3-local-root for a local test")
+            kw = {"region_name": region}
+            if profile:
+                kw["profile_name"] = profile
+            client = boto3.session.Session(**kw).client("s3")
+        self.client = client
 
     def uri(self, key):
         return f"s3://{self.bucket}/{key.lstrip('/')}"
 
-    def _cmd(self, *args):
-        c = [self.aws, "s3", *args, "--only-show-errors"]
-        if self.region:
-            c += ["--region", self.region]
-        r = self.run(c, capture_output=True, text=True)
-        if r.returncode != 0:
-            raise RuntimeError(f"aws s3 {' '.join(args)} failed ({r.returncode}): {(r.stderr or r.stdout)[-500:]}")
-        return r
+    def _list(self, prefix):
+        """(key, size, last_modified) of every object under prefix/ (paginated)."""
+        pfx = prefix.strip("/") + "/"
+        for page in self.client.get_paginator("list_objects_v2").paginate(Bucket=self.bucket, Prefix=pfx):
+            for o in page.get("Contents", []) or []:
+                if not o["Key"].endswith("/"):
+                    yield o["Key"], o["Size"], o.get("LastModified")
+
+    def has_files(self, prefix):
+        return next(iter(self._list(prefix)), None) is not None
 
     def download_prefix(self, prefix, dest):
-        os.makedirs(dest, exist_ok=True); self._cmd("sync", self.uri(prefix.rstrip("/") + "/"), dest)
+        os.makedirs(dest, exist_ok=True); pfx = prefix.strip("/") + "/"
+        for key, size, _lm in self._list(prefix):
+            local = os.path.join(dest, *key[len(pfx):].split("/"))
+            if os.path.isfile(local) and os.path.getsize(local) == size:
+                continue
+            os.makedirs(os.path.dirname(local), exist_ok=True)
+            self.client.download_file(self.bucket, key, local)
+
+    def _head_size(self, key):
+        try:
+            return self.client.head_object(Bucket=self.bucket, Key=key)["ContentLength"]
+        except Exception as e:
+            if _s3_missing(e):
+                return None
+            raise
 
     def download_file(self, key, dest):
         """True if the key existed and was copied, False if it is not there."""
-        c = [self.aws, "s3", "cp", self.uri(key), dest, "--only-show-errors"] + (["--region", self.region] if self.region else [])
-        r = self.run(c, capture_output=True, text=True)
-        return r.returncode == 0 and os.path.exists(dest)
+        if self._head_size(key) is None:
+            return False
+        os.makedirs(os.path.dirname(os.path.abspath(dest)), exist_ok=True)
+        self.client.download_file(self.bucket, key, dest)
+        return os.path.exists(dest)
+
+    def sync_file(self, key, dest):
+        """Copy one key to dest unless dest already has the same size. True if dest is there afterwards, False if the key is not."""
+        size = self._head_size(key)
+        if size is None:
+            return False
+        if not (os.path.isfile(dest) and os.path.getsize(dest) == size):
+            os.makedirs(os.path.dirname(os.path.abspath(dest)), exist_ok=True)
+            self.client.download_file(self.bucket, key, dest)
+        return os.path.exists(dest)
 
     def upload_file(self, path, key):
-        self._cmd("cp", path, self.uri(key))
+        self.client.upload_file(path, self.bucket, key.lstrip("/"))
 
     def upload_dir(self, path, prefix):
-        self._cmd("sync", path, self.uri(prefix.rstrip("/") + "/"))
+        pfx = prefix.strip("/") + "/"
+        remote = {k: (sz, lm) for k, sz, lm in self._list(prefix)}
+        for root, _d, files in os.walk(path):
+            for fn in files:
+                p = os.path.join(root, fn); key = pfx + os.path.relpath(p, path).replace(os.sep, "/")
+                r = remote.get(key)
+                if r and r[0] == os.path.getsize(p) and r[1] is not None and r[1].timestamp() >= os.path.getmtime(p):
+                    continue
+                self.client.upload_file(p, self.bucket, key)
 
 
 class LocalStore:
@@ -213,11 +288,22 @@ class LocalStore:
             raise RuntimeError(f"input prefix not found in the store: {prefix}")
         shutil.copytree(src, dest, dirs_exist_ok=True)
 
+    def has_files(self, prefix):
+        return any(files for _r, _d, files in os.walk(self.uri(prefix)))
+
     def download_file(self, key, dest):
         src = self.uri(key)
         if not os.path.isfile(src):
             return False
         os.makedirs(os.path.dirname(os.path.abspath(dest)), exist_ok=True); shutil.copy2(src, dest); return True
+
+    def sync_file(self, key, dest):
+        src = self.uri(key)
+        if not os.path.isfile(src):
+            return False
+        if not (os.path.isfile(dest) and os.path.getsize(dest) == os.path.getsize(src)):
+            os.makedirs(os.path.dirname(os.path.abspath(dest)), exist_ok=True); shutil.copy2(src, dest)
+        return True
 
     def upload_file(self, path, key):
         dst = self.uri(key); os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copy2(path, dst)
@@ -372,6 +458,39 @@ def sky_mask_support(chain_dir):
     return True, ""
 
 
+E_SKIP_NOT_GIVEN = ("job E skipped: inputs absent (GSE112618 / GSE182379 location not given: --job-e-prefix / --job-e-dir; "
+                    "JOBS.md: job E runs only if one of them has been downloaded first)")
+
+
+def atlas_desc(cfg):
+    if cfg.atlas_v2_key:
+        return f"{cfg.atlas_v2} (synced from s3://{BUCKET}/{cfg.atlas_v2_key}; --atlas-v2 / CPG_ATLAS_V2_PARQUET override it)"
+    return f"{cfg.atlas_v2} (--atlas-v2 / CPG_ATLAS_V2_PARQUET)"
+
+
+def job_e_absent(store, cfg):
+    """None if job E has input files, else the reason it is skipped: no location given, or no file under any given location.
+    A prefix is looked up in the store (in <work>/data/<prefix> with --skip-input-sync); a folder on the local disk."""
+    if not (cfg.job_e_prefix or cfg.job_e_dir):
+        return E_SKIP_NOT_GIVEN
+    looked = []
+    for p in cfg.job_e_prefix:
+        if cfg.skip_input_sync:
+            d = os.path.join(cfg.data_dir, p)
+            if any(f for _r, _d, f in os.walk(d)):
+                return None
+            looked.append(d)
+        else:
+            if store.has_files(p):
+                return None
+            looked.append(store.uri(p.strip("/") + "/"))
+    for d in cfg.job_e_dir:
+        if any(f for _r, _d, f in os.walk(d)):
+            return None
+        looked.append(d)
+    return f"job E skipped: inputs absent (no files under {', '.join(looked)})"
+
+
 def requirements(job, cfg):
     """(status, reasons): status 'ok', 'blocked' (a requirement is missing) or 'skipped' (JOBS.md's own run condition is not met).
     Only for the default worker commands; a --job-cmd override is the operator's own command and is not checked."""
@@ -384,8 +503,8 @@ def requirements(job, cfg):
             reasons.append(f"array manifest not found: {cfg.manifest}")
     if job == "A":
         if not (cfg.gse128733_prefix or cfg.gse128733_dir):
-            reasons.append("the 2 GSE128733 arrays (JOBS.md: 'local, to upload') have no location: JOBS.md gives no S3 prefix for them; "
-                           "pass --gse128733-prefix <key prefix in the bucket> or --gse128733-dir <local folder>")
+            reasons.append("the 2 GSE128733 arrays have no location: pass --gse128733-prefix <key prefix in the bucket> or "
+                           f"--gse128733-dir <local folder> (default prefix {GSE128733_PREFIX_DEFAULT})")
         st = os.path.join(cfg.chain_dir, "Runtime Matrices", "Development", "dev_selftare_typeII_EPIC_v1.json")
         if not os.path.isfile(st):
             reasons.append(f"self-tare II runtime file not found: {st}")
@@ -399,13 +518,12 @@ def requirements(job, cfg):
         if not os.path.isfile(cfg.manifest):
             reasons.append(f"array manifest not found: {cfg.manifest}")
         if not (cfg.atlas_v2 and os.path.isfile(cfg.atlas_v2)):
-            reasons.append("--atlas-v2 parquet not given or not found (the sky needs the atlas v2 parent means; JOBS.md does not list it as an input)")
+            reasons.append(f"atlas v2 parquet not found: {atlas_desc(cfg)} (the sky needs the atlas v2 parent means)")
     if job == "E":
         if not (cfg.job_e_prefix or cfg.job_e_dir):
-            return "skipped", ["JOBS.md: job E runs only if GSE112618 or GSE182379 has been downloaded first; no location was given "
-                               "(--job-e-prefix / --job-e-dir; JOBS.md names no S3 prefix for them)"]
+            return "skipped", [E_SKIP_NOT_GIVEN]
         if not (cfg.atlas_v2 and os.path.isfile(cfg.atlas_v2)):
-            reasons.append("--atlas-v2 parquet not given or not found (atlas_e needs it; JOBS.md does not list it as an input)")
+            reasons.append(f"atlas v2 parquet not found: {atlas_desc(cfg)} (atlas_e needs it)")
     return ("blocked" if reasons else "ok"), reasons
 
 
@@ -490,6 +608,21 @@ class Config:
     pass
 
 
+def sync_atlas(store, cfg, job, log):
+    """Jobs D and E with the default atlas: copy s3://<bucket>/atlas_v2/IAMAtlas_v2.parquet to <work>/data/ unless it is already
+    there with the same size. A failure is logged; requirements() then blocks the job with the reason."""
+    if not cfg.atlas_v2_key or cfg.skip_input_sync:
+        return
+    t0 = time.time()
+    try:
+        if store.sync_file(cfg.atlas_v2_key, cfg.atlas_v2):
+            log(f"[{job}] atlas v2 ready", cfg.atlas_v2_key, f"{time.time() - t0:.0f}s")
+        else:
+            log(f"[{job}] atlas v2 not found in the store: {cfg.atlas_v2_key}")
+    except Exception as e:
+        log(f"[{job}] atlas v2 sync failed: {type(e).__name__}: {str(e)[:300]}")
+
+
 def make_config(a):
     cfg = Config()
     cfg.work = os.path.abspath(a.work)
@@ -501,9 +634,13 @@ def make_config(a):
     cfg.python = a.python
     cfg.workers = a.workers
     cfg.limit_arrays = a.limit_arrays
-    cfg.atlas_v2 = a.atlas_v2
+    cfg.atlas_v2 = a.atlas_v2; cfg.atlas_v2_key = None
+    if not cfg.atlas_v2:                       # default: the atlas in the bucket, synced to the work dir (jobs D and E)
+        cfg.atlas_v2_key = ATLAS_V2_KEY_DEFAULT
+        cfg.atlas_v2 = os.path.join(cfg.data_dir, *ATLAS_V2_KEY_DEFAULT.split("/"))
     cfg.apod_deg = a.apod_deg
-    cfg.gse128733_prefix = a.gse128733_prefix
+    # job A: the default GSE128733 prefix unless --gse128733-prefix or --gse128733-dir is given (either one overrides it)
+    cfg.gse128733_prefix = a.gse128733_prefix or (None if a.gse128733_dir else GSE128733_PREFIX_DEFAULT)
     cfg.gse128733_dir = a.gse128733_dir or []
     cfg.job_e_prefix = a.job_e_prefix or []
     cfg.job_e_dir = a.job_e_dir or []
@@ -532,6 +669,7 @@ def print_plan(cfg, store_desc, state, shutdown_desc):
     p(f"  log           {cfg.results_dir}/{LOG_NAME} -> {RESULTS_PREFIX}/{LOG_NAME}")
     p(f"  state         {cfg.results_dir}/{STATE_NAME} -> {RESULTS_PREFIX}/{STATE_NAME}")
     p(f"  shutdown      {shutdown_desc}")
+    p(f"  atlas v2      {atlas_desc(cfg)}")
     seen = {}
     for j in JOB_ORDER:
         js = state.data["jobs"].get(j, {})
@@ -539,9 +677,11 @@ def print_plan(cfg, store_desc, state, shutdown_desc):
         out_dir = os.path.join(cfg.results_dir, j)
         cmd, override = job_command(j, cfg, out_dir)
         stat, why = ("ok", []) if override else requirements(j, cfg)
+        if cfg.atlas_v2_key and stat == "blocked":     # the default atlas is synced at run time, before the check
+            why = [w for w in why if not w.startswith("atlas v2 parquet not found")]; stat = "blocked" if why else "ok"
         p(f"\n[{j}] {JOB_TITLES[j]}  - {sel}; state: {js.get('status', 'pending')}")
         for pre, loc in job_inputs(j, cfg):
-            gb = next((v[2] for v in INPUTS.values() if v[0] == pre), None)
+            gb = next((v[2] for v in INPUTS.values() if v[0] == pre), GSE128733_GB if pre == GSE128733_PREFIX_DEFAULT else None)
             if j in cfg.only:
                 seen[pre] = gb
             p(f"    input   s3://{BUCKET}/{pre}/" + (f"  ({gb} GB)" if gb is not None else ""))
@@ -549,6 +689,10 @@ def print_plan(cfg, store_desc, state, shutdown_desc):
         p(f"    outputs {out_dir}/ -> {RESULTS_PREFIX}/{j}/ ; required {REQUIRED_OUTPUTS[j]}")
         if j in BARS:
             p(f"    bars    checked by the driver ({BARS[j].__doc__.splitlines()[0]})")
+        if j in ATLAS_JOBS and cfg.atlas_v2_key:
+            p(f"    atlas   s3://{BUCKET}/{cfg.atlas_v2_key} -> {cfg.atlas_v2} (synced before the job)")
+        if j == "E" and stat == "ok" and not override:
+            why = ["inputs are checked for files at run time (an empty location skips E)"]
         p(f"    ready   {stat}" + ("".join(f"\n            - {w}" for w in why)))
     known = [g for g in seen.values() if g is not None]
     p(f"\nInputs of the selected jobs: {len(seen)} prefixes, about {sum(known):.1f} GB from the JOBS.md table"
@@ -621,7 +765,13 @@ def run_job(j, cfg, state, store, log):
     if js.get("status") in ("running", "interrupted"):
         log(f"[{j}] was interrupted in an earlier run (status {js['status']}, started {js.get('started')}): restarting it cleanly")
     cmd, override = job_command(j, cfg, out_dir)
-    stat, why = ("ok", []) if override else requirements(j, cfg)
+    e_skip = job_e_absent(store, cfg) if (j == "E" and not override) else None
+    if e_skip:
+        stat, why = "skipped", [e_skip]
+    else:
+        if j in ATLAS_JOBS:
+            sync_atlas(store, cfg, j, log)          # before the requirement check, which looks for the local file
+        stat, why = ("ok", []) if override else requirements(j, cfg)
     if stat != "ok":
         js.update(status=stat, reason=why, finished=utcnow(), outputs={}); state.save()
         for w in why:
@@ -701,8 +851,8 @@ def build_parser():
     ap.add_argument("--job-timeout", type=float, default=None, help="seconds before a job command is killed (default: none)")
     g = ap.add_argument_group("S3")
     g.add_argument("--bucket", default=BUCKET, help=f"bucket (JOBS.md: {BUCKET})")
-    g.add_argument("--aws-cli", default="aws", help="aws CLI executable (credentials from the instance role/environment)")
-    g.add_argument("--aws-region", default=None, help="region passed to the aws CLI (default: the CLI's own configuration)")
+    g.add_argument("--aws-region", default=None, help="region of the boto3 session (default: boto3's own configuration)")
+    g.add_argument("--aws-profile", default=None, help="named profile for the boto3 session (default: none, the default credential chain)")
     g.add_argument("--s3-local-root", default=None, help="use this local directory as the bucket instead of S3 (tests, local test)")
     g.add_argument("--skip-input-sync", action="store_true", help="do not download inputs (they are already under <work>/data/<prefix>)")
     g = ap.add_argument_group("chain and inputs")
@@ -711,13 +861,18 @@ def build_parser():
     g.add_argument("--manifest", default=MANIFEST_DEFAULT, help="array manifest (DEV-BASE-CHAIN-01)")
     g.add_argument("--workers", type=int, default=os.cpu_count() or 4, help="arrays read in parallel inside a job")
     g.add_argument("--limit-arrays", type=int, default=None, help="read at most N arrays per set (JOBS.md local test: 3)")
-    g.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"), help="atlas v2 parquet (jobs D and E; not stored in the repository)")
+    g.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"),
+                   help=f"atlas v2 parquet on the local disk (jobs D and E; default: s3://{BUCKET}/{ATLAS_V2_KEY_DEFAULT} synced to "
+                        f"<work>/data/{ATLAS_V2_KEY_DEFAULT}; CPG_ATLAS_V2_PARQUET also overrides it)")
     g.add_argument("--apod-deg", type=float, default=APOD_DEG_DEFAULT,
                    help="job D: width of the apodised mask in degrees (PR #18 default 2.0; taper C2). PR #18 warns that the real sky's "
                         "scattered holes may need a small width (e.g. 0.5 deg)")
-    g.add_argument("--gse128733-prefix", default=None, help="key prefix in the bucket where the 2 GSE128733 arrays were uploaded (job A)")
-    g.add_argument("--gse128733-dir", action="append", help="local folder holding the 2 GSE128733 IDAT pairs (job A)")
-    g.add_argument("--job-e-prefix", action="append", help="key prefix in the bucket holding GSE112618 / GSE182379 (job E; repeatable)")
+    g.add_argument("--gse128733-prefix", default=None,
+                   help=f"key prefix in the bucket holding the 2 GSE128733 arrays (job A; default {GSE128733_PREFIX_DEFAULT})")
+    g.add_argument("--gse128733-dir", action="append",
+                   help="local folder holding the 2 GSE128733 IDAT pairs (job A; replaces the default prefix unless --gse128733-prefix is also given)")
+    g.add_argument("--job-e-prefix", action="append",
+                   help="key prefix in the bucket holding GSE112618 / GSE182379 (job E; repeatable). Without one (or with no files there) E is skipped")
     g.add_argument("--job-e-dir", action="append", help="local folder holding GSE112618 / GSE182379 IDATs (job E; repeatable)")
     g.add_argument("--job-cmd", action="append", metavar="JOB=COMMAND",
                    help="replace a job's command (tests, local runs); placeholders {python} {driver} {work} {out} {data} {job}")
@@ -725,22 +880,45 @@ def build_parser():
 
 
 def main(argv=None, store=None, shutdown=None):
-    """Returns the exit code. store / shutdown are injectable (tests): store has download_prefix, download_file, upload_file,
-    upload_dir; shutdown(log) stops the instance."""
+    """Returns the exit code. store / shutdown are injectable (tests): store has uri, has_files, download_prefix, download_file,
+    sync_file, upload_file, upload_dir; shutdown(log) stops the instance."""
     argv = list(sys.argv[1:] if argv is None else argv)
     if argv[:1] == ["worker"]:
         return worker_main(argv[1:])
     a = build_parser().parse_args(argv)
     cfg = make_config(a)
-    if store is None:
-        store = LocalStore(a.s3_local_root) if a.s3_local_root else AwsCliStore(a.bucket, a.aws_cli, a.aws_region)
     if shutdown is None:
         shutdown = make_shutdown(a.shutdown_cmd)
     state = State(os.path.join(cfg.results_dir, STATE_NAME))
     if a.dry_run:
         state.load()
-        print_plan(cfg, getattr(store, "bucket", str(store)), state, "off (--no-shutdown)" if a.no_shutdown else a.shutdown_cmd)
+        if store is not None:
+            desc = getattr(store, "bucket", str(store))
+        elif a.s3_local_root:
+            desc = f"local:{os.path.abspath(a.s3_local_root)}"
+        else:
+            desc = (f"s3://{a.bucket} (boto3, default credential chain" + (f", profile {a.aws_profile}" if a.aws_profile else "")
+                    + (f", region {a.aws_region}" if a.aws_region else "") + ")")
+        print_plan(cfg, desc, state, "off (--no-shutdown)" if a.no_shutdown else a.shutdown_cmd)
         return EXIT_OK
+    if store is None:
+        if a.s3_local_root:
+            store = LocalStore(a.s3_local_root)
+        else:
+            try:
+                store = Boto3Store(a.bucket, a.aws_region, a.aws_profile)      # fails here, before any job, if boto3 is missing
+            except SystemExit as e:                                             # no S3: log locally, still stop the instance
+                print(f"run1_driver.py: {e}", file=sys.stderr)
+                os.makedirs(cfg.results_dir, exist_ok=True)
+                log = Log(os.path.join(cfg.results_dir, LOG_NAME))
+                log(f"DRIVER CRASH before any job: {e}")
+                log("shutdown skipped (--no-shutdown)" if a.no_shutdown else f"stopping the instance now (exit code {EXIT_CRASH})")
+                if not a.no_shutdown:
+                    try:
+                        shutdown(log)
+                    except Exception as e2:
+                        log("SHUTDOWN failed:", type(e2).__name__, e2)
+                return EXIT_CRASH
 
     os.makedirs(cfg.results_dir, exist_ok=True)
     log = Log(os.path.join(cfg.results_dir, LOG_NAME))
