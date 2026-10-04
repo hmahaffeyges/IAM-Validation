@@ -2775,6 +2775,7 @@ PASS  ch:entanglement:L53                ch:entanglement:p2_21_entanglement_reco
 PASS  ch:entanglement:L89                ch:entanglement:p2_21_entanglement_records:89  printed 2.2\times10^{-10}  recomputed 2.232297e-10  tol 5.000005e-12  [calc] tau_IAM = tau_PD at 10 mK, silica
 PASS  ch:entanglement:L94                ch:entanglement:p2_21_entanglement_records:94  printed 1.42  recomputed found in file  [observed] measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names  file docs/verification/scripts/verify_entanglement_electroweak_output.txt
       heavy: python3 docs/verification/scripts/verify_entanglement_electroweak.py > docs/verification/scripts/verify_entanglement_electroweak_output.txt
+PASS  ch:entanglement:L94:4.6\times10^{-25} ch:entanglement:p2_21_entanglement_records:94  printed 4.6\times10^{-25}  recomputed 4.635295e-25  tol 5.000005e-27  [observed] top-quark lifetime hbar/Gamma_t, Gamma_t = 1.42 GeV
 
 == Part 4: Particles and Quantum Records | ch:measurement (part5/p5_04_measurement.tex)
 PASS  ch:measurement:L28                 ch:measurement:p5_04_measurement:28  printed 0.800  recomputed found in file  [measured] measured: printed value found in PAPER_ERRATA.md, a file the chapter names  file docs/verification/PAPER_ERRATA.md
@@ -3862,4 +3863,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3084  FAIL 0  (heavy, read from committed outputs: 629)  inventoried-not-run 3250  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3085  FAIL 0  (heavy, read from committed outputs: 629)  inventoried-not-run 3249  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

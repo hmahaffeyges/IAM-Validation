@@ -36601,6 +36601,23 @@
   "source": "docs/verification/scripts/verify_entanglement_electroweak_output.txt"
  },
  {
+  "label": "ch:entanglement:L94:4.6\\times10^{-25}",
+  "title": "top-quark lifetime hbar/Gamma_t, Gamma_t = 1.42 GeV",
+  "part": 4,
+  "chapter": "ch:entanglement",
+  "file": "part2/p2_21_entanglement_records",
+  "line": 94,
+  "status": "observed",
+  "kind": "num",
+  "printed": "4.6\\times10^{-25}",
+  "recomputed": "4.635295e-25",
+  "tol": 5.000005e-27,
+  "passed": true,
+  "note": "",
+  "heavy": false,
+  "source": ""
+ },
+ {
   "label": "ch:measurement:L28",
   "title": "measured: printed value found in PAPER_ERRATA.md, a file the chapter names",
   "part": 4,

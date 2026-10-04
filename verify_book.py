@@ -18532,6 +18532,14 @@ def check_1995():
     ok = file_has('docs/verification/scripts/verify_entanglement_electroweak_output.txt', '1.42')
     return locals()
 
+@check(label='ch:entanglement:L94:4.6\\times10^{-25}', chapter='ch:entanglement', part=4, title='top-quark lifetime hbar/Gamma_t, Gamma_t = 1.42 GeV',
+       file='part2/p2_21_entanglement_records', line=94, status='observed', kind='num', printed='4.6\\times10^{-25}', tol=0.0)
+def check_3084():
+    'Top-quark lifetime hbar/Gamma_t. Book line 94, printed 4.6e-25 s. Inputs: Gamma_t = 1.42 GeV (PDG 2022, doi:10.1093/ptep/ptac097, bib PDG2022, as the book '         'states); hbar and e exact (SI 2019).'
+    Gamma_t_GeV = 1.42
+    value = hbar / (Gamma_t_GeV * 1e9 * e_ch)
+    return locals()
+
 
 # ======== Part 4 | ch:measurement | docs/book/part5/p5_04_measurement.tex
 @check(label='ch:measurement:L28', chapter='ch:measurement', part=4, title='measured: printed value found in PAPER_ERRATA.md, a file the chapter names',
@@ -28004,13 +28012,12 @@ INVENTORY = [
     (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 345, '', 'calc', '10', 'input: bath temperature 10 mK of the worked example'),
     (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 345, '', 'calc', '2200', 'input: silica density 2200 kg/m^3 of the worked example'),
     (4, 'ch:quantumrecords', 'part2/p2_14_quantum_records', 347, '', 'calc', '10', 'input: mass 10^-12 kg (a nanogram) of the worked example; the times at that mass are checked at ch:quantumrecords:L345 and L345:7.5'),
-    (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 70, '', 'analogy', '0.5', 'not yet checked'),
-    (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 83, '', 'calc', '10', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 85, '', 'prediction', '10', 'not yet checked'),
-    (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 89, '', 'calc', '2200', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 89, '', 'calc', '10', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 94, '', 'observed', '4.6\\times10^{-25}', 'measured, too few printed digits to match against the named files'),
-    (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 119, '', 'prediction', '10', 'not yet checked'),
+    (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 70, '', 'analogy', '0.5', "input: t/tau_IAM = 0.5, the first time at which the caption's points are drawn (the CHSH values there are in the table at line 60)"),
+    (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 83, '', 'calc', '10', 'input: 10 mK bath temperature of the picogram row (and 10^-15 kg mass), stated inputs of the table'),
+    (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 85, '', 'prediction', '10', 'input: mass 10^-12 kg named for the discriminating experiment (prediction, nothing to recompute)'),
+    (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 89, '', 'calc', '2200', 'input: silica density 2200 kg/m^3 (figure caption)'),
+    (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 89, '', 'calc', '10', "input: 10 mK bath temperature of the caption's points (and 10^-15 kg mass); the times at that temperature are checked in ch:quantumrecords"),
+    (4, 'ch:entanglement', 'part2/p2_21_entanglement_records', 119, '', 'prediction', '10', 'prediction, nothing to recompute: mass 10^-12 kg near which the two times separate (the crossover is checked at ch:entanglement:L89)'),
     (4, 'ch:measurement', 'part5/p5_04_measurement', 49, 'eq:mp_QL', 'calc', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (4, 'ch:measurement', 'part5/p5_04_measurement', 70, 'eq:mp_tauIAM', 'conjecture', '', 'displayed equation, not yet checked'),
     (4, 'ch:measurement', 'part5/p5_04_measurement', 76, '', 'derived', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),

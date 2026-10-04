@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3084 PASS, 0 FAIL, 3250 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3085 PASS, 0 FAIL, 3249 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -3511,15 +3511,15 @@ Totals: 3084 PASS, 0 FAIL, 3250 inventoried and not run. Each run item carries t
 | 44 | eq:ent:smax | derived |  | sympy: Horodecki: dephased Bell state, S_max = 2 sqrt(1+c^2) | PASS |
 | 52 | ch:entanglement:L52 | calc | `0.414` | numeric: sqrt2 (1+c) < 2 for c < sqrt2 - 1 | PASS |
 | 53 | ch:entanglement:L53 | calc | `0.293` | numeric: isotropic: mixed fraction above 1 - 1/sqrt2 | PASS |
-| 70 |  | analogy | `0.5` | not run: not yet checked | - |
-| 83 |  | calc | `10` | not run: not yet run: draft rejected (no draft returned) | - |
-| 85 |  | prediction | `10` | not run: not yet checked | - |
+| 70 |  | analogy | `0.5` | not run: input: t/tau_IAM = 0.5, the first time at which the caption's points are drawn (the CHSH values there are in the table at line 60) | - |
+| 83 |  | calc | `10` | not run: input: 10 mK bath temperature of the picogram row (and 10^-15 kg mass), stated inputs of the table | - |
+| 85 |  | prediction | `10` | not run: input: mass 10^-12 kg named for the discriminating experiment (prediction, nothing to recompute) | - |
 | 89 | ch:entanglement:L89 | calc | `2.2\times10^{-10}` | numeric: tau_IAM = tau_PD at 10 mK, silica | PASS |
-| 89 |  | calc | `2200` | not run: not yet run: draft rejected (no draft returned) | - |
-| 89 |  | calc | `10` | not run: not yet run: draft rejected (no draft returned) | - |
+| 89 |  | calc | `2200` | not run: input: silica density 2200 kg/m^3 (figure caption) | - |
+| 89 |  | calc | `10` | not run: input: 10 mK bath temperature of the caption's points (and 10^-15 kg mass); the times at that temperature are checked in ch:quantumrecords | - |
 | 94 | ch:entanglement:L94 | observed | `1.42` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names | PASS |
-| 94 |  | observed | `4.6\times10^{-25}` | not run: measured, too few printed digits to match against the named files | - |
-| 119 |  | prediction | `10` | not run: not yet checked | - |
+| 94 | ch:entanglement:L94:4.6\times10^{-25} | observed | `4.6\times10^{-25}` | numeric: top-quark lifetime hbar/Gamma_t, Gamma_t = 1.42 GeV | PASS |
+| 119 |  | prediction | `10` | not run: prediction, nothing to recompute: mass 10^-12 kg near which the two times separate (the crossover is checked at ch:entanglement:L89) | - |
 
 ## Part 4 - ch:measurement - `docs/book/part5/p5_04_measurement.tex`
 
