@@ -85,7 +85,7 @@ ax.plot(r, F, color=S.IAM, lw=1.6)
 ax.plot(1, 1 - np.exp(-1), "o", color=S.IAM, ms=4); ax.annotate("$Q=Q_L$: $F$ = 0.632", (1, 1 - np.exp(-1)), xytext=(6, 4), textcoords="offset points", fontsize=7)
 for nm, Q in (("CCD pixel", 3.0), ("retinal rod", 2.5)):
     v = Q / QL; ax.plot(v, 1 - np.exp(-1 / v), "s", color=S.DATA, ms=4)
-ax.annotate("rod (140), CCD (170)", (155, 0.006), xytext=(-4, 22), textcoords="offset points", fontsize=7, ha="right", arrowprops=dict(arrowstyle="-", lw=0.4, color=S.GR))
+ax.annotate("rod (140), CCD (167)", (155, 0.006), xytext=(-4, 22), textcoords="offset points", fontsize=7, ha="right", arrowprops=dict(arrowstyle="-", lw=0.4, color=S.GR))
 ax.text(0.012, 0.42, "reversible\nmarkers", fontsize=7, color=S.ALT)
 ax.text(1900, 0.42, "irreversible\ndetectors", fontsize=7, color=S.DATA, ha="right")
 ax.set_xscale("log"); ax.set_xlim(1e-2, r[-1]); ax.set_ylim(-0.03, 1.05)
