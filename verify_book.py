@@ -1553,6 +1553,92 @@ def _b03_chain_eta():
     return _b03_eta_factor() * csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_baryon_test', 'ombh2')
 
 OB_H2_PLANCK18 = 0.02237   # Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing, Omega_b h^2 = 0.02237 +/- 0.00015 (doi:10.1051/0004-6361/201833910)
+DATA_FILES['mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml'] = 'Cobaya settings, Level 1 Planck chain with mu0 fixed (MGCAMB tracking amplitude)'   # 4 kB
+DATA_FILES['mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml'] = 'Cobaya settings, Level 1 Planck chain with mu0 free (prior range)'   # 5 kB
+DATA_FILES['mgcamb_validation/chains/planck_rsd_mu0_float.updated.yaml'] = 'Cobaya settings, Level 1 Planck + RSD chain with mu0 free (prior range)'   # 6 kB
+DATA_FILES['docs/verification/chains/LATE_TIME_GROWTH_CHECK.md'] = 'check file of the late-time growth chapter (literature mu0 constraints traced to their sources)'   # 6 kB
+DATA_FILES['docs/verification/forecasts/euclid_fisher_iam_mu/out/template_validation.json'] = 'Fisher forecast: template sigma(mu0) against the published values'   # 1 kB
+DATA_FILES['docs/verification/forecasts/euclid_fisher_iam_mu/out/validation.csv'] = 'Fisher forecast: validation against published errors'   # 6 kB
+DATA_FILES['docs/verification/forecasts/euclid_fisher_iam_mu/METHODS.md'] = 'Fisher forecast: methods (binning, scale cuts, spectra)'   # 16 kB
+
+# helpers of the part2/p2_16_survey_predictions checks
+_B03_FC = 'docs/verification/forecasts/euclid_fisher_iam_mu/'
+_B03_FC_RERUN = 'CAMB Fisher forecast: cd docs/verification/forecasts/euclid_fisher_iam_mu && python run_forecast.py && python analysis.py'
+_B03_CHAINS_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; '
+                     'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
+                     '(no extraction script is committed)')
+_B03_LT_OUT = 'docs/verification/scripts/verify_late_time_level2_output.txt'
+_B03_LT_RERUN = 'python3 docs/verification/scripts/verify_late_time_level2.py > docs/verification/scripts/verify_late_time_level2_output.txt'
+_B03_LTG = 'docs/verification/chains/LATE_TIME_GROWTH_CHECK.md'
+
+def _b03_mu_z(z):
+    return float(mu_iam(1 / (1 + z)))
+def _b03_mu_mg(z):
+    return float(mu_mgcamb(1 / (1 + z)))
+def _b03_src(which, z):
+    """ISW source (1 - f) D of Eq. eq:sp_iswsrc (the H factor is common to IAM and LambdaCDM)."""
+    return D_of(which, z) * (1 - f_of(which, z))
+def _b03_isw_amp(which, zc, sig=0.1):
+    """ISW-galaxy cross amplitude for a Gaussian redshift window (sigma_z = 0.1): integral of window x H D (1-f) over z
+    (as docs/verification/scripts/verify_dark_energy_far_future_surveys_book.py, section C5)."""
+    g = lambda q: math.exp(-0.5 * ((q - zc) / sig)**2) * _b03_src(which, q) * math.sqrt(H2_lcdm(1 / (1 + q)))
+    return quad(g, max(0.0, zc - 5 * sig), zc + 5 * sig)[0]
+def _b03_pot(which, z):
+    """(Phi+Psi)(z)/(Phi+Psi)(z=3), with Phi+Psi proportional to D/a (Eq. eq:sp_iswsrc)."""
+    return (D_of(which, z) * (1 + z)) / (D_of(which, 3.0) * 4.0)
+def _b03_zone(frac):
+    """z at which the fraction frac of today's 1 - mu is present (Table tab:sp_activation)."""
+    m0 = 1 - _b03_mu_z(0.0)
+    return brentq(lambda z: (1 - _b03_mu_z(z)) - frac * m0, 0, 20)
+def _b03_res(scenario, sigma_case, col):
+    for r in load_csv_rows(_B03_FC + 'out/results.csv'):
+        if r['scenario'] == scenario and r['sigma_case'] == sigma_case:
+            return r[col]
+    raise KeyError(scenario)
+def _b03_ltg(pattern):
+    m = re.search(pattern, file_text(_B03_LTG))
+    return m
+def _b03_free_mu0(block):
+    """median and 5 % quantile of the free-mu0 chain in one block of verify_late_time_level2_output.txt (section C, Level 1 chains)."""
+    t = file_text(_B03_LT_OUT)
+    m = re.search(r"--- %s: samples.*?free mu0: .*?median ([-+]\d\.\d+); .*?5 %% quantile ([-+]\d\.\d+)" % re.escape(block), t, re.S)
+    return float(m.group(1)), float(m.group(2))
+def _b03_yaml_param(path, param, key):
+    t = file_text(path)
+    m = re.search(r"\n  %s:\n((?:    .*\n)+)" % re.escape(param), t)
+    m2 = re.search(r"\b%s: (\S+)" % key, m.group(1))
+    return float(m2.group(1))
+def _b03_limber():
+    """Per cent by which C_L^phiphi of IAM is below LambdaCDM, Limber estimate with Sigma = 1, kernel ((chi_s - chi)/chi_s (1+z))^2 dchi,
+    power ~ D(z)^2, same early amplitude, z_s = 1089 (as ch:lensdyn:L143:0.08 and verify_sector_tension.py item 3)."""
+    zf = np.linspace(0, 1089, 200001)
+    Hf = np.sqrt(H2_lcdm(1 / (1 + zf)))
+    chif = np.concatenate([[0], np.cumsum(0.5 * (1 / Hf[1:] + 1 / Hf[:-1]) * np.diff(zf))])
+    cs = chif[-1]
+    zg = np.linspace(0.02, 10, 500)
+    ch = np.interp(zg, zf, chif)
+    W = ((cs - ch) / cs * (1 + zg))**2 / np.sqrt(H2_lcdm(1 / (1 + zg)))
+    rat = np.array([(D_of('iam', z) / D_of('lcdm', z))**2 for z in zg])
+    trap = lambda y: float(np.sum(0.5 * (y[1:] + y[:-1]) * np.diff(zg)))
+    return -100 * (trap(W * rat) / trap(W) - 1)
+def _b03_planck_lensing_snr(col):
+    for r in load_csv_rows(_B03_FC + 'out/validation.csv'):
+        if r['test'] == '0 Planck lensing noise':
+            return float(r[col])
+    raise KeyError('Planck lensing noise')
+REYES10_EG, REYES10_EG_ERR = 0.39, 0.06   # Reyes et al. 2010, Nature 464, 256, doi:10.1038/nature08857: E_G = 0.39 +/- 0.06 at z = 0.32
+DATA_FILES['docs/verification/scripts/verify_iams_law_derivations.py'] = 'script holding the GW170817 siren H0 values and errors it compares (Abbott 2017, Hotokezaka 2019, Palmese 2024)'   # 20 kB
+
+# helpers of the part2/p2_16_survey_predictions checks
+def _b04_siren(name):
+    'The (H0, upper error, lower error) tuple of one GW170817 analysis, as typed in verify_iams_law_derivations.py.'
+    m = re.search(r'\("%s", ([\d.]+), ([\d.]+), ([\d.]+)\)' % re.escape(name), file_text('docs/verification/scripts/verify_iams_law_derivations.py'))
+    return tuple(float(x) for x in m.groups())
+
+def _b04_weff(a):
+    'w_eff = -1 - (1/(3a)) rho_info/(rho_Lambda + rho_info), rho_info = beta_m E(a), rho_Lambda = 1 - Omega_m (units of the critical density today).'
+    E = float(E_act(a))
+    return -1 - (1 / (3 * a)) * beta_m * E / ((1 - Om) + beta_m * E)
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -16772,6 +16858,22 @@ def check_3585():
 
 
 # ======== Part 2 | ch:surveys | docs/book/part2/p2_16_survey_predictions.tex
+@check(label='eq:sp_mu', chapter='ch:surveys', part=2, title='mu(a) of Eq. sp_mu: mu(a=1) = 1/(1+Omega_m/2) and mu -> 1 as a -> 0',
+       file='part2/p2_16_survey_predictions', line=31, status='none', kind='sym', printed='', tol=0.0)
+def check_3586():
+    'mu(a) = H^2_LCDM/(H^2_LCDM + beta_m E(a) H0^2), E = exp(1-1/a), beta_m = Omega_m/2, Sigma = 1 (Eq. eq:sp_mu). Book line 31. With H^2_LCDM = H0^2(Omega_m a^-3 + 1 - Omega_m): evaluated at a = 1 it gives 1/(1+Omega_m/2) = 2/(2+Omega_m) (so mu0 = -beta_m/(1+beta_m), Eq. eq:sp_mu0), and its limit a -> 0+ is 1 (general relativity at early times); mu < 1 for every a > 0.'
+    a, Om_ = sp.symbols('a Omega_m', positive=True)
+    bm = Om_ / 2
+    H2 = Om_ * a**-3 + (1 - Om_)
+    E = sp.exp(1 - 1 / a)
+    mu = H2 / (H2 + bm * E)
+    assert sp.limit(mu, a, 0, '+') == 1
+    assert sp.simplify(1 / mu - 1 - bm * E / H2) == 0
+    lhs = sp.simplify(mu.subs(a, 1))
+    rhs = 2 / (2 + Om_)
+    neg_lhs = sp.simplify((H2 / (H2 + sp.Rational(21, 20) * bm * E)).subs(a, 1))
+    return locals()
+
 @check(label='eq:sp_mu0', chapter='ch:surveys', part=2, title='mu0 = -beta_m/(1+beta_m) = -0.136',
        file='part2/p2_16_survey_predictions', line=36, status='prediction', kind='sym', printed='', tol=0)
 def check_1497():
@@ -16784,6 +16886,22 @@ def check_1497():
 def check_1498():
     'same value as p1_02_iams_law:465 (mu0 at beta_m=0.15765, precise). Book line 38, printed -0.13618.'
     value = -beta_m/(1+beta_m)
+    return locals()
+
+@check(label='ch:surveys:L38:-0.13495', chapter='ch:surveys', part=2, title='mu0 of the MGCAMB tracking form in the Level 1 chains, from the chain settings',
+       file='part2/p2_16_survey_predictions', line=38, status='calc', kind='file', printed='-0.13495', tol=0.0, source='mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml')
+def check_3587():
+    'The MGCAMB runs use the tracking form with mu0 = -0.13495. Book line 38. Read from the fixed mu0 value in the Cobaya settings of the Level 1 Planck chain (iam_fixed_mu0_r2.updated.yaml); the 18th chain carries the same value.'
+    value = _b03_yaml_param('mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml', 'mu0', 'value')
+    return locals()
+
+@check(label='ch:surveys:L40', chapter='ch:surveys', part=2, title='Level 2: Delta chi2 of the IAM run against LambdaCDM (chain minima)',
+       file='part2/p2_16_survey_predictions', line=40, status='measured', kind='file', printed='+0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B03_CHAINS_RERUN)
+def check_3588():
+    'Level 2 chains: Delta chi2 = +0.54 relative to LambdaCDM. Book line 40. chi2_min of Level 2 Run A (IAM) minus Run C (LambdaCDM) in CHAIN_EXTRACTION_FINAL.csv (10972.612 - 10972.071).'
+    value = (csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min')
+             - csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min'))
     return locals()
 
 @check(label='ch:surveys:L41', chapter='ch:surveys', part=2, title='measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names',
@@ -17087,6 +17205,13 @@ def check_1531():
 def check_1532():
     'Delta f sigma8 at z=2.0. Book line 63, printed -0.04.'
     value=-fs8_deficit(2.0)
+    return locals()
+
+@check(label='ch:surveys:L70', chapter='ch:surveys', part=2, title='E_G = Omega_m0 Sigma/f: change at z = 0.3, per cent',
+       file='part2/p2_16_survey_predictions', line=70, status='calc', kind='num', printed='+1.8', tol=0.0)
+def check_3589():
+    'Figure fig:survey_ramp caption: the E_G change, +1.8 % at z = 0.3. Book line 70. E_G = Omega_m0 Sigma/f with Sigma = 1: E_G(IAM)/E_G(LCDM) - 1 = f_LCDM/f_IAM - 1, f from the linear growth equation with the same early amplitude (f_of).'
+    value = 100 * (f_of('lcdm', 0.3) / f_of('iam', 0.3) - 1)
     return locals()
 
 @check(label='ch:surveys:L82', chapter='ch:surveys', part=2, title='a where 1% of 1-mu(0) is on',
@@ -17559,6 +17684,41 @@ def check_1568():
     value=brentq(lambda z: math.exp(-z)-0.9,0,10)
     return locals()
 
+@check(label='ch:surveys:L95', chapter='ch:surveys', part=2, title='z at which E(a) reaches 10 % of today',
+       file='part2/p2_16_survey_predictions', line=95, status='calc', kind='num', printed='2.30', tol=0.0)
+def check_3590():
+    'Figure fig:survey_transition caption: E(a) reaches 10 % of today at z = 2.30. Book line 95. Root of E(a) = 0.1 E(1), E = exp(1-1/a), a = 1/(1+z).'
+    value = brentq(lambda z: float(E_act(1 / (1 + z))) - 0.1 * float(E_act(1.0)), 0, 10)
+    return locals()
+
+@check(label='ch:surveys:L95:0.69', chapter='ch:surveys', part=2, title='z at which E(a) reaches 50 % of today',
+       file='part2/p2_16_survey_predictions', line=95, status='calc', kind='num', printed='0.69', tol=0.0)
+def check_3591():
+    'Figure fig:survey_transition caption: E(a) reaches 50 % of today at z = 0.69. Book line 95. Root of E(a) = 0.5 E(1).'
+    value = brentq(lambda z: float(E_act(1 / (1 + z))) - 0.5 * float(E_act(1.0)), 0, 10)
+    return locals()
+
+@check(label='ch:surveys:L96', chapter='ch:surveys', part=2, title='z at which E(a) reaches 90 % of today',
+       file='part2/p2_16_survey_predictions', line=96, status='calc', kind='num', printed='0.11', tol=0.0)
+def check_3592():
+    'Figure fig:survey_transition caption: E(a) reaches 90 % of today at z = 0.11. Book line 96. Root of E(a) = 0.9 E(1).'
+    value = brentq(lambda z: float(E_act(1 / (1 + z))) - 0.9 * float(E_act(1.0)), 0, 10)
+    return locals()
+
+@check(label='ch:surveys:L96:0.06', chapter='ch:surveys', part=2, title='transition zone of mu, lower end: 90 % of 1 - mu(0) present',
+       file='part2/p2_16_survey_predictions', line=96, status='calc', kind='num', printed='0.06', tol=0.0)
+def check_3593():
+    'Figure fig:survey_transition caption: band 0.06 < z < 1.12, lower end. Book line 96. z where 1 - mu(z) = 0.9 (1 - mu(0)), mu from Eq. eq:sp_mu (mu_iam).'
+    value = _b03_zone(0.9)
+    return locals()
+
+@check(label='ch:surveys:L96:1.12', chapter='ch:surveys', part=2, title='transition zone of mu, upper end: 10 % of 1 - mu(0) present',
+       file='part2/p2_16_survey_predictions', line=96, status='calc', kind='num', printed='1.12', tol=0.0)
+def check_3594():
+    'Figure fig:survey_transition caption: band 0.06 < z < 1.12, upper end. Book line 96. z where 1 - mu(z) = 0.1 (1 - mu(0)).'
+    value = _b03_zone(0.1)
+    return locals()
+
 @check(label='ch:surveys:L98', chapter='ch:surveys', part=2, title='drafted check, screened (runs; negative control fails)',
        file='part2/p2_16_survey_predictions', line=98, status='calc', kind='num', printed='0.229', tol=0.0)
 def check_1569():
@@ -17628,6 +17788,13 @@ def check_1573():
     value = mu_z0_exact
     return locals()
 
+@check(label='ch:surveys:L105:0.865', chapter='ch:surveys', part=2, title='MGCAMB tracking form at z = 0',
+       file='part2/p2_16_survey_predictions', line=105, status='calc', kind='num', printed='0.865', tol=0.0)
+def check_3595():
+    'The MGCAMB tracking form mu = 1 + mu0 Omega_DE(a)/Omega_L at z = 0: 0.865. Book line 105. mu_mgcamb at a = 1 with the Level 1 amplitude mu0 = -0.13495 (MU0_MGCAMB, ch:dual) and the Planck 2018 background.'
+    value = _b03_mu_mg(0.0)
+    return locals()
+
 @check(label='ch:surveys:L106', chapter='ch:surveys', part=2, title='drafted check, screened (runs; negative control fails)',
        file='part2/p2_16_survey_predictions', line=106, status='calc', kind='num', printed='0.027', tol=0.0)
 def check_1574():
@@ -17642,6 +17809,79 @@ def check_1574():
     value = max_suppression
     return locals()
 
+@check(label='ch:surveys:L106:2.8', chapter='ch:surveys', part=2, title='largest suppression of the tracking form below the exact mu, per cent of mu',
+       file='part2/p2_16_survey_predictions', line=106, status='calc', kind='num', printed='2.8', tol=0.0)
+def check_3596():
+    'The tracking form suppresses more by up to 0.027 in mu (2.8 %). Book line 106. Maximum over z of (mu_exact - mu_MGCAMB)/mu_exact, in per cent (as verify_late_time_level2_output.txt: 2.757 % at z = 0.65).'
+    r = minimize_scalar(lambda z: -(_b03_mu_z(z) - _b03_mu_mg(z)) / _b03_mu_z(z), bounds=(0.1, 2.0), method='bounded')
+    value = -100 * r.fun
+    return locals()
+
+@check(label='ch:surveys:L106:0.7', chapter='ch:surveys', part=2, title='redshift of the largest difference between the exact and tracking mu',
+       file='part2/p2_16_survey_predictions', line=106, status='calc', kind='num', printed='0.7', tol=0.0)
+def check_3597():
+    'The largest difference lies near z ~ 0.65-0.7. Book line 106. z of the maximum of mu_exact - mu_MGCAMB (0.68; the relative difference peaks at 0.65).'
+    r = minimize_scalar(lambda z: -(_b03_mu_z(z) - _b03_mu_mg(z)), bounds=(0.1, 2.0), method='bounded')
+    value = r.x
+    return locals()
+
+@check(label='eq:sp_iswsrc', chapter='ch:surveys', part=2, title='Phi+Psi ~ D/a from the Poisson equation; d/dtau = a^2 H d/da gives the ISW source H D (f - 1)',
+       file='part2/p2_16_survey_predictions', line=125, status='derived', kind='sym', printed='', tol=0.0)
+def check_3598():
+    'Phi + Psi ~ D/a and d(Phi+Psi)/dtau ~ aH d(D/a)/dln a = H D (f-1), f = dlnD/dlna (Eq. eq:sp_iswsrc). Book line 125. From k^2(Phi+Psi) = -8 pi G a^2 Sigma rho_bar Delta (Eq. eq:sp_poisson) with Sigma = 1, rho_bar = rho_0 a^-3 and Delta ~ D; conformal time d/dtau = a d/dt = a^2 H d/da.'
+    a, C, rho0 = sp.symbols('a C rho_0', positive=True)
+    D = sp.Function('D')(a); H = sp.Function('H')(a)
+    pot = C * a**2 * (rho0 * a**-3) * D
+    assert sp.simplify(pot / (D / a) - C * rho0) == 0
+    lhs = sp.simplify(a**2 * H * sp.diff(pot, a) / (C * rho0))
+    f = a * sp.diff(D, a) / D
+    rhs = H * D * (f - 1)
+    neg_lhs = sp.simplify(a**2 * H * sp.diff(C * a**2 * (rho0 * a**sp.Rational(-63, 20)) * D, a) / (C * rho0))
+    return locals()
+
+@check(label='ch:surveys:L128', chapter='ch:surveys', part=2, title='Phi+Psi normalised at z = 3: IAM below LambdaCDM at z = 0.5, per cent',
+       file='part2/p2_16_survey_predictions', line=128, status='calc', kind='num', printed='0.22', tol=0.0)
+def check_3599():
+    'Normalised at z = 3, (Phi+Psi) is 0.22 % lower than in LambdaCDM at z = 0.5. Book line 128. Phi+Psi ~ D/a (Eq. eq:sp_iswsrc), D from the linear growth equation with the same early amplitude.'
+    value = 100 * (1 - _b03_pot('iam', 0.5) / _b03_pot('lcdm', 0.5))
+    return locals()
+
+@check(label='ch:surveys:L129', chapter='ch:surveys', part=2, title='Phi+Psi normalised at z = 3: IAM below LambdaCDM today, per cent',
+       file='part2/p2_16_survey_predictions', line=129, status='calc', kind='num', printed='0.78', tol=0.0)
+def check_3600():
+    'Normalised at z = 3, (Phi+Psi) is 0.78 % lower today. Book line 129. As line 128 at z = 0.'
+    value = 100 * (1 - _b03_pot('iam', 0.0) / _b03_pot('lcdm', 0.0))
+    return locals()
+
+@check(label='eq:sp_isw', chapter='ch:surveys', part=2, title='ISW amplitude ratio, uniform weight over 0.05 < z < 1.5',
+       file='part2/p2_16_survey_predictions', line=135, status='calc', kind='num', printed='1.03', tol=0.0)
+def check_3601():
+    'A_ISW(IAM)/A_ISW(LCDM) ~ 1.03, weighted uniformly over 0.05 < z < 1.5 (Eq. eq:sp_isw). Book line 135. Ratio of the integrals over z of the source H D (1-f), IAM against LambdaCDM (as verify_dark_energy_far_future_surveys_book.py section C5).'
+    U = lambda w: quad(lambda q: _b03_src(w, q) * math.sqrt(H2_lcdm(1 / (1 + q))), 0.05, 1.5)[0]
+    value = U('iam') / U('lcdm')
+    return locals()
+
+@check(label='ch:surveys:L136', chapter='ch:surveys', part=2, title='ISW-galaxy amplitude ratio, MGCAMB tracking form, window at z = 0.3',
+       file='part2/p2_16_survey_predictions', line=136, status='calc', kind='num', printed='1.054', tol=0.0)
+def check_3602():
+    'MGCAMB tracking form: ISW-galaxy amplitude 1.054 for the sample at z ~ 0.3. Book line 136. Gaussian window sigma_z = 0.1, source H D (1-f), growth with mu_mgcamb, ratio to LambdaCDM.'
+    value = _b03_isw_amp('mgcamb', 0.3) / _b03_isw_amp('lcdm', 0.3)
+    return locals()
+
+@check(label='ch:surveys:L136:1.064', chapter='ch:surveys', part=2, title='ISW-galaxy amplitude ratio, MGCAMB tracking form, window at z = 0.5',
+       file='part2/p2_16_survey_predictions', line=136, status='calc', kind='num', printed='1.064', tol=0.0)
+def check_3603():
+    'MGCAMB tracking form: ISW-galaxy amplitude 1.064 for the sample at z ~ 0.5. Book line 136. As line 136 (z = 0.3).'
+    value = _b03_isw_amp('mgcamb', 0.5) / _b03_isw_amp('lcdm', 0.5)
+    return locals()
+
+@check(label='ch:surveys:L136:1.072', chapter='ch:surveys', part=2, title='ISW-galaxy amplitude ratio, MGCAMB tracking form, window at z = 0.7',
+       file='part2/p2_16_survey_predictions', line=136, status='calc', kind='num', printed='1.072', tol=0.0)
+def check_3604():
+    'MGCAMB tracking form: ISW-galaxy amplitude 1.072 for the sample at z ~ 0.7. Book line 136. As line 136 (z = 0.3).'
+    value = _b03_isw_amp('mgcamb', 0.7) / _b03_isw_amp('lcdm', 0.7)
+    return locals()
+
 @check(label='ch:surveys:L146', chapter='ch:surveys', part=2, title='same value as p2_17_lensing_dynamics:103 (1/mu at z=0.7)',
        file='part2/p2_16_survey_predictions', line=146, status='calc', kind='num', printed='1.035', tol=0)
 def check_1575():
@@ -17653,6 +17893,28 @@ def check_1575():
     value=R(0.7)
     return locals()
 
+@check(label='ch:surveys:L146:1.031', chapter='ch:surveys', part=2, title='ISW source ratio IAM/LambdaCDM today',
+       file='part2/p2_16_survey_predictions', line=146, status='calc', kind='num', printed='1.031', tol=0.0)
+def check_3605():
+    'Figure fig:survey_isw caption (b): the ratio of the ISW source to LambdaCDM is 1.031 today. Book line 146. (1-f)D of IAM over LambdaCDM at z = 0 (H common).'
+    value = _b03_src('iam', 0.0) / _b03_src('lcdm', 0.0)
+    return locals()
+
+@check(label='ch:surveys:L146:0.3', chapter='ch:surveys', part=2, title='redshift of the largest ISW source ratio (exact form)',
+       file='part2/p2_16_survey_predictions', line=146, status='calc', kind='num', printed='0.3', tol=0.0)
+def check_3606():
+    'Figure fig:survey_isw caption (b): the ratio is at most 1.035 near z = 0.3. Book line 146. z of the maximum of (1-f)D IAM/LambdaCDM on 0 < z < 1.5 (0.29).'
+    r = minimize_scalar(lambda z: -_b03_src('iam', z) / _b03_src('lcdm', z), bounds=(0.0, 1.5), method='bounded')
+    value = r.x
+    return locals()
+
+@check(label='ch:surveys:L147:0.22', chapter='ch:surveys', part=2, title='Phi+Psi normalised at z = 3: IAM below LambdaCDM at z = 0.5 (caption)',
+       file='part2/p2_16_survey_predictions', line=147, status='calc', kind='num', printed='0.22', tol=0.0)
+def check_3607():
+    'Figure fig:survey_isw caption (c): the IAM potential is 0.22 % lower at z = 0.5. Book line 147. Recomputed as on line 128.'
+    value = 100 * (1 - _b03_pot('iam', 0.5) / _b03_pot('lcdm', 0.5))
+    return locals()
+
 @check(label='ch:surveys:L148', chapter='ch:surveys', part=2, title='same value as p2_17_lensing_dynamics:103 (1/mu at z=0.7)',
        file='part2/p2_16_survey_predictions', line=148, status='calc', kind='num', printed='1.035', tol=0)
 def check_1576():
@@ -17662,6 +17924,43 @@ def check_1576():
     CNT=lambda z: 1+0.20*(1+z)**0.2
     d=lambda fn,z,hh=1e-5: (fn(z+hh)-fn(z-hh))/(2*hh)
     value=R(0.7)
+    return locals()
+
+@check(label='ch:surveys:L148:1.034', chapter='ch:surveys', part=2, title='ISW-galaxy amplitude ratio, exact form, LRG window at z = 0.5',
+       file='part2/p2_16_survey_predictions', line=148, status='calc', kind='num', printed='1.034', tol=0.0)
+def check_3608():
+    'Figure fig:survey_isw caption (d): LRG sample amplitude 1.034 (window at z = 0.5). Book line 148. Gaussian window sigma_z = 0.1, source H D (1-f), IAM over LambdaCDM.'
+    value = _b03_isw_amp('iam', 0.5) / _b03_isw_amp('lcdm', 0.5)
+    return locals()
+
+@check(label='ch:surveys:L148:1.031', chapter='ch:surveys', part=2, title='ISW-galaxy amplitude ratio, exact form, LRG window at z = 0.7',
+       file='part2/p2_16_survey_predictions', line=148, status='calc', kind='num', printed='1.031', tol=0.0)
+def check_3609():
+    'Figure fig:survey_isw caption (d): LRG sample amplitude 1.031 (window at z = 0.7). Book line 148. As line 148 (z = 0.5).'
+    value = _b03_isw_amp('iam', 0.7) / _b03_isw_amp('lcdm', 0.7)
+    return locals()
+
+@check(label='ch:surveys:L155', chapter='ch:surveys', part=2, title='CMB lensing power lower, Limber estimate, per cent',
+       file='part2/p2_16_survey_predictions', line=155, status='calc', kind='num', printed='0.08', tol=0.0)
+def check_3610():
+    'A Limber estimate of C_L^phiphi is lower by 0.08 % at fixed primordial amplitude. Book line 155. Limber integral with Sigma = 1, power ~ D^2, same early amplitude, Planck 2018 background (see _b03_limber).'
+    value = _b03_limber()
+    return locals()
+
+@check(label='ch:surveys:L156', chapter='ch:surveys', part=2, title='Planck 2018 CMB lensing detection significance',
+       file='part2/p2_16_survey_predictions', line=156, status='observed', kind='file', printed='40', tol=0.0, source=_B03_FC + 'out/validation.csv',
+       heavy=True, rerun=_B03_FC_RERUN)
+def check_3611():
+    'Planck detects CMB lensing at 40 sigma (Planck 2018 VIII, doi:10.1051/0004-6361/201833886, abstract). Book line 156. The published S/N as recorded in the forecast validation table (row: 0 Planck lensing noise, column published).'
+    value = _b03_planck_lensing_snr('published')
+    return locals()
+
+@check(label='ch:surveys:L156:2.5', chapter='ch:surveys', part=2, title='Planck lensing amplitude error from the 40 sigma detection, per cent',
+       file='part2/p2_16_survey_predictions', line=156, status='observed', kind='file', printed='2.5', tol=0.0, source=_B03_FC + 'out/validation.csv',
+       heavy=True, rerun=_B03_FC_RERUN)
+def check_3612():
+    'An amplitude error of about 2.5 %. Book line 156. 1/(S/N) with the published 40 sigma (Planck 2018 VIII), in per cent.'
+    value = 100 / _b03_planck_lensing_snr('published')
     return locals()
 
 @check(label='ch:surveys:L159', chapter='ch:surveys', part=2, title='drafted check, screened (runs; negative control fails)',
@@ -17742,6 +18041,34 @@ def check_1581():
     value = ratio
     return locals()
 
+@check(label='ch:surveys:L160:0.39', chapter='ch:surveys', part=2, title='E_G measured from SDSS luminous red galaxies, Reyes et al. 2010',
+       file='part2/p2_16_survey_predictions', line=160, status='observed', kind='num', printed='0.39', tol=0.0)
+def check_3613():
+    'E_G = 0.39 +/- 0.06 at z ~ 0.32 (Reyes et al. 2010, Nature 464, 256, doi:10.1038/nature08857). Book line 160. Published value written in the check (REYES10_EG).'
+    value = REYES10_EG
+    return locals()
+
+@check(label='ch:surveys:L160:1.1', chapter='ch:surveys', part=2, title='E_G measurement below the GR value Omega_m0/f, in sigma',
+       file='part2/p2_16_survey_predictions', line=160, status='calc', kind='num', printed='1.1', tol=0.0)
+def check_3614():
+    'Reyes et al. 2010 lies 1.1 sigma below the GR value Omega_m0/f = 0.455. Book line 160. (Omega_m/f_LCDM(0.32) - 0.39)/0.06, Planck Omega_m 0.3153, f from the growth equation; E_G 0.39 +/- 0.06 (doi:10.1038/nature08857).'
+    value = (Om / f_of('lcdm', 0.32) - REYES10_EG) / REYES10_EG_ERR
+    return locals()
+
+@check(label='ch:surveys:L160:1.2', chapter='ch:surveys', part=2, title='E_G measurement below the value with the informational term, in sigma',
+       file='part2/p2_16_survey_predictions', line=160, status='calc', kind='num', printed='1.2', tol=0.0)
+def check_3615():
+    'Reyes et al. 2010 lies 1.2 sigma below the value with the informational term, 0.463. Book line 160. (Omega_m/f_IAM(0.32) - 0.39)/0.06.'
+    value = (Om / f_of('iam', 0.32) - REYES10_EG) / REYES10_EG_ERR
+    return locals()
+
+@check(label='ch:surveys:L160:0.008', chapter='ch:surveys', part=2, title='predicted E_G shift at z = 0.32',
+       file='part2/p2_16_survey_predictions', line=160, status='calc', kind='num', printed='0.008', tol=0.0)
+def check_3616():
+    'The predicted shift of 0.008. Book line 160. Omega_m/f_IAM(0.32) - Omega_m/f_LCDM(0.32) (0.463 - 0.455), f from the linear growth equation.'
+    value = Om / f_of('iam', 0.32) - Om / f_of('lcdm', 0.32)
+    return locals()
+
 @check(label='ch:surveys:L164', chapter='ch:surveys', part=2, title='measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names',
        file='part2/p2_16_survey_predictions', line=164, status='observed', kind='file', printed='-0.136', tol=0.0, source='docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_dark_energy_far_future_surveys_book.py > docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt')
@@ -17750,12 +18077,99 @@ def check_1582():
     ok = file_has('docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt', '-0.136')
     return locals()
 
+@check(label='ch:surveys:L164:0.08', chapter='ch:surveys', part=2, title='DES Y3 + external mu0, central value',
+       file='part2/p2_16_survey_predictions', line=164, status='observed', kind='file', printed='0.08', tol=0.0, source=_B03_LTG)
+def check_3617():
+    'DES Y3 with external data, mu0 = 0.08 (+0.21/-0.19) (Abbott et al. 2023, doi:10.1103/PhysRevD.107.083504, arXiv 2207.05766 eq. 38). Book line 164. As traced in LATE_TIME_GROWTH_CHECK.md item 4.'
+    m = _b03_ltg(r"DES Y3 \+ external gives \S+ = (\d\.\d+) \(\+(\d\.\d+)/\u2212(\d\.\d+)\)")
+    value = float(m.group(1))
+    return locals()
+
+@check(label='ch:surveys:L164:0.19', chapter='ch:surveys', part=2, title='DES Y3 + external mu0, lower error',
+       file='part2/p2_16_survey_predictions', line=164, status='observed', kind='file', printed='0.19', tol=0.0, source=_B03_LTG)
+def check_3618():
+    'DES Y3 with external data, mu0 = 0.08 (+0.21/-0.19): lower error (doi:10.1103/PhysRevD.107.083504). Book line 164. As traced in LATE_TIME_GROWTH_CHECK.md item 4; the upper error 0.21 is read too.'
+    m = _b03_ltg(r"DES Y3 \+ external gives \S+ = (\d\.\d+) \(\+(\d\.\d+)/\u2212(\d\.\d+)\)")
+    upper = float(m.group(2)); value = float(m.group(3))
+    return locals()
+
+@check(label='ch:surveys:L165', chapter='ch:surveys', part=2, title='DESI DR1 full shape + BAO mu0, central value',
+       file='part2/p2_16_survey_predictions', line=165, status='observed', kind='file', printed='0.11', tol=0.0, source=_B03_LTG)
+def check_3619():
+    'DESI DR1 full-shape clustering with BAO, mu0 = 0.11 (+0.45/-0.54) (DESI 2024 VII, doi:10.1088/1475-7516/2025/07/028, arXiv 2411.12022 eq. 5.5). Book line 165. As traced in LATE_TIME_GROWTH_CHECK.md.'
+    m = _b03_ltg(r"DESI 2024 VII \S+ = (\d\.\d+) \(\+(\d\.\d+)/\u2212(\d\.\d+)\)")
+    value = float(m.group(1))
+    return locals()
+
+@check(label='ch:surveys:L165:0.54', chapter='ch:surveys', part=2, title='DESI DR1 full shape + BAO mu0, lower error',
+       file='part2/p2_16_survey_predictions', line=165, status='observed', kind='file', printed='0.54', tol=0.0, source=_B03_LTG)
+def check_3620():
+    'DESI DR1 full shape with BAO, mu0 = 0.11 (+0.45/-0.54): lower error (doi:10.1088/1475-7516/2025/07/028). Book line 165. As traced in LATE_TIME_GROWTH_CHECK.md.'
+    m = _b03_ltg(r"DESI 2024 VII \S+ = (\d\.\d+) \(\+(\d\.\d+)/\u2212(\d\.\d+)\)")
+    upper = float(m.group(2)); value = float(m.group(3))
+    return locals()
+
+@check(label='ch:surveys:L166', chapter='ch:surveys', part=2, title='ACT + WMAP + SDSS + supernovae mu0, central value (Andrade et al. 2024)',
+       file='part2/p2_16_survey_predictions', line=166, status='observed', kind='file', printed='0.02', tol=0.0, source=_B03_LTG)
+def check_3621():
+    'ACT + WMAP + SDSS + supernovae, mu0 = 0.02 +/- 0.19 (Andrade et al. 2024, MNRAS 529, 831, doi:10.1093/mnras/stae402). Book line 166. As traced in LATE_TIME_GROWTH_CHECK.md.'
+    m = _b03_ltg(r"Andrade et al\. \S+ \u2212 1 = (\d\.\d+) \u00b1 (\d\.\d+)")
+    value = float(m.group(1)); err = float(m.group(2))
+    return locals()
+
+@check(label='ch:surveys:L166:+0.2', chapter='ch:surveys', part=2, title='upper prior edge of mu0 in the free-mu0 chains',
+       file='part2/p2_16_survey_predictions', line=166, status='fitted', kind='file', printed='+0.2', tol=0.0, source='mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml')
+def check_3622():
+    'The free-mu0 chains reach the upper prior edge (+0.2). Book line 166. Prior max of mu0 in the Planck free-mu0 chain settings (iam_float_mu0_r2.updated.yaml); the Planck + RSD chain (planck_rsd_mu0_float.updated.yaml) has the same edge.'
+    value = _b03_yaml_param('mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml', 'mu0', 'max')
+    assert value == _b03_yaml_param('mgcamb_validation/chains/planck_rsd_mu0_float.updated.yaml', 'mu0', 'max')
+    return locals()
+
+@check(label='ch:surveys:L166:+0.059', chapter='ch:surveys', part=2, title='free-mu0 chain, Planck: median of mu0',
+       file='part2/p2_16_survey_predictions', line=166, status='fitted', kind='file', printed='+0.059', tol=0.0, source=_B03_LT_OUT,
+       heavy=True, rerun=_B03_LT_RERUN)
+def check_3623():
+    'Planck, median +0.059. Book line 166. Median of mu0 in the free-mu0 Level 1 Planck chain, 30 % burn-in, weighted (verify_late_time_level2_output.txt, section C, block Planck).'
+    value, q05 = _b03_free_mu0('Planck')
+    return locals()
+
 @check(label='ch:surveys:L167', chapter='ch:surveys', part=2, title='measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names',
        file='part2/p2_16_survey_predictions', line=167, status='fitted', kind='file', printed='-0.136', tol=0.0, source='docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_dark_energy_far_future_surveys_book.py > docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt')
 def check_1583():
     'measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names. Book line 167, printed -0.136.'
     ok = file_has('docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt', '-0.136')
+    return locals()
+
+@check(label='ch:surveys:L167:-0.304', chapter='ch:surveys', part=2, title='free-mu0 chain, Planck: 5 % quantile of mu0',
+       file='part2/p2_16_survey_predictions', line=167, status='fitted', kind='file', printed='-0.304', tol=0.0, source=_B03_LT_OUT,
+       heavy=True, rerun=_B03_LT_RERUN)
+def check_3624():
+    'Planck, lower end -0.304 (5 % quantile). Book line 167. 5 % quantile of mu0 in the free-mu0 Level 1 Planck chain (verify_late_time_level2_output.txt, section C, block Planck).'
+    med, value = _b03_free_mu0('Planck')
+    return locals()
+
+@check(label='ch:surveys:L167:+0.064', chapter='ch:surveys', part=2, title='free-mu0 chain, Planck + RSD: median of mu0',
+       file='part2/p2_16_survey_predictions', line=167, status='fitted', kind='file', printed='+0.064', tol=0.0, source=_B03_LT_OUT,
+       heavy=True, rerun=_B03_LT_RERUN)
+def check_3625():
+    'Planck + RSD, median +0.064. Book line 167. Median of mu0 in the free-mu0 Planck + RSD chain (verify_late_time_level2_output.txt, section C, block Planck + RSD).'
+    value, q05 = _b03_free_mu0('Planck + RSD')
+    return locals()
+
+@check(label='ch:surveys:L167:-0.204', chapter='ch:surveys', part=2, title='free-mu0 chain, Planck + RSD: 5 % quantile of mu0',
+       file='part2/p2_16_survey_predictions', line=167, status='fitted', kind='file', printed='-0.204', tol=0.0, source=_B03_LT_OUT,
+       heavy=True, rerun=_B03_LT_RERUN)
+def check_3626():
+    'Planck + RSD, lower end -0.204. Book line 167. 5 % quantile of mu0 in the free-mu0 Planck + RSD chain (verify_late_time_level2_output.txt, section C, block Planck + RSD).'
+    med, value = _b03_free_mu0('Planck + RSD')
+    return locals()
+
+@check(label='ch:surveys:L174', chapter='ch:surveys', part=2, title="Euclid's published error on 1+mu0 with conservative cuts, per cent",
+       file='part2/p2_16_survey_predictions', line=174, status='observed', kind='file', printed='23', tol=0.0, source=_B03_FC + 'out/template_validation.json')
+def check_3627():
+    'Euclid: 23 % on 1 + mu0 with conservative cuts (Albuquerque et al. 2025, arXiv 2506.03008, doi:10.48550/arXiv.2506.03008, Table 5: 23.3 %). Book line 174. The published value as recorded in the forecast package (template_validation.json, published.comb_cons).'
+    value = 100 * load_json(_B03_FC + 'out/template_validation.json')['published']['comb_cons']
     return locals()
 
 @check(label='ch:surveys:L190', chapter='ch:surveys', part=2, title='sigma(A), Sigma = 1 (committed forecast)',
@@ -18100,6 +18514,174 @@ def check_1619():
     value=sig('0.413')
     return locals()
 
+@check(label='ch:surveys:L198:0.2', chapter='ch:surveys', part=2, title='k_max of the DESI sensitivity row of the forecast',
+       file='part2/p2_16_survey_predictions', line=198, status='calc', kind='file', printed='0.2', tol=0.0, source=_B03_FC + 'out/results.csv',
+       heavy=True, rerun=_B03_FC_RERUN)
+def check_3628():
+    'Table tab:sp_euclid: + Planck lensing + DESI (k_max = 0.2 h/Mpc), optimistic. Book line 198. k_max read from the scenario name of that row of results.csv.'
+    rows = [r['scenario'] for r in load_csv_rows(_B03_FC + 'out/results.csv') if r['scenario'].startswith('Euclid full optimistic + Planck lensing + DESI (kmax')]
+    value = float(re.search(r"kmax (\d\.\d+)h/Mpc", rows[0]).group(1))
+    return locals()
+
+@check(label='ch:surveys:L205', chapter='ch:surveys', part=2, title='sigma(A), full Euclid + Planck lensing + DESI, pessimistic, Sigma = 1',
+       file='part2/p2_16_survey_predictions', line=205, status='calc', kind='file', printed='0.76', tol=0.0, source=_B03_FC + 'out/results.csv',
+       heavy=True, rerun=_B03_FC_RERUN)
+def check_3629():
+    'Figure fig:survey_euclid_forecast caption: sigma_A = 0.76 (pessimistic). Book line 205. sigma_A_IAMfid of Euclid full pessimistic + Planck lensing + DESI, Sigma = 1 fixed, results.csv.'
+    value = float(_b03_res('Euclid full pessimistic + Planck lensing + DESI', 'Sigma=1 fixed', 'sigma_A_IAMfid'))
+    return locals()
+
+@check(label='ch:surveys:L206', chapter='ch:surveys', part=2, title='sigma(A), full Euclid + Planck lensing + DESI, optimistic, Sigma = 1',
+       file='part2/p2_16_survey_predictions', line=206, status='calc', kind='file', printed='0.48', tol=0.0, source=_B03_FC + 'out/results.csv',
+       heavy=True, rerun=_B03_FC_RERUN)
+def check_3630():
+    'Figure fig:survey_euclid_forecast caption: sigma_A = 0.48 (optimistic). Book line 206. sigma_A_IAMfid of Euclid full optimistic + Planck lensing + DESI, Sigma = 1 fixed, results.csv.'
+    value = float(_b03_res('Euclid full optimistic + Planck lensing + DESI', 'Sigma=1 fixed', 'sigma_A_IAMfid'))
+    return locals()
+
+@check(label='ch:surveys:L206:0.1', chapter='ch:surveys', part=2, title='k_max of the DESI f sigma8 errors used in the forecast',
+       file='part2/p2_16_survey_predictions', line=206, status='calc', kind='file', printed='0.1', tol=0.0, source=_B03_FC + 'out/results.csv',
+       heavy=True, rerun=_B03_FC_RERUN)
+def check_3631():
+    'The DESI f sigma8 errors (2016 forecast, k < 0.1 h/Mpc, DESI Collaboration 2016, doi:10.48550/arXiv.1611.00036). Book line 206. k_max read from the settings column of the + DESI rows of results.csv.'
+    s = _b03_res('Euclid full pessimistic + Planck lensing + DESI', 'Sigma=1 fixed', 'settings')
+    value = float(re.search(r"kmax (\d\.\d+)h/Mpc", s).group(1))
+    return locals()
+
+def _b03_spectra_range():
+    m = re.search(r"lowers C_ell by only (\d\.\d+)-(\d\.\d+) %", file_text(_B03_FC + 'METHODS.md'))
+    return float(m.group(1)), float(m.group(2))
+
+@check(label='ch:surveys:L208', chapter='ch:surveys', part=2, title='3x2pt spectra of IAM below LambdaCDM: smallest lowering, per cent',
+       file='part2/p2_16_survey_predictions', line=208, status='calc', kind='file', printed='0.3', tol=0.0, source=_B03_FC + 'METHODS.md',
+       heavy=True, rerun=_B03_FC_RERUN)
+def check_3632():
+    'Figure fig:survey_euclid_forecast caption (b): spectra lowered by 0.3-1.1 %, lower end. Book line 208. As recorded by the forecast package (METHODS.md: IAM lowers C_ell by only 0.3-1.1 %; the figure title of analysis.py prints the same range).'
+    value, hi = _b03_spectra_range()
+    return locals()
+
+@check(label='ch:surveys:L208:1.1', chapter='ch:surveys', part=2, title='3x2pt spectra of IAM below LambdaCDM: largest lowering, per cent',
+       file='part2/p2_16_survey_predictions', line=208, status='calc', kind='file', printed='1.1', tol=0.0, source=_B03_FC + 'METHODS.md',
+       heavy=True, rerun=_B03_FC_RERUN)
+def check_3633():
+    'Figure fig:survey_euclid_forecast caption (b): spectra lowered by 0.3-1.1 %, upper end. Book line 208. As recorded in METHODS.md of the forecast package.'
+    lo, value = _b03_spectra_range()
+    return locals()
+
+@check(label='ch:surveys:L214', chapter='ch:surveys', part=2, title='Planck lensing reconstruction noise of the forecast reproduces the 40 sigma detection',
+       file='part2/p2_16_survey_predictions', line=214, status='calc', kind='file', printed='40', tol=0.0, source=_B03_FC + 'out/validation.csv',
+       heavy=True, rerun=_B03_FC_RERUN)
+def check_3634():
+    "Planck CMB lensing uses a white reconstruction noise set to Planck's 40 sigma detection (Planck 2018 VIII, doi:10.1051/0004-6361/201833886). Book line 214. S/N the pipeline obtains with that noise (validation.csv, row 0 Planck lensing noise, column ours)."
+    value = _b03_planck_lensing_snr('ours')
+    return locals()
+
+@check(label='ch:surveys:L216', chapter='ch:surveys', part=2, title="largest departure of the pipeline's weak-lensing errors from Euclid's published errors, per cent",
+       file='part2/p2_16_survey_predictions', line=216, status='calc', kind='file', printed='10', tol=0.0, source=_B03_FC + 'out/validation.csv',
+       heavy=True, rerun=_B03_FC_RERUN)
+def check_3635():
+    "The pipeline reproduces Euclid's published weak-lensing errors to within 10 %. Book line 216. max |ours/published - 1| over the WL pessimistic and WL optimistic rows (IST:F, Blanchard et al. 2020 Table 9) of validation.csv."
+    rows = [r for r in load_csv_rows(_B03_FC + 'out/validation.csv') if r['test'].startswith('1 IST:F') and r['case'] in ('WL pessimistic', 'WL optimistic')]
+    assert len(rows) == 10
+    value = 100 * max(abs(float(r['ours']) / float(r['published']) - 1) for r in rows)
+    return locals()
+
+@check(label='ch:surveys:L217', chapter='ch:surveys', part=2, title='template sigma(mu0), spectroscopic clustering alone, from the pipeline',
+       file='part2/p2_16_survey_predictions', line=217, status='calc', kind='file', printed='0.536', tol=0.0, source=_B03_FC + 'out/template_validation.json',
+       heavy=True, rerun=_B03_FC_RERUN)
+def check_3636():
+    'Template error for spectroscopic clustering alone, sigma(mu0) = 0.536. Book line 217. template.gcsp in template_validation.json.'
+    value = load_json(_B03_FC + 'out/template_validation.json')['template']['gcsp']
+    return locals()
+
+@check(label='ch:surveys:L217:0.530', chapter='ch:surveys', part=2, title='published template sigma(mu0), spectroscopic clustering alone',
+       file='part2/p2_16_survey_predictions', line=217, status='observed', kind='file', printed='0.530', tol=0.0, source=_B03_FC + 'out/template_validation.json')
+def check_3637():
+    'Against the published 0.530 (Albuquerque et al. 2025, doi:10.48550/arXiv.2506.03008, Table 5: 53.0 %). Book line 217. published.gcsp in template_validation.json.'
+    value = load_json(_B03_FC + 'out/template_validation.json')['published']['gcsp']
+    return locals()
+
+@check(label='ch:surveys:L221', chapter='ch:surveys', part=2, title='f sigma8 deficit at z = 0, per cent',
+       file='part2/p2_16_survey_predictions', line=221, status='calc', kind='num', printed='4.25', tol=0.0)
+def check_3638():
+    'f sigma8 is lower by 4.25 % at z = 0. Book line 221. fs8_deficit(0): linear growth with mu_iam against LambdaCDM, same early amplitude.'
+    value = fs8_deficit(0.0)
+    return locals()
+
+@check(label='ch:surveys:L221:2.17', chapter='ch:surveys', part=2, title='f sigma8 deficit at z = 0.3, per cent',
+       file='part2/p2_16_survey_predictions', line=221, status='calc', kind='num', printed='2.17', tol=0.0)
+def check_3639():
+    'f sigma8 is lower by 2.17 % at z = 0.3. Book line 221. fs8_deficit(0.3).'
+    value = fs8_deficit(0.3)
+    return locals()
+
+@check(label='ch:surveys:L222', chapter='ch:surveys', part=2, title='f sigma8 deficit at z = 0.5, per cent',
+       file='part2/p2_16_survey_predictions', line=222, status='calc', kind='num', printed='1.35', tol=0.0)
+def check_3640():
+    'f sigma8 is lower by 1.35 % at z = 0.5. Book line 222. fs8_deficit(0.5).'
+    value = fs8_deficit(0.5)
+    return locals()
+
+@check(label='ch:surveys:L222:0.41', chapter='ch:surveys', part=2, title='f sigma8 deficit at z = 1, per cent',
+       file='part2/p2_16_survey_predictions', line=222, status='calc', kind='num', printed='0.41', tol=0.0)
+def check_3641():
+    'f sigma8 is lower by 0.41 % at z = 1. Book line 222. fs8_deficit(1.0).'
+    value = fs8_deficit(1.0)
+    return locals()
+
+def _b03_gcsp_bins():
+    m = re.search(r"4 bins, \[(\d\.\d+),\s*(\d\.\d+)\], \[(\d\.\d+),\s*(\d\.\d+)\], \[(\d\.\d+),\s*(\d\.\d+)\] and \[(\d\.\d+),\s*(\d\.\d+)\]",
+                  file_text(_B03_FC + 'METHODS.md'))
+    return [float(x) for x in m.groups()]
+
+@check(label='ch:surveys:L222:0.9', chapter='ch:surveys', part=2, title="Euclid spectroscopic range, lower edge (forecast binning)",
+       file='part2/p2_16_survey_predictions', line=222, status='calc', kind='file', printed='0.9', tol=0.0, source=_B03_FC + 'METHODS.md')
+def check_3642():
+    "Euclid's spectroscopic range, 0.9 < z < 1.8: lower edge. Book line 222. Lowest edge of the four spectroscopic bins of the forecast (IST:F), METHODS.md."
+    value = min(_b03_gcsp_bins())
+    return locals()
+
+@check(label='ch:surveys:L222:1.8', chapter='ch:surveys', part=2, title="Euclid spectroscopic range, upper edge (forecast binning)",
+       file='part2/p2_16_survey_predictions', line=222, status='calc', kind='file', printed='1.8', tol=0.0, source=_B03_FC + 'METHODS.md')
+def check_3643():
+    "Euclid's spectroscopic range, 0.9 < z < 1.8: upper edge. Book line 222. Highest edge of the four spectroscopic bins of the forecast (IST:F), METHODS.md."
+    value = max(_b03_gcsp_bins())
+    return locals()
+
+@check(label='ch:surveys:L223:0.3', chapter='ch:surveys', part=2, title='3x2pt spectra lowered: smallest, per cent (text)',
+       file='part2/p2_16_survey_predictions', line=223, status='calc', kind='file', printed='0.3', tol=0.0, source=_B03_FC + 'METHODS.md',
+       heavy=True, rerun=_B03_FC_RERUN)
+def check_3644():
+    'The photometric spectra see it in projection, lowered by 0.3-1.1 %: lower end. Book line 223. As recorded in METHODS.md of the forecast package.'
+    value, hi = _b03_spectra_range()
+    return locals()
+
+@check(label='ch:surveys:L223:1.1', chapter='ch:surveys', part=2, title='3x2pt spectra lowered: largest, per cent (text)',
+       file='part2/p2_16_survey_predictions', line=223, status='calc', kind='file', printed='1.1', tol=0.0, source=_B03_FC + 'METHODS.md',
+       heavy=True, rerun=_B03_FC_RERUN)
+def check_3645():
+    'Lowered by 0.3-1.1 %: upper end. Book line 223. As recorded in METHODS.md of the forecast package.'
+    lo, value = _b03_spectra_range()
+    return locals()
+
+@check(label='ch:surveys:L224', chapter='ch:surveys', part=2, title='weakest significance in Table tab:sp_euclid (DR1 pessimistic, Sigma0 free)',
+       file='part2/p2_16_survey_predictions', line=224, status='calc', kind='file', printed='0.27', tol=0.0, source=_B03_FC + 'out/results.csv',
+       heavy=True, rerun=_B03_FC_RERUN)
+def check_3646():
+    'Significances run from 0.27 sigma for DR1. Book line 224. Minimum of significance_IAMfid over the rows of Table tab:sp_euclid in results.csv (Euclid DR1 pessimistic, Sigma0 free).'
+    rows = [r for r in load_csv_rows(_B03_FC + 'out/results.csv') if r['scenario'].startswith('Euclid ') and 'h-unit' not in r['scenario'] and 'z<0.9' not in r['scenario']]
+    value = min(float(r['significance_IAMfid']) for r in rows)
+    return locals()
+
+@check(label='ch:surveys:L224:2.55', chapter='ch:surveys', part=2, title='strongest significance in Table tab:sp_euclid',
+       file='part2/p2_16_survey_predictions', line=224, status='calc', kind='file', printed='2.55', tol=0.0, source=_B03_FC + 'out/results.csv',
+       heavy=True, rerun=_B03_FC_RERUN)
+def check_3647():
+    'To 2.55 sigma for the strongest combination. Book line 224. Maximum of significance_IAMfid over the rows of Table tab:sp_euclid in results.csv (+ Planck lensing + DESI, k_max 0.2, optimistic, Sigma = 1).'
+    rows = [r for r in load_csv_rows(_B03_FC + 'out/results.csv') if r['scenario'].startswith('Euclid ') and 'h-unit' not in r['scenario'] and 'z<0.9' not in r['scenario']]
+    value = max(float(r['significance_IAMfid']) for r in rows)
+    return locals()
+
 @check(label='ch:surveys:L228', chapter='ch:surveys', part=2, title='drafted check, screened (runs; negative control fails)',
        file='part2/p2_16_survey_predictions', line=228, status='calc', kind='num', printed='0.41', tol=0.0)
 def check_1620():
@@ -18107,11 +18689,46 @@ def check_1620():
     value = fs8_deficit(z=1.0, which="iam")
     return locals()
 
+@check(label='ch:surveys:L228:2.17', chapter='ch:surveys', part=2, title='growth deficit at z = 0.3, per cent (the ramp)',
+       file='part2/p2_16_survey_predictions', line=228, status='calc', kind='num', printed='2.17', tol=0.0)
+def check_3648():
+    'The deficit rises from 0.41 % at z = 1 to 2.17 % at z = 0.3. Book line 228. fs8_deficit(0.3).'
+    value = fs8_deficit(0.3)
+    return locals()
+
+@check(label='ch:surveys:L228:4.25', chapter='ch:surveys', part=2, title='growth deficit today, per cent (the ramp)',
+       file='part2/p2_16_survey_predictions', line=228, status='calc', kind='num', printed='4.25', tol=0.0)
+def check_3649():
+    'And 4.25 % today. Book line 228. fs8_deficit(0).'
+    value = fs8_deficit(0.0)
+    return locals()
+
 @check(label='ch:surveys:L239', chapter='ch:surveys', part=2, title='measured: printed value found in PAPER_ERRATA.md, a file the chapter names',
        file='part2/p2_16_survey_predictions', line=239, status='observed', kind='file', printed='150', tol=0.0, source='docs/verification/PAPER_ERRATA.md')
 def check_1621():
     'measured: printed value found in PAPER_ERRATA.md, a file the chapter names. Book line 239, printed 150.'
     ok = file_has('docs/verification/PAPER_ERRATA.md', '150')
+    return locals()
+
+@check(label='ch:surveys:L239:4.2', chapter='ch:surveys', part=2, title='bulk-flow (f sigma8) deficit at z=0.01, per cent',
+       file='part2/p2_16_survey_predictions', line=239, status='calc', kind='num', printed='4.2', tol=0.0)
+def check_3650():
+    'f sigma8 of IAM below LambdaCDM at z=0.01, same early amplitude (the growth ODE with mu(a), beta_m = Omega_m/2). Book line 239, printed 4.2. Inputs: CANON beta_m, Planck 2018 Omega_m.'
+    value = fs8_deficit(0.01, "iam")
+    return locals()
+
+@check(label='ch:surveys:L239:3.8', chapter='ch:surveys', part=2, title='bulk-flow (f sigma8) deficit at z=0.05, per cent',
+       file='part2/p2_16_survey_predictions', line=239, status='calc', kind='num', printed='3.8', tol=0.0)
+def check_3651():
+    'f sigma8 of IAM below LambdaCDM at z=0.05, same early amplitude. Book line 239, printed 3.8. Inputs: CANON beta_m, Planck 2018 Omega_m.'
+    value = fs8_deficit(0.05, "iam")
+    return locals()
+
+@check(label='eq:sp_siren', chapter='ch:surveys', part=2, title='H0 matter = H0 photon sqrt(1+beta_m)',
+       file='part2/p2_16_survey_predictions', line=244, status='calc', kind='num', printed='72.26', tol=0.0)
+def check_3652():
+    'Eq. sp_siren: H0^m = H0^gamma sqrt(1+beta_m) with H0^gamma = 67.16 (locked, Level 2 chains) and beta_m = Omega_m/2 from CANON. Book line 244, printed 72.26.'
+    value = H0_photon * math.sqrt(1 + beta_m)
     return locals()
 
 @check(label='ch:surveys:L245', chapter='ch:surveys', part=2, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
@@ -18130,11 +18747,130 @@ def check_1623():
     ok = file_has('docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt', '70.0')
     return locals()
 
+@check(label='ch:surveys:L246:8.0', chapter='ch:surveys', part=2, title='GW170817 (Abbott 2017) lower error on H0',
+       file='part2/p2_16_survey_predictions', line=246, status='observed', kind='file', printed='8.0', tol=0.0,
+       source='docs/verification/scripts/verify_iams_law_derivations.py')
+def check_3653():
+    'Lower error of the GW170817 siren H0 of Abbott et al. 2017 (doi 10.1038/nature24471), read from the tuple the committed script uses. Book line 246, printed 8.0.'
+    value = _b04_siren("Abbott 2017")[2]
+    return locals()
+
+@check(label='ch:surveys:L246:68.9', chapter='ch:surveys', part=2, title='GW170817 H0 (Hotokezaka 2019)',
+       file='part2/p2_16_survey_predictions', line=246, status='observed', kind='file', printed='68.9', tol=0.0,
+       source='docs/verification/scripts/verify_iams_law_derivations.py')
+def check_3654():
+    'GW170817 siren H0 with the jet-afterglow inclination, Hotokezaka et al. 2019 (doi 10.1038/s41550-019-0820-1), read from the committed script. Book line 246, printed 68.9.'
+    value = _b04_siren("Hotokezaka 2019")[0]
+    return locals()
+
+@check(label='ch:surveys:L246:4.6', chapter='ch:surveys', part=2, title='GW170817 (Hotokezaka 2019) lower error on H0',
+       file='part2/p2_16_survey_predictions', line=246, status='observed', kind='file', printed='4.6', tol=0.0,
+       source='docs/verification/scripts/verify_iams_law_derivations.py')
+def check_3655():
+    'Lower error of the Hotokezaka et al. 2019 siren H0 (doi 10.1038/s41550-019-0820-1), read from the committed script. Book line 246, printed 4.6.'
+    value = _b04_siren("Hotokezaka 2019")[2]
+    return locals()
+
+@check(label='ch:surveys:L246:75.46', chapter='ch:surveys', part=2, title='GW170817 H0 (Palmese 2024)',
+       file='part2/p2_16_survey_predictions', line=246, status='observed', kind='file', printed='75.46', tol=0.0,
+       source='docs/verification/scripts/verify_iams_law_derivations.py')
+def check_3656():
+    'GW170817 siren H0 of the 2024 afterglow analysis, Palmese et al. 2024 (doi 10.1103/PhysRevD.109.063508), read from the committed script. Book line 246, printed 75.46.'
+    value = _b04_siren("Palmese 2024")[0]
+    return locals()
+
+@check(label='ch:surveys:L246:5.39', chapter='ch:surveys', part=2, title='GW170817 (Palmese 2024) lower error on H0',
+       file='part2/p2_16_survey_predictions', line=246, status='observed', kind='file', printed='5.39', tol=0.0,
+       source='docs/verification/scripts/verify_iams_law_derivations.py')
+def check_3657():
+    'Lower error of the Palmese et al. 2024 siren H0 (doi 10.1103/PhysRevD.109.063508), read from the committed script. Book line 246, printed 5.39.'
+    value = _b04_siren("Palmese 2024")[2]
+    return locals()
+
 @check(label='ch:surveys:L248', chapter='ch:surveys', part=2, title='same value as p1_02_iams_law:696 (H0 matter-sector formula)',
        file='part2/p2_16_survey_predictions', line=248, status='calc', kind='num', printed='72.26', tol=7e-05)
 def check_1624():
     'same value as p1_02_iams_law:696 (H0 matter-sector formula). Book line 248, printed 72.26.'
     value=H0_photon*math.sqrt(1+beta_m)
+    return locals()
+
+@check(label='ch:surveys:L248:2.4', chapter='ch:surveys', part=2, title='3 sigma siren error as per cent of H0 matter',
+       file='part2/p2_16_survey_predictions', line=248, status='calc', kind='num', printed='2.4', tol=0.0)
+def check_3658():
+    'sigma(H0) that separates the two rates at 3 sigma, (H0^m - H0^gamma)/3, as a per cent of H0^m. Book line 248, printed 2.4. Inputs: H0^gamma 67.16 (locked), beta_m (CANON).'
+    Hm = H0_photon * math.sqrt(1 + beta_m)
+    value = 100 * (Hm - H0_photon) / 3 / Hm
+    return locals()
+
+@check(label='ch:surveys:L250:3.5', chapter='ch:surveys', part=2, title='separation of the two rates at a 2 % siren H0',
+       file='part2/p2_16_survey_predictions', line=250, status='calc', kind='num', printed='3.5', tol=0.0)
+def check_3659():
+    '(H0^m - H0^gamma)/(0.02 H0^m): the separation in sigma at a 2 % siren measurement. Book line 250, printed 3.5. Inputs: H0^gamma 67.16 (locked), beta_m (CANON).'
+    Hm = H0_photon * math.sqrt(1 + beta_m)
+    value = (Hm - H0_photon) / (0.02 * Hm)
+    return locals()
+
+@check(label='ch:surveys:L250:7.1', chapter='ch:surveys', part=2, title='separation of the two rates at a 1 % siren H0',
+       file='part2/p2_16_survey_predictions', line=250, status='calc', kind='num', printed='7.1', tol=0.0)
+def check_3660():
+    '(H0^m - H0^gamma)/(0.01 H0^m): the separation in sigma at a 1 % siren measurement. Book line 250, printed 7.1. Inputs: H0^gamma 67.16 (locked), beta_m (CANON).'
+    Hm = H0_photon * math.sqrt(1 + beta_m)
+    value = (Hm - H0_photon) / (0.01 * Hm)
+    return locals()
+
+@check(label='ch:surveys:L250:73.04', chapter='ch:surveys', part=2, title='SH0ES H0 (Riess 2022)',
+       file='part2/p2_16_survey_predictions', line=250, status='observed', kind='num', printed='73.04', tol=0.0)
+def check_3661():
+    'SH0ES H0 = 73.04 +- 1.04 km/s/Mpc, Riess et al. 2022, ApJL 934 L7, doi 10.3847/2041-8213/ac5c5b (published value). Book line 250, printed 73.04.'
+    H0_shoes, sig_shoes = 73.04, 1.04          # Riess et al. 2022, doi 10.3847/2041-8213/ac5c5b
+    value = H0_shoes
+    return locals()
+
+@check(label='ch:surveys:L251:0.75', chapter='ch:surveys', part=2, title='SH0ES offset from H0 matter, sigma',
+       file='part2/p2_16_survey_predictions', line=251, status='prediction', kind='num', printed='0.75', tol=0.0)
+def check_3662():
+    '(73.04 - H0^m)/1.04 with H0^m = H0^gamma sqrt(1+beta_m). Book line 251, printed 0.75. Inputs: SH0ES 73.04 +- 1.04, Riess et al. 2022 doi 10.3847/2041-8213/ac5c5b; H0^gamma 67.16 (locked); beta_m (CANON).'
+    H0_shoes, sig_shoes = 73.04, 1.04          # Riess et al. 2022
+    Hm = H0_photon * math.sqrt(1 + beta_m)
+    value = (H0_shoes - Hm) / sig_shoes
+    return locals()
+
+@check(label='ch:surveys:L251:72.26', chapter='ch:surveys', part=2, title='H0 matter, recomputed (SH0ES comparison)',
+       file='part2/p2_16_survey_predictions', line=251, status='prediction', kind='num', printed='72.26', tol=0.0)
+def check_3663():
+    'H0^m = H0^gamma sqrt(1+beta_m) (Eq. sp_siren), restated in the SH0ES comparison. Book line 251, printed 72.26.'
+    value = H0_photon * math.sqrt(1 + beta_m)
+    return locals()
+
+@check(label='ch:surveys:L254:70.0', chapter='ch:surveys', part=2, title='GW170817 H0 (Abbott 2017), figure caption',
+       file='part2/p2_16_survey_predictions', line=254, status='prediction', kind='file', printed='70.0', tol=0.0,
+       source='docs/verification/scripts/verify_iams_law_derivations.py')
+def check_3664():
+    'GW170817 siren H0 of Abbott et al. 2017 (doi 10.1038/nature24471), read from the committed script. Book line 254 (caption), printed 70.0.'
+    value = _b04_siren("Abbott 2017")[0]
+    return locals()
+
+@check(label='ch:surveys:L254:8.0', chapter='ch:surveys', part=2, title='GW170817 (Abbott 2017) lower error, figure caption',
+       file='part2/p2_16_survey_predictions', line=254, status='prediction', kind='file', printed='8.0', tol=0.0,
+       source='docs/verification/scripts/verify_iams_law_derivations.py')
+def check_3665():
+    'Lower error of the Abbott et al. 2017 siren H0 (doi 10.1038/nature24471), read from the committed script. Book line 254 (caption), printed 8.0.'
+    value = _b04_siren("Abbott 2017")[2]
+    return locals()
+
+@check(label='ch:surveys:L254:72.26', chapter='ch:surveys', part=2, title='H0 matter, recomputed (figure caption)',
+       file='part2/p2_16_survey_predictions', line=254, status='prediction', kind='num', printed='72.26', tol=0.0)
+def check_3666():
+    'H0^m = H0^gamma sqrt(1+beta_m) (Eq. sp_siren), restated in the caption. Book line 254, printed 72.26.'
+    value = H0_photon * math.sqrt(1 + beta_m)
+    return locals()
+
+@check(label='ch:surveys:L254:67.16', chapter='ch:surveys', part=2, title='H0 photon sector, Level 2 Run A chain (figure caption)',
+       file='part2/p2_16_survey_predictions', line=254, status='prediction', kind='file', printed='67.16', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
+def check_3667():
+    'Photon-sector H0 of the Level 2 Run A chain, read from the chain record. Book line 254 (caption), printed 67.16.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='ch:surveys:L259', chapter='ch:surveys', part=2, title='same value as p2_03_theory:882 (w_eff at z=1)',
@@ -18150,11 +18886,136 @@ def check_1625():
     value=(OL_*(-1)+beta_m_*E*w_info)/(OL_+beta_m_*E)
     return locals()
 
+@check(label='ch:surveys:L259:-1.015', chapter='ch:surveys', part=2, title='w_eff at z=3',
+       file='part2/p2_16_survey_predictions', line=259, status='calc', kind='num', printed='-1.015', tol=0.0)
+def check_3668():
+    'w_eff = -1 - (1/(3a)) rho_info/(rho_Lambda+rho_info) at z=3 (a=1/4), rho_info = beta_m E(a). Book line 259, printed -1.015. Inputs: CANON beta_m, Planck 2018 Omega_m.'
+    value = _b04_weff(1 / (1 + 3.0))
+    return locals()
+
 @check(label='ch:surveys:L260', chapter='ch:surveys', part=2, title='same value as p2_03_theory:514 (tangent w0 value)',
        file='part2/p2_16_survey_predictions', line=260, status='calc', kind='num', printed='-1.062', tol=0.00047)
 def check_1626():
     'same value as p2_03_theory:514 (tangent w0 value). Book line 260, printed -1.062.'
     Omc=0.315; value=-(1-Omc/3)/(1-Omc/2)
+    return locals()
+
+@check(label='ch:surveys:L260:-1.063', chapter='ch:surveys', part=2, title='minimum of w_eff',
+       file='part2/p2_16_survey_predictions', line=260, status='calc', kind='num', printed='-1.063', tol=0.0)
+def check_3669():
+    'Lowest w_eff(z) over 0<z<2, found by minimisation. Book line 260, printed -1.063. Inputs: CANON beta_m, Planck 2018 Omega_m.'
+    r = minimize_scalar(lambda z: _b04_weff(1 / (1 + z)), bounds=(0, 2), method='bounded', options={'xatol': 1e-8})
+    value = r.fun
+    return locals()
+
+@check(label='ch:surveys:L260:0.19', chapter='ch:surveys', part=2, title='redshift of the w_eff minimum',
+       file='part2/p2_16_survey_predictions', line=260, status='calc', kind='num', printed='0.19', tol=0.0)
+def check_3670():
+    'Redshift at which w_eff(z) is lowest, found by minimisation. Book line 260, printed 0.19. Inputs: CANON beta_m, Planck 2018 Omega_m.'
+    r = minimize_scalar(lambda z: _b04_weff(1 / (1 + z)), bounds=(0, 2), method='bounded', options={'xatol': 1e-8})
+    value = r.x
+    return locals()
+
+@check(label='ch:surveys:L260:-1.012', chapter='ch:surveys', part=2, title='w_eff at a=10',
+       file='part2/p2_16_survey_predictions', line=260, status='calc', kind='num', printed='-1.012', tol=0.0)
+def check_3671():
+    'w_eff at a=10 (the future). Book line 260, printed -1.012. Inputs: CANON beta_m, Planck 2018 Omega_m.'
+    value = _b04_weff(10.0)
+    return locals()
+
+@check(label='ch:surveys:L293:-0.136', chapter='ch:surveys', part=2, title='mu0 = -beta_m/(1+beta_m), falsification list',
+       file='part2/p2_16_survey_predictions', line=293, status='prediction', kind='num', printed='-0.136', tol=0.0)
+def check_3672():
+    'mu0 = mu(a=1) - 1 = -beta_m/(1+beta_m), from mu = H^2/(H^2 + beta_m E H0^2) at a=1. Book line 293, printed -0.136. Inputs: CANON beta_m.'
+    value = float(mu_iam(1.0)) - 1
+    return locals()
+
+@check(label='ch:surveys:L300:72.26', chapter='ch:surveys', part=2, title='H0 matter, recomputed (falsification list)',
+       file='part2/p2_16_survey_predictions', line=300, status='prediction', kind='num', printed='72.26', tol=0.0)
+def check_3673():
+    'H0^m = H0^gamma sqrt(1+beta_m) (Eq. sp_siren). Book line 300, printed 72.26.'
+    value = H0_photon * math.sqrt(1 + beta_m)
+    return locals()
+
+@check(label='ch:surveys:L321:-0.136', chapter='ch:surveys', part=2, title='mu0 = -beta_m/(1+beta_m), status table',
+       file='part2/p2_16_survey_predictions', line=321, status='prediction', kind='num', printed='-0.136', tol=0.0)
+def check_3674():
+    'mu0 = mu(a=1) - 1 = -beta_m/(1+beta_m). Book line 321, printed -0.136. Inputs: CANON beta_m.'
+    value = float(mu_iam(1.0)) - 1
+    return locals()
+
+@check(label='ch:surveys:L322:0.06', chapter='ch:surveys', part=2, title='transition zone lower edge (90 % of 1-mu(0) on)',
+       file='part2/p2_16_survey_predictions', line=322, status='calc', kind='num', printed='0.06', tol=0.0)
+def check_3675():
+    'Lower edge of the transition zone: z where 1-mu(z) has reached 90 % of 1-mu(0) (root of the IAM mu(z)). Book line 322, printed 0.06. Inputs: CANON beta_m, Planck 2018 Omega_m.'
+    m0 = 1 - float(mu_iam(1.0))
+    value = brentq(lambda z: (1 - float(mu_iam(1 / (1 + z)))) - 0.9 * m0, 0, 20)
+    return locals()
+
+_B04_RES = 'docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv'
+_B04_RERUN = 'CAMB Fisher forecast: cd docs/verification/forecasts/euclid_fisher_iam_mu && python run_forecast.py && python analysis.py'
+def _b04_signif(scenario, case):
+    'significance_IAMfid = 1/sigma(A) of one scenario and Sigma case in the committed forecast.'
+    for r in load_csv_rows(_B04_RES):
+        if r['scenario'] == scenario and r['sigma_case'] == case:
+            return 1 / float(r['sigma_A_IAMfid'])
+    raise KeyError(scenario)
+
+@check(label='ch:surveys:L326:0.27', chapter='ch:surveys', part=2, title='Euclid DR1 lowest significance (pessimistic, Sigma0 free)',
+       file='part2/p2_16_survey_predictions', line=326, status='calc', kind='file', printed='0.27', tol=0.0, source=_B04_RES, heavy=True, rerun=_B04_RERUN)
+def check_3676():
+    '1/sigma(A) for Euclid DR1 pessimistic, Sigma0 free, from the committed Fisher forecast. Book line 326, printed 0.27.'
+    value = _b04_signif('Euclid DR1 pessimistic (1900 deg2)', 'Sigma0 free')
+    return locals()
+
+@check(label='ch:surveys:L326:0.68', chapter='ch:surveys', part=2, title='Euclid DR1 highest significance (optimistic, Sigma=1)',
+       file='part2/p2_16_survey_predictions', line=326, status='calc', kind='file', printed='0.68', tol=0.0, source=_B04_RES, heavy=True, rerun=_B04_RERUN)
+def check_3677():
+    '1/sigma(A) for Euclid DR1 optimistic, Sigma=1 fixed, from the committed Fisher forecast. Book line 326, printed 0.68.'
+    value = _b04_signif('Euclid DR1 optimistic (1900 deg2)', 'Sigma=1 fixed')
+    return locals()
+
+@check(label='ch:surveys:L326:0.77', chapter='ch:surveys', part=2, title='Euclid full survey lowest significance (pessimistic, Sigma0 free)',
+       file='part2/p2_16_survey_predictions', line=326, status='calc', kind='file', printed='0.77', tol=0.0, source=_B04_RES, heavy=True, rerun=_B04_RERUN)
+def check_3678():
+    '1/sigma(A) for the Euclid full survey, pessimistic, Sigma0 free, from the committed Fisher forecast. Book line 326, printed 0.77.'
+    value = _b04_signif('Euclid full pessimistic', 'Sigma0 free')
+    return locals()
+
+@check(label='ch:surveys:L326:1.91', chapter='ch:surveys', part=2, title='Euclid full survey highest significance (optimistic, Sigma=1)',
+       file='part2/p2_16_survey_predictions', line=326, status='calc', kind='file', printed='1.91', tol=0.0, source=_B04_RES, heavy=True, rerun=_B04_RERUN)
+def check_3679():
+    '1/sigma(A) for the Euclid full survey, optimistic, Sigma=1 fixed, from the committed Fisher forecast. Book line 326, printed 1.91.'
+    value = _b04_signif('Euclid full optimistic', 'Sigma=1 fixed')
+    return locals()
+
+@check(label='ch:surveys:L326:1.15', chapter='ch:surveys', part=2, title='with Planck lensing and DESI, lowest significance',
+       file='part2/p2_16_survey_predictions', line=326, status='calc', kind='file', printed='1.15', tol=0.0, source=_B04_RES, heavy=True, rerun=_B04_RERUN)
+def check_3680():
+    '1/sigma(A) for Euclid full pessimistic + Planck lensing + DESI, Sigma0 free, from the committed Fisher forecast. Book line 326, printed 1.15.'
+    value = _b04_signif('Euclid full pessimistic + Planck lensing + DESI', 'Sigma0 free')
+    return locals()
+
+@check(label='ch:surveys:L326:2.55', chapter='ch:surveys', part=2, title='with Planck lensing and DESI, highest significance',
+       file='part2/p2_16_survey_predictions', line=326, status='calc', kind='file', printed='2.55', tol=0.0, source=_B04_RES, heavy=True, rerun=_B04_RERUN)
+def check_3681():
+    '1/sigma(A) for Euclid full optimistic + Planck lensing + DESI (kmax 0.2 h/Mpc), Sigma=1 fixed, the strongest combination of the committed Fisher forecast (as at book line 198). Book line 326, printed 2.55.'
+    value = _b04_signif('Euclid full optimistic + Planck lensing + DESI (kmax 0.2h/Mpc)', 'Sigma=1 fixed')
+    return locals()
+
+@check(label='ch:surveys:L330:72.26', chapter='ch:surveys', part=2, title='siren H0 matter, recomputed (status table)',
+       file='part2/p2_16_survey_predictions', line=330, status='prediction', kind='num', printed='72.26', tol=0.0)
+def check_3682():
+    'H0^m = H0^gamma sqrt(1+beta_m) (Eq. sp_siren). Book line 330, printed 72.26.'
+    value = H0_photon * math.sqrt(1 + beta_m)
+    return locals()
+
+@check(label='ch:surveys:L330:3.5', chapter='ch:surveys', part=2, title='separation at a 2 % siren H0 (status table)',
+       file='part2/p2_16_survey_predictions', line=330, status='prediction', kind='num', printed='3.5', tol=0.0)
+def check_3683():
+    '(H0^m - H0^gamma)/(0.02 H0^m). Book line 330, printed 3.5. Inputs: H0^gamma 67.16 (locked), beta_m (CANON).'
+    Hm = H0_photon * math.sqrt(1 + beta_m)
+    value = (Hm - H0_photon) / (0.02 * Hm)
     return locals()
 
 
@@ -32140,163 +33001,65 @@ INVENTORY = [
     (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 142, '', 'measured', '18', "label: '18th' in '18th chain' is the ordinal name of the chain, not a number to recompute"),
     (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 165, '', 'measured', '10', "unit: '$10^{10}\\eta$' column header, nothing to recompute"),
     (2, 'ch:baryon_chain', 'part2/p2_13b_baryon_chain', 166, '', 'measured', '18', "label: '18th' in '18th chain (CMB only)' is the ordinal name of the chain, not a number to recompute"),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 29, 'eq:sp_poisson', 'none', '', 'displayed equation, not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 31, 'eq:sp_mu', 'none', '', 'displayed equation, not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 38, '', 'calc', '-0.13495', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 40, '', 'measured', '+0.54', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 57, '', 'calc', '0.1', 'not yet run: draft rejected (drafter skipped: Line 57: z=0.1 is a redshift bin label, not a computed quantity)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 58, '', 'calc', '0.3', 'not yet run: draft rejected (drafter skipped: Line 58: z=0.3 is a redshift bin label, not a computed quantity)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 59, '', 'calc', '0.5', 'not yet run: draft rejected (drafter skipped: Line 59: z=0.5 is a redshift bin label, not a computed quantity)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 60, '', 'calc', '0.7', 'not yet run: draft rejected (drafter skipped: Line 60: z=0.7 is a redshift bin label, not a computed quantity)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 61, '', 'calc', '1.0', 'not yet run: draft rejected (drafter skipped: Line 61: z=1.0 is a redshift bin label, not a computed quantity)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 62, '', 'calc', '1.5', 'not yet run: draft rejected (drafter skipped: Line 62: z=1.5 is a redshift bin label, not a computed quantity)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 63, '', 'calc', '2.0', 'not yet run: draft rejected (drafter skipped: Line 63: z=2.0 is a redshift bin label, not a computed quantity)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 70, '', 'calc', '0.3153', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 70, '', 'calc', '+1.8', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 70, '', 'calc', '0.3', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 79, '', 'calc', '0.3153', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 82, '', 'calc', '10', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 82, '', 'calc', '25', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 83, '', 'calc', '50', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 83, '', 'calc', '75', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 83, '', 'calc', '90', 'not yet run: draft rejected (does not run: ValueError)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 83, '', 'calc', '95', 'not yet run: draft rejected (does not run: ValueError)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 84, '', 'calc', '99', 'not yet run: draft rejected (does not run: ValueError)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 89, '', 'calc', '50', 'not yet run: draft rejected (does not run: ValueError)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 91, '', 'calc', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 92, '', 'calc', '10', 'not yet run: draft rejected (does not run: NameError)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 92, '', 'calc', '50', 'not yet run: draft rejected (does not run: NameError)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 92, '', 'calc', '90', 'not yet run: draft rejected (does not run: NameError)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 95, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 2.30259); drafting error on review'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 95, '', 'calc', '50', 'not yet run: draft does not reproduce the printed value (recomputed 0.693147); drafting error on review'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 95, '', 'calc', '90', 'not yet run: draft does not reproduce the printed value (recomputed 0.105361); drafting error on review'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 95, '', 'calc', '2.30', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 95, '', 'calc', '0.69', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 96, '', 'calc', '0.11', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 96, '', 'calc', '0.06', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 96, '', 'calc', '1.12', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 105, '', 'calc', '0.865', 'not yet run: draft does not reproduce the printed value (recomputed 1); drafting error on review'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 106, '', 'calc', '2.8', 'not yet run: draft does not reproduce the printed value (recomputed 2.74397); drafting error on review'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 106, '', 'calc', '0.7', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 121, 'eq:sp_iswT', 'none', '', 'displayed equation, not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 125, 'eq:sp_iswsrc', 'derived', '', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 128, '', 'calc', '0.22', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 129, '', 'calc', '0.5', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 129, '', 'calc', '0.78', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 135, 'eq:sp_isw', 'calc', '', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 136, '', 'calc', '1.054', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 136, '', 'calc', '1.064', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 136, '', 'calc', '1.072', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 141, '', 'observed', '20', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 141, '', 'observed', '30', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 146, '', 'calc', '1.031', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 146, '', 'calc', '0.3', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 147, '', 'calc', '0.22', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 147, '', 'calc', '0.5', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 148, '', 'calc', '0.1', 'not yet run: draft rejected (no draft returned)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 148, '', 'calc', '1.034', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 148, '', 'calc', '1.031', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 149, '', 'calc', '0.3153', 'not yet run: draft rejected (drafter skipped: Ω_m = 0.3153 is a Planck 2018 input constant already defined in NAMESPACE)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 155, '', 'calc', '0.08', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 156, '', 'observed', '40', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 156, '', 'observed', '2.5', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 156, '', 'observed', '30', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 159, '', 'calc', '0.3', 'not yet run: draft rejected (drafter skipped: z=0.3 is a redshift parameter, not a calculated result)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 160, '', 'observed', '0.39', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 160, '', 'calc', '1.1', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 160, '', 'calc', '1.2', 'not yet run: draft rejected (negative control (printed value x1.05) also passes)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 160, '', 'calc', '0.008', 'not yet run: draft rejected (negative control (printed value x1.05) also passes)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 164, '', 'observed', '0.08', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 164, '', 'observed', '0.19', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 165, '', 'fitted', '0.11', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 165, '', 'fitted', '0.54', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 166, '', 'fitted', '0.02', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 166, '', 'fitted', '+0.2', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 166, '', 'fitted', '90', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 166, '', 'fitted', '+0.059', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 167, '', 'fitted', '-0.304', 'measured, not found in the files the chapter names'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 167, '', 'fitted', '+0.064', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 167, '', 'fitted', '-0.204', 'measured, not found in the files the chapter names'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 174, '', 'observed', '23', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 198, '', 'calc', '0.2', 'not yet run: draft rejected (drafter skipped: k_max = 0.2 h Mpc^-1 is a cutoff parameter; its value is set in the Fishe)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 205, '', 'calc', '0.76', 'not yet run: draft rejected (drafter skipped: σ_A = 0.76 is the forecast error on amplitude A from the Fisher matrix \n#)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 206, '', 'calc', '0.48', 'not yet run: draft rejected (drafter skipped: σ_A = 0.48 is the forecast error on amplitude A \n# (Euclid full + Planck )'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 206, '', 'calc', '0.1', 'not yet run: draft rejected (drafter skipped: k < 0.1 h Mpc^-1 is a DESI wavenumber limit from the 2016 forecast cited )'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 208, '', 'calc', '0.3', 'not yet run: draft rejected (drafter skipped: 0.3% is the lower end of the spectrum lowering range for IAM vs. LambdaCD)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 208, '', 'calc', '1.1', 'not yet run: draft rejected (drafter skipped: 1.1% is the upper end of the spectrum lowering range. Requires the full \n)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 214, '', 'calc', '40', "not yet run: draft rejected (drafter skipped: 40σ is Planck's detection threshold for lensing, cited from Planck2018VII)"),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 216, '', 'calc', '10', 'not yet run: draft rejected (drafter skipped: 10% is the stated tolerance within which the pipeline reproduces \n# Eucli)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 217, '', 'calc', '0.536', 'not yet run: draft rejected (drafter skipped: Template error σ(μ₀) for spectroscopic clustering alone from pipeline\n# r)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 217, '', 'calc', '0.530', 'not yet run: draft rejected (drafter skipped: Published template error σ(μ₀) = 0.530 from Albuquerque2025\n# External li)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 221, '', 'calc', '4.25', 'not yet run: draft rejected (drafter skipped: f sigma8 deficit at z=0: 4.25%\n# Requires running growth_rescaled spectru)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 221, '', 'calc', '2.17', 'not yet run: draft rejected (drafter skipped: f sigma8 deficit at z=0.3: 2.17%\n# Requires running growth_rescaled spect)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 221, '', 'calc', '0.3', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 222, '', 'calc', '1.35', 'not yet run: draft rejected (drafter skipped: f sigma8 deficit at z=0.5: 1.35%\n# Requires running growth_rescaled spect)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 222, '', 'calc', '0.5', 'not yet run: draft rejected (drafter skipped: f sigma8 deficit at z=1: 0.5%\n# Requires running growth_rescaled spectrum)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 222, '', 'calc', '0.41', 'not yet run: draft rejected (drafter skipped: f sigma8 deficit at z=1: 0.41%\n# Requires running growth_rescaled spectru)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 222, '', 'calc', '0.9', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 222, '', 'calc', '1.8', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 223, '', 'calc', '0.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 223, '', 'calc', '0.3', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 223, '', 'calc', '1.1', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 224, '', 'calc', '0.27', 'not yet run: draft rejected (drafter skipped: skip Line 219 references docs/verification/forecasts/euclid_fisher_iam_mu)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 224, '', 'calc', '2.55', 'not yet run: draft rejected (drafter skipped: skip Requires the full Fisher forecast pipeline output from docs/verifica)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 228, '', 'calc', '2.17', 'not yet run: draft does not reproduce the printed value (recomputed 216.814); drafting error on review'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 228, '', 'calc', '0.3', 'not yet run: draft rejected (drafter skipped: Line 228 prints "0.3" as a redshift label (z=0.3), not a calculated quant)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 228, '', 'calc', '4.25', 'not yet run: draft does not reproduce the printed value (recomputed 425.055); drafting error on review'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 232, '', 'observed', '0.2', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 232, '', 'observed', '1.5', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 232, '', 'observed', '2.5', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 233, '', 'observed', '2.6', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 233, '', 'observed', '2.8', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 234, '', 'observed', '0.3', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 234, '', 'observed', '0.1', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 235, '', 'observed', '0.07', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 237, '', 'observed', '1.2', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 239, '', 'calc', '0.01', 'not yet run: draft rejected (drafter skipped: Line 239 prints "0.01" as a redshift lower bound (z=0.01--0.05), not a ca)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 239, '', 'calc', '0.05', 'not yet run: draft rejected (drafter skipped: Line 239 prints "0.05" as a redshift upper bound (z=0.01--0.05), not a ca)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 239, '', 'calc', '4.2', 'not yet run: draft does not reproduce the printed value (recomputed 416.126); drafting error on review'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 239, '', 'calc', '3.8', 'not yet run: draft does not reproduce the printed value (recomputed 381.863); drafting error on review'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 239, '', 'observed', '395', 'measured, not found in the files the chapter names'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 239, '', 'observed', '139', 'measured, not found in the files the chapter names'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 244, 'eq:sp_siren', 'calc', '', 'not yet run: draft rejected (does not run: ValueError no value)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 246, '', 'observed', '8.0', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 246, '', 'observed', '68.9', 'measured, not found in the files the chapter names'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 246, '', 'observed', '4.6', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 246, '', 'observed', '75.46', 'measured, not found in the files the chapter names'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 246, '', 'observed', '5.39', 'measured, not found in the files the chapter names'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 248, '', 'calc', '2.4', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 250, '', 'calc', '3.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 250, '', 'calc', '7.1', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 250, '', 'calc', '73.04', 'not yet run: draft rejected (drafter skipped: SH0ES measurement value (73.04 ± 1.04) is an observational result from Ri)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 251, '', 'prediction', '0.75', 'not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 251, '', 'prediction', '72.26', 'not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 254, '', 'prediction', '70.0', 'not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 254, '', 'prediction', '8.0', 'not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 254, '', 'prediction', '72.26', 'not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 254, '', 'prediction', '67.16', 'not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 259, '', 'calc', '-1.015', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 260, '', 'calc', '-1.063', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 260, '', 'calc', '0.19', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 260, '', 'calc', '-1.012', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 260, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed -1.012); drafting error on review'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 293, '', 'prediction', '-0.136', 'not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 293, '', 'prediction', '-0.05', 'not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 293, '', 'prediction', '95', 'not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 296, '', 'prediction', '0.3', 'not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 300, '', 'prediction', '72.26', 'not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 321, '', 'prediction', '-0.136', 'not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 322, '', 'calc', '0.06', 'not yet run: draft rejected (drafter skipped: Line 322: transition zone lower bound 0.06 lesssim z lesssim 1.12\n# Excer)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 326, '', 'calc', '0.27', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 326, '', 'calc', '0.68', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 326, '', 'calc', '0.77', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 326, '', 'calc', '1.91', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 326, '', 'calc', '1.15', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 326, '', 'calc', '2.55', 'not yet run: draft rejected (printed value typed into the code)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 327, '', 'calc', '2.5', 'not yet run: draft rejected (drafter skipped: Line 327: growth deficit amplitude "about 2.5–3σ by the mid-2030s"\n# Exce)'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 328, '', 'prediction', '1000', 'not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 330, '', 'prediction', '72.26', 'not yet checked'),
-    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 330, '', 'prediction', '3.5', 'not yet checked'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 29, 'eq:sp_poisson', 'none', '', 'definition: the mu-Sigma parametrisation of the two Poisson equations (Pogosian & Silvestri 2016); mu and Sigma are defined by it'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 57, '', 'calc', '0.1', 'label: redshift of a table row / bin (z = 0.1), an input of the computation, nothing to recompute'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 58, '', 'calc', '0.3', 'label: redshift of a table row / bin (z = 0.3), an input of the computation, nothing to recompute'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 59, '', 'calc', '0.5', 'label: redshift of a table row / bin (z = 0.5), an input of the computation, nothing to recompute'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 60, '', 'calc', '0.7', 'label: redshift of a table row / bin (z = 0.7), an input of the computation, nothing to recompute'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 61, '', 'calc', '1.0', 'label: redshift of a table row / bin (z = 1.0), an input of the computation, nothing to recompute'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 62, '', 'calc', '1.5', 'label: redshift of a table row / bin (z = 1.5), an input of the computation, nothing to recompute'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 63, '', 'calc', '2.0', 'label: redshift of a table row / bin (z = 2.0), an input of the computation, nothing to recompute'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 70, '', 'calc', '0.3153', 'input: Omega_m = 0.3153, Planck 2018 VI Table 2 (the global Om of the growth checks)'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 70, '', 'calc', '0.3', 'label: redshift of a table row / bin (z = 0.3), an input of the computation, nothing to recompute'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 79, '', 'calc', '0.3153', 'input: Omega_m = 0.3153, Planck 2018 VI Table 2, restated in the table caption'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 82, '', 'calc', '10', "label: the fraction (10 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84)"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 82, '', 'calc', '25', "label: the fraction (25 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84)"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 83, '', 'calc', '50', "label: the fraction (50 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84)"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 83, '', 'calc', '75', "label: the fraction (75 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84)"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 83, '', 'calc', '90', "label: the fraction (90 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84)"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 83, '', 'calc', '95', "label: the fraction (95 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84)"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 84, '', 'calc', '99', "label: the fraction (99 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84)"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 89, '', 'calc', '50', 'definition: the midpoint is defined as 50 % of the total modification'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 91, '', 'calc', '0.5', 'label: redshift of a table row / bin (z = 0.5), an input of the computation, nothing to recompute'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 92, '', 'calc', '10', "label: the 10 % level of today's E(a) whose redshift is quoted (checked by ch:surveys:L92 and its siblings)"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 92, '', 'calc', '50', "label: the 50 % level of today's E(a) whose redshift is quoted (checked by ch:surveys:L92 and its siblings)"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 92, '', 'calc', '90', "label: the 90 % level of today's E(a) whose redshift is quoted (checked by ch:surveys:L92 and its siblings)"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 95, '', 'calc', '10', "label: the 10 % level of today's E(a) in the figure caption; its redshift is checked by ch:surveys:L95 / L95:0.69 / L96"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 95, '', 'calc', '50', "label: the 50 % level of today's E(a) in the figure caption; its redshift is checked by ch:surveys:L95 / L95:0.69 / L96"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 95, '', 'calc', '90', "label: the 90 % level of today's E(a) in the figure caption; its redshift is checked by ch:surveys:L95 / L95:0.69 / L96"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 121, 'eq:sp_iswT', 'none', '', 'definition: the integrated Sachs-Wolfe temperature shift along the photon path (standard, Sachs & Wolfe 1967), stated in the metric of Eq. eq:sp_poisson'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 129, '', 'calc', '0.5', 'label: redshift of a table row / bin (z = 0.5), an input of the computation, nothing to recompute'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 141, '', 'observed', '20', 'measured, source not named'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 141, '', 'observed', '30', 'measured, source not named'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 147, '', 'calc', '0.5', 'label: redshift of a table row / bin (z = 0.5), an input of the computation, nothing to recompute'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 148, '', 'calc', '0.1', 'input: Gaussian redshift window width sigma_z = 0.1, a setting of the ISW-galaxy computation (used in ch:surveys:L148:1.034)'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 149, '', 'calc', '0.3153', 'input: Omega_m = 0.3153, Planck 2018 VI Table 2, restated in the figure caption'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 156, '', 'observed', '30', "approximate ratio: 'about 30 times smaller' is 2.5 % / 0.08 % = 31.0 (computed by ch:surveys:L156:2.5 and ch:surveys:L155); a one-figure 'about' cannot carry the 5 % control (31.0 vs 31.5)"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 159, '', 'calc', '0.3', 'label: redshift of a table row / bin (z = 0.3), an input of the computation, nothing to recompute'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 166, '', 'fitted', '90', 'definition: the central 90 % interval whose lower end (5 % quantile) is quoted; the median and quantiles are checked by ch:surveys:L166:+0.059 and ch:surveys:L167:-0.304'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 221, '', 'calc', '0.3', 'label: redshift of a table row / bin (z = 0.3), an input of the computation, nothing to recompute'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 222, '', 'calc', '0.5', 'label: redshift of a table row / bin (z = 0.5), an input of the computation, nothing to recompute'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 223, '', 'calc', '0.5', "restates the f sigma8 deficit at the start of Euclid's spectroscopic range, z = 0.9: fs8_deficit(0.9) = 0.517 %, which rounds to the printed 0.5; a one-figure value whose 5 % control (0.525) cannot be told from 0.517, so no check is registered (the deficits around it are checked by ch:surveys:L222 and ch:surveys:L222:0.41)"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 228, '', 'calc', '0.3', 'label: redshift of a table row / bin (z = 0.3), an input of the computation, nothing to recompute'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 232, '', 'observed', '0.2', 'measured, source not named (low-redshift growth-survey Fisher forecast with the peculiar-velocity module: its outputs are not committed; docs/verification/forecasts/euclid_fisher_iam_mu holds only the Euclid/Planck/DESI forecast)'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 232, '', 'observed', '1.5', 'measured, source not named (low-redshift growth-survey Fisher forecast with the peculiar-velocity module: its outputs are not committed; docs/verification/forecasts/euclid_fisher_iam_mu holds only the Euclid/Planck/DESI forecast)'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 232, '', 'observed', '2.5', 'measured, source not named (low-redshift growth-survey Fisher forecast with the peculiar-velocity module: its outputs are not committed; docs/verification/forecasts/euclid_fisher_iam_mu holds only the Euclid/Planck/DESI forecast)'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 233, '', 'observed', '2.6', 'measured, source not named (low-redshift growth-survey Fisher forecast with the peculiar-velocity module: its outputs are not committed; docs/verification/forecasts/euclid_fisher_iam_mu holds only the Euclid/Planck/DESI forecast)'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 233, '', 'observed', '2.8', 'measured, source not named (low-redshift growth-survey Fisher forecast with the peculiar-velocity module: its outputs are not committed; docs/verification/forecasts/euclid_fisher_iam_mu holds only the Euclid/Planck/DESI forecast)'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 234, '', 'observed', '0.3', 'definition: z<0.3, the redshift range where per-cent growth data are needed for the switch-on (a target range, nothing to recompute)'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 234, '', 'observed', '0.1', 'input: redshift range of the DESI DR2 full-shape growth measurement (about 0.1<z<2), a survey specification'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 235, '', 'observed', '0.07', 'input: z_eff = 0.07 of the DESI DR1 peculiar-velocity point (Qin2026), listed in Table tab:st_fsig8 (row checked at ch:sectortension:L247)'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 237, '', 'observed', '1.2', 'measured, source not named (agreement of the peculiar-velocity module with the published DESI-LSST forecast of Howlett et al.: no committed output holds it)'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 239, '', 'calc', '0.01', 'input: z=0.01, lower edge of the redshift range at which the bulk-flow deficit is evaluated'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 239, '', 'calc', '0.05', 'input: z=0.05, upper edge of the redshift range at which the bulk-flow deficit is evaluated'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 239, '', 'observed', '395', 'measured, source not named in the repository: CosmicFlows-4 bulk flow 395 +- 29 km/s (Watkins et al. 2023, doi 10.1093/mnras/stad1984); no repository file holds the value'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 239, '', 'observed', '139', 'measured, source not named in the repository: LambdaCDM bulk-flow expectation 139 km/s (Watkins et al. 2023, doi 10.1093/mnras/stad1984); no repository file holds the value'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 260, '', 'calc', '10', 'input: a=10, the evaluation point of w_eff (its value -1.012 is checked at ch:surveys:L260:-1.012)'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 293, '', 'prediction', '-0.05', 'prediction, nothing to recompute: falsification threshold mu0 > -0.05'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 293, '', 'prediction', '95', 'definition: 95 % confidence level of the falsification threshold'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 296, '', 'prediction', '0.3', 'definition: z<0.3, the redshift range of the falsification criterion (the 2-4 % deficit there is checked at ch:surveys:L56:-4.25 and ch:surveys:L58:-2.17)'),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 327, '', 'calc', '2.5', "measured, source not named: 'about 2.5-3 sigma by the mid-2030s' (low-redshift growth-survey Fisher forecast with the peculiar-velocity module: its outputs are not committed; docs/verification/forecasts/euclid_fisher_iam_mu holds only the Euclid/Planck/DESI forecast)"),
+    (2, 'ch:surveys', 'part2/p2_16_survey_predictions', 328, '', 'prediction', '1000', 'definition: survey name KiDS-1000 (not a number)'),
     (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 31, 'eq:ld_b', 'observed', '', 'definition: hydrostatic mass-bias parametrisation M_true = M_X/(1-b)'),
     (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 34, '', 'observed', '0.1', "measured, source not named (approximate literature range of the hydrostatic bias b; cited papers' values are not held in any repository file)"),
     (2, 'ch:lensdyn', 'part2/p2_17_lensing_dynamics', 34, '', 'observed', '0.4', "measured, source not named (approximate literature range of the hydrostatic bias b; cited papers' values are not held in any repository file)"),

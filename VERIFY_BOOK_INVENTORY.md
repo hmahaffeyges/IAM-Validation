@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3586 PASS, 0 FAIL, 2750 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3684 PASS, 0 FAIL, 2652 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -2459,12 +2459,12 @@ Totals: 3586 PASS, 0 FAIL, 2750 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 29 | eq:sp_poisson | none |  | not run: displayed equation, not yet checked | - |
-| 31 | eq:sp_mu | none |  | not run: displayed equation, not yet checked | - |
+| 29 | eq:sp_poisson | none |  | not run: definition: the mu-Sigma parametrisation of the two Poisson equations (Pogosian & Silvestri 2016); mu and Sigma are defined by it | - |
+| 31 | eq:sp_mu | none |  | sympy: mu(a) of Eq. sp_mu: mu(a=1) = 1/(1+Omega_m/2) and mu -> 1 as a -> 0 | PASS |
 | 36 | eq:sp_mu0 | prediction |  | sympy: mu0 = -beta_m/(1+beta_m) = -0.136 | PASS |
 | 38 | ch:surveys:L38 | calc | `-0.13618` | numeric: same value as p1_02_iams_law:465 (mu0 at beta_m=0.15765, precise) | PASS |
-| 38 |  | calc | `-0.13495` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 40 |  | measured | `+0.54` | not run: measured, too few printed digits to match against the named files | - |
+| 38 | ch:surveys:L38:-0.13495 | calc | `-0.13495` | file `mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml`: mu0 of the MGCAMB tracking form in the Level 1 chains, from the chain settings | PASS |
+| 40 | ch:surveys:L40 | measured | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2: Delta chi2 of the IAM run against LambdaCDM (chain minima) | PASS |
 | 41 | ch:surveys:L41 | measured | `0.800` | heavy file `docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt`: measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names | PASS |
 | 53 | ch:surveys:L53 | calc | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
 | 56 | ch:surveys:L56 | calc | `0.864` | numeric: mu at z=0.0 | PASS |
@@ -2475,41 +2475,41 @@ Totals: 3586 PASS, 0 FAIL, 2750 inventoried and not run. Each run item carries t
 | 57 | ch:surveys:L57:11.44 | calc | `11.44` | numeric: 1 - mu at z=0.1, per cent | PASS |
 | 57 | ch:surveys:L57:-0.61 | calc | `-0.61` | numeric: Delta D/D (= Delta Phi/Phi) at z=0.1 | PASS |
 | 57 | ch:surveys:L57:-3.42 | calc | `-3.42` | numeric: Delta f sigma8 at z=0.1 | PASS |
-| 57 |  | calc | `0.1` | not run: not yet run: draft rejected (drafter skipped: Line 57: z=0.1 is a redshift bin label, not a computed quantity) | - |
+| 57 |  | calc | `0.1` | not run: label: redshift of a table row / bin (z = 0.1), an input of the computation, nothing to recompute | - |
 | 58 | ch:surveys:L58 | calc | `0.922` | numeric: mu at z=0.3 | PASS |
 | 58 | ch:surveys:L58:7.82 | calc | `7.82` | numeric: 1 - mu at z=0.3, per cent | PASS |
 | 58 | ch:surveys:L58:-0.37 | calc | `-0.37` | numeric: Delta D/D (= Delta Phi/Phi) at z=0.3 | PASS |
 | 58 | ch:surveys:L58:-2.17 | calc | `-2.17` | numeric: Delta f sigma8 at z=0.3 | PASS |
-| 58 |  | calc | `0.3` | not run: not yet run: draft rejected (drafter skipped: Line 58: z=0.3 is a redshift bin label, not a computed quantity) | - |
+| 58 |  | calc | `0.3` | not run: label: redshift of a table row / bin (z = 0.3), an input of the computation, nothing to recompute | - |
 | 59 | ch:surveys:L59 | calc | `0.948` | numeric: mu at z=0.5 | PASS |
 | 59 | ch:surveys:L59:5.18 | calc | `5.18` | numeric: 1 - mu at z=0.5, per cent | PASS |
 | 59 | ch:surveys:L59:-0.22 | calc | `-0.22` | numeric: Delta D/D (= Delta Phi/Phi) at z=0.5 | PASS |
 | 59 | ch:surveys:L59:-1.35 | calc | `-1.35` | numeric: Delta f sigma8 at z=0.5 | PASS |
-| 59 |  | calc | `0.5` | not run: not yet run: draft rejected (drafter skipped: Line 59: z=0.5 is a redshift bin label, not a computed quantity) | - |
+| 59 |  | calc | `0.5` | not run: label: redshift of a table row / bin (z = 0.5), an input of the computation, nothing to recompute | - |
 | 60 | ch:surveys:L60 | calc | `0.966` | numeric: mu at z=0.7 | PASS |
 | 60 | ch:surveys:L60:3.39 | calc | `3.39` | numeric: 1 - mu at z=0.7, per cent | PASS |
 | 60 | ch:surveys:L60:-0.13 | calc | `-0.13` | numeric: Delta D/D (= Delta Phi/Phi) at z=0.7 | PASS |
 | 60 | ch:surveys:L60:-0.83 | calc | `-0.83` | numeric: Delta f sigma8 at z=0.7 | PASS |
-| 60 |  | calc | `0.7` | not run: not yet run: draft rejected (drafter skipped: Line 60: z=0.7 is a redshift bin label, not a computed quantity) | - |
+| 60 |  | calc | `0.7` | not run: label: redshift of a table row / bin (z = 0.7), an input of the computation, nothing to recompute | - |
 | 61 | ch:surveys:L61 | calc | `0.982` | numeric: mu at z=1.0 | PASS |
 | 61 | ch:surveys:L61:1.78 | calc | `1.78` | numeric: 1 - mu at z=1.0, per cent | PASS |
 | 61 | ch:surveys:L61:-0.06 | calc | `-0.06` | numeric: Delta D/D (= Delta Phi/Phi) at z=1.0 | PASS |
 | 61 | ch:surveys:L61:-0.41 | calc | `-0.41` | numeric: Delta f sigma8 at z=1.0 | PASS |
-| 61 |  | calc | `1.0` | not run: not yet run: draft rejected (drafter skipped: Line 61: z=1.0 is a redshift bin label, not a computed quantity) | - |
+| 61 |  | calc | `1.0` | not run: label: redshift of a table row / bin (z = 1.0), an input of the computation, nothing to recompute | - |
 | 62 | ch:surveys:L62 | calc | `0.994` | numeric: mu at z=1.5 | PASS |
 | 62 | ch:surveys:L62:0.62 | calc | `0.62` | numeric: 1 - mu at z=1.5, per cent | PASS |
 | 62 | ch:surveys:L62:-0.02 | calc | `-0.02` | numeric: Delta D/D (= Delta Phi/Phi) at z=1.5 | PASS |
 | 62 | ch:surveys:L62:-0.13 | calc | `-0.13` | numeric: Delta f sigma8 at z=1.5 | PASS |
-| 62 |  | calc | `1.5` | not run: not yet run: draft rejected (drafter skipped: Line 62: z=1.5 is a redshift bin label, not a computed quantity) | - |
+| 62 |  | calc | `1.5` | not run: label: redshift of a table row / bin (z = 1.5), an input of the computation, nothing to recompute | - |
 | 63 | ch:surveys:L63 | calc | `0.998` | numeric: mu at z=2.0 | PASS |
 | 63 | ch:surveys:L63:0.23 | calc | `0.23` | numeric: 1 - mu at z=2.0, per cent | PASS |
 | 63 | ch:surveys:L63:-0.01 | calc | `-0.01` | numeric: Delta D/D (= Delta Phi/Phi) at z=2.0 | PASS |
 | 63 | ch:surveys:L63:-0.04 | calc | `-0.04` | numeric: Delta f sigma8 at z=2.0 | PASS |
-| 63 |  | calc | `2.0` | not run: not yet run: draft rejected (drafter skipped: Line 63: z=2.0 is a redshift bin label, not a computed quantity) | - |
-| 70 |  | calc | `0.3153` | not run: not yet run: draft rejected (no draft returned) | - |
-| 70 |  | calc | `+1.8` | not run: not yet run: draft rejected (no draft returned) | - |
-| 70 |  | calc | `0.3` | not run: not yet run: draft rejected (no draft returned) | - |
-| 79 |  | calc | `0.3153` | not run: not yet run: draft rejected (no draft returned) | - |
+| 63 |  | calc | `2.0` | not run: label: redshift of a table row / bin (z = 2.0), an input of the computation, nothing to recompute | - |
+| 70 | ch:surveys:L70 | calc | `+1.8` | numeric: E_G = Omega_m0 Sigma/f: change at z = 0.3, per cent | PASS |
+| 70 |  | calc | `0.3153` | not run: input: Omega_m = 0.3153, Planck 2018 VI Table 2 (the global Om of the growth checks) | - |
+| 70 |  | calc | `0.3` | not run: label: redshift of a table row / bin (z = 0.3), an input of the computation, nothing to recompute | - |
+| 79 |  | calc | `0.3153` | not run: input: Omega_m = 0.3153, Planck 2018 VI Table 2, restated in the table caption | - |
 | 82 | ch:surveys:L82 | calc | `0.305` | numeric: a where 1% of 1-mu(0) is on | PASS |
 | 82 | ch:surveys:L82:2.28 | calc | `2.28` | numeric: z where 1% is on | PASS |
 | 82 | ch:surveys:L82:10.9 | calc | `10.9` | numeric: lookback time, Gyr (H0 67.36, Om 0.3153) | PASS |
@@ -2522,8 +2522,8 @@ Totals: 3586 PASS, 0 FAIL, 2750 inventoried and not run. Each run item carries t
 | 82 | ch:surveys:L82:0.589 | calc | `0.589` | numeric: a where 25% of 1-mu(0) is on | PASS |
 | 82 | ch:surveys:L82:0.70 | calc | `0.70` | numeric: z where 25% is on | PASS |
 | 82 | ch:surveys:L82:6.5 | calc | `6.5` | numeric: lookback time, Gyr (H0 67.36, Om 0.3153) | PASS |
-| 82 |  | calc | `10` | not run: not yet run: draft rejected (no draft returned) | - |
-| 82 |  | calc | `25` | not run: not yet run: draft rejected (no draft returned) | - |
+| 82 |  | calc | `10` | not run: label: the fraction (10 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84) | - |
+| 82 |  | calc | `25` | not run: label: the fraction (25 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84) | - |
 | 83 | ch:surveys:L83 | calc | `0.731` | numeric: a where 50% of 1-mu(0) is on | PASS |
 | 83 | ch:surveys:L83:0.37 | calc | `0.37` | numeric: z where 50% is on | PASS |
 | 83 | ch:surveys:L83:4.2 | calc | `4.2` | numeric: lookback time, Gyr (H0 67.36, Om 0.3153) | PASS |
@@ -2536,94 +2536,94 @@ Totals: 3586 PASS, 0 FAIL, 2750 inventoried and not run. Each run item carries t
 | 83 | ch:surveys:L83:0.971 | calc | `0.971` | numeric: a where 95% of 1-mu(0) is on | PASS |
 | 83 | ch:surveys:L83:0.03 | calc | `0.03` | numeric: z where 95% is on | PASS |
 | 83 | ch:surveys:L83:0.4 | calc | `0.4` | numeric: lookback time, Gyr (H0 67.36, Om 0.3153) | PASS |
-| 83 |  | calc | `50` | not run: not yet run: draft rejected (no draft returned) | - |
-| 83 |  | calc | `75` | not run: not yet run: draft rejected (no draft returned) | - |
-| 83 |  | calc | `90` | not run: not yet run: draft rejected (does not run: ValueError) | - |
-| 83 |  | calc | `95` | not run: not yet run: draft rejected (does not run: ValueError) | - |
+| 83 |  | calc | `50` | not run: label: the fraction (50 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84) | - |
+| 83 |  | calc | `75` | not run: label: the fraction (75 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84) | - |
+| 83 |  | calc | `90` | not run: label: the fraction (90 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84) | - |
+| 83 |  | calc | `95` | not run: label: the fraction (95 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84) | - |
 | 84 | ch:surveys:L84 | calc | `0.994` | numeric: a where 99% of 1-mu(0) is on | PASS |
 | 84 | ch:surveys:L84:0.01 | calc | `0.01` | numeric: z where 99% is on | PASS |
 | 84 | ch:surveys:L84:0.1 | calc | `0.1` | numeric: lookback time, Gyr (H0 67.36, Om 0.3153) | PASS |
-| 84 |  | calc | `99` | not run: not yet run: draft rejected (does not run: ValueError) | - |
+| 84 |  | calc | `99` | not run: label: the fraction (99 %) of today's 1 - mu that defines a row of Table tab:sp_activation, an input; the a, z and lookback of that row are checked (ch:surveys:L82..L84) | - |
 | 88 | eq:sp_zone | calc |  | sympy: 10-90 % zone 0.06 < z < 1.12 | PASS |
 | 89 | ch:surveys:L89 | calc | `4.2` | numeric: midpoint lookback, Gyr | PASS |
 | 89 | ch:surveys:L89:0.37 | calc | `0.37` | numeric: midpoint z | PASS |
-| 89 |  | calc | `50` | not run: not yet run: draft rejected (does not run: ValueError) | - |
+| 89 |  | calc | `50` | not run: definition: the midpoint is defined as 50 % of the total modification | - |
 | 90 | ch:surveys:L90 | calc | `0.229` | numeric: |dmu/dz| today | PASS |
 | 91 | ch:surveys:L91 | calc | `0.109` | numeric: |dmu/dz| at z=0.5 | PASS |
 | 91 | ch:surveys:L91:0.128 | calc | `0.128` | numeric: |dmu/dz| MGCAMB form at z=0 | PASS |
-| 91 |  | calc | `0.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 91 |  | calc | `0.5` | not run: label: redshift of a table row / bin (z = 0.5), an input of the computation, nothing to recompute | - |
 | 92 | ch:surveys:L92 | calc | `2.30` | numeric: z where E = 10% of today | PASS |
 | 92 | ch:surveys:L92:0.69 | calc | `0.69` | numeric: z where E = 50% of today | PASS |
 | 92 | ch:surveys:L92:0.11 | calc | `0.11` | numeric: z where E = 90% of today | PASS |
-| 92 |  | calc | `10` | not run: not yet run: draft rejected (does not run: NameError) | - |
-| 92 |  | calc | `50` | not run: not yet run: draft rejected (does not run: NameError) | - |
-| 92 |  | calc | `90` | not run: not yet run: draft rejected (does not run: NameError) | - |
-| 95 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 2.30259); drafting error on review | - |
-| 95 |  | calc | `50` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.693147); drafting error on review | - |
-| 95 |  | calc | `90` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.105361); drafting error on review | - |
-| 95 |  | calc | `2.30` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 95 |  | calc | `0.69` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 96 |  | calc | `0.11` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 96 |  | calc | `0.06` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 96 |  | calc | `1.12` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 92 |  | calc | `10` | not run: label: the 10 % level of today's E(a) whose redshift is quoted (checked by ch:surveys:L92 and its siblings) | - |
+| 92 |  | calc | `50` | not run: label: the 50 % level of today's E(a) whose redshift is quoted (checked by ch:surveys:L92 and its siblings) | - |
+| 92 |  | calc | `90` | not run: label: the 90 % level of today's E(a) whose redshift is quoted (checked by ch:surveys:L92 and its siblings) | - |
+| 95 | ch:surveys:L95 | calc | `2.30` | numeric: z at which E(a) reaches 10 % of today | PASS |
+| 95 | ch:surveys:L95:0.69 | calc | `0.69` | numeric: z at which E(a) reaches 50 % of today | PASS |
+| 95 |  | calc | `10` | not run: label: the 10 % level of today's E(a) in the figure caption; its redshift is checked by ch:surveys:L95 / L95:0.69 / L96 | - |
+| 95 |  | calc | `50` | not run: label: the 50 % level of today's E(a) in the figure caption; its redshift is checked by ch:surveys:L95 / L95:0.69 / L96 | - |
+| 95 |  | calc | `90` | not run: label: the 90 % level of today's E(a) in the figure caption; its redshift is checked by ch:surveys:L95 / L95:0.69 / L96 | - |
+| 96 | ch:surveys:L96 | calc | `0.11` | numeric: z at which E(a) reaches 90 % of today | PASS |
+| 96 | ch:surveys:L96:0.06 | calc | `0.06` | numeric: transition zone of mu, lower end: 90 % of 1 - mu(0) present | PASS |
+| 96 | ch:surveys:L96:1.12 | calc | `1.12` | numeric: transition zone of mu, upper end: 10 % of 1 - mu(0) present | PASS |
 | 98 | ch:surveys:L98 | calc | `0.229` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 99 | ch:surveys:L99 | calc | `2.66` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 100 | ch:surveys:L100 | calc | `0.68` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 100 | ch:surveys:L100:0.3153 | calc | `0.3153` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 105 | ch:surveys:L105 | calc | `0.864` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 105 |  | calc | `0.865` | not run: not yet run: draft does not reproduce the printed value (recomputed 1); drafting error on review | - |
+| 105 | ch:surveys:L105:0.865 | calc | `0.865` | numeric: MGCAMB tracking form at z = 0 | PASS |
 | 106 | ch:surveys:L106 | calc | `0.027` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 106 |  | calc | `2.8` | not run: not yet run: draft does not reproduce the printed value (recomputed 2.74397); drafting error on review | - |
-| 106 |  | calc | `0.7` | not run: not yet run: draft rejected (no draft returned) | - |
-| 121 | eq:sp_iswT | none |  | not run: displayed equation, not yet checked | - |
-| 125 | eq:sp_iswsrc | derived |  | not run: not yet run: draft rejected (no draft returned) | - |
-| 128 |  | calc | `0.22` | not run: not yet run: draft rejected (no draft returned) | - |
-| 129 |  | calc | `0.5` | not run: not yet run: draft rejected (no draft returned) | - |
-| 129 |  | calc | `0.78` | not run: not yet run: draft rejected (no draft returned) | - |
-| 135 | eq:sp_isw | calc |  | not run: not yet run: draft rejected (no draft returned) | - |
-| 136 |  | calc | `1.054` | not run: not yet run: draft rejected (no draft returned) | - |
-| 136 |  | calc | `1.064` | not run: not yet run: draft rejected (no draft returned) | - |
-| 136 |  | calc | `1.072` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 141 |  | observed | `20` | not run: measured, too few printed digits to match against the named files | - |
-| 141 |  | observed | `30` | not run: measured, too few printed digits to match against the named files | - |
+| 106 | ch:surveys:L106:2.8 | calc | `2.8` | numeric: largest suppression of the tracking form below the exact mu, per cent of mu | PASS |
+| 106 | ch:surveys:L106:0.7 | calc | `0.7` | numeric: redshift of the largest difference between the exact and tracking mu | PASS |
+| 121 | eq:sp_iswT | none |  | not run: definition: the integrated Sachs-Wolfe temperature shift along the photon path (standard, Sachs & Wolfe 1967), stated in the metric of Eq. eq:sp_poisson | - |
+| 125 | eq:sp_iswsrc | derived |  | sympy: Phi+Psi ~ D/a from the Poisson equation; d/dtau = a^2 H d/da gives the ISW source H D (f - 1) | PASS |
+| 128 | ch:surveys:L128 | calc | `0.22` | numeric: Phi+Psi normalised at z = 3: IAM below LambdaCDM at z = 0.5, per cent | PASS |
+| 129 | ch:surveys:L129 | calc | `0.78` | numeric: Phi+Psi normalised at z = 3: IAM below LambdaCDM today, per cent | PASS |
+| 129 |  | calc | `0.5` | not run: label: redshift of a table row / bin (z = 0.5), an input of the computation, nothing to recompute | - |
+| 135 | eq:sp_isw | calc | `1.03` | numeric: ISW amplitude ratio, uniform weight over 0.05 < z < 1.5 | PASS |
+| 136 | ch:surveys:L136 | calc | `1.054` | numeric: ISW-galaxy amplitude ratio, MGCAMB tracking form, window at z = 0.3 | PASS |
+| 136 | ch:surveys:L136:1.064 | calc | `1.064` | numeric: ISW-galaxy amplitude ratio, MGCAMB tracking form, window at z = 0.5 | PASS |
+| 136 | ch:surveys:L136:1.072 | calc | `1.072` | numeric: ISW-galaxy amplitude ratio, MGCAMB tracking form, window at z = 0.7 | PASS |
+| 141 |  | observed | `20` | not run: measured, source not named | - |
+| 141 |  | observed | `30` | not run: measured, source not named | - |
 | 146 | ch:surveys:L146 | calc | `1.035` | numeric: same value as p2_17_lensing_dynamics:103 (1/mu at z=0.7) | PASS |
-| 146 |  | calc | `1.031` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 146 |  | calc | `0.3` | not run: not yet run: draft rejected (no draft returned) | - |
-| 147 |  | calc | `0.22` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 147 |  | calc | `0.5` | not run: not yet run: draft rejected (no draft returned) | - |
+| 146 | ch:surveys:L146:1.031 | calc | `1.031` | numeric: ISW source ratio IAM/LambdaCDM today | PASS |
+| 146 | ch:surveys:L146:0.3 | calc | `0.3` | numeric: redshift of the largest ISW source ratio (exact form) | PASS |
+| 147 | ch:surveys:L147:0.22 | calc | `0.22` | numeric: Phi+Psi normalised at z = 3: IAM below LambdaCDM at z = 0.5 (caption) | PASS |
+| 147 |  | calc | `0.5` | not run: label: redshift of a table row / bin (z = 0.5), an input of the computation, nothing to recompute | - |
 | 148 | ch:surveys:L148 | calc | `1.035` | numeric: same value as p2_17_lensing_dynamics:103 (1/mu at z=0.7) | PASS |
-| 148 |  | calc | `0.1` | not run: not yet run: draft rejected (no draft returned) | - |
-| 148 |  | calc | `1.034` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 148 |  | calc | `1.031` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 149 |  | calc | `0.3153` | not run: not yet run: draft rejected (drafter skipped: Ω_m = 0.3153 is a Planck 2018 input constant already defined in NAMESPACE) | - |
-| 155 |  | calc | `0.08` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 156 |  | observed | `40` | not run: measured, too few printed digits to match against the named files | - |
-| 156 |  | observed | `2.5` | not run: measured, too few printed digits to match against the named files | - |
-| 156 |  | observed | `30` | not run: measured, too few printed digits to match against the named files | - |
+| 148 | ch:surveys:L148:1.034 | calc | `1.034` | numeric: ISW-galaxy amplitude ratio, exact form, LRG window at z = 0.5 | PASS |
+| 148 | ch:surveys:L148:1.031 | calc | `1.031` | numeric: ISW-galaxy amplitude ratio, exact form, LRG window at z = 0.7 | PASS |
+| 148 |  | calc | `0.1` | not run: input: Gaussian redshift window width sigma_z = 0.1, a setting of the ISW-galaxy computation (used in ch:surveys:L148:1.034) | - |
+| 149 |  | calc | `0.3153` | not run: input: Omega_m = 0.3153, Planck 2018 VI Table 2, restated in the figure caption | - |
+| 155 | ch:surveys:L155 | calc | `0.08` | numeric: CMB lensing power lower, Limber estimate, per cent | PASS |
+| 156 | ch:surveys:L156 | observed | `40` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/validation.csv`: Planck 2018 CMB lensing detection significance | PASS |
+| 156 | ch:surveys:L156:2.5 | observed | `2.5` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/validation.csv`: Planck lensing amplitude error from the 40 sigma detection, per cent | PASS |
+| 156 |  | observed | `30` | not run: approximate ratio: 'about 30 times smaller' is 2.5 % / 0.08 % = 31.0 (computed by ch:surveys:L156:2.5 and ch:surveys:L155); a one-figure 'about' cannot carry the 5 % control (31.0 vs 31.5) | - |
 | 159 | ch:surveys:L159 | calc | `+1.8` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 159 | ch:surveys:L159:+3.6 | calc | `+3.6` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 159 |  | calc | `0.3` | not run: not yet run: draft rejected (drafter skipped: z=0.3 is a redshift parameter, not a calculated result) | - |
+| 159 |  | calc | `0.3` | not run: label: redshift of a table row / bin (z = 0.3), an input of the computation, nothing to recompute | - |
 | 160 | ch:surveys:L160 | calc | `0.455` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 160 | ch:surveys:L160:0.463 | calc | `0.463` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 160 | ch:surveys:L160:7.5 | calc | `7.5` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 160 |  | observed | `0.39` | not run: measured, too few printed digits to match against the named files | - |
-| 160 |  | calc | `1.1` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 160 |  | calc | `1.2` | not run: not yet run: draft rejected (negative control (printed value x1.05) also passes) | - |
-| 160 |  | calc | `0.008` | not run: not yet run: draft rejected (negative control (printed value x1.05) also passes) | - |
+| 160 | ch:surveys:L160:0.39 | observed | `0.39` | numeric: E_G measured from SDSS luminous red galaxies, Reyes et al. 2010 | PASS |
+| 160 | ch:surveys:L160:1.1 | calc | `1.1` | numeric: E_G measurement below the GR value Omega_m0/f, in sigma | PASS |
+| 160 | ch:surveys:L160:1.2 | calc | `1.2` | numeric: E_G measurement below the value with the informational term, in sigma | PASS |
+| 160 | ch:surveys:L160:0.008 | calc | `0.008` | numeric: predicted E_G shift at z = 0.32 | PASS |
 | 164 | ch:surveys:L164 | observed | `-0.136` | heavy file `docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt`: measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names | PASS |
-| 164 |  | observed | `0.08` | not run: measured, too few printed digits to match against the named files | - |
-| 164 |  | observed | `0.19` | not run: measured, too few printed digits to match against the named files | - |
-| 165 |  | fitted | `0.11` | not run: measured, too few printed digits to match against the named files | - |
-| 165 |  | fitted | `0.54` | not run: measured, too few printed digits to match against the named files | - |
-| 166 |  | fitted | `0.02` | not run: measured, too few printed digits to match against the named files | - |
-| 166 |  | fitted | `+0.2` | not run: measured, too few printed digits to match against the named files | - |
-| 166 |  | fitted | `90` | not run: measured, too few printed digits to match against the named files | - |
-| 166 |  | fitted | `+0.059` | not run: measured, too few printed digits to match against the named files | - |
+| 164 | ch:surveys:L164:0.08 | observed | `0.08` | file `docs/verification/chains/LATE_TIME_GROWTH_CHECK.md`: DES Y3 + external mu0, central value | PASS |
+| 164 | ch:surveys:L164:0.19 | observed | `0.19` | file `docs/verification/chains/LATE_TIME_GROWTH_CHECK.md`: DES Y3 + external mu0, lower error | PASS |
+| 165 | ch:surveys:L165 | observed | `0.11` | file `docs/verification/chains/LATE_TIME_GROWTH_CHECK.md`: DESI DR1 full shape + BAO mu0, central value | PASS |
+| 165 | ch:surveys:L165:0.54 | observed | `0.54` | file `docs/verification/chains/LATE_TIME_GROWTH_CHECK.md`: DESI DR1 full shape + BAO mu0, lower error | PASS |
+| 166 | ch:surveys:L166 | observed | `0.02` | file `docs/verification/chains/LATE_TIME_GROWTH_CHECK.md`: ACT + WMAP + SDSS + supernovae mu0, central value (Andrade et al. 2024) | PASS |
+| 166 | ch:surveys:L166:+0.2 | fitted | `+0.2` | file `mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml`: upper prior edge of mu0 in the free-mu0 chains | PASS |
+| 166 | ch:surveys:L166:+0.059 | fitted | `+0.059` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: free-mu0 chain, Planck: median of mu0 | PASS |
+| 166 |  | fitted | `90` | not run: definition: the central 90 % interval whose lower end (5 % quantile) is quoted; the median and quantiles are checked by ch:surveys:L166:+0.059 and ch:surveys:L167:-0.304 | - |
 | 167 | ch:surveys:L167 | fitted | `-0.136` | heavy file `docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt`: measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names | PASS |
-| 167 |  | fitted | `-0.304` | not run: measured, not found in the files the chapter names | - |
-| 167 |  | fitted | `+0.064` | not run: measured, too few printed digits to match against the named files | - |
-| 167 |  | fitted | `-0.204` | not run: measured, not found in the files the chapter names | - |
-| 174 |  | observed | `23` | not run: measured, too few printed digits to match against the named files | - |
+| 167 | ch:surveys:L167:-0.304 | fitted | `-0.304` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: free-mu0 chain, Planck: 5 % quantile of mu0 | PASS |
+| 167 | ch:surveys:L167:+0.064 | fitted | `+0.064` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: free-mu0 chain, Planck + RSD: median of mu0 | PASS |
+| 167 | ch:surveys:L167:-0.204 | fitted | `-0.204` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: free-mu0 chain, Planck + RSD: 5 % quantile of mu0 | PASS |
+| 174 | ch:surveys:L174 | observed | `23` | file `docs/verification/forecasts/euclid_fisher_iam_mu/out/template_validation.json`: Euclid's published error on 1+mu0 with conservative cuts, per cent | PASS |
 | 190 | ch:surveys:L190 | calc | `2.532` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: sigma(A), Sigma = 1 (committed forecast) | PASS |
 | 190 | ch:surveys:L190:0.39 | calc | `0.39` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: 1/sigma(A) from the committed sigma (Sigma = 1) | PASS |
 | 190 | ch:surveys:L190:3.640 | calc | `3.640` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: sigma(A), Sigma_0 free (committed forecast) | PASS |
@@ -2660,105 +2660,92 @@ Totals: 3586 PASS, 0 FAIL, 2750 inventoried and not run. Each run item carries t
 | 198 | ch:surveys:L198:2.55 | calc | `2.55` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: 1/sigma(A) from the committed sigma (Sigma = 1) | PASS |
 | 198 | ch:surveys:L198:0.413 | calc | `0.413` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: sigma(A), Sigma_0 free (committed forecast) | PASS |
 | 198 | ch:surveys:L198:2.42 | calc | `2.42` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: 1/sigma(A) from the committed sigma (Sigma_0 free) | PASS |
-| 198 |  | calc | `0.2` | not run: not yet run: draft rejected (drafter skipped: k_max = 0.2 h Mpc^-1 is a cutoff parameter; its value is set in the Fishe) | - |
-| 205 |  | calc | `0.76` | not run: not yet run: draft rejected (drafter skipped: σ_A = 0.76 is the forecast error on amplitude A from the Fisher matrix 
-#) | - |
-| 206 |  | calc | `0.48` | not run: not yet run: draft rejected (drafter skipped: σ_A = 0.48 is the forecast error on amplitude A 
-# (Euclid full + Planck ) | - |
-| 206 |  | calc | `0.1` | not run: not yet run: draft rejected (drafter skipped: k < 0.1 h Mpc^-1 is a DESI wavenumber limit from the 2016 forecast cited ) | - |
-| 208 |  | calc | `0.3` | not run: not yet run: draft rejected (drafter skipped: 0.3% is the lower end of the spectrum lowering range for IAM vs. LambdaCD) | - |
-| 208 |  | calc | `1.1` | not run: not yet run: draft rejected (drafter skipped: 1.1% is the upper end of the spectrum lowering range. Requires the full 
-) | - |
-| 214 |  | calc | `40` | not run: not yet run: draft rejected (drafter skipped: 40σ is Planck's detection threshold for lensing, cited from Planck2018VII) | - |
-| 216 |  | calc | `10` | not run: not yet run: draft rejected (drafter skipped: 10% is the stated tolerance within which the pipeline reproduces 
-# Eucli) | - |
-| 217 |  | calc | `0.536` | not run: not yet run: draft rejected (drafter skipped: Template error σ(μ₀) for spectroscopic clustering alone from pipeline
-# r) | - |
-| 217 |  | calc | `0.530` | not run: not yet run: draft rejected (drafter skipped: Published template error σ(μ₀) = 0.530 from Albuquerque2025
-# External li) | - |
-| 221 |  | calc | `4.25` | not run: not yet run: draft rejected (drafter skipped: f sigma8 deficit at z=0: 4.25%
-# Requires running growth_rescaled spectru) | - |
-| 221 |  | calc | `2.17` | not run: not yet run: draft rejected (drafter skipped: f sigma8 deficit at z=0.3: 2.17%
-# Requires running growth_rescaled spect) | - |
-| 221 |  | calc | `0.3` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 222 |  | calc | `1.35` | not run: not yet run: draft rejected (drafter skipped: f sigma8 deficit at z=0.5: 1.35%
-# Requires running growth_rescaled spect) | - |
-| 222 |  | calc | `0.5` | not run: not yet run: draft rejected (drafter skipped: f sigma8 deficit at z=1: 0.5%
-# Requires running growth_rescaled spectrum) | - |
-| 222 |  | calc | `0.41` | not run: not yet run: draft rejected (drafter skipped: f sigma8 deficit at z=1: 0.41%
-# Requires running growth_rescaled spectru) | - |
-| 222 |  | calc | `0.9` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 222 |  | calc | `1.8` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 223 |  | calc | `0.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 223 |  | calc | `0.3` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 223 |  | calc | `1.1` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 224 |  | calc | `0.27` | not run: not yet run: draft rejected (drafter skipped: skip Line 219 references docs/verification/forecasts/euclid_fisher_iam_mu) | - |
-| 224 |  | calc | `2.55` | not run: not yet run: draft rejected (drafter skipped: skip Requires the full Fisher forecast pipeline output from docs/verifica) | - |
+| 198 | ch:surveys:L198:0.2 | calc | `0.2` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: k_max of the DESI sensitivity row of the forecast | PASS |
+| 205 | ch:surveys:L205 | calc | `0.76` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: sigma(A), full Euclid + Planck lensing + DESI, pessimistic, Sigma = 1 | PASS |
+| 206 | ch:surveys:L206 | calc | `0.48` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: sigma(A), full Euclid + Planck lensing + DESI, optimistic, Sigma = 1 | PASS |
+| 206 | ch:surveys:L206:0.1 | calc | `0.1` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: k_max of the DESI f sigma8 errors used in the forecast | PASS |
+| 208 | ch:surveys:L208 | calc | `0.3` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/METHODS.md`: 3x2pt spectra of IAM below LambdaCDM: smallest lowering, per cent | PASS |
+| 208 | ch:surveys:L208:1.1 | calc | `1.1` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/METHODS.md`: 3x2pt spectra of IAM below LambdaCDM: largest lowering, per cent | PASS |
+| 214 | ch:surveys:L214 | calc | `40` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/validation.csv`: Planck lensing reconstruction noise of the forecast reproduces the 40 sigma detection | PASS |
+| 216 | ch:surveys:L216 | calc | `10` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/validation.csv`: largest departure of the pipeline's weak-lensing errors from Euclid's published errors, per cent | PASS |
+| 217 | ch:surveys:L217 | calc | `0.536` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/template_validation.json`: template sigma(mu0), spectroscopic clustering alone, from the pipeline | PASS |
+| 217 | ch:surveys:L217:0.530 | observed | `0.530` | file `docs/verification/forecasts/euclid_fisher_iam_mu/out/template_validation.json`: published template sigma(mu0), spectroscopic clustering alone | PASS |
+| 221 | ch:surveys:L221 | calc | `4.25` | numeric: f sigma8 deficit at z = 0, per cent | PASS |
+| 221 | ch:surveys:L221:2.17 | calc | `2.17` | numeric: f sigma8 deficit at z = 0.3, per cent | PASS |
+| 221 |  | calc | `0.3` | not run: label: redshift of a table row / bin (z = 0.3), an input of the computation, nothing to recompute | - |
+| 222 | ch:surveys:L222 | calc | `1.35` | numeric: f sigma8 deficit at z = 0.5, per cent | PASS |
+| 222 | ch:surveys:L222:0.41 | calc | `0.41` | numeric: f sigma8 deficit at z = 1, per cent | PASS |
+| 222 | ch:surveys:L222:0.9 | calc | `0.9` | file `docs/verification/forecasts/euclid_fisher_iam_mu/METHODS.md`: Euclid spectroscopic range, lower edge (forecast binning) | PASS |
+| 222 | ch:surveys:L222:1.8 | calc | `1.8` | file `docs/verification/forecasts/euclid_fisher_iam_mu/METHODS.md`: Euclid spectroscopic range, upper edge (forecast binning) | PASS |
+| 222 |  | calc | `0.5` | not run: label: redshift of a table row / bin (z = 0.5), an input of the computation, nothing to recompute | - |
+| 223 | ch:surveys:L223:0.3 | calc | `0.3` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/METHODS.md`: 3x2pt spectra lowered: smallest, per cent (text) | PASS |
+| 223 | ch:surveys:L223:1.1 | calc | `1.1` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/METHODS.md`: 3x2pt spectra lowered: largest, per cent (text) | PASS |
+| 223 |  | calc | `0.5` | not run: restates the f sigma8 deficit at the start of Euclid's spectroscopic range, z = 0.9: fs8_deficit(0.9) = 0.517 %, which rounds to the printed 0.5; a one-figure value whose 5 % control (0.525) cannot be told from 0.517, so no check is registered (the deficits around it are checked by ch:surveys:L222 and ch:surveys:L222:0.41) | - |
+| 224 | ch:surveys:L224 | calc | `0.27` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: weakest significance in Table tab:sp_euclid (DR1 pessimistic, Sigma0 free) | PASS |
+| 224 | ch:surveys:L224:2.55 | calc | `2.55` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: strongest significance in Table tab:sp_euclid | PASS |
 | 228 | ch:surveys:L228 | calc | `0.41` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 228 |  | calc | `2.17` | not run: not yet run: draft does not reproduce the printed value (recomputed 216.814); drafting error on review | - |
-| 228 |  | calc | `0.3` | not run: not yet run: draft rejected (drafter skipped: Line 228 prints "0.3" as a redshift label (z=0.3), not a calculated quant) | - |
-| 228 |  | calc | `4.25` | not run: not yet run: draft does not reproduce the printed value (recomputed 425.055); drafting error on review | - |
-| 232 |  | observed | `0.2` | not run: measured, too few printed digits to match against the named files | - |
-| 232 |  | observed | `1.5` | not run: measured, too few printed digits to match against the named files | - |
-| 232 |  | observed | `2.5` | not run: measured, too few printed digits to match against the named files | - |
-| 233 |  | observed | `2.6` | not run: measured, too few printed digits to match against the named files | - |
-| 233 |  | observed | `2.8` | not run: measured, too few printed digits to match against the named files | - |
-| 234 |  | observed | `0.3` | not run: measured, too few printed digits to match against the named files | - |
-| 234 |  | observed | `0.1` | not run: measured, too few printed digits to match against the named files | - |
-| 235 |  | observed | `0.07` | not run: measured, too few printed digits to match against the named files | - |
-| 237 |  | observed | `1.2` | not run: measured, too few printed digits to match against the named files | - |
+| 228 | ch:surveys:L228:2.17 | calc | `2.17` | numeric: growth deficit at z = 0.3, per cent (the ramp) | PASS |
+| 228 | ch:surveys:L228:4.25 | calc | `4.25` | numeric: growth deficit today, per cent (the ramp) | PASS |
+| 228 |  | calc | `0.3` | not run: label: redshift of a table row / bin (z = 0.3), an input of the computation, nothing to recompute | - |
+| 232 |  | observed | `0.2` | not run: measured, source not named (low-redshift growth-survey Fisher forecast with the peculiar-velocity module: its outputs are not committed; docs/verification/forecasts/euclid_fisher_iam_mu holds only the Euclid/Planck/DESI forecast) | - |
+| 232 |  | observed | `1.5` | not run: measured, source not named (low-redshift growth-survey Fisher forecast with the peculiar-velocity module: its outputs are not committed; docs/verification/forecasts/euclid_fisher_iam_mu holds only the Euclid/Planck/DESI forecast) | - |
+| 232 |  | observed | `2.5` | not run: measured, source not named (low-redshift growth-survey Fisher forecast with the peculiar-velocity module: its outputs are not committed; docs/verification/forecasts/euclid_fisher_iam_mu holds only the Euclid/Planck/DESI forecast) | - |
+| 233 |  | observed | `2.6` | not run: measured, source not named (low-redshift growth-survey Fisher forecast with the peculiar-velocity module: its outputs are not committed; docs/verification/forecasts/euclid_fisher_iam_mu holds only the Euclid/Planck/DESI forecast) | - |
+| 233 |  | observed | `2.8` | not run: measured, source not named (low-redshift growth-survey Fisher forecast with the peculiar-velocity module: its outputs are not committed; docs/verification/forecasts/euclid_fisher_iam_mu holds only the Euclid/Planck/DESI forecast) | - |
+| 234 |  | observed | `0.3` | not run: definition: z<0.3, the redshift range where per-cent growth data are needed for the switch-on (a target range, nothing to recompute) | - |
+| 234 |  | observed | `0.1` | not run: input: redshift range of the DESI DR2 full-shape growth measurement (about 0.1<z<2), a survey specification | - |
+| 235 |  | observed | `0.07` | not run: input: z_eff = 0.07 of the DESI DR1 peculiar-velocity point (Qin2026), listed in Table tab:st_fsig8 (row checked at ch:sectortension:L247) | - |
+| 237 |  | observed | `1.2` | not run: measured, source not named (agreement of the peculiar-velocity module with the published DESI-LSST forecast of Howlett et al.: no committed output holds it) | - |
 | 239 | ch:surveys:L239 | observed | `150` | file `docs/verification/PAPER_ERRATA.md`: measured: printed value found in PAPER_ERRATA.md, a file the chapter names | PASS |
-| 239 |  | calc | `0.01` | not run: not yet run: draft rejected (drafter skipped: Line 239 prints "0.01" as a redshift lower bound (z=0.01--0.05), not a ca) | - |
-| 239 |  | calc | `0.05` | not run: not yet run: draft rejected (drafter skipped: Line 239 prints "0.05" as a redshift upper bound (z=0.01--0.05), not a ca) | - |
-| 239 |  | calc | `4.2` | not run: not yet run: draft does not reproduce the printed value (recomputed 416.126); drafting error on review | - |
-| 239 |  | calc | `3.8` | not run: not yet run: draft does not reproduce the printed value (recomputed 381.863); drafting error on review | - |
-| 239 |  | observed | `395` | not run: measured, not found in the files the chapter names | - |
-| 239 |  | observed | `139` | not run: measured, not found in the files the chapter names | - |
-| 244 | eq:sp_siren | calc |  | not run: not yet run: draft rejected (does not run: ValueError no value) | - |
+| 239 | ch:surveys:L239:4.2 | calc | `4.2` | numeric: bulk-flow (f sigma8) deficit at z=0.01, per cent | PASS |
+| 239 | ch:surveys:L239:3.8 | calc | `3.8` | numeric: bulk-flow (f sigma8) deficit at z=0.05, per cent | PASS |
+| 239 |  | calc | `0.01` | not run: input: z=0.01, lower edge of the redshift range at which the bulk-flow deficit is evaluated | - |
+| 239 |  | calc | `0.05` | not run: input: z=0.05, upper edge of the redshift range at which the bulk-flow deficit is evaluated | - |
+| 239 |  | observed | `395` | not run: measured, source not named in the repository: CosmicFlows-4 bulk flow 395 +- 29 km/s (Watkins et al. 2023, doi 10.1093/mnras/stad1984); no repository file holds the value | - |
+| 239 |  | observed | `139` | not run: measured, source not named in the repository: LambdaCDM bulk-flow expectation 139 km/s (Watkins et al. 2023, doi 10.1093/mnras/stad1984); no repository file holds the value | - |
+| 244 | eq:sp_siren | calc | `72.26` | numeric: H0 matter = H0 photon sqrt(1+beta_m) | PASS |
 | 245 | ch:surveys:L245 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 246 | ch:surveys:L246 | observed | `70.0` | heavy file `docs/verification/scripts/verify_dark_energy_far_future_surveys_book_output.txt`: measured: printed value found in verify_dark_energy_far_future_surveys_book_output.txt, a file the chapter names | PASS |
-| 246 |  | observed | `8.0` | not run: measured, too few printed digits to match against the named files | - |
-| 246 |  | observed | `68.9` | not run: measured, not found in the files the chapter names | - |
-| 246 |  | observed | `4.6` | not run: measured, too few printed digits to match against the named files | - |
-| 246 |  | observed | `75.46` | not run: measured, not found in the files the chapter names | - |
-| 246 |  | observed | `5.39` | not run: measured, not found in the files the chapter names | - |
+| 246 | ch:surveys:L246:8.0 | observed | `8.0` | file `docs/verification/scripts/verify_iams_law_derivations.py`: GW170817 (Abbott 2017) lower error on H0 | PASS |
+| 246 | ch:surveys:L246:68.9 | observed | `68.9` | file `docs/verification/scripts/verify_iams_law_derivations.py`: GW170817 H0 (Hotokezaka 2019) | PASS |
+| 246 | ch:surveys:L246:4.6 | observed | `4.6` | file `docs/verification/scripts/verify_iams_law_derivations.py`: GW170817 (Hotokezaka 2019) lower error on H0 | PASS |
+| 246 | ch:surveys:L246:75.46 | observed | `75.46` | file `docs/verification/scripts/verify_iams_law_derivations.py`: GW170817 H0 (Palmese 2024) | PASS |
+| 246 | ch:surveys:L246:5.39 | observed | `5.39` | file `docs/verification/scripts/verify_iams_law_derivations.py`: GW170817 (Palmese 2024) lower error on H0 | PASS |
 | 248 | ch:surveys:L248 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
-| 248 |  | calc | `2.4` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 250 |  | calc | `3.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 250 |  | calc | `7.1` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 250 |  | calc | `73.04` | not run: not yet run: draft rejected (drafter skipped: SH0ES measurement value (73.04 ± 1.04) is an observational result from Ri) | - |
-| 251 |  | prediction | `0.75` | not run: not yet checked | - |
-| 251 |  | prediction | `72.26` | not run: not yet checked | - |
-| 254 |  | prediction | `70.0` | not run: not yet checked | - |
-| 254 |  | prediction | `8.0` | not run: not yet checked | - |
-| 254 |  | prediction | `72.26` | not run: not yet checked | - |
-| 254 |  | prediction | `67.16` | not run: not yet checked | - |
+| 248 | ch:surveys:L248:2.4 | calc | `2.4` | numeric: 3 sigma siren error as per cent of H0 matter | PASS |
+| 250 | ch:surveys:L250:3.5 | calc | `3.5` | numeric: separation of the two rates at a 2 % siren H0 | PASS |
+| 250 | ch:surveys:L250:7.1 | calc | `7.1` | numeric: separation of the two rates at a 1 % siren H0 | PASS |
+| 250 | ch:surveys:L250:73.04 | observed | `73.04` | numeric: SH0ES H0 (Riess 2022) | PASS |
+| 251 | ch:surveys:L251:0.75 | prediction | `0.75` | numeric: SH0ES offset from H0 matter, sigma | PASS |
+| 251 | ch:surveys:L251:72.26 | prediction | `72.26` | numeric: H0 matter, recomputed (SH0ES comparison) | PASS |
+| 254 | ch:surveys:L254:70.0 | prediction | `70.0` | file `docs/verification/scripts/verify_iams_law_derivations.py`: GW170817 H0 (Abbott 2017), figure caption | PASS |
+| 254 | ch:surveys:L254:8.0 | prediction | `8.0` | file `docs/verification/scripts/verify_iams_law_derivations.py`: GW170817 (Abbott 2017) lower error, figure caption | PASS |
+| 254 | ch:surveys:L254:72.26 | prediction | `72.26` | numeric: H0 matter, recomputed (figure caption) | PASS |
+| 254 | ch:surveys:L254:67.16 | prediction | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon sector, Level 2 Run A chain (figure caption) | PASS |
 | 259 | ch:surveys:L259 | calc | `-1.052` | numeric: same value as p2_03_theory:882 (w_eff at z=1) | PASS |
-| 259 |  | calc | `-1.015` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 259 | ch:surveys:L259:-1.015 | calc | `-1.015` | numeric: w_eff at z=3 | PASS |
 | 260 | ch:surveys:L260 | calc | `-1.062` | numeric: same value as p2_03_theory:514 (tangent w0 value) | PASS |
-| 260 |  | calc | `-1.063` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 260 |  | calc | `0.19` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 260 |  | calc | `-1.012` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 260 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed -1.012); drafting error on review | - |
-| 293 |  | prediction | `-0.136` | not run: not yet checked | - |
-| 293 |  | prediction | `-0.05` | not run: not yet checked | - |
-| 293 |  | prediction | `95` | not run: not yet checked | - |
-| 296 |  | prediction | `0.3` | not run: not yet checked | - |
-| 300 |  | prediction | `72.26` | not run: not yet checked | - |
-| 321 |  | prediction | `-0.136` | not run: not yet checked | - |
-| 322 |  | calc | `0.06` | not run: not yet run: draft rejected (drafter skipped: Line 322: transition zone lower bound 0.06 lesssim z lesssim 1.12
-# Excer) | - |
-| 326 |  | calc | `0.27` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 326 |  | calc | `0.68` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 326 |  | calc | `0.77` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 326 |  | calc | `1.91` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 326 |  | calc | `1.15` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 326 |  | calc | `2.55` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 327 |  | calc | `2.5` | not run: not yet run: draft rejected (drafter skipped: Line 327: growth deficit amplitude "about 2.5–3σ by the mid-2030s"
-# Exce) | - |
-| 328 |  | prediction | `1000` | not run: not yet checked | - |
-| 330 |  | prediction | `72.26` | not run: not yet checked | - |
-| 330 |  | prediction | `3.5` | not run: not yet checked | - |
+| 260 | ch:surveys:L260:-1.063 | calc | `-1.063` | numeric: minimum of w_eff | PASS |
+| 260 | ch:surveys:L260:0.19 | calc | `0.19` | numeric: redshift of the w_eff minimum | PASS |
+| 260 | ch:surveys:L260:-1.012 | calc | `-1.012` | numeric: w_eff at a=10 | PASS |
+| 260 |  | calc | `10` | not run: input: a=10, the evaluation point of w_eff (its value -1.012 is checked at ch:surveys:L260:-1.012) | - |
+| 293 | ch:surveys:L293:-0.136 | prediction | `-0.136` | numeric: mu0 = -beta_m/(1+beta_m), falsification list | PASS |
+| 293 |  | prediction | `-0.05` | not run: prediction, nothing to recompute: falsification threshold mu0 > -0.05 | - |
+| 293 |  | prediction | `95` | not run: definition: 95 % confidence level of the falsification threshold | - |
+| 296 |  | prediction | `0.3` | not run: definition: z<0.3, the redshift range of the falsification criterion (the 2-4 % deficit there is checked at ch:surveys:L56:-4.25 and ch:surveys:L58:-2.17) | - |
+| 300 | ch:surveys:L300:72.26 | prediction | `72.26` | numeric: H0 matter, recomputed (falsification list) | PASS |
+| 321 | ch:surveys:L321:-0.136 | prediction | `-0.136` | numeric: mu0 = -beta_m/(1+beta_m), status table | PASS |
+| 322 | ch:surveys:L322:0.06 | calc | `0.06` | numeric: transition zone lower edge (90 % of 1-mu(0) on) | PASS |
+| 326 | ch:surveys:L326:0.27 | calc | `0.27` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: Euclid DR1 lowest significance (pessimistic, Sigma0 free) | PASS |
+| 326 | ch:surveys:L326:0.68 | calc | `0.68` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: Euclid DR1 highest significance (optimistic, Sigma=1) | PASS |
+| 326 | ch:surveys:L326:0.77 | calc | `0.77` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: Euclid full survey lowest significance (pessimistic, Sigma0 free) | PASS |
+| 326 | ch:surveys:L326:1.91 | calc | `1.91` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: Euclid full survey highest significance (optimistic, Sigma=1) | PASS |
+| 326 | ch:surveys:L326:1.15 | calc | `1.15` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: with Planck lensing and DESI, lowest significance | PASS |
+| 326 | ch:surveys:L326:2.55 | calc | `2.55` | heavy file `docs/verification/forecasts/euclid_fisher_iam_mu/out/results.csv`: with Planck lensing and DESI, highest significance | PASS |
+| 327 |  | calc | `2.5` | not run: measured, source not named: 'about 2.5-3 sigma by the mid-2030s' (low-redshift growth-survey Fisher forecast with the peculiar-velocity module: its outputs are not committed; docs/verification/forecasts/euclid_fisher_iam_mu holds only the Euclid/Planck/DESI forecast) | - |
+| 328 |  | prediction | `1000` | not run: definition: survey name KiDS-1000 (not a number) | - |
+| 330 | ch:surveys:L330:72.26 | prediction | `72.26` | numeric: siren H0 matter, recomputed (status table) | PASS |
+| 330 | ch:surveys:L330:3.5 | prediction | `3.5` | numeric: separation at a 2 % siren H0 (status table) | PASS |
 
 ## Part 2 - ch:lensdyn - `docs/book/part2/p2_17_lensing_dynamics.tex`
 
