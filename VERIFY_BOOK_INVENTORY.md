@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3038 PASS, 0 FAIL, 3296 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3059 PASS, 0 FAIL, 3275 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -3339,39 +3339,39 @@ Totals: 3038 PASS, 0 FAIL, 3296 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 24 | ch:bekenstein:L24 | none |  | sympy: 1/4 = 2pi/8pi | PASS |
-| 46 | eq:bk_unruh | none |  | not run: displayed equation, not yet checked | - |
-| 51 | eq:bk_SetaA | none |  | not run: displayed equation, not yet checked | - |
+| 46 | eq:bk_unruh | none |  | sympy: Unruh T = hbar kappa/(2 pi k_B c); with kappa = c^4/4GM it lands on the Hawking temperature | PASS |
+| 51 | eq:bk_SetaA | none |  | sympy: S = k_B eta A: the Clausius integral of a Schwarzschild hole gives k_B eta A with eta = c^3/(4 hbar G) | PASS |
 | 57 | eq:bk_Geta | derived |  | sympy: G from matching 2pi/(hbar c eta) to the Newtonian-limit 8 pi G/c^4 equals c^3/(4 hbar eta), and agrees with inverting the Bekenstein-Hawking eta; the c-less match is shown to fail | PASS |
-| 79 | eq:bk_decoherence | none |  | not run: displayed equation, not yet checked | - |
-| 84 | eq:bk_diagonal | none |  | not run: displayed equation, not yet checked | - |
-| 109 | eq:bk_SpropA | none |  | not run: displayed equation, not yet checked | - |
+| 79 | eq:bk_decoherence | none |  | not run: definition: the system-environment entangling evolution of a decoherence event (schematic, no coefficient); its consequence, the diagonal reduced density matrix, is checked at eq:bk_diagonal | - |
+| 84 | eq:bk_diagonal | none |  | sympy: partial trace over orthogonal environment states leaves rho_S diagonal with |c_i|^2 | PASS |
+| 109 | eq:bk_SpropA | none |  | not run: definition: the area-law proportionality S propto A, carried as interpretation (no coefficient); the coefficient is checked at eq:bk_SetaA and eq:bk_structure | - |
 | 122 | eq:bk_four | none |  | sympy: 4 = 8pi/2pi | PASS |
-| 129 | eq:bk_rindler | none |  | not run: displayed equation, not yet checked | - |
-| 134 | eq:bk_euclid | none |  | not run: displayed equation, not yet checked | - |
-| 142 | eq:bk_period | none |  | not run: displayed equation, not yet checked | - |
+| 129 | eq:bk_rindler | none |  | sympy: Rindler metric from Minkowski by x = rho cosh(kappa t/c), cT = rho sinh(kappa t/c) | PASS |
+| 134 | eq:bk_euclid | none |  | sympy: Euclidean Rindler metric from t -> -i tau; the (rho, tau) plane is flat | PASS |
+| 142 | eq:bk_period | none |  | sympy: no conical deficit: circumference/(2 pi rho) = 1 fixes the period 2 pi c/kappa | PASS |
 | 148 | ch:bekenstein:L148 | derived |  | sympy: Euclidean period hbar/(k_B T) = 2pi c/kappa gives the Unruh temperature | PASS |
-| 161 |  | derived | `2.77` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.38629); drafting error on review | - |
-| 162 |  | derived | `4.3\times10^6` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 162 |  | derived | `6.5\times10^9` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 161 | ch:bekenstein:L161 | derived | `2.77` | numeric: 4 ln 2 l_P^2 per bit, in units of l_P^2 | PASS |
+| 162 | ch:bekenstein:L162 | derived | `4.3\times10^6` | file `docs/book/figscripts/fig_p2_bekenstein.py`: Sgr A* mass used by the figure script (solar masses) | PASS |
+| 162 | ch:bekenstein:L162:6.5\times10^9 | derived | `6.5\times10^9` | file `docs/book/figscripts/fig_p2_bekenstein.py`: M87* mass used by the figure script (solar masses) | PASS |
 | 163 | ch:bekenstein:L163 | derived | `67.4` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 168 | eq:bk_einstein | none |  | not run: displayed equation, not yet checked | - |
-| 174 | eq:bk_poisson | none |  | not run: displayed equation, not yet checked | - |
+| 168 | eq:bk_einstein | none |  | sympy: Einstein equation (Lambda = 0) and its trace-reversed form R_ab = kappa (T_ab - T g_ab/2) are equivalent | PASS |
+| 174 | eq:bk_poisson | none |  | sympy: Poisson equation from Gauss flux: grad Phi = G M(r)/r^2 gives Laplacian Phi = 4 pi G rho_m | PASS |
 | 178 | eq:bk_solid | none |  | sympy: solid angle 4 pi | PASS |
 | 188 | ch:bekenstein:L188 | derived |  | sympy: R_00 for dust, Newtonian limit | PASS |
-| 204 |  | none |  | not run: displayed equation, not yet checked | - |
-| 211 |  | none |  | not run: displayed equation, not yet checked | - |
-| 220 |  | none |  | not run: displayed equation, not yet checked | - |
-| 225 |  | none |  | not run: displayed equation, not yet checked | - |
-| 230 |  | none |  | not run: displayed equation, not yet checked | - |
-| 235 |  | none |  | not run: displayed equation, not yet checked | - |
-| 242 |  | none |  | not run: displayed equation, not yet checked | - |
+| 204 | ch:bekenstein:L204 | none |  | sympy: boost Killing vector on the past horizon is -kappa_g lambda k | PASS |
+| 211 | ch:bekenstein:L211 | none |  | sympy: heat flux T_ab chi^a k^b = -kappa_g lambda T_ab k^a k^b, and its units are an energy | PASS |
+| 220 | ch:bekenstein:L220 | none |  | sympy: Raychaudhuri -theta^2/2 term: the light cone from a point, theta = 2/lambda, satisfies it | PASS |
+| 225 | ch:bekenstein:L225 | none |  | sympy: delta A = -int lambda R_kk: Raychaudhuri solved to first order with theta(0) = sigma = 0 | PASS |
+| 230 | ch:bekenstein:L230 | none |  | sympy: Clausius: T delta S with the Unruh T at kappa = c^2 kappa_g gives hbar c kappa_g/(2 pi k_B) k_B eta delta A | PASS |
+| 235 | ch:bekenstein:L235 | none |  | sympy: kappa_g cancels: T_kk = (hbar c eta/2 pi) R_kk, and g_ab k^a k^b = 0 for null k | PASS |
+| 242 | ch:bekenstein:L242 | none |  | sympy: f from 0 = k grad R/2 + grad f, solved as an ODE along any path | PASS |
 | 246 | ch:bekenstein:L246 | derived |  | sympy: f from the Bianchi step equals -(hbar c eta/2pi)(R/2 - Lambda); the coefficient 2pi/(hbar c eta), with eta = c^3/(4 hbar G) from the Bekenstein-Hawking area law, equals 8 pi G/c^4 from the Newtonian limit; the c-less form 2pi/(hbar eta) is shown to fail | PASS |
 | 251 | eq:bk_core | derived |  | sympy: the two forms of the core identity agree | PASS |
 | 261 | eq:bk_eta | derived |  | sympy: eta = 1/(4 l_P^2), l_P^2 = hbar G/c^3 | PASS |
 | 271 | eq:bk_etasolve | derived |  | sympy: eta = (c^3/8piG)(2pi/hbar) = (1/4) c^3/(hbar G) | PASS |
-| 278 |  | calc | `1.61626\times10^{-35}` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.61626); drafting error on review | - |
+| 278 | ch:bekenstein:L278 | calc | `1.61626\times10^{-35}` | numeric: Planck length sqrt(hbar G/c^3) in m (CODATA 2018) | PASS |
 | 279 | ch:bekenstein:L279 | calc | `9.570\times10^{68}` | numeric: eta = 1/(4 l_P^2) in m^-2 (CODATA 2018) | PASS |
-| 315 | eq:bk_Enat | none |  | not run: displayed equation, not yet checked | - |
+| 315 | eq:bk_Enat | none |  | sympy: E_nat = k_B T_H = hbar kappa/(2 pi c); for a Schwarzschild hole it is the Hawking k_B T | PASS |
 | 321 | eq:bk_firstlaw | none |  | sympy: first law inverted for dA | PASS |
 | 327 | eq:bk_dAmin | none |  | sympy: dA_min = 4 hbar G/c^3 = 4 l_P^2 (kappa cancels) | PASS |
 | 331 | ch:bekenstein:L331 | derived | `5.56\times10^{51}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
@@ -3379,7 +3379,7 @@ Totals: 3038 PASS, 0 FAIL, 3296 inventoried and not run. Each run item carries t
 | 335 | eq:bk_onenat | calc |  | sympy: eta from the structural identity times dA_min from the first law with one Unruh quantum is 1 nat | PASS |
 | 338 | ch:bekenstein:L338 | calc | `2.77` | numeric: 4 ln 2 | PASS |
 | 338 | ch:bekenstein:L338:7.24\times10^{-70} | calc | `7.24\times10^{-70}` | numeric: one bit = 4 ln2 l_P^2 in m^2 | PASS |
-| 345 | eq:bk_structure | none |  | not run: displayed equation, not yet checked | - |
+| 345 | eq:bk_structure | none |  | sympy: hbar eta/2 pi = c^3/8 pi G has the single solution eta = 1/(4 l_P^2) | PASS |
 
 ## Part 3 - ch:bhinformation - `docs/book/part5/p5_01b_bh_information.tex`
 

@@ -2621,17 +2621,37 @@ PASS  ch:blackholes:L393                 ch:blackholes:p2_01_blackholes:393  pri
 
 == Part 3: Black Holes and Horizons | ch:bekenstein (part2/p2_01a_bekenstein.tex)
 PASS  ch:bekenstein:L24                  ch:bekenstein:p2_01a_bekenstein:24  printed (algebra)  recomputed True  [none] 1/4 = 2pi/8pi
+PASS  eq:bk_unruh                        ch:bekenstein:p2_01a_bekenstein:46  printed (algebra)  recomputed lhs-rhs=0  [none] Unruh T = hbar kappa/(2 pi k_B c); with kappa = c^4/4GM it lands on the Hawking temperature
+PASS  eq:bk_SetaA                        ch:bekenstein:p2_01a_bekenstein:51  printed (algebra)  recomputed lhs-rhs=0  [none] S = k_B eta A: the Clausius integral of a Schwarzschild hole gives k_B eta A with eta = c^3/(4 hbar G)
 PASS  eq:bk_Geta                         ch:bekenstein:p2_01a_bekenstein:57  printed (algebra)  recomputed lhs-rhs=0  [derived] G from matching 2pi/(hbar c eta) to the Newtonian-limit 8 pi G/c^4 equals c^3/(4 hbar eta), and agrees with inverting the Bekenstein-Hawking eta; the c-less match is shown to fail
+PASS  eq:bk_diagonal                     ch:bekenstein:p2_01a_bekenstein:84  printed (algebra)  recomputed True  [none] partial trace over orthogonal environment states leaves rho_S diagonal with |c_i|^2
 PASS  eq:bk_four                         ch:bekenstein:p2_01a_bekenstein:122  printed (algebra)  recomputed True  [none] 4 = 8pi/2pi
+PASS  eq:bk_rindler                      ch:bekenstein:p2_01a_bekenstein:129  printed (algebra)  recomputed lhs-rhs=0  [none] Rindler metric from Minkowski by x = rho cosh(kappa t/c), cT = rho sinh(kappa t/c)
+PASS  eq:bk_euclid                       ch:bekenstein:p2_01a_bekenstein:134  printed (algebra)  recomputed lhs-rhs=0  [none] Euclidean Rindler metric from t -> -i tau; the (rho, tau) plane is flat
+PASS  eq:bk_period                       ch:bekenstein:p2_01a_bekenstein:142  printed (algebra)  recomputed lhs-rhs=0  [none] no conical deficit: circumference/(2 pi rho) = 1 fixes the period 2 pi c/kappa
 PASS  ch:bekenstein:L148                 ch:bekenstein:p2_01a_bekenstein:148  printed (algebra)  recomputed lhs-rhs=0  [derived] Euclidean period hbar/(k_B T) = 2pi c/kappa gives the Unruh temperature
+PASS  ch:bekenstein:L161                 ch:bekenstein:p2_01a_bekenstein:161  printed 2.77  recomputed 2.77259  tol 0.00500001  [derived] 4 ln 2 l_P^2 per bit, in units of l_P^2
+PASS  ch:bekenstein:L162                 ch:bekenstein:p2_01a_bekenstein:162  printed 4.3\times10^6  recomputed 4.300000e+06  tol 50000  [derived] Sgr A* mass used by the figure script (solar masses)  file docs/book/figscripts/fig_p2_bekenstein.py
+PASS  ch:bekenstein:L162:6.5\times10^9   ch:bekenstein:p2_01a_bekenstein:162  printed 6.5\times10^9  recomputed 6.500000e+09  tol 5.000005e+07  [derived] M87* mass used by the figure script (solar masses)  file docs/book/figscripts/fig_p2_bekenstein.py
 PASS  ch:bekenstein:L163                 ch:bekenstein:p2_01a_bekenstein:163  printed 67.4  recomputed 67.36  tol 0.05  [derived] drafted check, screened (runs; negative control fails)
+PASS  eq:bk_einstein                     ch:bekenstein:p2_01a_bekenstein:168  printed (algebra)  recomputed lhs-rhs=0  [none] Einstein equation (Lambda = 0) and its trace-reversed form R_ab = kappa (T_ab - T g_ab/2) are equivalent
+PASS  eq:bk_poisson                      ch:bekenstein:p2_01a_bekenstein:174  printed (algebra)  recomputed lhs-rhs=0  [none] Poisson equation from Gauss flux: grad Phi = G M(r)/r^2 gives Laplacian Phi = 4 pi G rho_m
 PASS  eq:bk_solid                        ch:bekenstein:p2_01a_bekenstein:178  printed (algebra)  recomputed True  [none] solid angle 4 pi
 PASS  ch:bekenstein:L188                 ch:bekenstein:p2_01a_bekenstein:188  printed (algebra)  recomputed lhs-rhs=0  [derived] R_00 for dust, Newtonian limit
+PASS  ch:bekenstein:L204                 ch:bekenstein:p2_01a_bekenstein:204  printed (algebra)  recomputed True  [none] boost Killing vector on the past horizon is -kappa_g lambda k
+PASS  ch:bekenstein:L211                 ch:bekenstein:p2_01a_bekenstein:211  printed (algebra)  recomputed True  [none] heat flux T_ab chi^a k^b = -kappa_g lambda T_ab k^a k^b, and its units are an energy
+PASS  ch:bekenstein:L220                 ch:bekenstein:p2_01a_bekenstein:220  printed (algebra)  recomputed lhs-rhs=0  [none] Raychaudhuri -theta^2/2 term: the light cone from a point, theta = 2/lambda, satisfies it
+PASS  ch:bekenstein:L225                 ch:bekenstein:p2_01a_bekenstein:225  printed (algebra)  recomputed lhs-rhs=0  [none] delta A = -int lambda R_kk: Raychaudhuri solved to first order with theta(0) = sigma = 0
+PASS  ch:bekenstein:L230                 ch:bekenstein:p2_01a_bekenstein:230  printed (algebra)  recomputed lhs-rhs=0  [none] Clausius: T delta S with the Unruh T at kappa = c^2 kappa_g gives hbar c kappa_g/(2 pi k_B) k_B eta delta A
+PASS  ch:bekenstein:L235                 ch:bekenstein:p2_01a_bekenstein:235  printed (algebra)  recomputed lhs-rhs=0  [none] kappa_g cancels: T_kk = (hbar c eta/2 pi) R_kk, and g_ab k^a k^b = 0 for null k
+PASS  ch:bekenstein:L242                 ch:bekenstein:p2_01a_bekenstein:242  printed (algebra)  recomputed lhs-rhs=0  [none] f from 0 = k grad R/2 + grad f, solved as an ODE along any path
 PASS  ch:bekenstein:L246                 ch:bekenstein:p2_01a_bekenstein:246  printed (algebra)  recomputed lhs-rhs=0  [derived] f from the Bianchi step equals -(hbar c eta/2pi)(R/2 - Lambda); the coefficient 2pi/(hbar c eta), with eta = c^3/(4 hbar G) from the Bekenstein-Hawking area law, equals 8 pi G/c^4 from the Newtonian limit; the c-less form 2pi/(hbar eta) is shown to fail
 PASS  eq:bk_core                         ch:bekenstein:p2_01a_bekenstein:251  printed (algebra)  recomputed lhs-rhs=0  [derived] the two forms of the core identity agree
 PASS  eq:bk_eta                          ch:bekenstein:p2_01a_bekenstein:261  printed (algebra)  recomputed lhs-rhs=0  [derived] eta = 1/(4 l_P^2), l_P^2 = hbar G/c^3
 PASS  eq:bk_etasolve                     ch:bekenstein:p2_01a_bekenstein:271  printed (algebra)  recomputed lhs-rhs=0  [derived] eta = (c^3/8piG)(2pi/hbar) = (1/4) c^3/(hbar G)
+PASS  ch:bekenstein:L278                 ch:bekenstein:p2_01a_bekenstein:278  printed 1.61626\times10^{-35}  recomputed 1.616255e-35  tol 5.000005e-41  [calc] Planck length sqrt(hbar G/c^3) in m (CODATA 2018)
 PASS  ch:bekenstein:L279                 ch:bekenstein:p2_01a_bekenstein:279  printed 9.570\times10^{68}  recomputed 9.570183e+68  tol 5.000005e+64  [calc] eta = 1/(4 l_P^2) in m^-2 (CODATA 2018)
+PASS  eq:bk_Enat                         ch:bekenstein:p2_01a_bekenstein:315  printed (algebra)  recomputed lhs-rhs=0  [none] E_nat = k_B T_H = hbar kappa/(2 pi c); for a Schwarzschild hole it is the Hawking k_B T
 PASS  eq:bk_firstlaw                     ch:bekenstein:p2_01a_bekenstein:321  printed (algebra)  recomputed lhs-rhs=0  [none] first law inverted for dA
 PASS  eq:bk_dAmin                        ch:bekenstein:p2_01a_bekenstein:327  printed (algebra)  recomputed lhs-rhs=0  [none] dA_min = 4 hbar G/c^3 = 4 l_P^2 (kappa cancels)
 PASS  ch:bekenstein:L331                 ch:bekenstein:p2_01a_bekenstein:331  printed 5.56\times10^{51}  recomputed 5.560726e+51  tol 5.000005e+48  [derived] drafted check, screened (runs; negative control fails)
@@ -2639,6 +2659,7 @@ PASS  ch:bekenstein:L332                 ch:bekenstein:p2_01a_bekenstein:332  pr
 PASS  eq:bk_onenat                       ch:bekenstein:p2_01a_bekenstein:335  printed (algebra)  recomputed lhs-rhs=0  [calc] eta from the structural identity times dA_min from the first law with one Unruh quantum is 1 nat
 PASS  ch:bekenstein:L338                 ch:bekenstein:p2_01a_bekenstein:338  printed 2.77  recomputed 2.77259  tol 0.00500001  [calc] 4 ln 2
 PASS  ch:bekenstein:L338:7.24\times10^{-70} ch:bekenstein:p2_01a_bekenstein:338  printed 7.24\times10^{-70}  recomputed 7.242779e-70  tol 5.000005e-73  [calc] one bit = 4 ln2 l_P^2 in m^2
+PASS  eq:bk_structure                    ch:bekenstein:p2_01a_bekenstein:345  printed (algebra)  recomputed lhs-rhs=0  [none] hbar eta/2 pi = c^3/8 pi G has the single solution eta = 1/(4 l_P^2)
 
 == Part 3: Black Holes and Horizons | ch:bhinformation (part5/p5_01b_bh_information.tex)
 PASS  ch:bhinformation:L225              ch:bhinformation:p5_01b_bh_information:225  printed 0.646  recomputed 0.646447  tol 5.000005e-04  [derived] half the horizon entropy transferred at (1-2^-3/2) tau_evap
@@ -3810,4 +3831,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3038  FAIL 0  (heavy, read from committed outputs: 623)  inventoried-not-run 3296  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3059  FAIL 0  (heavy, read from committed outputs: 623)  inventoried-not-run 3275  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

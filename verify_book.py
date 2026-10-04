@@ -710,6 +710,7 @@ def _b05_seed_Msun(S):
 def _b05_half_transfer():
     'Fraction t/tau at which the entropy carried off, 1-(1-x)^(2/3), equals the entropy left on the horizon, (1-x)^(2/3).'
     return brentq(lambda x: (1 - (1 - x)**(2 / 3)) - (1 - x)**(2 / 3), 1e-9, 1 - 1e-12, xtol=1e-14)
+DATA_FILES['docs/book/figscripts/fig_p2_bekenstein.py'] = 'figure script of fig:rindler_cone (horizon masses and surface gravities used in panel b)'
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -17283,6 +17284,30 @@ def check_1911():
     ok=sp.Rational(1,4)==2*sp.pi/(8*sp.pi)
     return locals()
 
+@check(label='eq:bk_unruh', chapter='ch:bekenstein', part=3, title='Unruh T = hbar kappa/(2 pi k_B c); with kappa = c^4/4GM it lands on the Hawking temperature',
+       file='part2/p2_01a_bekenstein', line=46, status='none', kind='sym', printed='', tol=0)
+def check_3038():
+    'Eq. eq:bk_unruh, T = hbar kappa/(2 pi k_B c). Derived: the thermal period hbar/(k_B T) set equal to the Euclidean cone period 2 pi c/kappa '         'is solved for T; with the Schwarzschild surface gravity kappa = c^4/(4GM) (book line 325) the result is the Hawking temperature '         'hbar c^3/(8 pi G M k_B). Book line 46.'
+    hb, c_, kB_, kap, G_, M, T_ = sp.symbols('hbar c k_B kappa G M T', positive=True)
+    T_unruh = sp.solve(sp.Eq(hb / (kB_ * T_), 2 * sp.pi * c_ / kap), T_)[0]
+    lhs = T_unruh.subs(kap, c_**4 / (4 * G_ * M))
+    rhs = hb * c_**3 / (8 * sp.pi * G_ * M * kB_)
+    neg_lhs = sp.solve(sp.Eq(hb / (kB_ * T_), sp.Rational(105, 100) * 2 * sp.pi * c_ / kap), T_)[0].subs(kap, c_**4 / (4 * G_ * M))
+    return locals()
+
+@check(label='eq:bk_SetaA', chapter='ch:bekenstein', part=3, title='S = k_B eta A: the Clausius integral of a Schwarzschild hole gives k_B eta A with eta = c^3/(4 hbar G)',
+       file='part2/p2_01a_bekenstein', line=51, status='none', kind='sym', printed='', tol=0)
+def check_3039():
+    'Eq. eq:bk_SetaA, S = k_B eta A. Derived: integrating dS = d(Mc^2)/T_H for a Schwarzschild hole (T_H = hbar c^3/(8 pi G M k_B)) from M = 0 '         'gives an entropy that is k_B eta A with A = 16 pi G^2 M^2/c^4 and eta = c^3/(4 hbar G) = 1/(4 l_P^2). Book line 51.'
+    hb, c_, kB_, G_, M, m = sp.symbols('hbar c k_B G M m', positive=True)
+    T_H = hb * c_**3 / (8 * sp.pi * G_ * m * kB_)
+    lhs = sp.integrate(c_**2 / T_H, (m, 0, M))
+    A = 16 * sp.pi * G_**2 * M**2 / c_**4
+    eta = c_**3 / (4 * hb * G_)
+    rhs = kB_ * eta * A
+    neg_lhs = sp.integrate(c_**2 / (sp.Rational(105, 100) * T_H), (m, 0, M))
+    return locals()
+
 @check(label='eq:bk_Geta', chapter='ch:bekenstein', part=3, title='G from matching 2pi/(hbar c eta) to the Newtonian-limit 8 pi G/c^4 equals c^3/(4 hbar eta), and agrees with inverting the Bekenstein-Hawking eta; the c-less match is shown to fail',
        file='part2/p2_01a_bekenstein', line=57, status='derived', kind='sym', printed='', tol=0)
 def check_1912():
@@ -17297,11 +17322,69 @@ def check_1912():
     assert sp.simplify(_wrong)!=0, 'negative control did not fail'
     return locals()
 
+@check(label='eq:bk_diagonal', chapter='ch:bekenstein', part=3, title='partial trace over orthogonal environment states leaves rho_S diagonal with |c_i|^2',
+       file='part2/p2_01a_bekenstein', line=84, status='none', kind='sym', printed='', tol=0)
+def check_3040():
+    'Eq. eq:bk_diagonal. Derived: for |Psi> = sum_i c_i |s_i>|E_i> (Eq. eq:bk_decoherence, three pointer states) the reduced density matrix '         'Tr_E |Psi><Psi| is computed by partial trace; with orthonormal E_i it equals diag(|c_i|^2). With overlapping environment states '         '(<E_1|E_2> = 0.05) the off-diagonal terms survive (control). Book line 84.'
+    c1, c2, c3 = sp.symbols('c1 c2 c3')
+    def rho_S(E):
+        cs = [c1, c2, c3]
+        n = len(cs)
+        return sp.Matrix(n, n, lambda i, j: cs[i] * sp.conjugate(cs[j]) * (E[j].H * E[i])[0, 0])
+    E_orth = [sp.Matrix([1, 0, 0]), sp.Matrix([0, 1, 0]), sp.Matrix([0, 0, 1])]
+    r = rho_S(E_orth)
+    ok = sp.simplify(r - sp.diag(*[ci * sp.conjugate(ci) for ci in (c1, c2, c3)])) == sp.zeros(3, 3)
+    eps = sp.Rational(5, 100)
+    E_over = [sp.Matrix([1, 0, 0]), sp.Matrix([eps, sp.sqrt(1 - eps**2), 0]), sp.Matrix([0, 0, 1])]
+    rn = rho_S(E_over)
+    neg_ok = sp.simplify(rn - sp.diag(*[ci * sp.conjugate(ci) for ci in (c1, c2, c3)])) == sp.zeros(3, 3)
+    return locals()
+
 @check(label='eq:bk_four', chapter='ch:bekenstein', part=3, title='4 = 8pi/2pi',
        file='part2/p2_01a_bekenstein', line=122, status='none', kind='sym', printed='', tol=0)
 def check_1913():
     '4 = 8pi/2pi (Eq. eq:bk_four). Book line 122.'
     ok=sp.Integer(4)==8*sp.pi/(2*sp.pi)
+    return locals()
+
+@check(label='eq:bk_rindler', chapter='ch:bekenstein', part=3, title='Rindler metric from Minkowski by x = rho cosh(kappa t/c), cT = rho sinh(kappa t/c)',
+       file='part2/p2_01a_bekenstein', line=129, status='none', kind='sym', printed='', tol=0)
+def check_3041():
+    'Eq. eq:bk_rindler. Derived: the Minkowski line element -c^2 dT^2 + dx^2 pulled back to the coordinates of a uniformly accelerated '         'observer, x = rho cosh(kappa t/c), cT = rho sinh(kappa t/c), is computed (Jacobian) and lands on -(kappa^2 rho^2/c^2) dt^2 + d rho^2. Book line 129.'
+    kap, c_, t, rho, dt, drho = sp.symbols('kappa c t rho dt drho', positive=True)
+    def pull(k):
+        x = rho * sp.cosh(k * t / c_); cT = rho * sp.sinh(k * t / c_)
+        dx = sp.diff(x, t) * dt + sp.diff(x, rho) * drho
+        dcT = sp.diff(cT, t) * dt + sp.diff(cT, rho) * drho
+        return sp.simplify(sp.expand(-dcT**2 + dx**2).rewrite(sp.exp))
+    lhs = pull(kap)
+    rhs = -kap**2 * rho**2 / c_**2 * dt**2 + drho**2
+    neg_lhs = lhs
+    neg_rhs = -(sp.Rational(105, 100) * kap)**2 * rho**2 / c_**2 * dt**2 + drho**2
+    return locals()
+
+@check(label='eq:bk_euclid', chapter='ch:bekenstein', part=3, title='Euclidean Rindler metric from t -> -i tau; the (rho, tau) plane is flat',
+       file='part2/p2_01a_bekenstein', line=134, status='none', kind='sym', printed='', tol=0)
+def check_3042():
+    'Eq. eq:bk_euclid. Derived: substituting dt = -i d tau into the Rindler line element gives +(kappa^2 rho^2/c^2) d tau^2 + d rho^2; its '         'Gaussian curvature -(d^2 sqrt(g_tautau)/d rho^2)/sqrt(g_tautau) is computed and vanishes (book line 138). Book line 134.'
+    kap, c_, rho, dtau, drho = sp.symbols('kappa c rho dtau drho', positive=True)
+    dt = -sp.I * dtau
+    lhs = sp.expand(-kap**2 * rho**2 / c_**2 * dt**2 + drho**2)
+    rhs = kap**2 * rho**2 / c_**2 * dtau**2 + drho**2
+    sq = sp.sqrt(sp.expand(lhs).coeff(dtau, 2))
+    assert sp.simplify(-sp.diff(sq, rho, 2) / sq) == 0
+    neg_lhs = sp.expand(-sp.Rational(105, 100) * kap**2 * rho**2 / c_**2 * dt**2 + drho**2)
+    return locals()
+
+@check(label='eq:bk_period', chapter='ch:bekenstein', part=3, title='no conical deficit: circumference/(2 pi rho) = 1 fixes the period 2 pi c/kappa',
+       file='part2/p2_01a_bekenstein', line=142, status='none', kind='sym', printed='', tol=0)
+def check_3043():
+    'Eq. eq:bk_period. Derived: a circle of proper radius rho in the Euclidean plane d rho^2 + (kappa rho/c)^2 d tau^2 with tau of period P has '         'circumference (kappa rho/c) P; requiring circumference = 2 pi rho (no deficit, a smooth tip) is solved for P and gives 2 pi c/kappa. Book line 142.'
+    kap, c_, rho, P = sp.symbols('kappa c rho P', positive=True)
+    circ = sp.integrate(kap * rho / c_, (sp.Symbol('tau'), 0, P))
+    lhs = sp.solve(sp.Eq(sp.limit(circ / rho, rho, 0), 2 * sp.pi), P)[0]
+    rhs = 2 * sp.pi * c_ / kap
+    neg_lhs = sp.solve(sp.Eq(sp.limit(circ / rho, rho, 0), sp.Rational(105, 100) * 2 * sp.pi), P)[0]
     return locals()
 
 @check(label='ch:bekenstein:L148', chapter='ch:bekenstein', part=3, title='Euclidean period hbar/(k_B T) = 2pi c/kappa gives the Unruh temperature',
@@ -17311,6 +17394,35 @@ def check_1914():
     hb,c_,G_,kB_,eta,kap,M,H,lp,rho,T_,A=sp.symbols('hbar c G k_B eta kappa M H l_P rho T A',positive=True); tau=2*sp.pi*c_/kap; lhs=sp.solve(sp.Eq(hb/(kB_*T_),tau),T_)[0]; rhs=hb*kap/(2*sp.pi*kB_*c_)
     return locals()
 
+@check(label='ch:bekenstein:L161', chapter='ch:bekenstein', part=3, title='4 ln 2 l_P^2 per bit, in units of l_P^2',
+       file='part2/p2_01a_bekenstein', line=161, status='derived', kind='num', printed='2.77', tol=0.0)
+def check_3044():
+    'Area per bit 4 ln 2 l_P^2 in units of l_P^2: delta A_min = (8 pi G/kappa c^2)(hbar kappa/2 pi c) ln 2 divided by l_P^2, evaluated at the '         'Planck surface gravity kappa = c^2/l_P. Book line 161 (figure caption), printed 2.77. Inputs: CODATA 2018 hbar, G, c.'
+    kap = c**2 / lP
+    dE_bit = hbar * kap / (2 * math.pi * c) * LN2
+    value = 8 * math.pi * G * dE_bit / (kap * c**2) / lP**2
+    return locals()
+
+@check(label='ch:bekenstein:L162', chapter='ch:bekenstein', part=3, title='Sgr A* mass used by the figure script (solar masses)',
+       file='part2/p2_01a_bekenstein', line=162, status='derived', kind='file', printed='4.3\\times10^6', tol=0.0,
+       source='docs/book/figscripts/fig_p2_bekenstein.py')
+def check_3045():
+    'The caption mass of Sgr A* is the one the figure script uses for its surface gravity kappa = c^4/(4GM). Book line 162, printed 4.3e6 M_sun. '         'Read from the Sgr A* entry of panel b in docs/book/figscripts/fig_p2_bekenstein.py.'
+    txt = file_text('docs/book/figscripts/fig_p2_bekenstein.py')
+    m = re.search(r'\("Sgr A\*", c\*\*4 / \(4 \* G \* ([0-9.eE+-]+) \* Msun\)\)', txt)
+    value = float(m.group(1))
+    return locals()
+
+@check(label='ch:bekenstein:L162:6.5\\times10^9', chapter='ch:bekenstein', part=3, title='M87* mass used by the figure script (solar masses)',
+       file='part2/p2_01a_bekenstein', line=162, status='derived', kind='file', printed='6.5\\times10^9', tol=0.0,
+       source='docs/book/figscripts/fig_p2_bekenstein.py')
+def check_3046():
+    'The caption mass of M87* is the one the figure script uses for its surface gravity kappa = c^4/(4GM). Book line 162, printed 6.5e9 M_sun. '         'Read from the M87* entry of panel b in docs/book/figscripts/fig_p2_bekenstein.py.'
+    txt = file_text('docs/book/figscripts/fig_p2_bekenstein.py')
+    m = re.search(r'\("M87\*", c\*\*4 / \(4 \* G \* ([0-9.eE+-]+) \* Msun\)\)', txt)
+    value = float(m.group(1))
+    return locals()
+
 @check(label='ch:bekenstein:L163', chapter='ch:bekenstein', part=3, title='drafted check, screened (runs; negative control fails)',
        file='part2/p2_01a_bekenstein', line=163, status='derived', kind='num', printed='67.4', tol=0.0)
 def check_1915():
@@ -17318,6 +17430,39 @@ def check_1915():
     # H_0 from Planck 2018: stated directly in caption as 67.4 km/s/Mpc
     # Namespace has h_pl = 0.6736 (Planck 2018), which gives H_0 = 100 * h_pl
     value = 100 * h_pl
+    return locals()
+
+@check(label='eq:bk_einstein', chapter='ch:bekenstein', part=3, title='Einstein equation (Lambda = 0) and its trace-reversed form R_ab = kappa (T_ab - T g_ab/2) are equivalent',
+       file='part2/p2_01a_bekenstein', line=168, status='none', kind='sym', printed='', tol=0)
+def check_3047():
+    'Eq. eq:bk_einstein. Derived: with a general symmetric T_ab in Minkowski (signature -+++), take R_ab = (8 pi G/c^4)(T_ab - T g_ab/2) '         '(book line 186), compute R = g^ab R_ab, build G_ab = R_ab - R g_ab/2 and recover (8 pi G/c^4) T_ab, i.e. Eq. eq:bk_einstein. Book line 168.'
+    G_, c_ = sp.symbols('G c', positive=True)
+    g = sp.diag(-1, 1, 1, 1)
+    Tm = sp.Matrix(4, 4, lambda i, j: sp.Symbol('T%d%d' % (min(i, j), max(i, j))))
+    kk = 8 * sp.pi * G_ / c_**4
+    def einstein_from(half):
+        Ttr = sum(g.inv()[a, b] * Tm[a, b] for a in range(4) for b in range(4))
+        Ric = kk * (Tm - half * Ttr * g)
+        R = sum(g.inv()[a, b] * Ric[a, b] for a in range(4) for b in range(4))
+        return Ric - sp.Rational(1, 2) * R * g
+    D = sp.simplify(einstein_from(sp.Rational(1, 2)) - kk * Tm)
+    lhs = sum(D[i, j]**2 for i in range(4) for j in range(4))
+    rhs = 0
+    Dn = sp.simplify(einstein_from(sp.Rational(1, 2) * sp.Rational(105, 100)) - kk * Tm)
+    neg_lhs = sum(Dn[i, j]**2 for i in range(4) for j in range(4))
+    return locals()
+
+@check(label='eq:bk_poisson', chapter='ch:bekenstein', part=3, title='Poisson equation from Gauss flux: grad Phi = G M(r)/r^2 gives Laplacian Phi = 4 pi G rho_m',
+       file='part2/p2_01a_bekenstein', line=174, status='none', kind='sym', printed='', tol=0)
+def check_3048():
+    'Eq. eq:bk_poisson. Derived: the flux of grad Phi = G M(r) r_hat/r^2 through a sphere is G M(r) times the solid angle 4 pi (Eq. eq:bk_solid, '         'integrated here); for uniform density M(r) = (4/3) pi r^3 rho_m, the spherical Laplacian (1/r^2) d/dr(r^2 dPhi/dr) is computed and gives 4 pi G rho_m. Book line 174.'
+    G_, rho, r, th, ph = sp.symbols('G rho_m r vartheta varphi', positive=True)
+    Omega = sp.integrate(sp.integrate(sp.sin(th), (th, 0, sp.pi)), (ph, 0, 2 * sp.pi))
+    Mr = sp.integrate(rho * r**2, (r, 0, r)) * Omega
+    dPhi = G_ * Mr / r**2
+    lhs = sp.simplify(sp.diff(r**2 * dPhi, r) / r**2)
+    rhs = 4 * sp.pi * G_ * rho
+    neg_lhs = sp.simplify(sp.diff(r**2 * sp.Rational(105, 100) * dPhi, r) / r**2)
     return locals()
 
 @check(label='eq:bk_solid', chapter='ch:bekenstein', part=3, title='solid angle 4 pi',
@@ -17332,6 +17477,105 @@ def check_1916():
 def check_1917():
     'R_00 for dust, Newtonian limit. Book line 188.'
     hb,c_,G_,kB_,eta,kap,M,H,lp,rho,T_,A=sp.symbols('hbar c G k_B eta kappa M H l_P rho T A',positive=True); lhs=8*sp.pi*G_/c_**4*(rho*c_**2-rho*c_**2/2); rhs=4*sp.pi*G_*rho/c_**2
+    return locals()
+
+@check(label='ch:bekenstein:L204', chapter='ch:bekenstein', part=3, title='boost Killing vector on the past horizon is -kappa_g lambda k',
+       file='part2/p2_01a_bekenstein', line=204, status='none', kind='sym', printed='', tol=0)
+def check_3049():
+    'Book line 204, chi^a = -kappa_g lambda k^a. Derived: the boost xi = kappa_g (x d/du + u d/dx) (u = cT) satisfies the Killing equation of the '         'Minkowski metric (checked); on the past horizon u = -x, parametrised by the affine lambda with (u, x) = (-lambda, lambda), k = dx/d lambda = (-1, 1), '         'xi evaluates to -kappa_g lambda k. Control: kappa_g moved by 5 % does not match.'
+    kg, lam, u, x = sp.symbols('kappa_g lambda u x')
+    eta = sp.diag(-1, 1)
+    xi_up = sp.Matrix([kg * x, kg * u])
+    xi_dn = eta * xi_up
+    X = [u, x]
+    kill = sp.Matrix(2, 2, lambda a, b: sp.diff(xi_dn[b], X[a]) + sp.diff(xi_dn[a], X[b]))
+    assert kill == sp.zeros(2, 2)
+    path = {u: -lam, x: lam}
+    k = sp.Matrix([sp.diff(-lam, lam), sp.diff(lam, lam)])
+    ok = sp.simplify(xi_up.subs(path) - (-kg * lam * k)) == sp.zeros(2, 1)
+    neg_ok = sp.simplify(xi_up.subs(path) - (-sp.Rational(105, 100) * kg * lam * k)) == sp.zeros(2, 1)
+    return locals()
+
+@check(label='ch:bekenstein:L211', chapter='ch:bekenstein', part=3, title='heat flux T_ab chi^a k^b = -kappa_g lambda T_ab k^a k^b, and its units are an energy',
+       file='part2/p2_01a_bekenstein', line=211, status='none', kind='sym', printed='', tol=0)
+def check_3050():
+    'Book line 211. Derived: with chi = -kappa_g lambda k (book line 204) and d Sigma^b = k^b d lambda dA, the contraction T_ab chi^a k^b for a general '         'symmetric T_ab in 1+3 dimensions is computed and equals -kappa_g lambda T_ab k^a k^b; the integrand kappa_g [1/m] lambda d lambda [m^2] T_ab k^a k^b '         '[J/m^3] dA [m^2] reduces to joules (book line 214).'
+    from sympy.physics import units as U
+    kg, lam = sp.symbols('kappa_g lambda')
+    k = sp.Matrix([1, 1, 0, 0])
+    Tm = sp.Matrix(4, 4, lambda i, j: sp.Symbol('T%d%d' % (min(i, j), max(i, j))))
+    Tkk = (k.T * Tm * k)[0, 0]
+    def heat(coef):
+        chi = -coef * kg * lam * k
+        return sp.expand((chi.T * Tm * k)[0, 0])
+    units_ok = sp.simplify(U.convert_to((1 / U.meter) * U.meter**2 * (U.joule / U.meter**3) * U.meter**2, U.joule) - U.joule) == 0
+    ok = (sp.simplify(heat(1) - (-kg * lam * Tkk)) == 0) and units_ok
+    neg_ok = (sp.simplify(heat(sp.Rational(105, 100)) - (-kg * lam * Tkk)) == 0) and units_ok
+    return locals()
+
+@check(label='ch:bekenstein:L220', chapter='ch:bekenstein', part=3, title='Raychaudhuri -theta^2/2 term: the light cone from a point, theta = 2/lambda, satisfies it',
+       file='part2/p2_01a_bekenstein', line=220, status='none', kind='sym', printed='', tol=0)
+def check_3051():
+    'Book line 220, the null Raychaudhuri equation d theta/d lambda = -theta^2/2 - sigma^2 - R_ab k^a k^b. Tested on the shear-free null congruence '         'leaving a point in flat space: the cross-section area grows as lambda^2, theta = d ln A/d lambda is computed (2/lambda), and d theta/d lambda '         'equals -theta^2/2 with R_ab = 0 and sigma = 0. Control: the coefficient 1/2 moved by 5 % fails.'
+    lam = sp.symbols('lambda', positive=True)
+    A = 4 * sp.pi * lam**2
+    theta = sp.diff(sp.log(A), lam)
+    lhs = sp.diff(theta, lam)
+    rhs = -sp.Rational(1, 2) * theta**2
+    neg_lhs = lhs
+    neg_rhs = -sp.Rational(1, 2) * sp.Rational(105, 100) * theta**2
+    return locals()
+
+@check(label='ch:bekenstein:L225', chapter='ch:bekenstein', part=3, title='delta A = -int lambda R_kk: Raychaudhuri solved to first order with theta(0) = sigma = 0',
+       file='part2/p2_01a_bekenstein', line=225, status='none', kind='sym', printed='', tol=0)
+def check_3052():
+    'Book line 225. Derived: the Raychaudhuri equation with sigma = 0 and theta(0) = 0 is solved as a power series in lambda (dsolve, R_kk constant); '         'the series starts -lambda R_kk + O(lambda^3), which is the integrand of delta A = int theta d lambda dA. Book line 225.'
+    lam, Rkk = sp.symbols('lambda R_kk', positive=True)
+    th = sp.Function('theta')
+    sol = sp.dsolve(sp.Eq(th(lam).diff(lam), -sp.Rational(1, 2) * th(lam)**2 - Rkk), th(lam), ics={th(0): 0})
+    lhs = sp.series(sol.rhs, lam, 0, 2).removeO()
+    rhs = -lam * Rkk
+    neg_lhs = sp.series(sp.dsolve(sp.Eq(th(lam).diff(lam), -sp.Rational(1, 2) * th(lam)**2 - sp.Rational(105, 100) * Rkk), th(lam), ics={th(0): 0}).rhs, lam, 0, 2).removeO()
+    return locals()
+
+@check(label='ch:bekenstein:L230', chapter='ch:bekenstein', part=3, title='Clausius: T delta S with the Unruh T at kappa = c^2 kappa_g gives hbar c kappa_g/(2 pi k_B) k_B eta delta A',
+       file='part2/p2_01a_bekenstein', line=230, status='none', kind='sym', printed='', tol=0)
+def check_3053():
+    'Book line 230. Derived: the Unruh temperature hbar kappa/(2 pi k_B c) (Eq. eq:bk_unruh) with kappa = c^2 kappa_g (book line 198) times '         'delta S = k_B eta delta A (Step 3, with delta A from Step 4) is computed and equals the right side of the Clausius line, '         '(hbar c kappa_g/2 pi k_B) k_B eta (-I_R).'
+    hb, c_, kB_, kap, kg, eta, IR = sp.symbols('hbar c k_B kappa kappa_g eta I_R', positive=True)
+    T_u = hb * kap / (2 * sp.pi * kB_ * c_)
+    lhs = (T_u.subs(kap, c_**2 * kg)) * kB_ * eta * (-IR)
+    rhs = hb * c_ * kg / (2 * sp.pi * kB_) * kB_ * eta * (-IR)
+    neg_lhs = (T_u.subs(kap, sp.Rational(105, 100) * c_**2 * kg)) * kB_ * eta * (-IR)
+    return locals()
+
+@check(label='ch:bekenstein:L235', chapter='ch:bekenstein', part=3, title='kappa_g cancels: T_kk = (hbar c eta/2 pi) R_kk, and g_ab k^a k^b = 0 for null k',
+       file='part2/p2_01a_bekenstein', line=235, status='none', kind='sym', printed='', tol=0)
+def check_3054():
+    'Book line 235. Derived: the Clausius equality -kappa_g I_T = (hbar c kappa_g/2 pi) eta (-I_R) (book line 230) is solved for I_T; kappa_g drops '         'out and I_T = (hbar c eta/2 pi) I_R. The metric term is undetermined because g_ab k^a k^b = 0 for a null k (computed with k = (1,1,0,0), Minkowski).'
+    hb, c_, kg, eta, IR, IT = sp.symbols('hbar c kappa_g eta I_R I_T', positive=True)
+    sol = sp.solve(sp.Eq(-kg * IT, hb * c_ * kg / (2 * sp.pi) * eta * (-IR)), IT)[0]
+    k = sp.Matrix([1, 1, 0, 0])
+    assert (k.T * sp.diag(-1, 1, 1, 1) * k)[0, 0] == 0
+    lhs = sol
+    rhs = hb * c_ * eta / (2 * sp.pi) * IR
+    neg_lhs = sp.solve(sp.Eq(-kg * IT, sp.Rational(105, 100) * hb * c_ * kg / (2 * sp.pi) * eta * (-IR)), IT)[0]
+    return locals()
+
+@check(label='ch:bekenstein:L242', chapter='ch:bekenstein', part=3, title='f from 0 = k grad R/2 + grad f, solved as an ODE along any path',
+       file='part2/p2_01a_bekenstein', line=242, status='none', kind='sym', printed='', tol=0)
+def check_3055():
+    'Book line 242. Derived: along any coordinate s, 0 = (hbar c eta/2 pi)(1/2) dR/ds + df/ds is solved with dsolve for f(s) given a general R(s); '         'the integration constant written as (hbar c eta/2 pi) Lambda gives f = -(hbar c eta/2 pi)(R/2 - Lambda).'
+    hb, c_, eta, Lam, s = sp.symbols('hbar c eta Lambda s', positive=True)
+    R = sp.Function('R'); f = sp.Function('f')
+    kk = hb * c_ * eta / (2 * sp.pi)
+    def solve_f(half):
+        sol = sp.dsolve(sp.Eq(0, kk * half * R(s).diff(s) + f(s).diff(s)), f(s)).rhs
+        C1 = [x for x in sol.free_symbols if x.name == 'C1'][0]
+        return sol.subs(C1, kk * Lam)
+    lhs = sp.simplify(solve_f(sp.Rational(1, 2)))
+    rhs = -kk * (R(s) / 2 - Lam)
+    neg_lhs = sp.simplify(solve_f(sp.Rational(1, 2) * sp.Rational(105, 100)))
     return locals()
 
 @check(label='ch:bekenstein:L246', chapter='ch:bekenstein', part=3, title='f from the Bianchi step equals -(hbar c eta/2pi)(R/2 - Lambda); the coefficient 2pi/(hbar c eta), with eta = c^3/(4 hbar G) from the Bekenstein-Hawking area law, equals 8 pi G/c^4 from the Newtonian limit; the c-less form 2pi/(hbar eta) is shown to fail',
@@ -17371,11 +17615,30 @@ def check_1921():
     hb,c_,G_,kB_,eta,kap,M,H,lp,rho,T_,A=sp.symbols('hbar c G k_B eta kappa M H l_P rho T A',positive=True); lhs=c_**3/(8*sp.pi*G_)*2*sp.pi/hb; rhs=sp.Rational(1,4)*c_**3/(hb*G_)
     return locals()
 
+@check(label='ch:bekenstein:L278', chapter='ch:bekenstein', part=3, title='Planck length sqrt(hbar G/c^3) in m (CODATA 2018)',
+       file='part2/p2_01a_bekenstein', line=278, status='calc', kind='num', printed='1.61626\\times10^{-35}', tol=0.0)
+def check_3056():
+    'Planck length l_P = sqrt(hbar G/c^3). Book line 278, printed 1.61626e-35 m. Inputs: h exact (SI 2019), c exact, G = 6.67430e-11 (CODATA 2018).'
+    value = math.sqrt(hbar * G / c**3)
+    return locals()
+
 @check(label='ch:bekenstein:L279', chapter='ch:bekenstein', part=3, title='eta = 1/(4 l_P^2) in m^-2 (CODATA 2018)',
        file='part2/p2_01a_bekenstein', line=279, status='calc', kind='num', printed='9.570\\times10^{68}', tol=0)
 def check_1922():
     'eta = 1/(4 l_P^2) in m^-2 (CODATA 2018). Book line 279, printed 9.570\\times10^{68}.'
     value=1/(4*lP**2)
+    return locals()
+
+@check(label='eq:bk_Enat', chapter='ch:bekenstein', part=3, title='E_nat = k_B T_H = hbar kappa/(2 pi c); for a Schwarzschild hole it is the Hawking k_B T',
+       file='part2/p2_01a_bekenstein', line=315, status='none', kind='sym', printed='', tol=0)
+def check_3057():
+    'Eq. eq:bk_Enat. Derived: k_B T with T from the Euclidean period hbar/(k_B T) = 2 pi c/kappa is solved; at kappa = c^4/(4GM) it equals '         'hbar c^3/(8 pi G M), the Hawking k_B T_H. Book line 315.'
+    hb, c_, kB_, kap, G_, M, T_ = sp.symbols('hbar c k_B kappa G M T', positive=True)
+    E = kB_ * sp.solve(sp.Eq(hb / (kB_ * T_), 2 * sp.pi * c_ / kap), T_)[0]
+    assert sp.simplify(E - hb * kap / (2 * sp.pi * c_)) == 0
+    lhs = E.subs(kap, c_**4 / (4 * G_ * M))
+    rhs = hb * c_**3 / (8 * sp.pi * G_ * M)
+    neg_lhs = sp.Rational(105, 100) * lhs
     return locals()
 
 @check(label='eq:bk_firstlaw', chapter='ch:bekenstein', part=3, title='first law inverted for dA',
@@ -17432,6 +17695,18 @@ def check_1928():
 def check_1929():
     'one bit = 4 ln2 l_P^2 in m^2. Book line 338, printed 7.24\\times10^{-70}.'
     value=4*LN2*lP**2
+    return locals()
+
+@check(label='eq:bk_structure', chapter='ch:bekenstein', part=3, title='hbar eta/2 pi = c^3/8 pi G has the single solution eta = 1/(4 l_P^2)',
+       file='part2/p2_01a_bekenstein', line=345, status='none', kind='sym', printed='', tol=0)
+def check_3058():
+    'Eq. eq:bk_structure. Derived: the Rindler side hbar eta/(2 pi) and the Einstein side c^3/(8 pi G) are equated and solved for eta; the solution set '         'has exactly one element, and substituting l_P^2 = hbar G/c^3 shows it is 1/(4 l_P^2) (book line 349, "if and only if").'
+    hb, c_, G_, eta, lp = sp.symbols('hbar c G eta l_P', positive=True)
+    sols = sp.solve(sp.Eq(hb * eta / (2 * sp.pi), c_**3 / (8 * sp.pi * G_)), eta)
+    assert len(sols) == 1
+    lhs = sols[0].subs(G_, lp**2 * c_**3 / hb)
+    rhs = 1 / (4 * lp**2)
+    neg_lhs = sp.solve(sp.Eq(hb * eta / (2 * sp.pi), c_**3 / (sp.Rational(105, 100) * 8 * sp.pi * G_)), eta)[0].subs(G_, lp**2 * c_**3 / hb)
     return locals()
 
 
@@ -27436,29 +27711,8 @@ INVENTORY = [
     (3, 'ch:blackholes', 'part2/p2_01_blackholes', 319, '', 'observed', '1.4', 'measured, source not named'),
     (3, 'ch:blackholes', 'part2/p2_01_blackholes', 335, '', 'calc', '1.4', 'measured, source not named'),
     (3, 'ch:blackholes', 'part2/p2_01_blackholes', 336, '', 'calc', '1.44', 'input: Chandrasekhar mass 1.44 M_sun as conventionally quoted (Chandrasekhar1931), restated from line 316; the constants-only 1.456 is checked by ch:blackholes:L316'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 46, 'eq:bk_unruh', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 51, 'eq:bk_SetaA', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 79, 'eq:bk_decoherence', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 84, 'eq:bk_diagonal', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 109, 'eq:bk_SpropA', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 129, 'eq:bk_rindler', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 134, 'eq:bk_euclid', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 142, 'eq:bk_period', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 161, '', 'derived', '2.77', 'not yet run: draft does not reproduce the printed value (recomputed 1.38629); drafting error on review'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 162, '', 'derived', '4.3\\times10^6', 'not yet run: draft rejected (printed value typed into the code)'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 162, '', 'derived', '6.5\\times10^9', 'not yet run: draft rejected (printed value typed into the code)'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 168, 'eq:bk_einstein', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 174, 'eq:bk_poisson', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 204, '', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 211, '', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 220, '', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 225, '', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 230, '', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 235, '', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 242, '', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 278, '', 'calc', '1.61626\\times10^{-35}', 'not yet run: draft does not reproduce the printed value (recomputed 1.61626); drafting error on review'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 315, 'eq:bk_Enat', 'none', '', 'displayed equation, not yet checked'),
-    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 345, 'eq:bk_structure', 'none', '', 'displayed equation, not yet checked'),
+    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 79, 'eq:bk_decoherence', 'none', '', 'definition: the system-environment entangling evolution of a decoherence event (schematic, no coefficient); its consequence, the diagonal reduced density matrix, is checked at eq:bk_diagonal'),
+    (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 109, 'eq:bk_SpropA', 'none', '', 'definition: the area-law proportionality S propto A, carried as interpretation (no coefficient); the coefficient is checked at eq:bk_SetaA and eq:bk_structure'),
     (3, 'ch:bhinformation', 'part5/p5_01b_bh_information', 161, '', 'openprob', '0.646', 'not yet checked'),
     (3, 'ch:saturation', 'part3/p3_07_saturation', 44, '', 'derived', '0.032', 'not yet run: draft does not reproduce the printed value (recomputed (121 - 4*exp(341/100))/(125*(1 + exp(341/100)))); drafting error on review'),
     (3, 'ch:saturation', 'part3/p3_07_saturation', 66, '', 'derived', '0.95', 'not yet run: draft rejected (printed value typed into the code)'),
