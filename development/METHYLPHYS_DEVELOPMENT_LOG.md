@@ -15,7 +15,7 @@ appended, never edited after the fact; a later finding that changes an earlier o
 
 Development readings that were in the book until 2026-10-04 were moved here, unchanged, so the book carries only the physics,
 the method and commissioned results. Their full text, as it stood in the book, is kept at:
-- [First readings chapter](../docs/book/RETIRED_drafts_2026-10/p4_21_firstreadings.tex): neutrophil tests, infection bloods, leukaemia and remission, DNMT1-inhibitor series on arrays and single molecules.
+- [First readings chapter](archive/p4_21_firstreadings.tex): neutrophil tests, infection bloods, leukaemia and remission, DNMT1-inhibitor series on arrays and single molecules.
 - The removed passages from the separation, atlas, instrument, serial, astrogenetics, leukocyte, reach, discipline and status chapters: see the commit "Part VI: development readings moved to development/" in the repo history (`git log -- development`).
 
 ## Records
