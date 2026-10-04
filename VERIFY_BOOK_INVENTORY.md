@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4084 PASS, 0 FAIL, 2254 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4097 PASS, 0 FAIL, 2241 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4903,28 +4903,28 @@ Totals: 4084 PASS, 0 FAIL, 2254 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 19 | eq:sky | none |  | not run: displayed equation, not yet checked | - |
-| 30 |  | measured | `0.69` | not run: measured, source not named | - |
-| 30 |  | measured | `1.21` | not run: measured, source not named | - |
-| 30 |  | measured | `0.78` | not run: measured, source not named | - |
-| 30 |  | measured | `1.49` | not run: measured, source not named | - |
-| 46 |  | calibrated | `000` | not run: measured, source not named | - |
-| 47 |  | calibrated | `50` | not run: measured, source not named | - |
-| 47 |  | calibrated | `120` | not run: measured, source not named | - |
-| 48 |  | calibrated | `0.3133` | not run: measured, source not named | - |
-| 49 |  | calibrated | `0.0114` | not run: measured, source not named | - |
-| 50 |  | calibrated | `1.1104` | not run: measured, source not named | - |
-| 67 | eq:cellcount | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 72 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 73 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 73 |  | calc | `5\times10^3` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 74 |  | calc | `0.0046` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 74 |  | calc | `0.7` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 80 |  | calc | `0.7` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 81 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 81 |  | calc | `0.01` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 81 |  | calc | `0.02` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 90 | eq:outspan | derived |  | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 19 | eq:sky | none |  | not run: definition: the sky residual z_i = (H(beta_i) - H(ref_i))/s_i at each identity site (construction; s_i calibrated) | - |
+| 30 | ch:sky:L30:0.69 | measured | `0.69` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: C-score of isolated neutrophils, lowest | PASS |
+| 30 | ch:sky:L30:1.21 | measured | `1.21` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: C-score of isolated neutrophils, highest | PASS |
+| 30 | ch:sky:L30:0.78 | measured | `0.78` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: C-score of whole bloods, lowest | PASS |
+| 30 | ch:sky:L30:1.49 | measured | `1.49` | file `Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv`: C-score of whole bloods, highest | PASS |
+| 46 |  | calibrated | `000` | not run: count: 6,000 identity sites in genome order (printed value split at the thousands comma; the count is the length of sites_ordered in neutrophil_reference_v1_1.json and is used by ch:sky:L47:120) | - |
+| 47 | ch:sky:L47:50 | calibrated | `50` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: sky block size | PASS |
+| 47 | ch:sky:L47:120 | calibrated | `120` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: blocks per sky map | PASS |
+| 48 | ch:sky:L48 | calibrated | `0.3133` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: healthy mean H per site, median | PASS |
+| 49 | ch:sky:L49 | calibrated | `0.0114` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: shrunk SD s_i, median | PASS |
+| 50 | ch:sky:L50 | calibrated | `1.1104` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: healthy clustering baseline (table) | PASS |
+| 67 | eq:cellcount | derived |  | sympy: binomial copy-number floor sigma = sqrt(beta(1-beta)/2N) | PASS |
+| 72 |  | calc | `10` | not run: input: plasma cell-free DNA carries about 10^3 genome equivalents per millilitre in health (Sender2024); the printed '10' is the base of 10^3 | - |
+| 73 | ch:sky:L73 | calc | `5\times10^3` | numeric: diploid genomes for 10^4 copies | PASS |
+| 73 |  | calc | `10` | not run: input: a draw yields of order 10^3-10^4 copies of a site (from about 10^3 genome equivalents per millilitre, Sender2024, and the draw volume); the printed '10' is the base of the power | - |
+| 74 | ch:sky:L74 | calc | `0.0046` | numeric: copy-number floor at 10^4 copies, beta = 0.7 | PASS |
+| 74 |  | calc | `0.7` | not run: input: illustrative beta = 0.7 at which the copy-number floor is evaluated | - |
+| 80 |  | calc | `0.7` | not run: input: beta = 0.7 of the figure's curve (same illustrative value as line 74) | - |
+| 81 |  | calc | `10` | not run: input: vertical lines of the figure at 10^3 and 10^4 copies (the plasma-draw range of line 73); the printed '10' is the base of the power | - |
+| 81 |  | calc | `0.01` | not run: input: illustrative array measurement noise 0.01 (figure reference line) | - |
+| 81 |  | calc | `0.02` | not run: input: illustrative array measurement noise 0.02 (figure reference line) | - |
+| 90 | eq:outspan | derived |  | sympy: out-of-span residual is blind to composition error | PASS |
 
 ## Part 6 - ch:serial - `docs/book/part4/p4_17_serial.tex`
 

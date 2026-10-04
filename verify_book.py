@@ -2047,6 +2047,23 @@ def _b10_cd(quantity, d_lo=None):
 
 _B10_K = dict(chapter='ch:skytools', part=6, file='part4/p4_16a_skytools')
 
+# helpers of the part4/p4_16_sky checks
+_B10_NREF = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json'
+_B10_ACC = 'Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv'
+
+def _b10_acc_C(isolated):
+    """C-score of the acceptance-run specimens: the six purified neutrophil arrays (isolated) or the whole bloods (DNA mixtures and
+    remission bloods) that carry a reading."""
+    out = []
+    for r in load_csv_rows(_B10_ACC):
+        if not r['C']:
+            continue
+        if r['group'].startswith('healthy purified neutrophil') == isolated:
+            out.append(float(r['C']))
+    return out
+
+_B10_Y = dict(chapter='ch:sky', part=6, file='part4/p4_16_sky')
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -33283,6 +33300,137 @@ def check_4083():
     return locals()
 
 
+# ======== Part 6 | ch:sky | docs/book/part4/p4_16_sky.tex
+@check(label='ch:sky:L30:0.69', title='C-score of isolated neutrophils, lowest', line=30, status='measured', printed='0.69', tol=0.0,
+       kind='file', source=_B10_ACC, chapter='ch:sky', part=6, file='part4/p4_16_sky')
+def check_4084():
+    'On the acceptance run the C-score read 0.69-1.21 on isolated neutrophils; lower end = smallest C of the six purified neutrophil arrays. '\
+    'Book line 30, printed 0.69. Input: chain_acceptance.csv.'
+    c = _b10_acc_C(True)
+    n = len(c)
+    value = min(c)
+    return locals()
+
+@check(label='ch:sky:L30:1.21', title='C-score of isolated neutrophils, highest', line=30, status='measured', printed='1.21', tol=0.0,
+       kind='file', source=_B10_ACC, chapter='ch:sky', part=6, file='part4/p4_16_sky')
+def check_4085():
+    'Upper end of 0.69-1.21: largest C of the six purified neutrophil arrays of the acceptance run. Book line 30, printed 1.21. '\
+    'Input: chain_acceptance.csv.'
+    value = max(_b10_acc_C(True))
+    return locals()
+
+@check(label='ch:sky:L30:0.78', title='C-score of whole bloods, lowest', line=30, status='measured', printed='0.78', tol=0.0,
+       kind='file', source=_B10_ACC, chapter='ch:sky', part=6, file='part4/p4_16_sky')
+def check_4086():
+    'The C-score read 0.78-1.49 on whole bloods; lower end = smallest C of the whole-blood specimens of the acceptance run (six DNA '\
+    'mixtures and the five read remission bloods). Book line 30, printed 0.78. Input: chain_acceptance.csv.'
+    c = _b10_acc_C(False)
+    n = len(c)
+    value = min(c)
+    return locals()
+
+@check(label='ch:sky:L30:1.49', title='C-score of whole bloods, highest', line=30, status='measured', printed='1.49', tol=0.0,
+       kind='file', source=_B10_ACC, chapter='ch:sky', part=6, file='part4/p4_16_sky')
+def check_4087():
+    'Upper end of 0.78-1.49: largest C of the whole-blood specimens of the acceptance run. Book line 30, printed 1.49. '\
+    'Input: chain_acceptance.csv.'
+    value = max(_b10_acc_C(False))
+    return locals()
+
+@check(label='ch:sky:L47:50', title='sky block size', line=47, status='calibrated', printed='50', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:sky', part=6, file='part4/p4_16_sky')
+def check_4088():
+    'Table tab:p4_skyinputs: block size 50, read from the frozen residual-map reference (key clustering_block). Book line 47, printed 50.'
+    value = load_json(_B10_NREF)['clustering_block']
+    return locals()
+
+@check(label='ch:sky:L47:120', title='blocks per sky map', line=47, status='calibrated', printed='120', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:sky', part=6, file='part4/p4_16_sky')
+def check_4089():
+    'Table tab:p4_skyinputs: 120 blocks per map = number of identity sites in the frozen reference over its block size. Book line 47, '\
+    'printed 120. Input: neutrophil_reference_v1_1.json (sites_ordered, clustering_block).'
+    ref = load_json(_B10_NREF)
+    value = len(ref['sites_ordered']) / ref['clustering_block']
+    return locals()
+
+@check(label='ch:sky:L48', title='healthy mean H per site, median', line=48, status='calibrated', printed='0.3133', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:sky', part=6, file='part4/p4_16_sky')
+def check_4090():
+    'Table tab:p4_skyinputs: healthy mean H per site, median 0.3133 bits: median of neutrophil_H_mean over the 6,000 sites of the frozen '\
+    'reference. Book line 48, printed 0.3133.'
+    value = float(np.median(load_json(_B10_NREF)['neutrophil_H_mean']))
+    return locals()
+
+@check(label='ch:sky:L49', title='shrunk SD s_i, median', line=49, status='calibrated', printed='0.0114', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:sky', part=6, file='part4/p4_16_sky')
+def check_4091():
+    'Table tab:p4_skyinputs: shrunk SD s_i, median 0.0114 bits: median of neutrophil_H_sd_shrunk over the 6,000 sites. Book line 49, '\
+    'printed 0.0114. Input: neutrophil_reference_v1_1.json.'
+    value = float(np.median(load_json(_B10_NREF)['neutrophil_H_sd_shrunk']))
+    return locals()
+
+@check(label='ch:sky:L50', title='healthy clustering baseline (table)', line=50, status='calibrated', printed='1.1104', tol=0.0,
+       kind='file', source=_B10_NREF, chapter='ch:sky', part=6, file='part4/p4_16_sky')
+def check_4092():
+    'Table tab:p4_skyinputs: healthy clustering baseline c_healthy 1.1104, read from the frozen reference (key healthy_clustering_median; '\
+    'its derivation from the six leave-one-out values is checked at ch:skytools:L90:1.1104). Book line 50, printed 1.1104.'
+    value = load_json(_B10_NREF)['healthy_clustering_median']
+    return locals()
+
+@check(label='eq:cellcount', title='binomial copy-number floor sigma = sqrt(beta(1-beta)/2N)', line=67, status='derived', printed='', tol=0.0,
+       kind='sym', chapter='ch:sky', part=6, file='part4/p4_16_sky')
+def check_4093():
+    'Eq. eq:cellcount: at a site with true methylation beta in N diploid genomes (2N copies), the measured fraction k/(2N) has binomial '\
+    'standard deviation sqrt(beta(1-beta)/(2N)). Derived: variance of a Binomial(2N, beta) count from the second '\
+    'derivative of its moment generating function (1 - beta + beta e^t)^(2N), divided by (2N)^2, square root. Book line 67. Control: copy count moved by 5 %.'
+    b = sp.symbols('beta', positive=True)
+    N, t = sp.symbols('N t', positive=True)
+    def frac_sd(copies):
+        mgf = (1 - b + b * sp.exp(t))**copies               # moment generating function of a Binomial(copies, beta) count
+        m1 = sp.diff(mgf, t).subs(t, 0)
+        m2 = sp.diff(mgf, t, 2).subs(t, 0)
+        return sp.sqrt(sp.simplify(m2 - m1**2) / copies**2)  # SD of the measured fraction count/copies
+    lhs = frac_sd(2 * N)
+    rhs = sp.sqrt(b * (1 - b) / (2 * N))
+    neg_lhs = frac_sd(sp.Rational(21, 10) * N)               # copy count moved by 5 %
+    return locals()
+
+@check(label='ch:sky:L73', title='diploid genomes for 10^4 copies', line=73, status='calc', printed='5\\times10^3', tol=0.0, kind='num', chapter='ch:sky', part=6, file='part4/p4_16_sky')
+def check_4094():
+    'A draw yields of order 10^3-10^4 copies of a site (N ~ 5x10^2-5x10^3 diploid genomes): N = copies/2 at the upper end, since a diploid '\
+    'genome carries two copies of each site (Eq. eq:cellcount). Book line 73, printed 5x10^3. Input: 10^4 copies (book).'
+    copies = 1e4
+    value = copies / 2
+    return locals()
+
+@check(label='ch:sky:L74', title='copy-number floor at 10^4 copies, beta = 0.7', line=74, status='calc', printed='0.0046', tol=0.0, kind='num', chapter='ch:sky', part=6, file='part4/p4_16_sky')
+def check_4095():
+    'At 10^4 copies the floor is 0.0046 at beta = 0.7: Eq. eq:cellcount with 2N = 10^4 copies. Book line 74, printed 0.0046. '\
+    'Inputs: beta = 0.7, 10^4 copies (book).'
+    beta, copies = 0.7, 1e4
+    value = math.sqrt(beta * (1 - beta) / copies)
+    return locals()
+
+@check(label='eq:outspan', title='out-of-span residual is blind to composition error', line=90, status='derived', printed='', tol=0.0,
+       kind='sym', chapter='ch:sky', part=6, file='part4/p4_16_sky')
+def check_4096():
+    'Eq. eq:outspan: r = P_span r + (I - P_span) r, and the out-of-span part (I - P_span) r cannot be moved by a composition error. '\
+    'Derived with sympy for a generic 3-site, 2-cell profile matrix M (symbolic entries): P = M (M^T M)^-1 M^T is idempotent, and (I - P) annihilates every '\
+    'mixture M f of the reference cells at any fractions f, so a change in fractions leaves the out-of-span map unchanged. Book line 90. '\
+    'Control: a projector scaled by 1.05 is not idempotent and leaves a residue of M f.'
+    M = sp.Matrix(3, 2, sp.symbols('m0:6'))
+    f = sp.Matrix(sp.symbols('f0:2'))
+    G = M.T * M
+    P = M * G.adjugate() / G.det() * M.T                  # projector onto the span of the cell profiles
+    I3 = sp.eye(3)
+    out_of_span = ((I3 - P) * M * f).applyfunc(sp.cancel)
+    idem = (P * P - P).applyfunc(sp.cancel)
+    ok = out_of_span == sp.zeros(3, 1) and idem == sp.zeros(3, 3)
+    Pn = sp.Rational(105, 100) * P
+    neg_ok = ((I3 - Pn) * M * f).applyfunc(sp.cancel) == sp.zeros(3, 1)
+    return locals()
+
+
 # ======== Part 6 | ch:salmonid | docs/book/part4/p4_22b_salmonid.tex
 @check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='0.0354', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
@@ -37336,28 +37484,15 @@ INVENTORY = [
     (6, 'ch:skytools', 'part4/p4_16a_skytools', 96, '', 'measured', '1.05', 'definition: upper edge of the Normal band 0.95-1.05 restated'),
     (6, 'ch:skytools', 'part4/p4_16a_skytools', 114, '', 'measured', '0.3', 'definition: beta window 0.3-0.7 used to count heterozygous-looking chrX sites (the classification threshold, not a measurement)'),
     (6, 'ch:skytools', 'part4/p4_16a_skytools', 114, '', 'measured', '0.7', 'definition: beta window 0.3-0.7 used to count heterozygous-looking chrX sites'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 19, 'eq:sky', 'none', '', 'displayed equation, not yet checked'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 30, '', 'measured', '0.69', 'measured, source not named'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 30, '', 'measured', '1.21', 'measured, source not named'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 30, '', 'measured', '0.78', 'measured, source not named'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 30, '', 'measured', '1.49', 'measured, source not named'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 46, '', 'calibrated', '000', 'measured, source not named'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 47, '', 'calibrated', '50', 'measured, source not named'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 47, '', 'calibrated', '120', 'measured, source not named'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 48, '', 'calibrated', '0.3133', 'measured, source not named'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 49, '', 'calibrated', '0.0114', 'measured, source not named'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 50, '', 'calibrated', '1.1104', 'measured, source not named'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 67, 'eq:cellcount', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 72, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 73, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 73, '', 'calc', '5\\times10^3', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 74, '', 'calc', '0.0046', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 74, '', 'calc', '0.7', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 80, '', 'calc', '0.7', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '0.01', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '0.02', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:sky', 'part4/p4_16_sky', 90, 'eq:outspan', 'derived', '', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
+    (6, 'ch:sky', 'part4/p4_16_sky', 19, 'eq:sky', 'none', '', 'definition: the sky residual z_i = (H(beta_i) - H(ref_i))/s_i at each identity site (construction; s_i calibrated)'),
+    (6, 'ch:sky', 'part4/p4_16_sky', 46, '', 'calibrated', '000', 'count: 6,000 identity sites in genome order (printed value split at the thousands comma; the count is the length of sites_ordered in neutrophil_reference_v1_1.json and is used by ch:sky:L47:120)'),
+    (6, 'ch:sky', 'part4/p4_16_sky', 72, '', 'calc', '10', "input: plasma cell-free DNA carries about 10^3 genome equivalents per millilitre in health (Sender2024); the printed '10' is the base of 10^3"),
+    (6, 'ch:sky', 'part4/p4_16_sky', 73, '', 'calc', '10', "input: a draw yields of order 10^3-10^4 copies of a site (from about 10^3 genome equivalents per millilitre, Sender2024, and the draw volume); the printed '10' is the base of the power"),
+    (6, 'ch:sky', 'part4/p4_16_sky', 74, '', 'calc', '0.7', 'input: illustrative beta = 0.7 at which the copy-number floor is evaluated'),
+    (6, 'ch:sky', 'part4/p4_16_sky', 80, '', 'calc', '0.7', "input: beta = 0.7 of the figure's curve (same illustrative value as line 74)"),
+    (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '10', "input: vertical lines of the figure at 10^3 and 10^4 copies (the plasma-draw range of line 73); the printed '10' is the base of the power"),
+    (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '0.01', 'input: illustrative array measurement noise 0.01 (figure reference line)'),
+    (6, 'ch:sky', 'part4/p4_16_sky', 81, '', 'calc', '0.02', 'input: illustrative array measurement noise 0.02 (figure reference line)'),
     (6, 'ch:serial', 'part4/p4_17_serial', 31, '', 'measured', '0.045', 'measured, too few printed digits to match against the named files'),
     (6, 'ch:serial', 'part4/p4_17_serial', 31, '', 'measured', '0.044', 'measured, too few printed digits to match against the named files'),
     (6, 'ch:serial', 'part4/p4_17_serial', 34, '', 'measured', '0.30', 'measured, too few printed digits to match against the named files'),

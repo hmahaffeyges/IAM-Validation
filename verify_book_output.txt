@@ -4578,6 +4578,21 @@ PASS  ch:skytools:L143:0.131             ch:skytools:p4_16a_skytools:143  printe
 PASS  ch:skytools:L143:1.31              ch:skytools:p4_16a_skytools:143  printed 1.31  recomputed 1.30534  tol 0.00500001  [measured] smoothed over shuffled spread  file Biological_Physics/MethylPhys/doors/PROC_CEIL_01_OUTCOME.md
 PASS  ch:skytools:L165                   ch:skytools:p4_16a_skytools:165  printed 0.00047  recomputed 4.700000e-04  tol 5.000005e-06  [calc] age-ladder slope per year  file Biological_Physics/MethylPhys/doors/PROC_AGE_01_OUTCOME.md
 
+== Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:sky (part4/p4_16_sky.tex)
+PASS  ch:sky:L30:0.69                    ch:sky:p4_16_sky:30  printed 0.69  recomputed 0.6914  tol 0.00500001  [measured] C-score of isolated neutrophils, lowest  file Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv
+PASS  ch:sky:L30:1.21                    ch:sky:p4_16_sky:30  printed 1.21  recomputed 1.2091  tol 0.00500001  [measured] C-score of isolated neutrophils, highest  file Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv
+PASS  ch:sky:L30:0.78                    ch:sky:p4_16_sky:30  printed 0.78  recomputed 0.7751  tol 0.00500001  [measured] C-score of whole bloods, lowest  file Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv
+PASS  ch:sky:L30:1.49                    ch:sky:p4_16_sky:30  printed 1.49  recomputed 1.4921  tol 0.00500001  [measured] C-score of whole bloods, highest  file Biological_Physics/MethylPhys/chain_tests/chain_acceptance.csv
+PASS  ch:sky:L47:50                      ch:sky:p4_16_sky:47  printed 50  recomputed 50  tol 0.5  [calibrated] sky block size  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
+PASS  ch:sky:L47:120                     ch:sky:p4_16_sky:47  printed 120  recomputed 120  tol 0.5  [calibrated] blocks per sky map  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
+PASS  ch:sky:L48                         ch:sky:p4_16_sky:48  printed 0.3133  recomputed 0.3133  tol 5.000005e-05  [calibrated] healthy mean H per site, median  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
+PASS  ch:sky:L49                         ch:sky:p4_16_sky:49  printed 0.0114  recomputed 0.011443  tol 5.000005e-05  [calibrated] shrunk SD s_i, median  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
+PASS  ch:sky:L50                         ch:sky:p4_16_sky:50  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [calibrated] healthy clustering baseline (table)  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
+PASS  eq:cellcount                       ch:sky:p4_16_sky:67  printed (algebra)  recomputed lhs-rhs=0  [derived] binomial copy-number floor sigma = sqrt(beta(1-beta)/2N)
+PASS  ch:sky:L73                         ch:sky:p4_16_sky:73  printed 5\times10^3  recomputed 5000  tol 500  [calc] diploid genomes for 10^4 copies
+PASS  ch:sky:L74                         ch:sky:p4_16_sky:74  printed 0.0046  recomputed 0.00458258  tol 5.000005e-05  [calc] copy-number floor at 10^4 copies, beta = 0.7
+PASS  eq:outspan                         ch:sky:p4_16_sky:90  printed (algebra)  recomputed True  [derived] out-of-span residual is blind to composition error
+
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:salmonid (part4/p4_22b_salmonid.tex)
 PASS  ch:salmonid:L54                    ch:salmonid:p4_22b_salmonid:54  printed 0.0354  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
 PASS  ch:salmonid:L54:3.31               ch:salmonid:p4_22b_salmonid:54  printed 3.31  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
@@ -5014,4 +5029,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 4084  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2254  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4097  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2241  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
