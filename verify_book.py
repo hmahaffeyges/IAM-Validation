@@ -1671,6 +1671,14 @@ def _b07_mtau_exact():
     # m_tau fixed by Q = 2/3 exactly: solve Q(m_e, m_mu, m_tau) = 2/3 for the heavy root
     return brentq(lambda mt: _b07_Q(_B07_ME, _B07_MMU, mt) - 2 / 3, 1500.0, 2000.0, xtol=1e-12)
 
+# helpers of the part2/p2_15b_electron_mass checks
+def _b07_em_B(H0):
+    # the bracket B = [hbar H0 ln2 m_P^(3/2) / (alpha^(5/2) c^2)]^(2/5), kg (Eq. eq:em:mstar); CODATA 2018 constants
+    return (hbar * Hsi(H0) * LN2 * mP**1.5 / (alpha_em**2.5 * c**2))**0.4
+def _b07_em_fp(H0):
+    # fixed point with the identified factor, units of m_e (Eq. eq:em:result)
+    return (2 * math.pi)**-0.1 * _b07_em_B(H0) / m_e
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -26851,6 +26859,21 @@ def check_2200():
 
 
 # ======== Part 4 | ch:electronmass | docs/book/part2/p2_15b_electron_mass.tex
+@check(label='eq:em:T', chapter='ch:electronmass', part=4, title='Hawking temperature from T = hbar kappa/(2 pi k_B)',
+       file='part2/p2_15b_electron_mass', line=17, status='derived', kind='sym')
+def check_3719():
+    'Eq. eq:em:T applied to Schwarzschild: kappa is computed from the metric function f = 1 - r_s/r as c f\'(r_s)/2 with r_s = 2GM/c^2, giving c^3/(4GM); T = hbar kappa/(2 pi k_B) then lands on T_H = hbar c^3/(8 pi G M k_B). Book lines 17-20.'
+    r, G_, M, c_, hb, kb = sp.symbols('r G M c hbar k_B', positive=True)
+    rs = 2 * G_ * M / c_**2
+    f = 1 - rs / r
+    def T_of(coef):
+        kappa = c_ * coef * sp.diff(f, r).subs(r, rs)
+        return sp.simplify(hb * kappa / (2 * sp.pi * kb))
+    lhs = T_of(sp.Rational(1, 2))
+    rhs = hb * c_**3 / (8 * sp.pi * G_ * M * kb)
+    neg_lhs = T_of(sp.Rational(105, 200))
+    return locals()
+
 @check(label='ch:electronmass:L22', chapter='ch:electronmass', part=4, title='T_GH, H0 = 67.4',
        file='part2/p2_15b_electron_mass', line=22, status='calc', kind='num', printed='2.66\\times10^{-30}', tol=0)
 def check_2201():
@@ -26916,6 +26939,34 @@ def check_2207():
 def check_2208():
     'alpha^(5/2) (Eq. eq:em:fs). Book line 53, printed 4.55\\times10^{-6}.'
     value=alpha_em**2.5
+    return locals()
+
+@check(label='eq:em:ft', chapter='ch:electronmass', part=4, title='temporal reading of the electromagnetic factor, alpha^(5/2)',
+       file='part2/p2_15b_electron_mass', line=58, status='conjecture', kind='sym')
+def check_3720():
+    'Eq. eq:em:ft: tau_C = hbar/(m c^2), tau_EM = hbar/(alpha m c^2); the mode count (tau_EM/tau_C)^(3/2) is computed (alpha^(-3/2)) and the rate diluted by alpha, f = alpha / (tau_EM/tau_C)^(3/2) = alpha^(5/2). Book line 58. The reading is the conjecture; the algebra is checked.'
+    al, m, c_, hb = sp.symbols('alpha m c hbar', positive=True)
+    def f(coef):
+        tau_C = hb / (m * c_**2); tau_EM = hb / (coef * al * m * c_**2)
+        return sp.simplify(al / (tau_EM / tau_C)**sp.Rational(3, 2))
+    lhs = f(1)
+    rhs = al**sp.Rational(5, 2)
+    neg_lhs = f(sp.Rational(105, 100))
+    return locals()
+
+@check(label='eq:em:fp', chapter='ch:electronmass', part=4, title='m c^2 = E_bit N(m)/f has exactly one positive root',
+       file='part2/p2_15b_electron_mass', line=67, status='conjecture', kind='sym')
+def check_3721():
+    'Eq. eq:em:fp with N = (m_P/m)^(3/2): the right side scales as m^(-3/2) (logarithmic derivative computed) while the left grows as m; left minus right has a positive derivative and the right side runs from +inf (m -> 0) to 0 (m -> inf), so there is exactly one positive root. Book line 67, the statement at line 70.'
+    m, c_, E, mp_, f_ = sp.symbols('m c E_bit m_P f', positive=True)
+    def props(p):
+        R = E * (mp_ / m)**p / f_
+        elast = sp.simplify(m * sp.diff(sp.log(R), m))
+        monotone = sp.simplify(sp.diff(m * c_**2 - R, m)).is_positive        # left minus right strictly increasing: at most one root
+        limits = sp.limit(R, m, 0, '+') == sp.oo and sp.limit(R, m, sp.oo) == 0   # right side from +inf to 0, left from 0 to +inf: one crossing
+        return elast == -sp.Rational(3, 2) and bool(monotone) and bool(limits)
+    ok = props(sp.Rational(3, 2))
+    neg_ok = props(sp.Rational(3, 2) * sp.Rational(105, 100))   # exponent of N moved by 5 %
     return locals()
 
 @check(label='eq:em:m52', chapter='ch:electronmass', part=4, title='m^(5/2) from m c^2 = E_bit N/f',
@@ -27016,11 +27067,33 @@ def check_2221():
     value=hbar*Hsi(67.4)*LN2/(2*math.pi)
     return locals()
 
+@check(label='ch:electronmass:L101', chapter='ch:electronmass', part=4, title='area count of the Compton sphere (table)',
+       file='part2/p2_15b_electron_mass', line=101, status='conjecture', kind='num', printed='1.79\\times10^{45}', tol=0.0)
+def check_3722():
+    'Table: area count S = 4 pi (hbar/m_e c)^2 / (4 l_P^2) of the reduced Compton sphere. Book line 101 (restates eq:em:S). Inputs: CODATA 2018.'
+    lam = hbar / (m_e * c)
+    value = 4 * math.pi * lam**2 / (4 * lP**2)
+    return locals()
+
 @check(label='ch:electronmass:L102', chapter='ch:electronmass', part=4, title='2 pi',
        file='part2/p2_15b_electron_mass', line=102, status='derived', kind='num', printed='6.28', tol=0)
 def check_2222():
     '2 pi. Book line 102, printed 6.28.'
     value=2*math.pi
+    return locals()
+
+@check(label='ch:electronmass:L103', chapter='ch:electronmass', part=4, title='cell count (m_P/m_e)^(3/2) (table)',
+       file='part2/p2_15b_electron_mass', line=103, status='conjecture', kind='num', printed='3.69\\times10^{33}', tol=0.0)
+def check_3723():
+    'Table: cell count N = (m_P/m_e)^(3/2). Book line 103 (restates eq:em:N). Inputs: CODATA 2018.'
+    value = (mP / m_e)**1.5
+    return locals()
+
+@check(label='ch:electronmass:L104', chapter='ch:electronmass', part=4, title='electromagnetic factor alpha^(5/2) (table)',
+       file='part2/p2_15b_electron_mass', line=104, status='conjecture', kind='num', printed='4.55\\times10^{-6}', tol=0.0)
+def check_3724():
+    'Table: f = alpha^(3/2) alpha = alpha^(5/2). Book line 104 (restates eq:em:fs). Input: alpha CODATA 2018.'
+    value = alpha_em**1.5 * alpha_em
     return locals()
 
 @check(label='ch:electronmass:L105', chapter='ch:electronmass', part=4, title='B/m_e at H0 = 67.4',
@@ -27158,6 +27231,20 @@ def check_2239():
     value=-100*((2*math.pi)**-0.1*Bk(67.16)/m_e-1)
     return locals()
 
+@check(label='ch:electronmass:L137', chapter='ch:electronmass', part=4, title='spread from sigma(H0), per cent',
+       file='part2/p2_15b_electron_mass', line=137, status='openprob', kind='num', printed='0.32', tol=0.0)
+def check_3725():
+    'The 0.32 per cent spread: change of the fixed point m propto H0^(2/5) for sigma(H0) = 0.54 at H0 = 67.4. Book line 137. Input: Planck 2018 sigma(H0) = 0.54.'
+    value = 100 * (_b07_em_fp(67.4 + 0.54) - _b07_em_fp(67.4 - 0.54)) / 2 / _b07_em_fp(67.4)
+    return locals()
+
+@check(label='ch:electronmass:L137:2.8', chapter='ch:electronmass', part=4, title='fixed point at the matter-sector H0, per cent high',
+       file='part2/p2_15b_electron_mass', line=137, status='openprob', kind='num', printed='2.8', tol=0.0)
+def check_3726():
+    'With the matter-sector H0 = 72.26 (locked) the fixed point (2 pi)^(-1/10) B/m_e is high by this many per cent. Book line 137. Inputs: CODATA 2018, H0_matter.'
+    value = 100 * (_b07_em_fp(H0_matter) - 1)
+    return locals()
+
 @check(label='ch:electronmass:L148', chapter='ch:electronmass', part=4, title='fixed point with alpha^1.5, units of m_e',
        file='part2/p2_15b_electron_mass', line=148, status='calc', kind='num', printed='0.14', tol=0)
 def check_2240():
@@ -27238,6 +27325,37 @@ def check_2249():
 def check_2250():
     '(H(z=2)/H0)^(2/5). Book line 158, printed 1.56.'
     value=(math.sqrt(Om*27+OL))**0.4
+    return locals()
+
+@check(label='ch:electronmass:L159', chapter='ch:electronmass', part=4, title='bound on the drift of m_p/m_e from H2, 3 sigma',
+       file='part2/p2_15b_electron_mass', line=159, status='observed', kind='num', printed='5\\times10^{-6}', tol=0.0)
+def check_3727():
+    'Published bound |Delta mu/mu| < 5e-6 (3 sigma) from molecular hydrogen absorption at z = 2.0-4.2. Book line 159. Source: Ubachs et al. 2016, Rev. Mod. Phys. 88, 021003 (doi:10.1103/RevModPhys.88.021003, bib Ubachs2016).'
+    bound_Ubachs2016 = 5e-6
+    value = bound_Ubachs2016
+    return locals()
+
+@check(label='ch:electronmass:L159:2.0', chapter='ch:electronmass', part=4, title='lowest redshift of the H2 systems',
+       file='part2/p2_15b_electron_mass', line=159, status='observed', kind='num', printed='2.0', tol=0.0)
+def check_3728():
+    'Lower end of the redshift range z = 2.0-4.2 of the H2 absorption systems. Book line 159. Source: Ubachs et al. 2016 (doi:10.1103/RevModPhys.88.021003).'
+    z_low_Ubachs2016 = 2.0
+    value = z_low_Ubachs2016
+    return locals()
+
+@check(label='ch:electronmass:L159:4.2', chapter='ch:electronmass', part=4, title='highest redshift of the H2 systems',
+       file='part2/p2_15b_electron_mass', line=159, status='observed', kind='num', printed='4.2', tol=0.0)
+def check_3729():
+    'Upper end of the redshift range z = 2.0-4.2 of the H2 absorption systems. Book line 159. Source: Ubachs et al. 2016 (doi:10.1103/RevModPhys.88.021003).'
+    z_high_Ubachs2016 = 4.2
+    value = z_high_Ubachs2016
+    return locals()
+
+@check(label='ch:electronmass:L171', chapter='ch:electronmass', part=4, title='H0 at which the fixed point gives m_e',
+       file='part2/p2_15b_electron_mass', line=171, status='openprob', kind='num', printed='67.40', tol=0.0)
+def check_3730():
+    'The pricing horizon must expand at the H0 solving (2 pi)^(-1/10) B(H0) = m_e. Book line 171, printed 67.40. Inputs: CODATA 2018.'
+    value = brentq(lambda H: _b07_em_fp(H) - 1, 60.0, 75.0, xtol=1e-10)
     return locals()
 
 @check(label='ch:electronmass:L186', chapter='ch:electronmass', part=4, title='fixed point as derived',
@@ -33636,30 +33754,18 @@ INVENTORY = [
     (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 295, '', 'calc', '1776.93', 'input: m_tau = 1776.93 MeV (PDG 2024, doi:10.1103/PhysRevD.110.030001), restates the table value read by ch:koide:L31'),
     (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 296, '', 'calc', '1776.86', 'input: m_tau = 1776.86 MeV (PDG 2022, doi:10.1093/ptep/ptac097), restates the table value read by ch:koide:L32'),
     (4, 'ch:koide', 'part2/p2_15a_lepton_koide', 297, '', 'prediction', '1777.09', 'input: single measurement m_tau = 1777.09 +- 0.08 +- 0.11 MeV quoted from BelleII2023tau, nothing to recompute'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 17, 'eq:em:T', 'derived', '', 'not yet run: draft rejected (uses imports or file access)'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 22, '', 'calc', '67.4', 'not yet run: draft rejected (printed value typed into the code)'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 58, 'eq:em:ft', 'conjecture', '', 'displayed equation, not yet checked'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 67, 'eq:em:fp', 'conjecture', '', 'displayed equation, not yet checked'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 80, '', 'derived', '67.4', 'not yet run: draft rejected (printed value typed into the code)'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 101, '', 'conjecture', '1.79\\times10^{45}', 'not yet checked'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 103, '', 'conjecture', '3.69\\times10^{33}', 'not yet checked'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 104, '', 'conjecture', '4.55\\times10^{-6}', 'not yet checked'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 116, '', 'calc', '67.4', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 117, '', 'calc', '67.36', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 117, '', 'calc', '73.04', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 123, '', 'calc', '0.54', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 124, '', 'calc', '67.4', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 125, '', 'calc', '67.4', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 126, '', 'calc', '0.3', 'not yet run: draft rejected (no draft returned)'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 137, '', 'openprob', '0.32', 'not yet checked'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 137, '', 'openprob', '72.26', 'not yet checked'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 137, '', 'openprob', '2.8', 'not yet checked'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 153, '', 'calc', '67.4', 'not yet run: draft rejected (printed value typed into the code)'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 159, '', 'observed', '5\\times10^{-6}', 'measured, too few printed digits to match against the named files'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 159, '', 'observed', '2.0', 'measured, too few printed digits to match against the named files'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 159, '', 'observed', '4.2', 'measured, too few printed digits to match against the named files'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 159, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 171, '', 'openprob', '67.40', 'not yet checked'),
+    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 22, '', 'calc', '67.4', 'input: H0 = 67.4 km/s/Mpc (Planck 2018, Aghanim et al. 2020, doi:10.1051/0004-6361/201833910), nothing to recompute'),
+    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 80, '', 'derived', '67.4', 'input: H0 = 67.4 restated (the value at which the factor was identified)'),
+    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 116, '', 'calc', '67.4', 'input: H0 = 67.4 restated in the figure caption'),
+    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 117, '', 'calc', '67.36', 'input: H0 = 67.36, Planck 2018 best fit (Aghanim et al. 2020 Table 2, doi:10.1051/0004-6361/201833910); the offset there is checked by ch:electronmass:L116:-0.02'),
+    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 117, '', 'calc', '73.04', 'input: H0 = 73.04, SH0ES (Riess2022); the offset there is checked by ch:electronmass:L117:+3.27'),
+    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 123, '', 'calc', '0.54', 'input: sigma(H0) = 0.54, Planck 2018 (Aghanim et al. 2020 Table 2, doi:10.1051/0004-6361/201833910)'),
+    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 124, '', 'calc', '67.4', 'input: H0 = 67.4 restated'),
+    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 125, '', 'calc', '67.4', 'input: H0 = 67.4 restated'),
+    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 126, '', 'calc', '0.3', 'restates ch:electronmass:L137 (0.32 per cent) rounded to one digit; a one-digit 0.3 cannot pass a 5 % negative control (0.315 lies within half its last digit of 0.320)'),
+    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 137, '', 'openprob', '72.26', 'locked value H0 = 72.26 (matter sector) restated'),
+    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 153, '', 'calc', '67.4', 'input: H0 = 67.4 restated'),
+    (4, 'ch:electronmass', 'part2/p2_15b_electron_mass', 159, '', 'observed', '10', 'measured, source not named'),
     (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 16, '', 'calc', '182', 'not yet run: draft does not reproduce the printed value (recomputed 2.922558e-17); drafting error on review'),
     (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 22, '', 'observed', '0.1', 'measured, source not named'),
     (5, 'ch:scprimer', 'part3/p3_01_sc_primer', 42, '', 'observed', '10', 'measured, source not named'),

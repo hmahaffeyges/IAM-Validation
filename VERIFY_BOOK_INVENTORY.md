@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3719 PASS, 0 FAIL, 2619 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3731 PASS, 0 FAIL, 2607 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -3855,23 +3855,23 @@ Totals: 3719 PASS, 0 FAIL, 2619 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 17 | eq:em:T | derived |  | not run: not yet run: draft rejected (uses imports or file access) | - |
+| 17 | eq:em:T | derived |  | sympy: Hawking temperature from T = hbar kappa/(2 pi k_B) | PASS |
 | 22 | ch:electronmass:L22 | calc | `2.66\times10^{-30}` | numeric: T_GH, H0 = 67.4 | PASS |
 | 22 | ch:electronmass:L22:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 22 | ch:electronmass:L22:2.65\times10^{-30} | calc | `2.65\times10^{-30}` | numeric: T_GH, H0 = 67.16 | PASS |
-| 22 |  | calc | `67.4` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 22 |  | calc | `67.4` | not run: input: H0 = 67.4 km/s/Mpc (Planck 2018, Aghanim et al. 2020, doi:10.1051/0004-6361/201833910), nothing to recompute | - |
 | 27 | eq:em:S | conjecture | `1.79\times10^{45}` | numeric: S = pi (m_P/m_e)^2 | PASS |
 | 32 | ch:electronmass:L32 | calc | `2.9\times10^{44}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 35 | eq:em:Ebit | derived | `2.54\times10^{-53}` | numeric: E_bit = hbar H0 ln2/2pi, H0 = 67.4 | PASS |
 | 42 | eq:em:N | conjecture | `3.69\times10^{33}` | numeric: N = (m_P/m_e)^(3/2) | PASS |
 | 53 | eq:em:fs | none | `4.55\times10^{-6}` | numeric: alpha^(5/2) | PASS |
-| 58 | eq:em:ft | conjecture |  | not run: displayed equation, not yet checked | - |
-| 67 | eq:em:fp | conjecture |  | not run: displayed equation, not yet checked | - |
+| 58 | eq:em:ft | conjecture |  | sympy: temporal reading of the electromagnetic factor, alpha^(5/2) | PASS |
+| 67 | eq:em:fp | conjecture |  | sympy: m c^2 = E_bit N(m)/f has exactly one positive root | PASS |
 | 72 | eq:em:m52 | derived |  | sympy: m^(5/2) from m c^2 = E_bit N/f | PASS |
 | 77 | eq:em:mstar | derived |  | sympy: m* = (2 pi)^(-2/5) B | PASS |
 | 80 | ch:electronmass:L80 | derived | `1.2018` | numeric: B/m_e at H0 = 67.4 | PASS |
 | 80 | ch:electronmass:L80:0.4794 | derived | `0.4794` | numeric: (2 pi)^(-2/5) | PASS |
-| 80 |  | derived | `67.4` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 80 |  | derived | `67.4` | not run: input: H0 = 67.4 restated (the value at which the factor was identified) | - |
 | 81 | eq:em:short | derived | `0.5762` | numeric: fixed point as derived, units of m_e | PASS |
 | 84 | ch:electronmass:L84 | calc | `0.252` | numeric: right side at m_e over m_e c^2 | PASS |
 | 84 | ch:electronmass:L84:3.97 | calc | `3.97` | numeric: factor short | PASS |
@@ -3881,10 +3881,10 @@ Totals: 3719 PASS, 0 FAIL, 2619 inventoried and not run. Each run item carries t
 | 91 | ch:electronmass:L91 | fitted | `1.7356` | heavy file `docs/verification/scripts/verify_particle_book_output.txt`: measured: printed value found in verify_particle_book_output.txt, a file the chapter names | PASS |
 | 92 | ch:electronmass:L92 | calc | `3.969` | numeric: (2 pi)^(3/4) | PASS |
 | 100 | ch:electronmass:L100 | derived | `2.54\times10^{-53}` | numeric: bit price, H0 = 67.4 | PASS |
-| 101 |  | conjecture | `1.79\times10^{45}` | not run: not yet checked | - |
+| 101 | ch:electronmass:L101 | conjecture | `1.79\times10^{45}` | numeric: area count of the Compton sphere (table) | PASS |
 | 102 | ch:electronmass:L102 | derived | `6.28` | numeric: 2 pi | PASS |
-| 103 |  | conjecture | `3.69\times10^{33}` | not run: not yet checked | - |
-| 104 |  | conjecture | `4.55\times10^{-6}` | not run: not yet checked | - |
+| 103 | ch:electronmass:L103 | conjecture | `3.69\times10^{33}` | numeric: cell count (m_P/m_e)^(3/2) (table) | PASS |
+| 104 | ch:electronmass:L104 | conjecture | `4.55\times10^{-6}` | numeric: electromagnetic factor alpha^(5/2) (table) | PASS |
 | 105 | ch:electronmass:L105 | calc | `1.2018` | numeric: B/m_e at H0 = 67.4 | PASS |
 | 106 | ch:electronmass:L106 | calc | `0.5762` | numeric: fixed point as derived | PASS |
 | 107 | ch:electronmass:L107 | fitted | `1.7356` | heavy file `docs/verification/scripts/verify_particle_book_output.txt`: measured: printed value found in verify_particle_book_output.txt, a file the chapter names | PASS |
@@ -3894,24 +3894,24 @@ Totals: 3719 PASS, 0 FAIL, 2619 inventoried and not run. Each run item carries t
 | 116 | ch:electronmass:L116:-0.14 | calc | `-0.14` | numeric: fixed point offset at H0 = 67.16, per cent | PASS |
 | 116 | ch:electronmass:L116:67.16 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 116 | ch:electronmass:L116:-0.02 | calc | `-0.02` | numeric: fixed point offset at H0 = 67.36, per cent | PASS |
-| 116 |  | calc | `67.4` | not run: not yet run: draft rejected (no draft returned) | - |
+| 116 |  | calc | `67.4` | not run: input: H0 = 67.4 restated in the figure caption | - |
 | 117 | ch:electronmass:L117 | calc | `+2.82` | numeric: fixed point offset at H0 = 72.26, per cent | PASS |
 | 117 | ch:electronmass:L117:72.26 | calc | `72.26` | numeric: same value as p1_02_iams_law:696 (H0 matter-sector formula) | PASS |
 | 117 | ch:electronmass:L117:+3.27 | calc | `+3.27` | numeric: fixed point offset at H0 = 73.04, per cent | PASS |
-| 117 |  | calc | `67.36` | not run: not yet run: draft rejected (no draft returned) | - |
-| 117 |  | calc | `73.04` | not run: not yet run: draft rejected (no draft returned) | - |
+| 117 |  | calc | `67.36` | not run: input: H0 = 67.36, Planck 2018 best fit (Aghanim et al. 2020 Table 2, doi:10.1051/0004-6361/201833910); the offset there is checked by ch:electronmass:L116:-0.02 | - |
+| 117 |  | calc | `73.04` | not run: input: H0 = 73.04, SH0ES (Riess2022); the offset there is checked by ch:electronmass:L117:+3.27 | - |
 | 119 | ch:electronmass:L119 | calc | `7.16` | numeric: p = 7/2 | PASS |
-| 123 |  | calc | `0.54` | not run: not yet run: draft rejected (no draft returned) | - |
+| 123 |  | calc | `0.54` | not run: input: sigma(H0) = 0.54, Planck 2018 (Aghanim et al. 2020 Table 2, doi:10.1051/0004-6361/201833910) | - |
 | 124 | ch:electronmass:L124 | calc | `67.399` | numeric: H0 at which the fixed point is exact | PASS |
-| 124 |  | calc | `67.4` | not run: not yet run: draft rejected (no draft returned) | - |
+| 124 |  | calc | `67.4` | not run: input: H0 = 67.4 restated | - |
 | 125 | ch:electronmass:L125 | calc | `6.6` | numeric: ppm offset at 67.4 | PASS |
-| 125 |  | calc | `67.4` | not run: not yet run: draft rejected (no draft returned) | - |
-| 126 |  | calc | `0.3` | not run: not yet run: draft rejected (no draft returned) | - |
+| 125 |  | calc | `67.4` | not run: input: H0 = 67.4 restated | - |
+| 126 |  | calc | `0.3` | not run: restates ch:electronmass:L137 (0.32 per cent) rounded to one digit; a one-digit 0.3 cannot pass a 5 % negative control (0.315 lies within half its last digit of 0.320) | - |
 | 136 | ch:electronmass:L136 | calc | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 136 | ch:electronmass:L136:0.14 | calc | `0.14` | numeric: per cent low at 67.16 | PASS |
-| 137 |  | openprob | `0.32` | not run: not yet checked | - |
-| 137 |  | openprob | `72.26` | not run: not yet checked | - |
-| 137 |  | openprob | `2.8` | not run: not yet checked | - |
+| 137 | ch:electronmass:L137 | openprob | `0.32` | numeric: spread from sigma(H0), per cent | PASS |
+| 137 | ch:electronmass:L137:2.8 | openprob | `2.8` | numeric: fixed point at the matter-sector H0, per cent high | PASS |
+| 137 |  | openprob | `72.26` | not run: locked value H0 = 72.26 (matter sector) restated | - |
 | 148 | ch:electronmass:L148 | calc | `0.14` | numeric: fixed point with alpha^1.5, units of m_e | PASS |
 | 148 | ch:electronmass:L148:0.37 | calc | `0.37` | numeric: fixed point with alpha^2, units of m_e | PASS |
 | 148 | ch:electronmass:L148:1.00 | calc | `1.00` | numeric: fixed point with alpha^2.5, units of m_e | PASS |
@@ -3922,13 +3922,13 @@ Totals: 3719 PASS, 0 FAIL, 2619 inventoried and not run. Each run item carries t
 | 153 | ch:electronmass:L153 | calc | `2.66\times10^{-30}` | numeric: T_GH at 67.4 | PASS |
 | 153 | ch:electronmass:L153:3.55\times10^{38} | calc | `3.55\times10^{38}` | numeric: T_C/T_GH | PASS |
 | 153 | ch:electronmass:L153:38.6 | calc | `38.6` | numeric: orders of magnitude | PASS |
-| 153 |  | calc | `67.4` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 153 |  | calc | `67.4` | not run: input: H0 = 67.4 restated | - |
 | 158 | ch:electronmass:L158 | calc | `1.56` | numeric: (H(z=2)/H0)^(2/5) | PASS |
-| 159 |  | observed | `5\times10^{-6}` | not run: measured, too few printed digits to match against the named files | - |
-| 159 |  | observed | `2.0` | not run: measured, too few printed digits to match against the named files | - |
-| 159 |  | observed | `4.2` | not run: measured, too few printed digits to match against the named files | - |
-| 159 |  | observed | `10` | not run: measured, too few printed digits to match against the named files | - |
-| 171 |  | openprob | `67.40` | not run: not yet checked | - |
+| 159 | ch:electronmass:L159 | observed | `5\times10^{-6}` | numeric: bound on the drift of m_p/m_e from H2, 3 sigma | PASS |
+| 159 | ch:electronmass:L159:2.0 | observed | `2.0` | numeric: lowest redshift of the H2 systems | PASS |
+| 159 | ch:electronmass:L159:4.2 | observed | `4.2` | numeric: highest redshift of the H2 systems | PASS |
+| 159 |  | observed | `10` | not run: measured, source not named | - |
+| 171 | ch:electronmass:L171 | openprob | `67.40` | numeric: H0 at which the fixed point gives m_e | PASS |
 | 186 | ch:electronmass:L186 | calc | `0.5762` | numeric: fixed point as derived | PASS |
 | 188 | ch:electronmass:L188 | calc | `0.32` | numeric: 0.4 sigma(H0)/H0, per cent | PASS |
 | 188 | ch:electronmass:L188:67.399 | calc | `67.399` | numeric: H0 at which the fixed point is exact | PASS |

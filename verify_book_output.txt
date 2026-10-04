@@ -3768,6 +3768,7 @@ PASS  ch:koide:L322                      ch:koide:p2_15a_lepton_koide:322  print
 PASS  ch:koide:L323                      ch:koide:p2_15a_lepton_koide:323  printed 1776.969  recomputed 1776.97  tol 5.000005e-04  [prediction] same value as p2_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV)
 
 == Part 4: Particles and Quantum Records | ch:electronmass (part2/p2_15b_electron_mass.tex)
+PASS  eq:em:T                            ch:electronmass:p2_15b_electron_mass:17  printed (algebra)  recomputed lhs-rhs=0  [derived] Hawking temperature from T = hbar kappa/(2 pi k_B)
 PASS  ch:electronmass:L22                ch:electronmass:p2_15b_electron_mass:22  printed 2.66\times10^{-30}  recomputed 2.655354e-30  tol 5.000005e-33  [calc] T_GH, H0 = 67.4
 PASS  ch:electronmass:L22:67.16          ch:electronmass:p2_15b_electron_mass:22  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
@@ -3777,6 +3778,8 @@ PASS  ch:electronmass:L32                ch:electronmass:p2_15b_electron_mass:32
 PASS  eq:em:Ebit                         ch:electronmass:p2_15b_electron_mass:35  printed 2.54\times10^{-53}  recomputed 2.541155e-53  tol 5.000005e-56  [derived] E_bit = hbar H0 ln2/2pi, H0 = 67.4
 PASS  eq:em:N                            ch:electronmass:p2_15b_electron_mass:42  printed 3.69\times10^{33}  recomputed 3.693047e+33  tol 5.000005e+30  [conjecture] N = (m_P/m_e)^(3/2)
 PASS  eq:em:fs                           ch:electronmass:p2_15b_electron_mass:53  printed 4.55\times10^{-6}  recomputed 4.548973e-06  tol 5.000005e-09  [none] alpha^(5/2)
+PASS  eq:em:ft                           ch:electronmass:p2_15b_electron_mass:58  printed (algebra)  recomputed lhs-rhs=0  [conjecture] temporal reading of the electromagnetic factor, alpha^(5/2)
+PASS  eq:em:fp                           ch:electronmass:p2_15b_electron_mass:67  printed (algebra)  recomputed True  [conjecture] m c^2 = E_bit N(m)/f has exactly one positive root
 PASS  eq:em:m52                          ch:electronmass:p2_15b_electron_mass:72  printed (algebra)  recomputed lhs-rhs=0  [derived] m^(5/2) from m c^2 = E_bit N/f
 PASS  eq:em:mstar                        ch:electronmass:p2_15b_electron_mass:77  printed (algebra)  recomputed True  [derived] m* = (2 pi)^(-2/5) B
 PASS  ch:electronmass:L80                ch:electronmass:p2_15b_electron_mass:80  printed 1.2018  recomputed 1.20177  tol 5.000005e-05  [derived] B/m_e at H0 = 67.4
@@ -3791,7 +3794,10 @@ PASS  ch:electronmass:L91                ch:electronmass:p2_15b_electron_mass:91
       heavy: python3 docs/verification/scripts/verify_particle_book.py > docs/verification/scripts/verify_particle_book_output.txt
 PASS  ch:electronmass:L92                ch:electronmass:p2_15b_electron_mass:92  printed 3.969  recomputed 3.96858  tol 5.000005e-04  [calc] (2 pi)^(3/4)
 PASS  ch:electronmass:L100               ch:electronmass:p2_15b_electron_mass:100  printed 2.54\times10^{-53}  recomputed 2.541155e-53  tol 5.000005e-56  [derived] bit price, H0 = 67.4
+PASS  ch:electronmass:L101               ch:electronmass:p2_15b_electron_mass:101  printed 1.79\times10^{45}  recomputed 1.793342e+45  tol 5.000005e+42  [conjecture] area count of the Compton sphere (table)
 PASS  ch:electronmass:L102               ch:electronmass:p2_15b_electron_mass:102  printed 6.28  recomputed 6.28319  tol 0.00500001  [derived] 2 pi
+PASS  ch:electronmass:L103               ch:electronmass:p2_15b_electron_mass:103  printed 3.69\times10^{33}  recomputed 3.693047e+33  tol 5.000005e+30  [conjecture] cell count (m_P/m_e)^(3/2) (table)
+PASS  ch:electronmass:L104               ch:electronmass:p2_15b_electron_mass:104  printed 4.55\times10^{-6}  recomputed 4.548973e-06  tol 5.000005e-09  [conjecture] electromagnetic factor alpha^(5/2) (table)
 PASS  ch:electronmass:L105               ch:electronmass:p2_15b_electron_mass:105  printed 1.2018  recomputed 1.20177  tol 5.000005e-05  [calc] B/m_e at H0 = 67.4
 PASS  ch:electronmass:L106               ch:electronmass:p2_15b_electron_mass:106  printed 0.5762  recomputed 0.576168  tol 5.000005e-05  [calc] fixed point as derived
 PASS  ch:electronmass:L107               ch:electronmass:p2_15b_electron_mass:107  printed 1.7356  recomputed found in file  [fitted] measured: printed value found in verify_particle_book_output.txt, a file the chapter names  file docs/verification/scripts/verify_particle_book_output.txt
@@ -3812,6 +3818,8 @@ PASS  ch:electronmass:L125               ch:electronmass:p2_15b_electron_mass:12
 PASS  ch:electronmass:L136               ch:electronmass:p2_15b_electron_mass:136  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:electronmass:L136:0.14          ch:electronmass:p2_15b_electron_mass:136  printed 0.14  recomputed 0.141929  tol 0.00500001  [calc] per cent low at 67.16
+PASS  ch:electronmass:L137               ch:electronmass:p2_15b_electron_mass:137  printed 0.32  recomputed 0.320478  tol 0.00500001  [openprob] spread from sigma(H0), per cent
+PASS  ch:electronmass:L137:2.8           ch:electronmass:p2_15b_electron_mass:137  printed 2.8  recomputed 2.82485  tol 0.05  [openprob] fixed point at the matter-sector H0, per cent high
 PASS  ch:electronmass:L148               ch:electronmass:p2_15b_electron_mass:148  printed 0.14  recomputed 0.139723  tol 0.00500001  [calc] fixed point with alpha^1.5, units of m_e
 PASS  ch:electronmass:L148:0.37          ch:electronmass:p2_15b_electron_mass:148  printed 0.37  recomputed 0.373797  tol 0.00500001  [calc] fixed point with alpha^2, units of m_e
 PASS  ch:electronmass:L148:1.00          ch:electronmass:p2_15b_electron_mass:148  printed 1.00  recomputed 1.00001  tol 0.00500001  [calc] fixed point with alpha^2.5, units of m_e
@@ -3823,6 +3831,10 @@ PASS  ch:electronmass:L153               ch:electronmass:p2_15b_electron_mass:15
 PASS  ch:electronmass:L153:3.55\times10^{38} ch:electronmass:p2_15b_electron_mass:153  printed 3.55\times10^{38}  recomputed 3.554225e+38  tol 5.000005e+35  [calc] T_C/T_GH
 PASS  ch:electronmass:L153:38.6          ch:electronmass:p2_15b_electron_mass:153  printed 38.6  recomputed 38.5507  tol 0.05  [calc] orders of magnitude
 PASS  ch:electronmass:L158               ch:electronmass:p2_15b_electron_mass:158  printed 1.56  recomputed 1.55861  tol 0.00500001  [calc] (H(z=2)/H0)^(2/5)
+PASS  ch:electronmass:L159               ch:electronmass:p2_15b_electron_mass:159  printed 5\times10^{-6}  recomputed 5.000000e-06  tol 5.000005e-07  [observed] bound on the drift of m_p/m_e from H2, 3 sigma
+PASS  ch:electronmass:L159:2.0           ch:electronmass:p2_15b_electron_mass:159  printed 2.0  recomputed 2  tol 0.05  [observed] lowest redshift of the H2 systems
+PASS  ch:electronmass:L159:4.2           ch:electronmass:p2_15b_electron_mass:159  printed 4.2  recomputed 4.2  tol 0.05  [observed] highest redshift of the H2 systems
+PASS  ch:electronmass:L171               ch:electronmass:p2_15b_electron_mass:171  printed 67.40  recomputed 67.3989  tol 0.00500001  [openprob] H0 at which the fixed point gives m_e
 PASS  ch:electronmass:L186               ch:electronmass:p2_15b_electron_mass:186  printed 0.5762  recomputed 0.576168  tol 5.000005e-05  [calc] fixed point as derived
 PASS  ch:electronmass:L188               ch:electronmass:p2_15b_electron_mass:188  printed 0.32  recomputed 0.320475  tol 0.00500001  [calc] 0.4 sigma(H0)/H0, per cent
 PASS  ch:electronmass:L188:67.399        ch:electronmass:p2_15b_electron_mass:188  printed 67.399  recomputed 67.3989  tol 5.000005e-04  [calc] H0 at which the fixed point is exact
@@ -4615,4 +4627,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3719  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2619  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3731  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2607  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

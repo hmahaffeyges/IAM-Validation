@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 37
+Entries: 38
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -45,3 +45,4 @@ Entries: 37
 | ch:quantumrecords | `docs/book/part2/p2_14_quantum_records.tex:203` | `0.02` | largest shift of the bottom-up n_eff at z = 4 when the halo overdensity definition in K is changed; the chapter attributes it to the method of verify_bottom_up_exponent.py, but the committed output (verify_bottom_up_exponent_output.txt) has only the default definition. Searched docs/verification/, PAPER_ERRATA.md, results/. |
 | ch:quantumrecords | `docs/book/part2/p2_14_quantum_records.tex:203` | `0.09` | largest shift of n_eff at z = 2 from the halo definition; same sensitivity run as 0.02, output not committed. Searched as above. |
 | ch:measurement | `docs/book/part5/p5_04_measurement.tex:224` | `10` | 'about 10^{11} galaxies' summed over with 13.8 Gyr; an order-of-magnitude galaxy count in the observable universe given without a citation (the same count appears in ch:gravdec line 247). No file in the repository holds it; a published estimate would need a reference in iam.bib. |
+| ch:electronmass | `docs/book/part2/p2_15b_electron_mass.tex:159` | `10` | the bound 'below 10^{-6} at z<1 (ammonia and methanol)' on the drift of m_p/m_e, cited to Ubachs2016 (doi:10.1103/RevModPhys.88.021003). The exact published radio bound (methanol/ammonia, z<1) could not be confirmed with certainty from memory and no repository file holds it (grep for Ubachs finds only docs/book/BOOK_TODO.md); the specific value and paper should be named |
