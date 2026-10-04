@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd
 import sympy as sp
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[2]
 KIT = ROOT / "docs/book/figscripts/cell_data"   # copied from Biological_Physics/MethylPhys/kit/results/ (retired 2026-10-03)
 OUT = Path(__file__).with_name("verify_landauer_metrology_output.txt")
 lines = []

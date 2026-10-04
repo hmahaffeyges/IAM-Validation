@@ -12,7 +12,6 @@ grows as work in this field is added. For now the book carries the physics, and 
 | [`verify_entanglement_electroweak.py`](../docs/verification/scripts/verify_entanglement_electroweak.py) | entanglement and the electroweak scale |
 | [`verify_koide.py`](../docs/verification/scripts/verify_koide.py) | the Koide relation |
 | [`verify_electron_mass.py`](../docs/verification/scripts/verify_electron_mass.py) | the electron mass |
-| [`verify_landauer_metrology.py`](../docs/verification/scripts/verify_landauer_metrology.py) | Landauer metrology |
 | [`verify_xqp.py`](../docs/verification/scripts/verify_xqp.py), [`verify_xqp_book.py`](../docs/verification/scripts/verify_xqp_book.py) | quasiparticles in superconducting qubits |
 
 Every derivation in these Parts is also checked by [`docs/book/verify_book.py`](../docs/book/verify_book.py).
