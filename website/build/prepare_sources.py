@@ -89,6 +89,25 @@ def scan(lines):
     return info, close_of
 
 
+def brace_depths(lines):
+    """Brace depth at the end of each line (comments and escaped braces ignored)."""
+    d, out = 0, []
+    for raw in lines:
+        line = raw[:comment_pos(raw)]
+        i = 0
+        while i < len(line):
+            if line[i] == "\\":
+                i += 2
+                continue
+            if line[i] == "{":
+                d += 1
+            elif line[i] == "}":
+                d -= 1
+            i += 1
+        out.append(d)
+    return out
+
+
 def text_point(line):
     """Column where a text-mode marker can go on this line: before any comment, outside inline math; None if impossible."""
     cut = comment_pos(line)
@@ -160,6 +179,7 @@ def main(build):
             continue
         lines = p.read_text().split("\n")
         prot, close_of = scan(lines)
+        depth = brace_depths(lines)
         marks = {}
         for i in idxs:
             n = index[i]["line"] - 1
@@ -171,6 +191,11 @@ def main(build):
                 target = close_of[n]
                 moved += 1
             elif prot[n]:
+                skipped.append(i)
+                continue
+            while target < len(lines) and depth[target] != 0:     # inside a macro argument: after the argument closes
+                target += 1
+            if target >= len(lines):
                 skipped.append(i)
                 continue
             marks.setdefault(target, []).append(i)
