@@ -4685,6 +4685,9 @@ PASS  ch:firstreadings:L97:1.007         ch:firstreadings:p4_21_firstreadings:97
 PASS  ch:firstreadings:L98               ch:firstreadings:p4_21_firstreadings:98  printed 0.008  recomputed 0.008  tol 5.000005e-04  [measured] purified 450K neutrophils: sex difference  file Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md
 PASS  ch:firstreadings:L98:92.9          ch:firstreadings:p4_21_firstreadings:98  printed 92.9  recomputed 92.9412  tol 0.05  [measured] same-slide tare: controls in Normal (per cent)  file Biological_Physics/MethylPhys/doors/PROC_PREDX_SLIDE_01_OUTCOME.md
 
+== Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:leukocyte (part4/p4_22_leukocyte.tex)
+PASS  ch:leukocyte:L45                   ch:leukocyte:p4_22_leukocyte:45  printed 0.23  recomputed 0.23  tol 0.00500001  [observed] 450K development reading: rank correlation with age among controls  file Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md
+
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:salmonid (part4/p4_22b_salmonid.tex)
 PASS  ch:salmonid:L54                    ch:salmonid:p4_22b_salmonid:54  printed 0.0354  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
 PASS  ch:salmonid:L54:3.31               ch:salmonid:p4_22b_salmonid:54  printed 3.31  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
@@ -5121,4 +5124,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 4181  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2157  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4182  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2156  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

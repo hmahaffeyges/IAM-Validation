@@ -34328,6 +34328,17 @@ def check_4180():
     return locals()
 
 
+# ======== Part 6 | ch:leukocyte | docs/book/part4/p4_22_leukocyte.tex
+@check(label='ch:leukocyte:L45', chapter='ch:leukocyte', part=6, title='450K development reading: rank correlation with age among controls',
+       file='part4/p4_22_leukocyte', line=45, status='observed', kind='file', printed='0.23', tol=0.0,
+       source='Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md')
+def check_4181():
+    'Spearman rho of neutrophil Met-A with age among the EPIC-Italy controls (450K development floor), read from the PROC-PREDX-NEUT-01 outcome ("Age adds a smaller trend (rho = ...)"); no per-array file is committed. Book line 45, printed 0.23. Inputs: PROC_PREDX_NEUT_01_OUTCOME.md.'
+    t = file_text('Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md')
+    value = float(re.search(r'Age adds a smaller trend \(ρ = ([0-9.]+)\)', t).group(1))
+    return locals()
+
+
 # ======== Part 6 | ch:salmonid | docs/book/part4/p4_22b_salmonid.tex
 @check(label='ch:salmonid:L54', chapter='ch:salmonid', part=6, title='measured: printed value found in salmon_readings.csv, a file the chapter names',
        file='part4/p4_22b_salmonid', line=54, status='measured', kind='file', printed='0.0354', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/salmon_readings.csv')
@@ -38393,9 +38404,8 @@ INVENTORY = [
     (6, 'ch:discipline', 'part4/p4_18_discipline', 58, '', 'measured', '1.05', 'definition: 1.05 is the upper edge of the Normal band (0.95-1.05), the line the planted readings are counted against; the reading itself is checked in ch:discipline:L57'),
     (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 63, '', 'measured', '1.05', 'definition: 1.05 is the upper edge of the Normal band (bar Q1 of PROC-DNMT-01 Part B: IAM-A > 1.05); the readings are checked in ch:firstreadings:L63:1.65 and L63:1.97'),
     (6, 'ch:firstreadings', 'part4/p4_21_firstreadings', 74, '', 'measured', '0.5', 'definition: 0.5 nM is the plotting position of the vehicle arrays on the log dose axis (figure convention, not a measurement)'),
-    (6, 'ch:leukocyte', 'part4/p4_22_leukocyte', 16, '', 'conjecture', '0.95', 'not yet checked'),
-    (6, 'ch:leukocyte', 'part4/p4_22_leukocyte', 19, '', 'conjecture', '1.05', 'not yet checked'),
-    (6, 'ch:leukocyte', 'part4/p4_22_leukocyte', 45, '', 'observed', '0.23', 'measured, too few printed digits to match against the named files'),
+    (6, 'ch:leukocyte', 'part4/p4_22_leukocyte', 16, '', 'conjecture', '0.95', "definition: 0.95 is the lower edge of the Normal band (0.95-1.05) that defines 'Below Normal'"),
+    (6, 'ch:leukocyte', 'part4/p4_22_leukocyte', 19, '', 'conjecture', '1.05', "definition: 1.05 is the upper edge of the Normal band (0.95-1.05) that defines 'Above Normal'"),
     (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 52, '', 'measured', '0.998', 'measured, not found in the files the chapter names'),
     (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 52, '', 'measured', '0.00011', 'measured, too few printed digits to match against the named files'),
     (6, 'ch:salmonid', 'part4/p4_22b_salmonid', 52, '', 'measured', '0.0025', 'measured, too few printed digits to match against the named files'),

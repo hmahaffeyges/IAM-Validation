@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4181 PASS, 0 FAIL, 2157 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4182 PASS, 0 FAIL, 2156 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5037,9 +5037,9 @@ Totals: 4181 PASS, 0 FAIL, 2157 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 16 |  | conjecture | `0.95` | not run: not yet checked | - |
-| 19 |  | conjecture | `1.05` | not run: not yet checked | - |
-| 45 |  | observed | `0.23` | not run: measured, too few printed digits to match against the named files | - |
+| 16 |  | conjecture | `0.95` | not run: definition: 0.95 is the lower edge of the Normal band (0.95-1.05) that defines 'Below Normal' | - |
+| 19 |  | conjecture | `1.05` | not run: definition: 1.05 is the upper edge of the Normal band (0.95-1.05) that defines 'Above Normal' | - |
+| 45 | ch:leukocyte:L45 | observed | `0.23` | file `Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_OUTCOME.md`: 450K development reading: rank correlation with age among controls | PASS |
 
 ## Part 6 - ch:salmonid - `docs/book/part4/p4_22b_salmonid.tex`
 
