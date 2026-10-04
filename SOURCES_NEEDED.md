@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 62
+Entries: 66
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -70,3 +70,7 @@ Entries: 62
 | ch:ascoreqc | `docs/book/part3/p3_03_a_for_processors.tex:57` | `99.5` | silicon spin two-qubit gates at 99.5 %, cited to Xue2022 (doi:10.1038/s41586-021-04273-w) and Noiri2022 (doi:10.1038/s41586-021-04182-y); not confirmed |
 | ch:ascoreqc | `docs/book/part3/p3_03_a_for_processors.tex:74` | `68` | mean T1 = 68 us of the 105-qubit processor, GoogleWillow2025 (doi:10.1038/s41586-024-08449-y); same value as ch:scprimer line 135; not in the repository |
 | ch:ascoreqc | `docs/book/part3/p3_03_a_for_processors.tex:86` | `68` | the same T1 = 68 us restated in the figure caption, GoogleWillow2025 |
+| ch:walls | `docs/book/part3/p3_05_coherence_optimum.tex:59` | `68` | mean T1 = 68 us of the 105-qubit processor, GoogleWillow2025 (doi:10.1038/s41586-024-08449-y); not in the repository (same value as ch:scprimer line 135) |
+| ch:walls | `docs/book/part3/p3_05_coherence_optimum.tex:59` | `89` | mean T2,CPMG = 89 us of the same processor, GoogleWillow2025; not in the repository |
+| ch:walls | `docs/book/part3/p3_05_coherence_optimum.tex:91` | `29` | background heating 29 +- 4 quanta/s, centre-of-mass mode of a Ba+-Yb+ crystal, cited to Burton2023; not in the repository and not confirmed |
+| ch:walls | `docs/book/part3/p3_05_coherence_optimum.tex:92` | `3.0` | stretch-mode heating 3.0 +- 0.5 quanta/s, Burton2023; not confirmed |

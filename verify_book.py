@@ -1690,6 +1690,12 @@ def _b07_rate_per_xqp(f=5e9, Delta_ueV=182.0):
     w = 2 * math.pi * f
     return math.sqrt(2 * w * Delta_ueV * 1e-6 * e_ch / hbar) / math.pi
 
+# helpers of the part3/p3_05_coherence_optimum checks
+def _b07_bib_title(key):
+    bib = file_text('docs/book/iam.bib')
+    entry = bib[bib.index('{' + key + ','):]
+    return re.search(r'title\s*=\s*\{(.*?)\},', entry).group(1)
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -28075,6 +28081,19 @@ def check_2316():
 
 
 # ======== Part 5 | ch:walls | docs/book/part3/p3_05_coherence_optimum.tex
+@check(label='eq:pdecomp', chapter='ch:walls', part=5, title='independent error channels add to first order',
+       file='part3/p3_05_coherence_optimum', line=7, status='derived', kind='sym')
+def check_3750():
+    'Eq. eq:pdecomp: for three independent channels the gate fails unless all succeed, p = 1 - (1 - p_coh)(1 - p_mat)(1 - p_ctrl); expanded to first order in the small errors (series in a scale s) this is the sum p_coh + p_mat + p_ctrl. Book line 7. The split into these three channels is the model.'
+    a, b, cc, s = sp.symbols('p_coh p_mat p_ctrl s', positive=True)
+    def first_order(k):
+        p = 1 - (1 - s * a) * (1 - s * b) * (1 - s * k * cc)
+        return sp.series(p, s, 0, 2).removeO().subs(s, 1)
+    lhs = first_order(1)
+    rhs = a + b + cc
+    neg_lhs = first_order(sp.Rational(105, 100))
+    return locals()
+
 @check(label='eq:t1star', chapter='ch:walls', part=5, title='T1* = T1,free r/(1+r) solves a/T1^2 = b/(T1,free - T1)^2',
        file='part3/p3_05_coherence_optimum', line=22, status='derived', kind='sym', printed='', tol=0)
 def check_2317():
@@ -28103,6 +28122,35 @@ def check_2320():
     r=math.sqrt(10); value=r/(1+r)
     return locals()
 
+@check(label='ch:walls:L44', chapter='ch:walls', part=5, title='T1 of tantalum transmons, lower end, ms (cited title)',
+       file='part3/p3_05_coherence_optimum', line=44, status='observed', kind='file', printed='0.3', tol=0.0, source='docs/book/iam.bib')
+def check_3751():
+    'Lower end of T1 = 0.3-0.5 ms for tantalum base layers: the title of Place2021, "New material platform for superconducting transmon qubits with coherence times exceeding 0.3 milliseconds" (Nat. Commun., doi:10.1038/s41467-021-22030-5), read from docs/book/iam.bib. Book line 44, printed 0.3.'
+    value = float(re.search(r'exceeding\s+([\d.]+)\s+milliseconds', _b07_bib_title('Place2021')).group(1))
+    return locals()
+
+@check(label='ch:walls:L44:0.5', chapter='ch:walls', part=5, title='T1 of tantalum transmons, upper end, ms (cited title)',
+       file='part3/p3_05_coherence_optimum', line=44, status='observed', kind='file', printed='0.5', tol=0.0, source='docs/book/iam.bib')
+def check_3752():
+    'Upper end of T1 = 0.3-0.5 ms: the title of Wang2022Ta, "transmon qubit with a lifetime approaching 0.5 milliseconds" (npj Quantum Inf., doi:10.1038/s41534-021-00510-2), read from docs/book/iam.bib. Book line 44, printed 0.5.'
+    value = float(re.search(r'approaching\s+([\d.]+)\s+milliseconds', _b07_bib_title('Wang2022Ta')).group(1))
+    return locals()
+
+@check(label='eq:walls_mhi', chapter='ch:walls', part=5, title='minimum of A/P + BP + p_ctrl at P* = sqrt(A/B), value 2 sqrt(AB)',
+       file='part3/p3_05_coherence_optimum', line=79, status='conjecture', kind='sym')
+def check_3753():
+    'Eq. eq:walls_mhi: d/dP (A/P + B P + p_ctrl) = 0 is solved for P > 0, giving P* = sqrt(A/B); the error there is 2 sqrt(AB) + p_ctrl, with the two parts equal (statement on line 84). Book line 79. The form of the error is the model.'
+    A, B, P, pc = sp.symbols('A B P p_ctrl', positive=True)
+    def at_min(kB_):
+        p = A / P + kB_ * B * P + pc
+        Ps = sp.solve(sp.diff(p, P), P)[0]
+        return sp.simplify(p.subs(P, Ps)), Ps
+    val, Pstar = at_min(1)
+    lhs = val + (Pstar - sp.sqrt(A / B))
+    rhs = 2 * sp.sqrt(A * B) + pc
+    neg_lhs = at_min(sp.Rational(105, 100))[0]
+    return locals()
+
 @check(label='ch:walls:L85', chapter='ch:walls', part=5, title='eta^2 (pi/2)^2 at eta = 0.07',
        file='part3/p3_05_coherence_optimum', line=85, status='calc', kind='num', printed='0.0121', tol=0)
 def check_2321():
@@ -28115,6 +28163,18 @@ def check_2321():
 def check_2322():
     'largest gap between the exact and linear forms, p <= 2e-3, alpha C <= 1. Book line 101, printed \\le4\\times10^{-6}.'
     value=max(abs((1-(1-p)**(1+x))-p*(1+x)) for p in np.linspace(0,2e-3,201) for x in np.linspace(0,1,101))
+    return locals()
+
+@check(label='ch:walls:L101:10^{-3}', chapter='ch:walls', part=5, title='relative gap between exact and linear crosstalk forms',
+       file='part3/p3_05_coherence_optimum', line=101, status='calc', kind='num', printed='10^{-3}', tol=0.0)
+def check_3754():
+    'Largest relative difference between p_eff = 1 - (1 - p)^(1 + alpha C) and its linear form p (1 + alpha C), over p <= 2e-3 and alpha C <= 1 (grid). Book line 101, printed "about 10^{-3} relative" (inventory printed the base 10).'
+    best = 0.0
+    for p in np.linspace(1e-5, 2e-3, 200):
+        for aC in np.linspace(0, 1, 101):
+            exact = 1 - (1 - p) ** (1 + aC); lin = p * (1 + aC)
+            best = max(best, abs(lin - exact) / exact)
+    value = best
     return locals()
 
 @check(label='ch:walls:L106', chapter='ch:walls', part=5, title='ln200/ln100',
@@ -33989,16 +34049,11 @@ INVENTORY = [
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 86, '', 'calc', '68', 'measured, source not named'),
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 89, '', 'calc', '10', 'input: surface-code threshold about 1e-2 quoted from Fowler2012 (doi:10.1103/physreva.86.032324), an order of magnitude'),
     (5, 'ch:ascoreqc', 'part3/p3_03_a_for_processors', 90, '', 'calc', '10', 'input: fault-tolerance target about 1e-3 quoted from Fowler2012 and GoogleWillow2025, an order of magnitude'),
-    (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 7, 'eq:pdecomp', 'derived', '', 'not yet run: draft rejected (drafter skipped: The item references line 7, which displays the equation p_2Q = p_coh + p_)'),
-    (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 44, '', 'observed', '0.3', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 44, '', 'observed', '0.5', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 59, '', 'observed', '68', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 59, '', 'observed', '89', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 79, 'eq:walls_mhi', 'conjecture', '', 'displayed equation, not yet checked'),
-    (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 85, '', 'calc', '0.07', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 91, '', 'observed', '29', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 92, '', 'observed', '3.0', 'measured, too few printed digits to match against the named files'),
-    (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 101, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 4); drafting error on review'),
+    (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 59, '', 'observed', '68', 'measured, source not named'),
+    (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 59, '', 'observed', '89', 'measured, source not named'),
+    (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 85, '', 'calc', '0.07', 'input: Lamb-Dicke parameter eta = 0.07 (illustrative); the prefactor eta^2 (pi/2)^2 is checked by ch:walls:L85'),
+    (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 91, '', 'observed', '29', 'measured, source not named'),
+    (5, 'ch:walls', 'part3/p3_05_coherence_optimum', 92, '', 'observed', '3.0', 'measured, source not named'),
     (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 22, '', 'calc', '10', 'not yet run: draft rejected (no draft returned)'),
     (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 25, '', 'observed', '0.2', 'measured, too few printed digits to match against the named files'),
     (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 32, 'eq:qp_peq', 'none', '', 'displayed equation, not yet checked'),

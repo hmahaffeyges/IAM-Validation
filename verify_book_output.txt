@@ -3930,12 +3930,17 @@ PASS  ch:thermaln:L37:6.86               ch:thermaln:p3_04_thermal_n:37  printed
 PASS  ch:thermaln:L37:13.7               ch:thermaln:p3_04_thermal_n:37  printed 13.7  recomputed 13.7121  tol 0.05  [calc] M at 17.5 mK
 
 == Part 5: The Quantum Order of Informational Actualization: Qubits and Semiconductors | ch:walls (part3/p3_05_coherence_optimum.tex)
+PASS  eq:pdecomp                         ch:walls:p3_05_coherence_optimum:7  printed (algebra)  recomputed lhs-rhs=0  [derived] independent error channels add to first order
 PASS  eq:t1star                          ch:walls:p3_05_coherence_optimum:22  printed (algebra)  recomputed True  [derived] T1* = T1,free r/(1+r) solves a/T1^2 = b/(T1,free - T1)^2
 PASS  ch:walls:L36                       ch:walls:p3_05_coherence_optimum:36  printed 0.50  recomputed 0.5  tol 0.00500001  [derived] T1*/T1,free at a/b = 1
 PASS  ch:walls:L36:0.63                  ch:walls:p3_05_coherence_optimum:36  printed 0.63  recomputed 0.633975  tol 0.00500001  [derived] T1*/T1,free at a/b = 3
 PASS  ch:walls:L36:0.76                  ch:walls:p3_05_coherence_optimum:36  printed 0.76  recomputed 0.759747  tol 0.00500001  [derived] T1*/T1,free at a/b = 10
+PASS  ch:walls:L44                       ch:walls:p3_05_coherence_optimum:44  printed 0.3  recomputed 0.3  tol 0.05  [observed] T1 of tantalum transmons, lower end, ms (cited title)  file docs/book/iam.bib
+PASS  ch:walls:L44:0.5                   ch:walls:p3_05_coherence_optimum:44  printed 0.5  recomputed 0.5  tol 0.05  [observed] T1 of tantalum transmons, upper end, ms (cited title)  file docs/book/iam.bib
+PASS  eq:walls_mhi                       ch:walls:p3_05_coherence_optimum:79  printed (algebra)  recomputed lhs-rhs=0  [conjecture] minimum of A/P + BP + p_ctrl at P* = sqrt(A/B), value 2 sqrt(AB)
 PASS  ch:walls:L85                       ch:walls:p3_05_coherence_optimum:85  printed 0.0121  recomputed 0.0120903  tol 5.000005e-05  [calc] eta^2 (pi/2)^2 at eta = 0.07
 PASS  ch:walls:L101                      ch:walls:p3_05_coherence_optimum:101  printed \le4\times10^{-6}  recomputed 4.000000e-06  tol 5.000005e-07  [calc] largest gap between the exact and linear forms, p <= 2e-3, alpha C <= 1
+PASS  ch:walls:L101:10^{-3}              ch:walls:p3_05_coherence_optimum:101  printed 10^{-3}  recomputed 0.001001  tol 0.00216228  [calc] relative gap between exact and linear crosstalk forms
 PASS  ch:walls:L106                      ch:walls:p3_05_coherence_optimum:106  printed 1.15  recomputed 1.15051  tol 0.00500001  [calc] ln200/ln100
 
 == Part 5: The Quantum Order of Informational Actualization: Qubits and Semiconductors | ch:qplatforms (part3/p3_10_qubit_platforms.tex)
@@ -4646,4 +4651,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3750  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2588  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3755  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2583  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

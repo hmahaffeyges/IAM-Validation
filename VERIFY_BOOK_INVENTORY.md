@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3750 PASS, 0 FAIL, 2588 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3755 PASS, 0 FAIL, 2583 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4091,22 +4091,22 @@ Totals: 3750 PASS, 0 FAIL, 2588 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 7 | eq:pdecomp | derived |  | not run: not yet run: draft rejected (drafter skipped: The item references line 7, which displays the equation p_2Q = p_coh + p_) | - |
+| 7 | eq:pdecomp | derived |  | sympy: independent error channels add to first order | PASS |
 | 22 | eq:t1star | derived |  | sympy: T1* = T1,free r/(1+r) solves a/T1^2 = b/(T1,free - T1)^2 | PASS |
 | 36 | ch:walls:L36 | derived | `0.50` | numeric: T1*/T1,free at a/b = 1 | PASS |
 | 36 | ch:walls:L36:0.63 | derived | `0.63` | numeric: T1*/T1,free at a/b = 3 | PASS |
 | 36 | ch:walls:L36:0.76 | derived | `0.76` | numeric: T1*/T1,free at a/b = 10 | PASS |
-| 44 |  | observed | `0.3` | not run: measured, too few printed digits to match against the named files | - |
-| 44 |  | observed | `0.5` | not run: measured, too few printed digits to match against the named files | - |
-| 59 |  | observed | `68` | not run: measured, too few printed digits to match against the named files | - |
-| 59 |  | observed | `89` | not run: measured, too few printed digits to match against the named files | - |
-| 79 | eq:walls_mhi | conjecture |  | not run: displayed equation, not yet checked | - |
+| 44 | ch:walls:L44 | observed | `0.3` | file `docs/book/iam.bib`: T1 of tantalum transmons, lower end, ms (cited title) | PASS |
+| 44 | ch:walls:L44:0.5 | observed | `0.5` | file `docs/book/iam.bib`: T1 of tantalum transmons, upper end, ms (cited title) | PASS |
+| 59 |  | observed | `68` | not run: measured, source not named | - |
+| 59 |  | observed | `89` | not run: measured, source not named | - |
+| 79 | eq:walls_mhi | conjecture |  | sympy: minimum of A/P + BP + p_ctrl at P* = sqrt(A/B), value 2 sqrt(AB) | PASS |
 | 85 | ch:walls:L85 | calc | `0.0121` | numeric: eta^2 (pi/2)^2 at eta = 0.07 | PASS |
-| 85 |  | calc | `0.07` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 91 |  | observed | `29` | not run: measured, too few printed digits to match against the named files | - |
-| 92 |  | observed | `3.0` | not run: measured, too few printed digits to match against the named files | - |
+| 85 |  | calc | `0.07` | not run: input: Lamb-Dicke parameter eta = 0.07 (illustrative); the prefactor eta^2 (pi/2)^2 is checked by ch:walls:L85 | - |
+| 91 |  | observed | `29` | not run: measured, source not named | - |
+| 92 |  | observed | `3.0` | not run: measured, source not named | - |
 | 101 | ch:walls:L101 | calc | `\le4\times10^{-6}` | numeric: largest gap between the exact and linear forms, p <= 2e-3, alpha C <= 1 | PASS |
-| 101 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 4); drafting error on review | - |
+| 101 | ch:walls:L101:10^{-3} | calc | `10^{-3}` | numeric: relative gap between exact and linear crosstalk forms | PASS |
 | 106 | ch:walls:L106 | calc | `1.15` | numeric: ln200/ln100 | PASS |
 
 ## Part 5 - ch:qplatforms - `docs/book/part3/p3_10_qubit_platforms.tex`
