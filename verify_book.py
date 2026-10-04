@@ -1279,6 +1279,21 @@ def _b02_de_age(a, H0v=67.4, Omm=0.315, OLm=0.685):
     """Cosmic age in Gyr at scale factor a, t(a) = int_0^a da'/(a' H(a')), Planck 2018 parameters as the chapter states (line 216)."""
     return quad(lambda ap: 1.0 / (ap * Hsi(H0v) * math.sqrt(Omm / ap**3 + OLm)), 1e-8, a, limit=200)[0] / Gyr
 
+# helpers of the part2/p2_20_wz_far_future checks
+def _b02_wz_row(tag):
+    """w0, wa of one DESI DR2 fit, read from section 1 of docs/verification/scripts/verify_sector_tension_output.txt."""
+    for ln in file_text('docs/verification/scripts/verify_sector_tension_output.txt').splitlines():
+        m = re.match(r"\s+(\S+)\s+w0 (\S+) wa (\S+)\s+z_cross", ln)
+        if m and m.group(1) == tag:
+            return float(m.group(2)), float(m.group(3))
+    raise KeyError(tag)
+
+def _b02_wz_sig():
+    """DESI DR2 w0waCDM preference, DESI DR2 results II (doi:10.1103/tr6y-kpc6, arXiv:2503.14738), with Pantheon+, Union3, DES Y5."""
+    return {'DESI+CMB+Pantheon+': 2.8, 'DESI+CMB+Union3': 3.8, 'DESI+CMB+DESY5': 4.2}
+
+_B02_WZ_RERUN = 'python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt'
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -13649,6 +13664,68 @@ def check_1242():
     value=math.sqrt(1+beta_m*math.e)
     return locals()
 
+@check(label='ch:wzfuture:L96', chapter='ch:wzfuture', part=2, title='DESI DR2 + CMB + Pantheon+ w0',
+       file='part2/p2_20_wz_far_future', line=96, status='observed', kind='file', printed='-0.838', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
+       heavy=True, rerun=_B02_WZ_RERUN)
+def check_3482():
+    'Eq. wz_desi1, w0 = -0.838 +- 0.055 (DESI DR2 results II, doi:10.1103/tr6y-kpc6), book line 96: the DESI+CMB+Pantheon+ row of verify_sector_tension_output.txt.'
+    value = _b02_wz_row('DESI+CMB+Pantheon+')[0]
+    return locals()
+
+@check(label='ch:wzfuture:L96:-0.62', chapter='ch:wzfuture', part=2, title='DESI DR2 + CMB + Pantheon+ wa',
+       file='part2/p2_20_wz_far_future', line=96, status='observed', kind='file', printed='-0.62', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
+       heavy=True, rerun=_B02_WZ_RERUN)
+def check_3483():
+    'Eq. wz_desi1, wa = -0.62 +0.22 -0.19 (DESI DR2 results II, doi:10.1103/tr6y-kpc6), book line 96: the DESI+CMB+Pantheon+ row of verify_sector_tension_output.txt.'
+    value = _b02_wz_row('DESI+CMB+Pantheon+')[1]
+    return locals()
+
+@check(label='ch:wzfuture:L97', chapter='ch:wzfuture', part=2, title='DESI DR2 + CMB + Union3 w0',
+       file='part2/p2_20_wz_far_future', line=97, status='observed', kind='file', printed='-0.667', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
+       heavy=True, rerun=_B02_WZ_RERUN)
+def check_3484():
+    'Eq. wz_desi2, w0 = -0.667 +- 0.088 (DESI DR2 results II, doi:10.1103/tr6y-kpc6), book line 97: the DESI+CMB+Union3 row of verify_sector_tension_output.txt.'
+    value = _b02_wz_row('DESI+CMB+Union3')[0]
+    return locals()
+
+@check(label='ch:wzfuture:L97:-1.09', chapter='ch:wzfuture', part=2, title='DESI DR2 + CMB + Union3 wa',
+       file='part2/p2_20_wz_far_future', line=97, status='observed', kind='file', printed='-1.09', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
+       heavy=True, rerun=_B02_WZ_RERUN)
+def check_3485():
+    'Eq. wz_desi2, wa = -1.09 +0.31 -0.27 (DESI DR2 results II, doi:10.1103/tr6y-kpc6), book line 97: the DESI+CMB+Union3 row of verify_sector_tension_output.txt.'
+    value = _b02_wz_row('DESI+CMB+Union3')[1]
+    return locals()
+
+@check(label='ch:wzfuture:L98', chapter='ch:wzfuture', part=2, title='DESI DR2 + CMB + DES Y5 w0',
+       file='part2/p2_20_wz_far_future', line=98, status='observed', kind='file', printed='-0.752', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
+       heavy=True, rerun=_B02_WZ_RERUN)
+def check_3486():
+    'Eq. wz_desi3, w0 = -0.752 +- 0.057 (DESI DR2 results II, doi:10.1103/tr6y-kpc6), book line 98: the DESI+CMB+DESY5 row of verify_sector_tension_output.txt.'
+    value = _b02_wz_row('DESI+CMB+DESY5')[0]
+    return locals()
+
+@check(label='ch:wzfuture:L98:-0.86', chapter='ch:wzfuture', part=2, title='DESI DR2 + CMB + DES Y5 wa',
+       file='part2/p2_20_wz_far_future', line=98, status='observed', kind='file', printed='-0.86', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
+       heavy=True, rerun=_B02_WZ_RERUN)
+def check_3487():
+    'Eq. wz_desi3, wa = -0.86 +0.23 -0.20 (DESI DR2 results II, doi:10.1103/tr6y-kpc6), book line 98: the DESI+CMB+DESY5 row of verify_sector_tension_output.txt.'
+    value = _b02_wz_row('DESI+CMB+DESY5')[1]
+    return locals()
+
+@check(label='ch:wzfuture:L100', chapter='ch:wzfuture', part=2, title='DESI DR2 preference, lowest of the three fits',
+       file='part2/p2_20_wz_far_future', line=100, status='observed', kind='num', printed='2.8', tol=0.0)
+def check_3488():
+    'Lower end of "2.8 sigma to 4.2 sigma" (book line 100): smallest significance of the three DESI DR2 fits (DESI DR2 results II, doi:10.1103/tr6y-kpc6).'
+    value = min(_b02_wz_sig().values())
+    return locals()
+
+@check(label='ch:wzfuture:L100:4.2', chapter='ch:wzfuture', part=2, title='DESI DR2 preference, highest of the three fits',
+       file='part2/p2_20_wz_far_future', line=100, status='observed', kind='num', printed='4.2', tol=0.0)
+def check_3489():
+    'Upper end of "2.8 sigma to 4.2 sigma" (book line 100): largest significance of the three DESI DR2 fits (DESI DR2 results II, doi:10.1103/tr6y-kpc6).'
+    value = max(_b02_wz_sig().values())
+    return locals()
+
 @check(label='ch:wzfuture:L101', chapter='ch:wzfuture', part=2, title='a where Pantheon+ fit crosses w=-1',
        file='part2/p2_20_wz_far_future', line=101, status='calc', kind='num', printed='0.739', tol=0.00068)
 def check_1243():
@@ -14094,6 +14171,15 @@ def check_1303():
     # Verify it is in the namespace as H0_photon or as a constraint from Planck
     # From namespace: H0_photon = 67.16 (already defined, locked result from book canon)
     value = H0_photon
+    return locals()
+
+@check(label='ch:wzfuture:L227:70.86', chapter='ch:wzfuture', part=2, title='asymptotic matter-sector rate',
+       file='part2/p2_20_wz_far_future', line=227, status='calc', kind='num', printed='70.86', tol=0.0)
+def check_3490():
+    'Asymptotic matter-sector rate H0 sqrt(Omega_L + beta_m e) (line 192), the E(a) -> e limit of H0^2 (Om a^-3 + OL + beta_m E(a)), at H0 = 67.16 (locked photon sector), Omega_L = 1 - 0.3153. Book line 227, printed 70.86.'
+    a = sp.symbols('a', positive=True)
+    H2 = Om * a**-3 + (1 - Om) + beta_m * sp.exp(1 - 1 / a)
+    value = H0_photon * math.sqrt(float(sp.limit(H2, a, sp.oo)))
     return locals()
 
 
@@ -30991,12 +31077,6 @@ INVENTORY = [
     (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 172, '', 'none', '67.16', 'H0_photon restated, trivial H(a=1)=H0'),
     (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 181, '', 'none', '67.16', 'table: H(a=1)=H0, trivial restatement'),
     (2, 'ch:darkenergy', 'part2/p2_11_dark_energy', 228, '', 'calc', '0.3153', 'input: Omega_m = 0.3153 (Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing) restated as the Level 2 background'),
-    (2, 'ch:wzfuture', 'part2/p2_20_wz_far_future', 96, 'eq:wz_desi1', 'observed', 'w_0=-0.838±0.055, w_a=-0.62^{+0.22}_{-0.19}', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:wzfuture', 'part2/p2_20_wz_far_future', 97, 'eq:wz_desi2', 'observed', 'w_0=-0.667±0.088, w_a=-1.09^{+0.31}_{-0.27}', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:wzfuture', 'part2/p2_20_wz_far_future', 98, 'eq:wz_desi3', 'observed', 'w_0=-0.752±0.057, w_a=-0.86^{+0.23}_{-0.20}', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:wzfuture', 'part2/p2_20_wz_far_future', 100, '', 'observed', '2.8', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:wzfuture', 'part2/p2_20_wz_far_future', 100, '', 'observed', '4.2', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:wzfuture', 'part2/p2_20_wz_far_future', 227, '', 'calc', '70.86', 'not yet run: draft does not reproduce the printed value (recomputed 59.7927); drafting error on review'),
     (2, 'ch:wzfuture', 'part2/p2_20_wz_far_future', 228, '', 'prediction', '-1', 'definition: light-ruler EoS fixed value'),
     (2, 'ch:lambda', 'part2/p2_12_lambda', 42, '', 'measured', '0.6847\\pm0.0073', 'measured, not found in the files the chapter names'),
     (2, 'ch:lambda', 'part2/p2_12_lambda', 146, 'eq:lam_fgeo', 'derived', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),

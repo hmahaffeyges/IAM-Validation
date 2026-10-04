@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3482 PASS, 0 FAIL, 2852 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3491 PASS, 0 FAIL, 2846 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -2048,11 +2048,14 @@ Totals: 3482 PASS, 0 FAIL, 2852 inventoried and not run. Each run item carries t
 | 79 | eq:wz_rho_from_w | derived |  | sympy: density recovered by integrating continuity eq | PASS |
 | 83 | ch:wzfuture:L83 | derived | `1` | numeric: convergent integral bounding density | PASS |
 | 88 | ch:wzfuture:L88 | derived | `1.195` | numeric: bound on matter-sector rate ratio | PASS |
-| 96 | eq:wz_desi1 | observed | `w_0=-0.838±0.055, w_a=-0.62^{+0.22}_{-0.19}` | not run: measured, too few printed digits to match against the named files | - |
-| 97 | eq:wz_desi2 | observed | `w_0=-0.667±0.088, w_a=-1.09^{+0.31}_{-0.27}` | not run: measured, too few printed digits to match against the named files | - |
-| 98 | eq:wz_desi3 | observed | `w_0=-0.752±0.057, w_a=-0.86^{+0.23}_{-0.20}` | not run: measured, too few printed digits to match against the named files | - |
-| 100 |  | observed | `2.8` | not run: measured, too few printed digits to match against the named files | - |
-| 100 |  | observed | `4.2` | not run: measured, too few printed digits to match against the named files | - |
+| 96 | ch:wzfuture:L96 | observed | `-0.838` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR2 + CMB + Pantheon+ w0 | PASS |
+| 96 | ch:wzfuture:L96:-0.62 | observed | `-0.62` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR2 + CMB + Pantheon+ wa | PASS |
+| 97 | ch:wzfuture:L97 | observed | `-0.667` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR2 + CMB + Union3 w0 | PASS |
+| 97 | ch:wzfuture:L97:-1.09 | observed | `-1.09` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR2 + CMB + Union3 wa | PASS |
+| 98 | ch:wzfuture:L98 | observed | `-0.752` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR2 + CMB + DES Y5 w0 | PASS |
+| 98 | ch:wzfuture:L98:-0.86 | observed | `-0.86` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR2 + CMB + DES Y5 wa | PASS |
+| 100 | ch:wzfuture:L100 | observed | `2.8` | numeric: DESI DR2 preference, lowest of the three fits | PASS |
+| 100 | ch:wzfuture:L100:4.2 | observed | `4.2` | numeric: DESI DR2 preference, highest of the three fits | PASS |
 | 101 | ch:wzfuture:L101 | calc | `0.739` | numeric: a where Pantheon+ fit crosses w=-1 | PASS |
 | 101 | ch:wzfuture:L101:0.694 | calc | `0.694` | numeric: a where Union3 fit crosses w=-1 | PASS |
 | 101 | ch:wzfuture:L101:0.712 | calc | `0.712` | numeric: a where DES Y5 fit crosses w=-1 | PASS |
@@ -2114,7 +2117,7 @@ Totals: 3482 PASS, 0 FAIL, 2852 inventoried and not run. Each run item carries t
 | 224 | ch:wzfuture:L224:-1/3 | calc | `-1/3` | sympy: CPL image wa repeated in status table | PASS |
 | 227 | ch:wzfuture:L227 | calc | `55.57` | numeric: asymptotic de Sitter rate, light/photon sector | PASS |
 | 227 | ch:wzfuture:L227:67.16 | calc | `67.16` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 227 |  | calc | `70.86` | not run: not yet run: draft does not reproduce the printed value (recomputed 59.7927); drafting error on review | - |
+| 227 | ch:wzfuture:L227:70.86 | calc | `70.86` | numeric: asymptotic matter-sector rate | PASS |
 | 228 |  | prediction | `-1` | not run: definition: light-ruler EoS fixed value | - |
 
 ## Part 2 - ch:lambda - `docs/book/part2/p2_12_lambda.tex`

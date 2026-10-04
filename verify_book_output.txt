@@ -2069,6 +2069,20 @@ PASS  eq:wz_norip                        ch:wzfuture:p2_20_wz_far_future:74  pri
 PASS  eq:wz_rho_from_w                   ch:wzfuture:p2_20_wz_far_future:79  printed (algebra)  recomputed True  [derived] density recovered by integrating continuity eq
 PASS  ch:wzfuture:L83                    ch:wzfuture:p2_20_wz_far_future:83  printed 1  recomputed 1  tol 0.5  [derived] convergent integral bounding density
 PASS  ch:wzfuture:L88                    ch:wzfuture:p2_20_wz_far_future:88  printed 1.195  recomputed 1.19521  tol 5.019005e-04  [derived] bound on matter-sector rate ratio
+PASS  ch:wzfuture:L96                    ch:wzfuture:p2_20_wz_far_future:96  printed -0.838  recomputed -0.838  tol 5.000005e-04  [observed] DESI DR2 + CMB + Pantheon+ w0  file docs/verification/scripts/verify_sector_tension_output.txt
+      heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:wzfuture:L96:-0.62              ch:wzfuture:p2_20_wz_far_future:96  printed -0.62  recomputed -0.62  tol 0.00500001  [observed] DESI DR2 + CMB + Pantheon+ wa  file docs/verification/scripts/verify_sector_tension_output.txt
+      heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:wzfuture:L97                    ch:wzfuture:p2_20_wz_far_future:97  printed -0.667  recomputed -0.667  tol 5.000005e-04  [observed] DESI DR2 + CMB + Union3 w0  file docs/verification/scripts/verify_sector_tension_output.txt
+      heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:wzfuture:L97:-1.09              ch:wzfuture:p2_20_wz_far_future:97  printed -1.09  recomputed -1.09  tol 0.00500001  [observed] DESI DR2 + CMB + Union3 wa  file docs/verification/scripts/verify_sector_tension_output.txt
+      heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:wzfuture:L98                    ch:wzfuture:p2_20_wz_far_future:98  printed -0.752  recomputed -0.752  tol 5.000005e-04  [observed] DESI DR2 + CMB + DES Y5 w0  file docs/verification/scripts/verify_sector_tension_output.txt
+      heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:wzfuture:L98:-0.86              ch:wzfuture:p2_20_wz_far_future:98  printed -0.86  recomputed -0.86  tol 0.00500001  [observed] DESI DR2 + CMB + DES Y5 wa  file docs/verification/scripts/verify_sector_tension_output.txt
+      heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:wzfuture:L100                   ch:wzfuture:p2_20_wz_far_future:100  printed 2.8  recomputed 2.8  tol 0.05  [observed] DESI DR2 preference, lowest of the three fits
+PASS  ch:wzfuture:L100:4.2               ch:wzfuture:p2_20_wz_far_future:100  printed 4.2  recomputed 4.2  tol 0.05  [observed] DESI DR2 preference, highest of the three fits
 PASS  ch:wzfuture:L101                   ch:wzfuture:p2_20_wz_far_future:101  printed 0.739  recomputed 0.73871  tol 5.025205e-04  [calc] a where Pantheon+ fit crosses w=-1
 PASS  ch:wzfuture:L101:0.694             ch:wzfuture:p2_20_wz_far_future:101  printed 0.694  recomputed 0.694495  tol 5.000005e-04  [calc] a where Union3 fit crosses w=-1
 PASS  ch:wzfuture:L101:0.712             ch:wzfuture:p2_20_wz_far_future:101  printed 0.712  recomputed 0.711628  tol 5.000005e-04  [calc] a where DES Y5 fit crosses w=-1
@@ -2131,6 +2145,7 @@ PASS  ch:wzfuture:L224                   ch:wzfuture:p2_20_wz_far_future:224  pr
 PASS  ch:wzfuture:L224:-1/3              ch:wzfuture:p2_20_wz_far_future:224  printed -1/3  recomputed lhs-rhs=0  [calc] CPL image wa repeated in status table
 PASS  ch:wzfuture:L227                   ch:wzfuture:p2_20_wz_far_future:227  printed 55.57  recomputed 55.5726  tol 0.00500131  [calc] asymptotic de Sitter rate, light/photon sector
 PASS  ch:wzfuture:L227:67.16             ch:wzfuture:p2_20_wz_far_future:227  printed 67.16  recomputed 67.16  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:wzfuture:L227:70.86             ch:wzfuture:p2_20_wz_far_future:227  printed 70.86  recomputed 70.8606  tol 0.00500001  [calc] asymptotic matter-sector rate
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:lambda (part2/p2_12_lambda.tex)
 PASS  eq:lam_rhovac                      ch:lambda:p2_12_lambda:35  printed 4.633\times10^{113}  recomputed 4.632947e+113  tol 5.000005e+109  [calc] Planck-cutoff vacuum energy density
@@ -4326,4 +4341,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3482  FAIL 0  (heavy, read from committed outputs: 695)  inventoried-not-run 2852  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3491  FAIL 0  (heavy, read from committed outputs: 701)  inventoried-not-run 2846  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
