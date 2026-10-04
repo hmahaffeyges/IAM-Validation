@@ -918,6 +918,54 @@ def _b00_l2_shift(param):
 
 # ---------------- what the simulations measure (lines 85-102)
 
+# helpers of the part2/p2_02b_virial_tests checks
+_B00_VPAPERS_RERUN = 'python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt'
+_B00_STENSION_RERUN = 'python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt'
+
+# DESI 2024 V (arXiv:2411.12021, JCAP 2025 09 008), ShapeFit+BAO: bin, z_eff, (f sigma_s8)_fid, ratio, upper error, lower error
+# (as docs/verification/scripts/verify_shapefit_chi2.py, which reads them from the paper's tables)
+_B00_DESI_SF = [("BGS", 0.295, 0.4723, 0.84, 0.19, 0.19), ("LRG1", 0.510, 0.4733, 1.16, 0.13, 0.13),
+                ("LRG2", 0.706, 0.4608, 1.04, 0.11, 0.092), ("LRG3", 0.919, 0.4398, 0.997, 0.10, 0.084),
+                ("ELG2", 1.317, 0.3944, 0.945, 0.097, 0.077), ("QSO", 1.491, 0.3750, 1.16, 0.12, 0.12)]
+# SDSS DR16, Alam et al. 2021 (PRD 103 083533) Table III: name, z, f sigma8, error
+_B00_SDSS = [("MGS", 0.15, 0.53, 0.16), ("BOSS", 0.38, 0.497, 0.045), ("BOSS", 0.51, 0.459, 0.038),
+             ("eBOSS LRG", 0.70, 0.473, 0.041), ("eBOSS ELG", 0.85, 0.315, 0.095), ("eBOSS QSO", 1.48, 0.462, 0.045)]
+
+def _b00_sf_chi2(dataset, model):
+    """Diagonal chi2 of f sigma8 data against LambdaCDM (Planck 2018 sigma8 = 0.8111) or IAM in the MGCAMB form (mu0 = -0.13495,
+    sigma8 = 0.8111 D_IAM(1)/D_LCDM(1), same early amplitude); port of verify_shapefit_chi2.py."""
+    which = 'lcdm' if model == 'LCDM' else 'mgcamb'
+    s8 = sigma8_pl * (1.0 if model == 'LCDM' else D_of('mgcamb', 0) / D_of('lcdm', 0))
+    chi2 = 0.0
+    if dataset == 'DESI':
+        for nm, z, fid, r, up, lo in _B00_DESI_SF:
+            v, e = r * fid, 0.5 * (up + lo) * fid
+            chi2 += ((v - fs8_pred(which, z, s8)) / e) ** 2
+    else:
+        for nm, z, v, e in _B00_SDSS:
+            chi2 += ((v - fs8_pred(which, z, s8)) / e) ** 2
+    return chi2
+
+def _b00_vp_line(pattern):
+    m = re.search(pattern, file_text('docs/verification/scripts/verify_virial_papers_output.txt'))
+    return tuple(float(g) for g in m.groups())
+
+def _b00_desi_mu0():
+    m = re.search(r'DESI 2024 full shape: \S+ = ([-\d.]+) \(\+([\d.]+)/[\-−]([\d.]+)\)', file_text('docs/verification/theory/IAM_LAW_CHECK.md'))
+    return float(m.group(1)), float(m.group(2)), float(m.group(3))
+
+def _b00_dr2_zcross():
+    """z_cross = 1/a_x - 1, a_x = 1 + (1 + w0)/wa, for the DESI DR2 w0, wa of verify_sector_tension_output.txt section 1 (DESI 2025, arXiv:2503.14738 eqs. 25-27)."""
+    out = {}
+    for ln in file_text('docs/verification/scripts/verify_sector_tension_output.txt').splitlines():
+        m = re.match(r'^\s+(DESI\+CMB\S*)\s+w0 ([-\d.]+) wa ([-\d.]+)', ln)
+        if m:
+            w0, wa = float(m.group(2)), float(m.group(3))
+            out[m.group(1)] = 1 / (1 + (1 + w0) / wa) - 1
+    return out
+
+# ---------------- table tab:vt_status
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -4408,6 +4456,24 @@ def check_0356():
     sigma8_pred=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8'); obs=0.802; obs_lo=0.018; value=abs(sigma8_pred-obs)/obs_lo
     return locals()
 
+@check(label='ch:virial_tests:L26:0.022', chapter='ch:virial_tests', part=2, title='joint sigma8 upper error (KiDS-Legacy + DES Y3 + DESI + Pantheon+)',
+       file='part2/p2_02b_virial_tests', line=26, status='observed', kind='file', printed='0.022', tol=0.0,
+       source='docs/verification/scripts/verify_virial_papers_output.txt', heavy=True, rerun=_B00_VPAPERS_RERUN)
+def check_3215():
+    'Upper error of the joint sigma8 = 0.802 (+0.022 -0.018) of Stolzner et al. 2025 (doi 10.1051/0004-6361/202554893), as entered in verify_virial_papers.py and printed in its committed output. Book line 26, printed 0.022.'
+    s8, up, lo = _b00_vp_line(r'sigma8 vs joint .*? ([\d.]+) \(\+([\d.]+) -([\d.]+)\)')
+    value = up
+    return locals()
+
+@check(label='ch:virial_tests:L26:0.018', chapter='ch:virial_tests', part=2, title='joint sigma8 lower error',
+       file='part2/p2_02b_virial_tests', line=26, status='observed', kind='file', printed='0.018', tol=0.0,
+       source='docs/verification/scripts/verify_virial_papers_output.txt', heavy=True, rerun=_B00_VPAPERS_RERUN)
+def check_3216():
+    'Lower error of the joint sigma8 of Stolzner et al. 2025, from the committed output of verify_virial_papers.py. Book line 26, printed 0.018.'
+    s8, up, lo = _b00_vp_line(r'sigma8 vs joint .*? ([\d.]+) \(\+([\d.]+) -([\d.]+)\)')
+    value = lo
+    return locals()
+
 @check(label='ch:virial_tests:L27', chapter='ch:virial_tests', part=2, title='IAM S8 prediction from Level2 chain',
        file='part2/p2_02b_virial_tests', line=27, status='calc', kind='file', printed='0.822', tol=0.000608, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
@@ -4437,6 +4503,24 @@ def check_0359():
 def check_0360():
     'S8 Level 2 vs KiDS-Legacy: difference over the combined error (chain sd, KiDS upper error). Book line 27, printed 0.33.'
     S8=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8'); sd=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','S8_sd'); value=(S8-0.815)/math.hypot(sd,0.016)  # KiDS-Legacy 0.815 +0.016 -0.021 (Wright 2025)
+    return locals()
+
+@check(label='ch:virial_tests:L27:0.016', chapter='ch:virial_tests', part=2, title='KiDS-Legacy S8 upper error',
+       file='part2/p2_02b_virial_tests', line=27, status='observed', kind='file', printed='0.016', tol=0.0,
+       source='docs/verification/scripts/verify_virial_papers_output.txt', heavy=True, rerun=_B00_VPAPERS_RERUN)
+def check_3217():
+    'Upper error of the KiDS-Legacy cosmic-shear S8 = 0.815 (+0.016 -0.021), Wright et al. 2025 (doi 10.1051/0004-6361/202554908), from the committed output of verify_virial_papers.py. Book line 27, printed 0.016.'
+    S8, up, lo = _b00_vp_line(r'vs KiDS-Legacy ([\d.]+) \(\+([\d.]+) -([\d.]+)\)')
+    value = up
+    return locals()
+
+@check(label='ch:virial_tests:L27:0.021', chapter='ch:virial_tests', part=2, title='KiDS-Legacy S8 lower error',
+       file='part2/p2_02b_virial_tests', line=27, status='observed', kind='file', printed='0.021', tol=0.0,
+       source='docs/verification/scripts/verify_virial_papers_output.txt', heavy=True, rerun=_B00_VPAPERS_RERUN)
+def check_3218():
+    'Lower error of the KiDS-Legacy S8 (Wright et al. 2025), from the committed output of verify_virial_papers.py. Book line 27, printed 0.021.'
+    S8, up, lo = _b00_vp_line(r'vs KiDS-Legacy ([\d.]+) \(\+([\d.]+) -([\d.]+)\)')
+    value = lo
     return locals()
 
 @check(label='ch:virial_tests:L28', chapter='ch:virial_tests', part=2, title='drafted check, screened (runs; negative control fails)',
@@ -4500,12 +4584,106 @@ def check_0368():
     H0_pred=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0'); obs=67.36; obs_sd=0.54; value=abs(H0_pred-obs)/obs_sd
     return locals()
 
+@check(label='ch:virial_tests:L29:0.54', chapter='ch:virial_tests', part=2, title='Planck 2018 H0 error (published)',
+       file='part2/p2_02b_virial_tests', line=29, status='observed', kind='num', printed='0.54', tol=0.0)
+def check_3219():
+    'One-sigma error of the Planck 2018 H0, 67.36 +- 0.54. Book line 29, printed 0.54. Input: Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing (doi 10.1051/0004-6361/201833910).'
+    H0_planck, sd_planck = 67.36, 0.54
+    value = sd_planck
+    return locals()
+
+@check(label='ch:virial_tests:L30', chapter='ch:virial_tests', part=2, title='growth-only Omega_m = Omega_m mu(z) at z = 0.5',
+       file='part2/p2_02b_virial_tests', line=30, status='calc', kind='num', printed='0.299', tol=0.0)
+def check_3220():
+    'Omega_m^growth(z) = Omega_m mu(z) (Eq. eq:vc_omgrowth) at z = 0.5, with Planck 2018 Omega_m = 0.3153 and mu = H^2/(H^2 + beta_m E H0^2). Book line 30, printed 0.299.'
+    value = Om * float(mu_iam(1 / 1.5))
+    return locals()
+
+@check(label='ch:virial_tests:L31', chapter='ch:virial_tests', part=2, title='f sigma8 ramp over the six DESI DR1 bins, deepest',
+       file='part2/p2_02b_virial_tests', line=31, status='calc', kind='num', printed='-2.2', tol=0.0)
+def check_3221():
+    'IAM f sigma8 relative to LambdaCDM (same early amplitude, mu-Sigma form) at the six DESI DR1 effective redshifts (DESI 2024 V); most negative, in per cent. Book line 31, printed -2.2.'
+    zs = [b[1] for b in _B00_DESI_SF]
+    value = min(-fs8_deficit(z) for z in zs)
+    return locals()
+
+@check(label='ch:virial_tests:L31:-0.1', chapter='ch:virial_tests', part=2, title='f sigma8 ramp over the six DESI DR1 bins, shallowest',
+       file='part2/p2_02b_virial_tests', line=31, status='calc', kind='num', printed='-0.1', tol=0.0)
+def check_3222():
+    'Same ramp, least negative over the six DESI DR1 bins (z = 1.491), in per cent. Book line 31, printed -0.1.'
+    zs = [b[1] for b in _B00_DESI_SF]
+    value = max(-fs8_deficit(z) for z in zs)
+    return locals()
+
 @check(label='ch:virial_tests:L32', chapter='ch:virial_tests', part=2, title='drafted check, screened (runs; negative control fails)',
        file='part2/p2_02b_virial_tests', line=32, status='calc', kind='num', printed='-0.136', tol=0.0)
 def check_0369():
     'drafted check, screened (runs; negative control fails). Book line 32, printed -0.136.'
     value = mu0
     return locals()
+
+@check(label='ch:virial_tests:L32:0', chapter='ch:virial_tests', part=2, title='Sigma_0 = Sigma - 1 = 0',
+       file='part2/p2_02b_virial_tests', line=32, status='calc', kind='num', printed='0', tol=0.0)
+def check_3223():
+    'Sigma from the unmodified Poisson equation for the lensing potential and Phi = Psi (no anisotropic stress), k^2(Phi + Psi) = -8 pi G a^2 rho Delta Sigma, solved with sympy; Sigma_0 = Sigma - 1. Book line 32, printed 0.'
+    k, G_, a, rho, D_, Sig = sp.symbols('k G a rho Delta Sigma', positive=True)
+    Psi = -4 * sp.pi * G_ * a**2 * rho * D_ / k**2
+    Phi = Psi
+    value = float(sp.solve(sp.Eq(k**2 * (Phi + Psi), -8 * sp.pi * G_ * a**2 * rho * D_ * Sig), Sig)[0]) - 1
+    return locals()
+
+@check(label='ch:virial_tests:L32:0.11', chapter='ch:virial_tests', part=2, title='DESI 2024 full-shape mu0 (recorded value)',
+       file='part2/p2_02b_virial_tests', line=32, status='observed', kind='file', printed='0.11', tol=0.0, source='docs/verification/theory/IAM_LAW_CHECK.md')
+def check_3224():
+    'DESI 2024 VII full-shape + BAO + BBN mu0 as recorded in IAM_LAW_CHECK.md. Book line 32, printed 0.11.'
+    value = _b00_desi_mu0()[0]
+    return locals()
+
+@check(label='ch:virial_tests:L32:0.45', chapter='ch:virial_tests', part=2, title='DESI 2024 full-shape mu0 upper error (recorded value)',
+       file='part2/p2_02b_virial_tests', line=32, status='observed', kind='file', printed='0.45', tol=0.0, source='docs/verification/theory/IAM_LAW_CHECK.md')
+def check_3225():
+    'Upper error of the DESI 2024 VII mu0, as recorded in IAM_LAW_CHECK.md. Book line 32, printed 0.45.'
+    value = _b00_desi_mu0()[1]
+    return locals()
+
+@check(label='ch:virial_tests:L32:0.54', chapter='ch:virial_tests', part=2, title='DESI 2024 full-shape mu0 lower error (recorded value)',
+       file='part2/p2_02b_virial_tests', line=32, status='observed', kind='file', printed='0.54', tol=0.0, source='docs/verification/theory/IAM_LAW_CHECK.md')
+def check_3226():
+    'Lower error of the DESI 2024 VII mu0, as recorded in IAM_LAW_CHECK.md. Book line 32, printed 0.54.'
+    value = _b00_desi_mu0()[2]
+    return locals()
+
+# ---------------- growth-rate data, MGCAMB form and ShapeFit ratios (line 39)
+
+@check(label='ch:virial_tests:L39', chapter='ch:virial_tests', part=2, title='diagonal chi2, LambdaCDM, six DESI DR1 ShapeFit bins',
+       file='part2/p2_02b_virial_tests', line=39, status='calc', kind='num', printed='4.52', tol=0.0)
+def check_3227():
+    'Diagonal chi2 of the six DESI DR1 ShapeFit+BAO f sigma8 (ratio x fiducial f sigma_s8, DESI 2024 V) against LambdaCDM with Planck 2018 sigma8 = 0.8111 (port of verify_shapefit_chi2.py). Book line 39, printed 4.52.'
+    value = _b00_sf_chi2('DESI', 'LCDM')
+    return locals()
+
+@check(label='ch:virial_tests:L39:5.14', chapter='ch:virial_tests', part=2, title='diagonal chi2, IAM (MGCAMB form), six DESI DR1 ShapeFit bins',
+       file='part2/p2_02b_virial_tests', line=39, status='calc', kind='num', printed='5.14', tol=0.0)
+def check_3228():
+    'Same six DESI DR1 bins against IAM in the MGCAMB form, mu0 = -0.13495, same early amplitude. Book line 39, printed 5.14.'
+    value = _b00_sf_chi2('DESI', 'IAM')
+    return locals()
+
+@check(label='ch:virial_tests:L39:6.20', chapter='ch:virial_tests', part=2, title='diagonal chi2, LambdaCDM, SDSS DR16 six points',
+       file='part2/p2_02b_virial_tests', line=39, status='calc', kind='num', printed='6.20', tol=0.0)
+def check_3229():
+    'Diagonal chi2 of the six SDSS DR16 f sigma8 points (Alam et al. 2021 Table III) against LambdaCDM, sigma8 = 0.8111. Book line 39, printed 6.20.'
+    value = _b00_sf_chi2('SDSS', 'LCDM')
+    return locals()
+
+@check(label='ch:virial_tests:L39:6.96', chapter='ch:virial_tests', part=2, title='diagonal chi2, IAM (MGCAMB form), SDSS DR16 six points',
+       file='part2/p2_02b_virial_tests', line=39, status='calc', kind='num', printed='6.96', tol=0.0)
+def check_3230():
+    'Six SDSS DR16 points against IAM in the MGCAMB form. Book line 39, printed 6.96.'
+    value = _b00_sf_chi2('SDSS', 'IAM')
+    return locals()
+
+# ---------------- the DESI phantom crossing (line 102) and the LRG1 bin (line 111)
 
 @check(label='ch:virial_tests:L87', chapter='ch:virial_tests', part=2, title='mu value from 1+mu0',
        file='part2/p2_02b_virial_tests', line=87, status='prediction', kind='num', printed='0.864', tol=0.000579)
@@ -4519,6 +4697,31 @@ def check_0370():
 def check_0371():
     'matter-to-photon discrepancy percent from mu0. Book line 88, printed 14.'
     value=-mu0*100
+    return locals()
+
+@check(label='ch:virial_tests:L102', chapter='ch:virial_tests', part=2, title='DESI DR2 phantom-crossing redshift, lowest',
+       file='part2/p2_02b_virial_tests', line=102, status='observed', kind='file', printed='0.35', tol=0.0,
+       source='docs/verification/scripts/verify_sector_tension_output.txt', heavy=True, rerun=_B00_STENSION_RERUN)
+def check_3231():
+    'z_cross from a_x = 1 + (1 + w0)/wa for the published DESI DR2 w0, wa (DESI 2025, arXiv:2503.14738; as entered in verify_sector_tension.py), lowest over the combinations (DESI+CMB+Pantheon+). Book line 102, printed 0.35.'
+    zc = _b00_dr2_zcross()
+    value = min(zc.values())
+    return locals()
+
+@check(label='ch:virial_tests:L102:0.5', chapter='ch:virial_tests', part=2, title='DESI DR2 phantom-crossing redshift, highest',
+       file='part2/p2_02b_virial_tests', line=102, status='observed', kind='file', printed='0.5', tol=0.0,
+       source='docs/verification/scripts/verify_sector_tension_output.txt', heavy=True, rerun=_B00_STENSION_RERUN)
+def check_3232():
+    'Same z_cross, highest over the combinations (DESI+CMB). Book line 102, printed 0.5.'
+    zc = _b00_dr2_zcross()
+    value = max(zc.values())
+    return locals()
+
+@check(label='ch:virial_tests:L111', chapter='ch:virial_tests', part=2, title='growth-only Omega_m below geometric at z = 0.51, per cent',
+       file='part2/p2_02b_virial_tests', line=111, status='calc', kind='num', printed='5.1', tol=0.0)
+def check_3233():
+    '1 - Omega_m^growth/Omega_m = 1 - mu(z) at the LRG1 redshift z = 0.51, in per cent. Book line 111, printed 5.1.'
+    value = 100 * (1 - float(mu_iam(1 / 1.51)))
     return locals()
 
 @check(label='ch:virial_tests:L149', chapter='ch:virial_tests', part=2, title='sigma8 restated rounded, chain repeat',
@@ -28329,24 +28532,8 @@ INVENTORY = [
     (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 11, '', 'none', '0', 'Sigma0 locked value restated'),
     (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 12, '', 'none', '67.16', 'H0 photon-sector locked value restated'),
     (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 12, '', 'none', '72.26', 'H0 matter-sector locked value restated'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 26, '', 'observed', '0.022', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 26, '', 'observed', '0.018', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 27, '', 'observed', '0.016', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 27, '', 'observed', '0.021', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 29, '', 'observed', '0.54', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 30, '', 'calc', '0.299', 'not yet run: draft does not reproduce the printed value (recomputed 0.0271255); drafting error on review'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 31, '', 'calc', '-2.2', 'not yet run: draft does not reproduce the printed value (recomputed 0.517431); drafting error on review'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 31, '', 'calc', '-0.1', 'not yet run: draft does not reproduce the printed value (recomputed 2.73279); drafting error on review'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 31, '', 'observed', '8', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 31, '', 'observed', '13', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 32, '', 'calc', '0', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 32, '', 'observed', '0.11', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 32, '', 'observed', '0.45', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 32, '', 'observed', '0.54', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 37, '', 'calc', '4.51', 'not yet run: draft does not reproduce the printed value (recomputed 53.4851); drafting error on review'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 37, '', 'calc', '5.24', 'not yet run: draft does not reproduce the printed value (recomputed 53.7129); drafting error on review'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 38, '', 'calc', '6.19', 'not yet run: draft rejected (drafter skipped: Requires: SDSS DR16 ShapeFit+BAO measurements, their errors/covariance, a)'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 38, '', 'calc', '6.95', 'not yet run: draft rejected (drafter skipped: Same as ITEM 396: requires SDSS DR16 ShapeFit+BAO data and MGCAMB predict)'),
+    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 31, '', 'observed', '8', 'measured, source not named'),
+    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 31, '', 'observed', '13', 'measured, source not named'),
     (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 56, 'eq:vt_eg', 'none', '', 'definition of observational E_G statistic'),
     (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 62, 'eq:vt_egiam', 'derived', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
     (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 66, '', 'prediction', '+3.6', 'E_G enhancement today, growth curves elsewhere'),
@@ -28359,9 +28546,6 @@ INVENTORY = [
     (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 96, '', 'prediction', '1.35', 'fsigma8 ramp at z=0.5, eq:vc_fs8 elsewhere'),
     (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 96, '', 'prediction', '0.41', 'fsigma8 ramp at z=1, eq:vc_fs8 elsewhere'),
     (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 97, '', 'prediction', '0.13', 'fsigma8 ramp at z=1.491, eq:vc_fs8 elsewhere'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 102, '', 'observed', '0.35', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 102, '', 'observed', '0.5', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 111, '', 'calc', '5.1', "not yet run: draft rejected (drafter skipped: The 5.1% figure is IAM's growth-only Omega_m at z=0.51 compared to the ge)"),
     (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 129, '', 'none', '1/2', 'virial theorem product restated, input'),
     (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 134, '', 'interp', '-0.136', 'mu0 locked value, repeat'),
     (2, 'ch:virial_tests', 'part2/p2_02b_virial_tests', 134, '', 'interp', '0', 'Sigma0 locked value, repeat'),

@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3215 PASS, 0 FAIL, 3119 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3234 PASS, 0 FAIL, 3100 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -640,14 +640,14 @@ Totals: 3215 PASS, 0 FAIL, 3119 inventoried and not run. Each run item carries t
 | 26 | ch:virial_tests:L26:0.0058 | calc | `0.0058` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 chain standard deviation | PASS |
 | 26 | ch:virial_tests:L26:0.802 | observed | `0.802` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 26 | ch:virial_tests:L26:0.12 | calc | `0.12` | numeric: sigma8 tension in sigma | PASS |
-| 26 |  | observed | `0.022` | not run: measured, too few printed digits to match against the named files | - |
-| 26 |  | observed | `0.018` | not run: measured, too few printed digits to match against the named files | - |
+| 26 | ch:virial_tests:L26:0.022 | observed | `0.022` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: joint sigma8 upper error (KiDS-Legacy + DES Y3 + DESI + Pantheon+) | PASS |
+| 26 | ch:virial_tests:L26:0.018 | observed | `0.018` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: joint sigma8 lower error | PASS |
 | 27 | ch:virial_tests:L27 | calc | `0.822` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: IAM S8 prediction from Level2 chain | PASS |
 | 27 | ch:virial_tests:L27:0.011 | calc | `0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 chain standard deviation | PASS |
 | 27 | ch:virial_tests:L27:0.815 | observed | `0.815` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 27 | ch:virial_tests:L27:0.33 | calc | `0.33` | numeric: S8 Level 2 vs KiDS-Legacy: difference over the combined error (chain sd, KiDS upper error) | PASS |
-| 27 |  | observed | `0.016` | not run: measured, too few printed digits to match against the named files | - |
-| 27 |  | observed | `0.021` | not run: measured, too few printed digits to match against the named files | - |
+| 27 | ch:virial_tests:L27:0.016 | observed | `0.016` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: KiDS-Legacy S8 upper error | PASS |
+| 27 | ch:virial_tests:L27:0.021 | observed | `0.021` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: KiDS-Legacy S8 lower error | PASS |
 | 28 | ch:virial_tests:L28 | calc | `72.26` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 28 | ch:virial_tests:L28:73.04 | observed | `73.04` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 28 | ch:virial_tests:L28:1.04 | observed | `1.04` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
@@ -656,21 +656,21 @@ Totals: 3215 PASS, 0 FAIL, 3119 inventoried and not run. Each run item carries t
 | 29 | ch:virial_tests:L29:0.47 | calc | `0.47` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon chain standard deviation | PASS |
 | 29 | ch:virial_tests:L29:67.36 | observed | `67.36` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: measured: printed value found in verify_virial_papers_output.txt, a file the chapter names | PASS |
 | 29 | ch:virial_tests:L29:0.37 | calc | `0.37` | numeric: H0 photon-sector tension in sigma | PASS |
-| 29 |  | observed | `0.54` | not run: measured, too few printed digits to match against the named files | - |
-| 30 |  | calc | `0.299` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.0271255); drafting error on review | - |
-| 31 |  | calc | `-2.2` | not run: not yet run: draft does not reproduce the printed value (recomputed 0.517431); drafting error on review | - |
-| 31 |  | calc | `-0.1` | not run: not yet run: draft does not reproduce the printed value (recomputed 2.73279); drafting error on review | - |
-| 31 |  | observed | `8` | not run: measured, too few printed digits to match against the named files | - |
-| 31 |  | observed | `13` | not run: measured, too few printed digits to match against the named files | - |
+| 29 | ch:virial_tests:L29:0.54 | observed | `0.54` | numeric: Planck 2018 H0 error (published) | PASS |
+| 30 | ch:virial_tests:L30 | calc | `0.299` | numeric: growth-only Omega_m = Omega_m mu(z) at z = 0.5 | PASS |
+| 31 | ch:virial_tests:L31 | calc | `-2.2` | numeric: f sigma8 ramp over the six DESI DR1 bins, deepest | PASS |
+| 31 | ch:virial_tests:L31:-0.1 | calc | `-0.1` | numeric: f sigma8 ramp over the six DESI DR1 bins, shallowest | PASS |
+| 31 |  | observed | `8` | not run: measured, source not named | - |
+| 31 |  | observed | `13` | not run: measured, source not named | - |
 | 32 | ch:virial_tests:L32 | calc | `-0.136` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 32 |  | calc | `0` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 32 |  | observed | `0.11` | not run: measured, too few printed digits to match against the named files | - |
-| 32 |  | observed | `0.45` | not run: measured, too few printed digits to match against the named files | - |
-| 32 |  | observed | `0.54` | not run: measured, too few printed digits to match against the named files | - |
-| 37 |  | calc | `4.51` | not run: not yet run: draft does not reproduce the printed value (recomputed 53.4851); drafting error on review | - |
-| 37 |  | calc | `5.24` | not run: not yet run: draft does not reproduce the printed value (recomputed 53.7129); drafting error on review | - |
-| 38 |  | calc | `6.19` | not run: not yet run: draft rejected (drafter skipped: Requires: SDSS DR16 ShapeFit+BAO measurements, their errors/covariance, a) | - |
-| 38 |  | calc | `6.95` | not run: not yet run: draft rejected (drafter skipped: Same as ITEM 396: requires SDSS DR16 ShapeFit+BAO data and MGCAMB predict) | - |
+| 32 | ch:virial_tests:L32:0 | calc | `0` | numeric: Sigma_0 = Sigma - 1 = 0 | PASS |
+| 32 | ch:virial_tests:L32:0.11 | observed | `0.11` | file `docs/verification/theory/IAM_LAW_CHECK.md`: DESI 2024 full-shape mu0 (recorded value) | PASS |
+| 32 | ch:virial_tests:L32:0.45 | observed | `0.45` | file `docs/verification/theory/IAM_LAW_CHECK.md`: DESI 2024 full-shape mu0 upper error (recorded value) | PASS |
+| 32 | ch:virial_tests:L32:0.54 | observed | `0.54` | file `docs/verification/theory/IAM_LAW_CHECK.md`: DESI 2024 full-shape mu0 lower error (recorded value) | PASS |
+| 39 | ch:virial_tests:L39 | calc | `4.52` | numeric: diagonal chi2, LambdaCDM, six DESI DR1 ShapeFit bins | PASS |
+| 39 | ch:virial_tests:L39:5.14 | calc | `5.14` | numeric: diagonal chi2, IAM (MGCAMB form), six DESI DR1 ShapeFit bins | PASS |
+| 39 | ch:virial_tests:L39:6.20 | calc | `6.20` | numeric: diagonal chi2, LambdaCDM, SDSS DR16 six points | PASS |
+| 39 | ch:virial_tests:L39:6.96 | calc | `6.96` | numeric: diagonal chi2, IAM (MGCAMB form), SDSS DR16 six points | PASS |
 | 56 | eq:vt_eg | none |  | not run: definition of observational E_G statistic | - |
 | 62 | eq:vt_egiam | derived |  | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
 | 66 |  | prediction | `+3.6` | not run: E_G enhancement today, growth curves elsewhere | - |
@@ -685,9 +685,9 @@ Totals: 3215 PASS, 0 FAIL, 3119 inventoried and not run. Each run item carries t
 | 96 |  | prediction | `1.35` | not run: fsigma8 ramp at z=0.5, eq:vc_fs8 elsewhere | - |
 | 96 |  | prediction | `0.41` | not run: fsigma8 ramp at z=1, eq:vc_fs8 elsewhere | - |
 | 97 |  | prediction | `0.13` | not run: fsigma8 ramp at z=1.491, eq:vc_fs8 elsewhere | - |
-| 102 |  | observed | `0.35` | not run: measured, too few printed digits to match against the named files | - |
-| 102 |  | observed | `0.5` | not run: measured, too few printed digits to match against the named files | - |
-| 111 |  | calc | `5.1` | not run: not yet run: draft rejected (drafter skipped: The 5.1% figure is IAM's growth-only Omega_m at z=0.51 compared to the ge) | - |
+| 102 | ch:virial_tests:L102 | observed | `0.35` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR2 phantom-crossing redshift, lowest | PASS |
+| 102 | ch:virial_tests:L102:0.5 | observed | `0.5` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR2 phantom-crossing redshift, highest | PASS |
+| 111 | ch:virial_tests:L111 | calc | `5.1` | numeric: growth-only Omega_m below geometric at z = 0.51, per cent | PASS |
 | 129 |  | none | `1/2` | not run: virial theorem product restated, input | - |
 | 134 |  | interp | `-0.136` | not run: mu0 locked value, repeat | - |
 | 134 |  | interp | `0` | not run: Sigma0 locked value, repeat | - |

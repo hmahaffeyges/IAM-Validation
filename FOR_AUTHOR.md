@@ -3,7 +3,7 @@
 Items a check raised that would change a result, a prediction, a locked value, an equation of IAM or the framing of a
 claim. The book was left unchanged for each; the decision is the author's. Every FAIL of `verify_book.py` is listed here.
 
-Items: 3
+Items: 4
 
 ## 1. `docs/book/part2/p2_02_virial.tex:L86-87`
 
@@ -19,7 +19,14 @@ Items: 3
 - **Why it matters:** the unrounded fit is exp(0.927 - 1.021/a): 2.1 % and 7.3 %; the printed 2 % and 7 % follow from the two-decimal fit exp(0.93 - 1.02/a) the book quotes in ch:theory line 399, so 'within 2 %' is very slightly generous
 - **Recommendation:** low priority; the check compares the two-decimal coefficients, as the book quotes them
 
-## 3. `docs/book/part2/p2_01_blackholes.tex:L76`
+## 3. `docs/book/part2/p2_02b_virial_tests.tex:L31`
+
+- **Now:** errors $8$--$13\,\%$ per bin~\cite{DESI2024V}
+- **Proposed:** name the f sigma8 values the range comes from, or print the range of the committed ShapeFit+BAO values (about 9-19 %, BGS the widest)
+- **Why it matters:** the committed DESI DR1 f sigma8 tables (verify_shapefit_chi2.py, verify_sector_tension.py) put the BGS error at 19-25 %, outside 8-13 %
+- **Recommendation:** check the per-bin errors in DESI 2024 V and either keep 8-13 % with the table it comes from, or correct the range
+
+## 4. `docs/book/part2/p2_01_blackholes.tex:L76`
 
 - **Now:** caption says 'CODATA 2018; M_sun = 1.98847e30 kg'
 - **Proposed:** either keep 1.98847e30 and drop the implication that it follows from CODATA 2018, or use GM_sun(IAU 2015 nominal) / G(CODATA 2018) = 1.98841e30 kg

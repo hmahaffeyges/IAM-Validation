@@ -564,6 +564,10 @@ PASS  ch:virial_tests:L26:0.0058         ch:virial_tests:p2_02b_virial_tests:26 
 PASS  ch:virial_tests:L26:0.802          ch:virial_tests:p2_02b_virial_tests:26  printed 0.802  recomputed found in file  [observed] measured: printed value found in verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
 PASS  ch:virial_tests:L26:0.12           ch:virial_tests:p2_02b_virial_tests:26  printed 0.12  recomputed 0.124929  tol 0.00500041  [calc] sigma8 tension in sigma
+PASS  ch:virial_tests:L26:0.022          ch:virial_tests:p2_02b_virial_tests:26  printed 0.022  recomputed 0.022  tol 5.000005e-04  [observed] joint sigma8 upper error (KiDS-Legacy + DES Y3 + DESI + Pantheon+)  file docs/verification/scripts/verify_virial_papers_output.txt
+      heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
+PASS  ch:virial_tests:L26:0.018          ch:virial_tests:p2_02b_virial_tests:26  printed 0.018  recomputed 0.018  tol 5.000005e-04  [observed] joint sigma8 lower error  file docs/verification/scripts/verify_virial_papers_output.txt
+      heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
 PASS  ch:virial_tests:L27                ch:virial_tests:p2_02b_virial_tests:27  printed 0.822  recomputed 0.821513  tol 5.000005e-04  [calc] IAM S8 prediction from Level2 chain  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:virial_tests:L27:0.011          ch:virial_tests:p2_02b_virial_tests:27  printed 0.011  recomputed 0.0110855  tol 5.000005e-04  [calc] S8 chain standard deviation  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
@@ -571,6 +575,10 @@ PASS  ch:virial_tests:L27:0.011          ch:virial_tests:p2_02b_virial_tests:27 
 PASS  ch:virial_tests:L27:0.815          ch:virial_tests:p2_02b_virial_tests:27  printed 0.815  recomputed found in file  [observed] measured: printed value found in verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
 PASS  ch:virial_tests:L27:0.33           ch:virial_tests:p2_02b_virial_tests:27  printed 0.33  recomputed 0.334624  tol 0.00500001  [calc] S8 Level 2 vs KiDS-Legacy: difference over the combined error (chain sd, KiDS upper error)
+PASS  ch:virial_tests:L27:0.016          ch:virial_tests:p2_02b_virial_tests:27  printed 0.016  recomputed 0.016  tol 5.000005e-04  [observed] KiDS-Legacy S8 upper error  file docs/verification/scripts/verify_virial_papers_output.txt
+      heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
+PASS  ch:virial_tests:L27:0.021          ch:virial_tests:p2_02b_virial_tests:27  printed 0.021  recomputed 0.021  tol 5.000005e-04  [observed] KiDS-Legacy S8 lower error  file docs/verification/scripts/verify_virial_papers_output.txt
+      heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
 PASS  ch:virial_tests:L28                ch:virial_tests:p2_02b_virial_tests:28  printed 72.26  recomputed 72.26  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
 PASS  ch:virial_tests:L28:73.04          ch:virial_tests:p2_02b_virial_tests:28  printed 73.04  recomputed found in file  [observed] measured: printed value found in verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
@@ -584,9 +592,26 @@ PASS  ch:virial_tests:L29:0.47           ch:virial_tests:p2_02b_virial_tests:29 
 PASS  ch:virial_tests:L29:67.36          ch:virial_tests:p2_02b_virial_tests:29  printed 67.36  recomputed found in file  [observed] measured: printed value found in verify_virial_papers_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_papers_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_papers.py > docs/verification/scripts/verify_virial_papers_output.txt
 PASS  ch:virial_tests:L29:0.37           ch:virial_tests:p2_02b_virial_tests:29  printed 0.37  recomputed 0.368417  tol 0.00500001  [calc] H0 photon-sector tension in sigma
+PASS  ch:virial_tests:L29:0.54           ch:virial_tests:p2_02b_virial_tests:29  printed 0.54  recomputed 0.54  tol 0.00500001  [observed] Planck 2018 H0 error (published)
+PASS  ch:virial_tests:L30                ch:virial_tests:p2_02b_virial_tests:30  printed 0.299  recomputed 0.298954  tol 5.000005e-04  [calc] growth-only Omega_m = Omega_m mu(z) at z = 0.5
+PASS  ch:virial_tests:L31                ch:virial_tests:p2_02b_virial_tests:31  printed -2.2  recomputed -2.19364  tol 0.05  [calc] f sigma8 ramp over the six DESI DR1 bins, deepest
+PASS  ch:virial_tests:L31:-0.1           ch:virial_tests:p2_02b_virial_tests:31  printed -0.1  recomputed -0.133247  tol 0.05  [calc] f sigma8 ramp over the six DESI DR1 bins, shallowest
 PASS  ch:virial_tests:L32                ch:virial_tests:p2_02b_virial_tests:32  printed -0.136  recomputed -0.136  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:virial_tests:L32:0              ch:virial_tests:p2_02b_virial_tests:32  printed 0  recomputed 0  tol 0.5  [calc] Sigma_0 = Sigma - 1 = 0
+PASS  ch:virial_tests:L32:0.11           ch:virial_tests:p2_02b_virial_tests:32  printed 0.11  recomputed 0.11  tol 0.00500001  [observed] DESI 2024 full-shape mu0 (recorded value)  file docs/verification/theory/IAM_LAW_CHECK.md
+PASS  ch:virial_tests:L32:0.45           ch:virial_tests:p2_02b_virial_tests:32  printed 0.45  recomputed 0.45  tol 0.00500001  [observed] DESI 2024 full-shape mu0 upper error (recorded value)  file docs/verification/theory/IAM_LAW_CHECK.md
+PASS  ch:virial_tests:L32:0.54           ch:virial_tests:p2_02b_virial_tests:32  printed 0.54  recomputed 0.54  tol 0.00500001  [observed] DESI 2024 full-shape mu0 lower error (recorded value)  file docs/verification/theory/IAM_LAW_CHECK.md
+PASS  ch:virial_tests:L39                ch:virial_tests:p2_02b_virial_tests:39  printed 4.52  recomputed 4.52462  tol 0.00500001  [calc] diagonal chi2, LambdaCDM, six DESI DR1 ShapeFit bins
+PASS  ch:virial_tests:L39:5.14           ch:virial_tests:p2_02b_virial_tests:39  printed 5.14  recomputed 5.13925  tol 0.00500001  [calc] diagonal chi2, IAM (MGCAMB form), six DESI DR1 ShapeFit bins
+PASS  ch:virial_tests:L39:6.20           ch:virial_tests:p2_02b_virial_tests:39  printed 6.20  recomputed 6.20292  tol 0.00500001  [calc] diagonal chi2, LambdaCDM, SDSS DR16 six points
+PASS  ch:virial_tests:L39:6.96           ch:virial_tests:p2_02b_virial_tests:39  printed 6.96  recomputed 6.96265  tol 0.00500001  [calc] diagonal chi2, IAM (MGCAMB form), SDSS DR16 six points
 PASS  ch:virial_tests:L87                ch:virial_tests:p2_02b_virial_tests:87  printed 0.864  recomputed 0.864  tol 5.002565e-04  [prediction] mu value from 1+mu0
 PASS  ch:virial_tests:L88                ch:virial_tests:p2_02b_virial_tests:88  printed 14  recomputed 13.6  tol 0.5  [prediction] matter-to-photon discrepancy percent from mu0
+PASS  ch:virial_tests:L102               ch:virial_tests:p2_02b_virial_tests:102  printed 0.35  recomputed 0.353712  tol 0.00500001  [observed] DESI DR2 phantom-crossing redshift, lowest  file docs/verification/scripts/verify_sector_tension_output.txt
+      heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:virial_tests:L102:0.5           ch:virial_tests:p2_02b_virial_tests:102  printed 0.5  recomputed 0.495726  tol 0.05  [observed] DESI DR2 phantom-crossing redshift, highest  file docs/verification/scripts/verify_sector_tension_output.txt
+      heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:virial_tests:L111               ch:virial_tests:p2_02b_virial_tests:111  printed 5.1  recomputed 5.07623  tol 0.05  [calc] growth-only Omega_m below geometric at z = 0.51, per cent
 PASS  ch:virial_tests:L149               ch:virial_tests:p2_02b_virial_tests:149  printed 0.800  recomputed 0.799751  tol 5.000005e-04  [calc] sigma8 restated rounded, chain repeat  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:virial_tests:L149:0.1           ch:virial_tests:p2_02b_virial_tests:149  printed 0.1  recomputed 0.124929  tol 0.05  [calc] sigma8 tension restated, repeat
@@ -4013,4 +4038,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3215  FAIL 0  (heavy, read from committed outputs: 649)  inventoried-not-run 3119  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3234  FAIL 0  (heavy, read from committed outputs: 655)  inventoried-not-run 3100  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
