@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3959 PASS, 0 FAIL, 2379 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3970 PASS, 0 FAIL, 2368 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4690,13 +4690,13 @@ Totals: 3959 PASS, 0 FAIL, 2379 inventoried and not run. Each run item carries t
 | 6 | ch:temperature:L6 | calc | `20.94` | numeric: M at 37 C | PASS |
 | 6 | ch:temperature:L6:20.84 | calc | `20.84` | numeric: M at 38.5 C | PASS |
 | 6 | ch:temperature:L6:20.74 | calc | `20.74` | numeric: M at 40 C | PASS |
-| 6 |  | calc | `38.5` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 6 |  | calc | `38.5` | not run: input: dog body temperature 38.5 C (M at 38.5 C is checked by ch:temperature:L6:20.84) | - |
 | 12 | eq:eps0T | derived |  | sympy: eps0 rises with T at fixed holding energy | PASS |
 | 16 | ch:temperature:L16 | derived | `0.0233` | numeric: eps0 at 10 C | PASS |
 | 17 | ch:temperature:L17 | calc | `0.78` | numeric: floor H(eps0) at 10 C over the human | PASS |
 | 17 | ch:temperature:L17:1.012 | calc | `1.012` | numeric: floor at 38.5 C | PASS |
-| 17 |  | calc | `38.5` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 23 |  | calc | `3.41` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 17 |  | calc | `38.5` | not run: input: dog body temperature 38.5 C (the floor at 38.5 C is checked by ch:temperature:L17:1.012) | - |
+| 23 | ch:temperature:L23 | calc | `3.41` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy of human cells at 37 C | PASS |
 | 30 | ch:temperature:L30 | calc | `1.025` | numeric: floor at 40 C | PASS |
 | 30 | ch:temperature:L30:1.041 | calc | `1.041` | numeric: floor at 42 C | PASS |
 | 31 | ch:temperature:L31 | calc | `0.902` | numeric: floor at 25 C | PASS |
@@ -4704,18 +4704,18 @@ Totals: 3959 PASS, 0 FAIL, 2379 inventoried and not run. Each run item carries t
 | 32 | ch:temperature:L32 | calc | `0.821` | numeric: floor at 15 C | PASS |
 | 36 | ch:temperature:L36 | calc | `8.1` | numeric: 7-fold selectivity at 15 C | PASS |
 | 36 | ch:temperature:L36:6.8 | calc | `6.8` | numeric: at 42 C | PASS |
-| 74 |  | measured | `3.31` | not run: measured, source not named | - |
-| 74 |  | measured | `4.02` | not run: measured, source not named | - |
-| 75 |  | measured | `3.81` | not run: measured, source not named | - |
-| 75 |  | measured | `3.47` | not run: measured, source not named | - |
-| 75 |  | measured | `3.56` | not run: measured, source not named | - |
-| 76 |  | measured | `3.41` | not run: measured, source not named | - |
-| 76 |  | measured | `3.74` | not run: measured, source not named | - |
-| 77 |  | measured | `-0.57` | not run: measured, source not named | - |
-| 77 |  | measured | `-0.38` | not run: measured, source not named | - |
+| 74 | ch:temperature:L74 | measured | `3.31` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: steelhead red blood cells, median holding energy | PASS |
+| 74 | ch:temperature:L74:4.02 | measured | `4.02` | file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: steelhead sperm, median holding energy | PASS |
+| 75 | ch:temperature:L75 | measured | `3.81` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: brook charr sperm, median holding energy | PASS |
+| 75 | ch:temperature:L75:3.47 | measured | `3.47` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Atlantic salmon fin, F0, median holding energy | PASS |
+| 75 | ch:temperature:L75:3.56 | measured | `3.56` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Atlantic salmon fin, F1, median holding energy | PASS |
+| 76 | ch:temperature:L76 | measured | `3.41` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: human cells at 37 C (dashed line) | PASS |
+| 76 | ch:temperature:L76:3.74 | measured | `3.74` | numeric: a fixed holding energy carried to 10 C, in kT | PASS |
+| 77 | ch:temperature:L77 | measured | `-0.57` | file `Biological_Physics/MethylPhys/doors/data/charr_readings.csv`: charr: holding energy against duplicate fraction, Spearman rho | PASS |
+| 77 | ch:temperature:L77:-0.38 | measured | `-0.38` | file `Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv`: Atlantic salmon: holding energy against conversion failure, Spearman rho | PASS |
 | 98 |  | observed | `0.96` | not run: measured, source not named | - |
-| 111 |  | prediction | `20.84` | not run: not yet checked | - |
-| 113 |  | prediction | `1.00` | not run: not yet checked | - |
+| 111 | ch:temperature:L111 | prediction | `20.84` | numeric: M for a dog at 38.5 C | PASS |
+| 113 |  | prediction | `1.00` | not run: prediction, nothing to recompute (held-out canine cells should read 1.00 on a canine reference) | - |
 
 ## Part 6 - ch:translation - `docs/book/part4/p4_11_translation.tex`
 

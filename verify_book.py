@@ -1876,6 +1876,24 @@ def _b09_accC(prefix):
     """C-scores printed by the acceptance run for the rows whose group starts with prefix (rows with a C)."""
     return [float(r['C']) for r in load_csv_rows(_B09_CA) if r['group'].startswith(prefix) and r['C'] not in ('', None)]
 
+# helpers of the part4/p4_10_temperature checks
+_B09_PC = 'Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'
+_B09_SAL = 'Biological_Physics/MethylPhys/doors/data/salmon_readings.csv'
+_B09_CHR = 'Biological_Physics/MethylPhys/doors/data/charr_readings.csv'
+_B09_RIM = 'Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv'
+
+def _b09_md_line(path, start):
+    """The first line of a committed record that starts with the given text (a table row)."""
+    for ln in file_text(path).splitlines():
+        if ln.strip().startswith(start):
+            return ln
+    raise KeyError(f"{path}: no line starting {start!r}")
+def _b09_nums(s):
+    return [float(x) for x in re.findall(r"\d+\.\d+", s)]
+def _b09_charr():
+    """Brook charr sperm, WGBS: the 39 fish with a complete run (the failed run, 297 read pairs, left out)."""
+    return [r for r in load_csv_rows(_B09_CHR) if float(r['pairs']) >= 1000]
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -31926,6 +31944,13 @@ def check_2541():
     value=fl(38.5)
     return locals()
 
+@check(label='ch:temperature:L23', chapter='ch:temperature', part=6, title='holding energy of human cells at 37 C',
+       file='part4/p4_10_temperature', line=23, status='calc', kind='file', printed='3.41', tol=0.0, source=_B09_PC)
+def check_3959():
+    'The fixed holding energy the solid curve carries, measured at 37 C across the 56 healthy cell types (mean, kT), from the methylated-sites row of the record. Book line 23, printed 3.41. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
+    value = _b09_nums(_b09_md_line(_B09_PC, '| methylated sites (copy error)'))[2]
+    return locals()
+
 @check(label='ch:temperature:L30', chapter='ch:temperature', part=6, title='floor at 40 C',
        file='part4/p4_10_temperature', line=30, status='calc', kind='num', printed='1.025', tol=0)
 def check_2542():
@@ -31998,6 +32023,92 @@ def check_2547():
 def check_2548():
     'at 42 C. Book line 36, printed 6.8.'
     value=7**(310.15/315.15)
+    return locals()
+
+@check(label='ch:temperature:L74', chapter='ch:temperature', part=6, title='steelhead red blood cells, median holding energy',
+       file='part4/p4_10_temperature', line=74, status='measured', kind='file', printed='3.31', tol=0.0, source=_B09_SAL)
+def check_3960():
+    'Methow River steelhead, red blood cells (RRBS, 20 fish): median holding energy E = ln((1-eps)/eps) in kT. Book line 74, printed 3.31. Inputs: E_kT of the RBC rows of salmon_readings.csv.'
+    E = [float(r['E_kT']) for r in load_csv_rows(_B09_SAL) if r['tissue'] == 'RBC']
+    n = len(E)
+    value = float(np.median(E))
+    return locals()
+
+@check(label='ch:temperature:L74:4.02', chapter='ch:temperature', part=6, title='steelhead sperm, median holding energy',
+       file='part4/p4_10_temperature', line=74, status='measured', kind='file', printed='4.02', tol=0.0, source=_B09_SAL)
+def check_3961():
+    'Methow River steelhead, sperm (RRBS, 20 fish): median holding energy in kT. Book line 74, printed 4.02. Inputs: E_kT of the Sp rows of salmon_readings.csv.'
+    E = [float(r['E_kT']) for r in load_csv_rows(_B09_SAL) if r['tissue'] == 'Sp']
+    n = len(E)
+    value = float(np.median(E))
+    return locals()
+
+@check(label='ch:temperature:L75', chapter='ch:temperature', part=6, title='brook charr sperm, median holding energy',
+       file='part4/p4_10_temperature', line=75, status='measured', kind='file', printed='3.81', tol=0.0, source=_B09_CHR)
+def check_3962():
+    'Brook charr sperm (WGBS), the 39 fish with a complete run: median holding energy in kT. Book line 75, printed 3.81. Inputs: E_kT, pairs of charr_readings.csv.'
+    E = [float(r['E_kT']) for r in _b09_charr()]
+    n = len(E)
+    value = float(np.median(E))
+    return locals()
+
+@check(label='ch:temperature:L75:3.47', chapter='ch:temperature', part=6, title='Atlantic salmon fin, F0, median holding energy',
+       file='part4/p4_10_temperature', line=75, status='measured', kind='file', printed='3.47', tol=0.0, source=_B09_RIM)
+def check_3963():
+    'Rimouski Atlantic salmon fin (WGBS), generation F0: median holding energy in kT (rimouski_score.json P2 stores 3.4651). Book line 75, printed 3.47. Inputs: E_kT of the F0 rows of rimouski_readings.csv.'
+    E = [float(r['E_kT']) for r in load_csv_rows(_B09_RIM) if r['generation'] == 'F0']
+    n = len(E)
+    value = float(np.median(E))
+    return locals()
+
+@check(label='ch:temperature:L75:3.56', chapter='ch:temperature', part=6, title='Atlantic salmon fin, F1, median holding energy',
+       file='part4/p4_10_temperature', line=75, status='measured', kind='file', printed='3.56', tol=0.0, source=_B09_RIM)
+def check_3964():
+    'Rimouski Atlantic salmon fin, generation F1: median holding energy in kT. Book line 75, printed 3.56. Inputs: E_kT of the F1 rows of rimouski_readings.csv.'
+    E = [float(r['E_kT']) for r in load_csv_rows(_B09_RIM) if r['generation'] == 'F1']
+    n = len(E)
+    value = float(np.median(E))
+    return locals()
+
+@check(label='ch:temperature:L76', chapter='ch:temperature', part=6, title='human cells at 37 C (dashed line)',
+       file='part4/p4_10_temperature', line=76, status='measured', kind='file', printed='3.41', tol=0.0, source=_B09_PC)
+def check_3965():
+    'Holding energy of human cells at 37 C, the dashed line of the figure: mean over the 56 healthy cell types, from the record. Book line 76, printed 3.41. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
+    value = _b09_nums(_b09_md_line(_B09_PC, '| methylated sites (copy error)'))[2]
+    return locals()
+
+@check(label='ch:temperature:L76:3.74', chapter='ch:temperature', part=6, title='a fixed holding energy carried to 10 C, in kT',
+       file='part4/p4_10_temperature', line=76, status='measured', kind='num', printed='3.74', tol=0.0)
+def check_3966():
+    'A holding energy fixed in joules at its 37 C value, E_hold kB T_cell, expressed in units of kB T at 10 C (283.15 K): E_hold T_cell / 283.15. Book line 76, printed 3.74 (dotted line). Inputs: E_hold, T_cell (CANON).'
+    T10 = 10 + 273.15
+    value = E_hold * kB * T_cell / (kB * T10)
+    return locals()
+
+@check(label='ch:temperature:L77', chapter='ch:temperature', part=6, title='charr: holding energy against duplicate fraction, Spearman rho',
+       file='part4/p4_10_temperature', line=77, status='measured', kind='file', printed='-0.57', tol=0.0, source=_B09_CHR)
+def check_3967():
+    'Brook charr, 39 fish with a complete run: Spearman correlation of holding energy with the library duplicate fraction (PROC_CHARR_01_OUTCOME.md: 0.57 in magnitude without the failed fish). Book line 77, printed -0.57. Inputs: E_kT, dup_frac of charr_readings.csv.'
+    from scipy.stats import spearmanr
+    rows = _b09_charr()
+    value = float(spearmanr([float(r['E_kT']) for r in rows], [float(r['dup_frac']) for r in rows])[0])
+    return locals()
+
+@check(label='ch:temperature:L77:-0.38', chapter='ch:temperature', part=6, title='Atlantic salmon: holding energy against conversion failure, Spearman rho',
+       file='part4/p4_10_temperature', line=77, status='measured', kind='file', printed='-0.38', tol=0.0, source=_B09_RIM)
+def check_3968():
+    'Rimouski Atlantic salmon, 64 fish: Spearman correlation of holding energy with the conversion-failure rate (the copy error correlates +0.375, rimouski_score.json P1). Book line 77, printed -0.38. Inputs: E_kT, conv_fail of rimouski_readings.csv.'
+    from scipy.stats import spearmanr
+    rows = load_csv_rows(_B09_RIM)
+    value = float(spearmanr([float(r['E_kT']) for r in rows], [float(r['conv_fail']) for r in rows])[0])
+    return locals()
+
+@check(label='ch:temperature:L111', chapter='ch:temperature', part=6, title='M for a dog at 38.5 C',
+       file='part4/p4_10_temperature', line=111, status='prediction', kind='num', printed='20.84', tol=0.0)
+def check_3969():
+    'The Mahaffey number for a dog, M = dG_ATP/(R T) at a body temperature of 38.5 C with dG_ATP held fixed. Book line 111, printed 20.84. Inputs: dG_ATP, R (CANON); 38.5 C (book).'
+    T_dog = 38.5 + 273.15
+    value = dG_ATP / (R_gas * T_dog)
     return locals()
 
 
@@ -36012,21 +36123,10 @@ INVENTORY = [
     (6, 'ch:meta', 'part4/p4_07_meta', 112, '', 'measured', '2.8', 'measured, source not named'),
     (6, 'ch:cscore', 'part4/p4_09_cscore', 14, 'eq:z', 'none', '', 'definition: residual z_i = (H(beta_i) - H(ref_i)) / s_i (the construction of the map)'),
     (6, 'ch:cscore', 'part4/p4_09_cscore', 38, '', 'calc', '+0.5', 'input: shift of +0.5 healthy SD given to every site of the simulated illustration map (no specimen), nothing to recompute'),
-    (6, 'ch:temperature', 'part4/p4_10_temperature', 6, '', 'calc', '38.5', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:temperature', 'part4/p4_10_temperature', 17, '', 'calc', '38.5', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:temperature', 'part4/p4_10_temperature', 23, '', 'calc', '3.41', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:temperature', 'part4/p4_10_temperature', 74, '', 'measured', '3.31', 'measured, source not named'),
-    (6, 'ch:temperature', 'part4/p4_10_temperature', 74, '', 'measured', '4.02', 'measured, source not named'),
-    (6, 'ch:temperature', 'part4/p4_10_temperature', 75, '', 'measured', '3.81', 'measured, source not named'),
-    (6, 'ch:temperature', 'part4/p4_10_temperature', 75, '', 'measured', '3.47', 'measured, source not named'),
-    (6, 'ch:temperature', 'part4/p4_10_temperature', 75, '', 'measured', '3.56', 'measured, source not named'),
-    (6, 'ch:temperature', 'part4/p4_10_temperature', 76, '', 'measured', '3.41', 'measured, source not named'),
-    (6, 'ch:temperature', 'part4/p4_10_temperature', 76, '', 'measured', '3.74', 'measured, source not named'),
-    (6, 'ch:temperature', 'part4/p4_10_temperature', 77, '', 'measured', '-0.57', 'measured, source not named'),
-    (6, 'ch:temperature', 'part4/p4_10_temperature', 77, '', 'measured', '-0.38', 'measured, source not named'),
+    (6, 'ch:temperature', 'part4/p4_10_temperature', 6, '', 'calc', '38.5', 'input: dog body temperature 38.5 C (M at 38.5 C is checked by ch:temperature:L6:20.84)'),
+    (6, 'ch:temperature', 'part4/p4_10_temperature', 17, '', 'calc', '38.5', 'input: dog body temperature 38.5 C (the floor at 38.5 C is checked by ch:temperature:L17:1.012)'),
     (6, 'ch:temperature', 'part4/p4_10_temperature', 98, '', 'observed', '0.96', 'measured, source not named'),
-    (6, 'ch:temperature', 'part4/p4_10_temperature', 111, '', 'prediction', '20.84', 'not yet checked'),
-    (6, 'ch:temperature', 'part4/p4_10_temperature', 113, '', 'prediction', '1.00', 'not yet checked'),
+    (6, 'ch:temperature', 'part4/p4_10_temperature', 113, '', 'prediction', '1.00', 'prediction, nothing to recompute (held-out canine cells should read 1.00 on a canine reference)'),
     (6, 'ch:translation', 'part4/p4_11_translation', 33, '', 'derived', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:translation', 'part4/p4_11_translation', 110, '', 'calc', '2.3', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (6, 'ch:translation', 'part4/p4_11_translation', 111, '', 'calc', '0.15', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),

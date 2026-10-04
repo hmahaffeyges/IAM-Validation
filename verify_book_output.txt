@@ -4433,6 +4433,7 @@ PASS  eq:eps0T                           ch:temperature:p4_10_temperature:12  pr
 PASS  ch:temperature:L16                 ch:temperature:p4_10_temperature:16  printed 0.0233  recomputed 0.0233128  tol 5.000005e-05  [derived] eps0 at 10 C
 PASS  ch:temperature:L17                 ch:temperature:p4_10_temperature:17  printed 0.78  recomputed 0.781684  tol 0.00500001  [calc] floor H(eps0) at 10 C over the human
 PASS  ch:temperature:L17:1.012           ch:temperature:p4_10_temperature:17  printed 1.012  recomputed 1.0123  tol 5.000005e-04  [calc] floor at 38.5 C
+PASS  ch:temperature:L23                 ch:temperature:p4_10_temperature:23  printed 3.41  recomputed 3.41  tol 0.00500001  [calc] holding energy of human cells at 37 C  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
 PASS  ch:temperature:L30                 ch:temperature:p4_10_temperature:30  printed 1.025  recomputed 1.02462  tol 5.000005e-04  [calc] floor at 40 C
 PASS  ch:temperature:L30:1.041           ch:temperature:p4_10_temperature:30  printed 1.041  recomputed 1.04105  tol 5.000005e-04  [calc] floor at 42 C
 PASS  ch:temperature:L31                 ch:temperature:p4_10_temperature:31  printed 0.902  recomputed 0.902077  tol 5.000005e-04  [calc] floor at 25 C
@@ -4440,6 +4441,16 @@ PASS  ch:temperature:L31:0.959           ch:temperature:p4_10_temperature:31  pr
 PASS  ch:temperature:L32                 ch:temperature:p4_10_temperature:32  printed 0.821  recomputed 0.821493  tol 5.000005e-04  [calc] floor at 15 C
 PASS  ch:temperature:L36                 ch:temperature:p4_10_temperature:36  printed 8.1  recomputed 8.12121  tol 0.05  [calc] 7-fold selectivity at 15 C
 PASS  ch:temperature:L36:6.8             ch:temperature:p4_10_temperature:36  printed 6.8  recomputed 6.78719  tol 0.05  [calc] at 42 C
+PASS  ch:temperature:L74                 ch:temperature:p4_10_temperature:74  printed 3.31  recomputed 3.30542  tol 0.00500001  [measured] steelhead red blood cells, median holding energy  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
+PASS  ch:temperature:L74:4.02            ch:temperature:p4_10_temperature:74  printed 4.02  recomputed 4.01845  tol 0.00500001  [measured] steelhead sperm, median holding energy  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
+PASS  ch:temperature:L75                 ch:temperature:p4_10_temperature:75  printed 3.81  recomputed 3.81408  tol 0.00500001  [measured] brook charr sperm, median holding energy  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
+PASS  ch:temperature:L75:3.47            ch:temperature:p4_10_temperature:75  printed 3.47  recomputed 3.46515  tol 0.00500001  [measured] Atlantic salmon fin, F0, median holding energy  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
+PASS  ch:temperature:L75:3.56            ch:temperature:p4_10_temperature:75  printed 3.56  recomputed 3.5555  tol 0.00500001  [measured] Atlantic salmon fin, F1, median holding energy  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
+PASS  ch:temperature:L76                 ch:temperature:p4_10_temperature:76  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] human cells at 37 C (dashed line)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  ch:temperature:L76:3.74            ch:temperature:p4_10_temperature:76  printed 3.74  recomputed 3.73516  tol 0.00500001  [measured] a fixed holding energy carried to 10 C, in kT
+PASS  ch:temperature:L77                 ch:temperature:p4_10_temperature:77  printed -0.57  recomputed -0.565138  tol 0.00500001  [measured] charr: holding energy against duplicate fraction, Spearman rho  file Biological_Physics/MethylPhys/doors/data/charr_readings.csv
+PASS  ch:temperature:L77:-0.38           ch:temperature:p4_10_temperature:77  printed -0.38  recomputed -0.375275  tol 0.00500001  [measured] Atlantic salmon: holding energy against conversion failure, Spearman rho  file Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv
+PASS  ch:temperature:L111                ch:temperature:p4_10_temperature:111  printed 20.84  recomputed 20.8397  tol 0.00500001  [prediction] M for a dog at 38.5 C
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:salmonid (part4/p4_22b_salmonid.tex)
 PASS  ch:salmonid:L54                    ch:salmonid:p4_22b_salmonid:54  printed 0.0354  recomputed found in file  [measured] measured: printed value found in salmon_readings.csv, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
@@ -4877,4 +4888,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3959  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2379  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3970  FAIL 0  (heavy, read from committed outputs: 767)  inventoried-not-run 2368  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
