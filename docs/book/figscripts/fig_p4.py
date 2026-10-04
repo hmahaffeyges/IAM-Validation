@@ -28,9 +28,9 @@ def H(x):
     return -(x * np.log2(x) + (1 - x) * np.log2(1 - x))
 
 
-def normal_band(ax, axis="y", label=True):
+def normal_band(ax, axis="y", label=True, alpha=0.12):
     f = ax.axhspan if axis == "y" else ax.axvspan
-    f(*NORMAL, color=NCOL, alpha=0.12, lw=0, zorder=0)
+    f(*NORMAL, color=NCOL, alpha=alpha, lw=0, zorder=0)
     (ax.axhline if axis == "y" else ax.axvline)(1.0, color=S.GR, lw=0.6, ls="--", zorder=0)
 
 
@@ -160,7 +160,9 @@ def fig_fullsurface():
     a1.plot(100, Amax, "o", color=S.IAM, ms=4); a1.annotate(f"surface full: {Amax:.2f}", (100, Amax), xytext=(-62, -4), textcoords="offset points", fontsize=7)
     a1.set_xlabel("share of identity sites moved to a coin flip (%)"); a1.set_ylabel("Met-A"); a1.set_xlim(0, 104); a1.set_ylim(0.8, 3.3)
     a1.set_title("Arrays: Met-A from 1 to 1/0.330263"); S.panel_letter(a1, "a")
-    a2.plot(e, iam, color=S.IAM); normal_band(a2)
+    a2.plot(e, iam, color=S.IAM); normal_band(a2, alpha=0.35)
+    a2.text(0.6 * 0.97, 1.07, "Normal", ha="right", va="bottom", fontsize=6, color=NCOL)
+    a2.plot(eh, 1.0, "o", color=S.DATA, ms=4, zorder=3); a2.annotate(f"healthy cell: $\\varepsilon$ = {eh:.4f}", (eh, 1.0), xytext=(6, 8), textcoords="offset points", fontsize=6.5)
     a2.plot(EPS0, 1 / P_NEU, "s", color="k", ms=4); a2.annotate(f"floor $H_{{\\min}}$: 1/P = {1/P_NEU:.3f}", (EPS0, 1 / P_NEU), xytext=(8, -12), textcoords="offset points", fontsize=6.5)
     a2.plot(0.5, Amax2, "o", color=S.IAM, ms=4); a2.annotate(f"surface full: {Amax2:.2f}", (0.5, Amax2), xytext=(-64, -2), textcoords="offset points", fontsize=7)
     a2.set_xscale("log"); a2.set_xlim(0.01, 0.6); a2.set_ylim(0.4, 4.9)

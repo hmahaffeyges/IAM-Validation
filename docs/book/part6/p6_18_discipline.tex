@@ -11,7 +11,7 @@ record of how every number was obtained is kept with the number. The record of h
 
 A procedure that decides anything about the instrument is written before data are read: what is built, what is measured, the bars it must meet, and what
 each outcome decides. It is committed to the repository with a timestamp, and its SHA is quoted in the outcome. The outcome is scored against the bars as
-written; nothing moves after results are visible. A bar that fails is recorded as failed, with a diagnostic written after the bars and labelled as such.
+written; nothing moves after results are visible. A bar that fails is recorded as failed, with a diagnostic written after the bars and labeled as such.
 An error found in a pre-registration is recorded first in the outcome and the pre-registration is left unchanged.
 
 Three refinements came from use.
@@ -46,7 +46,7 @@ Figure~\ref{fig:p4_nulls} shows every reading behind the table.
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.62\textwidth]{figures/part6/fig_p4_18_nulls.pdf}
 \caption{Null tests of chain v3, every reading. Held-out reference arrays; tared mixtures and remission bloods (acceptance run);
-vehicle arrays, the inactive analogue and the two lowest doses of the active drug, each line against its own
+vehicle arrays, the inactive analog and the two lowest doses of the active drug, each line against its own
 vehicle (GSE135205~\cite{Pappalardi2021}). Normal shaded. \measured}
 \label{fig:p4_nulls}
 \end{figure}
@@ -56,7 +56,7 @@ vehicle (GSE135205~\cite{Pappalardi2021}). Normal shaded. \measured}
 A constructed specimen has a known change planted in it. Chain v3 computes one on every whole-blood reading: the shift a 1~\% loss of the neutrophil pattern
 would cause at this specimen's own fraction, which sets its detection limit. On six known mixtures, a planted 2~\% loss moved the tared reading by $+0.061$
 and above 1.05 on 6 of 6. \measured{} A planted change tests the arithmetic, not the biology. The stronger test is a
-known physical cause: a DNA-methyltransferase inhibitor, an inactive analogue, and a dose series, read on arrays and on single molecules. The construction also found the entropy ceiling: past $\beta=\tfrac12$ further loss lowers $H$, so the chain prints the
+known physical cause: a DNA-methyltransferase inhibitor, an inactive analog, and a dose series, read on arrays and on single molecules. The construction also found the entropy ceiling: past $\beta=\tfrac12$ further loss lowers $H$, so the chain prints the
 methylated sites' mean $\beta$ beside every reading and flags a specimen past the ceiling.
 
 Figure~\ref{fig:p4_planted} shows the planted loss on the six mixtures before any tare, with the fraction held and with it re-fitted.

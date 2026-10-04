@@ -1,6 +1,6 @@
 # MethylPhys CPG SOP — chain v3 (running today: neutrophils; full chain and commissioning order in §2b)
 
-**Build:** development v3, 2026-10-01; frozen inputs re-checked against the code 2026-10-02; this SOP proofread against the code and the runtime files 2026-10-03; development round 2 (author decisions A-O) written in 2026-10-04. **DEVELOPMENT - not commissioned.** Not a diagnostic test.
+**Build:** development v3, 2026-10-01; frozen inputs re-checked against the code 2026-10-02; this SOP proofread against the code and the runtime files 2026-10-03; development round 2 (author decisions A-O) written in 2026-10-04; Stage T changed on 2026-10-04 to self-tare II then the median tare, adopted by the author (`boxruns/run1/JOBS.md` job A; DEV-SELFTARE-02; development log 2026-10-04, DEV-PAIRED-01; §2 row T and §2b "Tare: self-tare II"). **DEVELOPMENT - not commissioned.** Not a diagnostic test.
 **Scope:** one cell, neutrophils, on Illumina EPIC v1 arrays. Other cells are added one at a time after each passes the new-cell rule
 (three tests: purified-cell Normal, replicate spread, identifiability; §2b). 450K neutrophil floor: pending.
 **Readings:** Met-A (arrays) and its C-score. IAM-A (sequencing) runs through a separate stage (Stage Q), which is in development; it has no C-score yet.
@@ -17,7 +17,8 @@
 ## 2. Stages and code
 
 Paths are relative to `Biological_Physics/MethylPhys/`. Order in the code (`chain/conductor_v3.py: run_neutrophil`): platform check → A (whole blood) → M →
-noise index → T → noise gate → MC → report; Stage Q runs only on sequencing input.
+noise index → T → noise gate → MC → report; Stage Q runs only on sequencing input. Self-tare II (Stage T step 1, adopted 2026-10-04) acts on β before A and M;
+in the code it is not yet in this order: it runs only behind `--dev-selftare-ii` (row T).
 
 | stage | what it does | code | frozen input |
 |---|---|---|---|
@@ -26,7 +27,7 @@ noise index → T → noise gate → MC → report; Stage Q runs only on sequenc
 | A Composition (whole blood only) | 8 blood groups by NNLS on 963 markers, sum 1; the markers exclude the neutrophil sites; ≥ 867 of 963 measured (`MIN_MARKER_FRACTION` 0.9), else not solved and A withheld | `chain/conductor_v3.py: stage_a_composition` | `chain/Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json` |
 | M Met-A | isolated neutrophils: H̄ / own floor. Whole blood: H̄ / H̄(e), where e = Σ f_g μ_g from the purified EPIC profiles, read when f_NEU ≥ 0.20 (`MIN_READ_FRACTION`). Both: ≥ 5400 of the 6000 identity sites measured (`SITE_COVERAGE_MIN` 0.9). Records the shift per 1 % loss of the neutrophil pattern (A recomputed on β + 0.01 × (0.5 − μ_NEU), times f_NEU in whole blood) and the entropy-ceiling flag | `chain/stage_m_met_a.py`, `chain/conductor_v3.py: stage_m_isolated, stage_m_blood` | `chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`; whole blood: `blood_composition_EPIC_v1.json` (`profiles_at_neutrophil_sites`) |
 | MC C-score | residual z_i = (H(β_i) − H(ref_i)) / s_i in genomic order (ref_i: healthy neutrophil mean H, or H(e_i) in whole blood; s_i: shrunk healthy SD); C = variance of the 50-site block means × 50 ÷ variance of z ÷ healthy median 1.1104; ≥ 10 blocks, else no C | `chain/conductor_v3.py: stage_mc_cscore` | `chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json` |
-| T Tare | same-run healthy references of the same specimen type (same slide, else same batch), whole blood and isolated alike, ≥ 3 (`MIN_REFS`): A_rel = A ÷ median(reference A); spread = SD (ddof 1) of reference A ÷ median; detection limit = 2 × spread ÷ shift per 1 % loss; nothing is fitted; < 3 references → untared; a reference row carrying the specimen's own id is left out | `chain/conductor_v3.py: stage_t_tare` | — |
+| T Tare | **self-tare II, then the median tare** (adopted by the author 2026-10-04; DEV-SELFTARE-02 reading (iv), author decision G; DEV-PAIRED-01). Step 1, self-tare II, on this array's own β: for each probe design (type I, type II) the anchors L, U = mean β over the array's low and high fixed sites of that design; β′ = Lr + (β − L)(Ur − Lr)/(U − L), with Lr, Ur the same anchors averaged over the six reference arrays; Met-A is then formed from β′ as rows A and M form it; no references needed; nothing is fitted; a design whose anchors are missing or with U − L ≤ 0.1 is left unmapped (code). Step 2, the median tare: same-run healthy references of the same specimen type (same slide, else same batch), whole blood and isolated alike, ≥ 3 (`MIN_REFS`): A_rel = A ÷ median(reference A); spread = SD (ddof 1) of reference A ÷ median; detection limit = 2 × spread ÷ shift per 1 % loss; nothing is fitted; < 3 references → step 2 does not run; a reference row carrying the specimen's own id is left out. **In the code today** step 2 is `stage_t_tare` on the untared A; step 1 runs only behind `--dev-selftare-ii` and is recorded as `development.selftare_ii` (`A_selftared`), not in A_rel; wiring step 1 into Stage T is still to do. Earlier Stage T, kept as history: the median tare alone (2026-10-02 to 2026-10-04, DEV-TARE-02); before that the noise-corrected tare (removed 2026-10-02, DEV-TARE-02) | `chain/conductor_v3.py: stage_t_tare`; step 1: `chain/dev_stages.py: anchors, selftare_map, selftare_ii` | step 1: `chain/Runtime Matrices/Development/dev_selftare_typeII_EPIC_v1.json` (development file: fixed sites by design and state, reference anchors) |
 | Noise | noise index N = mean H(β) over the 48,528 noise sites measured on the array (≥ 90 %, `MIN_NOISE_FRACTION`); fewer → N not computed and the gauge state is withheld, tared or not, with the counts and the reason in plain words (author decision A, 2026-10-04); N > N_max 0.149 on an untared reading → gauge state withheld, A printed as a number | `chain/conductor_v3.py: noise_index, noise_gate, run_neutrophil` | `chain/Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json`, `chain/Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json` (N_max = top of the 6 reference arrays' N range 0.1223–0.1489, DEV-NOISE-01) |
 | Q IAM-A (sequencing) | isolated copy error ε on qualifying molecules (≥ 6 calls, ≥ 80 % methylated); IAM-A = H(ε) ÷ (P × H(ε₀)); ≥ 100,000 opportunities; refuses any pipeline but the one P was measured on. IAM-A C-score (development, decision C): blocks of 1,000 sites in genomic order, C = Σ(k_b − ε o_b)² / Σ ε(1 − ε) o_b; independent errors give 1 (derived); one C per A and per half; band not set | `chain/stage_q_iam_a.py` (called by `chain/MethylPhys_Interface/run_sample.py` with `--pat` or `--site-table`) | `chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json` (`eps0` 0.032, `cells.neutrophils.P` 1.099, `pipeline` `loyfer_pat_v1`) |
 | Report | one HTML page plus a JSON bundle; one row appended to the evidence ledger | `chain/MethylPhys_Interface/report_v3.py` (ledger row: `run_sample.py`) | — |
@@ -52,7 +53,7 @@ pre-registered check on v3 has passed and the result is recorded in `doors/`.
 | 5 | Met-A | each cell read against its own floor or its composition-matched healthy expectation | **running** (neutrophils); B cells behind `--dev-percell-b`; monocytes and B cells do not meet the new-cell rule (DEV-NEWCELL-01) |
 | 6 | C-score | clustering of the residual map in genomic order | **running** (band not set); IAM-A C-score in Stage Q (development, DEV-IAMA-CSCORE-01) |
 | 7 | IAM-A | single-molecule reading on sequencing data | **running** (development; constructed test data 2026-10-03, DEV-BASE-CHAIN-01 e; real Loyfer granulocyte files 2026-10-04, DEV-IAMA-REAL-01) |
-| 8 | Same-run tare | A_rel = A / median of same-run healthy references | **running** (median tare); self-tare on type II fixed sites then median tare behind `--dev-selftare-ii` meets every replicate and other-laboratory bar (DEV-SELFTARE-02) - author decision |
+| 8 | Same-run tare | self-tare II on the array's own fixed sites, then A_rel = A / median of same-run healthy references | **running** (median tare); self-tare II then median tare adopted by the author as the Stage T reading on 2026-10-04 (it met every replicate and other-laboratory bar, DEV-SELFTARE-02; DEV-PAIRED-01); self-tare II still runs behind `--dev-selftare-ii` until it is wired into Stage T |
 | 9 | Noise gate | noise index N; gauge state withheld above N_max untared, and withheld whenever fewer than 90 % of the noise sites are measured | **running** |
 | 10 | Directional decomposition | which way a departure points (toward disorder or toward over-order), per cell | development flag `--dev-direction` (rebuilt physics-only, DEV-DIRECTION-02: known loss of methylation 12/12 toward disorder; replicates 56/63 no direction) |
 | 11 | Sky map | each site placed on the sphere (HEALPix), the residual map drawn per cell | development flag `--dev-sky` (DEV-SKY-02: against the within-chromosome block-shuffle null three of six bands inside 0.9-1.1) |
@@ -130,7 +131,7 @@ Applied to monocytes and B cells on 2026-10-04 (DEV-NEWCELL-01): neither meets i
 
 `run_sample.py --dev-selftare-ii --dev-direction --dev-trace --dev-foreign --dev-brightness --dev-nilc --dev-atlas-e --dev-percell-b --dev-sky --dev-epic-v2`
 (`chain/dev_stages.py`). Each writes `bundle["development"][<stage>]` and a report section, labelled DEVELOPMENT - not commissioned. None changes the
-reading, the gauge or the tare (DEV-FLAGS-01: 63 of 63 readings identical with every flag on; release check E10). `--dev-atlas-e`, `--dev-nilc`,
+reading, the gauge or the tare (`--dev-selftare-ii` carries the adopted Stage T step 1 until it is wired in; its result is in the bundle, not in A_rel) (DEV-FLAGS-01: 63 of 63 readings identical with every flag on; release check E10). `--dev-atlas-e`, `--dev-nilc`,
 `--dev-percell-b` and `--dev-sky` need `--atlas-v2 <IAMAtlas_v2.parquet>` (not stored in the repository); `--dev-sky` needs healpy;
 `--dev-epic-v2` needs `--sesame-rscript <Rscript>` of an environment with Bioconductor sesame.
 
@@ -146,17 +147,37 @@ reading, the gauge or the tare (DEV-FLAGS-01: 63 of 63 readings identical with e
 | `CPG_Null_Runner` null N7 | its synthetic generator was retired with chain v2 |
 | EPIC v2 reading in the chain | no purified neutrophil EPIC v2 arrays exist publicly to set a v2 floor (DEV-EPIC-V2-01); refused at intake |
 
-### Tare: what comes next (author decision G)
+### Tare: self-tare II (author decision G; adopted 2026-10-04)
 
-The self-tare on type II fixed sites followed by the median tare met every replicate and other-laboratory bar (DEV-SELFTARE-02). Making it the Stage T reading
-changes the tare and needs the author. The second route stays written here: fully methylated and fully unmethylated control DNA (and a 50 % mix) on every slide
+Stage T is self-tare II, then the median tare (DEV-SELFTARE-02 reading (iv); adopted by the author on 2026-10-04, `boxruns/run1/JOBS.md` job A; development log
+2026-10-04, DEV-PAIRED-01). It met every replicate and other-laboratory bar (DEV-SELFTARE-02): replicate within-person SD 0.0164, 62/63 Normal; other
+laboratories 49/49; floor 6/6.
+- **What it computes.** Each array is tared on its own fixed sites: per probe design, its low and high anchors L and U (mean β over the low and the high fixed
+  sites) and the map β′ = Lr + (β − L)(Ur − Lr)/(U − L) onto the reference arrays' scale (Lr, Ur: the same anchors averaged over the six reference arrays;
+  type I 0.0186 / 0.9820, type II 0.0555 / 0.9486). Two points fix an affine map, so nothing is fitted. Met-A is then formed from β′, and the median tare
+  (§2 row T, step 2) runs on that A against the same-run references.
+- **Fixed sites.** Type I: the noise sites of the same state (DEV-NOISE-01). Type II: EPIC type II probes, not a neutrophil identity site and not a composition
+  marker, with every purified GSE110554 group mean ≤ 0.15 (low set) or ≥ 0.85 (high set), group SD ≤ 0.02 and largest difference between group means ≤ 0.03;
+  found 50,359 low and 166,379 high. File: `chain/Runtime Matrices/Development/dev_selftare_typeII_EPIC_v1.json` (development).
+- **Assumption.** The fixed sites hold the same true state on every array of healthy blood (DEV-SELFTARE-02 step 3, a conjecture).
+- **What it replaces.** The median tare alone as the Stage T reading. Self-tare II alone did not carry every other laboratory onto the reference scale
+  (GSE247193 5/21 in Normal); the median step after it did (49/49).
+- **Fewer than 3 same-run references.** The median step cannot run. DEV-PAIRED-01 (two GSE128733 neutrophil arrays on one slide) read self-tare II alone:
+  A 1.1663 / 1.1695 untared, 1.0437 / 1.0426 self-tared; both noise indices above 0.149, so the gauge state was withheld.
+- **In the code.** Self-tare II runs behind `--dev-selftare-ii` (`dev_stages.selftare_ii`) and is recorded under `development.selftare_ii`; the printed
+  A_rel is still the median tare of the untared A. Wiring self-tare II into Stage T is still to do.
+
+History (kept): until 2026-10-04 Stage T was the median tare alone (DEV-TARE-02, 2026-10-02); the noise-corrected tare before it was removed on 2026-10-02
+(DEV-TARE-02).
+
+The second route stays written here, as the check on the fixed-site assumption: fully methylated and fully unmethylated control DNA (and a 50 % mix) on every slide
 measures the low and high anchors on the slide itself and the channel-gain term the fixed sites cannot see; it needs wet-lab runs.
 
 ## 3. Rules the chain enforces
 
 1. **Read line.** In whole blood, A is computed only when neutrophils are ≥ 20 % of the specimen (`MIN_READ_FRACTION`, DEV-LOWFRAC-01: below it a 1 % loss of the neutrophil pattern moves A by less than 0.01). Below that, the fraction is printed and A is withheld.
 2. **Whole blood must be tared.** Untared whole-blood A carries a composition and laboratory offset, measured at −0.04 in one lab and +0.09 in another.
-   The gauge state is printed only from A_rel. Isolated neutrophils are read against their own floor and are tared against same-run
+   The gauge state is printed only from A_rel (Stage T: self-tare II, then the median tare; §2 row T). Isolated neutrophils are read against their own floor and are tared against same-run
    references the same way (array noise, measured on second-lab isolated cells, PROC-NEUT-TEST-01).
 3. **Platform match.** The floor, the profiles and the specimen must be on the same platform. Without a frozen floor for the platform, the chain refuses.
    A β vector of 700,000 probes or fewer is refused as 450K or incomplete, so an EPIC v1 array that loses that many probes at detection is refused too.
@@ -180,8 +201,10 @@ python run_sample.py --grn S_Grn.idat --red S_Red.idat --engine v3 \
   --specimen "whole blood" --array-type EPIC_v1 --id S001 --out S001.html      # --sex F --age 52 optional, recorded when given
 ```
 Isolated neutrophils: `--specimen "isolated neutrophils"`.
-Tare, once ≥ 3 healthy references of the same specimen type on the same slide (else the same batch) have been read: add `--slide-ref-A 0.951,0.957,0.962`.
+Tare (Stage T step 2, the median tare), once ≥ 3 healthy references of the same specimen type on the same slide (else the same batch) have been read: add `--slide-ref-A 0.951,0.957,0.962`.
 That list holds the references' untared A values. Or `--slide-ref-table refs.csv` (column `A`, optional `id`; the specimen's own id is left out).
+Stage T step 1 (self-tare II, adopted 2026-10-04): add `--dev-selftare-ii`; it needs no references and is recorded under `development.selftare_ii`
+(`A_selftared`). Until it is wired into Stage T, the printed A_rel is the median tare of the untared A (§2 row T).
 Second draw of the same person (stage 12b): add `--prior-betas S000_betas.parquet --prior-bundle S000_bundle.json` (the earlier draw run with
 `--save-betas`, and the same `--patient-id`); the bundle gets `difference_map` (per-address difference) or a refusal naming what differs.
 An EPIC v2 array is refused at intake with a report (v3 reads EPIC v1 only); a machine whose methylprep manifest cannot load stops with
@@ -209,6 +232,7 @@ It is written for the compute box (box paths, roster files, `chain_v3.tgz`). The
 | Round 2, purified healthy neutrophils, enlarged set (DEV-INTAKE-02) | tared A_rel: floor 6/6, other laboratories 56/68 Normal (round 1: 42/49) |
 | Round 2, detection statistic (DEV-DETECTION-01) | 4,996 EPIC v1 and 450K arrays: poobah better in 31 strata, Gaussian test in 0; poobah kept |
 | Round 2, self-tare on type II fixed sites then median tare (DEV-SELFTARE-02, flag) | replicate within-person SD 0.0164, 62/63 Normal; other laboratories 49/49; floor 6/6 |
+| Purified neutrophils from a new laboratory, GSE128733, 2 EPIC arrays on one slide (DEV-PAIRED-01, 2026-10-04) | A untared 1.1663 / 1.1695; self-tare II 1.0437 / 1.0426; median step not run (2 arrays, ≥ 3 needed); noise index 0.169 / 0.182, gauge state withheld |
 | Round 2, known loss of methylation (DEV-DIRECTION-02, flag) | decitabine and NTX-301 treated arrays 12/12 toward disorder; replicates 56/63 no direction |
 | Round 2, IAM-A on real single-molecule files (DEV-IAMA-REAL-01) | three Loyfer granulocyte files end to end: whole files 1.0394, 1.0632, 1.0344 (2/3 Normal) |
 

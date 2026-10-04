@@ -3,11 +3,11 @@
 \section{From intensities to $\beta$}
 
 A bisulfite array does not report $\beta$. It reports two fluorescence intensities per probe, methylated $M$ and unmethylated
-$U$, in two colour channels, stored in IDAT files. $\beta=M/(M+U+\alpha)$ with a small offset $\alpha$ is computed only after
+$U$, in two color channels, stored in IDAT files. $\beta=M/(M+U+\alpha)$ with a small offset $\alpha$ is computed only after
 background correction, dye-bias correction and probe-type handling~\cite{Triche2013,Fortin2017}. This is the methylome's
 map-making step, and like map-making it is where most of the instrument's errors enter. The chain does it itself, from the IDATs,
 one array at a time (Stage~1): noob background and dye-bias correction with
-probe-type normalisation, using only the array's own control and out-of-band probes. No other array and no reference matrix enters
+probe-type normalization, using only the array's own control and out-of-band probes. No other array and no reference matrix enters
 this step. Stage~1 also records what the array reports about itself: per-probe detection, control-probe intensities and the spread of the
 SNP probes.
 
@@ -87,7 +87,7 @@ references are part of the run, not a stored group, and the specimen is never am
       specimen's own fraction. Every tared reading states the smallest loss it could have shown.
 \end{itemize}
 With too few references the reading is untared. Isolated neutrophils are then drawn on the gauge against their own reference,
-labelled \emph{untared}, with the own-reference state kept in the state text; whole blood gets no gauge position until it is tared.
+labeled \emph{untared}, with the own-reference state kept in the state text; whole blood gets no gauge position until it is tared.
 The operating procedure is in the SOP.
 
 The acceptance run shows what the tare does and what it has not yet been tested on. Untared whole-blood Met-A read 0.943--0.968 on six DNA mixtures from the reference laboratory and 1.073--1.115 on

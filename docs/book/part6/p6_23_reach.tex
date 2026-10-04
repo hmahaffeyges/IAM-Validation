@@ -9,14 +9,14 @@ After commissioning, the order of work is set:
 \item tissue specimens;
 \item dogs and other mammals;
 \item salmonids;
-\item ageing, in the same person over time;
+\item aging, in the same person over time;
 \item back to the quantum processors of Part~\ref{part:3}, to check which of its predictions have come due.
 \end{enumerate}
 Each of items 1--6 needs something chain v3 does not yet have: a floor for another cell type, another platform, a non-blood template, or serial mode.
 Public data for these tracks have been collected, with raw array files preferred wherever they exist so that each specimen enters through the chain's own
 Stage~1. The list of collected sets is not in the repository and is not quoted here. \openprob
 
-\paragraph{What each new surface needs.} A reading generalises in three directions: the cell type, the platform, and the route by which
+\paragraph{What each new surface needs.} A reading generalizes in three directions: the cell type, the platform, and the route by which
 the DNA reaches the array. The same cell type may need its own reference on each route: a neutrophil in a whole-blood draw, the same
 lineage's DNA in plasma after cell death, and the same cell in a tissue biopsy reach the array through different handling. A reference
 measured on one platform does not transfer to another (Chapter~\ref{ch:meta}); whether one transfers between routes on the same
@@ -26,24 +26,24 @@ has not been tested, never that it cannot be read.
 
 \section{Blood cancers}
 
-A leukaemic cell is usually the majority cell in the tube, so the fraction that limits a minor cell does not limit it. The test is per cell: the affected
+A leukemic cell is usually the majority cell in the tube, so the fraction that limits a minor cell does not limit it. The test is per cell: the affected
 lineage read against its own healthy floor, the other lineages in the same specimen against theirs, each against 1.00. \prediction{} The affected lineage
 reads above Normal; the unaffected lineages do not. The first steps are progenitor floors on EPIC with more donors, the C-score on the same arrays, and IAM-A on single-molecule
-leukaemia data. \openprob
+leukemia data. \openprob
 
 Figure~\ref{fig:p4_tumour} and Table~\ref{tab:p4_tumour} give every pair.
 
 \begin{figure}[htbp]\centering
 \includegraphics[width=0.55\textwidth]{figures/part6/fig_p4_23_tumour.pdf}
-\caption{Copy error on single molecules, tumour against the same person's normal tissue: six early-onset colorectal pairs (WGBS) and four oral
+\caption{Copy error on single molecules, tumor against the same person's normal tissue: six early-onset colorectal pairs (WGBS) and four oral
 squamous pairs (WGBS, and oxWGBS with 5hmC removed). Ringed: the pair whose conversion-failure difference is just over the 0.005 bar. \measured}
 \label{fig:p4_tumour}
 \end{figure}
 \begin{table}[htbp]\centering\small
-\caption{Tumour--normal pairs read on single molecules. $\varepsilon$: copy error with the
+\caption{Tumor--normal pairs read on single molecules. $\varepsilon$: copy error with the
 sequencing-error rate subtracted. \measured}\label{tab:p4_tumour}
 \begin{tabular}{@{}llrrrr@{}}\toprule
-pair & assay & $\varepsilon$ normal & $\varepsilon$ tumour & ratio & conversion difference \\\midrule
+pair & assay & $\varepsilon$ normal & $\varepsilon$ tumor & ratio & conversion difference \\\midrule
 CRC1 & WGBS & 0.03514 & 0.04668 & 1.328 & 0.0027 \\ \rowrule
 CRC2 & WGBS & 0.03550 & 0.04269 & 1.203 & 0.0009 \\ \rowrule
 CRC3 & WGBS & 0.03268 & 0.03865 & 1.183 & 0.0032 \\ \rowrule
@@ -73,7 +73,7 @@ estimate, not a measurement. \calc
 \section{Stool}
 
 For colon lining, stool selects the cells that shed into the gut. Against the cells that shed into stool, 29 marker regions (227 CpGs) were found for lower-gut
-epithelium, enough to pull its molecules from a deep stool library; whether enough tumour molecules survive in stool is not assessed. \measured{} No stool methylome has been read. \openprob
+epithelium, enough to pull its molecules from a deep stool library; whether enough tumor molecules survive in stool is not assessed. \measured{} No stool methylome has been read. \openprob
 
 \section{Tissues}
 
@@ -92,7 +92,7 @@ read on it. \prediction{} They read 1.00 within tolerance.
 Fish red blood cells are nucleated, so salmonid blood is close to one cell type and needs almost no separation. Each fish is read against its own floor at its recorded water temperature, on single molecules (Chapter~\ref{ch:temperature}). A
 library-quality term has to be removed before any fish-level difference is read (a known-pattern control in every library), and the floor at 10~\textdegree C has to be measured on fish, not assumed. \openprob
 
-\section{Ageing in one person}
+\section{Aging in one person}
 
 Individuals drawn repeatedly over two decades are the direct test of whether an elevation in older blood is a slope shared by every lineage or a clone moving one lineage
 (Chapter~\ref{ch:leukocyte}). It needs serial mode, a floor on the platform the draws were made on, and intake status for every draw (Chapter~\ref{ch:serial}). \openprob

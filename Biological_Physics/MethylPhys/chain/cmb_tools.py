@@ -25,6 +25,8 @@ Status vocabulary, deliberately narrow:
 # Each tool: (id, name, borrowed_from, what_it_does_here, where, check)
 # `check(o)` -> (status, evidence)
 
+import math
+
 
 def _sky(o):
     return o.get("patient_sky") or {}
@@ -138,6 +140,22 @@ def _chk_brightness(o):
             "no brightness credible intervals on this run")
 
 
+def _chk_apodised_sky(o):
+    """Stage 12 apodised mask (sky_statistics.masked_spectrum(mask="apodised"); boxruns/run1/JOBS.md job D). Reads the --dev-sky record
+    (bundle "development" -> "sky"): the apodised spectrum sits at the top level when the record was made with mask="apodised", or under
+    an "apodised" key when the hard and apodised masks are run side by side. PASS when it has finite band powers and 0 < w2 <= 1;
+    FAIL when it is there and does not; NOT_RUN otherwise."""
+    rec = (o.get("development") or {}).get("sky")
+    if not isinstance(rec, dict) or rec.get("status") != "OK":
+        return ("NOT_RUN", "no --dev-sky record on this bundle" if not isinstance(rec, dict) else str(rec.get("reason") or rec.get("status")))
+    ap = rec.get("apodised") if isinstance(rec.get("apodised"), dict) else (rec if "w2" in rec else None)
+    if ap is None:
+        return ("NOT_RUN", "the sky ran with the hard mask only")
+    w2, bp = ap.get("w2"), ap.get("bandpowers") or []
+    ok = w2 is not None and 0 < float(w2) <= 1 and len(bp) > 0 and all(math.isfinite(float(b)) for b in bp)
+    return ("PASS" if ok else "FAIL", "%s; w2 = %s; %d band powers%s" % (ap.get("mask", "apodised"), w2, len(bp), "" if ok else " (not all finite, or w2 outside (0, 1])"))
+
+
 def _not_built(reason):
     def f(_o):
         return ("NOT_BUILT", reason)
@@ -174,6 +192,11 @@ TOOLS = [
   "an intensity that does not depend on distance or aperture, applied to a class; runs as a check beside the "
   "composition-weighted sky",
   "attach_brightness_ci (retired v1 conductor)", _chk_brightness),
+ ("APODSKY", "apodised sky mask for the angular power spectrum", "the apodised galaxy mask",
+  "the residual sky's footprint (unmapped pixels cut) tapered to zero over apod_deg (C1 or C2 taper) before the pseudo-C_l, which is "
+  "then divided by w2 = mean(weight^2); the hard cut is kept as the default and run beside it. This is the sky-pixel mask of stage 12, "
+  "not the graded class presence floor of APODMASK (ENHANCEMENTS B8)",
+  "sky_statistics.py masked_spectrum(mask='apodised'), apodised_mask; chain_tests/test_apodised_mask.py", _chk_apodised_sky),
  # --- borrowed in principle, not implemented. Kept visible so the roadmap is not a separate document.
  ("CLS", "angular power spectrum of the residual sky", "the CMB power spectrum",
   "would say whether a departure is locally clustered along the genome or spread across it - one number per "

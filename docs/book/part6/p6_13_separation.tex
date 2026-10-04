@@ -27,7 +27,7 @@ It never supplies a cell's $A$. The neutrophil is read on its own identity sites
 Stage~A solves eight groups: neutrophils, eosinophils, basophils, monocytes, B cells, NK cells, CD4 T cells and CD8 T cells, from purified
 EPIC arrays of healthy donors~\cite{Salas2018,Salas2022} processed by the chain's own Stage~1.
 The markers are sites chosen by a stated rule: not a neutrophil identity site; steady within the group; a clear margin
-against every other group's mean; a capped number per group. Composition is non-negative least squares on those markers, normalised to sum one.
+against every other group's mean; a capped number per group. Composition is non-negative least squares on those markers, normalized to sum one.
 Enough of the markers must be measured, or the composition is not solved and no reading is made. The mean absolute residual
 of the fit is recorded with every specimen. \calibrated{} (profiles and markers)
 
@@ -55,7 +55,7 @@ grow, so the per-specimen detection limit, not a fixed share, is the right state
 a $\beta$ at each of them. Those values belong to the cells that are present. Where the present cells hold a site differently from
 the absent cell, their mixture moves toward a coin flip, and the absent cell's reading moves toward the far end of its gauge.
 \derived{} On 318 healthy whole-blood arrays from four laboratories, the identity sites of cell groups absent from blood read at or
-near the largest value their gauge allows, one of them at 100~\% of it. \measured{} A reading near the far end on a cell below its read line is an artefact of absence, not a severity. That
+near the largest value their gauge allows, one of them at 100~\% of it. \measured{} A reading near the far end on a cell below its read line is an artifact of absence, not a severity. That
 is why the chain reads a cell only above its read line, and below it prints the fraction and never a corrected $A$.
 
 \paragraph{What fraction still does to the reading.} In a second laboratory, tared whole-blood Met-A rose with neutrophil fraction by about $+0.12$
@@ -84,9 +84,9 @@ solver off. \interp
 
 \section{Cells the solver does not hold}
 
-Stage~A holds eight blood groups and nothing else. A cell outside them, an epithelial cell in blood or a blast in leukaemic blood, has no template
+Stage~A holds eight blood groups and nothing else. A cell outside them, an epithelial cell in blood or a blast in leukemic blood, has no template
 and its DNA is spread over the eight. The chain does not detect such a cell; the recorded residual of the fit is the only sign of it. One record
-shows why this matters. In leukaemic blood dominated by blasts, the neutrophil-led reading stayed near 1, and reading a blast against the neutrophil
+shows why this matters. In leukemic blood dominated by blasts, the neutrophil-led reading stayed near 1, and reading a blast against the neutrophil
 floor is not what the gauge defines. \measured{} A joint fit in which non-blood templates compete for
 mass with blood, and a dominant-cell call that names the cell to be read, are not yet built. \openprob
 
