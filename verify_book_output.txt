@@ -5013,6 +5013,59 @@ PASS  part4:ch:reach:L82                 part4:ch:reach:p4_23_reach:82  printed 
 PASS  part4:ch:reach:L82:1.5             part4:ch:reach:p4_23_reach:82  printed 1.5  recomputed 1.5  tol 0.05  [measured] constructed mixtures: most molecules  file Biological_Physics/MethylPhys/doors/PROC_MOLECULE_01_OUTCOME.md
       heavy: methylation chain on 12 ENCODE WGBS files mixed in silico (PROC-MOLECULE-01); the record is the outcome file
 
+== Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:status (part4/p4_24_status.tex)
+PASS  ch:status:L9                       ch:status:p4_24_status:9  printed 2.97\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-24  [calc] Landauer cost per bit at 37 C
+PASS  ch:status:L10                      ch:status:p4_24_status:10  printed 20.94  recomputed 20.9405  tol 0.00500001  [calc] Mahaffey number of the cell M = dG_ATP/(R T)
+PASS  ch:status:L10:30.2                 ch:status:p4_24_status:10  printed 30.2  recomputed 30.2108  tol 0.05  [calc] Landauer bits per ATP, M/ln 2
+PASS  ch:status:L19                      ch:status:p4_24_status:19  printed 0.330263  recomputed 0.330263  tol 5.000005e-07  [calc] EPIC neutrophil floor  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
+      heavy: Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices
+PASS  ch:status:L20                      ch:status:p4_24_status:20  printed 0.020  recomputed 0.0197562  tol 5.000005e-04  [calc] held-out Met-A of the six reference arrays, SD  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv
+      heavy: Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices
+PASS  ch:status:L22                      ch:status:p4_24_status:22  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy E_hold  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the record is the PROC-CHANNEL-01 outcome
+PASS  ch:status:L22:0.032                ch:status:p4_24_status:22  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [measured] eps0 = 1/(1+e^(E_hold/k_B T))
+PASS  ch:status:L22:0.163                ch:status:p4_24_status:22  printed 0.163  recomputed 0.162842  tol 5.000005e-04  [measured] phi = E_hold/M
+PASS  ch:status:L23                      ch:status:p4_24_status:23  printed 1.099  recomputed 1.099  tol 5.000005e-04  [measured] neutrophil position P  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+      heavy: IAM-A positions from Loyfer 2023 granulocyte .pat files (3 donors); the record is iama_positions_v1.json
+PASS  ch:status:L23:1.084                ch:status:p4_24_status:23  printed 1.084  recomputed 1.0841  tol 5.000005e-04  [calc] neutrophil position P, lowest donor  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+      heavy: IAM-A positions from Loyfer 2023 granulocyte .pat files (3 donors); the record is iama_positions_v1.json
+PASS  ch:status:L24                      ch:status:p4_24_status:24  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [calc] C-score healthy baseline  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
+      heavy: Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices
+PASS  ch:status:L24:0.70                 ch:status:p4_24_status:24  printed 0.70  recomputed 0.699117  tol 0.00500001  [calc] C-score of the healthy arrays, lowest  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
+      heavy: Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices
+PASS  ch:status:L24:1.23                 ch:status:p4_24_status:24  printed 1.23  recomputed 1.22767  tol 0.00500001  [calc] C-score of the healthy arrays, highest  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
+      heavy: Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices
+PASS  ch:status:L26                      ch:status:p4_24_status:26  printed 0.910  recomputed 0.909918  tol 5.000005e-04  [calc] IAM-A floor 1/P  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  ch:status:L26:3.03                 ch:status:p4_24_status:26  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] Met-A at the full surface  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
+PASS  ch:status:L26:4.45                 ch:status:p4_24_status:26  printed 4.45  recomputed 4.45497  tol 0.00500001  [calc] IAM-A at the full surface  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  ch:status:L26:45                   ch:status:p4_24_status:26  printed 45  recomputed 45.0288  tol 0.5  [calc] C-score far end  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
+PASS  ch:status:L29                      ch:status:p4_24_status:29  printed 0.78  recomputed 0.781684  tol 0.00500001  [calc] copy-error floor at 10 C, fixed holding energy
+PASS  ch:status:L29:1.012                ch:status:p4_24_status:29  printed 1.012  recomputed 1.0123  tol 5.000005e-04  [calc] copy-error floor at 38.5 C, fixed holding energy
+PASS  ch:status:L33                      ch:status:p4_24_status:33  printed 92.7  recomputed 92.68  tol 0.05  [calc] atlas v2 held-out coverage  file Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md
+      heavy: atlas v2 posterior refit on 20 masked blocks (atlas/v2/postbuild/scripts/v5_heldout.py); the record is the outcome file
+PASS  ch:status:L35                      ch:status:p4_24_status:35  printed 0.034  recomputed 0.0335204  tol 5.000005e-04  [calc] Stage A on known mixtures: median fraction error  file Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv
+      heavy: python3 Biological_Physics/MethylPhys/doors/data/lowfrac.py (needs the raw EPIC arrays through chain Stage 1 and Stage A)
+PASS  ch:status:L36                      ch:status:p4_24_status:36  printed 0.035  recomputed 0.0352162  tol 5.000005e-04  [calc] neutrophil fraction against flow cytometry  file Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv
+      heavy: chain v3 neutrophil tests T1/T3/T4 on the raw EPIC arrays (Stage 1 and Stage A)
+PASS  ch:status:L43                      ch:status:p4_24_status:43  printed 1.16  recomputed 1.15603  tol 0.00500001  [calc] DNMT1 inhibitor >= 80 nM: lowest Met-A  file Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv
+      heavy: python3 Biological_Physics/MethylPhys/doors/data/dnmt_arrays.py (needs the GSE135205 raw IDATs through chain Stage 1)
+PASS  ch:status:L43:1.87                 ch:status:p4_24_status:43  printed 1.87  recomputed 1.86563  tol 0.00500001  [calc] DNMT1 inhibitor >= 80 nM: highest Met-A  file Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv
+      heavy: python3 Biological_Physics/MethylPhys/doors/data/dnmt_arrays.py (needs the GSE135205 raw IDATs through chain Stage 1)
+PASS  ch:status:L44                      ch:status:p4_24_status:44  printed 1.65  recomputed 1.64655  tol 0.00500001  [calc] DNMT1 inhibitor 100 nM, single molecules: lowest IAM-A  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv
+      heavy: python3 Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/score_dnmt_b.py (needs the per-library site tables of the methylation chain)
+PASS  ch:status:L44:1.97                 ch:status:p4_24_status:44  printed 1.97  recomputed 1.96801  tol 0.00500001  [calc] DNMT1 inhibitor 100 nM, single molecules: highest IAM-A  file Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv
+      heavy: python3 Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/score_dnmt_b.py (needs the per-library site tables of the methylation chain)
+PASS  ch:status:L45                      ch:status:p4_24_status:45  printed 1.062  recomputed 1.062  tol 5.000005e-04  [calc] healthy DNA mixtures against neutrophils alone, lowest  file Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md
+      heavy: chain v3 on the 24 Salas DNA-mixture arrays (PROC-WB-NEUT-01); the record is the outcome file
+PASS  ch:status:L45:1.118                ch:status:p4_24_status:45  printed 1.118  recomputed 1.118  tol 5.000005e-04  [calc] healthy DNA mixtures against neutrophils alone, highest  file Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md
+      heavy: chain v3 on the 24 Salas DNA-mixture arrays (PROC-WB-NEUT-01); the record is the outcome file
+PASS  ch:status:L45:0.982                ch:status:p4_24_status:45  printed 0.982  recomputed 0.982  tol 5.000005e-04  [calc] healthy DNA mixtures against own composition, lowest  file Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md
+      heavy: chain v3 on the 24 Salas DNA-mixture arrays (PROC-WB-NEUT-01); the record is the outcome file
+PASS  ch:status:L45:1.016                ch:status:p4_24_status:45  printed 1.016  recomputed 1.016  tol 5.000005e-04  [calc] healthy DNA mixtures against own composition, highest  file Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md
+      heavy: chain v3 on the 24 Salas DNA-mixture arrays (PROC-WB-NEUT-01); the record is the outcome file
+PASS  ch:status:L47                      ch:status:p4_24_status:47  printed 3.31  recomputed 3.30542  tol 0.00500001  [calc] Methow red cells: holding energy  file Biological_Physics/MethylPhys/doors/data/salmon_readings.csv
+      heavy: python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain)
+
 == Part 7: Thirty-Seven Orders of Magnitude and the Web that is IAM | ch:theoryinterp (part5/p5_01_interpretation.tex)
 PASS  ch:theoryinterp:L30                ch:theoryinterp:p5_01_interpretation:30  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
@@ -5412,4 +5465,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 4326  FAIL 0  (heavy, read from committed outputs: 909)  inventoried-not-run 2012  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4357  FAIL 0  (heavy, read from committed outputs: 929)  inventoried-not-run 1981  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

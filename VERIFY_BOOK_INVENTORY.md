@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4326 PASS, 0 FAIL, 2012 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4357 PASS, 0 FAIL, 1981 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5243,45 +5243,45 @@ Totals: 4326 PASS, 0 FAIL, 2012 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 9 |  | calc | `2.97\times10^{-21}` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 9 |  | calc | `37` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 10 |  | calc | `20.94` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 10 |  | calc | `30.2` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 19 |  | calc | `000` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 19 |  | calc | `0.330263` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 20 |  | calc | `0.020` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 22 |  | measured | `3.41` | not run: measured, source not named | - |
-| 22 |  | measured | `0.032` | not run: measured, source not named | - |
-| 22 |  | measured | `0.163` | not run: measured, source not named | - |
-| 23 |  | measured | `1.099` | not run: measured, source not named | - |
-| 23 |  | calc | `1.084` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 24 |  | calc | `1.1104` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 24 |  | calc | `0.70` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 24 |  | calc | `-1.23` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 26 |  | calc | `0.910` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 26 |  | calc | `3.03` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 26 |  | calc | `4.45` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 26 |  | calc | `45` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 29 |  | calc | `0.78` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 29 |  | calc | `1.012` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 29 |  | calc | `10` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 29 |  | calc | `38.5` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 33 |  | calc | `92.7` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 34 |  | calc | `95` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 34 |  | calc | `87.7` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 34 |  | calc | `73.1` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 35 |  | calc | `0.034` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 36 |  | calc | `0.035` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 43 |  | calc | `1.16` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 43 |  | calc | `-1.87` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 44 |  | calc | `100` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 44 |  | calc | `1.65` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 44 |  | calc | `-1.97` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 45 |  | calc | `1.062` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 45 |  | calc | `-1.118` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 45 |  | calc | `0.982` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 45 |  | calc | `-1.016` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
-| 47 |  | calc | `3.31` | not run: not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget) | - |
+| 9 | ch:status:L9 | calc | `2.97\times10^{-21}` | numeric: Landauer cost per bit at 37 C | PASS |
+| 9 |  | calc | `37` | not run: input: T_cell = 310.15 K, 37 C (CANON T_cell) | - |
+| 10 | ch:status:L10 | calc | `20.94` | numeric: Mahaffey number of the cell M = dG_ATP/(R T) | PASS |
+| 10 | ch:status:L10:30.2 | calc | `30.2` | numeric: Landauer bits per ATP, M/ln 2 | PASS |
+| 19 | ch:status:L19 | calc | `0.330263` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: EPIC neutrophil floor | PASS |
+| 19 |  | calc | `000` | not run: count: the neutrophil reference's 6,000 identity sites (the inventory read '000' from '6,000'); a design choice of the frozen reference (metA_floors_v1_3.json n_sites), checked by ch:status:L19 reading the same file | - |
+| 20 | ch:status:L20 | calc | `0.020` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out Met-A of the six reference arrays, SD | PASS |
+| 22 | ch:status:L22 | measured | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy E_hold | PASS |
+| 22 | ch:status:L22:0.032 | measured | `0.032` | numeric: eps0 = 1/(1+e^(E_hold/k_B T)) | PASS |
+| 22 | ch:status:L22:0.163 | measured | `0.163` | numeric: phi = E_hold/M | PASS |
+| 23 | ch:status:L23 | measured | `1.099` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json`: neutrophil position P | PASS |
+| 23 | ch:status:L23:1.084 | calc | `1.084` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json`: neutrophil position P, lowest donor | PASS |
+| 24 | ch:status:L24 | calc | `1.1104` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C-score healthy baseline | PASS |
+| 24 | ch:status:L24:0.70 | calc | `0.70` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C-score of the healthy arrays, lowest | PASS |
+| 24 | ch:status:L24:1.23 | calc | `1.23` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C-score of the healthy arrays, highest | PASS |
+| 26 | ch:status:L26 | calc | `0.910` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json`: IAM-A floor 1/P | PASS |
+| 26 | ch:status:L26:3.03 | calc | `3.03` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: Met-A at the full surface | PASS |
+| 26 | ch:status:L26:4.45 | calc | `4.45` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json`: IAM-A at the full surface | PASS |
+| 26 | ch:status:L26:45 | calc | `45` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json`: C-score far end | PASS |
+| 29 | ch:status:L29 | calc | `0.78` | numeric: copy-error floor at 10 C, fixed holding energy | PASS |
+| 29 | ch:status:L29:1.012 | calc | `1.012` | numeric: copy-error floor at 38.5 C, fixed holding energy | PASS |
+| 29 |  | calc | `10` | not run: input: the temperature 10 C at which the floor ratio is evaluated (ch:status:L29 computes the ratio) | - |
+| 29 |  | calc | `38.5` | not run: input: the temperature 38.5 C at which the floor ratio is evaluated (ch:status:L29:1.012 computes the ratio) | - |
+| 33 | ch:status:L33 | calc | `92.7` | heavy file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: atlas v2 held-out coverage | PASS |
+| 34 |  | calc | `95` | not run: definition: the pre-registered bar, 95 % of held-out readings in Normal (Chapter ch:atlas) | - |
+| 34 |  | calc | `87.7` | not run: measured: recorded only in the _provenance.tests field of Biological_Physics/MethylPhys/atlas/v2/postbuild/runtime/iamatlas_v2_identity_loci_v1_1.json ('array->array 87.7% of held-out readings in NORMAL, 28/29 cell medians'), a 15 MB file above the DATA_FILES size limit; restates Chapter ch:atlas L181 | - |
+| 34 |  | calc | `73.1` | not run: measured: recorded only in the _provenance.tests field of Biological_Physics/MethylPhys/atlas/v2/postbuild/runtime/iamatlas_v2_identity_loci_v1_1.json ('Loyfer->array with this correction 73.1%, 14/17 cell medians'), a 15 MB file above the DATA_FILES size limit; restates Chapter ch:atlas L182 | - |
+| 35 | ch:status:L35 | calc | `0.034` | heavy file `Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv`: Stage A on known mixtures: median fraction error | PASS |
+| 36 | ch:status:L36 | calc | `0.035` | heavy file `Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv`: neutrophil fraction against flow cytometry | PASS |
+| 43 | ch:status:L43 | calc | `1.16` | heavy file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT1 inhibitor >= 80 nM: lowest Met-A | PASS |
+| 43 | ch:status:L43:1.87 | calc | `1.87` | heavy file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT1 inhibitor >= 80 nM: highest Met-A | PASS |
+| 44 | ch:status:L44 | calc | `1.65` | heavy file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv`: DNMT1 inhibitor 100 nM, single molecules: lowest IAM-A | PASS |
+| 44 | ch:status:L44:1.97 | calc | `1.97` | heavy file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv`: DNMT1 inhibitor 100 nM, single molecules: highest IAM-A | PASS |
+| 44 |  | calc | `100` | not run: input: the 100 nM dose of the single-molecule DNMT1 inhibitor libraries (Part B design) | - |
+| 45 | ch:status:L45 | calc | `1.062` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures against neutrophils alone, lowest | PASS |
+| 45 | ch:status:L45:1.118 | calc | `1.118` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures against neutrophils alone, highest | PASS |
+| 45 | ch:status:L45:0.982 | calc | `0.982` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures against own composition, lowest | PASS |
+| 45 | ch:status:L45:1.016 | calc | `1.016` | heavy file `Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md`: healthy DNA mixtures against own composition, highest | PASS |
+| 47 | ch:status:L47 | calc | `3.31` | heavy file `Biological_Physics/MethylPhys/doors/data/salmon_readings.csv`: Methow red cells: holding energy | PASS |
 
 ## Part 7 - ch:theoryinterp - `docs/book/part5/p5_01_interpretation.tex`
 

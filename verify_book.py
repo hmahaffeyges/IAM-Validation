@@ -2328,6 +2328,54 @@ def _b12_crc_ratios(clean_only=False):
         out.append(r)
     return out
 
+# helpers of the part4/p4_24_status checks
+# b12 draft: ch:status (docs/book/part4/p4_24_status.tex), Table tab:status. Each row restates a number of another chapter; each check here
+# recomputes it again from IAM's constants or reads the committed record it comes from.
+_B12_FLOORS = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json'
+_B12_LOO = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv'
+_B12_NREF = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json'
+_B12_POS = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json'
+_B12_CHAN = 'Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'
+_B12_V5 = 'Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md'
+_B12_LOWF = 'Biological_Physics/MethylPhys/doors/data/lowfrac_readings.csv'
+_B12_T1 = 'Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv'
+_B12_DNMTA = 'Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv'
+_B12_DNMTB = 'Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv'
+_B12_WBN = 'Biological_Physics/MethylPhys/doors/PROC_WB_NEUT_01_OUTCOME.md'
+_B12_SAL2 = 'Biological_Physics/MethylPhys/doors/data/salmon_readings.csv'
+DATA_FILES[_B12_FLOORS] = 'Met-A reference floors v1.3 (frozen 2026-10-01): EPIC neutrophil floor, 6 physical arrays, 6,000 identity sites'   # 85 kB
+DATA_FILES[_B12_NREF] = 'EPIC neutrophil reference v1.1: identity-site profiles and the healthy C-score baseline (leave-one-out clustering of the 6 arrays)'   # 944 kB
+DATA_FILES[_B12_POS] = 'IAM-A positions v1 (frozen 2026-10-01): neutrophil P and its range over 3 donors'   # 1 kB
+DATA_FILES[_B12_V5] = 'PROC-V5-HELDOUT outcome: coverage of the atlas v2 90 % intervals on held-out data'   # 2 kB
+DATA_FILES[_B12_LOWF] = 'DEV-LOWFRAC-01 readings: neutrophil fraction and Met-A of 656 whole bloods and 12 known DNA mixtures (lowfrac.py)'   # 77 kB
+DATA_FILES[_B12_T1] = 'chain neutrophil tests T1/T3/T4 readings: T1 = six healthy bloods with flow-cytometry neutrophil counts (GSE112618)'   # 305 kB
+DATA_FILES[_B12_DNMTA] = 'DNMT-01 Part A: Met-A of 51 EPIC arrays of 3 AML lines under DNMT1 inhibitors (dnmt_arrays.py)'   # 7 kB
+DATA_FILES[_B12_DNMTB] = 'DNMT-01 Part B: treated against vehicle copy error per library, single molecules (score_dnmt_b.py)'   # 1 kB
+DATA_FILES[_B12_WBN] = 'PROC-WB-NEUT-01 outcome, part 1: neutrophil Met-A of six healthy DNA mixtures'   # 2 kB
+
+def _b12_Hb(e):
+    return -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
+def _b12_cscore():
+    d = load_json(_B12_NREF); loo = np.array(d['healthy_clustering_LOO'])
+    return d['clustering_block'], loo, float(np.median(loo))
+def _b12_floor_at(TC):
+    """Copy-error floor at a temperature TC (C) with the holding energy held fixed in joules, as a ratio of H(eps0) to its 37 C value."""
+    EJ = E_hold * kB * T_cell
+    e0 = lambda T: 1 / (1 + math.exp(EJ / (kB * (T + 273.15))))
+    return _b12_Hb(e0(TC)) / _b12_Hb(e0(37.0))
+def _b12_dnmtA():
+    return [float(r['A']) for r in load_csv_rows(_B12_DNMTA) if r['cmpd'] == 'GSK032' and float(r['dose_nM']) >= 80]
+def _b12_dnmtB():
+    """IAM-A = H(eps treated)/H(eps vehicle) of the 8 treated libraries, each against its own genotype's vehicle libraries."""
+    return [_b12_Hb(float(r['eps_treated'])) / _b12_Hb(float(r['eps_dmso'])) for r in load_csv_rows(_B12_DNMTB) if r['kind'] == 'DNMT1i']
+def _b12_wbn(which):
+    t = file_text(_B12_WBN)
+    if which == 'own':
+        m = re.search(r'6/6 \(A ([\d.]+)[–-]([\d.]+)\)', t)
+    else:
+        m = re.search(r'neutrophil floor alone\) the same healthy mixtures read ([\d.]+)[–-]([\d.]+)', t)
+    return float(m.group(1)), float(m.group(2))
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -35965,6 +36013,264 @@ def check_4325():
     return locals()
 
 
+# ======== Part 6 | ch:status | docs/book/part4/p4_24_status.tex
+@check(label='ch:status:L9', chapter='ch:status', part=6, title='Landauer cost per bit at 37 C',
+       file='part4/p4_24_status', line=9, status='calc', kind='num', printed='2.97\\times10^{-21}', tol=0.0)
+def check_4326():
+    'Landauer cost per bit at 37 C: k_B T ln 2 with T_cell = 310.15 K (CANON). Book line 9, printed 2.97\times10^{-21}.'
+    value = kB * T_cell * LN2
+    return locals()
+
+@check(label='ch:status:L10', chapter='ch:status', part=6, title='Mahaffey number of the cell M = dG_ATP/(R T)',
+       file='part4/p4_24_status', line=10, status='calc', kind='num', printed='20.94', tol=0.0)
+def check_4327():
+    'M = dG_ATP/(R T_cell) with dG_ATP = 54 kJ/mol and T_cell = 310.15 K (CANON). Book line 10, printed 20.94.'
+    value = dG_ATP / (R_gas * T_cell)
+    return locals()
+
+@check(label='ch:status:L10:30.2', chapter='ch:status', part=6, title='Landauer bits per ATP, M/ln 2',
+       file='part4/p4_24_status', line=10, status='calc', kind='num', printed='30.2', tol=0.0)
+def check_4328():
+    'Landauer bits one ATP pays for: M/ln 2 = dG_ATP/(R T_cell ln 2) (CANON inputs). Book line 10, printed 30.2.'
+    value = dG_ATP / (R_gas * T_cell * LN2)
+    return locals()
+
+@check(label='ch:status:L19', chapter='ch:status', part=6, title='EPIC neutrophil floor',
+       file='part4/p4_24_status', line=19, status='calc', kind='file', printed='0.330263', tol=0.0, source=_B12_FLOORS,
+       heavy=True, rerun='Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices')
+def check_4329():
+    'Neutrophil reference on EPIC: 6 physical arrays, 6,000 identity sites, floor H_min in bits, read from the frozen floors file metA_floors_v1_3.json (also CANON Met_A_floor_EPIC_neutrophil). Book line 19, printed 0.330263.'
+    d = load_json(_B12_FLOORS)['platforms']['EPIC']['neutrophils']
+    n_ref, n_sites = d['n_ref'], d['n_sites']   # 6, 6000
+    value = d['floor']
+    return locals()
+
+@check(label='ch:status:L20', chapter='ch:status', part=6, title='held-out Met-A of the six reference arrays, SD',
+       file='part4/p4_24_status', line=20, status='calc', kind='file', printed='0.020', tol=0.0, source=_B12_LOO,
+       heavy=True, rerun='Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices')
+def check_4330():
+    'Held-out Met-A of the six EPIC neutrophil reference arrays, sites re-chosen on the other five: sample SD of A_loo, metA_floors_v1_3_loo.csv. Book line 20, printed 0.020.'
+    A = np.array([float(r['A_loo']) for r in load_csv_rows(_B12_LOO) if r['cell'] == 'neutrophils'])
+    value = float(np.std(A, ddof=1))
+    return locals()
+
+@check(label='ch:status:L22', chapter='ch:status', part=6, title='holding energy E_hold',
+       file='part4/p4_24_status', line=22, status='measured', kind='file', printed='3.41', tol=0.0, source=_B12_CHAN,
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the record is the PROC-CHANNEL-01 outcome')
+def check_4331():
+    'Holding energy per methylated site on single molecules, k_B T: the copy-error row of the PROC-CHANNEL-01 record table (also CANON E_hold_meth). Book line 22, printed 3.41.'
+    m = re.search(r'methylated sites \(copy error\)\s*\|[^|]*\|\s*([\d.]+)\s*\u00b1', file_text(_B12_CHAN))
+    value = float(m.group(1))
+    return locals()
+
+@check(label='ch:status:L22:0.032', chapter='ch:status', part=6, title='eps0 = 1/(1+e^(E_hold/k_B T))',
+       file='part4/p4_24_status', line=22, status='measured', kind='num', printed='0.032', tol=0.0)
+def check_4332():
+    'Copy-error floor eps0 = 1/(1 + exp(E_hold/k_B T)) with E_hold = 3.41 k_B T (CANON E_hold_meth). Book line 22, printed 0.032.'
+    value = 1 / (1 + math.exp(E_hold))
+    return locals()
+
+@check(label='ch:status:L22:0.163', chapter='ch:status', part=6, title='phi = E_hold/M',
+       file='part4/p4_24_status', line=22, status='measured', kind='num', printed='0.163', tol=0.0)
+def check_4333():
+    'phi = E_hold/M: holding energy (CANON E_hold_meth, 3.41 k_B T) over M = dG_ATP/(R T_cell). Book line 22, printed 0.163.'
+    value = E_hold / (dG_ATP / (R_gas * T_cell))
+    return locals()
+
+@check(label='ch:status:L23', chapter='ch:status', part=6, title='neutrophil position P',
+       file='part4/p4_24_status', line=23, status='measured', kind='file', printed='1.099', tol=0.0, source=_B12_POS,
+       heavy=True, rerun='IAM-A positions from Loyfer 2023 granulocyte .pat files (3 donors); the record is iama_positions_v1.json')
+def check_4334():
+    'Neutrophil position P of IAM-A, mean over 3 donors, from the frozen positions file iama_positions_v1.json (also CANON P_neutrophil_IAM_A). Book line 23, printed 1.099.'
+    d = load_json(_B12_POS)['cells']['neutrophils']
+    n_donors = d['n_donors']
+    value = d['P']
+    return locals()
+
+@check(label='ch:status:L23:1.084', chapter='ch:status', part=6, title='neutrophil position P, lowest donor',
+       file='part4/p4_24_status', line=23, status='calc', kind='file', printed='1.084', tol=0.0, source=_B12_POS,
+       heavy=True, rerun='IAM-A positions from Loyfer 2023 granulocyte .pat files (3 donors); the record is iama_positions_v1.json')
+def check_4335():
+    'Neutrophil position P: lower end of the range over the 3 donors (1.084-1.108), iama_positions_v1.json P_range. Book line 23, printed 1.084.'
+    value = load_json(_B12_POS)['cells']['neutrophils']['P_range'][0]
+    return locals()
+
+@check(label='ch:status:L24', chapter='ch:status', part=6, title='C-score healthy baseline',
+       file='part4/p4_24_status', line=24, status='calc', kind='file', printed='1.1104', tol=0.0, source=_B12_NREF,
+       heavy=True, rerun='Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices')
+def check_4336():
+    'Met-A C-score baseline c_healthy: median of the leave-one-out clustering statistic c of the six reference arrays, neutrophil_reference_v1_1.json healthy_clustering_LOO. Book line 24, printed 1.1104.'
+    block, loo, med = _b12_cscore()
+    value = med
+    return locals()
+
+@check(label='ch:status:L24:0.70', chapter='ch:status', part=6, title='C-score of the healthy arrays, lowest',
+       file='part4/p4_24_status', line=24, status='calc', kind='file', printed='0.70', tol=0.0, source=_B12_NREF,
+       heavy=True, rerun='Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices')
+def check_4337():
+    'Healthy reference arrays read C = c/c_healthy from 0.70: lowest leave-one-out c over the median, neutrophil_reference_v1_1.json. Book line 24, printed 0.70.'
+    block, loo, med = _b12_cscore()
+    value = float(loo.min() / med)
+    return locals()
+
+@check(label='ch:status:L24:1.23', chapter='ch:status', part=6, title='C-score of the healthy arrays, highest',
+       file='part4/p4_24_status', line=24, status='calc', kind='file', printed='1.23', tol=0.0, source=_B12_NREF,
+       heavy=True, rerun='Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices')
+def check_4338():
+    'Healthy reference arrays read C up to 1.23: highest leave-one-out c over the median, neutrophil_reference_v1_1.json. (The inventory row read the range 0.70--1.23 as -1.23; the printed number is 1.23.) Book line 24, printed 1.23.'
+    block, loo, med = _b12_cscore()
+    value = float(loo.max() / med)
+    return locals()
+
+@check(label='ch:status:L26', chapter='ch:status', part=6, title='IAM-A floor 1/P',
+       file='part4/p4_24_status', line=26, status='calc', kind='file', printed='0.910', tol=0.0, source=_B12_POS)
+def check_4339():
+    'IAM-A floor H_min = 1/P with the neutrophil P of iama_positions_v1.json. Book line 26, printed 0.910.'
+    value = 1 / load_json(_B12_POS)['cells']['neutrophils']['P']
+    return locals()
+
+@check(label='ch:status:L26:3.03', chapter='ch:status', part=6, title='Met-A at the full surface',
+       file='part4/p4_24_status', line=26, status='calc', kind='file', printed='3.03', tol=0.0, source=_B12_FLOORS)
+def check_4340():
+    'Met-A when every identity site sits at a coin flip: H(1/2) = 1 bit over the EPIC neutrophil floor of metA_floors_v1_3.json. Book line 26, printed 3.03.'
+    value = _b12_Hb(0.5) / load_json(_B12_FLOORS)['platforms']['EPIC']['neutrophils']['floor']
+    return locals()
+
+@check(label='ch:status:L26:4.45', chapter='ch:status', part=6, title='IAM-A at the full surface',
+       file='part4/p4_24_status', line=26, status='calc', kind='file', printed='4.45', tol=0.0, source=_B12_POS)
+def check_4341():
+    'IAM-A when the copy error reaches one half: H(1/2)/(P H(eps0)), eps0 = 1/(1+e^E_hold) (CANON), P from iama_positions_v1.json. Book line 26, printed 4.45.'
+    P_ = load_json(_B12_POS)['cells']['neutrophils']['P']
+    value = _b12_Hb(0.5) / (P_ * _b12_Hb(1 / (1 + math.exp(E_hold))))
+    return locals()
+
+@check(label='ch:status:L26:45', chapter='ch:status', part=6, title='C-score far end',
+       file='part4/p4_24_status', line=26, status='calc', kind='file', printed='45', tol=0.0, source=_B12_NREF)
+def check_4342():
+    'C-score far end: every 50-site block moving as one gives c = 50, over the healthy baseline (median leave-one-out c of neutrophil_reference_v1_1.json). Book line 26, printed 45.'
+    block, loo, med = _b12_cscore()
+    value = block / med
+    return locals()
+
+@check(label='ch:status:L29', chapter='ch:status', part=6, title='copy-error floor at 10 C, fixed holding energy',
+       file='part4/p4_24_status', line=29, status='calc', kind='num', printed='0.78', tol=0.0)
+def check_4343():
+    'Copy-error floor at 10 C with the holding energy held fixed in joules (E_hold = 3.41 k_B T at 310.15 K): H(eps0(10 C))/H(eps0(37 C)), as in Chapter ch:temperature. Book line 29, printed 0.78.'
+    value = _b12_floor_at(10.0)
+    return locals()
+
+@check(label='ch:status:L29:1.012', chapter='ch:status', part=6, title='copy-error floor at 38.5 C, fixed holding energy',
+       file='part4/p4_24_status', line=29, status='calc', kind='num', printed='1.012', tol=0.0)
+def check_4344():
+    'Copy-error floor at 38.5 C with the holding energy held fixed in joules: H(eps0(38.5 C))/H(eps0(37 C)). Book line 29, printed 1.012.'
+    value = _b12_floor_at(38.5)
+    return locals()
+
+@check(label='ch:status:L33', chapter='ch:status', part=6, title='atlas v2 held-out coverage',
+       file='part4/p4_24_status', line=33, status='calc', kind='file', printed='92.7', tol=0.0, source=_B12_V5,
+       heavy=True, rerun='atlas v2 posterior refit on 20 masked blocks (atlas/v2/postbuild/scripts/v5_heldout.py); the record is the outcome file')
+def check_4345():
+    'Atlas v2: share of 342,716 held-out observations inside the 90 % interval, B1 of the PROC-V5-HELDOUT outcome (92.68 %). Book line 33, printed 92.7.'
+    m = re.search(r'covers \*\*([\d.]+) %\*\* of ([\d,]+) held-out', file_text(_B12_V5))
+    value = float(m.group(1))
+    return locals()
+
+@check(label='ch:status:L35', chapter='ch:status', part=6, title='Stage A on known mixtures: median fraction error',
+       file='part4/p4_24_status', line=35, status='calc', kind='file', printed='0.034', tol=0.0, source=_B12_LOWF,
+       heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/data/lowfrac.py (needs the raw EPIC arrays through chain Stage 1 and Stage A)')
+def check_4346():
+    'Composition (Stage A) on the 12 known DNA mixtures: median |f_neu - f_true| of lowfrac_readings.csv (DEV-LOWFRAC-01: \'median error 0.034\'). Book line 35, printed 0.034.'
+    R = [r for r in load_csv_rows(_B12_LOWF) if r['f_true']]
+    n_mix = len(R)   # 12
+    value = float(np.median([abs(float(r['f_neu']) - float(r['f_true'])) for r in R]))
+    return locals()
+
+@check(label='ch:status:L36', chapter='ch:status', part=6, title='neutrophil fraction against flow cytometry',
+       file='part4/p4_24_status', line=36, status='calc', kind='file', printed='0.035', tol=0.0, source=_B12_T1,
+       heavy=True, rerun='chain v3 neutrophil tests T1/T3/T4 on the raw EPIC arrays (Stage 1 and Stage A)')
+def check_4347():
+    'Neutrophil fraction against flow cytometry on six healthy whole bloods (test T1, GSE112618): median |f_neu - counted proportion|, neut_test_T1T3T4_readings.csv. Book line 36, printed 0.035.'
+    R = [r for r in load_csv_rows(_B12_T1) if r['test'] == 'T1']
+    n_bloods = len(R)   # 6
+    value = float(np.median([abs(float(r['f_neu']) - float(r['neutrophils proportion'])) for r in R]))
+    return locals()
+
+@check(label='ch:status:L43', chapter='ch:status', part=6, title='DNMT1 inhibitor >= 80 nM: lowest Met-A',
+       file='part4/p4_24_status', line=43, status='calc', kind='file', printed='1.16', tol=0.0, source=_B12_DNMTA,
+       heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/data/dnmt_arrays.py (needs the GSE135205 raw IDATs through chain Stage 1)')
+def check_4348():
+    'DNMT1 inhibitor GSK3685032 at >= 80 nM (all days): lowest Met-A against each line\'s own vehicle arrays, dnmt_arrays_readings.csv (21 arrays). Book line 43, printed 1.16.'
+    value = min(_b12_dnmtA())
+    return locals()
+
+@check(label='ch:status:L43:1.87', chapter='ch:status', part=6, title='DNMT1 inhibitor >= 80 nM: highest Met-A',
+       file='part4/p4_24_status', line=43, status='calc', kind='file', printed='1.87', tol=0.0, source=_B12_DNMTA,
+       heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/data/dnmt_arrays.py (needs the GSE135205 raw IDATs through chain Stage 1)')
+def check_4349():
+    'DNMT1 inhibitor at >= 80 nM: highest Met-A, dnmt_arrays_readings.csv. (The inventory row read the range 1.16--1.87 as -1.87; the printed number is 1.87.) Book line 43, printed 1.87.'
+    value = max(_b12_dnmtA())
+    return locals()
+
+@check(label='ch:status:L44', chapter='ch:status', part=6, title='DNMT1 inhibitor 100 nM, single molecules: lowest IAM-A',
+       file='part4/p4_24_status', line=44, status='calc', kind='file', printed='1.65', tol=0.0, source=_B12_DNMTB,
+       heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/score_dnmt_b.py (needs the per-library site tables of the methylation chain)')
+def check_4350():
+    'DNMT1 inhibitor 100 nM on single molecules: IAM-A = H(eps treated)/H(eps vehicle) of the 8 treated libraries against their own genotype\'s vehicle libraries, dnmt_b_pairs.csv; lowest. Book line 44, printed 1.65.'
+    A = _b12_dnmtB()
+    n_treated = len(A)   # 8
+    value = min(A)
+    return locals()
+
+@check(label='ch:status:L44:1.97', chapter='ch:status', part=6, title='DNMT1 inhibitor 100 nM, single molecules: highest IAM-A',
+       file='part4/p4_24_status', line=44, status='calc', kind='file', printed='1.97', tol=0.0, source=_B12_DNMTB,
+       heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/score_dnmt_b.py (needs the per-library site tables of the methylation chain)')
+def check_4351():
+    'Highest IAM-A of the 8 treated libraries, dnmt_b_pairs.csv. (The inventory row read the range 1.65--1.97 as -1.97; the printed number is 1.97.) Book line 44, printed 1.97.'
+    value = max(_b12_dnmtB())
+    return locals()
+
+@check(label='ch:status:L45', chapter='ch:status', part=6, title='healthy DNA mixtures against neutrophils alone, lowest',
+       file='part4/p4_24_status', line=45, status='calc', kind='file', printed='1.062', tol=0.0, source=_B12_WBN,
+       heavy=True, rerun='chain v3 on the 24 Salas DNA-mixture arrays (PROC-WB-NEUT-01); the record is the outcome file')
+def check_4352():
+    'Six healthy DNA mixtures (neutrophils 63-75 %) read against the neutrophil floor alone: lower end, from the PROC-WB-NEUT-01 outcome (per-mixture readings not committed). Book line 45, printed 1.062.'
+    value = _b12_wbn('floor')[0]
+    return locals()
+
+@check(label='ch:status:L45:1.118', chapter='ch:status', part=6, title='healthy DNA mixtures against neutrophils alone, highest',
+       file='part4/p4_24_status', line=45, status='calc', kind='file', printed='1.118', tol=0.0, source=_B12_WBN,
+       heavy=True, rerun='chain v3 on the 24 Salas DNA-mixture arrays (PROC-WB-NEUT-01); the record is the outcome file')
+def check_4353():
+    'Six healthy DNA mixtures against the neutrophil floor alone: upper end, PROC-WB-NEUT-01 outcome. (The inventory row read the range 1.062--1.118 as -1.118; the printed number is 1.118.) Book line 45, printed 1.118.'
+    value = _b12_wbn('floor')[1]
+    return locals()
+
+@check(label='ch:status:L45:0.982', chapter='ch:status', part=6, title='healthy DNA mixtures against own composition, lowest',
+       file='part4/p4_24_status', line=45, status='calc', kind='file', printed='0.982', tol=0.0, source=_B12_WBN,
+       heavy=True, rerun='chain v3 on the 24 Salas DNA-mixture arrays (PROC-WB-NEUT-01); the record is the outcome file')
+def check_4354():
+    'Six healthy DNA mixtures read against the expectation for their own known composition (bar W1): lower end, PROC-WB-NEUT-01 outcome. Book line 45, printed 0.982.'
+    value = _b12_wbn('own')[0]
+    return locals()
+
+@check(label='ch:status:L45:1.016', chapter='ch:status', part=6, title='healthy DNA mixtures against own composition, highest',
+       file='part4/p4_24_status', line=45, status='calc', kind='file', printed='1.016', tol=0.0, source=_B12_WBN,
+       heavy=True, rerun='chain v3 on the 24 Salas DNA-mixture arrays (PROC-WB-NEUT-01); the record is the outcome file')
+def check_4355():
+    'Six healthy DNA mixtures against their own composition: upper end, PROC-WB-NEUT-01 outcome. (The inventory row read the range 0.982--1.016 as -1.016; the printed number is 1.016.) Book line 45, printed 1.016.'
+    value = _b12_wbn('own')[1]
+    return locals()
+
+@check(label='ch:status:L47', chapter='ch:status', part=6, title='Methow red cells: holding energy',
+       file='part4/p4_24_status', line=47, status='calc', kind='file', printed='3.31', tol=0.0, source=_B12_SAL2,
+       heavy=True, rerun='python3 Biological_Physics/Salmonid/PROC_SALMON_01/score_salmon.py (needs the per-specimen site tables of the methylation chain)')
+def check_4356():
+    'Methow steelhead red cells: E = ln[(1-eps)/eps] k_B T at the median red-cell eps_corr of salmon_readings.csv (Chapter ch:salmonid). Book line 47, printed 3.31.'
+    eps = float(np.median([float(r['eps_corr']) for r in load_csv_rows(_B12_SAL2) if r['tissue'] == 'RBC']))
+    value = math.log((1 - eps) / eps)
+    return locals()
+
+
 # ======== Part 7 | ch:theoryinterp | docs/book/part5/p5_01_interpretation.tex
 @check(label='ch:theoryinterp:L30', chapter='ch:theoryinterp', part=7, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
        file='part5/p5_01_interpretation', line=30, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
@@ -39794,45 +40100,14 @@ INVENTORY = [
     (6, 'part4:ch:reach', 'part4/p4_23_reach', 66, '', 'measured', '0.0004', 'measured: OSCC1 oxWGBS conversion-failure difference |0.004662 - 0.005079| = 0.000417 from tumour_readings.csv (PROC-TUMOUR-01) rounds to the printed 0.0004; a one-digit value cannot carry the 5 % negative control (0.00042 lies within half its last digit of 0.000417)'),
     (6, 'part4:ch:reach', 'part4/p4_23_reach', 79, '', 'measured', '10', 'restates Chapter ch:sky (p4_16_sky.tex L72-73): about 10^3 genome equivalents per millilitre of plasma (Sender2024), so a draw yields of order 10^3-10^4 copies of a site; an order of magnitude carried over, nothing to recompute here'),
     (6, 'part4:ch:reach', 'part4/p4_23_reach', 109, '', 'prediction', '1.00', 'prediction, nothing to recompute: sorted healthy canine cells held out of a canine reference read 1.00 within tolerance'),
-    (6, 'ch:status', 'part4/p4_24_status', 9, '', 'calc', '2.97\\times10^{-21}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 9, '', 'calc', '37', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 10, '', 'calc', '20.94', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 10, '', 'calc', '30.2', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 19, '', 'calc', '000', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 19, '', 'calc', '0.330263', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 20, '', 'calc', '0.020', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 22, '', 'measured', '3.41', 'measured, source not named'),
-    (6, 'ch:status', 'part4/p4_24_status', 22, '', 'measured', '0.032', 'measured, source not named'),
-    (6, 'ch:status', 'part4/p4_24_status', 22, '', 'measured', '0.163', 'measured, source not named'),
-    (6, 'ch:status', 'part4/p4_24_status', 23, '', 'measured', '1.099', 'measured, source not named'),
-    (6, 'ch:status', 'part4/p4_24_status', 23, '', 'calc', '1.084', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 24, '', 'calc', '1.1104', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 24, '', 'calc', '0.70', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 24, '', 'calc', '-1.23', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 26, '', 'calc', '0.910', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 26, '', 'calc', '3.03', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 26, '', 'calc', '4.45', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 26, '', 'calc', '45', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 29, '', 'calc', '0.78', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 29, '', 'calc', '1.012', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 29, '', 'calc', '10', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 29, '', 'calc', '38.5', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 33, '', 'calc', '92.7', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 34, '', 'calc', '95', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 34, '', 'calc', '87.7', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 34, '', 'calc', '73.1', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 35, '', 'calc', '0.034', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 36, '', 'calc', '0.035', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 43, '', 'calc', '1.16', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 43, '', 'calc', '-1.87', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 44, '', 'calc', '100', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 44, '', 'calc', '1.65', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 44, '', 'calc', '-1.97', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 45, '', 'calc', '1.062', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 45, '', 'calc', '-1.118', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 45, '', 'calc', '0.982', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 45, '', 'calc', '-1.016', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
-    (6, 'ch:status', 'part4/p4_24_status', 47, '', 'calc', '3.31', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
+    (6, 'ch:status', 'part4/p4_24_status', 9, '', 'calc', '37', 'input: T_cell = 310.15 K, 37 C (CANON T_cell)'),
+    (6, 'ch:status', 'part4/p4_24_status', 19, '', 'calc', '000', "count: the neutrophil reference's 6,000 identity sites (the inventory read '000' from '6,000'); a design choice of the frozen reference (metA_floors_v1_3.json n_sites), checked by ch:status:L19 reading the same file"),
+    (6, 'ch:status', 'part4/p4_24_status', 29, '', 'calc', '10', 'input: the temperature 10 C at which the floor ratio is evaluated (ch:status:L29 computes the ratio)'),
+    (6, 'ch:status', 'part4/p4_24_status', 29, '', 'calc', '38.5', 'input: the temperature 38.5 C at which the floor ratio is evaluated (ch:status:L29:1.012 computes the ratio)'),
+    (6, 'ch:status', 'part4/p4_24_status', 34, '', 'calc', '95', 'definition: the pre-registered bar, 95 % of held-out readings in Normal (Chapter ch:atlas)'),
+    (6, 'ch:status', 'part4/p4_24_status', 34, '', 'calc', '87.7', "measured: recorded only in the _provenance.tests field of Biological_Physics/MethylPhys/atlas/v2/postbuild/runtime/iamatlas_v2_identity_loci_v1_1.json ('array->array 87.7% of held-out readings in NORMAL, 28/29 cell medians'), a 15 MB file above the DATA_FILES size limit; restates Chapter ch:atlas L181"),
+    (6, 'ch:status', 'part4/p4_24_status', 34, '', 'calc', '73.1', "measured: recorded only in the _provenance.tests field of Biological_Physics/MethylPhys/atlas/v2/postbuild/runtime/iamatlas_v2_identity_loci_v1_1.json ('Loyfer->array with this correction 73.1%, 14/17 cell medians'), a 15 MB file above the DATA_FILES size limit; restates Chapter ch:atlas L182"),
+    (6, 'ch:status', 'part4/p4_24_status', 44, '', 'calc', '100', 'input: the 100 nM dose of the single-molecule DNMT1 inhibitor libraries (Part B design)'),
     (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '0.3153', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '9.1\\times10^{-5}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (7, 'ch:theoryinterp', 'part5/p5_01_interpretation', 30, '', 'calc', '2.3\\times10^{22}', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
