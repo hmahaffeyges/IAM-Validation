@@ -17,8 +17,9 @@ betas of DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01/betas) where they exist an
   C  Met-A C-score on every held-out healthy array: spread (median, 2.5-97.5 %) per laboratory and per set. No band is set.
   D  Sky statistics with the hard mask and the apodised mask side by side, healthy replicates against the block-shuffle null.
      Bars (DEV-SKY-02): median band power ratio 0.9-1.1 in every band; look-elsewhere rate at the stated 8.4 %.
-     Needs the apodised-mask code (GitHub session task 1) - not in the repository at the time of writing, so job D is reported
-     BLOCKED with that reason until it is wired in.
+     Needs the apodised-mask code (GitHub session task 1, PR #18: chain/sky_statistics.py masked_spectrum(..., mask="hard"|"apodised",
+     apod_deg, taper)). The driver detects it: if the installed sky_statistics has no `mask` parameter, D is BLOCKED ("apodised mask
+     (PR #18) not merged yet"); if it has it, D runs both masks on the same block shuffles. Width: --apod-deg (default 2.0).
   E  Atlas composition (atlas_e) on bloods with known composition. Runs only if GSE112618 or GSE182379 has been downloaded first;
      JOBS.md gives no S3 location for them, so their location is passed with --job-e-prefix / --job-e-dir. Otherwise SKIPPED.
 
@@ -100,6 +101,9 @@ BAR_REPL_NORMAL_FRAC = 0.95
 BAR_FLOOR_N = 6
 BAR_SKY_RATIO = (0.9, 1.1)
 BAR_SKY_LEE_RATE = 0.084
+SKY_BAR_SERIES = "GSE250556"                  # DEV-SKY-02: the band-ratio bar is the median over the GSE250556 arrays
+APOD_DEG_DEFAULT = 2.0                        # PR #18 default width of the apodised mask (degrees)
+D_BLOCKED_PR18 = "apodised mask (PR #18) not merged yet"
 
 # sets of job A (from the repository notes): other laboratories = the DEV-BASE-CHAIN-01 (b) set enlarged by DEV-INTAKE-02 check 6
 OTHER_LAB_SERIES = ["GSE247193", "GSE247195", "GSE122244", "GSE118144", "GSE167998"]
@@ -328,15 +332,16 @@ def bars_A(out_dir):
 
 def bars_D(out_dir):
     """Job D bars (DEV-SKY-02) per mask from D_sky.csv (one row per array and mask; columns mask, ratio_1..ratio_6, structure_beyond_null)."""
-    rows = read_csv(os.path.join(out_dir, "D_sky.csv")); bars = []
+    rows = [r for r in read_csv(os.path.join(out_dir, "D_sky.csv")) if r.get("mask")]; bars = []   # rows without a sky carry no mask
     for mask in sorted({r.get("mask") for r in rows}):
         rs = [r for r in rows if r.get("mask") == mask]
-        meds = [median([v for v in (fnum(r.get(f"ratio_{b}")) for r in rs) if v is not None]) for b in range(1, 7)]
+        rb = [r for r in rs if r.get("series") == SKY_BAR_SERIES] or rs      # band bar: GSE250556 arrays (all rows if none is tagged)
+        meds = [median([v for v in (fnum(r.get(f"ratio_{b}")) for r in rb) if v is not None]) for b in range(1, 7)]
         ok = all(m is not None and BAR_SKY_RATIO[0] <= m <= BAR_SKY_RATIO[1] for m in meds)
         flags = [str(r.get("structure_beyond_null")).strip().lower() in ("true", "1") for r in rs]
         rate = sum(flags) / len(flags) if flags else None
         bars.append({"name": f"{mask} mask: median band power / block-shuffle null, bands 1-6", "measured": meds,
-                     "bar": f"{BAR_SKY_RATIO[0]}-{BAR_SKY_RATIO[1]} in every band", "met": ok, "n": len(rs), "band1": meds[0]})
+                     "bar": f"{BAR_SKY_RATIO[0]}-{BAR_SKY_RATIO[1]} in every band", "met": ok, "n": len(rb), "band1": meds[0]})
         bars.append({"name": f"{mask} mask: look-elsewhere rate", "measured": rate, "bar": f"<= {BAR_SKY_LEE_RATE}",
                      "met": rate is not None and rate <= BAR_SKY_LEE_RATE, "n": len(rs)})
     res = {"job": "D", "source": "doors/CHAIN_COMMISSIONING.md (DEV-SKY-02)", "bars": bars, "all_met": bool(bars) and all(b["met"] for b in bars)}
@@ -348,19 +353,23 @@ BARS = {"A": bars_A, "D": bars_D}
 
 
 # ------------------------------------------------------------------------------------------------ requirements per job
-def find_apodised_code(chain_dir):
-    """Definitions in chain/*.py whose name mentions apodis/apodiz (the apodised-mask code job D needs)."""
-    hits = []
-    if os.path.isdir(chain_dir):
-        for fn in sorted(os.listdir(chain_dir)):
-            if fn.endswith(".py"):
-                try:
-                    txt = open(os.path.join(chain_dir, fn), encoding="utf-8", errors="replace").read()
-                except OSError:
-                    continue
-                for m in re.finditer(r"^\s*def\s+(\w*apodi[sz]\w*)\s*\(", txt, re.M | re.I):
-                    hits.append(f"{fn}:{m.group(1)}")
-    return hits
+SKY_FUNCS = ("masked_spectrum", "shuffled_null", "sky_spectrum_record")
+
+
+def sky_mask_support(chain_dir):
+    """(True, '') if chain/sky_statistics.py has the apodised mask of PR #18 (a `mask` parameter on masked_spectrum, shuffled_null and
+    sky_spectrum_record), else (False, why). Read from the source with ast, so the driver needs neither numpy nor healpy."""
+    import ast
+    p = os.path.join(chain_dir, "sky_statistics.py")
+    try:
+        tree = ast.parse(open(p, encoding="utf-8").read())
+    except (OSError, SyntaxError) as e:
+        return False, f"{p} cannot be read ({type(e).__name__})"
+    args = {n.name: [a.arg for a in n.args.args + n.args.kwonlyargs] for n in tree.body if isinstance(n, ast.FunctionDef)}
+    missing = [f for f in SKY_FUNCS if "mask" not in args.get(f, [])]
+    if missing:
+        return False, f"{p}: {', '.join(missing)} take no `mask` parameter"
+    return True, ""
 
 
 def requirements(job, cfg):
@@ -381,13 +390,14 @@ def requirements(job, cfg):
         if not os.path.isfile(st):
             reasons.append(f"self-tare II runtime file not found: {st}")
     if job == "D":
-        hits = find_apodised_code(cfg.chain_dir)
-        if not hits:
-            reasons.append("the apodised-mask code (JOBS.md: GitHub session task 1) is not in the repository: no function named *apodis*/"
-                           f"*apodiz* in {cfg.chain_dir}/*.py; job D runs the hard and apodised masks side by side and cannot run without it")
-        else:
-            reasons.append(f"apodised-mask code found ({', '.join(hits)}) but job D's worker is not wired to it yet: wire it in "
-                           "run1_driver.worker_D and remove this block")
+        ok, why = sky_mask_support(cfg.chain_dir)
+        if not ok:
+            reasons.append(f"{D_BLOCKED_PR18} (JOBS.md: GitHub session task 1): {why}; job D runs the hard and apodised masks side by side")
+        for f in ("dev_stages.py", "conductor_v3.py"):
+            if not os.path.isfile(os.path.join(cfg.chain_dir, f)):
+                reasons.append(f"chain module not found: {os.path.join(cfg.chain_dir, f)}")
+        if not os.path.isfile(cfg.manifest):
+            reasons.append(f"array manifest not found: {cfg.manifest}")
         if not (cfg.atlas_v2 and os.path.isfile(cfg.atlas_v2)):
             reasons.append("--atlas-v2 parquet not given or not found (the sky needs the atlas v2 parent means; JOBS.md does not list it as an input)")
     if job == "E":
@@ -402,6 +412,8 @@ def requirements(job, cfg):
 def job_inputs(job, cfg):
     """[(S3 key prefix, local dir)] the job reads."""
     out = [(p, os.path.join(cfg.data_dir, p)) for k, (p, _n, _gb, used) in INPUTS.items() if job in used]
+    if job == "D":      # JOBS.md: every job works from the calibrated betas where they exist (synced once; A-C use them too)
+        out.insert(0, (BETAS_PREFIX, os.path.join(cfg.data_dir, BETAS_PREFIX)))
     if job == "A" and cfg.gse128733_prefix:
         out.append((cfg.gse128733_prefix, os.path.join(cfg.data_dir, cfg.gse128733_prefix)))
     if job == "E":
@@ -416,6 +428,8 @@ def default_command(job, cfg, out_dir):
         c += ["--limit-arrays", str(cfg.limit_arrays)]
     if cfg.atlas_v2:
         c += ["--atlas-v2", cfg.atlas_v2]
+    if job == "D":
+        c += ["--apod-deg", str(cfg.apod_deg)]
     if job == "A":
         for d in ([os.path.join(cfg.data_dir, cfg.gse128733_prefix)] if cfg.gse128733_prefix else []) + list(cfg.gse128733_dir or []):
             c += ["--extra-dir", d]
@@ -488,6 +502,7 @@ def make_config(a):
     cfg.workers = a.workers
     cfg.limit_arrays = a.limit_arrays
     cfg.atlas_v2 = a.atlas_v2
+    cfg.apod_deg = a.apod_deg
     cfg.gse128733_prefix = a.gse128733_prefix
     cfg.gse128733_dir = a.gse128733_dir or []
     cfg.job_e_prefix = a.job_e_prefix or []
@@ -697,6 +712,9 @@ def build_parser():
     g.add_argument("--workers", type=int, default=os.cpu_count() or 4, help="arrays read in parallel inside a job")
     g.add_argument("--limit-arrays", type=int, default=None, help="read at most N arrays per set (JOBS.md local test: 3)")
     g.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"), help="atlas v2 parquet (jobs D and E; not stored in the repository)")
+    g.add_argument("--apod-deg", type=float, default=APOD_DEG_DEFAULT,
+                   help="job D: width of the apodised mask in degrees (PR #18 default 2.0; taper C2). PR #18 warns that the real sky's "
+                        "scattered holes may need a small width (e.g. 0.5 deg)")
     g.add_argument("--gse128733-prefix", default=None, help="key prefix in the bucket where the 2 GSE128733 arrays were uploaded (job A)")
     g.add_argument("--gse128733-dir", action="append", help="local folder holding the 2 GSE128733 IDAT pairs (job A)")
     g.add_argument("--job-e-prefix", action="append", help="key prefix in the bucket holding GSE112618 / GSE182379 (job E; repeatable)")
@@ -851,6 +869,7 @@ def worker_parser():
     ap.add_argument("--chain-dir", default=CHAIN_DEFAULT); ap.add_argument("--manifest", default=MANIFEST_DEFAULT)
     ap.add_argument("--workers", type=int, default=os.cpu_count() or 4); ap.add_argument("--limit-arrays", type=int, default=None)
     ap.add_argument("--atlas-v2", default=None); ap.add_argument("--extra-dir", action="append", default=[])
+    ap.add_argument("--apod-deg", type=float, default=APOD_DEG_DEFAULT)
     return ap
 
 
@@ -859,7 +878,7 @@ def worker_main(argv):
     c = WCtx()
     c.work = os.path.abspath(a.work); c.out = os.path.abspath(a.out); c.chain = os.path.abspath(a.chain_dir)
     c.data = os.path.join(c.work, "data"); c.cache = os.path.join(c.work, "cache"); c.workers = a.workers; c.limit = a.limit_arrays
-    c.atlas = a.atlas_v2; c.extra = [os.path.abspath(d) for d in a.extra_dir]
+    c.atlas = a.atlas_v2; c.apod_deg = a.apod_deg; c.extra = [os.path.abspath(d) for d in a.extra_dir]
     c.run_sample = os.path.join(c.chain, "MethylPhys_Interface", "run_sample.py")
     c.log = lambda *p: print(utcnow(), f"[worker {a.job}]", *p, flush=True)
     c.manifest = read_csv(a.manifest)
@@ -1131,9 +1150,97 @@ def worker_C(c):
     write_csv(os.path.join(c.out, "C_spread_by_set.csv"), spread("set"), ["set", "n", "median", "p2_5", "p97_5"])
 
 
+def sky_two_masks(z, DV, SS, apod_deg, n_null=None, n_lee=None, seed=20261004):
+    """DEV-SKY-02 sky of one array (dev_stages.sky_from_z), read with the hard and the apodised mask side by side on the SAME
+    block shuffles: per mask the six band powers over the mean of the first n_null shuffles, and the look-elsewhere statistic
+    T = max band ratio with p over n_lee shuffles. The hard-mask numbers follow dev_stages.sky_from_z (same seed, same draw order)."""
+    import numpy as np
+    n_null = DV.SKY_NULL_N if n_null is None else n_null
+    n_lee = DV.SKY_LEE_N if n_lee is None else n_lee
+    m = DV._mapping(); zz = z.reindex(m.index).dropna(); mm = m.loc[zz.index]; npix = 12 * SS.NSIDE * SS.NSIDE
+    pix = mm.pix.values.astype(np.int64); vals = zz.values; rng = np.random.default_rng(seed)
+    sky = DV._pixmap(vals, pix, npix)
+    orders = [DV.block_shuffle_order(mm.chr.values, rng=rng) for _ in range(max(n_null, n_lee))]
+    out = []
+    for mask in ("hard", "apodised"):
+        kw = {"mask": mask} if mask == "hard" else {"mask": mask, "apod_deg": apod_deg}
+        cl, f_sky, good = SS.masked_spectrum(sky, **kw); bp = SS.bandpowers(cl)
+        nb = np.array([SS.bandpowers(SS.masked_spectrum(DV._pixmap(vals[o], pix, npix), **kw)[0]) for o in orders])
+        mu = nb[:n_null].mean(0); r = bp / mu; T = float(np.max(r)); Tn = np.max(nb[:n_lee] / mu, axis=1)
+        p = float((np.sum(Tn >= T) + 1) / (len(Tn) + 1))
+        rec = {"mask": mask, "apod_deg": apod_deg if mask == "apodised" else None, "f_sky": round(f_sky, 4), "n_pix": int(good.sum()),
+               "n_sites": int(len(zz)), "lee_T": round(T, 4), "lee_p": round(p, 4), "structure_beyond_null": bool(p < 0.05),
+               "null": f"within-chromosome block shuffle, {n_null} shuffles for the band null, {n_lee} for look-elsewhere (same shuffles, both masks)"}
+        if mask == "apodised" and hasattr(SS, "apodised_mask"):
+            rec["w2"] = round(float(np.mean(SS.apodised_mask(good, apod_deg) ** 2)), 4)
+        rec.update({f"ratio_{i + 1}": round(float(x), 4) for i, x in enumerate(r)})
+        rec.update({f"bandpower_{i + 1}": float(x) for i, x in enumerate(bp)})
+        out.append(rec)
+    return out
+
+
+def load_beta(c, row, idats):
+    """Stage 1 beta vector (pandas Series): the DEV-BASE-CHAIN-01 betas, else calibrated here from the IDAT pair (run_sample.py --save-betas)."""
+    import pandas as pd
+    p = betas_parquet(c, row)
+    if p is None and row["gsm"] in idats:
+        read_array(c, row, [], "d_calibrate", idats); p = betas_parquet(c, row)
+    if p is None:
+        return None
+    b = pd.read_parquet(p).iloc[:, 0].astype("float64"); b.index = b.index.astype(str)
+    return b
+
+
+def sky_module_has_mask(SS):
+    import inspect
+    try:
+        return all("mask" in inspect.signature(getattr(SS, f)).parameters for f in SKY_FUNCS)
+    except (AttributeError, TypeError, ValueError):
+        return False
+
+
 def worker_D(c):
-    raise SystemExit("job D: the apodised-mask code (JOBS.md: GitHub session task 1) is not wired into this driver; "
-                     "see requirements() - nothing was run")
+    """Job D: healthy whole-blood arrays of GSE250556 and healthy_repeat, residual sky against the block-shuffle null (DEV-SKY-02),
+    hard and apodised mask side by side. One row per array and mask in D_sky.csv; the driver checks the DEV-SKY-02 bars per mask."""
+    sys.path.insert(0, c.chain)
+    import sky_statistics as SS
+    if not sky_module_has_mask(SS):
+        raise SystemExit(f"job D BLOCKED: {D_BLOCKED_PR18} ({SS.__file__} has no `mask` parameter); nothing was run")
+    import importlib.util
+    if importlib.util.find_spec("healpy") is None:
+        raise SystemExit("job D: healpy is not installed in the chain environment (the sky needs it); nothing was run")
+    if not (c.atlas and os.path.exists(c.atlas)):
+        raise SystemExit("job D: --atlas-v2 parquet not given or not found; nothing was run")
+    import dev_stages as DV
+    import conductor_v3 as C3
+    g_pairs, _ = idat_index([set_dir(c, "GSE250556")], c.log)
+    hr_pairs, hr_series = idat_index([set_dir(c, "healthy_repeat")], c.log)
+    idats = dict(g_pairs, **hr_pairs)
+    rows = []
+    for key, sel in (("GSE250556", lambda r: r["series"] == "GSE250556"),
+                     ("healthy_repeat", lambda r: r["series"] != "GSE250556" and (r["gsm"] in hr_pairs or r["series"] in hr_series))):
+        rows += _limit(c, [dict(r, set=key) for r in c.manifest if sel(r) and r["healthy"] == "True" and r["specimen"] == "whole blood"
+                           and r["plat"] == "EPIC_v1"])
+    c.log(f"job D: {len(rows)} healthy whole-blood arrays; apodised mask width {c.apod_deg} deg")
+    AP = DV.load_atlas_parents(c.atlas); out = []
+    for r in rows:
+        base = {k: r.get(k, "") for k in ("set", "series", "gsm", "slide", "person")}
+        try:
+            b = load_beta(c, r, idats)
+            if b is None:
+                out.append(dict(base, status="no_input")); continue
+            fr = (C3.stage_a_composition(b) or {}).get("fractions")
+            if not fr:
+                out.append(dict(base, status="no composition")); continue
+            for rec in sky_two_masks(DV.residual_z(b, fr, AP), DV, SS, c.apod_deg):
+                out.append(dict(base, status="ok", **rec))
+        except Exception as e:
+            out.append(dict(base, status=f"error: {type(e).__name__}: {str(e)[:200]}"))
+    ok = [x for x in out if x.get("status") == "ok"]
+    c.log(f"job D: {len(ok) // 2} arrays read with both masks; {len(out) - len(ok)} arrays without a sky")
+    cols = (["set", "series", "gsm", "slide", "person", "status", "mask", "apod_deg", "w2", "f_sky", "n_pix", "n_sites"]
+            + [f"ratio_{i}" for i in range(1, 7)] + ["lee_T", "lee_p", "structure_beyond_null"] + [f"bandpower_{i}" for i in range(1, 7)] + ["null"])
+    write_csv(os.path.join(c.out, "D_sky.csv"), ok + [x for x in out if x.get("status") != "ok"], cols)
 
 
 def worker_E(c):

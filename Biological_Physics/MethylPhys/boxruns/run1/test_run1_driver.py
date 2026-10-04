@@ -273,13 +273,14 @@ def test_floor_bar_needs_six_arrays(tmp_path):
 # ------------------------------------------------------------------------------------------------ default commands: D blocked, E skipped
 def test_default_D_blocked_and_E_skipped(tmp_path):
     bucket = make_bucket(str(tmp_path / "bucket")); sh = Recorder()
-    rc = D.main(["--work", str(tmp_path / "w"), "--only", "D,E"], store=D.LocalStore(bucket), shutdown=sh)
+    chain = pre_pr18_chain(tmp_path)                                  # main's sky_statistics before PR #18: no `mask` parameter
+    rc = D.main(["--work", str(tmp_path / "w"), "--only", "D,E", "--chain-dir", chain], store=D.LocalStore(bucket), shutdown=sh)
     assert rc == D.EXIT_BLOCKED and sh.calls == 1
     st = json.load(open(os.path.join(bucket, "results", "BOXRUN1", "state.json")))
-    assert st["jobs"]["D"]["status"] == "blocked" and "apodised-mask code" in " ".join(st["jobs"]["D"]["reason"])
+    assert st["jobs"]["D"]["status"] == "blocked" and "apodised mask (PR #18) not merged yet" in " ".join(st["jobs"]["D"]["reason"])
     assert st["jobs"]["E"]["status"] == "skipped" and "GSE112618 or GSE182379" in " ".join(st["jobs"]["E"]["reason"])
     log = open(os.path.join(bucket, "results", "BOXRUN1", "log.txt")).read()
-    assert "[D] BLOCKED: the apodised-mask code (JOBS.md: GitHub session task 1) is not in the repository" in log
+    assert "[D] BLOCKED: apodised mask (PR #18) not merged yet" in log
 
 
 def test_default_A_blocked_without_gse128733(tmp_path):
@@ -435,3 +436,148 @@ def test_aws_cli_store_commands(tmp_path):
     assert calls[0][:5] == ["aws", "s3", "cp", "/x/log.txt", f"s3://{D.BUCKET}/results/BOXRUN1/log.txt"]
     assert calls[1][:4] == ["aws", "s3", "sync", f"s3://{D.BUCKET}/downloads/G_chain_tests/GSE250556/"]
     assert "--region" in calls[0]
+
+
+# ------------------------------------------------------------------------------------------------ job D: apodised mask (PR #18)
+SKY_PATH = "Biological_Physics/MethylPhys/chain/sky_statistics.py"
+PRE_PR18_REV = "b26d4d1"                                    # main when this branch started: sky_statistics without `mask`
+PR18_REVS = ("origin/apodised-mask", "77c6fe6")             # PR #18 branch (read into a temp dir only; never merged here)
+
+
+def _git_show(revs, path):
+    for rev in revs:
+        r = subprocess.run(["git", "-C", HERE, "show", f"{rev}:{path}"], capture_output=True, text=True)
+        if r.returncode == 0:
+            return r.stdout
+    pytest.skip(f"{path} not available at {revs} in this clone")
+
+
+def pre_pr18_chain(tmp_path):
+    d = tmp_path / "chain_pre_pr18"; d.mkdir(exist_ok=True)
+    (d / "sky_statistics.py").write_text(_git_show([PRE_PR18_REV], SKY_PATH))
+    return str(d)
+
+
+def pr18_sky_source():
+    return _git_show(PR18_REVS, SKY_PATH)
+
+
+def test_D_feature_detection(tmp_path):
+    ok, why = D.sky_mask_support(pre_pr18_chain(tmp_path))
+    assert not ok and "take no `mask` parameter" in why
+    d = tmp_path / "chain_pr18"; d.mkdir(); (d / "sky_statistics.py").write_text(pr18_sky_source())
+    assert D.sky_mask_support(str(d)) == (True, "")
+    assert D.sky_mask_support(str(tmp_path / "nowhere"))[0] is False
+
+
+def test_worker_D_refuses_pre_pr18_sky_statistics(tmp_path):
+    pytest.importorskip("numpy")
+    chain = pre_pr18_chain(tmp_path)
+    man = tmp_path / "m.csv"; man.write_text("series,gsm,slide,plat,specimen,healthy,person\n")
+    r = subprocess.run([PY, os.path.join(HERE, "run1_driver.py"), "worker", "D", "--work", str(tmp_path / "w"), "--out", str(tmp_path / "o"),
+                        "--chain-dir", chain, "--manifest", str(man)], capture_output=True, text=True, timeout=60)
+    assert r.returncode != 0 and "job D BLOCKED: apodised mask (PR #18) not merged yet" in r.stderr
+
+
+FAKE_DV_TAIL = textwrap.dedent(r'''
+
+    # ---- test overrides (small sky, small null)
+    SKY_NULL_N, SKY_LEE_N = 4, 6
+    def _mapping():
+        m = pd.read_csv(os.path.join(HERE, "fake_map.csv"), index_col=0); m.index = m.index.astype(str)
+        return m.sort_values(["chr", "pix"], kind="mergesort")
+    def load_atlas_parents(p):
+        return None
+    def residual_z(beta, fractions, AP):
+        return (beta - 0.5) * 10.0
+''')
+
+
+def _load_module(name, source, tmp_path):
+    import importlib.util
+    f = tmp_path / f"{name}.py"; f.write_text(source)
+    spec = importlib.util.spec_from_file_location(name, f); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    return m
+
+
+def test_sky_two_masks_hard_and_apodised(tmp_path):
+    np = pytest.importorskip("numpy"); pd = pytest.importorskip("pandas")
+    import types
+    SS = _load_module("sky_pr18_copy", pr18_sky_source(), tmp_path)
+    SS.NSIDE = 64                                                   # a small HEALPix map (49,152 pixels)
+    real_dv = _load_module("dev_stages_copy", open(os.path.join(D.CHAIN_DEFAULT, "dev_stages.py")).read(), tmp_path)
+    n = 3000; rng = np.random.default_rng(1)
+    ids = [f"cg{i:08d}" for i in range(n)]
+    m = pd.DataFrame({"pix": np.arange(n) % 2500, "chr": np.repeat([1, 2, 3], n // 3)}, index=ids)
+    calls = []
+    try:
+        import healpy; assert healpy.__name__
+    except ImportError:                                             # no healpy: stub the spectrum, keep the bookkeeping real
+        def fake_ms(pix, lmax=255, mask="hard", apod_deg=2.0, taper="C2"):
+            calls.append((mask, apod_deg)); good = np.isfinite(pix)
+            v = np.where(good, pix, 0.0); return np.full(256, float(np.var(v)) + 1e-3), float(good.mean()), good
+        SS.masked_spectrum = fake_ms
+        SS.apodised_mask = lambda good, apod_deg=2.0, taper="C2": good.astype(float)
+    DV = types.SimpleNamespace(SKY_NULL_N=4, SKY_LEE_N=6, _mapping=lambda: m.sort_values(["chr", "pix"], kind="mergesort"),
+                               _pixmap=real_dv._pixmap, block_shuffle_order=real_dv.block_shuffle_order)
+    z = pd.Series(rng.normal(size=n), index=ids)
+    recs = D.sky_two_masks(z, DV, SS, apod_deg=2.0)
+    assert [r["mask"] for r in recs] == ["hard", "apodised"]
+    hard, apod = recs
+    assert hard["apod_deg"] is None and apod["apod_deg"] == 2.0 and hard["n_pix"] == apod["n_pix"] == 2500
+    assert 0 < apod["w2"] <= 1 and hard["f_sky"] == apod["f_sky"]
+    for r in recs:
+        assert all(np.isfinite(r[f"ratio_{b}"]) and r[f"ratio_{b}"] > 0 for b in range(1, 7))
+        assert 0 < r["lee_p"] <= 1 and r["n_sites"] == n
+    if calls:
+        assert {c[0] for c in calls} == {"hard", "apodised"} and ("apodised", 2.0) in calls
+
+
+def test_worker_D_end_to_end_with_pr18(tmp_path):
+    np = pytest.importorskip("numpy"); pd = pytest.importorskip("pandas"); pytest.importorskip("pyarrow")
+    pytest.importorskip("healpy"); pytest.importorskip("scipy")
+    import tarfile
+    chain = tmp_path / "chain"; chain.mkdir()
+    (chain / "sky_statistics.py").write_text(pr18_sky_source().replace("NSIDE, LMAX, NPERM = 128, 255, 20", "NSIDE, LMAX, NPERM = 64, 255, 20"))
+    (chain / "dev_stages.py").write_text(open(os.path.join(D.CHAIN_DEFAULT, "dev_stages.py")).read() + FAKE_DV_TAIL)
+    (chain / "conductor_v3.py").write_text("def stage_a_composition(b):\n    return {'fractions': {'NEU': 0.6, 'CD4T': 0.4}}\n")
+    n = 3000; ids = [f"cg{i:08d}" for i in range(n)]
+    pd.DataFrame({"pix": np.arange(n) % 2500, "chr": np.repeat([1, 2, 3], n // 3)}, index=ids).to_csv(chain / "fake_map.csv")
+    bucket = make_bucket(str(tmp_path / "bucket")); rng = np.random.default_rng(7)
+    man = [dict(series="GSE250556", gsm=f"GSM95000{i}", slide="1", plat="EPIC_v1", specimen="whole blood", healthy="True",
+                person=f"p{i % 2}") for i in range(4)]
+    man += [dict(series="GSE888001", gsm=f"GSM95010{i}", slide="2", plat="EPIC_v1", specimen="whole blood", healthy="True", person="")
+            for i in range(2)]
+    man += [dict(series="GSE888001", gsm="GSM950199", slide="2", plat="EPIC_v1", specimen="whole blood", healthy="False", person="")]
+    os.makedirs(os.path.join(bucket, "downloads", "G_chain_tests", "healthy_repeat", "GSE888001"), exist_ok=True)
+    for ser in ("GSE250556", "GSE888001"):                          # the DEV-BASE-CHAIN-01 betas, packed as base_driver.py packed them
+        tp = os.path.join(bucket, D.BETAS_PREFIX, f"betas_{ser}.tar")
+        with tarfile.open(tp, "w") as t:
+            for r in man:
+                if r["series"] == ser:
+                    f = tmp_path / f"{r['gsm']}.parquet"
+                    pd.DataFrame({"beta": rng.uniform(0.05, 0.95, n)}, index=pd.Index(ids, name="cpg_id")).to_parquet(f)
+                    t.add(f, arcname=f"{r['gsm']}.parquet")
+    mp = tmp_path / "manifest.csv"
+    with open(mp, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=list(man[0])); w.writeheader(); [w.writerow(r) for r in man]
+    atlas = tmp_path / "atlas.parquet"; atlas.write_text("not read by the fake dev_stages")
+    sh = Recorder(); work = tmp_path / "work"
+    rc = D.main(["--work", str(work), "--only", "D", "--chain-dir", str(chain), "--manifest", str(mp), "--python", PY,
+                 "--atlas-v2", str(atlas), "--apod-deg", "3.0"], store=D.LocalStore(bucket), shutdown=sh)
+    log = open(os.path.join(bucket, "results", "BOXRUN1", "log.txt")).read()
+    jlog = os.path.join(work, "results", "BOXRUN1", "D", "job_D.log")
+    assert rc in (D.EXIT_OK, D.EXIT_BARS), log + (open(jlog).read() if os.path.exists(jlog) else "")
+    st = state({"work": str(work)})
+    assert st["jobs"]["D"]["status"] == "done" and sh.calls == 1
+    rows = list(csv.DictReader(open(os.path.join(bucket, "results", "BOXRUN1", "D", "D_sky.csv"))))
+    assert len(rows) == 2 * 6 and {r["mask"] for r in rows} == {"hard", "apodised"}          # 4 replicates + 2 healthy repeats, both masks
+    assert "GSM950199" not in {r["gsm"] for r in rows}                                       # not healthy: not in the set
+    assert {r["apod_deg"] for r in rows if r["mask"] == "apodised"} == {"3.0"} and all(r["w2"] for r in rows if r["mask"] == "apodised")
+    bars = json.load(open(os.path.join(bucket, "results", "BOXRUN1", "D", "bars.json")))
+    assert [b["name"] for b in bars["bars"]] == [
+        "apodised mask: median band power / block-shuffle null, bands 1-6", "apodised mask: look-elsewhere rate",
+        "hard mask: median band power / block-shuffle null, bands 1-6", "hard mask: look-elsewhere rate"]
+    assert bars["bars"][0]["n"] == 4 and bars["bars"][1]["n"] == 6       # band bar over GSE250556, look-elsewhere over all healthy arrays
+    assert "--apod-deg 3.0" in " ".join(st["jobs"]["D"]["command"])
+    assert ("bar MET" in log or "bar NOT MET" in log) and "[D] DONE" in log
