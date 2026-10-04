@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3780 PASS, 0 FAIL, 2558 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3782 PASS, 0 FAIL, 2556 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -4248,34 +4248,34 @@ Totals: 3780 PASS, 0 FAIL, 2558 inventoried and not run. Each run item carries t
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
 | 7 | ch:cmos:L7 | none |  | sympy: k_B T_j ln2 at 75 C = 3.33e-21 J = 0.021 eV | PASS |
-| 11 |  | calc | `4.3` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 11 |  | calc | `4.3` | not run: input: base clock 4.3 GHz (AMD9950X, maker specification); used in ch:cmos:L12:576 | - |
 | 12 | ch:cmos:L12 | calc | `20` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 12 | ch:cmos:L12:576 | calc | `576` | numeric: E_sw/(k_B T_j ln2), upper transistor count | PASS |
 | 12 | ch:cmos:L12:593 | calc | `593` | numeric: E_sw/(k_B T_j ln2), lower count | PASS |
 | 13 | ch:cmos:L13 | calc | `399` | numeric: M = E_sw/k_B T_j, upper count | PASS |
 | 13 | ch:cmos:L13:411 | calc | `411` | numeric: M, lower count | PASS |
-| 14 |  | openprob | `0.0017` | not run: not yet checked | - |
-| 17 |  | openprob | `20.0\times10^9` | not run: not yet checked | - |
-| 17 |  | openprob | `20.6\times10^9` | not run: not yet checked | - |
+| 14 | ch:cmos:L14 | openprob | `0.0017` | numeric: Landauer floor on the chip gauge, k_B T_j ln2 / E_sw | PASS |
+| 17 |  | openprob | `20.0\times10^9` | not run: input: transistor count 20.0e9 from die-level reports (no maker figure; the book marks it openprob); used in ch:cmos:L12:593 | - |
+| 17 |  | openprob | `20.6\times10^9` | not run: input: transistor count 20.6e9 from die-level reports (no maker figure; the book marks it openprob); used in ch:cmos:L12:576 | - |
 | 26 | ch:cmos:L26 | derived | `60` | numeric: (k_B T/q) ln 10 at 300 K, mV | PASS |
-| 31 |  | observed | `1.57` | not run: measured, source not named | - |
+| 31 | ch:cmos:L31 | observed | `1.57` | numeric: Koomey doubling time 1.57 years | PASS |
 | 31 |  | observed | `2.7` | not run: measured, source not named | - |
 | 48 | eq:reliableswitch | calc |  | sympy: E_min = k_B T ln(1/p): Landauer at p = 1/2 | PASS |
-| 52 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 49.8289); drafting error on review | - |
+| 52 |  | calc | `10` | not run: input: error probability p = 10^-15 (book's choice); the floor at it is checked at ch:cmos:L53 | - |
 | 53 | ch:cmos:L53 | calc | `34.5` | numeric: ln(1/p) at p = 1e-15 | PASS |
 | 53 | ch:cmos:L53:49.8 | calc | `49.8` | numeric: in Landauer units | PASS |
 | 53 | ch:cmos:L53:83.0 | calc | `83.0` | numeric: p = 1e-25, Landauer units | PASS |
-| 53 |  | calc | `10` | not run: not yet run: draft does not reproduce the printed value (recomputed 83.0482); drafting error on review | - |
+| 53 |  | calc | `10` | not run: input: error probability p = 10^-25 (book's choice); the floor at it is checked at ch:cmos:L53:83.0 | - |
 | 58 | ch:cmos:L58 | derived | `64.6` | numeric: 1 - kappa^-3, kappa = sqrt2 | PASS |
 | 59 | ch:cmos:L59 | derived | `29.3` | numeric: 1 - kappa^-1 | PASS |
 | 65 | ch:cmos:L65 | derived | `64.6` | numeric: 1 - kappa^-3, kappa = sqrt2 | PASS |
 | 66 | ch:cmos:L66 | derived | `29.3` | numeric: 1 - kappa^-1 | PASS |
 | 82 | ch:cmos:L82 | calc | `8.6` | numeric: k_B T_j ln2, 105 C over 75 C | PASS |
 | 102 | ch:cmos:L102 | calc | `7.6` | numeric: 1 - 1.83/1.98 | PASS |
-| 102 |  | calc | `1.83` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 102 |  | calc | `1.98` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 102 |  | calc | `1.83` | not run: input: quoted clock 1.83 GHz of one die (book's worked case); used in ch:cmos:L102 | - |
+| 102 |  | calc | `1.98` | not run: input: quoted clock 1.98 GHz of one die (book's worked case); used in ch:cmos:L102 | - |
 | 108 | ch:cmos:L108 | calc | `40.7` | numeric: 1 - (1 - 0.707) 253/125 | PASS |
-| 108 |  | calc | `70.7` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 108 |  | calc | `70.7` | not run: input: the step of an unnamed generation pair read on mixed power definitions; the chips' power, count and clock are not stated in the book, so nothing to recompute (the 40.7 % derived from it is checked at ch:cmos:L108) | - |
 | 109 | ch:cmos:L109 | calc | `8.6` | numeric: k_B T_j ln2, 105 C over 75 C | PASS |
 
 ## Part 5 - ch:chipgen - `docs/book/part3/p3_11_chip_generations.tex`

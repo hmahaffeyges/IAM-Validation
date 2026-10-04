@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 87
+Entries: 88
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -95,3 +95,4 @@ Entries: 87
 | ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:296` | `14.5` | parity-switching time 14.5+-0.3 us of the X loop in a tetron device, Tetron2026 (doi 10.1103/cx4w-lxx1); not in any repository file and not confirmed here |
 | ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:296` | `12.4` | parity-switching time 12.4+-0.4 ms of the Z loop, Tetron2026 (doi 10.1103/cx4w-lxx1); not in any repository file and not confirmed here |
 | ch:qplatforms | `docs/book/part3/p3_10_qubit_platforms.tex:297` | `0.5` | assignment error 0.5 % of the Z-loop measurement, Tetron2026 (doi 10.1103/cx4w-lxx1); not in any repository file and not confirmed here |
+| ch:cmos | `docs/book/part3/p3_06_cmos.tex:31` | `2.7` | slowed doubling time of computations per joule, about 2.7 years, cited to Koomey2016 (with Koomey2011); not held in any repository file and not confirmed here from the article |

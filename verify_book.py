@@ -29027,11 +29027,31 @@ def check_2384():
     value=TDP/(Nlo*f)/(kB*Tj)
     return locals()
 
+@check(label='ch:cmos:L14', chapter='ch:cmos', part=5, title='Landauer floor on the chip gauge, k_B T_j ln2 / E_sw',
+       file='part3/p3_06_cmos', line=14, status='openprob', kind='num', printed='0.0017', tol=0.0)
+def check_3780():
+    'Position of the Landauer floor on the chip gauge, k_B T_j ln2 / E_sw with E_sw = TDP/(N f), at the mid-point of the two transistor '\
+    'counts in circulation (both ends round to the same value). Book line 14, printed 0.0017. Inputs: TDP 170 W and base clock 4.3 GHz '\
+    '(AMD9950X, maker specification), N = 20.0e9 and 20.6e9 (die-level reports, book line 17), T_j = 348.15 K (book line 6).'
+    TDP, f, Tj = 170.0, 4.3e9, 348.15
+    floors = [kB * Tj * LN2 / (TDP / (N * f)) for N in (20.0e9, 20.6e9)]
+    value = 0.5 * (floors[0] + floors[1])
+    return locals()
+
 @check(label='ch:cmos:L26', chapter='ch:cmos', part=5, title='(k_B T/q) ln 10 at 300 K, mV',
        file='part3/p3_06_cmos', line=26, status='derived', kind='num', printed='60', tol=0)
 def check_2385():
     '(k_B T/q) ln 10 at 300 K, mV. Book line 26, printed 60.'
     value=kB*300/e_ch*math.log(10)*1e3
+    return locals()
+
+@check(label='ch:cmos:L31', chapter='ch:cmos', part=5, title='Koomey doubling time 1.57 years',
+       file='part3/p3_06_cmos', line=31, status='observed', kind='num', printed='1.57', tol=0.0)
+def check_3781():
+    'Doubling time of computations per joule over the historical record, in years. Book line 31, printed 1.57. Input: Koomey, Berard, '\
+    'Sanchez and Wong 2011, IEEE Ann. Hist. Comput. 33, 46 (doi 10.1109/mahc.2010.28): computations per kWh doubled every 1.57 years.'
+    t_double = 1.57                    # Koomey2011
+    value = t_double
     return locals()
 
 @check(label='eq:reliableswitch', chapter='ch:cmos', part=5, title='E_min = k_B T ln(1/p): Landauer at p = 1/2',
@@ -34343,17 +34363,15 @@ INVENTORY = [
     (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 296, '', 'observed', '14.5', 'measured, source not named'),
     (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 296, '', 'observed', '12.4', 'measured, source not named'),
     (5, 'ch:qplatforms', 'part3/p3_10_qubit_platforms', 297, '', 'observed', '0.5', 'measured, source not named'),
-    (5, 'ch:cmos', 'part3/p3_06_cmos', 11, '', 'calc', '4.3', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:cmos', 'part3/p3_06_cmos', 14, '', 'openprob', '0.0017', 'not yet checked'),
-    (5, 'ch:cmos', 'part3/p3_06_cmos', 17, '', 'openprob', '20.0\\times10^9', 'not yet checked'),
-    (5, 'ch:cmos', 'part3/p3_06_cmos', 17, '', 'openprob', '20.6\\times10^9', 'not yet checked'),
-    (5, 'ch:cmos', 'part3/p3_06_cmos', 31, '', 'observed', '1.57', 'measured, source not named'),
+    (5, 'ch:cmos', 'part3/p3_06_cmos', 11, '', 'calc', '4.3', 'input: base clock 4.3 GHz (AMD9950X, maker specification); used in ch:cmos:L12:576'),
+    (5, 'ch:cmos', 'part3/p3_06_cmos', 17, '', 'openprob', '20.0\\times10^9', 'input: transistor count 20.0e9 from die-level reports (no maker figure; the book marks it openprob); used in ch:cmos:L12:593'),
+    (5, 'ch:cmos', 'part3/p3_06_cmos', 17, '', 'openprob', '20.6\\times10^9', 'input: transistor count 20.6e9 from die-level reports (no maker figure; the book marks it openprob); used in ch:cmos:L12:576'),
     (5, 'ch:cmos', 'part3/p3_06_cmos', 31, '', 'observed', '2.7', 'measured, source not named'),
-    (5, 'ch:cmos', 'part3/p3_06_cmos', 52, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 49.8289); drafting error on review'),
-    (5, 'ch:cmos', 'part3/p3_06_cmos', 53, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 83.0482); drafting error on review'),
-    (5, 'ch:cmos', 'part3/p3_06_cmos', 102, '', 'calc', '1.83', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:cmos', 'part3/p3_06_cmos', 102, '', 'calc', '1.98', 'not yet run: draft rejected (printed value typed into the code)'),
-    (5, 'ch:cmos', 'part3/p3_06_cmos', 108, '', 'calc', '70.7', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
+    (5, 'ch:cmos', 'part3/p3_06_cmos', 52, '', 'calc', '10', "input: error probability p = 10^-15 (book's choice); the floor at it is checked at ch:cmos:L53"),
+    (5, 'ch:cmos', 'part3/p3_06_cmos', 53, '', 'calc', '10', "input: error probability p = 10^-25 (book's choice); the floor at it is checked at ch:cmos:L53:83.0"),
+    (5, 'ch:cmos', 'part3/p3_06_cmos', 102, '', 'calc', '1.83', "input: quoted clock 1.83 GHz of one die (book's worked case); used in ch:cmos:L102"),
+    (5, 'ch:cmos', 'part3/p3_06_cmos', 102, '', 'calc', '1.98', "input: quoted clock 1.98 GHz of one die (book's worked case); used in ch:cmos:L102"),
+    (5, 'ch:cmos', 'part3/p3_06_cmos', 108, '', 'calc', '70.7', "input: the step of an unnamed generation pair read on mixed power definitions; the chips' power, count and clock are not stated in the book, so nothing to recompute (the 40.7 % derived from it is checked at ch:cmos:L108)"),
     (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 27, '', 'calc', '10', 'not yet run: draft does not reproduce the printed value (recomputed 9.231061e+08); drafting error on review'),
     (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 48, '', 'calc', '70.7', 'not yet run: draft rejected (no draft returned)'),
     (5, 'ch:chipgen', 'part3/p3_11_chip_generations', 49, '', 'calc', '1.83', 'not yet run: draft rejected (no draft returned)'),

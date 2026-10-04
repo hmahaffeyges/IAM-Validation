@@ -4032,7 +4032,9 @@ PASS  ch:cmos:L12:576                    ch:cmos:p3_06_cmos:12  printed 576  rec
 PASS  ch:cmos:L12:593                    ch:cmos:p3_06_cmos:12  printed 593  recomputed 593.301  tol 0.5  [calc] E_sw/(k_B T_j ln2), lower count
 PASS  ch:cmos:L13                        ch:cmos:p3_06_cmos:13  printed 399  recomputed 399.267  tol 0.5  [calc] M = E_sw/k_B T_j, upper count
 PASS  ch:cmos:L13:411                    ch:cmos:p3_06_cmos:13  printed 411  recomputed 411.245  tol 0.5  [calc] M, lower count
+PASS  ch:cmos:L14                        ch:cmos:p3_06_cmos:14  printed 0.0017  recomputed 0.00171077  tol 5.000005e-05  [openprob] Landauer floor on the chip gauge, k_B T_j ln2 / E_sw
 PASS  ch:cmos:L26                        ch:cmos:p3_06_cmos:26  printed 60  recomputed 59.5264  tol 0.5  [derived] (k_B T/q) ln 10 at 300 K, mV
+PASS  ch:cmos:L31                        ch:cmos:p3_06_cmos:31  printed 1.57  recomputed 1.57  tol 0.00500001  [observed] Koomey doubling time 1.57 years
 PASS  eq:reliableswitch                  ch:cmos:p3_06_cmos:48  printed (algebra)  recomputed True  [calc] E_min = k_B T ln(1/p): Landauer at p = 1/2
 PASS  ch:cmos:L53                        ch:cmos:p3_06_cmos:53  printed 34.5  recomputed 34.5388  tol 0.05  [calc] ln(1/p) at p = 1e-15
 PASS  ch:cmos:L53:49.8                   ch:cmos:p3_06_cmos:53  printed 49.8  recomputed 49.8289  tol 0.05  [calc] in Landauer units
@@ -4676,4 +4678,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3780  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2558  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3782  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2556  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
