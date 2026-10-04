@@ -5,7 +5,7 @@
   NNLS8      chain v3 Stage A as shipped: NNLS on the 963 markers of blood_composition_EPIC_v1.json (8 Salas EPIC groups), sum 1.
   ATLAS_a    atlas v2 solver (deconv_v2.DeconvV2, frozen SOLVER settings, whole-blood cell set: bone-marrow progenitors and the Moss
              vascular endothelium out), atlas means as stored (= array scale; sequencing sources mapped through source_terms_v1.json
-             inside the atlas fit), weights 1/(sum_c f_c^2 v_ci + sigma^2), v = posterior SD^2 + donor SD^2.
+             inside the atlas fit), weights 1/(sum_c f_c^2 v_ci + sigma^2), v = posterior SD^2 + between-person SD^2 (atlas column `donor_sd`).
   ATLAS_b    as ATLAS_a, but only atlas cells measured on arrays (roster 'platforms' contains 'array'): WGBS-only and pooled cells out.
   ATLAS_c    as ATLAS_a, with cells merged by the atlas's own twin / cross-source rule (twin_family_thresholds_v1.json, records/10):
              a cell with no array measurement whose marker-profile correlation with an array-measured cell is >= cross_source_r is

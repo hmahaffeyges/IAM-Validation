@@ -22,7 +22,7 @@ note before the data were read and the outcome is under the line in the same not
 | EPIC v2 through SeSAMe (M) | DEV-EPIC-V2-01 | 72/72 v2 calibrated; identity sites median 5,391 of 6,000 (< 5,400); v2 minus v1 at shared sites mean -0.034, SD 0.054; no v2 floor, no v2 replicates | flag `--dev-epic-v2`; EPIC v2 stays refused |
 | Development flags (N) | DEV-FLAGS-01 | 63/63 readings identical with every flag on; every flag labelled; development section on every report | **yes** |
 
-RELEASE_CHECK_LINE
+Release check: `kit/release_check.py` on a fresh git copy on the box (public clone at `185f609` plus the four round-2 commits applied as patches, box commit `edc6ae6`, `doors/` included): **17 of 17 checks PASS** (F1, F1b, S1-S4, E1-E10, M1; 258 s); `kit/results/release_check.json`. E10 ran with the atlas v2 parquet; the sky block was NOT_RUN there (healpy not in that environment).
 
 ## Round 1 (2026-10-03)
 

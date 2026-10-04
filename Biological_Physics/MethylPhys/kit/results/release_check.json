@@ -15,12 +15,12 @@
   {
    "check": "S1",
    "result": "PASS",
-   "detail": "237 Python files scanned; retired imports: 0; path-loaded modules missing: 0"
+   "detail": "244 Python files scanned; retired imports: 0; path-loaded modules missing: 0"
   },
   {
    "check": "S2",
    "result": "PASS",
-   "detail": "2104 tracked files scanned; files carrying the retired name: 0"
+   "detail": "2121 tracked files scanned; files carrying the retired name: 0"
   },
   {
    "check": "S3",
@@ -30,12 +30,12 @@
   {
    "check": "S4",
    "result": "PASS",
-   "detail": "14 of 14 toolkit modules import (1 build-time scripts byte-compiled)"
+   "detail": "16 of 16 toolkit modules import (1 build-time scripts byte-compiled)"
   },
   {
    "check": "E1",
    "result": "PASS",
-   "detail": "exit 0; Stage 0 PROCEED; Stage 1 566952 CpGs; refusal: 566,952 probes (450K or incomplete vector): chain v3 reads EPIC v1 arrays only (450K neutr"
+   "detail": "exit 0; Stage 0 PROCEED (sex check NOT_DECLARED); Stage 1 566952 CpGs; refusal: 566,952 probes (450K or incomplete vector): chain v3 reads EPIC v1 arrays only (450K neutr"
   },
   {
    "check": "E2",
@@ -58,10 +58,35 @@
    "detail": "same person: OK (726963 addresses, mean |d beta| 0.007975614807360447); other person: REFUSED"
   },
   {
+   "check": "E6",
+   "result": "PASS",
+   "detail": "tissue IDAT: refused with a report; PBMC: refused with a report; cell line: refused with a report"
+  },
+  {
+   "check": "E7",
+   "result": "PASS",
+   "detail": "typed id in bundle: False; in ledger: False; in report title: True; bundle sample_id e02396baa56626301930d8ed1b69d485"
+  },
+  {
+   "check": "E8",
+   "result": "PASS",
+   "detail": "A 1.0; noise sites 38528 of 48528; state withheld: True; gauge drawn: False"
+  },
+  {
+   "check": "E9",
+   "result": "PASS",
+   "detail": "independent C 0.8233 (50 blocks, limit 1 +/- 0.800); clustered C 447.529; E4 report carries the C-score line: True"
+  },
+  {
+   "check": "E10",
+   "result": "PASS",
+   "detail": "reading identical: True; blocks: selftare_ii OK, direction OK, trace OK, foreign OK, brightness OK, nilc OK, atlas_e OK, percell_b OK, sky NOT_RUN"
+  },
+  {
    "check": "M1",
    "result": "PASS",
-   "detail": "manual: /tmp/rc_v3_0tl_litx/manual.pdf (27977 bytes)"
+   "detail": "manual: /tmp/rc_v3_copz_e2s/manual.pdf (41599 bytes)"
   }
  ],
- "seconds": 226
+ "seconds": 258
 }

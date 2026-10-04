@@ -202,7 +202,7 @@ def _mapping():
 
 
 def residual_z(beta, fractions, AP):
-    """z_i = (beta_i - sum_g f_g mu_g,i) / sqrt(sum_g f_g^2 (sd^2 + donor_sd^2) + 0.02^2) (DEV-SKY-01 wrapper). AP: atlas parent columns."""
+    """z_i = (beta_i - sum_g f_g mu_g,i) / sqrt(sum_g f_g^2 (sd^2 + s_bp^2) + 0.02^2), s_bp the between-person SD (atlas column `donor_sd`) (DEV-SKY-01 wrapper). AP: atlas parent columns."""
     idx = beta.dropna().index.intersection(AP.index)
     E = sum(fractions[g] * AP[f"{c}_mean"].reindex(idx) for g, c in PARENTS.items())
     V = sum(fractions[g] ** 2 * (AP[f"{c}_sd"].reindex(idx) ** 2 + AP[f"{c}_donor_sd"].reindex(idx) ** 2) for g, c in PARENTS.items()) + 0.02 ** 2
