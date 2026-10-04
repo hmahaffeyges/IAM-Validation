@@ -55,7 +55,7 @@ S.panel_letter(a2, "b", dx=-0.16)
 S.save(fig, "part2", "fig_smarr")
 
 # ---------------- temperature and evaporation -----------------
-T_cmb = 2.7255; H0 = 67.4e3 / Mpc; T_gh = hbar * H0 / (2 * np.pi * k)
+T_cmb = 2.7255; H0 = 67.16e3 / Mpc; T_gh = hbar * H0 / (2 * np.pi * k)   # photon-sector H0, as the caption
 M_cmb = hbar * c**3 / (8 * np.pi * G * k * T_cmb); M_eq = c**3 / (4 * G * H0)
 tau = lambda M: 5120 * np.pi * G**2 * M**3 / (hbar * c**4) / yr
 print(f"T_GH {T_gh:.3e} K; M_CMB {M_cmb:.2e} kg = {M_cmb/Msun:.2e} Msun; M_eq {M_eq/Msun:.3e} Msun; tau(1 Msun) {tau(Msun):.3e} yr; T(1 Msun) {T_bh(Msun):.3e} K")
