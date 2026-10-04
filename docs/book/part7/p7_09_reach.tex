@@ -85,7 +85,7 @@ Figure~\ref{fig:cg_floor_Tj} (Chapter~\ref{ch:chipgen}) shows where the Landauer
 junction temperature.
 
 The chip gauge (Chapter~\ref{ch:cmos}) reads a processor's energy per transistor switch against the Landauer floor at its junction temperature. For
-the AMD Ryzen 9 9950X, $E=\mathrm{TDP}/(Nf)=170\,\mathrm W/((20.0$--$20.6)\times10^9\times4.3\,\mathrm{GHz})=(1.92$--$1.98)\times10^{-18}$~J~\cite{AMD9950X}, 576--593 times
+the AMD Ryzen 9 9950X, $E=\mathrm{TDP}/(Nf)=170\,\mathrm W/((20.0\text{--}20.6)\times10^9\times4.3\,\mathrm{GHz})=(1.92\text{--}1.98)\times10^{-18}$~J~\cite{AMD9950X}, 576--593 times
 $\kB T\ln2$ at 75\,\textdegree C; the transistor count, from die-level reports, is the least certain input. \calc{} What it could give designers is one number that tracks how close a design is to the physical floor, across
 the generations of a design line on one definition of each input, and a statement of how much room is left: a factor of 576--593, close to three orders of magnitude, for the 9950X. The figure is an average over the whole chip and its idle transistors;
 a per-block reading needs the design's own power and activity data. \openprob
