@@ -337,6 +337,53 @@ def _judge(kind, printed, tol_rel, loc):
         ok = abs(val - p) <= tol_abs
     return fmt(val), tol_abs, bool(ok)
 
+_KIND_HOW = {"num": "numeric", "sym": "sympy", "file": "file"}
+
+def negative_control(runner):
+    """The check's negative control: 'fails' (good: moving the printed value, or for algebra the key coefficient, by 5 % makes the
+    check FAIL), 'PASSES' (bad: the check cannot tell the moved value from the right one) or 'none' (no control available).
+    Numbers: the recomputed value is compared with the printed value times 1.05, within the check's tolerance capped at 2.5 % of the
+    value (half the shift), so a printed value with one or two digits still has to be met by the computation. Inequalities: the
+    reversed inequality must fail. Algebra: the check body names neg_lhs (and optionally neg_rhs), the identity with its key
+    coefficient moved by 5 %, which must not simplify to zero; or neg_ok, a stated property with the coefficient moved, which must be
+    False."""
+    m = runner.meta
+    try:
+        loc = runner.fn()
+    except Exception as ex:
+        return "none"
+    if m["kind"] == "sym" or ("value" not in loc):
+        if "neg_ok" in loc:
+            return "fails" if not bool(loc["neg_ok"]) else "PASSES"
+        if "neg_lhs" in loc:
+            d = sp.simplify(sp.sympify(loc["neg_lhs"]) - sp.sympify(loc.get("neg_rhs", loc.get("rhs", 0))))
+            try:
+                zero = (d == 0) or abs(complex(sp.N(d))) < 1e-12
+            except Exception:
+                zero = False
+            return "PASSES" if zero else "fails"
+        return "none"
+    val = loc["value"]
+    if isinstance(val, (bool, np.bool_)):
+        return "none"
+    val = float(val)
+    printed = m["printed"]
+    try:
+        rel, p = parse_printed(printed)
+    except Exception:
+        return "none"
+    if "%" in printed and p != 0 and abs(val) < abs(p) / 20:
+        val *= 100
+    if rel == "<":
+        return "fails" if not (val > p) else "PASSES"
+    if rel == ">":
+        return "fails" if not (val < p) else "PASSES"
+    hu = half_unit(printed)
+    tol_abs = max(hu, (m["tol"] or 0) * abs(p))
+    shift = 0.05 * abs(p) if p != 0 else max(5 * hu, 0.05)
+    tol_ctrl = min(tol_abs, 0.5 * shift)
+    return "PASSES" if abs(val - (p + shift)) <= tol_ctrl else "fails"
+
 def check(label, chapter, part, title, file="", line=0, status="none", kind="num", printed="", tol=0.0, source="", heavy=False, rerun=""):
     """Register fn as the check of one book item. fn's body computes and returns locals(); the wrapper returns a Result."""
     def deco(fn):
@@ -348,6 +395,7 @@ def check(label, chapter, part, title, file="", line=0, status="none", kind="num
                 rec, tol_used, ok, note = f"ERROR {type(ex).__name__}: {str(ex)[:80]}", 0.0, False, "script error"
             return Result(label, title, part, chapter, file, line, status, kind, printed, rec, tol_used, ok, note, heavy, source)
         runner.__name__, runner.__doc__ = fn.__name__, fn.__doc__
+        runner.fn = fn
         runner.label, runner.part, runner.chapter, runner.heavy, runner.source = label, part, chapter, heavy, source
         runner.meta = dict(label=label, chapter=chapter, part=part, title=title, file=file, line=line, status=status, kind=kind,
                            printed=printed, tol=tol, source=source, heavy=heavy, rerun=rerun, doc=(fn.__doc__ or "").strip())
@@ -402,6 +450,53 @@ def inventory(part=None):
     rows.sort(key=lambda r: (CHAPTER_ORDER.index(r["file"]), r["line"]))
     return rows
 
+INVENTORY_MD_HEAD = """# VERIFY_BOOK_INVENTORY
+
+Every displayed equation and every number the book prints that this inventory found, in `docs/book/main.tex` order, with its status label,
+how `verify_book.py` checks it and the result of the run committed beside it (`verify_book_output.txt`).
+
+How the inventory was built. Chapters from the front matter to the first half of *The cosmological constant* were read in full, line by
+line, and every displayed equation and printed number was listed (source `read`). The remaining chapters were inventoried by a line scan of
+every displayed equation, every table that carries a status label, and every number in a paragraph that carries a status label (source
+`scan`). Numbers in sentences with no status label, and integers written in words or in running text, are not in the scan. Scan items were
+then checked by hand chapter by chapter along the book's path (black holes, records, particles, devices, the cell, the status table, the
+derivations appendix); a scan item that prints the same value, to five significant figures or more (four for a derived or calculated number
+outside Part VI), as an item already checked reuses that check and says where it comes from.
+
+Checked how: `sympy` = algebra, lhs - rhs simplifies to zero or a stated property holds; `numeric` = recomputed from first principles
+(IAM's constants from `CANON/iam_canon.json`, published inputs written in the check); `file` = read from the committed file named;
+`heavy` = read from a committed output that needs chains, CAMB or the methylation chain to regenerate (the command is in the check); `not run` = inventoried only (definition, input restated, conjecture, prediction, calibrated value, or a measured value whose source is listed in `SOURCES_NEEDED.md`).
+
+Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
+
+This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
+"""
+
+def inventory_md(results=None):
+    """VERIFY_BOOK_INVENTORY.md as text, from the registry and (if given) a full run's results."""
+    res = {r.label: r for r in (results if results is not None else run())}
+    names = {n: t for n, _, t in PARTS}
+    rows = inventory()
+    npass = sum(r.passed for r in res.values()); nfail = len(res) - npass
+    out = [INVENTORY_MD_HEAD, "", f"Totals: {npass} PASS, {nfail} FAIL, {len(INVENTORY)} inventoried and not run. Each run item carries the "
+           "label of its check: `python3 verify_book.py --label <label>` runs it alone.", ""]
+    cur = None
+    for r in rows:
+        if r["file"] != cur:
+            cur = r["file"]
+            out += ["", f"## Part {r['part']} - {r['chapter']} - `docs/book/{cur}.tex`", "",
+                    "| line | label | status | printed | checked how | result |", "|---:|---|---|---|---|---|"]
+        pr = f"`{r['printed']}`" if r["printed"] else ""
+        if r["run"]:
+            how = ("heavy " if r.get("heavy") else "") + _KIND_HOW.get(r["kind"], r["kind"])
+            how += (f" `{r['source']}`" if r.get("source") else "") + ": " + r["title"]
+            rr = res.get(r["label"])
+            result = "-" if rr is None else ("PASS" if rr.passed else "FAIL")
+            out.append(f"| {r['line']} | {r['label']} | {r['status']} | {pr} | {how} | {result} |")
+        else:
+            out.append(f"| {r['line']} | {r['label']} | {r['status']} | {pr} | {r['how']} | - |")
+    return "\n".join(out) + "\n"
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--part", help="run one Part: 0-8 (or front, I..VII, app)")
@@ -409,7 +504,23 @@ def main(argv=None):
     ap.add_argument("--list", action="store_true", help="print the inventory and exit")
     ap.add_argument("--json", action="store_true", help="print results as JSON")
     ap.add_argument("--fails", action="store_true", help="print only FAIL lines")
+    ap.add_argument("--controls", action="store_true", help="run each check's negative control (5 %% shift must FAIL)")
+    ap.add_argument("--inventory-md", action="store_true", help="print VERIFY_BOOK_INVENTORY.md from a full run")
     args = ap.parse_args(argv)
+    if args.inventory_md:
+        sys.stdout.write(inventory_md())
+        return 0
+    if args.controls:
+        p = _part_num(args.part)
+        sel = [_BY_LABEL[args.label]] if args.label else [c for c in CHECKS if p is None or c.part == p]
+        tally = {"fails": 0, "PASSES": 0, "none": 0}
+        for c in sel:
+            v = negative_control(c); tally[v] += 1
+            if v != "fails" or args.label:
+                print(f"control {v:6s}  {c.label}")
+        print(f"\nCONTROLS  fail as they should {tally['fails']}  pass (check cannot tell a 5 % shift) {tally['PASSES']}  "
+              f"no control {tally['none']}")
+        return 0
     names = {n: t for n, _, t in PARTS}
     if args.list:
         cur = None
