@@ -24,6 +24,15 @@ PASS  ch:giants:L41:72.26                ch:giants:p0_giants:41  printed 72.26  
 PASS  ch:giants:L55                      ch:giants:p0_giants:55  printed 6.2\times10^{-8}  recomputed 6.170074e-08  tol 3.100003e-09  [derived] Hawking temperature of one-solar-mass black hole
 PASS  ch:giants:L58                      ch:giants:p0_giants:58  printed 2.65\times10^{-30}  recomputed 2.645898e-30  tol 1.325001e-31  [derived] de Sitter temperature today from current H0
 PASS  ch:giants:L79                      ch:giants:p0_giants:79  printed 2.97\times10^{-21}  recomputed 2.968114e-21  tol 5.049005e-24  [calc] Landauer bound energy per bit at 310.15K
+PASS  ch:giants:L124                     ch:giants:p0_giants:124  printed 7.5  recomputed 7.53645  tol 0.05  [calc] Diosi-Penrose time hbar/E_G, 1e-12 kg silica sphere
+PASS  ch:giants:L125                     ch:giants:p0_giants:125  printed 509  recomputed 508.557  tol 0.5  [calc] IAM decoherence time, 1e-12 kg silica at 10 mK
+PASS  ch:giants:L125:four                ch:giants:p0_giants:125  printed four  recomputed 4  tol 0.5  [calc] doubling T multiplies tau_IAM by four, tau_DP unchanged
+PASS  ch:giants:L133                     ch:giants:p0_giants:133  printed 3.3  recomputed 3.3  tol 0.05  [observed] Ohm 1961 excess system temperature (published)
+PASS  ch:giants:L135                     ch:giants:p0_giants:135  printed 3.5  recomputed 3.5  tol 0.05  [observed] Penzias-Wilson excess antenna temperature (published)
+PASS  ch:giants:L140                     ch:giants:p0_giants:140  printed 10^5  recomputed 90849.3  tol 2.162278e+05  [observed] COBE DMR anisotropy, about one part in 10^5
+PASS  ch:giants:L140:2.7255              ch:giants:p0_giants:140  printed 2.7255  recomputed 2.72548  tol 5.000005e-05  [observed] CMB temperature (Fixsen 2009, published)
+PASS  ch:giants:L176                     ch:giants:p0_giants:176  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy from the PROC-CHANNEL-01 record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
 PASS  ch:giants:L177                     ch:giants:p0_giants:177  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [derived] Boltzmann floor computed from holding energy input
 
 == Part 0: Front matter | ch:p0_how_to_read (part0/p0_how_to_read.tex)
@@ -3909,4 +3918,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3128  FAIL 0  (heavy, read from committed outputs: 632)  inventoried-not-run 3206  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3136  FAIL 0  (heavy, read from committed outputs: 633)  inventoried-not-run 3198  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

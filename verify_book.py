@@ -722,6 +722,20 @@ _B00_CHAIN_RERUN = ('chains: rerun with Cobaya from the committed input YAML (mg
                     'Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv '
                     '(no extraction script is committed)')
 
+# helpers of the part0/p0_giants checks
+def _b00_tau_iam_dp(m, T, rho=2200.0):
+    """tau_IAM = hbar (k_B T)^2 ln2 / E_G^3 and tau_DP = hbar/E_G, E_G = G m^2/R, R of a sphere of density rho (fused silica 2200 kg/m^3)."""
+    R = (3 * m / (4 * math.pi * rho)) ** (1 / 3)
+    EG = G * m * m / R
+    return hbar * (kB * T) ** 2 * LN2 / EG ** 3, hbar / EG
+
+def _b00_hold_energy():
+    """E_hold (kT) of the copy channel, from the table row 'methylated sites (copy error)' of PROC_CHANNEL_01_OUTCOME.md."""
+    for ln in file_text('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md').splitlines():
+        if ln.startswith('| methylated sites (copy error)'):
+            return float(re.match(r'\s*([\d.]+)', ln.split('|')[3]).group(1))
+    raise KeyError('copy-channel row not found')
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -867,6 +881,73 @@ def check_0010():
 def check_0011():
     'Landauer bound energy per bit at 310.15K. Book line 79, printed 2.97\\times10^{-21}.'
     value = kB*T_cell*LN2
+    return locals()
+
+@check(label='ch:giants:L124', chapter='ch:giants', part=0, title='Diosi-Penrose time hbar/E_G, 1e-12 kg silica sphere',
+       file='part0/p0_giants', line=124, status='calc', kind='num', printed='7.5', tol=0.0)
+def check_3128():
+    'tau_DP = hbar/E_G with E_G = G m^2/R for a 1e-12 kg fused-silica sphere (2200 kg/m^3, as Chapter quantumrecords and tab:gravdec), in microseconds. Book line 124, printed 7.5 (mu s). Inputs: CODATA G, hbar.'
+    tau_iam, tau_dp = _b00_tau_iam_dp(1e-12, 0.010)
+    value = tau_dp * 1e6
+    return locals()
+
+@check(label='ch:giants:L125', chapter='ch:giants', part=0, title='IAM decoherence time, 1e-12 kg silica at 10 mK',
+       file='part0/p0_giants', line=125, status='calc', kind='num', printed='509', tol=0.0)
+def check_3129():
+    'tau_IAM = hbar (k_B T)^2 ln2 / E_G^3 (Eq. eq:tauIAM) for a 1e-12 kg fused-silica sphere at 10 mK, in seconds. Book line 125, printed 509. Inputs: CODATA G, hbar, k_B; density 2200 kg/m^3 (the book\'s silica).'
+    tau_iam, tau_dp = _b00_tau_iam_dp(1e-12, 0.010)
+    value = tau_iam
+    return locals()
+
+@check(label='ch:giants:L125:four', chapter='ch:giants', part=0, title='doubling T multiplies tau_IAM by four, tau_DP unchanged',
+       file='part0/p0_giants', line=125, status='calc', kind='num', printed='four', tol=0.0)
+def check_3130():
+    'Ratio tau_IAM(20 mK)/tau_IAM(10 mK) for the same sphere (tau_IAM ~ T^2); tau_DP does not depend on T. Book line 125, printed four.'
+    t1, d1 = _b00_tau_iam_dp(1e-12, 0.010)
+    t2, d2 = _b00_tau_iam_dp(1e-12, 0.020)
+    dp_unchanged = (d1 == d2)
+    value = t2 / t1 if dp_unchanged else float('nan')
+    return locals()
+
+@check(label='ch:giants:L133', chapter='ch:giants', part=0, title='Ohm 1961 excess system temperature (published)',
+       file='part0/p0_giants', line=133, status='observed', kind='num', printed='3.3', tol=0.0)
+def check_3131():
+    'Excess system temperature of the Echo receiver over its components, in K. Book line 133, printed 3.3. Input: Ohm 1961, Bell Syst. Tech. J. (doi 10.1002/j.1538-7305.1961.tb01638.x), as recounted by Wilson 1979, Rev. Mod. Phys. 51, 433 (doi 10.1103/RevModPhys.51.433): an unexplained excess of 3.3 K.'
+    excess_K = 3.3        # Ohm 1961 via Wilson 1979
+    value = excess_K
+    return locals()
+
+@check(label='ch:giants:L135', chapter='ch:giants', part=0, title='Penzias-Wilson excess antenna temperature (published)',
+       file='part0/p0_giants', line=135, status='observed', kind='num', printed='3.5', tol=0.0)
+def check_3132():
+    'Excess antenna temperature at 4080 Mc/s, in K. Book line 135, printed 3.5. Input: Penzias & Wilson 1965, ApJ 142, 419 (doi 10.1086/148307): 3.5 +- 1.0 K.'
+    T_excess, T_excess_err = 3.5, 1.0     # Penzias & Wilson 1965
+    value = T_excess
+    return locals()
+
+@check(label='ch:giants:L140', chapter='ch:giants', part=0, title='COBE DMR anisotropy, about one part in 10^5',
+       file='part0/p0_giants', line=140, status='observed', kind='num', printed='10^5', tol=0.0)
+def check_3133():
+    'Inverse fractional size of the first CMB variations, T/dT, as an order of magnitude. Book line 140, printed 10^5 (one part in 10^5). Inputs: Smoot et al. 1992, ApJ 396 L1 (doi 10.1086/186504): rms sky variation 30 +- 5 microK at 10 degrees; T_CMB = 2.72548 K (Fixsen 2009).'
+    dT_rms = 30e-6
+    T0 = 2.72548
+    value = T0 / dT_rms
+    return locals()
+
+@check(label='ch:giants:L140:2.7255', chapter='ch:giants', part=0, title='CMB temperature (Fixsen 2009, published)',
+       file='part0/p0_giants', line=140, status='observed', kind='num', printed='2.7255', tol=0.0)
+def check_3134():
+    'Present CMB temperature in K. Book line 140, printed 2.7255. Input: Fixsen 2009, ApJ 707, 916 (doi 10.1088/0004-637X/707/2/916): 2.72548 +- 0.00057 K.'
+    T0, T0_err = 2.72548, 0.00057       # Fixsen 2009
+    value = T0
+    return locals()
+
+@check(label='ch:giants:L176', chapter='ch:giants', part=0, title='holding energy from the PROC-CHANNEL-01 record',
+       file='part0/p0_giants', line=176, status='measured', kind='file', printed='3.41', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md',
+       heavy=True, rerun='methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file')
+def check_3135():
+    'Holding energy per maintained site, E_hold = ln((1-eps)/eps) kT across 56 healthy cell types, read from the table row of the copy channel. Book line 176, printed 3.41.'
+    value = _b00_hold_energy()
     return locals()
 
 @check(label='ch:giants:L177', chapter='ch:giants', part=0, title='Boltzmann floor computed from holding energy input',
@@ -27279,14 +27360,6 @@ INVENTORY = [
     (0, 'ch:p0_preface', 'part0/p0_preface', 55, '', 'prediction', '-0.136', 'IAM prediction mu0, not reproducible'),
     (0, 'ch:p0_preface', 'part0/p0_preface', 65, '', 'calc', '+0.54', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
     (0, 'ch:p0_preface', 'part0/p0_preface', 65, '', 'calc', '+0.54', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
-    (0, 'ch:giants', 'part0/p0_giants', 124, '', 'calc', '7.5', 'not yet run: draft does not reproduce the printed value (recomputed 14.1663); drafting error on review'),
-    (0, 'ch:giants', 'part0/p0_giants', 125, '', 'calc', '509', 'not yet run: draft does not reproduce the printed value (recomputed 5.391843e-05); drafting error on review'),
-    (0, 'ch:giants', 'part0/p0_giants', 125, '', 'calc', 'four', 'not yet run: draft does not reproduce the printed value (recomputed 2); drafting error on review'),
-    (0, 'ch:giants', 'part0/p0_giants', 133, '', 'observed', '3.3', 'measured, too few printed digits to match against the named files'),
-    (0, 'ch:giants', 'part0/p0_giants', 135, '', 'observed', '3.5', 'measured, too few printed digits to match against the named files'),
-    (0, 'ch:giants', 'part0/p0_giants', 140, '', 'observed', '10^5', 'measured, too few printed digits to match against the named files'),
-    (0, 'ch:giants', 'part0/p0_giants', 140, '', 'observed', '2.7255', 'measured, not found in the files the chapter names'),
-    (0, 'ch:giants', 'part0/p0_giants', 176, '', 'measured', '3.41', 'measured, not found in the files the chapter names'),
     (0, 'ch:giants', 'part0/p0_giants', 205, '', 'prediction', '', 'statement, no numeric value'),
     (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 49, '', 'none', '', 'definition of Bekenstein-Hawking entropy'),
     (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 59, '', 'none', '', 'definition of Hawking temperature'),

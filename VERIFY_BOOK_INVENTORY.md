@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3128 PASS, 0 FAIL, 3206 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3136 PASS, 0 FAIL, 3198 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -55,14 +55,14 @@ Totals: 3128 PASS, 0 FAIL, 3206 inventoried and not run. Each run item carries t
 | 55 | ch:giants:L55 | derived | `6.2\times10^{-8}` | numeric: Hawking temperature of one-solar-mass black hole | PASS |
 | 58 | ch:giants:L58 | derived | `2.65\times10^{-30}` | numeric: de Sitter temperature today from current H0 | PASS |
 | 79 | ch:giants:L79 | calc | `2.97\times10^{-21}` | numeric: Landauer bound energy per bit at 310.15K | PASS |
-| 124 |  | calc | `7.5` | not run: not yet run: draft does not reproduce the printed value (recomputed 14.1663); drafting error on review | - |
-| 125 |  | calc | `509` | not run: not yet run: draft does not reproduce the printed value (recomputed 5.391843e-05); drafting error on review | - |
-| 125 |  | calc | `four` | not run: not yet run: draft does not reproduce the printed value (recomputed 2); drafting error on review | - |
-| 133 |  | observed | `3.3` | not run: measured, too few printed digits to match against the named files | - |
-| 135 |  | observed | `3.5` | not run: measured, too few printed digits to match against the named files | - |
-| 140 |  | observed | `10^5` | not run: measured, too few printed digits to match against the named files | - |
-| 140 |  | observed | `2.7255` | not run: measured, not found in the files the chapter names | - |
-| 176 |  | measured | `3.41` | not run: measured, not found in the files the chapter names | - |
+| 124 | ch:giants:L124 | calc | `7.5` | numeric: Diosi-Penrose time hbar/E_G, 1e-12 kg silica sphere | PASS |
+| 125 | ch:giants:L125 | calc | `509` | numeric: IAM decoherence time, 1e-12 kg silica at 10 mK | PASS |
+| 125 | ch:giants:L125:four | calc | `four` | numeric: doubling T multiplies tau_IAM by four, tau_DP unchanged | PASS |
+| 133 | ch:giants:L133 | observed | `3.3` | numeric: Ohm 1961 excess system temperature (published) | PASS |
+| 135 | ch:giants:L135 | observed | `3.5` | numeric: Penzias-Wilson excess antenna temperature (published) | PASS |
+| 140 | ch:giants:L140 | observed | `10^5` | numeric: COBE DMR anisotropy, about one part in 10^5 | PASS |
+| 140 | ch:giants:L140:2.7255 | observed | `2.7255` | numeric: CMB temperature (Fixsen 2009, published) | PASS |
+| 176 | ch:giants:L176 | measured | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy from the PROC-CHANNEL-01 record | PASS |
 | 177 | ch:giants:L177 | derived | `0.032` | numeric: Boltzmann floor computed from holding energy input | PASS |
 | 205 |  | prediction |  | not run: statement, no numeric value | - |
 
