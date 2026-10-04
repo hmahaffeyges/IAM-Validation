@@ -5,6 +5,7 @@ check (job A) uses the bars already written in `doors/CHAIN_COMMISSIONING.md`; n
 
 All inputs are already in `s3://methylphys-data-945451304272-us-west-2-an/`. All outputs go to `results/BOXRUN1/<job>/`, with a
 progress log at `results/BOXRUN1/log.txt`. The driver's last step stops the instance, and it stops the instance on a crash as well.
+The driver reaches S3 through boto3 with the default credential chain (credentials configured on the box; the instance has no IAM role).
 
 ## Inputs
 
@@ -20,9 +21,10 @@ progress log at `results/BOXRUN1/log.txt`. The driver's last step stops the inst
 | `downloads/G_chain_tests/prediagnosis` | 10 | 7.7 | B |
 | `downloads/G_chain_tests/longitudinal` | 18 | 7.6 | B (and the difference map) |
 | `downloads/G_chain_tests/neutrophil_state` | 8 | 2.5 | B |
-| GSE128733 neutrophils (2 arrays, local, to upload) | 4 | 0.03 | A (another laboratory) |
+| `downloads/G_chain_tests/neutrophil_ref_GSE128733` | 4 | 0.03 | GSE128733 neutrophils, 2 EPIC arrays (A, another laboratory) |
+| `atlas_v2/IAMAtlas_v2.parquet` | 1 | – | atlas v2 (D, E) |
 
-About 151 GB is read in total (sum of the table). Every job works from the calibrated betas where they exist and calibrates only the arrays that lack them.
+About 151 GB is read in total (sum of the table; the atlas size is not recorded here). Every job works from the calibrated betas where they exist and calibrates only the arrays that lack them.
 
 ## Jobs, in run order
 
@@ -35,6 +37,8 @@ nothing fitted. The bars are the ones already in `CHAIN_COMMISSIONING.md` for st
 
 Development round 2 met all three (0.0164; 62/63; 49/49; 6/6). This run repeats the check with self-tare II as the chain's own Stage T
 rather than as a flag, on the full 68-array set plus the 2 new GSE128733 arrays. Output: one table per bar and one row per array.
+If the GSE128733 folder is missing or empty, the driver writes a warning to the log (and to the job's state) and job A continues without
+those 2 arrays.
 
 **B. Every chain test set read again with the adopted tare.** These are development readings: Met-A, noise index, C-score, direction
 and composition, one row per array, per set.
@@ -45,11 +49,12 @@ is set here; the author sets it after reading the spread.
 **D. Sky statistics with the apodised mask.** The same test that withheld the sky, on healthy replicates against the block-shuffle
 null. It is run with the hard mask and the apodised mask side by side. The bars come from `CHAIN_COMMISSIONING.md` (DEV-SKY-02): band
 power ratios 0.9–1.1, and a look-elsewhere rate at the stated 8.4 %. The question is whether band 1 (1.84 with the hard mask) comes down.
-Needs: the apodised-mask code (GitHub session task 1).
+Needs: the apodised-mask code (GitHub session task 1) and the atlas v2.
 
 **E. Atlas composition (atlas_e) on bloods with known composition.** This runs only if GSE112618 (FACS validation, 6 arrays) or
 GSE182379 (constructed mixtures of 12 cell types, 12 arrays) has been downloaded first. Both are small and can be fetched to S3 before
-the run.
+the run. Needs the atlas v2. If their location is not given, or holds no files, job E is skipped with the reason in the log; this is not
+a failure.
 
 ## Box and time
 
@@ -62,5 +67,5 @@ array took about 6 s (2026-10-04); the number of arrays per set and the time per
 1. Driver script `boxruns/run1/run1_driver.py` (GitHub session task 2): runs A–E, resumes after a stop, logs to S3, stops the
    instance at the end and on a crash.
 2. Apodised mask (GitHub session task 1), needed by job D.
-3. Upload the 2 GSE128733 arrays to S3; optionally fetch GSE112618 and GSE182379 for job E.
+3. The 2 GSE128733 arrays are at `downloads/G_chain_tests/neutrophil_ref_GSE128733`; optionally fetch GSE112618 and GSE182379 for job E.
 4. Local test of the driver on 3 arrays per job, with the shutdown step switched off.

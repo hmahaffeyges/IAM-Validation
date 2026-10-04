@@ -25,9 +25,10 @@ betas of DEV-BASE-CHAIN-01 (results/DEV_BASE_CHAIN_01/betas) where they exist an
      given location holds no files, E is SKIPPED with the reason in the log and in state.json (not a failure; exit code unaffected).
 
 Default locations (the author's instruction; --options override them)
-  GSE128733 (job A, 2 EPIC arrays)  s3://<bucket>/downloads/G_chain_tests/neutrophil_ref_GSE128733/   (--gse128733-prefix / --gse128733-dir)
-  atlas v2 (jobs D and E)           s3://<bucket>/atlas_v2/IAMAtlas_v2.parquet, synced to <work>/data/atlas_v2/  (--atlas-v2 /
-                                    CPG_ATLAS_V2_PARQUET). The author elided the bucket; it is assumed to be the same bucket as above.
+  GSE128733 (job A, 2 EPIC arrays)  s3://<bucket>/downloads/G_chain_tests/neutrophil_ref_GSE128733/   (--gse128733-prefix / --gse128733-dir).
+                                    A missing or empty location is a WARNING (log and state.json); job A continues without the 2 arrays.
+  atlas v2 (jobs D and E)           s3://methylphys-data-945451304272-us-west-2-an/atlas_v2/IAMAtlas_v2.parquet, synced to
+                                    <work>/data/atlas_v2/  (--atlas-v2 / CPG_ATLAS_V2_PARQUET override it).
   S3 access                         boto3 with the default credential chain (credentials configured on the box; the instance has no
                                     IAM role). --aws-region / --aws-profile are passed to the boto3 session only when given.
 
@@ -90,13 +91,13 @@ INPUTS = {
     "longitudinal":     ("downloads/G_chain_tests/longitudinal", 18, 7.6, "B"),
     "neutrophil_state": ("downloads/G_chain_tests/neutrophil_state", 8, 2.5, "B"),
 }
-# the 2 GSE128733 purified-neutrophil arrays of job A (JOBS.md: "local, to upload"); the author gave this location (2 EPIC arrays).
+# the 2 GSE128733 purified-neutrophil arrays of job A (2 EPIC arrays; location given by the author, JOBS.md input table).
 # Default for job A; --gse128733-prefix / --gse128733-dir override it. Size from the JOBS.md table (4 files, 0.03 GB).
+# A missing or empty location is a warning: job A continues without the 2 arrays.
 GSE128733_PREFIX_DEFAULT = "downloads/G_chain_tests/neutrophil_ref_GSE128733"
 GSE128733_GB = 0.03
-# atlas v2 parquet (jobs D and E). The author wrote "s3://.../atlas_v2/IAMAtlas_v2.parquet" with the bucket elided; ASSUMPTION (to be
-# confirmed by the author): it is the same bucket as every other input of JOBS.md, i.e. s3://<BUCKET>/atlas_v2/IAMAtlas_v2.parquet.
-# Synced to <work>/data/atlas_v2/IAMAtlas_v2.parquet and used when neither --atlas-v2 nor CPG_ATLAS_V2_PARQUET is given.
+# atlas v2 parquet (jobs D and E): s3://methylphys-data-945451304272-us-west-2-an/atlas_v2/IAMAtlas_v2.parquet (location confirmed
+# by the author). Synced to <work>/data/atlas_v2/IAMAtlas_v2.parquet and used when neither --atlas-v2 nor CPG_ATLAS_V2_PARQUET is given.
 ATLAS_V2_KEY_DEFAULT = "atlas_v2/IAMAtlas_v2.parquet"
 ATLAS_JOBS = "DE"
 B_SETS = ["healthy_repeat", "infection", "myeloid", "autoimmune", "prediagnosis", "longitudinal", "neutrophil_state"]
@@ -717,8 +718,29 @@ def sync_up(store, cfg, log, job=None):
     return ok
 
 
-def sync_inputs(store, cfg, job, log):
+def gse128733_check(store, cfg):
+    """Job A: (warnings, prefixes not to sync) for GSE128733 locations that are missing or hold no files. A prefix is looked up in the
+    store (in <work>/data/<prefix> with --skip-input-sync); a --gse128733-dir folder on the local disk."""
+    warn, skip = [], set()
+    tail = "; job A continues without the 2 GSE128733 arrays (GSM3684010, GSM3684011)"
+    if cfg.gse128733_prefix:
+        p = cfg.gse128733_prefix
+        if cfg.skip_input_sync:
+            d = os.path.join(cfg.data_dir, p)
+            if not any(f for _r, _d, f in os.walk(d)):
+                warn.append(f"GSE128733 location missing or empty: no files under {d}{tail}")
+        elif not store.has_files(p):
+            warn.append(f"GSE128733 location missing or empty: no files under {store.uri(p.strip('/') + '/')}{tail}"); skip.add(p)
+    for d in cfg.gse128733_dir:
+        if not any(f for _r, _d, f in os.walk(d)):
+            warn.append(f"GSE128733 location missing or empty: no files under {d}{tail}")
+    return warn, skip
+
+
+def sync_inputs(store, cfg, job, log, skip=()):
     for prefix, local in job_inputs(job, cfg):
+        if prefix in skip:
+            continue
         mark = os.path.join(cfg.data_dir, ".synced", prefix.strip("/").replace("/", "__"))
         if os.path.exists(mark):
             continue
@@ -782,14 +804,21 @@ def run_job(j, cfg, state, store, log):
         shutil.rmtree(out_dir)                         # clean start: nothing of an interrupted or failed attempt is kept
     os.makedirs(out_dir)
     js.update(status="running", attempts=js.get("attempts", 0) + 1, started=utcnow(), finished=None, reason=None, outputs={},
-              bars=None, returncode=None, command=cmd)
+              bars=None, returncode=None, command=cmd, warnings=None)
     state.save()
     log(f"[{j}] START {JOB_TITLES[j]} (attempt {js['attempts']})")
     sync_up(store, cfg, log, None)
     t0 = time.time(); jlog = os.path.join(out_dir, f"job_{j}.log")
     try:
+        skip = ()
+        if j == "A":                                   # a missing or empty GSE128733 location: warning only, A goes on without it
+            warn, skip = gse128733_check(store, cfg)
+            if warn:
+                js["warnings"] = warn; state.save()
+                for w in warn:
+                    log(f"[{j}] WARNING: {w}")
         if not cfg.skip_input_sync:
-            sync_inputs(store, cfg, j, log)
+            sync_inputs(store, cfg, j, log, skip)
         rc = run_command(cmd, jlog, cfg.work, cfg.job_timeout)
     except BaseException:
         js.update(status="interrupted", finished=utcnow()); state.save(); raise
@@ -1234,9 +1263,13 @@ def worker_A(c):
     rep = _limit(c, [dict(r, role="replicate") for r in c.manifest if r["series"] == "GSE250556"])
     oth = [dict(r, role="other_lab") for r in c.manifest if r["series"] in OTHER_LAB_SERIES and r["specimen"] == "isolated neutrophils"
            and r["healthy"] == "True"]
-    oth = _limit(c, oth) + [dict(r, role="other_lab") for r in GSE128733_ARRAYS]
+    g128 = [dict(r, role="other_lab") for r in GSE128733_ARRAYS if r["gsm"] in idats or betas_parquet(c, r)]
+    if len(g128) < len(GSE128733_ARRAYS):
+        c.log(f"WARNING: GSE128733 arrays without an input (no IDAT pair under {c.extra or 'no --extra-dir'}): "
+              f"{[r['gsm'] for r in GSE128733_ARRAYS if r['gsm'] not in {x['gsm'] for x in g128}]}; job A continues without them")
+    oth = _limit(c, oth) + g128
     flo = _limit(c, [dict(c.by_gsm[g], role="floor") for g in refs if g in c.by_gsm])
-    c.log(f"set: replicates {len(rep)}, other laboratories {len(oth)} (incl. 2 GSE128733), floor {len(flo)}")
+    c.log(f"set: replicates {len(rep)}, other laboratories {len(oth)} (incl. {len(g128)} GSE128733), floor {len(flo)}")
     rows = []
     for grp in (rep, oth, flo):
         res = read_many(c, grp, FLAGS_ABC, "abc", idats)
