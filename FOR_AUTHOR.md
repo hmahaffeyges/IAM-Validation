@@ -3,7 +3,7 @@
 Items a check raised that would change a result, a prediction, a locked value, an equation of IAM or the framing of a
 claim. The book was left unchanged for each; the decision is the author's. Every FAIL of `verify_book.py` is listed here.
 
-Items: 23
+Items: 25
 
 ## 1. `docs/book/part2/p2_02_virial.tex:L86-87`
 
@@ -165,4 +165,18 @@ Items: 23
 - **Proposed:** keep the number; consider naming it as the baseline of the 2013 Planck SZ analysis, as ch:lensdyn line 184 does
 - **Why it matters:** ch:lensdyn line 184 calls 1-b = 0.8 the baseline of the 2013 analysis and gives the simulation range as b of about 0.1--0.15 (1-b of about 0.85--0.90); the glossary attributes 0.80 to simulations
 - **Recommendation:** wording check only; the check app:glossary:L446:0.80 passes against b = 0.2 (Planck 2015 XXIV)
+
+## 24. `docs/book/appendices/app_G_predictions_register.tex:L53 (COS-172; generated from CANON/predictions_triage_2026-10-02.json by docs/book/figscripts/make_app_G.py)`
+
+- **Now:** Compared with the three-way cluster sample (0<z<0.5): IAM R = 1.07-1.16
+- **Proposed:** IAM R = 1.05-1.16 (1/mu over 0<z<0.5 runs from 1.055 at z = 0.5 to 1.158 at z = 0), or keep 1.07-1.16 and give the redshift range it belongs to (1.07 is 1/mu at z = 0.39-0.40)
+- **Why it matters:** With the book's own mu(z), 1/mu at z = 0.5 is 1.055 (also printed on line 46 of the same appendix), so the lower end 1.07 does not match the stated range 0<z<0.5; the triage record itself notes the recomputed range 1.055-1.158. The check app:register:L53:1.07 FAILS until this is resolved.
+- **Recommendation:** Change the range in the triage statement (or an app_G_overrides.json edit) and regenerate the appendix with make_app_G.py rather than editing the generated .tex by hand.
+
+## 25. `docs/book/appendices/app_G_predictions_register.tex:L55 and L61 (COS-217, COS-272; generated from CANON/predictions_triage_2026-10-02.json)`
+
+- **Now:** WtG observed 1.31 +/- 0.11 (IAM ~2.0 sigma below); CCCP observed 1.20 +/- 0.12 (~1.0 sigma)
+- **Proposed:** Use the traced values recorded in docs/book/read_ledgers/st_MANIFEST_clusters_satellites.md (LD4): Planck 2015 XXIV Table 2 priors 1-b = 0.688 +/- 0.072 (WtG, ratio 1.45 +/- 0.15) and 0.780 +/- 0.092 (CCCP, ratio 1.28 +/- 0.15), with the sigma distances recomputed, or drop the numeric comparison
+- **Why it matters:** The ledger and docs/verification/PAPER_ERRATA.md (LD4) say 1.20 +/- 0.12 and 1.31 +/- 0.11 were replaced by traced values in the lensing-dynamics chapter, but the register rows still print the untraced numbers; the sigma distances 2.0 and 1.0 (checked here from the printed inputs) would change (about 2.4 and 1.3 sigma with the traced values).
+- **Recommendation:** Update the triage statements of COS-217 and COS-272 (or add overrides) and regenerate the appendix with make_app_G.py; the rows 1.31, 0.11, 1.20, 0.12 are listed in SOURCES_NEEDED until then.
 

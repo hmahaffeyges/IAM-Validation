@@ -2789,6 +2789,38 @@ def _b18_sd(gse):
     'Sample SD (ddof 1) of the untared Met-A (A_own) of the repeat arrays of one person (one series) in the T2 diagnostic.'
     a = np.array([float(r['A_own']) for r in load_csv_rows(_B18_T2) if r['group'] == gse and r['A_own']])
     return float(np.std(a, ddof=1)), len(a)
+DATA_FILES['docs/book/figscripts/app_G_overrides.json'] = 'edits and exclusions applied by make_app_G.py when it typesets the register appendix'   # 14 kB
+
+# helpers of the appendices/app_G_predictions_register checks
+# b19 checks: appendices/app_G_predictions_register (rows of batch b19, book lines 19-61)
+
+def _b19_counts():
+    """(Counter of (domain, verdict) over all register entries, Counter of rows of the appendix by domain), as make_app_G.py counts
+    them: rows are entries with verdict KEEP, CORRECT or TESTED that app_G_overrides.json does not exclude."""
+    import collections
+    reg = load_json('CANON/predictions_triage_2026-10-02.json')
+    ov = {k: v for k, v in load_json('docs/book/figscripts/app_G_overrides.json').items() if not k.startswith('_')}
+    cnt = collections.Counter((e['pid'].split('-')[0], e['verdict']) for e in reg)
+    here = collections.Counter(e['pid'].split('-')[0] for e in reg
+                               if e['verdict'] in ('KEEP', 'CORRECT', 'TESTED') and 'exclude' not in ov.get(e['pid'], {}))
+    return cnt, here
+
+# helpers of the appendices/app_G_predictions_register checks
+# b20 checks: appendices/app_G_predictions_register (rows of batch b20, book lines 62-74)
+# Uses verify_book helpers mu_iam, fs8_deficit, amp_deficit, _b00_desi_mu0, _b05_sat_sigma_M, _b03_isw_amp, csv_val (as b19 does).
+
+_B20_F = 'appendices/app_G_predictions_register'
+_B20_CHAINS = 'mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
+
+def _b20_one_minus_mu(z):
+    """1 - mu(z) in per cent, mu(a) = H^2/(H^2 + beta_m E(a) H0^2)."""
+    return 100 * (1 - float(mu_iam(1 / (1 + z))))
+
+def _b20_dlnn(M_sun):
+    """Press-Schechter change of the halo count at fixed mass, Delta ln n = (nu^2 - 1) eps in per cent (ch:satellites line 115),
+    nu = 1.686/sigma_M from the Eisenstein-Hu spectrum, eps = Delta D/D today (IAM against LambdaCDM, same early amplitude)."""
+    nu = 1.686 / _b05_sat_sigma_M(M_sun)
+    return (nu ** 2 - 1) * (-amp_deficit(0.0))
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -44601,6 +44633,54 @@ def check_2923():
     ok = file_has('CANON/predictions_triage_2026-10-02.json', '357')
     return locals()
 
+@check(label='app:register:L19:45', chapter='app:register', part=8, title='register counts: cosmology entries restated',
+       file='appendices/app_G_predictions_register', line=19, status='observed', kind='file', printed='45', tol=0.0, source='CANON/predictions_triage_2026-10-02.json')
+def check_4950():
+    'Table tab:register_counts, Cosmology and gravitation, restated (verdict CORRECT); the compared-with-data column of the same row also prints 45 and is counted by the same helper. Book line 19, printed 45. Inputs: the verdicts of the register entries in CANON/predictions_triage_2026-10-02.json (the file the appendix is typeset from) and, for the rows of this appendix, the exclusions in docs/book/figscripts/app_G_overrides.json, counted as make_app_G.py counts them.'
+    cnt, here = _b19_counts()
+    value = cnt[('COS', 'CORRECT')]
+    return locals()
+
+@check(label='app:register:L19:40', chapter='app:register', part=8, title='register counts: cosmology rows listed here',
+       file='appendices/app_G_predictions_register', line=19, status='observed', kind='file', printed='40', tol=0.0, source='CANON/predictions_triage_2026-10-02.json')
+def check_4951():
+    'Table tab:register_counts, Cosmology and gravitation, rows of this appendix (KEEP, CORRECT or TESTED and not excluded by an override). Book line 19, printed 40. Inputs: the verdicts of the register entries in CANON/predictions_triage_2026-10-02.json (the file the appendix is typeset from) and, for the rows of this appendix, the exclusions in docs/book/figscripts/app_G_overrides.json, counted as make_app_G.py counts them.'
+    cnt, here = _b19_counts()
+    value = here['COS']
+    return locals()
+
+@check(label='app:register:L20:25', chapter='app:register', part=8, title='register counts: particle-physics total',
+       file='appendices/app_G_predictions_register', line=20, status='observed', kind='file', printed='25', tol=0.0, source='CANON/predictions_triage_2026-10-02.json')
+def check_4952():
+    'Table tab:register_counts, Particle physics and fundamental limits, total of the five verdict columns. Book line 20, printed 25. Inputs: the verdicts of the register entries in CANON/predictions_triage_2026-10-02.json (the file the appendix is typeset from) and, for the rows of this appendix, the exclusions in docs/book/figscripts/app_G_overrides.json, counted as make_app_G.py counts them.'
+    cnt, here = _b19_counts()
+    value = sum(cnt[('PAR', v)] for v in ('KEEP', 'CORRECT', 'TESTED', 'DUP', 'DROP'))
+    return locals()
+
+@check(label='app:register:L21:24', chapter='app:register', part=8, title='register counts: qubit total',
+       file='appendices/app_G_predictions_register', line=21, status='observed', kind='file', printed='24', tol=0.0, source='CANON/predictions_triage_2026-10-02.json')
+def check_4953():
+    'Table tab:register_counts, Qubits and quantum measurement, total of the five verdict columns. Book line 21, printed 24. Inputs: the verdicts of the register entries in CANON/predictions_triage_2026-10-02.json (the file the appendix is typeset from) and, for the rows of this appendix, the exclusions in docs/book/figscripts/app_G_overrides.json, counted as make_app_G.py counts them.'
+    cnt, here = _b19_counts()
+    value = sum(cnt[('QUB', v)] for v in ('KEEP', 'CORRECT', 'TESTED', 'DUP', 'DROP'))
+    return locals()
+
+@check(label='app:register:L23:12', chapter='app:register', part=8, title='register counts: foundations not listed',
+       file='appendices/app_G_predictions_register', line=23, status='observed', kind='file', printed='12', tol=0.0, source='CANON/predictions_triage_2026-10-02.json')
+def check_4954():
+    'Table tab:register_counts, Quantum foundations, not listed (verdict DROP). Book line 23, printed 12. Inputs: the verdicts of the register entries in CANON/predictions_triage_2026-10-02.json (the file the appendix is typeset from) and, for the rows of this appendix, the exclusions in docs/book/figscripts/app_G_overrides.json, counted as make_app_G.py counts them.'
+    cnt, here = _b19_counts()
+    value = cnt[('OTH', 'DROP')]
+    return locals()
+
+@check(label='app:register:L23:15', chapter='app:register', part=8, title='register counts: foundations total',
+       file='appendices/app_G_predictions_register', line=23, status='observed', kind='file', printed='15', tol=0.0, source='CANON/predictions_triage_2026-10-02.json')
+def check_4955():
+    'Table tab:register_counts, Quantum foundations, total of the five verdict columns. Book line 23, printed 15. Inputs: the verdicts of the register entries in CANON/predictions_triage_2026-10-02.json (the file the appendix is typeset from) and, for the rows of this appendix, the exclusions in docs/book/figscripts/app_G_overrides.json, counted as make_app_G.py counts them.'
+    cnt, here = _b19_counts()
+    value = sum(cnt[('OTH', v)] for v in ('KEEP', 'CORRECT', 'TESTED', 'DUP', 'DROP'))
+    return locals()
+
 @check(label='app:register:L24', chapter='app:register', part=8, title='measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names',
        file='appendices/app_G_predictions_register', line=24, status='observed', kind='file', printed='143', tol=0.0, source='CANON/predictions_triage_2026-10-02.json')
 def check_2924():
@@ -44615,6 +44695,38 @@ def check_2925():
     ok = file_has('CANON/predictions_triage_2026-10-02.json', '157')
     return locals()
 
+@check(label='app:register:L24:10', chapter='app:register', part=8, title='register counts: all kept',
+       file='appendices/app_G_predictions_register', line=24, status='observed', kind='file', printed='10', tol=0.0, source='CANON/predictions_triage_2026-10-02.json')
+def check_4956():
+    'Table tab:register_counts, all domains, kept (verdict KEEP). Book line 24, printed 10. Inputs: the verdicts of the register entries in CANON/predictions_triage_2026-10-02.json (the file the appendix is typeset from) and, for the rows of this appendix, the exclusions in docs/book/figscripts/app_G_overrides.json, counted as make_app_G.py counts them.'
+    cnt, here = _b19_counts()
+    value = sum(n for (d, v), n in cnt.items() if v == 'KEEP')
+    return locals()
+
+@check(label='app:register:L24:57', chapter='app:register', part=8, title='register counts: all restated',
+       file='appendices/app_G_predictions_register', line=24, status='observed', kind='file', printed='57', tol=0.0, source='CANON/predictions_triage_2026-10-02.json')
+def check_4957():
+    'Table tab:register_counts, all domains, restated (verdict CORRECT). Book line 24, printed 57. Inputs: the verdicts of the register entries in CANON/predictions_triage_2026-10-02.json (the file the appendix is typeset from) and, for the rows of this appendix, the exclusions in docs/book/figscripts/app_G_overrides.json, counted as make_app_G.py counts them.'
+    cnt, here = _b19_counts()
+    value = sum(n for (d, v), n in cnt.items() if v == 'CORRECT')
+    return locals()
+
+@check(label='app:register:L24:54', chapter='app:register', part=8, title='register counts: all compared with data',
+       file='appendices/app_G_predictions_register', line=24, status='observed', kind='file', printed='54', tol=0.0, source='CANON/predictions_triage_2026-10-02.json')
+def check_4958():
+    'Table tab:register_counts, all domains, compared with data (verdict TESTED). Book line 24, printed 54. Inputs: the verdicts of the register entries in CANON/predictions_triage_2026-10-02.json (the file the appendix is typeset from) and, for the rows of this appendix, the exclusions in docs/book/figscripts/app_G_overrides.json, counted as make_app_G.py counts them.'
+    cnt, here = _b19_counts()
+    value = sum(n for (d, v), n in cnt.items() if v == 'TESTED')
+    return locals()
+
+@check(label='app:register:L24:421', chapter='app:register', part=8, title='register counts: all entries',
+       file='appendices/app_G_predictions_register', line=24, status='observed', kind='file', printed='421', tol=0.0, source='CANON/predictions_triage_2026-10-02.json')
+def check_4959():
+    'Table tab:register_counts, all domains, total entries outside the cell domain (also in the caption). Book line 24, printed 421. Inputs: the verdicts of the register entries in CANON/predictions_triage_2026-10-02.json (the file the appendix is typeset from) and, for the rows of this appendix, the exclusions in docs/book/figscripts/app_G_overrides.json, counted as make_app_G.py counts them.'
+    cnt, here = _b19_counts()
+    value = sum(cnt.values())
+    return locals()
+
 @check(label='app:register:L35', chapter='app:register', part=8, title='same value as p2_03_theory:889 (Level2 posterior mean H0)',
        file='appendices/app_G_predictions_register', line=35, status='openprob', kind='file', printed='67.161', tol=7.44e-06, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
@@ -44622,6 +44734,658 @@ def check_2926():
     'same value as p2_03_theory:889 (Level2 posterior mean H0). Book line 35, printed 67.161.'
     value=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','H0')
     return locals()
+
+@check(label='app:register:L35:67.16', chapter='app:register', part=8, title='COS-001: photon-sector H0, Level 2 posterior',
+       file='appendices/app_G_predictions_register', line=35, status='openprob', kind='file', printed='67.16', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4960():
+    'COS-001: photon-sector H0 = 67.16 km/s/Mpc, the Level 2 chain posterior mean (Run A). Book line 35, printed 67.16. Input: mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv, row iam_level2_runA, column H0.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    return locals()
+
+@check(label='app:register:L35:72.26', chapter='app:register', part=8, title='COS-001: matter-sector H0 = H0 sqrt(1 + beta_m)',
+       file='appendices/app_G_predictions_register', line=35, status='openprob', kind='file', printed='72.26', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4961():
+    'COS-001: matter-sector H0 = 67.161 x sqrt(1.15765) = 72.26 km/s/Mpc: the Level 2 photon-sector posterior mean times sqrt(1 + beta_m). Book line 35, printed 72.26. Inputs: CHAIN_EXTRACTION_FINAL.csv (iam_level2_runA, H0), beta_m from CANON.'
+    H0g = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = H0g * math.sqrt(1 + beta_m)
+    return locals()
+
+@check(label='app:register:L36:72.26', chapter='app:register', part=8, title='COS-007: matter-sector H0 = H0 sqrt(1 + beta_m)',
+       file='appendices/app_G_predictions_register', line=36, status='openprob', kind='file', printed='72.26', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4962():
+    'COS-007: the matter-sector H0, 67.161 x sqrt(1 + beta_m). Book line 36, printed 72.26. Inputs: CHAIN_EXTRACTION_FINAL.csv (iam_level2_runA, H0), beta_m from CANON.'
+    H0g = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    value = H0g * math.sqrt(1 + beta_m)
+    return locals()
+
+@check(label='app:register:L36:0.75', chapter='app:register', part=8, title='COS-007: matter-sector H0 from SH0ES, in sigma',
+       file='appendices/app_G_predictions_register', line=36, status='openprob', kind='file', printed='0.75', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4963():
+    'COS-007: (73.04 - H0_matter)/1.04 with H0_matter = H0_photon(Level 2) x sqrt(1 + beta_m). Book line 36, printed 0.75. Inputs: SH0ES 73.04 +/- 1.04 (Riess2022, doi:10.3847/2041-8213/ac5c5b, cited in the preface line 60), CHAIN_EXTRACTION_FINAL.csv, beta_m from CANON.'
+    H0g = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
+    H0m = H0g * math.sqrt(1 + beta_m)
+    value = (73.04 - H0m) / 1.04
+    return locals()
+
+@check(label='app:register:L37:1.062', chapter='app:register', part=8, title='COS-010: effective w0',
+       file='appendices/app_G_predictions_register', line=37, status='openprob', kind='num', printed='1.062', tol=0.0)
+def check_4964():
+    'COS-010: effective w0 = -1.062 (the book prints the minus sign apart; compared as a magnitude). Book line 37. The tangent of w_eff(a) at a = 1 of the effective dark-energy fit (ch:theory lines 515 and 577): w0 = -(1 - Om/3)/(1 - Om/2), wa = -Om^2/(3 (2 - Om)^2). Input: Planck 2018 Omega_m 0.3153 (Aghanim et al. 2020).'
+    value = (1 - Om / 3) / (1 - Om / 2)
+    return locals()
+
+@check(label='app:register:L37:0.012', chapter='app:register', part=8, title='COS-010: effective wa',
+       file='appendices/app_G_predictions_register', line=37, status='openprob', kind='num', printed='0.012', tol=0.0)
+def check_4965():
+    'COS-010: effective wa = -0.012 (magnitude). Book line 37. The tangent of w_eff(a) at a = 1 of the effective dark-energy fit (ch:theory lines 515 and 577): w0 = -(1 - Om/3)/(1 - Om/2), wa = -Om^2/(3 (2 - Om)^2). Input: Planck 2018 Omega_m 0.3153 (Aghanim et al. 2020).'
+    value = (Om**2) / (3 * (2 - Om)**2)
+    return locals()
+
+@check(label='app:register:L38:1.062', chapter='app:register', part=8, title='COS-013: effective w0',
+       file='appendices/app_G_predictions_register', line=38, status='openprob', kind='num', printed='1.062', tol=0.0)
+def check_4966():
+    'COS-013: effective w0 = -1.062 (magnitude). Book line 38. The tangent of w_eff(a) at a = 1 of the effective dark-energy fit (ch:theory lines 515 and 577): w0 = -(1 - Om/3)/(1 - Om/2), wa = -Om^2/(3 (2 - Om)^2). Input: Planck 2018 Omega_m 0.3153 (Aghanim et al. 2020).'
+    value = (1 - Om / 3) / (1 - Om / 2)
+    return locals()
+
+@check(label='app:register:L38:0.012', chapter='app:register', part=8, title='COS-013: effective wa',
+       file='appendices/app_G_predictions_register', line=38, status='openprob', kind='num', printed='0.012', tol=0.0)
+def check_4967():
+    'COS-013: effective wa = -0.012 (magnitude). Book line 38. The tangent of w_eff(a) at a = 1 of the effective dark-energy fit (ch:theory lines 515 and 577): w0 = -(1 - Om/3)/(1 - Om/2), wa = -Om^2/(3 (2 - Om)^2). Input: Planck 2018 Omega_m 0.3153 (Aghanim et al. 2020).'
+    value = (Om**2) / (3 * (2 - Om)**2)
+    return locals()
+
+@check(label='app:register:L38:7.6', chapter='app:register', part=8, title='COS-013: DESI DR2 w0 from -4/3, lower end',
+       file='appendices/app_G_predictions_register', line=38, status='openprob', kind='num', printed='7.6', tol=0.0)
+def check_4968():
+    'COS-013: distance of the DESI DR2 w0 from w_info(a=1) = -1 - 1/3, in sigma, lower end of the range (Union3). Book line 38, printed 7.6. Inputs: DESI DR2 results II (arXiv:2503.14738) w0waCDM fits as the book tabulates them (ch:wzfuture line 107 and the DESI DR2 table of the sector-tension chapter): DESI+CMB+Union3 w0 = -0.667 +/- 0.088, DESI+CMB+DES Y5 w0 = -0.752 +/- 0.057.'
+    w_info0 = -1 - sp.Rational(1, 3)
+    value = abs(-0.667 - float(w_info0)) / 0.088
+    return locals()
+
+@check(label='app:register:L38:10.2', chapter='app:register', part=8, title='COS-013: DESI DR2 w0 from -4/3, upper end',
+       file='appendices/app_G_predictions_register', line=38, status='openprob', kind='num', printed='10.2', tol=0.0)
+def check_4969():
+    'COS-013: distance of the DESI DR2 w0 from w_info(a=1) = -1 - 1/3, in sigma, upper end of the range (DES Y5). Book line 38, printed 10.2. Inputs: DESI DR2 results II (arXiv:2503.14738) w0waCDM fits as the book tabulates them (ch:wzfuture line 107 and the DESI DR2 table of the sector-tension chapter): DESI+CMB+Union3 w0 = -0.667 +/- 0.088, DESI+CMB+DES Y5 w0 = -0.752 +/- 0.057.'
+    w_info0 = -1 - sp.Rational(1, 3)
+    value = abs(-0.752 - float(w_info0)) / 0.057
+    return locals()
+
+@check(label='app:register:L39:0.0052', chapter='app:register', part=8, title='COS-016: photon-coupling bound beta_gamma, 95 %',
+       file='appendices/app_G_predictions_register', line=39, status='openprob', kind='file', printed='0.0052', tol=0.0, source='docs/verification/scripts/verify_beta_gamma_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt')
+def check_4970():
+    'COS-016: current bound beta_gamma < 0.0052 (95 %) from the acoustic scale, read from the committed output of verify_beta_gamma.py. Book line 39; the inventory row carried the earlier 0.0039, the book now prints 0.0052.'
+    value = float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))
+    return locals()
+
+@check(label='app:register:L39:0.033', chapter='app:register', part=8, title='COS-016: beta_gamma bound over beta_m',
+       file='appendices/app_G_predictions_register', line=39, status='openprob', kind='file', printed='0.033', tol=0.0, source='docs/verification/scripts/verify_beta_gamma_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt')
+def check_4971():
+    'COS-016: beta_gamma/beta_m < 0.033: the 95 % bound of verify_beta_gamma.py divided by beta_m = Omega_m/2 (CANON). Book line 39; the inventory row carried the earlier 0.025, the book now prints 0.033.'
+    value = float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))
+    value = value / beta_m
+    return locals()
+
+@check(label='app:register:L40:+0.96', chapter='app:register', part=8, title='COS-018: Level 1 Delta chi2, Planck only',
+       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='+0.96', tol=0.0, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4972():
+    'COS-018: final-chain Delta chi2 (IAM fixed mu0 minus LambdaCDM), Level 1, Planck only. Book line 40, printed +0.96. Input: mgcamb_validation/CHAIN_PAIRS_FINAL.csv, row Planck, column dchi2.'
+    value = [float(r['dchi2']) for r in load_csv_rows('mgcamb_validation/CHAIN_PAIRS_FINAL.csv') if r['data'] == 'Planck'][0]
+    return locals()
+
+@check(label='app:register:L40:+0.56', chapter='app:register', part=8, title='COS-018: Level 1 Delta chi2, Planck + RSD',
+       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='+0.56', tol=0.0, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4973():
+    'COS-018: final-chain Delta chi2 (IAM fixed mu0 minus LambdaCDM), Level 1, Planck + RSD. Book line 40, printed +0.56. Input: mgcamb_validation/CHAIN_PAIRS_FINAL.csv, row Planck+RSD, column dchi2.'
+    value = csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv', 'Planck+RSD', 'dchi2')
+    return locals()
+
+@check(label='app:register:L40:+1.73', chapter='app:register', part=8, title='COS-018: Level 1 Delta chi2, Planck + BAO',
+       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='+1.73', tol=0.0, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4974():
+    'COS-018: final-chain Delta chi2 (IAM fixed mu0 minus LambdaCDM), Level 1, Planck + BAO. Book line 40, printed +1.73. Input: mgcamb_validation/CHAIN_PAIRS_FINAL.csv, row Planck+BAO, column dchi2.'
+    value = csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv', 'Planck+BAO', 'dchi2')
+    return locals()
+
+@check(label='app:register:L40:+1.58', chapter='app:register', part=8, title='COS-018: Level 1 Delta chi2, Planck + Pantheon+',
+       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='+1.58', tol=0.0, source='mgcamb_validation/CHAIN_PAIRS_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4975():
+    'COS-018: final-chain Delta chi2 (IAM fixed mu0 minus LambdaCDM), Level 1, Planck + Pantheon+. Book line 40, printed +1.58. Input: mgcamb_validation/CHAIN_PAIRS_FINAL.csv, row Planck+Pantheon+, column dchi2.'
+    value = csv_val('mgcamb_validation/CHAIN_PAIRS_FINAL.csv', 'Planck+Pantheon+', 'dchi2')
+    return locals()
+
+@check(label='app:register:L40:+0.54', chapter='app:register', part=8, title='COS-018: Level 2 Delta chi2',
+       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='+0.54', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4976():
+    'COS-018: Level 2 chi2_min of IAM (Run A) minus LambdaCDM (Run C). Book line 40, printed +0.54. Input: CHAIN_EXTRACTION_FINAL.csv, column chi2_min.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'chi2_min') - csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'chi2_min')
+    return locals()
+
+@check(label='app:register:L40:18', chapter='app:register', part=8, title='COS-018: number of MCMC chains',
+       file='appendices/app_G_predictions_register', line=40, status='openprob', kind='file', printed='18', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4977():
+    'COS-018: 18 MCMC chains, the number of final chains in the chain record (one row each, Level 1, Level 2, Level 2b and the baryon test). Book line 40, printed 18. Input: CHAIN_EXTRACTION_FINAL.csv.'
+    value = len(load_csv_rows('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'))
+    return locals()
+
+@check(label='app:register:L41:0.7', chapter='app:register', part=8, title='COS-046: Ob/Om over (3/16) sqrt(OL), in sigma',
+       file='appendices/app_G_predictions_register', line=41, status='openprob', kind='file', printed='0.7', tol=0.0, source='docs/verification/scripts/verify_cc_and_baryon_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_cc_and_baryon.py > docs/verification/scripts/verify_cc_and_baryon_output.txt (reads the iam_baryon_test chain)')
+def check_4978():
+    'COS-046: (ratio - 1)/sd of Omega_b/Omega_m over (3/16) sqrt(Omega_L) on the iam_baryon_test chain, read from verify_cc_and_baryon_output.txt (as ch:iams_law line 742). Book line 41, printed 0.7.'
+    ratio, sd = _b00_baryon_ratio()
+    value = (ratio - 1) / sd
+    return locals()
+
+@check(label='app:register:L41:+0.79 \\%', chapter='app:register', part=8, title='COS-046: Lambda ratio, per cent',
+       file='appendices/app_G_predictions_register', line=41, status='openprob', kind='num', printed='+0.79 \\%', tol=0.0)
+def check_4979():
+    'COS-046: the Lambda ratio (2/pi)(l_P/l_H)^2 sqrt(Omega_L) Omega_b/Omega_m against rho_L/rho_vac, in per cent (ch:lambda Table lambda_numbers). Book line 41, printed +0.79 %. Inputs: Planck 2018 (H0 67.4, Ob 0.0493, Om 0.3153; Aghanim et al. 2020), CODATA.'
+    d = _b02_lam_cc()
+    value = 100 * (d['corr'] / d['obs'] - 1)
+    return locals()
+
+@check(label='app:register:L42:0.864', chapter='app:register', part=8, title='COS-058: mu at z = 0',
+       file='appendices/app_G_predictions_register', line=42, status='openprob', kind='num', printed='0.864', tol=0.0)
+def check_4980():
+    'COS-058: mu(z=0) = 1/(1 + beta_m E(1)), from mu(a) = H^2/(H^2 + beta_m E(a) H0^2). Book line 42, printed 0.864. Inputs: beta_m (CANON), Planck 2018 background.'
+    value = float(mu_iam(1.0))
+    return locals()
+
+@check(label='app:register:L42:0.136', chapter='app:register', part=8, title='COS-058: deviation of mu from GR today',
+       file='appendices/app_G_predictions_register', line=42, status='openprob', kind='num', printed='0.136', tol=0.0)
+def check_4981():
+    'COS-058: 1 - mu(z=0), the deviation from GR today. Book line 42, printed 0.136 (after a minus sign). Inputs: beta_m (CANON).'
+    value = 1 - float(mu_iam(1.0))
+    return locals()
+
+@check(label='app:register:L42:0.948', chapter='app:register', part=8, title='COS-058: mu at z = 0.5',
+       file='appendices/app_G_predictions_register', line=42, status='openprob', kind='num', printed='0.948', tol=0.0)
+def check_4982():
+    'COS-058: mu(z=0.5). Book line 42, printed 0.948. Inputs: beta_m (CANON), Planck 2018 background (Om 0.3153).'
+    value = float(mu_iam(1 / 1.5))
+    return locals()
+
+@check(label='app:register:L42:0.982', chapter='app:register', part=8, title='COS-058: mu at z = 1',
+       file='appendices/app_G_predictions_register', line=42, status='openprob', kind='num', printed='0.982', tol=0.0)
+def check_4983():
+    'COS-058: mu(z=1). Book line 42, printed 0.982. Inputs: beta_m (CANON), Planck 2018 background (Om 0.3153).'
+    value = float(mu_iam(0.5))
+    return locals()
+
+@check(label='app:register:L43:0.800', chapter='app:register', part=8, title='COS-062: Level 2 sigma8',
+       file='appendices/app_G_predictions_register', line=43, status='openprob', kind='file', printed='0.800', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4984():
+    'COS-062: Level 2 sigma8 (Run A posterior mean). Book line 43, printed 0.800. Input: CHAIN_EXTRACTION_FINAL.csv, iam_level2_runA, sigma8.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    return locals()
+
+@check(label='app:register:L43:0.1', chapter='app:register', part=8, title='COS-062: Level 2 sigma8 from the joint lensing value, in sigma',
+       file='appendices/app_G_predictions_register', line=43, status='openprob', kind='file', printed='0.1', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4985():
+    'COS-062: (0.802 - sigma8_L2)/0.020. Book line 43, printed 0.1. Inputs: joint lensing sigma8 = 0.802 +0.022/-0.018 (Stolzner2025, cited in ch:virial line 237), symmetrised error 0.020; Level 2 sigma8 from CHAIN_EXTRACTION_FINAL.csv.'
+    s8 = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    value = (0.802 - s8) / ((0.022 + 0.018) / 2)
+    return locals()
+
+@check(label='app:register:L43:0.020', chapter='app:register', part=8, title='COS-062: symmetrised error of the joint lensing sigma8',
+       file='appendices/app_G_predictions_register', line=43, status='openprob', kind='num', printed='0.020', tol=0.0)
+def check_4986():
+    'COS-062: the error 0.020 is the mean of the two published errors of sigma8 = 0.802 +0.022/-0.018. Book line 43, printed 0.020. Input: Stolzner2025 (cited in ch:virial line 237).'
+    up, dn = 0.022, 0.018
+    value = (up + dn) / 2
+    return locals()
+
+@check(label='app:register:L44:+23.6', chapter='app:register', part=8, title='COS-075: Delta chi2 of beta on SN distances',
+       file='appendices/app_G_predictions_register', line=44, status='openprob', kind='file', printed='+23.6', tol=0.0, source='docs/verification/scripts/verify_dual_sector_chapters_output.txt',
+       heavy=True, rerun=_B02_DSV_RERUN)
+def check_4987():
+    'COS-075: Delta chi2 of beta_m put into the supernova distances (full covariance, Om 0.315): chi2 with beta_m minus LambdaCDM chi2, read from section 3 of verify_dual_sector_chapters_output.txt (as ch:dsvalidation line 19). Book line 44; the text prints +23.6 (the inventory row cut it to +23).'
+    c0 = _b02_out(r'Om 0\.315: LCDM chi2 ([\d.]+);')
+    c1 = _b02_out(r'in the distances ([\d.]+);')
+    value = c1 - c0
+    return locals()
+
+@check(label='app:register:L46:1.158', chapter='app:register', part=8, title='COS-091: M_lens/M_dyn = 1/mu at z = 0',
+       file='appendices/app_G_predictions_register', line=46, status='openprob', kind='num', printed='1.158', tol=0.0)
+def check_4988():
+    'COS-091: Level 1 form, M_lens/M_dyn = 1/mu(z) at z = 0. Book line 46, printed 1.158. Inputs: beta_m (CANON), Planck 2018 background (Om 0.3153).'
+    z = 0.0
+    value = 1 / float(mu_iam(1 / (1 + z)))
+    return locals()
+
+@check(label='app:register:L46:1.055', chapter='app:register', part=8, title='COS-091: M_lens/M_dyn = 1/mu at z = 0.5',
+       file='appendices/app_G_predictions_register', line=46, status='openprob', kind='num', printed='1.055', tol=0.0)
+def check_4989():
+    'COS-091: Level 1 form, M_lens/M_dyn = 1/mu(z) at z = 0.5. Book line 46, printed 1.055. Inputs: beta_m (CANON), Planck 2018 background (Om 0.3153).'
+    z = 0.5
+    value = 1 / float(mu_iam(1 / (1 + z)))
+    return locals()
+
+@check(label='app:register:L46:1.018', chapter='app:register', part=8, title='COS-091: M_lens/M_dyn = 1/mu at z = 1',
+       file='appendices/app_G_predictions_register', line=46, status='openprob', kind='num', printed='1.018', tol=0.0)
+def check_4990():
+    'COS-091: Level 1 form, M_lens/M_dyn = 1/mu(z) at z = 1. Book line 46, printed 1.018. Inputs: beta_m (CANON), Planck 2018 background (Om 0.3153).'
+    z = 1.0
+    value = 1 / float(mu_iam(1 / (1 + z)))
+    return locals()
+
+@check(label='app:register:L46:1.002', chapter='app:register', part=8, title='COS-091: M_lens/M_dyn = 1/mu at z = 2',
+       file='appendices/app_G_predictions_register', line=46, status='openprob', kind='num', printed='1.002', tol=0.0)
+def check_4991():
+    'COS-091: Level 1 form, M_lens/M_dyn = 1/mu(z) at z = 2. Book line 46, printed 1.002. Inputs: beta_m (CANON), Planck 2018 background (Om 0.3153).'
+    z = 2.0
+    value = 1 / float(mu_iam(1 / (1 + z)))
+    return locals()
+
+@check(label='app:register:L47:+0.064', chapter='app:register', part=8, title='COS-123: free-mu0 Planck + RSD median',
+       file='appendices/app_G_predictions_register', line=47, status='openprob', kind='file', printed='+0.064', tol=0.0, source='docs/verification/scripts/verify_late_time_level2_output.txt',
+       heavy=True, rerun=_B03_LT_RERUN)
+def check_4992():
+    'COS-123: median of mu0 in the free-mu0 Planck + RSD chain (verify_late_time_level2_output.txt, section C, block Planck + RSD). Book line 47, printed +0.064.'
+    t = file_text(_B03_LT_OUT)
+    m = re.search(r'--- Planck \+ RSD: samples.*?free mu0: .*?median ([-+]\d\.\d+); .*?5 % quantile ([-+]\d\.\d+);.*?P\(mu0 < -0\.135\) = ([\d.]+)', t, re.S)
+    value = float(m.group(1))
+    return locals()
+
+@check(label='app:register:L47:0.204', chapter='app:register', part=8, title='COS-123: free-mu0 Planck + RSD 5 % quantile',
+       file='appendices/app_G_predictions_register', line=47, status='openprob', kind='file', printed='0.204', tol=0.0, source='docs/verification/scripts/verify_late_time_level2_output.txt',
+       heavy=True, rerun=_B03_LT_RERUN)
+def check_4993():
+    'COS-123: lower end of the central 90 % interval (the 5 % quantile) of mu0 in the free-mu0 Planck + RSD chain, -0.204 (the book prints the minus sign apart; compared as a magnitude). Book line 47.'
+    t = file_text(_B03_LT_OUT)
+    m = re.search(r'--- Planck \+ RSD: samples.*?free mu0: .*?median ([-+]\d\.\d+); .*?5 % quantile ([-+]\d\.\d+);.*?P\(mu0 < -0\.135\) = ([\d.]+)', t, re.S)
+    value = -float(m.group(2))
+    return locals()
+
+@check(label='app:register:L47:+0.2', chapter='app:register', part=8, title='COS-123: upper prior edge of free mu0',
+       file='appendices/app_G_predictions_register', line=47, status='openprob', kind='file', printed='+0.2', tol=0.0, source='mgcamb_validation/chains/planck_rsd_mu0_float.updated.yaml',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4994():
+    'COS-123: the upper end of the 90 % interval is the prior edge +0.2, the max of the mu0 prior in the Cobaya settings of the Planck + RSD chain with mu0 free. Book line 47, printed +0.2.'
+    value = _b03_yaml_param('mgcamb_validation/chains/planck_rsd_mu0_float.updated.yaml', 'mu0', 'max')
+    return locals()
+
+@check(label='app:register:L47:0.10', chapter='app:register', part=8, title='COS-123: P(mu0 < -0.135) in the free-mu0 chain',
+       file='appendices/app_G_predictions_register', line=47, status='openprob', kind='file', printed='0.10', tol=0.0, source='docs/verification/scripts/verify_late_time_level2_output.txt',
+       heavy=True, rerun=_B03_LT_RERUN)
+def check_4995():
+    'COS-123: posterior probability P(mu0 < -0.135) in the free-mu0 Planck + RSD chain (verify_late_time_level2_output.txt, section C). Book line 47, printed 0.10.'
+    t = file_text(_B03_LT_OUT)
+    m = re.search(r'--- Planck \+ RSD: samples.*?free mu0: .*?median ([-+]\d\.\d+); .*?5 % quantile ([-+]\d\.\d+);.*?P\(mu0 < -0\.135\) = ([\d.]+)', t, re.S)
+    value = float(m.group(3))
+    return locals()
+
+@check(label='app:register:L48:0.8087', chapter='app:register', part=8, title='COS-131: Level 2 LambdaCDM sigma8 (Run C)',
+       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='file', printed='0.8087', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4996():
+    'COS-131: Level 2 LambdaCDM sigma8, Run C. Book line 48, printed 0.8087. Input: CHAIN_EXTRACTION_FINAL.csv.'
+    sA = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    sC = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'sigma8')
+    value = sC
+    return locals()
+
+@check(label='app:register:L48:0.7998', chapter='app:register', part=8, title='COS-131: Level 2 IAM sigma8 (Run A)',
+       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='file', printed='0.7998', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4997():
+    'COS-131: Level 2 IAM sigma8, Run A. Book line 48, printed 0.7998. Input: CHAIN_EXTRACTION_FINAL.csv.'
+    sA = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    sC = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'sigma8')
+    value = sA
+    return locals()
+
+@check(label='app:register:L48:0.009', chapter='app:register', part=8, title='COS-131: Level 2 sigma8 drop',
+       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='file', printed='0.009', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4998():
+    'COS-131: sigma8(Run C) - sigma8(Run A). Book line 48, printed 0.009. Input: CHAIN_EXTRACTION_FINAL.csv.'
+    sA = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    sC = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'sigma8')
+    value = sC - sA
+    return locals()
+
+@check(label='app:register:L48:1.1 \\%', chapter='app:register', part=8, title='COS-131: Level 2 sigma8 drop, per cent',
+       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='file', printed='1.1 \\%', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_4999():
+    'COS-131: (sigma8(Run C) - sigma8(Run A))/sigma8(Run C), in per cent. Book line 48, printed 1.1 %. Input: CHAIN_EXTRACTION_FINAL.csv.'
+    sA = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'sigma8')
+    sC = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runC_lcdm', 'sigma8')
+    value = 100 * (sC - sA) / sC
+    return locals()
+
+@check(label='app:register:L48:0.822', chapter='app:register', part=8, title='COS-131: Level 2 IAM S8 (Run A)',
+       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='file', printed='0.822', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_5000():
+    'COS-131: the matching S8 of Level 2 Run A. Book line 48, printed 0.822. Input: CHAIN_EXTRACTION_FINAL.csv, column S8.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'S8')
+    return locals()
+
+@check(label='app:register:L48:0.832', chapter='app:register', part=8, title='COS-131: LambdaCDM S8 (Planck 2018)',
+       file='appendices/app_G_predictions_register', line=48, status='openprob', kind='num', printed='0.832', tol=0.0)
+def check_5001():
+    'COS-131: LambdaCDM S8 = sigma8 sqrt(Omega_m/0.3) with Planck 2018 sigma8 0.8111 and Omega_m 0.3153 (Aghanim et al. 2020, doi:10.1051/0004-6361/201833910, Table 2, which gives S8 = 0.832 +/- 0.013). Book line 48, printed 0.832.'
+    value = sigma8_pl * math.sqrt(Om / 0.3)
+    return locals()
+
+@check(label='app:register:L49:13.62 \\%', chapter='app:register', part=8, title='COS-134: 1 - mu at z = 0, per cent',
+       file='appendices/app_G_predictions_register', line=49, status='openprob', kind='num', printed='13.62 \\%', tol=0.0)
+def check_5002():
+    'COS-134: growth Omega_m lower than geometry by 1 - mu(z=0), in per cent. Book line 49, printed 13.62 %. Inputs: beta_m (CANON).'
+    value = 100 * (1 - float(mu_iam(1.0)))
+    return locals()
+
+@check(label='app:register:L49:5.18 \\%', chapter='app:register', part=8, title='COS-134: 1 - mu at z = 0.5, per cent',
+       file='appendices/app_G_predictions_register', line=49, status='openprob', kind='num', printed='5.18 \\%', tol=0.0)
+def check_5003():
+    'COS-134: growth Omega_m lower than geometry by 1 - mu(z=0.5), in per cent. Book line 49, printed 5.18 %. Inputs: beta_m (CANON), Planck 2018 background (Om 0.3153).'
+    value = 100 * (1 - float(mu_iam(1 / 1.5)))
+    return locals()
+
+@check(label='app:register:L50:0.08 \\%', chapter='app:register', part=8, title='COS-140: CMB lensing power lowered, per cent',
+       file='appendices/app_G_predictions_register', line=50, status='openprob', kind='num', printed='0.08 \\%', tol=0.0)
+def check_5004():
+    'COS-140: C_phiphi lowered by the lower growth (printed -0.08 %, compared as a magnitude). Book line 50. Limber estimate as verify_sector_tension.py section 3 (and ch:sectortension line 281): kernel ((chi_s - chi)/chi_s (1+z))^2 / H, power ~ D^2, z from 0.02 to 10, z_s = 1089. Inputs: Planck 2018 background (Om 0.3153), beta_m (CANON).'
+    zg = np.linspace(0.02, 10, 500)
+    Hn = lambda z: np.sqrt(H2_lcdm(1 / (1 + np.asarray(z))))
+    chi_s = quad(lambda x: 1 / Hn(x), 0, 1089, limit=200)[0]
+    zf = np.concatenate([[0.0], zg])
+    ch = np.concatenate([[0.0], np.cumsum([quad(lambda x: 1 / Hn(x), zf[i], zf[i + 1])[0] for i in range(len(zg))])])[1:]
+    W = ((chi_s - ch) / chi_s * (1 + zg)) ** 2 / Hn(zg)
+    la = np.log(1 / (1 + zg))
+    rat = (_g('iam').sol(la)[0] / _g('lcdm').sol(la)[0]) ** 2
+    value = 100 * (1 - integrate.trapezoid(W * rat, zg) / integrate.trapezoid(W, zg))
+    return locals()
+
+@check(label='app:register:L50:+1.8 \\%', chapter='app:register', part=8, title='COS-140: E_G change at z = 0.3, per cent',
+       file='appendices/app_G_predictions_register', line=50, status='openprob', kind='num', printed='+1.8 \\%', tol=0.0)
+def check_5005():
+    'COS-140: E_G = Omega_m0 Sigma/f with Sigma = 1, so E_G(IAM)/E_G(LCDM) - 1 = f_LCDM/f_IAM - 1 at z = 0.3, f from the linear growth equation with the same early amplitude. Book line 50, printed +1.8 %. Inputs: beta_m (CANON), Planck 2018 background.'
+    value = 100 * (f_of('lcdm', 0.3) / f_of('iam', 0.3) - 1)
+    return locals()
+
+@check(label='app:register:L51:0.2990', chapter='app:register', part=8, title='COS-148: growth Omega_m at z = 0.5',
+       file='appendices/app_G_predictions_register', line=51, status='openprob', kind='num', printed='0.2990', tol=0.0)
+def check_5006():
+    'COS-148: predicted growth Omega_m at z = 0.5, Omega_m mu(z=0.5) (geometry lowered by 1 - mu). Book line 51, printed 0.2990. Inputs: Planck 2018 Omega_m 0.3153 (Aghanim et al. 2020), beta_m (CANON).'
+    value = Om * float(mu_iam(1 / 1.5))
+    return locals()
+
+@check(label='app:register:L51:0.3', chapter='app:register', part=8, title='COS-148: growth Omega_m from DESI DR1, in sigma',
+       file='appendices/app_G_predictions_register', line=51, status='openprob', kind='num', printed='0.3', tol=0.0)
+def check_5007():
+    'COS-148: (Om mu(0.5) - 0.2962)/0.0095. Book line 51, printed 0.3. Inputs: DESI DR1 Omega_m = 0.2962 +/- 0.0095 (DESI2024VII, cited in ch:virial line 300), Planck 2018 Omega_m 0.3153, beta_m (CANON).'
+    value = (Om * float(mu_iam(1 / 1.5)) - 0.2962) / 0.0095
+    return locals()
+
+@check(label='app:register:L53:1.07', chapter='app:register', part=8, title='COS-172: lower end of 1/mu over 0 < z < 0.5',
+       file='appendices/app_G_predictions_register', line=53, status='openprob', kind='num', printed='1.07', tol=0.0)
+def check_5008():
+    'COS-172: IAM R = 1/mu over the sample range 0 < z < 0.5: lower end, R at z = 0.5. Book line 53, printed 1.07. Inputs: beta_m (CANON), Planck 2018 background. Recomputed 1.055 (R = 1.07 is reached at z = 0.39); this check FAILS and is listed for the author.'
+    zz = np.linspace(0.0, 0.5, 51)
+    value = min(1 / float(mu_iam(1 / (1 + z))) for z in zz)
+    return locals()
+
+@check(label='app:register:L53:1.16', chapter='app:register', part=8, title='COS-172: upper end of 1/mu over 0 < z < 0.5',
+       file='appendices/app_G_predictions_register', line=53, status='openprob', kind='num', printed='1.16', tol=0.0)
+def check_5009():
+    'COS-172: IAM R = 1/mu over the sample range 0 < z < 0.5: upper end, R at z = 0. Book line 53, printed 1.16. Inputs: beta_m (CANON).'
+    zz = np.linspace(0.0, 0.5, 51)
+    value = max(1 / float(mu_iam(1 / (1 + z))) for z in zz)
+    return locals()
+
+@check(label='app:register:L55:1.094', chapter='app:register', part=8, title='COS-217: 1/mu at z = 0.25',
+       file='appendices/app_G_predictions_register', line=55, status='openprob', kind='num', printed='1.094', tol=0.0)
+def check_5010():
+    'COS-217: IAM 1/mu at the median z = 0.25 of Weighing the Giants. Book line 55, printed 1.094. Inputs: beta_m (CANON), Planck 2018 background.'
+    value = 1 / float(mu_iam(1 / 1.25))
+    return locals()
+
+@check(label='app:register:L55:2.0', chapter='app:register', part=8, title='COS-217: IAM below the WtG value, in sigma',
+       file='appendices/app_G_predictions_register', line=55, status='openprob', kind='num', printed='2.0', tol=0.0)
+def check_5011():
+    'COS-217: (1.31 - 1/mu(0.25))/0.11. Book line 55, printed 2.0 (about). Inputs: the register value 1.31 +/- 0.11 attributed to Weighing the Giants (source to trace, listed in SOURCES_NEEDED), beta_m (CANON).'
+    value = (1.31 - 1 / float(mu_iam(1 / 1.25))) / 0.11
+    return locals()
+
+@check(label='app:register:L57:61.45', chapter='app:register', part=8, title='COS-240: Level 2b H0',
+       file='appendices/app_G_predictions_register', line=57, status='openprob', kind='file', printed='61.45', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_5012():
+    'COS-240: H0 with the dual-sector term in the background Friedmann equation, Level 2b Run A posterior mean. Book line 57, printed 61.45. Input: CHAIN_EXTRACTION_FINAL.csv, iam_l2b_runA, H0.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_l2b_runA', 'H0')
+    return locals()
+
+@check(label='app:register:L57:0.42', chapter='app:register', part=8, title='COS-240: Level 2b H0 error',
+       file='appendices/app_G_predictions_register', line=57, status='openprob', kind='file', printed='0.42', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_5013():
+    'COS-240: posterior sd of H0 in the Level 2b Run A chain. Book line 57, printed 0.42. Input: CHAIN_EXTRACTION_FINAL.csv, iam_l2b_runA, H0_sd.'
+    value = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_l2b_runA', 'H0_sd')
+    return locals()
+
+@check(label='app:register:L57:10.9', chapter='app:register', part=8, title='COS-240: Level 2b H0 from Planck LambdaCDM, in sigma',
+       file='appendices/app_G_predictions_register', line=57, status='openprob', kind='file', printed='10.9', tol=0.0, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_5014():
+    'COS-240: (67.36 - H0_L2b)/0.54, on the Planck error alone. Book line 57, printed 10.9. Inputs: Planck 2018 H0 = 67.36 +/- 0.54 (Aghanim et al. 2020, doi:10.1051/0004-6361/201833910); Level 2b H0 from CHAIN_EXTRACTION_FINAL.csv.'
+    H0b = csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_l2b_runA', 'H0')
+    value = (100 * h_pl - H0b) / 0.54
+    return locals()
+
+@check(label='app:register:L58:0.08 \\%', chapter='app:register', part=8, title='COS-260: CMB lensing power lowered, per cent',
+       file='appendices/app_G_predictions_register', line=58, status='openprob', kind='num', printed='0.08 \\%', tol=0.0)
+def check_5015():
+    'COS-260: C_phiphi lowered by about 0.08 %. Book line 58. Limber estimate as verify_sector_tension.py section 3 (and ch:sectortension line 281): kernel ((chi_s - chi)/chi_s (1+z))^2 / H, power ~ D^2, z from 0.02 to 10, z_s = 1089. Inputs: Planck 2018 background (Om 0.3153), beta_m (CANON).'
+    zg = np.linspace(0.02, 10, 500)
+    Hn = lambda z: np.sqrt(H2_lcdm(1 / (1 + np.asarray(z))))
+    chi_s = quad(lambda x: 1 / Hn(x), 0, 1089, limit=200)[0]
+    zf = np.concatenate([[0.0], zg])
+    ch = np.concatenate([[0.0], np.cumsum([quad(lambda x: 1 / Hn(x), zf[i], zf[i + 1])[0] for i in range(len(zg))])])[1:]
+    W = ((chi_s - ch) / chi_s * (1 + zg)) ** 2 / Hn(zg)
+    la = np.log(1 / (1 + zg))
+    rat = (_g('iam').sol(la)[0] / _g('lcdm').sol(la)[0]) ** 2
+    value = 100 * (1 - integrate.trapezoid(W * rat, zg) / integrate.trapezoid(W, zg))
+    return locals()
+
+@check(label='app:register:L61:1.085', chapter='app:register', part=8, title='COS-272: 1/mu at z = 0.3',
+       file='appendices/app_G_predictions_register', line=61, status='openprob', kind='num', printed='1.085', tol=0.0)
+def check_5016():
+    'COS-272: IAM 1/mu at the median z = 0.3 of CCCP. Book line 61, printed 1.085. Inputs: beta_m (CANON), Planck 2018 background.'
+    value = 1 / float(mu_iam(1 / 1.3))
+    return locals()
+
+@check(label='app:register:L61:1.0', chapter='app:register', part=8, title='COS-272: IAM below the CCCP value, in sigma',
+       file='appendices/app_G_predictions_register', line=61, status='openprob', kind='num', printed='1.0', tol=0.0)
+def check_5017():
+    'COS-272: (1.20 - 1/mu(0.3))/0.12. Book line 61, printed 1.0 (about). Inputs: the register value 1.20 +/- 0.12 attributed to CCCP (source to trace, listed in SOURCES_NEEDED), beta_m (CANON).'
+    value = (1.20 - 1 / float(mu_iam(1 / 1.3))) / 0.12
+    return locals()
+
+@check(label='app:register:L64:0.11', chapter='app:register', part=8, title='COS-309: DESI full-shape mu0 (recorded value)',
+       file='appendices/app_G_predictions_register', line=64, status='observed', kind='file', printed='0.11', tol=0.0, source='docs/verification/theory/IAM_LAW_CHECK.md')
+def check_5018():
+    'COS-309: DESI 2024 VII full-shape mu0 (DESI2024VII, as cited at ch:iams_law line 718), read from the chapter check record IAM_LAW_CHECK.md. Book line 64, printed 0.11.'
+    mu0_desi, up, lo = _b00_desi_mu0()
+    value = mu0_desi
+    return locals()
+
+@check(label='app:register:L66:0.822', chapter='app:register', part=8, title='COS-319: Level 2 IAM S8 (Run A)',
+       file='appendices/app_G_predictions_register', line=66, status='openprob', kind='file', printed='0.822', tol=0.0, source=_B20_CHAINS,
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_5019():
+    'COS-319: Level 2 S8, Run A posterior mean. Book line 66, printed 0.822. Input: CHAIN_EXTRACTION_FINAL.csv, iam_level2_runA, S8.'
+    value = csv_val(_B20_CHAINS, 'iam_level2_runA', 'S8')
+    return locals()
+
+@check(label='app:register:L66:0.011', chapter='app:register', part=8, title='COS-319: Level 2 IAM S8 error (Run A)',
+       file='appendices/app_G_predictions_register', line=66, status='openprob', kind='file', printed='0.011', tol=0.0, source=_B20_CHAINS,
+       heavy=True, rerun=_B02_CHAINS_RERUN)
+def check_5020():
+    'COS-319: posterior sd of S8 in the Level 2 Run A chain. Book line 66, printed 0.011. Input: CHAIN_EXTRACTION_FINAL.csv, iam_level2_runA, S8_sd.'
+    value = csv_val(_B20_CHAINS, 'iam_level2_runA', 'S8_sd')
+    return locals()
+
+@check(label='app:register:L66:0.832', chapter='app:register', part=8, title='COS-319: LambdaCDM S8 (Planck 2018)',
+       file='appendices/app_G_predictions_register', line=66, status='openprob', kind='num', printed='0.832', tol=0.0)
+def check_5021():
+    'COS-319: LambdaCDM S8 = sigma8 sqrt(Omega_m/0.3) with Planck 2018 sigma8 0.8111 and Omega_m 0.3153 (Aghanim et al. 2020, doi:10.1051/0004-6361/201833910, Table 2, S8 = 0.832 +/- 0.013). Book line 66, printed 0.832.'
+    value = sigma8_pl * math.sqrt(Om / 0.3)
+    return locals()
+
+@check(label='app:register:L67:4.25 \\%', chapter='app:register', part=8, title='COS-321: f sigma8 deficit at z = 0, per cent',
+       file='appendices/app_G_predictions_register', line=67, status='openprob', kind='num', printed='4.25 \\%', tol=0.0)
+def check_5022():
+    'COS-321: f sigma8 of IAM below LambdaCDM at z = 0 (same early amplitude), 1 - (f D)_IAM/(f D)_LCDM, in per cent. Book line 67, printed -4.25 % (compared as a magnitude). Inputs: beta_m (CANON), Planck 2018 background.'
+    value = fs8_deficit(0.0)
+    return locals()
+
+@check(label='app:register:L67:1.35 \\%', chapter='app:register', part=8, title='COS-321: f sigma8 deficit at z = 0.5, per cent',
+       file='appendices/app_G_predictions_register', line=67, status='openprob', kind='num', printed='1.35 \\%', tol=0.0)
+def check_5023():
+    'COS-321: f sigma8 of IAM below LambdaCDM at z = 0.5, in per cent. Book line 67, printed -1.35 % (compared as a magnitude). Inputs: beta_m (CANON), Planck 2018 background.'
+    value = fs8_deficit(0.5)
+    return locals()
+
+@check(label='app:register:L68:4.25 \\%', chapter='app:register', part=8, title='COS-324: f sigma8 deficit at z = 0, per cent',
+       file='appendices/app_G_predictions_register', line=68, status='openprob', kind='num', printed='4.25 \\%', tol=0.0)
+def check_5024():
+    'COS-324: f sigma8(z) below LambdaCDM at z = 0, in per cent. Book line 68, printed 4.25 %. Inputs: beta_m (CANON), Planck 2018 background.'
+    value = fs8_deficit(0.0)
+    return locals()
+
+@check(label='app:register:L68:3.42 \\%', chapter='app:register', part=8, title='COS-324: f sigma8 deficit at z = 0.1, per cent',
+       file='appendices/app_G_predictions_register', line=68, status='openprob', kind='num', printed='3.42 \\%', tol=0.0)
+def check_5025():
+    'COS-324: f sigma8(z) below LambdaCDM at z = 0.1, in per cent. Book line 68, printed 3.42 %. Inputs: beta_m (CANON), Planck 2018 background.'
+    value = fs8_deficit(0.1)
+    return locals()
+
+@check(label='app:register:L68:2.17 \\%', chapter='app:register', part=8, title='COS-324: f sigma8 deficit at z = 0.3, per cent',
+       file='appendices/app_G_predictions_register', line=68, status='openprob', kind='num', printed='2.17 \\%', tol=0.0)
+def check_5026():
+    'COS-324: f sigma8(z) below LambdaCDM at z = 0.3, in per cent. Book line 68, printed 2.17 %. Inputs: beta_m (CANON), Planck 2018 background.'
+    value = fs8_deficit(0.3)
+    return locals()
+
+@check(label='app:register:L68:1.35 \\%', chapter='app:register', part=8, title='COS-324: f sigma8 deficit at z = 0.5, per cent',
+       file='appendices/app_G_predictions_register', line=68, status='openprob', kind='num', printed='1.35 \\%', tol=0.0)
+def check_5027():
+    'COS-324: f sigma8(z) below LambdaCDM at z = 0.5, in per cent. Book line 68, printed 1.35 %. Inputs: beta_m (CANON), Planck 2018 background.'
+    value = fs8_deficit(0.5)
+    return locals()
+
+@check(label='app:register:L68:0.41 \\%', chapter='app:register', part=8, title='COS-324: f sigma8 deficit at z = 1, per cent',
+       file='appendices/app_G_predictions_register', line=68, status='openprob', kind='num', printed='0.41 \\%', tol=0.0)
+def check_5028():
+    'COS-324: f sigma8(z) below LambdaCDM at z = 1, in per cent. Book line 68, printed 0.41 %. Inputs: beta_m (CANON), Planck 2018 background.'
+    value = fs8_deficit(1.0)
+    return locals()
+
+@check(label='app:register:L68:0.04 \\%', chapter='app:register', part=8, title='COS-324: f sigma8 deficit at z = 2, per cent',
+       file='appendices/app_G_predictions_register', line=68, status='openprob', kind='num', printed='0.04 \\%', tol=0.0)
+def check_5029():
+    'COS-324: f sigma8(z) below LambdaCDM at z = 2, in per cent. Book line 68, printed 0.04 %. Inputs: beta_m (CANON), Planck 2018 background.'
+    value = fs8_deficit(2.0)
+    return locals()
+
+@check(label='app:register:L69:13.62 \\%', chapter='app:register', part=8, title='COS-336: 1 - mu at z = 0, per cent',
+       file='appendices/app_G_predictions_register', line=69, status='openprob', kind='num', printed='13.62 \\%', tol=0.0)
+def check_5030():
+    'COS-336: coupling suppression 1 - mu(z) at z = 0, in per cent. Book line 69, printed 13.62 %. Inputs: beta_m (CANON).'
+    value = _b20_one_minus_mu(0.0)
+    return locals()
+
+@check(label='app:register:L69:1.78 \\%', chapter='app:register', part=8, title='COS-336: 1 - mu at z = 1, per cent',
+       file='appendices/app_G_predictions_register', line=69, status='openprob', kind='num', printed='1.78 \\%', tol=0.0)
+def check_5031():
+    'COS-336: 1 - mu(z) at z = 1, in per cent. Book line 69, printed 1.78 %. Inputs: beta_m (CANON), Planck 2018 background (Om 0.3153).'
+    value = _b20_one_minus_mu(1.0)
+    return locals()
+
+@check(label='app:register:L69:0.23 \\%', chapter='app:register', part=8, title='COS-336: 1 - mu at z = 2, per cent',
+       file='appendices/app_G_predictions_register', line=69, status='openprob', kind='num', printed='0.23 \\%', tol=0.0)
+def check_5032():
+    'COS-336: 1 - mu(z) at z = 2, in per cent. Book line 69, printed 0.23 %. Inputs: beta_m (CANON), Planck 2018 background (Om 0.3153).'
+    value = _b20_one_minus_mu(2.0)
+    return locals()
+
+@check(label='app:register:L69:0.04 \\%', chapter='app:register', part=8, title='COS-336: 1 - mu at z = 3, per cent',
+       file='appendices/app_G_predictions_register', line=69, status='openprob', kind='num', printed='0.04 \\%', tol=0.0)
+def check_5033():
+    'COS-336: 1 - mu(z) at z = 3, in per cent (printed with ~). Book line 69, printed 0.04 %; the same sentence also prints 0.04 % for the f sigma8 drop at z = 2, checked separately (label suffix :b20:fs8). Inputs: beta_m (CANON), Planck 2018 background (Om 0.3153).'
+    value = _b20_one_minus_mu(3.0)
+    return locals()
+
+@check(label='app:register:L69:0.04 \\%:b20:fs8', chapter='app:register', part=8, title='COS-336: f sigma8 drop at z = 2, per cent',
+       file='appendices/app_G_predictions_register', line=69, status='openprob', kind='num', printed='0.04 \\%', tol=0.0)
+def check_5034():
+    'COS-336: predicted f sigma8 drop at z = 2 against LambdaCDM (same early amplitude), in per cent. Book line 69, printed 0.04 % (twice: in the statement and in the falsification cell). Inputs: beta_m (CANON), Planck 2018 background.'
+    value = fs8_deficit(2.0)
+    return locals()
+
+@check(label='app:register:L70:0.78 \\%', chapter='app:register', part=8, title='COS-338: linear growth factor D lowered today, per cent',
+       file='appendices/app_G_predictions_register', line=70, status='openprob', kind='num', printed='0.78 \\%', tol=0.0)
+def check_5035():
+    'COS-338: D of IAM below LambdaCDM today (same early amplitude), in per cent. Book line 70, printed 0.78 %. Inputs: beta_m (CANON), Planck 2018 background.'
+    value = amp_deficit(0.0)
+    return locals()
+
+@check(label='app:register:L70:+0.68', chapter='app:register', part=8, title='COS-338: Press-Schechter count change at 1e9 solar masses',
+       file='appendices/app_G_predictions_register', line=70, status='openprob', kind='num', printed='+0.68', tol=0.0)
+def check_5036():
+    'COS-338: Press-Schechter Delta ln n = (nu^2 - 1) eps at 1e9 solar masses (nu from sigma_M of the Eisenstein-Hu spectrum, as ch:satellites line 114-115), in per cent. Book line 70, printed +0.68. Inputs: beta_m (CANON), Planck 2018 parameters.'
+    value = _b20_dlnn(1e9)
+    return locals()
+
+@check(label='app:register:L70:+0.73 \\%', chapter='app:register', part=8, title='COS-338: Press-Schechter count change at 1e7 solar masses',
+       file='appendices/app_G_predictions_register', line=70, status='openprob', kind='num', printed='+0.73 \\%', tol=0.0)
+def check_5037():
+    'COS-338: Press-Schechter Delta ln n = (nu^2 - 1) eps at 1e7 solar masses, in per cent. Book line 70, printed +0.73 %. Inputs: beta_m (CANON), Planck 2018 parameters.'
+    value = _b20_dlnn(1e7)
+    return locals()
+
+@check(label='app:register:L73:1.55 \\%', chapter='app:register', part=8, title='COS-357: P_IAM/P_LCDM lowered at z = 0, per cent',
+       file='appendices/app_G_predictions_register', line=73, status='openprob', kind='num', printed='1.55 \\%', tol=0.0)
+def check_5038():
+    'COS-357: linear power scales as D^2, so P_IAM/P_LCDM - 1 = (D_IAM/D_LCDM)^2 - 1 at z = 0, in per cent (printed -1.55 %, compared as a magnitude). Book line 73. Inputs: beta_m (CANON), Planck 2018 background.'
+    r = 1 - amp_deficit(0.0) / 100
+    value = 100 * (1 - r ** 2)
+    return locals()
+
+@check(label='app:register:L73:0.78 \\%', chapter='app:register', part=8, title='COS-357: D lowered at z = 0, per cent',
+       file='appendices/app_G_predictions_register', line=73, status='openprob', kind='num', printed='0.78 \\%', tol=0.0)
+def check_5039():
+    'COS-357: D of IAM below LambdaCDM at z = 0 (same early amplitude), in per cent (printed -0.78 %, compared as a magnitude). Book line 73. Inputs: beta_m (CANON), Planck 2018 background.'
+    value = 100 * (1 - D_of('iam', 0.0) / D_of('lcdm', 0.0))
+    return locals()
+
+@check(label='app:register:L74:1.03', chapter='app:register', part=8, title='COS-365: ISW amplitude ratio A_ISW',
+       file='appendices/app_G_predictions_register', line=74, status='openprob', kind='num', printed='1.03', tol=0.0)
+def check_5040():
+    'COS-365: A_ISW(IAM)/A_ISW(LCDM) ~ 1.03, the ratio of the integrals over 0.05 < z < 1.5 of the ISW source H D (1 - f), IAM against LambdaCDM (Eq. eq:sp_isw, ch:surveys line 135). Book line 74, printed 1.03. Inputs: beta_m (CANON), Planck 2018 background.'
+    U = lambda w: quad(lambda q: _b03_src(w, q) * math.sqrt(H2_lcdm(1 / (1 + q))), 0.05, 1.5)[0]
+    value = U('iam') / U('lcdm')
+    return locals()
+
+
 
 
 # ---------------------------------------------------------------- items inventoried and not run: (part, chapter, file, line, label, status, printed, why)
@@ -45805,219 +46569,129 @@ INVENTORY = [
     (8, 'app:glossary', 'appendices/app_F_glossary', 693, '', 'observed', '0.20', 'definition: twin-test separation of 0.20 in beta (atlas entry rule)'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 729, '', 'observed', '0.15', 'input: redshift bound z=0.15 of the published cluster sample split (Smith2016LoCuSS), a sample definition'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 729, '', 'observed', '0.3', 'input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 19, '', 'observed', '45', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 19, '', 'observed', '40', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 20, '', 'observed', '25', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 21, '', 'observed', '24', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 23, '', 'observed', '12', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 23, '', 'observed', '15', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 24, '', 'observed', '10', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 24, '', 'observed', '57', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 24, '', 'observed', '54', 'measured, too few printed digits to match against the named files'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 24, '', 'observed', '421', 'measured, not found in the files the chapter names'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 35, '', 'openprob', '001', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 35, '', 'openprob', '108', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 35, '', 'openprob', '110', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 35, '', 'openprob', '67.16', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 35, '', 'openprob', '72.26', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 35, '', 'openprob', '70.0', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 36, '', 'openprob', '007', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 36, '', 'openprob', '72.26', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 36, '', 'openprob', '0.75', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 36, '', 'openprob', '73.04', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 37, '', 'openprob', '010', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 37, '', 'openprob', '087', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 37, '', 'openprob', '1.062', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 37, '', 'openprob', '0.012', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 38, '', 'openprob', '013', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 38, '', 'openprob', '1.062', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 38, '', 'openprob', '0.012', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 38, '', 'openprob', '7.6', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 38, '', 'openprob', '10.2', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 39, '', 'openprob', '016', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 39, '', 'openprob', '017', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 39, '', 'openprob', '229', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 39, '', 'openprob', '003', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 39, '', 'openprob', '0.0039', 'text changed at HEAD; not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 39, '', 'openprob', '0.025', 'text changed at HEAD; not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '018', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '008', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '050', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '116', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '117', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '214', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '049', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '+0.96', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '+0.56', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '+1.73', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '+1.58', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '+0.54', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '18', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 41, '', 'openprob', '046', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 41, '', 'openprob', '215', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 41, '', 'openprob', '0.7', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 41, '', 'openprob', '+0.79 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '058', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '004', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '072', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '124', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '127', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '332', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '0.864', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '0.136', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '0.948', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '0.5', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '0.982', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '0.3', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 43, '', 'openprob', '062', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 43, '', 'openprob', '0.800', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 43, '', 'openprob', '0.1', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 43, '', 'openprob', '0.802', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 43, '', 'openprob', '0.020', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 44, '', 'openprob', '075', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 44, '', 'openprob', '107', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 44, '', 'openprob', '+23', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 45, '', 'openprob', '083', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 46, '', 'openprob', '091', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 46, '', 'openprob', '167', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 46, '', 'openprob', '037', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 46, '', 'openprob', '1.158', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 46, '', 'openprob', '1.055', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 46, '', 'openprob', '0.5', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 46, '', 'openprob', '1.018', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 46, '', 'openprob', '1.002', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 47, '', 'openprob', '123', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 47, '', 'openprob', '057', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 47, '', 'openprob', '+0.064', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 47, '', 'openprob', '90 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 47, '', 'openprob', '5 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 47, '', 'openprob', '0.204', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 47, '', 'openprob', '+0.2', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 47, '', 'openprob', '0.136', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 47, '', 'openprob', '0.10', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '131', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '012', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '063', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '064', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '314', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '061', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '0.8087', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '0.7998', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '0.009', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '1.1 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '0.822', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '0.832', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 49, '', 'openprob', '134', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 49, '', 'openprob', '13.62 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 49, '', 'openprob', '5.18 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 49, '', 'openprob', '0.5', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 50, '', 'openprob', '140', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 50, '', 'openprob', '142', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 50, '', 'openprob', '0.08 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 50, '', 'openprob', '+1.8 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 50, '', 'openprob', '0.3', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 51, '', 'openprob', '148', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 51, '', 'openprob', '0.2990', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 51, '', 'openprob', '0.5', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 51, '', 'openprob', '0.2962', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 51, '', 'openprob', '0.0095', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 51, '', 'openprob', '0.3', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 52, '', 'openprob', '159', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 53, '', 'openprob', '172', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 53, '', 'openprob', '1.07', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 53, '', 'openprob', '1.16', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 54, '', 'openprob', '179', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 55, '', 'openprob', '217', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 55, '', 'openprob', '0.25', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 55, '', 'openprob', '1.094', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 55, '', 'openprob', '1.31', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 55, '', 'openprob', '0.11', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 55, '', 'openprob', '2.0', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 56, '', 'openprob', '219', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 56, '', 'openprob', '100', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 57, '', 'openprob', '240', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 57, '', 'openprob', '005', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 57, '', 'openprob', '241', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 57, '', 'openprob', '61.45', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 57, '', 'openprob', '0.42', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 57, '', 'openprob', '10.9', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 57, '', 'openprob', '67.36', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 57, '', 'openprob', '0.54', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 58, '', 'openprob', '260', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 58, '', 'openprob', '0.08 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 58, '', 'openprob', '0.05', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 58, '', 'openprob', '0.3', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 59, '', 'openprob', '265', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 59, '', 'openprob', '10 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 60, '', 'openprob', '266', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 60, '', 'openprob', '20', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 60, '', 'openprob', '20 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 61, '', 'openprob', '272', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 61, '', 'openprob', '50', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 61, '', 'openprob', '0.15', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 61, '', 'openprob', '0.3', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 61, '', 'openprob', '1.085', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 61, '', 'openprob', '1.20', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 61, '', 'openprob', '0.12', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 61, '', 'openprob', '1.0', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 62, '', 'openprob', '290', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 63, '', 'openprob', '301', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 63, '', 'openprob', '021', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 63, '', 'openprob', '345', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 64, '', 'openprob', '309', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 64, '', 'openprob', '0.11', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 64, '', 'openprob', '0.136', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 65, '', 'openprob', '317', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 66, '', 'openprob', '319', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 66, '', 'openprob', '067', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 66, '', 'openprob', '259', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 66, '', 'openprob', '318', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 66, '', 'openprob', '0.822', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 66, '', 'openprob', '0.011', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 66, '', 'openprob', '0.832', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 67, '', 'openprob', '321', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 67, '', 'openprob', '4.25 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 67, '', 'openprob', '1.35 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '324', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '036', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '069', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '070', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '325', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '331', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '4.25 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '3.42 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '0.1', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '2.17 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '0.3', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '1.35 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '0.5', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '0.41 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '0.04 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 69, '', 'openprob', '336', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 69, '', 'openprob', '13.62 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 69, '', 'openprob', '1.78 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 69, '', 'openprob', '0.23 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 69, '', 'openprob', '0.04 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 70, '', 'openprob', '338', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 70, '', 'openprob', '0.78 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 70, '', 'openprob', '10', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 70, '', 'openprob', '+0.68', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 70, '', 'openprob', '+0.73 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 71, '', 'openprob', '342', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 71, '', 'openprob', '343', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 71, '', 'openprob', '294', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 72, '', 'openprob', '351', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 72, '', 'openprob', '156', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 72, '', 'openprob', '1.7', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 72, '', 'openprob', '2.4', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 73, '', 'openprob', '357', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 73, '', 'openprob', '056', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 73, '', 'openprob', '122', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 73, '', 'openprob', '1.55 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 73, '', 'openprob', '0.78 \\%', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 74, '', 'openprob', '365', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 74, '', 'openprob', '364', 'not yet checked'),
-    (8, 'app:register', 'appendices/app_G_predictions_register', 74, '', 'openprob', '1.03', 'not yet checked'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 35, '', 'openprob', '001', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 35, '', 'openprob', '108', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 35, '', 'openprob', '110', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 35, '', 'openprob', '70.0', 'input: GW170817 standard-siren H0 70.0 +12.0/-8.0 (Abbott2017Siren, doi:10.1038/nature24471, cited at ch:theory line 890)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 36, '', 'openprob', '007', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 36, '', 'openprob', '73.04', 'input: SH0ES H0 73.04 +/- 1.04 (Riess2022, doi:10.3847/2041-8213/ac5c5b, cited in the preface line 60)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 37, '', 'openprob', '010', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 37, '', 'openprob', '087', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 38, '', 'openprob', '013', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 39, '', 'openprob', '016', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 39, '', 'openprob', '017', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 39, '', 'openprob', '229', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 39, '', 'openprob', '003', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '018', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '008', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '050', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '116', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '117', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '214', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 40, '', 'openprob', '049', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 41, '', 'openprob', '046', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 41, '', 'openprob', '215', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '058', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '004', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '072', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '124', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '127', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '332', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '0.5', 'input: redshift z = 0.5 at which mu is quoted'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 42, '', 'openprob', '0.3', 'input: lower end of the redshift range z ~ 0.3-1 of the growth ramp, a range named for the test, nothing to recompute'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 43, '', 'openprob', '062', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 43, '', 'openprob', '0.802', 'input: joint lensing sigma8 0.802 +0.022/-0.018 (Stolzner2025, cited in ch:virial line 237 and ch:sectortension line 51)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 44, '', 'openprob', '075', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 44, '', 'openprob', '107', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 45, '', 'openprob', '083', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 46, '', 'openprob', '091', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 46, '', 'openprob', '167', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 46, '', 'openprob', '037', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 46, '', 'openprob', '0.5', 'input: redshift z = 0.5 at which 1/mu is quoted'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 47, '', 'openprob', '123', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 47, '', 'openprob', '057', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 47, '', 'openprob', '90 \\%', 'definition: the central 90 % interval of the posterior'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 47, '', 'openprob', '5 \\%', 'definition: the 5 % quantile, lower end of the central 90 % interval'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 47, '', 'openprob', '0.136', 'locked value mu0 = -0.136 restated'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '131', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '012', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '063', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '064', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '314', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 48, '', 'openprob', '061', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 49, '', 'openprob', '134', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 49, '', 'openprob', '0.5', 'input: redshift z = 0.5 at which the deficit is quoted'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 50, '', 'openprob', '140', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 50, '', 'openprob', '142', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 50, '', 'openprob', '0.3', 'input: redshift z = 0.3 at which E_G is quoted'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 51, '', 'openprob', '148', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 51, '', 'openprob', '0.5', 'input: redshift z = 0.5 at which the growth Omega_m is quoted'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 51, '', 'openprob', '0.2962', 'input: DESI DR1 full-shape plus BAO Omega_m 0.2962 +/- 0.0095 (DESI2024VII, cited in ch:virial line 300)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 51, '', 'openprob', '0.0095', 'input: error of the DESI DR1 Omega_m 0.2962 +/- 0.0095 (DESI2024VII, cited in ch:virial line 300)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 52, '', 'openprob', '159', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 53, '', 'openprob', '172', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 54, '', 'openprob', '179', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 55, '', 'openprob', '217', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 55, '', 'openprob', '0.25', 'input: median redshift z ~ 0.25 of the Weighing the Giants sample'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 55, '', 'openprob', '1.31', 'measured, source not named: observed lensing-to-hydrostatic ratio 1.31 attributed to Weighing the Giants (von der Linden et al. 2014); the value is carried only by the register files and is marked untraced (PAPER_ERRATA.md LD4)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 55, '', 'openprob', '0.11', 'measured, source not named: error 0.11 of the Weighing the Giants ratio 1.31; marked untraced (PAPER_ERRATA.md LD4)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 56, '', 'openprob', '219', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 56, '', 'openprob', '100', 'input: oscillator frequency omega_0 = 2 pi x 100 kHz of the proposed test'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 57, '', 'openprob', '240', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 57, '', 'openprob', '005', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 57, '', 'openprob', '241', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 57, '', 'openprob', '67.36', 'input: Planck 2018 LambdaCDM H0 67.36 (Aghanim et al. 2020, doi:10.1051/0004-6361/201833910)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 57, '', 'openprob', '0.54', 'input: error of the Planck 2018 H0 67.36 +/- 0.54 (Aghanim et al. 2020, doi:10.1051/0004-6361/201833910)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 58, '', 'openprob', '260', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 58, '', 'openprob', '0.05', 'calc, method not committed: lower end of the L-dependent Limber estimate 0.05-0.3 % (restates ch:dsnote line 154 and ch:latetime line 107, kept there for the same reason: no committed script or output)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 58, '', 'openprob', '0.3', 'calc, method not committed: upper end of the L-dependent Limber estimate 0.05-0.3 % (restates ch:dsnote line 154, kept there for the same reason)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 59, '', 'openprob', '265', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 59, '', 'openprob', '10 \\%', 'measured, source not named: stated accuracy of the virial 1/2 partition for the Sun; the register names no data (triage: no data named)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 60, '', 'openprob', '266', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 60, '', 'openprob', '20', 'measured, source not named: number of galaxy clusters (~20) behind the virial 1/2 partition entry; the register names no data'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 60, '', 'openprob', '20 \\%', 'measured, source not named: stated accuracy (~20 %) of the virial partition for galaxy clusters; the register names no data'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 61, '', 'openprob', '272', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 61, '', 'openprob', '50', 'input: CCCP sample size, 50 clusters (Hoekstra2015)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 61, '', 'openprob', '0.15', 'input: lower end of the CCCP redshift range 0.15 < z < 0.55 (Hoekstra2015)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 61, '', 'openprob', '0.3', 'input: median redshift z ~ 0.3 of the CCCP sample'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 61, '', 'openprob', '1.20', 'measured, source not named: observed lensing-to-hydrostatic ratio 1.20 attributed to CCCP (Hoekstra et al. 2015); the value is carried only by the register files and is marked untraced (PAPER_ERRATA.md LD4)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 61, '', 'openprob', '0.12', 'measured, source not named: error 0.12 of the CCCP ratio 1.20; marked untraced (PAPER_ERRATA.md LD4)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 62, '', 'openprob', '290', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 63, '', 'openprob', '301', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 63, '', 'openprob', '021', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 63, '', 'openprob', '345', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 64, '', 'openprob', '309', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 64, '', 'openprob', '0.136', 'locked value mu0 = -0.136 restated'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 65, '', 'openprob', '317', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 66, '', 'openprob', '319', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 66, '', 'openprob', '067', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 66, '', 'openprob', '259', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 66, '', 'openprob', '318', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 67, '', 'openprob', '321', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '324', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '036', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '069', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '070', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '325', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '331', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '0.1', 'input: redshift z = 0.1 at which the f sigma8 deficit is quoted'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '0.3', 'input: redshift z = 0.3 at which the f sigma8 deficit is quoted'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 68, '', 'openprob', '0.5', 'input: redshift z = 0.5 at which the f sigma8 deficit is quoted'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 69, '', 'openprob', '336', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 70, '', 'openprob', '338', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 70, '', 'openprob', '10', 'input: base 10 of the satellite-mass range 10^7 to 10^9 solar masses, the mass range of the satellites chapter (ch:satellites line 114)'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 71, '', 'openprob', '342', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 71, '', 'openprob', '343', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 71, '', 'openprob', '294', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 72, '', 'openprob', '351', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 72, '', 'openprob', '156', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 72, '', 'openprob', '1.7', 'input: lower end of the redshift range z ~ 1.7-2.4 where the competing Lambda_s CDM model shifts BAO; a property of another model, nothing to recompute'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 72, '', 'openprob', '2.4', 'input: upper end of the redshift range z ~ 1.7-2.4 where the competing Lambda_s CDM model shifts BAO; a property of another model, nothing to recompute'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 73, '', 'openprob', '357', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 73, '', 'openprob', '056', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 73, '', 'openprob', '122', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 74, '', 'openprob', '365', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
+    (8, 'app:register', 'appendices/app_G_predictions_register', 74, '', 'openprob', '364', 'definition: register entry identifier (COS-/PAR- number), not a quantity'),
 ]
 
 if __name__ == "__main__":

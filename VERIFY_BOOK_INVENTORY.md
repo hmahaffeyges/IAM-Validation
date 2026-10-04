@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4950 PASS, 0 FAIL, 1391 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 5040 PASS, 1 FAIL, 1301 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -6602,219 +6602,220 @@ Totals: 4950 PASS, 0 FAIL, 1391 inventoried and not run. Each run item carries t
 | 19 | app:register:L19 | observed | `126` | file `CANON/predictions_triage_2026-10-02.json`: measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names | PASS |
 | 19 | app:register:L19:133 | observed | `133` | file `CANON/predictions_triage_2026-10-02.json`: measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names | PASS |
 | 19 | app:register:L19:357 | observed | `357` | file `CANON/predictions_triage_2026-10-02.json`: measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names | PASS |
-| 19 |  | observed | `45` | not run: measured, too few printed digits to match against the named files | - |
-| 19 |  | observed | `40` | not run: measured, too few printed digits to match against the named files | - |
-| 20 |  | observed | `25` | not run: measured, too few printed digits to match against the named files | - |
-| 21 |  | observed | `24` | not run: measured, too few printed digits to match against the named files | - |
-| 23 |  | observed | `12` | not run: measured, too few printed digits to match against the named files | - |
-| 23 |  | observed | `15` | not run: measured, too few printed digits to match against the named files | - |
+| 19 | app:register:L19:45 | observed | `45` | file `CANON/predictions_triage_2026-10-02.json`: register counts: cosmology entries restated | PASS |
+| 19 | app:register:L19:40 | observed | `40` | file `CANON/predictions_triage_2026-10-02.json`: register counts: cosmology rows listed here | PASS |
+| 20 | app:register:L20:25 | observed | `25` | file `CANON/predictions_triage_2026-10-02.json`: register counts: particle-physics total | PASS |
+| 21 | app:register:L21:24 | observed | `24` | file `CANON/predictions_triage_2026-10-02.json`: register counts: qubit total | PASS |
+| 23 | app:register:L23:12 | observed | `12` | file `CANON/predictions_triage_2026-10-02.json`: register counts: foundations not listed | PASS |
+| 23 | app:register:L23:15 | observed | `15` | file `CANON/predictions_triage_2026-10-02.json`: register counts: foundations total | PASS |
 | 24 | app:register:L24 | observed | `143` | file `CANON/predictions_triage_2026-10-02.json`: measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names | PASS |
 | 24 | app:register:L24:157 | observed | `157` | file `CANON/predictions_triage_2026-10-02.json`: measured: printed value found in predictions_triage_2026-10-02.json, a file the chapter names | PASS |
-| 24 |  | observed | `10` | not run: measured, too few printed digits to match against the named files | - |
-| 24 |  | observed | `57` | not run: measured, too few printed digits to match against the named files | - |
-| 24 |  | observed | `54` | not run: measured, too few printed digits to match against the named files | - |
-| 24 |  | observed | `421` | not run: measured, not found in the files the chapter names | - |
+| 24 | app:register:L24:10 | observed | `10` | file `CANON/predictions_triage_2026-10-02.json`: register counts: all kept | PASS |
+| 24 | app:register:L24:57 | observed | `57` | file `CANON/predictions_triage_2026-10-02.json`: register counts: all restated | PASS |
+| 24 | app:register:L24:54 | observed | `54` | file `CANON/predictions_triage_2026-10-02.json`: register counts: all compared with data | PASS |
+| 24 | app:register:L24:421 | observed | `421` | file `CANON/predictions_triage_2026-10-02.json`: register counts: all entries | PASS |
 | 35 | app:register:L35 | openprob | `67.161` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p2_03_theory:889 (Level2 posterior mean H0) | PASS |
-| 35 |  | openprob | `001` | not run: not yet checked | - |
-| 35 |  | openprob | `108` | not run: not yet checked | - |
-| 35 |  | openprob | `110` | not run: not yet checked | - |
-| 35 |  | openprob | `67.16` | not run: not yet checked | - |
-| 35 |  | openprob | `72.26` | not run: not yet checked | - |
-| 35 |  | openprob | `70.0` | not run: not yet checked | - |
-| 36 |  | openprob | `007` | not run: not yet checked | - |
-| 36 |  | openprob | `72.26` | not run: not yet checked | - |
-| 36 |  | openprob | `0.75` | not run: not yet checked | - |
-| 36 |  | openprob | `73.04` | not run: not yet checked | - |
-| 37 |  | openprob | `010` | not run: not yet checked | - |
-| 37 |  | openprob | `087` | not run: not yet checked | - |
-| 37 |  | openprob | `1.062` | not run: not yet checked | - |
-| 37 |  | openprob | `0.012` | not run: not yet checked | - |
-| 38 |  | openprob | `013` | not run: not yet checked | - |
-| 38 |  | openprob | `1.062` | not run: not yet checked | - |
-| 38 |  | openprob | `0.012` | not run: not yet checked | - |
-| 38 |  | openprob | `7.6` | not run: not yet checked | - |
-| 38 |  | openprob | `10.2` | not run: not yet checked | - |
-| 39 |  | openprob | `016` | not run: not yet checked | - |
-| 39 |  | openprob | `017` | not run: not yet checked | - |
-| 39 |  | openprob | `229` | not run: not yet checked | - |
-| 39 |  | openprob | `003` | not run: not yet checked | - |
-| 39 |  | openprob | `0.0039` | not run: text changed at HEAD; not yet checked | - |
-| 39 |  | openprob | `0.025` | not run: text changed at HEAD; not yet checked | - |
-| 40 |  | openprob | `018` | not run: not yet checked | - |
-| 40 |  | openprob | `008` | not run: not yet checked | - |
-| 40 |  | openprob | `050` | not run: not yet checked | - |
-| 40 |  | openprob | `116` | not run: not yet checked | - |
-| 40 |  | openprob | `117` | not run: not yet checked | - |
-| 40 |  | openprob | `214` | not run: not yet checked | - |
-| 40 |  | openprob | `049` | not run: not yet checked | - |
-| 40 |  | openprob | `+0.96` | not run: not yet checked | - |
-| 40 |  | openprob | `+0.56` | not run: not yet checked | - |
-| 40 |  | openprob | `+1.73` | not run: not yet checked | - |
-| 40 |  | openprob | `+1.58` | not run: not yet checked | - |
-| 40 |  | openprob | `+0.54` | not run: not yet checked | - |
-| 40 |  | openprob | `18` | not run: not yet checked | - |
-| 41 |  | openprob | `046` | not run: not yet checked | - |
-| 41 |  | openprob | `215` | not run: not yet checked | - |
-| 41 |  | openprob | `0.7` | not run: not yet checked | - |
-| 41 |  | openprob | `+0.79 \%` | not run: not yet checked | - |
-| 42 |  | openprob | `058` | not run: not yet checked | - |
-| 42 |  | openprob | `004` | not run: not yet checked | - |
-| 42 |  | openprob | `072` | not run: not yet checked | - |
-| 42 |  | openprob | `124` | not run: not yet checked | - |
-| 42 |  | openprob | `127` | not run: not yet checked | - |
-| 42 |  | openprob | `332` | not run: not yet checked | - |
-| 42 |  | openprob | `0.864` | not run: not yet checked | - |
-| 42 |  | openprob | `0.136` | not run: not yet checked | - |
-| 42 |  | openprob | `0.948` | not run: not yet checked | - |
-| 42 |  | openprob | `0.5` | not run: not yet checked | - |
-| 42 |  | openprob | `0.982` | not run: not yet checked | - |
-| 42 |  | openprob | `0.3` | not run: not yet checked | - |
-| 43 |  | openprob | `062` | not run: not yet checked | - |
-| 43 |  | openprob | `0.800` | not run: not yet checked | - |
-| 43 |  | openprob | `0.1` | not run: not yet checked | - |
-| 43 |  | openprob | `0.802` | not run: not yet checked | - |
-| 43 |  | openprob | `0.020` | not run: not yet checked | - |
-| 44 |  | openprob | `075` | not run: not yet checked | - |
-| 44 |  | openprob | `107` | not run: not yet checked | - |
-| 44 |  | openprob | `+23` | not run: not yet checked | - |
-| 45 |  | openprob | `083` | not run: not yet checked | - |
-| 46 |  | openprob | `091` | not run: not yet checked | - |
-| 46 |  | openprob | `167` | not run: not yet checked | - |
-| 46 |  | openprob | `037` | not run: not yet checked | - |
-| 46 |  | openprob | `1.158` | not run: not yet checked | - |
-| 46 |  | openprob | `1.055` | not run: not yet checked | - |
-| 46 |  | openprob | `0.5` | not run: not yet checked | - |
-| 46 |  | openprob | `1.018` | not run: not yet checked | - |
-| 46 |  | openprob | `1.002` | not run: not yet checked | - |
-| 47 |  | openprob | `123` | not run: not yet checked | - |
-| 47 |  | openprob | `057` | not run: not yet checked | - |
-| 47 |  | openprob | `+0.064` | not run: not yet checked | - |
-| 47 |  | openprob | `90 \%` | not run: not yet checked | - |
-| 47 |  | openprob | `5 \%` | not run: not yet checked | - |
-| 47 |  | openprob | `0.204` | not run: not yet checked | - |
-| 47 |  | openprob | `+0.2` | not run: not yet checked | - |
-| 47 |  | openprob | `0.136` | not run: not yet checked | - |
-| 47 |  | openprob | `0.10` | not run: not yet checked | - |
-| 48 |  | openprob | `131` | not run: not yet checked | - |
-| 48 |  | openprob | `012` | not run: not yet checked | - |
-| 48 |  | openprob | `063` | not run: not yet checked | - |
-| 48 |  | openprob | `064` | not run: not yet checked | - |
-| 48 |  | openprob | `314` | not run: not yet checked | - |
-| 48 |  | openprob | `061` | not run: not yet checked | - |
-| 48 |  | openprob | `0.8087` | not run: not yet checked | - |
-| 48 |  | openprob | `0.7998` | not run: not yet checked | - |
-| 48 |  | openprob | `0.009` | not run: not yet checked | - |
-| 48 |  | openprob | `1.1 \%` | not run: not yet checked | - |
-| 48 |  | openprob | `0.822` | not run: not yet checked | - |
-| 48 |  | openprob | `0.832` | not run: not yet checked | - |
-| 49 |  | openprob | `134` | not run: not yet checked | - |
-| 49 |  | openprob | `13.62 \%` | not run: not yet checked | - |
-| 49 |  | openprob | `5.18 \%` | not run: not yet checked | - |
-| 49 |  | openprob | `0.5` | not run: not yet checked | - |
-| 50 |  | openprob | `140` | not run: not yet checked | - |
-| 50 |  | openprob | `142` | not run: not yet checked | - |
-| 50 |  | openprob | `0.08 \%` | not run: not yet checked | - |
-| 50 |  | openprob | `+1.8 \%` | not run: not yet checked | - |
-| 50 |  | openprob | `0.3` | not run: not yet checked | - |
-| 51 |  | openprob | `148` | not run: not yet checked | - |
-| 51 |  | openprob | `0.2990` | not run: not yet checked | - |
-| 51 |  | openprob | `0.5` | not run: not yet checked | - |
-| 51 |  | openprob | `0.2962` | not run: not yet checked | - |
-| 51 |  | openprob | `0.0095` | not run: not yet checked | - |
-| 51 |  | openprob | `0.3` | not run: not yet checked | - |
-| 52 |  | openprob | `159` | not run: not yet checked | - |
-| 53 |  | openprob | `172` | not run: not yet checked | - |
-| 53 |  | openprob | `1.07` | not run: not yet checked | - |
-| 53 |  | openprob | `1.16` | not run: not yet checked | - |
-| 54 |  | openprob | `179` | not run: not yet checked | - |
-| 55 |  | openprob | `217` | not run: not yet checked | - |
-| 55 |  | openprob | `0.25` | not run: not yet checked | - |
-| 55 |  | openprob | `1.094` | not run: not yet checked | - |
-| 55 |  | openprob | `1.31` | not run: not yet checked | - |
-| 55 |  | openprob | `0.11` | not run: not yet checked | - |
-| 55 |  | openprob | `2.0` | not run: not yet checked | - |
-| 56 |  | openprob | `219` | not run: not yet checked | - |
-| 56 |  | openprob | `100` | not run: not yet checked | - |
-| 57 |  | openprob | `240` | not run: not yet checked | - |
-| 57 |  | openprob | `005` | not run: not yet checked | - |
-| 57 |  | openprob | `241` | not run: not yet checked | - |
-| 57 |  | openprob | `61.45` | not run: not yet checked | - |
-| 57 |  | openprob | `0.42` | not run: not yet checked | - |
-| 57 |  | openprob | `10.9` | not run: not yet checked | - |
-| 57 |  | openprob | `67.36` | not run: not yet checked | - |
-| 57 |  | openprob | `0.54` | not run: not yet checked | - |
-| 58 |  | openprob | `260` | not run: not yet checked | - |
-| 58 |  | openprob | `0.08 \%` | not run: not yet checked | - |
-| 58 |  | openprob | `0.05` | not run: not yet checked | - |
-| 58 |  | openprob | `0.3` | not run: not yet checked | - |
-| 59 |  | openprob | `265` | not run: not yet checked | - |
-| 59 |  | openprob | `10 \%` | not run: not yet checked | - |
-| 60 |  | openprob | `266` | not run: not yet checked | - |
-| 60 |  | openprob | `20` | not run: not yet checked | - |
-| 60 |  | openprob | `20 \%` | not run: not yet checked | - |
-| 61 |  | openprob | `272` | not run: not yet checked | - |
-| 61 |  | openprob | `50` | not run: not yet checked | - |
-| 61 |  | openprob | `0.15` | not run: not yet checked | - |
-| 61 |  | openprob | `0.3` | not run: not yet checked | - |
-| 61 |  | openprob | `1.085` | not run: not yet checked | - |
-| 61 |  | openprob | `1.20` | not run: not yet checked | - |
-| 61 |  | openprob | `0.12` | not run: not yet checked | - |
-| 61 |  | openprob | `1.0` | not run: not yet checked | - |
-| 62 |  | openprob | `290` | not run: not yet checked | - |
-| 63 |  | openprob | `301` | not run: not yet checked | - |
-| 63 |  | openprob | `021` | not run: not yet checked | - |
-| 63 |  | openprob | `345` | not run: not yet checked | - |
-| 64 |  | openprob | `309` | not run: not yet checked | - |
-| 64 |  | openprob | `0.11` | not run: not yet checked | - |
-| 64 |  | openprob | `0.136` | not run: not yet checked | - |
-| 65 |  | openprob | `317` | not run: not yet checked | - |
-| 66 |  | openprob | `319` | not run: not yet checked | - |
-| 66 |  | openprob | `067` | not run: not yet checked | - |
-| 66 |  | openprob | `259` | not run: not yet checked | - |
-| 66 |  | openprob | `318` | not run: not yet checked | - |
-| 66 |  | openprob | `0.822` | not run: not yet checked | - |
-| 66 |  | openprob | `0.011` | not run: not yet checked | - |
-| 66 |  | openprob | `0.832` | not run: not yet checked | - |
-| 67 |  | openprob | `321` | not run: not yet checked | - |
-| 67 |  | openprob | `4.25 \%` | not run: not yet checked | - |
-| 67 |  | openprob | `1.35 \%` | not run: not yet checked | - |
-| 68 |  | openprob | `324` | not run: not yet checked | - |
-| 68 |  | openprob | `036` | not run: not yet checked | - |
-| 68 |  | openprob | `069` | not run: not yet checked | - |
-| 68 |  | openprob | `070` | not run: not yet checked | - |
-| 68 |  | openprob | `325` | not run: not yet checked | - |
-| 68 |  | openprob | `331` | not run: not yet checked | - |
-| 68 |  | openprob | `4.25 \%` | not run: not yet checked | - |
-| 68 |  | openprob | `3.42 \%` | not run: not yet checked | - |
-| 68 |  | openprob | `0.1` | not run: not yet checked | - |
-| 68 |  | openprob | `2.17 \%` | not run: not yet checked | - |
-| 68 |  | openprob | `0.3` | not run: not yet checked | - |
-| 68 |  | openprob | `1.35 \%` | not run: not yet checked | - |
-| 68 |  | openprob | `0.5` | not run: not yet checked | - |
-| 68 |  | openprob | `0.41 \%` | not run: not yet checked | - |
-| 68 |  | openprob | `0.04 \%` | not run: not yet checked | - |
-| 69 |  | openprob | `336` | not run: not yet checked | - |
-| 69 |  | openprob | `13.62 \%` | not run: not yet checked | - |
-| 69 |  | openprob | `1.78 \%` | not run: not yet checked | - |
-| 69 |  | openprob | `0.23 \%` | not run: not yet checked | - |
-| 69 |  | openprob | `0.04 \%` | not run: not yet checked | - |
-| 70 |  | openprob | `338` | not run: not yet checked | - |
-| 70 |  | openprob | `0.78 \%` | not run: not yet checked | - |
-| 70 |  | openprob | `10` | not run: not yet checked | - |
-| 70 |  | openprob | `+0.68` | not run: not yet checked | - |
-| 70 |  | openprob | `+0.73 \%` | not run: not yet checked | - |
-| 71 |  | openprob | `342` | not run: not yet checked | - |
-| 71 |  | openprob | `343` | not run: not yet checked | - |
-| 71 |  | openprob | `294` | not run: not yet checked | - |
-| 72 |  | openprob | `351` | not run: not yet checked | - |
-| 72 |  | openprob | `156` | not run: not yet checked | - |
-| 72 |  | openprob | `1.7` | not run: not yet checked | - |
-| 72 |  | openprob | `2.4` | not run: not yet checked | - |
-| 73 |  | openprob | `357` | not run: not yet checked | - |
-| 73 |  | openprob | `056` | not run: not yet checked | - |
-| 73 |  | openprob | `122` | not run: not yet checked | - |
-| 73 |  | openprob | `1.55 \%` | not run: not yet checked | - |
-| 73 |  | openprob | `0.78 \%` | not run: not yet checked | - |
-| 74 |  | openprob | `365` | not run: not yet checked | - |
-| 74 |  | openprob | `364` | not run: not yet checked | - |
-| 74 |  | openprob | `1.03` | not run: not yet checked | - |
+| 35 | app:register:L35:67.16 | openprob | `67.16` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-001: photon-sector H0, Level 2 posterior | PASS |
+| 35 | app:register:L35:72.26 | openprob | `72.26` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-001: matter-sector H0 = H0 sqrt(1 + beta_m) | PASS |
+| 35 |  | openprob | `001` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 35 |  | openprob | `108` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 35 |  | openprob | `110` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 35 |  | openprob | `70.0` | not run: input: GW170817 standard-siren H0 70.0 +12.0/-8.0 (Abbott2017Siren, doi:10.1038/nature24471, cited at ch:theory line 890) | - |
+| 36 | app:register:L36:72.26 | openprob | `72.26` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-007: matter-sector H0 = H0 sqrt(1 + beta_m) | PASS |
+| 36 | app:register:L36:0.75 | openprob | `0.75` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-007: matter-sector H0 from SH0ES, in sigma | PASS |
+| 36 |  | openprob | `007` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 36 |  | openprob | `73.04` | not run: input: SH0ES H0 73.04 +/- 1.04 (Riess2022, doi:10.3847/2041-8213/ac5c5b, cited in the preface line 60) | - |
+| 37 | app:register:L37:1.062 | openprob | `1.062` | numeric: COS-010: effective w0 | PASS |
+| 37 | app:register:L37:0.012 | openprob | `0.012` | numeric: COS-010: effective wa | PASS |
+| 37 |  | openprob | `010` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 37 |  | openprob | `087` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 38 | app:register:L38:1.062 | openprob | `1.062` | numeric: COS-013: effective w0 | PASS |
+| 38 | app:register:L38:0.012 | openprob | `0.012` | numeric: COS-013: effective wa | PASS |
+| 38 | app:register:L38:7.6 | openprob | `7.6` | numeric: COS-013: DESI DR2 w0 from -4/3, lower end | PASS |
+| 38 | app:register:L38:10.2 | openprob | `10.2` | numeric: COS-013: DESI DR2 w0 from -4/3, upper end | PASS |
+| 38 |  | openprob | `013` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 39 | app:register:L39:0.0052 | openprob | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: COS-016: photon-coupling bound beta_gamma, 95 % | PASS |
+| 39 | app:register:L39:0.033 | openprob | `0.033` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: COS-016: beta_gamma bound over beta_m | PASS |
+| 39 |  | openprob | `016` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 39 |  | openprob | `017` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 39 |  | openprob | `229` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 39 |  | openprob | `003` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 40 | app:register:L40:+0.96 | openprob | `+0.96` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: COS-018: Level 1 Delta chi2, Planck only | PASS |
+| 40 | app:register:L40:+0.56 | openprob | `+0.56` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: COS-018: Level 1 Delta chi2, Planck + RSD | PASS |
+| 40 | app:register:L40:+1.73 | openprob | `+1.73` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: COS-018: Level 1 Delta chi2, Planck + BAO | PASS |
+| 40 | app:register:L40:+1.58 | openprob | `+1.58` | heavy file `mgcamb_validation/CHAIN_PAIRS_FINAL.csv`: COS-018: Level 1 Delta chi2, Planck + Pantheon+ | PASS |
+| 40 | app:register:L40:+0.54 | openprob | `+0.54` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-018: Level 2 Delta chi2 | PASS |
+| 40 | app:register:L40:18 | openprob | `18` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-018: number of MCMC chains | PASS |
+| 40 |  | openprob | `018` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 40 |  | openprob | `008` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 40 |  | openprob | `050` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 40 |  | openprob | `116` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 40 |  | openprob | `117` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 40 |  | openprob | `214` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 40 |  | openprob | `049` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 41 | app:register:L41:0.7 | openprob | `0.7` | heavy file `docs/verification/scripts/verify_cc_and_baryon_output.txt`: COS-046: Ob/Om over (3/16) sqrt(OL), in sigma | PASS |
+| 41 | app:register:L41:+0.79 \% | openprob | `+0.79 \%` | numeric: COS-046: Lambda ratio, per cent | PASS |
+| 41 |  | openprob | `046` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 41 |  | openprob | `215` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 42 | app:register:L42:0.864 | openprob | `0.864` | numeric: COS-058: mu at z = 0 | PASS |
+| 42 | app:register:L42:0.136 | openprob | `0.136` | numeric: COS-058: deviation of mu from GR today | PASS |
+| 42 | app:register:L42:0.948 | openprob | `0.948` | numeric: COS-058: mu at z = 0.5 | PASS |
+| 42 | app:register:L42:0.982 | openprob | `0.982` | numeric: COS-058: mu at z = 1 | PASS |
+| 42 |  | openprob | `058` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 42 |  | openprob | `004` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 42 |  | openprob | `072` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 42 |  | openprob | `124` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 42 |  | openprob | `127` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 42 |  | openprob | `332` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 42 |  | openprob | `0.5` | not run: input: redshift z = 0.5 at which mu is quoted | - |
+| 42 |  | openprob | `0.3` | not run: input: lower end of the redshift range z ~ 0.3-1 of the growth ramp, a range named for the test, nothing to recompute | - |
+| 43 | app:register:L43:0.800 | openprob | `0.800` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-062: Level 2 sigma8 | PASS |
+| 43 | app:register:L43:0.1 | openprob | `0.1` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-062: Level 2 sigma8 from the joint lensing value, in sigma | PASS |
+| 43 | app:register:L43:0.020 | openprob | `0.020` | numeric: COS-062: symmetrised error of the joint lensing sigma8 | PASS |
+| 43 |  | openprob | `062` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 43 |  | openprob | `0.802` | not run: input: joint lensing sigma8 0.802 +0.022/-0.018 (Stolzner2025, cited in ch:virial line 237 and ch:sectortension line 51) | - |
+| 44 | app:register:L44:+23.6 | openprob | `+23.6` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: COS-075: Delta chi2 of beta on SN distances | PASS |
+| 44 |  | openprob | `075` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 44 |  | openprob | `107` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 45 |  | openprob | `083` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 46 | app:register:L46:1.158 | openprob | `1.158` | numeric: COS-091: M_lens/M_dyn = 1/mu at z = 0 | PASS |
+| 46 | app:register:L46:1.055 | openprob | `1.055` | numeric: COS-091: M_lens/M_dyn = 1/mu at z = 0.5 | PASS |
+| 46 | app:register:L46:1.018 | openprob | `1.018` | numeric: COS-091: M_lens/M_dyn = 1/mu at z = 1 | PASS |
+| 46 | app:register:L46:1.002 | openprob | `1.002` | numeric: COS-091: M_lens/M_dyn = 1/mu at z = 2 | PASS |
+| 46 |  | openprob | `091` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 46 |  | openprob | `167` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 46 |  | openprob | `037` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 46 |  | openprob | `0.5` | not run: input: redshift z = 0.5 at which 1/mu is quoted | - |
+| 47 | app:register:L47:+0.064 | openprob | `+0.064` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: COS-123: free-mu0 Planck + RSD median | PASS |
+| 47 | app:register:L47:0.204 | openprob | `0.204` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: COS-123: free-mu0 Planck + RSD 5 % quantile | PASS |
+| 47 | app:register:L47:+0.2 | openprob | `+0.2` | heavy file `mgcamb_validation/chains/planck_rsd_mu0_float.updated.yaml`: COS-123: upper prior edge of free mu0 | PASS |
+| 47 | app:register:L47:0.10 | openprob | `0.10` | heavy file `docs/verification/scripts/verify_late_time_level2_output.txt`: COS-123: P(mu0 < -0.135) in the free-mu0 chain | PASS |
+| 47 |  | openprob | `123` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 47 |  | openprob | `057` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 47 |  | openprob | `90 \%` | not run: definition: the central 90 % interval of the posterior | - |
+| 47 |  | openprob | `5 \%` | not run: definition: the 5 % quantile, lower end of the central 90 % interval | - |
+| 47 |  | openprob | `0.136` | not run: locked value mu0 = -0.136 restated | - |
+| 48 | app:register:L48:0.8087 | openprob | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-131: Level 2 LambdaCDM sigma8 (Run C) | PASS |
+| 48 | app:register:L48:0.7998 | openprob | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-131: Level 2 IAM sigma8 (Run A) | PASS |
+| 48 | app:register:L48:0.009 | openprob | `0.009` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-131: Level 2 sigma8 drop | PASS |
+| 48 | app:register:L48:1.1 \% | openprob | `1.1 \%` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-131: Level 2 sigma8 drop, per cent | PASS |
+| 48 | app:register:L48:0.822 | openprob | `0.822` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-131: Level 2 IAM S8 (Run A) | PASS |
+| 48 | app:register:L48:0.832 | openprob | `0.832` | numeric: COS-131: LambdaCDM S8 (Planck 2018) | PASS |
+| 48 |  | openprob | `131` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 48 |  | openprob | `012` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 48 |  | openprob | `063` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 48 |  | openprob | `064` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 48 |  | openprob | `314` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 48 |  | openprob | `061` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 49 | app:register:L49:13.62 \% | openprob | `13.62 \%` | numeric: COS-134: 1 - mu at z = 0, per cent | PASS |
+| 49 | app:register:L49:5.18 \% | openprob | `5.18 \%` | numeric: COS-134: 1 - mu at z = 0.5, per cent | PASS |
+| 49 |  | openprob | `134` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 49 |  | openprob | `0.5` | not run: input: redshift z = 0.5 at which the deficit is quoted | - |
+| 50 | app:register:L50:0.08 \% | openprob | `0.08 \%` | numeric: COS-140: CMB lensing power lowered, per cent | PASS |
+| 50 | app:register:L50:+1.8 \% | openprob | `+1.8 \%` | numeric: COS-140: E_G change at z = 0.3, per cent | PASS |
+| 50 |  | openprob | `140` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 50 |  | openprob | `142` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 50 |  | openprob | `0.3` | not run: input: redshift z = 0.3 at which E_G is quoted | - |
+| 51 | app:register:L51:0.2990 | openprob | `0.2990` | numeric: COS-148: growth Omega_m at z = 0.5 | PASS |
+| 51 | app:register:L51:0.3 | openprob | `0.3` | numeric: COS-148: growth Omega_m from DESI DR1, in sigma | PASS |
+| 51 |  | openprob | `148` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 51 |  | openprob | `0.5` | not run: input: redshift z = 0.5 at which the growth Omega_m is quoted | - |
+| 51 |  | openprob | `0.2962` | not run: input: DESI DR1 full-shape plus BAO Omega_m 0.2962 +/- 0.0095 (DESI2024VII, cited in ch:virial line 300) | - |
+| 51 |  | openprob | `0.0095` | not run: input: error of the DESI DR1 Omega_m 0.2962 +/- 0.0095 (DESI2024VII, cited in ch:virial line 300) | - |
+| 52 |  | openprob | `159` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 53 | app:register:L53:1.07 | openprob | `1.07` | numeric: COS-172: lower end of 1/mu over 0 < z < 0.5 | FAIL |
+| 53 | app:register:L53:1.16 | openprob | `1.16` | numeric: COS-172: upper end of 1/mu over 0 < z < 0.5 | PASS |
+| 53 |  | openprob | `172` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 54 |  | openprob | `179` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 55 | app:register:L55:1.094 | openprob | `1.094` | numeric: COS-217: 1/mu at z = 0.25 | PASS |
+| 55 | app:register:L55:2.0 | openprob | `2.0` | numeric: COS-217: IAM below the WtG value, in sigma | PASS |
+| 55 |  | openprob | `217` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 55 |  | openprob | `0.25` | not run: input: median redshift z ~ 0.25 of the Weighing the Giants sample | - |
+| 55 |  | openprob | `1.31` | not run: measured, source not named: observed lensing-to-hydrostatic ratio 1.31 attributed to Weighing the Giants (von der Linden et al. 2014); the value is carried only by the register files and is marked untraced (PAPER_ERRATA.md LD4) | - |
+| 55 |  | openprob | `0.11` | not run: measured, source not named: error 0.11 of the Weighing the Giants ratio 1.31; marked untraced (PAPER_ERRATA.md LD4) | - |
+| 56 |  | openprob | `219` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 56 |  | openprob | `100` | not run: input: oscillator frequency omega_0 = 2 pi x 100 kHz of the proposed test | - |
+| 57 | app:register:L57:61.45 | openprob | `61.45` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-240: Level 2b H0 | PASS |
+| 57 | app:register:L57:0.42 | openprob | `0.42` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-240: Level 2b H0 error | PASS |
+| 57 | app:register:L57:10.9 | openprob | `10.9` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-240: Level 2b H0 from Planck LambdaCDM, in sigma | PASS |
+| 57 |  | openprob | `240` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 57 |  | openprob | `005` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 57 |  | openprob | `241` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 57 |  | openprob | `67.36` | not run: input: Planck 2018 LambdaCDM H0 67.36 (Aghanim et al. 2020, doi:10.1051/0004-6361/201833910) | - |
+| 57 |  | openprob | `0.54` | not run: input: error of the Planck 2018 H0 67.36 +/- 0.54 (Aghanim et al. 2020, doi:10.1051/0004-6361/201833910) | - |
+| 58 | app:register:L58:0.08 \% | openprob | `0.08 \%` | numeric: COS-260: CMB lensing power lowered, per cent | PASS |
+| 58 |  | openprob | `260` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 58 |  | openprob | `0.05` | not run: calc, method not committed: lower end of the L-dependent Limber estimate 0.05-0.3 % (restates ch:dsnote line 154 and ch:latetime line 107, kept there for the same reason: no committed script or output) | - |
+| 58 |  | openprob | `0.3` | not run: calc, method not committed: upper end of the L-dependent Limber estimate 0.05-0.3 % (restates ch:dsnote line 154, kept there for the same reason) | - |
+| 59 |  | openprob | `265` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 59 |  | openprob | `10 \%` | not run: measured, source not named: stated accuracy of the virial 1/2 partition for the Sun; the register names no data (triage: no data named) | - |
+| 60 |  | openprob | `266` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 60 |  | openprob | `20` | not run: measured, source not named: number of galaxy clusters (~20) behind the virial 1/2 partition entry; the register names no data | - |
+| 60 |  | openprob | `20 \%` | not run: measured, source not named: stated accuracy (~20 %) of the virial partition for galaxy clusters; the register names no data | - |
+| 61 | app:register:L61:1.085 | openprob | `1.085` | numeric: COS-272: 1/mu at z = 0.3 | PASS |
+| 61 | app:register:L61:1.0 | openprob | `1.0` | numeric: COS-272: IAM below the CCCP value, in sigma | PASS |
+| 61 |  | openprob | `272` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 61 |  | openprob | `50` | not run: input: CCCP sample size, 50 clusters (Hoekstra2015) | - |
+| 61 |  | openprob | `0.15` | not run: input: lower end of the CCCP redshift range 0.15 < z < 0.55 (Hoekstra2015) | - |
+| 61 |  | openprob | `0.3` | not run: input: median redshift z ~ 0.3 of the CCCP sample | - |
+| 61 |  | openprob | `1.20` | not run: measured, source not named: observed lensing-to-hydrostatic ratio 1.20 attributed to CCCP (Hoekstra et al. 2015); the value is carried only by the register files and is marked untraced (PAPER_ERRATA.md LD4) | - |
+| 61 |  | openprob | `0.12` | not run: measured, source not named: error 0.12 of the CCCP ratio 1.20; marked untraced (PAPER_ERRATA.md LD4) | - |
+| 62 |  | openprob | `290` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 63 |  | openprob | `301` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 63 |  | openprob | `021` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 63 |  | openprob | `345` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 64 | app:register:L64:0.11 | observed | `0.11` | file `docs/verification/theory/IAM_LAW_CHECK.md`: COS-309: DESI full-shape mu0 (recorded value) | PASS |
+| 64 |  | openprob | `309` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 64 |  | openprob | `0.136` | not run: locked value mu0 = -0.136 restated | - |
+| 65 |  | openprob | `317` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 66 | app:register:L66:0.822 | openprob | `0.822` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-319: Level 2 IAM S8 (Run A) | PASS |
+| 66 | app:register:L66:0.011 | openprob | `0.011` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: COS-319: Level 2 IAM S8 error (Run A) | PASS |
+| 66 | app:register:L66:0.832 | openprob | `0.832` | numeric: COS-319: LambdaCDM S8 (Planck 2018) | PASS |
+| 66 |  | openprob | `319` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 66 |  | openprob | `067` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 66 |  | openprob | `259` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 66 |  | openprob | `318` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 67 | app:register:L67:4.25 \% | openprob | `4.25 \%` | numeric: COS-321: f sigma8 deficit at z = 0, per cent | PASS |
+| 67 | app:register:L67:1.35 \% | openprob | `1.35 \%` | numeric: COS-321: f sigma8 deficit at z = 0.5, per cent | PASS |
+| 67 |  | openprob | `321` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 68 | app:register:L68:4.25 \% | openprob | `4.25 \%` | numeric: COS-324: f sigma8 deficit at z = 0, per cent | PASS |
+| 68 | app:register:L68:3.42 \% | openprob | `3.42 \%` | numeric: COS-324: f sigma8 deficit at z = 0.1, per cent | PASS |
+| 68 | app:register:L68:2.17 \% | openprob | `2.17 \%` | numeric: COS-324: f sigma8 deficit at z = 0.3, per cent | PASS |
+| 68 | app:register:L68:1.35 \% | openprob | `1.35 \%` | numeric: COS-324: f sigma8 deficit at z = 0.5, per cent | PASS |
+| 68 | app:register:L68:0.41 \% | openprob | `0.41 \%` | numeric: COS-324: f sigma8 deficit at z = 1, per cent | PASS |
+| 68 | app:register:L68:0.04 \% | openprob | `0.04 \%` | numeric: COS-324: f sigma8 deficit at z = 2, per cent | PASS |
+| 68 |  | openprob | `324` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 68 |  | openprob | `036` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 68 |  | openprob | `069` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 68 |  | openprob | `070` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 68 |  | openprob | `325` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 68 |  | openprob | `331` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 68 |  | openprob | `0.1` | not run: input: redshift z = 0.1 at which the f sigma8 deficit is quoted | - |
+| 68 |  | openprob | `0.3` | not run: input: redshift z = 0.3 at which the f sigma8 deficit is quoted | - |
+| 68 |  | openprob | `0.5` | not run: input: redshift z = 0.5 at which the f sigma8 deficit is quoted | - |
+| 69 | app:register:L69:13.62 \% | openprob | `13.62 \%` | numeric: COS-336: 1 - mu at z = 0, per cent | PASS |
+| 69 | app:register:L69:1.78 \% | openprob | `1.78 \%` | numeric: COS-336: 1 - mu at z = 1, per cent | PASS |
+| 69 | app:register:L69:0.23 \% | openprob | `0.23 \%` | numeric: COS-336: 1 - mu at z = 2, per cent | PASS |
+| 69 | app:register:L69:0.04 \% | openprob | `0.04 \%` | numeric: COS-336: 1 - mu at z = 3, per cent | PASS |
+| 69 | app:register:L69:0.04 \%:b20:fs8 | openprob | `0.04 \%` | numeric: COS-336: f sigma8 drop at z = 2, per cent | PASS |
+| 69 |  | openprob | `336` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 70 | app:register:L70:0.78 \% | openprob | `0.78 \%` | numeric: COS-338: linear growth factor D lowered today, per cent | PASS |
+| 70 | app:register:L70:+0.68 | openprob | `+0.68` | numeric: COS-338: Press-Schechter count change at 1e9 solar masses | PASS |
+| 70 | app:register:L70:+0.73 \% | openprob | `+0.73 \%` | numeric: COS-338: Press-Schechter count change at 1e7 solar masses | PASS |
+| 70 |  | openprob | `338` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 70 |  | openprob | `10` | not run: input: base 10 of the satellite-mass range 10^7 to 10^9 solar masses, the mass range of the satellites chapter (ch:satellites line 114) | - |
+| 71 |  | openprob | `342` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 71 |  | openprob | `343` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 71 |  | openprob | `294` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 72 |  | openprob | `351` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 72 |  | openprob | `156` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 72 |  | openprob | `1.7` | not run: input: lower end of the redshift range z ~ 1.7-2.4 where the competing Lambda_s CDM model shifts BAO; a property of another model, nothing to recompute | - |
+| 72 |  | openprob | `2.4` | not run: input: upper end of the redshift range z ~ 1.7-2.4 where the competing Lambda_s CDM model shifts BAO; a property of another model, nothing to recompute | - |
+| 73 | app:register:L73:1.55 \% | openprob | `1.55 \%` | numeric: COS-357: P_IAM/P_LCDM lowered at z = 0, per cent | PASS |
+| 73 | app:register:L73:0.78 \% | openprob | `0.78 \%` | numeric: COS-357: D lowered at z = 0, per cent | PASS |
+| 73 |  | openprob | `357` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 73 |  | openprob | `056` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 73 |  | openprob | `122` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 74 | app:register:L74:1.03 | openprob | `1.03` | numeric: COS-365: ISW amplitude ratio A_ISW | PASS |
+| 74 |  | openprob | `365` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
+| 74 |  | openprob | `364` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
