@@ -247,7 +247,7 @@
    "stage": "8",
    "name": "Self-tare on type II fixed sites",
    "where": "chain/dev_stages.py",
-   "status": "toolkit: not yet wired into chain v3"
+   "status": "wired into chain v3 (optional input; see chain/TOOLKIT.md)"
   },
   {
    "stage": "1",

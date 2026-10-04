@@ -73,5 +73,5 @@ Chain v3 is the only engine; the class-floor engine (v2) was retired on 2026-10-
 | 12 | Sky statistics | `chain/sky_statistics.py` | toolkit: not yet wired into chain v3 |
 | 12b | Difference map | `chain/serial_mode.py` | wired into chain v3 (optional input; see chain/TOOLKIT.md) |
 | 5 | Met-A per cell (B cells) | `chain/dev_stages.py` | toolkit: not yet wired into chain v3 |
-| 8 | Self-tare on type II fixed sites | `chain/dev_stages.py` | toolkit: not yet wired into chain v3 |
+| 8 | Self-tare on type II fixed sites | `chain/dev_stages.py` | wired into chain v3 (optional input; see chain/TOOLKIT.md) |
 | 1 | EPIC v2 calibration | `chain/dev_stages.py` | toolkit: not yet wired into chain v3 |
