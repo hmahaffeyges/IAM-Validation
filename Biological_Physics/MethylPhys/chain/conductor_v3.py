@@ -233,7 +233,7 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
     else:
         a = stage_a_composition(b_st); out["composition"] = a
         m, z = stage_m_blood(b_st, a)
-    m.update(noise_index(beta))
+    m.update(noise_index(beta))   # the noise index reads the betas before self-tare II (step 1): N and the noise gate are unchanged by Stage T
     t = stage_t_tare(m.get("A"), ref_A, m.get("shift_per_1pct_loss"), sample_id=sample_id)   # Stage T step 2, the median tare
     t["selftare_ii"] = st1
     if t.get("A_rel") is not None: m["state"] = "tared: read A_rel (Stage T)"

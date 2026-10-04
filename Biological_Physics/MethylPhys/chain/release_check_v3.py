@@ -21,7 +21,8 @@ Checks
   E3  a constructed whole-blood specimen through run_sample.py --betas: the bundled EPIC array calibrated without the detection mask,
       its 963 composition markers and 6,000 neutrophil sites replaced by a known mixture of the frozen purified-group profiles
       (NEU 0.60): Stage A must recover the fractions, Met-A must equal 1 (the specimen IS its composition-matched expectation), and
-      Stage T must tare against three references to A_rel = 1
+      Stage T must tare against three references to A_rel = 1. Since 2026-10-04 the specimen's self-tare II fixed sites are also set to
+      the reference scale (ref_value of Runtime Matrices/Development/dev_selftare_typeII_EPIC_v1.json; see E3)
   E4  Stage Q through run_sample.py --site-table: a constructed per-site table whose copy error equals the healthy position reads
       IAM-A = 1 (Normal); the same table under another pipeline is refused; the .pat extractor reads a constructed .pat file
   E5  stage 12b (wired 2026-10-03): two constructed draws of one person through run_sample.py --prior-betas give the per-address difference;
@@ -202,6 +203,15 @@ def E3(tmp):
     rest = [g for g in B["groups"] if g != "NEU"]
     for k, g in enumerate(rest): f[g] = 0.40 * (k + 1) / sum(range(1, len(rest) + 1))
     M = pd.DataFrame(B["mu_markers"], index=B["markers"]); P = pd.DataFrame(B["profiles_at_neutrophil_sites"], index=B["neutrophil_sites"])
+    # Fixed sites on the reference scale (author, 2026-10-04): Stage T step 1, self-tare II, takes its anchors from the array's own fixed
+    # sites, so a specimen whose substituted sites are on the reference scale must have its fixed sites on the same scale, or step 1
+    # rescales sites that are already referenced (the colon array's own fixed sites gave Met-A 0.0159). Source: ref_value of
+    # Runtime Matrices/Development/dev_selftare_typeII_EPIC_v1.json, the mean of its six reference arrays (GSM2998021, 023, 030, 057, 116,
+    # 143): the same six GSE110554 purified neutrophil arrays as metA_floors_v1_3.json and neutrophil_reference_v1_1.json. Every fixed
+    # site of the self-tare II sets that the specimen carries is set; bars and expected values are unchanged.
+    ST = json.load(open(os.path.join(HERE, "Runtime Matrices", "Development", "dev_selftare_typeII_EPIC_v1.json")))
+    fx = pd.Series(ST["ref_value"], dtype="float64"); fx = fx[fx.index.isin(b.index)]
+    b.loc[fx.index] = fx.values
     b = b.reindex(b.index.union(M.index).union(P.index))
     b.loc[M.index] = (M[B["groups"]] @ pd.Series(f)[B["groups"]]).values
     b.loc[P.index] = (P[B["groups"]] @ pd.Series(f)[B["groups"]]).values
