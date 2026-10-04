@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4453 PASS, 0 FAIL, 1886 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 4460 PASS, 0 FAIL, 1879 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -5478,24 +5478,23 @@ Totals: 4453 PASS, 0 FAIL, 1886 inventoried and not run. Each run item carries t
 | 40 | ch:reach:L40:1.33 | measured | `1.33` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |
 | 40 | ch:reach:L40:1.148 | measured | `1.148` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |
 | 40 | ch:reach:L40:1.090 | measured | `1.090` | file `Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md`: measured: printed value found in PROC_TUMOUR_01_OUTCOME.md, a file the chapter names | PASS |
-| 52 |  | measured | `1.16` | not run: measured, not found in the files the chapter names | - |
-| 52 |  | measured | `1.87` | not run: measured, not found in the files the chapter names | - |
-| 52 |  | measured | `0.968` | not run: measured, not found in the files the chapter names | - |
-| 52 |  | measured | `1.048` | not run: measured, not found in the files the chapter names | - |
-| 53 |  | measured | `3.2` | not run: measured, too few printed digits to match against the named files | - |
+| 52 | ch:reach:L52 | measured | `1.16` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT1 inhibitor >= 80 nM: Met-A lowest | PASS |
+| 52 | ch:reach:L52:1.87 | measured | `1.87` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT1 inhibitor >= 80 nM: Met-A highest | PASS |
+| 52 | ch:reach:L52:0.968 | measured | `0.968` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT series vehicle arrays: Met-A lowest | PASS |
+| 52 | ch:reach:L52:1.048 | measured | `1.048` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT series vehicle arrays: Met-A highest | PASS |
+| 53 | ch:reach:L53 | measured | `3.2` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT series: lowest dose of the active drug, nM | PASS |
 | 55 | ch:reach:L55 | measured | `1.65` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names | PASS |
 | 55 | ch:reach:L55:1.97 | measured | `1.97` | file `Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md`: measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names | PASS |
 | 68 | ch:reach:L68 | calc | `1.012` | numeric: same value as p4_10_temperature:17 (floor at 38.5 C) | PASS |
-| 68 |  | calc | `0.78` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.38426); drafting error on review | - |
-| 68 |  | calc | `38.5` | not run: not yet run: draft rejected (printed value typed into the code) | - |
+| 68 | ch:reach:L68:0.78 | calc | `0.78` | numeric: copy-error floor at 10 C relative to 37 C, fixed holding energy | PASS |
+| 68 |  | calc | `38.5` | not run: input: a dog's body temperature 38.5 C, the temperature at which the floor ratio 1.012 is evaluated (checked as ch:reach:L68) | - |
 | 90 | ch:reach:L90 | calc | `6.2\times10^{-7}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 90 |  | calc | `68` | not run: not yet run: draft rejected (drafter skipped: Line 90, T_1 = 68 µs: this is a measured parameter stated in the problem,) | - |
+| 90 |  | calc | `68` | not run: input: T_1 = 68 microseconds, a published device value (\cite{GoogleWillow2025}); used by ch:reach:L90 | - |
 | 92 | ch:reach:L92 | calc | `1.05\times10^{-3}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 92 |  | calc | `1.1\times10^{-6}` | not run: not yet run: draft rejected (negative control (printed value x1.05) also passes) | - |
-| 94 |  | calc | `10` | not run: not yet run: draft rejected (drafter skipped: Line 94: "excess quasiparticle fraction of 10^-7" is a stated input condi) | - |
-| 104 |  | calc | `170` | not run: not yet run: draft rejected (drafter skipped: Line 104: TDP = 170 W for AMD Ryzen 9 9950X is a published specification
-) | - |
-| 104 |  | calc | `20` | not run: not yet run: draft rejected (drafter skipped: Line 104: transistor count "20.0--20.6" billion is stated from "die-level) | - |
+| 92 | ch:reach:L92:1.1\times10^{-6} | calc | `1.1\times10^{-6}` | numeric: held-record floor of a 5 GHz transmon at half of 35 mK | PASS |
+| 94 |  | calc | `10` | not run: input: the excess quasiparticle fraction 10^-7, a stated condition of the example (the base 10 of 10^-7), nothing to recompute | - |
+| 104 |  | calc | `170` | not run: input: TDP 170 W of the 9950X, manufacturer specification (\cite{AMD9950X}); E_sw from it is checked as ch:onegauge:L22 | - |
+| 104 |  | calc | `20` | not run: input: transistor count (20.0-20.6)x10^9 from die-level reports (\cite{AMD9950X}); E_sw from it is checked as ch:onegauge:L22 | - |
 
 ## Part 7 - ch:predictions - `docs/book/part5/p5_07_predictions.tex`
 

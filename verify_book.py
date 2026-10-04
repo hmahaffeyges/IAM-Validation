@@ -2440,6 +2440,25 @@ def _b13_chip_ratio(N):
     TDP, f_clk, Tj = 170.0, 4.3e9, 75 + 273.15
     return TDP / (N * f_clk) / (kB * Tj * LN2)
 
+# helpers of the part3/p3_09_reach checks
+def _b13_dnmt(pred, col='A'):
+    """Column values of dnmt_arrays_readings.csv (PROC-DNMT-01 Part A) for the rows where pred(row) holds."""
+    return [float(r[col]) for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv') if pred(r)]
+
+def _b13_active80(r):
+    return r['cmpd'] == 'GSK032' and float(r['dose_nM']) >= 80
+
+def _b13_floor_ratio(TC):
+    """Copy-error floor H(eps0) at TC (deg C) over the human floor at T_cell, holding energy fixed in joules (E_hold kT at T_cell)."""
+    EJ = E_hold * kB * T_cell
+    e0 = lambda T: 1 / (1 + math.exp(EJ / (kB * T)))
+    Hb = lambda e: -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
+    return Hb(e0(TC + 273.15)) / Hb(e0(T_cell))
+
+def _b13_wrong_level(f, T):
+    """Occupation of the wrong level of a two-level record, 1/(1 + e^{hf/k_B T}) (ch:onegauge line 72)."""
+    return 1 / (1 + math.exp(h * f / (kB * T)))
+
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
 # ======== Part 0 | ch:p0_preface | docs/book/part0/p0_preface.tex
@@ -37422,6 +37441,41 @@ def check_2622():
     ok = file_has('Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md', '1.090')
     return locals()
 
+@check(label='ch:reach:L52', chapter='ch:reach', part=7, title='DNMT1 inhibitor >= 80 nM: Met-A lowest',
+       file='part3/p3_09_reach', line=52, status='measured', kind='file', printed='1.16', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4453():
+    'Lowest Met-A (column A) of the GSK3685032 arrays at >= 80 nM, all days, three leukaemia lines (GSE135205), each against its own vehicle arrays; dnmt_arrays_readings.csv (PROC-DNMT-01 Part A). Book line 52, printed 1.16.'
+    value = min(_b13_dnmt(_b13_active80))
+    return locals()
+
+@check(label='ch:reach:L52:1.87', chapter='ch:reach', part=7, title='DNMT1 inhibitor >= 80 nM: Met-A highest',
+       file='part3/p3_09_reach', line=52, status='measured', kind='file', printed='1.87', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4454():
+    'Highest Met-A of the GSK3685032 arrays at >= 80 nM, dnmt_arrays_readings.csv. Book line 52, printed 1.87.'
+    value = max(_b13_dnmt(_b13_active80))
+    return locals()
+
+@check(label='ch:reach:L52:0.968', chapter='ch:reach', part=7, title='DNMT series vehicle arrays: Met-A lowest',
+       file='part3/p3_09_reach', line=52, status='measured', kind='file', printed='0.968', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4455():
+    'Lowest Met-A of the vehicle (DMSO) arrays, read leave-one-out against each line\'s own vehicle arrays; dnmt_arrays_readings.csv. Book line 52, printed 0.968.'
+    value = min(_b13_dnmt(lambda r: r['cmpd'] == 'DMSO'))
+    return locals()
+
+@check(label='ch:reach:L52:1.048', chapter='ch:reach', part=7, title='DNMT series vehicle arrays: Met-A highest',
+       file='part3/p3_09_reach', line=52, status='measured', kind='file', printed='1.048', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4456():
+    'Highest Met-A of the vehicle (DMSO) arrays; dnmt_arrays_readings.csv. Book line 52, printed 1.048.'
+    value = max(_b13_dnmt(lambda r: r['cmpd'] == 'DMSO'))
+    return locals()
+
+@check(label='ch:reach:L53', chapter='ch:reach', part=7, title='DNMT series: lowest dose of the active drug, nM',
+       file='part3/p3_09_reach', line=53, status='measured', kind='file', printed='3.2', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv')
+def check_4457():
+    'Lowest nonzero GSK3685032 dose in the series (dose_nM column of dnmt_arrays_readings.csv), the low end of the 3.2-16 nM range where the reading does not move. Book line 53, printed 3.2 (nM).'
+    value = min(_b13_dnmt(lambda r: r['cmpd'] == 'GSK032' and float(r['dose_nM']) > 0, 'dose_nM'))
+    return locals()
+
 @check(label='ch:reach:L55', chapter='ch:reach', part=7, title='measured: printed value found in PROC_DNMT_01_PARTB_OUTCOME.md, a file the chapter names',
        file='part3/p3_09_reach', line=55, status='measured', kind='file', printed='1.65', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md')
 def check_2623():
@@ -37446,6 +37500,13 @@ def check_2625():
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
     fl=lambda TC: Hb(e0(TC))/Hb(e0(37))
     value=fl(38.5)
+    return locals()
+
+@check(label='ch:reach:L68:0.78', chapter='ch:reach', part=7, title='copy-error floor at 10 C relative to 37 C, fixed holding energy',
+       file='part3/p3_09_reach', line=68, status='calc', kind='num', printed='0.78', tol=0.0)
+def check_4458():
+    'H(eps0(T))/H(eps0(T_cell)) with eps0 = 1/(1 + exp(E/k_B T)), E = E_hold k_B T_cell held fixed in joules (CANON E_hold_meth, T_cell), at T = 10 C. Book line 68, printed 0.78.'
+    value = _b13_floor_ratio(10.0)
     return locals()
 
 @check(label='ch:reach:L90', chapter='ch:reach', part=7, title='drafted check, screened (runs; negative control fails)',
@@ -37498,6 +37559,14 @@ def check_2627():
     floor_35mK = p_eq
 
     value = floor_35mK
+    return locals()
+
+@check(label='ch:reach:L92:1.1\\times10^{-6}', chapter='ch:reach', part=7, title='held-record floor of a 5 GHz transmon at half of 35 mK',
+       file='part3/p3_09_reach', line=92, status='calc', kind='num', printed='1.1\\times10^{-6}', tol=0.0)
+def check_4459():
+    'Held-record floor 1/(1 + e^{hf/k_B T}) (the wrong-level occupation of ch:onegauge line 72) for f = 5 GHz at T = 35 mK/2 (halving the qubit\'s own temperature, Jin et al. 2015 35 mK as the book states it). It is 1.05e-3 at 35 mK (ch:reach:L92). Book line 92, printed 1.1e-6.'
+    f_q, T_own = 5e9, 35e-3
+    value = _b13_wrong_level(f_q, T_own / 2)
     return locals()
 
 
@@ -40965,18 +41034,11 @@ INVENTORY = [
     (7, 'ch:synthesis', 'part5/p5_08_synthesis', 77, '', 'measured', '1.8', 'measured, source not named'),
     (7, 'ch:synthesis', 'part5/p5_08_synthesis', 87, '', 'derived', '68', 'input: T_1 = 68 microseconds, a published device value (\\cite{GoogleWillow2025} in ch:onegauge); used by ch:synthesis:L87'),
     (7, 'ch:synthesis', 'part5/p5_08_synthesis', 88, '', 'derived', '10', 'input: the base 10 of a two-qubit error near 10^-3, an illustrative device value stated in the sentence; nothing to recompute'),
-    (7, 'ch:reach', 'part3/p3_09_reach', 52, '', 'measured', '1.16', 'measured, not found in the files the chapter names'),
-    (7, 'ch:reach', 'part3/p3_09_reach', 52, '', 'measured', '1.87', 'measured, not found in the files the chapter names'),
-    (7, 'ch:reach', 'part3/p3_09_reach', 52, '', 'measured', '0.968', 'measured, not found in the files the chapter names'),
-    (7, 'ch:reach', 'part3/p3_09_reach', 52, '', 'measured', '1.048', 'measured, not found in the files the chapter names'),
-    (7, 'ch:reach', 'part3/p3_09_reach', 53, '', 'measured', '3.2', 'measured, too few printed digits to match against the named files'),
-    (7, 'ch:reach', 'part3/p3_09_reach', 68, '', 'calc', '0.78', 'not yet run: draft does not reproduce the printed value (recomputed 1.38426); drafting error on review'),
-    (7, 'ch:reach', 'part3/p3_09_reach', 68, '', 'calc', '38.5', 'not yet run: draft rejected (printed value typed into the code)'),
-    (7, 'ch:reach', 'part3/p3_09_reach', 90, '', 'calc', '68', 'not yet run: draft rejected (drafter skipped: Line 90, T_1 = 68 µs: this is a measured parameter stated in the problem,)'),
-    (7, 'ch:reach', 'part3/p3_09_reach', 92, '', 'calc', '1.1\\times10^{-6}', 'not yet run: draft rejected (negative control (printed value x1.05) also passes)'),
-    (7, 'ch:reach', 'part3/p3_09_reach', 94, '', 'calc', '10', 'not yet run: draft rejected (drafter skipped: Line 94: "excess quasiparticle fraction of 10^-7" is a stated input condi)'),
-    (7, 'ch:reach', 'part3/p3_09_reach', 104, '', 'calc', '170', 'not yet run: draft rejected (drafter skipped: Line 104: TDP = 170 W for AMD Ryzen 9 9950X is a published specification\n)'),
-    (7, 'ch:reach', 'part3/p3_09_reach', 104, '', 'calc', '20', 'not yet run: draft rejected (drafter skipped: Line 104: transistor count "20.0--20.6" billion is stated from "die-level)'),
+    (7, 'ch:reach', 'part3/p3_09_reach', 68, '', 'calc', '38.5', "input: a dog's body temperature 38.5 C, the temperature at which the floor ratio 1.012 is evaluated (checked as ch:reach:L68)"),
+    (7, 'ch:reach', 'part3/p3_09_reach', 90, '', 'calc', '68', 'input: T_1 = 68 microseconds, a published device value (\\cite{GoogleWillow2025}); used by ch:reach:L90'),
+    (7, 'ch:reach', 'part3/p3_09_reach', 94, '', 'calc', '10', 'input: the excess quasiparticle fraction 10^-7, a stated condition of the example (the base 10 of 10^-7), nothing to recompute'),
+    (7, 'ch:reach', 'part3/p3_09_reach', 104, '', 'calc', '170', 'input: TDP 170 W of the 9950X, manufacturer specification (\\cite{AMD9950X}); E_sw from it is checked as ch:onegauge:L22'),
+    (7, 'ch:reach', 'part3/p3_09_reach', 104, '', 'calc', '20', 'input: transistor count (20.0-20.6)x10^9 from die-level reports (\\cite{AMD9950X}); E_sw from it is checked as ch:onegauge:L22'),
     (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'derived', '-0.136', 'not yet run: draft rejected (no draft: the drafting batch stopped at the session model budget)'),
     (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'measured', '0.039', 'measured, too few printed digits to match against the named files'),
     (7, 'ch:predictions', 'part5/p5_07_predictions', 24, '', 'measured', '0.11', 'measured, too few printed digits to match against the named files'),
