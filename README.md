@@ -2,29 +2,39 @@
 
 **The Actualization of Reality** — *The Cost of Recording It, and the Price of Maintaining It.*
 
-> IAM, the Informational Actualization Model. Not a new theory: a new perspective. Jacobson's exact formulas, taken one step further. General Relativity, with a new piece of information: information.
+**One law of physics from the qubit to the genome to the cosmic horizon.**
 
-Heath W. Mahaffey, independent researcher.
+Heath W. Mahaffey, IAMPerformance (independent research).
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18702042-blue)](https://doi.org/10.5281/zenodo.18702042) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## The law
+## IAM's Law
 
-Every irreversible transition from quantum superposition to a classical record costs at least `k_B T ln 2` per bit, paid at the
-nearest surface on which the record is written, at that surface's temperature. The cost is Landauer's and has been measured; the
-surface and its temperature are Bekenstein's and Hawking's; Jacobson showed that gravity follows from the thermodynamics of such
-surfaces. IAM's one added identification is that the records belong in the surface's entropy. It is not a rival to general relativity
-or the standard model: it is the cost both already imply wherever a record is made.
+Every irreversible transition pays a thermodynamic cost at the nearest encoding surface: `k_B T ln 2` per bit, at that surface's own
+temperature. The cost cannot be recovered or engineered away. Different substrates expose it differently; the law is the same.
+The cost is Landauer's and has been measured; the surface and its temperature are Bekenstein's and Hawking's; Jacobson showed that
+gravity follows from the thermodynamics of such surfaces.
 
-Followed across some 37 orders of magnitude in size, the same accounting applies at the cosmic horizon, at black holes, at qubits and
-transistors, and at the methylation pattern a cell holds to remain the cell it is. What holds the stars in order holds the cell in order.
+## What IAM is
+
+The Informational Actualization Model is a testable set of equations inside general relativity, the piece Jacobson's thermodynamic
+derivation of Einstein's equations left open. At the cosmic horizon it fixes a late-time coupling with no free parameter: IAM fits the
+Planck CMB as well as ΛCDM and predicts slower growth of structure with lensing unchanged, a test Euclid and DESI will make. In the
+cell, the same price per bit sets a floor under how faithfully a methylation pattern can be copied, and an instrument in development
+reads each cell against that floor and against its own healthy state. The substrate changes. The noise changes. The measured inputs
+change. The thermodynamic accounting does not.
+
+## Try to break it
+
+`python3 docs/book/verify_book.py` checks every derivation and calculated number in the book. Found something wrong? Open an issue
+with the "I tried to break it" template ([`CONTRIBUTING.md`](CONTRIBUTING.md)).
 
 ## Why pick it up
 
 - **For a cosmologist:** one parameter-free line fixes `μ_0`, the `fσ_8` ramp, `Σ = 1`, `E_G`, `S_8` and the two Hubble rates together, and
   the full Planck likelihood with the coupling fixed fits as well as ΛCDM. The surveys now running measure its size.
 - **For a quantum physicist:** a gate error and a quasiparticle density have a thermal floor at the device's own temperature, from
-  `k_B T ln 2` alone. Every device is read against its own as-built reference.
+  `k_B T ln 2` alone. The book gives the physics, with makers' published device values as illustrations.
 - **For a geneticist:** the methylation pattern is a record a cell pays to keep. Each cell type is read against its own healthy state,
   so one person can be measured, measured again, and compared with themselves.
 
@@ -105,7 +115,7 @@ from [`docs/book/main.tex`](docs/book/main.tex).
 
 ## Contact
 
-Heath W. Mahaffey, independent researcher. Email: hmahaffeyges@gmail.com. GitHub: [@hmahaffeyges](https://github.com/hmahaffeyges).
+Heath W. Mahaffey, IAMPerformance (independent research). Email: hmahaffeyges@gmail.com. GitHub: [@hmahaffeyges](https://github.com/hmahaffeyges).
 Questions, checks and replications are welcome as GitHub issues.
 
 ## License
