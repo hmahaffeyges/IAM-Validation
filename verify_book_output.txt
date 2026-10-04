@@ -2662,6 +2662,7 @@ PASS  ch:bekenstein:L338:7.24\times10^{-70} ch:bekenstein:p2_01a_bekenstein:338 
 PASS  eq:bk_structure                    ch:bekenstein:p2_01a_bekenstein:345  printed (algebra)  recomputed lhs-rhs=0  [none] hbar eta/2 pi = c^3/8 pi G has the single solution eta = 1/(4 l_P^2)
 
 == Part 3: Black Holes and Horizons | ch:bhinformation (part5/p5_01b_bh_information.tex)
+PASS  ch:bhinformation:L161              ch:bhinformation:p5_01b_bh_information:161  printed 0.646  recomputed 0.646447  tol 5.000005e-04  [openprob] time at which half the horizon entropy has been transferred, from the evaporation ODE
 PASS  ch:bhinformation:L225              ch:bhinformation:p5_01b_bh_information:225  printed 0.646  recomputed 0.646447  tol 5.000005e-04  [derived] half the horizon entropy transferred at (1-2^-3/2) tau_evap
 
 == Part 3: Black Holes and Horizons | ch:saturation (part3/p3_07_saturation.tex)
@@ -3831,4 +3832,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3059  FAIL 0  (heavy, read from committed outputs: 623)  inventoried-not-run 3275  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3060  FAIL 0  (heavy, read from committed outputs: 623)  inventoried-not-run 3274  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

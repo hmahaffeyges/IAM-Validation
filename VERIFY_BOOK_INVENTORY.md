@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3059 PASS, 0 FAIL, 3275 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3060 PASS, 0 FAIL, 3274 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -3385,7 +3385,7 @@ Totals: 3059 PASS, 0 FAIL, 3275 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 161 |  | openprob | `0.646` | not run: not yet checked | - |
+| 161 | ch:bhinformation:L161 | openprob | `0.646` | numeric: time at which half the horizon entropy has been transferred, from the evaporation ODE | PASS |
 | 225 | ch:bhinformation:L225 | derived | `0.646` | numeric: half the horizon entropy transferred at (1-2^-3/2) tau_evap | PASS |
 
 ## Part 3 - ch:saturation - `docs/book/part3/p3_07_saturation.tex`

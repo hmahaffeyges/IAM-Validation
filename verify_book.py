@@ -17711,6 +17711,19 @@ def check_3058():
 
 
 # ======== Part 3 | ch:bhinformation | docs/book/part5/p5_01b_bh_information.tex
+@check(label='ch:bhinformation:L161', chapter='ch:bhinformation', part=3, title='time at which half the horizon entropy has been transferred, from the evaporation ODE',
+       file='part5/p5_01b_bh_information', line=161, status='openprob', kind='num', printed='0.646', tol=0.0)
+def check_3059():
+    'The first-law entropy transfer S_tr = S_BH,0 - S_BH(t) reaches S_BH,0/2 at 0.646 tau_evap. Computed: the black-body mass loss dM/dt = -K/M^2 '         '(Hawking power propto M^-2) is integrated numerically from M0 = 1; S_BH propto M^2, so the half point is where M^2 = 1/2; that time is divided by '         'the time at which M reaches zero, tau = M0^3/(3K), found as the terminal event M = 1e-3 M0 of the same integration. Book line 161, printed 0.646.'
+    K = 1.0
+    ev = lambda t, y: y[0] - 1e-3
+    ev.terminal = True
+    sol = solve_ivp(lambda t, y: [-K / y[0]**2], (0, 1.0), [1.0], dense_output=True, events=ev, rtol=1e-11, atol=1e-13)
+    tau = sol.t_events[0][0]      # M has fallen to 1e-3 M0; the time left from there is 1e-9 tau
+    t_half = brentq(lambda t: sol.sol(t)[0]**2 - 0.5, 0, tau)
+    value = t_half / tau
+    return locals()
+
 @check(label='ch:bhinformation:L225', chapter='ch:bhinformation', part=3, title='half the horizon entropy transferred at (1-2^-3/2) tau_evap',
        file='part5/p5_01b_bh_information', line=225, status='derived', kind='num', printed='0.646', tol=0)
 def check_1930():
@@ -27713,7 +27726,6 @@ INVENTORY = [
     (3, 'ch:blackholes', 'part2/p2_01_blackholes', 336, '', 'calc', '1.44', 'input: Chandrasekhar mass 1.44 M_sun as conventionally quoted (Chandrasekhar1931), restated from line 316; the constants-only 1.456 is checked by ch:blackholes:L316'),
     (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 79, 'eq:bk_decoherence', 'none', '', 'definition: the system-environment entangling evolution of a decoherence event (schematic, no coefficient); its consequence, the diagonal reduced density matrix, is checked at eq:bk_diagonal'),
     (3, 'ch:bekenstein', 'part2/p2_01a_bekenstein', 109, 'eq:bk_SpropA', 'none', '', 'definition: the area-law proportionality S propto A, carried as interpretation (no coefficient); the coefficient is checked at eq:bk_SetaA and eq:bk_structure'),
-    (3, 'ch:bhinformation', 'part5/p5_01b_bh_information', 161, '', 'openprob', '0.646', 'not yet checked'),
     (3, 'ch:saturation', 'part3/p3_07_saturation', 44, '', 'derived', '0.032', 'not yet run: draft does not reproduce the printed value (recomputed (121 - 4*exp(341/100))/(125*(1 + exp(341/100)))); drafting error on review'),
     (3, 'ch:saturation', 'part3/p3_07_saturation', 66, '', 'derived', '0.95', 'not yet run: draft rejected (printed value typed into the code)'),
     (3, 'ch:saturation', 'part3/p3_07_saturation', 66, '', 'derived', '1.05', 'not yet run: draft rejected (printed value typed into the code)'),

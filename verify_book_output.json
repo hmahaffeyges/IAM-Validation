@@ -35054,6 +35054,23 @@
   "source": ""
  },
  {
+  "label": "ch:bhinformation:L161",
+  "title": "time at which half the horizon entropy has been transferred, from the evaporation ODE",
+  "part": 3,
+  "chapter": "ch:bhinformation",
+  "file": "part5/p5_01b_bh_information",
+  "line": 161,
+  "status": "openprob",
+  "kind": "num",
+  "printed": "0.646",
+  "recomputed": "0.646447",
+  "tol": 0.0005000005,
+  "passed": true,
+  "note": "",
+  "heavy": false,
+  "source": ""
+ },
+ {
   "label": "ch:bhinformation:L225",
   "title": "half the horizon entropy transferred at (1-2^-3/2) tau_evap",
   "part": 3,
