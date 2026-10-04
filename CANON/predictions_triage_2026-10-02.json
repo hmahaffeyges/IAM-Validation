@@ -6314,7 +6314,7 @@
  {
   "pid": "QUB-062",
   "verdict": "CORRECT",
-  "statement": "Model (form not derived): eraser fidelity F = 1 - exp(-QL/Q) with QL = kBT ln2 rises with temperature - F = 0.000 at 10 mK, 0.002 at 4 K, 0.164 at 300 K for Q = 0.1 eV; falsified if a multi-temperature eraser shows no such dependence.",
+  "statement": "Model (form not derived): eraser fidelity F = 1 - exp(-QL/Q) with QL = kBT ln2 rises with temperature --- F = 0.000 at 10 mK, 0.002 at 4 K, 0.164 at 300 K for Q = 0.1 eV; falsified if a multi-temperature eraser shows no such dependence.",
   "value": "F = 0.000/0.002/0.164",
   "falsified_if": "Erasure fidelity independent of temperature",
   "test_and_date": "Multi-temperature quantum eraser; no date",
