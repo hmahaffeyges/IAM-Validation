@@ -3607,19 +3607,25 @@ PASS  ch:nonlocal:L41                    ch:nonlocal:p5_06_nonlocality:41  print
 PASS  ch:nonlocal:L41:10^3               ch:nonlocal:p5_06_nonlocality:41  printed 10^3  recomputed 937.5  tol 2162.28  [observed] ratio of the satellite photon distance to the NV-spin separation
 
 == Part 4: Particles and Quantum Records | ch:electroweak (part2/p2_22_electroweak.tex)
+PASS  eq:ew:virial                       ch:electroweak:p2_22_electroweak:18  printed (algebra)  recomputed lhs-rhs=0  [derived] virial theorem for a potential homogeneous of degree k
 PASS  ch:electroweak:L25                 ch:electroweak:p2_22_electroweak:25  printed 0.91  recomputed 0.912192  tol 0.00500001  [calc] string tension 0.18 GeV^2 in GeV/fm
 PASS  ch:electroweak:L32                 ch:electroweak:p2_22_electroweak:32  printed 2.5\times10^{-18}  recomputed 2.455262e-18  tol 5.000005e-20  [calc] range hbar/(M_W c), m
+PASS  ch:electroweak:L36                 ch:electroweak:p2_22_electroweak:36  printed 80.4  recomputed 80.377  tol 0.05  [observed] W mass, PDG 2022
+PASS  ch:electroweak:L36:91.2            ch:electroweak:p2_22_electroweak:36  printed 91.2  recomputed 91.1876  tol 0.05  [observed] Z mass, PDG 2022
 PASS  ch:electroweak:L53                 ch:electroweak:p2_22_electroweak:53  printed 159.5  recomputed found in file  [observed] measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names  file docs/verification/scripts/verify_entanglement_electroweak_output.txt
       heavy: python3 docs/verification/scripts/verify_entanglement_electroweak.py > docs/verification/scripts/verify_entanglement_electroweak_output.txt
 PASS  ch:electroweak:L53:0.301           ch:electroweak:p2_22_electroweak:53  printed 0.301  recomputed found in file  [observed] measured: printed value found in ELECTROWEAK_CHECK.md, a file the chapter names  file docs/verification/particle/ELECTROWEAK_CHECK.md
 PASS  ch:electroweak:L54                 ch:electroweak:p2_22_electroweak:54  printed 4.9\times10^{-16}  recomputed 4.901861e-16  tol 5.000005e-18  [calc] scale factor at the crossover, entropy conservation
+PASS  ch:electroweak:L54:106.75          ch:electroweak:p2_22_electroweak:54  printed 106.75  recomputed 106.75  tol 0.00500001  [calc] g_* of the Standard Model above the top mass
 PASS  ch:electroweak:L55                 ch:electroweak:p2_22_electroweak:55  printed -2.0\times10^{15}  recomputed -2.040042e+15  tol 5.000005e+13  [calc] ln E(a_EW) = 1 - 1/a_EW
 PASS  ch:electroweak:L62                 ch:electroweak:p2_22_electroweak:62  printed 246.22  recomputed 246.22  tol 0.00500001  [calc] v = (sqrt2 G_F)^(-1/2), GeV
+PASS  ch:electroweak:L69                 ch:electroweak:p2_22_electroweak:69  printed 10^{-18}  recomputed 1.000000e-18  tol 2.162278e-18  [derived] photon mass bound, PDG 2024, eV
 PASS  eq:ew:betam                        ch:electroweak:p2_22_electroweak:90  printed 0.1577  recomputed 0.15765  tol 5.000005e-05  [calc] beta_m = Omega_b/2 + Omega_dm/2 (Planck 2018 Omega_b 0.0493)
 PASS  ch:electroweak:L90                 ch:electroweak:p2_22_electroweak:90  printed 0.0247  recomputed 0.02465  tol 5.000005e-05  [calc] Omega_b/2
 PASS  ch:electroweak:L90:0.1330          ch:electroweak:p2_22_electroweak:90  printed 0.1330  recomputed 0.133  tol 5.000005e-05  [calc] Omega_dm/2
 PASS  ch:electroweak:L93                 ch:electroweak:p2_22_electroweak:93  printed 15.6  recomputed 15.6359  tol 0.05  [calc] baryonic share of beta_m, per cent
 PASS  ch:electroweak:L93:84.4            ch:electroweak:p2_22_electroweak:93  printed 84.4  recomputed 84.3641  tol 0.05  [calc] dark share of beta_m, per cent
+PASS  ch:electroweak:L109                ch:electroweak:p2_22_electroweak:109  printed 0.864  recomputed 0.863819  tol 5.000005e-04  [prediction] mu(z=0) = 1/(1+beta_m)
 
 == Part 4: Particles and Quantum Records | ch:higgsrecord (part2/p2_22b_higgs_record.tex)
 PASS  ch:higgsrecord:L17                 ch:higgsrecord:p2_22b_higgs_record:17  printed 159.5  recomputed found in file  [observed] measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names  file docs/verification/scripts/verify_entanglement_electroweak_output.txt
@@ -4580,4 +4586,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3684  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2652  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3690  FAIL 0  (heavy, read from committed outputs: 747)  inventoried-not-run 2646  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

@@ -25154,6 +25154,18 @@ def check_3121():
 
 
 # ======== Part 4 | ch:electroweak | docs/book/part2/p2_22_electroweak.tex
+@check(label='eq:ew:virial', chapter='ch:electroweak', part=4, title='virial theorem for a potential homogeneous of degree k',
+       file='part2/p2_22_electroweak', line=18, status='derived', kind='sym')
+def check_3684():
+    'Eq. eq:ew:virial, 2<K> = k<V>. Derived: for V(r) = C |r|^k in three dimensions the time average of d(p.r)/dt vanishes, so '         'm<v^2> = <r . grad V>; r . grad V is computed from the potential (Euler theorem for a homogeneous function) and lands on k V. Book line 18.'
+    x, y, z, C, k = sp.symbols('x y z C k', positive=True)
+    V = C * (x**2 + y**2 + z**2) ** (k / 2)
+    r_grad_V = x * sp.diff(V, x) + y * sp.diff(V, y) + z * sp.diff(V, z)   # = 2<K> after time averaging (d<p.r>/dt = 0)
+    lhs = sp.simplify(r_grad_V)
+    rhs = k * V
+    neg_lhs = sp.Rational(105, 100) * lhs
+    return locals()
+
 @check(label='ch:electroweak:L25', chapter='ch:electroweak', part=4, title='string tension 0.18 GeV^2 in GeV/fm',
        file='part2/p2_22_electroweak', line=25, status='calc', kind='num', printed='0.91', tol=0)
 def check_2090():
@@ -25166,6 +25178,22 @@ def check_2090():
 def check_2091():
     'range hbar/(M_W c), m. Book line 32, printed 2.5\\times10^{-18}.'
     value=0.1973269804e-15/80.369  # M_W = 80.369 GeV (PDG 2024)
+    return locals()
+
+@check(label='ch:electroweak:L36', chapter='ch:electroweak', part=4, title='W mass, PDG 2022',
+       file='part2/p2_22_electroweak', line=36, status='observed', kind='num', printed='80.4', tol=0.0)
+def check_3685():
+    'W boson mass. Book line 36, printed 80.4 GeV. Published: PDG 2022 M_W = 80.377 +- 0.012 GeV (doi:10.1093/ptep/ptac097, bib PDG2022).'
+    M_W_PDG2022 = 80.377
+    value = M_W_PDG2022
+    return locals()
+
+@check(label='ch:electroweak:L36:91.2', chapter='ch:electroweak', part=4, title='Z mass, PDG 2022',
+       file='part2/p2_22_electroweak', line=36, status='observed', kind='num', printed='91.2', tol=0.0)
+def check_3686():
+    'Z boson mass. Book line 36, printed 91.2 GeV. Published: PDG 2022 M_Z = 91.1876 +- 0.0021 GeV (doi:10.1093/ptep/ptac097, bib PDG2022).'
+    M_Z_PDG2022 = 91.1876
+    value = M_Z_PDG2022
     return locals()
 
 @check(label='ch:electroweak:L53', chapter='ch:electroweak', part=4, title='measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names',
@@ -25196,6 +25224,15 @@ def check_2094():
     value=a_EW
     return locals()
 
+@check(label='ch:electroweak:L54:106.75', chapter='ch:electroweak', part=4, title='g_* of the Standard Model above the top mass',
+       file='part2/p2_22_electroweak', line=54, status='calc', kind='num', printed='106.75', tol=0.0)
+def check_3687():
+    'Effective relativistic degrees of freedom of the full Standard Model at T = 159.5 GeV, g_* = g_b + (7/8) g_f. Book line 54, '         'printed 106.75. Inputs: Standard Model particle content (PDG 2022): bosons photon 2, W+- and Z 3x3, gluons 8x2, Higgs 1; '         'fermions: 6 quarks x 3 colours x 2 spins x 2 (particle, antiparticle), 3 charged leptons x 2 x 2, 3 neutrinos x 1 helicity x 2.'
+    g_b = 2 + 3 * 3 + 8 * 2 + 1
+    g_f = 6 * 3 * 2 * 2 + 3 * 2 * 2 + 3 * 1 * 2
+    value = g_b + 7 / 8 * g_f
+    return locals()
+
 @check(label='ch:electroweak:L55', chapter='ch:electroweak', part=4, title='ln E(a_EW) = 1 - 1/a_EW',
        file='part2/p2_22_electroweak', line=55, status='calc', kind='num', printed='-2.0\\times10^{15}', tol=0)
 def check_2095():
@@ -25215,6 +25252,14 @@ def check_2096():
     'v = (sqrt2 G_F)^(-1/2), GeV. Book line 62, printed 246.22.'
     G_F=1.1663788e-5  # GeV^-2, PDG 2024
     value=(math.sqrt(2)*G_F)**-0.5
+    return locals()
+
+@check(label='ch:electroweak:L69', chapter='ch:electroweak', part=4, title='photon mass bound, PDG 2024, eV',
+       file='part2/p2_22_electroweak', line=69, status='derived', kind='num', printed='10^{-18}', tol=0.0)
+def check_3689():
+    'Experimental bound on the photon mass, m_gamma < 1e-18 eV. Book line 69 (inventory printed the base 10 of 10^{-18}). Published: PDG 2024 photon mass limit 1e-18 eV (doi:10.1103/PhysRevD.110.030001, bib PDG2024).'
+    m_gamma_limit_eV = 1e-18
+    value = m_gamma_limit_eV
     return locals()
 
 @check(label='eq:ew:betam', chapter='ch:electroweak', part=4, title='beta_m = Omega_b/2 + Omega_dm/2 (Planck 2018 Omega_b 0.0493)',
@@ -25250,6 +25295,13 @@ def check_2100():
 def check_2101():
     'dark share of beta_m, per cent. Book line 93, printed 84.4.'
     value=100*(Om-Ob)/Om
+    return locals()
+
+@check(label='ch:electroweak:L109', chapter='ch:electroweak', part=4, title='mu(z=0) = 1/(1+beta_m)',
+       file='part2/p2_22_electroweak', line=109, status='prediction', kind='num', printed='0.864', tol=0.0)
+def check_3688():
+    'mu(z=0) = H^2/(H^2 + beta_m E(1) H0^2) = 1/(1+beta_m) with E(1) = 1. Book line 109, printed 0.864. Inputs: beta_m from CANON; '         'computed through the module function mu_iam at a = 1.'
+    value = float(mu_iam(1.0))
     return locals()
 
 
@@ -33269,16 +33321,10 @@ INVENTORY = [
     (4, 'ch:gravdec', 'part5/p5_05_gravdec', 211, '', 'calc', '10', 'input: 10^-12 kg mass of the nanosphere example'),
     (4, 'ch:gravdec', 'part5/p5_05_gravdec', 211, '', 'calc', '2200', 'input: silica density 2200 kg/m^3'),
     (4, 'ch:gravdec', 'part5/p5_05_gravdec', 214, '', 'calc', '10', 'input: 10^-12 kg mass of the nanosphere example (the ratio 7e7 is checked at ch:gravdec:L214)'),
-    (4, 'ch:electroweak', 'part2/p2_22_electroweak', 18, 'eq:ew:virial', 'derived', '', 'not yet run: draft rejected (does not run: TypeError)'),
-    (4, 'ch:electroweak', 'part2/p2_22_electroweak', 32, '', 'calc', '80.369', 'not yet run: draft rejected (printed value typed into the code)'),
-    (4, 'ch:electroweak', 'part2/p2_22_electroweak', 36, '', 'observed', '80.4', 'measured, not found in the files the chapter names'),
-    (4, 'ch:electroweak', 'part2/p2_22_electroweak', 36, '', 'observed', '91.2', 'measured, not found in the files the chapter names'),
-    (4, 'ch:electroweak', 'part2/p2_22_electroweak', 54, '', 'calc', '106.75', 'not yet run: draft rejected (drafter skipped: g_* is the effective number of relativistic degrees of freedom at T_c = 1)'),
-    (4, 'ch:electroweak', 'part2/p2_22_electroweak', 69, '', 'derived', '10', 'not yet run: draft rejected (drafter skipped: The photon mass limit m_γ < 10^-18 eV is an observational constraint from)'),
-    (4, 'ch:electroweak', 'part2/p2_22_electroweak', 109, '', 'prediction', '-0.136', 'not yet checked'),
-    (4, 'ch:electroweak', 'part2/p2_22_electroweak', 109, '', 'prediction', '0.864', 'not yet checked'),
-    (4, 'ch:electroweak', 'part2/p2_22_electroweak', 115, '', 'derived', '159.5', 'not yet run: draft rejected (drafter skipped: The electroweak symmetry breaking temperature Tc=159.5 GeV is a measured/)'),
-    (4, 'ch:electroweak', 'part2/p2_22_electroweak', 119, '', 'prediction', '-0.136', 'not yet checked'),
+    (4, 'ch:electroweak', 'part2/p2_22_electroweak', 32, '', 'calc', '80.369', 'input: M_W = 80.369 GeV (PDG 2024, doi:10.1103/PhysRevD.110.030001), used by ch:electroweak:L32; nothing to recompute'),
+    (4, 'ch:electroweak', 'part2/p2_22_electroweak', 109, '', 'prediction', '-0.136', 'locked value mu0 restated (prediction)'),
+    (4, 'ch:electroweak', 'part2/p2_22_electroweak', 115, '', 'derived', '159.5', "restates ch:electroweak:L53 (T_c = 159.5 GeV, D'Onofrio and Rummukainen 2016, input)"),
+    (4, 'ch:electroweak', 'part2/p2_22_electroweak', 119, '', 'prediction', '-0.136', 'locked value mu0 restated (prediction)'),
     (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 17, '', 'observed', '0.301', 'measured, not found in the files the chapter names'),
     (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 18, '', 'calc', '9.0', 'not yet run: draft does not reproduce the printed value (recomputed 1.555594e+08); drafting error on review'),
     (4, 'ch:higgsrecord', 'part2/p2_22b_higgs_record', 18, '', 'calc', '9.4\\times10^{-12}', 'not yet run: draft does not reproduce the printed value (recomputed 1.526743e+08); drafting error on review'),

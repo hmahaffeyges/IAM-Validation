@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3684 PASS, 0 FAIL, 2652 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3690 PASS, 0 FAIL, 2646 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -3678,28 +3678,28 @@ Totals: 3684 PASS, 0 FAIL, 2652 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 18 | eq:ew:virial | derived |  | not run: not yet run: draft rejected (does not run: TypeError) | - |
+| 18 | eq:ew:virial | derived |  | sympy: virial theorem for a potential homogeneous of degree k | PASS |
 | 25 | ch:electroweak:L25 | calc | `0.91` | numeric: string tension 0.18 GeV^2 in GeV/fm | PASS |
 | 32 | ch:electroweak:L32 | calc | `2.5\times10^{-18}` | numeric: range hbar/(M_W c), m | PASS |
-| 32 |  | calc | `80.369` | not run: not yet run: draft rejected (printed value typed into the code) | - |
-| 36 |  | observed | `80.4` | not run: measured, not found in the files the chapter names | - |
-| 36 |  | observed | `91.2` | not run: measured, not found in the files the chapter names | - |
+| 32 |  | calc | `80.369` | not run: input: M_W = 80.369 GeV (PDG 2024, doi:10.1103/PhysRevD.110.030001), used by ch:electroweak:L32; nothing to recompute | - |
+| 36 | ch:electroweak:L36 | observed | `80.4` | numeric: W mass, PDG 2022 | PASS |
+| 36 | ch:electroweak:L36:91.2 | observed | `91.2` | numeric: Z mass, PDG 2022 | PASS |
 | 53 | ch:electroweak:L53 | observed | `159.5` | heavy file `docs/verification/scripts/verify_entanglement_electroweak_output.txt`: measured: printed value found in verify_entanglement_electroweak_output.txt, a file the chapter names | PASS |
 | 53 | ch:electroweak:L53:0.301 | observed | `0.301` | file `docs/verification/particle/ELECTROWEAK_CHECK.md`: measured: printed value found in ELECTROWEAK_CHECK.md, a file the chapter names | PASS |
 | 54 | ch:electroweak:L54 | calc | `4.9\times10^{-16}` | numeric: scale factor at the crossover, entropy conservation | PASS |
-| 54 |  | calc | `106.75` | not run: not yet run: draft rejected (drafter skipped: g_* is the effective number of relativistic degrees of freedom at T_c = 1) | - |
+| 54 | ch:electroweak:L54:106.75 | calc | `106.75` | numeric: g_* of the Standard Model above the top mass | PASS |
 | 55 | ch:electroweak:L55 | calc | `-2.0\times10^{15}` | numeric: ln E(a_EW) = 1 - 1/a_EW | PASS |
 | 62 | ch:electroweak:L62 | calc | `246.22` | numeric: v = (sqrt2 G_F)^(-1/2), GeV | PASS |
-| 69 |  | derived | `10` | not run: not yet run: draft rejected (drafter skipped: The photon mass limit m_γ < 10^-18 eV is an observational constraint from) | - |
+| 69 | ch:electroweak:L69 | derived | `10^{-18}` | numeric: photon mass bound, PDG 2024, eV | PASS |
 | 90 | eq:ew:betam | calc | `0.1577` | numeric: beta_m = Omega_b/2 + Omega_dm/2 (Planck 2018 Omega_b 0.0493) | PASS |
 | 90 | ch:electroweak:L90 | calc | `0.0247` | numeric: Omega_b/2 | PASS |
 | 90 | ch:electroweak:L90:0.1330 | calc | `0.1330` | numeric: Omega_dm/2 | PASS |
 | 93 | ch:electroweak:L93 | calc | `15.6` | numeric: baryonic share of beta_m, per cent | PASS |
 | 93 | ch:electroweak:L93:84.4 | calc | `84.4` | numeric: dark share of beta_m, per cent | PASS |
-| 109 |  | prediction | `-0.136` | not run: not yet checked | - |
-| 109 |  | prediction | `0.864` | not run: not yet checked | - |
-| 115 |  | derived | `159.5` | not run: not yet run: draft rejected (drafter skipped: The electroweak symmetry breaking temperature Tc=159.5 GeV is a measured/) | - |
-| 119 |  | prediction | `-0.136` | not run: not yet checked | - |
+| 109 | ch:electroweak:L109 | prediction | `0.864` | numeric: mu(z=0) = 1/(1+beta_m) | PASS |
+| 109 |  | prediction | `-0.136` | not run: locked value mu0 restated (prediction) | - |
+| 115 |  | derived | `159.5` | not run: restates ch:electroweak:L53 (T_c = 159.5 GeV, D'Onofrio and Rummukainen 2016, input) | - |
+| 119 |  | prediction | `-0.136` | not run: locked value mu0 restated (prediction) | - |
 
 ## Part 4 - ch:higgsrecord - `docs/book/part2/p2_22b_higgs_record.tex`
 
