@@ -1159,6 +1159,57 @@ def _b01st_ledger(pat):
 def _b01st_gamma(which):
     'Effective growth index today, gamma = ln f / ln Omega_m(a=1), f from the linear growth equation (same early amplitude), Omega_m 0.3153.'
     return math.log(f_of(which, 0.0)) / math.log(Om)
+DATA_FILES['docs/verification/scripts/verify_sector_tension.py'] = 'script of the sector-tension chapter: DESI 2024 V Appendix A f sigma_s8 and variances, legacy f sigma8 table'   # 9 kB
+
+# helpers of the part2/p2_09_sector_tension checks
+def _b02_st_table(name):
+    """A data table of docs/verification/scripts/verify_sector_tension.py: {key: tuple of numbers} from the dict literal `name={...}`."""
+    txt = file_text('docs/verification/scripts/verify_sector_tension.py')
+    body = re.search(r"^" + name + r"=\{(.*?)\}\s*$", txt, re.S | re.M).group(1)
+    out = {}
+    for k, tup in re.findall(r'"([^"]+)":\(([^)]*)\)', body):
+        out[k] = tuple(None if x.strip() == 'None' else float(x) for x in tup.split(','))
+    return out
+
+def _b02_dr2_row(tag):
+    """w0, wa of one DESI DR2 fit, read from section 1 of docs/verification/scripts/verify_sector_tension_output.txt."""
+    for ln in file_text('docs/verification/scripts/verify_sector_tension_output.txt').splitlines():
+        m = re.match(r"\s+(\S+)\s+w0 (\S+) wa (\S+)\s+z_cross", ln)
+        if m and m.group(1) == tag:
+            return float(m.group(2)), float(m.group(3))
+    raise KeyError(tag)
+
+def _b02_s8_tensions():
+    """S8 tension of each weak-lensing survey of line 47-49 with the Planck 2018 CMB value, error on the side facing Planck."""
+    s8_cmb, e_cmb = sigma8_pl * math.sqrt(Om / 0.3), 0.013   # Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing, doi:10.1051/0004-6361/201833910
+    surveys = [(0.766, 0.020),   # KiDS-1000 3x2pt, Heymans et al. 2021, doi:10.1051/0004-6361/202039063 (upper error)
+               (0.759, 0.024),   # KiDS-1000 cosmic shear, Asgari et al. 2021, doi:10.1051/0004-6361/202039070 (upper error)
+               (0.776, 0.017),   # DES Y3 3x2pt, doi:10.1103/physrevd.105.023520
+               (0.776, 0.032)]   # HSC Y3 cosmic-shear power spectra, Dalal et al. 2023, doi:10.1103/PhysRevD.108.123519 (upper error)
+    return [(s8_cmb - v) / math.hypot(e, e_cmb) for v, e in surveys]
+
+def _b02_dr2_sig():
+    """DESI DR2 w0waCDM significances, DESI DR2 results II (doi:10.1103/tr6y-kpc6, arXiv:2503.14738): DESI+CMB, +Pantheon+, +Union3, +DES Y5."""
+    return {'DESI+CMB': 3.1, 'DESI+CMB+Pantheon+': 2.8, 'DESI+CMB+Union3': 3.8, 'DESI+CMB+DESY5': 4.2}
+
+def _b02_desi_pulls(which, s8):
+    d = _b02_st_table('dsv')
+    return [(v - fs8_pred(which, z, s8)) / math.sqrt(c33 * 1e-4) for (z, v, c33, dv, c11) in d.values()]
+
+def _b02_shapefit_chi2(which, data):
+    """Diagonal chi2 of docs/verification/scripts/verify_shapefit_chi2.py: LambdaCDM and IAM in the MGCAMB form (mu0 = -0.13495), both grown
+    from the same early amplitude (a_i = 1e-3) with Planck sigma8 0.8111 for LambdaCDM."""
+    g = 'lcdm' if which == 'lcdm' else 'mgcamb'
+    s8 = sigma8_pl if g == 'lcdm' else sigma8_pl * D_of('mgcamb', 0.0) / D_of('lcdm', 0.0)
+    if data == 'desi':
+        # DESI 2024 V (doi:10.1088/1475-7516/2025/09/008), ShapeFit+BAO rows: bin, z_eff, (f sigma_s8)_fid, ratio, upper error, lower error
+        rows = [(0.295, 0.4723, 0.84, 0.19, 0.19), (0.510, 0.4733, 1.16, 0.13, 0.13), (0.706, 0.4608, 1.04, 0.11, 0.092),
+                (0.919, 0.4398, 0.997, 0.10, 0.084), (1.317, 0.3944, 0.945, 0.097, 0.077), (1.491, 0.3750, 1.16, 0.12, 0.12)]
+        pts = [(z, r * fid, 0.5 * (up + lo) * fid) for z, fid, r, up, lo in rows]
+    else:
+        # Alam et al. 2021 Table III (doi:10.1103/PhysRevD.103.083533): MGS, BOSS z 0.38 and 0.51, eBOSS LRG, ELG, QSO
+        pts = [(0.15, 0.53, 0.16), (0.38, 0.497, 0.045), (0.51, 0.459, 0.038), (0.70, 0.473, 0.041), (0.85, 0.315, 0.095), (1.48, 0.462, 0.045)]
+    return sum(((v - fs8_pred(g, z, s8)) / e) ** 2 for z, v, e in pts)
 
 # ---------------------------------------------------------------- the checks, in docs/book/main.tex order
 
@@ -10501,11 +10552,34 @@ def check_0927():
     D0,Dp0=s0.y[:,-1];D1,Dp1=s1.y[:,-1];f0=Dp0/D0;f1=Dp1/D1;value=100*(1-(f1*D1)/(f0*D0))
     return locals()
 
+@check(label='ch:sectortension:L41', chapter='ch:sectortension', part=2, title='Planck 2018 H0 under LambdaCDM',
+       file='part2/p2_09_sector_tension', line=41, status='observed', kind='num', printed='67.4', tol=0.0)
+def check_3396():
+    'Planck 2018 CMB H0 under LambdaCDM. Book line 41, printed 67.4. Input: h = 0.6736 (Planck 2018 VI Table 2, TT,TE,EE+lowE+lensing, doi:10.1051/0004-6361/201833910), as h_pl.'
+    value = 100 * h_pl
+    return locals()
+
 @check(label='ch:sectortension:L42', chapter='ch:sectortension', part=2, title='Hubble tension significance Planck vs SH0ES',
        file='part2/p2_09_sector_tension', line=42, status='calc', kind='num', printed='4.9', tol=0.0102)
 def check_0928():
     'Hubble tension significance Planck vs SH0ES. Book line 42, printed 4.9.'
     value=(73.04-67.4)/math.sqrt(0.5**2+1.04**2)
+    return locals()
+
+@check(label='ch:sectortension:L42:73.04', chapter='ch:sectortension', part=2, title='SH0ES H0',
+       file='part2/p2_09_sector_tension', line=42, status='observed', kind='num', printed='73.04', tol=0.0)
+def check_3397():
+    'SH0ES Cepheid-calibrated H0. Book line 42, printed 73.04. Published: H0 = 73.04 +- 1.04, Riess et al. 2022, doi:10.3847/2041-8213/ac5c5b.'
+    H0_shoes, e_shoes = 73.04, 1.04   # Riess et al. 2022 ApJL 934 L7, doi:10.3847/2041-8213/ac5c5b
+    value = H0_shoes
+    return locals()
+
+@check(label='ch:sectortension:L43', chapter='ch:sectortension', part=2, title='TRGB H0 (CCHP)',
+       file='part2/p2_09_sector_tension', line=43, status='observed', kind='num', printed='70.39', tol=0.0)
+def check_3398():
+    'Tip of the red giant branch H0. Book line 43, printed 70.39. Published: 70.39 +- 1.22 (stat) +- 1.33 (sys) +- 0.70 (SN), Freedman et al. 2025, doi:10.3847/1538-4357/adce78.'
+    H0_trgb = 70.39   # Freedman et al. 2025 ApJ, doi:10.3847/1538-4357/adce78
+    value = H0_trgb
     return locals()
 
 @check(label='ch:sectortension:L47', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
@@ -10514,6 +10588,13 @@ def check_0928():
 def check_0929():
     'measured: printed value found in verify_sector_tension_output.txt, a file the chapter names. Book line 47, printed 0.766.'
     ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '0.766')
+    return locals()
+
+@check(label='ch:sectortension:L47:0.832', chapter='ch:sectortension', part=2, title='Planck LambdaCDM S8 = sigma8 (Om/0.3)^0.5',
+       file='part2/p2_09_sector_tension', line=47, status='observed', kind='num', printed='0.832', tol=0.0)
+def check_3399():
+    'LambdaCDM CMB S8 = sigma8 (Omega_m/0.3)^0.5. Book line 47, printed 0.832. Inputs: sigma8 = 0.8111 and Omega_m = 0.3153, Planck 2018 VI Table 2 (doi:10.1051/0004-6361/201833910), whose S8 is 0.832 +- 0.013.'
+    value = sigma8_pl * (Om / 0.3) ** 0.5
     return locals()
 
 @check(label='ch:sectortension:L48', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
@@ -10540,6 +10621,20 @@ def check_0932():
     ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '0.776')
     return locals()
 
+@check(label='ch:sectortension:L49:2', chapter='ch:sectortension', part=2, title='S8 tension, lower end over the four lensing surveys',
+       file='part2/p2_09_sector_tension', line=49, status='observed', kind='num', printed='2', tol=0.0)
+def check_3400():
+    'Lower end of the "2--3 sigma" S8 tension (book line 49, printed 2): smallest (S8_CMB - S8_survey)/sqrt(e_survey^2 + e_CMB^2) over KiDS-1000 3x2pt, KiDS-1000 shear, DES Y3, HSC Y3 (published values, DOIs in _b02_s8_tensions), Planck 2018 S8 from sigma8 0.8111 and Om 0.3153, error 0.013.'
+    value = min(_b02_s8_tensions())
+    return locals()
+
+@check(label='ch:sectortension:L49:3', chapter='ch:sectortension', part=2, title='S8 tension, upper end over the four lensing surveys',
+       file='part2/p2_09_sector_tension', line=49, status='observed', kind='num', printed='3', tol=0.0)
+def check_3401():
+    'Upper end of the "2--3 sigma" S8 tension (book line 49, printed 3): largest of the same four survey tensions with Planck 2018.'
+    value = max(_b02_s8_tensions())
+    return locals()
+
 @check(label='ch:sectortension:L50', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=50, status='observed', kind='file', printed='0.815', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
@@ -10564,6 +10659,52 @@ def check_0935():
     ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '0.802')
     return locals()
 
+@check(label='ch:sectortension:L53', chapter='ch:sectortension', part=2, title='DESI DR1 BAO+CMB w0wa preference',
+       file='part2/p2_09_sector_tension', line=53, status='observed', kind='num', printed='2.6', tol=0.0)
+def check_3402():
+    'DESI DR1 BAO with CMB, preference for w0 > -1, wa < 0. Book line 53, printed 2.6. Published: 2.6 sigma, DESI 2024 VI (doi:10.1088/1475-7516/2025/02/021).'
+    sig_dr1 = {'CMB': 2.6, 'CMB+Pantheon+': 2.5, 'CMB+Union3': 3.5, 'CMB+DESY5': 3.9}   # DESI 2024 VI, doi:10.1088/1475-7516/2025/02/021
+    value = sig_dr1['CMB']
+    return locals()
+
+@check(label='ch:sectortension:L54', chapter='ch:sectortension', part=2, title='DESI DR1 + Pantheon+ preference',
+       file='part2/p2_09_sector_tension', line=54, status='observed', kind='num', printed='2.5', tol=0.0)
+def check_3403():
+    'DESI DR1 BAO + CMB + Pantheon+, w0wa preference. Book line 54, printed 2.5. Published: 2.5 sigma, DESI 2024 VI (doi:10.1088/1475-7516/2025/02/021).'
+    sig_dr1 = {'CMB': 2.6, 'CMB+Pantheon+': 2.5, 'CMB+Union3': 3.5, 'CMB+DESY5': 3.9}   # DESI 2024 VI
+    value = sig_dr1['CMB+Pantheon+']
+    return locals()
+
+@check(label='ch:sectortension:L54:3.5', chapter='ch:sectortension', part=2, title='DESI DR1 + Union3 preference',
+       file='part2/p2_09_sector_tension', line=54, status='observed', kind='num', printed='3.5', tol=0.0)
+def check_3404():
+    'DESI DR1 BAO + CMB + Union3, w0wa preference. Book line 54, printed 3.5. Published: 3.5 sigma, DESI 2024 VI (doi:10.1088/1475-7516/2025/02/021).'
+    sig_dr1 = {'CMB': 2.6, 'CMB+Pantheon+': 2.5, 'CMB+Union3': 3.5, 'CMB+DESY5': 3.9}   # DESI 2024 VI
+    value = sig_dr1['CMB+Union3']
+    return locals()
+
+@check(label='ch:sectortension:L54:3.9', chapter='ch:sectortension', part=2, title='DESI DR1 + DES Y5 preference',
+       file='part2/p2_09_sector_tension', line=54, status='observed', kind='num', printed='3.9', tol=0.0)
+def check_3405():
+    'DESI DR1 BAO + CMB + DES Y5, w0wa preference. Book line 54, printed 3.9. Published: 3.9 sigma, DESI 2024 VI (doi:10.1088/1475-7516/2025/02/021).'
+    sig_dr1 = {'CMB': 2.6, 'CMB+Pantheon+': 2.5, 'CMB+Union3': 3.5, 'CMB+DESY5': 3.9}   # DESI 2024 VI
+    value = sig_dr1['CMB+DESY5']
+    return locals()
+
+@check(label='ch:sectortension:L54:2.8', chapter='ch:sectortension', part=2, title='DESI DR2 preference, lowest over the supernova compilations',
+       file='part2/p2_09_sector_tension', line=54, status='observed', kind='num', printed='2.8', tol=0.0)
+def check_3406():
+    'Lower end of "2.8--4.2 sigma" (book line 54): smallest DESI DR2 significance over the four fits of Table st_dr2 (DESI DR2 results II, doi:10.1103/tr6y-kpc6).'
+    value = min(_b02_dr2_sig().values())
+    return locals()
+
+@check(label='ch:sectortension:L54:4.2', chapter='ch:sectortension', part=2, title='DESI DR2 preference, highest over the supernova compilations',
+       file='part2/p2_09_sector_tension', line=54, status='observed', kind='num', printed='4.2', tol=0.0)
+def check_3407():
+    'Upper end of "2.8--4.2 sigma" (book line 54): largest DESI DR2 significance over the four fits of Table st_dr2 (DESI DR2 results II, doi:10.1103/tr6y-kpc6).'
+    value = max(_b02_dr2_sig().values())
+    return locals()
+
 @check(label='ch:sectortension:L60', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=60, status='observed', kind='file', printed='-1.75', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
@@ -10579,6 +10720,21 @@ def check_0937():
     w0=-0.42;wa=-1.75;a=1+(1+w0)/wa;value=1/a-1
     return locals()
 
+@check(label='ch:sectortension:L60:-0.42', chapter='ch:sectortension', part=2, title='DESI DR2 + CMB w0',
+       file='part2/p2_09_sector_tension', line=60, status='observed', kind='file', printed='-0.42', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
+def check_3408():
+    'DESI DR2 + CMB w0. Book line 60, printed -0.42. Read from the DESI+CMB row of section 1 of verify_sector_tension_output.txt (DESI DR2 results II, doi:10.1103/tr6y-kpc6: -0.42 +- 0.21).'
+    value = _b02_dr2_row('DESI+CMB')[0]
+    return locals()
+
+@check(label='ch:sectortension:L60:3.1', chapter='ch:sectortension', part=2, title='DESI DR2 + CMB significance',
+       file='part2/p2_09_sector_tension', line=60, status='observed', kind='num', printed='3.1', tol=0.0)
+def check_3409():
+    'DESI DR2 + CMB w0wa preference. Book line 60, printed 3.1. Published: DESI DR2 results II, doi:10.1103/tr6y-kpc6.'
+    value = _b02_dr2_sig()['DESI+CMB']
+    return locals()
+
 @check(label='ch:sectortension:L61', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=61, status='observed', kind='file', printed='-0.838', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
@@ -10592,6 +10748,21 @@ def check_0938():
 def check_0939():
     'phantom-crossing redshift, DESI+CMB+Pantheon+. Book line 61, printed 0.35.'
     w0=-0.838;wa=-0.62;a=1+(1+w0)/wa;value=1/a-1
+    return locals()
+
+@check(label='ch:sectortension:L61:-0.62', chapter='ch:sectortension', part=2, title='DESI DR2 + CMB + Pantheon+ wa',
+       file='part2/p2_09_sector_tension', line=61, status='observed', kind='file', printed='-0.62', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
+def check_3410():
+    'DESI DR2 + CMB + Pantheon+ wa. Book line 61, printed -0.62. Read from the DESI+CMB+Pantheon+ row of section 1 of verify_sector_tension_output.txt (DESI DR2 results II, doi:10.1103/tr6y-kpc6).'
+    value = _b02_dr2_row('DESI+CMB+Pantheon+')[1]
+    return locals()
+
+@check(label='ch:sectortension:L61:2.8', chapter='ch:sectortension', part=2, title='DESI DR2 + CMB + Pantheon+ significance',
+       file='part2/p2_09_sector_tension', line=61, status='observed', kind='num', printed='2.8', tol=0.0)
+def check_3411():
+    'DESI DR2 + CMB + Pantheon+ w0wa preference. Book line 61, printed 2.8. Published: DESI DR2 results II, doi:10.1103/tr6y-kpc6.'
+    value = _b02_dr2_sig()['DESI+CMB+Pantheon+']
     return locals()
 
 @check(label='ch:sectortension:L62', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
@@ -10617,6 +10788,13 @@ def check_0942():
     w0=-0.667;wa=-1.09;a=1+(1+w0)/wa;value=1/a-1
     return locals()
 
+@check(label='ch:sectortension:L62:3.8', chapter='ch:sectortension', part=2, title='DESI DR2 + CMB + Union3 significance',
+       file='part2/p2_09_sector_tension', line=62, status='observed', kind='num', printed='3.8', tol=0.0)
+def check_3412():
+    'DESI DR2 + CMB + Union3 w0wa preference. Book line 62, printed 3.8. Published: DESI DR2 results II, doi:10.1103/tr6y-kpc6.'
+    value = _b02_dr2_sig()['DESI+CMB+Union3']
+    return locals()
+
 @check(label='ch:sectortension:L63', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=63, status='observed', kind='file', printed='-0.752', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
@@ -10630,6 +10808,21 @@ def check_0943():
 def check_0944():
     'phantom-crossing redshift, DESI+CMB+DES Y5. Book line 63, printed 0.41.'
     w0=-0.752;wa=-0.86;a=1+(1+w0)/wa;value=1/a-1
+    return locals()
+
+@check(label='ch:sectortension:L63:-0.86', chapter='ch:sectortension', part=2, title='DESI DR2 + CMB + DES Y5 wa',
+       file='part2/p2_09_sector_tension', line=63, status='observed', kind='file', printed='-0.86', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
+       heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
+def check_3413():
+    'DESI DR2 + CMB + DES Y5 wa. Book line 63, printed -0.86. Read from the DESI+CMB+DESY5 row of section 1 of verify_sector_tension_output.txt (DESI DR2 results II, doi:10.1103/tr6y-kpc6).'
+    value = _b02_dr2_row('DESI+CMB+DESY5')[1]
+    return locals()
+
+@check(label='ch:sectortension:L63:4.2', chapter='ch:sectortension', part=2, title='DESI DR2 + CMB + DES Y5 significance',
+       file='part2/p2_09_sector_tension', line=63, status='observed', kind='num', printed='4.2', tol=0.0)
+def check_3414():
+    'DESI DR2 + CMB + DES Y5 w0wa preference. Book line 63, printed 4.2. Published: DESI DR2 results II, doi:10.1103/tr6y-kpc6.'
+    value = _b02_dr2_sig()['DESI+CMB+DESY5']
     return locals()
 
 @check(label='ch:sectortension:L80', chapter='ch:sectortension', part=2, title='coupling deficit 1-mu today',
@@ -10698,6 +10891,17 @@ def check_0951():
     'sigma8 % diff between Level2 chains. Book line 216, printed 1.11\\%.'
     value=1-csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8')/csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','sigma8')
     return locals()
+
+@check(label='ch:sectortension:L216:0.78\\%', chapter='ch:sectortension', part=2, title='sigma8 lowered by the growth equation, same early amplitude',
+       file='part2/p2_09_sector_tension', line=216, status='calc', kind='num', printed='0.78\\%', tol=0.0)
+def check_3415():
+    'sigma8 deficit from Eq. st_ode with the same early amplitude, 1 - D_IAM(1)/D_LCDM(1). Book line 216, printed 0.78 %. Inputs: beta_m = Omega_m/2 (canon), Planck 2018 background.'
+    value = amp_deficit(0.0, 'iam')
+    return locals()
+
+def _b02_sigma_obs(nm):
+    z, v, c33, dv, c11 = _b02_st_table('dsv')[nm]
+    return math.sqrt(c33 * 1e-4)
 
 @check(label='ch:sectortension:L217', chapter='ch:sectortension', part=2, title='sigma8 LCDM repeated',
        file='part2/p2_09_sector_tension', line=217, status='fitted', kind='file', printed='0.8087', tol=6.18e-05, source='mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
@@ -10783,6 +10987,13 @@ def check_0962():
     value=(v-fs8_pred('lcdm',0.295,0.8087))/s
     return locals()
 
+@check(label='ch:sectortension:L227:0.094', chapter='ch:sectortension', part=2, title='sigma_obs BGS, sqrt of the DESI ShapeFit-only variance',
+       file='part2/p2_09_sector_tension', line=227, status='observed', kind='file', printed='0.094', tol=0.0, source='docs/verification/scripts/verify_sector_tension.py')
+def check_3416():
+    'sigma_obs of f sigma_s8, BGS z 0.295. Book line 227, printed 0.094. Input: variance C33 = 88.510877e-4, DESI 2024 V Appendix A (doi:10.1088/1475-7516/2025/09/008), as typed in verify_sector_tension.py (dsv).'
+    value = _b02_sigma_obs('BGS')
+    return locals()
+
 @check(label='ch:sectortension:L228', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=228, status='observed', kind='file', printed='0.514', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
@@ -10819,6 +11030,13 @@ def check_0967():
     'pull (obs-pred)/sigma, LCDM, z=0.51. Book line 228, printed +0.63.'
     v=0.513635; s=math.sqrt(41.29547e-4)  # DESI 2024 V Appendix A ShapeFit-only f sigma_s8 and variance C33 (1e-4), as in docs/verification/scripts/verify_sector_tension.py
     value=(v-fs8_pred('lcdm',0.51,0.8087))/s
+    return locals()
+
+@check(label='ch:sectortension:L228:0.064', chapter='ch:sectortension', part=2, title='sigma_obs LRG1, sqrt of the DESI ShapeFit-only variance',
+       file='part2/p2_09_sector_tension', line=228, status='observed', kind='file', printed='0.064', tol=0.0, source='docs/verification/scripts/verify_sector_tension.py')
+def check_3417():
+    'sigma_obs of f sigma_s8, LRG1 z 0.510. Book line 228, printed 0.064. Input: variance C33, DESI 2024 V Appendix A (doi:10.1088/1475-7516/2025/09/008), verify_sector_tension.py dsv.'
+    value = _b02_sigma_obs('LRG1')
     return locals()
 
 @check(label='ch:sectortension:L229', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
@@ -10859,6 +11077,13 @@ def check_0972():
     value=(v-fs8_pred('lcdm',0.706,0.8087))/s
     return locals()
 
+@check(label='ch:sectortension:L229:0.053', chapter='ch:sectortension', part=2, title='sigma_obs LRG2, sqrt of the DESI ShapeFit-only variance',
+       file='part2/p2_09_sector_tension', line=229, status='observed', kind='file', printed='0.053', tol=0.0, source='docs/verification/scripts/verify_sector_tension.py')
+def check_3418():
+    'sigma_obs of f sigma_s8, LRG2 z 0.706. Book line 229, printed 0.053. Input: variance C33, DESI 2024 V Appendix A (doi:10.1088/1475-7516/2025/09/008), verify_sector_tension.py dsv.'
+    value = _b02_sigma_obs('LRG2')
+    return locals()
+
 @check(label='ch:sectortension:L230', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=230, status='observed', kind='file', printed='0.422', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
@@ -10895,6 +11120,13 @@ def check_0977():
     'pull (obs-pred)/sigma, LCDM, z=0.919. Book line 230, printed -0.36.'
     v=0.422164; s=math.sqrt(22.370314e-4)  # DESI 2024 V Appendix A ShapeFit-only f sigma_s8 and variance C33 (1e-4), as in docs/verification/scripts/verify_sector_tension.py
     value=(v-fs8_pred('lcdm',0.919,0.8087))/s
+    return locals()
+
+@check(label='ch:sectortension:L230:0.047', chapter='ch:sectortension', part=2, title='sigma_obs LRG3, sqrt of the DESI ShapeFit-only variance',
+       file='part2/p2_09_sector_tension', line=230, status='observed', kind='file', printed='0.047', tol=0.0, source='docs/verification/scripts/verify_sector_tension.py')
+def check_3419():
+    'sigma_obs of f sigma_s8, LRG3 z 0.919. Book line 230, printed 0.047. Input: variance C33, DESI 2024 V Appendix A (doi:10.1088/1475-7516/2025/09/008), verify_sector_tension.py dsv.'
+    value = _b02_sigma_obs('LRG3')
     return locals()
 
 @check(label='ch:sectortension:L231', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
@@ -10935,6 +11167,13 @@ def check_0982():
     value=(v-fs8_pred('lcdm',1.317,0.8087))/s
     return locals()
 
+@check(label='ch:sectortension:L231:0.037', chapter='ch:sectortension', part=2, title='sigma_obs ELG2, sqrt of the DESI ShapeFit-only variance',
+       file='part2/p2_09_sector_tension', line=231, status='observed', kind='file', printed='0.037', tol=0.0, source='docs/verification/scripts/verify_sector_tension.py')
+def check_3420():
+    'sigma_obs of f sigma_s8, ELG2 z 1.317. Book line 231, printed 0.037. Input: variance C33, DESI 2024 V Appendix A (doi:10.1088/1475-7516/2025/09/008), verify_sector_tension.py dsv.'
+    value = _b02_sigma_obs('ELG2')
+    return locals()
+
 @check(label='ch:sectortension:L232', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=232, status='observed', kind='file', printed='0.435', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
@@ -10973,6 +11212,13 @@ def check_0987():
     value=(v-fs8_pred('lcdm',1.491,0.8087))/s
     return locals()
 
+@check(label='ch:sectortension:L232:0.044', chapter='ch:sectortension', part=2, title='sigma_obs QSO, sqrt of the DESI ShapeFit-only variance',
+       file='part2/p2_09_sector_tension', line=232, status='observed', kind='file', printed='0.044', tol=0.0, source='docs/verification/scripts/verify_sector_tension.py')
+def check_3421():
+    'sigma_obs of f sigma_s8, QSO z 1.491. Book line 232, printed 0.044. Input: variance C33, DESI 2024 V Appendix A (doi:10.1088/1475-7516/2025/09/008), verify_sector_tension.py dsv.'
+    value = _b02_sigma_obs('QSO')
+    return locals()
+
 @check(label='ch:sectortension:L234', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=234, status='observed', kind='file', printed='0.423', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
@@ -11007,6 +11253,13 @@ def check_0991():
 def check_0992():
     'pull (obs-pred)/sigma, LCDM, z=0.067. Book line 234, printed -0.36.'
     value=(0.423-fs8_pred('lcdm',0.067,0.8087))/0.055  # observed f sigma8 and error: book table line 234 (DESI 2024 V; Alam 2021; Beutler 2012; Qin 2026)
+    return locals()
+
+@check(label='ch:sectortension:L234:0.055', chapter='ch:sectortension', part=2, title='sigma_obs 6dFGS',
+       file='part2/p2_09_sector_tension', line=234, status='observed', kind='file', printed='0.055', tol=0.0, source='docs/verification/scripts/verify_sector_tension.py')
+def check_3422():
+    'sigma_obs of f sigma8, 6dFGS z 0.067. Book line 234, printed 0.055. Read from the legacy table (leg) of verify_sector_tension.py; Beutler et al. 2012, doi:10.1111/j.1365-2966.2012.21136.x.'
+    value = _b02_st_table('leg')['6dFGS'][2]
     return locals()
 
 @check(label='ch:sectortension:L236', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
@@ -11089,6 +11342,13 @@ def check_1003():
     value=(0.5-fs8_pred('lcdm',0.38,0.8087))/0.047  # observed f sigma8 and error: book table line 238 (DESI 2024 V; Alam 2021; Beutler 2012; Qin 2026)
     return locals()
 
+@check(label='ch:sectortension:L238:0.047', chapter='ch:sectortension', part=2, title='sigma_obs BOSS z 0.38',
+       file='part2/p2_09_sector_tension', line=238, status='observed', kind='file', printed='0.047', tol=0.0, source='docs/verification/scripts/verify_sector_tension.py')
+def check_3423():
+    'sigma_obs of f sigma8, BOSS z 0.38. Book line 238, printed 0.047. Read from the legacy table (leg) of verify_sector_tension.py; Alam et al. 2021, doi:10.1103/PhysRevD.103.083533.'
+    value = _b02_st_table('leg')['BOSS z0.38'][2]
+    return locals()
+
 @check(label='ch:sectortension:L240', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=240, status='observed', kind='file', printed='0.455', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
@@ -11123,6 +11383,13 @@ def check_1007():
 def check_1008():
     'pull (obs-pred)/sigma, LCDM, z=0.51. Book line 240, printed -0.46.'
     value=(0.455-fs8_pred('lcdm',0.51,0.8087))/0.039  # observed f sigma8 and error: book table line 240 (DESI 2024 V; Alam 2021; Beutler 2012; Qin 2026)
+    return locals()
+
+@check(label='ch:sectortension:L240:0.039', chapter='ch:sectortension', part=2, title='sigma_obs BOSS z 0.51',
+       file='part2/p2_09_sector_tension', line=240, status='observed', kind='file', printed='0.039', tol=0.0, source='docs/verification/scripts/verify_sector_tension.py')
+def check_3424():
+    'sigma_obs of f sigma8, BOSS z 0.51. Book line 240, printed 0.039. Read from the legacy table (leg) of verify_sector_tension.py; Alam et al. 2021, doi:10.1103/PhysRevD.103.083533.'
+    value = _b02_st_table('leg')['BOSS z0.51'][2]
     return locals()
 
 @check(label='ch:sectortension:L242', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
@@ -11161,6 +11428,13 @@ def check_1013():
     value=(0.448-fs8_pred('lcdm',0.7,0.8087))/0.043  # observed f sigma8 and error: book table line 242 (DESI 2024 V; Alam 2021; Beutler 2012; Qin 2026)
     return locals()
 
+@check(label='ch:sectortension:L242:0.043', chapter='ch:sectortension', part=2, title='sigma_obs eBOSS LRG',
+       file='part2/p2_09_sector_tension', line=242, status='observed', kind='file', printed='0.043', tol=0.0, source='docs/verification/scripts/verify_sector_tension.py')
+def check_3425():
+    'sigma_obs of f sigma8, eBOSS LRG z 0.70. Book line 242, printed 0.043. Read from the legacy table (leg) of verify_sector_tension.py; Alam et al. 2021, doi:10.1103/PhysRevD.103.083533.'
+    value = _b02_st_table('leg')['eBOSS LRG'][2]
+    return locals()
+
 @check(label='ch:sectortension:L244', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=244, status='observed', kind='file', printed='0.315', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
@@ -11197,6 +11471,13 @@ def check_1018():
     value=(0.315-fs8_pred('lcdm',0.85,0.8087))/0.095  # observed f sigma8 and error: book table line 244 (DESI 2024 V; Alam 2021; Beutler 2012; Qin 2026)
     return locals()
 
+@check(label='ch:sectortension:L244:0.095', chapter='ch:sectortension', part=2, title='sigma_obs eBOSS ELG',
+       file='part2/p2_09_sector_tension', line=244, status='observed', kind='file', printed='0.095', tol=0.0, source='docs/verification/scripts/verify_sector_tension.py')
+def check_3426():
+    'sigma_obs of f sigma8, eBOSS ELG z 0.85. Book line 244, printed 0.095. Read from the legacy table (leg) of verify_sector_tension.py; Alam et al. 2021, doi:10.1103/PhysRevD.103.083533.'
+    value = _b02_st_table('leg')['eBOSS ELG'][2]
+    return locals()
+
 @check(label='ch:sectortension:L245', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
        file='part2/p2_09_sector_tension', line=245, status='observed', kind='file', printed='0.462', tol=0.0, source='docs/verification/scripts/verify_sector_tension_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt')
@@ -11231,6 +11512,13 @@ def check_1022():
 def check_1023():
     'pull (obs-pred)/sigma, LCDM, z=1.48. Book line 245, printed +1.92.'
     value=(0.462-fs8_pred('lcdm',1.48,0.8087))/0.045  # observed f sigma8 and error: book table line 245 (DESI 2024 V; Alam 2021; Beutler 2012; Qin 2026)
+    return locals()
+
+@check(label='ch:sectortension:L245:0.045', chapter='ch:sectortension', part=2, title='sigma_obs eBOSS QSO',
+       file='part2/p2_09_sector_tension', line=245, status='observed', kind='file', printed='0.045', tol=0.0, source='docs/verification/scripts/verify_sector_tension.py')
+def check_3427():
+    'sigma_obs of f sigma8, eBOSS QSO z 1.48. Book line 245, printed 0.045. Read from the legacy table (leg) of verify_sector_tension.py; Alam et al. 2021, doi:10.1103/PhysRevD.103.083533.'
+    value = _b02_st_table('leg')['eBOSS QSO'][2]
     return locals()
 
 @check(label='ch:sectortension:L247', chapter='ch:sectortension', part=2, title='measured: printed value found in verify_sector_tension_output.txt, a file the chapter names',
@@ -11277,6 +11565,34 @@ def check_1029():
     ok = file_has('docs/verification/scripts/verify_sector_tension_output.txt', '0.450')
     return locals()
 
+@check(label='ch:sectortension:L250', chapter='ch:sectortension', part=2, title='lowest pull over the six DESI bins, term',
+       file='part2/p2_09_sector_tension', line=250, status='calc', kind='num', printed='-0.88', tol=0.0)
+def check_3428():
+    'Lowest pull (obs - pred)/sigma over the six DESI bins for the term (book line 250, printed -0.88), Eq. st_ode with sigma8 0.7998 (Run A); DESI 2024 V Appendix A data from verify_sector_tension.py (dsv).'
+    value = min(_b02_desi_pulls('iam', 0.7998))
+    return locals()
+
+@check(label='ch:sectortension:L250:+1.40', chapter='ch:sectortension', part=2, title='highest pull over the six DESI bins, term',
+       file='part2/p2_09_sector_tension', line=250, status='calc', kind='num', printed='+1.40', tol=0.0)
+def check_3429():
+    'Highest pull over the six DESI bins for the term (book line 250, printed +1.40), sigma8 0.7998 (Run A).'
+    value = max(_b02_desi_pulls('iam', 0.7998))
+    return locals()
+
+@check(label='ch:sectortension:L250:-1.01', chapter='ch:sectortension', part=2, title='lowest pull over the six DESI bins, LCDM',
+       file='part2/p2_09_sector_tension', line=250, status='calc', kind='num', printed='-1.01', tol=0.0)
+def check_3430():
+    'Lowest pull over the six DESI bins for LambdaCDM (book line 250, printed -1.01), sigma8 0.8087 (Run C).'
+    value = min(_b02_desi_pulls('lcdm', 0.8087))
+    return locals()
+
+@check(label='ch:sectortension:L250:+1.36', chapter='ch:sectortension', part=2, title='highest pull over the six DESI bins, LCDM',
+       file='part2/p2_09_sector_tension', line=250, status='calc', kind='num', printed='+1.36', tol=0.0)
+def check_3431():
+    'Highest pull over the six DESI bins for LambdaCDM (book line 250, printed +1.36), sigma8 0.8087 (Run C).'
+    value = max(_b02_desi_pulls('lcdm', 0.8087))
+    return locals()
+
 @check(label='ch:sectortension:L251', chapter='ch:sectortension', part=2, title='diagonal chi2, six DESI bins, term',
        file='part2/p2_09_sector_tension', line=251, status='calc', kind='num', printed='3.84', tol=0.0013)
 def check_1030():
@@ -11303,6 +11619,34 @@ def check_1032():
 def check_1033():
     'diagonal chi2, seven legacy points, LCDM. Book line 251, printed 6.53.'
     value=sum(((o-fs8_pred('lcdm',z,0.8087))/s)**2 for z,o,s in [(0.067, 0.423, 0.055), (0.15, 0.53, 0.16), (0.38, 0.5, 0.047), (0.51, 0.455, 0.039), (0.7, 0.448, 0.043), (0.85, 0.315, 0.095), (1.48, 0.462, 0.045)])
+    return locals()
+
+@check(label='ch:sectortension:L251:4.52', chapter='ch:sectortension', part=2, title='ShapeFit+BAO chi2, six DESI bins, LCDM (MGCAMB comparison)',
+       file='part2/p2_09_sector_tension', line=251, status='calc', kind='num', printed='4.52', tol=0.0)
+def check_3432():
+    'Diagonal chi2 of LambdaCDM (Planck sigma8 0.8111) on the six DESI DR1 ShapeFit+BAO growth values, book line 251, printed 4.52 (port of verify_shapefit_chi2.py; data DESI 2024 V, doi:10.1088/1475-7516/2025/09/008).'
+    value = _b02_shapefit_chi2('lcdm', 'desi')
+    return locals()
+
+@check(label='ch:sectortension:L251:5.14', chapter='ch:sectortension', part=2, title='ShapeFit+BAO chi2, six DESI bins, IAM MGCAMB form',
+       file='part2/p2_09_sector_tension', line=251, status='calc', kind='num', printed='5.14', tol=0.0)
+def check_3433():
+    'Diagonal chi2 of IAM in the MGCAMB form (mu0 = -0.13495, same early amplitude) on the six DESI DR1 ShapeFit+BAO growth values, book line 251, printed 5.14 (port of verify_shapefit_chi2.py).'
+    value = _b02_shapefit_chi2('iam', 'desi')
+    return locals()
+
+@check(label='ch:sectortension:L251:6.20', chapter='ch:sectortension', part=2, title='chi2 on SDSS DR16, LCDM (MGCAMB comparison)',
+       file='part2/p2_09_sector_tension', line=251, status='calc', kind='num', printed='6.20', tol=0.0)
+def check_3434():
+    'Diagonal chi2 of LambdaCDM on the six SDSS DR16 points (Alam et al. 2021 Table III, doi:10.1103/PhysRevD.103.083533), book line 251, printed 6.20 (port of verify_shapefit_chi2.py).'
+    value = _b02_shapefit_chi2('lcdm', 'sdss')
+    return locals()
+
+@check(label='ch:sectortension:L251:6.96', chapter='ch:sectortension', part=2, title='chi2 on SDSS DR16, IAM MGCAMB form',
+       file='part2/p2_09_sector_tension', line=251, status='calc', kind='num', printed='6.96', tol=0.0)
+def check_3435():
+    'Diagonal chi2 of IAM in the MGCAMB form on the six SDSS DR16 points (Alam et al. 2021 Table III), book line 251, printed 6.96 (port of verify_shapefit_chi2.py).'
+    value = _b02_shapefit_chi2('iam', 'sdss')
     return locals()
 
 @check(label='ch:sectortension:L252', chapter='ch:sectortension', part=2, title='(LCDM-term)/LCDM, BGS; tol covers the 3-decimal predictions of the table',
@@ -11436,6 +11780,21 @@ def check_1049():
 def check_1050():
     'term sigma8 Om^0.25. Book line 281, printed 0.600.'
     s8=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','sigma8');om=csv_val('mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam');value=s8*om**0.25
+    return locals()
+
+@check(label='ch:sectortension:L281:0.08\\%', chapter='ch:sectortension', part=2, title='CMB lensing power lowered, Limber estimate',
+       file='part2/p2_09_sector_tension', line=281, status='calc', kind='num', printed='0.08\\%', tol=0.0)
+def check_3436():
+    'CMB lensing power C_phiphi lowered by the term (book line 281, printed 0.08 %): Limber estimate, kernel ((chi_s - chi)/chi_s (1+z))^2 / H, power ~ D^2, z from 0.02 to 10, z_s = 1089, as verify_sector_tension.py section 3. Inputs: Planck 2018 background, beta_m = Omega_m/2.'
+    zg = np.linspace(0.02, 10, 500)
+    Hn = lambda z: np.sqrt(H2_lcdm(1 / (1 + np.asarray(z))))
+    chi_s = quad(lambda x: 1 / Hn(x), 0, 1089, limit=200)[0]
+    zf = np.concatenate([[0.0], zg])
+    ch = np.concatenate([[0.0], np.cumsum([quad(lambda x: 1 / Hn(x), zf[i], zf[i + 1])[0] for i in range(len(zg))])])[1:]
+    W = ((chi_s - ch) / chi_s * (1 + zg)) ** 2 / Hn(zg)
+    la = np.log(1 / (1 + zg))
+    rat = (_g('iam').sol(la)[0] / _g('lcdm').sol(la)[0]) ** 2
+    value = 100 * (1 - integrate.trapezoid(W * rat, zg) / integrate.trapezoid(W, zg))
     return locals()
 
 
@@ -30158,53 +30517,12 @@ INVENTORY = [
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 190, '', 'prediction', '-0.136', 'predicted coupling mu0, canon locked input'),
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 190, '', 'prediction', '0', 'predicted slip parameter Sigma_0, definition'),
     (2, 'ch:s8trend', 'part2/p2_08_s8_trend', 203, '', 'calc', 'a tenth', 'ratio to low-z deficit, imprecise restatement'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 41, '', 'observed', '67.4', 'measured, not found in the files the chapter names'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 42, '', 'observed', '73.04', 'measured, not found in the files the chapter names'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 43, '', 'observed', '70.39', 'measured, not found in the files the chapter names'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 47, '', 'observed', '0.832', 'measured, not found in the files the chapter names'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 49, '', 'observed', '2', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 49, '', 'observed', '3', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 53, '', 'observed', '2.6', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 54, '', 'observed', '2.5', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 54, '', 'observed', '3.5', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 54, '', 'observed', '3.9', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 54, '', 'observed', '2.8', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 54, '', 'observed', '4.2', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 60, '', 'observed', '-0.42', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 60, '', 'observed', '3.1', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 61, '', 'observed', '-0.62', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 61, '', 'observed', '2.8', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 62, '', 'observed', '3.8', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 63, '', 'observed', '-0.86', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 63, '', 'observed', '4.2', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 99, 'eq:st_entropy', 'none', '', 'definition: entropy budget geometric+informational split'),
     (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 110, 'eq:st_hm', 'none', '', 'definition: modified matter effective expansion rate ansatz'),
     (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 208, 'eq:st_ode', 'none', '', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 216, '', 'calc', '0.78\\%', 'not yet run: draft rejected (vacuous: literal arithmetic only)'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 227, '', 'observed', '0.094', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 228, '', 'observed', '0.064', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 229, '', 'observed', '0.053', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 230, '', 'observed', '0.047', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 231, '', 'observed', '0.037', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 232, '', 'observed', '0.044', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 234, '', 'observed', '0.055', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 238, '', 'observed', '0.047', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 240, '', 'observed', '0.039', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 242, '', 'observed', '0.043', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 244, '', 'observed', '0.095', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 245, '', 'observed', '0.045', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 247, '', 'observed', '0.055', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 249, '', 'observed', '0.055', 'measured, too few printed digits to match against the named files'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 250, '', 'calc', '-0.88', 'not yet run: draft rejected (drafter skipped: Line 250 reports pulls across six DESI bins; excerpt does not name the si)'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 250, '', 'calc', '+1.40', 'not yet run: draft rejected (drafter skipped: Line 250 reports pulls across six DESI bins; excerpt does not name the si)'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 250, '', 'calc', '-1.01', 'not yet run: draft rejected (drafter skipped: Line 250 reports pulls across six DESI bins; excerpt does not name the si)'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 250, '', 'calc', '+1.36', 'not yet run: draft rejected (drafter skipped: Line 250 reports pulls across six DESI bins; excerpt does not name the si)'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 251, '', 'calc', '4.51', 'not yet run: draft rejected (drafter skipped: Line 251 states chi2 = 4.52 for MGCAMB on six DESI bins, computed by scri)'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 251, '', 'calc', '5.24', 'not yet run: draft rejected (drafter skipped: Line 251 states chi2 = 5.14 for MGCAMB LambdaCDM on six DESI bins, comput)'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 251, '', 'calc', '6.19', 'not yet run: draft rejected (drafter skipped: Line 251 states chi2 = 6.20 for MGCAMB on SDSS DR16, computed by script \n)'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 251, '', 'calc', '6.95', 'not yet run: draft rejected (drafter skipped: Line 251 states chi2 = 6.96 for MGCAMB LambdaCDM on SDSS DR16, computed b)'),
+    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 247, '', 'observed', '0.055', 'measured, source not named'),
+    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 249, '', 'observed', '0.055', 'measured, source not named'),
     (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 280, '', 'none', '+0.09\\sigma', 'ln(1e10 As) shift between chains; As not in committed CSV'),
-    (2, 'ch:sectortension', 'part2/p2_09_sector_tension', 281, '', 'calc', '0.08\\%', 'not yet run: draft does not reproduce the printed value (recomputed 1.55358); drafting error on review'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 17, '', 'observed', '-0.035', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 17, '', 'observed', '-0.068', 'measured, too few printed digits to match against the named files'),
     (2, 'ch:dsvalidation', 'part2/p2_10_dual_sector_validation', 17, '', 'observed', '0.000', 'measured, too few printed digits to match against the named files'),

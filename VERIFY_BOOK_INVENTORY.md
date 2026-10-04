@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 verify_book.py --inventory-md > VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 3396 PASS, 0 FAIL, 2938 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 3437 PASS, 0 FAIL, 2897 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -1586,42 +1586,42 @@ Totals: 3396 PASS, 0 FAIL, 2938 inventoried and not run. Each run item carries t
 | 31 | ch:sectortension:L31:0.1 | calc | `0.1` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma agreement IAM vs lensing sigma8 | PASS |
 | 31 | ch:sectortension:L31:0.1' | calc | `0.1` | numeric: fsigma8 deficit at QSO redshift z=1.491 | PASS |
 | 31 | ch:sectortension:L31:2.2 | calc | `2.2` | numeric: fsigma8 deficit at BGS redshift z=0.295 | PASS |
-| 41 |  | observed | `67.4` | not run: measured, not found in the files the chapter names | - |
+| 41 | ch:sectortension:L41 | observed | `67.4` | numeric: Planck 2018 H0 under LambdaCDM | PASS |
 | 42 | ch:sectortension:L42 | calc | `4.9` | numeric: Hubble tension significance Planck vs SH0ES | PASS |
-| 42 |  | observed | `73.04` | not run: measured, not found in the files the chapter names | - |
-| 43 |  | observed | `70.39` | not run: measured, not found in the files the chapter names | - |
+| 42 | ch:sectortension:L42:73.04 | observed | `73.04` | numeric: SH0ES H0 | PASS |
+| 43 | ch:sectortension:L43 | observed | `70.39` | numeric: TRGB H0 (CCHP) | PASS |
 | 47 | ch:sectortension:L47 | observed | `0.766` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
-| 47 |  | observed | `0.832` | not run: measured, not found in the files the chapter names | - |
+| 47 | ch:sectortension:L47:0.832 | observed | `0.832` | numeric: Planck LambdaCDM S8 = sigma8 (Om/0.3)^0.5 | PASS |
 | 48 | ch:sectortension:L48 | observed | `0.759` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 48 | ch:sectortension:L48:0.776 | observed | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 49 | ch:sectortension:L49 | observed | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
-| 49 |  | observed | `2` | not run: measured, too few printed digits to match against the named files | - |
-| 49 |  | observed | `3` | not run: measured, too few printed digits to match against the named files | - |
+| 49 | ch:sectortension:L49:2 | observed | `2` | numeric: S8 tension, lower end over the four lensing surveys | PASS |
+| 49 | ch:sectortension:L49:3 | observed | `3` | numeric: S8 tension, upper end over the four lensing surveys | PASS |
 | 50 | ch:sectortension:L50 | observed | `0.815` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 50 | ch:sectortension:L50:0.814 | observed | `0.814` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 51 | ch:sectortension:L51 | observed | `0.802` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
-| 53 |  | observed | `2.6` | not run: measured, too few printed digits to match against the named files | - |
-| 54 |  | observed | `2.5` | not run: measured, too few printed digits to match against the named files | - |
-| 54 |  | observed | `3.5` | not run: measured, too few printed digits to match against the named files | - |
-| 54 |  | observed | `3.9` | not run: measured, too few printed digits to match against the named files | - |
-| 54 |  | observed | `2.8` | not run: measured, too few printed digits to match against the named files | - |
-| 54 |  | observed | `4.2` | not run: measured, too few printed digits to match against the named files | - |
+| 53 | ch:sectortension:L53 | observed | `2.6` | numeric: DESI DR1 BAO+CMB w0wa preference | PASS |
+| 54 | ch:sectortension:L54 | observed | `2.5` | numeric: DESI DR1 + Pantheon+ preference | PASS |
+| 54 | ch:sectortension:L54:3.5 | observed | `3.5` | numeric: DESI DR1 + Union3 preference | PASS |
+| 54 | ch:sectortension:L54:3.9 | observed | `3.9` | numeric: DESI DR1 + DES Y5 preference | PASS |
+| 54 | ch:sectortension:L54:2.8 | observed | `2.8` | numeric: DESI DR2 preference, lowest over the supernova compilations | PASS |
+| 54 | ch:sectortension:L54:4.2 | observed | `4.2` | numeric: DESI DR2 preference, highest over the supernova compilations | PASS |
 | 60 | ch:sectortension:L60 | observed | `-1.75` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 60 | ch:sectortension:L60:0.50 | calc | `0.50` | numeric: phantom-crossing redshift, DESI+CMB | PASS |
-| 60 |  | observed | `-0.42` | not run: measured, too few printed digits to match against the named files | - |
-| 60 |  | observed | `3.1` | not run: measured, too few printed digits to match against the named files | - |
+| 60 | ch:sectortension:L60:-0.42 | observed | `-0.42` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR2 + CMB w0 | PASS |
+| 60 | ch:sectortension:L60:3.1 | observed | `3.1` | numeric: DESI DR2 + CMB significance | PASS |
 | 61 | ch:sectortension:L61 | observed | `-0.838` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 61 | ch:sectortension:L61:0.35 | calc | `0.35` | numeric: phantom-crossing redshift, DESI+CMB+Pantheon+ | PASS |
-| 61 |  | observed | `-0.62` | not run: measured, too few printed digits to match against the named files | - |
-| 61 |  | observed | `2.8` | not run: measured, too few printed digits to match against the named files | - |
+| 61 | ch:sectortension:L61:-0.62 | observed | `-0.62` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR2 + CMB + Pantheon+ wa | PASS |
+| 61 | ch:sectortension:L61:2.8 | observed | `2.8` | numeric: DESI DR2 + CMB + Pantheon+ significance | PASS |
 | 62 | ch:sectortension:L62 | observed | `-0.667` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 62 | ch:sectortension:L62:-1.09 | observed | `-1.09` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 62 | ch:sectortension:L62:0.44 | calc | `0.44` | numeric: phantom-crossing redshift, DESI+CMB+Union3 | PASS |
-| 62 |  | observed | `3.8` | not run: measured, too few printed digits to match against the named files | - |
+| 62 | ch:sectortension:L62:3.8 | observed | `3.8` | numeric: DESI DR2 + CMB + Union3 significance | PASS |
 | 63 | ch:sectortension:L63 | observed | `-0.752` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 63 | ch:sectortension:L63:0.41 | calc | `0.41` | numeric: phantom-crossing redshift, DESI+CMB+DES Y5 | PASS |
-| 63 |  | observed | `-0.86` | not run: measured, too few printed digits to match against the named files | - |
-| 63 |  | observed | `4.2` | not run: measured, too few printed digits to match against the named files | - |
+| 63 | ch:sectortension:L63:-0.86 | observed | `-0.86` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DESI DR2 + CMB + DES Y5 wa | PASS |
+| 63 | ch:sectortension:L63:4.2 | observed | `4.2` | numeric: DESI DR2 + CMB + DES Y5 significance | PASS |
 | 80 | ch:sectortension:L80 | calc | `13.6` | numeric: coupling deficit 1-mu today | PASS |
 | 80 | ch:sectortension:L80:4.25 | calc | `4.25` | numeric: fsigma8 deficit today z=0 | PASS |
 | 80 | ch:sectortension:L80:2.17 | calc | `2.17` | numeric: fsigma8 deficit at z=0.3 | PASS |
@@ -1632,7 +1632,7 @@ Totals: 3396 PASS, 0 FAIL, 2938 inventoried and not run. Each run item carries t
 | 213 | ch:sectortension:L213 | fitted | `0.7998` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 term, Level2 Run A chain | PASS |
 | 213 | ch:sectortension:L213:0.8087 | fitted | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM, Level2 Run C chain | PASS |
 | 216 | ch:sectortension:L216 | calc | `1.11\%` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 % diff between Level2 chains | PASS |
-| 216 |  | calc | `0.78\%` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
+| 216 | ch:sectortension:L216:0.78\% | calc | `0.78\%` | numeric: sigma8 lowered by the growth equation, same early amplitude | PASS |
 | 217 | ch:sectortension:L217 | fitted | `0.8087` | heavy file `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM repeated | PASS |
 | 217 | ch:sectortension:L217:0.8024 | calc | `0.8024` | numeric: IAM sigma8 estimate from ODE ratio x LCDM sigma8 | PASS |
 | 217 | ch:sectortension:L217:0.3\% | calc | `0.3\%` | numeric: offset of ODE estimate above Boltzmann value | PASS |
@@ -1644,43 +1644,43 @@ Totals: 3396 PASS, 0 FAIL, 2938 inventoried and not run. Each run item carries t
 | 227 | ch:sectortension:L227:0.472 | calc | `0.472` | numeric: f sigma8 prediction, LCDM, z=0.295, sigma8 0.8087 (Run C) | PASS |
 | 227 | ch:sectortension:L227:-0.88 | calc | `-0.88` | numeric: pull (obs-pred)/sigma, term, z=0.295 | PASS |
 | 227 | ch:sectortension:L227:-1.01 | calc | `-1.01` | numeric: pull (obs-pred)/sigma, LCDM, z=0.295 | PASS |
-| 227 |  | observed | `0.094` | not run: measured, too few printed digits to match against the named files | - |
+| 227 | ch:sectortension:L227:0.094 | observed | `0.094` | file `docs/verification/scripts/verify_sector_tension.py`: sigma_obs BGS, sqrt of the DESI ShapeFit-only variance | PASS |
 | 228 | ch:sectortension:L228 | observed | `0.514` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 228 | ch:sectortension:L228:0.465 | calc | `0.465` | numeric: f sigma8 prediction, term, z=0.51, sigma8 0.7998 (Run A) | PASS |
 | 228 | ch:sectortension:L228:0.473 | calc | `0.473` | numeric: f sigma8 prediction, LCDM, z=0.51, sigma8 0.8087 (Run C) | PASS |
 | 228 | ch:sectortension:L228:+0.75 | calc | `+0.75` | numeric: pull (obs-pred)/sigma, term, z=0.51 | PASS |
 | 228 | ch:sectortension:L228:+0.63 | calc | `+0.63` | numeric: pull (obs-pred)/sigma, LCDM, z=0.51 | PASS |
-| 228 |  | observed | `0.064` | not run: measured, too few printed digits to match against the named files | - |
+| 228 | ch:sectortension:L228:0.064 | observed | `0.064` | file `docs/verification/scripts/verify_sector_tension.py`: sigma_obs LRG1, sqrt of the DESI ShapeFit-only variance | PASS |
 | 229 | ch:sectortension:L229 | observed | `0.484` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 229 | ch:sectortension:L229:0.455 | calc | `0.455` | numeric: f sigma8 prediction, term, z=0.706, sigma8 0.7998 (Run A) | PASS |
 | 229 | ch:sectortension:L229:0.460 | calc | `0.460` | numeric: f sigma8 prediction, LCDM, z=0.706, sigma8 0.8087 (Run C) | PASS |
 | 229 | ch:sectortension:L229:+0.54 | calc | `+0.54` | numeric: pull (obs-pred)/sigma, term, z=0.706 | PASS |
 | 229 | ch:sectortension:L229:+0.44 | calc | `+0.44` | numeric: pull (obs-pred)/sigma, LCDM, z=0.706 | PASS |
-| 229 |  | observed | `0.053` | not run: measured, too few printed digits to match against the named files | - |
+| 229 | ch:sectortension:L229:0.053 | observed | `0.053` | file `docs/verification/scripts/verify_sector_tension.py`: sigma_obs LRG2, sqrt of the DESI ShapeFit-only variance | PASS |
 | 230 | ch:sectortension:L230 | observed | `0.422` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 230 | ch:sectortension:L230:0.436 | calc | `0.436` | numeric: f sigma8 prediction, term, z=0.919, sigma8 0.7998 (Run A) | PASS |
 | 230 | ch:sectortension:L230:0.439 | calc | `0.439` | numeric: f sigma8 prediction, LCDM, z=0.919, sigma8 0.8087 (Run C) | PASS |
 | 230 | ch:sectortension:L230:-0.28 | calc | `-0.28` | numeric: pull (obs-pred)/sigma, term, z=0.919 | PASS |
 | 230 | ch:sectortension:L230:-0.36 | calc | `-0.36` | numeric: pull (obs-pred)/sigma, LCDM, z=0.919 | PASS |
-| 230 |  | observed | `0.047` | not run: measured, too few printed digits to match against the named files | - |
+| 230 | ch:sectortension:L230:0.047 | observed | `0.047` | file `docs/verification/scripts/verify_sector_tension.py`: sigma_obs LRG3, sqrt of the DESI ShapeFit-only variance | PASS |
 | 231 | ch:sectortension:L231 | observed | `0.377` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 231 | ch:sectortension:L231:0.392 | calc | `0.392` | numeric: f sigma8 prediction, term, z=1.317, sigma8 0.7998 (Run A) | PASS |
 | 231 | ch:sectortension:L231:0.394 | calc | `0.394` | numeric: f sigma8 prediction, LCDM, z=1.317, sigma8 0.8087 (Run C) | PASS |
 | 231 | ch:sectortension:L231:-0.40 | calc | `-0.40` | numeric: pull (obs-pred)/sigma, term, z=1.317 | PASS |
 | 231 | ch:sectortension:L231:-0.45 | calc | `-0.45` | numeric: pull (obs-pred)/sigma, LCDM, z=1.317 | PASS |
-| 231 |  | observed | `0.037` | not run: measured, too few printed digits to match against the named files | - |
+| 231 | ch:sectortension:L231:0.037 | observed | `0.037` | file `docs/verification/scripts/verify_sector_tension.py`: sigma_obs ELG2, sqrt of the DESI ShapeFit-only variance | PASS |
 | 232 | ch:sectortension:L232 | observed | `0.435` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 232 | ch:sectortension:L232:0.373 | calc | `0.373` | numeric: f sigma8 prediction, term, z=1.491, sigma8 0.7998 (Run A) | PASS |
 | 232 | ch:sectortension:L232:0.374 | calc | `0.374` | numeric: f sigma8 prediction, LCDM, z=1.491, sigma8 0.8087 (Run C) | PASS |
 | 232 | ch:sectortension:L232:+1.40 | calc | `+1.40` | numeric: pull (obs-pred)/sigma, term, z=1.491 | PASS |
 | 232 | ch:sectortension:L232:+1.36 | calc | `+1.36` | numeric: pull (obs-pred)/sigma, LCDM, z=1.491 | PASS |
-| 232 |  | observed | `0.044` | not run: measured, too few printed digits to match against the named files | - |
+| 232 | ch:sectortension:L232:0.044 | observed | `0.044` | file `docs/verification/scripts/verify_sector_tension.py`: sigma_obs QSO, sqrt of the DESI ShapeFit-only variance | PASS |
 | 234 | ch:sectortension:L234 | observed | `0.423` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 234 | ch:sectortension:L234:0.425 | calc | `0.425` | numeric: f sigma8 prediction, term, z=0.067, sigma8 0.7998 (Run A) | PASS |
 | 234 | ch:sectortension:L234:0.443 | calc | `0.443` | numeric: f sigma8 prediction, LCDM, z=0.067, sigma8 0.8087 (Run C) | PASS |
 | 234 | ch:sectortension:L234:-0.04 | calc | `-0.04` | numeric: pull (obs-pred)/sigma, term, z=0.067 | PASS |
 | 234 | ch:sectortension:L234:-0.36 | calc | `-0.36` | numeric: pull (obs-pred)/sigma, LCDM, z=0.067 | PASS |
-| 234 |  | observed | `0.055` | not run: measured, too few printed digits to match against the named files | - |
+| 234 | ch:sectortension:L234:0.055 | observed | `0.055` | file `docs/verification/scripts/verify_sector_tension.py`: sigma_obs 6dFGS | PASS |
 | 236 | ch:sectortension:L236 | observed | `0.530` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 236 | ch:sectortension:L236:0.160 | observed | `0.160` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 236 | ch:sectortension:L236:0.442 | calc | `0.442` | numeric: f sigma8 prediction, term, z=0.15, sigma8 0.7998 (Run A) | PASS |
@@ -1692,52 +1692,51 @@ Totals: 3396 PASS, 0 FAIL, 2938 inventoried and not run. Each run item carries t
 | 238 | ch:sectortension:L238:0.475 | calc | `0.475` | numeric: f sigma8 prediction, LCDM, z=0.38, sigma8 0.8087 (Run C) | PASS |
 | 238 | ch:sectortension:L238:+0.75 | calc | `+0.75` | numeric: pull (obs-pred)/sigma, term, z=0.38 | PASS |
 | 238 | ch:sectortension:L238:+0.54 | calc | `+0.54` | numeric: pull (obs-pred)/sigma, LCDM, z=0.38 | PASS |
-| 238 |  | observed | `0.047` | not run: measured, too few printed digits to match against the named files | - |
+| 238 | ch:sectortension:L238:0.047 | observed | `0.047` | file `docs/verification/scripts/verify_sector_tension.py`: sigma_obs BOSS z 0.38 | PASS |
 | 240 | ch:sectortension:L240 | observed | `0.455` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 240 | ch:sectortension:L240:0.465 | calc | `0.465` | numeric: f sigma8 prediction, term, z=0.51, sigma8 0.7998 (Run A) | PASS |
 | 240 | ch:sectortension:L240:0.473 | calc | `0.473` | numeric: f sigma8 prediction, LCDM, z=0.51, sigma8 0.8087 (Run C) | PASS |
 | 240 | ch:sectortension:L240:-0.26 | calc | `-0.26` | numeric: pull (obs-pred)/sigma, term, z=0.51 | PASS |
 | 240 | ch:sectortension:L240:-0.46 | calc | `-0.46` | numeric: pull (obs-pred)/sigma, LCDM, z=0.51 | PASS |
-| 240 |  | observed | `0.039` | not run: measured, too few printed digits to match against the named files | - |
+| 240 | ch:sectortension:L240:0.039 | observed | `0.039` | file `docs/verification/scripts/verify_sector_tension.py`: sigma_obs BOSS z 0.51 | PASS |
 | 242 | ch:sectortension:L242 | observed | `0.448` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 242 | ch:sectortension:L242:0.455 | calc | `0.455` | numeric: f sigma8 prediction, term, z=0.7, sigma8 0.7998 (Run A) | PASS |
 | 242 | ch:sectortension:L242:0.461 | calc | `0.461` | numeric: f sigma8 prediction, LCDM, z=0.7, sigma8 0.8087 (Run C) | PASS |
 | 242 | ch:sectortension:L242:-0.17 | calc | `-0.17` | numeric: pull (obs-pred)/sigma, term, z=0.7 | PASS |
 | 242 | ch:sectortension:L242:-0.30 | calc | `-0.30` | numeric: pull (obs-pred)/sigma, LCDM, z=0.7 | PASS |
-| 242 |  | observed | `0.043` | not run: measured, too few printed digits to match against the named files | - |
+| 242 | ch:sectortension:L242:0.043 | observed | `0.043` | file `docs/verification/scripts/verify_sector_tension.py`: sigma_obs eBOSS LRG | PASS |
 | 244 | ch:sectortension:L244 | observed | `0.315` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 244 | ch:sectortension:L244:0.442 | calc | `0.442` | numeric: f sigma8 prediction, term, z=0.85, sigma8 0.7998 (Run A) | PASS |
 | 244 | ch:sectortension:L244:0.447 | calc | `0.447` | numeric: f sigma8 prediction, LCDM, z=0.85, sigma8 0.8087 (Run C) | PASS |
 | 244 | ch:sectortension:L244:-1.34 | calc | `-1.34` | numeric: pull (obs-pred)/sigma, term, z=0.85 | PASS |
 | 244 | ch:sectortension:L244:-1.38 | calc | `-1.38` | numeric: pull (obs-pred)/sigma, LCDM, z=0.85 | PASS |
-| 244 |  | observed | `0.095` | not run: measured, too few printed digits to match against the named files | - |
+| 244 | ch:sectortension:L244:0.095 | observed | `0.095` | file `docs/verification/scripts/verify_sector_tension.py`: sigma_obs eBOSS ELG | PASS |
 | 245 | ch:sectortension:L245 | observed | `0.462` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 245 | ch:sectortension:L245:0.374 | calc | `0.374` | numeric: f sigma8 prediction, term, z=1.48, sigma8 0.7998 (Run A) | PASS |
 | 245 | ch:sectortension:L245:0.375 | calc | `0.375` | numeric: f sigma8 prediction, LCDM, z=1.48, sigma8 0.8087 (Run C) | PASS |
 | 245 | ch:sectortension:L245:+1.96 | calc | `+1.96` | numeric: pull (obs-pred)/sigma, term, z=1.48 | PASS |
 | 245 | ch:sectortension:L245:+1.92 | calc | `+1.92` | numeric: pull (obs-pred)/sigma, LCDM, z=1.48 | PASS |
-| 245 |  | observed | `0.045` | not run: measured, too few printed digits to match against the named files | - |
+| 245 | ch:sectortension:L245:0.045 | observed | `0.045` | file `docs/verification/scripts/verify_sector_tension.py`: sigma_obs eBOSS QSO | PASS |
 | 247 | ch:sectortension:L247 | observed | `0.450` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
 | 247 | ch:sectortension:L247:0.426 | calc | `0.426` | numeric: f sigma8 prediction, term, z=0.07, sigma8 0.7998 (Run A) | PASS |
 | 247 | ch:sectortension:L247:0.443 | calc | `0.443` | numeric: f sigma8 prediction, LCDM, z=0.07, sigma8 0.8087 (Run C) | PASS |
 | 247 | ch:sectortension:L247:+0.44 | calc | `+0.44` | numeric: pull (obs-pred)/sigma, term, z=0.07 | PASS |
 | 247 | ch:sectortension:L247:+0.12 | calc | `+0.12` | numeric: pull (obs-pred)/sigma, LCDM, z=0.07 | PASS |
-| 247 |  | observed | `0.055` | not run: measured, too few printed digits to match against the named files | - |
+| 247 |  | observed | `0.055` | not run: measured, source not named | - |
 | 249 | ch:sectortension:L249 | observed | `0.450` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
-| 249 |  | observed | `0.055` | not run: measured, too few printed digits to match against the named files | - |
-| 250 |  | calc | `-0.88` | not run: not yet run: draft rejected (drafter skipped: Line 250 reports pulls across six DESI bins; excerpt does not name the si) | - |
-| 250 |  | calc | `+1.40` | not run: not yet run: draft rejected (drafter skipped: Line 250 reports pulls across six DESI bins; excerpt does not name the si) | - |
-| 250 |  | calc | `-1.01` | not run: not yet run: draft rejected (drafter skipped: Line 250 reports pulls across six DESI bins; excerpt does not name the si) | - |
-| 250 |  | calc | `+1.36` | not run: not yet run: draft rejected (drafter skipped: Line 250 reports pulls across six DESI bins; excerpt does not name the si) | - |
+| 249 |  | observed | `0.055` | not run: measured, source not named | - |
+| 250 | ch:sectortension:L250 | calc | `-0.88` | numeric: lowest pull over the six DESI bins, term | PASS |
+| 250 | ch:sectortension:L250:+1.40 | calc | `+1.40` | numeric: highest pull over the six DESI bins, term | PASS |
+| 250 | ch:sectortension:L250:-1.01 | calc | `-1.01` | numeric: lowest pull over the six DESI bins, LCDM | PASS |
+| 250 | ch:sectortension:L250:+1.36 | calc | `+1.36` | numeric: highest pull over the six DESI bins, LCDM | PASS |
 | 251 | ch:sectortension:L251 | calc | `3.84` | numeric: diagonal chi2, six DESI bins, term | PASS |
 | 251 | ch:sectortension:L251:3.81 | calc | `3.81` | numeric: diagonal chi2, six DESI bins, LCDM | PASS |
 | 251 | ch:sectortension:L251:6.61 | calc | `6.61` | numeric: diagonal chi2, seven legacy points, term | PASS |
 | 251 | ch:sectortension:L251:6.53 | calc | `6.53` | numeric: diagonal chi2, seven legacy points, LCDM | PASS |
-| 251 |  | calc | `4.51` | not run: not yet run: draft rejected (drafter skipped: Line 251 states chi2 = 4.52 for MGCAMB on six DESI bins, computed by scri) | - |
-| 251 |  | calc | `5.24` | not run: not yet run: draft rejected (drafter skipped: Line 251 states chi2 = 5.14 for MGCAMB LambdaCDM on six DESI bins, comput) | - |
-| 251 |  | calc | `6.19` | not run: not yet run: draft rejected (drafter skipped: Line 251 states chi2 = 6.20 for MGCAMB on SDSS DR16, computed by script 
-) | - |
-| 251 |  | calc | `6.95` | not run: not yet run: draft rejected (drafter skipped: Line 251 states chi2 = 6.96 for MGCAMB LambdaCDM on SDSS DR16, computed b) | - |
+| 251 | ch:sectortension:L251:4.52 | calc | `4.52` | numeric: ShapeFit+BAO chi2, six DESI bins, LCDM (MGCAMB comparison) | PASS |
+| 251 | ch:sectortension:L251:5.14 | calc | `5.14` | numeric: ShapeFit+BAO chi2, six DESI bins, IAM MGCAMB form | PASS |
+| 251 | ch:sectortension:L251:6.20 | calc | `6.20` | numeric: chi2 on SDSS DR16, LCDM (MGCAMB comparison) | PASS |
+| 251 | ch:sectortension:L251:6.96 | calc | `6.96` | numeric: chi2 on SDSS DR16, IAM MGCAMB form | PASS |
 | 252 | ch:sectortension:L252 | calc | `2.5\%` | numeric: (LCDM-term)/LCDM, BGS; tol covers the 3-decimal predictions of the table | PASS |
 | 252 | ch:sectortension:L252:1.7\% | calc | `1.7\%` | numeric: (LCDM-term)/LCDM, LRG1; tol covers the 3-decimal predictions of the table | PASS |
 | 262 | ch:sectortension:L262 | observed | `0.759^{+0.024}_{-0.021}` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: measured: printed value found in verify_sector_tension_output.txt, a file the chapter names | PASS |
@@ -1756,7 +1755,7 @@ Totals: 3396 PASS, 0 FAIL, 2938 inventoried and not run. Each run item carries t
 | 280 | ch:sectortension:L280 | none | `+0.05\sigma` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Omega_m shift between chains, in sigma | PASS |
 | 280 |  | none | `+0.09\sigma` | not run: ln(1e10 As) shift between chains; As not in committed CSV | - |
 | 281 | ch:sectortension:L281 | calc | `0.600` | heavy numeric `mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: term sigma8 Om^0.25 | PASS |
-| 281 |  | calc | `0.08\%` | not run: not yet run: draft does not reproduce the printed value (recomputed 1.55358); drafting error on review | - |
+| 281 | ch:sectortension:L281:0.08\% | calc | `0.08\%` | numeric: CMB lensing power lowered, Limber estimate | PASS |
 
 ## Part 2 - ch:dsvalidation - `docs/book/part2/p2_10_dual_sector_validation.tex`
 

@@ -4,7 +4,7 @@ Measured or observed values the book prints whose source could not be found: not
 file of this repository. Each stays "not run" in `VERIFY_BOOK_INVENTORY.md` with the reason "measured, source not named" until a
 source is named. No source was guessed.
 
-Entries: 24
+Entries: 26
 
 | chapter | file:line | printed | what is needed |
 |---|---|---:|---|
@@ -24,6 +24,8 @@ Entries: 24
 | ch:s8trend | `docs/book/part2/p2_08_s8_trend.tex:27` | `1` | 'consistent within 1 sigma at high redshifts', same source |
 | ch:s8trend | `docs/book/part2/p2_08_s8_trend.tex:41` | `0.639(+0.024/-0.025)` | growth index from f sigma8 and Planck alone, Nguyen, Huterer and Wen 2023 (bib Nguyen2023); ts_MANIFEST_sector_s8.md records 0.633, 3.7 and 4.2 sigma but not 0.639 |
 | ch:s8trend | `docs/book/part2/p2_08_s8_trend.tex:115` | `3` | '~3 sigma low-redshift offset of the measured trend' (MNRAS 528, L20), same as line 15 |
+| ch:sectortension | `docs/book/part2/p2_09_sector_tension.tex:247` | `0.055` | sigma_obs of the DESI DR1 peculiar-velocity f sigma8 = 0.450 +- 0.055 at z_eff 0.07 (BGS + PV row of Table st_fsig8, cited Qin2026, doi:10.1051/0004-6361/202558368). Not in verify_sector_tension.py (its leg table stops at eBOSS QSO) nor any committed data file; searched docs/verification, camb_validation, mgcamb_validation, figscripts for 0.450/Qin. |
+| ch:sectortension | `docs/book/part2/p2_09_sector_tension.tex:249` | `0.055` | same value in the running text: DESI DR1 peculiar-velocity survey f sigma8 = 0.450 +- 0.055 (Qin2026). No committed file holds it; the published paper value was not certain enough to type in. |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:34` | `0.1` | Lower end of the hydrostatic-bias estimates 'b from about 0.1 to about 0.4 depending on the method', cited to Nagai2007ICM, Rasia2012, Biffi2016. No repository file holds the values. |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:34` | `0.4` | Upper end of the same range (Nagai2007ICM, Rasia2012, Biffi2016). No repository file holds it. |
 | ch:lensdyn | `docs/book/part2/p2_17_lensing_dynamics.tex:37` | `0.15` | Simulation range b about 0.1-0.15 (Lau2009, Nelson2014); also restated at line 186. No repository file holds it; the committed cluster script does not list it. |

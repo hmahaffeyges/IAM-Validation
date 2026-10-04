@@ -1565,35 +1565,57 @@ PASS  ch:sectortension:L31:0.1           ch:sectortension:p2_09_sector_tension:3
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:sectortension:L31:0.1'          ch:sectortension:p2_09_sector_tension:31  printed 0.1  recomputed 0.133247  tol 0.05  [calc] fsigma8 deficit at QSO redshift z=1.491
 PASS  ch:sectortension:L31:2.2           ch:sectortension:p2_09_sector_tension:31  printed 2.2  recomputed 2.19364  tol 0.05  [calc] fsigma8 deficit at BGS redshift z=0.295
+PASS  ch:sectortension:L41               ch:sectortension:p2_09_sector_tension:41  printed 67.4  recomputed 67.36  tol 0.05  [observed] Planck 2018 H0 under LambdaCDM
 PASS  ch:sectortension:L42               ch:sectortension:p2_09_sector_tension:42  printed 4.9  recomputed 4.88756  tol 0.05  [calc] Hubble tension significance Planck vs SH0ES
+PASS  ch:sectortension:L42:73.04         ch:sectortension:p2_09_sector_tension:42  printed 73.04  recomputed 73.04  tol 0.00500001  [observed] SH0ES H0
+PASS  ch:sectortension:L43               ch:sectortension:p2_09_sector_tension:43  printed 70.39  recomputed 70.39  tol 0.00500001  [observed] TRGB H0 (CCHP)
 PASS  ch:sectortension:L47               ch:sectortension:p2_09_sector_tension:47  printed 0.766  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:sectortension:L47:0.832         ch:sectortension:p2_09_sector_tension:47  printed 0.832  recomputed 0.831526  tol 5.000005e-04  [observed] Planck LambdaCDM S8 = sigma8 (Om/0.3)^0.5
 PASS  ch:sectortension:L48               ch:sectortension:p2_09_sector_tension:48  printed 0.759  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L48:0.776         ch:sectortension:p2_09_sector_tension:48  printed 0.776  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L49               ch:sectortension:p2_09_sector_tension:49  printed 0.776  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:sectortension:L49:2             ch:sectortension:p2_09_sector_tension:49  printed 2  recomputed 1.60759  tol 0.5  [observed] S8 tension, lower end over the four lensing surveys
+PASS  ch:sectortension:L49:3             ch:sectortension:p2_09_sector_tension:49  printed 3  recomputed 2.74699  tol 0.5  [observed] S8 tension, upper end over the four lensing surveys
 PASS  ch:sectortension:L50               ch:sectortension:p2_09_sector_tension:50  printed 0.815  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L50:0.814         ch:sectortension:p2_09_sector_tension:50  printed 0.814  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L51               ch:sectortension:p2_09_sector_tension:51  printed 0.802  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:sectortension:L53               ch:sectortension:p2_09_sector_tension:53  printed 2.6  recomputed 2.6  tol 0.05  [observed] DESI DR1 BAO+CMB w0wa preference
+PASS  ch:sectortension:L54               ch:sectortension:p2_09_sector_tension:54  printed 2.5  recomputed 2.5  tol 0.05  [observed] DESI DR1 + Pantheon+ preference
+PASS  ch:sectortension:L54:3.5           ch:sectortension:p2_09_sector_tension:54  printed 3.5  recomputed 3.5  tol 0.05  [observed] DESI DR1 + Union3 preference
+PASS  ch:sectortension:L54:3.9           ch:sectortension:p2_09_sector_tension:54  printed 3.9  recomputed 3.9  tol 0.05  [observed] DESI DR1 + DES Y5 preference
+PASS  ch:sectortension:L54:2.8           ch:sectortension:p2_09_sector_tension:54  printed 2.8  recomputed 2.8  tol 0.05  [observed] DESI DR2 preference, lowest over the supernova compilations
+PASS  ch:sectortension:L54:4.2           ch:sectortension:p2_09_sector_tension:54  printed 4.2  recomputed 4.2  tol 0.05  [observed] DESI DR2 preference, highest over the supernova compilations
 PASS  ch:sectortension:L60               ch:sectortension:p2_09_sector_tension:60  printed -1.75  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L60:0.50          ch:sectortension:p2_09_sector_tension:60  printed 0.50  recomputed 0.495726  tol 0.00500001  [calc] phantom-crossing redshift, DESI+CMB
+PASS  ch:sectortension:L60:-0.42         ch:sectortension:p2_09_sector_tension:60  printed -0.42  recomputed -0.42  tol 0.00500001  [observed] DESI DR2 + CMB w0  file docs/verification/scripts/verify_sector_tension_output.txt
+      heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:sectortension:L60:3.1           ch:sectortension:p2_09_sector_tension:60  printed 3.1  recomputed 3.1  tol 0.05  [observed] DESI DR2 + CMB significance
 PASS  ch:sectortension:L61               ch:sectortension:p2_09_sector_tension:61  printed -0.838  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L61:0.35          ch:sectortension:p2_09_sector_tension:61  printed 0.35  recomputed 0.353712  tol 0.00500001  [calc] phantom-crossing redshift, DESI+CMB+Pantheon+
+PASS  ch:sectortension:L61:-0.62         ch:sectortension:p2_09_sector_tension:61  printed -0.62  recomputed -0.62  tol 0.00500001  [observed] DESI DR2 + CMB + Pantheon+ wa  file docs/verification/scripts/verify_sector_tension_output.txt
+      heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:sectortension:L61:2.8           ch:sectortension:p2_09_sector_tension:61  printed 2.8  recomputed 2.8  tol 0.05  [observed] DESI DR2 + CMB + Pantheon+ significance
 PASS  ch:sectortension:L62               ch:sectortension:p2_09_sector_tension:62  printed -0.667  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L62:-1.09         ch:sectortension:p2_09_sector_tension:62  printed -1.09  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L62:0.44          ch:sectortension:p2_09_sector_tension:62  printed 0.44  recomputed 0.439894  tol 0.00500001  [calc] phantom-crossing redshift, DESI+CMB+Union3
+PASS  ch:sectortension:L62:3.8           ch:sectortension:p2_09_sector_tension:62  printed 3.8  recomputed 3.8  tol 0.05  [observed] DESI DR2 + CMB + Union3 significance
 PASS  ch:sectortension:L63               ch:sectortension:p2_09_sector_tension:63  printed -0.752  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L63:0.41          ch:sectortension:p2_09_sector_tension:63  printed 0.41  recomputed 0.405229  tol 0.00500001  [calc] phantom-crossing redshift, DESI+CMB+DES Y5
+PASS  ch:sectortension:L63:-0.86         ch:sectortension:p2_09_sector_tension:63  printed -0.86  recomputed -0.86  tol 0.00500001  [observed] DESI DR2 + CMB + DES Y5 wa  file docs/verification/scripts/verify_sector_tension_output.txt
+      heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:sectortension:L63:4.2           ch:sectortension:p2_09_sector_tension:63  printed 4.2  recomputed 4.2  tol 0.05  [observed] DESI DR2 + CMB + DES Y5 significance
 PASS  ch:sectortension:L80               ch:sectortension:p2_09_sector_tension:80  printed 13.6  recomputed 13.6181  tol 0.0503201  [calc] coupling deficit 1-mu today
 PASS  ch:sectortension:L80:4.25          ch:sectortension:p2_09_sector_tension:80  printed 4.25  recomputed 4.25055  tol 0.00510001  [calc] fsigma8 deficit today z=0
 PASS  ch:sectortension:L80:2.17          ch:sectortension:p2_09_sector_tension:80  printed 2.17  recomputed 2.16814  tol 0.00500001  [calc] fsigma8 deficit at z=0.3
@@ -1604,6 +1626,7 @@ PASS  ch:sectortension:L213:0.8087       ch:sectortension:p2_09_sector_tension:2
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:sectortension:L216              ch:sectortension:p2_09_sector_tension:216  printed 1.11\%  recomputed 1.1074  tol 0.00500001  [calc] sigma8 % diff between Level2 chains  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:sectortension:L216:0.78\%       ch:sectortension:p2_09_sector_tension:216  printed 0.78\%  recomputed 0.776789  tol 0.00500001  [calc] sigma8 lowered by the growth equation, same early amplitude
 PASS  ch:sectortension:L217              ch:sectortension:p2_09_sector_tension:217  printed 0.8087  recomputed 0.808707  tol 5.000005e-05  [fitted] sigma8 LCDM repeated  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:sectortension:L217:0.8024       ch:sectortension:p2_09_sector_tension:217  printed 0.8024  recomputed 0.802392  tol 8.024008e-05  [calc] IAM sigma8 estimate from ODE ratio x LCDM sigma8
@@ -1620,42 +1643,49 @@ PASS  ch:sectortension:L227:0.460        ch:sectortension:p2_09_sector_tension:2
 PASS  ch:sectortension:L227:0.472        ch:sectortension:p2_09_sector_tension:227  printed 0.472  recomputed 0.472058  tol 5.000005e-04  [calc] f sigma8 prediction, LCDM, z=0.295, sigma8 0.8087 (Run C)
 PASS  ch:sectortension:L227:-0.88        ch:sectortension:p2_09_sector_tension:227  printed -0.88  recomputed -0.882467  tol 0.00501601  [calc] pull (obs-pred)/sigma, term, z=0.295
 PASS  ch:sectortension:L227:-1.01        ch:sectortension:p2_09_sector_tension:227  printed -1.01  recomputed -1.00855  tol 0.00505001  [calc] pull (obs-pred)/sigma, LCDM, z=0.295
+PASS  ch:sectortension:L227:0.094        ch:sectortension:p2_09_sector_tension:227  printed 0.094  recomputed 0.0940802  tol 5.000005e-04  [observed] sigma_obs BGS, sqrt of the DESI ShapeFit-only variance  file docs/verification/scripts/verify_sector_tension.py
 PASS  ch:sectortension:L228              ch:sectortension:p2_09_sector_tension:228  printed 0.514  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L228:0.465        ch:sectortension:p2_09_sector_tension:228  printed 0.465  recomputed 0.465183  tol 5.000005e-04  [calc] f sigma8 prediction, term, z=0.51, sigma8 0.7998 (Run A)
 PASS  ch:sectortension:L228:0.473        ch:sectortension:p2_09_sector_tension:228  printed 0.473  recomputed 0.472933  tol 5.000005e-04  [calc] f sigma8 prediction, LCDM, z=0.51, sigma8 0.8087 (Run C)
 PASS  ch:sectortension:L228:+0.75        ch:sectortension:p2_09_sector_tension:228  printed +0.75  recomputed 0.753979  tol 0.00502501  [calc] pull (obs-pred)/sigma, term, z=0.51
 PASS  ch:sectortension:L228:+0.63        ch:sectortension:p2_09_sector_tension:228  printed +0.63  recomputed 0.633374  tol 0.00500001  [calc] pull (obs-pred)/sigma, LCDM, z=0.51
+PASS  ch:sectortension:L228:0.064        ch:sectortension:p2_09_sector_tension:228  printed 0.064  recomputed 0.0642616  tol 5.000005e-04  [observed] sigma_obs LRG1, sqrt of the DESI ShapeFit-only variance  file docs/verification/scripts/verify_sector_tension.py
 PASS  ch:sectortension:L229              ch:sectortension:p2_09_sector_tension:229  printed 0.484  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L229:0.455        ch:sectortension:p2_09_sector_tension:229  printed 0.455  recomputed 0.455012  tol 5.000005e-04  [calc] f sigma8 prediction, term, z=0.706, sigma8 0.7998 (Run A)
 PASS  ch:sectortension:L229:0.460        ch:sectortension:p2_09_sector_tension:229  printed 0.460  recomputed 0.460286  tol 5.000005e-04  [calc] f sigma8 prediction, LCDM, z=0.706, sigma8 0.8087 (Run C)
 PASS  ch:sectortension:L229:+0.54        ch:sectortension:p2_09_sector_tension:229  printed +0.54  recomputed 0.539549  tol 0.00502201  [calc] pull (obs-pred)/sigma, term, z=0.706
 PASS  ch:sectortension:L229:+0.44        ch:sectortension:p2_09_sector_tension:229  printed +0.44  recomputed 0.440086  tol 0.00501601  [calc] pull (obs-pred)/sigma, LCDM, z=0.706
+PASS  ch:sectortension:L229:0.053        ch:sectortension:p2_09_sector_tension:229  printed 0.053  recomputed 0.053028  tol 5.000005e-04  [observed] sigma_obs LRG2, sqrt of the DESI ShapeFit-only variance  file docs/verification/scripts/verify_sector_tension.py
 PASS  ch:sectortension:L230              ch:sectortension:p2_09_sector_tension:230  printed 0.422  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L230:0.436        ch:sectortension:p2_09_sector_tension:230  printed 0.436  recomputed 0.435588  tol 5.000005e-04  [calc] f sigma8 prediction, term, z=0.919, sigma8 0.7998 (Run A)
 PASS  ch:sectortension:L230:0.439        ch:sectortension:p2_09_sector_tension:230  printed 0.439  recomputed 0.439187  tol 5.000005e-04  [calc] f sigma8 prediction, LCDM, z=0.919, sigma8 0.8087 (Run C)
 PASS  ch:sectortension:L230:-0.28        ch:sectortension:p2_09_sector_tension:230  printed -0.28  recomputed -0.283831  tol 0.00501201  [calc] pull (obs-pred)/sigma, term, z=0.919
 PASS  ch:sectortension:L230:-0.36        ch:sectortension:p2_09_sector_tension:230  printed -0.36  recomputed -0.35991  tol 0.00500401  [calc] pull (obs-pred)/sigma, LCDM, z=0.919
+PASS  ch:sectortension:L230:0.047        ch:sectortension:p2_09_sector_tension:230  printed 0.047  recomputed 0.0472973  tol 5.000005e-04  [observed] sigma_obs LRG3, sqrt of the DESI ShapeFit-only variance  file docs/verification/scripts/verify_sector_tension.py
 PASS  ch:sectortension:L231              ch:sectortension:p2_09_sector_tension:231  printed 0.377  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L231:0.392        ch:sectortension:p2_09_sector_tension:231  printed 0.392  recomputed 0.391667  tol 5.000005e-04  [calc] f sigma8 prediction, term, z=1.317, sigma8 0.7998 (Run A)
 PASS  ch:sectortension:L231:0.394        ch:sectortension:p2_09_sector_tension:231  printed 0.394  recomputed 0.393723  tol 5.000005e-04  [calc] f sigma8 prediction, LCDM, z=1.317, sigma8 0.8087 (Run C)
 PASS  ch:sectortension:L231:-0.40        ch:sectortension:p2_09_sector_tension:231  printed -0.40  recomputed -0.39964  tol 0.00500001  [calc] pull (obs-pred)/sigma, term, z=1.317
 PASS  ch:sectortension:L231:-0.45        ch:sectortension:p2_09_sector_tension:231  printed -0.45  recomputed -0.454603  tol 0.00500001  [calc] pull (obs-pred)/sigma, LCDM, z=1.317
+PASS  ch:sectortension:L231:0.037        ch:sectortension:p2_09_sector_tension:231  printed 0.037  recomputed 0.0374132  tol 5.000005e-04  [observed] sigma_obs ELG2, sqrt of the DESI ShapeFit-only variance  file docs/verification/scripts/verify_sector_tension.py
 PASS  ch:sectortension:L232              ch:sectortension:p2_09_sector_tension:232  printed 0.435  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L232:0.373        ch:sectortension:p2_09_sector_tension:232  printed 0.373  recomputed 0.372526  tol 5.000005e-04  [calc] f sigma8 prediction, term, z=1.491, sigma8 0.7998 (Run A)
 PASS  ch:sectortension:L232:0.374        ch:sectortension:p2_09_sector_tension:232  printed 0.374  recomputed 0.374244  tol 5.000005e-04  [calc] f sigma8 prediction, LCDM, z=1.491, sigma8 0.8087 (Run C)
 PASS  ch:sectortension:L232:+1.40        ch:sectortension:p2_09_sector_tension:232  printed +1.40  recomputed 1.40132  tol 0.00504001  [calc] pull (obs-pred)/sigma, term, z=1.491
 PASS  ch:sectortension:L232:+1.36        ch:sectortension:p2_09_sector_tension:232  printed +1.36  recomputed 1.3627  tol 0.00503201  [calc] pull (obs-pred)/sigma, LCDM, z=1.491
+PASS  ch:sectortension:L232:0.044        ch:sectortension:p2_09_sector_tension:232  printed 0.044  recomputed 0.0444811  tol 5.000005e-04  [observed] sigma_obs QSO, sqrt of the DESI ShapeFit-only variance  file docs/verification/scripts/verify_sector_tension.py
 PASS  ch:sectortension:L234              ch:sectortension:p2_09_sector_tension:234  printed 0.423  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L234:0.425        ch:sectortension:p2_09_sector_tension:234  printed 0.425  recomputed 0.424935  tol 5.000005e-04  [calc] f sigma8 prediction, term, z=0.067, sigma8 0.7998 (Run A)
 PASS  ch:sectortension:L234:0.443        ch:sectortension:p2_09_sector_tension:234  printed 0.443  recomputed 0.442615  tol 5.000005e-04  [calc] f sigma8 prediction, LCDM, z=0.067, sigma8 0.8087 (Run C)
 PASS  ch:sectortension:L234:-0.04        ch:sectortension:p2_09_sector_tension:234  printed -0.04  recomputed -0.0351901  tol 0.00500001  [calc] pull (obs-pred)/sigma, term, z=0.067
 PASS  ch:sectortension:L234:-0.36        ch:sectortension:p2_09_sector_tension:234  printed -0.36  recomputed -0.35663  tol 0.00500401  [calc] pull (obs-pred)/sigma, LCDM, z=0.067
+PASS  ch:sectortension:L234:0.055        ch:sectortension:p2_09_sector_tension:234  printed 0.055  recomputed 0.055  tol 5.000005e-04  [observed] sigma_obs 6dFGS  file docs/verification/scripts/verify_sector_tension.py
 PASS  ch:sectortension:L236              ch:sectortension:p2_09_sector_tension:236  printed 0.530  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L236:0.160        ch:sectortension:p2_09_sector_tension:236  printed 0.160  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
@@ -1670,30 +1700,35 @@ PASS  ch:sectortension:L238:0.465        ch:sectortension:p2_09_sector_tension:2
 PASS  ch:sectortension:L238:0.475        ch:sectortension:p2_09_sector_tension:238  printed 0.475  recomputed 0.474852  tol 5.000005e-04  [calc] f sigma8 prediction, LCDM, z=0.38, sigma8 0.8087 (Run C)
 PASS  ch:sectortension:L238:+0.75        ch:sectortension:p2_09_sector_tension:238  printed +0.75  recomputed 0.748859  tol 0.00502501  [calc] pull (obs-pred)/sigma, term, z=0.38
 PASS  ch:sectortension:L238:+0.54        ch:sectortension:p2_09_sector_tension:238  printed +0.54  recomputed 0.535065  tol 0.00502201  [calc] pull (obs-pred)/sigma, LCDM, z=0.38
+PASS  ch:sectortension:L238:0.047        ch:sectortension:p2_09_sector_tension:238  printed 0.047  recomputed 0.047  tol 5.000005e-04  [observed] sigma_obs BOSS z 0.38  file docs/verification/scripts/verify_sector_tension.py
 PASS  ch:sectortension:L240              ch:sectortension:p2_09_sector_tension:240  printed 0.455  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L240:0.465        ch:sectortension:p2_09_sector_tension:240  printed 0.465  recomputed 0.465183  tol 5.000005e-04  [calc] f sigma8 prediction, term, z=0.51, sigma8 0.7998 (Run A)
 PASS  ch:sectortension:L240:0.473        ch:sectortension:p2_09_sector_tension:240  printed 0.473  recomputed 0.472933  tol 5.000005e-04  [calc] f sigma8 prediction, LCDM, z=0.51, sigma8 0.8087 (Run C)
 PASS  ch:sectortension:L240:-0.26        ch:sectortension:p2_09_sector_tension:240  printed -0.26  recomputed -0.261107  tol 0.00500001  [calc] pull (obs-pred)/sigma, term, z=0.51
 PASS  ch:sectortension:L240:-0.46        ch:sectortension:p2_09_sector_tension:240  printed -0.46  recomputed -0.459831  tol 0.00501401  [calc] pull (obs-pred)/sigma, LCDM, z=0.51
+PASS  ch:sectortension:L240:0.039        ch:sectortension:p2_09_sector_tension:240  printed 0.039  recomputed 0.039  tol 5.000005e-04  [observed] sigma_obs BOSS z 0.51  file docs/verification/scripts/verify_sector_tension.py
 PASS  ch:sectortension:L242              ch:sectortension:p2_09_sector_tension:242  printed 0.448  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L242:0.455        ch:sectortension:p2_09_sector_tension:242  printed 0.455  recomputed 0.455461  tol 5.000005e-04  [calc] f sigma8 prediction, term, z=0.7, sigma8 0.7998 (Run A)
 PASS  ch:sectortension:L242:0.461        ch:sectortension:p2_09_sector_tension:242  printed 0.461  recomputed 0.460796  tol 5.000005e-04  [calc] f sigma8 prediction, LCDM, z=0.7, sigma8 0.8087 (Run C)
 PASS  ch:sectortension:L242:-0.17        ch:sectortension:p2_09_sector_tension:242  printed -0.17  recomputed -0.17351  tol 0.00500001  [calc] pull (obs-pred)/sigma, term, z=0.7
 PASS  ch:sectortension:L242:-0.30        ch:sectortension:p2_09_sector_tension:242  printed -0.30  recomputed -0.297579  tol 0.00501001  [calc] pull (obs-pred)/sigma, LCDM, z=0.7
+PASS  ch:sectortension:L242:0.043        ch:sectortension:p2_09_sector_tension:242  printed 0.043  recomputed 0.043  tol 5.000005e-04  [observed] sigma_obs eBOSS LRG  file docs/verification/scripts/verify_sector_tension.py
 PASS  ch:sectortension:L244              ch:sectortension:p2_09_sector_tension:244  printed 0.315  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L244:0.442        ch:sectortension:p2_09_sector_tension:244  printed 0.442  recomputed 0.442484  tol 5.000005e-04  [calc] f sigma8 prediction, term, z=0.85, sigma8 0.7998 (Run A)
 PASS  ch:sectortension:L244:0.447        ch:sectortension:p2_09_sector_tension:244  printed 0.447  recomputed 0.446534  tol 5.000005e-04  [calc] f sigma8 prediction, LCDM, z=0.85, sigma8 0.8087 (Run C)
 PASS  ch:sectortension:L244:-1.34        ch:sectortension:p2_09_sector_tension:244  printed -1.34  recomputed -1.34194  tol 0.00500001  [calc] pull (obs-pred)/sigma, term, z=0.85
 PASS  ch:sectortension:L244:-1.38        ch:sectortension:p2_09_sector_tension:244  printed -1.38  recomputed -1.38457  tol 0.00500001  [calc] pull (obs-pred)/sigma, LCDM, z=0.85
+PASS  ch:sectortension:L244:0.095        ch:sectortension:p2_09_sector_tension:244  printed 0.095  recomputed 0.095  tol 5.000005e-04  [observed] sigma_obs eBOSS ELG  file docs/verification/scripts/verify_sector_tension.py
 PASS  ch:sectortension:L245              ch:sectortension:p2_09_sector_tension:245  printed 0.462  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L245:0.374        ch:sectortension:p2_09_sector_tension:245  printed 0.374  recomputed 0.373714  tol 5.000005e-04  [calc] f sigma8 prediction, term, z=1.48, sigma8 0.7998 (Run A)
 PASS  ch:sectortension:L245:0.375        ch:sectortension:p2_09_sector_tension:245  printed 0.375  recomputed 0.37545  tol 5.000005e-04  [calc] f sigma8 prediction, LCDM, z=1.48, sigma8 0.8087 (Run C)
 PASS  ch:sectortension:L245:+1.96        ch:sectortension:p2_09_sector_tension:245  printed +1.96  recomputed 1.96192  tol 0.00509601  [calc] pull (obs-pred)/sigma, term, z=1.48
 PASS  ch:sectortension:L245:+1.92        ch:sectortension:p2_09_sector_tension:245  printed +1.92  recomputed 1.92334  tol 0.00500001  [calc] pull (obs-pred)/sigma, LCDM, z=1.48
+PASS  ch:sectortension:L245:0.045        ch:sectortension:p2_09_sector_tension:245  printed 0.045  recomputed 0.045  tol 5.000005e-04  [observed] sigma_obs eBOSS QSO  file docs/verification/scripts/verify_sector_tension.py
 PASS  ch:sectortension:L247              ch:sectortension:p2_09_sector_tension:247  printed 0.450  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  ch:sectortension:L247:0.426        ch:sectortension:p2_09_sector_tension:247  printed 0.426  recomputed 0.425651  tol 5.000005e-04  [calc] f sigma8 prediction, term, z=0.07, sigma8 0.7998 (Run A)
@@ -1702,10 +1737,18 @@ PASS  ch:sectortension:L247:+0.44        ch:sectortension:p2_09_sector_tension:2
 PASS  ch:sectortension:L247:+0.12        ch:sectortension:p2_09_sector_tension:247  printed +0.12  recomputed 0.122737  tol 0.00500401  [calc] pull (obs-pred)/sigma, LCDM, z=0.07
 PASS  ch:sectortension:L249              ch:sectortension:p2_09_sector_tension:249  printed 0.450  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
+PASS  ch:sectortension:L250              ch:sectortension:p2_09_sector_tension:250  printed -0.88  recomputed -0.882467  tol 0.00500001  [calc] lowest pull over the six DESI bins, term
+PASS  ch:sectortension:L250:+1.40        ch:sectortension:p2_09_sector_tension:250  printed +1.40  recomputed 1.40132  tol 0.00500001  [calc] highest pull over the six DESI bins, term
+PASS  ch:sectortension:L250:-1.01        ch:sectortension:p2_09_sector_tension:250  printed -1.01  recomputed -1.00855  tol 0.00500001  [calc] lowest pull over the six DESI bins, LCDM
+PASS  ch:sectortension:L250:+1.36        ch:sectortension:p2_09_sector_tension:250  printed +1.36  recomputed 1.3627  tol 0.00500001  [calc] highest pull over the six DESI bins, LCDM
 PASS  ch:sectortension:L251              ch:sectortension:p2_09_sector_tension:251  printed 3.84  recomputed 3.84232  tol 0.00500001  [calc] diagonal chi2, six DESI bins, term
 PASS  ch:sectortension:L251:3.81         ch:sectortension:p2_09_sector_tension:251  printed 3.81  recomputed 3.80515  tol 0.00500001  [calc] diagonal chi2, six DESI bins, LCDM
 PASS  ch:sectortension:L251:6.61         ch:sectortension:p2_09_sector_tension:251  printed 6.61  recomputed 6.61191  tol 0.00502361  [calc] diagonal chi2, seven legacy points, term
 PASS  ch:sectortension:L251:6.53         ch:sectortension:p2_09_sector_tension:251  printed 6.53  recomputed 6.53467  tol 0.00502811  [calc] diagonal chi2, seven legacy points, LCDM
+PASS  ch:sectortension:L251:4.52         ch:sectortension:p2_09_sector_tension:251  printed 4.52  recomputed 4.52462  tol 0.00500001  [calc] ShapeFit+BAO chi2, six DESI bins, LCDM (MGCAMB comparison)
+PASS  ch:sectortension:L251:5.14         ch:sectortension:p2_09_sector_tension:251  printed 5.14  recomputed 5.13925  tol 0.00500001  [calc] ShapeFit+BAO chi2, six DESI bins, IAM MGCAMB form
+PASS  ch:sectortension:L251:6.20         ch:sectortension:p2_09_sector_tension:251  printed 6.20  recomputed 6.20292  tol 0.00500001  [calc] chi2 on SDSS DR16, LCDM (MGCAMB comparison)
+PASS  ch:sectortension:L251:6.96         ch:sectortension:p2_09_sector_tension:251  printed 6.96  recomputed 6.96265  tol 0.00500001  [calc] chi2 on SDSS DR16, IAM MGCAMB form
 PASS  ch:sectortension:L252              ch:sectortension:p2_09_sector_tension:252  printed 2.5\%  recomputed 2.51276  tol 0.2  [calc] (LCDM-term)/LCDM, BGS; tol covers the 3-decimal predictions of the table
 PASS  ch:sectortension:L252:1.7\%        ch:sectortension:p2_09_sector_tension:252  printed 1.7\%  recomputed 1.63876  tol 0.136  [calc] (LCDM-term)/LCDM, LRG1; tol covers the 3-decimal predictions of the table
 PASS  ch:sectortension:L262              ch:sectortension:p2_09_sector_tension:262  printed 0.759^{+0.024}_{-0.021}  recomputed found in file  [observed] measured: printed value found in verify_sector_tension_output.txt, a file the chapter names  file docs/verification/scripts/verify_sector_tension_output.txt
@@ -1737,6 +1780,7 @@ PASS  ch:sectortension:L280              ch:sectortension:p2_09_sector_tension:2
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:sectortension:L281              ch:sectortension:p2_09_sector_tension:281  printed 0.600  recomputed 0.599893  tol 5.000005e-04  [calc] term sigma8 Om^0.25  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  ch:sectortension:L281:0.08\%       ch:sectortension:p2_09_sector_tension:281  printed 0.08\%  recomputed 0.0806114  tol 0.00500001  [calc] CMB lensing power lowered, Limber estimate
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:dsvalidation (part2/p2_10_dual_sector_validation.tex)
 PASS  ch:dsvalidation:L27                ch:dsvalidation:p2_10_dual_sector_validation:27  printed 4.9  recomputed 4.88756  tol 0.05  [observed] Hubble tension significance from cited H0 values
@@ -4222,4 +4266,4 @@ PASS  app:register:L24:157               app:register:app_G_predictions_register
 PASS  app:register:L35                   app:register:app_G_predictions_register:35  printed 67.161  recomputed 67.1611  tol 5.000005e-04  [openprob] same value as p2_03_theory:889 (Level2 posterior mean H0)  file mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (mgcamb_validation/chains/*.input.yaml, camb_validation/yaml_configs/*.yaml; Level 2b: bash camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 
-SUMMARY  PASS 3396  FAIL 0  (heavy, read from committed outputs: 677)  inventoried-not-run 2938  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 3437  FAIL 0  (heavy, read from committed outputs: 680)  inventoried-not-run 2897  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
