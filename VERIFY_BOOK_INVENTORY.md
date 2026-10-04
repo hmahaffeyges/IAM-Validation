@@ -22,7 +22,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 
 
 
-Totals: 2926 PASS, 1 FAIL, 3407 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
+Totals: 2927 PASS, 0 FAIL, 3407 inventoried and not run. Each run item carries the label of its check: `python3 verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/part0/p0_preface.tex`
@@ -3275,7 +3275,7 @@ Totals: 2926 PASS, 1 FAIL, 3407 inventoried and not run. Each run item carries t
 | 192 |  | derived | `0.646` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
 | 194 |  | derived | `53.81` | not run: not yet run: draft rejected (no draft returned) | - |
 | 194 |  | derived | `64.6` | not run: not yet run: draft rejected (vacuous: literal arithmetic only) | - |
-| 201 | ch:blackholes:L201 | calc | `2.6\times10^{-30}` | numeric: T_GH = hbar H0/(2 pi k_B) at the H0 = 67.4 the caption states (book prints 2.6e-30; FOR_AUTHOR) | FAIL |
+| 201 | ch:blackholes:L201 | calc | `2.6\times10^{-30}` | numeric: T_GH = hbar H0/(2 pi k_B) at the H0 = 67.4 the caption states (book prints 2.6e-30; FOR_AUTHOR) | PASS |
 | 201 | ch:blackholes:L201:4.5\times10^{22} | calc | `4.5\times10^{22}` | numeric: mass with T_BH = T_CMB, kg | PASS |
 | 201 | ch:blackholes:L201:2.3\times10^{22} | calc | `2.3\times10^{22}` | numeric: M_eq = c^3/(4 G H0), H0=67.4 | PASS |
 | 201 | ch:blackholes:L201:2.1\times10^{67} | calc | `2.1\times10^{67}` | numeric: evaporation time, 1 M_sun | PASS |
