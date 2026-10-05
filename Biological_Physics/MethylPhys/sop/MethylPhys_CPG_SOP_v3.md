@@ -97,7 +97,7 @@ Each step: pre-register the check in `doors/` before reading data, run it on v3,
 1. **NILC (stage 4).** Check: on constructed mixtures of purified cells, NILC recovers the known fractions within a pre-set error, and on
    the same-run replicates its fractions repeat within a pre-set spread.
 2. **Atlas deconvolution (stage 3).** Check: as for NILC on constructed mixtures, and agreement with the 8-group composition on whole blood
-   where both apply; each additional cell type is read only after its own floor and reference are commissioned ("no cell rather than part of one").
+   where both apply; each additional cell type is read only after its own healthy reference is commissioned ("no cell rather than part of one").
 3. **Met-A for each newly commissioned cell type (stage 5),** one cell type at a time, with its own replicate test.
 4. **Directional decomposition (stage 10).** Check: on replicates it returns no direction; on a known treated series it returns the
    direction the treatment is known to push.
