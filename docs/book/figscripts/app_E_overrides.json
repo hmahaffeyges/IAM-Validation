@@ -769,13 +769,13 @@
  "intext": {
   "ch:iams_law|eq:law": {
    "entry": 8,
-   "chapter": "Eq.~\\eqref{eq:law}; Chapter~\\ref{ch:iams_law}, section ``Statement of the law''; see also (\\ref{app:fs:54})",
+   "chapter": "Eq.~\\eqref{eq:law}; Chapter~\\ref{ch:iams_law}, section ``Statement of the law''; see also (\\ref{app:fs:46})",
    "sheet": "Eq.~\\eqref{eq:law}; Chapter~\\ref{ch:iams_law}, section ``Statement of the law''",
    "why": "the sheet does not point to the restatement in section 'Discussion' (hand edit in PR #17)"
   },
   "ch:iams_law|body:\\DeltaE_{\\rmrec}=k_BT_H\\ln2\\quad\\text{perbit},": {
    "entry": 54,
-   "chapter": "Chapter~\\ref{ch:iams_law}, section ``Discussion''; see also (\\ref{app:fs:8})",
+   "chapter": "Chapter~\\ref{ch:iams_law}, section ``Discussion''; see also (\\ref{app:fs:0})",
    "sheet": "Eq.~\\eqref{eq:law}, restated; Chapter~\\ref{ch:iams_law}, section ``Discussion''",
    "why": "the sheet says the display restates Eq. (eq:law) and does not point back to it (hand edit in PR #17); the display itself has no label"
   }
@@ -923,7 +923,7 @@
   },
   "ch:theory|eq:th:firstlaw3": {
    "entry": 133,
-   "sheet": "Horizon first law with the record entropy (the sector split enters through (\\ref{app:fs:68}))."
+   "sheet": "Horizon first law with the record entropy (the sector split enters through (\\ref{app:fs:60}))."
   },
   "ch:theory|eq:HIAM": {
    "entry": 134,
