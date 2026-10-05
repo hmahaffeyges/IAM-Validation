@@ -5936,9 +5936,9 @@ Totals: 4668 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 46 | app:glossary:L46:4.45 | observed | `4.45` | file `CANON/iam_canon.json`: IAM-A at the full surface, neutrophils | PASS |
 | 48 | app:glossary:L48:576 | observed | `576` | numeric: 9950X switching energy over k_B T_j ln 2, upper transistor count | PASS |
 | 48 | app:glossary:L48:593 | observed | `593` | numeric: 9950X switching energy over k_B T_j ln 2, lower transistor count | PASS |
+| 48 | app:glossary:L50:10 | observed | `10` | file `Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md`: AML diagnosis blood: patients read | PASS |
 | 48 |  | observed | `9950` | not run: not a number: part of the processor name (Ryzen 9 9950X) | - |
 | 48 |  | observed | `20` | not run: input: transistor count (20.0-20.6) x 10^9 from die-level reports (no maker figure); the readings it gives are checked at app:glossary:L48:576 and L48:593 | - |
-| 50 | app:glossary:L50:10 | observed | `10` | file `Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md`: AML diagnosis blood: patients read | PASS |
 | 58 | app:glossary:L58 | observed | `1.099` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 58 | app:glossary:L58:1.084 | observed | `1.084` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
 | 60 | app:glossary:L60 | observed | `450` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
@@ -5965,133 +5965,132 @@ Totals: 4668 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 103 |  | observed | `50` | not run: definition: block size of the C-score, 50 consecutive identity sites | - |
 | 109 | app:glossary:L109:5.5 | observed | `5.5` | heavy file `docs/verification/scripts/verify_bottom_up_exponent_output.txt`: bottom-up exponent at z = 9 | PASS |
 | 116 |  | observed | `30` | not run: definition: 30 % burn-in, the setting of the book extractions | - |
-| 124 | app:glossary:L124:0.97 | observed | `0.97` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d) of beta at 10-18 bp | PASS |
+| 123 | app:glossary:L124:0.97 | observed | `0.97` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d) of beta at 10-18 bp | PASS |
+| 123 | app:glossary:L124:18 | observed | `18` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d): upper edge of the first distance bin | PASS |
+| 123 | app:glossary:L124:0.32 | observed | `0.32` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d) of beta at 1-1.8 kb | PASS |
+| 123 | app:glossary:L124:1.8 | observed | `1.8` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d): upper edge of the 1 kb bin, kb | PASS |
 | 124 | app:glossary:L124:10 | observed | `10` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d): lower edge of the first distance bin | PASS |
-| 124 | app:glossary:L124:18 | observed | `18` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d): upper edge of the first distance bin | PASS |
-| 124 | app:glossary:L124:0.32 | observed | `0.32` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d) of beta at 1-1.8 kb | PASS |
-| 124 | app:glossary:L124:1.8 | observed | `1.8` | file `Biological_Physics/MethylPhys/reference_floors_v1/sky/cd_neut.csv`: C(d): upper edge of the 1 kb bin, kb | PASS |
 | 124 |  | observed | `0.05` | not run: printed value 0.05 has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.0526; the same quantity is printed to one digit at ch:skytools:L125) | - |
 | 126 |  | observed | `10` | not run: input: about 10^4 genome equivalents in a millilitre-scale draw, an order of magnitude (used in ch:sky L73-74) | - |
-| 133 | app:glossary:L133:1.456 | observed | `1.456` | numeric: Chandrasekhar mass for mu_e = 2 from the constants | PASS |
+| 132 | app:glossary:L133:1.456 | observed | `1.456` | numeric: Chandrasekhar mass for mu_e = 2 from the constants | PASS |
 | 133 |  | observed | `1.44` | not run: input: Chandrasekhar mass 1.44 M_sun as conventionally quoted (Chandrasekhar1931); the constants-only 1.456 beside it is checked at app:glossary:L133:1.456 | - |
-| 138 | app:glossary:L138:+0.54 | observed | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2 IAM minus LambdaCDM, Level 2 | PASS |
-| 144 | app:glossary:L144:2.7255 | observed | `2.7255` | numeric: CMB temperature today (Fixsen 2009) | PASS |
-| 149 | app:glossary:L149:1.2 | observed | `1.2` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: coefficient of variation of P across three donors, per cent | PASS |
-| 153 | app:glossary:L153:1.68 | observed | `1.68` | numeric: best 2D transmon T1 (Bland et al. 2025) | PASS |
+| 137 | app:glossary:L138:+0.54 | observed | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2 IAM minus LambdaCDM, Level 2 | PASS |
+| 143 | app:glossary:L144:2.7255 | observed | `2.7255` | numeric: CMB temperature today (Fixsen 2009) | PASS |
+| 148 | app:glossary:L149:1.2 | observed | `1.2` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: coefficient of variation of P across three donors, per cent | PASS |
+| 152 | app:glossary:L153:1.68 | observed | `1.68` | numeric: best 2D transmon T1 (Bland et al. 2025) | PASS |
 | 156 |  | observed | `0.62` | not run: input: f_coll = 0.62 restated from Eq. vc_eta (ch:virial line 75); the mass it implies is checked at ch:virial:L126:8.2 | - |
 | 156 |  | observed | `10` | not run: input: halo mass threshold 10^6 M_sun of the collapsed fraction (ch:virial), an order of magnitude | - |
-| 171 | app:glossary:L171:0.024 | observed | `0.024` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: healthy copy error, lowest of 56 cell types | PASS |
-| 171 | app:glossary:L171:0.042 | observed | `0.042` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: healthy copy error, highest of 56 cell types | PASS |
-| 178 | app:glossary:L178:0.7 | observed | `0.7` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Omega_b/Omega_m against (3/16) sqrt(Omega_Lambda), in sigma | PASS |
+| 169 | app:glossary:L171:0.024 | observed | `0.024` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: healthy copy error, lowest of 56 cell types | PASS |
+| 169 | app:glossary:L171:0.042 | observed | `0.042` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: healthy copy error, highest of 56 cell types | PASS |
+| 176 | app:glossary:L178:0.7 | observed | `0.7` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Omega_b/Omega_m against (3/16) sqrt(Omega_Lambda), in sigma | PASS |
 | 180 |  | observed | `10` | not run: not a separate number: base of 10^{123}; the 123 orders are checked at app:glossary:L355:123 | - |
-| 183 | app:glossary:L183:2.8e7 | observed | `2.8\times10^7` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpGs per haploid human genome | PASS |
+| 181 | app:glossary:L183:2.8e7 | observed | `2.8\times10^7` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpGs per haploid human genome | PASS |
+| 183 | app:glossary:L185:+0.2 | observed | `+0.2` | file `Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml`: upper prior edge of mu0 | PASS |
 | 183 |  | observed | `70` | not run: measured, source not named | - |
-| 185 | app:glossary:L185:+0.2 | observed | `+0.2` | file `Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml`: upper prior edge of mu0 | PASS |
 | 185 |  | observed | `90` | not run: definition: central 90 % credible interval whose lower end (5 % quantile) is quoted | - |
+| 186 | app:glossary:L188:2.2e-10 | calc | `2.2\times10^{-10}` | numeric: crossover mass, tau_IAM = tau_DP at 10 mK | PASS |
+| 187 | app:glossary:L189 | observed | `1.1104` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 187 |  | observed | `20` | not run: definition: a level of comparison ("rankings at the 20 % level"), not a computed number | - |
-| 188 | app:glossary:L188:2.2e-10 | calc | `2.2\times10^{-10}` | numeric: crossover mass, tau_IAM = tau_DP at 10 mK | PASS |
 | 188 |  | observed | `10` | not run: input: temperature 10 mK at which the crossover mass is evaluated (used in app:glossary:L188:2.2e-10) | - |
-| 189 | app:glossary:L189 | observed | `1.1104` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 189 |  | observed | `50` | not run: definition: block size of the C-score, 50 consecutive sites | - |
-| 193 | app:glossary:L193:84.4 | observed | `84.4` | numeric: dark-matter share of beta_m, per cent | PASS |
-| 198 | app:glossary:L198:55.57 | observed | `55.57` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector de Sitter rate H_infinity | PASS |
-| 201 | app:glossary:L201 | observed | `963` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 211 | app:glossary:L211:0.776 | observed | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DES Y3 S8 | PASS |
+| 191 | app:glossary:L193:84.4 | observed | `84.4` | numeric: dark-matter share of beta_m, per cent | PASS |
+| 196 | app:glossary:L198:55.57 | observed | `55.57` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector de Sitter rate H_infinity | PASS |
+| 199 | app:glossary:L201 | observed | `963` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 209 | app:glossary:L211:0.776 | observed | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DES Y3 S8 | PASS |
 | 214 |  | observed | `0.93` | not run: definition: Stage 0 call-rate quarantine threshold 0.93 (chain setting) | - |
 | 214 |  | observed | `-0.98` | not run: definition: upper edge 0.98 of the Stage 0 call-rate flag band (chain setting) | - |
-| 223 | app:glossary:L223:1.9 | observed | `1.9` | numeric: DNMT1 selectivity 7-fold in k_B T | PASS |
-| 223 | app:glossary:L223:4.4 | observed | `4.4` | numeric: DNMT1 selectivity 80-fold in k_B T | PASS |
+| 221 | app:glossary:L223:1.9 | observed | `1.9` | numeric: DNMT1 selectivity 7-fold in k_B T | PASS |
+| 221 | app:glossary:L223:4.4 | observed | `4.4` | numeric: DNMT1 selectivity 80-fold in k_B T | PASS |
 | 223 |  | observed | `-80` | not run: input: 80-fold average selectivity across flanking sequences (Adam2023, ch:landauer line 194); its k_B T ln 80 is checked at app:glossary:L223:4.4 | - |
-| 224 | app:glossary:L224:1.16 | observed | `1.16` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT1 inhibitor arrays: lowest Met-A at >= 80 nM | PASS |
-| 230 | app:glossary:L230 | observed | `3.41` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 230 | app:glossary:L230:-3.77 | observed | `-3.77` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
-| 230 | app:glossary:L230:0.163 | observed | `0.163` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
-| 230 | app:glossary:L230:4.9 | observed | `4.9` | numeric: holding energy in Landauer units | PASS |
-| 238 | app:glossary:L238:+1.8 | observed | `+1.8` | numeric: E_G above GR at z = 0.3, per cent | PASS |
-| 238 | app:glossary:L238:+3.6 | observed | `+3.6` | numeric: E_G above GR today, per cent | PASS |
+| 227 | app:glossary:L230 | observed | `3.41` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 227 | app:glossary:L230:-3.77 | observed | `-3.77` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
+| 227 | app:glossary:L230:0.163 | observed | `0.163` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
+| 227 | app:glossary:L230:4.9 | observed | `4.9` | numeric: holding energy in Landauer units | PASS |
+| 235 | app:glossary:L238:+1.8 | observed | `+1.8` | numeric: E_G above GR at z = 0.3, per cent | PASS |
+| 235 | app:glossary:L238:+3.6 | observed | `+3.6` | numeric: E_G above GR today, per cent | PASS |
 | 238 |  | observed | `0.3` | not run: input: redshift z = 0.3 at which E_G is evaluated (used in app:glossary:L238:+1.8) | - |
-| 243 | app:glossary:L243:0.576 | observed | `0.576` | numeric: electron fixed point without the (2 pi)^(3/10) prefactor, in m_e | PASS |
+| 240 | app:glossary:L243:0.576 | observed | `0.576` | numeric: electron fixed point without the (2 pi)^(3/10) prefactor, in m_e | PASS |
+| 242 | app:glossary:L245:9.2e-12 | observed | `9.2\times10^{-12}` | numeric: time of the electroweak crossover, s | PASS |
+| 243 | app:glossary:L245:159.5 | observed | `159.5` | numeric: electroweak crossover temperature (lattice) | PASS |
+| 243 | app:glossary:L246 | observed | `246.22` | numeric: same value as p4_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV) | PASS |
+| 243 | app:glossary:L246:159.5 | observed | `159.5` | numeric: electroweak crossover temperature (lattice), restated | PASS |
 | 243 |  | observed | `0.3` | not run: printed value 0.3 % has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.320 %; the precise 0.32 % is checked at ch:electronmass:L188) | - |
-| 245 | app:glossary:L245:159.5 | observed | `159.5` | numeric: electroweak crossover temperature (lattice) | PASS |
-| 245 | app:glossary:L245:9.2e-12 | observed | `9.2\times10^{-12}` | numeric: time of the electroweak crossover, s | PASS |
-| 246 | app:glossary:L246 | observed | `246.22` | numeric: same value as p4_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV) | PASS |
-| 246 | app:glossary:L246:159.5 | observed | `159.5` | numeric: electroweak crossover temperature (lattice), restated | PASS |
 | 247 |  | conjecture | `1.05` | not run: definition: upper edge of the Normal band 0.95-1.05 (canon Normal_band) | - |
 | 247 |  | conjecture | `0.95` | not run: definition: lower edge of the Normal band 0.95-1.05 (canon Normal_band) | - |
-| 251 | app:glossary:L251 | observed | `7309` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 251 | app:glossary:L251:738 | observed | `738` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 248 | app:glossary:L251 | observed | `7309` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 248 | app:glossary:L251:738 | observed | `738` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 251 | app:glossary:L251:1056 | observed | `1{,}056` | file `Biological_Physics/MethylPhys/doors/PLAN.md`: E-MTAB-7309 arrays calibrated | PASS |
-| 254 | app:glossary:L254 | calc | `152.5` | numeric: same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass) | PASS |
+| 251 | app:glossary:L254 | calc | `152.5` | numeric: same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass) | PASS |
 | 258 |  | observed | `1.00` | not run: definition: an atlas cell reads 1.00 on its own profile by construction (entry rule); nothing to compute, and the number is not in MethylPhys_CPG_SOP_v3.md (the earlier match was an unrelated number) | - |
+| 259 | app:glossary:L262 | observed | `3.41` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 259 | app:glossary:L262:0.032 | observed | `0.032` | numeric: copy-error floor eps0 | PASS |
+| 260 | app:glossary:L263 | observed | `-1.062` | file: w_eff(1) for vacuum plus record | PASS |
 | 260 |  | observed | `865` | not run: measured, source not named | - |
 | 260 |  | observed | `000` | not run: not a separate number: thousands group of "865,000" (the EPIC CpG count, listed in sources_needed) | - |
-| 262 | app:glossary:L262 | observed | `3.41` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 262 | app:glossary:L262:0.032 | observed | `0.032` | numeric: copy-error floor eps0 | PASS |
-| 263 | app:glossary:L263 | observed | `-1.062` | file: w_eff(1) for vacuum plus record | PASS |
 | 270 |  | observed | `10` | not run: input: surface-code threshold about 10^{-2}, an order of magnitude quoted in ch:ascoreqc | - |
-| 274 | app:glossary:L274:5120 | observed | `5120` | numeric: 5120 in the evaporation time | PASS |
-| 274 | app:glossary:L274:2.1e67 | observed | `2.1\times10^{67}` | numeric: evaporation time of one solar mass, years | PASS |
+| 271 | app:glossary:L274:5120 | observed | `5120` | numeric: 5120 in the evaporation time | PASS |
+| 271 | app:glossary:L274:2.1e67 | observed | `2.1\times10^{67}` | numeric: evaporation time of one solar mass, years | PASS |
 | 280 |  | observed | `10` | not run: input: fault-tolerance target about 10^{-3}, an order of magnitude quoted in ch:ascoreqc (Fowler2012, GoogleWillow2025) | - |
+| 283 | app:glossary:L287:45 | observed | `45` | numeric: Koide angle to the democratic direction | PASS |
 | 285 |  | observed | `0.93` | not run: definition: lower edge of the call-rate flag band 0.93-0.98 (chain setting) | - |
 | 285 |  | observed | `0.98` | not run: definition: upper edge of the call-rate flag band 0.93-0.98 (chain setting) | - |
-| 287 | app:glossary:L287:45 | observed | `45` | numeric: Koide angle to the democratic direction | PASS |
+| 290 | app:glossary:L295:4.25 | observed | `4.25` | numeric: f sigma8 deficit today, per cent | PASS |
+| 290 | app:glossary:L295:1.35 | observed | `1.35` | numeric: f sigma8 deficit at z = 0.5, per cent | PASS |
+| 290 | app:glossary:L295:0.04 | observed | `0.04` | numeric: f sigma8 deficit at z = 2, per cent | PASS |
 | 294 |  | observed | `0.5` | not run: input: redshift z = 0.5 at which the deficit is evaluated (used in app:glossary:L295:1.35) | - |
-| 295 | app:glossary:L295:4.25 | observed | `4.25` | numeric: f sigma8 deficit today, per cent | PASS |
-| 295 | app:glossary:L295:1.35 | observed | `1.35` | numeric: f sigma8 deficit at z = 0.5, per cent | PASS |
-| 295 | app:glossary:L295:0.04 | observed | `0.04` | numeric: f sigma8 deficit at z = 2, per cent | PASS |
 | 303 |  | observed | `0.01` | not run: definition: convergence criterion R - 1 < 0.01 of the chains | - |
-| 311 | app:glossary:L311:2.65e-30 | observed | `2.65\times10^{-30}` | numeric: Gibbons-Hawking temperature today | PASS |
+| 306 | app:glossary:L311:2.65e-30 | observed | `2.65\times10^{-30}` | numeric: Gibbons-Hawking temperature today | PASS |
+| 311 | app:glossary:L316:1.315 | observed | `1.315` | numeric: gravitational slip today | PASS |
 | 311 |  | observed | `68` | not run: measured, source not named | - |
-| 312 | app:glossary:L312:105 | observed | `105` | numeric: qubits of the Willow processor | PASS |
-| 316 | app:glossary:L316:1.315 | observed | `1.315` | numeric: gravitational slip today | PASS |
-| 318 | app:glossary:L318:0.78 | observed | `0.78` | numeric: growth factor deficit today, per cent | PASS |
-| 319 | app:glossary:L319:0.55 | observed | `0.55` | numeric: growth index of general relativity (LambdaCDM) | PASS |
-| 319 | app:glossary:L319:0.585 | observed | `0.585` | numeric: growth index under IAM today | PASS |
-| 319 | app:glossary:L319:0.633 | observed | `0.633` | heavy file `docs/verification/scripts/verify_s8_trend_output.txt`: measured growth index (Nguyen et al. 2023) | PASS |
-| 319 | app:glossary:L320 | observed | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 320 | app:glossary:L320:106.75 | observed | `106.75` | numeric: g_*s of the standard model | PASS |
-| 320 | app:glossary:L320:7.8e-16 | observed | `7.8\times10^{-16}` | numeric: scale factor at 100 GeV | PASS |
-| 323 | app:glossary:L323:64 | observed | `64` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: GSE250556 arrays | PASS |
-| 323 | app:glossary:L323:0.30 | observed | `0.30` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: GSE250556: lowest neutrophil fraction | PASS |
-| 323 | app:glossary:L323:0.56 | observed | `0.56` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: GSE250556: highest neutrophil fraction | PASS |
-| 323 | app:glossary:L324 | measured | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 313 | app:glossary:L318:0.78 | observed | `0.78` | numeric: growth factor deficit today, per cent | PASS |
+| 314 | app:glossary:L319:0.55 | observed | `0.55` | numeric: growth index of general relativity (LambdaCDM) | PASS |
+| 314 | app:glossary:L319:0.585 | observed | `0.585` | numeric: growth index under IAM today | PASS |
+| 314 | app:glossary:L319:0.633 | observed | `0.633` | heavy file `docs/verification/scripts/verify_s8_trend_output.txt`: measured growth index (Nguyen et al. 2023) | PASS |
+| 315 | app:glossary:L320 | observed | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 315 | app:glossary:L320:106.75 | observed | `106.75` | numeric: g_*s of the standard model | PASS |
+| 315 | app:glossary:L320:7.8e-16 | observed | `7.8\times10^{-16}` | numeric: scale factor at 100 GeV | PASS |
+| 315 | app:glossary:L324 | measured | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 316 | app:glossary:L312:105 | observed | `105` | numeric: qubits of the Willow processor | PASS |
+| 317 | app:glossary:L323:64 | observed | `64` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: GSE250556 arrays | PASS |
+| 317 | app:glossary:L323:0.30 | observed | `0.30` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: GSE250556: lowest neutrophil fraction | PASS |
+| 317 | app:glossary:L323:0.56 | observed | `0.56` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: GSE250556: highest neutrophil fraction | PASS |
+| 320 | app:glossary:L327:67.16 | observed | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 (Level 2 chain) | PASS |
+| 320 | app:glossary:L327:72.26 | observed | `72.26` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 = 67.16 sqrt(1 + beta_m) | PASS |
+| 320 | app:glossary:L327:67.36 | observed | `67.36` | numeric: Planck 2018 H0 | PASS |
+| 320 | app:glossary:L327:73.04 | observed | `73.04` | numeric: SH0ES H0 | PASS |
 | 324 |  | observed | `-70` | not run: measured, source not named | - |
 | 324 |  | observed | `75` | not run: measured, source not named | - |
-| 327 | app:glossary:L327:67.16 | observed | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0 (Level 2 chain) | PASS |
-| 327 | app:glossary:L327:72.26 | observed | `72.26` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 = 67.16 sqrt(1 + beta_m) | PASS |
-| 327 | app:glossary:L327:67.36 | observed | `67.36` | numeric: Planck 2018 H0 | PASS |
-| 327 | app:glossary:L327:73.04 | observed | `73.04` | numeric: SH0ES H0 | PASS |
+| 326 | app:glossary:L334:6.17e-8 | observed | `6.17\times10^{-8}` | numeric: Hawking temperature of one solar mass | PASS |
 | 327 |  | observed | `0.90` | not run: measured, source not named | - |
 | 327 |  | observed | `-0.98` | not run: measured, source not named | - |
-| 334 | app:glossary:L334:6.17e-8 | observed | `6.17\times10^{-8}` | numeric: Hawking temperature of one solar mass | PASS |
+| 328 | app:glossary:L336 | observed | `0.330263` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 328 | app:glossary:L336:0.2246 | observed | `0.2246` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
+| 330 | app:glossary:L338 | observed | `0.983` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out neutrophil reference arrays, lowest Met-A | PASS |
+| 330 | app:glossary:L338:-1.045 | observed | `-1.045` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 333 | app:glossary:L341:28217448 | observed | `28{,}217{,}448` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpGs of the hg19 index | PASS |
+| 334 | app:glossary:L342:2.8e7 | observed | `2.8\times10^7` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpGs per haploid genome (hg19 count) | PASS |
 | 334 |  | observed | `12` | not run: definition: HEALPix divides the sphere into 12 N_side^2 pixels (Gorski2005) | - |
-| 335 | app:glossary:L336 | observed | `0.330263` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 335 | app:glossary:L336:0.2246 | observed | `0.2246` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
-| 337 | app:glossary:L338 | observed | `0.983` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out neutrophil reference arrays, lowest Met-A | PASS |
-| 337 | app:glossary:L338:-1.045 | observed | `-1.045` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 336 | app:glossary:L344 | observed | `246.22` | numeric: same value as p4_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV) | PASS |
+| 336 | app:glossary:L344:125.20 | observed | `125.20` | numeric: Higgs boson mass (PDG 2024) | PASS |
+| 336 | app:glossary:L344:0.129 | observed | `0.129` | numeric: Higgs self-coupling m_H^2/(2 v^2) | PASS |
+| 340 | app:glossary:L348 | observed | `0.2043` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
+| 340 | app:glossary:L348:0.910 | observed | `0.910` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 340 |  | observed | `217` | not run: not a separate number: thousands group of "28,217,448", checked at app:glossary:L341:28217448 | - |
 | 340 |  | observed | `448` | not run: not a separate number: last group of "28,217,448", checked at app:glossary:L341:28217448 | - |
-| 341 | app:glossary:L341:28217448 | observed | `28{,}217{,}448` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpGs of the hg19 index | PASS |
 | 341 |  | observed | `217` | not run: not a separate number: thousands group of "28,217,448", checked at app:glossary:L341:28217448 | - |
-| 342 | app:glossary:L342:2.8e7 | observed | `2.8\times10^7` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpGs per haploid genome (hg19 count) | PASS |
-| 343 | app:glossary:L344 | observed | `246.22` | numeric: same value as p4_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV) | PASS |
-| 344 | app:glossary:L344:125.20 | observed | `125.20` | numeric: Higgs boson mass (PDG 2024) | PASS |
-| 344 | app:glossary:L344:0.129 | observed | `0.129` | numeric: Higgs self-coupling m_H^2/(2 v^2) | PASS |
-| 347 | app:glossary:L348 | observed | `0.2043` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
-| 347 | app:glossary:L348:0.910 | observed | `0.910` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 346 | app:glossary:L354:2.9e78 | calc | `2.9\times10^{78}` | numeric: horizon capacity at T = 150 MeV, nats | PASS |
+| 347 | app:glossary:L355:123 | observed | `123` | numeric: orders of magnitude of the cosmological-constant problem | PASS |
+| 351 | app:glossary:L359:0.776 | observed | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: HSC Y3 S8 | PASS |
+| 352 | app:glossary:L360:1588 | observed | `1588` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: Pantheon+ supernovae in the Hubble flow | PASS |
+| 353 | app:glossary:L361:1.4e26 | observed | `1.4\times10^{26}` | numeric: Hubble radius c/H0, m | PASS |
 | 353 |  | calc | `150` | not run: input: temperature T = 150 MeV (QCD scale) at which the horizon capacity is evaluated (used in app:glossary:L354:2.9e78) | - |
-| 354 | app:glossary:L354:2.9e78 | calc | `2.9\times10^{78}` | numeric: horizon capacity at T = 150 MeV, nats | PASS |
-| 355 | app:glossary:L355:123 | observed | `123` | numeric: orders of magnitude of the cosmological-constant problem | PASS |
-| 359 | app:glossary:L359:0.776 | observed | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: HSC Y3 S8 | PASS |
-| 360 | app:glossary:L360:1588 | observed | `1588` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: Pantheon+ supernovae in the Hubble flow | PASS |
-| 361 | app:glossary:L361:1.4e26 | observed | `1.4\times10^{26}` | numeric: Hubble radius c/H0, m | PASS |
-| 367 | app:glossary:L368 | observed | `1.099` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 367 | app:glossary:L368:100 | observed | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 367 | app:glossary:L368:-1.05 | observed | `1.05` | file `CANON/iam_canon.json`: IAM-A: Normal band, upper edge (canon Normal_band) | PASS |
+| 360 | app:glossary:L368 | observed | `1.099` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 360 | app:glossary:L368:100 | observed | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 360 | app:glossary:L368:-1.05 | observed | `1.05` | file `CANON/iam_canon.json`: IAM-A: Normal band, upper edge (canon Normal_band) | PASS |
+| 360 | app:glossary:L368:0.032 | observed | `0.032` | numeric: copy-error floor eps0 (IAM-A entry) | PASS |
+| 362 | app:glossary:L370:0.80 | observed | `0.80` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: ICC of cell-type copy-error differences across donors | PASS |
 | 367 |  | observed | `000` | not run: definition: at least 100,000 opportunities per IAM-A reading (chain setting); thousands group | - |
 | 367 |  | observed | `0.95` | not run: definition: lower edge of the Normal band 0.95-1.05 (canon Normal_band) | - |
-| 368 | app:glossary:L368:0.032 | observed | `0.032` | numeric: copy-error floor eps0 (IAM-A entry) | PASS |
-| 370 | app:glossary:L370:0.80 | observed | `0.80` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: ICC of cell-type copy-error differences across donors | PASS |
 | 371 |  | observed | `0.75` | not run: definition: identity-site window 0.75-0.95 (canon Met_A_site_rule) | - |
 | 371 |  | observed | `-0.95` | not run: definition: identity-site window 0.75-0.95 (canon Met_A_site_rule) | - |
 | 371 |  | observed | `0.05` | not run: definition: identity-site window 0.05-0.25 (canon Met_A_site_rule) | - |
@@ -6099,162 +6098,163 @@ Totals: 4668 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 371 |  | observed | `000` | not run: definition: at most 3,000 sites per channel (canon Met_A_site_rule); thousands group | - |
 | 371 |  | observed | `90` | not run: definition: at least 90 % of identity sites measured in a reading (chain setting) | - |
 | 378 |  | observed | `0.93` | not run: definition: intake call-rate threshold 0.93 (chain setting) | - |
+| 392 | app:glossary:L400:0.815 | observed | `0.815` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: KiDS-Legacy S8 | PASS |
+| 392 | app:glossary:L400:0.021 | observed | `0.021` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: KiDS-Legacy S8, lower error | PASS |
 | 394 |  | observed | `75` | not run: input: nominal junction temperature 75 C of published TDP figures (348.15 K, used in app:glossary:L48:576) | - |
+| 398 | app:glossary:L406:2.2e-6 | observed | `2.2\times10^{-6}` | numeric: Koide: 2/3 - Q, PDG 2024 | PASS |
+| 398 | app:glossary:L406:0.43 | observed | `0.43` | numeric: Koide: (2/3 - Q) in units of sigma(Q) | PASS |
+| 398 | app:glossary:L406:0.2222 | observed | `0.2222` | numeric: Koide offset delta | PASS |
+| 399 | app:glossary:L407:1.57 | observed | `1.57` | numeric: Koomey doubling time, years | PASS |
 | 399 |  | observed | `1000` | not run: not a number: part of the survey name KiDS-1000 | - |
-| 400 | app:glossary:L400:0.815 | observed | `0.815` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: KiDS-Legacy S8 | PASS |
-| 400 | app:glossary:L400:0.021 | observed | `0.021` | heavy file `docs/verification/scripts/verify_virial_papers_output.txt`: KiDS-Legacy S8, lower error | PASS |
-| 406 | app:glossary:L406:2.2e-6 | observed | `2.2\times10^{-6}` | numeric: Koide: 2/3 - Q, PDG 2024 | PASS |
-| 406 | app:glossary:L406:0.43 | observed | `0.43` | numeric: Koide: (2/3 - Q) in units of sigma(Q) | PASS |
-| 406 | app:glossary:L406:0.2222 | observed | `0.2222` | numeric: Koide offset delta | PASS |
+| 403 | app:glossary:L411 | observed | `2.968\times10^{-21}` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
+| 403 | app:glossary:L411:310.15 | observed | `310.15` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
+| 403 | app:glossary:L411:348 | observed | `348` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 403 | app:glossary:L411:3.33e-21 | observed | `3.33\times10^{-21}` | numeric: Landauer floor at 348 K | PASS |
+| 405 | app:glossary:L413 | observed | `20.94` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
+| 405 | app:glossary:L413:30.2 | observed | `30.2` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
+| 405 | app:glossary:L413:3.41 | observed | `3.41` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 405 | app:glossary:L413:4.9 | observed | `4.9` | numeric: holding energy in Landauer units | PASS |
 | 406 |  | observed | `2.7` | not run: measured, source not named | - |
-| 407 | app:glossary:L407:1.57 | observed | `1.57` | numeric: Koomey doubling time, years | PASS |
-| 410 | app:glossary:L411 | observed | `2.968\times10^{-21}` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
-| 410 | app:glossary:L411:310.15 | observed | `310.15` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
-| 410 | app:glossary:L411:348 | observed | `348` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 411 | app:glossary:L411:3.33e-21 | observed | `3.33\times10^{-21}` | numeric: Landauer floor at 348 K | PASS |
-| 412 | app:glossary:L413 | observed | `20.94` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
-| 412 | app:glossary:L413:30.2 | observed | `30.2` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
-| 412 | app:glossary:L413:3.41 | observed | `3.41` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 413 | app:glossary:L413:4.9 | observed | `4.9` | numeric: holding energy in Landauer units | PASS |
-| 419 | app:glossary:L420 | observed | `61.45` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 of the Level 2b background chain A | PASS |
-| 419 | app:glossary:L420:61.52 | observed | `61.52` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 of the Level 2b background chain D | PASS |
-| 421 | app:glossary:L422 | observed | `0.76` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: likelihood ratio of the Level 2 Planck chain | PASS |
-| 425 | app:glossary:L426 | observed | `68` | file `docs/verification/observations/MISSING_SATELLITES_CHECK.md`: Milky Way satellites in the Local Volume Database | PASS |
-| 428 | app:glossary:L429 | observed | `1.3` | numeric: separation of the spins in the 2015 loophole-free Bell test, km | PASS |
-| 429 | app:glossary:L430 | observed | `56` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: cell types of the Loyfer atlas read for the holding energy | PASS |
-| 433 | app:glossary:L434 | observed | `1.05` | file: M_lens/M_dyn = 1/mu(z) at z = 0.5 (Level 1) | PASS |
-| 433 | app:glossary:L434:1.02 | observed | `1.02` | file: M_lens/M_dyn = 1/mu(z) at z = 1 (Level 1) | PASS |
-| 433 | app:glossary:L434:1.16 | observed | `1.16` | numeric: M_lens/M_dyn = 1/mu today, Level 1 form | PASS |
+| 412 | app:glossary:L420 | observed | `61.45` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 of the Level 2b background chain A | PASS |
+| 412 | app:glossary:L420:61.52 | observed | `61.52` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 of the Level 2b background chain D | PASS |
+| 414 | app:glossary:L422 | observed | `0.76` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: likelihood ratio of the Level 2 Planck chain | PASS |
+| 418 | app:glossary:L426 | observed | `68` | file `docs/verification/observations/MISSING_SATELLITES_CHECK.md`: Milky Way satellites in the Local Volume Database | PASS |
+| 421 | app:glossary:L429 | observed | `1.3` | numeric: separation of the spins in the 2015 loophole-free Bell test, km | PASS |
+| 422 | app:glossary:L430 | observed | `56` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: cell types of the Loyfer atlas read for the holding energy | PASS |
+| 426 | app:glossary:L224:1.16 | observed | `1.16` | file `Biological_Physics/MethylPhys/doors/data/dnmt_arrays_readings.csv`: DNMT1 inhibitor arrays: lowest Met-A at >= 80 nM | PASS |
+| 426 | app:glossary:L434 | observed | `1.05` | file: M_lens/M_dyn = 1/mu(z) at z = 0.5 (Level 1) | PASS |
+| 426 | app:glossary:L434:1.02 | observed | `1.02` | file: M_lens/M_dyn = 1/mu(z) at z = 1 (Level 1) | PASS |
+| 426 | app:glossary:L434:1.16 | observed | `1.16` | numeric: M_lens/M_dyn = 1/mu today, Level 1 form | PASS |
+| 428 | app:glossary:L436 | observed | `20.94` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
 | 433 |  | calc | `0.5` | not run: input: redshift z = 0.5 at which 1/mu is quoted (the value 1.05 there is checked at app:glossary:L434) | - |
 | 434 |  | calc | `6.5\times10^9` | not run: input: M87* black-hole mass 6.5e9 M_sun, Event Horizon Telescope 2019 (doi 10.3847/2041-8213/ab0ec7); the Smarr share at this mass is checked at ch:blackholes:L143 | - |
-| 435 | app:glossary:L436 | observed | `20.94` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
+| 437 | app:glossary:L446 | observed | `0.58` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: 1-b needed by Planck SZ counts with the primary-CMB cosmology | PASS |
+| 437 | app:glossary:L446:0.80 | observed | `0.80` | numeric: baseline 1-b of about 0.80 | PASS |
 | 437 |  | observed | `0.95` | not run: measured, source not named | - |
 | 437 |  | observed | `-0.98` | not run: measured, source not named | - |
+| 442 | app:glossary:L451 | observed | `36.8` | numeric: maturity E(1)/e today, per cent | PASS |
 | 444 |  | observed | `30` | not run: definition: masking threshold of the copy-error statistic (more than 30 % of qualifying molecules in error), a chain rule | - |
-| 445 | app:glossary:L446 | observed | `0.58` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: 1-b needed by Planck SZ counts with the primary-CMB cosmology | PASS |
-| 445 | app:glossary:L446:0.80 | observed | `0.80` | numeric: baseline 1-b of about 0.80 | PASS |
-| 450 | app:glossary:L451 | observed | `36.8` | numeric: maturity E(1)/e today, per cent | PASS |
-| 456 | app:glossary:L457 | observed | `0.330263` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 456 | app:glossary:L457:-1.05 | observed | `1.05` | file `CANON/iam_canon.json`: Met-A: Normal band, upper edge (canon Normal_band) | PASS |
-| 456 | app:glossary:L457:0.95 | observed | `0.95` | file `CANON/iam_canon.json`: lower edge of the Normal band (CANON) | PASS |
+| 448 | app:glossary:L457 | observed | `0.330263` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 448 | app:glossary:L457:-1.05 | observed | `1.05` | file `CANON/iam_canon.json`: Met-A: Normal band, upper edge (canon Normal_band) | PASS |
+| 448 | app:glossary:L457:0.95 | observed | `0.95` | file `CANON/iam_canon.json`: lower edge of the Normal band (CANON) | PASS |
+| 454 | app:glossary:L464 | observed | `-1.5` | numeric: MICROSCOPE Eotvos parameter Ti-Pt, central value | PASS |
+| 454 | app:glossary:L464:2.7e-15 | observed | `2.7\times10^{-15}` | numeric: MICROSCOPE total uncertainty, stat and syst in quadrature | PASS |
 | 456 |  | observed | `20` | not run: definition: smallest neutrophil fraction (20 %) at which whole-blood Met-A is read, a chain rule | - |
 | 462 | app:glossary:L463 | observed | `1{,}200` | numeric: Micius entanglement distribution distance, km | PASS |
-| 463 | app:glossary:L464 | observed | `-1.5` | numeric: MICROSCOPE Eotvos parameter Ti-Pt, central value | PASS |
-| 463 | app:glossary:L464:2.7e-15 | observed | `2.7\times10^{-15}` | numeric: MICROSCOPE total uncertainty, stat and syst in quadrature | PASS |
-| 473 | app:glossary:L474 | observed | `-0.136` | numeric: mu0 = -beta_m/(1+beta_m) | PASS |
-| 473 | app:glossary:L474:-0.13495 | observed | `-0.13495` | file `Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml`: mu0 fixed in the MGCAMB runs | PASS |
-| 473 | app:glossary:L474:4.25 | observed | `4.25` | numeric: f sigma8 deficit today, per cent | PASS |
+| 464 | app:glossary:L474 | observed | `-0.136` | numeric: mu0 = -beta_m/(1+beta_m) | PASS |
+| 464 | app:glossary:L474:-0.13495 | observed | `-0.13495` | file `Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml`: mu0 fixed in the MGCAMB runs | PASS |
+| 464 | app:glossary:L474:4.25 | observed | `4.25` | numeric: f sigma8 deficit today, per cent | PASS |
+| 474 | app:glossary:L484 | observed | `528` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 474 | app:glossary:L484:-0.149 | observed | `-0.149` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 476 | app:glossary:L486:0.95 | observed | `0.95` | file `CANON/iam_canon.json`: Normal band lower edge (CANON) | PASS |
 | 478 |  | observed | `10` | not run: measured, source not named | - |
 | 479 |  | observed | `1.4` | not run: input: canonical neutron-star mass 1.4 M_sun, nothing to recompute | - |
-| 483 | app:glossary:L484 | observed | `528` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 483 | app:glossary:L484:-0.149 | observed | `-0.149` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 483 | app:glossary:L484:48528 | observed | `48{,}528` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: EPIC noise sites of the noise index | PASS |
-| 485 | app:glossary:L486:0.95 | observed | `0.95` | file `CANON/iam_canon.json`: Normal band lower edge (CANON) | PASS |
-| 497 | app:glossary:L498 | observed | `0.3153` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
-| 500 | app:glossary:L501 | observed | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 488 | app:glossary:L498 | observed | `0.3153` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
+| 491 | app:glossary:L501 | observed | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 498 | app:glossary:L508:1701 | observed | `1701` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Pantheon+ light curves | PASS |
+| 498 | app:glossary:L508:0.001 | observed | `0.001` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Pantheon+ lowest redshift | PASS |
+| 498 | app:glossary:L508:2.26 | observed | `2.26` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Pantheon+ highest redshift | PASS |
 | 500 |  | observed | `80` | not run: definition: qualifying-molecule rule, at least 80 % of calls methylated (chain rule) | - |
 | 500 |  | observed | `000` | not run: definition: at least 100,000 opportunities for an IAM-A reading (chain rule; the 000 is the tail of 100,000) | - |
 | 506 |  | observed | `364` | not run: restates ch:xqp:L67 (2 Delta_Al with Delta_Al = 182 ueV, recomputed from BCS at ch:scprimer:L16:182) | - |
-| 507 | app:glossary:L508:1701 | observed | `1701` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Pantheon+ light curves | PASS |
-| 507 | app:glossary:L508:0.001 | observed | `0.001` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Pantheon+ lowest redshift | PASS |
-| 507 | app:glossary:L508:2.26 | observed | `2.26` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Pantheon+ highest redshift | PASS |
+| 510 | app:glossary:L520 | observed | `30.9` | numeric: M = hc/(lambda k_B T) of a 1550 nm photon at 300 K | PASS |
+| 511 | app:glossary:L521 | observed | `0.075` | file `Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md`: pipeline offset in beta on immune identity sites | PASS |
 | 513 |  | observed | `39` | not run: measured, source not named | - |
 | 513 |  | observed | `-67` | not run: measured, source not named | - |
-| 519 | app:glossary:L520 | observed | `30.9` | numeric: M = hc/(lambda k_B T) of a 1550 nm photon at 300 K | PASS |
+| 515 | app:glossary:L525 | observed | `1.956\times10^9` | numeric: Planck energy sqrt(hbar c^5/G), J | PASS |
+| 516 | app:glossary:L526 | observed | `1.616\times10^{-35}` | numeric: Planck length sqrt(hbar G/c^3), m | PASS |
+| 516 | app:glossary:L526:2.176e-8 | observed | `2.176\times10^{-8}` | numeric: Planck mass sqrt(hbar c/G), kg | PASS |
+| 518 | app:glossary:L528 | observed | `5.4\times10^{-44}` | numeric: Planck time sqrt(hbar G/c^5), s | PASS |
 | 519 |  | observed | `1550` | not run: input: photon wavelength 1550 nm; used in app:glossary:L520 | - |
-| 520 | app:glossary:L521 | observed | `0.075` | file `Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md`: pipeline offset in beta on immune identity sites | PASS |
-| 524 | app:glossary:L525 | observed | `1.956\times10^9` | numeric: Planck energy sqrt(hbar c^5/G), J | PASS |
-| 525 | app:glossary:L526 | observed | `1.616\times10^{-35}` | numeric: Planck length sqrt(hbar G/c^3), m | PASS |
-| 525 | app:glossary:L526:2.176e-8 | observed | `2.176\times10^{-8}` | numeric: Planck mass sqrt(hbar c/G), kg | PASS |
-| 527 | app:glossary:L528 | observed | `5.4\times10^{-44}` | numeric: Planck time sqrt(hbar G/c^5), s | PASS |
-| 529 | app:glossary:L530 | observed | `450` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 533 | app:glossary:L534 | observed | `-5.69\times10^{41}` | numeric: index-3 polytrope binding energy of the Sun, J | PASS |
-| 533 | app:glossary:L534:23.6 | observed | `23.6` | numeric: Kelvin-Helmholtz time of the Sun, Myr | PASS |
+| 520 | app:glossary:L530 | observed | `450` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 524 | app:glossary:L534 | observed | `-5.69\times10^{41}` | numeric: index-3 polytrope binding energy of the Sun, J | PASS |
+| 524 | app:glossary:L534:23.6 | observed | `23.6` | numeric: Kelvin-Helmholtz time of the Sun, Myr | PASS |
+| 529 | app:glossary:L539 | observed | `92.7` | file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: atlas v2 held-out 90 % interval coverage, per cent | PASS |
+| 532 | app:glossary:L542 | observed | `-0.5` | file `Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml`: lower bound of the flat prior on free mu0 | PASS |
+| 532 | app:glossary:L542:+0.2 | observed | `+0.2` | file `Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml`: upper bound of the flat prior on free mu0 | PASS |
+| 534 | app:glossary:L544:56 | observed | `56` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: cell types of PROC-CHANNEL-01 | PASS |
 | 535 |  | observed | `20` | not run: definition: atlas v2 stores 20 posterior draws per value (a design choice), nothing to recompute | - |
-| 538 | app:glossary:L539 | observed | `92.7` | file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: atlas v2 held-out 90 % interval coverage, per cent | PASS |
 | 538 |  | observed | `90` | not run: definition: nominal 90 % coverage of the predictive interval (the interval level itself) | - |
-| 541 | app:glossary:L542 | observed | `-0.5` | file `Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml`: lower bound of the flat prior on free mu0 | PASS |
-| 541 | app:glossary:L542:+0.2 | observed | `+0.2` | file `Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml`: upper bound of the flat prior on free mu0 | PASS |
-| 543 | app:glossary:L544:56 | observed | `56` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: cell types of PROC-CHANNEL-01 | PASS |
+| 543 | app:glossary:L553:1e-5 | observed | `10^{-5}` | numeric: age of the radiation era at QCD confinement, s | PASS |
 | 543 |  | observed | `01` | not run: not a number: part of the identifier PROC-CHANNEL-01 | - |
-| 552 | app:glossary:L553 | observed | `150` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 552 | app:glossary:L553:1e-5 | observed | `10^{-5}` | numeric: age of the radiation era at QCD confinement, s | PASS |
+| 544 | app:glossary:L553 | observed | `150` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 546 | app:glossary:L556:12.7 | observed | `12.7` | numeric: surface-code threshold on the Helios gauge | PASS |
 | 554 |  | observed | `80` | not run: definition: qualifying-molecule rule, at least 80 % of calls methylated (chain rule) | - |
-| 555 | app:glossary:L556:12.7 | observed | `12.7` | numeric: surface-code threshold on the Helios gauge | PASS |
 | 555 |  | observed | `98` | not run: measured, source not named | - |
 | 555 |  | observed | `7.9\times10^{-4}` | not run: measured, source not named | - |
 | 559 |  | observed | `0.93` | not run: definition: intake call-rate line 0.93 (quarantine rule of the chain) | - |
 | 561 |  | observed | `10` | not run: measured, source not named | - |
 | 566 |  | observed | `1.01` | not run: convention: R-hat < 1.01 is the acceptance threshold of the atlas fits, not a computed value; it is not in MethylPhys_CPG_SOP_v3.md (the earlier match was an unrelated number) | - |
 | 569 |  | observed | `0.20` | not run: definition: read line 0.20, the smallest neutrophil fraction chain v3 reads (chain rule) | - |
-| 582 | app:glossary:L583:0.79 | observed | `0.79` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: rho of Met-A and noise index, second laboratory, 30 y | PASS |
-| 582 | app:glossary:L583:0.83 | observed | `0.83` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: rho of Met-A and noise index, second laboratory, 54 y | PASS |
-| 586 | app:glossary:L587 | observed | `1.2\times10^{-3}` | numeric: departure of running-mass Koide Q from 2/3 | PASS |
-| 587 | app:glossary:L588 | measured | `0.830` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 587 | app:glossary:L588:67.16 | measured | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 of Level 2 run A | PASS |
-| 587 | app:glossary:L588:0.7998 | measured | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of Level 2 run A | PASS |
-| 587 | app:glossary:L588:0.822 | measured | `0.822` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 of Level 2 run A | PASS |
-| 587 | app:glossary:L588:0.821 | measured | `0.821` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 of Level 2 run D | PASS |
-| 592 | app:glossary:L593 | observed | `0.830` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 592 | app:glossary:L593:0.822 | observed | `0.822` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 of the Level 2 IAM chain | PASS |
-| 598 | app:glossary:L599 | observed | `738` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 577 | app:glossary:L587 | observed | `1.2\times10^{-3}` | numeric: departure of running-mass Koide Q from 2/3 | PASS |
+| 578 | app:glossary:L583:0.79 | observed | `0.79` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: rho of Met-A and noise index, second laboratory, 30 y | PASS |
+| 578 | app:glossary:L588:67.16 | measured | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 of Level 2 run A | PASS |
+| 578 | app:glossary:L588:0.7998 | measured | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of Level 2 run A | PASS |
+| 578 | app:glossary:L588:0.821 | measured | `0.821` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 of Level 2 run D | PASS |
+| 583 | app:glossary:L583:0.83 | observed | `0.83` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: rho of Met-A and noise index, second laboratory, 54 y | PASS |
+| 583 | app:glossary:L588 | measured | `0.830` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 583 | app:glossary:L588:0.822 | measured | `0.822` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 of Level 2 run A | PASS |
+| 583 | app:glossary:L593 | observed | `0.830` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 583 | app:glossary:L593:0.822 | observed | `0.822` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 of the Level 2 IAM chain | PASS |
+| 588 | app:glossary:L599 | observed | `738` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 596 | app:glossary:L607:0.020 | observed | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: SD of the held-out reference readings, sites re-chosen | PASS |
 | 598 | app:glossary:L599:1056 | observed | `1{,}056` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: SATSA raw arrays | PASS |
 | 598 |  | observed | `0.93` | not run: definition: intake call-rate line 0.93 restated (quarantine rule); the count 1,056 is checked at app:glossary:L599:1056 | - |
-| 606 | app:glossary:L607:0.020 | observed | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: SD of the held-out reference readings, sites re-chosen | PASS |
+| 603 | app:glossary:L614 | observed | `73.04` | numeric: SH0ES H0 | PASS |
 | 606 |  | observed | `1.00` | not run: definition: 1.00 is the reading a reference sample should give by construction; nothing to compute; the selection-noise SDs (0.020, 0.006) are the measured part, and the earlier match in MethylPhys_CPG_SOP_v3.md was an unrelated number | - |
+| 608 | app:glossary:L619 | observed | `0.91` | numeric: Cornell sigma = 0.18 GeV^2 in GeV/fm | PASS |
+| 609 | app:glossary:L620 | observed | `0.809` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of the Level 2 LambdaCDM chain | PASS |
+| 609 | app:glossary:L620:0.800 | observed | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of the Level 2 IAM chain | PASS |
+| 609 | app:glossary:L620:0.813 | observed | `0.813` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of the Level 1 LambdaCDM baseline (Planck + RSD) | PASS |
+| 611 | app:glossary:L622:509 | calc | `509` | numeric: tau_IAM of a 1e-12 kg silica sphere at 10 mK, s | PASS |
+| 611 | app:glossary:L622:7.5 | calc | `7.5` | numeric: tau_DP = hbar/E_G of a 1e-12 kg silica sphere, us | PASS |
 | 612 |  | observed | `4.3\times10^6` | not run: input: Sgr A* mass 4.3e6 M_sun (Gillessen 2009), as taken in Chapter ch:iams_law; nothing to recompute | - |
-| 613 | app:glossary:L614 | observed | `73.04` | numeric: SH0ES H0 | PASS |
-| 618 | app:glossary:L619 | observed | `0.91` | numeric: Cornell sigma = 0.18 GeV^2 in GeV/fm | PASS |
-| 619 | app:glossary:L620 | observed | `0.809` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of the Level 2 LambdaCDM chain | PASS |
-| 619 | app:glossary:L620:0.800 | observed | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of the Level 2 IAM chain | PASS |
-| 619 | app:glossary:L620:0.813 | observed | `0.813` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of the Level 1 LambdaCDM baseline (Planck + RSD) | PASS |
-| 621 | app:glossary:L622:509 | calc | `509` | numeric: tau_IAM of a 1e-12 kg silica sphere at 10 mK, s | PASS |
-| 621 | app:glossary:L622:7.5 | calc | `7.5` | numeric: tau_DP = hbar/E_G of a 1e-12 kg silica sphere, us | PASS |
+| 613 | app:glossary:L624 | observed | `450` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 621 |  | calc | `10` | not run: input: test mass 1e-12 kg of the worked example (the 10 is the base of a printed power); tau values checked at app:glossary:L622:509 and L622:7.5 | - |
 | 621 |  | observed | `2200` | not run: input: fused-silica density 2200 kg/m^3 (published material constant), used in app:glossary:L622:509 | - |
 | 622 |  | observed | `000` | not run: definition: 6,000 neutrophil identity sites of chain v3 (design of the site set; the 000 is the tail of 6,000) | - |
-| 623 | app:glossary:L624 | observed | `450` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 636 | app:glossary:L637 | observed | `963` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 636 | app:glossary:L637:867 | observed | `867` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 626 | app:glossary:L637 | observed | `963` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 626 | app:glossary:L637:867 | observed | `867` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 629 | app:glossary:L640 | observed | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 637 |  | observed | `000` | not run: definition: 6,000 identity sites of Stage M restated (the 000 is the tail of 6,000) | - |
 | 637 |  | observed | `90` | not run: definition: Stage M needs at least 90 % of identity sites measured (chain rule) | - |
-| 639 | app:glossary:L640 | observed | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 639 | app:glossary:L650 | observed | `60` | numeric: (k_B T/q) ln 10 at 300 K, mV/decade | PASS |
 | 639 |  | observed | `000` | not run: definition: at least 100,000 opportunities for Stage Q (chain rule; the 000 is the tail of 100,000) | - |
+| 642 | app:glossary:L653 | observed | `+23.6` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Delta chi2 of the matter-sector rate on SN distances | PASS |
 | 647 |  | observed | `10` | not run: input: approximate frequency band 1e-4 to 1e-2 Hz of an electroweak-transition gravitational-wave peak from the literature (the 10 is the base of a printed power), nothing to recompute | - |
-| 649 | app:glossary:L650 | observed | `60` | numeric: (k_B T/q) ln 10 at 300 K, mV/decade | PASS |
 | 649 |  | observed | `300` | not run: input: temperature 300 K at which the swing bound is evaluated; used in app:glossary:L650 | - |
-| 652 | app:glossary:L653 | observed | `+23.6` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Delta chi2 of the matter-sector rate on SN distances | PASS |
+| 650 | app:glossary:L661 | observed | `310.15` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
 | 654 |  | observed | `10` | not run: input: surface-code threshold of about 1e-2 per operation (Fowler2012, doi 10.1103/PhysRevA.86.032324); the 10 is the base of a printed power | - |
-| 660 | app:glossary:L661 | observed | `310.15` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
+| 660 | app:glossary:L671 | observed | `3.7\times10^{-23}` | numeric: thermal de Broglie wavelength of 1 g at 300 K, m | PASS |
 | 661 |  | observed | `89` | not run: measured, source not named | - |
 | 661 |  | observed | `105` | not run: measured, source not named | - |
 | 662 |  | observed | `0.3` | not run: measured, source not named | - |
 | 662 |  | observed | `-0.5` | not run: measured, source not named | - |
-| 667 | app:glossary:L668 | observed | `64` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: whole-blood technical-replicate arrays (GSE250556) | PASS |
+| 665 | app:glossary:L675 | observed | `1.26` | file: three clocks: redshift of the peak per unit time | PASS |
+| 665 | app:glossary:L675:8.9 | observed | `8.9` | numeric: lookback time to the peak of the per-time clock, Gyr | PASS |
 | 667 |  | observed | `0.20` | not run: definition: read line 0.20 restated (chain rule) | - |
-| 670 | app:glossary:L671 | observed | `3.7\times10^{-23}` | numeric: thermal de Broglie wavelength of 1 g at 300 K, m | PASS |
+| 670 | app:glossary:L681 | observed | `4.6\times10^{-25}` | numeric: top-quark lifetime hbar/Gamma_t, s | PASS |
 | 670 |  | observed | `300` | not run: input: temperature 300 K of the worked example; used in app:glossary:L671 | - |
-| 674 | app:glossary:L675 | observed | `1.26` | file: three clocks: redshift of the peak per unit time | PASS |
-| 674 | app:glossary:L675:8.9 | observed | `8.9` | numeric: lookback time to the peak of the per-time clock, Gyr | PASS |
-| 680 | app:glossary:L681 | observed | `4.6\times10^{-25}` | numeric: top-quark lifetime hbar/Gamma_t, s | PASS |
+| 671 | app:glossary:L668 | observed | `64` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: whole-blood technical-replicate arrays (GSE250556) | PASS |
 | 681 |  | observed | `2.3` | not run: input: TOV limit of about 2.3 M_sun (published approximate value), nothing to recompute | - |
 | 692 |  | observed | `0.20` | not run: definition: twin-test separation of 0.20 in beta (atlas entry rule) | - |
-| 706 | app:glossary:L707 | observed | `4.63\times10^{113}` | numeric: Planck-cutoff vacuum energy density E_P^4/(hbar c)^3, J/m^3 | PASS |
-| 706 | app:glossary:L707:1e123 | observed | `10^{123}` | numeric: rho_vac over the measured dark-energy density | PASS |
-| 707 | app:glossary:L708 | observed | `0.1628` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
-| 713 | app:glossary:L714 | observed | `1.02` | file `docs/verification/scripts/verify_virial_papers_output.txt`: virial ratio with surface pressure, lower end (Klypin 2016) | PASS |
-| 713 | app:glossary:L714:1.1 | observed | `1.1` | file `docs/verification/virial/NBODY_TRACE.md`: lowest 2T/|U| of simulated halos within the virial radius | PASS |
-| 713 | app:glossary:L714:1.3 | observed | `1.3` | file `docs/verification/virial/NBODY_TRACE.md`: highest 2T/|U| of simulated halos within the virial radius | PASS |
-| 713 | app:glossary:L714:1.17 | observed | `1.17` | file `docs/verification/virial/NBODY_TRACE.md`: surface-pressure corrected 2K/|W|, upper end | PASS |
-| 718 | app:glossary:L719 | observed | `2.5\times10^{-18}` | numeric: weak-interaction range hbar/(M_W c), m | PASS |
-| 724 | app:glossary:L725 | observed | `0.593` | numeric: mean DA white dwarf mass (Kepler et al. 2007) | PASS |
+| 696 | app:glossary:L707 | observed | `4.63\times10^{113}` | numeric: Planck-cutoff vacuum energy density E_P^4/(hbar c)^3, J/m^3 | PASS |
+| 696 | app:glossary:L707:1e123 | observed | `10^{123}` | numeric: rho_vac over the measured dark-energy density | PASS |
+| 697 | app:glossary:L708 | observed | `0.1628` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
+| 703 | app:glossary:L714 | observed | `1.02` | file `docs/verification/scripts/verify_virial_papers_output.txt`: virial ratio with surface pressure, lower end (Klypin 2016) | PASS |
+| 703 | app:glossary:L714:1.1 | observed | `1.1` | file `docs/verification/virial/NBODY_TRACE.md`: lowest 2T/|U| of simulated halos within the virial radius | PASS |
+| 703 | app:glossary:L714:1.3 | observed | `1.3` | file `docs/verification/virial/NBODY_TRACE.md`: highest 2T/|U| of simulated halos within the virial radius | PASS |
+| 703 | app:glossary:L714:1.17 | observed | `1.17` | file `docs/verification/virial/NBODY_TRACE.md`: surface-pressure corrected 2K/|W|, upper end | PASS |
+| 708 | app:glossary:L719 | observed | `2.5\times10^{-18}` | numeric: weak-interaction range hbar/(M_W c), m | PASS |
+| 714 | app:glossary:L725 | observed | `0.593` | numeric: mean DA white dwarf mass (Kepler et al. 2007) | PASS |
+| 717 | app:glossary:L728 | measured | `0.045` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, untared, 54 y repeat arrays | PASS |
+| 717 | app:glossary:L728:0.044 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, untared, 30 y repeat arrays | PASS |
+| 718 | app:glossary:L729 | observed | `1.05` | file: LoCuSS M_WL/M_X = 1/beta_X | PASS |
+| 718 | app:glossary:L729:1.45 | observed | `1.45` | heavy numeric `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: WtG Planck-prior 1/(1-b) | PASS |
+| 718 | app:glossary:L729:1.28 | observed | `1.28` | heavy numeric `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: CCCP Planck-prior 1/(1-b) | PASS |
 | 724 | app:glossary:L735 | observed | `2.9\times10^{-6}` | numeric: electron Yukawa y_e = sqrt2 m_e/v | PASS |
 | 724 | app:glossary:L735:0.991 | observed | `0.991` | numeric: top Yukawa y_t = sqrt2 m_t/v | PASS |
-| 727 | app:glossary:L728 | measured | `0.045` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, untared, 54 y repeat arrays | PASS |
-| 727 | app:glossary:L728:0.044 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/t2_diag.csv`: within-person SD, untared, 30 y repeat arrays | PASS |
-| 728 | app:glossary:L729 | observed | `1.05` | file: LoCuSS M_WL/M_X = 1/beta_X | PASS |
-| 728 | app:glossary:L729:1.45 | observed | `1.45` | heavy numeric `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: WtG Planck-prior 1/(1-b) | PASS |
-| 728 | app:glossary:L729:1.28 | observed | `1.28` | heavy numeric `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: CCCP Planck-prior 1/(1-b) | PASS |
 | 728 |  | observed | `0.15` | not run: input: redshift bound z=0.15 of the published cluster sample split (Smith2016LoCuSS), a sample definition | - |
 | 728 |  | observed | `0.3` | not run: input: redshift bound z=0.3 of the published cluster sample split (Smith2016LoCuSS), a sample definition | - |
 

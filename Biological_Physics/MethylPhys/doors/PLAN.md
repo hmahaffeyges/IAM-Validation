@@ -85,3 +85,7 @@ None yet. A dataset moves here only when every test it serves is done.
 2,681 GB in total: 2,570 GB of downloaded data in 80 datasets (the register), plus results, atlas files and private archives.
 Largest: 580-species reads 1,321 GB; stool 312 GB; coho RRBS 227 GB; salmonid reads 162 GB. The bucket is on Intelligent-Tiering, so data
 nobody reads moves to cheaper storage on its own.
+
+## Records the book checks read
+
+- (2026-09-27: SATSA Stage 1 on AWS: 1,056 of 1,072 arrays calibrated, 0 errors, 16 with no IDAT pair; box reproduces the laptop exactly. **Call rate median 0.894; 738 of 1,056 below the 0.93 intake line**, worst on chip batch 9721 (853 arrays, 73 % below); call rate also falls with age decade (0.911 in the 50s to 0.878 in the 90s), so later draws are lower-quality input - the serial trajectories must carry intake status per draw and cannot treat a below-line draw as a reading. 286 people have >= 2 calibrated draws, 195 >= 3.)
