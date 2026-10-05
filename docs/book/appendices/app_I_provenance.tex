@@ -22,8 +22,6 @@ figures read the Cobaya chains through \texttt{\_chains.py} (30\,\% burn-in, wei
 \toprule Fig. & what it shows & script & data it reads\\\midrule\endfirsthead
 \toprule Fig. & what it shows & script & data it reads\\\midrule\endhead
 \bottomrule\endfoot
-\ref{fig:landauer_price} & The Landauer price $k_BT\ln2$ (line) and the six places of Table~\ref{tab:surfaces} on it: the price depends\ldots (Ch.~\ref{ch:surfaces}) & \href{https://github.com/hmahaffeyges/IAM-Validation/blob/main/docs/book/figscripts/fig_p1_surfaces.py\#L63-L102}{\texttt{fig\_\allowbreak{}p1\_\allowbreak{}surfaces.py}} (lines 63--102) & computed in the script\\
-\ref{fig:encoding_ladder} & The places of Table~\ref{tab:surfaces} by characteristic size and cost per bit $k_BT\ln2$. (Ch.~\ref{ch:surfaces}) & \href{https://github.com/hmahaffeyges/IAM-Validation/blob/main/docs/book/figscripts/fig_p1_surfaces.py\#L1-L62}{\texttt{fig\_\allowbreak{}p1\_\allowbreak{}surfaces.py}} (lines 1--62) & computed in the script\\
 \ref{fig:activation} & The activation function $E(a)=\exp(1-1/a)$ (Eq.~\eqref{eq:Ea}) and the record written per e-fold, $dE/d\ln a=E/a$, which peaks at\ldots (Ch.~\ref{ch:iams_law}) & \href{https://github.com/hmahaffeyges/IAM-Validation/blob/main/docs/book/figscripts/fig_p1_law.py\#L1-L43}{\texttt{fig\_\allowbreak{}p1\_\allowbreak{}law.py}} (lines 1--43) & computed in the script\\
 \ref{fig:law_derivations} & The local power $p=d\ln(dS_{\rm info}/d\ln a)/d\ln a$ for the rate law $\dot I\propto\rho_mD^nfH$ accumulated per unit\ldots (Ch.~\ref{ch:iams_law}) & \href{https://github.com/hmahaffeyges/IAM-Validation/blob/main/docs/book/figscripts/fig_p1_law_derivations.py\#L1-L64}{\texttt{fig\_\allowbreak{}p1\_\allowbreak{}law\_\allowbreak{}derivations.py}} (lines 1--64) & computed in the script\\
 \ref{fig:mahaffey_number} & The Mahaffey number $\mathcal M=E_{\rm drive}/k_BT$ for the systems this book evaluates. (Ch.~\ref{ch:iams_law}) & \href{https://github.com/hmahaffeyges/IAM-Validation/blob/main/docs/book/figscripts/fig_p1_law.py\#L44-L69}{\texttt{fig\_\allowbreak{}p1\_\allowbreak{}law.py}} (lines 44--69) & computed in the script\\
@@ -231,7 +229,7 @@ figures read the Cobaya chains through \texttt{\_chains.py} (30\,\% burn-in, wei
 \ref{fig:status_summary} & Status labels in the text of each Part, counted from the chapter sources: derived, calculated, measured\ldots (Ch.~\ref{ch:conclusion}) & \href{https://github.com/hmahaffeyges/IAM-Validation/blob/main/docs/book/figscripts/fig_p5_extra.py\#L378-L395}{\texttt{fig\_\allowbreak{}p5\_\allowbreak{}extra.py}} (lines 378--395) & files read by the script (4, shared by its 8 figures)\\
 \end{longtable}}
 
-166 of the 166 figures are drawn by a script in the repository.
+164 of the 164 figures are drawn by a script in the repository.
 
 \section{Tables of numbers}
 \subsection*{Part I: Introduction to IAM's Law and the Virial Theorem}
@@ -239,8 +237,6 @@ figures read the Cobaya chains through \texttt{\_chains.py} (30\,\% burn-in, wei
 \toprule Table & what it shows & where the numbers come from\\\midrule\endfirsthead
 \toprule Table & what it shows & where the numbers come from\\\midrule\endhead
 \bottomrule\endfoot
-\ref{tab:identity} & Floor breach at the two ends. (Ch.~\ref{ch:surfaces}) & \href{https://github.com/hmahaffeyges/IAM-Validation/blob/main/docs/verification/scripts/verify_encoding_ladder.py}{\texttt{verify\_\allowbreak{}encoding\_\allowbreak{}ladder.py}}\\
-\ref{tab:surfaces} & Places in IAM: the encoding surfaces treated in this book. (Ch.~\ref{ch:surfaces}) & \href{https://github.com/hmahaffeyges/IAM-Validation/blob/main/docs/verification/scripts/verify_encoding_ladder.py}{\texttt{verify\_\allowbreak{}encoding\_\allowbreak{}ladder.py}}\\
 Ch.~\ref{ch:iams_law}, unnumbered & in “$\mu(a)$ and $\Sigma(a)$ as ratios of Hubble rates” & records named in the chapter: \href{https://github.com/hmahaffeyges/IAM-Validation/blob/main/docs/verification/theory/IAM_LAW_CHECK.md}{\texttt{IAM\_\allowbreak{}LAW\_\allowbreak{}CHECK.md}}; \href{https://github.com/hmahaffeyges/IAM-Validation/blob/main/docs/verification/scripts/verify_iams_law_derivations.py}{\texttt{verify\_\allowbreak{}iams\_\allowbreak{}law\_\allowbreak{}derivations.py}}; and 2 more\\
 \ref{tab:law_consistency} & Quantitative consistency checks. (Ch.~\ref{ch:iams_law}) & published values: \cite{Riess2022}\\
 \ref{tab:law_established} & Established results used by IAM's Law and their role in it. (Ch.~\ref{ch:iams_law}) & published values: \cite{Bekenstein1973,Hawking1975,Landauer1961,Berut2012,Jun2014,Jacobson1995,CaiKim2005,Smarr1973,BardeenCarterHawking1973,Weinberg1989,Clausius1870,FeinbergVogelstein1983,Koide1982,Koide1983,Koide1983b,PogosianSilvestri2008}\\
