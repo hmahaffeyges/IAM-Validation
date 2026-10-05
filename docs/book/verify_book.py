@@ -40753,6 +40753,123 @@ def check_4774():
     return locals()
 
 
+# ======== Part 8 | app:saturation | docs/book/appendices/app_S_saturation.tex
+@check(label='app:saturation:L43', chapter='app:saturation', part=8, title='one bit per 4 ln2 l_P^2, in Planck areas',
+       file='appendices/app_S_saturation', line=43, status='derived', kind='num', printed='2.77', tol=0)
+def check_sat_01():
+    'Minimum horizon area per bit, 4 ln 2 l_P^2, in units of l_P^2 (one nat per 4 l_P^2, Eq. eq:law_dAmin). Book line 43, printed 2.77.'
+    value = 4 * LN2
+    return locals()
+
+@check(label='eq:sat_eta', chapter='app:saturation', part=8, title='1/4 = 2 pi / 8 pi and eta = c^3/(4 hbar G) = 1/(4 l_P^2)',
+       file='appendices/app_S_saturation', line=45, status='derived', kind='sym', printed='', tol=0)
+def check_sat_02():
+    'Eq. eq:sat_eta: solving hbar eta/(2 pi) = c^3/(8 pi G) for eta gives c^3/(4 hbar G) = 1/(4 l_P^2), and the 1/4 is 2 pi/8 pi. Book line 45.'
+    hb, Gs, cs = sp.symbols('hbar G c', positive=True)
+    eta = sp.solve(sp.Eq(hb * sp.Symbol('eta') / (2 * sp.pi), cs**3 / (8 * sp.pi * Gs)), sp.Symbol('eta'))[0]
+    lP2 = hb * Gs / cs**3
+    ok = sp.simplify(eta - 1 / (4 * lP2)) == 0 and sp.simplify(2 * sp.pi / (8 * sp.pi) - sp.Rational(1, 4)) == 0
+    neg_ok = sp.simplify(eta - sp.Rational(105, 100) / (4 * lP2)) == 0
+    return locals()
+
+@check(label='app:saturation:L117', chapter='app:saturation', part=8, title='beta_m = Omega_m/2 with Omega_m = 0.3153',
+       file='appendices/app_S_saturation', line=117, status='prediction', kind='num', printed='0.15765', tol=0)
+def check_sat_03():
+    'beta_m = Omega_m/2 (Eq. eq:sat_beta, as eq:law_beta), Omega_m = 0.3153 from Planck 2018. Book line 117, printed 0.15765.'
+    value = Om / 2
+    return locals()
+
+@check(label='app:saturation:L120', chapter='app:saturation', part=8, title='Planck posterior vs fixed beta_m sigma',
+       file='appendices/app_S_saturation', line=120, status='measured', kind='num', printed='0.2', tol=0.25, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       heavy=True, rerun=_B04_CHAINS_RERUN)
+def check_sat_04():
+    'Level 2 Run A posterior Omega_m/2 against the fixed beta_m, in units of the posterior error of Omega_m/2 (as ch:sectortension:L21). Book line 120, printed 0.2.'
+    p = 'Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'; om = csv_val(p, 'iam_level2_runA', 'omegam'); sd = csv_val(p, 'iam_level2_runA', 'omegam_sd'); value = (om / 2 - beta_m) / (sd / 2)
+    return locals()
+
+@check(label='eq:sat_ebit', chapter='app:saturation', part=8, title='k_B T ln2 at T_body = 310.15 K',
+       file='appendices/app_S_saturation', line=142, status='calc', kind='num', printed='2.97\\times10^{-21}', tol=0)
+def check_sat_05():
+    'Landauer cost per bit at body temperature, k_B T_cell ln 2 (Eq. eq:sat_ebit; k_B and T_cell from CANON). Book line 142, printed 2.97e-21 J.'
+    value = kB * T_cell * LN2
+    return locals()
+
+@check(label='app:saturation:L146', chapter='app:saturation', part=8, title='CpG sites of the hg19 index',
+       file='appendices/app_S_saturation', line=146, status='calc', kind='file', printed='28{,}217{,}448', tol=0.0,
+       source='Biological_Physics/MethylPhys/atlas/v2/README.md')
+def check_sat_06():
+    'Number of CpG sites in the record, read as the size of the wgbstools hg19 CpG index in the atlas v2 build notes. Book line 146, printed 28,217,448.'
+    m = re.search(r'hg19 CpG index \(([\d,]+) sites\)', file_text('Biological_Physics/MethylPhys/atlas/v2/README.md'))
+    value = float(m.group(1).replace(',', ''))
+    return locals()
+
+def _sat_bh(Ms=1.0):
+    """One solar-mass Schwarzschild hole: (T_BH in K, S_BH/k_B in nats). CODATA G, hbar, c; IAU solar mass."""
+    M = Ms * Msun
+    return hbar * c**3 / (8 * math.pi * G * M * kB), 4 * math.pi * G * M**2 / (hbar * c)
+
+@check(label='app:saturation:L169', chapter='app:saturation', part=8, title='T_body / T_BH, 1 M_sun',
+       file='appendices/app_S_saturation', line=169, status='calc', kind='num', printed='5.0\\times10^{9}', tol=0)
+def check_sat_13():
+    'Ratio of the temperatures at the two ends: T_cell (CANON) over the Hawking temperature of one solar mass. Book line 169, printed 5.0e9.'
+    value = T_cell / _sat_bh()[0]
+    return locals()
+
+@check(label='app:saturation:L169:5.4\\times10^{69}', chapter='app:saturation', part=8, title='N_BH / N_CpG, 1 M_sun',
+       file='appendices/app_S_saturation', line=169, status='calc', kind='num', printed='5.4\\times10^{69}', tol=0,
+       source='Biological_Physics/MethylPhys/atlas/v2/README.md')
+def check_sat_14():
+    'Ratio of the bit counts: horizon bits S_BH/(k_B ln 2) of one solar mass over the CpG sites of the hg19 index read from the atlas v2 build notes. Book line 169, printed 5.4e69.'
+    m = re.search(r'hg19 CpG index \(([\d,]+) sites\)', file_text('Biological_Physics/MethylPhys/atlas/v2/README.md'))
+    value = (_sat_bh()[1] / LN2) / float(m.group(1).replace(',', ''))
+    return locals()
+
+@check(label='app:saturation:L177', chapter='app:saturation', part=8, title='T_BH, 1 M_sun',
+       file='appendices/app_S_saturation', line=177, status='calc', kind='num', printed='6.17\\times10^{-8}', tol=0)
+def check_sat_07():
+    'Hawking temperature of one solar mass, hbar c^3/(8 pi G M k_B) (Table tab:sat:identity). Book line 177, printed 6.17e-8 K.'
+    value = _sat_bh()[0]
+    return locals()
+
+@check(label='app:saturation:L178', chapter='app:saturation', part=8, title='A/4 l_P^2 of one solar mass, nats',
+       file='appendices/app_S_saturation', line=178, status='calc', kind='num', printed='1.05\\times10^{77}', tol=0)
+def check_sat_08():
+    'Bekenstein-Hawking capacity A/(4 l_P^2) of one solar mass with A = 16 pi G^2 M^2/c^4 (nats), computed from the area. Book line 178, printed 1.05e77.'
+    A = 16 * math.pi * G**2 * Msun**2 / c**4
+    value = A / (4 * lP**2)
+    return locals()
+
+@check(label='app:saturation:L178:1.51\\times10^{77}', chapter='app:saturation', part=8, title='bits, 1 M_sun',
+       file='appendices/app_S_saturation', line=178, status='calc', kind='num', printed='1.51\\times10^{77}', tol=0)
+def check_sat_09():
+    'Horizon bits of one solar mass, S_BH/(k_B ln 2). Book line 178, printed 1.51e77.'
+    value = _sat_bh()[1] / LN2
+    return locals()
+
+@check(label='app:saturation:L178:2.82\\times10^{7}', chapter='app:saturation', part=8, title='CpG sites of the hg19 index, rounded',
+       file='appendices/app_S_saturation', line=178, status='calc', kind='file', printed='2.82\\times10^{7}', tol=0.0,
+       source='Biological_Physics/MethylPhys/atlas/v2/README.md')
+def check_sat_10():
+    'N, the CpG sites of the hg19 index read from the atlas v2 build notes (28,217,448). Book line 178, printed 2.82e7.'
+    m = re.search(r'hg19 CpG index \(([\d,]+) sites\)', file_text('Biological_Physics/MethylPhys/atlas/v2/README.md'))
+    value = float(m.group(1).replace(',', ''))
+    return locals()
+
+@check(label='app:saturation:L179', chapter='app:saturation', part=8, title='k_B T_BH ln2, 1 M_sun',
+       file='appendices/app_S_saturation', line=179, status='calc', kind='num', printed='5.90\\times10^{-31}', tol=0)
+def check_sat_11():
+    'Landauer cost per bit at the Hawking temperature of one solar mass. Book line 179, printed 5.90e-31 J.'
+    value = kB * _sat_bh()[0] * LN2
+    return locals()
+
+@check(label='app:saturation:L179:2.97\\times10^{-21}', chapter='app:saturation', part=8, title='k_B T_body ln2 in the table',
+       file='appendices/app_S_saturation', line=179, status='calc', kind='num', printed='2.97\\times10^{-21}', tol=0)
+def check_sat_12():
+    'Same value as eq:sat_ebit (k_B T_cell ln 2), restated in Table tab:sat:identity. Book line 179, printed 2.97e-21 J.'
+    value = kB * T_cell * LN2
+    return locals()
+
+
 # ======== Part 8 | app:glossary | docs/book/appendices/app_F_glossary.tex
 @check(label='app:glossary:L18:0.067', title='6dFGS f sigma8 redshift', line=18, status='observed', kind='file', printed='0.067', tol=0.0,
        source=_B17_ST, heavy=True, rerun=_B00_STENSION_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
@@ -43262,7 +43379,7 @@ def check_5040():
 
 
 # ---------------------------------------------------------------- items inventoried and not run: (part, chapter, file, line, label, status, printed, why)
-CHAPTER_ORDER = ['front/p0_abstract', 'front/p0_preface', 'front/p0_giants', 'front/p0_how_to_read', 'part1/p1_01_encoding_surfaces', 'part1/p1_02_iams_law', 'part1/p1_03_virial_law', 'part1/p1_04_virial_identity', 'part2/p2_02_virial', 'part2/p2_02b_virial_tests', 'part2/p2_03_theory', 'part2/p2_03a_entropic_gravity', 'part2/p2_04_dualsector_chains', 'part2/p2_07_late_time_growth', 'part2/p2_06_dual_sector_perturbation', 'part2/p2_05_dual_sector_note', 'part2/p2_08_s8_trend', 'part2/p2_09_sector_tension', 'part2/p2_09b_phantom_crossing', 'part2/p2_10_dual_sector_validation', 'part2/p2_11_dark_energy', 'part2/p2_20_wz_far_future', 'part2/p2_12_lambda', 'part2/p2_12b_lambda_history', 'part2/p2_13_baryon', 'part2/p2_13b_baryon_chain', 'part2/p2_16_survey_predictions', 'part2/p2_17_lensing_dynamics', 'part2/p2_18_three_way_clusters', 'part2/p2_19_missing_satellites', 'part3/p3_01_blackholes', 'part3/p3_01a_bekenstein', 'part3/p3_01b_bh_information', 'part3/p3_07_saturation', 'part4/p4_14_quantum_records', 'part4/p4_21_entanglement_records', 'part4/p4_04_measurement', 'part4/p4_05_gravdec', 'part4/p4_06_nonlocality', 'part4/p4_22_electroweak', 'part4/p4_22b_higgs_record', 'part4/p4_15a_lepton_koide', 'part4/p4_15b_electron_mass', 'part5/p5_01_sc_primer', 'part5/p5_02_xqp', 'part5/p5_03_a_for_processors', 'part5/p5_04_thermal_n', 'part5/p5_05_coherence_optimum', 'part5/p5_10_qubit_platforms', 'part5/p5_06_cmos', 'part5/p5_11_chip_generations', 'part6/p6_01_bridge', 'part6/p6_00b_astrogenetics', 'part6/p6_02_landauer', 'part6/p6_03_surface', 'part6/p6_04_ledgers', 'part6/p6_05_floorbreach', 'part6/p6_06_gauge', 'part6/p6_07_meta', 'part6/p6_08_iama', 'part6/p6_09_cscore', 'part6/p6_10_temperature', 'part6/p6_11_translation', 'part6/p6_12_instrument', 'part6/p6_13_separation', 'part6/p6_14_atlas', 'part6/p6_15_identity', 'part6/p6_16a_skytools', 'part6/p6_16_sky', 'part6/p6_17_serial', 'part6/p6_18_discipline', 'part6/p6_19_chain', 'part6/p6_20_report', 'part6/p6_22_leukocyte', 'part6/p6_23_reach', 'part6/p6_24_status', 'part7/p7_01_interpretation', 'part7/p7_03_time', 'part7/p7_05b_virial_partners', 'part7/p7_05c_virial_decoherence', 'part7/p7_08_one_gauge', 'part7/p7_08_synthesis', 'part7/p7_09_reach', 'part7/p7_07_predictions', 'part7/p7_09_open', 'part7/p7_02_exploratory', 'part7/p7_11_status_all', 'part7/p7_10_conclusion', 'appendices/app_A_canon', 'appendices/app_A2_frozen_values', 'appendices/app_N_notation', 'appendices/app_E_formulas', 'appendices/app_C3_derivations', 'appendices/app_F_glossary', 'appendices/app_C_reproduce_physics', 'appendices/app_C2_reproduce_cells', 'appendices/app_G_predictions_register', 'appendices/app_I_provenance']
+CHAPTER_ORDER = ['front/p0_abstract', 'front/p0_preface', 'front/p0_giants', 'front/p0_how_to_read', 'part1/p1_01_encoding_surfaces', 'part1/p1_02_iams_law', 'part1/p1_03_virial_law', 'part1/p1_04_virial_identity', 'part2/p2_02_virial', 'part2/p2_02b_virial_tests', 'part2/p2_03_theory', 'part2/p2_03a_entropic_gravity', 'part2/p2_04_dualsector_chains', 'part2/p2_07_late_time_growth', 'part2/p2_06_dual_sector_perturbation', 'part2/p2_05_dual_sector_note', 'part2/p2_08_s8_trend', 'part2/p2_09_sector_tension', 'part2/p2_09b_phantom_crossing', 'part2/p2_10_dual_sector_validation', 'part2/p2_11_dark_energy', 'part2/p2_20_wz_far_future', 'part2/p2_12_lambda', 'part2/p2_12b_lambda_history', 'part2/p2_13_baryon', 'part2/p2_13b_baryon_chain', 'part2/p2_16_survey_predictions', 'part2/p2_17_lensing_dynamics', 'part2/p2_18_three_way_clusters', 'part2/p2_19_missing_satellites', 'part3/p3_01_blackholes', 'part3/p3_01a_bekenstein', 'part3/p3_01b_bh_information', 'part3/p3_07_saturation', 'part4/p4_14_quantum_records', 'part4/p4_21_entanglement_records', 'part4/p4_04_measurement', 'part4/p4_05_gravdec', 'part4/p4_06_nonlocality', 'part4/p4_22_electroweak', 'part4/p4_22b_higgs_record', 'part4/p4_15a_lepton_koide', 'part4/p4_15b_electron_mass', 'part5/p5_01_sc_primer', 'part5/p5_02_xqp', 'part5/p5_03_a_for_processors', 'part5/p5_04_thermal_n', 'part5/p5_05_coherence_optimum', 'part5/p5_10_qubit_platforms', 'part5/p5_06_cmos', 'part5/p5_11_chip_generations', 'part6/p6_01_bridge', 'part6/p6_00b_astrogenetics', 'part6/p6_02_landauer', 'part6/p6_03_surface', 'part6/p6_04_ledgers', 'part6/p6_05_floorbreach', 'part6/p6_06_gauge', 'part6/p6_07_meta', 'part6/p6_08_iama', 'part6/p6_09_cscore', 'part6/p6_10_temperature', 'part6/p6_11_translation', 'part6/p6_12_instrument', 'part6/p6_13_separation', 'part6/p6_14_atlas', 'part6/p6_15_identity', 'part6/p6_16a_skytools', 'part6/p6_16_sky', 'part6/p6_17_serial', 'part6/p6_18_discipline', 'part6/p6_19_chain', 'part6/p6_20_report', 'part6/p6_22_leukocyte', 'part6/p6_23_reach', 'part6/p6_24_status', 'part7/p7_01_interpretation', 'part7/p7_03_time', 'part7/p7_05b_virial_partners', 'part7/p7_05c_virial_decoherence', 'part7/p7_08_one_gauge', 'part7/p7_08_synthesis', 'part7/p7_09_reach', 'part7/p7_07_predictions', 'part7/p7_09_open', 'part7/p7_02_exploratory', 'part7/p7_11_status_all', 'part7/p7_10_conclusion', 'appendices/app_A_canon', 'appendices/app_A2_frozen_values', 'appendices/app_N_notation', 'appendices/app_E_formulas', 'appendices/app_C3_derivations', 'appendices/app_S_saturation', 'appendices/app_F_glossary', 'appendices/app_C_reproduce_physics', 'appendices/app_C2_reproduce_cells', 'appendices/app_G_predictions_register', 'appendices/app_I_provenance']
 INVENTORY = [
     (0, 'ch:p0_preface', 'front/p0_preface', 53, '', 'none', '72.26', 'H0_matter canon locked result, input'),
     (0, 'ch:p0_preface', 'front/p0_preface', 54, '', 'none', '67.16', 'H0_photon canon locked result, input'),
@@ -44337,6 +44454,10 @@ INVENTORY = [
     (8, 'app:derivations', 'appendices/app_C3_derivations', 346, '', 'derived', '11', 'not a number: ket label |11> of the Bell state'),
     (8, 'app:derivations', 'appendices/app_C3_derivations', 349, '', 'derived', '0.7', 'input: dephasing value c = 0.7 at which the Bell bound is checked numerically'),
     (8, 'app:derivations', 'appendices/app_C3_derivations', 349, '', 'derived', '0.2', 'input: dephasing value c = 0.2 at which the Bell bound is checked numerically'),
+    (8, 'app:saturation', 'appendices/app_S_saturation', 76, '', 'derived', '310.15', 'input: T_cell (CANON), body temperature'),
+    (8, 'app:saturation', 'appendices/app_S_saturation', 117, 'eq:sat_beta', 'prediction', '0.3153', 'input: Planck 2018 Omega_m (Aghanim et al. 2020)'),
+    (8, 'app:saturation', 'appendices/app_S_saturation', 140, '', 'calc', '310.15', 'input: T_cell (CANON), body temperature'),
+    (8, 'app:saturation', 'appendices/app_S_saturation', 177, '', 'calc', '310.15', 'input: T_cell (CANON), body temperature'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 26, '', 'observed', '0.05', 'definition: identity-site rule, across-array SD at most 0.05 (canon Met_A_site_rule)'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 48, '', 'observed', '9950', 'not a number: part of the processor name (Ryzen 9 9950X)'),
     (8, 'app:glossary', 'appendices/app_F_glossary', 48, '', 'observed', '20', 'input: transistor count (20.0-20.6) x 10^9 from die-level reports (no maker figure); the readings it gives are checked at app:glossary:L48:576 and L48:593'),

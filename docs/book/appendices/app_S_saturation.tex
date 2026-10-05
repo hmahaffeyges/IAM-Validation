@@ -1,0 +1,184 @@
+% Appendix S: the six-step derivation, from the horizon to the cell (task brief docs/tasks/SATURATION_APPENDIX.md, part 2).
+% Working title "Saturation: one cost from the horizon to the cell". THE AUTHOR PICKS THE FINAL TITLE.
+% Steps 1-5 carry the author's own text (docs/tasks/sources/saturation_steps_1_to_5.txt, from his derivation paper, 2026-10-05) near word for
+% word, with the book's equations and macros. Changes from the source, each to agree with the book as it stands: one nat (not one bit) per
+% 4 l_P^2 (PAPER_ERRATA T9; eq:law_dAmin); "floor" at the black hole read as the ceiling (brief: the horizon is the ceiling, H_min is the floor);
+% the CpG count is the hg19 index the book uses (Ch. ch:landauer), not the source's 19.6e6; "37 orders of magnitude" for the parameters replaced
+% by the computed ratios (Ch. ch:bridge uses 37 orders for the span of length); the modified Friedmann equation written for the matter sector
+% (eq:Hm), with the background unchanged; E(a) named the activation function, as in the book. The source's empirical-confirmation section
+% (pre-chain results) is left out. Step 6 is written new from chain v3 (Biological_Physics/MethylPhys/chain, sop/MethylPhys_CPG_SOP_v3.md)
+% and the Part VI chapters. The Hawking temperature is written T_BH, as in Ch. ch:blackholes, because T_H is the cosmic horizon in Step 5.
+% Every number is checked in docs/book/verify_book.py (labels app:saturation:L<line>).
+\chapter{Saturation: one cost from the horizon to the cell}\label{app:saturation}
+
+A system reaches the limit of what it can maintain when its rate of irreversible information production saturates the capacity of its
+nearest encoding surface. At stellar scale this is the black hole. At cell scale it is the cell's record leaving its maintained state.
+
+This appendix sets out the chain that joins the two, in six steps. Four are established physics: Bekenstein, Hawking, Landauer and Jacobson. The
+fifth is IAM's one new identification. The sixth carries the same cost to the cell. Each step names the chapter that develops it, and every
+equation carries its status label. The chain is about encoding surfaces and what they can hold. It does not change the cosmic background: in IAM
+the background expansion is the standard one, and the record term enters the matter sector only (Chapter~\ref{ch:iams_law},
+Section~\ref{sec:law_caikim}). The terms used here (encoding surface, floor, full surface, Met-A, IAM-A) are in the glossary,
+Appendix~\ref{app:glossary}.
+
+\section{The floor and the ceiling}\label{app:sat:ends}
+Every surface in this appendix has two ends, and they are kept apart throughout.
+\begin{itemize}
+\item \textbf{The floor} is $\Hmin$, the minimum entropy a healthy maintained record holds. It is measured on purified healthy cells
+      (Step~6, Section~\ref{app:sat:step6}). A horizon has no floor.
+\item \textbf{The ceiling} is the surface saturated at its full capacity. The black hole is this end: a horizon written to the
+      Bekenstein--Hawking bound. A collapsing star approaches its ceiling. For the cell the ceiling is the full disorder of its record, every
+      site at a coin flip (Chapter~\ref{ch:surface}, Section~``A capacity, and a ceiling'').
+\end{itemize}
+
+\section{Step 1 --- Bekenstein (1973): horizon entropy}\label{app:sat:step1}
+Bekenstein showed that a black hole of horizon area $A$ carries entropy proportional to that area~\cite{Bekenstein1973}. The
+Bekenstein--Hawking entropy is
+\begin{equation}
+S_{\rm BH}=\frac{\kB A}{4\lP^2},\qquad \lP=\sqrt{\frac{\hbar G}{c^3}}, \label{eq:sat_SBH}
+\end{equation}
+where $\lP$ is the Planck length. \derived{} (established physics; Chapter~\ref{ch:blackholes}, Section~\ref{sec:bh_thermo})
+
+The minimum encoding area is $4\lP^2$. The horizon holds one unit of entropy, one nat, per four Planck areas, and one bit per
+$4\ln2\,\lP^2=2.77\,\lP^2$ (Eq.~\eqref{eq:law_dAmin}). This is not a coincidence: the coefficient $1/4$ is derived from the ratio
+\begin{equation}
+\eta=\frac{1}{4\lP^2},\qquad \frac14=\frac{2\pi}{8\pi}, \label{eq:sat_eta}
+\end{equation}
+where $2\pi$ is the Euclidean Rindler cone angle and $8\pi$ is the Einstein equation normalization. \derived{} (Chapter~\ref{ch:bekenstein},
+Eq.~\eqref{eq:bk_eta}) The encoding surface has a definite capacity. When that capacity is saturated, the stellar system has reached its
+ceiling.
+
+\section{Step 2 --- Hawking (1975): the encoding surface has a temperature}\label{app:sat:step2}
+Hawking showed that black holes radiate thermally~\cite{Hawking1975}, at the Hawking temperature of a black hole of mass $M$:
+\begin{equation}
+T_{\rm BH}=\frac{\hbar c^3}{8\pi GM\kB}. \label{eq:sat_TBH}
+\end{equation}
+\derived{} (established physics; Chapter~\ref{ch:blackholes}, Eq.~\eqref{eq:bh_Tuniv} with $\kappa=c^4/4GM$)
+
+This is the temperature at which the encoding surface operates. Landauer's principle now applies: each irreversible bit written to this surface
+costs $\kB T_{\rm BH}\ln2$ in free energy. The encoding surface is not passive storage. It is an active thermodynamic boundary with a cost per
+operation.
+
+\section{Step 3 --- Landauer (1961): the cost per bit is universal}\label{app:sat:step3}
+Landauer's principle states that the irreversible erasure of one bit of information in a physical system at temperature $T$ dissipates a minimum
+energy~\cite{Landauer1961}
+\begin{equation}
+E_{\rm bit}=\kB T\ln2 . \label{eq:sat_Ebit}
+\end{equation}
+\derived{} The bound has been approached in experiment~\cite{Berut2012}. \observed{} (Chapter~\ref{ch:iams_law}, Eq.~\eqref{eq:law_landauer};
+Chapter~\ref{ch:bridge}, Eq.~\eqref{eq:landauer})
+
+This is scale-independent. $T$ is the local temperature of the encoding surface. $N$ is the number of bits being written. The total Landauer cost
+is $N$ times $E_{\rm bit}$:
+\begin{equation}
+E_N=N\kB T\ln2 . \label{eq:sat_EN}
+\end{equation}
+\derived{} At the black-hole horizon: $T=T_{\rm BH}$, $N=\delta A/(4\ln2\,\lP^2)$. At the cell nucleus: $T=\Tb=310.15$\,K, $N$ the CpG sites of
+the record (Step~6). The equation is the same. The parameters differ by many orders of magnitude (Table~\ref{tab:sat:identity}).
+
+\section{Step 4 --- Jacobson (1995): gravity is the thermodynamics of encoding surfaces}\label{app:sat:step4}
+Jacobson's 1995 result is the pivot of the entire chain~\cite{Jacobson1995}. He showed that Einstein's field equations are not a fundamental
+law: they are the thermodynamic equation of state for spacetime, derivable from the Clausius relation applied to local Rindler horizons,
+\begin{equation}
+\delta Q=T\,\delta S\quad\Longrightarrow\quad
+R_{ab}-\tfrac12Rg_{ab}+\Lambda g_{ab}=\frac{2\pi}{\hbar c\,\eta}T_{ab}\equiv\frac{8\pi G}{c^4}T_{ab},\qquad G=\frac{c^3}{4\hbar\eta}. \label{eq:sat_jacobson}
+\end{equation}
+\derived{} given $\delta Q=T\,\delta S$ on every local causal horizon (Assumption~1, Section~\ref{sec:assumptions}). The derivation step by step is in
+Chapter~\ref{ch:iams_law}, Eq.~\eqref{eq:law_jacobson}, Chapter~\ref{ch:bekenstein}, Section~\ref{sec:bk_jacobson}, and
+Appendix~\ref{app:derivations}, Section~\ref{app:der:jacobson}.
+
+The entropy functional $S$ determines the theory of gravity. Jacobson used $S_{\rm geo}=\kB\eta A$ alone, with $\eta=1/(4\lP^2)$. The result is
+general relativity.
+
+This means gravity is not a force that exists alongside thermodynamics. Gravity is the thermodynamic response of spacetime to information being
+written to encoding surfaces. The encoding surface is not a consequence of gravity. Gravity is a consequence of the encoding surface. \interp
+
+\section{Step 5 --- IAM: adding $S_{\rm info}$ to the entropy functional}\label{app:sat:step5}
+The single new physical identification in IAM: decoherence-produced classical information contributes to horizon entropy. The total entropy
+functional becomes
+\begin{equation}
+S_{\rm total}=S_{\rm geo}+S_{\rm info}, \label{eq:sat_Stotal}
+\end{equation}
+where $S_{\rm info}$ is the accumulated Landauer cost of every irreversible quantum-to-classical transition in the bulk since the electroweak
+transition. \conjecture{} (the one new identification; Chapter~\ref{ch:iams_law}, Eq.~\eqref{eq:law_Stotal})
+
+Applying the Cai--Kim extension of the Jacobson mechanism~\cite{CaiKim2005} to the FRW apparent horizon with this extended entropy functional
+yields the modified Friedmann equation of the matter sector:
+\begin{equation}
+H_m^2=\frac{8\pi G}{3}\rho_m+\frac\Lambda3+\beta_mE(a)H_0^2 , \label{eq:sat_Hm}
+\end{equation}
+\derived{} given Assumptions~1 and~2 (Chapter~\ref{ch:iams_law}, Section~\ref{sec:law_caikim}, Eq.~\eqref{eq:Hm}). The term enters the
+matter perturbations only; the background expansion and every photon-sector observable are unchanged. That placement is the sector rule
+of Chapter~\ref{ch:iams_law} (Section~\ref{sec:law_dualsector}). \conjecture
+
+Here $E(a)=\exp(1-1/a)$ is the activation function, from the record constraint integrated over cosmic time (Eq.~\eqref{eq:Ea}).
+\derived{} given the record constraint. The coupling is the virial share of the matter density,
+\begin{equation}
+\beta_m=\frac{\Omega_m}{2}=0.15765\quad(\Omega_m=0.3153), \label{eq:sat_beta}
+\end{equation}
+\prediction{} (Eq.~\eqref{eq:law_beta}) with zero free parameters; it is fixed before any chain runs, and the Planck~2018 Level~2 chain
+posterior is consistent with it at $0.2\sigma$ (Chapter~\ref{ch:dual}). \measured{} $\Lambda$ is the cosmological constant, which IAM reads as
+the vacuum baseline of irreversible records (Chapter~\ref{ch:lambda}). \conjecture
+
+Black holes in IAM are mandatory local encoding surfaces: when the local decoherence rate of a collapsing stellar system saturates the
+Bekenstein--Hawking bound at the local horizon, the system reaches its ceiling. It can no longer pay the cost of remaining a star.
+
+\begin{keybox}[title=Black hole: the saturation condition (stellar scale)]
+A star reaches its ceiling when
+\begin{equation}
+\frac{dS_{\rm local}}{dt}\ \ge\ \frac{dS_{\rm BH}}{dt}. \label{eq:sat_star}
+\end{equation}
+The local decoherence rate saturates the Bekenstein--Hawking encoding capacity. The system can no longer maintain its thermodynamic identity as
+a star. The encoding surface absorbs what the stellar system can no longer maintain. $T=T_{\rm BH}$; $N=A_{\rm horizon}/(4\ln2\,\lP^2)$ bits.
+\conjecture{} (Chapter~\ref{ch:blackholes}, Section~\ref{sec:bh_formation}, Eq.~\eqref{eq:bh_saturation}; at the Schwarzschild radius the
+bound is met exactly, Eq.~\eqref{eq:bh_hoop})
+\end{keybox}
+
+\section{Step 6 --- The cell: the methylation record}\label{app:sat:step6}
+At cell scale the encoding surface is the methylation record: the pattern of methylated and unmethylated CpG sites the cell writes on its
+chromatin and copies at every division (Chapter~\ref{ch:surface}). Each site is a binary record with a capacity of one bit
+(Eq.~\eqref{eq:H}). The surface operates at body temperature, $\Tb=310.15$\,K, and the cost per bit is
+\begin{equation}
+E_{\rm bit}=\kB\Tb\ln2=2.97\times10^{-21}\ {\rm J}. \label{eq:sat_ebit}
+\end{equation}
+\calc{} (Chapter~\ref{ch:landauer}, Eq.~\eqref{eq:ebit})
+
+$N$ is the number of CpG sites in the record. Counting every CpG of the hg19 CpG index the book uses gives $N=28{,}217{,}448$
+(Chapter~\ref{ch:landauer}, Eq.~\eqref{eq:efloor}). \calc{} The cost of the whole record is Eq.~\eqref{eq:sat_EN} at $T=\Tb$: the same
+equation as at the horizon.
+
+\paragraph{The floor.} The floor is $\Hmin$, the minimum entropy a healthy maintained record holds. It is measured on purified healthy cells,
+through chain v3, with nothing fitted (Chapter~\ref{ch:chain}). On single molecules its form is the two-state Boltzmann floor of the copy
+error, $\Hmin=H(\varepsilon_0)$, with its height from the holding energy measured on healthy molecules (Chapter~\ref{ch:iama},
+Eq.~\eqref{eq:eps0}). \derived{} for the form, \measured{} for the height.
+
+\paragraph{The reading.} Met-A on arrays (Chapter~\ref{ch:meta}) and IAM-A on single-molecule sequencing (Chapter~\ref{ch:iama}) read how far a
+cell's record sits above that floor. Each reads the cell against purified healthy cells of the same type, on the same instrument, so that a
+healthy cell reads 1 on the one gauge of Chapter~\ref{ch:gauge}. \calibrated{} (the Met-A reference) \measured{} (the IAM-A position)
+
+\paragraph{The ceiling.} The ceiling is the full disorder of the record: every site at $\beta=\tfrac12$, one bit each, the full surface of
+Chapter~\ref{ch:floorbreach}. \derived{} The cell approaches it through a loss of maintained fidelity, not through a shortage of energy
+(Chapter~\ref{ch:landauer}).
+
+\paragraph{The identification.} The cell's approach to its ceiling is identified with the black hole's approach to its ceiling: the same
+cost per bit, the same notion of a surface written to capacity, at a different temperature and a different number of bits. \conjecture
+
+\section{The structural identity}\label{app:sat:identity}
+Table~\ref{tab:sat:identity} sets the two ends of the chain side by side.
+The same equation, $N\kB T\ln2$, stands at both ends. $T$ and $N$ differ by many orders of magnitude: the temperatures by a factor of
+$5.0\times10^{9}$ and the bit counts by $5.4\times10^{69}$. \calc
+
+\begin{table}[htbp]\centering\small
+\caption{Black hole (one solar mass) against cell (hg19 CpG index). \calc{} for the numbers; the identification of the two ceilings is
+\conjecture.}\label{tab:sat:identity}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.2\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}\toprule
+ & black hole & cell \\\midrule
+encoding surface & the horizon & the methylation record (CpG sites on chromatin) \\\rowrule
+temperature & $T_{\rm BH}=\hbar c^3/8\pi GM\kB\approx6.17\times10^{-8}$\,K & $\Tb=310.15$\,K \\\rowrule
+bit count & $A/4\lP^2\approx1.05\times10^{77}$ nats, $1.51\times10^{77}$ bits & $N$ sites, $2.82\times10^{7}$ \\\rowrule
+cost per bit & $\kB T_{\rm BH}\ln2\approx5.90\times10^{-31}$\,J & $\kB\Tb\ln2=2.97\times10^{-21}$\,J \\\rowrule
+floor & none & $\Hmin$, measured on purified healthy cells \\\rowrule
+ceiling & horizon saturation, $S=S_{\rm BH}$ & full disorder of the record, every site at $\beta=\tfrac12$ \\\rowrule
+what is read & the horizon & Met-A (arrays), IAM-A (single molecules) \\\bottomrule
+\end{tabularx}
+\end{table}
