@@ -1,7 +1,8 @@
 # Which blood cells can get their own healthy reference (2026-10-05)
 
 Source: the atlas v2 roster (`atlas/sources/roster_v2/atlas_v2_roster.csv`, all sources) and GEO GSE186458 sample titles (Loyfer 2023,
-which ships .beta and read-level .pat files for every sample, hg19 and hg38). Loyfer counts are WGBS samples; array counts are the rest.
+which ships .beta and read-level .pat files for every sample, hg19 and hg38; verified from the GEO supplementary file names:
+506 `.pat.gz` with 506 `.pat.gz.csi` indexes, e.g. `GSM5652313_Blood-Granulocytes-Z000000TZ.pat.gz` and `...hg38.pat.gz`). Loyfer counts are WGBS samples; array counts are the rest.
 
 | cell | atlas v2 samples (all sources) | Loyfer WGBS samples (read level) | array references | notes |
 |---|---|---|---|---|
