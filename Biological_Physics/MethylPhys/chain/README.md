@@ -16,7 +16,7 @@ Step order **as the code calls it**: [`../doors/CHAIN_SEQUENCE.md`](../doors/CHA
 | 1 calibration | raw IDAT pair to beta (methylprep noob), probes at background removed | [`stage_1_idat_calibration.py`](stage_1_idat_calibration.py) |
 | platform check | EPIC v1 only (array type from Stage 0; more than 700,000 probes; no EPIC v2 names) | [`conductor_v3.py`](conductor_v3.py) `platform_refusal` |
 | 2 composition, blood groups | NNLS over the 963 markers of the 8 purified EPIC blood groups | `conductor_v3.stage_a_composition` |
-| 5 Met-A | neutrophils: isolated cells against their own floor; whole blood against the composition-matched healthy expectation | `conductor_v3.stage_m_isolated`, `stage_m_blood`; [`stage_m_met_a.py`](stage_m_met_a.py) |
+| 5 Met-A | neutrophils: isolated cells against their healthy reference; whole blood against the composition-matched healthy expectation | `conductor_v3.stage_m_isolated`, `stage_m_blood`; [`stage_m_met_a.py`](stage_m_met_a.py) |
 | 6 C-score | clustering of the departures in genomic order (no band yet) | `conductor_v3.stage_mc_cscore` |
 | 7 IAM-A | single-molecule reading from a `.pat` file or a per-site table (pipeline required) | [`stage_q_iam_a.py`](stage_q_iam_a.py) |
 | 8 same-run tare | A_rel against at least 3 same-run healthy references | `conductor_v3.stage_t_tare` |

@@ -22,7 +22,7 @@ Chain v3 is the only engine; the class-floor engine (v2) was retired on 2026-10-
 | 12 | `Stage 1 - IDAT calibration` | `stage_1_idat_calibration.py` | Stage 1 - IDAT calibration to beta (SOP Stage 1, steps 1.1-1.2 + 1.5) _called by run_sample.py when given --grn/--red; skipped when given --betas_ |
 | 13 | `platform_refusal` | `conductor_v3.py` | None when the specimen is EPIC v1; otherwise the refusal text |
 | 14 | `stage_t_selftare_ii` | `conductor_v3.py` | Stage T step 1, self-tare II (adopted 2026-10-04, DEV-SELFTARE-02): per probe design, beta' = Lr + (beta - L)(Ur - Lr)/(U - L) from this |
-| 15 | `stage_m_isolated` | `conductor_v3.py` | Isolated / sorted neutrophils against their own floor. The own-floor state is kept as state_own_floor; the reading's state is |
+| 15 | `stage_m_isolated` | `conductor_v3.py` | Isolated / sorted neutrophils against their healthy reference. The healthy-reference state is kept as state_own_floor; the reading's state is |
 | 16 | `stage_a_composition` | `conductor_v3.py` | EPIC blood composition (blood_composition_EPIC_v1): 8 groups from Salas purified EPIC cells; markers exclude the neutrophil sites; |
 | 17 | `stage_m_blood` | `conductor_v3.py` | Whole blood: Met-A = mean H(beta) / mean H(e) at the neutrophil sites, e = sum_g f_g mu_g (EPIC purified group profiles) |
 | 18 | `noise_index` | `conductor_v3.py` | N = mean H(beta) over the noise sites measured on this array; None when fewer than MIN_NOISE_FRACTION are measured _stage 9: the array's noise index N over the noise sites_ |

@@ -256,30 +256,37 @@ Written because the pipeline-scale offset was known in April and lost by June, a
 [`REVIEWER_MANIFEST.md`](REVIEWER_MANIFEST.md) is the download list: every file a reviewer could want, resolved from the tree rather than typed, with an explicit statement of what is not published and why.
 
 <!-- GENERATED:chain start -->
-**The chain as the code runs it** (generated 2026-10-03 by `../kit/build_marked_blocks.py` from `../chain/chain_sequence.json`; 20 steps; 3 chain-named files no path calls). One command regenerates every document that reports the chain: `python3 ../chain/build_all.py` - run by `guarded_push.sh` on every push.
+**The chain as the code runs it** (generated 2026-10-05 by `../kit/build_marked_blocks.py` from `../chain/chain_sequence.json`; 27 steps; 3 chain-named files no path calls). One command regenerates every document that reports the chain: `python3 ../chain/build_all.py` - run by `guarded_push.sh` on every push.
 
 | # | step | file | what it implements |
 |---|---|---|---|
-| 1 | `step_0_1_idat_arrival` | `stage_0_intake.py` | SOP section 0.1_idat_arrival |
-| 2 | `step_0_2_manifest_creation` | `stage_0_intake.py` | SOP section 0.2_manifest_creation |
-| 3 | `step_0_3_integrity_hash` | `stage_0_intake.py` | SOP section 0.3_integrity_hash |
-| 4 | `step_0_4_control_probe_validation` | `stage_0_intake.py` | SOP section 0.4_control_probe_validation |
-| 5 | `step_0_5_detection_pvalue_qc` | `stage_0_intake.py` | SOP section 0.5_detection_pvalue_qc |
-| 6 | `step_0_6_bead_count_qc` | `stage_0_intake.py` | SOP section 0.6_bead_count_qc |
-| 7 | `step_0_7_call_rate` | `stage_0_intake.py` | SOP section 0.7_call_rate |
-| 8 | `step_0_7b_platform_coverage` | `stage_0_intake.py` | SOP section 0.7b_platform_coverage |
-| 9 | `step_0_8_sex_check` | `stage_0_intake.py` | SOP section 0.8_sex_check |
-| 10 | `step_0_9_decision_gate` | `stage_0_intake.py` | SOP section 0.9_decision_gate |
-| 11 | `Stage 1 - IDAT calibration` | `stage_1_idat_calibration.py` | Stage 1 - IDAT calibration to beta (SOP Stage 1, steps 1.1-1.2 + 1.5) |
-| 12 | `platform_refusal` | `conductor_v3.py` | None when the specimen is EPIC v1; otherwise the refusal text |
-| 13 | `stage_m_isolated` | `conductor_v3.py` | Isolated / sorted neutrophils against their own floor. The own-floor state is kept as state_own_floor; the reading's state is |
-| 14 | `stage_a_composition` | `conductor_v3.py` | EPIC blood composition (blood_composition_EPIC_v1): 8 groups from Salas purified EPIC cells; markers exclude the neutrophil sites; |
-| 15 | `stage_m_blood` | `conductor_v3.py` | Whole blood: Met-A = mean H(beta) / mean H(e) at the neutrophil sites, e = sum_g f_g mu_g (EPIC purified group profiles) |
-| 16 | `stage_t_tare` | `conductor_v3.py` | Same-run tare against >= MIN_REFS healthy references of the same specimen type run the same way (same slide, else same batch) |
-| 17 | `stage_mc_cscore` | `conductor_v3.py` |  |
-| 18 | `stage_q_iam_a.pat_site_table` | `stage_q_iam_a.py` | Per-site table (pos, opp_A, err_A, opp_B, err_B) from one .pat(.gz) file, pipeline loyfer_pat_v1. pos = 'chrom:CpG index' |
-| 19 | `stage_q_iam_a.read` | `stage_q_iam_a.py` | site_table: per-site table (see module doc). cell: e.g. 'neutrophils'. pipeline: the read-level pipeline that produced the table |
-| 20 | `Report` | `MethylPhys_Interface/report_v3.py` | one self-contained HTML page plus the JSON bundle |
+| 1 | `specimen_refusal` | `stage_0_intake.py` | None when intake accepts the specimen (ACCEPTED_SPECIMENS); otherwise the plain refusal text naming the specimen (decision L) |
+| 2 | `step_0_1_idat_arrival` | `stage_0_intake.py` | SOP section 0.1_idat_arrival |
+| 3 | `step_0_2_manifest_creation` | `stage_0_intake.py` | SOP section 0.2_manifest_creation |
+| 4 | `step_0_3_integrity_hash` | `stage_0_intake.py` | SOP section 0.3_integrity_hash |
+| 5 | `step_0_4_control_probe_validation` | `stage_0_intake.py` | SOP section 0.4_control_probe_validation |
+| 6 | `step_0_5_detection_pvalue_qc` | `stage_0_intake.py` | SOP section 0.5_detection_pvalue_qc |
+| 7 | `step_0_6_bead_count_qc` | `stage_0_intake.py` | SOP section 0.6_bead_count_qc |
+| 8 | `step_0_7_call_rate` | `stage_0_intake.py` | SOP section 0.7_call_rate |
+| 9 | `step_0_7b_platform_coverage` | `stage_0_intake.py` | SOP section 0.7b_platform_coverage |
+| 10 | `step_0_8_sex_check` | `stage_0_intake.py` | SOP section 0.8_sex_check |
+| 11 | `step_0_9_decision_gate` | `stage_0_intake.py` | SOP section 0.9_decision_gate |
+| 12 | `Stage 1 - IDAT calibration` | `stage_1_idat_calibration.py` | Stage 1 - IDAT calibration to beta (SOP Stage 1, steps 1.1-1.2 + 1.5) |
+| 13 | `platform_refusal` | `conductor_v3.py` | None when the specimen is EPIC v1; otherwise the refusal text |
+| 14 | `stage_t_selftare_ii` | `conductor_v3.py` | Stage T step 1, self-tare II (adopted 2026-10-04, DEV-SELFTARE-02): per probe design, beta' = Lr + (beta - L)(Ur - Lr)/(U - L) from this |
+| 15 | `stage_m_isolated` | `conductor_v3.py` | Isolated / sorted neutrophils against their healthy reference. The healthy-reference state is kept as state_own_floor; the reading's state i |
+| 16 | `stage_a_composition` | `conductor_v3.py` | EPIC blood composition (blood_composition_EPIC_v1): 8 groups from Salas purified EPIC cells; markers exclude the neutrophil sites; |
+| 17 | `stage_m_blood` | `conductor_v3.py` | Whole blood: Met-A = mean H(beta) / mean H(e) at the neutrophil sites, e = sum_g f_g mu_g (EPIC purified group profiles) |
+| 18 | `noise_index` | `conductor_v3.py` | N = mean H(beta) over the noise sites measured on this array; None when fewer than MIN_NOISE_FRACTION are measured |
+| 19 | `stage_t_tare` | `conductor_v3.py` | Same-run tare against >= MIN_REFS healthy references of the same specimen type run the same way (same slide, else same batch) |
+| 20 | `noise_gate` | `conductor_v3.py` | Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json: N_max = top of the reference arrays' noise range (DEV-NOISE-01) |
+| 21 | `stage_mc_cscore` | `conductor_v3.py` | Met-A C-score (stage 6): clustering of the residual z map in genomic order - variance of the means of blocks of clustering_block |
+| 22 | `stage_q_iam_a.pat_site_table` | `stage_q_iam_a.py` | Per-site table (pos, opp_A, err_A, opp_B, err_B) from one .pat(.gz) file, pipeline loyfer_pat_v1. pos = 'chrom:CpG index' |
+| 23 | `stage_q_iam_a.read` | `stage_q_iam_a.py` | site_table: per-site table (see module doc). cell: e.g. 'neutrophils'. pipeline: the read-level pipeline that produced the table |
+| 24 | `stage_q_iam_a.cscore` | `stage_q_iam_a.py` | IAM-A C-score for the pooled table (opp = opp_A + opp_B) and for each half. Returns {C, n_blocks, se_null, halves: {...}} |
+| 25 | `serial_mode.check_same_person` | `serial_mode.py` | Refuse unless patient hash, array type and pipeline match. Returns (ok, reason) |
+| 26 | `serial_mode.delta_sky` | `serial_mode.py` | beta_now - beta_prior per address on the addresses both draws measured. No expectation, no sigma, no composition |
+| 27 | `Report` | `MethylPhys_Interface/report_v3.py` | one self-contained HTML page plus the JSON bundle |
 
 **Generated documents** (never edit; rerun build_all): `../chain/chain_sequence.json`, `../doors/CHAIN_SEQUENCE.md`, `../manual/MethylPhys_CPG_Operations_Manual.pdf`, `../doors/REPO_INVENTORY.md`, `../doors/RUNBOOK.md`, `../chain/GENERATED_MANIFEST.json`
 <!-- GENERATED:chain end -->

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Report for conductor v3 (DEVELOPMENT - not commissioned; neutrophils only). One self-contained HTML page from the v3 bundle.
 The gauge marker is the tared reading (tare.A_rel) whenever Stage T produced one, for whole blood and isolated neutrophils alike.
-Untared isolated neutrophils: the own-floor A, labelled untared. Untared whole blood: no gauge position (the number is printed).
+Untared isolated neutrophils: the A against the healthy reference, labelled untared. Untared whole blood: no gauge position (the number is printed).
 
 Sections (SOP v3 section 2b, stage 13 - the v3 report carries every section the retired v2 report carried that still applies):
   the reading (Stage 0 intake, Stage 1, composition, Met-A, tare, noise gate, C-score, IAM-A when sequencing input is given),
@@ -184,7 +184,7 @@ def build(o, out, sid):
     rows = "".join(f"<tr><td>{e(k)}</td><td>{v*100:.1f} %</td></tr>" for k, v in sorted((a.get("fractions") or {}).items(), key=lambda kv: -kv[1]) if v >= 0.01)
     if str(m.get("state", "")).startswith("withheld"): gA, glabel = None, f"gauge not drawn - {m['state']}"   # the noise gate withholds the state: no gauge position
     elif t.get("A_rel") is not None: gA, glabel = t["A_rel"], f"tared: A_rel {t['A_rel']} ({t.get('state')})"
-    elif m.get("A") is not None and m.get("specimen") != "whole blood": gA, glabel = m["A"], f"untared: A {m['A']} against the own floor (no same-run references)"
+    elif m.get("A") is not None and m.get("specimen") != "whole blood": gA, glabel = m["A"], f"untared: A {m['A']} against the healthy reference (no same-run references)"
     elif m.get("A") is not None: gA, glabel = None, "whole blood, untared: no gauge position until Stage T (supply >= 3 same-run references)"
     else: gA, glabel = None, ""
     P = [f"<div style='background:#fff3cd;padding:8px;border:1px solid #e0c060'><b>{e(o.get('build',''))}</b>. Not a diagnostic test.</div>",
@@ -194,7 +194,7 @@ def build(o, out, sid):
          + (f"<p>Stage 1 (recorded, not gated): poobah detection {e(str(s1.get('detection_qc')))} {e(str(s1.get('pct_probes_detected','')))} | call rate {e(str(s1.get('call_rate_status', s1.get('call_rate_note','-'))))} {e(str(s1.get('call_rate','')))} | controls {e(str(s1.get('ctrl_qc')))}</p>" if s1 else (f"<p>Stage 1 (recorded, not gated): not run - {e(str(o.get('refusal') or 'no Stage 1 record on this specimen'))}</p>" if intake else "")),
          "<h2 id='sec-composition'>Stage 2 composition (8 blood groups)</h2>" + (f"<table>{rows}</table>" if rows else f"<p>{e(str(a.get('note', a.get('reason',''))))}</p>"),
          f"<h2 id='sec-met-a'>Stage 5 Met-A - neutrophils</h2>{_gauge(gA, label=glabel)}<p>A = <b>{m.get('A')}</b> ({e(str(m.get('state', m.get('reason',''))))}); "
-         f"neutrophil fraction {m.get('fraction')}; sites {m.get('n_sites')}; {e(str(m.get('expectation') or ('composition-matched healthy expectation (not computed: A withheld)' if m.get('specimen') == 'whole blood' else 'own floor')))}; shift per 1 % loss {m.get('shift_per_1pct_loss')}</p>"
+         f"neutrophil fraction {m.get('fraction')}; sites {m.get('n_sites')}; {e(str(m.get('expectation') or ('composition-matched healthy expectation (not computed: A withheld)' if m.get('specimen') == 'whole blood' else 'healthy reference')))}; shift per 1 % loss {m.get('shift_per_1pct_loss')}</p>"
          f"<p>Methylated sites mean beta {m.get('methylated_sites_mean_beta')}" + (" - <b>past the entropy ceiling: A falls as loss continues; read beta, not A</b>" if m.get('past_entropy_ceiling') else "") + "</p>",
          f"<h2 id='sec-tare'>Stage 8 same-run tare</h2><p>A_rel = <b>{t.get('A_rel')}</b> {e(str(t.get('state', t.get('reason',''))))}"
          f" | references {t.get('n_refs')} (median {t.get('reference_median')}) | detection limit: <b>{t.get('detection_limit_pct_loss')}</b> % loss of the neutrophil pattern (reference spread {t.get('reference_spread_sd')})</p>"

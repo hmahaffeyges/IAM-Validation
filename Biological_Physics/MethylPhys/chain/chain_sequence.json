@@ -86,7 +86,7 @@
   {
    "step": "stage_m_isolated",
    "where": "conductor_v3.py",
-   "implements": "Isolated / sorted neutrophils against their own floor. The own-floor state is kept as state_own_floor; the reading's state is"
+   "implements": "Isolated / sorted neutrophils against their healthy reference. The healthy-reference state is kept as state_own_floor; the reading's state is"
   },
   {
    "step": "stage_a_composition",

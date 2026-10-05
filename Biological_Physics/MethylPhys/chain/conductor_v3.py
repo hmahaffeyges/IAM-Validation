@@ -6,7 +6,7 @@ Runs after Stage 0 (intake) and Stage 1 (IDAT calibration), both driven by Methy
             or when the beta vector holds 700,000 probes or fewer (450K; floor pending)
   Stage A   composition (whole blood): NNLS on the 963 markers of blood_composition_EPIC_v1.json (8 groups from purified EPIC
             cells; no marker is a neutrophil identity site), sum 1; >= 90 % of the markers must be measured
-  Stage M   Met-A: isolated / sorted neutrophils -> own floor (stage_m_met_a.read); whole blood -> composition-matched healthy
+  Stage M   Met-A: isolated / sorted neutrophils -> healthy reference (stage_m_met_a.read); whole blood -> composition-matched healthy
             expectation, read when the neutrophil fraction is >= MIN_READ_FRACTION and >= 90 % of the 6000 sites are measured
   Stage MC  Met-A C-score: clustering of the neutrophil residual map over the healthy baseline (development: band not set)
   Stage T   step 1, self-tare II (adopted by the author 2026-10-04, DEV-SELFTARE-02; wired here 2026-10-04): each probe design mapped
@@ -138,7 +138,7 @@ def _ceiling(x, mu):
     return {"methylated_sites_mean_beta": round(m, 4), "past_entropy_ceiling": bool(m < 0.5)}
 
 def stage_m_isolated(beta):
-    """Isolated / sorted neutrophils against their own floor. The own-floor state is kept as state_own_floor; the reading's state is
+    """Isolated / sorted neutrophils against their healthy reference. The healthy-reference state is kept as state_own_floor; the reading's state is
     'untared' until Stage T reads it against >= 3 same-run references."""
     rec = SM.read(beta, "neutrophils", specimen="isolated neutrophils")
     R = ref(); S = pd.Index(R["sites_ordered"])
@@ -146,7 +146,7 @@ def stage_m_isolated(beta):
     x = beta.reindex(Sb); ok = x.notna() & mu.notna(); rec.update(_ceiling(x[ok], mu[ok]))
     if rec.get("A") is None: return rec, None
     xd = (x + 0.01 * (0.5 - mu))[ok].clip(1e-6, 1 - 1e-6); rec["shift_per_1pct_loss"] = round(float(H(xd).mean() / H(x[ok].clip(1e-6, 1 - 1e-6)).mean() * rec["A"]) - rec["A"], 5)
-    rec["state_own_floor"] = rec.pop("state"); rec["state"] = f"untared (own-floor state: {rec['state_own_floor']}): read A_rel (Stage T)"
+    rec["state_own_floor"] = rec.pop("state"); rec["state"] = f"untared (healthy-reference state: {rec['state_own_floor']}): read A_rel (Stage T)"
     z = (H(beta.reindex(S)) - pd.Series(R["neutrophil_H_mean"], index=S)) / pd.Series(R["neutrophil_H_sd_shrunk"], index=S)
     return rec, z
 
