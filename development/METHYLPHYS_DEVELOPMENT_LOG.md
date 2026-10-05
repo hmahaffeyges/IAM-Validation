@@ -240,3 +240,20 @@ purified neutrophil reference arrays, the same six as `metA_floors_v1_3.json` an
 fixed sites, so step 1 does not rescale its already-referenced substituted sites; E3's bars and expected values are unchanged.
 With the colon array's own fixed sites E3 read Met-A 0.0159; rebuilt, it reads Met-A 1.0, A_rel 1.0. `release_check_v3.py`: 17/17 PASS.
 SOP v3, full SOP and the operations manual updated to "wired"; manual PDF rebuilt.
+
+### 2026-10-05 · BOX RUN 1 (chain v3, arrays): first planned box run
+**What:** one driver ran five jobs on the box with self-tare II wired into Stage T (`Biological_Physics/MethylPhys/boxruns/run1/`).
+Results are in `s3://methylphys-data-945451304272-us-west-2-an/results/BOXRUN1/`. Development readings, not commissioned results, except job A.
+
+- **A, commissioning check of self-tare II then the median tare, on purified neutrophils (bars from `doors/CHAIN_COMMISSIONING.md`): all bars met.**
+  Same-person replicate spread 0.0164 (bar ≤ 0.020); replicates in Normal 62/63 (bar ≥ 95 %); other-laboratory purified neutrophils
+  in Normal 68/68 (bar: all); floor arrays in Normal 6/6 (bar 6/6).
+- **C, Met-A C-score on every healthy array, median (2.5–97.5 %) by set:** GSE250556 0.840 (0.690–1.201), n = 63;
+  healthy_repeat 1.067 (0.728–1.852), n = 402; DEV_BASE_CHAIN_01 1.165 (0.836–1.809), n = 152. The healthy band is not set yet.
+- **E, atlas composition on 6 GSE112618 whole bloods (FACS-counted):** ran on all 6; the comparison with the FACS fractions is the next
+  (local) step. GSE182379 (12 constructed mixtures) waits for the next box run.
+- **B, every chain test set read again: stopped** by a parallel-write race (an array in two sets saved by two threads at once). Fixed
+  (`a0aae763`); rerun on 2026-10-05.
+- **D, sky statistics with the apodised mask: not run** (healpy missing on the box); rerun on 2026-10-05 with healpy installed.
+
+Box: m7a.8xlarge, 12-hour session credentials, 500 GB scratch disk deleted after the run. First attempt stopped on a full root disk.
