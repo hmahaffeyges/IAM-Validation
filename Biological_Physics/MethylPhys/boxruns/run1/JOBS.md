@@ -69,3 +69,15 @@ array took about 6 s (2026-10-04); the number of arrays per set and the time per
 2. Apodised mask (GitHub session task 1), needed by job D.
 3. The 2 GSE128733 arrays are at `downloads/G_chain_tests/neutrophil_ref_GSE128733`; optionally fetch GSE112618 and GSE182379 for job E.
 4. Local test of the driver on 3 arrays per job, with the shutdown step switched off.
+
+## Job E data in S3 (recorded 2026-10-05)
+
+| Set | What | S3 location | In Run 1 |
+|---|---|---|---|
+| GSE112618 | 6 whole bloods with FACS-counted cell fractions (EPIC v1) | `downloads/G_chain_tests/jobE_GSE112618/` (12 IDATs); the RAW tar, signal file and series matrix with the FACS fractions are also in `downloads/G_chain_tests/healthy_repeat/GSE112618/` | yes, job E |
+| GSE182379 | 12 constructed DNA mixtures of 12 cell types, known fractions (EPIC v1) | `downloads/G_chain_tests/healthy_repeat/GSE182379/` (RAW tar 0.57 GB, signal intensities, series matrix) | **no**: the run's job E prefix points only at GSE112618 |
+
+**Follow-up (to do):**
+1. After Run 1: score job E's atlas_e fractions against the FACS fractions in GSE112618's series matrix. This is local work with no box.
+2. Next box run: job E on GSE182379, with `--only E --force E --job-e-prefix downloads/G_chain_tests/healthy_repeat/GSE182379/`. Then score it against the
+   mixture fractions in its series matrix.
