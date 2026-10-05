@@ -3,6 +3,16 @@
 **DEVELOPMENT - not commissioned.** Development mode (author ruling O): no sealed pre-registrations; each check was written in a dated `doors/DEV_*.md`
 note before the data were read and the outcome is under the line in the same note.
 
+## Round 3 (Box Run 1, 2026-10-05)
+
+| stage / item | check (note) | result | wired |
+|---|---|---|---|
+| 8 Self-tare II then median tare, on the box, wired | Box Run 1 job A (bars from DEV-SELFTARE-02) | replicate SD 0.0164 (<= 0.020); 62/63 Normal; other laboratories 68/68; floor 6/6 - every bar met | **yes** (Stage T step 1, PR #27) |
+| 6 Met-A C-score on every healthy array | Box Run 1 job C | median (2.5-97.5 %): GSE250556 0.840 (0.690-1.201), healthy_repeat 1.067 (0.728-1.852), DEV_BASE_CHAIN_01 1.165 (0.836-1.809) | printed; band not set |
+| 11 / 12 Sky with the apodised mask | Box Run 1 job D | band 1 1.84 -> 1.18; bands 1-4 still 1.13-1.18 (bar 0.9-1.1); look-elsewhere 0.611 (bar 0.084) | no |
+| 3 / 4 Composition against FACS (GSE112618, 6 bloods) | Box Run 1 job E, scored locally | mean abs error atlas_e 0.005-0.044, chain composition 0.007-0.031 by group; donor overlap with the references still to check | no (flags) |
+| All test sets re-read with the adopted tare | Box Run 1 job B | not complete: segfault after the first set (902/902 ok) | - |
+
 ## Round 2 (2026-10-04)
 
 | stage / item | check (note) | result | wired |

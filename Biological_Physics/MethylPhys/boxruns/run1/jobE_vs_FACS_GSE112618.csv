@@ -1,0 +1,15 @@
+group,method,mean_abs_err,max_abs_err
+NEU,atlas_e,0.016,0.028
+NEU,comp,0.031,0.046
+MONO,atlas_e,0.005,0.011
+MONO,comp,0.01,0.017
+B,atlas_e,0.013,0.019
+B,comp,0.007,0.017
+NK,atlas_e,0.036,0.055
+NK,comp,0.031,0.05
+CD4T,atlas_e,0.013,0.02
+CD4T,comp,0.023,0.043
+CD8T,atlas_e,0.044,0.073
+CD8T,comp,0.024,0.051
+GRAN(NEU+EOS+BASO),atlas_e,0.021,0.033
+GRAN(NEU+EOS+BASO),comp,0.017,0.026

@@ -269,3 +269,9 @@ Box: m7a.8xlarge, 12-hour session credentials, 500 GB scratch disk deleted after
   threads, or memory. Next: run B with fewer workers, one set at a time, so a crash keeps the sets already read.
 - Box environment: installing healpy had pulled numpy 2 and broken pandas; pinned to numpy 1.26.4, pandas 1.5.3, healpy 1.17.3.
   Scratch disk deleted after the run; the box shut itself down.
+
+### 2026-10-05 · BOX RUN 1 job E scored against FACS (local)
+Atlas_e and the chain's own composition on the 6 GSE112618 whole bloods against their FACS fractions: mean absolute error, atlas_e /
+chain composition: neutrophils 0.016 / 0.031, granulocytes 0.021 / 0.017, monocytes 0.005 / 0.010, B 0.013 / 0.007, NK 0.036 / 0.031,
+CD4 T 0.013 / 0.023, CD8 T 0.044 / 0.024 (full table and maxima in `boxruns/run1/JOBS.md`). Open check before this counts as held-out
+truth: donor overlap with the purified references (GSE110554).

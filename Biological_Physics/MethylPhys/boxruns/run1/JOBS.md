@@ -88,3 +88,43 @@ array took about 6 s (2026-10-04); the number of arrays per set and the time per
   to its own temporary name.
 - **D did not run**: `healpy` is not installed in the box's chain environment. Before the rerun: `/home/ubuntu/env/bin/pip install healpy`.
 - Rerun B and D only (`--only B,D`), on a fresh 500 GB scratch disk that is deleted afterwards.
+
+## Rerun of B and D (2026-10-05 07:26–08:57 UTC) and the plan for the next box run
+
+**Status by job:** A done (bars met) · B NOT done · C done · D done (bars not met) · E done (6 FACS bloods scored locally, below).
+
+**D result** (433 healthy whole-blood arrays; band power over the block-shuffle null, bar 0.9–1.1 in every band; look-elsewhere bar ≤ 0.084):
+
+| mask | band 1 | 2 | 3 | 4 | 5 | 6 | look-elsewhere |
+|---|---|---|---|---|---|---|---|
+| hard | 1.835 | 1.034 | 1.143 | 1.146 | 1.079 | 1.048 | 0.905 |
+| apodised 2.0° | 1.182 | 1.148 | 1.160 | 1.134 | 1.064 | 1.050 | 0.611 |
+
+**E result, scored locally against the FACS fractions in the GSE112618 series matrix** (`jobE_vs_FACS_GSE112618.csv`; mean / max
+absolute error over the 6 bloods). Check before using it as held-out truth: whether these 6 donors are among the purified-cell donors
+behind `blood_composition_EPIC_v1` (GSE110554).
+
+| group | atlas_e mean | atlas_e max | chain composition mean | chain composition max |
+|---|---|---|---|---|
+| neutrophils | 0.016 | 0.028 | 0.031 | 0.046 |
+| granulocytes (NEU+EOS+BASO) | 0.021 | 0.033 | 0.017 | 0.026 |
+| monocytes | 0.005 | 0.011 | 0.010 | 0.017 |
+| B cells | 0.013 | 0.019 | 0.007 | 0.017 |
+| NK | 0.036 | 0.055 | 0.031 | 0.050 |
+| CD4 T | 0.013 | 0.020 | 0.023 | 0.043 |
+| CD8 T | 0.044 | 0.073 | 0.024 | 0.051 |
+
+**B failure (attempt 4):** the first set read (902 arrays, all ok); the worker then died with a segmentation fault (exit −11), so
+`B_all.csv` was never written. Attempt 2 failed on a parallel-write race (fixed in `a0aae763`); attempt 3 on pandas broken by numpy 2.
+
+### Next box run (planned for Thursday or later): do these in order
+1. **Before the box (local, no cost):** change worker B to write one CSV per test set as each set finishes, and to resume by skipping
+   sets whose CSV already exists; add `--workers` per job so B can run with 8 threads. Reproduce the segfault locally on one set with
+   30 threads if possible; if it is pyarrow/parquet under threads, read the parquet betas once in the main thread.
+2. **Box:** m7a.8xlarge; create a 500 GB gp3 scratch disk in us-west-2a and attach it as /dev/sdf; fresh 12-hour STS credentials.
+3. **Environment check before starting** (stop if it fails, and stop the box): `/home/ubuntu/env/bin/python -c 'import numpy, pandas,
+   scipy, healpy, methylprep'` with numpy 1.26.4, pandas 1.5.3, scipy 1.17.1, healpy 1.17.3. Never `pip install` without pinning numpy < 2.
+4. **Run:** `run1_driver.py --work /mnt/scratch/boxrun1 --only B,E --force B --force E --workers 8
+   --job-e-prefix downloads/G_chain_tests/healthy_repeat/GSE182379/` (B plus E on the 12 GSE182379 mixtures).
+5. **After:** add the results to `development/METHYLPHYS_DEVELOPMENT_LOG.md`, update `doors/CHAIN_COMMISSIONING.md`, `doors/PLAN.md`,
+   `doors/DATA_REGISTER.csv`, then detach and delete the scratch disk and confirm the box is stopped.
