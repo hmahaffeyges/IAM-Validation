@@ -5113,74 +5113,74 @@ PASS  app:notation:L120:48528            app:notation:app_N_notation:120  printe
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
 
 == Part 8: Appendices | app:formulas (appendices/app_E_formulas.tex)
-PASS  app:formulas:L56:-1.67             app:formulas:app_E_formulas:56  printed -1.67  recomputed -1.66667  tol 0.00500001  [derived] w_info at a = 0.5
-PASS  app:formulas:L56:-1.33             app:formulas:app_E_formulas:56  printed -1.33  recomputed -1.33333  tol 0.00500001  [derived] w_info at a = 1
-PASS  app:formulas:L56:-1.17             app:formulas:app_E_formulas:56  printed -1.17  recomputed -1.16667  tol 0.00500001  [derived] w_info at a = 2
-PASS  app:formulas:L58                   app:formulas:app_E_formulas:58  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [derived] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
-PASS  app:formulas:L58:0.3153            app:formulas:app_E_formulas:58  printed 0.3153  recomputed 0.3153  tol 5.000005e-05  [derived] Omega_m behind beta_m (canon)  file CANON/iam_canon.json
-PASS  app:formulas:L100                  app:formulas:app_E_formulas:100  printed 0.3153  recomputed 0.3153  tol 5.000005e-05  [derived] drafted check, screened (runs; negative control fails)
-PASS  app:formulas:L100:0.15765          app:formulas:app_E_formulas:100  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [derived] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
-PASS  app:formulas:L108                  app:formulas:app_E_formulas:108  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+PASS  app:formulas:L56:-1.67             app:formulas:app_E_formulas:47  printed -1.67  recomputed -1.66667  tol 0.00500001  [derived] w_info at a = 0.5
+PASS  app:formulas:L56:-1.33             app:formulas:app_E_formulas:47  printed -1.33  recomputed -1.33333  tol 0.00500001  [derived] w_info at a = 1
+PASS  app:formulas:L56:-1.17             app:formulas:app_E_formulas:47  printed -1.17  recomputed -1.16667  tol 0.00500001  [derived] w_info at a = 2
+PASS  app:formulas:L58                   app:formulas:app_E_formulas:49  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [derived] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
+PASS  app:formulas:L58:0.3153            app:formulas:app_E_formulas:49  printed 0.3153  recomputed 0.3153  tol 5.000005e-05  [derived] Omega_m behind beta_m (canon)  file CANON/iam_canon.json
+PASS  app:formulas:L100                  app:formulas:app_E_formulas:91  printed 0.3153  recomputed 0.3153  tol 5.000005e-05  [derived] drafted check, screened (runs; negative control fails)
+PASS  app:formulas:L100:0.15765          app:formulas:app_E_formulas:91  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [derived] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
+PASS  app:formulas:L108                  app:formulas:app_E_formulas:99  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
-PASS  app:formulas:L108:72.26            app:formulas:app_E_formulas:108  printed 72.26  recomputed 72.2602  tol 0.00505821  [calc] same value as p1_02_iams_law:696 (H0 matter-sector formula)
-PASS  app:formulas:L126                  app:formulas:app_E_formulas:126  printed (algebra)  recomputed lhs-rhs=0  [derived] area change of a local Rindler horizon from Raychaudhuri
-PASS  app:formulas:L139                  app:formulas:app_E_formulas:139  printed (algebra)  recomputed True  [derived] energy flux across the apparent horizon
-PASS  app:formulas:L177                  app:formulas:app_E_formulas:177  printed 0.136  recomputed 0.136181  tol 5.000005e-04  [derived] drafted check, screened (runs; negative control fails)
-PASS  app:formulas:L189                  app:formulas:app_E_formulas:189  printed 1.062  recomputed 1.06238  tol 5.000005e-04  [derived] drafted check, screened (runs; negative control fails)
-PASS  app:formulas:L189:1.062            app:formulas:app_E_formulas:189  printed 1.062  recomputed 1.06238  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
-PASS  app:formulas:L190                  app:formulas:app_E_formulas:190  printed 0.012  recomputed 0.0116757  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
-PASS  app:formulas:L226                  app:formulas:app_E_formulas:226  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [derived] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
-PASS  app:formulas:L240                  app:formulas:app_E_formulas:240  printed -0.13495  recomputed -0.13495  tol 5.000005e-06  [calc] MGCAMB amplitude mu0 set in the runs  file Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml
-PASS  app:formulas:L243                  app:formulas:app_E_formulas:243  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [derived] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
-PASS  app:formulas:L248                  app:formulas:app_E_formulas:248  printed 0.864  recomputed 0.863819  tol 5.000005e-04  [derived] mu today
-PASS  app:formulas:L250                  app:formulas:app_E_formulas:250  printed 1.0759  recomputed 1.07594  tol 5.002940e-05  [derived] same value as p1_02_iams_law:516 (H_m/H at z=0)
-PASS  app:formulas:L330                  app:formulas:app_E_formulas:330  printed 1.133\times10^{-123}  recomputed 1.133237e-123  tol 5.000005e-127  [calc] measured rho_Lambda / rho_vac
-PASS  app:formulas:L335                  app:formulas:app_E_formulas:335  printed 1.218  recomputed 1.21809  tol 5.000005e-04  [fitted] base expression over the measured ratio
-PASS  app:formulas:L342                  app:formulas:app_E_formulas:342  printed 1.380\times10^{-123}  recomputed 1.380385e-123  tol 5.000005e-127  [fitted] base expression
-PASS  app:formulas:L348                  app:formulas:app_E_formulas:348  printed 0.79  recomputed 0.786075  tol 0.00500001  [fitted] corrected expression above the measured value, per cent
-PASS  app:formulas:L349                  app:formulas:app_E_formulas:349  printed 1.142\times10^{-123}  recomputed 1.142145e-123  tol 5.000005e-127  [fitted] corrected expression
-PASS  app:formulas:L387                  app:formulas:app_E_formulas:387  printed 1.0046  recomputed found in file  [measured] same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output)  file docs/verification/scripts/verify_cc_and_baryon_output.txt
+PASS  app:formulas:L108:72.26            app:formulas:app_E_formulas:99  printed 72.26  recomputed 72.2602  tol 0.00505821  [calc] same value as p1_02_iams_law:696 (H0 matter-sector formula)
+PASS  app:formulas:L126                  app:formulas:app_E_formulas:117  printed (algebra)  recomputed lhs-rhs=0  [derived] area change of a local Rindler horizon from Raychaudhuri
+PASS  app:formulas:L139                  app:formulas:app_E_formulas:130  printed (algebra)  recomputed True  [derived] energy flux across the apparent horizon
+PASS  app:formulas:L177                  app:formulas:app_E_formulas:168  printed 0.136  recomputed 0.136181  tol 5.000005e-04  [derived] drafted check, screened (runs; negative control fails)
+PASS  app:formulas:L189                  app:formulas:app_E_formulas:180  printed 1.062  recomputed 1.06238  tol 5.000005e-04  [derived] drafted check, screened (runs; negative control fails)
+PASS  app:formulas:L189:1.062            app:formulas:app_E_formulas:180  printed 1.062  recomputed 1.06238  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
+PASS  app:formulas:L190                  app:formulas:app_E_formulas:181  printed 0.012  recomputed 0.0116757  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
+PASS  app:formulas:L226                  app:formulas:app_E_formulas:217  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [derived] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
+PASS  app:formulas:L240                  app:formulas:app_E_formulas:231  printed -0.13495  recomputed -0.13495  tol 5.000005e-06  [calc] MGCAMB amplitude mu0 set in the runs  file Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml
+PASS  app:formulas:L243                  app:formulas:app_E_formulas:234  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [derived] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
+PASS  app:formulas:L248                  app:formulas:app_E_formulas:239  printed 0.864  recomputed 0.863819  tol 5.000005e-04  [derived] mu today
+PASS  app:formulas:L250                  app:formulas:app_E_formulas:241  printed 1.0759  recomputed 1.07594  tol 5.002940e-05  [derived] same value as p1_02_iams_law:516 (H_m/H at z=0)
+PASS  app:formulas:L330                  app:formulas:app_E_formulas:321  printed 1.133\times10^{-123}  recomputed 1.133237e-123  tol 5.000005e-127  [calc] measured rho_Lambda / rho_vac
+PASS  app:formulas:L335                  app:formulas:app_E_formulas:326  printed 1.218  recomputed 1.21809  tol 5.000005e-04  [fitted] base expression over the measured ratio
+PASS  app:formulas:L342                  app:formulas:app_E_formulas:333  printed 1.380\times10^{-123}  recomputed 1.380385e-123  tol 5.000005e-127  [fitted] base expression
+PASS  app:formulas:L348                  app:formulas:app_E_formulas:339  printed 0.79  recomputed 0.786075  tol 0.00500001  [fitted] corrected expression above the measured value, per cent
+PASS  app:formulas:L349                  app:formulas:app_E_formulas:340  printed 1.142\times10^{-123}  recomputed 1.142145e-123  tol 5.000005e-127  [fitted] corrected expression
+PASS  app:formulas:L387                  app:formulas:app_E_formulas:378  printed 1.0046  recomputed found in file  [measured] same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output)  file docs/verification/scripts/verify_cc_and_baryon_output.txt
       heavy: python3 docs/verification/scripts/verify_cc_and_baryon.py > docs/verification/scripts/verify_cc_and_baryon_output.txt
-PASS  app:formulas:L396                  app:formulas:app_E_formulas:396  printed 72.26  recomputed 72.2602  tol 0.00505821  [calc] same value as p1_02_iams_law:696 (H0 matter-sector formula)
-PASS  app:formulas:L396:67.16            app:formulas:app_E_formulas:396  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+PASS  app:formulas:L396                  app:formulas:app_E_formulas:387  printed 72.26  recomputed 72.2602  tol 0.00505821  [calc] same value as p1_02_iams_law:696 (H0 matter-sector formula)
+PASS  app:formulas:L396:67.16            app:formulas:app_E_formulas:387  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
-PASS  app:formulas:L447                  app:formulas:app_E_formulas:447  printed 0.433  recomputed 0.433013  tol 5.000005e-04  [derived] Kerr T S / M c^2 at chi = 0.5
-PASS  app:formulas:L447:0.218            app:formulas:app_E_formulas:447  printed 0.218  recomputed 0.217945  tol 5.000005e-04  [derived] Kerr T S / M c^2 at chi = 0.9
-PASS  app:formulas:L447:0.032            app:formulas:app_E_formulas:447  printed 0.032  recomputed 0.031607  tol 5.000005e-04  [derived] Kerr T S / M c^2 at chi = 0.998
-PASS  app:formulas:L456                  app:formulas:app_E_formulas:456  printed 2.32\times10^{22}  recomputed 2.323635e+22  tol 5.000005e+19  [derived] M_eq = c^3/(4GH) at H0 67.4, solar masses
-PASS  app:formulas:L457                  app:formulas:app_E_formulas:457  printed 4.5\times10^{22}  recomputed 4.501562e+22  tol 5.000005e+20  [derived] black hole in balance with the CMB, kg
-PASS  app:formulas:L540                  app:formulas:app_E_formulas:540  printed 0.91  recomputed 0.912192  tol 0.00500001  [calc] string tension in GeV/fm
-PASS  app:formulas:L543                  app:formulas:app_E_formulas:543  printed 0.66666051  recomputed 0.666661  tol 5.000005e-09  [observed] same value as p4_15a_lepton_koide:35 (Koide Q with the 2022 m_tau)
-PASS  app:formulas:L589                  app:formulas:app_E_formulas:589  printed 16.0  recomputed 15.9975  tol 0.05  [derived] slope of the held-record floor at 15 mK, 5 GHz
-PASS  app:formulas:L596                  app:formulas:app_E_formulas:596  printed 6.2\times10^{-7}  recomputed 6.187914e-07  tol 5.000005e-09  [derived] drafted check, screened (runs; negative control fails)
-PASS  app:formulas:L599                  app:formulas:app_E_formulas:599  printed 0.021  recomputed 0.0207863  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
-PASS  app:formulas:L599:3.33\times10^{-21} app:formulas:app_E_formulas:599  printed 3.33\times10^{-21}  recomputed 3.331771e-21  tol 5.000005e-24  [calc] Landauer floor at the junction temperature
-PASS  app:formulas:L602                  app:formulas:app_E_formulas:602  printed 6.2  recomputed 6.16003  tol 0.05  [derived] drafted check, screened (runs; negative control fails)
-PASS  app:formulas:L602:18.5             app:formulas:app_E_formulas:602  printed 18.5  recomputed 18.4576  tol 0.05  [derived] drafted check, screened (runs; negative control fails)
-PASS  app:formulas:L602:0.646            app:formulas:app_E_formulas:602  printed 0.646  recomputed 0.646447  tol 5.000005e-04  [derived] constant-field step per halving of area
-PASS  app:formulas:L610                  app:formulas:app_E_formulas:610  printed 310.15  recomputed 310.15  tol 0.00500001  [calc] body temperature, K (canon)  file CANON/iam_canon.json
-PASS  app:formulas:L610:2.968            app:formulas:app_E_formulas:610  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-25  [calc] Landauer cost of one bit at body temperature
-PASS  app:formulas:L611                  app:formulas:app_E_formulas:611  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)
-PASS  app:formulas:L613                  app:formulas:app_E_formulas:613  printed 30.21  recomputed 30.2108  tol 0.00500001  [calc] same value as p6_02_landauer:48 (M/ln2)
-PASS  app:formulas:L616                  app:formulas:app_E_formulas:616  printed 2.822\times10^{7}  recomputed 2.821745e+07  tol 5000  [calc] CpG sites of the hg19 index  file Biological_Physics/MethylPhys/atlas/v2/README.md
-PASS  app:formulas:L617                  app:formulas:app_E_formulas:617  printed 8.38\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-17  [calc] Landauer floor of one copy of the methylome  file Biological_Physics/MethylPhys/atlas/v2/README.md
-PASS  app:formulas:L618:2.3              app:formulas:app_E_formulas:618  printed 2.3  recomputed 2.30259  tol 0.05  [calc] discrimination energy at 10 % maintenance error
-PASS  app:formulas:L618:3.9              app:formulas:app_E_formulas:618  printed 3.9  recomputed 3.91202  tol 0.05  [calc] discrimination energy at 2 % maintenance error
-PASS  app:formulas:L619                  app:formulas:app_E_formulas:619  printed 0.163  recomputed 0.162842  tol 5.000005e-04  [measured] phi = E_hold / M  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  app:formulas:L447                  app:formulas:app_E_formulas:438  printed 0.433  recomputed 0.433013  tol 5.000005e-04  [derived] Kerr T S / M c^2 at chi = 0.5
+PASS  app:formulas:L447:0.218            app:formulas:app_E_formulas:438  printed 0.218  recomputed 0.217945  tol 5.000005e-04  [derived] Kerr T S / M c^2 at chi = 0.9
+PASS  app:formulas:L447:0.032            app:formulas:app_E_formulas:438  printed 0.032  recomputed 0.031607  tol 5.000005e-04  [derived] Kerr T S / M c^2 at chi = 0.998
+PASS  app:formulas:L456                  app:formulas:app_E_formulas:447  printed 2.32\times10^{22}  recomputed 2.323635e+22  tol 5.000005e+19  [derived] M_eq = c^3/(4GH) at H0 67.4, solar masses
+PASS  app:formulas:L457                  app:formulas:app_E_formulas:448  printed 4.5\times10^{22}  recomputed 4.501562e+22  tol 5.000005e+20  [derived] black hole in balance with the CMB, kg
+PASS  app:formulas:L540                  app:formulas:app_E_formulas:531  printed 0.91  recomputed 0.912192  tol 0.00500001  [calc] string tension in GeV/fm
+PASS  app:formulas:L543                  app:formulas:app_E_formulas:534  printed 0.66666051  recomputed 0.666661  tol 5.000005e-09  [observed] same value as p4_15a_lepton_koide:35 (Koide Q with the 2022 m_tau)
+PASS  app:formulas:L589                  app:formulas:app_E_formulas:580  printed 16.0  recomputed 15.9975  tol 0.05  [derived] slope of the held-record floor at 15 mK, 5 GHz
+PASS  app:formulas:L596                  app:formulas:app_E_formulas:587  printed 6.2\times10^{-7}  recomputed 6.187914e-07  tol 5.000005e-09  [derived] drafted check, screened (runs; negative control fails)
+PASS  app:formulas:L599                  app:formulas:app_E_formulas:590  printed 0.021  recomputed 0.0207863  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
+PASS  app:formulas:L599:3.33\times10^{-21} app:formulas:app_E_formulas:590  printed 3.33\times10^{-21}  recomputed 3.331771e-21  tol 5.000005e-24  [calc] Landauer floor at the junction temperature
+PASS  app:formulas:L602                  app:formulas:app_E_formulas:593  printed 6.2  recomputed 6.16003  tol 0.05  [derived] drafted check, screened (runs; negative control fails)
+PASS  app:formulas:L602:18.5             app:formulas:app_E_formulas:593  printed 18.5  recomputed 18.4576  tol 0.05  [derived] drafted check, screened (runs; negative control fails)
+PASS  app:formulas:L602:0.646            app:formulas:app_E_formulas:593  printed 0.646  recomputed 0.646447  tol 5.000005e-04  [derived] constant-field step per halving of area
+PASS  app:formulas:L610                  app:formulas:app_E_formulas:601  printed 310.15  recomputed 310.15  tol 0.00500001  [calc] body temperature, K (canon)  file CANON/iam_canon.json
+PASS  app:formulas:L610:2.968            app:formulas:app_E_formulas:601  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-25  [calc] Landauer cost of one bit at body temperature
+PASS  app:formulas:L611                  app:formulas:app_E_formulas:602  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)
+PASS  app:formulas:L613                  app:formulas:app_E_formulas:604  printed 30.21  recomputed 30.2108  tol 0.00500001  [calc] same value as p6_02_landauer:48 (M/ln2)
+PASS  app:formulas:L616                  app:formulas:app_E_formulas:607  printed 2.822\times10^{7}  recomputed 2.821745e+07  tol 5000  [calc] CpG sites of the hg19 index  file Biological_Physics/MethylPhys/atlas/v2/README.md
+PASS  app:formulas:L617                  app:formulas:app_E_formulas:608  printed 8.38\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-17  [calc] Landauer floor of one copy of the methylome  file Biological_Physics/MethylPhys/atlas/v2/README.md
+PASS  app:formulas:L618:2.3              app:formulas:app_E_formulas:609  printed 2.3  recomputed 2.30259  tol 0.05  [calc] discrimination energy at 10 % maintenance error
+PASS  app:formulas:L618:3.9              app:formulas:app_E_formulas:609  printed 3.9  recomputed 3.91202  tol 0.05  [calc] discrimination energy at 2 % maintenance error
+PASS  app:formulas:L619                  app:formulas:app_E_formulas:610  printed 0.163  recomputed 0.162842  tol 5.000005e-04  [measured] phi = E_hold / M  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
       heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  app:formulas:L631                  app:formulas:app_E_formulas:631  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] full surface on Met-A  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
+PASS  app:formulas:L631                  app:formulas:app_E_formulas:622  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] full surface on Met-A  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
-PASS  app:formulas:L637                  app:formulas:app_E_formulas:637  printed 0.330263  recomputed 0.330263  tol 5.000005e-07  [calibrated] frozen EPIC neutrophil reference, bits  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
+PASS  app:formulas:L637                  app:formulas:app_E_formulas:628  printed 0.330263  recomputed 0.330263  tol 5.000005e-07  [calibrated] frozen EPIC neutrophil reference, bits  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
-PASS  app:formulas:L642                  app:formulas:app_E_formulas:642  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [measured] copy-error floor eps0  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  app:formulas:L642                  app:formulas:app_E_formulas:633  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [measured] copy-error floor eps0  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
       heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  app:formulas:L642:0.2043           app:formulas:app_E_formulas:642  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [measured] H_min = H(eps0), bits  file CANON/iam_canon.json
-PASS  app:formulas:L643                  app:formulas:app_E_formulas:643  printed 1.099  recomputed 1.099  tol 5.000005e-04  [measured] neutrophil position P  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
+PASS  app:formulas:L642:0.2043           app:formulas:app_E_formulas:633  printed 0.2043  recomputed 0.204325  tol 5.000005e-05  [measured] H_min = H(eps0), bits  file CANON/iam_canon.json
+PASS  app:formulas:L643                  app:formulas:app_E_formulas:634  printed 1.099  recomputed 1.099  tol 5.000005e-04  [measured] neutrophil position P  file Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Positions/iama_positions_v1.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
-PASS  app:formulas:L647                  app:formulas:app_E_formulas:647  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [calibrated] C-score healthy baseline  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
+PASS  app:formulas:L647                  app:formulas:app_E_formulas:638  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [calibrated] C-score healthy baseline  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
       heavy: methylation chain (Met-A Stage 1 on EPIC IDATs / IAM-A on read-level files); the frozen file named in source is the committed output
-PASS  app:formulas:L664                  app:formulas:app_E_formulas:664  printed 2.3\times10^{22}  recomputed 2.331939e+22  tol 5.000005e+20  [calc] M_eq at H0 = 67.16, solar masses
-PASS  app:formulas:L682                  app:formulas:app_E_formulas:682  printed 0.032  recomputed 0.0320117  tol 5.000005e-04  [derived] eps0 from phi and M  file CANON/iam_canon.json
+PASS  app:formulas:L664                  app:formulas:app_E_formulas:655  printed 2.3\times10^{22}  recomputed 2.331939e+22  tol 5.000005e+20  [calc] M_eq at H0 = 67.16, solar masses
+PASS  app:formulas:L682                  app:formulas:app_E_formulas:673  printed 0.032  recomputed 0.0320117  tol 5.000005e-04  [derived] eps0 from phi and M  file CANON/iam_canon.json
 
 == Part 8: Appendices | app:derivations (appendices/app_C3_derivations.tex)
 PASS  app:derivations:L33                app:derivations:app_C3_derivations:33  printed (algebra)  recomputed True  [derived] dG/dt = sum p^2/m + sum F.r (one degree of freedom, F = m r'')
