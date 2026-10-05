@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4650 PASS, 0 FAIL, 1337 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4664 PASS, 0 FAIL, 1341 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
@@ -5894,6 +5894,29 @@ Totals: 4650 PASS, 0 FAIL, 1337 inventoried and not run. Each run item carries t
 | 363 | app:derivations:L363 | openprob | `-0.78` | numeric: Delta D/D today, form (i), restated | PASS |
 | 363 | app:derivations:L363:-0.67 | openprob | `-0.67` | numeric: Delta D/D today, form (ii), restated | PASS |
 | 363 | app:derivations:L363:-1.87 | openprob | `-1.87` | numeric: Delta D/D today, form (iii), restated | PASS |
+
+## Part 8 - app:saturation - `docs/book/appendices/app_S_saturation.tex`
+
+| line | label | status | printed | checked how | result |
+|---:|---|---|---|---|---|
+| 43 | app:saturation:L43 | derived | `2.77` | numeric: one bit per 4 ln2 l_P^2, in Planck areas | PASS |
+| 45 | eq:sat_eta | derived |  | sympy: 1/4 = 2 pi / 8 pi and eta = c^3/(4 hbar G) = 1/(4 l_P^2) | PASS |
+| 76 |  | derived | `310.15` | not run: input: T_cell (CANON), body temperature | - |
+| 117 | app:saturation:L117 | prediction | `0.15765` | numeric: beta_m = Omega_m/2 with Omega_m = 0.3153 | PASS |
+| 117 | eq:sat_beta | prediction | `0.3153` | not run: input: Planck 2018 Omega_m (Aghanim et al. 2020) | - |
+| 120 | app:saturation:L120 | measured | `0.2` | heavy numeric `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Planck posterior vs fixed beta_m sigma | PASS |
+| 140 |  | calc | `310.15` | not run: input: T_cell (CANON), body temperature | - |
+| 142 | eq:sat_ebit | calc | `2.97\times10^{-21}` | numeric: k_B T ln2 at T_body = 310.15 K | PASS |
+| 146 | app:saturation:L146 | calc | `28{,}217{,}448` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpG sites of the hg19 index | PASS |
+| 169 | app:saturation:L169 | calc | `5.0\times10^{9}` | numeric: T_body / T_BH, 1 M_sun | PASS |
+| 169 | app:saturation:L169:5.4\times10^{69} | calc | `5.4\times10^{69}` | numeric `Biological_Physics/MethylPhys/atlas/v2/README.md`: N_BH / N_CpG, 1 M_sun | PASS |
+| 177 | app:saturation:L177 | calc | `6.17\times10^{-8}` | numeric: T_BH, 1 M_sun | PASS |
+| 177 |  | calc | `310.15` | not run: input: T_cell (CANON), body temperature | - |
+| 178 | app:saturation:L178 | calc | `1.05\times10^{77}` | numeric: A/4 l_P^2 of one solar mass, nats | PASS |
+| 178 | app:saturation:L178:1.51\times10^{77} | calc | `1.51\times10^{77}` | numeric: bits, 1 M_sun | PASS |
+| 178 | app:saturation:L178:2.82\times10^{7} | calc | `2.82\times10^{7}` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpG sites of the hg19 index, rounded | PASS |
+| 179 | app:saturation:L179 | calc | `5.90\times10^{-31}` | numeric: k_B T_BH ln2, 1 M_sun | PASS |
+| 179 | app:saturation:L179:2.97\times10^{-21} | calc | `2.97\times10^{-21}` | numeric: k_B T_body ln2 in the table | PASS |
 
 ## Part 8 - app:glossary - `docs/book/appendices/app_F_glossary.tex`
 

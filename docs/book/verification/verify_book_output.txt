@@ -5395,6 +5395,23 @@ PASS  app:derivations:L363               app:derivations:app_C3_derivations:363 
 PASS  app:derivations:L363:-0.67         app:derivations:app_C3_derivations:363  printed -0.67  recomputed -0.667048  tol 0.00500001  [openprob] Delta D/D today, form (ii), restated
 PASS  app:derivations:L363:-1.87         app:derivations:app_C3_derivations:363  printed -1.87  recomputed -1.87329  tol 0.00500001  [openprob] Delta D/D today, form (iii), restated
 
+== Part 8: Appendices | app:saturation (appendices/app_S_saturation.tex)
+PASS  app:saturation:L43                 app:saturation:app_S_saturation:43  printed 2.77  recomputed 2.77259  tol 0.00500001  [derived] one bit per 4 ln2 l_P^2, in Planck areas
+PASS  eq:sat_eta                         app:saturation:app_S_saturation:45  printed (algebra)  recomputed True  [derived] 1/4 = 2 pi / 8 pi and eta = c^3/(4 hbar G) = 1/(4 l_P^2)
+PASS  app:saturation:L117                app:saturation:app_S_saturation:117  printed 0.15765  recomputed 0.15765  tol 5.000005e-06  [prediction] beta_m = Omega_m/2 with Omega_m = 0.3153
+PASS  app:saturation:L120                app:saturation:app_S_saturation:120  printed 0.2  recomputed 0.196182  tol 0.05  [measured] Planck posterior vs fixed beta_m sigma  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+      heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
+PASS  eq:sat_ebit                        app:saturation:app_S_saturation:142  printed 2.97\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-24  [calc] k_B T ln2 at T_body = 310.15 K
+PASS  app:saturation:L146                app:saturation:app_S_saturation:146  printed 28{,}217{,}448  recomputed 2.821745e+07  tol 0.5  [calc] CpG sites of the hg19 index  file Biological_Physics/MethylPhys/atlas/v2/README.md
+PASS  app:saturation:L169                app:saturation:app_S_saturation:169  printed 5.0\times10^{9}  recomputed 5.026682e+09  tol 5.000005e+07  [calc] T_body / T_BH, 1 M_sun
+PASS  app:saturation:L169:5.4\times10^{69} app:saturation:app_S_saturation:169  printed 5.4\times10^{69}  recomputed 5.363072e+69  tol 5.000005e+67  [calc] N_BH / N_CpG, 1 M_sun  file Biological_Physics/MethylPhys/atlas/v2/README.md
+PASS  app:saturation:L177                app:saturation:app_S_saturation:177  printed 6.17\times10^{-8}  recomputed 6.170074e-08  tol 5.000005e-11  [calc] T_BH, 1 M_sun
+PASS  app:saturation:L178                app:saturation:app_S_saturation:178  printed 1.05\times10^{77}  recomputed 1.048955e+77  tol 5.000005e+74  [calc] A/4 l_P^2 of one solar mass, nats
+PASS  app:saturation:L178:1.51\times10^{77} app:saturation:app_S_saturation:178  printed 1.51\times10^{77}  recomputed 1.513322e+77  tol 5.000005e+74  [calc] bits, 1 M_sun
+PASS  app:saturation:L178:2.82\times10^{7} app:saturation:app_S_saturation:178  printed 2.82\times10^{7}  recomputed 2.821745e+07  tol 50000  [calc] CpG sites of the hg19 index, rounded  file Biological_Physics/MethylPhys/atlas/v2/README.md
+PASS  app:saturation:L179                app:saturation:app_S_saturation:179  printed 5.90\times10^{-31}  recomputed 5.904717e-31  tol 5.000005e-34  [calc] k_B T_BH ln2, 1 M_sun
+PASS  app:saturation:L179:2.97\times10^{-21} app:saturation:app_S_saturation:179  printed 2.97\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-24  [calc] k_B T_body ln2 in the table
+
 == Part 8: Appendices | app:glossary (appendices/app_F_glossary.tex)
 PASS  app:glossary:L18:0.067             app:glossary:app_F_glossary:18  printed 0.067  recomputed 0.067  tol 5.000005e-04  [observed] 6dFGS f sigma8 redshift  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
@@ -5797,4 +5814,4 @@ PASS  app:register:L73:1.55 \%           app:register:app_G_predictions_register
 PASS  app:register:L73:0.78 \%           app:register:app_G_predictions_register:73  printed 0.78 \%  recomputed 0.776789  tol 0.00500001  [openprob] COS-357: D lowered at z = 0, per cent
 PASS  app:register:L74:1.03              app:register:app_G_predictions_register:74  printed 1.03  recomputed 1.03045  tol 0.00500001  [openprob] COS-365: ISW amplitude ratio A_ISW
 
-SUMMARY  PASS 4650  FAIL 0  (heavy, read from committed outputs: 966)  inventoried-not-run 1337  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4664  FAIL 0  (heavy, read from committed outputs: 967)  inventoried-not-run 1341  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
