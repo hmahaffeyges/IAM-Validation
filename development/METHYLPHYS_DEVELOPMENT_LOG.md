@@ -287,3 +287,10 @@ truth: donor overlap with the purified references (GSE110554).
 - **Box Run 1 job B:** made resumable (sets finished in an earlier attempt are restored from S3 and kept) and parquet/tar reads are
   serialised, the likeliest cause of the segfault. Driver tests: 37 pass; the 2 sky tests fail only in the local sandbox (healpy cannot
   write its config there), unchanged by this fix.
+
+### 2026-10-05 · Planning for Box Run 2 and for per-cell references (no box)
+- **Pipeline pinned** from Loyfer et al. 2023 Methods: bwa-meth v0.2.0 (default parameters), SAMtools v1.9, wgbstools v0.1.0, hg19
+  (28,217,448 CpGs). Job sheet: `boxruns/run2/JOBS.md`.
+- **Cell references:** Loyfer has 3 read-level samples each for monocytes, NK, B, CD4 T and CD8 T cells, one laboratory; neutrophils only
+  as granulocytes (3). Every cell needs another laboratory's healthy samples before its reference can be commissioned; GSE128731 supplies
+  them for neutrophils and CD4 T cells. `doors/CELL_REFERENCE_AVAILABILITY.md`.
