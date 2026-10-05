@@ -1,0 +1,56 @@
+Source: the author's derivation paper, Steps 1-5 (text extracted from his PDF, 2026-10-05). Carry these steps into the appendix in his words.
+
+2. The Derivation Chain
+Step 1 — Bekenstein (1973): Horizon Entropy
+Bekenstein showed that a black hole of horizon area A carries entropy proportional to that area. The
+Bekenstein-Hawking entropy is:
+S_BH = A / (4 l_P^2)
+where l_P = sqrt(hbar G / c^3) is the Planck length.
+The minimum encoding area per bit is 4 l_P^2. The horizon encodes one bit per four Planck areas. This is not a
+coincidence — the coefficient 1/4 is derived from the ratio 2pi/8pi where 2pi is the Euclidean Rindler cone angle and
+8pi is the Einstein equation normalization (Mahaffey 2026, iam_bekenstein_coefficient). The encoding surface has a
+definite capacity. When that capacity is saturated, the stellar system has crossed its floor.
+Step 2 — Hawking (1975): The Encoding Surface Has a Temperature
+Hawking showed that black holes radiate thermally at temperature:
+T_H = hbar c^3 / (8 pi G M k_B)
+Hawking temperature of a black hole of mass M.
+This is the temperature at which the encoding surface operates. Landauer's principle now applies: each irreversible
+bit written to this surface costs k_B T_H ln2 in free energy. The encoding surface is not passive storage. It is an
+active thermodynamic boundary with a cost per operation.
+Step 3 — Landauer (1961): The Cost Per Bit Is Universal
+Landauer's principle states that the irreversible erasure of one bit of information in a physical system at temperature
+T dissipates a minimum energy:
+E_bit = k_B T ln 2
+This is scale-independent. T is the local temperature of the encoding surface. N is the number of bits being written.
+The total Landauer cost is N times E_bit. At the black hole horizon: T = T_Hawking, N = delta_A / (4 l_P^2). At the
+cell nucleus: T = T_body = 310.15 K, N = N_CpG = 19.6 x 10^6 sites. The equation is the same. The parameters
+differ by 37 orders of magnitude.
+Step 4 — Jacobson (1995): Gravity Is the Thermodynamics of Encoding Surfaces
+Jacobson's 1995 result is the pivot of the entire chain. He showed that Einstein's field equations are not a
+fundamental law — they are the thermodynamic equation of state for spacetime, derivable from the Clausius relation
+applied to local Rindler horizons:
+delta Q = T dS => G_mu_nu + Lambda g_mu_nu = 8 pi G T_mu_nu
+The entropy functional S determines the theory of gravity. Jacobson used S_geo = A/(4G) alone. The result is general relativity.
+This means gravity is not a force that exists alongside thermodynamics. Gravity IS the thermodynamic response of
+spacetime to information being written to encoding surfaces. The encoding surface is not a consequence of gravity.
+Gravity is a consequence of the encoding surface.
+Step 5 — IAM: Adding S_info to the Entropy Functional
+The single new physical identification in IAM: decoherence-produced classical information contributes to horizon
+entropy. The total entropy functional becomes:
+S_total = S_geo + S_info
+where S_info is the accumulated Landauer cost of every irreversible quantum-to-classical transition in the bulk since the
+electroweak transition.
+Applying the Cai-Kim extension of the Jacobson mechanism to the FRW apparent horizon with this extended
+entropy functional yields the modified Friedmann equations:
+H^2 = (8 pi G / 3) rho + Lambda/3 + beta_m E(a) H_0^2
+where E(a) = exp(1 - 1/a) is the actualization function derived from horizon thermodynamics, beta_m = Omega_m / 2 (confirmed
+by Planck 2018 data to 0.2 sigma, zero free parameters), and Lambda is the cosmological constant derived from the vacuum
+decoherence baseline.
+Black holes in IAM are mandatory local encoding surfaces: when the local decoherence rate of a collapsing stellar
+system saturates the Bekenstein-Hawking bound at the local horizon, the system crosses its thermodynamic floor. It
+can no longer pay the cost of remaining a star. Floor breach at stellar scale.
+BLACK HOLE: FLOOR BREACH CONDITION (stellar scale)
+A star undergoes floor breach when: dS_local / dt >= dS_BH / dt
+The local decoherence rate saturates the Bekenstein-Hawking encoding capacity. The system can no longer
+maintain its thermodynamic identity as a star. The encoding surface absorbs what the stellar system can no
+longer maintain. T = T_Hawking. N = A_horizon / (4 l_P^2).
