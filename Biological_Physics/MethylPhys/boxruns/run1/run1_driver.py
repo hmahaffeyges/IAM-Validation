@@ -61,6 +61,7 @@ import csv
 import datetime as _dt
 import json
 import os
+import threading
 import re
 import shlex
 import shutil
@@ -1134,7 +1135,10 @@ def betas_csv(c, row):
         return None
     import pandas as pd
     b = pd.read_parquet(pq).iloc[:, 0]; b.index = b.index.astype(str); b.index.name = "cpg_id"
-    os.makedirs(os.path.dirname(p), exist_ok=True); b.rename("beta").to_frame().to_csv(p + ".part"); os.replace(p + ".part", p)
+    # the same array can sit in two test sets and be read by two threads at once: write to a name unique to this thread
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    tmp = f"{p}.{os.getpid()}.{threading.get_ident()}.part"
+    b.rename("beta").to_frame().to_csv(tmp); os.replace(tmp, p)
     return p
 
 

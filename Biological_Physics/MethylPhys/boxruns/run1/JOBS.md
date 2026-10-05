@@ -81,3 +81,10 @@ array took about 6 s (2026-10-04); the number of arrays per set and the time per
 1. After Run 1: score job E's atlas_e fractions against the FACS fractions in GSE112618's series matrix. This is local work with no box.
 2. Next box run: job E on GSE182379, with `--only E --force E --job-e-prefix downloads/G_chain_tests/healthy_repeat/GSE182379/`. Then score it against the
    mixture fractions in its series matrix.
+
+## Run 1 outcome (2026-10-05) and the rerun
+- **A done** (all four commissioning bars met), **C done**, **E done** (GSE112618 FACS bloods). Outputs in `s3://…/results/BOXRUN1/`.
+- **B failed**: two threads wrote the same array's cached betas at once (an array that sits in two test sets). Fixed: each thread writes
+  to its own temporary name.
+- **D did not run**: `healpy` is not installed in the box's chain environment. Before the rerun: `/home/ubuntu/env/bin/pip install healpy`.
+- Rerun B and D only (`--only B,D`), on a fresh 500 GB scratch disk that is deleted afterwards.
