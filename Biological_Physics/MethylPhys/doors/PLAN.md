@@ -1,114 +1,87 @@
-# PLAN — what we do next, in order
+# PLAN: the master plan for every test, and the data behind it
 
-One line per item. No history, no strikes: when an item is done it comes OFF this page; its record is the register
-([`CHAIN_COMMISSIONING.md`](CHAIN_COMMISSIONING.md)), the ledger ([`ENHANCEMENTS.md`](ENHANCEMENTS.md)) and the procedure's own outcome file.
-Order rule: chain before documents, documents before launcher, and nothing edits the chain while a procedure is scoring.
+This is the one living plan for MethylPhys: what we test, in what order, and which data in S3 each test uses.
+It is updated whenever a box run finishes, a dataset is downloaded or deleted, or the order changes.
+The data register is [`DATA_REGISTER.csv`](DATA_REGISTER.csv), one row per dataset in S3.
 
-## Housekeeping first (today showed both are needed)
+**Data rule.** A dataset stays in S3 while any planned test still needs it. When every test it serves is marked done in the register
+and nothing else is planned for it, it is listed under "Candidates for deletion" below, and it is deleted only after the author agrees.
+Public data can be downloaded again if it is needed later.
 
-1. **Runner convention** — every long runner takes its own output dir, log and results name per launch and polls a STOP file; the sandbox cannot kill a process from a later cell, so "kill and relaunch" is never done again.
-2. **Bundle at the end of every session** — chain files changed that day, the generators, and any new data, as three zips with SHA256SUMS.
+**Development mode.** A stage is tested and logged in [`development/METHYLPHYS_DEVELOPMENT_LOG.md`](../../../development/METHYLPHYS_DEVELOPMENT_LOG.md)
+until it is commissioned. Nothing is pre-registered or sealed before then.
 
-## Atlas v2 — as soon as the build lands, in this order (author 2026-09-28: "the first things we need to accomplish after the build")
+**Box runs.** Everything that does not need the box is done first. Each box run is one planned job list: one driver runs it, writes
+every output to S3, and stops the box at the end or on a crash.
 
-Build record: [`../atlas/v2/`](../atlas/v2/README.md). Nothing below edits the chain until V12. Every V-item's bar is the one written in
-[`ATLAS_V2_SPEC.md`](ATLAS_V2_SPEC.md) before the run; where a decision since changed a test, the spec carries a dated amendment.
+---
 
-**The atlas itself**
-V1. **Save it before anything else** — every block, draw file and prior to S3, SHA-256 manifest ([`ATLAS_V2_OUTPUT_MANIFEST.json`](../atlas/v2/postbuild/records/ATLAS_V2_OUTPUT_MANIFEST.json)) into the repo, Zenodo deposit drafted.
-V2. **Distinctness (the flatness gate)** — no cell pair < 0.005 mean |difference| on shared measured loci; the closest pairs listed and read by eye.
-V3. **Coverage** — per cell, the fraction of loci it was measured on; every unmeasured (cell, locus) is NOT MEASURED, none filled (A3 as amended).
-V4. **A9 convergence** — R̂ < 1.01 and ESS > 400 on every block; any block that fails is re-run, not accepted.
-V5. **A4 held-out posterior check** — mask 5 % of observations on a random 20 blocks, refit, predict from the posterior: 90 % interval covers 85–95 %.
-V6. **A2 twins** — every v1 twin pair and every v2 pair under r 0.985 through the sample-level twin test; one cell or two, stated.
+## 1. Now: commission the neutrophil chain (Box Run 1, running since 2026-10-05)
 
-**The posterior, put to work (the CMB tools)**
-V7. **Per-address noise map** — each cell's spread between its purified samples at each address; the sky's σ and the clean map's weights.
-V8. **A with an atlas interval** — every A computed over the 20 draws, so a reading carries the atlas's own uncertainty, not only the specimen's.
-V9. **Residual covariance** — each cell's samples against its fitted mean, per locus neighbourhood: the noise model the solver (item 9) and the matched filter need.
-V10. **PROC-OUTSPAN-01** — the clean map of what the atlas cannot explain, S0–S3 as pre-registered.
-V11. **Separability mask** — which cells the array can tell apart, per substrate; drives what the report may name.
+Job list: [`boxruns/run1/JOBS.md`](../boxruns/run1/JOBS.md).
 
-**Acceptance on the instrument (A8 decides)**
-V12. **Identity loci on v2 and the self-read** — each cell reads within NORMAL on its own held-out samples (a cell reading 1.00 on samples it was fitted on proves nothing). *Decision needed first: the spec keeps the v1.1 identity loci unless A8 fails; the class rule (per-cell loci, no shared immune set) says rebuild them per cell. See spec amendment 2.*
-V13. **A1** misfit on the 48 panel arrays < 0.05 · **A5** constructed composition, CD4/CD8/NK error ≤ 0.015 · **A6** minority cells at 5–10 % within 0.02 of 1.000 · **A7** foreign detection floors ≤ v1 on the 732 arrays, breast and bladder named at 5 %.
-V14. **A8** — neutrophils and monocytes on the 48 panel arrays: median |ΔA| < 0.005 against v1. The physics did not move, or v2 is not the same instrument.
-V15. **T1 tissue test set** — tissue profiles are specimens, not references (D13): ENCODE tissues and the Cell Reports Methods 2026 compendium tissues (raw IDATs, our Stage 1) deconvolved by v2; dominant cells are the organ's own and every present cell reads NORMAL; per-organ out-of-span map = the list of missing cells. Gates biopsy scoring (21c).
+| Job | What | Status |
+|---|---|---|
+| A | Self-tare II, then the median tare: commissioning check | **done, every bar met:** replicate SD 0.0164 (≤ 0.020), 62/63 Normal, other laboratories 68/68, floor 6/6 |
+| B | Every chain test set read again with the adopted tare | running |
+| C | Met-A C-score spread on every healthy array (the author sets the band) | queued |
+| D | Sky statistics, hard mask against apodised mask | queued |
+| E | Atlas composition on GSE112618 (FACS-counted bloods) | queued |
 
-**Switch-over, then the comparison runs**
-V16. **Switch the chain to v2** — the class-use removals listed PENDING_V2 in [`CLASS_USE_INVENTORY.md`](CLASS_USE_INVENTORY.md) go with it; every canonical regenerated by [`build_all.py`](../chain/build_all.py); release check green.
-V17. **v1-vs-v2 comparison runs of the original VALs** (author: "test some of the original VAL's again to have a comparison run") — the same arrays through v1 and v2, side by side, per cell, bars written before either is read: VAL-003 (adjacent normal, 28/28 TCGA types), EPIC-Italy pre-diagnosis breast (GSE51032), AD / PSP direction, the 48-array healthy panels, and the RETEST set (21b). The question each answers: did the reading move, and if so, which way and why.
-V17a. **PROC-PREDX-SEQUENCE-01** (author 2026-09-28) — the pre-diagnostic sequence seen in the pre-commissioning VALs: immune cells move first; then many secretory cells elevate together while the immune cells settle; then, once the tumour forms, breast luminal alone stays elevated and the other secretory cells return to NORMAL — "a systemic response before the tumor decided where it was going to form the black hole." Re-tested per cell, per year-to-diagnosis, on EPIC-Italy (GSE51032), v1 and v2 side by side; the order and bars written before any array is read. Read as individual movers grouped by class for display — never a class score (author: "we saw the individual movers who happened to be part of that class doing their own individual thing").
-V17b. **AD / PSP on v2** (author 2026-09-28: "We need to investigate AD") — DIRECTION-01 (8b) run on v1 and v2 side by side: every present immune cell's A against 1.00, and the immune system read as one organ by a COUNT, not a score ("9 of 12 present immune cells above 1.00; T-lineage below"). No pooled immune number: in AD the old signal was bidirectional (T-lineage down, B / myeloid up), which a pooled score would cancel.
-V18. **CLASS-COUNT-01** on v2's held-out cells.
-V19. **Next sources** — only whole-array cells (D9): melanocyte (compendium, 109 arrays), dendritic, plasma, megakaryocyte, erythroblast, cholangiocyte, Barrett's epithelium, cervix, left atrium; Zhou 2026 single-cell body atlas (accession to locate); GSE262275 liver/bile cells as a separate experiment only. Each by the append fit, same checks.
+After Run 1 (no box): score job E against the FACS fractions; the author sets the C-score band; record each outcome in the log.
 
-## Chain — one at a time
+## 2. Next: IAM-A at scale, and Met-A with IAM-A on the same cells (Box Run 2)
 
-3. **Sky — decided 2026-09-27 (author): drawn as z on the atlas-posterior σ**; the off-identity-loci offset is drawn and labelled, never re-centred. Remaining: the label on the plate, and the offset's cause (items 7, 20).
-4. **FOREIGNSCORE-01 diagnostics** — sealed NOT ADOPTED 2026-09-27 (no scoring floor; detected foreign cells print fraction and no A). Three cheap diagnostics before any re-run: the inversion arithmetic (non-monotonic in f), the neural twin label at f ≥ 10 %, and B5 — the blood cells' own A moves up to 0.031 with foreign material present; per blood cell, per foreign cell, which shared identity loci; correct or print.
-6. **Twin/family thresholds as a runtime matrix** — no constants in code (same move as the intake thresholds).
-7. **Chip term** — the SNP tare did not remove it (TARE-01 B6); the control-probe model (0.002–0.018 on the clean laboratories) is the recorded route. Pre-register; run on the 768 calibrated arrays.
-8. **Serial mode** — `run_sample.py --prior <bundle>`: same patient, per-cell ΔA, Δfraction, difference sky; change floor pre-registered. This is what the sky is for.
-8a. **PROC-BLOODCANCER-01** (author 2026-09-27: 'this one sounds like our specialty right now' — moves ahead of DIRECTION-01) — the leukocyte as the diseased cell (PHYSICS_LEUKOCYTE_GAUGE.md row 1): public 450K whole-blood/PBMC AML and CLL cohorts; pre-registered per-cell A on the affected lineage against the others (CLL: B cells move, neutrophils read 1.00). The one test the fraction confound cannot fake.
-8b. **PROC-DIRECTION-01** — settle the 'bidirectional immune cell' question from the AD/PSP era (GIFT AD d +0.68, PSP −0.38 were pooled-class, case-minus-control numbers): re-read the AD and PSP cohorts on disk through the current chain, per cell, against 1.00; record for each present immune cell which side of 1.00 it sits on, and whether T and B lineages sit on opposite sides in the same specimens (the AD-era record: per-CpG bidirectional drift nulled the pooled entropy; CPG-VAL-008 and the covariance PC2 put T cells DOWN in AD while healthy ageing reads UP). Falsifiable form: CD4/CD8 below 1.00 with neutrophils/monocytes at or above it in the same AD specimens. Direction is a property of a cell, never a net over a class or a sign relative to a control group.
-9. **Fraction confound, second step** — minority cells at 5–10 % read the majority cell's β on their identity loci (NK ~0.946, CD8 ~0.961, CD4 ~1.031 on a perfect specimen). Needs a solver precise to < 0.005 on minority blood cells; first candidate is atlas v2's covariance (item 20). Until then RC2 reports it as open.
+1. **GSE128733 + GSE128731:** the same purified neutrophils on arrays and deep WGBS. Met-A is read (DEV-PAIRED-01). IAM-A on the same
+   two specimens needs the neutrophil WGBS runs, 8 runs, 414 GB (one run per donor, about 100 GB, is enough for a first reading).
+   **To download.**
+2. IAM-A healthy band on purified neutrophils; IAM-A C-score.
+3. Met-A against IAM-A on the same cell (the cross-spectrum).
+4. Job E on GSE182379 (constructed mixtures; already in S3).
 
-## The face of the chain
+## 3. Win candidates (development runs on the commissioned stages)
 
-10. **Launcher** — local `run.py`: verify files by hash, take the IDAT pair, run stage by stage with live pass/fail, open the report; replication menu for the sealed procedures.
+1. Treated samples moving toward disorder (12/12 so far).
+2. Myeloid disease arrays.
+3. One person over time (the difference map; serial mode).
+4. Cross-species IAM-A with the body-temperature prediction: the same cell type at a different body or water temperature sits at a
+   different distance from its k_B T ln 2 floor (Box Run 3, from the 1.3 TB of 580-species reads already in S3).
 
-## Procedures — on the commissioned chain
+## 4. After commissioning: the author's order (2026-09-30)
 
-11. **PROC-BRAIN-01 redo** — clean single-provenance CSF run.
-12. **Commission a solid-tissue laboratory** — pipeline map for its pipeline; gates the glioma and progression re-tests.
-13. **Gastric** — six stomach entries, two families, never tested.
-14. **Breast shedding in real patient blood** — the question that started the detection work.
-15. **Re-run the webpage-draft claims (CRC, breast, HCC) as pre-registered procedures** — education re-tested on the commissioned chain.
+1. **Human blood diseases** (track A), blood cancers first: the leukocyte as the diseased cell, per-cell Met-A on the affected lineage.
+2. **Plasma cfDNA** (track B).
+3. **Tissue specimens** (track C), read against the cell atlas; biopsy scoring.
+4. **Stool:** can a stool specimen be scored (its shed cells)?
+5. **Dogs and other mammals** (track E): no animal cell atlas exists, so build or derive one first; the Mammalian Methylation
+   Consortium array (348 species) for species ageing.
+6. **Fish** (track F): Methow steelhead and coho, hatchery against wild. Fish blood is nucleated red cells, nearly one cell type.
+   IAM-A reads the molecules directly. Possible collaboration with Chelan PUD fish scientists.
+7. **Ageing** (track D): serial and cross-sectional blood.
+8. **Quantum computing:** check which predictions have come due.
 
-## Later chain work
+## 5. Chain work still open
 
-16. CD4/CD8 separation — needs loci this block lacks (second blood block).
-17. Second-block solve for the nine finer blood subsets.
-18. EPIC platform block (865k loci).
-19. Coverage floor on any class-selection rule.
-20. **Atlas v2** — building now (2026-09-28, 128 cores, 74 cells, cells only, our array scale); what follows the build is the V-list above. Build record: [`../atlas/v2/`](../atlas/v2/README.md).
-21. **Ledger re-plan** — once 1–10 are done, rewrite ENHANCEMENTS as one ordered plan for what remains.
+1. CD4/CD8 separation and the finer blood subsets (need loci the current block lacks).
+2. EPIC v2 intake (calibrated through SeSAMe; needs a v2 floor and v2 replicates).
+3. Atlas deconvolution and NILC (both failed their truth bars in development; job E and GSE182379 test them again).
+4. Directional decomposition (physics only) and the chip term.
+5. Open human data beyond GEO (controlled-access serial studies), once a method is published.
 
-21b. **RETEST set — pre-registered now, run on the rented machine** (author 2026-09-27: "get a bunch of the tests ready to run"). One PROC per old VAL worth re-reading on the commissioned chain, bars fixed before the machine exists: EPIC-Italy pre-dx breast (GSE51032, per cell, per year-to-diagnosis), AD / PSP direction (DIRECTION-01), plasma sepsis (cfDNA specimen - composition + A per present cell), CRC and gastric (the untested stomach cells), the 200-array healthy panels per laboratory. Each gets: cohort on disk or a fetch script, a runner that writes one shard per array, bars, and a dispatch line — so the whole set is one submission and the results come back to the same outcome format.
+## 6. Still to download
 
-21c. **Biopsy scoring** — the cell atlas on a tissue specimen (author 2026-09-28: 'could be a perfect tool for biopsy'). Gated on V15 (T1). No separate tissue atlas: a tissue is cells, and tissue profiles are test specimens (D13).
+| Data | Size | For |
+|---|---|---|
+| GSE128731 neutrophil WGBS (Samples 6, 7) | 414 GB (8 runs) | Box Run 2, IAM-A with Met-A on the same cells |
+| GSE186458 WGBS atlas, 39 cell types | to size | IAM-A floors per cell type |
+| GSE104700 monocyte bisulfite sequencing | to size | IAM-A on monocytes (donor match to GSE56046 not confirmed) |
 
-## Reach (after the human chain is stable; author 2026-09-27: "I just don't want to limit the reach of this")
+## 7. Candidates for deletion
 
-The argument is **one instrument, one fixed point, many species**: the same A against the same class floors, no population, read in
-a human leukaemia, a dog lymphoma, an ageing Swede's neutrophils, a hatchery steelhead's red cells. Order by readiness: human blood
-cancer (BLOODCANCER-01, public 450K, the chain runs today) → ageing track (SATSA, running) → dogs (mammalian array on GEO; canine H_min
-already in the OM; dog lymphoma / osteosarcoma sets exist) → livestock (cattle, horse, pig in the mammalian consortium data: ageing and
-stress more than cancer) → salmon (RRBS; new locus set; the largest build and the nearest audience). One pre-registration template for all.
+None yet. A dataset moves here only when every test it serves is done.
 
-22. **Mammalian array** — the Mammalian Methylation Consortium's conserved-CpG array (348 species, ~15k samples, much on GEO): the same identity-loci + H_min construction per species; dogs (Dog Aging Project) as the first non-human adopter — M_dog = ΔG_ATP/(RT) at 38.5 °C = 20.84 (human 20.94; the temperature, nothing else); the dog age chart from the methylation report web source and `papers/iam_vertebrate_lifespan.tex` are the existing pieces. **A canine atlas is required** (mean/SD per CpG per cell type on the ~37k conserved array loci) — the same v2 build, hours not days; floors, identity-loci rule, gauge and chain unchanged. The limit is references: public canine array data is whole blood and tissue from the clock studies, not sorted leukocytes, so version 1 reads tissue-level classes (ageing track; lymphoma, where the tumour cell is in the blood) and not yet a per-cell composition. Inventory 2026-09-27: NO sorted-cell canine reference exists anywhere (a Dec-2025 canine lymphoma blood study: 'due to the lack of reference data on DNA methylation patterns of each cell type in dogs, we could not assess cell composition'). Public: 16-tissue MRE-seq reference (32 samples; needs a scale map), whole-blood WGBS across breeds (BMC Genomics 2024), human EPIC on dog blood (~34.6k probes hybridise; lymphoma 2019, mammary 2024, GI lymphoma 2025 - the cancer side). The sorted-leukocyte reference must be MEASURED: ~10 healthy dogs x 6 sorted populations x arrays (~60 arrays) with a vet school - a first-of-its-kind canine cell-type reference, publishable before any reading. Candidate route with no new samples (author 2026-09-27, 'filter the full genome that exists'): factorise the breed whole-blood WGBS (dozens of dogs, each a different leukocyte mixture) into shared source profiles, anchored by the human sorted-cell profiles lifted through orthologous CpGs - recovers per-cell means where cells differ (the identity loci and markers), not SDs; a DERIVED reference, labelled as such on every reading until the sorted arrays confirm it, which then become the confirmation study rather than the prerequisite. A cross-species test of the physics at the cellular scale.
-23. **Salmonid chain** — RRBS, not arrays. Public: Methow River steelhead hatchery-vs-wild RBC and sperm RRBS (G3 2018; 85 RBC DMRs, 108 sperm DMRs); coho hatchery-vs-wild muscle (PNAS 2017); steelhead liver hatchery-vs-stream. Fish blood is nucleated red cells — one cell type, no composition problem. Needs: a salmonid locus set from RRBS coverage, reference methylomes per tissue, H_min per class fitted as G-002 did. First pre-registration: hatchery vs wild RBC per fish against the fixed point, on the Methow — the question Chelan PUD's biologists already ask in methylation terms.
-24. **Open human data beyond GEO** — CALERIE, TRIIM/TRIIM-X and other academic intervention trials (public or on request); Framingham / WHI / Lothian / Generation Scotland / Dunedin serial methylation under controlled access (dbGaP / EGA) — apply once a pre-registered method is published; TCGA-LAML and GEO CLL/MDS for BLOODCANCER-01.
+## S3 now (2026-10-05)
 
-
-- (2026-09-27: SATSA Stage 1 on AWS: 1,056 of 1,072 arrays calibrated, 0 errors, 16 with no IDAT pair; box reproduces the laptop exactly. **Call rate median 0.894; 738 of 1,056 below the 0.93 intake line**, worst on chip batch 9721 (853 arrays, 73 % below); call rate also falls with age decade (0.911 in the 50s to 0.878 in the 90s), so later draws are lower-quality input - the serial trajectories must carry intake status per draw and cannot treat a below-line draw as a reading. 286 people have >= 2 calibrated draws, 195 >= 3.)
-
-- **CLASS-COUNT-01** — give the number eight a measured basis: refit the floors with classes split and merged where the Day-2 session expected structure (immune → lymphoid/myeloid; cycling by tissue; progenitor + stem_adult), compare on cells held out of the fit ([CLASS_HISTORY.md](CLASS_HISTORY.md) §5). Needs atlas v2 cells as the held-out set.
-
-## Standing (not tasks)
-
-- Healthy is A = 1.00; the tier scale is the tolerance. No population defines any number on a cell. MEASURE, DON'T COMPARE.
-- A pre-registration is written before data is read; a failed bar is investigated before it is accepted — once is a result, twice is interesting, every time is a signal.
-- Verify by reading the render; write the outcome after.
-- Every push carries a copy of the changed files. Data worth keeping is bundled before it can be lost.
-- A README describes a folder as it is. It is not a log.
-
-## After commissioning — the author's order (2026-09-30)
-1. Human blood diseases on the downloaded sets (DOWNLOAD_MANIFEST.csv track A), blood cancers first.
-2. Plasma cfDNA (track B).
-3. Tissue specimens (track C), read against the cell atlas.
-4. Dogs and other mammals (track E): no animal cell atlas exists — build or derive one first.
-5. Salmon (track F, Methow steelhead RRBS, hatchery vs wild): fish blood is nucleated red cells, near one cell type; needs a reads-to-methylation step. Possible collaboration with Chelan PUD fish scientists.
-6. Ageing (SATSA serial, LOLIPOP, GENOA).
-7. Quantum computing: check which predictions have come due; shape the application for clients (IBM, Microsoft, others).
+2,681 GB in total: 2,570 GB of downloaded data in 80 datasets (the register), plus results, atlas files and private archives.
+Largest: 580-species reads 1,321 GB; stool 312 GB; coho RRBS 227 GB; salmonid reads 162 GB. The bucket is on Intelligent-Tiering, so data
+nobody reads moves to cheaper storage on its own.

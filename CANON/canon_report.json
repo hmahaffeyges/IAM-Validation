@@ -1,453 +1,102 @@
 [
 {
-"file": "Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md",
-"line": 3,
-"pattern": "gate-error reading",
-"use": "IAM-A",
-"severity": "warn",
-"status": "LIVE",
-"text": "**Question.** Can the gate-error reading \u2014 how faithfully a cell holds its methylation pattern, counted on single DNA molecules \u2014 be read for each"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/COMPONENT_MAP.md",
-"line": 65,
-"pattern": "n_bio",
-"use": "none (removed from the method)",
-"severity": "block",
-"status": "RECORD",
-"text": "| Recipe, `_mphys_constants_private.py`, patents, correspondence | **YOUR FOLDER** (vault IP) | no | never in repo or kit; `_mphys_constants_private.py` still n"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/COMPONENT_MAP.md",
-"line": 94,
-"pattern": "n_bio",
-"use": "none (removed from the method)",
-"severity": "block",
-"status": "RECORD",
-"text": "7. rename `n_bio` -> Mahaffey number (20.94) in cpg_gauge_engine.py (archived privately), `_mphys_constants_private.py`, and the 002 card text; reconcile IAM_Hu"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/COMPONENT_MAP.md",
-"line": 139,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "| `literature_anchors.json` | disease_matching.py | [RECORD - not read by the chain] Published A-score anchors per class extracted from the April web build. Ori"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PROC_E2E_01_PREREG.md",
-"line": 35,
+"file": "development/archive/p1_01_encoding_surfaces.tex",
+"line": 125,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "**B7 is not a bar, it is a measurement.** The documented A-scores come from the pre-atlas marker-union gauge;"
+"text": "reads $1/P=0.910$ on the gauge (Chapter~\\ref{ch:iama}). On arrays, this is an open problem. \\openprob{} The A-score reads where the cell sits:"
 },
 {
-"file": "Biological_Physics/MethylPhys/doors/PROC_E2E_01_PREREG.md",
-"line": 38,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "difference with both numbers stated. **No A-score comparison can fail this procedure, and none may be used to"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PROC_E2E_01_OUTCOME.md",
-"line": 21,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "| B7 A-scores (recorded, cannot pass or fail) | Only the immune class is gauged, and only where a laboratory zero exists. GSE288652 and GSE166212 have none, so "
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PROC_E2E_01_OUTCOME.md",
-"line": 21,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "| B7 A-scores (recorded, cannot pass or fail) | Only the immune class is gauged, and only where a laboratory zero exists. GSE288652 and GSE166212 have none, so "
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/ENHANCEMENTS.md",
-"line": 147,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "marker union) demoted to a labelled section or removed. The A-score is the instrument; nothing in the report"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/ENHANCEMENTS.md",
-"line": 167,
+"file": "docs/verification/PAPER_ERRATA.md",
+"line": 285,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "LIVE",
-"text": "0b. **Report restructure** \u2014 Reading tab leads with cells found + fractions, then per-cell A against its class H_min with healthy = A 1.00 \u00b1 5 % (tier NORMAL) a"
+"text": "| TR9 | | \u00a72.1, \u00a75.11 | class H_min A-score | Met-A / IAM-A (CANON) | confirmed | `theory/TECH_REFERENCE_CHECK.md` #10 |"
 },
 {
-"file": "Biological_Physics/MethylPhys/doors/ENHANCEMENTS.md",
-"line": 171,
+"file": "docs/verification/PAPER_ERRATA.md",
+"line": 285,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "0d. **Launcher - the face of the chain** (author, 2026-09-26 evening). A static HTML cannot execute Python, so this is a small local app / `run.py`, not a repor"
+"text": "| TR9 | | \u00a72.1, \u00a75.11 | class H_min A-score | Met-A / IAM-A (CANON) | confirmed | `theory/TECH_REFERENCE_CHECK.md` #10 |"
 },
 {
-"file": "Biological_Physics/MethylPhys/doors/PROC_PARTIAL_01_OUTCOME.md",
-"line": 28,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "It returns a number that cannot be a methylation fraction at all. The A-score built on it is therefore not a"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PROC_MATCH_01_OUTCOME.md",
-"line": 11,
-"pattern": "class H_min",
-"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-"severity": "warn",
-"status": "LIVE",
-"text": "| **M5 report** | 11 cached arrays: PRESENT cells entering the departure profile **0\u20135** (median 3); route-B candidates none. Healthy per-cell A on this surface"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PROC_MATCH_01_OUTCOME.md",
-"line": 13,
-"pattern": "class H_min",
-"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-"severity": "warn",
-"status": "LIVE",
-"text": "**Why row 8 is not commissionable yet.** Stage 8's patient departure is (A_cell \u2212 1.0) over cells above their class H_min \u2014 a definition that presumes healthy p"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/SUBSTRATE_STRATEGY.md",
-"line": 85,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "fidelity relative to the tissue it came from, so its A-score should be higher than its own matched normal."
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/SUBSTRATE_STRATEGY.md",
-"line": 129,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "The cfDNA background in plasma is immune-derived, so the **immune** A-score is in principle readable there \u2014"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PROC_G002_TRACE_OUTCOME.md",
-"line": 26,
-"pattern": "program reading",
-"use": "Met-A",
-"severity": "warn",
-"status": "LIVE",
-"text": "2. Program reading: \u03b2\u0304 or f_meth against the cell's own healthy value \u2014 the quantity the original floors captured."
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PROC_PREDX_SEQUENCE_01_PREREG.md",
-"line": 27,
-"pattern": "program reading",
-"use": "Met-A",
-"severity": "warn",
-"status": "LIVE",
-"text": "- Arrays give the PROGRAM reading only; the error reading (IAM's law on single molecules) cannot be made on this data."
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/CLASS_ASSIGNMENT_RULE_DRAFT.md",
+"file": "docs/verification/theory/TECH_REFERENCE_CHECK.md",
 "line": 14,
-"pattern": "n_bio",
-"use": "none (removed from the method)",
-"severity": "block",
-"status": "RECORD",
-"text": "regimes exist\"* (l. 293); cell types that *\"share the same dominant regulatory mechanism and therefore the same n_bio\"* are one"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/CLASS_ASSIGNMENT_RULE_DRAFT.md",
-"line": 17,
-"pattern": "n_bio",
-"use": "none (removed from the method)",
-"severity": "block",
-"status": "RECORD",
-"text": "mode (inversion)**, with its own n_bio and floor:"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/CLASS_USE_INVENTORY.md",
-"line": 25,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "RECORD",
-"text": "| disease_matching.py (archived privately) | per-class identity CpGs; \"per-class H_min floor\" check | per-cell identity loci; floor check stays (it is the H_min"
+"text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
 },
 {
-"file": "Biological_Physics/MethylPhys/doors/CLASS_USE_INVENTORY.md",
+"file": "docs/verification/theory/TECH_REFERENCE_CHECK.md",
+"line": 14,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "RECORD",
+"text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
+},
+{
+"file": "docs/verification/theory/TECH_REFERENCE_CHECK.md",
+"line": 14,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
+},
+{
+"file": "docs/book/part6/p6_09_cscore.tex",
 "line": 31,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
-"status": "RECORD",
-"text": "| iamatlas_a_scoring.py (archived privately) `score_per_class()` | \"8 class A-scores\" \u2014 defined, called by nothing |"
+"status": "LIVE",
+"text": "with $c_{\\rm healthy}$ the median over the six reference arrays, each read against the other five. \\calibrated{} The healthy arrays read $C=0.70$--$1.23$. A sco"
 },
 {
-"file": "Biological_Physics/MethylPhys/doors/CLASS_USE_INVENTORY.md",
-"line": 33,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "| SOP (372 hits), OM (om_data.py (archived privately), build_operations_manual.py (archived privately), switching_order.py (archived privately), om_part3.py (ar"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/REVIEWER_MANIFEST.md",
-"line": 56,
+"file": "docs/book/part6/p6_22_leukocyte.tex",
+"line": 59,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- literature_anchors.json (archived privately) \u2014 [RECORD - not read by the chain] Published A-score anchors per class extracted from the April web build. Orient"
+"text": "A score pooled over many sites and many cells, computed as a case group minus a control group, can move in opposite directions under different conditions withou"
 },
 {
-"file": "Biological_Physics/MethylPhys/doors/PROC_PARTIAL_01_PREREG.md",
-"line": 10,
+"file": "docs/book/part6/p6_22_leukocyte.tex",
+"line": 64,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "secretory material is holding its state**, and the A-score is the whole point of the instrument. Today it"
+"text": "\\section{A count, not a score}"
 },
 {
-"file": "Biological_Physics/MethylPhys/doors/PROC_PARTIAL_01_PREREG.md",
-"line": 37,
+"file": "docs/book/part6/p6_01_bridge.tex",
+"line": 109,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "| Truth | `A_true = H(mu_atlas over class k's identity loci) / H_min_k` \u2014 the A-score of the material that was actually mixed in |"
+"text": "across the specimen. Each A score carries one C-score beside it, computed from the same sites, which says where along the genome the"
 },
 {
-"file": "Biological_Physics/MethylPhys/doors/PROC_PARTIAL_01_PREREG.md",
-"line": 71,
+"file": "docs/book/part6/p6_01_bridge.tex",
+"line": 113,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "scores**. Above it the chain may report a class's A-score with its floor stated; below it the chain reports"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PROC_TISSUE_01_OUTCOME.md",
-"line": 65,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "substrates inflate cross-tile A-scores from substrate-distribution mismatch alone. The same reasoning"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PROC_HISTORY_01_OUTCOME.md",
-"line": 11,
-"pattern": "n_bio",
-"use": "none (removed from the method)",
-"severity": "block",
-"status": "RECORD",
-"text": "| **G-series** (H_min calibration, before VAL-001) | Apr 2026 | G-002 (17 chains, 8 methylation floors), G-003b (32 floors), bootstrap of the 32; also G-008, E_"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/COMPLETION_SPRINT_scored.md",
-"line": 25,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "What the sprint still gets right, for later: C1 (two-point correlation per class with MASTER-style mode coupling), C3 (2D posterior shape for A-score pairs \u2014 th"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PROC_CHARR_01_PREREG.md",
-"line": 3,
-"pattern": "gate-error reading",
-"use": "IAM-A",
-"severity": "warn",
-"status": "LIVE",
-"text": "**Question.** With one lab, one kit, one sequencer and every fish prepared the same way, is the gate-error reading a property of each fish"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/RUNBOOK.md",
-"line": 248,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "**WHAT THE REPORT SAYS (author, 2026-09-21).** Cells detected and their percentages (Stage 2); the A-score of each cell the chain could calculate (separation su"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md",
-"line": 60,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "**Why now and not before \u2014 answered from the author's April 2026 record.** VAL-003's own output (Terminal 2026-04-07) states: *\"G-002 H_min calibrated on Roadma"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PLAN.md",
-"line": 42,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "V17b. **AD / PSP on v2** (author 2026-09-28: \"We need to investigate AD\") \u2014 DIRECTION-01 (8b) run on v1 and v2 side by side: every present immune cell's A again"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_PREREG.md",
-"line": 17,
-"pattern": "program reading",
-"use": "Met-A",
-"severity": "warn",
-"status": "LIVE",
-"text": "**Stated limits now.** Floor from 8 donors on one 450K batch; EPIC-Italy is a different lab; arrays give the program reading only."
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/COMPLETION_SPRINT_original.txt",
-"line": 33,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "C2. TODO 2.2 \u2014 Bispectrum on highest-A-score class markers. Module: Biological_Physics/atlas_vault/correlation/cpg_bispectrum.py Three-point correlation functio"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/COMPLETION_SPRINT_original.txt",
-"line": 35,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "C3. TODO 2.3 \u2014 Banana degeneracy / 2D posterior shape analysis. Module: Biological_Physics/atlas_vault/posterior/degeneracy_mapper.py For pairs of A-scores (e.g"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/COMPLETION_SPRINT_original.txt",
-"line": 45,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "E2. Build the per-card Bayesian likelihood module. Module: Biological_Physics/atlas_vault/likelihood/per_card_likelihood.py For each card, declare: likelihood f"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/CMB_TO_METHYLOME_MAP.md",
-"line": 68,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "| 27 | Low-\u2113 likelihoods (non-Gaussian, pixel-space, Gibbs sampling) | Low-frequency disease signal likelihoods \u2014 when there are very few discriminating CpGs (r"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/CMB_TO_METHYLOME_MAP.md",
-"line": 70,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "| 29 | Covariance matrices | A-score covariance (have via Ledoit-Wolf in CPG-VAL-002). Need: per-CpG covariance, cross-cohort covariance, nuisance-parameter cov"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/CMB_TO_METHYLOME_MAP.md",
-"line": 80,
-"pattern": "class H_min",
-"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-"severity": "warn",
-"status": "RECORD",
-"text": "| 34 | Recombination physics (RECFAST/HyRec) | Cellular differentiation thermodynamics \u2014 the per-class H_min values are frozen at differentiation, analogous to "
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/CMB_TO_METHYLOME_MAP.md",
-"line": 119,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "| 53 | Bispectrum estimators (local, equilateral, orthogonal, etc.) | TODO 2.2 bispectrum on highest-A-score class markers. Different \"shapes\" of bispectrum pro"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/REFERENCE_AUDIT.md",
-"line": 4,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "author's model an A-score of 1.0 means at the floor, for every cell, with the only per-cell difference being"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PHYSICS_LEUKOCYTE_GAUGE.md",
-"line": 4,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "fidelity is compromised.\" And: \"an elevated A score is not the same as the severely suppressed A score. When it can no longer maintain its"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PHYSICS_LEUKOCYTE_GAUGE.md",
-"line": 4,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "fidelity is compromised.\" And: \"an elevated A score is not the same as the severely suppressed A score. When it can no longer maintain its"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_PREREG.md",
-"line": 3,
-"pattern": "gate-error reading",
-"use": "IAM-A",
-"severity": "warn",
-"status": "LIVE",
-"text": "**Question.** Does the gate-error reading rise in a primary tumour against the same patient's adjacent normal tissue \u2014 no culture, no cell line,"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PER_CELL_SCORING.md",
-"line": 11,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "> *\"Score all 115 cell-type A-scores for one patient. Each cell type's H_min is looked up via its class"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PER_CELL_SCORING.md",
-"line": 40,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "**The per-cell A-scores have no healthy band.** Only immune has a measured band (width 0.0524, pooled"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/TWO_FIT_FINDING.md",
-"line": 18,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "**The per-cell A-scores are fine** \u2014 `stage_a_cells` scores each of the 115 cells on its own discriminative"
-},
-{
-"file": "Biological_Physics/MethylPhys/atlas/v2/scripts/stage_1_idat_calibration.py",
-"line": 11,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "compressed (~0.85 instead of ~0.95) and inflates every downstream A-score. The"
+"text": "ATP at 310\\,K it is about 21 ($\\mathcal M=20.94$). \\calc{} The chip gauge is the efficiency one, how far above $\\kB T\\ln2$ each switch runs; the Mahaffey number"
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/toolkit_surface_brightness.py",
@@ -466,6 +115,42 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "The CI is computed over the SAME \u00a741 markers the A-score used (handed through from"
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/CHANGELOG.md",
+"line": 106,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "Each cell shows its A-score; a white outline marks a confident departure (95% CI clears NORMAL),"
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/CHANGELOG.md",
+"line": 139,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "(re-anchor reference to IAMAtlas A-score departure, keep only the direction) is open VAL-053."
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/CHANGELOG.md",
+"line": 150,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "per-cell A-score architecture on the eight-class grid, the disease rows it flagged pulled"
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py",
+"line": 11,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "compressed (~0.85 instead of ~0.95) and inflates every downstream A-score. The"
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/ROADMAP_TaskTracker.md",
@@ -565,42 +250,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "panel score, **not an A-score**."
-},
-{
-"file": "Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py",
-"line": 11,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "compressed (~0.85 instead of ~0.95) and inflates every downstream A-score. The"
-},
-{
-"file": "Biological_Physics/MethylPhys/chain/CHANGELOG.md",
-"line": 106,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "Each cell shows its A-score; a white outline marks a confident departure (95% CI clears NORMAL),"
-},
-{
-"file": "Biological_Physics/MethylPhys/chain/CHANGELOG.md",
-"line": 139,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "(re-anchor reference to IAMAtlas A-score departure, keep only the direction) is open VAL-053."
-},
-{
-"file": "Biological_Physics/MethylPhys/chain/CHANGELOG.md",
-"line": 150,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "RECORD",
-"text": "per-cell A-score architecture on the eight-class grid, the disease rows it flagged pulled"
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/Runtime Matrices/Directional Panel/bidirectional_decomposition.py",
@@ -711,102 +360,444 @@
 "text": "# correlation-based A-scores, underestimates the real chain's H(\u03b2)/H_min by ~5-10x."
 },
 {
-"file": "development/archive/p1_01_encoding_surfaces.tex",
-"line": 125,
+"file": "Biological_Physics/MethylPhys/doors/CMB_TO_METHYLOME_MAP.md",
+"line": 68,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "reads $1/P=0.910$ on the gauge (Chapter~\\ref{ch:iama}). On arrays, this is an open problem. \\openprob{} The A-score reads where the cell sits:"
+"text": "| 27 | Low-\u2113 likelihoods (non-Gaussian, pixel-space, Gibbs sampling) | Low-frequency disease signal likelihoods \u2014 when there are very few discriminating CpGs (r"
 },
 {
-"file": "docs/verification/PAPER_ERRATA.md",
-"line": 285,
-"pattern": "class H_min",
-"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-"severity": "warn",
-"status": "LIVE",
-"text": "| TR9 | | \u00a72.1, \u00a75.11 | class H_min A-score | Met-A / IAM-A (CANON) | confirmed | `theory/TECH_REFERENCE_CHECK.md` #10 |"
-},
-{
-"file": "docs/verification/PAPER_ERRATA.md",
-"line": 285,
+"file": "Biological_Physics/MethylPhys/doors/CMB_TO_METHYLOME_MAP.md",
+"line": 70,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "| TR9 | | \u00a72.1, \u00a75.11 | class H_min A-score | Met-A / IAM-A (CANON) | confirmed | `theory/TECH_REFERENCE_CHECK.md` #10 |"
+"text": "| 29 | Covariance matrices | A-score covariance (have via Ledoit-Wolf in CPG-VAL-002). Need: per-CpG covariance, cross-cohort covariance, nuisance-parameter cov"
 },
 {
-"file": "docs/verification/theory/TECH_REFERENCE_CHECK.md",
-"line": 14,
+"file": "Biological_Physics/MethylPhys/doors/CMB_TO_METHYLOME_MAP.md",
+"line": 80,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "RECORD",
-"text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
+"text": "| 34 | Recombination physics (RECFAST/HyRec) | Cellular differentiation thermodynamics \u2014 the per-class H_min values are frozen at differentiation, analogous to "
 },
 {
-"file": "docs/verification/theory/TECH_REFERENCE_CHECK.md",
-"line": 14,
-"pattern": "class H_min",
-"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"file": "Biological_Physics/MethylPhys/doors/CMB_TO_METHYLOME_MAP.md",
+"line": 119,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
-"status": "RECORD",
-"text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
+"status": "LIVE",
+"text": "| 53 | Bispectrum estimators (local, equilateral, orthogonal, etc.) | TODO 2.2 bispectrum on highest-A-score class markers. Different \"shapes\" of bispectrum pro"
 },
 {
-"file": "docs/verification/theory/TECH_REFERENCE_CHECK.md",
-"line": 14,
+"file": "Biological_Physics/MethylPhys/doors/TWO_FIT_FINDING.md",
+"line": 18,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "**The per-cell A-scores are fine** \u2014 `stage_a_cells` scores each of the 115 cells on its own discriminative"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PROC_TISSUE_01_OUTCOME.md",
+"line": 65,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "substrates inflate cross-tile A-scores from substrate-distribution mismatch alone. The same reasoning"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/COMPLETION_SPRINT_scored.md",
+"line": 25,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "RECORD",
-"text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
+"text": "What the sprint still gets right, for later: C1 (two-point correlation per class with MASTER-style mode coupling), C3 (2D posterior shape for A-score pairs \u2014 th"
 },
 {
-"file": "docs/book/part6/p6_09_cscore.tex",
+"file": "Biological_Physics/MethylPhys/doors/PROC_PREDX_SEQUENCE_01_PREREG.md",
+"line": 27,
+"pattern": "program reading",
+"use": "Met-A",
+"severity": "warn",
+"status": "LIVE",
+"text": "- Arrays give the PROGRAM reading only; the error reading (IAM's law on single molecules) cannot be made on this data."
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/ENHANCEMENTS.md",
+"line": 147,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "marker union) demoted to a labelled section or removed. The A-score is the instrument; nothing in the report"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/ENHANCEMENTS.md",
+"line": 167,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "LIVE",
+"text": "0b. **Report restructure** \u2014 Reading tab leads with cells found + fractions, then per-cell A against its class H_min with healthy = A 1.00 \u00b1 5 % (tier NORMAL) a"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/ENHANCEMENTS.md",
+"line": 171,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "0d. **Launcher - the face of the chain** (author, 2026-09-26 evening). A static HTML cannot execute Python, so this is a small local app / `run.py`, not a repor"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PROC_G002_TRACE_OUTCOME.md",
+"line": 26,
+"pattern": "program reading",
+"use": "Met-A",
+"severity": "warn",
+"status": "LIVE",
+"text": "2. Program reading: \u03b2\u0304 or f_meth against the cell's own healthy value \u2014 the quantity the original floors captured."
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PROC_E2E_01_OUTCOME.md",
+"line": 21,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| B7 A-scores (recorded, cannot pass or fail) | Only the immune class is gauged, and only where a laboratory zero exists. GSE288652 and GSE166212 have none, so "
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PROC_E2E_01_OUTCOME.md",
+"line": 21,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| B7 A-scores (recorded, cannot pass or fail) | Only the immune class is gauged, and only where a laboratory zero exists. GSE288652 and GSE166212 have none, so "
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/REFERENCE_AUDIT.md",
+"line": 4,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "author's model an A-score of 1.0 means at the floor, for every cell, with the only per-cell difference being"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/COMPONENT_MAP.md",
+"line": 65,
+"pattern": "n_bio",
+"use": "none (removed from the method)",
+"severity": "block",
+"status": "RECORD",
+"text": "| Recipe, `_mphys_constants_private.py`, patents, correspondence | **YOUR FOLDER** (vault IP) | no | never in repo or kit; `_mphys_constants_private.py` still n"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/COMPONENT_MAP.md",
+"line": 94,
+"pattern": "n_bio",
+"use": "none (removed from the method)",
+"severity": "block",
+"status": "RECORD",
+"text": "7. rename `n_bio` -> Mahaffey number (20.94) in cpg_gauge_engine.py (archived privately), `_mphys_constants_private.py`, and the 002 card text; reconcile IAM_Hu"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/COMPONENT_MAP.md",
+"line": 139,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "| `literature_anchors.json` | disease_matching.py | [RECORD - not read by the chain] Published A-score anchors per class extracted from the April web build. Ori"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PHYSICS_LEUKOCYTE_GAUGE.md",
+"line": 4,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "fidelity is compromised.\" And: \"an elevated A score is not the same as the severely suppressed A score. When it can no longer maintain its"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PHYSICS_LEUKOCYTE_GAUGE.md",
+"line": 4,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "fidelity is compromised.\" And: \"an elevated A score is not the same as the severely suppressed A score. When it can no longer maintain its"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/CLASS_USE_INVENTORY.md",
+"line": 25,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "RECORD",
+"text": "| disease_matching.py (archived privately) | per-class identity CpGs; \"per-class H_min floor\" check | per-cell identity loci; floor check stays (it is the H_min"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/CLASS_USE_INVENTORY.md",
 "line": 31,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
-"status": "LIVE",
-"text": "with $c_{\\rm healthy}$ the median over the six reference arrays, each read against the other five. \\calibrated{} The healthy arrays read $C=0.70$--$1.23$. A sco"
+"status": "RECORD",
+"text": "| iamatlas_a_scoring.py (archived privately) `score_per_class()` | \"8 class A-scores\" \u2014 defined, called by nothing |"
 },
 {
-"file": "docs/book/part6/p6_01_bridge.tex",
-"line": 109,
+"file": "Biological_Physics/MethylPhys/doors/CLASS_USE_INVENTORY.md",
+"line": 33,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "| SOP (372 hits), OM (om_data.py (archived privately), build_operations_manual.py (archived privately), switching_order.py (archived privately), om_part3.py (ar"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/RUNBOOK.md",
+"line": 248,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "**WHAT THE REPORT SAYS (author, 2026-09-21).** Cells detected and their percentages (Stage 2); the A-score of each cell the chain could calculate (separation su"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/SUBSTRATE_STRATEGY.md",
+"line": 85,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "across the specimen. Each A score carries one C-score beside it, computed from the same sites, which says where along the genome the"
+"text": "fidelity relative to the tissue it came from, so its A-score should be higher than its own matched normal."
 },
 {
-"file": "docs/book/part6/p6_01_bridge.tex",
-"line": 113,
+"file": "Biological_Physics/MethylPhys/doors/SUBSTRATE_STRATEGY.md",
+"line": 129,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "ATP at 310\\,K it is about 21 ($\\mathcal M=20.94$). \\calc{} The chip gauge is the efficiency one, how far above $\\kB T\\ln2$ each switch runs; the Mahaffey number"
+"text": "The cfDNA background in plasma is immune-derived, so the **immune** A-score is in principle readable there \u2014"
 },
 {
-"file": "docs/book/part6/p6_22_leukocyte.tex",
-"line": 59,
+"file": "Biological_Physics/MethylPhys/doors/PROC_HISTORY_01_OUTCOME.md",
+"line": 11,
+"pattern": "n_bio",
+"use": "none (removed from the method)",
+"severity": "block",
+"status": "RECORD",
+"text": "| **G-series** (H_min calibration, before VAL-001) | Apr 2026 | G-002 (17 chains, 8 methylation floors), G-003b (32 floors), bootstrap of the 32; also G-008, E_"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/COMPLETION_SPRINT_original.txt",
+"line": 33,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "A score pooled over many sites and many cells, computed as a case group minus a control group, can move in opposite directions under different conditions withou"
+"text": "C2. TODO 2.2 \u2014 Bispectrum on highest-A-score class markers. Module: Biological_Physics/atlas_vault/correlation/cpg_bispectrum.py Three-point correlation functio"
 },
 {
-"file": "docs/book/part6/p6_22_leukocyte.tex",
-"line": 64,
+"file": "Biological_Physics/MethylPhys/doors/COMPLETION_SPRINT_original.txt",
+"line": 35,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "\\section{A count, not a score}"
+"text": "C3. TODO 2.3 \u2014 Banana degeneracy / 2D posterior shape analysis. Module: Biological_Physics/atlas_vault/posterior/degeneracy_mapper.py For pairs of A-scores (e.g"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/COMPLETION_SPRINT_original.txt",
+"line": 45,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "E2. Build the per-card Bayesian likelihood module. Module: Biological_Physics/atlas_vault/likelihood/per_card_likelihood.py For each card, declare: likelihood f"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_PREREG.md",
+"line": 3,
+"pattern": "gate-error reading",
+"use": "IAM-A",
+"severity": "warn",
+"status": "LIVE",
+"text": "**Question.** Does the gate-error reading rise in a primary tumour against the same patient's adjacent normal tissue \u2014 no culture, no cell line,"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PROC_PARTIAL_01_PREREG.md",
+"line": 10,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "secretory material is holding its state**, and the A-score is the whole point of the instrument. Today it"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PROC_PARTIAL_01_PREREG.md",
+"line": 37,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| Truth | `A_true = H(mu_atlas over class k's identity loci) / H_min_k` \u2014 the A-score of the material that was actually mixed in |"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PROC_PARTIAL_01_PREREG.md",
+"line": 71,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "scores**. Above it the chain may report a class's A-score with its floor stated; below it the chain reports"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md",
+"line": 60,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "**Why now and not before \u2014 answered from the author's April 2026 record.** VAL-003's own output (Terminal 2026-04-07) states: *\"G-002 H_min calibrated on Roadma"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PROC_E2E_01_PREREG.md",
+"line": 35,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "**B7 is not a bar, it is a measurement.** The documented A-scores come from the pre-atlas marker-union gauge;"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PROC_E2E_01_PREREG.md",
+"line": 38,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "difference with both numbers stated. **No A-score comparison can fail this procedure, and none may be used to"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/REVIEWER_MANIFEST.md",
+"line": 56,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- literature_anchors.json (archived privately) \u2014 [RECORD - not read by the chain] Published A-score anchors per class extracted from the April web build. Orient"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/CLASS_ASSIGNMENT_RULE_DRAFT.md",
+"line": 14,
+"pattern": "n_bio",
+"use": "none (removed from the method)",
+"severity": "block",
+"status": "RECORD",
+"text": "regimes exist\"* (l. 293); cell types that *\"share the same dominant regulatory mechanism and therefore the same n_bio\"* are one"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/CLASS_ASSIGNMENT_RULE_DRAFT.md",
+"line": 17,
+"pattern": "n_bio",
+"use": "none (removed from the method)",
+"severity": "block",
+"status": "RECORD",
+"text": "mode (inversion)**, with its own n_bio and floor:"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PROC_MATCH_01_OUTCOME.md",
+"line": 11,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "LIVE",
+"text": "| **M5 report** | 11 cached arrays: PRESENT cells entering the departure profile **0\u20135** (median 3); route-B candidates none. Healthy per-cell A on this surface"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PROC_MATCH_01_OUTCOME.md",
+"line": 13,
+"pattern": "class H_min",
+"use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+"severity": "warn",
+"status": "LIVE",
+"text": "**Why row 8 is not commissionable yet.** Stage 8's patient departure is (A_cell \u2212 1.0) over cells above their class H_min \u2014 a definition that presumes healthy p"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PER_CELL_SCORING.md",
+"line": 11,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "> *\"Score all 115 cell-type A-scores for one patient. Each cell type's H_min is looked up via its class"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PER_CELL_SCORING.md",
+"line": 40,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "**The per-cell A-scores have no healthy band.** Only immune has a measured band (width 0.0524, pooled"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PROC_PREDX_NEUT_01_PREREG.md",
+"line": 17,
+"pattern": "program reading",
+"use": "Met-A",
+"severity": "warn",
+"status": "LIVE",
+"text": "**Stated limits now.** Floor from 8 donors on one 450K batch; EPIC-Italy is a different lab; arrays give the program reading only."
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PROC_PARTIAL_01_OUTCOME.md",
+"line": 28,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "It returns a number that cannot be a methylation fraction at all. The A-score built on it is therefore not a"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PROC_CHARR_01_PREREG.md",
+"line": 3,
+"pattern": "gate-error reading",
+"use": "IAM-A",
+"severity": "warn",
+"status": "LIVE",
+"text": "**Question.** With one lab, one kit, one sequencer and every fish prepared the same way, is the gate-error reading a property of each fish"
+},
+{
+"file": "Biological_Physics/MethylPhys/atlas/v2/scripts/stage_1_idat_calibration.py",
+"line": 11,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "compressed (~0.85 instead of ~0.95) and inflates every downstream A-score. The"
+},
+{
+"file": "Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md",
+"line": 3,
+"pattern": "gate-error reading",
+"use": "IAM-A",
+"severity": "warn",
+"status": "LIVE",
+"text": "**Question.** Can the gate-error reading \u2014 how faithfully a cell holds its methylation pattern, counted on single DNA molecules \u2014 be read for each"
 }
 ]
