@@ -118,7 +118,8 @@ behind `blood_composition_EPIC_v1` (GSE110554).
 `B_all.csv` was never written. Attempt 2 failed on a parallel-write race (fixed in `a0aae763`); attempt 3 on pandas broken by numpy 2.
 
 ### Next box run (planned for Thursday or later): do these in order
-1. **Before the box (local, no cost):** change worker B to write one CSV per test set as each set finishes, and to resume by skipping
+1. **Done 2026-10-05 (`4136a5e0`):** B restores the sets an earlier attempt finished from S3 (healthy_repeat is already there) and
+   parquet/tar reads are serialised. Original note: change worker B to write one CSV per test set as each set finishes, and to resume by skipping
    sets whose CSV already exists; add `--workers` per job so B can run with 8 threads. Reproduce the segfault locally on one set with
    30 threads if possible; if it is pyarrow/parquet under threads, read the parquet betas once in the main thread.
 2. **Box:** m7a.8xlarge; create a 500 GB gp3 scratch disk in us-west-2a and attach it as /dev/sdf; fresh 12-hour STS credentials.
