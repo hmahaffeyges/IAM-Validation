@@ -45,25 +45,16 @@
 "text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
 },
 {
-"file": "docs/book/part4/p4_01_bridge.tex",
-"line": 109,
+"file": "docs/book/part1/p1_01_encoding_surfaces.tex",
+"line": 125,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "across the specimen. Each A score carries one C-score beside it, computed from the same sites, which says where along the genome the"
+"text": "reads $1/P=0.910$ on the gauge (Chapter~\\ref{ch:iama}). On arrays, this is an open problem. \\openprob{} The A-score reads where the cell sits:"
 },
 {
-"file": "docs/book/part4/p4_01_bridge.tex",
-"line": 113,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "ATP at 310\\,K it is about 21 ($\\mathcal M=20.94$). \\calc{} The chip gauge is the efficiency one, how far above $\\kB T\\ln2$ each switch runs; the Mahaffey number"
-},
-{
-"file": "docs/book/part4/p4_09_cscore.tex",
+"file": "docs/book/part6/p6_09_cscore.tex",
 "line": 31,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
@@ -72,7 +63,7 @@
 "text": "with $c_{\\rm healthy}$ the median over the six reference arrays, each read against the other five. \\calibrated{} The healthy arrays read $C=0.70$--$1.23$. A sco"
 },
 {
-"file": "docs/book/part4/p4_22_leukocyte.tex",
+"file": "docs/book/part6/p6_22_leukocyte.tex",
 "line": 59,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
@@ -81,7 +72,7 @@
 "text": "A score pooled over many sites and many cells, computed as a case group minus a control group, can move in opposite directions under different conditions withou"
 },
 {
-"file": "docs/book/part4/p4_22_leukocyte.tex",
+"file": "docs/book/part6/p6_22_leukocyte.tex",
 "line": 64,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
@@ -90,13 +81,22 @@
 "text": "\\section{A count, not a score}"
 },
 {
-"file": "docs/book/part1/p1_01_encoding_surfaces.tex",
-"line": 125,
+"file": "docs/book/part6/p6_01_bridge.tex",
+"line": 109,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "reads $1/P=0.910$ on the gauge (Chapter~\\ref{ch:iama}). On arrays, this is an open problem. \\openprob{} The A-score reads where the cell sits:"
+"text": "across the specimen. Each A score carries one C-score beside it, computed from the same sites, which says where along the genome the"
+},
+{
+"file": "docs/book/part6/p6_01_bridge.tex",
+"line": 113,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "ATP at 310\\,K it is about 21 ($\\mathcal M=20.94$). \\calc{} The chip gauge is the efficiency one, how far above $\\kB T\\ln2$ each switch runs; the Mahaffey number"
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/toolkit_surface_brightness.py",
@@ -664,15 +664,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "scores**. Above it the chain may report a class's A-score with its floor stated; below it the chain reports"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PLAN.md",
-"line": 42,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "V17b. **AD / PSP on v2** (author 2026-09-28: \"We need to investigate AD\") \u2014 DIRECTION-01 (8b) run on v1 and v2 side by side: every present immune cell's A again"
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md",

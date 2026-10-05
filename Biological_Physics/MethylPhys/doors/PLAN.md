@@ -66,7 +66,7 @@ After Run 1 (no box): score job E against the FACS fractions; the author sets th
 2. EPIC v2 intake (calibrated through SeSAMe; needs a v2 floor and v2 replicates).
 3. Atlas deconvolution and NILC (both failed their truth bars in development; job E and GSE182379 test them again).
 4. Directional decomposition (physics only) and the chip term.
-5. Open human data beyond GEO (controlled-access serial cohorts), once a method is published.
+5. Open human data beyond GEO (controlled-access serial studies), once a method is published.
 
 ## 6. Still to download
 
