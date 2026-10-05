@@ -2,7 +2,7 @@
 
 **Build:** DEVELOPMENT - not commissioned (chain v3, neutrophils only). Not a diagnostic test. No tier beyond Normal is printed.
 **Round 2 (2026-10-04).** The intake, noise gate, identifiers and development flags changed in round 2: sex and age are optional (`NOT_DECLARED`); only blood specimens are accepted (others stop with `SPECIMEN_REFUSED`); identifiers are hashed in the bundle and ledger; if fewer than 90 % of the noise sites are read the gauge state is withheld with the reason; Stage Q prints the IAM-A C-score; development stages run only behind `--dev-*` flags. `MethylPhys_CPG_SOP_v3.md` (sections 2, 2b, 5) and the code are current where this file differs; the line numbers below are from the earlier build.
-**Stage T (2026-10-04).** Stage T is self-tare II, then the median tare, adopted by the author on 2026-10-04 (`boxruns/run1/JOBS.md` job A; `doors/DEV_SELFTARE_02.md` reading (iv); development log 2026-10-04, DEV-PAIRED-01). Section 1 (tare rows), 4.1, 4.3, Stage T in section 5, section 6 item 6, the tare rows of section 7 and section 9 items 2 and 10 are updated for it. Self-tare II was wired into Stage T on 2026-10-04 (development log DEV-SELFTARE-03); `--dev-selftare-ii` is now a no-op alias. The noise-corrected tare described in this file before was removed on 2026-10-02 (DEV-TARE-02) and is kept here only as history.
+**Stage T (2026-10-04).** Stage T is self-tare II, then the median tare, adopted by the author on 2026-10-04 (`boxruns/run1/JOBS.md` job A; `doors/DEV_SELFTARE_02.md` reading (iv); development log 2026-10-04, DEV-PAIRED-01). Section 1 (tare rows), 4.1, 4.3, Stage T in section 5, section 6 item 6, the tare rows of section 7 and section 9 items 1 and 9 are updated for it. Self-tare II was wired into Stage T on 2026-10-04 (development log DEV-SELFTARE-03); `--dev-selftare-ii` is now a no-op alias. The noise-corrected tare described in this file before was removed on 2026-10-02 (DEV-TARE-02) and is kept here only as history.
 **Scope:** one cell type (neutrophils); Illumina EPIC v1 arrays for Met-A; single-molecule reads (pipeline `loyfer_pat_v1`) for IAM-A. 450K neutrophil floor: pending (canon `Met_A_floor_450K_neutrophil` = null).
 **Written from:** repository `hmahaffeyges/IAM-Validation`, `main` at `7cdbbf8` (floor v1.3) **plus the audit-fix patch** (`chain_fix_patch.zip`, branch `audit-fixes`, not yet pushed). Line numbers refer to the patched files. Paths are relative to `Biological_Physics/MethylPhys/`. Every number is read from a frozen file or the canon; the file and key are given beside it.
 **Readings:** Met-A (arrays), Met-A C-score (arrays), A_rel (Met-A after the same-run tare), IAM-A (sequencing).
@@ -219,6 +219,11 @@ The gauge state of every Met-A reading comes from the tare: whole blood always; 
 **Operator:** with 3–19 references the spread is itself imprecise. A detection limit above the change you need to see means this specimen cannot show it. Self-tare II rests on the fixed-site assumption; the physical control DNA route (fully methylated and fully unmethylated control DNA and a 50 % mix on every slide) stays the check on it.
 **History (kept):** until 2026-10-04 Stage T was the median tare alone (step 2 above; DEV-TARE-02, 2026-10-02). Before 2026-10-02 (`conductor_v3.py:150-199` of the earlier build): with ≥ 20 records with A, N (and f_neu for whole blood) and a noise index for this specimen, a noise-corrected tare, least squares A = a + b f_neu + c N (isolated: A = a + c N) on the references, A_rel = A ÷ prediction, spread = SD of each reference's leave-one-out A ÷ prediction, bundle fields `fit` and `prediction`; removed on 2026-10-02 (DEV-TARE-02).
 
+### Noise gate (`conductor_v3.py`: `noise_gate`, applied in `run_neutrophil` after Stage T)
+**Inputs:** the noise index N recorded by Stage M (mean H(β) over the noise sites, read on β before Stage T step 1); `chain/Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json`: N_max = 0.149, the top of the noise range of the six reference arrays (0.1223–0.1489; DEV-NOISE-01).
+**Rule, as coded:** `met_a.noise_gate` = `pass` when N ≤ N_max, `above the reference arrays' range` when N > N_max. With N > N_max, no same-run tare (`A_rel` null) and an A, the state is `withheld: noise index N > N_max and no same-run tare; A printed as a number only`; a tared reading keeps its state, and a reading without A keeps its own reason. With fewer than 90 % of the noise sites measured, N is null, `noise_gate` is `not measured: noise-site coverage below 90 %` and the state is withheld with the reason, tared or not (author decision A, 2026-10-04). Nothing is fitted.
+**Outputs:** bundle `met_a.noise_gate`, `met_a.noise_gate_N_max`; `met_a.state` when withheld.
+
 ### Report (`chain/MethylPhys_Interface/report_v3.py`)
 **Outputs:** `<out>.html`; `<out stem>_bundle.json` unless `--no-bundle`; bundle top level: `build`, `specimen`, `platform`, `array_type`, `scope`, `floors_version`, `reference_version`, [`refusal`], `composition`, `met_a`, `met_a_cscore`, `tare`, `withheld`, [`iam_a`], `intake`, `intake_skipped`, `sample_id`, `covariates`, `run_id`, [`stage1`]. Ledger row (`run_sample.py:506-517`): run_id, engine, sample_id, utc, report, bundle, specimen, platform, array_type, refusal, floors/reference versions, stage0_verdict, call_rate_status, f_neu, A, state, n_sites, shift_per_1pct_loss, past_entropy_ceiling, C, A_rel, tare, n_refs, tare_method, noise_index, detection_limit_pct_loss, iam_a, iam_a_pipeline, covariates.
 
@@ -317,13 +322,12 @@ Every code path above was run on synthetic β vectors, synthetic .pat files and 
 
 ## 9. Pending changes (not yet in the code)
 
-1. A gate on the noise index N (proposed: state withheld when N is above the floor arrays' range, 0.122–0.149, unless noise-corrected); N is recorded, not gated.
-2. A held-out laboratory with ≥ 20 healthy references to measure the noise-corrected tare (its coefficients were fitted after looking, DEV-NOISE-02). History: the noise-corrected tare was removed on 2026-10-02 (DEV-TARE-02); Stage T is self-tare II then the median tare since 2026-10-04.
-3. Fraction-dependent precision rule: report A only where the shift at the specimen's own fraction is ≥ 2 × the healthy spread, in place of the fixed 0.20 line.
-4. Bisulfite-conversion threshold calibrated at intake (`BS_THRESHOLD_CALIBRATED` set from healthy arrays).
-5. Intake detection statistic: one statistic for the gate and the thresholds file (the gate uses p ≤ 0.01 against the negative-control background; `intake_thresholds_v1.json` provenance and the Stage-1 record use poobah p ≤ 0.05).
-6. Tare required, not optional, for isolated neutrophils.
-7. Molecule-assignment IAM-A (per-molecule cell assignment before the copy-error count).
-8. IAM-A C-score (per-region copy-error map against the floor).
-9. 450K neutrophil floor (purified 450K neutrophils, GSE88824), with donor sex stated.
-10. Self-tare II wired into Stage T, so that A_rel is the median tare of the self-tared A: done on 2026-10-04 (`conductor_v3.py: stage_t_selftare_ii`, before `stage_t_tare`; DEV-SELFTARE-03) (adopted 2026-10-04; DEV-SELFTARE-02; DEV-PAIRED-01).
+1. A held-out laboratory with ≥ 20 healthy references to measure the noise-corrected tare (its coefficients were fitted after looking, DEV-NOISE-02). History: the noise-corrected tare was removed on 2026-10-02 (DEV-TARE-02); Stage T is self-tare II then the median tare since 2026-10-04.
+2. Fraction-dependent precision rule: report A only where the shift at the specimen's own fraction is ≥ 2 × the healthy spread, in place of the fixed 0.20 line.
+3. Bisulfite-conversion threshold calibrated at intake (`BS_THRESHOLD_CALIBRATED` set from healthy arrays).
+4. Intake detection statistic: one statistic for the gate and the thresholds file (the gate uses p ≤ 0.01 against the negative-control background; `intake_thresholds_v1.json` provenance and the Stage-1 record use poobah p ≤ 0.05).
+5. Tare required, not optional, for isolated neutrophils.
+6. Molecule-assignment IAM-A (per-molecule cell assignment before the copy-error count).
+7. IAM-A C-score (per-region copy-error map against the floor).
+8. 450K neutrophil floor (purified 450K neutrophils, GSE88824), with donor sex stated.
+9. Self-tare II wired into Stage T, so that A_rel is the median tare of the self-tared A: done on 2026-10-04 (`conductor_v3.py: stage_t_selftare_ii`, before `stage_t_tare`; DEV-SELFTARE-03) (adopted 2026-10-04; DEV-SELFTARE-02; DEV-PAIRED-01).
