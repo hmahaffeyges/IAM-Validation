@@ -776,14 +776,6 @@ def _b00_hold_energy():
     raise KeyError('copy-channel row not found')
 DATA_FILES['Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv'] = 'Met-A held-out (leave-one-out) readings of the 6 purified healthy EPIC neutrophil reference arrays'
 
-# helpers of the part1/p1_01_encoding_surfaces checks
-def _b00_hold_energy():
-    """E_hold (kT) of the copy channel, from the table row 'methylated sites (copy error)' of PROC_CHANNEL_01_OUTCOME.md."""
-    for ln in file_text('Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md').splitlines():
-        if ln.startswith('| methylated sites (copy error)'):
-            return float(re.match(r'\s*([\d.]+)', ln.split('|')[3]).group(1))
-    raise KeyError('copy-channel row not found')
-
 _B00_HOLD_RERUN = 'methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file'
 
 # helpers of the part1/p1_02_iams_law checks
@@ -3141,495 +3133,6 @@ def check_0013():
 def check_0014():
     'M_cell converted to Landauer (bit) units. Book line 50, printed 30.2.'
     value = (dG_ATP/(R_gas*T_cell))/LN2
-    return locals()
-
-
-# ======== Part 1 | ch:surfaces | docs/book/part1/p1_01_encoding_surfaces.tex
-@check(label='ch:surfaces:L34', chapter='ch:surfaces', part=1, title='limit of E(a) as a->0',
-       file='part1/p1_01_encoding_surfaces', line=34, status='derived', kind='sym', printed='0', tol=0.0)
-def check_0015():
-    'limit of E(a) as a->0. Book line 34, printed 0. Control: the limit must not equal the printed 0 moved to 0.05.'
-    a=sp.Symbol('a',positive=True); lim = sp.limit(sp.exp(1-1/a), a, 0, '+'); ok = lim==0
-    neg_ok = lim==sp.Rational(5,100)
-    return locals()
-
-@check(label='ch:surfaces:L34:1', chapter='ch:surfaces', part=1, title='E(a) at a=1 equals 1',
-       file='part1/p1_01_encoding_surfaces', line=34, status='derived', kind='sym', printed='1', tol=0.0)
-def check_0016():
-    'E(a) at a=1 equals 1. Book line 34, printed 1. Control: E(1) must not equal 1.05.'
-    a=sp.Symbol('a',positive=True); E1 = sp.exp(1-1/a).subs(a, 1); ok = sp.simplify(E1-1)==0
-    neg_ok = sp.simplify(E1-sp.Rational(105,100))==0
-    return locals()
-
-@check(label='ch:surfaces:L34:e', chapter='ch:surfaces', part=1, title='limit of E(a) as a->infinity',
-       file='part1/p1_01_encoding_surfaces', line=34, status='derived', kind='sym', printed='e', tol=0.0)
-def check_0017():
-    'limit of E(a) as a->infinity. Book line 34, printed e. Control: the limit must not equal 1.05 e.'
-    a=sp.Symbol('a',positive=True); lim = sp.limit(sp.exp(1-1/a), a, sp.oo); ok = lim==sp.E
-    neg_ok = sp.simplify(lim-sp.Rational(105,100)*sp.E)==0
-    return locals()
-
-@check(label='ch:surfaces:L42', chapter='ch:surfaces', part=1, title='log10 nucleus bit capacity vs CpG count',
-       file='part1/p1_01_encoding_surfaces', line=42, status='calc', kind='num', printed='52', tol=0.01)
-def check_0018():
-    'log10 nucleus bit capacity vs CpG count. Book line 42, printed 52.'
-    r=3e-6; A=4*math.pi*r**2; lP=math.sqrt(hbar*G/c**3); cap=A/(4*lP**2*LN2); N_CpG=2.82e7; value=math.log10(cap/N_CpG)
-    return locals()
-
-@check(label='ch:surfaces:L42:1.6\\times10^{59}', chapter='ch:surfaces', part=1, title='bits holdable by 6um-nucleus area',
-       file='part1/p1_01_encoding_surfaces', line=42, status='calc', kind='num', printed='1.6\\times10^{59}', tol=0.03)
-def check_0019():
-    'bits holdable by 6um-nucleus area. Book line 42, printed 1.6\\times10^{59}.'
-    r=3e-6; A=4*math.pi*r**2; lP=math.sqrt(hbar*G/c**3); value=A/(4*lP**2*LN2)
-    return locals()
-
-@check(label='ch:surfaces:L52', chapter='ch:surfaces', part=1, title='bits held by 1 solar-mass horizon',
-       file='part1/p1_01_encoding_surfaces', line=52, status='calc', kind='num', printed='1.51\\times10^{77}', tol=0.0033)
-def check_0020():
-    'bits held by 1 solar-mass horizon. Book line 52, printed 1.51\\times10^{77}.'
-    Rs=2*G*Msun/c**2; A=4*math.pi*Rs**2; lP=math.sqrt(hbar*G/c**3); value=A/(4*lP**2*LN2)
-    return locals()
-
-@check(label='ch:surfaces:L53', chapter='ch:surfaces', part=1, title='quarter coefficient equals 2pi/8pi ratio',
-       file='part1/p1_01_encoding_surfaces', line=53, status='derived', kind='sym', printed='', tol=0.0)
-def check_0021():
-    'quarter coefficient equals 2pi/8pi ratio. Book line 53.'
-    lhs=sp.Rational(1,4); rhs=(2*sp.pi)/(8*sp.pi)
-    return locals()
-
-@check(label='ch:surfaces:L61', chapter='ch:surfaces', part=1, title='Hawking temperature of one solar mass',
-       file='part1/p1_01_encoding_surfaces', line=61, status='calc', kind='num', printed='6.17\\times10^{-8}', tol=0.00081)
-def check_0022():
-    'Hawking temperature of one solar mass. Book line 61, printed 6.17\\times10^{-8}.'
-    value = hbar*c**3/(8*math.pi*G*Msun*kB)
-    return locals()
-
-@check(label='ch:surfaces:L62', chapter='ch:surfaces', part=1, title="Gibbons-Hawking temperature of today's horizon",
-       file='part1/p1_01_encoding_surfaces', line=62, status='calc', kind='num', printed='2.65\\times10^{-30}', tol=0.00189)
-def check_0023():
-    "Gibbons-Hawking temperature of today's horizon. Book line 62, printed 2.65\\times10^{-30}."
-    H0=67.36; H=Hsi(H0); value=hbar*H/(2*math.pi*kB)
-    return locals()
-
-@check(label='ch:surfaces:L72', chapter='ch:surfaces', part=1, title='measured: printed value found in verify_encoding_ladder_output.txt, a file the chapter names',
-       file='part1/p1_01_encoding_surfaces', line=72, status='observed', kind='file', printed='2.87\\times10^{-21}', tol=0.0, source='docs/verification/scripts/verify_encoding_ladder_output.txt',
-       heavy=True, rerun='python3 docs/verification/scripts/verify_encoding_ladder.py > docs/verification/scripts/verify_encoding_ladder_output.txt')
-def check_0024():
-    'measured: printed value found in verify_encoding_ladder_output.txt, a file the chapter names. Book line 72, printed 2.87\\times10^{-21}.'
-    ok = file_has('docs/verification/scripts/verify_encoding_ladder_output.txt', '2.87\\times10^{-21}')
-    return locals()
-
-@check(label='ch:surfaces:L72:17.9', chapter='ch:surfaces', part=1, title='J-to-meV conversion of measured bit energy',
-       file='part1/p1_01_encoding_surfaces', line=72, status='observed', kind='num', printed='17.9', tol=0.0028)
-def check_0025():
-    'J-to-meV conversion of measured bit energy. Book line 72, printed 17.9.'
-    E_J=2.87e-21; value=E_J/eV*1000
-    return locals()
-
-@check(label='ch:surfaces:L81', chapter='ch:surfaces', part=1, title='Clausius relation on Rindler horizons gives the coupling 8 pi G',
-       file='part1/p1_01_encoding_surfaces', line=81, status='derived', kind='sym', printed='', tol=0.0)
-def check_3136():
-    'delta Q = T dS on a local Rindler horizon: heat flux kappa lambda T_kk, Unruh T = hbar kappa/2pi, area change from Raychaudhuri dS = eta lambda R_kk. Solving for R_kk gives R_kk = (2pi/(hbar eta)) T_kk (kappa cancels), the Einstein equation with coupling 2pi/(hbar eta); with the Bekenstein-Hawking eta = 1/(4 hbar G) (c = k_B = 1) the coupling is 8 pi G. Book line 81 (Jacobson 1995). Units c = 1.'
-    kap, lam, Tkk, Rkk, eta, hb, G_ = sp.symbols('kappa lambda T_kk R_kk eta hbar G', positive=True)
-    dQ = kap * lam * Tkk
-    T_unruh = hb * kap / (2 * sp.pi)
-    dS = eta * lam * Rkk
-    Rsol = sp.solve(sp.Eq(dQ, T_unruh * dS), Rkk)[0]
-    coupling = sp.simplify(Rsol / Tkk)
-    lhs = coupling.subs(eta, 1 / (4 * hb * G_))
-    rhs = 8 * sp.pi * G_
-    neg_lhs = coupling.subs(eta, sp.Rational(105, 100) / (4 * hb * G_))
-    return locals()
-
-@check(label='ch:surfaces:L99', chapter='ch:surfaces', part=1, title='coupling beta_m defined as Omega_m/2',
-       file='part1/p1_01_encoding_surfaces', line=99, status='derived', kind='sym', printed='', tol=0.0)
-def check_0026():
-    'coupling beta_m defined as Omega_m/2. Book line 99.'
-    lhs=beta_m; rhs=Om/2
-    return locals()
-
-@check(label='ch:surfaces:L103', chapter='ch:surfaces', part=1, title='Level 2 chi2_min IAM (runA) minus LCDM (runC)',
-       file='part1/p1_01_encoding_surfaces', line=103, status='measured', kind='file', printed='+0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
-def check_0027():
-    'Level 2 chi2_min IAM (runA) minus LCDM (runC). Book line 103, printed +0.54.'
-    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
-    return locals()
-
-@check(label='ch:surfaces:L114', chapter='ch:surfaces', part=1, title='Landauer cost per CpG site at body temp',
-       file='part1/p1_01_encoding_surfaces', line=114, status='calc', kind='num', printed='2.97\\times10^{-21}', tol=0.00168)
-def check_0028():
-    'Landauer cost per CpG site at body temp. Book line 114, printed 2.97\\times10^{-21}.'
-    value=kB*T_cell*LN2
-    return locals()
-
-@check(label='ch:surfaces:L117', chapter='ch:surfaces', part=1, title='N_CpG k_B T ln2 with N = 28,217,448 (printed 2.82e7)',
-       file='part1/p1_01_encoding_surfaces', line=117, status='calc', kind='num', printed='8.38\\times10^{-14}', tol=0)
-def check_0029():
-    'N_CpG k_B T ln2 with N = 28,217,448 (printed 2.82e7). Book line 117, printed 8.38\\times10^{-14}.'
-    N_CpG=28217448  # CpG count of the human genome, book input (ch:landauer line 150)
-    value=N_CpG*kB*T_cell*LN2
-    return locals()
-
-@check(label='ch:surfaces:L117:9.3\\times10^{5}', chapter='ch:surfaces', part=1, title='floor energy expressed as ATP hydrolyses',
-       file='part1/p1_01_encoding_surfaces', line=117, status='calc', kind='num', printed='9.3\\times10^{5}', tol=0.03)
-def check_0030():
-    'floor energy expressed as ATP hydrolyses. Book line 117, printed 9.3\\times10^{5}.'
-    N_CpG=2.82e7; E=N_CpG*kB*T_cell*LN2; value=E/(dG_ATP/N_A)
-    return locals()
-
-@check(label='ch:surfaces:L120', chapter='ch:surfaces', part=1, title='N_CpG k_B T ln2 with N = 28,217,448 (printed 2.82e7)',
-       file='part1/p1_01_encoding_surfaces', line=120, status='calc', kind='num', printed='8.38\\times10^{-14}', tol=0)
-def check_0031():
-    'N_CpG k_B T ln2 with N = 28,217,448 (printed 2.82e7). Book line 120, printed 8.38\\times10^{-14}.'
-    N_CpG=28217448  # CpG count of the human genome, book input (ch:landauer line 150)
-    value=N_CpG*kB*T_cell*LN2
-    return locals()
-
-@check(label='ch:surfaces:L124', chapter='ch:surfaces', part=1, title='thermal copy-error from holding energy',
-       file='part1/p1_01_encoding_surfaces', line=124, status='derived', kind='num', printed='0.032', tol=0.0156)
-def check_0032():
-    'thermal copy-error from holding energy. Book line 124, printed 0.032.'
-    pass; value=1/(1+math.exp(E_hold))
-    return locals()
-
-@check(label='ch:surfaces:L124:3.41', chapter='ch:surfaces', part=1, title='holding energy from the PROC-CHANNEL-01 record',
-       file='part1/p1_01_encoding_surfaces', line=124, status='measured', kind='file', printed='3.41', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
-def check_3137():
-    'Holding energy per maintained site, copy channel, 56 healthy cell types (table row of PROC_CHANNEL_01_OUTCOME.md). Book line 124, printed 3.41.'
-    value = _b00_hold_energy()
-    return locals()
-
-@check(label='ch:surfaces:L127', chapter='ch:surfaces', part=1, title='Met-A at the full surface: 1/Met_A_floor (canon)',
-       file='part1/p1_01_encoding_surfaces', line=127, status='calc', kind='file', printed='3.03', tol=0.0, source='CANON/iam_canon.json')
-def check_3138():
-    'Met-A when every identity site sits at a coin flip, H(1/2) = 1 bit, over the neutrophil floor 0.330263 bits (canon Met_A_floor_EPIC_neutrophil). Book line 127, printed 3.03.'
-    Hb = lambda e: -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
-    F0 = load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
-    value = Hb(0.5) / F0
-    return locals()
-
-@check(label='ch:surfaces:L127:4.45', chapter='ch:surfaces', part=1, title='IAM-A at the full surface: H(1/2)/(P H(eps0))',
-       file='part1/p1_01_encoding_surfaces', line=127, status='calc', kind='file', printed='4.45', tol=0.0, source='CANON/iam_canon.json')
-def check_3139():
-    'IAM-A when the copy error reaches one half: H(1/2)/(P H(eps0)), P = 1.099 for neutrophils (canon P_neutrophil_IAM_A), eps0 = 1/(1+e^E_hold) from the canon. Book line 127, printed 4.45.'
-    Hb = lambda e: -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
-    P_ = load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    value = Hb(0.5) / (P_ * Hb(eps0))
-    return locals()
-
-@check(label='ch:surfaces:L142', chapter='ch:surfaces', part=1, title='repeat, horizon temperature one solar mass',
-       file='part1/p1_01_encoding_surfaces', line=142, status='calc', kind='num', printed='6.17\\times10^{-8}', tol=0.00081)
-def check_0033():
-    'repeat, horizon temperature one solar mass. Book line 142, printed 6.17\\times10^{-8}.'
-    value = hbar*c**3/(8*math.pi*G*Msun*kB)
-    return locals()
-
-@check(label='ch:surfaces:L143', chapter='ch:surfaces', part=1, title='repeat, bits held by solar-mass horizon',
-       file='part1/p1_01_encoding_surfaces', line=143, status='calc', kind='num', printed='1.51\\times10^{77}', tol=0.0033)
-def check_0034():
-    'repeat, bits held by solar-mass horizon. Book line 143, printed 1.51\\times10^{77}.'
-    Rs=2*G*Msun/c**2; A=4*math.pi*Rs**2; lP=math.sqrt(hbar*G/c**3); value=A/(4*lP**2*LN2)
-    return locals()
-
-@check(label='ch:surfaces:L144', chapter='ch:surfaces', part=1, title='Landauer cost per bit at horizon temperature',
-       file='part1/p1_01_encoding_surfaces', line=144, status='calc', kind='num', printed='5.9\\times10^{-31}', tol=0.00847)
-def check_0035():
-    'Landauer cost per bit at horizon temperature. Book line 144, printed 5.9\\times10^{-31}.'
-    T_H=hbar*c**3/(8*math.pi*G*Msun*kB); value=kB*T_H*LN2
-    return locals()
-
-@check(label='ch:surfaces:L144:2.97\\times10^{-21}', chapter='ch:surfaces', part=1, title='repeat, cost per CpG site',
-       file='part1/p1_01_encoding_surfaces', line=144, status='calc', kind='num', printed='2.97\\times10^{-21}', tol=0.00168)
-def check_0036():
-    'repeat, cost per CpG site. Book line 144, printed 2.97\\times10^{-21}.'
-    value=kB*T_cell*LN2
-    return locals()
-
-@check(label='ch:surfaces:L145', chapter='ch:surfaces', part=1, title='table: Met-A at the full surface (canon floor)',
-       file='part1/p1_01_encoding_surfaces', line=145, status='calc', kind='file', printed='3.03', tol=0.0, source='CANON/iam_canon.json')
-def check_3140():
-    'Table tab:identity, capacity row: Met-A at a coin flip = H(1/2)/0.330263 (canon Met_A_floor_EPIC_neutrophil). Book line 145, printed 3.03.'
-    Hb = lambda e: -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
-    F0 = load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
-    value = Hb(0.5) / F0
-    return locals()
-
-@check(label='ch:surfaces:L145:4.45', chapter='ch:surfaces', part=1, title='table: IAM-A at the full surface',
-       file='part1/p1_01_encoding_surfaces', line=145, status='calc', kind='file', printed='4.45', tol=0.0, source='CANON/iam_canon.json')
-def check_3141():
-    'Table tab:identity, capacity row: IAM-A at eps = 1/2, H(1/2)/(P H(eps0)) with P from the canon. Book line 145, printed 4.45.'
-    Hb = lambda e: -(e * math.log2(e) + (1 - e) * math.log2(1 - e))
-    P_ = load_json('CANON/iam_canon.json')['constants']['P_neutrophil_IAM_A']['value']
-    value = Hb(0.5) / (P_ * Hb(eps0))
-    return locals()
-
-@check(label='ch:surfaces:L161', chapter='ch:surfaces', part=1, title='orders of magnitude, Bohr to Hubble radius',
-       file='part1/p1_01_encoding_surfaces', line=161, status='calc', kind='num', printed='36.4', tol=0.00137)
-def check_0037():
-    'orders of magnitude, Bohr to Hubble radius. Book line 161, printed 36.4.'
-    a0=hbar/(m_e*c*alpha_em); H0=67.36; R_H=c/Hsi(H0); value=math.log10(R_H/a0)
-    return locals()
-
-@check(label='ch:surfaces:L161:1.2\\times10^{32}', chapter='ch:surfaces', part=1, title='cost-per-bit ratio, cell to cosmic horizon',
-       file='part1/p1_01_encoding_surfaces', line=161, status='calc', kind='num', printed='1.2\\times10^{32}', tol=0.0417)
-def check_0038():
-    'cost-per-bit ratio, cell to cosmic horizon. Book line 161, printed 1.2\\times10^{32}.'
-    H0=67.36; T_cosmic=hbar*Hsi(H0)/(2*math.pi*kB); value=T_cell/T_cosmic
-    return locals()
-
-@check(label='ch:surfaces:L165', chapter='ch:surfaces', part=1, title='Gibbons-Hawking temp, photon-sector H0',
-       file='part1/p1_01_encoding_surfaces', line=165, status='calc', kind='num', printed='2.65\\times10^{-30}', tol=0.00189)
-def check_0039():
-    'Gibbons-Hawking temp, photon-sector H0. Book line 165, printed 2.65\\times10^{-30}.'
-    H0=H0_photon; H=Hsi(H0); value=hbar*H/(2*math.pi*kB)
-    return locals()
-
-@check(label='ch:surfaces:L165:3.29\\times10^{122}', chapter='ch:surfaces', part=1, title='horizon bit count, photon-sector H0',
-       file='part1/p1_01_encoding_surfaces', line=165, status='calc', kind='num', printed='3.29\\times10^{122}', tol=0.00152)
-def check_0040():
-    'horizon bit count, photon-sector H0. Book line 165, printed 3.29\\times10^{122}.'
-    H0=H0_photon; H=Hsi(H0); R_H=c/H; A=4*math.pi*R_H**2; lP=math.sqrt(hbar*G/c**3); value=A/(4*lP**2*LN2)
-    return locals()
-
-@check(label='ch:surfaces:L168', chapter='ch:surfaces', part=1, title='repeat, table cell cost per bit',
-       file='part1/p1_01_encoding_surfaces', line=168, status='calc', kind='num', printed='2.97\\times10^{-21}', tol=0.00168)
-def check_0041():
-    'repeat, table cell cost per bit. Book line 168, printed 2.97\\times10^{-21}.'
-    value=kB*T_cell*LN2
-    return locals()
-
-@check(label='ch:surfaces:L168:8.38\\times10^{-14}', chapter='ch:surfaces', part=1, title='N_CpG k_B T ln2 with N = 28,217,448 (printed 2.82e7)',
-       file='part1/p1_01_encoding_surfaces', line=168, status='calc', kind='num', printed='8.38\\times10^{-14}', tol=0)
-def check_0042():
-    'N_CpG k_B T ln2 with N = 28,217,448 (printed 2.82e7). Book line 168, printed 8.38\\times10^{-14}.'
-    N_CpG=28217448  # CpG count of the human genome, book input (ch:landauer line 150)
-    value=N_CpG*kB*T_cell*LN2
-    return locals()
-
-@check(label='ch:surfaces:L169', chapter='ch:surfaces', part=1, title='measured: printed value found in verify_encoding_ladder_output.txt, a file the chapter names',
-       file='part1/p1_01_encoding_surfaces', line=169, status='observed', kind='file', printed='2.87\\times10^{-21}', tol=0.0, source='docs/verification/scripts/verify_encoding_ladder_output.txt',
-       heavy=True, rerun='python3 docs/verification/scripts/verify_encoding_ladder.py > docs/verification/scripts/verify_encoding_ladder_output.txt')
-def check_0043():
-    'measured: printed value found in verify_encoding_ladder_output.txt, a file the chapter names. Book line 169, printed 2.87\\times10^{-21}.'
-    ok = file_has('docs/verification/scripts/verify_encoding_ladder_output.txt', '2.87\\times10^{-21}')
-    return locals()
-
-@check(label='ch:surfaces:L170', chapter='ch:surfaces', part=1, title='Landauer cost per bit, qubit 15mK stage',
-       file='part1/p1_01_encoding_surfaces', line=170, status='calc', kind='num', printed='1.44\\times10^{-25}', tol=0.00347)
-def check_0044():
-    'Landauer cost per bit, qubit 15mK stage. Book line 170, printed 1.44\\times10^{-25}.'
-    value=kB*0.015*LN2
-    return locals()
-
-@check(label='ch:surfaces:L171', chapter='ch:surfaces', part=1, title='repeat table, black hole temperature',
-       file='part1/p1_01_encoding_surfaces', line=171, status='calc', kind='num', printed='6.17\\times10^{-8}', tol=0.00081)
-def check_0045():
-    'repeat table, black hole temperature. Book line 171, printed 6.17\\times10^{-8}.'
-    value = hbar*c**3/(8*math.pi*G*Msun*kB)
-    return locals()
-
-@check(label='ch:surfaces:L171:1.51\\times10^{77}', chapter='ch:surfaces', part=1, title='repeat table, black hole bit count',
-       file='part1/p1_01_encoding_surfaces', line=171, status='calc', kind='num', printed='1.51\\times10^{77}', tol=0.0033)
-def check_0046():
-    'repeat table, black hole bit count. Book line 171, printed 1.51\\times10^{77}.'
-    Rs=2*G*Msun/c**2; A=4*math.pi*Rs**2; lP=math.sqrt(hbar*G/c**3); value=A/(4*lP**2*LN2)
-    return locals()
-
-@check(label='ch:surfaces:L171:5.9\\times10^{-31}', chapter='ch:surfaces', part=1, title='repeat table, black hole cost per bit',
-       file='part1/p1_01_encoding_surfaces', line=171, status='calc', kind='num', printed='5.9\\times10^{-31}', tol=0.00847)
-def check_0047():
-    'repeat table, black hole cost per bit. Book line 171, printed 5.9\\times10^{-31}.'
-    T_H=hbar*c**3/(8*math.pi*G*Msun*kB); value=kB*T_H*LN2
-    return locals()
-
-@check(label='ch:surfaces:L172', chapter='ch:surfaces', part=1, title='Hawking temperature of Sgr A*',
-       file='part1/p1_01_encoding_surfaces', line=172, status='calc', kind='num', printed='1.43\\times10^{-14}', tol=0.0035)
-def check_0048():
-    'Hawking temperature of Sgr A*. Book line 172, printed 1.43\\times10^{-14}.'
-    M=4.3e6*Msun; value=hbar*c**3/(8*math.pi*G*M*kB)
-    return locals()
-
-@check(label='ch:surfaces:L172:2.80\\times10^{90}', chapter='ch:surfaces', part=1, title='bit count of Sgr A* horizon',
-       file='part1/p1_01_encoding_surfaces', line=172, status='calc', kind='num', printed='2.80\\times10^{90}', tol=0.00179)
-def check_0049():
-    'bit count of Sgr A* horizon. Book line 172, printed 2.80\\times10^{90}.'
-    M=4.3e6*Msun; Rs=2*G*M/c**2; A=4*math.pi*Rs**2; lP=math.sqrt(hbar*G/c**3); value=A/(4*lP**2*LN2)
-    return locals()
-
-@check(label='ch:surfaces:L172:1.4\\times10^{-37}', chapter='ch:surfaces', part=1, title='cost per bit at Sgr A* horizon',
-       file='part1/p1_01_encoding_surfaces', line=172, status='calc', kind='num', printed='1.4\\times10^{-37}', tol=0.0357)
-def check_0050():
-    'cost per bit at Sgr A* horizon. Book line 172, printed 1.4\\times10^{-37}.'
-    M=4.3e6*Msun; T_H=hbar*c**3/(8*math.pi*G*M*kB); value=kB*T_H*LN2
-    return locals()
-
-@check(label='ch:surfaces:L173', chapter='ch:surfaces', part=1, title='repeat table, cosmic horizon temperature',
-       file='part1/p1_01_encoding_surfaces', line=173, status='calc', kind='num', printed='2.65\\times10^{-30}', tol=0.00189)
-def check_0051():
-    'repeat table, cosmic horizon temperature. Book line 173, printed 2.65\\times10^{-30}.'
-    H0=67.36; H=Hsi(H0); value=hbar*H/(2*math.pi*kB)
-    return locals()
-
-@check(label='ch:surfaces:L173:3.27\\times10^{122}', chapter='ch:surfaces', part=1, title='bit count of cosmic horizon, H0=67.36',
-       file='part1/p1_01_encoding_surfaces', line=173, status='calc', kind='num', printed='3.27\\times10^{122}', tol=0.00153)
-def check_0052():
-    'bit count of cosmic horizon, H0=67.36. Book line 173, printed 3.27\\times10^{122}.'
-    H0=67.36; H=Hsi(H0); R_H=c/H; A=4*math.pi*R_H**2; lP=math.sqrt(hbar*G/c**3); value=A/(4*lP**2*LN2)
-    return locals()
-
-@check(label='ch:surfaces:L173:2.5\\times10^{-53}', chapter='ch:surfaces', part=1, title='cost per bit at cosmic horizon',
-       file='part1/p1_01_encoding_surfaces', line=173, status='calc', kind='num', printed='2.5\\times10^{-53}', tol=0.02)
-def check_0053():
-    'cost per bit at cosmic horizon. Book line 173, printed 2.5\\times10^{-53}.'
-    H0=67.36; T_GH=hbar*Hsi(H0)/(2*math.pi*kB); value=kB*T_GH*LN2
-    return locals()
-
-@check(label='ch:surfaces:L175', chapter='ch:surfaces', part=1, title='orders of magnitude, cost per bit cell vs horizon',
-       file='part1/p1_01_encoding_surfaces', line=175, status='calc', kind='num', printed='32', tol=0.0156)
-def check_0054():
-    'orders of magnitude, cost per bit cell vs horizon. Book line 175, printed 32.'
-    H0=67.36; T_GH=hbar*Hsi(H0)/(2*math.pi*kB); value=math.log10((kB*T_cell*LN2)/(kB*T_GH*LN2))
-    return locals()
-
-@check(label='ch:surfaces:L175:37', chapter='ch:surfaces', part=1, title='orders of magnitude, atom to Hubble radius',
-       file='part1/p1_01_encoding_surfaces', line=175, status='calc', kind='num', printed='37', tol=0.02)
-def check_0055():
-    'orders of magnitude, atom to Hubble radius. Book line 175, printed 37.'
-    atom=5e-11; H0=67.36; R_H=c/Hsi(H0); value=math.log10(R_H/atom)
-    return locals()
-
-@check(label='ch:surfaces:L176', chapter='ch:surfaces', part=1, title='Hubble radius at H0=67.36',
-       file='part1/p1_01_encoding_surfaces', line=176, status='calc', kind='num', printed='1.4\\times10^{26}', tol=0.0357)
-def check_0056():
-    'Hubble radius at H0=67.36. Book line 176, printed 1.4\\times10^{26}.'
-    H0=67.36; value=c/Hsi(H0)
-    return locals()
-
-@check(label='ch:surfaces:L181', chapter='ch:surfaces', part=1, title='ratio of body temperature to CMB temperature',
-       file='part1/p1_01_encoding_surfaces', line=181, status='calc', kind='num', printed='114', tol=0.0044)
-def check_0057():
-    'ratio of body temperature to CMB temperature. Book line 181, printed 114.'
-    value=T_cell/T_CMB
-    return locals()
-
-@check(label='ch:surfaces:L182', chapter='ch:surfaces', part=1, title='ratio, 300K transistor to CMB temperature',
-       file='part1/p1_01_encoding_surfaces', line=182, status='calc', kind='num', printed='110', tol=0.00455)
-def check_0058():
-    'ratio, 300K transistor to CMB temperature. Book line 182, printed 110.'
-    value=300/T_CMB
-    return locals()
-
-@check(label='ch:surfaces:L182:128', chapter='ch:surfaces', part=1, title='ratio, 350K transistor to CMB temperature',
-       file='part1/p1_01_encoding_surfaces', line=182, status='calc', kind='num', printed='128', tol=0.0039)
-def check_0059():
-    'ratio, 350K transistor to CMB temperature. Book line 182, printed 128.'
-    value=350/T_CMB
-    return locals()
-
-@check(label='ch:surfaces:L183', chapter='ch:surfaces', part=1, title='ratio, CMB to solar-mass horizon temperature',
-       file='part1/p1_01_encoding_surfaces', line=183, status='calc', kind='num', printed='4.4\\times10^{7}', tol=0.01136)
-def check_0060():
-    'ratio, CMB to solar-mass horizon temperature. Book line 183, printed 4.4\\times10^{7}.'
-    T_H=hbar*c**3/(8*math.pi*G*Msun*kB); value=T_CMB/T_H
-    return locals()
-
-@check(label='ch:surfaces:L183:1.9\\times10^{14}', chapter='ch:surfaces', part=1, title='ratio, CMB to Sgr A* horizon temperature',
-       file='part1/p1_01_encoding_surfaces', line=183, status='calc', kind='num', printed='1.9\\times10^{14}', tol=0.0263)
-def check_0061():
-    'ratio, CMB to Sgr A* horizon temperature. Book line 183, printed 1.9\\times10^{14}.'
-    M=4.3e6*Msun; T_H=hbar*c**3/(8*math.pi*G*M*kB); value=T_CMB/T_H
-    return locals()
-
-@check(label='ch:surfaces:L185', chapter='ch:surfaces', part=1, title='black-hole mass with Hawking temp equal CMB',
-       file='part1/p1_01_encoding_surfaces', line=185, status='calc', kind='num', printed='4.5\\times10^{22}', tol=0.0111)
-def check_0062():
-    'black-hole mass with Hawking temp equal CMB. Book line 185, printed 4.5\\times10^{22}.'
-    value=hbar*c**3/(8*math.pi*G*kB*T_CMB)
-    return locals()
-
-@check(label='ch:surfaces:L185:182', chapter='ch:surfaces', part=1, title='ratio, CMB temperature to qubit stage',
-       file='part1/p1_01_encoding_surfaces', line=185, status='calc', kind='num', printed='182', tol=0.00275)
-def check_0063():
-    'ratio, CMB temperature to qubit stage. Book line 185, printed 182.'
-    value=T_CMB/0.015
-    return locals()
-
-@check(label='ch:surfaces:L193', chapter='ch:surfaces', part=1, title='Level 2 chi2_min IAM (runA) minus LCDM (runC)',
-       file='part1/p1_01_encoding_surfaces', line=193, status='measured', kind='file', printed='+0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
-       heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
-def check_0064():
-    'Level 2 chi2_min IAM (runA) minus LCDM (runC). Book line 193, printed +0.54.'
-    value=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','chi2_min')-csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runC_lcdm','chi2_min')
-    return locals()
-
-@check(label='ch:surfaces:L195', chapter='ch:surfaces', part=1, title='held-out spread of the neutrophil reference readings (SD)',
-       file='part1/p1_01_encoding_surfaces', line=195, status='measured', kind='file', printed='0.020', tol=0.0,
-       source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv', heavy=True,
-       rerun='Met-A chain Stage 1 leave-one-out on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes metA_floors_v1_3_loo.csv')
-def check_3142():
-    'Sample standard deviation of the held-out readings A_loo of the six purified healthy neutrophil arrays, sites re-chosen on the other five (column A_loo). Book line 195, printed 0.020. The canon source note of Met_A_floor_EPIC_neutrophil gives the same SD 0.020.'
-    rows = load_csv_rows('Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
-    A = np.array([float(r['A_loo']) for r in rows if r['cell'] == 'neutrophils'])
-    n_arrays = len(A)
-    value = float(np.std(A, ddof=1))
-    return locals()
-
-@check(label='ch:surfaces:L202', chapter='ch:surfaces', part=1, title='thermal floor fraction from holding energy',
-       file='part1/p1_01_encoding_surfaces', line=202, status='derived', kind='num', printed='0.032', tol=0.016)
-def check_0065():
-    'thermal floor fraction from holding energy. Book line 202, printed 0.032.'
-    pass  # book input, line 202
-    value = 1/(1+math.exp(E_hold))
-    return locals()
-
-@check(label='ch:surfaces:L202:3.41', chapter='ch:surfaces', part=1, title='holding energy from the PROC-CHANNEL-01 record',
-       file='part1/p1_01_encoding_surfaces', line=202, status='measured', kind='file', printed='3.41', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
-def check_3143():
-    'Holding energy per maintained site, copy channel (table row of PROC_CHANNEL_01_OUTCOME.md). Book line 202, printed 3.41.'
-    value = _b00_hold_energy()
-    return locals()
-
-@check(label='ch:surfaces:L209', chapter='ch:surfaces', part=1, title='ratio of cell temp to solar-mass Hawking temp',
-       file='part1/p1_01_encoding_surfaces', line=209, status='calc', kind='num', printed='5.0\\times10^{9}', tol=0.01)
-def check_0066():
-    'ratio of cell temp to solar-mass Hawking temp. Book line 209, printed 5.0\\times10^{9}.'
-    T_H = hbar*c**3/(8*math.pi*G*Msun*kB)
-    value = T_cell/T_H
-    return locals()
-
-@check(label='ch:surfaces:L210', chapter='ch:surfaces', part=1, title='bit-count ratio, solar-mass horizon to the genome CpGs',
-       file='part1/p1_01_encoding_surfaces', line=210, status='calc', kind='num', printed='5.4\\times10^{69}', tol=0.0)
-def check_3144():
-    'N_BH/N_CpG: horizon bits A/(4 ln2 l_P^2) of one solar mass (A = 4 pi r_s^2, r_s = 2GM/c^2) over the 28,217,448 CpG sites of the genome (input, book line 115). Book line 210, printed 5.4e69. Inputs: CODATA G, hbar, c; IAU solar mass.'
-    r_s = 2 * G * Msun / c**2
-    N_BH = 4 * math.pi * r_s**2 / (4 * LN2 * lP**2)
-    N_CpG = 28217448
-    value = N_BH / N_CpG
-    return locals()
-
-@check(label='ch:surfaces:L220', chapter='ch:surfaces', part=1, title='Al superconducting gap expressed as temperature',
-       file='part1/p1_01_encoding_surfaces', line=220, status='calc', kind='num', printed='2.112', tol=0.00024)
-def check_0067():
-    'Al superconducting gap expressed as temperature. Book line 220, printed 2.112.'
-    value = (182e-6*eV)/kB
-    return locals()
-
-@check(label='ch:surfaces:L223', chapter='ch:surfaces', part=1, title='Landauer bit-cost energy at body temperature',
-       file='part1/p1_01_encoding_surfaces', line=223, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0.00017)
-def check_0068():
-    'Landauer bit-cost energy at body temperature. Book line 223, printed 2.968\\times10^{-21}.'
-    value = kB*T_cell*LN2
-    return locals()
-
-@check(label='ch:surfaces:L223:3.41', chapter='ch:surfaces', part=1, title='holding energy from the PROC-CHANNEL-01 record',
-       file='part1/p1_01_encoding_surfaces', line=223, status='measured', kind='file', printed='3.41', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
-def check_3145():
-    'Holding energy per maintained site, copy channel (table row of PROC_CHANNEL_01_OUTCOME.md). Book line 223, printed 3.41.'
-    value = _b00_hold_energy()
     return locals()
 
 
@@ -35701,10 +35204,10 @@ def check_4432():
     value = _b13_Hb2(0.5) / (_cv('P_neutrophil_IAM_A') * _b13_Hb2(eps0))
     return locals()
 
-@check(label='ch:synthesis:L51', chapter='ch:synthesis', part=7, title='same value as p1_01_encoding_surfaces:220 (Al superconducting gap expressed as temperature)',
+@check(label='ch:synthesis:L51', chapter='ch:synthesis', part=7, title='Al superconducting gap expressed as temperature',
        file='part7/p7_08_synthesis', line=51, status='derived', kind='num', printed='2.112', tol=0.00024)
 def check_2606():
-    'same value as p1_01_encoding_surfaces:220 (Al superconducting gap expressed as temperature). Book line 51, printed 2.112.'
+    'Al superconducting gap expressed as temperature. Book line 51, printed 2.112.'
     value = (182e-6*eV)/kB
     return locals()
 
@@ -36952,7 +36455,7 @@ def check_4552():
 @check(label='ch:statusall:L23:1.6\\times10^{59}', chapter='ch:statusall', part=7, title='holographic capacity of a nucleus-sized area, bits',
        file='part7/p7_11_status_all', line=23, status='calc', kind='num', printed='1.6\\times10^{59}', tol=0.0)
 def check_4553():
-    'Bekenstein-Hawking capacity N = A/(4 l_P^2 ln 2) of the surface of a representative 6 micrometre nucleus (radius 3e-6 m, as ch:surfaces Fig. landauer_price). Book line 23, printed 1.6e59.'
+    'Bekenstein-Hawking capacity N = A/(4 l_P^2 ln 2) of the surface of a representative 6 micrometre nucleus (radius 3e-6 m). Book line 23, printed 1.6e59.'
     r = 3e-6
     A = 4 * math.pi * r**2
     value = A / (4 * lP**2 * LN2)
@@ -37668,10 +37171,10 @@ def check_4606():
 
 # ---------------------------------------------------------------- lines 92-95: the cell gauge
 
-@check(label='ch:statusall:L90', chapter='ch:statusall', part=7, title='same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature)',
+@check(label='ch:statusall:L90', chapter='ch:statusall', part=7, title='Landauer bit-cost energy at body temperature',
        file='part7/p7_11_status_all', line=90, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0.00017)
 def check_2671():
-    'same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature). Book line 90, printed 2.968\\times10^{-21}.'
+    'Landauer bit-cost energy at body temperature. Book line 90, printed 2.968\\times10^{-21}.'
     value = kB*T_cell*LN2
     return locals()
 
@@ -38029,10 +37532,10 @@ def check_4638():
     value = _cv('dG_ATP') / 1000
     return locals()
 
-@check(label='app:constants:L12', chapter='app:constants', part=8, title='same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature)',
+@check(label='app:constants:L12', chapter='app:constants', part=8, title='Landauer bit-cost energy at body temperature',
        file='appendices/app_A2_frozen_values', line=12, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0.00017)
 def check_2688():
-    'same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature). Book line 12, printed 2.968\\times10^{-21}.'
+    'Landauer bit-cost energy at body temperature. Book line 12, printed 2.968\\times10^{-21}.'
     value = kB*T_cell*LN2
     return locals()
 
@@ -38150,10 +37653,10 @@ def check_4647():
     value = _cv('dG_ATP') / 1000
     return locals()
 
-@check(label='app:notation:L105', chapter='app:notation', part=8, title='same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature)',
+@check(label='app:notation:L105', chapter='app:notation', part=8, title='Landauer bit-cost energy at body temperature',
        file='appendices/app_N_notation', line=105, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0.00017)
 def check_2695():
-    'same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature). Book line 105, printed 2.968\\times10^{-21}.'
+    'Landauer bit-cost energy at body temperature. Book line 105, printed 2.968\\times10^{-21}.'
     value = kB*T_cell*LN2
     return locals()
 
@@ -38327,77 +37830,77 @@ def check_4655():
 
 # ======== Part 8 | app:formulas | docs/book/appendices/app_E_formulas.tex
 @check(label='app:formulas:L56:-1.67', chapter='app:formulas', part=8, title='w_info at a = 0.5',
-       file='appendices/app_E_formulas', line=56, status='derived', kind='num', printed='-1.67', tol=0.0)
+       file='appendices/app_E_formulas', line=47, status='derived', kind='num', printed='-1.67', tol=0.0)
 def check_4656():
-    'Equation of state of a component with rho proportional to E(a) = exp(1 - 1/a), from the continuity equation w = -1 - (1/3) dln rho/dln a, at a = 0.5. Book line 56, printed -1.67.'
+    'Equation of state of a component with rho proportional to E(a) = exp(1 - 1/a), from the continuity equation w = -1 - (1/3) dln rho/dln a, at a = 0.5. Book line 47, printed -1.67.'
     value = _b15e_winfo(0.5)
     return locals()
 
 @check(label='app:formulas:L56:-1.33', chapter='app:formulas', part=8, title='w_info at a = 1',
-       file='appendices/app_E_formulas', line=56, status='derived', kind='num', printed='-1.33', tol=0.0)
+       file='appendices/app_E_formulas', line=47, status='derived', kind='num', printed='-1.33', tol=0.0)
 def check_4657():
-    'Same, at a = 1. Book line 56, printed -1.33.'
+    'Same, at a = 1. Book line 47, printed -1.33.'
     value = _b15e_winfo(1.0)
     return locals()
 
 @check(label='app:formulas:L56:-1.17', chapter='app:formulas', part=8, title='w_info at a = 2',
-       file='appendices/app_E_formulas', line=56, status='derived', kind='num', printed='-1.17', tol=0.0)
+       file='appendices/app_E_formulas', line=47, status='derived', kind='num', printed='-1.17', tol=0.0)
 def check_4658():
-    'Same, at a = 2. Book line 56, printed -1.17.'
+    'Same, at a = 2. Book line 47, printed -1.17.'
     value = _b15e_winfo(2.0)
     return locals()
 
 @check(label='app:formulas:L58', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
-       file='appendices/app_E_formulas', line=58, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
+       file='appendices/app_E_formulas', line=49, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2710():
-    'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 58, printed 0.15765.'
+    'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 49, printed 0.15765.'
     value = Om/2
     return locals()
 
 @check(label='app:formulas:L58:0.3153', chapter='app:formulas', part=8, title='Omega_m behind beta_m (canon)',
-       file='appendices/app_E_formulas', line=58, status='derived', kind='file', printed='0.3153', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_E_formulas', line=49, status='derived', kind='file', printed='0.3153', tol=0.0, source='CANON/iam_canon.json')
 def check_4659():
-    'Omega_m from which beta_m is derived, read from the derivation of beta_m in the canon (Planck 2018 TT,TE,EE+lowE+lensing, Aghanim et al. 2020 Table 2), checked against 2 beta_m. Book line 58, printed 0.3153.'
+    'Omega_m from which beta_m is derived, read from the derivation of beta_m in the canon (Planck 2018 TT,TE,EE+lowE+lensing, Aghanim et al. 2020 Table 2), checked against 2 beta_m. Book line 49, printed 0.3153.'
     m = re.search(r'Omega_m = ([\d.]+)', CANON['beta_m']['derivation'])
     Om_c = float(m.group(1))
     value = Om_c if abs(Om_c - 2 * _cv('beta_m')) < 1e-9 else float('nan')
     return locals()
 
-# ---------------------------------------------------------------- lines 126, 139: Jacobson and the apparent horizon
+# ---------------------------------------------------------------- lines 117, 130: Jacobson and the apparent horizon
 
 @check(label='app:formulas:L100', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=100, status='derived', kind='num', printed='0.3153', tol=0.0)
+       file='appendices/app_E_formulas', line=91, status='derived', kind='num', printed='0.3153', tol=0.0)
 def check_2711():
-    'drafted check, screened (runs; negative control fails). Book line 100, printed 0.3153.'
+    'drafted check, screened (runs; negative control fails). Book line 91, printed 0.3153.'
     value = Om
     return locals()
 
 @check(label='app:formulas:L100:0.15765', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
-       file='appendices/app_E_formulas', line=100, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
+       file='appendices/app_E_formulas', line=91, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2712():
-    'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 100, printed 0.15765.'
+    'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 91, printed 0.15765.'
     value = Om/2
     return locals()
 
 @check(label='app:formulas:L108', chapter='app:formulas', part=8, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='appendices/app_E_formulas', line=108, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_E_formulas', line=99, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2713():
-    'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 108, printed 67.16.'
+    'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 99, printed 67.16.'
     value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='app:formulas:L108:72.26', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:696 (H0 matter-sector formula)',
-       file='appendices/app_E_formulas', line=108, status='calc', kind='num', printed='72.26', tol=7e-05)
+       file='appendices/app_E_formulas', line=99, status='calc', kind='num', printed='72.26', tol=7e-05)
 def check_2714():
-    'same value as p1_02_iams_law:696 (H0 matter-sector formula). Book line 108, printed 72.26.'
+    'same value as p1_02_iams_law:696 (H0 matter-sector formula). Book line 99, printed 72.26.'
     value=H0_photon*math.sqrt(1+beta_m)
     return locals()
 
 @check(label='app:formulas:L126', chapter='app:formulas', part=8, title='area change of a local Rindler horizon from Raychaudhuri',
-       file='appendices/app_E_formulas', line=126, status='derived', kind='sym', printed='', tol=0.0)
+       file='appendices/app_E_formulas', line=117, status='derived', kind='sym', printed='', tol=0.0)
 def check_4660():
-    'delta A = -int lambda R_ab k^a k^b dlambda dA: the Raychaudhuri equation dtheta/dlambda = -theta^2/2 - R_kk (shear zero at the point) with theta(0) = 0 is solved exactly (dsolve); its series to first order in lambda is the integrand theta = -lambda R_kk of delta A = int theta dlambda dA. Book line 126.'
+    'delta A = -int lambda R_ab k^a k^b dlambda dA: the Raychaudhuri equation dtheta/dlambda = -theta^2/2 - R_kk (shear zero at the point) with theta(0) = 0 is solved exactly (dsolve); its series to first order in lambda is the integrand theta = -lambda R_kk of delta A = int theta dlambda dA. Book line 117.'
     lam, Rkk = sp.symbols('lambda R_kk', positive=True)
     th = sp.Function('theta')
     sol = sp.dsolve(sp.Eq(th(lam).diff(lam), -th(lam)**2 / 2 - Rkk), th(lam), ics={th(0): 0}).rhs
@@ -38408,9 +37911,9 @@ def check_4660():
     return locals()
 
 @check(label='app:formulas:L139', chapter='app:formulas', part=8, title='energy flux across the apparent horizon',
-       file='appendices/app_E_formulas', line=139, status='derived', kind='sym', printed='', tol=0.0)
+       file='appendices/app_E_formulas', line=130, status='derived', kind='sym', printed='', tol=0.0)
 def check_4661():
-    '-dE = A_H (rho+P) H r_A dt = 4 pi r_A^3 (rho+P) H dt = 4 pi (rho+P)/H^2 dt: substitute A_H = 4 pi r_A^2 and then r_A = 1/H (Eq. th:rA). Book line 139.'
+    '-dE = A_H (rho+P) H r_A dt = 4 pi r_A^3 (rho+P) H dt = 4 pi (rho+P)/H^2 dt: substitute A_H = 4 pi r_A^2 and then r_A = 1/H (Eq. th:rA). Book line 130.'
     H, rho, P, r, dt = sp.symbols('H rho P r_A dt', positive=True)
     A_H = 4 * sp.pi * r**2
     step1 = A_H * (rho + P) * H * r * dt
@@ -38424,17 +37927,17 @@ def check_4661():
 # ---------------------------------------------------------------- lines 240, 248
 
 @check(label='app:formulas:L177', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=177, status='derived', kind='num', printed='0.136', tol=0.0)
+       file='appendices/app_E_formulas', line=168, status='derived', kind='num', printed='0.136', tol=0.0)
 def check_2715():
-    'drafted check, screened (runs; negative control fails). Book line 177, printed 0.136.'
+    'drafted check, screened (runs; negative control fails). Book line 168, printed 0.136.'
     mu_0 = -beta_m / (1 + beta_m)
     value = abs(mu_0)
     return locals()
 
 @check(label='app:formulas:L189', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=189, status='derived', kind='num', printed='1.062', tol=0.0)
+       file='appendices/app_E_formulas', line=180, status='derived', kind='num', printed='1.062', tol=0.0)
 def check_2716():
-    'drafted check, screened (runs; negative control fails). Book line 189, printed 1.062.'
+    'drafted check, screened (runs; negative control fails). Book line 180, printed 1.062.'
     numerator = -(1 - Om / 3)
     denominator = 1 - Om / 2
     w_eff_DE_1 = numerator / denominator
@@ -38442,9 +37945,9 @@ def check_2716():
     return locals()
 
 @check(label='app:formulas:L189:1.062', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=189, status='calc', kind='num', printed='1.062', tol=0.0)
+       file='appendices/app_E_formulas', line=180, status='calc', kind='num', printed='1.062', tol=0.0)
 def check_2717():
-    'drafted check, screened (runs; negative control fails). Book line 189, printed 1.062.'
+    'drafted check, screened (runs; negative control fails). Book line 180, printed 1.062.'
     numerator = -(1 - Om / 3)
     denominator = 1 - Om / 2
     w_eff_DE_1 = numerator / denominator
@@ -38452,172 +37955,172 @@ def check_2717():
     return locals()
 
 @check(label='app:formulas:L190', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=190, status='calc', kind='num', printed='0.012', tol=0.0)
+       file='appendices/app_E_formulas', line=181, status='calc', kind='num', printed='0.012', tol=0.0)
 def check_2718():
-    'drafted check, screened (runs; negative control fails). Book line 190, printed 0.012.'
+    'drafted check, screened (runs; negative control fails). Book line 181, printed 0.012.'
     w_a = -(Om**2) / (3 * (2 - Om)**2)
     value = abs(w_a)
     return locals()
 
 @check(label='app:formulas:L226', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
-       file='appendices/app_E_formulas', line=226, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
+       file='appendices/app_E_formulas', line=217, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2719():
-    'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 226, printed 0.15765.'
+    'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 217, printed 0.15765.'
     value = Om/2
     return locals()
 
 @check(label='app:formulas:L240', chapter='app:formulas', part=8, title='MGCAMB amplitude mu0 set in the runs',
-       file='appendices/app_E_formulas', line=240, status='calc', kind='file', printed='-0.13495', tol=0.0,
+       file='appendices/app_E_formulas', line=231, status='calc', kind='file', printed='-0.13495', tol=0.0,
        source='Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml')
 def check_4662():
-    'mu0 value of the fixed-amplitude Level 1 chain input (params: mu0: value). Book line 240, printed -0.13495.'
+    'mu0 value of the fixed-amplitude Level 1 chain input (params: mu0: value). Book line 231, printed -0.13495.'
     m = re.search(r'\n  mu0:\s*\n\s+value:\s*([-\d.]+)', file_text('Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml'))
     value = float(m.group(1))
     return locals()
 
 @check(label='app:formulas:L243', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
-       file='appendices/app_E_formulas', line=243, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
+       file='appendices/app_E_formulas', line=234, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2720():
-    'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 243, printed 0.15765.'
+    'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 234, printed 0.15765.'
     value = Om/2
     return locals()
 
 @check(label='app:formulas:L248', chapter='app:formulas', part=8, title='mu today',
-       file='appendices/app_E_formulas', line=248, status='derived', kind='num', printed='0.864', tol=0.0)
+       file='appendices/app_E_formulas', line=239, status='derived', kind='num', printed='0.864', tol=0.0)
 def check_4663():
-    'mu(a = 1) of mu(a) = H^2/(H^2 + beta_m E(a) H0^2) (function mu_iam). Book line 248, printed 0.864.'
+    'mu(a = 1) of mu(a) = H^2/(H^2 + beta_m E(a) H0^2) (function mu_iam). Book line 239, printed 0.864.'
     value = float(mu_iam(1.0))
     return locals()
 
-# ---------------------------------------------------------------- lines 330-349: the cosmological constant
+# ---------------------------------------------------------------- lines 321-340: the cosmological constant
 
 @check(label='app:formulas:L250', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:516 (H_m/H at z=0)',
-       file='appendices/app_E_formulas', line=250, status='derived', kind='num', printed='1.0759', tol=4.65e-05)
+       file='appendices/app_E_formulas', line=241, status='derived', kind='num', printed='1.0759', tol=4.65e-05)
 def check_2721():
-    'same value as p1_02_iams_law:516 (H_m/H at z=0). Book line 250, printed 1.0759.'
+    'same value as p1_02_iams_law:516 (H_m/H at z=0). Book line 241, printed 1.0759.'
     a=1.0; Elcdm2=Om*a**-3+OL; mu=1/(1+beta_m*E_act(a)/Elcdm2); value=1/math.sqrt(mu)
     return locals()
 
 @check(label='app:formulas:L330', chapter='app:formulas', part=8, title='measured rho_Lambda / rho_vac',
-       file='appendices/app_E_formulas', line=330, status='calc', kind='num', printed='1.133\\times10^{-123}', tol=0.0)
+       file='appendices/app_E_formulas', line=321, status='calc', kind='num', printed='1.133\\times10^{-123}', tol=0.0)
 def check_4664():
-    'rho_Lambda/rho_vac = Omega_L rho_c c^2 / (c^7/(hbar G^2)), H0 67.4, Omega_L = 1 - 0.3153 - 9.15e-5 (ch:lambda inputs). Book line 330, printed 1.133e-123.'
+    'rho_Lambda/rho_vac = Omega_L rho_c c^2 / (c^7/(hbar G^2)), H0 67.4, Omega_L = 1 - 0.3153 - 9.15e-5 (ch:lambda inputs). Book line 321, printed 1.133e-123.'
     base, OLv, obs = _b15e_lambda()
     value = obs
     return locals()
 
 @check(label='app:formulas:L335', chapter='app:formulas', part=8, title='base expression over the measured ratio',
-       file='appendices/app_E_formulas', line=335, status='fitted', kind='num', printed='1.218', tol=0.0)
+       file='appendices/app_E_formulas', line=326, status='fitted', kind='num', printed='1.218', tol=0.0)
 def check_4665():
-    '(2/pi)(l_P/l_H)^2 (Omega_b/Omega_m) divided by the measured rho_Lambda/rho_vac (Planck 2018 Omega_b 0.0493, Omega_m 0.3153, H0 67.4). Book line 335, printed 1.218.'
+    '(2/pi)(l_P/l_H)^2 (Omega_b/Omega_m) divided by the measured rho_Lambda/rho_vac (Planck 2018 Omega_b 0.0493, Omega_m 0.3153, H0 67.4). Book line 326, printed 1.218.'
     base, OLv, obs = _b15e_lambda()
     value = base / obs
     return locals()
 
 @check(label='app:formulas:L342', chapter='app:formulas', part=8, title='base expression',
-       file='appendices/app_E_formulas', line=342, status='fitted', kind='num', printed='1.380\\times10^{-123}', tol=0.0)
+       file='appendices/app_E_formulas', line=333, status='fitted', kind='num', printed='1.380\\times10^{-123}', tol=0.0)
 def check_4666():
-    '(2/pi)(l_P/l_H)^2 (Omega_b/Omega_m), l_H = c/H0 at 67.4. Book line 342, printed 1.380e-123.'
+    '(2/pi)(l_P/l_H)^2 (Omega_b/Omega_m), l_H = c/H0 at 67.4. Book line 333, printed 1.380e-123.'
     base, OLv, obs = _b15e_lambda()
     value = base
     return locals()
 
 @check(label='app:formulas:L348', chapter='app:formulas', part=8, title='corrected expression above the measured value, per cent',
-       file='appendices/app_E_formulas', line=348, status='fitted', kind='num', printed='0.79', tol=0.0)
+       file='appendices/app_E_formulas', line=339, status='fitted', kind='num', printed='0.79', tol=0.0)
 def check_4667():
-    '(2/pi)(l_P/l_H)^2 sqrt(Omega_L)(Omega_b/Omega_m) over the measured ratio, minus 1, in per cent. Book line 348, printed 0.79.'
+    '(2/pi)(l_P/l_H)^2 sqrt(Omega_L)(Omega_b/Omega_m) over the measured ratio, minus 1, in per cent. Book line 339, printed 0.79.'
     base, OLv, obs = _b15e_lambda()
     value = 100 * (base * math.sqrt(OLv) / obs - 1)
     return locals()
 
 @check(label='app:formulas:L349', chapter='app:formulas', part=8, title='corrected expression',
-       file='appendices/app_E_formulas', line=349, status='fitted', kind='num', printed='1.142\\times10^{-123}', tol=0.0)
+       file='appendices/app_E_formulas', line=340, status='fitted', kind='num', printed='1.142\\times10^{-123}', tol=0.0)
 def check_4668():
-    'Base expression times sqrt(Omega_L). Book line 349, printed 1.142e-123.'
+    'Base expression times sqrt(Omega_L). Book line 340, printed 1.142e-123.'
     base, OLv, obs = _b15e_lambda()
     value = base * math.sqrt(OLv)
     return locals()
 
-# ---------------------------------------------------------------- line 447: Kerr
+# ---------------------------------------------------------------- line 438: Kerr
 
 @check(label='app:formulas:L387', chapter='app:formulas', part=8, title='same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output)',
-       file='appendices/app_E_formulas', line=387, status='measured', kind='file', printed='1.0046', tol=0, source='docs/verification/scripts/verify_cc_and_baryon_output.txt',
+       file='appendices/app_E_formulas', line=378, status='measured', kind='file', printed='1.0046', tol=0, source='docs/verification/scripts/verify_cc_and_baryon_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cc_and_baryon.py > docs/verification/scripts/verify_cc_and_baryon_output.txt')
 def check_2722():
-    'same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output). Book line 387, printed 1.0046.'
+    'same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output). Book line 378, printed 1.0046.'
     ok=file_has('docs/verification/scripts/verify_cc_and_baryon_output.txt','1.0046') and file_has('docs/verification/scripts/verify_cc_and_baryon_output.txt','0.0068')
     return locals()
 
 @check(label='app:formulas:L396', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:696 (H0 matter-sector formula)',
-       file='appendices/app_E_formulas', line=396, status='calc', kind='num', printed='72.26', tol=7e-05)
+       file='appendices/app_E_formulas', line=387, status='calc', kind='num', printed='72.26', tol=7e-05)
 def check_2723():
-    'same value as p1_02_iams_law:696 (H0 matter-sector formula). Book line 396, printed 72.26.'
+    'same value as p1_02_iams_law:696 (H0 matter-sector formula). Book line 387, printed 72.26.'
     value=H0_photon*math.sqrt(1+beta_m)
     return locals()
 
 @check(label='app:formulas:L396:67.16', chapter='app:formulas', part=8, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='appendices/app_E_formulas', line=396, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_E_formulas', line=387, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2724():
-    'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 396, printed 67.16.'
+    'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 387, printed 67.16.'
     value = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
     return locals()
 
 @check(label='app:formulas:L447', chapter='app:formulas', part=8, title='Kerr T S / M c^2 at chi = 0.5',
-       file='appendices/app_E_formulas', line=447, status='derived', kind='num', printed='0.433', tol=0.0)
+       file='appendices/app_E_formulas', line=438, status='derived', kind='num', printed='0.433', tol=0.0)
 def check_4669():
-    'T_BH S_BH/(M c^2) built from the Kerr horizon radius, area and surface gravity of a one-solar-mass hole at spin chi = 0.5. Book line 447, printed 0.433.'
+    'T_BH S_BH/(M c^2) built from the Kerr horizon radius, area and surface gravity of a one-solar-mass hole at spin chi = 0.5. Book line 438, printed 0.433.'
     value = _b15e_kerr_TS(0.5)
     return locals()
 
 @check(label='app:formulas:L447:0.218', chapter='app:formulas', part=8, title='Kerr T S / M c^2 at chi = 0.9',
-       file='appendices/app_E_formulas', line=447, status='derived', kind='num', printed='0.218', tol=0.0)
+       file='appendices/app_E_formulas', line=438, status='derived', kind='num', printed='0.218', tol=0.0)
 def check_4670():
-    'Same at chi = 0.9. Book line 447, printed 0.218.'
+    'Same at chi = 0.9. Book line 438, printed 0.218.'
     value = _b15e_kerr_TS(0.9)
     return locals()
 
 @check(label='app:formulas:L447:0.032', chapter='app:formulas', part=8, title='Kerr T S / M c^2 at chi = 0.998',
-       file='appendices/app_E_formulas', line=447, status='derived', kind='num', printed='0.032', tol=0.0)
+       file='appendices/app_E_formulas', line=438, status='derived', kind='num', printed='0.032', tol=0.0)
 def check_4671():
-    'Same at chi = 0.998. Book line 447, printed 0.032.'
+    'Same at chi = 0.998. Book line 438, printed 0.032.'
     value = _b15e_kerr_TS(0.998)
     return locals()
 
-# ---------------------------------------------------------------- lines 456-457: two horizons
+# ---------------------------------------------------------------- lines 447-448: two horizons
 
 @check(label='app:formulas:L456', chapter='app:formulas', part=8, title='M_eq = c^3/(4GH) at H0 67.4, solar masses',
-       file='appendices/app_E_formulas', line=456, status='derived', kind='num', printed='2.32\\times10^{22}', tol=0.0)
+       file='appendices/app_E_formulas', line=447, status='derived', kind='num', printed='2.32\\times10^{22}', tol=0.0)
 def check_4672():
-    'Mass at which hbar c^3/(8 pi G M k_B) equals hbar H/(2 pi k_B), solved numerically (brentq on the temperature difference), H0 = 67.4 (Planck 2018). Book line 456, printed 2.32e22.'
+    'Mass at which hbar c^3/(8 pi G M k_B) equals hbar H/(2 pi k_B), solved numerically (brentq on the temperature difference), H0 = 67.4 (Planck 2018). Book line 447, printed 2.32e22.'
     TH = hbar * Hsi(67.4) / (2 * math.pi * kB)
     lm = brentq(lambda x: math.log(hbar * c**3 / (8 * math.pi * G * math.exp(x) * Msun * kB) / TH), math.log(1e10), math.log(1e30))
     value = math.exp(lm)
     return locals()
 
 @check(label='app:formulas:L457', chapter='app:formulas', part=8, title='black hole in balance with the CMB, kg',
-       file='appendices/app_E_formulas', line=457, status='derived', kind='num', printed='4.5\\times10^{22}', tol=0.0)
+       file='appendices/app_E_formulas', line=448, status='derived', kind='num', printed='4.5\\times10^{22}', tol=0.0)
 def check_4673():
-    'M_CMB = hbar c^3/(8 pi G k_B T_CMB), T_CMB 2.7255 K (Fixsen 2009). Book line 457, printed 4.5e22 kg.'
+    'M_CMB = hbar c^3/(8 pi G k_B T_CMB), T_CMB 2.7255 K (Fixsen 2009). Book line 448, printed 4.5e22 kg.'
     value = hbar * c**3 / (8 * math.pi * G * kB * T_CMB)
     return locals()
 
-# ---------------------------------------------------------------- line 540: string tension
+# ---------------------------------------------------------------- line 531: string tension
 
 @check(label='app:formulas:L540', chapter='app:formulas', part=8, title='string tension in GeV/fm',
-       file='appendices/app_E_formulas', line=540, status='calc', kind='num', printed='0.91', tol=0.0)
+       file='appendices/app_E_formulas', line=531, status='calc', kind='num', printed='0.91', tol=0.0)
 def check_4674():
-    'sigma = 0.18 GeV^2 converted to GeV/fm by dividing by hbar c (in GeV fm, from SI hbar, c, e). Book line 540, printed 0.91.'
+    'sigma = 0.18 GeV^2 converted to GeV/fm by dividing by hbar c (in GeV fm, from SI hbar, c, e). Book line 531, printed 0.91.'
     hbarc_GeV_fm = hbar * c / (e_ch * 1e9) / 1e-15
     value = 0.18 / hbarc_GeV_fm
     return locals()
 
-# ---------------------------------------------------------------- lines 589-602: devices
+# ---------------------------------------------------------------- lines 580-593: devices
 
 @check(label='app:formulas:L543', chapter='app:formulas', part=8, title='same value as p4_15a_lepton_koide:35 (Koide Q with the 2022 m_tau)',
-       file='appendices/app_E_formulas', line=543, status='observed', kind='num', printed='0.66666051', tol=0)
+       file='appendices/app_E_formulas', line=534, status='observed', kind='num', printed='0.66666051', tol=0)
 def check_2725():
-    'same value as p4_15a_lepton_koide:35 (Koide Q with the 2022 m_tau). Book line 543, printed 0.66666051.'
+    'same value as p4_15a_lepton_koide:35 (Koide Q with the 2022 m_tau). Book line 534, printed 0.66666051.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
     mtau24,stau24=1776.93,0.09; mtau22,stau22=1776.86,0.12  # PDG 2024, PDG 2022
     def Qk(a,b,cc): return (a+b+cc)/(math.sqrt(a)+math.sqrt(b)+math.sqrt(cc))**2
@@ -38631,18 +38134,18 @@ def check_2725():
     return locals()
 
 @check(label='app:formulas:L589', chapter='app:formulas', part=8, title='slope of the held-record floor at 15 mK, 5 GHz',
-       file='appendices/app_E_formulas', line=589, status='derived', kind='num', printed='16.0', tol=0.0)
+       file='appendices/app_E_formulas', line=580, status='derived', kind='num', printed='16.0', tol=0.0)
 def check_4675():
-    'd ln p_eq / d ln T of p_eq = 1/(1+exp(hf/k_B T)), taken numerically at f = 5 GHz, T = 15 mK (equals M(1 - p_eq)). Book line 589, printed 16.0.'
+    'd ln p_eq / d ln T of p_eq = 1/(1+exp(hf/k_B T)), taken numerically at f = 5 GHz, T = 15 mK (equals M(1 - p_eq)). Book line 580, printed 16.0.'
     peq = lambda T: 1 / (1 + math.exp(h * 5e9 / (kB * T)))
     T0, d = 0.015, 1e-6
     value = (math.log(peq(T0 * math.exp(d))) - math.log(peq(T0 * math.exp(-d)))) / (2 * d)
     return locals()
 
 @check(label='app:formulas:L596', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=596, status='derived', kind='num', printed='6.2\\times10^{-7}', tol=0.0)
+       file='appendices/app_E_formulas', line=587, status='derived', kind='num', printed='6.2\\times10^{-7}', tol=0.0)
 def check_2726():
-    'drafted check, screened (runs; negative control fails). Book line 596, printed 6.2\\times10^{-7}.'
+    'drafted check, screened (runs; negative control fails). Book line 587, printed 6.2\\times10^{-7}.'
     # 5 GHz transmon at 35 mK: E = hf, M = E/(kB T)
     f = 5e9  # Hz
     E = h * f
@@ -38656,9 +38159,9 @@ def check_2726():
     return locals()
 
 @check(label='app:formulas:L599', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=599, status='calc', kind='num', printed='0.021', tol=0.0)
+       file='appendices/app_E_formulas', line=590, status='calc', kind='num', printed='0.021', tol=0.0)
 def check_2727():
-    'drafted check, screened (runs; negative control fails). Book line 599, printed 0.021.'
+    'drafted check, screened (runs; negative control fails). Book line 590, printed 0.021.'
     T_j = 348.0  # K
     ebit_J = kB * T_j * np.log(2)
     ebit_eV = ebit_J / e_ch
@@ -38666,16 +38169,16 @@ def check_2727():
     return locals()
 
 @check(label='app:formulas:L599:3.33\\times10^{-21}', chapter='app:formulas', part=8, title='Landauer floor at the junction temperature',
-       file='appendices/app_E_formulas', line=599, status='calc', kind='num', printed='3.33\\times10^{-21}', tol=0.0)
+       file='appendices/app_E_formulas', line=590, status='calc', kind='num', printed='3.33\\times10^{-21}', tol=0.0)
 def check_4676():
-    'k_B T_j ln 2 at T_j = 75 C = 348.15 K. Book line 599, printed 3.33e-21 J.'
+    'k_B T_j ln 2 at T_j = 75 C = 348.15 K. Book line 590, printed 3.33e-21 J.'
     value = kB * (273.15 + 75) * LN2
     return locals()
 
 @check(label='app:formulas:L602', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=602, status='derived', kind='num', printed='6.2', tol=0.0)
+       file='appendices/app_E_formulas', line=593, status='derived', kind='num', printed='6.2', tol=0.0)
 def check_2728():
-    'drafted check, screened (runs; negative control fails). Book line 602, printed 6.2.'
+    'drafted check, screened (runs; negative control fails). Book line 593, printed 6.2.'
     s = 0.646
     R = 600.0
     n_floor = math.log(R) / (-math.log(1 - s))
@@ -38683,9 +38186,9 @@ def check_2728():
     return locals()
 
 @check(label='app:formulas:L602:18.5', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=602, status='derived', kind='num', printed='18.5', tol=0.0)
+       file='appendices/app_E_formulas', line=593, status='derived', kind='num', printed='18.5', tol=0.0)
 def check_2729():
-    'drafted check, screened (runs; negative control fails). Book line 602, printed 18.5.'
+    'drafted check, screened (runs; negative control fails). Book line 593, printed 18.5.'
     s = 1 - 1 / math.sqrt(2)
     R = 600.0
     n_floor = math.log(R) / (-math.log(1 - s))
@@ -38693,143 +38196,143 @@ def check_2729():
     return locals()
 
 @check(label='app:formulas:L602:0.646', chapter='app:formulas', part=8, title='constant-field step per halving of area',
-       file='appendices/app_E_formulas', line=602, status='derived', kind='num', printed='0.646', tol=0.0)
+       file='appendices/app_E_formulas', line=593, status='derived', kind='num', printed='0.646', tol=0.0)
 def check_4677():
-    'Fractional fall of C V^2 per node under constant-field scaling, 1 - kappa^-3 with kappa = sqrt 2 (area per transistor halved; ch:cmos). Book line 602, printed 0.646.'
+    'Fractional fall of C V^2 per node under constant-field scaling, 1 - kappa^-3 with kappa = sqrt 2 (area per transistor halved; ch:cmos). Book line 593, printed 0.646.'
     kap = math.sqrt(2)
     value = 1 - kap**-3
     return locals()
 
-# ---------------------------------------------------------------- lines 610-619: the cell
+# ---------------------------------------------------------------- lines 601-610: the cell
 
 @check(label='app:formulas:L610', chapter='app:formulas', part=8, title='body temperature, K (canon)',
-       file='appendices/app_E_formulas', line=610, status='calc', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_E_formulas', line=601, status='calc', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
 def check_4678():
-    'T_cell of the canon, checked against 37 C + 273.15 as its source note states. Book line 610, printed 310.15.'
+    'T_cell of the canon, checked against 37 C + 273.15 as its source note states. Book line 601, printed 310.15.'
     Tc = _cv('T_cell')
     value = Tc if abs(Tc - (37 + 273.15)) < 1e-9 else float('nan')
     return locals()
 
 @check(label='app:formulas:L610:2.968', chapter='app:formulas', part=8, title='Landauer cost of one bit at body temperature',
-       file='appendices/app_E_formulas', line=610, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0.0)
+       file='appendices/app_E_formulas', line=601, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0.0)
 def check_4679():
-    'k_B T_cell ln 2, T_cell = 310.15 K (canon). Book line 610, printed 2.968e-21 J.'
+    'k_B T_cell ln 2, T_cell = 310.15 K (canon). Book line 601, printed 2.968e-21 J.'
     value = kB * T_cell * LN2
     return locals()
 
 @check(label='app:formulas:L611', chapter='app:formulas', part=8, title='same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)',
-       file='appendices/app_E_formulas', line=611, status='calc', kind='num', printed='20.94', tol=0.000239)
+       file='appendices/app_E_formulas', line=602, status='calc', kind='num', printed='20.94', tol=0.000239)
 def check_2730():
-    'same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C). Book line 611, printed 20.94.'
+    'same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C). Book line 602, printed 20.94.'
     value = dG_ATP/(R_gas*T_cell)
     return locals()
 
 @check(label='app:formulas:L613', chapter='app:formulas', part=8, title='same value as p6_02_landauer:48 (M/ln2)',
-       file='appendices/app_E_formulas', line=613, status='calc', kind='num', printed='30.21', tol=0)
+       file='appendices/app_E_formulas', line=604, status='calc', kind='num', printed='30.21', tol=0)
 def check_2731():
-    'same value as p6_02_landauer:48 (M/ln2). Book line 613, printed 30.21.'
+    'same value as p6_02_landauer:48 (M/ln2). Book line 604, printed 30.21.'
     value=dG_ATP/(N_A*kB*T_cell*LN2)
     return locals()
 
 @check(label='app:formulas:L616', chapter='app:formulas', part=8, title='CpG sites of the hg19 index',
-       file='appendices/app_E_formulas', line=616, status='calc', kind='file', printed='2.822\\times10^{7}', tol=0.0,
+       file='appendices/app_E_formulas', line=607, status='calc', kind='file', printed='2.822\\times10^{7}', tol=0.0,
        source='Biological_Physics/MethylPhys/atlas/v2/README.md')
 def check_4680():
-    'Size of the wgbstools hg19 CpG index in the atlas v2 build notes (28,217,448). Book line 616, printed 2.822e7.'
+    'Size of the wgbstools hg19 CpG index in the atlas v2 build notes (28,217,448). Book line 607, printed 2.822e7.'
     value = _b15e_ncpg()
     return locals()
 
 @check(label='app:formulas:L617', chapter='app:formulas', part=8, title='Landauer floor of one copy of the methylome',
-       file='appendices/app_E_formulas', line=617, status='calc', kind='file', printed='8.38\\times10^{-14}', tol=0.0,
+       file='appendices/app_E_formulas', line=608, status='calc', kind='file', printed='8.38\\times10^{-14}', tol=0.0,
        source='Biological_Physics/MethylPhys/atlas/v2/README.md')
 def check_4681():
-    'N k_B T_cell ln 2 with N the hg19 CpG count read from the atlas v2 build notes. Book line 617, printed 8.38e-14 J.'
+    'N k_B T_cell ln 2 with N the hg19 CpG count read from the atlas v2 build notes. Book line 608, printed 8.38e-14 J.'
     value = _b15e_ncpg() * kB * T_cell * LN2
     return locals()
 
 @check(label='app:formulas:L618:2.3', chapter='app:formulas', part=8, title='discrimination energy at 10 % maintenance error',
-       file='appendices/app_E_formulas', line=618, status='calc', kind='num', printed='2.3', tol=0.0)
+       file='appendices/app_E_formulas', line=609, status='calc', kind='num', printed='2.3', tol=0.0)
 def check_4682():
-    'Delta Delta G / k_B T = ln(1/p) at the upper maintenance error p = 0.10 (Genereux et al. 2005, as cited in ch:landauer). Book line 618, printed 2.3.'
+    'Delta Delta G / k_B T = ln(1/p) at the upper maintenance error p = 0.10 (Genereux et al. 2005, as cited in ch:landauer). Book line 609, printed 2.3.'
     value = math.log(1 / 0.10)
     return locals()
 
 @check(label='app:formulas:L618:3.9', chapter='app:formulas', part=8, title='discrimination energy at 2 % maintenance error',
-       file='appendices/app_E_formulas', line=618, status='calc', kind='num', printed='3.9', tol=0.0)
+       file='appendices/app_E_formulas', line=609, status='calc', kind='num', printed='3.9', tol=0.0)
 def check_4683():
-    'ln(1/p) at the lower maintenance error p = 0.02 (Genereux et al. 2005). Book line 618, printed 2.3--3.9 (upper end 3.9).'
+    'ln(1/p) at the lower maintenance error p = 0.02 (Genereux et al. 2005). Book line 609, printed 2.3--3.9 (upper end 3.9).'
     value = math.log(1 / 0.02)
     return locals()
 
 @check(label='app:formulas:L619', chapter='app:formulas', part=8, title='phi = E_hold / M',
-       file='appendices/app_E_formulas', line=619, status='measured', kind='file', printed='0.163', tol=0.0,
+       file='appendices/app_E_formulas', line=610, status='measured', kind='file', printed='0.163', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
 def check_4684():
-    'E_hold of the copy channel (PROC-CHANNEL-01 record) over M = dG_ATP/(R T_cell). Book line 619, printed 0.163.'
+    'E_hold of the copy channel (PROC-CHANNEL-01 record) over M = dG_ATP/(R T_cell). Book line 610, printed 0.163.'
     value = _b00_hold_energy() / (dG_ATP / (R_gas * T_cell))
     return locals()
 
-# ---------------------------------------------------------------- lines 631-682: the gauges
+# ---------------------------------------------------------------- lines 622-673: the gauges
 
 @check(label='app:formulas:L631', chapter='app:formulas', part=8, title='full surface on Met-A',
-       file='appendices/app_E_formulas', line=631, status='calc', kind='file', printed='3.03', tol=0.0,
+       file='appendices/app_E_formulas', line=622, status='calc', kind='file', printed='3.03', tol=0.0,
        source=_B15E_RM + 'Met_A_Floors/metA_floors_v1_3.json', heavy=True, rerun=_B15E_METH_RERUN)
 def check_4685():
-    'One bit per identity site, H(1/2), over the frozen EPIC neutrophil floor of metA_floors_v1_3.json. Book line 631, printed 3.03.'
+    'One bit per identity site, H(1/2), over the frozen EPIC neutrophil floor of metA_floors_v1_3.json. Book line 622, printed 3.03.'
     value = _b15e_Hb(0.5) / load_json(_B15E_RM + 'Met_A_Floors/metA_floors_v1_3.json')['platforms']['EPIC']['neutrophils']['floor']
     return locals()
 
 @check(label='app:formulas:L637', chapter='app:formulas', part=8, title='frozen EPIC neutrophil reference, bits',
-       file='appendices/app_E_formulas', line=637, status='calibrated', kind='file', printed='0.330263', tol=0.0,
+       file='appendices/app_E_formulas', line=628, status='calibrated', kind='file', printed='0.330263', tol=0.0,
        source=_B15E_RM + 'Met_A_Floors/metA_floors_v1_3.json', heavy=True, rerun=_B15E_METH_RERUN)
 def check_4686():
-    'Floor of EPIC neutrophils in the frozen Met-A floors v1.3. Book line 637, printed 0.330263.'
+    'Floor of EPIC neutrophils in the frozen Met-A floors v1.3. Book line 628, printed 0.330263.'
     value = load_json(_B15E_RM + 'Met_A_Floors/metA_floors_v1_3.json')['platforms']['EPIC']['neutrophils']['floor']
     return locals()
 
 @check(label='app:formulas:L642', chapter='app:formulas', part=8, title='copy-error floor eps0',
-       file='appendices/app_E_formulas', line=642, status='measured', kind='file', printed='0.032', tol=0.0,
+       file='appendices/app_E_formulas', line=633, status='measured', kind='file', printed='0.032', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md', heavy=True, rerun=_B00_HOLD_RERUN)
 def check_4687():
-    'eps0 = 1/(1 + exp(E_hold)), E_hold read from the PROC-CHANNEL-01 record. Book line 642, printed 0.032.'
+    'eps0 = 1/(1 + exp(E_hold)), E_hold read from the PROC-CHANNEL-01 record. Book line 633, printed 0.032.'
     value = 1 / (1 + math.exp(_b00_hold_energy()))
     return locals()
 
 @check(label='app:formulas:L642:0.2043', chapter='app:formulas', part=8, title='H_min = H(eps0), bits',
-       file='appendices/app_E_formulas', line=642, status='measured', kind='file', printed='0.2043', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_E_formulas', line=633, status='measured', kind='file', printed='0.2043', tol=0.0, source='CANON/iam_canon.json')
 def check_4688():
-    'Binary entropy of the canon eps0 (0.032). Book line 642, printed 0.2043.'
+    'Binary entropy of the canon eps0 (0.032). Book line 633, printed 0.2043.'
     value = _b15e_Hb(_cv('eps0_meth'))
     return locals()
 
 @check(label='app:formulas:L643', chapter='app:formulas', part=8, title='neutrophil position P',
-       file='appendices/app_E_formulas', line=643, status='measured', kind='file', printed='1.099', tol=0.0,
+       file='appendices/app_E_formulas', line=634, status='measured', kind='file', printed='1.099', tol=0.0,
        source=_B15E_RM + 'IAM_A_Positions/iama_positions_v1.json', heavy=True, rerun=_B15E_METH_RERUN)
 def check_4689():
-    'P of neutrophils in the frozen IAM-A positions (3 donors), checked to lie inside its donor range. Book line 643, printed 1.099.'
+    'P of neutrophils in the frozen IAM-A positions (3 donors), checked to lie inside its donor range. Book line 634, printed 1.099.'
     d = load_json(_B15E_RM + 'IAM_A_Positions/iama_positions_v1.json')['cells']['neutrophils']
     value = d['P'] if d['P_range'][0] <= d['P'] <= d['P_range'][1] else float('nan')
     return locals()
 
 @check(label='app:formulas:L647', chapter='app:formulas', part=8, title='C-score healthy baseline',
-       file='appendices/app_E_formulas', line=647, status='calibrated', kind='file', printed='1.1104', tol=0.0,
+       file='appendices/app_E_formulas', line=638, status='calibrated', kind='file', printed='1.1104', tol=0.0,
        source=_B15E_RM + 'Met_A_Floors/neutrophil_reference_v1_1.json', heavy=True, rerun=_B15E_METH_RERUN)
 def check_4690():
-    'Median of the six held-out clustering values healthy_clustering_LOO of neutrophil_reference_v1_1.json. Book line 647, printed 1.1104.'
+    'Median of the six held-out clustering values healthy_clustering_LOO of neutrophil_reference_v1_1.json. Book line 638, printed 1.1104.'
     value = float(np.median(load_json(_B15E_RM + 'Met_A_Floors/neutrophil_reference_v1_1.json')['healthy_clustering_LOO']))
     return locals()
 
 @check(label='app:formulas:L664', chapter='app:formulas', part=8, title='M_eq at H0 = 67.16, solar masses',
-       file='appendices/app_E_formulas', line=664, status='calc', kind='num', printed='2.3\\times10^{22}', tol=0.0)
+       file='appendices/app_E_formulas', line=655, status='calc', kind='num', printed='2.3\\times10^{22}', tol=0.0)
 def check_4691():
-    'M_eq = c^3/(4 G H) at the photon-sector H0 = 67.16 (locked), in solar masses. Book line 664, printed 2.3e22.'
+    'M_eq = c^3/(4 G H) at the photon-sector H0 = 67.16 (locked), in solar masses. Book line 655, printed 2.3e22.'
     value = c**3 / (4 * G * Hsi(H0_photon)) / Msun
     return locals()
 
 @check(label='app:formulas:L682', chapter='app:formulas', part=8, title='eps0 from phi and M',
-       file='appendices/app_E_formulas', line=682, status='derived', kind='file', printed='0.032', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_E_formulas', line=673, status='derived', kind='file', printed='0.032', tol=0.0, source='CANON/iam_canon.json')
 def check_4692():
-    'eps0 = 1/(1 + exp(phi M)) with phi = 0.1628 and M = dG_ATP/(R T_cell) from the canon inputs. Book line 682, printed 0.032.'
+    'eps0 = 1/(1 + exp(phi M)) with phi = 0.1628 and M = dG_ATP/(R T_cell) from the canon inputs. Book line 673, printed 0.032.'
     value = 1 / (1 + math.exp(_cv('phi') * dG_ATP / (R_gas * T_cell)))
     return locals()
 
@@ -43262,7 +42765,7 @@ def check_5040():
 
 
 # ---------------------------------------------------------------- items inventoried and not run: (part, chapter, file, line, label, status, printed, why)
-CHAPTER_ORDER = ['front/p0_abstract', 'front/p0_preface', 'front/p0_giants', 'front/p0_how_to_read', 'part1/p1_01_encoding_surfaces', 'part1/p1_02_iams_law', 'part1/p1_03_virial_law', 'part1/p1_04_virial_identity', 'part2/p2_02_virial', 'part2/p2_02b_virial_tests', 'part2/p2_03_theory', 'part2/p2_03a_entropic_gravity', 'part2/p2_04_dualsector_chains', 'part2/p2_07_late_time_growth', 'part2/p2_06_dual_sector_perturbation', 'part2/p2_05_dual_sector_note', 'part2/p2_08_s8_trend', 'part2/p2_09_sector_tension', 'part2/p2_09b_phantom_crossing', 'part2/p2_10_dual_sector_validation', 'part2/p2_11_dark_energy', 'part2/p2_20_wz_far_future', 'part2/p2_12_lambda', 'part2/p2_12b_lambda_history', 'part2/p2_13_baryon', 'part2/p2_13b_baryon_chain', 'part2/p2_16_survey_predictions', 'part2/p2_17_lensing_dynamics', 'part2/p2_18_three_way_clusters', 'part2/p2_19_missing_satellites', 'part3/p3_01_blackholes', 'part3/p3_01a_bekenstein', 'part3/p3_01b_bh_information', 'part3/p3_07_saturation', 'part4/p4_14_quantum_records', 'part4/p4_21_entanglement_records', 'part4/p4_04_measurement', 'part4/p4_05_gravdec', 'part4/p4_06_nonlocality', 'part4/p4_22_electroweak', 'part4/p4_22b_higgs_record', 'part4/p4_15a_lepton_koide', 'part4/p4_15b_electron_mass', 'part5/p5_01_sc_primer', 'part5/p5_02_xqp', 'part5/p5_03_a_for_processors', 'part5/p5_04_thermal_n', 'part5/p5_05_coherence_optimum', 'part5/p5_10_qubit_platforms', 'part5/p5_06_cmos', 'part5/p5_11_chip_generations', 'part6/p6_01_bridge', 'part6/p6_00b_astrogenetics', 'part6/p6_02_landauer', 'part6/p6_03_surface', 'part6/p6_04_ledgers', 'part6/p6_05_floorbreach', 'part6/p6_06_gauge', 'part6/p6_07_meta', 'part6/p6_08_iama', 'part6/p6_09_cscore', 'part6/p6_10_temperature', 'part6/p6_11_translation', 'part6/p6_12_instrument', 'part6/p6_13_separation', 'part6/p6_14_atlas', 'part6/p6_15_identity', 'part6/p6_16a_skytools', 'part6/p6_16_sky', 'part6/p6_17_serial', 'part6/p6_18_discipline', 'part6/p6_19_chain', 'part6/p6_20_report', 'part6/p6_22_leukocyte', 'part6/p6_23_reach', 'part6/p6_24_status', 'part7/p7_01_interpretation', 'part7/p7_03_time', 'part7/p7_05b_virial_partners', 'part7/p7_05c_virial_decoherence', 'part7/p7_08_one_gauge', 'part7/p7_08_synthesis', 'part7/p7_09_reach', 'part7/p7_07_predictions', 'part7/p7_09_open', 'part7/p7_02_exploratory', 'part7/p7_11_status_all', 'part7/p7_10_conclusion', 'appendices/app_A_canon', 'appendices/app_A2_frozen_values', 'appendices/app_N_notation', 'appendices/app_E_formulas', 'appendices/app_C3_derivations', 'appendices/app_F_glossary', 'appendices/app_C_reproduce_physics', 'appendices/app_C2_reproduce_cells', 'appendices/app_G_predictions_register', 'appendices/app_I_provenance']
+CHAPTER_ORDER = ['front/p0_abstract', 'front/p0_preface', 'front/p0_giants', 'front/p0_how_to_read', 'part1/p1_02_iams_law', 'part1/p1_03_virial_law', 'part1/p1_04_virial_identity', 'part2/p2_02_virial', 'part2/p2_02b_virial_tests', 'part2/p2_03_theory', 'part2/p2_03a_entropic_gravity', 'part2/p2_04_dualsector_chains', 'part2/p2_07_late_time_growth', 'part2/p2_06_dual_sector_perturbation', 'part2/p2_05_dual_sector_note', 'part2/p2_08_s8_trend', 'part2/p2_09_sector_tension', 'part2/p2_09b_phantom_crossing', 'part2/p2_10_dual_sector_validation', 'part2/p2_11_dark_energy', 'part2/p2_20_wz_far_future', 'part2/p2_12_lambda', 'part2/p2_12b_lambda_history', 'part2/p2_13_baryon', 'part2/p2_13b_baryon_chain', 'part2/p2_16_survey_predictions', 'part2/p2_17_lensing_dynamics', 'part2/p2_18_three_way_clusters', 'part2/p2_19_missing_satellites', 'part3/p3_01_blackholes', 'part3/p3_01a_bekenstein', 'part3/p3_01b_bh_information', 'part3/p3_07_saturation', 'part4/p4_14_quantum_records', 'part4/p4_21_entanglement_records', 'part4/p4_04_measurement', 'part4/p4_05_gravdec', 'part4/p4_06_nonlocality', 'part4/p4_22_electroweak', 'part4/p4_22b_higgs_record', 'part4/p4_15a_lepton_koide', 'part4/p4_15b_electron_mass', 'part5/p5_01_sc_primer', 'part5/p5_02_xqp', 'part5/p5_03_a_for_processors', 'part5/p5_04_thermal_n', 'part5/p5_05_coherence_optimum', 'part5/p5_10_qubit_platforms', 'part5/p5_06_cmos', 'part5/p5_11_chip_generations', 'part6/p6_01_bridge', 'part6/p6_00b_astrogenetics', 'part6/p6_02_landauer', 'part6/p6_03_surface', 'part6/p6_04_ledgers', 'part6/p6_05_floorbreach', 'part6/p6_06_gauge', 'part6/p6_07_meta', 'part6/p6_08_iama', 'part6/p6_09_cscore', 'part6/p6_10_temperature', 'part6/p6_11_translation', 'part6/p6_12_instrument', 'part6/p6_13_separation', 'part6/p6_14_atlas', 'part6/p6_15_identity', 'part6/p6_16a_skytools', 'part6/p6_16_sky', 'part6/p6_17_serial', 'part6/p6_18_discipline', 'part6/p6_19_chain', 'part6/p6_20_report', 'part6/p6_22_leukocyte', 'part6/p6_23_reach', 'part6/p6_24_status', 'part7/p7_01_interpretation', 'part7/p7_03_time', 'part7/p7_05b_virial_partners', 'part7/p7_05c_virial_decoherence', 'part7/p7_08_one_gauge', 'part7/p7_08_synthesis', 'part7/p7_09_reach', 'part7/p7_07_predictions', 'part7/p7_09_open', 'part7/p7_02_exploratory', 'part7/p7_11_status_all', 'part7/p7_10_conclusion', 'appendices/app_A_canon', 'appendices/app_A2_frozen_values', 'appendices/app_N_notation', 'appendices/app_E_formulas', 'appendices/app_C3_derivations', 'appendices/app_F_glossary', 'appendices/app_C_reproduce_physics', 'appendices/app_C2_reproduce_cells', 'appendices/app_G_predictions_register', 'appendices/app_I_provenance']
 INVENTORY = [
     (0, 'ch:p0_preface', 'front/p0_preface', 53, '', 'none', '72.26', 'H0_matter canon locked result, input'),
     (0, 'ch:p0_preface', 'front/p0_preface', 54, '', 'none', '67.16', 'H0_photon canon locked result, input'),
@@ -43270,16 +42773,6 @@ INVENTORY = [
     (0, 'ch:p0_preface', 'front/p0_preface', 65, '', 'calc', '+0.54', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
     (0, 'ch:p0_preface', 'front/p0_preface', 65, '', 'calc', '+0.54', 'restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute'),
     (0, 'ch:giants', 'front/p0_giants', 205, '', 'prediction', '', 'statement, no numeric value'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 49, '', 'none', '', 'definition of Bekenstein-Hawking entropy'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 59, '', 'none', '', 'definition of Hawking temperature'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 70, '', 'none', '', 'definition of Landauer bit energy'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 92, '', 'conjecture', '', 'definition of total entropy functional, new term'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 108, '', 'conjecture', '', 'floor-breach inequality, definitional condition'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 125, '', 'none', '0.910', 'neutrophil gauge reading, restated from other chapter'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 146, '', 'none', '0.910', 'repeat, neutrophil gauge reading'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 194, '', 'prediction', '-0.136', 'predicted growth-deficit parameter, locked result'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 238, '', 'prediction', '-0.136', 'locked IAM growth-rate parameter, used as input'),
-    (1, 'ch:surfaces', 'part1/p1_01_encoding_surfaces', 238, '', 'prediction', '0', 'Sigma_0 fixed to zero by IAM construction'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 72, 'eq:law', 'none', '', "definition: IAM's Law cost per bit"),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 102, '', 'none', '7/2', 'exponent value, derived in other section'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 112, 'eq:law_entangle', 'none', '', 'definition: decoherence entangled state'),
@@ -44258,18 +43751,18 @@ INVENTORY = [
     (8, 'app:notation', 'appendices/app_N_notation', 104, '', 'observed', '50', 'observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:notation:L104'),
     (8, 'app:notation', 'appendices/app_N_notation', 104, '', 'observed', '-65', 'observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:notation:L104'),
     (8, 'app:formulas', 'appendices/app_E_formulas', 6, '', 'none', '', 'definition: line 6 is the body of the \\iamfsentry macro (the equation* wrapper of every formula-sheet entry), not an equation of the book'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 56, '', 'derived', '0.5', 'input: the scale factor a = 0.5 at which w_info is evaluated'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 335, '', 'openprob', '0.7', 'no 0.7 is printed at line 335 in the current text (text changed at HEAD; the entry is the base cosmological-constant expression, whose 1.218 is checked in app:formulas:L335); nothing to check'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 372, '', 'measured', '0.02232', 'definition: line 372 is n_b = eta n_gamma (labelled a definition); it prints no 0.02232 (the scan line drifted; Omega_b h^2 = 0.02232 appears at lines 79 and 385, outside this batch)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 447, '', 'derived', '0.5', 'input: spin chi = 0.5 at which the Kerr fraction is evaluated'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 447, '', 'derived', '0.9', 'input: spin chi = 0.9'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 447, '', 'derived', '0.998', 'input: spin chi = 0.998'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 456, '', 'derived', '67.4', 'input: Planck 2018 H0 = 67.4 km/s/Mpc (rounded 67.36, Aghanim et al. 2020) at which M_eq is evaluated'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 596, '', 'derived', '68', 'input: T_1 = 68 microseconds of the worked transmon example (GoogleWillow2025, as cited in ch:qplatforms)'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 596, '', 'derived', '40', 'input: gate duration t = 40 ns of the worked example'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 599, '', 'calc', '348', 'input: junction temperature T_j = 348 K (75 C) at which the floor is evaluated'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 602, '', 'derived', '600', 'input: chip reading R = 600 times its floor (round value of the 576-593 checked in ch:conclusion:L25 and ch:statusall:L85); n_floor at R = 600 is checked in app:formulas:L602'),
-    (8, 'app:formulas', 'appendices/app_E_formulas', 618, '', 'calc', '0.10', 'input: maintenance error rate 10 % (upper end of the 2-10 % of Genereux et al. 2005)'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 47, '', 'derived', '0.5', 'input: the scale factor a = 0.5 at which w_info is evaluated'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 326, '', 'openprob', '0.7', 'no 0.7 is printed at line 326 in the current text (text changed at HEAD; the entry is the base cosmological-constant expression, whose 1.218 is checked in app:formulas:L335); nothing to check'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 363, '', 'measured', '0.02232', 'definition: line 363 is n_b = eta n_gamma (labelled a definition); it prints no 0.02232 (the scan line drifted; Omega_b h^2 = 0.02232 appears at lines 79 and 385, outside this batch)'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 438, '', 'derived', '0.5', 'input: spin chi = 0.5 at which the Kerr fraction is evaluated'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 438, '', 'derived', '0.9', 'input: spin chi = 0.9'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 438, '', 'derived', '0.998', 'input: spin chi = 0.998'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 447, '', 'derived', '67.4', 'input: Planck 2018 H0 = 67.4 km/s/Mpc (rounded 67.36, Aghanim et al. 2020) at which M_eq is evaluated'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 587, '', 'derived', '68', 'input: T_1 = 68 microseconds of the worked transmon example (GoogleWillow2025, as cited in ch:qplatforms)'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 587, '', 'derived', '40', 'input: gate duration t = 40 ns of the worked example'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 590, '', 'calc', '348', 'input: junction temperature T_j = 348 K (75 C) at which the floor is evaluated'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 593, '', 'derived', '600', 'input: chip reading R = 600 times its floor (round value of the 576-593 checked in ch:conclusion:L25 and ch:statusall:L85); n_floor at R = 600 is checked in app:formulas:L602'),
+    (8, 'app:formulas', 'appendices/app_E_formulas', 609, '', 'calc', '0.10', 'input: maintenance error rate 10 % (upper end of the 2-10 % of Genereux et al. 2005)'),
     (8, 'app:derivations', 'appendices/app_C3_derivations', 65, '', 'derived', '0.5', 'input: Kerr spin chi = 0.5 at which TS/M is evaluated (TS/M checked at app:derivations:L65:0.433)'),
     (8, 'app:derivations', 'appendices/app_C3_derivations', 65, '', 'derived', '0.9', 'input: Kerr spin chi = 0.9 at which TS/M is evaluated (checked at app:derivations:L65:0.218)'),
     (8, 'app:derivations', 'appendices/app_C3_derivations', 65, '', 'derived', '0.998', 'input: Kerr spin chi = 0.998 at which TS/M is evaluated (checked at app:derivations:L65:0.032)'),
