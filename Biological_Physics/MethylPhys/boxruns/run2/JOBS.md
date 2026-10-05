@@ -21,8 +21,8 @@ Install these exact versions on the box; Stage Q refuses any file whose pipeline
 
 ## Sessions
 1. **Session 1 (1–2 h, m7a.8xlarge, 500 GB scratch):** install bwa-meth 0.2.0, SAMtools 1.9, wgbstools 0.1.0 into their own environment
-   (never into the chain environment); build the hg19 index and save it to S3; download one Loyfer Blood-Granulocytes FASTQ-equivalent
-   check: take ~1 million read pairs of one GSE128731 run through the whole path and confirm the PAT file has the format and CpG
+   (never into the chain environment); build the hg19 index and save it to S3; download one Loyfer Blood-Granulocytes .pat file;
+   then take ~1 million read pairs of one GSE128731 run through the whole path and confirm the PAT file has the format and CpG
    indexing of a Loyfer .pat (same columns, same CpG index for the same position). **Stop here if it does not match.**
 2. **Session 2 (~8–12 h, about $15–25):** one run per donor (the TruSeq runs, or the kit closest to Loyfer's, to be read from the
    sequencing records first): SRA download → bwa-meth → SAMtools → `wgbstools bam2pat` → Stage Q0 checks once wired (DEV-IAMA-INTAKE-01)
