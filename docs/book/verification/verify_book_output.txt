@@ -39,80 +39,6 @@ PASS  ch:giants:L177                     ch:giants:p0_giants:177  printed 0.032 
 PASS  ch:p0_how_to_read:L50              ch:p0_how_to_read:p0_how_to_read:50  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] Mahaffey number M_cell for one ATP at 37C
 PASS  ch:p0_how_to_read:L50:30.2         ch:p0_how_to_read:p0_how_to_read:50  printed 30.2  recomputed 30.2108  tol 0.0501321  [calc] M_cell converted to Landauer (bit) units
 
-== Part 1: Introduction to IAM's Law and the Virial Theorem | ch:surfaces (part1/p1_01_encoding_surfaces.tex)
-PASS  ch:surfaces:L34                    ch:surfaces:p1_01_encoding_surfaces:34  printed 0  recomputed True  [derived] limit of E(a) as a->0
-PASS  ch:surfaces:L34:1                  ch:surfaces:p1_01_encoding_surfaces:34  printed 1  recomputed True  [derived] E(a) at a=1 equals 1
-PASS  ch:surfaces:L34:e                  ch:surfaces:p1_01_encoding_surfaces:34  printed e  recomputed True  [derived] limit of E(a) as a->infinity
-PASS  ch:surfaces:L42                    ch:surfaces:p1_01_encoding_surfaces:42  printed 52  recomputed 51.7433  tol 0.520001  [calc] log10 nucleus bit capacity vs CpG count
-PASS  ch:surfaces:L42:1.6\times10^{59}   ch:surfaces:p1_01_encoding_surfaces:42  printed 1.6\times10^{59}  recomputed 1.561519e+59  tol 5.000005e+57  [calc] bits holdable by 6um-nucleus area
-PASS  ch:surfaces:L52                    ch:surfaces:p1_01_encoding_surfaces:52  printed 1.51\times10^{77}  recomputed 1.513322e+77  tol 5.000005e+74  [calc] bits held by 1 solar-mass horizon
-PASS  ch:surfaces:L53                    ch:surfaces:p1_01_encoding_surfaces:53  printed (algebra)  recomputed lhs-rhs=0  [derived] quarter coefficient equals 2pi/8pi ratio
-PASS  ch:surfaces:L61                    ch:surfaces:p1_01_encoding_surfaces:61  printed 6.17\times10^{-8}  recomputed 6.170074e-08  tol 5.000005e-11  [calc] Hawking temperature of one solar mass
-PASS  ch:surfaces:L62                    ch:surfaces:p1_01_encoding_surfaces:62  printed 2.65\times10^{-30}  recomputed 2.653778e-30  tol 5.008505e-33  [calc] Gibbons-Hawking temperature of today's horizon
-PASS  ch:surfaces:L72                    ch:surfaces:p1_01_encoding_surfaces:72  printed 2.87\times10^{-21}  recomputed found in file  [observed] measured: printed value found in verify_encoding_ladder_output.txt, a file the chapter names  file docs/verification/scripts/verify_encoding_ladder_output.txt
-      heavy: python3 docs/verification/scripts/verify_encoding_ladder.py > docs/verification/scripts/verify_encoding_ladder_output.txt
-PASS  ch:surfaces:L72:17.9               ch:surfaces:p1_01_encoding_surfaces:72  printed 17.9  recomputed 17.9131  tol 0.0501201  [observed] J-to-meV conversion of measured bit energy
-PASS  ch:surfaces:L81                    ch:surfaces:p1_01_encoding_surfaces:81  printed (algebra)  recomputed lhs-rhs=0  [derived] Clausius relation on Rindler horizons gives the coupling 8 pi G
-PASS  ch:surfaces:L99                    ch:surfaces:p1_01_encoding_surfaces:99  printed (algebra)  recomputed lhs-rhs=0  [derived] coupling beta_m defined as Omega_m/2
-PASS  ch:surfaces:L103                   ch:surfaces:p1_01_encoding_surfaces:103  printed +0.54  recomputed 0.541  tol 0.00500041  [measured] Level 2 chi2_min IAM (runA) minus LCDM (runC)  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
-      heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
-PASS  ch:surfaces:L114                   ch:surfaces:p1_01_encoding_surfaces:114  printed 2.97\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-24  [calc] Landauer cost per CpG site at body temp
-PASS  ch:surfaces:L117                   ch:surfaces:p1_01_encoding_surfaces:117  printed 8.38\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-17  [calc] N_CpG k_B T ln2 with N = 28,217,448 (printed 2.82e7)
-PASS  ch:surfaces:L117:9.3\times10^{5}   ch:surfaces:p1_01_encoding_surfaces:117  printed 9.3\times10^{5}  recomputed 9.334408e+05  tol 27900  [calc] floor energy expressed as ATP hydrolyses
-PASS  ch:surfaces:L120                   ch:surfaces:p1_01_encoding_surfaces:120  printed 8.38\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-17  [calc] N_CpG k_B T ln2 with N = 28,217,448 (printed 2.82e7)
-PASS  ch:surfaces:L124                   ch:surfaces:p1_01_encoding_surfaces:124  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [derived] thermal copy-error from holding energy
-PASS  ch:surfaces:L124:3.41              ch:surfaces:p1_01_encoding_surfaces:124  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy from the PROC-CHANNEL-01 record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  ch:surfaces:L127                   ch:surfaces:p1_01_encoding_surfaces:127  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] Met-A at the full surface: 1/Met_A_floor (canon)  file CANON/iam_canon.json
-PASS  ch:surfaces:L127:4.45              ch:surfaces:p1_01_encoding_surfaces:127  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] IAM-A at the full surface: H(1/2)/(P H(eps0))  file CANON/iam_canon.json
-PASS  ch:surfaces:L142                   ch:surfaces:p1_01_encoding_surfaces:142  printed 6.17\times10^{-8}  recomputed 6.170074e-08  tol 5.000005e-11  [calc] repeat, horizon temperature one solar mass
-PASS  ch:surfaces:L143                   ch:surfaces:p1_01_encoding_surfaces:143  printed 1.51\times10^{77}  recomputed 1.513322e+77  tol 5.000005e+74  [calc] repeat, bits held by solar-mass horizon
-PASS  ch:surfaces:L144                   ch:surfaces:p1_01_encoding_surfaces:144  printed 5.9\times10^{-31}  recomputed 5.904717e-31  tol 5.000005e-33  [calc] Landauer cost per bit at horizon temperature
-PASS  ch:surfaces:L144:2.97\times10^{-21} ch:surfaces:p1_01_encoding_surfaces:144  printed 2.97\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-24  [calc] repeat, cost per CpG site
-PASS  ch:surfaces:L145                   ch:surfaces:p1_01_encoding_surfaces:145  printed 3.03  recomputed 3.02789  tol 0.00500001  [calc] table: Met-A at the full surface (canon floor)  file CANON/iam_canon.json
-PASS  ch:surfaces:L145:4.45              ch:surfaces:p1_01_encoding_surfaces:145  printed 4.45  recomputed 4.4533  tol 0.00500001  [calc] table: IAM-A at the full surface  file CANON/iam_canon.json
-PASS  ch:surfaces:L161                   ch:surfaces:p1_01_encoding_surfaces:161  printed 36.4  recomputed 36.4142  tol 0.05  [calc] orders of magnitude, Bohr to Hubble radius
-PASS  ch:surfaces:L161:1.2\times10^{32}  ch:surfaces:p1_01_encoding_surfaces:161  printed 1.2\times10^{32}  recomputed 1.168711e+32  tol 5.004005e+30  [calc] cost-per-bit ratio, cell to cosmic horizon
-PASS  ch:surfaces:L165                   ch:surfaces:p1_01_encoding_surfaces:165  printed 2.65\times10^{-30}  recomputed 2.645898e-30  tol 5.008505e-33  [calc] Gibbons-Hawking temp, photon-sector H0
-PASS  ch:surfaces:L165:3.29\times10^{122} ch:surfaces:p1_01_encoding_surfaces:165  printed 3.29\times10^{122}  recomputed 3.291742e+122  tol 5.000805e+119  [calc] horizon bit count, photon-sector H0
-PASS  ch:surfaces:L168                   ch:surfaces:p1_01_encoding_surfaces:168  printed 2.97\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-24  [calc] repeat, table cell cost per bit
-PASS  ch:surfaces:L168:8.38\times10^{-14} ch:surfaces:p1_01_encoding_surfaces:168  printed 8.38\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-17  [calc] N_CpG k_B T ln2 with N = 28,217,448 (printed 2.82e7)
-PASS  ch:surfaces:L169                   ch:surfaces:p1_01_encoding_surfaces:169  printed 2.87\times10^{-21}  recomputed found in file  [observed] measured: printed value found in verify_encoding_ladder_output.txt, a file the chapter names  file docs/verification/scripts/verify_encoding_ladder_output.txt
-      heavy: python3 docs/verification/scripts/verify_encoding_ladder.py > docs/verification/scripts/verify_encoding_ladder_output.txt
-PASS  ch:surfaces:L170                   ch:surfaces:p1_01_encoding_surfaces:170  printed 1.44\times10^{-25}  recomputed 1.435489e-25  tol 5.000005e-28  [calc] Landauer cost per bit, qubit 15mK stage
-PASS  ch:surfaces:L171                   ch:surfaces:p1_01_encoding_surfaces:171  printed 6.17\times10^{-8}  recomputed 6.170074e-08  tol 5.000005e-11  [calc] repeat table, black hole temperature
-PASS  ch:surfaces:L171:1.51\times10^{77} ch:surfaces:p1_01_encoding_surfaces:171  printed 1.51\times10^{77}  recomputed 1.513322e+77  tol 5.000005e+74  [calc] repeat table, black hole bit count
-PASS  ch:surfaces:L171:5.9\times10^{-31} ch:surfaces:p1_01_encoding_surfaces:171  printed 5.9\times10^{-31}  recomputed 5.904717e-31  tol 5.000005e-33  [calc] repeat table, black hole cost per bit
-PASS  ch:surfaces:L172                   ch:surfaces:p1_01_encoding_surfaces:172  printed 1.43\times10^{-14}  recomputed 1.434901e-14  tol 5.005005e-17  [calc] Hawking temperature of Sgr A*
-PASS  ch:surfaces:L172:2.80\times10^{90} ch:surfaces:p1_01_encoding_surfaces:172  printed 2.80\times10^{90}  recomputed 2.798132e+90  tol 5.012005e+87  [calc] bit count of Sgr A* horizon
-PASS  ch:surfaces:L172:1.4\times10^{-37} ch:surfaces:p1_01_encoding_surfaces:172  printed 1.4\times10^{-37}  recomputed 1.373190e-37  tol 5.000005e-39  [calc] cost per bit at Sgr A* horizon
-PASS  ch:surfaces:L173                   ch:surfaces:p1_01_encoding_surfaces:173  printed 2.65\times10^{-30}  recomputed 2.653778e-30  tol 5.008505e-33  [calc] repeat table, cosmic horizon temperature
-PASS  ch:surfaces:L173:3.27\times10^{122} ch:surfaces:p1_01_encoding_surfaces:173  printed 3.27\times10^{122}  recomputed 3.272224e+122  tol 5.003105e+119  [calc] bit count of cosmic horizon, H0=67.36
-PASS  ch:surfaces:L173:2.5\times10^{-53} ch:surfaces:p1_01_encoding_surfaces:173  printed 2.5\times10^{-53}  recomputed 2.539647e-53  tol 5.000005e-55  [calc] cost per bit at cosmic horizon
-PASS  ch:surfaces:L175                   ch:surfaces:p1_01_encoding_surfaces:175  printed 32  recomputed 32.0677  tol 0.5  [calc] orders of magnitude, cost per bit cell vs horizon
-PASS  ch:surfaces:L175:37                ch:surfaces:p1_01_encoding_surfaces:175  printed 37  recomputed 36.4388  tol 0.740001  [calc] orders of magnitude, atom to Hubble radius
-PASS  ch:surfaces:L176                   ch:surfaces:p1_01_encoding_surfaces:176  printed 1.4\times10^{26}  recomputed 1.373312e+26  tol 5.000005e+24  [calc] Hubble radius at H0=67.36
-PASS  ch:surfaces:L181                   ch:surfaces:p1_01_encoding_surfaces:181  printed 114  recomputed 113.796  tol 0.501601  [calc] ratio of body temperature to CMB temperature
-PASS  ch:surfaces:L182                   ch:surfaces:p1_01_encoding_surfaces:182  printed 110  recomputed 110.072  tol 0.500501  [calc] ratio, 300K transistor to CMB temperature
-PASS  ch:surfaces:L182:128               ch:surfaces:p1_01_encoding_surfaces:182  printed 128  recomputed 128.417  tol 0.5  [calc] ratio, 350K transistor to CMB temperature
-PASS  ch:surfaces:L183                   ch:surfaces:p1_01_encoding_surfaces:183  printed 4.4\times10^{7}  recomputed 4.417289e+07  tol 5.000005e+05  [calc] ratio, CMB to solar-mass horizon temperature
-PASS  ch:surfaces:L183:1.9\times10^{14}  ch:surfaces:p1_01_encoding_surfaces:183  printed 1.9\times10^{14}  recomputed 1.899434e+14  tol 5.000005e+12  [calc] ratio, CMB to Sgr A* horizon temperature
-PASS  ch:surfaces:L185                   ch:surfaces:p1_01_encoding_surfaces:185  printed 4.5\times10^{22}  recomputed 4.501562e+22  tol 5.000005e+20  [calc] black-hole mass with Hawking temp equal CMB
-PASS  ch:surfaces:L185:182               ch:surfaces:p1_01_encoding_surfaces:185  printed 182  recomputed 181.7  tol 0.500501  [calc] ratio, CMB temperature to qubit stage
-PASS  ch:surfaces:L193                   ch:surfaces:p1_01_encoding_surfaces:193  printed +0.54  recomputed 0.541  tol 0.00500041  [measured] Level 2 chi2_min IAM (runA) minus LCDM (runC)  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
-      heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
-PASS  ch:surfaces:L195                   ch:surfaces:p1_01_encoding_surfaces:195  printed 0.020  recomputed 0.0197562  tol 5.000005e-04  [measured] held-out spread of the neutrophil reference readings (SD)  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv
-      heavy: Met-A chain Stage 1 leave-one-out on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes metA_floors_v1_3_loo.csv
-PASS  ch:surfaces:L202                   ch:surfaces:p1_01_encoding_surfaces:202  printed 0.032  recomputed 0.0319844  tol 5.120005e-04  [derived] thermal floor fraction from holding energy
-PASS  ch:surfaces:L202:3.41              ch:surfaces:p1_01_encoding_surfaces:202  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy from the PROC-CHANNEL-01 record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  ch:surfaces:L209                   ch:surfaces:p1_01_encoding_surfaces:209  printed 5.0\times10^{9}  recomputed 5.026682e+09  tol 5.000005e+07  [calc] ratio of cell temp to solar-mass Hawking temp
-PASS  ch:surfaces:L210                   ch:surfaces:p1_01_encoding_surfaces:210  printed 5.4\times10^{69}  recomputed 5.363072e+69  tol 5.000005e+67  [calc] bit-count ratio, solar-mass horizon to the genome CpGs
-PASS  ch:surfaces:L220                   ch:surfaces:p1_01_encoding_surfaces:220  printed 2.112  recomputed 2.11202  tol 5.068805e-04  [calc] Al superconducting gap expressed as temperature
-PASS  ch:surfaces:L223                   ch:surfaces:p1_01_encoding_surfaces:223  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.045605e-25  [calc] Landauer bit-cost energy at body temperature
-PASS  ch:surfaces:L223:3.41              ch:surfaces:p1_01_encoding_surfaces:223  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy from the PROC-CHANNEL-01 record  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-      heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-
 == Part 1: Introduction to IAM's Law and the Virial Theorem | ch:iams_law (part1/p1_02_iams_law.tex)
 PASS  ch:iams_law:L135                   ch:iams_law:p1_02_iams_law:135  printed 0.0179  recomputed 0.0179192  tol 5.012005e-05  [derived] Landauer cost per bit at 300K in eV
 PASS  eq:epochcost                       ch:iams_law:p1_02_iams_law:150  printed (algebra)  recomputed True  [derived] substitute T_H(a) into Landauer formula
@@ -888,7 +814,7 @@ PASS  eq:eg_growth                       ch:entropicgravity:p2_03a_entropic_grav
 PASS  eq:eg_growthN                      ch:entropicgravity:p2_03a_entropic_gravity:99  printed (algebra)  recomputed True  [derived] e-fold transform of growth equation
 PASS  ch:entropicgravity:L106            ch:entropicgravity:p2_03a_entropic_gravity:106  printed 1.64  recomputed found in file  [calc] growth-factor deficit, friction form  file docs/verification/scripts/verify_entropic_gravity_output.txt
       heavy: python3 docs/verification/scripts/verify_entropic_gravity.py > docs/verification/scripts/verify_entropic_gravity_output.txt
-PASS  ch:entropicgravity:L107            ch:entropicgravity:p2_03a_entropic_gravity:107  printed 0.78  recomputed 0.78  tol 0.00500001  [calc] growth-factor deficit, Level-1 MGCAMB form  file docs/verification/scripts/verify_entropic_gravity_output.txt
+PASS  ch:entropicgravity:L107            ch:entropicgravity:p2_03a_entropic_gravity:107  printed 0.78  recomputed 0.78  tol 0.00500001  [calc] growth-factor deficit, G_eff = mu G with the exact mu(a)  file docs/verification/scripts/verify_entropic_gravity_output.txt
       heavy: python3 docs/verification/scripts/verify_entropic_gravity.py > docs/verification/scripts/verify_entropic_gravity_output.txt
 PASS  ch:entropicgravity:L109            ch:entropicgravity:p2_03a_entropic_gravity:109  printed 0.67  recomputed found in file  [calc] growth-factor deficit, Level-2 form  file docs/verification/scripts/verify_entropic_gravity_output.txt
       heavy: python3 docs/verification/scripts/verify_entropic_gravity.py > docs/verification/scripts/verify_entropic_gravity_output.txt
@@ -2854,7 +2780,7 @@ PASS  ch:lensdyn:L116:-0.12              ch:lensdyn:p2_17_lensing_dynamics:116  
 PASS  ch:lensdyn:L117                    ch:lensdyn:p2_17_lensing_dynamics:117  printed -0.04  recomputed -0.0394181  tol 0.00500001  [calc] dR/dz at z=1.0
 PASS  ch:lensdyn:L121                    ch:lensdyn:p2_17_lensing_dynamics:121  printed -1.57  recomputed found in file  [measured] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
-PASS  ch:lensdyn:L121:-1.10              ch:lensdyn:p2_17_lensing_dynamics:121  printed -1.10  recomputed -1.10053  tol 0.00500001  [measured] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
+PASS  ch:lensdyn:L121:-1.11              ch:lensdyn:p2_17_lensing_dynamics:121  printed -1.11  recomputed -1.11  tol 0.00500001  [measured] measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names  file docs/verification/scripts/verify_cluster_mass_satellites_output.txt
       heavy: python3 docs/verification/scripts/verify_cluster_mass_satellites.py > docs/verification/scripts/verify_cluster_mass_satellites_output.txt
 PASS  ch:lensdyn:L121:1.105              ch:lensdyn:p2_17_lensing_dynamics:121  printed 1.105  recomputed 1.10498  tol 5.000005e-04  [calc] same value as p2_17_lensing_dynamics:100 (1/mu at z=0.2)
 PASS  ch:lensdyn:L121:1.055              ch:lensdyn:p2_17_lensing_dynamics:121  printed 1.055  recomputed 1.05468  tol 5.000005e-04  [calc] same value as p2_17_lensing_dynamics:102 (1/mu at z=0.5)
@@ -3724,7 +3650,7 @@ PASS  ch:koide:L277:0.0396               ch:koide:p4_15a_lepton_koide:277  print
 PASS  ch:koide:L278                      ch:koide:p4_15a_lepton_koide:278  printed 0.222222047  recomputed 0.222222  tol 5.000005e-10  [calc] delta fixed by m_e, m_mu at Q = 2/3
 PASS  ch:koide:L279                      ch:koide:p4_15a_lepton_koide:279  printed 1.75\times10^{-7}  recomputed 1.751244e-07  tol 5.000005e-10  [calc] 2/9 - delta at Q = 2/3
 PASS  ch:koide:L283                      ch:koide:p4_15a_lepton_koide:283  printed 0.222222047  recomputed 0.222222  tol 5.000005e-10  [calc] delta fixed by m_e, m_mu at Q = 2/3
-PASS  ch:koide:L284                      ch:koide:p4_15a_lepton_koide:284  printed 4\times10^{-10}  recomputed 3.918518e-10  tol 5.000005e-11  [calc] uncertainty of delta from m_mu
+PASS  ch:koide:L284                      ch:koide:p4_15a_lepton_koide:284  printed 4\times10^{-10}  recomputed 3.918519e-10  tol 5.000005e-11  [calc] uncertainty of delta from m_mu
 PASS  ch:koide:L284:1.75\times10^{-7}    ch:koide:p4_15a_lepton_koide:284  printed 1.75\times10^{-7}  recomputed 1.751244e-07  tol 5.000005e-10  [calc] 2/9 - delta at Q = 2/3
 PASS  ch:koide:L285                      ch:koide:p4_15a_lepton_koide:285  printed 0.4  recomputed 0.405655  tol 0.05  [calc] delta - 2/9 in sigma
 PASS  ch:koide:L295                      ch:koide:p4_15a_lepton_koide:295  printed 1776.9690  recomputed 1776.97  tol 5.000005e-05  [calc] m_tau fixed by Q = 2/3, MeV
@@ -4816,7 +4742,7 @@ PASS  ch:synthesis:L33                   ch:synthesis:p7_08_synthesis:33  printe
 PASS  ch:synthesis:L33:0.910             ch:synthesis:p7_08_synthesis:33  printed 0.910  recomputed 0.909918  tol 5.000005e-04  [derived] IAM-A floor of neutrophils, 1/P_cell
 PASS  ch:synthesis:L33:3.03              ch:synthesis:p7_08_synthesis:33  printed 3.03  recomputed 3.02789  tol 0.00500001  [derived] full surface on Met-A, 1/(healthy reference)
 PASS  ch:synthesis:L33:4.45              ch:synthesis:p7_08_synthesis:33  printed 4.45  recomputed 4.4533  tol 0.00500001  [derived] full surface on IAM-A, 1/(P H(eps0))
-PASS  ch:synthesis:L51                   ch:synthesis:p7_08_synthesis:51  printed 2.112  recomputed 2.11202  tol 5.068805e-04  [derived] same value as p1_01_encoding_surfaces:220 (Al superconducting gap expressed as temperature)
+PASS  ch:synthesis:L51                   ch:synthesis:p7_08_synthesis:51  printed 2.112  recomputed 2.11202  tol 5.068805e-04  [derived] Al superconducting gap expressed as temperature
 PASS  ch:synthesis:L51:310.15            ch:synthesis:p7_08_synthesis:51  printed 310.15  recomputed 310.15  tol 0.00500001  [derived] body temperature 37 C in kelvin
 PASS  ch:synthesis:L53                   ch:synthesis:p7_08_synthesis:53  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [derived] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
 PASS  ch:synthesis:L53:0.032             ch:synthesis:p7_08_synthesis:53  printed 0.032  recomputed 0.0319844  tol 5.000005e-04  [measured] eps0 from the measured holding energy  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
@@ -5079,7 +5005,7 @@ PASS  ch:statusall:L88:1.9               ch:statusall:p7_11_status_all:88  print
 PASS  ch:statusall:L88:4.4               ch:statusall:p7_11_status_all:88  printed 4.4  recomputed 4.38203  tol 0.05  [calc] Hopfield gap, highest published DNMT1 preference
 PASS  ch:statusall:L88:3.41              ch:statusall:p7_11_status_all:88  printed 3.41  recomputed 3.41  tol 0.00500001  [calc] measured holding energy, k_B T  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
       heavy: methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not committed, the record is this file
-PASS  ch:statusall:L90                   ch:statusall:p7_11_status_all:90  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.045605e-25  [calc] same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature)
+PASS  ch:statusall:L90                   ch:statusall:p7_11_status_all:90  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.045605e-25  [calc] Landauer bit-cost energy at body temperature
 PASS  ch:statusall:L91                   ch:statusall:p7_11_status_all:91  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)
 PASS  ch:statusall:L91:30.2              ch:statusall:p7_11_status_all:91  printed 30.2  recomputed 30.2108  tol 0.05  [calc] M/ln2
 PASS  ch:statusall:L92                   ch:statusall:p7_11_status_all:92  printed 3.41  recomputed 3.41  tol 0.00500001  [measured] holding energy of a methylated site  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
@@ -5133,7 +5059,7 @@ PASS  app:constants:L8                   app:constants:app_A2_frozen_values:8  p
 PASS  app:constants:L10                  app:constants:app_A2_frozen_values:10  printed 310.15  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  app:constants:L10:37               app:constants:app_A2_frozen_values:10  printed 37  recomputed 37  tol 0.5  [observed] body temperature in Celsius  file CANON/iam_canon.json
 PASS  app:constants:L11                  app:constants:app_A2_frozen_values:11  printed 54  recomputed 54  tol 0.5  [observed] free energy of ATP hydrolysis, kJ/mol  file CANON/iam_canon.json
-PASS  app:constants:L12                  app:constants:app_A2_frozen_values:12  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.045605e-25  [calc] same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature)
+PASS  app:constants:L12                  app:constants:app_A2_frozen_values:12  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.045605e-25  [calc] Landauer bit-cost energy at body temperature
 PASS  app:constants:L13                  app:constants:app_A2_frozen_values:13  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)
 PASS  app:constants:L14                  app:constants:app_A2_frozen_values:14  printed 67.36  recomputed 67.36  tol 0.00500001  [observed] Planck 2018 H0, standard LambdaCDM fit  file docs/verification/scripts/verify_dual_sector_chapters_output.txt
       heavy: python3 docs/verification/scripts/verify_dual_sector_chapters.py > docs/verification/scripts/verify_dual_sector_chapters_output.txt (downloads the public Pantheon+ release; writes verify_dual_sector_chapters_data.json)
@@ -5156,7 +5082,7 @@ PASS  app:constants:L20                  app:constants:app_A2_frozen_values:20  
 PASS  app:notation:L103                  app:notation:app_N_notation:103  printed 310.15  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  app:notation:L103:37               app:notation:app_N_notation:103  printed 37  recomputed 37  tol 0.5  [observed] body temperature in Celsius  file CANON/iam_canon.json
 PASS  app:notation:L104                  app:notation:app_N_notation:104  printed 54  recomputed 54  tol 0.5  [observed] free energy of ATP hydrolysis, kJ/mol  file CANON/iam_canon.json
-PASS  app:notation:L105                  app:notation:app_N_notation:105  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.045605e-25  [calc] same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature)
+PASS  app:notation:L105                  app:notation:app_N_notation:105  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.045605e-25  [calc] Landauer bit-cost energy at body temperature
 PASS  app:notation:L105:1.787            app:notation:app_N_notation:105  printed 1.787  recomputed 1.78744  tol 5.000005e-04  [calc] same value as p6_02_landauer:17 (per mole of bits, kJ)
 PASS  app:notation:L106                  app:notation:app_N_notation:106  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)
 PASS  app:notation:L107                  app:notation:app_N_notation:107  printed 30.2  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
@@ -5871,4 +5797,4 @@ PASS  app:register:L73:1.55 \%           app:register:app_G_predictions_register
 PASS  app:register:L73:0.78 \%           app:register:app_G_predictions_register:73  printed 0.78 \%  recomputed 0.776789  tol 0.00500001  [openprob] COS-357: D lowered at z = 0, per cent
 PASS  app:register:L74:1.03              app:register:app_G_predictions_register:74  printed 1.03  recomputed 1.03045  tol 0.00500001  [openprob] COS-365: ISW amplitude ratio A_ISW
 
-SUMMARY  PASS 4714  FAIL 0  (heavy, read from committed outputs: 974)  inventoried-not-run 1347  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4650  FAIL 0  (heavy, read from committed outputs: 966)  inventoried-not-run 1337  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

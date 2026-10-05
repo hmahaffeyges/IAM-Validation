@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4650 PASS, 0 FAIL, 1337 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
@@ -72,85 +72,6 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 |---:|---|---|---|---|---|
 | 50 | ch:p0_how_to_read:L50 | calc | `20.94` | numeric: Mahaffey number M_cell for one ATP at 37C | PASS |
 | 50 | ch:p0_how_to_read:L50:30.2 | calc | `30.2` | numeric: M_cell converted to Landauer (bit) units | PASS |
-
-## Part 1 - ch:surfaces - `docs/book/part1/p1_01_encoding_surfaces.tex`
-
-| line | label | status | printed | checked how | result |
-|---:|---|---|---|---|---|
-| 34 | ch:surfaces:L34 | derived | `0` | sympy: limit of E(a) as a->0 | PASS |
-| 34 | ch:surfaces:L34:1 | derived | `1` | sympy: E(a) at a=1 equals 1 | PASS |
-| 34 | ch:surfaces:L34:e | derived | `e` | sympy: limit of E(a) as a->infinity | PASS |
-| 42 | ch:surfaces:L42 | calc | `52` | numeric: log10 nucleus bit capacity vs CpG count | PASS |
-| 42 | ch:surfaces:L42:1.6\times10^{59} | calc | `1.6\times10^{59}` | numeric: bits holdable by 6um-nucleus area | PASS |
-| 49 |  | none |  | not run: definition of Bekenstein-Hawking entropy | - |
-| 52 | ch:surfaces:L52 | calc | `1.51\times10^{77}` | numeric: bits held by 1 solar-mass horizon | PASS |
-| 53 | ch:surfaces:L53 | derived |  | sympy: quarter coefficient equals 2pi/8pi ratio | PASS |
-| 59 |  | none |  | not run: definition of Hawking temperature | - |
-| 61 | ch:surfaces:L61 | calc | `6.17\times10^{-8}` | numeric: Hawking temperature of one solar mass | PASS |
-| 62 | ch:surfaces:L62 | calc | `2.65\times10^{-30}` | numeric: Gibbons-Hawking temperature of today's horizon | PASS |
-| 70 |  | none |  | not run: definition of Landauer bit energy | - |
-| 72 | ch:surfaces:L72 | observed | `2.87\times10^{-21}` | heavy file `docs/verification/scripts/verify_encoding_ladder_output.txt`: measured: printed value found in verify_encoding_ladder_output.txt, a file the chapter names | PASS |
-| 72 | ch:surfaces:L72:17.9 | observed | `17.9` | numeric: J-to-meV conversion of measured bit energy | PASS |
-| 81 | ch:surfaces:L81 | derived |  | sympy: Clausius relation on Rindler horizons gives the coupling 8 pi G | PASS |
-| 92 |  | conjecture |  | not run: definition of total entropy functional, new term | - |
-| 99 | ch:surfaces:L99 | derived |  | sympy: coupling beta_m defined as Omega_m/2 | PASS |
-| 103 | ch:surfaces:L103 | measured | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (runA) minus LCDM (runC) | PASS |
-| 108 |  | conjecture |  | not run: floor-breach inequality, definitional condition | - |
-| 114 | ch:surfaces:L114 | calc | `2.97\times10^{-21}` | numeric: Landauer cost per CpG site at body temp | PASS |
-| 117 | ch:surfaces:L117 | calc | `8.38\times10^{-14}` | numeric: N_CpG k_B T ln2 with N = 28,217,448 (printed 2.82e7) | PASS |
-| 117 | ch:surfaces:L117:9.3\times10^{5} | calc | `9.3\times10^{5}` | numeric: floor energy expressed as ATP hydrolyses | PASS |
-| 120 | ch:surfaces:L120 | calc | `8.38\times10^{-14}` | numeric: N_CpG k_B T ln2 with N = 28,217,448 (printed 2.82e7) | PASS |
-| 124 | ch:surfaces:L124 | derived | `0.032` | numeric: thermal copy-error from holding energy | PASS |
-| 124 | ch:surfaces:L124:3.41 | measured | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy from the PROC-CHANNEL-01 record | PASS |
-| 125 |  | none | `0.910` | not run: neutrophil gauge reading, restated from other chapter | - |
-| 127 | ch:surfaces:L127 | calc | `3.03` | file `CANON/iam_canon.json`: Met-A at the full surface: 1/Met_A_floor (canon) | PASS |
-| 127 | ch:surfaces:L127:4.45 | calc | `4.45` | file `CANON/iam_canon.json`: IAM-A at the full surface: H(1/2)/(P H(eps0)) | PASS |
-| 142 | ch:surfaces:L142 | calc | `6.17\times10^{-8}` | numeric: repeat, horizon temperature one solar mass | PASS |
-| 143 | ch:surfaces:L143 | calc | `1.51\times10^{77}` | numeric: repeat, bits held by solar-mass horizon | PASS |
-| 144 | ch:surfaces:L144 | calc | `5.9\times10^{-31}` | numeric: Landauer cost per bit at horizon temperature | PASS |
-| 144 | ch:surfaces:L144:2.97\times10^{-21} | calc | `2.97\times10^{-21}` | numeric: repeat, cost per CpG site | PASS |
-| 145 | ch:surfaces:L145 | calc | `3.03` | file `CANON/iam_canon.json`: table: Met-A at the full surface (canon floor) | PASS |
-| 145 | ch:surfaces:L145:4.45 | calc | `4.45` | file `CANON/iam_canon.json`: table: IAM-A at the full surface | PASS |
-| 146 |  | none | `0.910` | not run: repeat, neutrophil gauge reading | - |
-| 161 | ch:surfaces:L161 | calc | `36.4` | numeric: orders of magnitude, Bohr to Hubble radius | PASS |
-| 161 | ch:surfaces:L161:1.2\times10^{32} | calc | `1.2\times10^{32}` | numeric: cost-per-bit ratio, cell to cosmic horizon | PASS |
-| 165 | ch:surfaces:L165 | calc | `2.65\times10^{-30}` | numeric: Gibbons-Hawking temp, photon-sector H0 | PASS |
-| 165 | ch:surfaces:L165:3.29\times10^{122} | calc | `3.29\times10^{122}` | numeric: horizon bit count, photon-sector H0 | PASS |
-| 168 | ch:surfaces:L168 | calc | `2.97\times10^{-21}` | numeric: repeat, table cell cost per bit | PASS |
-| 168 | ch:surfaces:L168:8.38\times10^{-14} | calc | `8.38\times10^{-14}` | numeric: N_CpG k_B T ln2 with N = 28,217,448 (printed 2.82e7) | PASS |
-| 169 | ch:surfaces:L169 | observed | `2.87\times10^{-21}` | heavy file `docs/verification/scripts/verify_encoding_ladder_output.txt`: measured: printed value found in verify_encoding_ladder_output.txt, a file the chapter names | PASS |
-| 170 | ch:surfaces:L170 | calc | `1.44\times10^{-25}` | numeric: Landauer cost per bit, qubit 15mK stage | PASS |
-| 171 | ch:surfaces:L171 | calc | `6.17\times10^{-8}` | numeric: repeat table, black hole temperature | PASS |
-| 171 | ch:surfaces:L171:1.51\times10^{77} | calc | `1.51\times10^{77}` | numeric: repeat table, black hole bit count | PASS |
-| 171 | ch:surfaces:L171:5.9\times10^{-31} | calc | `5.9\times10^{-31}` | numeric: repeat table, black hole cost per bit | PASS |
-| 172 | ch:surfaces:L172 | calc | `1.43\times10^{-14}` | numeric: Hawking temperature of Sgr A* | PASS |
-| 172 | ch:surfaces:L172:2.80\times10^{90} | calc | `2.80\times10^{90}` | numeric: bit count of Sgr A* horizon | PASS |
-| 172 | ch:surfaces:L172:1.4\times10^{-37} | calc | `1.4\times10^{-37}` | numeric: cost per bit at Sgr A* horizon | PASS |
-| 173 | ch:surfaces:L173 | calc | `2.65\times10^{-30}` | numeric: repeat table, cosmic horizon temperature | PASS |
-| 173 | ch:surfaces:L173:3.27\times10^{122} | calc | `3.27\times10^{122}` | numeric: bit count of cosmic horizon, H0=67.36 | PASS |
-| 173 | ch:surfaces:L173:2.5\times10^{-53} | calc | `2.5\times10^{-53}` | numeric: cost per bit at cosmic horizon | PASS |
-| 175 | ch:surfaces:L175 | calc | `32` | numeric: orders of magnitude, cost per bit cell vs horizon | PASS |
-| 175 | ch:surfaces:L175:37 | calc | `37` | numeric: orders of magnitude, atom to Hubble radius | PASS |
-| 176 | ch:surfaces:L176 | calc | `1.4\times10^{26}` | numeric: Hubble radius at H0=67.36 | PASS |
-| 181 | ch:surfaces:L181 | calc | `114` | numeric: ratio of body temperature to CMB temperature | PASS |
-| 182 | ch:surfaces:L182 | calc | `110` | numeric: ratio, 300K transistor to CMB temperature | PASS |
-| 182 | ch:surfaces:L182:128 | calc | `128` | numeric: ratio, 350K transistor to CMB temperature | PASS |
-| 183 | ch:surfaces:L183 | calc | `4.4\times10^{7}` | numeric: ratio, CMB to solar-mass horizon temperature | PASS |
-| 183 | ch:surfaces:L183:1.9\times10^{14} | calc | `1.9\times10^{14}` | numeric: ratio, CMB to Sgr A* horizon temperature | PASS |
-| 185 | ch:surfaces:L185 | calc | `4.5\times10^{22}` | numeric: black-hole mass with Hawking temp equal CMB | PASS |
-| 185 | ch:surfaces:L185:182 | calc | `182` | numeric: ratio, CMB temperature to qubit stage | PASS |
-| 193 | ch:surfaces:L193 | measured | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 chi2_min IAM (runA) minus LCDM (runC) | PASS |
-| 194 |  | prediction | `-0.136` | not run: predicted growth-deficit parameter, locked result | - |
-| 195 | ch:surfaces:L195 | measured | `0.020` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out spread of the neutrophil reference readings (SD) | PASS |
-| 202 | ch:surfaces:L202 | derived | `0.032` | numeric: thermal floor fraction from holding energy | PASS |
-| 202 | ch:surfaces:L202:3.41 | measured | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy from the PROC-CHANNEL-01 record | PASS |
-| 209 | ch:surfaces:L209 | calc | `5.0\times10^{9}` | numeric: ratio of cell temp to solar-mass Hawking temp | PASS |
-| 210 | ch:surfaces:L210 | calc | `5.4\times10^{69}` | numeric: bit-count ratio, solar-mass horizon to the genome CpGs | PASS |
-| 220 | ch:surfaces:L220 | calc | `2.112` | numeric: Al superconducting gap expressed as temperature | PASS |
-| 223 | ch:surfaces:L223 | calc | `2.968\times10^{-21}` | numeric: Landauer bit-cost energy at body temperature | PASS |
-| 223 | ch:surfaces:L223:3.41 | measured | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: holding energy from the PROC-CHANNEL-01 record | PASS |
-| 238 |  | prediction | `-0.136` | not run: locked IAM growth-rate parameter, used as input | - |
-| 238 |  | prediction | `0` | not run: Sigma_0 fixed to zero by IAM construction | - |
 
 ## Part 1 - ch:iams_law - `docs/book/part1/p1_02_iams_law.tex`
 
@@ -1025,7 +946,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 96 | eq:eg_growth | none |  | sympy: friction-form growth eq, matter-density identity | PASS |
 | 99 | eq:eg_growthN | derived |  | sympy: e-fold transform of growth equation | PASS |
 | 106 | ch:entropicgravity:L106 | calc | `1.64` | heavy file `docs/verification/scripts/verify_entropic_gravity_output.txt`: growth-factor deficit, friction form | PASS |
-| 107 | ch:entropicgravity:L107 | calc | `0.78` | heavy file `docs/verification/scripts/verify_entropic_gravity_output.txt`: growth-factor deficit, Level-1 MGCAMB form | PASS |
+| 107 | ch:entropicgravity:L107 | calc | `0.78` | heavy file `docs/verification/scripts/verify_entropic_gravity_output.txt`: growth-factor deficit, G_eff = mu G with the exact mu(a) | PASS |
 | 109 | ch:entropicgravity:L109 | calc | `0.67` | heavy file `docs/verification/scripts/verify_entropic_gravity_output.txt`: growth-factor deficit, Level-2 form | PASS |
 | 111 | ch:entropicgravity:L111 | calc | `2.158` | numeric: friction coefficient today, friction form | PASS |
 | 111 | ch:entropicgravity:L111:2.152 | calc | `2.152` | numeric: friction coefficient today, Level-2 form | PASS |
@@ -2818,7 +2739,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 117 | ch:lensdyn:L117 | calc | `-0.04` | numeric: dR/dz at z=1.0 | PASS |
 | 117 |  | calc | `0.5` | not run: input: redshift z=0.5 at which the slope dR/dz is evaluated (slopes checked at ch:lensdyn:L116 ff.) | - |
 | 121 | ch:lensdyn:L121 | measured | `-1.57` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
-| 121 | ch:lensdyn:L121:-1.10 | measured | `-1.10` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
+| 121 | ch:lensdyn:L121:-1.11 | measured | `-1.11` | heavy file `docs/verification/scripts/verify_cluster_mass_satellites_output.txt`: measured: printed value found in verify_cluster_mass_satellites_output.txt, a file the chapter names | PASS |
 | 121 | ch:lensdyn:L121:1.105 | calc | `1.105` | numeric: same value as p2_17_lensing_dynamics:100 (1/mu at z=0.2) | PASS |
 | 121 | ch:lensdyn:L121:1.055 | calc | `1.055` | numeric: same value as p2_17_lensing_dynamics:102 (1/mu at z=0.5) | PASS |
 | 121 | ch:lensdyn:L121:1.018 | calc | `1.018` | numeric: same value as p2_17_lensing_dynamics:104 (1/mu at z=1.0) | PASS |
@@ -5192,7 +5113,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 33 | ch:synthesis:L33:0.910 | derived | `0.910` | numeric: IAM-A floor of neutrophils, 1/P_cell | PASS |
 | 33 | ch:synthesis:L33:3.03 | derived | `3.03` | numeric: full surface on Met-A, 1/(healthy reference) | PASS |
 | 33 | ch:synthesis:L33:4.45 | derived | `4.45` | numeric: full surface on IAM-A, 1/(P H(eps0)) | PASS |
-| 51 | ch:synthesis:L51 | derived | `2.112` | numeric: same value as p1_01_encoding_surfaces:220 (Al superconducting gap expressed as temperature) | PASS |
+| 51 | ch:synthesis:L51 | derived | `2.112` | numeric: Al superconducting gap expressed as temperature | PASS |
 | 51 | ch:synthesis:L51:310.15 | derived | `310.15` | numeric: body temperature 37 C in kelvin | PASS |
 | 53 | ch:synthesis:L53 | derived | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
 | 53 | ch:synthesis:L53:0.032 | measured | `0.032` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: eps0 from the measured holding energy | PASS |
@@ -5520,7 +5441,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 88 | ch:statusall:L88:1.9 | calc | `1.9` | numeric: Hopfield gap, lowest published DNMT1 preference | PASS |
 | 88 | ch:statusall:L88:4.4 | calc | `4.4` | numeric: Hopfield gap, highest published DNMT1 preference | PASS |
 | 88 | ch:statusall:L88:3.41 | calc | `3.41` | heavy file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: measured holding energy, k_B T | PASS |
-| 90 | ch:statusall:L90 | calc | `2.968\times10^{-21}` | numeric: same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature) | PASS |
+| 90 | ch:statusall:L90 | calc | `2.968\times10^{-21}` | numeric: Landauer bit-cost energy at body temperature | PASS |
 | 90 |  | calc | `37` | not run: input: body temperature 37 C (T_cell = 310.15 K, canon); the Landauer cost is checked in ch:statusall:L90 | - |
 | 91 | ch:statusall:L91 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C) | PASS |
 | 91 | ch:statusall:L91:30.2 | calc | `30.2` | numeric: M/ln2 | PASS |
@@ -5575,7 +5496,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 11 | app:constants:L11 | observed | `54` | file `CANON/iam_canon.json`: free energy of ATP hydrolysis, kJ/mol | PASS |
 | 11 |  | observed | `50` | not run: observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:constants:L11 | - |
 | 11 |  | observed | `-65` | not run: observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:constants:L11 | - |
-| 12 | app:constants:L12 | calc | `2.968\times10^{-21}` | numeric: same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature) | PASS |
+| 12 | app:constants:L12 | calc | `2.968\times10^{-21}` | numeric: Landauer bit-cost energy at body temperature | PASS |
 | 13 | app:constants:L13 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C) | PASS |
 | 14 | app:constants:L14 | observed | `67.36` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Planck 2018 H0, standard LambdaCDM fit | PASS |
 | 15 | app:constants:L15 | observed | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level 2 chain | PASS |
@@ -5598,7 +5519,7 @@ Totals: 4714 PASS, 0 FAIL, 1347 inventoried and not run. Each run item carries t
 | 104 | app:notation:L104 | observed | `54` | file `CANON/iam_canon.json`: free energy of ATP hydrolysis, kJ/mol | PASS |
 | 104 |  | observed | `50` | not run: observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:notation:L104 | - |
 | 104 |  | observed | `-65` | not run: observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:notation:L104 | - |
-| 105 | app:notation:L105 | calc | `2.968\times10^{-21}` | numeric: same value as p1_01_encoding_surfaces:223 (Landauer bit-cost energy at body temperature) | PASS |
+| 105 | app:notation:L105 | calc | `2.968\times10^{-21}` | numeric: Landauer bit-cost energy at body temperature | PASS |
 | 105 | app:notation:L105:1.787 | calc | `1.787` | numeric: same value as p6_02_landauer:17 (per mole of bits, kJ) | PASS |
 | 106 | app:notation:L106 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C) | PASS |
 | 107 | app:notation:L107 | observed | `30.2` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
