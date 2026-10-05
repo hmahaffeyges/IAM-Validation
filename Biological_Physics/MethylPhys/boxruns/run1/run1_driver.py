@@ -804,6 +804,17 @@ def run_job(j, cfg, state, store, log):
     if os.path.isdir(out_dir):
         shutil.rmtree(out_dir)                         # clean start: nothing of an interrupted or failed attempt is kept
     os.makedirs(out_dir)
+    if j == "B":                                       # B keeps the test sets an earlier attempt finished (they are in S3)
+        try:
+            store.download_prefix(f"{RESULTS_PREFIX}/B", out_dir)
+            for f in os.listdir(out_dir):
+                if not (f.startswith("B_") and f.endswith(".csv")) or f == "B_all.csv":
+                    os.remove(os.path.join(out_dir, f))
+            kept = sorted(f for f in os.listdir(out_dir))
+            if kept:
+                log(f"[B] keeping sets finished in an earlier attempt: {kept}")
+        except Exception as e:
+            log("[B] could not restore earlier sets; reading all sets", type(e).__name__, str(e)[:200])
     js.update(status="running", attempts=js.get("attempts", 0) + 1, started=utcnow(), finished=None, reason=None, outputs={},
               bars=None, returncode=None, command=cmd, warnings=None)
     state.save()
@@ -1105,6 +1116,9 @@ def _limit(c, rows):
     return rows[:c.limit] if c.limit else rows
 
 
+_PARQUET_LOCK = threading.Lock()   # tar extraction and pyarrow reads are serialised: B segfaulted under 30 threads (2026-10-05)
+
+
 def betas_parquet(c, row):
     """The DEV-BASE-CHAIN-01 beta vector of this array (from results/DEV_BASE_CHAIN_01/betas/betas_<series>.tar), or None."""
     p = os.path.join(c.cache, "betas", f"{row['gsm']}.parquet")
@@ -1114,7 +1128,7 @@ def betas_parquet(c, row):
     if not os.path.exists(tp):
         return None
     try:
-        with tarfile.open(tp) as t:
+        with _PARQUET_LOCK, tarfile.open(tp) as t:
             m = t.getmember(f"{row['gsm']}.parquet")
             os.makedirs(os.path.dirname(p), exist_ok=True)
             with t.extractfile(m) as src, open(p + ".part", "wb") as dst:
@@ -1134,7 +1148,9 @@ def betas_csv(c, row):
     if pq is None:
         return None
     import pandas as pd
-    b = pd.read_parquet(pq).iloc[:, 0]; b.index = b.index.astype(str); b.index.name = "cpg_id"
+    with _PARQUET_LOCK:
+        b = pd.read_parquet(pq).iloc[:, 0]
+    b.index = b.index.astype(str); b.index.name = "cpg_id"
     # the same array can sit in two test sets and be read by two threads at once: write to a name unique to this thread
     os.makedirs(os.path.dirname(p), exist_ok=True)
     tmp = f"{p}.{os.getpid()}.{threading.get_ident()}.part"
@@ -1293,6 +1309,11 @@ def _set_rows(c, key, idats_all):
 def worker_B(c):
     idats = {}; allrows = []
     for key in B_SETS:
+        done = os.path.join(c.out, f"B_{key}.csv")
+        if os.path.exists(done):                     # resume: a set already read in an earlier attempt is kept, not re-read
+            with open(done, newline="") as fh:
+                allrows += list(csv.DictReader(fh))
+            c.log(f"set {key}: kept from an earlier attempt ({done})"); continue
         rows = _limit(c, _set_rows(c, key, idats))
         if not rows:
             c.log(f"set {key}: no arrays found under {INPUTS[key][0]}"); continue

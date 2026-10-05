@@ -275,3 +275,15 @@ Atlas_e and the chain's own composition on the 6 GSE112618 whole bloods against 
 chain composition: neutrophils 0.016 / 0.031, granulocytes 0.021 / 0.017, monocytes 0.005 / 0.010, B 0.013 / 0.007, NK 0.036 / 0.031,
 CD4 T 0.013 / 0.023, CD8 T 0.044 / 0.024 (full table and maxima in `boxruns/run1/JOBS.md`). Open check before this counts as held-out
 truth: donor overlap with the purified references (GSE110554).
+
+### 2026-10-05 · DEV-CSCORE-TARE-01 and DEV-IAMA-INTAKE-01 (no box)
+- **Met-A C-score, tared like Met-A:** the laboratory spread in the healthy C-score (series medians 0.82–1.47) goes away with the
+  same-run tare (0.99–1.01); a band set on half the laboratories holds on the other half (median 95.1 % inside; untared 90.3 %).
+  Proposed: read C tared and set the band on tared values from held-out laboratories. `doors/DEV_CSCORE_TARE_01.md`.
+- **Job E donors:** the 6 GSE112618 whole bloods (ids 3021–3177 Cit-80) share no donor id with the GSE110554 purified references
+  (B0044, PCA0612, …), so on the public record job E's FACS comparison is against bloods not used to build the references.
+- **IAM-A intake (Stage Q0):** specification written for read-level checks (readable file, pipeline, conversion, coverage, read length,
+  duplicates, purified specimen), each a named stop. `doors/DEV_IAMA_INTAKE_01.md`. Not wired.
+- **Box Run 1 job B:** made resumable (sets finished in an earlier attempt are restored from S3 and kept) and parquet/tar reads are
+  serialised, the likeliest cause of the segfault. Driver tests: 37 pass; the 2 sky tests fail only in the local sandbox (healpy cannot
+  write its config there), unchanged by this fix.
