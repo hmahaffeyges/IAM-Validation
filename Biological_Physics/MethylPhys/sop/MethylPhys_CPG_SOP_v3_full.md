@@ -187,8 +187,8 @@ The gauge state of every Met-A reading comes from the tare: whole blood always; 
 ### Stage M — Met-A, isolated neutrophils (`stage_m_met_a.read`; `conductor_v3.py:128-139`)
 **Inputs:** β at the 6000 identity sites; floor 0.33026279581151297; `../chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`; `profiles_at_neutrophil_sites.NEU`.
 **Rules:** cell must be `neutrophils`; measured identity sites ≥ 5400 (0.9 × 6000), else `only <n> of 6000 identity sites measured` (A withheld, no C-score).
-**Outputs:** bundle `met_a` = {`stage`, `reading`, `cell`, `platform`, `specimen`, `fraction` null, `A`, `band` "Normal 0.95-1.05", `build`, `floors_version`, `n_sites`, `floor`, `state_own_floor` (Normal / above / below), `state`, `floor_precision` {`n_ref` 6, `normal_fraction`, `sd` 0.0198, `min` 0.983, `max` 1.045}, `methylated_sites_mean_beta`, `past_entropy_ceiling`, `shift_per_1pct_loss`, `noise_index`, `noise_sites_measured`, `noise_sites_total`}. `state` = `untared (own-floor state: <state>): read A_rel (Stage T)` without references; `tared: read A_rel (Stage T)` after a tare.
-**Operator:** supply ≥ 3 same-run references and read `tare.A_rel`. If only the own floor is available, read `state_own_floor` knowing the floor's held-out spread (SD 0.020) and that array noise in another laboratory moves this reading (section 8). If `past_entropy_ceiling` is true, read `methylated_sites_mean_beta`, not A.
+**Outputs:** bundle `met_a` = {`stage`, `reading`, `cell`, `platform`, `specimen`, `fraction` null, `A`, `band` "Normal 0.95-1.05", `build`, `floors_version`, `n_sites`, `floor`, `state_own_floor` (Normal / above / below), `state`, `floor_precision` {`n_ref` 6, `normal_fraction`, `sd` 0.0198, `min` 0.983, `max` 1.045}, `methylated_sites_mean_beta`, `past_entropy_ceiling`, `shift_per_1pct_loss`, `noise_index`, `noise_sites_measured`, `noise_sites_total`}. `state` = `untared (healthy-reference state: <state>): read A_rel (Stage T)` without references; `tared: read A_rel (Stage T)` after a tare.
+**Operator:** supply ≥ 3 same-run references and read `tare.A_rel`. If only the healthy reference is available, read `state_own_floor` knowing the healthy reference's held-out spread (SD 0.020) and that array noise in another laboratory moves this reading (section 8). If `past_entropy_ceiling` is true, read `methylated_sites_mean_beta`, not A.
 
 ### Stage M — Met-A, whole blood (`conductor_v3.py:93-118`)
 **Inputs:** β at the 6000 `neutrophil_sites`; Stage A fractions; `profiles_at_neutrophil_sites` (8 groups).
@@ -244,14 +244,14 @@ The gauge state of every Met-A reading comes from the tare: whole blood always; 
 2. **Header:** specimen, platform, array type, floors version (`metA_floors_v1_3`), reference version (`neutrophil_reference_v1_1`); a red **Refused** line when the platform check refused.
 3. **Stage 0 intake:** verdict (PROCEED / PROCEED_WITH_PENALTY; `not run` for `--betas`, `--no-intake` or sequencing-only), call rate status and value, flags (first 300 characters); a second line with the Stage-1 values recorded beside the record (poobah detection, poobah × bead call rate, controls).
 4. **Stage A composition:** groups ≥ 1 %, highest first; or the refusal reason; isolated: the note.
-5. **Stage M Met-A — neutrophils:** gauge 0.80–1.30 with Normal 0.95–1.05 shaded. Marker = `A_rel` whenever the specimen was tared (label "tared: A_rel …"); untared isolated neutrophils: own-floor A (label "untared: … against the own floor"); untared whole blood: no marker, text "no gauge position until Stage T". Then A with state or reason, fraction, sites, expectation, shift per 1 % loss.
+5. **Stage M Met-A — neutrophils:** gauge 0.80–1.30 with Normal 0.95–1.05 shaded. Marker = `A_rel` whenever the specimen was tared (label "tared: A_rel …"); untared isolated neutrophils: A against the healthy reference (label "untared: … against the healthy reference"); untared whole blood: no marker, text "no gauge position until Stage T". Then A with state or reason, fraction, sites, expectation, shift per 1 % loss.
 6. **Stage T same-run tare:** A_rel with state or reason; number of references and their median; detection limit (% loss of the neutrophil pattern) and reference spread; tare method (step 1 self-tare II with its status, then the median tare); self-tare II (adopted 2026-10-04, wired 2026-10-04) is recorded in the bundle under `tare.selftare_ii` (anchors and the map per design); (the noise-corrected method with a, b, c was removed on 2026-10-02, DEV-TARE-02); noise index N and the noise sites measured; methylated-site mean β with **"past the entropy ceiling: … read beta, not A"** when flagged.
 7. **Stage MC Met-A C-score:** C, the healthy held-out range, status.
 8. **Stage Q IAM-A** (when sequencing input was given): gauge, A with state or refusal, pipeline, ε, P, ε₀, halves, opportunities, E in kT.
 9. **Withheld:** tier lines beyond Normal; other cell types.
 10. **bundle** (collapsed): the bundle without `intake`, first 20,000 characters.
 
-What to read: `A_rel` and its state with the detection limit; for untared isolated neutrophils the own-floor A with its untared label; always the ceiling flag; IAM-A with its pipeline. An untared whole-blood A is a number, not a state.
+What to read: `A_rel` and its state with the detection limit; for untared isolated neutrophils the A against the healthy reference with its untared label; always the ceiling flag; IAM-A with its pipeline. An untared whole-blood A is a number, not a state.
 
 ---
 
