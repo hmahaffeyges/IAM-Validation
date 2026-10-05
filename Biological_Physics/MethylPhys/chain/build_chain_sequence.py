@@ -48,9 +48,15 @@ def _toolkit():
             m = re.match(r"\|\s*(\d+[a-z]?)\s*\|\s*([^|]+?)\s*\|\s*([^|]*?)\s*\|", l)
             if m:
                 mods = re.findall(r"`([^`]+\.py)`", m.group(3))
+                last = l.rstrip().rstrip("|").split("|")[-1].strip()
+                if not last.startswith("**wired"):
+                    status = "toolkit: not yet wired into chain v3"
+                elif "Stage T step 1" in last:        # self-tare II (row 8): part of every reading, not an optional input
+                    status = "wired into chain v3: always runs (Stage T step 1); see chain/TOOLKIT.md"
+                else:
+                    status = "wired into chain v3 (optional input; see chain/TOOLKIT.md)"
                 rows.append({"stage": m.group(1), "name": m.group(2), "where": mods[0] if mods else "none (not built)",
-                             "status": ("wired into chain v3 (optional input; see chain/TOOLKIT.md)" if l.rstrip().rstrip("|").split("|")[-1].strip().startswith("**wired")
-                                        else "toolkit: not yet wired into chain v3")})
+                             "status": status})
     return rows
 
 
