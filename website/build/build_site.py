@@ -81,10 +81,10 @@ def front_page(site, parts):
     tiles = "\n".join(
         f'<a class="iam-tile" href="part-{p["n"]}/"><div class="art" style="background-image:url(art/{p["opening"]})" role="img" '
         f'aria-label="Part {p["roman"]} art"></div><div class="t"><b>PART {p["roman"]}</b>{html.escape(p["title"])}</div></a>' for p in parts)
-    cite = (f"{AUTHOR}. {TITLE}: {SUBTITLE}. {SUBSUB}. Working edition, October 2026.\n"
-            f"DOI: DOI-TO-BE-MINTED\n{SITE_URL}")
+    cite = (f"{AUTHOR}. {TITLE}: {SUBTITLE}. {SUBSUB}. Version 1.0, October 2026.\n"
+            f"DOI: https://doi.org/10.5281/zenodo.23151068\n{SITE_URL}")
     bib = ("@book{Mahaffey2026IAM,\n  author = {Mahaffey, Heath W.},\n  title  = {IAM's Law and Order: The Actualization of Reality},\n"
-           "  year   = {2026},\n  doi    = {DOI-TO-BE-MINTED},\n  url    = {" + SITE_URL + "}\n}")
+           "  year   = {2026},\n  doi    = {10.5281/zenodo.23151068},\n  version = {1.0},\n  url    = {" + SITE_URL + "}\n}")
     body = f"""<body class="front">
 {topbar('', parts)}
 <div class="iam-banner" style="background-image:url(art/web_banner.jpg)" role="img" aria-label="The four skies of the book joined">
@@ -95,7 +95,7 @@ def front_page(site, parts):
 <div class="iam-runall-front"><p><button class="iam-run iam-btn" type="button" data-part="all">Run every check</button></p>
 <p class="iam-local">Or on your own machine: <code>python3 docs/book/verify_book.py</code></p></div>
 <p>IAM, the Informational Actualization Model</p>
-<p><a class="iam-btn" href="pdf/IAMs_Law_and_Order.pdf">Download the PDF</a><a class="iam-btn" href="epub/IAMs_Law_and_Order.epub" type="application/epub+zip">Download for Apple Books (EPUB)</a><a class="iam-btn secondary" href="book/">Read online</a></p>
+<p><a class="iam-btn" href="pdf/IAMs_Law_and_Order.pdf">Download the PDF</a><a class="iam-btn" href="epub/IAMs_Law_and_Order.epub" type="application/epub+zip">Download for Apple Books (EPUB)</a><a class="iam-btn" href="https://github.com/hmahaffeyges/IAM-Validation/releases/download/v1.0.0/IAMs_Law_and_Order_LaTeX_source_v1.0.0.zip">LaTeX source (Overleaf)</a><a class="iam-btn secondary" href="book/">Read online</a></p>
 <h2>The seven Parts</h2>
 <div class="iam-tiles">{tiles}</div>
 <h2>Cite this book</h2>
@@ -162,6 +162,8 @@ def decorate_chapter(path, root, part, parts_by_n, index, results, discuss_cat, 
     body["class"] = body.get("class", []) + [f"part-{part}"]
     parts = [parts_by_n[k] for k in sorted(parts_by_n)]
     body.insert(0, BeautifulSoup(topbar(root, parts), "html.parser"))
+    for hd in soup.find_all(class_="ltx_page_header"):   # LaTeXML repeats the book title here; the top bar already carries it
+        hd.decompose()
     nav = soup.find(class_="ltx_page_navbar")
     if nav:
         det = soup.new_tag("details", attrs={"class": "iam-toc"})
@@ -400,6 +402,30 @@ def short_links(site):
     return len(links), clashes
 
 
+
+def move_full_toc(site):
+    """\\tableofcontents comes out of LaTeXML inside the first front-matter page (the Abstract), and the Contents page
+    (book/index.html) gets only the Part list. Move the full table of contents to the Contents page, as in the PDF."""
+    book = site / "book"; idx = book / "index.html"
+    for page in sorted(book.glob("*.html")):
+        if page.name == "index.html":
+            continue
+        ps = BeautifulSoup(page.read_text(), "html.parser")
+        toc = ps.find("nav", class_="ltx_toc_toc")
+        if toc is not None and len(toc.find_all("a")) > 100:
+            break
+    else:
+        return 0
+    toc.extract(); page.write_text(str(ps))
+    for self_ref in toc.find_all("span", class_="ltx_ref_self"):   # the page the TOC came from is not a link there; it is one here
+        link = ps.new_tag("a", attrs={"class": "ltx_ref", "href": page.name}); link.extend(list(self_ref.contents)); self_ref.replace_with(link)
+    isoup = BeautifulSoup(idx.read_text(), "html.parser")
+    doc = isoup.find(class_="ltx_document") or isoup.find("body")
+    for n in doc.find_all("nav", class_="ltx_TOC", recursive=False):
+        n.decompose()
+    doc.append(toc); idx.write_text(str(isoup))
+    return len(toc.find_all("a"))
+
 def main(build, site):
     build, site = pathlib.Path(build), pathlib.Path(site)
     pj = json.load(open(WEB / "build/parts.json"))["parts"]
@@ -458,13 +484,14 @@ def main(build, site):
         c.update(where[lab])
     json.dump(cj, open(site / "checks" / "checks.json", "w"))
     fixed = fix_longtable_refs(site)
+    n_toc = move_full_toc(site)
     for p in pj:
         part_page(site, p, pj, [c for _, c in sorted(pages.get(p["n"], []))])
     front_page(site, pj)
     n_go, clashes = short_links(site)
     (site / ".nojekyll").write_text("")
     print(f"site: {site}; chapter pages: {len(list((site / 'book').glob('*.html')))}; check buttons: {total}; "
-          f"checks: {len(vb.CHECKS)}; data files: {len(vb.DATA_FILES)}; long-table references linked: {fixed}; "
+          f"checks: {len(vb.CHECKS)}; data files: {len(vb.DATA_FILES)}; long-table references linked: {fixed}; full contents links: {n_toc}; "
           f"short links: {n_go} ({len(clashes)} shared names)")
 
 

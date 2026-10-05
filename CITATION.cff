@@ -1,12 +1,16 @@
 cff-version: 1.2.0
-message: "If you use this work, please cite it as below."
+message: "If you use this work, please cite the book as below."
 title: "IAM's Law and Order: The Actualization of Reality"
 type: software
+version: "1.0.0"
+doi: 10.5281/zenodo.23151068
+date-released: 2026-10-05
 authors:
   - family-names: Mahaffey
     given-names: Heath W.
     affiliation: "IAMPerformance (independent research)"
 repository-code: "https://github.com/hmahaffeyges/IAM-Validation"
+url: "https://hmahaffeyges.github.io/IAM-Validation/"
 license: MIT
 keywords:
   - Landauer principle
@@ -14,3 +18,17 @@ keywords:
   - cosmology
   - DNA methylation
   - information
+preferred-citation:
+  type: book
+  title: "IAM's Law and Order: The Actualization of Reality. The Cost of Recording It, and the Price of Maintaining It"
+  authors:
+    - family-names: Mahaffey
+      given-names: Heath W.
+      affiliation: "IAMPerformance (independent research)"
+  doi: 10.5281/zenodo.23151068
+  version: "1.0"
+  year: 2026
+  month: 10
+  publisher:
+    name: Zenodo
+  url: "https://doi.org/10.5281/zenodo.23151068"

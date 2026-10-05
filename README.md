@@ -10,12 +10,15 @@
   <a href="https://hmahaffeyges.github.io/IAM-Validation/"><img src="https://img.shields.io/badge/Read_the_book-online-2b5cad?style=for-the-badge" alt="Read the book online"></a>
   <a href="https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs_Law_and_Order.pdf"><img src="https://img.shields.io/badge/Download-the_PDF-2b5cad?style=for-the-badge" alt="Download the PDF"></a>
   <a href="https://hmahaffeyges.github.io/IAM-Validation/epub/IAMs_Law_and_Order.epub"><img src="https://img.shields.io/badge/Apple_Books-EPUB-2b5cad?style=for-the-badge" alt="Download for Apple Books (EPUB)"></a>
+  <a href="https://github.com/hmahaffeyges/IAM-Validation/releases/download/v1.0.0/IAMs_Law_and_Order_LaTeX_source_v1.0.0.zip"><img src="https://img.shields.io/badge/LaTeX_source-Overleaf-2b5cad?style=for-the-badge" alt="LaTeX source (Overleaf)"></a>
   <a href="https://hmahaffeyges.github.io/IAM-Validation/"><img src="https://img.shields.io/badge/Run_every_check-in_your_browser-2e7d32?style=for-the-badge" alt="Run every check in your browser"></a>
 </p>
 
 Heath W. Mahaffey, IAMPerformance (independent research).
 
-[![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18702042-blue)](https://doi.org/10.5281/zenodo.18702042) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+**Cite the book (version 1.0, October 2026):** Mahaffey, H. W. *IAM's Law and Order: The Actualization of Reality.* Zenodo. [https://doi.org/10.5281/zenodo.23151068](https://doi.org/10.5281/zenodo.23151068)
+
+[![Book DOI](https://img.shields.io/badge/Book_DOI-10.5281%2Fzenodo.23151068-blue)](https://doi.org/10.5281/zenodo.23151068) [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18702042-blue)](https://doi.org/10.5281/zenodo.18702042) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## IAM's Law
 

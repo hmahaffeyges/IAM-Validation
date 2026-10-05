@@ -172,3 +172,7 @@ html[data-theme="dark"] .ltx_graphics, html[data-theme="sepia"] .ltx_graphics {
 
 /* LaTeXML drops the \quad between a text label and its math in an aligned row ("photon sector (...):β"); restore the gap. */
 td.ltx_eqn_cell.ltx_align_right:has(> .ltx_markedasmath) { padding-right: 1em; }
+
+/* the book title on the Contents page: three lines of different sizes must not overlap */
+.ltx_title_document, .ltx_title_document span { line-height: 1.2; }
+.ltx_title_document { margin-bottom: 1rem; }
