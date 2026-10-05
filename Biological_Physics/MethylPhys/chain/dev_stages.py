@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """dev_stages.py - DEVELOPMENT - not commissioned. Chain v3 development round 2 (2026-10-04): the stages that sit behind development flags
 (doors/DEV_FLAGS_01.md). Nothing here changes a reading, a gauge or a tare; each function returns a record that run_sample.py writes under
-bundle["development"][<stage>] with the label DEV_LABEL. Physics only: every line is set on the array's own noise or on same-run references;
+bundle["development"][<stage>] with the label DEV_LABEL. Exception since 2026-10-04: selftare_map is Stage T step 1, self-tare II, adopted by the
+author and called by conductor_v3.stage_t_selftare_ii on every reading; --dev-selftare-ii is a no-op alias and selftare_ii() is no longer called by run_sample.py. Physics only: every line is set on the array's own noise or on same-run references;
 nothing is fitted to other arrays.
 
   selftare_ii(beta, specimen)        DEV-SELFTARE-02   affine map of each probe design onto the reference arrays' scale from this array's own

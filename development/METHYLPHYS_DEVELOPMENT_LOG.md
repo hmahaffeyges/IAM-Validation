@@ -207,6 +207,7 @@ the method and commissioned results. Their full text, as it stood in the book, i
 | 2026-10-03 | [RUNBOOK.md](../Biological_Physics/MethylPhys/doors/RUNBOOK.md) | CPG runbook |
 | 2026-10-03 | [SUBSTRATE_STRATEGY.md](../Biological_Physics/MethylPhys/doors/SUBSTRATE_STRATEGY.md) | Which substrate can this instrument read? — the plan, decided by the physics rather than by preference |
 | 2026-10-03 | [TWO_FIT_FINDING.md](../Biological_Physics/MethylPhys/doors/TWO_FIT_FINDING.md) | The chain runs TWO deconvolutions, and the reported one is the pooled-first fit |
+| 2026-10-04 | [MethylPhys_CPG_SOP_v3.md](../Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md) | DEV-SELFTARE-03 - self-tare II adopted by the author and wired into Stage T step 1, before the median tare (development, 2026-10-04) |
 
 ### 2026-10-04 · DEV-PAIRED-01: purified neutrophils from a new lab (GSE128733), first read
 **Why:** GSE128733 (arrays) and GSE128731 (deep WGBS) measured the same samples, purified neutrophils, CD4 T cells and whole blood,
@@ -226,3 +227,16 @@ holds two neutrophil arrays and Stage T needs at least three. Both noise indices
 gauge state is withheld as the chain is built to do, and the C-score (not tared) reads above the healthy range seen so far (0.70–1.23),
 most likely the same array noise. Targets for commissioning: C-score after tare; noise index on more arrays from this platform year.
 **Next:** IAM-A on the same two specimens from GSE128731 (8 WGBS runs, 414 GB, three library kits, two sequencers): Box Run 2.
+
+### 2026-10-04 · DEV-SELFTARE-03: self-tare II adopted as Stage T step 1 and wired into the chain
+**Decision:** on 2026-10-04 the author adopted self-tare II, then the median tare, as the Stage T reading (`boxruns/run1/JOBS.md` job A;
+DEV-SELFTARE-02 reading (iv); DEV-PAIRED-01).
+**Wiring:** `chain/conductor_v3.py: run_neutrophil` now runs self-tare II (`stage_t_selftare_ii`, which calls `dev_stages.selftare_map`
+unchanged) as Stage T step 1, before Stages A, M and MC; the median tare (`stage_t_tare`, step 2) runs on the self-tared A. The noise
+index and the noise gate read the betas before self-tare II, so they are unchanged. The step-1 record is in the bundle under
+`tare.selftare_ii`. `--dev-selftare-ii` is kept as a no-op alias (it copies that record to `development.selftare_ii`; nothing is recomputed).
+**Release check:** E3's constructed whole-blood specimen now carries `ref_value` of `dev_selftare_typeII_EPIC_v1.json` (the six GSE110554
+purified neutrophil reference arrays, the same six as `metA_floors_v1_3.json` and `neutrophil_reference_v1_1.json`) at its self-tare II
+fixed sites, so step 1 does not rescale its already-referenced substituted sites; E3's bars and expected values are unchanged.
+With the colon array's own fixed sites E3 read Met-A 0.0159; rebuilt, it reads Met-A 1.0, A_rel 1.0. `release_check_v3.py`: 17/17 PASS.
+SOP v3, full SOP and the operations manual updated to "wired"; manual PDF rebuilt.

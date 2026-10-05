@@ -22,7 +22,7 @@ STAGES_2B = [("0", "Intake", "running (specimen rule; sex and age optional; iden
              ("3", "Atlas deconvolution", "development flag --dev-atlas-e"), ("4", "NILC component separation", "development flag --dev-nilc"),
              ("5", "Met-A", "running (neutrophils); B cells behind --dev-percell-b"),
              ("6", "C-score", "running (band not set); IAM-A C-score in Stage Q (development)"), ("7", "IAM-A", "running (development)"),
-             ("8", "Same-run tare", "running (median tare); self-tare II behind --dev-selftare-ii"),
+             ("8", "Same-run tare", "running (self-tare II, then the median tare; self-tare II wired 2026-10-04)"),
              ("9", "Noise gate", "running (state withheld above N_max untared, and below 90 % noise-site coverage)"),
              ("10", "Directional decomposition", "development flag --dev-direction"), ("11", "Sky map", "development flag --dev-sky"),
              ("12", "Sky statistics", "development flag --dev-sky"), ("13", "Report", "running"),
@@ -198,7 +198,7 @@ def build(o, out, sid):
          f"<p>Methylated sites mean beta {m.get('methylated_sites_mean_beta')}" + (" - <b>past the entropy ceiling: A falls as loss continues; read beta, not A</b>" if m.get('past_entropy_ceiling') else "") + "</p>",
          f"<h2 id='sec-tare'>Stage 8 same-run tare</h2><p>A_rel = <b>{t.get('A_rel')}</b> {e(str(t.get('state', t.get('reason',''))))}"
          f" | references {t.get('n_refs')} (median {t.get('reference_median')}) | detection limit: <b>{t.get('detection_limit_pct_loss')}</b> % loss of the neutrophil pattern (reference spread {t.get('reference_spread_sd')})</p>"
-         f"<p>Tare method: {e(str(t.get('method', '-')))}</p>",
+         f"<p>Tare method: step 1 self-tare II ({e(str((t.get('selftare_ii') or {}).get('status', 'not run')))}), then step 2 {e(str(t.get('method', 'median tare: not run')))}</p>",
          f"<h2 id='sec-noise-gate'>Stage 9 noise gate</h2><p>noise index N {m.get('noise_index')} ({m.get('noise_sites_measured')} of {m.get('noise_sites_total')} noise sites) | N_max {m.get('noise_gate_N_max')} | gate: {e(str(m.get('noise_gate')))}</p>",
          f"<h2 id='sec-cscore'>Stage 6 Met-A C-score</h2><p>C = <b>{c.get('C')}</b> (healthy = 1; healthy held-out range {c.get('healthy_range')}); {e(str(c.get('status', c.get('reason',''))))}</p>",
          (f"<h2 id='sec-iam-a'>Stage 7 IAM-A - {e(str(q.get('cell')))}</h2>{_gauge(q.get('A'), label=('IAM-A ' + str(q.get('A'))) if q.get('A') is not None else '')}"
