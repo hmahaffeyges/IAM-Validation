@@ -103,7 +103,7 @@ repository, because the book corrects and supersedes them. Every correction, wit
 git clone https://github.com/hmahaffeyges/IAM-Validation && cd IAM-Validation
 pip install numpy scipy pandas matplotlib
 python3 CANON/canon_check.py                                   # constants and names consistent
-python3 docs/verification/scripts/verify_encoding_ladder.py    # the places table of Part I
+python3 docs/verification/scripts/verify_encoding_ladder.py    # the encoding surfaces; see the Saturation appendix's identity table
 ```
 The cell chain is run as in [`Biological_Physics/MethylPhys/README.md`](Biological_Physics/MethylPhys/README.md) and its operations manual;
 `python3 Biological_Physics/MethylPhys/kit/release_check.py` checks it end to end. The book compiles with `pdflatex`/`bibtex` (or Overleaf)
