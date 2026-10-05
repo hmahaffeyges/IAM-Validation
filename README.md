@@ -82,6 +82,7 @@ every number in the book is recomputed by a script in this repository. The invit
 | qubits | thermal floor of a transmon gate at its own temperature, from `k_B T ln 2` | DERIVED, CALCULATED |
 | chips | Ryzen 9 9950X switches at 576–593 × `k_B T_j ln 2` (published TDP, clock and transistor count) | CALCULATED |
 | cells | neutrophils read against their own healthy reference: held out, spread 0.020 around 1 | CALIBRATED, MEASURED |
+| cells | reference atlas v2: 74 purified healthy cell types built as one Bayesian posterior (NUTS, about 814,000 loci) across seven public sources on arrays and sequencing, with an interval at every locus for every cell; held-out values fall inside the stated 90 % interval 92.7 % of the time. To our knowledge, the first cell-type methylation reference built this way | MEASURED |
 | cells | DNMT1 blocked, tumour against the same patient's normal tissue, species ageing | development records (`doors/`), not yet commissioned |
 
 The cell instrument is being commissioned stage by stage: base chain first, then atlas deconvolution, NILC, per-cell readings,
@@ -97,7 +98,7 @@ repository, because the book corrects and supersedes them. Every correction, wit
 
 ## Reproduce
 
-**Check the book's derivations in one command:** `python3 docs/book/verify_book.py`. Every derivation and calculated number in the book is checked and passes (4,714 checks, 0 failures), in the book's order, each with its equation label (`--part N`, `--label L`, `--fails`, `--json`).
+**Check the book's derivations in one command:** `python3 docs/book/verify_book.py`. Every derivation and calculated number in the book is checked and passes (4,668 checks, 0 failures), in the book's order, each with its equation label (`--part N`, `--label L`, `--fails`, `--json`).
 
 **Development logs:** every development finding, good or bad, is logged as it happens in [`development/`](development/), one running log per project (Met-A, IAM-A and C-scores; wild versus hatchery fish). The book carries results once the chain that produced them is commissioned.
 

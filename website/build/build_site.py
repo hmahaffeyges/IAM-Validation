@@ -96,6 +96,7 @@ def front_page(site, parts):
 <p class="iam-local">Or on your own machine: <code>python3 docs/book/verify_book.py</code></p></div>
 <p>IAM, the Informational Actualization Model</p>
 <p><a class="iam-btn" href="pdf/IAMs_Law_and_Order.pdf">Download the PDF</a><a class="iam-btn" href="epub/IAMs_Law_and_Order.epub" type="application/epub+zip">Download for Apple Books (EPUB)</a><a class="iam-btn" href="https://github.com/hmahaffeyges/IAM-Validation/releases/download/v1.0.0/IAMs_Law_and_Order_LaTeX_source_v1.0.0.zip">LaTeX source (Overleaf)</a><a class="iam-btn secondary" href="book/">Read online</a></p>
+<p class=\"iam-claim\">Part VI includes a 74-cell reference atlas built as one Bayesian posterior across seven public sources on arrays and sequencing, with an interval at every locus for every cell, tested on held-out data (92.7&nbsp;% inside the stated 90&nbsp;%). To our knowledge, the first cell-type methylation reference built this way.</p>
 <h2>The seven Parts</h2>
 <div class="iam-tiles">{tiles}</div>
 <h2>Cite this book</h2>
