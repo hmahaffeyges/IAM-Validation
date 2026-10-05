@@ -257,3 +257,15 @@ Results are in `s3://methylphys-data-945451304272-us-west-2-an/results/BOXRUN1/`
 - **D, sky statistics with the apodised mask: not run** (healpy missing on the box); rerun on 2026-10-05 with healpy installed.
 
 Box: m7a.8xlarge, 12-hour session credentials, 500 GB scratch disk deleted after the run. First attempt stopped on a full root disk.
+
+### 2026-10-05 · BOX RUN 1, rerun of jobs B and D
+- **D, sky statistics, hard mask and apodised mask (2.0°) side by side, 433 healthy whole-blood arrays: ran; commissioning bars not met.**
+  Median band power over the block-shuffle null, bands 1–6 (bar 0.9–1.1 in every band):
+  hard mask 1.835, 1.034, 1.143, 1.146, 1.079, 1.048; apodised mask 1.182, 1.148, 1.160, 1.134, 1.064, 1.050.
+  Look-elsewhere rate (bar ≤ 0.084): hard 0.905, apodised 0.611. The apodised mask removes most of the band-1 excess (1.84 → 1.18),
+  which is what a hard-edged mask produces in sky maps, but bands 1–4 still sit above the null. The sky stays withheld.
+- **B, every chain test set read again: stopped again.** The first set (902 arrays) read cleanly; the worker then crashed with a
+  segmentation fault (exit −11) before writing `B_all.csv`. Cause not yet found; candidates are a thread-unsafe library call under 30
+  threads, or memory. Next: run B with fewer workers, one set at a time, so a crash keeps the sets already read.
+- Box environment: installing healpy had pulled numpy 2 and broken pandas; pinned to numpy 1.26.4, pandas 1.5.3, healpy 1.17.3.
+  Scratch disk deleted after the run; the box shut itself down.
