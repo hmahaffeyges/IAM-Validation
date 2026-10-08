@@ -29,7 +29,10 @@ grep -q "0\.2\.0" $O/versions.txt || fin FAIL_bwameth_not_0.2.0
 log "versions: $(tr '\n' ';' < $O/versions.txt)"
 
 log "STEP genome (wgbstools init_genome hg19)"
-wgbstools init_genome hg19 -@ 16 >> $O/init_genome.log 2>&1 || fin FAIL_init_genome
+# UCSC redirects; wgbstools 0.1.0 calls curl without -L, so the FASTA is fetched here and passed in (bgzipped, as init_genome asks)
+curl -sL -o ref/hg19.fa.gz https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz || fin FAIL_hg19_download
+gunzip -f ref/hg19.fa.gz && bgzip -@ 16 -f ref/hg19.fa || fin FAIL_hg19_bgzip
+wgbstools init_genome hg19 --fasta_path $S/ref/hg19.fa.gz -@ 16 -f >> $O/init_genome.log 2>&1 || fin FAIL_init_genome
 R=$S/wgbs_tools/references/hg19
 N=$(zcat $R/CpG.bed.gz | wc -l); echo "$N" > $O/cpg_count.txt; log "CpG sites in the hg19 dictionary: $N (Loyfer hg19: 28217448)"
 
@@ -37,7 +40,7 @@ log "STEP spike-ins and bwa-meth index"
 E="https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&rettype=fasta&id"
 { curl -s "$E=NC_001416.1" | sed 's/^>.*/>lambda/'; curl -s "$E=L09137.2" | sed 's/^>.*/>pUC19/'; } > ref/spikes.fa
 [ "$(grep -c '>' ref/spikes.fa)" = 2 ] || fin FAIL_spikes
-FA=$(ls $R/hg19.fa.gz $R/genome.fa* 2>/dev/null | head -1); zcat -f "$FA" > ref/hg19_lambda_puc19.fa && cat ref/spikes.fa >> ref/hg19_lambda_puc19.fa
+zcat ref/hg19.fa.gz > ref/hg19_lambda_puc19.fa && cat ref/spikes.fa >> ref/hg19_lambda_puc19.fa
 T0=$(date +%s); bwameth.py index ref/hg19_lambda_puc19.fa >> $O/index.log 2>&1 || fin FAIL_index; log "index built in $(( $(date +%s)-T0 )) s"
 for f in ref/hg19_lambda_puc19.fa*; do up "$f" "reference/hg19_bwameth/$(basename $f)"; done
 tar czf $O/wgbstools_hg19_references.tgz -C $S/wgbs_tools/references hg19
