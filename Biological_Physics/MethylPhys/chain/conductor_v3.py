@@ -171,9 +171,9 @@ def _ref_records(ref_A, sample_id=None):
             a = r.get("A")
             if a is None or (isinstance(a, float) and np.isnan(a)): continue
             g = lambda k: (None if r.get(k) is None or (isinstance(r.get(k), float) and np.isnan(r.get(k))) else float(r[k]))
-            recs.append({"A": float(a), "f_neu": g("f_neu"), "N": g("N")})
+            recs.append({"A": float(a), "f_neu": g("f_neu"), "N": g("N"), "C": g("C")})
         elif r is not None and not (isinstance(r, float) and np.isnan(r)):
-            recs.append({"A": float(r), "f_neu": None, "N": None})
+            recs.append({"A": float(r), "f_neu": None, "N": None, "C": None})
     return recs, n_self
 
 def stage_t_tare(A, ref_A, shift_1pct=None, sample_id=None):
@@ -191,6 +191,22 @@ def stage_t_tare(A, ref_A, shift_1pct=None, sample_id=None):
             "detection_limit_pct_loss": (round(dl, 2) if dl is not None else None),
             "detection_note": "smallest loss of the cell's pattern (percent) this specimen could show: 2 x reference spread / shift per 1 % loss",
             "state": _state(Ar)}
+
+CSCORE_DEV_BAND = (0.751, 1.409)   # DEV-CSCORE-TARE-01: 2.5-97.5 % of tared C on 615 healthy arrays, 19 series; development, not commissioned
+
+def stage_t_cscore(cs, ref_A, sample_id=None):
+    """Same-run tare of the Met-A C-score, the same rule as the median tare of A (DEV-CSCORE-TARE-01): C_rel = C / median(C of >= MIN_REFS
+    same-run healthy references, records carrying C). The untared C depends on the laboratory; the tared C does not. Nothing is fitted."""
+    recs, _ = _ref_records(ref_A, sample_id)
+    cs_ref = [r["C"] for r in recs if r.get("C") is not None]
+    if cs.get("C") is None: return cs
+    if len(cs_ref) < MIN_REFS:
+        cs["C_rel"] = None; cs["C_rel_reason"] = f"untared: {len(cs_ref)} same-run references carry a C-score (>= {MIN_REFS} required)"; return cs
+    m = float(np.median(cs_ref)); cs["C_rel"] = round(cs["C"] / m, 4); cs["C_reference_median"] = round(m, 4); cs["C_n_refs"] = len(cs_ref)
+    lo, hi = CSCORE_DEV_BAND
+    cs["C_rel_band_dev"] = [lo, hi]; cs["C_rel_in_band_dev"] = bool(lo <= cs["C_rel"] <= hi)
+    cs["status"] = "development: tared C_rel against a development band (DEV-CSCORE-TARE-01); not commissioned"
+    return cs
 
 def stage_t_selftare_ii(beta):
     """Stage T step 1, self-tare II (adopted 2026-10-04, DEV-SELFTARE-02): per probe design, beta' = Lr + (beta - L)(Ur - Lr)/(U - L) from this
@@ -249,6 +265,6 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
                       f"array's signal (Stage 1 detection line).")
     elif N is not None and N > g["N_max"] and t.get("A_rel") is None and m.get("A") is not None:   # no A -> its own reason stands (2026-10-03)
         m["state"] = f"withheld: noise index {N} > {g['N_max']} and no same-run tare; A printed as a number only"
-    out["met_a"] = m; out["met_a_cscore"] = stage_mc_cscore(z); out["tare"] = t
+    out["met_a"] = m; out["met_a_cscore"] = stage_t_cscore(stage_mc_cscore(z), ref_A, sample_id); out["tare"] = t
     out["withheld"] = ["tier lines beyond Normal (not yet measured on this scale)", "other cell types (outside commissioning scope)"]
     return out

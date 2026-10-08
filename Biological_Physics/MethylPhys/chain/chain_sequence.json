@@ -121,6 +121,11 @@
    "implements": "Met-A C-score (stage 6): clustering of the residual z map in genomic order - variance of the means of blocks of clustering_block"
   },
   {
+   "step": "stage_t_cscore",
+   "where": "conductor_v3.py",
+   "implements": "Same-run tare of the Met-A C-score, the same rule as the median tare of A (DEV-CSCORE-TARE-01): C_rel = C / median(C of >= MIN_REFS"
+  },
+  {
    "step": "stage_q_iam_a.pat_site_table",
    "where": "stage_q_iam_a.py",
    "implements": "Per-site table (pos, opp_A, err_A, opp_B, err_B) from one .pat(.gz) file, pipeline loyfer_pat_v1. pos = 'chrom:CpG index'",
@@ -322,7 +327,7 @@
   }
  ],
  "counts": {
-  "live": 27,
+  "live": 28,
   "not_wired": 3,
   "toolkit_rows": 13,
   "development_flags": 9
