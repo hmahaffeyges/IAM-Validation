@@ -13,15 +13,17 @@ fin(){ log "END $1"; echo "{\"status\": \"$1\"}" > $O/status.json; for f in $O/*
 log "STEP tools"
 curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xj -C $S bin/micromamba || fin FAIL_micromamba
 MM="$S/bin/micromamba -r $S/mamba"
-$MM create -y -q -p $S/e_wgbs -c conda-forge -c bioconda python=3.8 numpy pandas scipy htslib bedtools bwa bwameth=0.2.0 >> $O/install.log 2>&1 || fin FAIL_install_bwameth_0.2.0
+# bwameth 0.2.0 is built for Python <= 3.6 only, so it gets its own environment; wgbstools runs on Python 3.8
+$MM create -y -q -p $S/e_bm -c conda-forge -c bioconda python=3.6 bwameth=0.2.0 bwa >> $O/install.log 2>&1 || fin FAIL_install_bwameth_0.2.0
+$MM create -y -q -p $S/e_wgbs -c conda-forge -c bioconda python=3.8 numpy pandas scipy htslib bedtools >> $O/install.log 2>&1 || fin FAIL_install_wgbs_env
 $MM create -y -q -p $S/e_st19 -c conda-forge -c bioconda samtools=1.9 >> $O/install.log 2>&1 || fin FAIL_install_samtools_1.9
 $MM create -y -q -p $S/e_sra -c conda-forge -c bioconda sra-tools >> $O/install.log 2>&1 || fin FAIL_install_sra_tools
-export PATH=$S/e_st19/bin:$S/e_wgbs/bin:$S/e_sra/bin:$PATH
+export PATH=$S/e_st19/bin:$S/e_wgbs/bin:$S/e_bm/bin:$S/e_sra/bin:$PATH
 command -v g++ >/dev/null || sudo apt-get install -y -q build-essential >> $O/install.log 2>&1
 [ -d wgbs_tools ] || git clone -q https://github.com/nloyfer/wgbs_tools.git
 (cd wgbs_tools && git checkout -q 0.1.0 && python setup.py >> $O/install.log 2>&1)
 export PATH=$S/wgbs_tools:$PATH
-{ $MM list -p $S/e_wgbs | grep -E "bwameth|^ *bwa |python "; samtools --version | head -1; echo "wgbstools $(git -C wgbs_tools describe --tags)"; fastq-dump --version | grep -o "[0-9][0-9.]*" | head -1; } > $O/versions.txt 2>&1
+{ $MM list -p $S/e_bm | grep -E "bwameth|^ *bwa "; $MM list -p $S/e_wgbs | grep -E "^ *python "; samtools --version | head -1; echo "wgbstools $(git -C wgbs_tools describe --tags)"; fastq-dump --version | grep -o "[0-9][0-9.]*" | head -1; } > $O/versions.txt 2>&1
 samtools --version | head -1 | grep -q " 1\.9" || fin FAIL_samtools_not_1.9
 grep -q "0\.2\.0" $O/versions.txt || fin FAIL_bwameth_not_0.2.0
 log "versions: $(tr '\n' ';' < $O/versions.txt)"
