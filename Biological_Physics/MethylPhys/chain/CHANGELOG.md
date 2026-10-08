@@ -1,5 +1,18 @@
 # Chain changelog
 
+## 2026-10-08 - chain v3 development round 3 (DEVELOPMENT - not commissioned)
+
+Records: `development/METHYLPHYS_DEVELOPMENT_LOG.md` (2026-10-08 entries), `doors/DEV_IAMA_P_WHOLE_01.md`, `doors/DEV_IAMA_INTAKE_01.md`. No locked result changed.
+- `conductor_v3.py`: `stage_t_cscore()` - the Met-A C-score is tared like A: `C_rel` = C / median C of >= 3 same-run healthy references
+  (records carrying `C`), shown against the development band 0.751-1.409 (DEV-CSCORE-TARE-01). Untared C is still printed.
+- New frozen input `Runtime Matrices/IAM_A_Positions/iama_positions_v2.json`: neutrophil P = 1.1492 measured on the WHOLE Loyfer granulocyte
+  files (v1, P = 1.099 on the first 60 MB of each file, moved to `superseded`). `stage_q_iam_a.py` reads v2 and refuses a reading of part
+  of a file (`allow_partial` / `--dev-allow-partial` for development only).
+- New frozen input `Runtime Matrices/IAM_A_Positions/hg19_cpg_chrom_ranges.json` (wgbstools 0.1.0 hg19 dictionary, 28,217,448 CpGs).
+- New `stage_q0_intake.py`, Stage Q0 (IAM-A intake): readable file, hg19 build, whole genome, specimen (rules, stop now); conversion,
+  read length, duplicates (recorded; limits set from healthy files before any test file). Called by `run_sample.py --pat` before Stage Q;
+  `--alignment-qc` passes the alignment record. `release_check_v3.py` E11: five negative controls; E4 reads Stage Q's own position file.
+
 ## 2026-10-04 - chain v3 development round 2 (DEVELOPMENT - not commissioned)
 
 Each check below was written in a dated `doors/DEV_*.md` note before the data were read; results are under the line in the same note and in

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Stage Q - IAM-A (single-molecule sequencing), development build, NOT commissioned. Scope: neutrophils.
 IAM-A = H(eps) / (P_cell * H(eps0)). eps0 (canon eps0_meth = 1/(1+exp(phi*M)) = 0.032) and P_cell are read from
-Runtime Matrices/IAM_A_Positions/iama_positions_v1.json (keys "eps0", "cells.<cell>.P", "cells.<cell>.pipeline").
+Runtime Matrices/IAM_A_Positions/iama_positions_v2.json (keys "eps0", "cells.<cell>.P", "cells.<cell>.pipeline"). v2 (2026-10-08,
+DEV-IAMA-P-WHOLE-01): P measured on WHOLE files; a reading of part of a file is refused, because it reads other sites than P was measured on.
 eps = isolated copy errors / opportunities on qualifying molecules (>= 6 CpG calls, >= 80 % methylated): an interior CpG call is an
 opportunity; an unmethylated interior call with both neighbouring calls methylated is an isolated error. Input: a per-site table with
 columns pos, opp_A, err_A, opp_B, err_B (A/B = the two halves of the run). P is valid only for the read-level pipeline it was measured
@@ -9,8 +10,8 @@ on; the caller must name the pipeline that produced the table (no default) and a
 
 Extractor for the pipeline P was measured on (loyfer_pat_v1): pat_site_table(), the per-site form of chain_tests/iama_floor.py's .pat
 counting - wgbstools .pat lines (chrom, first CpG index, pattern of C/T/., molecule count); '.' calls dropped before neighbours are
-taken; halves A/B = odd/even molecule ordinal over the file, as in iama_floor.py's repeat check. P was measured on the first
-60,000,000 bytes of each granulocyte .pat.gz (LOYFER_PAT_V1_HEAD_BYTES).
+taken; halves A/B = odd/even molecule ordinal over the file, as in iama_floor.py's repeat check. P (v2) was measured on the whole
+granulocyte .pat.gz files; v1 (first 60,000,000 bytes of each file) is kept as a record.
 
 IAM-A C-score (DEVELOPMENT - not commissioned; doors/DEV_IAMA_CSCORE_01.md, 2026-10-04): one C per A. Sites in genomic order (chromosome, CpG
 index) are cut into blocks of CSCORE_BLOCK_SITES; per block o_b opportunities and k_b isolated errors; with the reading's own eps,
@@ -18,7 +19,7 @@ C = sum (k_b - eps o_b)^2 / sum eps (1 - eps) o_b. Independent errors at one rat
 from other readings); C > 1 = errors cluster in genomic order. Fewer than CSCORE_MIN_BLOCKS blocks: no C."""
 import os, json, gzip, zlib, collections, numpy as np, pandas as pd
 import stage_m_met_a as SM
-HERE = os.path.dirname(os.path.abspath(__file__)); POS = os.path.join(HERE, "Runtime Matrices", "IAM_A_Positions", "iama_positions_v1.json")
+HERE = os.path.dirname(os.path.abspath(__file__)); POS = os.path.join(HERE, "Runtime Matrices", "IAM_A_Positions", "iama_positions_v2.json")
 MIN_OPPORTUNITIES = 100_000      # total, both halves
 MIN_HALF_OPPORTUNITIES = 50_000  # a half-reading is printed only above this
 PAT_PIPELINE = "loyfer_pat_v1"
@@ -112,15 +113,21 @@ def cscore(site_table, eps=None, halves=("A", "B")):
     return out
 
 
-def read(site_table, cell, pipeline, mask=None):
+def read(site_table, cell, pipeline, mask=None, allow_partial=False):
     """site_table: per-site table (see module doc). cell: e.g. 'neutrophils'. pipeline: the read-level pipeline that produced the table
-    (required). mask: positions to drop. Returns the IAM-A record; A is None with a refusal when the reading is not permitted."""
+    (required). mask: positions to drop. allow_partial: development only - read a table cut at max_bytes (to reproduce v1).
+    Returns the IAM-A record; A is None with a refusal when the reading is not permitted."""
     P = positions(); EPS0 = float(P["eps0"])
     rec = {"stage": "Q", "reading": "IAM-A", "cell": cell, "pipeline": pipeline, "build": "development v3", "A": None, "eps0": EPS0}
     c = P["cells"].get(cell)
     if c is None: rec["refusal"] = f"no frozen IAM-A position for {cell}"; return rec
     if not pipeline: rec["refusal"] = "pipeline not stated: name the read-level pipeline that produced the table"; return rec
     if c["pipeline"] != pipeline: rec["refusal"] = f"position for {cell} was measured on {c['pipeline']}, not {pipeline}: measure P on healthy {cell} with this pipeline first"; return rec
+    mb = getattr(site_table, "attrs", {}).get("max_bytes")
+    if mb and not allow_partial:
+        rec["refusal"] = (f"partial file (first {mb:,} bytes): P for {cell} was measured on whole files; "
+                          "a part of a file covers other sites, so read the whole file"); return rec
+    rec["position_version"] = P["version"]; rec["coverage"] = "partial (development)" if mb else c.get("coverage", "whole file")
     D = site_table if mask is None else site_table[~site_table.pos.isin(mask)]
     o = {h: float(D[f"opp_{h}"].sum()) for h in "AB"}; e = {h: float(D[f"err_{h}"].sum()) for h in "AB"}
     if o["A"] + o["B"] < MIN_OPPORTUNITIES: rec["refusal"] = f"too few opportunities ({o['A'] + o['B']:.0f} < {MIN_OPPORTUNITIES})"; return rec

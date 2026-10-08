@@ -1,0 +1,42 @@
+{
+ "version": "iama_positions_v2",
+ "date": "2026-10-08",
+ "status": "development (not commissioned)",
+ "eps0": 0.032,
+ "rule": "IAM-A(cell) = H(eps) / (P_cell * H(eps0)); P_cell = H(eps_healthy) / H(eps0) for healthy cells of that type, measured on the SAME read-level pipeline and frozen",
+ "cells": {
+  "neutrophils": {
+   "P": 1.1492,
+   "P_range": [
+    1.1396,
+    1.1554
+   ],
+   "cv_across_donors": 0.012,
+   "source": "Loyfer 2023 blood granulocytes GSM5652313/14/15 (GEO GSE186458), hg19 .pat files, WHOLE files; isolated errors and opportunities from doors/data/DEV_IAMA_REAL_01/*_whole_bundle.json",
+   "counts": {
+    "GSM5652313": {
+     "errors": 3272019,
+     "opportunities": 85929614
+    },
+    "GSM5652314": {
+     "errors": 4691473,
+     "opportunities": 119593574
+    },
+    "GSM5652315": {
+     "errors": 4549151,
+     "opportunities": 120241827
+    }
+   },
+   "pipeline": "loyfer_pat_v1",
+   "genome": "hg19",
+   "coverage": "whole file (all qualifying molecules genome-wide)",
+   "n_donors": 3,
+   "definition_of_P": "per donor: H(mean eps of the other donors) / H(eps0); P = mean of the 3"
+  }
+ },
+ "pipeline_note": "P is valid only for the pipeline it was measured on; any other read-level pipeline needs its own P from healthy cells of the type; P is valid only for whole-file readings (a reading over part of the genome reads other sites: DEV-IAMA-REAL-01 found the first 60 MB 3-6 % below the whole genome)",
+ "supersedes": {
+  "iama_positions_v1": "P 1.099, measured on the first 60,000,000 bytes of each file (one stretch of chr1); kept as a record"
+ },
+ "evidence": "DEV-IAMA-REAL-01 (whole files) and DEV-IAMA-P-WHOLE-01 (this re-freeze)"
+}

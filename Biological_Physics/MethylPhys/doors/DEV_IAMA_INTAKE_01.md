@@ -9,7 +9,7 @@ file was built with (`loyfer_pat_v1`). A file with poor bisulfite conversion, th
 **Stage Q0, before Stage Q.** Each check stops the file with a named reason, as Stage 0 does for arrays.
 | step | check | refusal |
 |---|---|---|
-| Q0.1 | the file is a .pat(.gz) or site table with the expected columns and genome build (hg38), readable to the end | QUARANTINE_UNREADABLE_PAT |
+| Q0.1 | the file is a .pat(.gz) or site table with the expected columns and genome build (hg19: the build P was measured on), readable to the end | QUARANTINE_UNREADABLE_PAT |
 | Q0.2 | pipeline is `loyfer_pat_v1` (already in Stage Q; moved here) | PIPELINE_MISMATCH |
 | Q0.3 | bisulfite conversion: non-CpG cytosine methylation (or the spike-in, when the sequencing record gives one) below a set rate | QUARANTINE_CONVERSION |
 | Q0.4 | coverage: enough reads cover enough of the cell's identity sites | QUARANTINE_LOW_COVERAGE |
@@ -25,3 +25,12 @@ pipeline, a file with conversion deliberately degraded, a file subsampled below 
 
 **Where it goes.** `chain/stage_q0_intake.py`, called by `run_sample.py` before `stage_q_iam_a.read`; listed in `doors/CHAIN_SEQUENCE.md`
 after the author approves this specification.
+
+---
+## Wired 2026-10-08 (development; nothing above the line changed except the build, corrected from hg38 to hg19)
+`chain/stage_q0_intake.py`, called by `run_sample.py --pat` before Stage Q. Q0.1, Q0.2 (hg19 chromosome index ranges, `hg19_cpg_chrom_ranges.json`),
+the whole-genome rule of Q0.4 and Q0.7 stop the file now. Q0.3 conversion, Q0.5 read length and Q0.6 duplicates are recorded; their limits
+are still to be set from healthy files (the three Loyfer granulocyte files and the GSE128731 neutrophil runs) in a dated note before any
+test file is read. Negative controls (`release_check_v3.py` E11, constructed files): one chromosome only, a build shift, a truncated gzip, a
+malformed line and a whole-blood specimen each stop with their named reason; a constructed whole-genome file proceeds. On the head of a real
+Loyfer granulocyte file (GSM5652313, first 4 MB) 0 of 1,300,837 lines fall outside the hg19 ranges.

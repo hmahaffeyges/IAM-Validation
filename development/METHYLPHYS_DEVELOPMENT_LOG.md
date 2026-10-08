@@ -294,3 +294,33 @@ truth: donor overlap with the purified references (GSE110554).
 - **Cell references:** Loyfer has 3 read-level samples each for monocytes, NK, B, CD4 T and CD8 T cells, one laboratory; neutrophils only
   as granulocytes (3). Every cell needs another laboratory's healthy samples before its reference can be commissioned; GSE128731 supplies
   them for neutrophils and CD4 T cells. `doors/CELL_REFERENCE_AVAILABILITY.md`.
+
+### 2026-10-08 · Box access by role; Day 1 box session started
+The box now reaches S3 through its own AWS role (`methylphys-box-s3`: read and write on the data bucket only, no delete), attached by the
+author; no keys are copied to the box. Day 1 session on methylphys-cpu-01 (m7a.8xlarge, 500 GB scratch disk): Box Run 1 jobs B (every test
+set re-read with the adopted tare, resuming from the set already finished) and E (the 12 constructed mixtures, GSE182379), alongside Box Run 2
+session 1. The box shuts itself down when both finish; the scratch disk is deleted afterwards.
+
+### 2026-10-08 · Box Run 2 session 1: the pinned Loyfer pipeline, first steps
+- \measured The wgbstools 0.1.0 hg19 dictionary holds **28,217,448 CpG sites, exactly Loyfer 2023's hg19 count**; per-chromosome index ranges
+  saved as `hg19_cpg_chrom_ranges.json` (Stage Q0.2).
+- bwa-meth 0.2.0 exists only for Python ≤ 3.6: it runs in its own environment. wgbstools 0.1.0 calls curl without following redirects, so
+  hg19 is fetched by the session script and passed in. Two optional wgbstools modules (segmentor, homog) do not compile without Boost; neither
+  is used by bam2pat.
+- **Pipeline pin completed:** Loyfer 2023 Methods mark duplicates with **Sambamba 0.6.5** (`-l 1 -t 16 --sort-buffer-size 16000
+  --overflow-list-size 10000000`) and drop reads with `-F 1796 -q 10` before the PAT step. The earlier pin (bwa-meth, SAMtools, wgbstools)
+  missed the duplicate step; session 2 includes it. Session 1's 1-million-read check tests the format only, so it is unaffected.
+
+### 2026-10-08 · DEV-IAMA-P-WHOLE-01: neutrophil P re-measured on whole files
+\calibrated P = 1.1492 (v1: 1.099 on the first 60 MB of each file). The three healthy Loyfer files read 0.994 / 1.017 / 0.989 whole
+(in-sample). A reading of part of a file is now refused. Note: `doors/DEV_IAMA_P_WHOLE_01.md`.
+
+### 2026-10-08 · Stage Q0, the IAM-A intake, wired (development)
+`chain/stage_q0_intake.py` before Stage Q: readable file, hg19 build, whole genome, purified-neutrophil specimen stop a file now;
+conversion, read length and duplicates are recorded until their limits are set from healthy files. Five constructed negative controls each
+stop with their named reason (release check E11). The real Loyfer head passes the build check (0 of 1,300,837 lines outside hg19 ranges).
+
+### 2026-10-08 · Met-A C-score tared in the chain
+`conductor_v3.stage_t_cscore`: C_rel = C ÷ median C of ≥ 3 same-run healthy references, the rule DEV-CSCORE-TARE-01 tested; shown against
+the development band 0.751-1.409. Untared C still printed. Constructed check: three references (1.10, 1.25, 1.20) and C 1.30 give C_rel
+1.0833; the array itself is excluded from its own references; fewer than three references leave C_rel unset with the reason.

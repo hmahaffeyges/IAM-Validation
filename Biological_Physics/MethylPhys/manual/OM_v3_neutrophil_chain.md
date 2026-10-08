@@ -24,7 +24,7 @@ python run_sample.py --grn <Grn> --red <Red> --engine v3 --specimen "whole blood
 - Second draw of the same person (stage 12b): run the first draw with `--save-betas <id>_betas.parquet --patient-id <hash>`; run the second with the same `--patient-id` plus `--prior-betas <id>_betas.parquet --prior-bundle <id>_bundle.json`.
 - Identifiers: the bundle and the ledger carry the sha256 hash of `--id`; the report keeps the id you typed.
 - Development flags (DEVELOPMENT - not commissioned; never part of the reading; `--dev-selftare-ii` is a no-op alias since the adopted Stage T step 1 was wired in on 2026-10-04): `--dev-selftare-ii --dev-direction --dev-trace --dev-foreign --dev-brightness` (no extra input); `--dev-nilc --dev-atlas-e --dev-percell-b --dev-sky` with `--atlas-v2 <IAMAtlas_v2.parquet>` (`--dev-sky` needs healpy); `--dev-epic-v2 --sesame-rscript <Rscript>` for an EPIC v2 IDAT pair. Each writes `development.<stage>` into the bundle and a report section.
-- Sequencing (Stage Q, IAM-A): `python run_sample.py --pat <file>.pat.gz --id <id> --out <id>.html`, or `python run_sample.py --site-table <sites>.csv --seq-pipeline loyfer_pat_v1 --id <id> --out <id>.html`.
+- Sequencing (Stages Q0 and Q, IAM-A): `python run_sample.py --pat <file>.pat.gz --specimen "isolated neutrophils" --id <id> --out <id>.html` (add `--alignment-qc <qc>.json` when the alignment step wrote one); read the whole file - a `--pat-max-bytes` cut is refused, or `python run_sample.py --site-table <sites>.csv --seq-pipeline loyfer_pat_v1 --id <id> --out <id>.html`.
 
 Output: `<id>.html`, `<id>_bundle.json` beside it, and one row appended to `evidence_ledger.jsonl` in the same folder (`--ledger` to
 change; `--no-bundle` writes neither the bundle nor the row). Exit 0 when a report is written (a refusal still writes one); exit 2 on a Stage 0 QUARANTINE, with no report, no bundle and no ledger row (a command-line error also exits 2).
@@ -50,6 +50,7 @@ Manual: `python manual/build_manual_v3.py` rebuilds the PDF.
 | Noise index N | mean H(β) on the 48,528 noise sites. Above 0.149 on an untared reading: state `withheld`, A printed as a number. Fewer than 90 % of the noise sites measured: N is not formed and the state is withheld, tared or not, with the counts and the reason |
 | Methylated sites mean β | below 0.5: past the entropy ceiling; read β, not A |
 | Stage MC C-score | genomic clustering of the departures (healthy = 1), with the healthy held-out range. Development: no band yet |
+| Stage Q0 intake | sequencing only: each intake check with its value and result (pass / REFUSED / recorded / not measured) |
 | Stage Q IAM-A | sequencing only: IAM-A, copy error eps, position P, eps0, the two halves, opportunities; the IAM-A C-score (development: independent copy errors give 1; band not set) |
 | Development stages | only with a development flag: one row per flagged stage, labelled DEVELOPMENT - not commissioned |
 | Withheld | what the build does not print, and why |
@@ -74,4 +75,6 @@ Manual: `python manual/build_manual_v3.py` rebuilds the PDF.
 | `withheld: noise index <N> > 0.149 and no same-run tare` | the array is noisier than the reference arrays; the gauge is not drawn | tare it against same-run references |
 | refusal `... (450K or incomplete vector) ... (450K neutrophil floor pending)` | fewer than 700,001 probes after Stage 1 (a 450K table, or an EPIC array that lost probes at detection) | none: v3 reads EPIC v1 only. A 450K IDAT pair never gets here: it quarantines at Stage 0 (0.1 array-type mismatch when `--array-type EPIC_v1` is given, else 0.7b coverage) |
 | refusal `... (no frozen neutrophil floor for this platform)` | declared array type is not EPIC_v1, or EPIC v2 probe names | none: no floor for that platform |
+| Stage Q0 `QUARANTINE_UNREADABLE_PAT` / `GENOME_BUILD_MISMATCH` / `QUARANTINE_NOT_WHOLE_GENOME` / `SPECIMEN_REFUSED` | a cut or corrupt file; a file on another genome build (e.g. hg38); a targeted or partial file; whole blood or another cell | download the file again; convert with the loyfer_pat_v1 pipeline on hg19; read a whole-genome file; IAM-A reads purified neutrophils only |
+| IAM-A refusal `partial file` | the reading was cut with `--pat-max-bytes` | read the whole file (P is measured on whole files) |
 | IAM-A refusal `position for neutrophils was measured on loyfer_pat_v1, not <pipeline>` / `too few opportunities` | another read-level pipeline, or fewer than 100,000 opportunities | none: P is valid only for its own pipeline |

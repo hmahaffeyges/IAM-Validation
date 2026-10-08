@@ -133,7 +133,7 @@ def _versions(chain_dir):
                 "Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json", "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json",
                 "Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json", "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json",
                 "Runtime Matrices/IAM_A_Positions/iama_positions_v1.json", "Runtime Matrices/Intake/intake_thresholds_v1.json",
-                "conductor_v3.py", "stage_m_met_a.py", "stage_q_iam_a.py", "stage_0_intake.py", "stage_0_1_qc_handoff.py",
+                "conductor_v3.py", "stage_m_met_a.py", "stage_q_iam_a.py", "stage_q0_intake.py", "stage_0_intake.py", "stage_0_1_qc_handoff.py",
                 "stage_1_idat_calibration.py", "MethylPhys_Interface/report_v3.py", "MethylPhys_Interface/run_sample.py"):
         for p in _glob.glob(os.path.join(chain_dir, pat), recursive=True):
             files[os.path.relpath(p, chain_dir)] = {"sha256_12": _sha12(p), "bytes": os.path.getsize(p)}
@@ -225,7 +225,9 @@ def main():
     ap.add_argument("--slide-ref-A", "--ref-A", dest="slide_ref_A", default=None, help="comma-separated Met-A before the median tare (met_a.A, self-tared since 2026-10-04) of >= 3 same-run healthy reference arrays (same slide, else same batch) - v3 Stage T median tare, whole blood and isolated neutrophils")
     ap.add_argument("--slide-ref-table", "--ref-table", dest="slide_ref_table", default=None, help="CSV of same-run healthy references with column A (optional id): Met-A from pass 1 (met_a.A, self-tared since 2026-10-04; before the median tare). >= 3 rows -> median tare (nothing is fitted)")
     ap.add_argument("--pat", default=None, help="v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table)")
-    ap.add_argument("--pat-max-bytes", type=int, default=None, help="read only the first N bytes of --pat (the neutrophil position P was measured on the first 60000000 bytes of each file)")
+    ap.add_argument("--pat-max-bytes", type=int, default=None, help="development: read only the first N bytes of --pat; IAM-A is then refused (P is measured on whole files) unless --dev-allow-partial")
+    ap.add_argument("--alignment-qc", default=None, help="Stage Q0: JSON from the alignment step with conversion_rate and/or duplicate_fraction")
+    ap.add_argument("--dev-allow-partial", action="store_true", help="development only: read IAM-A on a --pat-max-bytes cut (e.g. to reproduce position v1)")
     ap.add_argument("--site-table", default=None, help="v3 Stage Q: a per-site CSV with columns pos,opp_A,err_A,opp_B,err_B; needs --seq-pipeline")
     ap.add_argument("--seq-pipeline", default=None, help="the read-level pipeline that produced --site-table (required with it); IAM-A is refused unless a position P was frozen for it")
     ap.add_argument("--seq-cell", default="neutrophils", help="cell type of the sequenced specimen (Stage Q)")
@@ -497,12 +499,21 @@ def main():
         if a.pat:
             if a.seq_pipeline and a.seq_pipeline != Q.PAT_PIPELINE:
                 sys.exit(f"--pat is read by the {Q.PAT_PIPELINE} extractor; --seq-pipeline {a.seq_pipeline} does not apply")
+            import stage_q0_intake as Q0
+            print(f"Stage Q0: intake checks on {os.path.basename(a.pat)}", flush=True)
+            o["iam_a_intake"] = Q0.intake(a.pat, specimen=a.specimen, cell=a.seq_cell, alignment_qc=a.alignment_qc)
             print(f"Stage Q: extracting per-site copy-error counts from {os.path.basename(a.pat)} ({Q.PAT_PIPELINE})", flush=True)
             T = Q.pat_site_table(a.pat, max_bytes=a.pat_max_bytes); pipe = Q.PAT_PIPELINE
             src = {"pat": os.path.abspath(a.pat), "max_bytes": a.pat_max_bytes, **{k: T.attrs.get(k) for k in ("n_lines", "n_qualifying_lines", "n_molecules")}}
         else:
             T = _pd.read_csv(a.site_table); pipe = a.seq_pipeline; src = {"site_table": os.path.abspath(a.site_table)}
-        o["iam_a"] = Q.read(T, cell=a.seq_cell, pipeline=pipe); o["iam_a"]["input"] = src
+        qi = o.get("iam_a_intake") or {}
+        if qi.get("refusal_code"):
+            o["iam_a"] = {"stage": "Q", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"],
+                          "refusal": f"Stage Q0 stopped the file: {qi['refusal']}", "input": src}
+        else:
+            o["iam_a"] = Q.read(T, cell=a.seq_cell, pipeline=pipe, allow_partial=bool(getattr(a, "dev_allow_partial", False))); o["iam_a"]["input"] = src
+            if not a.pat: o["iam_a"]["intake"] = "Stage Q0 not run: a site table carries no molecules to check"
     # what stage 12b needs from every draw (recorded on every run so a later draw can be compared): the identifier hash and the pipeline
     if a.betas: o["pipeline"] = "chain Stage 1 (beta table)"
     if a.betas and a.patient_id: o["patient_hash"] = a.patient_id if (len(a.patient_id) >= 16 and a.patient_id.isalnum()) else __import__("hashlib").sha256(a.patient_id.encode()).hexdigest()[:32]

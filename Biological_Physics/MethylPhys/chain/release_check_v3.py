@@ -230,7 +230,8 @@ def E3(tmp):
 
 def E4(tmp):
     import numpy as np, pandas as pd
-    pos = json.load(open(os.path.join(HERE, "Runtime Matrices", "IAM_A_Positions", "iama_positions_v1.json")))
+    sys.path[:0] = [HERE]; import stage_q_iam_a as _Q
+    pos = json.load(open(_Q.POS))   # the position file Stage Q reads (v2 since 2026-10-08), not a fixed copy
     P, e0 = pos["cells"]["neutrophils"]["P"], pos["eps0"]; pipe = pos["cells"]["neutrophils"]["pipeline"]
     H = lambda e: -(e * np.log2(e) + (1 - e) * np.log2(1 - e)); target = P * H(e0)
     lo, hi = 1e-6, 0.5
@@ -344,6 +345,33 @@ def E10(tmp):
         + ("" if ok else " | " + " / ".join(log.strip().splitlines()[-3:])[:300]))
 
 
+def E11(tmp):
+    """Stage Q0 (IAM-A intake, 2026-10-08, development): a constructed whole-genome .pat proceeds; each negative control stops with its named
+    reason - one chromosome only, a build shift, a truncated gzip, a malformed line, a whole-blood specimen. Constructed index ranges are
+    used so the check does not depend on the hg19 dictionary file."""
+    import gzip
+    sys.path[:0] = [HERE]; import stage_q0_intake as Q0
+    rp = os.path.join(tmp, "E11_ranges.json"); R = {f"chr{i}": [i * 1000000 + 1, i * 1000000 + 900000] for i in range(1, 23)}
+    json.dump({"ranges": R}, open(rp, "w")); keep = Q0.RANGES; Q0.RANGES = rp
+    def mk(p, chroms=range(1, 23), shift=0, cut=False, bad=False):
+        with gzip.open(p, "wt") as f:
+            for c in chroms:
+                for j in range(50): f.write(f"chr{c}\t{c * 1000000 + 10 + j * 7 + shift}\tCCCCCCTC\t2\n")
+            if bad: f.write("chr1\tx\tCCC\t1\n")
+        if cut: b = open(p, "rb").read(); open(p, "wb").write(b[:len(b) - 30])
+    want = {"good": ({}, None), "one_chrom": ({"chroms": [1]}, "QUARANTINE_NOT_WHOLE_GENOME"), "wrong_build": ({"shift": 950000}, "GENOME_BUILD_MISMATCH"),
+            "truncated": ({"cut": True}, "QUARANTINE_UNREADABLE_PAT"), "malformed": ({"bad": True}, "QUARANTINE_UNREADABLE_PAT")}
+    got = {}
+    try:
+        for k, (kw, code) in want.items():
+            p = os.path.join(tmp, f"E11_{k}.pat.gz"); mk(p, **kw); got[k] = Q0.intake(p, "blood granulocytes").get("refusal_code")
+        got["whole_blood"] = Q0.intake(os.path.join(tmp, "E11_good.pat.gz"), "whole blood").get("refusal_code")
+    finally:
+        Q0.RANGES = keep
+    ok = all(got[k] == c for k, (_, c) in want.items()) and got["whole_blood"] == "SPECIMEN_REFUSED"
+    rec("E11", ok, "; ".join(f"{k}: {v or 'proceeds'}" for k, v in got.items()))
+
+
 def M1(tmp):
     out = os.path.join(tmp, "manual.pdf")
     code, log = run([PY, os.path.join(MP, "manual", "build_manual_v3.py"), out], cwd=os.path.join(MP, "manual"))
@@ -356,7 +384,7 @@ def main():
     files = tracked()
     tmp = tempfile.mkdtemp(prefix="rc_v3_")
     for name, fn, args in (("F1", F1, ()), ("S1", S1, (files,)), ("S2", S2, (files,)), ("S3", S3, ()), ("S4", S4, ()),
-                           ("E1", E1, (tmp,)), ("E2", E2, (tmp,)), ("E3", E3, (tmp,)), ("E4", E4, (tmp,)), ("E5", E5, (tmp,)), ("E6", E6, (tmp,)), ("E7", E7, (tmp,)), ("E8", E8, (tmp,)), ("E9", E9, (tmp,)), ("E10", E10, (tmp,)), ("M1", M1, (tmp,))):
+                           ("E1", E1, (tmp,)), ("E2", E2, (tmp,)), ("E3", E3, (tmp,)), ("E4", E4, (tmp,)), ("E5", E5, (tmp,)), ("E6", E6, (tmp,)), ("E7", E7, (tmp,)), ("E8", E8, (tmp,)), ("E9", E9, (tmp,)), ("E10", E10, (tmp,)), ("E11", E11, (tmp,)), ("M1", M1, (tmp,))):
         try: fn(*args)
         except Exception as e: rec(name, False, f"could not run: {type(e).__name__}: {str(e)[:200]}")
     n_fail = sum(r["result"] != "PASS" for r in R)

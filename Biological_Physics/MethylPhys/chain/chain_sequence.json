@@ -126,6 +126,12 @@
    "implements": "Same-run tare of the Met-A C-score, the same rule as the median tare of A (DEV-CSCORE-TARE-01): C_rel = C / median(C of >= MIN_REFS"
   },
   {
+   "step": "stage_q0_intake.intake",
+   "where": "stage_q0_intake.py",
+   "implements": "Stage Q0 on one .pat(.gz). alignment_qc: dict (or JSON path) from the alignment step with 'conversion_rate' and/or",
+   "note": "runs when run_sample.py is given --pat, before Stage Q"
+  },
+  {
    "step": "stage_q_iam_a.pat_site_table",
    "where": "stage_q_iam_a.py",
    "implements": "Per-site table (pos, opp_A, err_A, opp_B, err_B) from one .pat(.gz) file, pipeline loyfer_pat_v1. pos = 'chrom:CpG index'",
@@ -327,7 +333,7 @@
   }
  ],
  "counts": {
-  "live": 28,
+  "live": 29,
   "not_wired": 3,
   "toolkit_rows": 13,
   "development_flags": 9

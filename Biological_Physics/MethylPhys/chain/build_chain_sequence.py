@@ -117,6 +117,10 @@ def derive_v3(rs, intake, stage1):
         st = {"step": n, "where": "conductor_v3.py", "implements": _doc(defs[n]) if n in defs else ""}
         if n in NOISE_STEPS: st["note"] = NOISE_STEPS[n]
         path.append(st)
+    if "stage_q0_intake" in rs:   # Stage Q0, IAM-A intake (2026-10-08, development)
+        q0 = ast.parse(open(os.path.join(HERE, "stage_q0_intake.py"), encoding="utf-8").read()); q0d = {n.name: n for n in q0.body if isinstance(n, ast.FunctionDef)}
+        path.append({"step": "stage_q0_intake.intake", "where": "stage_q0_intake.py", "implements": _doc(q0d["intake"]),
+                     "note": "runs when run_sample.py is given --pat, before Stage Q"})
     if "stage_q_iam_a" in rs:
         qs = open(os.path.join(HERE, "stage_q_iam_a.py"), encoding="utf-8").read(); qt = ast.parse(qs)
         qd = {n.name: n for n in qt.body if isinstance(n, ast.FunctionDef)}

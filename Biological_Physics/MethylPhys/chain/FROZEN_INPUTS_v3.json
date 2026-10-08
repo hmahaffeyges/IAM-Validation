@@ -1,6 +1,6 @@
 {
  "_what": "sha256 of every frozen input chain v3 reads at run time. release_check_v3.py fails if any file differs. Change a frozen input only with a new version name and a dated entry in chain/CHANGELOG.md; then update this file in the same commit.",
- "_recorded": "2026-10-03, from main at dfbfcf0 (unchanged since the PROC-REPL-V3-01 run at 87cfa65 for the five files that run recorded in doors/data/DEV_REPL_V3_01_run/COMMANDS.md)",
+ "_recorded": "2026-10-03, from main at dfbfcf0 (unchanged since the PROC-REPL-V3-01 run at 87cfa65 for the five files that run recorded in doors/data/DEV_REPL_V3_01_run/COMMANDS.md); 2026-10-08 iama_positions_v2",
  "files": {
   "Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json": "2f64f8846f8a4b0d5d66964347807dde03067130f17d9ce97a8e4dc7efe7c9ae",
   "Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv": "73f090a7004bc7c79b0d761000eb49c86f61e0865fa1823458feaa095ec1eda0",
@@ -8,14 +8,22 @@
   "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json": "6ad3dfb0e01a70eed0e71df28c0b62170f7730d261f1d51aa4691758027fc0ab",
   "Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json": "3531561783261c577e436a0ac6b83799adbb791fe4ed40be7d0a48ec83f7aeb0",
   "Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json": "825f64f7b6c7077a6ff17ce44c28b5470ad55d4347d64edb57055b793f808480",
-  "Runtime Matrices/IAM_A_Positions/iama_positions_v1.json": "0bfaefa272739108e79115f4cdfe18cafd308f8f20f358e0e508cf1afdad7eae",
-  "Runtime Matrices/Intake/intake_thresholds_v1.json": "58f7e6073e8f2a5c249c921c325e8b1f1478151bfbd5fd0bedbbd7638c2a58e2"
+  "Runtime Matrices/Intake/intake_thresholds_v1.json": "58f7e6073e8f2a5c249c921c325e8b1f1478151bfbd5fd0bedbbd7638c2a58e2",
+  "Runtime Matrices/IAM_A_Positions/iama_positions_v2.json": "3ac417bbca9a4f3659f4f1ad74c9d7981f9e8306b5fbf99d2d64d33e26ff490c",
+  "Runtime Matrices/IAM_A_Positions/hg19_cpg_chrom_ranges.json": "fb08d2fbfd159304ae684e99662828d3d9ff20c6914148aaa11cecfcff9d2062"
  },
  "superseded": {
   "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json": {
    "sha256_before": "5616b95e2095e1a5a771436a616b218489798f5fe8b5089cec7c6e4f46ff8693",
    "data_sha256_canonical": "4142e7353c108471f544507cc59795e36aec0cf4a44e0f2cc2ed63b162381951",
    "why": "2026-10-03: _meta (per-group marker counts) added; data keys unchanged. Canonical data hash = sha256 of json.dumps(file minus _meta, sort_keys=True, separators=(',',':'))."
+  },
+  "Runtime Matrices/IAM_A_Positions/iama_positions_v1.json": {
+   "file": "Runtime Matrices/IAM_A_Positions/iama_positions_v1.json",
+   "sha256": "0bfaefa272739108e79115f4cdfe18cafd308f8f20f358e0e508cf1afdad7eae",
+   "superseded_by": "Runtime Matrices/IAM_A_Positions/iama_positions_v2.json",
+   "date": "2026-10-08",
+   "why": "P re-frozen on whole files (DEV-IAMA-P-WHOLE-01); v1 was measured on the first 60 MB of each file"
   }
  }
 }

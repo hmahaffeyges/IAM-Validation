@@ -31,3 +31,14 @@ Install these exact versions on the box; Stage Q refuses any file whose pipeline
 
 ## After each session
 Log in the development log; update `doors/PLAN.md` and `doors/DATA_REGISTER.csv`; delete the scratch disk; confirm the box is stopped.
+
+## Update 2026-10-08 (before session 2)
+- **Pipeline pin, completed from Loyfer 2023 Methods:** bwa-meth 0.2.0 (Python 3.6 environment) → SAMtools 1.9 → **Sambamba 0.6.5 markdup**
+  (`-l 1 -t 16 --sort-buffer-size 16000 --overflow-list-size 10000000`) → SAMtools view `-F 1796 -q 10` → wgbstools 0.1.0 bam2pat, hg19
+  (28,217,448 CpGs, checked). Sambamba 0.6.5 installs on the box (checked 2026-10-08).
+- **Session 2 reads with position v2** (P = 1.1492, whole files) through Stage Q0 then Stage Q, with `--specimen "isolated neutrophils"` and
+  `--alignment-qc` (conversion from the lambda spike-in, duplicate fraction from Sambamba).
+- **Size:** each neutrophil run is 105-182 Gbases. A first reading per donor uses a random subsample of read pairs (≈ 10× depth); P is a
+  whole-genome rate, which a random subsample estimates without bias. The read count and hours are set from session 1's measured alignment speed.
+- **Before session 2 reads any GSE128731 file:** set the Q0 limits (conversion, ≥ 6-call share, duplicates) from the three healthy Loyfer
+  granulocyte files' own values, in a dated note.
