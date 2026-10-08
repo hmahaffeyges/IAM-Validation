@@ -324,3 +324,11 @@ stop with their named reason (release check E11). The real Loyfer head passes th
 `conductor_v3.stage_t_cscore`: C_rel = C ÷ median C of ≥ 3 same-run healthy references, the rule DEV-CSCORE-TARE-01 tested; shown against
 the development band 0.751-1.409. Untared C still printed. Constructed check: three references (1.10, 1.25, 1.20) and C 1.30 give C_rel
 1.0833; the array itself is excluded from its own references; fewer than three references leave C_rel unset with the reason.
+
+### 2026-10-08 · Stage Q0 conversion limit, and the alignment record for session 2
+- Q0.3 conversion limit set to **≥ 98 % C-to-T conversion, the ENCODE WGBS data standard** (a published standard, not a value chosen from
+  our data; the Loyfer .pat files carry no non-CpG calls, so healthy-file values cannot set it). Duplicates: no published limit; recorded.
+- `boxruns/run2/alignment_qc.py`: conversion in CHH context from the lambda spike-in (CHH so dcm sites cannot count), else CHH on human chr1
+  reads; strand from bwa-meth's YD tag; duplicate fraction from samtools flagstat on the Sambamba-marked BAM. Constructed check: 40 of 80
+  CHH calls converted on each strand read as 40/40; CpG cytosines are not counted. The check caught a parsing bug (the strand tag kept its
+  line ending), fixed before any real file.

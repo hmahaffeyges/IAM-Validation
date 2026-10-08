@@ -24,8 +24,9 @@ RANGES = os.path.join(HERE, "Runtime Matrices", "IAM_A_Positions", "hg19_cpg_chr
 AUTOSOMES = [f"chr{i}" for i in range(1, 23)]
 MIN_CALLS = 6                      # Stage Q's qualifying molecule length (>= 6 CpG calls)
 Q0_LIMITS = {                      # set from healthy files in a dated note before any test file is read; None = not set
-    "conversion_min": None, "min_opportunities": 100_000, "share_ge6_calls_min": None, "duplicate_fraction_max": None,
-    "_note": "development: conversion, read-length share and duplicate limits not set (DEV-IAMA-INTAKE-01: set on healthy files first)"}
+    "conversion_min": 0.98,          # ENCODE WGBS data standard: C to T conversion >= 98 % (encodeproject.org/data-standards/wgbs)
+    "min_opportunities": 100_000, "share_ge6_calls_min": None, "duplicate_fraction_max": None,
+    "_note": "development: conversion limit from the ENCODE WGBS standard; read-length share and duplicate limits not set (DEV-IAMA-INTAKE-01: set on healthy files first)"}
 ACCEPTED = {"isolated neutrophils": "neutrophils", "purified neutrophils": "neutrophils", "sorted neutrophils": "neutrophils",
             "neutrophils": "neutrophils", "blood granulocytes": "neutrophils", "granulocytes": "neutrophils"}
 
