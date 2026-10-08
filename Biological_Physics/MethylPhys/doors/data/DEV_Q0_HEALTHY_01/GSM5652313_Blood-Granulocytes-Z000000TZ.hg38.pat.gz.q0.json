@@ -1,0 +1,105 @@
+{
+ "stage": "Q0",
+ "status": "development - not commissioned",
+ "limits": {
+  "conversion_min": null,
+  "min_opportunities": 100000,
+  "share_ge6_calls_min": null,
+  "duplicate_fraction_max": null,
+  "_note": "development: conversion, read-length share and duplicate limits not set (DEV-IAMA-INTAKE-01: set on healthy files first)"
+ },
+ "checks": [
+  {
+   "step": "Q0.7 specimen",
+   "value": "blood granulocytes",
+   "rule": "purified neutrophils only (a position P exists for neutrophils)",
+   "result": "pass"
+  },
+  {
+   "step": "Q0.1 readable",
+   "value": "104,999,003 lines",
+   "rule": "decompresses to its end; 4 fields per line",
+   "result": "pass"
+  },
+  {
+   "step": "Q0.2 build",
+   "value": "42,866,672 lines outside their chromosome's hg19 index range",
+   "rule": "every line inside hg19 (wgbstools 0.1.0) ranges",
+   "result": "REFUSED"
+  },
+  {
+   "step": "Q0.4 whole genome",
+   "value": "all 22 autosomes",
+   "rule": "P is measured on whole files: molecules on every autosome",
+   "result": "pass"
+  },
+  {
+   "step": "Q0.4 coverage",
+   "value": "189,822,237 interior calls on molecules with >= 6 calls",
+   "rule": "recorded; Stage Q itself requires >= 100,000 opportunities on qualifying molecules",
+   "result": "recorded"
+  },
+  {
+   "step": "Q0.5 read length",
+   "value": "0.0745 of molecules with >= 6 calls",
+   "rule": "limit not set",
+   "result": "recorded (limit not set)"
+  },
+  {
+   "step": "Q0.3 conversion",
+   "value": "not measured here (no alignment record)",
+   "rule": "recorded only",
+   "result": "not measured"
+  },
+  {
+   "step": "Q0.6 duplicates",
+   "value": "not measured here (no alignment record)",
+   "rule": "recorded only",
+   "result": "not measured"
+  }
+ ],
+ "measured": {
+  "file": "GSM5652313_Blood-Granulocytes-Z000000TZ.hg38.pat.gz",
+  "complete": true,
+  "bad_lines": 0,
+  "lines": 104999003,
+  "molecules": 391140087,
+  "molecules_ge6": 29134289,
+  "calls": 948770201,
+  "opportunities": 189822237,
+  "out_of_range_lines": 42866672,
+  "first_bad": null,
+  "range_check": "hg19 chromosome index ranges",
+  "per_chrom_molecules": {
+   "chr1": 30823110,
+   "chr2": 32173826,
+   "chr3": 26057286,
+   "chr4": 24597535,
+   "chr5": 23473102,
+   "chr6": 22487698,
+   "chr7": 21146659,
+   "chr8": 19306488,
+   "chr9": 15680971,
+   "chr10": 18951332,
+   "chr11": 17713725,
+   "chr12": 17978791,
+   "chr13": 12667026,
+   "chr14": 11982429,
+   "chr15": 11485262,
+   "chr16": 13017280,
+   "chr17": 12348477,
+   "chr18": 10407203,
+   "chr19": 8671379,
+   "chr20": 9457618,
+   "chr21": 5732728,
+   "chr22": 5844716,
+   "chrX": 18502624,
+   "chrY": 539236,
+   "chrM": 93586
+  },
+  "share_ge6_calls": 0.0745
+ },
+ "refusal_code": "GENOME_BUILD_MISMATCH",
+ "refusal": "Q0.2 build: 42,866,672 lines outside their chromosome's hg19 index range (every line inside hg19 (wgbstools 0.1.0) ranges)",
+ "decision": "stop"
+}

@@ -1,0 +1,103 @@
+{
+ "stage": "Q0",
+ "status": "development - not commissioned",
+ "limits": {
+  "conversion_min": null,
+  "min_opportunities": 100000,
+  "share_ge6_calls_min": null,
+  "duplicate_fraction_max": null,
+  "_note": "development: conversion, read-length share and duplicate limits not set (DEV-IAMA-INTAKE-01: set on healthy files first)"
+ },
+ "checks": [
+  {
+   "step": "Q0.7 specimen",
+   "value": "blood granulocytes",
+   "rule": "purified neutrophils only (a position P exists for neutrophils)",
+   "result": "pass"
+  },
+  {
+   "step": "Q0.1 readable",
+   "value": "108,723,324 lines",
+   "rule": "decompresses to its end; 4 fields per line",
+   "result": "pass"
+  },
+  {
+   "step": "Q0.2 build",
+   "value": "0 lines outside their chromosome's hg19 index range",
+   "rule": "every line inside hg19 (wgbstools 0.1.0) ranges",
+   "result": "pass"
+  },
+  {
+   "step": "Q0.4 whole genome",
+   "value": "all 22 autosomes",
+   "rule": "P is measured on whole files: molecules on every autosome",
+   "result": "pass"
+  },
+  {
+   "step": "Q0.4 coverage",
+   "value": "195,159,014 interior calls on molecules with >= 6 calls",
+   "rule": "recorded; Stage Q itself requires >= 100,000 opportunities on qualifying molecules",
+   "result": "recorded"
+  },
+  {
+   "step": "Q0.5 read length",
+   "value": "0.0665 of molecules with >= 6 calls",
+   "rule": "limit not set",
+   "result": "recorded (limit not set)"
+  },
+  {
+   "step": "Q0.3 conversion",
+   "value": "not measured here (no alignment record)",
+   "rule": "recorded only",
+   "result": "not measured"
+  },
+  {
+   "step": "Q0.6 duplicates",
+   "value": "not measured here (no alignment record)",
+   "rule": "recorded only",
+   "result": "not measured"
+  }
+ ],
+ "measured": {
+  "file": "GSM5652314_Blood-Granulocytes-Z000000UD.pat.gz",
+  "complete": true,
+  "bad_lines": 0,
+  "lines": 108723324,
+  "molecules": 444565323,
+  "molecules_ge6": 29544058,
+  "calls": 1041978592,
+  "opportunities": 195159014,
+  "out_of_range_lines": 0,
+  "first_bad": null,
+  "range_check": "hg19 chromosome index ranges",
+  "per_chrom_molecules": {
+   "chr1": 35753648,
+   "chr2": 37927762,
+   "chr3": 30629827,
+   "chr4": 28673339,
+   "chr5": 27576246,
+   "chr6": 26086730,
+   "chr7": 24728622,
+   "chr8": 23149311,
+   "chr9": 18270409,
+   "chr10": 21580753,
+   "chr11": 20987064,
+   "chr12": 21128233,
+   "chr13": 15138282,
+   "chr14": 14215852,
+   "chr15": 13294234,
+   "chr16": 14575377,
+   "chr17": 13562590,
+   "chr18": 12239721,
+   "chr19": 9877923,
+   "chr20": 10372632,
+   "chr21": 6167758,
+   "chr22": 6185449,
+   "chrX": 11013989,
+   "chrY": 1315917,
+   "chrM": 113655
+  },
+  "share_ge6_calls": 0.0665
+ },
+ "decision": "proceed to Stage Q"
+}

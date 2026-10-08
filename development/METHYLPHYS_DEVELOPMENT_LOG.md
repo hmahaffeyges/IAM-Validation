@@ -332,3 +332,9 @@ the development band 0.751-1.409. Untared C still printed. Constructed check: th
   reads; strand from bwa-meth's YD tag; duplicate fraction from samtools flagstat on the Sambamba-marked BAM. Constructed check: 40 of 80
   CHH calls converted on each strand read as 40/40; CpG cytosines are not counted. The check caught a parsing bug (the strand tag kept its
   line ending), fixed before any real file.
+
+### 2026-10-08 · DEV-Q0-HEALTHY-01: Stage Q0 on real files
+\measured The three whole healthy Loyfer hg19 files pass Stage Q0 (0 lines outside hg19 ranges, 22 autosomes; share of molecules with ≥ 6
+CpG calls 0.0647 / 0.0665 / 0.0704). The real hg38 copy of one file stops with GENOME_BUILD_MISMATCH (42.9 of 105.0 million lines out of
+range). Limits decided before any test file: conversion ≥ 98 % (ENCODE); read length and duplicates recorded without a stop limit (reasons in
+`doors/DEV_Q0_HEALTHY_01.md`).
