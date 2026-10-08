@@ -34,7 +34,7 @@
    "definition_of_P": "per donor: H(mean eps of the other donors) / H(eps0); P = mean of the 3"
   }
  },
- "pipeline_note": "P is valid only for the pipeline it was measured on; any other read-level pipeline needs its own P from healthy cells of the type; P is valid only for whole-file readings (a reading over part of the genome reads other sites: DEV-IAMA-REAL-01 found the first 60 MB 3-6 % below the whole genome)",
+ "pipeline_note": "P is valid only for the pipeline it was measured on; any other read-level pipeline needs its own P from healthy cells of the type; P is valid only for whole-file readings (a reading over part of the genome reads other sites: DEV-IAMA-REAL-01: the copy error over the first 60 MB of each file is 4.7-6.6 % below the whole-file copy error, and the same healthy files read 1.034-1.063 whole against P measured on the first 60 MB)",
  "supersedes": {
   "iama_positions_v1": "P 1.099, measured on the first 60,000,000 bytes of each file (one stretch of chr1); kept as a record"
  },
