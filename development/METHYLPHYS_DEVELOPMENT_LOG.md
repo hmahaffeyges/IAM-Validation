@@ -361,3 +361,15 @@ This is the first adult EPIC mixture truth set (round 2 found none and used 450K
 ### 2026-10-09 · DEV-NEWLAB-GRAN-01: a new laboratory's healthy granulocytes (GSE226298)
 \measured Tared Met-A: 26 of 26 healthy controls Normal (median 1.001). Tared C-score: 23 of 26 inside the band set on 19 other series
 (bar 95 % not met; untared 13 of 26); the three outside are all low. The Met-A draft commissioning note now carries this as bars 10 and 11.
+
+### 2026-10-09 · Box Run 2 session 1 done; format check passed at the start of session 2
+- \measured bwa-meth hg19 + spike-in index built in 8,267 s (saved to S3 with the wgbstools hg19 references). 1M read pairs of SRR9888333
+  (150 bp, paired) aligned in 121 s on 24 threads (99.9 % mapped, 98.5 % properly paired).
+- Session 1 could not run its own format check (the bam2pat output folder did not exist and the script path was empty); both fixed. Session 2
+  ran it first on the same 1M-pair BAM: \measured 200,000 of 200,000 lines of our PAT file valid against the hg19 dictionary, same format as
+  the Loyfer file. **Pass.**
+- \observed Mean CpGs per PAT line: ours 3.08 (first 200,000 lines, chr1-5 at 0.1× depth) vs Loyfer 6.28 (first 200,000 lines, the start
+  of chr1). The two heads cover different regions, so this is not a like-for-like comparison; Stage Q0.5 records the share of molecules with
+  ≥ 6 calls on every file, and session 2 measures it per kit.
+- Box resized to m7a.32xlarge for session 2 (8 runs × 25M read pairs). First start stopped at the Sambamba version check (sambamba exits 1
+  when printing its version, which `pipefail` treated as a failure); fixed and relaunched within 12 minutes.
