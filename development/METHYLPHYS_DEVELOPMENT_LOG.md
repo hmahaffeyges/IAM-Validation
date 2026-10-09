@@ -637,3 +637,5 @@ taken from each paper before scoring.
 **Still needed for bars 1–2:** EPIC whole bloods with flow or differential counts, or physical mixes of purified blood cells, from a
 laboratory other than Salas (Dartmouth). Sample-field search of GEO (986 EPIC/450K samples with count fields) found none outside that
 group. Next: the same search on ArrayExpress and on EPIC v2 (GPL33022) series, and published papers' supplements.
+
+### 2026-10-09 · DEV-COMPOSITION-TRUTH-03 written before download (GSE224807 paired blood + sorted cells, lab-template truth)
