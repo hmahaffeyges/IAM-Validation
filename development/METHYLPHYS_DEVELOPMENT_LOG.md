@@ -588,3 +588,6 @@ same cells, Met-A departs further than IAM-A (fingerprint). Limits written now: 
 PrEC arrays are fewer than the three same-run references the tare needs, so Met-A can only be read as LNCaP ÷ PrEC (development);
 IAM-A has no measured P for prostate epithelium, so it too is read as LNCaP ÷ PrEC (the 4 PrEC WGBS runs give the same-run reference).
 Cell lines, not patients.
+
+### 2026-10-09 · DEV-SAM-LEVER-01 written before download (GSE77079; SAM down 74 %, predicted IAM-A 1.03–1.26)
+Bars, power and confounds in doors/DEV_SAM_LEVER_01.md. Box job when the box is next started.
