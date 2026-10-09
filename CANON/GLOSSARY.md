@@ -26,8 +26,8 @@ This file is the single source of truth for constants and names. To change a val
 | Met_A_floor_450K_neutrophil | None | bits | pending: v1.2 rebuild from purified 450K neutrophils (GSE88824, 8 donors) — to be frozen |
 | Met_A_site_rule | across-array SD <= 0.05; own mean beta 0.75-0.95 (methylated) or 0.05-0.25 (unmethylated); <= 3,000 sites per channel, most stable first | rule |  — Met-A reference floors v1.2 |
 | P_neutrophil_IAM_A | 1.1492 | dimensionless (H(eps_healthy) / H_ref) | mean over 3 Loyfer granulocyte donors of H(eps of the other donors)/H(eps0), WHOLE files (1.1396-1.1554, CV 1.2 %) — chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json (frozen 2026-10-08, whole files); valid for the loyfer_pat_v1 pipeline only |
-| H_ref_cell | 0.2043 | bits | H(eps0_meth): the healthy reference height, where healthy cells actually hold their methylated sites (56 healthy cell types) — PROC-CHANNEL-01; author ruling 2026-10-09 |
-| H_min_cell | 2.5e-08 | bits | H(1/(1+exp(M_cell))): the floor, where thermal kicks win against one full ATP per site (copy error 8.1e-10) — calculated from M_cell = 20.94; author ruling 2026-10-09 |
+| H_ref_cell | 0.2043 | bits | H(eps0_meth): the healthy reference height, where healthy cells actually hold their methylated sites (56 healthy cell types) — PROC-CHANNEL-01 (holding energy measured across 56 healthy cell types) |
+| H_min_cell | 2.5e-08 | bits | H(1/(1+exp(M_cell))): the floor, where thermal kicks win against one full ATP per site (copy error 8.1e-10) — calculated from M_cell = 20.94 |
 
 ## Names in use
 

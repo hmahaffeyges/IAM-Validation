@@ -136,13 +136,13 @@
    "value": 0.2043,
    "units": "bits",
    "derivation": "H(eps0_meth): the healthy reference height, where healthy cells actually hold their methylated sites (56 healthy cell types)",
-   "source": "PROC-CHANNEL-01; author ruling 2026-10-09"
+   "source": "PROC-CHANNEL-01 (holding energy measured across 56 healthy cell types)"
   },
   "H_min_cell": {
    "value": 2.5e-08,
    "units": "bits",
    "derivation": "H(1/(1+exp(M_cell))): the floor, where thermal kicks win against one full ATP per site (copy error 8.1e-10)",
-   "source": "calculated from M_cell = 20.94; author ruling 2026-10-09"
+   "source": "calculated from M_cell = 20.94"
   }
  },
  "names": {
