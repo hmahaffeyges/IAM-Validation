@@ -47,3 +47,10 @@ and the effect is not resolved: 5 K of body temperature across 44 mammals gives 
 slope. The data cannot exclude the IAM prediction (+1 %/K lies inside both intervals) and cannot confirm it. The bird–mammal gap (33–37 %)
 is far larger than temperature predicts and is a lineage difference. What would decide it: a wider temperature range within one lineage
 with the same tissue (fish at different water temperatures; hibernating vs active state of one species), read the same way.
+
+## Design check by simulation (2026-10-09, after the result; development)
+Measured spread of ln ε: between mammal species 0.26 (liver, after temperature); within one species 0.136 (median over species).
+Simulated with a true +1 %/K: today's design (44 species over 5.2 K) detects it with power **0.11** — it could not have decided.
+One species, same tissue: 2 groups × 10 animals 10 K apart 0.43; 4 temperatures × 6 over 20 K 0.65; **40 animals over 20 K 0.85**;
+torpid vs active, 8 + 8, 30 K 0.99 (caveat: copy errors arise at cell division, which slows in torpor). Requirement for the next data:
+one species, one tissue, ≥ 20 K and ≥ 40 animals (or a torpor contrast with dividing cells).

@@ -481,3 +481,9 @@ The record field `refusal` was empty for the unread arrays (the reason sits in M
 \measured Liver ρ 0.29 (p 0.028), heart ρ 0.12 (p 0.22): primary test (both tissues) not met; slopes +6.3 and +4.1 %/K with 95 % CIs
 that include the predicted +1 %/K and zero — not resolved over 5 K. Birds read 33–37 % above mammals (lineage). Next: a wider temperature
 range within one lineage (fish water temperature; hibernation). Reader matches a direct count exactly on constructed reads.
+
+### 2026-10-09 · Synthetic checks (author: "test first")
+\calculated (1) Derivation IAM-A -> Met-A: a synthetic patient read both ways caught an error — the first version assumed every added loss
+is one copy error; measured on real healthy molecules by Stage Q's rule only 0.53 of it is. Corrected table: Met-A moves 0.55-1.1 x as far
+from 1 as IAM-A; synthetic Met-A matches the curves within 0.001. (2) Temperature design: today's 44 species over 5 K had power 0.11 for
++1 %/K; one species over >= 20 K with >= 40 animals gives 0.85.
