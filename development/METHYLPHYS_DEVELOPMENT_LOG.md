@@ -391,3 +391,19 @@ counting noise. Proposed (author's decision): read the C-score over the 48,528 n
 \measured Same-person repeat noise of the C-score: 0.089 (blocks of 50, current), 0.071 (25), 0.043 (10). Clustered change detected 100 %
 at every block size; scattered change never above 1 + 3 × error. Correction: the tared repeat spread 0.138 includes the tare's own noise
 (untared 0.089), so the earlier "equals the sampling error" line was replaced. Proposed for the author: blocks of 10, then rerun steps 1-3.
+
+### 2026-10-09 · Box Run 2 session 2: IAM-A on another laboratory's healthy neutrophils, donor 6 (4 kits)
+25M read pairs per run, pinned Loyfer pipeline, Stage Q0, Stage Q (P v2 = 1.1492). Development readings.
+
+| run | kit / sequencer | conversion (lambda CHH) | duplicates | share ≥ 6 calls | IAM-A (halves) | ε | IAM-A C-score |
+|---|---|---|---|---|---|---|---|
+| SRR9888330 | Swift / NovaSeq | 0.983 | not recorded (fixed after this run) | 0.106 | **1.159** above Normal (1.160 / 1.157) | 0.0467 | 224 |
+| SRR9888331 | QIAseq / HiSeq X | **0.920** | 0.107 | 0.052 | stopped at Q0: QUARANTINE_CONVERSION (< 98 %) | – | – |
+| SRR9888332 | Swift / HiSeq X | 0.983 | 0.146 | 0.103 | **1.167** above Normal (1.168 / 1.167) | 0.0471 | 306 |
+| SRR9888333 | TruSeq / HiSeq X | 0.992 | 0.174 | 0.140 | **1.047 Normal** (1.046 / 1.048) | 0.0408 | 45 |
+
+\observed The same donor's neutrophils read Normal with TruSeq and 1.16-1.17 with Swift on both sequencers; the sequencer does not matter,
+the library kit does. Swift libraries carry a known artificial loss of methylation near one read end (the adaptase tail), which would add
+isolated "errors" at real methylated sites. Test planned (development): the same Swift and TruSeq BAMs through bam2pat with 0, 10 and 15 bp
+clipped from read ends — if clipping brings Swift down and leaves TruSeq unchanged, the kit effect is the read-end artefact.
+\measured Q0 stopped the QIAseq run on conversion (0.920), as designed.
