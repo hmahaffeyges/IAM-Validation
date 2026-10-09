@@ -492,3 +492,10 @@ from 1 as IAM-A; synthetic Met-A matches the curves within 0.001. (2) Temperatur
 \measured P_CD4 = 1.167 (Loyfer). Swift/TruSeq ratio CD4 1.109-1.116 vs neutrophils 1.112-1.115 (difference 0.001, bar 0.03, met); after
 the tare the kit gap is 0.002-0.004 (met). Cross-cell tare reads neutrophils 0.94 (0/6 Normal, not met): the CD4-to-neutrophil level differs
 ~6 % between laboratories. Conclusion: same-run references must be of the same cell type. Whole-blood test (same-type) next.
+
+### 2026-10-09 · Thermal-floor test across cell types withdrawn before running; fast Stage Q counter
+A proposed test ("no healthy cell type reads below ε₀ = 0.032") is not valid: ε₀'s height is the MEAN holding energy measured on Loyfer's
+56 cell types (PROC-CHANNEL-01, 3.41 ± 0.12 kT), whose copy errors span 0.024-0.042, so about half sit below it by construction. ε₀ is a
+calibrated reference height, not a lower bound. A physics-only height (e.g. from DNMT1's discrimination energy) is open, and would make the
+floor a prediction. `chain/pat_eps_fast.py`: Stage Q's whole-file ε streamed, identical to Stage Q on GSM5652279 (4,995,597 / 129,539,188;
+52 s vs ~20 min).
