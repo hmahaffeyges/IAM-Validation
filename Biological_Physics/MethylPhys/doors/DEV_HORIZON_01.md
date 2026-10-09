@@ -11,24 +11,22 @@ domain (an optimal reader; 1 bit = fully informative). Compared with readers tha
 Two holding mechanisms: independent sites, and cooperative holding (a site is held and restored better when its neighbours are
 methylated; neighbour cooperativity of maintenance is established in the literature).
 
-| s | independent: β | information | readable ≥ 80 % | cooperative: β | information | readable ≥ 60 % | ≥ 80 % |
-|---|---|---|---|---|---|---|---|
-| 1 | 0.96 | 1.00 | 0.96 | 0.99 | 1.00 | 1.00 | 1.00 |
-| 8 | 0.75 | 0.78 | 0.37 | 0.89 | 0.99 | 0.99 | 0.79 |
-| 12 | 0.67 | 0.47 | 0.19 | 0.81 | 0.91 | 0.95 | 0.52 |
-| 16 | 0.60 | 0.20 | 0.11 | 0.69 | 0.64 | 0.80 | 0.22 |
-| 18 | 0.57 | 0.11 | 0.08 | 0.62 | 0.38 | 0.63 | 0.09 |
-| 20 | 0.55 | 0.05 | 0.06 | **0.50** | **0.002** | **0.011** | **0.000** |
-Steady state reached (60 vs 240 divisions identical); no hysteresis (same β from methylated or unmethylated start).
+## Correction (same day): the sharp edge in the first version was a simulation artefact
+The first table used synchronous updates with rates allowed to reach probability 1 (at s = 20 with cooperativity 4, loss = 1.0 and
+restore capped at 1); sites then flip in lockstep, which produced the "collapse" and a negative neighbour correlation. Re-run with
+random-order sequential updates and rates capped at 0.95:
 
-**Findings.**
-1. **Independent holding: no horizon.** Information fades smoothly; the readable share falls at a point set by the reader's cutoff.
-   IAM-A's collapse in Simulation 2 is of this kind: an instrument edge.
-2. **Cooperative holding: a reader-independent edge.** Information stays near 1 bit, then collapses within one step of loss (s 18 → 20:
-   0.38 → 0.002 bits), at the same place for every reader, as the domain falls to β = 0.5 (maximal disorder, 1 bit of entropy per site).
-   Past it the information is gone from the molecule itself, not hidden from one reader.
-**Prediction (CONJECTURE, before any data).** If cells hold methylation cooperatively, tumour domains should be either near their healthy
-state or at β ≈ 0.5, with few in between, and the information-per-molecule of a domain should drop sharply, not smoothly, against its
-loss; the edge's position should not move with the reader's cutoff. If tumour domains fade smoothly, the cell has no horizon of this kind.
-**Next (simulate first).** Turn this into a region-level readout on tumour WGBS with matched normal (distribution of domain β and
-information against local loss), and its power, before choosing a data set.
+| model | what happens as loss rises | edge independent of reader? |
+|---|---|---|
+| independent sites | information fades smoothly (1.00, 0.77, 0.47, 0.20, 0.04 bits at s 4, 8, 12, 16, 20) | no |
+| neighbour cooperativity (linear, strength 1–8) | fades smoothly, slightly later; neighbour correlation +0.08 to +0.56; no hysteresis | no |
+| domain-wide nonlinear feedback (Dodd/Sneppen-type, strength 20) | steeper fade (0.93, 0.73, 0.53, 0.34, 0.16 bits at s 12–22); **memory**: same loss gives β 0.85 from a methylated start, 0.68 from an unmethylated start (s 18); molecules all-or-none (intermediate-molecule share 0.17 vs 0.44) | no cliff, but history-dependent state |
+
+**What survives.** No model gives a cliff in information that every reader sees. The horizon-like property that does appear is
+**memory**: with domain-wide feedback, a domain pushed into disorder does not come back when the push is removed, and its molecules are
+all-or-none. That is a measurable cell property.
+**Revised prediction (CONJECTURE).** (1) In pure cells, the share of intermediate molecules at a given domain β is depleted below the
+independent-site expectation. (2) Hysteresis: after a demethylating drug is withdrawn, an independent-site cell returns fully; a cell
+with domain-wide feedback leaves some domains permanently demethylated. Tumour bulk tissue cannot test (1): a mixture of normal and
+tumour cells also gives all-or-none molecules. Pure cells (cell lines, sorted cells) and drug-washout time series can.
+**Next (simulate first).** The washout design: doses, time points and molecule counts needed to separate full return from memory.
