@@ -2098,7 +2098,7 @@ def _b10_acc_C(isolated):
 
 _B10_Y = dict(chapter='ch:sky', part=6, file='part6/p6_16_sky')
 DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md'] = 'PROC-AML-SERIAL-01 outcome: bars S1-S5 (S5: same-person remission pairs)'   # 3 kB
-DATA_FILES['Biological_Physics/MethylPhys/doors/PLAN.md'] = 'order-of-work log, with the Stage 1 calibration record of E-MTAB-7309'
+DATA_FILES['Biological_Physics/MethylPhys/archive/docs_consolidated_2026-10-09/PLAN.md'] = 'order-of-work log, with the Stage 1 calibration record of E-MTAB-7309'
 
 # helpers of the part6/p6_17_serial checks
 def _b11_t2_A(group):
@@ -33413,10 +33413,10 @@ def check_4097():
 
 @check(label='ch:serial:L71', chapter='ch:serial', part=6, title='E-MTAB-7309 Stage 1: median call rate',
        file='part6/p6_17_serial', line=35, status='measured', kind='file', printed='0.894', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PLAN.md')
+       source='Biological_Physics/MethylPhys/archive/docs_consolidated_2026-10-09/PLAN.md')
 def check_4110():
     'Median call rate of the 1,056 E-MTAB-7309 arrays calibrated by Stage 1, read from the Stage 1 record in PLAN.md (2026-09-27 entry: "Call rate median ..."); the same record gives 738 of 1,056 below the 0.93 intake line. Book line 71, printed 0.894. Inputs: PLAN.md (no per-array call-rate file is committed).'
-    txt = file_text('Biological_Physics/MethylPhys/doors/PLAN.md')
+    txt = file_text('Biological_Physics/MethylPhys/archive/docs_consolidated_2026-10-09/PLAN.md')
     m = re.search(r'1,056 of 1,072 arrays calibrated.*?Call rate median ([0-9.]+); (\d+) of ([0-9,]+) below', txt)
     n_below, n_cal = int(m.group(2)), int(m.group(3).replace(',', ''))
     value = float(m.group(1))
@@ -40984,10 +40984,10 @@ def check_2873():
     return locals()
 
 @check(label='app:glossary:L251:1056', title='E-MTAB-7309 arrays calibrated', line=251, status='observed', kind='file', printed='1{,}056', tol=0.0,
-       source='Biological_Physics/MethylPhys/doors/PLAN.md', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+       source='Biological_Physics/MethylPhys/archive/docs_consolidated_2026-10-09/PLAN.md', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4830():
     'Number of E-MTAB-7309 arrays calibrated by Stage 1, from the Stage 1 record in PLAN.md (2026-09-27: 1,056 of 1,072 arrays calibrated; 738 of 1,056 below the 0.93 intake line). Book line 251, printed 1,056.'
-    m = re.search(r'([\d,]+) of ([\d,]+) arrays calibrated.*?(\d+) of ([\d,]+) below the 0\.93 intake line', file_text('Biological_Physics/MethylPhys/doors/PLAN.md'))
+    m = re.search(r'([\d,]+) of ([\d,]+) arrays calibrated.*?(\d+) of ([\d,]+) below the 0\.93 intake line', file_text('Biological_Physics/MethylPhys/archive/docs_consolidated_2026-10-09/PLAN.md'))
     n_below = int(m.group(3))
     value = int(m.group(1).replace(',', ''))
     return locals()
