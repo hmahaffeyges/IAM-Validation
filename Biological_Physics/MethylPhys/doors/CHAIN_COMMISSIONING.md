@@ -3,6 +3,18 @@
 **DEVELOPMENT - not commissioned.** Development mode (author ruling O): no sealed pre-registrations; each check was written in a dated `doors/DEV_*.md`
 note before the data were read and the outcome is under the line in the same note.
 
+## Round 4 (Box Run 1 completion and constructed checks, 2026-10-08/09)
+
+| Stage | Check | Result | Bar met |
+|---|---|---|---|
+| All test sets re-read with the adopted tare | Box Run 1 job B (2026-10-08, 5,006 s, exit 0) | 4,845 rows: 4,520 read, 129 stopped at intake, 196 without input. Healthy arrays with tared A: 541 in 18 series, **525 Normal (97.0 %)**, median 1.0001, 2.5-97.5 % 0.958-1.045. Every one of the 18 series has median 0.994-1.005 | yes (healthy specificity) |
+| Chain refusals on real data | job B | 242 healthy arrays read nothing, each with its named reason: sorted B/T/NK/monocyte/eosinophil/basophil cells, bone marrow, PBMC (no reference yet) and 72 EPIC v2 arrays | as designed |
+| Positive controls in the test sets | job B | none in scope: treated and myeloid sets are cell lines, bone marrow or have < 3 same-run references; infection set disease and healthy arrays on different slides; GSE118144 patient neutrophils 0.999 vs healthy 0.999 | not assessable |
+| Met-A sensitivity, constructed loss of pattern | DEV-METAA-SENS-01 | response matches the chain's own model (ratio 0.998 neutrophils, 1.043 blood); all arrays leave Normal at 2 % loss (neutrophils) and 5 % (blood) | 2 of 3 checks; check 3 (1 % loss) not met |
+| Composition, 12 constructed mixtures | Box Run 1 job E on GSE182379 (read; scoring against the series matrix to follow) | 18 of 18 arrays read | pending |
+| Met-A C-score band on held-out laboratories | job B | not assessable: the healthy series in job B that were not used to set the band are sorted non-neutrophil cells, bone marrow or PBMC, all refused before Met-A | not assessable |
+| Stage Q0 IAM-A intake | DEV-Q0-HEALTHY-01 | three healthy hg19 files proceed; the real hg38 copy stops (GENOME_BUILD_MISMATCH) | yes |
+
 ## Round 3 (Box Run 1, 2026-10-05)
 
 | stage / item | check (note) | result | wired |

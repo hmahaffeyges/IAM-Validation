@@ -338,3 +338,16 @@ the development band 0.751-1.409. Untared C still printed. Constructed check: th
 CpG calls 0.0647 / 0.0665 / 0.0704). The real hg38 copy of one file stops with GENOME_BUILD_MISMATCH (42.9 of 105.0 million lines out of
 range). Limits decided before any test file: conversion ≥ 98 % (ENCODE); read length and duplicates recorded without a stop limit (reasons in
 `doors/DEV_Q0_HEALTHY_01.md`).
+
+### 2026-10-09 · Box Run 1 job B complete; job E read the 12 mixtures
+\measured Job B finished (exit 0, 83 min) and job E read all 18 composition arrays (6 FACS bloods, 12 constructed mixtures). On the 541
+healthy arrays that reach a tared Met-A, 525 read Normal (97.0 %), median 1.0001; all 18 series have medians 0.994-1.005. 242 healthy
+arrays are refused before reading, each with its reason (cells without a reference, bone marrow, PBMC, EPIC v2). No in-scope real positive
+control exists in the test sets, and the C-score band cannot be checked on new laboratories yet (every held-out healthy series is refused
+before Met-A). Table: `doors/CHAIN_COMMISSIONING.md` round 4.
+
+### 2026-10-09 · DEV-METAA-SENS-01: Met-A responds to a constructed loss of pattern
+\measured A known loss of the neutrophil pattern, put into real healthy arrays and run through the whole chain, moves tared Met-A by what the
+chain's own model predicts (ratio 0.998 purified neutrophils; 1.043 whole blood). Every array leaves Normal at a 2 % loss (neutrophils) and a
+5 % loss (whole blood). The written bar for a 1 % loss (≥ 95 % leave Normal) is not met (0.875 and 0.083); it was set at the band edge and
+stays recorded as not met.
