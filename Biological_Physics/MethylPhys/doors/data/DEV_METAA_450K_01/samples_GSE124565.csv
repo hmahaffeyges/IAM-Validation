@@ -1,0 +1,23 @@
+gsm,title,src,characteristics,key,gpl
+GSM3536858,APS_NEU_1,Neutrophil DNA,cell type: Neutrophil | disease status: APS | Sex: F | age: 33,GSM3536858_3999543043_R01C01,GPL13534
+GSM3536859,APS_NEU_5,Neutrophil DNA,cell type: Neutrophil | disease status: APS | Sex: M | age: 37,GSM3536859_3999543043_R04C01,GPL13534
+GSM3536860,APS_NEU_7,Neutrophil DNA,cell type: Neutrophil | disease status: APS | Sex: F | age: 28,GSM3536860_3999543043_R05C01,GPL13534
+GSM3536861,APS_NEU_3,Neutrophil DNA,cell type: Neutrophil | disease status: APS | Sex: F | age: 40,GSM3536861_3999543043_R06C01,GPL13534
+GSM3536862,APS_NEU_2,Neutrophil DNA,cell type: Neutrophil | disease status: APS | Sex: M | age: 67,GSM3536862_3999543043_R01C02,GPL13534
+GSM3536863,APS_NEU_9,Neutrophil DNA,cell type: Neutrophil | disease status: APS | Sex: F | age: 40,GSM3536863_3999543043_R02C02,GPL13534
+GSM3536864,APS_NEU_4,Neutrophil DNA,cell type: Neutrophil | disease status: APS | Sex: M | age: 61,GSM3536864_3999543043_R03C02,GPL13534
+GSM3536865,APS_NEU_6,Neutrophil DNA,cell type: Neutrophil | disease status: APS | Sex: M | age: 36,GSM3536865_3999543043_R04C02,GPL13534
+GSM3536866,APS_NEU_8,Neutrophil DNA,cell type: Neutrophil | disease status: APS | Sex: M | age: 52,GSM3536866_3999543043_R05C02,GPL13534
+GSM3536867,APS_NEU_10,Neutrophil DNA,cell type: Neutrophil | disease status: APS | Sex: F | age: 42,GSM3536867_3999543043_R06C02,GPL13534
+GSM3536868,CON_NEU_86,Neutrophil DNA,cell type: Neutrophil | disease status: healthy | Sex: F | age: 32,GSM3536868_3999543054_R01C01,GPL13534
+GSM3536869,CON_NEU_87,Neutrophil DNA,cell type: Neutrophil | disease status: healthy | Sex: F | age: 26,GSM3536869_3999543054_R02C01,GPL13534
+GSM3536870,CON_NEU_84,Neutrophil DNA,cell type: Neutrophil | disease status: healthy | Sex: F | age: 56,GSM3536870_3999543054_R03C01,GPL13534
+GSM3536871,CON_NEU_81,Neutrophil DNA,cell type: Neutrophil | disease status: healthy | Sex: M | age: 41,GSM3536871_3999543054_R04C01,GPL13534
+GSM3536872,CON_NEU_88,Neutrophil DNA,cell type: Neutrophil | disease status: healthy | Sex: F | age: 26,GSM3536872_3999543054_R05C01,GPL13534
+GSM3536873,CON_NEU_85,Neutrophil DNA,cell type: Neutrophil | disease status: healthy | Sex: F | age: 40,GSM3536873_3999543054_R06C01,GPL13534
+GSM3536874,CON_NEU_96,Neutrophil DNA,cell type: Neutrophil | disease status: healthy | Sex: M | age: 67,GSM3536874_3999543054_R01C02,GPL13534
+GSM3536875,CON_NEU_89,Neutrophil DNA,cell type: Neutrophil | disease status: healthy | Sex: F | age: 39,GSM3536875_3999543054_R02C02,GPL13534
+GSM3536876,CON_NEU_91,Neutrophil DNA,cell type: Neutrophil | disease status: healthy | Sex: M | age: 59,GSM3536876_3999543054_R03C02,GPL13534
+GSM3536877,CON_NEU_72,Neutrophil DNA,cell type: Neutrophil | disease status: healthy | Sex: M | age: 37,GSM3536877_3999543054_R04C02,GPL13534
+GSM3536878,CON_NEU_90,Neutrophil DNA,cell type: Neutrophil | disease status: healthy | Sex: M | age: 57,GSM3536878_3999543054_R05C02,GPL13534
+GSM3536879,CON_NEU_94,Neutrophil DNA,cell type: Neutrophil | disease status: healthy | Sex: F | age: 39,GSM3536879_3999543054_R06C02,GPL13534

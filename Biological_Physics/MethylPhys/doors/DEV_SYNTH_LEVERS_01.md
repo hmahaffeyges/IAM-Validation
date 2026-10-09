@@ -83,10 +83,11 @@ sites (max 10,889) and GSE224807 at up to 28,006: laboratory differences swamp a
 **Against same-run healthy references (leave-one-out within GSE124565, 12 arrays):**
 | cut | healthy load | 300 sites, Δβ 0.2 | 300 sites, Δβ 0.1 | 1,000 sites, Δβ 0.1 |
 |---|---|---|---|---|
-| 5 | 360–1,208 | 2/12 | — | — |
+| 5 | 360–1,208 | 3/12 | — | — |
 | 6 | 245–672 | 3/12 | — | — |
 | 8 | 150–302 | 12/12 | 10/12 | 12/12 |
-| 10 | 113–186 | 12/12 | 10/12 | 12/12 |
+| 10 | 113–186 | 12/12 | 9/12 | 12/12 |
+Reproduce: `doors/data/DEV_METAA_450K_01/metaa_450k_01.py` (the signature's random sites fixed by seed; cells at the edge move by one array).
 **What it sets.** The reading works only against same-run healthy references (the Stage T rule again), with a strict cut. The cut (8)
 was chosen on these 12 arrays, so it is a development value: it must hold on a laboratory not used to choose it (false-trigger rate on
 its healthy arrays, then a constructed signature), before any disease is read with it. Synthetic signatures are random sites; real

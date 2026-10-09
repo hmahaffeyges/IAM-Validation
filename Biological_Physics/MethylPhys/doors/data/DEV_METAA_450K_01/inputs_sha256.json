@@ -1,0 +1,6 @@
+{
+ "results/K450_COMMISSION/betas_GSE224807_NS_CD15.parquet": "105b15d2913dbd0fbc01eb71f59f2c2c922ad3de5aa7914c10120b0b94d83ac8",
+ "reference/manifests/HumanMethylation450k_15017482_v3.csv.gz": "b40e210bc4bdfd5cfcc8dd2a3a0119fd297079a9b77092703edafb32534ffd9c",
+ "results/K450_COMMISSION/betas_GSE88824.parquet": "292fad5dded9bc21c964721910a46e6bcd56e5f1e47289f758f6d9299be5c4be",
+ "results/K450_COMMISSION/betas_GSE124565.parquet": "764e74e47ab25cc23e211cd5cf446afb6c0780a954ebe9baed0769af0a7faf80"
+}

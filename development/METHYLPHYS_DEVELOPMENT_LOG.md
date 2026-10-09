@@ -653,3 +653,6 @@ Next: each analysis run only in a notebook gets a committed script that reruns t
 
 ### 2026-10-09 · Atlas and fingerprint simulations as committed scripts
 `development/sims/atlas_sims_01.py` (atlas blocks by checksum) and `fingerprint_power_01.py` rerun from the repo; notes now carry the scripts' values (last-digit differences from the notebook runs: lavage with lab offset 0.013 vs 0.010–0.012, 299/300 within 0.05; own-cell lab-template truth 0.003–0.005, max 0.013; fingerprint 58 %/87 % vs 59/88). No decision changes.
+
+### 2026-10-09 · 450K analysis as a committed script
+`doors/data/DEV_METAA_450K_01/metaa_450k_01.py`, inputs pinned by sha256 (GSE224807 CD15 betas and the 450K manifest uploaded to S3 for this). Reproduced exactly: identity sites 6,000, healthy reference 0.32581, held-out 0.0336 raw and 0.0177 tared, 12/12 Normal (0.983–1.028), detection 1/2/3 %, 43 of 64 on GSE224807, slide pairs 0.013 vs 0.051, PC1 r 0.89, deviation loads 6,990/10,889/28,006, z>8 12/12 and 10/12. Two edge cells of the deviation table move by one array with the fixed seed (z>5 3/12, z>10 at Δβ 0.1 9/12); no decision changes.

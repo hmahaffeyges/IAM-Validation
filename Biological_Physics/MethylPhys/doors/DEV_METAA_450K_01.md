@@ -62,3 +62,7 @@ of the variance and tracks the reading (r = 0.89), and it lowers the methylated 
 1–2 neutrophil arrays per slide), the series-level tare cannot remove a slide offset. 450K Met-A stays development. Rule to test before
 use: a 450K reading needs ≥ 3 same-cell-type healthy references on its own slide (the EPIC Stage T rule). Next: a third laboratory with
 same-slide healthy neutrophils, scored by bars 1–3 as written; APS and the disease readings wait on it.
+
+**Reproduce (2026-10-09):** `doors/data/DEV_METAA_450K_01/metaa_450k_01.py` rebuilds every 450K number above from pinned inputs
+(`inputs_sha256.json`; sample sheets `samples_GSE*.csv`). Held-out after self-tare 0.0177 (0.976–1.028) reproduced exactly; with the
+anchors also held out (stricter) 0.0170 (0.977–1.031), so bar 1 holds either way.
