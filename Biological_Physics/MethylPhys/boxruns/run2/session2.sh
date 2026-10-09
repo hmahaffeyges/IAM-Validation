@@ -19,8 +19,8 @@ REF=$S/ref/hg19_lambda_puc19.fa
 [ -s $REF.bwameth.c2t.sa ] || fin FAIL_no_index_run_session1_first
 for t in bwameth.py samtools sambamba wgbstools fastq-dump; do command -v $t >/dev/null || fin FAIL_missing_$t; done
 samtools --version | head -1 | grep -q " 1\.9" || fin FAIL_samtools_not_1.9
-sambamba --version 2>&1 | grep -q "0\.6\.5" || fin FAIL_sambamba_not_0.6.5
-{ bwameth.py --version 2>&1 | head -1; samtools --version | head -1; sambamba --version 2>&1 | grep -m1 sambamba; echo "wgbstools $(git -C $S/wgbs_tools describe --tags)"; } > $O/versions.txt
+SBV=$(sambamba 2>&1 || true); echo "$SBV" | grep -q "sambamba 0\.6\.5" || fin FAIL_sambamba_not_0.6.5   # sambamba exits 1 when printing its version; pipefail would fail the check
+{ bwameth.py --version 2>&1 | head -1; samtools --version | head -1; echo "$SBV" | grep -m1 sambamba; echo "wgbstools $(git -C $S/wgbs_tools describe --tags)"; } > $O/versions.txt
 cd $REPO && git pull -q origin main && git log --oneline -1 > $O/repo_commit.txt; cd $S
 
 log "STEP format check first (session 1's 1M-pair BAM of SRR9888333; session 1 could not run it: output folder and script path)"
