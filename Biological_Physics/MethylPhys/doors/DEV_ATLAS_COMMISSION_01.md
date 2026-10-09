@@ -32,11 +32,12 @@ interstitial macrophages, monocytes, CD4, CD8, B, NK, neutrophils, eosinophils, 
 from a 400-cell differential. Solver: non-negative least squares on posterior means (a stand-in; the real reading uses atlas_e).
 | conditions | neutrophil MAE vs truth | MAE vs the count | within 0.05 of the count |
 |---|---|---|---|
-| array SD 0.02 | 0.004 | 0.010 | 299/300 |
-| array 0.04, person 0.02 | 0.005 | 0.011 | 300/300 |
-| array 0.06, person 0.04 | 0.006 | 0.010 | 300/300 |
-| + random per-site lab offset SD 0.02–0.06 | — | 0.010–0.012 | 300/300 |
-| + methylated-channel shift 3–10 % | — | 0.010–0.011 | 300/300 |
+| array SD 0.02 | 0.004 | 0.010 | 300/300 |
+| array 0.04, person 0.02 | 0.005 | 0.011 | 299/300 |
+| array 0.06, person 0.04 | 0.006 | 0.011 | 299/300 |
+| + random per-site lab offset SD 0.06 | 0.010 | 0.013 | 299/300 |
+| + methylated-channel shift 10 % | 0.005 | 0.011 | 299/300 |
+Reproduce: `development/sims/atlas_sims_01.py` (60 atlas blocks, checksums in `atlas_blocks_60.json`).
 The count's own error (binomial, 400 cells) is most of the 0.010; bar 1 (MAE ≤ 0.02, every sample within 0.05) is reachable. Simulation is
 optimistic: EPIC probe overlap with the atlas loci, atlas_e's own solver, and cell states in disease (MS, beryllium disease) not modelled.
 **How it counts (most defensible):** lavage is lung, not blood. A pass is independent-laboratory evidence that atlas v2 measures

@@ -8,8 +8,8 @@ for the same people, whole blood and six sorted cell types (CD14, CD15, CD19, CD
 type over all its people (self-tared betas, the chain's Stage 1 calibration). Each whole blood is fitted to that template (non-negative
 least squares, fractions summed to 1, the most cell-informative 6,000 sites of the template). The laboratory's offsets are shared by
 truth and blood. Simulated before download (atlas v2 draws as people, person spread 0.02, sort purity 93–99 %, array noise 0.02–0.06):
-truth error for the neutrophil fraction 0.004–0.005 mean, 0.014 at most — four times tighter than bar 1. (Using each person's own six
-arrays instead gives 0.017 at array noise 0.04, biased low by noise in the templates; not used.)
+truth error for the neutrophil fraction 0.003–0.005 mean, 0.013 at most (`development/sims/atlas_sims_01.py`) — four times tighter than bar 1. (Using each person's own six
+arrays instead gives 0.018 at array noise 0.04, biased low by noise in the templates; not used.)
 
 **Reading.** atlas_e unchanged (chain/dev_stages.py, IAMAtlas_v2.parquet) on each whole blood, 450K sites present; and the current
 blood_composition_EPIC_v1 for bar 2. Neutrophil fraction = CD15 (granulocytes; this laboratory sorts CD15, so eosinophils sit inside the

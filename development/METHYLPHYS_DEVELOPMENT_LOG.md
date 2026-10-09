@@ -602,7 +602,7 @@ references. Simulate first: atlas mixtures at the counted fractions plus the per
 **Cancer both ways (GSE86833) — reference upgrade:** prostate epithelium is IN atlas v2 (4 Loyfer WGBS), so Met-A has prostate identity
 sites, and the 4 Loyfer prostate .pat files can measure IAM-A's own position P for prostate epithelium (box job). Simulated resolving
 power of the both-ways test (2 arrays and 4 runs per side; Met-A held-out spread 0.020, IAM-A repeat 0.009; curve B slope 1.17):
-an excess of Met-A above curve B of 0.04 is detected 59 %, 0.06 88 %, 0.10 100 %; false call 5 %.
+an excess of Met-A above curve B of 0.04 is detected 58 %, 0.06 87 %, 0.10 100 %; false call 5 % (`development/sims/fingerprint_power_01.py`).
 **EPIC Met-A repeatability, new laboratory: GSE247198** EPIC neutrophils, 2 people × 24 arrays across one day with technical repeats,
 6 slides (its 450K half is neutrophil-depleted blood, not usable for DEV-METAA-450K-01). Healthy only; a further-laboratory check of the
 commissioned EPIC Met-A (Normal, repeat spread), and a time-of-day reading.
@@ -614,11 +614,12 @@ interstitial macrophages, monocytes, CD4, CD8, B, NK, neutrophils, eosinophils, 
 from a 400-cell differential. Solver: non-negative least squares on posterior means (a stand-in; the real reading uses atlas_e).
 | conditions | neutrophil MAE vs truth | MAE vs the count | within 0.05 of the count |
 |---|---|---|---|
-| array SD 0.02 | 0.004 | 0.010 | 299/300 |
-| array 0.04, person 0.02 | 0.005 | 0.011 | 300/300 |
-| array 0.06, person 0.04 | 0.006 | 0.010 | 300/300 |
-| + random per-site lab offset SD 0.02–0.06 | — | 0.010–0.012 | 300/300 |
-| + methylated-channel shift 3–10 % | — | 0.010–0.011 | 300/300 |
+| array SD 0.02 | 0.004 | 0.010 | 300/300 |
+| array 0.04, person 0.02 | 0.005 | 0.011 | 299/300 |
+| array 0.06, person 0.04 | 0.006 | 0.011 | 299/300 |
+| + random per-site lab offset SD 0.06 | 0.010 | 0.013 | 299/300 |
+| + methylated-channel shift 10 % | 0.005 | 0.011 | 299/300 |
+Reproduce: `development/sims/atlas_sims_01.py` (60 atlas blocks, checksums in `atlas_blocks_60.json`).
 The count's own error (binomial, 400 cells) is most of the 0.010; bar 1 (MAE ≤ 0.02, every sample within 0.05) is reachable. Simulation is
 optimistic: EPIC probe overlap with the atlas loci, atlas_e's own solver, and cell states in disease (MS, beryllium disease) not modelled.
 **How it counts (most defensible):** lavage is lung, not blood. A pass is independent-laboratory evidence that atlas v2 measures
@@ -649,3 +650,6 @@ Next: each analysis run only in a notebook gets a committed script that reruns t
 
 ### 2026-10-09 · Lever simulations as committed scripts
 `development/sims/sam_lever_01.py` and `hibernation_01.py` rerun from the repo alone. Two logged ranges corrected to the scripts: SAM power at twice the same-lab spread 0.31–1.00 (was 0.52–0.98, taken from 5 of the 9 cases); torpor residual power 0.05–0.08 (was 0.06–0.07, simulation noise). No decision changes.
+
+### 2026-10-09 · Atlas and fingerprint simulations as committed scripts
+`development/sims/atlas_sims_01.py` (atlas blocks by checksum) and `fingerprint_power_01.py` rerun from the repo; notes now carry the scripts' values (last-digit differences from the notebook runs: lavage with lab offset 0.013 vs 0.010–0.012, 299/300 within 0.05; own-cell lab-template truth 0.003–0.005, max 0.013; fingerprint 58 %/87 % vs 59/88). No decision changes.

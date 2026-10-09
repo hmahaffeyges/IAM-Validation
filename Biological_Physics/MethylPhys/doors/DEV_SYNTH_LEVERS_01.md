@@ -131,7 +131,7 @@ references. Simulate first: atlas mixtures at the counted fractions plus the per
 **Cancer both ways (GSE86833) — reference upgrade:** prostate epithelium is IN atlas v2 (4 Loyfer WGBS), so Met-A has prostate identity
 sites, and the 4 Loyfer prostate .pat files can measure IAM-A's own position P for prostate epithelium (box job). Simulated resolving
 power of the both-ways test (2 arrays and 4 runs per side; Met-A held-out spread 0.020, IAM-A repeat 0.009; curve B slope 1.17):
-an excess of Met-A above curve B of 0.04 is detected 59 %, 0.06 88 %, 0.10 100 %; false call 5 %.
+an excess of Met-A above curve B of 0.04 is detected 58 %, 0.06 87 %, 0.10 100 %; false call 5 % (`development/sims/fingerprint_power_01.py`).
 **EPIC Met-A repeatability, new laboratory: GSE247198** EPIC neutrophils, 2 people × 24 arrays across one day with technical repeats,
 6 slides (its 450K half is neutrophil-depleted blood, not usable for DEV-METAA-450K-01). Healthy only; a further-laboratory check of the
 commissioned EPIC Met-A (Normal, repeat spread), and a time-of-day reading.
