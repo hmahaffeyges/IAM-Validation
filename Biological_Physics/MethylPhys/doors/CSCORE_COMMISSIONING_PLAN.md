@@ -52,13 +52,26 @@ arrays that already sat near the lower edge (0.77-0.83 unchanged).
 **Step 3 — repeatability (GSE250556, 4 people × 15-16 arrays).** Within-person SD of tared C **0.138**; healthy SD across all
 laboratories 0.175; ratio **0.79 (bar ≤ 0.5): not met.**
 
-## Diagnosis
-\calculated The C-score is a variance of block means taken over 6,000 sites / 50 per block = **120 blocks**. A variance estimated from
-n = 120 values has a relative sampling error of √(2 / (n − 1)) = **0.130**. The measured same-person spread is 0.138. The healthy band is
-therefore set almost entirely by the statistic's own counting noise, not by cells or laboratories: that is why it is wide (±40 %), why a
-new laboratory's misses fall at random on its edges, and why step 3 fails. The tare cannot remove this; only more blocks can.
+## Diagnosis (corrected 2026-10-09 after the block-size test below)
+\calculated The C-score is a variance of block means over 6,000 sites / 50 per block = **120 blocks**; a variance estimated from 120 values
+has a relative sampling error of up to √(2 / 119) = 0.130. \measured On the same-person replicates the untared C varies by 0.089 within a
+person; the tared C by 0.138, so roughly half of the tared spread is the tare's own noise (dividing by a median of a few references that
+carry the same counting noise). Both come from the small number of blocks. Earlier wording that the replicate spread "equals" 0.130 was
+wrong and is replaced by this paragraph.
+
+## Development test: block size (2026-10-09, same data; the chain is unchanged)
+| block (sites) | blocks | expected error √(2/(n−1)) | measured within-person SD (untared, 63 arrays, 4 people) | clustered loss (stretches of 10 or 50 sites, F 10 %, loss 10 %) above 1 + 3 × error | scattered loss above 1 + 3 × error |
+|---|---|---|---|---|---|
+| 50 (current) | 120 | 0.130 | 0.089 | 100 % / 100 % | 0 % / 0 % |
+| 25 | 240 | 0.091 | 0.071 | 100 % / 100 % | 0 % / 0 % |
+| 10 | 600 | 0.058 | **0.043** | 100 % / 100 % | 0 % / 0 % |
+
+\measured Blocks of 10 halve the repeat noise and still detect clustered change every time, with no scattered false alarms (60 constructed
+readings per cell of the table, 12 healthy purified-neutrophil arrays). Files: `data/CSCORE_COMMISSIONING/cscore_blocks_*.csv`.
 
 ## Proposed next step (for the author)
-Read the C-score over more sites so it has many more blocks — for example the 48,528 noise sites the chain already measures, in genomic
-order: ≈ 970 blocks of 50, expected sampling error √(2/969) = 0.045, about a third of today's. Then steps 1-3 rerun unchanged on that
-version. This changes which sites the C-score reads (a method change), so it waits for the author's decision.
+1. Change the C-score block from 50 to 10 sites (a method change, so the author decides). The healthy baseline is re-measured the same way
+   it was (the 6 Salas reference neutrophils, leave-one-out), nothing fitted.
+2. Rerun steps 1-3 with blocks of 10 on every healthy array (one short box job: job C again with the new block), with the same bars.
+3. If the tare still adds noise there, read the C-score against the healthy baseline directly (untared) where the tare's references are
+   fewer than 6; this is tested in the same run.

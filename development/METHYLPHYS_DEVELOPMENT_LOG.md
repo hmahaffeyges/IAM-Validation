@@ -386,3 +386,8 @@ laboratory 84 % (bar 85 %). Positive control: clustered loss reads above the ban
 scattered loss stays inside 97.5 % (neutrophils) / 88.3 % (whole blood). Same-person replicate spread 0.138 vs healthy 0.175 (bar ≤ half).
 \calculated The replicate spread equals the sampling error of a variance over 120 blocks, √(2/119) = 0.130: the band is the statistic's own
 counting noise. Proposed (author's decision): read the C-score over the 48,528 noise sites (≈ 970 blocks, expected error 0.045), then rerun.
+
+### 2026-10-09 · C-score block size (development test; chain unchanged)
+\measured Same-person repeat noise of the C-score: 0.089 (blocks of 50, current), 0.071 (25), 0.043 (10). Clustered change detected 100 %
+at every block size; scattered change never above 1 + 3 × error. Correction: the tared repeat spread 0.138 includes the tare's own noise
+(untared 0.089), so the earlier "equals the sampling error" line was replaced. Proposed for the author: blocks of 10, then rerun steps 1-3.
