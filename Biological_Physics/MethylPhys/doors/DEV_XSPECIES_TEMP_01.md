@@ -29,3 +29,21 @@ qualifying molecules; a run with < 20,000 qualifying molecules is not read. Per 
 4. **Secondary:** birds (body temperature ~40–42 °C, literature, not AnAge) against mammals, per tissue — only one contrast between two
    lineages, so it cannot separate temperature from lineage; recorded only.
 **Not done here:** fish (no body or water temperatures in AnAge yet; FishBase later).
+
+---
+## Results (2026-10-09; nothing above the line changed)
+1,001 liver/heart runs read (mammals and birds), 1,000 with ≥ 20,000 qualifying molecules (median 792,614). Per-species table:
+`data/DEV_XSPECIES_TEMP_01/species_tissue_eps.csv`; figure `fig_xspecies_temp.png`. Median ε 0.041 in mammal liver and heart.
+
+| test | bar | liver (44 species) | heart (43 species) | met |
+|---|---|---|---|---|
+| 1. ρ(Tb, ε) > 0 one-sided p < 0.05, in BOTH tissues | both | ρ 0.29, **p 0.028** | ρ 0.12, p 0.22 | **no** (liver only) |
+| 2. slope of ln ε on Tb within +0.5 to +2 %/K | both | +6.3 %/K (95 % CI −0.4 to +12.9) | +4.1 %/K (−1.5 to +9.7) | **no** (point estimates larger; CIs include the predicted +1 %) |
+| 3. controlling for longevity, body mass, molecule count | recorded | +5.5 %/K, p 0.15 | +3.5 %/K, p 0.21 | – |
+| 4. birds vs mammals | recorded | birds 1.33 × mammals | birds 1.37 × | – (lineage, not temperature: +1 %/K predicts ≈ +3 %) |
+
+\measured The direction is the predicted one in both tissues and significant in liver alone; the primary test (both tissues) is not met,
+and the effect is not resolved: 5 K of body temperature across 44 mammals gives a confidence interval ten times wider than the predicted
+slope. The data cannot exclude the IAM prediction (+1 %/K lies inside both intervals) and cannot confirm it. The bird–mammal gap (33–37 %)
+is far larger than temperature predicts and is a lineage difference. What would decide it: a wider temperature range within one lineage
+with the same tissue (fish at different water temperatures; hibernating vs active state of one species), read the same way.

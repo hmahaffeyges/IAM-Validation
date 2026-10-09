@@ -476,3 +476,8 @@ unmethylated, not a methylated spike: no internal technical standard there (DEV-
 20 read, untared A 0.933-1.066 (median 1.014); one remission blood (Patient 7, Rm2, fraction 0.06)
 not read. Without healthy references from this run no state is given, and diagnosis cannot be compared with remission on neutrophils.
 The record field `refusal` was empty for the unread arrays (the reason sits in Met-A's state text); the script will copy the state next time.
+
+### 2026-10-09 · DEV-XSPECIES-TEMP-01: copy error vs body temperature across 44 mammal species (RRBS, reference-free reader)
+\measured Liver ρ 0.29 (p 0.028), heart ρ 0.12 (p 0.22): primary test (both tissues) not met; slopes +6.3 and +4.1 %/K with 95 % CIs
+that include the predicted +1 %/K and zero — not resolved over 5 K. Birds read 33–37 % above mammals (lineage). Next: a wider temperature
+range within one lineage (fish water temperature; hibernation). Reader matches a direct count exactly on constructed reads.
