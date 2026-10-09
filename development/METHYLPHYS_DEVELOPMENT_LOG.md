@@ -357,3 +357,7 @@ stays recorded as not met.
 whole blood, is recovered within 0.02 by both methods (RMSE atlas_e 0.014, chain composition 0.019). atlas_e meets 6 of 8 groups
 (eosinophils 0.034, CD8 T 0.056 outside); the chain's 8-group composition meets 5 of 8 (basophils, B, CD8 T just outside, 0.030-0.032).
 This is the first adult EPIC mixture truth set (round 2 found none and used 450K). Files: `doors/data/DEV_METAA_SENS_01/jobE_*`.
+
+### 2026-10-09 · DEV-NEWLAB-GRAN-01: a new laboratory's healthy granulocytes (GSE226298)
+\measured Tared Met-A: 26 of 26 healthy controls Normal (median 1.001). Tared C-score: 23 of 26 inside the band set on 19 other series
+(bar 95 % not met; untared 13 of 26); the three outside are all low. The Met-A draft commissioning note now carries this as bars 10 and 11.

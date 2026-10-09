@@ -1,0 +1,24 @@
+{
+ "n_healthy": 26,
+ "n_patient": 39,
+ "errors": 0,
+ "healthy_A_tared_n": 26,
+ "healthy_normal": 26,
+ "healthy_A_tared_median": 1.0010417336008546,
+ "healthy_A_tared_q": [
+  0.974230912686199,
+  1.030315560826823
+ ],
+ "healthy_C_rel_n": 26,
+ "healthy_C_in_band": 23,
+ "healthy_C_rel_q": [
+  0.6988722354820122,
+  1.0311789542059109,
+  1.2948647660818713
+ ],
+ "healthy_C_untared_in_band": 13,
+ "healthy_gate_withheld": 0,
+ "patient_A_tared_median": 1.0082500242647772,
+ "patient_normal": 38,
+ "patient_n_tared": 38
+}

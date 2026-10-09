@@ -20,11 +20,12 @@ trace/foreign cells (3b/3c), other cell types, EPIC v2, IAM-A.
 | 7 | Neutrophil fraction in whole blood recovered within RMSE 0.02 (DEV-NILC-01) | 0.019 chain composition, 0.014 atlas_e, 12 EPIC mixtures from another laboratory (GSE182379); FACS bloods 0.007-0.031 by group (GSE112618) | yes |
 | 8 | Met-A responds to a known loss of pattern by the amount the model predicts (DEV-METAA-SENS-01, checks 1-2) | ratio 0.998 (neutrophils), 1.043 (whole blood) | yes |
 | 9 | ≥ 95 % leave Normal at a 1 % loss (DEV-METAA-SENS-01, check 3) | 0.875 neutrophils, 0.083 whole blood; 100 % at 2 % (neutrophils) and 5 % (whole blood) | **no** |
-| 10 | C-score healthy band (0.751-1.409, tared) holds on laboratories not used to set it | not assessable: no held-out healthy neutrophil or whole-blood EPIC v1 series in the test sets | **open** |
+| 10 | C-score healthy band (0.751-1.409, tared) holds on laboratories not used to set it (≥ 95 %) | 23 / 26 healthy granulocytes of a new laboratory (GSE226298) inside, 88.5 %; all three outside are low (0.63-0.74) (DEV-NEWLAB-GRAN-01) | **no** |
+| 11 | A new laboratory's healthy cells read Normal on tared Met-A (≥ 95 %) | 26 / 26 healthy granulocytes, GSE226298 (DEV-NEWLAB-GRAN-01) | yes |
 
 ## Decisions for the author
 1. **Bar 9.** The bar was set on the band edge (a 1 % loss moves A by 5.2 %). Options: (a) commission with the measured detection limits
    stated (2 % loss in purified neutrophils, 5 % in whole blood); (b) hold commissioning for a stricter test. Recommendation: (a), with the
    limits printed on every report, because the test shows the gauge works and says exactly how small a change it can see.
-2. **Bar 10.** Recommendation: commission Met-A with the C-score printed as development (as now), and commission the C-score separately once
-   a new healthy laboratory is read (search under way).
+2. **Bar 10.** The C-score band misses on a new laboratory (88.5 %, all misses on the low side). Recommendation: commission Met-A without the
+   C-score; keep the C-score printed as development until a band holds on new laboratories.
