@@ -38,7 +38,7 @@ Also done (no box): constructed sensitivity test (DEV-METAA-SENS-01); new-labora
 ## 2. IAM-A: Box Run 2 session 2 done (2026-10-09)
 
 Another laboratory's healthy neutrophils (GSE128731), 2 donors × 4 kits. TruSeq 1.047 / 1.042 (Normal); Swift 1.16 (both donors, both
-sequencers); QIAseq stopped by Q0 (conversion). IAM-A is repeatable (≤ 0.008 between donors and sequencers) but carries a laboratory-and-kit
+sequencers); QIAseq stopped by Q0 (conversion). IAM-A is repeatable (≤ 0.009 between donors and sequencers) but carries a laboratory-and-kit
 offset up to ~0.16 (DEV-IAMA-KIT-01). **Author decision needed:** how IAM-A handles that offset (same-run tare / per-kit P / wider band).
 Then: IAM-A healthy band, IAM-A C-score, Met-A against IAM-A on the same donors (GSE128733).
 

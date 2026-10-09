@@ -88,6 +88,6 @@ Release check: `kit/release_check.py` on the box copy (git repository, commit 95
 | Check | Result | Record |
 |---|---|---|
 | Intake stops bad files (wrong build, cut file, low conversion) | real hg38 file and two low-conversion runs stopped; healthy Loyfer files proceed | DEV-Q0-HEALTHY-01, session 2 |
-| Repeatability (halves; donors; sequencers) | within 0.004; 0.008; 0.008 | session 2 |
+| Repeatability (halves; donors; sequencers) | within 0.004; 0.009 (largest 0.0086); 0.009 (largest 0.0087) | session 2 |
 | Another laboratory's healthy neutrophils read Normal | TruSeq yes (1.047, 1.042); Swift no (1.16) | session 2, DEV-IAMA-KIT-01 |
 | Kit independence | not met: 0.12 between kits on the same cells; not a read-end or coverage artefact | DEV-IAMA-KIT-01 |

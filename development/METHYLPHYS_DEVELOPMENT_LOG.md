@@ -427,7 +427,7 @@ on IAM-A, like Met-A's before the tare. Options (tare / per-kit P / wider band) 
 | TruSeq / HiSeq X | **1.047 Normal** (1.046 / 1.048) | **1.042 Normal** (1.043 / 1.041) | 0.992 |
 | QIAseq / HiSeq X | stopped at Q0 (conversion 0.920) | stopped at Q0 (conversion 0.909) | – |
 
-\measured IAM-A is highly repeatable: halves of a run agree within 0.004; the two donors agree within 0.008 for each kit; the sequencer
-makes ≤ 0.008 difference. \measured The library kit makes a 0.12 difference on the same cells (Swift 1.16 vs TruSeq 1.04-1.05), and this
+\measured IAM-A is highly repeatable: halves of a run agree within 0.004; the two donors agree within 0.009 for each kit (largest 0.0086); the
+sequencer makes ≤ 0.009 difference (largest 0.0087). \measured The library kit makes a 0.12 difference on the same cells (Swift 1.16 vs TruSeq 1.04-1.05), and this
 laboratory's Swift reads 0.16 above the Loyfer Swift libraries P was measured on (DEV-IAMA-KIT-01). Q0 stopped both low-conversion runs,
 as designed. Duplicate fractions now recorded (0.11-0.19). The box stopped itself at 06:30 UTC; the scratch disk is deleted.
