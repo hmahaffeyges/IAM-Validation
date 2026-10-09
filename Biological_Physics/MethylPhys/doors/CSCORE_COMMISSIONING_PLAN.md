@@ -37,7 +37,7 @@ used to find it.
 bar 95 %)**; GSE225544 **84.0 %** (bar 85 %), GSE142512 88.2 %, GSE226298 88.5 %; every other laboratory 94-100 %. **Not met** (narrowly).
 The all-laboratory band is 0.750-1.409, the same as before. Table: `data/CSCORE_COMMISSIONING/cscore_step1_leave_one_lab_out.csv`.
 
-**Step 2 — constructed positive control (12 + 12 healthy arrays, 1,920 constructed readings).**
+**Step 2 — constructed positive control (12 + 12 healthy arrays, 1,248 constructed readings).**
 
 | | purified neutrophils (GSE247195) | whole blood (GSE110530) |
 |---|---|---|
